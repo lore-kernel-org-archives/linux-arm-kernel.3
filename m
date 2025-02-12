@@ -4,73 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E8EEC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 21:54:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E501EC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 21:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7hCe79F8mvGMzccqeFPQ8ZkkWiDeQrrKNKFDBMGlSGs=; b=xljDpWvYMsDTa/NtVOlXxujqNL
-	iB7fmOey4gk61bz5hLPEt/KWaU0Lnd37uvAjIp5QA4PTXhP88FBp0yi/IInYzaXyYYhxbpw6LkEmU
-	hLLIEqkbCmx4p8xkwlx+xFKbPV11RTrCgJ3wtmmDMIt10Y8LaKanCvxcTmzE1YHm3oQaqgOk/d4GW
-	c7bqNWB7kT041TzyN0TLiARct2lnKBFEWiYQ+qcbFg2LR46gcGVnAPSc8gKsa9p+NdKjetfZVI1ZK
-	fG+Jc+EmrArc+wpSh40ns2OE1sCJ15w2YhkN6EQ3paYPaUGmi1Wnvmi2Zv5Bnd5IPkBY7Kw4vi++B
-	yiMxnP6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9+k+ZJITZxwNPOqA5a2PbrqomdE3zpsMV+KLvrfvVU4=; b=P42kJTfQtmUxoQiqzIG4FE5bA9
+	kfJ2ecL85Dn0w5L2aj6uG9voDOxqZIemthhV+Q6pO+/bvrnm/T+SrgYvHnLKCc+eNv7zkwI3aNNW7
+	LpaJ+QWf5VcbgZwovvYLM+44bZWl9vzpX5S5CXFRAHXxc+0Hm8v347jHbwrKi3sD2zS05Fe3WOua1
+	XSmK7xBdrmxglU4PGvhlmTUHU1McC/HFwyatDZ57rcjg95TBRe+Yaidtz6FXaTGe/L1Wumx56Fp8g
+	ysLldISuHHFWGEc4hWlmSqz378s7vCc2HONn+bSkMsKaNqt61vmwTI19psl2jwyM+MBkGu+WAMYCM
+	+ufXrIhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiKgk-00000008waM-32b7;
-	Wed, 12 Feb 2025 21:54:34 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tiKiA-00000008ww5-1ZcD;
+	Wed, 12 Feb 2025 21:56:02 +0000
+Received: from mail-vi1eur05on20621.outbound.protection.outlook.com ([2a01:111:f403:2613::621] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiKfJ-00000008wOE-28jU
+	id 1tiKgZ-00000008wXm-2xyO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 21:53:06 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51CLqnwT3881030
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 12 Feb 2025 15:52:49 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739397169;
-	bh=7hCe79F8mvGMzccqeFPQ8ZkkWiDeQrrKNKFDBMGlSGs=;
-	h=From:To:CC:Subject:Date;
-	b=cAIItm8QUtj4Cz72EXw6XANksZqdSf198oJrMq2riMGvGh5i78uQFyJZdgtXnjJo1
-	 jHFKUcmin/gDxM5CSR4oJHM+RxnN2KcikATjFV5YddgYVOWCRd+caJLsireziHtS9V
-	 TGnff8fR4k0JdrI+doKAiZEsIdWBvRiC+sSoG2aU=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51CLqn6N044538
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 12 Feb 2025 15:52:49 -0600
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 12
- Feb 2025 15:52:48 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 12 Feb 2025 15:52:48 -0600
-Received: from uda0506412.dhcp.ti.com (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51CLqmj4123789;
-	Wed, 12 Feb 2025 15:52:48 -0600
-From: Kendall Willis <k-willis@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <d-gole@ti.com>, <tony@atomide.com>, <msp@baylibre.com>,
-        <khilman@baylibre.com>, <k-willis@ti.com>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH] arm64: dts: ti: k3-am62p-j722s-common-wakeup: Configure ti-sysc for wkup_uart0
-Date: Wed, 12 Feb 2025 15:52:48 -0600
-Message-ID: <20250212215248.746838-1-k-willis@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 12 Feb 2025 21:54:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Pg8sHprAi7c/f+ShIzrwgswPWVWfjPphxpaRlZ8wNh8wmMoFE45xZGv6PbdnqyfOUvw3WX5FHkxD3eF0Zz6T9N3oW3y8ABOhNpaIUG6EHaFtArljnTghHXb5Yl2eejL3EKMq6W1kObk8jpEHeXxqffSblo1OUXHj4vWQWnbz1p9/kNVFmGIV1S/5ti8zx/HaXMpA/lHAOElg3t8ZtCqJQDWQq/rcdSryh29Q9B/CLPQZsA9vpLl/UiIrAB3LS3a4oHe2dK2T8J3MwPVlVsCFXMudC70rw11fCBCo2ojPCicmU85Q3zUw9sbk0wQLcnVXbzu9G9FBkqyLV9j8x+FPpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9+k+ZJITZxwNPOqA5a2PbrqomdE3zpsMV+KLvrfvVU4=;
+ b=ZBF8qzArOWZ4GrWaBmPMbMHDcs402u55yJVDzSGMyDgoe4rdzQ6wFYi7lbB3Oi2Ir/IGtDa0W+UMzVYcGAFI0XSUxRc+MPEx+rBFrBPOjf13iAfDdKR53PkRNEPnC9zXCLfhWvpR9NJCA9oV4jA3KGUCOkUjwfXpA6vrk6PI0vHu/uliWJXlMvJbc0rWOueAWqjKqfYsbfko4HK9ANClqjxBFm9QZwX/zpVXqFCgMfdJ7yq+Uof+TZiPbBWaL0MK89RoCSv4Sz/Q9BaqGUcw1+eTfCT/McljF3NvfW6hVtleptmFC5GU1RcmRLMihxuVtt5zSEQc3jNbGsGmN2JE7A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9+k+ZJITZxwNPOqA5a2PbrqomdE3zpsMV+KLvrfvVU4=;
+ b=D2d8crdndDzSRH+m8dMk0ks2HnKQQ894JolJCMAQipmtdM+l/cix2zabDG7xIKgA51uc//MEJag8DvmxbCSYcWEDJaxBmLf/FIxND6RrJUV+ttxKTXALty15Bnba5sywKGGuaaGF8DPQRu5De4OcsWjsISmfoBpw1cuG/8NqygPQYcWReIw0lsR+gP6DTvBCTqGS4yXlpaJsICd20+zZmnXjSKIvhaWnFBZqMl+a1WZuiDnWBhHmQ2z/q22/Ks8wjTEzlmtU7YS/c4opkvclG+fL+L2A50ISY3OToRuz0xiLcFchXDk96GwhCEcHxmQmpBQoHZ5XDsvXT2SGQJmU1A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
+ by VI1PR04MB7038.eurprd04.prod.outlook.com (2603:10a6:800:12d::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.12; Wed, 12 Feb
+ 2025 21:54:12 +0000
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2%6]) with mapi id 15.20.8445.013; Wed, 12 Feb 2025
+ 21:54:12 +0000
+Date: Wed, 12 Feb 2025 23:54:08 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Simon Horman <horms@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Xiaolei Wang <xiaolei.wang@windriver.com>,
+	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Gal Pressman <gal@nvidia.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Andrew Halaney <ahalaney@redhat.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH iwl-next v4 9/9] igc: Add support to get frame preemption
+ statistics via ethtool
+Message-ID: <20250212215408.v47eb42zx67ij6vp@skbuf>
+References: <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
+ <20250210070207.2615418-10-faizal.abdul.rahim@linux.intel.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250210070207.2615418-10-faizal.abdul.rahim@linux.intel.com>
+X-ClientProxiedBy: VI1PR09CA0174.eurprd09.prod.outlook.com
+ (2603:10a6:800:120::28) To AM8PR04MB7779.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24b::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|VI1PR04MB7038:EE_
+X-MS-Office365-Filtering-Correlation-Id: 13f5001c-c2a6-48fc-9441-08dd4bafc911
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EunXFcou09PJbceOO/biPL04hOMK6Yuc+uCk97X5sS1yEF7YRgXvnwW2ZAUj?=
+ =?us-ascii?Q?xc/nrC2WrAGf9hJPjtR9aH+LN+qXj2y14UXpfDYFDKet3y2wNN0vQbtpIkdx?=
+ =?us-ascii?Q?kci1R3oivYwcML9GR+BJJxPoMxE60o4177X0X+ptRsQ+6jC2YYs/3g1ycEEo?=
+ =?us-ascii?Q?GeZFpLgTF51jNidrGampMI1+sR6ZAeDTdnDd/IdFrhHRArxup2D7FtKDaaMU?=
+ =?us-ascii?Q?EbGn/QFmatwyh03wytRxwEG1Ql4G9nuwSUOUzcXs8jGiTeepUkhT2HARStQd?=
+ =?us-ascii?Q?Piy8O5gT/a/QpeFIe9039vedLwMRg7o00WoD8PtH/dhUT0uNoCXPvG140jlF?=
+ =?us-ascii?Q?cQBKy7hRaBJaMhxIYL69Sslu0Us4vkBtX0nUhPoQ8plJzNIidvs+cLkoaYF+?=
+ =?us-ascii?Q?+XHcEUS0ayJMTJQRbEJ/GZ2c4Wp0eopUdPFft4PyYnu1B2UxjjZoXt+E/dnr?=
+ =?us-ascii?Q?MBEiraPRiTqlLqa5QRvimdcIYACWtjrXVHmCABELzh76lbxh9EazvPJCkDwr?=
+ =?us-ascii?Q?gJUmrnCO1JM+nutOr4R7tSi3Nf/m7crX8r4R0c4ihlx/FKgpJYH0/kaJqUQm?=
+ =?us-ascii?Q?eCEDJae3Q16io4HCWhGB6HUvZ2Wbf16Q/I6K8kYkRZnt/CczwetrAARonksJ?=
+ =?us-ascii?Q?P8Z1N4tCGehKzKK2cYBylcznCH+89LZrhXIbUm2v28Gxb97/tdcVyjnpKltq?=
+ =?us-ascii?Q?m+Vgxm7RQu9Pkf6DK9VCoWov9moFWIVbJo4TVdbyPqBzjI18cyoAjEj7jBVl?=
+ =?us-ascii?Q?W5xYsP6XcFe0K+Jbc8QfFrXdNz9KbHhwFmLSu77OwxzeH06b0em2yw/8rD/Q?=
+ =?us-ascii?Q?WqfsLBZeDhI9sn4IbCRVGs+HIlb8ADkMcozCVqXCu0c/vpIhMlSDwtE5dI7s?=
+ =?us-ascii?Q?IoMzyE3b/IYL7r9WeybHByx/UyQ6Mvk29MJQ1K7Jy9y4iHB6ogPB2a37kZhl?=
+ =?us-ascii?Q?agC5lkqc9i5pBZGexuB1jzPrl5ApF49c90OjpU5cjS/shWLXQ1u6SPyyVaIK?=
+ =?us-ascii?Q?ahEI0Y6bb7/PqVOiIemd48F2jqm0MUXEiV0uBieWytv63WgUVdaq0rlzG6VX?=
+ =?us-ascii?Q?pxQk5dBcfEcsd6YgXjtO2Mr2WG+hQTrzJGWn/hkNXkWGq9CmlwHRh6LC4Dml?=
+ =?us-ascii?Q?qe5qdS1oaHZ4IHZptZV2C966rr0qP6QeMLYRbNoml1KPYbTAhvivlFw8eTxD?=
+ =?us-ascii?Q?WYvsVVNklV8NUBZri9XsmgMClWOeLfzZvhPq0gFsn/zvWDKBq/GSmSW1qZc2?=
+ =?us-ascii?Q?FOouDSr/xDqZC+WNPf9vqih/IC05qWFQ/FZKXDeBlii0MGnRN4JhM5qFZ7d1?=
+ =?us-ascii?Q?3trx2pnJUX8evYaWoRnwqS0GkmorXsvmxoowikI8rwPTTQ6zagKt5ezUQQib?=
+ =?us-ascii?Q?GLuXLzKiH2A2kxERMNQFrZ1qWKn2?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IkNR7mi0yNtgDYC575XEM1ZVos9WJAD4rbTNXbgu2gTpdsp7THJDkVOK+mRN?=
+ =?us-ascii?Q?bvIugxfVO8n5Mw0ynBELRrH7f/l3A3AB/dEQidbSCHt1LEjakaRRVSbr3Zuw?=
+ =?us-ascii?Q?yISEvO+ZcstaXZBFvKN5nxgn9iN/1hkx/Q/6W5LFXE0YmEFnf7DxpNHSLXtD?=
+ =?us-ascii?Q?mdT4veG5z1Ipxr4h86K7xgD7eW/zbe/h9mzzw1b0wRcdV4TIuAU6KjQJxpjM?=
+ =?us-ascii?Q?psR/Yzw3ajhsI1KeAWE3RpqZrpRmqV8yN5ksnP/TfQ2MkMEEkU1G9QqjZd/q?=
+ =?us-ascii?Q?kZUfmDqskQH7d4fYTVBCroLTXII1CU7J8t2A6EN9l3AFB01MY/DTEWEsJ9oH?=
+ =?us-ascii?Q?6q9knYS4yteTp5Z1TtxtYc8OXnwsINNHQhgnLYVnZ5QFdAWchWLg3daZi32U?=
+ =?us-ascii?Q?xisgcY4B3N3KHA1jHHXIpNdjLhE3reHKLnUVPgVujRuDDyXh3kFL8CDGY83B?=
+ =?us-ascii?Q?G9TPeCvzo2X/WvkjmMwK0Pdpzn+wsDyczeX/2o7yqTVYKmI5IdzNqLs/NxNa?=
+ =?us-ascii?Q?vE3A1fkWt/9/HgOn74FNESaQ38rmb+FVRn2naoqIEFXheDBw/8ALctHJ7ryR?=
+ =?us-ascii?Q?UxEi1vW57/nmcmaxQygfG7FhPldGMPDFKCOU7qI5cs6l4McDKZq8FnbAbPp2?=
+ =?us-ascii?Q?N1neHHyfDuxlHzZafgcNMRdm6UWjT/CuLO4J8BC7mKOhJ/C67ZX8lIKN+7mY?=
+ =?us-ascii?Q?0/VtzyujDilevsKsmIG9gvSqb4QEYe2C9eierNNHZbweOs30E8l0Pa/uMz7Q?=
+ =?us-ascii?Q?4suv1rXpHTM/fMZU9QOOsmQXRWyqbYrueJ8e/40kPS4g2IRII8Pk5X3UR0Pt?=
+ =?us-ascii?Q?0Oi7aATfUasJfpi83EPeZ51QFYAZ5IS9e8MSsTWUy+nRvSxQfZCN9zEbKS0q?=
+ =?us-ascii?Q?kNl/CD26gIGvX7emkju/TZqzyG/dSyixnNNL/sNmzvAKwAnmGI9JU17NrTAJ?=
+ =?us-ascii?Q?KXgPvrRJiNDrygMVjCnz1Ny47lWW2tCuhmnNFIQc2l78oh4BFmg+zRLKMKc9?=
+ =?us-ascii?Q?FUvMQCBXln2PnVshkbAt/oEf3LZNyM6q/RuUXDrj1bFPcJHghMTN5Vf3S18z?=
+ =?us-ascii?Q?PUuRbKLiyAReMozGQpiEtOrV1PixVDcuuDHAGy0f515TBKv3v1j/Iycc29iG?=
+ =?us-ascii?Q?+92MoU8Ng3QbrUeC4Oxu8PKMuQJk2ROM3YEiim4auEn+ZQ0G8A71KHOaQOfn?=
+ =?us-ascii?Q?bYd+cmApvLci2LY3unuHqvvtCiEVVPiUFfzHh2rQYOzgnxmo3TZ2l9nOFUMP?=
+ =?us-ascii?Q?MYhXDXEoFVYpssrjJyLBPOmZZ7esQmE3ms7pw7c96hoKzVDJpZ3KgIiXe493?=
+ =?us-ascii?Q?62HlYbS8LbgWRuwM0GTtKcIVxdoAr6i3eWxCdv9ebAMwV7uPLAlF/DSzN2Lx?=
+ =?us-ascii?Q?nlT5ON0QuiX65E462+Jg3WgekwtN5KusX2gbx+wp9vlHaZPMlcHNLmr+IB0a?=
+ =?us-ascii?Q?Iw2U1B2ppzXP0HP1cFxm5VXLqw+zgpO17lGuJS8J8uzwfPuYyXDo1x2x/Eeq?=
+ =?us-ascii?Q?+jHbIvqp7Plv8JgIKUn0XCslGnoNsccEXqiHApdOSjILZ7kojhw6vUc932M+?=
+ =?us-ascii?Q?kE7CV3K2oCTOAAO72nm/H0isKQqwgxzU0CDNqOnThy3oioC7c498i1XNFePN?=
+ =?us-ascii?Q?ag=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 13f5001c-c2a6-48fc-9441-08dd4bafc911
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Feb 2025 21:54:12.3419
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: i+Oqm1h1QLO8X/cweBMwdLmxygVB9laHjA1jxKXq4bitrgslAxYaPP00oSSPuQ1AhJKhuV2gD3B35nC350wbQA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_135305_661785_167ACF4B 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20250212_135423_772055_6AC4E32B 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,110 +185,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vibhore Vardhan <vibhore@ti.com>
+On Mon, Feb 10, 2025 at 02:02:07AM -0500, Faizal Rahim wrote:
+> Implemented "ethtool --include-statistics --show-mm" callback for IGC.
+> 
+> Tested preemption scenario to check preemption statistics:
+> 1) Trigger verification handshake on both boards:
+>     $ sudo ethtool --set-mm enp1s0 pmac-enabled on
+>     $ sudo ethtool --set-mm enp1s0 tx-enabled on
+>     $ sudo ethtool --set-mm enp1s0 verify-enabled on
 
-Similar to the TI K3-AM62x Soc commit ce27f7f9e328c8582a169f97f1466976561f1
-("arm64: dts: ti: k3-am62-wakeup: Configure ti-sysc for wkup_uart0")
-The devices in the wkup domain are capable of waking up the system from
-suspend. We can configure the wkup domain devices in a generic way using
-the ti-sysc interconnect target module driver like we have done with the
-earlier TI SoCs.
+For the record, all these can be enabled at the same time through a
+single ethtool command.
 
-As ti-sysc manages the SYSCONFIG related registers independent of the
-child hardware device, the wake-up configuration is also set even if
-wkup_uart0 is reserved by sysfw.
+> 2) Set preemptible or express queue in taprio for tx board:
+>     $ sudo tc qdisc replace dev enp1s0 parent root handle 100 taprio \
+>       num_tc 4 map 3 2 1 0 3 3 3 3 3 3 3 3 3 3 3 3 \
+>       queues 1@0 1@1 1@2 1@3 base-time 0 sched-entry S F 100000 \
+>       fp E E P P
+> 3) Send large size packets on preemptible queue
+> 4) Send small size packets on express queue to preempt packets in
+>    preemptible queue
+> 5) Show preemption statistics on the receiving board:
+>    $ ethtool --include-statistics --show-mm enp1s0
+>      MAC Merge layer state for enp1s0:
+>      pMAC enabled: on
+>      TX enabled: on
+>      TX active: on
+>      TX minimum fragment size: 64
+>      RX minimum fragment size: 60
+>      Verify enabled: on
+>      Verify time: 128
+>      Max verify time: 128
+>      Verification status: SUCCEEDED
+>      Statistics:
+>      	MACMergeFrameAssErrorCount: 0
+> 	MACMergeFrameSmdErrorCount: 0
+> 	MACMergeFrameAssOkCount: 511
+> 	MACMergeFragCountRx: 764
+> 	MACMergeFragCountTx: 0
+> 	MACMergeHoldCount: 0
 
-The wkup_uart0 device has interconnect target module register mapping like
-dra7 wkup uart. There is a 1 MB interconnect target range with one uart IP
-block in the target module. The power domain and clock affects the whole
-interconnect target module.
+nitpick: mix of tabs and spaces.
 
-Note we change the functional clock name to follow the ti-sysc binding
-and use "fck" instead of "fclk".
+> diff --git a/drivers/net/ethernet/intel/igc/igc_main.c b/drivers/net/ethernet/intel/igc/igc_main.c
+> index f15ac7565fbd..cd5160315993 100644
+> --- a/drivers/net/ethernet/intel/igc/igc_main.c
+> +++ b/drivers/net/ethernet/intel/igc/igc_main.c
+> @@ -3076,6 +3076,7 @@ static bool igc_clean_tx_irq(struct igc_q_vector *q_vector, int napi_budget)
+>  			break;
+>  
+>  		if (static_branch_unlikely(&igc_fpe_enabled) &&
+> +		    adapter->fpe.mmsv.pmac_enabled &&
 
-Also note that we need to disable the target module reset as noted by
-Markus. Otherwise the sysfw using wkup_uart0 can get confused on some
-devices leading to boot time issues such as mbox timeouts.
+This bit is misplaced in this patch.
+Also, both conditions, being repeated twice as they are, could be placed
+in an igc_pmac_enabled() helper function or similar.
 
-Signed-off-by: Vibhore Vardhan <vibhore@ti.com>
-Signed-off-by: Kendall Willis <k-willis@ti.com>
----
-Tested by suspend/resume with WKUP UART wakeup source on AM62P.
-
-Similar patch was sent for AM62x by Tony,
-https://lore.kernel.org/all/20231219072503.12427-1-tony@atomide.com/
-
-Similar patch was sent for AM62a by Dhruva,
-https://lore.kernel.org/all/20241231-am62a-dt-ti-sysc-wkup-v1-1-a9b0d18a2649@ti.com/
-
-Original patch for AM62p existed in the TI Vendor tree with Vibhore's
-authorship:
-https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel/commit/?h=ti-linux-6.6.y&id=efab3fb636673837886599a49cddf1e862c8aeb6
----
- .../dts/ti/k3-am62p-j722s-common-wakeup.dtsi  | 36 +++++++++++++++----
- 1 file changed, 29 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
-index 6f32135f00a5..6757b37a9de3 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi
-@@ -2,9 +2,11 @@
- /*
-  * Device Tree file for the WAKEUP domain peripherals shared by AM62P and J722S
-  *
-- * Copyright (C) 2023-2024 Texas Instruments Incorporated - https://www.ti.com/
-+ * Copyright (C) 2023-2025 Texas Instruments Incorporated - https://www.ti.com/
-  */
- 
-+#include <dt-bindings/bus/ti-sysc.h>
-+
- &cbass_wakeup {
- 	wkup_conf: bus@43000000 {
- 		compatible = "simple-bus";
-@@ -41,14 +43,34 @@ usb1_phy_ctrl: syscon@4018 {
- 		};
- 	};
- 
--	wkup_uart0: serial@2b300000 {
--		compatible = "ti,am64-uart", "ti,am654-uart";
--		reg = <0x00 0x2b300000 0x00 0x100>;
--		interrupts = <GIC_SPI 186 IRQ_TYPE_LEVEL_HIGH>;
-+	target-module@2b300050 {
-+		compatible = "ti,sysc-omap2", "ti,sysc";
-+		reg = <0 0x2b300050 0 0x4>,
-+		      <0 0x2b300054 0 0x4>,
-+		      <0 0x2b300058 0 0x4>;
-+		reg-names = "rev", "sysc", "syss";
-+		ti,sysc-mask = <(SYSC_OMAP2_ENAWAKEUP |
-+				 SYSC_OMAP2_SOFTRESET |
-+				 SYSC_OMAP2_AUTOIDLE)>;
-+		ti,sysc-sidle = <SYSC_IDLE_FORCE>,
-+				<SYSC_IDLE_NO>,
-+				<SYSC_IDLE_SMART>,
-+				<SYSC_IDLE_SMART_WKUP>;
-+		ti,syss-mask = <1>;
-+		ti,no-reset-on-init;
- 		power-domains = <&k3_pds 114 TI_SCI_PD_EXCLUSIVE>;
- 		clocks = <&k3_clks 114 0>;
--		clock-names = "fclk";
--		status = "disabled";
-+		clock-names = "fck";
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges = <0 0 0x2b300000 0x100000>;
-+
-+		wkup_uart0: serial@0 {
-+			compatible = "ti,am64-uart", "ti,am654-uart";
-+			reg = <0 0x100>;
-+			interrupts = <GIC_SPI 186 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
-+		};
- 	};
- 
- 	wkup_i2c0: i2c@2b200000 {
-
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
--- 
-2.34.1
-
+>  		    igc_fpe_transmitted_smd_v(tx_desc))
+>  			ethtool_mmsv_event_handle(&adapter->fpe.mmsv,
+>  						  ETHTOOL_MMSV_LD_SENT_VERIFY_MPACKET);
 
