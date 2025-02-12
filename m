@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E60B4C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 10:05:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEAAAC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 10:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dTFlbsmC0WjAMz9CQYs4K20vlagORcevhwzqv7FeHjg=; b=Y8PriJM1Z5keZXop7xYR9ZpRN4
-	UQ36HVSc6aRBY7lQThHyVKaVo23YH+YVQm0L633dzgcrRJNQBSW2juWYJMICF6Iq2Fc6mb9Mymqq1
-	8OIHXOAyynLByq8PgF5KlVxVh6z/62WYOikvUNk7c6GuV+MBmDVMtlUvCLdfweT0M+L4+oX+cONP0
-	ThEQ7UT0UmLKAWiVNL4l67nsY4JoPPLVze7306+z2HeqgKX1UtNy/rXHUBeAAPg8K4Cdm0TcTn3a+
-	sAj6iM64SjBniqSgkttDZcY/OAdn4nqEstjnZP/YqB5NnRQmcQArPL/haaMAV1Ki66Bn4mhIdAb6v
-	s9fRfq8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0/pOGJNL993DPyoMevAgdGrHFiNsXmQDI8AHiFFQmMs=; b=vli3gEFmx/jmROxJxlO5PTih/k
+	ZLe9qBKikyT37TaJxHcU17psdyOAyS/sI1dGit5eY1etkrNuE6V6KVhedH2rBA+P2kh2e8BGzLibk
+	M5cc1+CFc3EY/zNvhHCuRn20erN4baY9fF+OqnWRDTL8bDnNKKDeSLOdWvXSAzIiUqKKT3hv11+VW
+	6WPdoLyHMBaJgtNMXPLX6DtJPbX39HnkneuOrUocL5z7yxwIrayzzl/LEbi4pWspGFHrdojCjgtdK
+	3yFzPw+XLLqKqOqHB8+alLDc66Zj7TgSp70IYws7HFTdPU6YxlnCJ58QcOPXAWB+CCOo9gECCeK8S
+	7cjV1fPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9cH-00000006v94-24Eb;
-	Wed, 12 Feb 2025 10:05:13 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1ti9df-00000006vSJ-16oA;
+	Wed, 12 Feb 2025 10:06:39 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9Gx-00000006py5-02W5
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 12 Feb 2025 09:43:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=dTFlbsmC0WjAMz9CQYs4K20vlagORcevhwzqv7FeHjg=; b=ZKUNfn9YKrc+sODKhuuCqPIHU/
-	EUk+PNBuuNAGWpkntmcAJcn9aEay6YbmY3I3dW/oNrdv7DjEpodbkwIvrEXh5r7y9pqgb5AO6RNmp
-	60UY/sNaibBFCkJUkwnZJQmUTee0nsaoWuiWucVdQq7oXBml+IrBw+JdPo7HKwBT/4qrjyju8wUIz
-	A+nZ3rsg7cfauDLma5ZrHC04J5p53wP86aZyxzy2rHyy4/f4Umoc/0iY6Sqz77Uj+xjwtUG7UeZxx
-	bwtUJxO+uE8P+G+WUjuzSt4bR8Z+MzVJKr4mJL90r9FYWDgWZrVEFWs9fSny+N2u9rrJIVeV/sFZC
-	XAbFSFdg==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti9Gu-00000004Al6-1Win;
-	Wed, 12 Feb 2025 09:43:08 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id F2CDF300318; Wed, 12 Feb 2025 10:43:07 +0100 (CET)
-Date: Wed, 12 Feb 2025 10:43:07 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Cristian Prundeanu <cpru@amazon.com>
-Cc: K Prateek Nayak <kprateek.nayak@amd.com>,
-	Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>,
-	Ali Saidi <alisaidi@amazon.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Geoff Blake <blakgeof@amazon.com>, Csaba Csoma <csabac@amazon.com>,
-	Bjoern Doebel <doebel@amazon.com>,
-	Gautham Shenoy <gautham.shenoy@amd.com>,
-	Joseph Salisbury <joseph.salisbury@oracle.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Borislav Petkov <bp@alien8.de>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-tip-commits@vger.kernel.org, x86@kernel.org
-Subject: Re: [PATCH 0/2] [tip: sched/core] sched: Disable PLACE_LAG and
- RUN_TO_PARITY and move them to sysctl
-Message-ID: <20250212094307.GB19118@noisy.programming.kicks-ass.net>
-References: <20250119110410.GAZ4zcKkx5sCjD5XvH@fat_crate.local>
- <20250212054113.19938-1-cpru@amazon.com>
+	id 1ti9Im-00000006qDk-1cSr
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Feb 2025 09:45:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1739353504; x=1770889504;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=Sa8bPFHTaj9aW+dktFBUNt2YyId16vwK369IXtQxnwo=;
+  b=tT16+YuiFYjNEgtSRGy4URKPusCEq2iZzb/lUjIzVuwLhKONAL3CLWMk
+   eF+7u64aPn5F8JCOzU98yAIQ3lJx3Uj6NYRY7eqPEMnOnhokKiWicpX+A
+   qGYgrzrPwWRvaAMweTDBH2xpLFdAy5HX1BCEDYlU4SkEjE67bB0qaAYRv
+   MPtFqqZiau9KIhTvHbo7YZfqK9SLe2UECAnUTKtZ+JH/O1juUScX9nqjD
+   aOImANhO13+aXLd0Yand4LokxsigXalLS37/z2kGiltsdzmBTplxRJlH7
+   l1/7iOEmZE5QQQoAu9j8GUhLyB8on/vqDm2pA9YCgokEOAfcdA/cUDGLX
+   g==;
+X-CSE-ConnectionGUID: hX8HeKjRTlCEQQ9RkVLg4A==
+X-CSE-MsgGUID: BJci5WDbS2KJ5oBT4WqMpQ==
+X-IronPort-AV: E=Sophos;i="6.13,279,1732604400"; 
+   d="scan'208";a="38002164"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 12 Feb 2025 02:45:03 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Wed, 12 Feb 2025 02:45:01 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Wed, 12 Feb 2025 02:44:55 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <sam@ravnborg.org>, <bbrezillon@kernel.org>,
+	<maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <lee@kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: Dharma Balasubiramani <dharma.b@microchip.com>, Manikandan Muralidharan
+	<manikandan.m@microchip.com>
+Subject: [PATCH v2 1/3] drm: atmel-hlcdc: add support for LVDS encoder type
+Date: Wed, 12 Feb 2025 15:14:47 +0530
+Message-ID: <20250212094449.109622-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250212054113.19938-1-cpru@amazon.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250212_014504_489813_E677884F 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,22 +88,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 11:41:13PM -0600, Cristian Prundeanu wrote:
+From: Dharma Balasubiramani <dharma.b@microchip.com>
 
-> Your find also helps to point out that even when it works, SCHED_BATCH is 
-> a more complex and error prone mitigation than just disabling PL and RTP. 
-> The same reproducer setup that uses systemd to set SCHED_BATCH does show 
-> improvement in 6.12, but not in 6.13+. There may not even be a single 
-> approach that works well on both.
-> 
-> Conversely, setting NO_PLACE_LAG + NO_RUN_TO_PARITY is simply done at boot 
-> time, and does not require further user effort. 
+Add support for encoder type "DRM_MODE_ENCODER_LVDS" with the following
+bus formats:
+	- RGB888_1X7X4_SPWG
+	- RGB888_1X7X4_JEIDA
+	- RGB666_1X7X3_SPWG
+	- RGB666_1X18
 
-For your workload. It will wreck other workloads.
+Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+[manikandan.m@microchip.com: move modifications inside the
+atmel_xlcdc_connector_output_lvds fn]
+Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+---
+ .../gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c    | 38 +++++++++++++++++++
+ 1 file changed, 38 insertions(+)
 
-Yes, SCHED_BATCH might be more fiddly, but it allows for composition.
-You can run multiple workloads together and they all behave.
+diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
+index 0f7ffb3ced20..0e709047369a 100644
+--- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
++++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_crtc.c
+@@ -356,6 +356,42 @@ static int atmel_xlcdc_connector_output_dsi(struct drm_encoder *encoder,
+ 	return supported_fmts;
+ }
+ 
++static int atmel_xlcdc_connector_output_lvds(struct drm_encoder *encoder,
++					     struct drm_display_info *info)
++{
++	int j;
++	unsigned int supported_fmts = 0;
++
++	switch (atmel_hlcdc_encoder_get_bus_fmt(encoder)) {
++	case 0:
++		break;
++	case MEDIA_BUS_FMT_RGB666_1X7X3_SPWG:
++	case MEDIA_BUS_FMT_RGB666_1X18:
++		return ATMEL_HLCDC_RGB666_OUTPUT;
++	case MEDIA_BUS_FMT_RGB888_1X7X4_SPWG:
++	case MEDIA_BUS_FMT_RGB888_1X7X4_JEIDA:
++		return ATMEL_HLCDC_RGB888_OUTPUT;
++	default:
++		return -EINVAL;
++	}
++
++	for (j = 0; j < info->num_bus_formats; j++) {
++		switch (info->bus_formats[j]) {
++		case MEDIA_BUS_FMT_RGB666_1X7X3_SPWG:
++		case MEDIA_BUS_FMT_RGB666_1X18:
++			supported_fmts |= ATMEL_HLCDC_RGB666_OUTPUT;
++			break;
++		case MEDIA_BUS_FMT_RGB888_1X7X4_SPWG:
++		case MEDIA_BUS_FMT_RGB888_1X7X4_JEIDA:
++			supported_fmts |= ATMEL_HLCDC_RGB888_OUTPUT;
++			break;
++		default:
++			break;
++		}
++	}
++	return supported_fmts;
++}
++
+ static int atmel_hlcdc_connector_output_mode(struct drm_connector_state *state)
+ {
+ 	struct drm_connector *connector = state->connector;
+@@ -374,6 +410,8 @@ static int atmel_hlcdc_connector_output_mode(struct drm_connector_state *state)
+ 	 */
+ 	if (encoder->encoder_type == DRM_MODE_ENCODER_DSI)
+ 		return atmel_xlcdc_connector_output_dsi(encoder, info);
++	else if (encoder->encoder_type == DRM_MODE_ENCODER_LVDS)
++		return atmel_xlcdc_connector_output_lvds(encoder, info);
+ 
+ 	switch (atmel_hlcdc_encoder_get_bus_fmt(encoder)) {
+ 	case 0:
+-- 
+2.25.1
 
-Maybe the right thing here is to get mysql patched; so that it will
-request BATCH itself for the threads that need it.
 
