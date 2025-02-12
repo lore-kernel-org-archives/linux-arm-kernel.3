@@ -4,70 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B5EBC021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 13:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 960BDC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 14:01:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Q+jRWYbybA7g1tANlkiM5Jc5/Eb/9skSj7vTSaIjmY=; b=WQycHsJQ9i+28WMavvnokc6WG8
-	SDSa4/1r/xJyfpX8EYq5uEzIbgZtqd+IPUuTfZDPA2aaxddbsQOQFlo4MAsDxaBEbLS+PM+Wnq1g0
-	uGOdxvAMwqvYtvSDtOTzg5jHhemEgOn/vQvJ+eZKfFFgcew98vNUJckfVZcl9Upuu6ANyGhZ+kJuJ
-	TIZPKk/l/iVAM/Uv8IDAkTknpVHuiibJMDm2SDqcaX3haiqrQb/Sz23BNFGHK6zV/pnJ+1QFeXZCq
-	G1kIKlaCOLaS03Ko70GzRgKquNvfzhjxdDxPFjwfJdENPc7bwdmdDMwzzjs9wSTIdrO3Fb2nBqoYi
-	AEiu/y+Q==;
+	bh=A+ede4RrUjYL6rNcNJR8w+SRtlFFhYFYyooGZI9RRMA=; b=v1YVBA2rrIgGKKD9DDg+gV7j+d
+	wBey4myp0qTduBcLCqnYHh/KbUiOrM5xqn6Y54Am9hnClv2sEocE8mXggvOL0b+zxJdeWzARmLwLo
+	f/JeUPRbdxciD9YWplQ2S7IZRQmlyOH62GMooULjj3uhhWWFuM+pa6F+4ringfzoIWm9lMYHsVDFs
+	1YHUuckUZWTT0ILjkh4/FhO2VqMRTkHWM7+DW1JGdUaq9YMvJ0YzQhBedG2gVpZ9snXy94By2jdC2
+	Jbbmx30eiveVkgEyuYCZ2x//6ieh83vWSvdKf5n+z+9luGybp10OROJiPPHs/K1HrLY5FDdaGNvPR
+	31BRCnDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiDGL-00000007Zzr-148x;
-	Wed, 12 Feb 2025 13:58:49 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tiDIL-00000007aS2-0B59;
+	Wed, 12 Feb 2025 14:00:53 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiDDw-00000007ZOl-2Dod
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 13:56:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D1CB6A40250;
-	Wed, 12 Feb 2025 13:54:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 144F2C4CEDF;
-	Wed, 12 Feb 2025 13:56:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739368578;
-	bh=BzAkMONxLE+pzP4f0umHoxNcbDJmrQ2tjulSgksZOgg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bbwdwCcO+mXK7qD2YtCIT183Hjipbd8L6wK4DweQ0X3dCpOTUUvwMh1/M6z38Ioxi
-	 z5hbH6OAHlPVl9Hf9XQHc9p4zh8sb7r0iEZDobarmGp/pdZcO0UwAPufdqdymmLP3K
-	 YBlkeVSWFPU6JchJ8Dsg+O/onSb39VxlRXapoiTEsML39S9nFcB24CFtVbdFPEc6Kj
-	 HDNU9xC0vlYMXbltelw5CZ3aqDDCTscTlD14/LQ0NDktwChM3iyXbOWfI0Aaq8hBrm
-	 YEw01gNYtC9Wtd+oUpAzyjHMtdH3SImGf0nvVNzVKTs1QqFNL8uEAuCdmoBV4gKKeX
-	 5x5SrA1lvLxkg==
-Message-ID: <152b032e-fcd9-4d49-8154-92a475c0670c@kernel.org>
-Date: Wed, 12 Feb 2025 15:56:09 +0200
+	id 1tiDGt-00000007aBf-1un8;
+	Wed, 12 Feb 2025 13:59:24 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-38dd935a267so3121453f8f.1;
+        Wed, 12 Feb 2025 05:59:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739368761; x=1739973561; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=A+ede4RrUjYL6rNcNJR8w+SRtlFFhYFYyooGZI9RRMA=;
+        b=jSewpRjYGr7LGterWu21Y8jutIfOdmmQ83yDF+qn1EAp+xRAMUbo2xYBy9wLDPQFad
+         2h6BUKF2Wv0IutPp4ch4T8UzU+fMVrPzFTme5uQpMv5gUYOAyS/m9DV6F+Yxkm3bUbn/
+         2ktq+QpxJp4dmf6SApHParhj5tIrmE/5Kxyp7xeybjxw/LIKVS65cI5umQKIZIVA4FCn
+         n4uJfNC/u8mkC87p7l6PfKeXP8ylFxN2mDmLKuVrtjQ92WQaFEwl7YWbV8KET+HLqb8q
+         iLgWxnlCG5f5KJDkKjTJ9qc4n89Y8A6hjBKfJl5TNmYxArwMyiiMJJQ9qEVvi42Rxtzt
+         KgzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739368761; x=1739973561;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=A+ede4RrUjYL6rNcNJR8w+SRtlFFhYFYyooGZI9RRMA=;
+        b=GBj84jd4it8wb1PAOszKAqZQtT5P6h5S+uyYM2aZweWybKx6mpbDA7n4XukG85dJZx
+         ROis5phwTSdC/IruIKb4twz1tIcLwe+sZ9IS0W6BRod78GwWWGlzPI0STGGV5IJ365vO
+         kdMzOXJCL8GTHylflciGEgV5CRGgmF1jFLZvmGBe/LuQK5z7rxWh9lWJ5y+DKUYoikao
+         YmV6JA7W/l/QfTPv0r6osfWatC2f3GlsSmsbiFmhFWPhpwFFG2rIsuH00Ggvx29n4ltk
+         +lSUhwP7MXu3qURkh46XV4XcTkxRo47SQAnYDekWtspZsYQy9iVgkGv9fGNkil9CXcdi
+         CxPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXcy3UdvOz9s9M0h0urJxLcRBqsPKucceQut5ztybfwJxjQi8We+7Ez7Wnr5B6j3NHJYv2kM6+BYIgenGs=@lists.infradead.org, AJvYcCXgfHxYc9LkeJUY02+003XO1gCcBJkWQ+RFyh7D8f6iJ8Cg+NKrSM5xZD8WsWdgwUIXIaMNoXvKVkdSukf68ZNE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXIp25FHspvlutx0lYn6ubWTxHF8e3GtIviCOdhyUDEOTfBL3j
+	5AeAqgrV6LSjtUdDKzqpsxC2dA07bHUmZGn5cNiJ2S8uvdEHUj+k
+X-Gm-Gg: ASbGncuD/yr98MlBmCvyl7GbkPknWSqjqOGh16gz1B5r1N4vheMH3qpwhH5Oft4QqIG
+	B/QphHlEochbqXCDm0/9koOeS0lU4ks3HAFhcT5Ecf0EbAdFLLPdw52RbspoNzR/H5KxPml+iJ7
+	hrSCVpX1TgiAtwFTEYVVSCRCFU6/FVSXe/5RfyTV0Evl1A95Doq/7lq4WljzjLl2iyPeSdYJESJ
+	pxUxb3XowWAGZlsdVaAsPOSDXdSrHuZZFZlB6aV1XUpixB9FT0evW91I+fkVcVqNUq8Zu7hKpD3
+	uXsTsa1wdg155TSzEA+KIWFX9RwjSIrKdSteKFcPY/bvMA1x5JGgBg==
+X-Google-Smtp-Source: AGHT+IEKCoDJGY1lmlxzGAZbmqw2zwD51cxjE08/BzvCDXeJUL1uvgupw74+KSMNg7LFxI/1rdLUpQ==
+X-Received: by 2002:a5d:64e2:0:b0:38f:21eb:5d02 with SMTP id ffacd0b85a97d-38f21eb5f2dmr1041208f8f.22.1739368761091;
+        Wed, 12 Feb 2025 05:59:21 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4395a058930sm20853795e9.17.2025.02.12.05.59.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Feb 2025 05:59:20 -0800 (PST)
+Date: Wed, 12 Feb 2025 13:59:19 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: "Arnd Bergmann" <arnd@arndb.de>
+Cc: "Ian Rogers" <irogers@google.com>, "Arnaldo Carvalho de Melo"
+ <acme@kernel.org>, "Howard Chu" <howardchu95@gmail.com>, "Peter Zijlstra"
+ <peterz@infradead.org>, "Ingo Molnar" <mingo@redhat.com>, "Namhyung Kim"
+ <namhyung@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>, "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>, "Jiri Olsa"
+ <jolsa@kernel.org>, "Adrian Hunter" <adrian.hunter@intel.com>, "Kan Liang"
+ <kan.liang@linux.intel.com>, "John Garry" <john.g.garry@oracle.com>, "Will
+ Deacon" <will@kernel.org>, "James Clark" <james.clark@linaro.org>, "Mike
+ Leach" <mike.leach@linaro.org>, "Leo Yan" <leo.yan@linux.dev>, guoren
+ <guoren@kernel.org>, "Paul Walmsley" <paul.walmsley@sifive.com>, "Palmer
+ Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Charlie Jenkins" <charlie@rivosinc.com>, "Bibo Mao" <maobibo@loongson.cn>,
+ "Huacai Chen" <chenhuacai@kernel.org>, "Catalin Marinas"
+ <catalin.marinas@arm.com>, "Jiri Slaby" <jirislaby@kernel.org>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, "linux-csky@vger.kernel.org"
+ <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 5/7] perf trace beauty: Add syscalltbl.sh generating
+ all system call tables
+Message-ID: <20250212135919.4e7a26fd@pumpkin>
+In-Reply-To: <0195f9a0-5198-4ee0-b4ff-ea7126dc8299@app.fastmail.com>
+References: <20250210165108.95894-1-irogers@google.com>
+	<20250210165108.95894-6-irogers@google.com>
+	<d47c35dd-9c52-48e7-a00d-135572f11fbb@app.fastmail.com>
+	<CAP-5=fUi4RYebxCGYZVHVEt0BpWVmUA6+-vDQfbai25_KJRs7A@mail.gmail.com>
+	<0195f9a0-5198-4ee0-b4ff-ea7126dc8299@app.fastmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 1/3] net: ti: icssg-prueth: Use page_pool API
- for RX buffer allocation
-To: Meghana Malladi <m-malladi@ti.com>, danishanwar@ti.com,
- pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
- davem@davemloft.net, andrew+netdev@lunn.ch
-Cc: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- u.kleine-koenig@baylibre.com, krzysztof.kozlowski@linaro.org,
- dan.carpenter@linaro.org, schnelle@linux.ibm.com, glaroque@baylibre.com,
- rdunlap@infradead.org, diogo.ivo@siemens.com, jan.kiszka@siemens.com,
- john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
- ast@kernel.org, srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>
-References: <20250210103352.541052-1-m-malladi@ti.com>
- <20250210103352.541052-2-m-malladi@ti.com>
-Content-Language: en-US
-From: Roger Quadros <rogerq@kernel.org>
-In-Reply-To: <20250210103352.541052-2-m-malladi@ti.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_055620_704252_8EDD913F 
-X-CRM114-Status: GOOD (  34.51  )
+X-CRM114-CacheID: sfid-20250212_055923_498540_2CF42720 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,466 +118,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 11 Feb 2025 18:53:14 +0100
+"Arnd Bergmann" <arnd@arndb.de> wrote:
 
+...
+> I think the way it actually works on mips is that all syscalls are
+> allowed in any task and the actual number identifies both the
+> ABI and the syscall. In some variant, the same is true on arm
+> (oabi/eabi) and x86-64 (64/x32), but oabi and x32 are both too
+> obsolete to put much work into them.
 
-On 10/02/2025 12:33, Meghana Malladi wrote:
-> From: Roger Quadros <rogerq@kernel.org>
-> 
-> This is to prepare for native XDP support.
-> 
-> The page pool API is more faster in allocating pages than
-> __alloc_skb(). Drawback is that it works at PAGE_SIZE granularity
-> so we are not efficient in memory usage.
-> i.e. we are using PAGE_SIZE (4KB) memory for 1.5KB max packet size.
-> 
-> Signed-off-by: Roger Quadros <rogerq@kernel.org>
-> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
-> ---
-> v1: https://lore.kernel.org/all/20250122124951.3072410-1-m-malladi@ti.com/
-> 
-> Changes since v1 (v2-v1):
-> - Recycle pages wherever necessary using skb_mark_for_recycle()
-> - Use napi_build_skb() instead of build_skb()
-> - Update with correct frag_size argument in napi_build_skb()
-> - Use napi_gro_receive() instead of netif_receive_skb()
-> - Use PP_FLAG_DMA_SYNC_DEV to enable DMA sync with device
-> - Use page_pool_dma_sync_for_cpu() to sync Rx page pool for CPU
-> 
-> All the above changes have been suggested by Ido Schimmel <idosch@idosch.org>
-> 
->  drivers/net/ethernet/ti/Kconfig               |   1 +
->  drivers/net/ethernet/ti/icssg/icssg_common.c  | 174 ++++++++++++------
->  drivers/net/ethernet/ti/icssg/icssg_prueth.h  |  14 +-
->  .../net/ethernet/ti/icssg/icssg_prueth_sr1.c  |  21 ++-
->  4 files changed, 140 insertions(+), 70 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/Kconfig b/drivers/net/ethernet/ti/Kconfig
-> index 0d5a862cd78a..b461281d31b6 100644
-> --- a/drivers/net/ethernet/ti/Kconfig
-> +++ b/drivers/net/ethernet/ti/Kconfig
-> @@ -204,6 +204,7 @@ config TI_ICSSG_PRUETH_SR1
->  	select PHYLIB
->  	select TI_ICSS_IEP
->  	select TI_K3_CPPI_DESC_POOL
-> +	select PAGE_POOL
->  	depends on PRU_REMOTEPROC
->  	depends on NET_SWITCHDEV
->  	depends on ARCH_K3 && OF && TI_K3_UDMA_GLUE_LAYER
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-> index 74f0f200a89d..c3c1e2bf461e 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-> @@ -45,6 +45,11 @@ void prueth_cleanup_rx_chns(struct prueth_emac *emac,
->  			    struct prueth_rx_chn *rx_chn,
->  			    int max_rflows)
->  {
-> +	if (rx_chn->pg_pool) {
-> +		page_pool_destroy(rx_chn->pg_pool);
-> +		rx_chn->pg_pool = NULL;
-> +	}
-> +
->  	if (rx_chn->desc_pool)
->  		k3_cppi_desc_pool_destroy(rx_chn->desc_pool);
->  
-> @@ -461,17 +466,17 @@ int prueth_init_rx_chns(struct prueth_emac *emac,
->  }
->  EXPORT_SYMBOL_GPL(prueth_init_rx_chns);
->  
-> -int prueth_dma_rx_push(struct prueth_emac *emac,
-> -		       struct sk_buff *skb,
-> -		       struct prueth_rx_chn *rx_chn)
-> +int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
-> +			      struct prueth_rx_chn *rx_chn,
-> +			      struct page *page, u32 buf_len)
->  {
->  	struct net_device *ndev = emac->ndev;
->  	struct cppi5_host_desc_t *desc_rx;
-> -	u32 pkt_len = skb_tailroom(skb);
->  	dma_addr_t desc_dma;
->  	dma_addr_t buf_dma;
->  	void **swdata;
->  
-> +	buf_dma = page_pool_get_dma_addr(page) + PRUETH_HEADROOM;
->  	desc_rx = k3_cppi_desc_pool_alloc(rx_chn->desc_pool);
->  	if (!desc_rx) {
->  		netdev_err(ndev, "rx push: failed to allocate descriptor\n");
-> @@ -479,25 +484,18 @@ int prueth_dma_rx_push(struct prueth_emac *emac,
->  	}
->  	desc_dma = k3_cppi_desc_pool_virt2dma(rx_chn->desc_pool, desc_rx);
->  
-> -	buf_dma = dma_map_single(rx_chn->dma_dev, skb->data, pkt_len, DMA_FROM_DEVICE);
-> -	if (unlikely(dma_mapping_error(rx_chn->dma_dev, buf_dma))) {
-> -		k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
-> -		netdev_err(ndev, "rx push: failed to map rx pkt buffer\n");
-> -		return -EINVAL;
-> -	}
-> -
->  	cppi5_hdesc_init(desc_rx, CPPI5_INFO0_HDESC_EPIB_PRESENT,
->  			 PRUETH_NAV_PS_DATA_SIZE);
->  	k3_udma_glue_rx_dma_to_cppi5_addr(rx_chn->rx_chn, &buf_dma);
-> -	cppi5_hdesc_attach_buf(desc_rx, buf_dma, skb_tailroom(skb), buf_dma, skb_tailroom(skb));
-> +	cppi5_hdesc_attach_buf(desc_rx, buf_dma, buf_len, buf_dma, buf_len);
->  
->  	swdata = cppi5_hdesc_get_swdata(desc_rx);
-> -	*swdata = skb;
-> +	*swdata = page;
->  
-> -	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, 0,
-> +	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, PRUETH_RX_FLOW_DATA,
->  					desc_rx, desc_dma);
->  }
-> -EXPORT_SYMBOL_GPL(prueth_dma_rx_push);
-> +EXPORT_SYMBOL_GPL(prueth_dma_rx_push_mapped);
->  
->  u64 icssg_ts_to_ns(u32 hi_sw, u32 hi, u32 lo, u32 cycle_time_ns)
->  {
-> @@ -541,12 +539,16 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
->  	u32 buf_dma_len, pkt_len, port_id = 0;
->  	struct net_device *ndev = emac->ndev;
->  	struct cppi5_host_desc_t *desc_rx;
-> -	struct sk_buff *skb, *new_skb;
->  	dma_addr_t desc_dma, buf_dma;
-> +	struct page *page, *new_page;
-> +	struct page_pool *pool;
-> +	struct sk_buff *skb;
->  	void **swdata;
->  	u32 *psdata;
-> +	void *pa;
->  	int ret;
->  
-> +	pool = rx_chn->pg_pool;
->  	ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
->  	if (ret) {
->  		if (ret != -ENODATA)
-> @@ -558,15 +560,10 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
->  		return 0;
->  
->  	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
-> -
->  	swdata = cppi5_hdesc_get_swdata(desc_rx);
-> -	skb = *swdata;
-> -
-> -	psdata = cppi5_hdesc_get_psdata(desc_rx);
-> -	/* RX HW timestamp */
-> -	if (emac->rx_ts_enabled)
-> -		emac_rx_timestamp(emac, skb, psdata);
-> +	page = *swdata;
->  
-Unnecessary blank line.
+IIRC x86-64 processes can also just make i386 system calls.
+Even switching to/from 64bit mode isn't privileged.
 
-> +	page_pool_dma_sync_for_cpu(pool, page, 0, PAGE_SIZE);
->  	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
->  	k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
->  	pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
-> @@ -574,32 +571,51 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
->  	pkt_len -= 4;
->  	cppi5_desc_get_tags_ids(&desc_rx->hdr, &port_id, NULL);
->  
-> -	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_FROM_DEVICE);
->  	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
->  
-> -	skb->dev = ndev;
-> -	new_skb = netdev_alloc_skb_ip_align(ndev, PRUETH_MAX_PKT_SIZE);
->  	/* if allocation fails we drop the packet but push the
-> -	 * descriptor back to the ring with old skb to prevent a stall
-> +	 * descriptor back to the ring with old page to prevent a stall
->  	 */
-> -	if (!new_skb) {
-> +	new_page = page_pool_dev_alloc_pages(pool);
-> +	if (unlikely(!new_page)) {
-> +		new_page = page;
->  		ndev->stats.rx_dropped++;
-> -		new_skb = skb;
-> -	} else {
-> -		/* send the filled skb up the n/w stack */
-> -		skb_put(skb, pkt_len);
-> -		if (emac->prueth->is_switch_mode)
-> -			skb->offload_fwd_mark = emac->offload_fwd_mark;
-> -		skb->protocol = eth_type_trans(skb, ndev);
-> -		napi_gro_receive(&emac->napi_rx, skb);
-> -		ndev->stats.rx_bytes += pkt_len;
-> -		ndev->stats.rx_packets++;
-> +		goto requeue;
-> +	}
-> +
-> +	/* prepare skb and send to n/w stack */
-> +	pa = page_address(page);
-> +	skb = napi_build_skb(pa, PAGE_SIZE);
-> +	if (!skb) {
-> +		ndev->stats.rx_dropped++;
-> +		page_pool_recycle_direct(pool, page);
-> +		goto requeue;
->  	}
->  
-> +	skb_reserve(skb, PRUETH_HEADROOM);
-> +	skb_put(skb, pkt_len);
-> +	skb->dev = ndev;
-> +
-> +	psdata = cppi5_hdesc_get_psdata(desc_rx);
-> +	/* RX HW timestamp */
-> +	if (emac->rx_ts_enabled)
-> +		emac_rx_timestamp(emac, skb, psdata);
-> +
-> +	if (emac->prueth->is_switch_mode)
-> +		skb->offload_fwd_mark = emac->offload_fwd_mark;
-> +	skb->protocol = eth_type_trans(skb, ndev);
-> +
-> +	skb_mark_for_recycle(skb);
-> +	napi_gro_receive(&emac->napi_rx, skb);
-> +	ndev->stats.rx_bytes += pkt_len;
-> +	ndev->stats.rx_packets++;
-> +
-> +requeue:
->  	/* queue another RX DMA */
-> -	ret = prueth_dma_rx_push(emac, new_skb, &emac->rx_chns);
-> +	ret = prueth_dma_rx_push_mapped(emac, &emac->rx_chns, new_page,
-> +					PRUETH_MAX_PKT_SIZE);
->  	if (WARN_ON(ret < 0)) {
-> -		dev_kfree_skb_any(new_skb);
-> +		page_pool_recycle_direct(pool, new_page);
->  		ndev->stats.rx_errors++;
->  		ndev->stats.rx_dropped++;
->  	}
-> @@ -611,22 +627,17 @@ static void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
->  {
->  	struct prueth_rx_chn *rx_chn = data;
->  	struct cppi5_host_desc_t *desc_rx;
-> -	struct sk_buff *skb;
-> -	dma_addr_t buf_dma;
-> -	u32 buf_dma_len;
-> +	struct page_pool *pool;
-> +	struct page *page;
->  	void **swdata;
->  
-> +	pool = rx_chn->pg_pool;
-> +
-here too.
+	David
 
->  	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
->  	swdata = cppi5_hdesc_get_swdata(desc_rx);
-> -	skb = *swdata;
-> -	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
-> -	k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
-> -
-> -	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len,
-> -			 DMA_FROM_DEVICE);
-> +	page = *swdata;
-> +	page_pool_recycle_direct(pool, page);
->  	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
-> -
-> -	dev_kfree_skb_any(skb);
->  }
->  
->  static int prueth_tx_ts_cookie_get(struct prueth_emac *emac)
-> @@ -907,29 +918,71 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
->  }
->  EXPORT_SYMBOL_GPL(icssg_napi_rx_poll);
->  
-> +static struct page_pool *prueth_create_page_pool(struct prueth_emac *emac,
-> +						 struct device *dma_dev,
-> +						 int size)
-> +{
-> +	struct page_pool_params pp_params = { 0 };
-> +	struct page_pool *pool;
-> +
-> +	pp_params.order = 0;
-> +	pp_params.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
-> +	pp_params.pool_size = size;
-> +	pp_params.nid = dev_to_node(emac->prueth->dev);
-> +	pp_params.dma_dir = DMA_BIDIRECTIONAL;
-> +	pp_params.dev = dma_dev;
-> +	pp_params.napi = &emac->napi_rx;
-> +	pp_params.max_len = PAGE_SIZE;
-> +
-> +	pool = page_pool_create(&pp_params);
-> +	if (IS_ERR(pool))
-> +		netdev_err(emac->ndev, "cannot create rx page pool\n");
-> +
-> +	return pool;
-> +}
-> +
->  int prueth_prepare_rx_chan(struct prueth_emac *emac,
->  			   struct prueth_rx_chn *chn,
->  			   int buf_size)
->  {
-> -	struct sk_buff *skb;
-> +	struct page_pool *pool;
-> +	struct page *page;
->  	int i, ret;
->  
-> +	pool = prueth_create_page_pool(emac, chn->dma_dev, chn->descs_num);
-> +	if (IS_ERR(pool))
-> +		return PTR_ERR(pool);
-> +
-> +	chn->pg_pool = pool;
-> +
->  	for (i = 0; i < chn->descs_num; i++) {
-> -		skb = __netdev_alloc_skb_ip_align(NULL, buf_size, GFP_KERNEL);
-> -		if (!skb)
-> -			return -ENOMEM;
-> +		/* NOTE: we're not using memory efficiently here.
-> +		 * 1 full page (4KB?) used here instead of
-> +		 * PRUETH_MAX_PKT_SIZE (~1.5KB?)
-> +		 */
-> +		page = page_pool_dev_alloc_pages(pool);
-
-Did you evaluate Ido's suggestion to use page_pool_alloc_frag()?
-
-> +		if (!page) {
-> +			netdev_err(emac->ndev, "couldn't allocate rx page\n");
-> +			ret = -ENOMEM;
-> +			goto recycle_alloc_pg;
-> +		}
->  
-> -		ret = prueth_dma_rx_push(emac, skb, chn);
-> +		ret = prueth_dma_rx_push_mapped(emac, chn, page, buf_size);
->  		if (ret < 0) {
->  			netdev_err(emac->ndev,
-> -				   "cannot submit skb for rx chan %s ret %d\n",
-> +				   "cannot submit page for rx chan %s ret %d\n",
->  				   chn->name, ret);
-> -			kfree_skb(skb);
-> -			return ret;
-> +			page_pool_recycle_direct(pool, page);
-> +			goto recycle_alloc_pg;
->  		}
->  	}
->  
->  	return 0;
-> +
-> +recycle_alloc_pg:
-> +	prueth_reset_rx_chan(&emac->rx_chns, PRUETH_MAX_RX_FLOWS, false);
-> +
-> +	return ret;
->  }
->  EXPORT_SYMBOL_GPL(prueth_prepare_rx_chan);
->  
-> @@ -958,6 +1011,9 @@ void prueth_reset_rx_chan(struct prueth_rx_chn *chn,
->  					  prueth_rx_cleanup, !!i);
->  	if (disable)
->  		k3_udma_glue_disable_rx_chn(chn->rx_chn);
-> +
-> +	page_pool_destroy(chn->pg_pool);
-> +	chn->pg_pool = NULL;
->  }
->  EXPORT_SYMBOL_GPL(prueth_reset_rx_chan);
->  
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> index 329b46e9ee53..c7b906de18af 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-> @@ -33,6 +33,8 @@
->  #include <linux/dma/k3-udma-glue.h>
->  
->  #include <net/devlink.h>
-> +#include <net/xdp.h>
-> +#include <net/page_pool/helpers.h>
->  
->  #include "icssg_config.h"
->  #include "icss_iep.h"
-> @@ -131,6 +133,7 @@ struct prueth_rx_chn {
->  	u32 descs_num;
->  	unsigned int irq[ICSSG_MAX_RFLOWS];	/* separate irq per flow */
->  	char name[32];
-> +	struct page_pool *pg_pool;
->  };
->  
->  /* There are 4 Tx DMA channels, but the highest priority is CH3 (thread 3)
-> @@ -210,6 +213,10 @@ struct prueth_emac {
->  	struct netdev_hw_addr_list vlan_mcast_list[MAX_VLAN_ID];
->  };
->  
-> +/* The buf includes headroom compatible with both skb and xdpf */
-> +#define PRUETH_HEADROOM_NA (max(XDP_PACKET_HEADROOM, NET_SKB_PAD) + NET_IP_ALIGN)
-> +#define PRUETH_HEADROOM  ALIGN(PRUETH_HEADROOM_NA, sizeof(long))
-> +
->  /**
->   * struct prueth_pdata - PRUeth platform data
->   * @fdqring_mode: Free desc queue mode
-> @@ -410,9 +417,10 @@ int prueth_init_rx_chns(struct prueth_emac *emac,
->  			struct prueth_rx_chn *rx_chn,
->  			char *name, u32 max_rflows,
->  			u32 max_desc_num);
-> -int prueth_dma_rx_push(struct prueth_emac *emac,
-> -		       struct sk_buff *skb,
-> -		       struct prueth_rx_chn *rx_chn);
-> +int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
-> +			      struct prueth_rx_chn *rx_chn,
-> +			      struct page *page, u32 buf_len);
-> +unsigned int prueth_rxbuf_total_len(unsigned int len);
->  void emac_rx_timestamp(struct prueth_emac *emac,
->  		       struct sk_buff *skb, u32 *psdata);
->  enum netdev_tx icssg_ndo_start_xmit(struct sk_buff *skb, struct net_device *ndev);
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
-> index 64a19ff39562..aeeb8a50376b 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
-> @@ -274,10 +274,12 @@ static struct sk_buff *prueth_process_rx_mgm(struct prueth_emac *emac,
->  	struct prueth_rx_chn *rx_chn = &emac->rx_mgm_chn;
->  	struct net_device *ndev = emac->ndev;
->  	struct cppi5_host_desc_t *desc_rx;
-> -	struct sk_buff *skb, *new_skb;
-> +	struct page *page, *new_page;
->  	dma_addr_t desc_dma, buf_dma;
->  	u32 buf_dma_len, pkt_len;
-> +	struct sk_buff *skb;
-
-Can we get rid of SKB entirely from the management channel code?
-The packet received on this channel is never passed to user space so
-I don't see why SKB is required.
-
->  	void **swdata;
-> +	void *pa;
->  	int ret;
->  
->  	ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
-> @@ -299,32 +301,35 @@ static struct sk_buff *prueth_process_rx_mgm(struct prueth_emac *emac,
->  	}
->  
->  	swdata = cppi5_hdesc_get_swdata(desc_rx);
-> -	skb = *swdata;
-> +	page = *swdata;
->  	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
->  	pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
->  
->  	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_FROM_DEVICE);
->  	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
->  
-> -	new_skb = netdev_alloc_skb_ip_align(ndev, PRUETH_MAX_PKT_SIZE);
-> +	new_page = page_pool_dev_alloc_pages(rx_chn->pg_pool);
->  	/* if allocation fails we drop the packet but push the
->  	 * descriptor back to the ring with old skb to prevent a stall
->  	 */
-> -	if (!new_skb) {
-> +	if (!new_page) {
->  		netdev_err(ndev,
-> -			   "skb alloc failed, dropped mgm pkt from flow %d\n",
-> +			   "page alloc failed, dropped mgm pkt from flow %d\n",
->  			   flow_id);
-> -		new_skb = skb;
-> +		new_page = page;
->  		skb = NULL;	/* return NULL */
->  	} else {
->  		/* return the filled skb */
-> +		pa = page_address(page);
-> +		skb = napi_build_skb(pa, PAGE_SIZE);
->  		skb_put(skb, pkt_len);
->  	}
->  
->  	/* queue another DMA */
-> -	ret = prueth_dma_rx_push(emac, new_skb, &emac->rx_mgm_chn);
-> +	ret = prueth_dma_rx_push_mapped(emac, &emac->rx_chns, new_page,
-> +					PRUETH_MAX_PKT_SIZE);
->  	if (WARN_ON(ret < 0))
-> -		dev_kfree_skb_any(new_skb);
-> +		page_pool_recycle_direct(rx_chn->pg_pool, new_page);
->  
->  	return skb;
->  }
-
--- 
-cheers,
--roger
-
+ 
 
