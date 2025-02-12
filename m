@@ -4,88 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD3DC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:11:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31EF9C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 17:11:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MOFE2iyQdUH+cs0DD3icUraURRscI2fPxk7rBE4NecM=; b=XoNjIWKnUwQq6h5mlRHXvRz28T
-	mi03GUrfsowf1wMXzyzhybJsuKlTzW+mhoUCxNYBfJg2gcMa3cyGbDSeKCD9ZpQB4nNzk/vQpmmq5
-	d1cre5rj5jXWEukerD4vruWOVz+7e/OT777TXkvk8nVonnVsK1Pj24VcURAt2s+giSsCXr2Sh1tnO
-	K2Yv0qxw4ZNcQpCXNC5gWJ6sol8PnxHTseTxoxQNKU40ACbj7BH7FeAI7ibVcrCqD6CSudsoDKAdp
-	n4Vw8G2PjNtzCEvyO2bxeGpvjUZ1vfqWxrH4eLOUqZGpjcBI9w10Yqc5ZwHVh1kXcqkghG+P84xmB
-	m+g0AOTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ywv536guZWyP/Lc9tX7tX/h7w5n/JNLArjRwgvxbIig=; b=c0I78th2R8DcFfgD7R6X7LVFLM
+	XGP8fAaQyv2dyiiUo4JHx5WtxvwynVgUJGlOa4zqEgoBOLN0+jJWtYZqscdPRVLmcvIu2r0WI7vId
+	FcGB4QfnZVGWeUPGvfsKpxUFTuMbI76oJpEZPumtFTTKZmU5o5V9bG17N8rkqUhT7Yf8UDWBqxqyJ
+	+tEIkLam6dEk3YsWv+1iVX+YRoDKCXKU+8qLOwvODhD7ABdts9EXByc1t2248W4sO7e8HFIVk+t4I
+	UQbyRoY4AL4TL70+K3Oj300G49+H9xNMNoTgAcHAvCeNrpGG0sezVEjHCP0QD4+y2CIRPqd+rDYUz
+	hcuEUmTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiGGA-00000008ETM-2fYJ;
-	Wed, 12 Feb 2025 17:10:50 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tiGGC-00000008EVJ-3RMK;
+	Wed, 12 Feb 2025 17:10:52 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiFd6-000000085Qb-1wCG;
-	Wed, 12 Feb 2025 16:30:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C964A5C46FF;
-	Wed, 12 Feb 2025 16:29:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 210DBC4CEDF;
-	Wed, 12 Feb 2025 16:30:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739377827;
-	bh=NccZL8Q08RvCQ8Ff9ijQSz4W4tvbRtmCRMiRukZabfA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X5VNN6A9D5Vn372vL8tF+GHsPd5j6QeuazrmHk7O6xbYdcKiaZBR2010QOSsEz2jo
-	 gb90QyOFCRVHmkSlymAIIc7LvCgmVFoXvdI7Qh/uZocFl9KWJ+w5xeAjgYLZFlLzNu
-	 6Qhf7qkg1rGF7zPWIbPVxxjJML1R7LasZjcBEJRXwm/YxlycAmzsuvjamyp7ItPLX+
-	 K+oiKM4qaTlddClPKQxXVJCpq5T6cktJM3KNFWDYjCor/yybRPk7bBsIlLWr0z6J1J
-	 wWtngwkN8lDNLuPbrCvjK2LX47OkQUkMXZqw0F68QHJCwTC6vMhcJIDI1byNUF9mNW
-	 PHv8pukLdMynw==
-Date: Wed, 12 Feb 2025 18:30:08 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Rob Herring <robh+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 13/14] memblock: Add KHO support for reserve_mem
-Message-ID: <Z6zMkLhu0ALC8MfG@kernel.org>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-14-rppt@kernel.org>
- <CAL_JsqLBf1Vv6K5mK6x9JRqegvScSNFpAEE2iJOkJ4JuBTLsCw@mail.gmail.com>
+	id 1tiFge-000000086HD-3QFt;
+	Wed, 12 Feb 2025 16:34:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739378049; x=1770914049;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=lw0AQ9Rpd28XddSfg/O8nWXU4S88r7p5CG7C4eayPmU=;
+  b=PlQacMNz8fboZxzi8oU4IKGff+SxvqjsWSx9GVMAhhYkJcK03Ua/oFRN
+   c/ZF5GxHO66cQpXoTmBpptnMSUu0hESmYRprdZx2gb+oSeE+p/Hd11wOR
+   bBTJO3mvMRTAfo3auYItCHw90hdoJNNa5vZARQBkzj6W6CNBRx/kT/qfg
+   rMRlHjNL9Gl4mnwJQiSWacGYPKLrrOnBAkeSe6XHZuRzy81O26BjK4Nhw
+   k4Q1GfMaL8RaGuxU4an+cZ+0IuWxCBCAYd3Fz8AsUIJ2sq5nWMchQa/Zb
+   c6yYRbVz4/ceP9ni3VdBu3uDzN3iq6DEFRe0griq9nyR681yD4+cD+eCy
+   Q==;
+X-CSE-ConnectionGUID: TkpBu8/ARjGgv0nYRYkgYw==
+X-CSE-MsgGUID: 25TpQSvAQr2HzyHCgV8JwQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11343"; a="39969203"
+X-IronPort-AV: E=Sophos;i="6.13,280,1732608000"; 
+   d="scan'208";a="39969203"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2025 08:34:08 -0800
+X-CSE-ConnectionGUID: pHECftlpSbC3O2TFvy+LFw==
+X-CSE-MsgGUID: RnMIYfAdRvS/SfwDNyDA1g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="143815131"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by fmviesa001.fm.intel.com with ESMTP; 12 Feb 2025 08:34:03 -0800
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+	id D3A3431C; Wed, 12 Feb 2025 18:34:01 +0200 (EET)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Cc: Krzysztof Adamski <krzysztof.adamski@nokia.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stefan Roese <sr@denx.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>
+Subject: [PATCH v1 4/8] i2c: eg20t: Use i2c_10bit_addr_from_msg() helper
+Date: Wed, 12 Feb 2025 18:32:29 +0200
+Message-ID: <20250212163359.2407327-5-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.45.1.3035.g276e886db78b
+In-Reply-To: <20250212163359.2407327-1-andriy.shevchenko@linux.intel.com>
+References: <20250212163359.2407327-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_JsqLBf1Vv6K5mK6x9JRqegvScSNFpAEE2iJOkJ4JuBTLsCw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_083028_622115_0A839310 
-X-CRM114-Status: GOOD (  47.52  )
+X-CRM114-CacheID: sfid-20250212_083408_892714_23D991C9 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,131 +99,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 10:03:58AM -0600, Rob Herring wrote:
-> On Thu, Feb 6, 2025 at 7:30 AM Mike Rapoport <rppt@kernel.org> wrote:
-> >
-> > From: Alexander Graf <graf@amazon.com>
-> >
-> > Linux has recently gained support for "reserve_mem": A mechanism to
-> > allocate a region of memory early enough in boot that we can cross our
-> > fingers and hope it stays at the same location during most boots, so we
-> > can store for example ftrace buffers into it.
-> >
-> > Thanks to KASLR, we can never be really sure that "reserve_mem"
-> > allocations are static across kexec. Let's teach it KHO awareness so
-> > that it serializes its reservations on kexec exit and deserializes them
-> > again on boot, preserving the exact same mapping across kexec.
-> >
-> > This is an example user for KHO in the KHO patch set to ensure we have
-> > at least one (not very controversial) user in the tree before extending
-> > KHO's use to more subsystems.
-> >
-> > Signed-off-by: Alexander Graf <graf@amazon.com>
-> > Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > ---
-> >  mm/memblock.c | 131 ++++++++++++++++++++++++++++++++++++++++++++++++++
-> >  1 file changed, 131 insertions(+)
-> >
-> > diff --git a/mm/memblock.c b/mm/memblock.c
-> > index 84df96efca62..fdb08b60efc1 100644
-> > --- a/mm/memblock.c
-> > +++ b/mm/memblock.c
-> > @@ -16,6 +16,9 @@
-> >  #include <linux/kmemleak.h>
-> >  #include <linux/seq_file.h>
-> >  #include <linux/memblock.h>
-> > +#include <linux/kexec_handover.h>
-> > +#include <linux/kexec.h>
-> > +#include <linux/libfdt.h>
-> >
-> >  #include <asm/sections.h>
-> >  #include <linux/io.h>
-> > @@ -2423,6 +2426,70 @@ int reserve_mem_find_by_name(const char *name, phys_addr_t *start, phys_addr_t *
-> >  }
-> >  EXPORT_SYMBOL_GPL(reserve_mem_find_by_name);
-> >
-> > +static bool __init reserve_mem_kho_revive(const char *name, phys_addr_t size,
-> > +                                         phys_addr_t align)
-> > +{
-> > +       const void *fdt = kho_get_fdt();
-> > +       const char *path = "/reserve_mem";
-> > +       int node, child, err;
-> > +
-> > +       if (!IS_ENABLED(CONFIG_KEXEC_HANDOVER))
-> > +               return false;
-> > +
-> > +       if (!fdt)
-> > +               return false;
-> > +
-> > +       node = fdt_path_offset(fdt, "/reserve_mem");
-> > +       if (node < 0)
-> > +               return false;
-> > +
-> > +       err = fdt_node_check_compatible(fdt, node, "reserve_mem-v1");
-> > +       if (err) {
-> > +               pr_warn("Node '%s' has unknown compatible", path);
-> > +               return false;
-> > +       }
-> > +
-> > +       fdt_for_each_subnode(child, fdt, node) {
-> > +               const struct kho_mem *mem;
-> > +               const char *child_name;
-> > +               int len;
-> > +
-> > +               /* Search for old kernel's reserved_mem with the same name */
-> > +               child_name = fdt_get_name(fdt, child, NULL);
-> > +               if (strcmp(name, child_name))
-> > +                       continue;
-> > +
-> > +               err = fdt_node_check_compatible(fdt, child, "reserve_mem_map-v1");
-> 
-> It really seems you all are trying to have things both ways. It's not
-> Devicetree, just the FDT file format, but then here you use
-> "compatible" which *is* Devicetree. At best, it's all just confusing
-> for folks. At worst, you're just picking and choosing what you want to
-> use.
-> 
-> I'm not saying don't use "compatible" just for the sake of looking
-> less like DT, but perhaps your versioning should be done differently.
-> You are reading the 'mem' property straight into a struct. Maybe the
-> struct should have a version. Or the size of the struct is the version
-> much like the userspace ABI is handled for structs.
+Use i2c_10bit_addr_from_msg() helper instead of local copy.
+No functional change intended.
 
-The idea is to have high level compatibility notion for node level and up
-rather than verify that for each and every struct like uABI does.
-For that "compatible" seems just a perfect fit.
+Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+---
+ drivers/i2c/busses/i2c-eg20t.c | 28 +++++-----------------------
+ 1 file changed, 5 insertions(+), 23 deletions(-)
+
+diff --git a/drivers/i2c/busses/i2c-eg20t.c b/drivers/i2c/busses/i2c-eg20t.c
+index 4914bfbee2a9..20151408bf9c 100644
+--- a/drivers/i2c/busses/i2c-eg20t.c
++++ b/drivers/i2c/busses/i2c-eg20t.c
+@@ -48,8 +48,6 @@
  
-> > +               if (err) {
-> > +                       pr_warn("Node '%s/%s' has unknown compatible", path, name);
-> > +                       continue;
-> > +               }
-> > +
-> > +               mem = fdt_getprop(fdt, child, "mem", &len);
-> > +               if (!mem || len != sizeof(*mem))
-> > +                       continue;
-> > +
-> > +               if (mem->addr & (align - 1)) {
-> 
-> It's stated somewhere in this that the FDT data is LE, but here you
-> are assuming the FDT is the same endianness as the CPU not that it's
-> LE. Arm64 can do BE. PowerPC does both. I'm not sure if kexec from one
-> endianness to another is possible. I would guess in theory it is and
-> in practice it's broken already (because kexec is always an
-> afterthought). Either you need to guarantee that native endianness
-> will never be an issue for any arch or you need to make the endianness
-> fixed.
-
-I believe Alex mentioned little endian in the sense of native endianness
-for practical purposes :)
-
-Since arm64 does seem to support kexec from one endianness to another in
-certain circumstances, but I believe that we can limit KHO only to work
-when both kernels have the same endianness.
+ #define BUS_IDLE_TIMEOUT	20
+ #define PCH_I2CCTL_I2CMEN	0x0080
+-#define TEN_BIT_ADDR_DEFAULT	0xF000
+-#define TEN_BIT_ADDR_MASK	0xF0
+ #define PCH_START		0x0020
+ #define PCH_RESTART		0x0004
+ #define PCH_ESR_START		0x0001
+@@ -58,7 +56,6 @@
+ #define PCH_ACK			0x0008
+ #define PCH_GETACK		0x0001
+ #define CLR_REG			0x0
+-#define I2C_RD			0x1
+ #define I2CMCF_BIT		0x0080
+ #define I2CMIF_BIT		0x0002
+ #define I2CMAL_BIT		0x0010
+@@ -76,8 +73,6 @@
+ #define I2CMBB_BIT		0x0020
+ #define BUFFER_MODE_MASK	(I2CBMFI_BIT | I2CBMAL_BIT | I2CBMNA_BIT | \
+ 				I2CBMTO_BIT | I2CBMIS_BIT)
+-#define I2C_ADDR_MSK		0xFF
+-#define I2C_MSB_2B_MSK		0x300
+ #define FAST_MODE_CLK		400
+ #define FAST_MODE_EN		0x0001
+ #define SUB_ADDR_LEN_MAX	4
+@@ -371,16 +366,12 @@ static s32 pch_i2c_writebytes(struct i2c_adapter *i2c_adap,
+ 	struct i2c_algo_pch_data *adap = i2c_adap->algo_data;
+ 	u8 *buf;
+ 	u32 length;
+-	u32 addr;
+-	u32 addr_2_msb;
+-	u32 addr_8_lsb;
+ 	s32 wrcount;
+ 	s32 rtn;
+ 	void __iomem *p = adap->pch_base_address;
  
-> Rob
-
+ 	length = msgs->len;
+ 	buf = msgs->buf;
+-	addr = msgs->addr;
+ 
+ 	/* enable master tx */
+ 	pch_setbit(adap->pch_base_address, PCH_I2CCTL, I2C_TX_MODE);
+@@ -394,8 +385,7 @@ static s32 pch_i2c_writebytes(struct i2c_adapter *i2c_adap,
+ 	}
+ 
+ 	if (msgs->flags & I2C_M_TEN) {
+-		addr_2_msb = ((addr & I2C_MSB_2B_MSK) >> 7) & 0x06;
+-		iowrite32(addr_2_msb | TEN_BIT_ADDR_MASK, p + PCH_I2CDR);
++		iowrite32(i2c_10bit_addr_from_msg(msgs), p + PCH_I2CDR);
+ 		if (first)
+ 			pch_i2c_start(adap);
+ 
+@@ -403,8 +393,7 @@ static s32 pch_i2c_writebytes(struct i2c_adapter *i2c_adap,
+ 		if (rtn)
+ 			return rtn;
+ 
+-		addr_8_lsb = (addr & I2C_ADDR_MSK);
+-		iowrite32(addr_8_lsb, p + PCH_I2CDR);
++		iowrite32(msgs->addr & 0xff, p + PCH_I2CDR);
+ 	} else {
+ 		/* set 7 bit slave address and R/W bit as 0 */
+ 		iowrite32(i2c_8bit_addr_from_msg(msgs), p + PCH_I2CDR);
+@@ -490,15 +479,11 @@ static s32 pch_i2c_readbytes(struct i2c_adapter *i2c_adap, struct i2c_msg *msgs,
+ 	u8 *buf;
+ 	u32 count;
+ 	u32 length;
+-	u32 addr;
+-	u32 addr_2_msb;
+-	u32 addr_8_lsb;
+ 	void __iomem *p = adap->pch_base_address;
+ 	s32 rtn;
+ 
+ 	length = msgs->len;
+ 	buf = msgs->buf;
+-	addr = msgs->addr;
+ 
+ 	/* enable master reception */
+ 	pch_clrbit(adap->pch_base_address, PCH_I2CCTL, I2C_TX_MODE);
+@@ -509,8 +494,7 @@ static s32 pch_i2c_readbytes(struct i2c_adapter *i2c_adap, struct i2c_msg *msgs,
+ 	}
+ 
+ 	if (msgs->flags & I2C_M_TEN) {
+-		addr_2_msb = ((addr & I2C_MSB_2B_MSK) >> 7);
+-		iowrite32(addr_2_msb | TEN_BIT_ADDR_MASK, p + PCH_I2CDR);
++		iowrite32(i2c_10bit_addr_from_msg(msgs) & ~I2C_M_RD, p + PCH_I2CDR);
+ 		if (first)
+ 			pch_i2c_start(adap);
+ 
+@@ -518,8 +502,7 @@ static s32 pch_i2c_readbytes(struct i2c_adapter *i2c_adap, struct i2c_msg *msgs,
+ 		if (rtn)
+ 			return rtn;
+ 
+-		addr_8_lsb = (addr & I2C_ADDR_MSK);
+-		iowrite32(addr_8_lsb, p + PCH_I2CDR);
++		iowrite32(msgs->addr & 0xff, p + PCH_I2CDR);
+ 
+ 		pch_i2c_restart(adap);
+ 
+@@ -527,8 +510,7 @@ static s32 pch_i2c_readbytes(struct i2c_adapter *i2c_adap, struct i2c_msg *msgs,
+ 		if (rtn)
+ 			return rtn;
+ 
+-		addr_2_msb |= I2C_RD;
+-		iowrite32(addr_2_msb | TEN_BIT_ADDR_MASK, p + PCH_I2CDR);
++		iowrite32(i2c_10bit_addr_from_msg(msgs), p + PCH_I2CDR);
+ 	} else {
+ 		/* 7 address bits + R/W bit */
+ 		iowrite32(i2c_8bit_addr_from_msg(msgs), p + PCH_I2CDR);
 -- 
-Sincerely yours,
-Mike.
+2.45.1.3035.g276e886db78b
+
 
