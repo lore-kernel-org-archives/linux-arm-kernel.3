@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8011FC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 09:03:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5420C021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 09:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5+RLuKCPgbk66xBwKo0bHakN65cbNdQ5/VO/8/oew2w=; b=QsmeffKnGf3ePTC9M31j21zkul
-	jA45lowfFF6rIwG0k+GEw4N0ZdYMKw7EMAo9f5ADCLFmHIxanWyxZ47wy8Ei6sdLSsw2VTsaiEaVp
-	txY8ywRnQEZYhj0qCba6gfwaCnBhzrKmYNmkgNLX+ETVvWSf/dIoqjVO1m2Yd2GCuMHae73ya22Je
-	5jkpB0zpbsOTHtRasCcqtbk7IC2VOL2pm9lkGX//TF6A3SbCEcvx8eAnNZTcI5XBeLgzHG5dNflqO
-	49mL2cM+qgaEHbxH7ujzqXUEew3Ls5fwZ7d4+nvTWegoAp9qxw9ifhC5ljWeh2D5flhc8xzbLbvy5
-	uxPpetzg==;
+	bh=W6iBaAGe0KrY+OEZak1BeJk2DKIsCei3RU56QURTU3c=; b=PreYfY/OrOaaH+n5diAzEY9Q72
+	y+8VWSEs7mYprpDR9ttllhd+X1kfXTFRKW5o9OoHAGf+biGAR+1aXk5NlJASp9H18zm5+0HPTAQaU
+	2CmJ/MBIr8BWWQ8kAWQR9KRtS+vb6W+3+TQcQujo/UijeWYTeoFewWXzh2Zz2RZVYD8iM4al/CKw8
+	lYYmxRoNL6r+9OB69KpAb2Y+HU3blxwbC47cW27Ds7KWa1/GWKMToa5cItMVcu+jNMDmoNsDtnQxp
+	l5JLvCEqv5n5baeITOqy8Zk5TjUWKiGojk9EMUKb42GhliHoJAGOlD4X14MGUgNQO4WRyfALODxSs
+	hnpyPzrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti8e4-00000006i1X-21Cq;
-	Wed, 12 Feb 2025 09:03:00 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti8U0-00000006gIG-3XUp
+	id 1ti8fT-00000006iEi-1OyQ;
+	Wed, 12 Feb 2025 09:04:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1ti8W7-00000006gnU-2Nvu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 08:52:38 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3537F103718DE;
-	Wed, 12 Feb 2025 09:52:29 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1739350352;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5+RLuKCPgbk66xBwKo0bHakN65cbNdQ5/VO/8/oew2w=;
-	b=U8SEPOdi01GyjnbRegQ5WMTYC5uwO8C9/23SgBVfiWI7fSIXfi5wqT5MFIR9uP9mKwa/md
-	LbpwQPjvP/5N/AyQiSUENllQ6jxifVfo5GWaN/vSEfkq9VF6wiMl+lu6dn8WX3HJHrEuBN
-	aMvHEMawFnIJ7Kwq1HUY2NEb5H2dOYjEGQL0pBSI15gjBpjMZUnoAss5hHMpOfjRGKsfU6
-	Q51FUIJlcbawZ380T0gWGtKVagBKWQPzaVr8aajuSwCTdJbLzrAA1IjinIWDkRw5geG8W7
-	aaYEWFU5SqIzsWhXVyjw1qcHEqvLLkcTGvjJpmoap04vav7sVVBuJb23vtVGUQ==
-Date: Wed, 12 Feb 2025 09:52:25 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Shawn Guo <shawnguo2@yeah.net>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Stefan
- Wahren <wahrenst@gmx.net>, Shawn Guo <shawnguo@kernel.org>
-Subject: Re: [PATCH v11 3/3] ARM: dts: mxs: Add descriptions for imx287
- based btt3-[012] devices
-Message-ID: <20250212095225.52479de4@wsk>
-In-Reply-To: <20250206102732.0b44ba8f@wsk>
-References: <20241107085705.490940-1-lukma@denx.de>
-	<20241107085705.490940-3-lukma@denx.de>
-	<20241119165236.69438f75@wsk>
-	<Z1aucR3ueKIxOjSX@dragon>
-	<20250206102732.0b44ba8f@wsk>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Wed, 12 Feb 2025 08:54:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E9D0413D5;
+	Wed, 12 Feb 2025 00:55:04 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.2.76.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6925B3F58B;
+	Wed, 12 Feb 2025 00:54:43 -0800 (PST)
+Date: Wed, 12 Feb 2025 08:54:39 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Ian Rogers <irogers@google.com>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Graham Woodward <graham.woodward@arm.com>
+Subject: Re: [PATCH v1 00/11] perf script: Refactor branch flags for Arm SPE
+Message-ID: <20250212085439.GA235556@e132581.arm.com>
+References: <20250205121555.180606-1-leo.yan@arm.com>
+ <CAP-5=fUH6X2F5S5eH+iU+-hT0vNvMKPTqbGt=E9W06sG=MzxEg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/VFMFU2XxV.3onaK0LW06GAk";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAP-5=fUH6X2F5S5eH+iU+-hT0vNvMKPTqbGt=E9W06sG=MzxEg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_005237_028744_16B59DD3 
-X-CRM114-Status: GOOD (  25.12  )
+X-CRM114-CacheID: sfid-20250212_005447_673261_F7FBA3C1 
+X-CRM114-Status: GOOD (  19.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,90 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/VFMFU2XxV.3onaK0LW06GAk
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+Hi Ian,
 
-Dear Community,
+On Tue, Feb 11, 2025 at 02:34:46PM -0800, Ian Rogers wrote:
+> On Wed, Feb 5, 2025 at 4:16 AM Leo Yan <leo.yan@arm.com> wrote:
+> >
+> > This patch series refactors branch flags for support Arm SPE.  The patch
+> > set is divided into two parts, the first part is for refactoring common
+> > code and the second part is for enabling Arm SPE.
 
-> Hi Shawn,
->=20
-> > On Tue, Nov 19, 2024 at 04:52:36PM +0100, Lukasz Majewski wrote: =20
-> > > Dear Community,
-> > >    =20
-> > > > The btt3 device' HW revisions from 0 to 2 use imx287 SoC and are
-> > > > to some extend similar to already upstreamed XEA devices, hence
-> > > > are using common imx28-lwe.dtsi file.
-> > > >=20
-> > > > New, imx28-btt3.dtsi has been added to embrace common DTS
-> > > > properties for different HW revisions for this device.
-> > > >=20
-> > > > As a result - changes introduced in imx28-btt3-[012].dts are
-> > > > minimal.
-> > > >    =20
-> > >=20
-> > > Are there any more comments / suggestions for this patch set?   =20
-> >=20
-> > Patch #2 and #3 look good to me.  That said, I'm waiting #1 to be
-> > applied first.
-> >  =20
->=20
-> Patch #1 has just been applied by Rob :-)
->=20
-> Could you apply #2 and #3 then?
->=20
+[...]
+> 
+> Reviewed-by: Ian Rogers <irogers@google.com>
+> 
+> Built and tested (on x86). A little strange patch 5 adds a new bit not
+> at the end, but "Sample parsing" test wasn't broken so looks like it
+> is good. I was surprised the use of value in the union:
+> ```
+> struct branch_flags {
+> union {
+> u64 value;
+> struct {
+> u64 mispred:1;
+> u64 predicted:1;
+> ...
+> ```
+> didn't get broken. Perhaps there's an opportunity for additional tests.
 
-Can anybody pull those DTS changes?
+If the branch stack's flag sticks to a hardware format, then the patch 5
+is concerned.  My understanding is the branch flag is a synthesized
+value (see intel_pt_lbr_flags() for x86).  So it is fine for rearrange
+the bit layout.
 
-Thanks in advance.
+The "Sample parsing" test is for big/little endian test, it does not
+test for specific bit ordering, this is why the test passes.
 
-> Thanks in advance.
->=20
-> > Shawn
-> >  =20
->=20
->=20
->=20
->=20
-> Best regards,
->=20
-> Lukasz Majewski
->=20
-> --
->=20
-> DENX Software Engineering GmbH,      Managing Director: Erika Unter
-> HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-> Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email:
-> lukma@denx.de
+If you think it is safer to move the new added bit at the tail of the
+bit definitions (just before the 'reserved' field), I can send a new
+version for this.  Please let me know your preference.
 
+Thanks for review and test!
 
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/VFMFU2XxV.3onaK0LW06GAk
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmesYUoACgkQAR8vZIA0
-zr2XFAf+P9Nhc1UqqZv502pM9by1vXiZIEPVm2lPBXAPQca5fKVy1u/ftLNXfFis
-w9dGzKFNVAqNc736vwTqO/X81nA7KhA5y/uR/qwDCMfJfeT0wNZTKqwzsaUelNZ1
-JSQJgrZVWgNlARw8ezu9E2URHi1KZk/PZ1+b0gnvRtE1K8HXCKi6zzNQrpvrDjXw
-j6AGUunaBXbIcigV9Yr3PQZbjsL53kO0UeVQsksKKnuYgvz20U6hr0KPPIcfOevC
-aCLjybN4gIY4FCGa2dh3WUNHq9o4QyQhVyPArgS744F51uS2yLusDUHZgxDZHVc8
-eYPW6Yq+TKKFTaNqB3sSnPIbp2/8/Q==
-=u75r
------END PGP SIGNATURE-----
-
---Sig_/VFMFU2XxV.3onaK0LW06GAk--
+Leo
 
