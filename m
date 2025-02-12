@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54868C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 22:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75680C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 22:34:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=adA61KlZ7NgJ00d9AP44x5Drt9hRKTZfXpJfv6UN5KI=; b=PUDGNNycpcjsKAT7XL85pv+7SK
-	M3D5Zikhbe+x/jX1pjKyaWXIL9xknSE4Oi9tgYHjYNiZWxO0o+W6QVuvfZ0vEHqDZRs3rjehqaI4/
-	HGpqt/5Z1O3h5+y2bE49sGvM0R7zGLcFsQo5Izdq/EhlKAK8LEUEtzakIHh5LtECD8sOBLJWZnqW4
-	4edKaaqV6tFZ5qGKIEACGQQIep6WIfcImeYsBPa7JP98M2AGeE4qHIEYi2kcB+qou+vgbLXCX+FBy
-	huZgETTtIn/UnkDah6nkHTTObqnxyrdvaqIR/QXvMuafFel2rMO33Lzh9FE79RCbyk+0QrHf/ThVB
-	DQSQgy5w==;
+	bh=fUr0H+SXHQT1lUc7jxH0wWFj1nSXfhC6q3UwDoztgd4=; b=ZSIJE/Kfyry6bClhHw2O6/FuN3
+	IoVS7qolkiQDCW0IBIKOVP4W1OAJVtPgEh1Gi7A9x2KfhDWcx2NSz77FgTbVbkYc5go41SytNMUDP
+	fqT7RMXQo8RmsI9kAZGEQdT+HssRqAaRPqYADHqm28ZDnMMkaolBtNtzicAnrP0wcS6uzU6DWmKg5
+	lFE7HEcNBM3AqgX+bbgayJVvDIbRjgHAuk8l2D6xi5WkEp5PGVRCV1KBcSKsEDQ0Y/WT8NzB/l3xB
+	R4xsct2wR2O5Ovask2C/fMeE4yebFypqr9OzO1vHvSLmM9jehI2cy0nv0xGp6BIDkH99OQVajQbOs
+	hYHlnrYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiLHm-000000093Ne-2Tld;
-	Wed, 12 Feb 2025 22:32:50 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1tiLJB-000000093fZ-3dSR;
+	Wed, 12 Feb 2025 22:34:17 +0000
+Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiLGL-0000000931U-0QVa;
-	Wed, 12 Feb 2025 22:31:22 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-7be8f281714so21219185a.1;
-        Wed, 12 Feb 2025 14:31:20 -0800 (PST)
+	id 1tiLHB-000000093Es-1xau;
+	Wed, 12 Feb 2025 22:32:14 +0000
+Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-471a25753a4so1834031cf.0;
+        Wed, 12 Feb 2025 14:32:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739399479; x=1740004279; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739399532; x=1740004332; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=adA61KlZ7NgJ00d9AP44x5Drt9hRKTZfXpJfv6UN5KI=;
-        b=WzxP01jMwmKe//khU7STiaL9FE19CLIHxEL/uKyqyeFJutoWkZm3J06IFPr+PGX2G0
-         RY5DclEjTpXu/fhwO5hOVcpk3ELTS/bFJPIVJugl0H2LZgdL26p60Ec1EQW9rD1PQ9LX
-         aFtep5aiI+Q1AeETUjlAeLT01hPNAvZy5MzA5/h1xXURYrnRSnVBaz7dJfWNzcd3ZvtY
-         tbJ58WAu9FBggG42c0gzlZe4HPMpZ++k5jVOy9kLQ9gCq2GWpaAkXjjyKf3RGTDSjqhC
-         LxR81vybJlm6NkyfCUJnahvtnU5qREyc2hwIWwK+rubyjenZ8PvGyulA2q1G1yxzEUfG
-         TYzw==
+        bh=fUr0H+SXHQT1lUc7jxH0wWFj1nSXfhC6q3UwDoztgd4=;
+        b=IX4wwuOQV7o9DU0gDV46N0YzP6GSZzljK33LD2KsIidY8fEfFKM4+UneQq4zZWMsGq
+         XOL/WmrnxPAcgeCYxF3pf8ZLebjc1AovJLrAUfT+I0wiEbG6rDDeg5sqAIl3BN3Jx1JO
+         lpsT/9FcPFp3DaQnn/NhkHZrJNeLatTayw2B8p+8DAile8nOPfpL/RSpo2NXhoEm0+mW
+         i5yWFvh3gWOu4f3eQ810AcyYO6ViK5f228+ZJq+0JcBsMh0sh+tLyiJLxCoF3uyC8bAH
+         5KaXX0V8+XY6EElwO3cdwM4ybuJoRUnYvfFYl6pnWEMxigPamnS6vRDR59vOw8q6pj/9
+         UKfQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739399479; x=1740004279;
+        d=1e100.net; s=20230601; t=1739399532; x=1740004332;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=adA61KlZ7NgJ00d9AP44x5Drt9hRKTZfXpJfv6UN5KI=;
-        b=FwWvb5UjchDBIZfXYNK3thSC3NZSUFhWF/JtQqd2b9al3tp+I9ellaJRyIBzjdPOwl
-         GWVBlNyyISF/cAO5JFOHdXGntZVI86tLE8HQlU03LAJ8XkrR7sreoJAzGcXAXy0rtYjx
-         veFD+Xn+qAIZD201yso60WOsr5X/XyYvafWYhhDPPyOPA6sKajhzcUhEIGT8ttttTaRf
-         8LCjFtO+BnOOAwpghxX8elohXy+gupgZPiCvGoHPuzmQV2cXk+dSwVwsuoP5CiEqb6Oh
-         O2R/a+sUEYj7LUCQ1leSHz2vPwLq7kF03MQ/j+8yOGpQvuzpRIgle4gSJdwZE6G6u1gJ
-         oPMw==
-X-Forwarded-Encrypted: i=1; AJvYcCWgSjcYHjcS3gQ3hIxMxLN0l8WfE0TXrMkFOLB1UtDiFGfETSrSsc4Kra12mzJRMKrk6i8HiyMs3lcz8xZv+U8u@lists.infradead.org, AJvYcCXo15BKmlTB2BBnD/xb+HTLkuMrsFoNryOU4ll+6Et/bN9vy0ixdoLpTUS+rsRq/3bxp65zy5xQ0z+S4wY=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRPdMED3i15nu4JOjsknzOBSXd2IQ+CmLf3LJPQHBCqcpTxWkM
-	vV2tORO38KBNm/7psKJrXq/q/UcoNvQsax4kTITn965wjTcqms1u
-X-Gm-Gg: ASbGncumNy5LpNZkMfALzoP/XU8E+ukVRp+pJJ7nn8y0DV43wShEXdyHtd/UH6Kj3J6
-	XtcxAM95X6Rv06ZwaXZLBj9AEDqCMsa0f48Mh/2CPju5reZsowZSCJVzXMflEOYtf/10ksPEs9N
-	JXxzORt34J65O3sE3w9bdoJlRKOSCZyf13O/CBQrh9BQn7NC/qPejm/G4gbbEB74VrVL5psrS+6
-	FplnJGNMzqxs5yM7yPFCPc/G4AkgSzf5756B0lQHwtTLQP2a8QTNk/rGnbF1lQI7Ks=
-X-Google-Smtp-Source: AGHT+IG/jqO7Gs3aNEJD2jlxWGUNxNPhJfXHJaQNAvosjjzRMKiNe50EuVFrHjd49yXn9DToPQh2SQ==
-X-Received: by 2002:a05:620a:269c:b0:7c0:6c5b:d6e5 with SMTP id af79cd13be357-7c07a1ead00mr229402985a.54.1739399479479;
-        Wed, 12 Feb 2025 14:31:19 -0800 (PST)
+        bh=fUr0H+SXHQT1lUc7jxH0wWFj1nSXfhC6q3UwDoztgd4=;
+        b=Hn0s1FM4mhp0wnwpsEqWFdP1CjX3Fx59kgp53vi/d4GuQrEiI7flUOk4CvhF7Ca/qe
+         gsU1LxfgDnhJRNy9wUgojWHAjm1mfkxiFBOFZQ4NhZLOyLHQ2yBVmTbKTdRL6U24iLpp
+         WvzFFX3kS2uI3+MnyuOlmKuGyIFfcCdlj0e06HljfFfJo/AnPEZluDz9eE5mz/CwZlGs
+         8v9Cfab7UbVv5zVADb/VbgrUX5RaNO+ZKj9i4Xs20ivVx9goOK2uCM88bPd9VFbMMU69
+         H9Xlwlr3Nvhc9xgnO3m+4CUEQcZl40Ius2RDyxR9p9skQqj5KQoqjCfwgxLNgxt+z4hn
+         fN9w==
+X-Forwarded-Encrypted: i=1; AJvYcCW2SuRVkRw7AtOoeioPDPdNrPwf0oXZbC153Erln/grfFuRAmV5aICtD8ubyDZVYtuwSqTvuCiJw7hPx5c=@lists.infradead.org, AJvYcCXb1FTTAw4X8PnoV/YiKhGWIUiLqj9fxYDVPA4w3j+rfpGwcJQ68xE5OirZr+DnouDMLhhzeQ86eDnJJgu4fEJn@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywn8rDOhUGgssn2M74S1fmthFDkCqsxAROuXWmhYieabIzYifH6
+	XfOiSrjkWDzbKYV35Ucc3zRnMAP6ZvvsnNvMQFXoOog/DDCIAkw6
+X-Gm-Gg: ASbGncu5E66nJfCzwHbR6hfdl+BbOSikv+b52ZRdoWWPF9YO602PV7nnhbqdF9geDws
+	X9XQTtqAgZ99coR8+kMjw4gTSIrn0Qc/B1btRAtWNmWXj1ieC6jXthSwizLxiCOLavqv5FQMEIt
+	7qgDYdtlNSOIXE/sPy2ae/qq4FBOkol/A2JNu5E7utbR1qHbdlHvXRICoqavoIM9xfMlotH/h16
+	UQKmR7f3oxnQ9kHzwJ/rzW0mvf8/dpIiF6TS/3aCYRiLsEGLXBhpQR89e70L/EFs3w=
+X-Google-Smtp-Source: AGHT+IEPcrCiGeOkqafPaVURwJp7Qb4Yt0GHFujetg+DodT2FOsPmQ0dYyGcpQXhkKAJADav8FffYQ==
+X-Received: by 2002:ac8:5f0a:0:b0:46e:59a3:6db7 with SMTP id d75a77b69052e-471b06361f4mr79988591cf.23.1739399532151;
+        Wed, 12 Feb 2025 14:32:12 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c07518e80fsm127058185a.26.2025.02.12.14.31.18
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-47153beb4c1sm80549901cf.70.2025.02.12.14.32.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 14:31:19 -0800 (PST)
-Date: Thu, 13 Feb 2025 06:31:11 +0800
+        Wed, 12 Feb 2025 14:32:11 -0800 (PST)
+Date: Thu, 13 Feb 2025 06:32:03 +0800
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Inochi Amaoto <inochiama@gmail.com>, soc@lists.linux.dev
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>, Inochi Amaoto <inochiama@gmail.com>, soc@lists.linux.dev
 Cc: Chen Wang <unicorn_wang@outlook.com>, 
 	Inochi Amaoto <inochiama@outlook.com>, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
 	Haylen Chu <heylenay@outlook.com>, linux-arm-kernel@lists.infradead.org, 
@@ -79,21 +79,22 @@ Cc: Chen Wang <unicorn_wang@outlook.com>,
 	Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>
 Subject: Re: [PATCH v2 1/7] riscv: dts: sophgo: cv18xx: Move RiscV-specific
  part into SoCs' .dtsi files
-Message-ID: <p5aolstlrxnhb7wk45eukthlwiui337fssbum4lrpflvui773i@beif6axz66jx>
+Message-ID: <dupbhhptamznuxhak5rysoa77vhejzkiqhbvxj6lh2ryqsnyls@gpax4lgxlhl7>
 References: <20250210220951.1248533-1-alexander.sverdlin@gmail.com>
  <20250210220951.1248533-2-alexander.sverdlin@gmail.com>
  <uvy62iqzul6kajzsmiaovdzogftcsc5b53cswkv4cbxh4w6som@32libbd7kffq>
  <708cdc497b8474609989395dbf8a0898037a22de.camel@gmail.com>
  <33654180-5488-4601-9103-8e4218c4a198@kernel.org>
  <26ddcdaadd777f170dbab51ab840c899f0edde24.camel@gmail.com>
+ <a01de9d5-726c-4064-9617-86e01aa7e75c@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <26ddcdaadd777f170dbab51ab840c899f0edde24.camel@gmail.com>
+In-Reply-To: <a01de9d5-726c-4064-9617-86e01aa7e75c@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_143121_142788_881F1F08 
-X-CRM114-Status: GOOD (  31.85  )
+X-CRM114-CacheID: sfid-20250212_143213_508393_A9B9B31F 
+X-CRM114-Status: GOOD (  29.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,178 +109,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 06:44:15PM +0100, Alexander Sverdlin wrote:
-> Hi 
-> 
-> On Wed, 2025-02-12 at 17:46 +0100, Krzysztof Kozlowski wrote:
-> > > > > Make the peripheral device tree re-usable on ARM64 platform by moving CPU
-> > > > > core and interrupt controllers' parts into the respective per-SoC .dtsi
-> > > > > files.
-> > > > > 
-> > > > > Add SOC_PERIPHERAL_IRQ() macro which explicitly maps peripheral nubering
-> > > > > into "plic" interrupt-controller numbering.
-> > > > > 
-> > > > > Have a nice refactoring side-effect that "plic" and "clint" "compatible"
-> > > > > property is not specified outside of the corresponding device itself.
-> > > > > 
-> > > > > Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> > > > > ---
-> > > > > Changelog:
-> > > > > v2:
-> > > > > - instead of carving out peripherals' part, carve out ARCH-specifics (CPU
-> > > > > core, interrupt controllers) and spread them among 3 SoC .dtsi files which
-> > > > > included cv18xx.dtsi;
-> > > > > - define a label for the "soc" node and use it in the newly introduced DTs;
-> > > > > 
-> > > > >  arch/riscv/boot/dts/sophgo/cv1800b.dtsi    | 64 ++++++++++++---
-> > > > >  arch/riscv/boot/dts/sophgo/cv1812h.dtsi    | 64 ++++++++++++---
-> > > > >  arch/riscv/boot/dts/sophgo/cv181x.dtsi     |  2 +-
-> > > > >  arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi | 57 ++++++++++++++
-> > > > >  arch/riscv/boot/dts/sophgo/cv18xx.dtsi     | 91 ++++++----------------
-> > > > >  arch/riscv/boot/dts/sophgo/sg2002.dtsi     | 64 ++++++++++++---
-> > > > >  6 files changed, 240 insertions(+), 102 deletions(-)
-> > > > >  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
-> > > > > 
-> > > > > diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > > > > index aa1f5df100f0..eef2884b36f9 100644
-> > > > > --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > > > > +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
-> > > > > @@ -3,6 +3,8 @@
-> > > > >   * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
-> > > > >   */
-> > > > >  
-> > > > > +#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
-> > > > > +
-> > > > >  #include <dt-bindings/pinctrl/pinctrl-cv1800b.h>
-> > > > >  #include "cv18xx.dtsi"
-> > > > >  
-> > > > > @@ -14,22 +16,62 @@ memory@80000000 {
-> > > > >  		reg = <0x80000000 0x4000000>;
-> > > > >  	};
-> > > > >  
-> > > > 
-> > > > > -	soc {
-> > > > > -		pinctrl: pinctrl@3001000 {
-> > > > > -			compatible = "sophgo,cv1800b-pinctrl";
-> > > > > -			reg = <0x03001000 0x1000>,
-> > > > > -			      <0x05027000 0x1000>;
-> > > > > -			reg-names = "sys", "rtc";
-> > > > 
-> > > > 
-> > > > > +	cpus: cpus {
-> > > > > +		#address-cells = <1>;
-> > > > > +		#size-cells = <0>;
-> > > > > +		timebase-frequency = <25000000>;
-> > > > > +
-> > > > > +		cpu0: cpu@0 {
-> > > > > +			compatible = "thead,c906", "riscv";
-> > > > > +			device_type = "cpu";
-> > > > > +			reg = <0>;
-> > > > > +			d-cache-block-size = <64>;
-> > > > > +			d-cache-sets = <512>;
-> > > > > +			d-cache-size = <65536>;
-> > > > > +			i-cache-block-size = <64>;
-> > > > > +			i-cache-sets = <128>;
-> > > > > +			i-cache-size = <32768>;
-> > > > > +			mmu-type = "riscv,sv39";
-> > > > > +			riscv,isa = "rv64imafdc";
-> > > > > +			riscv,isa-base = "rv64i";
-> > > > > +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
-> > > > > +					       "zifencei", "zihpm";
-> > > > > +
-> > > > > +			cpu0_intc: interrupt-controller {
-> > > > > +				compatible = "riscv,cpu-intc";
-> > > > > +				interrupt-controller;
-> > > > > +				#interrupt-cells = <1>;
-> > > > > +			};
-> > > > >  		};
-> > > > >  	};
-> > > > >  };
-> > > > 
-> > > > Make all soc definition include the common cpu file. 
-> > > > Not just copy it.
-> > > 
-> > > I was acting according to Krzysztof's suggestion:
-> > > https://lore.kernel.org/soc/d3ba0ea5-0491-42d5-a18e-64cf21df696c@kernel.org/
-> > > 
-> > > Krzysztof, I can name the file cv18xx-cpu-intc.dtsi and pack CPU core + interrupt
-> > > controllers into it. Would it make sense?
+On Wed, Feb 12, 2025 at 08:24:55PM +0100, Krzysztof Kozlowski wrote:
+> On 12/02/2025 18:44, Alexander Sverdlin wrote:
+> > Hi 
 > > 
+> > On Wed, 2025-02-12 at 17:46 +0100, Krzysztof Kozlowski wrote:
+> >>>>> Make the peripheral device tree re-usable on ARM64 platform by moving CPU
+> >>>>> core and interrupt controllers' parts into the respective per-SoC .dtsi
+> >>>>> files.
+> >>>>>
+> >>>>> Add SOC_PERIPHERAL_IRQ() macro which explicitly maps peripheral nubering
+> >>>>> into "plic" interrupt-controller numbering.
+> >>>>>
+> >>>>> Have a nice refactoring side-effect that "plic" and "clint" "compatible"
+> >>>>> property is not specified outside of the corresponding device itself.
+> >>>>>
+> >>>>> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> >>>>> ---
+> >>>>> Changelog:
+> >>>>> v2:
+> >>>>> - instead of carving out peripherals' part, carve out ARCH-specifics (CPU
+> >>>>> core, interrupt controllers) and spread them among 3 SoC .dtsi files which
+> >>>>> included cv18xx.dtsi;
+> >>>>> - define a label for the "soc" node and use it in the newly introduced DTs;
+> >>>>>
+> >>>>>  arch/riscv/boot/dts/sophgo/cv1800b.dtsi    | 64 ++++++++++++---
+> >>>>>  arch/riscv/boot/dts/sophgo/cv1812h.dtsi    | 64 ++++++++++++---
+> >>>>>  arch/riscv/boot/dts/sophgo/cv181x.dtsi     |  2 +-
+> >>>>>  arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi | 57 ++++++++++++++
+> >>>>>  arch/riscv/boot/dts/sophgo/cv18xx.dtsi     | 91 ++++++----------------
+> >>>>>  arch/riscv/boot/dts/sophgo/sg2002.dtsi     | 64 ++++++++++++---
+> >>>>>  6 files changed, 240 insertions(+), 102 deletions(-)
+> >>>>>  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu.dtsi
+> >>>>>
+> >>>>> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> >>>>> index aa1f5df100f0..eef2884b36f9 100644
+> >>>>> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> >>>>> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> >>>>> @@ -3,6 +3,8 @@
+> >>>>>   * Copyright (C) 2023 Jisheng Zhang <jszhang@kernel.org>
+> >>>>>   */
+> >>>>>  
+> >>>>> +#define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
+> >>>>> +
+> >>>>>  #include <dt-bindings/pinctrl/pinctrl-cv1800b.h>
+> >>>>>  #include "cv18xx.dtsi"
+> >>>>>  
+> >>>>> @@ -14,22 +16,62 @@ memory@80000000 {
+> >>>>>  		reg = <0x80000000 0x4000000>;
+> >>>>>  	};
+> >>>>>  
+> >>>>
+> >>>>> -	soc {
+> >>>>> -		pinctrl: pinctrl@3001000 {
+> >>>>> -			compatible = "sophgo,cv1800b-pinctrl";
+> >>>>> -			reg = <0x03001000 0x1000>,
+> >>>>> -			      <0x05027000 0x1000>;
+> >>>>> -			reg-names = "sys", "rtc";
+> >>>>
+> >>>>
+> >>>>> +	cpus: cpus {
+> >>>>> +		#address-cells = <1>;
+> >>>>> +		#size-cells = <0>;
+> >>>>> +		timebase-frequency = <25000000>;
+> >>>>> +
+> >>>>> +		cpu0: cpu@0 {
+> >>>>> +			compatible = "thead,c906", "riscv";
+> >>>>> +			device_type = "cpu";
+> >>>>> +			reg = <0>;
+> >>>>> +			d-cache-block-size = <64>;
+> >>>>> +			d-cache-sets = <512>;
+> >>>>> +			d-cache-size = <65536>;
+> >>>>> +			i-cache-block-size = <64>;
+> >>>>> +			i-cache-sets = <128>;
+> >>>>> +			i-cache-size = <32768>;
+> >>>>> +			mmu-type = "riscv,sv39";
+> >>>>> +			riscv,isa = "rv64imafdc";
+> >>>>> +			riscv,isa-base = "rv64i";
+> >>>>> +			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+> >>>>> +					       "zifencei", "zihpm";
+> >>>>> +
+> >>>>> +			cpu0_intc: interrupt-controller {
+> >>>>> +				compatible = "riscv,cpu-intc";
+> >>>>> +				interrupt-controller;
+> >>>>> +				#interrupt-cells = <1>;
+> >>>>> +			};
+> >>>>>  		};
+> >>>>>  	};
+> >>>>>  };
+> >>>>
+> >>>> Make all soc definition include the common cpu file. 
+> >>>> Not just copy it.
+> >>>
+> >>> I was acting according to Krzysztof's suggestion:
+> >>> https://lore.kernel.org/soc/d3ba0ea5-0491-42d5-a18e-64cf21df696c@kernel.org/
+> >>>
+> >>> Krzysztof, I can name the file cv18xx-cpu-intc.dtsi and pack CPU core + interrupt
+> >>> controllers into it. Would it make sense?
+> >>
+> >>
+> >> I don't understand the original suggestion.
 > > 
-> > I don't understand the original suggestion.
+> > This is the snippet in question:
+> > 
+> > ---[ cut ]---
+> > #define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
+> > 
+> > / {
+> > 	cpus: cpus {
+> > 		#address-cells = <1>;
+> > 		#size-cells = <0>;
+> > 		timebase-frequency = <25000000>;
+> > 
+> > 		cpu0: cpu@0 {
+> > 			compatible = "thead,c906", "riscv";
+> > 			device_type = "cpu";
+> > 			reg = <0>;
+> > 			d-cache-block-size = <64>;
+> > 			d-cache-sets = <512>;
+> > 			d-cache-size = <65536>;
+> > 			i-cache-block-size = <64>;
+> > 			i-cache-sets = <128>;
+> > 			i-cache-size = <32768>;
+> > 			mmu-type = "riscv,sv39";
+> > 			riscv,isa = "rv64imafdc";
+> > 			riscv,isa-base = "rv64i";
+> > 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
+> > 					       "zifencei", "zihpm";
+> > 
+> > 			cpu0_intc: interrupt-controller {
+> > 				compatible = "riscv,cpu-intc";
+> > 				interrupt-controller;
+> > 				#interrupt-cells = <1>;
+> > 			};
+> > 		};
+> > 	};
+> > };
+> > 
+> > &soc {
+> > 	interrupt-parent = <&plic>;
+> > 	dma-noncoherent;
+> > 
+> > 	plic: interrupt-controller@70000000 {
+> > 		reg = <0x70000000 0x4000000>;
+> > 		interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
+> > 		interrupt-controller;
+> > 		#address-cells = <0>;
+> > 		#interrupt-cells = <2>;
+> > 		riscv,ndev = <101>;
+> > 	};
+> > 
+> > 	clint: timer@74000000 {
+> > 		reg = <0x74000000 0x10000>;
+> > 		interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
+> > 	};
+> > };
+> > ---[ cut ]---
+> > 
+> > Inochi's proposal is to put it into separate cv18xx-cpu-intc.dtsi and
+> > include the latter in 3 other SoC-specific .dtsis. In v2 I've just
+> > duplicated the above snippet 3 times (refer to diffstat above).
+> > 
+> > What are your thoughts? In Renesas everything is duplicated, I believe.
+> > Sophgo outsources much smaller snippets into .dtsi (refer to cv181x.dtsi). 
 > 
-> This is the snippet in question:
-> 
-> ---[ cut ]---
-> #define SOC_PERIPHERAL_IRQ(nr)	((nr) + 16)
-> 
-> / {
-> 	cpus: cpus {
-> 		#address-cells = <1>;
-> 		#size-cells = <0>;
-> 		timebase-frequency = <25000000>;
-> 
-> 		cpu0: cpu@0 {
-> 			compatible = "thead,c906", "riscv";
-> 			device_type = "cpu";
-> 			reg = <0>;
-> 			d-cache-block-size = <64>;
-> 			d-cache-sets = <512>;
-> 			d-cache-size = <65536>;
-> 			i-cache-block-size = <64>;
-> 			i-cache-sets = <128>;
-> 			i-cache-size = <32768>;
-> 			mmu-type = "riscv,sv39";
-> 			riscv,isa = "rv64imafdc";
-> 			riscv,isa-base = "rv64i";
-> 			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "zicntr", "zicsr",
-> 					       "zifencei", "zihpm";
-> 
-> 			cpu0_intc: interrupt-controller {
-> 				compatible = "riscv,cpu-intc";
-> 				interrupt-controller;
-> 				#interrupt-cells = <1>;
-> 			};
-> 		};
-> 	};
-> };
-> 
-> &soc {
-> 	interrupt-parent = <&plic>;
-> 	dma-noncoherent;
-> 
-> 	plic: interrupt-controller@70000000 {
-> 		reg = <0x70000000 0x4000000>;
-> 		interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
-> 		interrupt-controller;
-> 		#address-cells = <0>;
-> 		#interrupt-cells = <2>;
-> 		riscv,ndev = <101>;
-> 	};
-> 
-> 	clint: timer@74000000 {
-> 		reg = <0x74000000 0x10000>;
-> 		interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
-> 	};
-> };
-> ---[ cut ]---
-> 
-> Inochi's proposal is to put it into separate cv18xx-cpu-intc.dtsi and
-> include the latter in 3 other SoC-specific .dtsis. 
+> If it represents some shared design/part, then it feels good.
+> Best regards,
+> Krzysztof
 
-Yes, this is what I want to say. Since I can confirm all cv18xx
-series have the same riscv core (IIRC they share the same hw
-design). There is no reason to duplicate them.
+Yes, it does share the same design.
 
-> In v2 I've just
-> duplicated the above snippet 3 times (refer to diffstat above).
-> 
-> What are your thoughts? In Renesas everything is duplicated, I believe.
-> Sophgo outsources much smaller snippets into .dtsi (refer to cv181x.dtsi). 
-> 
-> > Inochi, please trim unnecessary context from replies.
-> 
-> -- 
-> Alexander Sverdlin.
-> 
+Regards,
+Inochi
 
