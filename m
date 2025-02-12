@@ -4,58 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB9DC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 20:46:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79ABAC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 20:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xiI9B7Y8MdC0n2L6tZi72ErfuRL31CrTKNq9O2TnDAE=; b=g5DgajFvqhT/ag6RCBLMV3b9Wo
-	AfRlITeDELFmyXFrvbelJq6TwLUrG5sKFunC0QQE507qP2spvGXhHgiT68EVzmN/CU6R8+NzBXwbL
-	U3iZNm9HvG5xBphZn/laVdcPmNGK0x0VDXWE6BNCgVV6sIbgEWKQb3cejz0i10BbDv9m20f1IGN6Z
-	pdEqDSgKuDXn937jDBnrMn1J7SogD3cis4X/ahIuivB3by1LiyYTgqYWtqC0PZmvAbtficLEKxrm8
-	d/Gwdabg/5S70MCi8PIkfjwoCwCXgIhICic2EnZbCT7yGDqB933+9fUisxlBxZXRXJ4WBToelBEJp
-	wRQxiEpA==;
+	bh=RO9EmAm7TjZc1I2ZrbReL4sjnLl8jMCF3Lwad6Kxvmw=; b=muWJFwHHngzxbgyyC/nDdcCaGo
+	5HzUQsZWcPqvjJAqvQzBxMF50Hmf2ki0TdD9Z26MfBPwVbD6o5aOhiqliQ1jSmGPERh21TevklIRe
+	m1cbFlC7+q8MweucDQGseFqtQ4GzZPP46id9Z3by0AxLCOtBwmn3lYJT3rWpuYjjnrD8iDULsST7t
+	IH687q6u3yrUe9X5ny3sEQlGGL2TD4DuLzHxOqOu0T8JreMheqjVubwYGKdY/xZdMyic7DF+pmcoz
+	5P34Tc0eFhWLDhExzN6zkZgcpbcC7Cx14XF21wCH6Yb+bmtWFJdwTLeALTpatSBCKY+TpAY83N6bv
+	7KsFQogg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiJco-00000008oge-2BfU;
-	Wed, 12 Feb 2025 20:46:26 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tiJeD-00000008oth-0bNO;
+	Wed, 12 Feb 2025 20:47:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiJaL-00000008oKL-2Nfm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 20:43:54 +0000
+	id 1tiJbd-00000008oTf-0hlO;
+	Wed, 12 Feb 2025 20:45:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4F59CA41AAB;
-	Wed, 12 Feb 2025 20:42:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44FD9C4CEDF;
-	Wed, 12 Feb 2025 20:43:47 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D9F6B5C4D9D;
+	Wed, 12 Feb 2025 20:44:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF429C4CEDF;
+	Wed, 12 Feb 2025 20:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739393032;
-	bh=2Z2SgbECzYCEjtHn8nblF4n270WAOrT6/8nalVEvK1o=;
+	s=k20201202; t=1739393112;
+	bh=ULS4WM6akbdtKPR1XFa2DciZVne9eSIkg/0RKmDwN6E=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=GmGG0t/C/TeZc/1f4Fc9SnxnvzjfRQfclnWpNa4eB69lbSGfgdyglM9wuTCiwN1es
-	 iR7uXrrWXPawpds3vUFUlazbZ1DwyDfwsNwdXV+4ghUY7/CG9rnjU2BxNg+XYv4s74
-	 dyhkXvUOGlqy0PYCFmUn2eereM7Iac1GEL8SD0xCt6h+gFU7TitBRtIBDK+8tuFxel
-	 Yn+9H4nEKXTKIZyWI7jRzs8KD+8oFMVWrH09ldvAT+Sju/dulwcSgbqg/qcdD1/bve
-	 9/uLlB88Tb65eMpeIrrVT0PykRQMMgqODqIgstLieQeh4Ou463DMyhW0ZYe9l0QTkJ
-	 wto6WCCFfJGrw==
-Message-ID: <643d8b81-d551-4263-9443-089c157d2c8d@kernel.org>
-Date: Wed, 12 Feb 2025 21:43:46 +0100
+	b=Y5J3LMxm+TCqZEs6u14CX7pYwT+wMdZd/qZKbq2/luCo6jb708i6Sef3fr2z2I3hy
+	 OCjvLv2ssbcscE2F1horf8n7RwV+mG9DdEK6y5MlyHGkcnnDGp5qEWRSYz1gLxuoPY
+	 IWYvOEws4q9JIz1HF78buotIJ9ws9MofjKgm+O4Qrn/JZ40jI/GIF2T5exGZB0xpIQ
+	 Hr5RaqQKIWOfiUdmoVLj7ZB+ncv1wxhSaUapkUd2c934486RD3j0VysBc4CGxPC1hI
+	 D5zf5XqpEVDX93XYTpQMdAUF+D2qj2dS4HhXh+Ypfqqdn2Y4VPSHWYFdakSlcKbkS6
+	 68yFYdkP7NQVQ==
+Message-ID: <0e49a1cf-c28d-4643-88be-b9cb855fb234@kernel.org>
+Date: Wed, 12 Feb 2025 21:45:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: nxp: vf: Align GPIO hog name with bindings
+Subject: Re: [PATCH] arm64: dts: mediatek: mt7622: Align GPIO hog name with
+ bindings
 To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Stefan Agner <stefan@agner.ch>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Tony Lindgren <tony@atomide.com>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org
-References: <20250115211659.194072-1-krzysztof.kozlowski@linaro.org>
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250115211801.194247-1-krzysztof.kozlowski@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250115211659.194072-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250115211801.194247-1-krzysztof.kozlowski@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_124353_739443_F09F42C9 
-X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-CacheID: sfid-20250212_124513_325091_0CE2ECCB 
+X-CRM114-Status: UNSURE (   9.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,16 +121,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/01/2025 22:16, Krzysztof Kozlowski wrote:
+On 15/01/2025 22:18, Krzysztof Kozlowski wrote:
 > Bindings expect GPIO hog names to end with 'hog' suffix, so correct it
 > to fix dtbs_check warning:
 > 
->   vf610-zii-dev-rev-c.dtb: eth0_intrp: $nodename:0: 'eth0_intrp' does not match '^.+-hog(-[0-9]+)?$'
+>   mt7622-bananapi-bpi-r64.dtb: asm_sel: $nodename:0: 'asm_sel' does not match '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$'
 > 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > ---
+>  arch/arm64/boot/dts/mediatek/mt7622-bananapi-bpi-r64.dts | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Any comments on the patch? Shawn, can you apply it?
+
+
+Any comments on the patch?
+
 
 Best regards,
 Krzysztof
