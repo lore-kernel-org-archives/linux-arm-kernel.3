@@ -4,88 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E57BC021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90DC2C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l1K7nMbUzi/PBxssXxktE8rcuXI/mW+uKt+5ZI9cf20=; b=tMIfeTYGX0Rx9hzQf1I+Tr+AbK
-	aKvgbfJR5nQp7KXzXtNplDDLt/pj6DukoHmnqd+3F2uraqC1GKm9Mn4HQ9/v3tVtBgqMHhKaHKsBt
-	cM3JWdUf7f23BVTmUKCUiNIOGhyT4AHpt6CZ0g9Uxb3bc/81/Arbnj8kOb4VYsHSDk9w4U2IX3+kk
-	GrxaX2QRTJXYnidE0F+/HojKNcf+l4mbPVw6PzzqDpRh28VaHQewYyplnHSYPxgQWQ4c/nHPxpMR7
-	+8ibEP0wtM7/AICCqMhHA5ne4IEEasdWHSFCalaLuxUq+fOknbrACZ8F455T7hyWGSc465p29ciid
-	3ocPjBaA==;
+	bh=Cj+fi49iZtFEwvOeYLBx6sfIVBo1eY9k3ZC/VJe1GWw=; b=w6kFhPYm1jnxZkA8ysf+KzuRx0
+	QJhY2ykTYzXacQBn8IlcNrWhI2bLfj04vBD2UR5xd0igX80jihjw8SCY3cNxwoC5yxoFe2zgNGIMY
+	7LD20O0dfE/n8eikZWFJ9d1GmtCUfFfB8HiZYBxSdQYr00viPtH8yxmw7JI93LgnBPshss/nckt41
+	1qiiR1yQiGNyWQ9k+wSvQ3oebqAjo+rVr7YREX5yyo2ynceYICAZAusyDp7nE1SjhQZ8saAS2Uq9G
+	VpU0IyGG5OlX6qJTT96IpUApy3hcgzfvpiCqugZUyk1QMImO/JnPfZwk/NJmo2abCwIvAsRXOtVfp
+	aluXAISg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiBoc-00000007LMG-16Qp;
-	Wed, 12 Feb 2025 12:26:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tiBpv-00000007Lcl-3vWl;
+	Wed, 12 Feb 2025 12:27:27 +0000
+Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAou-000000079Yk-0vCn
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 12 Feb 2025 11:22:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=l1K7nMbUzi/PBxssXxktE8rcuXI/mW+uKt+5ZI9cf20=; b=oy1EPosj6Gw5aoUqX1WS7Oj1p9
-	vGwULFPSIMjI/tXYeV2FIifUe8n0ofxw9u4PTBp1AGBL79Yp0+UJjkkMye5ViCVpyCyLiPGV7s2j+
-	7uI80UvocUzaogEFMgK2srCqal9Y3h2IOTiDXNhLQvAN0lsIZZlnZ1qYM1jIpw1e02KUWq25uUOCe
-	5+RBmqs216pgO0j7SPLktAU3TM79VP1zyjf1L5hi4OgcBiDBxjwZAL86fS1/+EKrcn61JcXtcDHDv
-	zaHZ7UJqSs9L1P2V6Sw5Q2hC9FMtcd/erR7WicLxLRJMoi8Si1bjhz4PTxhCXKz/m30f+RArCvfSF
-	3AXcCUPA==;
-Received: from galois.linutronix.de ([193.142.43.55])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAor-00000000nj1-0PkZ
+	id 1tiBFs-00000007FFq-0d19
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 11:22:19 +0000
-Date: Wed, 12 Feb 2025 12:21:45 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1739359306;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=l1K7nMbUzi/PBxssXxktE8rcuXI/mW+uKt+5ZI9cf20=;
-	b=ceDbVx9a2RdBxVvts79Y9Gu/Vc6V5J0JakVP5pAar2t8o7SYF6ep8YmxQi972w4iw8ktZS
-	vV2u71gzCU3z9HnHr6lwdwBL9EL5n09HtBSe+UvCh9RQ9xKzhEF4ThiP6UOCOmRmTQlmhw
-	ypC9G/dB0Tt5OHvR65sKcOgGpVYb02pl0tMyQ2WJTAmp570Oj182j1pklg89PNkVh3fa7n
-	uCoND4zNtV3ejqmK0hX+z0C4fjIWHVz7kGs2X9fTC7q/gJNRT3X4bVppjmHDj0ZUOAEUp9
-	HrKsDwgBmAksl+EzatchVRqx6xBgN1C1Hxdgq5g4npJpa+Lqp8smPMVDMfjXmw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1739359306;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=l1K7nMbUzi/PBxssXxktE8rcuXI/mW+uKt+5ZI9cf20=;
-	b=0+RSrdlobtGST3Ru+CGHZnGHLgeRoFN6Vz2ndbWWeKkku0DmygER63VRVMNX1meUQCqR2z
-	+1R4wD164XpXF3DA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: "Luis Claudio R. Goncalves" <lgoncalv@redhat.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Brown <broonie@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>, linux-kernel@vger.kernel.org
-Subject: Re: BUG: debug_exception_enter() disables preemption and may call
- sleeping functions on aarch64 with RT
-Message-ID: <20250212112145.BIE8_6T2@linutronix.de>
-References: <Z6YW_Kx4S2tmj2BP@uudg.org>
- <Z6n16cK85JMyowDq@J2N7QTR9R3>
- <20250210140657.UAsRw4k8@linutronix.de>
- <Z6vvyKZ5eoAS435b@uudg.org>
+	Wed, 12 Feb 2025 11:50:13 +0000
+Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51C9g91i024239;
+	Wed, 12 Feb 2025 03:50:06 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pfpt0220; bh=C
+	j+fi49iZtFEwvOeYLBx6sfIVBo1eY9k3ZC/VJe1GWw=; b=eECY0QzeWozb0cEmD
+	id9ENxquWV0j1SsF22vx8BwH37jzzlp0blZDSGQpfY/2kSlaiyaNoqccQbVTMQZi
+	ushxUKXLqXNeoNKC5z7tLCsFBPRbkVdKmk6phceEQZNpoaRCuRU3JjaQvvH3xkpN
+	UFhSGddP7m4VYnHX6+cF4bdtLgN7gg8uM17L9olUeOQED2Ub2fN8F9bsSymRcLBc
+	W1f6jvREkJMD0P8K8UJjN8KeYfpA8gbajoyhWRHOoSDkmC8sIdopvTD7e0G41em+
+	y4MmN5MOFEx79of+DG6Haq3kKad38kH4BfWIpi81Iid9ywYigxMk0qdPj9tFPMor
+	H5Img==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 44rs80r5yj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 12 Feb 2025 03:50:05 -0800 (PST)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Wed, 12 Feb 2025 03:50:04 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Wed, 12 Feb 2025 03:50:04 -0800
+Received: from virtx40.. (unknown [10.28.34.196])
+	by maili.marvell.com (Postfix) with ESMTP id 1830A5B693C;
+	Wed, 12 Feb 2025 03:49:59 -0800 (PST)
+From: Linu Cherian <lcherian@marvell.com>
+To: <suzuki.poulose@arm.com>, <mike.leach@linaro.org>, <james.clark@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <coresight@lists.linaro.org>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <corbet@lwn.net>, <devicetree@vger.kernel.org>, <sgoutham@marvell.com>,
+        <gcherian@marvell.com>, Linu Cherian <lcherian@marvell.com>
+Subject: [PATCH v14 7/8] coresight: config: Add preloaded configuration
+Date: Wed, 12 Feb 2025 17:19:17 +0530
+Message-ID: <20250212114918.548431-8-lcherian@marvell.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250212114918.548431-1-lcherian@marvell.com>
+References: <20250212114918.548431-1-lcherian@marvell.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <Z6vvyKZ5eoAS435b@uudg.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-GUID: 52vXiWtAAMmW09bqIRKj7zqRotbUAoW_
+X-Proofpoint-ORIG-GUID: 52vXiWtAAMmW09bqIRKj7zqRotbUAoW_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-12_04,2025-02-11_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_112217_297033_125C6829 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250212_035012_201270_FDCE1D2E 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,52 +92,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-11 21:48:08 [-0300], Luis Claudio R. Goncalves wrote:
-> > Couldn't you delay sending signals until after the preempt-disable
-> > section? 
-> 
-> Looking at do_debug_exception,
-> 
-> void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
-> 			struct pt_regs *regs)
-> {
-> 	const struct fault_info *inf = esr_to_debug_fault_info(esr);
-> 	unsigned long pc = instruction_pointer(regs);
-> 
-> 	debug_exception_enter(regs);
-> 
-> 	if (user_mode(regs) && !is_ttbr0_addr(pc))
-> 		arm64_apply_bp_hardening();
-> 
-> 	if (inf->fn(addr_if_watchpoint, esr, regs)) {
-> 		arm64_notify_die(inf->name, regs, inf->sig, inf->code, pc, esr);
-> 	}
-> 
-> 	debug_exception_exit(regs);
-> }
-> NOKPROBE_SYMBOL(do_debug_exception);
-> 
-> 
-> Do you mean executing the
-> 
-> 	arm64_notify_die(inf->name, regs, inf->sig, inf->code, pc, esr);
-> 
-> after re-enabling the preemption or do you mean something more
-> sophisticated?
+Add a preloaded configuration for generating
+external trigger on address match. This can be
+used by CTI and ETR blocks to stop trace capture
+on kernel panic.
 
-single_step_handler() and brk_handler() can both send signals. If
-inf->fn returns != 0 (which seems to be only be possible for
-brk_handler() out of the possible four callbacks) this this
-arm64_notify_die() sends a signal.
-So we have three potential signal delivers. It shouldn't matter if the
-signal is sent within the preempt-disable section or outside because the
-signal will be queued for current and delivered on the return to
-userland. So would just need to save the details and do it outside. Now
-that I actually looked at the code, this might lead to a bit of a mess
-so splitting out the signal part and avoiding the preempt-off part might
-better which would be the rework that Mark was talking about.
+Kernel address for "panic" function is used as the
+default trigger address.
 
-> Luis
+This new configuration is available as,
+/sys/kernel/config/cs-syscfg/configurations/panicstop
 
-Sebastian
+Signed-off-by: Linu Cherian <lcherian@marvell.com>
+Reviewed-by: James Clark <james.clark@arm.com>
+---
+Changelog from v13:
+No changes.
+
+ drivers/hwtracing/coresight/Makefile          |  2 +-
+ .../coresight/coresight-cfg-preload.c         |  2 +
+ .../coresight/coresight-cfg-preload.h         |  2 +
+ .../hwtracing/coresight/coresight-cfg-pstop.c | 83 +++++++++++++++++++
+ 4 files changed, 88 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/hwtracing/coresight/coresight-cfg-pstop.c
+
+diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+index 4ba478211b31..46ce7f39d05f 100644
+--- a/drivers/hwtracing/coresight/Makefile
++++ b/drivers/hwtracing/coresight/Makefile
+@@ -25,7 +25,7 @@ subdir-ccflags-y += $(condflags)
+ obj-$(CONFIG_CORESIGHT) += coresight.o
+ coresight-y := coresight-core.o  coresight-etm-perf.o coresight-platform.o \
+ 		coresight-sysfs.o coresight-syscfg.o coresight-config.o \
+-		coresight-cfg-preload.o coresight-cfg-afdo.o \
++		coresight-cfg-preload.o coresight-cfg-afdo.o coresight-cfg-pstop.o \
+ 		coresight-syscfg-configfs.o coresight-trace-id.o
+ obj-$(CONFIG_CORESIGHT_LINK_AND_SINK_TMC) += coresight-tmc.o
+ coresight-tmc-y := coresight-tmc-core.o coresight-tmc-etf.o \
+diff --git a/drivers/hwtracing/coresight/coresight-cfg-preload.c b/drivers/hwtracing/coresight/coresight-cfg-preload.c
+index e237a4edfa09..4980e68483c5 100644
+--- a/drivers/hwtracing/coresight/coresight-cfg-preload.c
++++ b/drivers/hwtracing/coresight/coresight-cfg-preload.c
+@@ -13,6 +13,7 @@
+ static struct cscfg_feature_desc *preload_feats[] = {
+ #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+ 	&strobe_etm4x,
++	&gen_etrig_etm4x,
+ #endif
+ 	NULL
+ };
+@@ -20,6 +21,7 @@ static struct cscfg_feature_desc *preload_feats[] = {
+ static struct cscfg_config_desc *preload_cfgs[] = {
+ #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+ 	&afdo_etm4x,
++	&pstop_etm4x,
+ #endif
+ 	NULL
+ };
+diff --git a/drivers/hwtracing/coresight/coresight-cfg-preload.h b/drivers/hwtracing/coresight/coresight-cfg-preload.h
+index 21299e175477..291ba530a6a5 100644
+--- a/drivers/hwtracing/coresight/coresight-cfg-preload.h
++++ b/drivers/hwtracing/coresight/coresight-cfg-preload.h
+@@ -10,4 +10,6 @@
+ #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+ extern struct cscfg_feature_desc strobe_etm4x;
+ extern struct cscfg_config_desc afdo_etm4x;
++extern struct cscfg_feature_desc gen_etrig_etm4x;
++extern struct cscfg_config_desc pstop_etm4x;
+ #endif
+diff --git a/drivers/hwtracing/coresight/coresight-cfg-pstop.c b/drivers/hwtracing/coresight/coresight-cfg-pstop.c
+new file mode 100644
+index 000000000000..c2bfbd07bfaf
+--- /dev/null
++++ b/drivers/hwtracing/coresight/coresight-cfg-pstop.c
+@@ -0,0 +1,83 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright(C) 2023  Marvell.
++ * Based on coresight-cfg-afdo.c
++ */
++
++#include "coresight-config.h"
++
++/* ETMv4 includes and features */
++#if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
++#include "coresight-etm4x-cfg.h"
++
++/* preload configurations and features */
++
++/* preload in features for ETMv4 */
++
++/* panic_stop feature */
++static struct cscfg_parameter_desc gen_etrig_params[] = {
++	{
++		.name = "address",
++		.value = (u64)panic,
++	},
++};
++
++static struct cscfg_regval_desc gen_etrig_regs[] = {
++	/* resource selector */
++	{
++		.type = CS_CFG_REG_TYPE_RESOURCE,
++		.offset = TRCRSCTLRn(2),
++		.hw_info = ETM4_CFG_RES_SEL,
++		.val32 = 0x40001,
++	},
++	/* single address comparator */
++	{
++		.type = CS_CFG_REG_TYPE_RESOURCE | CS_CFG_REG_TYPE_VAL_64BIT |
++			CS_CFG_REG_TYPE_VAL_PARAM,
++		.offset =  TRCACVRn(0),
++		.val32 = 0x0,
++	},
++	{
++		.type = CS_CFG_REG_TYPE_RESOURCE,
++		.offset = TRCACATRn(0),
++		.val64 = 0xf00,
++	},
++	/* Driver external output[0] with comparator out */
++	{
++		.type = CS_CFG_REG_TYPE_RESOURCE,
++		.offset = TRCEVENTCTL0R,
++		.val32 = 0x2,
++	},
++	/* end of regs */
++};
++
++struct cscfg_feature_desc gen_etrig_etm4x = {
++	.name = "gen_etrig",
++	.description = "Generate external trigger on address match\n"
++		       "parameter \'address\': address of kernel address\n",
++	.match_flags = CS_CFG_MATCH_CLASS_SRC_ETM4,
++	.nr_params = ARRAY_SIZE(gen_etrig_params),
++	.params_desc = gen_etrig_params,
++	.nr_regs = ARRAY_SIZE(gen_etrig_regs),
++	.regs_desc = gen_etrig_regs,
++};
++
++/* create a panic stop configuration */
++
++/* the total number of parameters in used features */
++#define PSTOP_NR_PARAMS	ARRAY_SIZE(gen_etrig_params)
++
++static const char *pstop_ref_names[] = {
++	"gen_etrig",
++};
++
++struct cscfg_config_desc pstop_etm4x = {
++	.name = "panicstop",
++	.description = "Stop ETM on kernel panic\n",
++	.nr_feat_refs = ARRAY_SIZE(pstop_ref_names),
++	.feat_ref_names = pstop_ref_names,
++	.nr_total_params = PSTOP_NR_PARAMS,
++};
++
++/* end of ETM4x configurations */
++#endif	/* IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X) */
+-- 
+2.34.1
+
 
