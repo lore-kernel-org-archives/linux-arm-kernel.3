@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB0EC0219B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 00:36:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A6DC0219B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 00:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mZNbqOyLMkR4zYGETdYI1Ds8jvtDMMy7KcjMP1dhBIk=; b=y9wToiCL3zoWlUaUILdE8iYBKY
-	lH9lUKXda9HryLtBre/w0cfS3NqKMt+IMoGWTRBGtZ20ndzvTmXOYDkYHkI7BP6ivjdqHm0txeP3j
-	nBDfg70Ho8fyZsRzsJ/BvKV3kOfBRXVRoGUUntslYIoKBXke1qVpvoQRWCgU/qjhst6eSpw6MZDDF
-	70ACI372ZGJ2FRlVeeW1Q7R77rGHjdwTBUTPhjZTKphTZmk/DGGiMB7JCsqG0wjPSzEgXwfJcVuSy
-	oD/PP0WmloM7RovoloiWlkbyB4KOdR/ldHOmLmtl9veJRcWEimEsbz+USAEi2vmhdhbNHNUgHUdnT
-	UITXhurA==;
+	bh=2+6BmEfyhCCNgybnQYOisonTljfDXQ1AGs4JLDc2NF8=; b=jvmMxw1QguWwVSE1sySUFMwQlD
+	HNR7Awz6Vsh8X54SNqZv9GQX2pqoLx+9r1yOJm1bNZIz6MzFukbl0z+XuhUngheudpu//q83LnMiq
+	///6VHeNBV+BixvtDrM0Aua4PFFfJ3E0MBF9y1HxgPy8dro5i3KzgK0TQ6tlPXVeLpY88qFsdIbKL
+	LbfEaEvVuDXMcfni2h+b5KU1pXMlYRLdl930cq5dni5nLSx4pLZIeBAD55S+jl862t16fbwBlRWHE
+	BC5AzzveUPB9Ju0evj6x6fCjpDO5jCpkssYXtMz1yeHc4uKn4udIV0pKHXnlI8Va2AQKgHN0w4lAi
+	9IoN3M3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti0k6-00000005iYa-2WFL;
-	Wed, 12 Feb 2025 00:36:42 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1ti0lU-00000005iqW-1KVE;
+	Wed, 12 Feb 2025 00:38:08 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ti0if-00000005iHv-3MX4
+	id 1ti0jM-00000005iQ3-1YwH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 00:35:15 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2f9b9c0088fso493310a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Feb 2025 16:35:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1739320512; x=1739925312; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=mZNbqOyLMkR4zYGETdYI1Ds8jvtDMMy7KcjMP1dhBIk=;
-        b=HbGAoPUO23vRKKxTm5aJOhwXS2KAu9zqDJ2Nhorq9xcefiWLuT8XfWtnDeOR3PYcRK
-         kLPAJnmHc/ZI94D8kDq+hZYX1s8FM84rcpSQxThYhlVhY9RJoknTg5jtTCbUySqDbBuU
-         WcMVUktBGRw/ldU5rrA+Y8+L14F5fpqnWCyLY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739320512; x=1739925312;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mZNbqOyLMkR4zYGETdYI1Ds8jvtDMMy7KcjMP1dhBIk=;
-        b=BvUtqzOknSFE2D/Hc0U2AzQMbBvLk2tMto6bIAIjQ1Zt2N2H3PTEZv2SQXUnD8+qcJ
-         X4/0sXcqTZrZNw+5NoIIcR9n+sVSTZB1btwutKkWl3E0dYfmDAjeaGiJ/+e8XkdSFgzD
-         70oQTSGRLswvAchylHy+jN3bIz9BzQCtCftfg0BzBBzwvxP3R2FgAKOBGMFifwUwemMF
-         R5ttJvbn2h+hkAZlpo3aqmVcBiI1uAI5/M4+fyQqwXAB1FJQERFPrf60b8hYiWqNExuw
-         bD+sBd8r7QsU5jJzd/DMIQ+APidx7nqhXaJeGF+wNkxn6hR0rJIXYi1reptIK3VfFxSg
-         PfmA==
-X-Forwarded-Encrypted: i=1; AJvYcCXpaku/GkYgi0zm9zlrjQhchzgk6aPednau6hGhh7WjU3PLHcOhxhBmsJBvywpVTFcm4hIRuZlST+EdAYdrnfjc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxf/3CS7x8InqgySb9fvUOhdGF62Zhpc2kdZLobsOjvZ+vy9beE
-	In5Lg4T4if6Gkm9aWY7Sos5FPgSe4vC0QBZRbZRWw0AXEwPZxEyB6RapxZnZuw==
-X-Gm-Gg: ASbGncvmLAQfeq9B1+iJVQa+WIB1llqARGW6OAOC+wt8OjJWACzWSrmAYzl1Na4YKTM
-	2cpzXOe29aGjIsKbH/mkSMoP+4gSFQn0HQV77Ece3CjxVhBublPkhFDi8lZMhGXsPtkglCKWl3r
-	uMV8stOrcK7t4DelvKwgXyuF0NZj9a1y6cnQ02BVmln1OjMhPnHxy6uhTzXZT1eZ/wXaaaPpQ05
-	d7M9YmaVviUqb555zfd0OOz52ZQUmcwKDl4uNXOPEERnhjc8d3K7aPxsrMnOjIwJNimUMWR/VjW
-	LOshksbPW8fvMx5aOd11ZKCH6dzOZlE6sn4AfDXRNOh7rJs0/DhhqC8GjQU5Ak2VV1CKg3XY
-X-Google-Smtp-Source: AGHT+IGU2vBf6I17uMlZ6vPzIppLSPDMm3Mc2t33rkKE8ywv2pPmz0SDcC2eFj6qRDS96L9Z49Rppg==
-X-Received: by 2002:a17:90b:510a:b0:2fa:2c61:3e5a with SMTP id 98e67ed59e1d1-2faa0913af0mr8652088a91.10.1739320512530;
-        Tue, 11 Feb 2025 16:35:12 -0800 (PST)
-Received: from nhebert9.pdx.corp.google.com ([2a00:79e0:2e13:6:34c2:323:b5a8:3074])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fbf999b639sm165958a91.38.2025.02.11.16.35.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Feb 2025 16:35:12 -0800 (PST)
-From: Nathan Hebert <nhebert@chromium.org>
-Date: Tue, 11 Feb 2025 16:34:51 -0800
-Subject: [PATCH] media: mediatek: vcodec: Enable HEVC main still picture
- decode
+	Wed, 12 Feb 2025 00:35:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0DC0DA40ECB;
+	Wed, 12 Feb 2025 00:34:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44F0DC4CEDD;
+	Wed, 12 Feb 2025 00:35:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739320555;
+	bh=IHSRysAps1kPO4mQdQ2PWZCTN+vLfajuUKA+LRmoBSI=;
+	h=From:Date:Subject:To:Cc:From;
+	b=KlXpZhrFsfYTIXkxGQMoJDS9aQlzLhEhxEMjiOtgFWUYbp/hCogvhYgR3sdx0uQW8
+	 VBzdePQZ91zbrwdK9YqA2jWb2LUrVHwCXCKohOW14Va6nT2MNuhKDf/ODhJhgz0R5e
+	 nNx9KL7apZwT7kC8o81sCaspUfbPYZ+RWV+7kzT/THy6mQT/0Qx4A5+Gm2AtaFBo9d
+	 6aTDWCvQhJBl+ppj+y7FtBzUEfPdUR2xf5tNaN+4qgTdCaoVxT/Tx1ayk6ua0/B5bK
+	 D/rFj8Iwew1OPSyybMDd/VQ7x2/vR1LB6pntbPqG+7o4bfDBXwvAn+Zxl3JzH/EkI+
+	 b3vgq3+5vcJgA==
+From: Mark Brown <broonie@kernel.org>
+Date: Wed, 12 Feb 2025 00:35:14 +0000
+Subject: [PATCH] KVM: arm64: Use symbolic name for ID_AA64PFR0_EL1.RME in
+ NV filtering
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250211-enable_hevc_still_picture-v1-1-0c06c0c9add2@chromium.org>
-X-B4-Tracking: v=1; b=H4sIAKrsq2cC/x3MWwqDMBBG4a3IPDeQjHihWxEJJv7qQEglsVIQ9
- 27o4/dwzkUZSZDpXV2UcEqWTywwr4r8NsUVSuZiYs2NZmMU4uQC7IbT23xICHYXf3wTFLeubuB
- 0z52m0u8Ji/z+72G87wcNGPdLawAAAA==
-To: Yunfei Dong <yunfei.dong@mediatek.com>, 
- Tiffany Lin <tiffany.lin@mediatek.com>, 
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, linux-media@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Nathan Hebert <nhebert@chromium.org>
-X-Mailer: b4 0.13.0
+Message-Id: <20250212-kvm-arm64-rme-symbol-v1-1-45d272c2108b@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAMHsq2cC/x3MTQ5AMBBA4avIrE3SNurvKmJBDSYUmSZCxN01l
+ t/ivQcCCVOAOnlA6OTA+xah0wTc3G0TIQ/RYJSxymiNy+mxE59nKJ4w3L7fVzRlr21VWJc5BTE
+ 9hEa+/m3Tvu8H6VwuqmYAAAA=
+X-Change-ID: 20250211-kvm-arm64-rme-symbol-28b15975c4c0
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-1b0d6
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1261; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=IHSRysAps1kPO4mQdQ2PWZCTN+vLfajuUKA+LRmoBSI=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBnq+zoaS29eV6IcWGgLA7ZN4ZG85DsktSsCIJo9npw
+ tfvlehCJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCZ6vs6AAKCRAk1otyXVSH0Pq3B/
+ 95gsg9mQinUb1vZOecK757FVwxsEPeGs4rmG4pei3PQcT6F4w5onBwNZGOefJLTeB3TZocVLpPGVZQ
+ XS2DKafrRA7M9wbMzS9zgBmfRtoiVnGL9LI4twFz7aohZ8fo1nnQGBlDjT/B43eNg2bvWyhHJu0Cy/
+ OdeQKEZ3ArGXyNnmok9yD0gM8agSx0a4595OP37LHVt95Zoy+bQCkb7qbJis2pzwzOdJ+TnpwiBZgO
+ DXLCcIRscv69uj/FJ9s2xocrbQB+D+CSFDGjhhN7pvATTkfFRP3EyqUUL5MohzPmItpuUCAf9scTXk
+ BdqonTsruvL2Wg5pJETy4KRCqzi2MB
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250211_163513_999147_B522197B 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250211_163556_486534_76618413 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,45 +88,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mediatek devices that support HEVC also support the main still picture
-profile, but today, the main still picture profile is excluded.
+We generally use symbolic field names generated via NV_FTR() when we filter
+the feature registers for nested virtualisation but when the current format
+was adopted there was no symbolic definition for ID_AA64PFR0_EL1.RME so it
+was instead specified using a raw GENMASK_ULL(). Since the field has now
+been specified in sysreg we can replace this with the symbolic name in
+order to make things marginally more legible.
 
-This removes the skip mask for HEVC, and enables the main still
-picture profile decoding.
-
-Signed-off-by: Nathan Hebert <nhebert@chromium.org>
+Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
-On Mediatek devices that support HEVC decoding, HEVC Main Still Picture
-profile is also supported by the SOC and firmware. However, this
-capability is turned off in the vcodec driver.
+ arch/arm64/kvm/nested.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-This removes the code that disables HEVC Main Still Picture profile
-decoding. Validation of the decoder has been done via V4L2-backed
-Android CTS tests on an MT8196 device.
----
- .../media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c   | 2 --
- 1 file changed, 2 deletions(-)
-
-diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
-index afa224da0f41..d873159b9b30 100644
---- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
-+++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_stateless.c
-@@ -152,8 +152,6 @@ static const struct mtk_stateless_control mtk_stateless_controls[] = {
- 			.id = V4L2_CID_MPEG_VIDEO_HEVC_PROFILE,
- 			.def = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN,
- 			.max = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
--			.menu_skip_mask =
--				BIT(V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE),
- 		},
- 		.codec_type = V4L2_PIX_FMT_HEVC_SLICE,
- 	},
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 0c9387d2f50708565b5aac1fc0f86fefffd94ea1..bf6ec0f499ae207a5c056a0ec157368527a71fde 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -824,7 +824,7 @@ static void limit_nv_id_regs(struct kvm *kvm)
+ 
+ 	/* No AMU, MPAM, S-EL2, or RAS */
+ 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1);
+-	val &= ~(GENMASK_ULL(55, 52)	|
++	val &= ~(NV_FTR(PFR0, RME)	|
+ 		 NV_FTR(PFR0, AMU)	|
+ 		 NV_FTR(PFR0, MPAM)	|
+ 		 NV_FTR(PFR0, SEL2)	|
 
 ---
-base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
-change-id: 20250211-enable_hevc_still_picture-26b35eb08270
+base-commit: a64dcfb451e254085a7daee5fe51bf22959d52d3
+change-id: 20250211-kvm-arm64-rme-symbol-28b15975c4c0
 
 Best regards,
 -- 
-Nathan Hebert <nhebert@chromium.org>
+Mark Brown <broonie@kernel.org>
 
 
