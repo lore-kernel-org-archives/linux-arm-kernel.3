@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8081AC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 20:32:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1295CC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 20:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cmRXcdjEFTtwWErLiczOTSh5GDvvFaZtrg8q8bv4gpA=; b=hr1jyQZqvajFfavtqpESdPVmMV
-	lRIbQee1s5EM6mLC+nhqo5sB09PAaXrTus2Qntp1DZhNRpWVkAy51ocxIqPkcEXHVPdHxLaI0zxY3
-	Yw6hL/mOXzktrae/80V2pzkh6SJdbdTLzfKhpbY0qQW3SfjRb0iQ8LlP7Lgn7CSBNIJZsSY4EoGks
-	IgcXG5fpiA0ZDxfgP6oqTfd6uIOsPDucNniXBdqA/80BMuCnqEx0BoyeRUdzitXFciGijZcW1Vf+u
-	YFSKEmyPNuZRHJuJXKmCry/1pvMaHXOVhkT/IpzUG2NJTI6aGIR2Z2Bpz4sM40StNzJ99NJ4hSYBp
-	oAlQnWIA==;
+	bh=bIWQ1cYFsKmdYVBFw76fShsZ0oqbQapNfjENnquqJYM=; b=reZ+UhYgUGboJreiYmBlmR/xfN
+	BSiu+RwbsJSyVmQlmy1fcNBLalWsPo2fU2SfhAN24pTeiK6sd15rIqaIHcXvFo4+6ahIrzEzI1sRm
+	175KfR7RW2ZTj9Q/Kl2E3AZ7DwZHRYp2kyExvXo3H9dslb2fQLuSAz4JwXZha22yX3pHEIdppcjSR
+	YX9mLQIDDiFd6v6QVRLWSw3c15dOSIhp8k2I0xvOAjzzz7EwWLN35vrvBSM8rB1wryQedreDZcM5D
+	O1w/A6KhnqtIH0F7ZIWPrZyFE2gLoPjDslJY81ZPJWu1VtxdzQXEC/2ClvE3e4P6HjkM1n2Hq1w1I
+	l0WMt5Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiJP2-00000008n0P-3d5y;
-	Wed, 12 Feb 2025 20:32:12 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1tiJRd-00000008nIb-2T5L;
+	Wed, 12 Feb 2025 20:34:53 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiJNb-00000008mrX-1nky
+	id 1tiJQD-00000008n8R-0AKI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 20:30:44 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ab7c4350826so3058066b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 12:30:42 -0800 (PST)
+	Wed, 12 Feb 2025 20:33:26 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5dbf7d45853so12502a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 12:33:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739392242; x=1739997042; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739392403; x=1739997203; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=cmRXcdjEFTtwWErLiczOTSh5GDvvFaZtrg8q8bv4gpA=;
-        b=GXagO6T4HdbcpJD/rzy0jVWwD77zIB2ZRBr6rtsF5fzaHQ2qsT0OahfvK/qkbzuwNp
-         mOccaFEa6krpcUxR6kEyY71s+CX//39nIhB3JRESdeWWn0xAr449xkVVt1Sga7PndDTA
-         7v6qUQG34JlZ/BCJ2XBnYXJElTEkpmWH23Yzsy3e7yxfaDGBkX3shonqP3cixf44m4R9
-         3tZyjiaSckM66YaeOqL1gipB4vh7wzK77cuoJWlPD0o4J2+jSwUO4asklw/HeSSw7KrO
-         ZLYxsIPAZDyJ1SQVUqeoK7Xcn0eqhv5rGsufaIGFAV2jfboMESCg1CwqBie+Oz5BDBTX
-         Cqvg==
+        bh=bIWQ1cYFsKmdYVBFw76fShsZ0oqbQapNfjENnquqJYM=;
+        b=yDdgWCtDfFEVjfcz9i3z9WnJta+g5voaUBMXGuRd93uX02zCfvThVHWQGYZNXpvjjz
+         dSv2OMXmL/54rb56f3oK8JSJuvWLnNcNk8DlZnUHfxh0+1lf2zyORMvvaHc7Ceknowqs
+         LbOSYYf70EsVBpfQpS7FZi8SNuzNOKvK/rGtpErjNwjHyz2yDkaW20EhpbZ9lxgs+os2
+         LP2/eXPaQmdNr3ULEXkIvIXoF1sO/ca3Wnj6QqHC8eNQb7WY7cKkYGJ9hhhbjtB9RqcS
+         tTx/Xj4kyavagAOogO6lPYhCHKgt8VgWvi0tjBCsj0mcApU5f9WXLQuKb7Jk1Ig9HpOK
+         UC7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739392242; x=1739997042;
+        d=1e100.net; s=20230601; t=1739392403; x=1739997203;
         h=content-transfer-encoding:in-reply-to:autocrypt:content-language
          :from:references:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cmRXcdjEFTtwWErLiczOTSh5GDvvFaZtrg8q8bv4gpA=;
-        b=ue3BHFIxe6iyYJ2j3ELr4eJ3cFKd41QtTkbiOaXM9EOGSQaboqEzeZmI6Y6oqA52y0
-         R1zWOX4PKk468znekUsDl8kDlXSQl2xdBnebmjbyTSzFmOHgNC3rhZeS6BUoLw40fbhF
-         ek3NaKD4UCAF8NiQfYm+lA97sDIicL+n1qyU7GMLHNaoqwPBxKu7Ud7sQrXmzZT5vyBk
-         MLpIZjpLiNk2CwmPVaxdteNAdOWiYtCAPEgRliXaJsDAh35KxaEj10emgmRrrwse+7jD
-         wTuu2mlBX0pIlMUJRet+4+G262O2iqYXj2KJ3GqZzP7TO9EDxvT0g+whksrVaGu6+aIF
-         q2KA==
-X-Forwarded-Encrypted: i=1; AJvYcCWa5EmV0OL9xPCtEnbr+q17WULDhjwExk2WBxU+aDfmp9ENrf6jzpRtNt22aX+YuDvGfMhHW2LMeBLOaybvMBQS@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUaryjE0ff7JDK+5wL8QX4Okf7s8xK51bTnea9FVJYrWwI2fEE
-	knezq1II4cWDNIAY4vUngdmFJv44mazoXkBXMthOUt9fmx0mdN6iZoUpkfuJrbM=
-X-Gm-Gg: ASbGncuITKJ6yVdQozfM1PgUNfYybG2Div6Bxc8CYofp3ZoV+3Sf7XZDDDavY5EWclT
-	NtlMYi9aXz0TRw9FzZc2w7WXsNlRTjYLsFDt+C9DqcXBh8sPpLC4/uEBz25cJ+ISLbZv/+L26d6
-	MdijT9ewvyiXmPLU9gaBB3khA8TjiV9Y0vxqHXbcu9L6xDPhGHJ4FqOkoLgvumN0JxTKTeK6lF5
-	p73GrLpH1J+ypH3rZL3yt1VvYRJbLUugCJ0J6IbCUYD03HcfpsAxiUGdi3xiRhyGvGdz7xroY14
-	luJI9YEwobZyspAygCMCgR1KtIvhyw4I9kw=
-X-Google-Smtp-Source: AGHT+IEy5MNFfUhE4KoXzS+0qnWcf+fR/v9TpWdLTk4yS/53co/Ga9Puko1DFJtx4WWKhW6Sl6TL2w==
-X-Received: by 2002:a17:907:da5:b0:ab6:6176:9dff with SMTP id a640c23a62f3a-ab7f31a654amr186338666b.0.1739392241639;
-        Wed, 12 Feb 2025 12:30:41 -0800 (PST)
+        bh=bIWQ1cYFsKmdYVBFw76fShsZ0oqbQapNfjENnquqJYM=;
+        b=CE1nhQvZPD6hRzOiLUsmGtPMllOGGgFqynAbvk6dy1B6Ui6h9cHzK4Ui6nlb90/0MT
+         4js9g507tczWqpG15fOiIVVUmc3Y6sew5N3ZmUl6brEUmPDoTdkTs2d29MhFiieKvg6l
+         G0QocgG52+66cRbiew1pnk3Tk4U5GVblE2r8W1YVDVM4FnR4LJcdLYrAl7f/WP1TXvMw
+         bCmYGTwf92CqlIfpWW0dPHOooSZ78EP5WZvXDxxse08WYvulyheQ46yZ+G9gh+B1ngq4
+         RkBHdP1afxV8cVFBrU5QJxkkKsxsPb/IykTpCsVYhKACUf9xW5xRp551T6ttA3jCUbAH
+         gL5w==
+X-Forwarded-Encrypted: i=1; AJvYcCXoCuunOzKxcfA8ygiRPMrAGh9SNuqgjxhPqbiQMbk2HidZuVP9N8SOdRflzovhayERXYDecPluos5ThbZ9Ypk7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzJxNVEa21L3ud9RNyFxe5HFni0fVRj7kLzCxDT9A0Na2mc75S
+	8iUvJlB9IfycAV13dsZ/ks9kzwrKbzOBOUBsHEdGIjdzh/B02EAU1pah2nuVwjk=
+X-Gm-Gg: ASbGncuTZPabYMfjHsnxCnpGa10icScOEb3MtXPKut9wgnzIN2Q7Gp96SsBq2mKDWi1
+	dyBzI1taK33eVkJTncO7tQ8pp8plPx4OejIGU6ivb+9lL/HEBRzbTtC2jrVgE/cyZfPefcx6Ngg
+	AhQYnc1vfYSsaVnn744kPCFtaVYe6nbCB3k7WKtVonwbQ23+0RmUPtb+c7Y7PNnRx0uuvjoNAFx
+	hgTJk4v+kuoh79Gb4nO0KpmcW8HXbEcmkzy6XKCXbYeWPW268i4rwX2d+f1xFQ3aDnzy65hm3pr
+	jEqxlMwwvGRTTitleT71ZAMq+xV90aaTeQE=
+X-Google-Smtp-Source: AGHT+IGeDMm9h5OyPOgGl/JpRPwFojPaGai7niCiDvwSAxEh7i84pRRG1VSKCLWjp1rMUxxzCdw7xQ==
+X-Received: by 2002:a05:6402:51d4:b0:5dc:91b6:10e6 with SMTP id 4fb4d7f45d1cf-5deade2734amr1424141a12.10.1739392403390;
+        Wed, 12 Feb 2025 12:33:23 -0800 (PST)
 Received: from [192.168.1.20] ([178.197.218.144])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ab7dd77c151sm418897366b.57.2025.02.12.12.30.40
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dcf9f6fa21sm12002595a12.68.2025.02.12.12.33.21
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Feb 2025 12:30:40 -0800 (PST)
-Message-ID: <55aed776-ebee-4b0a-a6e0-17732fdd5191@linaro.org>
-Date: Wed, 12 Feb 2025 21:30:39 +0100
+        Wed, 12 Feb 2025 12:33:21 -0800 (PST)
+Message-ID: <7341db6b-aed0-4da0-a5b2-6992d86ffaf3@linaro.org>
+Date: Wed, 12 Feb 2025 21:33:20 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] phy: stih407-usb: Use
- syscon_regmap_lookup_by_phandle_args
-To: Patrice Chotard <patrice.chotard@foss.st.com>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250111185407.183855-1-krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH 2/2] drm/mediatek/hdmi: Simplify with dev_err_probe
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
+ <20250112134708.46100-2-krzysztof.kozlowski@linaro.org>
+ <ef0baed6-54d2-4f1f-9a4a-769ec09a069f@collabora.com>
+ <59f8a02e-a716-40a8-bf73-111ad2a7af79@linaro.org>
+ <8e8e3eca-dee0-43ab-95d9-aebd636245c7@collabora.com>
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
 Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
@@ -125,12 +130,12 @@ Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
  KQ06ztUMRrj8eVtpImjsWCd0bDWRaaR4vqhCHvAG9iWXZu4qh3ipie2Y0oSJygcZT7H3UZxq
  fyYKiqEmRuqsvv6dcbblD8ZLkz1EVZL6djImH5zc5x8qpVxlA0A0i23v5QvN00m6G9NFF0Le
  D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20250111185407.183855-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <8e8e3eca-dee0-43ab-95d9-aebd636245c7@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_123043_462278_4676E585 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20250212_123325_231178_9A53AFDD 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,26 +150,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/01/2025 19:54, Krzysztof Kozlowski wrote:
-> Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
-> syscon_regmap_lookup_by_phandle() combined with getting the syscon
-> argument.  Except simpler code this annotates within one line that given
-> phandle has arguments, so grepping for code would be easier.
+On 13/01/2025 14:48, AngeloGioacchino Del Regno wrote:
+> Il 13/01/25 14:07, Krzysztof Kozlowski ha scritto:
+>> On 13/01/2025 13:41, AngeloGioacchino Del Regno wrote:
+>>> Il 12/01/25 14:47, Krzysztof Kozlowski ha scritto:
+>>>> Use dev_err_probe() to make error code and deferred probe handling
+>>>> simpler.
+>>>>
+>>>
+>>> That's already done in [1] so you can drop this commit.
+>>>
+>>> [1]:
+>>> https://lore.kernel.org/r/20250108112744.64686-1-angelogioacchino.delregno@collabora.com
+>>>
+>> Eh, this was first in v3 in the middle of Dec, so why you cannot get it
+>> merged first? Creating such 34-behemoths causes simple cleanups to
+>> unnecessarily wait.
+>>
 > 
-> There is also no real benefit in printing errors on missing syscon
-> argument, because this is done just too late: runtime check on
-> static/build-time data.  Dtschema and Devicetree bindings offer the
-> static/build-time check for this already.
+> Getting the series partially merged is okay for me, no complaints about that,
+> but then ... in v4, there are two minor comments to address (one of which
+> is a one-char nitpick!) that might as well be done while applying, depending
+> on what CK thinks about that, so there's no real benefit in getting 28 commits
+> out of 34 picked instead of, well, just everything...
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  drivers/phy/st/phy-stih407-usb.c | 24 +++++++-----------------
->  1 file changed, 7 insertions(+), 17 deletions(-)
 
-Vinod, was this patch lost?
-
-There is review and patch should still apply. Let me know if you need
-resend.
+OK, month passed, I waited, so is your big patchset merged? If it is,
+then this will effectively rebase my patch, as you requested.
 
 Best regards,
 Krzysztof
