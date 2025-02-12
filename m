@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE61C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:07:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C33C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 12:08:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hG0/vjAYb5Ulc6jjnKhm2XeOXEYOwE4Q8HmW4VgPla8=; b=KYvsWi7UZyZb/5vhk8egTErTxo
-	dupiUsOgd91WaV924Wjq2eqWVZVyt9nhvxj/1muPDQoP7y/B5CaFjeIYVoSTVv/EhwKHHjrGnHtJ4
-	m5nJHn/OgaEvPWt/4edOVn28TcjPM6ve/jI7ZjwTb+fabcrwRFYimMFpgXuQHP3N2ArRzaLVuA1Ci
-	GX71buHmMdTvkXdDl3DreEOfQpG8soTDs7+yBNRP1S6cYKhdEMlXvbp8DNCsGCalF2zEGqp1B9shf
-	9bxzCz2leuofv5rhM+kZzSrMgUBJ0PRml1O93o3MmoAZIAUX6Ul+lZMpDpmLrHwW41AFfsCoyjM4X
-	4/9TeAfg==;
+	bh=BLyynCt450Utx2Z4sB12bYa6WPePLKZjdTj9AHDawWQ=; b=AB5iER/cCLVGRM5rAFA0JKbJxN
+	86/ZcBsxFnijdxWYg5/5pVsXHRRPgP2tXrPXLx7tH/B2G1SvkNjglKP0tfm6ZBDPPhenwwPgKsql7
+	ZSACCMGwv02hMh9nj6satsxjt/zxFYaPGMUlGZW67PYAaeYLcGf8b6Vq1Y0AwU48hGUKSc+HZ6bbR
+	ifXvnlcUg3IPIVQt7XUzyqIc6R1IXsnMk/5HIcx2NdbK1ENMxyhvrd5yaFc/EangLCx7otuI/rCP1
+	/wIYaBBVQrd+P+tdP1HTW6j7wzkwHUu0ApI5Ezo4saR+R/7nxNNFqXcJNOqvcz8YWdhTkiXUxrtCL
+	iD/LdESw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiBW7-00000007IG2-2bP3;
-	Wed, 12 Feb 2025 12:06:59 +0000
-Received: from mail-lj1-f172.google.com ([209.85.208.172])
+	id 1tiBXV-00000007ISD-1gLw;
+	Wed, 12 Feb 2025 12:08:25 +0000
+Received: from mail-lj1-f177.google.com ([209.85.208.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiAqA-000000079mL-2C3Q
+	id 1tiAqB-000000079mS-237n
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 11:23:40 +0000
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-30797730cbdso65114181fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:38 -0800 (PST)
+	Wed, 12 Feb 2025 11:23:41 +0000
+Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-30615661f98so71117691fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 03:23:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739359417; x=1739964217; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739359418; x=1739964218; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=hG0/vjAYb5Ulc6jjnKhm2XeOXEYOwE4Q8HmW4VgPla8=;
-        b=PBshQgdoqdvZDwuFzVHGsa9Q1PkZvliZdN2cxWVNaxOV6tAddlOi5P/OSTLmiPhEH2
-         DGxd/SP5XAefSTVsjhNgEXvWnGKC2xXWd7/eIo2HGtvVz44d89D8GHgZTicBH8lHixUi
-         zq1JpfW8wN5vfUTUPo0F6b/gyQoIloyczHz+d2VRG52xO3B1Vc+CnzQRjwfjHIdBKuSX
-         QtoJJQxkKWFiyemHzGKt9BgwWoDkyFe1iSSKyK8spa4frqeDRRm5+M8IU1SUYm3W0ysJ
-         eMn1wFJ5m6U1PsalXU3/RwIWoCaryUpoBo93zl8Xp0KmdVTN4e1KoQv2M2Iwq3pPXo6e
-         oS2g==
+        bh=BLyynCt450Utx2Z4sB12bYa6WPePLKZjdTj9AHDawWQ=;
+        b=XqIM3N7dRWs/RCDXqausiARgL0lWjdFabaTCGFS0IE02mA0K6/XSlJl1T+1UK0ajqI
+         qKwg6oN27GBpCveEyulPLarduDxzsCn+bkUXlm9OMICow+TqYudbQMOw5k0LYRKrpi5L
+         PqonTY9eWfmDTuX8MpnTWEQZReDc0zBXh1bGTQ2H6WhXCElJu0zpo6RTUV2W4oeXoLjE
+         k9qVacbjCDnzD05OOoS0wvg7hGfgxhv7O5biUKRf05IyFb6Onh7TMqjRMnQKzDPmW86q
+         NmtN4H1fwFjl7KB4kIqETQ9/8E6ctfOi1irZJyybncD9ZPt0oLnDJUYn7niZHrRVOF9I
+         Y9aQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739359417; x=1739964217;
+        d=1e100.net; s=20230601; t=1739359418; x=1739964218;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hG0/vjAYb5Ulc6jjnKhm2XeOXEYOwE4Q8HmW4VgPla8=;
-        b=IX0gQQjGTsuSofir+Gxwg7sjJU6lYStiiaZLvOevwmKZmNQ1x4oCUI4n/JEaKKxN+Z
-         j/p2jMYbiVjr6yJvz9lRyfrN9uNBr5lpxxCx8s0HZEMoyWPpYaky1493AgSlVWUeSsCa
-         3sFcjlUXM9FXdo8jC90rxQXTUCqecf/NqJEVjolRqfL3zsuOD65v0wdsQI0J52MHIMzt
-         DwvnqplLGZ6yTkX3z1gAja0FwRgshoqxz+pwJSO90bmCENC7xoAbKp3ZGoEuOSSQIrWU
-         cs6Ln9d748gPzr2B20QzmArS9u4TaVJhYguH3PxzTrbK/CGOKrnm2LuAJ4V6OoFgS8nF
-         EEpg==
-X-Gm-Message-State: AOJu0YxNJyR3OO6PrZM2OjyPT52C9qULc9CWaM9iHUKTb8Ig44tSLdpr
-	ficz3pWszn5XFgnH8+P6ILM9kWe/eNdZoIMT7yzOHZ70jh20KTU85Rk0PgMlvZg=
-X-Gm-Gg: ASbGncsqc2gTb/YQGkRyjeotXTWuKOMMzx2fAt70SnB6DtMFD/tbh6zrAzkFDUNxdRk
-	w+g5+vmzs6zHjPVyoj1HCtlkX1oC3VKBuKBr3lFOFUdjx6b3JY6BJxRpUmsk74hr4K0WixE/aTj
-	ej+Nqi2+Hm4APdDuh9/6WJ64LjXG6YRU2YC8MkG9KOBPXQfIciwE8N7+34hjGL4OZ0Lwt9qzlMH
-	8EJU7NsActMyxm+jY1cmyvhbsfINKCwGmxPrZm8GykL0Rb+lC/oYO39z7advhdcKPKgOOu02DHs
-	IbMvcedQ19g88iONkhliFV42bA==
-X-Google-Smtp-Source: AGHT+IGP37hz0YvESaBREy9HQSg86iSAViPZV6mIcF+1tjXX1uTruztxqRmlhZCOlY4ljwki9BmazQ==
-X-Received: by 2002:a05:651c:4ca:b0:300:1f2d:97a with SMTP id 38308e7fff4ca-309036b6cb8mr9621591fa.16.1739359416424;
-        Wed, 12 Feb 2025 03:23:36 -0800 (PST)
+        bh=BLyynCt450Utx2Z4sB12bYa6WPePLKZjdTj9AHDawWQ=;
+        b=d+HMbwITlpitLD3yd6RTVqwbFIRuMd9egaEO6d5FNypYuNbALk20ageYmQxr7jxx09
+         IKPlIhXnxSB84dEu56+Mi4qM7qLY5LfpO60/zjUuDvLaNkSc/OMLF58vyYC7wVDIxfZZ
+         2BPUUG00PLDEpOtbMTk6XCR3Uf6j0ToljiSx97FtkIrBvZn6nlCBM+zaUYiXuNyxyb5E
+         HXlzWqR2125grjo7hmZ0n5b4Nuoy+fybNrjeFWaUPYaNdM+iBrgu+j23TYZ/XiZ4eVtt
+         BAN/8B9LY9X8bDKP97lgJpCfVjyc9AbQ1Toc9j2DfjhM+DFfExEdBU3RVboFJLQ10g9V
+         IB8w==
+X-Gm-Message-State: AOJu0YyOiDgNA0el6ZIv0pbMUBOmQd6JdlCDy+M5M1r96KkAWbKjfhZb
+	4A1bimgtR7z8lVEDvMZp0+sf8QhKjtjwy1Ak+NDehSEDzAKZPepR5L2aSUJqEnY=
+X-Gm-Gg: ASbGncsYbrdygHbNGmgFyh/oQctzBzKmPsbvk9NS+FGuUVLsSfHPNqxIrc0SKT9q1VA
+	zOJAsNqOC3gdfF1LOGFv2fnxA+kn+BaoH0mu/5HbaTRS3ktIpMYz2ygqJ9BwCBPVl8lFxL5QZaW
+	E6WZIwpEURp4FD5kMy2UVwh5kP+Sdo8ThW2LxbJ4Fat0ARjyOvFdEukh/Uzi9j+rVIR+ZvgyBV/
+	cE/ITGs5nl3vsCp2F2hbup5tk3/xmiqlWg+BfA3NYKFTDTbQ6KeFi3whBKLy30IECEkRcR5LBRs
+	OAzqOux0UKIY4nuGFHlQaJCFcg==
+X-Google-Smtp-Source: AGHT+IHK2ire6eSOXUjIyEB1DADW6wNdjzmfwgrMquJUSGQom2k6V3tykQc82oC2UKLm7kJWGSeVIQ==
+X-Received: by 2002:a05:651c:1b06:b0:2fa:cdd1:4f16 with SMTP id 38308e7fff4ca-3090364236dmr12530571fa.14.1739359417574;
+        Wed, 12 Feb 2025 03:23:37 -0800 (PST)
 Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.35
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-307de1a6531sm18310511fa.45.2025.02.12.03.23.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Feb 2025 03:23:35 -0800 (PST)
+        Wed, 12 Feb 2025 03:23:36 -0800 (PST)
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 12 Feb 2025 12:23:23 +0100
-Subject: [PATCH v4 29/31] ARM: entry: Handle dabt, pabt, and und as
- interrupts
+Date: Wed, 12 Feb 2025 12:23:24 +0100
+Subject: [PATCH v4 30/31] ARM: entry: Block IRQs in early IRQ context
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250212-arm-generic-entry-v4-29-a457ff0a61d6@linaro.org>
+Message-Id: <20250212-arm-generic-entry-v4-30-a457ff0a61d6@linaro.org>
 References: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 In-Reply-To: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 To: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
@@ -88,8 +87,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Linus Walleij <linus.walleij@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_032338_724115_FF7FDF05 
-X-CRM114-Status: GOOD (  21.51  )
+X-CRM114-CacheID: sfid-20250212_032339_536840_AE80BF56 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,445 +103,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While it isn't entirely intuitive, it appears that any kind
-of exception such as data or prefetch abort ("page faults")
-need to be handled as some kind of "interrupts" when using
-generic entry. At least this is what other platforms are doing.
+When dabt, pabt or und exceptions occur on ARM, ordinary
+interrupts (IRQs) can still happen. This isn't nice for the
+kernels context tracker, which expect (when using generic
+entry at least) that any nested IRQs happens
+between irqentry_enter() and irqentry_exit(), else it
+thinks something is fishy.
 
-The same goes for undefined instruction handling, i.e.
-floating point emulation in the kernel (und-exceptions).
+This change blocks interrupts in the pabt, dabt, und and
+abt exception paths (all of them really) by unconditionally
+setting PSR_I_BIT in the early exception handler, until
+after context has been established with irqentry_enter()
+and before it is exited with irqentry_exit(). Inside the
+context-tracked exception handler we enable IRQs again,
+and once we leave it we disable them while exiting the
+exception.
 
-This is necessary for the context checking to pass: without
-this patch, a whole slew of warnings start to trigger
-from syscall_exit_to_user_mode_prepare()
-CT_WARN_ON(ct_state() != CT_STATE_KERNEL), i.e. syscalls
-seems to exit from user mode to user mode (not good),
-because the page faults screws up the context tracker.
+The local_irq_disable() in bad_mode() can be dropped
+since we are now disabling IRQs in the early assembly
+exception handler for all exceptions.
 
-This patch restores the order.
-
-If this seems like the previous patch introduces a
-regression that is then fixed in this patch, it can simply
-be squashed into the former: having this rewrite separately
-surely makes development and review easier.
+This seems like not perfect: it seems an interrupt
+could still occur right before CPSR is set, or right after
+the userspace registers are restored in ret_from_exception.
+I would like to know if there is some
+way to set up these exceptions to inherently block IRQs
+when handled, until we explicitly allow them between
+irqentry_enter() and irqentry_exit() or if this is simply
+the best we can do on ARM for these exceptions to make the
+context tracker happy.
 
 Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- arch/arm/include/asm/entry.h |  3 +++
- arch/arm/include/asm/traps.h |  2 +-
- arch/arm/kernel/entry-armv.S |  7 +++----
- arch/arm/kernel/entry.c      | 31 +++++++++++++++++++++++++++++++
- arch/arm/kernel/traps.c      |  2 +-
- arch/arm/mm/abort-ev4.S      |  2 +-
- arch/arm/mm/abort-ev4t.S     |  2 +-
- arch/arm/mm/abort-ev5t.S     |  4 ++--
- arch/arm/mm/abort-ev5tj.S    |  6 +++---
- arch/arm/mm/abort-ev6.S      |  2 +-
- arch/arm/mm/abort-ev7.S      |  2 +-
- arch/arm/mm/abort-lv4t.S     | 36 ++++++++++++++++++------------------
- arch/arm/mm/abort-macro.S    |  2 +-
- arch/arm/mm/abort-nommu.S    |  2 +-
- arch/arm/mm/fault.c          |  4 ++--
- arch/arm/mm/fault.h          |  8 ++++----
- arch/arm/mm/pabort-legacy.S  |  2 +-
- arch/arm/mm/pabort-v6.S      |  2 +-
- arch/arm/mm/pabort-v7.S      |  2 +-
- 19 files changed, 77 insertions(+), 44 deletions(-)
+ arch/arm/kernel/entry-armv.S |  6 +-----
+ arch/arm/kernel/entry.c      | 18 ++++++++++++++++++
+ arch/arm/kernel/traps.c      |  1 -
+ 3 files changed, 19 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm/include/asm/entry.h b/arch/arm/include/asm/entry.h
-index df2dd14ab51a586b83b6da6bbf9bd99858c1ddf4..de722084d5309194e02cb87db64ec32b9e6cd627 100644
---- a/arch/arm/include/asm/entry.h
-+++ b/arch/arm/include/asm/entry.h
-@@ -4,6 +4,9 @@
- 
- struct pt_regs;
- 
-+void arm_und_handler(struct pt_regs *regs);
-+void arm_dabt_handler(unsigned long addr, unsigned int fsr, struct pt_regs *regs);
-+void arm_pabt_handler(unsigned long addr, unsigned int ifsr, struct pt_regs *regs);
- void arm_irq_handler(struct pt_regs *regs, int mode);
- void arm_fiq_handler(struct pt_regs *regs);
- void arm_exit_to_user_mode(struct pt_regs *regs);
-diff --git a/arch/arm/include/asm/traps.h b/arch/arm/include/asm/traps.h
-index f8695104c72f2f450092839c7c50920e540e594b..0ca98271e10a210225c1714f5b24668cebab2def 100644
---- a/arch/arm/include/asm/traps.h
-+++ b/arch/arm/include/asm/traps.h
-@@ -37,7 +37,7 @@ extern void ptrace_break(struct pt_regs *regs);
- extern void *vectors_page;
- 
- asmlinkage void dump_backtrace_stm(u32 *stack, u32 instruction, const char *loglvl);
--asmlinkage void do_undefinstr(struct pt_regs *regs);
-+void do_undefinstr(struct pt_regs *regs);
- asmlinkage void bad_mode(struct pt_regs *regs, int reason);
- int arm_syscall(int no, struct pt_regs *regs);
- asmlinkage void baddataabort(int code, unsigned long instr, struct pt_regs *regs);
 diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
-index 498a22f5fa8a6516d1eab584f0523c3d6c6e4926..ae2f952beea7611f0abc7bd299fc944335a21219 100644
+index ae2f952beea7611f0abc7bd299fc944335a21219..3dae35b0bb3f440ecaf157a45687bf4690fb8f88 100644
 --- a/arch/arm/kernel/entry-armv.S
 +++ b/arch/arm/kernel/entry-armv.S
-@@ -230,7 +230,7 @@ __und_fault:
- 	ldr	r2, [r0, #S_PC]
- 	sub	r2, r2, r1
- 	str	r2, [r0, #S_PC]
--	b	do_undefinstr
-+	b	arm_und_handler
- ENDPROC(__und_fault)
+@@ -416,11 +416,6 @@ ENDPROC(__irq_usr)
+ __und_usr:
+ 	usr_entry uaccess=0
  
- 	.align	5
-@@ -449,9 +449,8 @@ __pabt_usr:
- ENTRY(ret_from_exception)
-  UNWIND(.fnstart	)
-  UNWIND(.cantunwind	)
--	get_thread_info tsk
--	mov	why, #0
--	b	ret_to_user
-+	disable_irq_notrace
-+	b	ret_to_user_from_irq
-  UNWIND(.fnend		)
- ENDPROC(__pabt_usr)
- ENDPROC(ret_from_exception)
+-	@ IRQs must be enabled before attempting to read the instruction from
+-	@ user space since that could cause a page/translation fault if the
+-	@ page table was modified by another CPU.
+-	enable_irq
+-
+ 	tst	r5, #PSR_T_BIT			@ Thumb mode?
+ 	mov	r1, #2				@ set insn size to 2 for Thumb
+ 	bne	0f				@ handle as Thumb undef exception
+@@ -847,6 +842,7 @@ vector_\name:
+ 	@
+ 	mrs	r0, cpsr
+ 	eor	r0, r0, #(\mode ^ SVC_MODE | PSR_ISETSTATE)
++	orr	r0, r0, #PSR_I_BIT
+ 	msr	spsr_cxsf, r0
+ 
+ 	@
 diff --git a/arch/arm/kernel/entry.c b/arch/arm/kernel/entry.c
-index 08b8680233e5aae6e477f9bf15d7f06d7fd3e5af..01e4339ccdb4951e04a89fb91ad7c6e1991e09af 100644
+index 01e4339ccdb4951e04a89fb91ad7c6e1991e09af..3881670e0987ee40be6fff32f412edcf4f3ec80a 100644
 --- a/arch/arm/kernel/entry.c
 +++ b/arch/arm/kernel/entry.c
-@@ -8,8 +8,39 @@
- #include <linux/percpu.h>
- #include <linux/rseq.h>
- #include <asm/stacktrace.h>
-+#include <asm/traps.h>
- 
- #include "irq.h"
-+#include "../mm/fault.h"
-+
-+noinstr asmlinkage void arm_und_handler(struct pt_regs *regs)
-+{
-+	irqentry_state_t state = irqentry_enter(regs);
-+
-+	do_undefinstr(regs);
-+
-+	irqentry_exit(regs, state);
-+}
-+
-+noinstr asmlinkage void arm_dabt_handler(unsigned long addr, unsigned int fsr,
-+					 struct pt_regs *regs)
-+{
-+	irqentry_state_t state = irqentry_enter(regs);
-+
-+	do_DataAbort(addr, fsr, regs);
-+
-+	irqentry_exit(regs, state);
-+}
-+
-+noinstr asmlinkage void arm_pabt_handler(unsigned long addr, unsigned int ifsr,
-+					 struct pt_regs *regs)
-+{
-+	irqentry_state_t state = irqentry_enter(regs);
-+
-+	do_PrefetchAbort(addr, ifsr, regs);
-+
-+	irqentry_exit(regs, state);
-+}
- 
- static void noinstr handle_arm_irq(void *data)
+@@ -17,8 +17,18 @@ noinstr asmlinkage void arm_und_handler(struct pt_regs *regs)
  {
+ 	irqentry_state_t state = irqentry_enter(regs);
+ 
++	/*
++	 * IRQs must be enabled before attempting to read the instruction from
++	 * user space since that could cause a page/translation fault if the
++	 * page table was modified by another CPU.
++	 */
++
++	local_irq_enable();
++
+ 	do_undefinstr(regs);
+ 
++	local_irq_disable();
++
+ 	irqentry_exit(regs, state);
+ }
+ 
+@@ -27,8 +37,12 @@ noinstr asmlinkage void arm_dabt_handler(unsigned long addr, unsigned int fsr,
+ {
+ 	irqentry_state_t state = irqentry_enter(regs);
+ 
++	local_irq_enable();
++
+ 	do_DataAbort(addr, fsr, regs);
+ 
++	local_irq_disable();
++
+ 	irqentry_exit(regs, state);
+ }
+ 
+@@ -37,8 +51,12 @@ noinstr asmlinkage void arm_pabt_handler(unsigned long addr, unsigned int ifsr,
+ {
+ 	irqentry_state_t state = irqentry_enter(regs);
+ 
++	local_irq_enable();
++
+ 	do_PrefetchAbort(addr, ifsr, regs);
+ 
++	local_irq_disable();
++
+ 	irqentry_exit(regs, state);
+ }
+ 
 diff --git a/arch/arm/kernel/traps.c b/arch/arm/kernel/traps.c
-index 57e74b49c52533babe177a8a2e0160a83c9bde05..d3a689bd05955f1ae46a6341e456bb097e831311 100644
+index d3a689bd05955f1ae46a6341e456bb097e831311..b2eaab9cc4977c448f77faa4e6bc22a0749d1f9c 100644
 --- a/arch/arm/kernel/traps.c
 +++ b/arch/arm/kernel/traps.c
-@@ -449,7 +449,7 @@ int call_undef_hook(struct pt_regs *regs, unsigned int instr)
- 	return fn ? fn(regs, instr) : 1;
+@@ -515,7 +515,6 @@ asmlinkage void bad_mode(struct pt_regs *regs, int reason)
+ 	pr_crit("Bad mode in %s handler detected\n", handler[reason]);
+ 
+ 	die("Oops - bad mode", regs, 0);
+-	local_irq_disable();
+ 	panic("bad mode");
  }
  
--asmlinkage void do_undefinstr(struct pt_regs *regs)
-+noinstr void do_undefinstr(struct pt_regs *regs)
- {
- 	unsigned int instr;
- 	void __user *pc;
-diff --git a/arch/arm/mm/abort-ev4.S b/arch/arm/mm/abort-ev4.S
-index a10bcb89594dd38ce31ca30bf97d68cf421afc42..68d8ae2f4e9c0955c9f08112b4ff1887867d550a 100644
---- a/arch/arm/mm/abort-ev4.S
-+++ b/arch/arm/mm/abort-ev4.S
-@@ -24,4 +24,4 @@ ENTRY(v4_early_abort)
- 	bic	r1, r1, #1 << 11 | 1 << 10	@ clear bits 11 and 10 of FSR
- 	tst	r3, #1 << 20			@ L = 1 -> write?
- 	orreq	r1, r1, #1 << 11		@ yes.
--	b	do_DataAbort
-+	b	arm_dabt_handler
-diff --git a/arch/arm/mm/abort-ev4t.S b/arch/arm/mm/abort-ev4t.S
-index 14743a2f6997fcae0eeb55f53dec07b7b2ec227c..76c6cfa79e2a32e34b6f35a15c71c1af407956f3 100644
---- a/arch/arm/mm/abort-ev4t.S
-+++ b/arch/arm/mm/abort-ev4t.S
-@@ -25,4 +25,4 @@ ENTRY(v4t_early_abort)
- 	bic	r1, r1, #1 << 11 | 1 << 10	@ clear bits 11 and 10 of FSR
- 	tst	r3, #1 << 20			@ check write
- 	orreq	r1, r1, #1 << 11
--	b	do_DataAbort
-+	b	arm_dabt_handler
-diff --git a/arch/arm/mm/abort-ev5t.S b/arch/arm/mm/abort-ev5t.S
-index 98c523118820798668bf04d065ad86ea05fb6d2c..fda1e54debc44b380fb3f3af95c1f198a9cc008a 100644
---- a/arch/arm/mm/abort-ev5t.S
-+++ b/arch/arm/mm/abort-ev5t.S
-@@ -25,7 +25,7 @@ ENTRY(v5t_early_abort)
- 	uaccess_disable ip			@ disable user access
- 	bic	r1, r1, #1 << 11		@ clear bits 11 of FSR
- 	teq_ldrd tmp=ip, insn=r3		@ insn was LDRD?
--	beq	do_DataAbort			@ yes
-+	beq	arm_dabt_handler			@ yes
- 	tst	r3, #1 << 20			@ check write
- 	orreq	r1, r1, #1 << 11
--	b	do_DataAbort
-+	b	arm_dabt_handler
-diff --git a/arch/arm/mm/abort-ev5tj.S b/arch/arm/mm/abort-ev5tj.S
-index fec72f4fbaf508597d826e58d0dc084ee6e58dd0..a786a7d69e6ae23aa1125ccd41deaaaa743601e1 100644
---- a/arch/arm/mm/abort-ev5tj.S
-+++ b/arch/arm/mm/abort-ev5tj.S
-@@ -22,12 +22,12 @@ ENTRY(v5tj_early_abort)
- 	mrc	p15, 0, r0, c6, c0, 0		@ get FAR
- 	bic	r1, r1, #1 << 11 | 1 << 10	@ clear bits 11 and 10 of FSR
- 	tst	r5, #PSR_J_BIT			@ Java?
--	bne	do_DataAbort
-+	bne	arm_dabt_handler
- 	do_thumb_abort fsr=r1, pc=r4, psr=r5, tmp=r3
- 	ldreq	r3, [r4]			@ read aborted ARM instruction
- 	uaccess_disable ip			@ disable userspace access
- 	teq_ldrd tmp=ip, insn=r3		@ insn was LDRD?
--	beq	do_DataAbort			@ yes
-+	beq	arm_dabt_handler			@ yes
- 	tst	r3, #1 << 20			@ L = 0 -> write
- 	orreq	r1, r1, #1 << 11		@ yes.
--	b	do_DataAbort
-+	b	arm_dabt_handler
-diff --git a/arch/arm/mm/abort-ev6.S b/arch/arm/mm/abort-ev6.S
-index 836dc1299243415faaac1a93dce35ac46ae1a7da..2366236053eb86484cb179ff572f06db6559426b 100644
---- a/arch/arm/mm/abort-ev6.S
-+++ b/arch/arm/mm/abort-ev6.S
-@@ -42,4 +42,4 @@ ENTRY(v6_early_abort)
- 	orreq	r1, r1, #1 << 11		@ yes.
- #endif
- 1:	uaccess_disable ip			@ disable userspace access
--	b	do_DataAbort
-+	b	arm_dabt_handler
-diff --git a/arch/arm/mm/abort-ev7.S b/arch/arm/mm/abort-ev7.S
-index 53fb41c24774db985eddc370904aa7666527f538..72b6eba101555651d7afd749fd5d7715a2964372 100644
---- a/arch/arm/mm/abort-ev7.S
-+++ b/arch/arm/mm/abort-ev7.S
-@@ -18,5 +18,5 @@ ENTRY(v7_early_abort)
- 	mrc	p15, 0, r1, c5, c0, 0		@ get FSR
- 	mrc	p15, 0, r0, c6, c0, 0		@ get FAR
- 	uaccess_disable ip			@ disable userspace access
--	b	do_DataAbort
-+	b	arm_dabt_handler
- ENDPROC(v7_early_abort)
-diff --git a/arch/arm/mm/abort-lv4t.S b/arch/arm/mm/abort-lv4t.S
-index fbd60a120f6684c56c63cea10b00200765473f1d..3fef9c1479c17bb07652e43e0b8b0683e00c4b2f 100644
---- a/arch/arm/mm/abort-lv4t.S
-+++ b/arch/arm/mm/abort-lv4t.S
-@@ -46,8 +46,8 @@ ENTRY(v4t_late_abort)
- /* 9 */	b	.data_arm_ldmstm		@ ldm*b	rn, <rlist>
- /* a */	b	.data_unknown
- /* b */	b	.data_unknown
--/* c */	b	do_DataAbort			@ ldc	rd, [rn], #m	@ Same as ldr	rd, [rn], #m
--/* d */	b	do_DataAbort			@ ldc	rd, [rn, #m]
-+/* c */	b	arm_dabt_handler		@ ldc	rd, [rn], #m	@ Same as ldr	rd, [rn], #m
-+/* d */	b	arm_dabt_handler		@ ldc	rd, [rn, #m]
- /* e */	b	.data_unknown
- /* f */	b	.data_unknown
- 
-@@ -60,7 +60,7 @@ ENTRY(v4t_late_abort)
- 
- .data_arm_ldmstm:
- 	tst	r8, #1 << 21			@ check writeback bit
--	beq	do_DataAbort			@ no writeback -> no fixup
-+	beq	arm_dabt_handler		@ no writeback -> no fixup
- 	str	r9, [sp, #-4]!
- 	mov	r7, #0x11
- 	orr	r7, r7, #0x1100
-@@ -81,11 +81,11 @@ ENTRY(v4t_late_abort)
- 	addeq	r7, r7, r6, lsl #2		@ Undo decrement
- 	str	r7, [r2, r9, lsr #14]		@ Put register 'Rn'
- 	ldr	r9, [sp], #4
--	b	do_DataAbort
-+	b	arm_dabt_handler
- 
- .data_arm_lateldrhpre:
- 	tst	r8, #1 << 21			@ Check writeback bit
--	beq	do_DataAbort			@ No writeback -> no fixup
-+	beq	arm_dabt_handler		@ No writeback -> no fixup
- .data_arm_lateldrhpost:
- 	str	r9, [sp, #-4]!
- 	and	r9, r8, #0x00f			@ get Rm / low nibble of immediate value
-@@ -101,14 +101,14 @@ ENTRY(v4t_late_abort)
- 	addeq	r7, r7, r6			@ Undo decrement
- 	str	r7, [r2, r9, lsr #14]		@ Put register 'Rn'
- 	ldr	r9, [sp], #4
--	b	do_DataAbort
-+	b	arm_dabt_handler
- 
- .data_arm_lateldrpreconst:
- 	tst	r8, #1 << 21			@ check writeback bit
--	beq	do_DataAbort			@ no writeback -> no fixup
-+	beq	arm_dabt_handler		@ no writeback -> no fixup
- .data_arm_lateldrpostconst:
- 	movs	r6, r8, lsl #20			@ Get offset
--	beq	do_DataAbort			@ zero -> no fixup
-+	beq	arm_dabt_handler		@ zero -> no fixup
- 	str	r9, [sp, #-4]!
- 	and	r9, r8, #15 << 16		@ Extract 'n' from instruction
- 	ldr	r7, [r2, r9, lsr #14]		@ Get register 'Rn'
-@@ -117,11 +117,11 @@ ENTRY(v4t_late_abort)
- 	addeq	r7, r7, r6, lsr #20		@ Undo decrement
- 	str	r7, [r2, r9, lsr #14]		@ Put register 'Rn'
- 	ldr	r9, [sp], #4
--	b	do_DataAbort
-+	b	arm_dabt_handler
- 
- .data_arm_lateldrprereg:
- 	tst	r8, #1 << 21			@ check writeback bit
--	beq	do_DataAbort			@ no writeback -> no fixup
-+	beq	arm_dabt_handler		@ no writeback -> no fixup
- .data_arm_lateldrpostreg:
- 	and	r7, r8, #15			@ Extract 'm' from instruction
- 	ldr	r6, [r2, r7, lsl #2]		@ Get register 'Rm'
-@@ -180,10 +180,10 @@ ENTRY(v4t_late_abort)
- /* 3 */	b	.data_unknown
- /* 4 */	b	.data_unknown
- /* 5 */	b	.data_thumb_reg
--/* 6 */	b	do_DataAbort
--/* 7 */	b	do_DataAbort
--/* 8 */	b	do_DataAbort
--/* 9 */	b	do_DataAbort
-+/* 6 */	b	arm_dabt_handler
-+/* 7 */	b	arm_dabt_handler
-+/* 8 */	b	arm_dabt_handler
-+/* 9 */	b	arm_dabt_handler
- /* A */	b	.data_unknown
- /* B */	b	.data_thumb_pushpop
- /* C */	b	.data_thumb_ldmstm
-@@ -193,10 +193,10 @@ ENTRY(v4t_late_abort)
- 
- .data_thumb_reg:
- 	tst	r8, #1 << 9
--	beq	do_DataAbort
-+	beq	arm_dabt_handler
- 	tst	r8, #1 << 10			@ If 'S' (signed) bit is set
- 	movne	r1, #0				@ it must be a load instr
--	b	do_DataAbort
-+	b	arm_dabt_handler
- 
- .data_thumb_pushpop:
- 	tst	r8, #1 << 10
-@@ -217,7 +217,7 @@ ENTRY(v4t_late_abort)
- 	subne	r7, r7, r6, lsl #2		@ decrement SP if POP
- 	str	r7, [r2, #13 << 2]
- 	ldr	r9, [sp], #4
--	b	do_DataAbort
-+	b	arm_dabt_handler
- 
- .data_thumb_ldmstm:
- 	str	r9, [sp, #-4]!
-@@ -234,4 +234,4 @@ ENTRY(v4t_late_abort)
- 	sub	r7, r7, r6, lsl #2		@ always decrement
- 	str	r7, [r2, r9, lsr #6]
- 	ldr	r9, [sp], #4
--	b	do_DataAbort
-+	b	arm_dabt_handler
-diff --git a/arch/arm/mm/abort-macro.S b/arch/arm/mm/abort-macro.S
-index bacf53fd0b70c6307e74ef8601d8dcc7db292700..30bb5e2135862902951b5077b0b860fd12ed8c28 100644
---- a/arch/arm/mm/abort-macro.S
-+++ b/arch/arm/mm/abort-macro.S
-@@ -20,7 +20,7 @@
- 	orreq	\tmp, \tmp, #1 << 11		@ Set L-bit if yes
- 	tst	\tmp, #1 << 11			@ L = 0 -> write
- 	orreq	\fsr, \fsr, #1 << 11		@ yes.
--	b	do_DataAbort
-+	b	arm_dabt_handler
- not_thumb:
- 	.endm
- 
-diff --git a/arch/arm/mm/abort-nommu.S b/arch/arm/mm/abort-nommu.S
-index 6e2366a263219b379f4fdb43cc8e5413fb36e52a..573a09529ac7794f8004680ab350750de7c8e15d 100644
---- a/arch/arm/mm/abort-nommu.S
-+++ b/arch/arm/mm/abort-nommu.S
-@@ -17,5 +17,5 @@
- ENTRY(nommu_early_abort)
- 	mov	r0, #0				@ clear r0, r1 (no FSR/FAR)
- 	mov	r1, #0
--	b	do_DataAbort
-+	b	arm_dabt_handler
- ENDPROC(nommu_early_abort)
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index ab01b51de5590bff6c2acaf446d01c589a5f7987..78afb701b34a17d8d841762944eb5f8af6843dc4 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -588,7 +588,7 @@ hook_fault_code(int nr, int (*fn)(unsigned long, unsigned int, struct pt_regs *)
- /*
-  * Dispatch a data abort to the relevant handler.
-  */
--asmlinkage void
-+void
- do_DataAbort(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
- {
- 	const struct fsr_info *inf = fsr_info + fsr_fs(fsr);
-@@ -618,7 +618,7 @@ hook_ifault_code(int nr, int (*fn)(unsigned long, unsigned int, struct pt_regs *
- 	ifsr_info[nr].name = name;
- }
- 
--asmlinkage void
-+void
- do_PrefetchAbort(unsigned long addr, unsigned int ifsr, struct pt_regs *regs)
- {
- 	const struct fsr_info *inf = ifsr_info + fsr_fs(ifsr);
-diff --git a/arch/arm/mm/fault.h b/arch/arm/mm/fault.h
-index e8f8c190254442a015a6cbc179602589cfddb0ea..36a7e7138c310a8311458207d2b694cb44c63b93 100644
---- a/arch/arm/mm/fault.h
-+++ b/arch/arm/mm/fault.h
-@@ -37,9 +37,9 @@ static inline int fsr_fs(unsigned int fsr)
- 
- void do_bad_area(unsigned long addr, unsigned int fsr, struct pt_regs *regs);
- void early_abt_enable(void);
--asmlinkage void do_DataAbort(unsigned long addr, unsigned int fsr,
--			     struct pt_regs *regs);
--asmlinkage void do_PrefetchAbort(unsigned long addr, unsigned int ifsr,
--				 struct pt_regs *regs);
-+void do_DataAbort(unsigned long addr, unsigned int fsr,
-+		  struct pt_regs *regs);
-+void do_PrefetchAbort(unsigned long addr, unsigned int ifsr,
-+		      struct pt_regs *regs);
- 
- #endif	/* __ARCH_ARM_FAULT_H */
-diff --git a/arch/arm/mm/pabort-legacy.S b/arch/arm/mm/pabort-legacy.S
-index b2ffce4201062e3ec2045364ddc454cf706bab8d..26c62e568638d37133661f4f5b8dec430593f8eb 100644
---- a/arch/arm/mm/pabort-legacy.S
-+++ b/arch/arm/mm/pabort-legacy.S
-@@ -18,5 +18,5 @@
- ENTRY(legacy_pabort)
- 	mov	r0, r4
- 	mov	r1, #5
--	b	do_PrefetchAbort
-+	b	arm_pabt_handler
- ENDPROC(legacy_pabort)
-diff --git a/arch/arm/mm/pabort-v6.S b/arch/arm/mm/pabort-v6.S
-index 8686265dc9418b29381942bfd87a937a3234d46e..25abd11a35253bf464fe9fd7fc14fd11bc564dcd 100644
---- a/arch/arm/mm/pabort-v6.S
-+++ b/arch/arm/mm/pabort-v6.S
-@@ -18,5 +18,5 @@
- ENTRY(v6_pabort)
- 	mov	r0, r4
- 	mrc	p15, 0, r1, c5, c0, 1		@ get IFSR
--	b	do_PrefetchAbort
-+	b	arm_pabt_handler
- ENDPROC(v6_pabort)
-diff --git a/arch/arm/mm/pabort-v7.S b/arch/arm/mm/pabort-v7.S
-index 9c70b1a21dc9204f24524df9905fbc077a82f2dc..e05c7d44d307adeba6759213374b2aa328c693da 100644
---- a/arch/arm/mm/pabort-v7.S
-+++ b/arch/arm/mm/pabort-v7.S
-@@ -18,5 +18,5 @@
- ENTRY(v7_pabort)
- 	mrc	p15, 0, r0, c6, c0, 2		@ get IFAR
- 	mrc	p15, 0, r1, c5, c0, 1		@ get IFSR
--	b	do_PrefetchAbort
-+	b	arm_pabt_handler
- ENDPROC(v7_pabort)
 
 -- 
 2.48.1
