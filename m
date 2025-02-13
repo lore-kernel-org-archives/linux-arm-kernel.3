@@ -4,74 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5B9C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BA6C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:13:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=444+3PpVJ6Rc/5DNNSc7b25gv9MUrtliSbbzsT/wTXw=; b=TyPVZB4mqiQpMJxwb1bQMC/NwK
-	mn4UkmXrEQXF4pRYyUYWUeOmgNx4Ex+SnKTLZjVIbTDNiNCi/gQXuM6vnq8ico8lj7Uk1gYc7FrIn
-	odkNoPoR+vDPU3aBm/2cz9L3aLqkmpcBZ+U0OG3tS4RL1uG31NinWn7f2y0NXi/lNaOHn4iFaBfgd
-	uiioty7jh9N4rlann5JUh9eThXG+t6g/TCUgG67xJ9eVdb05vcIZ889rN3HtQcxqx81Xvelrt8fKD
-	IlaXfVghWA8INHFszqFy6GjgeHr8bmq1P47NBNvDdNZKU8ePHVjOM700PoCuOG2tOF2KxJ+V0tVTo
-	Em6ZsYng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cb9z6DcnNl0g9HoZcHoRWOLXyD9UxXMHyf9eNtzv3So=; b=zvO4Y1WW5aw6llRc2YZ8baarRe
+	s3JcdeZxqB5reW+kMJGQIRPOUWcCh9ouXMxs++N+iehbXkq5ZDnIhO8QP1oEVaJiHDVDRkfSk34N3
+	rduOLnNOtMUExqfcPR9N0TZbMnmRWsNQB1p1QLTnUzky0hK3YiprZZ3+QHh/5vCkzdFSf/+tKiEbc
+	jw4skyZijodmFdFUPJ05seed4o5+rIVNXQ6EbaJJq3tOu9MVdf0pE4esCDg46iWB8574w4XRvhwEG
+	4hYaJtap2kyaDkpaSJTJ1bI0kSAq0WbEHu1fVQNuXqO1hoBdaP2EUXZNM6YrHXOTKfyQ6g0LeqK9H
+	WfH/sQlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWCI-0000000Abo4-2M1e;
-	Thu, 13 Feb 2025 10:11:54 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tiWDk-0000000Ac83-1GQF;
+	Thu, 13 Feb 2025 10:13:24 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWAr-0000000AbUE-0TyY
+	id 1tiWAu-0000000AbV4-1fpx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 10:10:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9F7BDA41FEF
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 10:08:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A8EFC4CEE9
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 10:10:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739441423;
-	bh=42FVAKglSdA4GCM9HFlOhDKZOpyrLuyiIonz/DiE3L8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=QduZ+V/DRRjp2YWO++Ujfw3lygiGvik5JyzHxwkbzuCCpkjDQA2xTe9472qCN+Nmm
-	 g8UPJBRO1x11HRM2ivIE8CcqfDWwXrogX25VnK26nn9dKYYSxVlODPp0HlmILK/i/p
-	 ILEi1lvFLnbPFZ1RBFxCyUR9zSS2JVm7RVMD5EUeUO5vRTsL2pHLncYcwgGow9yA1I
-	 mYmv3jE4woQi5p93XX32ny0y8aYTG6xUG+cNojoNuN4gr//3nWs+4xcMdeJ3iK/26I
-	 8RMuhd8w68G4+i9xGt3TiXQciFWBB6LoanAcebArn+JtR6Jr1P+7tTOJogzdZMgjnR
-	 bu3Pc5MrK9oNg==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-543d8badc30so761801e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 02:10:23 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUP5mvg0b0DzO08Y2s76gi9xAPBtpEFbbzPy4e6itQE9yLF2KNtDDyddb2eQT/iwejgQMOXaOcmOXHQMSiPWQi8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6wObkn5KUnMP2r0i0HIPlYGRLbm+twLDkM8z2kWB20/rOZZQb
-	ywiWhCuKXwiAWVSSahvhvrFTbrBVWBNOy199/4mzFHgnzh9AbUoO+GFifWI6Yvwq4qjL+wua9GB
-	tPhB3gGRjvcu/fG1WRMW9n7wuzLo=
-X-Google-Smtp-Source: AGHT+IHR+xr20cYmx6lgB9lVJM3c3+XAiEna+ZFlbjgJt6DHiy1GJEpnHOR+KpKMxfjEGw7dyQYgQ9iz1/SKleqfvSQ=
-X-Received: by 2002:a05:6512:159b:b0:545:4d1:64c0 with SMTP id
- 2adb3069b0e04-5451dd9e2admr736305e87.27.1739441421532; Thu, 13 Feb 2025
- 02:10:21 -0800 (PST)
+	Thu, 13 Feb 2025 10:10:30 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-38ddc36b81dso385120f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 02:10:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739441426; x=1740046226; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Cb9z6DcnNl0g9HoZcHoRWOLXyD9UxXMHyf9eNtzv3So=;
+        b=qXnbBwEFbEill3grBHILptzuJNGVKjrhfj/YZ6ZhML1r7RXoOUwU1u11GtJMaKlQm4
+         jHVaLDcKhgZZb/JqhEw+et/Xr/kqUvFmwHWtnaxDDV4Gz6e0xWERegOI46s2Q6PHo571
+         ntBJQ8MykziPW9wySLGhUi8Iv2+Y0HEsFk2dgQMJzvQ66xrmBaeZcIXoS08CK7EUtCgT
+         7APmBXEZtrSyFTfqW4NoVoVYIXokuMrEZUujICxu4VshbUB+MBuZhAJbSMNVokcuo9MB
+         lTABQ8Qw9TTRyknHv1m44LUWJB1GVHMlrYTrL3Nbq019XgDXiAarWMSxn3hKCIGe3chD
+         kHtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739441426; x=1740046226;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Cb9z6DcnNl0g9HoZcHoRWOLXyD9UxXMHyf9eNtzv3So=;
+        b=MdATWr5GyOfXk5IORD3ebCTMT8MQutvC0xUkwCekq9wPNGKg5mSSYoZU32NJcyw1xW
+         /b5rVoeXCJgf2clSbfIGPuELzi6EDjypyMI+ZwJGJlme91ujSpdMA+GEJFvGg9LIVUxa
+         1ZTdf+NjhXl9gQj7yfsKcFA8q6yxm1T8+jUPce9M9kK6ycVN/o2QfrDtsU1looNmWWtG
+         mg0nx9lqE8Y6L23jXoxbbUOiVdAanLpFl1Is3ytk2NNCIdSWr31fjbWEz8mZtACwKuGO
+         vJcBgEL7l8oGBVm6uUC3LR1MWvsSXcOQqzRciRgP4ULSeN543JZjRn7FhZ3ClFfJgTm4
+         y82A==
+X-Forwarded-Encrypted: i=1; AJvYcCX6UhgvnRQunpPS/i/4h1Wsw4AFgDi6VPXCH/ZczWIPaqz+I7qzL3Quky/69b0wRZG3pKUivnMpSxXAJG/0rDuG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHh+XCqYck+4YEnVX0AZAJfcEJAmo7cQlDba4I+4H8o05NNh0F
+	oZVS+qdYcnqdtO9ih7CSoIlGI0xgoWyNIsrqBitPMs6yjOlbHdvLg+huFtA2yEc=
+X-Gm-Gg: ASbGncsSlyh4ObAnEqkt0nocZ/fTGJ6PO7sEK4RP6IRWv35mw9+QCCDZgn0Wzf4EMMH
+	ES+tgRf6UvPHS4pMorepAgdF4HfWGlWHK+0pf0fgY6gYM53jwEUy/9U5uN9ZIOIhU+DVHC0HExJ
+	Wf1D6l2xr5EhrRQGq/L0KdsK4jsUsjptFYkqp+X/1+4xJVXxu3mdDnv/FG4GJ9DaYad7aeRtlyU
+	dWF0osygreNT9qmdD4JdAAFrJ6DuFQhbYkrl81ZHivOrJlg2lnL5Il+E3hyfAF55A6FL1dBWtmb
+	BYh2tmTB0ttJZw==
+X-Google-Smtp-Source: AGHT+IFnAzzmsoX/LnTlYKfUwdNafAjQwt9ZvkB3qt0FKjzX4kx3PyzgxFabDyvJ+Y073z4cgUVqUg==
+X-Received: by 2002:a5d:648b:0:b0:386:3327:4f21 with SMTP id ffacd0b85a97d-38f24f9cc70mr1962954f8f.27.1739441426065;
+        Thu, 13 Feb 2025 02:10:26 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:b617:2c1:fc8c:2705])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259d5c36sm1435555f8f.67.2025.02.13.02.10.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Feb 2025 02:10:25 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Doug Anderson <dianders@chromium.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Dave Ertman
+ <david.m.ertman@intel.com>,  Ira Weiny <ira.weiny@intel.com>,  "Rafael J.
+ Wysocki" <rafael@kernel.org>,  Stephen Boyd <sboyd@kernel.org>,  Arnd
+ Bergmann <arnd@arndb.de>,  Danilo Krummrich <dakr@kernel.org>,  Conor
+ Dooley <conor.dooley@microchip.com>,  Daire McNamara
+ <daire.mcnamara@microchip.com>,  Philipp Zabel <p.zabel@pengutronix.de>,
+  Andrzej Hajda <andrzej.hajda@intel.com>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Robert Foss <rfoss@kernel.org>,  Laurent
+ Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
+ <jonas@kwiboo.se>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
+ <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>,  David
+ Airlie <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Hans de
+ Goede <hdegoede@redhat.com>,  Ilpo =?utf-8?Q?J=C3=A4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>,  "Bryan O'Donoghue"
+ <bryan.odonoghue@linaro.org>,  Vladimir Kondratiev
+ <vladimir.kondratiev@mobileye.com>,  Gregory CLEMENT
+ <gregory.clement@bootlin.com>,  =?utf-8?Q?Th=C3=A9o?= Lebrun
+ <theo.lebrun@bootlin.com>,
+  Michael Turquette <mturquette@baylibre.com>,  Abel Vesa
+ <abelvesa@kernel.org>,  Peng Fan <peng.fan@nxp.com>,  Shawn Guo
+ <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
+  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
+ <festevam@gmail.com>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+  linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org,
+  dri-devel@lists.freedesktop.org,  platform-driver-x86@vger.kernel.org,
+  linux-mips@vger.kernel.org,  linux-clk@vger.kernel.org,
+  imx@lists.linux.dev,  linux-arm-kernel@lists.infradead.org,
+  linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v3 3/7] drm/bridge: ti-sn65dsi86: use the auxiliary
+ device creation helper
+In-Reply-To: <CAD=FV=WQsFzAmpcqSG-eAm6SW-i3Q7EdbxEKyuhyovVXVRxC8A@mail.gmail.com>
+	(Doug Anderson's message of "Wed, 12 Feb 2025 08:38:25 -0800")
+References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
+	<20250211-aux-device-create-helper-v3-3-7edb50524909@baylibre.com>
+	<CAD=FV=WQsFzAmpcqSG-eAm6SW-i3Q7EdbxEKyuhyovVXVRxC8A@mail.gmail.com>
+User-Agent: mu4e 1.12.8; emacs 29.4
+Date: Thu, 13 Feb 2025 11:10:24 +0100
+Message-ID: <1jfrki17fz.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-References: <20250212154718.44255-1-ebiggers@kernel.org> <Z61yZjslWKmDGE_t@gondor.apana.org.au>
-In-Reply-To: <Z61yZjslWKmDGE_t@gondor.apana.org.au>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 13 Feb 2025 11:10:10 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXE+K4XbmxkXwzj9tHE2DP_A5pKLPPFv6+Fa=CtH8rD24Q@mail.gmail.com>
-X-Gm-Features: AWEUYZkVud9S7L-5xo9HDDz6-H1l2qn4wDw7iDL4qi7FjFF8ciQmJoIc0opMONg
-Message-ID: <CAMj1kXE+K4XbmxkXwzj9tHE2DP_A5pKLPPFv6+Fa=CtH8rD24Q@mail.gmail.com>
-Subject: Re: [PATCH v8 0/7] Optimize dm-verity and fsverity using multibuffer hashing
-To: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Eric Biggers <ebiggers@kernel.org>, fsverity@lists.linux.dev, 
-	linux-crypto@vger.kernel.org, dm-devel@lists.linux.dev, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Sami Tolvanen <samitolvanen@google.com>, Alasdair Kergon <agk@redhat.com>, 
-	Mike Snitzer <snitzer@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Mikulas Patocka <mpatocka@redhat.com>, David Howells <dhowells@redhat.com>, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_021025_314197_90CD6B88 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20250213_021028_644401_1699DBE3 
+X-CRM114-Status: GOOD (  21.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,59 +130,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Feb 2025 at 05:17, Herbert Xu <herbert@gondor.apana.org.au> wrote:
+On Wed 12 Feb 2025 at 08:38, Doug Anderson <dianders@chromium.org> wrote:
+
+> Hi,
 >
-> On Wed, Feb 12, 2025 at 07:47:11AM -0800, Eric Biggers wrote:
-> > [ This patchset keeps getting rejected by Herbert, who prefers a
-> >   complex, buggy, and slow alternative that shoehorns CPU-based hashing
-> >   into the asynchronous hash API which is designed for off-CPU offload:
-> >   https://lore.kernel.org/linux-crypto/cover.1730021644.git.herbert@gondor.apana.org.au/
-> >   This patchset is a much better way to do it though, and I've already
-> >   been maintaining it downstream as it would not be reasonable to go the
-> >   asynchronous hash route instead.  Let me know if there are any
-> >   objections to me taking this patchset through the fsverity tree, or at
-> >   least patches 1-5 as the dm-verity patches could go in separately. ]
+> On Tue, Feb 11, 2025 at 9:28=E2=80=AFAM Jerome Brunet <jbrunet@baylibre.c=
+om> wrote:
+>>
+>> The auxiliary device creation of this driver is simple enough to
+>> use the available auxiliary device creation helper.
+>>
+>> Use it and remove some boilerplate code.
+>>
+>> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+>> ---
+>>  drivers/gpu/drm/bridge/ti-sn65dsi86.c | 84 +++++++++-------------------=
+-------
+>>  1 file changed, 20 insertions(+), 64 deletions(-)
 >
-> Yes I object.  While I very much like this idea of parallel hashing
-> that you're introducing, shoehorning it into shash is restricting
-> this to storage-based users.
+> Thanks for creating the helpers and getting rid of some boilerplate!
+> This conflicts with commit 574f5ee2c85a ("drm/bridge: ti-sn65dsi86:
+> Fix multiple instances") which is in drm-next, though. Please resolve.
+
+Noted. this is based on v6.14-rc1 ATM
+
 >
-> Networking is equally able to benefit from paralell hashing, and
-> parallel crypto (in particular, AEAD) in general.  In fact, both
-> TLS and IPsec can benefit directly from bulk submission instead
-> of the current scheme where a single packet is processed at a time.
+> Since nothing here is urgent, I would assume patch #1 would land and
+> then we'd just wait until it made it to mainline before landing the
+> other patches in their respective trees?
+
+That would simplest way to handle it I think. No rush.
+I'll rebase when the time comes.
+
 >
-> But thanks for the reminder and I will be posting my patches
-> soon.
 >
+>> -static int ti_sn65dsi86_add_aux_device(struct ti_sn65dsi86 *pdata,
+>> -                                      struct auxiliary_device **aux_out,
+>> -                                      const char *name)
+>> -{
+>> -       struct device *dev =3D pdata->dev;
+>> -       struct auxiliary_device *aux;
+>> -       int ret;
+>> -
+>> -       aux =3D kzalloc(sizeof(*aux), GFP_KERNEL);
+>> -       if (!aux)
+>> -               return -ENOMEM;
+>> -
+>> -       aux->name =3D name;
+>> -       aux->dev.parent =3D dev;
+>> -       aux->dev.release =3D ti_sn65dsi86_aux_device_release;
+>> -       device_set_of_node_from_dev(&aux->dev, dev);
+>> -       ret =3D auxiliary_device_init(aux);
+>> -       if (ret) {
+>> -               kfree(aux);
+>> -               return ret;
+>> -       }
+>> -       ret =3D devm_add_action_or_reset(dev, ti_sn65dsi86_uninit_aux, a=
+ux);
+>> -       if (ret)
+>> -               return ret;
+>> -
+>> -       ret =3D auxiliary_device_add(aux);
+>> -       if (ret)
+>> -               return ret;
+>> -       ret =3D devm_add_action_or_reset(dev, ti_sn65dsi86_delete_aux, a=
+ux);
+>> -       if (!ret)
+>> -               *aux_out =3D aux;
+>
+> I notice that your new code has one fewer devm_add_action_or_reset()
+> than the code here which you're replacing. That means it needs to call
+> "uninit" explicitly in one extra place.
 
-I have to second Eric here, simply because his work has been ready to
-go for a year now, while you keep rejecting it on the basis that
-you're creating something better, and the only thing you have managed
-to produce in the meantime didn't even work.
+... but it needs one memory allocation less ;)
 
-I strongly urge you to accept Eric's work, and if your approach is
-really superior, it should be fairly easy making that point with
-working code once you get around to producing it, and we can switch
-over the users then.
+> It still seems clean enough,
+> though, so I don't have any real objections to the way you're doing it
+> there. ;-)
 
-The increased flexibility you claim your approach will have does not
-mesh with my understanding of where the opportunities for improvement
-are: CPU-based SHA can be tightly interleaved at the instruction level
-to have a performance gain of almost 2x. Designing a more flexible
-ahash based multibuffer API that can still take advantage of this to
-the same extent is not straight-forward, and you going off and cooking
-up something by yourself for months at a time does not inspire
-confidence that this will converge any time soon, if at all.
+Both ways are valid indeed. Just a matter of personal taste I guess.
 
-Also, your network use case is fairly theoretical, whereas the
-fsverity and dm-verity code runs on 100s of millions of mobile phones
-in the field, so sacrificing any performance of the latter to serve
-the former seems misguided to me.
+>
+> -Doug
 
-So could you please remove yourself from the critical path here, and
-merge this while we wait for your better alternative to materialize?
-
-Thanks,
-Ard.
+--=20
+Jerome
 
