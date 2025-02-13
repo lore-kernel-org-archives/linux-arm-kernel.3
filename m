@@ -4,104 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 237A7C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 11:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26184C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 11:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LL+aPdnFR/fkXCURRzOeY8yP7Oiq1xCa5VfoFeYynkw=; b=Lt4m4bc/+tRzMxJOCn8SR7rsMU
-	bkr+Ox1ZNA/yPL0NBHVfV4H5lRn6Lqs6IhuZrinfhleZN6U7LN6UIV5DZ/jH2D0Fb5EROjYo2FYZe
-	Hp3Jav5G6KAu3Qr0x0gUeyEEN5HOuAT7ez6HzO6Wemjryh0zjhYdVpncAEO5qeLJnU+9pce46/Pux
-	ZaaHciW8QW0QHKYSthOoGaxdfLCAN25wTXqWUdeqhPiiEQ69kkWQ0uc6x/aSDVGLwPn4N+tT7y1Yp
-	sLrb0ljtVjjUHG2KzwHgi4nc1zR05MPdqWRZanNFycLARt4R4gZIyTv+/mLvKKOQCZrouNC76M4rr
-	2bwNSBcg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4QJVLDvWsDWRMQkm29I/yRVaDWamxuy5N9/YEC1ux80=; b=1xg4qtxaWaXWMpLnqCoh3GLsJz
+	Eca5PMKPyfI/ckJqwFssV17Q+tG1YPTyPyxP9TQxS+XOHny9dvy8dPLNWN3NqBX/tq+G2O6LC00Ox
+	8a6sZrj4Awapv5BCStZ3X2bjCwdd/Avvk/VhHJt9PhhS/9dP298dwtJYZN9m8r+bSEspv/w3Xs63U
+	NqKA3U+Z+MqPHDeh68R3zqUKjky/hL9lSp345sgqrR4qgyfE6ll04X2ZXQpnxn+r6fnOBJZMB8kOR
+	cbicsZ2IzjG5TA4Vu4IMHLJv2MQW5cTWPHb5SZ3eLiL30e4mbmwjgsmrhN9K1WKrwmrm56LZXhj9l
+	QABlSXug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXR3-0000000Arkg-3fon;
-	Thu, 13 Feb 2025 11:31:13 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tiXSS-0000000As5a-1zmW;
+	Thu, 13 Feb 2025 11:32:40 +0000
+Received: from mail.ispras.ru ([83.149.199.84])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXJy-0000000ApUf-2kLE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 11:23:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739445833;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LL+aPdnFR/fkXCURRzOeY8yP7Oiq1xCa5VfoFeYynkw=;
-	b=Dpa7cMb+judlLDy0wXs2g8zy30bhGz7ioRnh20TAP3m15dp9N+SoUK8pmQ80VcEvbvvJR8
-	DXKqr0mtwTVAzqfzikQUjDH4I6vwBH6MSdAUNwfn/Mt37lceEmFuyFc7TMnHUjYnjn3tfR
-	3+mSwsi0IqGSdMp3gAhcAv1ONc/zauM=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-170-h1VEEvw-P6Kks-nub2bFKg-1; Thu, 13 Feb 2025 06:23:52 -0500
-X-MC-Unique: h1VEEvw-P6Kks-nub2bFKg-1
-X-Mimecast-MFC-AGG-ID: h1VEEvw-P6Kks-nub2bFKg_1739445831
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-438e4e9a53fso5601765e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 03:23:52 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739445831; x=1740050631;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=LL+aPdnFR/fkXCURRzOeY8yP7Oiq1xCa5VfoFeYynkw=;
-        b=V+f7zp/M16cZ3ayBgrtmWRp0qCNmOFUTUvlPS3ypFP393xXG0zoyhvuN1gPiwB//ln
-         zYjs4HE0BrwRNMelRlirc9qd8uWdcYivX2SQ9pmWVAcpGYtql4YoS/jH5dr+2kU786mx
-         zlXWK8My5rjSF9W4rK1C8WWB/01TikymGayS8aCe2xMgApCa9fLZIRNRB6xQCBCP5AnO
-         EzQe9FMeW31FdeyAYweWcdbMazcX968bjUNEFwFlbnhbfUbL2rWIn/QlVruxxBE6NNA8
-         zgtGJcLRgwdmd6jxF4GlcZ/bWc7aL73PSeqYv6lP5hAlGdyG31x8q/AdFgJWEN/9gfNv
-         zvzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUdRq5Nh3J/E+3kkwkUD8U8Jve231GXtNB2A60YmeRucZZhUw4gcVYBg/jDP+9jeOtSY0V93Ghag8slMNzqWrgl@lists.infradead.org
-X-Gm-Message-State: AOJu0YxD2oLPMHCeuwwEhOKz3HdfrwoSL7ZhYmoGemxgLjEZOfwkepdL
-	JfDBgV3TdshQ0UZKi2Spi5JTzOpCcFV5t31JthetdZi6lpF83ybBJ+rR11l/5oAa4x8pypUk6qo
-	LucySSUgG3tyXsbeL97Y5JoH8rDVDgNcD2KV8c9Ch1zzE/HRncYtI/Pi9rmYpI3mSgBYEbCCg
-X-Gm-Gg: ASbGncu9AwLzxusVzUhVYslw0s0tFmRY+j2UPlY/9ch+Bo+M/HtY0MEpAPbJS+JxrMR
-	Xe26ggmj8nHIrxaBSzHOzXilKfD9B/1oNI5H4wP+dibFyGbUy8Q+Aag3Lw+WE2/hUTGbF8DYhag
-	hxzk0AuR6sSheEU/PAaxrBsBcnwJTC1RtPT/cANiA+l8yzgRAzaefS6Y6G+G/6gNLhJ6mTcfBFY
-	0dgOpQe8DlZvO+cdLwKCjHfYiaOREGLpdBtLUrUQew0o8c5aGtYE+i2UjnJi1MFOmeWibivbRiI
-	Z2KSy/AaSt53yOIjRF9hibt4lN6qt8nkyfI=
-X-Received: by 2002:a05:600c:870d:b0:439:34d3:63cd with SMTP id 5b1f17b1804b1-4395816f381mr65177105e9.9.1739445831373;
-        Thu, 13 Feb 2025 03:23:51 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHFtFyqrjbkfQQqT9IE89MU7ZaXBN7z5Cz0szfxnDWNjv1Rol7DbNd/LzOv6OpYD5KnA0J+fw==
-X-Received: by 2002:a05:600c:870d:b0:439:34d3:63cd with SMTP id 5b1f17b1804b1-4395816f381mr65176865e9.9.1739445831072;
-        Thu, 13 Feb 2025 03:23:51 -0800 (PST)
-Received: from [192.168.88.253] (146-241-31-160.dyn.eolo.it. [146.241.31.160])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4394dc48d9dsm41234445e9.0.2025.02.13.03.23.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Feb 2025 03:23:50 -0800 (PST)
-Message-ID: <3a979b56-e9d6-41c9-910b-63b5371b9631@redhat.com>
-Date: Thu, 13 Feb 2025 12:23:48 +0100
+	id 1tiXKb-0000000Apgp-2anX;
+	Thu, 13 Feb 2025 11:24:35 +0000
+Received: from ldvnode.intra.ispras.ru (unknown [10.10.2.153])
+	by mail.ispras.ru (Postfix) with ESMTPSA id 707324226E06;
+	Thu, 13 Feb 2025 11:24:26 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru 707324226E06
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
+	s=default; t=1739445866;
+	bh=4QJVLDvWsDWRMQkm29I/yRVaDWamxuy5N9/YEC1ux80=;
+	h=From:To:Cc:Subject:Date:From;
+	b=TIGdJJ768Z2yBZ/Zu+rVnHatw0HDInhwvE295xuwuxNrRN5d/LqhiRkcKRzgn4oYm
+	 AlSCwb6+KTYtd679GTLrncHd/l/vYurXCBUXAK4mqdqqZrTPVcYecx+lr3ARtwgxrH
+	 EsK4u//Nl1NaWIilE3ueKgQwC1Ka/Atirfe6cKGg=
+From: Vitalii Mordan <mordan@ispras.ru>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Vitalii Mordan <mordan@ispras.ru>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Jeff Johnson <quic_jjohnson@quicinc.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+	Amit Singh Tomar <amittomer25@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-actions@lists.infradead.org,
+	Fedor Pchelkin <pchelkin@ispras.ru>,
+	Alexey Khoroshilov <khoroshilov@ispras.ru>,
+	Vadim Mutilin <mutilin@ispras.ru>,
+	lvc-project@linuxtesting.org,
+	stable@vger.kernel.org
+Subject: [PATCH] tty: owl-uart: fix call balance of owl_port->clk handling routines
+Date: Thu, 13 Feb 2025 14:24:16 +0300
+Message-Id: <20250213112416.1610678-1-mordan@ispras.ru>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/2] net: ti: icss-iep: Fix pwidth configuration for
- perout signal
-To: Meghana Malladi <m-malladi@ti.com>, javier.carrasco.cruz@gmail.com,
- diogo.ivo@siemens.com, horms@kernel.org, kuba@kernel.org,
- edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch
-Cc: linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com,
- Vignesh Raghavendra <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>,
- danishanwar@ti.com
-References: <20250211103527.923849-1-m-malladi@ti.com>
- <20250211103527.923849-2-m-malladi@ti.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20250211103527.923849-2-m-malladi@ti.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: VyuAX9liJEGTNy16pWmsNfdpo0aOGg_t_64PNdRrYJI_1739445831
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_032354_769568_E9A6D755 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_032433_840456_43CB2342 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,29 +79,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/11/25 11:35 AM, Meghana Malladi wrote:
-> @@ -419,8 +426,9 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
->  			regmap_write(iep->map, ICSS_IEP_CMP1_REG0, lower_32_bits(cmp));
->  			if (iep->plat_data->flags & ICSS_IEP_64BIT_COUNTER_SUPPORT)
->  				regmap_write(iep->map, ICSS_IEP_CMP1_REG1, upper_32_bits(cmp));
-> -			/* Configure SYNC, 1ms pulse width */
-> -			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG, 1000000);
-> +			/* Configure SYNC, based on req on width */
-> +			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
-> +				     (u32)(ns_width / iep->def_inc));
+If owl_port->clk was enabled in owl_uart_probe(), it must be disabled in
+all error paths to ensure proper cleanup. However, if uart_add_one_port()
+returns an error in owl_uart_probe(), the owl_port->clk clock will not be
+disabled.
 
-This causes build errors on 32bits:
+Use the devm_clk_get_enabled() helper function to ensure proper call
+balance for owl_port->clk.
 
-ERROR: modpost: "__udivdi3" [drivers/net/ethernet/ti/icssg/icss_iep.ko]
-undefined!
-make[3]: *** [../scripts/Makefile.modpost:147: Module.symvers] Error 1
-make[2]: *** [/home/nipa/net/wt-0/Makefile:1944: modpost] Error 2
-make[1]: *** [/home/nipa/net/wt-0/Makefile:251: __sub-make] Error 2
-make: *** [Makefile:251: __sub-make] Error 2
-ERROR: modpost: "__udivdi3" [drivers/net/ethernet/ti/icssg/icss_iep.ko]
+Found by Linux Verification Center (linuxtesting.org) with Klever.
 
-You should use div_u64()
+Fixes: abf42d2f333b ("tty: serial: owl: add "much needed" clk_prepare_enable()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Vitalii Mordan <mordan@ispras.ru>
+---
+ drivers/tty/serial/owl-uart.c | 12 ++----------
+ 1 file changed, 2 insertions(+), 10 deletions(-)
 
-/P
+diff --git a/drivers/tty/serial/owl-uart.c b/drivers/tty/serial/owl-uart.c
+index 0542882cfbbe..64446820437c 100644
+--- a/drivers/tty/serial/owl-uart.c
++++ b/drivers/tty/serial/owl-uart.c
+@@ -680,18 +680,12 @@ static int owl_uart_probe(struct platform_device *pdev)
+ 	if (!owl_port)
+ 		return -ENOMEM;
+ 
+-	owl_port->clk = devm_clk_get(&pdev->dev, NULL);
++	owl_port->clk = devm_clk_get_enabled(&pdev->dev, NULL);
+ 	if (IS_ERR(owl_port->clk)) {
+-		dev_err(&pdev->dev, "could not get clk\n");
++		dev_err(&pdev->dev, "could not get and enable clk\n");
+ 		return PTR_ERR(owl_port->clk);
+ 	}
+ 
+-	ret = clk_prepare_enable(owl_port->clk);
+-	if (ret) {
+-		dev_err(&pdev->dev, "could not enable clk\n");
+-		return ret;
+-	}
+-
+ 	owl_port->port.dev = &pdev->dev;
+ 	owl_port->port.line = pdev->id;
+ 	owl_port->port.type = PORT_OWL;
+@@ -701,7 +695,6 @@ static int owl_uart_probe(struct platform_device *pdev)
+ 	owl_port->port.uartclk = clk_get_rate(owl_port->clk);
+ 	if (owl_port->port.uartclk == 0) {
+ 		dev_err(&pdev->dev, "clock rate is zero\n");
+-		clk_disable_unprepare(owl_port->clk);
+ 		return -EINVAL;
+ 	}
+ 	owl_port->port.flags = UPF_BOOT_AUTOCONF | UPF_IOREMAP | UPF_LOW_LATENCY;
+@@ -725,7 +718,6 @@ static void owl_uart_remove(struct platform_device *pdev)
+ 
+ 	uart_remove_one_port(&owl_uart_driver, &owl_port->port);
+ 	owl_uart_ports[pdev->id] = NULL;
+-	clk_disable_unprepare(owl_port->clk);
+ }
+ 
+ static struct platform_driver owl_uart_platform_driver = {
+-- 
+2.25.1
 
 
