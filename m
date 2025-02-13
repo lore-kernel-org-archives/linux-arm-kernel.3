@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F406C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 19:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B662FC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 20:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=CPMj0ncxFSqVo0wnr/hLk8JA8RU84xQsibaNEVs17jk=; b=R+ysHlHbCiCkQY
-	LEm3X5obivFc9X1nywoFf9tL24eYRYJ/0FImiI2iR9kzR8DmwI8/SRnuK7YeU/WxUlo7WoRbbWPnR
-	3yPo80Y+YoaBB9MmTicRWqPnCln+nkBSIEux+NnpkYCq7tuGjj9XeberGozbH0DUrVgKUe2VV1dyC
-	3+dCt3dyc6dHAxXN2wE2wnC52briAqgFP1t+sylmRYq95sQWeBn5mwwSXJuBEF1NWPMjbYtNTf/Iq
-	Ip05Q3uk8TtPGaTfCAwtsGYOZuzdQ3q1YcVR0iSi6BIBnXf10QEdN0lLrfXSrrgcmnb4jRq3EjMov
-	NRUPnflT6VwvPiLslCUw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SdBorC2iPu6XWE9gMaUy4xVTMRJsxDq2+h3Id4YjZw4=; b=GUUV+gHyczuZN858kJ+EFyy7Q2
+	FnIvjOXTsUQsnELrh21ztDX7wm7Cfr+L+wTYsUEN6SQnxrR5+kuk/a8GnVh3wvCi8G1AsOvh5JJDi
+	1BMBUddv26VwxDvXnqLlLeov5xERdDqSO2NwPpKxxph87HPbLoQbkMP/inWyL+uscb5wlExZEGJVs
+	L5uNamv+YHIYiFOpRIPQUqbkq520iPHzQ6sL5edoRXfAZ2Sy7jksdIvizijUYVF8zJqWxOUNBr+1a
+	VN0XdUkRLHOlFzJUZ6y3UWnPiwX2nS5TjB+7iw5zksb+W/BsG5ilkGuZB9tA5rG4VLh5Pxux1tYJj
+	ramgztsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tifJy-0000000CTKQ-3WOQ;
-	Thu, 13 Feb 2025 19:56:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tifUg-0000000CUyD-1vxU;
+	Thu, 13 Feb 2025 20:07:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tifIY-0000000CT65-1zm2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 13 Feb 2025 19:54:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:To:Subject:Message-ID:Date:From:Reply-To:MIME-Version:Sender:Cc:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=CPMj0ncxFSqVo0wnr/hLk8JA8RU84xQsibaNEVs17jk=; b=JQ5J8odhpOUNjkIeFjOK3QreoA
-	J3ctJL//ON3rvrn9j7eFpXAsZOvZcO6mftgY+hLTq9YM+t88tLjzKpkccid69YCSZkYhl8oElGZaH
-	SS9FKd2ikTUzXDNH1VKgKRzB3s3TaVVgAPhBH9OKE5L1PJI+jE8X0HoDf0LhNKzdWK1poexkfOtTN
-	xuS/aK+aY0b74520ce5J4HXSFq70nx4d58BVh3jl9TXBUkage2p68Ci2HI08Khs8uWvf3TdRfr4De
-	7wRY4J4re+DFIppEIZscu3i5b7AFGZBUcL4vodSuI1fD3Kq8dJ6bkeWCLozwyaCyIzufaDwlb2nZd
-	6GP5IBsQ==;
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tifIV-000000014m8-2kFt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 19:54:57 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ab7ee6f54faso151593666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 11:54:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739476493; x=1740081293; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:subject:message-id:date:from:reply-to
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=CPMj0ncxFSqVo0wnr/hLk8JA8RU84xQsibaNEVs17jk=;
-        b=VElC+afSo5pmIskt4INbXL6fPGyGLeEnwWUaumLpR9fcM2Z4H9QLloubESknJtPFZz
-         xzZKyKuqItNsehtjBcE3c80nzPmROoI/iMlApEVQpYU0V4OWmAO490UK7d8sM1KkhLBH
-         4e7rMB3dBE0JYDVsmdKRas2CehTLtgfTNdBEtj4fkVyWHGH7fhcCuWz0Bes7Z+09f5Zi
-         eJWpuPW/Quyhvxup35so5KKw99jcqM/vcj8m2o8nt0/44+iFMvfdkWij+Oj2+7LN4ccJ
-         toHFQsHChzR8acn2f2hELXpFi8Sxpm+o9ms1eQvRGeZoAeHUwdpfIMsIIcYIsDjmDmsu
-         nydA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739476493; x=1740081293;
-        h=content-transfer-encoding:to:subject:message-id:date:from:reply-to
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CPMj0ncxFSqVo0wnr/hLk8JA8RU84xQsibaNEVs17jk=;
-        b=a9JaGOG7Zi6fjqZxLeCMeHjcP/In5Xtl+U7iodgv1u7Cq02D9ar3kr18S+WXeimn/z
-         Mkb4Ib1s6Rkymarjjz1ozenc7NWVZjbYEUTHaZyoOvxzEIJyhPv5CR19BJR7WMhe0leb
-         kD1bTaX6t3qShXL+ooG+PjpZaQlSnMQjVKmEpJaUB3JIDK6NyWf1QjkBk9fczUg8dyZK
-         22pJnaq0H3OvwYXnv9HBxAPBiMm3RUGG/s70V14AT2JuQAgRzUK7XIrpV68R3v9m/Dla
-         QJW3uNzeWL3xqaHnWxesYJv1yaqmKLXswomy+RI6sMbPLw1T5Jf4YFolSZNjCm8KNBNA
-         jAgg==
-X-Gm-Message-State: AOJu0YxBbhHm7eKCOUJiqiNlU13yc8L/2qjdRl9gofVgEJxsPhsQjhf4
-	qZTH/99wrnlMhKnEhrYRLgySOTrBMBw87TGxfmzDKalwbP7YfW7pPnRhkrxyR5uu/UDA8LqTcgM
-	hBVxb72W4cI1YHII0K5wIBz+3ppauB6g6
-X-Gm-Gg: ASbGnctgLlDIXxnIzEL9EDP3dsjXKNuziCLgs/OUb/iYRpM9a4y+IIB3eAJtvk8fHRL
-	1BoXyV77qvItAp33yaOfGwHYQGQ9uXuslfqO1P71+ovaKnHgDhrSd3Edo2tjGf2mTpwBUGpG/
-X-Google-Smtp-Source: AGHT+IHQU+0J0bK0X97SdiOiBd028oQ8KpmNYl1Yxv3PYKpn9WU9Fv6xWuGCP4jdYjVhxDWKbf0ycSlfcJ6hrQrNYRw=
-X-Received: by 2002:a05:6402:13c9:b0:5dc:796f:fc86 with SMTP id
- 4fb4d7f45d1cf-5dec9d4a4ccmr10086399a12.16.1739476492945; Thu, 13 Feb 2025
- 11:54:52 -0800 (PST)
+	id 1tifTE-0000000CUoA-3Ape;
+	Thu, 13 Feb 2025 20:06:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EE1E25C5729;
+	Thu, 13 Feb 2025 20:05:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB8B6C4CED1;
+	Thu, 13 Feb 2025 20:05:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739477159;
+	bh=NACchtxeonADU5GQJHVdhJAYs1NUCFnsjx8N1JQdRrU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=O/JH8jfV1QVq1uasHTsNeuvpUp+d/jj3Sxg0GxQKCVk7MJyvAD+eV7i506He6qDkk
+	 CgczH1mXZqmixuHsk0D/2KtFkSCe/Wmi8P9wl7zCIUczWtl3sD9Vq+H2A5cpdDdnQF
+	 qNGJnP9y/5CtGu9vhXYx1B8p7h+0KKFG7NvnxjfzY6NPNfHSqEgpjg6KZXdcGWsLa9
+	 aw79CG0LR2+U1fZ2shFOmgWKUurnvnCGkvfOKwv3xXZMFivGXD6G8/TJk9OItg0FuJ
+	 zk2HZ3DJcceF9gUMbY0NZul7L33XU3Emvw5VLBcspBPrQFTtCjH/OY7sZFLz2zeqsk
+	 MyoYXycWED0Ew==
+Date: Thu, 13 Feb 2025 20:05:53 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
+	Dinh Nguyen <dinguyen@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, imx@lists.linux.dev,
+	loongarch@lists.linux.dev
+Subject: Re: (subset) [PATCH v1 0/4] Removal of non-existent DAC nodes
+Message-ID: <20250213-calamity-smuggler-5d606993be32@spud>
+References: <20240717-anvil-ashy-544e80a1317c@spud>
+ <173939339997.59416.11108011581545463665.b4-ty@linaro.org>
 MIME-Version: 1.0
-From: =?UTF-8?B?572X5YuH5YiaKFlvbmdnYW5nIEx1byk=?= <luoyonggang@gmail.com>
-Date: Fri, 14 Feb 2025 03:54:40 +0800
-X-Gm-Features: AWEUYZl4cgECuUXx86DThTcaKW8n6vvtIZq3B_m_nSxBbgnENw-4WKZGY-aH2KA
-Message-ID: <CAE2XoE8QhxT6AbsffEVgjYRaLNPz451JbDwcb0Yn23271z3A8g@mail.gmail.com>
-Subject: Testing [PATCH v2 0/4] KVM: arm64: writable MIDR/REVIDR
-To: linux-arm-kernel@lists.infradead.org, Sebastian Ott <sebott@redhat.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="t2TI/qcM7Hcs5rgZ"
+Content-Disposition: inline
+In-Reply-To: <173939339997.59416.11108011581545463665.b4-ty@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_195455_752496_5BB5587E 
-X-CRM114-Status: UNSURE (   3.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_120600_836739_0063AE96 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,39 +80,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: luoyonggang@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I have the commands
 
-`-cpu host,aarch64=3Doff -accel kvm`
-```
-[ 1471.611306] x2 : 0000000000000000 x1 : 0000000000000000 x0 : 00000000000=
-00000
-[ 1471.611315] Call trace:
-[ 1471.611319]  set_id_reg_non_ftr+0x98/0x168 (P)
-[ 1471.611325]  kvm_sys_reg_set_user+0xe8/0x240
-[ 1471.611331]  kvm_arm_sys_reg_set_reg+0x40/0x220
-[ 1471.611336]  kvm_arm_set_reg+0x1c0/0x5a8
-[ 1471.611343]  kvm_arch_vcpu_ioctl+0x61c/0x8c8
-[ 1471.611350]  kvm_vcpu_ioctl+0x67c/0xa80
-[ 1471.611357]  __arm64_sys_ioctl+0xd8/0x130
-[ 1471.611364]  invoke_syscall+0x74/0x128
-[ 1471.611370]  el0_svc_common.constprop.0+0x4c/0x140
-[ 1471.611375]  do_el0_svc+0x28/0x58
-[ 1471.611379]  el0_svc+0x40/0x1a8
-[ 1471.611386]  el0t_64_sync_handler+0x134/0x160
-[ 1471.611391]  el0t_64_sync+0x1b8/0x1c0
-[ 1471.611398] Code: 2a1503e1 97fffdff 714602bf 54000041 (d51c0013)
-[ 1471.611405] ---[ end trace 0000000000000000 ]---
-[ 1471.630443] pstore: backend (efi_pstore) writing error (-28)
-```
---=20
-         =E6=AD=A4=E8=87=B4
-=E7=A4=BC
-=E7=BD=97=E5=8B=87=E5=88=9A
-Yours
-    sincerely,
-Yonggang Luo
+--t2TI/qcM7Hcs5rgZ
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Feb 12, 2025 at 09:49:59PM +0100, Krzysztof Kozlowski wrote:
+>=20
+> On Wed, 17 Jul 2024 10:37:52 +0100, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > Recently I've been getting triggered by abuse of the Rohm dh2228fv
+> > compatible to get the spidev driver probing in Linux on development
+> > kits by employees of various silicon vendors (like NXP or my own
+> > employer). I had a look around the kernel and all users other than the
+> > original Clearfontz board added by Maxime appear to be similar abuse.
+> > Drop the non-existent nodes from all of these devices :)
+> >=20
+> > [...]
+>=20
+> Applied, thanks!
+>=20
+> [3/4] loongarch: dts: remove non-existent DAC from 2k1000-ref
+>       https://git.kernel.org/krzk/linux-dt/c/854a080f0b73ff966a813ec2dc53=
+891831daa28d
+
+Heh, funny that you picked this up yesterday - I noticed that it was
+there while poking at spidev doing some debugging yesterday and was
+going to grab the patch myself. Thanks.
+Noticed also that there's a user of it in riscv that I hadn't included
+in my original patch. No clue why I didn't include that, but I've sent
+out a patch for it now.
+
+--t2TI/qcM7Hcs5rgZ
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ65QoQAKCRB4tDGHoIJi
+0hJOAP9qWBg0rjsbzm7opAMArAFEycQu0lJBHYdR+tfeeXkkhAEArfJdGry0AYEf
+b8lHjUhG8iocKhPAo6JWSZBlm8Sn4w8=
+=cxBE
+-----END PGP SIGNATURE-----
+
+--t2TI/qcM7Hcs5rgZ--
 
