@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BD35C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:24:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1862C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ByzMOuDBh5R+FUdNwn2gk3LwiXzk/aPZNyTOpzuZOU=; b=TbwunK12RA+HdRO20GOtpMdgix
-	cty+QizaN837K0JdEeCc8D/9c66I3Jim3GKyMdb7ndNVEQIziu8TIT1N9lWBBS2AAqN8KaF9TfpuK
-	QHoePYVsAXfCcufMaBqip4u5g6MfX417SyFqGJCD2yw9jN2OQVukxuZ/+XBQq1mreQbh4RI+oDW3B
-	0Avab47zP9gKUlJj5VKPXdbIrNIvRTgUwGw3Aem0XIvBHkjY8+eTSS7qctrE5nmASzy9yHD0PBlEB
-	p19Rg9RsR7gY0oM/LGn9QaRKkRoaucKygICOxd89rdh4BvUxlZNXAkduB879IKd7tMeFtRNPES9SP
-	JGJvB3Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=whhYbCC8Ye/92zXnbL6IJWDNwsx8j4boIogQLPts9MI=; b=tRaJjE0cTaYfuWFnwTKTgy873I
+	NXpjLLpG4tCsov3LzXq3b5z2weZhyyKN7vBEEI7yDHxYvvi7n0rSMQlpPOcXCq1G0YADIEBCn6pyr
+	cThVZd+60a5nTWQMlww8WsaOMj7WcLdYMj70c6gVkLO0T0OqhAHI1tiMPaakZzx6K7n5b34A527WK
+	y06jOBGUDtvwlIsPipnYpQf2fZfA8PnVjk2Ba6bcPaEY9dqJwtEHzJ5LuCMxiXHSaVPDbViWJCuao
+	7MsoeqA3D2pn1lzurnk/6H10hvKZWzCHUnECkTXKus9uhdDmbCQp0+azve/81+VRK+5CpKwdhWdO7
+	1jcGzULw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tidtC-0000000CDnx-32kZ;
-	Thu, 13 Feb 2025 18:24:42 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tidub-0000000CE7I-22o9;
+	Thu, 13 Feb 2025 18:26:09 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tid5R-0000000C1cl-2d6b;
-	Thu, 13 Feb 2025 17:33:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1739467992; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=fsZ9tyPjguNsUc2+X1eFr5QgUPWPBVzABYeF+VSOoUx8sOk2o9TIpuy6IFgXZUjG9vZWe2oUATvThyog4cB1QGSF+7jMYZN0kw9K4ETfX3PdZ8MffVDq/wZ0EpgjNyprDhV/ILksMWZTFad0oAv+bAEhZnMftm6shmu4Q2uh+DQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1739467992; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=6ByzMOuDBh5R+FUdNwn2gk3LwiXzk/aPZNyTOpzuZOU=; 
-	b=bta+8ZPQPOcCe9SZHB2yjLV1NS6qrkM+JiDqDJdXEM7/kUS9MuT5tKC+9VCVfIfzD8aCiVovVkZOSqExBy9M8mRQ2Z1mRt6G56DXfOz4tq350B3ZIYmhlv8R4Xu045K9k3bY3npdzZbBAxK2WJU2vsEIWL+tbEYKPRv8yV6terI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1739467992;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=6ByzMOuDBh5R+FUdNwn2gk3LwiXzk/aPZNyTOpzuZOU=;
-	b=gHt2sI3u9x/IyIOL7Gz7LHOOPs0dHmzj8DCoJ1j0HswtKdfzbJT6zBFQ67GzwLvu
-	MPP/pAtZ4COd1DYdY5C/SpKgmnR6xnfTJ29gG6h2mt4W0K63gqqZ94CkCqga8aVXh6i
-	twwysP6rbc9WuqaBcE7MNq1IW8GqH8cgBGP/ll5k=
-Received: by mx.zohomail.com with SMTPS id 1739467989609795.4274306368665;
-	Thu, 13 Feb 2025 09:33:09 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 858F21806DE; Thu, 13 Feb 2025 18:33:04 +0100 (CET)
-Date: Thu, 13 Feb 2025 18:33:04 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Diederik de Haas <didi.debian@cknow.org>
-Cc: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>, 
-	Damon Ding <damon.ding@rock-chips.com>, heiko@sntech.de, robh@kernel.org, conor+dt@kernel.org, 
-	algea.cao@rock-chips.com, rfoss@kernel.org, devicetree@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, hjc@rock-chips.com, kever.yang@rock-chips.com, 
-	dmitry.baryshkov@linaro.org, vkoul@kernel.org, andy.yan@rock-chips.com, krzk+dt@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, l.stach@pengutronix.de
-Subject: Re: [PATCH v6 00/14] Add eDP support for RK3588
-Message-ID: <m3ovwhg3h2njsjpuj2wdahxex6zq2udmxonublgmnlrdfred4z@zxtyd6xvhram>
-References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
- <5044FFCB-B325-40D0-BA82-03AF64EAF029@gmail.com>
- <D7RH63Z1VBBD.1AIOQJIWPZIXS@cknow.org>
+	id 1tidBj-0000000C2tO-0A1E
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 17:39:48 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-4719768caf7so9408241cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 09:39:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1739468385; x=1740073185; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=whhYbCC8Ye/92zXnbL6IJWDNwsx8j4boIogQLPts9MI=;
+        b=JJbFmh/Gwh7aZBOsE1IPr8i5PciQ0kFB19hjpE2Q8hY2RbtapSJA+fENfwACSb2Raq
+         LmfoDxrNfzb5HSiwhc+SXCJHOOaAUnrVrvwqKEtTMp10p8O1U8gd7Cc0OV3e6GmZ/Qn9
+         AW39z18F5mFwFfGoGa7eOD7j/PNx7YK7ikLsIai8VErGfSuPCDC86oQbJb0cZ9PQoCiN
+         oXI3/RCgknF3LgMWDcAXFsDpMA3N6n5TrSQRStqMnMqzmzoNQ7awkbt36XzcmD7QOxMS
+         Qng37qfVmRBT9TO5wkQRv38YNsGSFcQEgS7NtJ596xrvU/pjdP0a1W+QQj9V8SUKyjiq
+         IDTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739468385; x=1740073185;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=whhYbCC8Ye/92zXnbL6IJWDNwsx8j4boIogQLPts9MI=;
+        b=v2GR3x3H7OlQisFPssGCkbA1j3qIlnNvmdoevLrlUQOyI/5aO9oXarEyv+UNrqNroT
+         S3EQ2NJgliga5YumjPGYt1a3N784UYUw6m2EIz5y5fW00ZKpHC2Q75c3hWlWFopM0Rep
+         s5uAUYz0z7CLErz2T01K7gKEvAtWknpi9/m2AMvxEFvr6eucbh/fw7B93ltphSywnQfI
+         2J9Aaam6Xg7jzkobeLxWso2svGQPr4jFFdxnMPVyP0CTDs0H2niHd7khlQIV5wI8opdA
+         FC+0yWFt44PY1I6sOyKAVYKfeQa/Q6Zk6sXzhlXZSsMcpQv8ZquBdafMh608JJW3afBV
+         qnNw==
+X-Forwarded-Encrypted: i=1; AJvYcCV5OLynPfXDGkrq7GzQcFuVpYfF4J58QyWo/ZKymr8DJTBVsAE9/qdX4UpB7R3XUiagKcKh1d+2D5QlYDr6NYPw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCpAyFITTHUtDpznhbb5cdQVG8Iqt+y1DSO+ri+zVV9adw98oD
+	ogW+E2SB9yKnSsfAxbvTp3z/v5vOBscEVvjEm6ouWBZhQgq1vF4owANMrnO3XTCzmCAcoWUlBe+
+	9/LgmraIklqovcr59QlzRyxwKi18RlOcMKFeqZg==
+X-Gm-Gg: ASbGncuQCighF86QSUvWZZoOQ47uLB0Jo2tRsrbnyf9uxJQUGjtOQJpPLbky57Oz4Jg
+	DJzU7w3wz8AE1TTGpOp5W+u5ab4r7yYubTS5DnLdLWCxH+uxr492bYiiwGELcdPBNxfqjFWM=
+X-Google-Smtp-Source: AGHT+IGE9qUAgteAk42h8NRzlwUiEVQLmyQkmiwetNHn7TWQ4JRreBJYCr8hrD0N2jIsyDYrKQ939hR7SXW12F654hE=
+X-Received: by 2002:a05:622a:418e:b0:471:bd5e:d5dd with SMTP id
+ d75a77b69052e-471bd5ed804mr90077321cf.16.1739468385599; Thu, 13 Feb 2025
+ 09:39:45 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="6djyuz6okfpd5ae6"
-Content-Disposition: inline
-In-Reply-To: <D7RH63Z1VBBD.1AIOQJIWPZIXS@cknow.org>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.3.1/239.467.69
-X-ZohoMailClient: External
+References: <20241217100809.3962439-1-jens.wiklander@linaro.org>
+ <20250212205613.4400a888@collabora.com> <CAFA6WYOaGEPj0xNEDBCoEmjJreEHChjQ2hyXRJ_CYoGhiBonfw@mail.gmail.com>
+ <20250213093557.278f5d19@collabora.com> <CAFA6WYOJkSRsH-15QdqXNMd08Q=Dg4NkRd1Cr9LXA+5nozTF6g@mail.gmail.com>
+ <20250213134008.4cbef142@collabora.com> <CAPj87rM5Y=-Jgf4mwukicF6Yb-vccn2fpG2X1jNq0upH2+cAEQ@mail.gmail.com>
+ <CAHUa44G9hw-z6wzxg=HkVAxPKEW1yES5JTEqRWMvJUJAtcUDkQ@mail.gmail.com>
+In-Reply-To: <CAHUa44G9hw-z6wzxg=HkVAxPKEW1yES5JTEqRWMvJUJAtcUDkQ@mail.gmail.com>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Thu, 13 Feb 2025 17:39:33 +0000
+X-Gm-Features: AWEUYZlDafBpFokqUpKbJAhQu7Ep0JLs4xPUNmdO9fz5XX0E98BWFTHCpoumcPo
+Message-ID: <CAPj87rPHnME5Osgnf5-FSAu22mDpLj=dzvhi_NqEcOwr1ThgGw@mail.gmail.com>
+Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: Boris Brezillon <boris.brezillon@collabora.com>, Sumit Garg <sumit.garg@linaro.org>, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Florent Tomasin <florent.tomasin@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_093317_732193_D23BB158 
-X-CRM114-Status: GOOD (  23.61  )
+X-CRM114-CacheID: sfid-20250213_093947_082886_FE2CBC88 
+X-CRM114-Status: GOOD (  26.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,96 +107,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---6djyuz6okfpd5ae6
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v6 00/14] Add eDP support for RK3588
-MIME-Version: 1.0
-
 Hi,
 
-On Thu, Feb 13, 2025 at 05:56:55PM +0100, Diederik de Haas wrote:
-> On Thu Feb 13, 2025 at 3:54 PM CET, Piotr Oniszczuk wrote:
-> >
-> >
-> >> Wiadomo=C5=9B=C4=87 napisana przez Damon Ding <damon.ding@rock-chips.c=
-om> w dniu 23 sty 2025, o godz. 11:07:
-> >>=20
-> >> Picked from:
-> >> https://patchwork.kernel.org/project/linux-rockchip/list/?series=3D923=
-593
-> >>=20
-> >> These patchs have been tested with a 1536x2048p60 eDP panel on
-> >> RK3588S EVB1 board, and HDMI 1080P/4K display also has been verified
-> >> on RK3588 EVB1 board. Furthermore, the eDP display has been rechecked
-> >> on RK3399 sapphire excavator board.
-> >> ...
-> >> 9 files changed, 401 insertions(+), 89 deletions(-)
-> >>=20
-> >> --=20
-> >> 2.34.1
-> >>=20
-> >
-> > Damon,
-> >
-> > I=E2=80=99m playing with hdmi0 port enablement on radxa rock5 itx board=
- with 6.14 mainline.
-> >
-> > rock5 itx has 2 hdmi ports: hdmi0 is wired to rk3588 typeC1/eDP1 eDP wi=
-th ra620 eDP->HDMI converter and hdmi1 from hdmi/edp tx1
-> > (see page3 & page29 at https://dl.radxa.com/rock5/5itx/v1110/radxa_rock=
-_5itx_v1110_schematic.pdf)
-> >
-> > I=E2=80=99m on 6.14-rc2 with applied:=20
-> > [1] Cristicc hdmi code (https://gitlab.collabora.com/cristicc/linux-nex=
-t/-/commits/rk3588-hdmi-bridge)
-> > [2] eDP support for RK3588 (https://patchwork.kernel.org/project/linux-=
-rockchip/list/?series=3D927765)
-> > [3] Add eDP mode support for Rockchip Samsung HDPTX PHY (https://patchw=
-ork.kernel.org/project/linux-rockchip/cover/20250205105157.580060-1-damon.d=
-ing@rock-chips.com/)
-> >
-> > Is edp1 supported by yours [2] series?
-> >
-> > If yes - may you pls hint me about required dts additions in https://gi=
-t.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arch/arm64/boot=
-/dts/rockchip/rk3588-rock-5-itx.dts?h=3Dv6.14-rc2 ?
->=20
-> I don't know if it's relevant, but while HDMI0 got enabled for quite a
-> few devices in 6.13, it did NOT get enabled for Rock 5 ITX.
-> I made a local patch (which does the same thing as was done for Rock 5B)
-> but I have no idea if it actually works (I don't have the board).
+On Thu, 13 Feb 2025 at 15:57, Jens Wiklander <jens.wiklander@linaro.org> wr=
+ote:
+> On Thu, Feb 13, 2025 at 3:05=E2=80=AFPM Daniel Stone <daniel@fooishbar.or=
+g> wrote:
+> > But just because TEE is one good backend implementation, doesn't mean
+> > it should be the userspace ABI. Why should userspace care that TEE has
+> > mediated the allocation instead of it being a predefined range within
+> > DT?
+>
+> The TEE may very well use a predefined range that part is abstracted
+> with the interface.
 
-I don't have the board either, but the schematics suggests that your
-patch is not correct. On the Rock 5 ITX the RK3588's first HDMI/eDP
-port should be enabled in eDP mode to be used with an eDP panel via
-connector J11. This series is needed for that.
+Of course. But you can also (and this has been shipped on real
+devices) handle this without any per-allocation TEE needs by simply
+allocating from a memory range which is predefined within DT.
 
-Greetings,
+From the userspace point of view, why should there be one ABI to
+allocate memory from a predefined range which is delivered by DT to
+the kernel, and one ABI to allocate memory from a predefined range
+which is mediated by TEE?
 
--- Sebastian
+> >  What advantage
+> > does userspace get from having to have a different codepath to get a
+> > different handle to memory? What about x86?
+> >
+> > I think this proposal is looking at it from the wrong direction.
+> > Instead of working upwards from the implementation to userspace, start
+> > with userspace and work downwards. The interesting property to focus
+> > on is allocating memory, not that EL1 is involved behind the scenes.
+>
+> From what I've gathered from earlier discussions, it wasn't much of a
+> problem for userspace to handle this. If the kernel were to provide it
+> via a different ABI, how would it be easier to implement in the
+> kernel? I think we need an example to understand your suggestion.
 
---6djyuz6okfpd5ae6
-Content-Type: application/pgp-signature; name="signature.asc"
+It is a problem for userspace, because we need to expose acceptable
+parameters for allocation through the entire stack. If you look at the
+dmabuf documentation in the kernel for how buffers should be allocated
+and exchanged, you can see the negotiation flow for modifiers. This
+permeates through KMS, EGL, Vulkan, Wayland, GStreamer, and more.
 
------BEGIN PGP SIGNATURE-----
+Standardising on heaps allows us to add those in a similar way. If we
+have to add different allocation mechanisms, then the complexity
+increases, permeating not only into all the different userspace APIs,
+but also into the drivers which need to support every different
+allocation mechanism even if they have no opinion on it - e.g. Mali
+doesn't care in any way whether the allocation comes from a heap or
+TEE or ACPI or whatever, it cares only that the memory is protected.
 
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmeuLNAACgkQ2O7X88g7
-+pqj/g/+Ko9YwegFYiHHFc2NJHqSn9Er7V2IhdDxANKuYmDWkl238DIkPbx5N++z
-dP6qxCV8/YD123iERKtHSvIikWgw7rRaV8GKkT95xc3AAfYfyt4Zjf3wWwwOrNXH
-w1UK+68lroyq4n+JPwQuZlkRhKclMpv78w5lZJ2fXX/ni8PWf3m8DyBGzES03yDK
-l5e0sp6dEFaxL6plKIDdB7Xw/CYW75UiJStCuBYKka1pr3I5X8IgWMuQ+oK5Lde3
-hzO/3TLG9WKTiRoehs4ocJngsz0sS8o70GWVMXSiSybaMbK0NEf6NonBv1f6hA0J
-RrCYZGZEsKaPnveI+HlwnvXJlTnISIjs2jw7HF35HSVl4ZaYLf9k4HFE6vrl+y7N
-GPplG9bzgVKsZgK5rv1ddxBQbMZ30LlyP1/BxDPqY/78+ZyFg/9vjovfF7rG6DUa
-KIgcrgB/rD/4P1wdOGhz+bwbi2mwsc0yfzAWS6qXxCw70RQ0YNKhE/ha5cM0bfwh
-IyKOUaxLceZBVLXuXXXKo1aeOxLHiVSB+kblT/Dq85b4Vl71n5v81x/jfo47O80Z
-LjNdgoLngofz67wKl+BHJsJAvtRvXP/NI9nNpsSgY1tLzUeKsnllS1mWYh3WE24u
-vPH7IuyON+11TRur6JqaEd5LbafrMcQ2+Fqz0UdscgafmzsTyTw=
-=1OmE
------END PGP SIGNATURE-----
+Does that help?
 
---6djyuz6okfpd5ae6--
+Cheers,
+Daniel
 
