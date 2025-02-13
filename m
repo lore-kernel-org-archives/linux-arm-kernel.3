@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D977C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 07:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26BC1C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 07:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K1BIGeWS/EBR/8jLrt+tKcRGoZZ6nt2ib/zfegxmluE=; b=Qw3jfIsg76RFHsSobyGXa+zY8r
-	nAUQKr6fvbW7HU2wd1/o9Q6DKPr5nZ5IZ/aKlllGT1LzG3PJN5AvWvGZjKcurdff4kreVXb7XFuk9
-	jdSvevD0hO0jUflcAU8B1cW+kznhk2fyoVZZqIcNvCE8EMLjMuYwMdbz/C0BVeaO3loCwIwHGnFnS
-	K8mVeT7uU8E/ZlCxheK/8NruGS9q64yBJFfY1b0J1Yfypv4l1l/UhsA4dZaP0D5PsyOnYSmL8naNu
-	XdLT7Bg7g/2odqmTdccSSBmZ1XUUmjcfrYZ0QQxkyzr2bmncV31jgTBWShOkMuhutGBgmYTBqubSY
-	WVvXrkyQ==;
+	bh=JBdecmRaKjJxoYJbG5076Xi0RKmSnY0MwpPJh2bpw2o=; b=nvfMRb9YnapNz3DWCVpx+NMWZu
+	veRVZYKP3dXztacgoN5ZzgamSGrqc5UU6v22rBnR9SJlTP3ZrJ0J4e1sTyKquSyNgLeZumH9mD5CY
+	jWm/nJvm76uMHQQ1NljbEu//D45qVHVtmDXoE5bsGSaFz3zTG2fMwjNLnzj4kqysIZdXEq4kW2gT1
+	lys5CX04ca575OJKGxIt3QFbFHPNgJ6mvBoMHRr+z8FkJikSQO8L4bMMM2zi8RJL9/dVi9iauwv/u
+	loHfdd0ZEJdQiVyfynn3KFVTtCP/c8vcMAzgdSVLERP5bE7DzD8rgFDJTdS11CJhGHxj7LGTbvWDl
+	zGoILfgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiU5S-0000000ABS5-2UQz;
-	Thu, 13 Feb 2025 07:56:42 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tiU6r-0000000ABjk-17YK;
+	Thu, 13 Feb 2025 07:58:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiU2R-0000000AAgN-2Ysy
+	id 1tiU33-0000000AAuZ-21eY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 07:53:37 +0000
+	Thu, 13 Feb 2025 07:54:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 76F7BA41E99;
-	Thu, 13 Feb 2025 07:51:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C112C4CED1;
-	Thu, 13 Feb 2025 07:53:34 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 78A795C041E;
+	Thu, 13 Feb 2025 07:53:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B991C4CED1;
+	Thu, 13 Feb 2025 07:54:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739433214;
-	bh=SlOp3q3mUFP/fD5O04MBbXfcN5XIWxmKvPTMhBlEFx0=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=u1iOU9zYjjs59zBWlMZW/Ux+8qEGJUc1W4jtjvHX5PTc370uXfjQ9pmuHchWYCQ6t
-	 XQLG07Z06HWQu59qNfSutUR9oy72B8R6lVAEGraiOUdqEBJRK1XWc7ksIUhfFnRiQN
-	 5dfxHWyRf2xNlPM+b7cktk+wAn5qYTUIKHIk2vlgk0pmhrIeAI/KdisgUumeokdETx
-	 5AAaZT/ab/wF5SyKnbyfKkpEbrzTKXbuAF/IyYIVXxqnR7ITWPeXxRcEPAHaxpal2L
-	 jQUHk6/083eL8HJG2bMvFqK9LIfR2nnRR5QgQO14Do9jrl0nVLoRH+EKXHB7Bmg1gk
-	 4Ci0gSbKPduDw==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: Song Liu <song@kernel.org>
-Cc: Indu Bhagat <indu.bhagat@oracle.com>, Weinan Liu <wnliu@google.com>,
- Josh Poimboeuf <jpoimboe@kernel.org>, Steven Rostedt
- <rostedt@goodmis.org>, Peter Zijlstra <peterz@infradead.org>, Mark Rutland
- <mark.rutland@arm.com>, roman.gushchin@linux.dev, Will Deacon
- <will@kernel.org>, Ian Rogers <irogers@google.com>,
- linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
- live-patching@vger.kernel.org, joe.lawrence@redhat.com,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-In-Reply-To: <CAPhsuW5VCmuPLd8wwzBp_Divnu=uaZQcrRLsjsEOJ9GmA0TR5A@mail.gmail.com>
-References: <20250127213310.2496133-1-wnliu@google.com>
- <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
- <00fa304d-84bf-4fca-9b9a-f3b56cd97424@oracle.com>
- <CAPhsuW4ct6W_4B0LFEjLePH1pAeNm4h8ePuQ3HcSoknXhQWN0w@mail.gmail.com>
- <mb61p1pw21f0v.fsf@kernel.org>
- <CAPhsuW5VCmuPLd8wwzBp_Divnu=uaZQcrRLsjsEOJ9GmA0TR5A@mail.gmail.com>
-Date: Thu, 13 Feb 2025 07:53:27 +0000
-Message-ID: <mb61pv7tez3ew.fsf@kernel.org>
+	s=k20201202; t=1739433252;
+	bh=56Ta27lSOpZW6WT1dfipytAfcqD14QNHO7m6Mo7UhBY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GkKfm+0z1/NQtvj5DekG7tlgJXv7KvTYjV7uBiZCErsGUfI88dj0z4vErZav2EL04
+	 H9SIpabXaoUXbWxWg/s9f/pJaJW/ux2aWLSHp/Ud3SkJGU5QW91S2oY052y1q57ohM
+	 TFw0DXIBakxQmtCdF4c/xrs3SGT0kHWTIl5NT1CaV9ycuzmTyO+WZVuHFD6BDLDHF7
+	 DWnCV9GdRsg13axmldqBa1yZ5sx0bTnDw5syFgZYGB4/k71TZChpkQc2ieAJfaBfBZ
+	 T5APTSqFiLrYNV4UFPgdPGmN8utVYIWp++nRPuYHcmeH1iTwpZn/E/YOFXWguOcKUj
+	 RGy9TQHVMsG2Q==
+Date: Thu, 13 Feb 2025 08:54:09 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Swathi K S <swathi.ks@samsung.com>
+Cc: krzk+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, 
+	conor+dt@kernel.org, richardcochran@gmail.com, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 1/2] dt-bindings: net: Add FSD EQoS device tree
+ bindings
+Message-ID: <20250213-adorable-arboreal-degu-6bdcb8@krzk-bin>
+References: <20250213044624.37334-1-swathi.ks@samsung.com>
+ <CGME20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff@epcas5p1.samsung.com>
+ <20250213044624.37334-2-swathi.ks@samsung.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250213044624.37334-2-swathi.ks@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_235335_777947_7D0FFA0A 
-X-CRM114-Status: GOOD (  30.59  )
+X-CRM114-CacheID: sfid-20250212_235413_625963_82AC852C 
+X-CRM114-Status: UNSURE (   8.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,91 +79,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---=-=-=
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+On Thu, Feb 13, 2025 at 10:16:23AM +0530, Swathi K S wrote:
+> +  clock-names:
+> +    minItems: 5
+> +    maxItems: 10
+> +    contains:
+> +      enum:
+> +        - ptp_ref
+> +        - master_bus
+> +        - slave_bus
+> +        - tx
+> +        - rx
+> +        - master2_bus
+> +        - slave2_bus
+> +        - eqos_rxclk_mux
+> +        - eqos_phyrxclk
+> +        - dout_peric_rgmii_clk
 
-Song Liu <song@kernel.org> writes:
+This does not match the previous entry. It should be strictly ordered
+with minItems: 5.
 
-> On Wed, Feb 12, 2025 at 11:26=E2=80=AFPM Puranjay Mohan <puranjay@kernel.=
-org> wrote:
->>
->> Song Liu <song@kernel.org> writes:
->>
->> > On Wed, Feb 12, 2025 at 4:10=E2=80=AFPM Indu Bhagat <indu.bhagat@oracl=
-e.com> wrote:
->> >>
->> >> On 2/12/25 3:32 PM, Song Liu wrote:
->> >> > I run some tests with this set and my RFC set [1]. Most of
->> >> > the test is done with kpatch-build. I tested both Puranjay's
->> >> > version [3] and my version [4].
->> >> >
->> >> > For gcc 14.2.1, I have seen the following issue with this
->> >> > test [2]. This happens with both upstream and 6.13.2.
->> >> > The livepatch loaded fine, but the system spilled out the
->> >> > following warning quickly.
->> >> >
->> >>
->> >> In presence of the issue
->> >> https://sourceware.org/bugzilla/show_bug.cgi?id=3D32666, I'd expect b=
-ad
->> >> data in SFrame section.  Which may be causing this symptom?
->> >>
->> >> To be clear, the issue affects loaded kernel modules.  I cannot tell =
-for
->> >> certain - is there module loading involved in your test ?
->> >
->> > The KLP is a module, I guess that is also affected?
->> >
->> > During kpatch-build, we added some logic to drop the .sframe section.
->> > I guess this is wrong, as we need the .sframe section when we apply
->> > the next KLP. However, I don't think the issue is caused by missing
->> > .sframe section.
->>
->> Hi, I did the same testing and did not get the Warning.
->>
->> I am testing on the 6.12.11 kernel with GCC 11.4.1.
->
-> Could you please also try kernel 6.13.2?
->
->> Just to verify, the patch we are testing is:
->
-> Yes, this is the test patch.
->>
->> --- >8 ---
-> [...]
->> --- 8< ---
->>
->> P.S. - I have a downstream patch for create-diff-object to generate .sfr=
-ame sections for
->> livepatch module, will add it to the PR after some cleanups.
->
-> Yeah, I think the .sframe section is still needed.
->
 
-Hi Song,
+> +
+> +  iommus:
+> +    maxItems: 1
+> +
+> +  phy-mode:
+> +    enum:
+> +      - rgmii-id
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - clock-names
+> +  - iommus
+> +  - phy-mode
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/fsd-clk.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +        ethernet1: ethernet@14300000 {
+> +            compatible = "tesla,fsd-ethqos";
+> +            reg = <0x0 0x14300000 0x0 0x10000>;
+> +            interrupts = <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
+> +            interrupt-names = "macirq";
+> +            clocks = <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_CLK_PTP_REF_I>,
+> +                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_ACLK_I>,
+> +                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_HCLK_I>,
+> +                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_RGMII_CLK_I>,
+> +                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_CLK_RX_I>,
+> +                     <&clock_peric PERIC_BUS_D_PERIC_IPCLKPORT_EQOSCLK>,
+> +                     <&clock_peric PERIC_BUS_P_PERIC_IPCLKPORT_EQOSCLK>,
+> +                     <&clock_peric PERIC_EQOS_PHYRXCLK_MUX>,
+> +                     <&clock_peric PERIC_EQOS_PHYRXCLK>,
+> +                     <&clock_peric PERIC_DOUT_RGMII_CLK>;
+> +            clock-names = "ptp_ref", "master_bus", "slave_bus","tx",
+> +                          "rx", "master2_bus", "slave2_bus", "eqos_rxclk_mux",
+> +                          "eqos_phyrxclk","dout_peric_rgmii_clk";
+> +            pinctrl-names = "default";
+> +            pinctrl-0 = <&eth1_tx_clk>, <&eth1_tx_data>, <&eth1_tx_ctrl>,
+> +                        <&eth1_phy_intr>, <&eth1_rx_clk>, <&eth1_rx_data>,
+> +                        <&eth1_rx_ctrl>, <&eth1_mdio>;
+> +            iommus = <&smmu_peric 0x0 0x1>;
+> +            phy-mode = "rgmii-id";
+> +       };
 
-Can you try with this:
-https://github.com/puranjaymohan/kpatch/tree/arm64_wip
+Misaligned/misindented.
 
-This has the .sframe logic patch, but it looks as if I wrote that code
-in a 30 minute leetcode interview. I need to refactor it before I send
-it for review with the main PR.
+Best regards,
+Krzysztof
 
-Can you test with this branch with your setup?
-
-Thanks,
-Puranjay
-
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIoEARYKADIWIQQ3wHGvVs/5bdl78BKwwPkjG3B2nQUCZ62k+RQccHVyYW5qYXlA
-a2VybmVsLm9yZwAKCRCwwPkjG3B2nZisAP9MPQWg3UbuY0yZpUIb4byCtNEENv9t
-0uusw4iksm0tqAD/Z9W9tKL7DknJZNY4HVPTLUDdLbjgBRX557V7MwQn1ww=
-=wnd5
------END PGP SIGNATURE-----
---=-=-=--
 
