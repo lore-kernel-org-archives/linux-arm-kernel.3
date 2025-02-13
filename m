@@ -4,94 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F150C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1435C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TfW5BGT5pTjwhGTP5m8htmZ9lluyeh+guldKWayNHGg=; b=ZfqemZdxx0Mqfv3e+dzRIRA+Vr
-	7P393o7A4Ny1tCjhEb9qW86md2onugrEGJMpngFD3X1hc+N+YhTP7R2N02YAzo5iiEKfTZ29cuB6k
-	aafVWy+QPRYAlT/g1DM7qN3Jb4+u8FTGReIGI3u4/G5OiAO8KV3yUgLUzMV+0loXXNAkXYYTy7xQi
-	uykHDkuoWttzS/38nMJQJ7oW4weuIndZaREVWRb5TzZF2M3pNsJUds1ATIdQlAaDZn1srI1FxzT0d
-	/Wg8jCwR7TrfKA+jI0/dr8D5+5Ty9q1LsyJwg2vQa9LUtsX9qpODDMjplO6GI79LQdGnK/Dvn5eu/
-	lNzK/Lng==;
+	bh=mtwfNueCsCv+ny57q0pPLNJ3IhsnL/0IKJ1LF/DCjjk=; b=L4dYlcm+YgMjAUqchirGZ5r159
+	eaQaiLXHmd3Xmtx7rSwAv0i3XNMahfdP6Vhn0KcBTzoMwRqSL21xU8lH2bQUYMow7wjlmMGF2Eq/n
+	tbf/rf3BJWjC4RRrYa9nmn2bBMfjgmIeh8o90G2aMd2Runk4BJ7jkkny1FQwuakHlIycWL2TUB3dw
+	rCzjXbZXGaZUgYbWZwQrs35Zctr6Tcb8s6pvF4qgQ12p0joMiP3Wn2lcYRrcNhtMW2VdFYvksNEuV
+	CfJw8tRzpjZNT/x/8QZXI7o7F5OX2pM4pCdXchmUJhb4qPUEu08q5j8JqG2FL5Oxf/ubKeNp5D0XX
+	iUDWYZzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWqi-0000000AjOh-42JK;
-	Thu, 13 Feb 2025 10:53:40 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWpH-0000000Aj7O-1xWh
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 10:52:12 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-438a3216fc2so7833045e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 02:52:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739443929; x=1740048729; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TfW5BGT5pTjwhGTP5m8htmZ9lluyeh+guldKWayNHGg=;
-        b=FevMrc5+WJlfwX6Q84+ZgG3qt8Wjx03j/y60UCBE6ZAFRG4kzEhvMerut+i4VhouZO
-         erD0q5gt6On5EDnbwfWVvnC063OYKpe1qeyVicUy6Svu6X2OjXwlxCrJo9lcSo4ms0tu
-         Br900xtHROOI2VBN2VHqcGg0JJn2QP0pu0wnshypVVSPvq1HTjhq5w+U6QK5J1eBDtGu
-         sL2JGTvx46bxJT14AaP01gGI09wX6uCYjwby1u/hXs+cmft6TSxuZ8x8Cnu+LPby1Qjt
-         Ln9ikqEK76qy9Rme4dJ2+HTL5AlmbdBelbC7crdYXXI2TskI9PJXE5hWd5fjUN+MiOXd
-         Kgug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739443929; x=1740048729;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TfW5BGT5pTjwhGTP5m8htmZ9lluyeh+guldKWayNHGg=;
-        b=c2TrclZpoLXlhS2Wxt4ME2VJ4yFuiy7JBINRuWnRIFO4NH2AOwpdhbxp0mzMbTjL8e
-         LkU1cu4iae2sI5yJfg6hxUPkfgqjkNGQ0zUXFxSijOM3/gclviERIDtq3UGUDGBZC+Vo
-         w0TAIMVsEGu2GlluGzJVL48pBcsYdqQcMnmSXZ0AwA2UXKjvZ8X1EEPbv1qtnW58pCoz
-         0g3R+WJezHirw0eg3FVQfBYvoV5fHnXTLvNI2Fexx9uUUFW2z67F28ehyva8arOVCZaj
-         ou7is/tVetjqd2/dERbkFNH75pfr8o3j6dHZslWYTNaT9wTyK3dJrV14FAZ//QRW8otK
-         JMHg==
-X-Forwarded-Encrypted: i=1; AJvYcCW9ciDwk7LAxmWKtogNwS1t8yh1l1A2bQ7sMXLzc4PA2Oc5jk06OHpHvw3Q1QuxhHr5gFjqz2JBQ+TsGJ+yi0Ea@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJIPKQ1yPYqAmmykxCAX+qIupu1Ika5F0PnSZOYF1Ujay3pVnm
-	sTomMfxk4CDD7ILet5dlKm6GCZPtLDexSe6+BDB5hCV/Ru6vARxjqjBulwdm1Y8=
-X-Gm-Gg: ASbGnct2RTEg3LeyNpXaClv3oByi1nYsPqGHMG/gSNan2v8TX9InN9L9VzKXXG/wohB
-	Undr1yJsYCAcWZAuXusgLfgQoyxI9WhEeI8jmMyXE4v9fl7mcuoCHNgBDv2ZfKX/ujVbOJ82bZ1
-	I98yp77tt9tzslTlVmKattNWZn4akLx5a6DRHG6BB9A08ZbM0NWAZne1keLU0k4zHFv8rydih9Z
-	4vBnMciZq7eW8VtH5ikw/iuFWSJ3UBm+VFLdS7s+k3lxsP/Hfu9dF71lanaw3zurBpGFMV5A0wS
-	AulTvpzu8QNPZUEaUi6l//+ALQ==
-X-Google-Smtp-Source: AGHT+IE3cVCMFeTiplAdl6oIol2hwK+z0KRfMjE6tnhaJF9qrn7yWiTvmVjpIcI0wTDSh3lcSVhCfg==
-X-Received: by 2002:a05:600c:19cf:b0:439:5573:9348 with SMTP id 5b1f17b1804b1-439581b88ccmr64782085e9.22.1739443929479;
-        Thu, 13 Feb 2025 02:52:09 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.90.174])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439617ffa28sm13991045e9.14.2025.02.13.02.52.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Feb 2025 02:52:08 -0800 (PST)
-Message-ID: <5f4e90f2-1956-4f12-b2f4-b355012beb6e@linaro.org>
-Date: Thu, 13 Feb 2025 10:52:07 +0000
+	id 1tiWs7-0000000Ajd6-2PkR;
+	Thu, 13 Feb 2025 10:55:07 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiWpY-0000000AjAk-39zY;
+	Thu, 13 Feb 2025 10:52:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=TL7u1+0RPJwIYMqwhWmm0JTU9TwqfMb9V5VorOXWC2Y=; b=g
+	BZS8PN0A84pnDNg//1uoSVWxe9y7ghhfk2KjZSY5ZCjhod+qyhmrF1hMTiM/QrWe
+	1HFOWNJ51Exatvbi7lisTV4Hnc56472WmedlGFVCeb9TchWYUXqev5TWCt6o4uwi
+	RHLtkrujHhygALEWD0PS4YQqTsmRnYrI4YAq7Rk7uo=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-110 (Coremail) ; Thu, 13 Feb 2025 18:52:04 +0800
+ (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Thu, 13 Feb 2025 18:52:04 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: hjc@rock-chips.com, krzk+dt@kernel.org, devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org, derek.foreman@collabora.com,
+	detlev.casanova@collabora.com, daniel@fooishbar.org, robh@kernel.org,
+	sebastian.reichel@collabora.com,
+	"Andy Yan" <andy.yan@rock-chips.com>
+Subject: Re:Re: [PATCH v14 02/13] drm/rockchip: vop2: Rename
+ TRANSFORM_OFFSET to TRANSFORM_OFFS
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
+ Copyright (c) 2002-2025 www.mailtech.cn 163com
+In-Reply-To: <4064785.VqM8IeB0Os@diego>
+References: <20250212093530.52961-1-andyshrk@163.com>
+ <20250212093530.52961-3-andyshrk@163.com> <4064785.VqM8IeB0Os@diego>
+X-NTES-SC: AL_Qu2YC/ifvEEp4iKfYukfmkcVgOw9UcO5v/Qk3oZXOJF8jCfp9QItX3BTPFnE+fmDLiaLnQiHUThC4O5bbYVcZKAwKM+aBKFYQz+/TB/Eqg9O9g==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf vendor events arm64: Fix incorrect CPU_CYCLE in
- metrics expr
-To: Yangyu Chen <cyy@cyyself.name>, linux-perf-users@vger.kernel.org,
- irogers@google.com, namhyung@kernel.org
-Cc: acme@kernel.org, adrian.hunter@intel.com,
- alexander.shishkin@linux.intel.com, fj3333bs@aa.jp.fujitsu.com,
- fj5100bi@fujitsu.com, john.g.garry@oracle.com, jolsa@kernel.org,
- kan.liang@linux.intel.com, leo.yan@linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- mark.rutland@arm.com, mike.leach@linaro.org, mingo@redhat.com,
- peterz@infradead.org, will@kernel.org
-References: <tencent_D4ED18476ADCE818E31084C60E3E72C14907@qq.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <tencent_D4ED18476ADCE818E31084C60E3E72C14907@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Message-ID: <4878d34d.835d.194feefed3d.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: bigvCgBH7lrUzq1n7qrEAA--.50216W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqQ3yXmetw8LDhQABsE
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_025211_524988_25A5967B 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20250213_025229_158030_46EF9671 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,92 +80,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 13/02/2025 8:44 am, Yangyu Chen wrote:
-> Some existing metrics for Neoverse N3 and V3 expressions use CPU_CYCLE
-> to represent the number of cycles, but this is incorrect. The correct
-> event to use is CPU_CYCLES.
-> 
-> I encountered this issue while working on a patch to add pmu events for
-> Cortex A720 and A520 by reusing the existing patch for Neoverse N3 and
-> V3 by James Clark [1] and my check script [2] reported this issue.
-> 
-> [1] https://lore.kernel.org/lkml/20250122163504.2061472-1-james.clark@linaro.org/
-> [2] https://github.com/cyyself/arm-pmu-check
-> 
-> Signed-off-by: Yangyu Chen <cyy@cyyself.name>
-
-Thanks for the fix. I'll report this issue on the source data.
-
-Reviewed-by: James Clark <james.clark@linaro.org>
-
-> ---
->   .../perf/pmu-events/arch/arm64/arm/neoverse-n3/metrics.json | 6 +++---
->   .../perf/pmu-events/arch/arm64/arm/neoverse-v3/metrics.json | 6 +++---
->   2 files changed, 6 insertions(+), 6 deletions(-)
-> 
-> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n3/metrics.json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n3/metrics.json
-> index 1f7c9536cb88..eb3a35f244e7 100644
-> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n3/metrics.json
-> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n3/metrics.json
-> @@ -169,7 +169,7 @@
->       },
->       {
->           "MetricName": "fp_ops_per_cycle",
-> -        "MetricExpr": "(FP_SCALE_OPS_SPEC + FP_FIXED_OPS_SPEC) / CPU_CYCLE",
-> +        "MetricExpr": "(FP_SCALE_OPS_SPEC + FP_FIXED_OPS_SPEC) / CPU_CYCLES",
->           "BriefDescription": "This metric measures floating point operations per cycle in any precision performed by any instruction. Operations are counted by computation and by vector lanes, fused computations such as multiply-add count as twice per vector lane for example.",
->           "MetricGroup": "FP_Arithmetic_Intensity",
->           "ScaleUnit": "1operations per cycle"
-> @@ -383,7 +383,7 @@
->       },
->       {
->           "MetricName": "nonsve_fp_ops_per_cycle",
-> -        "MetricExpr": "FP_FIXED_OPS_SPEC / CPU_CYCLE",
-> +        "MetricExpr": "FP_FIXED_OPS_SPEC / CPU_CYCLES",
->           "BriefDescription": "This metric measures floating point operations per cycle in any precision performed by an instruction that is not an SVE instruction. Operations are counted by computation and by vector lanes, fused computations such as multiply-add count as twice per vector lane for example.",
->           "MetricGroup": "FP_Arithmetic_Intensity",
->           "ScaleUnit": "1operations per cycle"
-> @@ -421,7 +421,7 @@
->       },
->       {
->           "MetricName": "sve_fp_ops_per_cycle",
-> -        "MetricExpr": "FP_SCALE_OPS_SPEC / CPU_CYCLE",
-> +        "MetricExpr": "FP_SCALE_OPS_SPEC / CPU_CYCLES",
->           "BriefDescription": "This metric measures floating point operations per cycle in any precision performed by SVE instructions. Operations are counted by computation and by vector lanes, fused computations such as multiply-add count as twice per vector lane for example.",
->           "MetricGroup": "FP_Arithmetic_Intensity",
->           "ScaleUnit": "1operations per cycle"
-> diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-v3/metrics.json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-v3/metrics.json
-> index d022ae25c864..4a671f55eaf3 100644
-> --- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-v3/metrics.json
-> +++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-v3/metrics.json
-> @@ -169,7 +169,7 @@
->       },
->       {
->           "MetricName": "fp_ops_per_cycle",
-> -        "MetricExpr": "(FP_SCALE_OPS_SPEC + FP_FIXED_OPS_SPEC) / CPU_CYCLE",
-> +        "MetricExpr": "(FP_SCALE_OPS_SPEC + FP_FIXED_OPS_SPEC) / CPU_CYCLES",
->           "BriefDescription": "This metric measures floating point operations per cycle in any precision performed by any instruction. Operations are counted by computation and by vector lanes, fused computations such as multiply-add count as twice per vector lane for example.",
->           "MetricGroup": "FP_Arithmetic_Intensity",
->           "ScaleUnit": "1operations per cycle"
-> @@ -383,7 +383,7 @@
->       },
->       {
->           "MetricName": "nonsve_fp_ops_per_cycle",
-> -        "MetricExpr": "FP_FIXED_OPS_SPEC / CPU_CYCLE",
-> +        "MetricExpr": "FP_FIXED_OPS_SPEC / CPU_CYCLES",
->           "BriefDescription": "This metric measures floating point operations per cycle in any precision performed by an instruction that is not an SVE instruction. Operations are counted by computation and by vector lanes, fused computations such as multiply-add count as twice per vector lane for example.",
->           "MetricGroup": "FP_Arithmetic_Intensity",
->           "ScaleUnit": "1operations per cycle"
-> @@ -421,7 +421,7 @@
->       },
->       {
->           "MetricName": "sve_fp_ops_per_cycle",
-> -        "MetricExpr": "FP_SCALE_OPS_SPEC / CPU_CYCLE",
-> +        "MetricExpr": "FP_SCALE_OPS_SPEC / CPU_CYCLES",
->           "BriefDescription": "This metric measures floating point operations per cycle in any precision performed by SVE instructions. Operations are counted by computation and by vector lanes, fused computations such as multiply-add count as twice per vector lane for example.",
->           "MetricGroup": "FP_Arithmetic_Intensity",
->           "ScaleUnit": "1operations per cycle"
-
+CkhpIEhlaWtvLAoKQXQgMjAyNS0wMi0xMiAxODo1OTo1MCwgIkhlaWtvIFN0w7xibmVyIiA8aGVp
+a29Ac250ZWNoLmRlPiB3cm90ZToKPkhpIEFuZHksCj4KPkFtIE1pdHR3b2NoLCAxMi4gRmVicnVh
+ciAyMDI1LCAxMDozNDo1NyBNRVogc2NocmllYiBBbmR5IFlhbjoKPj4gRnJvbTogQW5keSBZYW4g
+PGFuZHkueWFuQHJvY2stY2hpcHMuY29tPgo+PiAKPj4gVGhpcyBoZWxwIGF2b2lkICJleGNlZWRz
+IDEwMCBjb2x1bW5zIiB3YXJuaW5nIGZyb20gY2hlY2twYXRjaAo+PiAKPj4gU2lnbmVkLW9mZi1i
+eTogQW5keSBZYW4gPGFuZHkueWFuQHJvY2stY2hpcHMuY29tPgo+Cj5JJ20gbm90IG11Y2ggb2Yg
+YSBmYW4gb2YgInJhbmRvbWx5IiByZW5hbWluZyBpbmRpdmlkdWFsIGNvbnN0YW50cwo+KGVzcGVj
+aWFsbHkgd2hlbiBvbmUgaXMgbm93IG5hbWVkIE9GRlMsIHdoaWxlIHRoZSByZXN0IHN0YXkgYXQg
+T0ZGU0VUKQo+Cj4tIG9uIHJrMzU2OCBWT1AyX0NMVVNURVJfV0lOMF9UUkFOU0ZPUk1FRF9PRkZT
+RVQgPSBXSU4wIHRyYW5zZm9ybWVkIG9mZnNldAo+LSBvbiByazM1ODggVk9QMl9DTFVTVEVSMF9X
+SU4wX1RSQU5TRk9STUVEX09GRlNFVCA9IFdJTjAgdHJhbnNmb3JtIG9mZnNldAo+LSBvbiByazM1
+NzYgInNvbWVvbmUiIHNhZGx5IGRlY2lkZWQgdG8gbm90IHByb3ZpZGUgdGhlIDJuZCBUUk0gcGFy
+dCBhbnltb3JlCj4gIGJ1dCBJIGd1ZXNzIGl0J2xsIGJlIHRoZSBzYW1lLgo+Cj5TbyBpbnN0ZWFk
+IG9mIGp1c3QgZHJvcHBpbmcgcGFydHMgZnJvbSB0aGUgZW5kLCB5b3UgY291bGQgYWxzbyBmb2xs
+b3cKPnRoZSBUUk0gbmFtaW5nIGFuZCBkcm9wIHRoZSAiX0FGQkMiIGZyb20gdGhlIHJlZ2lzdGVy
+IG5hbWUgaW5zdGVhZD8KPgo+U28gZ29pbmcgdG8gVk9QMl9XSU5fVFJBTlNGT1JNX09GRlNFVCwg
+dGhpcyB3b3VsZCBhbHNvIHJlZHVjZSB0aGUgbGluZQo+bGVuZ3RoIGFjY29yZGluZ2x5LCBhbmQg
+bW92aW5nIHRoZSBuYW1pbmcgY2xvc2VyIHRvIHRoZSBUUk0gdG9vLgoKSSAgY2hvb3NlIHRvIGRy
+b3AgdGhlIEFGQkMgcHJlZml4LiBBcyB0aGlzIHJlZ2lzdGVyIG5lZWRzIHRvIGJlIGNvbmZpZ3Vy
+ZWQgbm90IG9ubHkKaW4gQUZCQyBtb2RlLCBidXQgYWxzbyBpbiB0aWxlIG1vZGUuCkFuZCBJIGRv
+bid0IHBhcnRpY3VsYXJseSBsaWtlIHVzZSBsaW5lYnJlYWsuCgo+Cj5BbHRlcm5hdGl2ZWx5LCBq
+dXN0IGFkZCBhIGxpbmVicmVhayBhdCB0aGUgYXBwcm9wcmlhdGUgcG9zaXRpb24gaW5zdGVhZC4K
+Pgo+SGVpa28KPgo+Cj4+IC0tLQo+PiAKPj4gKG5vIGNoYW5nZXMgc2luY2UgdjEpCj4+IAo+PiAg
+ZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMgfCA4ICsrKystLS0t
+Cj4+ICBkcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuaCB8IDQgKyst
+LQo+PiAgMiBmaWxlcyBjaGFuZ2VkLCA2IGluc2VydGlvbnMoKyksIDYgZGVsZXRpb25zKC0pCj4+
+IAo+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9ncHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92
+b3AyLmMgYi9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuYwo+PiBp
+bmRleCBlYmM5Y2I5MzA3M2MuLjhlMWI3NDJhNzU1MCAxMDA2NDQKPj4gLS0tIGEvZHJpdmVycy9n
+cHUvZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMKPj4gKysrIGIvZHJpdmVycy9ncHUv
+ZHJtL3JvY2tjaGlwL3JvY2tjaGlwX2RybV92b3AyLmMKPj4gQEAgLTE1MjQsNyArMTUyNCw3IEBA
+IHN0YXRpYyB2b2lkIHZvcDJfcGxhbmVfYXRvbWljX3VwZGF0ZShzdHJ1Y3QgZHJtX3BsYW5lICpw
+bGFuZSwKPj4gIAkJdHJhbnNmb3JtX29mZnNldCA9IHZvcDJfYWZiY190cmFuc2Zvcm1fb2Zmc2V0
+KHBzdGF0ZSwgaGFsZl9ibG9ja19lbik7Cj4+ICAJCXZvcDJfd2luX3dyaXRlKHdpbiwgVk9QMl9X
+SU5fQUZCQ19IRFJfUFRSLCB5cmdiX21zdCk7Cj4+ICAJCXZvcDJfd2luX3dyaXRlKHdpbiwgVk9Q
+Ml9XSU5fQUZCQ19QSUNfU0laRSwgYWN0X2luZm8pOwo+PiAtCQl2b3AyX3dpbl93cml0ZSh3aW4s
+IFZPUDJfV0lOX0FGQkNfVFJBTlNGT1JNX09GRlNFVCwgdHJhbnNmb3JtX29mZnNldCk7Cj4+ICsJ
+CXZvcDJfd2luX3dyaXRlKHdpbiwgVk9QMl9XSU5fQUZCQ19UUkFOU0ZPUk1fT0ZGUywgdHJhbnNm
+b3JtX29mZnNldCk7Cj4+ICAJCXZvcDJfd2luX3dyaXRlKHdpbiwgVk9QMl9XSU5fQUZCQ19QSUNf
+T0ZGU0VULCAoKHNyYy0+eDEgPj4gMTYpIHwgc3JjLT55MSkpOwo+PiAgCQl2b3AyX3dpbl93cml0
+ZSh3aW4sIFZPUDJfV0lOX0FGQkNfRFNQX09GRlNFVCwgKGRlc3QtPngxIHwgKGRlc3QtPnkxIDw8
+IDE2KSkpOwo+PiAgCQl2b3AyX3dpbl93cml0ZSh3aW4sIFZPUDJfV0lOX0FGQkNfUElDX1ZJUl9X
+SURUSCwgc3RyaWRlKTsKPj4gQEAgLTE1MzUsNyArMTUzNSw3IEBAIHN0YXRpYyB2b2lkIHZvcDJf
+cGxhbmVfYXRvbWljX3VwZGF0ZShzdHJ1Y3QgZHJtX3BsYW5lICpwbGFuZSwKPj4gIAl9IGVsc2Ug
+ewo+PiAgCQlpZiAodm9wMl9jbHVzdGVyX3dpbmRvdyh3aW4pKSB7Cj4+ICAJCQl2b3AyX3dpbl93
+cml0ZSh3aW4sIFZPUDJfV0lOX0FGQkNfRU5BQkxFLCAwKTsKPj4gLQkJCXZvcDJfd2luX3dyaXRl
+KHdpbiwgVk9QMl9XSU5fQUZCQ19UUkFOU0ZPUk1fT0ZGU0VULCAwKTsKPj4gKwkJCXZvcDJfd2lu
+X3dyaXRlKHdpbiwgVk9QMl9XSU5fQUZCQ19UUkFOU0ZPUk1fT0ZGUywgMCk7Cj4+ICAJCX0KPj4g
+IAo+PiAgCQl2b3AyX3dpbl93cml0ZSh3aW4sIFZPUDJfV0lOX1lSR0JfVklSLCBESVZfUk9VTkRf
+VVAoZmItPnBpdGNoZXNbMF0sIDQpKTsKPj4gQEAgLTM0NDgsNyArMzQ0OCw3IEBAIHN0YXRpYyBj
+b25zdCBzdHJ1Y3QgcmVnX2ZpZWxkIHZvcDJfY2x1c3Rlcl9yZWdzW1ZPUDJfV0lOX01BWF9SRUdd
+ID0gewo+PiAgCVtWT1AyX1dJTl9BRkJDX1RJTEVfTlVNXSA9IFJFR19GSUVMRChSSzM1NjhfQ0xV
+U1RFUl9XSU5fQUZCQ0RfVklSX1dJRFRILCAxNiwgMzEpLAo+PiAgCVtWT1AyX1dJTl9BRkJDX1BJ
+Q19PRkZTRVRdID0gUkVHX0ZJRUxEKFJLMzU2OF9DTFVTVEVSX1dJTl9BRkJDRF9QSUNfT0ZGU0VU
+LCAwLCAzMSksCj4+ICAJW1ZPUDJfV0lOX0FGQkNfRFNQX09GRlNFVF0gPSBSRUdfRklFTEQoUksz
+NTY4X0NMVVNURVJfV0lOX0FGQkNEX0RTUF9PRkZTRVQsIDAsIDMxKSwKPj4gLQlbVk9QMl9XSU5f
+QUZCQ19UUkFOU0ZPUk1fT0ZGU0VUXSA9IFJFR19GSUVMRChSSzM1NjhfQ0xVU1RFUl9XSU5fQUZC
+Q0RfVFJBTlNGT1JNX09GRlNFVCwgMCwgMzEpLAo+PiArCVtWT1AyX1dJTl9BRkJDX1RSQU5TRk9S
+TV9PRkZTXSA9IFJFR19GSUVMRChSSzM1NjhfQ0xVU1RFUl9XSU5fQUZCQ0RfVFJBTlNGT1JNX09G
+RlMsIDAsIDMxKSwKPj4gIAlbVk9QMl9XSU5fQUZCQ19ST1RBVEVfOTBdID0gUkVHX0ZJRUxEKFJL
+MzU2OF9DTFVTVEVSX1dJTl9BRkJDRF9ST1RBVEVfTU9ERSwgMCwgMCksCj4+ICAJW1ZPUDJfV0lO
+X0FGQkNfUk9UQVRFXzI3MF0gPSBSRUdfRklFTEQoUkszNTY4X0NMVVNURVJfV0lOX0FGQkNEX1JP
+VEFURV9NT0RFLCAxLCAxKSwKPj4gIAlbVk9QMl9XSU5fWE1JUlJPUl0gPSBSRUdfRklFTEQoUksz
+NTY4X0NMVVNURVJfV0lOX0FGQkNEX1JPVEFURV9NT0RFLCAyLCAyKSwKPj4gQEAgLTM1NDcsNyAr
+MzU0Nyw3IEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3QgcmVnX2ZpZWxkIHZvcDJfZXNtYXJ0X3JlZ3Nb
+Vk9QMl9XSU5fTUFYX1JFR10gPSB7Cj4+ICAJW1ZPUDJfV0lOX0FGQkNfUElDX09GRlNFVF0gPSB7
+IC5yZWcgPSAweGZmZmZmZmZmIH0sCj4+ICAJW1ZPUDJfV0lOX0FGQkNfUElDX1NJWkVdID0geyAu
+cmVnID0gMHhmZmZmZmZmZiB9LAo+PiAgCVtWT1AyX1dJTl9BRkJDX0RTUF9PRkZTRVRdID0geyAu
+cmVnID0gMHhmZmZmZmZmZiB9LAo+PiAtCVtWT1AyX1dJTl9BRkJDX1RSQU5TRk9STV9PRkZTRVRd
+ID0geyAucmVnID0gMHhmZmZmZmZmZiB9LAo+PiArCVtWT1AyX1dJTl9BRkJDX1RSQU5TRk9STV9P
+RkZTXSA9IHsgLnJlZyA9IDB4ZmZmZmZmZmYgfSwKPj4gIAlbVk9QMl9XSU5fQUZCQ19IRFJfUFRS
+XSA9IHsgLnJlZyA9IDB4ZmZmZmZmZmYgfSwKPj4gIAlbVk9QMl9XSU5fQUZCQ19IQUxGX0JMT0NL
+X0VOXSA9IHsgLnJlZyA9IDB4ZmZmZmZmZmYgfSwKPj4gIAlbVk9QMl9XSU5fQUZCQ19ST1RBVEVf
+MjcwXSA9IHsgLnJlZyA9IDB4ZmZmZmZmZmYgfSwKPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1
+L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5oIGIvZHJpdmVycy9ncHUvZHJtL3JvY2tj
+aGlwL3JvY2tjaGlwX2RybV92b3AyLmgKPj4gaW5kZXggMjljYzdmYjhmNmQ4Li44NTEwMTQwYjA4
+NjkgMTAwNjQ0Cj4+IC0tLSBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1f
+dm9wMi5oCj4+ICsrKyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9w
+Mi5oCj4+IEBAIC0xMTgsNyArMTE4LDcgQEAgZW51bSB2b3AyX3dpbl9yZWdzIHsKPj4gIAlWT1Ay
+X1dJTl9BRkJDX1BJQ19PRkZTRVQsCj4+ICAJVk9QMl9XSU5fQUZCQ19QSUNfU0laRSwKPj4gIAlW
+T1AyX1dJTl9BRkJDX0RTUF9PRkZTRVQsCj4+IC0JVk9QMl9XSU5fQUZCQ19UUkFOU0ZPUk1fT0ZG
+U0VULAo+PiArCVZPUDJfV0lOX0FGQkNfVFJBTlNGT1JNX09GRlMsCj4+ICAJVk9QMl9XSU5fQUZC
+Q19IRFJfUFRSLAo+PiAgCVZPUDJfV0lOX0FGQkNfSEFMRl9CTE9DS19FTiwKPj4gIAlWT1AyX1dJ
+Tl9BRkJDX1JPVEFURV8yNzAsCj4+IEBAIC0zMzUsNyArMzM1LDcgQEAgZW51bSBkc3RfZmFjdG9y
+X21vZGUgewo+PiAgI2RlZmluZSBSSzM1NjhfQ0xVU1RFUl9XSU5fRFNQX0lORk8JCTB4MjQKPj4g
+ICNkZWZpbmUgUkszNTY4X0NMVVNURVJfV0lOX0RTUF9TVAkJMHgyOAo+PiAgI2RlZmluZSBSSzM1
+NjhfQ0xVU1RFUl9XSU5fU0NMX0ZBQ1RPUl9ZUkdCCTB4MzAKPj4gLSNkZWZpbmUgUkszNTY4X0NM
+VVNURVJfV0lOX0FGQkNEX1RSQU5TRk9STV9PRkZTRVQJMHgzQwo+PiArI2RlZmluZSBSSzM1Njhf
+Q0xVU1RFUl9XSU5fQUZCQ0RfVFJBTlNGT1JNX09GRlMJMHgzQwo+PiAgI2RlZmluZSBSSzM1Njhf
+Q0xVU1RFUl9XSU5fQUZCQ0RfT1VUUFVUX0NUUkwJMHg1MAo+PiAgI2RlZmluZSBSSzM1NjhfQ0xV
+U1RFUl9XSU5fQUZCQ0RfUk9UQVRFX01PREUJMHg1NAo+PiAgI2RlZmluZSBSSzM1NjhfQ0xVU1RF
+Ul9XSU5fQUZCQ0RfSERSX1BUUgkweDU4Cj4+IAo+Cj4KPgo+Cj4KPl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj5MaW51eC1yb2NrY2hpcCBtYWlsaW5nIGxp
+c3QKPkxpbnV4LXJvY2tjaGlwQGxpc3RzLmluZnJhZGVhZC5vcmcKPmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcm9ja2NoaXAK
 
