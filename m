@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF6AC021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 17:34:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7D9EC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 17:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tAkWFe23jGBVJ/btWGzSx7iidT0qRZ+MSRKyacgINdc=; b=2gn0EqmOtxCXpna6BzeHKGRKcH
-	C5cMjYOdugD05LR9X+/McyZSk/eSjG0J5S5LfGxhs/GGz/Ab8pSBfva/IbP7CdHcWLHs7C1mHTMht
-	9hUF4Gx3H0kmQGa6QId5FYA+DgLo/c/c/ZjgkztiggJ6fHfVeiLxIN/JaFXfFiVTzVfih3d+jKvL/
-	uuRDHWhHDrSgclixe/ZfHpYfuFafwbedKehFp1jMguV3td/VucsnivMdDNhBp0ezwc7mLGzY6mEUd
-	/WZi24RcN0pUHdOahxGOjEtkIMh6fLCCf2yLulDXyh2dSwDhFoqGzAaAVX5sDxJI/giXAq7LONSk4
-	KTFWbUnQ==;
+	bh=LjJAc4ijS8xqCguJ2j5TcC3TUwo1BgWvM/2KPrmmMTs=; b=LHyh9IBOf0ssVKM9gJBn6AHBYF
+	SCAu3Fz8qHEvp/dw+DN3yQ/0EXU2/U+MnN+63ZgSrXa1rJQnil2SpUvrPcpMVEd8liUnpOEfSDb8q
+	t2rlQ/sNi1vbRgXgNIYHk2zZ5w2pm1xV5YG8VRSPcD0Ni+ZQjNFLuzoYnlaFbQj6ooNQOTLDQP5X+
+	O/fqgyGeKiC5+nLVIc7QqRwmMnZXWJPH663r43dS15/af0uhUU9gKZisxIDaYUss292cefobCR9VB
+	RyVrCTrzrRjW4SZ8lh9iPEtjIwmFWEHILZnFVLpazK+ws4/vrm7j9dR2y8FvyhiMRYRB7sWXoULBX
+	HiSZuF7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tid6L-0000000C1m9-10pU;
-	Thu, 13 Feb 2025 17:34:13 +0000
+	id 1tid7j-0000000C22n-40sv;
+	Thu, 13 Feb 2025 17:35:39 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibuY-0000000BjGu-1SiV
+	id 1tibuc-0000000BjIX-3Dg8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 16:17:59 +0000
+	Thu, 13 Feb 2025 16:18:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A65AD26BC;
-	Thu, 13 Feb 2025 08:18:18 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AAEF26BA;
+	Thu, 13 Feb 2025 08:18:23 -0800 (PST)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.32.44])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 38B963F6A8;
-	Thu, 13 Feb 2025 08:17:54 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 612293F6A8;
+	Thu, 13 Feb 2025 08:17:58 -0800 (PST)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -56,17 +56,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	Shanker Donthineni <sdonthineni@nvidia.com>,
 	Alper Gun <alpergun@google.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-Subject: [PATCH v7 42/45] arm64: kvm: Expose support for private memory
-Date: Thu, 13 Feb 2025 16:14:22 +0000
-Message-ID: <20250213161426.102987-43-steven.price@arm.com>
+Subject: [PATCH v7 43/45] KVM: arm64: Expose KVM_ARM_VCPU_REC to user space
+Date: Thu, 13 Feb 2025 16:14:23 +0000
+Message-ID: <20250213161426.102987-44-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250213161426.102987-1-steven.price@arm.com>
 References: <20250213161426.102987-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_081758_475799_BB5F0EC5 
-X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-CacheID: sfid-20250213_081802_843762_31309425 
+X-CRM114-Status: UNSURE (   9.44  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,86 +82,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Select KVM_GENERIC_PRIVATE_MEM and provide the necessary support
-functions.
+Increment KVM_VCPU_MAX_FEATURES to expose the new capability to user
+space.
+
+*NOTE*: This also exposes KVM_ARM_VCPU_HAS_EL2 (as it is one less than
+KVM_ARM_VCPU_REC) - so this currently depends on nested virt being
+'finished' before merging. See below for discussion:
+
+https://lore.kernel.org/r/a7011738-a084-46fa-947f-395d90b37f8b%40arm.com
 
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
-Changes since v2:
- * Switch kvm_arch_has_private_mem() to a macro to avoid overhead of a
-   function call.
- * Guard definitions of kvm_arch_{pre,post}_set_memory_attributes() with
-   #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES.
- * Early out in kvm_arch_post_set_memory_attributes() if the WARN_ON
-   should trigger.
----
- arch/arm64/include/asm/kvm_host.h |  6 ++++++
- arch/arm64/kvm/Kconfig            |  1 +
- arch/arm64/kvm/mmu.c              | 22 ++++++++++++++++++++++
- 3 files changed, 29 insertions(+)
+ arch/arm64/include/asm/kvm_host.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 6f05aecfda99..df9497998ed5 100644
+index df9497998ed5..4aedfbfa1d6e 100644
 --- a/arch/arm64/include/asm/kvm_host.h
 +++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1433,6 +1433,12 @@ struct kvm *kvm_arch_alloc_vm(void);
+@@ -40,7 +40,7 @@
  
- #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+ #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
  
-+#ifdef CONFIG_KVM_PRIVATE_MEM
-+#define kvm_arch_has_private_mem(kvm) ((kvm)->arch.is_realm)
-+#else
-+#define kvm_arch_has_private_mem(kvm) false
-+#endif
-+
- int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
- bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
+-#define KVM_VCPU_MAX_FEATURES 7
++#define KVM_VCPU_MAX_FEATURES 9
+ #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
  
-diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-index ead632ad01b4..7bc1a2c89b3a 100644
---- a/arch/arm64/kvm/Kconfig
-+++ b/arch/arm64/kvm/Kconfig
-@@ -38,6 +38,7 @@ menuconfig KVM
- 	select HAVE_KVM_VCPU_RUN_PID_CHANGE
- 	select SCHED_INFO
- 	select GUEST_PERF_EVENTS if PERF_EVENTS
-+	select KVM_GENERIC_PRIVATE_MEM
- 	help
- 	  Support hosting virtualized guest machines.
- 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index a849ff66e584..2f3006421b76 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -2352,6 +2352,28 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
- 	return ret;
- }
- 
-+#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-+bool kvm_arch_pre_set_memory_attributes(struct kvm *kvm,
-+					struct kvm_gfn_range *range)
-+{
-+	WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm));
-+	return false;
-+}
-+
-+bool kvm_arch_post_set_memory_attributes(struct kvm *kvm,
-+					 struct kvm_gfn_range *range)
-+{
-+	if (WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm)))
-+		return false;
-+
-+	if (range->arg.attributes & KVM_MEMORY_ATTRIBUTE_PRIVATE)
-+		range->only_shared = true;
-+	kvm_unmap_gfn_range(kvm, range);
-+
-+	return false;
-+}
-+#endif
-+
- void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot)
- {
- }
+ #define KVM_REQ_SLEEP \
 -- 
 2.43.0
 
