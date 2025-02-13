@@ -4,63 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F729C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:10:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B3CC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7IID4PyXQxI5yRdGT/vr39ldUga9qszpD4Yso9Zw9NY=; b=iefG+QyeBj0jxzLuTOWjfGfnPZ
-	vRuFJV5E0p61dk6Ygj6aAYCTAGj3p/1dzSw2d1oqUG20u+Yu4UoWYEwt3HqK14vuPYENH4B9RLR4n
-	G4v26/uFBBwCIl+TNOuGuQEAE1oSGLfx8Y0hPZzF7uIelRyjZShot/FySCFzuh8XnVVOGGPbFWNpV
-	c8E6wVmczSIYyWYIoh8y2wF6HwBr/Wv1vbeGq6NIiISXQPm/1f6Aa+33r3WOfcLKuuC/Zb7liAP46
-	+2YvWsHqL11m6FfyjcXJywXWYmHBu18dtBg8/uTXfGJozzrgHVOaf3NJeS0ij8w/keiMIkFjjaFqF
-	Yzj0aHhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IfuxON9f1+mt0J5dXUHTZ8LLFpSbXwaRfsyQDzivT8Y=; b=Zkae1/lzskcELfb286dsbX+9n6
+	mDiZMKbOf4YOzEBtPjjVRtJu+KR7hyazK1x151VXw9K9yyOcmO1XFSsAjFBRFZEfohbN3sOP0k9vU
+	psI7BZk0X2vE+d1+U4odrok5qbyZjDF3CEeePxOAJ0kB2lILWJTGgQDxc1mrfcqOpJccG130iv/kL
+	PjmaEd/DYWkLvnZjH6lli9Usbw52jva8jMWi90iAQ2zGU1tGcx729zPHkM6zVm9e/W8wY569T5cTx
+	Pk15m521zV8zbxmKeRwt05liNLXfvz4f+D+lU/OzDOywWE3KqdufwGo8S8WXWFIwvenEs1qdpqP9/
+	lUL8We7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibnE-0000000Bh98-1aLU;
-	Thu, 13 Feb 2025 16:10:24 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibMR-0000000Bask-238t
+	id 1tibo5-0000000BhMi-0Gqd;
+	Thu, 13 Feb 2025 16:11:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiac6-0000000BQZv-2YuG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 15:42:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6D29CA42707;
-	Thu, 13 Feb 2025 15:40:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABB3FC4CED1;
-	Thu, 13 Feb 2025 15:42:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739461362;
-	bh=IWZ1m6D71Ih3aPqwbP8TPp827j7GpuMxcd/gfEsT9gk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=N84CjDBfnuZnlNeMYLPB+2IoMaeSUzH12i4CS5PHBtpMFlBNVepg6Ph1a0yDonsYf
-	 glAKPiciVq32UG4CW1Il21gQyrMQfY7Sk+qSZCLhJmxaC2rw49Gom6JJuFx83vBwSd
-	 HE46/ydRpThL5EcIaIQAgiCC4CMB461VB6hDJkzw3jpoGCCffzJpBPfa4rZGadxTvj
-	 L6AovLdHoPY0eJO+bUidUDDYvVmqkeH1Rq4Ud+ZbcKtTVW/v59y3UIGBIT/SdRl7wS
-	 FfsEPWY8o2VXmI0KjZ3+i+5Nxvay08r51MyJ57E+GbR2LyTE7fIAMldEObNwZz4BLf
-	 eT0SBPU5z78kA==
-Date: Thu, 13 Feb 2025 15:42:38 +0000
-From: Will Deacon <will@kernel.org>
-To: cki-project@redhat.com
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	steve.price@arm.com
-Subject: Re: =?utf-8?Q?=E2=9D=8C_FAIL=3A_Test_repor?= =?utf-8?Q?t?= for
- for-kernelci (6.14.0-rc2, upstream-arm-next, a64dcfb4)
-Message-ID: <20250213154237.GA11897@willie-the-truck>
-References: <64234.125021309531800883@us-mta-201.us.mimecast.lan>
+	Thu, 13 Feb 2025 14:54:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C074106F;
+	Thu, 13 Feb 2025 06:55:08 -0800 (PST)
+Received: from [10.44.160.94] (e126510-lin.lund.arm.com [10.44.160.94])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 677FC3F58B;
+	Thu, 13 Feb 2025 06:54:42 -0800 (PST)
+Message-ID: <c16a24b9-1258-4976-827d-db3335bf6e83@arm.com>
+Date: Thu, 13 Feb 2025 15:54:40 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v3 00/15] pkeys-based page table hardening
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+To: Kees Cook <kees@kernel.org>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>, Mark Brown <broonie@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Qi Zheng <zhengqi.arch@bytedance.com>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
+References: <20250203101839.1223008-1-kevin.brodsky@arm.com>
+ <202502061422.517A57F8@keescook>
+ <fd101c51-d3fc-4a4f-afcc-364b8d3c4a0b@arm.com>
+Content-Language: en-GB
+In-Reply-To: <fd101c51-d3fc-4a4f-afcc-364b8d3c4a0b@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <64234.125021309531800883@us-mta-201.us.mimecast.lan>
-User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_074243_591525_B10B2686 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_065450_690189_3B29AF3E 
+X-CRM114-Status: GOOD (  17.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,30 +77,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+Steven]
+On 10/02/2025 15:23, Kevin Brodsky wrote:
+> [...]
+>
+>>> Any comment or feedback will be highly appreciated, be it on the
+>>> high-level approach or implementation choices!
+>> As hinted earlier with my QEMU question... what's the best way I can I
+>> test this myself? :)
+> As mentioned above I tested this series on Arm FVP. By far the easiest
+> way to run some custom kernel/rootfs on FVP is to use the Shrinkwrap
+> tool [3]. First install it following the quick start guide [4] (I would
+> recommend using the Docker backend if possible). Then build the firmware
+> stack using:
+>
+> $ shrinkwrap build -o arch/v9.0.yaml ns-edk2.yaml
+>
+> To make things easy, the runtime configuration can be stored in a file.
+> Create ~/.shrinkwrap/config/poe.yaml with the following contents:
+>
+> ----8<----
+>
+> %YAML 1.2
+> ---
+> layers:
+>   - arch/v9.0.yaml
 
-On Thu, Feb 13, 2025 at 02:53:16PM -0000, cki-project@redhat.com wrote:
-> Hi, we tested your kernel and here are the results:
-> 
->     Overall result: FAILED
->              Merge: OK
->            Compile: FAILED
-> 
-> 
-> Kernel information:
->     Commit message: Linux 6.14-rc2
-> 
-> You can find all the details about the test run at
->     https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1669747201
-> 
-> One or more kernel builds failed:
->     Unrecognized or new issues:
->          aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redhat:1669747201-aarch64-kernel
+Apologies, this is incorrect - it will not work with the most recent FVP
+builds. POE is a v9.4 feature so this line should be replaced with:
 
-00:14:01 drivers/gpu/drm/panthor/panthor_fw.c: In function ‘panthor_fw_read_build_info’:
-00:14:01 drivers/gpu/drm/panthor/panthor_fw.c:641:53: error: initializer-string for array of ‘char’ is too long [-Werror=unterminated-string-initialization]
-00:14:01   641 |         const char git_sha_header[sizeof(header)] = "git_sha: ";
-00:14:01       |                                                     ^~~~~~~~~~~
+> - arch/v9.4.yaml
 
-Will
+(No need to change the shrinkwrap build line, it only matters for the
+FVP runtime parameters.)
+
+- Kevin
+
+> run:
+>   rtvars:
+>     CMDLINE:
+>       type: string
+>       # nr_cpus=1 can be added to speed up the boot
+>       value: console=ttyAMA0 earlycon=pl011,0x1c090000 root=/dev/vda rw
+>   params:
+>     -C cluster0.has_permission_overlay_s1: 1
+>     -C cluster1.has_permission_overlay_s1: 1
+>
+> ----8<----
+>
+> Finally start FVP using:
+>
+> $ shrinkwrap run -o poe.yaml ns-edk2.yaml -r
+> KERNEL=<out>/arch/arm64/boot/Image -r ROOTFS=<rootfs.img>
+>
+> (Use Ctrl-] to terminate the model if needed.)
+>
+> <rootfs.img> is a file containing the root filesystem (in raw format,
+> e.g. ext4). The kernel itself is built as usual (defconfig works just
+> fine), just make sure to select CONFIG_KPKEYS_HARDENED_PGTABLES to
+> enable the feature. You can also select
+> CONFIG_KPKEYS_HARDENED_PGTABLES_TEST to run the tests in patch 15.
 
