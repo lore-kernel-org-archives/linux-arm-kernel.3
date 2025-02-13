@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F0DC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 17:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B43AC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 17:12:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tEWQeXjYuDmbn7JUDnY/h4AMNQfQjxUuBaVf9zZtFM4=; b=MxZfomVWRqsu87ZsIxrldq0y2W
-	nnCmAwXE5/RLeO5rgDvbHycCUqLbiwzZM4PF8Fv3hYSRCRtDhyV+VxJskK64N1HOFHLX4grqMhSqp
-	GLEgYLnMNLVwbaXS25QI+wyGd2uxa5xqDFwkgtrTKjFGkkuXuMWjJ+mZrrRIWFfJ3f9C4qA9DOCnO
-	y3EjsIouSPP5232DcthbeedIs3k1rJ7V9TLCn1Wl08qPOKRGITlwmZnsmTK1EDPpL+7fEFecYfGK3
-	4ccX4JsAYfkEHqS1VV8g7tFE5y9jIJP9DsqCxlVz1IwfJj/R42UKfmyMbq53fhRWFEijuleuv7RhD
-	l7pPTSEw==;
+	bh=Bw7Qxi5iHcD1RTG1u2KIYkVVyssRZZNNWc2uYvZoNyY=; b=NyBsrgFoX/p4hvYM3xUS/Af2ti
+	05KGggDaXNNm6JDNwTjY3yVcUBrzGDGWa2rlhqlat+Sd7Zvhv1CwJSen2KKfRaT8aGjySkQOqC8WV
+	1GBxmZJJK+IQico9aU9b42YAQ9P0uGfnKRleQk3MfPiPpBlnt3nFv+1sKmH0aaxYNGrEuEJ1wPOob
+	bC7z0/xT3V3775AvH0bmtsidkHUWSwD1Jy7BMS4wY7mUEgLfwCP7ZuolHPHa5uk5Ezae2ZDbC2HJY
+	5DoPLc7TKKZdS6dCh/75aIaJylt5xpp2NERKeJqzB5EXXdlpdFmN6qsUguXmavx6impQqaRApAXPW
+	kaqZuvkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticjr-0000000BxRr-47u6;
-	Thu, 13 Feb 2025 17:10:59 +0000
+	id 1ticlG-0000000Bxfb-2knE;
+	Thu, 13 Feb 2025 17:12:26 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibtg-0000000Bj4X-1VwP
+	id 1tibtk-0000000Bj5p-3IAe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 16:17:05 +0000
+	Thu, 13 Feb 2025 16:17:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 883D21756;
-	Thu, 13 Feb 2025 08:17:24 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F1A71756;
+	Thu, 13 Feb 2025 08:17:29 -0800 (PST)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.32.44])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 02FCA3F6A8;
-	Thu, 13 Feb 2025 08:16:59 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EAB93F6A8;
+	Thu, 13 Feb 2025 08:17:04 -0800 (PST)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -56,17 +56,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	Shanker Donthineni <sdonthineni@nvidia.com>,
 	Alper Gun <alpergun@google.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-Subject: [PATCH v7 31/45] arm64: rme: Prevent Device mappings for Realms
-Date: Thu, 13 Feb 2025 16:14:11 +0000
-Message-ID: <20250213161426.102987-32-steven.price@arm.com>
+Subject: [PATCH v7 32/45] arm_pmu: Provide a mechanism for disabling the physical IRQ
+Date: Thu, 13 Feb 2025 16:14:12 +0000
+Message-ID: <20250213161426.102987-33-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250213161426.102987-1-steven.price@arm.com>
 References: <20250213161426.102987-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_081704_443682_BF60B2A3 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250213_081708_864652_B247BC5A 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,52 +81,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Physical device assignment is not yet supported by the RMM, so it
-doesn't make much sense to allow device mappings within the realm.
-Prevent them when the guest is a realm.
+Arm CCA assigns the physical PMU device to the guest running in realm
+world, however the IRQs are routed via the host. To enter a realm guest
+while a PMU IRQ is pending it is necessary to block the physical IRQ to
+prevent an immediate exit. Provide a mechanism in the PMU driver for KVM
+to control the physical IRQ.
 
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
-Changes from v6:
- * Fix the check in user_mem_abort() to prevent all pages that are not
-   guest_memfd() from being mapped into the protected half of the IPA.
-Changes from v5:
- * Also prevent accesses in user_mem_abort()
+v3: Add a dummy function for the !CONFIG_ARM_PMU case.
 ---
- arch/arm64/kvm/mmu.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ drivers/perf/arm_pmu.c       | 15 +++++++++++++++
+ include/linux/perf/arm_pmu.h |  5 +++++
+ 2 files changed, 20 insertions(+)
 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 8c656a0ef4e9..a849ff66e584 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1173,6 +1173,10 @@ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
- 	if (is_protected_kvm_enabled())
- 		return -EPERM;
+diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
+index 398cce3d76fc..2cdcdda8f638 100644
+--- a/drivers/perf/arm_pmu.c
++++ b/drivers/perf/arm_pmu.c
+@@ -735,6 +735,21 @@ static int arm_perf_teardown_cpu(unsigned int cpu, struct hlist_node *node)
+ 	return 0;
+ }
  
-+	/* We don't support mapping special pages into a Realm */
-+	if (kvm_is_realm(kvm))
-+		return -EPERM;
++void arm_pmu_set_phys_irq(bool enable)
++{
++	int cpu = get_cpu();
++	struct arm_pmu *pmu = per_cpu(cpu_armpmu, cpu);
++	int irq;
 +
- 	size += offset_in_page(guest_ipa);
- 	guest_ipa &= PAGE_MASK;
- 
-@@ -1763,6 +1767,15 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	if (exec_fault && device)
- 		return -ENOEXEC;
- 
-+	/*
-+	 * For now we shouldn't be hitting protected addresses because they are
-+	 * handled in private_memslot_fault(). In the future this check may be
-+	 * relaxed to support e.g. protected devices.
-+	 */
-+	if (vcpu_is_rec(vcpu) &&
-+	    kvm_gpa_from_fault(kvm, fault_ipa) == fault_ipa)
-+		return -EINVAL;
++	irq = armpmu_get_cpu_irq(pmu, cpu);
++	if (irq && !enable)
++		per_cpu(cpu_irq_ops, cpu)->disable_pmuirq(irq);
++	else if (irq && enable)
++		per_cpu(cpu_irq_ops, cpu)->enable_pmuirq(irq);
 +
- 	/*
- 	 * Potentially reduce shadow S2 permissions to match the guest's own
- 	 * S2. For exec faults, we'd only reach this point if the guest
++	put_cpu();
++}
++
+ #ifdef CONFIG_CPU_PM
+ static void cpu_pm_pmu_setup(struct arm_pmu *armpmu, unsigned long cmd)
+ {
+diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
+index 4b5b83677e3f..6c2631e2cbd7 100644
+--- a/include/linux/perf/arm_pmu.h
++++ b/include/linux/perf/arm_pmu.h
+@@ -172,6 +172,7 @@ void kvm_host_pmu_init(struct arm_pmu *pmu);
+ #endif
+ 
+ bool arm_pmu_irq_is_nmi(void);
++void arm_pmu_set_phys_irq(bool enable);
+ 
+ /* Internal functions only for core arm_pmu code */
+ struct arm_pmu *armpmu_alloc(void);
+@@ -182,6 +183,10 @@ void armpmu_free_irq(int irq, int cpu);
+ 
+ #define ARMV8_PMU_PDEV_NAME "armv8-pmu"
+ 
++#else /* CONFIG_ARM_PMU */
++
++static inline void arm_pmu_set_phys_irq(bool enable) {}
++
+ #endif /* CONFIG_ARM_PMU */
+ 
+ #define ARMV8_SPE_PDEV_NAME "arm,spe-v1"
 -- 
 2.43.0
 
