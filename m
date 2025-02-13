@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B63C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:41:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93301C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0TVSfnhO/D9vf7kVKocZCtgHhLvkRIYScp2kiZ0Rn5s=; b=O8sCqFkWs/1kUhCXORyV3lUkde
-	cUBj8a/NpmEzwFP0Te3bOHZNGck5tZ/PNA9pbPJnrIcAYxjKztuchJnyU6t2ZWjryVZKBdSjPTa4E
-	c9uEruBNYPzEh/6hRfNNeDVuM0cv44tm3fWr5o5pw5zNgoGXoFIPHDCjcoMhRtP/5Pr5NesWb61xX
-	Xe6XDIPWyCRZtfrg0GrPCkGV9aNxEtDq3O8EIyw2Zc14crKhkGcaxIviYX7jb15jcCiSqFWyACBI4
-	h4ZakK2RQWmDy8a3ppONP8FH812V0GK5nhRC2LfDsWRIdLK8E+7teNVOeeTeQfIxnvWWPEYkvfnNe
-	PxnDBfwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5zz5Vi8NhvlgxdDqN1j9JvIx+D1f7qsFmUg14o5VcyM=; b=Vk0Gq0URxv/b8R
+	ubdCLnUHHTlPNLniEiIWyHme9bckWePED6kxxGZZ7LDtodDnTzOtrBsk9AYrwTSspvnRKcjMWgqdH
+	70GPp43vBLouIKmZQHZWTFHSzi2+LvMHrddUDZZ25ukX6L5dpiHvb8geB3IXf6tY6wzWY/5ZEE34O
+	7B8PK7WuAERrZGnVY4P0ocbwtlFnfaz8QukuGavVBIiBM9RdTpxJdRPX7Z1/qJvrVjoF9AUbEvH7t
+	ig/JtKbsMXS1oGHZWYgb6+Bf+KVN8eA2dEmnFuON5Zrh7iMcJqH95mscUSx9RH4etx5A6dZVS9gmB
+	9UAJlsUcQfZdvL/1eS4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticH3-0000000Bogl-1Iki;
-	Thu, 13 Feb 2025 16:41:14 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1ticGz-0000000BobY-2CJn;
+	Thu, 13 Feb 2025 16:41:09 +0000
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibrO-0000000BiJv-42MM;
-	Thu, 13 Feb 2025 16:14:44 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 25360441D0;
-	Thu, 13 Feb 2025 16:14:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739463278;
+	id 1tibq5-0000000Bhwr-3GVq
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 16:13:24 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1739463199;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0TVSfnhO/D9vf7kVKocZCtgHhLvkRIYScp2kiZ0Rn5s=;
-	b=o/ragaeqE14+pkiUyeerhxStHnHzUEuBaR1MDzBW+7wdy/u3tp+KketwFkv6a1sl29X91R
-	bazTwFPopWFSaJGSUnKpDZQLBGOmVuo2ndmrlnYUDCz/CfzWgQ3cFrXnEsLh/o5rj6Vzn4
-	VVkvrSy7CFWtMgXit8j7dBcts6buJjY42hvgI8s8rJOqOX6cPCwaWN1Rs4f9k222J2ouyg
-	g8hqm/3JkLHGpxJAL0LWtcSlVMlhaRHgSzcKAdhZtP9y9aopwC7UfNpKr9ixsbQlI3cumA
-	81i+wvtWy8TucWElCaV+3PwElF+2fBxbpdNArU7gYJqnCwdZinWA3a/2fuPrjw==
-Date: Thu, 13 Feb 2025 17:14:35 +0100
-From: Herve Codina <herve.codina@bootlin.com>
-To: Phil Elwell <phil@raspberrypi.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>, andrew@lunn.ch, Arnd
- Bergmann <arnd@arndb.de>, "maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE"
- <bcm-kernel-feedback-list@broadcom.com>, bhelgaas@google.com,
- brgl@bgdev.pl, Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
- <conor+dt@kernel.org>, derek.kiernan@amd.com, devicetree@vger.kernel.org,
- dragan.cvetic@amd.com, Florian Fainelli <florian.fainelli@broadcom.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, krzk+dt@kernel.org,
- kw@linux.com, Linus Walleij <linus.walleij@linaro.org>, linux-arm-kernel
- <linux-arm-kernel@lists.infradead.org>, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, "open
- list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS"
- <linux-pci@vger.kernel.org>, "moderated list:BROADCOM BCM2711/BCM2835 ARM
- ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
- lpieralisi@kernel.org, luca.ceresoli@bootlin.com,
- manivannan.sadhasivam@linaro.org, masahiroy@kernel.org, Michael Turquette
- <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
- saravanak@google.com, Stephen Boyd <sboyd@kernel.org>,
- thomas.petazzoni@bootlin.com, Stefan Wahren <wahrenst@gmx.net>, Will Deacon
- <will@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device
- using a DT overlay
-Message-ID: <20250213171435.1c2ce376@bootlin.com>
-In-Reply-To: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
-References: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=5zz5Vi8NhvlgxdDqN1j9JvIx+D1f7qsFmUg14o5VcyM=;
+	b=xmqFW3S73yV9k2hXBaz1jmd9GR8C0I4u1XcUWYZacyueuKPlh6lzQiJLSqcoQyBFUIrIlh
+	Dm2UkeUANOSsgqpKgNdyiiq0mzeO4bhtO2jDTLADJeGAuFlQkQ2Km/h0jpnTzrsvUTGc9E
+	0oJgXuI01Fyyrj3G7Opeyod9DqTwKabbMWegx2Sle41WZ1GJ0t9OaV9v1OrnYDCxq6KGx7
+	FXyt4HXCvZWq80buyE9nE8LrCW8mNy47FQiVjFRkYPErQovSgOJRcywkX1sqiNtZpWdN8L
+	CkflSm2uCM7gU70LQW1D8DSI0pX7XLnIcpzPHE2T0Sz2Z5+lQkbLtN4BwVsvxw==
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Subject: [PATCH v2 0/2] apple-nvme: bug fixes
+Date: Thu, 13 Feb 2025 11:12:57 -0500
+Message-Id: <20250213-nvme-fixes-v2-0-a20032d13e38@rosenzweig.io>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegjedvvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthekredtredtjeenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeviefffeegiedtleelieeghfejleeuueevkeevteegffehledtkeegudeigffgvdenucfkphepvdgrtddumegvtdgrmedvgeeimeejjeeltdemvdeitgegmegvvddvmeeitdefugemheekrgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemvdegieemjeejledtmedviegtgeemvgdvvdemiedtfegumeehkegrpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeehpdhrtghpthhtohepphhhihhlsehrrghsphgsvghrrhihphhirdgtohhmpdhrtghpthhtoheprghnughrvggrrdhpohhrthgrsehsuhhsvgdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtoheps
- ggtmhdqkhgvrhhnvghlqdhfvggvuggsrggtkhdqlhhishhtsegsrhhorggutghomhdrtghomhdprhgtphhtthhopegshhgvlhhgrggrshesghhoohhglhgvrdgtohhmpdhrtghpthhtohepsghrghhlsegsghguvghvrdhplhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhm
-X-GND-Sasl: herve.codina@bootlin.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAkarmcC/22Myw7CIBBFf6WZtRiYFiOu+h+mC8ShnYVgwOCj4
+ d/Frl2e+zgrZEpMGU7dCokKZ46hAe46cIsNMwm+NgaUqCUqJUK5kfD8oizQuEEah1r3Htrhnmg
+ r2v48NV44P2J6b+6ifulfTVFCioPRx0tv7WA8jSlmCp8n8bznCFOt9QuVA4HtqAAAAA==
+X-Change-ID: 20250211-nvme-fixes-29c409c2553f
+To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+ Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>, 
+ Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=952; i=alyssa@rosenzweig.io;
+ h=from:subject:message-id; bh=yNLB3sgdS87xHQMciWaz3AVPMGZxT3oXuB08JT+8bcs=;
+ b=owEBbQKS/ZANAwAIAf7+UFoK9VgNAcsmYgBnrhoclU9zE6FzM7a6MNsHsid/IfbNcuWpFSzXs
+ h/awtBNEIKJAjMEAAEIAB0WIQRDXuCbsK8A0B2q9jj+/lBaCvVYDQUCZ64aHAAKCRD+/lBaCvVY
+ DXb3D/9MW2bY18CKt3Ns5/u+IgnetmV4ng9f3b1f2s/abaXSeEJ3uCVlvCax/9sY65OjIX2rUkO
+ 845pl5rXfS6UjInZ9jkzq8IM59rg/eEVoo5xz+lUIiYNSXX5nknE2SjlqkIlO1N8D/O8Q2t9drW
+ qGqHLPXCiNihPp15THNsL9d7h36Dc5yCjWFgg2FxqzF/pTlcMWEkL79nhL39FEYn/BvR4HrYQw4
+ XMKL9yQKJjYExb+vFys243AAUXSb7vDHrOnBVjB5k2/cKvO/1zExdbY+Nt1uiTG3ttjOjqw7pjO
+ PmtkxY9cb7WCJukbmrajUonkD5Gx7heo4Uc/OMWccZVKOzVxT1eFia9UYNrVgAaiTURa4a4XAtQ
+ AfCaWpwjdjkIxzg1Ku0M4OP4jFMEvsRPeWSIiiUD5T/ljG8uCO91ih8LMRiLO5iW1AizeiiXbrr
+ rypP8WdNoERXJGlcQL35TtieDwReYSqzdn7rbI5+4mnujEaGOuqZNdPgkfk3jqDgcs2ZWAZC1A+
+ bt0zxfqlvYXR38IFt5FJ9wGEPVmsF/oAWSGmNxfwGTLOzPL6MneP6F7rMBJgMN76BsKdmQSBEDj
+ oN1Izd42t3/XUiGLe8bxgTL7SAR/dKc87j1OZzk7eO8rJSMM7JAF1+HrgznXIRNrpnybM8k+QSy
+ 5wmEGez3GvpeN6A==
+X-Developer-Key: i=alyssa@rosenzweig.io; a=openpgp;
+ fpr=435EE09BB0AF00D01DAAF638FEFE505A0AF5580D
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_081443_580794_B364D1C8 
-X-CRM114-Status: GOOD (  17.82  )
+X-CRM114-CacheID: sfid-20250213_081321_977459_BC939350 
+X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,40 +92,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Phil,
+This small series fixes two unrelated issues with the Apple NVMe driver.
 
-On Thu, 13 Feb 2025 15:18:45 +0000
-Phil Elwell <phil@raspberrypi.com> wrote:
+* fix NVMe on certain combinations of firmware + machine
+* fix a power domain leak
 
-> Hi Andrea,
-> 
-> The problem with this approach (loading an overlay from the RP1 PCIe
-> driver), and it's one that I have raised with you offline, is that
-> (unless anyone can prove otherwise) it becomes impossible to create a
-> Pi 5 DTS file which makes use of the RP1's resources. How do you
-> declare something as simple as a button wired to an RP1 GPIO, or fan
-> connected to a PWM output?
+Although these are strict bug fixes, given the early stage of mainlining
+for these SoCs, none of this needs to be backported.
 
-The driver could be improved in a second step.
-For instance, it could load the dtbo from user-space using request_firmare()
-instead of loading the embedded dtbo.
+Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+---
+Changes in v2:
+- Add Neal's review
+- Drop cache flush change.
+- Link to v1: https://lore.kernel.org/r/20250211-nvme-fixes-v1-0-6958b3aa49fe@rosenzweig.io
 
-> 
-> If this is the preferred route to upstream adoption, I would prefer it
-> if rp1.dtso could be split in two - an rp1.dtsi similar to what we
-> have downstream, and an rp1.dtso that #includes it. In this way we can
-> keep the patching and duplication to a minimum.
+---
+Hector Martin (2):
+      apple-nvme: Support coprocessors left idle
+      apple-nvme: Release power domains when probe fails
 
-Indeed, having a rp1.dtsi avoid duplication but how the rp1.dtso in
-the the kernel sources could include user customization (button, fan, ...)
-without being modified ?
-At least we have to '#include <my_rp1_customizations.dtsi>'.
-
-Requesting the dtbo from user-space allows to let the user to create
-its own dtso without the need to modify the one in kernel sources.
-
-Does it make sense ?
+ drivers/nvme/host/apple.c | 55 ++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 38 insertions(+), 17 deletions(-)
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20250211-nvme-fixes-29c409c2553f
 
 Best regards,
-Hervé
+-- 
+Alyssa Rosenzweig <alyssa@rosenzweig.io>
+
 
