@@ -4,159 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E30E4C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6884CC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:41:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8XIjYZKid5PRsFmU/Lq4QXBxTtvZrSOaIUDUSbaAmaE=; b=25zH7T7zRyCMJd9aqwa1dP36DZ
-	kl+85sXQ2L5tLkoWdMyhSykoIVuY1eKmeBlP9y00e5t2+TxWYaJHwa+8k/o10WN8a5mtKf5HYPkpj
-	7RGb0eh+gEXVWjl/JJLM+o8T2QXzgRzWKNkuZZgHXrEeqP8++WtLgfFmZqraiXCgP/g4lL02sKqb8
-	AnwXwbltSUt57dHT0hOoJMl6sqQb3sltCY7JWcOBNBhvr2AOUffO5N+OTD3+Br0aVFetNvNEJT6q6
-	ATH7QfCqFU3ETTFTRI+ymPHY5cG8+wMCsFzBSRJTsVdgfZmukFWgUit4EUbbkmj2Y/syeIKU9ao6l
-	gFhEX16g==;
+	bh=LMYKZBB6Lwu1KXc2pApJntLSaHOHjeDAYKss1JDPqUg=; b=JINZoBXvXaxEabD03fmZvyOX2l
+	uWjk5SrA5P8zXA9qFnRJPkve24fgJfFx+RbwghWFP5wQBfTw5UN2pFBvlnDF6XsylwE0VDvibeQ/A
+	ycGIfW+R6Lz9CB5CNE9snft8hm0+idTyJXQTp3lAEjszyCuMqDG0Rjk5bQ+xfpGZ/jVJ9HnaJQA/5
+	Uqg0l5YLxOFgLVKr7Ub34q3hhf365N3NB0csQUBVhv9WjVw+3wr1+ExILfPwTt5XIRkOl8VyCI9aL
+	VwR8D6dyk7ovjL5NI0eJZVQD/Yd5vK5Wp10dIIxaCAkJLqd/RTwdF6oj2s78fccelquGqtwqv51g+
+	tsTNH57A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticGu-0000000BoWg-0ntO;
-	Thu, 13 Feb 2025 16:41:04 +0000
-Received: from mail-db5eur02on20601.outbound.protection.outlook.com ([2a01:111:f403:2608::601] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1ticGu-0000000BoXL-3QpC;
+	Thu, 13 Feb 2025 16:41:07 +0000
+Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibgF-0000000BfXz-3z8c
+	id 1tibmr-0000000Bh3a-1Ijr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 16:03:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bF+TIpn5S9khT+tqGGndPWk3PPPMDXaPUMuGrhh6dtNgOrpwJm08/zsrdogWMNkXdD9GOrMSIVR1uUaoI3ZikFMJrvmx1Zy3k7zj6o8iMUsY7FLPXWjuWDQl0hFvWAEvA3Lh8+PU62KtENSkksiGhueJVPR1uB3GRoqzLFcIVEX9WcE3NfOWn/K8e3HJRZVSbOIR5K7gqAvBYQffmJQzuuqQMqSd7b3PrdBuibTjrmUgosWHljer4Wc7RZT2JvnCRAHBA02lPEwj4RwUj1hRXjCjZpEPB8tLGdvOPamIg7XPV/84pJtPasalkI4dOHDgtRKFCk3WVRiUYMZIaVFbzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8XIjYZKid5PRsFmU/Lq4QXBxTtvZrSOaIUDUSbaAmaE=;
- b=V72SZYN9ulqvY2HEfwD1+lQ3qQqKVRyJ64PWrHY81Syh+Zfr2JX21CfChdksVox7HOKh+NMze+2JQsqlTWYiPnrFUnHkJqKk2hiwS/Vv7j3JyPgczwwMC4jPf+JOS/efuy4Md6VjxdtnuENt/A8uzqaCJ/MMyPufiTvioI9vGwUkT/C3+J4EkZNn1Zcw8FqMA0QIgdYBqyxKdHaVKovr+fqi78NJ4lFW79lGamjqjAMoExaoWJlSqo+RNqAXzcwais+eJnR+2GsBj/nenSMCMfucj8exk1sXFXs9KaPzyS+CIw1eCeehfPkAvaGcDOrH7YsN5scxcG57uV0HiS/FCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8XIjYZKid5PRsFmU/Lq4QXBxTtvZrSOaIUDUSbaAmaE=;
- b=aqpbcDTkDYbtIfmtIuKbFBTzjZfL4GDcXa0x1d2w76T8Vbx1ExH5eqo7cnmDPbAh6NpM9JKaqjQ82lvrZcFRQG7k751k9a9gniIxisR//+Kj9IFdcGnJMMui7pih1OIJh0Hr823m/cltk9d0Lql+QI1ymawYXBxs3UaR/IS3enlUALfg0miWHA88C/v5/QL7lng+wIaKW4s2vo1194STx5X9ecbT0ALp5RgiiVV72RjCVSd1qAvUDLHY+t80QuQ4/2sOvfrZJgYJfQn1vQrMAkGDIrYkK/OKFePDYtH3jG3BwO5vqM7fmS1cMagPLeLsrK6iQashl7LcYP0oUJCTuw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DBBPR04MB7658.eurprd04.prod.outlook.com (2603:10a6:10:20d::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.13; Thu, 13 Feb
- 2025 16:03:01 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8445.015; Thu, 13 Feb 2025
- 16:03:01 +0000
-Date: Thu, 13 Feb 2025 11:02:52 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	Niklas Cassel <cassel@kernel.org>
-Subject: Re: [PATCH v9 2/7] PCI: dwc: Rename cpu_addr to parent_bus_addr for
- ATU configuration
-Message-ID: <Z64XrD2a5iHmLyRM@lizhi-Precision-Tower-5810>
-References: <20250128-pci_fixup_addr-v9-2-3c4bb506f665@nxp.com>
- <20250129232350.GA527937@bhelgaas>
- <Z5uifr5+JE0xSi2l@lizhi-Precision-Tower-5810>
+	Thu, 13 Feb 2025 16:10:03 +0000
+Date: Thu, 13 Feb 2025 11:09:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1739462995;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LMYKZBB6Lwu1KXc2pApJntLSaHOHjeDAYKss1JDPqUg=;
+	b=kw6jO4Ia+fc0+hRWz5NBslXI4AxoBaap9J7j7JkJr3oMdJIAlggaIP9jQkT7m8adeZE3u4
+	sjozzu76MUWQ6UMRI9BhHg26Alhi4Ih0SG5fEqiUOzLNOmTs4Lq7SlpIRIhzJs7KxFKZxr
+	mp6GUpgBVFLkQanqmK3JiLm7hzJwiR//QPm3gyRiAz2m3icIQbtPiTaz7sL8GyJBBSbhsl
+	gQkq4x/O9/KpG3O5/yVyOEKB3llflHo1gZXdWWB370m4lHBMVz4ZXyMtFLvC2/ajDbFKD0
+	uhuS6+r7ShCjjTAPcMRDTM6HguF3fS3DdTKOHbrnC/KPr2T8h1buvoCQJrJdcw==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: Christoph Hellwig <hch@lst.de>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
+	Sagi Grimberg <sagi@grimberg.me>,
+	Philipp Zabel <p.zabel@pengutronix.de>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] apple-nvme: defer cache flushes by a specified amount
+Message-ID: <Z64ZTixWKoYdF8KN@blossom>
+References: <20250211-nvme-fixes-v1-0-6958b3aa49fe@rosenzweig.io>
+ <20250211-nvme-fixes-v1-3-6958b3aa49fe@rosenzweig.io>
+ <20250213062013.GC19608@lst.de>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z5uifr5+JE0xSi2l@lizhi-Precision-Tower-5810>
-X-ClientProxiedBy: SJ2PR07CA0023.namprd07.prod.outlook.com
- (2603:10b6:a03:505::9) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DBBPR04MB7658:EE_
-X-MS-Office365-Filtering-Correlation-Id: b0b4c0de-b43f-4006-feb2-08dd4c47e466
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BGXID2Oak03/FJLcyxj7pNufiuDws/AAIkLPF31xsSA48+zEkwujXn5/L0Qx?=
- =?us-ascii?Q?3gP88fKORG0j7NyC0H1ldZzXeXdsi9nsFp7JfD1Dtw1yboKJKpnuBzn4Wm/A?=
- =?us-ascii?Q?NLeDNDmUJJvkfxj04kD4tut7bmo8qhGL+mxSi4qOZPPtEkhuC8s/WA/leaPx?=
- =?us-ascii?Q?7ZnXlLL6okfUwwf2KBNlQyudOdBP7dxiwEZSm0GdxhyOIS09tiNzK6p3aYL7?=
- =?us-ascii?Q?tHbDwb5Z9AkwE0akzjjnHJjOKiWDtZkNv1CvvEmi0IIpwl8I0ZBUgPa6F3E7?=
- =?us-ascii?Q?FxwZQfwYAdiXztAbwDtSwe9DJ7L+UNJ46BAaDTIFqZ+0uI4kR1GjpmFp1ZKc?=
- =?us-ascii?Q?iwQmUhGQlFvCZqj8GHtNcSqPtzs8AYDsP2C3bqH+p7vJ4aHbkuy34KOl7xTi?=
- =?us-ascii?Q?A+BIFVuXabSDByaAcq2I1k674gGSnfn3thKUJ8H8l1a3pQ1Qey4Sfadwo44M?=
- =?us-ascii?Q?a1UYuOfaNkIQBUnXVdD086tAoU5b+EC70D/K9b3nYSEDPT1TXE0rpFu+sHdI?=
- =?us-ascii?Q?NeiKFLHofpUpfQaTrYgzP0C1s5sJ5jauHIM47XwuKXzmNgB9dthqK9LcT5yH?=
- =?us-ascii?Q?EiVrsnDmgE0lVidm76mHNkFBrKBF5UAhPbyMmyM5i1ylCkWf+Df20W2tJb6b?=
- =?us-ascii?Q?RahC/tc0rqOA4goIOT/JEFIYU1zxmrkQbh907K8LzjMpMij3geCs2qrzhODx?=
- =?us-ascii?Q?GsMtm0q1Af9M1oq4ijqSog4D1b7AXbSer3hwT8r5ZFyGk0JVmMm2LuQGrXGk?=
- =?us-ascii?Q?nzFGP4QH8DvMTgOFMjS6JX0KEK5yl/lZ8lQ8i5qRlf5UxpIqmtGm8gojCKdX?=
- =?us-ascii?Q?6qDxIHmyo7allB6RdjNyTodXKXkFBOgKQ6foxmUJ6pXo6TqWUGJqTF0CCIMs?=
- =?us-ascii?Q?X1GZou0TLL2jl0PSc9ldHZW4I/jsCs2taQTTgZwvzwRchQYytvHkvnxpBy6+?=
- =?us-ascii?Q?84OKVpTCXmpfWnhE/ZQlPp0+Na7RKrzCvCi92X/THIhYJTR3qX5z/85L3NkY?=
- =?us-ascii?Q?Z0VnrANwt90iusvddd1YC0RLvusv8FeKws9/VoS8DVDOOTtoAJRNG9aFINsU?=
- =?us-ascii?Q?1usW04QTapComtGdkZvxB0es+gfxBslu2ONxMTYpWNGsV7n23KcypugwFcSp?=
- =?us-ascii?Q?MkDZXi3h++OJLEPhVoMSaTgpcZkLbhzyLZBbYZLY+HQcW6MwvB94scaqdSgN?=
- =?us-ascii?Q?kM/6OYhjqb8GtRQomIgmr80mlSg405FZJ7z2YV/wCcjRK7FQFOijuqHaG4kR?=
- =?us-ascii?Q?PpwLj3tK3B/O3ApK2i0WtQ6+V6opW/KXEcWb5R+sdW1h4CTFzL5xc5Qfis2J?=
- =?us-ascii?Q?PaOh1fGe486iDlFQxIY8jcvnreh5z/1DZM5OopfcIidgf+ndd5AUWuLwYFPU?=
- =?us-ascii?Q?/gkH3XHCtpfkogPvvHmM6g+MTflo5UhEvxThPKsS3na7U2gqh1IJc/B63yXY?=
- =?us-ascii?Q?BmW7w6XHQYI6Tu5RTOOO2z4XWaKFfEPK?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uLyrIk+k38XrlkFgFPAXyEakwoXPRKOd4eDubI8e7osXoKvxcMvE/HwbkEdr?=
- =?us-ascii?Q?YUtXWBfVmbzLEVw/OiQNjAEHQucjQcD8LW7k6F5HIR+qwuCZ9vom8/rScPGM?=
- =?us-ascii?Q?o1OAYqWUbMIf/jzVRsrpDS5fN/SLVYAeUm5cAfna+gcU/gInkJj3yp69ttHp?=
- =?us-ascii?Q?d2Dtpvn0lplEJaReYPmI4+DFAOplk6uUe4LMmcflN2ZmGWS+hkfM1GS0tChf?=
- =?us-ascii?Q?Gzr6LzS0E5wW45gIGjst9xAO/1J8HAojHnD4ttVgj7F+ln6bYuo57g/hlKDS?=
- =?us-ascii?Q?t7yK/qM/VIGS/mNWPgw8kUcMCdL/sQFG3vihWuExepJUSZTbfnQ4wSQo5egI?=
- =?us-ascii?Q?FVqhSaOl5XAQudYXF7L6+zZTeZAXTQHmeAhQsbKUPKbkBDT0IC6vZWptNDpp?=
- =?us-ascii?Q?PZ/7cXqU8WJo2x4e/Ivwn1AR+N6hCJqYZKwVcATFDpO51FnGbIOC7C5NdpTf?=
- =?us-ascii?Q?R8ay2PME/Cnw3b5RyK4l3d3O6OVYw5U/NApvpY7xTjBSZb0s7KemCbG8aeLH?=
- =?us-ascii?Q?dTv/AdAZWvqSVh/FgNDB7HGECfkA8wNntDS+kFqzELja7R9ernPLBN3yCpFu?=
- =?us-ascii?Q?TVDMdYvdonsgDsYiQGdjB126XQUnJHnxhEmJ8KuQ7wAabG5JXvsYdJY2l8Z0?=
- =?us-ascii?Q?6A3Qe5jGaFnBJVYDsY/n9syfdvd7xiD4rHnrceV8bhXd0rqYFIQovIBgf6vB?=
- =?us-ascii?Q?ZQ4c/MWFaBeY4DxgzPu8dWJzfdA+MBk2i0/5PhVEDVy5FGWuN2JHEMCNCvnr?=
- =?us-ascii?Q?OriAFoSguM0STpA1K7ekOu1x+o7ZsZejJgw1Pw9dSet189CgpNN1QdDCaIH5?=
- =?us-ascii?Q?7wGikOtRSs83H0SdaE2StQxl0BRX06u2XNFlLvzk89e9loAJYlktBRzUnQht?=
- =?us-ascii?Q?nsbKYRn4dWmTfgZZl4FDWyOIsvc82zMoGT6NtIKOGPoNxNc6J+RPZAWGPWxd?=
- =?us-ascii?Q?bLDwVLfedFhxNWBMTrSglWBZbkpVdNUc+pM5+wGoaqWOW5b2W7qmcNuBTyOT?=
- =?us-ascii?Q?xvU+q06I3gNMIKZzQO/DervdLBT0HqGgLAcmf6FHYhRcmyOlTI4JVfyJJaJK?=
- =?us-ascii?Q?gck85QP7A0q7cyNIsSyHopH665kJcY73N69Oi3pgy9ELBW56q7tt5+MV8sVn?=
- =?us-ascii?Q?C1WT66btwRyExEmK/T4RA3fJ5lAVzj3FruUpxh6LTDw1sixvldcDi51m48bq?=
- =?us-ascii?Q?mpmbQ7Bjnc2F24fmHAjqyrXsf25/cncPyfSUY+QZDUb2bFHsDpeCEuUokcEr?=
- =?us-ascii?Q?G9Wvx/bVMatWGZ+3o/orMZqXK63cDuG1PV9A6NWosbi0T/dVMbBKWTTtTVF6?=
- =?us-ascii?Q?GzSg+2VzTRCcaDnyMQ90v/U+P6ALR6NhD6UwVI7iw6V7mu0KPX/irkap8eX8?=
- =?us-ascii?Q?CKN1MGQinZUupKNvCVE7i4IVTWpy9zEze69vosJcTdeq8uyoMKmJEgKQ9anq?=
- =?us-ascii?Q?7W77TYdU63DxjkQobcnGL79078mG5MnP+1W2d/NcvnpQXHfJ+T88zYu+VWnO?=
- =?us-ascii?Q?z1torQfA8r2fJCQF1lHc20a2Qz1Fbt0Xy73rIKDGsWI6zb7XsrA3uYXUWW4I?=
- =?us-ascii?Q?USGWduVIO6NwWtDxHS0ryn4iBYnO807IlPphgvR0?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b0b4c0de-b43f-4006-feb2-08dd4c47e466
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Feb 2025 16:03:01.6547
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GTUO/aEDUsVk+fCy/DnqKmmt4pag4mpr2KX/zAgdg0TO2L570lo5ADqoY4qlVvSDiqtodgDOU4as8/x+Y2UmgA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7658
+In-Reply-To: <20250213062013.GC19608@lst.de>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_080311_996620_969A9DA1 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20250213_081001_817638_587325DB 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,50 +75,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 30, 2025 at 11:02:06AM -0500, Frank Li wrote:
-> On Wed, Jan 29, 2025 at 05:23:50PM -0600, Bjorn Helgaas wrote:
-> > On Tue, Jan 28, 2025 at 05:07:35PM -0500, Frank Li wrote:
-> > > Rename `cpu_addr` to `parent_bus_addr` in the DesignWare ATU configuration.
-> > > The ATU translates parent bus addresses to PCI addresses, which are often
-> > > the same as CPU addresses but can differ in systems where the bus fabric
-> > > translates addresses before passing them to the PCIe controller. This
-> > > renaming clarifies the purpose and avoids confusion.
-> >
-> > Based on dw_pcie_ep_inbound_atu() below, I guess the ATU can also
-> > translate PCI addresses from incoming DMA to parent bus addresses?
->
-> Yes, but root complex don't use it. Only EP use it. because most PCI root
-> complex system doesn't transfer incoming address, which generally use iommu
-> to do that. Linux already allow a simple map by use dt's dma-ranges and dma
-> API already handle it.
->
-> previous 'cpu_addr' is actually 'dma_bus_addr'.
->
-> >
-> > It's worth noting here that this patch only renames the member, and
-> > IIUC, parent_bus_addr still incorrectly contains CPU physical
-> > addresses.
->
-> Anyway, call 'cpu_addr' for dw_pcie_ep_inbound_atu is wrong. Only one place
-> call dw_pcie_ep_inbound_atu(), that's dw_pcie_ep_set_bar(), which use
-> epf_bar->phys_addr, I think name 'phys_addr' is okay because most case it
-> is refer to dma address space.
+> > Cache flushes on the M1 nvme are really slow, taking 17-18 msec to
+> > complete. This can slow down workloads considerably, pure random writes
+> > end up being bound by the flush latency and hence run at 55-60 IOPS.
+> > 
+> > Add a deferred flush work around to provide better performance, at a
+> > minimal risk. By default, flushes are delayed at most 1 second, but this
+> > is configurable.
+> > 
+> > With this work-around, a pure random write workload runs at ~12K IOPS
+> > rather than 56 IOPS.
+> 
+> Just as last time this really is not a driver feature.  Cache flushes
+> are slow on consumer hardware, it's just apple is worse than usual.
+> Breaking file system transactional guarantee by ignoring data integrity
+> command in the driver is a no-go.
+> 
+> If we want to allow an opt-in policy for those whole feel adventurous,
+> it belongs into the core flush state machine.  Fortunately the patch
+> author seems qualified to touch that :)
 
-Bjoin:
-	Do you any concern/comments about my reply?  how to move forward?
-keep old cpu_addr or rename to parent_bus_addr, or futher work need be done.
-
-Frank
-
->
-> Frank
-> >
-> > > +++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
-> > > @@ -128,7 +128,7 @@ static int dw_pcie_ep_write_header(struct pci_epc *epc, u8 func_no, u8 vfunc_no,
-> > >  }
-> > >
-> > >  static int dw_pcie_ep_inbound_atu(struct dw_pcie_ep *ep, u8 func_no, int type,
-> > > -				  dma_addr_t cpu_addr, enum pci_barno bar,
-> > > +				  dma_addr_t parent_bus_addr, enum pci_barno bar,
-> > >  				  size_t size)
+Fair enough. I didn't realize this patch was previously discussed, my
+apologies. I'll drop this change in v2, and hopefully somebody is
+inspired later to do that 'adventure'.
 
