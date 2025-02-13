@@ -4,79 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8975C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 04:07:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99FC0C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 04:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eo/rbNrUh+dY1RhXItutV4jy+BHk08ApaaY0cRkTOUY=; b=qfE7eyEU2bPPj7J/DDAvrZgbp+
-	9YZQbW/w4VGieTrrjMcp7tzjotgYhkKUmI6ng/je20O0bMwrvDw6LGU6t8MrJiIAJCd5yFniVVfSD
-	p5hqFFuSGD1H6wIKpbzEu1ijKWoqSb+sEvq3FbB47H4QoD1c4K+gNbP1ixE115TbJtTDbZUD0Rxlf
-	nj9aKaB5b19bp4RGnHHPgms9dlS4Xw8Wff8sK9B+uhC7fB3XRW6PztjHsiDae/FQBvt6pTQKdz9Ef
-	FtyfeQxDxKAy7leYwElu+Eprmn5Wo2bLWRAZjiPK5Rm+HV15BQNh6yryEzLUAbW9Tgx3gGcZobcOM
-	Wv2piuDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JkebGBUX3YbsxixjF57mQR6LUUPlhWtIE+eGC/K5U2c=; b=XoNL00ywLLfhJBKANGXw+m9uu6
+	Q+KLSwLZ6aWNhW+taCrFNCP0h+0S5VtpAOaBLGqQnvRg5CRAgnzai/8l3nG8kqWYvIrkA7yqjmYTO
+	xCEboPxJTlhU1DLFY812bddXYnD0dMsZrxV8i1sXQPMdCvWbFyQsyCAtBhKY6p7TmzQfDLDK/3b/5
+	ov2sFLD3xWeDJmgsl2aG1kqUqgoZMiVHzEvJIjsl6d1wYaXWAKoTIEbIEa+W7zrlu4NnkdRr1/9Qp
+	vvJkRKW/2Pof3tmMhR2WiM/Qq+w9REZHDakS7XjB2Py9FRqOm1Omxi0U4Cs/WxGFzqLQM9YSyjHPh
+	0LtZSp4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiQVb-00000009fgb-2li8;
-	Thu, 13 Feb 2025 04:07:27 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiQUA-00000009fPK-07Gi
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 04:05:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D6E96A41DFF;
-	Thu, 13 Feb 2025 04:04:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F6EEC4CED1;
-	Thu, 13 Feb 2025 04:05:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739419556;
-	bh=u0CEnCfaVdP25a8GNpqFlUn1aE+Tvo2eIuxsK/SLlkQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GKusks44ebGPBvDKT5blKuv+vNUXh25zFAzyvz2dvr7IGAVLx72bzJknEEkGrJ3C/
-	 9rdudCWVHQYDoJpvIvfNxg+it2HbDVR50DZ6b+B85a33SxbXIqK8lcqAWca7b1FXAv
-	 MRLZAS8MLBQyVuUSfBM0PskgbriS24jrLpewZK82vb665iW50HaIk7DRttDOdav0CX
-	 dm+5Z/bcHLrmVJswW2YpuehBcsLBauX7Er5OsZHyQnEmkXCpxclelToAoBQ4kOQ4d0
-	 EsUY3RuqK7fMIjoG8QrbzDsCshxEjFt3MEWwBlckzMD8XdQkyQrbnGzIAmueqmMLbX
-	 S9Xi1zr9sN/Nw==
-Date: Wed, 12 Feb 2025 20:05:54 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Tavian Barnes <tavianator@tavianator.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	id 1tiQZH-00000009gRJ-2OuS;
+	Thu, 13 Feb 2025 04:11:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiQXq-00000009fyR-1FaH;
+	Thu, 13 Feb 2025 04:09:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8488D1756;
+	Wed, 12 Feb 2025 20:10:03 -0800 (PST)
+Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.16.135])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E87813F58B;
+	Wed, 12 Feb 2025 20:09:38 -0800 (PST)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-mm@kvack.org
+Cc: steven.price@arm.com,
+	christophe.leroy@csgroup.eu,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>,
-	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Andi Kleen <ak@linux.intel.com>,
-	Veronika Molnarova <vmolnaro@redhat.com>,
-	Michael Petlan <mpetlan@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org
-Subject: Re: [PATCH v1] perf sample: Make user_regs and intr_regs optional
-Message-ID: <Z61vosIP67VMUJAS@google.com>
-References: <20250113194345.1537821-1-irogers@google.com>
- <CAP-5=fVoQRhd-8jyXfjc2dCuwt7_o1sU208aADT1FriwCNa9qw@mail.gmail.com>
- <Z6q7EZxAvskBE4H3@google.com>
- <CAP-5=fUTBJ_15f1WFuHjZzbWDwsAo3d90WX_hobfVWPjSOe3Vw@mail.gmail.com>
- <Z6uM48_IJa-AEzEI@google.com>
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org
+Subject: [PATCH 0/4] mm: Rework generic PTDUMP configs
+Date: Thu, 13 Feb 2025 09:39:30 +0530
+Message-Id: <20250213040934.3245750-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z6uM48_IJa-AEzEI@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_200558_196529_A70EAD40 
-X-CRM114-Status: GOOD (  29.69  )
+X-CRM114-CacheID: sfid-20250212_200946_376607_6A7FFF1C 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,53 +70,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 09:46:11AM -0800, Namhyung Kim wrote:
-> On Mon, Feb 10, 2025 at 08:43:40PM -0800, Ian Rogers wrote:
-> > On Mon, Feb 10, 2025 at 6:51 PM Namhyung Kim <namhyung@kernel.org> wrote:
-> > >
-> > > On Mon, Feb 10, 2025 at 10:15:22AM -0800, Ian Rogers wrote:
-> > > > On Mon, Jan 13, 2025 at 11:43 AM Ian Rogers <irogers@google.com> wrote:
-> > > > >
-> > > > > The struct dump_regs contains 512 bytes of cache_regs, meaning the two
-> > > > > values in perf_sample contribute 1088 bytes of its total 1384 bytes
-> > > > > size. Initializing this much memory has a cost reported by Tavian
-> > > > > Barnes <tavianator@tavianator.com> as about 2.5% when running `perf
-> > > > > script --itrace=i0`:
-> > > > > https://lore.kernel.org/lkml/d841b97b3ad2ca8bcab07e4293375fb7c32dfce7.1736618095.git.tavianator@tavianator.com/
-> > > > >
-> > > > > Adrian Hunter <adrian.hunter@intel.com> replied that the zero
-> > > > > initialization was necessary and couldn't simply be removed.
-> > > > >
-> > > > > This patch aims to strike a middle ground of still zeroing the
-> > > > > perf_sample, but removing 79% of its size by make user_regs and
-> > > > > intr_regs optional pointers to zalloc-ed memory. To support the
-> > > > > allocation accessors are created for user_regs and intr_regs. To
-> > > > > support correct cleanup perf_sample__init and perf_sample__exit
-> > > > > functions are created and added throughout the code base.
-> > > >
-> > > > Ping. Given the memory savings and performance wins it would be nice
-> > > > to see this land. Andi Kleen commented on doing a reimplementation,
-> > > > which is fine but out-of-scope of what I'm doing here.
-> > >
-> > > Yeah, I like the core of the change.  Andi's concern is that it touches
-> > > too many places.  It'd be nice if we can do that without allocating
-> > > memory for regs and eliminating the perf_sample__{init,exit}.  But I'm
-> > > not if it's possible.
-> > 
-> > Moving from no allocations to 2 possible allocations means there has
-> > to be corresponding frees. Putting the frees into an __exit function
-> > is the norm for this kind of cleanup. I don't see how you can move to
-> > the approach presented without adding the frees and not introduce a
-> > memory leak. I don't see what's actionable for me to do here.
-> 
-> Right, I'm inclined to merge this patch.  But I need to think a bit more
-> about the Andi's approach before that.
+The series reworks generic PTDUMP configs before eventually renaming them
+after some basic clean ups first. This is derived after splitting changes
+from the following patch.
 
-Probably we can use a global (or per-thread) variable, but I think it
-could grow to another pain point in the future.  Using __init/exit will
-make it easier for potential future changes.
+https://lore.kernel.org/all/20250205050039.1506377-1-anshuman.khandual@arm.com/
 
-Thanks,
-Namhyung
+This series applies on v6.14-rc2 and has been tested on arm64. Although it
+also builds on other platforms as well.
+
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-doc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-s390@vger.kernel.org
+Cc: linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org
+
+Anshuman Khandual (4):
+  configs: Drop GENERIC_PTDUMP from debug.config
+  mm: Make DEBUG_WX depdendent on GENERIC_PTDUMP
+  mm: Make GENERIC_PTDUMP dependent on MMU
+  mm: Rename GENERIC_PTDUMP and PTDUMP_CORE
+
+ Documentation/arch/arm64/ptdump.rst       |  4 ++--
+ arch/arm64/Kconfig                        |  2 +-
+ arch/arm64/include/asm/ptdump.h           |  4 ++--
+ arch/arm64/kvm/Kconfig                    |  4 ++--
+ arch/arm64/mm/Makefile                    |  2 +-
+ arch/powerpc/Kconfig                      |  2 +-
+ arch/powerpc/configs/mpc885_ads_defconfig |  2 +-
+ arch/powerpc/mm/Makefile                  |  2 +-
+ arch/riscv/Kconfig                        |  2 +-
+ arch/riscv/mm/Makefile                    |  2 +-
+ arch/s390/Kconfig                         |  2 +-
+ arch/s390/mm/Makefile                     |  2 +-
+ arch/x86/Kconfig                          |  2 +-
+ arch/x86/Kconfig.debug                    |  2 +-
+ arch/x86/mm/Makefile                      |  2 +-
+ kernel/configs/debug.config               |  1 -
+ mm/Kconfig.debug                          | 12 +++++++-----
+ mm/Makefile                               |  2 +-
+ 18 files changed, 26 insertions(+), 25 deletions(-)
+
+-- 
+2.25.1
 
 
