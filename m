@@ -4,92 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D6E9C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A9EC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WG9nHCTvM1dTCKPm7f3ySs8mv4StPQ3vt+CXBnQbhf8=; b=ARxx0KvJP9lYn04SPocKfgX6BB
-	+79BQRg3jVi/vO1Zvq1LxrX8ibF1f/ZJxpACJLkcoihkzjcrSYRGGVx2MK0oaq780pY25qrh7wlj+
-	r2Me7FSuVuFOm3Gs3i++LDm1jw1Qg6tsdL9zhciyXi4VAsX4+BnkxY6UrMLQhy7amkjOmW4kYWUDf
-	S5WP+i2gbWqhoUXCp2mLZnuLUM9CTQWGdEf2X0rf/Ja0YhRzrnn7UG4RAeo9IIdx7xqeDJnbxuMF5
-	Ok/iLUK5OKjpxE92/6Rwzvw+ezdz/enlCX2fh5DHutBVDjBrshOdjTkYCRcAUmCroVDbuC7knCZLt
-	ZXLv9SSw==;
+	bh=TfwPyJ1jnnaqmWwCfQjJpKjCqiOoDPqeOuQ1kc3EjTE=; b=O7Cro9XQDVPwhSUsAwChdjhStw
+	DM5Z/1yXjz7KvwAPYXabXIgKoQ+CoybsXbgQebcYmZ+8+ESxnoWP5HuPIhXGxud2r+JOtNIZnodig
+	hQwQc1WuhflmrxACubWQ2a/0PN5ApPY5oXYP5a4qOHEBvSB4PKLARD/3066k+ZJgnhrtD/XZTUbCz
+	bfgWfsfprX/EYF6s3GhOUN2XiIRi3mP8PFkVkkNkhzXxVdSKfE0q4C+bQv5Skl6V0BtDQoLu3h9yB
+	2wvYI4gkda6W9la25SdP2m4BWIJ83nuZVgYkj1bX1WJ8LWcqk7ZXO+jyHtVdFBObOh4is/vO+KmTI
+	VpL9BRQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWtW-0000000AjqG-3SV8;
-	Thu, 13 Feb 2025 10:56:34 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1tiWuv-0000000Ak2U-0M0Z;
+	Thu, 13 Feb 2025 10:58:01 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWs0-0000000AjcN-4APq;
-	Thu, 13 Feb 2025 10:55:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739444101; x=1770980101;
-  h=date:from:to:subject:message-id:references:mime-version:
-   in-reply-to;
-  bh=FC+osHMM1wMl321HcyQTgueNyff8+QNBAFPiwB2uKhA=;
-  b=KCNMHMIHhVQyy+lCpUjIOV1UaSIE/yDzIG0aWIPOVDCJjRwSEk9UZ3/8
-   v2jBbqkLCvUjO9bVGs5Qd40mFdkgaW6xue0dR9E619lppe8G4VBTmLBUy
-   ZDUfvXCsbShOuxFF2Gs2oRq/mpxpIt9VNdmJ4Mzv/F+KU8ijdcgW6GwNm
-   981NcgdQkG2NBuCG9Z0/Xx91lpiEytBDlnwPAOl4FRnpLCt1/lqBgvEYG
-   2H3mXnSPpwQ7FNItrg4D0rpnS+MvvFB3ZAhIUmrYV1kTijUNCQv5LrFey
-   0ntpPU9HHkBvW0vS2zZah6W6bH2YJOuQtsgWC/6p9KTx0PlKNequ0tznp
-   g==;
-X-CSE-ConnectionGUID: ke9j+w35RYy/V0CS7tiThg==
-X-CSE-MsgGUID: wtywGlBIRbeVrpzsGJENKg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="51568220"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="51568220"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 02:54:59 -0800
-X-CSE-ConnectionGUID: gH7RkWeCSpOd3hLhl3vVuA==
-X-CSE-MsgGUID: qaKLpqIXQIm8x0zlic78AQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="118049979"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 02:54:55 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tiWrr-0000000B8iO-2JGV;
-	Thu, 13 Feb 2025 12:54:51 +0200
-Date: Thu, 13 Feb 2025 12:54:51 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Andi Shyti <andi.shyti@kernel.org>, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Krzysztof Adamski <krzysztof.adamski@nokia.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Stefan Roese <sr@denx.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>
-Subject: Re: [PATCH v1 1/8] i2c: Introduce i2c_10bit_addr_from_msg()
-Message-ID: <Z63Pe1clM4VZBmIX@smile.fi.intel.com>
-References: <20250212163359.2407327-1-andriy.shevchenko@linux.intel.com>
- <20250212163359.2407327-2-andriy.shevchenko@linux.intel.com>
- <CAMuHMdW1wxQ0cddeE72D+Sii4HkT4bJfeTWX4-8FfHiFr+=3DA@mail.gmail.com>
- <Z6zwqbzd5evG0H2z@smile.fi.intel.com>
- <Z63DT_XdzEWrP4eR@shikoro>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z63DT_XdzEWrP4eR@shikoro>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+	id 1tiWtO-0000000Ajp2-2iUP
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 10:56:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8FAAFA41FFE;
+	Thu, 13 Feb 2025 10:54:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84B18C4CED1;
+	Thu, 13 Feb 2025 10:56:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739444185;
+	bh=AWQ9Pe1GOHo90EUe82d6uyA1a+MiIOWdBo0xg647hR4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=X+u3coxc8I8AO5CVa23DSr3lHAzSa2nGrfJOg2QM+FG+j261Z3D5lhIJLUbE6JeTB
+	 vTgLsKL7HnHlQ7B4Wzm2dqvvS5Pd5aZjjEyHu98M7HYFLqDZcyUxGOrBsiFiU+118C
+	 yKrlFCWrTRRCkjn9UDvee07GVuWz+7T32CkpdMPFrvbPIexF7oi5Yy7hJe/E8ltlum
+	 uq75zhqkP7WkPqRhx+0na1IE14xIekfL50odCkvQkiBOP4jP40Q2FDyP8b7XiRT21e
+	 53IXHDUoB12kyEOWvjbDiQ8ss0LM/F+VptTDm6HmHdFciA7Ug0jl54ZNY8CHTuN1LB
+	 oxGvSfPDcrRSQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tiWtK-003e0Q-Sv;
+	Thu, 13 Feb 2025 10:56:22 +0000
+Date: Thu, 13 Feb 2025 10:56:22 +0000
+Message-ID: <86seoiru3t.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Mark Brown <broonie@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v7] KVM: arm64: Fix confusion in documentation for pKVM SME assert
+In-Reply-To: <Z626RqzA3HMskwJd@J2N7QTR9R3>
+References: <20250212-kvm-arm64-sme-assert-v7-1-0f786db838d3@kernel.org>
+	<Z6yByMUBPDUyEWOr@J2N7QTR9R3>
+	<86tt8yrzon.wl-maz@kernel.org>
+	<Z626RqzA3HMskwJd@J2N7QTR9R3>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, broonie@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, tabba@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_025501_046564_F06CA84C 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_025626_820367_2C71337F 
+X-CRM114-Status: GOOD (  31.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,17 +94,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 11:02:55AM +0100, Wolfram Sang wrote:
+On Thu, 13 Feb 2025 09:24:22 +0000,
+Mark Rutland <mark.rutland@arm.com> wrote:
 > 
-> Just a generic comment: please don't spend too much energy on 10-bit
-> support. I have never seen it used in the wild. It seems more like an
-> academic excercise.
+> On Thu, Feb 13, 2025 at 08:55:52AM +0000, Marc Zyngier wrote:
+> > On Wed, 12 Feb 2025 11:11:04 +0000,
+> > Mark Rutland <mark.rutland@arm.com> wrote:
+> > > On Wed, Feb 12, 2025 at 12:44:57AM +0000, Mark Brown wrote:
+> > > > diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+> > > > index 4d3d1a2eb157047b4b2488e9c4ffaabc6f5a0818..e37e53883c357093ff4455f5afdaec90e662d744 100644
+> > > > --- a/arch/arm64/kvm/fpsimd.c
+> > > > +++ b/arch/arm64/kvm/fpsimd.c
+> > > > @@ -93,11 +93,14 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+> > > >  	}
+> > > >  
+> > > >  	/*
+> > > > -	 * If normal guests gain SME support, maintain this behavior for pKVM
+> > > > -	 * guests, which don't support SME.
+> > > > +	 * Protected and non-protected KVM modes require that
+> > > > +	 * SVCR.{SM,ZA} == {0,0} when entering a guest so that no
+> > > > +	 * host/guest SME state needs to be saved/restored by hyp code.
+> > > > +	 *
+> > > > +	 * In protected mode, hyp code will verify this later.
+> > > >  	 */
+> > > > -	WARN_ON(is_protected_kvm_enabled() && system_supports_sme() &&
+> > > > -		read_sysreg_s(SYS_SVCR));
+> > > > +	WARN_ON_ONCE(is_protected_kvm_enabled() && system_supports_sme() &&
+> > > > +		     read_sysreg_s(SYS_SVCR));
+> > > 
+> > > As I mentioned on the last round, we can drop the is_protected_kvm_enabled()
+> > > check, i.e. have:
+> > > 
+> > > 	/*
+> > > 	 * Protected and non-protected KVM modes require that
+> > > 	 * SVCR.{SM,ZA} == {0,0} when entering a guest so that no
+> > > 	 * host/guest SME state needs to be saved/restored by hyp code.
+> > > 	 *
+> > > 	 * In protected mode, hyp code will verify this later.
+> > > 	 */
+> > > 	WARN_ON_ONCE(system_supports_sme() && read_sysreg_s(SYS_SVCR));
+> > > 
+> > > Either way:
+> > > 
+> > > Acked-by: Mark Rutland <mark.rutland@arm.com>
+> > > 
+> > > Marc, are you happy to queue this atop the recent fixes from me? Those
+> > > try to ensure SVCR.{SM,ZA} == {0,0} regardless of whether KVM is in
+> > > protected mode.
+> > 
+> > In all honesty, I find that at this stage, the comment just gets in
+> > the way and is over-describing what is at stake here.
+> > 
+> > The
+> > 
+> >  	WARN_ON_ONCE(system_supports_sme() && read_sysreg_s(SYS_SVCR));
+> > 
+> > is really the only thing that matters. It perfectly shows what we are
+> > checking for, and doesn't need an exegesis.
+> > 
+> > As for the Fixes: tag, and given the magnitude of the actual fixes
+> > that are already queued, I don't think we need it.
+> 
+> That's fair; if you haven't spun a patch for that already, I guess we're
+> after the following?
 
-True, but still it makes sense to reduce the respective code base.
+Yup. Applied to fixes.
+
+Thanks,
+
+	M.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Without deviation from the norm, progress is not possible.
 
