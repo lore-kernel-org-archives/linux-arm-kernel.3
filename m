@@ -4,52 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A557C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 01:55:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E33CC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 02:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9ZYy09ZqAcaR5fXTakTZhj4w+UVTSjGFOES9CslsiBw=; b=VU0HhNKWb9dVn3
-	CeOSitEt4WYifTBvK1pEBjPdg12YldjKsENAxUEuu/5JolJUe6mFRF9jocxT1GmjASgi9Fsg8uHgZ
-	5haVCqdaGeFC1k7qLBeJuXnu1TYQ+2ieSYCS5FqYX5Sp7SIKE7jdUP4Sykf88W6CMw65xnND+iQ6k
-	p0TKW7eejCxoExZRCqRbLNeOfSUOOl3iI81xS97DczvlshDz5GTdaMGckT/uaIX+hl/AxKc2ctdZI
-	fjw7dXcxFBIPsEj6P783WZefQrf2YOlZNp2sEgKRBrAr39M81ZXyq5EuXFScHX3VzslnI0pagpahK
-	AhKCn79Bz87MWlocEuFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=okyZjfmjMy5+1Py65oyI36EnaqkWxcyghxWxFA0COdg=; b=toB2KOGW2GX2Oo/HIGEiaOjWzq
+	TSvfNiT5fppbbZt1NzeaNl1Dd/CDrT1SMDqRYWkfHa71VQzwjefez9xnjvZ1vI/R8J1FSwv35LoWA
+	LULN9DZHmXT1wooQmDYymoeHc+Lnkh3l+7ud5KFWwL8ro3tJBTnbVayqzL7ChFtrvLog8rf3LC6QB
+	r4rfmyI0Eu+Al8INfZNbGLC2eE+SIe4AMCLGiLzbO2THPdxQ52RN4rym7V25jmFFE0dys2JSKTqPO
+	v9Pl/UcJlt4OykPD6D0crJmFrauwZeHZJqGEkKK7sMNyWQ+Is0vPCMry/UFr/DazbLY1OhQL8CmHQ
+	b2pZAo0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiORl-00000009Rb0-3Jyl;
-	Thu, 13 Feb 2025 01:55:21 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1tiObK-00000009SVn-2XMG;
+	Thu, 13 Feb 2025 02:05:14 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiOQJ-00000009RRi-3R81
+	id 1tiOZt-00000009SJA-36Qh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 01:53:53 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1258.12; Thu, 13 Feb
- 2025 09:53:39 +0800
-Received: from twmbx02.aspeed.com (192.168.10.10) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1258.12 via Frontend
- Transport; Thu, 13 Feb 2025 09:53:39 +0800
-From: Jammy Huang <jammy_huang@aspeedtech.com>
-To: <eajames@linux.ibm.com>, <mchehab@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joel@jms.id.au>,
-	<andrew@aj.id.au>, <linux-media@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v6] media: dt-bindings: aspeed,video-engine: Convert to json schema
-Date: Thu, 13 Feb 2025 09:53:38 +0800
-Message-ID: <20250213015338.3243171-1-jammy_huang@aspeedtech.com>
-X-Mailer: git-send-email 2.25.1
+	Thu, 13 Feb 2025 02:03:46 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-21f44e7eae4so5187315ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 18:03:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739412225; x=1740017025; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=okyZjfmjMy5+1Py65oyI36EnaqkWxcyghxWxFA0COdg=;
+        b=cjM9D0OoRuTI5BZtJxDruBsFqI4+JGu02oq8jVulu6HfEgCPbdFL9++vIGbP7T5skf
+         bSnWetsxcnjyAl30DihTX+Q0iRhOS8zOK8H4QV39ExHE9WG1K1zTAg5heJyDVRe6mNtA
+         2zsHypPIJH8REu9z59BkAE/AQLMDyuVV00gz6/xdq0SPjgmo52JpQ8h/JD69xlunjSNR
+         QNycnTSZciG3opY82R3QgsA0rauMFL4CthpU7HTfpgvzAFjWqWSPfhD3mZgVv6svsjTS
+         tU8acSWkSeuvG15VGm3VlyLq6wbbi6Q5g6sfUW3sgJy2nqynvF+Lt9tFlowT1hneVXbU
+         oPvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739412225; x=1740017025;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=okyZjfmjMy5+1Py65oyI36EnaqkWxcyghxWxFA0COdg=;
+        b=dKjoaXtbfUkS7UfRmuUsz3befhD3sZxbPIboUAPiCd0UfbRWRtq8Vrl1DPU+6ZY9Zd
+         0lHAcq8JZMQLWQLhJKUq9YzuFZHLtHcg/JWSIdH61sXNj3/O5uUZXN3tXo7AG3HygNYD
+         Bz6G+FVqjbZF2LA5Tg1/X71KoLvBtCisIPpssy0tZTLlu9SZvGlEl5fZ2XK62xCkSiYz
+         m8leOQWOU+xihsJ8wnIZy4k3/ylgJYHwguIxnlook+H/Tyt5bjlNYvmgaBT1bcWW48ix
+         lNhu2ON4fTf4pEQCk3GnTUl+mQwbl+UbcoixHtX9m+MvpF7bCi/v8kj/YRU5bCAmUv38
+         /Mzw==
+X-Gm-Message-State: AOJu0YzDe36Bsofg/6EFVJRJwJaQ4QAsK94uDrIPJDD3XCrWmiyQ8/bk
+	fI3JLP11xBKgHz39oyR3GD/kk1XVrBzzC7xy9DRqnMBc278vxz3o
+X-Gm-Gg: ASbGncuw5pSpK2QZJIDd05Y1FK9GXKe5KB9OTp6SHTMSJWm340QNOFRBnA3sYpRPPgU
+	Q8edgKgsbF9hhkegEsFvNVwewK0fWMc7E3Xh+iUGoXCPzLF0QSbliA02OqarzQhwXqt1gdSN9F8
+	n6ZXOSaXpqQD681skaNeFUZtELqhRHb219OFBcAhY/l2BKUUbqSDUynQ2WzvtIRSEIYyMNVJ/u7
+	eHE2+pdShiKr2UXJijgtcT/tfbeoDVd4okoAKX11ipByM9dd4lj/ZFtDJhIqmIRaNA97WOpjpwr
+	57JFnpxM3PLniB/gv7HCviQNlkxIm63CfZlip7fetmcv8g28Uvssa1+Xz1gLwKoR
+X-Google-Smtp-Source: AGHT+IGnCXoV0wl0FLOAedLGFHQ6pTamijYmiRLBojhQ11nYOL2TnYuItn/7PyOh8H3mIlDAb0Qedw==
+X-Received: by 2002:a17:902:e74e:b0:216:760c:3879 with SMTP id d9443c01a7336-220bbc7b79dmr92040105ad.46.1739412223273;
+        Wed, 12 Feb 2025 18:03:43 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d5349634sm1992385ad.31.2025.02.12.18.03.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Feb 2025 18:03:42 -0800 (PST)
+Message-ID: <6875f457-1caa-4c0c-99f6-681922a01933@roeck-us.net>
+Date: Wed, 12 Feb 2025 18:03:40 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] watchdog: s3c2410_wdt: Fix PMU register bits for
+ ExynosAutoV920 SoC
+To: Sangwook Shin <sw617.shin@samsung.com>, krzk@kernel.org,
+ alim.akhtar@samsung.com, wim@linux-watchdog.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Kyunghwan Seo <khwan.seo@samsung.com>
+References: <CGME20250213004402epcas2p34923dcba3635ceed9b712a24f354d6f0@epcas2p3.samsung.com>
+ <20250213004104.3881711-1-sw617.shin@samsung.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <20250213004104.3881711-1-sw617.shin@samsung.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_175351_885575_E76C29F2 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20250212_180345_784451_9FC912F5 
+X-CRM114-Status: UNSURE (   7.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,166 +147,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert aspeed-video.txt to yaml format.
-Update aspeed-video.txt to aspeed,video-engine.yaml in MAINTAINER file.
+On 2/12/25 16:41, Sangwook Shin wrote:
+> From: Kyunghwan Seo <khwan.seo@samsung.com>
+> 
+> Fix the PMU register bits for the ExynosAutoV920 SoC.
+> This SoC has different bit information compared to its previous
+> version, ExynosAutoV9, and we have made the necessary adjustments.
+> 
+> rst_stat_bit:
+>      - ExynosAutoV920 cl0 : 0
+>      - ExynosAutoV920 cl1 : 1
+> 
+> cnt_en_bit:
+>      - ExynosAutoV920 cl0 : 8
+>      - ExynosAutoV920 cl1 : 8
+> 
+> Signed-off-by: Kyunghwan Seo <khwan.seo@samsung.com>
+> Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
 
-Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
----
- v6:
-  - Remove new properties in example.
-
- v5:
-  - Don't put additional changes in this commit.
-
- v4:
-  - Keep | after phandle description to fix dt_binding_check error.
-
- v3:
-  - Add Additional changes into comments.
-  - Remove | after phandle description
-
- v2:
-  - Update patch subject
-  - Add NOTE for false positive warning
----
- .../bindings/media/aspeed,video-engine.yaml   | 70 +++++++++++++++++++
- .../bindings/media/aspeed-video.txt           | 33 ---------
- MAINTAINERS                                   |  2 +-
- 3 files changed, 71 insertions(+), 34 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
- delete mode 100644 Documentation/devicetree/bindings/media/aspeed-video.txt
-
-diff --git a/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
-new file mode 100644
-index 000000000000..682bba20778c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
-@@ -0,0 +1,70 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/media/aspeed,video-engine.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ASPEED Video Engine
-+
-+maintainers:
-+  - Eddie James <eajames@linux.ibm.com>
-+
-+description:
-+  The Video Engine (VE) embedded in the ASPEED SOCs can be configured to
-+  capture and compress video data from digital or analog sources.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - aspeed,ast2400-video-engine
-+      - aspeed,ast2500-video-engine
-+      - aspeed,ast2600-video-engine
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 2
-+
-+  clock-names:
-+    items:
-+      - const: vclk
-+      - const: eclk
-+
-+  resets:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  memory-region:
-+    maxItems: 1
-+    description: |
-+      Phandle to the reserved memory nodes to be associated with the
-+      VE. VE will acquires memory space for 3 purposes:
-+        1. JPEG header
-+        2. Compressed result
-+        3. Temporary transformed image data
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/ast2600-clock.h>
-+
-+    video@1e700000 {
-+        compatible = "aspeed,ast2600-video-engine";
-+        reg = <0x1e700000 0x1000>;
-+        clocks = <&syscon ASPEED_CLK_GATE_VCLK>,
-+                 <&syscon ASPEED_CLK_GATE_ECLK>;
-+        clock-names = "vclk", "eclk";
-+        interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-+    };
-diff --git a/Documentation/devicetree/bindings/media/aspeed-video.txt b/Documentation/devicetree/bindings/media/aspeed-video.txt
-deleted file mode 100644
-index d2ca32512272..000000000000
---- a/Documentation/devicetree/bindings/media/aspeed-video.txt
-+++ /dev/null
-@@ -1,33 +0,0 @@
--* Device tree bindings for Aspeed Video Engine
--
--The Video Engine (VE) embedded in the Aspeed AST2400/2500/2600 SOCs can
--capture and compress video data from digital or analog sources.
--
--Required properties:
-- - compatible:		"aspeed,ast2400-video-engine" or
--			"aspeed,ast2500-video-engine" or
--			"aspeed,ast2600-video-engine"
-- - reg:			contains the offset and length of the VE memory region
-- - clocks:		clock specifiers for the syscon clocks associated with
--			the VE (ordering must match the clock-names property)
-- - clock-names:		"vclk" and "eclk"
-- - resets:		reset specifier for the syscon reset associated with
--			the VE
-- - interrupts:		the interrupt associated with the VE on this platform
--
--Optional properties:
-- - memory-region:
--	phandle to a memory region to allocate from, as defined in
--	Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
--
--Example:
--
--video-engine@1e700000 {
--    compatible = "aspeed,ast2500-video-engine";
--    reg = <0x1e700000 0x20000>;
--    clocks = <&syscon ASPEED_CLK_GATE_VCLK>, <&syscon ASPEED_CLK_GATE_ECLK>;
--    clock-names = "vclk", "eclk";
--    resets = <&syscon ASPEED_RESET_VIDEO>;
--    interrupts = <7>;
--    memory-region = <&video_engine_memory>;
--};
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 896a307fa065..7e59daa1e89d 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3549,7 +3549,7 @@ M:	Eddie James <eajames@linux.ibm.com>
- L:	linux-media@vger.kernel.org
- L:	openbmc@lists.ozlabs.org (moderated for non-subscribers)
- S:	Maintained
--F:	Documentation/devicetree/bindings/media/aspeed-video.txt
-+F:	Documentation/devicetree/bindings/media/aspeed,video-engine.yaml
- F:	drivers/media/platform/aspeed/
- 
- ASUS EC HARDWARE MONITOR DRIVER
-
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
--- 
-2.25.1
+Reviewed-by: Guenter Roeck <linux@roeck-us.net>
 
 
