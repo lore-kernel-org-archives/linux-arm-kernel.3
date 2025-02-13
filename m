@@ -4,80 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3B32C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 11:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE01C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 12:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=waS164PqlakW+UgygtgeQVfm3kMlq1ZVAQFEkzdN4x8=; b=fCGRr9BlUg1GfBA4ZNhWMxJsc2
-	9QJuF8zWSOktMhmVhZnkZ0N5e60snOy7Kqjijb7oFwsauakEeLQ80vsoXlLtAPUVfm4UM+EBBCdSP
-	3mji+GARiJOm0Dwq5plFkHgRpwdhezmZ3X/wCKVYDdEyW+HZzSYVk9riZIXDBOv8y/D9c2xRYnvTi
-	ABMA6csLQf8P7wkuB6LCVLHHUPwceCkV+IBag7QBkNQOfHTHaOelMUF39t3VbiudSSUQnt8L7Wnnf
-	BoS8QqQVszn6KBkzG1+fjGdLAkLljs/oGOPytvsypbxxRBi07Y0NyWoBoWNqyPDwUYQ0kj943k/+q
-	cYK3qFmg==;
+	bh=W+9jFShe+swt6iV6zeRvvjq+ucOd2xMbMetLWjETWU8=; b=nsW+SDlpmU0em2O8LO2AT8iLm5
+	Ym6/VLqYX6PfUlzZpG65YyOpXGRWbzrabh0RtbFpyedfhJANWsYs9k7A73flLsWXr1fDwMyUlxqmT
+	+jYdbXbdt7OxcBfDDpmor0i1A6s2Rw3rVebcNbpb8Heh/lM2TFJWWFyqEvNXGxx11P35aZnfRzSkD
+	R+OjmLkU/SSbs1KYJ8DBVLDPirCpZnimEFNHI++4cGFkyPytDyh+NA8v8VT8YSAQpUqgO027QtfQZ
+	CuaqFSbjHqzwiNQZjrTIicW7zw1FY/U4bwpVds53HtoK9OBTSUF4OXIfZi/x07NOsk5xbkCa23mel
+	FnJX0xNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXs1-0000000AvxR-1Atc;
-	Thu, 13 Feb 2025 11:59:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tiXtR-0000000AwCq-0tMv;
+	Thu, 13 Feb 2025 12:00:33 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXqb-0000000Avkx-2i92;
-	Thu, 13 Feb 2025 11:57:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=waS164PqlakW+UgygtgeQVfm3kMlq1ZVAQFEkzdN4x8=; b=UuEJNbPxbN4pA8k+Rx+/RuyCZj
-	E+o1aql/vVaDcojnZlisZt92x8Xo9LXRD40KCfl/ELhf/5QhNBADmSotxXtLo2cE7rV39EkQhM87H
-	9hOpRLkksS597ufLya2Kis6GtYKFL3vL0VgCcmTCMfHkF4edYTfb/r/bb9VgilYrsdfhq1mnyB6FG
-	BQ7VXM1fgjb80wJMULYqyJtbcviyImY4Q1jF7qZn7XBvLkhufOOlVSfmnURcaRoVk9xc0iyuZDhI5
-	gTtWZd+S0OJZ8RDjJ6OFTK+sBQ3xw95EdVWcxr/rMgFrd0wqtoWKbYvG9KhkaBMACaeqXpHRkZVxT
-	gGflaCyw==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXqY-00000000yur-22On;
-	Thu, 13 Feb 2025 11:57:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739447847;
-	bh=YOhLwbRHhk8jEbhv3DzdTGfR6kzMixlKHQx3sbdPVso=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GKrHl5G+Hie0jBehvw3JXIeYQXhU4lOZfMHhCaxe57xLP4c82RvwAuEK13xlmfEhv
-	 pmiXrVUqmaZfwg6XlTDglG5XmUsSwM9McMthU/lAl51rdogzSUYVYpXf836n43pIkm
-	 75N317CsGbzLX7ZZHsrXB8l8W8QfWqle9cwjbgVlSkqz7XMQH/tNQGUuagr7pZBa4O
-	 uABQGx7O38U8jM5zk4OwtZg9xFuLjfUa8b+hshqxMnK0igXKfKaJTSgJ2zC6+sSJ1r
-	 7T19QEjI1zqRdSLe8f/3PUazDMsGZ8x6shjmp3cCq5O1ezdzO0op2vBpz11l4D4fA0
-	 RUA8E/P3mZIIQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id F017517E0F44;
-	Thu, 13 Feb 2025 12:57:26 +0100 (CET)
-Message-ID: <46621db1-6096-46af-b021-c919c1cae7ef@collabora.com>
-Date: Thu, 13 Feb 2025 12:57:26 +0100
+	id 1tiXr0-0000000AvpU-3zq0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 11:58:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739447883; x=1770983883;
+  h=message-id:date:mime-version:cc:subject:to:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=AK+FKyMd7dfZt0G7tPDijdfr9CalJ0oWmocbmIdcgPo=;
+  b=OlIO4VkI+p5xONu2FQ0KpNRC/otp0aTLDqKnBtD+q8L1F1RkZZ14pXZv
+   11I5DQ5atYrkcyqiZZ5stzS3gaVUGMEEI/jcdnv8W2ehe1P7uZXE+j0h9
+   9aBUdnTE9dRyE9uvHG9j32LAJRtnRhsuhl5I7kJwUXdWHKllmREfYHrGP
+   2PNLCUPWU/ziRs6yWkgOiS1wCAMcEaXGcL0jCkdUH5i4PYoXtZNRdHMj6
+   9qUApA8e77moX0T6O25mYHCFwzavJmtAbRtrWTGz5LRx3PYwKxoadQWms
+   XJl2D1WOsJe1ihuJtZhYKR8SpBKyNoDZ1aC9jSTcH/GnLGfyY5XkFcOHs
+   g==;
+X-CSE-ConnectionGUID: DadylFSZQtyWXGB2jx3dog==
+X-CSE-MsgGUID: XbGgBq0eSuSJd1UsbKvotw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="40261279"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="40261279"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 03:58:02 -0800
+X-CSE-ConnectionGUID: sqjDCNoHTtaIhPm2Z1Mc8A==
+X-CSE-MsgGUID: 62i6si6lRmG0UymwlyBHRQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="118060259"
+Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.124.242.149]) ([10.124.242.149])
+  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 03:57:56 -0800
+Message-ID: <f7b6c833-b6c1-4154-9b77-13553e501f2b@linux.intel.com>
+Date: Thu, 13 Feb 2025 19:57:51 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/1] i2c: mediatek: add runtime PM operations and bus
- regulator control
-To: Zoie Lin <zoie.lin@mediatek.com>, Qii Wang <qii.wang@mediatek.com>,
- Andi Shyti <andi.shyti@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
-Cc: Project_Global_Chrome_Upstream_Group@mediatek.com,
- linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- teddy.chen@mediatek.com, joseph-cc.chang@mediatek.com, leilk.liu@mediatek.com
-References: <20250211144016.488001-1-zoie.lin@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: baolu.lu@linux.intel.com, Zhangfei Gao <zhangfei.gao@linaro.org>,
+ acpica-devel@lists.linux.dev, iommu@lists.linux.dev,
+ Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
+ kvm@vger.kernel.org, Len Brown <lenb@kernel.org>,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Robert Moore <robert.moore@intel.com>, Robin Murphy <robin.murphy@arm.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
+ Alex Williamson <alex.williamson@redhat.com>,
+ Donald Dutile <ddutile@redhat.com>, Eric Auger <eric.auger@redhat.com>,
+ Hanjun Guo <guohanjun@huawei.com>,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Jerry Snitselaar <jsnitsel@redhat.com>, Moritz Fischer <mdf@kernel.org>,
+ Michael Shavit <mshavit@google.com>, Nicolin Chen <nicolinc@nvidia.com>,
+ patches@lists.linux.dev, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+ Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
+ Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
+To: Jason Gunthorpe <jgg@nvidia.com>
+References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
+ <20241112182938.GA172989@nvidia.com>
+ <CABQgh9HOHzeRF7JfrXrRAcGB53o29HkW9rnVTf4JefeVWDvzyQ@mail.gmail.com>
+ <20241113012359.GB35230@nvidia.com>
+ <9df3dd17-375a-4327-b2a8-e9f7690d81b1@linux.intel.com>
+ <20241113164316.GL35230@nvidia.com>
+ <6ed97a10-853f-429e-8506-94b218050ad3@linux.intel.com>
+ <20241115175522.GA35230@nvidia.com> <20250122192622.GA965540@nvidia.com>
+ <284dd081-8d53-45ef-ae18-78b0388c98ca@linux.intel.com>
 Content-Language: en-US
-In-Reply-To: <20250211144016.488001-1-zoie.lin@mediatek.com>
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <284dd081-8d53-45ef-ae18-78b0388c98ca@linux.intel.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_115734_760608_CD6F3DC8 
-X-CRM114-Status: GOOD (  26.62  )
+X-CRM114-CacheID: sfid-20250213_035803_040159_A4521B14 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,209 +109,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 11/02/25 15:39, Zoie Lin ha scritto:
-> Introduce support for runtime PM operations in
-> the I2C driver, enabling runtime suspend and resume functionality.
+On 2025/2/5 11:45, Baolu Lu wrote:
+> On 2025/1/23 3:26, Jason Gunthorpe wrote:
+>> On Fri, Nov 15, 2024 at 01:55:22PM -0400, Jason Gunthorpe wrote:
+>>>>> I need your help to remove IOMMU_DEV_FEAT_IOPF from the intel
+>>>>> driver. I have a patch series that eliminates it from all the other
+>>>>> drivers, and I wrote a patch to remove FEAT_SVA from intel..
+>>>> Yes, sure. Let's make this happen in the next cycle.
+>>>>
+>>>> FEAT_IOPF could be removed. IOPF manipulation can be handled in the
+>>>> domain attachment path. A per-device refcount can be implemented. This
+>>>> count increments with each iopf-capable domain attachment and 
+>>>> decrements
+>>>> with each detachment. PCI PRI is enabled for the first iopf-capable
+>>>> domain and disabled when the last one is removed. Probably we can also
+>>>> solve the PF/VF sharing PRI issue.
+>>> Here is what I have so far, if you send me a patch for vt-d to move
+>>> FEAT_IOPF into attach as you describe above (see what I did to arm for
+>>> example), then I can send it next cycle
+>>>
+>>> https://github.com/jgunthorpe/linux/commits/iommu_no_feat/
+>> Hey Baolu, a reminder on this, lets try for it next cycle?
 > 
-> Although in most platforms, the bus power of i2c is always
-> on, some platforms disable the i2c bus power in order to meet
-> low power request.
-> 
-> This implementation includes bus regulator control to facilitate
-> proper handling of the bus power based on platform requirements.
-> 
-> Signed-off-by: Zoie Lin <zoie.lin@mediatek.com>
-> ---
->   drivers/i2c/busses/i2c-mt65xx.c | 73 +++++++++++++++++++++++++++------
->   1 file changed, 61 insertions(+), 12 deletions(-)
-> 
-> This series is based on linux-next, tag: next-20250210
-> 
-> Changes in v4:
-> - Removed unnecessary variable initialization.
-> - Removed unnecessary brackets.
-> - Corrected grammar issues in the commit message.
-> - Confirmed autosuspend delay is not necessary.
+> Oh, I forgot this. Thanks for the reminding. Sure, let's try to make it
+> in the next cycle.
 
-Turning on and off regulators at start of transfer and end of transfer respectively
-is very expensive and, while it makes sense for power efficiency of the controller,
-it doesn't make sense for:
+Hi Jason,
 
-  1. Responsiveness (latency); and
-  2. Platform power efficiency at a whole.
+I've worked through the entire series. The patches are available here:
 
-As a start, just set the autosuspend delay to 250ms; this gives you at least time
-to bring up clocks and regulators and usually finish a transfer at 400KHz, giving
-you the chance to also get some more requests before autosuspend decides to, well,
-auto..suspend the device.
+https://github.com/LuBaolu/intel-iommu/commits/iommu-no-feat-v6.14-rc2
 
-The right way of choosing an autosuspend delay a bit more precisely, though, for
-this device, would be to check the bus speed and calculate the autosuspend time
-accordingly.
+Please check if this is the right direction.
 
-Cheers,
-Angelo
-
-> 
-> diff --git a/drivers/i2c/busses/i2c-mt65xx.c b/drivers/i2c/busses/i2c-mt65xx.c
-> index 5bd342047d59..1979b46d75f0 100644
-> --- a/drivers/i2c/busses/i2c-mt65xx.c
-> +++ b/drivers/i2c/busses/i2c-mt65xx.c
-> @@ -21,6 +21,7 @@
->   #include <linux/module.h>
->   #include <linux/of.h>
->   #include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
->   #include <linux/scatterlist.h>
->   #include <linux/sched.h>
->   #include <linux/slab.h>
-> @@ -1245,8 +1246,8 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
->   	int left_num = num;
->   	struct mtk_i2c *i2c = i2c_get_adapdata(adap);
->   
-> -	ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-> -	if (ret)
-> +	ret = pm_runtime_resume_and_get(i2c->dev);
-> +	if (ret < 0)
->   		return ret;
->   
->   	i2c->auto_restart = i2c->dev_comp->auto_restart;
-> @@ -1299,7 +1300,9 @@ static int mtk_i2c_transfer(struct i2c_adapter *adap,
->   	ret = num;
->   
->   err_exit:
-> -	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-> +	pm_runtime_mark_last_busy(i2c->dev);
-> +	pm_runtime_put_sync(i2c->dev);
-> +
->   	return ret;
->   }
->   
-> @@ -1370,6 +1373,38 @@ static int mtk_i2c_parse_dt(struct device_node *np, struct mtk_i2c *i2c)
->   	return 0;
->   }
->   
-> +static int mtk_i2c_runtime_suspend(struct device *dev)
-> +{
-> +	struct mtk_i2c *i2c = dev_get_drvdata(dev);
-> +
-> +	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-> +	if (i2c->adap.bus_regulator)
-> +		regulator_disable(i2c->adap.bus_regulator);
-> +
-> +	return 0;
-> +}
-> +
-> +static int mtk_i2c_runtime_resume(struct device *dev)
-> +{
-> +	int ret;
-> +	struct mtk_i2c *i2c = dev_get_drvdata(dev);
-> +
-> +	if (i2c->adap.bus_regulator) {
-> +		ret = regulator_enable(i2c->adap.bus_regulator);
-> +		if (ret) {
-> +			dev_err(dev, "enable regulator failed!\n");
-> +			return ret;
-> +		}
-> +	}
-> +
-> +	ret = clk_bulk_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-> +	if (ret)
-> +		if (i2c->adap.bus_regulator)
-> +			regulator_disable(i2c->adap.bus_regulator);
-> +
-> +	return ret;
-> +}
-> +
->   static int mtk_i2c_probe(struct platform_device *pdev)
->   {
->   	int ret = 0;
-> @@ -1472,13 +1507,18 @@ static int mtk_i2c_probe(struct platform_device *pdev)
->   		}
->   	}
->   
-> -	ret = clk_bulk_prepare_enable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-> +	ret = clk_bulk_prepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
->   	if (ret) {
-> -		dev_err(&pdev->dev, "clock enable failed!\n");
->   		return ret;
->   	}
-> +
-> +	platform_set_drvdata(pdev, i2c);
-> +
-> +	ret = mtk_i2c_runtime_resume(i2c->dev);
-> +	if (ret < 0)
-> +		goto err_clk_bulk_unprepare;
->   	mtk_i2c_init_hw(i2c);
-> -	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-> +	mtk_i2c_runtime_suspend(i2c->dev);
->   
->   	ret = devm_request_irq(&pdev->dev, irq, mtk_i2c_irq,
->   			       IRQF_NO_SUSPEND | IRQF_TRIGGER_NONE,
-> @@ -1486,19 +1526,20 @@ static int mtk_i2c_probe(struct platform_device *pdev)
->   	if (ret < 0) {
->   		dev_err(&pdev->dev,
->   			"Request I2C IRQ %d fail\n", irq);
-> -		goto err_bulk_unprepare;
-> +		goto err_clk_bulk_unprepare;
->   	}
-> +	pm_runtime_enable(&pdev->dev);
->   
->   	i2c_set_adapdata(&i2c->adap, i2c);
->   	ret = i2c_add_adapter(&i2c->adap);
->   	if (ret)
-> -		goto err_bulk_unprepare;
-> -
-> -	platform_set_drvdata(pdev, i2c);
-> +		goto err_pm_runtime_disable;
->   
->   	return 0;
->   
-> -err_bulk_unprepare:
-> +err_pm_runtime_disable:
-> +	pm_runtime_disable(&pdev->dev);
-> +err_clk_bulk_unprepare:
->   	clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
->   
->   	return ret;
-> @@ -1510,6 +1551,7 @@ static void mtk_i2c_remove(struct platform_device *pdev)
->   
->   	i2c_del_adapter(&i2c->adap);
->   
-> +	pm_runtime_disable(&pdev->dev);
->   	clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
->   }
->   
-> @@ -1518,6 +1560,10 @@ static int mtk_i2c_suspend_noirq(struct device *dev)
->   	struct mtk_i2c *i2c = dev_get_drvdata(dev);
->   
->   	i2c_mark_adapter_suspended(&i2c->adap);
-> +
-> +	if (!pm_runtime_status_suspended(dev))
-> +		mtk_i2c_runtime_suspend(dev);
-> +
->   	clk_bulk_unprepare(I2C_MT65XX_CLK_MAX, i2c->clocks);
->   
->   	return 0;
-> @@ -1536,7 +1582,8 @@ static int mtk_i2c_resume_noirq(struct device *dev)
->   
->   	mtk_i2c_init_hw(i2c);
->   
-> -	clk_bulk_disable(I2C_MT65XX_CLK_MAX, i2c->clocks);
-> +	if (pm_runtime_status_suspended(dev))
-> +		mtk_i2c_runtime_resume(dev);
->   
->   	i2c_mark_adapter_resumed(&i2c->adap);
->   
-> @@ -1546,6 +1593,8 @@ static int mtk_i2c_resume_noirq(struct device *dev)
->   static const struct dev_pm_ops mtk_i2c_pm = {
->   	NOIRQ_SYSTEM_SLEEP_PM_OPS(mtk_i2c_suspend_noirq,
->   				  mtk_i2c_resume_noirq)
-> +	SET_RUNTIME_PM_OPS(mtk_i2c_runtime_suspend, mtk_i2c_runtime_resume,
-> +			   NULL)
->   };
->   
->   static struct platform_driver mtk_i2c_driver = {
-
-
+Thanks,
+baolu
 
