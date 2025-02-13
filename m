@@ -4,88 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F5E8C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 17:50:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99EA0C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 17:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=dXLLnRzv7FaM6gojcEQsfUmISkNhfeQtV1FeCi0KCOk=; b=Cc7i2YC0D72M1/
-	QII4jalngwCMuM47O11ZFC8i/Un4EKaEJaEe87ygGpWYnhMmY2rJN8mRg4qMbc8gDP5jUubFNRtrJ
-	NHoX0wxDb91jU5q8JMUQefnajibkfBXnVwOoj6MIzV6ekyBBgJySQ6gqr+lMSw3XjLebNKjEt9Vwg
-	AzAA8FrNUA12dta1vroUoFzTJo7Hi6mkHXnzScQZKXJHMJe7FZMscZYIRdBmqoO8gf4EKKN8OLduo
-	T9ZMX8G0ntuB3UQgrizlQ/iFXBXFNT0K3louSgQPCIihevNlyhgSlkKN9KGpN21SeISx0r8fuj9/H
-	niGVMEjBYdcrB2XaciGA==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hoCv9YGoA5llUMO1DS3w019F1tDGNYulVOCgZz2nIGs=; b=mPkZhvUTDxtBGNSeC14ZcKBp5Y
+	FCPWoMvsZcz5yD0bnk8W8wK7InWuZWFDb+zQf71lvF7SN5gtJZLFf2Qn9iRIdDrf6l0q8hvqTVf9u
+	9jsVDJ9hq5mzZUh6+qBc2eG96ZkCTQRIOPrFMtEsIR2lHVfvGqoUB2b2Ey7CS4FIEFmamNVKUm0VE
+	UDHLKbx8JFQaR1wSXRzp90zKUo2PjwuDZDeoxJjFy72g/Hopg/rjAWUJG4zSLKJibjbaQVFUFy1I4
+	MydwwxY5a3eHLxFylIBHI4uCUQXR2HRL3gl5lK461cyLJt6qRnG7mtU4Vn0PZP4rrU7UMdF9JyaXJ
+	Aw2oA+TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tidLm-0000000C4tZ-3fY1;
-	Thu, 13 Feb 2025 17:50:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tidNB-0000000C55p-2Mu7;
+	Thu, 13 Feb 2025 17:51:37 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibyC-0000000BkD9-25uu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 13 Feb 2025 16:21:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To;
-	bh=dXLLnRzv7FaM6gojcEQsfUmISkNhfeQtV1FeCi0KCOk=; b=UXdot7EORax5NpMh3ntvwOY4En
-	U7rDQpd1DCTUd9SmnqXLRag8cG4VSRjzzSs9hg+GUUu8ddFWHzN+n3VOrQphC+2a8sE8ndbk/mJRO
-	jZ3/RCHqZJUU/fP9miVUtR1RakVltUFsnGFOTbGIYzWBbafBek3D+lj8AL325sgJKTT8Pz/w6DPl4
-	EXXJFDJngiyDcBbzbZWpY7DjityUMyRh6M3p4XnyAFnmldLP60ZwMRqwR9zXOhkeldiGEfercnzig
-	vbdheYiW/GYjF8WCfKntOaqonVNTNOos/KAtB6gTUjAh/EyxQF4qQ8+RP7+tV77DIh2tj8cPwNTQp
-	lPXkVl9A==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiby8-000000012rs-1o8l
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 16:21:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DE7B1A40122;
-	Thu, 13 Feb 2025 16:19:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B8FDC4CEE5;
-	Thu, 13 Feb 2025 16:21:35 +0000 (UTC)
-Received: from rostedt by gandalf with local (Exim 4.98)
-	(envelope-from <rostedt@goodmis.org>)
-	id 1tibyE-00000001qbz-0Zdm;
-	Thu, 13 Feb 2025 11:21:46 -0500
-Message-ID: <20250213162145.986887092@goodmis.org>
-User-Agent: quilt/0.68
-Date: Thu, 13 Feb 2025 11:20:51 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org,
- linux-kbuild@vger.kernel.org,
- bpf <bpf@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org,
- linux-s390@vger.kernel.org
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>,
- Nicolas Schier <nicolas@fjasle.eu>,
- Zheng Yejian <zhengyejian1@huawei.com>,
- Martin  Kelly <martin.kelly@crowdstrike.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Josh Poimboeuf <jpoimboe@redhat.com>,
- Heiko Carstens <hca@linux.ibm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>
-Subject: [PATCH v3 4/6] scripts/sorttable: Zero out weak functions in mcount_loc table
-References: <20250213162047.306074881@goodmis.org>
+	id 1tic3P-0000000BlN0-3RYM;
+	Thu, 13 Feb 2025 16:27:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=hoCv9YGoA5llUMO1DS3w019F1tDGNYulVOCgZz2nIGs=; b=ryWOgEXdsk/TF9OOvLKmzxDMim
+	KyP7yPuREuTwPWt7nCQ0+ViCbXjiIY01szVCEiFXo5WxR+XLk1ztWSTxm2MOo/p06JiRwKwhyTcGE
+	Gb7R810BCsHOfsAn5CDRTtDX1VkxZlipdL73eoSwwWKm+D+M3pYS5zpG6PZG8kO+IZZc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tic39-00DnAG-62; Thu, 13 Feb 2025 17:26:51 +0100
+Date: Thu, 13 Feb 2025 17:26:51 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Herve Codina <herve.codina@bootlin.com>
+Cc: Phil Elwell <phil@raspberrypi.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE" <bcm-kernel-feedback-list@broadcom.com>,
+	bhelgaas@google.com, brgl@bgdev.pl,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>, derek.kiernan@amd.com,
+	devicetree@vger.kernel.org, dragan.cvetic@amd.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, krzk+dt@kernel.org,
+	kw@linux.com, Linus Walleij <linus.walleij@linaro.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	lpieralisi@kernel.org, luca.ceresoli@bootlin.com,
+	manivannan.sadhasivam@linaro.org, masahiroy@kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>, saravanak@google.com,
+	Stephen Boyd <sboyd@kernel.org>, thomas.petazzoni@bootlin.com,
+	Stefan Wahren <wahrenst@gmx.net>, Will Deacon <will@kernel.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device
+ using a DT overlay
+Message-ID: <a3c5103c-829a-4301-ba53-6ef9bd1e74e7@lunn.ch>
+References: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
+ <20250213171435.1c2ce376@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250213171435.1c2ce376@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_162140_849969_C7A20D5A 
-X-CRM114-Status: GOOD (  37.85  )
+X-CRM114-CacheID: sfid-20250213_082707_856183_F0DD2F32 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,303 +89,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Steven Rostedt <rostedt@goodmis.org>
+On Thu, Feb 13, 2025 at 05:14:35PM +0100, Herve Codina wrote:
+> Hi Phil,
+> 
+> On Thu, 13 Feb 2025 15:18:45 +0000
+> Phil Elwell <phil@raspberrypi.com> wrote:
+> 
+> > Hi Andrea,
+> > 
+> > The problem with this approach (loading an overlay from the RP1 PCIe
+> > driver), and it's one that I have raised with you offline, is that
+> > (unless anyone can prove otherwise) it becomes impossible to create a
+> > Pi 5 DTS file which makes use of the RP1's resources. How do you
+> > declare something as simple as a button wired to an RP1 GPIO, or fan
+> > connected to a PWM output?
 
-When a function is annotated as "weak" and is overridden, the code is not
-removed. If it is traced, the fentry/mcount location in the weak function
-will be referenced by the "__mcount_loc" section. This will then be added
-to the available_filter_functions list. Since only the address of the
-functions are listed, to find the name to show, a search of kallsyms is
-used.
+Where is this button or fan? On a pluggable board? Isn't that what
+overlays are for, and they are stackable. So when you probe the
+pluggable board via its eeprom etc, you find the overlay and load it?
 
-Since kallsyms will return the function by simply finding the function
-that the address is after but before the next function, an address of a
-weak function will show up as the function before it. This is because
-kallsyms does not save names of weak functions. This has caused issues in
-the past, as now the traced weak function will be listed in
-available_filter_functions with the name of the function before it.
+Or do you mean a custom board, which has a CPU, RP1 and the button and
+fan are directly on this custom board? You then want a board DTS which
+includes all these pieces?
 
-At best, this will cause the previous function's name to be listed twice.
-At worse, if the previous function was marked notrace, it will now show up
-as a function that can be traced. Note that it only shows up that it can
-be traced but will not be if enabled, which causes confusion.
-
- https://lore.kernel.org/all/20220412094923.0abe90955e5db486b7bca279@kernel.org/
-
-The commit b39181f7c6907 ("ftrace: Add FTRACE_MCOUNT_MAX_OFFSET to avoid
-adding weak function") was a workaround to this by checking the function
-address before printing its name. If the address was too far from the
-function given by the name then instead of printing the name it would
-print: __ftrace_invalid_address___<invalid-offset>
-
-The real issue is that these invalid addresses are listed in the ftrace
-table look up which available_filter_functions is derived from. A place
-holder must be listed in that file because set_ftrace_filter may take a
-series of indexes into that file instead of names to be able to do O(1)
-lookups to enable filtering (many tools use this method).
-
-Even if kallsyms saved the size of the function, it does not remove the
-need of having these place holders. The real solution is to not add a weak
-function into the ftrace table in the first place.
-
-To solve this, the sorttable.c code that sorts the mcount regions during
-the build is modified to take a "nm -S vmlinux" input, sort it, and any
-function listed in the mcount_loc section that is not within a boundary of
-the function list given by nm is considered a weak function and is zeroed
-out.
-
-Note, this does not mean they will remain zero when booting as KASLR
-will still shift those addresses. To handle this, the entries in the
-mcount_loc section will be ignored if they are zero or match the
-kaslr_offset() value.
-
-Before:
-
- ~# grep __ftrace_invalid_address___ /sys/kernel/tracing/available_filter_functions | wc -l
- 551
-
-After:
-
- ~# grep __ftrace_invalid_address___ /sys/kernel/tracing/available_filter_functions | wc -l
- 0
-
-Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
----
-Changes since v2: https://lore.kernel.org/20250102232651.173687711@goodmis.org
-
-- Removed need for adding a special "skip" variable which removes this patch
-  https://lore.kernel.org/linux-trace-kernel/20250102232651.347490863@goodmis.org/
-
-- Instead, check the kaslr_offset() against the value in the section. If the
-  value is either zero or kaslr_offset() then simply skip it.
-
-- Built on top of the allocation of an array and not directly access the
-  section itself.
-
- kernel/trace/ftrace.c   |   6 +-
- scripts/link-vmlinux.sh |   4 +-
- scripts/sorttable.c     | 128 +++++++++++++++++++++++++++++++++++++++-
- 3 files changed, 134 insertions(+), 4 deletions(-)
-
-diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index 728ecda6e8d4..e3f89924f603 100644
---- a/kernel/trace/ftrace.c
-+++ b/kernel/trace/ftrace.c
-@@ -7004,6 +7004,7 @@ static int ftrace_process_locs(struct module *mod,
- 	unsigned long count;
- 	unsigned long *p;
- 	unsigned long addr;
-+	unsigned long kaslr;
- 	unsigned long flags = 0; /* Shut up gcc */
- 	int ret = -ENOMEM;
- 
-@@ -7052,6 +7053,9 @@ static int ftrace_process_locs(struct module *mod,
- 		ftrace_pages->next = start_pg;
- 	}
- 
-+	/* For zeroed locations that were shifted for core kernel */
-+	kaslr = !mod ? kaslr_offset() : 0;
-+
- 	p = start;
- 	pg = start_pg;
- 	while (p < end) {
-@@ -7063,7 +7067,7 @@ static int ftrace_process_locs(struct module *mod,
- 		 * object files to satisfy alignments.
- 		 * Skip any NULL pointers.
- 		 */
--		if (!addr) {
-+		if (!addr || addr == kaslr) {
- 			skipped++;
- 			continue;
- 		}
-diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-index 56a077d204cf..59b07fe6fd00 100755
---- a/scripts/link-vmlinux.sh
-+++ b/scripts/link-vmlinux.sh
-@@ -177,12 +177,14 @@ mksysmap()
- 
- sorttable()
- {
--	${objtree}/scripts/sorttable ${1}
-+	${NM} -S ${1} > .tmp_vmlinux.nm-sort
-+	${objtree}/scripts/sorttable -s .tmp_vmlinux.nm-sort ${1}
- }
- 
- cleanup()
- {
- 	rm -f .btf.*
-+	rm -f .tmp_vmlinux.nm-sort
- 	rm -f System.map
- 	rm -f vmlinux
- 	rm -f vmlinux.map
-diff --git a/scripts/sorttable.c b/scripts/sorttable.c
-index ec02a2852efb..1647c5887e95 100644
---- a/scripts/sorttable.c
-+++ b/scripts/sorttable.c
-@@ -580,6 +580,98 @@ static void rela_write_addend(Elf_Rela *rela, uint64_t val)
- 	e.rela_write_addend(rela, val);
- }
- 
-+struct func_info {
-+	uint64_t	addr;
-+	uint64_t	size;
-+};
-+
-+/* List of functions created by: nm -S vmlinux */
-+static struct func_info *function_list;
-+static int function_list_size;
-+
-+/* Allocate functions in 1k blocks */
-+#define FUNC_BLK_SIZE	1024
-+#define FUNC_BLK_MASK	(FUNC_BLK_SIZE - 1)
-+
-+static int add_field(uint64_t addr, uint64_t size)
-+{
-+	struct func_info *fi;
-+	int fsize = function_list_size;
-+
-+	if (!(fsize & FUNC_BLK_MASK)) {
-+		fsize += FUNC_BLK_SIZE;
-+		fi = realloc(function_list, fsize * sizeof(struct func_info));
-+		if (!fi)
-+			return -1;
-+		function_list = fi;
-+	}
-+	fi = &function_list[function_list_size++];
-+	fi->addr = addr;
-+	fi->size = size;
-+	return 0;
-+}
-+
-+/* Only return match if the address lies inside the function size */
-+static int cmp_func_addr(const void *K, const void *A)
-+{
-+	uint64_t key = *(const uint64_t *)K;
-+	const struct func_info *a = A;
-+
-+	if (key < a->addr)
-+		return -1;
-+	return key >= a->addr + a->size;
-+}
-+
-+/* Find the function in function list that is bounded by the function size */
-+static int find_func(uint64_t key)
-+{
-+	return bsearch(&key, function_list, function_list_size,
-+		       sizeof(struct func_info), cmp_func_addr) != NULL;
-+}
-+
-+static int cmp_funcs(const void *A, const void *B)
-+{
-+	const struct func_info *a = A;
-+	const struct func_info *b = B;
-+
-+	if (a->addr < b->addr)
-+		return -1;
-+	return a->addr > b->addr;
-+}
-+
-+static int parse_symbols(const char *fname)
-+{
-+	FILE *fp;
-+	char addr_str[20]; /* Only need 17, but round up to next int size */
-+	char size_str[20];
-+	char type;
-+
-+	fp = fopen(fname, "r");
-+	if (!fp) {
-+		perror(fname);
-+		return -1;
-+	}
-+
-+	while (fscanf(fp, "%16s %16s %c %*s\n", addr_str, size_str, &type) == 3) {
-+		uint64_t addr;
-+		uint64_t size;
-+
-+		/* Only care about functions */
-+		if (type != 't' && type != 'T')
-+			continue;
-+
-+		addr = strtoull(addr_str, NULL, 16);
-+		size = strtoull(size_str, NULL, 16);
-+		if (add_field(addr, size) < 0)
-+			return -1;
-+	}
-+	fclose(fp);
-+
-+	qsort(function_list, function_list_size, sizeof(struct func_info), cmp_funcs);
-+
-+	return 0;
-+}
-+
- static pthread_t mcount_sort_thread;
- static bool sort_reloc;
- 
-@@ -752,6 +844,21 @@ static void *sort_mcount_loc(void *arg)
- 		goto out;
- 	}
- 
-+	/* zero out any locations not found by function list */
-+	if (function_list_size) {
-+		for (void *ptr = vals; ptr < vals + size; ptr += long_size) {
-+			uint64_t key;
-+
-+			key = long_size == 4 ? r((uint32_t *)ptr) : r8((uint64_t *)ptr);
-+			if (!find_func(key)) {
-+				if (long_size == 4)
-+					*(uint32_t *)ptr = 0;
-+				else
-+					*(uint64_t *)ptr = 0;
-+			}
-+		}
-+	}
-+
- 	compare_values = long_size == 4 ? compare_values_32 : compare_values_64;
- 
- 	qsort(vals, count, long_size, compare_values);
-@@ -801,6 +908,8 @@ static void get_mcount_loc(struct elf_mcount_loc *emloc, Elf_Shdr *symtab_sec,
- 		return;
- 	}
- }
-+#else /* MCOUNT_SORT_ENABLED */
-+static inline int parse_symbols(const char *fname) { return 0; }
- #endif
- 
- static int do_sort(Elf_Ehdr *ehdr,
-@@ -1256,14 +1365,29 @@ int main(int argc, char *argv[])
- 	int i, n_error = 0;  /* gcc-4.3.0 false positive complaint */
- 	size_t size = 0;
- 	void *addr = NULL;
-+	int c;
-+
-+	while ((c = getopt(argc, argv, "s:")) >= 0) {
-+		switch (c) {
-+		case 's':
-+			if (parse_symbols(optarg) < 0) {
-+				fprintf(stderr, "Could not parse %s\n", optarg);
-+				return -1;
-+			}
-+			break;
-+		default:
-+			fprintf(stderr, "usage: sorttable [-s nm-file] vmlinux...\n");
-+			return 0;
-+		}
-+	}
- 
--	if (argc < 2) {
-+	if ((argc - optind) < 1) {
- 		fprintf(stderr, "usage: sorttable vmlinux...\n");
- 		return 0;
- 	}
- 
- 	/* Process each file in turn, allowing deep failure. */
--	for (i = 1; i < argc; i++) {
-+	for (i = optind; i < argc; i++) {
- 		addr = mmap_file(argv[i], &size);
- 		if (!addr) {
- 			++n_error;
--- 
-2.47.2
-
-
+	Andrew
 
