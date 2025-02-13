@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524BCC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 22:19:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE6ABC021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 22:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CTvlTgh9FkYy1gsP0z8BmLVeMXguz+BQdutA7bg9psA=; b=lsL8fhhUDEbpMO8jXpvWa547Az
-	kkLjeZgiAmG5L4OJTlMExw4Rau0R8Q29Y1iDGVN9oaeIjllwcunAV03xVnlQmmY2vpDgVFv8OjPqv
-	7Pq9j/EwYRnKNlG3u5l0QfQKXZ5ZUIqVj0Mzrqvg9SbOWw8JbJmh01slUaUp1jhY/Kqd8PecdDDGJ
-	1ssFyGsHNbqLREVIEKhjTuD/DGT+lER8X3aZ2AxKJ/gbbVkR8396cEofut15l31NzA53xu0/rJjc2
-	ZYQ3tmk2I7cTsLhoc1Gtt2eCQBckLc7Y2Z4S/dDP5s3qhfdoZ/gOg0aoTfwgsLoPaMvLzOknC0cQp
-	UCAQ89YA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1e/jm15u8XZjMQynOeGZ5fjJarSB1qSJ5JLVb8liuK8=; b=XfT4n18hIKSR21sNKnCMFAzKyQ
+	X4UXNJChK2dMII23JdxMOJPZKD4gt2pzCryy+uZL7W24jauWAy08L8WorQi7jz8qCsa5WVVLoCT3g
+	UjGBtnyeHOCEBHPiNk45hWjP+1LmZ/ZEHTe6+NmGuIi0sdpXH4rZj7ub8B5NKSTO+YifBYVvSYKKU
+	AW5lTjKYN81dNfOf6CKBy5seBGRYi/dF4v3sCnzEdo9/sDlvCANKmeblyduPkTe2Mf97KSqG8FdhJ
+	+hD8vHwOPDAEhbYLZMM238tqbwqDCZNKMHBlZzzH6r6l9/QDa09mw/7wdx7l+VXGG0KNcuS52IyvM
+	JlXNdlAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tihYD-0000000Co05-2jvy;
-	Thu, 13 Feb 2025 22:19:17 +0000
+	id 1tihcd-0000000CoU3-2nTe;
+	Thu, 13 Feb 2025 22:23:51 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tihWm-0000000Cnp9-3Ya5;
-	Thu, 13 Feb 2025 22:17:49 +0000
+	id 1tihbD-0000000CoLx-0V0a
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 13 Feb 2025 22:22:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=CTvlTgh9FkYy1gsP0z8BmLVeMXguz+BQdutA7bg9psA=; b=kVO9DdzZW6U+DJV0WVxNb1eC8i
-	gZhCN+ihtwFru1vdjujaGM5FQLDiUl7WkZLpR/jx0KnvwF9/bvjNPhB+VdYPhexjtYGYY/dAiWtMw
-	KWDz4DdEJeCXiPvYRpP8tHInMEcyLtY+19KNzZsTYbOkJDfEqSEV89Ev/FLKHu5NXByOwSEBvpOtD
-	iD4cX5oZECiBwmmSFwJi3WpjdY0mEiIoCig7l4c74QWYgIPMLg8TDPx8Se0bxENQZGs/ZkWrxBcls
-	iJ+Z0H6FzycaHwA4Ltn/yRi1UeNPVfVSEz4mRWTZN5lxRcOuVu7fPN7nf+22aIMplRxROZfQGso6L
-	GYnz5EDA==;
-Received: from mail.mvand.net ([185.229.52.35])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tihWQ-000000017X9-46uz;
-	Thu, 13 Feb 2025 22:17:46 +0000
-Received: from xrossbuild.mvand.net (mail.mvand.net [185.229.52.35])
-	by mail.mvand.net (Postfix) with ESMTPSA id 4E4D21FF3D;
-	Thu, 13 Feb 2025 23:17:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=martijnvandeventer.nl; s=default; t=1739485043;
-	bh=++zlBheuf2ghp6IKg2VkyhrcpY1H9g9JvPugZj9lb6c=;
-	h=From:To:Cc:Subject:Date:From;
-	b=wQ+otXL/AsRnI0M5Wli7eTKcR1/hhmmL/vCU/O1IhJgNCGT7hTbuBSjpI+2RlDVQ2
-	 vNBKUGLbrLt7BuIbR/sr98pFGcsxJpO4V6wg7ZEfTK9x9PtOAL8a0vwBYaW0+jDfSE
-	 yv3oblxoousTZWjoAWLYGD3akzcFCRTO+f5jC51/VEjvVR7dUubb0MD8Rl0fSQWVdN
-	 QaXHBZkqMHh6HClJNQBSgndP8VJwIZ2HXQ2a4NZsoiEWa+ItYcVlLje011BRFs8yKe
-	 6CMAAdUy04lLaOLmm2IIYfOIZefKiENDwZzArE4ADVmbMHRE6EXVPKJTX1Y2yDE8yb
-	 PT6ice7j7RwIw==
-From: Martijn van Deventer <linux@martijnvandeventer.nl>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-amlogic@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] clk: meson: g12a: Fix kernel warnings when no display attached
-Date: Thu, 13 Feb 2025 23:17:01 +0100
-Message-Id: <20250213221702.606-1-linux@martijnvandeventer.nl>
-X-Mailer: git-send-email 2.39.2
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
+	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=1e/jm15u8XZjMQynOeGZ5fjJarSB1qSJ5JLVb8liuK8=; b=LEUc2vUGqSqUTzpip2KHW2No3q
+	nByTBNXiyDQrzoWAiJlAkUqJBO4KyYyPUa6mJaBUCEsBrq5U+Z1Wlvm3VXO/7c+yTATkJlosN5s0Z
+	bh3NVOcCzxfCSaVBGNTRpNjlJuPU6IDwCuPaagBVSd329GvAPV0K+y2xy4jxE104p4Ej3GV14cmFM
+	JfLEDdvbS+QdhAzE8o8wvxwhit1mQ2eIlAQbrcx4B9mBj4vveGUZqxMB7Y9NmjnaJft+2gt8dNdc2
+	0Xv/OJykZde2uxLrPrIO1Rkx6VqCOpqysz+JwW/OyD1JPVo0YhToJbS+C6EqBI8XOM+IlE4vhRk01
+	wjQdxAlQ==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tihb6-000000017gi-0D4v
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 22:22:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A7179A42795;
+	Thu, 13 Feb 2025 22:20:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63D6FC4CED1;
+	Thu, 13 Feb 2025 22:22:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739485331;
+	bh=1CK4Id1eVmFWpaG9sBn/f5OOpSSTObssqjz+m90Pw/Q=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=AR3Dgd/Thu5XTheN4qPYo+SAQXGxp5T4IpvAt/Kc4zZjty/EuSjXV+G969chRz5Wr
+	 ePiwdGtrSNhp5UkXpqAN500/3ouTTulmfDuFn5GqTS0HT8iBZCCNU/4wyBGJZSszWN
+	 CZDwr2kjIatY8CSN9qJ6seR2CmCARMKYiC7dj+Mo+gc2PMYZ19xXHhms8rL+YrJVKU
+	 FKwF87uYsTGue7jqMY+3OGpYXy9QE9mfOZ4yMf2oi+1gaP02ZzcbZz+RmfLHDgicwT
+	 LGiq+ek9d0UUigac1MkJ9fyl83N0i95T7wMxlwmTL0Zw+knhL2q+uYMqAGrXKvsm7r
+	 BcpZCuX1Avv1w==
+From: Puranjay Mohan <puranjay@kernel.org>
+To: Song Liu <song@kernel.org>
+Cc: Indu Bhagat <indu.bhagat@oracle.com>, Weinan Liu <wnliu@google.com>,
+ Josh Poimboeuf <jpoimboe@kernel.org>, Steven Rostedt
+ <rostedt@goodmis.org>, Peter Zijlstra <peterz@infradead.org>, Mark Rutland
+ <mark.rutland@arm.com>, roman.gushchin@linux.dev, Will Deacon
+ <will@kernel.org>, Ian Rogers <irogers@google.com>,
+ linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
+ live-patching@vger.kernel.org, joe.lawrence@redhat.com,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+In-Reply-To: <CAPhsuW7bo4efVYb8uPkQ1v9TE95_CQ6+G3q4kVyt-8g-3JD6Cw@mail.gmail.com>
+References: <20250127213310.2496133-1-wnliu@google.com>
+ <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
+ <00fa304d-84bf-4fca-9b9a-f3b56cd97424@oracle.com>
+ <CAPhsuW4ct6W_4B0LFEjLePH1pAeNm4h8ePuQ3HcSoknXhQWN0w@mail.gmail.com>
+ <mb61p1pw21f0v.fsf@kernel.org>
+ <CAPhsuW5VCmuPLd8wwzBp_Divnu=uaZQcrRLsjsEOJ9GmA0TR5A@mail.gmail.com>
+ <mb61pseoiz1cq.fsf@kernel.org>
+ <CAPhsuW7bo4efVYb8uPkQ1v9TE95_CQ6+G3q4kVyt-8g-3JD6Cw@mail.gmail.com>
+Date: Thu, 13 Feb 2025 22:21:56 +0000
+Message-ID: <mb61pr0411o57.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_221728_107542_DBD5CD1A 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_222219_983363_ADE97728 
+X-CRM114-Status: GOOD (  17.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,104 +99,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When booting SM1 or G12A boards without a dislay attached to HDMI,
-the kernel shows the following warning:
+--=-=-=
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-[CRTC:46:meson_crtc] vblank wait timed out
-WARNING: CPU: 2 PID: 265 at drivers/gpu/drm/drm_atomic_helper.c:1682 drm_atomic_helper_wait_for_vblanks.part.0+0x240/0x264
-CPU: 2 UID: 0 PID: 265 Comm: setfont Tainted: G         C
-Tainted: [C]=CRAP
-pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-pc : drm_atomic_helper_wait_for_vblanks.part.0+0x240/0x264
-lr : drm_atomic_helper_wait_for_vblanks.part.0+0x240/0x264
-Call trace:
- drm_atomic_helper_wait_for_vblanks.part.0+0x240/0x264
- drm_atomic_helper_commit_tail_rpm+0x84/0xa0
- commit_tail+0xa4/0x18c
- drm_atomic_helper_commit+0x164/0x178
- drm_atomic_commit+0xb4/0xec
- drm_client_modeset_commit_atomic+0x210/0x270
- drm_client_modeset_commit_locked+0x5c/0x188
- drm_fb_helper_pan_display+0xb8/0x1d4
- fb_pan_display+0x7c/0x120
- bit_update_start+0x20/0x48
- fbcon_switch+0x418/0x54c
- el0t_64_sync+0x194/0x198
+Song Liu <song@kernel.org> writes:
 
-This happens when the kernel disables the unused clocks.
-Sometimes this causes the boot to hang.
+> On Thu, Feb 13, 2025 at 12:38=E2=80=AFAM Puranjay Mohan <puranjay@kernel.=
+org> wrote:
+> [...]
+>>
+>> P.S. - The livepatch doesn't have copy_process() but only copy_signal(),
+>> yours had copy_process() somehow.
+>
+> In my build, copy_signal is inlined to copy_process, unless I add noinlin=
+e.
+> If I do add noinline, the issue will not reproduce.
+>
+> I tried more combinations. The issue doesn't reproduce if I either
+> 1) add noinline to copy_signal, so we are not patching the whole
+>    copy_process function;
+> or
+> 2) Switch compiler from gcc 14.2.1 to gcc 11.5.0.
+>
+> So it appears something in gcc 14.2.1 is causing live patch to fail
+> for copy_process().
 
-By (re)adding the flag CLK_IGNORE_UNUSED to the VCLK2 clocks, these
-clocks will not be disabled.
+So, can you test your RFC set (without SFRAME) with gcc 14.2.1, so we
+can be sure that it is not a sframe problem?
 
-This partially reverts commit b70cb1a21a54 ("clk: meson: g12a:
-make VCLK2 and ENCL clock path configurable by CCF").
+And about having the .sframe section in the livepatch module, I realised
+that this set doesn't include support for reading/using sframe data from
+any module(livepatches included), so the patch I added for generating
+.sframe in kpatch is irrelevant because it is a no-op with the current setu=
+p.
 
-Fixes: b70cb1a21a54 ("clk: meson: g12a: make VCLK2 and ENCL clock path configurable by CCF").
-Signed-off-by: Martijn van Deventer <linux@martijnvandeventer.nl>
----
- drivers/clk/meson/g12a.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Thanks,
+Puranjay
 
-diff --git a/drivers/clk/meson/g12a.c b/drivers/clk/meson/g12a.c
-index cfffd434e998..1651898658f5 100644
---- a/drivers/clk/meson/g12a.c
-+++ b/drivers/clk/meson/g12a.c
-@@ -3234,7 +3234,7 @@ static struct clk_regmap g12a_vclk2_div = {
- 			&g12a_vclk2_input.hw
- 		},
- 		.num_parents = 1,
--		.flags = CLK_SET_RATE_GATE,
-+		.flags = CLK_SET_RATE_GATE | CLK_IGNORE_UNUSED,
- 	},
- };
- 
-@@ -3270,7 +3270,7 @@ static struct clk_regmap g12a_vclk2 = {
- 		.ops = &meson_vclk_gate_ops,
- 		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2_div.hw },
- 		.num_parents = 1,
--		.flags = CLK_SET_RATE_PARENT,
-+		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
- 	},
- };
- 
-@@ -3354,7 +3354,7 @@ static struct clk_regmap g12a_vclk2_div1 = {
- 		.ops = &clk_regmap_gate_ops,
- 		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2.hw },
- 		.num_parents = 1,
--		.flags = CLK_SET_RATE_PARENT,
-+		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
- 	},
- };
- 
-@@ -3368,7 +3368,7 @@ static struct clk_regmap g12a_vclk2_div2_en = {
- 		.ops = &clk_regmap_gate_ops,
- 		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2.hw },
- 		.num_parents = 1,
--		.flags = CLK_SET_RATE_PARENT,
-+		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
- 	},
- };
- 
-@@ -3382,7 +3382,7 @@ static struct clk_regmap g12a_vclk2_div4_en = {
- 		.ops = &clk_regmap_gate_ops,
- 		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2.hw },
- 		.num_parents = 1,
--		.flags = CLK_SET_RATE_PARENT,
-+		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
- 	},
- };
- 
-@@ -3396,7 +3396,7 @@ static struct clk_regmap g12a_vclk2_div6_en = {
- 		.ops = &clk_regmap_gate_ops,
- 		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2.hw },
- 		.num_parents = 1,
--		.flags = CLK_SET_RATE_PARENT,
-+		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
- 	},
- };
- 
--- 
-2.39.2
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iIoEARYKADIWIQQ3wHGvVs/5bdl78BKwwPkjG3B2nQUCZ65whhQccHVyYW5qYXlA
+a2VybmVsLm9yZwAKCRCwwPkjG3B2nXWqAP9pVx9qJCjxq8KKmY3TYqtRawZ5avzZ
+L9AnG4+ojKoTFgEAjMbsGnNIDh7r5dpbZs7ds6oAq67Xuxw73oRLsXNrrgY=
+=wSlN
+-----END PGP SIGNATURE-----
+--=-=-=--
 
