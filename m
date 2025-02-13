@@ -4,161 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C90C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 02:26:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40D55C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 02:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZAwP6Xb0l5JsF/9QVjiIi2+DCiG65XZXDwLGoGDyRjw=; b=nCHWGZszBI/iRrTaey3h9K9zXI
-	Qp4K7TF4DMLc2piQ5cB2Tb8gHw0N3uIYIHJvmPOw4QRJrxK6tmGmDaefSQokp/x3AmwaRqL4V8OQz
-	qLPgwe/kQSGTK/MJLxrALdgkAyGUWm20YedVpwZUeo85a2cVJ489JlpVfQLRw0Bx4PfShIVLivzQ7
-	acHz83wt7GxCMRVKJH2Crj0EPFqNb2zdfee5cVLck+4SACADU8OTzg/pwgyWAyVb7lIH5MXD/br30
-	f2toGXcTgIHpjVWzi/cr5QPSKtvVLFSwYnl/E4yPFDzLhOpDNHSiuCnGBAYYoeS1A33eZwg8gz4bt
-	Pdux3thA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wo0OK5LTMnsjMDqlKAoENLpROI8KX8oY57z5Psg2ZLI=; b=eo3kypOqxCEpJonbF6mA2yScJv
+	cJVw+N5T9LgtBVpeVpDAVlko3i+5ndfogN/MRWltnItQntkvZy8qqwXOdx5CUMIfBI+QZkWyCQ6E3
+	oAyNSOlDDkollTU1kxU8UIPvFdw0jBb+LGgeILucjcu+p7wXqtogGBPgheX5E6IYw32+ggXpDghAx
+	3dyKPx8xY2GpA0srvLFWW1JEih5H1odusXk09sXIIkV+aK49MByD5c0vA9j8KN9VgxZO5xd9Ahyid
+	zMKXKaEW+TZQqMOlrOq3go/0cAZKBuqSYPpihIKefgYE89s5NO12lYMKOaodzkYOAvC+AUk6Nax15
+	GpYZ2sYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiOvH-00000009VVG-3MUW;
-	Thu, 13 Feb 2025 02:25:51 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1tiP6o-00000009WXm-2W5U;
+	Thu, 13 Feb 2025 02:37:46 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiOtq-00000009VK7-0XY4
+	id 1tiP5N-00000009WQK-2R96
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 02:24:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CbfE4of/JKrxPWoZu/3gecX9REGin8/vXwgkT0SFEXN/ATz+K66SLExPhmRSNh41zrS3f4TtMBqeLtW9HFo7q8d/JtTuwuHxnhbY7tGrDya6MWNMsJ8Uww7coFPyfbkNpPdMmooL3CGU/HLSFldesllZghzRZJ8K562Z1Wzs9rkixc6sR893PoZ/Zcw0bvGWZuW+yGEh+z4hTIOlohtZF7JWfOlfnbncRp4qRHDH8pbH779gndU1jBrQdt0WvLvkq3sGsyN5yccch4pMNI++j9GmOrPqp4Ro0UEi1oKh6kiO/2BtFN45c17iRPHXBn4zZRSQNUhgnKyUNTcwaKuscg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZAwP6Xb0l5JsF/9QVjiIi2+DCiG65XZXDwLGoGDyRjw=;
- b=xdmf9/TKhdJ91AhgF1oggL/VGN2wT9+VnbC0manpuWLNG+BYpoSD9sLKtJY0tor6GhFeVjCt6Q5zIx9C21LgJwlzufnUSFs2rlT80cCZjyKjEa1DBzDpV82RHHShDxyl5uFCLi/P6QyHA/d7SSsBrBuY7K17YeKX18KSMTZy20HeSpR7nNn7YHmTKsppxUmE0lQEEeoYsPXoDF/mcxtGYYRSqcoJjrDJXRI0qU2p6qq9D1pvLCBuIB6VXSelrWUgzU0QlxGJEe+CH4ca+Vos3kDVFTnWNH5Co22xnxYWTUneQoWZm9A9xdKwIW/NLRyyZ+s+K/o87AMle0JyFsFzhQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZAwP6Xb0l5JsF/9QVjiIi2+DCiG65XZXDwLGoGDyRjw=;
- b=JkEgpjRpbytDFjccPQNRNaoACU4WFI2MS1ho/zwJKkDkQjjMtxOx9UIPjbqXQyX8TxV1p9h0Hsx06/FPi9Cvte30PB2B+cumqJF6GIeRnPHcBHPvaMrEKnjDH6d7PJJUTGa2aE0NhQzzlufZHMI9H4Uj8ODziH5vDBh0QRs3AiUfm7KbDvZRbkNzEmzxI0qqaIcCqIJD66lmCO1GWhqZApYfi6FoB+oRY74OWCwYoChrisiIIS6vq/C8n9i+kj4rGdgzYAm5uhCDNCR8IqWd3eXC+EnCVLwTWxbsErY9waqkGZm1yYvGZ4/I9TVEAqa51r0Gj72qTPdN2qunYFvf8w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS8PR04MB9094.eurprd04.prod.outlook.com (2603:10a6:20b:445::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.13; Thu, 13 Feb
- 2025 02:24:13 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8445.008; Thu, 13 Feb 2025
- 02:24:13 +0000
-Date: Thu, 13 Feb 2025 11:30:33 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Peng Fan <peng.fan@nxp.com>,
-	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-rtc@vger.kernel.org" <linux-rtc@vger.kernel.org>
-Subject: Re: [PATCH 0/4] rtc/scmi: Support multiple RTCs
-Message-ID: <20250213033033.GA21937@localhost.localdomain>
-References: <20250120-rtc-v1-0-08c50830bac9@nxp.com>
- <20250120102117538ef59b@mail.local>
- <PAXPR04MB8459968DFDE5979802CC034A88E62@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <Z6uCCeG2d395ZGDS@bogus>
- <20250212063532.GB15796@localhost.localdomain>
- <Z6x7TBSjBFBxGo77@bogus>
- <20250212170147ee6863dc@mail.local>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250212170147ee6863dc@mail.local>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SG2PR06CA0208.apcprd06.prod.outlook.com
- (2603:1096:4:68::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Thu, 13 Feb 2025 02:36:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 683F6A40B5C
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 02:34:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BA4CC4CEEB
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 02:36:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739414176;
+	bh=0LZA3Dk55GU/mf3dBAZucD5FmCQnUrHzHQPxy4DxLvM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=fU/py2/5/h+YyeBZn5j1I1ZBMYdx/6oLJF2ObEFygqJQh8iQMr+Vgg+BCDFwnOOgN
+	 j2SkOOTAr2/83vJHgknyrHpTYCUO7U2iRh+kYgGI5MzV2A2S+YNaolIktx2tB4Fyga
+	 RkGbAmvbgeZ81HcwDWfAC7TCmAcWIoNCysXxk19Td0tTEiOc81OOwQ+8uGeCBIq8UQ
+	 cvBs0uEhvvhX2ZkL9rbmY4vk9nUvuPS+ApGZehNtEztmwfS5Mp2Kf+vsrO2MbsYV72
+	 GYc8roUFK8po3YRKD2YfLDw0NOHPPzUiWUKL/a/aPBsJPvM3PKJ9fuPRvqxPhA5C5J
+	 iUJNvJndHicmw==
+Received: by mail-io1-f41.google.com with SMTP id ca18e2360f4ac-85521efa9b5so8318239f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 18:36:16 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXZ4BfCVt9ALcg4PDmZi00SIeje7pJhnhJqvbOWC0RuHemDvE8ZFDTWoJdoKreqX8GjHIRcSMtw2KkMKPOzp22x@lists.infradead.org
+X-Gm-Message-State: AOJu0YyD4kJQl6Lvc0gQygKTdEJKXrVDG4XgOin5FqStH/HKbD6dgb32
+	cIIDdgMXQjZyAUOrUu0rjQRsMixhb/kVrIFFuQ/cwprLg5fWr6H6yp5FuNb6gq+ESJYr8L1NFSY
+	tBEaRY/+1X1FBpzoQ+wHUq6TXkn8=
+X-Google-Smtp-Source: AGHT+IGDj2J0OHevO8QEQS0jvMevG6UrVBK1iAId7Z2DfMKsGXl46gboSFwpFlNNcT0VV1oo2M+dSTTrNrkg2Qwl3Gc=
+X-Received: by 2002:a05:6e02:2145:b0:3d0:235b:4810 with SMTP id
+ e9e14a558f8ab-3d17bdfa664mr53584585ab.2.1739414175488; Wed, 12 Feb 2025
+ 18:36:15 -0800 (PST)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB9094:EE_
-X-MS-Office365-Filtering-Correlation-Id: c39ab9fe-e8e0-489a-ae77-08dd4bd581a1
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Bc5g9eShzBa3okscf5rVFPkAX9/ahdvViTFxpr53hvUidaFugd4fN/XCP3X+?=
- =?us-ascii?Q?b+yVlvF0bru2a5KDCwo1ybBo1M0ouVNKX7iwQ+nvArP1v+d8Um3mO2rgwjlO?=
- =?us-ascii?Q?eXTiJTpRWUArfYth5ndkL0W0J6gEtmyiz3eZbyOT8rvRnEU90URYQ1n7aRCA?=
- =?us-ascii?Q?Q70OlldZ5PaGB6UN8wMKqOPZRzRxfzo7nIu76dq5HHG2+pLwySpb3WeohUDK?=
- =?us-ascii?Q?0zSYy5dGrL++mts+I5vhmaP0eVcjev3vyQlFAQDKswwLQ8+SWBZO7lJr68/O?=
- =?us-ascii?Q?j/NNw6o4omxAdonLDmgwDVdQiz7arkmmg3onOH2YI/oPPK1218bUPj3dP4m7?=
- =?us-ascii?Q?v5TbmqeyiQth0V2EPXsFIQ8QQ0iUMGjbFZUR0EFXtu+OT0dltsvxpTn0aXQR?=
- =?us-ascii?Q?NnPsOdhpON7OG6Q3qSaAHPsMdx0o5RDv5KiqT4Lm5rNGHKBvJCE1fYN2CXYh?=
- =?us-ascii?Q?a7e1z+S0mGLKN85MBNu2FtAN0B34kHUZz0PmQkH8H8hQBJcQr/iFOGbMPi5P?=
- =?us-ascii?Q?ONVB8f+x1DPzki0pFsOA6TsTrAwriSDZodun0tb5BrJDwmS1iJYtzvqEO8rt?=
- =?us-ascii?Q?MG9KYRVB6cq6oMt89a2hs9ahOYSu3mgdfmaWxgg3THYaQNeEndx4p2gJfiP9?=
- =?us-ascii?Q?Jfv/3+vOHC4p6kZvH6bh+rgjVaHPojDpJp4rlUJ9hft8dZz78svc+XaEZPGI?=
- =?us-ascii?Q?dewYu+WHLGnAc7i42TOZ7cMyqLZwqhCHJGqlZyz4w6Cv27UpIOR6x+BQ0PPO?=
- =?us-ascii?Q?GCvHuWkfbqYLzqWThazwpRPyGKc0+dAoldsyczTujn7wxOqpZm3NfwaUghfL?=
- =?us-ascii?Q?/XX8XMzyowg3nVnuGprhmRNZLkkVX3FZgYu/TyiRQpyS+WEhuru3kcUplMgX?=
- =?us-ascii?Q?1eo2PJGC2vsyD3DmuXq2rpnr3pCT2Ln4hcN0vFjl05/yyqvO3dhuCmcH2b90?=
- =?us-ascii?Q?aXEyTbPV5GwVtsukQHf0Ja5e++HDmGXhDrvIHCRXNq8uO2cxuEljsaOVsGIE?=
- =?us-ascii?Q?vwle4PTEHDMjZcWOJg4dydRnAUpMnr/Ac3c2GdlC3zwy4QLhvkz/PSYK5wlt?=
- =?us-ascii?Q?zZNLuTeUwJNPS6i27S53Cs0x7X5BeT9X1D0SMGDHHW8l6x3/PdpYgBoTSorq?=
- =?us-ascii?Q?ND1L76dAI/hhyZLG47mdcXXbGNk7jUAsJq0htg4AH3tiyujqDg5C2CXTOfP+?=
- =?us-ascii?Q?KM7W/3UjCnZ0GDW2s5wRKbbAXv7v4aNw4J3NATPVijFpUpGWVS9FOrN9CKov?=
- =?us-ascii?Q?QF/pI6lpwrQlqvigudRYGAatWe9DTvR9VzOcX2HEUCvj4kTa4ev2iy7HQ66o?=
- =?us-ascii?Q?8YMyG5LY0c5mjJkuuQCcIC0ouXEn7jUmbJqCNAnJlLQh0ey9qKBzdvOYfe/y?=
- =?us-ascii?Q?6xQ8Rg6hc0mATg6ll+i/PS3bR3Vi?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hHgTjS64/EddcRzpEbyGjB4r2oBTJJhA2MCpoTZLyWZFYyEuVYlJDjHwly6D?=
- =?us-ascii?Q?8zHoIZBlnYjaMFh6IXTYlzDpc6NX1R7MaWwZCh2dKGZYo2y+Xmsal/oEcfhC?=
- =?us-ascii?Q?t6onpzB9WB5MbIi4wC/SaLtibu7XGBfwfKjJGq/3FxtT4TyZtQNk6WTP+zWA?=
- =?us-ascii?Q?QKo5GBombq7vQhvSGzK/TUSEbXffPSi9x17ER4/W54vvejZMIYPv+SuoK4zy?=
- =?us-ascii?Q?NUv0TRRG/GXJEJGCuO/ylgfpAIqjvUb3AoRbhMM9BULvfHrwaAKhfg9G5jqN?=
- =?us-ascii?Q?PBi1LfX8QCJpjXPw85Dy8qIMqGgReS2U7JGSxtcRaxVGwzhKJjdk64mcrcGv?=
- =?us-ascii?Q?7Q4dQRkwuLc/962VBPKgJrv1P+oExLtLeYkDenOjJlnITfD8PJFVTJq+9/vx?=
- =?us-ascii?Q?GcoJBqbM5A6rkTX30/11uBdIhnnOVJrTgyZKlMnp38CeC2ZMz4ehsyBkyHjX?=
- =?us-ascii?Q?kJlV8Svbe/Ezb2E9LgQ9XzImUxl8iwyxcjcR3u/ne5TnUwJvrZ2U/UzVyXe2?=
- =?us-ascii?Q?tjGaq/OLyCLhjcxu7ohrUuY3F+ZVIY/dm8tu7psMszll3Jv5UXwNocT2Ttwk?=
- =?us-ascii?Q?OZrxaeSXDF958gDOj/fvYszs0Tujj5Vc0LlDKGYKQ3J27OrvnhZtYah8YLGY?=
- =?us-ascii?Q?LFbJ+Z+145qCsULyuVcBj7RUIfaNjXSei8GyhizmVclDm7z2zeQJlJhuawzl?=
- =?us-ascii?Q?hS5OqxFKB3MA8P/k5jqi7TfxcjAyoutDOnoZTc4XKE2TJScQJeuJE6+iUPyf?=
- =?us-ascii?Q?3i9YfOWPfx0m2epttDAOdox+qYtZaGXA+BP5NJlz5YkS1b8asR5S1KjUOsBv?=
- =?us-ascii?Q?SKpd7Rxth6yi9q9KyiNJPd9gM3Z0F3teUip5pm1Duk2pQYGnzjonXrDxU7+w?=
- =?us-ascii?Q?zMwHDrp7RvOn4CFUCA8ehzWchiBPJA5hurZ7IwMAx2xVNqpn9hlLfbTAbw6e?=
- =?us-ascii?Q?Rt54j5SCcGO1D98G9TeMAwM23hi5ei+BYBz6a4Q3zSfxNejRY9L2ixGhZwLH?=
- =?us-ascii?Q?vKUbQ/8OrrSjCQ8xpFt1ML+cam/+8w61Tm9+9f2c/zqGp5WoAl/3z6FNCmJt?=
- =?us-ascii?Q?9QVXmfnVlFaKTmwPdORZA1A04YDMajUkE4A4eoFWWSqNhLQ3LfMU5LUakl6m?=
- =?us-ascii?Q?ZJypxPhhdJPb3sX4oAkO43mmd0/epJRrN1iefGte60Io5SP/x8EdYEs7a+Lu?=
- =?us-ascii?Q?i2XOXHfiXePHLr8ddG/5GZwJUv2tcs2VUAwqEOucCv1YwBmuub9Y90BEoe6p?=
- =?us-ascii?Q?WUTsT95GtbgoMyCjuJXL80ri41icGmKlEoyPftbPyvzYFav719KcOVELzDKg?=
- =?us-ascii?Q?u3ovF1vmpHdOiuDBch9KfjKe+QtG/oDvBX0F7uduttejPxxbeb/L3zRwKpKQ?=
- =?us-ascii?Q?vHiCoefQe1EgA6FKwiFKzhmcteX4Qu4818ySdFtASX3okcYIqpgA5RMUD9T9?=
- =?us-ascii?Q?q856HOSpMMZWOMEleOfpBrx6i7Wunv1OwBoA4IRObL8co2oV5giH6dzuXi1U?=
- =?us-ascii?Q?gworR6jPEehfoTl14K6DM+l7c67wSc/HK67cH13gvQyDIqea5JGJN4soMpTi?=
- =?us-ascii?Q?paE0HeWQsBJoL6rf44aphbHe+w03Ifjt6rjNxhlG?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c39ab9fe-e8e0-489a-ae77-08dd4bd581a1
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Feb 2025 02:24:13.4206
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: m7x9b/GKMEwwIzFozaD0IRKiD/Bt+aJ1qNb+0lcZivoYGjV5cd/BaymJQuLFYbYhvy0HiyqZHL8CoAfAgK6lXA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9094
+References: <20250127213310.2496133-1-wnliu@google.com> <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
+ <20250212234946.yuskayyu4gx3ul7m@jpoimboe>
+In-Reply-To: <20250212234946.yuskayyu4gx3ul7m@jpoimboe>
+From: Song Liu <song@kernel.org>
+Date: Wed, 12 Feb 2025 18:36:04 -0800
+X-Gmail-Original-Message-ID: <CAPhsuW5TeMXi_Mn8+jR9Qoa=rAWasMo7M3Hs=im6NT6=+CrxqA@mail.gmail.com>
+X-Gm-Features: AWEUYZndb8uVj1ZCPeY1y41WIbcZA7aFbamgt0wsHnDo-n41aP3_D4efD7B1YYo
+Message-ID: <CAPhsuW5TeMXi_Mn8+jR9Qoa=rAWasMo7M3Hs=im6NT6=+CrxqA@mail.gmail.com>
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+To: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: Weinan Liu <wnliu@google.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Indu Bhagat <indu.bhagat@oracle.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
+	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
+	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org, 
+	Puranjay Mohan <puranjay@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_182422_193575_29ECC89F 
-X-CRM114-Status: GOOD (  28.11  )
+X-CRM114-CacheID: sfid-20250212_183617_781437_EB97A65C 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,79 +89,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 06:01:47PM +0100, Alexandre Belloni wrote:
->On 12/02/2025 10:43:24+0000, Sudeep Holla wrote:
->> On Wed, Feb 12, 2025 at 02:35:32PM +0800, Peng Fan wrote:
->> > On Tue, Feb 11, 2025 at 04:59:53PM +0000, Sudeep Holla wrote:
->> > >On Tue, Jan 21, 2025 at 02:31:55PM +0000, Peng Fan wrote:
->> > >> 
->> > >> It is the i.MX SCMI Protocol exports two RTCs using one protocol.
->> > >> 
->> > >> Two RTC devices are created, but share one parent device.
->> > >> 
->> > >> Do you mean each RTC device should have a unique parent device?
->> > >>
->> > >
->> > >Can you point where is this check for unique parent ? I am not so familiar
->> > >with RTC but I couldn't find myself with quick search.
->> > 
->> > The RTC ops takes the rtc parent as input parameter
->> > https://elixir.bootlin.com/linux/v6.13.2/source/drivers/rtc/interface.c#L94
->> > "err = rtc->ops->read_time(rtc->dev.parent, tm);"
->> > 
->> > So in the rtc device driver, there is no way to know which rtc it is just
->> > from the parent device.
->> >
->> 
->> If that is the expectation, you could create a platform or normal device
->> per instance of RTC on your platform and slap them as parent device.
-
-thanks for the proposal, Sudeep.
-
+On Wed, Feb 12, 2025 at 3:49=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.org=
+> wrote:
 >
->This would seem like the proper solution, why not using an MFD or
->auxiliary bus ?
-
-Not sure which is better. I need give a look which is simpiler
-for current BBM RTC.
-
+> On Wed, Feb 12, 2025 at 03:32:40PM -0800, Song Liu wrote:
+> > [   81.250437] ------------[ cut here ]------------
+> > [   81.250818] refcount_t: saturated; leaking memory.
+> > [   81.251201] WARNING: CPU: 0 PID: 95 at lib/refcount.c:22
+> > refcount_warn_saturate+0x6c/0x140
+> > [   81.251841] Modules linked in: livepatch_special_static(OEK)
+> > [   81.252277] CPU: 0 UID: 0 PID: 95 Comm: bash Tainted: G
+> > OE K    6.13.2-00321-g52d2813b4b07 #49
+> > [   81.253003] Tainted: [O]=3DOOT_MODULE, [E]=3DUNSIGNED_MODULE, [K]=3D=
+LIVEPATCH
+> > [   81.253503] Hardware name: linux,dummy-virt (DT)
+> > [   81.253856] pstate: 634000c5 (nZCv daIF +PAN -UAO +TCO +DIT -SSBS BT=
+YPE=3D--)
+> > [   81.254383] pc : refcount_warn_saturate+0x6c/0x140
+> > [   81.254748] lr : refcount_warn_saturate+0x6c/0x140
+> > [   81.255114] sp : ffff800085a6fc00
+> > [   81.255371] x29: ffff800085a6fc00 x28: 0000000001200000 x27: ffff000=
+0c2966180
+> > [   81.255918] x26: 0000000000000000 x25: ffff8000829c0000 x24: ffff000=
+0c2e9b608
+> > [   81.256462] x23: ffff800083351000 x22: ffff0000c2e9af80 x21: ffff000=
+0c062e140
+> > [   81.257006] x20: ffff0000c1c10c00 x19: ffff800085a6fd80 x18: fffffff=
+fffffffff
+> > [   81.257544] x17: 0000000000000001 x16: ffffffffffffffff x15: 0000000=
+000000006
+> > [   81.258083] x14: 0000000000000000 x13: 2e79726f6d656d20 x12: 676e696=
+b61656c20
+> > [   81.258625] x11: ffff8000829f7d70 x10: 0000000000000147 x9 : ffff800=
+0801546b4
+> > [   81.259165] x8 : 00000000fffeffff x7 : 00000000ffff0000 x6 : ffff800=
+082f77d70
+> > [   81.259709] x5 : 80000000ffff0000 x4 : 0000000000000000 x3 : 0000000=
+000000001
+> > [   81.260257] x2 : ffff8000829f7a88 x1 : ffff8000829f7a88 x0 : 0000000=
+000000026
+> > [   81.260824] Call trace:
+> > [   81.261015]  refcount_warn_saturate+0x6c/0x140 (P)
+> > [   81.261387]  __refcount_add.constprop.0+0x60/0x70
+> > [   81.261748]  copy_process+0xfdc/0xfd58 [livepatch_special_static]
 >
->> 
->> IIUC on any pure DT based system, a device node exists per RTC and hence
->> platform device associated with it. And the RTC devices are created with
->> parent pointing to unique platform device.
->> 
->> > However i.MX SCMI BBM exports two RTCs(id: 0, id: 1), so to make it work for
->> > current RTC framework, we could only pick one RTC and pass the id to BBM
->> > server side.
->> >
->> > I am not sure whether Alexandre wanna me to update the code following each
->> > parent could only support one RTC or else.
->> >
+> Does that copy_process+0xfdc/0xfd58 resolve to this line in
+> copy_process()?
 >
->I want you to keep your changes local to your driver. I already stated
->back in 2018 that you were on your own with the imx-sc driver and that I
->don't like seeing multiple abstractions for existing RTCs. What is the
->actual use case behind needing to access both RTCs using Linux?
->Shouldn't this be handled on your firmware side?
+>                         refcount_inc(&current->signal->sigcnt);
+>
+> Maybe the klp rela reference to 'current' is bogus, or resolving to the
+> wrong address somehow?
 
-The firmware exports two RTCs, RTC0 could be handled by Linux, RTC1
-could only be read by Linux and configuable by M7 per current i.MX95 EVK
-firmware.
+It resolves the following line.
 
-The firmware itself does not serve Linux. And we not know others
-how to use the protocol. So the firmware will not be updated for only
-Linux.
+p->signal->tty =3D tty_kref_get(current->signal->tty);
 
-I got your point to keep changes local to the rtc bbm driver, I will
-give a look on how to achieve this.
+I am not quite sure how 'current' should be resolved.
+
+The size of copy_process (0xfd58) is wrong. It is only about
+5.5kB in size. Also, the copy_process function in the .ko file
+looks very broken. I will try a few more things.
 
 Thanks,
-Peng
->
->
->-- 
->Alexandre Belloni, co-owner and COO, Bootlin
->Embedded Linux and Kernel engineering
->https://bootlin.com
+Song
 
