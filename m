@@ -4,64 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F18C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 13:44:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B153FC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 13:46:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Cm7XKVhBb29N/0ZGLeQV/Hvrssux+61wOZwuTX8KNK4=; b=S+KlrFBFRfAN1i
-	+bIXizzvk5C38r0bQiwed7/mr/h/pgvKg7KHsV+F1Uzk8vfs+pjTsdQCDD92AqmH1BpUSKxmBvBb5
-	GALibsZY6kgBOqLIQb5QImQVGTAf3M9gDJP0tlTFKg3b44v1yCshYzhG/WTwk4IDdGUYR4wl3zKOd
-	+ToUj8xsYHbBxOQoNQw4lqU3le5REmvr9BBHWJcD/QmaJjufsJHmVDulrgQzK+FXSHsyibr4qDXwR
-	zQVx9oHLjtncLGXRN0GvzZlyAiPn7IbYlQ4rra6V9Xk9sKDVpNZSIkxV7MHxGU2hSX9W5JCKk88+w
-	H6jxsk5iaVA5VYBE7cIw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=Cr1W+A1j9eKhEIpkh0PbU+eTR3PGjKL2Pnrw2rmrfgw=; b=pg+XwYTiItigKB
+	yYen2WsDgf9t9BHRd2s4NQc+D5HNVhzfz9MinyuSfa5uo5eJfXdsI76D86XmmPgz4nlSy3uZqfzjK
+	5kL4h5YUugsFsiIq0SmWybIYJqdHwgx5IZS7poz0NjoQKJudfoKA1qOLdNKGFWWGAi7z0/7NyUyox
+	I5GNJhrx9imPdgbRiBcynGRhzsnh27eFoxKYvCVRiN7Xu81QRqpVXbokDJO2OealdNN7TX2+JvHaR
+	3Enz/6OUCCwowY+g5nCq1CLAg945An0LyoFL8c//eOt+EgVq4/aehmiUFM4JpTI8FkCwrYb3IkXKS
+	ApEatcivwtqJtxRC0d+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZW0-0000000BBYx-2bZz;
-	Thu, 13 Feb 2025 13:44:28 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1tiZXQ-0000000BBsB-11Qi;
+	Thu, 13 Feb 2025 13:45:56 +0000
+Received: from [203.254.224.25] (helo=mailout2.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZUZ-0000000BBKc-1AsH
+	id 1tiZUr-0000000BBL6-2LoZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 13:43:01 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0135D440EA;
-	Thu, 13 Feb 2025 13:42:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739454176;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Cm7XKVhBb29N/0ZGLeQV/Hvrssux+61wOZwuTX8KNK4=;
-	b=UsNJuD4XUBmjbgOSrbOsnmXWQjngrRl3HCRZ4AFsbr040l7wQWhGBAYM7ugvSPztEr404y
-	sG3AFOT35aee2kcyCcGkHVWHvDWLTMCVNE1ns8zVCQGnoWl+B0uAw9DpcqVXoo8ozUa6si
-	Jc1gBNVMH0/VFFCz0Rc0+nv4h3ejj3J77wPfgd91fgRYEn0cW0GJg3vXPzj0WO6lJY+UZm
-	MKNeonZzYcSWALUPCOm72eXlzDqM5xYBRM5AYeUyc7A4m5+2STYJhBFkV2mbfyCWgkViuB
-	ldlZfjaFDZunxqzdFCss+IKKZ0vP6wZ8nca4IX8LtwynwYIhz4hzGXWu5iWmbg==
-Message-ID: <64ec49f2-8c3b-4642-a910-32a656095c68@bootlin.com>
-Date: Thu, 13 Feb 2025 14:42:54 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] serial: mctrl_gpio: add parameter to skip sync
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-References: <20250213-atomic_sleep_mctrl_serial_gpio-v1-1-201ee6a148ad@bootlin.com>
- <2025021347-cling-smoked-9f28@gregkh>
-Content-Language: en-US
-From: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-In-Reply-To: <2025021347-cling-smoked-9f28@gregkh>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegieelvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepvdetteektdehudelheehkeeggfejgfelveevgeevtdejudfgveetgefhtdduuedtnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopegludelvddrudeikedrtddrvddungdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudekpdhrtghpthhtohepghhrvghgkhhhsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtohepjhhirhhishhlrggshieskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhitghhrghrugdrghgvnhhouhgusegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhhitgholhgrshdrfhgvrhhrvgesmhhitghro
- hgthhhiphdrtghomhdprhgtphhtthhopegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheptghlrghuughiuhdrsggviihnvggrsehtuhigohhnrdguvghvpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsrdhhrghuvghrsehpvghnghhuthhrohhnihigrdguvg
-X-GND-Sasl: alexis.lothore@bootlin.com
+	Thu, 13 Feb 2025 13:43:21 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250213134310epoutp02d96cbab914bf91e384279995a37b8cc5~jyF6086DK1453114531epoutp02X
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 13:43:10 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250213134310epoutp02d96cbab914bf91e384279995a37b8cc5~jyF6086DK1453114531epoutp02X
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1739454190;
+	bh=Cr1W+A1j9eKhEIpkh0PbU+eTR3PGjKL2Pnrw2rmrfgw=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=Fu99oUMSsPLDHN9WJPdT5aF+eIchVr0EHm8C4qVuhm3/UGEy3jE708CTGOU/ClYrk
+	 64tgJ+gCsuZUz8KvfZCSQ2yM+pWxTvv9MVkIxI7eLX63NDq1+Gl0JSDHjXZ4RnnHhY
+	 fs5TvWN30ceW2L44F7fruvf8q7f1vPx8SC/BsxW0=
+Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTP id
+	20250213134309epcas5p3649909ccba39f7b333257285fc35e5d4~jyF6Ldf5d0812908129epcas5p30;
+	Thu, 13 Feb 2025 13:43:09 +0000 (GMT)
+Received: from epsmgec5p1new.samsung.com (unknown [182.195.38.174]) by
+	epsnrtp1.localdomain (Postfix) with ESMTP id 4YtxG41MXTz4x9Ps; Thu, 13 Feb
+	2025 13:43:08 +0000 (GMT)
+Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
+	epsmgec5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	81.08.19710.CE6FDA76; Thu, 13 Feb 2025 22:43:08 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250213132731epcas5p44671005103247c9c8d82de4dfc81097d~jx4Qvh9sJ0970909709epcas5p41;
+	Thu, 13 Feb 2025 13:27:31 +0000 (GMT)
+Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250213132731epsmtrp2545a452aa4992565cdb85a3dd701ce37~jx4QtxdUW2782827828epsmtrp2d;
+	Thu, 13 Feb 2025 13:27:31 +0000 (GMT)
+X-AuditID: b6c32a44-36bdd70000004cfe-de-67adf6ecae95
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	08.58.18949.343FDA76; Thu, 13 Feb 2025 22:27:31 +0900 (KST)
+Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250213132729epsmtip1d130c10a8bb2ff3f0395988d728c1ff7~jx4OjkTTW0863808638epsmtip1-;
+	Thu, 13 Feb 2025 13:27:29 +0000 (GMT)
+From: Swathi K S <swathi.ks@samsung.com>
+To: krzk+dt@kernel.org, linux-fsd@tesla.com, robh@kernel.org,
+	conor+dt@kernel.org, richardcochran@gmail.com, alim.akhtar@samsung.com
+Cc: jayati.sahu@samsung.com, swathi.ks@samsung.com,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH v6 0/2] arm64: dts: fsd: Add Ethernet support for FSD SoC
+Date: Thu, 13 Feb 2025 18:53:26 +0530
+Message-Id: <20250213132328.4405-1-swathi.ks@samsung.com>
+X-Mailer: git-send-email 2.17.1
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFmphk+LIzCtJLcpLzFFi42LZdlhTQ/fNt7XpBg+Ps1o8mLeNzWLN3nNM
+	FvOPnGO1uHlgJ5PFkVNLmCxezrrHZrHp8TVWi4evwi0u75rDZjHj/D4mi2MLxCwWbf3CbvHw
+	wx52iyNnXjBb/N+zg93iy8ab7A4CHjtn3WX32LSqk81j85J6j74tqxg9/jXNZff4vEkugC0q
+	2yYjNTEltUghNS85PyUzL91WyTs43jne1MzAUNfQ0sJcSSEvMTfVVsnFJ0DXLTMH6GolhbLE
+	nFKgUEBicbGSvp1NUX5pSapCRn5xia1SakFKToFJgV5xYm5xaV66Xl5qiZWhgYGRKVBhQnbG
+	lu2TmQvWcldcP9jH1sC4hLOLkZNDQsBEYu+qryxdjFwcQgK7GSW+LvzJDOF8YpRonLeREcL5
+	xihx99RNRpiWo3/eQlXtZZR4/34xO4TzhVHixsr5rCBVbAIaEtdXbAdLiAi0MUoce9oI5jAL
+	XGaUWLrtFTNIlbCAp8Szvp1MIDaLgKrEiiVNYDavgKXEtN6XUPvkJVZvOAC2T0LgJ7tE05vl
+	rBAJF4n7V3ayQNjCEq+Ob2GHsKUkPr/bywZhx0us7rsKVZMhcffXRKi4vcSBK3OA4hxAF2lK
+	rN+lDxGWlZh6ah3YDcwCfBK9v58wQcR5JXbMg7GVJf6+vgY1UlJi29L3UGs9JHpXtjKCjBQS
+	iJU4dEB4AqPsLIQFCxgZVzFKphYU56anJpsWGOallsOjKjk/dxMjODlquexgvDH/n94hRiYO
+	xkOMEhzMSiK8EtPWpAvxpiRWVqUW5ccXleakFh9iNAUG2URmKdHkfGB6ziuJNzSxNDAxMzMz
+	sTQ2M1QS523e2ZIuJJCeWJKanZpakFoE08fEwSnVwHSWLz7oyYOg8utLD/26LMzG1Sdl9eCC
+	6OeOguN91rOnd71tnyZ2McTzflKa7ybnhf1t3t4Ppp04u+tji2hhvH9krsQJyR2Lwq1W7Gey
+	1u2x+vxBpz7onuNmp2PLjhaZt3O/2vOiWDvtZH+Z6PzfArX9J6Rs5u4/PfP1n+MbZjxjUbp8
+	t1+sbeqvxzp5HK/LAo+u4DZzPnh7KvtlnSNM2sXf+O93uuxznKZzZPWjzUKllyxSn/022t2b
+	Fy+1r3h27ocPN5SXtfu+vrfg38xukaW+i+X9UqVP8p14NL2/f1lFpslx+cAAjVOHV5/8HVO+
+	JF0w886GdxVz1Duz5xh/rOCwlvJfMomj0N4o8BWDxjslluKMREMt5qLiRAD6skt5FwQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrALMWRmVeSWpSXmKPExsWy7bCSnK7z57XpBu+mylk8mLeNzWLN3nNM
+	FvOPnGO1uHlgJ5PFkVNLmCxezrrHZrHp8TVWi4evwi0u75rDZjHj/D4mi2MLxCwWbf3CbvHw
+	wx52iyNnXjBb/N+zg93iy8ab7A4CHjtn3WX32LSqk81j85J6j74tqxg9/jXNZff4vEkugC2K
+	yyYlNSezLLVI3y6BK2PL9snMBWu5K64f7GNrYFzC2cXIySEhYCJx9M9b5i5GLg4hgd2MEt1r
+	XrNCJCQlPjVPhbKFJVb+e84OUfSJUeLrhsPsIAk2AQ2J6yu2gyVEBPoYJTZsb2UBcZgFbjJK
+	fFv/mBmkSljAU+JZ304mEJtFQFVixZImMJtXwFJiWu9LRogV8hKrNxxgnsDIs4CRYRWjZGpB
+	cW56brFhgVFearlecWJucWleul5yfu4mRnCgamntYNyz6oPeIUYmDsZDjBIczEoivBLT1qQL
+	8aYkVlalFuXHF5XmpBYfYpTmYFES5/32ujdFSCA9sSQ1OzW1ILUIJsvEwSnVwLSZJ9aQg8U/
+	oyxXe7qAe7f3fRUn35CMwIlfd016khJ5/vzEE5XbVT4q5b17eknXOOFaq7JAE//8TVIF+m93
+	Pb67LO7/OvvEDXPWORu+OBq1Rfnr3HlNkuIdDpWSq0Qi8xIuB3rK5bnt1llTkFBjnpo78c6r
+	PbvuTmFyWMbDOjd/0batbr1XorduKgyXfcG2K38G/z4lNWe5i9Pq4ldf/1Bqqc0dPbdks3VH
+	wcsJu/o/BW2xfj1rsUyd7ry/6+19Z0qfPpxdLLQgqbgrfMl8yc0rY3ZIvHuSuX/Gj1pPEaGT
+	93Jbj4vfUzv5/Vasxo1/K/l0Iu1PGm5g+KOQsuby9psdih79sTPXTT/LEcOX66rEUpyRaKjF
+	XFScCAA/jEe1wwIAAA==
+X-CMS-MailID: 20250213132731epcas5p44671005103247c9c8d82de4dfc81097d
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250213132731epcas5p44671005103247c9c8d82de4dfc81097d
+References: <CGME20250213132731epcas5p44671005103247c9c8d82de4dfc81097d@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_054259_809712_6180AAF1 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20250213_054318_281895_4F3BBC63 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,47 +130,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: imx@lists.linux.dev, Alexandre Belloni <alexandre.belloni@bootlin.com>, Fabio Estevam <festevam@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, Jiri Slaby <jirislaby@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, linux-stm32@st-md-mailman.stormreply.com, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org, Pengutronix Kernel Team <kernel@pengutronix.de>, linux-serial@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>, Richard Genoud <richard.genoud@bootlin.com>, linux-kernel@vger.kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Greg,
+FSD platform has two instances of EQoS IP, one is in FSYS0 block and
+another one is in PERIC block. This patch series add required DT file
+modifications for the same.
 
-On 2/13/25 10:58, Greg Kroah-Hartman wrote:
-> On Thu, Feb 13, 2025 at 09:25:04AM +0100, Alexis Lothoré wrote:
+Changes since v1:
+1. Addressed the format related corrections.
+2. Addressed the MAC address correction.
 
-[...]
+Changes since v2:
+1. Corrected intendation issues.
 
->> -	mctrl_gpio_disable_ms(up->gpios);
->> +	mctrl_gpio_disable_ms(up->gpios, false);
-> 
-> This a bad api.
-> 
-> When you read this line in the driver, do you know what "false" means
-> here?
-> 
-> Please make two functions, mctrl_gpio_disable_ms_sync() and
-> mctrl_gpio_disable_ms_no_sync() which can internally just call
-> mctrl_gpio_disable_ms() with the boolean, but no driver should have to
-> call that at all.
-> 
-> That way, when you read driver code, you KNOW what is happening and you
-> don't have to hunt around in a totally different C file to try to figure
-> it out and loose your concentration.
+Changes since v3:
+1. Removed alias names of ethernet nodes
 
-Makes sense, I'll spin a v2 with a more explicit API.
+Changes since v4:
+1. Added more details to the commit message as per review comment.
 
-Thanks,
+Changes since v5:
+1. Avoided inserting node in the end and inserted it in between as per
+address.
+2. Changed the node label.
+3. Separating DT patches from net patches and posting in different
+branches.
 
-Alexis
-> 
-> thanks,
-> 
-> greg k-h
+Here is the link to v5 patches for reference:
+https://lore.kernel.org/netdev/1cb63ff4-8926-4bbc-8a78-59103d167140@kernel.org/
 
+This patch depends on the DT binding patch
+https://lore.kernel.org/netdev/20250213044624.37334-2-swathi.ks@samsung.com/
+
+And the driver patch
+https://lore.kernel.org/netdev/20250213044624.37334-3-swathi.ks@samsung.com/
+
+Swathi K S (2):
+  arm64: dts: fsd: Add Ethernet support for FSYS0 Block of FSD SoC
+  arm64: dts: fsd: Add Ethernet support for PERIC Block of FSD SoC
+
+ arch/arm64/boot/dts/tesla/fsd-evb.dts      |  18 ++++
+ arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi | 112 +++++++++++++++++++++
+ arch/arm64/boot/dts/tesla/fsd.dtsi         |  49 +++++++++
+ 3 files changed, 179 insertions(+)
 
 -- 
-Alexis Lothoré, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.17.1
+
 
