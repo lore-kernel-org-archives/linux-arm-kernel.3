@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8474C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:02:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20264C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pJc3YrbSrZjb+1WUbDYoQQxBsow526Z2Yq1LAQIerb4=; b=P1xIlyJxVfDG7pSBhxFfkcYeGH
-	vvFFG07GHqFEOBWq7BcLgUdBMjgzQ1+y/e88ETATslCYwxBmnbsbGN5KsMJ5s8c/sDfv/Bn5p43VE
-	9C1bV3lknv936CcNA670ywb5pAQPuZoZ4sUzmSvUJegN5XYOj9GzFNGb9wFJNIc2bcaeg7KwSX+KS
-	M+jFmrnq/OYSVsFR00KNmzIAInmxZ4yXDeNrnnGGvP3da+CO59LLwTSXGlcQjJbr2QA/VJi6llztV
-	0N4Pgl8br7gbo8Kt+EDQxkf+bncSxcMcTy3NqxBm9nrdUGFnFOHjhCwv7raFXX/EdM+rNleDcT41l
-	MgmyenMA==;
+	bh=COJNGekBErJDtHN053nWkTAoSgTTSoO9L+cYR+Xqxy4=; b=KWtgPYEU+V/KJ6/BkAOk8lmFfG
+	xO3asMJKOWhRcY3G/C2EON4GVwomtN63FG+8DyVGTR7TiWyD3uv1q1NLRcczosrodF/qIQ5Ewd8d4
+	bt7dnc4b9WIZZ8aNppVMTnnNtDuxyvvf+SduGYKIZpwbOZ6tDNYLVBmJUdNZKSn4VjZciogBj7+ei
+	1QdRDwJ0XfxWU/VJ1YxNG00Ox8yK9VZporerTsynwJgVTqC6CGiIpNv/knFJlu2h0lj8nlZ35wnyU
+	4nOcvn86+9Ri89tsU4B7Hg2xK+DlYWu+USrrcpIj2Rv5B/hpqanRb2PHFLrEkAi3gzaOuWYumjFCl
+	3LtjjYRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiW2m-0000000AZeD-2crr;
-	Thu, 13 Feb 2025 10:02:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tiW4B-0000000AZsg-1P48;
+	Thu, 13 Feb 2025 10:03:31 +0000
+Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiW09-0000000AZ8w-3A1m
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 13 Feb 2025 09:59:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=pJc3YrbSrZjb+1WUbDYoQQxBsow526Z2Yq1LAQIerb4=; b=WPw+oqHNIzSpQadkIEozzuYPCc
-	QD+mVmk1T0MZVKzQvFvpAyjOg5GDQgMLWKWtdccpnC1bjnNtDQhUBlhUPK6PLYgFf5h/MJE+3Q/rN
-	oT7aUhrYy6jKadGcY4/mVAtseuFTfUG+b+VBL3V8IM2jqJBow6WoTA/Z48M/5Zsiq8w13GONkf23b
-	1CdwiX6+AZd/lmYib1M8wVMwgzVSK/CsZ7xg2ojI0XO/aSq/W6t1vbYPWm0LeHnMegImCBPK2Jxkg
-	kTopfL/r/vHQQ/fw/VbdzFDH9Prp+iUV6+fwdU2ObBrtzZBqzhC8o/11V9usdg1M0Am5aSWwbbtaT
-	K7W0k1DA==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiW07-00000000xD3-0Ago;
-	Thu, 13 Feb 2025 09:59:19 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 9D39A3002E5; Thu, 13 Feb 2025 10:59:18 +0100 (CET)
-Date: Thu, 13 Feb 2025 10:59:18 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf <bpf@vger.kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>,
-	Dohyun Kim <dohyunkim@google.com>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	Kernel Team <kernel-team@meta.com>
-Subject: Re: [PATCH bpf-next v2 00/26] Resilient Queued Spin Lock
-Message-ID: <20250213095918.GB28068@noisy.programming.kicks-ass.net>
-References: <20250206105435.2159977-1-memxor@gmail.com>
- <20250210093840.GE10324@noisy.programming.kicks-ass.net>
- <20250210104931.GE31462@noisy.programming.kicks-ass.net>
- <CAADnVQ+3wu0WB2pXs4cccxfkbTb3TK8Z+act5egytiON+qN9tA@mail.gmail.com>
- <20250211104352.GC29593@noisy.programming.kicks-ass.net>
- <CAADnVQJ=81PE19JWeNjq6aNOy+GM-wo6n7WU9StX1b6kevqCUw@mail.gmail.com>
+	id 1tiW0b-0000000AZH0-2oOI
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 09:59:50 +0000
+Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-6e65e1d30c9so209016d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 01:59:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739440788; x=1740045588; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=COJNGekBErJDtHN053nWkTAoSgTTSoO9L+cYR+Xqxy4=;
+        b=Jf2VSKK10E9B74s2o8pIEhXDX9IPQhsZfKUd/JNgWbXnU+3804Y4rhpJGeGQgVW3A1
+         PErZUEE6r6cGB5dUFxlEsfUsi514AhqQ+sPlPBKcf8v0h8HnGEX7tLuPTGYSuRnXjRN/
+         uyFC/8cTTnfOiseaNh0KnwdX/3QNj1/RD+HJKu7QgMDQpfkyvvGmhp4KTUBcskSNrOya
+         NSKzg6MmNa4P/oOWj18Ps8Nxc0gZpQ8/4Ly6UW8bc54+EPgygi12rKCxUF7ULpz1WI8g
+         f5lF+YxvFCaEYVQyZPiwYkgZnR4VGBmFuQFWOUTX/G+zmY/1dm0qk+4tO7v8VyRdNj4H
+         d7GQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739440788; x=1740045588;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=COJNGekBErJDtHN053nWkTAoSgTTSoO9L+cYR+Xqxy4=;
+        b=kKrmPo6uxIyFPL853rwOKkvqIlkFh7QKKHfKS8ks2VwsqqXKgECObOizAls4XbL2qj
+         bfVkkrdyj88qaXhT+RuYWYmzcWK5QuPYQz5ctNerQFQbEN3r92bbkhQqglVkvkUy87bH
+         57seFwiKasDPEIwWs09XrF41Wr8rqOVHG9R4y0K7MeV8lujwLl24aiord+8kZadsnCkX
+         p53OxR60RcoQIjdiLb641sHGrYHpbpddWFYZ//EeZZ1s+QGpOXfy9zyNFhPAGMsL4KZ/
+         b4iKLxGo+w+4OZcJMrycAwjjMA9IGQEGkxaL1EOUQtH+8Nq38XVXpQQt5VYuzdujGXWE
+         XCFA==
+X-Forwarded-Encrypted: i=1; AJvYcCUFALKqIAWhXOV3b1uCIjpC4tBpTl1I3ENBK+rNue6e80+Kt0RrRPUxH6m5WP0zE0ve+ls0R3y2c93wW13gNQPR@lists.infradead.org
+X-Gm-Message-State: AOJu0YxU82s02dv1P1meNF9dUk66uFogM9vwtIrLAoyDlJMfZdXCw4WC
+	zKk9aTeuxJjobDVzKdUcdajHgmAiZtCeVYU0wDEsTiDit2hr+R03y3aQ9+J1WLsfx+sjsy4jzWq
+	ZU0Y05yTaiHWd5hIODnG3INtITLzy5lB+mTiQRQ==
+X-Gm-Gg: ASbGncu1LGowtQyfaOFKO/bc6uaLMC4G8QpskJobxct/slFeL4fxhuWKK6TBajkgpVx
+	fPCkoI4AIN+XNaW+AiMpDNdWqcMHBwnta1u95yfQZkPf1LwEiDwhYCQOdJ0eL6p++P9Ttpk9p
+X-Google-Smtp-Source: AGHT+IHjST43iJQwKlW8MuHT3YKNmk3TJzkB+3qglLpmrJHxoQ21YjQ7p9lFzVWUi5QoVF1/vD6V21s991LiGcWOuME=
+X-Received: by 2002:a05:6214:cc8:b0:6e4:2975:ce54 with SMTP id
+ 6a1803df08f44-6e46ed7f367mr40769266d6.3.1739440787956; Thu, 13 Feb 2025
+ 01:59:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAADnVQJ=81PE19JWeNjq6aNOy+GM-wo6n7WU9StX1b6kevqCUw@mail.gmail.com>
+References: <20250212173454.2864462-1-maz@kernel.org>
+In-Reply-To: <20250212173454.2864462-1-maz@kernel.org>
+From: Anders Roxell <anders.roxell@linaro.org>
+Date: Thu, 13 Feb 2025 10:59:36 +0100
+X-Gm-Features: AWEUYZnv3GWn0jzFu3uoM9Lo2WH4CAyE-PhoCt0q0vIYbO78Rx1ocXlr_cZpyFs
+Message-ID: <CADYN=9KWdAm4iKYNN16Uz68XPViDLXGar3uhrM2e2+Dharaosw@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Convert timer offset VA when accessed in HYP code
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Linux Kernel Functional Testing <lkft@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250213_015949_714220_6C9F60FC 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,101 +93,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 10:33:00AM -0800, Alexei Starovoitov wrote:
+On Wed, 12 Feb 2025 at 18:35, 'Marc Zyngier' via lkft <lkft@linaro.org> wrote:
+>
+> Now that EL2 has gained some early timer emulation, it accesses
+> the offsets pointed to by the timer structure, both of which
+> live in the KVM structure.
+>
+> Of course, these are *kernel* pointers, so the dereferencing
+> of these pointers in non-kernel code must be itself be offset.
+>
+> Given switch.h its own version of timer_get_offset() and use that
+> instead.
+>
+> Fixes: b86fc215dc26d ("KVM: arm64: Handle counter access early in non-HYP context")
+> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-> Ohh. No unpriv here.
-> Since spectre was discovered unpriv bpf died.
-> BPF_UNPRIV_DEFAULT_OFF=y was the default for distros and
-> all hyperscalers for quite some time.
+Tested-by: Anders Roxell <anders.roxell@linaro.org>
 
-Ah, okay. Time to remove the option then?
+Build this patch ontop of next-20250212 and ran kvm-unit-tests on a rockpi4.
+And it ran fine without any kernel panic.
 
-> > So much details not clear to me and not explained either :/
-> 
-> Yes. The plan is to "kill" bpf prog when it misbehaves.
-> But this is orthogonal to this res_spin_lock set which is
-> a building block.
-> 
-> > Right, but it might have already modified things, how are you going to
-> > recover from that?
-> 
-> Tracking resources acquisition and release by the bpf prog
-> is a normal verifier job.
-> When bpf prog does bpf_rcu_read_lock() the verifier makes sure
-> that all execution paths from there on have bpf_rcu_read_unlock()
-> before program reaches the exit.
-> Same thing with locks.
-
-Ah, okay, this wasn't stated anywhere. This is rather crucial
-information.
-
-> If bpf_res_spin_lock() succeeds the verifier will make sure
-> there is matching bpf_res_spin_unlock().
-> If some resource was acquired before bpf_res_spin_lock() and
-> it returned -EDEADLK the verifier will not allow early return
-> without releasing all acquired resources.
-
-Good.
-
-> > Have the program structured such that it must acquire all locks before
-> > it does a modification / store -- and have the verifier enforce this.
-> > Then any lock failure can be handled by the bpf core, not the program
-> > itself. Core can unlock all previously acquired locks, and core can
-> > either re-attempt the program or 'skip' it after N failures.
-> 
-> We definitely don't want to bpf core to keep track of acquired resources.
-> That just doesn't scale.
-> There could be rcu_read_locks, all kinds of refcounted objects,
-> locks taken, and so on.
-> The verifier makes sure that the program does the release no matter
-> what the execution path.
-> That's how it scales.
-> On my devserver I have 152 bpf programs running.
-> All of them keep acquiring and releasing resources (locks, sockets,
-> memory) million times a second.
-> The verifier checks that each prog is doing its job individually.
-
-Well, this patch set tracks the held lock stack -- which is required in
-order to do the deadlock thing after all.
-
-> > It does mean the bpf core needs to track the acquired locks -- which you
-> > already do,
-> 
-> We don't. 
-
-This patch set does exactly that. Is required for deadlock analysis.
-
-> The bpf infra does static checks only.
-> The core doesn't track objects at run-time.
-> The only exceptions are map elements.
-> bpf prog might store an acquired object in a map.
-> Only in that case bpf infra will free that object when it frees
-> the whole map.
-> But that doesn't apply to short lived things like RCU CS and
-> locks. Those cannot last long. They must complete within single
-> execution of the prog.
-
-Right. Held lock stack is like that.
-
-> > > That was a conscious trade-off. Deadlocks are not normal.
-> >
-> > I really do think you should assume they are normal, unpriv and all
-> > that.
-> 
-> No unpriv and no, we don't want deadlocks to be considered normal
-> by bpf users. They need to hear "fix your broken prog" message loud
-> and clear. Patch 14 splat is a step in that direction.
-> Currently it's only for in-kernel res_spin_lock() usage
-> (like in bpf hashtab). Eventually we will deliver the message to users
-> without polluting dmesg. Still debating the actual mechanism.
-
-OK; how is the user supposed to handle locking two hash buckets? Does
-the BPF prog create some global lock to serialize the multi bucket case?
-
-
-Anyway, I wonder. Since the verifier tracks all this, it can determine
-lock order for the prog. Can't it do what lockdep does and maintain lock
-order graph of all loaded BPF programs?
-
-This is load-time overhead, rather than runtime.
+Cheers,
+Anders
 
