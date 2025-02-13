@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13CCC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 01:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DACA4C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 01:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FnnVExe7d6QVUJNp8Nm3NF0K0bg0bBBcU3T/4AzgGYI=; b=u9VX5rh9OScNA1VnAS3S4tLRBe
-	LxPAcwfzPrCdJlKLUtnc+OgM0blCGG56pVQ9/r7f9T34K7hlLL8NYAXOQZxrqH+7qbsQGFCumtOfg
-	6De9lmxl9k0aEm1hv/Dxgw8yjhOxLrklbkXtGIpbwFObvU64AxSvNlRS/Tyi4equZ0yfqzftZGMVY
-	MGmH8S+MeVs/lO7KGPyf/zeQWzuQih1kFedhdzsnJuAH5zopbdSTI0jb1vBj4YxvhHyF0xxvMJcp9
-	U7g3bwgPilbz6DtLp5sVYngYJIFEovnyWaudP3PJpG6ZwB9vTrakAG9OwVMogKNOa5mssdcVPzOir
-	6C11ZcgA==;
+	bh=f3qnB+BjgvVqudxLGCEV8ahQDENtwWQvSoLgLc6HJ5w=; b=LorMRd7TK6ak7Fuy2gBZkDR+Pu
+	1YBHcJsI4g8Em0xvaJEAmRdltfkR4Op1lgCqZvQ1CCnwvxSk5Jib0RzPBqQEarLjR6RwRwC1wH8q3
+	S2XlDrsCylTWIOnRQn+xdST/mHNucXeIze7jYM8bUwqWoMfYPd0EdnQCkV4/qI4l0BjLBhH0x1jgh
+	p8zZwflg/Ak/eYzsntWnXQRGm2Qv9aRxBbl0jQwZAx+iym8K7Mxkfa6O9jsaZjGtrG3TSd22Pm0FZ
+	1/fO/aiYhWM2I9t4lW2PKN3C0JH3ITavafM52bhU0SCSooFaYEOW7ft2wROd9cXD1dEe4iN/AP34X
+	wEJnJBRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiO34-00000009Od9-2MJE;
-	Thu, 13 Feb 2025 01:29:50 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1tiOCV-00000009Pfb-3eSA;
+	Thu, 13 Feb 2025 01:39:35 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiO1d-00000009OKy-1BBz;
-	Thu, 13 Feb 2025 01:28:22 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-38f1e8efef5so155657f8f.1;
-        Wed, 12 Feb 2025 17:28:20 -0800 (PST)
+	id 1tiOB4-00000009PXw-3PsX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 01:38:07 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2166db59927so554375ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 17:38:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739410099; x=1740014899; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739410686; x=1740015486; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FnnVExe7d6QVUJNp8Nm3NF0K0bg0bBBcU3T/4AzgGYI=;
-        b=PkQD1UmJ+gm9wsyvi1ov7gavDQ37RmUbcuZ5qf4dGvY5yUwAXHjiIKdi56dOE0FGIm
-         riR+KmW0IByyP5qkPR49IwiMXJJ5KIY17OlfT70CvJfYH2e+LradT+TNlBAnfG7h3lAK
-         uWQz9zUcF8GoRcOr0FcfguvHL28AE9Pf7KJyxnqEoAra1fCrY/zk+jf8fuSwuK+BSaDq
-         epALQq8ByQ+2omFdxR2D/PKsWNr+NbB/lw1+ldVDOKQHsjpU194xt9o9/6OBmY6tVc0Y
-         /rf8+DUBNMHKz1sqTzP2OHvgRa35uHOnAKdZ9/CAEOsswby+Lfa++Nel+JfOZLXQFaTz
-         Bx8w==
+        bh=f3qnB+BjgvVqudxLGCEV8ahQDENtwWQvSoLgLc6HJ5w=;
+        b=iRBeX1lMriimsJaXLtnhqbAiSNUaFHuBhLyIuuDKpCJiF2MCsAstSDVFw3u09AGnKe
+         g9mJIBRdtUp+KJnYQwXXK97tDHmi5fZRcWIQp3DdbNOegc4g6jpoONMtKNROCeJYsDWy
+         AS8fXRASwPE2jz78wxF9WSAUeiJboq81OJT5PYhnnGpCSRpIYgL5t/qdYfcE2nx5jgy7
+         JqVo6zT2WfXPqAMHi1M+XwJ1W3pzfaLg5cyE4VNuxWBXZO8waYIStrqUG+/mX4A8ymVb
+         7Dkk8PZBMtrauJd1hwmu2Z2EM0uguYm7ELm3YjmG2Y9e6k1dOo9+UMJ2TJhQOw9siSmX
+         pN2w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739410099; x=1740014899;
+        d=1e100.net; s=20230601; t=1739410686; x=1740015486;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=FnnVExe7d6QVUJNp8Nm3NF0K0bg0bBBcU3T/4AzgGYI=;
-        b=YKe2XrbaRGb5RluY/IY4mIgl9LXv6JyF6HVfx4POVr6r21T19VlskWAQtJggDwx0sV
-         NbjaME5lF+ueyF/pOHl2fak1hLHBmrCFgXbaLGzvS5yQBbKrQD0pCnQ4yb1wdI9jVLBm
-         MgSjv2TCGd4o+J9ByhNRLmNAxf7cOYvwau0D90aq/ONZgxaSQNTqIJsC9XIDO8kgnjjr
-         rCWdJIbMdvNqZn2OXJBdeodPz45xXT+M0hfRALuk64fxGV2hbAru24l7L9vX204a7wL9
-         Lh4RudYpCXq5bR4NWUzLu2R7QPGkdZMEiO4jtGohZtras73ET90c9Sz7kZfAY9Jb4FYt
-         ehOg==
-X-Forwarded-Encrypted: i=1; AJvYcCVTaesbG89kDCSBOpaPcUjZpdF871iIZRbPTSirPHIThGaNgDxXpWEbwQb+xPWSI6joPFXbkCpOflQtub7ObwvX@lists.infradead.org, AJvYcCXxMGG7jvqQtE18/rKdh/TuibsGjiRPaJi+hg9y9miB8IO/b03T+bRp4cMk4T7gJhPGNpqvmq1G2W3Rn7o=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8Bx+cExPATwvBPZveUsOkMYkpFnSBab+0HBvDqwzlWZx1VE79
-	mpD5wmjZqkMeDuB15upOz0Im9TW+1EbgceB1/AGbtx/poQSBvBfpL9pMRwx98gPFczzMMxGP/0N
-	WGSUY7GSm+7ekqGj7xyzt0L2WkMQ=
-X-Gm-Gg: ASbGncsCvfP+9awH+y7oCzjFYcXn70udBe0K/iJX3VBIh8kTWvu+vd+xEJCmfp84Q2Y
-	T27HkFecSjyya5EauEjg9FjTP79khlgH3teIezM/gxFDl+NIJWLUmlbYzH0/3eSiUH26vnmTxJi
-	E=
-X-Google-Smtp-Source: AGHT+IEhltifMX701fYkEDmSU69qM9C3gXECNDsqw8PpPT3Yw5x0mc+ricaPHhG6ElqQmHswedH/T+PZOKbLltISlh4=
-X-Received: by 2002:a05:6000:144f:b0:38f:227e:6ff2 with SMTP id
- ffacd0b85a97d-38f244df054mr1302880f8f.14.1739410099435; Wed, 12 Feb 2025
- 17:28:19 -0800 (PST)
+        bh=f3qnB+BjgvVqudxLGCEV8ahQDENtwWQvSoLgLc6HJ5w=;
+        b=WfedKxScwGDtGd6nzClS+TVlS7Mv/lEMQL6jaCtrmN5OKYnpj+NNc7pRozLiwmZl9v
+         9Xoqc8tMbliw4NBgaq35kvekSMeZwZtDgjeJ63rUuG9QpWBjAa/0gWUyoKEjMUrIpxUO
+         /57Avp7wwnsUACWke8VFqyMJncbXSl0fYGdbcyq2xiZUk2Zdhe+m1QP0IrbnX459vvSf
+         9qceLZMX28qgj0N1ENFsmQ4pTA9lLgDSISYXHIKmSt44IG+8RQXD2LZ4tHS4NsCXysYG
+         qnoZ4bOcx3bNYvI8DgfZXQPutvrB1dnvYTlef81axIYWa/V+c+7JgsCx0eI8NdMcvKUh
+         hvwg==
+X-Forwarded-Encrypted: i=1; AJvYcCWUjqvepq1THMMp9iNx0H7KL5rhnGrgYqnYECx3S/ha9s6deD4HMwv7ZDnL3HRqGDubV4t+ERQHcJIwGNnWsKVR@lists.infradead.org
+X-Gm-Message-State: AOJu0YygsN3pZhTBphKnbtPXl2NSfaIyVVvKRtm7TJER/w21TXlSQEAL
+	Rt2lUd18/CGORY6yDj6d7//TinNGgIk+ITh3E14tlYp7kGFcWlgv6us6nGo/TkvgUFISeAPRZmp
+	+hzHhOHTLEjMvDwn89PBRgYKndFLcJ4k=
+X-Gm-Gg: ASbGncv9rSgf9QHw0mtqei7EpNj41pOJSNaiZ9wSDkKdOJlNWJSQR6lmEQE0z2kgph7
+	DcFjSwSIpduXKh9yqYJxwqNCGZstLVww69OhrDikGRpoHpaZQhwyy+05mFX5EzaWlXj/CDysEyA
+	==
+X-Google-Smtp-Source: AGHT+IGNSf6rGtM/0ntuhaOil/OeR7IwjOWYFQDUAqkZMflXOFRT9qKkIxcKzWOWjZx79tkVLAIyz+1kIHTsJrDn3wI=
+X-Received: by 2002:a17:903:2b0c:b0:216:32b6:cf0f with SMTP id
+ d9443c01a7336-220bbb58176mr34931005ad.12.1739410685858; Wed, 12 Feb 2025
+ 17:38:05 -0800 (PST)
 MIME-Version: 1.0
-References: <20241022015913.3524425-1-samuel.holland@sifive.com>
- <20241022015913.3524425-2-samuel.holland@sifive.com> <CA+fCnZeBEe3VWm=VfYvG-f4eh2jAFP-p4Xn4SLEeFCGTudVuEw@mail.gmail.com>
- <e7t5yzfw3dq5stp5xjy5yclcx6ikne4vwz7d6w2ukfw2b7gr6t@oomoynf3b2jl>
- <zjuvfdbl7q76ahdxk3lrgaznk7vjj43f5ftzfgrnca6dqtcd5x@5qj24womzgyq>
- <CA+fCnZfySpeRy0FCFidLdUUeqp97eBdjAqQyYPpz1WxYwcsW9A@mail.gmail.com>
- <aqhm7lc57srsfuff3bceb3dcmsdyxksb7t6bgwbqi54ppevpoh@apolj3nteaz6> <CA+fCnZdjTkreTcoo+J8wMhwDuAFM4g33U5BFy0OPtE0UCvyJbQ@mail.gmail.com>
-In-Reply-To: <CA+fCnZdjTkreTcoo+J8wMhwDuAFM4g33U5BFy0OPtE0UCvyJbQ@mail.gmail.com>
-From: Andrey Konovalov <andreyknvl@gmail.com>
-Date: Thu, 13 Feb 2025 02:28:08 +0100
-X-Gm-Features: AWEUYZn2XkAKpo5fHBIg4DaefcDCWc7cwclFMrZ0d3cOTpLW86BXbO6cjB81ilc
-Message-ID: <CA+fCnZcoVdfXVN8VBFLx835cV0eGAT6Ewror2whLW761JnHjNQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/9] kasan: sw_tags: Use arithmetic shift for shadow computation
-To: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	linux-riscv@lists.infradead.org, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
-	Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, kasan-dev@googlegroups.com, 
-	llvm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Will Deacon <will@kernel.org>, 
-	Evgenii Stepanov <eugenis@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-arm-kernel@lists.infradead.org
+References: <20250212212556.2667-1-chenyuan0y@gmail.com> <f649fc0f8491ab666b3c10f74e3dc18da6c20f0a.camel@codeconstruct.com.au>
+In-Reply-To: <f649fc0f8491ab666b3c10f74e3dc18da6c20f0a.camel@codeconstruct.com.au>
+From: Chenyuan Yang <chenyuan0y@gmail.com>
+Date: Wed, 12 Feb 2025 19:37:54 -0600
+X-Gm-Features: AWEUYZnjQUUyxNUV0VBU760EACS8AzZdfQ6WtL9mWgDhcmj_152WjiAils2-6oI
+Message-ID: <CALGdzuoeYesmdRBG_QPW_rkFcX7v=0hsDr0iX3u5extEL5qYag@mail.gmail.com>
+Subject: Re: [PATCH] soc: aspeed: Add NULL pointer check in aspeed_lpc_enable_snoop()
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: joel@jms.id.au, richardcochran@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_172821_318549_B9BF82F8 
-X-CRM114-Status: GOOD (  25.96  )
+X-CRM114-CacheID: sfid-20250212_173806_851866_83ED0B7B 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,62 +95,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 2:21=E2=80=AFAM Andrey Konovalov <andreyknvl@gmail.=
-com> wrote:
->
-> On Tue, Feb 11, 2025 at 7:07=E2=80=AFPM Maciej Wieczor-Retman
-> <maciej.wieczor-retman@intel.com> wrote:
-> >
-> > I did some experiments with multiple addresses passed through
-> > kasan_mem_to_shadow(). And it seems like we can get almost any address =
-out when
-> > we consider any random bogus pointers.
-> >
-> > I used the KASAN_SHADOW_OFFSET from your example above. Userspace addre=
-sses seem
-> > to map to the range [KASAN_SHADOW_OFFSET - 0xffff8fffffffffff]. Then go=
-ing
-> > through non-canonical addresses until 0x0007ffffffffffff we reach the e=
-nd of
-> > kernel LA and we loop around. Then the addresses seem to go from 0 unti=
-l we
-> > again start reaching the kernel space and then it maps into the proper =
-shadow
-> > memory.
-> >
-> > It gave me the same results when using the previous version of
-> > kasan_mem_to_shadow() so I'm wondering whether I'm doing this experimen=
-t
-> > incorrectly or if there aren't any addresses we can rule out here?
->
-> By the definition of the shadow mapping, if we apply that mapping to
-> the whole 64-bit address space, the result will only contain 1/8th
-> (1/16th for SW/HW_TAGS) of that space.
->
-> For example, with the current upstream value of KASAN_SHADOW_OFFSET on
-> x86 and arm64, the value of the top 3 bits (4 for SW/HW_TAGS) of any
-> shadow address are always the same: KASAN_SHADOW_OFFSET's value is
-> such that the shadow address calculation never overflows. Addresses
-> that have a different value for those top 3 bits are the once we can
-> rule out.
+Hi Andrew,
 
-Eh, scratch that, the 3rd bit from the top changes, as
-KASAN_SHADOW_OFFSET is not a that-well-aligned value, the overall size
-of the mapping holds.
+Thanks for your prompt reply!
 
-> The KASAN_SHADOW_OFFSET value from my example does rely on the
-> overflow (arguably, this makes things more confusing [1]). But still,
-> the possible values of shadow addresses should only cover 1/16th of
-> the address space.
+On Wed, Feb 12, 2025 at 6:21=E2=80=AFPM Andrew Jeffery
+<andrew@codeconstruct.com.au> wrote:
 >
-> So whether the address belongs to that 1/8th (1/16th) of the address
-> space is what we want to check in kasan_non_canonical_hook().
+> Hi Chenyuan,
 >
-> The current upstream version of kasan_non_canonical_hook() actually
-> does a simplified check by only checking for the lower bound (e.g. for
-> x86, there's also an upper bound: KASAN_SHADOW_OFFSET +
-> (0xffffffffffffffff >> 3) =3D=3D 0xfffffbffffffffff), so we could improve
-> it.
+> On Wed, 2025-02-12 at 15:25 -0600, Chenyuan Yang wrote:
+> > lpc_snoop->chan[channel].miscdev.name could be NULL, thus,
+> > a pointer check is added to prevent potential NULL pointer
+> > dereference.
+> > This is similar to the fix in commit 3027e7b15b02
+> > ("ice: FiI am cx some null pointer dereference issues in ice_ptp.c").
+> >
+> > This issue is found by our static analysis tool.
+> >
+> > Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
+> > ---
+> >  drivers/soc/aspeed/aspeed-lpc-snoop.c | 2 ++
+> >  1 file changed, 2 insertions(+)
+> >
+> > diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> > b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> > index 9ab5ba9cf1d6..376b3a910797 100644
+> > --- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> > +++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
+> > @@ -200,6 +200,8 @@ static int aspeed_lpc_enable_snoop(struct
+> > aspeed_lpc_snoop *lpc_snoop,
+> >         lpc_snoop->chan[channel].miscdev.minor =3D MISC_DYNAMIC_MINOR;
+> >         lpc_snoop->chan[channel].miscdev.name =3D
+> >                 devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME,
+> > channel);
+> > +       if (!lpc_snoop->chan[channel].miscdev.name)
+> > +               return -ENOMEM;
 >
-> [1] https://bugzilla.kernel.org/show_bug.cgi?id=3D218043
+> This introduces yet another place where the driver leaks resources in
+> an error path (in this case, the channel kfifo). The misc device also
+> gets leaked later on. It would be nice to address those first so that
+> handling this error can take the appropriate cleanup path.
+>
+> Andrew
+
+It seems that the `aspeed_lpc_enable_snoop()` function originally does
+not have a cleanup path. For example, if `misc_register` fails, the
+function directly returns rc without performing any cleanup.
+Similarly, when the `channel` has its default value, the function
+simply returns -EINVAL.
+
+Given this, I am wondering whether it would be a good idea to
+introduce a cleanup path. If so, should we ensure cleanup for all
+possible exit points?
+
+Looking forward to your thoughts.
+
+-Chenyuan
 
