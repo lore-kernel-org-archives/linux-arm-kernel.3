@@ -4,151 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D3D9C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 15:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F27C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 15:11:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y+hoZLne4T93wltH42n2qnq/dWpRdPKq+sLPsjjS1/Q=; b=wHl5dytx7kNnTxSXVoh1Qwhkiz
-	qtzV+Dw/7JowJ96i4lbQ4V+DCe3mBPVbhpgodqFUE8Y2Py8ozhVUHqc7WlNUYfYp7UrHyww77TpJE
-	yQTkRyUfTPq+5deVfNWoeuUadlFjLbohl7+q6kvUhKBgPXNuQ263KhxOlMUWzoiB17Ydx+JxDKgrq
-	V4m+dws8Q0hfB73W6Q0gir4507VtsfmV7pVBvv/W/giRon6TwFum0t5Hl+w8OQfz3NdPVW3Y5D8Ce
-	6QD4toJ8rcdu7msZQqgJBMO13EWBMql/GUDL3ubtNkwCtuD+iq/PtXA2obs3E9xjAvYaoHOMcJXOX
-	IoPLTPuw==;
+	bh=Nx35n43omz2S0j8VNoQwyCAaNPUmYfsQNdk9Bkd5gKY=; b=SOxGNFxUwI4kEujYv1g//mYC5G
+	tRaNHv+f8tEqXq2dZ9h/ofeoFcVYJwp2jilI6eHGFkxCe4raI1d7G2kQgtYlsDdZEow6N5CHb/T7b
+	jy5ihgjfRcM/3ZLTrdEnB5mSGFlo3KEES/pXVjEcTRxKFSV9sABmbpJYQQUcQgphNn9yk8FCqUEHR
+	VVzGc6YL+YVvMc/i4SP1fo4mzeZfeXFA4iWT2Hnc9EeqNRBpyXyjMZIRF/2HAeuUwPkub9ahwv8Mq
+	DvdavA8zqCUpmSZLTsEn+KmqznisHqmnZbSWhnRfiYoU4XKOcK6LrpQPaidDbXrS8EqYo7Bg48uSO
+	1RKMEqHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tias0-0000000BU3I-2M0u;
-	Thu, 13 Feb 2025 15:11:16 +0000
-Received: from mail-dm6nam10on2062a.outbound.protection.outlook.com ([2a01:111:f403:2413::62a] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1tiasB-0000000BU5B-0ZNM;
+	Thu, 13 Feb 2025 15:11:27 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZj6-0000000BE3t-0i1x
+	id 1tiaqj-0000000BTqF-2OrW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 13:58:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lYtthaong5eBDBsFkaZ7YHCxgmO/igMxlY2zqn3fUlRph/S3KddU6doo+U6hpjtV+/h+URkx+BZB8kOIxaHjo9EAk+iCSBT7cq2XIpV8yoY87Z4hxPIf2Bu+8x4JNy7JdpqDVcKOXDj7YFJ6KMlWchORTX2ULsSmP7VYVH2JMx/CkjWrL2sRBth5uFBIzPOQWsCj8rMyjiTbPpXwsvzAEmciwZQz6N9UWGRY1eI/Ug97R7XsNs4P4axx2wLkpkerLMtsZ4B3wOSlVs7n0YjIx0JEnwPGRKgML3/tLPOhZAk4/jLpd/o2ZJgJombGiUrQY/u71l4Ki44K5J3bhpPxEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Y+hoZLne4T93wltH42n2qnq/dWpRdPKq+sLPsjjS1/Q=;
- b=R+k5yeayHHx4iX7mKejD/SHq65qkhRxW8jiBQAf6TalspqrvjeXcfHUNVMsBm+WF7hxNUqzYI+daWel+98FAY+mOTIwGHSO524Ri0xjsDluALrtE48bfEoMc2awgBBUcky2CMGtmhA62xWxhcrifpNyxqgHU7Jke+WrNtgLER8AmerS8eO8yfQXVO35itnEoJPEgiomawQLddjvZb3EBXgCv3m11u4HWi9CnU3wxZVMlGdXesswI2v/Eh1O31gRL8yfUhCnBFwdTqKOod9vXOBClxY79mHzHypqSq9zLORxVpUPsGfdVIRsvfx/0SUhbw4KKgPlu5VK6mnhd1xPpqA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Y+hoZLne4T93wltH42n2qnq/dWpRdPKq+sLPsjjS1/Q=;
- b=tIJ/WgenWz9/Erpvnt1Ut4bOluqG04/JiDqRMHjQE2skos8z2/P2DbBH/jn1S0z413qyLSylC5Jlhn3qWOwmWVpVsK3S6AoAyE08tL1DVo4HO5aqxEsTiDis+HQc2lbDnhlwSKGIDgm1Itzs7KTiFXTsal47tG+XCD1ckQHT1F9O3V3XyAvPk60K1BjwBGD3/hnkE2WL7KIqEEXl8GRP9PQ5WVHmtI/Lvj3M1ZtlJVv6bY6fU1vysNJeXvyOzIQNR5QaDru2wdMyxU49It4NfiqnJRyA6yDrUrAIQDsL/iEZLd7dyPvJCubtQZoC0TKnGgvk6d9thRe0mF+P7ZNTKQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by IA0PR12MB7554.namprd12.prod.outlook.com (2603:10b6:208:43e::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.11; Thu, 13 Feb
- 2025 13:57:54 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8445.013; Thu, 13 Feb 2025
- 13:57:54 +0000
-Date: Thu, 13 Feb 2025 09:57:52 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
-	maz@kernel.org, joro@8bytes.org, will@kernel.org,
-	robin.murphy@arm.com, shuah@kernel.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
-	baolu.lu@linux.intel.com, yi.l.liu@intel.com, yury.norov@gmail.com,
-	jacob.pan@linux.microsoft.com, patches@lists.linux.dev
-Subject: Re: [PATCH v1 01/13] genirq/msi: Store the IOMMU IOVA directly in
- msi_desc instead of iommu_cookie
-Message-ID: <20250213135752.GY3754072@nvidia.com>
-References: <cover.1739005085.git.nicolinc@nvidia.com>
- <a580069c5e494ffffa668218b6fe3a207b01efec.1739005085.git.nicolinc@nvidia.com>
- <87y0yajc0o.ffs@tglx>
+	Thu, 13 Feb 2025 15:09:58 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51DD9qPa001101;
+	Thu, 13 Feb 2025 15:09:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=Nx35n43omz2S0j8VNoQwyCAaNPUmYf
+	sQNdk9Bkd5gKY=; b=XeZ0X3gn2QPulkRaUnJnBrZkQCpid10B09iYKl/e0gO/kT
+	//uKE5UAuTKSEP6MpOZ0JdUGipgK1ZUvEMuvWebRA/T+txqkwpRpgd3e/mERuzOV
+	sTH4tx95ucF8RRUBdSHmZBzFILZmimHORQY4r5e0s5ywFtpubF3j6E7p2899L44t
+	gJp0lXNmSQyzZDSgGMmYNUgRsjJmg+TY2iqbi0hP53UsYLmRgHBgKlDwiRE93loC
+	MVTpmfmpL6YTYxFoNtCmnQZBwe5O87KEryJgTjYj8XJb99HSZWdoMXYOldec0Ab/
+	+GGu3zbsk1gom+joIynUxJ82kKE3zCJbLhV91Teg==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44saj8jrrd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Feb 2025 15:09:42 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 51DBb4oe000914;
+	Thu, 13 Feb 2025 15:09:40 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 44pjknesrv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Feb 2025 15:09:40 +0000
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 51DF9a3C33095958
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 13 Feb 2025 15:09:37 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DD09E2004D;
+	Thu, 13 Feb 2025 15:09:36 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id A95542004B;
+	Thu, 13 Feb 2025 15:09:36 +0000 (GMT)
+Received: from osiris (unknown [9.152.212.60])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 13 Feb 2025 15:09:36 +0000 (GMT)
+Date: Thu, 13 Feb 2025 16:09:34 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        LKML <linux-kernel@vger.kernel.org>,
+        linux-arm-kernel@lists.infradead.org,
+        Mark Rutland <mark.rutland@arm.com>,
+        Linux Trace Kernel <linux-trace-kernel@vger.kernel.org>,
+        Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>, linux-s390@vger.kernel.org
+Subject: Re: [PATCH] arm64: scripts/sorttable: Implement sorting mcount_loc
+ at boot for arm64
+Message-ID: <20250213150934.12012-C-hca@linux.ibm.com>
+References: <20250210142647.083ff456@gandalf.local.home>
+ <20250213125302.12012-A-hca@linux.ibm.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87y0yajc0o.ffs@tglx>
-X-ClientProxiedBy: BN9P221CA0024.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:408:10a::23) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA0PR12MB7554:EE_
-X-MS-Office365-Filtering-Correlation-Id: dbd6465a-8a10-4478-c503-08dd4c366918
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vIkudUJLFFbTvTrl6esEQQ20lAJ9artoYilah7u9jHFVZwJaok3ry13Aoobf?=
- =?us-ascii?Q?k7HgO9B1AyT8kjG6VQYbvdNBosKTvq+OiSmE8UiasATN2ZVcWqA6yyQeKIXf?=
- =?us-ascii?Q?hD+yuH7JCU8U4uTJ/FQ46SdwskPlA6T5dyigFp5gagWQRyazSYNkj5tvosZ4?=
- =?us-ascii?Q?cNepW3X0wIckdCI33I9sjf7VBcqKY/umwo4zUem8VkRdUYKsvNjDLPHk1NKp?=
- =?us-ascii?Q?kDu/jZcDPLhbjA2TY7xGflnLEyizy6KEOi+r9GLdz/UxawOp2jXtRI9lJkjT?=
- =?us-ascii?Q?MVqkkJlV6+7rCOwbCTOUr7jxcB6nJabJgJECHssGE8TPmA5gfOxOwtjqflBg?=
- =?us-ascii?Q?5kv44OK4fbXJpfAi6gtldIKCdq3e4MaLoqi0jmWxGMeTmtTuMMQi4KPd4M2L?=
- =?us-ascii?Q?r7jBEj4RqBR/TK9BtLQXw/ob2Ht3L8nPub61nWPEvevnQB0jZ+mK4NeTTmHg?=
- =?us-ascii?Q?WdxVRIUtzOrJVHNGsR5uhSVqEzeAJWX5boO8sWdVdV3LaZiOC3Bb8TRhunKM?=
- =?us-ascii?Q?lSaxsS3Gni+nFpJyXy8DUenqOHs+kao1Y78LXHXEei6kZmCc41A+/NpM+S2h?=
- =?us-ascii?Q?37koywZrtBdAKVDqMZWalumdi9KW0boP2qY9WpZP96U/dllSEOVA6pPz7KT7?=
- =?us-ascii?Q?2asCIVtR0T5rB3GJnTXPquOKKWyWIekQHSckuXb1JdPkullfNEFA1Wakeuu5?=
- =?us-ascii?Q?SBaYM+EN1t0pSvKbcYsPnp9EoN6D9SgLlUfCvPYE/BxzOVMWgDEKyzh8BiCC?=
- =?us-ascii?Q?KHkOCp4BBXYVPrXvYO8trcAS4t93a5ivSDOVWIPcGN5qTp+vmIakWDKP1GDS?=
- =?us-ascii?Q?mbTI+Xio6+bF50eWDAwJTrPz29HagWGM6fTlWJbAHu+op98FprOvW6GSKao9?=
- =?us-ascii?Q?i92eA1+0Uw/VaplLwQCNll49wG94qufct21luqJz3zLMXKdmrEFHdY5RrdcZ?=
- =?us-ascii?Q?jnLTnKWTFqV9NBb8VOHk9fI/KQGPctmhIbfpVJq6ArAWcx9a9Ku2kqEndvGx?=
- =?us-ascii?Q?SbcmPSjulCawKk/uuzdWQ19Nyu31+joFlstiHfDHRfLFXaLmge1GLiD7n5fZ?=
- =?us-ascii?Q?14QSa4id5CKqWi7tziwpmIwT/T8Lm0RZdQJHiGtHtpmN7fJkjDuYM9DptUmW?=
- =?us-ascii?Q?eUs/07D+gdz5imipEcaovIj37n6y35humtpS9VyUemAGJEiiULh65AmLSapV?=
- =?us-ascii?Q?ZRiyOcSXuKKaatjVs2JcaPM06DFfiSAEjTXGj+mg38xYMPmLv3b4M04qpdNU?=
- =?us-ascii?Q?ObOKCeXjp2DW4SDcBZigRgD8IaJlgLGcISloUfdp1LxYvEY+IJthO1aQsvTV?=
- =?us-ascii?Q?WiwoIA6fj1Vp/7/4Lmrq3j9MjpcB041+Q5lCMmxJpF/3DinEYWBQKfCwimHe?=
- =?us-ascii?Q?SPWq8fRZmfw1wp/h6WS2OwiHun49?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?r1YVsyhqsVxBF48OZB1CCP5dFsCBo3wNNUEIl7KdynwEZUqoFh+X2KEKuxZH?=
- =?us-ascii?Q?3Gc3RwIMwQvrWfaOHyVkNDgsw9cJk5E+E3t69j7VeEObCLekY//5NJqkLEYR?=
- =?us-ascii?Q?lfR8BD3aoQdVJ9MQaIZVYo0JZrF5A3BlPM/JFNYr5CebjuO3Dekr6K3jgk4N?=
- =?us-ascii?Q?q+H8uMIZoVHLT0C1PNBnFla3cTblraXN6drVMnuTInTR0KIdpRwJD22slEjn?=
- =?us-ascii?Q?LoMpib+Dfh4BMba+B5Fk28hKI0r0gjp/rTbcH3fvFFJe2J0zXCTApoDH3o/l?=
- =?us-ascii?Q?QUCphT3Ao88Iegg8xc5pDiq4AGSOpwD6u9zMbeNOA7XzuwH00Y9mCTXxgRu3?=
- =?us-ascii?Q?rEQskLIuDEFsPlF0LBQoN21/MLmU7ntabXfwcIIhZW3vPPjabD4F4FiMsNSG?=
- =?us-ascii?Q?ISyO0H3cpuCssLsJnx8IlMeNj6s+GcNH/DhclJjhkFNcdDyDVq2y4lDMadl2?=
- =?us-ascii?Q?tvVGBNOmZptKmf8UDAiWTQNNRxruP/Ejj9KwjjIddV78qpxcipNGk1Rm783P?=
- =?us-ascii?Q?mUOzZ4COy/OE0Jp4o0LUSo46CderFW//VU3Yp8QD/Uqj0DeyRykG2nD9LKNH?=
- =?us-ascii?Q?yTuEgBPGtTvH/zMMZuR+HLHkR//oxYzzixP572UondXFM4H7W39P97O9pzQo?=
- =?us-ascii?Q?JVwRPrnQQLOnrLojsEUmvbQ2cbh3EzTJ1x9C95HNLnPbsg4SLmbAGMjJXY44?=
- =?us-ascii?Q?oHB9OiTT8wjXCr09VjmKshG9xAye/n9G76hUftQMYXxAgA9SeyxtrAypImpR?=
- =?us-ascii?Q?4LoiR1NzmjeSlbZ7JobfT/o48LZMrvpoiD75oNR4AQ61kRrrcRjloaqxXWFr?=
- =?us-ascii?Q?mHgyhafyWoUUhi8C2qPoPZzHxnXH8hdjlEghC8OgV9JA7vay2VYnlod5egR5?=
- =?us-ascii?Q?JiOOddUJVbVNSX0u4HIJe84aBbsjDhtXrXLC+yqZTlq1kCBe78OHR46z7N2Z?=
- =?us-ascii?Q?QPO7srVZeyG4eMElmJKs0wJ3YQDsSReqoKqthkERdNrY27EVaczM3tuk0fjd?=
- =?us-ascii?Q?5gMCM5PUMCfyJZQfX4S0dUEhVu1k/FFVvUAvZmKp1sa8ce92nShnjskrugJT?=
- =?us-ascii?Q?8/tHmkMr/zRahgzQk0CcNW/qEBz86lqAZ6hVYM4JDjMY0HZ/JTGirYUtnfsT?=
- =?us-ascii?Q?vo1hJhqe7FjjeGJCgOZFm4Gq+8IE6oato/N/otrdI4bF5KMxo+G8VpqM6myL?=
- =?us-ascii?Q?A8RX/lUFNGPLNClX85iwlzng/j+WmToKq/byiLaQ37EuwZ5+A0bh4iHH7Qxv?=
- =?us-ascii?Q?zeJPZ/LIhIWP7bbW5ZDbNg7unlXy03GuIS+QSOXPQ7sNQQg3lBFDbxZdAtZi?=
- =?us-ascii?Q?nvU590mJemlH5tVP4LqXnDCmupKHkCmhlp+GpiNgwxHtPS77EJOxSusxjBKY?=
- =?us-ascii?Q?m9LmJtAkpQe8Jt0HSHz8t7tNjC85xhENPj+ZSGi0XWT3kHQDhr3E7oU8KR+F?=
- =?us-ascii?Q?DjhrjQZZFAdy52PwB683eZxLuXDi7nY89O5Hw9M/GeSq9VLa2Y8oh1T47YcT?=
- =?us-ascii?Q?O6NTml6Zimy/t8rJBNxv/YZbbHMI1cDdUbVH3DYdk6zlHGqxETRwXgga3XvS?=
- =?us-ascii?Q?i3fNneDjmUFd+1IzmnI=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dbd6465a-8a10-4478-c503-08dd4c366918
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Feb 2025 13:57:54.1665
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fXVPyjrwkw/JZ+DC+huYP9c8qWtMg8alAALF285hSDi/e8QoCAgVOzE3ztj13X3L
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7554
+In-Reply-To: <20250213125302.12012-A-hca@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: S5kam7uZ1aI1nPU6jix8C8BRLexLvoRE
+X-Proofpoint-ORIG-GUID: S5kam7uZ1aI1nPU6jix8C8BRLexLvoRE
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-13_07,2025-02-13_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0
+ priorityscore=1501 mlxlogscore=999 impostorscore=0 malwarescore=0
+ spamscore=0 suspectscore=0 mlxscore=0 bulkscore=0 phishscore=0
+ lowpriorityscore=0 clxscore=1015 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2501170000 definitions=main-2502130112
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_055800_224358_90F8E894 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20250213_070957_623752_AE631B43 
+X-CRM114-Status: GOOD (  33.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,57 +110,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 12:54:15PM +0100, Thomas Gleixner wrote:
-> So this change log really fails to follow the basic structure:
+On Thu, Feb 13, 2025 at 01:53:02PM +0100, Heiko Carstens wrote:
+> On Mon, Feb 10, 2025 at 02:26:47PM -0500, Steven Rostedt wrote:
+> > For the s390 folks. I cross compiled a s390 and looked at the mcount_loc
+> > section, and I have no idea how to implement this for that. I wrote a elf
+> > parser to dump sections based symbols:
+> > 
+> >   https://rostedt.org/code/dump_elf_sym.c
+> > 
+> > And ran it on the s390 vmlinux:
+> > 
+> >  $ ./dump_elf_sym vmlinux __start_mcount_loc __stop_mcount_loc
+> >  1801620: .. .. .. .. .. .. .. ..   00 00 00 00 00 11 70 20  ......... .....p 
+> >  1801630: 00 00 00 00 00 11 70 90   00 00 00 00 00 11 70 a0  ......p.. .....p.
+> >  1801640: 00 00 00 00 00 11 71 10   00 00 00 00 00 11 71 20  ......q.. .....q 
+> >  1801650: 00 00 00 00 00 11 71 90   00 00 00 00 01 7c 70 00  ......q.. ....|p.
+> >  1801660: 00 00 00 00 01 7c 70 20   00 00 00 00 01 7c 70 40  .....|p . ....|p@
+> >  1801670: 00 00 00 00 01 7c 70 60   00 00 00 00 01 7c 70 70  .....|p`. ....|pp
+> >  1801680: 00 00 00 00 01 7c 70 98   00 00 00 00 01 7c 70 c0  .....|p.. ....|p.
+> >  1801690: 00 00 00 00 01 7c 70 d0   00 00 00 00 01 7c 71 68  .....|p.. ....|qh
+> > [..]
+> > 
+> > It looks like addresses in that section...
 > 
->    The context, the problem and the solution
+> Those are the addresses of the mcount locations. After looking at
+> sorttable.c it really looks like that for s390 we can simply select
+> HAVE_BUILDTIME_MCOUNT_SORT without any further changes.
+> 
+> I just tested it with different compiler options (fentry vs hotpatch),
+> including selecting FTRACE_SORT_STARTUP_TEST, and as expected everything
+> works.
+> 
+> I'm going to give it some more testing in our CI - but if nothing breaks a
+> patch which selects HAVE_BUILDTIME_MCOUNT_SORT for s390 will go upstream
+> with the next merge window.
 
-The IOMMU translation for MSI message addresses is a two step
-process, seperated in time:
+Something like this:
 
- 1) iommu_dma_prepare_msi(): A cookie pointer containing the IOVA
-    address is stored in the MSI descriptor, when a MSI interrupt is
-    allocated.
+From 0759d6b961946b7e5cfb19971d56f5493204301c Mon Sep 17 00:00:00 2001
+From: Heiko Carstens <hca@linux.ibm.com>
+Date: Thu, 13 Feb 2025 13:57:33 +0100
+Subject: [PATCH] s390: Sort mcount locations at build time
 
- 2) iommu_dma_compose_msi_msg(): The compose callback uses this
-    cookkie pointer to compute the translated message address.
+For s390 the mcount_loc section of the kernel image contains the addresses
+of the mcount locations. All addresses will be adjusted with the same
+offset by the decompressor before the kernel is started.
 
-This has an inherent lifetime problem for the pointer stored in the
-cookie. It must remain valid between the two steps. There is no
-locking at the irq layer that helps protect the liftime. Today this
-only works under the assumption that the iommu domain is not changed
-while MSI interrupts are being programmed. This is true for normal DMA
-API users within the kernel as the iommu domain is attached before the
-driver is probed and cannot be changed while a driver is attached.
+Therefore select HAVE_BUILDTIME_MCOUNT_SORT so that the entries of this
+section are sorted at build time. Given that the same offset is applied to
+all entries the section will be sorted in any case.
 
-Classic VFIO type1 also prevented changing the iommu domain while VFIO
-was running as it does not support changing the "container" after
-starting up.
+Note that this was not possible before commit 778666df60f0 ("s390: compile
+relocatable kernel without -fPIE"). Since this commit all R_390_64 absolute
+relocations are handled in a special way: only the address of the to be
+changed location is put into a special section. For all those locations the
+same offset is applied as described above.
 
-However, iommufd has improved this and we can change the iommu domain
-during VFIO operation. This allows userspace to directly race
-VFIO_DEVICE_ATTACH_IOMMUFD_PT (which calls iommu_attach_group()) and
-VFIO_DEVICE_SET_IRQS (which calls into iommu_dma_compose_msi_msg()).
+Without that change it would have been necessary to also adjust the addend
+of all relocations which correspond to the mcount_loc section, when sorting
+the mcount_loc section.
 
-This causes both the cookie pointer and the unlocked call to
-iommu_get_domain_for_dev() on the MSI translation path to become a
-potential UAF.
+Reported-by: Steven Rostedt <rostedt@goodmis.org>
+Closes: https://lore.kernel.org/r/20250210142647.083ff456@gandalf.local.home/
+Signed-off-by: Heiko Carstens <hca@linux.ibm.com>
+---
+ arch/s390/Kconfig                 | 1 +
+ arch/s390/configs/debug_defconfig | 1 +
+ 2 files changed, 2 insertions(+)
 
-Fix the MSI cookie UAF by removing the cookie pointer. The translated
-message address is already known during iommu_dma_prepare_msi() and
-can not change. It can simply be stored as an integer in the MSI
-descriptor.
-
-A following patch will correct the iommu_get_domain_for_dev() UAF
-using the IOMMU group mutex.
-
-Ok?
-
-Nicolin - lets change the patch structure a little bit can you adjust
-this patch to leave iommu_dma_compose_msi_msg() in dma-iommu.c and the
-next patch will be all about renaming and moving it to the MSI core
-code instead? Easier to explain
-
-Thanks,
-Jason
+diff --git a/arch/s390/Kconfig b/arch/s390/Kconfig
+index 9c9ec08d78c7..acaa1d1c12b2 100644
+--- a/arch/s390/Kconfig
++++ b/arch/s390/Kconfig
+@@ -185,6 +185,7 @@ config S390
+ 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE
+ 	select HAVE_ARCH_VMAP_STACK
+ 	select HAVE_ASM_MODVERSIONS
++	select HAVE_BUILDTIME_MCOUNT_SORT
+ 	select HAVE_CMPXCHG_DOUBLE
+ 	select HAVE_CMPXCHG_LOCAL
+ 	select HAVE_DEBUG_KMEMLEAK
+diff --git a/arch/s390/configs/debug_defconfig b/arch/s390/configs/debug_defconfig
+index d6beec5292a0..a2b0444b7d6b 100644
+--- a/arch/s390/configs/debug_defconfig
++++ b/arch/s390/configs/debug_defconfig
+@@ -887,6 +887,7 @@ CONFIG_USER_EVENTS=y
+ CONFIG_HIST_TRIGGERS=y
+ CONFIG_FTRACE_STARTUP_TEST=y
+ # CONFIG_EVENT_TRACE_STARTUP_TEST is not set
++CONFIG_FTRACE_SORT_STARTUP_TEST=y
+ CONFIG_SAMPLES=y
+ CONFIG_SAMPLE_TRACE_PRINTK=m
+ CONFIG_SAMPLE_FTRACE_DIRECT=m
+-- 
+2.45.2
 
