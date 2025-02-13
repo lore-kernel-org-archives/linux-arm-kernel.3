@@ -4,78 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 819ADC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 08:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB4CC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 08:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=le1Ksyac8fZ2fSaqKx+npcfn/t1FWRIiocLUuxo9FG8=; b=sWX6BUgrvOTZuT1mZZn3rpqafW
-	TlHoA3KObuK34RfNGeAy8rWtnDrIB92ShZ2dXD17aKfG68EBXyH50UrNNvI+Td0CuKLL1EVDHyujN
-	4gupMk6TCauR7oSW6Gr530bYu0VHMrPENvsbCUiMnAXPkSNs8trjI7gtarYUScXP7fqTfkeltcohQ
-	4p0P/0PlaeoqxjMBGy9Y/uilYklHBdfYow51mH5KVPPCgEWIAtdpDy64T7b2wZPZFXyW+83EUsVx0
-	8Cyu9cUOesFoVC8AO/CuCFsdK6vjAfpMQqDU3oq51JB/29As1Y0hGddFluLS3mS7frUSnyzIctRYv
-	CWGykl0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pWXrP1biBRVYfhrhl3Fs6qE0BQgKKe9yf0UVNL2tW0Y=; b=ViOs2gZiyykhkgcF9lU1TZ0XBN
+	nmeH2lxl7AOAHuHdujNNFldn3Axo2wjoab6sznpggn9cw/BtuYmuw0+qnIuK9vf4QQ3rthLrmxD8k
+	u6TeOskDpyMmpqkd3I9+YSKBWoubATocSKE4K5QBnKQmjkcZ0YjgVI4QWREOsOpwvmwyWdMlrvA/k
+	QXO+lORcNhchebGNdvFbeiqn88780yXIGsgzSTg5fGMvQeYy8gDQtH3RJ6sg2OYv1l/tN4z/tPGEB
+	2/jKYDiN3bOcgDE1Nm2YCWICoHQ8O5j56Ys5WWa24GwR68gaX1Go1syAto483jeR7d5/Euuh7iXvq
+	DLr3h6SQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiUiU-0000000AIZU-3AjB;
-	Thu, 13 Feb 2025 08:37:02 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1tiUjt-0000000AItH-1vt8;
+	Thu, 13 Feb 2025 08:38:29 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiUXB-0000000AGU0-10Eu
+	id 1tiUa7-0000000AH4M-1gEW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 08:25:22 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 033D04318E;
-	Thu, 13 Feb 2025 08:25:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739435119;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=le1Ksyac8fZ2fSaqKx+npcfn/t1FWRIiocLUuxo9FG8=;
-	b=VkIKt/Ja/dnkpAhbUq3MDKMNpEHEIIaupb5o/vPvLedwkDH6S1TKYZoEUL2qDQyq3vsbYh
-	JbhMkovbLIgkeEZo5syuJSlAQOn/6TBTKJDvrxq77taD/6E/exYgPO8uj/Sl81l16U+4fh
-	PG78iFIR7WYcB4GC3D4mHoBZOd2d/GUDQcK9KutRQgv8Py70Y/xgSt8MLQ8B0v0WHJVEL7
-	KJ4DUV2yoJBKpCVpMugMvYJXGbVhXzeYwzBT1SVN+p+MCkUwIyZ4qo0joyRAb5Nv73MEsO
-	fnRv9jSGiyQxiCFtya1jJUvnJPXLP1aA9KTxAXZsdJx5bSoMfUAofNrydK4H3A==
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-Date: Thu, 13 Feb 2025 09:25:04 +0100
-Subject: [PATCH] serial: mctrl_gpio: add parameter to skip sync
+	Thu, 13 Feb 2025 08:28:24 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aaf900cc7fbso77603266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 00:28:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1739435302; x=1740040102; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pWXrP1biBRVYfhrhl3Fs6qE0BQgKKe9yf0UVNL2tW0Y=;
+        b=N14zex2aQT6T5PblmrFApeGER8uSvlqI2pfbzsx6t375PIvDDj2D7/YJ8jul2cj0sw
+         mCMWrGolnpIm5L40XSkC+FxCjGOiBaWObC4TRvM7JWE14VDTXAm6IHPSmTB9OgS9KToP
+         JOqKUw9jkwEntuWKAYHpJRmuD0Od+5lOu2yc8rG+t5sedMbHxJGX/Zxwb03S9onqqf7F
+         5J/M0sMFZknOtf07z7O87m4RNWVJMzOuGITL5V0EhdLyzxpNQIXBq6+JN/VLd2lmVLjb
+         SL4oSOTLo8OThveZ3ho7pGrDKVO5O/5Ruv2uCw1c+ClWM8PgmagirOEbDGIJYMsnnkWo
+         xfLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739435302; x=1740040102;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pWXrP1biBRVYfhrhl3Fs6qE0BQgKKe9yf0UVNL2tW0Y=;
+        b=crXzFOywRdRi/c0HPZIteqDbmahrvcPOvftWGqXx1jUL41Proe1WcGTnCuAQu8PiWq
+         OUWZZeisr5w2kPOCd5FvejL3L9YaOgY7tYi6kZ5IH5diAPo2uQ7jWlA6rz71PquUdiss
+         UqppCV3z8sn3uqVunU6M1jYcSe25B0MM4SiOJe/ZWClZLBGMOYD+sbVlGupbfXxGU9fu
+         aZi7l6oYPFSDYiBEV6MlaiPNkT1jzUP1Oi+Vk4uNmebR8ifaUJRtoARqwcTbJcZmeS+O
+         oK5X4djsll6PjyNH5IPfNqLkh7n+kVUPnELu4PyQS+VkiQqRHo/qxGK7kU9uLOFNYw6N
+         2Myg==
+X-Forwarded-Encrypted: i=1; AJvYcCWdcQt64xyebC3G/JNCblU1zCiq0I9G/Hcox80wJVytBvnj4AZ6RHpwcEh42r18lTAc6q+48HHDK0Z74y6J8RAO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZQNDaJ7SbTki/N6bzGrWQXKj12R8QicCNgM7AATBV+mwDnnRM
+	zU8GenMbbhqcJc6kMHWpMgxe1S9cEuKICDohAF0ud9utEDtGqYWdBlSnHllo29k=
+X-Gm-Gg: ASbGncvW5hdrUmCPj/cuxogvb/KCFyRlib3oXYO5v6aD4JXJx7df+A5tqZ/O2GTNfQF
+	XbiqCU8szIRxV76xoZxUL8PCF5NlXXyJg1m9TMH/mN+AVOhAv1tAqnhbtqNNgMApiQ9/px4qTa/
+	aEXMRh/ljtXV3s+IIasulvH2VV3ARQpQmTfXx6vbbc+A7k81wKJGG6ko2pne79lbe7OKtk9CtRd
+	8vEF2U/oXy1S7zmt3MJ7+/xkcFuurNO8D7Yo2k+JIAwa19bGD6QqLMhGZWcP2EIsU63FHpk/bVE
+	knqmkLrntyDBzF3Jfnzl6m3+
+X-Google-Smtp-Source: AGHT+IHp0wFc6lnyAccZeSIcOl6s43d7ybkx0g4TFeTVLObl1F1VkXxMGejHB9/VvyPpzOW9TCX7pg==
+X-Received: by 2002:a17:906:3652:b0:ab7:f92c:9015 with SMTP id a640c23a62f3a-ab7f92c9331mr374928166b.4.1739435301467;
+        Thu, 13 Feb 2025 00:28:21 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.173])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aba5339d94asm82747366b.143.2025.02.13.00.28.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Feb 2025 00:28:21 -0800 (PST)
+Message-ID: <2885fac1-edb3-4251-8e4a-3da92d3b3974@tuxon.dev>
+Date: Thu, 13 Feb 2025 10:28:19 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250213-atomic_sleep_mctrl_serial_gpio-v1-1-201ee6a148ad@bootlin.com>
-X-B4-Tracking: v=1; b=H4sIAF+srWcC/x3NQQqAIBBA0avErBPKMKSrRIjZWAOWohJBdPes5
- d+8f0PCSJhgqG6IeFIif5Ro6wrMpo8VGS2lgTdcNLztmM5+J6OSQwxqNzk69RHaqTWQZ1IK21u
- chRQzFCREtHT9g3F6nhc08M99cAAAAA==
-X-Change-ID: 20250213-atomic_sleep_mctrl_serial_gpio-885f6feb585b
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Jiri Slaby <jirislaby@kernel.org>, 
- Richard Genoud <richard.genoud@bootlin.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
- linux-stm32@st-md-mailman.stormreply.com, 
- =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegiedvkecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephfffufggtgfgkffvvefosehtkeertdertdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepudekveeftdeifedvfefgvdfgjeduieevudeltdeulefhhefgiedvhfethffgffegnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplgdujedvrddujedrtddrudgnpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduledprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehgrhgvghhkhhesl
- hhinhhugihfohhunhgurghtihhonhdrohhrghdprhgtphhtthhopegtlhgruhguihhurdgsvgiinhgvrgesthhugihonhdruggvvhdprhgtphhtthhopehlihhnuhigqdhsthhmfedvsehsthdqmhguqdhmrghilhhmrghnrdhsthhorhhmrhgvphhlhidrtghomhdprhgtphhtthhopehmtghoqhhuvghlihhnrdhsthhmfedvsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhitghhrghrugdrghgvnhhouhgusegsohhothhlihhnrdgtohhm
-X-GND-Sasl: alexis.lothore@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 14/15] ARM: dts: microchip: sama7d65: Add Reset and
+ Shutdown and PM support
+To: Ryan.Wanner@microchip.com, lee@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, sre@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ p.zabel@pengutronix.de
+Cc: linux@armlinux.org.uk, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+References: <cover.1739221064.git.Ryan.Wanner@microchip.com>
+ <d8578cb635ff5b01e42132bd40a12b31c8638800.1739221064.git.Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <d8578cb635ff5b01e42132bd40a12b31c8638800.1739221064.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_002521_417664_7960218E 
-X-CRM114-Status: GOOD (  17.66  )
+X-CRM114-CacheID: sfid-20250213_002823_445344_20AE67F4 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,195 +105,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following splat has been observed on a SAMA5D27 platform using
-atmel_serial:
+Hi, Ryan,
 
-BUG: sleeping function called from invalid context at kernel/irq/manage.c:738
-in_atomic(): 1, irqs_disabled(): 128, non_block: 0, pid: 27, name: kworker/u5:0
-preempt_count: 1, expected: 0
-INFO: lockdep is turned off.
-irq event stamp: 0
-hardirqs last  enabled at (0): [<00000000>] 0x0
-hardirqs last disabled at (0): [<c01588f0>] copy_process+0x1c4c/0x7bec
-softirqs last  enabled at (0): [<c0158944>] copy_process+0x1ca0/0x7bec
-softirqs last disabled at (0): [<00000000>] 0x0
-CPU: 0 UID: 0 PID: 27 Comm: kworker/u5:0 Not tainted 6.13.0-rc7+ #74
-Hardware name: Atmel SAMA5
-Workqueue: hci0 hci_power_on [bluetooth]
-Call trace:
-  unwind_backtrace from show_stack+0x18/0x1c
-  show_stack from dump_stack_lvl+0x44/0x70
-  dump_stack_lvl from __might_resched+0x38c/0x598
-  __might_resched from disable_irq+0x1c/0x48
-  disable_irq from mctrl_gpio_disable_ms+0x74/0xc0
-  mctrl_gpio_disable_ms from atmel_disable_ms.part.0+0x80/0x1f4
-  atmel_disable_ms.part.0 from atmel_set_termios+0x764/0x11e8
-  atmel_set_termios from uart_change_line_settings+0x15c/0x994
-  uart_change_line_settings from uart_set_termios+0x2b0/0x668
-  uart_set_termios from tty_set_termios+0x600/0x8ec
-  tty_set_termios from ttyport_set_flow_control+0x188/0x1e0
-  ttyport_set_flow_control from wilc_setup+0xd0/0x524 [hci_wilc]
-  wilc_setup [hci_wilc] from hci_dev_open_sync+0x330/0x203c [bluetooth]
-  hci_dev_open_sync [bluetooth] from hci_dev_do_open+0x40/0xb0 [bluetooth]
-  hci_dev_do_open [bluetooth] from hci_power_on+0x12c/0x664 [bluetooth]
-  hci_power_on [bluetooth] from process_one_work+0x998/0x1a38
-  process_one_work from worker_thread+0x6e0/0xfb4
-  worker_thread from kthread+0x3d4/0x484
-  kthread from ret_from_fork+0x14/0x28
+On 10.02.2025 23:13, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+> 
+> Add support for reset controller, wake up alarm timers, and shutdown
+> controller.
+> 
+> Add SRAM, SFR, secumod, UDDRC, and DDR3phy to enable support for low power modes.
 
-This warning is emitted when trying to toggle, at the highest level,
-some flow control (with serdev_device_set_flow_control) in a device
-driver. At the lowest level, the atmel_serial driver is using
-serial_mctrl_gpio lib to enable/disable the corresponding IRQs
-accordingly.  The warning emitted by CONFIG_DEBUG_ATOMIC_SLEEP is due to
-disable_irq (called in mctrl_gpio_disable_ms) being possibly called in
-some atomic context (some tty drivers perform modem lines configuration
-in regions protected by port lock).
+Can you split it in individual patches? E.g.
 
-Add a flag to mctrl_gpio_disable_ms to allow controlling whether the
-function should block, depending the context in which it is called.
-Update mctrl_gpio_disable_ms calls with the relevant flag value,
-depending on whether the call is protected by some port lock.
+1/ add reset controller
+2/ add shutdown controller
+3/ add rtc support
+4/ add rtt support
+5/ add PM support
 
-Suggested-by: Jiri Slaby <jirislaby@kernel.org>
-Signed-off-by: Alexis Lothoré <alexis.lothore@bootlin.com>
----
-This series follows a report made here:
-https://lore.kernel.org/linux-serial/3d227ebe-1ee6-4d57-b1ec-78be59af7244@bootlin.com/
----
- drivers/tty/serial/8250/8250_port.c    | 2 +-
- drivers/tty/serial/atmel_serial.c      | 2 +-
- drivers/tty/serial/imx.c               | 2 +-
- drivers/tty/serial/serial_mctrl_gpio.c | 9 +++++++--
- drivers/tty/serial/serial_mctrl_gpio.h | 4 ++--
- drivers/tty/serial/sh-sci.c            | 2 +-
- drivers/tty/serial/stm32-usart.c       | 2 +-
- 7 files changed, 14 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
-index d7976a21cca9ce50557ca5f13bb01448ced0728b..b234c6c1fe8b3dae4efc2091c8aecf1f1dddc9f8 100644
---- a/drivers/tty/serial/8250/8250_port.c
-+++ b/drivers/tty/serial/8250/8250_port.c
-@@ -1680,7 +1680,7 @@ static void serial8250_disable_ms(struct uart_port *port)
- 	if (up->bugs & UART_BUG_NOMSR)
- 		return;
- 
--	mctrl_gpio_disable_ms(up->gpios);
-+	mctrl_gpio_disable_ms(up->gpios, false);
- 
- 	up->ier &= ~UART_IER_MSI;
- 	serial_port_out(port, UART_IER, up->ier);
-diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
-index f44f9d20a97440c9aea41e9ebe34c34d4dfa0a1c..eac0c266bd2fc13b0563c82b29f13f46df718625 100644
---- a/drivers/tty/serial/atmel_serial.c
-+++ b/drivers/tty/serial/atmel_serial.c
-@@ -700,7 +700,7 @@ static void atmel_disable_ms(struct uart_port *port)
- 
- 	atmel_port->ms_irq_enabled = false;
- 
--	mctrl_gpio_disable_ms(atmel_port->gpios);
-+	mctrl_gpio_disable_ms(atmel_port->gpios, false);
- 
- 	if (!mctrl_gpio_to_gpiod(atmel_port->gpios, UART_GPIO_CTS))
- 		idr |= ATMEL_US_CTSIC;
-diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-index 9c59ec128bb4fc0ff54cb9a1a66eabbc9e391a9a..af894a176a2fabea5374a35be5a63f453be5da96 100644
---- a/drivers/tty/serial/imx.c
-+++ b/drivers/tty/serial/imx.c
-@@ -1608,7 +1608,7 @@ static void imx_uart_shutdown(struct uart_port *port)
- 		imx_uart_dma_exit(sport);
- 	}
- 
--	mctrl_gpio_disable_ms(sport->gpios);
-+	mctrl_gpio_disable_ms(sport->gpios, true);
- 
- 	uart_port_lock_irqsave(&sport->port, &flags);
- 	ucr2 = imx_uart_readl(sport, UCR2);
-diff --git a/drivers/tty/serial/serial_mctrl_gpio.c b/drivers/tty/serial/serial_mctrl_gpio.c
-index 8855688a5b6c09f073349bd144586f54331d891f..caef2be955eef95cc2efd508bc9ada2c948e3bf4 100644
---- a/drivers/tty/serial/serial_mctrl_gpio.c
-+++ b/drivers/tty/serial/serial_mctrl_gpio.c
-@@ -325,8 +325,10 @@ EXPORT_SYMBOL_GPL(mctrl_gpio_enable_ms);
- /**
-  * mctrl_gpio_disable_ms - disable irqs and handling of changes to the ms lines
-  * @gpios: gpios to disable
-+ * @sync: true if function should block until any pending IRQ handler has
-+ * executed
-  */
--void mctrl_gpio_disable_ms(struct mctrl_gpios *gpios)
-+void mctrl_gpio_disable_ms(struct mctrl_gpios *gpios, bool sync)
- {
- 	enum mctrl_gpio_idx i;
- 
-@@ -342,7 +344,10 @@ void mctrl_gpio_disable_ms(struct mctrl_gpios *gpios)
- 		if (!gpios->irq[i])
- 			continue;
- 
--		disable_irq(gpios->irq[i]);
-+		if (sync)
-+			disable_irq(gpios->irq[i]);
-+		else
-+			disable_irq_nosync(gpios->irq[i]);
- 	}
- }
- EXPORT_SYMBOL_GPL(mctrl_gpio_disable_ms);
-diff --git a/drivers/tty/serial/serial_mctrl_gpio.h b/drivers/tty/serial/serial_mctrl_gpio.h
-index fc76910fb105a3d560e824baa43e9515576e895a..20f68dc3d63711214e1e65d22b8334b093dfc6fa 100644
---- a/drivers/tty/serial/serial_mctrl_gpio.h
-+++ b/drivers/tty/serial/serial_mctrl_gpio.h
-@@ -89,7 +89,7 @@ void mctrl_gpio_enable_ms(struct mctrl_gpios *gpios);
- /*
-  * Disable gpio interrupts to report status line changes.
-  */
--void mctrl_gpio_disable_ms(struct mctrl_gpios *gpios);
-+void mctrl_gpio_disable_ms(struct mctrl_gpios *gpios, bool sync);
- 
- /*
-  * Enable gpio wakeup interrupts to enable wake up source.
-@@ -148,7 +148,7 @@ static inline void mctrl_gpio_enable_ms(struct mctrl_gpios *gpios)
- {
- }
- 
--static inline void mctrl_gpio_disable_ms(struct mctrl_gpios *gpios)
-+static inline void mctrl_gpio_disable_ms(struct mctrl_gpios *gpios, bool sync)
- {
- }
- 
-diff --git a/drivers/tty/serial/sh-sci.c b/drivers/tty/serial/sh-sci.c
-index b1ea48f38248eb42d98353daa289bbe67191d201..5d6d6d9af2eece94bdecb47933e1448dbb921114 100644
---- a/drivers/tty/serial/sh-sci.c
-+++ b/drivers/tty/serial/sh-sci.c
-@@ -2298,7 +2298,7 @@ static void sci_shutdown(struct uart_port *port)
- 	dev_dbg(port->dev, "%s(%d)\n", __func__, port->line);
- 
- 	s->autorts = false;
--	mctrl_gpio_disable_ms(to_sci_port(port)->gpios);
-+	mctrl_gpio_disable_ms(to_sci_port(port)->gpios, true);
- 
- 	uart_port_lock_irqsave(port, &flags);
- 	sci_stop_rx(port);
-diff --git a/drivers/tty/serial/stm32-usart.c b/drivers/tty/serial/stm32-usart.c
-index 1ec5d8c3aef8ddbca615a149c2fe81c90c83a22b..354894d4b468a51690568e83310b8400764e56a6 100644
---- a/drivers/tty/serial/stm32-usart.c
-+++ b/drivers/tty/serial/stm32-usart.c
-@@ -944,7 +944,7 @@ static void stm32_usart_enable_ms(struct uart_port *port)
- 
- static void stm32_usart_disable_ms(struct uart_port *port)
- {
--	mctrl_gpio_disable_ms(to_stm32_port(port)->gpios);
-+	mctrl_gpio_disable_ms(to_stm32_port(port)->gpios, true);
- }
- 
- /* Transmit stop */
+> 
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> ---
+>  arch/arm/boot/dts/microchip/sama7d65.dtsi | 77 +++++++++++++++++++++++
+>  1 file changed, 77 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+> index 854b30d15dcd4..1d40235bdab0a 100644
+> --- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
+> +++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+> @@ -46,12 +46,42 @@ slow_xtal: clock-slowxtal {
+>  		};
+>  	};
+>  
+> +	ns_sram: sram@100000 {
+> +		compatible = "mmio-sram";
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		reg = <0x100000 0x20000>;
+> +		ranges;
 
----
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-change-id: 20250213-atomic_sleep_mctrl_serial_gpio-885f6feb585b
+Please follow order proposed here:
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Documentation/devicetree/bindings/dts-coding-style.rst#n112
 
-Best regards,
--- 
-Alexis Lothoré, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+That would be (for this node):
+- compatible
+- reg
+- ranges
+- everything else
+
+> +	};
+> +
+>  	soc {
+>  		compatible = "simple-bus";
+>  		ranges;
+>  		#address-cells = <1>;
+>  		#size-cells = <1>;
+>  
+> +		securam: sram@e0000800 {
+> +			compatible = "microchip,sama7d65-securam", "atmel,sama5d2-securam", "mmio-sram";
+> +			reg = <0xe0000800 0x4000>;
+> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 17>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			ranges = <0 0xe0000800 0x4000>;
+> +			no-memory-wc;
+
+Same here with regards to order and dts coding style.
+
+> +		};
+> +
+> +		secumod: secumod@e0004000 {
+> +			compatible = "microchip,sama7d65-secumod", "atmel,sama5d2-secumod", "syscon";
+> +			reg = <0xe0004000 0x4000>;
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +		};
+> +
+> +		sfrbu: sfr@e0008000 {
+> +			compatible ="microchip,sama7d65-sfrbu", "atmel,sama5d2-sfrbu", "syscon";
+> +			reg = <0xe0008000 0x20>;
+> +		};
+> +
+>  		pioa: pinctrl@e0014000 {
+>  			compatible = "microchip,sama7d65-pinctrl", "microchip,sama7g5-pinctrl";
+>  			reg = <0xe0014000 0x800>;
+> @@ -76,6 +106,31 @@ pmc: clock-controller@e0018000 {
+>  			clock-names = "td_slck", "md_slck", "main_xtal";
+>  		};
+>  
+> +		reset_controller: reset-controller@e001d100 {
+> +			compatible = "microchip,sama7d65-rstc", "microchip,sama7g5-rstc";
+> +			reg = <0xe001d100 0xc>, <0xe001d1e4 0x4>;
+> +			#reset-cells = <1>;
+> +			clocks = <&clk32k 0>;
+> +		};
+> +
+> +		shdwc: poweroff@e001d200 {
+> +			compatible = "microchip,sama7d65-shdwc", "microchip,sama7g5-shdwc", "syscon";
+> +			reg = <0xe001d200 0x20>;
+> +			clocks = <&clk32k 0>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			atmel,wakeup-rtc-timer;
+> +			atmel,wakeup-rtt-timer;
+> +			status = "disabled";
+> +		};
+> +
+> +		rtt: rtc@e001d300 {
+> +			compatible = "microchip,sama7d65-rtt", "atmel,at91sam9260-rtt";
+> +			reg = <0xe001d300 0x30>;
+> +			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clk32k 0>;
+> +		};
+> +
+>  		clk32k: clock-controller@e001d500 {
+>  			compatible = "microchip,sama7d65-sckc", "microchip,sam9x60-sckc";
+>  			reg = <0xe001d500 0x4>;
+> @@ -83,6 +138,18 @@ clk32k: clock-controller@e001d500 {
+>  			#clock-cells = <1>;
+>  		};
+>  
+> +		gpbr: gpbr@e001d700 {
+> +			compatible = "microchip,sama7d65-gpbr", "syscon";
+> +			reg = <0xe001d700 0x48>;
+> +		};
+> +
+> +		rtc: rtc@e001d800 {
+> +			compatible = "microchip,sama7d65-rtc", "microchip,sam9x60-rtc";
+> +			reg = <0xe001d800 0x30>;
+> +			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clk32k 1>;
+> +		};
+> +
+>  		sdmmc1: mmc@e1208000 {
+>  			compatible = "microchip,sama7d65-sdhci", "microchip,sam9x60-sdhci";
+>  			reg = <0xe1208000 0x400>;
+> @@ -132,6 +199,16 @@ uart6: serial@200 {
+>  			};
+>  		};
+>  
+> +		uddrc: uddrc@e3800000 {
+> +			compatible = "microchip,sama7d65-uddrc", "microchip,sama7g5-uddrc";
+> +			reg = <0xe3800000 0x4000>;
+> +		};
+> +
+> +		ddr3phy: ddr3phy@e3804000 {
+> +			compatible = "microchip,sama7d65-ddr3phy", "microchip,sama7g5-ddr3phy";
+> +			reg = <0xe3804000 0x1000>;
+> +		};
+> +
+>  		gic: interrupt-controller@e8c11000 {
+>  			compatible = "arm,cortex-a7-gic";
+>  			reg = <0xe8c11000 0x1000>,
 
 
