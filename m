@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F327BC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 09:44:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E358CC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 09:45:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vXrXivtvEQLh4adLUP4GGOdvzjuOxYfBxi9mEWJalRs=; b=3O48cYHgDNCM+Bm+EWx/luexNj
-	ptCu4qlf+Bfz4Vxq1Qeg4CsK12nIac9twDvWqDh74UR4dc2oGM0C5zWsvcXIX0YSkS7HtpF6ulJ4S
-	9FIrTiPgKXhea8ksYItbmM2OUkwTNbW4xXXQ50G1Wzbnge2gow7gJhXZp+t3xSr/xBkz7JynUavaz
-	fC2GuvrOXYcwLUt44Alr5reQ0JwHUFif0vmWb0I2bxraG0VMG/jW/pfwuSB69gjIditcCIZhf379D
-	Nl/RWX8MzuYAMDNjA/pGJXiLN3I4GyJmz4p93Bx8dtZQu0A9uZqjPfo0LnKT3g7xkOBP+xdCqzqtM
-	yfE/mqbw==;
+	bh=9NmeS9foi57N6w4no4pH/e8F+/9zjxmhS+0FDke+vdk=; b=BPLQbZZWJS1/KNOCUujgI5MmYv
+	GIl1wUNzC2PMd1oKH0oJ89Jo0E4ZNVjdaIjBMHEvIShfWOWKtC+Q7xhSk+2PTqwPJfaOVBfe/E+pp
+	nfhh5reI4Rb6rF/ACLdPbbhcZ4qwWrxn29CWvTXxqD+GjNWtYOTdkfGmnPWgPGe89lORo/Syb+l+h
+	/Zxn3GbSvbciNcbC5fxPu3dUv/BgGrVFwyo/AuR5ryY0mT14rog8RdPjtg6xH6Ld41N+6XbfKHpz/
+	VbReUjaveMyN3oWfNyjGpub+k9ryNUzDZuno0lX55pI4a/rSecXO7pfJyAt9M+AOqDw0KJkA2Gdmk
+	9tr/9qQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiVl6-0000000AWCN-0hiX;
-	Thu, 13 Feb 2025 09:43:48 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tiVmU-0000000AWa0-1nK2;
+	Thu, 13 Feb 2025 09:45:14 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiViM-0000000AVTD-25WG;
-	Thu, 13 Feb 2025 09:40:59 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-543cc81ddebso675126e87.1;
-        Thu, 13 Feb 2025 01:40:58 -0800 (PST)
+	id 1tiViU-0000000AVW6-3Y87;
+	Thu, 13 Feb 2025 09:41:08 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-54506b54268so602196e87.3;
+        Thu, 13 Feb 2025 01:41:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739439656; x=1740044456; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739439665; x=1740044465; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vXrXivtvEQLh4adLUP4GGOdvzjuOxYfBxi9mEWJalRs=;
-        b=COcxQaEcaMf3YYaevdYPMZIv9FDE92wsiFjQ4v5+Ojp4HzxB5Hnz/r7aGp6ijLa/F9
-         zQYw9TmaswIrFVCrE4v7rkqzIZLHekKSWGv22ya4IjB7n2gGoKjw7J5YSRT89YnYlYiU
-         udNWAd9g+KdSnX9eU1BsxLXbTpG4QdDIs/GFjMCz/QY/stoxnrYPrxH4CuVs8ZMXbprK
-         +82GN0hoGHKTxvnj7k8X9QES6m68pxe95PvlIBd0L8qyBazbTCzaZF3liwjNMrF+kXYu
-         0mAnLVaBcy6t6dSvap2qomJeZUgvdlJpFLrPmZX7VlKZdxoJjKAEMNovGk38vYCPIUOH
-         Ej8A==
+        bh=9NmeS9foi57N6w4no4pH/e8F+/9zjxmhS+0FDke+vdk=;
+        b=EMAsVVWQp9lKoskIaOWPhe2wBjQ2o+VElIt+NAIG0I1q27qSI8RI7mG0SVNsgDyYyt
+         C2R+eSrLxeHmAHVebf5H5G2/u+rJjRKKfHuvBoQ5TJuqtxTdUXm1q9707AU2RbliFoVJ
+         QHytBA6wbzps0WzhElCVvmG9FOzb856bd2QMmG9mMqyoi9pFKsQtdByqIJlqYDG0OWO6
+         adeKqcqpCpzt94RtVi4QITMNKqyBGCJ7r8sBYisq5gqyntJFchmdyzb4b+SzEvQXfwHZ
+         fC2L5KsTsLO2TN8tGlPoYNChqRgwXv3hNmDYoSCNHmKs8GmKTBHyw6bCBSIp8I26gROR
+         Pwmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739439656; x=1740044456;
+        d=1e100.net; s=20230601; t=1739439665; x=1740044465;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vXrXivtvEQLh4adLUP4GGOdvzjuOxYfBxi9mEWJalRs=;
-        b=Qc1hmJ1rMAy3MnJH+C8LoHek8PqWRFvI51PEFDOc7P58R5Qq9AnPT1TqtI+XuFlgVc
-         t/FSPofQ+RJ5POuVzxnBCO1Et+jh8g3Q56WAZvIIxapcrKifZA2X7I9XhBFeHNDeeYhH
-         ckH2iNRuAeXzWEMbdbghB/yoJZruy18RwKiuie3BpI5TGKUU6nqu0S/SqI5RdEVdGWzj
-         y4+MC87/zeLbT5Y3AeqoVIwgiRovWX98QWmgpmFD2pdaBCO8sqmZHvy+Wm0Ke+Byp7vd
-         IvDu0h8Plpz0IHocxLf4rNx7Y5786wcWuR+SgyZGuXbvPgx1b1+hMPMljS1Ncsx97+7S
-         F/RQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWVIZx/8rtR4MKd91hCZ41Oh2vpT6XBFaV7BqzPMK9xs4E5UKWmxjcEJdahv7txeM4k4zo5jBalu8AdQQY=@lists.infradead.org, AJvYcCWvSSPcCwGQoKeX4zfgdowPbSpmyxT2beYEudHwVTJfq0idiCeaLLwUZUwmBSSsNXkgAMNLya56LdCbeShJCsne@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+3YgOWDbOzSM3Y7S8yRWMM9Y7Dz47cciGirdOWYEPRfhMDNDZ
-	b2k5znKcJhP0fs0mfwiJrnAhRJ9iRl1/55OfQa7B0DEu6kXnXow=
-X-Gm-Gg: ASbGncsR0HtdZFPLBuBzoYNZ+6ouPWK4S0YQfYNqyHx+Wsbwm/wT6nOdVRmGIAQvOYJ
-	kqdHeMPgtzykrORZTKjq2JaGpEkEA4+v23Wm5VaCSDvoHZJ+AslJJvWhSG43HaRjxA46ZSgZ82s
-	JSTaoyjeoh9uq64SikrfoUW2ojqsApE/ILi/Rb2SppCOqe/EjxfCQEiyX3WAyAsiSN+cHP1QuoJ
-	nLpCtncOeN+qGM71TxYJ0IJxoTYR3EwGoKRy2lA4JG8qVO984CfqFpvDCwBpfmFyW6enFFuYlAU
-	p5OO2DncnrusL0GkibTl+AzigU//Whw=
-X-Google-Smtp-Source: AGHT+IFCCGYbVQL84jr1QCXcHIWbGfBA/gZiSDbm59JZik6/Tl6V0NyLBbgRGNNv01sE2JUH4IgWTw==
-X-Received: by 2002:a05:6512:1111:b0:545:6cf:6f3e with SMTP id 2adb3069b0e04-5451dde81aemr834931e87.49.1739439656372;
-        Thu, 13 Feb 2025 01:40:56 -0800 (PST)
+        bh=9NmeS9foi57N6w4no4pH/e8F+/9zjxmhS+0FDke+vdk=;
+        b=oDOlsXnQYXMf86SZiKD2AxUNp4XWC+3EHjlOKUdJuIccotT+izXP5oIqwVZkuk1MxU
+         gFnORqh0TjqejAecGG5cbkNTFVbI6TMejwXXpo1DiwjfOc4JuJ6SlsrA6AExMqsdppIL
+         9v5wmYxtLJD8MuHO3cuH/h/68PCgr6AxpmQVwsawQofz2eKdQk6k3k0GWO1SB6n3b8gz
+         MPaWGE1jmT6aVqB4WWGAmFUSW4ACug1A2rfhzo5up3QBkfeiJur7P4aVtbFPgqS2xtEm
+         pAMHcRX3zxF9ERLCypdxW09kR0aFGBh9ALuurQPpavIue1+F/Kh50JZyACe/CegT8MxO
+         WT3A==
+X-Forwarded-Encrypted: i=1; AJvYcCU5TIgvwkegpoSU/0q5SMCzN+Jf3v5/Cfx0xAvlIbbxvYJJyuUi5SLdyrPfTIY3bhHJgEtdch9jHRiVWvgDrBhw@lists.infradead.org, AJvYcCWLPwUOpQW4DNkOwrJitCIv3vdgbunxi0Pw6EhtX2zmdpnP8eoZ4iz7eiqYRRsWm8DjZ75jYSxBvoEd2Rk=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQu7/gXqEBK2diJRZzFHtR7Eo5JFCI/ja8xmpxnDPrpTThKCkw
+	DKopzD0IsZo3fvk5zLMPaQe0UEiALAT9bZnP0wkRDKD9dFf4QIM=
+X-Gm-Gg: ASbGncu0DqYtDJmYl0SPIJw2f1nHYGIXmX6OS6kNyO/ql4DE/t6PEDkEsEKYU6pzkgV
+	nZhmqoK97iDeUPPgPrN4lBk0w8yF8+X/XJDOPaZjKr8qNFF+HamqMc6cgEsnHjolhRBF8WjWNNu
+	leoqnEyEXarzHyA6OtsU/00yWVgJ25gKm5YWxGRZ8qc6Qsj8RaxS6dk0OhqHWkIORsnkWVB+7bz
+	RyncnrH/GdP32XgnzlaAFiY3l1rJ18lBa2BOW8fGYFTweZPQA5ulmFY5SkiEctS69MUHLRPyci1
+	RwqDFDShmYgDZ1ryMN+mVUF2/dFcokg=
+X-Google-Smtp-Source: AGHT+IHH0kPe6LBC8uhMeUjIrHu12aHBMxWW4e5nB5bx4fSeJedqf8Yf3xtC90RHKNWC0VLXDt4VJA==
+X-Received: by 2002:a05:6512:3f0d:b0:545:532:fd2f with SMTP id 2adb3069b0e04-5451dd9274emr743078e87.12.1739439664464;
+        Thu, 13 Feb 2025 01:41:04 -0800 (PST)
 Received: from localhost.localdomain ([178.176.176.188])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5451f10cae7sm119518e87.183.2025.02.13.01.40.53
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5451f10cae7sm119518e87.183.2025.02.13.01.41.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Feb 2025 01:40:55 -0800 (PST)
+        Thu, 13 Feb 2025 01:41:04 -0800 (PST)
 From: Aleksandr Shubin <privatesub2@gmail.com>
 To: linux-kernel@vger.kernel.org
 Cc: Aleksandr Shubin <privatesub2@gmail.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
+	Brandon Cheo Fusi <fusibrandon13@gmail.com>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -82,23 +82,23 @@ Cc: Aleksandr Shubin <privatesub2@gmail.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Philipp Zabel <p.zabel@pengutronix.de>,
-	Cheo Fusi <fusibrandon13@gmail.com>,
 	linux-pwm@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v11 1/3] dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM controller
-Date: Thu, 13 Feb 2025 12:40:12 +0300
-Message-Id: <20250213094018.134081-2-privatesub2@gmail.com>
+Subject: [PATCH v11 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
+Date: Thu, 13 Feb 2025 12:40:13 +0300
+Message-Id: <20250213094018.134081-3-privatesub2@gmail.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250213094018.134081-1-privatesub2@gmail.com>
 References: <20250213094018.134081-1-privatesub2@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_014058_542428_BA09FFDB 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250213_014106_889853_295B78A3 
+X-CRM114-Status: GOOD (  30.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,120 +113,432 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
-controller witch is different from the previous pwm-sun4i.
+Allwinner's D1, T113-S3 and R329 SoCs have a quite different PWM
+controllers with ones supported by pwm-sun4i driver.
 
-The D1 and T113 are identical in terms of peripherals,
-they differ only in the architecture of the CPU core, and
-even share the majority of their DT. Because of that,
-using the same compatible makes sense.
-The R329 is a different SoC though, and should have
-a different compatible string added, especially as there
-is a difference in the number of channels.
+This patch adds a PWM controller driver for Allwinner's D1,
+T113-S3 and R329 SoCs. The main difference between these SoCs
+is the number of channels defined by the DT property.
 
-D1 and T113s SoCs have one PWM controller with 8 channels.
-R329 SoC has two PWM controllers in both power domains, one of
-them has 9 channels (CPUX one) and the other has 6 (CPUS one).
-
-Add a device tree binding for them.
-
+Co-developed-by: Brandon Cheo Fusi <fusibrandon13@gmail.com>
+Signed-off-by: Brandon Cheo Fusi <fusibrandon13@gmail.com>
 Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../bindings/pwm/allwinner,sun20i-pwm.yaml    | 84 +++++++++++++++++++
- 1 file changed, 84 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
+ drivers/pwm/Kconfig      |  10 ++
+ drivers/pwm/Makefile     |   1 +
+ drivers/pwm/pwm-sun20i.c | 370 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 381 insertions(+)
+ create mode 100644 drivers/pwm/pwm-sun20i.c
 
-diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
+diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+index 0915c1e7df16..778151aa3860 100644
+--- a/drivers/pwm/Kconfig
++++ b/drivers/pwm/Kconfig
+@@ -652,6 +652,16 @@ config PWM_SUN4I
+ 	  To compile this driver as a module, choose M here: the module
+ 	  will be called pwm-sun4i.
+ 
++config PWM_SUN20I
++	tristate "Allwinner D1/T113s/R329 PWM support"
++	depends on ARCH_SUNXI || COMPILE_TEST
++	depends on COMMON_CLK
++	help
++	  Generic PWM framework driver for Allwinner D1/T113s/R329 SoCs.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called pwm-sun20i.
++
+ config PWM_SUNPLUS
+ 	tristate "Sunplus PWM support"
+ 	depends on ARCH_SUNPLUS || COMPILE_TEST
+diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
+index 9081e0c0e9e0..85ad1fe0dde1 100644
+--- a/drivers/pwm/Makefile
++++ b/drivers/pwm/Makefile
+@@ -60,6 +60,7 @@ obj-$(CONFIG_PWM_STM32)		+= pwm-stm32.o
+ obj-$(CONFIG_PWM_STM32_LP)	+= pwm-stm32-lp.o
+ obj-$(CONFIG_PWM_STMPE)		+= pwm-stmpe.o
+ obj-$(CONFIG_PWM_SUN4I)		+= pwm-sun4i.o
++obj-$(CONFIG_PWM_SUN20I)	+= pwm-sun20i.o
+ obj-$(CONFIG_PWM_SUNPLUS)	+= pwm-sunplus.o
+ obj-$(CONFIG_PWM_TEGRA)		+= pwm-tegra.o
+ obj-$(CONFIG_PWM_TIECAP)	+= pwm-tiecap.o
+diff --git a/drivers/pwm/pwm-sun20i.c b/drivers/pwm/pwm-sun20i.c
 new file mode 100644
-index 000000000000..8955e203f638
+index 000000000000..409fa8e9bc45
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-@@ -0,0 +1,84 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pwm/allwinner,sun20i-pwm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/pwm/pwm-sun20i.c
+@@ -0,0 +1,370 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * PWM Controller Driver for sunxi platforms (D1, T113-S3 and R329)
++ *
++ * Limitations:
++ * - When the parameters change, the current running period is not completed
++ *   and new settings are applied immediately.
++ * - The PWM output goes to a HIGH-Z state when the channel is disabled.
++ * - Changing the clock configuration (SUN20I_PWM_CLK_CFG)
++ * - may cause a brief output glitch.
++ *
++ * Copyright (c) 2023 Aleksandr Shubin <privatesub2@gmail.com>
++ */
 +
-+title: Allwinner D1, T113-S3 and R329 PWM
++#include <linux/bitfield.h>
++#include <linux/clk.h>
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/pwm.h>
++#include <linux/reset.h>
 +
-+maintainers:
-+  - Aleksandr Shubin <privatesub2@gmail.com>
-+  - Brandon Cheo Fusi <fusibrandon13@gmail.com>
++#define SUN20I_PWM_CLK_CFG(pair)		(0x20 + ((pair) * 0x4))
++#define SUN20I_PWM_CLK_CFG_SRC			GENMASK(8, 7)
++#define SUN20I_PWM_CLK_CFG_DIV_M		GENMASK(3, 0)
++#define SUN20I_PWM_CLK_DIV_M_MAX		8
 +
-+properties:
-+  compatible:
-+    oneOf:
-+      - const: allwinner,sun20i-d1-pwm
-+      - items:
-+          - const: allwinner,sun50i-r329-pwm
-+          - const: allwinner,sun20i-d1-pwm
++#define SUN20I_PWM_CLK_GATE			0x40
++#define SUN20I_PWM_CLK_GATE_BYPASS(chan)	BIT((chan) + 16)
++#define SUN20I_PWM_CLK_GATE_GATING(chan)	BIT(chan)
 +
-+  reg:
-+    maxItems: 1
++#define SUN20I_PWM_ENABLE			0x80
++#define SUN20I_PWM_ENABLE_EN(chan)		BIT(chan)
 +
-+  "#pwm-cells":
-+    const: 3
++#define SUN20I_PWM_CTL(chan)			(0x100 + (chan) * 0x20)
++#define SUN20I_PWM_CTL_ACT_STA			BIT(8)
++#define SUN20I_PWM_CTL_PRESCAL_K		GENMASK(7, 0)
++#define SUN20I_PWM_CTL_PRESCAL_K_MAX		field_max(SUN20I_PWM_CTL_PRESCAL_K)
 +
-+  clocks:
-+    items:
-+      - description: Bus clock
-+      - description: 24 MHz oscillator
-+      - description: APB clock
++#define SUN20I_PWM_PERIOD(chan)			(0x104 + (chan) * 0x20)
++#define SUN20I_PWM_PERIOD_ENTIRE_CYCLE		GENMASK(31, 16)
++#define SUN20I_PWM_PERIOD_ACT_CYCLE		GENMASK(15, 0)
 +
-+  clock-names:
-+    items:
-+      - const: bus
-+      - const: hosc
-+      - const: apb
++#define SUN20I_PWM_PCNTR_SIZE			BIT(16)
 +
-+  resets:
-+    maxItems: 1
++/*
++ * SUN20I_PWM_MAGIC is used to quickly compute the values of the clock dividers
++ * div_m (SUN20I_PWM_CLK_CFG_DIV_M) & prescale_k (SUN20I_PWM_CTL_PRESCAL_K)
++ * without using a loop. These dividers limit the # of cycles in a period
++ * to SUN20I_PWM_PCNTR_SIZE (65536) by applying a scaling factor of
++ * 1/(div_m * (prescale_k + 1)) to the clock source.
++ *
++ * SUN20I_PWM_MAGIC is derived by solving for div_m and prescale_k
++ * such that for a given requested period,
++ *
++ * i) div_m is minimized for any prescale_k ≤ SUN20I_PWM_CTL_PRESCAL_K_MAX,
++ * ii) prescale_k is minimized.
++ *
++ * The derivation proceeds as follows, with val = # of cycles for requested
++ * period:
++ *
++ * for a given value of div_m we want the smallest prescale_k such that
++ *
++ * (val >> div_m) // (prescale_k + 1) ≤ 65536 (= SUN20I_PWM_PCNTR_SIZE)
++ *
++ * This is equivalent to:
++ *
++ * (val >> div_m) ≤ 65536 * (prescale_k + 1) + prescale_k
++ * ⟺ (val >> div_m) ≤ 65537 * prescale_k + 65536
++ * ⟺ (val >> div_m) - 65536 ≤ 65537 * prescale_k
++ * ⟺ ((val >> div_m) - 65536) / 65537 ≤ prescale_k
++ *
++ * As prescale_k is integer, this becomes
++ *
++ * ((val >> div_m) - 65536) // 65537 ≤ prescale_k
++ *
++ * And is minimized at
++ *
++ * ((val >> div_m) - 65536) // 65537
++ *
++ * Now we pick the smallest div_m that satifies prescale_k ≤ 255
++ * (i.e SUN20I_PWM_CTL_PRESCAL_K_MAX),
++ *
++ * ((val >> div_m) - 65536) // 65537 ≤ 255
++ * ⟺ (val >> div_m) - 65536 ≤ 255 * 65537 + 65536
++ * ⟺ val >> div_m ≤ 255 * 65537 + 2 * 65536
++ * ⟺ val >> div_m < (255 * 65537 + 2 * 65536 + 1)
++ * ⟺ div_m = fls((val) / (255 * 65537 + 2 * 65536 + 1))
++ *
++ * Suggested by Uwe Kleine-König
++ */
++#define SUN20I_PWM_MAGIC			(255 * 65537 + 2 * 65536 + 1)
++#define SUN20I_PWM_DIV_CONST			65537
 +
-+  allwinner,npwms:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: The number of PWM channels configured for this instance
-+    enum: [6, 9]
++struct sun20i_pwm_chip {
++	struct clk *clk_hosc, *clk_apb;
++	void __iomem *base;
++};
 +
-+allOf:
-+  - $ref: pwm.yaml#
++static inline struct sun20i_pwm_chip *to_sun20i_pwm_chip(struct pwm_chip *chip)
++{
++	return pwmchip_get_drvdata(chip);
++}
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: allwinner,sun50i-r329-pwm
++static inline u32 sun20i_pwm_readl(struct sun20i_pwm_chip *chip,
++				   unsigned long offset)
++{
++	return readl(chip->base + offset);
++}
 +
-+    then:
-+      required:
-+        - allwinner,npwms
++static inline void sun20i_pwm_writel(struct sun20i_pwm_chip *chip,
++				     u32 val, unsigned long offset)
++{
++	writel(val, chip->base + offset);
++}
 +
-+unevaluatedProperties: false
++static int sun20i_pwm_get_state(struct pwm_chip *chip,
++				struct pwm_device *pwm,
++				struct pwm_state *state)
++{
++	struct sun20i_pwm_chip *sun20i_chip = to_sun20i_pwm_chip(chip);
++	u16 ent_cycle, act_cycle, prescale_k;
++	u64 clk_rate, tmp;
++	u8 div_m;
++	u32 val;
 +
-+required:
-+  - compatible
-+  - reg
-+  - "#pwm-cells"
-+  - clocks
-+  - clock-names
-+  - resets
++	val = sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_CLK_CFG(pwm->hwpwm / 2));
++	div_m = FIELD_GET(SUN20I_PWM_CLK_CFG_DIV_M, val);
++	if (div_m > SUN20I_PWM_CLK_DIV_M_MAX)
++		div_m = SUN20I_PWM_CLK_DIV_M_MAX;
 +
-+examples:
-+  - |
-+    #include <dt-bindings/clock/sun20i-d1-ccu.h>
-+    #include <dt-bindings/reset/sun20i-d1-ccu.h>
++	/*
++	 * If CLK_CFG_SRC is 0, use the hosc clock;
++	 * otherwise (any nonzero value) use the APB clock.
++	 */
++	if (FIELD_GET(SUN20I_PWM_CLK_CFG_SRC, val) == 0)
++		clk_rate = clk_get_rate(sun20i_chip->clk_hosc);
++	else
++		clk_rate = clk_get_rate(sun20i_chip->clk_apb);
 +
-+    pwm: pwm@2000c00 {
-+      compatible = "allwinner,sun20i-d1-pwm";
-+      reg = <0x02000c00 0x400>;
-+      clocks = <&ccu CLK_BUS_PWM>, <&dcxo>, <&ccu CLK_APB0>;
-+      clock-names = "bus", "hosc", "apb";
-+      resets = <&ccu RST_BUS_PWM>;
-+      #pwm-cells = <0x3>;
-+    };
++	val = sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_CTL(pwm->hwpwm));
++	state->polarity = (SUN20I_PWM_CTL_ACT_STA & val) ?
++			   PWM_POLARITY_NORMAL : PWM_POLARITY_INVERSED;
 +
-+...
++	prescale_k = FIELD_GET(SUN20I_PWM_CTL_PRESCAL_K, val) + 1;
++
++	val = sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_ENABLE);
++	state->enabled = (SUN20I_PWM_ENABLE_EN(pwm->hwpwm) & val) ? true : false;
++
++	val = sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_PERIOD(pwm->hwpwm));
++
++	act_cycle = FIELD_GET(SUN20I_PWM_PERIOD_ACT_CYCLE, val);
++	ent_cycle = FIELD_GET(SUN20I_PWM_PERIOD_ENTIRE_CYCLE, val);
++
++	/*
++	 * The duration of the active phase should not be longer
++	 * than the duration of the period
++	 */
++	if (act_cycle > ent_cycle)
++		act_cycle = ent_cycle;
++
++	/*
++	 * We have act_cycle <= ent_cycle <= 0xffff, prescale_k <= 0x100,
++	 * div_m <= 8. So the multiplication fits into an u64 without
++	 * overflow.
++	 */
++	tmp = ((u64)(act_cycle) * prescale_k << div_m) * NSEC_PER_SEC;
++	state->duty_cycle = DIV_ROUND_UP_ULL(tmp, clk_rate);
++	tmp = ((u64)(ent_cycle) * prescale_k << div_m) * NSEC_PER_SEC;
++	state->period = DIV_ROUND_UP_ULL(tmp, clk_rate);
++
++	return 0;
++}
++
++static int sun20i_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
++			    const struct pwm_state *state)
++{
++	struct sun20i_pwm_chip *sun20i_chip = to_sun20i_pwm_chip(chip);
++	u64 bus_rate, hosc_rate, val, ent_cycle, act_cycle;
++	u32 clk_gate, clk_cfg, pwm_en, ctl, reg_period;
++	u32 prescale_k, div_m;
++	bool use_bus_clk;
++
++	pwm_en = sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_ENABLE);
++
++	if (state->enabled != pwm->state.enabled) {
++		clk_gate = sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_CLK_GATE);
++
++		if (!state->enabled) {
++			clk_gate &= ~SUN20I_PWM_CLK_GATE_GATING(pwm->hwpwm);
++			pwm_en &= ~SUN20I_PWM_ENABLE_EN(pwm->hwpwm);
++			sun20i_pwm_writel(sun20i_chip, pwm_en, SUN20I_PWM_ENABLE);
++			sun20i_pwm_writel(sun20i_chip, clk_gate, SUN20I_PWM_CLK_GATE);
++
++			return 0;
++		}
++	}
++
++	ctl = sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_CTL(pwm->hwpwm));
++	clk_cfg = sun20i_pwm_readl(sun20i_chip, SUN20I_PWM_CLK_CFG(pwm->hwpwm / 2));
++	hosc_rate = clk_get_rate(sun20i_chip->clk_hosc);
++	bus_rate = clk_get_rate(sun20i_chip->clk_apb);
++	if (pwm_en & SUN20I_PWM_ENABLE_EN(pwm->hwpwm ^ 1)) {
++		/* If the neighbor channel is enabled, use the current clock settings */
++		use_bus_clk = FIELD_GET(SUN20I_PWM_CLK_CFG_SRC, clk_cfg) != 0;
++		val = mul_u64_u64_div_u64(state->period,
++					  (use_bus_clk ? bus_rate : hosc_rate),
++					  NSEC_PER_SEC);
++
++		div_m = FIELD_GET(SUN20I_PWM_CLK_CFG_DIV_M, clk_cfg);
++	} else {
++		/*
++		 * Select the clock source based on the period.
++		 * Since bus_rate > hosc_rate, which means bus_rate
++		 * can provide a higher frequency than hosc_rate.
++		 */
++		use_bus_clk = false;
++		val = mul_u64_u64_div_u64(state->period, hosc_rate, NSEC_PER_SEC);
++		/*
++		 * If the calculated value is ≤ 1, the period is too short
++		 * for proper PWM operation
++		 */
++		if (val <= 1) {
++			use_bus_clk = true;
++			val = mul_u64_u64_div_u64(state->period, bus_rate, NSEC_PER_SEC);
++			if (val <= 1)
++				return -EINVAL;
++		}
++		div_m = fls(DIV_ROUND_DOWN_ULL(val, SUN20I_PWM_MAGIC));
++		if (div_m > SUN20I_PWM_CLK_DIV_M_MAX)
++			return -EINVAL;
++
++		/* Set up the CLK_DIV_M and clock CLK_SRC */
++		clk_cfg = FIELD_PREP(SUN20I_PWM_CLK_CFG_DIV_M, div_m);
++		clk_cfg |= FIELD_PREP(SUN20I_PWM_CLK_CFG_SRC, use_bus_clk);
++
++		sun20i_pwm_writel(sun20i_chip, clk_cfg, SUN20I_PWM_CLK_CFG(pwm->hwpwm / 2));
++	}
++
++	/* Calculate prescale_k and determine the number of cycles for a full PWM period */
++	ent_cycle = val >> div_m;
++	prescale_k = DIV_ROUND_DOWN_ULL(ent_cycle, SUN20I_PWM_DIV_CONST);
++	if (prescale_k > SUN20I_PWM_CTL_PRESCAL_K_MAX)
++		prescale_k = SUN20I_PWM_CTL_PRESCAL_K_MAX;
++
++	/* ent_cycle must not be zero */
++	if (ent_cycle == 0)
++		return -EINVAL;
++	do_div(ent_cycle, prescale_k + 1);
++
++	/* For N cycles, PPRx.PWM_ENTIRE_CYCLE = (N-1) */
++	reg_period = FIELD_PREP(SUN20I_PWM_PERIOD_ENTIRE_CYCLE, ent_cycle - 1);
++
++	/* Calculate the active cycles (duty cycle) */
++	val = mul_u64_u64_div_u64(state->duty_cycle,
++				  (use_bus_clk ? bus_rate : hosc_rate),
++				  NSEC_PER_SEC);
++	act_cycle = val >> div_m;
++	do_div(act_cycle, prescale_k + 1);
++
++	/*
++	 * The formula of the output period and the duty-cycle for PWM are as follows.
++	 * T period = PWM0_PRESCALE_K / PWM01_CLK * (PPR0.PWM_ENTIRE_CYCLE + 1)
++	 * T high-level = PWM0_PRESCALE_K / PWM01_CLK * PPR0.PWM_ACT_CYCLE
++	 * Duty-cycle = T high-level / T period
++	 */
++	reg_period |= FIELD_PREP(SUN20I_PWM_PERIOD_ACT_CYCLE, act_cycle);
++	sun20i_pwm_writel(sun20i_chip, reg_period, SUN20I_PWM_PERIOD(pwm->hwpwm));
++
++	ctl = FIELD_PREP(SUN20I_PWM_CTL_PRESCAL_K, prescale_k);
++	if (state->polarity == PWM_POLARITY_NORMAL)
++		ctl |= SUN20I_PWM_CTL_ACT_STA;
++
++	sun20i_pwm_writel(sun20i_chip, ctl, SUN20I_PWM_CTL(pwm->hwpwm));
++
++	if (state->enabled != pwm->state.enabled) {
++		clk_gate &= ~SUN20I_PWM_CLK_GATE_BYPASS(pwm->hwpwm);
++		clk_gate |= SUN20I_PWM_CLK_GATE_GATING(pwm->hwpwm);
++		pwm_en |= SUN20I_PWM_ENABLE_EN(pwm->hwpwm);
++		sun20i_pwm_writel(sun20i_chip, pwm_en, SUN20I_PWM_ENABLE);
++		sun20i_pwm_writel(sun20i_chip, clk_gate, SUN20I_PWM_CLK_GATE);
++	}
++
++	return 0;
++}
++
++static const struct pwm_ops sun20i_pwm_ops = {
++	.apply = sun20i_pwm_apply,
++	.get_state = sun20i_pwm_get_state,
++};
++
++static const struct of_device_id sun20i_pwm_dt_ids[] = {
++	{ .compatible = "allwinner,sun20i-d1-pwm" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, sun20i_pwm_dt_ids);
++
++static int sun20i_pwm_probe(struct platform_device *pdev)
++{
++	struct pwm_chip *chip;
++	struct sun20i_pwm_chip *sun20i_chip;
++	struct clk *clk_bus;
++	struct reset_control *rst;
++	u32 npwm;
++	int ret;
++
++	ret = of_property_read_u32(pdev->dev.of_node, "allwinner,npwms", &npwm);
++	if (ret < 0)
++		npwm = 8; /* Default value */
++
++	if (npwm > 16) {
++		dev_info(&pdev->dev, "Limiting number of PWM lines from %u to 16", npwm);
++		npwm = 16;
++	}
++
++	chip = devm_pwmchip_alloc(&pdev->dev, npwm, sizeof(*sun20i_chip));
++	if (IS_ERR(chip))
++		return PTR_ERR(chip);
++	sun20i_chip = to_sun20i_pwm_chip(chip);
++
++	sun20i_chip->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(sun20i_chip->base))
++		return PTR_ERR(sun20i_chip->base);
++
++	clk_bus = devm_clk_get_enabled(&pdev->dev, "bus");
++	if (IS_ERR(clk_bus))
++		return dev_err_probe(&pdev->dev, PTR_ERR(clk_bus),
++				     "Failed to get bus clock\n");
++
++	sun20i_chip->clk_hosc = devm_clk_get_enabled(&pdev->dev, "hosc");
++	if (IS_ERR(sun20i_chip->clk_hosc))
++		return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_hosc),
++				     "Failed to get hosc clock\n");
++
++	sun20i_chip->clk_apb = devm_clk_get_enabled(&pdev->dev, "apb");
++	if (IS_ERR(sun20i_chip->clk_apb))
++		return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->clk_apb),
++				     "Failed to get apb clock\n");
++
++	if (clk_get_rate(sun20i_chip->clk_apb) <= clk_get_rate(sun20i_chip->clk_hosc))
++		dev_info(&pdev->dev, "APB clock must be greater than hosc clock");
++
++	rst = devm_reset_control_get_exclusive_deasserted(&pdev->dev, NULL);
++	if (IS_ERR(rst))
++		return dev_err_probe(&pdev->dev, PTR_ERR(rst),
++				     "Failed to get reset control\n");
++
++	chip->ops = &sun20i_pwm_ops;
++
++	ret = devm_pwmchip_add(&pdev->dev, chip);
++	if (ret < 0)
++		return dev_err_probe(&pdev->dev, ret, "Failed to add PWM chip\n");
++
++	return 0;
++}
++
++static struct platform_driver sun20i_pwm_driver = {
++	.driver = {
++		.name = "sun20i-pwm",
++		.of_match_table = sun20i_pwm_dt_ids,
++	},
++	.probe = sun20i_pwm_probe,
++};
++module_platform_driver(sun20i_pwm_driver);
++
++MODULE_AUTHOR("Aleksandr Shubin <privatesub2@gmail.com>");
++MODULE_DESCRIPTION("Allwinner sun20i PWM driver");
++MODULE_LICENSE("GPL");
 -- 
 2.25.1
 
