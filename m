@@ -4,97 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE01C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 12:00:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB0BC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 12:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W+9jFShe+swt6iV6zeRvvjq+ucOd2xMbMetLWjETWU8=; b=nsW+SDlpmU0em2O8LO2AT8iLm5
-	Ym6/VLqYX6PfUlzZpG65YyOpXGRWbzrabh0RtbFpyedfhJANWsYs9k7A73flLsWXr1fDwMyUlxqmT
-	+jYdbXbdt7OxcBfDDpmor0i1A6s2Rw3rVebcNbpb8Heh/lM2TFJWWFyqEvNXGxx11P35aZnfRzSkD
-	R+OjmLkU/SSbs1KYJ8DBVLDPirCpZnimEFNHI++4cGFkyPytDyh+NA8v8VT8YSAQpUqgO027QtfQZ
-	CuaqFSbjHqzwiNQZjrTIicW7zw1FY/U4bwpVds53HtoK9OBTSUF4OXIfZi/x07NOsk5xbkCa23mel
-	FnJX0xNA==;
+	bh=TCrku2zLVv9V2Ytl3INB8BpF38olxKBhSbzcCFUvPW4=; b=B4YY7dd5nkI0mx8G2GHZ5gXaZ8
+	PiNZ42lWdSlqTR+VyPDSiKtuHTKMOfk2OVIYXVo+pSuqhSzxmtZJm6E5Ck5U91jYIm/ve/ihstxxJ
+	MOG53HCgGvHJBGUu6v5FTU2Jm8yyzXUr/SlIH12VuPHDrVQ6hTB/fJv1c+qe3kXNtpArHr2utAVyz
+	Ofnq34YmMpzEjPRfunL/C0bhEkJ86ynGE5+HBlpEjh7rOK8X7kDTE44sHNa+E4S32u0TBvGgcAq5K
+	nMP5feRYqc+2urIBAAAX8ZkH95K/jO5GB1d3z7bnnRIo6DilibntynePULw7vP1RMyCnBxW5hyf6L
+	8gzdJOMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXtR-0000000AwCq-0tMv;
-	Thu, 13 Feb 2025 12:00:33 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1tiXuz-0000000AwZu-4956;
+	Thu, 13 Feb 2025 12:02:09 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXr0-0000000AvpU-3zq0
+	id 1tiXtY-0000000AwFW-2KIQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 11:58:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739447883; x=1770983883;
-  h=message-id:date:mime-version:cc:subject:to:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=AK+FKyMd7dfZt0G7tPDijdfr9CalJ0oWmocbmIdcgPo=;
-  b=OlIO4VkI+p5xONu2FQ0KpNRC/otp0aTLDqKnBtD+q8L1F1RkZZ14pXZv
-   11I5DQ5atYrkcyqiZZ5stzS3gaVUGMEEI/jcdnv8W2ehe1P7uZXE+j0h9
-   9aBUdnTE9dRyE9uvHG9j32LAJRtnRhsuhl5I7kJwUXdWHKllmREfYHrGP
-   2PNLCUPWU/ziRs6yWkgOiS1wCAMcEaXGcL0jCkdUH5i4PYoXtZNRdHMj6
-   9qUApA8e77moX0T6O25mYHCFwzavJmtAbRtrWTGz5LRx3PYwKxoadQWms
-   XJl2D1WOsJe1ihuJtZhYKR8SpBKyNoDZ1aC9jSTcH/GnLGfyY5XkFcOHs
-   g==;
-X-CSE-ConnectionGUID: DadylFSZQtyWXGB2jx3dog==
-X-CSE-MsgGUID: XbGgBq0eSuSJd1UsbKvotw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="40261279"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="40261279"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 03:58:02 -0800
-X-CSE-ConnectionGUID: sqjDCNoHTtaIhPm2Z1Mc8A==
-X-CSE-MsgGUID: 62i6si6lRmG0UymwlyBHRQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="118060259"
-Received: from blu2-mobl.ccr.corp.intel.com (HELO [10.124.242.149]) ([10.124.242.149])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 03:57:56 -0800
-Message-ID: <f7b6c833-b6c1-4154-9b77-13553e501f2b@linux.intel.com>
-Date: Thu, 13 Feb 2025 19:57:51 +0800
+	Thu, 13 Feb 2025 12:00:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 682E9A420A8;
+	Thu, 13 Feb 2025 11:58:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33D96C4CED1;
+	Thu, 13 Feb 2025 12:00:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739448039;
+	bh=Im1yH1OaxGaQ2gF3haVRxuvOsoSb/cXP6pcFJC0G8lU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=e2KjB/5DklF5stBkR/Rwr1LFFRl0LF6gegGMYBLhQFTwRBv1gIkYeKv35kuKR9FVh
+	 qP3uXc1qZX4MK8kNpSnVGGFtdZsfDVe1qBwo7n/23DT2h8fT0NIPbGoXPlQSoqO4jj
+	 I6uQaXpROVvWWVbPZp0PDAUx5rsPnaWBmw1HfZekjeEOYxMoiSwgxmW5OLgbYlpddT
+	 kIETC45TRppDZpdYBZqHi7UztpMAaQ//7eLTy4GZh8SCoa5RAYdj1r9Th4v090W4Ie
+	 DoE3dWfH7u1H44sFwswMWQcTMtKALNOrsKc5FqKbO+H0W91Rk3EYnjEl/IqDH1sIjV
+	 gTYyYP86Nd/Xw==
+Message-ID: <27b0f5c5-ae51-4192-8847-20e471c55be7@kernel.org>
+Date: Thu, 13 Feb 2025 13:00:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: baolu.lu@linux.intel.com, Zhangfei Gao <zhangfei.gao@linaro.org>,
- acpica-devel@lists.linux.dev, iommu@lists.linux.dev,
- Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
- kvm@vger.kernel.org, Len Brown <lenb@kernel.org>,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Robert Moore <robert.moore@intel.com>, Robin Murphy <robin.murphy@arm.com>,
- Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
- Alex Williamson <alex.williamson@redhat.com>,
- Donald Dutile <ddutile@redhat.com>, Eric Auger <eric.auger@redhat.com>,
- Hanjun Guo <guohanjun@huawei.com>,
- Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Jerry Snitselaar <jsnitsel@redhat.com>, Moritz Fischer <mdf@kernel.org>,
- Michael Shavit <mshavit@google.com>, Nicolin Chen <nicolinc@nvidia.com>,
- patches@lists.linux.dev, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
- Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
-To: Jason Gunthorpe <jgg@nvidia.com>
-References: <0-v4-9e99b76f3518+3a8-smmuv3_nesting_jgg@nvidia.com>
- <20241112182938.GA172989@nvidia.com>
- <CABQgh9HOHzeRF7JfrXrRAcGB53o29HkW9rnVTf4JefeVWDvzyQ@mail.gmail.com>
- <20241113012359.GB35230@nvidia.com>
- <9df3dd17-375a-4327-b2a8-e9f7690d81b1@linux.intel.com>
- <20241113164316.GL35230@nvidia.com>
- <6ed97a10-853f-429e-8506-94b218050ad3@linux.intel.com>
- <20241115175522.GA35230@nvidia.com> <20250122192622.GA965540@nvidia.com>
- <284dd081-8d53-45ef-ae18-78b0388c98ca@linux.intel.com>
+Subject: Re: [PATCH v6 1/2] dt-bindings: net: Add FSD EQoS device tree
+ bindings
+To: Swathi K S <swathi.ks@samsung.com>
+Cc: krzk+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ conor+dt@kernel.org, richardcochran@gmail.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250213044624.37334-1-swathi.ks@samsung.com>
+ <CGME20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff@epcas5p1.samsung.com>
+ <20250213044624.37334-2-swathi.ks@samsung.com>
+ <20250213-adorable-arboreal-degu-6bdcb8@krzk-bin>
+ <009a01db7e07$132feb60$398fc220$@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <284dd081-8d53-45ef-ae18-78b0388c98ca@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <009a01db7e07$132feb60$398fc220$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_035803_040159_A4521B14 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250213_040040_740694_30693699 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +126,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/2/5 11:45, Baolu Lu wrote:
-> On 2025/1/23 3:26, Jason Gunthorpe wrote:
->> On Fri, Nov 15, 2024 at 01:55:22PM -0400, Jason Gunthorpe wrote:
->>>>> I need your help to remove IOMMU_DEV_FEAT_IOPF from the intel
->>>>> driver. I have a patch series that eliminates it from all the other
->>>>> drivers, and I wrote a patch to remove FEAT_SVA from intel..
->>>> Yes, sure. Let's make this happen in the next cycle.
->>>>
->>>> FEAT_IOPF could be removed. IOPF manipulation can be handled in the
->>>> domain attachment path. A per-device refcount can be implemented. This
->>>> count increments with each iopf-capable domain attachment and 
->>>> decrements
->>>> with each detachment. PCI PRI is enabled for the first iopf-capable
->>>> domain and disabled when the last one is removed. Probably we can also
->>>> solve the PF/VF sharing PRI issue.
->>> Here is what I have so far, if you send me a patch for vt-d to move
->>> FEAT_IOPF into attach as you describe above (see what I did to arm for
->>> example), then I can send it next cycle
->>>
->>> https://github.com/jgunthorpe/linux/commits/iommu_no_feat/
->> Hey Baolu, a reminder on this, lets try for it next cycle?
+On 13/02/2025 12:04, Swathi K S wrote:
 > 
-> Oh, I forgot this. Thanks for the reminding. Sure, let's try to make it
-> in the next cycle.
+> 
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: 13 February 2025 13:24
+>> To: Swathi K S <swathi.ks@samsung.com>
+>> Cc: krzk+dt@kernel.org; andrew+netdev@lunn.ch; davem@davemloft.net;
+>> edumazet@google.com; kuba@kernel.org; pabeni@redhat.com;
+>> robh@kernel.org; conor+dt@kernel.org; richardcochran@gmail.com;
+>> mcoquelin.stm32@gmail.com; alexandre.torgue@foss.st.com;
+>> rmk+kernel@armlinux.org.uk; netdev@vger.kernel.org;
+>> devicetree@vger.kernel.org; linux-stm32@st-md-mailman.stormreply.com;
+>> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+>> Subject: Re: [PATCH v6 1/2] dt-bindings: net: Add FSD EQoS device tree
+>> bindings
+>>
+>> On Thu, Feb 13, 2025 at 10:16:23AM +0530, Swathi K S wrote:
+>>> +  clock-names:
+>>> +    minItems: 5
+>>> +    maxItems: 10
+>>> +    contains:
+>>> +      enum:
+>>> +        - ptp_ref
+>>> +        - master_bus
+>>> +        - slave_bus
+>>> +        - tx
+>>> +        - rx
+>>> +        - master2_bus
+>>> +        - slave2_bus
+>>> +        - eqos_rxclk_mux
+>>> +        - eqos_phyrxclk
+>>> +        - dout_peric_rgmii_clk
+>>
+>> This does not match the previous entry. It should be strictly ordered with
+>> minItems: 5.
+> 
+> Hi Krzysztof,
+> Thanks for reviewing.
+> In FSD SoC, we have 2 instances of ethernet in two blocks.
+> One instance needs 5 clocks and the other needs 10 clocks.
 
-Hi Jason,
+I understand and I do not think this is contradictory to what I asked.
+If it is, then why/how?
 
-I've worked through the entire series. The patches are available here:
+> 
+> I tried to understand this by looking at some other dt-binding files as given below, but looks like they follow similar approach
+> Documentation/devicetree/bindings/net/stm32-dwmac.yaml
+> Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> 
+> Could you please guide me on how to implement this?
+> Also, please help me understand what is meant by 'strictly ordered'
 
-https://github.com/LuBaolu/intel-iommu/commits/iommu-no-feat-v6.14-rc2
+Every other 99% of bindings. Just like your clocks property.
 
-Please check if this is the right direction.
-
-Thanks,
-baolu
+Best regards,
+Krzysztof
 
