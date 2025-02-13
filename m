@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA7F0C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 14:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63EB9C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 14:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rbuBC0To4aiDuIyUVG8uVzwX+G4ql2wd+he4IRPQ20E=; b=JVDPGvzGEhX3VY6BpC/zC1YVCD
-	YLCzwn5CyRCNPW7+Ceuoll7THMpbjqOqQrkNZGhVbbicguR/95xEZy1VEt2GniUeAeLX5TL6kRZkC
-	MIw/eSuta4L4u7VpPLTY1X2/6ghUv8jlngZLne5aaHriEpO3K+ioAJfGfKHQQxQrUuH49+Oe/dEQf
-	eVNj2NlczyCUjdsnBOKTBXtu1koTzH2oDJJy/1ZEU1Pw+mAjsIj+lVQswMSoM74ehf7StcN9ng5VO
-	k2lGxKlePL+38wOcLI+cIHHkCySsZcU062R6q5RAGXW/jePbO/IEi8HNcahUA2rWsZc/LrKuKs6pN
-	9LoltI6A==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cTfPLLBbXfx8ryu8Naehs5xuSjDzT7uQBSlExNoy8T4=; b=ha+KQF9uZ7dWtk3SfWQPa7hUfH
+	wYvLF18pCzFf6PWgH7Xseal+RJeFsGM6mdofJUGTstr2CVE8sUzpPrsUWgyMlO42Z9lGqIm7EQO77
+	D4D+/gXLfiLt2HxmDO/Jwl8AYnWFZRuRMjjkJypoEFjcdZiTOCgf4gA8CubULNJXjer4zRydIgDTV
+	2a7IjORJy1567ycGlJQ1s0ovdeqIxjf+hGnFRCV0oNQL3lgyaNSLey3FgM+yKSjnndf7RM88kz2dn
+	mLRCds6Ab4Y5vE0R8HTiTPVc9fpfb8BKsk9A0ooXcL3eKqOue6yF9pEZEwa9uetbNyq4AhhrhS7mi
+	FV/naPPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiacb-0000000BQfj-0HY5;
-	Thu, 13 Feb 2025 14:55:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tiae0-0000000BR5D-0ftp;
+	Thu, 13 Feb 2025 14:56:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiaNG-0000000BNb9-0VAo;
-	Thu, 13 Feb 2025 14:39:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 205F25C5657;
-	Thu, 13 Feb 2025 14:38:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF160C4CEE4;
-	Thu, 13 Feb 2025 14:39:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1739457569;
-	bh=DJ5u3NWB/OY3rQagS7X7AlEuOiAW6ZKH/36ybRwGBmI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KaEmkJT5LRnBygx7lMmnq+jobJ+drTia8PPe5nvBSSn6YiBX9GMdHShA50lUTqHck
-	 YutPUFYo7W9HVLGRgCEDgP8WNwJ0JvI9LuSgzv6/1ROR1AZ4BdyFb8j4ugs0EDEy4h
-	 At6cPz0HzdwFBWCyGMYHGVPx7hpWX0aHsDgYbLFo=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Chris Zhong <zyw@rock-chips.com>,
-	Guenter Roeck <groeck@chromium.org>,
-	Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH 6.12 149/422] drm/rockchip: cdn-dp: Use drm_connector_helper_hpd_irq_event()
-Date: Thu, 13 Feb 2025 15:24:58 +0100
-Message-ID: <20250213142442.297407023@linuxfoundation.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250213142436.408121546@linuxfoundation.org>
-References: <20250213142436.408121546@linuxfoundation.org>
-User-Agent: quilt/0.68
-X-stable: review
-X-Patchwork-Hint: ignore
+	id 1tiaag-0000000BQJe-3l9z
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 14:53:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739458400;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=cTfPLLBbXfx8ryu8Naehs5xuSjDzT7uQBSlExNoy8T4=;
+	b=CnKec6HUJn7cjyZGMZQvkZr++6b6MT0joDN0IJrTJOYw7MuRen5M6uvDN4VzmnpsN9xniy
+	d2YHlZgHr/NYksJK50xUOJ/OFo0jGlY4sp46OZrb1PI4+cl2uPToCNPeMQCctSnirwaunY
+	bPv3AEC1OFkSlONZ5LzSUy8BFfdlRGk=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-201-d2z6_Z8-MJWBOKjcoPKxNw-1; Thu,
+ 13 Feb 2025 09:53:18 -0500
+X-MC-Unique: d2z6_Z8-MJWBOKjcoPKxNw-1
+X-Mimecast-MFC-AGG-ID: d2z6_Z8-MJWBOKjcoPKxNw_1739458398
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B0E41190F9C9;
+	Thu, 13 Feb 2025 14:53:17 +0000 (UTC)
+Received: from [172.64.13.25] (unknown [10.30.32.164])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DEAE61955F0F;
+	Thu, 13 Feb 2025 14:53:16 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4p2M?= FAIL: Test report for for-kernelci (6.14.0-rc2,
+ upstream-arm-next, a64dcfb4)
+Date: Thu, 13 Feb 2025 14:53:16 -0000
+To: will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+Message-Id: <64234.125021309531800883@us-mta-201.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: OfE8qF9_nXUOQ61T9WlJTh1tiHs6xS-PpZy9hQr9GsM_1739458398
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_063930_242685_B116BB59 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20250213_065323_005355_7F59E315 
+X-CRM114-Status: UNSURE (   6.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,75 +84,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.12-stable review patch.  If anyone has any objections, please let me know.
+Hi, we tested your kernel and here are the results:
 
-------------------
+    Overall result: FAILED
+             Merge: OK
+           Compile: FAILED
 
-From: Thomas Zimmermann <tzimmermann@suse.de>
 
-commit 666e1960464140cc4bc9203c203097e70b54c95a upstream.
+Kernel information:
+    Commit message: Linux 6.14-rc2
 
-The code for detecting and updating the connector status in
-cdn_dp_pd_event_work() has a number of problems.
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1669747201
 
-- It does not aquire the locks to call the detect helper and update
-the connector status. These are struct drm_mode_config.connection_mutex
-and struct drm_mode_config.mutex.
+One or more kernel builds failed:
+    Unrecognized or new issues:
+         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
+t:1669747201-aarch64-kernel
 
-- It does not use drm_helper_probe_detect(), which helps with the
-details of locking and detection.
 
-- It uses the connector's status field to determine a change to
-the connector status. The epoch_counter field is the correct one. The
-field signals a change even if the connector status' value did not
-change.
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
 
-Replace the code with a call to drm_connector_helper_hpd_irq_event(),
-which fixes all these problems.
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
 
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Fixes: 81632df69772 ("drm/rockchip: cdn-dp: do not use drm_helper_hpd_irq_event")
-Cc: Chris Zhong <zyw@rock-chips.com>
-Cc: Guenter Roeck <groeck@chromium.org>
-Cc: Sandy Huang <hjc@rock-chips.com>
-Cc: "Heiko Stübner" <heiko@sntech.de>
-Cc: Andy Yan <andy.yan@rock-chips.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: <stable@vger.kernel.org> # v4.11+
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://patchwork.freedesktop.org/patch/msgid/20241105133848.480407-1-tzimmermann@suse.de
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- drivers/gpu/drm/rockchip/cdn-dp-core.c |    9 +--------
- 1 file changed, 1 insertion(+), 8 deletions(-)
-
---- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
-+++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-@@ -947,9 +947,6 @@ static void cdn_dp_pd_event_work(struct
- {
- 	struct cdn_dp_device *dp = container_of(work, struct cdn_dp_device,
- 						event_work);
--	struct drm_connector *connector = &dp->connector;
--	enum drm_connector_status old_status;
--
- 	int ret;
- 
- 	mutex_lock(&dp->lock);
-@@ -1009,11 +1006,7 @@ static void cdn_dp_pd_event_work(struct
- 
- out:
- 	mutex_unlock(&dp->lock);
--
--	old_status = connector->status;
--	connector->status = connector->funcs->detect(connector, false);
--	if (old_status != connector->status)
--		drm_kms_helper_hotplug_event(dp->drm_dev);
-+	drm_connector_helper_hpd_irq_event(&dp->connector);
- }
- 
- static int cdn_dp_pd_event(struct notifier_block *nb,
-
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
