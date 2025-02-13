@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6884CC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40B63C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LMYKZBB6Lwu1KXc2pApJntLSaHOHjeDAYKss1JDPqUg=; b=JINZoBXvXaxEabD03fmZvyOX2l
-	uWjk5SrA5P8zXA9qFnRJPkve24fgJfFx+RbwghWFP5wQBfTw5UN2pFBvlnDF6XsylwE0VDvibeQ/A
-	ycGIfW+R6Lz9CB5CNE9snft8hm0+idTyJXQTp3lAEjszyCuMqDG0Rjk5bQ+xfpGZ/jVJ9HnaJQA/5
-	Uqg0l5YLxOFgLVKr7Ub34q3hhf365N3NB0csQUBVhv9WjVw+3wr1+ExILfPwTt5XIRkOl8VyCI9aL
-	VwR8D6dyk7ovjL5NI0eJZVQD/Yd5vK5Wp10dIIxaCAkJLqd/RTwdF6oj2s78fccelquGqtwqv51g+
-	tsTNH57A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0TVSfnhO/D9vf7kVKocZCtgHhLvkRIYScp2kiZ0Rn5s=; b=O8sCqFkWs/1kUhCXORyV3lUkde
+	cUBj8a/NpmEzwFP0Te3bOHZNGck5tZ/PNA9pbPJnrIcAYxjKztuchJnyU6t2ZWjryVZKBdSjPTa4E
+	c9uEruBNYPzEh/6hRfNNeDVuM0cv44tm3fWr5o5pw5zNgoGXoFIPHDCjcoMhRtP/5Pr5NesWb61xX
+	Xe6XDIPWyCRZtfrg0GrPCkGV9aNxEtDq3O8EIyw2Zc14crKhkGcaxIviYX7jb15jcCiSqFWyACBI4
+	h4ZakK2RQWmDy8a3ppONP8FH812V0GK5nhRC2LfDsWRIdLK8E+7teNVOeeTeQfIxnvWWPEYkvfnNe
+	PxnDBfwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticGu-0000000BoXL-3QpC;
-	Thu, 13 Feb 2025 16:41:07 +0000
-Received: from out-172.mta1.migadu.com ([2001:41d0:203:375::ac])
+	id 1ticH3-0000000Bogl-1Iki;
+	Thu, 13 Feb 2025 16:41:14 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibmr-0000000Bh3a-1Ijr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 16:10:03 +0000
-Date: Thu, 13 Feb 2025 11:09:50 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
-	s=key1; t=1739462995;
+	id 1tibrO-0000000BiJv-42MM;
+	Thu, 13 Feb 2025 16:14:44 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 25360441D0;
+	Thu, 13 Feb 2025 16:14:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739463278;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=LMYKZBB6Lwu1KXc2pApJntLSaHOHjeDAYKss1JDPqUg=;
-	b=kw6jO4Ia+fc0+hRWz5NBslXI4AxoBaap9J7j7JkJr3oMdJIAlggaIP9jQkT7m8adeZE3u4
-	sjozzu76MUWQ6UMRI9BhHg26Alhi4Ih0SG5fEqiUOzLNOmTs4Lq7SlpIRIhzJs7KxFKZxr
-	mp6GUpgBVFLkQanqmK3JiLm7hzJwiR//QPm3gyRiAz2m3icIQbtPiTaz7sL8GyJBBSbhsl
-	gQkq4x/O9/KpG3O5/yVyOEKB3llflHo1gZXdWWB370m4lHBMVz4ZXyMtFLvC2/ajDbFKD0
-	uhuS6+r7ShCjjTAPcMRDTM6HguF3fS3DdTKOHbrnC/KPr2T8h1buvoCQJrJdcw==
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-To: Christoph Hellwig <hch@lst.de>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Sagi Grimberg <sagi@grimberg.me>,
-	Philipp Zabel <p.zabel@pengutronix.de>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] apple-nvme: defer cache flushes by a specified amount
-Message-ID: <Z64ZTixWKoYdF8KN@blossom>
-References: <20250211-nvme-fixes-v1-0-6958b3aa49fe@rosenzweig.io>
- <20250211-nvme-fixes-v1-3-6958b3aa49fe@rosenzweig.io>
- <20250213062013.GC19608@lst.de>
+	bh=0TVSfnhO/D9vf7kVKocZCtgHhLvkRIYScp2kiZ0Rn5s=;
+	b=o/ragaeqE14+pkiUyeerhxStHnHzUEuBaR1MDzBW+7wdy/u3tp+KketwFkv6a1sl29X91R
+	bazTwFPopWFSaJGSUnKpDZQLBGOmVuo2ndmrlnYUDCz/CfzWgQ3cFrXnEsLh/o5rj6Vzn4
+	VVkvrSy7CFWtMgXit8j7dBcts6buJjY42hvgI8s8rJOqOX6cPCwaWN1Rs4f9k222J2ouyg
+	g8hqm/3JkLHGpxJAL0LWtcSlVMlhaRHgSzcKAdhZtP9y9aopwC7UfNpKr9ixsbQlI3cumA
+	81i+wvtWy8TucWElCaV+3PwElF+2fBxbpdNArU7gYJqnCwdZinWA3a/2fuPrjw==
+Date: Thu, 13 Feb 2025 17:14:35 +0100
+From: Herve Codina <herve.codina@bootlin.com>
+To: Phil Elwell <phil@raspberrypi.com>
+Cc: Andrea della Porta <andrea.porta@suse.com>, andrew@lunn.ch, Arnd
+ Bergmann <arnd@arndb.de>, "maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE"
+ <bcm-kernel-feedback-list@broadcom.com>, bhelgaas@google.com,
+ brgl@bgdev.pl, Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
+ <conor+dt@kernel.org>, derek.kiernan@amd.com, devicetree@vger.kernel.org,
+ dragan.cvetic@amd.com, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, krzk+dt@kernel.org,
+ kw@linux.com, Linus Walleij <linus.walleij@linaro.org>, linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, "open
+ list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS"
+ <linux-pci@vger.kernel.org>, "moderated list:BROADCOM BCM2711/BCM2835 ARM
+ ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+ lpieralisi@kernel.org, luca.ceresoli@bootlin.com,
+ manivannan.sadhasivam@linaro.org, masahiroy@kernel.org, Michael Turquette
+ <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
+ saravanak@google.com, Stephen Boyd <sboyd@kernel.org>,
+ thomas.petazzoni@bootlin.com, Stefan Wahren <wahrenst@gmx.net>, Will Deacon
+ <will@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device
+ using a DT overlay
+Message-ID: <20250213171435.1c2ce376@bootlin.com>
+In-Reply-To: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
+References: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250213062013.GC19608@lst.de>
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegjedvvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthekredtredtjeenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeviefffeegiedtleelieeghfejleeuueevkeevteegffehledtkeegudeigffgvdenucfkphepvdgrtddumegvtdgrmedvgeeimeejjeeltdemvdeitgegmegvvddvmeeitdefugemheekrgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemvdegieemjeejledtmedviegtgeemvgdvvdemiedtfegumeehkegrpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeehpdhrtghpthhtohepphhhihhlsehrrghsphgsvghrrhihphhirdgtohhmpdhrtghpthhtoheprghnughrvggrrdhpohhrthgrsehsuhhsvgdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtoheps
+ ggtmhdqkhgvrhhnvghlqdhfvggvuggsrggtkhdqlhhishhtsegsrhhorggutghomhdrtghomhdprhgtphhtthhopegshhgvlhhgrggrshesghhoohhglhgvrdgtohhmpdhrtghpthhtohepsghrghhlsegsghguvghvrdhplhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhm
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_081001_817638_587325DB 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20250213_081443_580794_B364D1C8 
+X-CRM114-Status: GOOD (  17.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,27 +94,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > Cache flushes on the M1 nvme are really slow, taking 17-18 msec to
-> > complete. This can slow down workloads considerably, pure random writes
-> > end up being bound by the flush latency and hence run at 55-60 IOPS.
-> > 
-> > Add a deferred flush work around to provide better performance, at a
-> > minimal risk. By default, flushes are delayed at most 1 second, but this
-> > is configurable.
-> > 
-> > With this work-around, a pure random write workload runs at ~12K IOPS
-> > rather than 56 IOPS.
-> 
-> Just as last time this really is not a driver feature.  Cache flushes
-> are slow on consumer hardware, it's just apple is worse than usual.
-> Breaking file system transactional guarantee by ignoring data integrity
-> command in the driver is a no-go.
-> 
-> If we want to allow an opt-in policy for those whole feel adventurous,
-> it belongs into the core flush state machine.  Fortunately the patch
-> author seems qualified to touch that :)
+Hi Phil,
 
-Fair enough. I didn't realize this patch was previously discussed, my
-apologies. I'll drop this change in v2, and hopefully somebody is
-inspired later to do that 'adventure'.
+On Thu, 13 Feb 2025 15:18:45 +0000
+Phil Elwell <phil@raspberrypi.com> wrote:
+
+> Hi Andrea,
+> 
+> The problem with this approach (loading an overlay from the RP1 PCIe
+> driver), and it's one that I have raised with you offline, is that
+> (unless anyone can prove otherwise) it becomes impossible to create a
+> Pi 5 DTS file which makes use of the RP1's resources. How do you
+> declare something as simple as a button wired to an RP1 GPIO, or fan
+> connected to a PWM output?
+
+The driver could be improved in a second step.
+For instance, it could load the dtbo from user-space using request_firmare()
+instead of loading the embedded dtbo.
+
+> 
+> If this is the preferred route to upstream adoption, I would prefer it
+> if rp1.dtso could be split in two - an rp1.dtsi similar to what we
+> have downstream, and an rp1.dtso that #includes it. In this way we can
+> keep the patching and duplication to a minimum.
+
+Indeed, having a rp1.dtsi avoid duplication but how the rp1.dtso in
+the the kernel sources could include user customization (button, fan, ...)
+without being modified ?
+At least we have to '#include <my_rp1_customizations.dtsi>'.
+
+Requesting the dtbo from user-space allows to let the user to create
+its own dtso without the need to modify the one in kernel sources.
+
+Does it make sense ?
+
+Best regards,
+Hervé
 
