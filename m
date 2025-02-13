@@ -4,68 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 025F4C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Feb 2025 23:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8BFC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 00:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bF6ePzz3cN2y4GYtn1pyoRmQYzjv5ZNDww08RM/kA5w=; b=kq6djaZk02J+0+7h0HxsP9Kdzm
-	IptqLAwRHqrbZ6+LoaKkc0uX3Kehy2zCCi9rNeWrOZrZWh6EbaNlMfumBHz3H2ZmLEcr+5YIlJW+j
-	ZyqC4ZfbdFJv9W8QAnikS2Dx4a9vwU8rcuMQYf1EiL9K5MmSDtbiAs2neCCEByOkjpqm7gkYGcDn3
-	SQzpA3bC5GStkTMVKG2RmLo2cYIJFOPT0CYTTP6yFSSPam3iwxpadvxYTpyc7EdURp1RSHtW3eb7Q
-	rkzyIoO/dIvf4/aI1wYGIITmJT1bRTK95pFqZKbNEMUlS3j1E1YGhOXBHoDnM76HZOfMhnnJRdKE6
-	JIyzlCMQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lgGYLAXMTiBSQm8B4s04dx6tu5EKRE0LsYmfPrbRJeM=; b=bnpsUDuEwuXm7iurvtWu5e9IG2
+	pKm/lMyLINxNDlVpTb2+adqoXxaLgYu1FaOdJAY+QlaoATfRamUIsLpjmi50GOiStMrl0x7zIMso4
+	gEzahR7oZzfU1mqPEIBymcHWXsCKoqa2SAMMNnXgkXJb6OM7wxR7GB/onAJw2hMPCHJYc67BfCrQD
+	6bDlyvw4i/w4Vjw4olO7CqitQbyI3JZk17JgJ5jfHRoVECt/PxjUknuEJtdJNjTeKiv4UHat2Oi6V
+	9HkrLA4pry96buOseIX9svxz751l5wPSEItIqi7/9HHbJ1S/ZKfqZGHZh+2hJwfgOEGFytdIlW1dF
+	SLjy8sHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiMd4-00000009ERy-0Qsx;
-	Wed, 12 Feb 2025 23:58:54 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiMbc-00000009EH7-3sYz
+	id 1tiMii-00000009Es2-0SWr;
+	Thu, 13 Feb 2025 00:04:44 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiMhH-00000009EjJ-17fo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Feb 2025 23:57:26 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id A3E52203F3C9;
-	Wed, 12 Feb 2025 15:57:23 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A3E52203F3C9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1739404643;
-	bh=bF6ePzz3cN2y4GYtn1pyoRmQYzjv5ZNDww08RM/kA5w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SXLJJ4OFPJZkogD0StqTyUAgwfIJIPnY8/4TngSfN1c5mhPDJIm7aVYDdimj/oAnX
-	 Yd7w/OE1MVKPuIswlc5gyslqUL+d311wjoJ4MwCIU3B0b3BIqYgPZwXNs7GC9thVN3
-	 s91qYLYjt5mzVMS08XeoNubtxgKPcmd+OIFopIII=
-Message-ID: <bb863c8f-a92c-42d0-abc4-ff0b92f701c2@linux.microsoft.com>
-Date: Wed, 12 Feb 2025 15:57:23 -0800
+	Thu, 13 Feb 2025 00:03:16 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21f44e7eae4so3943275ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 16:03:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739404994; x=1740009794; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lgGYLAXMTiBSQm8B4s04dx6tu5EKRE0LsYmfPrbRJeM=;
+        b=Waf6aCqjCrSn8poKxpEZzK3pbACiICXsHJkQrrqpMM+nOxHDB7PN2FpMBB8LCMV2dl
+         v6UMvBLA7ftWmQ5ZhNs50X5sp/XqtBJOfPjpmS9T1ALkEKNgv4bUfVTR/w44heFVTE2E
+         HWjv20d3iAweGyQcWQTA7tuv4YWoZ3jV/kNG65mzya2FaCYdRsFWsoNbjbh7okb2OhqN
+         qRhi4Ucym7/e+vqeU2oR4WPAVRWA3z1fS4GBudvE7MmwRQw8PyCR1p0uwYrr9LmRsbVu
+         DUGki+TfEKXHti98kttbEJ02QFipOGQ3WzALH9Dkhq24q9SsFJ0R0caAcZ9HqPJuqYIf
+         JQsA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739404994; x=1740009794;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lgGYLAXMTiBSQm8B4s04dx6tu5EKRE0LsYmfPrbRJeM=;
+        b=ii2PWPQDBCcrjJiFdrY5stLCH5un+udOASp6b+xkgUY/20ao6cfXG+yMmJTZn1V368
+         FVJ7p+eRv0qRJZUzYTB5ME+Da/AsrjJa4wAdU5wvkehlsW/vG60CVxqt7j7ji/eSdP5x
+         nnmMAqKyznn+tvdGuVIEG4AVK8FAKcZCdYoS4YeeaT/f9YKxOibcwt6al/F5VMN9u/EC
+         6hjdqs8w3v2MhyQe52ylk2xOYQFEfd0A7Q6yvrYpgdVvjE7hkWgt6roEU2zhpXL0CFQI
+         IbnmrI2ZbGVRXjjdV3wBdDlFa57jaYYqqq7FK4W7Dv3Y6BJaFBRbKw7hZQFemY0oGj3V
+         97qQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVDIJ5YB/ppEoPASMCgk0bF/kHQ+ldJmACfoNQh9AwMW5XZ4aS+dVVUx21bip2ZA47Z/37gSuVDXN6gEHyU8D7x@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpRbHXVI9whNa4B1H5v39jLJhlPqYXs0CEwcJwWOFhmbPKOrEN
+	LIRYMJrQpCumJGw3bvQsubMeeWEeU6w6fmz4DYUB/qy9/TeTUvzyVsnvSU4m
+X-Gm-Gg: ASbGncsAsQnT6F/Owjt61NAvIMziAk7OPD/DbUcWVhfst3tcDhyWNBMgXrR1zcvWEAa
+	9WkakjTjgLXamuOwT6LuA2a8uK8z7PvRyQ6QcPublB6bzkCT1TJzopL2uiURM+5pb/Xwx91aFq6
+	KZJgN0tUY7x7JqSNmH5MehtBQgMb4Z7cW/YmIG3XkacXT2tHizi+RpwH7EyXdFnyaoAHWqJhs+r
+	/Xgc+/pwOIYE+CPxJCD8rpL/r1h6D+mMIHdOa81RM9MGQy07LIr/bIkSQN0oNyw7pNfg6WCnMyu
+	GKly4jaH/tKg6IibpaRiyGBq0plNoLpTLDalxqcoaI6/dRN40Grpq4mJtX26VGSH2gM2TmEjEaL
+	fgg==
+X-Google-Smtp-Source: AGHT+IF+D2Xb6/P+MeaJ+t2rpv7ibEkX8ds1s2CaO1BKsO9476v6xLKYDYjvadIojErLW8nWiv0E0w==
+X-Received: by 2002:a05:6a21:3382:b0:1db:915b:ab11 with SMTP id adf61e73a8af0-1ee5c796586mr9410564637.24.1739404964623;
+        Wed, 12 Feb 2025 16:02:44 -0800 (PST)
+Received: from localhost.localdomain ([38.44.237.182])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7324273e4a0sm28014b3a.120.2025.02.12.16.02.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Feb 2025 16:02:44 -0800 (PST)
+From: Denzeel Oliva <wachiturroxd150@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	alim.akhtar@samsung.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Denzeel Oliva <wachiturroxd150@gmail.com>
+Subject: [PATCH v1] arm64: dts: exynos: r8s: enable UART interfaces and aliases
+Date: Thu, 13 Feb 2025 00:02:26 +0000
+Message-Id: <20250213000226.277-1-wachiturroxd150@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v4 4/6] dt-bindings: microsoft,vmbus: Add GIC
- and DMA coherence to the example
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
- catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
- decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
- krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com, lpieralisi@kernel.org,
- manivannan.sadhasivam@linaro.org, mingo@redhat.com, robh@kernel.org,
- ssengar@linux.microsoft.com, tglx@linutronix.de, wei.liu@kernel.org,
- will@kernel.org, devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
- benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com
-References: <20250212014321.1108840-1-romank@linux.microsoft.com>
- <20250212014321.1108840-5-romank@linux.microsoft.com>
- <20250212-rough-terrier-of-serendipity-68a0db@krzk-bin>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <20250212-rough-terrier-of-serendipity-68a0db@krzk-bin>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_155725_023206_CC29F4B4 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20250212_160315_305362_A2DB3CAF 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,147 +101,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+ - usi_uart: Main UART interface, required for debugging or
+   communication.
+ - usi_bt_uart: UART interface for Bluetooth connectivity.
+ - Added serial0 and serial1 aliases for standard UART access.
 
+Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+---
+ arch/arm64/boot/dts/exynos/exynos990-r8s.dts | 23 ++++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-On 2/11/2025 10:42 PM, Krzysztof Kozlowski wrote:
-> On Tue, Feb 11, 2025 at 05:43:19PM -0800, Roman Kisel wrote:
->> The existing example lacks the GIC interrupt controller property
->> making it not possible to boot on ARM64, and it lacks the DMA
-> 
-> GIC controller is not relevant to this binding.
-> 
-
-Will remove, thank you for pointing that out!
-
->> coherence property making the kernel do more work on maintaining
->> CPU caches on ARM64 although the VMBus trancations are cache-coherent.
->>
->> Add the GIC node, specify DMA coherence, and define interrupt-parent
->> and interrupts properties in the example to provide a complete reference
->> for platforms utilizing GIC-based interrupts, and add the DMA coherence
->> property to not do extra work on the architectures where DMA defaults to
->> non cache-coherent.
->>
->> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
->> ---
->>   .../devicetree/bindings/bus/microsoft,vmbus.yaml      | 11 +++++++++++
->>   1 file changed, 11 insertions(+)
-> 
-> Last time I said: not tested by automation.
-> Now: I see automation build failures, although I do not see anything
-> incorrect in the code, so that's a bit surprising. Please confirm that
-> binding was tested on latest dtschema.
-
-They weren't for which I am sorry. Read through
-
-https://www.kernel.org/doc/html/v6.14-rc2/devicetree/bindings/writing-schema.html
-
-and was able to see and fix the break by bringing the YAML to [1].
-Getting now this
-
-/Documentation/devicetree/bindings/bus/microsoft,vmbus.example.dtb: 
-vmbus@ff0000000: 'dma-coherent', 'interrupts' do not match any of the 
-regexes: 'pinctrl-[0-9]+'
-         from schema $id: 
-http://devicetree.org/schemas/bus/microsoft,vmbus.yaml#
-
-so maybe I need to add some more to the "requires" section. Will follow
-other examples as you suggested.
-
-> 
->>
->> diff --git a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
->> index a8d40c766dcd..5ec69226ab85 100644
->> --- a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
->> +++ b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
->> @@ -44,11 +44,22 @@ examples:
->>               #size-cells = <1>;
->>               ranges;
->>   
->> +            gic: intc@fe200000 {
->> +              compatible = "arm,gic-v3";
->> +              reg = <0x0 0xfe200000 0x0 0x10000>,   /* GIC Dist */
->> +                    <0x0 0xfe280000 0x0 0x200000>;  /* GICR */
->> +              interrupt-controller;
->> +              #interrupt-cells = <3>;
->> +            }
-> 
-> I fail to see how this is relevant here. This is example only of vmbus.
-> Look how other bindings are done. Drop the example.
-
-The bus refers to the interrupt controller, and I didn't have it, so
-added it :) Now I in other examples that is not required, and the
-tooling generates fake intc's. Appreciate your advice very much!
-
-> 
-> 
->> +
->>               vmbus@ff0000000 {
->>                   compatible = "microsoft,vmbus";
->>                   #address-cells = <2>;
->>                   #size-cells = <1>;
->>                   ranges = <0x0f 0xf0000000 0x0f 0xf0000000 0x10000000>;
->> +                dma-coherent;
->> +                interrupt-parent = <&gic>;
->> +                interrupts = <1 2 1>;
-> 
-> Use proper defines for known constants.
-
-Will do as in [1], thank you!
-
-> 
-
-[1]
-
---- a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
-+++ b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
-@@ -28,6 +28,7 @@ properties:
-  required:
-    - compatible
-    - ranges
-+  - interrupts
-    - '#address-cells'
-    - '#size-cells'
-
-@@ -35,6 +36,8 @@ additionalProperties: false
-
-  examples:
-    - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-      soc {
-          #address-cells = <2>;
-          #size-cells = <1>;
-@@ -44,14 +47,6 @@ examples:
-              #size-cells = <1>;
-              ranges;
-
--            gic: intc@fe200000 {
--              compatible = "arm,gic-v3";
--              reg = <0x0 0xfe200000 0x0 0x10000>,   /* GIC Dist */
--                    <0x0 0xfe280000 0x0 0x200000>;  /* GICR */
--              interrupt-controller;
--              #interrupt-cells = <3>;
--            }
--
-              vmbus@ff0000000 {
-                  compatible = "microsoft,vmbus";
-                  #address-cells = <2>;
-@@ -59,7 +54,7 @@ examples:
-                  ranges = <0x0f 0xf0000000 0x0f 0xf0000000 0x10000000>;
-                  dma-coherent;
-                  interrupt-parent = <&gic>;
--                interrupts = <1 2 1>;
-+                interrupts = <GIC_PPI 2 IRQ_TYPE_EDGE_RISING>;
-              };
-          };
-      };
-
-> Best regards,
-> Krzysztof
-
+diff --git a/arch/arm64/boot/dts/exynos/exynos990-r8s.dts b/arch/arm64/boot/dts/exynos/exynos990-r8s.dts
+index 6bae3c0ec..049b40af2 100644
+--- a/arch/arm64/boot/dts/exynos/exynos990-r8s.dts
++++ b/arch/arm64/boot/dts/exynos/exynos990-r8s.dts
+@@ -18,6 +18,11 @@ / {
+ 	#address-cells = <2>;
+ 	#size-cells = <2>;
+ 
++	aliases {
++		serial0 = &serial_0;
++		serial1 = &serial_1;
++	};
++
+ 	chosen {
+ 		#address-cells = <2>;
+ 		#size-cells = <2>;
+@@ -113,3 +118,21 @@ key_volup: key-volup-pins {
+ 		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
+ 	};
+ };
++
++&usi_uart {
++	samsung,clkreq-on; /* needed for UART mode */
++	status = "okay";
++};
++
++&serial_0 {
++	status = "okay";
++};
++
++&usi_bt_uart {
++	samsung,clkreq-on; /* needed for UART mode */
++	status = "okay";
++};
++
++&serial_1 {
++	status = "okay";
++};
 -- 
-Thank you,
-Roman
+2.48.1
 
 
