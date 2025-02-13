@@ -4,86 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E2D0C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 08:56:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21EC4C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 08:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KRQ3dUIptAKwY6MQYxUEHGw6dXXH6tF8Q68IhjO6QLY=; b=AbDHoGSMUVGtdcDokVLABrD5ha
-	h4dyAQhfFq2K6+Tjayw23wXl53AWZDnBgGlSz7DIcFiQp72XQ2znH5Iyl1KQi4k5yIqThtgENCHlO
-	d9ob7mkpYWKmtmH/2hF+1A3cLetBS609wOWeCC9to5m5LKzO/O34aqLlvCN5pmJHHNTAr0T5+txGj
-	7oAobanS0qkrYClsHpini4Cq2/KiCy0jpfNzdPQUEX1L8HsY428RXf6pvRVq0pcVo4d7whRRBgdHg
-	pFxz0g8gnIrWfhAlmS9RXM3YTy3wfmAxbfY7ilTqumC8xGED+mkkerO6cjs77i/Km9IJSIZZTC2J6
-	Irmant2Q==;
+	bh=nKf1iNDXW7RnTm+ZpRSMJba37gN1u+9W8s/d0jpzvF0=; b=QcfKW3HE09zqveK02NWR6s9FF1
+	j0dl19zA8cSjclflr4xmrac5wD/nelB8/ZSbkv/e4SEmJbnNXj+PecZN1FLNRPkyGbqk25LQ1O7d4
+	RWkcyPLKqIiapC1qGFgK5f6NCqWlLr22BOh34SXCugJqd21KfC1mvOIq+VaOIdmBQIvaAUmS3Uis+
+	Rkg/uGZn10XIOKFmhJ30TmmmVwuvYmGcU/g0xJNdw7RqwGUPa7tCT/wPRTGOcUcGOVIXK6RKNWYKj
+	dxKl8aAFQ78kK/7K/Zm+HQtEbOynXG0temxy8Ft8lMuJN1Bu0LR5oPzB3p+VmszH+YlP1wzSghIlE
+	E7QaFz2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiV0g-0000000ALkU-2Fln;
-	Thu, 13 Feb 2025 08:55:50 +0000
-Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
+	id 1tiV32-0000000AMIu-1kzj;
+	Thu, 13 Feb 2025 08:58:16 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiUxn-0000000ALNQ-2utf
+	id 1tiV0l-0000000ALm9-3W5Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 08:52:53 +0000
-Received: by mail-vs1-xe36.google.com with SMTP id ada2fe7eead31-4bc09a23949so179665137.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 00:52:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739436770; x=1740041570; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=KRQ3dUIptAKwY6MQYxUEHGw6dXXH6tF8Q68IhjO6QLY=;
-        b=iXSR49f0uQDKbPUFxtiKBip8EPH+y5zchorjKOHn/lduN9SPQC29Mz+izeBW3QZUjR
-         blCNZmJ7Kh529uj+f1ZYWfOUQ9/9DcaalrhXB+Jl8WZET92G38Wb05fwjJjLZSgBxevZ
-         miQ+pK9cgTwhclAyC4C9I/X9wvxmudMXI8sVaUAHDilOQi/P4BZiRgrI/Uvv1syWfYVA
-         c2FMo/qmE/wmz7VOxAfooQZNZZnGupKA3UCo3j+p+4eGTxEPBcUy625ovzsXrvuZYXpB
-         0VoE54391UmkLnND88ns9k6/jpUm7KJCctM+lVwLgczPTWXURtiILZLFGHsrnBhruRoc
-         XHfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739436770; x=1740041570;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KRQ3dUIptAKwY6MQYxUEHGw6dXXH6tF8Q68IhjO6QLY=;
-        b=bGVIhx8pxQY+nSw05AHx3wXkBZ5KKdUa7e2bpWbIbeDQH5LDpb8SJa8HP2xORi+3el
-         Gc85j2GybAp02vuVLrDHbnZgwBI4yecIz+5vVa/Z28n2JQR7gGtPXMgGARrmlTZ+KLfo
-         q13PgQq6XxYqbaKvH7njgP92QdMf8GTt2Kw30OQzE4bxeIu0a3dF9P8bC9Jpni4j0gjX
-         6EUxma56SYdSRiy9zc6g1Cfh6L7WkrJtgf4gXQmd69Yhpwbjlz4JTTqOnNFn4wFF+OVC
-         SGebqnC8adS3pgNbQ4UhUwl79N/leB9zgvVlaOpv5ZpGY+ZpeB7ZNzLTYR0vH+QqrBxy
-         Zafg==
-X-Forwarded-Encrypted: i=1; AJvYcCV5jS4TcoOCNbP8aP2d1Bznz+owfnx7XtrmfbPL71cdt7b8O+PpR3Gi2W/h9gaOkzXQuKNnY9ISuU6SqjziQAUx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEi9TqozlPeKwxuOvlLxG8rPm4BQPsWADoNTiuHyXcj41M1KAT
-	CwSe1i0jVIW/UKBg7ZwYh7/z9YRCSQ4z0NXXVLIx2UlGJO7tDQiCw8/x3OHp4IME2c4D5PzxgQv
-	tp1ebng5vtjVg68HKUAg5ZclVprRtdfSqN6QQZQ==
-X-Gm-Gg: ASbGnctp9a+Nlv56sml6bVO0npYonjpuqf5KTY32bgbZes/HtIPvBnFui2K68eOmQ0m
-	TGZWJiOw2+MseHOs2h826XDEI/2IsfBnj9M0krqms/DG+6G0J/C22Fng0fh37ZeccwhrmkrauyB
-	M=
-X-Google-Smtp-Source: AGHT+IFnDuYWfE3Q7CuyUtwzYDsXyv9n6Um+OIw404XCQ3zk/sY/TE8+9JT3A2om7er1oTaCb7OwGKlKwkPboIKhvIY=
-X-Received: by 2002:a05:6102:4187:b0:4bb:d062:452 with SMTP id
- ada2fe7eead31-4bbf207219fmr5886514137.3.1739436770171; Thu, 13 Feb 2025
- 00:52:50 -0800 (PST)
-MIME-Version: 1.0
-References: <CA+G9fYt6Cuu6=OO9w80yhJbZB77Q0qf7nzYdvjbgDbgAw6t1jw@mail.gmail.com>
- <8634gku30g.wl-maz@kernel.org> <3902208d-8814-46fe-ba98-3db833b9a886@stanley.mountain>
- <86wmdvs1oh.wl-maz@kernel.org>
-In-Reply-To: <86wmdvs1oh.wl-maz@kernel.org>
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Thu, 13 Feb 2025 14:22:39 +0530
-X-Gm-Features: AWEUYZlmVi_oOrzpHstaYQ-1DQU14Cx8usJ0Mr5C5xxxvEXLMKHSQVpMklUZaec
-Message-ID: <CA+G9fYtKxd8C5W4e5sO93TMC77pRVyJYL8w+i6q988jHk6ztxw@mail.gmail.com>
-Subject: Re: kvm: nVHE hyp panic at: __kvm_nvhe_kvm_hyp_handle_sysre
-To: Marc Zyngier <maz@kernel.org>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>, kvmarm@lists.linux.dev, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>, virtualization@lists.linux.dev, 
-	Mark Brown <broonie@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Arnd Bergmann <arnd@arndb.de>, Anders Roxell <anders.roxell@linaro.org>, 
-	Aishwarya TCV <Aishwarya.TCV@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 13 Feb 2025 08:55:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7EE1B5C5036;
+	Thu, 13 Feb 2025 08:55:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF6D9C4CEE2;
+	Thu, 13 Feb 2025 08:55:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739436954;
+	bh=IOPMin/Lc5WunXnzEYcyj9XzsrWnvgg3E0AxmkqaTmI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=LctM41cZaQpOgGFyR4yaVnRHOglEmsj1vxHUK2Abf8tFgM8RJSRUUTB16t8OwY7TP
+	 yq0xilekRyINqV8yiHBuMHrmEGNpLRMfc23cQRR/FE7HyAzgsxU+JtWWTrqYGX/GAN
+	 n9iJUfv9ycsTaTB8jUjq3rtE9xNf8/qzSz27D7r9W/urwM9aPQ66IymdP7QtPbQOxF
+	 hglMXhZWkfjrTwv9I2Sq3r7vZsnvME9mfQIlUDATLmpYFHH5JBa04n15KGZbvn9IjD
+	 c56UYjT88K5+B+EW7pxM36cZeLQqLMWZM6p1hdr9zDuXxdERt3J5AsVB2yjB3NllV5
+	 v36Y7oNeTikug==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tiV0i-003bb5-Fo;
+	Thu, 13 Feb 2025 08:55:52 +0000
+Date: Thu, 13 Feb 2025 08:55:52 +0000
+Message-ID: <86tt8yrzon.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Mark Brown <broonie@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Fuad Tabba <tabba@google.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v7] KVM: arm64: Fix confusion in documentation for pKVM SME assert
+In-Reply-To: <Z6yByMUBPDUyEWOr@J2N7QTR9R3>
+References: <20250212-kvm-arm64-sme-assert-v7-1-0f786db838d3@kernel.org>
+	<Z6yByMUBPDUyEWOr@J2N7QTR9R3>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mark.rutland@arm.com, broonie@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, tabba@google.com, oliver.upton@linux.dev, james.morse@arm.com, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_005251_765171_3ED5E7F3 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20250213_005556_036074_773B797E 
+X-CRM114-Status: GOOD (  39.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,66 +92,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Feb 2025 at 19:30, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Wed, 12 Feb 2025 11:41:38 +0000,
-> Dan Carpenter <dan.carpenter@linaro.org> wrote:
-> >
-> > On Tue, Feb 11, 2025 at 11:36:31AM +0000, Marc Zyngier wrote:
-> > > For the crash at hand, which clearly shows nVHE, can you report
-> > > whether the following hack fixes it for you?
-> > >
-> > >     M.
-> >
-> > No luck, I'm afraid.  It still crashes the same way.
->
-> Right. It was one level deeper. The following change fixes it for
-> me. YMMV.
+On Wed, 12 Feb 2025 11:11:04 +0000,
+Mark Rutland <mark.rutland@arm.com> wrote:
+> 
+> On Wed, Feb 12, 2025 at 12:44:57AM +0000, Mark Brown wrote:
+> > As raised in the review comments for the original patch the assert and
+> > comment added in afb91f5f8ad7 ("KVM: arm64: Ensure that SME controls are
+> > disabled in protected mode") are bogus. The comments says that we check
+> > that we do not have SME enabled for a pKVM guest but the assert actually
+> > checks to see if the host has anything set in SVCR which is unrelated to
+> > the guest features or state, regardless of if those guests are protected
+> > or not. This check is also made in the hypervisor, it will refuse to run
+> > a guest if the check fails, so it appears that the assert here is
+> > intended to improve diagnostics.
+> > 
+> > Update the comment to reflect the check in the code, and to clarify that
+> > we do actually enforce this in the hypervisor. While we're here also
+> > update to use a WARN_ON_ONCE() to avoid log spam if this triggers.
+> > 
+> > Fixes: afb91f5f8ad7 ("KVM: arm64: Ensure that SME controls are disabled in protected mode")
+> > Reviewed-by: Fuad Tabba <tabba@google.com>
+> > Signed-off-by: Mark Brown <broonie@kernel.org>
+> > ---
+> > This has been sent with v6.10 with only positive review comments after
+> > the first revision, if there is some issue with the change please share
+> > it.
+> > 
+> > To: Marc Zyngier <maz@kernel.org>
+> > To: Oliver Upton <oliver.upton@linux.dev>
+> > To: James Morse <james.morse@arm.com>
+> > To: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > To: Catalin Marinas <catalin.marinas@arm.com>
+> > To: Will Deacon <will@kernel.org>
+> > To: Fuad Tabba <tabba@google.com>
+> > Cc: Mark Rutland <mark.rutland@arm.com>
+> > ---
+> > Changes in v7:
+> > - Reword the comment.
+> > - Link to v6: https://lore.kernel.org/r/20250210-kvm-arm64-sme-assert-v6-1-cc26c46d1b43@kernel.org
+> > 
+> > Changes in v6:
+> > - Rebase onto v6.14-rc1.
+> > - Link to v5: https://lore.kernel.org/r/20241210-kvm-arm64-sme-assert-v5-1-995c8dd1025b@kernel.org
+> > 
+> > Changes in v5:
+> > - Rebase onto v6.13-rc1.
+> > - Link to v4: https://lore.kernel.org/r/20240930-kvm-arm64-sme-assert-v4-1-3c9df71db688@kernel.org
+> > 
+> > Changes in v4:
+> > - Rebase onto v6.12-rc1
+> > - Link to v3: https://lore.kernel.org/r/20240730-kvm-arm64-sme-assert-v3-1-8699454e5cb8@kernel.org
+> > 
+> > Changes in v3:
+> > - Rebase onto v6.11-rc1.
+> > - Link to v2: https://lore.kernel.org/r/20240605-kvm-arm64-sme-assert-v2-1-54391b0032f4@kernel.org
+> > 
+> > Changes in v2:
+> > - Commit message tweaks.
+> > - Change the assert to WARN_ON_ONCE().
+> > - Link to v1: https://lore.kernel.org/r/20240604-kvm-arm64-sme-assert-v1-1-5d98348d00f8@kernel.org
+> > ---
+> >  arch/arm64/kvm/fpsimd.c | 11 +++++++----
+> >  1 file changed, 7 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+> > index 4d3d1a2eb157047b4b2488e9c4ffaabc6f5a0818..e37e53883c357093ff4455f5afdaec90e662d744 100644
+> > --- a/arch/arm64/kvm/fpsimd.c
+> > +++ b/arch/arm64/kvm/fpsimd.c
+> > @@ -93,11 +93,14 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+> >  	}
+> >  
+> >  	/*
+> > -	 * If normal guests gain SME support, maintain this behavior for pKVM
+> > -	 * guests, which don't support SME.
+> > +	 * Protected and non-protected KVM modes require that
+> > +	 * SVCR.{SM,ZA} == {0,0} when entering a guest so that no
+> > +	 * host/guest SME state needs to be saved/restored by hyp code.
+> > +	 *
+> > +	 * In protected mode, hyp code will verify this later.
+> >  	 */
+> > -	WARN_ON(is_protected_kvm_enabled() && system_supports_sme() &&
+> > -		read_sysreg_s(SYS_SVCR));
+> > +	WARN_ON_ONCE(is_protected_kvm_enabled() && system_supports_sme() &&
+> > +		     read_sysreg_s(SYS_SVCR));
+> 
+> As I mentioned on the last round, we can drop the is_protected_kvm_enabled()
+> check, i.e. have:
+> 
+> 	/*
+> 	 * Protected and non-protected KVM modes require that
+> 	 * SVCR.{SM,ZA} == {0,0} when entering a guest so that no
+> 	 * host/guest SME state needs to be saved/restored by hyp code.
+> 	 *
+> 	 * In protected mode, hyp code will verify this later.
+> 	 */
+> 	WARN_ON_ONCE(system_supports_sme() && read_sysreg_s(SYS_SVCR));
+> 
+> Either way:
+> 
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
+> 
+> Marc, are you happy to queue this atop the recent fixes from me? Those
+> try to ensure SVCR.{SM,ZA} == {0,0} regardless of whether KVM is in
+> protected mode.
 
-Anders applied this patch and tested on rk3399-rock-pi-4b,
-and confirmed that the regression is resolved.
+In all honesty, I find that at this stage, the comment just gets in
+the way and is over-describing what is at stake here.
 
-Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
+The
 
-Link:
- - https://lkft.validation.linaro.org/scheduler/job/8119717#L1251
+ 	WARN_ON_ONCE(system_supports_sme() && read_sysreg_s(SYS_SVCR));
 
->
->         M.
->
-> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> index f838a45665f26..b899d815d272f 100644
-> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> @@ -501,9 +501,22 @@ static inline bool handle_tx2_tvm(struct kvm_vcpu *vcpu)
->         return true;
->  }
->
-> +/* Open-coded version of timer_get_offset() to allow for kern_hyp_va() */
-> +static inline u64 hyp_timer_get_offset(struct arch_timer_context *ctxt)
-> +{
-> +       u64 offset = 0;
-> +
-> +       if (ctxt->offset.vm_offset)
-> +               offset += *kern_hyp_va(ctxt->offset.vm_offset);
-> +       if (ctxt->offset.vcpu_offset)
-> +               offset += *kern_hyp_va(ctxt->offset.vcpu_offset);
-> +
-> +       return offset;
-> +}
-> +
->  static inline u64 compute_counter_value(struct arch_timer_context *ctxt)
->  {
-> -       return arch_timer_read_cntpct_el0() - timer_get_offset(ctxt);
-> +       return arch_timer_read_cntpct_el0() - hyp_timer_get_offset(ctxt);
->  }
->
->  static bool kvm_handle_cntxct(struct kvm_vcpu *vcpu)
->
-> --
-> Without deviation from the norm, progress is not possible.
+is really the only thing that matters. It perfectly shows what we are
+checking for, and doesn't need an exegesis.
 
---
-Linaro LKFT
-https://lkft.linaro.org
+As for the Fixes: tag, and given the magnitude of the actual fixes
+that are already queued, I don't think we need it.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
