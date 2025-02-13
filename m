@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8818C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 14:34:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B8E4C021A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 14:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2+y6Ck4nUrrnZ5J/UDrnc3xAlfWqC0MtemaHjWH6P0w=; b=Umxl4PpzNhi2x+GnsTzetx/adE
-	1XncpoODsUcSWPmkhSeGenLbFQ82CAEDg2HXWF+oEJYMziE+1PMV0FZjZJIhdtcfFWP7NpfB8hQlp
-	3VR6DCP9UcSKxGUliriG1XgMnX7nsoSbATy8oPersIqEcptD0lfPPUlcDQaHztmi5KN+EP+Bw/OT4
-	RvO3EMOXkBSGHJugfozMIvTa+A6lGm5WaCa2QCYp1a3OGqDe0FSfpRxCV5tI1eMrJEMMeVYdVnMdt
-	BbJ1Zt1Hxo9lD6V4j5mFl2a3PtXcC9cllZ/3kiU8k7UWzUkBALow3IBZ4RLiO/bDyWUGlvA1rREJA
-	gkYhwq9Q==;
+	bh=gg/V+lwtqWQq5Y/Ly9J/s6hUNho4JthxgdaqasfoAcA=; b=IGPbK8KsOXdUVQCa1B9CQa/UkR
+	SibVXPtDQzSYoNoliWyi1cknvT7aNKt/jYMkclj4qXAVJgpCgl2EnwKKzSal6veH2GoJMG7KLPoNb
+	CSvOvmsg4wPqwBzzUyP9ZLzCiwT1riSaqaEJc2BKInAa/rix8fipMw3MyTed/UhLa3Ah96XqcBM06
+	UkWaAUo3qze8XnnrqSkMD9oh0OKmr3XySlji4YqIeC4XnRQhUSyUU1mcrkJrZXfkdJDTSCJ/QAJMi
+	j2xegn2QmVQBJzYFzE80xq9DEUNsusC+f/xLgm+6m+lZ1RinCV+LUSl37Hchl+fMbIW21homHRO54
+	P7nx3+eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiaIF-0000000BKxn-18Zh;
-	Thu, 13 Feb 2025 14:34:19 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tiaIE-0000000BKwn-06Vi;
+	Thu, 13 Feb 2025 14:34:18 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZlx-0000000BErr-140b;
-	Thu, 13 Feb 2025 14:00:58 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-21f2339dcfdso13651585ad.1;
-        Thu, 13 Feb 2025 06:00:56 -0800 (PST)
+	id 1tiZlq-0000000BEqI-3nG9;
+	Thu, 13 Feb 2025 14:00:52 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-21f7f03d856so15746845ad.1;
+        Thu, 13 Feb 2025 06:00:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739455256; x=1740060056; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739455248; x=1740060048; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2+y6Ck4nUrrnZ5J/UDrnc3xAlfWqC0MtemaHjWH6P0w=;
-        b=F6hKg1hepcsolwrF//h52n0v6WhLO+4yckdloQ2c3qMJgel0a6eoZj36ZVtrDfeenc
-         NsAEGj8hDfgBcT9Ze8WaDspzHQrlBhzY+QWzwhM0GzQLyX0YHZAuys//9auvR0JABSa9
-         xpKf/hYwvnepfBtKJIvI3PDRuP82TCTjQbusaLnhfpMG5fjOigXmKkulY/tC8GcxF3fG
-         okKPu+2OXLQXRLxxtDnKL0zQvtEJ2ILGdjdAmysxw3M2UAQcs0wkzZzWsGs668Gk0YwT
-         S/kOlmrTAS/jx+PWPv/hRHAMPGFZ3a2MN766cvfyAvD6fBMCsCXhzVMsT8KIo2dfToaC
-         Ngyg==
+        bh=gg/V+lwtqWQq5Y/Ly9J/s6hUNho4JthxgdaqasfoAcA=;
+        b=a5V5D3L+PqWyB7x05KuFFOPxt1CeZuR/aZgeTElZwbZVkonzdMomKowUSAieH9z2+D
+         AJkiGHO7Lyu/ygmo36eo+ksrM9P8IxVOwJ23A5lI+nbM8tI7ow+Xeaj0Q6mIIjHgcXSl
+         AeVt21VKPOC9dnCR1tT3IqgM5BDosroiH4HPe7UDAo/fg4hQsKY4lq8wZ37cxsrYzf+U
+         F4lYJSj0QJA5h/yjfLCx4Z2znaP68SCLMjd1rvaNn3qXNjFfcTrsGgZNpf7hHi+KkzIW
+         +5AciM0bCwShIU0yUdd7QUWRQ6ke8u1Qx7QLoJXith0M7WZH0kTeDWvfbDIBzy/UUhsJ
+         4AOQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739455256; x=1740060056;
+        d=1e100.net; s=20230601; t=1739455248; x=1740060048;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2+y6Ck4nUrrnZ5J/UDrnc3xAlfWqC0MtemaHjWH6P0w=;
-        b=drSQ+hbiAnhOyXTKVWVsclAK+cqiXbU+HL62MeE0RW0zw50MFMIhUDu3iEB5+M2l10
-         wqynW/voHpZ7IoNLtJ+N22RHEuO1yYlpbU3+9EpbMVtIQuX/kWx5KoS9mPWEpEjDgorL
-         PB7nr6OhIN+jkL9B0A3lWQE5ud27if93/uD1ZKoa5EYLqjDhNbkRZiSfU2O3wy3IhTlq
-         tpOy4i3VCY4ayux3WR6GynMQxtGtI6uWlBQiL58b29oEONxwU5GiZSQDFvylcbYStRUV
-         cnXsU5+ct/xZU24IlTYOLrkEJ/7xNIumqLAWmRBf0DNRNgSjXyibfPkkloqnayolWvjD
-         Odlg==
-X-Forwarded-Encrypted: i=1; AJvYcCWbY+lr7dvqXx/pjvTE5t5XTSaf94virQWDUwgIo+ege2EXr+/Qj7xURT3yq69hF/iM8PXKpdvufX2O8so=@lists.infradead.org, AJvYcCWq9blNFASzFrD+6udLtCQUXiN/yw3HPHg+AB2YDbuqyIwnKcPgxqn7iQLJYiIpp0haWKaVmuu9Mv9bQaQJWo06@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPEHazqyKgEuX9ra5bm1dgMn0+Ohp9uHuM7UOW+xIqqeLS0XLl
-	wcE9e+YqbBidtdZfiQZA6oFpzXUefZvHCIKQQFZToxsDyTfDHVBE
-X-Gm-Gg: ASbGncsAZ/o5JNKFmGwZiLLkkQS6Vt18Effcf5V6gkwfybmgpYovVFAnQQEdm9FCY+V
-	3HfKGm8yfjN10ChuXSGSfbAzSnFEjzX3OKR+8DGs41QU93XG+ZiKXlp8WfAX7nM4BmzkvT8qB+2
-	RDPtaGe4RjlrYmCFywEoIHptCP2YaHqWE9KOoBO45SFp2hIb2qJuuCN03clxKWIvLjH1RKftMN1
-	MQznvPCN/L+PDAnKn6OsDXr3MxovWHl8lTfWnUjjTxOuXvxJhJA4+fGKQpKpdNOI/J52okb03PF
-	GqTMCe9Vc/+sDf8/vj5E6XRh7F68r6J6hNO+CUUG8b1/oj15t4JTeYBVfOmV55slFQc=
-X-Google-Smtp-Source: AGHT+IH1Zqo9tPEvVGN2+sG3MuJAeMqjgEOo7xAq67fk4VjOAgBOooytYfL4WucnOp0CvNreEK3WqQ==
-X-Received: by 2002:a17:903:94b:b0:220:cfb7:56eb with SMTP id d9443c01a7336-220d376f061mr46259805ad.26.1739455256258;
-        Thu, 13 Feb 2025 06:00:56 -0800 (PST)
+        bh=gg/V+lwtqWQq5Y/Ly9J/s6hUNho4JthxgdaqasfoAcA=;
+        b=XS+rL/UOH3GH8p9qmXhLc6mTjw42PvAuDH+4bz26YoWM3jHeeJtdB/fvw2mkCAaxHJ
+         v34ndiqqxXKa/PulMYXQH5/bRSLp5QVpmD5+LtEAKwsgprmpBNw1IGWoKJX0dR2xRIJo
+         X/BroyZppe8imgeWR0dw8YIDtLY7c6YSDA73h30YPa4xbTgNR0vZla9DlAOwnHuFHLII
+         EKPHIUYnHWYgZoHR50jxq7krsYZZn0jDCh/l8baq1p65flJuaZXBWBDOTGOv8ZfjSIcA
+         NQfpuQuWVu1vq+jxdDyYUdwaozrgrJAkgnDxViXAVLtUMtjID/HIUqxxEPynJa/cMlx7
+         oDfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVGB+//BdTd132FsaL96ZD23DFFquuWgd8kTKXpfd12/4399Xxqn8O7+r2S1lJZPU0nZpftTTKAs5EazUw=@lists.infradead.org, AJvYcCWpTd4z6i+9qNE1UnmzK7RBPafsuPtQ1kxAOQkJTUS/T6gRFdO96jJREj0P85DdRt/zFVATZZtHkUedk8iUkykX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGebee9aV+9slYgjZ9eed+hNxJxUkLxep6YhFO2OAXMQWDtZ8s
+	Nvq8gxs5x26rBtHwD0dDQKUnVEnMzVGUWsdh3ZNb1Ivqsr8g8biE
+X-Gm-Gg: ASbGncviouLYfqxvHyhPqvMRjf/Gddkfz2Om1WyR4gcLXYXPbyt4TPgsPN+uy9TgL5t
+	ikXiUMkyyqydsxoQ6ypBveoJ1eNFBhayVcnTj1IDgQxjEBQtQ5nCs+jdX25Qmrxdg+WPXwcvx2u
+	pxYHJ3lncmzynVYNOAIE+aM0YMTOpcXfThCSMBTqIeO9ryMBgfbLnoT0hHgaIi6ehj/ICTcdfQ6
+	+qFcoll8srre1QXchiclohqhUNfjTjBtBp43Ds0uK26UMdIEAsl0nz8fU3VpXwvCHRI587195Lc
+	xpxx5GAJKX/IM3CuKHgzATY1bODOkbZrHIEieznlhdHjPVZ5cpZSbSDG3fJJK2YUIbE=
+X-Google-Smtp-Source: AGHT+IFTuUUy1Wq3iWeeuJp7RF8h8HqcmzEsROtZ3HzF4SlUho3mcp66MzG3aF4wwbARFTyZlT5eFg==
+X-Received: by 2002:a17:902:d58c:b0:20c:6399:d637 with SMTP id d9443c01a7336-220d2132be5mr57272645ad.40.1739455248450;
+        Thu, 13 Feb 2025 06:00:48 -0800 (PST)
 Received: from mew.. (p3882177-ipxg22501hodogaya.kanagawa.ocn.ne.jp. [180.15.148.177])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d55858d6sm12565225ad.223.2025.02.13.06.00.48
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d55858d6sm12565225ad.223.2025.02.13.06.00.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Feb 2025 06:00:55 -0800 (PST)
+        Thu, 13 Feb 2025 06:00:48 -0800 (PST)
 From: FUJITA Tomonori <fujita.tomonori@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	rust-for-linux@vger.kernel.org
-Cc: x86@kernel.org,
+Cc: Peter Zijlstra <peterz@infradead.org>,
+	x86@kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	loongarch@lists.linux.dev,
@@ -78,7 +79,6 @@ Cc: x86@kernel.org,
 	mingo@redhat.com,
 	bp@alien8.de,
 	dave.hansen@linux.intel.com,
-	peterz@infradead.org,
 	hpa@zytor.com,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -99,18 +99,17 @@ Cc: x86@kernel.org,
 	a.hindborg@kernel.org,
 	aliceryhl@google.com,
 	tmgross@umich.edu
-Subject: [PATCH v3 2/5] riscv/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm code sharing with Rust
-Date: Thu, 13 Feb 2025 22:57:56 +0900
-Message-ID: <20250213135759.190006-3-fujita.tomonori@gmail.com>
+Subject: [PATCH v3 1/5] x86/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm code sharing with Rust
+Date: Thu, 13 Feb 2025 22:57:55 +0900
+Message-ID: <20250213135759.190006-2-fujita.tomonori@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250213135759.190006-1-fujita.tomonori@gmail.com>
 References: <20250213135759.190006-1-fujita.tomonori@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_060057_301104_7A50A024 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_060050_941853_0F536E91 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,85 +129,102 @@ Rust to avoid the duplication.
 
 No functional changes.
 
+Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
 ---
- arch/riscv/include/asm/bug.h | 37 +++++++++++++++++++++---------------
- 1 file changed, 22 insertions(+), 15 deletions(-)
+ arch/x86/include/asm/bug.h | 56 +++++++++++++++++++-------------------
+ 1 file changed, 28 insertions(+), 28 deletions(-)
 
-diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
-index 1aaea81fb141..6ab13b56feb0 100644
---- a/arch/riscv/include/asm/bug.h
-+++ b/arch/riscv/include/asm/bug.h
-@@ -31,40 +31,45 @@ typedef u32 bug_insn_t;
+diff --git a/arch/x86/include/asm/bug.h b/arch/x86/include/asm/bug.h
+index e85ac0c7c039..61570ec9464c 100644
+--- a/arch/x86/include/asm/bug.h
++++ b/arch/x86/include/asm/bug.h
+@@ -28,45 +28,42 @@
+ #ifdef CONFIG_GENERIC_BUG
  
- #ifdef CONFIG_GENERIC_BUG_RELATIVE_POINTERS
- #define __BUG_ENTRY_ADDR	RISCV_INT " 1b - ."
--#define __BUG_ENTRY_FILE	RISCV_INT " %0 - ."
-+#define __BUG_ENTRY_FILE(file)	RISCV_INT " " file " - ."
+ #ifdef CONFIG_X86_32
+-# define __BUG_REL(val)	".long " __stringify(val)
++# define __BUG_REL(val)	".long " val
  #else
- #define __BUG_ENTRY_ADDR	RISCV_PTR " 1b"
--#define __BUG_ENTRY_FILE	RISCV_PTR " %0"
-+#define __BUG_ENTRY_FILE(file)	RISCV_PTR " " file
+-# define __BUG_REL(val)	".long " __stringify(val) " - ."
++# define __BUG_REL(val)	".long " val " - ."
  #endif
  
  #ifdef CONFIG_DEBUG_BUGVERBOSE
--#define __BUG_ENTRY			\
-+#define __BUG_ENTRY(file, line, flags)	\
- 	__BUG_ENTRY_ADDR "\n\t"		\
--	__BUG_ENTRY_FILE "\n\t"		\
--	RISCV_SHORT " %1\n\t"		\
--	RISCV_SHORT " %2"
-+	__BUG_ENTRY_FILE(file) "\n\t"	\
-+	RISCV_SHORT " " line "\n\t"	\
-+	RISCV_SHORT " " flags
- #else
--#define __BUG_ENTRY			\
--	__BUG_ENTRY_ADDR "\n\t"		\
--	RISCV_SHORT " %2"
-+#define __BUG_ENTRY(file, line, flags)		\
-+	__BUG_ENTRY_ADDR "\n\t"			\
-+	RISCV_SHORT " " flags
- #endif
++#define __BUG_ENTRY(file, line, flags)					\
++	"2:\t" __BUG_REL("1b") "\t# bug_entry::bug_addr\n"		\
++	"\t" __BUG_REL(file)   "\t# bug_entry::file\n"			\
++	"\t.word " line        "\t# bug_entry::line\n"			\
++	"\t.word " flags       "\t# bug_entry::flags\n"
++#else
++#define __BUG_ENTRY(file, ine, flags)					\
++	"2:\t" __BUG_REL("1b") "\t# bug_entry::bug_addr\n"		\
++	"\t.word " flags       "\t# bug_entry::flags\n"
++#endif
++
++#define _BUG_FLAGS_ASM(ins, file, line, flags, size, extra)		\
++	"1:\t" ins "\n"							\
++	".pushsection __bug_table,\"aw\"\n"				\
++	__BUG_ENTRY(file, line, flags)					\
++	"\t.org 2b + " size "\n"					\
++	".popsection\n"							\
++	extra
  
- #ifdef CONFIG_GENERIC_BUG
--#define __BUG_FLAGS(flags)					\
--do {								\
--	__asm__ __volatile__ (					\
-+
-+#define ARCH_WARN_ASM(file, line, flags, size)			\
- 		"1:\n\t"					\
- 			"ebreak\n"				\
- 			".pushsection __bug_table,\"aw\"\n\t"	\
- 		"2:\n\t"					\
--			__BUG_ENTRY "\n\t"			\
--			".org 2b + %3\n\t"                      \
--			".popsection"				\
-+		__BUG_ENTRY(file, line, flags) "\n\t"		\
-+			".org 2b + " size "\n\t"                \
-+			".popsection\n"				\
-+
-+#define __BUG_FLAGS(flags)					\
-+do {								\
-+	__asm__ __volatile__ (					\
-+		ARCH_WARN_ASM("%0", "%1", "%2", "%3")		\
- 		:						\
- 		: "i" (__FILE__), "i" (__LINE__),		\
- 		  "i" (flags),					\
- 		  "i" (sizeof(struct bug_entry)));              \
+ #define _BUG_FLAGS(ins, flags, extra)					\
+ do {									\
+-	asm_inline volatile("1:\t" ins "\n"				\
+-		     ".pushsection __bug_table,\"aw\"\n"		\
+-		     "2:\t" __BUG_REL(1b) "\t# bug_entry::bug_addr\n"	\
+-		     "\t"  __BUG_REL(%c0) "\t# bug_entry::file\n"	\
+-		     "\t.word %c1"        "\t# bug_entry::line\n"	\
+-		     "\t.word %c2"        "\t# bug_entry::flags\n"	\
+-		     "\t.org 2b+%c3\n"					\
+-		     ".popsection\n"					\
+-		     extra						\
++	asm_inline volatile(_BUG_FLAGS_ASM(ins, "%c0",			\
++					   "%c1", "%c2", "%c3", extra)	\
+ 		     : : "i" (__FILE__), "i" (__LINE__),		\
+ 			 "i" (flags),					\
+ 			 "i" (sizeof(struct bug_entry)));		\
  } while (0)
+ 
+-#else /* !CONFIG_DEBUG_BUGVERBOSE */
+-
+-#define _BUG_FLAGS(ins, flags, extra)					\
+-do {									\
+-	asm_inline volatile("1:\t" ins "\n"				\
+-		     ".pushsection __bug_table,\"aw\"\n"		\
+-		     "2:\t" __BUG_REL(1b) "\t# bug_entry::bug_addr\n"	\
+-		     "\t.word %c0"        "\t# bug_entry::flags\n"	\
+-		     "\t.org 2b+%c1\n"					\
+-		     ".popsection\n"					\
+-		     extra						\
+-		     : : "i" (flags),					\
+-			 "i" (sizeof(struct bug_entry)));		\
+-} while (0)
+-
+-#endif /* CONFIG_DEBUG_BUGVERBOSE */
++#define ARCH_WARN_ASM(file, line, flags, size)				\
++	_BUG_FLAGS_ASM(ASM_UD2, file, line, flags, size, "")
+ 
+ #else
+ 
+@@ -88,11 +85,14 @@ do {								\
+  * were to trigger, we'd rather wreck the machine in an attempt to get the
+  * message out than not know about it.
+  */
 +
- #else /* CONFIG_GENERIC_BUG */
- #define __BUG_FLAGS(flags) do {					\
- 	__asm__ __volatile__ ("ebreak\n");			\
-@@ -78,6 +83,8 @@ do {								\
- 
- #define __WARN_FLAGS(flags) __BUG_FLAGS(BUGFLAG_WARNING|(flags))
- 
-+#define ARCH_WARN_REACHABLE
++#define ARCH_WARN_REACHABLE	ANNOTATE_REACHABLE(1b)
 +
- #define HAVE_ARCH_BUG
+ #define __WARN_FLAGS(flags)					\
+ do {								\
+ 	__auto_type __flags = BUGFLAG_WARNING|(flags);		\
+ 	instrumentation_begin();				\
+-	_BUG_FLAGS(ASM_UD2, __flags, ANNOTATE_REACHABLE(1b));	\
++	_BUG_FLAGS(ASM_UD2, __flags, ARCH_WARN_REACHABLE);	\
+ 	instrumentation_end();					\
+ } while (0)
  
- #include <asm-generic/bug.h>
 -- 
 2.43.0
 
