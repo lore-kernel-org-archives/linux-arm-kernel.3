@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A4ECC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DA6BC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4dut6DNm0rhh/kOu3yiemyfs8ulsvouphQMQB12if24=; b=cvzOYL4EcvGinsgU92PLtPgwRc
-	kynvI2D+MuXQy0QNmmUoOedgG9abbWZAkHFD3GzZgir0iKR8FbiHKJdP/70HTvftDZEshGhOza+XK
-	ub9g4WFlO5g+Rl6ciO6gDbus+W9cb2wEmMFf/0g4G4Gcap1sOWwC9EtBqoFDNZ1OMvYqReCSav1bL
-	cMl44s5tkVPy7w8Y3ScUhj23pCVGprJCR79/i6fhHHUuj16jRAGd+L8Rk56Oi0QYte/rTJ6QpCmAJ
-	huMjiS3ts4K7/53tvHnaf+gfSyUQ8C2k8hzIl9tivVXaSv+a+/7I5PmFPzY+YRInZGQ7PNG9e5Fac
-	5id23FbQ==;
+	bh=akpNRWWMvv7pF0+12PVa/Q8rH2F+xiYxVG9nFrfAwP4=; b=2n3BDkaW8rBbGyBex0yXdu4uWB
+	oOCs7r+DRiiLC5D6drDx28GtrN/v+rGFF+93ezhhRA0EHxrM7CVdnG8fzYzVm5wXWgxeQLwks6mu7
+	S9fWoywBkN4WR+PUbgjNWhaHFOcNsKdIUNENSIEK2VVToYeni6EIW5iGDBFPCoMmIgmoiHOaDgrV4
+	E/4Z+prGmih5ylacAZ/xd3iu/0sw6ucpR6OErmhEE6muU4oNMM8ofjDKOpaCSxT48VAzSM4nWtV0p
+	wgKbIzKNnphOjbbobldNhQAKTjtHqIGrevjZ4U1xN6pKMlzwDA/NZLfRK6q/Y7zg372Zmd5pfrabs
+	svHqXHrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWcw-0000000AhMg-3Fqt;
-	Thu, 13 Feb 2025 10:39:26 +0000
+	id 1tiWeL-0000000Ahc3-1nF4;
+	Thu, 13 Feb 2025 10:40:53 +0000
 Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWGp-0000000Ad1N-45ye
+	id 1tiWGs-0000000Ad24-0BjD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 10:16:37 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 03DDC4420F;
-	Thu, 13 Feb 2025 10:16:32 +0000 (UTC)
+	Thu, 13 Feb 2025 10:16:39 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B3C014326D;
+	Thu, 13 Feb 2025 10:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739441794;
+	t=1739441796;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=4dut6DNm0rhh/kOu3yiemyfs8ulsvouphQMQB12if24=;
-	b=SbXQ3e77A7BS6dWqnVaWzy2Yc6HbBvMvJ/yJ+NVRLuXvaAL5oJwnfcblRIXbw1MWVioGjV
-	uYQkhcLZ8mynvorcAqyGdyT3wztdS0iykqMV7RHnkrOaAHW3xbHULk2QSlEqdRYvRG+VwV
-	maWftga+mWLYZJ5lTcknGuJXrBO5rHT3h6AsAE5mWkU2nZmW5lq57Xe1UIcTFY2OyhhnxE
-	GImMID3YQJ/IJ6Tqt+S+IbYRBLx2WyGpWu523sdPVzy9VIajXN25vbhKr0rAd7JwAudDpE
-	g0NAN77gyo7KJzoBqMpeb7kMH7QzNNi5R9ZaKQnxRCRwJem0NjdOA/dO5j2uvA==
+	bh=akpNRWWMvv7pF0+12PVa/Q8rH2F+xiYxVG9nFrfAwP4=;
+	b=j3HGBuoQ2iIDjdhxdwKl9ydGd+dB4vQw8rwP7lNn3jZnsapH1jJ58iSGQcStPEigxtEMKN
+	KI15GYMn5YGGPG5LurTK3lQHrhiYHyS1jVNKsxs5MPfEhAPBZoVb5tJyZVvniuYqyqeeGh
+	KroHWqwjJ31BM8Cp7DVoBMW1XQFUAQytjE43WQqwOMEdX1j5iMTy9+bvL3BJxberMW64uH
+	9oWSOmOSQ/bExLK+qTjOYwRv6frX6TtTsNCj/TslH4p8FnF7OCcij7TyIigVcW5Gd7LH6P
+	Ft4bf49VtnSB+n4p3GJQkTdcfhXo0gLKwE0rnmfPpZmq75qFAJbpgo8k6b8hSw==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -74,9 +74,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
 	Sean Anderson <seanga2@gmail.com>
-Subject: [PATCH net-next v4 14/15] Documentation: networking: Document the phy_port infrastructure
-Date: Thu, 13 Feb 2025 11:16:02 +0100
-Message-ID: <20250213101606.1154014-15-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v4 15/15] dt-bindings: net: Introduce the phy-port description
+Date: Thu, 13 Feb 2025 11:16:03 +0100
+Message-ID: <20250213101606.1154014-16-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250213101606.1154014-1-maxime.chevallier@bootlin.com>
 References: <20250213101606.1154014-1-maxime.chevallier@bootlin.com>
@@ -84,12 +84,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegieehudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeevgedtffelffelveeuleelgfejfeevvdejhfehgeefgfffvdefteegvedutefftdenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedufeenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedvpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrk
- hgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegieehudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeulefgvddthfekkedugeeikeeuudekhfekgfehgfelkeekkeekhfejkefgvefhieenucffohhmrghinhepuggvvhhitggvthhrvggvrdhorhhgnecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedvpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgto
+ hhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_021636_207822_1859FF10 
-X-CRM114-Status: GOOD (  19.97  )
+X-CRM114-CacheID: sfid-20250213_021638_213368_FC9EA512 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,160 +104,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This documentation aims at describing the main goal of the phy_port
-infrastructure.
+The ability to describe the physical ports of Ethernet devices is useful
+to describe multi-port devices, as well as to remove any ambiguity with
+regard to the nature of the port.
+
+Moreover, describing ports allows for a better description of features
+that are tied to connectors, such as PoE through the PSE-PD devices.
+
+Introduce a binding to allow describing the ports, for now with 2
+attributes :
+
+ - The number of lanes, which is a quite generic property that allows
+   differentating between multiple similar technologies such as BaseT1
+   and "regular" BaseT (which usually means BaseT4).
+
+ - The media that can be used on that port, such as BaseT for Twisted
+   Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
+   ethernet, etc. This allows defining the nature of the port, and
+   therefore avoids the need for vendor-specific properties such as
+   "micrel,fiber-mode" or "ti,fiber-mode".
+
+The port description lives in its own file, as it is intended in the
+future to allow describing the ports for phy-less devices.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
-V4: new patch
+V4: no changes
 
- Documentation/networking/index.rst    |   1 +
- Documentation/networking/phy-port.rst | 111 ++++++++++++++++++++++++++
- MAINTAINERS                           |   1 +
- 3 files changed, 113 insertions(+)
- create mode 100644 Documentation/networking/phy-port.rst
+ .../devicetree/bindings/net/ethernet-phy.yaml | 18 +++++++
+ .../bindings/net/ethernet-port.yaml           | 47 +++++++++++++++++++
+ MAINTAINERS                                   |  1 +
+ 3 files changed, 66 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/ethernet-port.yaml
 
-diff --git a/Documentation/networking/index.rst b/Documentation/networking/index.rst
-index 058193ed2eeb..7358794258cc 100644
---- a/Documentation/networking/index.rst
-+++ b/Documentation/networking/index.rst
-@@ -96,6 +96,7 @@ Contents:
-    packet_mmap
-    phonet
-    phy-link-topology
-+   phy-port
-    pktgen
-    plip
-    ppp_generic
-diff --git a/Documentation/networking/phy-port.rst b/Documentation/networking/phy-port.rst
+diff --git a/Documentation/devicetree/bindings/net/ethernet-phy.yaml b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+index 2c71454ae8e3..950fdacfd27d 100644
+--- a/Documentation/devicetree/bindings/net/ethernet-phy.yaml
++++ b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
+@@ -261,6 +261,17 @@ properties:
+ 
+     additionalProperties: false
+ 
++  mdi:
++    type: object
++
++    patternProperties:
++      '^port-[a-f0-9]+$':
++        $ref: /schemas/net/ethernet-port.yaml#
++
++        unevaluatedProperties: false
++
++    additionalProperties: false
++
+ required:
+   - reg
+ 
+@@ -297,5 +308,12 @@ examples:
+                     default-state = "keep";
+                 };
+             };
++
++            mdi {
++              port-0 {
++                lanes = <2>;
++                media = "BaseT";
++              };
++            };
+         };
+     };
+diff --git a/Documentation/devicetree/bindings/net/ethernet-port.yaml b/Documentation/devicetree/bindings/net/ethernet-port.yaml
 new file mode 100644
-index 000000000000..6d9d46ebe438
+index 000000000000..bf0f64f1b0aa
 --- /dev/null
-+++ b/Documentation/networking/phy-port.rst
-@@ -0,0 +1,111 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+.. _phy_port:
++++ b/Documentation/devicetree/bindings/net/ethernet-port.yaml
+@@ -0,0 +1,47 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/ethernet-port.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+=================
-+Ethernet ports
-+=================
++title: Generic Ethernet Port
 +
-+This document is a basic description of the phy_port infrastructure,
-+introduced to represent physical interfaces of Ethernet devices.
++maintainers:
++  - Maxime Chevallier <maxime.chevallier@bootlin.com>
 +
-+Without phy_port, we already have quite a lot of information about what the
-+media-facing interface of a NIC can do and looks like, through the
-+:c:type:`struct ethtool_link_ksettings <ethtool_link_ksettings>` attributes,
-+which includes :
++description:
++  An Ethernet port represents an output, such as a connector, of a network
++  component such as a PHY, an Ethernet controller with no PHY, or an SFP module.
 +
-+ - What the NIC can do through the :c:member:`supported` field
-+ - What the Link Partner advertises through :c:member:`lp_advertising`
-+ - Which features we're advertising through :c:member:`advertising`
++properties:
 +
-+We also have info about the number of lanes and the PORT type. These settings
-+are built by aggregating together information reported by various devices that
-+are sitting on the link :
++  lanes:
++    description:
++      Defines the number of lanes on the port, that is the number of physical
++      channels used to convey the data with the link partner.
++    $ref: /schemas/types.yaml#/definitions/uint32
 +
-+  - The NIC itself, through the :c:member:`get_link_ksettings` callback
-+  - Precise information from the MAC and PCS by using phylink in the MAC driver
-+  - Information reported by the PHY device
-+  - Information reported by an SFP module (which can itself include a PHY)
++  media:
++    description:
++      The mediums, as defined in 802.3, that can be used on the port.
++    items:
++      enum:
++        - BaseT
++        - BaseK
++        - BaseS
++        - BaseC
++        - BaseL
++        - BaseD
++        - BaseE
++        - BaseF
++        - BaseV
++        - BaseMLD
++        - BaseX
 +
-+This model however starts showing its limitations when we consider devices that
-+have more than one media interface. In such a case, only information about the
-+actively used interface is reported, and it's not possible to know what the
-+other interfaces can do. In fact, we have very few information about whether or
-+not there are any other media interfaces.
++required:
++  - lanes
++  - media
 +
-+The goal of the phy_port representation is to provide a way of representing a
-+physical interface of a NIC, regardless of what is driving the port (NIC through
-+a firmware, SFP module, Ethernet PHY).
++additionalProperties: true
 +
-+Multi-port interfaces examples
-+==============================
-+
-+Several cases of multi-interface NICs have been observed so far :
-+
-+Internal MII Mux::
-+
-+  +------------------+
-+  | SoC              |
-+  |          +-----+ |           +-----+
-+  | +-----+  |     |-------------| PHY |
-+  | | MAC |--| Mux | |   +-----+ +-----+
-+  | +-----+  |     |-----| SFP |
-+  |          +-----+ |   +-----+
-+  +------------------+
-+
-+Internal Mux with internal PHY::
-+
-+  +------------------------+
-+  | SoC                    |
-+  |          +-----+ +-----+
-+  | +-----+  |     |-| PHY |
-+  | | MAC |--| Mux | +-----+   +-----+
-+  | +-----+  |     |-----------| SFP |
-+  |          +-----+       |   +-----+
-+  +------------------------+
-+
-+External Mux::
-+
-+  +---------+
-+  | SoC     |  +-----+  +-----+
-+  |         |  |     |--| PHY |
-+  | +-----+ |  |     |  +-----+
-+  | | MAC |----| Mux |  +-----+
-+  | +-----+ |  |     |--| PHY |
-+  |         |  +-----+  +-----+
-+  |         |     |
-+  |    GPIO-------+
-+  +---------+
-+
-+Double-port PHY::
-+
-+  +---------+
-+  | SoC     | +-----+
-+  |         | |     |--- RJ45
-+  | +-----+ | |     |
-+  | | MAC |---| PHY |   +-----+
-+  | +-----+ | |     |---| SFP |
-+  +---------+ +-----+   +-----+
-+
-+phy_port aims at providing a path to support all the above topologies, by
-+representing the media interfaces in a way that's agnostic to what's driving
-+the interface. the struct phy_port object has its own set of callback ops, and
-+will eventually be able to report its own ksettings::
-+
-+             _____      +------+
-+            (     )-----| Port |
-+ +-----+   (       )    +------+
-+ | MAC |--(   ???   )
-+ +-----+   (       )    +------+
-+            (_____)-----| Port |
-+                        +------+
-+
-+Next steps
-+==========
-+
-+As of writing this documentation, only ports controlled by PHY devices are
-+supported. The next steps will be to add the Netlink API to expose these
-+to userspace and add support for raw ports (controlled by some firmware, and directly
-+managed by the NIC driver).
-+
-+Another parallel task is the introduction of a MII muxing framework to allow the
-+control of non-PHY driver multi-port setups.
++...
 diff --git a/MAINTAINERS b/MAINTAINERS
-index 4eca34ee6941..ecbf70939927 100644
+index ecbf70939927..7806b8e574e1 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -8604,6 +8604,7 @@ F:	Documentation/ABI/testing/sysfs-class-net-phydev
+@@ -8602,6 +8602,7 @@ L:	netdev@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/ABI/testing/sysfs-class-net-phydev
  F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
++F:	Documentation/devicetree/bindings/net/ethernet-port.yaml
  F:	Documentation/devicetree/bindings/net/mdio*
  F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
-+F:	Documentation/networking/phy-port.rst
- F:	Documentation/networking/phy.rst
- F:	drivers/net/mdio/
- F:	drivers/net/mdio/acpi_mdio.c
+ F:	Documentation/networking/phy-port.rst
 -- 
 2.48.1
 
