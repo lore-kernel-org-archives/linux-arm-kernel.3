@@ -4,88 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 500FCC021A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 06:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D239C021A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 06:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f9cyDb93TE0/0D+Ql0u6NLa6G5/L6znrZIx9uJ6XbWo=; b=d85lrrj3IAVK2pXbo1xGHcRN+6
-	ABzWfUeE0B7uK/LZxKH+Zm/5BHeOPCpL5o8xlwwubklZg7RsrifTeUEjlTKc2GVIiZ05GSxuC0s1T
-	5kwgMkr4QulMgwji0eLsdhmdVbhYTodY49HW+DoUjarxibURL+Ps8dW1a0avx9g9uLar8cned3q4n
-	P2vOmdYchu6rud7M2/Tv+rDZsW7vWcFFm8KgLmjmHvmJ7HfVOa1aVrz2sx7SUZJiO+co0Luc8xWJ6
-	VM8ylQEWJZlpLDtaU+EXYVoyLN7LvGa6Rnkga57mUFnd9hcbQBDmSUarZKmlUcwJbb4Nd4J3orI5l
-	A/Ufd/1g==;
+	bh=ZREzq3IEp4MhIgLpCQw0VzNgzIUCNp3BPGLpVe9IMHg=; b=jeq52C9yXITAcgxJR4gIKp4nD4
+	FgMJJ5lNVSasZ4OSOH6p58Jectt86qC1wZDYa7upxa8wddHx8AiOjw9bvYvHHQJ+GZ/0yBFZfNSgW
+	356pIsp0W7qguznpuQGQiH67R6E27WTmYhGuE79B6RFz4MLC701Y62lyhr59mJa2+jL/2ouGOpsTw
+	e1hVObeE8ED5MtPtcaJW+liBUElkAuuI0TF53iPu/x+T2+zfhWf2JlfRjFToXyDfFECnw57UimSlN
+	cPzH7FvVd+dabpeuYPsFePekJvhK2ryMNsrKD75lWwUiFr/xn2vzwTY3w/tnuyxS6a6ZeEoV7ndaY
+	wVnB4XAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiSd0-00000009vJu-0mEH;
-	Thu, 13 Feb 2025 06:23:14 +0000
-Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
+	id 1tiShP-00000009wRU-0M1q;
+	Thu, 13 Feb 2025 06:27:47 +0000
+Received: from mail-ej1-x642.google.com ([2a00:1450:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiSbE-00000009uwD-1LJf
+	id 1tiSfy-00000009wAb-3mEn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 06:21:25 +0000
-Received: by mail-ed1-x541.google.com with SMTP id 4fb4d7f45d1cf-5deb1266031so785008a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 22:21:24 -0800 (PST)
+	Thu, 13 Feb 2025 06:26:20 +0000
+Received: by mail-ej1-x642.google.com with SMTP id a640c23a62f3a-aaeec07b705so70854066b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 22:26:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739427683; x=1740032483; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739427977; x=1740032777; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=f9cyDb93TE0/0D+Ql0u6NLa6G5/L6znrZIx9uJ6XbWo=;
-        b=X42ZMJXqsG79vLVF4H6WWEvR0xyiLdJ93n9iiWOdgC36j0h1AV0O3mVWWXqUmo53vI
-         bIrmuGvzSrpptQlDirnWAfr3yUz1xF7dun/9YWvPdvcQ5h+jg3K01BrHld/+YOjNZUoi
-         iyul7dpih4d3Zz53qv4XKz3H1XeECoSLtpRiq7szIrrMix6Z8ccs3oHPhADhiCrPk7Wo
-         AKbk07J+uP0HaPg8w8/8iY2GsR6JY99zDzbYJMO5d8f6LGXgizBhrb7MjVTTA2DOcxwk
-         bOs0gw4kpeonE0nMB5x+esgKVlTqOM6D/ovzmHtHZIGXXeB+JAM7NxApJZlzvTYKg+Ih
-         XrAQ==
+        bh=ZREzq3IEp4MhIgLpCQw0VzNgzIUCNp3BPGLpVe9IMHg=;
+        b=QZ7PZJDFZ6o6OTCGiXjv6qNBF6hJhCVYVF8G8HlXbfKvgXIglCX2NxZQ4sS/nCtq3B
+         sf0bmQ1FyyyhSfol26zz+3oXHQVd3GsgDRfkRPjRq36l2orLx2+5vbL6AQfcTW4D+hKp
+         QnAU6zPJOJT/Z2mt3Fbn7OMafEUQVjpHt73rpyVMUo61ZBwuqQUki4WBWR+BrcAexVjJ
+         R6tC35oj4Kz+CAULG4KhvJX16JeLeLyu8/hQleeN/sZbor1Y1R7ZURTTr9/h//4tO3Zv
+         h4IarfAMJSKKoMW15r39CnNBnPudnpco2lhhlVKRhR6QtkoEkoz6QP3ECnHCp3rDRdKw
+         fesA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739427683; x=1740032483;
+        d=1e100.net; s=20230601; t=1739427977; x=1740032777;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=f9cyDb93TE0/0D+Ql0u6NLa6G5/L6znrZIx9uJ6XbWo=;
-        b=JuD9THos26Pzziz9qN7q8LWokVE5bWDrZaztUnvNDovsK2FBS/NZXO2HuTwX7QlhE5
-         bwX4HRROiJ2xbN8yG0nwQ62//GE/gJS8aphbRdTLyNnmeBPG/X5DYrJ7GvviL30Otj5I
-         P3fkjRCgO8mg0bk8AXgucpp1JTPNANgU2cui+qClCiMP550nDBYU7exiXP4xZyFiT0+S
-         8kgwNLvfwCnScZ44+lENbOEr9md0MEuUgZuGj7sB8Pz0XbawvEVBM3iCSs0uhKVbsM9V
-         Exj7vKPTCulynmWl9PKKPCmZ1Df9YxBb9Wi8QcjKIClZASJBcYB3EBttTNGQQSxjrAOO
-         RSIg==
-X-Forwarded-Encrypted: i=1; AJvYcCWPuF0vHF98EAspEHdkVjEe6ejp5P7jbiigLMRE05Y+9EYBf2X1wPINqTWBNtdIimwqHYbx+pBKhl0EuA7nqNTI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxlBOF3YxNnlcKDt9KK9Ja1VY/TBdniS8HU8+j1BcDEIRbqhytH
-	rWkDcEkcrffldwUWPF+dqLY4jVIa5s6LvplFh5HE/uhyC8CoMv0crGtyFcF69mPtxOwoLtQ+7Mm
-	ibhh7i7QZNiTVjjW0b8HSKAIbgWc=
-X-Gm-Gg: ASbGncuZQ9Ui12JgjMwca6zDyfhSVUUMEGrD2EBOm+KiLeZ8dzKowHkQIxqXXg2b3H1
-	JnWohNb6CgMTJV16oZm/IUlh5HWzvLmPp7+fbH4mLrLKSAzwQ35olGLU9D2wTe41OMWwv+tAcsA
+        bh=ZREzq3IEp4MhIgLpCQw0VzNgzIUCNp3BPGLpVe9IMHg=;
+        b=tgcGhNr62l0atFfpJyv15sgq4frWEXHBkyQhCIIyc80kr237A7XYaIsi7Ke9IdIlrp
+         6LpVacK148IIFxmp53LXa97KAVzxvWzXBmjnbLvUj3FalC4f2K6N3Ks6fKqGNhrkMpPA
+         n6yCyPRfz/f28cDT1g72cZIXLDx7MIiUFXLlI4snt5bYlnkKyC1gC/zef4+rOz+Utq6b
+         2BSnOtv6NnGDfEkKkfGD81TXwjAxrqQPkkdhV9tpPv14OBrPOWfK08G6v4si0/oBKr+A
+         o1+oEnAnt3ioCH80DyvHdSHGXuqNEEYJoiG3eDfsAb7AhOKhOGVwUqHVDoDqdlh3y1H0
+         LPow==
+X-Forwarded-Encrypted: i=1; AJvYcCWOhnP25HqoY6cl+5+zsTZz7MIpLKPnsI9sMpj1oRTsVckgt+TdLbLPXfFH6Jh0cq5IVWUgW8us/L0vSXMwQ/Bs@lists.infradead.org
+X-Gm-Message-State: AOJu0YwajwEh/aMHa+17XV1QBogCJcTbolwxX3pcV+0xPTg2BXqnq4kN
+	FXaz3pnKNJObx4XtGNSy0QwjiXUncg+DT9MB0t5FnuDRMzbmhQiuYwRyB1WUDD//ewfDIGCKQCa
+	u0tWvFTTPzzSa1NImnzqR5/S5+yA=
+X-Gm-Gg: ASbGncv/2u4XGqqiIzGUpmfSFtw/9o2ApLY2LR/I/oW6KP/5ZiwBwfYksjain8F27HG
+	idmHZZxTWdyrkU797G54XQlmdeeb82w/0jTqYmwBuj1OjRkV07axk/n5blKl5bzEEKIrX4oSSJg
 	==
-X-Google-Smtp-Source: AGHT+IHrm5By/28fx7ySfNVi+JhpEMb9EuxiDvYOgbwjenRd2MLUXZ43hSkCiR1DLOCGk5FM46gnlv7cC9iyM6xN20A=
-X-Received: by 2002:a05:6402:51d1:b0:5de:6038:7572 with SMTP id
- 4fb4d7f45d1cf-5deadd935demr5083640a12.10.1739427682686; Wed, 12 Feb 2025
- 22:21:22 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHeb1K3PBZ3graH5b9Lm2ijGQ2AdV5iQKZp155aI3Aj4n2GlguI8ATXIyzS2yYccB1m7DwfPzkJTax0FB3l/cw=
+X-Received: by 2002:a17:907:97c8:b0:ab7:e943:4c1 with SMTP id
+ a640c23a62f3a-ab7f3370d9cmr601262766b.11.1739427977003; Wed, 12 Feb 2025
+ 22:26:17 -0800 (PST)
 MIME-Version: 1.0
-References: <20250206105435.2159977-1-memxor@gmail.com> <20250206105435.2159977-10-memxor@gmail.com>
- <20250210101730.GI10324@noisy.programming.kicks-ass.net>
-In-Reply-To: <20250210101730.GI10324@noisy.programming.kicks-ass.net>
+References: <20250206105435.2159977-1-memxor@gmail.com> <20250206105435.2159977-27-memxor@gmail.com>
+ <40cb834c2e034dc991a6b0c8140608dcd2e9e5fb.camel@gmail.com>
+In-Reply-To: <40cb834c2e034dc991a6b0c8140608dcd2e9e5fb.camel@gmail.com>
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Date: Thu, 13 Feb 2025 07:20:46 +0100
-X-Gm-Features: AWEUYZlCllGUxdyfURvBU-PhlFqaVJ1z2l67g6FO-tnFM3hCsuO7r-OHUZ-QUsA
-Message-ID: <CAP01T74hRYCkrqz4JKqXH7ya0ykBfX4_6611q-TO52o1TZsfjg@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 09/26] rqspinlock: Protect waiters in queue
- from stalls
-To: Peter Zijlstra <peterz@infradead.org>
+Date: Thu, 13 Feb 2025 07:25:40 +0100
+X-Gm-Features: AWEUYZnLf59qz2tS1fvIHgj3GabrMeOcjDCQIlhr1La0qsWXI2o04402F4THTm8
+Message-ID: <CAP01T75UgmzoB=AiOzFz0jyrTAQ6F=r6rVPjjjhfX=Be9nc1uQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2 26/26] selftests/bpf: Add tests for rqspinlock
+To: Eduard Zingerman <eddyz87@gmail.com>
 Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Barret Rhoden <brho@google.com>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, 
 	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
 	Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Martin KaFai Lau <martin.lau@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>, Josh Don <joshdon@google.com>, 
-	Dohyun Kim <dohyunkim@google.com>, linux-arm-kernel@lists.infradead.org, 
-	kernel-team@meta.com
+	Martin KaFai Lau <martin.lau@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>, 
+	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>, Dohyun Kim <dohyunkim@google.com>, 
+	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_222124_356563_055DF96E 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20250212_222618_951400_715B7335 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,33 +98,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Feb 2025 at 11:17, Peter Zijlstra <peterz@infradead.org> wrote:
+On Wed, 12 Feb 2025 at 01:14, Eduard Zingerman <eddyz87@gmail.com> wrote:
 >
-> On Thu, Feb 06, 2025 at 02:54:17AM -0800, Kumar Kartikeya Dwivedi wrote:
-> > Implement the wait queue cleanup algorithm for rqspinlock. There are
-> > three forms of waiters in the original queued spin lock algorithm. The
-> > first is the waiter which acquires the pending bit and spins on the lock
-> > word without forming a wait queue. The second is the head waiter that is
-> > the first waiter heading the wait queue. The third form is of all the
-> > non-head waiters queued behind the head, waiting to be signalled through
-> > their MCS node to overtake the responsibility of the head.
-> >
-> > In this commit, we are concerned with the second and third kind. First,
-> > we augment the waiting loop of the head of the wait queue with a
-> > timeout. When this timeout happens, all waiters part of the wait queue
-> > will abort their lock acquisition attempts.
+> On Thu, 2025-02-06 at 02:54 -0800, Kumar Kartikeya Dwivedi wrote:
 >
-> Why? Why terminate the whole wait-queue?
+> [...]
 >
-> I *think* I understand, but it would be good to spell out. Also, in the
-> comment.
+> > +void test_res_spin_lock(void)
+> > +{
+> > +     if (test__start_subtest("res_spin_lock_success"))
+> > +             test_res_spin_lock_success();
+> > +     if (test__start_subtest("res_spin_lock_failure"))
+> > +             test_res_spin_lock_failure();
+> > +}
+>
+> Such organization makes it impossible to select sub-tests from
+> res_spin_lock_failure using ./test_progs -t.
+> I suggest doing something like below:
+>
+>         @@ -6,7 +6,7 @@
+>          #include "res_spin_lock.skel.h"
+>          #include "res_spin_lock_fail.skel.h"
+>
+>         -static void test_res_spin_lock_failure(void)
+>         +void test_res_spin_lock_failure(void)
+>          {
+>                 RUN_TESTS(res_spin_lock_fail);
+>          }
+>         @@ -30,7 +30,7 @@ static void *spin_lock_thread(void *arg)
+>                 pthread_exit(arg);
+>          }
+>
+>         -static void test_res_spin_lock_success(void)
+>         +void test_res_spin_lock_success(void)
+>          {
+>                 LIBBPF_OPTS(bpf_test_run_opts, topts,
+>                         .data_in = &pkt_v4,
+>         @@ -89,11 +89,3 @@ static void test_res_spin_lock_success(void)
+>                 res_spin_lock__destroy(skel);
+>                 return;
+>          }
+>         -
+>         -void test_res_spin_lock(void)
+>         -{
+>         -       if (test__start_subtest("res_spin_lock_success"))
+>         -               test_res_spin_lock_success();
+>         -       if (test__start_subtest("res_spin_lock_failure"))
+>         -               test_res_spin_lock_failure();
+>         -}
+>
 
-Ack. The main reason is that we eschew per-waiter timeouts with one
-applied at the head of the wait queue.
-This allows everyone to break out faster once we've seen the owner /
-pending waiter not responding for the timeout duration from the head.
-Secondly, it avoids complicated synchronization, because when not
-leaving in FIFO order, prev's next pointer needs to be fixed up etc.
+Ack, will fix.
 
-Let me know if this explanation differs from your understanding.
+> [...]
+>
 
