@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BCCC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 20:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0532CC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 20:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XzQPYU9YfHy6ub9VigT3rtdUgbT32pzX4StInrVw1E4=; b=AjLwzMGEkH7TiCKPFcnX44pGDu
-	Pp0qGedPDRl2wl9C85dI4qIr9uME7mx04b1Dd89Nrl2BSgLLysaQTGi6+UiD+l2AscvZWBJnr2kMY
-	jKxJ72zukXUHptJloG0Z8I6ZM50U4RbTugpkn3le4jmUwtv3jKuc4YezXqlvkoNkENwPZ4qjcLv1s
-	IIvtcT+xDy+v2EdCYQrIzkbr4yBfTgaSOb072Y1TXdYaTevqguJg9MzZrm+snqcLzzmqoxVn4/te8
-	pr2hpty40LCqkpDZ78lB3LnPqgKhBHiF4mbYYRvpD7S4h+Fis2I/SnDdl+Kl8yTQcMC8L1yMxMWrU
-	mVAmDTLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H2azQDmDFKL9NCyN7smA0+eLAEoPB8zs5i4rYQrRhVk=; b=0JwtWwK1OuvXgET481q2HXJnQ7
+	IyDMrb9I6KAV/5HQbBKY6NRkBA4AN0N3k2VWW/Wu5+/zzFZWfDCL/cfyvtulXdRaMcFnaE8F+l9K9
+	qkmuJ8EH+OuO9YwRPQ6I+i8ERs34pFwerhkGEq6i+yXa00wHIhj8qx88bwvYJDCSo2UgzTy6ZVl1q
+	Eia4FEDz+RcG/kwcDR5sDMY+SzSRMvGrG4ht7oLGdowr4khRbRifQXtjMDXqMGHdH5ZvbbZh/LwsD
+	3ut1nNjmO4lDqnPXneW04hz+8kBD8xQfZDgDMmNiz6l/A78NR8qxMVN8KKoYB89lglJ3svKCoWUkP
+	WjvDWmlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tigBY-0000000Cc1h-2uUI;
-	Thu, 13 Feb 2025 20:51:48 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tigA7-0000000Cbjp-2QiO
+	id 1tigCx-0000000CcDI-1MfY;
+	Thu, 13 Feb 2025 20:53:15 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tigB6-0000000Cbvj-2imG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 20:50:20 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 83E82203F3E5;
-	Thu, 13 Feb 2025 12:50:17 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 83E82203F3E5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1739479817;
-	bh=XzQPYU9YfHy6ub9VigT3rtdUgbT32pzX4StInrVw1E4=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=XeTAcxIrprlHTTTPMf8HhI8CE7pfNVAgM8QgQEmhFcRGXQvzr/nQBmciYK3jhEmJX
-	 tydKjmyGSzh+NZdxKyYLSaHG4PGn5nB5buGjbO5npIVqSIGOlOpl5UP27xsVYpBKIQ
-	 C2q46+OmyyevQ+L1KlcwRiLGpbRqE44dKts5w7gc=
-Message-ID: <a10abb83-1bb2-4e62-b537-8b8948b055ea@linux.microsoft.com>
-Date: Thu, 13 Feb 2025 12:50:17 -0800
+	Thu, 13 Feb 2025 20:51:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3452CA41FE3;
+	Thu, 13 Feb 2025 20:49:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BED96C4CED1;
+	Thu, 13 Feb 2025 20:51:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739479879;
+	bh=512cv4Hj1Kz9k8u6r5KTAHRKubmEdQ2373KIf+8y/nQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rOQzpPjrf+SK50+lfxnvf1j6ydyFhRq+h3/1SS37zqLNdyguRVlBObbP1/wRV0at/
+	 +cca9LNWhv8GMr4NpXlWyHwjN2EsM3Zze84WS+MnVfh5DDswhAOygzmSDUKi4RNEMw
+	 W9XTcRCyXaqAiS0YlOjJ93ByT9I6kNGLTbYgKNCFtL2uFjH6E3cpzuaQHLZrq5Fh43
+	 meI4vmlfv8CvQzjCMKOzSD9/HcXIvAWoRS+Zs0aZLI5YIsWmaBcg8f/mx+LgeXocUJ
+	 GwMtsdYdGuWko8E5Vr4XkKGEcj8pddoYRhOHKbgd6vfPEcY5H+KykSlOKqAoh7HEqH
+	 nTNI4vN7xs7jQ==
+Date: Thu, 13 Feb 2025 20:51:13 +0000
+From: Daniel Thompson <danielt@kernel.org>
+To: Nick Chan <towinchenmi@gmail.com>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Lee Jones <lee@kernel.org>, Jingoo Han <jingoohan1@gmail.com>,
+	Pavel Machek <pavel@ucw.cz>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-fbdev@vger.kernel.org
+Subject: Re: [PATCH v5 RESEND 2/3] backlight: apple_dwi_bl: Add Apple DWI
+ backlight driver
+Message-ID: <Z65bQeITMp1mpHp8@aspen.lan>
+References: <20250203115156.28174-1-towinchenmi@gmail.com>
+ <20250203115156.28174-3-towinchenmi@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v4 4/6] dt-bindings: microsoft,vmbus: Add GIC
- and DMA coherence to the example
-From: Roman Kisel <romank@linux.microsoft.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
- catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
- decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
- krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com, lpieralisi@kernel.org,
- manivannan.sadhasivam@linaro.org, mingo@redhat.com, robh@kernel.org,
- ssengar@linux.microsoft.com, tglx@linutronix.de, wei.liu@kernel.org,
- will@kernel.org, devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
- benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com
-References: <20250212014321.1108840-1-romank@linux.microsoft.com>
- <20250212014321.1108840-5-romank@linux.microsoft.com>
- <20250212-rough-terrier-of-serendipity-68a0db@krzk-bin>
- <bb863c8f-a92c-42d0-abc4-ff0b92f701c2@linux.microsoft.com>
-Content-Language: en-US
-In-Reply-To: <bb863c8f-a92c-42d0-abc4-ff0b92f701c2@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250203115156.28174-3-towinchenmi@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_125019_645609_4F62A2A8 
-X-CRM114-Status: UNSURE (   6.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_125120_752429_1602DDAA 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,87 +81,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Feb 03, 2025 at 07:50:33PM +0800, Nick Chan wrote:
+> Add driver for backlight controllers attached via Apple DWI 2-wire
+> interface, which is found on some Apple iPhones, iPads and iPod touches
+> with a LCD display.
+>
+> Although there is an existing apple_bl driver, it is for backlight
+> controllers on Intel Macs attached via PCI, which is completely different
+> from the Samsung-derived DWI block.
+>
+> Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+> ---
+>  drivers/video/backlight/Kconfig        |  12 +++
+>  drivers/video/backlight/Makefile       |   1 +
+>  drivers/video/backlight/apple_dwi_bl.c | 123 +++++++++++++++++++++++++
+>  3 files changed, 136 insertions(+)
+>  create mode 100644 drivers/video/backlight/apple_dwi_bl.c
+>
+> diff --git a/drivers/video/backlight/Kconfig b/drivers/video/backlight/Kconfig
+> index 3614a5d29c71..c6168727900a 100644
+> --- a/drivers/video/backlight/Kconfig
+> +++ b/drivers/video/backlight/Kconfig
+> @@ -290,6 +290,18 @@ config BACKLIGHT_APPLE
+>  	  If you have an Intel-based Apple say Y to enable a driver for its
+>  	  backlight.
+>
+> +config BACKLIGHT_APPLE_DWI
+> +	tristate "Apple DWI 2-Wire Interface Backlight Driver"
+> +	depends on ARCH_APPLE || COMPILE_TEST
+> +	default y
+
+Sorry to pick this up late and on a resend but... I can't come up with
+any justification for "default y" in this driver.
+
+Other than that this is a really tidy driver so with that changed please
+add:
+Reviewed-by: Daniel Thompson (RISCstar) <danielt@kernel.org>
 
 
-On 2/12/2025 3:57 PM, Roman Kisel wrote:
-> 
-
-[...]
-
-Thank you for your guidance!! The below passes tests and addresses the
-feedback you have provided. If no further comments from you, I'll
-send the file in this form in the next version of the patch series (also
-fixing the commit title and description).
-
-
-# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-%YAML 1.2
----
-$id: http://devicetree.org/schemas/bus/microsoft,vmbus.yaml#
-$schema: http://devicetree.org/meta-schemas/core.yaml#
-
-title: Microsoft Hyper-V VMBus
-
-maintainers:
-   - Saurabh Sengar <ssengar@linux.microsoft.com>
-
-description:
-   VMBus is a software bus that implement the protocols for communication
-   between the root or host OS and guest OSs (virtual machines).
-
-properties:
-   compatible:
-     const: microsoft,vmbus
-
-   ranges: true
-
-   '#address-cells':
-     const: 2
-
-   '#size-cells':
-     const: 1
-
-required:
-   - compatible
-   - ranges
-   - interrupts
-   - '#address-cells'
-   - '#size-cells'
-
-additionalProperties: true
-
-examples:
-   - |
-     #include <dt-bindings/interrupt-controller/irq.h>
-     #include <dt-bindings/interrupt-controller/arm-gic.h>
-     soc {
-         #address-cells = <2>;
-         #size-cells = <1>;
-         bus {
-             compatible = "simple-bus";
-             #address-cells = <2>;
-             #size-cells = <1>;
-             ranges;
-
-             vmbus@ff0000000 {
-                 compatible = "microsoft,vmbus";
-                 #address-cells = <2>;
-                 #size-cells = <1>;
-                 ranges = <0x0f 0xf0000000 0x0f 0xf0000000 0x10000000>;
-                 dma-coherent;
-                 interrupt-parent = <&gic>;
-                 interrupts = <GIC_PPI 2 IRQ_TYPE_EDGE_RISING>;
-             };
-         };
-     };
-
-
->> Best regards,
->> Krzysztof
-> 
-
--- 
-Thank you,
-Roman
-
+Daniel.
 
