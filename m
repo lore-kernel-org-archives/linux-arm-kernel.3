@@ -4,73 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE7EC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 23:26:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B989DC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 23:36:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hk/UhzyNXmtkIV3ySCx19ki8dNWuqGbbCLmGSDE/xLs=; b=1Og9uO0izV5D0wLkaH8NMmV5hB
-	rf/JpHIiNKOQvSU6XoFnxSb915OKNddXkWrgEhkPP+0Rq2UFmzKDyRwic/uTQezIit4t4+v+cME+m
-	kSMj6SE65F7W/llNGVA+RyjKlmO5W2gH7QudD6AgZ5GGwYwXV4sDjB7vZSp6fF0GYU7YnoDcJy1bX
-	tBu2OQIqB09ruKy4SDEtRZDIxrVNeY+KAl1tCBT64EsblDdfy5gqcTRv02VL2ET1F93SNFh9h3p6L
-	2ucEq0Glkpx8hBsQXICksSd1WtgH/6s6zkDVWodZy0kily8RK24DF7D+WJTZrHAY/27hJ4cqQL7iO
-	23MY1JGQ==;
+	bh=mDIj65M6G+Bdkr8aPo5/6cfAQ2CVlMcgej0DkLw4p3E=; b=b1F/BkpUzomERJDLQ2OvZVd/aw
+	5r1lbpFlLSqtrkqb4e34F+KPDP1YaTwwFkWBLIw1Z7TTLFBefwmtcJH+zZYRZcmapEqC58gbKnKiv
+	1QY9QAHybK4K48zJggBS1CifqDvT/8PY8MTXsI38m6JXmCIxVGx3P04QwW7FRAm+fm63r+VSaH0fX
+	/4NUaryMTrHIR/uYQTcNoIlh3xLxxCuigPpueXHQAYIA0LgKLvtI1pxRUvOZiNiE7WxtZ1KoufPLF
+	9YJuF0upO5P05XD5jbqb7/ZABYGUDFoYDe7cZnqSrOLh7d2Hp6/V7i4OUKR7B1icGRjD/6rNRdLyb
+	hhaicOlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiibK-0000000Cwun-3LNJ;
-	Thu, 13 Feb 2025 23:26:34 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiiYo-0000000CwSb-0V1P
+	id 1tiikH-0000000Cy15-0A5N;
+	Thu, 13 Feb 2025 23:35:49 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiiiq-0000000Cxmf-0Q3d
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 23:23:59 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 7A9B7203F3E8;
-	Thu, 13 Feb 2025 15:23:56 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7A9B7203F3E8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1739489036;
-	bh=Hk/UhzyNXmtkIV3ySCx19ki8dNWuqGbbCLmGSDE/xLs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aufp7fKvZThXkNOUfRjDldRf0rvzjk9ePefQmU34QNQDzjKEBlugM1QQnoyaGdByr
-	 UvcGblhHXCbjBa/k4MpcRsnzZtdKGCD/hDb4AqXA9uZUdtcTEEmtCsn/SbibhrumUh
-	 FawOmhzoUKT+be6mPRofqUQ3NjSfwRNz4fTK8QNo=
-Message-ID: <593c22ca-6544-423d-84ee-7a06c6b8b5b9@linux.microsoft.com>
-Date: Thu, 13 Feb 2025 15:23:56 -0800
+	Thu, 13 Feb 2025 23:34:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 626F3A42945
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 23:32:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A343C4CEE9
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 23:34:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739489658;
+	bh=N1peFMfD7vTD/DRcLqn0vJS+BR6mrfRHxFGLN+VrLow=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=MLvcnPJYwq2TuORYaw1/ML8+YCaWUgLgFCcZ7doHINjH4PxQSZgvT3c8s4ETClKPv
+	 NAGTXBjLwXrrl2mPgwYjhtnWMUrLHmVqlEbjG0JTiFmJaGuXBfZZmTDZtrM6hIsDGr
+	 vL28499mUY1S2ydy4iAKtiO0YGJYJJcHe8tGbZ82pgMy+iIJa0MRSSfNfPWCYIPn0M
+	 Q4Oaul3kG5QInzMCdZ4u4OY8OYlAqs4DrEhf+PsiK0rslpAZ+ASavWBV6bl9Ouv3Z8
+	 nPIB4UpyH/B9Rdc7aJIcNkryK/Tw49y8n/6UOH2X87M1iEi09uRH1a9fSyMjRzBz/Z
+	 zomhVi+XKletg==
+Received: by mail-io1-f53.google.com with SMTP id ca18e2360f4ac-855418e04e7so47504739f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 15:34:18 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUIIUQpQrcab6IQEurEvSd3L9Kq5/d8u/lBO8u56p3LPqLRISTDaKzmEXQftwVh6ZyQWoifxZzowrc8soVCjQoP@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUD/bGp5mxURoStaNYpAZOueWwBr51c40Z7JP6g2LJwLBLNh/y
+	X3hF5ZCjRSTha3ZjH2h53WOawcahW8sAU8zhHiAsslDvAyJ7eUdX4Q1LVJ1gwWuGQPX0mQxK9a1
+	/WNQGXtt+R7vuwkk5hAi3+oQNFF4=
+X-Google-Smtp-Source: AGHT+IG1rQV0yKmTd4ign51tXVmFd/3I3khtaLBM2gfno63cBPOt8//ZZKniEPA4RSgy4RfCpeSumDMFlaJlHY9wbAw=
+X-Received: by 2002:a05:6e02:1a61:b0:3a7:8720:9de5 with SMTP id
+ e9e14a558f8ab-3d17bdff43fmr80793525ab.1.1739489657616; Thu, 13 Feb 2025
+ 15:34:17 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v4 1/6] arm64: hyperv: Use SMCCC to detect
- hypervisor presence
-To: Arnd Bergmann <arnd@arndb.de>, bhelgaas@google.com,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Conor Dooley <conor+dt@kernel.org>, Dave Hansen
- <dave.hansen@linux.intel.com>, Dexuan Cui <decui@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, "H. Peter Anvin" <hpa@zytor.com>,
- krzk+dt@kernel.org, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Ingo Molnar <mingo@redhat.com>, Rob Herring <robh@kernel.org>,
- ssengar@linux.microsoft.com, Thomas Gleixner <tglx@linutronix.de>,
- Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>,
- devicetree@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
-Cc: benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com
-References: <20250212014321.1108840-1-romank@linux.microsoft.com>
- <20250212014321.1108840-2-romank@linux.microsoft.com>
- <1b14e3de-4d3e-420c-819c-31ffb2d448bd@app.fastmail.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <1b14e3de-4d3e-420c-819c-31ffb2d448bd@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250127213310.2496133-1-wnliu@google.com> <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
+ <00fa304d-84bf-4fca-9b9a-f3b56cd97424@oracle.com> <CAPhsuW4ct6W_4B0LFEjLePH1pAeNm4h8ePuQ3HcSoknXhQWN0w@mail.gmail.com>
+ <mb61p1pw21f0v.fsf@kernel.org> <CAPhsuW5VCmuPLd8wwzBp_Divnu=uaZQcrRLsjsEOJ9GmA0TR5A@mail.gmail.com>
+ <mb61pseoiz1cq.fsf@kernel.org> <CAPhsuW7bo4efVYb8uPkQ1v9TE95_CQ6+G3q4kVyt-8g-3JD6Cw@mail.gmail.com>
+ <mb61pr0411o57.fsf@kernel.org>
+In-Reply-To: <mb61pr0411o57.fsf@kernel.org>
+From: Song Liu <song@kernel.org>
+Date: Thu, 13 Feb 2025 15:34:06 -0800
+X-Gmail-Original-Message-ID: <CAPhsuW6C77if9-_j2sywHE4ZT3JUOAoDNiepiJPrRWCf8OAojA@mail.gmail.com>
+X-Gm-Features: AWEUYZnvF8YgL5a3ClR7_9YRs3GII1KO5ROPdxeyhHjRsChKmRJielirplxSTbQ
+Message-ID: <CAPhsuW6C77if9-_j2sywHE4ZT3JUOAoDNiepiJPrRWCf8OAojA@mail.gmail.com>
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: Indu Bhagat <indu.bhagat@oracle.com>, Weinan Liu <wnliu@google.com>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
+	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
+	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_152358_210192_98C965A8 
-X-CRM114-Status: GOOD (  31.19  )
+X-CRM114-CacheID: sfid-20250213_153420_267410_CDDFC9D2 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,215 +91,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Feb 13, 2025 at 2:22=E2=80=AFPM Puranjay Mohan <puranjay@kernel.org=
+> wrote:
+>
+> Song Liu <song@kernel.org> writes:
+>
+> > On Thu, Feb 13, 2025 at 12:38=E2=80=AFAM Puranjay Mohan <puranjay@kerne=
+l.org> wrote:
+> > [...]
+> >>
+> >> P.S. - The livepatch doesn't have copy_process() but only copy_signal(=
+),
+> >> yours had copy_process() somehow.
+> >
+> > In my build, copy_signal is inlined to copy_process, unless I add noinl=
+ine.
+> > If I do add noinline, the issue will not reproduce.
+> >
+> > I tried more combinations. The issue doesn't reproduce if I either
+> > 1) add noinline to copy_signal, so we are not patching the whole
+> >    copy_process function;
+> > or
+> > 2) Switch compiler from gcc 14.2.1 to gcc 11.5.0.
+> >
+> > So it appears something in gcc 14.2.1 is causing live patch to fail
+> > for copy_process().
+>
+> So, can you test your RFC set (without SFRAME) with gcc 14.2.1, so we
+> can be sure that it is not a sframe problem?
 
+My RFC set is the same. No issue with gcc 11.5.0; but hits the same
+WARNING with gcc 14.2.1. My previous tests are all with clang. I didn't
+see a similar issue there.
 
-On 2/11/2025 10:54 PM, Arnd Bergmann wrote:
-> On Wed, Feb 12, 2025, at 02:43, Roman Kisel wrote:
->> +static bool hyperv_detect_via_smccc(void)
->> +{
->> +	struct arm_smccc_res res = {};
->> +
->> +	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
->> +		return false;
->> +	arm_smccc_1_1_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
->> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
->> +		return false;
->> +
->> +	return res.a0 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_0 &&
->> +		res.a1 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_1 &&
->> +		res.a2 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_2 &&
->> +		res.a3 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_3;
->> +}
-> 
-> I had to double-check that this function is safe to call on
-> other hypervisors, at least when they follow the smccc spec.
-> 
-> Seeing that we have the same helper function checking for
-> ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_* and there was another
-> patch set adding a copy for gunyah, I wonder if we can
-> put this into a drivers/firmware/smccc/smccc.c directly
-> the same way we handle soc_id, and make it return a uuid_t,
-> or perhaps take a constant uuid_t to compare against.
+> And about having the .sframe section in the livepatch module, I realised
+> that this set doesn't include support for reading/using sframe data from
+> any module(livepatches included), so the patch I added for generating
+> .sframe in kpatch is irrelevant because it is a no-op with the current se=
+tup.
 
-That would be very neat! I implemented the idea [1], please let me know
-what you think. I can use that in the next version of the patch series
-if looks good.
+Agreed, this issue should be irrelevant to the .sframe section in the .ko f=
+ile.
 
-There is a function and a macro to make calling
-the function easier. As the SMCCC header is used by the assembler, too,
-hence I had to add __ASSEBLER__ guardrails. Another option could be to
-pass four u32's not to use uuid_t so the header stays a healthy food
-for the assembler :) For Gunyah, that would be
-
-ARM_SMCCC_HYP_PRESENT(GUNYAH)
-
-when using the change below.
-
-
- From f0d645e900c24f5be045b0f831f1e11494967b7f Mon Sep 17 00:00:00 2001
-From: Roman Kisel <romank@linux.microsoft.com>
-Date: Thu, 13 Feb 2025 15:10:45 -0800
-Subject: [PATCH] drivers, smcc: Introduce arm_smccc_hyp_present
-
----
-  arch/arm64/hyperv/mshyperv.c       | 18 +----------------
-  drivers/firmware/smccc/kvm_guest.c |  9 +--------
-  drivers/firmware/smccc/smccc.c     | 24 ++++++++++++++++++++++
-  include/linux/arm-smccc.h          | 32 ++++++++++++++++++++++++++++++
-  4 files changed, 58 insertions(+), 25 deletions(-)
-
-diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-index 16e721d8e5df..0c5babe9e1ff 100644
---- a/arch/arm64/hyperv/mshyperv.c
-+++ b/arch/arm64/hyperv/mshyperv.c
-@@ -41,22 +41,6 @@ static bool hyperv_detect_via_acpi(void)
-  #endif
-  }
-
--static bool hyperv_detect_via_smccc(void)
--{
--	struct arm_smccc_res res = {};
--
--	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
--		return false;
--	arm_smccc_1_1_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
--	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
--		return false;
--
--	return res.a0 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_0 &&
--		res.a1 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_1 &&
--		res.a2 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_2 &&
--		res.a3 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_3;
--}
--
-  static int __init hyperv_init(void)
-  {
-  	struct hv_get_vp_registers_output	result;
-@@ -69,7 +53,7 @@ static int __init hyperv_init(void)
-  	 *
-  	 * In such cases, do nothing and return success.
-  	 */
--	if (!hyperv_detect_via_acpi() && !hyperv_detect_via_smccc())
-+	if (!hyperv_detect_via_acpi() && !ARM_SMCCC_HYP_PRESENT(HYPERV))
-  		return 0;
-
-  	/* Setup the guest ID */
-diff --git a/drivers/firmware/smccc/kvm_guest.c 
-b/drivers/firmware/smccc/kvm_guest.c
-index f3319be20b36..ae37476cabc1 100644
---- a/drivers/firmware/smccc/kvm_guest.c
-+++ b/drivers/firmware/smccc/kvm_guest.c
-@@ -17,14 +17,7 @@ void __init kvm_init_hyp_services(void)
-  	struct arm_smccc_res res;
-  	u32 val[4];
-
--	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
--		return;
--
--	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
--	if (res.a0 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_0 ||
--	    res.a1 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_1 ||
--	    res.a2 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_2 ||
--	    res.a3 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_3)
-+	if (!ARM_SMCCC_HYP_PRESENT(KVM))
-  		return;
-
-  	memset(&res, 0, sizeof(res));
-diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
-index a74600d9f2d7..86f75f44895f 100644
---- a/drivers/firmware/smccc/smccc.c
-+++ b/drivers/firmware/smccc/smccc.c
-@@ -67,6 +67,30 @@ s32 arm_smccc_get_soc_id_revision(void)
-  }
-  EXPORT_SYMBOL_GPL(arm_smccc_get_soc_id_revision);
-
-+bool arm_smccc_hyp_present(const uuid_t *hyp_uuid)
-+{
-+	struct arm_smccc_res res = {};
-+	struct {
-+		u32 dwords[4]
-+	} __packed res_uuid;
-+
-+	BUILD_BUG_ON(sizeof(res_uuid) != sizeof(uuid_t));
-+
-+	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
-+		return false;
-+	arm_smccc_1_1_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
-+	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
-+		return false;
-+
-+	res_uuid.dwords[0] = res.a0;
-+	res_uuid.dwords[1] = res.a1;
-+	res_uuid.dwords[2] = res.a2;
-+	res_uuid.dwords[3] = res.a3;
-+
-+	return uuid_equal((uuid_t *)&res_uuid, hyp_uuid);
-+}
-+EXPORT_SYMBOL_GPL(arm_smccc_hyp_present);
-+
-  static int __init smccc_devices_init(void)
-  {
-  	struct platform_device *pdev;
-diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-index 67f6fdf2e7cd..63925506a0e5 100644
---- a/include/linux/arm-smccc.h
-+++ b/include/linux/arm-smccc.h
-@@ -7,6 +7,11 @@
-
-  #include <linux/args.h>
-  #include <linux/init.h>
-+
-+#ifndef __ASSEMBLER__
-+#include <linux/uuid.h>
-+#endif
-+
-  #include <uapi/linux/const.h>
-
-  /*
-@@ -333,6 +338,33 @@ s32 arm_smccc_get_soc_id_version(void);
-   */
-  s32 arm_smccc_get_soc_id_revision(void);
-
-+#ifndef __ASSEMBLER__
-+
-+/**
-+ * arm_smccc_hyp_present(const uuid_t *hyp_uuid)
-+ *
-+ * Returns `true` if the hypervisor advertises its presence via SMCCC.
-+ *
-+ * When the function returns `false`, the caller shall not assume that
-+ * there is no hypervisor running. Instead, the caller must fall back to
-+ * other approaches if any are available.
-+ */
-+bool arm_smccc_hyp_present(const uuid_t *hyp_uuid);
-+
-+#define ARM_SMCCC_HYP_PRESENT(HYP) 								\
-+	({															\
-+		const u32 uuid_as_dwords[4] = {							\
-+			ARM_SMCCC_VENDOR_HYP_UID_ ## HYP ## _REG_0,			\
-+			ARM_SMCCC_VENDOR_HYP_UID_ ## HYP ## _REG_1,			\
-+			ARM_SMCCC_VENDOR_HYP_UID_ ## HYP ## _REG_2,			\
-+			ARM_SMCCC_VENDOR_HYP_UID_ ## HYP ## _REG_3			\
-+		};														\
-+																\
-+		arm_smccc_hyp_present((const uuid_t *)uuid_as_dwords);	\
-+	})															\
-+
-+#endif /* !__ASSEMBLER__ */
-+
-  /**
-   * struct arm_smccc_res - Result from SMC/HVC call
-   * @a0-a3 result values from registers 0 to 3
--- 
-2.43.0
-
-
-
-> 
->        Arnd
-
--- 
-Thank you,
-Roman
-
+Thanks,
+Song
 
