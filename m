@@ -4,81 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20264C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:03:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8073DC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:05:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=COJNGekBErJDtHN053nWkTAoSgTTSoO9L+cYR+Xqxy4=; b=KWtgPYEU+V/KJ6/BkAOk8lmFfG
-	xO3asMJKOWhRcY3G/C2EON4GVwomtN63FG+8DyVGTR7TiWyD3uv1q1NLRcczosrodF/qIQ5Ewd8d4
-	bt7dnc4b9WIZZ8aNppVMTnnNtDuxyvvf+SduGYKIZpwbOZ6tDNYLVBmJUdNZKSn4VjZciogBj7+ei
-	1QdRDwJ0XfxWU/VJ1YxNG00Ox8yK9VZporerTsynwJgVTqC6CGiIpNv/knFJlu2h0lj8nlZ35wnyU
-	4nOcvn86+9Ri89tsU4B7Hg2xK+DlYWu+USrrcpIj2Rv5B/hpqanRb2PHFLrEkAi3gzaOuWYumjFCl
-	3LtjjYRg==;
+	bh=UnlssmYuhIn+vcCNx5MG2qEpYo19Mi6vK6bTbOK52kg=; b=ZzbRVemy0Cpt40kKa2I9pYpTjh
+	9NP5fIIllPQ/O8Eu8mIDrIVY/t2kcwdxD72sX+9PXNBON+HRpR5MjBX/cB0CHYygyAm3XjcED+5Dn
+	mrdIrZ0cWqPQO88oBIhPsa9BgCHkGf6Xbxdd4MSAiC90A9DuiTqXkGWxeRUOZsa4L6CqVQLXBbd9w
+	8Q5Lc7Z0w601iGibr6STt1XKh31J0yd7neuFcx+RR+TdcfE7Hj6e3nR3CewCqfHBF41HxljqHXSJn
+	iZlqLagSDNlnjp11EqE/A+Cf4L+2txUK/Vq0XgBWzK1YjaDHtdHxxrV1T2FbkV9M/iC/vWfbUdDhF
+	FUh55vVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiW4B-0000000AZsg-1P48;
-	Thu, 13 Feb 2025 10:03:31 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1tiW5a-0000000Aa2w-1LxK;
+	Thu, 13 Feb 2025 10:04:58 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiW0b-0000000AZH0-2oOI
+	id 1tiW3d-0000000AZnh-47dj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 09:59:50 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-6e65e1d30c9so209016d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 01:59:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739440788; x=1740045588; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=COJNGekBErJDtHN053nWkTAoSgTTSoO9L+cYR+Xqxy4=;
-        b=Jf2VSKK10E9B74s2o8pIEhXDX9IPQhsZfKUd/JNgWbXnU+3804Y4rhpJGeGQgVW3A1
-         PErZUEE6r6cGB5dUFxlEsfUsi514AhqQ+sPlPBKcf8v0h8HnGEX7tLuPTGYSuRnXjRN/
-         uyFC/8cTTnfOiseaNh0KnwdX/3QNj1/RD+HJKu7QgMDQpfkyvvGmhp4KTUBcskSNrOya
-         NSKzg6MmNa4P/oOWj18Ps8Nxc0gZpQ8/4Ly6UW8bc54+EPgygi12rKCxUF7ULpz1WI8g
-         f5lF+YxvFCaEYVQyZPiwYkgZnR4VGBmFuQFWOUTX/G+zmY/1dm0qk+4tO7v8VyRdNj4H
-         d7GQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739440788; x=1740045588;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=COJNGekBErJDtHN053nWkTAoSgTTSoO9L+cYR+Xqxy4=;
-        b=kKrmPo6uxIyFPL853rwOKkvqIlkFh7QKKHfKS8ks2VwsqqXKgECObOizAls4XbL2qj
-         bfVkkrdyj88qaXhT+RuYWYmzcWK5QuPYQz5ctNerQFQbEN3r92bbkhQqglVkvkUy87bH
-         57seFwiKasDPEIwWs09XrF41Wr8rqOVHG9R4y0K7MeV8lujwLl24aiord+8kZadsnCkX
-         p53OxR60RcoQIjdiLb641sHGrYHpbpddWFYZ//EeZZ1s+QGpOXfy9zyNFhPAGMsL4KZ/
-         b4iKLxGo+w+4OZcJMrycAwjjMA9IGQEGkxaL1EOUQtH+8Nq38XVXpQQt5VYuzdujGXWE
-         XCFA==
-X-Forwarded-Encrypted: i=1; AJvYcCUFALKqIAWhXOV3b1uCIjpC4tBpTl1I3ENBK+rNue6e80+Kt0RrRPUxH6m5WP0zE0ve+ls0R3y2c93wW13gNQPR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxU82s02dv1P1meNF9dUk66uFogM9vwtIrLAoyDlJMfZdXCw4WC
-	zKk9aTeuxJjobDVzKdUcdajHgmAiZtCeVYU0wDEsTiDit2hr+R03y3aQ9+J1WLsfx+sjsy4jzWq
-	ZU0Y05yTaiHWd5hIODnG3INtITLzy5lB+mTiQRQ==
-X-Gm-Gg: ASbGncu1LGowtQyfaOFKO/bc6uaLMC4G8QpskJobxct/slFeL4fxhuWKK6TBajkgpVx
-	fPCkoI4AIN+XNaW+AiMpDNdWqcMHBwnta1u95yfQZkPf1LwEiDwhYCQOdJ0eL6p++P9Ttpk9p
-X-Google-Smtp-Source: AGHT+IHjST43iJQwKlW8MuHT3YKNmk3TJzkB+3qglLpmrJHxoQ21YjQ7p9lFzVWUi5QoVF1/vD6V21s991LiGcWOuME=
-X-Received: by 2002:a05:6214:cc8:b0:6e4:2975:ce54 with SMTP id
- 6a1803df08f44-6e46ed7f367mr40769266d6.3.1739440787956; Thu, 13 Feb 2025
- 01:59:47 -0800 (PST)
+	Thu, 13 Feb 2025 10:02:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=Unls
+	smYuhIn+vcCNx5MG2qEpYo19Mi6vK6bTbOK52kg=; b=lJ3Ixv9PpDUPZy+veSDx
+	ziTRqgIsOzwTnHddIoiDBXPFEseEJoG1keRyAs9yKz58AyHx+dto1xstv6SsJBlD
+	cHh0saavR8n2B+kcgw2b0pnrG2gzY/ztdM/09hWnqBLizcPgmLQUbecXC5SKKpDU
+	0lBVwBH+NU21FsEcURx5TU51xG56lNRQ4cYcGyd1Zj7giHXpsot/m1SaWaseV37U
+	rZSXdttsmML8+ouc7rvSRfjF8fBgpYLVdnGE27n8N1qseFjWwd81RvoT8HYywvDD
+	wJePDoyrx4FO03lPiva4MOrX0sVKdZbaUOFD7RS0GpCP7NkQznf4wpdyC7ZIKbZU
+	0g==
+Received: (qmail 1823272 invoked from network); 13 Feb 2025 11:02:55 +0100
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 13 Feb 2025 11:02:55 +0100
+X-UD-Smtp-Session: l3s3148p1@JVB1KQMusMxehh99
+Date: Thu, 13 Feb 2025 11:02:55 +0100
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+	Andi Shyti <andi.shyti@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Krzysztof Adamski <krzysztof.adamski@nokia.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stefan Roese <sr@denx.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>
+Subject: Re: [PATCH v1 1/8] i2c: Introduce i2c_10bit_addr_from_msg()
+Message-ID: <Z63DT_XdzEWrP4eR@shikoro>
+Mail-Followup-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Andi Shyti <andi.shyti@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Krzysztof Adamski <krzysztof.adamski@nokia.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stefan Roese <sr@denx.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>
+References: <20250212163359.2407327-1-andriy.shevchenko@linux.intel.com>
+ <20250212163359.2407327-2-andriy.shevchenko@linux.intel.com>
+ <CAMuHMdW1wxQ0cddeE72D+Sii4HkT4bJfeTWX4-8FfHiFr+=3DA@mail.gmail.com>
+ <Z6zwqbzd5evG0H2z@smile.fi.intel.com>
 MIME-Version: 1.0
-References: <20250212173454.2864462-1-maz@kernel.org>
-In-Reply-To: <20250212173454.2864462-1-maz@kernel.org>
-From: Anders Roxell <anders.roxell@linaro.org>
-Date: Thu, 13 Feb 2025 10:59:36 +0100
-X-Gm-Features: AWEUYZnv3GWn0jzFu3uoM9Lo2WH4CAyE-PhoCt0q0vIYbO78Rx1ocXlr_cZpyFs
-Message-ID: <CADYN=9KWdAm4iKYNN16Uz68XPViDLXGar3uhrM2e2+Dharaosw@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: Convert timer offset VA when accessed in HYP code
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Linux Kernel Functional Testing <lkft@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="knIGSBLjShPS7lvY"
+Content-Disposition: inline
+In-Reply-To: <Z6zwqbzd5evG0H2z@smile.fi.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_015949_714220_6C9F60FC 
-X-CRM114-Status: GOOD (  11.34  )
+X-CRM114-CacheID: sfid-20250213_020258_303268_F0B62CBD 
+X-CRM114-Status: UNSURE (   7.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,27 +102,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Feb 2025 at 18:35, 'Marc Zyngier' via lkft <lkft@linaro.org> wrote:
->
-> Now that EL2 has gained some early timer emulation, it accesses
-> the offsets pointed to by the timer structure, both of which
-> live in the KVM structure.
->
-> Of course, these are *kernel* pointers, so the dereferencing
-> of these pointers in non-kernel code must be itself be offset.
->
-> Given switch.h its own version of timer_get_offset() and use that
-> instead.
->
-> Fixes: b86fc215dc26d ("KVM: arm64: Handle counter access early in non-HYP context")
-> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Tested-by: Anders Roxell <anders.roxell@linaro.org>
+--knIGSBLjShPS7lvY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Build this patch ontop of next-20250212 and ran kvm-unit-tests on a rockpi4.
-And it ran fine without any kernel panic.
 
-Cheers,
-Anders
+Just a generic comment: please don't spend too much energy on 10-bit
+support. I have never seen it used in the wild. It seems more like an
+academic excercise.
+
+
+--knIGSBLjShPS7lvY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEOZGx6rniZ1Gk92RdFA3kzBSgKbYFAmetw0sACgkQFA3kzBSg
+Kba7ew/+Kqcp2Fze4DeH75uP2OB/QbNpx80sb7qHDvTBoOdL9TX6daJGbx9NejYD
+4cXfgTJtWcAuiwn1QkGFPTMUqUzpc/0KOK3GC6OAGvm5ey4/HDXKzBiue8zKbiOa
+da195dsvzjs7f9kMARVNMzzqXYr3NZXcLAZDPlR2ifCiFGVnK3xYkUPACWjZEWzI
+fy15U37jiPuCE/3TSHBc+1/q8p2T/vQ2h0AApKD8NgpsnORqYx5oeXMf/ztjI+RM
+vfzNPKvxb6Y2ppaPZWx6teAZfCA52Bn2twzmbwQBpsRdR8s8lUp00IO9aX/xZGQi
+zCVMD74Kz7B0lvmAvJHv/23vHofoRiZmIATiL0zl6u2wm1zlzsTv0zFk0PVqBLGZ
+ZZ3DEOORzPNpfx/csYx9U1J0L1OIoqgc+/y2FnfQIIXmTOvnwHNJb9AD5pTr7b1u
+YjfwprDAc9yJI/ps63zcYwioTc6CjTENNLeHwTSFgmjdvPn2KJTLNiG5GHB8zY5T
+QrOPvOGOI2hLs6LbWrCxQnRcrItIsjAV8ClxwlTRIllAXeqMZAc+2W6KhmukwsOs
+Uin3nyrmWNw1vx50tN/mJ+BeN7A5Kh9vhwLp1+40Auz5CUErrJtyfuPV8kNzH8wz
+5zooWxoWZMwZ2x2SFgTy1iVtPJZ9m0ytQi6P+Yv6Xu8uqDgy+Q0=
+=+YyW
+-----END PGP SIGNATURE-----
+
+--knIGSBLjShPS7lvY--
 
