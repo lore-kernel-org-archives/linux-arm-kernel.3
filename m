@@ -4,103 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD598C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 13:55:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DCB2C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 13:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WnD9TeNwfT+U3ultRf7LUdWkp1sv+OxtUbvuDPJjDY8=; b=3jVvNBIQAiHZtCigK3CXfB/bTl
-	szEtnKqPH9TymNOrFClLPsihiqgt3HZB0gWQqDB1DDNzjmDRXFckHmgEqXibJxGE36Yjq8y1hGjK0
-	5w+6K6OoeGwWavY8YtkNuPS0JU70C5URqBiQp40Iuoe8azpGXKhQrXRnbEhUqHA1zMGrz002e9k/S
-	ra5b4ouw8642ESr7UmMphsEICYUjzCeQquUEBuWef3Z2EEWed/rOHQcwBeSxoDb78rLWmbCBx+Mtm
-	oEIXy1Srgux4wYTkqMsHKg3yLdx8/KwbvYZFeVuTIoyrmtn2L4IbFb5ksziz+K+zAQjmWjQt8p1md
-	/JPr4Neg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eWPNAIgOiUaqeYRzBZnoWTnufMu8O3aad3DcxE2TisE=; b=Do7IKMxcyZ0bd7KytFjksvfZsp
+	A0AglaMXJTgR/TFDDqHvnBh7NzRrwa+mUVHjwhCqakT2HlctHhwJE8qizunaM+i/86NPbueIDMnpS
+	W3mLREYPtiD9KiTA2SyPXHVq3LRqqb2Ev0/kV2gG28hVwGGnnPFd+9xYyrVpaPrlpa+vD6f07Zs+o
+	3dBAGXw/lxFZiCHtUvL41wWVkSUo3S0QYiZC7lkQRB9PnriUgj0eIyqFOg30CLCw2K6hyurUfFuoV
+	uOYmViDVO4vwMGyhTiPdnJIcJOQg5dCcRC8FC9wIAws1Q0xb9mF/TzddQYIbduQwjcwLKQ2pWQc0M
+	426gVsRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZgt-0000000BDPQ-3qiO;
-	Thu, 13 Feb 2025 13:55:43 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1tiZhP-0000000BDXc-21P2;
+	Thu, 13 Feb 2025 13:56:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZfS-0000000BDBT-0vs6
+	id 1tiYiY-0000000B3dG-1Jwu
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 13 Feb 2025 12:53:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=eWPNAIgOiUaqeYRzBZnoWTnufMu8O3aad3DcxE2TisE=; b=mQOm+/7AOyn3Cka4vgnWQFQUZr
+	F/es2aEEgBZRal1jLARQno4ewmPdQzDWiZI8F1PcmAOTjtb+lQCcHs/ESY3of+57412ckzdCrLZGg
+	auAEGMFuf91rvL00hKfZkGCQhGt3teNJHi71FXABKwuI/XXQ+HxYubTeJZ5Wm/hp6AKu/RM2+9XvX
+	C2FdopUvFTNStlyFwSjvqVn4LrWkM0tGmYaZZR8As1kwR/QFFHPrbsxE62NlV+k4BNpSOLcrCID/P
+	ymwAwethzJQY6OD+hoztS5JIC8XgywlQYNH0PseJAEnhePvwlniVzKfbNHaurEU6+m55TBoPRL8iX
+	iqiPHL+g==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiYiU-00000000zUe-3xM7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 13:54:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739454854; x=1770990854;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=g5HGHBuqAjMQOceJtIfxFmXU57w01hrdcPk8EKvjSzU=;
-  b=GehkrZqZCumdUE9UFpEjrkN1tjzdntVlR3R1Nicsc8TxHaP8APBsIgzW
-   lGC/6mAPhn+ENtPDOqKN9BzNupMQPunU2OlNkLFJfzJ0rMb3Efc2XKRJp
-   Pbr2U0M9GxU0wfVrJs/q5ubZ//pCRLt28Xm3O57SS4CaCuA36o2kcKl1E
-   +8kzG3XolkkLVatj/pCP5lvH4hu0m4j2/5KM1iK0WhwP47i83RZMzeUrL
-   H4RZxiSVY2CyNUimD17RiXWp3WhT+whUkWfMja+GMWWsXZ7ygC71yXz+s
-   C/E97OBnQxP9E62BM7QZCIf9ri5Dhn0e79Y+eByDgct9+XCr30NPx4bs8
-   Q==;
-X-CSE-ConnectionGUID: V7n91u63T/aUFcst/Vox9Q==
-X-CSE-MsgGUID: ovs3kj1GRvGe6SMc0k9dXw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11344"; a="40019848"
-X-IronPort-AV: E=Sophos;i="6.13,282,1732608000"; 
-   d="scan'208";a="40019848"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 05:54:12 -0800
-X-CSE-ConnectionGUID: Va5fv8RuSjiYMn+k3238nA==
-X-CSE-MsgGUID: 1CjFB4TaT2qSpWMyGvwtMQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="118080787"
-Received: from mohdfai2-mobl.gar.corp.intel.com (HELO [10.247.42.34]) ([10.247.42.34])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 05:54:04 -0800
-Message-ID: <1c981aa1-e796-4c53-9853-3eae517f2f6d@linux.intel.com>
-Date: Thu, 13 Feb 2025 21:54:00 +0800
+	Thu, 13 Feb 2025 12:53:21 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51DCmkYW012578;
+	Thu, 13 Feb 2025 12:53:09 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=eWPNAIgOiUaqeYRzBZnoWTnufMu8O3
+	aad3DcxE2TisE=; b=mkv988nVqKFI+Q6OrBWS2ipxPqBTWh94TEwCx5ur0CW5tE
+	gFbmuMsKaNXIBWlbpy9XXzuqt8Q0SYtWLu5xw5dicWbmtK4cnhHK/N/mmO32y0Kt
+	GpxgaLbUIE+WtPwE5YYqiBZ+byC9GxDxMuwNYQn050np1UxVh3j/D4JLRuKI7MKx
+	qnE39AotUl1IWNJO8+Ftlv1OKxIIJ/IXGkgDbdH3t9eDuti41obAiU46MnGoLJHZ
+	BBkoakKAE6C0M/vRvP7cbEBdY4a8uahULG/ptd//n6izD71nSjIDUuS/h4zdd0Kd
+	0X3cjD9wjHovI3bb6RqoeEn9YfZJq2oiDEDhxYWA==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44s7k0tsn9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Feb 2025 12:53:08 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 51DBlMZ1001051;
+	Thu, 13 Feb 2025 12:53:08 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 44pjkne8ya-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Feb 2025 12:53:07 +0000
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 51DCr4JY22675828
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 13 Feb 2025 12:53:04 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2997620043;
+	Thu, 13 Feb 2025 12:53:04 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id F256620040;
+	Thu, 13 Feb 2025 12:53:03 +0000 (GMT)
+Received: from osiris (unknown [9.152.212.60])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 13 Feb 2025 12:53:03 +0000 (GMT)
+Date: Thu, 13 Feb 2025 13:53:02 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+        LKML <linux-kernel@vger.kernel.org>,
+        linux-arm-kernel@lists.infradead.org,
+        Mark Rutland <mark.rutland@arm.com>,
+        Linux Trace Kernel <linux-trace-kernel@vger.kernel.org>,
+        Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>, linux-s390@vger.kernel.org
+Subject: Re: [PATCH] arm64: scripts/sorttable: Implement sorting mcount_loc
+ at boot for arm64
+Message-ID: <20250213125302.12012-A-hca@linux.ibm.com>
+References: <20250210142647.083ff456@gandalf.local.home>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH iwl-next v4 0/9] igc: Add support for Frame Preemption
- feature in IGC
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: Kurt Kanzenbach <kurt@linutronix.de>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, Furong Xu <0x1207@gmail.com>,
- Russell King <rmk+kernel@armlinux.org.uk>,
- Serge Semin <fancer.lancer@gmail.com>,
- Xiaolei Wang <xiaolei.wang@windriver.com>,
- Suraj Jaiswal <quic_jsuraj@quicinc.com>,
- Kory Maincent <kory.maincent@bootlin.com>, Gal Pressman <gal@nvidia.com>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Andrew Halaney <ahalaney@redhat.com>,
- Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Vinicius Costa Gomes <vinicius.gomes@intel.com>,
- intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-References: <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
- <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
- <20250212220121.ici3qll66pfoov62@skbuf>
- <b19357dc-590d-458c-9646-ee5993916044@linux.intel.com>
- <87cyfmnjdh.fsf@kurt.kurt.home>
- <5902cc28-a649-4ae9-a5ba-83aa265abaf8@linux.intel.com>
- <20250213130003.nxt2ev47a6ppqzrq@skbuf>
-Content-Language: en-US
-From: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
-In-Reply-To: <20250213130003.nxt2ev47a6ppqzrq@skbuf>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250210142647.083ff456@gandalf.local.home>
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: ric8tIwk28XGa8a184QYg1kdT_6Gbzhn
+X-Proofpoint-GUID: ric8tIwk28XGa8a184QYg1kdT_6Gbzhn
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-13_05,2025-02-13_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=878
+ malwarescore=0 lowpriorityscore=0 bulkscore=0 adultscore=0 suspectscore=0
+ phishscore=0 impostorscore=0 spamscore=0 priorityscore=1501 mlxscore=0
+ clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502130096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_055414_297853_E2407EC0 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20250213_125319_310805_B6A0624F 
+X-CRM114-Status: GOOD (  19.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,53 +124,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 13/2/2025 9:00 pm, Vladimir Oltean wrote:
-> On Thu, Feb 13, 2025 at 08:54:18PM +0800, Abdul Rahim, Faizal wrote:
->>> Well, my idea was to move the current mqprio offload implementation from
->>> legacy TSN Tx mode to the normal TSN Tx mode. Then, taprio and mqprio
->>> can share the same code (with or without fpe). I have a draft patch
->>> ready for that. What do you think about it?
->>
->> Hi Kurt,
->>
->> I’m okay with including it in this series and testing fpe + mqprio, but I’m
->> not sure if others might be concerned about adding different functional
->> changes in this fpe series.
->>
->> Hi Vladimir,
->> Any thoughts on this ?
+On Mon, Feb 10, 2025 at 02:26:47PM -0500, Steven Rostedt wrote:
+> For the s390 folks. I cross compiled a s390 and looked at the mcount_loc
+> section, and I have no idea how to implement this for that. I wrote a elf
+> parser to dump sections based symbols:
 > 
-> Well, what do you think of my split proposal from here, essentially
-> drawing the line for the first patch set at just ethtool mm?
-> https://lore.kernel.org/netdev/20250213110653.iqy5magn27jyfnwh@skbuf/
+>   https://rostedt.org/code/dump_elf_sym.c
 > 
+> And ran it on the s390 vmlinux:
+> 
+>  $ ./dump_elf_sym vmlinux __start_mcount_loc __stop_mcount_loc
+>  1801620: .. .. .. .. .. .. .. ..   00 00 00 00 00 11 70 20  ......... .....p 
+>  1801630: 00 00 00 00 00 11 70 90   00 00 00 00 00 11 70 a0  ......p.. .....p.
+>  1801640: 00 00 00 00 00 11 71 10   00 00 00 00 00 11 71 20  ......q.. .....q 
+>  1801650: 00 00 00 00 00 11 71 90   00 00 00 00 01 7c 70 00  ......q.. ....|p.
+>  1801660: 00 00 00 00 01 7c 70 20   00 00 00 00 01 7c 70 40  .....|p . ....|p@
+>  1801670: 00 00 00 00 01 7c 70 60   00 00 00 00 01 7c 70 70  .....|p`. ....|pp
+>  1801680: 00 00 00 00 01 7c 70 98   00 00 00 00 01 7c 70 c0  .....|p.. ....|p.
+>  1801690: 00 00 00 00 01 7c 70 d0   00 00 00 00 01 7c 71 68  .....|p.. ....|qh
+> [..]
+> 
+> It looks like addresses in that section...
 
-Honestly, after reconsidering, I’d prefer to keep the current series as is 
-(without Kurt’s patch), assuming you’re okay with enabling mqprio + fpe 
-later rather than at the same time as taprio + fpe. There likely won’t be 
-any additional work needed for mqprio + fpe after Kurt’s patch is accepted, 
-since it will mostly reuse the taprio code flow.
+Those are the addresses of the mcount locations. After looking at
+sorttable.c it really looks like that for s390 we can simply select
+HAVE_BUILDTIME_MCOUNT_SORT without any further changes.
 
-If I were to split it, the structure would look something like this:
-First part of fpe series:
-igc: Add support to get frame preemption statistics via ethtool
-igc: Add support to get MAC Merge data via ethtool
-igc: Add support to set tx-min-frag-size
-igc: Add support for frame preemption verification
-igc: Set the RX packet buffer size for TSN mode
-igc: Optimize the TX packet buffer utilization
-igc: Rename xdp_get_tx_ring() for non-XDP usage
-net: ethtool: mm: Extract stmmac verification logic into a common library
+I just tested it with different compiler options (fentry vs hotpatch),
+including selecting FTRACE_SORT_STARTUP_TEST, and as expected everything
+works.
 
-Second part of fpe:
-igc: Add support for preemptible traffic class in taprio
-
-I don’t think Kurt’s patch should be included in my second part of fpe, as 
-it’s not logically related. Another approach would be to wait for Kurt’s 
-patch to be accepted first, then submit the second part and verify both 
-taprio + mqprio. However, that would delay i226 from having a basic fpe 
-feature working as a whole, which I'd really like to avoid.
-
+I'm going to give it some more testing in our CI - but if nothing breaks a
+patch which selects HAVE_BUILDTIME_MCOUNT_SORT for s390 will go upstream
+with the next merge window.
 
