@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB9DC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 15:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC84C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 15:46:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KU7M6nRrVk+vhppBdjU1BKuk3f2ewIkrKIf/a+1uE48=; b=G/YHPr9E97hnW5c80qrjsXM0gL
-	hF+TlqsFk9uxujREUCrHFqlKCXvAREWdAfvM0iyDip5b9db6Tjvzgu06APFgReh/Tp7Y0uq7WkYuA
-	X5WJjU9hn06InK1XIXq6CI++r5cnbdTtzY9bLOwMEfGlW0qBrM+bmKA0k88c7ap5I3dKUWVz03nuy
-	+UP9CC6ppyn9+s9/nPnHMMEf5wRDa05yNgo0zJxgLM7l0ILbdjxca6l3NzKRMxBFNZxp8phe7SKfS
-	6sQWyHw5aQroHq0hHpLl/nfx615iZsDoCp58rKrOA7YbID0pihAYmWjmMGgy/IU1cSUS+eoS++rLv
-	RNOsV6JQ==;
+	bh=tka6xmrD6y43k+BDIfix4JOU0iopwBuyRSqkyAdsxWA=; b=zS8J7wXkZLt4dESUuHPVl7C/Gi
+	SmkfdNEp4gmlB1NRnSG3vjGTRIPLpJZIeZpFTKUw/tsQScYDJAUoPdJgiOHZEWyBp6pzvkOYzBw9w
+	ZgrLKevyYEYgRIuZ0SgJX97387+JnSnpEhvcpJaDv5kfd99m0NWnNJOWeGmzunIVxcaR9QwEr8e3B
+	UZ/U61wlhibcG3kbDIYbv/XzIGRKinqQ7FUA5gnQW0lyw80/mZknj4+a7WXBdBQejE0Up/yJ+9plF
+	4lRSLLSs7zc/eN+cfbl+l3BuakD9bWcmX02Licx10m6f8ctlataCcO0i6dRL0g0nzuB7xLEHqB1MU
+	ypAplDMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibOg-0000000BbVM-1MEI;
-	Thu, 13 Feb 2025 15:45:02 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tibQ5-0000000BbmM-1YVY;
+	Thu, 13 Feb 2025 15:46:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibF2-0000000BYil-1sVk;
-	Thu, 13 Feb 2025 15:35:05 +0000
+	id 1tibF5-0000000BYjc-0WyF;
+	Thu, 13 Feb 2025 15:35:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A0205C5440;
-	Thu, 13 Feb 2025 15:34:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29550C4CEE4;
-	Thu, 13 Feb 2025 15:35:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 08F835C5038;
+	Thu, 13 Feb 2025 15:34:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4C4BC4CEE4;
+	Thu, 13 Feb 2025 15:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739460903;
-	bh=fPqAl5WVzSgSEPCYLYJcFo3xIskaAzrnsiLHeLFi9PU=;
+	s=k20201202; t=1739460906;
+	bh=AhjglNReMh607BlyjRNHV+zEVyRap39omDdEs9Q1guw=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=bSLaNEhjAqt58Fcm2Os+WsqtKOZfvP+pvPmGhWTcEIcDGOeDVId8tug+xYIUdisd1
-	 WhRnUGgWF8wKujf9hTHvMnmEmuLohaoo9BEVk+jpAYFkfFVZlnzriRisgAvXzXUmje
-	 Htm180EAn7Ndm0TquGj8iRw1SuG8yrvJcj/o0w2lzxy+PugO9dypUZBz4ARLRRGkz2
-	 82nzWduz2p2w/B4rlou6oPmB3Suq9m+/iQKhogE060KjQOVu/AnjNVdtTzIX4fU9C5
-	 DkUJ2zgFeZlNqV23sXTMIcrLTEa6VuHP4B6O2wlrVKbb7xLTnBLaTFL61BDrdwsScI
-	 FefBZD1g7Su3Q==
+	b=IZ+ZEX6dKY1KfwxzwCwFN8ay2FH1HY3FbHN6qg6sLZf99XrCukFbIibPTNmuLKf2K
+	 Jx0ioe43ILMPMXO+SCB2+eFKKhmYtCppHi/bMjBEAnI2SiMftjftXHzf7gcXo7uL2A
+	 FBkyu9ZzxPqvRvcc5SqW20vrpERPi3wejV+oUHn8vHbGY3ivISpuoKH42TboD2rYZO
+	 kL9Nt1hurUOjao4lZmXFl6Ljod1AxjhqtGjYda/jMZyyqYq+9x0EdLnVRFkO8PRBXE
+	 2AaoWYz6f4iErsH/Zz3oDwaMLxKXjubRzmUW8xb1TDY/4wyB42doizAZzy4khflR/G
+	 /+1qJ8ZvrUw3w==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 13 Feb 2025 16:34:25 +0100
-Subject: [PATCH net-next v4 06/16] net: airoha: Move DSA tag in DMA
- descriptor
+Date: Thu, 13 Feb 2025 16:34:26 +0100
+Subject: [PATCH net-next v4 07/16] net: dsa: mt7530: Enable Rx sptag for
+ EN7581 SoC
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250213-airoha-en7581-flowtable-offload-v4-6-b69ca16d74db@kernel.org>
+Message-Id: <20250213-airoha-en7581-flowtable-offload-v4-7-b69ca16d74db@kernel.org>
 References: <20250213-airoha-en7581-flowtable-offload-v4-0-b69ca16d74db@kernel.org>
 In-Reply-To: <20250213-airoha-en7581-flowtable-offload-v4-0-b69ca16d74db@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -68,8 +68,8 @@ Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  upstream@airoha.com
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_073504_610723_57B9399F 
-X-CRM114-Status: GOOD (  23.21  )
+X-CRM114-CacheID: sfid-20250213_073507_253610_75D937F0 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,290 +84,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Packet Processor Engine (PPE) module reads DSA tags from the DMA descriptor
-and requires untagged DSA packets to properly parse them. Move DSA tag
-in the DMA descriptor on TX side and read DSA tag from DMA descriptor
-on RX side. In order to avoid skb reallocation, store tag in skb_dst on
-RX side.
+Packet Processor Engine (PPE) module used for hw acceleration on EN7581
+mac block, in order to properly parse packets, requires DSA untagged
+packets on TX side and read DSA tag from DMA descriptor on RX side.
+For this reason, enable RX Special Tag (SPTAG) for EN7581 SoC.
 This is a preliminary patch to enable netfilter flowtable hw offloading
 on EN7581 SoC.
 
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c  | 123 ++++++++++++++++++++++++++++--
- drivers/net/ethernet/airoha/airoha_eth.h  |   7 ++
- drivers/net/ethernet/airoha/airoha_regs.h |   2 +
- 3 files changed, 126 insertions(+), 6 deletions(-)
+ drivers/net/dsa/mt7530.c | 5 +++++
+ drivers/net/dsa/mt7530.h | 4 ++++
+ 2 files changed, 9 insertions(+)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index b79556f1b4951c687aa89bc5839fc9405581a6c3..4f45db86d8d8d6b7a13d56a9315773f8685a09f6 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -9,6 +9,7 @@
- #include <linux/tcp.h>
- #include <linux/u64_stats_sync.h>
- #include <net/dsa.h>
-+#include <net/dst_metadata.h>
- #include <net/page_pool/helpers.h>
- #include <net/pkt_cls.h>
- #include <uapi/linux/ppp_defs.h>
-@@ -656,6 +657,7 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 		struct airoha_qdma_desc *desc = &q->desc[q->tail];
- 		dma_addr_t dma_addr = le32_to_cpu(desc->addr);
- 		u32 desc_ctrl = le32_to_cpu(desc->ctrl);
-+		struct airoha_gdm_port *port;
- 		struct sk_buff *skb;
- 		int len, p;
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index 9fd44e55d51963318ed5cfa3175af9faa77236e4..5b2fa9c0375b6fe7ced7fefc4cc16326d9deb7cf 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -2586,6 +2586,11 @@ mt7531_setup_common(struct dsa_switch *ds)
+ 	/* Allow mirroring frames received on the local port (monitor port). */
+ 	mt7530_set(priv, MT753X_AGC, LOCAL_EN);
  
-@@ -683,6 +685,7 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 			continue;
- 		}
++	/* Enable Special Tag for rx frames */
++	if (priv->id == ID_EN7581)
++		mt7530_write(priv, MT753X_CPORT_SPTAG_CFG,
++			     CPORT_SW2FE_STAG_EN | CPORT_FE2SW_STAG_EN);
++
+ 	/* Flush the FDB table */
+ 	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
+ 	if (ret < 0)
+diff --git a/drivers/net/dsa/mt7530.h b/drivers/net/dsa/mt7530.h
+index 448200689f492dcb73ef056d7284090c1c662e67..349d72a35771f35d478244ab29be1801b3466a5f 100644
+--- a/drivers/net/dsa/mt7530.h
++++ b/drivers/net/dsa/mt7530.h
+@@ -627,6 +627,10 @@ enum mt7531_xtal_fsel {
+ #define  MT7531_GPIO12_RG_RXD3_MASK	GENMASK(19, 16)
+ #define  MT7531_EXT_P_MDIO_12		(2 << 16)
  
-+		port = eth->ports[p];
- 		skb = napi_build_skb(e->buf, q->buf_size);
- 		if (!skb) {
- 			page_pool_put_full_page(q->page_pool,
-@@ -694,10 +697,26 @@ static int airoha_qdma_rx_process(struct airoha_queue *q, int budget)
- 		skb_reserve(skb, 2);
- 		__skb_put(skb, len);
- 		skb_mark_for_recycle(skb);
--		skb->dev = eth->ports[p]->dev;
-+		skb->dev = port->dev;
- 		skb->protocol = eth_type_trans(skb, skb->dev);
- 		skb->ip_summed = CHECKSUM_UNNECESSARY;
- 		skb_record_rx_queue(skb, qid);
++#define MT753X_CPORT_SPTAG_CFG		0x7c10
++#define  CPORT_SW2FE_STAG_EN		BIT(1)
++#define  CPORT_FE2SW_STAG_EN		BIT(0)
 +
-+		if (netdev_uses_dsa(port->dev)) {
-+			/* PPE module requires untagged packets to work
-+			 * properly and it provides DSA port index via the
-+			 * DMA descriptor. Report DSA tag to the DSA stack
-+			 * via skb dst info.
-+			 */
-+			u32 sptag = FIELD_GET(QDMA_ETH_RXMSG_SPTAG,
-+					      le32_to_cpu(desc->msg0));
-+
-+			if (sptag < ARRAY_SIZE(port->dsa_meta) &&
-+			    port->dsa_meta[sptag])
-+				skb_dst_set_noref(skb,
-+						  &port->dsa_meta[sptag]->dst);
-+		}
-+
- 		napi_gro_receive(&q->napi, skb);
- 
- 		done++;
-@@ -1636,25 +1655,74 @@ static u16 airoha_dev_select_queue(struct net_device *dev, struct sk_buff *skb,
- 	return queue < dev->num_tx_queues ? queue : 0;
- }
- 
-+static u32 airoha_get_dsa_tag(struct sk_buff *skb, struct net_device *dev)
-+{
-+#if IS_ENABLED(CONFIG_NET_DSA)
-+	struct ethhdr *ehdr;
-+	struct dsa_port *dp;
-+	u8 xmit_tpid;
-+	u16 tag;
-+
-+	if (!netdev_uses_dsa(dev))
-+		return 0;
-+
-+	dp = dev->dsa_ptr;
-+	if (IS_ERR(dp))
-+		return 0;
-+
-+	if (dp->tag_ops->proto != DSA_TAG_PROTO_MTK)
-+		return 0;
-+
-+	if (skb_ensure_writable(skb, ETH_HLEN))
-+		return 0;
-+
-+	ehdr = (struct ethhdr *)skb->data;
-+	tag = be16_to_cpu(ehdr->h_proto);
-+	xmit_tpid = tag >> 8;
-+
-+	switch (xmit_tpid) {
-+	case MTK_HDR_XMIT_TAGGED_TPID_8100:
-+		ehdr->h_proto = cpu_to_be16(ETH_P_8021Q);
-+		break;
-+	case MTK_HDR_XMIT_TAGGED_TPID_88A8:
-+		ehdr->h_proto = cpu_to_be16(ETH_P_8021AD);
-+		break;
-+	default:
-+		/* PPE module requires untagged DSA packets to work properly,
-+		 * so move DSA tag to DMA descriptor.
-+		 */
-+		memmove(skb->data + MTK_HDR_LEN, skb->data, 2 * ETH_ALEN);
-+		__skb_pull(skb, MTK_HDR_LEN);
-+		break;
-+	}
-+
-+	return tag;
-+#else
-+	return 0;
-+#endif
-+}
-+
- static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 				   struct net_device *dev)
- {
- 	struct airoha_gdm_port *port = netdev_priv(dev);
--	u32 nr_frags = 1 + skb_shinfo(skb)->nr_frags;
--	u32 msg0, msg1, len = skb_headlen(skb);
- 	struct airoha_qdma *qdma = port->qdma;
-+	u32 nr_frags, tag, msg0, msg1, len;
- 	struct netdev_queue *txq;
- 	struct airoha_queue *q;
--	void *data = skb->data;
-+	void *data;
- 	int i, qid;
- 	u16 index;
- 	u8 fport;
- 
- 	qid = skb_get_queue_mapping(skb) % ARRAY_SIZE(qdma->q_tx);
-+	tag = airoha_get_dsa_tag(skb, dev);
-+
- 	msg0 = FIELD_PREP(QDMA_ETH_TXMSG_CHAN_MASK,
- 			  qid / AIROHA_NUM_QOS_QUEUES) |
- 	       FIELD_PREP(QDMA_ETH_TXMSG_QUEUE_MASK,
--			  qid % AIROHA_NUM_QOS_QUEUES);
-+			  qid % AIROHA_NUM_QOS_QUEUES) |
-+	       FIELD_PREP(QDMA_ETH_TXMSG_SP_TAG_MASK, tag);
- 	if (skb->ip_summed == CHECKSUM_PARTIAL)
- 		msg0 |= FIELD_PREP(QDMA_ETH_TXMSG_TCO_MASK, 1) |
- 			FIELD_PREP(QDMA_ETH_TXMSG_UCO_MASK, 1) |
-@@ -1685,6 +1753,8 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	spin_lock_bh(&q->lock);
- 
- 	txq = netdev_get_tx_queue(dev, qid);
-+	nr_frags = 1 + skb_shinfo(skb)->nr_frags;
-+
- 	if (q->queued + nr_frags > q->ndesc) {
- 		/* not enough space in the queue */
- 		netif_tx_stop_queue(txq);
-@@ -1692,7 +1762,10 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 		return NETDEV_TX_BUSY;
- 	}
- 
-+	len = skb_headlen(skb);
-+	data = skb->data;
- 	index = q->head;
-+
- 	for (i = 0; i < nr_frags; i++) {
- 		struct airoha_qdma_desc *desc = &q->desc[index];
- 		struct airoha_queue_entry *e = &q->entry[index];
-@@ -2226,6 +2299,37 @@ static const struct ethtool_ops airoha_ethtool_ops = {
- 	.get_rmon_stats		= airoha_ethtool_get_rmon_stats,
- };
- 
-+static int airoha_metadata_dst_alloc(struct airoha_gdm_port *port)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(port->dsa_meta); i++) {
-+		struct metadata_dst *md_dst;
-+
-+		md_dst = metadata_dst_alloc(0, METADATA_HW_PORT_MUX,
-+					    GFP_KERNEL);
-+		if (!md_dst)
-+			return -ENOMEM;
-+
-+		md_dst->u.port_info.port_id = i;
-+		port->dsa_meta[i] = md_dst;
-+	}
-+
-+	return 0;
-+}
-+
-+static void airoha_metadata_dst_free(struct airoha_gdm_port *port)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(port->dsa_meta); i++) {
-+		if (!port->dsa_meta[i])
-+			continue;
-+
-+		metadata_dst_free(port->dsa_meta[i]);
-+	}
-+}
-+
- static int airoha_alloc_gdm_port(struct airoha_eth *eth, struct device_node *np)
- {
- 	const __be32 *id_ptr = of_get_property(np, "reg", NULL);
-@@ -2298,6 +2402,10 @@ static int airoha_alloc_gdm_port(struct airoha_eth *eth, struct device_node *np)
- 	port->id = id;
- 	eth->ports[index] = port;
- 
-+	err = airoha_metadata_dst_alloc(port);
-+	if (err)
-+		return err;
-+
- 	return register_netdev(dev);
- }
- 
-@@ -2390,8 +2498,10 @@ static int airoha_probe(struct platform_device *pdev)
- 	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
- 		struct airoha_gdm_port *port = eth->ports[i];
- 
--		if (port && port->dev->reg_state == NETREG_REGISTERED)
-+		if (port && port->dev->reg_state == NETREG_REGISTERED) {
-+			airoha_metadata_dst_free(port);
- 			unregister_netdev(port->dev);
-+		}
- 	}
- 	free_netdev(eth->napi_dev);
- 	platform_set_drvdata(pdev, NULL);
-@@ -2416,6 +2526,7 @@ static void airoha_remove(struct platform_device *pdev)
- 			continue;
- 
- 		airoha_dev_stop(port->dev);
-+		airoha_metadata_dst_free(port);
- 		unregister_netdev(port->dev);
- 	}
- 	free_netdev(eth->napi_dev);
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 743aaf10235fe09fb2a91b491f4b25064ed8319b..fee6c10eaedfd30207205b6557e856091fd45d7e 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -15,6 +15,7 @@
- 
- #define AIROHA_MAX_NUM_GDM_PORTS	1
- #define AIROHA_MAX_NUM_QDMA		2
-+#define AIROHA_MAX_DSA_PORTS		7
- #define AIROHA_MAX_NUM_RSTS		3
- #define AIROHA_MAX_NUM_XSI_RSTS		5
- #define AIROHA_MAX_MTU			2000
-@@ -43,6 +44,10 @@
- #define QDMA_METER_IDX(_n)		((_n) & 0xff)
- #define QDMA_METER_GROUP(_n)		(((_n) >> 8) & 0x3)
- 
-+#define MTK_HDR_LEN			4
-+#define MTK_HDR_XMIT_TAGGED_TPID_8100	1
-+#define MTK_HDR_XMIT_TAGGED_TPID_88A8	2
-+
- enum {
- 	QDMA_INT_REG_IDX0,
- 	QDMA_INT_REG_IDX1,
-@@ -231,6 +236,8 @@ struct airoha_gdm_port {
- 	/* qos stats counters */
- 	u64 cpu_tx_packets;
- 	u64 fwd_tx_packets;
-+
-+	struct metadata_dst *dsa_meta[AIROHA_MAX_DSA_PORTS];
- };
- 
- struct airoha_eth {
-diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
-index 7c9dadb348834cb5a856760abe45e8221d6fd700..e467dd81ff44a9ad560226cab42b7431812f5fb9 100644
---- a/drivers/net/ethernet/airoha/airoha_regs.h
-+++ b/drivers/net/ethernet/airoha/airoha_regs.h
-@@ -624,6 +624,8 @@
- #define QDMA_ETH_TXMSG_ACNT_G1_MASK	GENMASK(10, 6)	/* 0x1f do not count */
- #define QDMA_ETH_TXMSG_ACNT_G0_MASK	GENMASK(5, 0)	/* 0x3f do not count */
- 
-+/* RX MSG0 */
-+#define QDMA_ETH_RXMSG_SPTAG		GENMASK(21, 14)
- /* RX MSG1 */
- #define QDMA_ETH_RXMSG_DEI_MASK		BIT(31)
- #define QDMA_ETH_RXMSG_IP6_MASK		BIT(30)
+ /* Registers for LED GPIO control (MT7530 only)
+  * All registers follow this pattern:
+  * [ 2: 0]  port 0
 
 -- 
 2.48.1
