@@ -4,100 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E504EC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:52:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E656C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4abGwX6CzCq8We7SpM6V7/PXsy+lszV/t7IY70ml+U4=; b=4slNkXU+y2LByAbzjn0SdhiNup
-	/H1/I/GNNBc4HBg/BuDteUrzT8R8MvwDeJQB51OcdUqO7Nntbx24z0Fvpo/tQr3jYVj2CbWR4Xkfd
-	uijuT3oBQBotbVS9O0UdlPxbbDhdvV2+bm02MhLCRAhGlb7eJQp4bHORrhVrg5NYUraOrcyQZmfVb
-	3vbph8tZpQoJ7x1Cl/j04PK01lVHZ4CoOAaxBMxi/ElweylLIVGYLuTrOfB/ecM3l2NyPGee7UZJS
-	bliGadBulrD63+CZNb2Gs36pZL7rgL6dYnThNEGl/KMblrPcj1zn/dvgcpgkPwwxdRVdCJdlSEK3H
-	XjIBAoww==;
+	bh=AQIBhWw6VYtBolZ65JR3HMz9Pxxv8mzqzv5iLGmDaMo=; b=0NsdJf/5p8DQUdxy2163G0cA5R
+	/X096JZfciqJRHGrk9oYVY9ekQo3wXOxElrBvko/GBqEn6CxJqRqaFaGATTGggH6dgElrwClFfgw0
+	ip11VFOLjN0DPpJulGE0QoLT+Z7ZODOtvWCdFbTPyYl8FY20YhFzskyB5z+iOWRNLhRw8Em9Zsmqr
+	fRdEV4ydXTQKlYBl9B64fg9jz1mwWu04MD7+B33PUvdrsVEVvWiGJH9mNRXQ2aGIEGAap+tYGKW8u
+	TJrr/Q7rOgqq6jzMpiPDN7Iz97JZe/rHfP36mQMzrE3kvcRFhEnq1CNSHBeHTw1TQkaMiictVBcIR
+	EquRoq6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tieJg-0000000CJAn-3H8d;
-	Thu, 13 Feb 2025 18:52:04 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1tieL6-0000000CJRr-2UHT;
+	Thu, 13 Feb 2025 18:53:32 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tidWD-0000000C7D3-1Yxv
+	id 1tidWt-0000000C7P6-1YwH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 18:00:58 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ab7c07e8b9bso212027466b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 10:00:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1739469656; x=1740074456; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=4abGwX6CzCq8We7SpM6V7/PXsy+lszV/t7IY70ml+U4=;
-        b=kGeBbxuye2lShRe27aXSdjD5t4GxK8m+ezsa8bnYAzsqB3nBay+qWuztjFUGTTBXEf
-         VISYgbqFxLI5t57vbHgdKi0lfV4Xwu4bG2PRk/Zem9tkF1WhydfM5JSyPEFKSHo76+aC
-         eT+ICqA5vk3Gzc7tNXuSVxKizShSWsgvDNrpkapwKblnoH0hs3lbjku7IsAwwUnrj0oS
-         UYQ7NDW4V+rCG5cPO4tEcK90CX18y0i6i9vjih7QThBPl3tznN+P20IqTXk3CqbphIyg
-         xr5pk9pxq5ku82VTiaBEYpqXWBSdaE13XNlatL3KJh7plg5Bh1rCEHEkjvgRtnJzm6Gt
-         XJcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739469656; x=1740074456;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4abGwX6CzCq8We7SpM6V7/PXsy+lszV/t7IY70ml+U4=;
-        b=XZvDHnE0ptP0/bHsXt8wXF92a1spn3AGDEYfqM4BA4QdgJqkFYKQom494Z755ZnAry
-         JrhW8Nosgpm+wOkt2qk3TrqJW/JFpeaCEuEX8F8EzKe4cPjvgVQorgi86EwBW+J8PqmW
-         kuEvhuuCU0VHUfwBFgj2MhLOtgDb5zAUn5C8FvCY3N7m1LkpIx8o+n5Y32GqO0Xxe+92
-         0PHD+e1yT2WNgTU4fLH9qM4/juiq5ZdK9TjX4y1zkwjBxtR2acK0wW1IYuhH2q4mlXSe
-         nzZ9wZ81zqs2l0Og2Ifk+PCuKP/gW7dhYJBgUx331q/zDXR8Lry+exjQ/iP+9Jy9V0h0
-         BQ1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVD4xkvSrnMZS/tn9rorM4qOpDP1navujcjVHasCDvHNtqmIWpN+xgABj9ZqC0Whwo1KuuV4ZaTIP2MFLvuxYqQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRCx1Ry0FSxe+jhLd90z8hBlyfGNRTxyukz4DO3JjcBt39R8Zv
-	bV+t19641BgJGQhS4jAeGGbso8o16GKNeL13RFFQgbD33zNbmUVevSi3HzFkYMh5dCqSHkDzSkz
-	jypiuw51PdGgJp6XJ8GjFs8f4bvWciwbdiy4/9Q==
-X-Gm-Gg: ASbGnctNd0pA2x4HTSfNnZly9sL0jdptpRW91w/4ECnYlXinW8zWXZuST1e3Z/6jZ2+
-	sFfQH3RhsZTmJAE3EIhOAf+eM5eg1MBqg6m8tyynAfhrxn1LF8o/y6HcUzkolWFZMC9fJgu9Yno
-	eqPHXptdDSH29inQT2CVcsLqdKw3a1
-X-Google-Smtp-Source: AGHT+IEPn1vehWPEneMvy4h+MekCpIWgHCiWfjunKXP/Rg/zGzFsLUQXgBKZUi6VnPclc10evNFU6A3yPAiro3jiL5E=
-X-Received: by 2002:a17:906:7807:b0:ab7:6369:83fc with SMTP id
- a640c23a62f3a-ab7f34af3d5mr742379366b.38.1739469655305; Thu, 13 Feb 2025
- 10:00:55 -0800 (PST)
-MIME-Version: 1.0
-References: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
- <20250213171435.1c2ce376@bootlin.com> <a3c5103c-829a-4301-ba53-6ef9bd1e74e7@lunn.ch>
- <CAMEGJJ3-JXhin_Ht76EqUNAwLiNisa9PrCrdUzCgj=msGZfb5A@mail.gmail.com>
- <20250213180733.11999e07@bootlin.com> <CAMEGJJ2FB-wwyOtjjCmPJ-vUDpZaV-8MMXxV13qXnKxYSzt9pw@mail.gmail.com>
- <07b973c1-4e35-440c-9009-85302a455912@lunn.ch>
-In-Reply-To: <07b973c1-4e35-440c-9009-85302a455912@lunn.ch>
-From: Phil Elwell <phil@raspberrypi.com>
-Date: Thu, 13 Feb 2025 18:00:44 +0000
-X-Gm-Features: AWEUYZk57dt7oMdE7oJWluEUSR6yrcUWkxTlMHydzKGl0ZQ5NYeC-9oOiQGkrQw
-Message-ID: <CAMEGJJ3++pZtOEvjAm2zMPVrLxQPtuzBWh4QQzGAt3NWuyyrJQ@mail.gmail.com>
-Subject: Re: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device using
- a DT overlay
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Herve Codina <herve.codina@bootlin.com>, Andrea della Porta <andrea.porta@suse.com>, 
-	Arnd Bergmann <arnd@arndb.de>, 
-	"maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE" <bcm-kernel-feedback-list@broadcom.com>, bhelgaas@google.com, brgl@bgdev.pl, 
-	Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley <conor+dt@kernel.org>, derek.kiernan@amd.com, 
-	devicetree@vger.kernel.org, dragan.cvetic@amd.com, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, krzk+dt@kernel.org, kw@linux.com, 
-	Linus Walleij <linus.walleij@linaro.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-clk@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
-	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, lpieralisi@kernel.org, 
-	luca.ceresoli@bootlin.com, manivannan.sadhasivam@linaro.org, 
-	masahiroy@kernel.org, Michael Turquette <mturquette@baylibre.com>, 
-	Rob Herring <robh@kernel.org>, saravanak@google.com, Stephen Boyd <sboyd@kernel.org>, 
-	thomas.petazzoni@bootlin.com, Stefan Wahren <wahrenst@gmx.net>, 
-	Will Deacon <will@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 13 Feb 2025 18:01:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BDB9EA42854;
+	Thu, 13 Feb 2025 17:59:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFC4BC4CED1;
+	Thu, 13 Feb 2025 18:01:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739469697;
+	bh=NW1OYpe2mVwwte24KvqPb9pRL5isVReq3c3DtOOBBMA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lKkAptOe5ZG6vP8rPEis0AlEiA/1jNEChi09tTGq67mYGQvoYjq2QsQirFo+qzZgb
+	 lQ+hWQtnhgTT5QDZIgLE0LLK/qzdHBxEs1u3jP1jbVy94VndeSRhUaa42fTPoXmUqj
+	 pivxwi3j9oPp4knqLBaU597hhT9pV1fhknls8UaWBTrKic1gyFlvuxDovPaJkjkHow
+	 fOkRlYpLpYgd8zNL2X4qtYZnDaLpQS5UPyQudbGm2tBsFUeanF/x7OySGyxItxrZ2K
+	 CIQ52uBM+57WBFOnOJvGIdA3m2yKZ4t4E+ybCY5Pd/bwH1tUj0GrrJZymNHMOSdvEg
+	 JRwnbdjsJbEOQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tidWn-003nTm-Sy;
+	Thu, 13 Feb 2025 18:01:35 +0000
+Date: Thu, 13 Feb 2025 18:01:33 +0000
+Message-ID: <86r041sozm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>,	Hector Martin
+ <marcan@marcan.st>,	Sven Peter <sven@svenpeter.dev>,	Bjorn Helgaas
+ <bhelgaas@google.com>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Krzysztof
+ =?UTF-8?B?V2lsY3p5xYRza2k=?= <kw@linux.com>,	Manivannan Sadhasivam
+ <manivannan.sadhasivam@linaro.org>,	Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,	Conor Dooley <conor+dt@kernel.org>,	Mark Kettenis
+ <kettenis@openbsd.org>,	Stan Skowronek <stan@corellium.com>,
+	asahi@lists.linux.dev,	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 7/7] PCI: apple: Add T602x PCIe support
+In-Reply-To: <CAL_JsqJ-sYsy-11_UiEKrKok49-a-VJUvm3vBGbpu9vY3TKLUw@mail.gmail.com>
+References: <20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io>
+	<20250211-pcie-t6-v1-7-b60e6d2501bb@rosenzweig.io>
+	<CAL_JsqJ-sYsy-11_UiEKrKok49-a-VJUvm3vBGbpu9vY3TKLUw@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: robh@kernel.org, alyssa@rosenzweig.io, marcan@marcan.st, sven@svenpeter.dev, bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, krzk+dt@kernel.org, conor+dt@kernel.org, kettenis@openbsd.org, stan@corellium.com, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_100057_407071_E74DE2F1 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20250213_100139_536379_B22B13C9 
+X-CRM114-Status: GOOD (  28.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,17 +94,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Feb 2025 at 17:51, Andrew Lunn <andrew@lunn.ch> wrote:
->
-> > etc. The same problem would exist for U-boot. Even though RP1 has a
-> > standard XHCI controller
->
-> Although it is a standard XHCI controller, i assume it is not a PCIe
-> XHCI controller which can just be enumerated as a PCIe device?
+On Thu, 13 Feb 2025 17:56:19 +0000,
+Rob Herring <robh@kernel.org> wrote:
+>=20
+> On Tue, Feb 11, 2025 at 1:54=E2=80=AFPM Alyssa Rosenzweig <alyssa@rosenzw=
+eig.io> wrote:
+> >
+> > From: Hector Martin <marcan@marcan.st>
+> >
+> > This version of the hardware moved around a bunch of registers, so we
+> > drop the old compatible for these and introduce register offset
+> > structures to handle the differences.
+> >
+> > Signed-off-by: Hector Martin <marcan@marcan.st>
+> > Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+> > ---
+> >  drivers/pci/controller/pcie-apple.c | 125 ++++++++++++++++++++++++++++=
+++------
+> >  1 file changed, 105 insertions(+), 20 deletions(-)
+> >
+> > diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controll=
+er/pcie-apple.c
+> > index 7f4839fb0a5b15a9ca87337f53c14a1ce08301fc..7c598334427cb56ca066890=
+ac61143ae1d3ed744 100644
+> > --- a/drivers/pci/controller/pcie-apple.c
+> > +++ b/drivers/pci/controller/pcie-apple.c
+> > @@ -26,6 +26,7 @@
+> >  #include <linux/list.h>
+> >  #include <linux/module.h>
+> >  #include <linux/msi.h>
+> > +#include <linux/of_device.h>
+>=20
+> Drivers should not need this...
+>=20
+> > +const struct reg_info t602x_hw =3D {
+> > +       .phy_lane_ctl =3D 0,
+> > +       .port_msiaddr =3D PORT_T602X_MSIADDR,
+> > +       .port_msiaddr_hi =3D PORT_T602X_MSIADDR_HI,
+> > +       .port_refclk =3D 0,
+> > +       .port_perst =3D PORT_T602X_PERST,
+> > +       .port_rid2sid =3D PORT_T602X_RID2SID,
+> > +       .port_msimap =3D PORT_T602X_MSIMAP,
+> > +       .max_rid2sid =3D 512, /* 16 on t602x, guess for autodetect on f=
+uture HW */
+> > +       .max_msimap =3D 512, /* 96 on t602x, guess for autodetect on fu=
+ture HW */
+> > +};
+> > +
+> > +static const struct of_device_id apple_pcie_of_match_hw[] =3D {
+> > +       { .compatible =3D "apple,t6020-pcie", .data =3D &t602x_hw },
+> > +       { .compatible =3D "apple,pcie", .data =3D &t8103_hw },
+> > +       { }
+> > +};
+>=20
+> You should not have 2 match tables.
+>=20
+> > @@ -750,13 +828,19 @@ static int apple_pcie_init(struct pci_config_wind=
+ow *cfg)
+> >         struct platform_device *platform =3D to_platform_device(dev);
+> >         struct device_node *of_port;
+> >         struct apple_pcie *pcie;
+> > +       const struct of_device_id *match;
+> >         int ret;
+> >
+> > +       match =3D of_match_device(apple_pcie_of_match_hw, dev);
+> > +       if (!match)
+> > +               return -ENODEV;
+> > +
+> >         pcie =3D devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
+> >         if (!pcie)
+> >                 return -ENOMEM;
+> >
+> >         pcie->dev =3D dev;
+> > +       pcie->hw =3D match->data;
+> >
+> >         mutex_init(&pcie->lock);
+> >
+> > @@ -795,6 +879,7 @@ static const struct pci_ecam_ops apple_pcie_cfg_eca=
+m_ops =3D {
+> >  };
+> >
+> >  static const struct of_device_id apple_pcie_of_match[] =3D {
+> > +       { .compatible =3D "apple,t6020-pcie", .data =3D &apple_pcie_cfg=
+_ecam_ops },
+> >         { .compatible =3D "apple,pcie", .data =3D &apple_pcie_cfg_ecam_=
+ops },
+> >         { }
+>=20
+> You are going to need to merge the data to 1 struct.
+>=20
+> And then use (of_)?device_get_match_data() in probe().
 
-There are too many sub-devices in RP1 for them each to get their own
-function. Instead, they all share a single function, with DT to
-declare them.
+No, that will break the driver. This isn't a standalone driver, but
+only an ECAM shim (as you can tell from the actual probe function).
 
-Phil
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
