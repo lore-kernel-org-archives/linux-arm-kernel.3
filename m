@@ -4,136 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39522C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 11:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C2C1C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 11:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FYeA0egZv4FF41HWS+5lY5RJ3ar8Pphs0FsmtbhyRSE=; b=uWQgSVQw0zn2dkBRmC7QGBSANZ
-	BhWjyyZ5UiDbib+rOOALUreFsp4l+60bavkT6HMFAwN9d4MCoLXmdArNuHdxaRKSYASmuk7vmOH9Q
-	UriTWjMj/Bmsp90UiL2LfcTnwJUUvXw82YT488dMVG8q7V4Lb77d1dMRNl+xKhlHxnJROqlXEBaFk
-	q/IrhTZ14Q+OpR3IVadSxSiHw9OpV0wXKU6GSmJ7/deDFyaT2HTCvbbs73SPRRBY7O37GWYJ29uhv
-	GYca+lc8xKaUHKfS9Uxc/8mL4Uj4kiBPVBnUQE/JRXVZzH6ln3JOLF5hRgGiTtrLP0sCd7IDzJIsh
-	kRwKLsVA==;
+	bh=JeLebbqDX0WJfyw1CE6wJZuiafL/LoNX99Os8d87jXY=; b=3XFX64u3tTaParTfk5B0KoQyWJ
+	umUarbq4peOWGptBNZzzlul7s/mFjU2nYycw7LlzmPW6arwUyTcGWfyAOjl2eGhAxYXCuR0iJJra4
+	o05N1sgK8v0bp+vjJlQ+lGCmDGn5y7MRNn7w5FF7XZzgNC0ymVkOOHTiuY+KMJIX1VQaaLJqzuPxg
+	nbAc64cvPjp6Tf0jhIYJ8n9fLO7Gj4TgOiURkuLt1gmaFcMhgiSbqtEyiH7pkc5+T70C1ra1LefXE
+	LWlSqjaO/WXgmzIBYHPcEllaVcWSwj9xHsLlyURnzH8jG6qG6UzMyF/1mBTEX8KhI/CONhl9EM+Qm
+	3IaxM5pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXOE-0000000Aqp2-48wZ;
-	Thu, 13 Feb 2025 11:28:19 +0000
-Received: from [203.254.224.34] (helo=mailout4.samsung.com)
+	id 1tiXPd-0000000ArFH-2idJ;
+	Thu, 13 Feb 2025 11:29:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXI6-0000000Ap1U-14t5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 11:22:01 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250213112151epoutp0494912dc902d6d51c8db522a67acaa020~jwKigKahN0964509645epoutp047
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 11:21:51 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250213112151epoutp0494912dc902d6d51c8db522a67acaa020~jwKigKahN0964509645epoutp047
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1739445711;
-	bh=FYeA0egZv4FF41HWS+5lY5RJ3ar8Pphs0FsmtbhyRSE=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=qj29tY/iSIOX/IKeNwEWLUhYSOojk/p0yq39MyLUD5o9EhMrlTrfigvInh/f3eecq
-	 84a7nGp1x9AltRNUKXaTRFq1GhRgM7M05Jp+LqCej7VEd5vtVEEIO+C/IeAU42+Yjt
-	 9eaRUYaXidA013VMkA3nAAG5lk5HvpMbpBwigtMw=
-Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTP id
-	20250213112150epcas5p432ded18de14682cc3b9c16d15c3a6f1b~jwKh9cVoO2775827758epcas5p4Q;
-	Thu, 13 Feb 2025 11:21:50 +0000 (GMT)
-Received: from epsmgec5p1new.samsung.com (unknown [182.195.38.176]) by
-	epsnrtp1.localdomain (Postfix) with ESMTP id 4Ytt710fwvz4x9Pr; Thu, 13 Feb
-	2025 11:21:49 +0000 (GMT)
-Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
-	epsmgec5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	AF.8A.19710.CC5DDA76; Thu, 13 Feb 2025 20:21:48 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250213110439epcas5p4363f12d24845f86de9f5e0d1c15bcaf9~jv7hQbNb63061630616epcas5p4_;
-	Thu, 13 Feb 2025 11:04:39 +0000 (GMT)
-Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250213110439epsmtrp1713a253bece086c0e65de979af9e8830~jv7hPeule2200722007epsmtrp1E;
-	Thu, 13 Feb 2025 11:04:39 +0000 (GMT)
-X-AuditID: b6c32a44-363dc70000004cfe-d8-67add5cc2674
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	CF.18.23488.7C1DDA76; Thu, 13 Feb 2025 20:04:39 +0900 (KST)
-Received: from FDSFTE596 (unknown [107.122.82.131]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250213110436epsmtip2c8a8209a8c3b9ff20b96d86af3fac0e3~jv7ezI9zW2340823408epsmtip2R;
-	Thu, 13 Feb 2025 11:04:36 +0000 (GMT)
-From: "Swathi K S" <swathi.ks@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
-Cc: <krzk+dt@kernel.org>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
-	<edumazet@google.com>, <kuba@kernel.org>, <pabeni@redhat.com>,
-	<robh@kernel.org>, <conor+dt@kernel.org>, <richardcochran@gmail.com>,
-	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-	<rmk+kernel@armlinux.org.uk>, <netdev@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-In-Reply-To: <20250213-adorable-arboreal-degu-6bdcb8@krzk-bin>
-Subject: RE: [PATCH v6 1/2] dt-bindings: net: Add FSD EQoS device tree
- bindings
-Date: Thu, 13 Feb 2025 16:34:29 +0530
-Message-ID: <009a01db7e07$132feb60$398fc220$@samsung.com>
+	id 1tiXJT-0000000ApP0-2eDh;
+	Thu, 13 Feb 2025 11:23:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=JeLebbqDX0WJfyw1CE6wJZuiafL/LoNX99Os8d87jXY=; b=CrG0O6IBblpFs+n12fvgI9VWPV
+	bOhxdar2wtXt8UWDfKhaZhXXTkLP2icbnws1qMvFtO5BIAM37sFrBEYgwxPuD3qNjiRPyIpfAN1W9
+	Jv/HRXMbm1qTSmCeFpjqISitePmboxSZkDTkLnurcNSEr4XTEhIKGHC0u2kYh9zBfgPI1uTDc70jG
+	9rE7UzulUoq1aau6782ImgFRAfrk62xo2XKkeEL2uuEnDeEzYqF8W2bQC4xor76eNM/m58DohGv0k
+	BzsPhSIP+2BfMo71XSK+2b3rd9CHQjnJNwXgr2NsiyBvlgsnqKIkf2MQpjAKZOwLpjNJoEuFo8Stt
+	6cBgmb5w==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiXJQ-00000000yEw-2Thf;
+	Thu, 13 Feb 2025 11:23:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 84F7226A4;
+	Thu, 13 Feb 2025 03:23:40 -0800 (PST)
+Received: from [10.1.32.44] (e122027.cambridge.arm.com [10.1.32.44])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CE743F6A8;
+	Thu, 13 Feb 2025 03:23:14 -0800 (PST)
+Message-ID: <8e75c5ff-a97b-4a6f-9c8b-ac2598eafe60@arm.com>
+Date: Thu, 13 Feb 2025 11:23:10 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQFMfZy5LnHh86L+CikZ+hKlrx3PbgHP/Q5uAh59lGQBgzSo3LQ3hOaA
-Content-Language: en-in
-X-Brightmail-Tracker: H4sIAAAAAAAAA01Ta1BUZRjuO2cvB2mZ44LywUSuJ7twWdjFZT3bLFhKzhZWFD9yGJWOcGYX
-	2dvsLlJNTRZGiALSJLELrgsjFw1IF12X6wQhjkKAFzYoKBJIbjOMohgY0C4Hin/P9z7P+z3v
-	810wlD/NCcRStSbaoKXUBGcDy/FT8CvCrr4apWjotpycnygEZOWwk01WN3cjZEnPMRZ5tr2b
-	TY513OOSE5bfOWRPz0Uu2evIY5P2ERebvNNQwiFzXKNs0rpYwyY7bJvJuc5pQLZ3jaPk7fwC
-	hFxucnJf4yvuuG6hisvnBxDFWP4VrqLeMsRV2OzpCvuF4xxF3bnPFfXOWUQx09LHUbS2iBWz
-	9ufjvRPT5CqaSqENAlqbrEtJ1SqjibiEpN1JUVKRWCiWkTsIgZbS0NFE7N544Z5UtTsXIThC
-	qdPdpXjKaCQiYuQGXbqJFqh0RlM0QetT1HqJPtxIaYzpWmW4lja9KhaJIqPcwg/TVHXmZkTf
-	L/joQeEQ6yho9M8BXhjEJXDw7/sgB2zA+HgjgOaqRZaH4OMPAcy5F8YQcwDen/6StdZR9bAI
-	YYhmAK2OBpRZjAP4XfYj4FFx8BBYltfC9WA/XAjr+iu5HhGKD6PwZFHJylZeeAzMnc10Exjm
-	i78Hs675eMos/EVYUDLH8WAeLoNtrTdZDN4Ib5hHVzCKh8KK0imUmUgA58cq2IzXHvi0eAkw
-	Gn94bf7kynAQP+EFKx1ONtMQCwfrMjkM9oWT1y9zGRwIJ/KzVnES/D6vbzWyCg4tFKzqd8If
-	73rmx9wGwfCHhgimHARP36xFGF8fmPt0FGHqPOi0ruEX4OKUa3XLAOgon+GeAoRlXTTLumiW
-	dREs/7vZAOsCCKD1Ro2STo7Si7V0xn8XnqzT2MHKsw+JdYL+s0vhbQDBQBuAGEr48WBhtZLP
-	S6E+/oQ26JIM6Wra2Aai3OddgAZuSta5/43WlCSWyEQSqVQqkW2Xigl/Xmb9MSUfV1ImOo2m
-	9bRhrQ/BvAKPIgc6R20J2dih0IMR7KyNGO9464I690zYvi/eBI7HTwJcj4sOTVyJ9HZs23vu
-	ZdOmxbjSwb4y76L9w16/1XduaSWoLuuutPlk+tKIf6LQ/M6ULYgM3Uw0Fl/tiKm6WP3rQfR9
-	LeIzvlQxkLaj3CqMvH7a71NNwfmF7N3tQfWnmpb/GbYkbGFDyaQm8sHXR3wzUrfJ5Rr71pqr
-	5jFZ8K7Kv575Y1jfe2BfapP88I0Pen+Je/Qz/nbG5FuijlvWmbvdxW9cop6bebf3z5eeTYzM
-	bnrdpAz7Ft0pFwwcXlbXfmOuLaXPTA9FDQpkrv6ZphNSqq56ZHvtmKUs74ntM5+Y8v21X6ki
-	CJZRRYlDUIOR+hfqY4fEfwQAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrGIsWRmVeSWpSXmKPExsWy7bCSvO7xi2vTDTY+EbD4+XIao8XyBztY
-	LdbsPcdkMed8C4vF/CPnWC2eHnvEbvFy1j02i/PnN7BbXNjWx2qx6fE1VovLu+awWXRde8Jq
-	Me/vWlaLYwvELL6dfsNoceTMC2aLS/0TmSz+79nB7iDkcfnaRWaPLStvMnk87d/K7rFz1l12
-	jwWbSj02repk89i8pN5j547PTB7v911l8zi4z9Dj8ya5AO4oLpuU1JzMstQifbsErowFGyaw
-	FjyXr9jY3svcwHhCrIuRk0NCwERixacZTF2MXBxCArsZJWadX84MkZCU+NQ8lRXCFpZY+e85
-	O0TRM0aJvnUbGEESbAJaEov69rGD2CICuhKbbywHK2IW+MIsMfv+ZKixbxklrjYdYAGp4hSw
-	k+j93AzWISzgL/G+9ySYzSKgKjFxzjc2EJtXwFLi0MFTLBC2oMTJmU/AbGYBbYmnN5/C2csW
-	voY6VUHi59NlrBBXuEn8nv2PEaJGXOLozx7mCYzCs5CMmoVk1Cwko2YhaVnAyLKKUTK1oDg3
-	PTfZsMAwL7Vcrzgxt7g0L10vOT93EyM46rU0djC++9akf4iRiYPxEKMEB7OSCK/EtDXpQrwp
-	iZVVqUX58UWlOanFhxilOViUxHlXGkakCwmkJ5akZqemFqQWwWSZODilGpi6QvQf7P8iaav1
-	4mzOiq3nQy7PXRN8est2l/dRqXdY64ofqt09IMTynvtnrWVB0NezPutdg3yCGjhmeX06veyJ
-	mPB2izvXC/zU0vPPBuYdCJZJiBD1TEvhWnKrn4275uh649r6jXwL/GWz/M9+/uP2oNm//yfr
-	7xOvJ5eu8IrUd8zhV6n4/nTXuzuxFv95hZ6xG01qcFPiCTh5polz6oZ4Sx7Zd/mzN93f2Fcr
-	pl/w9u2cubtnyGiesm9R/Nebe/lY5nTBmqcPZvned5C0/6gmK1sWzrAs19Rk2tGGDcGzJOS2
-	dZX3TpvcO+POet7aXA6vFwGPUueLrJvacYm7b2NiNkuc7ZZNVlJThGt+7FBiKc5INNRiLipO
-	BACb1ffZaQMAAA==
-X-CMS-MailID: 20250213110439epcas5p4363f12d24845f86de9f5e0d1c15bcaf9
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff
-References: <20250213044624.37334-1-swathi.ks@samsung.com>
-	<CGME20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff@epcas5p1.samsung.com>
-	<20250213044624.37334-2-swathi.ks@samsung.com>
-	<20250213-adorable-arboreal-degu-6bdcb8@krzk-bin>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] mm: Rename GENERIC_PTDUMP and PTDUMP_CORE
+To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org
+Cc: christophe.leroy@csgroup.eu, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>,
+ Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org
+References: <20250213040934.3245750-1-anshuman.khandual@arm.com>
+ <20250213040934.3245750-5-anshuman.khandual@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250213040934.3245750-5-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_032158_861502_90A32D32 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20250213_112321_017202_9962B75A 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,127 +88,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 13/02/2025 04:09, Anshuman Khandual wrote:
+> Platforms subscribe into generic ptdump implementation via GENERIC_PTDUMP.
+> But generic ptdump gets enabled via PTDUMP_CORE. These configs combination
+> is confusing as they sound very similar and does not differentiate between
+> platform's feature subscription and feature enablement for ptdump. Rename
+> the configs as ARCH_HAS_PTDUMP and PTDUMP making it more clear and improve
+> readability.
 
+I'm not going to bikeshed over the naming, but a few points below.
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: 13 February 2025 13:24
-> To: Swathi K S <swathi.ks=40samsung.com>
-> Cc: krzk+dt=40kernel.org; andrew+netdev=40lunn.ch; davem=40davemloft.net;
-> edumazet=40google.com; kuba=40kernel.org; pabeni=40redhat.com;
-> robh=40kernel.org; conor+dt=40kernel.org; richardcochran=40gmail.com;
-> mcoquelin.stm32=40gmail.com; alexandre.torgue=40foss.st.com;
-> rmk+kernel=40armlinux.org.uk; netdev=40vger.kernel.org;
-> devicetree=40vger.kernel.org; linux-stm32=40st-md-mailman.stormreply.com;
-> linux-arm-kernel=40lists.infradead.org; linux-kernel=40vger.kernel.org
-> Subject: Re: =5BPATCH v6 1/2=5D dt-bindings: net: Add FSD EQoS device tre=
-e
-> bindings
->=20
-> On Thu, Feb 13, 2025 at 10:16:23AM +0530, Swathi K S wrote:
-> > +  clock-names:
-> > +    minItems: 5
-> > +    maxItems: 10
-> > +    contains:
-> > +      enum:
-> > +        - ptp_ref
-> > +        - master_bus
-> > +        - slave_bus
-> > +        - tx
-> > +        - rx
-> > +        - master2_bus
-> > +        - slave2_bus
-> > +        - eqos_rxclk_mux
-> > +        - eqos_phyrxclk
-> > +        - dout_peric_rgmii_clk
->=20
-> This does not match the previous entry. It should be strictly ordered wit=
-h
-> minItems: 5.
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Jonathan Corbet <corbet@lwn.net>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Cc: Nicholas Piggin <npiggin@gmail.com>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Heiko Carstens <hca@linux.ibm.com>
+> Cc: Vasily Gorbik <gor@linux.ibm.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-doc@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: kvmarm@lists.linux.dev
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linux-s390@vger.kernel.org
+> Cc: linux-mm@kvack.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+>  Documentation/arch/arm64/ptdump.rst       |  4 ++--
+>  arch/arm64/Kconfig                        |  2 +-
+>  arch/arm64/include/asm/ptdump.h           |  4 ++--
+>  arch/arm64/kvm/Kconfig                    |  4 ++--
+>  arch/arm64/mm/Makefile                    |  2 +-
+>  arch/powerpc/Kconfig                      |  2 +-
+>  arch/powerpc/configs/mpc885_ads_defconfig |  2 +-
+>  arch/powerpc/mm/Makefile                  |  2 +-
+>  arch/riscv/Kconfig                        |  2 +-
+>  arch/riscv/mm/Makefile                    |  2 +-
+>  arch/s390/Kconfig                         |  2 +-
+>  arch/s390/mm/Makefile                     |  2 +-
+>  arch/x86/Kconfig                          |  2 +-
+>  arch/x86/Kconfig.debug                    |  2 +-
+>  arch/x86/mm/Makefile                      |  2 +-
+>  mm/Kconfig.debug                          | 12 ++++++------
+>  mm/Makefile                               |  2 +-
+>  17 files changed, 25 insertions(+), 25 deletions(-)
+> 
+> diff --git a/Documentation/arch/arm64/ptdump.rst b/Documentation/arch/arm64/ptdump.rst
+> index 5dcfc5d7cddf..a2e527377da3 100644
+> --- a/Documentation/arch/arm64/ptdump.rst
+> +++ b/Documentation/arch/arm64/ptdump.rst
+> @@ -22,8 +22,8 @@ offlining of memory being accessed by the ptdump code.
+>  In order to dump the kernel page tables, enable the following
+>  configurations and mount debugfs::
+>  
+> - CONFIG_GENERIC_PTDUMP=y
+> - CONFIG_PTDUMP_CORE=y
+> + CONFIG_ARCH_HAS_PTDUMP=y
+> + CONFIG_PTDUMP=y
+>   CONFIG_PTDUMP_DEBUGFS=y
 
-Hi Krzysztof,
-Thanks for reviewing.
-In FSD SoC, we have 2 instances of ethernet in two blocks.
-One instance needs 5 clocks and the other needs 10 clocks.
+I think we should drop CONFIG_GENERIC_PTDUMP/CONFIG_ARCH_HAS_PTDUMP from
+this list. It's not a user-selectable symbol so there's no need to be
+documenting it here.
 
-I tried to understand this by looking at some other dt-binding files as giv=
-en below, but looks like they follow similar approach
-Documentation/devicetree/bindings/net/stm32-dwmac.yaml
-Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+>  
+>   mount -t debugfs nodev /sys/kernel/debug
+[...]
+> diff --git a/arch/powerpc/configs/mpc885_ads_defconfig b/arch/powerpc/configs/mpc885_ads_defconfig
+> index 77306be62e9e..db005618690b 100644
+> --- a/arch/powerpc/configs/mpc885_ads_defconfig
+> +++ b/arch/powerpc/configs/mpc885_ads_defconfig
+> @@ -78,4 +78,4 @@ CONFIG_DEBUG_VM_PGTABLE=y
+>  CONFIG_DETECT_HUNG_TASK=y
+>  CONFIG_BDI_SWITCH=y
+>  CONFIG_PPC_EARLY_DEBUG=y
+> -CONFIG_GENERIC_PTDUMP=y
+> +CONFIG_PTDUMP=y
 
-Could you please guide me on how to implement this?
-Also, please help me understand what is meant by 'strictly ordered'
+I'd suggest dropp this from the defconfig too, just like patch 1 dropped
+it from debug.config.
 
->=20
->=20
-> > +
-> > +  iommus:
-> > +    maxItems: 1
-> > +
-> > +  phy-mode:
-> > +    enum:
-> > +      - rgmii-id
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - interrupts
-> > +  - clocks
-> > +  - clock-names
-> > +  - iommus
-> > +  - phy-mode
-> > +
-> > +unevaluatedProperties: false
-> > +
-> > +examples:
-> > +  - =7C
-> > +    =23include <dt-bindings/clock/fsd-clk.h>
-> > +    =23include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +    soc =7B
-> > +        =23address-cells =3D <2>;
-> > +        =23size-cells =3D <2>;
-> > +        ethernet1: ethernet=4014300000 =7B
-> > +            compatible =3D =22tesla,fsd-ethqos=22;
-> > +            reg =3D <0x0 0x14300000 0x0 0x10000>;
-> > +            interrupts =3D <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
-> > +            interrupt-names =3D =22macirq=22;
-> > +            clocks =3D <&clock_peric
-> PERIC_EQOS_TOP_IPCLKPORT_CLK_PTP_REF_I>,
-> > +                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_ACLK_I>,
-> > +                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_HCLK_I>,
-> > +                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_RGMII_CLK_=
-I>,
-> > +                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_CLK_RX_I>,
-> > +                     <&clock_peric PERIC_BUS_D_PERIC_IPCLKPORT_EQOSCLK=
->,
-> > +                     <&clock_peric PERIC_BUS_P_PERIC_IPCLKPORT_EQOSCLK=
->,
-> > +                     <&clock_peric PERIC_EQOS_PHYRXCLK_MUX>,
-> > +                     <&clock_peric PERIC_EQOS_PHYRXCLK>,
-> > +                     <&clock_peric PERIC_DOUT_RGMII_CLK>;
-> > +            clock-names =3D =22ptp_ref=22, =22master_bus=22, =22slave_=
-bus=22,=22tx=22,
-> > +                          =22rx=22, =22master2_bus=22, =22slave2_bus=
-=22, =22eqos_rxclk_mux=22,
-> > +                          =22eqos_phyrxclk=22,=22dout_peric_rgmii_clk=
-=22;
-> > +            pinctrl-names =3D =22default=22;
-> > +            pinctrl-0 =3D <&eth1_tx_clk>, <&eth1_tx_data>, <&eth1_tx_c=
-trl>,
-> > +                        <&eth1_phy_intr>, <&eth1_rx_clk>, <&eth1_rx_da=
-ta>,
-> > +                        <&eth1_rx_ctrl>, <&eth1_mdio>;
-> > +            iommus =3D <&smmu_peric 0x0 0x1>;
-> > +            phy-mode =3D =22rgmii-id=22;
-> > +       =7D;
->=20
-> Misaligned/misindented.
-
-Ack
-
->=20
-> Best regards,
-> Krzysztof
-
+Steve
 
 
