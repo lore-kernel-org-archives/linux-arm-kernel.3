@@ -4,104 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E8DC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 09:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 862C0C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 09:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nPPXp+DqYBNPtUl0nhKlU9ascHyp2ZkvND5NvkqHXIk=; b=aic8fgEqRTNfCmaBU1he6/DSw9
-	sonl4DmIu8ESG40x3BklQhLQlLBYn0uGZo+BYT6m+kABSG7y0yoMHmB/1y42NqRXf0qSLdwg94PqR
-	76ZTnPquN/OVp6Kl2Xj87uZP7gMqLix3odHEWgXNo/DVG9WvfmhowQbYYQ7epfMzIV7T7VdEPlmMu
-	xyzMpZFOmC/JXg471reRoWY9G+1nEB55E9N442GzIzIEEiP8hBBunGBUOmNZ/RROUfEbQYmTi3bTe
-	ImrRR7ZZcujChqPKU5LfiskJseeb/JrgUFmrBz3wmn2WKVldUoKGO2vkR0Alg3XfNYojA9hL8PMYu
-	f5t+HZlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0CJ5WbRsKSmDZU07bJ9i4vokoM7+jcMXyX0sMOaD/as=; b=hxryneKyRNp2s8f+Y8QfIcSnM+
+	Af1RSJgmLgzDKO/GJkFRfdvN0l1xbpiCevS40bgwwZsi3aFx1L6/M8ivw39zHGK3r5oesgGYgnEds
+	SGKr6SpJeIlhmlZt+byTNT7mMmV81aplV8/zESqMUlfjpIOfwG9qz1L1+GrH5L5rNpDOxHX2nhCyX
+	LVZPJgH5YKxVRFR7fypITpXIIEcrB0+QUqhEZ07PSkynXrmqg68HE8OEnpW+hVKVE1QsEXyNPmbw0
+	vT2/EVNBqn6q35HD8p2p06wRwk4Vekufc+dDXLRAxhulwzgx2zA+WGg6r49ntaZveAZYCw6DX5gJl
+	MgfK3oiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiVJo-0000000APna-2b68;
-	Thu, 13 Feb 2025 09:15:36 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tiVLD-0000000AQBA-0iMu;
+	Thu, 13 Feb 2025 09:17:03 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiV9U-0000000ANZx-3KXw
+	id 1tiVDG-0000000AOBO-1lsB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 09:04:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739437495;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nPPXp+DqYBNPtUl0nhKlU9ascHyp2ZkvND5NvkqHXIk=;
-	b=ck6dZ29S2SdiwZsf4VOz7Cgg2dRswiCUzHR24yaEOAnusZFFUI55cLsERAG9VVbByICDXe
-	MAoUOECRPa67+9vi1b+vJv3bNhtTclLMh8DS1QdapzjqZMC0sffPWNMLOjPXhlbauFxjGf
-	bHjgixoxpVxRzYAYHbr5JJFt9pdDG7s=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-38-Ky60ulLIPJ2QX8ej2VEsPw-1; Thu, 13 Feb 2025 04:04:53 -0500
-X-MC-Unique: Ky60ulLIPJ2QX8ej2VEsPw-1
-X-Mimecast-MFC-AGG-ID: Ky60ulLIPJ2QX8ej2VEsPw_1739437492
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4393b6763a3so3241955e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 01:04:53 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739437492; x=1740042292;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=nPPXp+DqYBNPtUl0nhKlU9ascHyp2ZkvND5NvkqHXIk=;
-        b=efZlO95tsFCKjrb7Lcl3iQ/QCbfpT8LdbgOy8FfonLF04KETa6wCjghVNhY+lr2NS+
-         pJu5g7Xz66tQ567YaR6WGeJGOqwESINhLCK/0YcCGxPb8cgaCSSywQTYq2lKqrAdlpJ/
-         3jzXZL4by7swHLDPEcTKsdAMzn8+ADruROxGzMN9I4LPlnj7aI7YyI+j5CncM8r0/WW2
-         3IgiY70eiqZmUIddwcw1O+TVgmKh/7oQ0oNS/lNrmTIwySiWacG/xE+OQT/iArwFGm4y
-         uYE1gPjzAZGE4avxYKhhTiK3mBEySCG9/JZNM8XoRnz29w/CBvssGtpGh+zknsHLIboV
-         Hbdw==
-X-Forwarded-Encrypted: i=1; AJvYcCXXMOM2uay7xrtaDNqZEx0sGEu/JcdzsvPeiVlLXbCSkBllsf9czkyY39dsYuEbGt7J9ZmCveDWDz+Vj/whiHx4@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywj9mMHBMU9cLx+2D/iMa3ElyXRZrl8YBtICLvPCDDc+ps8sIcX
-	y0AnNycauqpdbTrqhoXVl2wIseExWbkQF1yTmvZhPCw+zj860kBT1emyRTWAylvqWyG1+dIN0hb
-	xtBFb2orfc/gO4idCAH2ebn1fGEsnj0sz1tQylq7fDgM5xjK5beQwdE+BQ4Y6uPpZf8yHpjFY
-X-Gm-Gg: ASbGnctfRy/u8ezxZsAv2rh9Ee0Z82Dfco4rrQ9iRoE/wrsd4I2XMyHPTdLndITEziE
-	u9Jrj6H9ihjljh74BFbWyRdQKL80ncm48ySIakzVK/ouzcLHBackkzxDp1Jc8P7FQKhirAH4m3P
-	yYFC5KZLHiVuJvYLoGoCPB/UcjS/28r1eKQpqjujdCdon31zhGOMUf8Ra9WUKSxJ3Ya1ncFdLm6
-	MNaMV0vHoRSt6O+c1+ieY1mZtMgpSXNKoUhtNg2+e3jkjlOiMy/7kSO9orTp2TGc6xHozrholpx
-	Fk/q3CLFjdmwaJXRNx/Kon5yYTJSNpMz17E=
-X-Received: by 2002:a05:600c:46ce:b0:434:f609:1af7 with SMTP id 5b1f17b1804b1-439599258b1mr56603555e9.4.1739437492140;
-        Thu, 13 Feb 2025 01:04:52 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFWnvSDslS9x9V9t5sSHRI9c0hrSBXGtqBD2no/zOmtqcPI5lcyK+O8Y6XHZHX2Wk85H1SIZw==
-X-Received: by 2002:a05:600c:46ce:b0:434:f609:1af7 with SMTP id 5b1f17b1804b1-439599258b1mr56603075e9.4.1739437491770;
-        Thu, 13 Feb 2025 01:04:51 -0800 (PST)
-Received: from [192.168.88.253] (146-241-31-160.dyn.eolo.it. [146.241.31.160])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259d58f3sm1253334f8f.73.2025.02.13.01.04.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Feb 2025 01:04:51 -0800 (PST)
-Message-ID: <a42ec2d4-2e4f-4d1d-b204-b637c1106690@redhat.com>
-Date: Thu, 13 Feb 2025 10:04:50 +0100
+	Thu, 13 Feb 2025 09:08:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E20F2A41F7C;
+	Thu, 13 Feb 2025 09:07:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16921C4CEED;
+	Thu, 13 Feb 2025 09:08:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739437729;
+	bh=GIUlT9LC1ocTQlyq1ULMc6PUaVMG6RnWLIb/+PjLhqQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cXfOiApS4CvYmByz2sWdMw+soFywSC19cqDepOvB0PcH14Q6cVXWVQoRd3TBsxD8W
+	 5L51snHJgowUfNjJVq1kanTsMQRbzDzbWbXir5oA4Ys9DT4bGskWAbU/NTfYR8SJOX
+	 NST7rnPvIjPbafyYgvCm3XxSccEHcXHHMrznyfPJB34tkz77b0sg7So+WUJy0SeBrx
+	 WUu9HUmFIuE+n1k+Z3SSkuRynCJNFkbz1XUVKp4i3skAuVIrkyFITQh0wT9NEC0uNU
+	 cSJdxb9X+kOkHMSOwN/z0WrO2wwbs0Zl8R9Lc9asejqL+UfTpBx+88ZlDhgNeyU1tQ
+	 reyVY3lOp4tcw==
+Date: Thu, 13 Feb 2025 10:08:45 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Amelie Delaunay <amelie.delaunay@foss.st.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 04/10] arm64: dts: st: introduce stm32mp23 SoCs family
+Message-ID: <20250213-intrepid-peridot-dinosaur-c5d0bc@krzk-bin>
+References: <20250210-b4-stm32mp2_new_dts-v1-0-e8ef1e666c5e@foss.st.com>
+ <20250210-b4-stm32mp2_new_dts-v1-4-e8ef1e666c5e@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2] net: ethernet: mediatek: add EEE support
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
- Lorenzo Bianconi <lorenzo@kernel.org>
-References: <20250210125246.1950142-1-dqfext@gmail.com>
-Cc: linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- netdev@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
- linux-kernel@vger.kernel.org,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Matthias Brugger <matthias.bgg@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
- Qingfang Deng <dqfext@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20250210125246.1950142-1-dqfext@gmail.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: kMj9BgTBBIPzVRMaT2r5bPoERSXKMLZVq3p9qPJvgjg_1739437492
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250210-b4-stm32mp2_new_dts-v1-4-e8ef1e666c5e@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_010456_906601_0EE00CF5 
-X-CRM114-Status: UNSURE (   8.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_010850_601391_031DCC29 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,17 +77,575 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/10/25 1:52 PM, Qingfang Deng wrote:
-> Add EEE support to MediaTek SoC Ethernet. The register fields are
-> similar to the ones in MT7531, except that the LPI threshold is in
-> milliseconds.
+On Mon, Feb 10, 2025 at 04:20:58PM +0100, Amelie Delaunay wrote:
+> From: Alexandre Torgue <alexandre.torgue@foss.st.com>
 > 
-> Signed-off-by: Qingfang Deng <dqfext@gmail.com>
+> STM32MP23 family is composed of 3 SoCs defined as following:
+> 
+> -STM32MP231: common part composed of 1*Cortex-A35, common peripherals
+> like SDMMC, UART, SPI, I2C, parallel display, 1*ETH ...
+> 
+> -STM32MP233: STM32MP231 + 1*Cortex-A35 (dual CPU), a second ETH, CAN-FD.
+> 
+> -STM32MP235: STM32MP233 + GPU/AI and video encode/decode, DSI and LDVS
+> display.
+> 
+> A second diversity layer exists for security features/ A35 frequency:
+> -STM32MP23xY, "Y" gives information:
+>  -Y = A means A35@1.2GHz + no cryp IP and no secure boot.
+>  -Y = C means A35@1.2GHz + cryp IP and secure boot.
+>  -Y = D means A35@1.5GHz + no cryp IP and no secure boot.
+>  -Y = F means A35@1.5GHz + cryp IP and secure boot.
+> 
+> Signed-off-by: Alexandre Torgue <alexandre.torgue@foss.st.com>
+> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+> ---
+>  arch/arm64/boot/dts/st/stm32mp231.dtsi  | 1216 +++++++++++++++++++++++++++++++
+>  arch/arm64/boot/dts/st/stm32mp233.dtsi  |   94 +++
+>  arch/arm64/boot/dts/st/stm32mp235.dtsi  |   16 +
+>  arch/arm64/boot/dts/st/stm32mp23xc.dtsi |    8 +
+>  arch/arm64/boot/dts/st/stm32mp23xf.dtsi |    8 +
+>  5 files changed, 1342 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..ee93f5412096a7cd30b228b85a5280a551fbfaf4
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
+> @@ -0,0 +1,1216 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+> +/*
+> + * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
+> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+> + */
+> +#include <dt-bindings/clock/st,stm32mp25-rcc.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/regulator/st,stm32mp25-regulator.h>
+> +#include <dt-bindings/reset/st,stm32mp25-rcc.h>
+> +
+> +/ {
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +
+> +	cpus {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		cpu0: cpu@0 {
+> +			compatible = "arm,cortex-a35";
+> +			device_type = "cpu";
+> +			reg = <0>;
+> +			enable-method = "psci";
+> +			power-domains = <&CPU_PD0>;
+> +			power-domain-names = "psci";
+> +		};
+> +	};
+> +
+> +	arm-pmu {
+> +		compatible = "arm,cortex-a35-pmu";
+> +		interrupts = <GIC_SPI 368 IRQ_TYPE_LEVEL_HIGH>;
+> +		interrupt-affinity = <&cpu0>;
+> +		interrupt-parent = <&intc>;
+> +	};
+> +
+> +	arm_wdt: watchdog {
+> +		compatible = "arm,smc-wdt";
+> +		arm,smc-id = <0xb200005a>;
+> +		status = "disabled";
+> +	};
+> +
+> +	clocks {
 
-@Felix, @Sean, @Lorenzo: could you please have a look?
+Drop
 
-Thanks!
+> +		clk_dsi_txbyte: txbyteclk {
 
-Paolo
+Use consistent naming style. Either prefix or suffix. Or better, use
+what is recommended.
+
+See: https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml?h=v6.11-rc1
+
+> +			#clock-cells = <0>;
+> +			compatible = "fixed-clock";
+> +			clock-frequency = <0>;
+> +		};
+> +
+> +		clk_rcbsec: clk-rcbsec {
+> +			#clock-cells = <0>;
+> +			compatible = "fixed-clock";
+> +			clock-frequency = <64000000>;
+> +		};
+> +	};
+> +
+> +	firmware {
+> +		optee: optee {
+> +			compatible = "linaro,optee-tz";
+> +			method = "smc";
+> +			interrupt-parent = <&intc>;
+> +			interrupts = <GIC_PPI 15 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
+> +		};
+> +
+> +		scmi {
+> +			compatible = "linaro,scmi-optee";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			linaro,optee-channel-id = <0>;
+> +
+> +			scmi_clk: protocol@14 {
+> +				reg = <0x14>;
+> +				#clock-cells = <1>;
+> +			};
+> +
+> +			scmi_reset: protocol@16 {
+> +				reg = <0x16>;
+> +				#reset-cells = <1>;
+> +			};
+> +
+> +			scmi_voltd: protocol@17 {
+> +				reg = <0x17>;
+> +
+> +				scmi_regu: regulators {
+> +					#address-cells = <1>;
+> +					#size-cells = <0>;
+> +
+> +					scmi_vddio1: regulator@0 {
+> +						reg = <VOLTD_SCMI_VDDIO1>;
+> +						regulator-name = "vddio1";
+> +					};
+> +					scmi_vddio2: regulator@1 {
+> +						reg = <VOLTD_SCMI_VDDIO2>;
+> +						regulator-name = "vddio2";
+> +					};
+> +					scmi_vddio3: regulator@2 {
+> +						reg = <VOLTD_SCMI_VDDIO3>;
+> +						regulator-name = "vddio3";
+> +					};
+> +					scmi_vddio4: regulator@3 {
+> +						reg = <VOLTD_SCMI_VDDIO4>;
+> +						regulator-name = "vddio4";
+> +					};
+> +					scmi_vdd33ucpd: regulator@5 {
+> +						reg = <VOLTD_SCMI_UCPD>;
+> +						regulator-name = "vdd33ucpd";
+> +					};
+> +					scmi_vdda18adc: regulator@7 {
+> +						reg = <VOLTD_SCMI_ADC>;
+> +						regulator-name = "vdda18adc";
+> +					};
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	intc: interrupt-controller@4ac00000 {
+
+Part of Soc most likely.
+
+> +		compatible = "arm,cortex-a7-gic";
+> +		#interrupt-cells = <3>;
+> +		#address-cells = <1>;
+> +		interrupt-controller;
+> +		reg = <0x0 0x4ac10000 0x0 0x1000>,
+> +		      <0x0 0x4ac20000 0x0 0x2000>,
+> +		      <0x0 0x4ac40000 0x0 0x2000>,
+> +		      <0x0 0x4ac60000 0x0 0x2000>;
+> +	};
+> +
+> +	psci {
+> +		compatible = "arm,psci-1.0";
+> +		method = "smc";
+> +
+> +		CPU_PD0: power-domain-cpu0 {
+
+All labels are always lowercase.
+
+> +			#power-domain-cells = <0>;
+> +			power-domains = <&CLUSTER_PD>;
+> +		};
+> +
+> +		CLUSTER_PD: power-domain-cluster {
+> +			#power-domain-cells = <0>;
+> +			power-domains = <&RET_PD>;
+> +		};
+> +
+> +		RET_PD: power-domain-retention {
+> +			#power-domain-cells = <0>;
+> +		};
+> +	};
+> +
+> +	timer {
+> +		compatible = "arm,armv8-timer";
+> +		interrupt-parent = <&intc>;
+> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
+> +		always-on;
+> +	};
+> +
+> +	soc@0 {
+> +		compatible = "simple-bus";
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		interrupt-parent = <&intc>;
+> +		ranges = <0x0 0x0 0x0 0x80000000>;
+
+Same comments as for all other patches.
+
+> +
+> +		hpdma: dma-controller@40400000 {
+> +			compatible = "st,stm32mp25-dma3";
+> +			reg = <0x40400000 0x1000>;
+> +			interrupts = <GIC_SPI 33 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&scmi_clk CK_SCMI_HPDMA1>;
+> +			#dma-cells = <3>;
+> +		};
+> +
+> +		hpdma2: dma-controller@40410000 {
+> +			compatible = "st,stm32mp25-dma3";
+> +			reg = <0x40410000 0x1000>;
+> +			interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 50 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 51 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 52 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 53 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 54 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 55 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 56 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&scmi_clk CK_SCMI_HPDMA2>;
+> +			#dma-cells = <3>;
+> +		};
+> +
+> +		hpdma3: dma-controller@40420000 {
+> +			compatible = "st,stm32mp25-dma3";
+> +			reg = <0x40420000 0x1000>;
+> +			interrupts = <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 71 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 72 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 74 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 75 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 76 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 77 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 78 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 79 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&scmi_clk CK_SCMI_HPDMA3>;
+> +			#dma-cells = <3>;
+> +		};
+> +
+> +		rifsc: bus@42080000 {
+> +			compatible = "st,stm32mp25-rifsc", "simple-bus";
+> +			reg = <0x42080000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			#access-controller-cells = <1>;
+> +			ranges;
+> +
+> +			i2s2: audio-controller@400b0000 {
+
+Confusing: device has address outside of the bus. What does the bus
+address represent?
+
+> +				compatible = "st,stm32mp25-i2s";
+> +				reg = <0x400b0000 0x400>;
+> +				#sound-dai-cells = <0>;
+> +				interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
+> +				clocks = <&rcc CK_BUS_SPI2>, <&rcc CK_KER_SPI2>;
+> +				clock-names = "pclk", "i2sclk";
+> +				resets = <&rcc SPI2_R>;
+> +				dmas = <&hpdma 51 0x43 0x12>,
+> +				       <&hpdma 52 0x43 0x21>;
+> +				dma-names = "rx", "tx";
+> +				access-controllers = <&rifsc 23>;
+> +				status = "disabled";
+> +			};
+> +
+
+...
+
+> +			sdmmc1: mmc@48220000 {
+> +				compatible = "st,stm32mp25-sdmmc2", "arm,pl18x", "arm,primecell";
+> +				arm,primecell-periphid = <0x00353180>;
+> +				reg = <0x48220000 0x400>, <0x44230400 0x8>;
+> +				interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
+> +				clocks = <&rcc CK_KER_SDMMC1 >;
+> +				clock-names = "apb_pclk";
+> +				resets = <&rcc SDMMC1_R>;
+> +				cap-sd-highspeed;
+> +				cap-mmc-highspeed;
+> +				max-frequency = <120000000>;
+> +				access-controllers = <&rifsc 76>;
+> +				status = "disabled";
+> +			};
+> +
+> +			ethernet1: ethernet@482c0000 {
+> +				compatible = "st,stm32mp25-dwmac", "snps,dwmac-5.20";
+> +				reg = <0x482c0000 0x4000>;
+> +				reg-names = "stmmaceth";
+> +				interrupts-extended = <&intc GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>;
+
+Why extended?
+
+> +				interrupt-names = "macirq";
+> +				clock-names = "stmmaceth",
+> +					      "mac-clk-tx",
+> +					      "mac-clk-rx",
+> +					      "ptp_ref",
+> +					      "ethstp",
+> +					      "eth-ck";
+
+...
+
+> +		rcc: clock-controller@44200000 {
+> +			compatible = "st,stm32mp25-rcc";
+> +			reg = <0x44200000 0x10000>;
+> +			#clock-cells = <1>;
+> +			#reset-cells = <1>;
+> +			clocks = <&scmi_clk CK_SCMI_HSE>,
+> +				<&scmi_clk CK_SCMI_HSI>,
+> +				<&scmi_clk CK_SCMI_MSI>,
+> +				<&scmi_clk CK_SCMI_LSE>,
+> +				<&scmi_clk CK_SCMI_LSI>,
+> +				<&scmi_clk CK_SCMI_HSE_DIV2>,
+> +				<&scmi_clk CK_SCMI_ICN_HS_MCU>,
+> +				<&scmi_clk CK_SCMI_ICN_LS_MCU>,
+> +				<&scmi_clk CK_SCMI_ICN_SDMMC>,
+> +				<&scmi_clk CK_SCMI_ICN_DDR>,
+> +				<&scmi_clk CK_SCMI_ICN_DISPLAY>,
+> +				<&scmi_clk CK_SCMI_ICN_HSL>,
+> +				<&scmi_clk CK_SCMI_ICN_NIC>,
+> +				<&scmi_clk CK_SCMI_ICN_VID>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_07>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_08>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_09>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_10>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_11>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_12>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_13>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_14>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_15>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_16>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_17>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_18>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_19>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_20>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_21>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_22>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_23>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_24>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_25>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_26>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_27>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_28>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_29>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_30>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_31>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_32>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_33>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_34>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_35>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_36>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_37>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_38>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_39>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_40>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_41>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_42>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_43>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_44>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_45>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_46>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_47>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_48>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_49>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_50>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_51>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_52>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_53>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_54>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_55>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_56>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_57>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_58>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_59>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_60>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_61>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_62>,
+> +				<&scmi_clk CK_SCMI_FLEXGEN_63>,
+> +				<&scmi_clk CK_SCMI_ICN_APB1>,
+> +				<&scmi_clk CK_SCMI_ICN_APB2>,
+> +				<&scmi_clk CK_SCMI_ICN_APB3>,
+> +				<&scmi_clk CK_SCMI_ICN_APB4>,
+> +				<&scmi_clk CK_SCMI_ICN_APBDBG>,
+> +				<&scmi_clk CK_SCMI_TIMG1>,
+> +				<&scmi_clk CK_SCMI_TIMG2>,
+> +				<&scmi_clk CK_SCMI_PLL3>,
+> +				<&clk_dsi_txbyte>;
+> +				access-controllers = <&rifsc 156>;
+> +		};
+> +
+> +		exti1: interrupt-controller@44220000 {
+> +			compatible = "st,stm32mp1-exti", "syscon";
+> +			interrupt-controller;
+> +			#interrupt-cells = <2>;
+> +			reg = <0x44220000 0x400>;
+> +			interrupts-extended =
+
+Why extended?
+
+> +				<&intc GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>,	/* EXTI_0 */
+> +				<&intc GIC_SPI 269 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 270 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 271 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 272 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 273 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 274 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 275 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 276 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 277 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 278 IRQ_TYPE_LEVEL_HIGH>,	/* EXTI_10 */
+> +				<&intc GIC_SPI 279 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 280 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 281 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 282 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 283 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 0   IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 1   IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 260 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 259 IRQ_TYPE_LEVEL_HIGH>,
+> +				<0>,						/* EXTI_20 */
+> +				<&intc GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 181 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 114 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 126 IRQ_TYPE_LEVEL_HIGH>,	/* EXTI_30 */
+> +				<&intc GIC_SPI 127 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 149 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 150 IRQ_TYPE_LEVEL_HIGH>,
+> +				<0>,
+> +				<&intc GIC_SPI 112 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 152 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH>,	/* EXTI_40 */
+> +				<&intc GIC_SPI 154 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 155 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 169 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 182 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 209 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 229 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 166 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 208 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>,	/* EXTI_50 */
+> +				<0>,
+> +				<0>,
+> +				<0>,
+> +				<0>,
+> +				<0>,
+> +				<0>,
+> +				<0>,
+> +				<0>,
+> +				<&intc GIC_SPI 171 IRQ_TYPE_LEVEL_HIGH>,
+> +				<0>,						/* EXTI_60 */
+> +				<&intc GIC_SPI 173 IRQ_TYPE_LEVEL_HIGH>,
+> +				<0>,
+> +				<0>,
+> +				<&intc GIC_SPI 220 IRQ_TYPE_LEVEL_HIGH>,
+> +				<0>,
+> +				<0>,
+> +				<&intc GIC_SPI 10  IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>,
+> +				<0>,
+> +				<&intc GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>,	/* EXTI_70 */
+> +				<0>,
+> +				<&intc GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 202 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 253 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 254 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 255 IRQ_TYPE_LEVEL_HIGH>,
+> +				<0>,						/* EXTI_80 */
+> +				<0>,
+> +				<0>,
+> +				<&intc GIC_SPI 257 IRQ_TYPE_LEVEL_HIGH>,
+> +				<&intc GIC_SPI 258 IRQ_TYPE_LEVEL_HIGH>;
+> +		};
+> +
+> +		syscfg: syscon@44230000 {
+> +			compatible = "st,stm32mp25-syscfg", "syscon";
+> +			reg = <0x44230000 0x10000>;
+> +		};
+> +
+> +		pinctrl: pinctrl@44240000 {
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+
+Please fix coding style everywhere here.
+
+
+> +			compatible = "st,stm32mp257-pinctrl";
+> +			ranges = <0 0x44240000 0xa0400>;
+> +			interrupt-parent = <&exti1>;
+> +			st,syscfg = <&exti1 0x60 0xff>;
+> +			pins-are-numbered;
+> +
+
+...
+
+> diff --git a/arch/arm64/boot/dts/st/stm32mp23xc.dtsi b/arch/arm64/boot/dts/st/stm32mp23xc.dtsi
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..e33b00b424e1207dc6212e75235785f8c61e5055
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/st/stm32mp23xc.dtsi
+> @@ -0,0 +1,8 @@
+> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+> +/*
+> + * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
+> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+> + */
+> +
+
+What is the point of this file?
+
+Best regards,
+Krzysztof
 
 
