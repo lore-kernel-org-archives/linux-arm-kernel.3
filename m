@@ -4,111 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C69EC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 19:53:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F406C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 19:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+1icS1ornuLOryc0NeZcleF/lysfwDHdeIVIyTWVEzA=; b=JZ8GzpD1k5MP/eYIlbM7+tMVE4
-	UD6rCUMCAgRhjGNDGuRyODkyB+iVx7sVYigr3667OwWuLUjMD3Hmzfmn8AnPJK6ERRMZhTA3tDLMk
-	nKh4HUlIFAZ2cZSeDoStQJbAMQTZ0Ak13lejAIs6NF9GpPo4iDdeSe9uQ7b45Lr0uCBxawA3xYh8n
-	hVV1bSRMpsZQpNwMZcX2ZADzUdkTZs1ok1dBiYhSRYDPi44XYj4acM/rnAD3YANzNRzrvLz44J80F
-	NJcevEg98Rmgbg0qUMQ0/lri/5BFypylhYDEQNG1gGM2hH3Tou8XWM1bOVuGHY2lHx/yp989ICJDN
-	O1FuyCWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
+	MIME-Version:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CPMj0ncxFSqVo0wnr/hLk8JA8RU84xQsibaNEVs17jk=; b=R+ysHlHbCiCkQY
+	LEm3X5obivFc9X1nywoFf9tL24eYRYJ/0FImiI2iR9kzR8DmwI8/SRnuK7YeU/WxUlo7WoRbbWPnR
+	3yPo80Y+YoaBB9MmTicRWqPnCln+nkBSIEux+NnpkYCq7tuGjj9XeberGozbH0DUrVgKUe2VV1dyC
+	3+dCt3dyc6dHAxXN2wE2wnC52briAqgFP1t+sylmRYq95sQWeBn5mwwSXJuBEF1NWPMjbYtNTf/Iq
+	Ip05Q3uk8TtPGaTfCAwtsGYOZuzdQ3q1YcVR0iSi6BIBnXf10QEdN0lLrfXSrrgcmnb4jRq3EjMov
+	NRUPnflT6VwvPiLslCUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tifH7-0000000CSu4-2WCl;
-	Thu, 13 Feb 2025 19:53:29 +0000
-Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
+	id 1tifJy-0000000CTKQ-3WOQ;
+	Thu, 13 Feb 2025 19:56:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tifFf-0000000CSiy-1O0t
+	id 1tifIY-0000000CT65-1zm2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 13 Feb 2025 19:54:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:To:Subject:Message-ID:Date:From:Reply-To:MIME-Version:Sender:Cc:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=CPMj0ncxFSqVo0wnr/hLk8JA8RU84xQsibaNEVs17jk=; b=JQ5J8odhpOUNjkIeFjOK3QreoA
+	J3ctJL//ON3rvrn9j7eFpXAsZOvZcO6mftgY+hLTq9YM+t88tLjzKpkccid69YCSZkYhl8oElGZaH
+	SS9FKd2ikTUzXDNH1VKgKRzB3s3TaVVgAPhBH9OKE5L1PJI+jE8X0HoDf0LhNKzdWK1poexkfOtTN
+	xuS/aK+aY0b74520ce5J4HXSFq70nx4d58BVh3jl9TXBUkage2p68Ci2HI08Khs8uWvf3TdRfr4De
+	7wRY4J4re+DFIppEIZscu3i5b7AFGZBUcL4vodSuI1fD3Kq8dJ6bkeWCLozwyaCyIzufaDwlb2nZd
+	6GP5IBsQ==;
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tifIV-000000014m8-2kFt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 19:52:01 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id DC5611140222;
-	Thu, 13 Feb 2025 14:51:57 -0500 (EST)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-10.internal (MEProxy); Thu, 13 Feb 2025 14:51:57 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1739476317; x=1739562717; bh=+1icS1ornuLOryc0NeZcleF/lysfwDHd
-	eIVIyTWVEzA=; b=KV6je5oOvDIlLt2IcOKKIavwfangEhqoB+zLeVLNjrhtb8ga
-	ko1I6oJrJzwJI0euTefgVhxm2kbY5xzyv2RV2XCFsCh7EnNqhbcvsRqV8TUI4Lsz
-	A3xdPdxGbH2jaoJGSDReNrRP3Mm0/JXhOouR4F7Aendba5svC5sVxkdbwzXI2lR8
-	D7ITQRsq4RMkmL2/PwqTGWO2IcgAGRQ4y5sz03KJ/NAh2wWA8sJBmdjeo5T2CnoN
-	TAC1AUr9D+bRPVP885VVIcHpLCS3Efyr83E6Y1jACHBmlbkBYVW//mF91GcdjpOy
-	lvcME+rNn7EC0Ob76NDXPOjKN7Z6cjgXTuokYw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739476317; x=
-	1739562717; bh=+1icS1ornuLOryc0NeZcleF/lysfwDHdeIVIyTWVEzA=; b=j
-	NKk9yU4fJCx9uyRFkIOvviP8jixh33cVwdZSooMJ+mN45xl1qK8kPJ7gtQazgoKg
-	gZzzEtUpWM6MCbI0bVduq4FqPWQNZtmrc1oChTGj1eom9nJ9B5a/t5u3RuXXUzv0
-	6LAOM6CnoVuwaQHvVMzs88DEEWNPqzWjzaCa9nD1AlPjhsNsFY0/LrblA3ciQszb
-	va8AgUyDnN6tFl1In4C/7l1xs7JqONRMoyx5Gh3tLOm8qo7ZYXNMGS6F9EYtOZur
-	LQmqHnXKQXfpWzEbnJdfTElldsIwW7ZMMBVKMiVI7ToQDzO4tCtW+tdBKV1akjYx
-	cwbUuyl/aST1GzFrV7+lg==
-X-ME-Sender: <xms:XU2uZybhXhFLU0OeqFw5r7L3mpSEfL0QlDD6zoef10vdrtLeWXWdwA>
-    <xme:XU2uZ1YdrG79cucHNEjBZ2JiNE7dxcAYNFCF6qEx33LDHyzJK7N-rQANe6tywi4bv
-    BnyIcJJWSdZvs02QqM>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegjeeiiecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
-    tdenucfhrhhomhepfdfuvhgvnhcurfgvthgvrhdfuceoshhvvghnsehsvhgvnhhpvghtvg
-    hrrdguvghvqeenucggtffrrghtthgvrhhnpeelfeetueegudduueduuefhfeehgeevkeeu
-    feffvdffkedtffffleevffdvvdeuffenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdpnhgspghr
-    tghpthhtohepudejpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehsthgrnhestg
-    horhgvlhhlihhumhdrtghomhdprhgtphhtthhopegshhgvlhhgrggrshesghhoohhglhgv
-    rdgtohhmpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtph
-    htthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlphhivghr
-    rghlihhsiheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgriieskhgvrhhnvghlrd
-    horhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehm
-    rghnihhvrghnnhgrnhdrshgrughhrghsihhvrghmsehlihhnrghrohdrohhrghdprhgtph
-    htthhopehkfieslhhinhhugidrtghomh
-X-ME-Proxy: <xmx:XU2uZ88ZTFgef8cAWzc8dX8o9v685TS2_ZzLi1GHY__qmJsqtlyaSQ>
-    <xmx:XU2uZ0pjTonlmsWbpyay6fwx5DEuaYtHCISTD-LlOH_Rt5IW_YyOfg>
-    <xmx:XU2uZ9qGENScLPwOvIevVSsLZZr_mP0EvPTI5fjO6sPoTgr-C4H8LA>
-    <xmx:XU2uZyTjDwJjL5mJ7S5FefJZ0FIiRnjdZGnvxbGeCdqbxiJwG7hfiA>
-    <xmx:XU2uZzZKl2o40-GDvILbgU7vTYyK6xpADGju3BZ9aQPnlOz7YPfR1-yP>
-Feedback-ID: i51094778:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 0C5C3BA0070; Thu, 13 Feb 2025 14:51:56 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 13 Feb 2025 19:54:57 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ab7ee6f54faso151593666b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 11:54:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739476493; x=1740081293; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from:reply-to
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=CPMj0ncxFSqVo0wnr/hLk8JA8RU84xQsibaNEVs17jk=;
+        b=VElC+afSo5pmIskt4INbXL6fPGyGLeEnwWUaumLpR9fcM2Z4H9QLloubESknJtPFZz
+         xzZKyKuqItNsehtjBcE3c80nzPmROoI/iMlApEVQpYU0V4OWmAO490UK7d8sM1KkhLBH
+         4e7rMB3dBE0JYDVsmdKRas2CehTLtgfTNdBEtj4fkVyWHGH7fhcCuWz0Bes7Z+09f5Zi
+         eJWpuPW/Quyhvxup35so5KKw99jcqM/vcj8m2o8nt0/44+iFMvfdkWij+Oj2+7LN4ccJ
+         toHFQsHChzR8acn2f2hELXpFi8Sxpm+o9ms1eQvRGeZoAeHUwdpfIMsIIcYIsDjmDmsu
+         nydA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739476493; x=1740081293;
+        h=content-transfer-encoding:to:subject:message-id:date:from:reply-to
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CPMj0ncxFSqVo0wnr/hLk8JA8RU84xQsibaNEVs17jk=;
+        b=a9JaGOG7Zi6fjqZxLeCMeHjcP/In5Xtl+U7iodgv1u7Cq02D9ar3kr18S+WXeimn/z
+         Mkb4Ib1s6Rkymarjjz1ozenc7NWVZjbYEUTHaZyoOvxzEIJyhPv5CR19BJR7WMhe0leb
+         kD1bTaX6t3qShXL+ooG+PjpZaQlSnMQjVKmEpJaUB3JIDK6NyWf1QjkBk9fczUg8dyZK
+         22pJnaq0H3OvwYXnv9HBxAPBiMm3RUGG/s70V14AT2JuQAgRzUK7XIrpV68R3v9m/Dla
+         QJW3uNzeWL3xqaHnWxesYJv1yaqmKLXswomy+RI6sMbPLw1T5Jf4YFolSZNjCm8KNBNA
+         jAgg==
+X-Gm-Message-State: AOJu0YxBbhHm7eKCOUJiqiNlU13yc8L/2qjdRl9gofVgEJxsPhsQjhf4
+	qZTH/99wrnlMhKnEhrYRLgySOTrBMBw87TGxfmzDKalwbP7YfW7pPnRhkrxyR5uu/UDA8LqTcgM
+	hBVxb72W4cI1YHII0K5wIBz+3ppauB6g6
+X-Gm-Gg: ASbGnctgLlDIXxnIzEL9EDP3dsjXKNuziCLgs/OUb/iYRpM9a4y+IIB3eAJtvk8fHRL
+	1BoXyV77qvItAp33yaOfGwHYQGQ9uXuslfqO1P71+ovaKnHgDhrSd3Edo2tjGf2mTpwBUGpG/
+X-Google-Smtp-Source: AGHT+IHQU+0J0bK0X97SdiOiBd028oQ8KpmNYl1Yxv3PYKpn9WU9Fv6xWuGCP4jdYjVhxDWKbf0ycSlfcJ6hrQrNYRw=
+X-Received: by 2002:a05:6402:13c9:b0:5dc:796f:fc86 with SMTP id
+ 4fb4d7f45d1cf-5dec9d4a4ccmr10086399a12.16.1739476492945; Thu, 13 Feb 2025
+ 11:54:52 -0800 (PST)
 MIME-Version: 1.0
-Date: Thu, 13 Feb 2025 20:51:31 +0100
-From: "Sven Peter" <sven@svenpeter.dev>
-To: "Marc Zyngier" <maz@kernel.org>,
- "Alyssa Rosenzweig" <alyssa@rosenzweig.io>
-Cc: "Hector Martin" <marcan@marcan.st>, "Bjorn Helgaas" <bhelgaas@google.com>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- "Manivannan Sadhasivam" <manivannan.sadhasivam@linaro.org>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Mark Kettenis" <kettenis@openbsd.org>,
- "Stan Skowronek" <stan@corellium.com>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Message-Id: <ae7bdc0c-c691-43a7-8cd7-b1c22c7623c0@app.fastmail.com>
-In-Reply-To: <86y0ybsd0d.wl-maz@kernel.org>
-References: <20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io>
- <20250211-pcie-t6-v1-7-b60e6d2501bb@rosenzweig.io>
- <86y0ybsd0d.wl-maz@kernel.org>
-Subject: Re: [PATCH 7/7] PCI: apple: Add T602x PCIe support
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+From: =?UTF-8?B?572X5YuH5YiaKFlvbmdnYW5nIEx1byk=?= <luoyonggang@gmail.com>
+Date: Fri, 14 Feb 2025 03:54:40 +0800
+X-Gm-Features: AWEUYZl4cgECuUXx86DThTcaKW8n6vvtIZq3B_m_nSxBbgnENw-4WKZGY-aH2KA
+Message-ID: <CAE2XoE8QhxT6AbsffEVgjYRaLNPz451JbDwcb0Yn23271z3A8g@mail.gmail.com>
+Subject: Testing [PATCH v2 0/4] KVM: arm64: writable MIDR/REVIDR
+To: linux-arm-kernel@lists.infradead.org, Sebastian Ott <sebott@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_115200_108787_6F7115C6 
-X-CRM114-Status: GOOD (  16.45  )
+X-CRM114-CacheID: sfid-20250213_195455_752496_5BB5587E 
+X-CRM114-Status: UNSURE (   3.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,53 +100,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: luoyonggang@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+I have the commands
 
-On Wed, Feb 12, 2025, at 10:55, Marc Zyngier wrote:
-> On Tue, 11 Feb 2025 19:54:32 +0000,
-> Alyssa Rosenzweig <alyssa@rosenzweig.io> wrote:
->> 
->> From: Hector Martin <marcan@marcan.st>
->> 
->> This version of the hardware moved around a bunch of registers, so we
->> drop the old compatible for these and introduce register offset
->> structures to handle the differences.
->> 
->> Signed-off-by: Hector Martin <marcan@marcan.st>
->> Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
->> ---
->>  drivers/pci/controller/pcie-apple.c | 125 ++++++++++++++++++++++++++++++------
->>  1 file changed, 105 insertions(+), 20 deletions(-)
->> 
->> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
->> index 7f4839fb0a5b15a9ca87337f53c14a1ce08301fc..7c598334427cb56ca066890ac61143ae1d3ed744 100644
-...
->
->> +	else
->> +		rmw_set(PHY_LANE_CFG_REFCLKCGEN, port->phy + PHY_LANE_CFG);
->> +	rmw_clear(PORT_APPCLK_CGDIS, port->base + PORT_APPCLK);
->> +
->
-> Can you elaborate on this particular change?
->
-> I always assumed this was some clock-gating that needed to occur
-> *before* the link training was started. This is now taking place after
-> training, and the commit message doesn't say anything about it.
-
-It's been a while but as far as I can tell APPCLK seems to be related
-to the IOMMUs attached to this controller. If it's disabled all reads
-from the respective IOMMU MMIO either came back as 0xffff.. or SError
-(don't remember which one it was) but pcie itself worked just fine
-(until any device tried DMA ofc).
-
-At least on M1 this entire sequence only works because we already
-setup PORT_APPCLK_EN inside m1n1. If we didn't do this (like e.g
-for the thunderbolt pcie/dart) the DART probe would already fail.
-
-
-
-Sven
+`-cpu host,aarch64=3Doff -accel kvm`
+```
+[ 1471.611306] x2 : 0000000000000000 x1 : 0000000000000000 x0 : 00000000000=
+00000
+[ 1471.611315] Call trace:
+[ 1471.611319]  set_id_reg_non_ftr+0x98/0x168 (P)
+[ 1471.611325]  kvm_sys_reg_set_user+0xe8/0x240
+[ 1471.611331]  kvm_arm_sys_reg_set_reg+0x40/0x220
+[ 1471.611336]  kvm_arm_set_reg+0x1c0/0x5a8
+[ 1471.611343]  kvm_arch_vcpu_ioctl+0x61c/0x8c8
+[ 1471.611350]  kvm_vcpu_ioctl+0x67c/0xa80
+[ 1471.611357]  __arm64_sys_ioctl+0xd8/0x130
+[ 1471.611364]  invoke_syscall+0x74/0x128
+[ 1471.611370]  el0_svc_common.constprop.0+0x4c/0x140
+[ 1471.611375]  do_el0_svc+0x28/0x58
+[ 1471.611379]  el0_svc+0x40/0x1a8
+[ 1471.611386]  el0t_64_sync_handler+0x134/0x160
+[ 1471.611391]  el0t_64_sync+0x1b8/0x1c0
+[ 1471.611398] Code: 2a1503e1 97fffdff 714602bf 54000041 (d51c0013)
+[ 1471.611405] ---[ end trace 0000000000000000 ]---
+[ 1471.630443] pstore: backend (efi_pstore) writing error (-28)
+```
+--=20
+         =E6=AD=A4=E8=87=B4
+=E7=A4=BC
+=E7=BD=97=E5=8B=87=E5=88=9A
+Yours
+    sincerely,
+Yonggang Luo
 
