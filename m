@@ -4,101 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2FEDC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 12:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A97C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 12:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v7acrumWnCLIQCVlU0AgIWrp2QB9ISOBnuH4BR/NhIk=; b=RCPb9XOuKji1mWdwvSc32AixCa
-	fav+Z//ZjcCJwkoJbeghf+8nBCj1Wo8oaAmubRguLgCOBuAsNK2cbVU24qLsjnOcaHONsjaTlLAFq
-	w0DM0nAp41IHWprZYEp/oDxdCnWR5J2w8m9VtzG/wqUn2tXLKrdv8Y+b8giApXuweXq8AY108+CK6
-	DPPdvhCKjuhd/1rHltVQAT+YgyLxtyLADw7YpJqhcPyDibfHOR/HM2nmutDFnqLKXDK5ihfXH5OlB
-	zhtYxaB24n1PwTz+J2BJTnq3WptlckTeWmoKxJ9zf1bZtB3b7bpH3rcDeuCwP8RtC2LBBhWkX+XCY
-	VrsUTyxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YBQYwQdRIQ20yozFfxJGyrrPezD83gPdJ94AG2odwmc=; b=Pnz91dvBtbK5h4tc3nXM0X5u9I
+	rjZ6sFNvVoDuC/ilAtLd8vmxNTW0X5pEsnEJTHU5T8M3Na7l8ZSu2NamqB55qrAZX2S3OwcZhUqU0
+	oVAL07A+yMYFluxugKIixqpGYpwGj/9axv081BtBK65hvaw+zYAkOgfIVS5wCQD+DeXWb5IO8vrEU
+	wRSxNFw3IqlkhIjCrU2ivZYE8cRUPNgdkmuSnupb+fgV3oIXw9hQ3Xj1x+CDJLX1gt8xaQ2z/i9Ky
+	1Z4TdFkVmiLb48wcvzF4V9EgrRP9D75ZLjTS2GCUyK0M20+ym6zZJGtLIVwAwR6bDa4sRa0LiY3Gb
+	fXmCqNeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYlM-0000000B3wq-3txG;
-	Thu, 13 Feb 2025 12:56:16 +0000
-Received: from mgamail.intel.com ([198.175.65.18])
+	id 1tiYmk-0000000B4CH-2VTS;
+	Thu, 13 Feb 2025 12:57:42 +0000
+Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYje-0000000B3jU-1TXQ
+	id 1tiYjw-0000000B3mL-0Nke
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 12:54:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739451271; x=1770987271;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=UN3Y9x428Mk8h/CXSju3Mtr+T4Cd2Rs3PZKgk+wNRiA=;
-  b=d1T/yWN0G92sRqAYEX3xaQwqApgD/o8kSIcCuyLvRSriiL/c5oBO6YEV
-   vqdDEjyC9xsS1df9nc7FCSp2iBJfDwjgyuZBWNL9d6SKfSp81k5mDYpk+
-   ItkM+ja5oX2OjwC1prNg79tHMlgGk1SPf/j6NcyBPzcPopyCYAjS4pyRA
-   S6XP6OwB5hkH/Fgu4RT/qBBIOky2AiFjS2Ywm4lQvCUQQfc3GLynHNtgz
-   NWLiBjGmLVf1natKrFI5xbh73coLdHhGnvUffmfGWe5DYZaHJycPFIRmi
-   AQcbTQJesmc6LEsCO/hPOW3CKIWwdj272ooq3/in0OmqcRA3EMomw9z0m
-   Q==;
-X-CSE-ConnectionGUID: zj3oDRJHR1yNgfiXLGJbUg==
-X-CSE-MsgGUID: +8FYSg50QCyPPsKV86+Y3Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="40266543"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="40266543"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 04:54:30 -0800
-X-CSE-ConnectionGUID: hz/02A95Toi+RKP8+COzSA==
-X-CSE-MsgGUID: 3oCHI4xJSWuWUpbQsVvUsg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="150303991"
-Received: from mohdfai2-mobl.gar.corp.intel.com (HELO [10.247.42.34]) ([10.247.42.34])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 04:54:22 -0800
-Message-ID: <5902cc28-a649-4ae9-a5ba-83aa265abaf8@linux.intel.com>
-Date: Thu, 13 Feb 2025 20:54:18 +0800
+	Thu, 13 Feb 2025 12:54:50 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8076F44191;
+	Thu, 13 Feb 2025 12:54:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739451284;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YBQYwQdRIQ20yozFfxJGyrrPezD83gPdJ94AG2odwmc=;
+	b=FfC9PGeZopcSlMED939jJp01G7c43ji4lIsjeMGMdWf9BzbCs1A2yB+5sz31xizjVHXutY
+	Qa7paCmQ3QlxzcBuYBE4JR9K5Tr7X3wI4bNjZUMkzkZ8xDcahMb9pyduRn+mKtI65+ymL+
+	OYM3VkmT3wf2h0DQVsHYBCqJ3yP54S+LG5x3z2SdZkLJmGQJp1dSfPruDnEMdcWutO7GgZ
+	KUL9T+OD6FgcieBuI9taJNS72yKDVGCkI8J68dBphVqPAdqHnh0CMIqAsRtarlFa5WO8gQ
+	RMT6L7BMK0fvIZHxAbmh+D6RBt4sE5Z2CegRx6RzC1xmOvw0As4m3Ld4EZBsTg==
+Date: Thu, 13 Feb 2025 13:54:42 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Peng Fan <peng.fan@nxp.com>,
+	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-rtc@vger.kernel.org" <linux-rtc@vger.kernel.org>
+Subject: Re: [PATCH 0/4] rtc/scmi: Support multiple RTCs
+Message-ID: <2025021312544202e175b4@mail.local>
+References: <PAXPR04MB8459968DFDE5979802CC034A88E62@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z6uCCeG2d395ZGDS@bogus>
+ <20250212063532.GB15796@localhost.localdomain>
+ <Z6x7TBSjBFBxGo77@bogus>
+ <20250212170147ee6863dc@mail.local>
+ <20250213033033.GA21937@localhost.localdomain>
+ <20250213082032315c4327@mail.local>
+ <20250213105257.GA29804@localhost.localdomain>
+ <202502131126057bac6f7a@mail.local>
+ <20250213133550.GA1208@localhost.localdomain>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH iwl-next v4 0/9] igc: Add support for Frame Preemption
- feature in IGC
-To: Kurt Kanzenbach <kurt@linutronix.de>,
- Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, Furong Xu <0x1207@gmail.com>,
- Russell King <rmk+kernel@armlinux.org.uk>,
- Serge Semin <fancer.lancer@gmail.com>,
- Xiaolei Wang <xiaolei.wang@windriver.com>,
- Suraj Jaiswal <quic_jsuraj@quicinc.com>,
- Kory Maincent <kory.maincent@bootlin.com>, Gal Pressman <gal@nvidia.com>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Andrew Halaney <ahalaney@redhat.com>,
- Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Vinicius Costa Gomes <vinicius.gomes@intel.com>,
- intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-References: <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
- <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
- <20250212220121.ici3qll66pfoov62@skbuf>
- <b19357dc-590d-458c-9646-ee5993916044@linux.intel.com>
- <87cyfmnjdh.fsf@kurt.kurt.home>
-Content-Language: en-US
-From: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
-In-Reply-To: <87cyfmnjdh.fsf@kurt.kurt.home>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250213133550.GA1208@localhost.localdomain>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegieekvdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkfhggtggujgesthdtredttddtvdenucfhrhhomheptehlvgigrghnughrvgcuuegvlhhlohhnihcuoegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegieduueethefhkeegjeevfefhiedujeeuhffgleejgfejgeekueejuefgheeggfenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmegukeejvgemudgsudgsmeeltdekgeemtggtfhgtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemheehieemjegrtddtmegukeejvgemudgsudgsmeeltdekgeemtggtfhgtpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgigrnhgurhgvrdgsvghllhhonhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedufedprhgtphhtthhopehpvghnghdrfhgrnhesohhsshdrnhigphdrtghomhdprhgtphhtthhopehsuhguvggvphdrhhholhhlrgesrghrmhdrtghomhdprhgtphhtthhopehpvghnghdrf
+ hgrnhesnhigphdrtghomhdprhgtphhtthhopegtrhhishhtihgrnhdrmhgrrhhushhsihesrghrmhdrtghomhdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvgdprhgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomh
+X-GND-Sasl: alexandre.belloni@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_045430_441725_30D238D6 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20250213_045448_593045_ABA31397 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,56 +92,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 13/2/2025 8:01 pm, Kurt Kanzenbach wrote:
-> On Thu Feb 13 2025, Abdul Rahim, Faizal wrote:
->> On 13/2/2025 6:01 am, Vladimir Oltean wrote:
->>> On Mon, Feb 10, 2025 at 02:01:58AM -0500, Faizal Rahim wrote:
->>>> Introduces support for the FPE feature in the IGC driver.
->>>>
->>>> The patches aligns with the upstream FPE API:
->>>> https://patchwork.kernel.org/project/netdevbpf/cover/20230220122343.1156614-1-vladimir.oltean@nxp.com/
->>>> https://patchwork.kernel.org/project/netdevbpf/cover/20230119122705.73054-1-vladimir.oltean@nxp.com/
->>>>
->>>> It builds upon earlier work:
->>>> https://patchwork.kernel.org/project/netdevbpf/cover/20220520011538.1098888-1-vinicius.gomes@intel.com/
->>>>
->>>> The patch series adds the following functionalities to the IGC driver:
->>>> a) Configure FPE using `ethtool --set-mm`.
->>>> b) Display FPE settings via `ethtool --show-mm`.
->>>> c) View FPE statistics using `ethtool --include-statistics --show-mm'.
->>>> e) Enable preemptible/express queue with `fp`:
->>>>      tc qdisc add ... root taprio \
->>>>      fp E E P P
->>>
->>> Any reason why you are only enabling the preemptible traffic classes
->>> with taprio, and not with mqprio as well? I see there will have to be
->>> some work harmonizing igc's existing understanding of ring priorities
->>> with what Kurt did in 9f3297511dae ("igc: Add MQPRIO offload support"),
->>> and I was kind of expecting to see a proposal for that as part of this.
->>>
->>
->> I was planning to enable fpe + mqprio separately since it requires extra
->> effort to explore mqprio with preemptible rings, ring priorities, and
->> testing to ensure it works properly and there are no regressions.
+On 13/02/2025 21:35:50+0800, Peng Fan wrote:
+> >Well, yes, you have your answer here, if the firmware knows RTC1 is more
+> >accurate and will be your source of truth, then simply use this one.
 > 
-> Well, my idea was to move the current mqprio offload implementation from
-> legacy TSN Tx mode to the normal TSN Tx mode. Then, taprio and mqprio
-> can share the same code (with or without fpe). I have a draft patch
-> ready for that. What do you think about it?
+> But issue is RTC1 is only readable to Linux non-safety, Linux not able
+> to set alarm. Linux could only use RTC0 for alarm with current i.MX95 EVK
+> firmware.
 > 
-> Thanks,
-> Kurt
+> If RTC1 could be exported to linux for control, we could for sure
+> switch to using RTC1 without caring about RTC0. But this is not true.
+> 
+> RTC0 is free for linux to control, RTC1 not. Switching to RTC1 will make
+> us lose RTC alarm to wake up linux feature.
+> 
 
-Hi Kurt,
+This doesn't make any sense, this limitation is on your firmware side,
+either RTC1 has alarm support and the firmware can set the alarm for
+linux or it doesn't and then, the firmware must set the time and alarm
+on RTC0.
 
-I’m okay with including it in this series and testing fpe + mqprio, but I’m 
-not sure if others might be concerned about adding different functional 
-changes in this fpe series.
-
-Hi Vladimir,
-Any thoughts on this ?
-
-
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
