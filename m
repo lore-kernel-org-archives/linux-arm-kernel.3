@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6479C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 17:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B74C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 17:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=5GzUE8+22PDvx9TU35PcoTRaUTTz7IbxNCev5oEIp2I=; b=Z3ZDN7eoXzeCr5
-	FZxr1vpJe5fKr+UPbiXk/66+NEXwhV7KCJQ2F9L6EWn2ek6GM4vPd5jNdVDmR+sruuXN8hGIrYkAZ
-	gD2RcCDS/I3GySDiSwQzRhnQ8pTDSZ/2vrL1ffZFk8A0m3elj2700gbIBUHo7h9EKXrREdWSo37aj
-	oz7ikwkNvEnobaFZJ7WKcn0czb7I8xi4HDw17QAsMMq1I65C4rwGdv0kJwag+MUtitn16HAY7w9PB
-	jMpfBp4CDKLvl322NkjSq7oymJEWNeRRu1rMCCX55udAoIZqzs8gU/yAbdy0jKgfvf4gOqXZNvK73
-	kojDby6DgtDm2B2z91DA==;
+	List-Owner; bh=5RbhS+zMfnJaqNmZ2hrpoGWgBgTc8EWmgM+o7CODprw=; b=UkCSf8Y+oTR0+5
+	TtPP6ArNGUnmP0uFwHuJ+LaWmiWkqNpvkd6Xv2PyO6r3H5zhjNqOQ+U6ku+psJIlGVOELKBd82NqD
+	Wwi49dxnKcEgNl1Ua5iBTcwggPC2B44xO3Vgp/9IzfTikqHnWRNM+x1bZh2bEmT4T4I4XZmkxmE66
+	eMzyfdrHrxusNwwTBMToOkDFJDDQ21psNlkNSTXYaXrHj8j9W6aclqr7DAYF/QIygG3EEhaP1MS+j
+	EWiNJIvdBO9UxH6GDzKeNZcob6tgYqZlmmURZDojsjK0zkGCW6UamvUPz9XvF4REhXduYnraSZmS8
+	+9oCaHLX0G4URxJB+YFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tidIy-0000000C4XK-2IHY;
-	Thu, 13 Feb 2025 17:47:16 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tidKO-0000000C4mV-0kMc;
+	Thu, 13 Feb 2025 17:48:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiby6-0000000BkBN-1LMP
+	id 1tibyC-0000000BkD5-1hHc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 13 Feb 2025 16:21:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:In-Reply-To;
+	bh=5RbhS+zMfnJaqNmZ2hrpoGWgBgTc8EWmgM+o7CODprw=; b=IOkPOQ+wTziw3vWq8OMGaTQfMm
+	CU66ugZj21YuwH7lehDL6ZwUJXJlNcp8bfIrkdS6WSMqSZw0ibSVEdrQYUCtEzFwEKktIJQVJcOpH
+	Ofb7qBI+IzBWHGdH3YK8z5x4nHT0OkOOa7Hm7wE3vuTGV1gcDV+shHkoKSlzb0wTAhtWvg4QbTkLw
+	DJhfeTw/6axcsL0wbCCcF9sBpuA/1NNv2k5m/C/JYKm5baVqzP85kZcPUuBLem8eNxshCoKLMihrg
+	BIbAdpZJ2ZC3L2FR9Fsti8rLgIFgGWekiqhblygJSU22tYa7TQOAPYa5AnloR8ln6IE0xoUJPRkg8
+	d0VoxeUA==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiby8-000000012ru-3lTi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 16:21:39 +0000
+	Thu, 13 Feb 2025 16:21:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 977BB5C5854;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 657DC5C5849;
 	Thu, 13 Feb 2025 16:20:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF2A0C4CED1;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C06BC4CEED;
 	Thu, 13 Feb 2025 16:21:35 +0000 (UTC)
 Received: from rostedt by gandalf with local (Exim 4.98)
 	(envelope-from <rostedt@goodmis.org>)
-	id 1tibyE-00000001qcT-1IiE;
-	Thu, 13 Feb 2025 11:21:46 -0500
-Message-ID: <20250213162146.158076547@goodmis.org>
+	id 1tibyD-00000001qbV-43ID;
+	Thu, 13 Feb 2025 11:21:45 -0500
+Message-ID: <20250213162145.821148283@goodmis.org>
 User-Agent: quilt/0.68
-Date: Thu, 13 Feb 2025 11:20:52 -0500
+Date: Thu, 13 Feb 2025 11:20:50 -0500
 From: Steven Rostedt <rostedt@goodmis.org>
 To: linux-kernel@vger.kernel.org,
  linux-trace-kernel@vger.kernel.org,
@@ -64,13 +79,13 @@ Cc: Masami Hiramatsu <mhiramat@kernel.org>,
  Will Deacon <will@kernel.org>,
  Vasily Gorbik <gor@linux.ibm.com>,
  Alexander Gordeev <agordeev@linux.ibm.com>
-Subject: [PATCH v3 5/6] ftrace: Update the mcount_loc check of skipped entries
+Subject: [PATCH v3 3/6] scripts/sorttable: Always use an array for the mcount_loc sorting
 References: <20250213162047.306074881@goodmis.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_082138_431226_21405D53 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20250213_162141_357490_1AA4BC6E 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,50 +102,209 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Steven Rostedt <rostedt@goodmis.org>
 
-Now that weak functions turn into skipped entries, update the check to
-make sure the amount that was allocated would fit both the entries that
-were allocated as well as those that were skipped.
+The sorting of the mcount_loc section is done directly to the section for
+x86 and arm32 but it uses a separate array for arm64 as arm64 has the
+values for the mcount_loc stored in the rela sections of the vmlinux ELF
+file.
+
+In order to use the same code to remove weak functions, always use a
+separate array to do the sorting. This requires splitting up the filling
+of the array into one function and the placing the contents of the array
+back into the rela sections or into the mcount_loc section into a separate
+file.
 
 Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
 ---
- kernel/trace/ftrace.c | 24 +++++++++++++++++++++++-
- 1 file changed, 23 insertions(+), 1 deletion(-)
+ scripts/sorttable.c | 122 ++++++++++++++++++++++++++++++++------------
+ 1 file changed, 90 insertions(+), 32 deletions(-)
 
-diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index e3f89924f603..55d28c060784 100644
---- a/kernel/trace/ftrace.c
-+++ b/kernel/trace/ftrace.c
-@@ -7111,7 +7111,29 @@ static int ftrace_process_locs(struct module *mod,
+diff --git a/scripts/sorttable.c b/scripts/sorttable.c
+index f62a91d8af0a..ec02a2852efb 100644
+--- a/scripts/sorttable.c
++++ b/scripts/sorttable.c
+@@ -594,31 +594,19 @@ struct elf_mcount_loc {
+ 	uint64_t stop_mcount_loc;
+ };
  
- 	/* We should have used all pages unless we skipped some */
- 	if (pg_unuse) {
--		WARN_ON(!skipped);
-+		unsigned long pg_remaining, remaining;
-+		unsigned long skip;
+-/* Sort the relocations not the address itself */
+-static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
++/* Fill the array with the content of the relocs */
++static int fill_relocs(void *ptr, uint64_t size, Elf_Ehdr *ehdr, uint64_t start_loc)
+ {
+ 	Elf_Shdr *shdr_start;
+ 	Elf_Rela *rel;
+ 	unsigned int shnum;
+-	unsigned int count;
++	unsigned int count = 0;
+ 	int shentsize;
+-	void *vals;
+-	void *ptr;
+-
+-	compare_values = long_size == 4 ? compare_values_32 : compare_values_64;
++	void *array_end = ptr + size;
+ 
+ 	shdr_start = (Elf_Shdr *)((char *)ehdr + ehdr_shoff(ehdr));
+ 	shentsize = ehdr_shentsize(ehdr);
+ 
+-	vals = malloc(long_size * size);
+-	if (!vals) {
+-		snprintf(m_err, ERRSTR_MAXSZ, "Failed to allocate sort array");
+-		pthread_exit(m_err);
+-		return NULL;
+-	}
+-
+-	ptr = vals;
+-
+ 	shnum = ehdr_shnum(ehdr);
+ 	if (shnum == SHN_UNDEF)
+ 		shnum = shdr_size(shdr_start);
+@@ -637,22 +625,18 @@ static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
+ 			uint64_t offset = rela_offset(rel);
+ 
+ 			if (offset >= start_loc && offset < start_loc + size) {
+-				if (ptr + long_size > vals + size) {
+-					free(vals);
++				if (ptr + long_size > array_end) {
+ 					snprintf(m_err, ERRSTR_MAXSZ,
+ 						 "Too many relocations");
+-					pthread_exit(m_err);
+-					return NULL;
++					return -1;
+ 				}
+ 
+ 				/* Make sure this has the correct type */
+ 				if (rela_info(rel) != rela_type) {
+-					free(vals);
+ 					snprintf(m_err, ERRSTR_MAXSZ,
+ 						"rela has type %lx but expected %lx\n",
+ 						(long)rela_info(rel), rela_type);
+-					pthread_exit(m_err);
+-					return NULL;
++					return -1;
+ 				}
+ 
+ 				if (long_size == 4)
+@@ -660,13 +644,28 @@ static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
+ 				else
+ 					*(uint64_t *)ptr = rela_addend(rel);
+ 				ptr += long_size;
++				count++;
+ 			}
+ 		}
+ 	}
+-	count = ptr - vals;
+-	qsort(vals, count / long_size, long_size, compare_values);
++	return count;
++}
 +
-+		/* Count the number of entries unused and compare it to skipped. */
-+		pg_remaining = (ENTRIES_PER_PAGE << pg->order) - pg->index;
++/* Put the sorted vals back into the relocation elements */
++static void replace_relocs(void *ptr, uint64_t size, Elf_Ehdr *ehdr, uint64_t start_loc)
++{
++	Elf_Shdr *shdr_start;
++	Elf_Rela *rel;
++	unsigned int shnum;
++	int shentsize;
 +
-+		if (!WARN(skipped < pg_remaining, "Extra allocated pages for ftrace")) {
++	shdr_start = (Elf_Shdr *)((char *)ehdr + ehdr_shoff(ehdr));
++	shentsize = ehdr_shentsize(ehdr);
 +
-+			skip = skipped - pg_remaining;
++	shnum = ehdr_shnum(ehdr);
++	if (shnum == SHN_UNDEF)
++		shnum = shdr_size(shdr_start);
+ 
+-	ptr = vals;
+ 	for (int i = 0; i < shnum; i++) {
+ 		Elf_Shdr *shdr = get_index(shdr_start, shentsize, i);
+ 		void *end;
+@@ -689,8 +688,32 @@ static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
+ 			}
+ 		}
+ 	}
+-	free(vals);
+-	return NULL;
++}
 +
-+			for (pg = pg_unuse; pg; pg = pg->next) {
-+				remaining += 1 << pg->order;
-+			}
++static int fill_addrs(void *ptr, uint64_t size, void *addrs)
++{
++	void *end = ptr + size;
++	int count = 0;
 +
-+			skip = DIV_ROUND_UP(skip, ENTRIES_PER_PAGE);
++	for (; ptr < end; ptr += long_size, addrs += long_size, count++) {
++		if (long_size == 4)
++			*(uint32_t *)ptr = r(addrs);
++		else
++			*(uint64_t *)ptr = r8(addrs);
++	}
++	return count;
++}
 +
-+			/*
-+			 * Check to see if the number of pages remaining would
-+			 * just fit the number of entries skipped.
-+			 */
-+			WARN(skip != remaining, "Extra allocated pages for ftrace: %lu with %lu skipped",
-+			     remaining, skipped);
-+		}
- 		/* Need to synchronize with ftrace_location_range() */
- 		synchronize_rcu();
- 		ftrace_free_pages(pg_unuse);
++static void replace_addrs(void *ptr, uint64_t size, void *addrs)
++{
++	void *end = ptr + size;
++
++	for (; ptr < end; ptr += long_size, addrs += long_size) {
++		if (long_size == 4)
++			w(*(uint32_t *)ptr, addrs);
++		else
++			w8(*(uint64_t *)ptr, addrs);
++	}
+ }
+ 
+ /* Sort the addresses stored between __start_mcount_loc to __stop_mcount_loc in vmlinux */
+@@ -699,14 +722,49 @@ static void *sort_mcount_loc(void *arg)
+ 	struct elf_mcount_loc *emloc = (struct elf_mcount_loc *)arg;
+ 	uint64_t offset = emloc->start_mcount_loc - shdr_addr(emloc->init_data_sec)
+ 					+ shdr_offset(emloc->init_data_sec);
+-	uint64_t count = emloc->stop_mcount_loc - emloc->start_mcount_loc;
++	uint64_t size = emloc->stop_mcount_loc - emloc->start_mcount_loc;
+ 	unsigned char *start_loc = (void *)emloc->ehdr + offset;
++	Elf_Ehdr *ehdr = emloc->ehdr;
++	void *e_msg = NULL;
++	void *vals;
++	int count;
++
++	vals = malloc(long_size * size);
++	if (!vals) {
++		snprintf(m_err, ERRSTR_MAXSZ, "Failed to allocate sort array");
++		pthread_exit(m_err);
++	}
+ 
+ 	if (sort_reloc)
+-		return sort_relocs(emloc->ehdr, emloc->start_mcount_loc, count);
++		count = fill_relocs(vals, size, ehdr, emloc->start_mcount_loc);
++	else
++		count = fill_addrs(vals, size, start_loc);
++
++	if (count < 0) {
++		e_msg = m_err;
++		goto out;
++	}
++
++	if (count != size / long_size) {
++		snprintf(m_err, ERRSTR_MAXSZ, "Expected %u mcount elements but found %u\n",
++			(int)(size / long_size), count);
++		e_msg = m_err;
++		goto out;
++	}
++
++	compare_values = long_size == 4 ? compare_values_32 : compare_values_64;
++
++	qsort(vals, count, long_size, compare_values);
++
++	if (sort_reloc)
++		replace_relocs(vals, size, ehdr, emloc->start_mcount_loc);
++	else
++		replace_addrs(vals, size, start_loc);
++
++out:
++	free(vals);
+ 
+-	qsort(start_loc, count/long_size, long_size, compare_extable);
+-	return NULL;
++	pthread_exit(e_msg);
+ }
+ 
+ /* Get the address of __start_mcount_loc and __stop_mcount_loc in System.map */
 -- 
 2.47.2
 
