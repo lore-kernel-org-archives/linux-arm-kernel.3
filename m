@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 793B8C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 17:56:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A1A4C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 17:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YF3/2kfrsJYjoCEIlZrwDWAfYUEZcN2JfotI765XeoQ=; b=qJlPhukW4c3QmSrQ4kA9p/IaxR
-	Wa55kDlrZD/R/OrlSz8Y5DAAGQH1can+e6GsQUEt4zpyXctbgX29rgO6IQXga55FfpAybaJR5O1kY
-	mkfDZqIgvk8L6nHTh1Oe1T447S+HTtSAefTVqfIl7U2m86YlzP9n+9leN9UDWMiY0lZrQCCn4eGMJ
-	ukH1Z6dC5PkHIfn25agbbDyjB57ceZNb31eDNylBpH/f+yH2ftQvwJRlLfkWh9r0f8E+b1Igk/lKO
-	pH0ySjGHlW3XD6YjDmfaOTfCsK4NkwatL/7hOO0WEiEE6V7fhqZN1JbKDvqnDbDhnPnA2jxrbzHlh
-	hlvSAseA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pkRWv4JP/idAuAK+mR/AdT1Zif8+aeGhHShLWeul7BY=; b=sGkiPHZnR6PwAhqc6egLWRx8dQ
+	9YX+XF8It908Fj7Z2X+zJHntxLTKnPDnv3joz8aojhQT9StA5w32UlS70GPMVx4lT0W/xlsHK+sZy
+	4EFTK3a6TjPBVaUp+Z0yAk0kTG3Zh+zBMEzKCy2976hCBUtFCS0keUHYvmU1gB9sGxXMMfUCAyS9o
+	3ayuBuRer0F69YvjlefgTCbjNiL9I+7iS3p+K6wF//qPiizUlaEV3IhiUa+N+VKouu3koBpkk0AxH
+	kh4jMXdEuzYCKzgGmeQGW2NnyHnofO0GXQLBF2DkmYt7xsqhgXgdegDUpipSfFVBnMDacOZ1MZ2X+
+	EnELjPgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tidRY-0000000C6A5-0ZGI;
-	Thu, 13 Feb 2025 17:56:08 +0000
-Received: from mail-vk1-f170.google.com ([209.85.221.170])
+	id 1tidSw-0000000C6XZ-2GCf;
+	Thu, 13 Feb 2025 17:57:34 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticg0-0000000Bwfx-3EO1
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 17:07:01 +0000
-Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-5203c91d28bso341444e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 09:07:00 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739466419; x=1740071219;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YF3/2kfrsJYjoCEIlZrwDWAfYUEZcN2JfotI765XeoQ=;
-        b=rzhWxJLX1Zssq610iyafub2Z9xsBgEEnt7pGq9wurGlw08evi3Gru0zrsKrfv6zHgy
-         LWpnBBz0v1qcXtAjOeGrcFv4BQN71hPIZOsPj00iqCn1E8qMWE7MXfkVb0DJ9QxFvDcU
-         VL1Kh1Bf99wW++pgtcpDb6oaex5Zn7Yu7zxcIyducBMazgpj28dr3+Wvl0IQXVGPzwJX
-         Crpp3XfUPfpq3kA/bKeMF7fwIGFtG4r3afik/ySSBllT3fieQg4s18QMx4TnSZ1Wu8X/
-         yp3i/NXlM4tiNLaR4u1cQJVWmrGzXoYrlR7L/OiSoFCgkATUD6kV5qEmdMfgO1+cs7P0
-         eJWw==
-X-Gm-Message-State: AOJu0YwrMxO0luiKIQqaULeEqda1V9lK4VHNksbPwJn9e+cTuBFmClfa
-	y16L/T53bylTWvOqUJYuI6IUoPFMiSg1qJfTXEYHUb33t6ReGTmP0GTngUMcxtQ=
-X-Gm-Gg: ASbGncu8mSxqltez0NE08emOnYpukOFMwumknP3EiMt8AWHQ4YNTOi/WZF/F/29vooE
-	lqKalt3J8u46fnsxj5AjWkBWHQXAe8wpIpkm5ac5oQqLldPOFnMuQcBRi5FfqJKfbIRBd0YEjpz
-	39vrVB3x5+LM0pxc4/b8tkjtYGKKEsN9/nSzYydUk9wQxTy4/7brx5DkQ6+vnM7bJ490qcQikE0
-	EtIJCg740JEYZx0TpVVxVJg0YxtkTmyP6417LdqFjXSv+Ek5RaPh4uKnmfnrCuH+/NdvgxnwEyw
-	LYjB+ShIi3XIdPwD5PWWdVHyKG+To+mxq3rcXc+gCO2YwNS+db6X9w==
-X-Google-Smtp-Source: AGHT+IFGaf30Z0s/8+39Eh8Ts+Ly0Bx/EVbCp0U0Q2ItwASkijfvlXR+iDh4tnJROAU7MoFQF+xXKg==
-X-Received: by 2002:a05:6122:2186:b0:518:791a:3462 with SMTP id 71dfb90a1353d-52069dd8b0bmr7104679e0c.9.1739466418593;
-        Thu, 13 Feb 2025 09:06:58 -0800 (PST)
-Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com. [209.85.217.51])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5207aa3ff9esm219696e0c.2.2025.02.13.09.06.58
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Feb 2025 09:06:58 -0800 (PST)
-Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-4bbc406499fso274778137.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 09:06:58 -0800 (PST)
-X-Received: by 2002:a05:6102:4191:b0:4bb:c24b:b623 with SMTP id
- ada2fe7eead31-4bbf568bd5amr7299920137.19.1739466417907; Thu, 13 Feb 2025
- 09:06:57 -0800 (PST)
+	id 1ticge-0000000BwmP-0HZH;
+	Thu, 13 Feb 2025 17:07:41 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 393344445D;
+	Thu, 13 Feb 2025 17:07:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739466457;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pkRWv4JP/idAuAK+mR/AdT1Zif8+aeGhHShLWeul7BY=;
+	b=SIO/nQJZv43iVUadTFzcCneOf8JkXKitdCkSooThMyMJzhEtByvC05ZJRe+qnJb/hviIcI
+	DH1RlVBOcZUqBeq9xEK6DmbHgonpPz9mVKmv4RhCMF9auDacoaHaLoXmEuBwuRv9JFluok
+	R+vvrhaltCo9NJVrf1vIjkj1uum3p2wE0077wC72ivgzPLxTyM/tZOoCphmdDWNcgUliLM
+	ArcBDF9EmKibqx6ABf+zoGTTDy6zLJFFstjH4YZCudasC5tLxeNCZcnWE4sS3bBeDS/SY6
+	FPPv3yskQLPfHk+3OFCdoLIf7LGAA5/lAAvIaGp0Ave040GhGpDoHn4d3HfKIQ==
+Date: Thu, 13 Feb 2025 18:07:33 +0100
+From: Herve Codina <herve.codina@bootlin.com>
+To: Phil Elwell <phil@raspberrypi.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Andrea della Porta
+ <andrea.porta@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+ "maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE"
+ <bcm-kernel-feedback-list@broadcom.com>, bhelgaas@google.com,
+ brgl@bgdev.pl, Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
+ <conor+dt@kernel.org>, derek.kiernan@amd.com, devicetree@vger.kernel.org,
+ dragan.cvetic@amd.com, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, krzk+dt@kernel.org,
+ kw@linux.com, Linus Walleij <linus.walleij@linaro.org>, linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, "open
+ list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS"
+ <linux-pci@vger.kernel.org>, "moderated list:BROADCOM BCM2711/BCM2835 ARM
+ ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+ lpieralisi@kernel.org, luca.ceresoli@bootlin.com,
+ manivannan.sadhasivam@linaro.org, masahiroy@kernel.org, Michael Turquette
+ <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
+ saravanak@google.com, Stephen Boyd <sboyd@kernel.org>,
+ thomas.petazzoni@bootlin.com, Stefan Wahren <wahrenst@gmx.net>, Will Deacon
+ <will@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device
+ using a DT overlay
+Message-ID: <20250213180733.11999e07@bootlin.com>
+In-Reply-To: <CAMEGJJ3-JXhin_Ht76EqUNAwLiNisa9PrCrdUzCgj=msGZfb5A@mail.gmail.com>
+References: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
+	<20250213171435.1c2ce376@bootlin.com>
+	<a3c5103c-829a-4301-ba53-6ef9bd1e74e7@lunn.ch>
+	<CAMEGJJ3-JXhin_Ht76EqUNAwLiNisa9PrCrdUzCgj=msGZfb5A@mail.gmail.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-References: <20250209180616.160253-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20250209180616.160253-1-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 13 Feb 2025 18:06:46 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVRu7Kp+qF52ApYYqdHg=tV5WTAOaG-Vi7Vqj5786Us2g@mail.gmail.com>
-X-Gm-Features: AWEUYZliYRg_sys6dyhouDCv7ONlDd2mFCSmyYehrp9fFQVAs0ioNoeU0iPhl6U
-Message-ID: <CAMuHMdVRu7Kp+qF52ApYYqdHg=tV5WTAOaG-Vi7Vqj5786Us2g@mail.gmail.com>
-Subject: Re: [PATCH 1/3] ARM: dts: renesas: Add boot phase tags marking to
- Renesas R-Car Gen2
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegjeeffecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthekredtredtjeenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeviefffeegiedtleelieeghfejleeuueevkeevteegffehledtkeegudeigffgvdenucfkphepvdgrtddumegvtdgrmedvgeeimeejjeeltdemvdeitgegmegvvddvmeeitdefugemheekrgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemvdegieemjeejledtmedviegtgeemvgdvvdemiedtfegumeehkegrpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeehpdhrtghpthhtohepphhhihhlsehrrghsphgsvghrrhihphhirdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtoheprghnughrvggrrdhpohhrthgrsehsuhhsvgdrtghomhdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtoheps
+ ggtmhdqkhgvrhhnvghlqdhfvggvuggsrggtkhdqlhhishhtsegsrhhorggutghomhdrtghomhdprhgtphhtthhopegshhgvlhhgrggrshesghhoohhglhgvrdgtohhmpdhrtghpthhtohepsghrghhlsegsghguvghvrdhplhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhm
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_090700_805256_6D1AC512 
-X-CRM114-Status: GOOD (  20.54  )
+X-CRM114-CacheID: sfid-20250213_090740_431077_E678EA81 
+X-CRM114-Status: GOOD (  23.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,32 +98,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 9 Feb 2025 at 19:06, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> bootph-all as phase tag was added to dt-schema (dtschema/schemas/bootph.yaml)
-> to describe various node usage during boot phases with DT. Add bootph-all for
-> all nodes that are used in the bootloader on Renesas R-Car SoC.
->
-> All SoC require CPG clock and its input clock, RST Reset, PFC pin control and
-> PRR ID register access during all stages of the boot process, those are marked
-> using bootph-all property, and so is the SoC bus node which contains these IP.
->
-> Each board console UART is also marked as bootph-all to make it available in
-> all stages of the boot process.
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+On Thu, 13 Feb 2025 16:30:44 +0000
+Phil Elwell <phil@raspberrypi.com> wrote:
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v6.15.
+> Hi Andrew,
+> 
+> On Thu, 13 Feb 2025 at 16:27, Andrew Lunn <andrew@lunn.ch> wrote:
+> >
+> > On Thu, Feb 13, 2025 at 05:14:35PM +0100, Herve Codina wrote:  
+> > > Hi Phil,
+> > >
+> > > On Thu, 13 Feb 2025 15:18:45 +0000
+> > > Phil Elwell <phil@raspberrypi.com> wrote:
+> > >  
+> > > > Hi Andrea,
+> > > >
+> > > > The problem with this approach (loading an overlay from the RP1 PCIe
+> > > > driver), and it's one that I have raised with you offline, is that
+> > > > (unless anyone can prove otherwise) it becomes impossible to create a
+> > > > Pi 5 DTS file which makes use of the RP1's resources. How do you
+> > > > declare something as simple as a button wired to an RP1 GPIO, or fan
+> > > > connected to a PWM output?  
+> >
+> > Where is this button or fan? On a pluggable board? Isn't that what
+> > overlays are for, and they are stackable. So when you probe the
+> > pluggable board via its eeprom etc, you find the overlay and load it?  
+> 
+> In the Raspberry Pi ecosystem it would be the firmware that applies
+> the overlay, and it can't do that if the resources the overlay refers
+> to are not yet present in the dtb.
 
-Gr{oetje,eeting}s,
+What do you mean by the 'the resources are not yet present in the dtb' ?
 
-                        Geert
+Also what you call the 'firmware' is the bootloader ? the kernel ?
+Can you tell me who is the 'firmware' what is the mecanisme it uses to
+load the overlay.
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+Best regards,
+Hervé
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+
+> 
+> > Or do you mean a custom board, which has a CPU, RP1 and the button and
+> > fan are directly on this custom board? You then want a board DTS which
+> > includes all these pieces?  
+> 
+> That depends on whether you count the Raspberry Pi 5 as a custom board.
+> 
 
