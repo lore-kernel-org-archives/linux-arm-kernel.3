@@ -4,88 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B5E5C021A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 04:19:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073CAC021A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 04:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bv7WqR3X1pgkehSwM3zL4+T/KtZ3ZYmW4DG7RpbFiaQ=; b=A7QPBm/4Ciaan8+adAu82FoFh/
-	EpTcI1u9xCvmm4PmQCnjfddkpWA0f1QdPSjVWTEYfZFvzqEJWzSwRdqyAn+5fx+Br1QOBvmJYc4Kd
-	t/u8S1H0Tz31JIEtT9usp5kiW0RooOF7uxbBqd5hoR7lt/steuqjhfQR2eli84dcK4FIx9rWFBtC+
-	pBV+vX/KXW5JYNNkgORLv74Qloz1nr3G+azGpZvWSY7mN9yp7sXuG7ngEDzSrWYLXut+6+K30RmxW
-	LmyWYFkhlzW6JpbBjegoCmnmsNDq/DhquV9xzWy4fy5QHHQwshygPgDmqiSj0MV29jPOAszYng5c6
-	QYSQDxgQ==;
+	bh=RgLeQjspT74MnPRQdy/BnqqUlzDaDSRUeORQX7ILuZ4=; b=1NG4joH5TMKbiorBU9coDDAegI
+	P+utr1qNNhE0k4YKLiOMVv1VIReXVorowoF5oIp949ygnWWufNc1XkFkMMb7ibkA3p+2BRgdOUEKj
+	nPo2T8XKlaCaLVPJXLeDRLM8inWI4AnHwsK33TwtJcnaY7uP8quV1R98l7iiVZH4sNL4RV7xl8Cvv
+	m7ptjHBPe5BgRXZyfo33/yzcML1hfoI1klLJCXCzVn4zoJxh1im3jiF45tVSIbfGPLt0heKfoz9W4
+	HGZ9pNz7ZPvdJtLPUTKaNMyaje1L82PhL0lFNhP9IFKQQrey7xnZuwjZqqrScfEtdvKGb/YyGttLS
+	OaPr3ong==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiQgo-00000009hWJ-1Uq2;
-	Thu, 13 Feb 2025 04:19:02 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1tiQiC-00000009hn9-0I9V;
+	Thu, 13 Feb 2025 04:20:28 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiQfN-00000009hH5-0Scr
+	id 1tiQfc-00000009hLj-28jc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 04:17:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739420253; x=1770956253;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NwUCbncyWQlYDdWANe/dC2fuauZaHSWGGIIgoSJyz84=;
-  b=V8tCngVDJX+tPyF2QMOB+rO4PtEKByQTsYehslJre9lx4zJW3Ye1nJKo
-   z7Lg/3OjyJNwSNMPLjOvX5jh1WauvekkgJp1fxZfW5FbQjJW9XTwRjCa2
-   NA0nmCu1ROtXkwxcpboHEZhbbQFm0MIWOwofu9VpILk6QBzivtfX2yOQr
-   XwRDbthHHpGtXisfPpL4zjGK85ux64hCHZaiDrlh6X2MNZcwJl+cUs6gX
-   g/LwYisKW8PeIZf1jsbSXMYvXsT20SsImyAJryFix5E3BUytQXZSZDLD1
-   1/ZhqRdo1hLDBM7KCKCK8OpuhIBgTJ4uZ7LUpxY2OvMu4zTqtFman1eEn
-   g==;
-X-CSE-ConnectionGUID: QpLO5NLhSOKuXj7nkP06iA==
-X-CSE-MsgGUID: P+LbbmvvTbW9Shm+5Fs+9g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11343"; a="51501693"
-X-IronPort-AV: E=Sophos;i="6.13,281,1732608000"; 
-   d="scan'208";a="51501693"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2025 20:17:32 -0800
-X-CSE-ConnectionGUID: PtolVEeJT5eOD7M52x2ZTA==
-X-CSE-MsgGUID: 4JQc8phaTK+L8aHulps4Vw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,281,1732608000"; 
-   d="scan'208";a="113022499"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by fmviesa007.fm.intel.com with ESMTP; 12 Feb 2025 20:17:28 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tiQfF-0016V9-2s;
-	Thu, 13 Feb 2025 04:17:25 +0000
-Date: Thu, 13 Feb 2025 12:16:58 +0800
-From: kernel test robot <lkp@intel.com>
-To: Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>,
-	Bjorn Helgaas <helgaas@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Mark Kettenis <kettenis@openbsd.org>, Marc Zyngier <maz@kernel.org>,
-	Stan Skowronek <stan@corellium.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Subject: Re: [PATCH 7/7] PCI: apple: Add T602x PCIe support
-Message-ID: <202502131258.hhEIy45J-lkp@intel.com>
-References: <20250211-pcie-t6-v1-7-b60e6d2501bb@rosenzweig.io>
+	Thu, 13 Feb 2025 04:17:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=RgLeQjspT74MnPRQdy/BnqqUlzDaDSRUeORQX7ILuZ4=; b=TaY0sHpQhYJBJrGuUjHmblyVsO
+	3nfjIPVNgsz8aIXvokaa92wEtUvu6saTV3ZV/dCn6ESly8nM5nUtYyd+mOiS0dRnM9UXsjdfzQqOz
+	zT/JPVvmkDkVqNUaKciZW/VOCHjwe1SoFFjtIazL8O01ndlR1Z3IJSj2h9FBnbxlz5Uf4WSA/Etzq
+	PaBGIc6KQx4hJc3RFBkEtZqr/uN1GFAbjE/NKD7pUsIxJwXlocDPZPiU6fgkZRV2a7NouI4rmyALJ
+	fyw5cZu+GkRkbLvb5bVRSt3t8ga5fv8vo8ter49SAHAAnishj/tIELSXsclqrf15tkeHsv7MlxCqX
+	DeyzhKxg==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1tiQSb-00HUzh-1W;
+	Thu, 13 Feb 2025 12:17:43 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 13 Feb 2025 12:17:42 +0800
+Date: Thu, 13 Feb 2025 12:17:42 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: fsverity@lists.linux.dev, linux-crypto@vger.kernel.org,
+	dm-devel@lists.linux.dev, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	David Howells <dhowells@redhat.com>, netdev@vger.kernel.org
+Subject: Re: [PATCH v8 0/7] Optimize dm-verity and fsverity using multibuffer
+ hashing
+Message-ID: <Z61yZjslWKmDGE_t@gondor.apana.org.au>
+References: <20250212154718.44255-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250211-pcie-t6-v1-7-b60e6d2501bb@rosenzweig.io>
+In-Reply-To: <20250212154718.44255-1-ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_201733_192113_03E6E997 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20250212_201748_562534_BA4BE55E 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,90 +81,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alyssa,
+On Wed, Feb 12, 2025 at 07:47:11AM -0800, Eric Biggers wrote:
+> [ This patchset keeps getting rejected by Herbert, who prefers a
+>   complex, buggy, and slow alternative that shoehorns CPU-based hashing
+>   into the asynchronous hash API which is designed for off-CPU offload:
+>   https://lore.kernel.org/linux-crypto/cover.1730021644.git.herbert@gondor.apana.org.au/
+>   This patchset is a much better way to do it though, and I've already
+>   been maintaining it downstream as it would not be reasonable to go the
+>   asynchronous hash route instead.  Let me know if there are any
+>   objections to me taking this patchset through the fsverity tree, or at
+>   least patches 1-5 as the dm-verity patches could go in separately. ]
 
-kernel test robot noticed the following build errors:
+Yes I object.  While I very much like this idea of parallel hashing
+that you're introducing, shoehorning it into shash is restricting
+this to storage-based users.
 
-[auto build test ERROR on 2014c95afecee3e76ca4a56956a936e23283f05b]
+Networking is equally able to benefit from paralell hashing, and
+parallel crypto (in particular, AEAD) in general.  In fact, both
+TLS and IPsec can benefit directly from bulk submission instead
+of the current scheme where a single packet is processed at a time.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Alyssa-Rosenzweig/dt-bindings-pci-apple-pcie-Add-t6020-support/20250212-035900
-base:   2014c95afecee3e76ca4a56956a936e23283f05b
-patch link:    https://lore.kernel.org/r/20250211-pcie-t6-v1-7-b60e6d2501bb%40rosenzweig.io
-patch subject: [PATCH 7/7] PCI: apple: Add T602x PCIe support
-config: s390-randconfig-002-20250213 (https://download.01.org/0day-ci/archive/20250213/202502131258.hhEIy45J-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 6807164500e9920638e2ab0cdb4bf8321d24f8eb)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250213/202502131258.hhEIy45J-lkp@intel.com/reproduce)
+But thanks for the reminder and I will be posting my patches
+soon.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502131258.hhEIy45J-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/pci/controller/pcie-apple.c:467:19: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     467 |                         writel_relaxed(FIELD_PREP(PORT_MSIMAP_TARGET, i) |
-         |                                        ^
-   1 error generated.
-
-
-vim +/FIELD_PREP +467 drivers/pci/controller/pcie-apple.c
-
-   429	
-   430	static int apple_pcie_port_setup_irq(struct apple_pcie_port *port)
-   431	{
-   432		struct fwnode_handle *fwnode = &port->np->fwnode;
-   433		struct apple_pcie *pcie = port->pcie;
-   434		unsigned int irq;
-   435	
-   436		/* FIXME: consider moving each interrupt under each port */
-   437		irq = irq_of_parse_and_map(to_of_node(dev_fwnode(port->pcie->dev)),
-   438					   port->idx);
-   439		if (!irq)
-   440			return -ENXIO;
-   441	
-   442		port->domain = irq_domain_create_linear(fwnode, 32,
-   443							&apple_port_irq_domain_ops,
-   444							port);
-   445		if (!port->domain)
-   446			return -ENOMEM;
-   447	
-   448		/* Disable all interrupts */
-   449		writel_relaxed(~0, port->base + PORT_INTMSK);
-   450		writel_relaxed(~0, port->base + PORT_INTSTAT);
-   451		writel_relaxed(~0, port->base + PORT_LINKCMDSTS);
-   452	
-   453		irq_set_chained_handler_and_data(irq, apple_port_irq_handler, port);
-   454	
-   455		/* Configure MSI base address */
-   456		BUILD_BUG_ON(upper_32_bits(DOORBELL_ADDR));
-   457		writel_relaxed(lower_32_bits(DOORBELL_ADDR),
-   458			       port->base + pcie->hw->port_msiaddr);
-   459		if (pcie->hw->port_msiaddr_hi)
-   460			writel_relaxed(0, port->base + pcie->hw->port_msiaddr_hi);
-   461	
-   462		/* Enable MSIs, shared between all ports */
-   463		if (pcie->hw->port_msimap) {
-   464			int i;
-   465	
-   466			for (i = 0; i < pcie->nvecs; i++) {
- > 467				writel_relaxed(FIELD_PREP(PORT_MSIMAP_TARGET, i) |
-   468					       PORT_MSIMAP_ENABLE,
-   469					       port->base + pcie->hw->port_msimap + 4 * i);
-   470			}
-   471	
-   472			writel_relaxed(PORT_MSICFG_EN, port->base + PORT_MSICFG);
-   473		} else {
-   474			writel_relaxed(0, port->base + PORT_MSIBASE);
-   475			writel_relaxed((ilog2(pcie->nvecs) << PORT_MSICFG_L2MSINUM_SHIFT) |
-   476				PORT_MSICFG_EN, port->base + PORT_MSICFG);
-   477		}
-   478	
-   479		return 0;
-   480	}
-   481	
-
+Cheers,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
