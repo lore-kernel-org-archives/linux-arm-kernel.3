@@ -4,76 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88C63C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:03:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D1E2C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:04:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSqEFJEPXbKrFf4UCRw4Rj9UNsiFiIqusumOACEFv68=; b=r6qUIw/r2nDsddHvijsjwHdBIm
-	kl9ensBANqPd41OlnQT0vWMcsD+2zhMYGsy8U+cAyYojhXBD5sWNuh+ZS5vnT8uMjJtJ+fsHooCfc
-	flEPUM6dz42paNpsBXoC7zpDInb28AWqm257ZPG+Td5lMqVuBYB3bENKuc4r3HUXRPBN8viatVgKA
-	EMmWHHjt7YQ3p/F9lHdzbKZKDS6Peorl8VLU5t/OjwI+d+y0BcVbss3GVbSpVhuYUX1UZ5OZXOJpz
-	KRaDxHjneo0l/FrArpqqSEb0036L6Wit8NQzkDg/kb+nuh5yb4Cy1asSAzOSKzrK32ryTbLegD29Y
-	j0lqix9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4N80hDSqq8aH8PAPx57HquTznMqgSlfxParpspmHijM=; b=0SuLaMXHqXF06G/096xSWR5JCg
+	AwfGp3BRqsfG0MgMo3goqv0mnjAbPV9IVVAwg923rL+D+NAvo9ih2gdonlP4cbGx55YD3NLlwOg7u
+	QENEMy61rz9guqHle8KSjwXrYKwPYaD7WqMbO62Yt0/q+3HRQxfRQM9DzSjtOmzxorc10g4dBG96o
+	pes57/l8CzP2tof4Ypid9kWh5jEPf7G3jsAFt4Uuv0GfTgodsLC23Jj47SOPDf0P9NbhtsBzO75zM
+	pNhX9rWnJ/xRWJs2nP8bObfVOAIDz5lBaT/NBbd3DHNrHTchRbVxg/dVk7WDEy+pXSkpl2J8xbOT3
+	UyVhw2cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibgD-0000000BfYJ-0B2X;
-	Thu, 13 Feb 2025 16:03:09 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1tibhb-0000000Bfui-32Ms;
+	Thu, 13 Feb 2025 16:04:35 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibSE-0000000BcDc-43IF
+	id 1tibSj-0000000BcMB-3Orf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 15:48:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1739461718;
- bh=OSqEFJEPXbKrFf4UCRw4Rj9UNsiFiIqusumOACEFv68=;
- b=q8znhY014Gq69gkwJw6VFzgQXnvAgbnLeTuH4WU+Nq/CS6I/ipN6oUH8wUO2WBYdSxkppx5WQ
- OiVLE1twdHsgUu0ZlqbZ/EQ5CkS88eFogP4lDw3uxGPIMKBHMJ4r8XUdv428o6ez4L352nyAbHa
- Ba852AZ1fPLNJRZodCARxmH4E3eUFeUHyaLyJYgl9Ov4+EhE/AicZc3MHjXtLeVeGvu/+UqiT5R
- 58+c1rNtDVUMrlN613YIvtkEU4uPXT6xpVm1DrDzwrm37LttffQ8uTubFB1+sZxqJn3NS22Aj84
- WJUze4+eymE8iPIiCae5HRV992VkDNfBJATgKvk53UGw==
-X-Forward-Email-ID: 67ae1441eeea92be259cebf3
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <b5977d21-aa39-4e91-863b-cc7f9dc6938c@kwiboo.se>
-Date: Thu, 13 Feb 2025 16:48:10 +0100
+	Thu, 13 Feb 2025 15:49:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AC64DA42704;
+	Thu, 13 Feb 2025 15:47:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9BFCC4CED1;
+	Thu, 13 Feb 2025 15:49:09 +0000 (UTC)
+Date: Thu, 13 Feb 2025 15:49:07 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: Zhenhua Huang <quic_zhenhuah@quicinc.com>, anshuman.khandual@arm.com,
+	will@kernel.org, ardb@kernel.org, ryan.roberts@arm.com,
+	mark.rutland@arm.com, joey.gouly@arm.com,
+	dave.hansen@linux.intel.com, akpm@linux-foundation.org,
+	chenfeiyang@loongson.cn, chenhuacai@kernel.org, linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	quic_tingweiz@quicinc.com, stable@vger.kernel.org
+Subject: Re: [PATCH v6] arm64: mm: Populate vmemmap/linear at the page level
+ for hotplugged sections
+Message-ID: <Z64UcwSGQ53mFmWF@arm.com>
+References: <20250213075703.1270713-1-quic_zhenhuah@quicinc.com>
+ <9bc91fe3-c590-48e2-b29f-736d0b056c34@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add Radxa ROCK 4D device
- tree
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Dragan Simic <dsimic@manjaro.org>, Chris Morgan <macromorgan@hotmail.com>,
- Kever Yang <kever.yang@rock-chips.com>, Tim Lunn <tim@feathertop.org>,
- FUKAUMI Naoki <naoki@radxa.com>,
- Michael Riesch <michael.riesch@wolfvision.net>,
- Weizhao Ouyang <weizhao.ouyang@arm.com>, Elon Zhang
- <zhangzj@rock-chips.com>, Alexey Charkov <alchark@gmail.com>,
- Stephen Chen <stephen@radxa.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- kernel@collabora.com
-References: <20250213145921.133412-1-detlev.casanova@collabora.com>
- <20250213145921.133412-3-detlev.casanova@collabora.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250213145921.133412-3-detlev.casanova@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9bc91fe3-c590-48e2-b29f-736d0b056c34@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_074843_040674_79A34F15 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20250213_074913_912411_9B41E3CB 
+X-CRM114-Status: GOOD (  20.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,101 +68,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Detlev,
-
-On 2025-02-13 15:57, Detlev Casanova wrote:
-> From: Stephen Chen <stephen@radxa.com>
+On Thu, Feb 13, 2025 at 01:59:25PM +0100, David Hildenbrand wrote:
+> On 13.02.25 08:57, Zhenhua Huang wrote:
+> > On the arm64 platform with 4K base page config, SECTION_SIZE_BITS is set
+> > to 27, making one section 128M. The related page struct which vmemmap
+> > points to is 2M then.
+> > Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
+> > vmemmap to populate at the PMD section level which was suitable
+> > initially since hot plug granule is always one section(128M). However,
+> > commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+> > introduced a 2M(SUBSECTION_SIZE) hot plug granule, which disrupted the
+> > existing arm64 assumptions.
+> > 
+> > Considering the vmemmap_free -> unmap_hotplug_pmd_range path, when
+> > pmd_sect() is true, the entire PMD section is cleared, even if there is
+> > other effective subsection. For example page_struct_map1 and
+> > page_strcut_map2 are part of a single PMD entry and they are hot-added
+> > sequentially. Then page_struct_map1 is removed, vmemmap_free() will clear
+> > the entire PMD entry freeing the struct page map for the whole section,
+> > even though page_struct_map2 is still active. Similar problem exists
+> > with linear mapping as well, for 16K base page(PMD size = 32M) or 64K
+> > base page(PMD = 512M), their block mappings exceed SUBSECTION_SIZE.
+> > Tearing down the entire PMD mapping too will leave other subsections
+> > unmapped in the linear mapping.
+> > 
+> > To address the issue, we need to prevent PMD/PUD/CONT mappings for both
+> > linear and vmemmap for non-boot sections if corresponding size on the
+> > given base page exceeds SUBSECTION_SIZE(2MB now).
+> > 
+> > Cc: <stable@vger.kernel.org> # v5.4+
+> > Fixes: ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+> > Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> > Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
 > 
-> The Radxa ROCK 4D board is based on the Rockchip rk3576 SoC.
-> 
-> The device tree adds support for basic devices:
->  - UART
->  - SD Card
->  - Ethernet
->  - USB
->  - RTC
-> 
-> It has 4 USB ports but only 3 are usable as the top left one is used
-> for maskrom.
-> 
-> It has a USB-C port that is only used for powering the board.
-> 
-> Signed-off-by: Stephen Chen <stephen@radxa.com>
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> ---
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../boot/dts/rockchip/rk3576-rock-4d.dts      | 651 ++++++++++++++++++
->  2 files changed, 652 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-> index def1222c1907e..a112aeb37948a 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -132,6 +132,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-display-vz.dtbo
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-io-expander.dtbo
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-evb1-v10.dtb
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-rock-4d.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3582-radxa-e52c.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-armsom-sige7.dtb
->  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-armsom-w3.dtb
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-> new file mode 100644
-> index 0000000000000..f356742f9d643
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-> @@ -0,0 +1,651 @@
+> Just so I understand correctly: for ordinary memory-sections-size hotplug
+> (NVDIMM, virtio-mem), we still get a large mapping where possible?
 
-[snip]
+Up to 2MB blocks only since that's the SUBSECTION_SIZE value. The
+vmemmap mapping is also limited to PAGE_SIZE mappings (we could use
+contiguous mappings for vmemmap but it's not wired up; I don't think
+it's worth the hassle).
 
-> +&gmac0 {
-> +	phy-mode = "rgmii-id";
-> +	clock_in_out = "output";
-> +
-> +	snps,reset-gpio = <&gpio2 RK_PB5 GPIO_ACTIVE_LOW>;
-> +	snps,reset-active-low;
-> +	snps,reset-delays-us = <0 20000 100000>;
-
-The snps,reset- props are deprecated and should be changed to reset-
-props in the phy node.
-
-> +
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&eth0m0_miim
-> +		     &eth0m0_tx_bus2
-> +		     &eth0m0_rx_bus2
-> +		     &eth0m0_rgmii_clk
-> +		     &eth0m0_rgmii_bus
-> +		     &ethm0_clk0_25m_out>;
-> +
-> +	phy-handle = <&rgmii_phy0>;
-> +	status = "okay";
-> +};
-
-[snip]
-
-> +&mdio0 {
-> +	rgmii_phy0: phy@1 {
-
-Maybe ethernet-phy@1 ?
-
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <0x1>;
-> +		clocks = <&cru REFCLKO25M_GMAC0_OUT>;
-
-Please add reset- props here.
-
-Changing to use reset- props may cause issue if a RTL8211F PHY is used
-on the board. Use a ethernet-phy-id compatible or mainline U-Boot to
-ensure the Ethernet PHY can be discovered during probe.
-
-Regards,
-Jonas
-
-> +	};
-> +};
-> +
-
-[snip]
+-- 
+Catalin
 
