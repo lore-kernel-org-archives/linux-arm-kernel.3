@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16B4C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 13:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 691A5C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 13:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bkaMhcNmEWpgp1MChWKWck85+/ejIU8zUdpdj5tOMuo=; b=GqUlKZgixMHQgyfZU1hOETiUDL
-	9bQzsquJWimUsIaHMGyhKl+91w9Qd/i69NlKj97pkyIk6PpGe7mmh0ELuLJA8Bb2jhNEN57cieDCY
-	VpogzllIghjGWEfCAfcZLKRwbhSf6sABevF+ONX9uF8W9h/3psZ0p6Ld0z1ue590BnXelXoc0o1sH
-	tLPLXmjOxH+um6f86yaTzcFTDuGzpgbRdXnOJ7OIY+a+jvIedtI8y4z62REGkFil+TKctvYgIcOnd
-	bzwqVH5n+mxZy8jQlW/+UfA0cDVoZTMZbLNvWI3vA3vOIHQbSrSFYNiJ0fIqKmNRBCCxzUDOnIoLe
-	k/9UI1RQ==;
+	bh=7GzGABJgHTOp3nei5Fd9TK1naLhp48npkzwu2BhDcEo=; b=QelNWMbZCuxY7N7/41WEPOh3oL
+	9sVp+t368dtnzadhazPR0BkNYHxxjO3Yk6+Svj0dRm01e4EdW23MzizUo9g9lyyHb2zPTJxMbHswO
+	drn+hxhY7m0GCNQlr+l/rW+Lhqh0+2ZUZzCdawIayUIBq2pMP+Y8qdEBVISBAoSniIkwRjgRuW8Ia
+	IvRZabF3QOmwWwuRyps3H6fjmO87zS5l2CJDbzy2EzGhO9CRiQrubsDtFSQ165zTUnfzTKZjYFy6i
+	V29qdZaZvcGvqVjMFTeQ68HOpmnk0Z98zLOfixL8OWzCMiHO9hfUjkzCZ7+8M/ZHBvMLl+guS4iCh
+	47PEcIRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZ3I-0000000B7H7-0AjD;
-	Thu, 13 Feb 2025 13:14:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tiZ4h-0000000B7Vn-0y5x;
+	Thu, 13 Feb 2025 13:16:15 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYqr-0000000B52B-43Fs
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 13 Feb 2025 13:01:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=bkaMhcNmEWpgp1MChWKWck85+/ejIU8zUdpdj5tOMuo=; b=J7mVStZLX1nUMAaUg7KksdWjaw
-	xdHcxcjn0hNK15k1caCaUttGpmtaQyDAJcE5ax9QOSd35X6EGfMFQGXs4j5IafpcGH+DB6nwNbCnS
-	Ly3WZtRJgJrlVd3Z2gkiWb9sTFtcdpxpHwlVVawn7tg4heCO2LXQ4ZDfr2sBL0+Y4aoUVLq66eIud
-	7e8V6rUuOIwoNnFF8pRMWxU1PQrRhqc076mG3dHdm+9pdkfFsgVLXQYzDEJGq5PQ9Qt68EtrwbHrd
-	ZL6swyw/o0oMMZPUudSHhDQrwcFZw8Q+YODBz5g9yeVO0K8tSxKVH/AOe/7X1cCuCf1TLs6+5w2wx
-	GS04taRA==;
-Received: from szxga05-in.huawei.com ([45.249.212.191])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYqm-00000000zkW-3krv
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 13:01:56 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4YtwFn2H2dz1ltXq;
-	Thu, 13 Feb 2025 20:57:49 +0800 (CST)
-Received: from kwepemg200008.china.huawei.com (unknown [7.202.181.35])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5E36A1A0188;
-	Thu, 13 Feb 2025 21:01:36 +0800 (CST)
-Received: from huawei.com (10.90.53.73) by kwepemg200008.china.huawei.com
- (7.202.181.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 13 Feb
- 2025 21:01:34 +0800
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
-	<sstabellini@kernel.org>, <tglx@linutronix.de>, <peterz@infradead.org>,
-	<luto@kernel.org>, <mingo@redhat.com>, <juri.lelli@redhat.com>,
-	<vincent.guittot@linaro.org>, <dietmar.eggemann@arm.com>,
-	<rostedt@goodmis.org>, <bsegall@google.com>, <mgorman@suse.de>,
-	<vschneid@redhat.com>, <kees@kernel.org>, <aliceryhl@google.com>,
-	<ojeda@kernel.org>, <samitolvanen@google.com>, <masahiroy@kernel.org>,
-	<rppt@kernel.org>, <xur@google.com>, <paulmck@kernel.org>, <arnd@arndb.de>,
-	<mark.rutland@arm.com>, <puranjay@kernel.org>, <broonie@kernel.org>,
-	<mbenes@suse.cz>, <sudeep.holla@arm.com>, <guohanjun@huawei.com>,
-	<prarit@redhat.com>, <liuwei09@cestc.cn>, <Jonathan.Cameron@huawei.com>,
-	<dwmw@amazon.co.uk>, <kristina.martsenko@arm.com>, <liaochang1@huawei.com>,
-	<ptosi@google.com>, <thiago.bauermann@linaro.org>, <kevin.brodsky@arm.com>,
-	<Dave.Martin@arm.com>, <joey.gouly@arm.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <xen-devel@lists.xenproject.org>
-CC: <ruanjinjie@huawei.com>
-Subject: [PATCH -next v6 2/8] arm64: ptrace: Replace interrupts_enabled() with regs_irqs_disabled()
-Date: Thu, 13 Feb 2025 21:00:01 +0800
-Message-ID: <20250213130007.1418890-3-ruanjinjie@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250213130007.1418890-1-ruanjinjie@huawei.com>
-References: <20250213130007.1418890-1-ruanjinjie@huawei.com>
+	id 1tiYtY-0000000B5cF-1FzN;
+	Thu, 13 Feb 2025 13:04:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739451885; x=1770987885;
+  h=date:from:to:subject:message-id:references:mime-version:
+   in-reply-to;
+  bh=1ao/hLWrKoa83auIAZK5YxLztQb4shphbE+wPtgggOw=;
+  b=f+LcaWzma/cVsJKeb6mY1CI4ydtA5kJ6PcckfAfH8T1NgEyetkhtUPoK
+   qEEXSKKy731+sgY5xMQL8dBUxrI3KKtmDUGMshAGTx9uhnRBolIgKylhE
+   zYvGm/MOVFkPpj8LEcT6Q4FKrlxHgIz1DBjEJB2zGhPEAGkHIQ7BO2T5J
+   0Iaq9q7JbnpexAgDvWi6VWHdPx8gQ5vjRKbOeQuFi/A1A/8XAvROGxRN6
+   ncXAj4ts6+O/Y840NqtfkewIs2NrRm7y6QatIShMql6WMQaHUuVYnPtbD
+   ygewgHN1b+Jv/iWVSdgZIJoksbLcOuygqtURxgbAzVCHAWSKj4JtC7gfO
+   A==;
+X-CSE-ConnectionGUID: iMgck7ahRbu9D5NrlV7v2A==
+X-CSE-MsgGUID: Ebf582jZR1qCxg0toMb8UQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11344"; a="62620709"
+X-IronPort-AV: E=Sophos;i="6.13,282,1732608000"; 
+   d="scan'208";a="62620709"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 05:04:44 -0800
+X-CSE-ConnectionGUID: +jlj1GxVRC2wIJFPhxSM/g==
+X-CSE-MsgGUID: 94nDy0MzRWeyG3Eoe5LYYQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="112975678"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by orviesa010.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 05:04:39 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1tiYtQ-0000000BATf-1YMb;
+	Thu, 13 Feb 2025 15:04:36 +0200
+Date: Thu, 13 Feb 2025 15:04:36 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Andi Shyti <andi.shyti@kernel.org>, linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Krzysztof Adamski <krzysztof.adamski@nokia.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Stefan Roese <sr@denx.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>
+Subject: Re: [PATCH v1 1/8] i2c: Introduce i2c_10bit_addr_from_msg()
+Message-ID: <Z63t5KcQ6tq5uDG3@smile.fi.intel.com>
+References: <20250212163359.2407327-1-andriy.shevchenko@linux.intel.com>
+ <20250212163359.2407327-2-andriy.shevchenko@linux.intel.com>
+ <CAMuHMdW1wxQ0cddeE72D+Sii4HkT4bJfeTWX4-8FfHiFr+=3DA@mail.gmail.com>
+ <Z6zwqbzd5evG0H2z@smile.fi.intel.com>
+ <Z63DT_XdzEWrP4eR@shikoro>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.90.53.73]
-X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
- kwepemg200008.china.huawei.com (7.202.181.35)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z63DT_XdzEWrP4eR@shikoro>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_130155_395448_6D9D417F 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20250213_050444_383441_B0BBE684 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,150 +104,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The generic entry code expects architecture code to provide
-regs_irqs_disabled(regs) function, but arm64 does not have this and
-provides inerrupts_enabled(regs), which has the opposite polarity.
+On Thu, Feb 13, 2025 at 11:02:55AM +0100, Wolfram Sang wrote:
+> 
+> Just a generic comment: please don't spend too much energy on 10-bit
+> support. I have never seen it used in the wild. It seems more like an
+> academic excercise.
 
-In preparation for moving arm64 over to the generic entry code,
-relace arm64's interrupts_enabled() with regs_irqs_disabled() and
-update its callers under arch/arm64.
+Just for the record, AFAICS nomadik, octeon-core, qup, and maybe others
+(that are not covered in the series) have bugs for 10-bit address mode.
 
-For the moment, a definition of interrupts_enabled() is provided for
-the GICv3 driver. Once arch/arm implement regs_irqs_disabled(), this
-can be removed.
+FWIW, I2C_M_TEN is mentioned in a dozen of drivers outside of
+i2c subsystem folder.
 
-Delete the fast_interrupts_enabled() macro as it is unused and we
-don't want any new users to show up.
-
-No functional changes.
-
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
----
-v6:
-- Define regs_irqs_disabled() by inline function.
-- Define interrupts_enabled() in terms of regs_irqs_disabled().
-- Delete the fast_interrupts_enabled() macro.
----
- arch/arm64/include/asm/daifflags.h  | 2 +-
- arch/arm64/include/asm/ptrace.h     | 9 +++++----
- arch/arm64/include/asm/xen/events.h | 2 +-
- arch/arm64/kernel/acpi.c            | 2 +-
- arch/arm64/kernel/debug-monitors.c  | 2 +-
- arch/arm64/kernel/entry-common.c    | 4 ++--
- arch/arm64/kernel/sdei.c            | 2 +-
- 7 files changed, 12 insertions(+), 11 deletions(-)
-
-diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
-index fbb5c99eb2f9..5fca48009043 100644
---- a/arch/arm64/include/asm/daifflags.h
-+++ b/arch/arm64/include/asm/daifflags.h
-@@ -128,7 +128,7 @@ static inline void local_daif_inherit(struct pt_regs *regs)
- {
- 	unsigned long flags = regs->pstate & DAIF_MASK;
- 
--	if (interrupts_enabled(regs))
-+	if (!regs_irqs_disabled(regs))
- 		trace_hardirqs_on();
- 
- 	if (system_uses_irq_prio_masking())
-diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-index 47ff8654c5ec..8b915d4a9d4b 100644
---- a/arch/arm64/include/asm/ptrace.h
-+++ b/arch/arm64/include/asm/ptrace.h
-@@ -214,11 +214,12 @@ static inline void forget_syscall(struct pt_regs *regs)
- 		(regs)->pmr == GIC_PRIO_IRQON :				\
- 		true)
- 
--#define interrupts_enabled(regs)			\
--	(!((regs)->pstate & PSR_I_BIT) && irqs_priority_unmasked(regs))
-+static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
-+{
-+	return (regs->pstate & PSR_I_BIT) || !irqs_priority_unmasked(regs);
-+}
- 
--#define fast_interrupts_enabled(regs) \
--	(!((regs)->pstate & PSR_F_BIT))
-+#define interrupts_enabled(regs)	(!regs_irqs_disabled(regs))
- 
- static inline unsigned long user_stack_pointer(struct pt_regs *regs)
- {
-diff --git a/arch/arm64/include/asm/xen/events.h b/arch/arm64/include/asm/xen/events.h
-index 2788e95d0ff0..2977b5fe068d 100644
---- a/arch/arm64/include/asm/xen/events.h
-+++ b/arch/arm64/include/asm/xen/events.h
-@@ -14,7 +14,7 @@ enum ipi_vector {
- 
- static inline int xen_irqs_disabled(struct pt_regs *regs)
- {
--	return !interrupts_enabled(regs);
-+	return regs_irqs_disabled(regs);
- }
- 
- #define xchg_xen_ulong(ptr, val) xchg((ptr), (val))
-diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-index e6f66491fbe9..732f89daae23 100644
---- a/arch/arm64/kernel/acpi.c
-+++ b/arch/arm64/kernel/acpi.c
-@@ -403,7 +403,7 @@ int apei_claim_sea(struct pt_regs *regs)
- 	return_to_irqs_enabled = !irqs_disabled_flags(arch_local_save_flags());
- 
- 	if (regs)
--		return_to_irqs_enabled = interrupts_enabled(regs);
-+		return_to_irqs_enabled = !regs_irqs_disabled(regs);
- 
- 	/*
- 	 * SEA can interrupt SError, mask it and describe this as an NMI so
-diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 58f047de3e1c..460c09d03a73 100644
---- a/arch/arm64/kernel/debug-monitors.c
-+++ b/arch/arm64/kernel/debug-monitors.c
-@@ -231,7 +231,7 @@ static void send_user_sigtrap(int si_code)
- 	if (WARN_ON(!user_mode(regs)))
- 		return;
- 
--	if (interrupts_enabled(regs))
-+	if (!regs_irqs_disabled(regs))
- 		local_irq_enable();
- 
- 	arm64_force_sig_fault(SIGTRAP, si_code, instruction_pointer(regs),
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index b260ddc4d3e9..c547e70428d3 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -73,7 +73,7 @@ static __always_inline void __exit_to_kernel_mode(struct pt_regs *regs)
- {
- 	lockdep_assert_irqs_disabled();
- 
--	if (interrupts_enabled(regs)) {
-+	if (!regs_irqs_disabled(regs)) {
- 		if (regs->exit_rcu) {
- 			trace_hardirqs_on_prepare();
- 			lockdep_hardirqs_on_prepare();
-@@ -569,7 +569,7 @@ static void noinstr el1_interrupt(struct pt_regs *regs,
- {
- 	write_sysreg(DAIF_PROCCTX_NOIRQ, daif);
- 
--	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && !interrupts_enabled(regs))
-+	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && regs_irqs_disabled(regs))
- 		__el1_pnmi(regs, handler);
- 	else
- 		__el1_irq(regs, handler);
-diff --git a/arch/arm64/kernel/sdei.c b/arch/arm64/kernel/sdei.c
-index 255d12f881c2..27a17da635d8 100644
---- a/arch/arm64/kernel/sdei.c
-+++ b/arch/arm64/kernel/sdei.c
-@@ -247,7 +247,7 @@ unsigned long __kprobes do_sdei_event(struct pt_regs *regs,
- 	 * If we interrupted the kernel with interrupts masked, we always go
- 	 * back to wherever we came from.
- 	 */
--	if (mode == kernel_mode && !interrupts_enabled(regs))
-+	if (mode == kernel_mode && regs_irqs_disabled(regs))
- 		return SDEI_EV_HANDLED;
- 
- 	/*
 -- 
-2.34.1
+With Best Regards,
+Andy Shevchenko
+
 
 
