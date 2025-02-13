@@ -4,81 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F38A0C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 08:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB3AAC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 08:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z2GfcKvn7LI0JHLtBK2d2zXW0LLZLDrS62rSfHY8ssk=; b=yz7bqFLjYCby0gkF5/XdmpTDQA
-	e8F6jaWPlrWxjLQ3eX/uaY4160d2BEl73P2nLR/zLsc9pYdi+pH2wovQt/QKOJC8qx/19KaWu3Ndi
-	iltU5b3dnVfISB+B8U25bEhwg0S6MSg/zrv68rDUtDNSph10nSUfBpWjdbmPco6T4DuwqBETsHVcX
-	iY/JkmUgfChz6BncS+Qr5Mzq/OG/dRKJ/A4LryuXGoGBpRWxpZLDqTL9wNSIl3zv+q9oAJenIWlAD
-	JFB7os4lNGEg3t6PeX6ePV3mBLYf/WGb2Z2eOaeINl6fyjEs5jTCGs2ozRrfdS+S7Yr6/lKFm8lsh
-	/x/1ICXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OmuftgvnuZZgHkOz1gVQFljvkOd+vXnZycbJ9gQVvqU=; b=eoDjyTm3y5tx/VMN6j8udzv28o
+	zy3TpblW0WkG0oBKTD46LF+zq5K1hm7GsoWi0zhI9pv1WEaJyDIl1pu70ncOTRb0Wfgna0lZAWaNa
+	tMo8lg9svp7Qxl0g7Z6CM00yUT4VsdqGfUJ/mTBUKnE5mv8HGVXEND0NtZhvkemMnWIbvGnZ8c5DL
+	Z9pzN4j0DSWN9BEkSlMk0ueKCn2g/YabDDV+uOq7sKL5dBfT7NibwflrKke6wmqOMmUMfJ1qIEPDY
+	cX9xAGYCRF/KLmY9hgxAtMraBJ8Y1jqCHLlmzfjryLBWc7R/pXnDhBLWL8sNBhQ1Z+0oSM1DbJO2e
+	EPtHHKsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiUWP-0000000AGLP-1qZh;
-	Thu, 13 Feb 2025 08:24:33 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tiUXn-0000000AGcZ-3jmh;
+	Thu, 13 Feb 2025 08:25:59 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiUHU-0000000AE0n-1OfQ;
-	Thu, 13 Feb 2025 08:09:09 +0000
-X-UUID: cb4a4c68e9e111ef82ff63e91e7eb18c-20250213
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Z2GfcKvn7LI0JHLtBK2d2zXW0LLZLDrS62rSfHY8ssk=;
-	b=HVOLk+BqQTh7XEv95DxEs6v4zhCRUREI4Rwi26vUkNfcceX+9wcDtSqoB+J4f6Szgr+ONZDh8E6p5X/g5JVr7SIFHt7xA6Wg9uJGWxTm3x2BK9mqFZDpYt6engoAhhWRjoIKmwnp0x4thRbnXl+vzMtX6P5GvxkcH/S0oPCIYVw=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:4d23af2b-a726-414f-9fc4-427dc2456876,IP:0,U
-	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:60aa074,CLOUDID:2f398227-6332-4494-ac76-ecdca2a41930,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:1,
-	IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
-	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: cb4a4c68e9e111ef82ff63e91e7eb18c-20250213
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
-	(envelope-from <skylake.huang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 13954764; Thu, 13 Feb 2025 01:09:05 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Thu, 13 Feb 2025 16:09:03 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Thu, 13 Feb 2025 16:09:03 +0800
-From: Sky Huang <SkyLake.Huang@mediatek.com>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Daniel Golle
-	<daniel@makrotopia.org>, Qingfang Deng <dqfext@gmail.com>, SkyLake Huang
-	<SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, "Simon
- Horman" <horms@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-CC: Steven Liu <Steven.Liu@mediatek.com>, Sky Huang
-	<skylake.huang@mediatek.com>
-Subject: [PATCH net-next v2 5/5] net: phy: mediatek: Move some macros to phy-lib for later use
-Date: Thu, 13 Feb 2025 16:05:53 +0800
-Message-ID: <20250213080553.921434-6-SkyLake.Huang@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250213080553.921434-1-SkyLake.Huang@mediatek.com>
-References: <20250213080553.921434-1-SkyLake.Huang@mediatek.com>
+	id 1tiUM4-0000000AEj9-16gg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 08:13:53 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5450cf3ebc2so514673e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 00:13:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1739434430; x=1740039230; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OmuftgvnuZZgHkOz1gVQFljvkOd+vXnZycbJ9gQVvqU=;
+        b=hArZclN3BL3rwSq9dEpf8wBCe1P2c6GuPfnHC5XPZd6lLgVYMCtwngZ0CsS2iF1TEA
+         bLFOmqiTyaKBbuSylKzqKg0CDWez93LexaJavAm0H7xwM1CDk5t5vICkxENSmZr2HETe
+         R29jGxz4eOD8Zf8+88+uIO/qGWhpzsYl1Qa+R6ouDcFn+Cf4h2h24EmERnt/A1VuT3Rh
+         ZSOqJN9dX2m7GqsMiAansCZUaNcZcu192eyrxdnba6htE+wuAeSN5G76QhmG5VZIz+/B
+         83KKw1TRPomT1RFDZU6dyuoRxQoChSpDrTg7x4ZZo2RgpHZgOZY+6LSjALSlBKdBKvyh
+         /y0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739434430; x=1740039230;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OmuftgvnuZZgHkOz1gVQFljvkOd+vXnZycbJ9gQVvqU=;
+        b=aeJgEYOdbNl5QQ64dpGTGsX9I+FEYJIjHsLvjxVZtnnNq5Dg1rSxuMYWfszCeEYNYY
+         TpQZOywqomGAoHj3dLaaCHG+30fURfyWpYgjQfggOoZHvRQUs8+aQa//rRj8hxKY5N/A
+         4kBDt6CcZAzd59GOAwL7A4h6lzxrAxh/FLV46dyRpcAjEYyGrTKAaG0DZmtVHPteHyxt
+         mS0hXAe+9Ya6P4zJJM4fx88m8p3cRoj3hB8fDEaxg+aN3LgmcfC6tG+X1BcM6Q/dTPZK
+         KMGU1B1tgQ/+x3F3kt+YbNDykadPnzqkpQpCFsBXjc5Owr6Lg5MYbWuRZ04DIZ6kEubZ
+         aLxA==
+X-Forwarded-Encrypted: i=1; AJvYcCWT6MkDHZgv3+N/csxEdL4UdxPOT3RxgXnQbiUTh6u99ZFAZyEv+Q+E+5kActMxeAn8cMLMk/xs2mpogooh2U6r@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIPteZWce0f5Dbg1sieTuWZ+c7KU8/toDmUZOrOzcxlJWqL3x0
+	roVTPmyO7Uo9VZEsaZAOG1hXAQjRhhC9Y5vOROpucQYjNNB6mekL0iAau/pu3MV2cB6+8R7IJc9
+	ont/BrtZTiBQEITFRm8ZQTx0ij+bM2F4QnzNv
+X-Gm-Gg: ASbGncttX/MbVBf5nYRB9nWQEIxPUI9quPZdfD3fmWkB6+GgAmBalL9SsICk+4SgrY6
+	tCM1OlEi0yx2g25K6Pp1tdXxSeQzjDtF7f9sbaGtb2wnDORMRer3YaDfYqPqKRVDGb5FTlhA=
+X-Google-Smtp-Source: AGHT+IHxDaK7ENYXtLhPy5Kf93LWj2N5S6iojG3fU8e+7THrJ3l9WM1h9CK9jmfpQxgM8xkKRYjCh9V5QtuuPWJHPGk=
+X-Received: by 2002:a05:6512:ac7:b0:545:646:7519 with SMTP id
+ 2adb3069b0e04-54517f86d1fmr2003992e87.0.1739434430158; Thu, 13 Feb 2025
+ 00:13:50 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+References: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com> <20250120-scmi-fwdevlink-v2-3-3af2fa37dbac@nxp.com>
+In-Reply-To: <20250120-scmi-fwdevlink-v2-3-3af2fa37dbac@nxp.com>
+From: Saravana Kannan <saravanak@google.com>
+Date: Thu, 13 Feb 2025 00:13:13 -0800
+X-Gm-Features: AWEUYZns82i0k5Ijag1LujAqT5WjKXUA5FWo3NR6_9wBOcWaDsE90ePdb8ZFdME
+Message-ID: <CAGETcx9+BzSoHj54koiGniUOUPfY9yZ9cAedbb2A-hb+2D1sGw@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] pinctrl: freescale: scmi: Switch to use machine_allowlist
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_000908_372985_44103D02 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20250213_001352_312748_E679ED97 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,49 +97,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sky Huang <skylake.huang@mediatek.com>
+On Sun, Jan 19, 2025 at 11:14=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.c=
+om> wrote:
+>
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> With machine_allowlist, only allowed machines have pinctrl imx scmi
+> devices created. The fw_devlink will link consumer and supplier
+> correctly.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/pinctrl/freescale/pinctrl-imx-scmi.c | 15 ++++++---------
+>  1 file changed, 6 insertions(+), 9 deletions(-)
+>
+> diff --git a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c b/drivers/pinct=
+rl/freescale/pinctrl-imx-scmi.c
+> index 8f15c4c4dc4412dddb40505699fc3f459fdc0adc..058b4f0477039d57ddae06f38=
+5ad809cbb4784d6 100644
+> --- a/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
+> +++ b/drivers/pinctrl/freescale/pinctrl-imx-scmi.c
+> @@ -287,11 +287,6 @@ scmi_pinctrl_imx_get_pins(struct scmi_pinctrl_imx *p=
+mx, struct pinctrl_desc *des
+>         return 0;
+>  }
+>
+> -static const char * const scmi_pinctrl_imx_allowlist[] =3D {
+> -       "fsl,imx95",
+> -       NULL
+> -};
+> -
+>  static int scmi_pinctrl_imx_probe(struct scmi_device *sdev)
+>  {
+>         struct device *dev =3D &sdev->dev;
+> @@ -304,9 +299,6 @@ static int scmi_pinctrl_imx_probe(struct scmi_device =
+*sdev)
+>         if (!handle)
+>                 return -EINVAL;
+>
+> -       if (!of_machine_compatible_match(scmi_pinctrl_imx_allowlist))
+> -               return -ENODEV;
+> -
+>         pinctrl_ops =3D handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PIN=
+CTRL, &ph);
+>         if (IS_ERR(pinctrl_ops))
+>                 return PTR_ERR(pinctrl_ops);
+> @@ -339,8 +331,13 @@ static int scmi_pinctrl_imx_probe(struct scmi_device=
+ *sdev)
+>         return pinctrl_enable(pmx->pctldev);
+>  }
+>
+> +static const char * const scmi_pinctrl_imx_allowlist[] =3D {
+> +       "fsl,imx95",
+> +       NULL
+> +};
+> +
+>  static const struct scmi_device_id scmi_id_table[] =3D {
+> -       { SCMI_PROTOCOL_PINCTRL, "pinctrl-imx" },
+> +       { SCMI_PROTOCOL_PINCTRL, "pinctrl-imx", NULL, scmi_pinctrl_imx_al=
+lowlist },
+>         { }
+>  };
+>  MODULE_DEVICE_TABLE(scmi, scmi_id_table);
+>
 
-Move some macros to phy-lib because MediaTek's 2.5G built-in
-ethernet PHY will also use them.
+Definite NACK to this. Please don't depend on indirect
+conditions/flags. There's no guarantee that this check will hold true
+in the future.
 
-Signed-off-by: Sky Huang <skylake.huang@mediatek.com>
----
- drivers/net/phy/mediatek/mtk-ge.c | 4 ----
- drivers/net/phy/mediatek/mtk.h    | 4 ++++
- 2 files changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/phy/mediatek/mtk-ge.c b/drivers/net/phy/mediatek/mtk-ge.c
-index 79663da..937254a 100644
---- a/drivers/net/phy/mediatek/mtk-ge.c
-+++ b/drivers/net/phy/mediatek/mtk-ge.c
-@@ -8,10 +8,6 @@
- #define MTK_GPHY_ID_MT7530		0x03a29412
- #define MTK_GPHY_ID_MT7531		0x03a29441
- 
--#define MTK_PHY_PAGE_EXTENDED_1			0x0001
--#define MTK_PHY_AUX_CTRL_AND_STATUS		0x14
--#define   MTK_PHY_ENABLE_DOWNSHIFT		BIT(4)
--
- #define MTK_PHY_PAGE_EXTENDED_2			0x0002
- #define MTK_PHY_PAGE_EXTENDED_3			0x0003
- #define MTK_PHY_RG_LPI_PCS_DSP_CTRL_REG11	0x11
-diff --git a/drivers/net/phy/mediatek/mtk.h b/drivers/net/phy/mediatek/mtk.h
-index 4e4468d..320f76f 100644
---- a/drivers/net/phy/mediatek/mtk.h
-+++ b/drivers/net/phy/mediatek/mtk.h
-@@ -8,7 +8,11 @@
- #ifndef _MTK_EPHY_H_
- #define _MTK_EPHY_H_
- 
-+#define MTK_PHY_AUX_CTRL_AND_STATUS		0x14
-+#define   MTK_PHY_ENABLE_DOWNSHIFT		BIT(4)
-+
- #define MTK_EXT_PAGE_ACCESS			0x1f
-+#define MTK_PHY_PAGE_EXTENDED_1			0x0001
- #define MTK_PHY_PAGE_STANDARD			0x0000
- #define MTK_PHY_PAGE_EXTENDED_52B5		0x52b5
- 
--- 
-2.18.0
-
+-Saravana
 
