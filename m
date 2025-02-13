@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC9DDC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 02:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBF1C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 03:41:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LEwnZQi+JftVY499EdCCO+k2A2ta9/8yUC6T9F/OU40=; b=at9x4/Op54nMIF5JTKLpB7DgRr
-	zNWApKu/Jf5givPvShhXvMfdwXtNQZzsZyPRNGuQ1iNwMBA2V0+z8xYjhjYjH+Ci1C79iRvQ7aPV9
-	9CUzvPVoiefiy4pQohv20rMg9Ffwf9asLEqdqKN1P6SQmuq78Vwn/EWBIeB9DukLmvlBa95yUaNj8
-	l2APb/JrVW0oQeO4Mgu8JOzWcs4abOEZKQE9as6HC5j/PAHLUw2RyPeEoPsl4b9w8PJVBFzusbGJ2
-	dStFrqd4GfrasacRbVDK2R3IpFYIZ9nGg+objz5cMdCJRxvNyBaSUsD8xZf8khGcK5CsMW3z5moia
-	mVd8vaRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l4FOovD+xrknUpkIxy9OFhncvOlb+IrCE67y2VHTJsM=; b=HyQz4a3S4uQXiYVX6cBLzZXLKt
+	iuqKPnl/4t/nWy1Qd7eLZQmcq1L+tCYLvlXtqBe7lCj3cgCVHLb0nfWMHbBuAKzLxme+5OgyABZPw
+	8F61jFBbrgbfzyIXz4WwbusEkXfteEvE+sDNdBw06ECypGASbW7Wc/IboXwRKYO/4jpAfOEUa5qIY
+	4y8MF9WPQDmlDmZ2VajckqbV3/xauhoo1xQMcU16+SFSzT2KH8797O/FPZii0PZLDRXlFnOGaBngW
+	2joyk9Urd45Rnxdph1WzemQtO2hK1FiqWlb38dfc/R7I84XdY+pMHfafML90Sp5Bm5X+4w+MUHmPy
+	yHw4UUbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiPM6-00000009XyU-3iCO;
-	Thu, 13 Feb 2025 02:53:34 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tiQ6d-00000009cIK-0ivm;
+	Thu, 13 Feb 2025 03:41:39 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiPKf-00000009Xq3-11w8
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 02:52:06 +0000
+	id 1tiQ5B-00000009c52-48XF;
+	Thu, 13 Feb 2025 03:40:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8264C5C639A;
-	Thu, 13 Feb 2025 02:51:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35861C4CEDF;
-	Thu, 13 Feb 2025 02:52:03 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 270E8A41340;
+	Thu, 13 Feb 2025 03:38:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 254F7C4CED1;
+	Thu, 13 Feb 2025 03:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739415123;
-	bh=NVMAadp03PD66sbMdEmmFgCNxo+6578DA85rU6KYTFQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UIpuCeCmfDQNXF2h/LSrWpY3SgAnMNet4mDkuOZypViJd1h8MtN86CKN5X62zTvvv
-	 gN0VKC24fSoNgOGHgc8Dual8YCPopwfdKw0nSyq+eMglDZ5ny9V1eehxYworSgAH/m
-	 Q7gKblgjGszFiQBZiRMpjxdtmPUg6aQrDF6qIm8oWZ8h4i4K4D5XTyXVJFFSACwnVm
-	 Yxbwdh30hnb/2rr285EV91PUSlTRdt69OsPhf+Xy/JN/WmYhxeEzKKzj3GBiqQlqGI
-	 rAtXeCq/NfYb0J8kGaS9YpU1dj9gDSz0kn7JrZXRPnPJJn1pmppfIXXhmXwqQEBItB
-	 z53rdeuSTBzrQ==
-Date: Wed, 12 Feb 2025 18:52:01 -0800
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Song Liu <song@kernel.org>
-Cc: Indu Bhagat <indu.bhagat@oracle.com>, Weinan Liu <wnliu@google.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
-	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
-	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
-	live-patching@vger.kernel.org, joe.lawrence@redhat.com,
-	linux-arm-kernel@lists.infradead.org,
-	Puranjay Mohan <puranjay@kernel.org>
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-Message-ID: <20250213025201.tyo3jcp4gcivydyd@jpoimboe>
-References: <20250127213310.2496133-1-wnliu@google.com>
- <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
- <00fa304d-84bf-4fca-9b9a-f3b56cd97424@oracle.com>
- <CAPhsuW4ct6W_4B0LFEjLePH1pAeNm4h8ePuQ3HcSoknXhQWN0w@mail.gmail.com>
+	s=k20201202; t=1739418008;
+	bh=47fkl5jB1AePFTNmClf5l/q5foDDtpswoxq6Q/otrc4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=H1cQn/FO9QH+VL/WqtME+3CVl2UP5uFlPui9cpd4GYkKTMu8lPVuYCCuh+AAONBWV
+	 lzxa4XngmGbqckwJV/HvRbC8gKSOo++sl/g+kcMhUOmOEUiX/aU2AdAcYXVn3Motgg
+	 16xvq2LrlMBwrk3xCdbKYnZ/p0xpHl5lDy33E7ezJ7SVp5HvRDbMdvNSfE898jdXzr
+	 LbXzUqjt4FRYWpHfivayoSJ/ygdfRepiHqoFYKELy4KqviiKPkRwMBoySBZA9ekxur
+	 5yOH0EBOo1ZmGWLtyjYt8Xq7LNsmPYH+NM/Rv81e3TcuQhZfI6Y6my8VML5YOxXW75
+	 HzCyBB5XzGc2Q==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70F8B380CEDC;
+	Thu, 13 Feb 2025 03:40:38 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAPhsuW4ct6W_4B0LFEjLePH1pAeNm4h8ePuQ3HcSoknXhQWN0w@mail.gmail.com>
+Subject: Re: [PATCH net-next v3 1/3] net: phylink: provide
+ phylink_mac_implements_lpi()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <173941803725.748910.14257112590472895910.git-patchwork-notify@kernel.org>
+Date: Thu, 13 Feb 2025 03:40:37 +0000
+References: <E1thR9g-003vX6-4s@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1thR9g-003vX6-4s@rmk-PC.armlinux.org.uk>
+To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com,
+ angelogioacchino.delregno@collabora.com, chester.a.unal@arinc9.com,
+ daniel@makrotopia.org, davem@davemloft.net, dqfext@gmail.com,
+ edumazet@google.com, kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com,
+ netdev@vger.kernel.org, pabeni@redhat.com, sean.wang@mediatek.com,
+ horms@kernel.org, olteanv@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_185205_354373_04EA86DB 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20250212_194010_090405_D1304F02 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,36 +80,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 06:40:33PM -0800, Song Liu wrote:
-> On Wed, Feb 12, 2025 at 4:10 PM Indu Bhagat <indu.bhagat@oracle.com> wrote:
-> >
-> > On 2/12/25 3:32 PM, Song Liu wrote:
-> > > I run some tests with this set and my RFC set [1]. Most of
-> > > the test is done with kpatch-build. I tested both Puranjay's
-> > > version [3] and my version [4].
-> > >
-> > > For gcc 14.2.1, I have seen the following issue with this
-> > > test [2]. This happens with both upstream and 6.13.2.
-> > > The livepatch loaded fine, but the system spilled out the
-> > > following warning quickly.
-> > >
-> >
-> > In presence of the issue
-> > https://sourceware.org/bugzilla/show_bug.cgi?id=32666, I'd expect bad
-> > data in SFrame section.  Which may be causing this symptom?
-> >
-> > To be clear, the issue affects loaded kernel modules.  I cannot tell for
-> > certain - is there module loading involved in your test ?
-> 
-> The KLP is a module, I guess that is also affected?
-> 
-> During kpatch-build, we added some logic to drop the .sframe section.
-> I guess this is wrong, as we need the .sframe section when we apply
-> the next KLP. However, I don't think the issue is caused by missing
-> .sframe section.
+Hello:
 
-Right, it looks like it unwound through the patch module just fine.
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
+On Mon, 10 Feb 2025 10:36:44 +0000 you wrote:
+> Provide a helper to determine whether the MAC operations structure
+> implements the LPI operations, which will be used by both phylink and
+> DSA.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  drivers/net/phy/phylink.c |  3 +--
+>  include/linux/phylink.h   | 12 ++++++++++++
+>  2 files changed, 13 insertions(+), 2 deletions(-)
+
+Here is the summary with links:
+  - [net-next,v3,1/3] net: phylink: provide phylink_mac_implements_lpi()
+    https://git.kernel.org/netdev/net-next/c/2001d21592e5
+  - [net-next,v3,2/3] net: dsa: allow use of phylink managed EEE support
+    https://git.kernel.org/netdev/net-next/c/b8927bd44f78
+  - [net-next,v3,3/3] net: dsa: mt7530: convert to phylink managed EEE
+    https://git.kernel.org/netdev/net-next/c/9cf21773f535
+
+You are awesome, thank you!
 -- 
-Josh
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
