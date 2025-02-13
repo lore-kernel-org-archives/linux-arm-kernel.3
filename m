@@ -4,69 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8C7C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 12:56:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2FEDC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 12:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JEwsdur20LSofxZDmcsOr/hF/qpdbbn5fC0aEn6rItE=; b=hUvzPuWOZHMhyVIwRUeijK8m2z
-	re16b2EF3UDWEQEUbYrhXnVu4ZEINFDJmOBRArBbz9DAzH8D61+1aa1aMyfgZyKWi7FFbK9dZliH3
-	DTtXXhGM6+aX7klLY+kkqjnYxAJEBsscM2+RV7nEDRcgDNxy1DhR0jQBQF0DSJ29Hl2QuPyVM9OVY
-	rvuanRDaszkEdYqsOa4OeSvD/3HPLcm8MRhYvELdrEZM9skh1DrBuBVKMNAQlaJ/YJkkl6uHhZl2m
-	NxFV3JejZ6MGFDpzeCig4JXlp56D316aqIgfu2RXyvQfwc7yckKLD/ezent+oPIOjOsujgKjyhTIF
-	6NVIeqjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v7acrumWnCLIQCVlU0AgIWrp2QB9ISOBnuH4BR/NhIk=; b=RCPb9XOuKji1mWdwvSc32AixCa
+	fav+Z//ZjcCJwkoJbeghf+8nBCj1Wo8oaAmubRguLgCOBuAsNK2cbVU24qLsjnOcaHONsjaTlLAFq
+	w0DM0nAp41IHWprZYEp/oDxdCnWR5J2w8m9VtzG/wqUn2tXLKrdv8Y+b8giApXuweXq8AY108+CK6
+	DPPdvhCKjuhd/1rHltVQAT+YgyLxtyLADw7YpJqhcPyDibfHOR/HM2nmutDFnqLKXDK5ihfXH5OlB
+	zhtYxaB24n1PwTz+J2BJTnq3WptlckTeWmoKxJ9zf1bZtB3b7bpH3rcDeuCwP8RtC2LBBhWkX+XCY
+	VrsUTyxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYlK-0000000B3vy-48xT;
-	Thu, 13 Feb 2025 12:56:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tiYlM-0000000B3wq-3txG;
+	Thu, 13 Feb 2025 12:56:16 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXec-0000000AuDT-1RYd
+	id 1tiYje-0000000B3jU-1TXQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 11:45:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0DF015C5553;
-	Thu, 13 Feb 2025 11:44:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E026C4CEE7;
-	Thu, 13 Feb 2025 11:45:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739447110;
-	bh=mOOLLj+OAy5y5nKK1dSt8RN8ouLFYKPIqvCP4TBrOv8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MMG7NNJFwxt/ZZSSaYrBF1pZzHuNU8g/iOuIMkgoOhoGsEl6FOH9szsYcntNMZCZI
-	 lYVR9QILZyWjlvs937vrDA73/FOwFRrqhIfL2pjgcDlyPRuvgaa7hgLqwwYjPJwkcB
-	 s6ju/uZy0wn9eyhjwRzrAP6I0DfHXiAWyeXOnCf2WLzlgj8+hA1usc2SrE7uGikWDz
-	 vCb/a+1OYPjr4/9o/GJgd3LGYHXLnbFax6R+6BTLFsZ8Zh54HP+2VoFZKNeXNHVLsc
-	 jf47WrCUnGAhvRFcTbOgfDS0gNpWWaGQjqyGMY02zyHAXY4lcY5CssrwgTqzsK7836
-	 VTivT3D76IP2w==
-Date: Thu, 13 Feb 2025 11:45:04 +0000
-From: Will Deacon <will@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Zheng Zengkai <zhengzengkai@huawei.com>
-Subject: Re: [PATCH] ACPI: GTDT: Relax sanity checking on Platform Timers
- array count
-Message-ID: <20250213114503.GA11508@willie-the-truck>
-References: <20250128001749.3132656-1-oliver.upton@linux.dev>
- <Z5i2j9gFB2iyN9g4@lpieralisi>
- <Z5lBMBY7XoFJmpGM@linux.dev>
- <Z6x4987CJ0zgmw3s@lpieralisi>
+	Thu, 13 Feb 2025 12:54:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739451271; x=1770987271;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=UN3Y9x428Mk8h/CXSju3Mtr+T4Cd2Rs3PZKgk+wNRiA=;
+  b=d1T/yWN0G92sRqAYEX3xaQwqApgD/o8kSIcCuyLvRSriiL/c5oBO6YEV
+   vqdDEjyC9xsS1df9nc7FCSp2iBJfDwjgyuZBWNL9d6SKfSp81k5mDYpk+
+   ItkM+ja5oX2OjwC1prNg79tHMlgGk1SPf/j6NcyBPzcPopyCYAjS4pyRA
+   S6XP6OwB5hkH/Fgu4RT/qBBIOky2AiFjS2Ywm4lQvCUQQfc3GLynHNtgz
+   NWLiBjGmLVf1natKrFI5xbh73coLdHhGnvUffmfGWe5DYZaHJycPFIRmi
+   AQcbTQJesmc6LEsCO/hPOW3CKIWwdj272ooq3/in0OmqcRA3EMomw9z0m
+   Q==;
+X-CSE-ConnectionGUID: zj3oDRJHR1yNgfiXLGJbUg==
+X-CSE-MsgGUID: +8FYSg50QCyPPsKV86+Y3Q==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="40266543"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="40266543"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 04:54:30 -0800
+X-CSE-ConnectionGUID: hz/02A95Toi+RKP8+COzSA==
+X-CSE-MsgGUID: 3oCHI4xJSWuWUpbQsVvUsg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="150303991"
+Received: from mohdfai2-mobl.gar.corp.intel.com (HELO [10.247.42.34]) ([10.247.42.34])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 04:54:22 -0800
+Message-ID: <5902cc28-a649-4ae9-a5ba-83aa265abaf8@linux.intel.com>
+Date: Thu, 13 Feb 2025 20:54:18 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z6x4987CJ0zgmw3s@lpieralisi>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH iwl-next v4 0/9] igc: Add support for Frame Preemption
+ feature in IGC
+To: Kurt Kanzenbach <kurt@linutronix.de>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>, Furong Xu <0x1207@gmail.com>,
+ Russell King <rmk+kernel@armlinux.org.uk>,
+ Serge Semin <fancer.lancer@gmail.com>,
+ Xiaolei Wang <xiaolei.wang@windriver.com>,
+ Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+ Kory Maincent <kory.maincent@bootlin.com>, Gal Pressman <gal@nvidia.com>,
+ Jesper Nilsson <jesper.nilsson@axis.com>,
+ Andrew Halaney <ahalaney@redhat.com>,
+ Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+ intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+References: <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
+ <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
+ <20250212220121.ici3qll66pfoov62@skbuf>
+ <b19357dc-590d-458c-9646-ee5993916044@linux.intel.com>
+ <87cyfmnjdh.fsf@kurt.kurt.home>
+Content-Language: en-US
+From: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
+In-Reply-To: <87cyfmnjdh.fsf@kurt.kurt.home>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_034514_438938_71073D24 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20250213_045430_441725_30D238D6 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,37 +113,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 11:33:27AM +0100, Lorenzo Pieralisi wrote:
-> > > I think this should be fine as things stand (but see above).
-> > > 
-> > > It is used in:
-> > > 
-> > > gtdt_sbsa_gwdt_init() - just to check if there are platform timers entries
-> > > 
-> > > arch_timer_mem_acpi_init() - to create a temporary array to init arch mem timer
-> > > 			     entries (the array is oversized because it
-> > > 			     includes watchdog entries in the count)
-> > > 
-> > > In both cases taking the
-> > > 
-> > > min(cnt, gtdt->platform_timer_count);
-> > > 
-> > > should work AFAICS
-> > 
-> > It was probably worth noting in the changelog that I did this to
-> > gracefully handle the reverse of this issue where we could dereference
-> > platform timer entries that are within the bounds of the GTDT but exceed
-> > gtdt->platform_timer_count.
+
+
+On 13/2/2025 8:01 pm, Kurt Kanzenbach wrote:
+> On Thu Feb 13 2025, Abdul Rahim, Faizal wrote:
+>> On 13/2/2025 6:01 am, Vladimir Oltean wrote:
+>>> On Mon, Feb 10, 2025 at 02:01:58AM -0500, Faizal Rahim wrote:
+>>>> Introduces support for the FPE feature in the IGC driver.
+>>>>
+>>>> The patches aligns with the upstream FPE API:
+>>>> https://patchwork.kernel.org/project/netdevbpf/cover/20230220122343.1156614-1-vladimir.oltean@nxp.com/
+>>>> https://patchwork.kernel.org/project/netdevbpf/cover/20230119122705.73054-1-vladimir.oltean@nxp.com/
+>>>>
+>>>> It builds upon earlier work:
+>>>> https://patchwork.kernel.org/project/netdevbpf/cover/20220520011538.1098888-1-vinicius.gomes@intel.com/
+>>>>
+>>>> The patch series adds the following functionalities to the IGC driver:
+>>>> a) Configure FPE using `ethtool --set-mm`.
+>>>> b) Display FPE settings via `ethtool --show-mm`.
+>>>> c) View FPE statistics using `ethtool --include-statistics --show-mm'.
+>>>> e) Enable preemptible/express queue with `fp`:
+>>>>      tc qdisc add ... root taprio \
+>>>>      fp E E P P
+>>>
+>>> Any reason why you are only enabling the preemptible traffic classes
+>>> with taprio, and not with mqprio as well? I see there will have to be
+>>> some work harmonizing igc's existing understanding of ring priorities
+>>> with what Kurt did in 9f3297511dae ("igc: Add MQPRIO offload support"),
+>>> and I was kind of expecting to see a proposal for that as part of this.
+>>>
+>>
+>> I was planning to enable fpe + mqprio separately since it requires extra
+>> effort to explore mqprio with preemptible rings, ring priorities, and
+>> testing to ensure it works properly and there are no regressions.
 > 
-> Hi Oliver,
+> Well, my idea was to move the current mqprio offload implementation from
+> legacy TSN Tx mode to the normal TSN Tx mode. Then, taprio and mqprio
+> can share the same code (with or without fpe). I have a draft patch
+> ready for that. What do you think about it?
 > 
-> I was about to ask Catalin/Will to pick this up, don't know if you have
-> time to update the changelog and send a v2 - a Link: to this thread will
-> be added anyway.
+> Thanks,
+> Kurt
 
-I'll pick it up with the Link: tag, no need to resend.
+Hi Kurt,
 
-Thanks, both!
+I’m okay with including it in this series and testing fpe + mqprio, but I’m 
+not sure if others might be concerned about adding different functional 
+changes in this fpe series.
 
-Will
+Hi Vladimir,
+Any thoughts on this ?
+
+
 
