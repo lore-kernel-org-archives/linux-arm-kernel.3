@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD51C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 20:48:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BCCC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 20:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=468JTzppqOaSuiMXzT6POZ5cXvHYJkY8IrPBC869EIw=; b=cAsQor6fjkFv7r7OXYXH1p9BlI
-	gDNj7VyD+cKzrQtYbYXa1r3ZwCGJbgLO9Jo0bYGJKXfcg34cjPdH7S4rLGvnQ45LzBof26eltvNjf
-	w+iT6bSI4vSmb1S73Pt6nRHc4IzeQWu1euwF+A/2C/k47qa9rb62aNb0aOL2MwFhcuzOMmpLpw2Ve
-	1FAexcZ+Jrrm34811IW+pGlV7nw+QsjvcwK9WiW/87guAaUT6dPtfq1U2ucZb470SeTTdws/dajr1
-	Nn+DU20ffyQ73fIaC8mTq2C/iw+oo7vjBHSeBWnQorIhNHAHSxGUOnSn2+S/nxSFYF4nAzu4U9Qq/
-	dO45tnvA==;
+	bh=XzQPYU9YfHy6ub9VigT3rtdUgbT32pzX4StInrVw1E4=; b=AjLwzMGEkH7TiCKPFcnX44pGDu
+	Pp0qGedPDRl2wl9C85dI4qIr9uME7mx04b1Dd89Nrl2BSgLLysaQTGi6+UiD+l2AscvZWBJnr2kMY
+	jKxJ72zukXUHptJloG0Z8I6ZM50U4RbTugpkn3le4jmUwtv3jKuc4YezXqlvkoNkENwPZ4qjcLv1s
+	IIvtcT+xDy+v2EdCYQrIzkbr4yBfTgaSOb072Y1TXdYaTevqguJg9MzZrm+snqcLzzmqoxVn4/te8
+	pr2hpty40LCqkpDZ78lB3LnPqgKhBHiF4mbYYRvpD7S4h+Fis2I/SnDdl+Kl8yTQcMC8L1yMxMWrU
+	mVAmDTLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tig8D-0000000CbMf-3j4I;
-	Thu, 13 Feb 2025 20:48:21 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tig6G-0000000CasN-2COQ
+	id 1tigBY-0000000Cc1h-2uUI;
+	Thu, 13 Feb 2025 20:51:48 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tigA7-0000000Cbjp-2QiO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 20:46:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8263B5C5A58
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 20:45:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5A86C4CEE4
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 20:46:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739479579;
-	bh=1Hv1W5PIRbegvr3gIqvOw2rrDiC6G9t1Dr/tCrD03e4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=pc+cVpYpVZcf6SPMc0R4TZfa9dQgW/98u31mFBPL6EqlUEgpeqxiquPXLdZZPUMHr
-	 XKlJVilhTTClQTbKNTB0MAKFBw86OLoP4k30EQ0+OHdMP0uszjwwhnmCkH2FaiGAaS
-	 eCRjHlGOvhxl3xY/o1DmVFpRMvF8zYtzYzM8+LSRKzD6q569tkZUbmnVre5GQqJhjg
-	 BoM+rpVOjjRGo/vbisYr2rlyw8glE6AZ7dXlw/bFDU/b4fs7CLTQegiMGHMG1svc94
-	 8uCQTaioL8TWofbISnJ0wtN3WwqCegD3iJe8wcxYr/JTdi29y9Pw8yqRaqXJ7FLJTd
-	 94RUXcfCZPpsw==
-Received: by mail-il1-f177.google.com with SMTP id e9e14a558f8ab-3cf880d90bdso3985125ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 12:46:19 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUgBsYTxx6aQdT0fdGhEYo5QSEiCpoOiilpzbHbeMFBf5ql/cIKrfZFHIaOUKVpctKbjwqpXSf1LhT/dJIoh2ZN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzE5qLrIdkYbgUuYTzDasVoKl0+s5lEW06c+i1Q0kw4WgWMF8IK
-	Y4E5hdN3eY1m3YsM+IO5KOYWCe1u22TYdjX+3rLYc9CExIxwRUDgHRo5gekFTBP2mQi5z5TIpLi
-	1KAIQuR6p0F9LT9pHBFVfRw8+M9A=
-X-Google-Smtp-Source: AGHT+IGQ7pJ/TiGbTLryDYR2+5szRZiiwjnj755YU/aasn/qcPVr55ah50aMoRFrQI9umJnTpry+8wekUMj6OpAzbMc=
-X-Received: by 2002:a05:6e02:20cc:b0:3cf:f844:68eb with SMTP id
- e9e14a558f8ab-3d17bdff4afmr78463815ab.4.1739479579147; Thu, 13 Feb 2025
- 12:46:19 -0800 (PST)
+	Thu, 13 Feb 2025 20:50:20 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 83E82203F3E5;
+	Thu, 13 Feb 2025 12:50:17 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 83E82203F3E5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1739479817;
+	bh=XzQPYU9YfHy6ub9VigT3rtdUgbT32pzX4StInrVw1E4=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=XeTAcxIrprlHTTTPMf8HhI8CE7pfNVAgM8QgQEmhFcRGXQvzr/nQBmciYK3jhEmJX
+	 tydKjmyGSzh+NZdxKyYLSaHG4PGn5nB5buGjbO5npIVqSIGOlOpl5UP27xsVYpBKIQ
+	 C2q46+OmyyevQ+L1KlcwRiLGpbRqE44dKts5w7gc=
+Message-ID: <a10abb83-1bb2-4e62-b537-8b8948b055ea@linux.microsoft.com>
+Date: Thu, 13 Feb 2025 12:50:17 -0800
 MIME-Version: 1.0
-References: <20250127213310.2496133-1-wnliu@google.com> <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
- <00fa304d-84bf-4fca-9b9a-f3b56cd97424@oracle.com> <CAPhsuW4ct6W_4B0LFEjLePH1pAeNm4h8ePuQ3HcSoknXhQWN0w@mail.gmail.com>
- <mb61p1pw21f0v.fsf@kernel.org> <CAPhsuW5VCmuPLd8wwzBp_Divnu=uaZQcrRLsjsEOJ9GmA0TR5A@mail.gmail.com>
- <mb61pseoiz1cq.fsf@kernel.org>
-In-Reply-To: <mb61pseoiz1cq.fsf@kernel.org>
-From: Song Liu <song@kernel.org>
-Date: Thu, 13 Feb 2025 12:46:08 -0800
-X-Gmail-Original-Message-ID: <CAPhsuW7bo4efVYb8uPkQ1v9TE95_CQ6+G3q4kVyt-8g-3JD6Cw@mail.gmail.com>
-X-Gm-Features: AWEUYZkl0WveZP-8jA0rX6lZvo2HZZiSPy4b5e09ftMa4XtdnE-_yHKMbg6ADZc
-Message-ID: <CAPhsuW7bo4efVYb8uPkQ1v9TE95_CQ6+G3q4kVyt-8g-3JD6Cw@mail.gmail.com>
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: Indu Bhagat <indu.bhagat@oracle.com>, Weinan Liu <wnliu@google.com>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
-	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
-	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next v4 4/6] dt-bindings: microsoft,vmbus: Add GIC
+ and DMA coherence to the example
+From: Roman Kisel <romank@linux.microsoft.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
+ catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
+ decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+ krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com, lpieralisi@kernel.org,
+ manivannan.sadhasivam@linaro.org, mingo@redhat.com, robh@kernel.org,
+ ssengar@linux.microsoft.com, tglx@linutronix.de, wei.liu@kernel.org,
+ will@kernel.org, devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
+ benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com
+References: <20250212014321.1108840-1-romank@linux.microsoft.com>
+ <20250212014321.1108840-5-romank@linux.microsoft.com>
+ <20250212-rough-terrier-of-serendipity-68a0db@krzk-bin>
+ <bb863c8f-a92c-42d0-abc4-ff0b92f701c2@linux.microsoft.com>
+Content-Language: en-US
+In-Reply-To: <bb863c8f-a92c-42d0-abc4-ff0b92f701c2@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_124620_603983_9DA3E620 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20250213_125019_645609_4F62A2A8 
+X-CRM114-Status: UNSURE (   6.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,27 +82,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 12:38=E2=80=AFAM Puranjay Mohan <puranjay@kernel.or=
-g> wrote:
-[...]
->
-> P.S. - The livepatch doesn't have copy_process() but only copy_signal(),
-> yours had copy_process() somehow.
 
-In my build, copy_signal is inlined to copy_process, unless I add noinline.
-If I do add noinline, the issue will not reproduce.
 
-I tried more combinations. The issue doesn't reproduce if I either
-1) add noinline to copy_signal, so we are not patching the whole
-   copy_process function;
-or
-2) Switch compiler from gcc 14.2.1 to gcc 11.5.0.
-
-So it appears something in gcc 14.2.1 is causing live patch to fail
-for copy_process().
-
-Thanks,
-Song
+On 2/12/2025 3:57 PM, Roman Kisel wrote:
+> 
 
 [...]
+
+Thank you for your guidance!! The below passes tests and addresses the
+feedback you have provided. If no further comments from you, I'll
+send the file in this form in the next version of the patch series (also
+fixing the commit title and description).
+
+
+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+%YAML 1.2
+---
+$id: http://devicetree.org/schemas/bus/microsoft,vmbus.yaml#
+$schema: http://devicetree.org/meta-schemas/core.yaml#
+
+title: Microsoft Hyper-V VMBus
+
+maintainers:
+   - Saurabh Sengar <ssengar@linux.microsoft.com>
+
+description:
+   VMBus is a software bus that implement the protocols for communication
+   between the root or host OS and guest OSs (virtual machines).
+
+properties:
+   compatible:
+     const: microsoft,vmbus
+
+   ranges: true
+
+   '#address-cells':
+     const: 2
+
+   '#size-cells':
+     const: 1
+
+required:
+   - compatible
+   - ranges
+   - interrupts
+   - '#address-cells'
+   - '#size-cells'
+
+additionalProperties: true
+
+examples:
+   - |
+     #include <dt-bindings/interrupt-controller/irq.h>
+     #include <dt-bindings/interrupt-controller/arm-gic.h>
+     soc {
+         #address-cells = <2>;
+         #size-cells = <1>;
+         bus {
+             compatible = "simple-bus";
+             #address-cells = <2>;
+             #size-cells = <1>;
+             ranges;
+
+             vmbus@ff0000000 {
+                 compatible = "microsoft,vmbus";
+                 #address-cells = <2>;
+                 #size-cells = <1>;
+                 ranges = <0x0f 0xf0000000 0x0f 0xf0000000 0x10000000>;
+                 dma-coherent;
+                 interrupt-parent = <&gic>;
+                 interrupts = <GIC_PPI 2 IRQ_TYPE_EDGE_RISING>;
+             };
+         };
+     };
+
+
+>> Best regards,
+>> Krzysztof
+> 
+
+-- 
+Thank you,
+Roman
+
 
