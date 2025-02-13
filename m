@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F050C021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 20:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F098C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 20:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S+N8QktHLziteDHKc6l89RJnsEypWQF7J2Pqb6k3fjQ=; b=w5woJgBERIpfMCX8GWBhkpp/Z0
-	6Hhbzbk4m8nPgzgzIn3i8b1583P0QMi7WiKwuQwfdsYuCn3f6S+kHH/xPJul2kMiS0yZEpSDFwj/U
-	h5C9kGAV/ntfH3uW4aUDP3njSXeSO9aUCbKrcbUU20YBTD8IPnfokbqsZkp6lDmhqlL4kngx+MyMd
-	IPmxsPxcmBl5zI8gBEq96ZxbinZo8my5tgHtjbjtXY3GoNCgKaW56EhxcsPceHDHRk3B71LwLMO7q
-	dFS8juZyM4ibuinYcfsO/Ou+jZrqAGrBso6W0NtkiXDEkdiiFo1dobLT0oF6H4An22Wit1RFp8vmo
-	+N4ClB3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RUj1G+qPoM5AiT488H7BAcntBPn5GDmbRt8K6BKbyhw=; b=IP3B0TBcrliNA/kX2PE3FXFl2L
+	PRQ0TCgzdoaIWspe8pjB4yl2MvDn+nu/BmWPEhH/+6R9/ZuOHu7ITI9IxlZvjne++aRA5aWOV9Lg4
+	uLZQJm3Cxm3Tm4RJvWD+CLbzjTAhJawNne6I/nFeg70ri5cibHf2sNl6oLRonL31gvwicVYzc6P/f
+	ERyKbNIFhuu8Plc18PtATjT/UK8ttVtJdZRZ4ZXrK1Gtf/djJkcqXwlZGbYMxk2twzrendFYlXLkA
+	jYqRrWV1+yU5zyhfz0pqrvgKDpFetMpdVXc8qYC4KadWQHwuJ6sG4sGNwlRQ6zqp1LvdvUbSQ/InD
+	h6lZi2Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tifho-0000000CWlU-0Zim;
-	Thu, 13 Feb 2025 20:21:04 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tifgM-0000000CWY2-0DqQ
+	id 1tifmN-0000000CXBC-1nhz;
+	Thu, 13 Feb 2025 20:25:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tifku-0000000CX1U-3k7e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 20:19:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1739477972;
- bh=S+N8QktHLziteDHKc6l89RJnsEypWQF7J2Pqb6k3fjQ=;
- b=0GfTEYvOb/itK61zxR+/e5NsYEF2SIX1vCnrKon5I2ZJTUxxNOP2Bw34T7TwShi0sL2yBQ73x
- kE+Xj/71wv6GkydHNUNzj7eKtNAE84ptOOLF+kW1RiShvKeES3wXcgKy6CyujCXUsp6fwydF9+m
- 1JRo0ln9+Dj4pm7P7mo4j322onCZHaijZiZsV67Nq6TiB/1R5MtSs6saF9QQG8gGU6c4vXkz5U6
- VI3jrDtxWCKJS5XqN46MVzXuEMp42zUqY5ZRA8Pnh2MQIID3OEGSU9Jm5tu2sjCzKChJkZZjbDy
- 4JkcfNc3aqzsNGvZ6uaROts8PHOrsNW+lssEWpturpGw==
-X-Forward-Email-ID: 67ae53c49555f68eb8805aed
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <3da8e680-1f36-473d-b51a-6c77a6ea8cc1@kwiboo.se>
-Date: Thu, 13 Feb 2025 21:19:11 +0100
+	Thu, 13 Feb 2025 20:24:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7C5CF113E;
+	Thu, 13 Feb 2025 12:24:35 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E747B3F58B;
+	Thu, 13 Feb 2025 12:24:10 -0800 (PST)
+Date: Thu, 13 Feb 2025 20:23:53 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Saravana Kannan <saravanak@google.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Peng Fan <peng.fan@oss.nxp.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
+ scmi cpufreq
+Message-ID: <Z65U2SMwSiOFYC0v@pluto>
+References: <20241225-scmi-fwdevlink-v1-0-e9a3a5341362@nxp.com>
+ <20241225-scmi-fwdevlink-v1-1-e9a3a5341362@nxp.com>
+ <Z6uFMW94QNpFxQLK@bogus>
+ <20250212070120.GD15796@localhost.localdomain>
+ <Z6x8cNyDt8rJ73_B@bogus>
+ <CAGETcx87Stfkru9gJrc1sf=PtFGLY7=jrfFaCzK5Z4hq+2TCzg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add Radxa ROCK 4D device
- tree
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Dragan Simic <dsimic@manjaro.org>, Chris Morgan <macromorgan@hotmail.com>,
- Kever Yang <kever.yang@rock-chips.com>, Tim Lunn <tim@feathertop.org>,
- FUKAUMI Naoki <naoki@radxa.com>,
- Michael Riesch <michael.riesch@wolfvision.net>,
- Weizhao Ouyang <weizhao.ouyang@arm.com>, Elon Zhang
- <zhangzj@rock-chips.com>, Alexey Charkov <alchark@gmail.com>,
- Stephen Chen <stephen@radxa.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- kernel@collabora.com
-References: <20250213145921.133412-1-detlev.casanova@collabora.com>
- <20250213145921.133412-3-detlev.casanova@collabora.com>
- <b5977d21-aa39-4e91-863b-cc7f9dc6938c@kwiboo.se>
- <5973630.DvuYhMxLoT@trenzalore>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <5973630.DvuYhMxLoT@trenzalore>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGETcx87Stfkru9gJrc1sf=PtFGLY7=jrfFaCzK5Z4hq+2TCzg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_121934_130505_FA4B2D16 
-X-CRM114-Status: GOOD (  26.94  )
+X-CRM114-CacheID: sfid-20250213_122417_024070_5A5725B7 
+X-CRM114-Status: GOOD (  37.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,147 +79,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Detlev,
+On Thu, Feb 13, 2025 at 12:03:15AM -0800, Saravana Kannan wrote:
+> On Wed, Feb 12, 2025 at 2:48 AM Sudeep Holla <sudeep.holla@arm.com> wrote:
+> >
 
-On 2025-02-13 20:56, Detlev Casanova wrote:
-> Hi Jonas,
-> 
-> On Thursday, 13 February 2025 10:48:10 EST Jonas Karlman wrote:
->> Hi Detlev,
->>
->> On 2025-02-13 15:57, Detlev Casanova wrote:
->>> From: Stephen Chen <stephen@radxa.com>
->>>
->>> The Radxa ROCK 4D board is based on the Rockchip rk3576 SoC.
->>>
->>> The device tree adds support for basic devices:
->>>  - UART
->>>  - SD Card
->>>  - Ethernet
->>>  - USB
->>>  - RTC
->>>
->>> It has 4 USB ports but only 3 are usable as the top left one is used
->>> for maskrom.
->>>
->>> It has a USB-C port that is only used for powering the board.
->>>
->>> Signed-off-by: Stephen Chen <stephen@radxa.com>
->>> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
->>> ---
->>>
->>>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->>>  .../boot/dts/rockchip/rk3576-rock-4d.dts      | 651 ++++++++++++++++++
->>>  2 files changed, 652 insertions(+)
->>>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/Makefile
->>> b/arch/arm64/boot/dts/rockchip/Makefile index
->>> def1222c1907e..a112aeb37948a 100644
->>> --- a/arch/arm64/boot/dts/rockchip/Makefile
->>> +++ b/arch/arm64/boot/dts/rockchip/Makefile
->>> @@ -132,6 +132,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) +=
->>> rk3568-wolfvision-pf5-display-vz.dtbo> 
->>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-io-expander.dtbo
->>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5.dtb
->>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-evb1-v10.dtb
->>>
->>> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-rock-4d.dtb
->>>
->>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3582-radxa-e52c.dtb
->>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-armsom-sige7.dtb
->>>  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-armsom-w3.dtb
->>>
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
->>> b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts new file mode 100644
->>> index 0000000000000..f356742f9d643
->>> --- /dev/null
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
->>> @@ -0,0 +1,651 @@
->>
->> [snip]
->>
->>> +&gmac0 {
->>> +	phy-mode = "rgmii-id";
->>> +	clock_in_out = "output";
->>> +
->>> +	snps,reset-gpio = <&gpio2 RK_PB5 GPIO_ACTIVE_LOW>;
->>> +	snps,reset-active-low;
->>> +	snps,reset-delays-us = <0 20000 100000>;
->>
->> The snps,reset- props are deprecated and should be changed to reset-
->> props in the phy node.
-> 
-> Arg, second time I use deprectated props on new things. Are there plans or 
-> ways to make dtbs_check warn about those ?
+Hi Saravana,
 
-Agree, would be nice if dtbs_check could be a little bit more verbose
-about use of deprecated props :-)
+> > On Wed, Feb 12, 2025 at 03:01:20PM +0800, Peng Fan wrote:
+> > > On Tue, Feb 11, 2025 at 05:13:21PM +0000, Sudeep Holla wrote:
+> > > >On Wed, Dec 25, 2024 at 04:20:44PM +0800, Peng Fan (OSS) wrote:
+> > > >> From: Peng Fan <peng.fan@nxp.com>
+> > > >>
+
+[snip]
 
 > 
->>> +
->>> +	pinctrl-names = "default";
->>> +	pinctrl-0 = <&eth0m0_miim
->>> +		     &eth0m0_tx_bus2
->>> +		     &eth0m0_rx_bus2
->>> +		     &eth0m0_rgmii_clk
->>> +		     &eth0m0_rgmii_bus
->>> +		     &ethm0_clk0_25m_out>;
->>> +
->>> +	phy-handle = <&rgmii_phy0>;
->>> +	status = "okay";
->>> +};
->>
->> [snip]
->>
->>> +&mdio0 {
->>> +	rgmii_phy0: phy@1 {
->>
->> Maybe ethernet-phy@1 ?
+> Cristian,
 > 
-> Indeed.
+> Thanks for taking the time to give a detailed description here[1]. I
+> seem to have missed that email.
+> [1] - https://lore.kernel.org/arm-scmi/ZryUgTOVr_haiHuh@pluto/
 > 
->>> +		compatible = "ethernet-phy-ieee802.3-c22";
->>> +		reg = <0x1>;
->>> +		clocks = <&cru REFCLKO25M_GMAC0_OUT>;
->>
->> Please add reset- props here.
->>
->> Changing to use reset- props may cause issue if a RTL8211F PHY is used
->> on the board. Use a ethernet-phy-id compatible or mainline U-Boot to
->> ensure the Ethernet PHY can be discovered during probe.
+> Peng/Cristian,
 > 
-> Using downstream u-boot, with the RTL8211F PHY, linux can still detect the PHY 
-> and use it correctly, even with reset-* props at the PHY level.
-> 
-> I guess I can keep those there then, unless the issues you mention are more 
-> subtle than that ?
-> 
+> Yes, we can have the driver core ignore this device for fw_devlink by
+> looking at some flag on the device (and not on the fwnode). But that
+> is just kicking the can down the road. We could easily end up with two
 
-Ohh, typically there has been issues for Linux to find the Ethernet PHY unless
-it has first been reset by boot firmware. Something like:
+Oh yes this is definitely some sort of hack/workaround that just kicks
+the can down the road, I agree...just I cannot see any better solution
+from what Peng propose (beside maybe we can discuss his implementation
+details as we are doing...)
 
-  rk_gmac-dwmac fe010000.ethernet eth0: no phy at addr -1
-  rk_gmac-dwmac fe010000.ethernet eth0: stmmac_open: Cannot attach to PHY (error: -19)
+> SCMI devices needing a separate set of consumers. For example,
+> something like below can have two SCMI devices A and B created where
+> only A needs the mboxes and only B needs shmem and power-domains. This
 
-There was a chicken-and-egg issue related to detecting ethernet phy:
-- phy needs to be reset or phy_id read back as 0xffffffff on mdio bus
-- phy device is not created because a valid phy_id is not read back
-- phy device needs to be created before it can be reset
+..not really...it is even worse :P ... the mbox/shmem props down below are
+really definition of a mailbox transport SCMI channel: some transports
+allow multiple channels to be defined and in such case you can dedicate
+one channel to a specific protocol...
 
-See [1] for more details on the ethernet phy issue that typically have
-affected multiple Rockchip boards with RTL8211F PHYs. Maybe it has been
-fixed in v6.13+.
+...so, in this case, you will see there will be something similar defined
+in terms of mboxes/shmem at the top SCMI DT node to represent an SCMI channel
+used for all the protocols WHILE this additional definition inside the
+protocol node defines a dedicated channel...IOW these props mboxes/shmem
+are really parsed/consumed upfront by the core SCMI stack at probe to
+configure and allocare basic comms channel BEFORE any SCMI device is created
+...then the protocol DT node is no more used by the core and is instead 'lent'
+to create SCMI devices for the drivers needing them...(possibly lending it to
+multiple users...that is the issue) 
 
-[1] https://lore.kernel.org/all/47d55aca-bee6-810f-379f-9431649fefa6@kwiboo.se/
+> will get messy even for drivers if the driver for A optionally needs
+> power-domains on some machines, but not this one.
+> 
+>         firmware {
+>                 scmi {
+>                         compatible = "arm,scmi";
+>                         scmi_dvfs: protocol@13 {
+>                                 reg = <0x13>;
+>                                 #clock-cells = <1>;
+>                                 mbox-names = "tx", "rx";
+>                                 mboxes = <&mailbox 1 0 &mailbox 1 1>;
+>                                 shmem = <&cpu_scp_hpri0 &cpu_scp_hpri1>;
+>                                 power-domains = <&blah>;
+>                         };
+> 
+> Wait a sec, looking around at the SCMI code, I just realized that you
+> don't even really care about the node name to get the protocol number
+> and you just look at "reg" for protocol number. Why not just have
+> peng's device have two protocol@13 DT nodes?
+> 
+> cpufreq@13 {
+>     reg = <0x13>;
+> }
+> whateverelse@13 {
+>     reg = <0x13>;
+> }
+> 
+> You can also probably throw in a compatible field if you need to help
+> the drivers pick the right node (where they currently pick the same
+> node). Or you can do whatever else would help make sure the cpufreq
+> device is attached to the cpufreq node and the whateverelse device is
+> attached to the whateverelse node.
 
-Regards,
-Jonas
+..well...my longer-than-ever explanation of the innner-workings was
+meant to explain where the problem comes from, and how would be difficult
+to address it WITHOUT changing the DT bindings, BECAUE I pretty much doubt
+that throwing into the mix also multiple nodes definitions and compatibles
+could fly with the DT maintainers, AND certainly it will go against the basic
+rules for 'reg-indexed' properties ...you cannot have 2 prop indexed with the
+same reg-value AFAIK...and the reg-value, here, is indeed the spec protocol
+number so you cannot change that either within the set of nodes sharing
+the same prop....
+
+...moreover the above additional construct of having possibly per-protocol
+channels would create even more a mess in this scenario of explicitly
+declared duplicated protocol-nodes:
+ 
+- should we duplicate the optional mbox/shmem too ? not possible...DT sanity
+  would fail immediately also in this (I suppose due to duplicated entries)
+
+...BUT
+
+- at the same time we should assume that ALL the duplicated protocols inherits
+the optional per-protocol dedicated channel that is defined in one of
+them...seems very dirty to me...
+
+...moreover...explicitly allowing for such duplicate DT protocol definitions
+would open the door to create even more SCMI drivers like pinctrl-imx that
+uses the same PINCTRL protocol as the generic-pinctrl BUT really implements
+the SAME functionalities as the generic one (just slightly differently
+and using a complete distinct set of NXP pinctrl bindings for historical
+reasons AFAIU)....BUT pinctrl-imx is an *unfortunate* exception that we had
+to support for the historical reason I mentioned BUT should NOT be the rule
+NOR the advised way...
+
+....while other drivers exists that share the usage of the same protocol
+(HWMON/IIO GENPD/CPUFREQ), they use the same protocol to achieve different
+things in different subsytems...and they are anyway impacted (even to a less
+degree) by this fw_devlink issue AFAIU so the problem indeed exist also
+out of pinctrl-imx
 
 > 
-> Detlev.
-> 
-> 
-> 
+> Looks like that'll first help clean up the "two devices for one node"
+> issue. And then the rest should just work? Cristian, am I missing
+> anything?
 
+Yes that is the main issue...but still dont see how to solve it in a
+clean way...
+
+Thanks,
+Cristian
 
