@@ -4,71 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CF37C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03B3FC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=10QtXMfgerDPTPBPttpmqpqBaL1nIQxL7Z7YJ+2BWoQ=; b=hm58lepfGm4dTZImDHAnzTVnPH
-	XT4GdHB74tEWtnsRHm3pa1/B4YtFZa30Wt7xHhKTEY4OLH/quu2i6KYwNbLlikrBlAZKTmpYsbYWa
-	gUAS5oyBHbN7Bc1pYbhwDH8jZy5PWBe3OIBhQmQWoqPZTNPHJY70RCN/lsvpLnMlkKoDRufXY4IqG
-	m5U54WtRP4+WLEDt4IDZUyFo86OmY75Kz5Zj3d1e65dgHZeUAg9OCW5VpjleGBm6rAVg911mHY6+w
-	gHLrcIgkP7Az/CWmXFrvJdU3LeX1tpQ8Tz5JmOsa9RwOZnpBAr8Gwr1G6iBoK3cNcTZbjS7O+Uodh
-	odgIjpaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B0Kn63cS+tQJJpYLzCQdCblWT0YZ8q8hNtwtbYwtGRE=; b=2u0X2a8yQ4zIhfEDg+VNe6Uu1b
+	8IaYj8+ytZEpa/1ETQ6T+tpWxxgypdLFJpJyr+o23WK57PnSo3BUgpphtfXqh/rFHWY7FXrXnZ5Eu
+	YYgZoeyyCTgwlq6F4IbIy2tueayTI243oTT8YkOxsgVobycMvnup+6itqqVdQ/k03yANZ5muChMND
+	8ZanBref1HWHWtI3WIV4R6whDnN5uqqUY8/+7Vv1XcyQyUGL9qq5RoVssMKLfNcDYpW4maL/vSdOJ
+	AF+0K60eiv9ma9h4CrGFvZ9j6cWSneFBN59A/rcN3AGoFZmJd5rg4SuDG1BUhkGHRSnLQAMgJGaHk
+	M9iiohkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWlM-0000000AiZx-0Urc;
-	Thu, 13 Feb 2025 10:48:08 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tiWml-0000000AinV-0Gme;
+	Thu, 13 Feb 2025 10:49:35 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWd1-0000000AhNp-44zt;
-	Thu, 13 Feb 2025 10:39:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739443170;
-	bh=LXVJThLjduv+7chq4ELKcznat12qJGf5A21gp7uWdNk=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=PAMFv8qoeRaLMo0F2+g1tIxH7+SuM/So8+w8LA3Ez6Eau2HcNoN0HMyzU080OD7CM
-	 Nuws4daGm9/ZleXUPus/28MhtcxeZfOlC0O3IQ1vQQ1swQX7akV7MDjSCVn1SHrKvw
-	 6UbNVSQFG3b5yoNN4JzKVbABm16J+4Oqd+ByfX6DoNDkeRX2bascC31u+vtLZQxY9o
-	 PvdBu0eiRucRK3hWGp82/Zo9AI10//aaA5NRF6PbOYSg5YSRMtjXqFFulT3kz0tmGy
-	 UCZFcROdSYGWyknjdVCBIqzNv/SMahUXAxeOv+nyyLRzJgow5UskF5s/QO+9vsrW6P
-	 o0IlQL5jSA8Rw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C0B7A17E00A3;
-	Thu, 13 Feb 2025 11:39:29 +0100 (CET)
-Message-ID: <b2ee0b9a-2d7a-4bbb-ae1a-c4abe6e7aeff@collabora.com>
-Date: Thu, 13 Feb 2025 11:39:29 +0100
+	id 1tiWe9-0000000AhYK-3dlV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 10:40:43 +0000
+Received: from pendragon.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 58AC36AF;
+	Thu, 13 Feb 2025 11:39:20 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1739443160;
+	bh=rKfJj/nOFTP3ITe5GatUlSP/bs0kOFPFXDa1/jdXj0Q=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=b0JIacVtrHBLExudGvxw2VW6F6/nRpG6Ko7zZRbOF5hzlown3X9l7YYBxDooS+kn0
+	 EP23NnSl/XMjJvwO6j+1Jl5FF0X9GJATp9tVJ3PujlTWBzn4f4d+gflviRsAoBU0Ca
+	 +rweftJoiunoNp8OZmz8bMPvRF65bN//JuR4eBUE=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] drm/mediatek/hdmi: Simplify with dev_err_probe
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
- <20250112134708.46100-2-krzysztof.kozlowski@linaro.org>
- <ef0baed6-54d2-4f1f-9a4a-769ec09a069f@collabora.com>
- <59f8a02e-a716-40a8-bf73-111ad2a7af79@linaro.org>
- <8e8e3eca-dee0-43ab-95d9-aebd636245c7@collabora.com>
- <7341db6b-aed0-4da0-a5b2-6992d86ffaf3@linaro.org>
- <a65b01d8-3716-40bb-9171-ad6ed3121a89@linaro.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <a65b01d8-3716-40bb-9171-ad6ed3121a89@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250212195656.69528-1-slavine@d3embedded.com>
+References: <20250212195656.69528-1-slavine@d3embedded.com>
+Subject: Re: [PATCH 0/4] media: i2c: Add driver for Sony IMX728
+From: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: =?utf-8?q?N=C3=ADcolas?= F. R. A. Prado <nfraprado@collabora.com>, Abel Vesa <abel.vesa@linaro.org>, Achath Vaishnav <vaishnav.a@ti.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Ard Biesheuvel <ardb@kernel.org>, Benjamin Mugnier <benjamin.mugnier@foss.st.com>, Biju Das <biju.das.jz@bp.renesas.com>, Bjorn Andersson <quic_bjorande@quicinc.com>, Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley <conor+dt@kernel.org>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>, Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, Hans Verkuil <hverkuil@xs4all.nl>, Javier Carrasco <javier.carrasco@wolfvision.net>, Jianzhong Xu <xuj@ti.com>, Julien Massot <julien.massot@collabora.com>, Kory Maincent <kory.maincent@bootlin.com>, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>
+ , Mikhail Rudenko <mike.rudenko@gmail.com>, Nishanth Menon <nm@ti.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, Sakari Ailus <sakari.ailus@linux.intel.com>, Sascha Hauer <s.hauer@pengutronix.de>, Sebastian LaVine <slavine@d3embedded.com>, Shawn Guo <shawnguo@kernel.org>, Stuart Burtner <sburtner@d3embedded.com>, Tero Kristo <kristo@kernel.org>, Thakkar Devarsh <devarsht@ti.com>, Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Umang Jain <umang.jain@ideasonboard.com>, Vignesh Raghavendra <vigneshr@ti.com>, Will Deacon <will@kernel.org>, Zhi Mao <zhi.mao@mediatek.com>
+To: Sebastian LaVine <slavine@d3embedded.com>, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org
+Date: Thu, 13 Feb 2025 10:40:35 +0000
+Message-ID: <173944323591.1238111.8582110055649651187@ping.linuxembedded.co.uk>
+User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_023932_201878_08B53800 
-X-CRM114-Status: GOOD (  10.47  )
+X-CRM114-CacheID: sfid-20250213_024042_050077_A31CA5D7 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +67,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 13/02/25 11:07, Krzysztof Kozlowski ha scritto:
-> On 12/02/2025 21:33, Krzysztof Kozlowski wrote:
->> On 13/01/2025 14:48, AngeloGioacchino Del Regno wrote:
->>> Il 13/01/25 14:07, Krzysztof Kozlowski ha scritto:
->>>> On 13/01/2025 13:41, AngeloGioacchino Del Regno wrote:
->>>>> Il 12/01/25 14:47, Krzysztof Kozlowski ha scritto:
->>>>>> Use dev_err_probe() to make error code and deferred probe handling
->>>>>> simpler.
->>>>>>
->>>>>
->>>>> That's already done in [1] so you can drop this commit.
->>>>>
->>>>> [1]:
->>>>> https://lore.kernel.org/r/20250108112744.64686-1-angelogioacchino.delregno@collabora.com
->>>>>
->>>> Eh, this was first in v3 in the middle of Dec, so why you cannot get it
->>>> merged first? Creating such 34-behemoths causes simple cleanups to
->>>> unnecessarily wait.
->>>>
->>>
->>> Getting the series partially merged is okay for me, no complaints about that,
->>> but then ... in v4, there are two minor comments to address (one of which
->>> is a one-char nitpick!) that might as well be done while applying, depending
->>> on what CK thinks about that, so there's no real benefit in getting 28 commits
->>> out of 34 picked instead of, well, just everything...
->>>
->>
->> OK, month passed, I waited, so is your big patchset merged? If it is,
->> then this will effectively rebase my patch, as you requested.
-> 
-> I think I missed that you took the patch to your patchset, so sorry for
-> the noise.
+Hi Sebastian,
 
-No problem.
+Quoting Sebastian LaVine (2025-02-12 19:56:52)
+<snip>
+>=20
+> Total for device /dev/v4l-subdev4: 44, Succeeded: 44, Failed: 0, Warnings=
+: 0
+>=20
+>=20
+> This is a v3 of a series that was originally sent last summer[0].
+>=20
+> [0]: https://lore.kernel.org/r/linux-media/20240628-imx728-driver-v2-0-80=
+efa6774286@d3engineering.com/
 
-Cheers,
-Angelo
+This version of the driver was authored by "Spencer Hill
+<shill@d3engineering.com>" who seems to no longer be credited. Is this
+intentional?
 
-> 
-> Best regards,
-> Krzysztof
+Does his original Signed-off-by: tag need to be kept at least ? Or
+perhaps Co-Authored-by: ?
+
+--
+Kieran
 
 
-
+>=20
+> v2 -> v3:
+> - Update maintainer
+> - Update bindings example
+> - Add devicetree overlays
+> - The driver now supports SRGGB12_1X12, not SRGGB10_1X10
+> - The driver now outputs at 3856x2176, not 2840x2160
+> - Fixed exposure, again controls
+> - Removed duplicate register writes (removed repeat HDR writes, etc)
+> - Fixed imx728_wait_for_state use of the cci_* API
+> - Re-added _imx728_set_routing (necessary for imx728_init_state)
+>=20
+> Sebastian LaVine (4):
+>   media: dt-bindings: Add Sony IMX728
+>   media: i2c: Add driver for Sony IMX728
+>   arm64: dts: ti: k3-am62a7-sk: Add overlay for fusion 2 board
+>   arm64: dts: ti: Add overlays for IMX728 RCM
 
