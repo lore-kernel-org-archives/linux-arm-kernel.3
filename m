@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E33C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 15:27:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5DABC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 15:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:To:Subject:From
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lFuRc4vnJDC+U8vlunBJUoC5VAZxPPiCI440ctYMhMM=; b=khQJgJApFIhRnW
-	CmnNd1fGHEPn58XiIktPSvzkuAdQvElgJJe/bxCix0dBcP9rmpyaO1TDaidyj6VgTtse91u9HLnL6
-	fq4F8dQn1Xt8Biyx0k5qDjcTm4imyIRjo9Nbs9NJg1XcdihGGZCQ5c1IhV+w04sTYzE2jSvACXA5k
-	+x2g9FOmxV/VV+GLMSliR88njzSwTHcXqs76YnfPhLwTLwTGdCFWJJeCJ7NznTvOmf3FcAluysFZW
-	xcpaWUt1cx+JtOihGuLMtPIxtCnepurB4J4MVECZl877VkAIMXQDcoNySODJTbtqrPt1fLNwr9Dko
-	DFaLW9y6JhZhzcTMmo8Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O+jCni1wNSuwGRLMRPl+wUB/v2xzXShagotfOfPX+7E=; b=0sA9CrePyH1+U4eTrujqc4iWF0
+	6DKm9nqv9tmrgo8Aypq0TWZ8MbrDNNSAdCamB8yE+EmZGQ6hK1S9bqPT4EeYzvncSmSPGUXVuidZY
+	j0W44JH4+X14l0YJZDWa46Eixq1wWJf6JIBU5m9L9uMb1+xvsd+LG1FJsrT9/zTG8A5ae7J8OxX5K
+	psc+rE6KhCW42+2UA1BVRzRzuUVA1wMsGXp8IR2zortgc8ZslqxV7OoyHVppBEfmDgEotsTtF+OT8
+	th9akfuHs7KkXDacOiUyZem4A0iiP6ehbZS2evrwdAmaGC7dbMLsMVVruyYZMRmhWW2TD5IdaWjYz
+	yYt5SxPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tib7L-0000000BWqv-2v4r;
-	Thu, 13 Feb 2025 15:27:07 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1tib8k-0000000BXAl-1Tkv;
+	Thu, 13 Feb 2025 15:28:34 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tib5u-0000000BWZq-2hWY
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 15:25:40 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 09B78432B4;
-	Thu, 13 Feb 2025 15:25:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739460335;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lFuRc4vnJDC+U8vlunBJUoC5VAZxPPiCI440ctYMhMM=;
-	b=Zlt2CV4zcUYBMgVH8rk5q0w7VMbNXWZqUiByPBR1Qdrmcku9kewtaX4Fzk9SAgMH5rddsF
-	WixvDN8UgC5QEOGXUw5p+PRqfbJWjwzFG6FbnXlEI3/7TOE/Gr0oy0K896FcZwt3IVdXh6
-	e03IpWT0pHlAuodihUQTKMBMbNTcrGko5PwNzcp1InTVGKKwyc8QWr8dronU0o1m6aEUO5
-	OFWiNk02TA+bKSa5eSv3X9fSGXkXEA4GHF62aUDU3IMaa05LHhvBHxGfd3jZq9UVkIr25r
-	yipJY+cw7hVDkqCtszC5/xG+Q3q1EvJokHHpFgrh5LB0SK/ZZelOQ3kpvtD2Zw==
-Message-ID: <99247019-bb41-4fd9-bc0c-d31e5688533b@bootlin.com>
-Date: Thu, 13 Feb 2025 16:25:33 +0100
+	id 1tib6S-0000000BWgW-4Biz;
+	Thu, 13 Feb 2025 15:26:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 00142A4253D;
+	Thu, 13 Feb 2025 15:24:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FDB7C4CEE4;
+	Thu, 13 Feb 2025 15:26:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1739460372;
+	bh=uSCLKXuUFkv8xNfCz6j+uSy/iCvKrKUs3L7ibwEF+fI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=c+8aK0F6DeUXphO+tciKBjQMtXvWPyiYnPZ2a+qpsV/LPQ3qFGLBC0ui6S0Mn9PaS
+	 eGHhcRQXDzbu0aRY4AMaVZJ2SPI+HvBk8ocVI8m6G9bLjrs/oXkgKYOdCEA9CPSco9
+	 PfrM0KEhknlo/DNC0kVbhONz7YyfJOctACqILkTE=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Chris Zhong <zyw@rock-chips.com>,
+	Guenter Roeck <groeck@chromium.org>,
+	Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH 6.6 092/273] drm/rockchip: cdn-dp: Use drm_connector_helper_hpd_irq_event()
+Date: Thu, 13 Feb 2025 15:27:44 +0100
+Message-ID: <20250213142410.977858295@linuxfoundation.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250213142407.354217048@linuxfoundation.org>
+References: <20250213142407.354217048@linuxfoundation.org>
+User-Agent: quilt/0.68
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-Subject: Re: [PATCH 01/12] dt-bindings: bluetooth: describe wilc 3000
- bluetooth chip
-To: Krzysztof Kozlowski <krzk@kernel.org>
-References: <20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com>
- <20250212-wilc3000_bt-v1-1-9609b784874e@bootlin.com>
- <20250213-chamois-of-unexpected-glory-dd3eab@krzk-bin>
-Content-Language: en-US
-In-Reply-To: <20250213-chamois-of-unexpected-glory-dd3eab@krzk-bin>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegjedufecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfhffuvfevfhgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgihishcunfhothhhohhrrocuoegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepleejhfevledvgeehvdevueejgeduhfelffegkeejteejveevieejvdeifeekuedtnecuffhomhgrihhnpehmihgtrhhotghhihhprdgtohhmpdgsohhothhlihhnrdgtohhmnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopegludelvddrudeikedrtddrvddungdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdegpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrtggvlheshhholhhtmhgrnhhnrdhorhhgpdhrtghpthhtoheplhhuihiirdguvghnthiisehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhop
- ehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghjrgihrdhkrghthhgrthesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopegtlhgruhguihhurdgsvgiinhgvrgesthhugihonhdruggvvh
-X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_072538_829412_5A8F0950 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20250213_072613_159255_C176B81B 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,69 +77,78 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Eric Dumazet <edumazet@google.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Marek Vasut <marex@denx.de>, Rob Herring <robh@kernel.org>, Ajay Singh <ajay.kathat@microchip.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Kalle Valo <kvalo@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Marcel Holtmann <marcel@holtmann.org>, Luiz Augusto von Dentz <luiz.dentz@gmail.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-bluetooth@vger.kernel.org, Simon Horman <horms@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+6.6-stable review patch.  If anyone has any objections, please let me know.
 
-On 2/13/25 10:25, Krzysztof Kozlowski wrote:
->> +  wlan:
->> +    $ref: /schemas/types.yaml#/definitions/phandle
->> +    description:
->> +      Phandle to the wlan part of the combo chip
-> 
-> No resources here and judging by the driver everything is part of wifi.
-> Either you wrote it to match driver or indeed hardware is like that. In
-> the first case, why this cannot be part of WiFi with phandle to serial
-> bus? In the second case, this needs to be proper hardware description
+------------------
 
-First, I'd like to reclarify what the chip exactly is, to make sure that we are
-talking about the same thing. The wilc3000 ([1]) is a single physical device
-packaging two different discrete modules inside (one for 802.11, one for
-bluetooth). The WLAN part has its own binding integrated in upstream kernel
-([2]) and is based on a similar chip in the same family (wilc1000, which only
-have 802.11, and so only SPI/SDIO, no UART).
+From: Thomas Zimmermann <tzimmermann@suse.de>
 
-Now that it is said, no, I did not write this binding only aiming to match the
-new driver. I tried to base this description on how similar WLAN/BT combo chips
-are usually described (based on those which have existing bindings), and they
-seem to describe distinctly the two internal parts of those chips as well. For
-those who use HCI commands over uart for the bluetooth part, they expose a
-dedicated child node of a serial controller (distinct from the wlan part,
-described as another node on PCI/SDIO/SPI/etc). The hardware architecture for
-wilc3000 is similar to those, so since the serial bus is the primary interface
-to operate the bluetooth part inside the chip, doesn't it makes sense to have it
-under a serial controller node (and then to refer to wlan for the additional
-operations needed on sdio/spi), than the other way around ?
+commit 666e1960464140cc4bc9203c203097e70b54c95a upstream.
 
-About the lack of other resources in the new node: there are indeed additional
-resources that affect bluetooth, but I am not sure how it should be handled:
-there are for example a reset input and a chip enable input exposed by this
-chip, which in fact do not only affect the WLAN part but the two parts inside
-the chip. But those are currently described and handled by the WLAN part. I
-guess that an improvement regarding this point could then be to move those out
-of the wlan binding, and find a way to describe it as shared resources between
-those two parts of the chip, but how should it be handled ? Is it ok to remove
-those from an existing binding (and if so, where to put those ? It is not
-bluetooth specific neither) ? Is the issue rather about current WILC3000 binding
-kind of mixing overall chip description and internal wlan part description ?
+The code for detecting and updating the connector status in
+cdn_dp_pd_event_work() has a number of problems.
 
-Thanks,
+- It does not aquire the locks to call the detect helper and update
+the connector status. These are struct drm_mode_config.connection_mutex
+and struct drm_mode_config.mutex.
 
-Alexis
+- It does not use drm_helper_probe_detect(), which helps with the
+details of locking and detection.
 
-[1]
-https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ProductDocuments/DataSheets/IEEE-802.11-b-g-n-Link-Controller-Module-with-Integrated-Bluetooth-5.0-DS70005327B.pdf
-[2]
-https://elixir.bootlin.com/linux/v6.12.6/source/Documentation/devicetree/bindings/net/wireless/microchip,wilc1000.yaml
-> Best regards,
-> Krzysztof
-> 
+- It uses the connector's status field to determine a change to
+the connector status. The epoch_counter field is the correct one. The
+field signals a change even if the connector status' value did not
+change.
+
+Replace the code with a call to drm_connector_helper_hpd_irq_event(),
+which fixes all these problems.
+
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Fixes: 81632df69772 ("drm/rockchip: cdn-dp: do not use drm_helper_hpd_irq_event")
+Cc: Chris Zhong <zyw@rock-chips.com>
+Cc: Guenter Roeck <groeck@chromium.org>
+Cc: Sandy Huang <hjc@rock-chips.com>
+Cc: "Heiko Stübner" <heiko@sntech.de>
+Cc: Andy Yan <andy.yan@rock-chips.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: <stable@vger.kernel.org> # v4.11+
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://patchwork.freedesktop.org/patch/msgid/20241105133848.480407-1-tzimmermann@suse.de
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ drivers/gpu/drm/rockchip/cdn-dp-core.c |    9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
+
+--- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
++++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+@@ -946,9 +946,6 @@ static void cdn_dp_pd_event_work(struct
+ {
+ 	struct cdn_dp_device *dp = container_of(work, struct cdn_dp_device,
+ 						event_work);
+-	struct drm_connector *connector = &dp->connector;
+-	enum drm_connector_status old_status;
+-
+ 	int ret;
+ 
+ 	mutex_lock(&dp->lock);
+@@ -1010,11 +1007,7 @@ static void cdn_dp_pd_event_work(struct
+ 
+ out:
+ 	mutex_unlock(&dp->lock);
+-
+-	old_status = connector->status;
+-	connector->status = connector->funcs->detect(connector, false);
+-	if (old_status != connector->status)
+-		drm_kms_helper_hotplug_event(dp->drm_dev);
++	drm_connector_helper_hpd_irq_event(&dp->connector);
+ }
+ 
+ static int cdn_dp_pd_event(struct notifier_block *nb,
 
 
--- 
-Alexis Lothoré, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
