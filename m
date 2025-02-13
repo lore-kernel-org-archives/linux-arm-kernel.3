@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97427C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 20:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD51C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 20:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SbAISXgHduv3y1u8Pq4KaTHYqGR89Vm+sKszm0d/Kjg=; b=bbkMrcm3id98FIiCRUOZFNg6Xk
-	6iUh1Omnl+igZIFrXmayZS0jPmaYDJTypmw6rHUMgkUPRmDLygGPVq9N9kg4wFP2+BIPio/0ZEfk2
-	oohHIWm/EFXIkSU3WD/u/xpyzMX2iMFgUZA8lj9kpW+PR/w+vPLFvBOwKqJnELlMwMdGzHwVLZGqH
-	puMjm6nBBfSsPu5lCSRrOakCBLWhssYVgsTx+Tu0+VcUPfmMOthvdRatZe1nblQsf2+v6Fyngt2oc
-	3/gYa4rFht8L/x2MuAtCVi/bpVEhAL7RpakP8J8SYdfXDXv5jtWlaDZ9NHtjkq2LtkczGEAeJ9IN3
-	uqn52/Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=468JTzppqOaSuiMXzT6POZ5cXvHYJkY8IrPBC869EIw=; b=cAsQor6fjkFv7r7OXYXH1p9BlI
+	gDNj7VyD+cKzrQtYbYXa1r3ZwCGJbgLO9Jo0bYGJKXfcg34cjPdH7S4rLGvnQ45LzBof26eltvNjf
+	w+iT6bSI4vSmb1S73Pt6nRHc4IzeQWu1euwF+A/2C/k47qa9rb62aNb0aOL2MwFhcuzOMmpLpw2Ve
+	1FAexcZ+Jrrm34811IW+pGlV7nw+QsjvcwK9WiW/87guAaUT6dPtfq1U2ucZb470SeTTdws/dajr1
+	Nn+DU20ffyQ73fIaC8mTq2C/iw+oo7vjBHSeBWnQorIhNHAHSxGUOnSn2+S/nxSFYF4nAzu4U9Qq/
+	dO45tnvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tig6p-0000000Cb0e-0jkB;
-	Thu, 13 Feb 2025 20:46:55 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tig8D-0000000CbMf-3j4I;
+	Thu, 13 Feb 2025 20:48:21 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tig1x-0000000CZpP-0Ua7
+	id 1tig6G-0000000CasN-2COQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 20:41:54 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0BD1D594;
-	Thu, 13 Feb 2025 21:40:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1739479233;
-	bh=1+AAiHUmcZ0YGwlI7FBzyZhAxpsavKtjHcxXh5On9+k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QyWOl391hTdGPhY0sOHjjkxZJUII2e32RnweKlJ7bD982MVv7Jag0MK+xPA0TcNdX
-	 nYmLLvIKzU8DsUDWShycDP9fl95yasHYCYrDDQjBslXrzxiMakxcHHieAHvaepkzsJ
-	 QkgfYV4eozq+sO01qewcctSkp5NOXqnD65uUBslQ=
-Date: Thu, 13 Feb 2025 22:41:40 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Vishal Sagar <vishal.sagar@amd.com>,
-	Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Michal Simek <michal.simek@amd.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: Re: [PATCH v3 01/11] drm/fourcc: Add warning for bad bpp
-Message-ID: <20250213204140.GB22998@pendragon.ideasonboard.com>
-References: <20250212-xilinx-formats-v3-0-90d0fe106995@ideasonboard.com>
- <20250212-xilinx-formats-v3-1-90d0fe106995@ideasonboard.com>
+	Thu, 13 Feb 2025 20:46:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8263B5C5A58
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 20:45:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5A86C4CEE4
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 20:46:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739479579;
+	bh=1Hv1W5PIRbegvr3gIqvOw2rrDiC6G9t1Dr/tCrD03e4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=pc+cVpYpVZcf6SPMc0R4TZfa9dQgW/98u31mFBPL6EqlUEgpeqxiquPXLdZZPUMHr
+	 XKlJVilhTTClQTbKNTB0MAKFBw86OLoP4k30EQ0+OHdMP0uszjwwhnmCkH2FaiGAaS
+	 eCRjHlGOvhxl3xY/o1DmVFpRMvF8zYtzYzM8+LSRKzD6q569tkZUbmnVre5GQqJhjg
+	 BoM+rpVOjjRGo/vbisYr2rlyw8glE6AZ7dXlw/bFDU/b4fs7CLTQegiMGHMG1svc94
+	 8uCQTaioL8TWofbISnJ0wtN3WwqCegD3iJe8wcxYr/JTdi29y9Pw8yqRaqXJ7FLJTd
+	 94RUXcfCZPpsw==
+Received: by mail-il1-f177.google.com with SMTP id e9e14a558f8ab-3cf880d90bdso3985125ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 12:46:19 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUgBsYTxx6aQdT0fdGhEYo5QSEiCpoOiilpzbHbeMFBf5ql/cIKrfZFHIaOUKVpctKbjwqpXSf1LhT/dJIoh2ZN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzE5qLrIdkYbgUuYTzDasVoKl0+s5lEW06c+i1Q0kw4WgWMF8IK
+	Y4E5hdN3eY1m3YsM+IO5KOYWCe1u22TYdjX+3rLYc9CExIxwRUDgHRo5gekFTBP2mQi5z5TIpLi
+	1KAIQuR6p0F9LT9pHBFVfRw8+M9A=
+X-Google-Smtp-Source: AGHT+IGQ7pJ/TiGbTLryDYR2+5szRZiiwjnj755YU/aasn/qcPVr55ah50aMoRFrQI9umJnTpry+8wekUMj6OpAzbMc=
+X-Received: by 2002:a05:6e02:20cc:b0:3cf:f844:68eb with SMTP id
+ e9e14a558f8ab-3d17bdff4afmr78463815ab.4.1739479579147; Thu, 13 Feb 2025
+ 12:46:19 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250212-xilinx-formats-v3-1-90d0fe106995@ideasonboard.com>
+References: <20250127213310.2496133-1-wnliu@google.com> <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
+ <00fa304d-84bf-4fca-9b9a-f3b56cd97424@oracle.com> <CAPhsuW4ct6W_4B0LFEjLePH1pAeNm4h8ePuQ3HcSoknXhQWN0w@mail.gmail.com>
+ <mb61p1pw21f0v.fsf@kernel.org> <CAPhsuW5VCmuPLd8wwzBp_Divnu=uaZQcrRLsjsEOJ9GmA0TR5A@mail.gmail.com>
+ <mb61pseoiz1cq.fsf@kernel.org>
+In-Reply-To: <mb61pseoiz1cq.fsf@kernel.org>
+From: Song Liu <song@kernel.org>
+Date: Thu, 13 Feb 2025 12:46:08 -0800
+X-Gmail-Original-Message-ID: <CAPhsuW7bo4efVYb8uPkQ1v9TE95_CQ6+G3q4kVyt-8g-3JD6Cw@mail.gmail.com>
+X-Gm-Features: AWEUYZkl0WveZP-8jA0rX6lZvo2HZZiSPy4b5e09ftMa4XtdnE-_yHKMbg6ADZc
+Message-ID: <CAPhsuW7bo4efVYb8uPkQ1v9TE95_CQ6+G3q4kVyt-8g-3JD6Cw@mail.gmail.com>
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: Indu Bhagat <indu.bhagat@oracle.com>, Weinan Liu <wnliu@google.com>, 
+	Josh Poimboeuf <jpoimboe@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
+	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
+	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_124153_294644_0F4BDD6C 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20250213_124620_603983_9DA3E620 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,63 +90,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Tomi,
+On Thu, Feb 13, 2025 at 12:38=E2=80=AFAM Puranjay Mohan <puranjay@kernel.or=
+g> wrote:
+[...]
+>
+> P.S. - The livepatch doesn't have copy_process() but only copy_signal(),
+> yours had copy_process() somehow.
 
-Thank you for the patch.
+In my build, copy_signal is inlined to copy_process, unless I add noinline.
+If I do add noinline, the issue will not reproduce.
 
-On Wed, Feb 12, 2025 at 04:56:05PM +0200, Tomi Valkeinen wrote:
-> drm_format_info_bpp() cannot be used for formats which do not have an
-> integer bits-per-pixel in a pixel block.
-> 
-> E.g. DRM_FORMAT_XV15's (not yet in upstream) plane 0 has three 10-bit
-> pixels (Y components), and two padding bits, in a 4 byte block. That is
-> 10.666... bits per pixel when considering the whole 4 byte block, which
-> is what drm_format_info_bpp() does. Thus a driver that supports such
-> formats cannot use drm_format_info_bpp(),
-> 
-> It is a driver bug if this happens, but so handle wrong calls by
-> printing a warning and returning 0.
-> 
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
->  drivers/gpu/drm/drm_fourcc.c | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
-> index 3a94ca211f9c..1e9afbf6ef99 100644
-> --- a/drivers/gpu/drm/drm_fourcc.c
-> +++ b/drivers/gpu/drm/drm_fourcc.c
-> @@ -457,6 +457,13 @@ unsigned int drm_format_info_bpp(const struct drm_format_info *info, int plane)
->  	if (!info || plane < 0 || plane >= info->num_planes)
->  		return 0;
->  
-> +	if (info->char_per_block[plane] * 8 %
-> +	    (drm_format_info_block_width(info, plane) *
-> +	     drm_format_info_block_height(info, plane))) {
+I tried more combinations. The issue doesn't reproduce if I either
+1) add noinline to copy_signal, so we are not patching the whole
+   copy_process function;
+or
+2) Switch compiler from gcc 14.2.1 to gcc 11.5.0.
 
-Can you cache 
+So it appears something in gcc 14.2.1 is causing live patch to fail
+for copy_process().
 
-	    drm_format_info_block_width(info, plane) *
-	    drm_format_info_block_height(info, plane)
+Thanks,
+Song
 
-in a local variable to avoid computing it twice ?
-
-> +		pr_warn("unable to return an integer bpp\n");
-
-It would be nice to print the warning in the context of the drm device,
-but we don't have the required structure here.
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-
-> +		return 0;
-> +	}
-> +
->  	return info->char_per_block[plane] * 8 /
->  	       (drm_format_info_block_width(info, plane) *
->  		drm_format_info_block_height(info, plane));
-
--- 
-Regards,
-
-Laurent Pinchart
+[...]
 
