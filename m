@@ -4,75 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7A5CC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:41:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9D74C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t/sq2zHrfuDi7HjvZgFw7HSSCYOpthLqSEEjPomTHDU=; b=fVqtClRlIwAivFttC7MR5JabLo
-	UL10LxiBUCyZasxmnJmyJr+tVhgB79Rb96+s1D28mt4K3CZETuOmYPInyAE6LeBkA3I0itQ5VXDBR
-	bxhmnqXsqKGEPVHNidZeuoCdNmxFafwT7y6KzSVEPwrX+hPB7GYbSomBvQgJbCYmYciVJ+ez3Fayw
-	bvsZrh4X2xo4/BRXsmQjCQM8zcwnJwg2/o37ZaVbByEGynQ0l5/sh4Z6Qx+FzO2VzcePiu7kPtKHq
-	PCjipQqUzoyX1ZYqS6P3mtSQlR1TkkZcWUf75/NL4hqcmjVV1tm3ZsPWNAA7OoPDUU0OTvTZSB+Xg
-	67iTAzLA==;
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4elqHb9iSCoJx1TP7SHQuAGSp14JnKwx+dF2NU3w8co=; b=HfpqeY7LDHbbojT+z4XKxNgUpC
+	xzFpFbZ/Ac4rFti2Tdh0owQVpcKXGcX4o6F7CkbqzLJeHs7tK4vBoIBZ0dLemTBYOOOh/5P0OfsQG
+	wVYLf2JB+L6LYj11Hgvw2gLsAl4OACBzW3ZWTddZzBPBtgvvuA8keJHGY6P4bQqNLOzjOxMhOnppg
+	p4kCMTlPKCSD3ox3RT7mkTI3BQ62CYrtXrcpudTY673Lt/+w9VJo41/0gGWBPEpdWRhLMGogdPFPy
+	NAXqKK5gIYItvidYfGzSi8poJWX6VkA8O4owMRFS3RKQrYCqnv2lIXGcTstavnWX8ofon0MVQwSDo
+	7azws/yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticGr-0000000BoU2-36RV;
+	id 1ticGr-0000000BoTH-0HsW;
 	Thu, 13 Feb 2025 16:41:01 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+Received: from out162-62-57-210.mail.qq.com ([162.62.57.210])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiber-0000000BfBV-3Trt;
-	Thu, 13 Feb 2025 16:01:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739462504;
-	bh=zd3CJunqywqI5AKyrBsDBDEx1MdJbDKWUbWp/YwdNJk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NlLiC48/7e309+ZJIZvbvqiem+LAJBnmRmbnLOw8eR3Jdf9KMrZw+BYMIlZljdsiB
-	 lmUczCdniZJuyVObJTqbsN0bPzgr1LnLBriGGMej8o3W4Dw+X4MUXZ7oTEncuKXHXe
-	 jJIDN07tTeRC8dbMVctjhBuOklt4Q7r53s1/+4i+40d8xcF0DDIf942cejCCk+LSX3
-	 kTNUkTZfP9zYp+QwehJg5r2GXdT5DzgFo+9VHQ5LwDcvaAgznCv5Eon4aEtG0lNvdk
-	 55gsO1yu5hVsb5Z9ymnuLSvlx1S8REQKJJ8GxmG3OfbIkWCEkVuy1JfENw3Ygbli54
-	 u4w+sQO/GDUDg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 85F2517E153C;
-	Thu, 13 Feb 2025 17:01:43 +0100 (CET)
-Message-ID: <4978f335-38d1-47fe-b029-de6a2f1374c7@collabora.com>
-Date: Thu, 13 Feb 2025 17:01:43 +0100
+	id 1tiasQ-0000000BU90-3MDn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 15:11:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1739459497; bh=4elqHb9iSCoJx1TP7SHQuAGSp14JnKwx+dF2NU3w8co=;
+	h=From:To:Cc:Subject:Date;
+	b=wbqWAY1sFmhcdJtWYf2htssSE/N46E8XqWGPIAZ7AmmwIfM977uPWabAdo+js1dbj
+	 RVBYPdxWgrn6B4Tmvn4/08wPTrvPoORDiDaAJzGfnjMKve201Rt4WW76f4Xl89hTQz
+	 BPnPEl3GKiw2H7xSQ4HhQoMT0bXWZAPty37z+qQs=
+Received: from cyy-pc.lan ([240e:379:2251:3600:f57b:26f9:9718:486c])
+	by newxmesmtplogicsvrszc11-0.qq.com (NewEsmtp) with SMTP
+	id 2CB36647; Thu, 13 Feb 2025 23:11:11 +0800
+X-QQ-mid: xmsmtpt1739459471t74z68yp3
+Message-ID: <tencent_5360DA048EE5B8CF3104213F8D037C698208@qq.com>
+X-QQ-XMAILINFO: NssJ/YX50roa03kn8l6aANiOT4FVy7HIrcyHzV6EHxPrV4028EaBSbBdbE9v/S
+	 uswOi6tq88MyI7hKp5xp89/LJoa29iBHePzM5FdE9193G1OyTMeAQoIGhXMN4HA4mkqTWWyjnP+F
+	 4kCnnar5CZBfHNBy4po90hUxq7bmChnUshK4J9kNbr/FEllC7hkSWGUo+GXwLpmKT9CGYIOt2MZK
+	 2uOdmd1BdEBdT8EVPyk3D1YH33tlyo054vKn0LhvLkuEGgUYOw89sqQze7mwkmBcw6Zstpdgf2tW
+	 7Avnvoc++vMRNe9iBye4x36Oyh2JoDzWtVXBYLSyp5kbVmrR6TBDII2DNqfclAIkLYx20hkmPCNq
+	 LBhIHF3D9CL7vifdmuehd6WvZsOaikR47Z/ChtbO9H/ZVp4LPkzt4WZpgCYl7UhmxWSjFbl3JtWP
+	 7emjDsSzS5MzW63C2Jfjwz2v/VJkag88U6hwx5ZUcNhqjfHniyv0Y8NGPfmWfN1nsZ6FNLVWmt1R
+	 TSWAvW71E/zvqtQ0XpkcJVgFQNSe0os1XKG0tUdqAfGfJcdRqCRgufBmbUvE4oqYjy2B6tJDG6zW
+	 8w+q54MKoNQB2SvMb9w/q3dVlDVvUROmxYIBvCFzEqB4gM7NE5AgVyBeRV1CaXSvpeOAs8GaSHIq
+	 LcVurJU8g/NPJawA4+C0eUksMIX8RoyG8cWJ1YusOioEnHogBcPXo8sP3q7VxfBCx2vwTftRSrGU
+	 iKq/tnHdpvNveKEVvbF/lwISJT7NK67Qcq8j7ungG+ejV6eFg2qQylhqEuQZd8zJ3n0CvlnkC0Lk
+	 G1qrH4B8m42VyEhLgD3DQGutZqWIbIKpMLy44whsDkPrORX2oU7AczhIQy4iXNJoDH/fK0RTbTGn
+	 Q1brjCAnnChSTmWiRrHVYyl1ensnArbkdy6JZwNl5HL9er8IeFZHz+k9jfPibOPoYtiDrfvuIVHN
+	 gA0Hink6KsPjC91jHszc5iiFt1IBLynm3g3u+p8gtshVLc+q7UIifDReSUwpC1SnpkZ0+dtubSs9
+	 EWoFPUjA==
+X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
+From: Yangyu Chen <cyy@cyyself.name>
+To: linux-perf-users@vger.kernel.org
+Cc: John Garry <john.g.garry@oracle.com>,
+	Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Liang Kan <kan.liang@linux.intel.com>,
+	Yoshihiro Furudera <fj5100bi@fujitsu.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: [PATCH 0/2] perf vendor events arm64: Add A720/A520 events/metrics
+Date: Thu, 13 Feb 2025 23:11:01 +0800
+X-OQ-MSGID: <20250213151101.186593-1-cyy@cyyself.name>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/10] i2c: Introduce i2c_10bit_addr_*_from_msg()
- helpers
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Andi Shyti <andi.shyti@kernel.org>,
- Wolfram Sang <wsa+renesas@sang-engineering.com>, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-renesas-soc@vger.kernel.org
-Cc: Krzysztof Adamski <krzysztof.adamski@nokia.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Kamal Dasu
- <kamal.dasu@broadcom.com>, Stefan Roese <sr@denx.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Gregory CLEMENT <gregory.clement@bootlin.com>,
- Fabrizio Castro <fabrizio.castro.jz@renesas.com>
-References: <20250213141045.2716943-1-andriy.shevchenko@linux.intel.com>
- <20250213141045.2716943-2-andriy.shevchenko@linux.intel.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250213141045.2716943-2-andriy.shevchenko@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_080146_018166_8645F2D6 
-X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-CacheID: sfid-20250213_071143_420026_3990D4FB 
+X-CRM114-Status: UNSURE (   9.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,14 +99,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 13/02/25 15:07, Andy Shevchenko ha scritto:
-> There are already a lot of drivers that have been using
-> i2c_8bit_addr_from_msg() for 7-bit addresses, now it's time
-> to have the similar for 10-bit addresses.
-> 
-> Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+This patchset adds the perf JSON files for the Cortex-A720 and Cortex-A520
+processors. Some events have been tested on Raxda Orion 6 with Cix P1 SoC
+(8xA720 + 4xA520) running mainline Kernel with ACPI mode.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Yangyu Chen (2):
+  perf vendor events arm64: Add Cortex-A720 events/metrics
+  perf vendor events arm64: Add Cortex-A520 events/metrics
 
+ .../arch/arm64/arm/cortex-a520/bus.json       |  26 ++
+ .../arch/arm64/arm/cortex-a520/exception.json |  18 +
+ .../arm64/arm/cortex-a520/fp_operation.json   |  14 +
+ .../arch/arm64/arm/cortex-a520/general.json   |   6 +
+ .../arch/arm64/arm/cortex-a520/l1d_cache.json |  50 ++
+ .../arch/arm64/arm/cortex-a520/l1i_cache.json |  14 +
+ .../arch/arm64/arm/cortex-a520/l2_cache.json  |  46 ++
+ .../arch/arm64/arm/cortex-a520/l3_cache.json  |  21 +
+ .../arch/arm64/arm/cortex-a520/ll_cache.json  |  10 +
+ .../arch/arm64/arm/cortex-a520/memory.json    |  58 +++
+ .../arch/arm64/arm/cortex-a520/metrics.json   | 373 +++++++++++++++
+ .../arch/arm64/arm/cortex-a520/pmu.json       |   8 +
+ .../arch/arm64/arm/cortex-a520/retired.json   |  90 ++++
+ .../arm64/arm/cortex-a520/spec_operation.json |  70 +++
+ .../arch/arm64/arm/cortex-a520/stall.json     |  82 ++++
+ .../arch/arm64/arm/cortex-a520/sve.json       |  22 +
+ .../arch/arm64/arm/cortex-a520/tlb.json       |  78 ++++
+ .../arch/arm64/arm/cortex-a520/trace.json     |  32 ++
+ .../arch/arm64/arm/cortex-a720/bus.json       |  18 +
+ .../arch/arm64/arm/cortex-a720/exception.json |  62 +++
+ .../arm64/arm/cortex-a720/fp_operation.json   |  22 +
+ .../arch/arm64/arm/cortex-a720/general.json   |  10 +
+ .../arch/arm64/arm/cortex-a720/l1d_cache.json |  50 ++
+ .../arch/arm64/arm/cortex-a720/l1i_cache.json |  14 +
+ .../arch/arm64/arm/cortex-a720/l2_cache.json  |  62 +++
+ .../arch/arm64/arm/cortex-a720/l3_cache.json  |  22 +
+ .../arch/arm64/arm/cortex-a720/ll_cache.json  |  10 +
+ .../arch/arm64/arm/cortex-a720/memory.json    |  54 +++
+ .../arch/arm64/arm/cortex-a720/metrics.json   | 436 ++++++++++++++++++
+ .../arch/arm64/arm/cortex-a720/pmu.json       |   8 +
+ .../arch/arm64/arm/cortex-a720/retired.json   |  90 ++++
+ .../arch/arm64/arm/cortex-a720/spe.json       |  42 ++
+ .../arm64/arm/cortex-a720/spec_operation.json |  90 ++++
+ .../arch/arm64/arm/cortex-a720/stall.json     |  82 ++++
+ .../arch/arm64/arm/cortex-a720/sve.json       |  50 ++
+ .../arch/arm64/arm/cortex-a720/tlb.json       |  74 +++
+ .../arch/arm64/arm/cortex-a720/trace.json     |  32 ++
+ .../arch/arm64/common-and-microarch.json      |  15 +
+ tools/perf/pmu-events/arch/arm64/mapfile.csv  |   2 +
+ 39 files changed, 2263 insertions(+)
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/bus.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/exception.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/fp_operation.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/general.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/l1d_cache.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/l1i_cache.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/l2_cache.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/l3_cache.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/ll_cache.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/memory.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/metrics.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/pmu.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/retired.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/spec_operation.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/stall.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/sve.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/tlb.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a520/trace.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/bus.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/exception.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/fp_operation.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/general.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/l1d_cache.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/l1i_cache.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/l2_cache.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/l3_cache.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/ll_cache.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/memory.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/metrics.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/pmu.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/retired.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/spe.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/spec_operation.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/stall.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/sve.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/tlb.json
+ create mode 100644 tools/perf/pmu-events/arch/arm64/arm/cortex-a720/trace.json
+
+-- 
+2.47.2
 
 
