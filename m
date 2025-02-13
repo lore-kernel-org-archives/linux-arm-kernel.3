@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBDD4C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 13:57:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D319EC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 14:01:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iSIJAx4EpNXrVsBR/rpvqubaa9T4PDr1XsPwpgCesCw=; b=VuGUxYnox6CdW24P68h+zFLqsz
-	1npxCYggqnWdnmKUcvtia4XZxP8oAJoQIrE9ZbqrcvIG0+Zp8sVNOCgcygI/55D+kBgmSNjvzy7b7
-	Y8wugUyGfPKVtJWGOS7Y9jLItK/VsQXxGRmqXaGpWOZYfSMbaxGOaFwBROh/YVnMzVibW8r9rkhxX
-	a3GMTWHcRdAuMWwVe2dBiT+UkqGiXobDiLSGfYm9K/z2A6vHnUGF0x4Ue5wh7aDrraZ1mVPUYmC2x
-	4mHOutHyeBfqW+fD6TlhUr+rRAkLysD4xZJ4X+op+GOG2r3Y0SgHaf6f32kSziX0Boq8avOyVQm91
-	4ieE55Mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=epyKhCFrWYAIxnE5wrz7MqFvgj8O0i7w2yMRVgLOee8=; b=RZ7Hn4kmqKZ8wppo1AZhrkhmoD
+	C5nwzPx0mxD1awZVq5iXArck1Wr/x3SDYuw0ggff5Og5afpwwXBkkrNPOciPTVRMIhCDmINWwiHmR
+	yOB7p5svzjLL3y3mwoVFFRdKZIeDEZAyhuqKQkpmdHTQaFPGKj54X/DkJ3gKoAXPyT8vVC0fnFKgT
+	oJ0NzqpldH+HClrXEgWyWUHr1r9blMHGnfsylxWRT/RfwD+VHca5ZUc031QjnSU4JdYYQUiSdXOXf
+	8an/CHr0bpV9t1vzVnhqjLIuo6x4cRCXUECf8Z4s7QIH1iLqe1D378w8VA44+jJjNQ+herutLvZM0
+	95ZxtJdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZiI-0000000BDmM-1gM4;
-	Thu, 13 Feb 2025 13:57:10 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tiZlw-0000000BErn-1QhN;
+	Thu, 13 Feb 2025 14:00:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZgk-0000000BDOM-0KPz
+	id 1tiZkE-0000000BENN-3J1v
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 13:55:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=iSIJAx4EpNXrVsBR/rpvqubaa9T4PDr1XsPwpgCesCw=; b=gkZtbL8jtyFaX5I7SQPe1yOCe9
-	UWSxm5Ie8L9UyWPhu5BlROG5LnnlOBATL2gTmW8b7+NvDxFwlfulajbuPd/ZwZxWER6fDYhZIDIjB
-	64NFBb8/q7lqP1EXLk/fZAh5drzeQeTVYUA3BSGfq3Q8KnIUUrJv6qv5MPc1zdWHkZSw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tiZgZ-00DklN-Ck; Thu, 13 Feb 2025 14:55:23 +0100
-Date: Thu, 13 Feb 2025 14:55:23 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Chenyuan Yang <chenyuan0y@gmail.com>
-Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, joel@jms.id.au,
-	richardcochran@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH] soc: aspeed: Add NULL pointer check in
- aspeed_lpc_enable_snoop()
-Message-ID: <2d5c9d87-abbc-4118-9031-f2c7b5c96085@lunn.ch>
-References: <20250212212556.2667-1-chenyuan0y@gmail.com>
- <f649fc0f8491ab666b3c10f74e3dc18da6c20f0a.camel@codeconstruct.com.au>
- <CALGdzuoeYesmdRBG_QPW_rkFcX7v=0hsDr0iX3u5extEL5qYag@mail.gmail.com>
- <8e6c7913fda39baa50309886f9f945864301660f.camel@codeconstruct.com.au>
- <CALGdzurifZaqatjGRZGxA4FyNBHOYJdVXpKHSM4hQdA3qZtYvQ@mail.gmail.com>
+	Thu, 13 Feb 2025 13:59:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id A7B76A42549;
+	Thu, 13 Feb 2025 13:57:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3DDBC4CED1;
+	Thu, 13 Feb 2025 13:59:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739455149;
+	bh=86lSLlfSnH3gLlHMarEFFkwpZl7BtgL5BOo2fiEcAXg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=TKDpKnpQZZLPLJkxSAp4NQrHabwTbI+1k6690/Wd6bz1VqhXT3WrSaJBXDJXe7n3V
+	 FAUMe0lEskBGSiui5Jd3oo3DNpCoZ3SzpqtjT8sNEYeLFc/XoMGz9vcOWDatH00MUF
+	 HQBIdOl2MyiU1/KXWpnCRdKFYXI0nqUfDnC9o9FR0mgOXL5loe+bISDAPfYsm2aeu0
+	 bdITb5rssub6wlOgZEM1Gcw6dhOb8KGXmUh8i9dEXTkpamTvbwbH7qky0fGGzRg/vj
+	 Gw9P/KhohA6y5uvdJUXmmdzWSbCmgzvTNVPOm3TZNCHsaOg+5vvBaeVajR3YPePneS
+	 r6IHchmUPbuZw==
+From: Will Deacon <will@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	ionela.voinescu@arm.com,
+	sudeep.holla@arm.com,
+	catalin.marinas@arm.com,
+	Beata Michalska <beata.michalska@arm.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	sumitg@nvidia.com,
+	ptsm@linux.microsoft.com
+Subject: Re: [PATCH] arm64: amu: Delay allocating cpumask for AMU FIE support
+Date: Thu, 13 Feb 2025 13:59:01 +0000
+Message-Id: <173944478263.2605897.5555784632946781698.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20250131155842.3839098-1-beata.michalska@arm.com>
+References: <20250131155842.3839098-1-beata.michalska@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CALGdzurifZaqatjGRZGxA4FyNBHOYJdVXpKHSM4hQdA3qZtYvQ@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_055534_115046_3D4BB838 
-X-CRM114-Status: GOOD (  18.67  )
+X-CRM114-CacheID: sfid-20250213_055910_891180_360F5D0A 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,49 +80,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 07:50:49PM -0600, Chenyuan Yang wrote:
-> Hi Andrew,
+On Fri, 31 Jan 2025 15:58:42 +0000, Beata Michalska wrote:
+> For the time being, the amu_fie_cpus cpumask is being exclusively used
+> by the AMU-related internals of FIE support and is guaranteed to be
+> valid on every access currently made. Still the mask is not being
+> invalidated on one of the error handling code paths, which leaves
+> a soft spot with theoretical risk of UAF for CPUMASK_OFFSTACK cases.
+> To make things sound, delay allocating said cpumask
+> (for CPUMASK_OFFSTACK) avoiding otherwise nasty sanitising case failing
+> to register the cpufreq policy notifications.
 > 
-> I've drafted the following patch to address the resource cleanup issue:
+> [...]
 
-Please just follow the normal procedure of submitting a patch.
+Applied to arm64 (for-next/fixes), thanks!
 
-	Andrew
+[1/1] arm64: amu: Delay allocating cpumask for AMU FIE support
+      https://git.kernel.org/arm64/c/d923782b0412
 
-> 
-> ```
->  drivers/soc/aspeed/aspeed-lpc-snoop.c | 17 +++++++++++++++--
->  1 file changed, 15 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> index 9ab5ba9cf1d6..4988144aba88 100644
-> --- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> +++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> @@ -200,11 +200,15 @@ static int aspeed_lpc_enable_snoop(struct
-> aspeed_lpc_snoop *lpc_snoop,
->   lpc_snoop->chan[channel].miscdev.minor = MISC_DYNAMIC_MINOR;
->   lpc_snoop->chan[channel].miscdev.name =
->   devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME, channel);
-> + if (!lpc_snoop->chan[channel].miscdev.name) {
-> + rc = -ENOMEM;
-> + goto free_fifo;
-> + }
+Cheers,
+-- 
+Will
 
-You were asked to first add cleanup, then fix this possible NULL
-pointer dereference.
-
-> I have a couple of questions regarding the cleanup order:
-> 
-> 1. Do we need to call misc_deregister() in this case, considering that
-> the registration happens before return -EINVAL?
-> 2. If misc_deregister() is required, is there a specific order we
-> should follow when calling misc_deregister() and
-> kfree(lpc_snoop->chan[channel].miscdev.name);?
-
-As a general rule, cleanup is the opposite order to setup.
-
-Also, you want to do some research about that devm_ means.
-
-	Andrew
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
