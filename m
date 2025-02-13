@@ -4,206 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F179C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 23:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE7EC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 23:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3qJ/2y1iFjoLI+oa4Y3c13g7ynhE81SdUjoXJEv/9OE=; b=fvXR8fk7XaifwCUCPvsIHdg7GC
-	qPrK4OCaAIbB4MQ+AxrbZjHQDDKJPhTQaopPxQp9dQ2TTNjZCxFisqc467Ks+6O5V4cXfeOItXUfV
-	pslYyPzDkGxJkISSt38zTalqI1jWPJlCFx0ovdJjtabxbXrv3tM1HfYiVpJHNu38uCvjS3EBmg5Ou
-	jDIFXzUAaaM2cot0Qvo1Zk1XoptEJmTPCvp49MRF4HsFWOhkNp26khZOezgmTWY6g1h3GfFjgNrSi
-	JfxnXwTNqZ07vdPK8Gfq4ADM6eKBVwp6HqPhtawpOpkbdaWJzYVJV2MG8UsDcp7/+sItMlCx4MOyP
-	bH6xuvvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hk/UhzyNXmtkIV3ySCx19ki8dNWuqGbbCLmGSDE/xLs=; b=1Og9uO0izV5D0wLkaH8NMmV5hB
+	rf/JpHIiNKOQvSU6XoFnxSb915OKNddXkWrgEhkPP+0Rq2UFmzKDyRwic/uTQezIit4t4+v+cME+m
+	kSMj6SE65F7W/llNGVA+RyjKlmO5W2gH7QudD6AgZ5GGwYwXV4sDjB7vZSp6fF0GYU7YnoDcJy1bX
+	tBu2OQIqB09ruKy4SDEtRZDIxrVNeY+KAl1tCBT64EsblDdfy5gqcTRv02VL2ET1F93SNFh9h3p6L
+	2ucEq0Glkpx8hBsQXICksSd1WtgH/6s6zkDVWodZy0kily8RK24DF7D+WJTZrHAY/27hJ4cqQL7iO
+	23MY1JGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiiZw-0000000CwfB-0i1h;
-	Thu, 13 Feb 2025 23:25:08 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiiYV-0000000CwPZ-17JD
+	id 1tiibK-0000000Cwun-3LNJ;
+	Thu, 13 Feb 2025 23:26:34 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiiYo-0000000CwSb-0V1P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 23:23:40 +0000
-Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51DLswWC023650;
-	Thu, 13 Feb 2025 23:23:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2023-11-20; bh=3qJ/2y1iFjoLI+oa4Y3c13g7ynhE81SdUjoXJEv/9OE=; b=
-	VsxG/Z+Q+pgtj2cFF8p6uDR/RFx/vn+Z1go4kRthfGS9XmMpZQdH7bEmcMwf/jP7
-	HNeYn1nJcbOvgGgyfcFKWAfHzAZQW2ZCEFJgb1AUyGNPQXLb5hlF2oCWzV4jN6Mb
-	ifU630fWmacPBATP/pRZPxhC+VUll2Ubz1WpWBHNWSWZhv4qc81ZlsteFoZb+wxN
-	iA2R989LAO/E0tVFGW7A2kH6qWyKLzFrB2r2e18DMTzpBCO8U5mb4WNKGvqd5aMS
-	nR5WGcYLyVkJz68vZPsVdVu3wwQ6hMxaxYwp+veFNPNxPwLNu74I6KxFhKCxqoYm
-	k8lL5mDQ6Sw3IEB13lXSjg==
-Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 44p0sqaw07-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 13 Feb 2025 23:23:21 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 51DLtCd8025243;
-	Thu, 13 Feb 2025 23:23:20 GMT
-Received: from nam10-mw2-obe.outbound.protection.outlook.com (mail-mw2nam10lp2046.outbound.protection.outlook.com [104.47.55.46])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 44nwqk0gtp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 13 Feb 2025 23:23:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MFNEqZ7+Ho9BgYaDjHc8rylL7lYR53IxJBpRO7+0nyg71RKNdRIjpYW+c9mZQlssWibnzQ5u2oYHIOxnaTUeEkHDKZEJbSSb4mtvFoNgTdEBUL/MGXq8ZmY4zpz744z+PPwvxdbdLTxrxeL68/gO+Mz2jPG8JCVB7SIswYU2KXRDCY37kmeD3LC4XVkUEHDaXRC1u34UpogqTWzrmS/yHGXXsnMZHLpn1DdHM4Il6qk9D+It3x4NG8z3Y+lNSUFOfxPfyNvEMRwIy2D6j3GYarIB/cRLYV0R0eSnWrbleVRfKzM91a3WnbKQqiftLKP3gm39CugrT3J/t3LllMde2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3qJ/2y1iFjoLI+oa4Y3c13g7ynhE81SdUjoXJEv/9OE=;
- b=TUVaQr+db1FZ4ZdoSVZnx8hOkKmbcI4Pe6o9+kVllOjIhcOsmWWzebu6eC83gMUzt1g2Y2JbKaE73hMQCgkCTyjfBaQ0fSmD+6wHrd5TDDFOBUVxHWORE5ScrjSk33dU/3z7ZW8kGOZrXLo+JWV4AQrYxUj2CeF57q/3iPXC2CJ+08lsrXM4wLGjlCORp5w0uowZUE2OlwmQWkJ4RZOvUn+NMduwVspn2exT4I41yNfPcaG3RxL6kXzotCI5NN0cAyo2lVE3vN1qBuFiPji9xqQVxNIpVvQCS0fdnF4h7sxNvvje+6ehRru4tqPqMDN813zOseMQHYZ38gTAVZlBdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3qJ/2y1iFjoLI+oa4Y3c13g7ynhE81SdUjoXJEv/9OE=;
- b=l4kCBYC6EbdqLYLJgLXuC8qoKaNGo82dgtSsZMVgAo1CFGKaF3rnbjADayKkUqdNQo9vOBkMytaDvVX6Z2QDVHj/LdmouCUFRSaW9xmqJLRfi26AJ7o1xuFp6beaMfTk2JA6SQoHOkewQ9nPpaVgtEx5tP5EnQWI6MvyST9OT/8=
-Received: from SA1PR10MB6365.namprd10.prod.outlook.com (2603:10b6:806:255::12)
- by DM4PR10MB6256.namprd10.prod.outlook.com (2603:10b6:8:b5::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8445.16; Thu, 13 Feb 2025 23:22:51 +0000
-Received: from SA1PR10MB6365.namprd10.prod.outlook.com
- ([fe80::81bb:1fc4:37c7:a515]) by SA1PR10MB6365.namprd10.prod.outlook.com
- ([fe80::81bb:1fc4:37c7:a515%5]) with mapi id 15.20.8445.015; Thu, 13 Feb 2025
- 23:22:51 +0000
-Message-ID: <3069bb9c-6245-4754-a187-ac8253103d32@oracle.com>
-Date: Thu, 13 Feb 2025 15:22:47 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-To: Song Liu <song@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: Weinan Liu <wnliu@google.com>, Steven Rostedt <rostedt@goodmis.org>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
-        Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
-        linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
-        live-patching@vger.kernel.org, joe.lawrence@redhat.com,
-        linux-arm-kernel@lists.infradead.org,
-        Puranjay Mohan <puranjay@kernel.org>
-References: <20250127213310.2496133-1-wnliu@google.com>
- <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
- <20250212234946.yuskayyu4gx3ul7m@jpoimboe>
- <CAPhsuW5TeMXi_Mn8+jR9Qoa=rAWasMo7M3Hs=im6NT6=+CrxqA@mail.gmail.com>
- <20250213024507.mvjkalvyqsxihp54@jpoimboe>
- <CAPhsuW4iDuTBfZowJRhxLFyK=g=s+-pK2Eq4+SNj9uL99eNkmw@mail.gmail.com>
-Content-Language: en-US
-From: Indu Bhagat <indu.bhagat@oracle.com>
-In-Reply-To: <CAPhsuW4iDuTBfZowJRhxLFyK=g=s+-pK2Eq4+SNj9uL99eNkmw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MW4PR03CA0011.namprd03.prod.outlook.com
- (2603:10b6:303:8f::16) To SA1PR10MB6365.namprd10.prod.outlook.com
- (2603:10b6:806:255::12)
+	Thu, 13 Feb 2025 23:23:59 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 7A9B7203F3E8;
+	Thu, 13 Feb 2025 15:23:56 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7A9B7203F3E8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1739489036;
+	bh=Hk/UhzyNXmtkIV3ySCx19ki8dNWuqGbbCLmGSDE/xLs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aufp7fKvZThXkNOUfRjDldRf0rvzjk9ePefQmU34QNQDzjKEBlugM1QQnoyaGdByr
+	 UvcGblhHXCbjBa/k4MpcRsnzZtdKGCD/hDb4AqXA9uZUdtcTEEmtCsn/SbibhrumUh
+	 FawOmhzoUKT+be6mPRofqUQ3NjSfwRNz4fTK8QNo=
+Message-ID: <593c22ca-6544-423d-84ee-7a06c6b8b5b9@linux.microsoft.com>
+Date: Thu, 13 Feb 2025 15:23:56 -0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR10MB6365:EE_|DM4PR10MB6256:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7aafc589-3443-4c71-7f30-08dd4c8555f4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|10070799003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NE84dUpNaGR2Yng1OUI2T0dsSnhRUzk0eDhXbGdEMmNKWW50VVZzNHRoMTRS?=
- =?utf-8?B?UGlMNWVCZzVSckNnTjhORnNGUDhDN1FrUXhSNmErai9zcWh0UlNVcUNQbEtX?=
- =?utf-8?B?b2NZMjR5VzBxTUNsR1ZIUXc5L2Nma0UvMm1TM3FKMVRiMmtscmFNVlFLcWgv?=
- =?utf-8?B?WENkVnpLNk9yQk1jTk9RRmp2ZlBFOEE3a3lkVERuMzhZZTJKRWlxNmkxVUNr?=
- =?utf-8?B?MDBDTnBiZWwrTXo5VU5wSUJTNVBSNms2dnQ0U1dHUkZ6Q25mTjhuL0FCM0FR?=
- =?utf-8?B?M3NGQTlmQkxOMkRVd2VybER3cUtkcUlmNmt4ajJhWG9kbkRTaUdkS3ZCdDM0?=
- =?utf-8?B?N2RvcUI1UlVyaDhHeWxTZjh6OEEzTGZ4dE5VVnorVjRYMDN0a20rY09BVWY1?=
- =?utf-8?B?NmlUTHRVYzNJcnRMbGJ1VWgzK095NkQ0TlJhcHJLbG1YenVYemxRQmxpTFZo?=
- =?utf-8?B?OWxDa3RmSmZvRXlwdTM1RThDS3RHS0p3aWhpSWpMYjY3K2VJYURKbEMrOXM0?=
- =?utf-8?B?OWJXRXVhNGoycDIwZEhTMHJYa0k5NzBYM3VXWXZFYno0QTU0aE1JdnRHVzlH?=
- =?utf-8?B?MTJadTBoMDV2TUp0SEQrNzA5Zmx2eDFCQlFRdlZob3NxZEdSNTZQMTNZYzFi?=
- =?utf-8?B?bVRvNkp4ZnpwRC80NVBmQnp2Zk1sNUJZV0RWNWJQeTEvZ1NXcWs5VERXckdW?=
- =?utf-8?B?SjRmUzl3R1pxcmhMYVZYT09wZUlqc29XekNwa01SN080bTdVVDYzS1d1OWdk?=
- =?utf-8?B?R3ZZREFBeUFWbXJTanZiaWxNSk1WcUlBdkw5Y2FlSWtOeWt2UjRHU0RrYlZ3?=
- =?utf-8?B?TUJiMzhJeURUMXlPTzIvV1JuU2JqcHZERWV0ZExTQzI3aFMrbnFoam9SSWJu?=
- =?utf-8?B?VmcwSmRHOVRyWGw0NldNZENMaUc1cTdLMkJqQ3VhQlVzTGNkS2huUllycFNr?=
- =?utf-8?B?SFNmUWZ0MlRWUU9vN1pEUEtMd1l4U0RzNWwwamlGcW1oWkYyZXk1ZkFOQ2xn?=
- =?utf-8?B?NURnY2lBZnJHQ0U0cEpyRXZubndRNEZITExRUnNoZGJTeEsxeTVBUndRR2dn?=
- =?utf-8?B?UUt6UDVIdWhGOWtVbmszWGpxRjJIdWpHTENzT25wNGdsNkpLT0NxdWtITWFP?=
- =?utf-8?B?aXZIeGwwaXd0eUVUdVp0YXN5N09iL2ZiQmFtUmhYVjd2c1laODZVMS9Pa0Jx?=
- =?utf-8?B?aXhJeFd6bk50cFEvMm8vSFNsdndvc2tuSS9rUG1EQi9FN3FSY3dQYlFvSmkr?=
- =?utf-8?B?R011QnRva3JkNDJZTUFqaFFGWkdtZ3RCNkx0ZkVLaWJPa0FIQnA4V250alhO?=
- =?utf-8?B?Tkx4UVQ0Ni9KY0dCOEpLY29YTUtjemdhOHY1dW5PQzVmWUQvR3Fjd2NOUDJP?=
- =?utf-8?B?cXVFUnZ0MzBvU1VSUHVzRUN1Uk1jdUV4a05mQ2RmSXBjVXQ0L2VGM2NvNGNR?=
- =?utf-8?B?MXZXVEJyV044N0ZWbXNEQ21VTEVSY24wZkZ6Q3o4UVE2OGVXd3R6SGtIQzR4?=
- =?utf-8?B?Sm9xbDkrQTFNd0NuQ204RGhNRVFCSnU5RjlQKzVMUXJjZCtPUHladTFJb1hD?=
- =?utf-8?B?WTlxaFRHdjcyZmJxdG1NM1pvZGNBSXJHclVOY0lzWFk0SDNNUXcyeDhTVkZJ?=
- =?utf-8?B?SC9EWUkwTHV5YWd2RHdXbklGemdDa09CSHdjVjZ5THRDLzNubUZzR241anlX?=
- =?utf-8?B?ZWVqay82SlVJczdiWlpadmovWTFDVkk2L05XNmJVbWJsK1lTK3YwTzNkUVJo?=
- =?utf-8?B?czViK1VXYUQyb2V5bkFzZytOR0VnYld2V2ZucnVrblkwOHAzVmdoN1o2ZTMv?=
- =?utf-8?B?ZG1Gby9Zc0ZzSDJENXdPYk1oOXlzWS9RTU4xclJwNmd4MTB4U0N6SEJDZHZF?=
- =?utf-8?Q?P9xclXUeUVhFz?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR10MB6365.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(10070799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TEFOUVhjWTJIUnlucytTcno0aVBXZE9lclVrbnJhZys3U2IvVG04Sm0rUUxC?=
- =?utf-8?B?c0s4a2IzMUYvV2JPNExXdzZBTEJMcmt3dXRpc3JORVhjdUtPeFlZU2RHbU5O?=
- =?utf-8?B?eVF4YWNXY2NmV1MwRkxNcFVTUFNISDgveThlTXZIc1UwN0tLck1iNUkzcG5r?=
- =?utf-8?B?ZEtmMUxSak9sTGVHZEM1VXovZ3pFWU94WUlHai92QmluYjQ5cWovVUc0N2F5?=
- =?utf-8?B?K0tjdHhoQkhSL0dFdUZDZVVId3gwQ2V0K092QWlBTGZOQllPbkRDVHZpTjUx?=
- =?utf-8?B?YmR6V1FVWGV2OHg4UTZKeUd3VUFLY2ZLbkxXdnV0djFwRytrWlIzYjd5TXJT?=
- =?utf-8?B?akl0UDEyU0lmVVF3SnhPYUdFZEFhNHJ0SHRlYmxBK2h0RjNFc2dhTVVGUE5V?=
- =?utf-8?B?YUFCMGFuczc4eFhrOHVZdStTZXRLUjlxVi9sZHlNLzQ5MWUvMW5SbDZ0MmxE?=
- =?utf-8?B?dVZSTVBOMkFob0pONWRCN1dJMVhZVkRwL0o1bWcvNENDNVc3Sm9QSnlPajFj?=
- =?utf-8?B?U2sxd3dQT05TNHVVL0VXV2Z3aDRZeFJiMm5waW1VLzhLOHhrVzRtMzFpWXhN?=
- =?utf-8?B?SEdmZlU4cVRhYTd0VUM2MHpjZGJKYlJ6VVBoODlObitJbFd0dmNKU0ljcDlN?=
- =?utf-8?B?V2NGNFg1elBBMUFMalNFQzNzM21EOUhCOW4wL0wveU1vVnB0aFI3UzBIRUt2?=
- =?utf-8?B?WU9pK0FCNEVpZ0JpY2docXNLcUxjOWJqbmpVRWVRWUVvYTZWZ1JFckpJbFBl?=
- =?utf-8?B?aEhDVkh0bmFCbVlRaUFzc2swZkl0bXV2eVJVRVVTaW5jNkZQUVF3eFdPYlBu?=
- =?utf-8?B?ekVRTHc1bDIyMllQZm1TU0N3VUswRncvbFB1YnhYM0tXTk1aKzJQMlNCSlh6?=
- =?utf-8?B?MkVLRDBOQWxSQkI4TXhnUFF4cFA0UDVSK1lPdXB5MmF5U3R1SmFKOTg4NVdx?=
- =?utf-8?B?Z2Q0dnFqYjlQOXZJNWhzM1MrNnU2MC9BbG9vWFI4Vi9COUhkUFRmNUhxQnJW?=
- =?utf-8?B?QmlSQjNkOWF1RU1iZndVU2MxUWJwRHpaWjFPYVdvV3phcVZvSVVaRi9GMUtP?=
- =?utf-8?B?S0tETDd4eWJlSnVncUdHeCt5NnVkaU9EcXFic0Y4UDFhR01BOVZMOFBtamVU?=
- =?utf-8?B?YXdOd3E5cy9aUXhJVXRhNmNkR0tUUDM4TkNJY0xpSFpwS3V1UlR6Nlo3L0NC?=
- =?utf-8?B?Vkd0aVk5bml5a2pWOURycSsvUVExQU41N2lJUTNWRXZOQS9nUnNacmNSNVl1?=
- =?utf-8?B?ZGIvaGxwWU8xdVl3dy9za0RsLzNBNG55bll2dW1SU1QzbjlwY08xUEo5bnNW?=
- =?utf-8?B?YmE5bmpCQmlkNXk1Y1l3QmdGck9xeXpMU3ZjSzhlaW5qbmxkcjBMakJKcjla?=
- =?utf-8?B?U0pXeERyNE10bm0zK1JQbWw3alRHMDJIaldNdWFaNHdsZWdhUzczOGJiZjVu?=
- =?utf-8?B?eDJHSW1sMFg3eXhtV2tidnp6OTdLZGY0dW5QVGl6MGh6TG8rV3dsdTIzYWxt?=
- =?utf-8?B?aXNqYlc0UzFXQllYaTl3QUFIZnhjUE44U0dUZ3RUL0sybXgvRmRLTTViblB5?=
- =?utf-8?B?eXprQlp3Zm1wSkhNWW43OGZzWjY4L0kxajM3WnM0bjJrdG5LVGlXakhHbW5q?=
- =?utf-8?B?U0IzSTVuUGVTWVZGbktac2NpVTQ0M0w0QkxqOVFUMUs4Q1MrbjNIYnhPLzB4?=
- =?utf-8?B?S2J3Ym1SY09CTm5DRlRmaXNmdzJmaWJvdTR3NHQvWm5YYjVVNVZXbXZHWFVG?=
- =?utf-8?B?bkE5VmdQYWhLMnZuaWhTVU1Sc1BPaWpHMDFpbldKKzFrV2MxT28rcVpLbkRP?=
- =?utf-8?B?dkxWaHR0bHdNbHlWRlV2bXkyTkFxVmpNcU55SlllcVhqS204K3dsNlo1Y2xt?=
- =?utf-8?B?c1d2b1lWVEtESGY1RDYwYkxGclZsejRzNFBCZmlvQVhZc0RYVStRZHFRRDly?=
- =?utf-8?B?UlRQZ0IxNUd5dlBTbnNFSUZzNXIwbUF5S0pNdW5wKzhUUVhxTkN5OU02RE4r?=
- =?utf-8?B?ZC8zTTQ3MmZyb3ZkT1RWZDhOMWFiREwyQU56OEZUdlEwZG56SFhlYk5rdWty?=
- =?utf-8?B?YjNJQXhzc2FwVXpQSEZ4bmxnbXFGNzVCcDFnMm9PYlY5SEZnb2RUVyswSEV1?=
- =?utf-8?B?WHRWendJazRYSnNtcmpLa1pkQmpXZGlnRnVnV3J5MEkrcFpuQkV1RlVIaDVj?=
- =?utf-8?Q?KZxWYDGT1AB6RZVkG7SNUw0=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: um63jIPKLZg2zHnyutOPoJzWt/sBmLHDPPgWSPYINtiFmQ8bduy82JzyThLcZWUIp35Bplq2uLsGjQUdYV89HNPUipo5ClwgFH4t4KthtfNoUhtCKQIfI2WK9J9s4PQeytvD25slf0DDzBowGiqMPfp0sOeLVax72AGUl++TFtHGKyB3SK1/zWU9nQp4K0PHgioEeEbuDZeDrDOOa22ACWtpxbxMOTFD4gSVFwF6xQaj3iSddsVtgFwyV2z6u9DflKd0XtFknpOF0afAHQ1t22br7ahSlRWOCT6JBdCGBWSJVZftlEwVa+A8K2LKmn3NtcSsrkaBHUgCoPY1nf/JUZJwsrfG2gJOUeqegt1hPjvu3pb7cN0sZIECk7Zqa4a+cM9sqzOUqKolrify/uiR68Um3MAfhd9QZhf+Bh7DIVuQ85eJPb8/d+x7ysQE69iazqsckPhkwCkeOAkyyR14Q7JRxt3h/GFmcLCY+xlNQawOOsiLds3ysuAZ4GZLdDInKxwwYbOa4LOIDfiDhmopb8nF1pcQrWOQPn0t988GZeISpKVARwXQLRPnpfyJdlJQkBXalYjPHxt7BNb2+w1IbTzucpd16lUxJnlIEykBy20=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7aafc589-3443-4c71-7f30-08dd4c8555f4
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR10MB6365.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Feb 2025 23:22:51.5698
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QMGAIfFUoViqsKNa1VqDELQFQcsPWoTdAswjdSu6GrALC9RjV2hHUJ+UuMFqrkX7P41WD+pJ6FY19ddv6CZahQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6256
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-13_09,2025-02-13_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 mlxlogscore=999
- phishscore=0 malwarescore=0 mlxscore=0 spamscore=0 adultscore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2501170000 definitions=main-2502130165
-X-Proofpoint-ORIG-GUID: 0jb8TPGaXXK3sAifVD9O1CsKMYpf-9pC
-X-Proofpoint-GUID: 0jb8TPGaXXK3sAifVD9O1CsKMYpf-9pC
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next v4 1/6] arm64: hyperv: Use SMCCC to detect
+ hypervisor presence
+To: Arnd Bergmann <arnd@arndb.de>, bhelgaas@google.com,
+ Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Conor Dooley <conor+dt@kernel.org>, Dave Hansen
+ <dave.hansen@linux.intel.com>, Dexuan Cui <decui@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ krzk+dt@kernel.org, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ "K. Y. Srinivasan" <kys@microsoft.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Ingo Molnar <mingo@redhat.com>, Rob Herring <robh@kernel.org>,
+ ssengar@linux.microsoft.com, Thomas Gleixner <tglx@linutronix.de>,
+ Wei Liu <wei.liu@kernel.org>, Will Deacon <will@kernel.org>,
+ devicetree@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
+Cc: benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com
+References: <20250212014321.1108840-1-romank@linux.microsoft.com>
+ <20250212014321.1108840-2-romank@linux.microsoft.com>
+ <1b14e3de-4d3e-420c-819c-31ffb2d448bd@app.fastmail.com>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <1b14e3de-4d3e-420c-819c-31ffb2d448bd@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_152339_416271_E1FF1A4B 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20250213_152358_210192_98C965A8 
+X-CRM114-Status: GOOD (  31.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,53 +85,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/12/25 11:25 PM, Song Liu wrote:
-> On Wed, Feb 12, 2025 at 6:45 PM Josh Poimboeuf <jpoimboe@kernel.org> wrote:
->>
->> On Wed, Feb 12, 2025 at 06:36:04PM -0800, Song Liu wrote:
->>>>> [   81.261748]  copy_process+0xfdc/0xfd58 [livepatch_special_static]
->>>>
->>>> Does that copy_process+0xfdc/0xfd58 resolve to this line in
->>>> copy_process()?
->>>>
->>>>                          refcount_inc(&current->signal->sigcnt);
->>>>
->>>> Maybe the klp rela reference to 'current' is bogus, or resolving to the
->>>> wrong address somehow?
->>>
->>> It resolves the following line.
->>>
->>> p->signal->tty = tty_kref_get(current->signal->tty);
->>>
->>> I am not quite sure how 'current' should be resolved.
->>
->> Hm, on arm64 it looks like the value of 'current' is stored in the
->> SP_EL0 register.  So I guess that shouldn't need any relocations.
->>
->>> The size of copy_process (0xfd58) is wrong. It is only about
->>> 5.5kB in size. Also, the copy_process function in the .ko file
->>> looks very broken. I will try a few more things.
-> 
-> When I try each step of kpatch-build, the copy_process function
-> looks reasonable (according to gdb-disassemble) in fork.o and
-> output.o. However, copy_process looks weird in livepatch-special-static.o,
-> which is generated by ld:
-> 
-> ld -EL  -maarch64linux -z norelro -z noexecstack
-> --no-warn-rwx-segments -T ././kpatch.lds  -r -o
-> livepatch-special-static.o ./patch-hook.o ./output.o
-> 
-> I have attached these files to the email. I am not sure whether
-> the email server will let them through.
-> 
-> Indu, does this look like an issue with ld?
-> 
 
-Sorry for the delay.
 
-Looks like there has been progress since and issue may be elsewhere, but:
+On 2/11/2025 10:54 PM, Arnd Bergmann wrote:
+> On Wed, Feb 12, 2025, at 02:43, Roman Kisel wrote:
+>> +static bool hyperv_detect_via_smccc(void)
+>> +{
+>> +	struct arm_smccc_res res = {};
+>> +
+>> +	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
+>> +		return false;
+>> +	arm_smccc_1_1_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
+>> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+>> +		return false;
+>> +
+>> +	return res.a0 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_0 &&
+>> +		res.a1 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_1 &&
+>> +		res.a2 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_2 &&
+>> +		res.a3 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_3;
+>> +}
+> 
+> I had to double-check that this function is safe to call on
+> other hypervisors, at least when they follow the smccc spec.
+> 
+> Seeing that we have the same helper function checking for
+> ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_* and there was another
+> patch set adding a copy for gunyah, I wonder if we can
+> put this into a drivers/firmware/smccc/smccc.c directly
+> the same way we handle soc_id, and make it return a uuid_t,
+> or perhaps take a constant uuid_t to compare against.
 
-FWIW, I looked at the .sframe and .rela.sframe sections here, the data 
-does look OK.  I noted that there is no .sframe for copy_process () in 
-output.o... I will take a look into it.
+That would be very neat! I implemented the idea [1], please let me know
+what you think. I can use that in the next version of the patch series
+if looks good.
+
+There is a function and a macro to make calling
+the function easier. As the SMCCC header is used by the assembler, too,
+hence I had to add __ASSEBLER__ guardrails. Another option could be to
+pass four u32's not to use uuid_t so the header stays a healthy food
+for the assembler :) For Gunyah, that would be
+
+ARM_SMCCC_HYP_PRESENT(GUNYAH)
+
+when using the change below.
+
+
+ From f0d645e900c24f5be045b0f831f1e11494967b7f Mon Sep 17 00:00:00 2001
+From: Roman Kisel <romank@linux.microsoft.com>
+Date: Thu, 13 Feb 2025 15:10:45 -0800
+Subject: [PATCH] drivers, smcc: Introduce arm_smccc_hyp_present
+
+---
+  arch/arm64/hyperv/mshyperv.c       | 18 +----------------
+  drivers/firmware/smccc/kvm_guest.c |  9 +--------
+  drivers/firmware/smccc/smccc.c     | 24 ++++++++++++++++++++++
+  include/linux/arm-smccc.h          | 32 ++++++++++++++++++++++++++++++
+  4 files changed, 58 insertions(+), 25 deletions(-)
+
+diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+index 16e721d8e5df..0c5babe9e1ff 100644
+--- a/arch/arm64/hyperv/mshyperv.c
++++ b/arch/arm64/hyperv/mshyperv.c
+@@ -41,22 +41,6 @@ static bool hyperv_detect_via_acpi(void)
+  #endif
+  }
+
+-static bool hyperv_detect_via_smccc(void)
+-{
+-	struct arm_smccc_res res = {};
+-
+-	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
+-		return false;
+-	arm_smccc_1_1_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
+-	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+-		return false;
+-
+-	return res.a0 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_0 &&
+-		res.a1 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_1 &&
+-		res.a2 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_2 &&
+-		res.a3 == ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_3;
+-}
+-
+  static int __init hyperv_init(void)
+  {
+  	struct hv_get_vp_registers_output	result;
+@@ -69,7 +53,7 @@ static int __init hyperv_init(void)
+  	 *
+  	 * In such cases, do nothing and return success.
+  	 */
+-	if (!hyperv_detect_via_acpi() && !hyperv_detect_via_smccc())
++	if (!hyperv_detect_via_acpi() && !ARM_SMCCC_HYP_PRESENT(HYPERV))
+  		return 0;
+
+  	/* Setup the guest ID */
+diff --git a/drivers/firmware/smccc/kvm_guest.c 
+b/drivers/firmware/smccc/kvm_guest.c
+index f3319be20b36..ae37476cabc1 100644
+--- a/drivers/firmware/smccc/kvm_guest.c
++++ b/drivers/firmware/smccc/kvm_guest.c
+@@ -17,14 +17,7 @@ void __init kvm_init_hyp_services(void)
+  	struct arm_smccc_res res;
+  	u32 val[4];
+
+-	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
+-		return;
+-
+-	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
+-	if (res.a0 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_0 ||
+-	    res.a1 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_1 ||
+-	    res.a2 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_2 ||
+-	    res.a3 != ARM_SMCCC_VENDOR_HYP_UID_KVM_REG_3)
++	if (!ARM_SMCCC_HYP_PRESENT(KVM))
+  		return;
+
+  	memset(&res, 0, sizeof(res));
+diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
+index a74600d9f2d7..86f75f44895f 100644
+--- a/drivers/firmware/smccc/smccc.c
++++ b/drivers/firmware/smccc/smccc.c
+@@ -67,6 +67,30 @@ s32 arm_smccc_get_soc_id_revision(void)
+  }
+  EXPORT_SYMBOL_GPL(arm_smccc_get_soc_id_revision);
+
++bool arm_smccc_hyp_present(const uuid_t *hyp_uuid)
++{
++	struct arm_smccc_res res = {};
++	struct {
++		u32 dwords[4]
++	} __packed res_uuid;
++
++	BUILD_BUG_ON(sizeof(res_uuid) != sizeof(uuid_t));
++
++	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
++		return false;
++	arm_smccc_1_1_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
++	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
++		return false;
++
++	res_uuid.dwords[0] = res.a0;
++	res_uuid.dwords[1] = res.a1;
++	res_uuid.dwords[2] = res.a2;
++	res_uuid.dwords[3] = res.a3;
++
++	return uuid_equal((uuid_t *)&res_uuid, hyp_uuid);
++}
++EXPORT_SYMBOL_GPL(arm_smccc_hyp_present);
++
+  static int __init smccc_devices_init(void)
+  {
+  	struct platform_device *pdev;
+diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
+index 67f6fdf2e7cd..63925506a0e5 100644
+--- a/include/linux/arm-smccc.h
++++ b/include/linux/arm-smccc.h
+@@ -7,6 +7,11 @@
+
+  #include <linux/args.h>
+  #include <linux/init.h>
++
++#ifndef __ASSEMBLER__
++#include <linux/uuid.h>
++#endif
++
+  #include <uapi/linux/const.h>
+
+  /*
+@@ -333,6 +338,33 @@ s32 arm_smccc_get_soc_id_version(void);
+   */
+  s32 arm_smccc_get_soc_id_revision(void);
+
++#ifndef __ASSEMBLER__
++
++/**
++ * arm_smccc_hyp_present(const uuid_t *hyp_uuid)
++ *
++ * Returns `true` if the hypervisor advertises its presence via SMCCC.
++ *
++ * When the function returns `false`, the caller shall not assume that
++ * there is no hypervisor running. Instead, the caller must fall back to
++ * other approaches if any are available.
++ */
++bool arm_smccc_hyp_present(const uuid_t *hyp_uuid);
++
++#define ARM_SMCCC_HYP_PRESENT(HYP) 								\
++	({															\
++		const u32 uuid_as_dwords[4] = {							\
++			ARM_SMCCC_VENDOR_HYP_UID_ ## HYP ## _REG_0,			\
++			ARM_SMCCC_VENDOR_HYP_UID_ ## HYP ## _REG_1,			\
++			ARM_SMCCC_VENDOR_HYP_UID_ ## HYP ## _REG_2,			\
++			ARM_SMCCC_VENDOR_HYP_UID_ ## HYP ## _REG_3			\
++		};														\
++																\
++		arm_smccc_hyp_present((const uuid_t *)uuid_as_dwords);	\
++	})															\
++
++#endif /* !__ASSEMBLER__ */
++
+  /**
+   * struct arm_smccc_res - Result from SMC/HVC call
+   * @a0-a3 result values from registers 0 to 3
+-- 
+2.43.0
+
+
+
+> 
+>        Arnd
+
+-- 
+Thank you,
+Roman
+
 
