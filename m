@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CB83C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 15:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CB04C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 15:36:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=amoIqPhEvcMfohT8d6riZ1SvCH8PzpVcEGymcrQ4XHc=; b=f5WGwlCoJhQtptqU76vDJht6o3
-	AmX2RBfio4+ujy9EmQ0EhQfCKA7TYkHU0NHVYA4eH2lvSw81mZrqHcux7QUwDZGXs3OUWV7NnJ+bi
-	BDPKwPUWW3/42j1JbfZV8JGweh+hm4r34hM/ZhorB2tBul0hJ/eXY3tJwvUHzxovoZ2y88bu4WHau
-	jrPX1zDmPsxbJqQCPeLwlZwfTJs+PEwyBljsT6uhU9dq4+6cqXIxCojPFDGO4uq8qg4gmEgNz5b+e
-	zT+9FjS52suKL5heyjm5g+Ae2F7psy+2EHce+e9Lv3UnvtgaojLDEwPVO2GFis8YhwKCwdwpy1EYh
-	4pXTxDyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lP9v04u7e9Rk0Ts5AgWzGFoHFG7f4pVBVDLng5PRL48=; b=D+vBBbGb7eHplU
+	pAmgzVMqmPhDG6goIlXm2LJxtMwNnQNyt5Y+6DEBxTvworWY0S9fKaxlwT7oDdSiNmUQH9+UYFUCR
+	xziYLaZ5w2o9gTDSHMmwqIz4ZYWJ/mu3zd6RFawF4xF7akn+vZTrqnN8NpsLDffr4/iQ6EuM3MbLQ
+	BHasMT3bBk4mJJqCmmA+/viqN+eJ7vS2zzZtxs9CY99lySFH+pB+EOZ6w2+cGh9jkFzVvWC5GIKI+
+	DdMmIrmKMN3RNXfMGnO9X07WW8YEnIDzgr0ZoVm7+l8bb1iX0aysd8FF1eBxiuW7TcRJCS7JOJa2C
+	hPSD9LsotvHZXPscHJQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibEY-0000000BYXe-1gNC;
-	Thu, 13 Feb 2025 15:34:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tibGD-0000000BZ0k-0DHD;
+	Thu, 13 Feb 2025 15:36:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibD6-0000000BYF8-2qMZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 15:33:05 +0000
+	id 1tibEl-0000000BYbP-44CR;
+	Thu, 13 Feb 2025 15:34:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8DDC15C555B
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 15:32:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A522CC4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 15:33:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 646095C554F;
+	Thu, 13 Feb 2025 15:34:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C65AC4CED1;
+	Thu, 13 Feb 2025 15:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739460783;
-	bh=t8QMv5hVTQ+R0IqU8p9CIOvH1ExAEP3a6Vf8v5IaDu0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Zu0rm2RYHRQAFLzKn4r1HNUMm8YFtDy2MYYtFUpabmqvXs66874sy8GDK5fdm9ZHY
-	 w5QC+it44v0XhZy8u8SLZWzM+Uo8+2eibnrdhjONcomdz+gkA8LKnLBcvxYEa3awEK
-	 4waS3GORPbRaeRFxe5NCxvQ6EoBVx5VNLpueKTNBqvdUV4k8fp5uUc1dCq0vmuQ03H
-	 QuGWQedP5GwbmxOZI29HQuY93RVX6y37ArJWxIhnXpzsKFhWpzXmyLol1k+UYuNb0k
-	 Ggp6cSPIzMlGEwTKeAOmsHe+NmdczDjA7zD9K3RavX3gAEnscHDnItccaRUyQHOAJp
-	 yCkILzAzWDACg==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-543cc81ddebso1113705e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 07:33:03 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUzqYYAT835VdzraylkM8oz7JPYs3TQ1BPI6DIGtatjxONLePq/cveRruVmNF2AAK8HOYRd/q05RNNDOezDV1zs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2lSLgSge3gPcP6ONFwjy7p4P1Blf/JZbcd3LQXPCjqWfN4TAp
-	kL4m3rYdU9XxaYQ6j5VFJ9TUTv7NkwFwQ+hCiOIdonXjuyV/TkPmnehuk09WscqxyxMHnMupJ8z
-	mi4lfGeh3/0YVGlWbLMfbmsC6uLU=
-X-Google-Smtp-Source: AGHT+IFn/vzxAa1gLojO/0597IUwEJuHjE+ZMbhdN6Wkn18KpSJ16vMq38P8PaQcagI5saZOuyRj6jrZinDRQOOBjFs=
-X-Received: by 2002:a05:6512:1111:b0:545:6cf:6f3e with SMTP id
- 2adb3069b0e04-5451dde81aemr1356458e87.49.1739460781858; Thu, 13 Feb 2025
- 07:33:01 -0800 (PST)
+	s=k20201202; t=1739460886;
+	bh=Rl03C7By4SNA25wNS7XOBCBNVDSlVEq3pH9hEVWdSlQ=;
+	h=From:Subject:Date:To:Cc:From;
+	b=eaMrfNJ7ATPcRAmtTwm1BPyCnEid6mj+pFXnFl91ghifrBVayVc8MRLnsAHHHHS8M
+	 UXq7AnBvBPMeVMv8t1nIEKIe3dwa2cLnjnmSe/Hwe0n2tk17C/YTr2p8HnSDwSR7rE
+	 NAK4jdlqgaVRpx54x3AVjVKHaekbNI8i5giidEEpuD2AUn4AznFQyk7xdb8FKlF1AS
+	 I1tWu5u7pdi/rS7AerdDt7fqXy+gwhP6vuCLbr7T8aKo1DGXm11WP5JXZPIIE5NRfQ
+	 jY9+tlJGE3NnSnIZKAhs5tE53yd5VzSVFA8XrclK1kNJnabF45O6au2vQJsS8/z+08
+	 4coL7k85ekyUA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net-next v4 00/16] Introduce flowtable hw offloading in
+ airoha_eth driver
+Date: Thu, 13 Feb 2025 16:34:19 +0100
+Message-Id: <20250213-airoha-en7581-flowtable-offload-v4-0-b69ca16d74db@kernel.org>
 MIME-Version: 1.0
-References: <20250210163732.281786-1-ojeda@kernel.org>
-In-Reply-To: <20250210163732.281786-1-ojeda@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 13 Feb 2025 16:32:50 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHgjwHkLsJkM3H2pjEPXDvD80V+XhH_Gsjv8N4Cf6Bvkw@mail.gmail.com>
-X-Gm-Features: AWEUYZmhbBgIMQcrZGkDUPbbIKzS9-BDPJ0yLZaCMkeMRCLb0heF4J8bVRc0_r0
-Message-ID: <CAMj1kXHgjwHkLsJkM3H2pjEPXDvD80V+XhH_Gsjv8N4Cf6Bvkw@mail.gmail.com>
-Subject: Re: [PATCH] arm64: rust: clean Rust 1.85.0 warning using softfloat target
-To: Miguel Ojeda <ojeda@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, 
-	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Boqun Feng <boqun.feng@gmail.com>, 
-	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <benno.lossin@proton.me>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, patches@lists.linux.dev, stable@vger.kernel.org, 
-	Matthew Maurer <mmaurer@google.com>, Ralf Jung <post@ralfj.de>, 
-	Jubilee Young <workingjubilee@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPsQrmcC/43OMQ7CMAwF0KugzAQlNkkoE/dADA51aUTVoLQqI
+ NS7kzIVMZTN/w/v+yU6ToE7sV+9ROIhdCG2OWzXK3Guqb2wDGXOAhQYBcpICinWJLl1Zqdl1cR
+ 7T75hGat8UykZSWuPHrdUiqzcElfh8Vk4nnKuQ9fH9PwMDnpq/7cHLZUs0cK5osJ5pQ9XTi03m
+ 5guYsIHmINuGYQMIgFgYQsg635AnIPFMojTh56sYmeMsfgFjuP4BrBpwnRxAQAA
+X-Change-ID: 20250205-airoha-en7581-flowtable-offload-e3a11b3b34ad
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ "Chester A. Unal" <chester.a.unal@arinc9.com>, 
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
+ Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ upstream@airoha.com, Mateusz Polchlopek <mateusz.polchlopek@intel.com>, 
+ Christian Marangi <ansuelsmth@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_073304_802336_AB49CD19 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20250213_073448_126473_AC6A27FB 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,47 +89,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Feb 2025 at 17:38, Miguel Ojeda <ojeda@kernel.org> wrote:
->
-> Starting with Rust 1.85.0 (to be released 2025-02-20), `rustc` warns
-> [1] about disabling neon in the aarch64 hardfloat target:
->
->     warning: target feature `neon` cannot be toggled with
->              `-Ctarget-feature`: unsound on hard-float targets
->              because it changes float ABI
->       |
->       = note: this was previously accepted by the compiler but
->               is being phased out; it will become a hard error
->               in a future release!
->       = note: for more information, see issue #116344
->               <https://github.com/rust-lang/rust/issues/116344>
->
-> Thus, instead, use the softfloat target instead.
->
+Introduce netfilter flowtable integration in airoha_eth driver to
+offload 5-tuple flower rules learned by the PPE module if the user
+accelerates them using a nft configuration similar to the one reported
+below:
 
-We have to carefully make the distinction here between codegen and ABI.
+table inet filter {
+	flowtable ft {
+		hook ingress priority filter
+		devices = { lan1, lan2, lan3, lan4, eth1 }
+		flags offload;
+	}
+	chain forward {
+		type filter hook forward priority filter; policy accept;
+		meta l4proto { tcp, udp } flow add @ft
+	}
+}
 
-The arm64 C code in the kernel is built with -mgeneral-regs-only
-because FP/SIMD registers are not preserved/restored like GPRs, and so
-they must be used only in carefully controlled circumstances, i.e., in
-assembler code called under kernel_neon_begin()/kernel_neon_end()
-[modulo some exceptions related to NEON intrinsics]
+Packet Processor Engine (PPE) module available on EN7581 SoC populates
+the PPE table with 5-tuples flower rules learned from traffic forwarded
+between the GDM ports connected to the Packet Switch Engine (PSE) module.
+airoha_eth driver configures and collects data from the PPE module via a
+Network Processor Unit (NPU) RISC-V module available on the EN7581 SoC.
+Move airoha_eth driver in a dedicated folder
+(drivers/net/ethernet/airoha).
 
-This does not impact the ABI, which remains hard-float [this was the
-only arm64 calling convention that existed until about a year ago].
-Any function that takes or returns floats or doubles (or NEON
-intrinsic types) is simply rejected by the compiler.
+---
+Changes in v4:
+- Add dedicated driver for the Airoha NPU module
+- Move airoha npu binding in net
+- Link to v3: https://lore.kernel.org/r/20250209-airoha-en7581-flowtable-offload-v3-0-dba60e755563@kernel.org
 
-Changing this to softfloat for Rust modifies this calling convention,
-i.e., it will result in floats and doubles being accepted as function
-parameters and return values, but there is no code in the kernel that
-actually supports/implements that. Also, it should be clarified
-whether using a softfloat ABI permits the compiler to use FP/SIMD
-registers in codegen. We might still need -Ctarget-feature="-neon"
-here afaict.
+Changes in v3:
+- Fix TSO support for header cloned skbs
+- Do not use skb_pull_rcsum() in airoha_get_dsa_tag()
+- Fix head lean computation after running airoha_get_dsa_tag() in
+  airoha_dev_xmit()
+- Link to v2: https://lore.kernel.org/r/20250207-airoha-en7581-flowtable-offload-v2-0-3a2239692a67@kernel.org
 
-Ideally, we'd have a target/target-feature combo that makes this more
-explicit: no FP/SIMD codegen at all, without affecting the ABI,
-therefore making float/double types in function prototypes illegal.
-AIUI, this change does something different.
+Changes in v2:
+- Add airoha-npu document binding
+- Enable Rx SPTAG on MT7530 dsa switch for EN7581 SoC.
+- Fix warnings in airoha_npu_run_firmware()
+- Fix sparse warnings
+- Link to v1: https://lore.kernel.org/r/20250205-airoha-en7581-flowtable-offload-v1-0-d362cfa97b01@kernel.org
+
+---
+Lorenzo Bianconi (16):
+      net: airoha: Fix TSO support for header cloned skbs
+      net: airoha: Move airoha_eth driver in a dedicated folder
+      net: airoha: Move definitions in airoha_eth.h
+      net: airoha: Move reg/write utility routines in airoha_eth.h
+      net: airoha: Move register definitions in airoha_regs.h
+      net: airoha: Move DSA tag in DMA descriptor
+      net: dsa: mt7530: Enable Rx sptag for EN7581 SoC
+      net: airoha: Enable support for multiple net_devices
+      net: airoha: Move REG_GDM_FWD_CFG() initialization in airoha_dev_init()
+      net: airoha: Rename airoha_set_gdm_port_fwd_cfg() in airoha_set_vip_for_gdm_port()
+      dt-bindings: net: airoha: Add the NPU node for EN7581 SoC
+      dt-bindings: net: airoha: Add airoha,npu phandle property
+      net: airoha: Introduce Airoha NPU support
+      net: airoha: Introduce flowtable offload support
+      net: airoha: Add loopback support for GDM2
+      net: airoha: Introduce PPE debugfs support
+
+ .../devicetree/bindings/net/airoha,en7581-eth.yaml |   10 +
+ .../devicetree/bindings/net/airoha,en7581-npu.yaml |   72 ++
+ drivers/net/dsa/mt7530.c                           |    5 +
+ drivers/net/dsa/mt7530.h                           |    4 +
+ drivers/net/ethernet/Kconfig                       |    2 +
+ drivers/net/ethernet/Makefile                      |    1 +
+ drivers/net/ethernet/airoha/Kconfig                |   27 +
+ drivers/net/ethernet/airoha/Makefile               |    9 +
+ .../net/ethernet/{mediatek => airoha}/airoha_eth.c | 1281 +++++---------------
+ drivers/net/ethernet/airoha/airoha_eth.h           |  553 +++++++++
+ drivers/net/ethernet/airoha/airoha_npu.c           |  521 ++++++++
+ drivers/net/ethernet/airoha/airoha_npu.h           |   28 +
+ drivers/net/ethernet/airoha/airoha_ppe.c           |  894 ++++++++++++++
+ drivers/net/ethernet/airoha/airoha_ppe_debugfs.c   |  175 +++
+ drivers/net/ethernet/airoha/airoha_regs.h          |  798 ++++++++++++
+ drivers/net/ethernet/mediatek/Kconfig              |    8 -
+ drivers/net/ethernet/mediatek/Makefile             |    1 -
+ 17 files changed, 3385 insertions(+), 1004 deletions(-)
+---
+base-commit: c3a97ccaed80986fc3c0581661bf9170847d23ba
+change-id: 20250205-airoha-en7581-flowtable-offload-e3a11b3b34ad
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
