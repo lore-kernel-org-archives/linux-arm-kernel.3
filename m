@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DE4DC021A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 08:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 440F1C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 08:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1ki+G0JPNrh9TGAEWfL+l/C4IFlJkUDv2DnvQNOIs8=; b=r6sySPIzdctSkVzB6lZYU1y3jq
-	gO5JAKXXab5ULYyGJQ2eaQSQr4374MqEY5WZ/P1ysRwCgI0Zz345AnrE5/n5FknGnTBxs9KlEMT18
-	rKr4dN+r/ckbxOV4SGoxIXm+Dd4bpNAmNyGpb62LOGDFC8w2EMe9LMEV8IWtOTk+6E0omO+yYUfxW
-	NqJ2RZK3TQMqoQyinP7dSfcDDhL3D0hUpRkXOzGh/H1Jvosn0VnKqPvsoA9wMQPrN/MxquAPye4z1
-	u7/Big+rj8wGO8CiQ1DwyAvPLa22VSTcbKI+l9UqpAprq9ckdTDZ6FhyLYomxmpx5sA4XQyLG1dpz
-	rSclKqmQ==;
+	bh=7fEfu8GLWbh9oVDTAIcK1Jbp7CxeZowSLouxzJ5V5kc=; b=PeJTaWH7BDllY2SO9IoysErOkX
+	1V5ffkJ4GZgEvXV5NOUv1oNqGpifA7fIcNP37kC6uS8LEDKVxV5z95/ibZ13MmH5pRQNU6yeLH2sa
+	9JXXC2O5qdt7l01BkPJcyoDG0ANdpH7pT7moGfngD7nQ81NaLqKqrvpodoVCyYb6o5yn+fSfWmjuT
+	9r4XXIHQDzq/KvKDLv1hYtsPUr6aF3d99FnRNtlgLnY6mpWOCYhYicqm2BeyHxenBk6yZnqLdlmms
+	AXq1/VSys3fGeMb68RHjr6Qi46qA0cGxxnpMsl0i4QCAkixaPlo4YcHCj4p3XHminmQgwQen2n2gi
+	YmyyzJ7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiUZC-0000000AGoX-2A0C;
-	Thu, 13 Feb 2025 08:27:26 +0000
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
+	id 1tiUab-0000000AHBn-2IM6;
+	Thu, 13 Feb 2025 08:28:53 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiUMW-0000000AEnc-03IQ
+	id 1tiUPo-0000000AFIH-3TW2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 08:14:21 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-30613802a6bso6492831fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 00:14:19 -0800 (PST)
+	Thu, 13 Feb 2025 08:17:46 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5450abbdce0so567354e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 00:17:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739434458; x=1740039258; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1739434663; x=1740039463; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=J1ki+G0JPNrh9TGAEWfL+l/C4IFlJkUDv2DnvQNOIs8=;
-        b=XGTfIM4Czur/ta/ln/2zMzgwKg7PbH6BjJtxvCgoX72bekNhHw9cUXs9tXSfHEEnGJ
-         A/pfybkVRcUqqzsz0BoT+xZoWX4njIDrOUCS2XDj3H4NNCLUcM0XBE4GKRmF4RwlUp+D
-         VkLirhK3QY8+4ZB2Lgwexvd9oxwwUgY1wDEAfcq4tFsJEBmXh/fkYmx41N4TqzQPnhpI
-         gNygtrph+fkpB89oxm2DNrfAV4bBkI7DqkN7jjvXTh2jZl4TLjYraCDbrpC4UbIw/HVe
-         ixVigNozFHxLbHObTBWa0Apd72/pIvJQDJHJEyAXdN0Dh3dNwPynur/Nny4P+F7+MuNA
-         WPXg==
+        bh=7fEfu8GLWbh9oVDTAIcK1Jbp7CxeZowSLouxzJ5V5kc=;
+        b=ZTZv2A8XM0jw2Vc3b+CTw6IwDWKMKbWpFnc/Vo45mYUtiBPlIrEkfmqiuu/rAZ8QpY
+         s0Jo3IjrTjB6aQ6jHKaOQLKgiMpGIpDXrgU7FjHDMJ93rCT7l2aDheF7G750rUh1D3DH
+         nCYJMaTo8sKA4gywKjHjSOSWKfQuxWxNIC0gLD7cTYmFvyNpUyrGaURhca6Q+iNqQwbN
+         ULGSIWJteGxD+vfvJfX3rkiDHEHFAI5xhZXYmRkFC0WMdE3Ttrl6oBNeZQjhTfxZnLkt
+         tYpCfN+MO+4f0AEzdUuuw2XRYZVPQMF9HSn2GbSsQJSCmlbenZaAjooF7mHgeLn+Y0n0
+         zSsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739434458; x=1740039258;
+        d=1e100.net; s=20230601; t=1739434663; x=1740039463;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=J1ki+G0JPNrh9TGAEWfL+l/C4IFlJkUDv2DnvQNOIs8=;
-        b=wca1UcxyPkYgQGlZOy6yvmAf9I58YwQk/qaImm/ndgBqvRJ/3Ijv9CB/VAzeRyYhqB
-         EKtzv53KihUzb5qVWQBtyuFn7Iy64ddunZxq03S60hNfDXMiAqd+OqIvAsJ5YU94U9Yz
-         /wiE6SMA6YygGxXCIfDk7EG3r8qTRyObLJ+Dk2PpqDPO/CeCCUuVvbLjzIhPvzFEqDPS
-         216j+wmPfkKq5de5BR8TSs+iiG3PpX/9eV101FfU6N3Cz7eZQG4ynF+G6S85ymkza7Qg
-         PwdyVq7HGi2uhKieHLTYhlY/xNh3nVz8sly7YTx8H5A82i/rqNl3CGXB0E0pufCd247Y
-         JvYA==
-X-Forwarded-Encrypted: i=1; AJvYcCU5EA/wAsfKXWH7blpYGoSL4DR2ffTUk6jPUzRGpYUmBlSV8RTgtdcmkNWzrSPQd+lLWLepvyDiIuxrGZBmGZvU@lists.infradead.org
-X-Gm-Message-State: AOJu0YzkH/l3aCPixtbvMnOXSazhZFS1IlPciLYvBh4A1AwwoaNztYrM
-	aCF73BlusFAGvqzLtZgDnHAYgqrfTGpfTISI46EIVxLtYyw+VsVhACK1v0izzk+F19SjqcVvaoJ
-	7S9koFJpIKVyBVXveO5EXWZTUj4rMBHNBRm4X
-X-Gm-Gg: ASbGncujj06UURgnEJPzto1Tt53cr0nWtVYNOgJqfdYbJAtis+DBNx7UGQ/MCYmORhN
-	xtRgGsyhR2uF4EB2Nfh87tC+8N0z3EBgYVIHZsYWlu2309EW3G/2Aj3u0Rcfg632EwEpkch8=
-X-Google-Smtp-Source: AGHT+IHf9iq2n1PUU5HCWe9soaH4SFA9WbopYOlEastjkCTCAX4hoUJGTt7Zw2wOUBlbY2AJ3VKHXgQD1OrOSfhwXZM=
-X-Received: by 2002:a2e:bc85:0:b0:2fb:cc0:2a05 with SMTP id
- 38308e7fff4ca-3090ddd1604mr8206891fa.37.1739434457896; Thu, 13 Feb 2025
- 00:14:17 -0800 (PST)
+        bh=7fEfu8GLWbh9oVDTAIcK1Jbp7CxeZowSLouxzJ5V5kc=;
+        b=VnXQbnKBY+3G4AoCKFD14xfFJQ6rjAuUoYyje2LWZpcfssExY2OSTh4TfKxH1S5R/F
+         q/I+jbm2z8GgopcDwL20zGfDCQIDkNZVw5OgUbrPGW6moX0+81E4y5NTvQOWnTUoxuYi
+         VNhNiKXgaGMCnVGJi5iM9tSJeT1LJez1Q6gUCQbCpBa2ML6CmBwif5VceHUNzsoS5ofb
+         VOzzrC1QSXqeEQX29VljM15skjioWOij0YnvPgK3bQXZzbHnxRC/POEj/btUk+oXN4Dp
+         Yda+nGIFmPjcZ0YwzyRYFpVrS9zgnKJYP8hu46mCQ94pWpaB/gBAD3hg+fD7oksHTfGq
+         IhAw==
+X-Forwarded-Encrypted: i=1; AJvYcCXZyQheB6utGBVErAoUKBzqkc5a6VBhs5l+A/YqJrMtMdu7DMLQNVzsdzBbK727RcDy9zFgfzzPf7kW6Wzbf4uY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbGmKbOuXNNKVDIN4pF7VqnOBTRE+QojE4IsHvJl6JOEbCcDZt
+	VBXDO4GKMqgrsChqQK1ny63TRP7PBkEH8I/8w5SzXHR1B/UjXJDjAGnMYI/oCE9tSZ9cf7kXyMI
+	BqldU2droJo3cAexEfO2F/O48axujhMY7HVQ72Fw+y+xmPQ8RE/NX
+X-Gm-Gg: ASbGncs+vjlKXFBNd9mHQ7b+eu49bZUYhPTGujl81DlrniIZ+e03aYejAflpXGbLddm
+	unpHeM7sYk8FJhUk3Rp7LflKL8/PZSvfiTxXErW0HTBt0lrdpHyljyDFhqcyXOFTAYqcTO5Q=
+X-Google-Smtp-Source: AGHT+IF69eZEtmq/bytiQvp5QhXzQAgT59awT8Yvq0oySfRGAni/tuvturEoI284/LivbVgt7JWAcyiW719+mfChwik=
+X-Received: by 2002:a05:6512:1324:b0:545:c92:271f with SMTP id
+ 2adb3069b0e04-5451826ea10mr1946789e87.10.1739434662716; Thu, 13 Feb 2025
+ 00:17:42 -0800 (PST)
 MIME-Version: 1.0
-References: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com> <20250120-scmi-fwdevlink-v2-4-3af2fa37dbac@nxp.com>
-In-Reply-To: <20250120-scmi-fwdevlink-v2-4-3af2fa37dbac@nxp.com>
+References: <20250120-scmi-fwdevlink-v2-0-3af2fa37dbac@nxp.com>
+ <20250120-scmi-fwdevlink-v2-1-3af2fa37dbac@nxp.com> <7a29ec8f-fef8-4f1c-a2eb-16a63f2b820c@stanley.mountain>
+ <20250206105218.GA22527@localhost.localdomain> <e20415aa-517c-4e72-a1c3-9c02769c1149@stanley.mountain>
+ <Z6SgFGb4Z88v783c@pluto>
+In-Reply-To: <Z6SgFGb4Z88v783c@pluto>
 From: Saravana Kannan <saravanak@google.com>
-Date: Thu, 13 Feb 2025 00:13:41 -0800
-X-Gm-Features: AWEUYZkG9pGG1E2hWQ62JNBsrZ94QFIvS7VdMRQU29qCe8Cm2dCEy_nhw7vZ3rE
-Message-ID: <CAGETcx9E1MYgzd7Hupz8YAqk7-D1Aeb+AAyQiEMia-6hnFQTRQ@mail.gmail.com>
-Subject: Re: [PATCH v2 4/4] pinctrl: scmi: Switch to use machine_blocklist
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
+Date: Thu, 13 Feb 2025 00:17:06 -0800
+X-Gm-Features: AWEUYZmIzWqZe4wj2qpsKpM0Mnm6z_-a0UXdGuXwQ-oMTHKT5ieIi6a9LqYyhk0
+Message-ID: <CAGETcx8MXpLntMu4=9qECdZJzJLJbWa8ziH8XcW=yJNDAgD=Vw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] firmware: arm_scmi: Bypass setting fwnode for scmi cpufreq
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, 
 	Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>, arm-scmi@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	linux-gpio@vger.kernel.org, imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_001420_051781_4D4EB652 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20250213_001744_894993_6865D23C 
+X-CRM114-Status: GOOD (  25.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,73 +101,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jan 19, 2025 at 11:14=E2=80=AFPM Peng Fan (OSS) <peng.fan@oss.nxp.c=
-om> wrote:
+On Thu, Feb 6, 2025 at 3:42=E2=80=AFAM Cristian Marussi
+<cristian.marussi@arm.com> wrote:
 >
-> From: Peng Fan <peng.fan@nxp.com>
+> On Thu, Feb 06, 2025 at 02:31:19PM +0300, Dan Carpenter wrote:
+> > On Thu, Feb 06, 2025 at 06:52:20PM +0800, Peng Fan wrote:
+> > > On Wed, Feb 05, 2025 at 03:45:00PM +0300, Dan Carpenter wrote:
+> > > >On Mon, Jan 20, 2025 at 03:13:29PM +0800, Peng Fan (OSS) wrote:
+> > > >> diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/ar=
+m_scmi/bus.c
+> > > >> index 2c853c84b58f530898057e4ab274ba76070de05e..7850eb7710f499888d=
+32aebf5d99df63db8bfa26 100644
+> > > >> --- a/drivers/firmware/arm_scmi/bus.c
+> > > >> +++ b/drivers/firmware/arm_scmi/bus.c
+> > > >> @@ -344,6 +344,21 @@ static void __scmi_device_destroy(struct scmi=
+_device *scmi_dev)
+> > > >>          device_unregister(&scmi_dev->dev);
+> > > >>  }
+> > > >>
+> > > >> +static int
+> > > >> +__scmi_device_set_node(struct scmi_device *scmi_dev, struct devic=
+e_node *np,
+> > > >> +                       int protocol, const char *name)
+> > > >> +{
+> > > >> +        /* cpufreq device does not need to be supplier from devli=
+nk perspective */
+> > > >> +        if ((protocol =3D=3D SCMI_PROTOCOL_PERF) && !strcmp(name,=
+ "cpufreq")) {
+> > > >
+> > > >I don't love this...  It seems like an hack.  Could we put a flag
+> > > >somewhere instead?  Perhaps in scmi_device?  (I'm just saying that
+> > > >because that's what we're passing to this function).
+> > >
+> > > This means when creating scmi_device, a flag needs to be set which re=
+quires
+> > > to extend scmi_device_id to include a flag entry or else.
+> > >
+> > > As below in scmi-cpufreq.c
+> > > { SCMI_PROTOCOL_PERF, "cpufreq", SCMI_FWNODE_NO }
+> > >
+> >
+> > Yeah, I like that.
+> >
+> > -     if ((protocol =3D=3D SCMI_PROTOCOL_PERF) && !strcmp(name, "cpufre=
+q")) {
+> > +     if (scmi_dev->flags & SCMI_FWNODE_NO) {
+> >
+> > Or we could do something like "if (scmi_dev->no_fwnode) {"
 >
-> With machine_blocklist, the blocked machines will not have pinctrl scmi
-> devices created. The fw_devlink will link consumer and supplier
-> correctly.
->
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  drivers/pinctrl/pinctrl-scmi.c | 15 ++++++---------
->  1 file changed, 6 insertions(+), 9 deletions(-)
->
-> diff --git a/drivers/pinctrl/pinctrl-scmi.c b/drivers/pinctrl/pinctrl-scm=
-i.c
-> index df4bbcd7d1d59ac2c8ddc320dc10d702ad1ed5b2..f041478758b50e85d99214f4f=
-e42208d0c8c808f 100644
-> --- a/drivers/pinctrl/pinctrl-scmi.c
-> +++ b/drivers/pinctrl/pinctrl-scmi.c
-> @@ -505,11 +505,6 @@ static int pinctrl_scmi_get_pins(struct scmi_pinctrl=
- *pmx,
->         return 0;
->  }
->
-> -static const char * const scmi_pinctrl_blocklist[] =3D {
-> -       "fsl,imx95",
-> -       NULL
-> -};
-> -
->  static int scmi_pinctrl_probe(struct scmi_device *sdev)
->  {
->         int ret;
-> @@ -521,9 +516,6 @@ static int scmi_pinctrl_probe(struct scmi_device *sde=
-v)
->         if (!sdev->handle)
->                 return -EINVAL;
->
-> -       if (of_machine_compatible_match(scmi_pinctrl_blocklist))
-> -               return -ENODEV;
-> -
->         handle =3D sdev->handle;
->
->         pinctrl_ops =3D handle->devm_protocol_get(sdev, SCMI_PROTOCOL_PIN=
-CTRL, &ph);
-> @@ -561,8 +553,13 @@ static int scmi_pinctrl_probe(struct scmi_device *sd=
-ev)
->         return pinctrl_enable(pmx->pctldev);
->  }
->
-> +static const char * const scmi_pinctrl_blocklist[] =3D {
-> +       "fsl,imx95",
-> +       NULL
-> +};
-> +
->  static const struct scmi_device_id scmi_id_table[] =3D {
-> -       { SCMI_PROTOCOL_PINCTRL, "pinctrl" },
-> +       { SCMI_PROTOCOL_PINCTRL, "pinctrl", scmi_pinctrl_blocklist, NULL =
-},
->         { }
->  };
->  MODULE_DEVICE_TABLE(scmi, scmi_id_table);
->
+> I proposed a flag a few review ago about this, it shoule come somehow
+> from the device_table above like Peng was proposing, so that a driver
+> can just declare that does NOT need fw_devlink.
 
-Definite NACK to this. Please don't depend on indirect
-conditions/flags. There's no guarantee that this check will hold true
-in the future.
+Sorry, looks I replied to v1 series. Can you take a look at that
+response please?
+https://lore.kernel.org/lkml/CAGETcx87Stfkru9gJrc1sf=3DPtFGLY7=3DjrfFaCzK5Z=
+4hq+2TCzg@mail.gmail.com/
+
+If that suggestion I gave there would work, then that's the cleanest
+approach. This patch series is just kicking the can down the road (or
+down an inch).
 
 -Saravana
 
