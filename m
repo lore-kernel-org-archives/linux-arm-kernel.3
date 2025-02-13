@@ -4,80 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7671C021A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 04:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0602C021A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 04:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mpG/X92CWnMdpmxP4abdXtAgCygQA19P9d/qpK5HzEo=; b=0q1HCgkTChD4OYfe+olVjXSw2X
-	MSo9uuTSQmF9JGzNeqKrypDyIJIBELCoLa8DxdjnQAM2ykRAKkNqp6qXstc+CNkaPP9MhIELCwTyH
-	iZlLHnb+plxsIMZ9W/8LJtCyH4gPsk7Xcsoih5Ef6niMy/QRyMzypVWZgirSTkBspoWKL5o/Xnius
-	UFMNmOZtdJsftnObAygdtXMD+9t3NZVKaf48N6cnCx4st5rr6pKXdDfrQhJMV/Lb34QOxYB2k5Ie9
-	aSUXxQJXUupjqV0kA3mNaujWgo7CSFCzPj2QESOu6qb9xheLmLfwM/+2zUoMBZ+HllxX1ln4ZDjt9
-	g6vm2RpQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=Nboyogv1mQ9wZ1hrsaNVtoIMK2Z9r1c3kpg7/2WbzPQ=; b=StL9CpDIG91Ucs
+	kK63Q/RsqYy4EDQJLmbYZX7Y759oM/WziHzioEa9roQPSfpMYWzzNzedTq9TT9hNbMc2NAeG5H7FU
+	cIa99TCtbPEJxif+RlbqL3FeVHO4cnxrlLwb7VLl3VwVMTpu10wfD/0sukddZS3i2rZtrlrjwtNI1
+	aDnDXJCBuazo4ushmGilxbNeQUzLiAjmEcldCPT4XBgNQN2h1v36RPIsII2oGWqi6vVz7NsFtxFX+
+	LTdEVYJai1jpwQGQjl3zqFuEjLgk5XdilkaF3qS0SdQj6NMONWj8yI5R/4ymo3LDEBd2ZyW27eXWh
+	zVEEHhPISzytSJGWp8fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiQs5-00000009in0-3bEa;
-	Thu, 13 Feb 2025 04:30:41 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tiR70-00000009kIf-1xgC;
+	Thu, 13 Feb 2025 04:46:06 +0000
+Received: from [203.254.224.33] (helo=mailout3.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiQqe-00000009iZr-1T8C;
-	Thu, 13 Feb 2025 04:29:14 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4395a06cf43so2381285e9.2;
-        Wed, 12 Feb 2025 20:29:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739420950; x=1740025750; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=mpG/X92CWnMdpmxP4abdXtAgCygQA19P9d/qpK5HzEo=;
-        b=UW3QcAr0rjGmDC58kEzsb8tHWWgA6fZimpQVtM4s3x3IvHWC9pgFG/zmqmT+4rTwFR
-         ZtpaT1hfAMPh/f/91gXKlwoBI+h2rfPxZZiFVE0kZD1a8syyu10tNVTNhYzs2r//egsb
-         ynB55FzN9N7nE8GaAUY08HU99pfoxWNaplpn9oa7Lt4OAr9EsRNzbnQHe1Dyu87YG6Di
-         8SzT/MshXuvJE/R+Fw2bLHHV4TclgIx3ZgjTec8aEkeYkdSUUgnYO3V1W5tJU+4bf7QE
-         c6OEgcLPWe6a1w5U67F1p+FheALlnGL0MG4RyQesY7oWyAJJQFaI+/Cbe/247D5hal4g
-         Lyjg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739420950; x=1740025750;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mpG/X92CWnMdpmxP4abdXtAgCygQA19P9d/qpK5HzEo=;
-        b=HvPI2agqOhTfB804PJiXx5PLpp/JcFf6oOjgBC6IOsEX4ZgpT417OSg+n+1ZeQKcqM
-         A0Yaa/EWTttfKvfnN1RCFUcBBPbzyFg8+Yquq8BwOgBnKlvcx9lEBxLImi1W9ogRWEQv
-         Z5DUxQcU7bW0UMYX6bzbcZZXJcNpTQAgiLoZOpdNS+THvEmqjoBPyG9RqGyhCr3kRr3J
-         sK/5fI1PA7kgoGimXRp3Td9qmRbgDXkCiVmEBOqnW7m4E113cdY0CE907XA+6TqtC95N
-         6EycX4mJb5hU/zWlg8XSkFw8ExK7aaUCg6JUOB/tV0SOUrcwzTp077YAM3XNw/FPUF46
-         O0bA==
-X-Forwarded-Encrypted: i=1; AJvYcCWUFFcAlREE1Yr2P1e58Nsmxw+0B+44MyVsZTdK77Bcb7OJaPqYFvF2sNonMpkshKNxdyWWnbuTWus6q2bG6/ML@lists.infradead.org
-X-Gm-Message-State: AOJu0YypK2JF2WYgFTtAeGxh4tRl37nuNX5O1y1vMJtGSA4QE5dGWm/9
-	JTZ4Qvw3HUze5+TOHYbEM52Llphoosi2pnze0Ah553SPTL/GunqF09E0K7TMP+9FvXZvY/1Cb+E
-	+XxjzTXQkXneeA/NyolaAw4Kc0co=
-X-Gm-Gg: ASbGncvTXh6BN4RAUOmS/8k+xolqconzrnO46+V43ABaPiw1adx2BdYD22ax9aUly5Y
-	24v6y2ieNmn87APN56ePFhTrbfj0h4N+3lUO8liYpbbv6qf5W9qbQlWWQTiUi8xeDJNu0xiZV4u
-	+/8oIA8giC6Av2paTrRFyX9ngSHVS7
-X-Google-Smtp-Source: AGHT+IF3MLudSFVnNY7klY1SEt5ogElGI4HfqObuRC7k5kXvKAxlXf08Y0jTlDnCHx2XzTyWFmqcq9hbMH/xhQHroM0=
-X-Received: by 2002:a05:600c:8509:b0:439:4858:3c77 with SMTP id
- 5b1f17b1804b1-439601a12b0mr15576355e9.19.1739420949976; Wed, 12 Feb 2025
- 20:29:09 -0800 (PST)
-MIME-Version: 1.0
-References: <Z60MU05JLtI9VzuU@windev.fritz.box> <Z60MiujaPpWNYmBE@windev.fritz.box>
-In-Reply-To: <Z60MiujaPpWNYmBE@windev.fritz.box>
-From: Jimmy Hon <honyuenkwun@gmail.com>
-Date: Wed, 12 Feb 2025 22:28:59 -0600
-X-Gm-Features: AWEUYZl_RV7h_eBDUzo5-bNaWEOJWWryUGI0L0oblCDcfiOMUP1xSlcFRXyIMWg
-Message-ID: <CALWfF7KHagN=ef1C01PmmpfumdthBy6PKPi3U+9K+rgP8sNrOQ@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] arm64: dts: rockchip: add MNT Reform 2
-To: Patrick Wildt <patrick@blueri.se>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, Kever Yang <kever.yang@rock-chips.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+	id 1tiR5Y-00000009k2Q-2BBB
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 04:44:38 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250213044428epoutp03669eaabeb9c2976975b072d7d32413c6~jqvlUsXSz1792217922epoutp036
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 04:44:28 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250213044428epoutp03669eaabeb9c2976975b072d7d32413c6~jqvlUsXSz1792217922epoutp036
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1739421868;
+	bh=Nboyogv1mQ9wZ1hrsaNVtoIMK2Z9r1c3kpg7/2WbzPQ=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=il9RuOtgz3bhZm4NT6+rJOgIq/Cf9TfVVFBxUmNt5yNQpFeSvNqi9qhjcomKsnTii
+	 skeE8IGf+pA/mSWPdrLLo/cdBObocBoQCnMTYxxYRAjLQutTBlThargXFfztkOV8fS
+	 LsddALqPmvq04Y2NH39dwkefmume8lEXj1FlRi60=
+Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTP id
+	20250213044428epcas5p1373a28dc7c0e465179d72bb2729747de~jqvk1aI2X1954419544epcas5p1I;
+	Thu, 13 Feb 2025 04:44:28 +0000 (GMT)
+Received: from epsmges5p2new.samsung.com (unknown [182.195.38.179]) by
+	epsnrtp3.localdomain (Postfix) with ESMTP id 4YtjJV1gWlz4x9Q9; Thu, 13 Feb
+	2025 04:44:26 +0000 (GMT)
+Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
+	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	C6.59.19933.AA87DA76; Thu, 13 Feb 2025 13:44:26 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250213041925epcas5p4d37d50047359b923efd9fdcaf4b2f6d2~jqZszLiDZ0682606826epcas5p4e;
+	Thu, 13 Feb 2025 04:19:25 +0000 (GMT)
+Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250213041925epsmtrp18442c9ee4664b9279916ab0f4d7579f9~jqZsyBTaE0828408284epsmtrp1E;
+	Thu, 13 Feb 2025 04:19:25 +0000 (GMT)
+X-AuditID: b6c32a4a-b87c770000004ddd-76-67ad78aa5c6d
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	A9.AD.18949.CC27DA76; Thu, 13 Feb 2025 13:19:24 +0900 (KST)
+Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250213041922epsmtip258a82fe1948022b022d2ebaa50688558~jqZp4ovui0454604546epsmtip22;
+	Thu, 13 Feb 2025 04:19:21 +0000 (GMT)
+From: Swathi K S <swathi.ks@samsung.com>
+To: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com
+Cc: rmk+kernel@armlinux.org.uk, swathi.ks@samsung.com,
+	fancer.lancer@gmail.com, krzk@kernel.org, Joao.Pinto@synopsys.com,
+	treding@nvidia.com, ajayg@nvidia.com, Jisheng.Zhang@synaptics.com,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v2] net: stmmac: refactor clock management in EQoS
+ driver
+Date: Thu, 13 Feb 2025 09:45:59 +0530
+Message-Id: <20250213041559.106111-1-swathi.ks@samsung.com>
+X-Mailer: git-send-email 2.17.1
+X-Brightmail-Tracker: H4sIAAAAAAAAA0WTe0xTVxzHc+7tk6V4Uxg7YHBQJRkuhZbRcnAwzURykRmZskQMpqv0ru3o
+	K72FIcsmmwSUIQwVIkgYOpABoqUCKw8FMTBg2QB5iYsLYJlDttEAouORraVl+++T3+/7Pb/H
+	OYeD8wdYfhy1zkQZdXKNgOXBaLkfHCysy2hQioYquGjk/gYL/T1XAlDNlJWJygezGWi2d4aN
+	zGfLmWiyqxVDJZM1DPRypgdHg4NmNhpqKWAiy5NxJhppK2ehvHEbE1VsNDBRb6UPWvnxD4Cu
+	NS+z0bS9g40eFBZhaLlxko1+WfPc50OOjA/jZFPtJEbOFjazydayx2yy0pJGWurOscjbVafJ
+	VusSRp4/8xeLXLg7xiILmuoAee+umLww+rPD2LkEyCXLjoRtx1OjVJRcQRkDKF2KXqHWKaMF
+	8Udl+2USqUgsFEeiCEGATq6logUx7yUIY9Uax/iCgHS5Js0RSpDTtCD0nSijPs1EBaj0tCla
+	QBkUGkO4IYSWa+k0nTJER5n2iEWiMIlD+GGqauybfrbhRmTG06rrjCzQEZoHuBxIhMMvrWV4
+	HvDg8Il2AK89bGA5E3xiEcDnw96uxAqA39qHHCrOpqP91l5X/A6AF/OfuN3LAOb0PGI73Szi
+	DTjx3feb7E1UAThz3ccpwol+DN5byWc4E15EIlzYqN0UMYggaH1+G3cyj3gbtg3PsV39vQ7r
+	zV24i20caO/iuTgGjvY0uTVe8NkPW+wH5wpz3CyD9QVjDBer4OPVIpaL98Ku0XKGcxqcCIa3
+	2tyr8IfFAzcxJ+OEJzy/ZsNccR60VmzxTrgxP+4+0he2VC+4S5HQYp8Ers2dgJb1Nvxr4F/2
+	f4VKAOqAL2WgtUqKlhjCdNQn/91Til5rAZuPevdBK5iesod0A4wDugHk4AJvHiy5oeTzFPJT
+	mZRRLzOmaSi6G0gcKyvC/V5N0Tt+hc4kE4dHisKlUml45FtSseA13pnWbCWfUMpNVCpFGSjj
+	lg/jcP2yMMViL/an9YPx3+I9Xrxsn4i5mXQBnToGp0oHfperYxnzkS8CFUG2kzts9LkHlyOO
+	XKpXnQh8evX97p212wI/y5+VFJs/pxIbP6o5gAkTss2XJ/y4wccOVx8q/7jvYPKlnt5pfmnU
+	7Jp20KN+/kAKNzf3q4GzccyKOr3slQTOeqMks2riYRw/h9EMEvuK8WXPjPTT9JCoL6TzUPq6
+	etdsi+yn6X9OLniZn4Xu0wuThQou96omKeRRZZIpYFfUYmnyYd/sL379NFNqf7erP8u7g/2m
+	uml9+52gI2ua6pLk41fsq62rV7ZrcktS43LSM6KFe2ojijvj/Y/CuLAYbXNskvfF/QIGrZKL
+	d+NGWv4v0onNM10EAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrOLMWRmVeSWpSXmKPExsWy7bCSvO6ZorXpBgvv2FhcPvyXzeLny2mM
+	Fssf7GC1mHO+hcXi6bFH7BYbOuawWtw8sJPJYtrN5SwWPx4dZbY4f34Du8WFbX2sFpseX2O1
+	uLxrDptF17UnrBbz/q5ltTi2QMzi2+k3jBaLtn5ht3j4YQ+7xaX+iUwWXzbeZLe4/ZvPQczj
+	8rWLzB5bVt5k8njav5XdY+esu+weCzaVemxa1cnmsXlJvcfOHZ+ZPHqb37F5vN93lc2jb8sq
+	Ro+D+ww9Jl05B9S4/zOjx+dNcgH8UVw2Kak5mWWpRfp2CVwZV+efZC9YY1nxfMkylgbGPfpd
+	jBwcEgImErvX23cxcnEICexmlLjSeJS1i5ETKC4p8al5KpQtLLHy33N2iKJPjBJnXnaygyTY
+	BDQkrq/YDpYQEVjDKNFy+CgjiMMscJ1JYv7XX2wgK4QFgiSae+xBGlgEVCV2fN3MDGLzClhL
+	7Lr4kh1ig7zE6g0HmCcw8ixgZFjFKJlaUJybnltsWGCUl1quV5yYW1yal66XnJ+7iREcN1pa
+	Oxj3rPqgd4iRiYPxEKMEB7OSCK/EtDXpQrwpiZVVqUX58UWlOanFhxilOViUxHm/ve5NERJI
+	TyxJzU5NLUgtgskycXBKNTCttmRSzT/nuM44aemLSZyN0Y3b41eIHP+18mlkIcvrS1yr1C74
+	MkyY06c5cx3Hgw/Lqnrym0u4XNepHIgylDbNTP2d1pZvcfaKycX5qyU56h5IvCu5FGqzPfDG
+	u+s5iZNuPlq3446eqF3se/Pnlk7/p/22f67VrblYd89rDW7vA+deKVza/CX6eNqptDgOvStL
+	XP2nBc5Qv6zS9Oqi6KP/1x6bzbhUdF66wUWI6wOvuFXCq9/he0uL9adNnC/769T+YAZ5xTNH
+	lCZEhfyrEt5ZrSl50VnSLK55pX8bywfv6Yfitlvvr9jHVryC8fUd3QNatr7TC8wKeOKnpFmx
+	evse73j6aX/A+s4dC5jcdQOVWIozEg21mIuKEwF27ye7CgMAAA==
+X-CMS-MailID: 20250213041925epcas5p4d37d50047359b923efd9fdcaf4b2f6d2
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250213041925epcas5p4d37d50047359b923efd9fdcaf4b2f6d2
+References: <CGME20250213041925epcas5p4d37d50047359b923efd9fdcaf4b2f6d2@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_202912_418923_72778B81 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20250212_204437_126895_91C2EF9A 
+X-CRM114-Status: GOOD (  25.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,122 +139,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Refactor clock management in EQoS driver for code reuse and to avoid
+redundancy. This way, only minimal changes are required when a new platform
+is added.
 
-A few questions below.
+Suggested-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Swathi K S <swathi.ks@samsung.com>
+---
+Changes since v1:
+1. Respinning the patch including only the ML reported by get_maintainers
+output
+2. Adding the target tree ('net-next') in the subject prefix
 
-[ snip ]
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi
-> new file mode 100644
-> index 000000000000..898a7b29692f
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-3588q.dtsi
+ .../stmicro/stmmac/dwmac-dwc-qos-eth.c        | 131 +++++-------------
+ include/linux/stmmac.h                        |   2 +
+ 2 files changed, 34 insertions(+), 99 deletions(-)
 
-That's interesting, the Firefly Core 3588Q SoM's dtsi is more than 95%
-the same as the Core 3588J SoM's dtsi.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+index bd4eb187f8c6..1fadb8ba1d2f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+@@ -29,10 +29,8 @@ struct tegra_eqos {
+ 	void __iomem *regs;
+ 
+ 	struct reset_control *rst;
+-	struct clk *clk_master;
+ 	struct clk *clk_slave;
+ 	struct clk *clk_tx;
+-	struct clk *clk_rx;
+ 
+ 	struct gpio_desc *reset;
+ };
+@@ -123,49 +121,14 @@ static int dwc_qos_probe(struct platform_device *pdev,
+ 			 struct plat_stmmacenet_data *plat_dat,
+ 			 struct stmmac_resources *stmmac_res)
+ {
+-	int err;
+-
+-	plat_dat->stmmac_clk = devm_clk_get(&pdev->dev, "apb_pclk");
+-	if (IS_ERR(plat_dat->stmmac_clk)) {
+-		dev_err(&pdev->dev, "apb_pclk clock not found.\n");
+-		return PTR_ERR(plat_dat->stmmac_clk);
+-	}
+-
+-	err = clk_prepare_enable(plat_dat->stmmac_clk);
+-	if (err < 0) {
+-		dev_err(&pdev->dev, "failed to enable apb_pclk clock: %d\n",
+-			err);
+-		return err;
+-	}
+-
+-	plat_dat->pclk = devm_clk_get(&pdev->dev, "phy_ref_clk");
+-	if (IS_ERR(plat_dat->pclk)) {
+-		dev_err(&pdev->dev, "phy_ref_clk clock not found.\n");
+-		err = PTR_ERR(plat_dat->pclk);
+-		goto disable;
+-	}
+-
+-	err = clk_prepare_enable(plat_dat->pclk);
+-	if (err < 0) {
+-		dev_err(&pdev->dev, "failed to enable phy_ref clock: %d\n",
+-			err);
+-		goto disable;
++	for (int i = 0; i < plat_dat->num_clks; i++) {
++		if (strcmp(plat_dat->clks[i].id, "apb_pclk") == 0)
++			plat_dat->stmmac_clk = plat_dat->clks[i].clk;
++		else if (strcmp(plat_dat->clks[i].id, "phy_ref_clk") == 0)
++			plat_dat->pclk = plat_dat->clks[i].clk;
+ 	}
+ 
+ 	return 0;
+-
+-disable:
+-	clk_disable_unprepare(plat_dat->stmmac_clk);
+-	return err;
+-}
+-
+-static void dwc_qos_remove(struct platform_device *pdev)
+-{
+-	struct net_device *ndev = platform_get_drvdata(pdev);
+-	struct stmmac_priv *priv = netdev_priv(ndev);
+-
+-	clk_disable_unprepare(priv->plat->pclk);
+-	clk_disable_unprepare(priv->plat->stmmac_clk);
+ }
+ 
+ #define SDMEMCOMPPADCTRL 0x8800
+@@ -278,52 +241,19 @@ static int tegra_eqos_probe(struct platform_device *pdev,
+ 	if (!is_of_node(dev->fwnode))
+ 		goto bypass_clk_reset_gpio;
+ 
+-	eqos->clk_master = devm_clk_get(&pdev->dev, "master_bus");
+-	if (IS_ERR(eqos->clk_master)) {
+-		err = PTR_ERR(eqos->clk_master);
+-		goto error;
+-	}
+-
+-	err = clk_prepare_enable(eqos->clk_master);
+-	if (err < 0)
+-		goto error;
+-
+-	eqos->clk_slave = devm_clk_get(&pdev->dev, "slave_bus");
+-	if (IS_ERR(eqos->clk_slave)) {
+-		err = PTR_ERR(eqos->clk_slave);
+-		goto disable_master;
+-	}
+-
+-	data->stmmac_clk = eqos->clk_slave;
+-
+-	err = clk_prepare_enable(eqos->clk_slave);
+-	if (err < 0)
+-		goto disable_master;
+-
+-	eqos->clk_rx = devm_clk_get(&pdev->dev, "rx");
+-	if (IS_ERR(eqos->clk_rx)) {
+-		err = PTR_ERR(eqos->clk_rx);
+-		goto disable_slave;
+-	}
+-
+-	err = clk_prepare_enable(eqos->clk_rx);
+-	if (err < 0)
+-		goto disable_slave;
+-
+-	eqos->clk_tx = devm_clk_get(&pdev->dev, "tx");
+-	if (IS_ERR(eqos->clk_tx)) {
+-		err = PTR_ERR(eqos->clk_tx);
+-		goto disable_rx;
++	for (int i = 0; i < data->num_clks; i++) {
++		if (strcmp(data->clks[i].id, "slave_bus") == 0) {
++			eqos->clk_slave = data->clks[i].clk;
++			data->stmmac_clk = eqos->clk_slave;
++		} else if (strcmp(data->clks[i].id, "tx") == 0) {
++			eqos->clk_tx = data->clks[i].clk;
++		}
+ 	}
+ 
+-	err = clk_prepare_enable(eqos->clk_tx);
+-	if (err < 0)
+-		goto disable_rx;
+-
+ 	eqos->reset = devm_gpiod_get(&pdev->dev, "phy-reset", GPIOD_OUT_HIGH);
+ 	if (IS_ERR(eqos->reset)) {
+ 		err = PTR_ERR(eqos->reset);
+-		goto disable_tx;
++		return err;
+ 	}
+ 
+ 	usleep_range(2000, 4000);
+@@ -365,15 +295,7 @@ static int tegra_eqos_probe(struct platform_device *pdev,
+ 	reset_control_assert(eqos->rst);
+ reset_phy:
+ 	gpiod_set_value(eqos->reset, 1);
+-disable_tx:
+-	clk_disable_unprepare(eqos->clk_tx);
+-disable_rx:
+-	clk_disable_unprepare(eqos->clk_rx);
+-disable_slave:
+-	clk_disable_unprepare(eqos->clk_slave);
+-disable_master:
+-	clk_disable_unprepare(eqos->clk_master);
+-error:
++
+ 	return err;
+ }
+ 
+@@ -383,10 +305,6 @@ static void tegra_eqos_remove(struct platform_device *pdev)
+ 
+ 	reset_control_assert(eqos->rst);
+ 	gpiod_set_value(eqos->reset, 1);
+-	clk_disable_unprepare(eqos->clk_tx);
+-	clk_disable_unprepare(eqos->clk_rx);
+-	clk_disable_unprepare(eqos->clk_slave);
+-	clk_disable_unprepare(eqos->clk_master);
+ }
+ 
+ struct dwc_eth_dwmac_data {
+@@ -398,7 +316,6 @@ struct dwc_eth_dwmac_data {
+ 
+ static const struct dwc_eth_dwmac_data dwc_qos_data = {
+ 	.probe = dwc_qos_probe,
+-	.remove = dwc_qos_remove,
+ };
+ 
+ static const struct dwc_eth_dwmac_data tegra_eqos_data = {
+@@ -434,9 +351,19 @@ static int dwc_eth_dwmac_probe(struct platform_device *pdev)
+ 	if (IS_ERR(plat_dat))
+ 		return PTR_ERR(plat_dat);
+ 
++	ret = devm_clk_bulk_get_all(&pdev->dev, &plat_dat->clks);
++	if (ret < 0)
++		return dev_err_probe(&pdev->dev, ret, "Failed to retrieve all required clocks\n");
++	plat_dat->num_clks = ret;
++
++	ret = clk_bulk_prepare_enable(plat_dat->num_clks, plat_dat->clks);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret, "Failed to enable clocks\n");
++
+ 	ret = data->probe(pdev, plat_dat, &stmmac_res);
+ 	if (ret < 0) {
+ 		dev_err_probe(&pdev->dev, ret, "failed to probe subdriver\n");
++		clk_bulk_disable_unprepare(plat_dat->num_clks, plat_dat->clks);
+ 		return ret;
+ 	}
+ 
+@@ -451,7 +378,8 @@ static int dwc_eth_dwmac_probe(struct platform_device *pdev)
+ 	return ret;
+ 
+ remove:
+-	data->remove(pdev);
++	if (data->remove)
++		data->remove(pdev);
+ 
+ 	return ret;
+ }
+@@ -459,10 +387,15 @@ static int dwc_eth_dwmac_probe(struct platform_device *pdev)
+ static void dwc_eth_dwmac_remove(struct platform_device *pdev)
+ {
+ 	const struct dwc_eth_dwmac_data *data = device_get_match_data(&pdev->dev);
++	struct plat_stmmacenet_data *plat_data = dev_get_platdata(&pdev->dev);
+ 
+ 	stmmac_dvr_remove(&pdev->dev);
+ 
+-	data->remove(pdev);
++	if (data->remove)
++		data->remove(pdev);
++
++	if (plat_data)
++		clk_bulk_disable_unprepare(plat_data->num_clks, plat_data->clks);
+ }
+ 
+ static const struct of_device_id dwc_eth_dwmac_match[] = {
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index c9878a612e53..24422ac4e417 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -254,6 +254,8 @@ struct plat_stmmacenet_data {
+ 	struct clk *clk_ptp_ref;
+ 	unsigned long clk_ptp_rate;
+ 	unsigned long clk_ref_rate;
++	struct clk_bulk_data *clks;
++	int num_clks;
+ 	unsigned int mult_fact_100ns;
+ 	s32 ptp_max_adj;
+ 	u32 cdc_error_adj;
+-- 
+2.17.1
 
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/rockchip/rk3588-firefly-core-3588j.dtsi?h=v6.14-rc1
-
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts b/arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts
-> new file mode 100644
-> index 000000000000..cd7a82a3b0de
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts
-> @@ -0,0 +1,348 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (c) 2021 Rockchip Electronics Co., Ltd.
-> + * Copyright (c) 2024 MNT Research GmbH
-> + *
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/pinctrl/rockchip.h>
-> +#include <dt-bindings/soc/rockchip,vop2.h>
-> +#include <dt-bindings/usb/pd.h>
-> +
-> +#include "rk3588-firefly-icore-3588q.dtsi"
-> +
-> +/ {
-> +       model = "MNT Reform 2 with RCORE RK3588 Module";
-> +       compatible = "mntre,reform2-rcore", "firefly,icore-3588q", "rockchip,rk3588";
-Will you be adding "chassis-type"?
-
-> +
-> +       aliases {
-> +               ethernet0 = &gmac0;
-> +               mmc1 = &sdmmc;
-> +       };
-> +
-> +       chosen {
-> +               stdout-path = "serial2:1500000n8";
-> +       };
-> +
-> +       backlight: backlight {
-> +               compatible = "pwm-backlight";
-> +               pwms = <&pwm8 0 10000 0>;
-> +               enable-gpios = <&gpio2 RK_PB5 GPIO_ACTIVE_HIGH>;
-> +               brightness-levels = <0 8 16 32 64 128 160 200 255>;
-> +               default-brightness-level = <128>;
-Interestingly, the brightness curve is more fine-grained than one used
-for the IMX8MQ SoM and the A311D SoM. Should those be updated
-eventually?
-
-brightness-levels = <0 32 64 128 160 200 255>;
-default-brightness-level = <6>;
-
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts?h=v6.14-rc1#n24
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/amlogic/meson-g12b-bananapi-cm4-mnt-reform2.dts?h=v6.14-rc1#n198
-
-[ snip ]
-> +
-> +&combphy1_ps {
-> +       status = "okay";
-> +};
-Should this be left out? It doesn't look like pcie2x1l0 or sata1 is being used.
-
-> +
-> +&combphy2_psu {
-> +       status = "okay";
-> +};
-Should this be left out? It doesn't look like pcie2x1l1, sata2, or
-usb_host2_xhci is being used.
-
-> +
-> +&saradc {
-> +       vref-supply = <&avcc_1v8_s0>;
-> +       status = "okay";
-> +};
-> +
-> +&tsadc {
-> +       status = "okay";
-> +};
-These nodes should be sorted alphabetically
-
-> +
-> +&sdmmc {
-> +       bus-width = <4>;
-> +       max-frequency = <40000000>;
-> +       no-sdio;
-> +       no-mmc;
-> +       no-1-8-v;
-> +       cap-sd-highspeed;
-> +       vqmmc-supply = <&vcc3v3_pcie30>;
-> +       vmmc-supply = <&vcc3v3_pcie30>;
-> +       cd-gpios = <&gpio0 RK_PA4 GPIO_ACTIVE_LOW>;
-> +       disable-wp;
-> +       status = "okay";
-> +};
-> +
-> +&mdio0 {
-> +       rgmii_phy: ethernet-phy@0 {
-> +               compatible = "ethernet-phy-ieee802.3-c22";
-> +               reg = <0x0>;
-> +       };
-> +};
-
-Jimmy
 
