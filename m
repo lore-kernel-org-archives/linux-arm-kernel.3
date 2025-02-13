@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B43AC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 17:12:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E9ABC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 17:14:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bw7Qxi5iHcD1RTG1u2KIYkVVyssRZZNNWc2uYvZoNyY=; b=NyBsrgFoX/p4hvYM3xUS/Af2ti
-	05KGggDaXNNm6JDNwTjY3yVcUBrzGDGWa2rlhqlat+Sd7Zvhv1CwJSen2KKfRaT8aGjySkQOqC8WV
-	1GBxmZJJK+IQico9aU9b42YAQ9P0uGfnKRleQk3MfPiPpBlnt3nFv+1sKmH0aaxYNGrEuEJ1wPOob
-	bC7z0/xT3V3775AvH0bmtsidkHUWSwD1Jy7BMS4wY7mUEgLfwCP7ZuolHPHa5uk5Ezae2ZDbC2HJY
-	5DoPLc7TKKZdS6dCh/75aIaJylt5xpp2NERKeJqzB5EXXdlpdFmN6qsUguXmavx6impQqaRApAXPW
-	kaqZuvkg==;
+	bh=+Ksu2BRx6mXUEwa9Pa8Q7gjtQGP6ceKQ2m08MzIqb8E=; b=mhe+hKHEOIiG4ipPeqgOMGhZqq
+	Drd56YYDAPBiTEHuhUdwTXxnQe0isn3rNhjXv37qrd5DAc6R0+gWjKsX9D37mrE5S2egIphMRGWA+
+	/4LBinxnZYi/B9vnWMW64Oh3w5L/461MPYo9AETH7tdAEmgwl3wz1elGK9N/GoKa8vAv2Hq28wNEd
+	6PnCPJZUFoIUnsKZ9lJcE8WOwadMRrN64kjwu9J2wwhbkQewwypa1ENXyN3rjRohcUR1asPh5lADb
+	QDCQrl4b8RoMsDxz/UK8kF9frmekp86F6XSyJzcuqRjwwyyCZp7JFpQ6SSPTvC063skyBeJ6TLZkL
+	wAWyJa/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticlG-0000000Bxfb-2knE;
-	Thu, 13 Feb 2025 17:12:26 +0000
+	id 1ticmg-0000000By01-1C6P;
+	Thu, 13 Feb 2025 17:13:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibtk-0000000Bj5p-3IAe
+	id 1tibtp-0000000Bj6s-3mDZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 16:17:09 +0000
+	Thu, 13 Feb 2025 16:17:15 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F1A71756;
-	Thu, 13 Feb 2025 08:17:29 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 332901756;
+	Thu, 13 Feb 2025 08:17:34 -0800 (PST)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.32.44])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EAB93F6A8;
-	Thu, 13 Feb 2025 08:17:04 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E4FD83F6A8;
+	Thu, 13 Feb 2025 08:17:08 -0800 (PST)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -56,17 +56,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	Shanker Donthineni <sdonthineni@nvidia.com>,
 	Alper Gun <alpergun@google.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-Subject: [PATCH v7 32/45] arm_pmu: Provide a mechanism for disabling the physical IRQ
-Date: Thu, 13 Feb 2025 16:14:12 +0000
-Message-ID: <20250213161426.102987-33-steven.price@arm.com>
+Subject: [PATCH v7 33/45] arm64: rme: Enable PMU support with a realm guest
+Date: Thu, 13 Feb 2025 16:14:13 +0000
+Message-ID: <20250213161426.102987-34-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250213161426.102987-1-steven.price@arm.com>
 References: <20250213161426.102987-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_081708_864652_B247BC5A 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20250213_081714_026313_C61E0DEF 
+X-CRM114-Status: GOOD (  19.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,69 +81,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Arm CCA assigns the physical PMU device to the guest running in realm
-world, however the IRQs are routed via the host. To enter a realm guest
-while a PMU IRQ is pending it is necessary to block the physical IRQ to
-prevent an immediate exit. Provide a mechanism in the PMU driver for KVM
-to control the physical IRQ.
+Use the PMU registers from the RmiRecExit structure to identify when an
+overflow interrupt is due and inject it into the guest. Also hook up the
+configuration option for enabling the PMU within the guest.
+
+When entering a realm guest with a PMU interrupt pending, it is
+necessary to disable the physical interrupt. Otherwise when the RMM
+restores the PMU state the physical interrupt will trigger causing an
+immediate exit back to the host. The guest is expected to acknowledge
+the interrupt causing a host exit (to update the GIC state) which gives
+the opportunity to re-enable the physical interrupt before the next PMU
+event.
+
+Number of PMU counters is configured by the VMM by writing to PMCR.N.
 
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
-v3: Add a dummy function for the !CONFIG_ARM_PMU case.
+Changes since v2:
+ * Add a macro kvm_pmu_get_irq_level() to avoid compile issues when PMU
+   support is disabled.
 ---
- drivers/perf/arm_pmu.c       | 15 +++++++++++++++
- include/linux/perf/arm_pmu.h |  5 +++++
- 2 files changed, 20 insertions(+)
+ arch/arm64/kvm/arm.c      | 11 +++++++++++
+ arch/arm64/kvm/guest.c    |  7 +++++++
+ arch/arm64/kvm/pmu-emul.c |  3 +++
+ arch/arm64/kvm/rme.c      |  8 ++++++++
+ arch/arm64/kvm/sys_regs.c |  2 +-
+ include/kvm/arm_pmu.h     |  4 ++++
+ 6 files changed, 34 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-index 398cce3d76fc..2cdcdda8f638 100644
---- a/drivers/perf/arm_pmu.c
-+++ b/drivers/perf/arm_pmu.c
-@@ -735,6 +735,21 @@ static int arm_perf_teardown_cpu(unsigned int cpu, struct hlist_node *node)
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 25239bf58715..1f3674e95f03 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -15,6 +15,7 @@
+ #include <linux/vmalloc.h>
+ #include <linux/fs.h>
+ #include <linux/mman.h>
++#include <linux/perf/arm_pmu.h>
+ #include <linux/sched.h>
+ #include <linux/kvm.h>
+ #include <linux/kvm_irqfd.h>
+@@ -1195,6 +1196,8 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 	run->exit_reason = KVM_EXIT_UNKNOWN;
+ 	run->flags = 0;
+ 	while (ret > 0) {
++		bool pmu_stopped = false;
++
+ 		/*
+ 		 * Check conditions before entering the guest
+ 		 */
+@@ -1226,6 +1229,11 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 		kvm_pmu_flush_hwstate(vcpu);
+ 
++		if (vcpu_is_rec(vcpu) && kvm_pmu_get_irq_level(vcpu)) {
++			pmu_stopped = true;
++			arm_pmu_set_phys_irq(false);
++		}
++
+ 		local_irq_disable();
+ 
+ 		kvm_vgic_flush_hwstate(vcpu);
+@@ -1328,6 +1336,9 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+ 
+ 		preempt_enable();
+ 
++		if (pmu_stopped)
++			arm_pmu_set_phys_irq(true);
++
+ 		/*
+ 		 * The ARMv8 architecture doesn't give the hypervisor
+ 		 * a mechanism to prevent a guest from dropping to AArch32 EL0
+diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+index d56ac89ca37a..da8961a5d01a 100644
+--- a/arch/arm64/kvm/guest.c
++++ b/arch/arm64/kvm/guest.c
+@@ -801,6 +801,8 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+ 	return kvm_arm_sys_reg_get_reg(vcpu, reg);
+ }
+ 
++#define KVM_REG_ARM_PMCR_EL0		ARM64_SYS_REG(3, 3, 9, 12, 0)
++
+ /*
+  * The RMI ABI only enables setting some GPRs and PC. The selection of GPRs
+  * that are available depends on the Realm state and the reason for the last
+@@ -815,6 +817,11 @@ static bool validate_realm_set_reg(struct kvm_vcpu *vcpu,
+ 		u64 off = core_reg_offset_from_id(reg->id);
+ 
+ 		return kvm_realm_validate_core_reg(off);
++	} else {
++		switch (reg->id) {
++		case KVM_REG_ARM_PMCR_EL0:
++			return true;
++		}
+ 	}
+ 
+ 	return false;
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 6c5950b9ceac..670e5d15ad92 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -377,6 +377,9 @@ static bool kvm_pmu_overflow_status(struct kvm_vcpu *vcpu)
+ {
+ 	u64 reg = __vcpu_sys_reg(vcpu, PMOVSSET_EL0);
+ 
++	if (vcpu_is_rec(vcpu))
++		return vcpu->arch.rec.run->exit.pmu_ovf_status;
++
+ 	reg &= __vcpu_sys_reg(vcpu, PMINTENSET_EL1);
+ 
+ 	/*
+diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+index e31d86e314dd..f83f34358832 100644
+--- a/arch/arm64/kvm/rme.c
++++ b/arch/arm64/kvm/rme.c
+@@ -370,6 +370,11 @@ static int realm_create_rd(struct kvm *kvm)
+ 	params->rtt_base = kvm->arch.mmu.pgd_phys;
+ 	params->vmid = realm->vmid;
+ 
++	if (kvm->arch.arm_pmu) {
++		params->pmu_num_ctrs = kvm->arch.pmcr_n;
++		params->flags |= RMI_REALM_PARAM_FLAG_PMU;
++	}
++
+ 	params_phys = virt_to_phys(params);
+ 
+ 	if (rmi_realm_create(rd_phys, params_phys)) {
+@@ -1489,6 +1494,9 @@ int kvm_create_rec(struct kvm_vcpu *vcpu)
+ 	if (!vcpu_has_feature(vcpu, KVM_ARM_VCPU_PSCI_0_2))
+ 		return -EINVAL;
+ 
++	if (vcpu->kvm->arch.arm_pmu && !kvm_vcpu_has_pmu(vcpu))
++		return -EINVAL;
++
+ 	BUILD_BUG_ON(sizeof(*params) > PAGE_SIZE);
+ 	BUILD_BUG_ON(sizeof(*rec->run) > PAGE_SIZE);
+ 
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index f6cd1ea7fb55..ed881725eb64 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1207,7 +1207,7 @@ static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+ 	 * implements. Ignore this error to maintain compatibility
+ 	 * with the existing KVM behavior.
+ 	 */
+-	if (!kvm_vm_has_ran_once(kvm) &&
++	if (!kvm_vm_has_ran_once(kvm) && !kvm_realm_is_created(kvm) &&
+ 	    new_n <= kvm_arm_pmu_get_max_counters(kvm))
+ 		kvm->arch.pmcr_n = new_n;
+ 
+diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
+index 147bd3ee4f7b..46a81f88d0bf 100644
+--- a/include/kvm/arm_pmu.h
++++ b/include/kvm/arm_pmu.h
+@@ -76,6 +76,8 @@ void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu);
+ void kvm_vcpu_pmu_restore_host(struct kvm_vcpu *vcpu);
+ void kvm_vcpu_pmu_resync_el0(void);
+ 
++#define kvm_pmu_get_irq_level(vcpu) ((vcpu)->arch.pmu.irq_level)
++
+ #define kvm_vcpu_has_pmu(vcpu)					\
+ 	(vcpu_has_feature(vcpu, KVM_ARM_VCPU_PMU_V3))
+ 
+@@ -162,6 +164,8 @@ static inline u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
  	return 0;
  }
  
-+void arm_pmu_set_phys_irq(bool enable)
-+{
-+	int cpu = get_cpu();
-+	struct arm_pmu *pmu = per_cpu(cpu_armpmu, cpu);
-+	int irq;
++#define kvm_pmu_get_irq_level(vcpu) (false)
 +
-+	irq = armpmu_get_cpu_irq(pmu, cpu);
-+	if (irq && !enable)
-+		per_cpu(cpu_irq_ops, cpu)->disable_pmuirq(irq);
-+	else if (irq && enable)
-+		per_cpu(cpu_irq_ops, cpu)->enable_pmuirq(irq);
-+
-+	put_cpu();
-+}
-+
- #ifdef CONFIG_CPU_PM
- static void cpu_pm_pmu_setup(struct arm_pmu *armpmu, unsigned long cmd)
- {
-diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
-index 4b5b83677e3f..6c2631e2cbd7 100644
---- a/include/linux/perf/arm_pmu.h
-+++ b/include/linux/perf/arm_pmu.h
-@@ -172,6 +172,7 @@ void kvm_host_pmu_init(struct arm_pmu *pmu);
- #endif
- 
- bool arm_pmu_irq_is_nmi(void);
-+void arm_pmu_set_phys_irq(bool enable);
- 
- /* Internal functions only for core arm_pmu code */
- struct arm_pmu *armpmu_alloc(void);
-@@ -182,6 +183,10 @@ void armpmu_free_irq(int irq, int cpu);
- 
- #define ARMV8_PMU_PDEV_NAME "armv8-pmu"
- 
-+#else /* CONFIG_ARM_PMU */
-+
-+static inline void arm_pmu_set_phys_irq(bool enable) {}
-+
- #endif /* CONFIG_ARM_PMU */
- 
- #define ARMV8_SPE_PDEV_NAME "arm,spe-v1"
+ #define kvm_vcpu_has_pmu(vcpu)		({ false; })
+ static inline void kvm_pmu_update_vcpu_events(struct kvm_vcpu *vcpu) {}
+ static inline void kvm_vcpu_pmu_restore_guest(struct kvm_vcpu *vcpu) {}
 -- 
 2.43.0
 
