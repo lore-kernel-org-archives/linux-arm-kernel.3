@@ -4,82 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E4BC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:00:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0996FC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:02:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ie3JzpPwAcx/4geWAE6zYb8hiTtsdSbYIX5JhTMAO3Q=; b=tbWqME4LHrqXLPSBKLsOrivczt
-	O3qRQ/1MEc5P1o5anECr2iVphx3pJc+ATsjBD1ktQSJa0vDpA9zvGAXe4UpR0s6k3e18pWGl47oYr
-	nzE1kQ9inV1CWmmkgqNAGJZ1ncDffMceLOyTHHB+RfX/ZITDGaUARXOH1mutAIjDBCK6VHGp9lhwH
-	BXm8PiYVtInytEbk8vluoN5oQUfUi4NrJJY21RfHeQZOSKVB4/R4V+B/9SZ/Z8HWm3uQH9nIUtAez
-	YOUv1lcgdJyXqzN9/LF9Gpz8usvvzCPCt1SCLIDgdSF3xpgmsVkz1XiPyhNduysO6NdcRu7LQm+x9
-	1TAnNBQg==;
+	bh=1CFBB5lObygAbTUsnAuTUNPnz4g5goUevyWdUtQNYNY=; b=deUZQXJLALXDwWC8NvTRA8qfDf
+	RArzBN4Tqk0bN0hYNSojA5v9sbBVSe4RZLxwpmfpaBfKymTV2Uyez0Yu5jsbgJh5LenMqpiJyyXZ3
+	UkvSfG7Gbz/vnJNXNbXoa+VlJSZShv+QOUQ9Q5swtR6D79q39QnIQPRoBM83oUlqkS9BARUK13r+D
+	HTsKDrJi4PHz1eU/9XY03lKmzutHkdb7pFEBipxm6z3xxWRjvU8q0+5FEmgcRfZov6oD0uFHBM9WD
+	aLhkSnbiU1ff162Wh9YukQsM5hC/J8Vd4L4MCpYXIBW3sCohqjOnkCzFyxqLDGcwKE/oml0VeCNIw
+	U5yWe93g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tidVl-0000000C78A-2iab;
-	Thu, 13 Feb 2025 18:00:29 +0000
-Received: from mail-qk1-f175.google.com ([209.85.222.175])
+	id 1tidXB-0000000C7SK-1S8W;
+	Thu, 13 Feb 2025 18:01:57 +0000
+Received: from mail-uksouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c205::1] helo=LO3P265CU004.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticj7-0000000BxI8-1Xmv
+	id 1ticlY-0000000Bxkp-3XaH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 17:10:14 +0000
-Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-7be49f6b331so107208985a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 09:10:12 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739466612; x=1740071412;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ie3JzpPwAcx/4geWAE6zYb8hiTtsdSbYIX5JhTMAO3Q=;
-        b=ioDJKwcVLfxZxqaaTk22cL42oHp+Y8qIVFvlCCmuqkpKONnGR1tRS8U0vs1loZDIL/
-         2+eJ5tBea24mO9bSQXT+3M7W18xKnwf9P0sWpcZp0LRr3DV/5HtcqZXTJTqcb4AnR30e
-         hUk0v2lPmyzcVeWkEFa8OiGtYWTfcDKEGBJEa+Qxk+dQkAqxqb7NNKIn9zw/IjQgcaTj
-         SFZD1nF0P6WzG2ujKYYh6fhFrnPAH0z+gU1ZrnkY4sWSj+3AAtxdBQ6Hgj7tC6AmY7ri
-         4/j+dmH2L3zD1TdmLwwDi28k1WN8w4VRUZf8jfmcCFaPGNcD9Xxz2Lm3ypZ6FE6cul2I
-         xMoA==
-X-Gm-Message-State: AOJu0Yxyp/HtwUGkBT19j0JZ0gg1cvZzGY6KIoE4hKgprIiIJ0K+O0rc
-	61oCP7iC9brldhXLRWmp1MPuoqtEcG+3NmVr+dmxJFRGo1GicFSNQ0AaL17OhtA=
-X-Gm-Gg: ASbGncsucFP15tFTgKwqZC+2oScwhCMoRDXkqLFim00cwgGfg9LO3slX9ylZXLJvLW8
-	qLEUjvyBj2A5ae9tAlsXuaQIvDvI8riFD4g0ZIzTS6ISj9dAZAYfH119TJO8I8GIUo37btQ7fT5
-	BhagMBRVk0MU0mWm8/GkUULHI1ZJg2zPluPiWL9h1rZ9vYYK9kC2VNa63coGhzztjaoKmcgSe+Y
-	jkHk25TePhmx5Lxb6nwHrv1NAwSMKgFER7WH62EPUGQ70xxk9la3ZiO7om+hn2YnlYaxEMXcb3d
-	OhPyCdXMk6AwdrQrsDGOXeYjJMkdQAIybFlQGBnVh0YnYPeqPwf+wgfu9Q==
-X-Google-Smtp-Source: AGHT+IG6URuXO1I2+4uOUc7mvVK+0dAbrfKslbRkQmJ8pDI2pu5y/GIwR4K73Fqh/tzjORI7XbP+NA==
-X-Received: by 2002:a05:620a:3908:b0:7c0:5eea:a70f with SMTP id af79cd13be357-7c06fce4b3dmr1103940985a.58.1739466611608;
-        Thu, 13 Feb 2025 09:10:11 -0800 (PST)
-Received: from mail-qk1-f169.google.com (mail-qk1-f169.google.com. [209.85.222.169])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c07c5f3608sm112256785a.8.2025.02.13.09.10.11
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Feb 2025 09:10:11 -0800 (PST)
-Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-7be8efa231aso123238985a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 09:10:11 -0800 (PST)
-X-Received: by 2002:a05:6214:c2e:b0:6d8:a8e1:b57b with SMTP id
- 6a1803df08f44-6e46edb2ea2mr147644036d6.36.1739466611109; Thu, 13 Feb 2025
- 09:10:11 -0800 (PST)
+	Thu, 13 Feb 2025 17:12:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FhKqf3HMHYrwklHmQKwk9VUxge7+FxKauCPEGWvOzp+PMY5nPIzUOrgUDHagNb1OH/wvzZCyezBZXa80Tjk0dEdyqIDnj465L1wxcOwP+9vwbsc9Dog+Fmuo52vMg/wysdiZ6pZx76g7pBZAAMOfw3YZ6H6tTPfPQn30t8wnVhkHcxDBF0KfZF59wwmAV/mmExPRoY2r2c1tRTJUXTGwUita0GuQewrS8EmoAjcKdiIyrbuQQeuMOueifBfmnrvcLWdJRcj5d8wf+Twf2cX5n60tyPmSJkwyubumA4eHBEz1Fn8xSczwjBx+ZSXzIy5EBBmLZdg0NGKCo85Rq6bRuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1CFBB5lObygAbTUsnAuTUNPnz4g5goUevyWdUtQNYNY=;
+ b=FzmVOexjgII1quq1oDE4x1oFjSgNg4SAFOikDZgtfsOVn2qBKK0D6TlR7ZOXZlqkuJ7eXtxLSjawjWq1kEedHUXfCuzCJnkSqx3ldnXJEf71rnywdW4JkvvzWSqr8zPnYg37iEWoty8RleYK3AC0SEM+hJiUaZJ5t1ZtbMbxlB2uGMuhZkkGxyyRU2BYW5/tC2ox+R5kptaLrBtF/Z96GEjv+52EQV7jVzgmAOHFMC2oRSe4JP2o46PAVEr/y0OjlmfgByRI1eCwIhQ+cICDhXpEufCTbOaW8TbSV5SjbgyW12wzu7w8mTqrdm1sTaNCeYW3/pSGyY3jIpRHpK1CrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
+ dkim=pass header.d=garyguo.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1CFBB5lObygAbTUsnAuTUNPnz4g5goUevyWdUtQNYNY=;
+ b=LYSm3GUjmyJHh7j5BpuQmuSaaapRc/WeoxfrvCdMRi9GkBhXGk5Ndb7Ylnx4eBgBnJsWpxFLKrjvhXLD0l+fnlMEywR4bWk0Y0kDkMxjmdVKqQvOG0VSGTi843Y1lAdQbcTBTtA//7uRDBm2NRJYwhL3H/j04v5Oq6zleg4dbCQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=garyguo.net;
+Received: from LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:253::10)
+ by CWLP265MB2787.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:a8::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.16; Thu, 13 Feb
+ 2025 17:12:39 +0000
+Received: from LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1818:a2bf:38a7:a1e7]) by LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::1818:a2bf:38a7:a1e7%4]) with mapi id 15.20.8445.015; Thu, 13 Feb 2025
+ 17:12:39 +0000
+Date: Thu, 13 Feb 2025 17:12:37 +0000
+From: Gary Guo <gary@garyguo.net>
+To: Ralf Jung <post@ralfj.de>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Alex Gaynor <alex.gaynor@gmail.com>, moderated for non-subscribers
+ <linux-arm-kernel@lists.infradead.org>, Boqun Feng <boqun.feng@gmail.com>,
+ =?UTF-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin
+ <benno.lossin@proton.me>, Andreas Hindborg <a.hindborg@kernel.org>, Alice
+ Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+ rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org,
+ patches@lists.linux.dev, stable@vger.kernel.org, Matthew Maurer
+ <mmaurer@google.com>, Jubilee Young <workingjubilee@gmail.com>
+Subject: Re: [PATCH] arm64: rust: clean Rust 1.85.0 warning using softfloat
+ target
+Message-ID: <20250213171237.08e0edec@eugeo>
+In-Reply-To: <9430b26a-8b2b-4ad8-b6b0-402871f2a977@ralfj.de>
+References: <20250210163732.281786-1-ojeda@kernel.org>
+	<CAMj1kXHgjwHkLsJkM3H2pjEPXDvD80V+XhH_Gsjv8N4Cf6Bvkw@mail.gmail.com>
+	<9430b26a-8b2b-4ad8-b6b0-402871f2a977@ralfj.de>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-pc-linux-gnu)
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO2P265CA0329.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:a4::29) To LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:253::10)
 MIME-Version: 1.0
-References: <20250209180616.160253-1-marek.vasut+renesas@mailbox.org> <20250209180616.160253-3-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20250209180616.160253-3-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 13 Feb 2025 18:09:58 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUC1F02oQ1pKZr5HY0sdKOFEQe8EcsccHZw1NcrRkdwsw@mail.gmail.com>
-X-Gm-Features: AWEUYZlXRfidZ9xD_oiptzCynSGorb02SKh9tpjqSsp_85FHqgD9O05IG1SQrx0
-Message-ID: <CAMuHMdUC1F02oQ1pKZr5HY0sdKOFEQe8EcsccHZw1NcrRkdwsw@mail.gmail.com>
-Subject: Re: [PATCH 3/3] arm64: dts: renesas: Add boot phase tags marking to
- Renesas RZ/G2
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Magnus Damm <magnus.damm@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LO2P265MB5183:EE_|CWLP265MB2787:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1862812c-3366-4604-063b-08dd4c519e62
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pIpMGcGpDiOHnjkan3y7P4yXOvw42Cqv/tS6gQS95aovnITsl5SK+IF+EcDV?=
+ =?us-ascii?Q?fIO70xpOJjbJbHar2qDrxyy+V8/ZrLsu4WviPGa4BOMnT7UP02hqlUihN8Bn?=
+ =?us-ascii?Q?BNHcp38auRM8+B0dyvA4qJ4h2oPwz8BJhZQJIbsXUcaB2SDU/aOzGUZnyvLm?=
+ =?us-ascii?Q?7CgqgqA80JavHEpUXOvoLEkpuKQSK/N4F8NOCig1XzfjX3PLVxH3AHWFqS8N?=
+ =?us-ascii?Q?MQzhqLHy9Qy+IhcePTfykK/qAVhdafoMT8156PQuBwU3lkH/pVnjlXnH1o5F?=
+ =?us-ascii?Q?3+yW465BcCfvGoehvF50ffHkLLrzKUMlz5ConrIOi8j2Y2u/YEM9smp/rP8A?=
+ =?us-ascii?Q?d9t82lLk3BHDWnJkAncS1XC3zxCb9OljcU2Js+2T9KNY2+t5OKtksDLrSz0P?=
+ =?us-ascii?Q?PBUFARSnM7Z6QjtuG4F7WIECFimWodM6GmgUsZ3eSVukN7TyX4ptbEna5pwi?=
+ =?us-ascii?Q?fDUDuSSpFN/PiKTGmvW3XNMJNgYkq1Jbi54dSYxN7EtTcJ1nKdo1eYxJ3gZj?=
+ =?us-ascii?Q?t49OAqY5rDfmmR4jrTLewoVMZxyUKy0DC4VfDXDIXzzuxRwgiV7tHGPCupZ7?=
+ =?us-ascii?Q?NAjDPQ6OAjCRtL1e8pxJmhYB/sy61ZqcuaA8UKIQgWx5dOCLgm3IO7G/sInJ?=
+ =?us-ascii?Q?8KbTKeSg1ddrOIIUegmQYxFLv+xct3HnCwWUtVACy0Tba0BF2SWicRtf7nd8?=
+ =?us-ascii?Q?L0HKQu8mjuwiJXmPnCuWC2pqnA5bAic/KkmAXF48RxWUQTTHW6Rz5RM8+Z6z?=
+ =?us-ascii?Q?iTGvJZxSrMJkVWNCOboG1mEXsi1EMES43MxW4CASmBN0VYI3CM5UL1r+Cftw?=
+ =?us-ascii?Q?NrgCpLdAfdEfW5FkKd+RNTwAlx0XGMu/YYyv+Y/LKjPMqMyUNQuVCsyNCtFm?=
+ =?us-ascii?Q?YLAloeTKmKLPoTo5kBXgW/iFCAxmoWxUCbHQiXnWpkQ2fkncQ5MgU1GvB1mF?=
+ =?us-ascii?Q?6AOwAujNfy68ojce4DViGdHQPEBIkjTt/lQd1MczhtGjG00IFBq7+4tNn/jP?=
+ =?us-ascii?Q?EWXeiERypKy3+TyqV7hj3DnpT4YalaPsus1LIMJXLjauloD8mc7Cm8LOVkCe?=
+ =?us-ascii?Q?+pHX9s4MOkgdhZtKIPhMJjHKTfi1H80RwF1WtZUaiyNFtBHE1VHx5WukBFjS?=
+ =?us-ascii?Q?1fjW8/K1eUPJnkw+w8Ie14f2Ts5+H67Jc5qOrz25OkTdrn0mPficmyPM+2tg?=
+ =?us-ascii?Q?3BswkhXmX/sCE9WbAz+rDfc+I9CoPG8JB83oFNcUxxvcVMybl81NYWHME+DD?=
+ =?us-ascii?Q?kYwXQ/2ONDBvDep8OntXLRK5rIM+fTeADDmuB0agHrfpMiqme34q8WePgxst?=
+ =?us-ascii?Q?SpCl2eiYZRHfimmKlfoLnVgrix4e+lwx2tVYqUCVAkgjjnj3L7DcwjgsvisI?=
+ =?us-ascii?Q?DSB4ATS/yvCnYk/jDL6zOA9wxYLv?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?npybuBDwlPeLUwIouI0XB8B9Guc/xAEyu+L4+sgbLSDwyeRj0jlKa+edsxCH?=
+ =?us-ascii?Q?HmnOWnkH9f7CE82lEabqsQHONR3ZCdiN9pTfuYa7+Jw4Oxk4PF45nwlH1qZL?=
+ =?us-ascii?Q?BKKohNftwvxmNmTVcAxzajyaaXEddNpHIaJ9pMBl9VBulQO1jrkB9rnZ19bc?=
+ =?us-ascii?Q?5cejU/zA9zjS3UL6wPsBjrqgZAaJl83iMyMDEpXhlsPcm+pwnyMHO1ObUih9?=
+ =?us-ascii?Q?LNyKgSZQJ6v954tach5+jvkMtsAU5VI9G9hGD/PU65dRmEwqDOOrLs5928MP?=
+ =?us-ascii?Q?UTaSSGH9OXJciVyoGk6n0uiIwe3zSbjVKTNxD3I29d47xHD67mhND6zhtdAj?=
+ =?us-ascii?Q?OkxTX7yccB/0EVikx/JMeDIbkGo84hvFdamhM+yuzml4jYJX6xKCU8NEBuq+?=
+ =?us-ascii?Q?nUqa25A6GtXtqeSJfk/UjZi/HKoOLVGrkOkGg4QNPUzx0LDaOafETJo5BW0D?=
+ =?us-ascii?Q?ZH84WNdXaBICAux0kyor811XShQeGRYpS8xZZRCxq9M867/FoXWdoNzb3aRc?=
+ =?us-ascii?Q?vAUbbaldcOT4UjhBnx0qLSchW3oF1u5cs7BB4jpY2Wvk7MnNb+bgMoA5WlyH?=
+ =?us-ascii?Q?6wZuoMAki0jlLtX3kp5zB8Z0KUUWEhDNyMkciE6RDXUPX57fW/0pUJ1Vhk+f?=
+ =?us-ascii?Q?t5gy6KVcfn0aOiF8rtoFmpd17SXKCKJ8q45UWy3CwnCpJSYt9jnj9i8gOfka?=
+ =?us-ascii?Q?MPmUNbpqHZVDZqGcKLMQswuLO4rK+8weesgAJQ23Dy1zoRpHwHw8RbBV7Mm/?=
+ =?us-ascii?Q?Y3CIgzPihq3nMlr1l57Tw+s1OQnI+DeIpB2GQGqbUJQ4WavLsQ8cwpaC23Rr?=
+ =?us-ascii?Q?9A6cLH4Jsgf7QSmI/ig+DBSCKoVq59ABgkVqcJ8lilh25vH2lpjv6oDTbKDH?=
+ =?us-ascii?Q?HRvDDO7L63Vu5/NXhWaZroOCbG2Nzk2XLJ0Qb18YfX0HGoy9r6Lf24UjLtL+?=
+ =?us-ascii?Q?495rj2+NTLLhgejlz5MLA+ikRMAv+scMYHOhl37RJvT7isMyVc9E53v8yrhp?=
+ =?us-ascii?Q?zgH8ubvasor3X+9ih4H4uSGHBVNzbVcise0aya7Y6+rKAvCyedOtmHC2mRsq?=
+ =?us-ascii?Q?P0QNuJi1EGgj6ue/67kHvY1gy6hywZZq+oXTNrThUKksTzgKlZjtPIxgPubz?=
+ =?us-ascii?Q?UjmNKK/SBpY55Bbal8M41/mdVpJ8ZnBJVmWoRlKpI5xveKF1sdtZ/7U5s4e+?=
+ =?us-ascii?Q?lMjWjt5Wdxv6pQRO7GpAadtVisKVVEkatUVlHHdsLBHQqOQZl6q/lqQ7jGvn?=
+ =?us-ascii?Q?vUDHL6v9VlGnKwviO9DVvzryJhYisY3+xUvp6XXykcto0Mv8loZROZooCKx+?=
+ =?us-ascii?Q?X+1rwNaT6XHEd2cT6BhRmkIp4Yl4OppGxY2IlPW+R4hTUfkgKxJVbJ5QKRmP?=
+ =?us-ascii?Q?MD2Pl8EMuH2Wy5q2SQXbwXTNO2HSCLBzErMHFhif65nuhfYoC+9SCZJ2Oz43?=
+ =?us-ascii?Q?TV2TM8tI18fl222awBNGy/SA8dp8ag4YyCTx57G8M1klkAwN7gZgOnk8Tbyd?=
+ =?us-ascii?Q?DQBkuo2QNitFmEjJq441sylSOWOy3ILD8CPzr6XQBboEdrr2SyHaZDR5Uf5S?=
+ =?us-ascii?Q?ZoeL2q01kHLrfpB7k7CJ2UHl/avusR5fdamx9MN1?=
+X-OriginatorOrg: garyguo.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1862812c-3366-4604-063b-08dd4c519e62
+X-MS-Exchange-CrossTenant-AuthSource: LO2P265MB5183.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Feb 2025 17:12:39.1664
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zO/Aqj0AskxAtRdBjxkPhazyAb5+he31RDPyMPSlEImsHWF/KafA3A0d+EtHggYihPfkLksanohcr1i0A/CHWA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CWLP265MB2787
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_091013_406016_B085AB9E 
-X-CRM114-Status: GOOD (  22.82  )
+X-CRM114-CacheID: sfid-20250213_091244_905081_F5395115 
+X-CRM114-Status: GOOD (  31.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,49 +167,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+On Thu, 13 Feb 2025 16:46:22 +0100
+Ralf Jung <post@ralfj.de> wrote:
 
-On Sun, 9 Feb 2025 at 19:06, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> bootph-all as phase tag was added to dt-schema (dtschema/schemas/bootph.yaml)
-> to describe various node usage during boot phases with DT. Add bootph-all for
-> all nodes that are used in the bootloader on Renesas RZ/G2 SoC.
->
-> All SoC require CPG clock and its input clock, RST Reset, PFC pin control and
-> PRR ID register access during all stages of the boot process, those are marked
-> using bootph-all property, and so is the SoC bus node which contains these IP.
->
-> Each board console UART is also marked as bootph-all to make it available in
-> all stages of the boot process.
->
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> Hi all,
+> 
+> > We have to carefully make the distinction here between codegen and ABI.
+> > 
+> > The arm64 C code in the kernel is built with -mgeneral-regs-only
+> > because FP/SIMD registers are not preserved/restored like GPRs, and so
+> > they must be used only in carefully controlled circumstances, i.e., in
+> > assembler code called under kernel_neon_begin()/kernel_neon_end()
+> > [modulo some exceptions related to NEON intrinsics]
+> > 
+> > This does not impact the ABI, which remains hard-float [this was the
+> > only arm64 calling convention that existed until about a year ago].
+> > Any function that takes or returns floats or doubles (or NEON
+> > intrinsic types) is simply rejected by the compiler.  
+> 
+> That's how C works. It is not how Rust works. Rust does not reject using floats 
+> ever. Instead, Rust offers softfloat targets where you can still use floats, but 
+> it won't use float registers. Obviously, that needs to use a different ABI.
 
-Thanks for your patch!
+That's today's situation, although we do prefer to be able to turn off
+floats completely (and also not have to compile parts of libcore that's
+related to floats).
 
->  arch/arm64/boot/dts/renesas/beacon-renesom-som.dtsi | 1 +
->  arch/arm64/boot/dts/renesas/hihope-common.dtsi      | 1 +
->  arch/arm64/boot/dts/renesas/r8a774a1.dtsi           | 8 ++++++++
->  arch/arm64/boot/dts/renesas/r8a774b1.dtsi           | 8 ++++++++
->  arch/arm64/boot/dts/renesas/r8a774c0-cat874.dts     | 1 +
->  arch/arm64/boot/dts/renesas/r8a774c0.dtsi           | 7 +++++++
->  arch/arm64/boot/dts/renesas/r8a774e1.dtsi           | 8 ++++++++
+We mentioned this to the lang team a couple of times, and they do
+acknolwedge there might be a need for it, although it's not something
+that today's Rust can handle well (i.e. no feature disabling for
+libcore).
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v6.15.
+We have also listed this in
+https://github.com/Rust-for-Linux/linux/issues/2 and
+https://github.com/Rust-for-Linux/linux/issues/514.
 
->  arch/arm64/boot/dts/renesas/rz-smarc-common.dtsi    | 1 +
+> As you said, aarch64 does not have an official softfloat ABI, but LLVM 
+> implements a de-facto softfloat ABI if you ask it to generate functions that 
+> take/return float types while disabling the relevant target features. (Maybe 
+> LLVM should just refuse to generate such code, and then Rust may have ended up 
+> with a different design. But now this would all be quite tricky to change.)
+> 
+> > Changing this to softfloat for Rust modifies this calling convention,
+> > i.e., it will result in floats and doubles being accepted as function
+> > parameters and return values, but there is no code in the kernel that
+> > actually supports/implements that.  
+> 
+> As explained above, f32/f64 were already accepted as function parameters and 
+> return values in Rust code before this change. So this patch does not change 
+> anything here. (In fact, the ABI used for these functions should be exactly the 
+> same before and after this patch.)
+> 
+> > Also, it should be clarified
+> > whether using a softfloat ABI permits the compiler to use FP/SIMD
+> > registers in codegen. We might still need -Ctarget-feature="-neon"
+> > here afaict.  
+> 
+> Rust's softfloat targets do not use FP/SIMD registers by default. Ideally these 
+> targets allow selectively using FP/SIMD registers within certain functions; for 
+> aarch64, this is not properly supported by LLVM and therefore Rust.
+> 
+> > Ideally, we'd have a target/target-feature combo that makes this more
+> > explicit: no FP/SIMD codegen at all, without affecting the ABI,
+> > therefore making float/double types in function prototypes illegal.
+> > AIUI, this change does something different.  
+> 
+> Having targets without float support would be a significant departure from past 
+> language decisions in Rust -- that doesn't mean it's impossible, but it would 
+> require a non-trivial effort (starting with an RFC to lay down the motivation 
+> and design).
+> 
+> Kind regards,
+> Ralf
+> 
+> 
 
-I will drop this part, as it is not related to RZ/G2, but belongs to
-the RZ/G2L family, for which I expect a (larger) separate patch ;-)
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
