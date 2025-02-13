@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A705C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 13:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16B4C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 13:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vEqHYah2qP1v0vIIHodnQ4Ix31VPIWVY8Rv8d3MGHgk=; b=MaP/DGIwbVe94QPTCFjp8negU5
-	h6rnLA9Yl20YFJMf793v5DQYFb+/BVhZH5BcHVmWhSHxttNKjbvsut+PeEJ5v+yLrTPICajvpxj5z
-	k2EBZtg5NrLh+OS4xmPxQpM9SQxulI7gjtOmNibhTJo6HRCs/EAN43xkLCtNGG1kfaIq6De6p6c0P
-	XGwSMnkEyvv0mDuPrvXqkeT1QImDaQxMghwJgkh/Bbe5kT5GGYFKMmnWtAR38b/JSE8nwRAXPorbm
-	Yqdg0JpbriAg6Pi+YR7hSW2skua5h9o8ohQ6qZjhyRTe46RwrA869PgGsK5X1eAh8ZNS8Mbna07zk
-	BC75yzqQ==;
+	bh=bkaMhcNmEWpgp1MChWKWck85+/ejIU8zUdpdj5tOMuo=; b=GqUlKZgixMHQgyfZU1hOETiUDL
+	9bQzsquJWimUsIaHMGyhKl+91w9Qd/i69NlKj97pkyIk6PpGe7mmh0ELuLJA8Bb2jhNEN57cieDCY
+	VpogzllIghjGWEfCAfcZLKRwbhSf6sABevF+ONX9uF8W9h/3psZ0p6Ld0z1ue590BnXelXoc0o1sH
+	tLPLXmjOxH+um6f86yaTzcFTDuGzpgbRdXnOJ7OIY+a+jvIedtI8y4z62REGkFil+TKctvYgIcOnd
+	bzwqVH5n+mxZy8jQlW/+UfA0cDVoZTMZbLNvWI3vA3vOIHQbSrSFYNiJ0fIqKmNRBCCxzUDOnIoLe
+	k/9UI1RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZ1t-0000000B773-0t71;
-	Thu, 13 Feb 2025 13:13:21 +0000
+	id 1tiZ3I-0000000B7H7-0AjD;
+	Thu, 13 Feb 2025 13:14:48 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYqr-0000000B52A-42fY
+	id 1tiYqr-0000000B52B-43Fs
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 13 Feb 2025 13:01:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=vEqHYah2qP1v0vIIHodnQ4Ix31VPIWVY8Rv8d3MGHgk=; b=hCfSmQmMFbaqA++TNVMHK5iPtf
-	vKnafqTQzl70AYFlgZOSrj3kuFyiUuhyh2tRqygmEHhqqLxIPW/NT8orti4nqdYDhqLqh1xd6H/pr
-	JN/hc+PluMmIriUwv5w6te+HsGXVe8i0SX60cuEJeAOD9S4k6rM/uHsZpINAiaBuSLX1Aq+rPhPIg
-	utCwIE+iiUQQcSZwRvfn0wYHc5VzTEzev692JiKGdRilVWJ/bttescFUDaSORY18as+fPQ0Suefip
-	TVqd6vCQt9v6ancXC+sLvXRuhWJtAsGhZNplLzU3CsnoOi0mF1sPrMzSW3XrOxxjVQsUU/NiCFV/v
-	yyZmxOyA==;
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	bh=bkaMhcNmEWpgp1MChWKWck85+/ejIU8zUdpdj5tOMuo=; b=J7mVStZLX1nUMAaUg7KksdWjaw
+	xdHcxcjn0hNK15k1caCaUttGpmtaQyDAJcE5ax9QOSd35X6EGfMFQGXs4j5IafpcGH+DB6nwNbCnS
+	Ly3WZtRJgJrlVd3Z2gkiWb9sTFtcdpxpHwlVVawn7tg4heCO2LXQ4ZDfr2sBL0+Y4aoUVLq66eIud
+	7e8V6rUuOIwoNnFF8pRMWxU1PQrRhqc076mG3dHdm+9pdkfFsgVLXQYzDEJGq5PQ9Qt68EtrwbHrd
+	ZL6swyw/o0oMMZPUudSHhDQrwcFZw8Q+YODBz5g9yeVO0K8tSxKVH/AOe/7X1cCuCf1TLs6+5w2wx
+	GS04taRA==;
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYqo-00000000zkx-0YdA
+	id 1tiYqm-00000000zkW-3krv
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 13 Feb 2025 13:01:56 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4YtwLq73fsz20qN4;
-	Thu, 13 Feb 2025 21:02:11 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4YtwFn2H2dz1ltXq;
+	Thu, 13 Feb 2025 20:57:49 +0800 (CST)
 Received: from kwepemg200008.china.huawei.com (unknown [7.202.181.35])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4DDA01A016C;
-	Thu, 13 Feb 2025 21:01:42 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 5E36A1A0188;
+	Thu, 13 Feb 2025 21:01:36 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by kwepemg200008.china.huawei.com
  (7.202.181.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 13 Feb
- 2025 21:01:40 +0800
+ 2025 21:01:34 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
 	<sstabellini@kernel.org>, <tglx@linutronix.de>, <peterz@infradead.org>,
@@ -69,9 +69,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
 	<Dave.Martin@arm.com>, <joey.gouly@arm.com>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <xen-devel@lists.xenproject.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH -next v6 7/8] arm64: entry: Move arm64_preempt_schedule_irq() into __exit_to_kernel_mode()
-Date: Thu, 13 Feb 2025 21:00:06 +0800
-Message-ID: <20250213130007.1418890-8-ruanjinjie@huawei.com>
+Subject: [PATCH -next v6 2/8] arm64: ptrace: Replace interrupts_enabled() with regs_irqs_disabled()
+Date: Thu, 13 Feb 2025 21:00:01 +0800
+Message-ID: <20250213130007.1418890-3-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250213130007.1418890-1-ruanjinjie@huawei.com>
 References: <20250213130007.1418890-1-ruanjinjie@huawei.com>
@@ -82,8 +82,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
  kwepemg200008.china.huawei.com (7.202.181.35)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_130155_398421_BEE814B8 
-X-CRM114-Status: GOOD (  24.30  )
+X-CRM114-CacheID: sfid-20250213_130155_395448_6D9D417F 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,177 +98,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The arm64 entry code only preempts a kernel context upon a return from
-a regular IRQ exception. The generic entry code may preempt a kernel
-context for any exception return where irqentry_exit() is used, and so
-may preempt other exceptions such as faults.
+The generic entry code expects architecture code to provide
+regs_irqs_disabled(regs) function, but arm64 does not have this and
+provides inerrupts_enabled(regs), which has the opposite polarity.
 
-In preparation for moving arm64 over to the generic entry code, align
-arm64 with the generic behaviour by calling
-arm64_preempt_schedule_irq() from exit_to_kernel_mode(). To make this
-possible, arm64_preempt_schedule_irq()
-and dynamic/raw_irqentry_exit_cond_resched() are moved earlier in
-the file, with no changes.
+In preparation for moving arm64 over to the generic entry code,
+relace arm64's interrupts_enabled() with regs_irqs_disabled() and
+update its callers under arch/arm64.
 
-As Mark pointed out, this change will have the following 2 key impact:
+For the moment, a definition of interrupts_enabled() is provided for
+the GICv3 driver. Once arch/arm implement regs_irqs_disabled(), this
+can be removed.
 
-- " We'll preempt even without taking a "real" interrupt. That
-    shouldn't result in preemption that wasn't possible before,
-    but it does change the probability of preempting at certain points,
-    and might have a performance impact, so probably warrants a
-    benchmark."
+Delete the fast_interrupts_enabled() macro as it is unused and we
+don't want any new users to show up.
 
-- " We will not preempt when taking interrupts from a region of kernel
-    code where IRQs are enabled but RCU is not watching, matching the
-    behaviour of the generic entry code.
+No functional changes.
 
-    This has the potential to introduce livelock if we can ever have a
-    screaming interrupt in such a region, so we'll need to go figure out
-    whether that's actually a problem.
-
-    Having this as a separate patch will make it easier to test/bisect
-    for that specifically."
-
+Acked-by: Mark Rutland <mark.rutland@arm.com>
 Suggested-by: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
 v6:
-- Update the commit message.
+- Define regs_irqs_disabled() by inline function.
+- Define interrupts_enabled() in terms of regs_irqs_disabled().
+- Delete the fast_interrupts_enabled() macro.
 ---
- arch/arm64/kernel/entry-common.c | 92 ++++++++++++++++----------------
- 1 file changed, 46 insertions(+), 46 deletions(-)
+ arch/arm64/include/asm/daifflags.h  | 2 +-
+ arch/arm64/include/asm/ptrace.h     | 9 +++++----
+ arch/arm64/include/asm/xen/events.h | 2 +-
+ arch/arm64/kernel/acpi.c            | 2 +-
+ arch/arm64/kernel/debug-monitors.c  | 2 +-
+ arch/arm64/kernel/entry-common.c    | 4 ++--
+ arch/arm64/kernel/sdei.c            | 2 +-
+ 7 files changed, 12 insertions(+), 11 deletions(-)
 
+diff --git a/arch/arm64/include/asm/daifflags.h b/arch/arm64/include/asm/daifflags.h
+index fbb5c99eb2f9..5fca48009043 100644
+--- a/arch/arm64/include/asm/daifflags.h
++++ b/arch/arm64/include/asm/daifflags.h
+@@ -128,7 +128,7 @@ static inline void local_daif_inherit(struct pt_regs *regs)
+ {
+ 	unsigned long flags = regs->pstate & DAIF_MASK;
+ 
+-	if (interrupts_enabled(regs))
++	if (!regs_irqs_disabled(regs))
+ 		trace_hardirqs_on();
+ 
+ 	if (system_uses_irq_prio_masking())
+diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+index 47ff8654c5ec..8b915d4a9d4b 100644
+--- a/arch/arm64/include/asm/ptrace.h
++++ b/arch/arm64/include/asm/ptrace.h
+@@ -214,11 +214,12 @@ static inline void forget_syscall(struct pt_regs *regs)
+ 		(regs)->pmr == GIC_PRIO_IRQON :				\
+ 		true)
+ 
+-#define interrupts_enabled(regs)			\
+-	(!((regs)->pstate & PSR_I_BIT) && irqs_priority_unmasked(regs))
++static __always_inline bool regs_irqs_disabled(const struct pt_regs *regs)
++{
++	return (regs->pstate & PSR_I_BIT) || !irqs_priority_unmasked(regs);
++}
+ 
+-#define fast_interrupts_enabled(regs) \
+-	(!((regs)->pstate & PSR_F_BIT))
++#define interrupts_enabled(regs)	(!regs_irqs_disabled(regs))
+ 
+ static inline unsigned long user_stack_pointer(struct pt_regs *regs)
+ {
+diff --git a/arch/arm64/include/asm/xen/events.h b/arch/arm64/include/asm/xen/events.h
+index 2788e95d0ff0..2977b5fe068d 100644
+--- a/arch/arm64/include/asm/xen/events.h
++++ b/arch/arm64/include/asm/xen/events.h
+@@ -14,7 +14,7 @@ enum ipi_vector {
+ 
+ static inline int xen_irqs_disabled(struct pt_regs *regs)
+ {
+-	return !interrupts_enabled(regs);
++	return regs_irqs_disabled(regs);
+ }
+ 
+ #define xchg_xen_ulong(ptr, val) xchg((ptr), (val))
+diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
+index e6f66491fbe9..732f89daae23 100644
+--- a/arch/arm64/kernel/acpi.c
++++ b/arch/arm64/kernel/acpi.c
+@@ -403,7 +403,7 @@ int apei_claim_sea(struct pt_regs *regs)
+ 	return_to_irqs_enabled = !irqs_disabled_flags(arch_local_save_flags());
+ 
+ 	if (regs)
+-		return_to_irqs_enabled = interrupts_enabled(regs);
++		return_to_irqs_enabled = !regs_irqs_disabled(regs);
+ 
+ 	/*
+ 	 * SEA can interrupt SError, mask it and describe this as an NMI so
+diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
+index 58f047de3e1c..460c09d03a73 100644
+--- a/arch/arm64/kernel/debug-monitors.c
++++ b/arch/arm64/kernel/debug-monitors.c
+@@ -231,7 +231,7 @@ static void send_user_sigtrap(int si_code)
+ 	if (WARN_ON(!user_mode(regs)))
+ 		return;
+ 
+-	if (interrupts_enabled(regs))
++	if (!regs_irqs_disabled(regs))
+ 		local_irq_enable();
+ 
+ 	arm64_force_sig_fault(SIGTRAP, si_code, instruction_pointer(regs),
 diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index 1b4936d4cf6e..7056c584f59c 100644
+index b260ddc4d3e9..c547e70428d3 100644
 --- a/arch/arm64/kernel/entry-common.c
 +++ b/arch/arm64/kernel/entry-common.c
-@@ -75,6 +75,49 @@ static noinstr arm64_irqentry_state_t enter_from_kernel_mode(struct pt_regs *reg
- 	return state;
- }
- 
-+static inline bool arm64_preempt_schedule_irq(void)
-+{
-+	/*
-+	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
-+	 * priority masking is used the GIC irqchip driver will clear DAIF.IF
-+	 * using gic_arch_enable_irqs() for normal IRQs. If anything is set in
-+	 * DAIF we must have handled an NMI, so skip preemption.
-+	 */
-+	if (system_uses_irq_prio_masking() && read_sysreg(daif))
-+		return false;
-+
-+	/*
-+	 * Preempting a task from an IRQ means we leave copies of PSTATE
-+	 * on the stack. cpufeature's enable calls may modify PSTATE, but
-+	 * resuming one of these preempted tasks would undo those changes.
-+	 *
-+	 * Only allow a task to be preempted once cpufeatures have been
-+	 * enabled.
-+	 */
-+	if (!system_capabilities_finalized())
-+		return false;
-+
-+	return true;
-+}
-+
-+void raw_irqentry_exit_cond_resched(void)
-+{
-+	if (!preempt_count()) {
-+		if (need_resched() && arm64_preempt_schedule_irq())
-+			preempt_schedule_irq();
-+	}
-+}
-+
-+#ifdef CONFIG_PREEMPT_DYNAMIC
-+DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
-+void dynamic_irqentry_exit_cond_resched(void)
-+{
-+	if (!static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
-+		return;
-+	raw_irqentry_exit_cond_resched();
-+}
-+#endif
-+
- /*
-  * Handle IRQ/context state management when exiting to kernel mode.
-  * After this function returns it is not safe to call regular kernel code,
-@@ -97,6 +140,9 @@ static __always_inline void __exit_to_kernel_mode(struct pt_regs *regs,
- 			return;
- 		}
- 
-+		if (IS_ENABLED(CONFIG_PREEMPTION))
-+			irqentry_exit_cond_resched();
-+
- 		trace_hardirqs_on();
- 	} else {
- 		if (state.exit_rcu)
-@@ -281,31 +327,6 @@ static void noinstr arm64_exit_el1_dbg(struct pt_regs *regs,
- 		lockdep_hardirqs_on(CALLER_ADDR0);
- }
- 
--static inline bool arm64_preempt_schedule_irq(void)
--{
--	/*
--	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
--	 * priority masking is used the GIC irqchip driver will clear DAIF.IF
--	 * using gic_arch_enable_irqs() for normal IRQs. If anything is set in
--	 * DAIF we must have handled an NMI, so skip preemption.
--	 */
--	if (system_uses_irq_prio_masking() && read_sysreg(daif))
--		return false;
--
--	/*
--	 * Preempting a task from an IRQ means we leave copies of PSTATE
--	 * on the stack. cpufeature's enable calls may modify PSTATE, but
--	 * resuming one of these preempted tasks would undo those changes.
--	 *
--	 * Only allow a task to be preempted once cpufeatures have been
--	 * enabled.
--	 */
--	if (!system_capabilities_finalized())
--		return false;
--
--	return true;
--}
--
- static void do_interrupt_handler(struct pt_regs *regs,
- 				 void (*handler)(struct pt_regs *))
+@@ -73,7 +73,7 @@ static __always_inline void __exit_to_kernel_mode(struct pt_regs *regs)
  {
-@@ -565,24 +586,6 @@ static __always_inline void __el1_pnmi(struct pt_regs *regs,
- 	arm64_exit_nmi(regs, state);
- }
+ 	lockdep_assert_irqs_disabled();
  
--void raw_irqentry_exit_cond_resched(void)
--{
--	if (!preempt_count()) {
--		if (need_resched() && arm64_preempt_schedule_irq())
--			preempt_schedule_irq();
--	}
--}
--
--#ifdef CONFIG_PREEMPT_DYNAMIC
--DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
--void dynamic_irqentry_exit_cond_resched(void)
--{
--	if (!static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
--		return;
--	raw_irqentry_exit_cond_resched();
--}
--#endif
--
- static __always_inline void __el1_irq(struct pt_regs *regs,
- 				      void (*handler)(struct pt_regs *))
+-	if (interrupts_enabled(regs)) {
++	if (!regs_irqs_disabled(regs)) {
+ 		if (regs->exit_rcu) {
+ 			trace_hardirqs_on_prepare();
+ 			lockdep_hardirqs_on_prepare();
+@@ -569,7 +569,7 @@ static void noinstr el1_interrupt(struct pt_regs *regs,
  {
-@@ -592,9 +595,6 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
- 	do_interrupt_handler(regs, handler);
- 	irq_exit_rcu();
+ 	write_sysreg(DAIF_PROCCTX_NOIRQ, daif);
  
--	if (IS_ENABLED(CONFIG_PREEMPTION))
--		irqentry_exit_cond_resched();
--
- 	exit_to_kernel_mode(regs, state);
- }
- static void noinstr el1_interrupt(struct pt_regs *regs,
+-	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && !interrupts_enabled(regs))
++	if (IS_ENABLED(CONFIG_ARM64_PSEUDO_NMI) && regs_irqs_disabled(regs))
+ 		__el1_pnmi(regs, handler);
+ 	else
+ 		__el1_irq(regs, handler);
+diff --git a/arch/arm64/kernel/sdei.c b/arch/arm64/kernel/sdei.c
+index 255d12f881c2..27a17da635d8 100644
+--- a/arch/arm64/kernel/sdei.c
++++ b/arch/arm64/kernel/sdei.c
+@@ -247,7 +247,7 @@ unsigned long __kprobes do_sdei_event(struct pt_regs *regs,
+ 	 * If we interrupted the kernel with interrupts masked, we always go
+ 	 * back to wherever we came from.
+ 	 */
+-	if (mode == kernel_mode && !interrupts_enabled(regs))
++	if (mode == kernel_mode && regs_irqs_disabled(regs))
+ 		return SDEI_EV_HANDLED;
+ 
+ 	/*
 -- 
 2.34.1
 
