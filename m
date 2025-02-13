@@ -4,81 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47A23C021A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 07:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF6FC021A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 07:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D9ovBsZSJuez5zAuy/n3JYxuKYVqIz9lQR/+HvKF74A=; b=PSTJ65p+1+93zgHyNOd/PoYfDP
-	iQ7lPf2YNSC5OkeyThji6/Qcd7d/I0ZgxG2rpfyAaBOkpiSWIqJR0FB8QfRZEvM/LdZe4Re8FpwoN
-	gOIJIvU9dsTSrPId1J8bB5IL3U4vsw3oyX27W1Q6FMBgkqAeb1zvKL4dSuyJ+8MigRHnvAyIFgG2i
-	kObhSB34tkJswD4nrc61kWmMelxBbG3R5qN+hekjhqeQxYxaG2D5kODxtTyRFBUsOfIcu4oabA5id
-	yXEAY2ucRwoSS9mZe2tF4mw9koJ2xHuj/+WtYxNAxbBu4HkTtOMJPRljd7W/AobQnMV6CCLbzsOUp
-	7aQz0Lzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kUlydEpuFrGUrydFPT1DYlM8hxRj3C3viQCBSEEaXH0=; b=4fFQ4sOH8xIsd1pyFbgny/pMSq
+	yUU0uWcxoaahDok/CJT9yEQlu/xcbn0exTjoSlAvx81vrzDQLz3V/21nKZXbfyEMaHeQs0Bsp7xcu
+	IXyTigeH4dMPuP4CBgPavokU0Kaq3c1Nw8exX9LHOs9gtM7a1JI+Xu6CRV5JBXNcpJhcMwkOe5SQ5
+	lqsJjfZ+mdC3B3bZhuGYg23G+T7nyVeJYpFBPClQrI0wzTVF6rB9P9NOp2Zh1JjMGRrp5q5ScdHC3
+	yA3AomlTmB0T8HtlAoqnCfy4XN57d2wR5miaEDsuMEO8PqcU6WU3j97cDpmmuwQlyVoab1t3bcOdn
+	J5o/SALQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiTXK-0000000A4ZI-3SPm;
-	Thu, 13 Feb 2025 07:21:26 +0000
-Received: from mail.avm.de ([212.42.244.120])
+	id 1tiTYi-0000000A4mG-2cV9;
+	Thu, 13 Feb 2025 07:22:52 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiTVt-0000000A4KI-1HYu
+	id 1tiTWM-0000000A4Qm-0V9n
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 07:19:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=avm.de; s=mail;
-	t=1739431188; bh=+UmDyGFYqbRGqxiUXDzk0wYia4DEJ/qtggUagtruh1U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OHgeQudZxxT0wgi5FGAagv7q2QLFdFIkd0t7eygA7wxw/marKM8WnD45X7azm8HUM
-	 31EnxHXdDNyET2f/Y/k98z4tGVCY2lYF5djVeG+CkfRgpvh9dAeohwS1GgQ4F+LZK3
-	 zzyqrcRmkF8IiVKSYPI8wXg1bR22JFIxo0Lypzwg=
-Received: from [212.42.244.71] (helo=mail.avm.de)
-	by mail.avm.de with ESMTP (eXpurgate 4.52.1)
-	(envelope-from <n.schier@avm.de>)
-	id 67ad9d14-038b-7f0000032729-7f0000018ad4-1
-	for <multiple-recipients>; Thu, 13 Feb 2025 08:19:48 +0100
-Received: from mail-auth.avm.de (dovecot-mx-01.avm.de [212.42.244.71])
-	by mail.avm.de (Postfix) with ESMTPS;
-	Thu, 13 Feb 2025 08:19:48 +0100 (CET)
-Received: from buildd.core.avm.de (buildd-sv-01.avm.de [172.16.0.225])
-	by mail-auth.avm.de (Postfix) with ESMTPA id 39DA480175;
-	Thu, 13 Feb 2025 08:19:49 +0100 (CET)
-Received: by buildd.core.avm.de (Postfix, from userid 1000)
-	id 2A47B182D0A; Thu, 13 Feb 2025 08:19:49 +0100 (CET)
-Date: Thu, 13 Feb 2025 08:19:49 +0100
-From: Nicolas Schier <n.schier@avm.de>
-To: Miguel Ojeda <ojeda@kernel.org>
-Cc: Masahiro Yamada <masahiroy@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,
-	Nathan Chancellor <nathan@kernel.org>, linux-kbuild@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <benno.lossin@proton.me>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>, rust-for-linux@vger.kernel.org,
-	linux-kernel@vger.kernel.org, patches@lists.linux.dev
-Subject: Re: [PATCH] kbuild: rust: add rustc-min-version support function
-Message-ID: <20250213-masked-wombat-of-painting-8afb53@buildd>
-References: <20250210164245.282886-1-ojeda@kernel.org>
+	Thu, 13 Feb 2025 07:20:27 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5d9837f201aso3444760a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 23:20:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739431224; x=1740036024; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=kUlydEpuFrGUrydFPT1DYlM8hxRj3C3viQCBSEEaXH0=;
+        b=yXNzi/T/7NEgdXj3c8cOcM/IKfhyvN83tnvKLuNTQWxkBslH8IIMbqOCKo8e9hvYoh
+         bMzDHUEqwvEYRT7DrNb65jB363dL2on0eYNcxRzJIqcFeYiFDfxXK9aaf4IIlSV5PZS+
+         m8Lmp4QBRCZttEhQylJQoUNRFae02iNaP75piV8xwiB0/7WTo6WzEgg/3abEIekNhnb3
+         I3t5mzlkrEzX5nz3LrEVSst0MgPE/wwAGR+mqLQdY/Up4LjCrcd6dxe9+ir8Le6Bca9P
+         aCqLHZebQtCB6dn2Pl6sSZiIXvP2+bGn+i3YEkB20ARH/859OHPy/FxfuYBuYjY4l+vp
+         Y7Zg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739431224; x=1740036024;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kUlydEpuFrGUrydFPT1DYlM8hxRj3C3viQCBSEEaXH0=;
+        b=Vmivd25vBBJyDu5szqSiXpoAzSp/r+28vTSAH1tYe59T8Ah+V9m6f2kxYJPM/PwLAK
+         2ElUCe1A0OxIKCI76hBcYjIFkrPTYyGoZTRZ7miZ2HocLmnJuDchGZGTmglNidXB4Av5
+         0A2XHnlXnlvZQ8UbN0dryFfcaonvZqCd+kBQ2Jef8oT4iS47p+Jl+lOtLptQo3PeHHZ9
+         ETNimZXsj8UppYclourKZm35sE8H6NyKMcZplir3GI4eZuSYAlDWeYnJDy5DIu0sAK92
+         tFzJnbkQxbPZcX9BqKR95hPmELtH0hA5d7VeiNBkXBY4szL7lKJeEgQdGE35twplPj4Z
+         LotQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW1RLi0ujIKhRuvqPa5/ixCZ0GSvzevyhOCt8oORGpEUFGucGDAzYdas+Dvil0TUZNH9kOE5+rfurgrMI4VRNcO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRFEG4K+zGitNfrIbDZnOVRoKexo+WZkfdc8C+AYBCWdu2HQ6n
+	MCmv9yKbgJpHuLvP3cgsEHOu0kxShxqbIbFuY9ayIXYfCUnnx2M2TNut+QJoJAk=
+X-Gm-Gg: ASbGncvTFG4o78i8nDJGyZL9DcEjz2FipaDUlbUdyPqBADtodtkYReGKRavo0smXAKQ
+	9dbM0lvlm1EvUOKSNk0QnPvNjTBilUrYkkXhMKnzoxO0lbZ/txM2ezIO2gsI0dyjnD/6c7Pb8sg
+	siyzzHGaLId2fnmtgSCn0sXdb7LFoQOzA4gfCZb7R0P3wtoXAyH8DgqNcgroSxw1Sb7P4tBnbmd
+	qbsumGebne3ZnLL/pYDBmUXY5CA+boXts53H9Z0E0j7UMHjmobNKglXQvLNG/aYJRxBBiedZJ3D
+	mD0QsHpZPcCw7nKWbKfO/f+7
+X-Google-Smtp-Source: AGHT+IGhPxIg59b6w0WCU7iMGOfAb73XGY1LMG+4SX9yxgvaUCg2qqNEqVjigzMYlqAJgEcHDBCS0w==
+X-Received: by 2002:a05:6402:458c:b0:5dc:abe4:9d8d with SMTP id 4fb4d7f45d1cf-5decba62fcdmr1363256a12.9.1739431224388;
+        Wed, 12 Feb 2025 23:20:24 -0800 (PST)
+Received: from [192.168.0.14] ([79.115.63.124])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1c4687sm674664a12.22.2025.02.12.23.20.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Feb 2025 23:20:23 -0800 (PST)
+Message-ID: <fc341dbf-3add-4728-9ec5-7291ad3bcbe9@linaro.org>
+Date: Thu, 13 Feb 2025 07:20:22 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250210164245.282886-1-ojeda@kernel.org>
-X-purgate-ID: 149429::1739431188-4EA08E17-E08D2BED/0/0
-X-purgate-type: clean
-X-purgate-size: 3033
-X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
-X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
-X-purgate: clean
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/3] dt-bindings: serial: samsung: add Exynos990
+ compatible
+To: Denzeel Oliva <wachiturroxd150@gmail.com>, gregkh@linuxfoundation.org,
+ jirislaby@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, alim.akhtar@samsung.com, semen.protsenko@linaro.org,
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250212234034.284-1-wachiturroxd150@gmail.com>
+ <20250212234034.284-3-wachiturroxd150@gmail.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250212234034.284-3-wachiturroxd150@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_231957_768730_9BE9EDC1 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20250212_232026_245780_E98BB760 
+X-CRM114-Status: UNSURE (   6.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,81 +105,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 05:42:45PM +0100, Miguel Ojeda wrote:
-> Introduce `rustc-min-version` support function that mimics
-> `{gcc,clang}-min-version` ones, following commit 88b61e3bff93
-> ("Makefile.compiler: replace cc-ifversion with compiler-specific macros").
-> 
-> In addition, use it in the first use case we have in the kernel (which
-> was done independently to minimize the changes needed for the fix).
-> 
-> Signed-off-by: Miguel Ojeda <ojeda@kernel.org>
-> ---
-> This is based on top of the fix so that the fix remains as simple as
-> possible:
-> 
->     https://lore.kernel.org/rust-for-linux/20250210163732.281786-1-ojeda@kernel.org/
-> 
->  Documentation/kbuild/makefiles.rst | 14 ++++++++++++++
->  arch/arm64/Makefile                |  2 +-
->  scripts/Makefile.compiler          |  4 ++++
->  3 files changed, 19 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/kbuild/makefiles.rst b/Documentation/kbuild/makefiles.rst
-> index d36519f194dc..2608aa32c762 100644
-> --- a/Documentation/kbuild/makefiles.rst
-> +++ b/Documentation/kbuild/makefiles.rst
-> @@ -670,6 +670,20 @@ cc-cross-prefix
->              endif
->      endif
-> 
-> +$(RUSTC) support functions
-> +--------------------------
-> +
-> +rustc-min-version
-> +  rustc-min-version tests if the value of $(CONFIG_RUSTC_VERSION) is greater
-> +  than or equal to the provided value and evaluates to y if so.
-> +
-> +  Example::
-> +
-> +    rustflags-$(call rustc-min-version, 108500) := -Cfoo
-> +
-> +  In this example, rustflags-y will be assigned the value -Cfoo if
-> +  $(CONFIG_RUSTC_VERSION) is >= 1.85.0.
-> +
->  $(LD) support functions
->  -----------------------
-> 
-> diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-> index 2b25d671365f..1d5dfcd1c13e 100644
-> --- a/arch/arm64/Makefile
-> +++ b/arch/arm64/Makefile
-> @@ -48,7 +48,7 @@ KBUILD_CFLAGS	+= $(CC_FLAGS_NO_FPU) \
->  KBUILD_CFLAGS	+= $(call cc-disable-warning, psabi)
->  KBUILD_AFLAGS	+= $(compat_vdso)
-> 
-> -ifeq ($(call test-ge, $(CONFIG_RUSTC_VERSION), 108500),y)
-> +ifeq ($(call rustc-min-version, 108500),y)
->  KBUILD_RUSTFLAGS += --target=aarch64-unknown-none-softfloat
->  else
->  KBUILD_RUSTFLAGS += --target=aarch64-unknown-none -Ctarget-feature="-neon"
-> diff --git a/scripts/Makefile.compiler b/scripts/Makefile.compiler
-> index 8c1029687e2e..8956587b8547 100644
-> --- a/scripts/Makefile.compiler
-> +++ b/scripts/Makefile.compiler
-> @@ -67,6 +67,10 @@ gcc-min-version = $(call test-ge, $(CONFIG_GCC_VERSION), $1)
->  # Usage: cflags-$(call clang-min-version, 110000) += -foo
->  clang-min-version = $(call test-ge, $(CONFIG_CLANG_VERSION), $1)
-> 
-> +# rustc-min-version
-> +# Usage: rustc-$(call rustc-min-version, 108500) += -Cfoo
-> +rustc-min-version = $(call test-ge, $(CONFIG_RUSTC_VERSION), $1)
-> +
->  # ld-option
->  # Usage: KBUILD_LDFLAGS += $(call ld-option, -X, -Y)
->  ld-option = $(call try-run, $(LD) $(KBUILD_LDFLAGS) $(1) -v,$(1),$(2),$(3))
-> --
-> 2.48.1
 
-Reviewed-by: Nicolas Schier <n.schier@avm.de>
+
+On 2/12/25 11:40 PM, Denzeel Oliva wrote:
+> Add samsung,exynos990-uart compatible. It falls back to
+> samsung,exynos8895-uart since FIFO size is defined in DT.
+
+doesn't the 32 bit register restriction apply to uart as it applies to
+SPI? If so, you shall probably fallback to gs101.
 
