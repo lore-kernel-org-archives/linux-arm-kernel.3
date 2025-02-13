@@ -4,98 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C689C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 20:17:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1230CC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 20:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ku4ZpP8E0qi67O0cpk28B8iLxY+880CliqOyg+p90OQ=; b=lO6nChdC1/f96JFuit4tt44LgE
-	dyHq2exutzXrQ1G7PuxrFcjsdaUUfzG9DxJ7167lSQdU1yRPBtfj9h/SicjKRWK8s3/M4OIWO6gD7
-	5Arg3Hs6XMNKiB2d2JrheA9FKRZhPS+Xp/biwkdzO0d+37Edvd1DXJFDQ3AzLD/xDCWvwJr8LG2XQ
-	wSsvpYWkQfg6TDFXzfgw+BvpoiyfV0FYvq6Mzqs1ovmNX0KPJfruUSQXVpG5jfvWjszP23/uPT0/q
-	5qyldAP2Mt9e+VBSRf8uarKf6Z8g3+91gHynWb3asMqrMnacHHHQh43o+UD5Pogdb6sZdqMSmguRu
-	r2R49mTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fb7uuSrKKL2WokeCaCZc9wGm8g+LaR5jeyKHFadRhGs=; b=PTVIxAaD/mLUzBKFflPWiKFbl7
+	3TuNoIMrhQqdbQM0U9x+ufj/Ep9AUH/vb6Ge8LLBIuh+hIXW34iamTlFc78nl+RUn7b5RNH/0eJyU
+	y1MBDzq3d6ityjNrL184jqo+TSiwQWRMPnWwmk3tAsbctLmOtux5AAF71ZvQRGR0tosMNwAFD76Vu
+	7nvUyePQZNBLb+AVxCYXgN01ge1mbTRj8cgkkjaD3CH2XrYthLjBihH7q0ML1Z1FWWhrNakip3LlL
+	Oy4Bur+naI6JzRNFzWcIX1HxVdUqfI4+VpRBNX0z9m01PedebUeWv2l/ZGO9pK56xagBqO/paG6JV
+	C8J6jukw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tifdi-0000000CW9Y-2138;
-	Thu, 13 Feb 2025 20:16:50 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1tifgD-0000000CWW9-250k;
+	Thu, 13 Feb 2025 20:19:25 +0000
+Received: from r-passerv.ralfj.de ([2a05:bec0:1:3:10a1:5eff:fe52:509])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tifcG-0000000CVs4-3gg2
+	id 1tifem-0000000CWM3-02tb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 20:15:21 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ab7c501bbecso192860166b.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 12:15:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1739477719; x=1740082519; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ku4ZpP8E0qi67O0cpk28B8iLxY+880CliqOyg+p90OQ=;
-        b=ZIUR6rXp4Lv8OKOTHaQ5dhfHlib0XgOOBijEbWY51BUY3+ECtxU8e0M69hvrKpTSQD
-         XGjqxlh65B+DlXdts31S/t/VkFRfBy9CykwHzSjxKXd2fTaEnaw7DEDB+q2Zamaa2y48
-         qe+2/Ib06nGi+jTkQgJYKbiy3cL9KkfNuBA9YIXPqgA8Qe6XOa3WDja6VNzy1c3x/3VJ
-         ByMi3HBzxE3urf1Pv7x1BvsnXujOrjsoyO3cBtHrKDTQbV86N5T7UJaihD61sNKu07oL
-         2MGUjwmdglirWXukyZ2wGNmzjk8CYcvrGPytylUMT607FE6VCzNR4CTc/yuRXQBX0BH/
-         rLAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739477719; x=1740082519;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ku4ZpP8E0qi67O0cpk28B8iLxY+880CliqOyg+p90OQ=;
-        b=AsiUU3gGAy15zP0IcJrc5jGKFZrQZm12k1eai+LN+hZveCjfH+FWeE9tor6whTWWP+
-         GjYONH9VC2HWliNrmSpeyxoYAyv0fsTG8zalK8C7l0Dk2cuyiZJeG/sBKmwYHx4Drzvg
-         ymvYDAdokj3UC2468KuFRxp9tDeWl2jYLPJ3rNiegnjDiukS/wyJ0rkCckPHpGdFdxvB
-         NRy5phkCpJRhFnTr6qYLFxM8lidpqmcQ1xY6W0SwMv5ANxezlfh/esHBCWBcU8tssyzT
-         vm7r71wLdywaKPK1iqBy8ImmM/p6+FYZhrL+9dbykmhQX79Seb1cxnqOKwLwd1QrPuJS
-         qrng==
-X-Forwarded-Encrypted: i=1; AJvYcCXdmowuTS8/c6eM7wnv+LkKRUpVsT3QpwAyVUJVWUhdPsf0uxiZ5uF4r92nvuiFCiJpr2caJFgsK9AOQ8wbiQs3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxtsDqOOnTknVUnKjAjNsqt+mjIr9wKD8xczaYVKxkE7BxFkF6W
-	5SjoNdGk3BKresDz629F0/b5NyBzj3ND9EySx4fitScBcHMLgcRbsLb1xW7VuqzbwNeT+M2ISH4
-	FdnduYuDDTZDoG8Yj4XHi9/5r3luGNTDByr9Tuw==
-X-Gm-Gg: ASbGncv6MxPZh62M5d0hnjgNkEZFUDJhfVYZeKg9y8tuowfoA+lBb5oHf4OeVynz5Tj
-	Y/ze853p66rv08lxYo734M9PeNyF0lQdgCiUwVIqYoMxYkLPknM7SsaxA1TFSs9j3fyN9tVHe
-X-Google-Smtp-Source: AGHT+IHL8CM7ylsZCGYbhhurWPgsNzVEPTt0GbzqEVuFP8DGsWzaxgWDYP0kYEVOuE1FqVkeFZtnMkkFkhc6Mpf6ALQ=
-X-Received: by 2002:a17:907:94c5:b0:aab:740f:e467 with SMTP id
- a640c23a62f3a-ab7f33459c8mr965659466b.8.1739477719051; Thu, 13 Feb 2025
- 12:15:19 -0800 (PST)
+	Thu, 13 Feb 2025 20:17:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=ralfj.de; s=mail;
+	t=1739477872; bh=Z4yIAvWFLDmP5unflsXIbZxV+qfHdE5ANG++IPeu0go=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kSEyVsSIqGpEfeTGb79N8VOeKWuLNrq2ZkXHhj8qfTXa/pAkZXjj2qsIFhss6os/7
+	 lDHsgi8p4VERW+drkEcJ6OOEi26eLzxN1/fueHiUgOjUOJ5CjGPIubVbO/SmILDvOo
+	 /tMx/qn9RIEn1wRyJLH+SZT1Cda3ipsBFsMZnaZ0=
+Received: from [192.168.110.172] (unknown [178.197.218.240])
+	by r-passerv.ralfj.de (Postfix) with ESMTPSA id EC8E42052A91;
+	Thu, 13 Feb 2025 21:17:51 +0100 (CET)
+Message-ID: <9b9d53c6-7e37-4af7-878c-a1c174b04491@ralfj.de>
+Date: Thu, 13 Feb 2025 21:17:50 +0100
 MIME-Version: 1.0
-References: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
- <20250213171435.1c2ce376@bootlin.com> <a3c5103c-829a-4301-ba53-6ef9bd1e74e7@lunn.ch>
- <CAMEGJJ3-JXhin_Ht76EqUNAwLiNisa9PrCrdUzCgj=msGZfb5A@mail.gmail.com>
- <821d4c74-09b0-4c1b-b8ef-f8c08d0f6b5b@lunn.ch> <CAMEGJJ0QbzCScfTRA_pw_8A=iMYMAAFs69zFNLwcOxF5Syugpw@mail.gmail.com>
- <20250213195304.3a2df02c@bootlin.com>
-In-Reply-To: <20250213195304.3a2df02c@bootlin.com>
-From: Phil Elwell <phil@raspberrypi.com>
-Date: Thu, 13 Feb 2025 20:15:06 +0000
-X-Gm-Features: AWEUYZmyv_HkHTHpV0OY_0Sgq0DOC92t4GTNRz9-9baWq02Pyp8uQAKZdY6LeEY
-Message-ID: <CAMEGJJ0kGCj=tjM6KswbG_+ZFkzMwPY+06BXCU0qSnbBKz0=ug@mail.gmail.com>
-Subject: Re: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device using
- a DT overlay
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrea della Porta <andrea.porta@suse.com>, Arnd Bergmann <arnd@arndb.de>, 
-	"maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE" <bcm-kernel-feedback-list@broadcom.com>, bhelgaas@google.com, brgl@bgdev.pl, 
-	Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley <conor+dt@kernel.org>, derek.kiernan@amd.com, 
-	devicetree@vger.kernel.org, dragan.cvetic@amd.com, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, krzk+dt@kernel.org, kw@linux.com, 
-	Linus Walleij <linus.walleij@linaro.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-clk@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
-	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, lpieralisi@kernel.org, 
-	luca.ceresoli@bootlin.com, manivannan.sadhasivam@linaro.org, 
-	masahiroy@kernel.org, Michael Turquette <mturquette@baylibre.com>, 
-	Rob Herring <robh@kernel.org>, saravanak@google.com, Stephen Boyd <sboyd@kernel.org>, 
-	thomas.petazzoni@bootlin.com, Stefan Wahren <wahrenst@gmx.net>, 
-	Will Deacon <will@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: rust: clean Rust 1.85.0 warning using softfloat
+ target
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Miguel Ojeda <ojeda@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Alex Gaynor <alex.gaynor@gmail.com>,
+ moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>,
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+ =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Benno Lossin <benno.lossin@proton.me>,
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+ Trevor Gross <tmgross@umich.edu>, rust-for-linux@vger.kernel.org,
+ linux-kernel@vger.kernel.org, patches@lists.linux.dev,
+ stable@vger.kernel.org, Matthew Maurer <mmaurer@google.com>,
+ Jubilee Young <workingjubilee@gmail.com>
+References: <20250210163732.281786-1-ojeda@kernel.org>
+ <CAMj1kXHgjwHkLsJkM3H2pjEPXDvD80V+XhH_Gsjv8N4Cf6Bvkw@mail.gmail.com>
+ <9430b26a-8b2b-4ad8-b6b0-402871f2a977@ralfj.de>
+ <CAMj1kXHbXfDz96C3ZPyyXB_dSRyxbc4BP3qNN_oemG9T68eTsQ@mail.gmail.com>
+Content-Language: en-US, de-DE
+From: Ralf Jung <post@ralfj.de>
+In-Reply-To: <CAMj1kXHbXfDz96C3ZPyyXB_dSRyxbc4BP3qNN_oemG9T68eTsQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_121520_910365_665BDBEE 
-X-CRM114-Status: GOOD (  34.55  )
+X-CRM114-CacheID: sfid-20250213_121756_351632_36AF449F 
+X-CRM114-Status: GOOD (  29.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,84 +81,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Once more, with plain text, which I'd hoped the Android GMail client
-would work out for itself.
+Hi,
 
-On Thu, 13 Feb 2025, 18:53 Herve Codina, <herve.codina@bootlin.com> wrote:
->
-> Hi Phil,
->
-> On Thu, 13 Feb 2025 17:57:37 +0000
-> Phil Elwell <phil@raspberrypi.com> wrote:
->
-> > On Thu, 13 Feb 2025 at 17:45, Andrew Lunn <andrew@lunn.ch> wrote:
-> > >
-> > > > > Or do you mean a custom board, which has a CPU, RP1 and the button and
-> > > > > fan are directly on this custom board? You then want a board DTS which
-> > > > > includes all these pieces?
-> > > >
-> > > > That depends on whether you count the Raspberry Pi 5 as a custom board.
-> > >
-> > > So you mean the Pi 5 board would itself make use of the resources the
-> > > RP1 device has? They are not simply connected to headers for plugin
-> > > boards, but used by the main board? Hence you want to describe them in
-> > > the board .DTS file.
-> >
-> > That's correct. But even for plug-in devices, those which are on
-> > non-discoverable buses need overlays to declare them, which causes a
-> > problem when the overlay application happens before the kernel is
-> > started.
-> >
->
-> Hum, I see.
->
-> We worked on overlay usage on non-discoverable buses wired to a connector
-> and we did a talk about issues we are facing on at Plumber [0].
->
-> You can also find our big picture in [1] and a last contribution introducing
-> export-symbols feature in [2]. export-symbols is also under discussion on
-> some other threads.
->
-> Also, we proposed the i2c bus extensions feature [3] whose goal is to allow
-> an addon board to add devices on an i2c bus provided by a base board and
-> wired to an connector the addon board is connected to.
->
-> Maybe in your case, you can decouple resources (gpio, pwm) provided by the
-> addon board and used by the base board using also nexus node.
->
-> We use a nexus node [4] (not presented at the Plumbers talk because the idea
-> came during 'out of talk' discussions in Plumbers) in order to allow our
-> addon board to use resources provided by the base board.
->
-> In your case, if I understood, you are in the other direction but why not
-> using also a nexus node to decouple and translate resources in this other
-> direction ?
->
-> Don't know if this idea can help but feel free to ask for some more
-> information if needed.
+>>> We have to carefully make the distinction here between codegen and ABI.
+>>>
+>>> The arm64 C code in the kernel is built with -mgeneral-regs-only
+>>> because FP/SIMD registers are not preserved/restored like GPRs, and so
+>>> they must be used only in carefully controlled circumstances, i.e., in
+>>> assembler code called under kernel_neon_begin()/kernel_neon_end()
+>>> [modulo some exceptions related to NEON intrinsics]
+>>>
+>>> This does not impact the ABI, which remains hard-float [this was the
+>>> only arm64 calling convention that existed until about a year ago].
+>>> Any function that takes or returns floats or doubles (or NEON
+>>> intrinsic types) is simply rejected by the compiler.
+>>
+>> That's how C works. It is not how Rust works. Rust does not reject using floats
+>> ever. Instead, Rust offers softfloat targets where you can still use floats, but
+>> it won't use float registers. Obviously, that needs to use a different ABI.
+>> As you said, aarch64 does not have an official softfloat ABI, but LLVM
+>> implements a de-facto softfloat ABI if you ask it to generate functions that
+>> take/return float types while disabling the relevant target features. (Maybe
+>> LLVM should just refuse to generate such code, and then Rust may have ended up
+>> with a different design. But now this would all be quite tricky to change.)
+>>
+>>> Changing this to softfloat for Rust modifies this calling convention,
+>>> i.e., it will result in floats and doubles being accepted as function
+>>> parameters and return values, but there is no code in the kernel that
+>>> actually supports/implements that.
+>>
+>> As explained above, f32/f64 were already accepted as function parameters and
+>> return values in Rust code before this change. So this patch does not change
+>> anything here. (In fact, the ABI used for these functions should be exactly the
+>> same before and after this patch.)
+>>
+> 
+> OK, so can I summarize the above as
+> 
+> - Rust calling Rust will work fine and happily use float types without
+> using FP/SIMD registers in codegen;
+> - Rust calling C or C calling Rust will not support float or double
+> arguments or return values due to the restrictions imposed by the C
+> compiler.
+> 
+> ?
 
-Nexus nodes look interesting - I see them as adding a layer of
-abstraction such that, for example, boards can declare which of their
-specific resources performs a common function so that clients can
-treat them all the same. We do the same thing in a limited way by
-using common labels on nodes, but this goes much further.
+Correct. (I assume the existing Rust kernel code contains no float or SIMD types 
+so this is largely theoretical. But I'm a Rust compiler / upstream dev, not a 
+Rust-for-Linux / kernel dev, so I might be entirely off here.)
 
-In the case of Pi 5 and RP1, I imagine you are proposing that the Pi 5
-dtb declares the connector node and the overlay fills in the content
-with references to its GPIO controller, PWM controller etc. However, I
-think the overlay would also have to be board specific because it's
-not possible to patch part of a property from an overlay, so you'd end
-up overwriting the GPIO number as well as the controller reference.
+> 
+>>> Also, it should be clarified
+>>> whether using a softfloat ABI permits the compiler to use FP/SIMD
+>>> registers in codegen. We might still need -Ctarget-feature="-neon"
+>>> here afaict.
+>>
+>> Rust's softfloat targets do not use FP/SIMD registers by default. Ideally these
+>> targets allow selectively using FP/SIMD registers within certain functions; for
+>> aarch64, this is not properly supported by LLVM and therefore Rust.
+>>
+> 
+> I read this as 'this default behavior might change in the future', and
+> so -Ctarget-feature="-neon" should be added even if it is redundant at
+> this point in time.
 
-What is needed to make this work is the ability to cope with
-unresolved references in the base dtb, to be resolved as each overlay
-is applied, with runtime checking that each reference is resolved
-before it is used, all of which sounds like a nightmare. Plus, we
-really don't want to have to change the way all our camera and display
-overlays work on all Raspberry Pis just to accommodate somebody's idea
-of how RP1 should be handled.
+Personally I think it would be a breaking change to start using neon in the 
+aarch64-softfloat target, for reasons such as what we are discussing. (And this 
+means we won't do it.) We have generally, but implicitly, understood "softfloat" 
+to mean both "uses softfloat ABI" and "does not use any FP/SIMD registers by 
+default". But I don't know whether the Rust compiler team has formally committed 
+to anything here. I can inquire about that if you want.
 
-Besides, Occam's razor surely applies.
+OTOH I cannot see how adding "-neon" could possibly hurt, either. It's juts a 
+NOP currently.
 
-Phil
+Kind regards,
+Ralf
+
+
+> 
+>>> Ideally, we'd have a target/target-feature combo that makes this more
+>>> explicit: no FP/SIMD codegen at all, without affecting the ABI,
+>>> therefore making float/double types in function prototypes illegal.
+>>> AIUI, this change does something different.
+>>
+>> Having targets without float support would be a significant departure from past
+>> language decisions in Rust -- that doesn't mean it's impossible, but it would
+>> require a non-trivial effort (starting with an RFC to lay down the motivation
+>> and design).
+>>
+> 
+> Fair enough. The codegen is all that matters, and there are other
+> cases (e.g., spilling) where the compiler may decide to use FP/SIMD
+> registers without any floats or doubles in sight. In fact, there are
+> swaths of non-performance critical floating point code in the AMDGPU
+> driver where it would be useful to have float/double support using
+> softfloat codegen too.
+
 
