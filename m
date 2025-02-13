@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D59C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 19:27:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 773F6C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 19:28:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KrgHxkjNu9X/Q1hrHUQlLJCmY0Xg+cCRCTLN/OZ/kLg=; b=4YAnmKuggt3SGMOze2ja+iJj3v
-	sHIdEqEIS7VC6R9/xZNMwoJNtvuMpbFVSD4LjTQ0CQ+8DXasnpm7ZXRqHIZjqTkzUco/7wFrUyudA
-	+j/DvYEvLSLtV6FaphTUEkHK0GYIl/J7oaBCfWpJni2FX/yJhMLOqBWU3b1NUAoWCUdnqr224sjG8
-	+WsuC11LkHceTWYotFVORY0P6y4yLtEmKDTeh+vXYdNos+F/Cf2QpV3O42U4iMQW4G8BkYqNTv537
-	RMuQvhI8HobFIT6Xn4HSo1YS63wseWhJ1f0s52eO7ax/VV5Rm1pj0kYGhbwY3JK3rVlKiXuFJGQ26
-	T3JmQu/Q==;
+	bh=rniZbZT42cTz1JQWgzCA6pN/tKGxiseo1y9AAMtwRAw=; b=eMJnioDiDEbbhzIfkz3R5Z5449
+	z6uaw7ZG1CUjMr1PpCU1M/7AwuNFj3XCbSfJoni+kW0lLV0DyrNdsW0GUP+kZ+N5lV3YP1m63pegk
+	cynMXBBPUKte2tGUbNI+aAAq+2tyEytb/I/SaX5WHHz8p3aQ4ZGYGXbmkjlhY4USyLMRHHYemhnDG
+	ZTiwA0BF3LUyvxtSXApWySDvYma+6cILkwZM7PcJhs7J5sAW4U59RObmDl/7WXOA6Xi31DqtxeAb3
+	2un4LjueKoaEkf/iXoOiQMjo+EunL36pbQpIXWfFaaHlus3LisY/OTd0L2wk0vE3KES8OVJ0P3tSZ
+	+u/8Wc5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tierS-0000000COVJ-1npJ;
-	Thu, 13 Feb 2025 19:26:58 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tiesr-0000000COmp-39Ua;
+	Thu, 13 Feb 2025 19:28:25 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tidqs-0000000CDBX-2rB8;
-	Thu, 13 Feb 2025 18:22:20 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5de4a8b4f86so1781644a12.2;
-        Thu, 13 Feb 2025 10:22:18 -0800 (PST)
+	id 1tidqt-0000000CDCJ-3du7;
+	Thu, 13 Feb 2025 18:22:21 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5debbced002so2357244a12.1;
+        Thu, 13 Feb 2025 10:22:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739470937; x=1740075737; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739470938; x=1740075738; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=KrgHxkjNu9X/Q1hrHUQlLJCmY0Xg+cCRCTLN/OZ/kLg=;
-        b=GLeSSXszO1CXloVuNjJcP++WqprPiQr9ev8t4uspI2rc9RILr31f7jUYO4WhYcnCpo
-         FoV0hllX3L5holL9BBp0uIxKQJ8JsalP7mxeiJCJrPrf+C3WuZKX1+41pnPtKB+jVLcj
-         GlTnbh9p1KE3RUSSu+PMVbIo1JfIY3yU1+Zd8yZsxJLVdOo9qztzuzSN1vnX6ls/uwhP
-         ZjmiwBWPsYGzg1IpfAo97eskEROKE4+f/xzw3JcxLA4+G092KJvvJIFutfP9F+8HfZtc
-         K6Tmq5FA05/foZ73FKJ4Nrm27nK9PRUM5kmIHda+9zSW5QHfWxgUqL6h3xqXupt4QcRY
-         Qbvw==
+        bh=rniZbZT42cTz1JQWgzCA6pN/tKGxiseo1y9AAMtwRAw=;
+        b=QnYnbp2yfwL/7/ewyvTWid5iuQ+1kqcD8w0u6Zo7S6GejBeo/XwS4iPLjL/Iko4/h1
+         KxrzuZqwhHKp+ttGvzUDVUh9m5ncyaVsct+XZSgzx7X3xE7huoTowMqynIQ9P2QVvYc0
+         vYg3za84SfgN8YHWSh+2fYasne+zUhG8gAWd+M4iq08VMNa6+G9Yoa9PpayPI0rdG3Nl
+         CeOcoqSPxLV+KOAq0yZ9zPCnWXwpLMDKK9hH9DfLd+RqHtISzwSJ2yGmF93pTG7Av8ul
+         DvTteO3nZ/qgPYJqxiQ4FIb5kXaQpvUu1DVTttdeOM9AR5/FuwnTJWK0NmU90BznSxGR
+         M04Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739470937; x=1740075737;
+        d=1e100.net; s=20230601; t=1739470938; x=1740075738;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=KrgHxkjNu9X/Q1hrHUQlLJCmY0Xg+cCRCTLN/OZ/kLg=;
-        b=vIDjIf74ZfERCBlc6I2X1mkRWxSIY83JbUZMvkxiquZS9DkCcIhqHffg3iUieS24zS
-         noAgAhKxmvYusiEUVl9YtxNJiUxWBKvLTIhM0EztexEx+xZXVGrJABLvTwr7WLgpdnTx
-         qTUupw5DaDtRaFeG5dhKWzs4KXYTTq4FwhmwUPizF/FY08jLyXWt+4uT0836vHuW1mzf
-         p1WCIS8PIT0XXAel16MBc+uyPZZbMIVe6d5QH3FhPdkVMek2sZs3rTQG+PhXBzjZBEHp
-         hmUd9fBDHKivvFO6sXcITYq6dC7dPKVunJHlT4dYTXcoNVFeDf5fdVMmIjxBCM19itfB
-         Rd/A==
-X-Forwarded-Encrypted: i=1; AJvYcCWiTi7V/44dbsKiABkNdUZkUajvt0uNw+r7v9KcUDFHvMVFWtGFne21tkpy7ZSVu1wH5FdxG4ril0aIQ0B6hOKK@lists.infradead.org, AJvYcCX1QYt8YyUemVRjY8INZPtAEnulRKhX6LSCGucq7ShkyrOVhpcTheS7TCjE+lAbAMe0BlmFE/0yRupMeUs=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqDu22agCiZItiRv2S8naF/Qwu1OQUtq3n/A3OP4+xudEGl/vs
-	IUl7OllXq+7b/k4e8lR+J29lNm80TZIvHpUs95Rk2L/7LAY7XMfx
-X-Gm-Gg: ASbGncuYsYVlUwu/RsE2cPpNSy6S/ndhKOKwBWP7fv6+OgJ+5W0yy6zkYCcwhsVH48t
-	oXnqtU46WHWvcZssAG/LLWgDWMLaJDN84F+viAYysf6J9kE4K/BmcgtsLNvb25IZIL2qoIwYqnC
-	sNCprfxiARzBVjFoQbp2MTxXB6761w/HZ0vqEgId+4aAiSTcCrzT+gbnVU4UfXPKTMdGSvo5WhW
-	JCs9whapm7hs/3UAZag1nsHPCV9d8cWBN1DAFAeufl+8I7OpSUdY2kktVJ/e0HBAeB4vrzdT0nr
-	B1wAl7RIB6pZSSY0TD2MEFlefKLL
-X-Google-Smtp-Source: AGHT+IH/Yi/EFpYPwVBoMo0zkp4iN2ezmFezqDq4NFl+9G7EivdIfhPrP4/hFUgDkeiAuMIpUimZSw==
-X-Received: by 2002:a05:6402:358c:b0:5db:f5bc:f696 with SMTP id 4fb4d7f45d1cf-5deadd751bdmr7502320a12.5.1739470937100;
-        Thu, 13 Feb 2025 10:22:17 -0800 (PST)
+        bh=rniZbZT42cTz1JQWgzCA6pN/tKGxiseo1y9AAMtwRAw=;
+        b=mEaMe/QZaB2p5hakAN1URxFp2PQqi6r06Nf595NJW8inaUftc0YaAN3mcGAHvjPU+q
+         hh5OgH1WJf22JJK0yNnOqesQQPrEf2Y974ji8jPLmWKkwEsobeww4P47aBBTUkcLislD
+         8huqpDWz+X+zIKasm+ZpIGk0t2y9eJSdCSR80MWLIgmEKevw6K+ek8mYD+o3oQcQ0Z7x
+         037lk6N6bt5oWwYdXQqD/HLy8KgzJBB3cHYkvcU0LlSDx2TdXNLFp7Wk/bME6+TRMcY1
+         OLWu8TCmBxSa5YQz0vKJl0oM+SGi4EwDFOtpGM0v/dx3xW31ObYWetCreBhBxsC84yei
+         FJCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUHseHJ1K01YsqQjYVCDf4RkGtWONLEr2yQ45Z98XIRu1PG01OeVXGK2AwtcfoUkxkYRep/JTD3u+WuNz8cxaKe@lists.infradead.org, AJvYcCWGr2ceaNv4mXAyJMjzL4sgjwV/n7fyKP6NMauQxnyJCFYKiJs83Ub3tVrk4H5miKkz4NUOu+FEHDL56M4=@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywa3IK6q7TZVfhdX/W0KusF/C1wJdwYRHRQrNH6OSnyXgZibU7p
+	eGHjOur7/yVHVXMv+F927Lm39ypjJoviIKtB0Ey0i8tBUf7OpNeN
+X-Gm-Gg: ASbGncu1XOIhRb4G60o9+8Mc5tVme4RPZpDB+ZbFeNWkq29/iVPn/xS8xEqGMFHbDYV
+	TCh0Hc5nhc43ccJWGUY1JMvnwFlYxskjRYXnWpO/x8Iy6yDXqyk18Px+YrIVzOiyo2quihQt+us
+	uvj8tkYgNee7uYju7IlzhQ1xUmYCMVqC4Lh2doVze6lbB1darSQ+MirFgDiT5LKB+VyQIcxPSpP
+	IPy8A+tMT9fTZqK2FU1C4YVK8Sq3HZFRKTanUCEqJD8PBxeIEWkFcZT2MncYYCtIm4HOWg08hNc
+	PNt1nqz0OJhVclsL0eHMw5AVArVH
+X-Google-Smtp-Source: AGHT+IG14L6TdSqETaLgX75QTQs9yCsm1539oykljYLZ36UNUJDCWIIy/ccFKlFu4aXniv6qdFMP7A==
+X-Received: by 2002:a05:6402:1f13:b0:5dc:db58:a1c6 with SMTP id 4fb4d7f45d1cf-5decba3555dmr3843296a12.1.1739470938037;
+        Thu, 13 Feb 2025 10:22:18 -0800 (PST)
 Received: from giga-mm.. ([2a02:1210:861b:6f00:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece270a66sm1559230a12.52.2025.02.13.10.22.16
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece270a66sm1559230a12.52.2025.02.13.10.22.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Feb 2025 10:22:16 -0800 (PST)
+        Thu, 13 Feb 2025 10:22:17 -0800 (PST)
 From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 To: soc@lists.linux.dev
 Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
@@ -74,30 +74,25 @@ Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
 	Chao Wei <chao.wei@sophgo.com>,
 	Chen Wang <unicorn_wang@outlook.com>,
 	Inochi Amaoto <inochiama@outlook.com>,
-	linux-pm@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	Haylen Chu <heylenay@outlook.com>,
 	linux-arm-kernel@lists.infradead.org,
-	Sebastian Reichel <sre@kernel.org>,
 	Arnd Bergmann <arnd@arndb.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v4 2/7] dt-bindings: soc: sophgo: Move SoCs/boards from riscv into soc, add SG2000
-Date: Thu, 13 Feb 2025 19:22:03 +0100
-Message-ID: <20250213182210.2098718-3-alexander.sverdlin@gmail.com>
+	Conor Dooley <conor+dt@kernel.org>
+Subject: [PATCH v4 3/7] arm64: dts: sophgo: Add initial SG2000 SoC device tree
+Date: Thu, 13 Feb 2025 19:22:04 +0100
+Message-ID: <20250213182210.2098718-4-alexander.sverdlin@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250213182210.2098718-1-alexander.sverdlin@gmail.com>
 References: <20250213182210.2098718-1-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_102218_715204_0ACF470D 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_102219_904328_B106E9B9 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,53 +107,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move sophgo.yaml from riscv into soc/sophgo so that it can be shared for
-all SoCs containing ARM cores as well. This already applies to SG2002.
+Add initial device tree for the SG2000 SoC by SOPHGO (from ARM64 PoV).
 
-Add SG2000 SoC, Milk-V Duo Module 01 and Milk-V Module 01 EVB.
-
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 ---
 Changelog:
 v4:
 v3:
 v2:
-- patch introduced
+- relocated "memory" node according to DT coding style;
+- moved GIC node into "soc";
+- referring "soc" by label;
 
- .../devicetree/bindings/{riscv => soc/sophgo}/sophgo.yaml  | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
- rename Documentation/devicetree/bindings/{riscv => soc/sophgo}/sophgo.yaml (80%)
+ arch/arm64/boot/dts/sophgo/sg2000.dtsi | 75 ++++++++++++++++++++++++++
+ 1 file changed, 75 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
 
-diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
-similarity index 80%
-rename from Documentation/devicetree/bindings/riscv/sophgo.yaml
-rename to Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
-index a14cb10ff3f0..5d73d0ccc547 100644
---- a/Documentation/devicetree/bindings/riscv/sophgo.yaml
-+++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
- %YAML 1.2
- ---
--$id: http://devicetree.org/schemas/riscv/sophgo.yaml#
-+$id: http://devicetree.org/schemas/soc/sophgo/sophgo.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
- title: Sophgo SoC-based boards
-@@ -26,6 +26,11 @@ properties:
-           - enum:
-               - sophgo,huashan-pi
-           - const: sophgo,cv1812h
-+      - items:
-+          - enum:
-+              - milkv,duo-module-01-evb
-+          - const: milkv,duo-module-01
-+          - const: sophgo,sg2000
-       - items:
-           - enum:
-               - sipeed,licheerv-nano-b
+diff --git a/arch/arm64/boot/dts/sophgo/sg2000.dtsi b/arch/arm64/boot/dts/sophgo/sg2000.dtsi
+new file mode 100644
+index 000000000000..98c8d300347c
+--- /dev/null
++++ b/arch/arm64/boot/dts/sophgo/sg2000.dtsi
+@@ -0,0 +1,75 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++
++#define SOC_PERIPHERAL_IRQ(nr)		GIC_SPI (nr)
++
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <riscv/sophgo/cv18xx.dtsi>
++#include <riscv/sophgo/cv181x.dtsi>
++
++/ {
++	compatible = "sophgo,sg2000";
++	interrupt-parent = <&gic>;
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		cpu@0 {
++			compatible = "arm,cortex-a53";
++			device_type = "cpu";
++			reg = <0>;
++			i-cache-size = <32768>;
++			d-cache-size = <32768>;
++			next-level-cache = <&l2>;
++		};
++
++		l2: l2-cache {
++			compatible = "cache";
++			cache-level = <2>;
++			cache-unified;
++			cache-size = <0x20000>;
++		};
++	};
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x20000000>;	/* 512MiB */
++	};
++
++	pmu {
++		compatible = "arm,cortex-a53-pmu";
++		interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 120 IRQ_TYPE_LEVEL_HIGH>;
++	};
++
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
++			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>;
++		always-on;
++		clock-frequency = <25000000>;
++	};
++};
++
++&soc {
++	gic: interrupt-controller@1f01000 {
++		compatible = "arm,cortex-a15-gic";
++		interrupt-controller;
++		#interrupt-cells = <3>;
++		reg = <0x01f01000 0x1000>,
++		      <0x01f02000 0x2000>;
++	};
++
++	pinctrl: pinctrl@3001000 {
++		compatible = "sophgo,sg2000-pinctrl";
++		reg = <0x03001000 0x1000>,
++		      <0x05027000 0x1000>;
++		reg-names = "sys", "rtc";
++	};
++};
++
++&clk {
++	compatible = "sophgo,sg2000-clk";
++};
 -- 
 2.48.1
 
