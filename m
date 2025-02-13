@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB70C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:46:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CF37C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MFvXclMiogdr/fw2IZSW3HQmKnvS74gV9EM9fOuQa/o=; b=THEyybAQJ+30CD2v963qYF5EIL
-	e10DsFneFbybLz+Vxiv7mDSXhdFlPUUMDNYs9U2QSVt3GYsU2LiSSyer+2xeyDPlK1n/CqEErcSDs
-	1Lw97Vcjc/PnlmgQGVTDmv2Mg2VnbdAReI3Rq34ZRyMvFljmoud2tVHjd+01Q4S0CokE7anjGy+KR
-	pv1OCbtBnNWzdG1H38Iw0tDEEkgHXWw0NG4v9UcwpejDGuVdDtz1wSd0W8AdiXPB8ohqNcWB8DykE
-	2z0yJ8NhXOnoyTfbhG8bF4H0dkN/ediqaUxXU/iyQjBI3ahD5u+LgPZm5XUnGUPPWNJMGTILT0fOf
-	+nNfUbHA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=10QtXMfgerDPTPBPttpmqpqBaL1nIQxL7Z7YJ+2BWoQ=; b=hm58lepfGm4dTZImDHAnzTVnPH
+	XT4GdHB74tEWtnsRHm3pa1/B4YtFZa30Wt7xHhKTEY4OLH/quu2i6KYwNbLlikrBlAZKTmpYsbYWa
+	gUAS5oyBHbN7Bc1pYbhwDH8jZy5PWBe3OIBhQmQWoqPZTNPHJY70RCN/lsvpLnMlkKoDRufXY4IqG
+	m5U54WtRP4+WLEDt4IDZUyFo86OmY75Kz5Zj3d1e65dgHZeUAg9OCW5VpjleGBm6rAVg911mHY6+w
+	gHLrcIgkP7Az/CWmXFrvJdU3LeX1tpQ8Tz5JmOsa9RwOZnpBAr8Gwr1G6iBoK3cNcTZbjS7O+Uodh
+	odgIjpaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWjx-0000000AiPS-0RZ4;
-	Thu, 13 Feb 2025 10:46:41 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tiWlM-0000000AiZx-0Urc;
+	Thu, 13 Feb 2025 10:48:08 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWbj-0000000AhDS-1uBN;
-	Thu, 13 Feb 2025 10:38:12 +0000
+	id 1tiWd1-0000000AhNp-44zt;
+	Thu, 13 Feb 2025 10:39:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739443089;
-	bh=tPc0mtOSvvNjsiyZamSxUZlYBtpbVsuKn6yjNRsFneg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jyapWIhMsPTIC4FGk8FX0VVGQrKTcLx1TT3roWkmt8cBuNb/NifXwpN8sVEN7lgrI
-	 eZyAehAbaVhgz1D8F7v6nKC4LpR6kTbo0pIXD3/eeiu2hipqaxTrWHCl6x8v6J+Rot
-	 VfvDhqdurU2GdHkxQZCvvP9u2NyZoh24EmqR3ZxzCujWhOyRs7GU8V9GDbmYzIE0BY
-	 vHv+G59h8jfkdSrp6c/f65FHTwLUYv7mrkjdbr+JMAanEcnTeBQv16mfXK8nH3XbU+
-	 XflDFDPaurrGr5Y8o+8vLeuYh7pVPL/jjTKGC72Xx2ax4eif+muPolU8H0hyipPFIB
-	 0trke5SdKUQuQ==
+	s=mail; t=1739443170;
+	bh=LXVJThLjduv+7chq4ELKcznat12qJGf5A21gp7uWdNk=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=PAMFv8qoeRaLMo0F2+g1tIxH7+SuM/So8+w8LA3Ez6Eau2HcNoN0HMyzU080OD7CM
+	 Nuws4daGm9/ZleXUPus/28MhtcxeZfOlC0O3IQ1vQQ1swQX7akV7MDjSCVn1SHrKvw
+	 6UbNVSQFG3b5yoNN4JzKVbABm16J+4Oqd+ByfX6DoNDkeRX2bascC31u+vtLZQxY9o
+	 PvdBu0eiRucRK3hWGp82/Zo9AI10//aaA5NRF6PbOYSg5YSRMtjXqFFulT3kz0tmGy
+	 UCZFcROdSYGWyknjdVCBIqzNv/SMahUXAxeOv+nyyLRzJgow5UskF5s/QO+9vsrW6P
+	 o0IlQL5jSA8Rw==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4F62717E00A3;
-	Thu, 13 Feb 2025 11:38:08 +0100 (CET)
-Message-ID: <1eff72da-c88f-46bc-aa0a-4e7615184202@collabora.com>
-Date: Thu, 13 Feb 2025 11:38:07 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C0B7A17E00A3;
+	Thu, 13 Feb 2025 11:39:29 +0100 (CET)
+Message-ID: <b2ee0b9a-2d7a-4bbb-ae1a-c4abe6e7aeff@collabora.com>
+Date: Thu, 13 Feb 2025 11:39:29 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 37/42] drm/mediatek: mtk_hdmi_common: Assign DDC
- adapter pointer to bridge
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
- <jitao.shi@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "kernel@collabora.com" <kernel@collabora.com>,
- "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- =?UTF-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- =?UTF-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?= <TommyYL.Chen@mediatek.com>,
- =?UTF-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?= <Ives.Chenjh@mediatek.com>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
- "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
-References: <20250211113409.1517534-1-angelogioacchino.delregno@collabora.com>
- <20250211113409.1517534-38-angelogioacchino.delregno@collabora.com>
- <4ff6d01a040b37d4f581ea3808db4851e555a4fe.camel@mediatek.com>
+Subject: Re: [PATCH 2/2] drm/mediatek/hdmi: Simplify with dev_err_probe
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250112134708.46100-1-krzysztof.kozlowski@linaro.org>
+ <20250112134708.46100-2-krzysztof.kozlowski@linaro.org>
+ <ef0baed6-54d2-4f1f-9a4a-769ec09a069f@collabora.com>
+ <59f8a02e-a716-40a8-bf73-111ad2a7af79@linaro.org>
+ <8e8e3eca-dee0-43ab-95d9-aebd636245c7@collabora.com>
+ <7341db6b-aed0-4da0-a5b2-6992d86ffaf3@linaro.org>
+ <a65b01d8-3716-40bb-9171-ad6ed3121a89@linaro.org>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <4ff6d01a040b37d4f581ea3808db4851e555a4fe.camel@mediatek.com>
+In-Reply-To: <a65b01d8-3716-40bb-9171-ad6ed3121a89@linaro.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_023811_641491_99CCD62E 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20250213_023932_201878_08B53800 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,52 +83,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 13/02/25 10:20, CK Hu (胡俊光) ha scritto:
-> On Tue, 2025-02-11 at 12:34 +0100, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until you have verified the sender or the content.
+Il 13/02/25 11:07, Krzysztof Kozlowski ha scritto:
+> On 12/02/2025 21:33, Krzysztof Kozlowski wrote:
+>> On 13/01/2025 14:48, AngeloGioacchino Del Regno wrote:
+>>> Il 13/01/25 14:07, Krzysztof Kozlowski ha scritto:
+>>>> On 13/01/2025 13:41, AngeloGioacchino Del Regno wrote:
+>>>>> Il 12/01/25 14:47, Krzysztof Kozlowski ha scritto:
+>>>>>> Use dev_err_probe() to make error code and deferred probe handling
+>>>>>> simpler.
+>>>>>>
+>>>>>
+>>>>> That's already done in [1] so you can drop this commit.
+>>>>>
+>>>>> [1]:
+>>>>> https://lore.kernel.org/r/20250108112744.64686-1-angelogioacchino.delregno@collabora.com
+>>>>>
+>>>> Eh, this was first in v3 in the middle of Dec, so why you cannot get it
+>>>> merged first? Creating such 34-behemoths causes simple cleanups to
+>>>> unnecessarily wait.
+>>>>
+>>>
+>>> Getting the series partially merged is okay for me, no complaints about that,
+>>> but then ... in v4, there are two minor comments to address (one of which
+>>> is a one-char nitpick!) that might as well be done while applying, depending
+>>> on what CK thinks about that, so there's no real benefit in getting 28 commits
+>>> out of 34 picked instead of, well, just everything...
+>>>
 >>
->>
->> In preparation for adding the new HDMI TX v2 IP driver, assign the
->> pointer to the DDC adapter to struct drm_bridge during probe.
+>> OK, month passed, I waited, so is your big patchset merged? If it is,
+>> then this will effectively rebase my patch, as you requested.
 > 
-> I could not find where to use hdmi->bridge.ddc in the patch of adding hdmi v2.
-> Could you describe more about where or which function would use this?
-> 
+> I think I missed that you took the patch to your patchset, so sorry for
+> the noise.
 
-I have already replied to this exact question a long time ago.
+No problem.
 
-https://lore.kernel.org/all/b5a77637-64b0-4ed3-9619-e76d094505af@collabora.com/
-
-Regards,
+Cheers,
 Angelo
 
-> Regards,
-> CK
 > 
->>
->> This commit brings no functional changes.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 1 +
->>   1 file changed, 1 insertion(+)
->>
->> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
->> index 5ea45608921c..2c91f65f26fa 100644
->> --- a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
->> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
->> @@ -411,6 +411,7 @@ struct mtk_hdmi *mtk_hdmi_common_probe(struct platform_device *pdev)
->>          hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID
->>                           | DRM_BRIDGE_OP_HPD;
->>          hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
->> +       hdmi->bridge.ddc = hdmi->ddc_adpt;
->>          hdmi->bridge.vendor = "MediaTek";
->>          hdmi->bridge.product = "On-Chip HDMI";
->>
->> --
->> 2.48.1
->>
-> 
+> Best regards,
+> Krzysztof
+
 
 
 
