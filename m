@@ -4,95 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F192C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8461C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:07:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NHtO1l0Sm3xnCkozanEaDdmWEvTg249bwN+Pta/EflE=; b=S+5ilJfSIH29hyhdv6m9ATo0nb
-	2TbtESeBiufEmpxokxR7SMPmOLERp8QzCgQobFaw6S4djKHQxrB0f+l0aEwUUuHWEnMkVJhNVoQtf
-	nRTgb2vk72HCEJRaFTF0HtrHbiONq2ZZCxeFG5za5FNcM6rmR54oaeExBSQ74pPSrauo9MgjHyntf
-	2/ywVGUU3AVDis0UIyf45aKeF+XAfBi9ZBQajO/3yq7oAp6pucsDqleWBBf0+wDaBku67y3Jko1Kx
-	xRXmy5k8uQAoQzDpWNzq1CdyksqfjjGjNFA4J3782r4nZMuXJgxB9NXxCsNjkS7PnR9CP3BFh0d8e
-	OJXBmzEQ==;
+	bh=pgDN29uKkb88V0um0RfTC0vvM9HPPQBtETeV1yITKoQ=; b=n1Ccteit2sWGLGvBH7c+2V6O/t
+	rQGU2P9ylPItzn1YgvwhCHfNihj2gOFzxBwxzyFX1UysLtB49c3bZgustZ1d3tKNdLkca9NhtFM7W
+	LPZBmDxEOmB77VfI7uo2x4OoHn1PonxQCQJJy1O+IjOgr4L1aDv9rxv9u6Jk/rxnkeJbwqumWMaUU
+	DOi1ld8StzWG+9w7FlVK12uSsJDPEh7X9kZ1q9QIe1HYQB6o5htOjBXm/aJMjQZA7pOQ56GEFdrYD
+	+EJGeT4hn8BlRu4dcBBh/u0XfxyOdM57yR6NBM9q4PCqHPV3QzasqkaUx1Oa8fdwjLmoQLrCCi1zd
+	5wiJcSvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibj1-0000000BgGq-1mae;
-	Thu, 13 Feb 2025 16:06:03 +0000
-Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
+	id 1tibkQ-0000000BgYu-03dJ;
+	Thu, 13 Feb 2025 16:07:30 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibbD-0000000BeGf-0xgw
+	id 1tibdO-0000000BeqA-1tvb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 15:58:00 +0000
-Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-3f3bac262f9so614397b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 07:57:58 -0800 (PST)
+	Thu, 13 Feb 2025 16:00:15 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43961c966a8so6297065e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 08:00:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739462278; x=1740067078; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NHtO1l0Sm3xnCkozanEaDdmWEvTg249bwN+Pta/EflE=;
-        b=j8ch6Bl3S6+buGX0KIeHOUa8qcZK/e4Jzll2R7er3y8vUmhweoy5MfY6PyNyOg2kcC
-         Pi82cifj2CZfjo5RsNaKPPV3noPXzNPIneSSK3I9WwMXCDN7ZqCRrDywcK6B3Vcm2qjw
-         n935cqbWH2nDUI9biBSQ5PGP01dYA87XkTxtZ20pJtsElVlEixxT2g7lf986e7hkRL9P
-         AYii813WQcN+uUGdXkls44RVIsb4EbzPXpzFyF3sw11cZ7QaOe+Qbhp6HzeulY2VioU4
-         TLMJ78JgqFJ/KhXoASEZ92a01GGaAgKQ/Wz9rr06ANGTuLiFblvtvu1UCFtcT7axIGTU
-         PJnA==
+        d=linaro.org; s=google; t=1739462410; x=1740067210; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=pgDN29uKkb88V0um0RfTC0vvM9HPPQBtETeV1yITKoQ=;
+        b=byDxwM7ThXeusF7ptZByepyEYuJmFE83E42U/I0SYvy87Yht/6KjixKjy3MVxwZa6q
+         lUOR/ucyaTRVpCLVmijuXvcVkB0bvX1jhIuSO/fPybZoCJ9mNQdwuxbt08q4UsEgTmzj
+         qG9ekd/ilQaXoqMAqjF3AJv4MwngbjD/IQF8cK+ZMvQZPZ8VoO+95Rj6XWRSQ9diKHQl
+         qreIXpZRrsNCcLeuhv52ZUn4m96/yrTwI6g5uzb6IStb0uUwB3rA9TNyGPeZXoGlGjAN
+         6JkRGOUj8tK2RIUFcn9tIUttDPKOgnsIf4n3+/AXNzoZQ+Mub6I8pYCrlrl5+Gdw71qp
+         nUjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739462278; x=1740067078;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NHtO1l0Sm3xnCkozanEaDdmWEvTg249bwN+Pta/EflE=;
-        b=V0/5aVFdBFXCvABivy3pWFDi5IPJzDCPtuEMaoRBfHYei2fMItTjyO79++/sV8EDgl
-         76tMkSm1ZbegmkmJdnvqmIn82hqgAFghHBy4IpaKs8d/u8MGHz7iMVYZZ3qxqgUDAODx
-         8SKpb9I7BUaNOVrK/JyvaGFeFF59mZgTe2ExcJ4PKq+DVygFbyk6E3EWgA0txhS3xqN1
-         c15Xw4xSCf8rKblIP0dzJSn7DD2B/MPMFrbgdGApAxauw55zvcs/bkyCI2LXvlrZ2mqj
-         8J+TUh9Wy3HWLErujqqAfYQf/jOQFOMQis5+Cih3wJb8tmRfZzok3defHTLyUP+X8d8F
-         hNew==
-X-Forwarded-Encrypted: i=1; AJvYcCXL1wGm0GMEuqop6BsXHPgg23hh85SK0KnaOjdQwYiEzSpPAdbL8jmzmPwIjxXkdngwuf+y6JatQv3izSV11pVU@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMI4y2DhUp2rj5e9fdYcthVjrQExc3nkM6mtm5lfr+3At8mtZL
-	p0AN2dk3R6s1y/AJNtUxQk7phfEjt+WNNfjF3pbVqNfLvxc/kjBhInyiPryOscUMhM1VVA8FH6S
-	nWLCcfsB2kbxtSIAnGB5l5RycFGfXNGPtedDloQ==
-X-Gm-Gg: ASbGncsEsXhpRc+Ir1FLrsyZnRK2Q80z0cJpJ7gnq8t0ieVdUXZVHlS/YDmUxNsSZP1
-	NuFwqgqPPW5xBhUcV65t0gGMLT20dnU7FQl71yg/9HzCM9YclM7SaqOso59hG8zLfw2zxo8w3JA
-	==
-X-Google-Smtp-Source: AGHT+IFP5g43bicIDLt/S4uI2Sk6WesrFKEkZAgRcsR6UVnbplWcWySy+Pe58g7cxxxYF2yjdv9hpHSaFgfwFOWE+Ow=
-X-Received: by 2002:a05:6870:f112:b0:2b8:84d7:ddd5 with SMTP id
- 586e51a60fabf-2b8d68c6af2mr4406581fac.39.1739462278059; Thu, 13 Feb 2025
- 07:57:58 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739462410; x=1740067210;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pgDN29uKkb88V0um0RfTC0vvM9HPPQBtETeV1yITKoQ=;
+        b=Flpkn8C3RAksnBFlIJJ4qCmTeSfaRPX+bup3WwyZqXNLFGRF/CXb1jbe5rtPA/MVpK
+         bUl3S4MbX2rrfiuP3X3NBbdsqLcnc/PrDssEbIog0MdHumlyyuLrMdVJ/DRzn5NrJ7Mi
+         /H25v1DKAYVrWG31KR4r01esgSdTBxLI7WZokN8B7xq8rLMesecYSRilS4nS3sevpq7R
+         rhRcN6EHzkyJ0wdhIOUAbBHZnbJpfcvL2lfJ4/s/WKSrQLRgQY6z0mEVLe12JSTvKZ61
+         SnJKgd9twthCl4N/3Dw5Z07TaHwVPCtWVAtUuTmjGtI3p4fGfUrQuOE+BK+MCQv5ST27
+         b/Xw==
+X-Forwarded-Encrypted: i=1; AJvYcCX/GhWnoYVXbb6+2u8obgvqtFXRqQgI4S41pKUH/MApmxa01tvyQrGN8MYW/w627nhLt9CuhMxmfXpt36rV835G@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaM7OoQpzzjjW0/VXr8E5kxcmVzltOOKODVg1Fkcvl6KBs1zu+
+	kwdbSk1pJUnbusW1sczqLkC19W5ZPYSCqB1vhZij0Xo37aw+cSs15f8wdyan37k=
+X-Gm-Gg: ASbGncu/GTsm/+u67UbB1z6mzX+xOgP8Wc5SGO7Rhj+qYNkXt4Gv27Y3A3JuitNKFKm
+	Hsvi7P4J08hIl0w9VEQ++9HACOVXSceQdI+gxpl3oiWHS4i2VliiKSKyWY/WRwp751px6UjP3pH
+	0JqUuSV89pqiwCqWMm7JsEiU1xXvDgOxMVdjOG9PoKuyUHlFrW+etdDYZg+OTdf5WwaUGYcrNvN
+	8oWQUoO5XEqZQiOjDWQNXNYZdIbpfNQEfcC/YOIlfNvm0QYJ/9lnjiD29E8IdRYv/TUPLiLE0dK
+	Q4mryqDvyqp4+/hJwKKV3KGziA==
+X-Google-Smtp-Source: AGHT+IF/wXtprc1U4VPmJ1pAueprsYzKR20H2MkrRTKmejrcGzsEoDZgejq84H03liicKIeACJ4WAA==
+X-Received: by 2002:a05:6000:2ce:b0:38f:287a:43e2 with SMTP id ffacd0b85a97d-38f287a45b1mr2767766f8f.11.1739462408125;
+        Thu, 13 Feb 2025 08:00:08 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.174])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258dd5acsm2283106f8f.35.2025.02.13.08.00.05
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Feb 2025 08:00:07 -0800 (PST)
+Message-ID: <a633f52c-81e8-4c0d-aca7-cc18360866eb@linaro.org>
+Date: Thu, 13 Feb 2025 16:00:04 +0000
 MIME-Version: 1.0
-References: <20241217100809.3962439-1-jens.wiklander@linaro.org>
- <20250212205613.4400a888@collabora.com> <CAFA6WYOaGEPj0xNEDBCoEmjJreEHChjQ2hyXRJ_CYoGhiBonfw@mail.gmail.com>
- <20250213093557.278f5d19@collabora.com> <CAFA6WYOJkSRsH-15QdqXNMd08Q=Dg4NkRd1Cr9LXA+5nozTF6g@mail.gmail.com>
- <20250213134008.4cbef142@collabora.com> <CAPj87rM5Y=-Jgf4mwukicF6Yb-vccn2fpG2X1jNq0upH2+cAEQ@mail.gmail.com>
-In-Reply-To: <CAPj87rM5Y=-Jgf4mwukicF6Yb-vccn2fpG2X1jNq0upH2+cAEQ@mail.gmail.com>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Thu, 13 Feb 2025 16:57:42 +0100
-X-Gm-Features: AWEUYZmgVASDSvu5hsJWJHBSSPIof2Z6xxr-T5u2MSp4prWGrnjV2aHs43vhfXo
-Message-ID: <CAHUa44G9hw-z6wzxg=HkVAxPKEW1yES5JTEqRWMvJUJAtcUDkQ@mail.gmail.com>
-Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
-To: Daniel Stone <daniel@fooishbar.org>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>, Sumit Garg <sumit.garg@linaro.org>, 
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
-	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Florent Tomasin <florent.tomasin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 4/7] Coresight: Introduce a new struct coresight_path
+To: Jie Gan <quic_jiegan@quicinc.com>
+Cc: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+ Jinlong Mao <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+References: <20250207064213.2314482-1-quic_jiegan@quicinc.com>
+ <20250207064213.2314482-5-quic_jiegan@quicinc.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250207064213.2314482-5-quic_jiegan@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_075759_284448_323910AC 
-X-CRM114-Status: GOOD (  39.66  )
+X-CRM114-CacheID: sfid-20250213_080014_500487_0E9499F0 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,94 +111,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Thu, Feb 13, 2025 at 3:05=E2=80=AFPM Daniel Stone <daniel@fooishbar.org>=
- wrote:
->
-> Hi,
->
-> On Thu, 13 Feb 2025 at 12:40, Boris Brezillon
-> <boris.brezillon@collabora.com> wrote:
-> > On Thu, 13 Feb 2025 14:46:01 +0530 Sumit Garg <sumit.garg@linaro.org> w=
-rote:
-> > > Yeah but all the prior vendor specific secure/restricted DMA heaps
-> > > relied on DT information.
-> >
-> > Right, but there's nothing in the DMA heap provider API forcing that.
->
-> Yeah. DMA heaps are just a way to allocate memory from a specific
-> place. It allows people to settle on having a single way to do
-> allocations from weird platform-specific places; the only weird
-> platform-specific part userspace needs to deal with is figuring out
-> the name to use. The rest is at least a unified API: the point of
-> dma-heaps was exactly to have a single coherent API for userspace, not
-> to create one API for ZONE_CMA and DT ranges and everyone else doing
-> their own thing.
->
-> > > Rather than that it's better
-> > > for the user to directly ask the TEE device to allocate restricted
-> > > memory without worrying about how the memory restriction gets
-> > > enforced.
-> >
-> > If the consensus is that restricted/protected memory allocation should
-> > always be routed to the TEE, sure, but I had the feeling this wasn't as
-> > clear as that. OTOH, using a dma-heap to expose the TEE-SDP
-> > implementation provides the same benefits, without making potential
-> > future non-TEE based implementations a pain for users. The dma-heap
-> > ioctl being common to all implementations, it just becomes a
-> > configuration matter if we want to change the heap we rely on for
-> > protected/restricted buffer allocation. And because heaps have
-> > unique/well-known names, users can still default to (or rely solely on)
-> > the TEE-SPD implementation if they want.
-> >
-> > > There have been several attempts with DMA heaps in the past which all
-> > > resulted in a very vendor specific vertically integrated solution. Bu=
-t
-> > > the solution with TEE subsystem aims to make it generic and vendor
-> > > agnostic.
-> >
-> > Just because all previous protected/restricted dma-heap effort
-> > failed to make it upstream, doesn't mean dma-heap is the wrong way of
-> > exposing this feature IMHO.
->
-> To be fair, having a TEE implementation does give us a much better
-> chance of having a sensible cross-vendor plan. And the fact it's
-> already (sort of accidentally and only on one platform AFAICT) ready
-> for a 'test' interface, where we can still exercise protected
-> allocation paths but without having to go through all the
-> platform-specific setup that is inaccessible to most people, is also
-> really great! That's probably been the biggest barrier to having this
-> tested outside of IHVs and OEMs.
->
-> But just because TEE is one good backend implementation, doesn't mean
-> it should be the userspace ABI. Why should userspace care that TEE has
-> mediated the allocation instead of it being a predefined range within
-> DT?
 
-The TEE may very well use a predefined range that part is abstracted
-with the interface.
+On 07/02/2025 6:42 am, Jie Gan wrote:
+> Add 'struct coresight_path' to store the data that is needed by
+> coresight_enable_path/coresight_disable_path. The structure will be
+> transmitted to any required devices to enable related funcationalities.
+> 
+> The trace_id will be allocated after the path is built. Consequently,
+> The ETM3x and ETM4x devices will directly read the trace_id from path
+> which result in etm_read_alloc_trace_id and etm4_read_alloc_trace_id
+> being deleted.
+> 
+> Co-developed-by: James Clark <james.clark@linaro.org>
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-core.c  | 106 +++++++++++++-----
+>   drivers/hwtracing/coresight/coresight-dummy.c |   5 +-
+>   .../hwtracing/coresight/coresight-etm-perf.c  |  30 +++--
+>   .../hwtracing/coresight/coresight-etm-perf.h  |   2 +-
+>   drivers/hwtracing/coresight/coresight-etm.h   |   1 -
+>   .../coresight/coresight-etm3x-core.c          |  54 ++-------
+>   .../coresight/coresight-etm4x-core.c          |  54 ++-------
+>   drivers/hwtracing/coresight/coresight-etm4x.h |   1 -
+>   drivers/hwtracing/coresight/coresight-priv.h  |  12 +-
+>   drivers/hwtracing/coresight/coresight-stm.c   |   3 +-
+>   drivers/hwtracing/coresight/coresight-sysfs.c |  17 ++-
+>   drivers/hwtracing/coresight/coresight-tpdm.c  |   3 +-
+>   include/linux/coresight.h                     |  12 +-
+>   13 files changed, 143 insertions(+), 157 deletions(-)
+> 
+[...]
+> @@ -352,7 +352,7 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+>   	 * CPUs, we can handle it and fail the session.
+>   	 */
+>   	for_each_cpu(cpu, mask) {
+> -		struct list_head *path;
+> +		struct coresight_path *path;
+>   		struct coresight_device *csdev;
+>   
+>   		csdev = per_cpu(csdev_src, cpu);
+> @@ -405,15 +405,15 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+>   			cpumask_clear_cpu(cpu, mask);
+>   			continue;
+>   		}
+> -
+>   		/* ensure we can allocate a trace ID for this CPU */
+> -		trace_id = coresight_trace_id_get_cpu_id_map(cpu, &sink->perf_sink_id_map);
+> -		if (!IS_VALID_CS_TRACE_ID(trace_id)) {
+> +		trace_id = coresight_path_assign_trace_id(path, CS_MODE_PERF);
+> +
+> +		/* Can be 0 and valid, ETE doesn't need an ID */
+> +		if (trace_id < 0) {
 
-> How does userspace pick which TEE device to use?
+Not sure why I wrote it like this, but I think we should leave it as it 
+was with !IS_VALID_CS_TRACE_ID(). Even with ETE it calls the trace ID 
+allocator, so nothing has changed here.
 
-There's normally only one and even if there is more than one it should
-be safe to assume that only one of them should be used when allocating
-restricted memory (TEE_GEN_CAP_RSTMEM from TEE_IOC_VERSION).
-
->  What advantage
-> does userspace get from having to have a different codepath to get a
-> different handle to memory? What about x86?
->
-> I think this proposal is looking at it from the wrong direction.
-> Instead of working upwards from the implementation to userspace, start
-> with userspace and work downwards. The interesting property to focus
-> on is allocating memory, not that EL1 is involved behind the scenes.
-
-From what I've gathered from earlier discussions, it wasn't much of a
-problem for userspace to handle this. If the kernel were to provide it
-via a different ABI, how would it be easier to implement in the
-kernel? I think we need an example to understand your suggestion.
-
-Cheers,
-Jens
 
