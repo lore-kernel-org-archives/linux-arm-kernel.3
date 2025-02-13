@@ -4,92 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7AEDC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 09:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A070C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 09:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BAacpC/hwDG/mtj28XuI3plzqqG6lLKWx9Gqjj8DVbw=; b=y6JLpZFXLoyTAV3lTLtUsruFkk
-	LrltGjMjT324f3nHCGjZ5ENxehlDPYI9isOMDZxRXMq1QrVAfQp53PP/ElSK4qbtw7rH6Y37AlRts
-	RfiSwqcLeYwyl++R3AI12d8NzGYK0tShxagP+NtmZ6N/bzg7HY7TBPYrgHVTw7MMdMkbNYbI9qXHm
-	aab8eRusU5mewgrdMYtAc1jtZI7vpOSlvPpDxo5oxZWziJN1O5kL3WocG3V47PvVWak2G6epq/T1D
-	DJArwV5omzPJfPqNom3I7b7THd2d9JymiB3Qlb8SA7qig2h1RaKnCwqDXH1mwIByMiNn+cMdj2WXO
-	wZJo+uSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7lIBEm48K7kx+TQb2o7cJxdcD+TD2KdtNI8Np109gcQ=; b=eupnphyCzdMLHR41GhoFCBdfzx
+	1GdoaS6MGdXrI+gIx0Q6dzMaFO3io3FUciJGYXQOHLjdNFI7IbR5oGunVYB2k8RNp0MjOTmi+8qBo
+	uc8EKPMiqFz/ZjNXRAB3q04U+blRBJwXTgayxiEuWoLlqfJOZgAvNbSw73LRfp3Xe/w2dEEkoZ733
+	ssXetcaamnzSaHUsEzYCfEJM+cHk/X4/h0jFUA0AntCICy8mo6cc5LptK57BkfTQx/FYfIRJgVnlL
+	yh2hMQigOkSTDrUIiLO1ssr9YF6qgN6skLslUoM6QELnyeIsuwaAM2TUoX0mjBD+4ZZBcq7aM9Hmw
+	FRHNxr4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiVQp-0000000ARYt-0ozT;
-	Thu, 13 Feb 2025 09:22:51 +0000
-Received: from mail-vs1-xe36.google.com ([2607:f8b0:4864:20::e36])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiVKP-0000000APys-2TIe
+	id 1tiVSD-0000000ARn5-3bAo;
+	Thu, 13 Feb 2025 09:24:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiVLa-0000000AQIB-2uNw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 09:16:15 +0000
-Received: by mail-vs1-xe36.google.com with SMTP id ada2fe7eead31-4bbbaef28a5so207478137.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 01:16:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739438172; x=1740042972; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=BAacpC/hwDG/mtj28XuI3plzqqG6lLKWx9Gqjj8DVbw=;
-        b=wrbs/GZUeSxz+rSULkZsFvd5ZGf1fYVXLi2cHcP0Lp41x2J5ERgzLYq8tzUJ0IVAA0
-         3GSft8gdx5vUydeLJuX8GDY2KUh0eq5DDeNNUybrIg/alcCh8dwJnttd+B6bFaEYCGK5
-         bjy3+r90K4vxtCJxzLBrggcPco7mONsgoLYdP/WTXFPFoSUNiltlK2YH26A55uB3FQPK
-         oYtBV5bcoBorkARFamn1JP1GFF57Qk2lnyuJrkWZbo/UbpU8RXCDAcqpX5RE0tUJgSgE
-         9QFfW93uh6HQHQCd8zltjjmQOiWk6gAGM06DNqTbhE5RfZdJRP92cOdpqvkx1KQFnyHb
-         JuXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739438172; x=1740042972;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BAacpC/hwDG/mtj28XuI3plzqqG6lLKWx9Gqjj8DVbw=;
-        b=n2R5/7JPNrgkCZgUMGpLtcaOib/qDbG2evb2BAChU42ewWeIbMycKnG9+lfYS+Hncz
-         1ipIsHSrJGnIu6eE523RC6wrZUE9n+Az7/gADF+Hs9JVNH6k6rysMa/dCcGsxqnmigkl
-         IHISfUJHw6uoVsqdT8/1eeCTD6Oz8/DQcexoc0Iab9Lr8GNel15fNyfF13dl4flILVxi
-         qQeIPuAeYEoN0Nk2hstRBSj1ErQ+6m/i6CBTWqPbNdq1lsE5lwX0IDWmM8kSC1ASGsAu
-         2XmIBxj62tvZbU7Aves/yQu32XXmUeJJBVtUS+ad05D+aMEflK+MFAHbev4OSutEe3tO
-         L00w==
-X-Forwarded-Encrypted: i=1; AJvYcCUHvO5qrtv8QKzqMyBsTYMCMkB6YmWcAlCyPbr1V3Nx8PM0p0v2acJdxWgZ8Qzj/+IQlkIwptnuYScbJNb1RCsX@lists.infradead.org
-X-Gm-Message-State: AOJu0YywEUDfzadjaMzlF3QGpVrOSnj+KttqMlgYOse9uPJ204wjIOy4
-	iztiUzm84Av3CD2BGLecA0/k/EGQBlOK7Gb8xwww+xSxQmU92pqXZMsWGbFgChpTiq0WOR9DvXB
-	dzcb0+3nNFWEw9YBqczPQ/ftNRLjQWHP4EVkHig==
-X-Gm-Gg: ASbGncuR2CVv706wPgzQPuyfsG7Xp7baC3FlcwU22gXBPGJq+j4T8oiz2l5bndw+MKZ
-	wa/gHOK7Wt66H81mLAoHd4YbMuTP125IF036EhqeCAjFyHb2J47WEocu0fYKzYZG3miyvEN5Akc
-	A=
-X-Google-Smtp-Source: AGHT+IHuPpL4xteSdbWgrL0r9v96spUDd3pY29fru20lM3gKm1cy1XWf5xoLNbeh3qhFcvaDPibH3i24OVPTFa+BmLk=
-X-Received: by 2002:a05:6102:2912:b0:4b9:bc52:e050 with SMTP id
- ada2fe7eead31-4bc0351978amr3199364137.2.1739438172547; Thu, 13 Feb 2025
- 01:16:12 -0800 (PST)
+	Thu, 13 Feb 2025 09:17:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1F4C16F3;
+	Thu, 13 Feb 2025 01:17:46 -0800 (PST)
+Received: from [10.57.81.93] (unknown [10.57.81.93])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C1C53F58B;
+	Thu, 13 Feb 2025 01:17:23 -0800 (PST)
+Message-ID: <67bcb2f2-8cc1-43e3-b5cc-6c8ef5da8a95@arm.com>
+Date: Thu, 13 Feb 2025 09:17:21 +0000
 MIME-Version: 1.0
-References: <20241217100809.3962439-1-jens.wiklander@linaro.org>
- <20250212205613.4400a888@collabora.com> <CAFA6WYOaGEPj0xNEDBCoEmjJreEHChjQ2hyXRJ_CYoGhiBonfw@mail.gmail.com>
- <20250213093557.278f5d19@collabora.com>
-In-Reply-To: <20250213093557.278f5d19@collabora.com>
-From: Sumit Garg <sumit.garg@linaro.org>
-Date: Thu, 13 Feb 2025 14:46:01 +0530
-X-Gm-Features: AWEUYZm0Wp1I6dLShCTCErZfuQ5_X523x-MqvIqYj1fsBxxxtOs8WA89SI1vekc
-Message-ID: <CAFA6WYOJkSRsH-15QdqXNMd08Q=Dg4NkRd1Cr9LXA+5nozTF6g@mail.gmail.com>
-Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Cc: Jens Wiklander <jens.wiklander@linaro.org>, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linaro-mm-sig@lists.linaro.org, op-tee@lists.trustedfirmware.org, 
-	linux-arm-kernel@lists.infradead.org, Olivier Masse <olivier.masse@nxp.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, Yong Wu <yong.wu@mediatek.com>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Florent Tomasin <florent.tomasin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 15/16] mm: Generalize arch_sync_kernel_mappings()
+Content-Language: en-GB
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20250205151003.88959-1-ryan.roberts@arm.com>
+ <20250205151003.88959-16-ryan.roberts@arm.com>
+ <43c256b6-7e44-41bb-b0c5-866fd4faab5c@arm.com>
+ <ff93eb30-ddb6-476b-a209-3329d6e3b06f@arm.com>
+ <d7c6edbc-957b-475b-b87c-db246ec1413f@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <d7c6edbc-957b-475b-b87c-db246ec1413f@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_011613_644909_302606D6 
-X-CRM114-Status: GOOD (  44.65  )
+X-CRM114-CacheID: sfid-20250213_011726_841629_1D847C04 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,128 +76,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Feb 2025 at 14:06, Boris Brezillon
-<boris.brezillon@collabora.com> wrote:
->
-> On Thu, 13 Feb 2025 12:11:52 +0530
-> Sumit Garg <sumit.garg@linaro.org> wrote:
->
-> > Hi Boris,
-> >
-> > On Thu, 13 Feb 2025 at 01:26, Boris Brezillon
-> > <boris.brezillon@collabora.com> wrote:
-> > >
-> > > +Florent, who's working on protected-mode support in Panthor.
-> > >
-> > > Hi Jens,
-> > >
-> > > On Tue, 17 Dec 2024 11:07:36 +0100
-> > > Jens Wiklander <jens.wiklander@linaro.org> wrote:
-> > >
-> > > > Hi,
-> > > >
-> > > > This patch set allocates the restricted DMA-bufs via the TEE subsystem.
-> > >
-> > > We're currently working on protected-mode support for Panthor [1] and it
-> > > looks like your series (and the OP-TEE implementation that goes with
-> > > it) would allow us to have a fully upstream/open solution for the
-> > > protected content use case we're trying to support. I need a bit more
-> > > time to play with the implementation but this looks very promising
-> > > (especially the lend rstmem feature, which might help us allocate our
-> > > FW sections that are supposed to execute code accessing protected
-> > > content).
-> >
-> > Glad to hear that, if you can demonstrate an open source use case
-> > based on this series then it will help to land it. We really would
-> > love to see support for restricted DMA-buf consumers be it GPU, crypto
-> > accelerator, media pipeline etc.
-> >
-> > >
-> > > >
-> > > > The TEE subsystem handles the DMA-buf allocations since it is the TEE
-> > > > (OP-TEE, AMD-TEE, TS-TEE, or perhaps a future QCOMTEE) which sets up the
-> > > > restrictions for the memory used for the DMA-bufs.
-> > > >
-> > > > I've added a new IOCTL, TEE_IOC_RSTMEM_ALLOC, to allocate the restricted
-> > > > DMA-bufs. This IOCTL reaches the backend TEE driver, allowing it to choose
-> > > > how to allocate the restricted physical memory.
-> > >
-> > > I'll probably have more questions soon, but here's one to start: any
-> > > particular reason you didn't go for a dma-heap to expose restricted
-> > > buffer allocation to userspace? I see you already have a cdev you can
-> > > take ioctl()s from, but my understanding was that dma-heap was the
-> > > standard solution for these device-agnostic/central allocators.
-> >
-> > This series started with the DMA heap approach only here [1] but later
-> > discussions [2] lead us here. To point out specifically:
-> >
-> > - DMA heaps require reliance on DT to discover static restricted
-> > regions carve-outs whereas via the TEE implementation driver (eg.
-> > OP-TEE) those can be discovered dynamically.
->
-> Hm, the system heap [1] doesn't rely on any DT information AFAICT.
+>>>> +/**
+>>>> + * arch_update_kernel_mappings_end - A batch of kernel pgtable mappings have
+>>>> + * been updated.
+>>>> + * @start: Virtual address of start of range that was updated.
+>>>> + * @end: Virtual address of end of range that was updated.
+>>>> + *
+>>>> + * An optional hook to inform architecture code that a batch update is complete.
+>>>> + * This balances a previous call to arch_update_kernel_mappings_begin().
+>>>> + *
+>>>> + * An architecture may override this for any purpose, such as exiting a lazy
+>>>> + * mode previously entered with arch_update_kernel_mappings_begin() or syncing
+>>>> + * kernel mappings to a secondary pgtable. The default implementation calls an
+>>>> + * arch-provided arch_sync_kernel_mappings() if any arch-defined pgtable level
+>>>> + * was updated.
+>>>> + *
+>>>> + * Context: Called in task context and may be preemptible.
+>>>> + */
+>>>> +static inline void arch_update_kernel_mappings_end(unsigned long start,
+>>>> +						   unsigned long end,
+>>>> +						   pgtbl_mod_mask mask)
+>>>> +{
+>>>> +	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
+>>>> +		arch_sync_kernel_mappings(start, end);
+>>>> +}
+>>>
+>>> One arch call back calling yet another arch call back sounds bit odd. 
+>>
+>> It's no different from the default implementation of arch_make_huge_pte()
+>> calling pte_mkhuge() is it?
+> 
+> Agreed. arch_make_huge_pte() ---> pte_mkhuge() where either helpers can be
+> customized in the platform is another such example but unless necessary we
+> should probably avoid following that. Anyways it's not a big deal I guess.
+> 
+>>
+>>> Also
+>>> should not ARCH_PAGE_TABLE_SYNC_MASK be checked both for __begin and __end
+>>> callbacks in case a platform subscribes into this framework. 
+>>
+>> I'm not sure how that would work? The mask is accumulated during the pgtable
+>> walk. So we don't have a mask until we get to the end.
+> 
+> A non-zero ARCH_PAGE_TABLE_SYNC_MASK indicates that a platform is subscribing
+> to this mechanism. So could ARCH_PAGE_TABLE_SYNC_MASK != 0 be used instead ?
 
-Yeah but all the prior vendor specific secure/restricted DMA heaps
-relied on DT information.
+There are now 2 levels of mechanism:
 
-> The dynamic allocation scheme, where the TEE implementation allocates a
-> chunk of protected memory for us would have a similar behavior, I guess.
+Either: arch defines ARCH_PAGE_TABLE_SYNC_MASK to be non-zero and provides
+arch_sync_kernel_mappings(). This is unchanged from how it was before.
 
-In a dynamic scheme, the allocation will still be from CMA or system
-heap depending on TEE implementation capabilities but the restriction
-will be enforced via interaction with TEE.
+Or: arch defines it's own version of one or both of
+arch_update_kernel_mappings_begin() and arch_update_kernel_mappings_end().
 
->
-> > - Dynamic allocation of buffers and making them restricted requires
-> > vendor specific driver hooks with DMA heaps whereas the TEE subsystem
-> > abstracts that out with underlying TEE implementation (eg. OP-TEE)
-> > managing the dynamic buffer restriction.
->
-> Yeah, the lend rstmem feature is clearly something tee specific, and I
-> think that's okay to assume the user knows the protection request
-> should go through the tee subsystem in that case.
+So a non-zero ARCH_PAGE_TABLE_SYNC_MASK indicates that a platform is subscribing
+to the *first* mechanism. It has nothing to do with the second mechanism. If the
+platform defines arch_update_kernel_mappings_begin() it wants it to be called.
+If it doesn't define it, then it doesn't get called.
 
-Yeah but how will the user discover that? Rather than that it's better
-for the user to directly ask the TEE device to allocate restricted
-memory without worrying about how the memory restriction gets
-enforced.
+Thanks,
+Ryan
 
->
-> > - TEE subsystem already has a well defined user-space interface for
-> > managing shared memory buffers with TEE and restricted DMA buffers
-> > will be yet another interface managed along similar lines.
->
-> Okay, so the very reason I'm asking about the dma-buf heap interface is
-> because there might be cases where the protected/restricted allocation
-> doesn't go through the TEE (Mediatek has a TEE-free implementation
-> for instance, but I realize vendor implementations are probably not the
-> best selling point :-/).
-
-You can always have a system with memory and peripheral access
-permissions setup during boot (or even have a pre-configured hardware
-as a special case) prior to booting up the kernel too. But that even
-gets somehow configured by a TEE implementation during boot, so
-calling it a TEE-free implementation seems over-simplified and not a
-scalable solution. However, this patchset [1] from Mediatek requires
-runtime TEE interaction too.
-
-[1] https://lore.kernel.org/linux-arm-kernel/20240515112308.10171-1-yong.wu@mediatek.com/
-
-> If we expose things as a dma-heap, we have
-> a solution where integrators can pick the dma-heap they think is
-> relevant for protected buffer allocations without the various drivers
-> (GPU, video codec, ...) having to implement a dispatch function for all
-> possible implementations. The same goes for userspace allocations,
-> where passing a dma-heap name, is simpler than supporting different
-> ioctl()s based on the allocation backend.
-
-There have been several attempts with DMA heaps in the past which all
-resulted in a very vendor specific vertically integrated solution. But
-the solution with TEE subsystem aims to make it generic and vendor
-agnostic.
-
->
-> [1]https://elixir.bootlin.com/linux/v6.13.2/source/drivers/dma-buf/heaps/system_heap.c#L424
-
--Sumit
 
