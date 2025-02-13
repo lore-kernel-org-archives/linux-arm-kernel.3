@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E7BC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 21:17:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32043C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 21:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
 	From:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r4BVqdyc7EiSZoPa2OqFXJQVmZ6vRJDcXcdBhUrvJj4=; b=ufT/dZO4VoNnBWO6Sse49GAc//
-	fBpc6XdKb3Wg1u3eMDaGBH83Fpifc77ORVw6Jd+I9nH7P1IIi4rqgLWfouk4oSHv7bXJvMzDoHUea
-	A9N36l3PkNvi/i3rw+MbjAyYRivw7IWB140y4Jv4lEQKAJ5kQ5UorWPGlYqhqvFPUIs25DY46hVym
-	DJNzwh2klxsLHbLsUrrdHxbRjwO1JnWAIDPFFWRxhULnPWKbJQCzpOYuOkVRWwM6RoAAgGMJg3Ocg
-	raV6QfXPEU/2PNXrI2upl9m9ZdQSBW6G/gC7mQ2sYADK9hzu0N9watAuZIwErhLvaGyD2LZYAGuVe
-	wx1pgdTA==;
+	bh=XXD++q8H+FBTksX7rcqvgN3JVWN9nPpt4nPcSTIlum8=; b=cJ7ID7by3maZi3lNMOxt6U83kR
+	Ee/94vwN3hIA706EtkijTVN0BN7eAxD6+OU31coHTtTic6pRmn/avV9IeLD1jKkK9yK2dMsxM880f
+	J0HdPQkBhdgf/nDRlgz2se/hrtFvqGJNwKKLVnYxF5ZAHYMDawpemq330f68A1heIhxq6asjntSiI
+	u74EC9chgb7unjQQZvme4rCJ2YXQaqI/2JvGr1Bzgkej0Br6pjfQu9wsRh8vu3e4Ey6fagBxrm+rD
+	P7HhmUuBabO/bPbS6ADT3tcySTwhp9EIm5CmGsOLwXJUaWD23qmc/wzER3gFu7Ij7j/hXYPpx8cKf
+	h1sWo6kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tigZn-0000000Cg5K-1BiU;
-	Thu, 13 Feb 2025 21:16:51 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1tigdK-0000000CgZC-0H7F;
+	Thu, 13 Feb 2025 21:20:30 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tigYE-0000000CfuK-0FFK
+	id 1tigbs-0000000CgQ8-1uYs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 21:15:15 +0000
+	Thu, 13 Feb 2025 21:19:01 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bOHALwdkaNgO4SkHDfIzBBsiBfmsvcHwSSCU+88suomo4HJH0iR15smU0e+S4ZR5uFiKkGKHZN3bHnxp2PtoVRWH6QxN9AOUhOibvZpQy0u8BRUitWYLcI9Aqi+jAz0AH/4drzw8KjsazCxaFwNBoYdEJkq1A3eF6nHK9RD4+5rmacdtkKezMqovZcTStL5oaX1Xc4BgxEWEyLGNXTT9R6igJqBkOPgCkp+jtyJvtX/V2M0UbGyxdPjAyvn9h9htb3QBGCUZRclAc5M+CZZ9Ui5DlXe+XLoTskpmRcrFyVN5J5rMj2v4KKa0qw2e40tiOF+zAD9tL4WEM34HmqpXAA==
+ b=F231v80tPKbY3+P8rI0KlGM0OqUAG1hPDyrDQOwSeGWy5pune1bi8CpnKxYozC3udsDjQ5k7kBTqybELWy4D/fRb3fRJf2P5B5cdo5MqtrntwX4n1A0yQSjoivxxXmY63GDj2F9cRxqcN0ccwtVVp03LJcLAssE1W9/P7ch7q1NaDwhP19OO2FX8fX2OxBra13DCm5LuqgBBlwFmAoh0bgRu8t8DqqEUpqJt464Kwu3rc3P01+ty9/TKyogRC3VuNsOUOvTjmXitvsZCbPcBusz2BIqpa6Q0Nl7miSGdsK1nqGfLaWo7ac9XMT9bueKkvHrgmyeA7xeucPKEVnrndQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=r4BVqdyc7EiSZoPa2OqFXJQVmZ6vRJDcXcdBhUrvJj4=;
- b=yUh4Nd44WVNsMz8qOS26UfwDix5xo3nEV8A8DaR5PsbG1RN6U4GvXVxFcZ4xtIwEcFVlBR0p+xs9Zlj0VSKqZyrw/e3XEXv6Y0X0ZKCBJtZ4ewpXSWRgUxLmw6Akdiz7CKeLR+o7hSu8KnxsS4i2GvzUQ7DXzJaF4RRPm7e0tzKul0gixiKaUUxxX33JrpJIE4V4wBq9xpMGb8e/wg1qGtqOgX0K3PHRH1L1G7FELQoJjBtv59+00olgpi2wXFhtXVY8I7gt/eI+H+NX7siim8ZaS9wSL3hUZ6kAv+FB3hey3yVjGZgx/pq/C2LJz3ryVPur3l7valdaa6jr/cCARA==
+ bh=XXD++q8H+FBTksX7rcqvgN3JVWN9nPpt4nPcSTIlum8=;
+ b=Qe1v2FPRvLbdA4aZFJ7sGWkh/eM8ehepUcgm4PAGmlThwXUw++w7evAfmi24yZaytRBYfMPOCue1FPsgJ1NkQ2jjXh8i8YiLsjzCjg36PBno3AT2sKGzSXvirXx5dw81HQY+Z941yOUPS5VZSmtrOHPPOsWjxat4CLX5v9oT57TKPaz0FT0Ir34ChruhlZizu3YWLZrFlsYIHGJsMztpoFhkmhIVLpPy9vSoZ+fMukHA3/aYSi42WdwEJu/dunJIzHgX0NNFsQW6mHxbOYpZ7/Y312YcaFZEm2VeiONjfchIUGDtC7dFBW0LUhp6uoUC+jlNmWJ8/sJLg2EJhxt9LA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
  header.from=os.amperecomputing.com; dkim=pass
@@ -41,129 +41,130 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=os.amperecomputing.com; s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=r4BVqdyc7EiSZoPa2OqFXJQVmZ6vRJDcXcdBhUrvJj4=;
- b=XnmkQtRetrZupXJGqb+Op4DwvIjaj8ZeMWAZ7wqwG1SHOJNyn2Ztmt7cdpRMWh0VBy45pMcuLd27fFFOvEHgIr8w+CnD5Mkhc1X7kULmR4nN7asdZCDvHhJYurGX2gD1R+9hquhQYd3zjPgDFJmlNAjZqvrgAVFEhIxxPK4shaU=
+ bh=XXD++q8H+FBTksX7rcqvgN3JVWN9nPpt4nPcSTIlum8=;
+ b=ve1rAFA6JtKXaGVt2LLpI3Ijd+7GmkQuZ8LeNWZ2cPIUNdUrxP27YDh+pCNIRiH6vKVHysoZw5AjB3FIm+p6EMqj/efyHh9HsRmc/8qsMQrqy7GxOPKJMQEyGpa4tXRO/QmosZvNOX1F/vd5PCfMqAJlPG2dATuYzgRBAaEGVug=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
 Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
  PH0PR01MB6310.prod.exchangelabs.com (2603:10b6:510:9::14) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.8; Thu, 13 Feb 2025 21:14:58 +0000
+ 15.20.8466.8; Thu, 13 Feb 2025 21:18:54 +0000
 Received: from CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
  ([fe80::3850:9112:f3bf:6460%6]) with mapi id 15.20.8466.004; Thu, 13 Feb 2025
- 21:14:58 +0000
-Message-ID: <0c644070-e4be-43c1-acb3-30cd030e20e1@os.amperecomputing.com>
-Date: Thu, 13 Feb 2025 13:14:55 -0800
+ 21:18:54 +0000
+Message-ID: <be09705e-2f85-47e0-b632-f2fdb32e54ba@os.amperecomputing.com>
+Date: Thu, 13 Feb 2025 13:18:51 -0800
 User-Agent: Mozilla Thunderbird
 From: Yang Shi <yang@os.amperecomputing.com>
-Subject: Re: [v2 PATCH 1/2] arm64: cpufeature: detect FEAT_BBM level 2
+Subject: Re: [v2 PATCH 2/2] arm64: mm: support large block mapping when
+ rodata=full
 To: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
  will@kernel.org
 Cc: cl@gentwo.org, scott@os.amperecomputing.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20250103011822.1257189-1-yang@os.amperecomputing.com>
- <20250103011822.1257189-2-yang@os.amperecomputing.com>
- <eef5fba9-da21-4131-a8a3-ae9a735869b1@arm.com>
+ <20250103011822.1257189-3-yang@os.amperecomputing.com>
+ <caf29133-a24f-47e4-ba38-d1f99e998d27@arm.com>
 Content-Language: en-US
-In-Reply-To: <eef5fba9-da21-4131-a8a3-ae9a735869b1@arm.com>
+In-Reply-To: <caf29133-a24f-47e4-ba38-d1f99e998d27@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY5PR15CA0084.namprd15.prod.outlook.com
- (2603:10b6:930:18::12) To CH0PR01MB6873.prod.exchangelabs.com
+X-ClientProxiedBy: BYAPR08CA0025.namprd08.prod.outlook.com
+ (2603:10b6:a03:100::38) To CH0PR01MB6873.prod.exchangelabs.com
  (2603:10b6:610:112::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH0PR01MB6310:EE_
-X-MS-Office365-Filtering-Correlation-Id: ac08494f-ae74-4447-305b-08dd4c737878
+X-MS-Office365-Filtering-Correlation-Id: c27464a4-7d8c-41d2-1fc0-08dd4c740513
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cUhTQ3A3eEFmemZ2ZVpBS3dXZmNORnBsYzh0dXV5NWsrRG9SUlA2Q0s0WVh4?=
- =?utf-8?B?eTJaWlh4VWE3a3o0TG9SWTZUWkV4Uzl3KzFLdUM0M080ek1wd2pDYTI2c2FL?=
- =?utf-8?B?NFNDb3dBam5aTzRuTnN0QVl4L0t0Y0RaenB5a21MVGJpZzNGcWxEQkdMdU1j?=
- =?utf-8?B?U2hIcTVTRVBKRE45TzZIbU5KMWpTYnkvejF2MlQ2NENpUVJzaVVHaDd4eWVi?=
- =?utf-8?B?QTZRQXJZenhNN1Y4QWFscFE1RzVJR3p3YStudjlQMGZXYmJTb1pTMHl1NEVh?=
- =?utf-8?B?aVU3c0RmVW1kenRNM2VLaThteFNIY3EyR2FQREFmLzByMDIwbUR0MytKYzV5?=
- =?utf-8?B?aE9tUnFsamljVG5MWkRwWjROd2xkMUIweWVOV3JSNWJPR1JQNXErNlFPVE9h?=
- =?utf-8?B?Z0ZqNDFYRFd0dkl5M1RndkxwZ1FuQk92TWlkUDFjRnpSQmpXWDJXVzJTVkMv?=
- =?utf-8?B?amZWMVVFVVZZa0gwNFBDTjNUbC83ME14ODNUdTlzc0k5Ukd0VGEyWHFoaGd0?=
- =?utf-8?B?cjNHNGE1Q3JNY01iSDNIcjB6NS85cCtveDA5Q0Jqck16RGtqdUFxK0VSVEdo?=
- =?utf-8?B?Q1prVXVyeGhGRGZNRHJ3RjJ0UnBFb2pMa1RUSG8rR3BKTkxtS0diTVJVdkJM?=
- =?utf-8?B?cXJwWTlSa2Z5ZjMwc3ZFR3hUN1huQzQ1M0UzRWxYcjJWc2VNdWJjcEVCOEZp?=
- =?utf-8?B?am41eEt3U0JlQ1k2NTJPSFE1RTFEKzk3UVFYL0o4cjRmOG5mVFE2NDdPYlAx?=
- =?utf-8?B?RmZCSDRCc2loQjU4WTZFVmtlSTFiUTV6MDdXRnBNZzVPZHZLTmpMYWhYNk1F?=
- =?utf-8?B?M1NmbmNGMjVoVVpqdkNDWHVEVEl0eGU2czJ5QUhYNHBNOEU2NWJFalo5Qmxq?=
- =?utf-8?B?cTB1bkVTM0JxVkxmaDJwNHovZHZobGxUa1ZIZHlKQVkvNVFya3Zsak5MUDNv?=
- =?utf-8?B?dUVEYXpJT3pGWWpZOXEyckg2QjFDamZwUHJmMEVENHRSZE1QWVJURWpkWEpa?=
- =?utf-8?B?UVdGY1JUV3ZNbHE2QU5GM1FJWjc4VTFiN2xrM0NBNTdjUmdRTHMyWlZoZVhh?=
- =?utf-8?B?cWh1dTVRL1hpemxBU1N4V20xdXFiR0x5c1JNNFNYTTNieGxhL0xRZnBqVkp2?=
- =?utf-8?B?QmdkZVIyMzhiOSt4K1E5TjVycjJrbzFDVlNJeWFKRnZyaGFKZk01T3RTNWJS?=
- =?utf-8?B?dmNTalBsZDl5eGRMaFA2ZHIyNlIwS0M4QW1YcHp5dUkvYWs3RnBpZVQ0Vm9p?=
- =?utf-8?B?TDQvd3JyRFVRbnNKM3V1S3NjcWZZY1hBQkM0L1ZaVTBsQlZFUWNiZ1dFWmdD?=
- =?utf-8?B?c2VrdEowSGFNZ21YVFBOZmZSMytaTzd2bkFlVjNRM3Nsczh5TkVLSFdpNTNS?=
- =?utf-8?B?aERrQ01PR05FeFY5WmduZGZDV0NBTVhpbWhWVXlWeHF6MlU0RWYxMXpoWjU5?=
- =?utf-8?B?YncrdHVSZEV5elBFZjk0eEl2MGRtVFAzV3ovbmpTd1h0SG1jSDJicGs3NU1j?=
- =?utf-8?B?SnhXME1YOHJNWmJ0ZU91R24yQ05sZnM2VnREUnpXdVNJNG9VUU5GSkdJRTNh?=
- =?utf-8?B?QjhOeUlLYUhWSWo3V3pTdFMyd2tuam45UURrSGx2aXZlK0haWWhjbUtjd1VM?=
- =?utf-8?B?cnhCRDVhc0JsYnF1TmlZT3M1QTliTUQ2NVZNekpuU2JkcHdyenNaMmtkSkdY?=
- =?utf-8?B?UjMyc0d6WUtUY0RhL1dnc29jRTFSZEFzWVgrZ3R2VFA0MGNDL1J3RnBnbFIr?=
- =?utf-8?B?WnFiOGE1M05BNSsvRzY5V1pEb0RUYldpUEF5SldVblVnOGxEd21yK3lYZ0Yx?=
- =?utf-8?B?eFFTdlBCYnRlajFXOGZ3R0J1L29mR3VSNW5EU2pnWHFKaks0Z01Gb2NnTm95?=
- =?utf-8?Q?JZ82i1f7T0ZQ1?=
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NG84N3MyS01URC9DdHZUbzZOSmNRaFlvZlRtcytCOTI3S1Fqa3VYN2pVUkZi?=
+ =?utf-8?B?Ylh4eUYrdTFsMXRBaG1SVUhBYWxOZWpKMmZybDdJSXNiMk1OSXZ2b2h6Ym5V?=
+ =?utf-8?B?a29FNjNJenNYRkx3blo3TjdDYlhjUDNtdnEvTXl6RVZJZDFNUWZSOGp6RXhw?=
+ =?utf-8?B?aWlLdUJxSzNiVmdySlh1SnRScSs3V0tPVDVXOFFMdE95TVJxajZCaFhiUll2?=
+ =?utf-8?B?NkMxbUwrbGRLMjhVLzVhVGFrVWpRRCt5WThBYXZpb1BYTUxhdHZMaUJqTUda?=
+ =?utf-8?B?d0VOMkxiTG5DU2QvYTBrSVBTb0xVaGxPZWdaSVpkU3FzT25COWxlTVJlTE54?=
+ =?utf-8?B?Y1lLcVZkdjBpcm81Njg3Qng3UnhmdkExV3BELzhNZkF1MEFmb0NpTEpVSFA3?=
+ =?utf-8?B?ZG1mcjJqN2JTbG9BVHZibzNGTFVXd3dRQStlbkJYQjRXdDZEK3duK2pFTE40?=
+ =?utf-8?B?cVQ4dWxHay96d0swMHVTM2VhSWl4eHA0U2NwZTh5N1ZDM0t0V0EvbTRUMkdL?=
+ =?utf-8?B?YVEvSDA4U2ZNb1gzK3pTMnRXSVozZGRZRnI0aWpKVmpoakgxd3ZoZlMrSGcz?=
+ =?utf-8?B?aDJLaVhVT05qdkVSbXQwYW01Y1piaDBsYjFpTVR2K3JQRGwreFRKeHU1NzVo?=
+ =?utf-8?B?NUYrdjErS3VjdWozSTVNVlhXYVM2TWNlMnFpa0VmajJqaDZYRzFpbmFDMHVs?=
+ =?utf-8?B?VllidnJjaElmVGsyci9OcnRtWG1JRm4yY0pDR1I2cVB0Q1FUMnlKZW55dlZx?=
+ =?utf-8?B?UDhlandpTkFuTDhYMDNkNjBYRHlxRytFUmtOcjdjRnN3VnR2RFFpdUV3S1kz?=
+ =?utf-8?B?QzM1S3A5MXM3aGcxOFEwcUV5NVZxK2xHTzhWaVBjOWNBYXp3TzZvNHdmMDVh?=
+ =?utf-8?B?M2JKeFNibUJ1Z1l2bk9FNFpZbHBOd1pUdnE0Sk8xWXI2Yjl4cWlwRTlmTFNZ?=
+ =?utf-8?B?UXNVV0JSWG9LaCt4ZTdjUWduNTFCaS96eTF2ZnpUZFdxTjN4TGlXK3BjYW90?=
+ =?utf-8?B?ejJ2cmY5SkpCN3hyMHZCaDJRdy9DdHpDV1JieUovWGs5VDIrMEhhVkREQjBv?=
+ =?utf-8?B?eHI2R3d6QkhWTEF4OTR5UDlTajlWaUZ3YXVpd3IvR0FrK2JkeVVITVdna3BB?=
+ =?utf-8?B?QUZKWEx2VmdaYUlXTjdXbFdGcVZzRUJZaWdPY0JHK3ZDcXZtTzV0MUhFeVhz?=
+ =?utf-8?B?SzMvc1F5Y2VhVXpwbUlmdVRnTkdvYTlxKyt1TFRYNDJRUW5yd201SDlzMVho?=
+ =?utf-8?B?QjVNMCtzcmZLaitzNW9SNE41eHRDclZGRmtCdTdTcm1hNVZzclpFb0RZOEtP?=
+ =?utf-8?B?c2cyUXkwVlEvdkM4SDVCSWFmZlhvcG1sMG1YRE1CSCtlYjRPeCtsRU1CbEpD?=
+ =?utf-8?B?ZXFnUWI0V3pkaEZYWTZ5Qkxva2FBQk53VDc2RDM0bkk3bDltS0tMQXNtMGVN?=
+ =?utf-8?B?bytnOFg3Z0l5QldzamxkU3pwT0xFVTRacktlMVozTGRhQXJ6VHUvaGZkeUx3?=
+ =?utf-8?B?NHNOSUJTaURxbDV0N0dCRnM5NVpFUmVmNExVT25yMlhzdnJaU25lTXgzVUc0?=
+ =?utf-8?B?RDZLOFZYUGdBT2pkSnhHM1UrV2tMZklONGhRVmNYejFHVE1hVGFWS3dWYUtx?=
+ =?utf-8?B?S2hVdVlNYmsxOGxhdDBqY09ybHhsR2o5RWduWUhCZ1dmaVROVXptUEg1Nmh0?=
+ =?utf-8?B?M1JkVUpiUllxRVJWODNoMkhicUg0VVducHUzY3lBTHVUV2FvM09EYWF6dWor?=
+ =?utf-8?B?T3pKQU1ydGErOEQxbEw1Kzc1R3VkdG8rQnIreE80THpjai9YUEgzWElqaXZi?=
+ =?utf-8?B?bFlEMk1rc1JZQm9mTDhmODBxQ2ZvcHRUZmhrTW1Ga2VhQVFQRHg2UkJoZUdT?=
+ =?utf-8?Q?ueg2S7Bkoensm?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eFAycU80Q2Qwd01lT3c2dXB2TUFJZlNQWHFXSkNwQ0FiYkh1MkxKcURGakxw?=
- =?utf-8?B?enBkdFhITThxUk9DVElKeVoxbzVDVVlSa3FTdTlUV00xL3hFb1JKU3VINXVz?=
- =?utf-8?B?QWlkZUVoTDh3MVVkTEg4UUZWUlFUN3dHT1BwVTQwRmIzWUdHQWNNVzdaS2pC?=
- =?utf-8?B?dVVCaUJBZFFiQWhBNEMzQVhDVk82V0R6Y3pwSlYzQTdkRXhMbzFFOVdXaDBM?=
- =?utf-8?B?bDI0dVowaXd4SjFLSjBablVUSXg4UGZiQStQOHp0cnhaU09yODladnF1NTRi?=
- =?utf-8?B?RlRMLytzWCtBNXMyVlFEQlVUMEptT3RTNDRJZzh6K3o0TU5aa2lrTys3YzY1?=
- =?utf-8?B?aDlZekdVMTdhR1JyeUo3aUJ3ZlpCb1NqUyttWjJYcUtKUU8vV1hMOFlsUS9a?=
- =?utf-8?B?dW5uQVdsK29iNW15c2FvcTR0eVpaRUtmNnk5TmF3T3lXVTZNcVdwNjJqRmdL?=
- =?utf-8?B?OTFUVUJaTjlWc2R4djVvME5BdEJqQ09RVk8reUh6Szl0NE5DRGJYcHFoeWFP?=
- =?utf-8?B?emYrUElCb01Hd3V3SjlBNEJGMU9SVmp0OG95Wjd4YnljQStHOFlCQ2NsQXhJ?=
- =?utf-8?B?VTJXcG13NW5SSk1EU0MrU2tBQksxM1MwK05pdisrWTllcFF4VHp2NXdjY2dG?=
- =?utf-8?B?Vlo0dUVPdmRvQXhwRlBENW5VbFF2QVVVQVFBN0ZjMGlzVGJHb01JdWw2ZEJh?=
- =?utf-8?B?NGtkeTlUSG05TGpWeWxjWW9ab3Z0bXJkSzNnVWZYU3Rjc2wzWmJnVXRldmQw?=
- =?utf-8?B?Y1dHMlVHTHA5ZlU1cmRybkwzaXBCYmxGZGpZL05NbzN5SlV2T2FucUZKWEQ2?=
- =?utf-8?B?SmlRWG9BVTF6ekhDOEFYenlrV1hEeG9Ud2lqMWgzanNCZjZ5M3lMNElUbVNk?=
- =?utf-8?B?MERBMFphaU9ubTdFcUh5eFRCZVVRN2J4THVMUWFWcG8vOE1pSUJXS0lHRnI2?=
- =?utf-8?B?WkEzb3NoUnpicHIvSW9vcEFaZFhuQVhXYmNjVUJRNU43NktucUc3V21aZFoz?=
- =?utf-8?B?V0RMUjAxM3ljbE5JSURpRDQxZ01pS2hKUmJVaGJwTHVIUFdCT2hsVldRd2pB?=
- =?utf-8?B?KzRiOHhVMjRSTTc4R3o2dkUvblhYd21ZQTA1dzg4b1lBeDZyNE8xenR4aGx3?=
- =?utf-8?B?V3BDV0o2b01YcEN6cWk5UmRHMTdBTDdJVWkzN1RHMDB5VEkzYlN2N3NHVkdZ?=
- =?utf-8?B?NDZmeW51NkJlb2NNQldPaUlkY0F1WW9oMHdMWGZ4akRMUloyUDkyRndIQXdO?=
- =?utf-8?B?SDZVY2FiL0lrcHFLd05QMENtZjducElIZkZGOXRoeEswb0kyTEhQQnR3d0NQ?=
- =?utf-8?B?RE1JYVd4akx1N1BqTloyQXg1TytNS3R1NG9WUzZpYU93c0RBRGtKLzZxeXNi?=
- =?utf-8?B?cDZFY0NXbjh4dkx1N3c0TlRKVDl0WE9CVnc2RkN6bzRBWVNRYWNCSGtoUjZq?=
- =?utf-8?B?NkszYzdabThoNTg0dSs5cmQ0M2ljbjhNRWt5Y0JuQUNiL3hOTDBITnZ5T2hG?=
- =?utf-8?B?ejlKMk1EcS9MYXNUbHAzM0dpL2R1ZjRTb0N6Z3NHenRidW42cDJoY05SSEty?=
- =?utf-8?B?QWRBOXROVTZJR0t5aXJoTTVVYmVkanBtWXRjVzNKazVRZE5tT3ZvZXBXTnZU?=
- =?utf-8?B?YzdKczdkd1FNVTkxakNQS1NMTDZJTXJJY0JSdjlWc2xJRWJIcHArRnNUK05T?=
- =?utf-8?B?MFBIRXQwTlQ4NzlrSXpvVmRHemxPbC9pQlA5a3pCMmdoMFpIQS9wbTZPT29k?=
- =?utf-8?B?UkxoRWlDZ1lpamhxVTg0U200ZnNYeVFhWGRTWkRWVG5kdWErYmprZEhGV1Bm?=
- =?utf-8?B?ZjltNW1OM3liMi9xd0l5d2FVN1RqRnlqcEdUOHpzZUdCQkZWdFV2RGJUY3dV?=
- =?utf-8?B?cjJXTTdsOHowSDV4cHJVT1J3VnlRSk9HYzZBWksrYndRNjdCYWNLanVVRk1K?=
- =?utf-8?B?aGVtZzFoZnN0emRqYXcyd0VvNGJZYjlMczhuOHZNR0xxa0lxbEZsZElnQTJE?=
- =?utf-8?B?VTZUelMwM0daVzQ3VXZnS1dCd3R1WDRoNUtxS3VqUUN0amtQdnQrOC84aEN2?=
- =?utf-8?B?SjlXR2Y4bmJ3TjlqR1Z1RlBHVkV2ekh4N3EwM3o3RkF0Y1QzUlJqTWVqSUow?=
- =?utf-8?B?d1g4a1AvWHl5eHNXWUdOL0ZuWVFEdTNuZEM0M3Qyc3RvSlA3TTl0VjJCcklS?=
- =?utf-8?Q?6+kAUH2oeZZpe8Mk99NZJE8=3D?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YStNZHlac2daeHhHVExBcDZ6ZDVZVGpPWnNwK1cwNFFycEZucWJhMlN3aVRJ?=
+ =?utf-8?B?RUwrc1VIMDJ5TTAxOG9ZdjVsNisrangwVGxzZVdrb0ZpemdCcm0zWGdsQVUr?=
+ =?utf-8?B?Z25Hb0UrdzFKRVcvV1FvMXk5Y0duTnNPRVJuakRHWDNxN1lDa3VSQWxKNGZF?=
+ =?utf-8?B?aVBuOTJmMlVDRHVhcEl0dGtLN1FUWjRzaWhRSjhUazdpNDNNb016SUhnTnNs?=
+ =?utf-8?B?Q0hGc1VTWHV4eFpSMWUwb1liUjFjR0ZoellPNUJEdmN6eFRpL3BlQzhSMndv?=
+ =?utf-8?B?S0dyZHYyOVZqcUpmQ0crMHFlMW9mL0ErN01TU2RhNjRTeXVvakdVMmlacUR0?=
+ =?utf-8?B?RTRiTWZJeExJQ2R6ZTRpUnhBZWdGdnNKMTZDcHBwYi90MFNSLytCOGUwbWpH?=
+ =?utf-8?B?eWE5Nzk4UDdhY0cvZGZ6eHM0ZWVOdUJxL2tKR1Z6VkVONG9HSWJwamd4WTBu?=
+ =?utf-8?B?TkVnVWxaaHdDRHNndUpXZkVsMW5Pbnl3R3FVVXZ0QUpTZWo3bXFzeTdFRFlq?=
+ =?utf-8?B?aGlzRWFvSVhMOTJhUkY0aSt2L3FsR081aHJWQXNyL2FTOXU1L0k0ZVh6YnFw?=
+ =?utf-8?B?TC9PTW9xa1djNXJGSEJRZkdSMVNURmxEZkhNRlM0bjBRMVdTZ0VrcHNTdDMz?=
+ =?utf-8?B?eG1IdmF4TGhZaWdMV0twR0UwS1A4QmRyTEJmalFGaDVNd2M3Tk1Ueng5dFRz?=
+ =?utf-8?B?ZFRndHg0Tk9QdEo1U3daSDdlTVhCeW05dnc2QTUxNGZTVUg1TDBaazZDUjRh?=
+ =?utf-8?B?SjNrNDZpSUpKUmtvUVk3dGRHQ0U1UVNlaXdhaFg2cFRZZFlPdVIzZEI3eTE1?=
+ =?utf-8?B?amZmY2RQY3R4QTV1RzlyL2NZdUs0Qis3MWl1UmZneCtQcjNwWjFTdnhjNzcx?=
+ =?utf-8?B?bFgrcmJtT3lFam9Nem4reTNFbDBFeGtPdDVRbmZHbnl5OCtRbUVSNUlOWTU1?=
+ =?utf-8?B?cFp5UG54Z051a3k2OXVmcGd4aURHVk1OQTFsaS8vMVRwQjFxN2l4L3NhWTh1?=
+ =?utf-8?B?Q3E3a0RLVUpWdjFWY3A2ZmFMdnFxRkhjSk5JWVZLSE91ZDR2cVhIZFhoc2VK?=
+ =?utf-8?B?V2dQQnEwK3FjZnNkdFVPaytrNmkxY1dKaE51S1FCTzhqWVlIZzFaYjJUeDhq?=
+ =?utf-8?B?VUhIY21pQnpBakMyRzZjUUdwVkZjd280ZXZsMVI0T0pEZEZjb2pmNnNqTGRy?=
+ =?utf-8?B?OWVQSGxZUHAxUjZDaVBhUjZOQ0g1WWUrYm5UR3ZhRXlmQWtTYWNFR3pJOW85?=
+ =?utf-8?B?TjZheGJLc2F1cW1BUm1rUjZwM3R4ZUpLeEFtSVF6Z3QwMG1IV0swdGhDT3Vz?=
+ =?utf-8?B?TG85LzVqTnhvRHo0T1BHRlJYdzFtbHZOWE16VjlxZXR0SkxwMlFpWm15ZHpE?=
+ =?utf-8?B?YnJRNU11N0JYYThjbmZLakczNXA2YXIwVHh2MDlFbkg2aE1VY1lsY2tTWUMv?=
+ =?utf-8?B?b1RXQlk1VENjR2txcHpieHhrYUI3WlJGWWFwZlFRWG1JVGhDNlJveDJWdUlm?=
+ =?utf-8?B?ZEp6SWV2S0xlWDBKL3JuZTcxQ2Voc1k1UDBMMzVJdThwT3I4dGdsVkJ4Rzlm?=
+ =?utf-8?B?TmFhYTJ1N25FRGtpRnpMQU5Hc0NQNUNVd21Cc2o4d0xlQ0JHS0lEeGE1Yzh5?=
+ =?utf-8?B?WnNyY1pEYmdVYUpvQmFBTzdwYzZxdjBsREx0UFllZXR4MXlFblExWUVHdmxR?=
+ =?utf-8?B?cHdlbFMyTnFaWCtyZVZ1dFIzcXlubGIvMi93aFcxa2FFMktSSituZDB5MlJT?=
+ =?utf-8?B?cnBoUzZqUS9RanlYRUtrUUV6Q0VnN29NSUJxZWYyaHFKUlQyUVRpd1VabGFN?=
+ =?utf-8?B?S2hKOHh5WUdhd0EzMmpxNWwvQVllTkdlTjlSOENOK0dSbjVxZFM1NDBkZGd5?=
+ =?utf-8?B?b3FjWjU5MXU2WnNYeGt5K2RJRkhjbVFrbVB2Y0dvaktIVlppYllua2RGUmo2?=
+ =?utf-8?B?TXpGL2dWclVXaXExM08yMjBJTUN1YS9aY1dxUGJhYmJOK0lvdXNTODBuUTE2?=
+ =?utf-8?B?K1BQSDBkYnp6aDRBR3Y5MnU2NVFKeXNMd3RKSHorOTlEZTlRdXB2TmpXK2lZ?=
+ =?utf-8?B?S1JnMWVLN1JxR2FDNHJBZmdXa0VLZ0RVYU9NUnBxMmZjVTZSMzZKWUN3dFhS?=
+ =?utf-8?B?eTg2K2M1UEdSTDgzNEs4MmkwVFVHOHZ2UWlycEFUeFhXbml1eTJSL2p2c1Zx?=
+ =?utf-8?Q?IopNg2tFdVFyqALZjY85MrI=3D?=
 X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ac08494f-ae74-4447-305b-08dd4c737878
+X-MS-Exchange-CrossTenant-Network-Message-Id: c27464a4-7d8c-41d2-1fc0-08dd4c740513
 X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Feb 2025 21:14:58.3920
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Feb 2025 21:18:54.2722
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fzZjY8UvOhBEvTuRvcKePw4CKkDFiRI5nJ7Mw25d0QSjL/VSJC+YfiTiJjj7qAj+icT0SV58+PKT++c3Mnd/4gEv/EbuB6IHoYYdVJonftQ=
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5erPdx9tb42xcApfYO0nqQGDDLGcshy0Q3UtK+B9ssmyoXHof6JGMlPfXmKjX3Y7+RqGDz/3jA8eSWwcrm3khTeqQwoukSukovysAF9unAE=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB6310
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_131514_109894_70F4FA34 
-X-CRM114-Status: GOOD (  36.10  )
+X-CRM114-CacheID: sfid-20250213_131900_556084_E053006D 
+X-CRM114-Status: GOOD (  30.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,166 +182,482 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2/11/25 3:55 AM, Ryan Roberts wrote:
-
-Hi Ryan,
-
-Thanks for taking time to review the patches.
-
+On 2/11/25 4:58 AM, Ryan Roberts wrote:
 > On 03/01/2025 01:17, Yang Shi wrote:
->> FEAT_BBM level 2 allow changing block size of a translation with relaxed
->> TLB flushing.  But it may incur TLB conflict abort.  We can handle the
->> abort in kernel, however it is hard to guarantee the recuesive TLB
-> nit: recuesive -> recursive ?
-
-Yes, it is a typo. Will fix in the next version.
-
->> conflct will never happen in the handling itself.
+>> When rodata=full is specified, kernel linear mapping has to be mapped at
+>> PTE level since large page table can't be split due to break-before-make
+>> rule on ARM64.
 >>
->> Some implementations can handle TLB conflict gracefully without fault
->> handler in kernel so FEAT_BBM level 2 can be enabled on those
->> implementations safely.
+>> This resulted in a couple of problems:
+>>    - performance degradation
+>>    - more TLB pressure
+>>    - memory waste for kernel page table
 >>
->> Look up MIDR to filter out those CPUs.  AmpereOne is one of them.
+>> With FEAT_BBM level 2 support, splitting large block page table to
+>> smaller ones doesn't need to make the page table entry invalid anymore.
+>> This allows kernel split large block mapping on the fly.
 >>
->> Suggested-by: Will Deacon<will@kernel.org>
+>> Add kernel page table split support and use large block mapping by
+>> default when FEAT_BBM level 2 is supported for rodata=full.  When
+>> changing permissions for kernel linear mapping, the page table will be
+>> split to PTE level.
+>>
+>> The machine without FEAT_BBM level 2 will fallback to have kernel linear
+>> mapping PTE-mapped when rodata=full.
+>>
+>> With this we saw significant performance boost with some benchmarks and
+>> much less memory consumption on my AmpereOne machine (192 cores, 1P) with
+>> 256GB memory.
+>>
+>> * Memory use after boot
+>> Before:
+>> MemTotal:       258988984 kB
+>> MemFree:        254821700 kB
+>>
+>> After:
+>> MemTotal:       259505132 kB
+>> MemFree:        255410264 kB
+>>
+>> Around 500MB more memory are free to use.  The larger the machine, the
+>> more memory saved.
+>>
+>> * Memcached
+>> We saw performance degradation when running Memcached benchmark with
+>> rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
+>> With this patchset we saw ops/sec is increased by around 3.5%, P99
+>> latency is reduced by around 9.6%.
+>> The gain mainly came from reduced kernel TLB misses.  The kernel TLB
+>> MPKI is reduced by 28.5%.
+>>
+>> The benchmark data is now on par with rodata=on too.
+>>
+>> * Disk encryption (dm-crypt) benchmark
+>> Ran fio benchmark with the below command on a 128G ramdisk (ext4) with disk
+>> encryption (by dm-crypt).
+>> fio --directory=/data --random_generator=lfsr --norandommap --randrepeat 1 \
+>>      --status-interval=999 --rw=write --bs=4k --loops=1 --ioengine=sync \
+>>      --iodepth=1 --numjobs=1 --fsync_on_close=1 --group_reporting --thread \
+>>      --name=iops-test-job --eta-newline=1 --size 100G
+>>
+>> The IOPS is increased by 90% - 150% (the variance is high, but the worst
+>> number of good case is around 90% more than the best number of bad case).
+>> The bandwidth is increased and the avg clat is reduced proportionally.
+>>
+>> * Sequential file read
+>> Read 100G file sequentially on XFS (xfs_io read with page cache populated).
+>> The bandwidth is increased by 150%.
+>>
+>> Keep using PTE mapping when pagealloc debug is enabled.  It is not worth
+>> the complexity.
+>>
+>> Kfence can be converted to use page block mapping later.
+>>
 >> Signed-off-by: Yang Shi<yang@os.amperecomputing.com>
 >> ---
->>   arch/arm64/include/asm/cpufeature.h | 19 +++++++++++++++++++
->>   arch/arm64/kernel/cpufeature.c      | 11 +++++++++++
->>   arch/arm64/tools/cpucaps            |  1 +
->>   3 files changed, 31 insertions(+)
+>>   arch/arm64/include/asm/pgtable.h |   7 +-
+>>   arch/arm64/mm/mmu.c              |  32 +++++-
+>>   arch/arm64/mm/pageattr.c         | 173 +++++++++++++++++++++++++++++--
+>>   3 files changed, 203 insertions(+), 9 deletions(-)
 >>
->> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
->> index 8b4e5a3cd24c..33ca9db42741 100644
->> --- a/arch/arm64/include/asm/cpufeature.h
->> +++ b/arch/arm64/include/asm/cpufeature.h
->> @@ -866,6 +866,25 @@ static __always_inline bool system_supports_mpam_hcr(void)
->>   	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index 6986345b537a..2927f59ae9e2 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -749,7 +749,7 @@ static inline bool in_swapper_pgdir(void *addr)
+>>   	        ((unsigned long)swapper_pg_dir & PAGE_MASK);
 >>   }
 >>   
->> +static inline bool system_supports_bbmlv2(void)
-> nit: Arm language internally is starting to refer to FEAT_BBML1 / FEAT_BBML2 and
-> I believe this will soon make it's way to the Arm ARM. So probably better to
-> refer to bbml2 rather than bbmlv2 throughout.
-
-Sure.
-
->> +{
->> +	return cpus_have_final_boot_cap(ARM64_HAS_BBMLV2);
->> +}
->> +
->> +static inline bool bbmlv2_available(void)
-> This function has no need to be in the header. system_supports_bbmlv2() is what
-> users should use. Suggest moving to has_bbmlv2() in cpufeature.c.
-
-bbmlv2_available() will be called by map_mem() in patch 2, but map_mem() 
-is called before CPU feature is finalized. I saw you suggest collapse 
-the page table in the below comment, if it works we don't need this 
-function anymore. But I have more questions about that.
-
->> +{
->> +	static const struct midr_range support_bbmlv2[] = {
->> +		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
->> +		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
->> +		{}
->> +	};
->> +
->> +	if (is_midr_in_range_list(read_cpuid_id(), support_bbmlv2))
->> +		return true;
->> +
->> +	return false;
->> +}
->> +
->>   int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
->>   bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
+>> -static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+>> +static inline void __set_pmd_nosync(pmd_t *pmdp, pmd_t pmd)
+>>   {
+>>   #ifdef __PAGETABLE_PMD_FOLDED
+>>   	if (in_swapper_pgdir(pmdp)) {
+>> @@ -759,6 +759,11 @@ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+>>   #endif /* __PAGETABLE_PMD_FOLDED */
 >>   
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index 6ce71f444ed8..a60d5fa04828 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -1889,6 +1889,11 @@ static bool has_lpa2(const struct arm64_cpu_capabilities *entry, int scope)
+>>   	WRITE_ONCE(*pmdp, pmd);
+>> +}
+>> +
+>> +static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+>> +{
+>> +	__set_pmd_nosync(pmdp, pmd);
+> I have a series at [1] which enables batching/deferring these barriers. I reckon
+> it would be udeful to ultimately apply that same technique for painting the
+> linear map if/when that series goes upstream. The benefit is that we wouldn't
+> need to expose the _nosync helpers. But that's something to cleanup later. This
+> looks fine for now.
+
+Thanks.
+
+>>   
+>>   	if (pmd_valid(pmd)) {
+>>   		dsb(ishst);
+>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>> index e2739b69e11b..65b5b1ba48a7 100644
+>> --- a/arch/arm64/mm/mmu.c
+>> +++ b/arch/arm64/mm/mmu.c
+>> @@ -620,6 +620,19 @@ static inline void arm64_kfence_map_pool(phys_addr_t kfence_pool, pgd_t *pgdp) {
+>>   
+>>   #endif /* CONFIG_KFENCE */
+>>   
+>> +static inline bool force_pte_mapping(void)
+>> +{
+>> +	/*
+>> +	 * Can't use cpufeature API to determine whether BBM level 2
+>> +	 * is supported or not since cpufeature have not been
+>> +	 * finalized yet.
+>> +	 */
+> I think assuming the system has BMML2 just because the boot CPU has it is going
+> to be problematic. I think you are going to continue to need to initially paint
+> the linear map with ptes then later, once the system cap is finalized, repaint
+> with blocks.
+
+Please see the response for patch 1. We may be able to split it instead 
+of collapse it.
+
+>> +	return (rodata_full && !bbmlv2_available()) ||
+>> +		debug_pagealloc_enabled() ||
+>> +		arm64_kfence_can_set_direct_map() ||
+>> +		is_realm_world();
+>> +}
+> Previously the decision was determined by:
+>
+> bool can_set_direct_map(void)
+> {
+> 	/*
+> 	 * rodata_full, DEBUG_PAGEALLOC and a Realm guest all require linear
+> 	 * map to be mapped at page granularity, so that it is possible to
+> 	 * protect/unprotect single pages.
+> 	 *
+> 	 * KFENCE pool requires page-granular mapping if initialized late.
+> 	 *
+> 	 * Realms need to make pages shared/protected at page granularity.
+> 	 */
+> 	return rodata_full || debug_pagealloc_enabled() ||
+> 		arm64_kfence_can_set_direct_map() || is_realm_world();
+> }
+>
+> But now that you can safely split block mappings to page mappings when needed
+> doesn't that cover some of these requirements? So perhaps you can do block
+> mappings even when some (all?) of these things are active?
+
+I did look into some of them. I don't know too much about realm, so I 
+can't tell.
+
+But pagealloc will change kernel direct map to invalid when freeing page 
+so it is called quite often. The pagealloc debug is typically not 
+enabled for production.
+
+Kfence will change it to invalid when allocating kfence object 
+(typically when allocating slab), but kfence typically allocates and 
+maps its pool very early on ARM64 and the pool is separate from direct 
+map and mapped at PTE level. So IMHO I don't see to much value support 
+large block mapping for them for now.
+
+>> +
+>>   static void __init map_mem(pgd_t *pgdp)
+>>   {
+>>   	static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
+>> @@ -645,9 +658,21 @@ static void __init map_mem(pgd_t *pgdp)
+>>   
+>>   	early_kfence_pool = arm64_kfence_alloc_pool();
+>>   
+>> -	if (can_set_direct_map())
+>> +	if (force_pte_mapping())
+>>   		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>>   
+>> +	/*
+>> +	 * With FEAT_BBM level 2 we can split large block mapping without
+>> +	 * making it invalid.  So kernel linear mapping can be mapped with
+>> +	 * large block instead of PTE level.
+>> +	 *
+>> +	 * Need to break cont for CONT_MAPPINGS when changing permission,
+>> +	 * and need to inspect the adjacent page table entries to make
+>> +	 * them cont again later.  It sounds not worth the complexity.
+> I'm not sure I follow the argument? As far as I can tell, you only ever split
+> mappings. You never collapse. So I don't think it's too complex to check for
+> CONT bits and if set, clear the CONT bit from the block? That's a safe operation
+> with BBML2. It means you need to iterate over the ptes which you don't currently
+> do, but you only need to check a 1 PTE in every CONT_PTES.
+
+Sorry for the confusion. Yes, I don't collapse. It seems I overthought 
+this case, I thought I need to clear CONT bit for all PTEs in the block 
+(for example, 16 PTEs). But it seems I just need to clear one PTE.
+
+>> +	 */
+>> +	if (rodata_full)
+>> +		flags |= NO_CONT_MAPPINGS;
+>> +
+>>   	/*
+>>   	 * Take care not to create a writable alias for the
+>>   	 * read-only text and rodata sections of the kernel image.
+>> @@ -1342,9 +1367,12 @@ int arch_add_memory(int nid, u64 start, u64 size,
+>>   
+>>   	VM_BUG_ON(!mhp_range_allowed(start, size, true));
+>>   
+>> -	if (can_set_direct_map())
+>> +	if (force_pte_mapping())
+>>   		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>>   
+>> +	if (rodata_full)
+>> +		flags |= NO_CONT_MAPPINGS;
+>> +
+>>   	__create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
+>>   			     size, params->pgprot, __pgd_pgtable_alloc,
+>>   			     flags);
+>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>> index 39fd1f7ff02a..ba2360ecb030 100644
+>> --- a/arch/arm64/mm/pageattr.c
+>> +++ b/arch/arm64/mm/pageattr.c
+>> @@ -49,6 +49,145 @@ static int change_page_range(pte_t *ptep, unsigned long addr, void *data)
+>>   	return 0;
 >>   }
->>   #endif
 >>   
->> +static bool has_bbmlv2(const struct arm64_cpu_capabilities *entry, int scope)
+>> +static int __split_linear_mapping_pmd(pud_t *pudp,
+>> +				      unsigned long vaddr, unsigned long end)
+> nit: are the double really underscores needed?
+
+No, not really.
+
 >> +{
->> +	return bbmlv2_available();
+>> +	pmd_t *pmdp;
+>> +	unsigned long next;
+>> +
+>> +	pmdp = pmd_offset(pudp, vaddr);
+>> +
+>> +	do {
+>> +		next = pmd_addr_end(vaddr, end);
+>> +
+>> +		if (pmd_leaf(pmdp_get(pmdp))) {
+>> +			struct page *pte_page;
+>> +			unsigned long pfn = pmd_pfn(pmdp_get(pmdp));
+>> +			pgprot_t prot = pmd_pgprot(pmdp_get(pmdp));
+>> +			pte_t *ptep_new;
+>> +			int i;
+>> +
+>> +			pte_page = alloc_page(GFP_KERNEL);
+>> +			if (!pte_page)
+>> +				return -ENOMEM;
+>> +
+>> +			prot = __pgprot(pgprot_val(prot) | PTE_TYPE_PAGE);
+>> +			ptep_new = (pte_t *)page_address(pte_page);
+>> +			for (i = 0; i < PTRS_PER_PTE; ++i, ++ptep_new)
+>> +				__set_pte_nosync(ptep_new,
+>> +						 pfn_pte(pfn + i, prot));
+>> +
+>> +			dsb(ishst);
+>> +			isb();
+>> +
+>> +			set_pmd(pmdp, pfn_pmd(page_to_pfn(pte_page),
+>> +				__pgprot(PMD_TYPE_TABLE)));
+> All the same comments that I made below for __split_linear_mapping_pud() apply here.
+
+Sure
+
+>> +		}
+>> +	} while (pmdp++, vaddr = next, vaddr != end);
+>> +
+>> +	return 0;
 >> +}
 >> +
->>   #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
->>   #define KPTI_NG_TEMP_VA		(-(1UL << PMD_SHIFT))
+>> +static int __split_linear_mapping_pud(p4d_t *p4dp,
+>> +				      unsigned long vaddr, unsigned long end)
+>> +{
+>> +	pud_t *pudp;
+>> +	unsigned long next;
+>> +	int ret;
+>> +
+>> +	pudp = pud_offset(p4dp, vaddr);
+>> +
+>> +	do {
+>> +		next = pud_addr_end(vaddr, end);
+>> +
+>> +		if (pud_leaf(pudp_get(pudp))) {
+> Just do the pudp_get() once and cache the result. It's implemented by
+> READ_ONCE() so your 3 invocations are actually doing 3 separate loads.
+
+Sure
+
+>> +			struct page *pmd_page;
+>> +			unsigned long pfn = pud_pfn(pudp_get(pudp));
+>> +			pgprot_t prot = pud_pgprot(pudp_get(pudp));
+>> +			pmd_t *pmdp_new;
+>> +			int i;
+>> +			unsigned int step;
+>> +
+>> +			pmd_page = alloc_page(GFP_KERNEL);
+>> +			if (!pmd_page)
+>> +				return -ENOMEM;
+> Is this really how we allocate pgtable pages for kernel space? For user space we
+> have quite a lot of machinery for this.
+
+The userspace page table allocation does something extra, for example,
+     - initialize ptlock
+     - set folio type
+     - update NR_PGTABLE counter
+
+We don't need them for kernel direct map page table, so just took the 
+most straightforward way. However, __get_free_page(GFP_PGTABLE_KERNEL) 
+may be better than alloc_page(GFP_KERNEL). It is used by memory hotplug.
+
+>> +
+>> +			pmdp_new = (pmd_t *)page_address(pmd_page);
+>> +			for (i = 0; i < PTRS_PER_PMD; ++i, ++pmdp_new) {
+>> +				step = (i * PMD_SIZE) >> PAGE_SHIFT;
+> Suggest hoisting this out of the loop, then just increment pfn by step every
+> iteration.
+
+Yeah, sure
+
+>> +				__set_pmd_nosync(pmdp_new,
+>> +						 pfn_pmd(pfn + step, prot));
+>> +			}
+>> +
+>> +			dsb(ishst);
+>> +			isb();
+> I'm not convinced by the need for this isb(). The dsb ensures that the table is
+> visible to the table walker; that's needed. The isb() present in set_pmd() and
+> friends to remove any "cached" speculative invalid translation marker from the
+> pipeline, if I understand things correctly. I don't think we need to solve that
+> problem here because you weren't working on a live table. The isb() in set_pud()
+> is sufficient, I think.
+
+I see, we just need one isb() when the table becomes reachable. Will 
+remove it and the isb() in __split_linear_mapping_pmd().
+
+>> +
+>> +			set_pud(pudp, pfn_pud(page_to_pfn(pmd_page),
+>> +				__pgprot(PUD_TYPE_TABLE)));
+>> +		}
+>> +
+>> +		ret = __split_linear_mapping_pmd(pudp, vaddr, next);
+>> +		if (ret)
+>> +			return ret;
+>> +	} while (pudp++, vaddr = next, vaddr != end);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int __split_linear_mapping_p4d(pgd_t *pgdp,
+>> +				      unsigned long vaddr, unsigned long end)
+>> +{
+>> +	p4d_t *p4dp;
+>> +	unsigned long next;
+>> +	int ret;
+>> +
+>> +	p4dp = p4d_offset(pgdp, vaddr);
+>> +
+>> +	do {
+>> +		next = p4d_addr_end(vaddr, end);
+>> +
+>> +		ret = __split_linear_mapping_pud(p4dp, vaddr, next);
+>> +		if (ret)
+>> +			return ret;
+> nit: personally I would make this break. Then have single "return ret", like you
+> have for __split_linear_mapping_pgd(). Then all levels follow the same template.
+
+Sure
+
+>> +	} while (p4dp++, vaddr = next, vaddr != end);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int __split_linear_mapping_pgd(pgd_t *pgdp,
+>> +				      unsigned long vaddr,
+>> +				      unsigned long end)
+>> +{> +	unsigned long next;
+>> +	int ret = 0;
+>> +
+>> +	mmap_write_lock(&init_mm);
+> nit: I think the locking would be more natural in split_linear_mapping().
+
+OK
+
+>> +
+>> +	do {
+>> +		next = pgd_addr_end(vaddr, end);
+>> +		ret = __split_linear_mapping_p4d(pgdp, vaddr, next);
+>> +		if (ret)
+>> +			break;
+>> +	} while (pgdp++, vaddr = next, vaddr != end);
+>> +
+>> +	mmap_write_unlock(&init_mm);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static int split_linear_mapping(unsigned long start, unsigned long end)
+> As far as I can tell, you only ever split the linear mapping. You never collapse
+> it. In that case, won't it just degrade to pte-mappings over time? I suspect you
+> should aim to detect collapse opportunities.
+
+In theory there may be kernel linear mapping fragmentation problem, for 
+example, huge number of modules are loaded, but I've never heard of 
+anyone reported this as a real issue. And AFAICT, no architecture 
+supports this for now.
+
+>> +{
+>> +	int ret;
+>> +
+>> +	if (!system_supports_bbmlv2())
+>> +		return 0;
+>> +
+>> +	ret = __split_linear_mapping_pgd(pgd_offset_k(start), start, end);
+> nit: personally I would put pgd_offset_k() into __split_linear_mapping_pgd() so
+> that it takes the exact same form as the other levels. Or mege
+> __split_linear_mapping_pgd() into split_linear_mapping().
+
+OK, I will clean it up
+
+>> +	flush_tlb_kernel_range(start, end);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>>   /*
+>>    * This function assumes that the range is mapped with PAGE_SIZE pages.
+>>    */
+>> @@ -80,8 +219,9 @@ static int change_memory_common(unsigned long addr, int numpages,
+>>   	unsigned long start = addr;
+>>   	unsigned long size = PAGE_SIZE * numpages;
+>>   	unsigned long end = start + size;
+>> +	unsigned long l_start;
+>>   	struct vm_struct *area;
+>> -	int i;
+>> +	int i, ret;
 >>   
->> @@ -2990,6 +2995,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->>   		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, GCS, IMP)
->>   	},
->>   #endif
->> +	{
->> +		.desc = "BBM Level 2",
->> +		.capability = ARM64_HAS_BBMLV2,
->> +		.type = ARM64_CPUCAP_BOOT_CPU_FEATURE,
-> I'm wondering if this will potentially lead to problems for assymetric
-> collections of CPUs (e.g. big.LITTLE)? I can imagine that little CPUs might not
-> support BBML2. In this case if you boot on a big CPU that does have BBML2, you
-> will require the feature and refuse to online the secondary little CPUs.
+>>   	if (!PAGE_ALIGNED(addr)) {
+>>   		start &= PAGE_MASK;
+>> @@ -118,7 +258,12 @@ static int change_memory_common(unsigned long addr, int numpages,
+>>   	if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
+>>   			    pgprot_val(clear_mask) == PTE_RDONLY)) {
+>>   		for (i = 0; i < area->nr_pages; i++) {
+>> -			__change_memory_common((u64)page_address(area->pages[i]),
+>> +			l_start = (u64)page_address(area->pages[i]);
+>> +			ret = split_linear_mapping(l_start, l_start + PAGE_SIZE);
+>> +			if (WARN_ON_ONCE(ret))
+>> +				return ret;
+>> +
+>> +			__change_memory_common(l_start,
+>>   					       PAGE_SIZE, set_mask, clear_mask);
+>>   		}
+>>   	}
+>> @@ -174,6 +319,9 @@ int set_memory_valid(unsigned long addr, int numpages, int enable)
+> set_memory_valid() actually calls __change_memory_common() directly (so it
+> bypassed the split logic in change_memory_common()). Is it possible that it gets
+> called for a non-split region? I guess you'll need to handle that case too?
 
-Yes. This is the behavior of this patch.
+The set_memopry_valid() is called in the below places:
+     - kfence: it requires map at PTE level regardless of 
+kfence_early_init or not
+     - pagealloc debug: it requires map at PTE level too
+     - execmem ROX cache: it seems like only x86 supports this right now
 
-> Perhaps this really needs to be a system feature, where it is only enabled if
-> all CPUs in the system support it? I'm guessing that will make painting the
-> linear map harder; I guess you will need to initially set it up with PTE
-> mappings, then repaint as block mappings if BBML2 is determined to be supported
-> if that's not already what you are doing.
-
-Actually I thought about this before I posted the RFC patches to 
-upstream. There are a couple of options, but I can't tell which one is 
-the preferred and whether it is really that important to handle 
-asymmetric systems gracefully or not, so I did it in the simplest way: 
-just fail online the conflict cores. I also noticed some features behave 
-similarly, for example, MPAM. And this RFC patch is mainly aimed to get 
-some feedback from the community about whether it is worth it and the 
-direction is right or not. So I tried to make it as simple as possible 
-(for example, I didn't add CONT_PTE support in patch 2 either).
-
-If I understand correctly, system feature needs to read the "sanitized" 
-register value per the comment in cpufeature.c, but we read MIDR here. 
-So it actually just uses the current CPU's (likely boot CPU) MIDR if it 
-is s system feature, right? If we really want to handle such asymmetric 
-systems gracefully, we need:
-     - read all cores' MIDR then determine whether BBML2 should be 
-advertised or not
-     - update a flag or bitmap to tell us whether it is asymmetric or not
-     - take actions based on the flag or bitmap (i.e. collapse page 
-table or do nothing)
-
-But system feature is not checked on the secondary cores. The 
-check_local_cpu_capabilities() called by secondary_start_kernel() just 
-checks SCOPE_LOCAL_CPU features if I read the code correctly. So local 
-cpu feature may be better? The local cpu feature maintains a cpumask, it 
-can tell us whether BBML2 is asymmetric or not.
-
-In addition I'm also thinking about whether collapse is the best way or 
-not. We should be able to have large block mapping in the first place if 
-the boot CPU has BBML2, then split the page table if it is asymmetric. 
-I'm supposed we need to stop machine anyway even though we do collapse. 
-The split need to be called on the boot CPU. We already have split 
-logic, we can reuse it anyway (maybe need some minor tweak to fit). It 
-sounds simpler than collapse. And the asymmetric systems may be not that 
-many in real world? I know there are a lot of big.LITTLE SoCs in the 
-wild, but those big cores may typically not support BBML2. If so we can 
-save boot up time for the most cases.
-
-The other concern is about cpu hotplug. For example, if all the booting 
-cores have BBML2, but the hot plugged cores don't, shall we split the 
-page table when the cores are hot added, and collapse the page table 
-when the cores are hot removed?
-
-I'm not sure whether the extra logic to support asymmetric systems is 
-worth it or not. Maybe we should start from the symmetric systems, then 
-add more graceful handle to asymmetric systems later if it turns out to 
-be a real problem? And unfortunately I don't have the appropriate 
-hardware to test the code. Maybe you or someone else from ARM has the 
-right hardware?
+I don't think we are going to support large block mapping for direct map 
+for pagealloc debug and kfence as I said above. We need make 
+set_memory_valid() split page table when execmem ROX supported is added 
+for arm64. But we don't need do it right now.
 
 Thanks,
 Yang
@@ -348,22 +665,55 @@ Yang
 > Thanks,
 > Ryan
 >
->> +		.matches = has_bbmlv2,
->> +	},
->>   	{},
->>   };
 >>   
->> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
->> index eb17f59e543c..287bdede53f5 100644
->> --- a/arch/arm64/tools/cpucaps
->> +++ b/arch/arm64/tools/cpucaps
->> @@ -14,6 +14,7 @@ HAS_ADDRESS_AUTH_ARCH_QARMA5
->>   HAS_ADDRESS_AUTH_IMP_DEF
->>   HAS_AMU_EXTN
->>   HAS_ARMv8_4_TTL
->> +HAS_BBMLV2
->>   HAS_CACHE_DIC
->>   HAS_CACHE_IDC
->>   HAS_CNP
+>>   int set_direct_map_invalid_noflush(struct page *page)
+>>   {
+>> +	unsigned long l_start;
+>> +	int ret;
+>> +
+>>   	struct page_change_data data = {
+>>   		.set_mask = __pgprot(0),
+>>   		.clear_mask = __pgprot(PTE_VALID),
+>> @@ -182,13 +330,21 @@ int set_direct_map_invalid_noflush(struct page *page)
+>>   	if (!can_set_direct_map())
+>>   		return 0;
+>>   
+>> +	l_start = (unsigned long)page_address(page);
+>> +	ret = split_linear_mapping(l_start, l_start + PAGE_SIZE);
+>> +	if (WARN_ON_ONCE(ret))
+>> +		return ret;
+>> +
+>>   	return apply_to_page_range(&init_mm,
+>> -				   (unsigned long)page_address(page),
+>> -				   PAGE_SIZE, change_page_range, &data);
+>> +				   l_start, PAGE_SIZE, change_page_range,
+>> +				   &data);
+>>   }
+>>   
+>>   int set_direct_map_default_noflush(struct page *page)
+>>   {
+>> +	unsigned long l_start;
+>> +	int ret;
+>> +
+>>   	struct page_change_data data = {
+>>   		.set_mask = __pgprot(PTE_VALID | PTE_WRITE),
+>>   		.clear_mask = __pgprot(PTE_RDONLY),
+>> @@ -197,9 +353,14 @@ int set_direct_map_default_noflush(struct page *page)
+>>   	if (!can_set_direct_map())
+>>   		return 0;
+>>   
+>> +	l_start = (unsigned long)page_address(page);
+>> +	ret = split_linear_mapping(l_start, l_start + PAGE_SIZE);
+>> +	if (WARN_ON_ONCE(ret))
+>> +		return ret;
+>> +
+>>   	return apply_to_page_range(&init_mm,
+>> -				   (unsigned long)page_address(page),
+>> -				   PAGE_SIZE, change_page_range, &data);
+>> +				   l_start, PAGE_SIZE, change_page_range,
+>> +				   &data);
+>>   }
+>>   
+>>   static int __set_memory_enc_dec(unsigned long addr,
 
 
