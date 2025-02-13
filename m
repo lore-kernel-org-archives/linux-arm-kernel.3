@@ -4,60 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E69DC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 00:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F19FC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 00:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jnRRalYsfx7z1FMzhIoHU7Ms/KER3HC5c+11l6mllmM=; b=4QsDfs9dzBdYcjKMyb9PtKhm8o
-	xh3Y3GoKlevljlLs2GB7VCEHppo52j8oYehFaavT6aSoeOtG42mFh64boGuGlzhXryaXVWVR/d12F
-	NCdbRxnERgttL7RK6yA0wdv8aKk0Qh8L1dNbygXWzXvLLCscsY2gVZUxNFGVZyY4om7rz7Y4o0NSA
-	Sexl1GRdRKZPN7/DjUVEd5IYkXiaUo+/Wq+3EXBdhVhWgGDdCf3xal+YqKCQC77rjIxnFfWV+PNcc
-	p6TsXAjBvIN0GxeO5w/CdMFq+S+tTKJs0pAZbd87EAWLt796fg5ijmFLhxJayRZOMEkbVzSWY5yZu
-	PcEmAr0g==;
+	bh=kvPsauXDyf47SKQKq4L7sX8eCJo/Sjkz/am1Ygpjog8=; b=Ljh0LD5aJL5UmcNw6xiUNoLfMP
+	2GOwEqzrkgo1lHRgwBLDxStw6DUo1IjP9q4whvrGLJ6K9bU1VNU6ylVhEgIT8UaXJn/IMcFlce2IQ
+	VYH07VDg9ShhGVpfV4xgoiS4EnjO6Fbg/Xj9B01NUToROiemD0rWZNjCs1Ens4yIib1xAQP0rOkQd
+	fvcHI1cqoHqSBUrqL7jeDMPSMzoj89fGmTLkse80NcnM+acf55ZGQHRnaXgIrYUKwjXpBGpDWYQdf
+	DlOEbCoObb50QiEWxJ75/Yh6YnXdRGGteLkic3lp8Xw9fyJ7vfsxLOr0tJOxk6Qg5QBigDoq0VamL
+	5Tv0tZPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiN03-00000009GmY-2teb;
-	Thu, 13 Feb 2025 00:22:39 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1tiNIt-00000009JOz-1fYl;
+	Thu, 13 Feb 2025 00:42:07 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiMyb-00000009Gcd-3Wqr
+	id 1tiNHT-00000009JDx-17zr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 00:21:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1739406062;
-	bh=jnRRalYsfx7z1FMzhIoHU7Ms/KER3HC5c+11l6mllmM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=jtht8LwAMfpecc9QULdps43dmB2r9suxd0Al+T+TcRwf+jWzxNINzQjWb7ANfiPym
-	 nYWEb3NrG5KPb7Nq/hEZUHiQsJX6ZOQWZNrqslozedBLb6+RlwoPj9rdp1UnhU3+RX
-	 MBZqp9p8n3mTFAiW2svDTgNF2e2h8/A7grImi4ukZ3O+AFOLkEmTmMhNH5kGOVgrSS
-	 Lw0YoAVJOYKHd0egB4JEn/vQjZns5tY2kDJDn224NuWa/pMlrfRWQYl0cqtF+F1wit
-	 /2bJhstEdhGGsG5HagLr4OSVsFV7hnzcsBXe339aFQjMC0wat3wyyaFgAHQQ1/qDb8
-	 nsAGBIjOKWvoQ==
-Received: from [192.168.68.112] (203-173-7-184.dyn.iinet.net.au [203.173.7.184])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 880B57576E;
-	Thu, 13 Feb 2025 08:20:59 +0800 (AWST)
-Message-ID: <f649fc0f8491ab666b3c10f74e3dc18da6c20f0a.camel@codeconstruct.com.au>
-Subject: Re: [PATCH] soc: aspeed: Add NULL pointer check in
- aspeed_lpc_enable_snoop()
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Chenyuan Yang <chenyuan0y@gmail.com>, joel@jms.id.au, 
-	richardcochran@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Date: Thu, 13 Feb 2025 10:50:59 +1030
-In-Reply-To: <20250212212556.2667-1-chenyuan0y@gmail.com>
-References: <20250212212556.2667-1-chenyuan0y@gmail.com>
+	Thu, 13 Feb 2025 00:40:40 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51CKG8FP004594;
+	Thu, 13 Feb 2025 00:39:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=kvPsau
+	XDyf47SKQKq4L7sX8eCJo/Sjkz/am1Ygpjog8=; b=UEnWYm6GywtAWklet8Kgpk
+	ry9C4dDxYoUnjlmbMhR0g8vGlzqt9nrrYlr4pT4ZH/HFnl+aUieYO9JL0FaV0Z2X
+	wgnsvrixboTeC4h3j7FLogqEFZHRQqvix/eL8cCK2Ohx0ukW8Mgs4enLAb/QXKed
+	VHf0IriPmvQU0LL44IJypBnfxnTjiGkgyDoX6VdWGBzB420z/iDMFHPM7E6e13Cj
+	VfefLAUgEiGzBKNAz19wwzO3mdB2I/np6ENZCNvI2pgs8XbKcNCg3/flpn8DJAt/
+	g0RNpy4h0c26wxoO9h3vCnPGRgWEL2uboa5tLC5aq+yuCQ90coVWd+e2UlBVHyxA
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44rhqaefkc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Feb 2025 00:39:48 +0000 (GMT)
+Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 51D0Yq7p011254;
+	Thu, 13 Feb 2025 00:39:47 GMT
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44rhqaefka-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Feb 2025 00:39:47 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 51CNV6bh016749;
+	Thu, 13 Feb 2025 00:39:46 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 44pk3kbmxf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Feb 2025 00:39:46 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 51D0diJD39125320
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 13 Feb 2025 00:39:44 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2372E20040;
+	Thu, 13 Feb 2025 00:39:44 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 9747620043;
+	Thu, 13 Feb 2025 00:39:43 +0000 (GMT)
+Received: from ozlabs.au.ibm.com (unknown [9.63.197.14])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 13 Feb 2025 00:39:43 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com (unknown [9.36.5.210])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 0DEA2600D7;
+	Thu, 13 Feb 2025 11:39:26 +1100 (AEDT)
+Message-ID: <835f0504d85398707997b7fe96b4f1a44179ff9a.camel@linux.ibm.com>
+Subject: Re: [PATCH 0/9] Extend automarkup support for ABI symbols
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+        Bagas Sanjaya
+	 <bagasdotme@gmail.com>
+Cc: Linux Doc Mailing List <linux-doc@vger.kernel.org>,
+        Jonathan Corbet	
+ <corbet@lwn.net>, linux-kernel@vger.kernel.org,
+        "David S. Miller"	
+ <davem@davemloft.net>,
+        Andreas Noever <andreas.noever@gmail.com>,
+        Avadhut
+ Naik	 <avadhut.naik@amd.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Eric Dumazet	 <edumazet@google.com>,
+        Hu Haowen
+ <2023002089@link.tyut.edu.cn>,
+        Lars-Peter Clausen <lars@metafoo.de>,
+        Michael Jamet <michael.jamet@intel.com>,
+        Mika Westerberg	
+ <mika.westerberg@linux.intel.com>,
+        Paolo Abeni <pabeni@redhat.com>, Sean
+ Young	 <sean@mess.org>,
+        Yanteng Si <si.yanteng@linux.dev>,
+        Yehezkel Bernat	
+ <YehezkelShB@gmail.com>,
+        Thomas Gleixner <tglx@linutronix.de>,
+        Michael
+ Ellerman	 <mpe@ellerman.id.au>,
+        Shrikanth Hegde <sshegde@linux.ibm.com>,
+        "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+        Pawan Gupta
+ <pawan.kumar.gupta@linux.intel.com>,
+        James Morse	 <james.morse@arm.com>,
+        "Nysal Jan K.A" <nysal@linux.ibm.com>,
+        Tom Lendacky	
+ <thomas.lendacky@amd.com>,
+        Sourabh Jain <sourabhjain@linux.ibm.com>,
+        Stephen Rothwell <sfr@canb.auug.org.au>,
+        Frederic Barrat
+ <fbarrat@linux.ibm.com>,
+        Madhavan Srinivasan	 <maddy@linux.ibm.com>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy	
+ <christophe.leroy@csgroup.eu>,
+        Naveen N Rao <naveen@kernel.org>, linux-arm-kernel@lists.infradead.org,
+        linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
+        linux-usb@vger.kernel.org, netdev@vger.kernel.org,
+        workflows@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
+Date: Thu, 13 Feb 2025 11:39:20 +1100
+In-Reply-To: <20250212135808.58d2f032@foz.lan>
+References: <cover.1739254867.git.mchehab+huawei@kernel.org>
+		<Z6yFG_NntQfkwYli@archie.me> <20250212135808.58d2f032@foz.lan>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
+X-TM-AS-GCONF: 00
+X-Proofpoint-ORIG-GUID: OZ4Ih_TXKxH9HgohVnb0WeQrzyi138qF
+X-Proofpoint-GUID: _CytR_Qn18YZDyX1vFuvKdYXq73CWqPh
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-12_08,2025-02-11_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 mlxscore=0
+ spamscore=0 lowpriorityscore=0 phishscore=0 suspectscore=0 adultscore=0
+ impostorscore=0 bulkscore=0 mlxlogscore=609 priorityscore=1501
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502130002
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_162110_158408_0ABF8DDB 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20250212_164039_311282_3732FAC2 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,46 +162,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chenyuan,
+On Wed, 2025-02-12 at 13:58 +0100, Mauro Carvalho Chehab wrote:
+> > WARNING: Documentation/ABI/testing/sysfs-class-cxl not found
+>=20
+> I need to double-check verify this one, as it didn't appear on
+> my tests. Are you getting it against docs-next or linux-next?
+>=20
 
-On Wed, 2025-02-12 at 15:25 -0600, Chenyuan Yang wrote:
-> lpc_snoop->chan[channel].miscdev.name could be NULL, thus,
-> a pointer check is added to prevent potential NULL pointer
-> dereference.
-> This is similar to the fix in commit 3027e7b15b02
-> ("ice: Fix some null pointer dereference issues in ice_ptp.c").
->=20
-> This issue is found by our static analysis tool.
->=20
-> Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
-> ---
-> =C2=A0drivers/soc/aspeed/aspeed-lpc-snoop.c | 2 ++
-> =C2=A01 file changed, 2 insertions(+)
->=20
-> diff --git a/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> index 9ab5ba9cf1d6..376b3a910797 100644
-> --- a/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> +++ b/drivers/soc/aspeed/aspeed-lpc-snoop.c
-> @@ -200,6 +200,8 @@ static int aspeed_lpc_enable_snoop(struct
-> aspeed_lpc_snoop *lpc_snoop,
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0lpc_snoop->chan[channel].=
-miscdev.minor =3D MISC_DYNAMIC_MINOR;
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0lpc_snoop->chan[channel].=
-miscdev.name =3D
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME=
-,
-> channel);
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (!lpc_snoop->chan[channel].=
-miscdev.name)
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0return -ENOMEM;
-
-This introduces yet another place where the driver leaks resources in
-an error path (in this case, the channel kfifo). The misc device also
-gets leaked later on. It would be nice to address those first so that
-handling this error can take the appropriate cleanup path.
+This is moved to obsolete/ by 5731d41af924b which was merged in rc1,
+and will be moved again to removed/ by [0].
 
 Andrew
+
+[0]
+https://patchwork.ozlabs.org/project/linuxppc-dev/patch/20250203072801.3655=
+51-3-ajd@linux.ibm.com/
+
+--=20
+Andrew Donnellan    OzLabs, ADL Canberra
+ajd@linux.ibm.com   IBM Australia Limited
 
