@@ -4,39 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACAF4C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 13:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D9DBC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 13:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4pe4H/aswzP+VVwCej36T7RUVNvKGWBmX5Ew2vb2Z8U=; b=Fu7FD+R6v8Nay2szga02Ul18mV
-	i7iZQ1roxtRuK28MtD9JZG7Ebi6/pZdK9f091M7LN44L1P6FZZEQQPmizMJT6Z0aQm+I+0ts5xfmO
-	qXsmfIDNAWUffXk8Ti+Mtstlqx8XmePDaSA0FFXlpm1P5AP/owfphyC/DTc58toLGAwyE9LjabgrY
-	qQQL5MxS8/yiIByP98j9Ir4yhTm5lUnobblwsPvM+AfGnaV4/9yLLhF8AfAj5qcJGcvPX2NOClSA+
-	actYPXZwuMI9xqB1DKUKDEp3mSgm9r+RkguyQ65qKw1UlzfzZG9WXOICH4ctkJ7y83f/h4Mpvp/po
-	GBxY+QYg==;
+	bh=M5sGTGijkijKquhsZpeteo9Z+KqHf8edhKrasj8jgT8=; b=OXZTGCdYRi3P+dGcAD1/hGxEaD
+	Xez1AvAvLKHVfNako8dlaS5DO1GLxcLBWZKXDGR/1IxQoLfT4q+dVGSGMhwUMx9WbE5zEUd6ZpRWM
+	+KSmnh7o7ABqh0hVLDmzSxUABUEH6/MF3xDtMWh9B8fY1BZvoJo17ggwbfXdaLMCfEDLGGMkOpaLM
+	RTE/SZOazGL1gLlV/pSGtsz6i4ReRvPLR71hVe5NcBb8+oJcnx8PLTUPfXn2mHOPShuoRDxH3gzqF
+	tdi678McVtKOiAZecxfwoMabqS01tzY6uBoenoNaD8/G2iSSl5pgavFFP05qDTTMOkWGJJiQVlyRw
+	9LwaZ9MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYur-0000000B5wU-3XAK;
-	Thu, 13 Feb 2025 13:06:05 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1tiYwG-0000000B6BB-27My;
+	Thu, 13 Feb 2025 13:07:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYqg-0000000B4yB-1P0R
+	id 1tiYqq-0000000B517-233I
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 13 Feb 2025 13:01:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=M5sGTGijkijKquhsZpeteo9Z+KqHf8edhKrasj8jgT8=; b=l62kukB+8NSl0k9XolIIYvYIVp
+	5kzpQQeC5whtjgf7TUEHEx47Ay3VHr9lANn034gRLFXFK4IBC50PeI8rEvqnKKXSYftjer5Gki2a7
+	cPnobm3Su+hrZGBiMiVdCYukKJxfEAj9TIJ2HaX0A1vsFhz4uAw9p67PQIDbqlmqi60dCTv/0YVi0
+	uL4wyiN32gQt4G1MmEhHhd5vMohtGPSDIU8yp1Dh42xgDX49bCRKZ8xaKilS9vcsxJdZTLP8kpKPX
+	DE01B2OCtp529YVO6StwxE5oa8deYHXiRhG8bu8xkRCpBMBSONvlt3UbjEJ62OHT91FZJUTIICAz3
+	2W4DOnvQ==;
+Received: from szxga06-in.huawei.com ([45.249.212.32])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiYqm-00000000zkq-3IFo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 13:01:48 +0000
+	Thu, 13 Feb 2025 13:01:55 +0000
 Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4YtwJg2GNzz1JK16;
-	Thu, 13 Feb 2025 21:00:19 +0800 (CST)
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4YtwLn4XMqz20p2K;
+	Thu, 13 Feb 2025 21:02:09 +0800 (CST)
 Received: from kwepemg200008.china.huawei.com (unknown [7.202.181.35])
-	by mail.maildlp.com (Postfix) with ESMTPS id 84A471400D2;
-	Thu, 13 Feb 2025 21:01:43 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id EBBFC1400D2;
+	Thu, 13 Feb 2025 21:01:39 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by kwepemg200008.china.huawei.com
  (7.202.181.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 13 Feb
- 2025 21:01:42 +0800
+ 2025 21:01:38 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
 	<sstabellini@kernel.org>, <tglx@linutronix.de>, <peterz@infradead.org>,
@@ -54,9 +69,9 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
 	<Dave.Martin@arm.com>, <joey.gouly@arm.com>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <xen-devel@lists.xenproject.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH -next v6 8/8] arm64: entry: Switch to generic IRQ entry
-Date: Thu, 13 Feb 2025 21:00:07 +0800
-Message-ID: <20250213130007.1418890-9-ruanjinjie@huawei.com>
+Subject: [PATCH -next v6 5/8] arm64: entry: Use preempt_count() and need_resched() helper
+Date: Thu, 13 Feb 2025 21:00:04 +0800
+Message-ID: <20250213130007.1418890-6-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250213130007.1418890-1-ruanjinjie@huawei.com>
 References: <20250213130007.1418890-1-ruanjinjie@huawei.com>
@@ -67,8 +82,8 @@ X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
  kwepemg200008.china.huawei.com (7.202.181.35)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_050146_770579_D7797F45 
-X-CRM114-Status: GOOD (  31.24  )
+X-CRM114-CacheID: sfid-20250213_130153_705920_93D7FE3E 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,889 +98,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, x86, Riscv, Loongarch use the generic entry. Convert arm64
-to use the generic entry infrastructure from kernel/entry/*.
-The generic entry makes maintainers' work easier and codes
-more elegant.
+The generic entry code uses preempt_count() and need_resched() helpers to
+check if it should do preempt_schedule_irq(). Currently, arm64 use its own
+check logic, that is "READ_ONCE(current_thread_info()->preempt_count == 0",
+which is equivalent to "preempt_count() == 0 && need_resched()".
 
-Switch arm64 to generic IRQ entry first, which removed duplicate 100+
-LOC and make Lazy preemption on arm64 available by adding a
-_TIF_NEED_RESCHED_LAZY bit and enabling ARCH_HAS_PREEMPT_LAZY. The next
-patch serise will switch to generic entry completely later. Switch to
-generic entry in two steps according to Mark's suggestion will make it
-easier to review.
+In preparation for moving arm64 over to the generic entry code, use
+these helpers to replace arm64's own code and move it ahead.
 
-The changes are below:
- - Remove *enter_from/exit_to_kernel_mode(), and wrap with generic
-   irqentry_enter/exit(). Also remove *enter_from/exit_to_user_mode(),
-   and wrap with generic enter_from/exit_to_user_mode() because they
-   are exactly the same so far.
+No functional changes.
 
- - Remove arm64_enter/exit_nmi() and use generic irqentry_nmi_enter/exit()
-   because they're exactly the same, so the temporary arm64 version
-   irqentry_state can also be removed.
-
- - Remove PREEMPT_DYNAMIC code, as generic entry do the same thing
-   if arm64 implement arch_irqentry_exit_need_resched().
-
-Tested ok with following test cases on Qemu virt platform:
- - Perf tests.
- - Different `dynamic preempt` mode switch.
- - Pseudo NMI tests.
- - Stress-ng CPU stress test.
- - MTE test case in Documentation/arch/arm64/memory-tagging-extension.rst
-   and all test cases in tools/testing/selftests/arm64/mte/*.
-
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
 v6:
-- Remove arch_exit_to_user_mode_prepare() and pull local_daif_mask() later
-  in the arm64 exit sequence so that we can have it explicit
-  in entry-common.c.
 - Update the commit message.
+- Move this ahead before we change the preemption logic to
+  preempt non-IRQ exceptions.
 ---
- arch/arm64/Kconfig                    |   1 +
- arch/arm64/include/asm/entry-common.h |  56 +++++
- arch/arm64/include/asm/preempt.h      |   6 -
- arch/arm64/kernel/entry-common.c      | 350 +++++++-------------------
- arch/arm64/kernel/signal.c            |   3 +-
- 5 files changed, 143 insertions(+), 273 deletions(-)
- create mode 100644 arch/arm64/include/asm/entry-common.h
+ arch/arm64/kernel/entry-common.c | 14 ++++----------
+ 1 file changed, 4 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index c997b27b7da1..f234e3e9e956 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -150,6 +150,7 @@ config ARM64
- 	select GENERIC_EARLY_IOREMAP
- 	select GENERIC_IDLE_POLL_SETUP
- 	select GENERIC_IOREMAP
-+	select GENERIC_IRQ_ENTRY
- 	select GENERIC_IRQ_IPI
- 	select GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
- 	select GENERIC_IRQ_PROBE
-diff --git a/arch/arm64/include/asm/entry-common.h b/arch/arm64/include/asm/entry-common.h
-new file mode 100644
-index 000000000000..93c30b8d653d
---- /dev/null
-+++ b/arch/arm64/include/asm/entry-common.h
-@@ -0,0 +1,56 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef _ASM_ARM64_ENTRY_COMMON_H
-+#define _ASM_ARM64_ENTRY_COMMON_H
-+
-+#include <linux/thread_info.h>
-+
-+#include <asm/daifflags.h>
-+#include <asm/fpsimd.h>
-+#include <asm/mte.h>
-+#include <asm/stacktrace.h>
-+
-+#define ARCH_EXIT_TO_USER_MODE_WORK (_TIF_MTE_ASYNC_FAULT | _TIF_FOREIGN_FPSTATE)
-+
-+static __always_inline void arch_exit_to_user_mode_work(struct pt_regs *regs,
-+							unsigned long ti_work)
-+{
-+	if (ti_work & _TIF_MTE_ASYNC_FAULT) {
-+		clear_thread_flag(TIF_MTE_ASYNC_FAULT);
-+		send_sig_fault(SIGSEGV, SEGV_MTEAERR, (void __user *)NULL, current);
-+	}
-+
-+	if (ti_work & _TIF_FOREIGN_FPSTATE)
-+		fpsimd_restore_current_state();
-+}
-+
-+#define arch_exit_to_user_mode_work arch_exit_to_user_mode_work
-+
-+static inline bool arch_irqentry_exit_need_resched(void)
-+{
-+	/*
-+	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
-+	 * priority masking is used the GIC irqchip driver will clear DAIF.IF
-+	 * using gic_arch_enable_irqs() for normal IRQs. If anything is set in
-+	 * DAIF we must have handled an NMI, so skip preemption.
-+	 */
-+	if (system_uses_irq_prio_masking() && read_sysreg(daif))
-+		return false;
-+
-+	/*
-+	 * Preempting a task from an IRQ means we leave copies of PSTATE
-+	 * on the stack. cpufeature's enable calls may modify PSTATE, but
-+	 * resuming one of these preempted tasks would undo those changes.
-+	 *
-+	 * Only allow a task to be preempted once cpufeatures have been
-+	 * enabled.
-+	 */
-+	if (!system_capabilities_finalized())
-+		return false;
-+
-+	return true;
-+}
-+
-+#define arch_irqentry_exit_need_resched arch_irqentry_exit_need_resched
-+
-+#endif /* _ASM_ARM64_ENTRY_COMMON_H */
-diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
-index 0f0ba250efe8..932ea4b62042 100644
---- a/arch/arm64/include/asm/preempt.h
-+++ b/arch/arm64/include/asm/preempt.h
-@@ -2,7 +2,6 @@
- #ifndef __ASM_PREEMPT_H
- #define __ASM_PREEMPT_H
- 
--#include <linux/jump_label.h>
- #include <linux/thread_info.h>
- 
- #define PREEMPT_NEED_RESCHED	BIT(32)
-@@ -85,22 +84,17 @@ static inline bool should_resched(int preempt_offset)
- void preempt_schedule(void);
- void preempt_schedule_notrace(void);
- 
--void raw_irqentry_exit_cond_resched(void);
- #ifdef CONFIG_PREEMPT_DYNAMIC
- 
--DECLARE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
- void dynamic_preempt_schedule(void);
- #define __preempt_schedule()		dynamic_preempt_schedule()
- void dynamic_preempt_schedule_notrace(void);
- #define __preempt_schedule_notrace()	dynamic_preempt_schedule_notrace()
--void dynamic_irqentry_exit_cond_resched(void);
--#define irqentry_exit_cond_resched()	dynamic_irqentry_exit_cond_resched()
- 
- #else /* CONFIG_PREEMPT_DYNAMIC */
- 
- #define __preempt_schedule()		preempt_schedule()
- #define __preempt_schedule_notrace()	preempt_schedule_notrace()
--#define irqentry_exit_cond_resched()	raw_irqentry_exit_cond_resched()
- 
- #endif /* CONFIG_PREEMPT_DYNAMIC */
- #endif /* CONFIG_PREEMPTION */
 diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index 7056c584f59c..c3583524c37a 100644
+index 94e4132213ce..dceef4cb140b 100644
 --- a/arch/arm64/kernel/entry-common.c
 +++ b/arch/arm64/kernel/entry-common.c
-@@ -6,6 +6,7 @@
-  */
+@@ -294,14 +294,6 @@ static inline bool arm64_preempt_schedule_irq(void)
+ 	if (!need_irq_preemption())
+ 		return false;
  
- #include <linux/context_tracking.h>
-+#include <linux/irq-entry-common.h>
- #include <linux/kasan.h>
- #include <linux/linkage.h>
- #include <linux/lockdep.h>
-@@ -28,13 +29,6 @@
- #include <asm/sysreg.h>
- #include <asm/system_misc.h>
- 
--typedef struct irqentry_state {
--	union {
--		bool	exit_rcu;
--		bool	lockdep;
--	};
--} arm64_irqentry_state_t;
--
- /*
-  * Handle IRQ/context state management when entering from kernel mode.
-  * Before this function is called it is not safe to call regular kernel code,
-@@ -43,31 +37,14 @@ typedef struct irqentry_state {
-  * This is intended to match the logic in irqentry_enter(), handling the kernel
-  * mode transitions only.
-  */
--static __always_inline arm64_irqentry_state_t __enter_from_kernel_mode(struct pt_regs *regs)
-+static __always_inline irqentry_state_t __enter_from_kernel_mode(struct pt_regs *regs)
- {
--	arm64_irqentry_state_t state = {
--		.exit_rcu = false,
--	};
--
--	if (!IS_ENABLED(CONFIG_TINY_RCU) && is_idle_task(current)) {
--		lockdep_hardirqs_off(CALLER_ADDR0);
--		ct_irq_enter();
--		trace_hardirqs_off_finish();
--
--		state.exit_rcu = true;
--		return state;
--	}
--
--	lockdep_hardirqs_off(CALLER_ADDR0);
--	rcu_irq_enter_check_tick();
--	trace_hardirqs_off_finish();
--
--	return state;
-+	return irqentry_enter(regs);
- }
- 
--static noinstr arm64_irqentry_state_t enter_from_kernel_mode(struct pt_regs *regs)
-+static noinstr irqentry_state_t enter_from_kernel_mode(struct pt_regs *regs)
- {
--	arm64_irqentry_state_t state = __enter_from_kernel_mode(regs);
-+	irqentry_state_t state = __enter_from_kernel_mode(regs);
- 
- 	mte_check_tfsr_entry();
- 	mte_disable_tco_entry(current);
-@@ -75,49 +52,6 @@ static noinstr arm64_irqentry_state_t enter_from_kernel_mode(struct pt_regs *reg
- 	return state;
- }
- 
--static inline bool arm64_preempt_schedule_irq(void)
--{
 -	/*
--	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
--	 * priority masking is used the GIC irqchip driver will clear DAIF.IF
--	 * using gic_arch_enable_irqs() for normal IRQs. If anything is set in
--	 * DAIF we must have handled an NMI, so skip preemption.
+-	 * Note: thread_info::preempt_count includes both thread_info::count
+-	 * and thread_info::need_resched, and is not equivalent to
+-	 * preempt_count().
 -	 */
--	if (system_uses_irq_prio_masking() && read_sysreg(daif))
+-	if (READ_ONCE(current_thread_info()->preempt_count) != 0)
 -		return false;
 -
--	/*
--	 * Preempting a task from an IRQ means we leave copies of PSTATE
--	 * on the stack. cpufeature's enable calls may modify PSTATE, but
--	 * resuming one of these preempted tasks would undo those changes.
--	 *
--	 * Only allow a task to be preempted once cpufeatures have been
--	 * enabled.
--	 */
--	if (!system_capabilities_finalized())
--		return false;
--
--	return true;
--}
--
--void raw_irqentry_exit_cond_resched(void)
--{
--	if (!preempt_count()) {
--		if (need_resched() && arm64_preempt_schedule_irq())
--			preempt_schedule_irq();
--	}
--}
--
--#ifdef CONFIG_PREEMPT_DYNAMIC
--DEFINE_STATIC_KEY_TRUE(sk_dynamic_irqentry_exit_cond_resched);
--void dynamic_irqentry_exit_cond_resched(void)
--{
--	if (!static_branch_unlikely(&sk_dynamic_irqentry_exit_cond_resched))
--		return;
--	raw_irqentry_exit_cond_resched();
--}
--#endif
--
- /*
-  * Handle IRQ/context state management when exiting to kernel mode.
-  * After this function returns it is not safe to call regular kernel code,
-@@ -127,31 +61,13 @@ void dynamic_irqentry_exit_cond_resched(void)
-  * mode transitions only, and with preemption handled elsewhere.
-  */
- static __always_inline void __exit_to_kernel_mode(struct pt_regs *regs,
--						  arm64_irqentry_state_t state)
--{
--	lockdep_assert_irqs_disabled();
--
--	if (!regs_irqs_disabled(regs)) {
--		if (state.exit_rcu) {
--			trace_hardirqs_on_prepare();
--			lockdep_hardirqs_on_prepare();
--			ct_irq_exit();
--			lockdep_hardirqs_on(CALLER_ADDR0);
--			return;
--		}
--
--		if (IS_ENABLED(CONFIG_PREEMPTION))
--			irqentry_exit_cond_resched();
--
--		trace_hardirqs_on();
--	} else {
--		if (state.exit_rcu)
--			ct_irq_exit();
--	}
-+						  irqentry_state_t state)
-+{
-+	irqentry_exit(regs, state);
- }
- 
- static void noinstr exit_to_kernel_mode(struct pt_regs *regs,
--					arm64_irqentry_state_t state)
-+					irqentry_state_t state)
- {
- 	mte_check_tfsr_exit();
- 	__exit_to_kernel_mode(regs, state);
-@@ -162,18 +78,15 @@ static void noinstr exit_to_kernel_mode(struct pt_regs *regs,
-  * Before this function is called it is not safe to call regular kernel code,
-  * instrumentable code, or any code which may trigger an exception.
-  */
--static __always_inline void __enter_from_user_mode(void)
-+static __always_inline void __enter_from_user_mode(struct pt_regs *regs)
- {
--	lockdep_hardirqs_off(CALLER_ADDR0);
--	CT_WARN_ON(ct_state() != CT_STATE_USER);
--	user_exit_irqoff();
--	trace_hardirqs_off_finish();
-+	enter_from_user_mode(regs);
- 	mte_disable_tco_entry(current);
- }
- 
--static __always_inline void enter_from_user_mode(struct pt_regs *regs)
-+static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
- {
--	__enter_from_user_mode();
-+	__enter_from_user_mode(regs);
- }
- 
- /*
-@@ -181,113 +94,18 @@ static __always_inline void enter_from_user_mode(struct pt_regs *regs)
-  * After this function returns it is not safe to call regular kernel code,
-  * instrumentable code, or any code which may trigger an exception.
-  */
--static __always_inline void __exit_to_user_mode(void)
--{
--	trace_hardirqs_on_prepare();
--	lockdep_hardirqs_on_prepare();
--	user_enter_irqoff();
--	lockdep_hardirqs_on(CALLER_ADDR0);
--}
--
--static void do_notify_resume(struct pt_regs *regs, unsigned long thread_flags)
--{
--	do {
--		local_irq_enable();
--
--		if (thread_flags & _TIF_NEED_RESCHED)
--			schedule();
--
--		if (thread_flags & _TIF_UPROBE)
--			uprobe_notify_resume(regs);
--
--		if (thread_flags & _TIF_MTE_ASYNC_FAULT) {
--			clear_thread_flag(TIF_MTE_ASYNC_FAULT);
--			send_sig_fault(SIGSEGV, SEGV_MTEAERR,
--				       (void __user *)NULL, current);
--		}
--
--		if (thread_flags & (_TIF_SIGPENDING | _TIF_NOTIFY_SIGNAL))
--			do_signal(regs);
--
--		if (thread_flags & _TIF_NOTIFY_RESUME)
--			resume_user_mode_work(regs);
--
--		if (thread_flags & _TIF_FOREIGN_FPSTATE)
--			fpsimd_restore_current_state();
--
--		local_irq_disable();
--		thread_flags = read_thread_flags();
--	} while (thread_flags & _TIF_WORK_MASK);
--}
--
--static __always_inline void exit_to_user_mode_prepare(struct pt_regs *regs)
-+static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
- {
--	unsigned long flags;
--
- 	local_irq_disable();
--
--	flags = read_thread_flags();
--	if (unlikely(flags & _TIF_WORK_MASK))
--		do_notify_resume(regs, flags);
--
--	local_daif_mask();
--
--	lockdep_sys_exit();
--}
--
--static __always_inline void exit_to_user_mode(struct pt_regs *regs)
--{
- 	exit_to_user_mode_prepare(regs);
-+	local_daif_mask();
- 	mte_check_tfsr_exit();
--	__exit_to_user_mode();
-+	exit_to_user_mode();
- }
- 
- asmlinkage void noinstr asm_exit_to_user_mode(struct pt_regs *regs)
- {
--	exit_to_user_mode(regs);
--}
--
--/*
-- * Handle IRQ/context state management when entering an NMI from user/kernel
-- * mode. Before this function is called it is not safe to call regular kernel
-- * code, instrumentable code, or any code which may trigger an exception.
-- */
--static noinstr arm64_irqentry_state_t arm64_enter_nmi(struct pt_regs *regs)
--{
--	arm64_irqentry_state_t state;
--
--	state.lockdep = lockdep_hardirqs_enabled();
--
--	__nmi_enter();
--	lockdep_hardirqs_off(CALLER_ADDR0);
--	lockdep_hardirq_enter();
--	ct_nmi_enter();
--
--	trace_hardirqs_off_finish();
--	ftrace_nmi_enter();
--
--	return state;
--}
--
--/*
-- * Handle IRQ/context state management when exiting an NMI from user/kernel
-- * mode. After this function returns it is not safe to call regular kernel
-- * code, instrumentable code, or any code which may trigger an exception.
-- */
--static void noinstr arm64_exit_nmi(struct pt_regs *regs,
--				   arm64_irqentry_state_t state)
--{
--	ftrace_nmi_exit();
--	if (state.lockdep) {
--		trace_hardirqs_on_prepare();
--		lockdep_hardirqs_on_prepare();
--	}
--
--	ct_nmi_exit();
--	lockdep_hardirq_exit();
--	if (state.lockdep)
--		lockdep_hardirqs_on(CALLER_ADDR0);
--	__nmi_exit();
-+	arm64_exit_to_user_mode(regs);
- }
- 
- /*
-@@ -295,9 +113,9 @@ static void noinstr arm64_exit_nmi(struct pt_regs *regs,
-  * kernel mode. Before this function is called it is not safe to call regular
-  * kernel code, instrumentable code, or any code which may trigger an exception.
-  */
--static noinstr arm64_irqentry_state_t arm64_enter_el1_dbg(struct pt_regs *regs)
-+static noinstr irqentry_state_t arm64_enter_el1_dbg(struct pt_regs *regs)
- {
--	arm64_irqentry_state_t state;
-+	irqentry_state_t state;
- 
- 	state.lockdep = lockdep_hardirqs_enabled();
- 
-@@ -315,7 +133,7 @@ static noinstr arm64_irqentry_state_t arm64_enter_el1_dbg(struct pt_regs *regs)
-  * kernel code, instrumentable code, or any code which may trigger an exception.
-  */
- static void noinstr arm64_exit_el1_dbg(struct pt_regs *regs,
--				       arm64_irqentry_state_t state)
-+				       irqentry_state_t state)
- {
- 	if (state.lockdep) {
- 		trace_hardirqs_on_prepare();
-@@ -346,7 +164,7 @@ extern void (*handle_arch_fiq)(struct pt_regs *);
- static void noinstr __panic_unhandled(struct pt_regs *regs, const char *vector,
- 				      unsigned long esr)
- {
--	arm64_enter_nmi(regs);
-+	irqentry_nmi_enter(regs);
- 
- 	console_verbose();
- 
-@@ -452,7 +270,7 @@ UNHANDLED(el1t, 64, error)
- static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
- {
- 	unsigned long far = read_sysreg(far_el1);
--	arm64_irqentry_state_t state;
-+	irqentry_state_t state;
- 
- 	state = enter_from_kernel_mode(regs);
- 	local_daif_inherit(regs);
-@@ -464,7 +282,7 @@ static void noinstr el1_abort(struct pt_regs *regs, unsigned long esr)
- static void noinstr el1_pc(struct pt_regs *regs, unsigned long esr)
- {
- 	unsigned long far = read_sysreg(far_el1);
--	arm64_irqentry_state_t state;
-+	irqentry_state_t state;
- 
- 	state = enter_from_kernel_mode(regs);
- 	local_daif_inherit(regs);
-@@ -475,7 +293,7 @@ static void noinstr el1_pc(struct pt_regs *regs, unsigned long esr)
- 
- static void noinstr el1_undef(struct pt_regs *regs, unsigned long esr)
- {
--	arm64_irqentry_state_t state = enter_from_kernel_mode(regs);
-+	irqentry_state_t state = enter_from_kernel_mode(regs);
- 
- 	local_daif_inherit(regs);
- 	do_el1_undef(regs, esr);
-@@ -485,7 +303,7 @@ static void noinstr el1_undef(struct pt_regs *regs, unsigned long esr)
- 
- static void noinstr el1_bti(struct pt_regs *regs, unsigned long esr)
- {
--	arm64_irqentry_state_t state = enter_from_kernel_mode(regs);
-+	irqentry_state_t state = enter_from_kernel_mode(regs);
- 
- 	local_daif_inherit(regs);
- 	do_el1_bti(regs, esr);
-@@ -495,7 +313,7 @@ static void noinstr el1_bti(struct pt_regs *regs, unsigned long esr)
- 
- static void noinstr el1_gcs(struct pt_regs *regs, unsigned long esr)
- {
--	arm64_irqentry_state_t state = enter_from_kernel_mode(regs);
-+	irqentry_state_t state = enter_from_kernel_mode(regs);
- 
- 	local_daif_inherit(regs);
- 	do_el1_gcs(regs, esr);
-@@ -505,7 +323,7 @@ static void noinstr el1_gcs(struct pt_regs *regs, unsigned long esr)
- 
- static void noinstr el1_mops(struct pt_regs *regs, unsigned long esr)
- {
--	arm64_irqentry_state_t state = enter_from_kernel_mode(regs);
-+	irqentry_state_t state = enter_from_kernel_mode(regs);
- 
- 	local_daif_inherit(regs);
- 	do_el1_mops(regs, esr);
-@@ -516,7 +334,7 @@ static void noinstr el1_mops(struct pt_regs *regs, unsigned long esr)
- static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
- {
- 	unsigned long far = read_sysreg(far_el1);
--	arm64_irqentry_state_t state;
-+	irqentry_state_t state;
- 
- 	state = arm64_enter_el1_dbg(regs);
- 	if (!cortex_a76_erratum_1463225_debug_handler(regs))
-@@ -526,7 +344,7 @@ static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
- 
- static void noinstr el1_fpac(struct pt_regs *regs, unsigned long esr)
- {
--	arm64_irqentry_state_t state = enter_from_kernel_mode(regs);
-+	irqentry_state_t state = enter_from_kernel_mode(regs);
- 
- 	local_daif_inherit(regs);
- 	do_el1_fpac(regs, esr);
-@@ -580,16 +398,16 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
- static __always_inline void __el1_pnmi(struct pt_regs *regs,
- 				       void (*handler)(struct pt_regs *))
- {
--	arm64_irqentry_state_t state = arm64_enter_nmi(regs);
-+	irqentry_state_t state = irqentry_nmi_enter(regs);
- 
- 	do_interrupt_handler(regs, handler);
--	arm64_exit_nmi(regs, state);
-+	irqentry_nmi_exit(regs, state);
- }
- 
- static __always_inline void __el1_irq(struct pt_regs *regs,
- 				      void (*handler)(struct pt_regs *))
- {
--	arm64_irqentry_state_t state = enter_from_kernel_mode(regs);
-+	irqentry_state_t state = enter_from_kernel_mode(regs);
- 
- 	irq_enter_rcu();
- 	do_interrupt_handler(regs, handler);
-@@ -621,22 +439,22 @@ asmlinkage void noinstr el1h_64_fiq_handler(struct pt_regs *regs)
- asmlinkage void noinstr el1h_64_error_handler(struct pt_regs *regs)
- {
- 	unsigned long esr = read_sysreg(esr_el1);
--	arm64_irqentry_state_t state;
-+	irqentry_state_t state;
- 
- 	local_daif_restore(DAIF_ERRCTX);
--	state = arm64_enter_nmi(regs);
-+	state = irqentry_nmi_enter(regs);
- 	do_serror(regs, esr);
--	arm64_exit_nmi(regs, state);
-+	irqentry_nmi_exit(regs, state);
- }
- 
- static void noinstr el0_da(struct pt_regs *regs, unsigned long esr)
- {
- 	unsigned long far = read_sysreg(far_el1);
- 
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_mem_abort(far, esr, regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_ia(struct pt_regs *regs, unsigned long esr)
-@@ -651,50 +469,50 @@ static void noinstr el0_ia(struct pt_regs *regs, unsigned long esr)
- 	if (!is_ttbr0_addr(far))
- 		arm64_apply_bp_hardening();
- 
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_mem_abort(far, esr, regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_fpsimd_acc(struct pt_regs *regs, unsigned long esr)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_fpsimd_acc(esr, regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_sve_acc(struct pt_regs *regs, unsigned long esr)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_sve_acc(esr, regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_sme_acc(struct pt_regs *regs, unsigned long esr)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_sme_acc(esr, regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_fpsimd_exc(struct pt_regs *regs, unsigned long esr)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_fpsimd_exc(esr, regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_sys(struct pt_regs *regs, unsigned long esr)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_el0_sys(esr, regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_pc(struct pt_regs *regs, unsigned long esr)
-@@ -704,58 +522,58 @@ static void noinstr el0_pc(struct pt_regs *regs, unsigned long esr)
- 	if (!is_ttbr0_addr(instruction_pointer(regs)))
- 		arm64_apply_bp_hardening();
- 
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_sp_pc_abort(far, esr, regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_sp(struct pt_regs *regs, unsigned long esr)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_sp_pc_abort(regs->sp, esr, regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_undef(struct pt_regs *regs, unsigned long esr)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_el0_undef(regs, esr);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_bti(struct pt_regs *regs)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_el0_bti(regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_mops(struct pt_regs *regs, unsigned long esr)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_el0_mops(regs, esr);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_gcs(struct pt_regs *regs, unsigned long esr)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_el0_gcs(regs, esr);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_inv(struct pt_regs *regs, unsigned long esr)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	bad_el0_sync(regs, 0, esr);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_dbg(struct pt_regs *regs, unsigned long esr)
-@@ -763,28 +581,28 @@ static void noinstr el0_dbg(struct pt_regs *regs, unsigned long esr)
- 	/* Only watchpoints write FAR_EL1, otherwise its UNKNOWN */
- 	unsigned long far = read_sysreg(far_el1);
- 
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	do_debug_exception(far, esr, regs);
- 	local_daif_restore(DAIF_PROCCTX);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_svc(struct pt_regs *regs)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	cortex_a76_erratum_1463225_svc_handler();
- 	fp_user_discard();
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_el0_svc(regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_fpac(struct pt_regs *regs, unsigned long esr)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_el0_fpac(regs, esr);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
-@@ -852,7 +670,7 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
- static void noinstr el0_interrupt(struct pt_regs *regs,
- 				  void (*handler)(struct pt_regs *))
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 
- 	write_sysreg(DAIF_PROCCTX_NOIRQ, daif);
- 
-@@ -863,7 +681,7 @@ static void noinstr el0_interrupt(struct pt_regs *regs,
+ 	/*
+ 	 * DAIF.DA are cleared at the start of IRQ/FIQ handling, and when GIC
+ 	 * priority masking is used the GIC irqchip driver will clear DAIF.IF
+@@ -593,8 +585,10 @@ static __always_inline void __el1_irq(struct pt_regs *regs,
  	do_interrupt_handler(regs, handler);
  	irq_exit_rcu();
  
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
+-	if (arm64_preempt_schedule_irq())
+-		preempt_schedule_irq();
++	if (!preempt_count() && need_resched()) {
++		if (arm64_preempt_schedule_irq())
++			preempt_schedule_irq();
++	}
+ 
+ 	exit_to_kernel_mode(regs, state);
  }
- 
- static void noinstr __el0_irq_handler_common(struct pt_regs *regs)
-@@ -889,15 +707,15 @@ asmlinkage void noinstr el0t_64_fiq_handler(struct pt_regs *regs)
- static void noinstr __el0_error_handler_common(struct pt_regs *regs)
- {
- 	unsigned long esr = read_sysreg(esr_el1);
--	arm64_irqentry_state_t state;
-+	irqentry_state_t state;
- 
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_ERRCTX);
--	state = arm64_enter_nmi(regs);
-+	state = irqentry_nmi_enter(regs);
- 	do_serror(regs, esr);
--	arm64_exit_nmi(regs, state);
-+	irqentry_nmi_exit(regs, state);
- 	local_daif_restore(DAIF_PROCCTX);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- asmlinkage void noinstr el0t_64_error_handler(struct pt_regs *regs)
-@@ -908,19 +726,19 @@ asmlinkage void noinstr el0t_64_error_handler(struct pt_regs *regs)
- #ifdef CONFIG_COMPAT
- static void noinstr el0_cp15(struct pt_regs *regs, unsigned long esr)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_el0_cp15(esr, regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- static void noinstr el0_svc_compat(struct pt_regs *regs)
- {
--	enter_from_user_mode(regs);
-+	arm64_enter_from_user_mode(regs);
- 	cortex_a76_erratum_1463225_svc_handler();
- 	local_daif_restore(DAIF_PROCCTX);
- 	do_el0_svc_compat(regs);
--	exit_to_user_mode(regs);
-+	arm64_exit_to_user_mode(regs);
- }
- 
- asmlinkage void noinstr el0t_32_sync_handler(struct pt_regs *regs)
-@@ -994,7 +812,7 @@ asmlinkage void noinstr __noreturn handle_bad_stack(struct pt_regs *regs)
- 	unsigned long esr = read_sysreg(esr_el1);
- 	unsigned long far = read_sysreg(far_el1);
- 
--	arm64_enter_nmi(regs);
-+	irqentry_nmi_enter(regs);
- 	panic_bad_stack(regs, esr, far);
- }
- #endif /* CONFIG_VMAP_STACK */
-@@ -1003,7 +821,7 @@ asmlinkage void noinstr __noreturn handle_bad_stack(struct pt_regs *regs)
- asmlinkage noinstr unsigned long
- __sdei_handler(struct pt_regs *regs, struct sdei_registered_event *arg)
- {
--	arm64_irqentry_state_t state;
-+	irqentry_state_t state;
- 	unsigned long ret;
- 
- 	/*
-@@ -1028,9 +846,9 @@ __sdei_handler(struct pt_regs *regs, struct sdei_registered_event *arg)
- 	else if (cpu_has_pan())
- 		set_pstate_pan(0);
- 
--	state = arm64_enter_nmi(regs);
-+	state = irqentry_nmi_enter(regs);
- 	ret = do_sdei_event(regs, arg);
--	arm64_exit_nmi(regs, state);
-+	irqentry_nmi_exit(regs, state);
- 
- 	return ret;
- }
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index 99ea26d400ff..e1c1abc2cb3f 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -9,6 +9,7 @@
- #include <linux/cache.h>
- #include <linux/compat.h>
- #include <linux/errno.h>
-+#include <linux/irq-entry-common.h>
- #include <linux/kernel.h>
- #include <linux/signal.h>
- #include <linux/freezer.h>
-@@ -1616,7 +1617,7 @@ static void handle_signal(struct ksignal *ksig, struct pt_regs *regs)
-  * the kernel can handle, and then we build all the user-level signal handling
-  * stack-frames in one go after that.
-  */
--void do_signal(struct pt_regs *regs)
-+void arch_do_signal_or_restart(struct pt_regs *regs)
- {
- 	unsigned long continue_addr = 0, restart_addr = 0;
- 	int retval = 0;
 -- 
 2.34.1
 
