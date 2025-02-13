@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18B3CC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:11:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8707BC021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IfuxON9f1+mt0J5dXUHTZ8LLFpSbXwaRfsyQDzivT8Y=; b=Zkae1/lzskcELfb286dsbX+9n6
-	mDiZMKbOf4YOzEBtPjjVRtJu+KR7hyazK1x151VXw9K9yyOcmO1XFSsAjFBRFZEfohbN3sOP0k9vU
-	psI7BZk0X2vE+d1+U4odrok5qbyZjDF3CEeePxOAJ0kB2lILWJTGgQDxc1mrfcqOpJccG130iv/kL
-	PjmaEd/DYWkLvnZjH6lli9Usbw52jva8jMWi90iAQ2zGU1tGcx729zPHkM6zVm9e/W8wY569T5cTx
-	Pk15m521zV8zbxmKeRwt05liNLXfvz4f+D+lU/OzDOywWE3KqdufwGo8S8WXWFIwvenEs1qdpqP9/
-	lUL8We7A==;
+	bh=ddUC7tkHJr9hjgxibyxxdTL/vfQrx8VRNNGarkqdKmw=; b=3KYodju5+go2trp2NfbsxR/vrH
+	97cx4F6T20bdzuRWkTVcl/wGsBtJ1Lb6qE5Jcq5NQyXwnZOYO514o3yk/a98SwbkumkiSDJyPL2D6
+	JFesWZydUh8p37l21ELqF3tZxbGmQzPiUPBxbUgMMj+V78faCPPwrM8p7nW/yt0FO8gXwhW/Q8DOs
+	WeEn0UWb9nq7Pmb42lwe324isw+mIlebfkz6YxO/ZKr2SHmyM6P96+K19U7O26ANWZ0X0LA3F7DFF
+	5dnp6qekeuSWTkEUd/23a+PDY8uplMz+2g0nebrJWc9nVZZv1yjDtTUAKc92iFAQznPXzYRkdS5Vu
+	/Gl2ia4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibo5-0000000BhMi-0Gqd;
+	id 1tibo5-0000000BhNE-2hAQ;
 	Thu, 13 Feb 2025 16:11:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiac6-0000000BQZv-2YuG
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiaeI-0000000BRAu-49Mn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 14:54:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2C074106F;
-	Thu, 13 Feb 2025 06:55:08 -0800 (PST)
-Received: from [10.44.160.94] (e126510-lin.lund.arm.com [10.44.160.94])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 677FC3F58B;
-	Thu, 13 Feb 2025 06:54:42 -0800 (PST)
-Message-ID: <c16a24b9-1258-4976-827d-db3335bf6e83@arm.com>
-Date: Thu, 13 Feb 2025 15:54:40 +0100
+	Thu, 13 Feb 2025 14:57:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id EAE69A426A9;
+	Thu, 13 Feb 2025 14:55:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43593C4CED1;
+	Thu, 13 Feb 2025 14:57:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1739458625;
+	bh=AG5KvTkWo9kKa90u2Pm9+d+vXSnfEVfPJIchZMkIK+g=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Dw206q/9QYwqDjBJ9EoctmKTZ8KK+uMBZvqS6u3Tk666eq7+Px6MQVfzAVFqWkNDk
+	 sFOMHqJt+k/NCUvTbelF84xQ43qXyohElBBIEM+QnCp4oDHtOcyR0+X0B9bG6ledTm
+	 E0A0giSZMm7v1ovHd3twvUso1PvV/UYIo5U+hEWw=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.13 006/443] arm64/mm: Ensure adequate HUGE_MAX_HSTATE
+Date: Thu, 13 Feb 2025 15:22:51 +0100
+Message-ID: <20250213142440.863623856@linuxfoundation.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250213142440.609878115@linuxfoundation.org>
+References: <20250213142440.609878115@linuxfoundation.org>
+User-Agent: quilt/0.68
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v3 00/15] pkeys-based page table hardening
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: Kees Cook <kees@kernel.org>
-Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
- Andrew Morton <akpm@linux-foundation.org>, Mark Brown <broonie@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Linus Walleij <linus.walleij@linaro.org>, Andy Lutomirski <luto@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Qi Zheng <zhengqi.arch@bytedance.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
-References: <20250203101839.1223008-1-kevin.brodsky@arm.com>
- <202502061422.517A57F8@keescook>
- <fd101c51-d3fc-4a4f-afcc-364b8d3c4a0b@arm.com>
-Content-Language: en-GB
-In-Reply-To: <fd101c51-d3fc-4a4f-afcc-364b8d3c4a0b@arm.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_065450_690189_3B29AF3E 
-X-CRM114-Status: GOOD (  17.28  )
+X-CRM114-CacheID: sfid-20250213_065707_092506_CD3FD3DA 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,63 +81,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/02/2025 15:23, Kevin Brodsky wrote:
-> [...]
->
->>> Any comment or feedback will be highly appreciated, be it on the
->>> high-level approach or implementation choices!
->> As hinted earlier with my QEMU question... what's the best way I can I
->> test this myself? :)
-> As mentioned above I tested this series on Arm FVP. By far the easiest
-> way to run some custom kernel/rootfs on FVP is to use the Shrinkwrap
-> tool [3]. First install it following the quick start guide [4] (I would
-> recommend using the Docker backend if possible). Then build the firmware
-> stack using:
->
-> $ shrinkwrap build -o arch/v9.0.yaml ns-edk2.yaml
->
-> To make things easy, the runtime configuration can be stored in a file.
-> Create ~/.shrinkwrap/config/poe.yaml with the following contents:
->
-> ----8<----
->
-> %YAML 1.2
-> ---
-> layers:
->   - arch/v9.0.yaml
+6.13-stable review patch.  If anyone has any objections, please let me know.
 
-Apologies, this is incorrect - it will not work with the most recent FVP
-builds. POE is a v9.4 feature so this line should be replaced with:
+------------------
 
-> - arch/v9.4.yaml
+From: Anshuman Khandual <anshuman.khandual@arm.com>
 
-(No need to change the shrinkwrap build line, it only matters for the
-FVP runtime parameters.)
+[ Upstream commit 1e5823c8e86de83a43d59a522b4de29066d3b306 ]
 
-- Kevin
+This asserts that HUGE_MAX_HSTATE is sufficient enough preventing potential
+hugetlb_max_hstate runtime overflow in hugetlb_add_hstate() thus triggering
+a BUG_ON() there after.
 
-> run:
->   rtvars:
->     CMDLINE:
->       type: string
->       # nr_cpus=1 can be added to speed up the boot
->       value: console=ttyAMA0 earlycon=pl011,0x1c090000 root=/dev/vda rw
->   params:
->     -C cluster0.has_permission_overlay_s1: 1
->     -C cluster1.has_permission_overlay_s1: 1
->
-> ----8<----
->
-> Finally start FVP using:
->
-> $ shrinkwrap run -o poe.yaml ns-edk2.yaml -r
-> KERNEL=<out>/arch/arm64/boot/Image -r ROOTFS=<rootfs.img>
->
-> (Use Ctrl-] to terminate the model if needed.)
->
-> <rootfs.img> is a file containing the root filesystem (in raw format,
-> e.g. ext4). The kernel itself is built as usual (defconfig works just
-> fine), just make sure to select CONFIG_KPKEYS_HARDENED_PGTABLES to
-> enable the feature. You can also select
-> CONFIG_KPKEYS_HARDENED_PGTABLES_TEST to run the tests in patch 15.
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+Link: https://lore.kernel.org/r/20241202064407.53807-1-anshuman.khandual@arm.com
+Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm64/mm/hugetlbpage.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+index 3215adf48a1b6..98a2a0e64e255 100644
+--- a/arch/arm64/mm/hugetlbpage.c
++++ b/arch/arm64/mm/hugetlbpage.c
+@@ -519,6 +519,18 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
+ 
+ static int __init hugetlbpage_init(void)
+ {
++	/*
++	 * HugeTLB pages are supported on maximum four page table
++	 * levels (PUD, CONT PMD, PMD, CONT PTE) for a given base
++	 * page size, corresponding to hugetlb_add_hstate() calls
++	 * here.
++	 *
++	 * HUGE_MAX_HSTATE should at least match maximum supported
++	 * HugeTLB page sizes on the platform. Any new addition to
++	 * supported HugeTLB page sizes will also require changing
++	 * HUGE_MAX_HSTATE as well.
++	 */
++	BUILD_BUG_ON(HUGE_MAX_HSTATE < 4);
+ 	if (pud_sect_supported())
+ 		hugetlb_add_hstate(PUD_SHIFT - PAGE_SHIFT);
+ 
+-- 
+2.39.5
+
+
+
 
