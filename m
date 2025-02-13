@@ -4,112 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9300DC021A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 14:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A69C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 14:34:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6YTck7L/TM6YT4d7fP2I9343oTdjN2yh7jLib0/ivQs=; b=yXUEC4FxK0Sukiw9IbE/FslUaO
-	o782PBFYpM1CEZSo2lj1nz0p7CA4WshjCcbOw3r41BOdl+837ziOVdMRDOYRd4zbS50R/+hJuJNmr
-	vuwBp2X8m2Uh7z5wci4vCOaB7mqVo9KPlwbWdR76BVLz8BIOtXBHSppY6uHUu0MkZtpk1hUUOuXvs
-	L5Euxql60FnCyWFaZMLfF8Mb4Kc2yQicqUTzjR/WVpcu/L21BieWViXNee6vDROHg2HYum4GBUBvJ
-	JTCRpy2f6tA9uhE11gWCIHWqKro8RikOvklVh314wiVHSjK38MdYIufMNge+Yc96YaRXP0e/dmWOh
-	CLuHqTuA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cMQIobRAiC9b1s++SknNRneALJeSW+q1BooQBxmWRuE=; b=xVDPckHFJuH2MR670mr8krIdfQ
+	b9LVf0K8/qoA4teNc6Ex+foQzbE6fNF0zV2HeYRdDFxtSlOXS/K5CCqHIh2j2K2Sl3NNyf7u+Nn3P
+	yXEuCbgmno/rorKTbNxOfU8MlwcvnjbrLA81QkbhXNygLJzaPhL0Os4RBP3hLobgkOzsXxyVz4sQT
+	x5L2vZNFD1rhSDzpVnD/0sQR/0RADIzKkpfoWnrJyjIt3oVf8gdZ570kjSEd7TVAEf9VFQEsJPWXe
+	HrQqRmG5KUd4NI+MzNLEMGq0ZBUfxeR4RHlEaOO3zzC2QMA7I2rr2oWafe8xoXAE3J/2Eq7kXyySW
+	Py1aoGpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiaIG-0000000BKyh-25YC;
-	Thu, 13 Feb 2025 14:34:20 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1tiaIL-0000000BL51-3IDw;
+	Thu, 13 Feb 2025 14:34:25 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZm5-0000000BEvV-12Wk;
-	Thu, 13 Feb 2025 14:01:07 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-21f6f18b474so10832165ad.1;
-        Thu, 13 Feb 2025 06:01:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739455264; x=1740060064; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6YTck7L/TM6YT4d7fP2I9343oTdjN2yh7jLib0/ivQs=;
-        b=PzKXcd9v40WGpG+fxKh3Ca1l923TQeI0oiWWmxeccDd4Zkvl52EbRc+c4gbTvI+hjr
-         nRN5kl9UNNaB3Ue1KlGrRpVDCPYmOaVwTIuMo1pGJnnmRIzmsVarrUWL2JWWrqywSHzR
-         sdsU7NVkMuudGfRxiNUXjkcfMVgcUs+RZ1+mS0AIDvtoCtA0y+qlvrH3Khua/taZZ0hW
-         +LtflkvGJoohUuAa3K1llizwsn8ar6iiaMDgCOLnYGJyHp+q8ysisT4eKkEray62F3f0
-         g7/7Un6R6J48wxFvbcFyDvwSKVtnvU2k70I4VT8IJwLdqtAojtYGavQ8wy2dyPVVQfPF
-         87HA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739455264; x=1740060064;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6YTck7L/TM6YT4d7fP2I9343oTdjN2yh7jLib0/ivQs=;
-        b=eY+Ljs6/A5XHGStcZXZBgri5U/xHIUQmUKaEc6bss+AKCiOYPgK3sHYUdcYFmACmPz
-         kDwteOFOERGoHMQ1l4kLxe1XvnFtO8wcnQlaE8Or+U4f7GdqCm3+MvSIgcjbGzjVMiYb
-         07DaMU/TNzZC9JLW716aU9Y5EdtZz2yoPZs3Bk18IqEtYOys5094psyXSor/uLSM3F4/
-         3EfY7/9JzAFVHfNURCWUqfbXpt7nfgCoycPORng6izQcfKBOFqfGhFoeiqf63wT/0Cf3
-         QeVgFTVW1MruS8NaDwavB2UJNxS3EKyD+ZdVcp1oOoSfPhJOlG5+o61+a/KlAF86fJCp
-         6f7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV2IpzOX1Yss5Lvy+kJ5a3Z1AYdjRpC6vkgDkKBzHFDRIF7MhY8JPdJhKHsBqQGwcK8WWDeKSvyhhhy9J51qrCI@lists.infradead.org, AJvYcCXhC6IGhC1ix/SwkGyY255JTrKk3EYWSKCNlopVXaJjm+IEsq3uCu+7N4B9iRFr4DiFXLKQ5upKIICz8wU=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwL0Ibi+dPJtM08X9X73nP07HYCIBGb66dlRXx75bUm5SYJhVu9
-	IuHphG29Zb36LQlgGidYyyodx6sEc3/2vJd+fe4Ft+pMMcHDEV9Y
-X-Gm-Gg: ASbGncuLSpGVx/d1LwR6oDbErOSNVgEMLbTBFh/LQICWRN1JuPfcp02GsXR0Nu9875r
-	FDrRVuCN93Mlo8rocU/qgyd0gi5TzO4WA9tKlAlL2EFMYs5D1KqNF7IuDj3eqWeMNNPDauGac5p
-	NnyiaYd81+KxW7hpoBir/xIO6LiFrr8M/hYuYrtlXUluXCyJNeAhowsMa3nELfIwaLx7Fs4aKLW
-	TMFx8zf+uLPaHnhpvY+ebgSaQDpCz/bWEBxFvrbHQj//8uXgko896EGHzuz9VUh3VFFTxJy7trX
-	CM1eOwLSHmBJyri3V3G0ZJfeRqylDrrZXc9ZQAsMfsjk9MUmuu8h3SkD29XwRQcuCtU=
-X-Google-Smtp-Source: AGHT+IH1x9tK23DwJyRFWv8i5Lca//kx4EQ6K/f/4h09IEIvt0Nq6qmEVopHA91pvULj+H6RHqZ0EQ==
-X-Received: by 2002:a17:902:e750:b0:220:e392:c73 with SMTP id d9443c01a7336-220e3920eebmr20624875ad.22.1739455264110;
-        Thu, 13 Feb 2025 06:01:04 -0800 (PST)
-Received: from mew.. (p3882177-ipxg22501hodogaya.kanagawa.ocn.ne.jp. [180.15.148.177])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d55858d6sm12565225ad.223.2025.02.13.06.00.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Feb 2025 06:01:03 -0800 (PST)
-From: FUJITA Tomonori <fujita.tomonori@gmail.com>
-To: linux-kernel@vger.kernel.org,
-	rust-for-linux@vger.kernel.org
-Cc: x86@kernel.org,
-	linux-riscv@lists.infradead.org,
+	id 1tiZva-0000000BGnm-2Pb3;
+	Thu, 13 Feb 2025 14:10:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739455855; x=1770991855;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=ToTyMsihtZioDgRW6E04wgRS/tvQ6CsQiomouIaR97s=;
+  b=fscsdpw+4Tfs8baB+993VKylTUOkvC2GTT6RLbwFcNLEWVwnHtJmjrtE
+   h9EvUlXxO2mSzQJMYZM9yCR7fFpS0wUb15DhRtsa1DYEnf/MOX63VBEvH
+   S0+W/X3u4Rkbc9XVL6sZpwyqx2rEgSgyEOoTaLofFYfZfWx9CdEBijIha
+   ADsKk8ZOpXVJjt4y6eOs+0qTG+uj0czIDH+uh9JuxLEbw56j6z9YQmkF9
+   VECWLNyoH9TGgpAYyotgL4nBE9ZyBSLL4Nam8fkcCZG786weTmAmRnvFC
+   s6hNeydkfjMaiGzqEdcbn1XP0YlBUkAUTVBKJ2zENl1SomX5fsDSkDTfC
+   Q==;
+X-CSE-ConnectionGUID: P7ajX1LMTtuH4GeYIWS+Wg==
+X-CSE-MsgGUID: 8EWOxWLlR6aUvYCPpAhlkg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="40273328"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="40273328"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 06:10:54 -0800
+X-CSE-ConnectionGUID: 74s6Vg81S52j4/6jpBZxHA==
+X-CSE-MsgGUID: femaWunTSu+NHGOUW7Rs2Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,282,1732608000"; 
+   d="scan'208";a="113815326"
+Received: from black.fi.intel.com ([10.237.72.28])
+  by fmviesa009.fm.intel.com with ESMTP; 13 Feb 2025 06:10:48 -0800
+Received: by black.fi.intel.com (Postfix, from userid 1003)
+	id 214361FD; Thu, 13 Feb 2025 16:10:47 +0200 (EET)
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	peterz@infradead.org,
-	hpa@zytor.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	tangyouling@loongson.cn,
-	hejinyang@loongson.cn,
-	yangtiezhu@loongson.cn,
-	ojeda@kernel.org,
-	alex.gaynor@gmail.com,
-	boqun.feng@gmail.com,
-	gary@garyguo.net,
-	bjorn3_gh@protonmail.com,
-	benno.lossin@proton.me,
-	a.hindborg@kernel.org,
-	aliceryhl@google.com,
-	tmgross@umich.edu
-Subject: [PATCH v3 3/5] arm64/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm code sharing with Rust
-Date: Thu, 13 Feb 2025 22:57:57 +0900
-Message-ID: <20250213135759.190006-4-fujita.tomonori@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250213135759.190006-1-fujita.tomonori@gmail.com>
-References: <20250213135759.190006-1-fujita.tomonori@gmail.com>
+	linux-mediatek@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Cc: Krzysztof Adamski <krzysztof.adamski@nokia.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Kamal Dasu <kamal.dasu@broadcom.com>,
+	Stefan Roese <sr@denx.de>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>
+Subject: [PATCH v2 00/10] i2c: busses: Introduce and use i2c_10bit_addr_*_from_msg()
+Date: Thu, 13 Feb 2025 16:07:14 +0200
+Message-ID: <20250213141045.2716943-1-andriy.shevchenko@linux.intel.com>
+X-Mailer: git-send-email 2.45.1.3035.g276e886db78b
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_060105_288288_8EB28A55 
-X-CRM114-Status: UNSURE (   9.07  )
+X-CRM114-CacheID: sfid-20250213_061054_654477_20446A26 
+X-CRM114-Status: UNSURE (   8.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,72 +99,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add new ARCH_WARN_ASM macro for BUG/WARN assembly code sharing with
-Rust to avoid the duplication.
+For 8-bit addresses we have a helper function, define similar ones
+for 10-bit addresses and use it in the drivers. It allows to remove
+some boilerplate code.
 
-No functional changes.
+Fabrizio, I haven't collected your tags as code changed more than 50%, however
+semantically the parts you reviewed stay the same.
 
-Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
----
- arch/arm64/include/asm/asm-bug.h | 33 ++++++++++++++++++++++++++++----
- 1 file changed, 29 insertions(+), 4 deletions(-)
+In v2:
+- introduced hi/lo helpers (Geert)
+- rewrote series based on the above
+- added a couple of new converted drivers
 
-diff --git a/arch/arm64/include/asm/asm-bug.h b/arch/arm64/include/asm/asm-bug.h
-index 6e73809f6492..a5f13801b784 100644
---- a/arch/arm64/include/asm/asm-bug.h
-+++ b/arch/arm64/include/asm/asm-bug.h
-@@ -21,16 +21,21 @@
- #endif
- 
- #ifdef CONFIG_GENERIC_BUG
--
--#define __BUG_ENTRY(flags) 				\
-+#define __BUG_ENTRY_START				\
- 		.pushsection __bug_table,"aw";		\
- 		.align 2;				\
- 	14470:	.long 14471f - .;			\
--_BUGVERBOSE_LOCATION(__FILE__, __LINE__)		\
--		.short flags; 				\
-+
-+#define __BUG_ENTRY_END					\
- 		.align 2;				\
- 		.popsection;				\
- 	14471:
-+
-+#define __BUG_ENTRY(flags)				\
-+		__BUG_ENTRY_START			\
-+_BUGVERBOSE_LOCATION(__FILE__, __LINE__)		\
-+		.short flags;				\
-+		__BUG_ENTRY_END
- #else
- #define __BUG_ENTRY(flags)
- #endif
-@@ -41,4 +46,24 @@ _BUGVERBOSE_LOCATION(__FILE__, __LINE__)		\
- 
- #define ASM_BUG()	ASM_BUG_FLAGS(0)
- 
-+#ifdef CONFIG_DEBUG_BUGVERBOSE
-+#define __BUG_LOCATION_STRING(file, line)		\
-+		".long " file "- .;"			\
-+		".short " line ";"
-+#else
-+#define __BUG_LOCATION_STRING(file, line)
-+#endif
-+
-+#define __BUG_ENTRY_STRING(file, line, flags)		\
-+		__stringify(__BUG_ENTRY_START)		\
-+		__BUG_LOCATION_STRING(file, line)	\
-+		".short " flags ";"			\
-+		__stringify(__BUG_ENTRY_END)
-+
-+#define ARCH_WARN_ASM(file, line, flags, size)		\
-+	__BUG_ENTRY_STRING(file, line, flags)		\
-+	__stringify(brk BUG_BRK_IMM)
-+
-+#define ARCH_WARN_REACHABLE
-+
- #endif /* __ASM_ASM_BUG_H */
+v1: https://lore.kernel.org/r/20250212163359.2407327-1-andriy.shevchenko@linux.intel.com
+
+Andy Shevchenko (10):
+  i2c: Introduce i2c_10bit_addr_*_from_msg() helpers
+  i2c: axxia: Use i2c_10bit_addr_*_from_msg() helpers
+  i2c: bcm-kona: Use i2c_10bit_addr_*_from_msg() helpers
+  i2c: brcmstb: Use i2c_10bit_addr_*_from_msg() helpers
+  i2c: eg20t: Use i2c_10bit_addr_*_from_msg() helpers
+  i2c: kempld: Use i2c_10bit_addr_*_from_msg() helpers
+  i2c: mt7621: Use i2c_10bit_addr_*_from_msg() helpers
+  i2c: rzv2m: Use i2c_10bit_addr_*_from_msg() helpers
+  i2c: ibm_iic: Use i2c_*bit_addr*_from_msg() helpers
+  i2c: mv64xxx: Use i2c_*bit_addr*_from_msg() helpers
+
+ drivers/i2c/busses/i2c-axxia.c    | 21 +++------------------
+ drivers/i2c/busses/i2c-bcm-kona.c |  6 +++---
+ drivers/i2c/busses/i2c-brcmstb.c  | 11 +++++------
+ drivers/i2c/busses/i2c-eg20t.c    | 28 +++++-----------------------
+ drivers/i2c/busses/i2c-ibm_iic.c  | 14 ++++++--------
+ drivers/i2c/busses/i2c-kempld.c   | 10 +++++-----
+ drivers/i2c/busses/i2c-mt7621.c   | 20 ++++++++------------
+ drivers/i2c/busses/i2c-mv64xxx.c  | 12 +++---------
+ drivers/i2c/busses/i2c-rzv2m.c    | 15 +++++----------
+ include/linux/i2c.h               | 14 ++++++++++++++
+ 10 files changed, 57 insertions(+), 94 deletions(-)
+
 -- 
-2.43.0
+2.45.1.3035.g276e886db78b
 
 
