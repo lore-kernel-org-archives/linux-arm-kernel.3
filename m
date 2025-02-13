@@ -4,77 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA79C021A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 07:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E538C021A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 07:41:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mxdz0YLgNRAPMZuUe/+vKOP2Bxuas+m1TRI6FyIdGao=; b=W0CGzYUesO/GPiD7EQpZWT4S9L
-	OS/fCTk0mnZmlA80mGFd+OdPgxmficEnI3HiOtGuxt08ElYvu9QJRW3KON8qWMaTqAQadNS1vmEsq
-	j7dhh2cfv4VzBQy06/JaczPCnuxt2TJJXpYZicjEwmg2i+detK2/+AuhG6Y8aPyGUTgt3OzKZBqNv
-	t/9f0HtyaoDu3j0UJ30xD87fQiPEk44K8tIlvJtrpP2oE8h95NY6rjnXFiG7CLACpYGhpUGCg7KOY
-	x40GEvePJtVjYLieRBfToQoiTbXAWQ9pnHCN7CnAW6JeRz6wnhsySvcQwhCBI56eREkp0O4AuOZdL
-	P/XQRxLw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vizM0Sdo+SZTTaKpC/1DIJWgscYtW1gDxvN+iGD1EdQ=; b=EWkcNXAmH1B+6ZUQ5Law6wlkJN
+	MzHETgi7OUgcp0hPg9OVUVvxnSXX5qbBiYLwuzicmS94XqfUsSMzgRJgXG51/ZKqjYpjTgluC1mKV
+	lTFOgkGiSKtWA6L1xmnqcJUtukv37F1cLJYJhyrer790uhJdI/mC51/w0vkGMGcE+XTzlHeJZ7cdk
+	b7SUILh7Vir1JJdAqAD8gmqFXWIUZZL+N1GNNbBcQ9IerQkx1MI4znf9PbXINjftaMoPi81i9h/gC
+	8JAtcZFrD8DbafpIwY3WfG+ktJqfUE68jbENvtfUwTXNF7brgUqBp6MdFK1gm6UUeAjzRWARVuDLp
+	MxK3i49Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiTol-0000000A7qO-2wnb;
-	Thu, 13 Feb 2025 07:39:27 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tiTq9-0000000A89Q-1ZTs;
+	Thu, 13 Feb 2025 07:40:53 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiTnK-0000000A7dN-1y2g
+	id 1tiTnz-0000000A7lK-1XNK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 07:37:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6C23EA41EAC
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 07:36:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B90DC4CEF0
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 07:37:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739432277;
-	bh=ac/bcOZbWbtdspcakhbcX4BAflMcQ4DC4KBda2XPhJc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Jpt3COTj5XIqRj8J7FxBblUc9kDMm4lJbL4O4GCl5+ohj4pqjv/UN731yoBqwchw7
-	 JuIfqTeNDybpFBi9Ata79PsjgswsSXElAXlkfAVq+uRdXJcDMVZBmnmJYKqj1wFjt3
-	 KcApdUI1oQWh5Mck2srm6DlSQXRMYRXSNkxJSk3TBHUd24cBxVOfoTa2Y+18hD5xu9
-	 4V9OmKWKZLJSzV90XWw8tNnu74Fpd9WSUGiw68sHyh7m/GYz21QaDcDk3o+FW1FMBh
-	 jtXacZmwOzWiQKBfMPi7saO1i8UH1ql5joM4OQlJ1HiFlTM5V82q9HpjVIVhumWov+
-	 gFL8JA/VJyslg==
-Received: by mail-il1-f174.google.com with SMTP id e9e14a558f8ab-3cfc8772469so1762455ab.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 23:37:57 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV2FL2eHBUisTnmoe7psXh8C8Vo3WqTT1ZdhFQX9dtZLrM3sjjNdj0nbOp+S7GzLUhsZjtgRluH4dCocUPawR1u@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4zjg+CISvbznSlE84ldGuUO99eBD3zidOE6WZ/3XEuwyKIbmG
-	8yHgJ4rlwn/SffjCEzovWa6kAz5MGMX0luvb7vEPuu4qUGlYlR5z0mBlYnxpIg/TGxRqdnuXRo9
-	YNsGnjNezCvWvzs1gZlfSKIKb1ck=
-X-Google-Smtp-Source: AGHT+IHsfPIAl5hWCRvJ1RKIS5xF1B4fT6O5wPSPAgwQ1k7iv1KYLuzpzwKngS9b2X7ne3vqVq5fZ0x4mohFd5XnnGk=
-X-Received: by 2002:a05:6e02:12cf:b0:3d0:24c0:bd4d with SMTP id
- e9e14a558f8ab-3d17bff94f9mr64954095ab.18.1739432276328; Wed, 12 Feb 2025
- 23:37:56 -0800 (PST)
+	Thu, 13 Feb 2025 07:38:40 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aaee2c5ee6eso93477666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 23:38:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739432318; x=1740037118; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=vizM0Sdo+SZTTaKpC/1DIJWgscYtW1gDxvN+iGD1EdQ=;
+        b=xq0mXSsPcmjgU3hvoluJjQ7YvX6Fhdfe4beg/+TkyIZ12T0hcXZ6utdFFEryTjOWR0
+         w3c58CfwVobrMJ5ziN4KBCwoLONmjwCkzNvG07OVADbHIOpPfxe1AKsnl5q9Gd9E7R34
+         ssBDVikRywK7qjKZq+HP+nifIE5d9+beCFqIoEX7LHk6OlKFes+nQWXblhnO+k6f06Lk
+         jgPEe4U7MKV0DQInmY6XeBz5FItDGC0f4Jhx/bdmmIrYWkTYbB8RLb0AK8K4H40PnNlI
+         yOhTHz1kbjiN+fuaJN604QbCzBuHmQfB3qHpI3NZcepgkIzuyN1/04VgEa5WG3xcPEHB
+         u/tw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739432318; x=1740037118;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vizM0Sdo+SZTTaKpC/1DIJWgscYtW1gDxvN+iGD1EdQ=;
+        b=leadohL/GIkTxdNlLW7+LJEmTjuXD1LavBbW+wXQog0ML4/gm9sY7HJfjPBx51TJ52
+         bYaP4S/L63uMz50uVF1GPskwKKVKpJZm5Yg+fhSntCsZ6I8ABi6wO4efXwpma6h1fVky
+         zOhBUmKFWmRvQZLklKhquoQlEm2rzrvX1ByJEQqgZ9+Z7coH1L/lTlhAEaFWS3LXbOEv
+         WgRrP663CtPP6Oh1qQs4F+IB+KV5Y+8Xec1MSIcwAsLXDi+3/GB04gvRDs6HP3hA2HSK
+         Nzi7QGq3HhVFfQuJypmU9FjLWZiwJzDGkIE/H0ACV4DDiM/2/H+M2NHcmDT/xUKearr1
+         MwBw==
+X-Forwarded-Encrypted: i=1; AJvYcCVKuzvnz9BCTsHFrsah4842J9cqTCqkziR2yB5TDBvG+Y+3eeHLRQO+fK/YqCdgafxfByQDpNRz06H4KMj8q/FY@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRQLrQsiYMvWDnE2K55y2JWmTZ2YsDrXBYYCBd4uehcio/RDrB
+	zj+L970rzSB1RVzTQA+pYdN+zxS+oZY+v6ICX24E6ZcX4UfMwhSsy3q+idXnjzQ=
+X-Gm-Gg: ASbGncsTVOvCGGxHDZzZL7uikKG5ZAJExCaZUda07ES8lFRV6nudY0InGGENMq8PNwA
+	kcjQTmnewtc3gO3bQclJHUF8Qp2UNw1zw9d3Sh/XG9wFmiOevhgkPzXhgK7VtPtaRrEHZXBtW+x
+	Qov8qsgXaaDHRskUFqxPSuw+WnIVEiN6Z+3plNfRIbh1FrwiB4sNfZhxYzv1/ohmsxdt+K3maWs
+	f54KX3NfU6aSz38Pi1p7O44e9r+A1RKSG15ksC74tMHFwiU+ATJX51OlpahBDkBIxvFEi9PjZzI
+	AQz87HXVnobPX2TwHjN3PD3H
+X-Google-Smtp-Source: AGHT+IHDPN30IeTPgZSQ6r4lGFgS4tkcB9qst37osdGIW9i7ciqPaXGYBjTXuWeMR8vFNohAyFOWCQ==
+X-Received: by 2002:a17:907:1909:b0:aa6:ac9b:6822 with SMTP id a640c23a62f3a-ab7f3344473mr607557566b.12.1739432317767;
+        Wed, 12 Feb 2025 23:38:37 -0800 (PST)
+Received: from [192.168.0.14] ([79.115.63.124])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aba53259517sm75356766b.65.2025.02.12.23.38.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Feb 2025 23:38:37 -0800 (PST)
+Message-ID: <40370a0e-775b-42e3-bb6c-8cacaa0482cf@linaro.org>
+Date: Thu, 13 Feb 2025 07:38:35 +0000
 MIME-Version: 1.0
-References: <20250127213310.2496133-1-wnliu@google.com> <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
- <00fa304d-84bf-4fca-9b9a-f3b56cd97424@oracle.com> <CAPhsuW4ct6W_4B0LFEjLePH1pAeNm4h8ePuQ3HcSoknXhQWN0w@mail.gmail.com>
- <mb61p1pw21f0v.fsf@kernel.org>
-In-Reply-To: <mb61p1pw21f0v.fsf@kernel.org>
-From: Song Liu <song@kernel.org>
-Date: Wed, 12 Feb 2025 23:37:45 -0800
-X-Gmail-Original-Message-ID: <CAPhsuW5VCmuPLd8wwzBp_Divnu=uaZQcrRLsjsEOJ9GmA0TR5A@mail.gmail.com>
-X-Gm-Features: AWEUYZk1153uVA612siWVvTvz5oIJTx1LSxyHmzFbrXM3DQ11Kv4ihFu9Sq_1wM
-Message-ID: <CAPhsuW5VCmuPLd8wwzBp_Divnu=uaZQcrRLsjsEOJ9GmA0TR5A@mail.gmail.com>
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: Indu Bhagat <indu.bhagat@oracle.com>, Weinan Liu <wnliu@google.com>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
-	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
-	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 3/3] arm64: dts: exynos990: define all PERIC USI nodes
+To: Denzeel Oliva <wachiturroxd150@gmail.com>, gregkh@linuxfoundation.org,
+ jirislaby@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, alim.akhtar@samsung.com, semen.protsenko@linaro.org,
+ linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20250212234034.284-1-wachiturroxd150@gmail.com>
+ <20250212234034.284-4-wachiturroxd150@gmail.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250212234034.284-4-wachiturroxd150@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_233758_624741_794E2E38 
-X-CRM114-Status: GOOD (  30.67  )
+X-CRM114-CacheID: sfid-20250212_233839_429929_CA802EDA 
+X-CRM114-Status: GOOD (  15.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,61 +103,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 11:26=E2=80=AFPM Puranjay Mohan <puranjay@kernel.or=
-g> wrote:
->
-> Song Liu <song@kernel.org> writes:
->
-> > On Wed, Feb 12, 2025 at 4:10=E2=80=AFPM Indu Bhagat <indu.bhagat@oracle=
-.com> wrote:
-> >>
-> >> On 2/12/25 3:32 PM, Song Liu wrote:
-> >> > I run some tests with this set and my RFC set [1]. Most of
-> >> > the test is done with kpatch-build. I tested both Puranjay's
-> >> > version [3] and my version [4].
-> >> >
-> >> > For gcc 14.2.1, I have seen the following issue with this
-> >> > test [2]. This happens with both upstream and 6.13.2.
-> >> > The livepatch loaded fine, but the system spilled out the
-> >> > following warning quickly.
-> >> >
-> >>
-> >> In presence of the issue
-> >> https://sourceware.org/bugzilla/show_bug.cgi?id=3D32666, I'd expect ba=
-d
-> >> data in SFrame section.  Which may be causing this symptom?
-> >>
-> >> To be clear, the issue affects loaded kernel modules.  I cannot tell f=
-or
-> >> certain - is there module loading involved in your test ?
-> >
-> > The KLP is a module, I guess that is also affected?
-> >
-> > During kpatch-build, we added some logic to drop the .sframe section.
-> > I guess this is wrong, as we need the .sframe section when we apply
-> > the next KLP. However, I don't think the issue is caused by missing
-> > .sframe section.
->
-> Hi, I did the same testing and did not get the Warning.
->
-> I am testing on the 6.12.11 kernel with GCC 11.4.1.
 
-Could you please also try kernel 6.13.2?
 
-> Just to verify, the patch we are testing is:
+On 2/12/25 11:40 PM, Denzeel Oliva wrote:
+> Universal Serial Interface (USI) supports three types of serial interface
+> such as Universal Asynchronous Receiver and Transmitter (UART), Serial
+> Peripheral Interface (SPI), and Inter-Integrated Circuit (I2C).
+> Each protocols can be working independently and configured as one of
+> those using external configuration inputs.
+> 
+> Exynos990 SoC defines 18 USI nodes in PERIC0/1 blocks.
+> Nodes have different depths from 64-256 bytes.
 
-Yes, this is the test patch.
->
-> --- >8 ---
-[...]
-> --- 8< ---
->
-> P.S. - I have a downstream patch for create-diff-object to generate .sfra=
-me sections for
-> livepatch module, will add it to the PR after some cleanups.
+for the reviewer's peace of mind you shall specify whether you tested at
+least an i2c, uart and spi node.
 
-Yeah, I think the .sframe section is still needed.
+> 
+> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+> ---
+>  arch/arm64/boot/dts/exynos/exynos990.dtsi | 1693 +++++++++++++++++++++
+>  1 file changed, 1693 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/exynos/exynos990.dtsi b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> index aa056fdae..22ec92a45 100644
+> --- a/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynos990.dtsi
+> @@ -7,6 +7,7 @@
+>  
+>  #include <dt-bindings/clock/samsung,exynos990.h>
+>  #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/soc/samsung,exynos-usi.h>
+>  
+>  / {
+>  	compatible = "samsung,exynos990";
+> @@ -248,6 +249,808 @@ sysreg_peric0: syscon@10420000 {
+>  			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_SYSREG_PCLK>;
+>  		};
+>  
+> +		usi_uart: usi@105400c0 {
+> +			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
+> +			reg = <0x105400c0 0x20>;
+> +			samsung,sysreg = <&sysreg_peric0 0x1000>;
+> +			samsung,mode = <USI_V2_UART>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			ranges;
+> +			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_PCLK_4>,
+> +				 <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_4>;
+> +			clock-names = "pclk", "ipclk";
+> +			status = "disabled";
+> +
+> +			serial_0: serial@10540000 {
+> +				compatible = "samsung,exynos990-uart",
+> +					     "samsung,exynos8895-uart";
+> +				reg = <0x10540000 0xc0>;
+> +				interrupts = <GIC_SPI 391 IRQ_TYPE_LEVEL_HIGH>;
+> +				pinctrl-names = "default";
+> +				pinctrl-0 = <&uart0_bus>;
+> +				clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_PCLK_4>,
+> +					 <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_4>;
+> +				clock-names = "uart", "clk_uart_baud0";
+> +				samsung,uart-fifosize = <256>;
+> +				status = "disabled";
 
-Thanks,
-Song
+node properties shall be specified in a specific order. Follow similar
+nodes that are already accepted, gs101 is one.
+
+> +			};
+> +		};
+> +
+> +		usi0: usi@105500c0 {
+
+cut
+
+> +
+> +			hsi2c_0: i2c@10550000 {
+
+cut
+
+> +
+> +			spi_0: spi@10550000 {
+
+cut
+
+> +			serial_2: serial@10550000 {
+
+why not serial_0 since you're in USI0.
+
+> +		};
+> +
+> +		usi_i2c_0: usi@105600c0 {
+> +			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
+> +			reg = <0x105600c0 0x20>;
+> +			samsung,sysreg = <&sysreg_peric0 0x1008>;
+> +			samsung,mode = <USI_V2_I2C>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			ranges;
+> +			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_PCLK_6>,
+> +				 <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_6>;
+> +			clock-names = "pclk", "ipclk";
+> +			status = "disabled";
+> +
+> +			hsi2c_1: i2c@10560000 {
+> +				compatible = "samsung,exynos990-hsi2c",
+> +					     "samsung,exynosautov9-hsi2c";
+> +				reg = <0x10560000 0xc0>;
+> +				interrupts = <GIC_SPI 398 IRQ_TYPE_LEVEL_HIGH>;
+> +				pinctrl-names = "default";
+> +				pinctrl-0 = <&hsi2c1_bus>;
+> +				clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_6>,
+> +					 <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_PCLK_6>;
+> +				clock-names = "hsi2c", "hsi2c_pclk";
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				status = "disabled";
+> +			};
+
+shouldn't you define serial and SPI too?
+
+> +		};
+> +
+
+cut
+
+> +			spi_8: spi@108e0000 {
+> +				compatible = "samsung,exynos990-spi";
+> +				reg = <0x108e0000 0x30>;
+> +				interrupts = <GIC_SPI 423 IRQ_TYPE_LEVEL_HIGH>;
+> +				pinctrl-names = "default";
+> +				pinctrl-0 = <&spi8_bus>;
+> +				clocks = <&cmu_peric1 CLK_GOUT_PERIC1_TOP0_PCLK_14>,
+> +					 <&cmu_peric1 CLK_GOUT_PERIC1_TOP0_IPCLK_14>;
+> +				clock-names = "spi", "spi_busclk0";
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				fifo-depth = <256>;
+
+that's a first. Does downstream define any SPI node with 256 bytes
+FIFOs? Would you please point me to the downstream sources?
+
+Cheers,
+ta
 
