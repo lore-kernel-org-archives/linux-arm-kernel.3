@@ -4,98 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC559C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A46EC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aixNwfpNLYxCXcI5ccF3I2q6OoCStOmv5r5FC5BMOR4=; b=DfAiyVoNtOV5SHiDAfBOzwhS96
-	YL9PB00x+VOXGUbrlaKQx0Tod+JXwKgoMSSbctuCPVbj4ovQhujAXEkT7EYet/XeNf5XAAPI0hl3d
-	hToH6bxFwOy+rNSxPjOfy5/vHF2dWQJ62zuamMqRe/GnKADzRLlHeDAW6q0uR3PwG9CNbF8XeS3dl
-	vZhap/Hr0ZGyqYZqmxZqA0ARqatxvROJOFvnV+tp6vvSt0ApKH36SpCO/zwuw/1qN85v2ZFqD/6RL
-	p3Wnx+h8EXrLox6mJwzuMagIvRAo41EQBbYb0UFohDv/ZElnjIJjVLc5DYxEDsRZJzxYVGkmik+xc
-	d5M3PJIw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MNMDnKXII92afWHhH4RWZCjxwftjZXkXdjE1exG0TPY=; b=XpKxMtbzYl/MprOqzwdgJZo5R3
+	+5/wb5+v7S1A1r1GCAXpgCKmsy0Pq/byYVrCnblqNBrDQnKTMWJUpPjZVsQGDnjr0eImH02DKbVm0
+	RsW+8n++kpghqZ417rrQV5AqnixHcgO8z8h0FLBDmMyWtLu5cSJzsib4hAPQX1iZLeRUNmJjQD2e5
+	kMZCy+sTrhgW0FclgXMaWpsFal4GE0AkIYrZy9lYPyQnFcGOE8YBo6X+b8RrcSkA4hFze74Mj0rne
+	w4nwGfgiJwmfoicZz4dfr/muEAAn/I9Al8KMdm7IF0TphQbGpD+2TW8slQV2+bFzcnaqz9kA9VrVs
+	chk/x8OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tieFT-0000000CIWJ-2RFW;
-	Thu, 13 Feb 2025 18:47:43 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1tieGs-0000000CIjU-14TW;
+	Thu, 13 Feb 2025 18:49:10 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tic3s-0000000BlTc-1zwX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 16:27:37 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aaee2c5ee6eso187943866b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 08:27:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1739464055; x=1740068855; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aixNwfpNLYxCXcI5ccF3I2q6OoCStOmv5r5FC5BMOR4=;
-        b=DGfu8/4dVQF6lmnYBbB6nDUwiQwmCLR8mff9z1+Gcki3mRmb/LTdhOAnTeB7mZEsuR
-         gagOSRgzSlFkMHtFG7sOyLlj89hyOhYUCrlqb0qVgOWqjIc2WZpzN+bxhb4oUptu6pzd
-         LcUBfqTTZZzX+HJHkO7184eKlgA9BzXw3L+7LTmCIzwKkgPR549AiWaYpF5W1e4vQ9AO
-         dfepHGcT2IuYgLi3RKNCQT9ygQLFG5T8T0Ku8G1qpbJJxntCIQaV9Ptq9CaiNPetVPEY
-         LyFchHrYr/tggrROOPPxO/tj2AD1K72EAHVzar8Wuanai2/6B/yJ8n32hO4GsB2nDvJJ
-         Cxhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739464055; x=1740068855;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aixNwfpNLYxCXcI5ccF3I2q6OoCStOmv5r5FC5BMOR4=;
-        b=HEJU/BkmX5zZNqXoHU6+YKI5mTexzy5ZQrfl4ffjB/lzsmA4iwdUYZEwR/AgJEqnfc
-         mL4/amddh7D8wKDZbtK2j+PZpoZPzkKxFkY9l8SoBD0LTeR7X3GGMs3N+zd3hK/lnbFD
-         rULsggv7LxWNYDyhnfq7sJskc3d0o/M/RVnWhszStnAQ/vl2iF2tKTwxPQIaTLhfkdoC
-         FxmaW3KEJFUzE3R4u+cK2Aq2umek2bni+FLRDFKpXwndwvbAlnQLG24JeaP0Fp156J9I
-         ZtCLcHxUquww4fdjnfgi/hjdB/XfSLJn7vJ8XqKWjuSMijIKbDfK2qF/BEaaEn9qpwm/
-         KavA==
-X-Forwarded-Encrypted: i=1; AJvYcCXQ0VQ1O8MZcLtfj8NNf2PHYM6EscnFIuv/An5jePV7135HZTvOSqJ1DnpOB+slTBv1C/wMBydgLZvH7z5ueDwJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxb0T+2tJME5mlgbHLitv0oZRyl7RVZyWHkg8ZRriEDeHk0QYBt
-	RwbdXhlR4dz5aesAo9ljUA65jy8f5wwPjcbKEDYzLuLFtq6zqF1hNMk9CyGNgQOJyzH/NOduOWS
-	Thkt9lDDwHIENCiCpQyZpyXISdTYHoFk/35dyQw==
-X-Gm-Gg: ASbGnctquwYEuNe7cFlvZl8wLzhIS7G2KDB5kzrtNvURctDiig8KSiS8xNW9Oep1ctj
-	TuRHklSxQ2XBXIYdHim5swJtsJje5unUdnJlGgCDxbJIWNp0xYyt8A4qs+Vi2znjRxX7coVY5v3
-	RKeOJfRyYwEP1ebmvTBKHPaIZ9+6MD
-X-Google-Smtp-Source: AGHT+IGh1IZYUOs4P7JSIz9yKatxKcYCpkTha4+Vt1XXHAvpLvRRPqSwJWHf/GTRbZo8Nm9ZR0QzY9EHYI9QcB0Oy7A=
-X-Received: by 2002:a17:906:7956:b0:ab7:f221:f7b4 with SMTP id
- a640c23a62f3a-ab7f34738c0mr776743366b.43.1739464054629; Thu, 13 Feb 2025
- 08:27:34 -0800 (PST)
+	id 1tic6c-0000000BmCc-2UpV;
+	Thu, 13 Feb 2025 16:30:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=MNMDnKXII92afWHhH4RWZCjxwftjZXkXdjE1exG0TPY=; b=uMF6tyMHrDtDZmzYEsUM6TiN6a
+	B7J+wLSoaIctHizwPTfwt/IN/8YkHFjVLnzP6ujA2Yp+Y9LmhmndovbrGI6pWtveKtcMVdVWW98ND
+	MYgtTv+nJOB5ej8lsP0v/3RlZKRDWhLgXYCpJPBqqhqHyXsOP1EAqS8gfUt2nCYy9MgzghiqlLc5+
+	q+G1B9E72QQd7mBBZ6Hfc1VFxFcXVhqxEY+/Fv1fyLVzQVzbHBl1RlGsayIyEJQO7Wl83iMm45kw9
+	OH1pUcUSe95K4Z0CzhGgV5UPfkAWUhSACiNRHw+qA4MhUqCH2utD0D//SE5cZ1qXgTh/ejnTFFJ0U
+	ntTudkIg==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tic6Z-0004lW-34; Thu, 13 Feb 2025 17:30:23 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: quentin.schulz@cherry.de,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH] arm64: dts: rockchip: add usb typec host support to rk3588-jaguar
+Date: Thu, 13 Feb 2025 17:30:13 +0100
+Message-ID: <20250213163013.1616467-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-References: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
- <20250213171435.1c2ce376@bootlin.com>
-In-Reply-To: <20250213171435.1c2ce376@bootlin.com>
-From: Phil Elwell <phil@raspberrypi.com>
-Date: Thu, 13 Feb 2025 16:27:23 +0000
-X-Gm-Features: AWEUYZl0UFEHY2kV2h1h_cYG6cbTpw7bZVsKquFMakyrJEadnvQ1Edus79HpRwQ
-Message-ID: <CAMEGJJ1++aeE7WWLVVesbujME+r2WicEkK+CQgigRRp2grYf=A@mail.gmail.com>
-Subject: Re: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device using
- a DT overlay
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>, andrew@lunn.ch, Arnd Bergmann <arnd@arndb.de>, 
-	"maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE" <bcm-kernel-feedback-list@broadcom.com>, bhelgaas@google.com, brgl@bgdev.pl, 
-	Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley <conor+dt@kernel.org>, derek.kiernan@amd.com, 
-	devicetree@vger.kernel.org, dragan.cvetic@amd.com, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, krzk+dt@kernel.org, kw@linux.com, 
-	Linus Walleij <linus.walleij@linaro.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-clk@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
-	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, lpieralisi@kernel.org, 
-	luca.ceresoli@bootlin.com, manivannan.sadhasivam@linaro.org, 
-	masahiroy@kernel.org, Michael Turquette <mturquette@baylibre.com>, 
-	Rob Herring <robh@kernel.org>, saravanak@google.com, Stephen Boyd <sboyd@kernel.org>, 
-	thomas.petazzoni@bootlin.com, Stefan Wahren <wahrenst@gmx.net>, 
-	Will Deacon <will@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_082736_525555_38453B10 
-X-CRM114-Status: GOOD (  29.50  )
+X-CRM114-CacheID: sfid-20250213_083026_656547_F49C6C7D 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,63 +73,244 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Herv=C3=A9,
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-On Thu, 13 Feb 2025 at 16:14, Herve Codina <herve.codina@bootlin.com> wrote=
-:
->
-> Hi Phil,
->
-> On Thu, 13 Feb 2025 15:18:45 +0000
-> Phil Elwell <phil@raspberrypi.com> wrote:
->
-> > Hi Andrea,
-> >
-> > The problem with this approach (loading an overlay from the RP1 PCIe
-> > driver), and it's one that I have raised with you offline, is that
-> > (unless anyone can prove otherwise) it becomes impossible to create a
-> > Pi 5 DTS file which makes use of the RP1's resources. How do you
-> > declare something as simple as a button wired to an RP1 GPIO, or fan
-> > connected to a PWM output?
->
-> The driver could be improved in a second step.
-> For instance, it could load the dtbo from user-space using request_firmar=
-e()
-> instead of loading the embedded dtbo.
->
-> >
-> > If this is the preferred route to upstream adoption, I would prefer it
-> > if rp1.dtso could be split in two - an rp1.dtsi similar to what we
-> > have downstream, and an rp1.dtso that #includes it. In this way we can
-> > keep the patching and duplication to a minimum.
->
-> Indeed, having a rp1.dtsi avoid duplication but how the rp1.dtso in
-> the the kernel sources could include user customization (button, fan, ...=
-)
-> without being modified ?
-> At least we have to '#include <my_rp1_customizations.dtsi>'.
->
-> Requesting the dtbo from user-space allows to let the user to create
-> its own dtso without the need to modify the one in kernel sources.
->
-> Does it make sense ?
+Jaguar has two type-c ports connected to fusb302 controllers that can
+work both in host and device mode and can also run in display-port
+altmode.
 
-I think I understand what you are saying, but at this point the RP1
-overlay would no longer be an RP1 overlay - it would be an
-RP1-and-everything-connected-to-it overlay, which is inherently
-board-specific. Which user-space process do you think would be
-responsible for loading this alternative overlay, choosing carefully
-based on the platform it is running on? Doesn't that place quite a
-burden on all the OS maintainers who up to now have just needed a
-kernel and a bunch of dtb files?
+While these ports can work in dual-role data mode, they do not support
+powering the device itself as power-sink. This causes issues because
+the current infrastructure does not cope well with dual-role data
+without dual-role power.
 
-If it is considered essential that the upstream Pi 5 dts file does not
-include RP1 and its children, then Raspberry Pi are going to have to
-walk a different path until we've seen how that can work. By splitting
-rp1.dtso as I suggested, and perhaps providing an alternative helper
-function that only applies the built-in overlay if the device node
-doesn't already exist, we get to stay as close to upstream as
-possible.
+So add the necessary nodes for the type-c controllers as well
+as enable the relevant core usb nodes, but limit the mode to host-mode
+for now until we figure out device mode.
 
-Phil
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+---
+ .../arm64/boot/dts/rockchip/rk3588-jaguar.dts | 178 ++++++++++++++++++
+ 1 file changed, 178 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+index 90f823b2c219..329d98011c60 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+@@ -333,6 +333,52 @@ rtc_twi: rtc@6f {
+ 		};
+ 	};
+ 
++	usb-typec@22 {
++		compatible = "fcs,fusb302";
++		reg = <0x22>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <RK_PA3 IRQ_TYPE_LEVEL_LOW>;
++		vbus-supply = <&vcc_5v0_usb_c1>;
++
++		connector {
++			compatible = "usb-c-connector";
++			data-role = "dual";
++			label = "USBC-1 P11";
++			power-role = "source";
++			source-pdos =
++				<PDO_FIXED(5000, 1500, PDO_FIXED_DATA_SWAP | PDO_FIXED_USB_COMM)>;
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					usbc0_hs: endpoint {
++						remote-endpoint = <&usb_host0_xhci_drd_sw>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					usbc0_ss: endpoint {
++						remote-endpoint = <&usbdp_phy0_typec_ss>;
++					};
++				};
++
++				port@2 {
++					reg = <2>;
++
++					usbc0_sbu: endpoint {
++						remote-endpoint = <&usbdp_phy0_typec_sbu>;
++					};
++				};
++			};
++		};
++	};
++
+ 	vdd_npu_s0: regulator@42 {
+ 		compatible = "rockchip,rk8602";
+ 		reg = <0x42>;
+@@ -394,6 +440,52 @@ &i2c8 {
+ 	pinctrl-0 = <&i2c8m2_xfer>;
+ 	status = "okay";
+ 
++	usb-typec@22 {
++		compatible = "fcs,fusb302";
++		reg = <0x22>;
++		interrupt-parent = <&gpio4>;
++		interrupts = <RK_PA4 IRQ_TYPE_LEVEL_LOW>;
++		vbus-supply = <&vcc_5v0_usb_c2>;
++
++		connector {
++			compatible = "usb-c-connector";
++			data-role = "dual";
++			label = "USBC-2 P12";
++			power-role = "source";
++			source-pdos =
++				<PDO_FIXED(5000, 1500, PDO_FIXED_DATA_SWAP | PDO_FIXED_USB_COMM)>;
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					usbc1_hs: endpoint {
++						remote-endpoint = <&usb_host1_xhci_drd_sw>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					usbc1_ss: endpoint {
++						remote-endpoint = <&usbdp_phy1_typec_ss>;
++					};
++				};
++
++				port@2 {
++					reg = <2>;
++
++					usbc1_sbu: endpoint {
++						remote-endpoint = <&usbdp_phy1_typec_sbu>;
++					};
++				};
++			};
++		};
++	};
++
+ 	vdd_cpu_big0_s0: regulator@42 {
+ 		compatible = "rockchip,rk8602";
+ 		reg = <0x42>;
+@@ -851,6 +943,24 @@ &tsadc {
+ 	status = "okay";
+ };
+ 
++&u2phy0 {
++	status = "okay";
++};
++
++&u2phy0_otg {
++	phy-supply = <&vcc_5v0_usb_c1>;
++	status = "okay";
++};
++
++&u2phy1 {
++	status = "okay";
++};
++
++&u2phy1_otg {
++	phy-supply = <&vcc_5v0_usb_c2>;
++	status = "okay";
++};
++
+ &u2phy2 {
+ 	status = "okay";
+ };
+@@ -893,6 +1003,46 @@ &uart7 {
+ 	status = "okay";
+ };
+ 
++&usbdp_phy0 {
++	orientation-switch;
++	status = "okay";
++
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		usbdp_phy0_typec_ss: endpoint@0 {
++			reg = <0>;
++			remote-endpoint = <&usbc0_ss>;
++		};
++
++		usbdp_phy0_typec_sbu: endpoint@1 {
++			reg = <1>;
++			remote-endpoint = <&usbc0_sbu>;
++		};
++	};
++};
++
++&usbdp_phy1 {
++	orientation-switch;
++	status = "okay";
++
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		usbdp_phy1_typec_ss: endpoint@0 {
++			reg = <0>;
++			remote-endpoint = <&usbc1_ss>;
++		};
++
++		usbdp_phy1_typec_sbu: endpoint@1 {
++			reg = <1>;
++			remote-endpoint = <&usbc1_sbu>;
++		};
++	};
++};
++
+ /* host0 on P10 USB-A */
+ &usb_host0_ehci {
+ 	status = "okay";
+@@ -903,6 +1053,34 @@ &usb_host0_ohci {
+ 	status = "okay";
+ };
+ 
++&usb_host0_xhci {
++	dr_mode = "host";
++	status = "okay";
++
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		usb_host0_xhci_drd_sw: endpoint {
++			remote-endpoint = <&usbc0_hs>;
++		};
++	};
++};
++
++&usb_host1_xhci {
++	dr_mode = "host";
++	status = "okay";
++
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		usb_host1_xhci_drd_sw: endpoint {
++			remote-endpoint = <&usbc1_hs>;
++		};
++	};
++};
++
+ /* host1 on M.2 E-key */
+ &usb_host1_ehci {
+ 	status = "okay";
+-- 
+2.47.2
+
 
