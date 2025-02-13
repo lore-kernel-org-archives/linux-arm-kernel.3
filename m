@@ -4,72 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B71DAC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 21:23:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBD4DC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 21:29:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AAzGpmQaLH7sVclaZm3nGvic6C3AJbqc+WlMSefsOAw=; b=HfKOE2SVvLGmV1IwB2bfJO3Rqj
-	LRA9qVpqXZuBS8WwchyU4mofFcAWIp1Du7AI6Ipf7N17+yG3U0YzH3RGJWZ5D27uwv5AEk4f2DLie
-	VlkOkkDvQiH4ZnpO7+RQ5RFNa/KRTE1aNuP0MkxVvH/Q7LweCgeMoWz6xpa+nGpEPdHnOyKZbL5nZ
-	BqBPby7NgvEXGR84XOpDEyqta91LflRZFtRzfCRsWbhN83TjTX7eLaAl2XLZFa2yXarBvyHDWsaA/
-	yIRwMl05XiGvyp3tA07FdxikFKNFq9pGLmihnP9sClxUWkHl8wHqqyzI/QTBHbEzyT4ce1aQEWTXS
-	A/zy+9rQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FtP6tRDh/jZu2+p9p6paXjSKq9j+i8pKuwkiJjvfeKQ=; b=LTDDzs39S5/FJKXFgc38j8aiXF
+	YuJOjgMPQG8ZKo+KTZCynIMer1Kv9rIouVmv/NsZg9OAO75VnoCokeoDGvbMsGrwldIbjoVx6wR4m
+	TJJTdIJEEA+FRrAZM/MM98N5Q/zW7WmqnJ/gjCpm+s2/obpixEM4jQuMwDSwxZkARN/+4uiqEWSQ2
+	BURTfMH7nt/ttn8XDUV9lCUHyqWVtwgjoWrg5uqOnkKAgCWtPVMmBj+XpjQvukNzgn5KKuE20jILB
+	PZChWBSJB1UZ4DHn3yTm6stkCmwbaAnGKBahXj24+20YO+XlYHN5N2sWpuEjaqXSmyTiraLxCiV3p
+	NLS4v1gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tigg2-0000000Cgsd-1D5o;
-	Thu, 13 Feb 2025 21:23:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tiglo-0000000ChaQ-2vIk;
+	Thu, 13 Feb 2025 21:29:16 +0000
+Received: from mail-dm6nam10on20702.outbound.protection.outlook.com ([2a01:111:f403:2413::702] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tigec-0000000CghD-0QHx;
-	Thu, 13 Feb 2025 21:21:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=AAzGpmQaLH7sVclaZm3nGvic6C3AJbqc+WlMSefsOAw=; b=Qx4W4KWKiwfCjJV3G2gWh6xBO1
-	uNKN7ZuqHeYNmJCUOBbE4p/93XLSvKJDnO4HI/vSZ1C29cNg8jADZM17m2lHuHeRk2ZCA2Ycd7CKK
-	uYUe0Q8oEHBCaETuc60d0JswnfipZGigk4m/GIZBlOjlB+f4UUvB3kAEJB+EYsp+jaWUSJ5MNkQQC
-	4U4dzIRFcGh6QcTeVsP+u+YsOghGJhNwyo51Izyh1XbZCAYv3uLxBaEC4Tfe1tLjJdcGkMDJBmIpo
-	y6T755N0XuKqQKqUN7UV5jvMmAoYH+AA6qB9cB8dcigD1w1GLy8qlbvjvXLPk7drzfboHRIICxvfj
-	AjsnBBtw==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tigeX-000000016fm-1ssf;
-	Thu, 13 Feb 2025 21:21:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=AAzGpmQaLH7sVclaZm3nGvic6C3AJbqc+WlMSefsOAw=; b=vyZw3DCpxWNkwL091vItEM+22M
-	UXlSTnznfZkHIUA0IPp4tLhY0gTIaiwFIcxizxaDmumUHi9rKvSfJRJAp5C9xbscr5WNCg7Tjkc83
-	Ii79BJBYzDa8oZ0Sv9j6c26DQJ4hMoqL63fwBTrTy7g72EPPq9WazoU8+eI/1iCc4VYxCnO6DAR/c
-	rLZuFmlc7GNtQ4Rsiqgyf8hto/shVd8fmmpaHVP6sPNf93Z17wIrOt48qKGn41Zxqz6zSTF0wbyHV
-	mUWtnYOuQtsNLWE3nWOrsfF8w3z9t9w+7GWTZglJUf7U8suVFNcqr4yZFUlyZ7s6LqTT8+SAquz02
-	hHi/C91w==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tigeT-0006eG-VR; Thu, 13 Feb 2025 22:21:42 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Rockchip dts fixes for 6.14 #1
-Date: Thu, 13 Feb 2025 22:21:41 +0100
-Message-ID: <3004814.3ZeAukHxDK@diego>
+	id 1tigkN-0000000ChLg-37Lr
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 21:27:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DcQGOWV2MWR47a9fVoVCoVEl1tMwbGJVOfPksb04VbnK3A2OvwyCVKlPegYOh0Y1rW6FmGXVArUGWPCd6rHOK8HxIVhEUC3jdlGg6o1G5knvfY3eUOxeI7zIOgHIIS8blSZuSoIbX1PcjGXTgC6jqlx0Dp1DxsAaSIpRgxWGVsSXMUZwCklqmZWEdtqJrkMLTL5mHl6c++MJFvLIkErG2nvKk9o/Z8EXeYnqiUA7x+KHZnWnj0A1Lr/klM54u/m7a0oCkreWCwIK9Q7/sReWJVEIyvHdpR3OW2ST1D2sEXMGjB1juanETVMwvFQnhdDpIiXlJbzEOFgxepD6XDPbDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FtP6tRDh/jZu2+p9p6paXjSKq9j+i8pKuwkiJjvfeKQ=;
+ b=ltgMnzNWJAM16wazyWBVeC9Ib11cuwlsHxuqqwOmbmjQxaaMJhpF9bEVIHTXJvVm0fK7J3Dsj5BlP/n7e3FUDVeUiPVZdIewzI2OQZnyi4q/ARmfiGFJO5quY1cb3FLtdK0u/E7wSxTvfoMVf50DB/5sxjGuJXZ+X3wqZtXMhXaEXMp+9waFO2iqyoXotPaSyEXZwMCMvYV58jSuLShp4VmnlrTQ80uzoxH+lQPTfwT7CyD1Zc8bbP3kgUToS5MkNfyjZ8Bc59WzX0olfaoa4TrZM6SZiiHLxaIp/UFWQCjdalP2rH5DTfsBuh58/W134p09SkQkMjNqxn1P8ocW4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FtP6tRDh/jZu2+p9p6paXjSKq9j+i8pKuwkiJjvfeKQ=;
+ b=BpXK9xZrlMqix38GCcnjf4oL6ohpg+hEeL8ZIml9vPUM02SuDegsGO8AngrC30aj07z06CYAl/9NDG5ur+T726hgI2LoBI9/217vux4OPmPsoHQHWQdYhoxR8NQRUIsoLFzYaaOGWdS0ynsbOF+IpwA3+WhpRZOwsIdi9xzuRmE=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ PH7PR01MB7728.prod.exchangelabs.com (2603:10b6:510:1d8::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8466.5; Thu, 13 Feb 2025 21:27:41 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%6]) with mapi id 15.20.8466.004; Thu, 13 Feb 2025
+ 21:27:41 +0000
+Message-ID: <8e3ad39e-de59-48bf-b776-b27dc784a8ef@os.amperecomputing.com>
+Date: Thu, 13 Feb 2025 13:27:37 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC v2 PATCH 0/2] arm64: support FEAT_BBM level 2 and large
+ block mapping when rodata=full
+To: Ryan Roberts <ryan.roberts@arm.com>, catalin.marinas@arm.com,
+ will@kernel.org
+Cc: cl@gentwo.org, scott@os.amperecomputing.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250103011822.1257189-1-yang@os.amperecomputing.com>
+ <022c4799-bf0e-44d4-b657-d6af29a9a31d@arm.com>
+ <7ca5e8a6-9f01-40c6-a46d-c717ae7ab3b1@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <7ca5e8a6-9f01-40c6-a46d-c717ae7ab3b1@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: CY8PR12CA0057.namprd12.prod.outlook.com
+ (2603:10b6:930:4c::24) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH7PR01MB7728:EE_
+X-MS-Office365-Filtering-Correlation-Id: fdd9c4ac-fb0b-4822-bafd-08dd4c753f1c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?T0htdVY2QU93QkdGQkhFUGsySVNTNW1uVHRZa3d4UkR2UU1WQVNLazJaSG5m?=
+ =?utf-8?B?c2dQMG53V2VranhWRHE3dHN6RXVFZUNNMU95ZlVWcytKRWtoWmhpMGdMelJq?=
+ =?utf-8?B?MXBiYWNmdlYvc1hmT01rd3JoNTZuTWg0Z1p4OTRseTVCSnVxN2hGU2RSaENo?=
+ =?utf-8?B?Qm1HVktjWU1lak1mVjV6MWVuZjNsV0U2djYyNTV1SThwNXVZUm80YnA0RFcw?=
+ =?utf-8?B?V3dmdWNZNGZOVVIxTG9FbFpaaTVjb0oxb2pYUXhPR3lmS0FOU0dqM3ZaTzJU?=
+ =?utf-8?B?dzYzUGVYd0tjOS92NldpcVNSTWNLaE9XNThjOEtlK20xNWJSZ0ZXU2hmMmhm?=
+ =?utf-8?B?U0l6M09LRVRNdEFSZXc0NHZkanF1azJhalZXdHU2SjhiZ3JYUFpzMHd0Wisv?=
+ =?utf-8?B?Lzg2TjJENlN3TVdUM0hwL2ErMTQzY01leHlabG1oWXpmNlA3RllRcStoYWtt?=
+ =?utf-8?B?NWV0UkdHbEgxc1YrOEJEZjBKMVorbENORWxDd2FTVE1oQ0x5M0NHR0dEOHZQ?=
+ =?utf-8?B?eURaVHJENnRPN2o0SndWVHljL1c5Q0F3Tkpob3pJcWRyRmpCWWF2N1dwcHNU?=
+ =?utf-8?B?VWJwNHdEbUM5WEVHWStBbXR1VzZyNjh1WWxjdFh2MUdsTGNzZGVFeXNjQzhr?=
+ =?utf-8?B?b3NrKzRlRTRFRHphWVlmTGdXelJxMytDV0wxVk85VGcyeG5hckpIZlJjMmJ4?=
+ =?utf-8?B?VzF2T29DMU1tWnduWW92em1tK0hJZ25JSldTbXF0YmprR1VYQUcrZjdnVFFM?=
+ =?utf-8?B?eHJvZWhEUHdJZkFWR2NOQlM4SUFIVVE0UnZaVEEvME9TV0E0UkY0ZVlPNDlL?=
+ =?utf-8?B?NjFoTlc0eUczTGZpY2xXWi81Wlk5OG1URGl4ajlPVGM0Vk93UFZod0ZHeXZx?=
+ =?utf-8?B?V3JQemo2NjVXTFczWDB0dllhRWtFeHljVWtWdS9KM2xUekFObmJnQ09UdFNX?=
+ =?utf-8?B?b2s4Z2lHODM1dG5aaU5xTHRkaUgwdlVmYXRCTXlGemM2amk5WlhZWGxiM0Vu?=
+ =?utf-8?B?NjlGcmNKRnZXdHJqUDROb0M0dTdTTnFkWHZYeEN2SlFhM1huNlZEU3F1NXN5?=
+ =?utf-8?B?UWE3Nk9hQStqL0VFbGFXa3NUaWZWS1RWR1FCZmZvWnFHSlFjNlA4c0hvSExj?=
+ =?utf-8?B?RTZvcDNYc2RiRDVlTmZtZUJNMjBTN1RaSmpwL0dYbXNaRW9RWUpkRGpkcjZW?=
+ =?utf-8?B?UER3eXVlbVZPWHVKZFhFdUdDamEvUmRtdFl6V3lBUDU1OGUvYjVBSTczR25r?=
+ =?utf-8?B?WFhXdkRRWXNIWDZ5L01tNzFmT2FyZXU2TzZ0Rk9FdFh4L1VxK2puRS9DbGdw?=
+ =?utf-8?B?d0lqK28rQk4xdnZKMUUrUUhSOG4wcEpZMEQ0bUd3QUFUUUthYW1GRGwwSjlX?=
+ =?utf-8?B?UkVnT3V4c2xvR0swSHJ3UFlRTERrb29EVm51cjQrdUM0MVZnSk02a0FRWHYr?=
+ =?utf-8?B?K3FWYmUrT0hZVDVlcjM1TUhRNytjeFU2Wm0zRFVEKzdINmxFUmM4YnJFSHlI?=
+ =?utf-8?B?T3o5UDFMeUo0bWhYNTE2Z0tKZVdjT1BCdWZtKzdDcjViUUVLR2hCeWxnSjFU?=
+ =?utf-8?B?akl6OFl5YzFpUTA2VW1TeGRrZHdUOWU3TzJyQXdxQ2V2YXJjQko0QWsxdmNI?=
+ =?utf-8?B?S2xjbGh6NlIyODQrYzZhY1l0cDFFSjI2SG1pdm9tSXU1VXB6RUVtcHFoc1VJ?=
+ =?utf-8?B?S091bmdUOVZCeEhBdGI0Y1AvQVQwNXAyZHVSbUNMWlhzQmxwOXhUOHZCRXN2?=
+ =?utf-8?B?QmpFUTIyNVY1TWdMcnc5cGhFdDJobFhEV2FkQjlra25ZZEZUN3o3MVk2SUhG?=
+ =?utf-8?B?SmZHcEhrVzcxVk5uRHpoZ2N3N1hQVklxQWlEdGliTkJhMU5vcHZRWE9zc1du?=
+ =?utf-8?Q?iQ8N5m06Dqlny?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aitXNk0vbGs3U1B3MUdwbzhZZ3JTVmszTjFjMXBRbnIxaHI4bVJDTXpReTRQ?=
+ =?utf-8?B?QzBYYW12K01sUi9jNzQ1N3NBb29ObzAxOWZVeGhpUGFOby9mZjNlYWpYbFBD?=
+ =?utf-8?B?WFUwMHpMbk1FYjE1enFVclM2UUczNklWYTRhaXdlTy9DTHlqcnFURVV5VDFJ?=
+ =?utf-8?B?OWhWdjhOUVhWZHdzbFdqdU9oTHBweEZ0UkwydzVDNjZtYUZGUjVYWnRQTHZW?=
+ =?utf-8?B?MndGME45KzRVMkhUN3JBWTRhR0lVeldpZFlYSlFLZk9YMU1ob2crYkptNzZQ?=
+ =?utf-8?B?am5wQzFtSDNNWXR1ZTNpZTlNK2JTS0hPOU5HSDlVTkRnN2dwL3drL3kwb1Fx?=
+ =?utf-8?B?Q0J5V0swby9SNDMzc0J0cWVOVlVoN0pPYUJhZjBSejVNcUs0akV5THB6ZUll?=
+ =?utf-8?B?VHlJcjJtVE9ZZUZmd1pGQVh3S0xyb0wvOHo2RWU1SnZOZ2xLdmVkYUNoM1Ex?=
+ =?utf-8?B?ZDBONE9aTklXK2ZBUjV5YjFvZ1NaTllKdEd0RGFwRno4QzVkcmhaVlFwU2R6?=
+ =?utf-8?B?bW0xay9RdXdUdmtSdlZzbEdYRDVyekZiS013ODlBcnN2RXJxZno4ZStGcGJz?=
+ =?utf-8?B?Nnh5dTNEQWNPQ2V3Q21WSm9LaUpRR2ZoMTAvc09NOHRtOHRMZHgydEZoK0Fi?=
+ =?utf-8?B?N3Bjb1R0Tk5MS2VrSmVweDVHeEFzUy85VUwxMExXWmJ1Zm43VkErTnhPLzdO?=
+ =?utf-8?B?dzNFRnhJT2VxMjlwYVB3bWN2V3NFZEdTUk5XdEZQd09GWVp5dGtLejRsSlpB?=
+ =?utf-8?B?N1JGWElPaFF2KzBRenJPbytobnlYZ29TYUtiSmt1OWZnZUllVlp0WlJzMU1E?=
+ =?utf-8?B?R0xKWUp5TzhiY2kvRDNCVHBpS3dzYjRrTVNxVzE5SWpLeXlPK1RRSmJieDJh?=
+ =?utf-8?B?Zm42ZEI5cFFEZnk5bmFXZkIyT1lLWmxPcG1WZC9VY3A2Rk1qMkNHbFZYRitm?=
+ =?utf-8?B?MG02U2gySmtvUzNkVGxpVnlpVGtqbi9LQVZxQ0E3cVcwYVVrWTkxVm5Mc0dG?=
+ =?utf-8?B?bVQ3bWM3aDd3Y3d2a05nWFZaMjVzdm11bFduUGQ0bDc1WTVzQ2V4c2Vrd2xS?=
+ =?utf-8?B?cmFtT1NKdUttcEE4TFBCY1N1M1VqN0tBelo4a1ZZRnp6L1NQVmNsREhBZVZz?=
+ =?utf-8?B?QS8yNkVHdkJnMEhsUWhjYlZYKzRIN2lnWjhwZlJWSGwwdXhmTStSaGhxdGhG?=
+ =?utf-8?B?RG9IMFlvL3Axa0p5c21CUG5FVSt2UXNXYWJkdGdkU2Z5RXI2Q1crMTlZSndE?=
+ =?utf-8?B?QUoxa1hSTVQxWU5HUkh4aGZJMklTYlBRa0VDWnhldlhmWTQ3S3E2SFNyamVa?=
+ =?utf-8?B?VVBlY3k1UUllQW5Gc3FucG1iUzYxa1RyZ2h5cC8yc3dUcGdyUEJsRmkvOXR3?=
+ =?utf-8?B?N1JlZXhudXVmRzQzczV0Q2t1enR5M20wOXlIN1NMTlRoUTJnVkJURE44dGxx?=
+ =?utf-8?B?dkhBT0Fuci94WEtWVGpjSkhqT0s0SnVlY1RzN2N5UFhGMTFHTHdjZW53YmlS?=
+ =?utf-8?B?VkVpVmRFamMrSm4rMU1aZ1BBQlRpRm9Cemd0NGthaDZPWEg1S1JGNXNlRE5p?=
+ =?utf-8?B?cXB5bHNDbDBWRTdHRm5nTWVMOHBBN0ltNjFGNXUwWTZmT0tZQk8wSG85N1VL?=
+ =?utf-8?B?aWxNb3dMWFZ3SmVBTXcvYVRGQ2VqMHRTcXlwOFc4N2N5Wkl2WkRlOTQ5Tytm?=
+ =?utf-8?B?eTMraVJPVDJ1UVY1OXhYRGZFVVVSRFZxRUNWamZ1UnJTVngzb3g1QXhhbkVC?=
+ =?utf-8?B?UEx2L0Q0SXN2RURMOEp1elVFMmpkWTlZcEgreWRIWW9HUGpReGs5bDQvMkF3?=
+ =?utf-8?B?NFUvRTF1OFFwYXIzQ2tLVmlQTG55M0ZSVVZVNTYrbG5lcGUzSlJhc2VsNXMw?=
+ =?utf-8?B?MVRJL2lxUmxlclV6b21SUFZIdCtuRzZaeUE1SENZaGZhcGJJYWExOVJQVnB2?=
+ =?utf-8?B?cExwTE01aHFvclJGRERmdlBNR0FSbElMNW40WjVCZHFqWExtajJHelNkNTBP?=
+ =?utf-8?B?Z0E5WUVNamFZUDBoVzJSeS9xN21KeXFMc0JDekl6MVIwbzIrTVdxenM2NHVq?=
+ =?utf-8?B?L25WdkRBWVhpdTZZdklQdWgxZTRPay9kL1JuSlVqcjJSR0RHOXZKWkprS1g0?=
+ =?utf-8?B?OXpaMUhncU9tRXIvY1pvQkRxUkdvTUFxTGo3Skt1dlZ3ekFwbGRnUTQ3eXlL?=
+ =?utf-8?Q?ZwNNpOYp5JUZo64AdQvFVYs=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fdd9c4ac-fb0b-4822-bafd-08dd4c753f1c
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Feb 2025 21:27:41.1150
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tIuruQiWqJvYWa+/OOMoUMA2ntCFUh25WUarDtCGrnMVpuwHIPIh0kDS5N5NECC7Y2xi8kqqz4boAqSFfts2GoxTx0QAGIrO/MMfpUydqD0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR01MB7728
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_212147_029394_0FCC8DFF 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250213_132747_845304_F630793F 
+X-CRM114-Status: GOOD (  22.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,75 +179,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd, Kevin, Olof,
-
-please find a below some fixes for the current release 6.14 cycle.
-
-Please pull
-
-Thanks
-Heiko
 
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+On 2/11/25 3:36 AM, Ryan Roberts wrote:
+> Sorry managed to send this to the list only. Resending with original recipients
+> added back in...
+>
+>
+> On 11/02/2025 11:34, Ryan Roberts wrote:
+>> Hi Yang,
+>>
+>> Thanks for putting this together; I'm hoping to piggyback on this and use BBML2
+>> to reduce the cost of contpte_convert().
 
-are available in the Git repository at:
+Thanks for sharing another usecase.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git tags/v6.14-rockchip-dtsfixes1
+>>
+>> review incoming...
+>>
+>>
+>> On 03/01/2025 01:17, Yang Shi wrote:
+>>> When rodata=full kernel linear mapping is mapped by PTE due to arm's
+>>> break-before-make rule.
+>>>
+>>> This resulted in a couple of problems:
+>>>    - performance degradation
+>>>    - more TLB pressure
+>>>    - memory waste for kernel page table
+>>>
+>>> There are some workarounds to mitigate the problems, for example, using
+>>> rodata=on, but this compromises the security measurement.
+>>>
+>>> With FEAT_BBM level 2 support, splitting large block page table to
+>>> smaller ones doesn't need to make the page table entry invalid anymore.
+>>> This allows kernel split large block mapping on the fly.
+>>>
+>>> Add kernel page table split support and use large block mapping by
+>>> default when FEAT_BBM level 2 is supported for rodata=full.  When
+>>> changing permissions for kernel linear mapping, the page table will be
+>>> split to PTE level.
+>>>
+>>> The machine without FEAT_BBM level 2 will fallback to have kernel linear
+>>> mapping PTE-mapped when rodata=full.
+>>>
+>>> With this we saw significant performance boost with some benchmarks with
+>>> keeping rodata=full security protection in the mean time.
+>>>
+>>> The test was done on AmpereOne machine (192 cores, 1P) with 256GB memory and
+>>> 4K page size + 48 bit VA.
+>>>
+>>> Function test (4K/16K/64K page size)
+>>>    - Kernel boot.  Kernel needs change kernel linear mapping permission at
+>>>      boot stage, if the patch didn't work, kernel typically didn't boot.
+>>>    - Module stress from stress-ng. Kernel module load change permission for
+>>>      module sections.
+>>>    - A test kernel module which allocates 80% of total memory via vmalloc(),
+>>>      then change the vmalloc area permission to RO, then change it back
+>>>      before vfree(). Then launch a VM which consumes almost all physical
+>>>      memory.
+>> I don't really understand how vmalloc is relevant here? vmalloc can already map
+>> huge pages you use vmalloc_huge() and changing the permissions of vmalloc
+>> mapping will only affect the ptes pertaining to that mapping; I don't see why
+>> that would cause permissions to be changed on the linear map or for huge pages
+>> in the linear map to be split?
 
-for you to fetch changes up to 8546cfd08aa4b982acd2357403a1f15495d622ec:
+I just uses vmalloc() API to emulate what modules loading does. Allocate 
+memory via vmalloc() then change permission to, for example, read-only, 
+by calling set_memory_ro(). So I can stress the page split by doing it 
+on the most of memory, for example, 80% of memory. It is more efficient 
+than loading real modules.
 
-  arm64: dts: rockchip: adjust SMMU interrupt type on rk3588 (2025-02-11 21:28:13 +0100)
+It is implemented by a patch against test_vmalloc. I don't include the 
+patch in this series, if you think it is useful, I can include it in v3 
+anyway.
 
-----------------------------------------------------------------
-Fixes for the IOMMU used together with the PCIe controllers on rk3588,
-some board-level fixes for wrong pins, pinctrl and regulators, and
-disabling DMA on a board where the DMA+uart causes the dma controller to
-hang, as well as improved network stability for the OrangePi R1.
+>>
+>>>    - VM with the patchset applied in guest kernel too.
+>>>    - Kernel build in VM with patched guest kernel.
+>>>
+>>> Memory consumption
+>>> Before:
+>>> MemTotal:       258988984 kB
+>>> MemFree:        254821700 kB
+>>>
+>>> After:
+>>> MemTotal:       259505132 kB
+>>> MemFree:        255410264 kB
+>>>
+>>> Around 500MB more memory are free to use.  The larger the machine, the
+>>> more memory saved.
+>>>
+>>> Performance benchmarking
+>>> * Memcached
+>>> We saw performance degradation when running Memcached benchmark with
+>>> rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
+>>> With this patchset we saw ops/sec is increased by around 3.5%, P99
+>>> latency is reduced by around 9.6%.
+>>> The gain mainly came from reduced kernel TLB misses.  The kernel TLB
+>>> MPKI is reduced by 28.5%.
+>>>
+>>> The benchmark data is now on par with rodata=on too.
+>>>
+>>> * Disk encryption (dm-crypt) benchmark
+>>> Ran fio benchmark with the below command on a 128G ramdisk (ext4) with disk
+>>> encryption (by dm-crypt).
+>>> fio --directory=/data --random_generator=lfsr --norandommap --randrepeat 1 \
+>>>      --status-interval=999 --rw=write --bs=4k --loops=1 --ioengine=sync \
+>>>      --iodepth=1 --numjobs=1 --fsync_on_close=1 --group_reporting --thread \
+>>>      --name=iops-test-job --eta-newline=1 --size 100G
+>>>
+>>> The IOPS is increased by 90% - 150% (the variance is high, but the worst
+>>> number of good case is around 90% more than the best number of bad case).
+>>> The bandwidth is increased and the avg clat is reduced proportionally.
+>>>
+>>> * Sequential file read
+>>> Read 100G file sequentially on XFS (xfs_io read with page cache populated).
+>>> The bandwidth is increased by 150%.
+>> The performance gains definitely look worthwhile!
 
-----------------------------------------------------------------
-Alexander Shiyan (1):
-      arm64: dts: rockchip: Fix broken tsadc pinctrl names for rk3588
+Yeah, thanks for taking your time review the patches. I think the 
+feedback is positive enough so far to get rid off the "RFC" tag.
 
-Andy Yan (1):
-      arm64: dts: rockchip: Fix lcdpwr_en pin for Cool Pi GenBook
-
-Heiko Stuebner (1):
-      arm64: dts: rockchip: fix fixed-regulator renames on rk3399-gru devices
-
-Lukasz Czechowski (2):
-      arm64: dts: rockchip: Move uart5 pin configuration to px30 ringneck SoM
-      arm64: dts: rockchip: Disable DMA for uart5 on px30-ringneck
-
-Niklas Cassel (1):
-      arm64: dts: rockchip: disable IOMMU when running rk3588 in PCIe endpoint mode
-
-Patrick Wildt (1):
-      arm64: dts: rockchip: adjust SMMU interrupt type on rk3588
-
-Rob Herring (Arm) (1):
-      dt-bindings: rockchip: pmu: Ensure all properties are defined
-
-Tianling Shen (1):
-      arm64: dts: rockchip: change eth phy mode to rgmii-id for orangepi r1 plus lts
-
- .../devicetree/bindings/arm/rockchip/pmu.yaml      |  8 +++++++-
- .../boot/dts/rockchip/px30-ringneck-haikou.dts     |  1 -
- arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi    |  6 ++++++
- .../dts/rockchip/rk3328-orangepi-r1-plus-lts.dts   |  3 +--
- .../boot/dts/rockchip/rk3328-orangepi-r1-plus.dts  |  1 +
- .../boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi |  1 -
- .../boot/dts/rockchip/rk3399-gru-chromebook.dtsi   |  8 ++++----
- .../boot/dts/rockchip/rk3399-gru-scarlet.dtsi      |  6 +++---
- arch/arm64/boot/dts/rockchip/rk3399-gru.dtsi       | 22 +++++++++++-----------
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      | 22 +++++++++++-----------
- .../dts/rockchip/rk3588-coolpi-cm5-genbook.dts     |  4 ++--
- arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi     |  1 -
- .../boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtso  |  4 ++++
- 13 files changed, 50 insertions(+), 37 deletions(-)
+Yang
 
 
+>>
+>> Thanks,
+>> Ryan
+>>
+>>> RFC v2:
+>>>    * Used allowlist to advertise BBM lv2 on the CPUs which can handle TLB
+>>>      conflict gracefully per Will Deacon
+>>>    * Rebased onto v6.13-rc5
+>>>
+>>> RFC v1: https://lore.kernel.org/lkml/20241118181711.962576-1-yang@os.amperecomputing.com/
+>>>
+>>> Yang Shi (2):
+>>>        arm64: cpufeature: detect FEAT_BBM level 2
+>>>        arm64: mm: support large block mapping when rodata=full
+>>>
+>>>   arch/arm64/include/asm/cpufeature.h |  19 ++++++++++++
+>>>   arch/arm64/include/asm/pgtable.h    |   7 ++++-
+>>>   arch/arm64/kernel/cpufeature.c      |  11 +++++++
+>>>   arch/arm64/mm/mmu.c                 |  32 ++++++++++++++++++--
+>>>   arch/arm64/mm/pageattr.c            | 173 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----
+>>>   arch/arm64/tools/cpucaps            |   1 +
+>>>   6 files changed, 234 insertions(+), 9 deletions(-)
+>>>
+>>>
 
 
