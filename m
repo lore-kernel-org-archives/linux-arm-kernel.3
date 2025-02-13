@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C88C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 09:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 019B2C0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 09:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ynb7ZnUc1X74VNQLfcEo/T0EOF3Ge2ndnvxSW3fpF9Y=; b=yj/wox3YFwgPAmVWYPEiOKlH+G
-	GOP1j0LYBgqG4NzV2kSYzi5z37A2+foO8vGpkAGXlDH14vizJvIIoxQ0umFq0uOTapIkZKYhVeBn1
-	uE9lIkJF2ApRbVYsJDBveJup3NMj35d0Ta6mpiWCzzRmmFEX26yen1QPKc9kTLNWlPRBRC2z9Cv4N
-	56XAzCF0mX6sNJh4YCSbUDYfSxjqAIEolTpeIcpDfU59smg5E2ZljQ3a045NQDq13ejp86Hc2r77k
-	Io1OTVlWyf/8EsXxD0zBi3MUR/15zYmXcL7shJhveFduwnJNKyjLqZD1XloCZie4YYeGndmDZeWng
-	Ng+Ym3iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jATwY5YWrt8c4aHpGnAYVPYFJquyZVmC0QHHiT0w4Go=; b=v8VN6USV5ZP6lZU1DdhBre6W7A
+	07Vh/gZIwsK4r4ZYw0TfU+HTIJcylUT5/Xj3QcIkWYkxfIpkPlD8R0Ibj0YgIbeqQkIgSqtzS6zx9
+	4m7tn16uutmgqaSB6pcHF9nwAjClL97G3aNpaYzK00Taq6U+8D51XkfZyPb8kliRv8gJmGreslJUk
+	97bNOlcm9str4iGdU7c17p1BF6V/eaUgQ42AXh1ne8n8VPAvAjtQLj3n2peCIRHg0HP/jCzUkFlIY
+	VtfH4WMWQYHtEZwxZ2zX5M1do4m3tVodNalove0h+A6jJHbmo43Jcn3YXC38XrZ4+zyhpKnMSbYPM
+	X+KItdVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiVMb-0000000AQXQ-3cOV;
-	Thu, 13 Feb 2025 09:18:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiVEL-0000000AOSG-2wtc
+	id 1tiVO0-0000000AQtE-2FM1;
+	Thu, 13 Feb 2025 09:19:56 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiVEN-0000000AOSm-0T50
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 09:09:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4B4716F3;
-	Thu, 13 Feb 2025 01:10:17 -0800 (PST)
-Received: from [10.57.81.93] (unknown [10.57.81.93])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5596D3F58B;
-	Thu, 13 Feb 2025 01:09:54 -0800 (PST)
-Message-ID: <d6af21f1-e539-4fa6-a3f8-c4859b1325c5@arm.com>
-Date: Thu, 13 Feb 2025 09:09:52 +0000
+	Thu, 13 Feb 2025 09:10:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 013A8A41F66;
+	Thu, 13 Feb 2025 09:08:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B1E3C4CEE6;
+	Thu, 13 Feb 2025 09:09:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739437798;
+	bh=yzTo+VSqdbP5hYD2auan7a+l2E2+Wwt1B7liKWHLG5U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=A4xw9V3nRsRa6ghT9q+jymjVNL2RKfNOZ2YBFCEGAkzEyQWHExLusTZusYF8k7vaF
+	 kIkkKWGJEIZUucKG7cSvSytTwjgRa6WiLUGWQU9LX8JLeVoFewPLUv+ZIvDahdhSpZ
+	 E+k/ZRDjgWb0+NwPxPjtHcJuFMxFP3uwgeCBkI+nPdVsrj7vAKNw9LUrMXz3KWvzFm
+	 /qf9TC0syXuIecZUGTaFX8/+QF4Ug6oVsyAVx4sQ4uNP23Wj7HKcGu6dA0PkvSyHUQ
+	 mFZXoKFadv37t+Cdqk4Kb8sBcTAnJ/3kPdyGqvgCKEVDLwSEDPCLHPCzhnrAxoLAeJ
+	 Jl1FczADjsROA==
+Date: Thu, 13 Feb 2025 10:09:54 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Mark Kettenis <kettenis@openbsd.org>, 
+	Marc Zyngier <maz@kernel.org>, Stan Skowronek <stan@corellium.com>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/7] dt-bindings: pci: apple,pcie: Add t6020 support
+Message-ID: <20250213-faithful-ibex-of-feminism-3aea45@krzk-bin>
+References: <20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io>
+ <20250211-pcie-t6-v1-1-b60e6d2501bb@rosenzweig.io>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 12/16] arm64/mm: Support huge pte-mapped pages in vmap
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-13-ryan.roberts@arm.com>
- <9a0d3009-18fc-4b53-941a-b6d830fce36a@arm.com>
- <21da59a8-165d-4423-a00d-d5859f42ec11@arm.com>
- <0dd74f57-902a-4a6d-9f77-31963b5953d1@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <0dd74f57-902a-4a6d-9f77-31963b5953d1@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250211-pcie-t6-v1-1-b60e6d2501bb@rosenzweig.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_010957_781796_36064DAC 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20250213_010959_212788_3FAF8283 
+X-CRM114-Status: UNSURE (   8.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,46 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
->>>> +#define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
->>>> +static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
->>>> +						unsigned long end, u64 pfn,
->>>> +						unsigned int max_page_shift)
->>>> +{
->>>> +	if (max_page_shift < CONT_PTE_SHIFT)
->>>> +		return PAGE_SIZE;
->>>> +
->>>> +	if (end - addr < CONT_PTE_SIZE)
->>>> +		return PAGE_SIZE;
->>>> +
->>>> +	if (!IS_ALIGNED(addr, CONT_PTE_SIZE))
->>>> +		return PAGE_SIZE;
->>>> +
->>>> +	if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
->>>> +		return PAGE_SIZE;
->>>> +
->>>> +	return CONT_PTE_SIZE;
->>>
->>> A small nit:
->>>
->>> Should the rationale behind picking CONT_PTE_SIZE be added here as an in code
->>> comment or something in the function - just to make things bit clear.
->>
->> I'm not sure what other size we would pick?
+On Tue, Feb 11, 2025 at 02:54:26PM -0500, Alyssa Rosenzweig wrote:
+> This shuffles some registers versus t6000, so requires a new compatible.
 > 
-> The suggestion was to add a small comment in the above helper function explaining
-> the rationale for various conditions in there while returning either PAGE_SIZE or
-> CONT_PTE_SIZE to improve readability etc.
+> Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+> ---
+>  Documentation/devicetree/bindings/pci/apple,pcie.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-OK I've added the following:
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-/*
- * If the block is at least CONT_PTE_SIZE in size, and is naturally
- * aligned in both virtual and physical space, then we can pte-map the
- * block using the PTE_CONT bit for more efficient use of the TLB.
- */
-
-Thanks,
-Ryan
+Best regards,
+Krzysztof
 
 
