@@ -4,135 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E33CC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 02:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C90C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 02:26:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=okyZjfmjMy5+1Py65oyI36EnaqkWxcyghxWxFA0COdg=; b=toB2KOGW2GX2Oo/HIGEiaOjWzq
-	TSvfNiT5fppbbZt1NzeaNl1Dd/CDrT1SMDqRYWkfHa71VQzwjefez9xnjvZ1vI/R8J1FSwv35LoWA
-	LULN9DZHmXT1wooQmDYymoeHc+Lnkh3l+7ud5KFWwL8ro3tJBTnbVayqzL7ChFtrvLog8rf3LC6QB
-	r4rfmyI0Eu+Al8INfZNbGLC2eE+SIe4AMCLGiLzbO2THPdxQ52RN4rym7V25jmFFE0dys2JSKTqPO
-	v9Pl/UcJlt4OykPD6D0crJmFrauwZeHZJqGEkKK7sMNyWQ+Is0vPCMry/UFr/DazbLY1OhQL8CmHQ
-	b2pZAo0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZAwP6Xb0l5JsF/9QVjiIi2+DCiG65XZXDwLGoGDyRjw=; b=nCHWGZszBI/iRrTaey3h9K9zXI
+	Qp4K7TF4DMLc2piQ5cB2Tb8gHw0N3uIYIHJvmPOw4QRJrxK6tmGmDaefSQokp/x3AmwaRqL4V8OQz
+	qLPgwe/kQSGTK/MJLxrALdgkAyGUWm20YedVpwZUeo85a2cVJ489JlpVfQLRw0Bx4PfShIVLivzQ7
+	acHz83wt7GxCMRVKJH2Crj0EPFqNb2zdfee5cVLck+4SACADU8OTzg/pwgyWAyVb7lIH5MXD/br30
+	f2toGXcTgIHpjVWzi/cr5QPSKtvVLFSwYnl/E4yPFDzLhOpDNHSiuCnGBAYYoeS1A33eZwg8gz4bt
+	Pdux3thA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiObK-00000009SVn-2XMG;
-	Thu, 13 Feb 2025 02:05:14 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1tiOvH-00000009VVG-3MUW;
+	Thu, 13 Feb 2025 02:25:51 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiOZt-00000009SJA-36Qh
+	id 1tiOtq-00000009VK7-0XY4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 02:03:46 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-21f44e7eae4so5187315ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 18:03:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739412225; x=1740017025; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=okyZjfmjMy5+1Py65oyI36EnaqkWxcyghxWxFA0COdg=;
-        b=cjM9D0OoRuTI5BZtJxDruBsFqI4+JGu02oq8jVulu6HfEgCPbdFL9++vIGbP7T5skf
-         bSnWetsxcnjyAl30DihTX+Q0iRhOS8zOK8H4QV39ExHE9WG1K1zTAg5heJyDVRe6mNtA
-         2zsHypPIJH8REu9z59BkAE/AQLMDyuVV00gz6/xdq0SPjgmo52JpQ8h/JD69xlunjSNR
-         QNycnTSZciG3opY82R3QgsA0rauMFL4CthpU7HTfpgvzAFjWqWSPfhD3mZgVv6svsjTS
-         tU8acSWkSeuvG15VGm3VlyLq6wbbi6Q5g6sfUW3sgJy2nqynvF+Lt9tFlowT1hneVXbU
-         oPvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739412225; x=1740017025;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=okyZjfmjMy5+1Py65oyI36EnaqkWxcyghxWxFA0COdg=;
-        b=dKjoaXtbfUkS7UfRmuUsz3befhD3sZxbPIboUAPiCd0UfbRWRtq8Vrl1DPU+6ZY9Zd
-         0lHAcq8JZMQLWQLhJKUq9YzuFZHLtHcg/JWSIdH61sXNj3/O5uUZXN3tXo7AG3HygNYD
-         Bz6G+FVqjbZF2LA5Tg1/X71KoLvBtCisIPpssy0tZTLlu9SZvGlEl5fZ2XK62xCkSiYz
-         m8leOQWOU+xihsJ8wnIZy4k3/ylgJYHwguIxnlook+H/Tyt5bjlNYvmgaBT1bcWW48ix
-         lNhu2ON4fTf4pEQCk3GnTUl+mQwbl+UbcoixHtX9m+MvpF7bCi/v8kj/YRU5bCAmUv38
-         /Mzw==
-X-Gm-Message-State: AOJu0YzDe36Bsofg/6EFVJRJwJaQ4QAsK94uDrIPJDD3XCrWmiyQ8/bk
-	fI3JLP11xBKgHz39oyR3GD/kk1XVrBzzC7xy9DRqnMBc278vxz3o
-X-Gm-Gg: ASbGncuw5pSpK2QZJIDd05Y1FK9GXKe5KB9OTp6SHTMSJWm340QNOFRBnA3sYpRPPgU
-	Q8edgKgsbF9hhkegEsFvNVwewK0fWMc7E3Xh+iUGoXCPzLF0QSbliA02OqarzQhwXqt1gdSN9F8
-	n6ZXOSaXpqQD681skaNeFUZtELqhRHb219OFBcAhY/l2BKUUbqSDUynQ2WzvtIRSEIYyMNVJ/u7
-	eHE2+pdShiKr2UXJijgtcT/tfbeoDVd4okoAKX11ipByM9dd4lj/ZFtDJhIqmIRaNA97WOpjpwr
-	57JFnpxM3PLniB/gv7HCviQNlkxIm63CfZlip7fetmcv8g28Uvssa1+Xz1gLwKoR
-X-Google-Smtp-Source: AGHT+IGnCXoV0wl0FLOAedLGFHQ6pTamijYmiRLBojhQ11nYOL2TnYuItn/7PyOh8H3mIlDAb0Qedw==
-X-Received: by 2002:a17:902:e74e:b0:216:760c:3879 with SMTP id d9443c01a7336-220bbc7b79dmr92040105ad.46.1739412223273;
-        Wed, 12 Feb 2025 18:03:43 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d5349634sm1992385ad.31.2025.02.12.18.03.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Feb 2025 18:03:42 -0800 (PST)
-Message-ID: <6875f457-1caa-4c0c-99f6-681922a01933@roeck-us.net>
-Date: Wed, 12 Feb 2025 18:03:40 -0800
+	Thu, 13 Feb 2025 02:24:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CbfE4of/JKrxPWoZu/3gecX9REGin8/vXwgkT0SFEXN/ATz+K66SLExPhmRSNh41zrS3f4TtMBqeLtW9HFo7q8d/JtTuwuHxnhbY7tGrDya6MWNMsJ8Uww7coFPyfbkNpPdMmooL3CGU/HLSFldesllZghzRZJ8K562Z1Wzs9rkixc6sR893PoZ/Zcw0bvGWZuW+yGEh+z4hTIOlohtZF7JWfOlfnbncRp4qRHDH8pbH779gndU1jBrQdt0WvLvkq3sGsyN5yccch4pMNI++j9GmOrPqp4Ro0UEi1oKh6kiO/2BtFN45c17iRPHXBn4zZRSQNUhgnKyUNTcwaKuscg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZAwP6Xb0l5JsF/9QVjiIi2+DCiG65XZXDwLGoGDyRjw=;
+ b=xdmf9/TKhdJ91AhgF1oggL/VGN2wT9+VnbC0manpuWLNG+BYpoSD9sLKtJY0tor6GhFeVjCt6Q5zIx9C21LgJwlzufnUSFs2rlT80cCZjyKjEa1DBzDpV82RHHShDxyl5uFCLi/P6QyHA/d7SSsBrBuY7K17YeKX18KSMTZy20HeSpR7nNn7YHmTKsppxUmE0lQEEeoYsPXoDF/mcxtGYYRSqcoJjrDJXRI0qU2p6qq9D1pvLCBuIB6VXSelrWUgzU0QlxGJEe+CH4ca+Vos3kDVFTnWNH5Co22xnxYWTUneQoWZm9A9xdKwIW/NLRyyZ+s+K/o87AMle0JyFsFzhQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZAwP6Xb0l5JsF/9QVjiIi2+DCiG65XZXDwLGoGDyRjw=;
+ b=JkEgpjRpbytDFjccPQNRNaoACU4WFI2MS1ho/zwJKkDkQjjMtxOx9UIPjbqXQyX8TxV1p9h0Hsx06/FPi9Cvte30PB2B+cumqJF6GIeRnPHcBHPvaMrEKnjDH6d7PJJUTGa2aE0NhQzzlufZHMI9H4Uj8ODziH5vDBh0QRs3AiUfm7KbDvZRbkNzEmzxI0qqaIcCqIJD66lmCO1GWhqZApYfi6FoB+oRY74OWCwYoChrisiIIS6vq/C8n9i+kj4rGdgzYAm5uhCDNCR8IqWd3eXC+EnCVLwTWxbsErY9waqkGZm1yYvGZ4/I9TVEAqa51r0Gj72qTPdN2qunYFvf8w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AS8PR04MB9094.eurprd04.prod.outlook.com (2603:10a6:20b:445::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.13; Thu, 13 Feb
+ 2025 02:24:13 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8445.008; Thu, 13 Feb 2025
+ 02:24:13 +0000
+Date: Thu, 13 Feb 2025 11:30:33 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>, Peng Fan <peng.fan@nxp.com>,
+	"cristian.marussi@arm.com" <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-rtc@vger.kernel.org" <linux-rtc@vger.kernel.org>
+Subject: Re: [PATCH 0/4] rtc/scmi: Support multiple RTCs
+Message-ID: <20250213033033.GA21937@localhost.localdomain>
+References: <20250120-rtc-v1-0-08c50830bac9@nxp.com>
+ <20250120102117538ef59b@mail.local>
+ <PAXPR04MB8459968DFDE5979802CC034A88E62@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z6uCCeG2d395ZGDS@bogus>
+ <20250212063532.GB15796@localhost.localdomain>
+ <Z6x7TBSjBFBxGo77@bogus>
+ <20250212170147ee6863dc@mail.local>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250212170147ee6863dc@mail.local>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2PR06CA0208.apcprd06.prod.outlook.com
+ (2603:1096:4:68::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] watchdog: s3c2410_wdt: Fix PMU register bits for
- ExynosAutoV920 SoC
-To: Sangwook Shin <sw617.shin@samsung.com>, krzk@kernel.org,
- alim.akhtar@samsung.com, wim@linux-watchdog.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
- Kyunghwan Seo <khwan.seo@samsung.com>
-References: <CGME20250213004402epcas2p34923dcba3635ceed9b712a24f354d6f0@epcas2p3.samsung.com>
- <20250213004104.3881711-1-sw617.shin@samsung.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20250213004104.3881711-1-sw617.shin@samsung.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB9094:EE_
+X-MS-Office365-Filtering-Correlation-Id: c39ab9fe-e8e0-489a-ae77-08dd4bd581a1
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Bc5g9eShzBa3okscf5rVFPkAX9/ahdvViTFxpr53hvUidaFugd4fN/XCP3X+?=
+ =?us-ascii?Q?b+yVlvF0bru2a5KDCwo1ybBo1M0ouVNKX7iwQ+nvArP1v+d8Um3mO2rgwjlO?=
+ =?us-ascii?Q?eXTiJTpRWUArfYth5ndkL0W0J6gEtmyiz3eZbyOT8rvRnEU90URYQ1n7aRCA?=
+ =?us-ascii?Q?Q70OlldZ5PaGB6UN8wMKqOPZRzRxfzo7nIu76dq5HHG2+pLwySpb3WeohUDK?=
+ =?us-ascii?Q?0zSYy5dGrL++mts+I5vhmaP0eVcjev3vyQlFAQDKswwLQ8+SWBZO7lJr68/O?=
+ =?us-ascii?Q?j/NNw6o4omxAdonLDmgwDVdQiz7arkmmg3onOH2YI/oPPK1218bUPj3dP4m7?=
+ =?us-ascii?Q?v5TbmqeyiQth0V2EPXsFIQ8QQ0iUMGjbFZUR0EFXtu+OT0dltsvxpTn0aXQR?=
+ =?us-ascii?Q?NnPsOdhpON7OG6Q3qSaAHPsMdx0o5RDv5KiqT4Lm5rNGHKBvJCE1fYN2CXYh?=
+ =?us-ascii?Q?a7e1z+S0mGLKN85MBNu2FtAN0B34kHUZz0PmQkH8H8hQBJcQr/iFOGbMPi5P?=
+ =?us-ascii?Q?ONVB8f+x1DPzki0pFsOA6TsTrAwriSDZodun0tb5BrJDwmS1iJYtzvqEO8rt?=
+ =?us-ascii?Q?MG9KYRVB6cq6oMt89a2hs9ahOYSu3mgdfmaWxgg3THYaQNeEndx4p2gJfiP9?=
+ =?us-ascii?Q?Jfv/3+vOHC4p6kZvH6bh+rgjVaHPojDpJp4rlUJ9hft8dZz78svc+XaEZPGI?=
+ =?us-ascii?Q?dewYu+WHLGnAc7i42TOZ7cMyqLZwqhCHJGqlZyz4w6Cv27UpIOR6x+BQ0PPO?=
+ =?us-ascii?Q?GCvHuWkfbqYLzqWThazwpRPyGKc0+dAoldsyczTujn7wxOqpZm3NfwaUghfL?=
+ =?us-ascii?Q?/XX8XMzyowg3nVnuGprhmRNZLkkVX3FZgYu/TyiRQpyS+WEhuru3kcUplMgX?=
+ =?us-ascii?Q?1eo2PJGC2vsyD3DmuXq2rpnr3pCT2Ln4hcN0vFjl05/yyqvO3dhuCmcH2b90?=
+ =?us-ascii?Q?aXEyTbPV5GwVtsukQHf0Ja5e++HDmGXhDrvIHCRXNq8uO2cxuEljsaOVsGIE?=
+ =?us-ascii?Q?vwle4PTEHDMjZcWOJg4dydRnAUpMnr/Ac3c2GdlC3zwy4QLhvkz/PSYK5wlt?=
+ =?us-ascii?Q?zZNLuTeUwJNPS6i27S53Cs0x7X5BeT9X1D0SMGDHHW8l6x3/PdpYgBoTSorq?=
+ =?us-ascii?Q?ND1L76dAI/hhyZLG47mdcXXbGNk7jUAsJq0htg4AH3tiyujqDg5C2CXTOfP+?=
+ =?us-ascii?Q?KM7W/3UjCnZ0GDW2s5wRKbbAXv7v4aNw4J3NATPVijFpUpGWVS9FOrN9CKov?=
+ =?us-ascii?Q?QF/pI6lpwrQlqvigudRYGAatWe9DTvR9VzOcX2HEUCvj4kTa4ev2iy7HQ66o?=
+ =?us-ascii?Q?8YMyG5LY0c5mjJkuuQCcIC0ouXEn7jUmbJqCNAnJlLQh0ey9qKBzdvOYfe/y?=
+ =?us-ascii?Q?6xQ8Rg6hc0mATg6ll+i/PS3bR3Vi?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?hHgTjS64/EddcRzpEbyGjB4r2oBTJJhA2MCpoTZLyWZFYyEuVYlJDjHwly6D?=
+ =?us-ascii?Q?8zHoIZBlnYjaMFh6IXTYlzDpc6NX1R7MaWwZCh2dKGZYo2y+Xmsal/oEcfhC?=
+ =?us-ascii?Q?t6onpzB9WB5MbIi4wC/SaLtibu7XGBfwfKjJGq/3FxtT4TyZtQNk6WTP+zWA?=
+ =?us-ascii?Q?QKo5GBombq7vQhvSGzK/TUSEbXffPSi9x17ER4/W54vvejZMIYPv+SuoK4zy?=
+ =?us-ascii?Q?NUv0TRRG/GXJEJGCuO/ylgfpAIqjvUb3AoRbhMM9BULvfHrwaAKhfg9G5jqN?=
+ =?us-ascii?Q?PBi1LfX8QCJpjXPw85Dy8qIMqGgReS2U7JGSxtcRaxVGwzhKJjdk64mcrcGv?=
+ =?us-ascii?Q?7Q4dQRkwuLc/962VBPKgJrv1P+oExLtLeYkDenOjJlnITfD8PJFVTJq+9/vx?=
+ =?us-ascii?Q?GcoJBqbM5A6rkTX30/11uBdIhnnOVJrTgyZKlMnp38CeC2ZMz4ehsyBkyHjX?=
+ =?us-ascii?Q?kJlV8Svbe/Ezb2E9LgQ9XzImUxl8iwyxcjcR3u/ne5TnUwJvrZ2U/UzVyXe2?=
+ =?us-ascii?Q?tjGaq/OLyCLhjcxu7ohrUuY3F+ZVIY/dm8tu7psMszll3Jv5UXwNocT2Ttwk?=
+ =?us-ascii?Q?OZrxaeSXDF958gDOj/fvYszs0Tujj5Vc0LlDKGYKQ3J27OrvnhZtYah8YLGY?=
+ =?us-ascii?Q?LFbJ+Z+145qCsULyuVcBj7RUIfaNjXSei8GyhizmVclDm7z2zeQJlJhuawzl?=
+ =?us-ascii?Q?hS5OqxFKB3MA8P/k5jqi7TfxcjAyoutDOnoZTc4XKE2TJScQJeuJE6+iUPyf?=
+ =?us-ascii?Q?3i9YfOWPfx0m2epttDAOdox+qYtZaGXA+BP5NJlz5YkS1b8asR5S1KjUOsBv?=
+ =?us-ascii?Q?SKpd7Rxth6yi9q9KyiNJPd9gM3Z0F3teUip5pm1Duk2pQYGnzjonXrDxU7+w?=
+ =?us-ascii?Q?zMwHDrp7RvOn4CFUCA8ehzWchiBPJA5hurZ7IwMAx2xVNqpn9hlLfbTAbw6e?=
+ =?us-ascii?Q?Rt54j5SCcGO1D98G9TeMAwM23hi5ei+BYBz6a4Q3zSfxNejRY9L2ixGhZwLH?=
+ =?us-ascii?Q?vKUbQ/8OrrSjCQ8xpFt1ML+cam/+8w61Tm9+9f2c/zqGp5WoAl/3z6FNCmJt?=
+ =?us-ascii?Q?9QVXmfnVlFaKTmwPdORZA1A04YDMajUkE4A4eoFWWSqNhLQ3LfMU5LUakl6m?=
+ =?us-ascii?Q?ZJypxPhhdJPb3sX4oAkO43mmd0/epJRrN1iefGte60Io5SP/x8EdYEs7a+Lu?=
+ =?us-ascii?Q?i2XOXHfiXePHLr8ddG/5GZwJUv2tcs2VUAwqEOucCv1YwBmuub9Y90BEoe6p?=
+ =?us-ascii?Q?WUTsT95GtbgoMyCjuJXL80ri41icGmKlEoyPftbPyvzYFav719KcOVELzDKg?=
+ =?us-ascii?Q?u3ovF1vmpHdOiuDBch9KfjKe+QtG/oDvBX0F7uduttejPxxbeb/L3zRwKpKQ?=
+ =?us-ascii?Q?vHiCoefQe1EgA6FKwiFKzhmcteX4Qu4818ySdFtASX3okcYIqpgA5RMUD9T9?=
+ =?us-ascii?Q?q856HOSpMMZWOMEleOfpBrx6i7Wunv1OwBoA4IRObL8co2oV5giH6dzuXi1U?=
+ =?us-ascii?Q?gworR6jPEehfoTl14K6DM+l7c67wSc/HK67cH13gvQyDIqea5JGJN4soMpTi?=
+ =?us-ascii?Q?paE0HeWQsBJoL6rf44aphbHe+w03Ifjt6rjNxhlG?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c39ab9fe-e8e0-489a-ae77-08dd4bd581a1
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Feb 2025 02:24:13.4206
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: m7x9b/GKMEwwIzFozaD0IRKiD/Bt+aJ1qNb+0lcZivoYGjV5cd/BaymJQuLFYbYhvy0HiyqZHL8CoAfAgK6lXA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_180345_784451_9FC912F5 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250212_182422_193575_29ECC89F 
+X-CRM114-Status: GOOD (  28.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,24 +173,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/12/25 16:41, Sangwook Shin wrote:
-> From: Kyunghwan Seo <khwan.seo@samsung.com>
-> 
-> Fix the PMU register bits for the ExynosAutoV920 SoC.
-> This SoC has different bit information compared to its previous
-> version, ExynosAutoV9, and we have made the necessary adjustments.
-> 
-> rst_stat_bit:
->      - ExynosAutoV920 cl0 : 0
->      - ExynosAutoV920 cl1 : 1
-> 
-> cnt_en_bit:
->      - ExynosAutoV920 cl0 : 8
->      - ExynosAutoV920 cl1 : 8
-> 
-> Signed-off-by: Kyunghwan Seo <khwan.seo@samsung.com>
-> Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
+On Wed, Feb 12, 2025 at 06:01:47PM +0100, Alexandre Belloni wrote:
+>On 12/02/2025 10:43:24+0000, Sudeep Holla wrote:
+>> On Wed, Feb 12, 2025 at 02:35:32PM +0800, Peng Fan wrote:
+>> > On Tue, Feb 11, 2025 at 04:59:53PM +0000, Sudeep Holla wrote:
+>> > >On Tue, Jan 21, 2025 at 02:31:55PM +0000, Peng Fan wrote:
+>> > >> 
+>> > >> It is the i.MX SCMI Protocol exports two RTCs using one protocol.
+>> > >> 
+>> > >> Two RTC devices are created, but share one parent device.
+>> > >> 
+>> > >> Do you mean each RTC device should have a unique parent device?
+>> > >>
+>> > >
+>> > >Can you point where is this check for unique parent ? I am not so familiar
+>> > >with RTC but I couldn't find myself with quick search.
+>> > 
+>> > The RTC ops takes the rtc parent as input parameter
+>> > https://elixir.bootlin.com/linux/v6.13.2/source/drivers/rtc/interface.c#L94
+>> > "err = rtc->ops->read_time(rtc->dev.parent, tm);"
+>> > 
+>> > So in the rtc device driver, there is no way to know which rtc it is just
+>> > from the parent device.
+>> >
+>> 
+>> If that is the expectation, you could create a platform or normal device
+>> per instance of RTC on your platform and slap them as parent device.
 
-Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+thanks for the proposal, Sudeep.
 
+>
+>This would seem like the proper solution, why not using an MFD or
+>auxiliary bus ?
+
+Not sure which is better. I need give a look which is simpiler
+for current BBM RTC.
+
+>
+>> 
+>> IIUC on any pure DT based system, a device node exists per RTC and hence
+>> platform device associated with it. And the RTC devices are created with
+>> parent pointing to unique platform device.
+>> 
+>> > However i.MX SCMI BBM exports two RTCs(id: 0, id: 1), so to make it work for
+>> > current RTC framework, we could only pick one RTC and pass the id to BBM
+>> > server side.
+>> >
+>> > I am not sure whether Alexandre wanna me to update the code following each
+>> > parent could only support one RTC or else.
+>> >
+>
+>I want you to keep your changes local to your driver. I already stated
+>back in 2018 that you were on your own with the imx-sc driver and that I
+>don't like seeing multiple abstractions for existing RTCs. What is the
+>actual use case behind needing to access both RTCs using Linux?
+>Shouldn't this be handled on your firmware side?
+
+The firmware exports two RTCs, RTC0 could be handled by Linux, RTC1
+could only be read by Linux and configuable by M7 per current i.MX95 EVK
+firmware.
+
+The firmware itself does not serve Linux. And we not know others
+how to use the protocol. So the firmware will not be updated for only
+Linux.
+
+I got your point to keep changes local to the rtc bbm driver, I will
+give a look on how to achieve this.
+
+Thanks,
+Peng
+>
+>
+>-- 
+>Alexandre Belloni, co-owner and COO, Bootlin
+>Embedded Linux and Kernel engineering
+>https://bootlin.com
 
