@@ -4,106 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D364C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:41:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A3AC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vB2tLQ8luJCtcby10TZWuCWKxWvuKnuAiaEweV/fb5c=; b=CJngQcKCHHQgXV9zFUjVGuXQ5D
-	DDswvXZtcGCMi/0V1ceoyRoj2kupLwyo0Ydsmhi/CZJc/B4iXv+9tqmUqV1Z28Er0cNdKtfrKJirc
-	o7qcYzyV/lKneiKBhCxqOfIWfRWv+0aXhrLPhN4rkoTb5fbuJcwXO7au/3Xzd5ttZZugAVZE8qjZf
-	eGHqCrKQ+0mGHLU3v+Q++lGuBDMYzLkhAKFqbPI/C8b0s0JZf0geoR/QPUO7ZDT6AM2fYShn8L54b
-	PXxgeHQTDzGHmELpvPmOuTkElRsMTDpkTd7G+dY875Eygf3+TV3sfnBVsTvtRAewqwRlF9tunZf7w
-	baN5z2Jg==;
+	bh=jUx1v9IDrLT+2wRl4ZxfVXhA3dtltkkNvwz2FdI4QZ0=; b=1O0u11ca1ote1vbsRNT5KJv8W2
+	0sMdFN0U4W07AoQY9hu168rxycMFXdNVLm8WLEKBZ++jWCY7frC2kk9VDgU0nAU3ZOweXE8ZBnsH1
+	oB2TyxRxYxGLfDEUlsIGvBO/1F5uISn7VRpATdkRvVqQJddpA6j6ktRSUypSatf0nx9eDuSYaDpxL
+	HdwlsrVw8eGXuFPztmCsp1FaNYmouu9unYROolyUQIrah+sJD9d8aPs5eg43+kOAvCawwJEzVrhVp
+	TQOmpGdPdrMweXhUSLH955Be6+YU7eCWkfn33fhj+KE461FsDwPkqd016qPG8kox9icbzTQ9ElVTP
+	qPIplyaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticH7-0000000BonA-1Bsa;
-	Thu, 13 Feb 2025 16:41:17 +0000
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibra-0000000BiO3-3ulk;
-	Thu, 13 Feb 2025 16:14:56 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id 5E87F138009C;
-	Thu, 13 Feb 2025 11:14:51 -0500 (EST)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-10.internal (MEProxy); Thu, 13 Feb 2025 11:14:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1739463291; x=1739549691; bh=vB2tLQ8luJCtcby10TZWuCWKxWvuKnuA
-	iaEweV/fb5c=; b=9Hy452L+xFsWrycvvvMpOR9cm+RELglLGmf10ti5XFJpCPra
-	aAFURThZV4MJxFN3JrXiPzcJYC7oyrXNsemLBK8G0WWPHSLU+8Uj4DYiTJE2Z15S
-	NHiuo6kmBUERoogKifYuNLdDfz+zzEurt0CbIWRgKaZM7LEj+YIWLGu9UmTJZmM5
-	+Tc7X5ySExZ0Ee8GRJt9AFuhr9j2TUWMwmNict5HHxJi1RHisypS5LGwXfFMVXDO
-	1OcGHZDyzCOB6Rk0VYfATbMSJdmeBNAxhKATpLcGosUIFov+2IpBTvNwc0VJYgL+
-	F2rKYC5+c2qORhR1reHTRbIXaeopPI7dtk/oNQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739463291; x=
-	1739549691; bh=vB2tLQ8luJCtcby10TZWuCWKxWvuKnuAiaEweV/fb5c=; b=a
-	EIBhSP1UMOzP32rXYDdRMd9nK+mSv0CVZBScor0GRIswWzchuBi4SKCIljXYZWzD
-	ZIDUGqG5UMu6qDxoWN0FfW+5SWXnI5bVr+WybgQDGHeLjrB9Np8WhLzrYp1Qge3U
-	HUsYTxsiYfHZ8xoOMNul0s/qzc4WJSQ1xL6A/M0UN/WpZx3o2wkLJoCh/6xQHZzb
-	Cr0lEluVENMTss/xAalNIwEnMEH6N53wizYoCjrZdxLQH0rb600v9FbXRYUVjNvd
-	HcvzCFTlDU3pvnG7sKh1quEaTu4LlA1Ql/lhJiRWspSQlvm5QhZHxizW8Sl9RWRZ
-	qFUZUMRjokZdk/6ynXpLA==
-X-ME-Sender: <xms:eRquZ1tInnf9kRqzkJYdsJgqzfmpV6gZGjgjXJNIFJbokixtEqKbHw>
-    <xme:eRquZ-esQAlMFQFvO1mBsM7OZ1UtJrb7tQAERI6MmUBx3BZf2pre8nnJFwsGb-9m8
-    6GjRV5ggtbEn5v9BEA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegjedvvdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
-    tdenucfhrhhomhepfdfuvhgvnhcurfgvthgvrhdfuceoshhvvghnsehsvhgvnhhpvghtvg
-    hrrdguvghvqeenucggtffrrghtthgvrhhnpeelfeetueegudduueduuefhfeehgeevkeeu
-    feffvdffkedtffffleevffdvvdeuffenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdpnhgspghr
-    tghpthhtohepuddvpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehnvggrlhesgh
-    homhhprgdruggvvhdprhgtphhtthhopehsrghgihesghhrihhmsggvrhhgrdhmvgdprhgt
-    phhtthhopegrgigsohgvsehkvghrnhgvlhdrughkpdhrtghpthhtohepkhgsuhhstghhse
-    hkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlhes
-    lhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhnvh
-    hmvgeslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrshgrhhhi
-    sehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohephhgthheslhhsthdruggvpd
-    hrtghpthhtohepmhgrrhgtrghnsehmrghrtggrnhdrshht
-X-ME-Proxy: <xmx:eRquZ4yANbrFpU9QyTEousZ9LrqnpIPXkZxxa-PGG083rHBHu56Czg>
-    <xmx:eRquZ8PvOIgF_dIudDTbFb3hYzN3VV57sFtxSNSpx9W30UeOKXeH-Q>
-    <xmx:eRquZ18Mr4WTOqZxZktpBpbJjwc7YzYHAPIvbJRaxFJOFw4lUyP2xA>
-    <xmx:eRquZ8U6IHsHWO0WvdWVOadkBlGVRqHWhGvy7Uw0Z-yEspRiaaBPbQ>
-    <xmx:exquZ8WIfkMqIOhgPSSFSrjSXxYGnq_gLIRbnQGTv-MXeOuObrmogYKI>
-Feedback-ID: i51094778:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 798FDBA0070; Thu, 13 Feb 2025 11:14:49 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1ticHB-0000000Bouj-3oUB;
+	Thu, 13 Feb 2025 16:41:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tibrf-0000000BiRG-02J0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 16:15:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 092FE1756;
+	Thu, 13 Feb 2025 08:15:19 -0800 (PST)
+Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.32.44])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A06C83F6A8;
+	Thu, 13 Feb 2025 08:14:54 -0800 (PST)
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+Subject: [PATCH v7 03/45] arm64: RME: Handle Granule Protection Faults (GPFs)
+Date: Thu, 13 Feb 2025 16:13:43 +0000
+Message-ID: <20250213161426.102987-4-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250213161426.102987-1-steven.price@arm.com>
+References: <20250213161426.102987-1-steven.price@arm.com>
 MIME-Version: 1.0
-Date: Thu, 13 Feb 2025 17:14:28 +0100
-From: "Sven Peter" <sven@svenpeter.dev>
-To: "Alyssa Rosenzweig" <alyssa@rosenzweig.io>,
- "Hector Martin" <marcan@marcan.st>, "Keith Busch" <kbusch@kernel.org>,
- "Jens Axboe" <axboe@kernel.dk>, "hch@lst.de" <hch@lst.de>,
- "sagi@grimberg.me" <sagi@grimberg.me>,
- "Philipp Zabel" <p.zabel@pengutronix.de>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-nvme@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Neal Gompa" <neal@gompa.dev>
-Message-Id: <dec49be0-c49c-4c37-8faf-72d9f89e4d53@app.fastmail.com>
-In-Reply-To: <20250213-nvme-fixes-v2-0-a20032d13e38@rosenzweig.io>
-References: <20250213-nvme-fixes-v2-0-a20032d13e38@rosenzweig.io>
-Subject: Re: [PATCH v2 0/2] apple-nvme: bug fixes
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_081455_315341_D21E7864 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_081459_134826_19B02F03 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,26 +81,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025, at 17:12, Alyssa Rosenzweig wrote:
-> This small series fixes two unrelated issues with the Apple NVMe driver.
->
-> * fix NVMe on certain combinations of firmware + machine
-> * fix a power domain leak
->
-> Although these are strict bug fixes, given the early stage of mainlining
-> for these SoCs, none of this needs to be backported.
->
-> Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-> ---
+If the host attempts to access granules that have been delegated for use
+in a realm these accesses will be caught and will trigger a Granule
+Protection Fault (GPF).
 
-For both patches:
+A fault during a page walk signals a bug in the kernel and is handled by
+oopsing the kernel. A non-page walk fault could be caused by user space
+having access to a page which has been delegated to the kernel and will
+trigger a SIGBUS to allow debugging why user space is trying to access a
+delegated page.
 
-Reviewed-by: Sven Peter <sven@svenpeter.dev>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Signed-off-by: Steven Price <steven.price@arm.com>
+---
+Changes since v2:
+ * Include missing "Granule Protection Fault at level -1"
+---
+ arch/arm64/mm/fault.c | 31 +++++++++++++++++++++++++------
+ 1 file changed, 25 insertions(+), 6 deletions(-)
 
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index ef63651099a9..29821dc89f73 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -844,6 +844,25 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
+ 	return 0;
+ }
+ 
++static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
++{
++	const struct fault_info *inf = esr_to_fault_info(esr);
++
++	die_kernel_fault(inf->name, far, esr, regs);
++	return 0;
++}
++
++static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
++{
++	const struct fault_info *inf = esr_to_fault_info(esr);
++
++	if (!is_el1_instruction_abort(esr) && fixup_exception(regs))
++		return 0;
++
++	arm64_notify_die(inf->name, regs, inf->sig, inf->code, far, esr);
++	return 0;
++}
++
+ static const struct fault_info fault_info[] = {
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"ttbr address size fault"	},
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"level 1 address size fault"	},
+@@ -880,12 +899,12 @@ static const struct fault_info fault_info[] = {
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 32"			},
+ 	{ do_alignment_fault,	SIGBUS,  BUS_ADRALN,	"alignment fault"		},
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 34"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 35"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 36"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 37"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 38"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 39"			},
+-	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 40"			},
++	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level -1" },
++	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level 0" },
++	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level 1" },
++	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level 2" },
++	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level 3" },
++	{ do_gpf,		SIGBUS,  SI_KERNEL,	"Granule Protection Fault not on table walk" },
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"level -1 address size fault"	},
+ 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 42"			},
+ 	{ do_translation_fault,	SIGSEGV, SEGV_MAPERR,	"level -1 translation fault"	},
+-- 
+2.43.0
 
-
-Best,
-
-
-Sven
 
