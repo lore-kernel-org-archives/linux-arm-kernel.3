@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C5E6C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:19:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EEC3C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sbYmLEJ5QJ3n246rV0S+a91Iwiri5zbLi7J1dNUxz+A=; b=Z0LoHvycQKUfKzL4PRbfRo5ONo
-	N6lgE6kXyMzSxYELrTd/J/VKDQ4Z+pJ4c004JI3S7wnz98zrlHvTugMOIwU6zD06vTuS4haScfpt0
-	Ngu9c1kIJjPs4UJXplf5PmHAeyyvW4Fn6HiDQlhq/GQyD1UonHm8DKz6/dG0rBwFt8yWJQdBwU6AV
-	tKlcltySBdmB64iKrszdgILNMSjvTLytbNb2dvSZiJhgmhiUOTeQ+UQsWC1SiYMUP/tb66U49wURs
-	JBU1T961tFnTGt+xHN1xhm+3pS2sjxKHi5iPhd48qTKDgiVwBJCoUAUG0lXhlewxdMBoQ1ysc1tww
-	ZbEW84Nw==;
+	bh=51EMtevrUG1D9D9EfhF610YpA1FxHIla4v/BzSVZ7lM=; b=xyss5nx1ae/YySsLW43oMSbZYO
+	SJpIFTd1UUP2pNNYVf8izX29K/dpBOrNbaEBxEuxg1m85RfBwQx+c75qOzuoYPj2GVyQmA0aJTLen
+	iC6kPVNUvIjxUDZigkE1yk8IV7ixMTJdmFlzjc6fwfxDodtoWKxf+nFwqdvVr2JTq2QU4Dy1FRam9
+	Cv6VkwnPfouBx7eTozIK5LPXioq9+0vCVmOrv31ADb7VG/RSKo8gWF9nBVZKVrARfIL+6mCQSTW8Y
+	o10zJu9qJr+721eEUXmDZ18cIzJmeH/VciQxusVRyMexE2UNJ0GyxShw03/5gLJnVdMxMYUyj2uY6
+	hIxAT17Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tidnZ-0000000CCCP-0JRW;
-	Thu, 13 Feb 2025 18:18:53 +0000
+	id 1tidoy-0000000CCbt-3Csw;
+	Thu, 13 Feb 2025 18:20:20 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticv0-0000000Bzf3-2Scv
+	id 1ticv2-0000000BzfY-09sK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 17:22:31 +0000
+	Thu, 13 Feb 2025 17:22:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9389BA426B8;
-	Thu, 13 Feb 2025 17:20:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AB04C4CEE4;
-	Thu, 13 Feb 2025 17:22:29 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 122B1A42813;
+	Thu, 13 Feb 2025 17:20:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEBAEC4CEE5;
+	Thu, 13 Feb 2025 17:22:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739467349;
-	bh=l0FlV3JhqBNb6Iht2yHMwP7PfD3TpYDSZvC58kqj4RM=;
+	s=k20201202; t=1739467351;
+	bh=S0OhMDWIGff52utNObwPzkVUWW6web7D0hUEz9SRg7I=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Nor8JpPQH4ysaE2ZABWo48WXNTp5scAGRpgLahkWwLdOn/x6ZOv5zuPNxKJJpWLR8
-	 cpkQYQkafOsOBwzpKKRaOTmIWZyf1wJj1dQfvofUjXwzC6BFbGTx+YYDO5WL53ENmv
-	 0axggrRHUfooRztP4qO1wrZ6cYro0D2FaKLbNwitKmQin7VsK1nJ0oS5Y7zDxbnD8W
-	 msJif7Y5XQFuxN/XZpIAk3hyo61SGscfzgkgDT6BJhEehzRgCJAeOl/zhi1k6s08bq
-	 EwLQ2ix4q5anihWhLRverV+znGn+FFT2SU6I9pLD+f+biNxDr/UI6pLc/t3RljXFOd
-	 U1Vl6ccUlhykA==
-Date: Thu, 13 Feb 2025 11:22:28 -0600
+	b=FH16R/H28sbPKn7EPgQPJsfz+nmj0y3nzBbR0EjMfaCwbetXv0ivK1A13IlWN4KYn
+	 xxh3mjPC0v273p7AuQPftFcvd8uxlNddFF8xf+N6cwk+/Wa22aeIXWXylmbbz+3k+1
+	 V4rf78TrK2EGyVh8M+OWZ105e0mtLiRIuntBfBvii2sqzsJ3PoBVxhwQrtzHVHyuEe
+	 DFT9W2L+P2eBWhOZMeCIuA8ryD97qx9iHlWx/vDPxYRiJqEG0HiQNHEPLQCzxJeycx
+	 QfmCplKmvyQI3L6/Q8R4xYTb2NFl637T3OBXR6MlUmQiLMzJtQlUN5bioH6BPvt9ir
+	 cucz4MO8FK2aQ==
+Date: Thu, 13 Feb 2025 11:22:29 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
- devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Gregory Clement <gregory.clement@bootlin.com>, 
- Russell King <linux@armlinux.org.uk>, 
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250212204258.57514-1-krzysztof.kozlowski@linaro.org>
-References: <20250212204258.57514-1-krzysztof.kozlowski@linaro.org>
-Message-Id: <173946704368.3328478.14106859473786211510.robh@kernel.org>
-Subject: Re: [PATCH v2] ARM: dts: marvell: armada: Align GPIO hog name with
- bindings
+Cc: linux-kernel@vger.kernel.org, alim.akhtar@samsung.com, 
+ linux-samsung-soc@vger.kernel.org, krzk+dt@kernel.org, 
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ conor+dt@kernel.org
+To: Denzeel Oliva <wachiturroxd150@gmail.com>
+In-Reply-To: <20250213000226.277-1-wachiturroxd150@gmail.com>
+References: <20250213000226.277-1-wachiturroxd150@gmail.com>
+Message-Id: <173946704422.3328564.13834631635241088489.robh@kernel.org>
+Subject: Re: [PATCH v1] arm64: dts: exynos: r8s: enable UART interfaces and
+ aliases
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_092230_752530_F7AF8FE8 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250213_092232_201049_CBE69F55 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,23 +75,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 12 Feb 2025 21:42:58 +0100, Krzysztof Kozlowski wrote:
-> Bindings expect GPIO hog names to end with 'hog' suffix, so correct it
-> to fix dtbs_check warnings like:
+On Thu, 13 Feb 2025 00:02:26 +0000, Denzeel Oliva wrote:
+>  - usi_uart: Main UART interface, required for debugging or
+>    communication.
+>  - usi_bt_uart: UART interface for Bluetooth connectivity.
+>  - Added serial0 and serial1 aliases for standard UART access.
 > 
->   armada-385-clearfog-gtr-s4.dtb: wifi-disable: $nodename:0: 'wifi-disable' does not match '^.+-hog(-[0-9]+)?$'
-> 
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> 
+> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
 > ---
-> 
-> Changes in v2:
-> 1. Add forgotten Rb tag.
-> ---
->  arch/arm/boot/dts/marvell/armada-385-clearfog-gtr.dtsi | 8 ++++----
->  arch/arm/boot/dts/marvell/armada-388-clearfog-base.dts | 2 +-
->  2 files changed, 5 insertions(+), 5 deletions(-)
+>  arch/arm64/boot/dts/exynos/exynos990-r8s.dts | 23 ++++++++++++++++++++
+>  1 file changed, 23 insertions(+)
 > 
 
 
@@ -111,18 +102,33 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/marvell/' for 20250212204258.57514-1-krzysztof.kozlowski@linaro.org:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250213000226.277-1-wachiturroxd150@gmail.com:
 
-arch/arm/boot/dts/marvell/armada-388-clearfog-base.dtb: gpio@18100: Unevaluated properties are not allowed ('gpio-ranges', 'phy1-reset-hog' were unexpected)
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-mvebu.yaml#
-arch/arm/boot/dts/marvell/armada-385-clearfog-gtr-s4.dtb: gpio@18100: Unevaluated properties are not allowed ('gpio-ranges', 'wifi-disable-hog' were unexpected)
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-mvebu.yaml#
-arch/arm/boot/dts/marvell/armada-385-clearfog-gtr-s4.dtb: gpio@18140: Unevaluated properties are not allowed ('gpio-ranges', 'lte-disable-hog', 'poe-reset-hog', 'sar-isolation-hog' were unexpected)
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-mvebu.yaml#
-arch/arm/boot/dts/marvell/armada-385-clearfog-gtr-l8.dtb: gpio@18100: Unevaluated properties are not allowed ('gpio-ranges', 'wifi-disable-hog' were unexpected)
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-mvebu.yaml#
-arch/arm/boot/dts/marvell/armada-385-clearfog-gtr-l8.dtb: gpio@18140: Unevaluated properties are not allowed ('gpio-ranges', 'lte-disable-hog', 'poe-reset-hog', 'sar-isolation-hog' were unexpected)
-	from schema $id: http://devicetree.org/schemas/gpio/gpio-mvebu.yaml#
+Error: arch/arm64/boot/dts/exynos/exynos990-r8s.dts:122.1-10 Label or path usi_uart not found
+Error: arch/arm64/boot/dts/exynos/exynos990-r8s.dts:127.1-10 Label or path serial_0 not found
+Error: arch/arm64/boot/dts/exynos/exynos990-r8s.dts:131.1-13 Label or path usi_bt_uart not found
+Error: arch/arm64/boot/dts/exynos/exynos990-r8s.dts:136.1-10 Label or path serial_1 not found
+FATAL ERROR: Syntax error parsing input tree
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynos990-r8s.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
+make[2]: Target 'arch/arm64/boot/dts/exynos/exynos990-r8s.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynos990-r8s.dtb] Error 2
+make: *** [Makefile:251: __sub-make] Error 2
+make: Target 'exynos/exynos8895-dreamlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos850-e850-96.dtb' not remade because of errors.
+make: Target 'exynos/exynos7885-jackpotlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-x1slte.dtb' not remade because of errors.
+make: Target 'exynos/exynos5433-tm2.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-r8s.dtb' not remade because of errors.
+make: Target 'exynos/exynos7-espresso.dtb' not remade because of errors.
+make: Target 'exynos/google/gs101-oriole.dtb' not remade because of errors.
+make: Target 'exynos/google/gs101-raven.dtb' not remade because of errors.
+make: Target 'exynos/exynosautov920-sadk.dtb' not remade because of errors.
+make: Target 'exynos/exynosautov9-sadk.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-c1s.dtb' not remade because of errors.
+make: Target 'exynos/exynos9810-starlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-x1s.dtb' not remade because of errors.
+make: Target 'exynos/exynos5433-tm2e.dtb' not remade because of errors.
 
 
 
