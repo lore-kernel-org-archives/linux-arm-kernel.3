@@ -4,92 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DA6BC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 705D2C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 10:42:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=akpNRWWMvv7pF0+12PVa/Q8rH2F+xiYxVG9nFrfAwP4=; b=2n3BDkaW8rBbGyBex0yXdu4uWB
-	oOCs7r+DRiiLC5D6drDx28GtrN/v+rGFF+93ezhhRA0EHxrM7CVdnG8fzYzVm5wXWgxeQLwks6mu7
-	S9fWoywBkN4WR+PUbgjNWhaHFOcNsKdIUNENSIEK2VVToYeni6EIW5iGDBFPCoMmIgmoiHOaDgrV4
-	E/4Z+prGmih5ylacAZ/xd3iu/0sw6ucpR6OErmhEE6muU4oNMM8ofjDKOpaCSxT48VAzSM4nWtV0p
-	wgKbIzKNnphOjbbobldNhQAKTjtHqIGrevjZ4U1xN6pKMlzwDA/NZLfRK6q/Y7zg372Zmd5pfrabs
-	svHqXHrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7QBsloITdPgrMPQEs3T2Ho1NuKdSVYDwu3hzPoha/64=; b=OfHywR5pt5qmo3W/PQUC+cjCUN
+	eD67gZ+Dl0rnOC59JlSXzc+nBAaExkou3+vo2RitD5VpVSM6eTo2xB4tlneQWmFUB9yb143PKv4y7
+	jGRQPYDptWhYKOMhK4i788V/QxV5RZ+vTy7BEcUPnjdHgamDMshcFfySX/WJkLDQTk0ONwyC/PMuW
+	zMhccS5DN9rNtIXQ8XQ+i2g8hQDUxXP2dLAFmSBZPEmRYmixrmT2mdk84tXmMTcP+BsdyfQ7bmtgy
+	SUcw+qByIk4MqwuKkCg/RGlbAatsxatb7tcGaXZwNdlo4nTQcdBlikwCGd7rTz36TGy4BFVuChYnl
+	VahlcfOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWeL-0000000Ahc3-1nF4;
-	Thu, 13 Feb 2025 10:40:53 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1tiWfk-0000000AhpC-0epP;
+	Thu, 13 Feb 2025 10:42:20 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiWGs-0000000Ad24-0BjD
+	id 1tiWJT-0000000AdZE-0vEe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 10:16:39 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id B3C014326D;
-	Thu, 13 Feb 2025 10:16:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739441796;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=akpNRWWMvv7pF0+12PVa/Q8rH2F+xiYxVG9nFrfAwP4=;
-	b=j3HGBuoQ2iIDjdhxdwKl9ydGd+dB4vQw8rwP7lNn3jZnsapH1jJ58iSGQcStPEigxtEMKN
-	KI15GYMn5YGGPG5LurTK3lQHrhiYHyS1jVNKsxs5MPfEhAPBZoVb5tJyZVvniuYqyqeeGh
-	KroHWqwjJ31BM8Cp7DVoBMW1XQFUAQytjE43WQqwOMEdX1j5iMTy9+bvL3BJxberMW64uH
-	9oWSOmOSQ/bExLK+qTjOYwRv6frX6TtTsNCj/TslH4p8FnF7OCcij7TyIigVcW5Gd7LH6P
-	Ft4bf49VtnSB+n4p3GJQkTdcfhXo0gLKwE0rnmfPpZmq75qFAJbpgo8k6b8hSw==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
+	Thu, 13 Feb 2025 10:19:20 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 3024B6AF;
+	Thu, 13 Feb 2025 11:17:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1739441876;
+	bh=24IKPVvko7AYF/JdQjmDU6yGxxREmdCEYd1XuYo9HmE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=b4x4WbeqsNvXxNQyuRFhAU3Ed8ZwGP1OT+MWvlY7JpGqB4kloKWwzB07v7/KYld/M
+	 xhgJYJKvH5epfyl0iH9cIVSUPBxVmB2dn+7uBvY+GVu8/+400FhuklOcNVwR8sBwVh
+	 501sXqmw6+sS/O1SyCmfn3cavrs0GH0+UP06p6Ac=
+Date: Thu, 13 Feb 2025 12:19:03 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Sebastian LaVine <slavine@d3embedded.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	=?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>,
+	Abel Vesa <abel.vesa@linaro.org>,
+	Achath Vaishnav <vaishnav.a@ti.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Bjorn Andersson <quic_bjorande@quicinc.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Elinor Montmasson <elinor.montmasson@savoirfairelinux.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Javier Carrasco <javier.carrasco@wolfvision.net>,
+	Jianzhong Xu <xuj@ti.com>,
+	Julien Massot <julien.massot@collabora.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Mikhail Rudenko <mike.rudenko@gmail.com>,
+	Nishanth Menon <nm@ti.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
-	Sean Anderson <seanga2@gmail.com>
-Subject: [PATCH net-next v4 15/15] dt-bindings: net: Introduce the phy-port description
-Date: Thu, 13 Feb 2025 11:16:03 +0100
-Message-ID: <20250213101606.1154014-16-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250213101606.1154014-1-maxime.chevallier@bootlin.com>
-References: <20250213101606.1154014-1-maxime.chevallier@bootlin.com>
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Stuart Burtner <sburtner@d3embedded.com>,
+	Tero Kristo <kristo@kernel.org>, Thakkar Devarsh <devarsht@ti.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Umang Jain <umang.jain@ideasonboard.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Will Deacon <will@kernel.org>, Zhi Mao <zhi.mao@mediatek.com>
+Subject: Re: [PATCH 2/4] media: i2c: Add driver for Sony IMX728
+Message-ID: <20250213101903.GH5888@pendragon.ideasonboard.com>
+References: <20250212195656.69528-1-slavine@d3embedded.com>
+ <20250212195656.69528-3-slavine@d3embedded.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegieehudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeulefgvddthfekkedugeeikeeuudekhfekgfehgfelkeekkeekhfejkefgvefhieenucffohhmrghinhepuggvvhhitggvthhrvggvrdhorhhgnecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedvpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgto
- hhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250212195656.69528-3-slavine@d3embedded.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_021638_213368_FC9EA512 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20250213_021919_582289_310C2A13 
+X-CRM114-Status: GOOD (  23.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,140 +103,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ability to describe the physical ports of Ethernet devices is useful
-to describe multi-port devices, as well as to remove any ambiguity with
-regard to the nature of the port.
+Hi Sebastian,
 
-Moreover, describing ports allows for a better description of features
-that are tied to connectors, such as PoE through the PSE-PD devices.
+Thank you for the patch.
 
-Introduce a binding to allow describing the ports, for now with 2
-attributes :
+I'll start with a partial review.
 
- - The number of lanes, which is a quite generic property that allows
-   differentating between multiple similar technologies such as BaseT1
-   and "regular" BaseT (which usually means BaseT4).
+On Wed, Feb 12, 2025 at 02:56:54PM -0500, Sebastian LaVine wrote:
+> Adds a driver for the Sony IMX728 image sensor.
+> 
+> Signed-off-by: Sebastian LaVine <slavine@d3embedded.com>
+> Mentored-by: Stuart Burtner <sburtner@d3embedded.com>
+> ---
+>  MAINTAINERS                  |    1 +
+>  arch/arm64/configs/defconfig |    1 +
+>  drivers/media/i2c/Kconfig    |   12 +
+>  drivers/media/i2c/Makefile   |    1 +
+>  drivers/media/i2c/imx728.c   | 9655 ++++++++++++++++++++++++++++++++++
+>  5 files changed, 9670 insertions(+)
+>  create mode 100644 drivers/media/i2c/imx728.c
 
- - The media that can be used on that port, such as BaseT for Twisted
-   Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
-   ethernet, etc. This allows defining the nature of the port, and
-   therefore avoids the need for vendor-specific properties such as
-   "micrel,fiber-mode" or "ti,fiber-mode".
+[snip]
 
-The port description lives in its own file, as it is intended in the
-future to allow describing the ports for phy-less devices.
+> diff --git a/drivers/media/i2c/imx728.c b/drivers/media/i2c/imx728.c
+> new file mode 100644
+> index 000000000000..75120ca01ce6
+> --- /dev/null
+> +++ b/drivers/media/i2c/imx728.c
+> @@ -0,0 +1,9655 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Sony IMX728 CMOS Image Sensor Driver
+> + *
+> + * Copyright (c) 2024-2025 Define Design Deploy Corp
+> + */
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
-V4: no changes
+[snip]
 
- .../devicetree/bindings/net/ethernet-phy.yaml | 18 +++++++
- .../bindings/net/ethernet-port.yaml           | 47 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- 3 files changed, 66 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/ethernet-port.yaml
+> +static const struct cci_reg_sequence imx728_wdr_12bit_3856x2176[] = {
 
-diff --git a/Documentation/devicetree/bindings/net/ethernet-phy.yaml b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-index 2c71454ae8e3..950fdacfd27d 100644
---- a/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-+++ b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-@@ -261,6 +261,17 @@ properties:
- 
-     additionalProperties: false
- 
-+  mdi:
-+    type: object
-+
-+    patternProperties:
-+      '^port-[a-f0-9]+$':
-+        $ref: /schemas/net/ethernet-port.yaml#
-+
-+        unevaluatedProperties: false
-+
-+    additionalProperties: false
-+
- required:
-   - reg
- 
-@@ -297,5 +308,12 @@ examples:
-                     default-state = "keep";
-                 };
-             };
-+
-+            mdi {
-+              port-0 {
-+                lanes = <2>;
-+                media = "BaseT";
-+              };
-+            };
-         };
-     };
-diff --git a/Documentation/devicetree/bindings/net/ethernet-port.yaml b/Documentation/devicetree/bindings/net/ethernet-port.yaml
-new file mode 100644
-index 000000000000..bf0f64f1b0aa
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/ethernet-port.yaml
-@@ -0,0 +1,47 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/ethernet-port.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Generic Ethernet Port
-+
-+maintainers:
-+  - Maxime Chevallier <maxime.chevallier@bootlin.com>
-+
-+description:
-+  An Ethernet port represents an output, such as a connector, of a network
-+  component such as a PHY, an Ethernet controller with no PHY, or an SFP module.
-+
-+properties:
-+
-+  lanes:
-+    description:
-+      Defines the number of lanes on the port, that is the number of physical
-+      channels used to convey the data with the link partner.
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-+  media:
-+    description:
-+      The mediums, as defined in 802.3, that can be used on the port.
-+    items:
-+      enum:
-+        - BaseT
-+        - BaseK
-+        - BaseS
-+        - BaseC
-+        - BaseL
-+        - BaseD
-+        - BaseE
-+        - BaseF
-+        - BaseV
-+        - BaseMLD
-+        - BaseX
-+
-+required:
-+  - lanes
-+  - media
-+
-+additionalProperties: true
-+
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ecbf70939927..7806b8e574e1 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8602,6 +8602,7 @@ L:	netdev@vger.kernel.org
- S:	Maintained
- F:	Documentation/ABI/testing/sysfs-class-net-phydev
- F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
-+F:	Documentation/devicetree/bindings/net/ethernet-port.yaml
- F:	Documentation/devicetree/bindings/net/mdio*
- F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
- F:	Documentation/networking/phy-port.rst
+This table is way too big, with over 8000 entries. Some are even
+duplicated, with identical or different values for the same register. It
+will take more than a second at 400kHz to program this.
+
+At the very least I would expect a way to compact the table and make use
+of I2C register address auto-increment. Default power-up values should
+also likely be just dropped.
+
+I haven't checked in details, but doesn't this table also contain tuning
+data for your specific camera ?
+
+[snip]
+
+> +};
+
+[snip]
+
+> +static int imx728_get_frame_interval(struct v4l2_subdev *sd,
+> +                                    struct v4l2_subdev_state *sd_state,
+> +                                    struct v4l2_subdev_frame_interval *fi)
+> +{
+> +       struct imx728 *imx728 = to_imx728(sd);
+> +
+> +       fi->interval.numerator = 1;
+> +       fi->interval.denominator = imx728->fps;
+> +       return 0;
+> +}
+> +
+> +static int imx728_set_frame_interval(struct v4l2_subdev *sd,
+> +                                    struct v4l2_subdev_state *sd_state,
+> +                                    struct v4l2_subdev_frame_interval *fi)
+> +{
+> +       struct imx728 *imx728 = to_imx728(sd);
+> +       u32 req_fps;
+> +
+> +       mutex_lock(&imx728->lock);
+> +
+> +       if (fi->interval.numerator == 0 || fi->interval.denominator == 0) {
+> +               fi->interval.denominator = IMX728_FRAMERATE_DEFAULT;
+> +               fi->interval.numerator = 1;
+> +       }
+> +
+> +       req_fps = clamp_val(DIV_ROUND_CLOSEST(fi->interval.denominator,
+> +                                             fi->interval.numerator),
+> +                           IMX728_FRAMERATE_MIN, IMX728_FRAMERATE_MAX);
+> +
+> +       fi->interval.numerator = 1;
+> +       fi->interval.denominator = req_fps;
+> +
+> +       imx728->fps = req_fps;
+> +
+> +       mutex_unlock(&imx728->lock);
+> +       dev_dbg(imx728->dev, "%s frame rate = %d\n", __func__, imx728->fps);
+> +
+> +       return 0;
+> +}
+
+The frame rate on raw sensors is controlled through h/v blanking. You
+can drop thse functions, especially given that imx728->fps isn't used
+anywhere else.
+
 -- 
-2.48.1
+Regards,
 
+Laurent Pinchart
 
