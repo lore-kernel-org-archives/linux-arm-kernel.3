@@ -4,123 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98ECBC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 00:45:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BE75C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 01:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=qbsRW+rPGG7sOyzmINLAUZ6n+49WHNhTA0JmCyA9gd0=; b=33LD2kbjss/2cK/HBffmFbt4vK
-	jznB8/xmWp5QKm4p5fLiSwhxoYWF5nXx7bpY1EQ7/srH2Zi1dyGdtPfQGiitAQwrlNupp4OMq9az5
-	mCLV/KV8LsVEyfbH4YQMybIjaLDjwUXbuI/vikiPDT+eOEUk/ZC8U5RCNX/ynbQO8aYt/LWcxXS3F
-	sum8t43AHTOFSWE66M3Yv/xnCIS2rTkZGmh+JfeWeb2MQpP9Nf80aSYoIPLU1wcK6HgVPPJL6/urm
-	o8C4K24mlfxy/8JlbB3plup1UJ5GkAeu8ylMptUwmyb2NT/eVjkix/sJf8jqSK9evfIWkCsbYYJg7
-	cJIEqNvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q+nCXvcuGbP6lZuLocKajT0ORe5EGrF6T3/N8VpC8fs=; b=q6jaO7Tx1e3NxwNCLHVT7eH7jg
+	BaWUkr+elkz1ZEe1OptKMwE6neLfW1QfX4Fc8SzxzjpWHj/C5wsC6raZddY9wfq9Hh5P60+Jm1g7e
+	36QodUSaspCJuWzVF7C8lEh0NplYcMWLUKLRUEJTi45v7QRRG8RRLhE/GjF47OfYBl8MU0V7Xvhj/
+	jRD/YyUAWbJdiZuH0OSWgl547FfyGo/pdweIipB+pPerXr/EFApsN4wmFvwN6KsxYqB2hcqiab7CE
+	Sh+wpONC2Wcx/1fv3m8k5wuRXCUSGfVEWB8XGa4CX9vpYRC5qstgye/37t2fHaxfnbRZzI8m/3LVO
+	R8GLdu5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiNML-00000009Jli-19Sk;
-	Thu, 13 Feb 2025 00:45:41 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1tiNwi-00000009NPJ-0ckr;
+	Thu, 13 Feb 2025 01:23:16 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiNKs-00000009JaL-3nqj
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 00:44:13 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250213004404epoutp01f98ed46a045a31175b28900e118663de~jndrLGRnx3236032360epoutp01U
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 00:44:04 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250213004404epoutp01f98ed46a045a31175b28900e118663de~jndrLGRnx3236032360epoutp01U
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1739407444;
-	bh=qbsRW+rPGG7sOyzmINLAUZ6n+49WHNhTA0JmCyA9gd0=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=Nj/kPgnAIPEHbsCUiBDAMy8HhDpJMmRmob26t5NUgGsZ1R+eMr5VDM9nQnK1FXsvN
-	 BgG0+L3ghibl632WzsF/sht6GMMcAgX/9d2KmZM8LvKupD/sL/BHvl7KhYAYX0fPoA
-	 naPLF2fgRDySUlAIbTYYypEufYNoJooVjJu0QpQ8=
-Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTP id
-	20250213004403epcas2p1fd64379ec227f4747d2b7869ff563cb5~jndqx7TXN3215432154epcas2p1o;
-	Thu, 13 Feb 2025 00:44:03 +0000 (GMT)
-Received: from epsmges2p4.samsung.com (unknown [182.195.36.98]) by
-	epsnrtp4.localdomain (Postfix) with ESMTP id 4Ytbz70dnhz4x9Pq; Thu, 13 Feb
-	2025 00:44:03 +0000 (GMT)
-Received: from epcas2p3.samsung.com ( [182.195.41.55]) by
-	epsmges2p4.samsung.com (Symantec Messaging Gateway) with SMTP id
-	F3.45.22094.2504DA76; Thu, 13 Feb 2025 09:44:02 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250213004402epcas2p34923dcba3635ceed9b712a24f354d6f0~jndpwXQh31412714127epcas2p3n;
-	Thu, 13 Feb 2025 00:44:02 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250213004402epsmtrp135a32c55cf064ad1d4c0242b0595a572~jndpvmMWf1131811318epsmtrp11;
-	Thu, 13 Feb 2025 00:44:02 +0000 (GMT)
-X-AuditID: b6c32a48-e72eb7000000564e-c3-67ad4052a3ba
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	F4.80.18729.2504DA76; Thu, 13 Feb 2025 09:44:02 +0900 (KST)
-Received: from localhost.localdomain (unknown [10.229.9.126]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250213004402epsmtip127a07f22bedc87064fa6ed47580ccf53~jndphlQjr2674526745epsmtip1Z;
-	Thu, 13 Feb 2025 00:44:02 +0000 (GMT)
-From: Sangwook Shin <sw617.shin@samsung.com>
-To: krzk@kernel.org, alim.akhtar@samsung.com, wim@linux-watchdog.org,
-	linux@roeck-us.net
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org, Kyunghwan Seo
-	<khwan.seo@samsung.com>, Sangwook Shin <sw617.shin@samsung.com>
-Subject: [PATCH] watchdog: s3c2410_wdt: Fix PMU register bits for
- ExynosAutoV920 SoC
-Date: Thu, 13 Feb 2025 09:41:04 +0900
-Message-Id: <20250213004104.3881711-1-sw617.shin@samsung.com>
-X-Mailer: git-send-email 2.25.1
+	id 1tiNvH-00000009NDp-0VYT;
+	Thu, 13 Feb 2025 01:21:48 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4395f66a639so2115125e9.0;
+        Wed, 12 Feb 2025 17:21:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739409705; x=1740014505; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=q+nCXvcuGbP6lZuLocKajT0ORe5EGrF6T3/N8VpC8fs=;
+        b=bDyWKytAWwbycc1Zq1qqCtj2y+N26a+6g0tzKEPOEiODA3DhP56PqNjQD3tgnsCT5f
+         csnFE4/HizpFPZxcqzghMJ500UAYsGedsIQMntiJltUEiQttIFBtXQImLU0adTcd9mkF
+         f6Y+QBdYOVjANboq438kyke7zdxgYoxBOo6FgVPevzj9abWNaYEvBhxxYVsjvpAHB9Xc
+         BRI7GPTcJGzYPkhw4IsW+QvxrR5MPQiZR/jS+eiRDdzOHpP/LL1UqlP/ydJHN8jLMWUC
+         /A7CdYXKq6+DEy+Gq9lFJmPkV5XhZWQXovtcXwbLUBpOnaRoknpKkZ/WCkKRvlC8StWB
+         a+bA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739409705; x=1740014505;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=q+nCXvcuGbP6lZuLocKajT0ORe5EGrF6T3/N8VpC8fs=;
+        b=A0SPWyya2J7r2o5MbzZAWlbqEBpYmciuMiwMeYujyzqDQOlcY7/wFbQnQsA5lJJthd
+         U7QVL6nFCGmVaygQZ4zzYCZEI4qdbe9Ee6kD2mdYONUPKZCQWPF/p4kAgX/AEO7dKJY2
+         p38yTKUVqGVI11iOiIs0fuurcREwxHeey2/bFSd5/9H280l3GwpZ2aJ49CPfBFyM7dbm
+         VaQPRlXKo8zI6wNU3YelnWf+0kj0YBEatNW29PkAQQ7Q9vcWHtcZBkQGKY9XqnUU3zF/
+         Nh5oEEXoqm1u6DZkgS/nL6V/tjad2I8UOE7DIHuD87nPVeNcpjdqX5gbq7Xrnh1/7g+R
+         sGaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWjmH4wEyenc90aI+4/qtHKGzjpkwrzPb8ftrvgpl/afLFXhTOEFTwJpaOE51Xf+V20/RHJh5h9SBGoneA1bGs2@lists.infradead.org, AJvYcCXUeSmbBl9erxkxP+lbn2qEXjdXEm0nGzsHeQfRIOjZvPXXqqmoKeLyApp7BSoKADOmvUxdfsHVPZJopIY=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7JyygI7HYSP3s3xxruCWBoNmSXnQM8YaDUu+VybPaCh7V2fWW
+	7Kqi+o0txzr9kPpS6JrMRJbHW3krGzJHyGrk4pYa9k7OpxVIQtorRFgX33OtAvNBYHnduYBrlLA
+	cX/JmQsMjwe8RMz3drtweB/btags=
+X-Gm-Gg: ASbGncvKsUgJ4WVbJGAcQOM5fito+8XrIust8I6MAMsWVfTo/BceQQdESuzLdP81sly
+	dSwVa4eX5knnCLqTtRk0Zg1nZcPvaiIS83/+xaMYJo+W7VQ4IPbWwKwaecF/T5Ju323wXhfTlFO
+	8=
+X-Google-Smtp-Source: AGHT+IEjJMkC/hHaotdqSukhMJQZrOiaCkGtVrbEkJiI15zjYiRvHohJ4FkUwvWx7PY95qrg/tcG6HP5nsDWETkesBs=
+X-Received: by 2002:a05:600c:198b:b0:439:60bc:71b3 with SMTP id
+ 5b1f17b1804b1-43960bc744emr6893225e9.25.1739409704648; Wed, 12 Feb 2025
+ 17:21:44 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprAJsWRmVeSWpSXmKPExsWy7bCmuW6Qw9p0g/PrbSwezNvGZjG//RKj
-	xfnzG9gtNj2+xmpxedccNosZ5/cxWdxYt4/d4snCM0wWMxafZLN4/PIfswOXx6ZVnWweK9es
-	YfXYvKTeY+f3BnaPvi2rGD0+b5ILYIvKtslITUxJLVJIzUvOT8nMS7dV8g6Od443NTMw1DW0
-	tDBXUshLzE21VXLxCdB1y8wBukxJoSwxpxQoFJBYXKykb2dTlF9akqqQkV9cYquUWpCSU2Be
-	oFecmFtcmpeul5daYmVoYGBkClSYkJ1xf0sXW8EewYqHDQYNjPf5uhg5OSQETCTO/7vH2sXI
-	xSEksINRYsrES4wQzidGiWt7W6Ey3xglZh75wAjT8mr7JTBbSGAvo8SEf95wHQuvTWMHSbAJ
-	6EhM/3ebBcQWEYiSOLhjGTtIEbPAHUaJff9fMIMkhAXCJB5+WMMGYrMIqErMeX8WbCqvgK3E
-	ouMH2SG2yUvMvPSdHSIuKHFy5hOwocxA8eats5lBhkoIfGSXmPR/KQtEg4tE74ErUKcKS7w6
-	vgVqkJTEy/42IJsDyM6XOPVEGKK3gVHiXfN7Nogae4lFZ36C1TALaEqs36UPUa4sceQW1Fo+
-	iY7Df6Gm8Ep0tAlBNKpIdPzczAqz6OiZB1BLPST6p+5hBSkXEoiVWLcqeAKj/Cwkv8xC8sss
-	hLULGJlXMYqlFhTnpqcWGxWYwKM0OT93EyM4aWp57GCc/faD3iFGJg7GQ4wSHMxKIrwS09ak
-	C/GmJFZWpRblxxeV5qQWH2I0BYbuRGYp0eR8YNrOK4k3NLE0MDEzMzQ3MjUwVxLnrd7Rki4k
-	kJ5YkpqdmlqQWgTTx8TBKdXAFKIjenFiw/QT+upal1qvvFbcvCqCacfl5esc7FnniHvVb6o5
-	7xPnJ2ao9fDBRl+PgulxE59kfD7OZXr1nneZh/E7t0ULzosZ6ZuIFQuJsARu2rwtkYXpaMDx
-	a/6W2s7ix24UNS165f5KaU2iVVqPPEfkrv3X48vaLSxjvkjO7jPyFL9cPEXhl3mZzyXd3fce
-	LenNUjjNGbQza9fS28yLhXKzFib5sd6+HeJ34uXvV4JzWc5tnnzbK2X1ajU2KdstrTuPzo+0
-	NJCY53P7sJb0bwGtPu3sC5Xv7+3tOpBevfr4O/HkE5++Lzr2a1lW1vQ9CdOmW8ssjjyXKy/5
-	1D2ysevvoY711W6Wx7M9WZRfK7EUZyQaajEXFScCANojCCgjBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrILMWRmVeSWpSXmKPExsWy7bCSnG6Qw9p0g72zZS0ezNvGZjG//RKj
-	xfnzG9gtNj2+xmpxedccNosZ5/cxWdxYt4/d4snCM0wWMxafZLN4/PIfswOXx6ZVnWweK9es
-	YfXYvKTeY+f3BnaPvi2rGD0+b5ILYIvisklJzcksSy3St0vgyri/pYutYI9gxcMGgwbG+3xd
-	jJwcEgImEq+2X2LsYuTiEBLYzSix9FsDcxcjB1BCSuLdM0uIGmGJ+y1HWCFqPjBK3F21mA0k
-	wSagIzH9320WEFtEIE7iWPtmZpAiZoFHjBJnb0xiBkkIC4RIrD56jgnEZhFQlZjz/iwjiM0r
-	YCux6PhBdogN8hIzL31nh4gLSpyc+QRsKDNQvHnrbOYJjHyzkKRmIUktYGRaxSiZWlCcm55b
-	bFhgmJdarlecmFtcmpeul5yfu4kRHMpamjsYt6/6oHeIkYmD8RCjBAezkgivxLQ16UK8KYmV
-	ValF+fFFpTmpxYcYpTlYlMR5xV/0pggJpCeWpGanphakFsFkmTg4pRqY9n4WTj3mO7tuj8HB
-	z2o1nxlT178PKXlnvO6Lx6x5z5Z8q9Z9/VGidIHSERmWKXrCncoGU5652LEfbvt8uH6ViZe/
-	+84pD678r22Wmhiz8bNPnapbQKOo6L3MKXzXlJdYl5eIHqne9uHwgWu6m3Sf/jtQKic1Pd86
-	b/mirez/9r/cPP2BlFDHupc5Wyw0Hpx6wl/66SbvMq1Ztx7skNGZucF4elOoUG3Os3W12377
-	81oEX3JNcfi8xqaiOoFx2ZmJG0y2OvF9S6lIX2+3Re0Fy+LuZ/O25Nk13Llz9iuzssq6M93h
-	Mc3LNrw88ezYeVfzkq37bLysFA/1/6hq5K+Tfv9TsrWu9IViUYNjaS3fTSWW4oxEQy3mouJE
-	AJaJ723UAgAA
-X-CMS-MailID: 20250213004402epcas2p34923dcba3635ceed9b712a24f354d6f0
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250213004402epcas2p34923dcba3635ceed9b712a24f354d6f0
-References: <CGME20250213004402epcas2p34923dcba3635ceed9b712a24f354d6f0@epcas2p3.samsung.com>
+References: <20241022015913.3524425-1-samuel.holland@sifive.com>
+ <20241022015913.3524425-2-samuel.holland@sifive.com> <CA+fCnZeBEe3VWm=VfYvG-f4eh2jAFP-p4Xn4SLEeFCGTudVuEw@mail.gmail.com>
+ <e7t5yzfw3dq5stp5xjy5yclcx6ikne4vwz7d6w2ukfw2b7gr6t@oomoynf3b2jl>
+ <zjuvfdbl7q76ahdxk3lrgaznk7vjj43f5ftzfgrnca6dqtcd5x@5qj24womzgyq>
+ <CA+fCnZfySpeRy0FCFidLdUUeqp97eBdjAqQyYPpz1WxYwcsW9A@mail.gmail.com> <aqhm7lc57srsfuff3bceb3dcmsdyxksb7t6bgwbqi54ppevpoh@apolj3nteaz6>
+In-Reply-To: <aqhm7lc57srsfuff3bceb3dcmsdyxksb7t6bgwbqi54ppevpoh@apolj3nteaz6>
+From: Andrey Konovalov <andreyknvl@gmail.com>
+Date: Thu, 13 Feb 2025 02:21:33 +0100
+X-Gm-Features: AWEUYZnQToSGphLmBmZFBpfuiZIg1iWlon9vHp3PXB7Fk9evMSAokOcZX5tZFRE
+Message-ID: <CA+fCnZdjTkreTcoo+J8wMhwDuAFM4g33U5BFy0OPtE0UCvyJbQ@mail.gmail.com>
+Subject: Re: [PATCH v2 1/9] kasan: sw_tags: Use arithmetic shift for shadow computation
+To: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+Cc: Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	linux-riscv@lists.infradead.org, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, kasan-dev@googlegroups.com, 
+	llvm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	Alexandre Ghiti <alexghiti@rivosinc.com>, Will Deacon <will@kernel.org>, 
+	Evgenii Stepanov <eugenis@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_164412_334956_4515A4A1 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20250212_172147_219655_4EF4C0C9 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,64 +104,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kyunghwan Seo <khwan.seo@samsung.com>
+On Tue, Feb 11, 2025 at 7:07=E2=80=AFPM Maciej Wieczor-Retman
+<maciej.wieczor-retman@intel.com> wrote:
+>
+> I did some experiments with multiple addresses passed through
+> kasan_mem_to_shadow(). And it seems like we can get almost any address ou=
+t when
+> we consider any random bogus pointers.
+>
+> I used the KASAN_SHADOW_OFFSET from your example above. Userspace address=
+es seem
+> to map to the range [KASAN_SHADOW_OFFSET - 0xffff8fffffffffff]. Then goin=
+g
+> through non-canonical addresses until 0x0007ffffffffffff we reach the end=
+ of
+> kernel LA and we loop around. Then the addresses seem to go from 0 until =
+we
+> again start reaching the kernel space and then it maps into the proper sh=
+adow
+> memory.
+>
+> It gave me the same results when using the previous version of
+> kasan_mem_to_shadow() so I'm wondering whether I'm doing this experiment
+> incorrectly or if there aren't any addresses we can rule out here?
 
-Fix the PMU register bits for the ExynosAutoV920 SoC.
-This SoC has different bit information compared to its previous
-version, ExynosAutoV9, and we have made the necessary adjustments.
+By the definition of the shadow mapping, if we apply that mapping to
+the whole 64-bit address space, the result will only contain 1/8th
+(1/16th for SW/HW_TAGS) of that space.
 
-rst_stat_bit:
-    - ExynosAutoV920 cl0 : 0
-    - ExynosAutoV920 cl1 : 1
+For example, with the current upstream value of KASAN_SHADOW_OFFSET on
+x86 and arm64, the value of the top 3 bits (4 for SW/HW_TAGS) of any
+shadow address are always the same: KASAN_SHADOW_OFFSET's value is
+such that the shadow address calculation never overflows. Addresses
+that have a different value for those top 3 bits are the once we can
+rule out.
 
-cnt_en_bit:
-    - ExynosAutoV920 cl0 : 8
-    - ExynosAutoV920 cl1 : 8
+The KASAN_SHADOW_OFFSET value from my example does rely on the
+overflow (arguably, this makes things more confusing [1]). But still,
+the possible values of shadow addresses should only cover 1/16th of
+the address space.
 
-Signed-off-by: Kyunghwan Seo <khwan.seo@samsung.com>
-Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
----
- drivers/watchdog/s3c2410_wdt.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+So whether the address belongs to that 1/8th (1/16th) of the address
+space is what we want to check in kasan_non_canonical_hook().
 
-diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
-index 30450e99e5e9..bdd81d8074b2 100644
---- a/drivers/watchdog/s3c2410_wdt.c
-+++ b/drivers/watchdog/s3c2410_wdt.c
-@@ -72,6 +72,8 @@
- #define EXYNOS850_CLUSTER1_WDTRESET_BIT		23
- #define EXYNOSAUTOV9_CLUSTER0_WDTRESET_BIT	25
- #define EXYNOSAUTOV9_CLUSTER1_WDTRESET_BIT	24
-+#define EXYNOSAUTOV920_CLUSTER0_WDTRESET_BIT	0
-+#define EXYNOSAUTOV920_CLUSTER1_WDTRESET_BIT	1
- 
- #define GS_CLUSTER0_NONCPU_OUT			0x1220
- #define GS_CLUSTER1_NONCPU_OUT			0x1420
-@@ -312,9 +314,9 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl0 = {
- 	.mask_bit = 2,
- 	.mask_reset_inv = true,
- 	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
--	.rst_stat_bit = EXYNOSAUTOV9_CLUSTER0_WDTRESET_BIT,
-+	.rst_stat_bit = EXYNOSAUTOV920_CLUSTER0_WDTRESET_BIT,
- 	.cnt_en_reg = EXYNOSAUTOV920_CLUSTER0_NONCPU_OUT,
--	.cnt_en_bit = 7,
-+	.cnt_en_bit = 8,
- 	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
- 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
- 		  QUIRK_HAS_DBGACK_BIT,
-@@ -325,9 +327,9 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl1 = {
- 	.mask_bit = 2,
- 	.mask_reset_inv = true,
- 	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
--	.rst_stat_bit = EXYNOSAUTOV9_CLUSTER1_WDTRESET_BIT,
-+	.rst_stat_bit = EXYNOSAUTOV920_CLUSTER1_WDTRESET_BIT,
- 	.cnt_en_reg = EXYNOSAUTOV920_CLUSTER1_NONCPU_OUT,
--	.cnt_en_bit = 7,
-+	.cnt_en_bit = 8,
- 	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
- 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
- 		  QUIRK_HAS_DBGACK_BIT,
--- 
-2.40.1
+The current upstream version of kasan_non_canonical_hook() actually
+does a simplified check by only checking for the lower bound (e.g. for
+x86, there's also an upper bound: KASAN_SHADOW_OFFSET +
+(0xffffffffffffffff >> 3) =3D=3D 0xfffffbffffffffff), so we could improve
+it.
 
+[1] https://bugzilla.kernel.org/show_bug.cgi?id=3D218043
 
