@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B6FC021A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 06:34:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DF6DC021A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 06:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S4wiwCMkikJJo7DvBVkFZtnZkAWAybpwKsP2obMTPZs=; b=RchBiiHwZ/u1D+cv5Elwdg5c3M
-	EmQ1bnFWam57FA91WNKrlVXjHQlyQT2xnsXl2LGp/LY0FyrfkMulGNrSSIPXUn8safXCdoW/BxuEC
-	uDTcv5azNAYMz5HBBNNObOMBoKAOpYq7FjFdI2omEhU58RAVjcYFGdeamFF6ggTCsGptJqlXFmRsV
-	pCxbt4ViCJZaVp6b6NvIBKELrdVKhvVQLR200JKZdaOeqa9wkXN/TlvglvaTV9CcXwkrWdsLNIbCb
-	WBsSOwj+pZrTEgEknGC3R63Ezfc0PV5+kcjopYc2xSYsrAgHsKnqJqTAAoXr1SEjOOjeohJ5/Pnza
-	knINrytw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TGdzLbkyNEH3Q9u3nXSuR5LfDb/bGS4gSDN8Bo/Wj1I=; b=vkZ4AujAVynB809SyzQ4BH55Yj
+	z80SCv5ecWUnSkeuy6LU09+2SVwH2PVdjq1fW8nSqzK5SqCyqUEkcVTEu04UnVaf+bu9ZNxGpe9MW
+	MwSv7dYtQF8bsydQlO5n8RXPRjNPEUnOQzA+KrwdOVZEoIagrPaaV1aMOqnNKN8mXryWCww8EB8Ty
+	KNIcLaWbkgnOydqZHcHV7fWMgh1NaJW51Q9h0DZLrd6y8AO7mrTECBFZ7xQWp/S0fVy16uOlTSxnR
+	SethQusuUqGPDQMf68IZnpdhZjuGgkGnE9QnQiTjjy9KDRl/dzdvzcJ+3jlR+QFyVANgmeImKmZ6q
+	QgNHUbBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiSnT-00000009xKr-2sTU;
-	Thu, 13 Feb 2025 06:34:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiSm2-00000009x8t-2HED
+	id 1tiSos-00000009xTn-1PLW;
+	Thu, 13 Feb 2025 06:35:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiSmZ-00000009xDI-3Px8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 06:32:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A3A01756;
-	Wed, 12 Feb 2025 22:32:54 -0800 (PST)
-Received: from [10.162.16.135] (a077893.blr.arm.com [10.162.16.135])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AFF713F6A8;
-	Wed, 12 Feb 2025 22:32:28 -0800 (PST)
-Message-ID: <0dd74f57-902a-4a6d-9f77-31963b5953d1@arm.com>
-Date: Thu, 13 Feb 2025 12:02:25 +0530
+	Thu, 13 Feb 2025 06:33:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AD93EA41DBD;
+	Thu, 13 Feb 2025 06:31:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46F2DC4CED1;
+	Thu, 13 Feb 2025 06:33:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739428386;
+	bh=EYlzHzMqG7RCe6q7JFcYu+FiAfG2RPpXS8EZEEWgLsw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UkS4A/KV+3NNKiQjsxvFOCzRdT8eWvlDjxM2q4kcb2BJO337OWJX9LiciToHB4H5D
+	 betsxIK36VXW3NHNoB4lRt0NJXBcNvvIRD4TdwxZiVuUg3QYAeOYlV1HlcU0EOe6Iq
+	 PZLtnwxTCnRM2qsfunBg9CIOm9UrYC0WezluyZS+0WZx/wi4xyYmqrxjQWRSRydQv3
+	 JAKdnQbYR1WC1r7H2ZTQHeKSXHaJKzo/J/55xlp6TGxwvoKepy/NpWl6mEE7OkYIg4
+	 oMQ9JVu3HAPS0/XGVqxfYxi4AA4Ae/S7xImljyKO0EBVNzSAITvpy/EH7dB6z6x2NI
+	 wBiVk20+/3H9Q==
+Date: Wed, 12 Feb 2025 22:33:04 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: fsverity@lists.linux.dev, linux-crypto@vger.kernel.org,
+	dm-devel@lists.linux.dev, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	David Howells <dhowells@redhat.com>, netdev@vger.kernel.org
+Subject: Re: [PATCH v8 0/7] Optimize dm-verity and fsverity using multibuffer
+ hashing
+Message-ID: <20250213063304.GA11664@sol.localdomain>
+References: <20250212154718.44255-1-ebiggers@kernel.org>
+ <Z61yZjslWKmDGE_t@gondor.apana.org.au>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 12/16] arm64/mm: Support huge pte-mapped pages in vmap
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-13-ryan.roberts@arm.com>
- <9a0d3009-18fc-4b53-941a-b6d830fce36a@arm.com>
- <21da59a8-165d-4423-a00d-d5859f42ec11@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <21da59a8-165d-4423-a00d-d5859f42ec11@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z61yZjslWKmDGE_t@gondor.apana.org.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_223234_702572_EEDAB7C8 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20250212_223307_980908_32192F1E 
+X-CRM114-Status: GOOD (  26.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,146 +80,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Feb 13, 2025 at 12:17:42PM +0800, Herbert Xu wrote:
+> On Wed, Feb 12, 2025 at 07:47:11AM -0800, Eric Biggers wrote:
+> > [ This patchset keeps getting rejected by Herbert, who prefers a
+> >   complex, buggy, and slow alternative that shoehorns CPU-based hashing
+> >   into the asynchronous hash API which is designed for off-CPU offload:
+> >   https://lore.kernel.org/linux-crypto/cover.1730021644.git.herbert@gondor.apana.org.au/
+> >   This patchset is a much better way to do it though, and I've already
+> >   been maintaining it downstream as it would not be reasonable to go the
+> >   asynchronous hash route instead.  Let me know if there are any
+> >   objections to me taking this patchset through the fsverity tree, or at
+> >   least patches 1-5 as the dm-verity patches could go in separately. ]
+> 
+> Yes I object.  While I very much like this idea of parallel hashing
+> that you're introducing, shoehorning it into shash is restricting
+> this to storage-based users.
+> 
+> Networking is equally able to benefit from paralell hashing, and
+> parallel crypto (in particular, AEAD) in general.  In fact, both
+> TLS and IPsec can benefit directly from bulk submission instead
+> of the current scheme where a single packet is processed at a time.
 
+I've already covered this extensively, but here we go again.  First there are
+more users of shash than ahash in the kernel, since shash is much easier to use
+and also a bit faster.  There is nothing storage specific about it.  You've
+claimed that shash is deprecated, but that reflects a misunderstanding of what
+users actually want and need.  Users want simple, fast, easy-to-use APIs.  Not
+APIs that are optimized for an obsolete form of hardware offload and have
+CPU-based crypto support bolted on as an afterthought.
 
-On 2/7/25 16:50, Ryan Roberts wrote:
-> On 07/02/2025 10:04, Anshuman Khandual wrote:
->>
->>
->> On 2/5/25 20:39, Ryan Roberts wrote:
->>> Implement the required arch functions to enable use of contpte in the
->>> vmap when VM_ALLOW_HUGE_VMAP is specified. This speeds up vmap
->>> operations due to only having to issue a DSB and ISB per contpte block
->>> instead of per pte. But it also means that the TLB pressure reduces due
->>> to only needing a single TLB entry for the whole contpte block.
->>
->> Right.
->>
->>>
->>> Since vmap uses set_huge_pte_at() to set the contpte, that API is now
->>> used for kernel mappings for the first time. Although in the vmap case
->>> we never expect it to be called to modify a valid mapping so
->>> clear_flush() should never be called, it's still wise to make it robust
->>> for the kernel case, so amend the tlb flush function if the mm is for
->>> kernel space.
->>
->> Makes sense.
->>
->>>
->>> Tested with vmalloc performance selftests:
->>>
->>>   # kself/mm/test_vmalloc.sh \
->>> 	run_test_mask=1
->>> 	test_repeat_count=5
->>> 	nr_pages=256
->>> 	test_loop_count=100000
->>> 	use_huge=1
->>>
->>> Duration reduced from 1274243 usec to 1083553 usec on Apple M2 for 15%
->>> reduction in time taken.
->>>
->>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->>> ---
->>>  arch/arm64/include/asm/vmalloc.h | 40 ++++++++++++++++++++++++++++++++
->>>  arch/arm64/mm/hugetlbpage.c      |  5 +++-
->>>  2 files changed, 44 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
->>> index 38fafffe699f..fbdeb40f3857 100644
->>> --- a/arch/arm64/include/asm/vmalloc.h
->>> +++ b/arch/arm64/include/asm/vmalloc.h
->>> @@ -23,6 +23,46 @@ static inline bool arch_vmap_pmd_supported(pgprot_t prot)
->>>  	return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
->>>  }
->>>  
->>> +#define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
->>> +static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
->>> +						unsigned long end, u64 pfn,
->>> +						unsigned int max_page_shift)
->>> +{
->>> +	if (max_page_shift < CONT_PTE_SHIFT)
->>> +		return PAGE_SIZE;
->>> +
->>> +	if (end - addr < CONT_PTE_SIZE)
->>> +		return PAGE_SIZE;
->>> +
->>> +	if (!IS_ALIGNED(addr, CONT_PTE_SIZE))
->>> +		return PAGE_SIZE;
->>> +
->>> +	if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
->>> +		return PAGE_SIZE;
->>> +
->>> +	return CONT_PTE_SIZE;
->>
->> A small nit:
->>
->> Should the rationale behind picking CONT_PTE_SIZE be added here as an in code
->> comment or something in the function - just to make things bit clear.
-> 
-> I'm not sure what other size we would pick?
+Second, these days TLS and IPsec usually use AES-GCM, which is inherently
+parallelizable so does not benefit from multibuffer crypto.  This is a major
+difference between the AEADs and message digest algorithms in common use.  And
+it happens that I recently did a lot of work to optimize AES-GCM on x86_64; see
+my commits in v6.11 that made AES-GCM 2-3x as fast on VAES-capable CPUs.
 
-The suggestion was to add a small comment in the above helper function explaining
-the rationale for various conditions in there while returning either PAGE_SIZE or
-CONT_PTE_SIZE to improve readability etc.
+So anyone who cares about TLS or IPsec performance should of course be using
+AES-GCM, as it's the fastest by far, and it has no need for multibuffer.  But
+even for the rare case where someone is still using a legacy algorithm like
+"authenc(hmac(sha256),cbc(aes))" for some reason, as I've explained before there
+are much lower hanging fruit to optimizing it.  For example x86_64 still has no
+implementation of the authenc template, let alone one that interleaves the
+encryption with the MAC.  Both could be done today with the current crypto API.
+Meanwhile multibuffer crypto would be very hard to apply to that use case (much
+harder than the cases where I've applied it) and would not be very effective,
+for reasons such as the complexity of that combination of algorithms vs. just
+SHA-256.  Again, see
+https://lore.kernel.org/linux-crypto/20240605191410.GB1222@sol.localdomain/,
+https://lore.kernel.org/linux-crypto/20240606052801.GA324380@sol.localdomain/,
+https://lore.kernel.org/linux-crypto/20240610164258.GA3269@sol.localdomain/,
+https://lore.kernel.org/linux-crypto/20240611203209.GB128642@sol.localdomain/,
+https://lore.kernel.org/linux-crypto/20240611201858.GA128642@sol.localdomain/
+where I've already explained this in detail.
 
-> 
->>
->>> +}
->>> +
->>> +#define arch_vmap_pte_range_unmap_size arch_vmap_pte_range_unmap_size
->>> +static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long addr,
->>> +							   pte_t *ptep)
->>> +{
->>> +	/*
->>> +	 * The caller handles alignment so it's sufficient just to check
->>> +	 * PTE_CONT.
->>> +	 */
->>> +	return pte_valid_cont(__ptep_get(ptep)) ? CONT_PTE_SIZE : PAGE_SIZE;
->>
->> I guess it is safe to query the CONT_PTE from the mapped entry itself.
-> 
-> Yes I don't see why not. Is there some specific aspect you're concerned about?
+You've drawn an analogy to TSO and claimed that submitting multiple requests to
+the crypto API at once would significantly improve performance even without
+support from the underlying algorithm.  But that is incorrect.  TSO saves a
+significant amount of time due to how the networking stack works.  In contrast,
+the equivalent in the crypto API would do very little.  It would at best save
+one indirect call per message, at the cost of adding the overhead of multi
+request support.  Even assuming it was beneficial at all, it would be a very
+minor optimization, and not worth it over other optimization opportunities that
+would not require making complex and error-prone extensions to the crypto API.
 
-Nothing came up while following this code, it was more of a general observation.
+I remain quite puzzled by your position here, as it makes no sense.  TBH, I
+think your opinions would be more informed if you had more experience with
+actually implementing and optimizing the various crypto algorithms.
 
-> 
->>
->>> +}
->>> +
->>> +#define arch_vmap_pte_supported_shift arch_vmap_pte_supported_shift
->>> +static inline int arch_vmap_pte_supported_shift(unsigned long size)
->>> +{
->>> +	if (size >= CONT_PTE_SIZE)
->>> +		return CONT_PTE_SHIFT;
->>> +
->>> +	return PAGE_SHIFT;
->>> +}
->>> +
->>>  #endif
->>>  
->>>  #define arch_vmap_pgprot_tagged arch_vmap_pgprot_tagged
->>> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
->>> index 02afee31444e..a74e43101dad 100644
->>> --- a/arch/arm64/mm/hugetlbpage.c
->>> +++ b/arch/arm64/mm/hugetlbpage.c
->>> @@ -217,7 +217,10 @@ static void clear_flush(struct mm_struct *mm,
->>>  	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
->>>  		___ptep_get_and_clear(mm, ptep, pgsize);
->>>  
->>> -	__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
->>> +	if (mm == &init_mm)
->>> +		flush_tlb_kernel_range(saddr, addr);
->>> +	else
->>> +		__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
->>>  }
->>>  
->>>  void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
->>
->> Otherwise LGTM.
->>
->> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> 
-> Thanks!
-> 
-> 
+> But thanks for the reminder and I will be posting my patches soon.
+
+I am not really interested in using your patches, sorry.  They just seem like
+really poor engineering and a continuation of many of the worst practices of the
+kernel crypto API that we *know* are not working.  Especially for cryptography
+code, we need to do better.  (And I've even already done it!)
+
+- Eric
 
