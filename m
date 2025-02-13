@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB845C0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 12:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC54C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 12:21:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nwCwkaALx2RQ9ZaH/h+nouISHRvT7NoTfQV+AbC1Uas=; b=bQrzFuhZ2xuhy9sxLMyfFHrZ+Y
-	FTxRfULMWCvrjmBMcMNvrkSTYJxyoBPMxGdOAxiMuKUF3083VwB/fQXSs8G3CzRRE7i4TqXmwIW8t
-	x5ppuFVN16kw3ryT/M6decsDzgEQ++FUWq+rHMtGR9RVuczDkINlKylszFyIqNM4diZWxNd8q2WpV
-	h+nG+jwnY2lgYXgDjiYBwiIHRhSBxQsUrfupQ0rOe8H4nnflsx9idmxJFbBgkVH5h4o+BQakghyhZ
-	3hb2du34ukfwclL4qoNNr1JEUXObCsc7kJfVhX1iLq/w1gq0W2+aEiEApp32qTE4//q4x45PPMzTF
-	f31nok5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1eKzHTfVsvv4VqfZuGsvTfL3QS0OJu501gC76LrrrV4=; b=Hsr/z2dZo6yUU+2YyDQXw7sO9e
+	HMNB855NGg/ALQAGa6RT21aYECQnUCBvzjaXeLlrHOmzQ1IPKSzd2UMy+y7AmUMnGXzJSzUYunW5I
+	ocSDHwkdzdTkkG12e8Irl0E/P+M20E12C80xAjyvhuQQkzMPaaxpsthu7Ikp7ZGinQGhYUL9H1ZoE
+	LVuuOR2UaLtJoN+1Rn0GSTld7NqbNzou3kt53c/K6WfWpJG5NErEVi7cZY4p8eRQcZgJ3efDA/DF0
+	D1P32bVTFhcYpzkUCjUe7jjHDpA2dXuJr4xLbJFJNwsd5RViNo5ko6Q38hmi/Z12DX9vdDQQNOrnL
+	xTqg1zUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYBW-0000000Ayy3-0i6a;
-	Thu, 13 Feb 2025 12:19:14 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiYA5-0000000AynN-2ZEE
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 12:17:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 90125A41F8A;
-	Thu, 13 Feb 2025 12:15:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83458C4CED1;
-	Thu, 13 Feb 2025 12:17:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739449064;
-	bh=8JAGRpkkF4BFORpO2ZXJZWdxCcVAaj9LxZ7dG60lCKU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IvfBdKMjTF6yHhtWWJnipKdieoFAS1iI18bQ0krXYEafFa6Qci2NgBx/+El86NP/f
-	 w72sM+X3TUAr/B22Yl8YxF1/Dz6GxUlqkHllYQajGxy+3TbY6IQvJVyN/ivLdwSCIr
-	 UAbhuT4kRx7F7XudHWeLYscCY90UJas9N25Lbi5PVNfH5xSoPnyKrIr2eOzMVPmCq5
-	 IC1ZVeWkFHBP255v/9lk1d6GqFXRWM93ubR7asVl6wYLzHvqMZuQrJGZcyZ5y1sPG9
-	 6+JsvXU62+8aO3S1m60CM1zVgXzZKGkboNdqWSRPdr7gySmja6AF1Od0X29IeOhSg7
-	 ecQiItnBhlstg==
-Date: Thu, 13 Feb 2025 12:17:40 +0000
-From: Will Deacon <will@kernel.org>
-To: Junlong li <zhuizhuhaomeng@gmail.com>
-Cc: oleg@redhat.com, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ptrace: Fix error handling in
- ptrace_hbp_get_initialised_bp
-Message-ID: <20250213121738.GA11596@willie-the-truck>
-References: <CAN5X4L9L2ught_h4M3_oe_aTMALki6nJPh9M-3KmdDx6WswffQ@mail.gmail.com>
+	id 1tiYDn-0000000AzFB-3aIE;
+	Thu, 13 Feb 2025 12:21:35 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiYCM-0000000Az5I-0X7a;
+	Thu, 13 Feb 2025 12:20:07 +0000
+Received: from localhost (mailhub3.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4Yttkn0dgsz9sSd;
+	Thu, 13 Feb 2025 12:49:21 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id ULQcwcXgFYio; Thu, 13 Feb 2025 12:49:20 +0100 (CET)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4Yttkm6p6Zz9sSL;
+	Thu, 13 Feb 2025 12:49:20 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id D2E088B770;
+	Thu, 13 Feb 2025 12:49:20 +0100 (CET)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id TnojPLtBnGgu; Thu, 13 Feb 2025 12:49:20 +0100 (CET)
+Received: from [192.168.235.99] (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 8115F8B763;
+	Thu, 13 Feb 2025 12:49:19 +0100 (CET)
+Message-ID: <6e1201a1-60c1-40a3-951f-d603b6341a11@csgroup.eu>
+Date: Thu, 13 Feb 2025 12:49:19 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] mm: Rename GENERIC_PTDUMP and PTDUMP_CORE
+To: Steven Price <steven.price@arm.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org
+References: <20250213040934.3245750-1-anshuman.khandual@arm.com>
+ <20250213040934.3245750-5-anshuman.khandual@arm.com>
+ <8e75c5ff-a97b-4a6f-9c8b-ac2598eafe60@arm.com>
+Content-Language: fr-FR
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+In-Reply-To: <8e75c5ff-a97b-4a6f-9c8b-ac2598eafe60@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAN5X4L9L2ught_h4M3_oe_aTMALki6nJPh9M-3KmdDx6WswffQ@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_041745_718925_60E0A395 
-X-CRM114-Status: GOOD (  25.66  )
+X-CRM114-CacheID: sfid-20250213_042006_338445_0C67A57D 
+X-CRM114-Status: UNSURE (   7.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,57 +90,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 07:35:46PM +0800, Junlong li wrote:
->    From b824aece318ed38666621610af7807e70831f964 Mon Sep 17 00:00:00 2001
->    From: lijunlong <[1]lijunlong@openresty.com>
->    Date: Wed, 12 Feb 2025 19:15:46 +0800
->    Subject: [PATCH] ptrace: Fix error handling in
->    ptrace_hbp_get_initialised_bp
+
+
+Le 13/02/2025 Ã  12:23, Steven Price a Ã©critÂ :
+> On 13/02/2025 04:09, Anshuman Khandual wrote:
+>> Platforms subscribe into generic ptdump implementation via GENERIC_PTDUMP.
+>> But generic ptdump gets enabled via PTDUMP_CORE. These configs combination
+>> is confusing as they sound very similar and does not differentiate between
+>> platform's feature subscription and feature enablement for ptdump. Rename
+>> the configs as ARCH_HAS_PTDUMP and PTDUMP making it more clear and improve
+>> readability.
 > 
->    The function ptrace_hbp_get_event() returns ERR_PTR(-EINVAL) on error,
->    but ptrace_hbp_get_initialised_bp() was checking for NULL instead of
->    using IS_ERR(). This could lead to incorrect error handling and
->    potential issues when trying to create a new breakpoint event.
-
-Can you please give an example of how this goes wrong?
-
->    Change the condition from:
->        if (!bp)
->    to:
->        if (IS_ERR(bp))
+> [...]
+>> diff --git a/arch/powerpc/configs/mpc885_ads_defconfig b/arch/powerpc/configs/mpc885_ads_defconfig
+>> index 77306be62e9e..db005618690b 100644
+>> --- a/arch/powerpc/configs/mpc885_ads_defconfig
+>> +++ b/arch/powerpc/configs/mpc885_ads_defconfig
+>> @@ -78,4 +78,4 @@ CONFIG_DEBUG_VM_PGTABLE=y
+>>   CONFIG_DETECT_HUNG_TASK=y
+>>   CONFIG_BDI_SWITCH=y
+>>   CONFIG_PPC_EARLY_DEBUG=y
+>> -CONFIG_GENERIC_PTDUMP=y
+>> +CONFIG_PTDUMP=y
 > 
->    This ensures proper error checking and maintains consistency with
->    the error handling mechanism used by ptrace_hbp_get_event().
+> I'd suggest dropp this from the defconfig too, just like patch 1 dropped
+> it from debug.config.
 > 
->    Signed-off-by: lijunlong [2]zhuizhuhaomeng@gmail.com
->    ---
->     arch/arm64/kernel/ptrace.c | 2 +-
->     1 file changed, 1 insertion(+), 1 deletion(-)
-> 
->    diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
->    index 0d022599eb61..3bf549b540b1 100644
->    --- a/arch/arm64/kernel/ptrace.c
->    +++ b/arch/arm64/kernel/ptrace.c
->    @@ -414,7 +414,7 @@ static struct perf_event
->    *ptrace_hbp_get_initialised_bp(unsigned int note_type,
->     {
->            struct perf_event *bp = ptrace_hbp_get_event(note_type, tsk, idx);
->     
->    -       if (!bp)
->    +       if (IS_ERR(bp))
->                    bp = ptrace_hbp_create(note_type, tsk, idx);
 
-I think this change actually causes a problem.
+Thanks for spotting that.
 
-In the current code, ptrace_hbp_get_event() can return:
+That one is wrong. Was introduced by commit d210ee3fdfe8 
+("powerpc/configs: Update config files for removed/renamed symbols") 
+which aimed at fixing commit e084728393a5 ("powerpc/ptdump: Convert 
+powerpc to GENERIC_PTDUMP") but it did it wrong.
 
- - An error if the note type is unknown or the index is out-of-bounds
- - NULL if the relevant breakpoint has not yet been created
- - The breakpoint pointer if it exists
-
-So, in the case of getting NULL back, we lazily create the breakpoint.
-
-Is it pretty? Hell no! But I'm not entirely sure it's broken, either.
-
-Will
+It is CONFIG_PTDUMP_DEBUGFS that is wanted.
 
