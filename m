@@ -4,90 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B439C021A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 06:43:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F9EC021A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 06:45:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oTmB7Ig1eQii2PQt8Vq5KK5KdLNWvxjjdgsBUW1hd1Q=; b=Hrt1+cXxr6L9UbSaEr9vfw2Snh
-	+iovCPyCZ1wiEWzeNb7vgcAtXoLxI0eiILPkMnEdxcoleJwVwB6fyE/K7A4Z3pxUoboGkj28ZG+0R
-	Qt4eipHWE3ki6CkMz+aAw867hQfaJ70x5JsMDso9MJLe52b0wWQYQet6XgKMquYWYLc0n/BDT7/Xy
-	fAfrEhJ4g80QxqRge5NTU7smtXnjuArBvXIOaK0e3iBYSVF0PacSSIon/2tVNBCofn4+/+oVkvDXE
-	pWbpYkTwShg8ahthsJ/Ve53kcyYPWUXFfkvcEtOOifw9YXHcor9XbHR8l+nCGzxb42LUBPSiYpu6+
-	rCj3uXAQ==;
+	bh=WyzA7Briisr+Eb0T4txsGUK8feDh27QiFqA7IYyWowI=; b=zMo2bdWeHrtqItVpX6iABM5FJE
+	bogNbrJXo1yiZ3myt1xBmAXfgGwbkMxAGq1inoeOhcWzXl5s3gbr6xDfkmlpVttVg/3SIeWLrznsW
+	hG96fovjxC/ALxdhiLLxGghYpHZ1d7i+mQ/tuTxdb+N/lOCb+e/7Ea7iykLcKMhdjRCu2g8SK+Tg9
+	xGl5kC5G63DgI/BJuOrBuYX6OfERmmffdURIyxWzi5wEokNL/eX4bTrlr5HKit1linw6FLGEuqTSM
+	ycJYy+YtKJLcSLTyH/3mfkwV0i+SJMqf6ThBPUVeLosDjGOphUpB2AoNCJBIruyWeQ1ZCQ9ZHIFlZ
+	aTRndNKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiSwf-00000009yrf-4AQ5;
-	Thu, 13 Feb 2025 06:43:34 +0000
-Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
+	id 1tiSy3-00000009yz0-2jdY;
+	Thu, 13 Feb 2025 06:44:59 +0000
+Received: from mail-ej1-x643.google.com ([2a00:1450:4864:20::643])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiSvE-00000009yZI-3Z4M
+	id 1tiSvg-00000009yfZ-3UJp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 06:42:06 +0000
-Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-4bbe0d2189aso132692137.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 22:42:04 -0800 (PST)
+	Thu, 13 Feb 2025 06:42:34 +0000
+Received: by mail-ej1-x643.google.com with SMTP id a640c23a62f3a-aaedd529ba1so75343666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Feb 2025 22:42:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739428923; x=1740033723; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739428951; x=1740033751; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=oTmB7Ig1eQii2PQt8Vq5KK5KdLNWvxjjdgsBUW1hd1Q=;
-        b=bEYx7WkH2zhUb5TBLA2H5BinbhEUTPMVVgJ6DHYavGHPB871FzzHetl1duKcNH1YeC
-         UPME4jgSINRoZxWmQXAQpyu9Os/UIYgkJcvry1mbI/VzsllBb8ppStmwhzOAtM/ESxiy
-         71ci+inVEeA/hsTuMHJcvGqYOAr3xAA8NJ/EG4G+zuzppeZkcxmML0QGw9TJGwGalcIx
-         BcjIu+NayAT4ShrqC2sslEvzV+72hioBepkZwfHCfnA+v5Aq1AzhMr7wkRnDhhFzAz43
-         WO+EESKsfUdwUyjxwOq50BeouOvYmIuFu0WB7dNuBITZyoKCcZezQnPJ7ygFTVguPSjL
-         3q4A==
+        bh=WyzA7Briisr+Eb0T4txsGUK8feDh27QiFqA7IYyWowI=;
+        b=ldheS7XwRpDF2CvpJzQPZ7Y1Z4DEX5xjpLw33At1gEh8xK1QpOyM3113ljUcWrxQ6e
+         GwO+XU3Mi8AL4udyFzn5mTtoJbGXtzQI6mMNU8ySawQfbyUYd4d4lqheGXMksgEPU2vU
+         SnY2PqsqGITm1Ednykvc7GIQ+WEo8Tv5XdMNKpHWqXVvyoCl01LNQPeY1zFaQYbqQAEm
+         jdBx51QrotHSxpJHPz3Vrvv+xGc448cHqHbYkzpgjHbrHB9b4x86Crv4g2D1FZM7+fT/
+         Fz+yF6e4Mvu3AHri/xt4H2SsrOnkI/LS2PMbMUc4YnGr+lzCJIsoclRwQ89BIoz0QiPS
+         rigA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739428923; x=1740033723;
+        d=1e100.net; s=20230601; t=1739428951; x=1740033751;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=oTmB7Ig1eQii2PQt8Vq5KK5KdLNWvxjjdgsBUW1hd1Q=;
-        b=be4aWa+6UCqXcv5AVmXwJQG/WWFzKAQDBVlijG3x/rTPj5jIjqOjqRFixlVrlMAuO0
-         7cHBCNsiHAgE98wpwCmHglZUCnZz2scHB4dVqyCSviuN2avJcHmonyox8IulRhbVaurr
-         AzHISlap5OgL+vKHpZ/RJ7vxKHzqcQIGxpLQXSvUVoRmy8rnBUwrkRKNH7PQKrFJFPvR
-         nLCmz93FbvJIOdBPXL8nUKcmye7LlLFl2HVHYlMn0/5csyubzLH6h6iEymMYSpb7/9hJ
-         j/aMcbx0Kuwf/CogKFb5W6few624AMSgffyB0fYb8Pjuxb5HLV6MBQbatGyPTF54K+F1
-         0mrA==
-X-Forwarded-Encrypted: i=1; AJvYcCXxmLHlHWRNPxwRREwWGY7SlNNl5HtQR6f5/Vrq6vWw/RUJzPp6BQwxK3yByULA9vVEq1gfhs4zyTh72WfuJ3RF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNzu+38+0G5iV1U4xyhJek5ud0NgaaU0yysrcwp76Mjkgh9eAV
-	TZvkB68ORSTP8H+Q3v9TrM6SM0610ghBysUtnZGrpFpSyuFD2T1WZNuB6T5lwHAMTUi3qjWzjCR
-	GWnMMRM3wc8I3qT1kL+xkQawoJe8ZJ6BDt/LHjA==
-X-Gm-Gg: ASbGncvf1sgWGfLHneh+b+IM/vFiVADPIjoRaxBmdaZ66mC3843xURILaiY86mIehKZ
-	O7W5TaKxvATT49KbKhzEI+G46MsF9Y1HG8rPxixJqw5UEAMo1E7JvwfoAiB64FxWRjJQO4qM7td
-	A=
-X-Google-Smtp-Source: AGHT+IFhSui+oRYa0yiUwlfe4d8Dd+KjfAVoX7QGNMnwQAifah82de3Os5iBk5Pb0QFnrRe9uhZGgxrDA5ujKbbjaVg=
-X-Received: by 2002:a05:6102:2c08:b0:4ba:eb24:fb06 with SMTP id
- ada2fe7eead31-4bc03562833mr2668789137.6.1739428923140; Wed, 12 Feb 2025
- 22:42:03 -0800 (PST)
+        bh=WyzA7Briisr+Eb0T4txsGUK8feDh27QiFqA7IYyWowI=;
+        b=bMc9bN7pm+la2l8l9Av4t4gPbM6BBPzMx974J6VSnxwddhjDFnK93iWqqkVXu+lGHQ
+         W0zLRPqaZIjxKrN+2gyPjOYBlCLWekZL5RaZmGsDZRklEchtPTY0JJM1xXR3VeiIPRgb
+         N/AtOXmn/JFUcUxBhMRkHKEi4ST5JRhmqvIdFivl0K5AlgnzD14No6kFB4tAoLnMhXRc
+         n9X9wSpdZ6WWD0oy/GL8V+jlYafhvp7wmVSiKhGeh22UUaMI0J4LgpCbN8twZSyfxLHX
+         Hm4btQ5kCFMr9pNyTFlPfVQ3hTKGrotObK1am/WGtZ59SnZoJkyDBYjxn9K7pI0THUMw
+         h51g==
+X-Forwarded-Encrypted: i=1; AJvYcCVumuThfr0joYHE9dBAkuTWXba2J2O9IV2dk5Ij7ToTTbayIiJEWY/laQM58mvWh/qWpUgK+X2lcWb+8OPHaWf4@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlViUYk+KX1a4dGcpnqmm8bSxEPrxsrgNSvy0CtRuNguEgDGy3
+	flnyMCbtpZArLGtwSlY9L8nLb4LnBQ+eSAl742Ew9/LxQEuGSMnX0g5MsEu+r4NrK/kCnrBAzKO
+	nhjDci6V1bC1K5GS9h/nJtrzoLWY=
+X-Gm-Gg: ASbGncto/ZJSV3XquOi4ZnaMAIJxIkpUlteeqjPE+CbYiS1I8cs9G2vG4X7Ng5G0n3m
+	matVCfLiiLhvu41M+0YHvhAZ9TYAJDvfhaFCz2ecfzoCPULsTCfFa25AFexQg5fahEWRkW3E6Ew
+	==
+X-Google-Smtp-Source: AGHT+IHRfeMzQ0Aoh2xYhp+Cojt7wbuWGTtiptGxslp7oMIdwuFGnaF7qYdJ9otu3MJ4zJT7MTKS8k5hiyeMHC9PvCA=
+X-Received: by 2002:a05:6402:3708:b0:5de:a960:11ee with SMTP id
+ 4fb4d7f45d1cf-5dec9d2c13bmr4213243a12.5.1739428951028; Wed, 12 Feb 2025
+ 22:42:31 -0800 (PST)
 MIME-Version: 1.0
-References: <20241217100809.3962439-1-jens.wiklander@linaro.org> <20250212205613.4400a888@collabora.com>
-In-Reply-To: <20250212205613.4400a888@collabora.com>
-From: Sumit Garg <sumit.garg@linaro.org>
-Date: Thu, 13 Feb 2025 12:11:52 +0530
-X-Gm-Features: AWEUYZkoZwXb13fMynlvth-g3hUZ-u2ftHq4Gn9B-5c6gMjO7S6PRx1iL7ELE6c
-Message-ID: <CAFA6WYOaGEPj0xNEDBCoEmjJreEHChjQ2hyXRJ_CYoGhiBonfw@mail.gmail.com>
-Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Cc: Jens Wiklander <jens.wiklander@linaro.org>, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linaro-mm-sig@lists.linaro.org, op-tee@lists.trustedfirmware.org, 
-	linux-arm-kernel@lists.infradead.org, Olivier Masse <olivier.masse@nxp.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, Yong Wu <yong.wu@mediatek.com>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Florent Tomasin <florent.tomasin@arm.com>
+References: <20250206105435.2159977-1-memxor@gmail.com> <20250206105435.2159977-25-memxor@gmail.com>
+ <a10a2865242dc217e71de54f75fa4289aefb2fa9.camel@gmail.com>
+In-Reply-To: <a10a2865242dc217e71de54f75fa4289aefb2fa9.camel@gmail.com>
+From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Date: Thu, 13 Feb 2025 07:41:53 +0100
+X-Gm-Features: AWEUYZlfy_N9yrlNYupazWcc5kxeGZIJKXLNp7IF_SyEvvcsIVXNR_AiGEpDZc8
+Message-ID: <CAP01T76VpVsKabq0cMjX07oDW2WTrQ2dW9NJfB0tvoXFEV5ZoQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v2 24/26] bpf: Implement verifier support for rqspinlock
+To: Eduard Zingerman <eddyz87@gmail.com>
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Andrii Nakryiko <andrii@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Martin KaFai Lau <martin.lau@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>, 
+	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>, Dohyun Kim <dohyunkim@google.com>, 
+	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_224204_897464_7556E8D7 
-X-CRM114-Status: GOOD (  27.81  )
+X-CRM114-CacheID: sfid-20250212_224232_863854_9748AE4E 
+X-CRM114-Status: GOOD (  45.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,75 +98,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Boris,
-
-On Thu, 13 Feb 2025 at 01:26, Boris Brezillon
-<boris.brezillon@collabora.com> wrote:
+On Wed, 12 Feb 2025 at 01:08, Eduard Zingerman <eddyz87@gmail.com> wrote:
 >
-> +Florent, who's working on protected-mode support in Panthor.
->
-> Hi Jens,
->
-> On Tue, 17 Dec 2024 11:07:36 +0100
-> Jens Wiklander <jens.wiklander@linaro.org> wrote:
->
-> > Hi,
+> On Thu, 2025-02-06 at 02:54 -0800, Kumar Kartikeya Dwivedi wrote:
+> > Introduce verifier-side support for rqspinlock kfuncs. The first step is
+> > allowing bpf_res_spin_lock type to be defined in map values and
+> > allocated objects, so BTF-side is updated with a new BPF_RES_SPIN_LOCK
+> > field to recognize and validate.
 > >
-> > This patch set allocates the restricted DMA-bufs via the TEE subsystem.
->
-> We're currently working on protected-mode support for Panthor [1] and it
-> looks like your series (and the OP-TEE implementation that goes with
-> it) would allow us to have a fully upstream/open solution for the
-> protected content use case we're trying to support. I need a bit more
-> time to play with the implementation but this looks very promising
-> (especially the lend rstmem feature, which might help us allocate our
-> FW sections that are supposed to execute code accessing protected
-> content).
-
-Glad to hear that, if you can demonstrate an open source use case
-based on this series then it will help to land it. We really would
-love to see support for restricted DMA-buf consumers be it GPU, crypto
-accelerator, media pipeline etc.
-
->
+> > Any object cannot have both bpf_spin_lock and bpf_res_spin_lock, only
+> > one of them (and at most one of them per-object, like before) must be
+> > present. The bpf_res_spin_lock can also be used to protect objects that
+> > require lock protection for their kfuncs, like BPF rbtree and linked
+> > list.
 > >
-> > The TEE subsystem handles the DMA-buf allocations since it is the TEE
-> > (OP-TEE, AMD-TEE, TS-TEE, or perhaps a future QCOMTEE) which sets up the
-> > restrictions for the memory used for the DMA-bufs.
+> > The verifier plumbing to simulate success and failure cases when calling
+> > the kfuncs is done by pushing a new verifier state to the verifier state
+> > stack which will verify the failure case upon calling the kfunc. The
+> > path where success is indicated creates all lock reference state and IRQ
+> > state (if necessary for irqsave variants). In the case of failure, the
+> > state clears the registers r0-r5, sets the return value, and skips kfunc
+> > processing, proceeding to the next instruction.
 > >
-> > I've added a new IOCTL, TEE_IOC_RSTMEM_ALLOC, to allocate the restricted
-> > DMA-bufs. This IOCTL reaches the backend TEE driver, allowing it to choose
-> > how to allocate the restricted physical memory.
+> > When marking the return value for success case, the value is marked as
+> > 0, and for the failure case as [-MAX_ERRNO, -1]. Then, in the program,
+> > whenever user checks the return value as 'if (ret)' or 'if (ret < 0)'
+> > the verifier never traverses such branches for success cases, and would
+> > be aware that the lock is not held in such cases.
+> >
+> > We push the kfunc state in check_kfunc_call whenever rqspinlock kfuncs
+> > are invoked. We introduce a kfunc_class state to avoid mixing lock
+> > irqrestore kfuncs with IRQ state created by bpf_local_irq_save.
+> >
+> > With all this infrastructure, these kfuncs become usable in programs
+> > while satisfying all safety properties required by the kernel.
+> >
+> > Signed-off-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+> > ---
 >
-> I'll probably have more questions soon, but here's one to start: any
-> particular reason you didn't go for a dma-heap to expose restricted
-> buffer allocation to userspace? I see you already have a cdev you can
-> take ioctl()s from, but my understanding was that dma-heap was the
-> standard solution for these device-agnostic/central allocators.
+> Apart from a few nits, I think this patch looks good.
+>
+> Acked-by: Eduard Zingerman <eddyz87@gmail.com>
+>
 
-This series started with the DMA heap approach only here [1] but later
-discussions [2] lead us here. To point out specifically:
+Thanks!
 
-- DMA heaps require reliance on DT to discover static restricted
-regions carve-outs whereas via the TEE implementation driver (eg.
-OP-TEE) those can be discovered dynamically.
-- Dynamic allocation of buffers and making them restricted requires
-vendor specific driver hooks with DMA heaps whereas the TEE subsystem
-abstracts that out with underlying TEE implementation (eg. OP-TEE)
-managing the dynamic buffer restriction.
-- TEE subsystem already has a well defined user-space interface for
-managing shared memory buffers with TEE and restricted DMA buffers
-will be yet another interface managed along similar lines.
+> [...]
+>
+> > diff --git a/include/linux/bpf_verifier.h b/include/linux/bpf_verifier.h
+> > index 32c23f2a3086..ed444e44f524 100644
+> > --- a/include/linux/bpf_verifier.h
+> > +++ b/include/linux/bpf_verifier.h
+> > @@ -115,6 +115,15 @@ struct bpf_reg_state {
+> >                       int depth:30;
+> >               } iter;
+> >
+> > +             /* For irq stack slots */
+> > +             struct {
+> > +                     enum {
+> > +                             IRQ_KFUNC_IGNORE,
+>
+> Is this state ever used?
+> mark_stack_slot_irq_flag() is always called with either NATIVE or LOCK.
 
-[1] https://lore.kernel.org/lkml/mzur3odofwwrdqnystozjgf3qtvb73wqjm6g2vf5dfsqiehaxk@u67fcarhm6ge/T/
-[2] https://lore.kernel.org/lkml/CAFA6WYPtp3H5JhxzgH9=z2EvNL7Kdku3EmG1aDkTS-gjFtNZZA@mail.gmail.com/
-
--Sumit
+Hm, no, it was just the default / invalid value, I guess it can be dropped.
 
 >
-> Regards,
+> > +                             IRQ_NATIVE_KFUNC,
+> > +                             IRQ_LOCK_KFUNC,
+> > +                     } kfunc_class;
+> > +             } irq;
+> > +
+> >               /* Max size from any of the above. */
+> >               struct {
+> >                       unsigned long raw1;
 >
-> Boris
+> [...]
 >
-> [1]https://lwn.net/ml/all/cover.1738228114.git.florent.tomasin@arm.com/#t
+> > @@ -8038,36 +8059,53 @@ static int process_spin_lock(struct bpf_verifier_env *env, int regno,
+> >       }
+> >
+> >       rec = reg_btf_record(reg);
+> > -     if (!btf_record_has_field(rec, BPF_SPIN_LOCK)) {
+> > -             verbose(env, "%s '%s' has no valid bpf_spin_lock\n", map ? "map" : "local",
+> > -                     map ? map->name : "kptr");
+> > +     if (!btf_record_has_field(rec, is_res_lock ? BPF_RES_SPIN_LOCK : BPF_SPIN_LOCK)) {
+> > +             verbose(env, "%s '%s' has no valid %s_lock\n", map ? "map" : "local",
+> > +                     map ? map->name : "kptr", lock_str);
+> >               return -EINVAL;
+> >       }
+> > -     if (rec->spin_lock_off != val + reg->off) {
+> > -             verbose(env, "off %lld doesn't point to 'struct bpf_spin_lock' that is at %d\n",
+> > -                     val + reg->off, rec->spin_lock_off);
+> > +     spin_lock_off = is_res_lock ? rec->res_spin_lock_off : rec->spin_lock_off;
+> > +     if (spin_lock_off != val + reg->off) {
+> > +             verbose(env, "off %lld doesn't point to 'struct %s_lock' that is at %d\n",
+> > +                     val + reg->off, lock_str, spin_lock_off);
+> >               return -EINVAL;
+> >       }
+> >       if (is_lock) {
+> >               void *ptr;
+> > +             int type;
+> >
+> >               if (map)
+> >                       ptr = map;
+> >               else
+> >                       ptr = btf;
+> >
+> > -             if (cur->active_locks) {
+> > -                     verbose(env,
+> > -                             "Locking two bpf_spin_locks are not allowed\n");
+> > -                     return -EINVAL;
+> > +             if (!is_res_lock && cur->active_locks) {
+>
+> Nit: having '&& cur->active_locks' in this branch but not the one for
+>      'is_res_lock' is a bit confusing. As far as I understand this is
+>      just an optimization, and active_locks check could be done (or dropped)
+>      in both cases.
+
+Yeah, I can make it consistent by adding the check to both.
+
+>
+> > +                     if (find_lock_state(env->cur_state, REF_TYPE_LOCK, 0, NULL)) {
+> > +                             verbose(env,
+> > +                                     "Locking two bpf_spin_locks are not allowed\n");
+> > +                             return -EINVAL;
+> > +                     }
+> > +             } else if (is_res_lock) {
+> > +                     if (find_lock_state(env->cur_state, REF_TYPE_RES_LOCK, reg->id, ptr)) {
+> > +                             verbose(env, "Acquiring the same lock again, AA deadlock detected\n");
+> > +                             return -EINVAL;
+> > +                     }
+> >               }
+>
+> Nit: there is no branch for find_lock_state(... REF_TYPE_RES_LOCK_IRQ ...),
+>      this is not a problem, as other checks catch the imbalance in
+>      number of unlocks or unlock of the same lock, but verifier won't
+>      report the above "AA deadlock" message for bpf_res_spin_lock_irqsave().
+>
+
+Good point, will fix.
+
+> The above two checks make it legal to take resilient lock while
+> holding regular lock and vice versa. This is probably ok, can't figure
+> out an example when this causes trouble.
+
+Yeah, that shouldn't cause a problem.
+
+
+>
+> > -             err = acquire_lock_state(env, env->insn_idx, REF_TYPE_LOCK, reg->id, ptr);
+> > +
+> > +             if (is_res_lock && is_irq)
+> > +                     type = REF_TYPE_RES_LOCK_IRQ;
+> > +             else if (is_res_lock)
+> > +                     type = REF_TYPE_RES_LOCK;
+> > +             else
+> > +                     type = REF_TYPE_LOCK;
+> > +             err = acquire_lock_state(env, env->insn_idx, type, reg->id, ptr);
+> >               if (err < 0) {
+> >                       verbose(env, "Failed to acquire lock state\n");
+> >                       return err;
+> >               }
+> >       } else {
+> >               void *ptr;
+> > +             int type;
+> >
+> >               if (map)
+> >                       ptr = map;
+>
+> [...]
+>
 
