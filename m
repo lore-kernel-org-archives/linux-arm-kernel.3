@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF1DAC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 14:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D910C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 14:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DBok5ljzTeLLhCjqjxrcZsgYahXobFmQsrwlu8b6yG8=; b=YFWr4Ptav0q3QRjAvsqL8/G1bS
-	DGaG+fTSXspQJkcZ0POEFLILEsiQIg96YzAKDPOpTe5E6BGEkPsnKW4xOuzPtFrRwcUeiAVPuTVOL
-	JVX3jThaX9FIpcxYzO228AvuRL8Up7j1fA4GjhEXNmte1kMu0DgRf2v8rhCXlxRUDRBDG/RL3PRe6
-	UcATrIq7yLxDyuV9p8LankD+xeInEuAZyvKm2LFMXTiUm4T9R3vEf8Kb+7vR7vzP9inNCCuLEYXC3
-	KvHYNpktvoaT/pFZa2tm+JfxpHZ6GGEujMn/4A8S13imv4P9xUi3wHF0LO/QTt/TKXRxdPMJjqGII
-	wRqGPyig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BzW+SUPbkzmDCTtzGAbH75OVDoj0R1lG79nB7e2KUr8=; b=ui0thLIPYOm1IG35Fm+GKxISnu
+	TwXZ1u4CVBHJFiDnphinLtekCMmq/i/nOzpaI414Ej6yfv1MDWeyxixG/EtoXoUd9Vx1JxwvLCUYJ
+	pWFPU6wamZmYTbGotPEFXHFdb3wHF0NY2WV047L46bvWwUepsBz+2J0Lu38EGNPrNheHBXAmZ4PoY
+	quCAMLwmnWs8GaEoCCa9xEDAF3CNznXL0+GYYdGvusch5xN7QraPq2oR5hf5bKDjjzzShQBehmFjy
+	dNoTAv9HIy75Lrwg4mU1MZL8B+1I9OhCfZrBOTOfu4w00k4QynOSD57OC7SdWsyxSW0Ryq50RS+gV
+	94zwAMdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiaIg-0000000BLgv-3DS0;
-	Thu, 13 Feb 2025 14:34:46 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1tiaIj-0000000BLm6-0oqZ;
+	Thu, 13 Feb 2025 14:34:49 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiZvh-0000000BGqP-162B;
-	Thu, 13 Feb 2025 14:11:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739455862; x=1770991862;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=ybN5Nygx8hZ29vGg+klw6Hx6uz4qirA/yKTm+8272bo=;
-  b=aNMqMZwVlMV6V7OBTn9YiXo0UVPw1jS902+QiLm/Gf6MhMEkgMrnzShJ
-   mezlkF+a/VJ8FF5udJ4Y03CQVqSHxdzAsJgxs91GxUcy8J5WTmvdi0Ezk
-   7kJcx04UuoCq3C7kChNtPd1yC1GGePp+ZxYwgt5pr5AahV0cOdDwlbucV
-   UNdC3/iQ19h0tLLJbsfnuI8tl7IrGMHqJpow7BXFw6a3GpdZfRQH30Toq
-   erEk7hccchK+ufSqDsMywruJX6HvUhWph9YaQTgjSCd++DBrsJu5vWQeK
-   TqX2B1jcSsMl6yNBpLDXIkP+RmXwygend64qseI+BASGA7DTgqdQgr7HQ
-   w==;
-X-CSE-ConnectionGUID: oLT8U7ilTGmp9JWXnw9ypQ==
-X-CSE-MsgGUID: WmlQhrb8ReKZDT9i0zWObQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11344"; a="40022170"
-X-IronPort-AV: E=Sophos;i="6.13,282,1732608000"; 
-   d="scan'208";a="40022170"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 06:10:59 -0800
-X-CSE-ConnectionGUID: BwV8tZeoSYuucBgwq9XW7g==
-X-CSE-MsgGUID: zwLfW2AwRTybHJ9Kyd0XPQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="117777628"
-Received: from black.fi.intel.com ([10.237.72.28])
-  by fmviesa005.fm.intel.com with ESMTP; 13 Feb 2025 06:10:54 -0800
-Received: by black.fi.intel.com (Postfix, from userid 1003)
-	id 6F5333BA; Thu, 13 Feb 2025 16:10:47 +0200 (EET)
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Cc: Krzysztof Adamski <krzysztof.adamski@nokia.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Kamal Dasu <kamal.dasu@broadcom.com>,
-	Stefan Roese <sr@denx.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>
-Subject: [PATCH v2 05/10] i2c: eg20t: Use i2c_10bit_addr_*_from_msg() helpers
-Date: Thu, 13 Feb 2025 16:07:19 +0200
-Message-ID: <20250213141045.2716943-6-andriy.shevchenko@linux.intel.com>
-X-Mailer: git-send-email 2.45.1.3035.g276e886db78b
-In-Reply-To: <20250213141045.2716943-1-andriy.shevchenko@linux.intel.com>
-References: <20250213141045.2716943-1-andriy.shevchenko@linux.intel.com>
+	id 1tiZxK-0000000BH8b-0fzk
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 14:12:43 +0000
+From: Kurt Kanzenbach <kurt@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1739455957;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BzW+SUPbkzmDCTtzGAbH75OVDoj0R1lG79nB7e2KUr8=;
+	b=NKCF61zds30qngIyng+oc5y0lDPbl/kQvL/oPHzrRxyQdo0qUFGV3iUaHUI9pqAFxDBN0j
+	8WxBzE7tYHvxVYcuStC9AIdYqKcuTP7iDB3hwZJ8rsavtdjMhMwXTtXOgmzV2ni0S/6zpc
+	0nXOV5mbs2sY2X+swrupaNMzinYeYT/csqmFkzhLisp0Hqn4U9v6tNC46LsUoVXfwlkcVD
+	+zWg4zrHq5LWSdjY5jcWKZcljSGQGncBHzFDm6EOkVl1TcIqaz5MbHrgsB4f4ARzrynwSd
+	KwEDSUPSGHc3VBHXkwkFABtwUD05jpVtvbV3bqD4lLkINJr28B2kRhmsGtxamg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1739455957;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BzW+SUPbkzmDCTtzGAbH75OVDoj0R1lG79nB7e2KUr8=;
+	b=uTTjkpO/ZnaEGhucyOJmim3FeReC/SHMv/5yuThYmbR8aubDStcpBh4+GwNGlZpkQIoTTY
+	Tokwx+8vylKv7GDQ==
+To: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>, Vladimir
+ Oltean <vladimir.oltean@nxp.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel
+ <przemyslaw.kitszel@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, Simon Horman
+ <horms@kernel.org>, Russell King <linux@armlinux.org.uk>, Alexei
+ Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend
+ <john.fastabend@gmail.com>, Furong Xu <0x1207@gmail.com>, Russell King
+ <rmk+kernel@armlinux.org.uk>, Serge Semin <fancer.lancer@gmail.com>,
+ Xiaolei Wang <xiaolei.wang@windriver.com>, Suraj Jaiswal
+ <quic_jsuraj@quicinc.com>, Kory Maincent <kory.maincent@bootlin.com>, Gal
+ Pressman <gal@nvidia.com>, Jesper Nilsson <jesper.nilsson@axis.com>,
+ Andrew Halaney <ahalaney@redhat.com>, Choong Yong Liang
+ <yong.liang.choong@linux.intel.com>, Kunihiko Hayashi
+ <hayashi.kunihiko@socionext.com>, Vinicius Costa Gomes
+ <vinicius.gomes@intel.com>, intel-wired-lan@lists.osuosl.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH iwl-next v4 0/9] igc: Add support for Frame Preemption
+ feature in IGC
+In-Reply-To: <1c981aa1-e796-4c53-9853-3eae517f2f6d@linux.intel.com>
+References: <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
+ <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
+ <20250212220121.ici3qll66pfoov62@skbuf>
+ <b19357dc-590d-458c-9646-ee5993916044@linux.intel.com>
+ <87cyfmnjdh.fsf@kurt.kurt.home>
+ <5902cc28-a649-4ae9-a5ba-83aa265abaf8@linux.intel.com>
+ <20250213130003.nxt2ev47a6ppqzrq@skbuf>
+ <1c981aa1-e796-4c53-9853-3eae517f2f6d@linux.intel.com>
+Date: Thu, 13 Feb 2025 15:12:35 +0100
+Message-ID: <877c5undbg.fsf@kurt.kurt.home>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_061101_346735_0C96EDA2 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20250213_061242_478837_311DC562 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,128 +103,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use i2c_10bit_addr_*_from_msg() helpers instead of local copy.
-No functional change intended.
+--=-=-=
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
----
- drivers/i2c/busses/i2c-eg20t.c | 28 +++++-----------------------
- 1 file changed, 5 insertions(+), 23 deletions(-)
+On Thu Feb 13 2025, Abdul Rahim, Faizal wrote:
+> On 13/2/2025 9:00 pm, Vladimir Oltean wrote:
+>> On Thu, Feb 13, 2025 at 08:54:18PM +0800, Abdul Rahim, Faizal wrote:
+>>>> Well, my idea was to move the current mqprio offload implementation fr=
+om
+>>>> legacy TSN Tx mode to the normal TSN Tx mode. Then, taprio and mqprio
+>>>> can share the same code (with or without fpe). I have a draft patch
+>>>> ready for that. What do you think about it?
+>>>
+>>> Hi Kurt,
+>>>
+>>> I=E2=80=99m okay with including it in this series and testing fpe + mqp=
+rio, but I=E2=80=99m
+>>> not sure if others might be concerned about adding different functional
+>>> changes in this fpe series.
+>>>
+>>> Hi Vladimir,
+>>> Any thoughts on this ?
+>>=20
+>> Well, what do you think of my split proposal from here, essentially
+>> drawing the line for the first patch set at just ethtool mm?
+>> https://lore.kernel.org/netdev/20250213110653.iqy5magn27jyfnwh@skbuf/
+>>=20
+>
+> Honestly, after reconsidering, I=E2=80=99d prefer to keep the current ser=
+ies as is=20
+> (without Kurt=E2=80=99s patch), assuming you=E2=80=99re okay with enablin=
+g mqprio + fpe=20
+> later rather than at the same time as taprio + fpe. There likely won=E2=
+=80=99t be=20
+> any additional work needed for mqprio + fpe after Kurt=E2=80=99s patch is=
+ accepted,=20
+> since it will mostly reuse the taprio code flow.
 
-diff --git a/drivers/i2c/busses/i2c-eg20t.c b/drivers/i2c/busses/i2c-eg20t.c
-index 4914bfbee2a9..efdaddf99f9e 100644
---- a/drivers/i2c/busses/i2c-eg20t.c
-+++ b/drivers/i2c/busses/i2c-eg20t.c
-@@ -48,8 +48,6 @@
- 
- #define BUS_IDLE_TIMEOUT	20
- #define PCH_I2CCTL_I2CMEN	0x0080
--#define TEN_BIT_ADDR_DEFAULT	0xF000
--#define TEN_BIT_ADDR_MASK	0xF0
- #define PCH_START		0x0020
- #define PCH_RESTART		0x0004
- #define PCH_ESR_START		0x0001
-@@ -58,7 +56,6 @@
- #define PCH_ACK			0x0008
- #define PCH_GETACK		0x0001
- #define CLR_REG			0x0
--#define I2C_RD			0x1
- #define I2CMCF_BIT		0x0080
- #define I2CMIF_BIT		0x0002
- #define I2CMAL_BIT		0x0010
-@@ -76,8 +73,6 @@
- #define I2CMBB_BIT		0x0020
- #define BUFFER_MODE_MASK	(I2CBMFI_BIT | I2CBMAL_BIT | I2CBMNA_BIT | \
- 				I2CBMTO_BIT | I2CBMIS_BIT)
--#define I2C_ADDR_MSK		0xFF
--#define I2C_MSB_2B_MSK		0x300
- #define FAST_MODE_CLK		400
- #define FAST_MODE_EN		0x0001
- #define SUB_ADDR_LEN_MAX	4
-@@ -371,16 +366,12 @@ static s32 pch_i2c_writebytes(struct i2c_adapter *i2c_adap,
- 	struct i2c_algo_pch_data *adap = i2c_adap->algo_data;
- 	u8 *buf;
- 	u32 length;
--	u32 addr;
--	u32 addr_2_msb;
--	u32 addr_8_lsb;
- 	s32 wrcount;
- 	s32 rtn;
- 	void __iomem *p = adap->pch_base_address;
- 
- 	length = msgs->len;
- 	buf = msgs->buf;
--	addr = msgs->addr;
- 
- 	/* enable master tx */
- 	pch_setbit(adap->pch_base_address, PCH_I2CCTL, I2C_TX_MODE);
-@@ -394,8 +385,7 @@ static s32 pch_i2c_writebytes(struct i2c_adapter *i2c_adap,
- 	}
- 
- 	if (msgs->flags & I2C_M_TEN) {
--		addr_2_msb = ((addr & I2C_MSB_2B_MSK) >> 7) & 0x06;
--		iowrite32(addr_2_msb | TEN_BIT_ADDR_MASK, p + PCH_I2CDR);
-+		iowrite32(i2c_10bit_addr_hi_from_msg(msgs), p + PCH_I2CDR);
- 		if (first)
- 			pch_i2c_start(adap);
- 
-@@ -403,8 +393,7 @@ static s32 pch_i2c_writebytes(struct i2c_adapter *i2c_adap,
- 		if (rtn)
- 			return rtn;
- 
--		addr_8_lsb = (addr & I2C_ADDR_MSK);
--		iowrite32(addr_8_lsb, p + PCH_I2CDR);
-+		iowrite32(i2c_10bit_addr_lo_from_msg(msgs), p + PCH_I2CDR);
- 	} else {
- 		/* set 7 bit slave address and R/W bit as 0 */
- 		iowrite32(i2c_8bit_addr_from_msg(msgs), p + PCH_I2CDR);
-@@ -490,15 +479,11 @@ static s32 pch_i2c_readbytes(struct i2c_adapter *i2c_adap, struct i2c_msg *msgs,
- 	u8 *buf;
- 	u32 count;
- 	u32 length;
--	u32 addr;
--	u32 addr_2_msb;
--	u32 addr_8_lsb;
- 	void __iomem *p = adap->pch_base_address;
- 	s32 rtn;
- 
- 	length = msgs->len;
- 	buf = msgs->buf;
--	addr = msgs->addr;
- 
- 	/* enable master reception */
- 	pch_clrbit(adap->pch_base_address, PCH_I2CCTL, I2C_TX_MODE);
-@@ -509,8 +494,7 @@ static s32 pch_i2c_readbytes(struct i2c_adapter *i2c_adap, struct i2c_msg *msgs,
- 	}
- 
- 	if (msgs->flags & I2C_M_TEN) {
--		addr_2_msb = ((addr & I2C_MSB_2B_MSK) >> 7);
--		iowrite32(addr_2_msb | TEN_BIT_ADDR_MASK, p + PCH_I2CDR);
-+		iowrite32(i2c_10bit_addr_hi_from_msg(msgs) & ~I2C_M_RD, p + PCH_I2CDR);
- 		if (first)
- 			pch_i2c_start(adap);
- 
-@@ -518,8 +502,7 @@ static s32 pch_i2c_readbytes(struct i2c_adapter *i2c_adap, struct i2c_msg *msgs,
- 		if (rtn)
- 			return rtn;
- 
--		addr_8_lsb = (addr & I2C_ADDR_MSK);
--		iowrite32(addr_8_lsb, p + PCH_I2CDR);
-+		iowrite32(i2c_10bit_addr_lo_from_msg(msgs), p + PCH_I2CDR);
- 
- 		pch_i2c_restart(adap);
- 
-@@ -527,8 +510,7 @@ static s32 pch_i2c_readbytes(struct i2c_adapter *i2c_adap, struct i2c_msg *msgs,
- 		if (rtn)
- 			return rtn;
- 
--		addr_2_msb |= I2C_RD;
--		iowrite32(addr_2_msb | TEN_BIT_ADDR_MASK, p + PCH_I2CDR);
-+		iowrite32(i2c_10bit_addr_hi_from_msg(msgs), p + PCH_I2CDR);
- 	} else {
- 		/* 7 address bits + R/W bit */
- 		iowrite32(i2c_8bit_addr_from_msg(msgs), p + PCH_I2CDR);
--- 
-2.45.1.3035.g276e886db78b
+I think so. After switching the Tx mode mqprio will basically be a
+special case of taprio with a dummy Qbv schedule. Also the driver
+currently rejects mqprio with hardware offloading and preemptible_tcs
+set. So, I do not see any issues in merging your fpe series first. I can
+handle the mqprio part afterwards.
 
+Thanks,
+Kurt
+
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJHBAEBCgAxFiEEvLm/ssjDfdPf21mSwZPR8qpGc4IFAmet/dMTHGt1cnRAbGlu
+dXRyb25peC5kZQAKCRDBk9HyqkZzguJiEACFtqLdMYECmeOz/p8OxgK9pkkB3GjE
+/ne59xGsryfADF8D4kteIgxdZSEh/EFP7Rx3QFpoDLRtDYcjVzoQ7acJi+TlV50M
+UalDx0SMG+0kbdtONmX7L0J5f6Z0PoMNwaF5skFbYqhkzai9Z9GK7B+OsNY8J/uQ
+aSPAOrykNyHbqGH2MKsAfNRIhwO0HFIwZPxCFKvuc6He4uhNaoW+vOXmd/UMi6Ht
+i7xQRrfR/D9e0oEKpbse2CDmsiQ1i5pC9xwyvMnCcfhsxZ+ERB1AG3IvP3pJn8Qk
+P3jcsgqmQ2loVOli8ezx1DphWU5UJ4GacQcdgggwlhBYSBH2TnV8MQAFYIGlLycQ
+EBY2NxIOY0UXfRA5+lDf3seCF7Os6T7R790hLo3ZWIVGPnkuXYLZYvDkJ/eD1Sm6
+MM6p5IxpsrR6XhZnUu+mmHs8J8iUj4xN8zFUKwYuWjC+neCIsjLQJtP7wPANKPgi
+0I2RXRut1MuSm7lrQMoD+n75oomFOqURsVm0WyrAiw7vAGNSsjqL1aIx0YIzHDs2
+mOwt1mPgHd21wTjjNfDt4z6MhLh5DaTLqZ8xyYju57Oa97gtsDZLXbUfytxjWaFm
+6+UOjgo/gCNday3bkXsvtrveLRdc+Ng6Ymb3bD5/M4cBO6K2irngg3R7uXXOB5Pm
+t1avzPuL0QscCw==
+=1mRZ
+-----END PGP SIGNATURE-----
+--=-=-=--
 
