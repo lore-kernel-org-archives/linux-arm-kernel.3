@@ -4,65 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B232C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 09:14:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E8DC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 09:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+LYqNM2YOh2CSpdKJZvKirP8vsqwkLkZDm/ACiFkCP0=; b=GJamELdoihrE8CieTiMH1/wpGQ
-	bfkrTJvEzaVVQWstyN4WNvXxacueHhctqaRtT4EXomX/8BBCi2uMZNCO+pPFhLf8O92oOWrxvlbxw
-	HQQ8gFfdthtCq9DXgbCqBX6nSt2Rk+tVP9MPOCJAkAcDRlZjST19aFVUYksGZMyQoLXYLx7M408oL
-	lrcnwCTcZHftpeVyahbiyumcpKWJTxiYUgPzsV8xSFDmn+53XIJST03Mo/poJHWWcB9NOxYitoctx
-	0eyRjS0opHTaYKcz3mVL0GFXZxnipwjeLMpOcb3ebbzfnEjiaS7M2BIZsdkPZRoAEm9KI+Hl4/S/H
-	h0PrYOew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nPPXp+DqYBNPtUl0nhKlU9ascHyp2ZkvND5NvkqHXIk=; b=aic8fgEqRTNfCmaBU1he6/DSw9
+	sonl4DmIu8ESG40x3BklQhLQlLBYn0uGZo+BYT6m+kABSG7y0yoMHmB/1y42NqRXf0qSLdwg94PqR
+	76ZTnPquN/OVp6Kl2Xj87uZP7gMqLix3odHEWgXNo/DVG9WvfmhowQbYYQ7epfMzIV7T7VdEPlmMu
+	xyzMpZFOmC/JXg471reRoWY9G+1nEB55E9N442GzIzIEEiP8hBBunGBUOmNZ/RROUfEbQYmTi3bTe
+	ImrRR7ZZcujChqPKU5LfiskJseeb/JrgUFmrBz3wmn2WKVldUoKGO2vkR0Alg3XfNYojA9hL8PMYu
+	f5t+HZlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiVIP-0000000APPX-1ev0;
-	Thu, 13 Feb 2025 09:14:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tiVJo-0000000APna-2b68;
+	Thu, 13 Feb 2025 09:15:36 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiV8P-0000000ANMX-2D6t
+	id 1tiV9U-0000000ANZx-3KXw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 09:03:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7F6885C0F75;
-	Thu, 13 Feb 2025 09:03:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6B1FC4CED1;
-	Thu, 13 Feb 2025 09:03:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739437428;
-	bh=IEPqyHTmr/nEf5lzsdVqV6RZ6BK9t/GQNcR6dYu4yrc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ByHxqda+ehRnaFPRonkLDaCEP+8wA8PDPmvtoI2kdc+H7EAdvKyssJPdy+PmxOtos
-	 xMsV+8ETqyHhHrYjpmNITbkVUfC6AwL0KbP2G9cw5GWfdSdHi1FbFRaLo5N+g3x2ar
-	 WdsnpPfFtOl0q39m8O7+n56EpxRkckOhoKdBmbejCXUXDdaXkqPOhARMok7i5NZofa
-	 kGheN/6yX7f4NqMYQUVPf3MYCjl9wJAgIV1+KP8cvvM3ug96f3M4UXsxL6ddGJvZy7
-	 X2vqqOP/9tD69TKAIGsXR9DNCjUC2t5KpbyTNlE2289kmf2j5V9l4L0FAZ61tYVYHA
-	 Ri9dCCdVanrPA==
-Date: Thu, 13 Feb 2025 10:03:44 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Amelie Delaunay <amelie.delaunay@foss.st.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 06/10] arm64: dts: st: add stm32mp235f-dk board support
-Message-ID: <20250213-truthful-accurate-gaur-bd118f@krzk-bin>
-References: <20250210-b4-stm32mp2_new_dts-v1-0-e8ef1e666c5e@foss.st.com>
- <20250210-b4-stm32mp2_new_dts-v1-6-e8ef1e666c5e@foss.st.com>
+	Thu, 13 Feb 2025 09:04:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739437495;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nPPXp+DqYBNPtUl0nhKlU9ascHyp2ZkvND5NvkqHXIk=;
+	b=ck6dZ29S2SdiwZsf4VOz7Cgg2dRswiCUzHR24yaEOAnusZFFUI55cLsERAG9VVbByICDXe
+	MAoUOECRPa67+9vi1b+vJv3bNhtTclLMh8DS1QdapzjqZMC0sffPWNMLOjPXhlbauFxjGf
+	bHjgixoxpVxRzYAYHbr5JJFt9pdDG7s=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-38-Ky60ulLIPJ2QX8ej2VEsPw-1; Thu, 13 Feb 2025 04:04:53 -0500
+X-MC-Unique: Ky60ulLIPJ2QX8ej2VEsPw-1
+X-Mimecast-MFC-AGG-ID: Ky60ulLIPJ2QX8ej2VEsPw_1739437492
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4393b6763a3so3241955e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 01:04:53 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739437492; x=1740042292;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nPPXp+DqYBNPtUl0nhKlU9ascHyp2ZkvND5NvkqHXIk=;
+        b=efZlO95tsFCKjrb7Lcl3iQ/QCbfpT8LdbgOy8FfonLF04KETa6wCjghVNhY+lr2NS+
+         pJu5g7Xz66tQ567YaR6WGeJGOqwESINhLCK/0YcCGxPb8cgaCSSywQTYq2lKqrAdlpJ/
+         3jzXZL4by7swHLDPEcTKsdAMzn8+ADruROxGzMN9I4LPlnj7aI7YyI+j5CncM8r0/WW2
+         3IgiY70eiqZmUIddwcw1O+TVgmKh/7oQ0oNS/lNrmTIwySiWacG/xE+OQT/iArwFGm4y
+         uYE1gPjzAZGE4avxYKhhTiK3mBEySCG9/JZNM8XoRnz29w/CBvssGtpGh+zknsHLIboV
+         Hbdw==
+X-Forwarded-Encrypted: i=1; AJvYcCXXMOM2uay7xrtaDNqZEx0sGEu/JcdzsvPeiVlLXbCSkBllsf9czkyY39dsYuEbGt7J9ZmCveDWDz+Vj/whiHx4@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywj9mMHBMU9cLx+2D/iMa3ElyXRZrl8YBtICLvPCDDc+ps8sIcX
+	y0AnNycauqpdbTrqhoXVl2wIseExWbkQF1yTmvZhPCw+zj860kBT1emyRTWAylvqWyG1+dIN0hb
+	xtBFb2orfc/gO4idCAH2ebn1fGEsnj0sz1tQylq7fDgM5xjK5beQwdE+BQ4Y6uPpZf8yHpjFY
+X-Gm-Gg: ASbGnctfRy/u8ezxZsAv2rh9Ee0Z82Dfco4rrQ9iRoE/wrsd4I2XMyHPTdLndITEziE
+	u9Jrj6H9ihjljh74BFbWyRdQKL80ncm48ySIakzVK/ouzcLHBackkzxDp1Jc8P7FQKhirAH4m3P
+	yYFC5KZLHiVuJvYLoGoCPB/UcjS/28r1eKQpqjujdCdon31zhGOMUf8Ra9WUKSxJ3Ya1ncFdLm6
+	MNaMV0vHoRSt6O+c1+ieY1mZtMgpSXNKoUhtNg2+e3jkjlOiMy/7kSO9orTp2TGc6xHozrholpx
+	Fk/q3CLFjdmwaJXRNx/Kon5yYTJSNpMz17E=
+X-Received: by 2002:a05:600c:46ce:b0:434:f609:1af7 with SMTP id 5b1f17b1804b1-439599258b1mr56603555e9.4.1739437492140;
+        Thu, 13 Feb 2025 01:04:52 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFWnvSDslS9x9V9t5sSHRI9c0hrSBXGtqBD2no/zOmtqcPI5lcyK+O8Y6XHZHX2Wk85H1SIZw==
+X-Received: by 2002:a05:600c:46ce:b0:434:f609:1af7 with SMTP id 5b1f17b1804b1-439599258b1mr56603075e9.4.1739437491770;
+        Thu, 13 Feb 2025 01:04:51 -0800 (PST)
+Received: from [192.168.88.253] (146-241-31-160.dyn.eolo.it. [146.241.31.160])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259d58f3sm1253334f8f.73.2025.02.13.01.04.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Feb 2025 01:04:51 -0800 (PST)
+Message-ID: <a42ec2d4-2e4f-4d1d-b204-b637c1106690@redhat.com>
+Date: Thu, 13 Feb 2025 10:04:50 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250210-b4-stm32mp2_new_dts-v1-6-e8ef1e666c5e@foss.st.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net: ethernet: mediatek: add EEE support
+To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+ Lorenzo Bianconi <lorenzo@kernel.org>
+References: <20250210125246.1950142-1-dqfext@gmail.com>
+Cc: linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ netdev@vger.kernel.org, Russell King <linux@armlinux.org.uk>,
+ linux-kernel@vger.kernel.org,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
+ Qingfang Deng <dqfext@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20250210125246.1950142-1-dqfext@gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: kMj9BgTBBIPzVRMaT2r5bPoERSXKMLZVq3p9qPJvgjg_1739437492
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_010349_652526_98BA1C1D 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20250213_010456_906601_0EE00CF5 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,86 +116,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 04:21:00PM +0100, Amelie Delaunay wrote:
-> Add STM32MP235F Discovery Kit board support. It embeds a STM32MP235FAK
-> SoC, with 4GB of LPDDR4, 2*USB typeA, 1*USB3 typeC, 1*ETH, wifi/BT
-> combo, DSI HDMI, LVDS connector ...
+On 2/10/25 1:52 PM, Qingfang Deng wrote:
+> Add EEE support to MediaTek SoC Ethernet. The register fields are
+> similar to the ones in MT7531, except that the LPI threshold is in
+> milliseconds.
 > 
-> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
-> ---
->  arch/arm64/boot/dts/st/Makefile           |   1 +
->  arch/arm64/boot/dts/st/stm32mp235f-dk.dts | 115 ++++++++++++++++++++++++++++++
->  2 files changed, 116 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/st/Makefile b/arch/arm64/boot/dts/st/Makefile
-> index 0cc12f2b1dfeea6510793ea26f599f767df77749..06364152206997863d0991c25589de73c63494fb 100644
-> --- a/arch/arm64/boot/dts/st/Makefile
-> +++ b/arch/arm64/boot/dts/st/Makefile
-> @@ -1,4 +1,5 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  dtb-$(CONFIG_ARCH_STM32) += \
-> +	stm32mp235f-dk.dtb \
->  	stm32mp257f-dk.dtb \
->  	stm32mp257f-ev1.dtb
-> diff --git a/arch/arm64/boot/dts/st/stm32mp235f-dk.dts b/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..08e330d310749506c5b0e7a1fb2f80dfa134400a
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/st/stm32mp235f-dk.dts
-> @@ -0,0 +1,115 @@
-> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
-> +/*
-> + * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
-> + * Author: Amelie Delaunay <amelie.delaunay@foss.st.com> for STMicroelectronics.
-> + */
-> +
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/input/input.h>
-> +#include <dt-bindings/leds/common.h>
-> +#include "stm32mp235.dtsi"
-> +#include "stm32mp23xf.dtsi"
-> +#include "stm32mp25-pinctrl.dtsi"
-> +#include "stm32mp25xxak-pinctrl.dtsi"
-> +
-> +/ {
-> +	model = "STMicroelectronics STM32MP235F-DK Discovery Board";
-> +	compatible = "st,stm32mp235f-dk", "st,stm32mp235";
-> +
-> +	aliases {
-> +		serial0 = &usart2;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial0:115200n8";
-> +	};
-> +
-> +	gpio-keys {
-> +		compatible = "gpio-keys";
-> +
-> +		button-user-1 {
-> +			label = "User-1";
-> +			linux,code = <BTN_1>;
-> +			gpios = <&gpioc 5 GPIO_ACTIVE_HIGH>;
-> +			status = "okay";
+> Signed-off-by: Qingfang Deng <dqfext@gmail.com>
 
-Where is it disabled?
+@Felix, @Sean, @Lorenzo: could you please have a look?
 
-> +		};
-> +
-> +		button-user-2 {
-> +			label = "User-2";
-> +			linux,code = <BTN_2>;
-> +			gpios = <&gpioc 11 GPIO_ACTIVE_HIGH>;
-> +			status = "okay";
+Thanks!
 
-Same question
-
-> +		};
-> +	};
-
-Best regards,
-Krzysztof
+Paolo
 
 
