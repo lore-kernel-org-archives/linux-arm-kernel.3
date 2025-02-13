@@ -4,154 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CC5CC0219D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 11:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC4AC0219D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 11:21:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hic5Te4/qMTrCao5s3Ma/8xESaCxJSegfzlrkEGMJds=; b=uj3aoc/XR7iQSAfQEt1QY97WMK
-	k3I8OwCvhohJzC82mKSx1Bw/5Fo4IqJuLwaDY1tkaxIZ79TisQjw8QH/P8vk2Wo9lDZ9MMRIeMezF
-	LMY25r7EqRSvEWUampVjLdFXlrQiyQn16Ldw3y9u1CvUckG4AfpqI6+CM7Gldb1ecenSyLo3qxL8K
-	hNHiksB/ap38VWILhyZotfCZ2LeiofMWPX69j6DPW1Hnnf20dDP3oHz7sLOJP/e9BYeZRlJvV7P22
-	DQUwduQefdOXhsLiOK1UPVBKZSbJD3y0XH1y8rXF4Vsng/q1D7DHbyR4Pgu3JSVegur43yUd8iI0O
-	2F0feqJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TTO6CJ6SmdhAPQi6rNcCsicY3HTb00WzU62acQRynAg=; b=VJx3saLERNqyOjjtPafrLEGoEd
+	Lw7NSb/SR7pdiqtoo1e1dVh5WPiRnewo/tnu04IXC6Bh8KZtYUiLf7Dniv8SCMOkK7tAY4Ql0fcHV
+	OGzSVWabic8tj9a7mKrjK5otsHx9VtmHR7FGqTfnKhjHhury0NGGStnNlIgpS/b4cB9AGnYv0x5cV
+	+vcDXAz02MXg2i088fSV5Da6CxlzVqW9AIJib2NSF3OPQmDA9Dr9n/W35UcPBWaMDILXtXhxS7R27
+	We1tXpytPMkoyp3JcFkgUMpp82NI5FKPUYoQpn1qzUU6IRA/w2eZaaZxvgRn7YbHM/sdZuCeS/IP0
+	Z4M1fxzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXEw-0000000Ao6t-2ZIu;
-	Thu, 13 Feb 2025 11:18:42 +0000
-Received: from mail-bn1nam02on20629.outbound.protection.outlook.com ([2a01:111:f403:2407::629] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
+	id 1tiXHC-0000000AohF-4BnO;
+	Thu, 13 Feb 2025 11:21:03 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXCn-0000000Anjv-34LJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 11:16:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dHKGyqRAP9EP6Vja0sNquEmIN/5i5poeTm1+onptMBXRkaY42myF0Js2R7H2808bseu7+q8uuj92fUgDGqDxTWBc1+xOE4RJk3FqcRS/7TNNBqiFuYePEq/RrP5UGhFLHuVfpE/wVJr7lHBV2GYnbdxaJZ3QD7YJDBrs8M09S7zFFT1B8yn/3gmkUHYWGKbVxxeOUMNM7uuJJ32RZTWmxJUSJxMu/MOB6U5qJt2ou6J7OsIqx+5KGfmF4u0HZoKEwxvdji6rtzn+AnpUrmqBpbu1SsP2kJSxcKOgWJAnqiTGtD8Ak+ocoD9f6U9/C+6WU9MfnSpaUnYAyqKCUxZWUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Hic5Te4/qMTrCao5s3Ma/8xESaCxJSegfzlrkEGMJds=;
- b=hrWi4zozBg60zYl7jTP2VE7gFSKkJPkci2WrfcrG+vTl4SXfzRXL0ucqJFdTO50SxHrS33QJjpH0OJ4a6OK7RmncdMVvCXRXtFz+3YGOiyGKBUNlqwXduA22tkSns3L10P12W8bOjIQtsrfXfAP+VY4W9/l6GiDGrHsQZBYlUnMkQF/WaGh36rPRhCWEzVOkQQB8sxJY7cqot94Nyx9MN9TkBDOP1eNc726WPAJHK3GVNszg557vxM7vHwvc9kvb33aBQ6P6+2BHNFMd9fcmfJC+J1UGlcLiY7lHOECXNbZfyN6Kon0sQPqn8BDjufiAGc9scdlXS0sCvvbRpDzegQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Hic5Te4/qMTrCao5s3Ma/8xESaCxJSegfzlrkEGMJds=;
- b=qoQq24Fl1AKIj0DZ0fcHz1vbTO5QmnZ5qAO51TF4YsPI00FleKPou9vcy5xrkKTQGETyDbXx32be4Sq4xwV3xZNn/b7LZwSoM7adhftYP3UPzcN1Xv3Y+Xxm5W0P/Ivi6tDK+8q521fK/AEe/8BC6P0O/XTmvAzuucEapGyoa2g=
-Received: from LV8PR12MB9206.namprd12.prod.outlook.com (2603:10b6:408:186::21)
- by DS0PR12MB6631.namprd12.prod.outlook.com (2603:10b6:8:d1::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.17; Thu, 13 Feb
- 2025 11:16:23 +0000
-Received: from LV8PR12MB9206.namprd12.prod.outlook.com
- ([fe80::5447:387a:c920:8a4a]) by LV8PR12MB9206.namprd12.prod.outlook.com
- ([fe80::5447:387a:c920:8a4a%3]) with mapi id 15.20.8445.008; Thu, 13 Feb 2025
- 11:16:22 +0000
-From: "Jain, Ronak" <ronak.jain@amd.com>
-To: Rob Herring <robh@kernel.org>
-CC: "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "Simek, Michal" <michal.simek@amd.com>, "Manne, Nava
- kishore" <nava.kishore.manne@amd.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH 2/3] dt-bindings: firmware: xilinx: Add conditional
- pinctrl schema
-Thread-Topic: [PATCH 2/3] dt-bindings: firmware: xilinx: Add conditional
- pinctrl schema
-Thread-Index: AQHbeKKktzakC2pjxUKURYxGjWc/ybNCrZ0AgAJyC8A=
-Date: Thu, 13 Feb 2025 11:16:22 +0000
-Message-ID: <LV8PR12MB9206BA2BC6BBBA184B3E2FCD86FF2@LV8PR12MB9206.namprd12.prod.outlook.com>
-References: <20250206142244.2553237-1-ronak.jain@amd.com>
- <20250206142244.2553237-3-ronak.jain@amd.com>
- <20250211215354.GA1244436-robh@kernel.org>
-In-Reply-To: <20250211215354.GA1244436-robh@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: LV8PR12MB9206:EE_|DS0PR12MB6631:EE_
-x-ms-office365-filtering-correlation-id: 286ca788-79c5-47f3-915e-08dd4c1fd93f
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?epiHskvyGsM4KTGSV4ITEZaXuY1XBL+ORownzZuQKQQDO+yBB54uxh8fmudS?=
- =?us-ascii?Q?h34yTGKtDW7MAt6X5uxWu9JNK7DFGSuBtaIkT++UEqMHsC3AGBY4x9MMSrdo?=
- =?us-ascii?Q?K8LR+qvpI6/3rjFlI4mfHS8yaZ0qd54iwF200V5VMDNhovBwZUGmvF0vCQrc?=
- =?us-ascii?Q?B66emm6Z3aEVqKVL8TlO1VDyvANbLieDQc6bXDqK26CFSxDZ+NuJ5qmo5dlL?=
- =?us-ascii?Q?lEPtaWbcMgix0VmD7JIDX7ji6S4Qt66b2Vg5Wf+EWNBrbrqn0bM78Me2ujjo?=
- =?us-ascii?Q?BTPsNHJ169t0Wy1Im0qkNjsDSsr/lYnWgw8HXz5sTvVGE0q9Rd7dVHZeEq26?=
- =?us-ascii?Q?L4MH1Wvuc2MGgoB/y9nDui97LYCg7KQhh9qgA/StMlPFHSjnk4PW9m9KMLt1?=
- =?us-ascii?Q?/wtAfgtC2NR9tCxUgd8eElCUJjy6erZwWbBOQxFFvF/I3gdlHYp8RxZd9Uy9?=
- =?us-ascii?Q?TFJhWv24mRP+yoQZUgQmoeQMsDfp/YuPGDPu/FQlvWhifGC/D8PT4h/yASzu?=
- =?us-ascii?Q?1vsYIkfC87mmcozJ9Oxcq9uWynijA+R/7ZzEyKMNgqK4W2kHYKgvX3f9gZ00?=
- =?us-ascii?Q?4hXwuwGklTTNL4IoDChLie6hg4QkNWtW4+lTt8WkV6FRH9RJ8AfJnWvuA0fH?=
- =?us-ascii?Q?EEudOcCZvu20JdlZOhSIV5yZ4jcqBzZ+HjGOvwGhPxkiZZqgVqTj5tcOXG2E?=
- =?us-ascii?Q?kqjNFojep2x/HajR/Q4yeN8MO6qZfNpAWI0XmCoxogbWvnQfmyifWGfncNIn?=
- =?us-ascii?Q?EZX+YQlJ7BBVEQWSJxA9ek85844PgCUTpkFkj+L59amonwzdYJhc9z4gtbQb?=
- =?us-ascii?Q?KXW7PMlgBGFLrbbRLV1kpOWazOMcecf4IsX/SkNls3bKYUZ0A+79IgxXZtEJ?=
- =?us-ascii?Q?QepbyojRePEItJ8HhmSdiCcO+SwuJdhoLPu2+VBp1OGpznObrXq+dVYhaqft?=
- =?us-ascii?Q?xxj1bSS8nv/T2qngq/NIWWhVVLIgrv8+WaLy5p3M5NtGmvkNt4hIv/i2ZvaX?=
- =?us-ascii?Q?Z5wbihRpBRYxc4mSdBsOq9MSsKKO/RWMA3zJkuVf+K7NWbx67otzYVeMgLSH?=
- =?us-ascii?Q?BHeWD51gcnu4DL/A5B5OvJWQ1Ng9nlfT0xg59SBXHgjV4Dis39SszZJJ+7jF?=
- =?us-ascii?Q?c47FeF/DOoUypn1xKgc5vO+hYrIh08GqYWRYh0CBHSD9FNedk7KQWxQ7RbhC?=
- =?us-ascii?Q?HOBi8Xl90DLz4zhWOd62unZyteRrYzVDEcqAnQIeWocmuIg7ydyEhFav1TJb?=
- =?us-ascii?Q?eeN9pEngVeM0zLWYGSQizhn3vCfllgOxK6/oAi4HXoCTo0lYWMBDHvYt+vsc?=
- =?us-ascii?Q?Ydj41J6BDiAPbvoGPYlMmeJauWBlM+1dMjx1K/vYQdESVAR8cBXCqrQFvG8q?=
- =?us-ascii?Q?kqb8btkdBrzaUmC357uT+zZSLtDcYQ9wkwSmyhMkVJ5BdE11oTlCYl152FIM?=
- =?us-ascii?Q?6IGLJ2R30EtNDJr9r0tUBX/dc7Bw7uqf?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9206.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?nMQ5B1VvB9UHodVJp8DmSRg2CVOjSLNnkSDUo+DMPDX217IX9wb8+jyVy+Mt?=
- =?us-ascii?Q?f6/mGCgIUdh3jzRg2BRweO0wiZuekl/UH1zwtCg4Bg14EDaoC/sHG9lVP9qC?=
- =?us-ascii?Q?h2DLb3kzYO9SqRqrEvMOJ/yG2ip3+dqS0gN0ozcIx5R6vakYXWMypK5E/ZCT?=
- =?us-ascii?Q?P2lH2I73Sc12LhaO/u6mbtvkBo8O/PolQ22A2PsVaIckAqQVnilGx90fIyKv?=
- =?us-ascii?Q?pqAT+N3/Sb4AbVb4sBFGkb7bhIjoQJuD7MgyDz19TNse1hl/WEtGo2AilWOl?=
- =?us-ascii?Q?nxg0CYci1r9/cvrYfBCvPVLpQ+cSQAsQzt3DKoyH/8sDIlXRriaApIcdhgRm?=
- =?us-ascii?Q?Sdt9ThQScD0ySpr/LlX3GNFiIgV0HNzeUe+hC/1ka4t3thZrWvTwja6TEWIM?=
- =?us-ascii?Q?HKcIuJCaasTOMPMTfLIpgXu4hzFc9doNWr3IHCUluE/VMCj8Lw5a28+HCPnV?=
- =?us-ascii?Q?dOaXfZf9d/+izJm5CICa918kOw10Z/bMfKJhMqE5TL6dd0enOIbLCfYA310L?=
- =?us-ascii?Q?1MXzhr+BZVvq2+t/NCjqSEVLmEoEPMpqeQLAXz6x5bbCq6l+T4SoemWeXRnF?=
- =?us-ascii?Q?q14ZCR80a/c8OrLqAgrzD4rb890G67lAxd3pc2U2itjhqEqq/woX/xNRM/mY?=
- =?us-ascii?Q?EMM4MEPkw070RusRqXM+KvRGyuHZ6dnPvVOysc73TCvGi9shIFhqwg3H31+t?=
- =?us-ascii?Q?iahtaVdUruptChB0LtaAG1Ohm3S490udyf9Eb92lxqnaryMfTASBxiXDCk7l?=
- =?us-ascii?Q?i+L5kNulXy16Qu7pm7hUg9MxxfLZGHOyBorhB8fGnAvE/bQ7eJaMMe/jhMLw?=
- =?us-ascii?Q?ZTv5NnzmVd/jdiSbVd4kjCM/0YxHtjeYc9GAbJG9YPbobw+FNst8JY6mdqKs?=
- =?us-ascii?Q?KIbfDM2dytq+WMSF6TvmcV/ITgPPHDDMLysWGEFLvWMyI7IPh2HdfzJyPOG1?=
- =?us-ascii?Q?0/T22gjqNjPmOLg09eBEkyWzXa6APrNKAZzuXC+xLnYBEXPQK5O5OVqi48+T?=
- =?us-ascii?Q?377z8Xvg25KuT+vyX9HkYRdaDFDr4S9pvBUZjVa7zGXc0zwJzGLisAwV3Y50?=
- =?us-ascii?Q?VLkPCoHbhPAWdH5M2QShf6mYAc5Kl3xbLdK5MOqo5RJB1ZBdfMt61cF21lMT?=
- =?us-ascii?Q?k+Q2Hg5ugKqEdlwTKSwwz3tAK4AFA7a/KJLohAeMw1q0yEMivvDcSWni/pkv?=
- =?us-ascii?Q?7qAAbc7oxBlS6dfZRV7NcSPkCr/p6SnKILJrtfEVE+QjTfZxJ/DD2eaEFKae?=
- =?us-ascii?Q?+pstACAUucVyB7Ul/3M4mcJslv8hTrSxIiEtV1smOGd3Hsu2ShK3yY8c5za3?=
- =?us-ascii?Q?rpwMv/2ik6MKa070YdisxmFIGm6JHmKBQ63l9Z268UMmvT36Knk2bDsjSA5x?=
- =?us-ascii?Q?XG7Y4mT7VQKU36LVmyJJm5E+aenKs+G8qFPqfrnKtjwNpNKGbzy8DeoLO+hm?=
- =?us-ascii?Q?kcWNiGCnIJGInOgHt6dtGNcReTn4C5xRWwmVIWSiatPC/SbGnzyFlw6Ql5mu?=
- =?us-ascii?Q?bsRdz/x2LtjGqCgI4LUgnnoUDF9DQDk2tB9sWphhbP01wn7KZ9yB+SNH4T6l?=
- =?us-ascii?Q?0JkHDiS17qA20C/i0ms=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1tiXFm-0000000AoH1-0uqo;
+	Thu, 13 Feb 2025 11:19:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739445572;
+	bh=VVhA35UgQ4EjgRH1273ow+5alTEwIxmTUO6BAj3/0hA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=lC/Ab5szm2bjYLMRdo2NwKIc4yP96pKFqC/r+kjQYzHzMkPDYzTGyJcngvjRTEPPH
+	 vsy9t12N+qBdKAtMkogaiMu9dIlnc2DVhbWzUt/giiyk+OPfWh9s7qBPUs63XkSuos
+	 3yzObN7Q2sbf11WZMsVyQkBtP03wxLw9fDexGMsaW2KOciy01cWEltIdwW8jTrzFj4
+	 n+A7gwicu0AePss2sNH3wXG8wXxv6pP1ppx2eoopHLBbLdrJgSzhhA+6eu88TcsNg0
+	 hIMNw6MJsshTz+RJ9EIn3eg+JhzACCPxqoHDmrzWEQ/kIbTu21aRvEoqupoQ/7mNQX
+	 kyKp9T1y0ZR9g==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id CAF1A17E0E93;
+	Thu, 13 Feb 2025 12:19:31 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: matthias.bgg@gmail.com
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	angelogioacchino.delregno@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	kernel@collabora.com,
+	pablo.sun@mediatek.com
+Subject: [PATCH] arm64: dts: mediatek: mt8188: Add MTU3 nodes and correctly describe USB
+Date: Thu, 13 Feb 2025 12:19:28 +0100
+Message-ID: <20250213111928.56259-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9206.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 286ca788-79c5-47f3-915e-08dd4c1fd93f
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Feb 2025 11:16:22.8630
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 5CFyv1t9OaIqUKfd1bY7Jgh7wCYjXlLYNLRD5a3mWqCLWPv7gkAz7XUbfFyOib/X
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6631
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_031629_793974_E031944B 
-X-CRM114-Status: GOOD (  22.10  )
+X-CRM114-CacheID: sfid-20250213_031934_612165_129267E7 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,118 +79,284 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+The MT8188 SoC has three USB controllers, and all of them are behind
+the MTU3 DRD controller.
 
-> -----Original Message-----
-> From: Rob Herring <robh@kernel.org>
-> Sent: Wednesday, February 12, 2025 3:24 AM
-> To: Jain, Ronak <ronak.jain@amd.com>
-> Cc: krzk+dt@kernel.org; conor+dt@kernel.org; Simek, Michal
-> <michal.simek@amd.com>; Manne, Nava kishore
-> <nava.kishore.manne@amd.com>; devicetree@vger.kernel.org; linux-arm-
-> kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> Subject: Re: [PATCH 2/3] dt-bindings: firmware: xilinx: Add conditional p=
-inctrl
-> schema
->=20
-> On Thu, Feb 06, 2025 at 06:22:43AM -0800, Ronak Jain wrote:
-> > Updates the Device Tree bindings for Xilinx firmware by introducing
-> > conditional schema references for the pinctrl node.
-> >
-> > Previously, the pinctrl node directly referenced
-> > xlnx,zynqmp-pinctrl.yaml. However, this patch modifies the schema to
-> > conditionally apply the correct pinctrl schema based on the compatible
-> > property. Specifically:
-> > - If compatible contains "xlnx,zynqmp-pinctrl", reference
-> >   xlnx,zynqmp-pinctrl.yaml.
-> > - If compatible contains "xlnx,versal-pinctrl", reference
-> >   xlnx,versal-pinctrl.yaml.
-> >
-> > Additionally, an example entry for "xlnx,versal-pinctrl" has been
-> > added under the examples section.
-> >
-> > Signed-off-by: Ronak Jain <ronak.jain@amd.com>
-> > ---
-> >  .../firmware/xilinx/xlnx,zynqmp-firmware.yaml | 20 ++++++++++++++++++-
-> >  1 file changed, 19 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zyn=
-qmp-
-> firmware.yaml b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zy=
-nqmp-
-> firmware.yaml
-> > index 2b72fb9d3c22..d50438b0fca8 100644
-> > --- a/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-
-> firmware.yaml
-> > +++ b/Documentation/devicetree/bindings/firmware/xilinx/xlnx,zynqmp-
-> firmware.yaml
-> > @@ -76,7 +76,6 @@ properties:
-> >      type: object
-> >
-> >    pinctrl:
-> > -    $ref: /schemas/pinctrl/xlnx,zynqmp-pinctrl.yaml#
-> >      description: The pinctrl node provides access to pinconfig and pin=
-control
-> >        functionality available in firmware.
-> >      type: object
-> > @@ -106,6 +105,21 @@ properties:
-> >      type: object
-> >      deprecated: true
-> >
-> > +allOf:
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            const: xlnx,zynqmp-firmware
-> > +    then:
-> > +      properties:
-> > +        pinctrl:
-> > +          $ref: /schemas/pinctrl/xlnx,zynqmp-pinctrl.yaml#
-> > +    else:
-> > +      properties:
-> > +        pinctrl:
-> > +          $ref: /schemas/pinctrl/xlnx,versal-pinctrl.yaml#
->=20
-> The somewhat preferred way to do this would be to do this in the top
-> level:
->=20
-> pinctrl:
->   type: object
->   additionalProperties: true
->   properties:
->     compatible:
->       contains:
->         enum:
->           - xlnx,zynqmp-pinctrl
->           - xlnx,versal-pinctrl
->   required:
->     - compatible
->=20
-> Otherwise, the pinctrl schema ends up being applied twice.
+Add the missing MTU3 nodes, default disabled, for all USB controllers
+and move the related XHCI nodes to be children of their MTU3 DRD to
+correctly describe the SoC.
 
-Thanks for the patch review and inputs. I'll update and send the next versi=
-on.
+In order to retain USB functionality on all of the MT8188 and MT8390
+boards, also move the vusb33 supply and enable the relevant MTU3 nodes
+with special attention to the MT8188 Geralt Chromebooks, where it was
+necessary to set the dr_mode of all MTU3 controllers to host to avoid
+interfering with the EC performing DRD on its own.
 
-Thanks,
-Ronak
->=20
-> > +
-> >  required:
-> >    - compatible
-> >
-> > @@ -164,6 +178,10 @@ examples:
-> >          compatible =3D "xlnx,versal-fpga";
-> >        };
-> >
-> > +      pinctrl {
-> > +        compatible =3D "xlnx,versal-pinctrl";
-> > +      };
-> > +
-> >        xlnx_aes: zynqmp-aes {
-> >          compatible =3D "xlnx,zynqmp-aes";
-> >        };
-> > --
-> > 2.34.1
-> >
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ .../boot/dts/mediatek/mt8188-geralt.dtsi      |  18 +++
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi      | 121 ++++++++++++------
+ .../dts/mediatek/mt8390-genio-700-evk.dts     |  28 ++++
+ 3 files changed, 125 insertions(+), 42 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+index b6abecbcfa81..faed5c8bc721 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
+@@ -1103,6 +1103,12 @@ &u3phy2 {
+ };
+ 
+ /* USB detachable base */
++&ssusb0 {
++	dr_mode = "host";
++	vusb33-supply = <&pp3300_s3>;
++	status = "okay";
++};
++
+ &xhci0 {
+ 	/* controlled by EC */
+ 	vbus-supply = <&pp3300_z1>;
+@@ -1110,6 +1116,12 @@ &xhci0 {
+ };
+ 
+ /* USB3 hub */
++&ssusb1 {
++	dr_mode = "host";
++	vusb33-supply = <&pp3300_s3>;
++	status = "okay";
++};
++
+ &xhci1 {
+ 	vusb33-supply = <&pp3300_s3>;
+ 	vbus-supply = <&pp5000_usb_vbus>;
+@@ -1117,6 +1129,12 @@ &xhci1 {
+ };
+ 
+ /* USB BT */
++&ssusb2 {
++	dr_mode = "host";
++	vusb33-supply = <&pp3300_s3>;
++	status = "okay";
++};
++
+ &xhci2 {
+ 	/* no power supply since MT7921's power is controlled by PCIe */
+ 	/* MT7921's USB BT has issues with USB2 LPM */
+diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+index f324d5f57789..ce676b0465d4 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+@@ -1650,6 +1650,38 @@ spi5: spi@11019000 {
+ 			status = "disabled";
+ 		};
+ 
++		ssusb1: usb@11201000 {
++			compatible = "mediatek,mt8188-mtu3", "mediatek,mtu3";
++			reg = <0 0x11201000 0 0x2dff>, <0 0x11203e00 0 0x0100>;
++			reg-names = "mac", "ippc";
++			ranges = <0 0 0 0x11200000 0 0x3f00>;
++			#address-cells = <2>;
++			#size-cells = <2>;
++			interrupts-extended = <&gic GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH 0>;
++			assigned-clocks = <&topckgen CLK_TOP_USB_TOP>;
++			assigned-clock-parents = <&topckgen CLK_TOP_UNIVPLL_D5_D4>;
++			clocks = <&pericfg_ao CLK_PERI_AO_SSUSB_BUS>,
++				 <&topckgen CLK_TOP_SSUSB_TOP_REF>,
++				 <&pericfg_ao CLK_PERI_AO_SSUSB_XHCI>;
++			clock-names = "sys_ck", "ref_ck", "mcu_ck";
++			phys = <&u2port1 PHY_TYPE_USB2>, <&u3port1 PHY_TYPE_USB3>;
++			wakeup-source;
++			mediatek,syscon-wakeup = <&pericfg 0x468 2>;
++			status = "disabled";
++
++			xhci1: usb@0 {
++				compatible = "mediatek,mt8188-xhci", "mediatek,mtk-xhci";
++				reg = <0 0 0 0x1000>;
++				reg-names = "mac";
++				interrupts = <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH 0>;
++				assigned-clocks = <&topckgen CLK_TOP_SSUSB_XHCI>;
++				assigned-clock-parents = <&topckgen CLK_TOP_UNIVPLL_D5_D4>;
++				clocks = <&pericfg_ao CLK_PERI_AO_SSUSB_XHCI>;
++				clock-names = "sys_ck";
++				status = "disabled";
++			};
++		};
++
+ 		eth: ethernet@11021000 {
+ 			compatible = "mediatek,mt8188-gmac", "mediatek,mt8195-gmac",
+ 				     "snps,dwmac-5.10a";
+@@ -1747,27 +1779,6 @@ queue3 {
+ 			};
+ 		};
+ 
+-		xhci1: usb@11200000 {
+-			compatible = "mediatek,mt8188-xhci", "mediatek,mtk-xhci";
+-			reg = <0 0x11200000 0 0x1000>,
+-			      <0 0x11203e00 0 0x0100>;
+-			reg-names = "mac", "ippc";
+-			interrupts = <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH 0>;
+-			phys = <&u2port1 PHY_TYPE_USB2>,
+-			       <&u3port1 PHY_TYPE_USB3>;
+-			assigned-clocks = <&topckgen CLK_TOP_USB_TOP>,
+-					  <&topckgen CLK_TOP_SSUSB_XHCI>;
+-			assigned-clock-parents = <&topckgen CLK_TOP_UNIVPLL_D5_D4>,
+-						 <&topckgen CLK_TOP_UNIVPLL_D5_D4>;
+-			clocks = <&pericfg_ao CLK_PERI_AO_SSUSB_BUS>,
+-				 <&topckgen CLK_TOP_SSUSB_TOP_REF>,
+-				 <&pericfg_ao CLK_PERI_AO_SSUSB_XHCI>;
+-			clock-names = "sys_ck", "ref_ck", "mcu_ck";
+-			mediatek,syscon-wakeup = <&pericfg 0x468 2>;
+-			wakeup-source;
+-			status = "disabled";
+-		};
+-
+ 		mmc0: mmc@11230000 {
+ 			compatible = "mediatek,mt8188-mmc", "mediatek,mt8183-mmc";
+ 			reg = <0 0x11230000 0 0x10000>,
+@@ -1868,42 +1879,68 @@ imp_iic_wrap_c: clock-controller@11283000 {
+ 			#clock-cells = <1>;
+ 		};
+ 
+-		xhci2: usb@112a0000 {
+-			compatible = "mediatek,mt8188-xhci", "mediatek,mtk-xhci";
+-			reg = <0 0x112a0000 0 0x1000>,
+-			      <0 0x112a3e00 0 0x0100>;
++		ssusb2: usb@112a1000 {
++			compatible = "mediatek,mt8188-mtu3", "mediatek,mtu3";
++			reg = <0 0x112a1000 0 0x2dff>, <0 0x112a3e00 0 0x0100>;
+ 			reg-names = "mac", "ippc";
+-			interrupts = <GIC_SPI 536 IRQ_TYPE_LEVEL_HIGH 0>;
+-			phys = <&u2port2 PHY_TYPE_USB2>;
+-			assigned-clocks = <&topckgen CLK_TOP_SSUSB_XHCI_3P>,
+-					  <&topckgen CLK_TOP_USB_TOP_3P>;
+-			assigned-clock-parents = <&topckgen CLK_TOP_UNIVPLL_D5_D4>,
+-						 <&topckgen CLK_TOP_UNIVPLL_D5_D4>;
++			ranges = <0 0 0 0x112a0000 0 0x3f00>;
++			#address-cells = <2>;
++			#size-cells = <2>;
++			interrupts-extended = <&gic GIC_SPI 535 IRQ_TYPE_LEVEL_HIGH 0>;
++			assigned-clocks = <&topckgen CLK_TOP_USB_TOP_3P>;
++			assigned-clock-parents = <&topckgen CLK_TOP_UNIVPLL_D5_D4>;
+ 			clocks = <&pericfg_ao CLK_PERI_AO_SSUSB_3P_BUS>,
+ 				 <&topckgen CLK_TOP_SSUSB_TOP_P3_REF>,
+ 				 <&pericfg_ao CLK_PERI_AO_SSUSB_3P_XHCI>;
+ 			clock-names = "sys_ck", "ref_ck", "mcu_ck";
++			phys = <&u2port2 PHY_TYPE_USB2>;
++			wakeup-source;
++			mediatek,syscon-wakeup = <&pericfg 0x470 2>;
+ 			status = "disabled";
++
++			xhci2: usb@0 {
++				compatible = "mediatek,mt8188-xhci", "mediatek,mtk-xhci";
++				reg = <0 0 0 0x1000>;
++				reg-names = "mac";
++				interrupts = <GIC_SPI 536 IRQ_TYPE_LEVEL_HIGH 0>;
++				assigned-clocks = <&topckgen CLK_TOP_SSUSB_XHCI_3P>;
++				assigned-clock-parents = <&topckgen CLK_TOP_UNIVPLL_D5_D4>;
++				clocks = <&pericfg_ao CLK_PERI_AO_SSUSB_3P_XHCI>;
++				clock-names = "sys_ck";
++				status = "disabled";
++			};
+ 		};
+ 
+-		xhci0: usb@112b0000 {
+-			compatible = "mediatek,mt8188-xhci", "mediatek,mtk-xhci";
+-			reg = <0 0x112b0000 0 0x1000>,
+-			      <0 0x112b3e00 0 0x0100>;
++		ssusb0: usb@112b1000 {
++			compatible = "mediatek,mt8188-mtu3", "mediatek,mtu3";
++			reg = <0 0x112b1000 0 0x2dff>, <0 0x112b3e00 0 0x0100>;
+ 			reg-names = "mac", "ippc";
+-			interrupts = <GIC_SPI 533 IRQ_TYPE_LEVEL_HIGH 0>;
+-			phys = <&u2port0 PHY_TYPE_USB2>;
+-			assigned-clocks = <&topckgen CLK_TOP_SSUSB_XHCI_2P>,
+-					  <&topckgen CLK_TOP_USB_TOP_2P>;
+-			assigned-clock-parents = <&topckgen CLK_TOP_UNIVPLL_D5_D4>,
+-						 <&topckgen CLK_TOP_UNIVPLL_D5_D4>;
++			ranges = <0 0 0 0x112b0000 0 0x3f00>;
++			#address-cells = <2>;
++			#size-cells = <2>;
++			interrupts-extended = <&gic GIC_SPI 532 IRQ_TYPE_LEVEL_HIGH 0>;
++			assigned-clocks = <&topckgen CLK_TOP_SSUSB_XHCI_2P>;
++			assigned-clock-parents = <&topckgen CLK_TOP_UNIVPLL_D5_D4>;
+ 			clocks = <&pericfg_ao CLK_PERI_AO_SSUSB_2P_BUS>,
+ 				 <&topckgen CLK_TOP_SSUSB_TOP_P2_REF>,
+ 				 <&pericfg_ao CLK_PERI_AO_SSUSB_2P_XHCI>;
+ 			clock-names = "sys_ck", "ref_ck", "mcu_ck";
+-			mediatek,syscon-wakeup = <&pericfg 0x460 2>;
++			phys = <&u2port0 PHY_TYPE_USB2>;
+ 			wakeup-source;
++			mediatek,syscon-wakeup = <&pericfg 0x460 2>;
+ 			status = "disabled";
++
++			xhci0: usb@0 {
++				compatible = "mediatek,mt8188-xhci", "mediatek,mtk-xhci";
++				reg = <0 0 0 0x1000>;
++				reg-names = "mac";
++				interrupts = <GIC_SPI 533 IRQ_TYPE_LEVEL_HIGH 0>;
++				assigned-clocks = <&topckgen CLK_TOP_USB_TOP_2P>;
++				assigned-clock-parents = <&topckgen CLK_TOP_UNIVPLL_D5_D4>;
++				clocks = <&pericfg_ao CLK_PERI_AO_SSUSB_2P_XHCI>;
++				clock-names = "sys_ck";
++				status = "disabled";
++			};
+ 		};
+ 
+ 		pcie: pcie@112f0000 {
+diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts b/arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts
+index 92eb09dc959b..d1a4bd428767 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts
+@@ -1300,13 +1300,25 @@ vdosys1_ep_ext: endpoint@1 {
+ 	};
+ };
+ 
++&ssusb0 {
++	dr_mode = "host";
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	status = "okay";
++};
++
+ &xhci0 {
+ 	status = "okay";
++};
++
++&ssusb1 {
++	dr_mode = "host";
+ 	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	status = "okay";
+ };
+ 
+ &xhci1 {
+ 	status = "okay";
++	vdd-supply = <&usb_hub_fixed_3v3>;
+ 	vusb33-supply = <&mt6359_vusb_ldo_reg>;
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+@@ -1326,6 +1338,22 @@ hub_3_0: hub@2 {
+ 		reset-gpios = <&pio 7 GPIO_ACTIVE_HIGH>;
+ 		vdd-supply = <&usb_hub_fixed_3v3>;
+ 	};
++
++	port {
++		xhci_ss_ep: endpoint {
++			remote-endpoint = <&typec_con_ss>;
++		};
++	};
++};
++
++&ssusb2 {
++	interrupts-extended = <&gic GIC_SPI 536 IRQ_TYPE_LEVEL_HIGH 0>,
++			      <&pio 220 IRQ_TYPE_LEVEL_HIGH>;
++	interrupt-names = "host", "wakeup";
++
++	dr_mode = "host";
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	status = "okay";
+ };
+ 
+ &xhci2 {
+-- 
+2.48.1
+
 
