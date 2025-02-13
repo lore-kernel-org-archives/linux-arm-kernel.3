@@ -4,62 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EEC3C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A30A0C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=51EMtevrUG1D9D9EfhF610YpA1FxHIla4v/BzSVZ7lM=; b=xyss5nx1ae/YySsLW43oMSbZYO
-	SJpIFTd1UUP2pNNYVf8izX29K/dpBOrNbaEBxEuxg1m85RfBwQx+c75qOzuoYPj2GVyQmA0aJTLen
-	iC6kPVNUvIjxUDZigkE1yk8IV7ixMTJdmFlzjc6fwfxDodtoWKxf+nFwqdvVr2JTq2QU4Dy1FRam9
-	Cv6VkwnPfouBx7eTozIK5LPXioq9+0vCVmOrv31ADb7VG/RSKo8gWF9nBVZKVrARfIL+6mCQSTW8Y
-	o10zJu9qJr+721eEUXmDZ18cIzJmeH/VciQxusVRyMexE2UNJ0GyxShw03/5gLJnVdMxMYUyj2uY6
-	hIxAT17Q==;
+	bh=M5hWV7zpzfxrkj20JGXs36bIgvWN+f1eZBOfQY7SIjM=; b=lZPobDhl7Hp+rN2la0s8Ya+8b9
+	r0DZ2Y+FRufKIqoGw4zlkNit6ig+/ZJFEGpH91yQ7bH/D7V0lVT6m8Xp5J3HEK6WP1PBmEtdhUrHb
+	9hcvxZITSEIuUxReMEB6Qgl59uo/OV+gwC3bFm4pcyFaUCZTqdeMpCpA8YZAnVPjMoIqyDtPt+b/G
+	U6+YnLjwIEb9/u5nMF2AX+moFEY2LdEuImDu0yivZfSwmv0hm7YpXS24ft5jVu5dVd2St+EpirwNz
+	Rf2IbQxtdD3buRGywaBkjTOEN1CLunfGYtSEREbKtc7Z+77YQ/W7y5LR/987iD7To+dWu72NGy87U
+	dIo9XAsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tidoy-0000000CCbt-3Csw;
-	Thu, 13 Feb 2025 18:20:20 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tidqN-0000000CD2k-2vES;
+	Thu, 13 Feb 2025 18:21:47 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticv2-0000000BzfY-09sK
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 17:22:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 122B1A42813;
-	Thu, 13 Feb 2025 17:20:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEBAEC4CEE5;
-	Thu, 13 Feb 2025 17:22:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739467351;
-	bh=S0OhMDWIGff52utNObwPzkVUWW6web7D0hUEz9SRg7I=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=FH16R/H28sbPKn7EPgQPJsfz+nmj0y3nzBbR0EjMfaCwbetXv0ivK1A13IlWN4KYn
-	 xxh3mjPC0v273p7AuQPftFcvd8uxlNddFF8xf+N6cwk+/Wa22aeIXWXylmbbz+3k+1
-	 V4rf78TrK2EGyVh8M+OWZ105e0mtLiRIuntBfBvii2sqzsJ3PoBVxhwQrtzHVHyuEe
-	 DFT9W2L+P2eBWhOZMeCIuA8ryD97qx9iHlWx/vDPxYRiJqEG0HiQNHEPLQCzxJeycx
-	 QfmCplKmvyQI3L6/Q8R4xYTb2NFl637T3OBXR6MlUmQiLMzJtQlUN5bioH6BPvt9ir
-	 cucz4MO8FK2aQ==
-Date: Thu, 13 Feb 2025 11:22:29 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1ticzJ-0000000C0Ym-3XQl;
+	Thu, 13 Feb 2025 17:26:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1739467611; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=DBi2zEpYnKy4XuIgWkaFTscHZ7nB/Yg9TWfeiuiqUtEh568pSlCHcprWV131jLiyNkPrV0PgXxkXOJF+7/joCDKC38TqYAzrCGxvzkMLV61uE0Cy2Cwlt0NXSVaWUu1C8LJGg9BVDEm9IeAAEWyTtJSM2Co8i4iQRkugciWGig0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1739467611; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=M5hWV7zpzfxrkj20JGXs36bIgvWN+f1eZBOfQY7SIjM=; 
+	b=H0UaH685Fnf6T5gMeeM3s5UsaIRb+Y9jD6hk4aLgNe8A/HDjoAfNj3RgTEr/Ns0Ic1/pqf25ULiccEHjw+hz1YVZWFRt3ym5UmhNWh9KuCsdH1zQlXoXByMo2ZcWskNHcK8jc1AROJSMHLG/aY76r7gaZ/wj/4twi58HWGWV70s=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1739467611;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=M5hWV7zpzfxrkj20JGXs36bIgvWN+f1eZBOfQY7SIjM=;
+	b=Ws91bnDMeBkWP5IXglfIKxIRozeYMM8MzNL39X6Jq2/pVSfbuX7EarFMbKklR5mw
+	dd0tn8C8fZF4DPbhVIEG9+xawrfjR7jTOJWby3nlBp6hy7bDlg7VSU5flovBjG3uei0
+	tgMsDOs+DMRcUp6k8/mTn4NIl9WKVT5S3z6qjrNw=
+Received: by mx.zohomail.com with SMTPS id 1739467608754665.7670786696585;
+	Thu, 13 Feb 2025 09:26:48 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id 785651806DE; Thu, 13 Feb 2025 18:26:43 +0100 (CET)
+Date: Thu, 13 Feb 2025 18:26:43 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+Cc: Damon Ding <damon.ding@rock-chips.com>, heiko@sntech.de, 
+	robh@kernel.org, conor+dt@kernel.org, algea.cao@rock-chips.com, rfoss@kernel.org, 
+	devicetree@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	hjc@rock-chips.com, kever.yang@rock-chips.com, dmitry.baryshkov@linaro.org, 
+	vkoul@kernel.org, andy.yan@rock-chips.com, krzk+dt@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, l.stach@pengutronix.de
+Subject: Re: [PATCH v6 00/14] Add eDP support for RK3588
+Message-ID: <tg6eyew4qahuxqakmmejne7xx2rkouj6htp55acun4ajz2irz2@vlmvqv3zc5vc>
+References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
+ <5044FFCB-B325-40D0-BA82-03AF64EAF029@gmail.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, alim.akhtar@samsung.com, 
- linux-samsung-soc@vger.kernel.org, krzk+dt@kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- conor+dt@kernel.org
-To: Denzeel Oliva <wachiturroxd150@gmail.com>
-In-Reply-To: <20250213000226.277-1-wachiturroxd150@gmail.com>
-References: <20250213000226.277-1-wachiturroxd150@gmail.com>
-Message-Id: <173946704422.3328564.13834631635241088489.robh@kernel.org>
-Subject: Re: [PATCH v1] arm64: dts: exynos: r8s: enable UART interfaces and
- aliases
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jnxis7mvi3ww4bac"
+Content-Disposition: inline
+In-Reply-To: <5044FFCB-B325-40D0-BA82-03AF64EAF029@gmail.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.2/239.417.30
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_092232_201049_CBE69F55 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250213_092657_961176_83742A7D 
+X-CRM114-Status: GOOD (  27.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,63 +88,126 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 13 Feb 2025 00:02:26 +0000, Denzeel Oliva wrote:
->  - usi_uart: Main UART interface, required for debugging or
->    communication.
->  - usi_bt_uart: UART interface for Bluetooth connectivity.
->  - Added serial0 and serial1 aliases for standard UART access.
-> 
-> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
-> ---
->  arch/arm64/boot/dts/exynos/exynos990-r8s.dts | 23 ++++++++++++++++++++
->  1 file changed, 23 insertions(+)
-> 
+--jnxis7mvi3ww4bac
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 00/14] Add eDP support for RK3588
+MIME-Version: 1.0
 
+Hello Piotr,
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+On Thu, Feb 13, 2025 at 03:54:00PM +0100, Piotr Oniszczuk wrote:
+> > Wiadomo=C5=9B=C4=87 napisana przez Damon Ding <damon.ding@rock-chips.co=
+m> w dniu 23 sty 2025, o godz. 11:07:
+> >=20
+> > Picked from:
+> > https://patchwork.kernel.org/project/linux-rockchip/list/?series=3D9235=
+93
+> >=20
+> > These patchs have been tested with a 1536x2048p60 eDP panel on
+> > RK3588S EVB1 board, and HDMI 1080P/4K display also has been verified
+> > on RK3588 EVB1 board. Furthermore, the eDP display has been rechecked
+> > on RK3399 sapphire excavator board.
+> >=20
+> > Patch 1~4   are preparations for the RK3588 eDP support on both Analogix
+> >            side and Rockchip side.
+> > Patch 5~8  are to support to get panel from the DP AUX bus.
+> > Patch 9~11 are the RK3588 Analogix DP driver support.
+> > Patch 12    is to add the power sequencing delays for panel model
+> >            LP079QX1-SP0V.
+> > Patch 13    is the addition of RK3588 eDP0 node.
+> > Patch 14    is to enable the eDP0 display on RK3588S EVB1 board.
+> >=20
+> > Damon Ding (14):
+> >  drm/rockchip: analogix_dp: Replace DRM_...() functions with drm_...()
+> >  drm/rockchip: analogix_dp: Use formalized struct definition for grf
+> >    field
+> >  drm/rockchip: analogix_dp: Expand device data to support multiple edp
+> >    display
+> >  drm/bridge: analogix_dp: Add support for phy configuration.
+> >  dt-bindings: display: rockchip: analogix-dp: Add support to get panel
+> >    from the DP AUX bus
+> >  drm/bridge: analogix_dp: support to get &analogix_dp_device.plat_data
+> >    and &analogix_dp_device.aux
+> >  drm/bridge: analogix_dp: Add support to get panel from the DP AUX bus
+> >  drm/rockchip: analogix_dp: Add support to get panel from the DP AUX
+> >    bus
+> >  dt-bindings: display: rockchip: analogix-dp: Add support for RK3588
+> >  drm/bridge: analogix_dp: Add support for RK3588
+> >  drm/rockchip: analogix_dp: Add support for RK3588
+> >  drm/edp-panel: Add LG Display panel model LP079QX1-SP0V
+> >  arm64: dts: rockchip: Add eDP0 node for RK3588
+> >  arm64: dts: rockchip: Enable eDP0 display on RK3588S EVB1 board
+> >=20
+> > .../rockchip/rockchip,analogix-dp.yaml        |  25 +-
+> > arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  28 +++
+> > .../boot/dts/rockchip/rk3588s-evb1-v10.dts    |  54 ++++
+> > .../drm/bridge/analogix/analogix_dp_core.c    |  76 +++---
+> > .../drm/bridge/analogix/analogix_dp_core.h    |   1 +
+> > .../gpu/drm/bridge/analogix/analogix_dp_reg.c |  52 ++++
+> > drivers/gpu/drm/panel/panel-edp.c             |   8 +
+> > .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 238 +++++++++++++-----
+> > include/drm/bridge/analogix_dp.h              |   8 +-
+> > 9 files changed, 401 insertions(+), 89 deletions(-)
+> >=20
+> > --=20
+> > 2.34.1
+> >=20
+>=20
+> Damon,
+>=20
+> I=E2=80=99m playing with hdmi0 port enablement on radxa rock5 itx board w=
+ith 6.14 mainline.
+>=20
+> rock5 itx has 2 hdmi ports: hdmi0 is wired to rk3588 typeC1/eDP1
+> eDP with ra620 eDP->HDMI converter and hdmi1 from hdmi/edp tx1
+> (see page3 & page29 at
+> https://dl.radxa.com/rock5/5itx/v1110/radxa_rock_5itx_v1110_schematic.pdf)
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+The RK3588 has two different DP controllers. The one handled in this
+series should get the eDP port running, which is routed to the
+"eDP Panel" in the block diagram on page 3 of the Rock 5 ITX schematics.
+So this series adds support for using "HDMI/eDP TX0" and "HDMI/eDP TX1"
+in DP mode.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+The port routed to HDMI0 via RA620 is the other DP controller, which
+also exists twice: "TYPEC0/DP0" and "TYPEC1/DP1". This DP controller
+is not yet supported upstream and there is no pending patchset. As far
+as I know Rockchip plans to work on preparing upstream support for that
+soon.
 
-  pip3 install dtschema --upgrade
+Note, that the two DisplayPort controllers are completely different.
+The HDMI/eDP controller is a design from Analogix and the TypeC/DP
+controller is a design from Synopsys.
 
+P.S.: Heiko merged support for HDMI1 (RK3588 SoC level) recently. So you
+should be able to get that running by some DT additions to the Rock 5
+ITX board DT with the latest linux-next code :)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250213000226.277-1-wachiturroxd150@gmail.com:
+Greetings,
 
-Error: arch/arm64/boot/dts/exynos/exynos990-r8s.dts:122.1-10 Label or path usi_uart not found
-Error: arch/arm64/boot/dts/exynos/exynos990-r8s.dts:127.1-10 Label or path serial_0 not found
-Error: arch/arm64/boot/dts/exynos/exynos990-r8s.dts:131.1-13 Label or path usi_bt_uart not found
-Error: arch/arm64/boot/dts/exynos/exynos990-r8s.dts:136.1-10 Label or path serial_1 not found
-FATAL ERROR: Syntax error parsing input tree
-make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynos990-r8s.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
-make[2]: Target 'arch/arm64/boot/dts/exynos/exynos990-r8s.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynos990-r8s.dtb] Error 2
-make: *** [Makefile:251: __sub-make] Error 2
-make: Target 'exynos/exynos8895-dreamlte.dtb' not remade because of errors.
-make: Target 'exynos/exynos850-e850-96.dtb' not remade because of errors.
-make: Target 'exynos/exynos7885-jackpotlte.dtb' not remade because of errors.
-make: Target 'exynos/exynos990-x1slte.dtb' not remade because of errors.
-make: Target 'exynos/exynos5433-tm2.dtb' not remade because of errors.
-make: Target 'exynos/exynos990-r8s.dtb' not remade because of errors.
-make: Target 'exynos/exynos7-espresso.dtb' not remade because of errors.
-make: Target 'exynos/google/gs101-oriole.dtb' not remade because of errors.
-make: Target 'exynos/google/gs101-raven.dtb' not remade because of errors.
-make: Target 'exynos/exynosautov920-sadk.dtb' not remade because of errors.
-make: Target 'exynos/exynosautov9-sadk.dtb' not remade because of errors.
-make: Target 'exynos/exynos990-c1s.dtb' not remade because of errors.
-make: Target 'exynos/exynos9810-starlte.dtb' not remade because of errors.
-make: Target 'exynos/exynos990-x1s.dtb' not remade because of errors.
-make: Target 'exynos/exynos5433-tm2e.dtb' not remade because of errors.
+-- Sebastian
 
+--jnxis7mvi3ww4bac
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmeuK0wACgkQ2O7X88g7
++prlexAApJeFewv/JsqSV3wCoT23yhvxdlzYKIVVL/yo98r9WQPC4i1qmYmKRBI4
+vzvIr65JV41ReaTQs/q/BoIL0rHdfgn0ZkatJ0H7wbNbH2IztSS2VukNrAz9DwT4
+TvyUoo10hpaHiFTfKKSzDkL5/NI3d9pvi6AmUs+SmWMD7f2eXmyav5L2WHTZ0Nzl
+kLA4FPpSVS/3NQ5qTlhHsyM0kDVsL7R6G7ObMrQ9gAp9qkp6BJ353pHWEWtXgagu
+Dj4iMS5wfJ1VXYyQDJSFgeiibznIzIMlOR83c7AG7IMvowXL7IniG2Q8vUz1nPgC
+syKJOH3btyQzxkc9AYqXYXr7NUldDWhK84iqzsA0E+imxauPhXgfeQxQOR63uTXG
+fvZKtmVjM2gyqGp0ro5rEXSczzcnKj8tSC42AZm0d/ACS/TsCi8CcOKEsgtkCM+L
+7HhI7qlJUNihK6x90i+R9i2k7Ar9STYe+lUqxybSkZnNymp3nZwpkDVYLkuf53Ot
+pwrWkcRYXOhEggDrQNTe6xq3W1C+w/sNPflgnA33KAL2+xFCyt3RQq++BrLN4Aa/
+ECjWYGebnHLh+hFA8FToTF3KG6CjTNiyIvAsFBsjRoF9x/uLrZt+davDhGf1D3fP
+l/jfGWpAOhK6VBdKArybnrr6GEUTvZtb25x6f9eTbsVVTEGORmk=
+=iYP4
+-----END PGP SIGNATURE-----
 
-
+--jnxis7mvi3ww4bac--
 
