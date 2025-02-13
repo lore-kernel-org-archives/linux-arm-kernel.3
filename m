@@ -4,69 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9960BC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 11:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39522C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 11:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6e1PBfYc7K+bLWshKemdsFGbQdiqTONlX7YiZarYPNg=; b=p/N6FdWM1IJVqluC+DtmwHdFMr
-	PkdhEjFOA7g9IhIukkgfUzF0EUON8OGihq3Bl9U3Kwoa8wUMFzTrMwgsVdX8+u9dve/Nl5d7miaR0
-	5VVgk0Aq3gRrE5JHnr4R4TznaHOAsB50w9IFZMpOCO+iNjZckW5gjvSVP20ucxjjZNnO6Vfg7oRu0
-	TT9dCXrCgVUH7X26k3e1jOoukIWVd4i7o2ZuHZOmOE0KBkMzPEDpJV+fMFxuHSC9J+6NUA8Eu8qkM
-	BP49pQ834zcO75bwAG3U4IYsmxTOZgWGH4mqBS1FreNFKzrnMHRnKjVkG5TUY3l8h0qkcDOJE+ii1
-	X4GN1T+w==;
+	bh=FYeA0egZv4FF41HWS+5lY5RJ3ar8Pphs0FsmtbhyRSE=; b=uWQgSVQw0zn2dkBRmC7QGBSANZ
+	BhWjyyZ5UiDbib+rOOALUreFsp4l+60bavkT6HMFAwN9d4MCoLXmdArNuHdxaRKSYASmuk7vmOH9Q
+	UriTWjMj/Bmsp90UiL2LfcTnwJUUvXw82YT488dMVG8q7V4Lb77d1dMRNl+xKhlHxnJROqlXEBaFk
+	q/IrhTZ14Q+OpR3IVadSxSiHw9OpV0wXKU6GSmJ7/deDFyaT2HTCvbbs73SPRRBY7O37GWYJ29uhv
+	GYca+lc8xKaUHKfS9Uxc/8mL4Uj4kiBPVBnUQE/JRXVZzH6ln3JOLF5hRgGiTtrLP0sCd7IDzJIsh
+	kRwKLsVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXMo-0000000AqEI-2IxP;
-	Thu, 13 Feb 2025 11:26:50 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tiXOE-0000000Aqp2-48wZ;
+	Thu, 13 Feb 2025 11:28:19 +0000
+Received: from [203.254.224.34] (helo=mailout4.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiXH1-0000000Aodf-1pJp;
-	Thu, 13 Feb 2025 11:20:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739445650;
-	bh=e0eGua7t7TvlPBa9LwHKZrO9ganTKJP++6K1ucHteGE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TqEPr+8kYbymOGE/ORH11JUEEdKWYxPB7p25Xt+OeO7Nn4/SY/ClqOP4vY1tOmzvq
-	 kQTsyLM0OehqUXgQ6pjd76W9tjrwy8hSG1mF5dNvYSQAs95u5TymWVIIi+V6HoGddy
-	 +P/GvCBoeeNW0LQqncxqpkiQkvjlGKg7Dxaa5hCseGow1dwAlGMv+odl00upckl7nm
-	 fwUFdhqnM6eOL646G4Q1wUxXXrrGCCtnIlWKyOWOMB8475Qk3pJL8BDK0yioYqFdCF
-	 xOtnFU6PqDJXiKPqnCHsMgUOxir8jFejEjZipX1uriYmbXN1rr3JCc+OYmeR80OiIU
-	 u/x6tyrm/ZGbg==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 71A9917E151F;
-	Thu, 13 Feb 2025 12:20:49 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: matthias.bgg@gmail.com
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	angelogioacchino.delregno@collabora.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	kernel@collabora.com,
-	pablo.sun@mediatek.com
-Subject: [PATCH v1 3/3] arm64: dts: mediatek: mt8395-nio-12l: Preconfigure DSI0 pipeline
-Date: Thu, 13 Feb 2025 12:20:08 +0100
-Message-ID: <20250213112008.56394-4-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250213112008.56394-1-angelogioacchino.delregno@collabora.com>
-References: <20250213112008.56394-1-angelogioacchino.delregno@collabora.com>
+	id 1tiXI6-0000000Ap1U-14t5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 11:22:01 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250213112151epoutp0494912dc902d6d51c8db522a67acaa020~jwKigKahN0964509645epoutp047
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 11:21:51 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250213112151epoutp0494912dc902d6d51c8db522a67acaa020~jwKigKahN0964509645epoutp047
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1739445711;
+	bh=FYeA0egZv4FF41HWS+5lY5RJ3ar8Pphs0FsmtbhyRSE=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=qj29tY/iSIOX/IKeNwEWLUhYSOojk/p0yq39MyLUD5o9EhMrlTrfigvInh/f3eecq
+	 84a7nGp1x9AltRNUKXaTRFq1GhRgM7M05Jp+LqCej7VEd5vtVEEIO+C/IeAU42+Yjt
+	 9eaRUYaXidA013VMkA3nAAG5lk5HvpMbpBwigtMw=
+Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTP id
+	20250213112150epcas5p432ded18de14682cc3b9c16d15c3a6f1b~jwKh9cVoO2775827758epcas5p4Q;
+	Thu, 13 Feb 2025 11:21:50 +0000 (GMT)
+Received: from epsmgec5p1new.samsung.com (unknown [182.195.38.176]) by
+	epsnrtp1.localdomain (Postfix) with ESMTP id 4Ytt710fwvz4x9Pr; Thu, 13 Feb
+	2025 11:21:49 +0000 (GMT)
+Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
+	epsmgec5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	AF.8A.19710.CC5DDA76; Thu, 13 Feb 2025 20:21:48 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250213110439epcas5p4363f12d24845f86de9f5e0d1c15bcaf9~jv7hQbNb63061630616epcas5p4_;
+	Thu, 13 Feb 2025 11:04:39 +0000 (GMT)
+Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250213110439epsmtrp1713a253bece086c0e65de979af9e8830~jv7hPeule2200722007epsmtrp1E;
+	Thu, 13 Feb 2025 11:04:39 +0000 (GMT)
+X-AuditID: b6c32a44-363dc70000004cfe-d8-67add5cc2674
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	CF.18.23488.7C1DDA76; Thu, 13 Feb 2025 20:04:39 +0900 (KST)
+Received: from FDSFTE596 (unknown [107.122.82.131]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250213110436epsmtip2c8a8209a8c3b9ff20b96d86af3fac0e3~jv7ezI9zW2340823408epsmtip2R;
+	Thu, 13 Feb 2025 11:04:36 +0000 (GMT)
+From: "Swathi K S" <swathi.ks@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
+Cc: <krzk+dt@kernel.org>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
+	<edumazet@google.com>, <kuba@kernel.org>, <pabeni@redhat.com>,
+	<robh@kernel.org>, <conor+dt@kernel.org>, <richardcochran@gmail.com>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+	<rmk+kernel@armlinux.org.uk>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+In-Reply-To: <20250213-adorable-arboreal-degu-6bdcb8@krzk-bin>
+Subject: RE: [PATCH v6 1/2] dt-bindings: net: Add FSD EQoS device tree
+ bindings
+Date: Thu, 13 Feb 2025 16:34:29 +0530
+Message-ID: <009a01db7e07$132feb60$398fc220$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQFMfZy5LnHh86L+CikZ+hKlrx3PbgHP/Q5uAh59lGQBgzSo3LQ3hOaA
+Content-Language: en-in
+X-Brightmail-Tracker: H4sIAAAAAAAAA01Ta1BUZRjuO2cvB2mZ44LywUSuJ7twWdjFZT3bLFhKzhZWFD9yGJWOcGYX
+	2dvsLlJNTRZGiALSJLELrgsjFw1IF12X6wQhjkKAFzYoKBJIbjOMohgY0C4Hin/P9z7P+z3v
+	810wlD/NCcRStSbaoKXUBGcDy/FT8CvCrr4apWjotpycnygEZOWwk01WN3cjZEnPMRZ5tr2b
+	TY513OOSE5bfOWRPz0Uu2evIY5P2ERebvNNQwiFzXKNs0rpYwyY7bJvJuc5pQLZ3jaPk7fwC
+	hFxucnJf4yvuuG6hisvnBxDFWP4VrqLeMsRV2OzpCvuF4xxF3bnPFfXOWUQx09LHUbS2iBWz
+	9ufjvRPT5CqaSqENAlqbrEtJ1SqjibiEpN1JUVKRWCiWkTsIgZbS0NFE7N544Z5UtTsXIThC
+	qdPdpXjKaCQiYuQGXbqJFqh0RlM0QetT1HqJPtxIaYzpWmW4lja9KhaJIqPcwg/TVHXmZkTf
+	L/joQeEQ6yho9M8BXhjEJXDw7/sgB2zA+HgjgOaqRZaH4OMPAcy5F8YQcwDen/6StdZR9bAI
+	YYhmAK2OBpRZjAP4XfYj4FFx8BBYltfC9WA/XAjr+iu5HhGKD6PwZFHJylZeeAzMnc10Exjm
+	i78Hs675eMos/EVYUDLH8WAeLoNtrTdZDN4Ib5hHVzCKh8KK0imUmUgA58cq2IzXHvi0eAkw
+	Gn94bf7kynAQP+EFKx1ONtMQCwfrMjkM9oWT1y9zGRwIJ/KzVnES/D6vbzWyCg4tFKzqd8If
+	73rmx9wGwfCHhgimHARP36xFGF8fmPt0FGHqPOi0ruEX4OKUa3XLAOgon+GeAoRlXTTLumiW
+	dREs/7vZAOsCCKD1Ro2STo7Si7V0xn8XnqzT2MHKsw+JdYL+s0vhbQDBQBuAGEr48WBhtZLP
+	S6E+/oQ26JIM6Wra2Aai3OddgAZuSta5/43WlCSWyEQSqVQqkW2Xigl/Xmb9MSUfV1ImOo2m
+	9bRhrQ/BvAKPIgc6R20J2dih0IMR7KyNGO9464I690zYvi/eBI7HTwJcj4sOTVyJ9HZs23vu
+	ZdOmxbjSwb4y76L9w16/1XduaSWoLuuutPlk+tKIf6LQ/M6ULYgM3Uw0Fl/tiKm6WP3rQfR9
+	LeIzvlQxkLaj3CqMvH7a71NNwfmF7N3tQfWnmpb/GbYkbGFDyaQm8sHXR3wzUrfJ5Rr71pqr
+	5jFZ8K7Kv575Y1jfe2BfapP88I0Pen+Je/Qz/nbG5FuijlvWmbvdxW9cop6bebf3z5eeTYzM
+	bnrdpAz7Ft0pFwwcXlbXfmOuLaXPTA9FDQpkrv6ZphNSqq56ZHvtmKUs74ntM5+Y8v21X6ki
+	CJZRRYlDUIOR+hfqY4fEfwQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrGIsWRmVeSWpSXmKPExsWy7bCSvO7xi2vTDTY+EbD4+XIao8XyBztY
+	LdbsPcdkMed8C4vF/CPnWC2eHnvEbvFy1j02i/PnN7BbXNjWx2qx6fE1VovLu+awWXRde8Jq
+	Me/vWlaLYwvELL6dfsNoceTMC2aLS/0TmSz+79nB7iDkcfnaRWaPLStvMnk87d/K7rFz1l12
+	jwWbSj02repk89i8pN5j547PTB7v911l8zi4z9Dj8ya5AO4oLpuU1JzMstQifbsErowFGyaw
+	FjyXr9jY3svcwHhCrIuRk0NCwERixacZTF2MXBxCArsZJWadX84MkZCU+NQ8lRXCFpZY+e85
+	O0TRM0aJvnUbGEESbAJaEov69rGD2CICuhKbbywHK2IW+MIsMfv+ZKixbxklrjYdYAGp4hSw
+	k+j93AzWISzgL/G+9ySYzSKgKjFxzjc2EJtXwFLi0MFTLBC2oMTJmU/AbGYBbYmnN5/C2csW
+	voY6VUHi59NlrBBXuEn8nv2PEaJGXOLozx7mCYzCs5CMmoVk1Cwko2YhaVnAyLKKUTK1oDg3
+	PTfZsMAwL7Vcrzgxt7g0L10vOT93EyM46rU0djC++9akf4iRiYPxEKMEB7OSCK/EtDXpQrwp
+	iZVVqUX58UWlOanFhxilOViUxHlXGkakCwmkJ5akZqemFqQWwWSZODilGpi6QvQf7P8iaav1
+	4mzOiq3nQy7PXRN8est2l/dRqXdY64ofqt09IMTynvtnrWVB0NezPutdg3yCGjhmeX06veyJ
+	mPB2izvXC/zU0vPPBuYdCJZJiBD1TEvhWnKrn4275uh649r6jXwL/GWz/M9+/uP2oNm//yfr
+	7xOvJ5eu8IrUd8zhV6n4/nTXuzuxFv95hZ6xG01qcFPiCTh5polz6oZ4Sx7Zd/mzN93f2Fcr
+	pl/w9u2cubtnyGiesm9R/Nebe/lY5nTBmqcPZvned5C0/6gmK1sWzrAs19Rk2tGGDcGzJOS2
+	dZX3TpvcO+POet7aXA6vFwGPUueLrJvacYm7b2NiNkuc7ZZNVlJThGt+7FBiKc5INNRiLipO
+	BACb1ffZaQMAAA==
+X-CMS-MailID: 20250213110439epcas5p4363f12d24845f86de9f5e0d1c15bcaf9
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff
+References: <20250213044624.37334-1-swathi.ks@samsung.com>
+	<CGME20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff@epcas5p1.samsung.com>
+	<20250213044624.37334-2-swathi.ks@samsung.com>
+	<20250213-adorable-arboreal-degu-6bdcb8@krzk-bin>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_032051_641943_C903457F 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_032158_861502_90A32D32 
+X-CRM114-Status: GOOD (  17.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,57 +148,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This board can use a MIPI-DSI panel on the DSI0 connector: in
-preparation for adding an overlay for the Radxa Display 8HD,
-add a pipeline connecting VDOSYS0 components to DSI0.
 
-This pipeline remains disabled by default, as it is expected
-to be enabled only by a devicetree overlay that declares the
-actual DSI panel node, completing the graph.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- .../dts/mediatek/mt8395-radxa-nio-12l.dts     | 26 +++++++++++++++++++
- 1 file changed, 26 insertions(+)
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: 13 February 2025 13:24
+> To: Swathi K S <swathi.ks=40samsung.com>
+> Cc: krzk+dt=40kernel.org; andrew+netdev=40lunn.ch; davem=40davemloft.net;
+> edumazet=40google.com; kuba=40kernel.org; pabeni=40redhat.com;
+> robh=40kernel.org; conor+dt=40kernel.org; richardcochran=40gmail.com;
+> mcoquelin.stm32=40gmail.com; alexandre.torgue=40foss.st.com;
+> rmk+kernel=40armlinux.org.uk; netdev=40vger.kernel.org;
+> devicetree=40vger.kernel.org; linux-stm32=40st-md-mailman.stormreply.com;
+> linux-arm-kernel=40lists.infradead.org; linux-kernel=40vger.kernel.org
+> Subject: Re: =5BPATCH v6 1/2=5D dt-bindings: net: Add FSD EQoS device tre=
+e
+> bindings
+>=20
+> On Thu, Feb 13, 2025 at 10:16:23AM +0530, Swathi K S wrote:
+> > +  clock-names:
+> > +    minItems: 5
+> > +    maxItems: 10
+> > +    contains:
+> > +      enum:
+> > +        - ptp_ref
+> > +        - master_bus
+> > +        - slave_bus
+> > +        - tx
+> > +        - rx
+> > +        - master2_bus
+> > +        - slave2_bus
+> > +        - eqos_rxclk_mux
+> > +        - eqos_phyrxclk
+> > +        - dout_peric_rgmii_clk
+>=20
+> This does not match the previous entry. It should be strictly ordered wit=
+h
+> minItems: 5.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-index 41dc34837b02..7184dc99296c 100644
---- a/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-+++ b/arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts
-@@ -172,6 +172,32 @@ &cpu7 {
- 	cpu-supply = <&mt6315_6_vbuck1>;
- };
- 
-+&dither0_out {
-+	remote-endpoint = <&dsi0_in>;
-+};
-+
-+&dsi0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+			dsi0_in: endpoint {
-+				remote-endpoint = <&dither0_out>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+			dsi0_out: endpoint { };
-+		};
-+	};
-+};
-+
- &eth {
- 	phy-mode = "rgmii-rxid";
- 	phy-handle = <&rgmii_phy>;
--- 
-2.48.1
+Hi Krzysztof,
+Thanks for reviewing.
+In FSD SoC, we have 2 instances of ethernet in two blocks.
+One instance needs 5 clocks and the other needs 10 clocks.
+
+I tried to understand this by looking at some other dt-binding files as giv=
+en below, but looks like they follow similar approach
+Documentation/devicetree/bindings/net/stm32-dwmac.yaml
+Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+
+Could you please guide me on how to implement this?
+Also, please help me understand what is meant by 'strictly ordered'
+
+>=20
+>=20
+> > +
+> > +  iommus:
+> > +    maxItems: 1
+> > +
+> > +  phy-mode:
+> > +    enum:
+> > +      - rgmii-id
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - interrupts
+> > +  - clocks
+> > +  - clock-names
+> > +  - iommus
+> > +  - phy-mode
+> > +
+> > +unevaluatedProperties: false
+> > +
+> > +examples:
+> > +  - =7C
+> > +    =23include <dt-bindings/clock/fsd-clk.h>
+> > +    =23include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +    soc =7B
+> > +        =23address-cells =3D <2>;
+> > +        =23size-cells =3D <2>;
+> > +        ethernet1: ethernet=4014300000 =7B
+> > +            compatible =3D =22tesla,fsd-ethqos=22;
+> > +            reg =3D <0x0 0x14300000 0x0 0x10000>;
+> > +            interrupts =3D <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
+> > +            interrupt-names =3D =22macirq=22;
+> > +            clocks =3D <&clock_peric
+> PERIC_EQOS_TOP_IPCLKPORT_CLK_PTP_REF_I>,
+> > +                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_ACLK_I>,
+> > +                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_HCLK_I>,
+> > +                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_RGMII_CLK_=
+I>,
+> > +                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_CLK_RX_I>,
+> > +                     <&clock_peric PERIC_BUS_D_PERIC_IPCLKPORT_EQOSCLK=
+>,
+> > +                     <&clock_peric PERIC_BUS_P_PERIC_IPCLKPORT_EQOSCLK=
+>,
+> > +                     <&clock_peric PERIC_EQOS_PHYRXCLK_MUX>,
+> > +                     <&clock_peric PERIC_EQOS_PHYRXCLK>,
+> > +                     <&clock_peric PERIC_DOUT_RGMII_CLK>;
+> > +            clock-names =3D =22ptp_ref=22, =22master_bus=22, =22slave_=
+bus=22,=22tx=22,
+> > +                          =22rx=22, =22master2_bus=22, =22slave2_bus=
+=22, =22eqos_rxclk_mux=22,
+> > +                          =22eqos_phyrxclk=22,=22dout_peric_rgmii_clk=
+=22;
+> > +            pinctrl-names =3D =22default=22;
+> > +            pinctrl-0 =3D <&eth1_tx_clk>, <&eth1_tx_data>, <&eth1_tx_c=
+trl>,
+> > +                        <&eth1_phy_intr>, <&eth1_rx_clk>, <&eth1_rx_da=
+ta>,
+> > +                        <&eth1_rx_ctrl>, <&eth1_mdio>;
+> > +            iommus =3D <&smmu_peric 0x0 0x1>;
+> > +            phy-mode =3D =22rgmii-id=22;
+> > +       =7D;
+>=20
+> Misaligned/misindented.
+
+Ack
+
+>=20
+> Best regards,
+> Krzysztof
+
 
 
