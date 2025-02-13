@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A5DC021A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 05:31:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8840C021A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 05:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8lg44QWzNgGxRPl4Fgh9XxIMpNulbv9qSiqLOX5r61M=; b=xJTnB67pBGQWx6wt/g6jmUxOfe
-	ExfYKH1KpaMKGw8KzXMcGIFjScln0YbbKFtCwdJbQDTYhrHwI4oKs+VqXj141CAKJKdzmTjhnfB6a
-	87tQwnR61LFcVzH81AK9gPB3k/bKQJEq2WyZnrwrtsAFhL5veq/EgJ5d6rnqKzw+F9BJNaRVF8khv
-	nGWFK0pBQm8V3iZ2I3D8cABNZCIeK5Eqr9kUfSaqZcvZNH8H0MeOkhpS15KusfdyHDQKli9qNAkXu
-	63iuyrt2uJ0DTS6n2RqSwQkHZ34uOEL+13AFyVJy1MOfa7vBzDJSkej79c5v17JM8sW9GhY2znDYr
-	5nNsDzAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GUchfY15ts6H155kQG7wVYsIBSGMOA4XTj4eVmmu35g=; b=l0un4jN4XIrzdT2dbmHRJ9MjlJ
+	eOyr6nD7mQWHHxzAN9ZgGruAPAPA2BvOwLQAlsCF0noVCSVXRYhEaFtE5+LIyM1PGmijvf9/hFe/f
+	C5IT6j0+7h/LOLngZ6IxWcBOXQclaUEqEoT+nGc6JEXFuk4llYpUQVn5tqUu4XyH9mu9Z+E/+jiR3
+	OgW9gyHHLV+7fCsEjyyvM5tE8nI2UyJmHkSs2WVM866O2AEr2Zs6iOGesFwiO/0kflHZjSd2QtD3R
+	MXWfwpS9zGtl/n1V2q+dPLXv3xp3mPejFg9NGSZR6TbFxCxUj95QmFLVZeXpFyZBDhabyWISeukgL
+	MCyfIBAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiRoS-00000009nz3-3LMq;
-	Thu, 13 Feb 2025 05:31:00 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiRn1-00000009np3-0lfn
+	id 1tiRpq-00000009o9d-1hSg;
+	Thu, 13 Feb 2025 05:32:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiRoA-00000009nv7-12bB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 05:29:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 06FFAA41DD6;
-	Thu, 13 Feb 2025 05:27:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74A69C4CED1;
-	Thu, 13 Feb 2025 05:29:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739424570;
-	bh=6ZxGRcclQsqfn7duofDY2aCW0LoKtmUEeo5XxD9IVvc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QSCEvkQee5ozQMWVA0R04SgUm1lMDxhcMUTK8bNKo/Vllur8im/S1mxvlr9sXixdT
-	 y40U9/1+nyJUF6sWgFSgvPWQCxQpEo1Nre2Nf6PLwoykl7U8WO1oHPS0s746gy1Wye
-	 6nqX5rqrlEr52mqQI46vNHJLTqlZPixMJQKpAoEIvcwRcaOABqw0Bk5jY11nyoR5Os
-	 mvW6WsEPQXJp4vp5jH4RyfeiiynZ1HfT6TtKfZIY7zAGU2FOljab0oMYc6Hf/Rebsg
-	 5jm7Wj9mnKbnmrqv1sjoUd9s57IddFvjpdQo5uFoXELjus8hzpkvNUmLAljURBOU/+
-	 CxzUnkGjsiemw==
-Date: Wed, 12 Feb 2025 21:29:28 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Leo Yan <leo.yan@arm.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Graham Woodward <graham.woodward@arm.com>
-Subject: Re: [PATCH v1 00/11] perf script: Refactor branch flags for Arm SPE
-Message-ID: <Z62DOPuDJ-PrcHQw@google.com>
-References: <20250205121555.180606-1-leo.yan@arm.com>
- <CAP-5=fUH6X2F5S5eH+iU+-hT0vNvMKPTqbGt=E9W06sG=MzxEg@mail.gmail.com>
- <20250212085439.GA235556@e132581.arm.com>
- <CAP-5=fX6veqJYbTRfOiOqtpg8Dq+m3nZJRd4zEBCZeNiwB5Xpw@mail.gmail.com>
+	Thu, 13 Feb 2025 05:30:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A9E71756;
+	Wed, 12 Feb 2025 21:31:01 -0800 (PST)
+Received: from [10.162.16.135] (a077893.blr.arm.com [10.162.16.135])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C00063F6A8;
+	Wed, 12 Feb 2025 21:30:35 -0800 (PST)
+Message-ID: <0052097e-2284-4f9e-b37c-2ca2de527667@arm.com>
+Date: Thu, 13 Feb 2025 11:00:32 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAP-5=fX6veqJYbTRfOiOqtpg8Dq+m3nZJRd4zEBCZeNiwB5Xpw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 16/16] arm64/mm: Defer barriers when updating kernel
+ mappings
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20250205151003.88959-1-ryan.roberts@arm.com>
+ <20250205151003.88959-17-ryan.roberts@arm.com>
+ <9bc5527e-16f4-45cc-aced-55b1ace6c143@arm.com>
+ <a5d66063-c3a0-46fc-ab88-21ae2448c9f0@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <a5d66063-c3a0-46fc-ab88-21ae2448c9f0@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_212931_284597_CDFAF5E8 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20250212_213042_582609_ADB2598A 
+X-CRM114-Status: GOOD (  29.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,44 +76,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 08:14:48AM -0800, Ian Rogers wrote:
-> On Wed, Feb 12, 2025 at 12:54 AM Leo Yan <leo.yan@arm.com> wrote:
-> >
-> > Hi Ian,
-> >
-> > On Tue, Feb 11, 2025 at 02:34:46PM -0800, Ian Rogers wrote:
-> > > On Wed, Feb 5, 2025 at 4:16 AM Leo Yan <leo.yan@arm.com> wrote:
-> > > >
-> > > > This patch series refactors branch flags for support Arm SPE.  The patch
-> > > > set is divided into two parts, the first part is for refactoring common
-> > > > code and the second part is for enabling Arm SPE.
-> >
-> > [...]
-> > >
-> > > Reviewed-by: Ian Rogers <irogers@google.com>
-> > >
-> > > Built and tested (on x86). A little strange patch 5 adds a new bit not
-> > > at the end, but "Sample parsing" test wasn't broken so looks like it
-> > > is good. I was surprised the use of value in the union:
-> > > ```
-> > > struct branch_flags {
-> > > union {
-> > > u64 value;
-> > > struct {
-> > > u64 mispred:1;
-> > > u64 predicted:1;
-> > > ...
-> > > ```
-> > > didn't get broken. Perhaps there's an opportunity for additional tests.
 
-Probably because it just checks the value as a whole u64, not each
-bitfield.  But it seems to test if the value of the input sample data
-and synthesized-and-parsed output sample data is same.  So it may not be
-important what value it has.
 
-Anyway it'd be nice if any ARM folks can review this series.
+On 2/10/25 16:42, Ryan Roberts wrote:
+> On 10/02/2025 08:03, Anshuman Khandual wrote:
+>>
+>>
+>> On 2/5/25 20:39, Ryan Roberts wrote:
+>>> Because the kernel can't tolerate page faults for kernel mappings, when
+>>> setting a valid, kernel space pte (or pmd/pud/p4d/pgd), it emits a
+>>> dsb(ishst) to ensure that the store to the pgtable is observed by the
+>>> table walker immediately. Additionally it emits an isb() to ensure that
+>>> any already speculatively determined invalid mapping fault gets
+>>> canceled.> 
+>>> We can improve the performance of vmalloc operations by batching these
+>>> barriers until the end of a set up entry updates. The newly added
+>>> arch_update_kernel_mappings_begin() / arch_update_kernel_mappings_end()
+>>> provide the required hooks.
+>>>
+>>> vmalloc improves by up to 30% as a result.
+>>>
+>>> Two new TIF_ flags are created; TIF_KMAP_UPDATE_ACTIVE tells us if we
+>>> are in the batch mode and can therefore defer any barriers until the end
+>>> of the batch. TIF_KMAP_UPDATE_PENDING tells us if barriers are queued to
+>>> be emited at the end of the batch.
+>>
+>> Why cannot this be achieved with a single TIF_KMAP_UPDATE_ACTIVE which is
+>> set in __begin(), cleared in __end() and saved across a __switch_to().
+> 
+> So unconditionally emit the barriers in _end(), and emit them in __switch_to()
+> if TIF_KMAP_UPDATE_ACTIVE is set?
 
-Thanks,
-Namhyung
+Right.
 
+> 
+> I guess if calling _begin() then you are definitely going to be setting at least
+> 1 PTE. So you can definitely emit the barriers unconditionally. I was trying to
+> protect against the case where you get pre-empted (potentially multiple times)
+> while in the loop. The TIF_KMAP_UPDATE_PENDING flag ensures you only emit the
+> barriers when you definitely need to. Without it, you would have to emit on
+> every pre-emption even if no more PTEs got set.
+> 
+> But I suspect this is a premature optimization. Probably it will never occur. So
+
+Agreed.
+
+> I'll simplify as you suggest.
+> 
+> Thanks,
+> Ryan
+> 
+>>
+>>>
+>>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>>> ---
+>>>  arch/arm64/include/asm/pgtable.h     | 65 +++++++++++++++++++---------
+>>>  arch/arm64/include/asm/thread_info.h |  2 +
+>>>  arch/arm64/kernel/process.c          | 20 +++++++--
+>>>  3 files changed, 63 insertions(+), 24 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>>> index ff358d983583..1ee9b9588502 100644
+>>> --- a/arch/arm64/include/asm/pgtable.h
+>>> +++ b/arch/arm64/include/asm/pgtable.h
+>>> @@ -39,6 +39,41 @@
+>>>  #include <linux/mm_types.h>
+>>>  #include <linux/sched.h>
+>>>  #include <linux/page_table_check.h>
+>>> +#include <linux/pgtable_modmask.h>
+>>> +
+>>> +static inline void emit_pte_barriers(void)
+>>> +{
+>>> +	dsb(ishst);
+>>> +	isb();
+>>> +}
+>>
+>> There are many sequence of these two barriers in this particular header,
+>> hence probably a good idea to factor this out into a common helper.
+>>>> +
+>>> +static inline void queue_pte_barriers(void)
+>>> +{
+>>> +	if (test_thread_flag(TIF_KMAP_UPDATE_ACTIVE)) {
+>>> +		if (!test_thread_flag(TIF_KMAP_UPDATE_PENDING))
+>>> +			set_thread_flag(TIF_KMAP_UPDATE_PENDING);
+>>> +	} else
+>>> +		emit_pte_barriers();
+>>> +}
+>>> +
+>>> +#define arch_update_kernel_mappings_begin arch_update_kernel_mappings_begin
+>>> +static inline void arch_update_kernel_mappings_begin(unsigned long start,
+>>> +						     unsigned long end)
+>>> +{
+>>> +	set_thread_flag(TIF_KMAP_UPDATE_ACTIVE);
+>>> +}
+>>> +
+>>> +#define arch_update_kernel_mappings_end arch_update_kernel_mappings_end
+>>> +static inline void arch_update_kernel_mappings_end(unsigned long start,
+>>> +						   unsigned long end,
+>>> +						   pgtbl_mod_mask mask)
+>>> +{
+>>> +	if (test_thread_flag(TIF_KMAP_UPDATE_PENDING))
+>>> +		emit_pte_barriers();
+>>> +
+>>> +	clear_thread_flag(TIF_KMAP_UPDATE_PENDING);
+>>> +	clear_thread_flag(TIF_KMAP_UPDATE_ACTIVE);
+>>> +}
+>>>  
+>>>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+>>>  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
+>>> @@ -323,10 +358,8 @@ static inline void __set_pte_complete(pte_t pte)
+>>>  	 * Only if the new pte is valid and kernel, otherwise TLB maintenance
+>>>  	 * or update_mmu_cache() have the necessary barriers.
+>>>  	 */
+>>> -	if (pte_valid_not_user(pte)) {
+>>> -		dsb(ishst);
+>>> -		isb();
+>>> -	}
+>>> +	if (pte_valid_not_user(pte))
+>>> +		queue_pte_barriers();
+>>>  }
+>>>  
+>>>  static inline void __set_pte(pte_t *ptep, pte_t pte)
+>>> @@ -791,10 +824,8 @@ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+>>>  
+>>>  	WRITE_ONCE(*pmdp, pmd);
+>>>  
+>>> -	if (pmd_valid_not_user(pmd)) {
+>>> -		dsb(ishst);
+>>> -		isb();
+>>> -	}
+>>> +	if (pmd_valid_not_user(pmd))
+>>> +		queue_pte_barriers();
+>>>  }
+>>>  
+>>>  static inline void pmd_clear(pmd_t *pmdp)
+>>> @@ -869,10 +900,8 @@ static inline void set_pud(pud_t *pudp, pud_t pud)
+>>>  
+>>>  	WRITE_ONCE(*pudp, pud);
+>>>  
+>>> -	if (pud_valid_not_user(pud)) {
+>>> -		dsb(ishst);
+>>> -		isb();
+>>> -	}
+>>> +	if (pud_valid_not_user(pud))
+>>> +		queue_pte_barriers();
+>>>  }
+>>>  
+>>>  static inline void pud_clear(pud_t *pudp)
+>>> @@ -960,10 +989,8 @@ static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
+>>>  
+>>>  	WRITE_ONCE(*p4dp, p4d);
+>>>  
+>>> -	if (p4d_valid_not_user(p4d)) {
+>>> -		dsb(ishst);
+>>> -		isb();
+>>> -	}
+>>> +	if (p4d_valid_not_user(p4d))
+>>> +		queue_pte_barriers();
+>>>  }
+>>>  
+>>>  static inline void p4d_clear(p4d_t *p4dp)
+>>> @@ -1098,10 +1125,8 @@ static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
+>>>  
+>>>  	WRITE_ONCE(*pgdp, pgd);
+>>>  
+>>> -	if (pgd_valid_not_user(pgd)) {
+>>> -		dsb(ishst);
+>>> -		isb();
+>>> -	}
+>>> +	if (pgd_valid_not_user(pgd))
+>>> +		queue_pte_barriers();
+>>>  }
+>>>  
+>>>  static inline void pgd_clear(pgd_t *pgdp)
+>>> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
+>>> index 1114c1c3300a..382d2121261e 100644
+>>> --- a/arch/arm64/include/asm/thread_info.h
+>>> +++ b/arch/arm64/include/asm/thread_info.h
+>>> @@ -82,6 +82,8 @@ void arch_setup_new_exec(void);
+>>>  #define TIF_SME_VL_INHERIT	28	/* Inherit SME vl_onexec across exec */
+>>>  #define TIF_KERNEL_FPSTATE	29	/* Task is in a kernel mode FPSIMD section */
+>>>  #define TIF_TSC_SIGSEGV		30	/* SIGSEGV on counter-timer access */
+>>> +#define TIF_KMAP_UPDATE_ACTIVE	31	/* kernel map update in progress */
+>>> +#define TIF_KMAP_UPDATE_PENDING	32	/* kernel map updated with deferred barriers */
+>>>  
+>>>  #define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
+>>>  #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
+>>> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+>>> index 42faebb7b712..1367ec6407d1 100644
+>>> --- a/arch/arm64/kernel/process.c
+>>> +++ b/arch/arm64/kernel/process.c
+>>> @@ -680,10 +680,10 @@ struct task_struct *__switch_to(struct task_struct *prev,
+>>>  	gcs_thread_switch(next);
+>>>  
+>>>  	/*
+>>> -	 * Complete any pending TLB or cache maintenance on this CPU in case
+>>> -	 * the thread migrates to a different CPU.
+>>> -	 * This full barrier is also required by the membarrier system
+>>> -	 * call.
+>>> +	 * Complete any pending TLB or cache maintenance on this CPU in case the
+>>> +	 * thread migrates to a different CPU. This full barrier is also
+>>> +	 * required by the membarrier system call. Additionally it is required
+>>> +	 * for TIF_KMAP_UPDATE_PENDING, see below.
+>>>  	 */
+>>>  	dsb(ish);
+>>>  
+>>> @@ -696,6 +696,18 @@ struct task_struct *__switch_to(struct task_struct *prev,
+>>>  	/* avoid expensive SCTLR_EL1 accesses if no change */
+>>>  	if (prev->thread.sctlr_user != next->thread.sctlr_user)
+>>>  		update_sctlr_el1(next->thread.sctlr_user);
+>>> +	else if (unlikely(test_thread_flag(TIF_KMAP_UPDATE_PENDING))) {
+>>> +		/*
+>>> +		 * In unlikely event that a kernel map update is on-going when
+>>> +		 * preemption occurs, we must emit_pte_barriers() if pending.
+>>> +		 * emit_pte_barriers() consists of "dsb(ishst); isb();". The dsb
+>>> +		 * is already handled above. The isb() is handled if
+>>> +		 * update_sctlr_el1() was called. So only need to emit isb()
+>>> +		 * here if it wasn't called.
+>>> +		 */
+>>> +		isb();
+>>> +		clear_thread_flag(TIF_KMAP_UPDATE_PENDING);
+>>> +	}
+>>>  
+>>>  	/* the actual thread switch */
+>>>  	last = cpu_switch_to(prev, next);
+> 
 
