@@ -4,98 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61AB4C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 06:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEF17C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 06:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0oAWyQpxOetBs4E6OmdRYR94Rvs0dkU7aab6agKV5H4=; b=yDiDMDYx+0kp0LclAsejCIcHeP
-	0d8H0HDVwH0QhiUVLvbaaBcexSELRnmZJHYE+P5UFW3wBsqaE5QWYc8kAXYAuX9NVCBywfVsdAFWF
-	+9qzUddjW16iF1a7OB2gLq4l93RLYxbMAtNXp5GtWunMTJUlyjpt/+KtSVHJLWEmF3UFuCLbuvM+s
-	hsa/5hUwmBBRrz1QLPaQtbmwKt6J+rnOBuDxh80B8xNgfYjdsLcDANn+OSt5slwG2Wyg10I6GJmBH
-	w2bxv1rOt6LqOy3cceYGee/9DZmVRdJa1fneOwRYPUNiY8eymdZBnNpLxSNsUx/uZWzRe8ij7dIWi
-	7XKmjbxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5cjQWSwj8nKF9KoRQ2WmbNuDTwdSzRb9QicnW/ugG1M=; b=kXnazAs67vk/sorUiD7YyH9K5r
+	6eMM8vdP+mSLVoMo3iIJXcu1zzt4oeluRf3hyIWlPfN9H1X5CWItrIljGt9HUN2MlROJZyDBAWy1n
+	sF/dnbZ0lr34KULZ+tbuUDr45084LYrAwxv1LLRNneaEUHKubRopAsTxBxwpyhlbdwMEMYv0Ph4vj
+	kY22rujqDaL68Vp+iC7iLxKwNRN6mBAnYsQhX/90qazr8ysnRjmaOUlF0sLt8Omyjzc/QvZrMflPq
+	UTncrX7Lhing0vj7gWPVMa3mIiUmugf2ywsx9DPaDBWqCQKIKMdJ5EnLgT721rEMh01+3WlAlZR+O
+	a3x1nSdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiSV3-00000009u99-0LM8;
-	Thu, 13 Feb 2025 06:15:01 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1tiSWR-00000009uMs-39Ly;
+	Thu, 13 Feb 2025 06:16:27 +0000
+Received: from out-181.mta1.migadu.com ([95.215.58.181])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiST4-00000009tsw-0tMc
+	id 1tiSUi-00000009u6H-0UYZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 06:12:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739427178; x=1770963178;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=GEJZwnWqsIMq3HKET1mdxf8SV5zMREPN381jd4cLlhM=;
-  b=Y3B6dGVaf4XgFtsnu/SpHcDfNJF19sAkVqkorop83pyJdV0+xMg2Tu1E
-   obdbhTVAHJtorV2VsusW2Jfblde7oZpQamVkmiEEnQu5sW5PfjmepNVVG
-   mhgQZ9+EC89hQemYNtLl8H2/hjv5I2Z4zdu6rNzYlT3Ag3JIMspKPlO8I
-   sZLgaIYBpSwGWdHMJdzmponi27jrRGLrMdet5eAV+w4SSoQnhk0RYsB81
-   N1tSPmrdF1vsHlllWh3uL/JoWufAErP0AP33N/WCTrme5f4RX9yY9T2Ll
-   F/yvo+s1GT779sHSZ2y1t/fq0wzL9UW+EFN0TLHfIuqT9E0TvSySAd5B9
-   A==;
-X-CSE-ConnectionGUID: 8IF4OeUUT+qvN/z+HVpCeQ==
-X-CSE-MsgGUID: offkVCUcS56WdLaRjHVUVQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11343"; a="44046222"
-X-IronPort-AV: E=Sophos;i="6.13,282,1732608000"; 
-   d="scan'208";a="44046222"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2025 22:12:57 -0800
-X-CSE-ConnectionGUID: bkfrU6y2QB2L4ycTkHh9VA==
-X-CSE-MsgGUID: VzfZiVD2SRO52yQ6ry9WDg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="117156622"
-Received: from mohdfai2-mobl.gar.corp.intel.com (HELO [10.247.42.34]) ([10.247.42.34])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Feb 2025 22:12:50 -0800
-Message-ID: <b19357dc-590d-458c-9646-ee5993916044@linux.intel.com>
-Date: Thu, 13 Feb 2025 14:12:47 +0800
+	Thu, 13 Feb 2025 06:14:42 +0000
+Date: Wed, 12 Feb 2025 22:14:29 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1739427277;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5cjQWSwj8nKF9KoRQ2WmbNuDTwdSzRb9QicnW/ugG1M=;
+	b=rfpa5Zy3jCDew0wr+3Ap2UlABlwFrZ6W90clYvgaXHX+f1Y2+BkqgfWW+PofMQ7NrAgIYK
+	ztM5LIlQ1YH9ZBfGfUI6WM/fJ81qGfighs8088pa79LoCafpufn76YepsKUa5dEqQuJxK2
+	yr4wx4OSTqKC8VG+i0vLMqajSkxMh7c=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Fuad Tabba <tabba@google.com>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v7] KVM: arm64: Fix confusion in documentation for pKVM
+ SME assert
+Message-ID: <Z62NxRzbOyt-nBmK@linux.dev>
+References: <20250212-kvm-arm64-sme-assert-v7-1-0f786db838d3@kernel.org>
+ <Z6yByMUBPDUyEWOr@J2N7QTR9R3>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH iwl-next v4 0/9] igc: Add support for Frame Preemption
- feature in IGC
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, Furong Xu <0x1207@gmail.com>,
- Russell King <rmk+kernel@armlinux.org.uk>,
- Serge Semin <fancer.lancer@gmail.com>,
- Xiaolei Wang <xiaolei.wang@windriver.com>,
- Suraj Jaiswal <quic_jsuraj@quicinc.com>,
- Kory Maincent <kory.maincent@bootlin.com>, Gal Pressman <gal@nvidia.com>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Andrew Halaney <ahalaney@redhat.com>,
- Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Vinicius Costa Gomes <vinicius.gomes@intel.com>,
- intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-References: <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
- <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
- <20250212220121.ici3qll66pfoov62@skbuf>
-Content-Language: en-US
-From: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
-In-Reply-To: <20250212220121.ici3qll66pfoov62@skbuf>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z6yByMUBPDUyEWOr@J2N7QTR9R3>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250212_221258_270883_2B39DA53 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20250212_221440_760690_EE4B7C2D 
+X-CRM114-Status: GOOD (  27.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,43 +74,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Feb 12, 2025 at 11:11:04AM +0000, Mark Rutland wrote:
+> On Wed, Feb 12, 2025 at 12:44:57AM +0000, Mark Brown wrote:
+> > As raised in the review comments for the original patch the assert and
+> > comment added in afb91f5f8ad7 ("KVM: arm64: Ensure that SME controls are
+> > disabled in protected mode") are bogus. The comments says that we check
+> > that we do not have SME enabled for a pKVM guest but the assert actually
+> > checks to see if the host has anything set in SVCR which is unrelated to
+> > the guest features or state, regardless of if those guests are protected
+> > or not. This check is also made in the hypervisor, it will refuse to run
+> > a guest if the check fails, so it appears that the assert here is
+> > intended to improve diagnostics.
+> > 
+> > Update the comment to reflect the check in the code, and to clarify that
+> > we do actually enforce this in the hypervisor. While we're here also
+> > update to use a WARN_ON_ONCE() to avoid log spam if this triggers.
+> > 
+> > Fixes: afb91f5f8ad7 ("KVM: arm64: Ensure that SME controls are disabled in protected mode")
+> > Reviewed-by: Fuad Tabba <tabba@google.com>
+> > Signed-off-by: Mark Brown <broonie@kernel.org>
 
+I don't think a Fixes tag is warranted here, this doesn't fix any
+functional issue.
 
-On 13/2/2025 6:01 am, Vladimir Oltean wrote:
-> On Mon, Feb 10, 2025 at 02:01:58AM -0500, Faizal Rahim wrote:
->> Introduces support for the FPE feature in the IGC driver.
->>
->> The patches aligns with the upstream FPE API:
->> https://patchwork.kernel.org/project/netdevbpf/cover/20230220122343.1156614-1-vladimir.oltean@nxp.com/
->> https://patchwork.kernel.org/project/netdevbpf/cover/20230119122705.73054-1-vladimir.oltean@nxp.com/
->>
->> It builds upon earlier work:
->> https://patchwork.kernel.org/project/netdevbpf/cover/20220520011538.1098888-1-vinicius.gomes@intel.com/
->>
->> The patch series adds the following functionalities to the IGC driver:
->> a) Configure FPE using `ethtool --set-mm`.
->> b) Display FPE settings via `ethtool --show-mm`.
->> c) View FPE statistics using `ethtool --include-statistics --show-mm'.
->> e) Enable preemptible/express queue with `fp`:
->>     tc qdisc add ... root taprio \
->>     fp E E P P
+> > diff --git a/arch/arm64/kvm/fpsimd.c b/arch/arm64/kvm/fpsimd.c
+> > index 4d3d1a2eb157047b4b2488e9c4ffaabc6f5a0818..e37e53883c357093ff4455f5afdaec90e662d744 100644
+> > --- a/arch/arm64/kvm/fpsimd.c
+> > +++ b/arch/arm64/kvm/fpsimd.c
+> > @@ -93,11 +93,14 @@ void kvm_arch_vcpu_load_fp(struct kvm_vcpu *vcpu)
+> >  	}
+> >  
+> >  	/*
+> > -	 * If normal guests gain SME support, maintain this behavior for pKVM
+> > -	 * guests, which don't support SME.
+> > +	 * Protected and non-protected KVM modes require that
+> > +	 * SVCR.{SM,ZA} == {0,0} when entering a guest so that no
+> > +	 * host/guest SME state needs to be saved/restored by hyp code.
+> > +	 *
+> > +	 * In protected mode, hyp code will verify this later.
+> >  	 */
+> > -	WARN_ON(is_protected_kvm_enabled() && system_supports_sme() &&
+> > -		read_sysreg_s(SYS_SVCR));
+> > +	WARN_ON_ONCE(is_protected_kvm_enabled() && system_supports_sme() &&
+> > +		     read_sysreg_s(SYS_SVCR));
 > 
-> Any reason why you are only enabling the preemptible traffic classes
-> with taprio, and not with mqprio as well? I see there will have to be
-> some work harmonizing igc's existing understanding of ring priorities
-> with what Kurt did in 9f3297511dae ("igc: Add MQPRIO offload support"),
-> and I was kind of expecting to see a proposal for that as part of this.
+> As I mentioned on the last round, we can drop the is_protected_kvm_enabled()
+> check, i.e. have:
 > 
+> 	/*
+> 	 * Protected and non-protected KVM modes require that
+> 	 * SVCR.{SM,ZA} == {0,0} when entering a guest so that no
+> 	 * host/guest SME state needs to be saved/restored by hyp code.
+> 	 *
+> 	 * In protected mode, hyp code will verify this later.
+> 	 */
+> 	WARN_ON_ONCE(system_supports_sme() && read_sysreg_s(SYS_SVCR));
+> 
+> Either way:
+> 
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
+> 
+> Marc, are you happy to queue this atop the recent fixes from me? Those
+> try to ensure SVCR.{SM,ZA} == {0,0} regardless of whether KVM is in
+> protected mode.
 
-I was planning to enable fpe + mqprio separately since it requires extra 
-effort to explore mqprio with preemptible rings, ring priorities, and 
-testing to ensure it works properly and there are no regressions.
+I'll pick it up for 6.15 if Marc doesn't grab it as a fix.
 
-I’m really hoping that fpe + mqprio doesn’t have to be enabled together in 
-this series to keep things simple. It could be added later—adding it now 
-would introduce additional complexity and delay this series further, which 
-is focused on enabling basic, working fpe on i226.
-
-Would that be okay with you?
-
+-- 
+Thanks,
+Oliver
 
