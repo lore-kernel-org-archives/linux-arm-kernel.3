@@ -4,68 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C16E2C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 08:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E4CAC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 08:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZhdp6JrdaO/qqV79WRuc+dC9Xb//OAn1jjBPZiaa3A=; b=kg+J3M1kiTeSyRlT+w7cPHZBUv
-	inmDeGu3GS9g1YxV9E08kfzKawMQB7kUWpkYIu+uTcCSrcLUVCD2J0LprubY/D6NYPgOKLoMrxoZ7
-	n2DVwAyDonMHCQRljfz+2K9vqMxAP+ZX/W1wMLvtFwDtLB4RmI+bZPcows9q7Uv9nda3/VSnQoyd9
-	hH7udrTSIWw289qoQJKylTy72y96MaAxlgoorHEN/oD6CuAqk/KrYH8pggJN294EcbN2nzK1Ip05y
-	uwLvfZCz5kJOjOabJFaeoqwiKOXS87VdBPSmz2QuTPKCjb6JAQi0ACZjrxuaxR590UlYtDuA20wRN
-	f90JA4jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KhaBNpb95Gi1j4dcCqAqa7XYiZGUbfkjJsMy2avvVao=; b=SCXOIur4Fs1tCquDRQjhZ3tg0d
+	XdQ6px4LbiS8Lt5niVV+8efhDEL+Rj44hhjsq5PrS6FKRcTqHFpPhNI/BfWuCX51Mre66mr6B1GhX
+	r9JWixOuETUWu6Fo267+oZ4BZjjsxDYGUWMtcsxUvxo14pST3O8Ihg/N/3Y0k+Dt1bEB8VLznTNRc
+	WG07D6BVhV4bq12V5oJyHfo6GoLA7p37yKB6Oae/14lbebkpQoo1uC+yukGA2JUZRsRiZ5O9sC/ES
+	VEovtiihxhJW6pUFS8L+uKwhjRNac4ZMsMl9wrbFB38pU88gijOLns9xBRJfwPXozeR7jMknrmyU6
+	dqFoawAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiUxt-0000000ALNr-0xMp;
-	Thu, 13 Feb 2025 08:52:57 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tiUzG-0000000ALYI-3feH;
+	Thu, 13 Feb 2025 08:54:22 +0000
+Received: from out203-205-221-240.mail.qq.com ([203.205.221.240])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiUuw-0000000AKhn-1IIS
+	id 1tiUwD-0000000AL4Z-438Y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 08:49:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 064F15C4C50;
-	Thu, 13 Feb 2025 08:49:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EDC5C4CED1;
-	Thu, 13 Feb 2025 08:49:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739436593;
-	bh=cd7wC24agIPsKYoQD5ER+IECrpwNvYKfrWoOGu/d88k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ia57xZ3pwG5L7EjG/epzmI6HuQ4XdduMd+BUnr+fkc3YoXwsrw8IjUPXh7TGObBjt
-	 NFPEaINJ6xDAOwBTZe4CtAbSZjjGd1+wVeeLWO7COhzs4qrjG3d8aRaVAhB6VYp509
-	 9Du7pNsX38cYCsQegLRYnOMd0ImQ0iTisgR3O8o2xVB5MxbpavegGqNclkUGCN7ozB
-	 txpl77HL1ca4AzcD1gH3lBrtvtOLOc9GuprU8KmdZhJdDHubuLNkp4gruMw5HyODcE
-	 PczM6LdlRFf6JfQzfJU/qop+3EFMj0RZb/3xzZ8GZ2I9wmMU4AL8izKDMbwFIMUEjj
-	 pIAwF+DFhsxfA==
-Date: Thu, 13 Feb 2025 09:49:50 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Nas Chung <nas.chung@chipsnmedia.com>
-Cc: "mchehab@kernel.org" <mchehab@kernel.org>, 
-	"hverkuil@xs4all.nl" <hverkuil@xs4all.nl>, 
-	"sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>, "robh@kernel.org" <robh@kernel.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-imx@nxp.com" <linux-imx@nxp.com>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "jackson.lee" <jackson.lee@chipsnmedia.com>, 
-	"lafley.kim" <lafley.kim@chipsnmedia.com>
-Subject: Re: [PATCH 3/8] dt-bindings: media: nxp: Add Wave6 video codec device
-Message-ID: <20250213-imaginary-shrimp-of-merriment-6ccb6f@krzk-bin>
-References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
- <20250210090725.4580-4-nas.chung@chipsnmedia.com>
- <cb7937f5-2045-4903-825c-71ed70097efb@kernel.org>
- <SL2P216MB12460EDF6265459D11E2A5A9FBFF2@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+	Thu, 13 Feb 2025 08:51:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1739436671; bh=KhaBNpb95Gi1j4dcCqAqa7XYiZGUbfkjJsMy2avvVao=;
+	h=From:To:Cc:Subject:Date;
+	b=sW7x1q9BAfemQ7d9L0AJayvlQSBnJ+8+4oD42aqGJ+6cpvhQmqIKpNJTbMYaWSnpK
+	 I5+wYvsphD4suhqpGFgDYHAjKlhYgIKL2KKtvzHRhbGhMLpGfHtqgMSdm4zuIcSwJ3
+	 bk9/EKBgaOQSz8ldoVxlbrZgNZEwfQCFux2g3IAk=
+Received: from cyy-pc.lan ([240e:379:2251:3600:f57b:26f9:9718:486c])
+	by newxmesmtplogicsvrszc16-0.qq.com (NewEsmtp) with SMTP
+	id B2330E54; Thu, 13 Feb 2025 16:44:35 +0800
+X-QQ-mid: xmsmtpt1739436275tf62qoxf2
+Message-ID: <tencent_D4ED18476ADCE818E31084C60E3E72C14907@qq.com>
+X-QQ-XMAILINFO: OcN56dxiYj5TKvs7kfZibyvxHrdbil8FBd+bY5ZT7gc3Jj7B62kZYye07kdBtv
+	 pkuNbbtuagFWAmjnpSOjxuKK0o1iYgXUiJjXtLZOOaCnJBPYTlxepxpofP2WkhWjt4vhlIt/G0mC
+	 xY5SlOCqxPl4E15O7QMr56o83XRpGTXACrbJzhaVw/Xf4qhwsFWtwYQ9mTJdkzc2RDI/sy8Wav9L
+	 f2lDSmD/5qDeP74cE1IxH43i30aYQxS5u5zkZQ0W0HVfggr5MNE9a/0LtMr/1YXcFFg0siA3Z8dL
+	 d5JjUkKemrm43RVWMmcQs3zw2dUC1XYFfYuJkecVyUnbRK4Mu5afolhmtpeMXA6v6sWYcGDWD5Hc
+	 79mzX9dGqozQmWwxbBGr3qJBCgARzGMQIJT488XmyVdS3toP1v9Al8Ab/cJc03sRLGBoyAD8sp0M
+	 ArH9veK8hEkcQXbQj8k7DTrT6jCye5YUs//rVGqi8EaLdm96nuCZLVcC+T/PUfL3xTYIZsj7GKxh
+	 4rzR8iUHtVFgFiPuPHcqy8dOKXOafineMmg+x9j8Sm3FbbQZrOcyHI1RDPWVPF2p01+IFyNMwKKK
+	 gd3ueMHNCFEbvLAag+ZbnO/FkpUhLzSrWEKN8NcpJnLrzF54F62mUe6PqShNTud5ph9NARB5yG0z
+	 HoL+2D24wD22QKSaoq9VgPiHJaN5KLSfukOgWjqbjcZBDjdA2/DbYMYhWKn2sw50csMJr66WU1b3
+	 bLLpTavxqwmyHbhux+RSG5Qe031tcHi1zegAsBGU1/RyBezTC5ZLBmbn0Z7TgNH/vo7ka9KV/fE4
+	 mw/ChjO2jX6QZijG27yuvldo0MPClGdFyi/AjMIGM/51lhweYHSFTWqoUI/C9el8XMJwKQh/IgCM
+	 MyyJHFKKbw9dB5+AZ0bpDXgC8qaaAu8rHPoMfroD0g4PoVtN89Oa/YD1SAaApLEPUqR64FoN0h9Q
+	 UAqqPMCoXeAJTTsfaMo8Y1qhRKLIywbRg7onUXhJyFcIip5Ex4OQ==
+X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
+From: Yangyu Chen <cyy@cyyself.name>
+To: linux-perf-users@vger.kernel.org,
+	james.clark@linaro.org,
+	irogers@google.com,
+	namhyung@kernel.org
+Cc: acme@kernel.org,
+	adrian.hunter@intel.com,
+	alexander.shishkin@linux.intel.com,
+	fj3333bs@aa.jp.fujitsu.com,
+	fj5100bi@fujitsu.com,
+	john.g.garry@oracle.com,
+	jolsa@kernel.org,
+	kan.liang@linux.intel.com,
+	leo.yan@linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	mark.rutland@arm.com,
+	mike.leach@linaro.org,
+	mingo@redhat.com,
+	peterz@infradead.org,
+	will@kernel.org,
+	Yangyu Chen <cyy@cyyself.name>
+Subject: [PATCH] perf vendor events arm64: Fix incorrect CPU_CYCLE in metrics expr
+Date: Thu, 13 Feb 2025 16:44:09 +0800
+X-OQ-MSGID: <20250213084409.109774-1-cyy@cyyself.name>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <SL2P216MB12460EDF6265459D11E2A5A9FBFF2@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_004954_456499_A4813F47 
-X-CRM114-Status: GOOD (  41.56  )
+X-CRM114-CacheID: sfid-20250213_005114_320413_199D85FA 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,391 +98,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 07:50:53AM +0000, Nas Chung wrote:
-> >> +    items:
-> >> +      - enum:
-> >> +          - nxp,imx95-wave633c-ctrl
-> >> +          - nxp,imx95-wave633c
-> >
-> >I don't understand why you duplicated compatibles. You split this for
-> >driver? That's a no. There are no two hardwares.
-> 
-> Yes, I want to introduce two different devices and drivers,
-> even though there is only one hardware.
+Some existing metrics for Neoverse N3 and V3 expressions use CPU_CYCLE
+to represent the number of cycles, but this is incorrect. The correct
+event to use is CPU_CYCLES.
 
-That's a no. Bindings are for hardware, not drivers.
-Linux driver design is independent of bindings.
+I encountered this issue while working on a patch to add pmu events for
+Cortex A720 and A520 by reusing the existing patch for Neoverse N3 and
+V3 by James Clark [1] and my check script [2] reported this issue.
 
-> 
-> Wave6 IP has five independent register regions:
-> 
-> One register region is dedicated to the control device,
-> which manages shared resources such as firmware loading and power domains.
-> 
-> The remaining four register regions are assigned to
-> four independent VPU devices, each accessing its own dedicated region.
-> (to support 4 vms)
+[1] https://lore.kernel.org/lkml/20250122163504.2061472-1-james.clark@linaro.org/
+[2] https://github.com/cyyself/arm-pmu-check
 
-This could be, but your binding said something completely opposite. Look
-how other bindings do it, first.
+Signed-off-by: Yangyu Chen <cyy@cyyself.name>
+---
+ .../perf/pmu-events/arch/arm64/arm/neoverse-n3/metrics.json | 6 +++---
+ .../perf/pmu-events/arch/arm64/arm/neoverse-v3/metrics.json | 6 +++---
+ 2 files changed, 6 insertions(+), 6 deletions(-)
 
-> 
-> Would it be reasonable to split the YAML into separate files
-> for the VPU control device and the VPU device ?
-> (like nxp,wave633c-ctrl.yaml)
-
-No, it changes nothing.
-
-> 
-> >
-> >These compatibles are anyway weird - why imx95 is in chipmedia product?
-> >Is this part of a SoC?
-> 
-> I want to represent that the Wave633 is part of the i.MX95.
-> Chips&Media's Wave633 can also be integrated into SoCs from other vendors.
-
-OK
-
-
-> By using the compatible name, the same Wave6 driver can distinguish
-> different implementations.
-
-So you tell DT maintainer how DT works, brilliant...
-
-> 
-> However, I agree that "imx95" is not strictly necessary in current status.
-> So, using "nxp,wave633c" would be a better choice, right ?
-
-No, NXP did not create wave633c. SoC components must have SoC prefix,
-assuming this is a Soc component.
-
-> 
-> >
-> >> +
-> >> +  reg:
-> >> +    maxItems: 1
-> >> +
-> >> +  interrupts:
-> >> +    maxItems: 1
-> >> +
-> >> +  clocks:
-> >> +    items:
-> >> +      - description: VPU clock
-> >> +      - description: VPU associated block clock
-> >> +
-> >> +  clock-names:
-> >> +    items:
-> >> +      - const: vpu
-> >> +      - const: vpublk_wave
-> >> +
-> >> +  power-domains:
-> >> +    minItems: 1
-> >> +    items:
-> >> +      - description: Main VPU power domain
-> >> +      - description: Performance power domain
-> >> +
-> >> +  power-domain-names:
-> >> +    items:
-> >> +      - const: vpumix
-> >> +      - const: vpuperf
-> >> +
-> >> +  cnm,ctrl:
-> >
-> >What is this prefix about? Is this nxp or something else?
-> 
-> Yes, using "nxp" as the prefix seems more appropriate.
-> 
-> >
-> >> +    $ref: /schemas/types.yaml#/definitions/phandle
-> >> +    description: phandle of the VPU control device node. Required for VPU
-> >operation.
-> >
-> >Explain - required for what. Operation is too generic.
-> 
-> phandle of the VPU control device node, which manages shared resources
-> such as firmware access and power domains.
-
-Then NAK.
-
-Use proper bindings for this, e.g. power-domains.
-
-
-> 
-> >
-> >If this is phandle to second device, then it's proof your split is
-> >really wrong.
-> 
-> Are you suggesting that I should separate them into two YAML files,
-
-No. Splitting into separate files would change nothing - you still would
-have here a phandle, right?
-
-> or that I should structure them in a parent-child hierarchy
-> within the same YAML file ?
-
-You did not try hard enough to find similar devices, which there is a
-ton of.
-
-> 
-> I appreciate any guidance on the best approach to structure this in line
-> with existing bindings.
-
-Then look for them.
-
-You have one device. If you have sub-blocks with their own
-distinguishable address space, then they can be children. But you did
-not write it that way. Just look at your example DTS - no children at
-all!
-
-> 
-> >
-> >> +
-> >> +  boot:
-> >> +    $ref: /schemas/types.yaml#/definitions/phandle
-> >> +    description: phandle of the boot memory region node for the VPU
-> >control device.
-> >
-> >No clue what is this... if memory region then use existing bindings.
-> 
-> Boot is a memory region used for firmware upload.
-> Only the control device can access this region.
-> By "existing bindings," do you mean I should use "memory-region" instead ?
-
-Look how other bindings do this and what property they use. Yes,
-memory-region.
-
-> 
-> >
-> >Anyway, wrap your code correctly.
-> 
-> Okay.
-> 
-> >
-> >> +
-> >> +  sram:
-> >> +    $ref: /schemas/types.yaml#/definitions/phandle
-> >> +    description: phandle of the SRAM memory region node for the VPU
-> >control device.
-> >> +
-> >> +  '#cooling-cells':
-> >> +    const: 2
-> >> +
-> >> +  support-follower:
-> >> +    type: boolean
-> >> +    description: Indicates whether the VPU domain power always on.
-> >
-> >You cannot add new common properties in random way. Missing vendor
-> >prefix but more important: does not look at all as hardware property but
-> >OS policy.
-> 
-> I agree with you.
-> I'll remove it in v2.
-> 
-> >
-> >> +
-> >> +patternProperties:
-> >> +  "^vpu-ctrl@[0-9a-f]+$":
-> >> +    type: object
-> >> +    properties:
-> >> +      compatible:
-> >> +        items:
-> >> +          - enum:
-> >> +              - nxp,imx95-wave633c-ctrl
-> >
-> >Really, what? How nxp,imx95-wave633c-ctrl node can have a child with
-> >nxp,imx95-wave633c-ctrl compatible?
-> >
-> >NAK.
-> 
-> Apologies, I misunderstood the meaning of 'patternProperties'.
-> I'll remove it in v2.
-> 
-> >
-> >
-> >> +      reg: true
-> >> +      clocks: true
-> >> +      clock-names: true
-> >> +      power-domains:
-> >> +        items:
-> >> +          - description: Main VPU power domain
-> >> +          - description: Performance power domain
-> >> +      power-domain-names:
-> >> +        items:
-> >> +          - const: vpumix
-> >> +          - const: vpuperf
-> >> +      sram: true
-> >> +      boot: true
-> >> +      '#cooling-cells': true
-> >> +      support-follower: true
-> >> +    required:
-> >> +      - compatible
-> >> +      - reg
-> >> +      - clocks
-> >> +      - clock-names
-> >> +      - power-domains
-> >> +      - power-domain-names
-> >> +      - sram
-> >> +      - boot
-> >> +
-> >> +    additionalProperties: false
-> >> +
-> >> +  "^vpu@[0-9a-f]+$":
-> >> +    type: object
-> >> +    properties:
-> >> +      compatible:
-> >> +        items:
-> >> +          - enum:
-> >> +              - nxp,imx95-wave633c
-> >> +      reg: true
-> >> +      interrupts: true
-> >> +      clocks: true
-> >> +      clock-names: true
-> >> +      power-domains:
-> >> +        maxItems: 1
-> >> +        description: Main VPU power domain
-> >> +      cnm,ctrl: true
-> >> +    required:
-> >> +      - compatible
-> >> +      - reg
-> >> +      - interrupts
-> >> +      - clocks
-> >> +      - clock-names
-> >> +      - power-domains
-> >> +      - cnm,ctrl
-> >
-> >All this is just incorrect.
-> 
-> I'll remove it in v2.
-> 
-> >
-> >> +
-> >> +    additionalProperties: false
-> >> +
-> >> +additionalProperties: false
-> >> +
-> >> +examples:
-> >> +  - |
-> >> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> >> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
-> >> +
-> >> +    soc {
-> >> +      #address-cells = <2>;
-> >> +      #size-cells = <2>;
-> >> +
-> >> +      vpuctrl: vpu-ctrl@4c4c0000 {
-
-So this is the parent device...
-
-> >> +        compatible = "nxp,imx95-wave633c-ctrl";
-> >> +        reg = <0x0 0x4c4c0000 0x0 0x10000>;
-> >> +        clocks = <&scmi_clk 115>,
-> >> +            <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
-> >> +        clock-names = "vpu", "vpublk_wave";
-> >> +        power-domains = <&scmi_devpd 21>, <&scmi_perf 10>;
-> >> +        power-domain-names = "vpumix", "vpuperf";
-> >> +        #cooling-cells = <2>;
-> >> +        boot = <&vpu_boot>;
-> >> +        sram = <&sram1>;
-> >> +      };
-> >> +
-> >> +      vpu0: vpu@4c480000 {
-
-
-And here you have child which is not a child? Your binding and DTS
-neither match nor make any sense.
-
-> >
-> >Node names should be generic. See also an explanation and list of
-> >examples (not exhaustive) in DT specification:
-> >https://devicetree-specification.readthedocs.io/en/latest/chapter2-
-> >devicetree-basics.html#generic-names-recommendation
-> 
-> Thanks for sharing the link.
-> I'll use "video-codec" as the node name in v2.
-> 
-> >
-> >
-> >> +        compatible = "nxp,imx95-wave633c";
-> >> +        reg = <0x0 0x4c480000 0x0 0x10000>;
-> >> +        interrupts = <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
-> >> +        clocks = <&scmi_clk 115>,
-> >> +                <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
-> >> +        clock-names = "vpu", "vpublk_wave";
-> >> +        power-domains = <&scmi_devpd 21>;
-> >> +        cnm,ctrl = <&vpuctrl>;
-> >> +      };
-> >> +
-> >> +      vpu1: vpu@4c490000 {
-> >> +        compatible = "nxp,imx95-wave633c";
-> >
-> >Drop all duplicated examples.
-> 
-> Wave6 HW is designed for simultaneous access,
-> as each VPU device has its own separate register space.
-> Therefore, I defined the 4 VPU devices as independent nodes in the example
-> to reflect this.
-
-They are redundant in this example. Unless you wanted to express
-something else, but you did not.
-
-
-> 
-> >
-> >
-> >> +        reg = <0x0 0x4c490000 0x0 0x10000>;
-> >> +        interrupts = <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>;
-> >> +        clocks = <&scmi_clk 115>,
-> >> +                <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
-> >> +        clock-names = "vpu", "vpublk_wave";
-> >> +        power-domains = <&scmi_devpd 21>;
-> >> +        cnm,ctrl = <&vpuctrl>;
-> >> +      };
-> >> +
-> >> +      vpu2: vpu@4c4a0000 {
-> >> +        compatible = "nxp,imx95-wave633c";
-> >> +        reg = <0x0 0x4c4a0000 0x0 0x10000>;
-> >> +        interrupts = <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>;
-> >> +        clocks = <&scmi_clk 115>,
-> >> +                <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
-> >> +        clock-names = "vpu", "vpublk_wave";
-> >> +        power-domains = <&scmi_devpd 21>;
-> >> +        cnm,ctrl = <&vpuctrl>;
-> >> +      };
-> >> +
-> >> +      vpu3: vpu@4c4b0000 {
-> >> +        compatible = "nxp,imx95-wave633c";
-> >> +        reg = <0x0 0x4c4b0000 0x0 0x10000>;
-> >> +        interrupts = <GIC_SPI 302 IRQ_TYPE_LEVEL_HIGH>;
-> >> +        clocks = <&scmi_clk 115>,
-> >> +                <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
-> >> +        clock-names = "vpu", "vpublk_wave";
-> >> +        power-domains = <&scmi_devpd 21>;
-> >> +        cnm,ctrl = <&vpuctrl>;
-> >> +      };
-> >> +    };
-> >> diff --git a/MAINTAINERS b/MAINTAINERS
-> >> index 896a307fa065..5ff5b1f1ced2 100644
-> >> --- a/MAINTAINERS
-> >> +++ b/MAINTAINERS
-> >> @@ -25462,6 +25462,14 @@ S:	Maintained
-> >>  F:	Documentation/devicetree/bindings/media/cnm,wave521c.yaml
-> >>  F:	drivers/media/platform/chips-media/wave5/
-> >>
-> >> +WAVE6 VPU CODEC DRIVER
-> >> +M:	Nas Chung <nas.chung@chipsnmedia.com>
-> >> +M:	Jackson Lee <jackson.lee@chipsnmedia.com>
-> >> +L:	linux-media@vger.kernel.org
-> >> +S:	Maintained
-> >> +F:	Documentation/devicetree/bindings/media/nxp,wave633c.yaml
-> >> +F:	drivers/media/platform/chips-media/wave6/
-> >
-> >There is no such file/directory.
-> 
-> Understood. I'll move the MAINTAINERS update to the last patch in v2.
-
-No, just add entry per entry.
-
-Best regards,
-Krzysztof
+diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n3/metrics.json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n3/metrics.json
+index 1f7c9536cb88..eb3a35f244e7 100644
+--- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-n3/metrics.json
++++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-n3/metrics.json
+@@ -169,7 +169,7 @@
+     },
+     {
+         "MetricName": "fp_ops_per_cycle",
+-        "MetricExpr": "(FP_SCALE_OPS_SPEC + FP_FIXED_OPS_SPEC) / CPU_CYCLE",
++        "MetricExpr": "(FP_SCALE_OPS_SPEC + FP_FIXED_OPS_SPEC) / CPU_CYCLES",
+         "BriefDescription": "This metric measures floating point operations per cycle in any precision performed by any instruction. Operations are counted by computation and by vector lanes, fused computations such as multiply-add count as twice per vector lane for example.",
+         "MetricGroup": "FP_Arithmetic_Intensity",
+         "ScaleUnit": "1operations per cycle"
+@@ -383,7 +383,7 @@
+     },
+     {
+         "MetricName": "nonsve_fp_ops_per_cycle",
+-        "MetricExpr": "FP_FIXED_OPS_SPEC / CPU_CYCLE",
++        "MetricExpr": "FP_FIXED_OPS_SPEC / CPU_CYCLES",
+         "BriefDescription": "This metric measures floating point operations per cycle in any precision performed by an instruction that is not an SVE instruction. Operations are counted by computation and by vector lanes, fused computations such as multiply-add count as twice per vector lane for example.",
+         "MetricGroup": "FP_Arithmetic_Intensity",
+         "ScaleUnit": "1operations per cycle"
+@@ -421,7 +421,7 @@
+     },
+     {
+         "MetricName": "sve_fp_ops_per_cycle",
+-        "MetricExpr": "FP_SCALE_OPS_SPEC / CPU_CYCLE",
++        "MetricExpr": "FP_SCALE_OPS_SPEC / CPU_CYCLES",
+         "BriefDescription": "This metric measures floating point operations per cycle in any precision performed by SVE instructions. Operations are counted by computation and by vector lanes, fused computations such as multiply-add count as twice per vector lane for example.",
+         "MetricGroup": "FP_Arithmetic_Intensity",
+         "ScaleUnit": "1operations per cycle"
+diff --git a/tools/perf/pmu-events/arch/arm64/arm/neoverse-v3/metrics.json b/tools/perf/pmu-events/arch/arm64/arm/neoverse-v3/metrics.json
+index d022ae25c864..4a671f55eaf3 100644
+--- a/tools/perf/pmu-events/arch/arm64/arm/neoverse-v3/metrics.json
++++ b/tools/perf/pmu-events/arch/arm64/arm/neoverse-v3/metrics.json
+@@ -169,7 +169,7 @@
+     },
+     {
+         "MetricName": "fp_ops_per_cycle",
+-        "MetricExpr": "(FP_SCALE_OPS_SPEC + FP_FIXED_OPS_SPEC) / CPU_CYCLE",
++        "MetricExpr": "(FP_SCALE_OPS_SPEC + FP_FIXED_OPS_SPEC) / CPU_CYCLES",
+         "BriefDescription": "This metric measures floating point operations per cycle in any precision performed by any instruction. Operations are counted by computation and by vector lanes, fused computations such as multiply-add count as twice per vector lane for example.",
+         "MetricGroup": "FP_Arithmetic_Intensity",
+         "ScaleUnit": "1operations per cycle"
+@@ -383,7 +383,7 @@
+     },
+     {
+         "MetricName": "nonsve_fp_ops_per_cycle",
+-        "MetricExpr": "FP_FIXED_OPS_SPEC / CPU_CYCLE",
++        "MetricExpr": "FP_FIXED_OPS_SPEC / CPU_CYCLES",
+         "BriefDescription": "This metric measures floating point operations per cycle in any precision performed by an instruction that is not an SVE instruction. Operations are counted by computation and by vector lanes, fused computations such as multiply-add count as twice per vector lane for example.",
+         "MetricGroup": "FP_Arithmetic_Intensity",
+         "ScaleUnit": "1operations per cycle"
+@@ -421,7 +421,7 @@
+     },
+     {
+         "MetricName": "sve_fp_ops_per_cycle",
+-        "MetricExpr": "FP_SCALE_OPS_SPEC / CPU_CYCLE",
++        "MetricExpr": "FP_SCALE_OPS_SPEC / CPU_CYCLES",
+         "BriefDescription": "This metric measures floating point operations per cycle in any precision performed by SVE instructions. Operations are counted by computation and by vector lanes, fused computations such as multiply-add count as twice per vector lane for example.",
+         "MetricGroup": "FP_Arithmetic_Intensity",
+         "ScaleUnit": "1operations per cycle"
+-- 
+2.47.2
 
 
