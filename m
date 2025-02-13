@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E656C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B16C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 18:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AQIBhWw6VYtBolZ65JR3HMz9Pxxv8mzqzv5iLGmDaMo=; b=0NsdJf/5p8DQUdxy2163G0cA5R
-	/X096JZfciqJRHGrk9oYVY9ekQo3wXOxElrBvko/GBqEn6CxJqRqaFaGATTGggH6dgElrwClFfgw0
-	ip11VFOLjN0DPpJulGE0QoLT+Z7ZODOtvWCdFbTPyYl8FY20YhFzskyB5z+iOWRNLhRw8Em9Zsmqr
-	fRdEV4ydXTQKlYBl9B64fg9jz1mwWu04MD7+B33PUvdrsVEVvWiGJH9mNRXQ2aGIEGAap+tYGKW8u
-	TJrr/Q7rOgqq6jzMpiPDN7Iz97JZe/rHfP36mQMzrE3kvcRFhEnq1CNSHBeHTw1TQkaMiictVBcIR
-	EquRoq6A==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8HD0F6MlrVX6ONSbgfROhExBvSXKoR02iMdIDwIZ7zo=; b=xtpBaVW8MA1uIplImAKChVdcuR
+	8win+5s638g9FxPVOVRIpRX5RHBawB5Kxtv5XyxQai2USm0gXMTL85Fdt1X8TDXhMvpneiU/G+LV1
+	AmbFrAKSRd536OEzNIqXXIaqYE5L+lDLeVQ7tlxmVD30IH9SovnfE9ha6Wr6vttdrwpoml3CWP+/U
+	XNpH+qlkHV+SKQ4iawn+iGByX++j7H1QdXLHDsGGJo8DHOtBXf/o5LhPG0h5oxYrWi+q8850ipRT0
+	JNjkwJHJxtS6gMCU8qvQQFW9KKo9IPMKNtYBU/t84aSSBVUguLT6ILjS/+BkSItXr6PpQafIknNLl
+	48mky1MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tieL6-0000000CJRr-2UHT;
-	Thu, 13 Feb 2025 18:53:32 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tieMV-0000000CJe3-13Sn;
+	Thu, 13 Feb 2025 18:54:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tidWt-0000000C7P6-1YwH
+	id 1tidXt-0000000C7eX-2k2y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 18:01:40 +0000
+	Thu, 13 Feb 2025 18:02:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BDB9EA42854;
-	Thu, 13 Feb 2025 17:59:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFC4BC4CED1;
-	Thu, 13 Feb 2025 18:01:37 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 91459A4283A;
+	Thu, 13 Feb 2025 18:00:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8ACAFC4CED1;
+	Thu, 13 Feb 2025 18:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739469697;
-	bh=NW1OYpe2mVwwte24KvqPb9pRL5isVReq3c3DtOOBBMA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=lKkAptOe5ZG6vP8rPEis0AlEiA/1jNEChi09tTGq67mYGQvoYjq2QsQirFo+qzZgb
-	 lQ+hWQtnhgTT5QDZIgLE0LLK/qzdHBxEs1u3jP1jbVy94VndeSRhUaa42fTPoXmUqj
-	 pivxwi3j9oPp4knqLBaU597hhT9pV1fhknls8UaWBTrKic1gyFlvuxDovPaJkjkHow
-	 fOkRlYpLpYgd8zNL2X4qtYZnDaLpQS5UPyQudbGm2tBsFUeanF/x7OySGyxItxrZ2K
-	 CIQ52uBM+57WBFOnOJvGIdA3m2yKZ4t4E+ybCY5Pd/bwH1tUj0GrrJZymNHMOSdvEg
-	 JRwnbdjsJbEOQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	s=k20201202; t=1739469760;
+	bh=KCXWCt1tfCPrXneMgT2CusbMh3K2XAvWCZTxxW+kCs4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=C4TlgEEz2SIOtgFa6lO18TAdRvksbF9Wc6+oD9Vqpiq7bGnLbTTqagyvRr/dKeLo7
+	 BapSmWlLvzEwd/0rNdVKBe2fGvEdR+XzfCEyQZkZKYDwMMil5tN8KsqHuruLCEZcJt
+	 AQhlkfgRcAU6pB1r6hLJXO7YYbAXtsf20wMFMivmYg+WpqrihiEEOf2XbQoeh7FBjI
+	 aPNKbj24qU4yUPWTXs31yTsPNDce6S+8ELHefezrbMwh4PrIOKfNnZBQTSLef00XKX
+	 CJrdbasTp6zPEnxO/XqPeTmRnlt1WnIHsQ1IrM5nwcpFoI3CSpacR+OBlYMU2XViIZ
+	 4jn3k0D2mhbbg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tidWn-003nTm-Sy;
-	Thu, 13 Feb 2025 18:01:35 +0000
-Date: Thu, 13 Feb 2025 18:01:33 +0000
-Message-ID: <86r041sozm.wl-maz@kernel.org>
+	id 1tidXq-003nWM-1J;
+	Thu, 13 Feb 2025 18:02:38 +0000
 From: Marc Zyngier <maz@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>,	Hector Martin
- <marcan@marcan.st>,	Sven Peter <sven@svenpeter.dev>,	Bjorn Helgaas
- <bhelgaas@google.com>,	Lorenzo Pieralisi <lpieralisi@kernel.org>,	Krzysztof
- =?UTF-8?B?V2lsY3p5xYRza2k=?= <kw@linux.com>,	Manivannan Sadhasivam
- <manivannan.sadhasivam@linaro.org>,	Krzysztof Kozlowski
- <krzk+dt@kernel.org>,	Conor Dooley <conor+dt@kernel.org>,	Mark Kettenis
- <kettenis@openbsd.org>,	Stan Skowronek <stan@corellium.com>,
-	asahi@lists.linux.dev,	linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,	devicetree@vger.kernel.org,
+To: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>
+Cc: Keir Fraser <keirf@google.com>,
+	Ben Simner <ben.simner@cl.cam.ac.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 7/7] PCI: apple: Add T602x PCIe support
-In-Reply-To: <CAL_JsqJ-sYsy-11_UiEKrKok49-a-VJUvm3vBGbpu9vY3TKLUw@mail.gmail.com>
-References: <20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io>
-	<20250211-pcie-t6-v1-7-b60e6d2501bb@rosenzweig.io>
-	<CAL_JsqJ-sYsy-11_UiEKrKok49-a-VJUvm3vBGbpu9vY3TKLUw@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] KVM: arm64: Fix alignment of kvm_hyp_memcache allocations
+Date: Thu, 13 Feb 2025 18:02:35 +0000
+Message-Id: <173946974570.2974684.11799250388121421778.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250213153615.3642515-1-qperret@google.com>
+References: <20250213153615.3642515-1-qperret@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: robh@kernel.org, alyssa@rosenzweig.io, marcan@marcan.st, sven@svenpeter.dev, bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, krzk+dt@kernel.org, conor+dt@kernel.org, kettenis@openbsd.org, stan@corellium.com, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, keirf@google.com, ben.simner@cl.cam.ac.uk, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_100139_536379_B22B13C9 
-X-CRM114-Status: GOOD (  28.32  )
+X-CRM114-CacheID: sfid-20250213_100241_757394_5817E515 
+X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,102 +92,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Feb 2025 17:56:19 +0000,
-Rob Herring <robh@kernel.org> wrote:
->=20
-> On Tue, Feb 11, 2025 at 1:54=E2=80=AFPM Alyssa Rosenzweig <alyssa@rosenzw=
-eig.io> wrote:
-> >
-> > From: Hector Martin <marcan@marcan.st>
-> >
-> > This version of the hardware moved around a bunch of registers, so we
-> > drop the old compatible for these and introduce register offset
-> > structures to handle the differences.
-> >
-> > Signed-off-by: Hector Martin <marcan@marcan.st>
-> > Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-> > ---
-> >  drivers/pci/controller/pcie-apple.c | 125 ++++++++++++++++++++++++++++=
-++------
-> >  1 file changed, 105 insertions(+), 20 deletions(-)
-> >
-> > diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controll=
-er/pcie-apple.c
-> > index 7f4839fb0a5b15a9ca87337f53c14a1ce08301fc..7c598334427cb56ca066890=
-ac61143ae1d3ed744 100644
-> > --- a/drivers/pci/controller/pcie-apple.c
-> > +++ b/drivers/pci/controller/pcie-apple.c
-> > @@ -26,6 +26,7 @@
-> >  #include <linux/list.h>
-> >  #include <linux/module.h>
-> >  #include <linux/msi.h>
-> > +#include <linux/of_device.h>
->=20
-> Drivers should not need this...
->=20
-> > +const struct reg_info t602x_hw =3D {
-> > +       .phy_lane_ctl =3D 0,
-> > +       .port_msiaddr =3D PORT_T602X_MSIADDR,
-> > +       .port_msiaddr_hi =3D PORT_T602X_MSIADDR_HI,
-> > +       .port_refclk =3D 0,
-> > +       .port_perst =3D PORT_T602X_PERST,
-> > +       .port_rid2sid =3D PORT_T602X_RID2SID,
-> > +       .port_msimap =3D PORT_T602X_MSIMAP,
-> > +       .max_rid2sid =3D 512, /* 16 on t602x, guess for autodetect on f=
-uture HW */
-> > +       .max_msimap =3D 512, /* 96 on t602x, guess for autodetect on fu=
-ture HW */
-> > +};
-> > +
-> > +static const struct of_device_id apple_pcie_of_match_hw[] =3D {
-> > +       { .compatible =3D "apple,t6020-pcie", .data =3D &t602x_hw },
-> > +       { .compatible =3D "apple,pcie", .data =3D &t8103_hw },
-> > +       { }
-> > +};
->=20
-> You should not have 2 match tables.
->=20
-> > @@ -750,13 +828,19 @@ static int apple_pcie_init(struct pci_config_wind=
-ow *cfg)
-> >         struct platform_device *platform =3D to_platform_device(dev);
-> >         struct device_node *of_port;
-> >         struct apple_pcie *pcie;
-> > +       const struct of_device_id *match;
-> >         int ret;
-> >
-> > +       match =3D of_match_device(apple_pcie_of_match_hw, dev);
-> > +       if (!match)
-> > +               return -ENODEV;
-> > +
-> >         pcie =3D devm_kzalloc(dev, sizeof(*pcie), GFP_KERNEL);
-> >         if (!pcie)
-> >                 return -ENOMEM;
-> >
-> >         pcie->dev =3D dev;
-> > +       pcie->hw =3D match->data;
-> >
-> >         mutex_init(&pcie->lock);
-> >
-> > @@ -795,6 +879,7 @@ static const struct pci_ecam_ops apple_pcie_cfg_eca=
-m_ops =3D {
-> >  };
-> >
-> >  static const struct of_device_id apple_pcie_of_match[] =3D {
-> > +       { .compatible =3D "apple,t6020-pcie", .data =3D &apple_pcie_cfg=
-_ecam_ops },
-> >         { .compatible =3D "apple,pcie", .data =3D &apple_pcie_cfg_ecam_=
-ops },
-> >         { }
->=20
-> You are going to need to merge the data to 1 struct.
->=20
-> And then use (of_)?device_get_match_data() in probe().
+On Thu, 13 Feb 2025 15:36:14 +0000, Quentin Perret wrote:
+> When allocating guest stage-2 page-table pages at EL2, pKVM can consume
+> pages from the host-provided kvm_hyp_memcache. As pgtable.c expects
+> zeroed pages, guest_s2_zalloc_page() actively implements this zeroing
+> with a PAGE_SIZE memset. Unfortunately, we don't check the page
+> alignment of the host-provided address before doing so, which could
+> lead to the memset overrunning the page if the host was malicious.
+> 
+> [...]
 
-No, that will break the driver. This isn't a standalone driver, but
-only an ECAM shim (as you can tell from the actual probe function).
+Applied to fixes, thanks!
+
+[1/1] KVM: arm64: Fix alignment of kvm_hyp_memcache allocations
+      commit: b938731ed2d4eea8e268a27bfc600581fedae2a9
+
+Cheers,
 
 	M.
-
---=20
+-- 
 Without deviation from the norm, progress is not possible.
+
+
 
