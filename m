@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DAFBC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22E1EC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:56:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QGnbw1yc2Wp4X+bHTQYoKxaJgLXfXHOChU0InoSB5tU=; b=Nc2p3iScZeT+lNj3zFgk30qdmd
-	Wbo6Iip/w9O9d3La+he4qY7+yINAY8kv7ZLcqWrgGrY9wGHyX4bQVE0A5ePK5WzyEsfocqcCTgCbo
-	2/oBdSdjQSgbUTPd9VpdKHd0UvSEuPMfMNPALHLEXZQuu99JzXADaVI9YawQoJnHUVEyvORJB0OSd
-	wZFO5iFQoRV62sK59m0POywwyYJzP7kUV2AoLbppaeHUNdOlmep/iX7uKbdRK4YBDbR9wmzSDp3hF
-	III22AvbHZwLM4ytCwdk4ODo3jZLhsYpRi9E/c960VNpAamPXGPJtTR36gapIQsQ86fK0r4PKXtuI
-	1FWznzwQ==;
+	bh=cUc8sk1yWvUb00zy+KbgMC2Atu7boFpZvZeVZkURZxE=; b=GZdEhkBFIQi4yEfUR5Wi7x0nl7
+	u3oohij0fzf45hyhQbEzvBw4n+6RxiUO9KGvmleoTI7M1dlmJ2TIZxPGFq3xr6+RoAfB9312qH1oB
+	P0ZxcjPwWndHjxBDSYsue4CwGw/4XFTn1hSMe1ZjTDkDlyBilEwYjKVgqf/Ebj9EhvGjaW1J1fUIV
+	FY/wa7+ZaSm9/XERA0YIGX17Vb5jtaeHKmLvoIRg07PQNLVovGk2NSh/j/3i6aUBCy73FpynF5DES
+	dtABYTvBspGnMPngqQDjGcudgDn02nwkcbjyIqtc0Wg2i/wTZHPxRjOcgtUuQRqtOxtXY1qdgTfUl
+	MEu1h7yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticVd-0000000BuN3-0ySJ;
-	Thu, 13 Feb 2025 16:56:17 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibFF-0000000BYnb-2Yyt;
-	Thu, 13 Feb 2025 15:35:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7DE8AA41CDB;
-	Thu, 13 Feb 2025 15:33:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28696C4CEE8;
-	Thu, 13 Feb 2025 15:35:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739460916;
-	bh=LwwtkOpdej/qZv1Ihtwk/09yNh2N86nJc5Uj66l1lg8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=c10AqJOZKOyKErUBcYbRfhLxES2xvgnwyMuFyOqzO5Pg1GyyDm7dj1Q65BuPr0ui3
-	 NTuYGinpvMb/rn4SK3RfFRAUfM8c6QLhfT7rtj2pimgbAr4zI/ttePwcMeJpaBrm4U
-	 Gxvu8X2CwvMk0kPZZfMItAvJxh1ts0fDhUNd/UZNGD0dVwsU8ebD7xz8ZZ9pnjtir8
-	 p+Kmj6vNEzREu3ohEJrUgZAuL0K0o5JCzxM/P8j1A4ygeoYX6bEcakZiYK4C1i0LTq
-	 X3DCxVj3H1apk3BS8YhRV1Z9KAkxiJZN6HdaAPKvxRk23ockBPaQWgumv7joQNtQs4
-	 JbH3lfeifopKQ==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Thu, 13 Feb 2025 16:34:30 +0100
-Subject: [PATCH net-next v4 11/16] dt-bindings: net: airoha: Add the NPU
- node for EN7581 SoC
+	id 1ticVq-0000000BuS8-0YYH;
+	Thu, 13 Feb 2025 16:56:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tibt4-0000000Bisj-2gCj
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Feb 2025 16:16:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E32BC26BA;
+	Thu, 13 Feb 2025 08:16:46 -0800 (PST)
+Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.32.44])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E48EB3F6A8;
+	Thu, 13 Feb 2025 08:16:21 -0800 (PST)
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+Subject: [PATCH v7 23/45] KVM: arm64: Validate register access for a Realm VM
+Date: Thu, 13 Feb 2025 16:14:03 +0000
+Message-ID: <20250213161426.102987-24-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250213161426.102987-1-steven.price@arm.com>
+References: <20250213161426.102987-1-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250213-airoha-en7581-flowtable-offload-v4-11-b69ca16d74db@kernel.org>
-References: <20250213-airoha-en7581-flowtable-offload-v4-0-b69ca16d74db@kernel.org>
-In-Reply-To: <20250213-airoha-en7581-flowtable-offload-v4-0-b69ca16d74db@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- "Chester A. Unal" <chester.a.unal@arinc9.com>, 
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, 
- Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
- upstream@airoha.com
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_073517_801651_FB27F926 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20250213_081626_805585_1C3D6EFC 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,96 +81,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds the NPU document binding for EN7581 SoC.
-The Airoha Network Processor Unit (NPU) provides a configuration interface
-to implement wired and wireless hardware flow offloading programming Packet
-Processor Engine (PPE) flow table.
+The RMM only allows setting the GPRS (x0-x30) and PC for a realm
+guest. Check this in kvm_arm_set_reg() so that the VMM can receive a
+suitable error return if other registers are accessed.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Steven Price <steven.price@arm.com>
 ---
- .../devicetree/bindings/net/airoha,en7581-npu.yaml | 72 ++++++++++++++++++++++
- 1 file changed, 72 insertions(+)
+Changes since v5:
+ * Upper GPRS can be set as part of a HOST_CALL return, so fix up the
+   test to allow them.
+---
+ arch/arm64/kvm/guest.c | 40 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 40 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..414e5c0615b8a8db487c23978a283b0254b2b63c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-@@ -0,0 +1,72 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/airoha,en7581-npu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+index 2196979a24a3..ff0306650b39 100644
+--- a/arch/arm64/kvm/guest.c
++++ b/arch/arm64/kvm/guest.c
+@@ -73,6 +73,24 @@ static u64 core_reg_offset_from_id(u64 id)
+ 	return id & ~(KVM_REG_ARCH_MASK | KVM_REG_SIZE_MASK | KVM_REG_ARM_CORE);
+ }
+ 
++static bool kvm_realm_validate_core_reg(u64 off)
++{
++	/*
++	 * Note that GPRs can only sometimes be controlled by the VMM.
++	 * For PSCI only X0-X6 are used, higher registers are ignored (restored
++	 * from the REC).
++	 * For HOST_CALL all of X0-X30 are copied to the RsiHostCall structure.
++	 * For emulated MMIO X0 is always used.
++	 */
++	switch (off) {
++	case KVM_REG_ARM_CORE_REG(regs.regs[0]) ...
++	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
++	case KVM_REG_ARM_CORE_REG(regs.pc):
++		return true;
++	}
++	return false;
++}
 +
-+title: Airoha Network Processor Unit for EN7581 SoC
+ static int core_reg_size_from_offset(const struct kvm_vcpu *vcpu, u64 off)
+ {
+ 	int size;
+@@ -783,12 +801,34 @@ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+ 	return kvm_arm_sys_reg_get_reg(vcpu, reg);
+ }
+ 
++/*
++ * The RMI ABI only enables setting some GPRs and PC. The selection of GPRs
++ * that are available depends on the Realm state and the reason for the last
++ * exit.  All other registers are reset to architectural or otherwise defined
++ * reset values by the RMM, except for a few configuration fields that
++ * correspond to Realm parameters.
++ */
++static bool validate_realm_set_reg(struct kvm_vcpu *vcpu,
++				   const struct kvm_one_reg *reg)
++{
++	if ((reg->id & KVM_REG_ARM_COPROC_MASK) == KVM_REG_ARM_CORE) {
++		u64 off = core_reg_offset_from_id(reg->id);
 +
-+maintainers:
-+  - Lorenzo Bianconi <lorenzo@kernel.org>
++		return kvm_realm_validate_core_reg(off);
++	}
 +
-+description:
-+  The Airoha Network Processor Unit (NPU) provides a configuration interface
-+  to implement wired and wireless hardware flow offloading programming Packet
-+  Processor Engine (PPE) flow table.
++	return false;
++}
 +
-+properties:
-+  compatible:
-+    enum:
-+      - airoha,en7581-npu
+ int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+ {
+ 	/* We currently use nothing arch-specific in upper 32 bits */
+ 	if ((reg->id & ~KVM_REG_SIZE_MASK) >> 32 != KVM_REG_ARM64 >> 32)
+ 		return -EINVAL;
+ 
++	if (kvm_is_realm(vcpu->kvm) && !validate_realm_set_reg(vcpu, reg))
++		return -EINVAL;
 +
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    items:
-+      - description: mbox host irq line
-+      - description: watchdog0 irq line
-+      - description: watchdog1 irq line
-+      - description: watchdog2 irq line
-+      - description: watchdog3 irq line
-+      - description: watchdog4 irq line
-+      - description: watchdog5 irq line
-+      - description: watchdog6 irq line
-+      - description: watchdog7 irq line
-+
-+  memory-region:
-+    maxItems: 1
-+    description:
-+      Memory used to store NPU firmware binary.
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - memory-region
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      npu@1e900000 {
-+        compatible = "airoha,en7581-npu";
-+        reg = <0 0x1e900000 0 0x313000>;
-+        interrupts = <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 103 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 135 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH>,
-+                     <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH>;
-+        memory-region = <&npu_binary>;
-+      };
-+    };
-
+ 	switch (reg->id & KVM_REG_ARM_COPROC_MASK) {
+ 	case KVM_REG_ARM_CORE:	return set_core_reg(vcpu, reg);
+ 	case KVM_REG_ARM_FW:
 -- 
-2.48.1
+2.43.0
 
 
