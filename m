@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEE17C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:43:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89EDFC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Feb 2025 16:45:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rj/MQqvlo6jscwyKvQOzfTQ7kkC4nbCYcf9oCrWCwPM=; b=mT+wF51+7N0Ap6f3l1YND0D4Ah
-	nUEq3Vft90q7iqtPykkzC33Wngu5WoFBYoyoJM3Tef6WlbMErByt5pETv6+NMMdfoAFCyd3nMkWUE
-	D7FoXly8ajZwNKK/Wi31SwYu/9P5rh0HuaKngjBiFvnNq5pSrvN7Q4mX3L/4+ItyhLGhnT+yxXp8H
-	Nix8yFqfKNXPotI00VJATE+mG/JUySjuFQG6ViAu/udCw/etcyUXDadGJazVAtAVd8v0CxeJo+g3o
-	EbPIxZUTXLQlauHfseLRJTSOiy7QlKci6nYsyJE8qMr8hxLMdZm+FJluyIWaAFQaYKLVl7RR1oCrr
-	ZZ5quziw==;
+	bh=MApb9PDUJGXwO+SHDf2u9iP3Hwi+7EEQRbJcSGwxnaM=; b=oLYuJzxjFZiUBE75vQnaCci8Cy
+	mDpfE8KDv87oifjWhwFaawnZSX2tosjKktWipJItd74fv3l5vNtbcMthrZhVFpmhagoP72f/GUT/c
+	oFyvzKgONfgS4EG+zCFUPPYTQdfH1J0oq8qzAZmJz9SNQ+68p2R1dazz9NRhpxeUg55ZNQmfktccv
+	AlYy+Eqw8dtJJjsQhqn4Aery4bMKbxMM3D35hp80PxJHJft6S9ElP/W8ZhC515xzNvo8u+R/q3n1y
+	vVkAB8CFCIE8KNYntdsmupyf6uPp84r8H/mHreZuTfV0ME2/TCUaFElbBgJMLrrldG+/8R9T1yRKo
+	gj5LJDiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ticJC-0000000Bqbc-0aH9;
-	Thu, 13 Feb 2025 16:43:26 +0000
+	id 1ticKa-0000000BqyH-3JJX;
+	Thu, 13 Feb 2025 16:44:52 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tibsP-0000000BijC-1030
+	id 1tibsT-0000000BikX-3SRZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Feb 2025 16:15:46 +0000
+	Thu, 13 Feb 2025 16:15:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8DE6E1756;
-	Thu, 13 Feb 2025 08:16:05 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 059291756;
+	Thu, 13 Feb 2025 08:16:10 -0800 (PST)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.32.44])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 10F7B3F6A8;
-	Thu, 13 Feb 2025 08:15:40 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4970B3F6A8;
+	Thu, 13 Feb 2025 08:15:45 -0800 (PST)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -56,17 +56,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	Shanker Donthineni <sdonthineni@nvidia.com>,
 	Alper Gun <alpergun@google.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-Subject: [PATCH v7 14/45] arm64: RME: Support for the VGIC in realms
-Date: Thu, 13 Feb 2025 16:13:54 +0000
-Message-ID: <20250213161426.102987-15-steven.price@arm.com>
+Subject: [PATCH v7 15/45] KVM: arm64: Support timers in realm RECs
+Date: Thu, 13 Feb 2025 16:13:55 +0000
+Message-ID: <20250213161426.102987-16-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250213161426.102987-1-steven.price@arm.com>
 References: <20250213161426.102987-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_081545_360334_2D1512FC 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20250213_081549_951967_1943780E 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,232 +81,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RMM provides emulation of a VGIC to the realm guest but delegates
-much of the handling to the host. Implement support in KVM for
-saving/restoring state to/from the REC structure.
+The RMM keeps track of the timer while the realm REC is running, but on
+exit to the normal world KVM is responsible for handling the timers.
+
+A later patch adds the support for propagating the timer values from the
+exit data structure and calling kvm_realm_timers_update().
 
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
-Changes from v5:
- * Handle RMM providing fewer GIC LRs than the hardware supports.
----
- arch/arm64/include/asm/kvm_rme.h |  1 +
- arch/arm64/kvm/arm.c             | 16 +++++++++---
- arch/arm64/kvm/rme.c             |  5 ++++
- arch/arm64/kvm/vgic/vgic-init.c  |  2 +-
- arch/arm64/kvm/vgic/vgic-v3.c    |  5 ++++
- arch/arm64/kvm/vgic/vgic.c       | 43 ++++++++++++++++++++++++++++++--
- 6 files changed, 66 insertions(+), 6 deletions(-)
+ arch/arm64/kvm/arch_timer.c  | 45 ++++++++++++++++++++++++++++++++----
+ include/kvm/arm_arch_timer.h |  2 ++
+ 2 files changed, 43 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-index 5db377943db4..2e319db9a05f 100644
---- a/arch/arm64/include/asm/kvm_rme.h
-+++ b/arch/arm64/include/asm/kvm_rme.h
-@@ -83,6 +83,7 @@ struct realm_rec {
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index d3d243366536..06b68bcd244f 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -148,6 +148,13 @@ static void timer_set_cval(struct arch_timer_context *ctxt, u64 cval)
  
- void kvm_init_rme(void);
- u32 kvm_realm_ipa_limit(void);
-+u32 kvm_realm_vgic_nr_lr(void);
- 
- int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
- int kvm_init_realm_vm(struct kvm *kvm);
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index a6a3034a2f50..a2bc86b3798f 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -672,19 +672,24 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
- 		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
- 	}
- 
-+	kvm_timer_vcpu_put(vcpu);
-+	kvm_vgic_put(vcpu);
+ static void timer_set_offset(struct arch_timer_context *ctxt, u64 offset)
+ {
++	struct kvm_vcpu *vcpu = ctxt->vcpu;
 +
-+	vcpu->cpu = -1;
-+
-+	if (vcpu_is_rec(vcpu))
++	if (kvm_is_realm(vcpu->kvm)) {
++		WARN_ON(offset);
 +		return;
++	}
 +
- 	kvm_vcpu_put_debug(vcpu);
- 	kvm_arch_vcpu_put_fp(vcpu);
- 	if (has_vhe())
- 		kvm_vcpu_put_vhe(vcpu);
--	kvm_timer_vcpu_put(vcpu);
--	kvm_vgic_put(vcpu);
- 	kvm_vcpu_pmu_restore_host(vcpu);
- 	if (vcpu_has_nv(vcpu))
- 		kvm_vcpu_put_hw_mmu(vcpu);
- 	kvm_arm_vmid_clear_active();
- 
- 	vcpu_clear_on_unsupported_cpu(vcpu);
--	vcpu->cpu = -1;
+ 	if (!ctxt->offset.vm_offset) {
+ 		WARN(offset, "timer %ld\n", arch_timer_ctx_index(ctxt));
+ 		return;
+@@ -464,6 +471,21 @@ static void kvm_timer_update_irq(struct kvm_vcpu *vcpu, bool new_level,
+ 	}
  }
  
- static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
-@@ -889,6 +894,11 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
- 			return ret;
++void kvm_realm_timers_update(struct kvm_vcpu *vcpu)
++{
++	struct arch_timer_cpu *arch_timer = &vcpu->arch.timer_cpu;
++	int i;
++
++	for (i = 0; i < NR_KVM_EL0_TIMERS; i++) {
++		struct arch_timer_context *timer = &arch_timer->timers[i];
++		bool status = timer_get_ctl(timer) & ARCH_TIMER_CTRL_IT_STAT;
++		bool level = kvm_timer_irq_can_fire(timer) && status;
++
++		if (level != timer->irq.level)
++			kvm_timer_update_irq(vcpu, level, timer);
++	}
++}
++
+ /* Only called for a fully emulated timer */
+ static void timer_emulate(struct arch_timer_context *ctx)
+ {
+@@ -889,6 +911,8 @@ void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu)
+ 	if (unlikely(!timer->enabled))
+ 		return;
+ 
++	kvm_timer_unblocking(vcpu);
++
+ 	get_timer_map(vcpu, &map);
+ 
+ 	if (static_branch_likely(&has_gic_active_state)) {
+@@ -902,8 +926,6 @@ void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu)
+ 		kvm_timer_vcpu_load_nogic(vcpu);
  	}
  
-+	if (!irqchip_in_kernel(kvm) && kvm_is_realm(vcpu->kvm)) {
-+		/* Userspace irqchip not yet supported with Realms */
-+		return -EOPNOTSUPP;
-+	}
-+
- 	mutex_lock(&kvm->arch.config_lock);
- 	set_bit(KVM_ARCH_FLAG_HAS_RAN_ONCE, &kvm->arch.flags);
- 	mutex_unlock(&kvm->arch.config_lock);
-diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-index 0aa1f29b0610..195390a66bc4 100644
---- a/arch/arm64/kvm/rme.c
-+++ b/arch/arm64/kvm/rme.c
-@@ -77,6 +77,11 @@ u32 kvm_realm_ipa_limit(void)
- 	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
- }
+-	kvm_timer_unblocking(vcpu);
+-
+ 	timer_restore_state(map.direct_vtimer);
+ 	if (map.direct_ptimer)
+ 		timer_restore_state(map.direct_ptimer);
+@@ -1094,7 +1116,9 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
  
-+u32 kvm_realm_vgic_nr_lr(void)
-+{
-+	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_GICV3_NUM_LRS);
-+}
-+
- static int get_start_level(struct realm *realm)
+ 	ctxt->vcpu = vcpu;
+ 
+-	if (timerid == TIMER_VTIMER)
++	if (kvm_is_realm(vcpu->kvm))
++		ctxt->offset.vm_offset = NULL;
++	else if (timerid == TIMER_VTIMER)
+ 		ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
+ 	else
+ 		ctxt->offset.vm_offset = &kvm->arch.timer_data.poffset;
+@@ -1117,13 +1141,19 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
+ void kvm_timer_vcpu_init(struct kvm_vcpu *vcpu)
  {
- 	return 4 - ((realm->ia_bits - 8) / (RMM_PAGE_SHIFT - 3));
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index bc7e22ab5d81..0ec9f6f62e86 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -79,7 +79,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- 	 * the proper checks already.
- 	 */
- 	if (type == KVM_DEV_TYPE_ARM_VGIC_V2 &&
--		!kvm_vgic_global_state.can_emulate_gicv2)
-+	    (!kvm_vgic_global_state.can_emulate_gicv2 || kvm_is_realm(kvm)))
- 		return -ENODEV;
+ 	struct arch_timer_cpu *timer = vcpu_timer(vcpu);
++	u64 cntvoff;
  
- 	/* Must be held to avoid race with vCPU creation */
-diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
-index d7233ab982d0..41c3de063e72 100644
---- a/arch/arm64/kvm/vgic/vgic-v3.c
-+++ b/arch/arm64/kvm/vgic/vgic-v3.c
-@@ -8,9 +8,11 @@
- #include <linux/kvm_host.h>
- #include <linux/string_choices.h>
- #include <kvm/arm_vgic.h>
-+#include <asm/kvm_emulate.h>
- #include <asm/kvm_hyp.h>
- #include <asm/kvm_mmu.h>
- #include <asm/kvm_asm.h>
-+#include <asm/rmi_smc.h>
+ 	for (int i = 0; i < NR_KVM_TIMERS; i++)
+ 		timer_context_init(vcpu, i);
  
- #include "vgic.h"
++	if (kvm_is_realm(vcpu->kvm))
++		cntvoff = 0;
++	else
++		cntvoff = kvm_phys_timer_read();
++
+ 	/* Synchronize offsets across timers of a VM if not already provided */
+ 	if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags)) {
+-		timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read());
++		timer_set_offset(vcpu_vtimer(vcpu), cntvoff);
+ 		timer_set_offset(vcpu_ptimer(vcpu), 0);
+ 	}
  
-@@ -748,6 +750,9 @@ void vgic_v3_put(struct kvm_vcpu *vcpu)
- {
- 	struct vgic_v3_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v3;
+@@ -1663,6 +1693,13 @@ int kvm_timer_enable(struct kvm_vcpu *vcpu)
+ 		return -EINVAL;
+ 	}
  
++	/*
++	 * We don't use mapped IRQs for Realms because the RMI doesn't allow
++	 * us setting the LR.HW bit in the VGIC.
++	 */
 +	if (vcpu_is_rec(vcpu))
-+		cpu_if->vgic_vmcr = vcpu->arch.rec.run->exit.gicv3_vmcr;
++		return 0;
 +
- 	if (likely(!is_protected_kvm_enabled()))
- 		kvm_call_hyp(__vgic_v3_save_vmcr_aprs, cpu_if);
- 	WARN_ON(vgic_v4_put(vcpu));
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index 1077fab2df4b..4218de3ea9da 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -10,7 +10,9 @@
- #include <linux/list_sort.h>
- #include <linux/nospec.h>
+ 	get_timer_map(vcpu, &map);
  
-+#include <asm/kvm_emulate.h>
- #include <asm/kvm_hyp.h>
-+#include <asm/kvm_rme.h>
+ 	ret = kvm_vgic_map_phys_irq(vcpu,
+diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
+index 681cf0c8b9df..f64e317c091b 100644
+--- a/include/kvm/arm_arch_timer.h
++++ b/include/kvm/arm_arch_timer.h
+@@ -113,6 +113,8 @@ int kvm_arm_timer_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+ int kvm_arm_timer_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+ int kvm_arm_timer_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
  
- #include "vgic.h"
- 
-@@ -23,6 +25,8 @@ struct vgic_global kvm_vgic_global_state __ro_after_init = {
- 
- static inline int kvm_vcpu_vgic_nr_lr(struct kvm_vcpu *vcpu)
- {
-+	if (unlikely(vcpu_is_rec(vcpu)))
-+		return kvm_realm_vgic_nr_lr();
- 	return kvm_vgic_global_state.nr_lr;
- }
- 
-@@ -864,10 +868,23 @@ static inline bool can_access_vgic_from_kernel(void)
- 	return !static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif) || has_vhe();
- }
- 
-+static inline void vgic_rmm_save_state(struct kvm_vcpu *vcpu)
-+{
-+	struct vgic_v3_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v3;
-+	int i;
++void kvm_realm_timers_update(struct kvm_vcpu *vcpu);
 +
-+	for (i = 0; i < kvm_vcpu_vgic_nr_lr(vcpu); i++) {
-+		cpu_if->vgic_lr[i] = vcpu->arch.rec.run->exit.gicv3_lrs[i];
-+		vcpu->arch.rec.run->enter.gicv3_lrs[i] = 0;
-+	}
-+}
-+
- static inline void vgic_save_state(struct kvm_vcpu *vcpu)
- {
- 	if (!static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
- 		vgic_v2_save_state(vcpu);
-+	else if (vcpu_is_rec(vcpu))
-+		vgic_rmm_save_state(vcpu);
- 	else
- 		__vgic_v3_save_state(&vcpu->arch.vgic_cpu.vgic_v3);
- }
-@@ -894,10 +911,28 @@ void kvm_vgic_sync_hwstate(struct kvm_vcpu *vcpu)
- 	vgic_prune_ap_list(vcpu);
- }
+ u64 kvm_phys_timer_read(void);
  
-+static inline void vgic_rmm_restore_state(struct kvm_vcpu *vcpu)
-+{
-+	struct vgic_v3_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v3;
-+	int i;
-+
-+	for (i = 0; i < kvm_vcpu_vgic_nr_lr(vcpu); i++) {
-+		vcpu->arch.rec.run->enter.gicv3_lrs[i] = cpu_if->vgic_lr[i];
-+		/*
-+		 * Also populate the rec.run->exit copies so that a late
-+		 * decision to back out from entering the realm doesn't cause
-+		 * the state to be lost
-+		 */
-+		vcpu->arch.rec.run->exit.gicv3_lrs[i] = cpu_if->vgic_lr[i];
-+	}
-+}
-+
- static inline void vgic_restore_state(struct kvm_vcpu *vcpu)
- {
- 	if (!static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
- 		vgic_v2_restore_state(vcpu);
-+	else if (vcpu_is_rec(vcpu))
-+		vgic_rmm_restore_state(vcpu);
- 	else
- 		__vgic_v3_restore_state(&vcpu->arch.vgic_cpu.vgic_v3);
- }
-@@ -938,7 +973,9 @@ void kvm_vgic_flush_hwstate(struct kvm_vcpu *vcpu)
- 
- void kvm_vgic_load(struct kvm_vcpu *vcpu)
- {
--	if (unlikely(!irqchip_in_kernel(vcpu->kvm) || !vgic_initialized(vcpu->kvm))) {
-+	if (unlikely(!irqchip_in_kernel(vcpu->kvm) ||
-+		     !vgic_initialized(vcpu->kvm) ||
-+		     vcpu_is_rec(vcpu))) {
- 		if (has_vhe() && static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
- 			__vgic_v3_activate_traps(&vcpu->arch.vgic_cpu.vgic_v3);
- 		return;
-@@ -952,7 +989,9 @@ void kvm_vgic_load(struct kvm_vcpu *vcpu)
- 
- void kvm_vgic_put(struct kvm_vcpu *vcpu)
- {
--	if (unlikely(!irqchip_in_kernel(vcpu->kvm) || !vgic_initialized(vcpu->kvm))) {
-+	if (unlikely(!irqchip_in_kernel(vcpu->kvm) ||
-+		     !vgic_initialized(vcpu->kvm) ||
-+		     vcpu_is_rec(vcpu))) {
- 		if (has_vhe() && static_branch_unlikely(&kvm_vgic_global_state.gicv3_cpuif))
- 			__vgic_v3_deactivate_traps(&vcpu->arch.vgic_cpu.vgic_v3);
- 		return;
+ void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu);
 -- 
 2.43.0
 
