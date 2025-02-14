@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B016DC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43B6BC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 16:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=P7U4X0KPBulQ0DpD2xAjgadmrQdluk8a2M4T6QIt81I=; b=ao66Q/WMurO/Ed007ShDH/zQfo
-	jw3o58EMtvGk8C1uKXPvbA0w37ilv07gPeKSbs9TQBz0fHyMw5SES0rh7f8D+sDyCgpfKUuNDADKo
-	GrDPOYS6XQx3akNUplz5HYRdtJufDT8hSEakgtoJluGYzLeRiatd7yb3N0gIcmvr2eYIBzKQFsZU+
-	H6KxpP7ZgXDjr5fCIllhafmY7+4VwkVXNpMQSk3I8vR5cLKZ5lGq9BL76Lvi3Bxx3R0KEEDX4tQNK
-	4DUWn9iXh5f/UheOw7FVZJB4VSR9PjAgCT6MjpSX3sJaDIC6W6K0UaqbiT0T+3snDsxBYKNGLZ5GL
-	nJ7xnGvg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fblWG6bptaG5oZEG9H68NWuWOVyzedngXL2QnLB9szg=; b=Y5OHex4NyyaXlN8BmqZr/OB3hQ
+	5jNpgJH1VudYhGqwMa4sKF7oCYx0WTd4gUZpE7nq5xe+0VETAUOCEeApPWMchWnfroR7QvahJFSxp
+	lnnnWckrJDqivuQkQuqIOlvYHoLIS38dnWFzIQjRsSOzIZPGM4+WVniSnjr7iZubuU52bB8xDnhZ0
+	o4oMVgsYs9Sv1CG7uO54A1M/VIX1Uyzr9eA6QBOgJ2wd65ds3Tfg9WoLBcYS+XfbGU7K2iIxu0ULu
+	F4s8pgdwqhvgyDDKHB/+i8MRgs3EBpY983Vfzgp0EyBT8hRX2Zmf6ZceM8wfjtP65yvbLy7rdQjBd
+	udONBVHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiy5z-0000000FQUP-2AlO;
-	Fri, 14 Feb 2025 15:59:15 +0000
+	id 1tiy7P-0000000FQmb-236c;
+	Fri, 14 Feb 2025 16:00:43 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiy4X-0000000FQCq-1Vfq
+	id 1tiy4X-0000000FQD5-1sJE
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 14 Feb 2025 15:57:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D20705C0702;
-	Fri, 14 Feb 2025 15:57:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 0137AC4CED1;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2764F5C51A7;
+	Fri, 14 Feb 2025 15:57:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 15CF2C4CEDF;
 	Fri, 14 Feb 2025 15:57:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1739548664;
-	bh=v1WR08AE5CQqOnR8ISmiWg8KMk9RyvrCOO0/gEgkyDE=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=NB8GSzH+ONAH5lFdkG1Ty1rF+1xLzpdbZUXs78tiM1qvGHUrbRAA8h+ZdZtaI8hJ6
-	 XSyAU2C2N06dYYPm/mnw1nbqHQWqqGTTom0Dd1Ox+GCDBafkygI84lCT0wraJKVH8v
-	 1JtB/PFflu6Zn4YNyRkxR9eyXKQUyX2gZ53ZUDF6ogSQZEuYml7Frneeq8FaUTZ8Ux
-	 CIO8WH8TaCZGR69BavP9rEFizRof3wrP7ciNpBE/nHOKETvJA1MVOGvoMBVIO4GvLv
-	 WXb102YnjK33qcWnkyJI2ZoTEzy21RI7gxjMaZvZUaUutHC1AqqEc729FWUwlUzGWL
-	 v3fgYZFW1c3Rg==
+	bh=ouGwZqg89Trumuly9HFKbyX2Azi15niqMZRJjzo2/Bs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=RDqtJGSPkrmeGflKtkQMo/zH7ZK0OYdGlEQRr5Uo5qW3B7nMjM3iSBVn1T8fONFtG
+	 WUPseyY/S2OKmncvVotPcVH1gzek4Vmqo0dZAezu88RJuzRVB3/jooJJbmYspHZ/FG
+	 UR+0Pey5UX8+nY8jyuEMprO+8Kma2p8J2Tw4v7NXewhxpD+4L5vwhwvIu7sT6UxqFR
+	 k7+y0YZdKgEbwsUgMH4np0lxjeCJipshsZIJPrIXLQ5CHWloWQy5U43aG71ptilc47
+	 r/TDicEvThmDLH/qNi++neVBLlqh5WoOvDob+jWq09fGesXO21TNPJVyPEoXw4b1ve
+	 WXOWH8i4SLrNw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id EA0EFC02198;
-	Fri, 14 Feb 2025 15:57:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0DA77C021A4;
+	Fri, 14 Feb 2025 15:57:44 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Subject: [PATCH 0/2] arm64: dts: imx8m: Add pinctrl config definitions
-Date: Fri, 14 Feb 2025 16:57:41 +0100
-Message-Id: <20250214-pinctrl_defines-v1-0-fbc86a42ef3c@gocontroll.com>
+Date: Fri, 14 Feb 2025 16:57:42 +0100
+Subject: [PATCH 1/2] arm64: dts: imx8mm: Add pinctrl config definitions
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPVnr2cC/x2MQQqAIBAAvyJ7TlArhb4SEaZbLYSJRgTS35OOw
- zBTIGMizDCwAglvynSGCrJh4HYbNuTkK4MSqhdKdjxScFc6Zo8rBcxctQaNX7R02kKtYqri+Y/
- j9L4fbhIcqWEAAAA=
-X-Change-ID: 20250214-pinctrl_defines-237e7db61c6a
+Message-Id: <20250214-pinctrl_defines-v1-1-fbc86a42ef3c@gocontroll.com>
+References: <20250214-pinctrl_defines-v1-0-fbc86a42ef3c@gocontroll.com>
+In-Reply-To: <20250214-pinctrl_defines-v1-0-fbc86a42ef3c@gocontroll.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -65,19 +63,20 @@ Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739548663; l=1365;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739548663; l=1502;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=v1WR08AE5CQqOnR8ISmiWg8KMk9RyvrCOO0/gEgkyDE=;
- b=PZmKXcESL9UNqXoct8RAJHd6TdzLVVn9O/CXE6fXNCm6ETGyIGhid8rlHWVZWigHGukjbfOXY
- +PilzN3VEcgBrxiR62CJ0Eyuhw8Tfr9yqxoFvcT8Oz7GPn6WhgMpQD9
+ bh=xlMEruvPgyFBPz+wMGaLrdnLbqgaiStmZr5qOyP3uC0=;
+ b=61kNMtfKPg3m9bDu0G1jq+xNlQh5OuZTSq5FjcNSJ0ZR/3PFj4GclVsunSHeRBmuQn3E9tLV3
+ aF89iBwbHtTBckycY2S0sHRFG81+G2hLWnLIuTKWLwEblWa53X601/5
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
  with auth_id=341
 X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_075745_513654_CB78A15A 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20250214_075745_603715_A63FFDAF 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,37 +92,59 @@ Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Up untill now the extra function mux (pull resistor, etc) has been
-defined as a raw hex value, this is difficult to interpret. Add
-definitions for these parts of the pinctrl registers to allow for more
-readable pinctrl definitions in devictree files.
+From: Maud Spierings <maudspierings@gocontroll.com>
 
-At this point the patch is not complete, some pinctrl definitions set
-bit 30 (0x40000000) but according to the reference manual this is a
-reserved field, I currently have no way to identify what the meaning of
-this bit is, I hope someone in this CC may be able to provide an answer
-to this. It will then be fixed in the v2 of this patch.
-
-It should also be done for the mn/mq but I currently do not have the
-reference manuals for these to verify these fields, though I can only
-assume that they would be the same.
+Currently to configure each IOMUXC_SW_PAD_CTL_PAD the raw value of this
+register is written in the dts, these values are not obvious. Add defines
+which describe the fields of this register which can be or-ed together to
+produce readable settings.
 
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 ---
-Maud Spierings (2):
-      arm64: dts: imx8mm: Add pinctrl config definitions
-      arm64: dts: imx8mp: Add pinctrl config definitions
-
  arch/arm64/boot/dts/freescale/imx8mm-pinfunc.h | 27 ++++++++++++++++++++++++++
- arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h | 27 ++++++++++++++++++++++++++
- 2 files changed, 54 insertions(+)
----
-base-commit: 0ae0fa3bf0b44c8611d114a9f69985bf451010c3
-change-id: 20250214-pinctrl_defines-237e7db61c6a
+ 1 file changed, 27 insertions(+)
 
-Best regards,
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-pinfunc.h b/arch/arm64/boot/dts/freescale/imx8mm-pinfunc.h
+index b1f11098d248ed5fc8ac42daed808beebe3bf7bc..b231d5968d07d1e135963b714c3fe80ddd8641ab 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-pinfunc.h
++++ b/arch/arm64/boot/dts/freescale/imx8mm-pinfunc.h
+@@ -6,6 +6,33 @@
+ #ifndef __DTS_IMX8MM_PINFUNC_H
+ #define __DTS_IMX8MM_PINFUNC_H
+ 
++//Drive Strength
++#define MX8MM_DSE_X1 0x0
++#define MX8MM_DSE_X2 0x4
++#define MX8MM_DSE_X4 0x2
++#define MX8MM_DSE_X6 0x6
++
++//Slew Rate
++#define MX8MM_FSEL_FAST 0x10
++#define MX8MM_FSEL_SLOW 0x0
++
++//Open Drain
++#define MX8MM_ODE_ENABLE 0x20
++#define MX8MM_ODE_DISABLE 0x0
++
++#define MX8MM_PULL_DOWN 0x0
++#define MX8MM_PULL_UP 0x40
++
++//Hysteresis
++#define MX8MM_HYS_CMOS 0x0
++#define MX8MM_HYS_SCHMITT 0x80
++
++#define MX8MM_PULL_ENABLE 0x100
++#define MX8MM_PULL_DISABLE 0x0
++
++//?
++#define MX8MM_MYSTERY_BIT 0x40000000
++
+ /*
+  * The pin function ID is a tuple of
+  * <mux_reg conf_reg input_reg mux_mode input_val>
+
 -- 
-Maud Spierings <maudspierings@gocontroll.com>
+2.48.1
 
 
 
