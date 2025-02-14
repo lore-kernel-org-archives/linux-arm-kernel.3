@@ -4,199 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BBB9C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8FDFC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yLbPMuLVk8Qk8Paa0RTfoiuPc/0vN19NH0kDJjR8Ggw=; b=oC2E/KJb+NMj0n1UMHKCeFJaFE
-	3s0qOFzGOgjgCPIxe2xO0lUuFlkH5Xo5XdAATQHCaof7lca1NVQJgC2qXzdCwHNDpm1j7YS2nrwRm
-	g76LRMTxwIQdV6xa6d9O2iQAwv3RdflgEob4kk6F73LUGTgHxH6dpxmHs2HUKn99egh831elbZd6i
-	XAVV1E9X9uDqGScHzqcJOd4C/jgVplmmNchpU/82sBDvYph9IN60HYvfX0ocljwwrHMZTfoE5TFt3
-	hpyWM1sHI5jl7I+bJNSdkgtka37/OJGAIFHJRldN/ZHDWRnoPaGrwu+ebW3XP6yibiNPnHYWGYciH
-	INA7k1cQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gPSMssSvsei07PxroFCthED2AzKm3q7L8MtcZbCIadA=; b=pfuYWJj9aPprEzWJb7Rmh8akQu
+	dHA5EanJbn1qYXqeU2xw+sP60O3qa68vTruetCx43y9zeZjk/ifIWTCrlbL1gKEQ2ntQXr68OdhLl
+	KAdRX16GHW45bCIN2AIVoZ9abEyg2CZULtJXNXIr0/BOp3g/OybuWQmlYXhjtpzpqCnwbqaCkaIp6
+	9ZyjA0zhpJYJUC6+Tiy6tRs2ZgQHuIa37+IejOKckrhpwCEY9RRjevzwvnpt5lVhJ+MltD9eQExOU
+	dNFRqpHjfPlZLSK2ivsB0keJWAskPowBFtC8x8/T3azL3fV6V51ARDnnbKf8SwQZAfquwkmA4G5mV
+	ddHY9j8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiuEf-0000000EkZ6-1zbG;
-	Fri, 14 Feb 2025 11:51:57 +0000
-Received: from mail-am6eur05on20602.outbound.protection.outlook.com ([2a01:111:f403:2612::602] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tiuIW-0000000Elq1-3Uyw;
+	Fri, 14 Feb 2025 11:55:56 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiu1Z-0000000Ehsa-02fv
+	id 1tiuH5-0000000ElGH-0Gd9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 11:38:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jZQZ8B5rGiaPtnUtBd/ISpDbABvaSIKXpHsDARgLfSKfZmhtHoEfS+InVp4NQ4f8JE+YL2dFGmXGNg3pKfl4vDtPp6jN4QXo/a3RF6lrg5ySKbaMg+vTNdT7gNmU9m6Wnhk8olZUUbrZAhPxF4aIjoq30XItxqIgUwrLKWXX5o379jxEH/L/eH8hHC9EK6kixHOHMUUf/LsSABcKFRpm+Kw0BCkLyYUNNxDWXg+E0kvZTDwb1icqvdYE1DdMeUtY1PppMJHBJhB/8+/qlSVm+fFYva8Bx7kgU7SAXVpbf70nRPW/UCq36G/2VBZXTZzLmmYgwbSeItwUPybIycEfWg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yLbPMuLVk8Qk8Paa0RTfoiuPc/0vN19NH0kDJjR8Ggw=;
- b=O+f/KyrPw0BmFNFD8OTpuIN9ysf6qO32yzRlP3hPy2bDLPV+jzDk5yqRz2vvc/neblxvPDbn+tH2j9auq1wHGkMKznjTEJUxTU2r7l6G1pJzcZXFdgeB0kwq0PE71fHdpfsXlpD7JRvwRenZUDFYc2EJ0NsTqvLt1QEveywq0aZQlK398E78I2vGmLH9lqLjIB4vMqggqs9aZWRXhncjYm16I5nutNvosKOQ0JQaESoEX17+ap/DXo+VgZeQb5KiE/eEnWJNCE7qIHwzDDPqIMic/iqdZqkmJKtvdDg1G57rBnBuZqSvGhCqrKa6oL6XYPos3zd3Y8ykJ1SpGl3JWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yLbPMuLVk8Qk8Paa0RTfoiuPc/0vN19NH0kDJjR8Ggw=;
- b=dnHc174NcxvTcxv4gMMBhhc/zIOD8GBqAs48g27sU1XTQrGVcjlHoJG9hHKsd8eqdELC0wzfNBXy60PyQEC2zyh/19uI8FkJHctYoIo1eeiVa5jNpSkF4QbN37yYqulA4ZfsHGThzj7PpXrs7KAP8UdFb2gcuMbcpNHi+Uizd0L3vkl5tr1yOuxkqvcrOGGWC2e4dMbzLAlVuqJiLXpfOfbYmXBSOlzLhSLwBqpmvJ3lmVcxxTAmCGzTzLraqKJyIPrM/muYhg98E2fkjvi8DDUKQ6T8+kNhLuO01clp8XV0Z+gIBsMmhYGS43Slc3i/b0W6XmbFfMqhJ5nQC7YPpw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
- by VI0PR04MB10733.eurprd04.prod.outlook.com (2603:10a6:800:266::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.13; Fri, 14 Feb
- 2025 11:38:20 +0000
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2%6]) with mapi id 15.20.8445.013; Fri, 14 Feb 2025
- 11:38:19 +0000
-Date: Fri, 14 Feb 2025 13:38:15 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
-Cc: Kurt Kanzenbach <kurt@linutronix.de>,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Xiaolei Wang <xiaolei.wang@windriver.com>,
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Gal Pressman <gal@nvidia.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH iwl-next v4 0/9] igc: Add support for Frame Preemption
- feature in IGC
-Message-ID: <20250214113815.37ttoor3isrt34dg@skbuf>
-References: <20250213130003.nxt2ev47a6ppqzrq@skbuf>
- <1c981aa1-e796-4c53-9853-3eae517f2f6d@linux.intel.com>
- <877c5undbg.fsf@kurt.kurt.home>
- <20250213184613.cqc2zhj2wkaf5hn7@skbuf>
- <87v7td3bi1.fsf@kurt.kurt.home>
- <b7740709-6b4a-4f44-b4d7-e265bb823aca@linux.intel.com>
- <874j0wrjk2.fsf@kurt.kurt.home>
- <641ab972-e110-4af2-ad9b-6688cee56562@linux.intel.com>
- <20250214102206.25dqgut5tbak2rkz@skbuf>
- <afa50e3a-914b-46b6-8401-0589b6099f68@linux.intel.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <afa50e3a-914b-46b6-8401-0589b6099f68@linux.intel.com>
-X-ClientProxiedBy: VI1PR09CA0123.eurprd09.prod.outlook.com
- (2603:10a6:803:78::46) To AM8PR04MB7779.eurprd04.prod.outlook.com
- (2603:10a6:20b:24b::14)
+	Fri, 14 Feb 2025 11:54:28 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tiuGw-0007wn-Ob; Fri, 14 Feb 2025 12:54:18 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tiuGv-000uUu-2E;
+	Fri, 14 Feb 2025 12:54:17 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tiuGv-0005mD-1x;
+	Fri, 14 Feb 2025 12:54:17 +0100
+Message-ID: <6dd9ed2750abe1f5174805673411ccb919ee5461.camel@pengutronix.de>
+Subject: Re: [PATCH 1/4] [PATCH 1/4] reset: simple: Add syscon device
+ compatible
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Wilson Ding <dingwei@marvell.com>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: andrew@lunn.ch, gregory.clement@bootlin.com, 
+	sebastian.hesselbarth@gmail.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, salee@marvell.com, gakula@marvell.com
+Date: Fri, 14 Feb 2025 12:54:17 +0100
+In-Reply-To: <20250214065833.530276-3-dingwei@marvell.com>
+References: <20250214065833.530276-1-dingwei@marvell.com>
+	 <20250214065833.530276-3-dingwei@marvell.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|VI0PR04MB10733:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4ed60cca-c3ba-45db-5c8a-08dd4cec147a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RmVHZnNTbDMzUWErTm9icEJWSStCL25aTjRURUtldU0yeWNvbjA4MTNVUTNw?=
- =?utf-8?B?c1BXT3IvZ2t2b09TcDdIRjVvczJ6cldsY3JQYWlBSk9sS1RLNllEbkpVN1Z0?=
- =?utf-8?B?ejF4eTY2ZGhZS3JtYnRNQWgrbzJ6MmJSN3JXKzg5TGluS2ZkckdBdGNkbzFr?=
- =?utf-8?B?Zm9ZQXlhMUo1emRYYUFWRDh2RWc2Wk5QM210REw2czdYZW44THo2Szg2QzZa?=
- =?utf-8?B?Nkh4dmY4aEhTaURBM0YxOGpmRWgra05JVmVXWEdtZjBVMTFaRFdKbTBNTjlS?=
- =?utf-8?B?clQxZmhnbDd2clBtOEZDYk1WbUV0aUt0YjF3RzBoUG5sUiswU0xKNlJMbWxP?=
- =?utf-8?B?cnBTNGxlYkpwUGFHV2lWTHg0MG9EWUdVY2NXSG1WeGhGYnB3RnFmemwxQlpw?=
- =?utf-8?B?dTdqSHBkUGhDVlF5Z3ZhSnVDRkhBOC9nYUNzUXNiVExsT3VjNGpZc1haOEZ5?=
- =?utf-8?B?a1lwM2tETHFRV1hBQzY5Ulk3bVdOK1VwY2lUb2ZzK2ZweCtROTh2QlM5aW5X?=
- =?utf-8?B?MlpLUjFPQitRQ2REM0Z5amlaWk1uek4rWDl1ZEFrLzVTSGpNK2ZEMHFMMk13?=
- =?utf-8?B?WDlsMEVVSDlESHlGQmxLdDhRc2F2ZC9XUnpheTNlVHJPbE9CTCtCVEtMbFg1?=
- =?utf-8?B?dlhaWW5IdGhBaGhuWGJJSjFEUE1mTVY1bmwwazBBVjh4NjRvU2dTYjN5b2t4?=
- =?utf-8?B?R1JwSE5TdmY3UmxqbXJHanFsUjJJZ1ptMEZiemZWOVYzWlZTZmJkWldlR3hO?=
- =?utf-8?B?Wi9hSU1HRmRJMFh1eGZROElUQ0YreHl0SytMMUIybW9KMXVQVEJGREFiaGRk?=
- =?utf-8?B?QlZnZVh4S0owOUxmVFJpY0JQTlVqaEVrWDMvem5KUGNRYWxDVkY0Ly9yS1hP?=
- =?utf-8?B?eVNSaW5Fei8waVQzU2RQbmNMSUcxNi9hUXdoTkljZ01JOGYwQ2RmSFo3VFZV?=
- =?utf-8?B?TUpDTmsxOXBRS1ExbkJXbWlhdER5d2EwSTN3S1IxNGtpc1RSRlE5NWYyWk5o?=
- =?utf-8?B?UWVQMEt3ME9id2ZsWnpicDBmaWYzeGhIWmNCMkpXTEZ0WnhXZUxJNGR5c25M?=
- =?utf-8?B?NkdTckJWd1FNcWV3c2xlZ0huQ3pCSE9FSUVXbXUvQ0FSeVR6bDV0ZmNGK3RQ?=
- =?utf-8?B?VEYySHB3eGtPSXZUTHZrelI1VWg0TkhscU83Vk1laVl0SENSVENSUllrcExL?=
- =?utf-8?B?SzlyRFNCNEsySVR0cHVRQ0hpZDZacHNIVkxyRDJ3V2YxY211Z25JdThGUGh0?=
- =?utf-8?B?YkhBbkl6SXNONkNRSFFPNDIrVEd5dGVTZnEvdHZPWVlJdGRxUW1qSXcwK1Rs?=
- =?utf-8?B?Vm4rZDRYeXpiNWRBYzNkc1RjcXhiS1dBeHFaTUZrOEJNblREakFCLzczeXBa?=
- =?utf-8?B?OEVWRmU2YzgzVFl0cnozeGxqVDF3cXpLNVRqRHRkT0cvQUdhdkp3b2h0MU4w?=
- =?utf-8?B?WjU2VFg5VWFVL3g5WHdKNlJZSE9qdEEwdEdJbVkzYm9XNWFVa0lHRkUwSEtR?=
- =?utf-8?B?dG9uMFVBUjF0TUlWZHg2OEhxVk1pN1NrNmJhMUEwT0xkSy82alhINTNVMXA3?=
- =?utf-8?B?SEZLTm9nSHBaRCtmT1lBZnRReWloZTkxY1pGc3JxalBPTDhpaldMUXFZekY2?=
- =?utf-8?B?R3lQWitMNmpBbGhWOVNoQ2dpUTA2Y1hSRmtCOXo3YVBxNzFJbDA4SmpjUm9T?=
- =?utf-8?B?TTExb0lrMkZacUs5ZnNzaEZVSGhzMFVNSGN5ZEdtc202a21Na2lEcjZTUzlT?=
- =?utf-8?B?SUc4QTMxNmxQbFNSanNCbnFlVU1vSnY0MnNuZ3JYQVBwdDR5VXNETWhTNVM2?=
- =?utf-8?B?WG5yODlmdERZMDF1M1ZLYzJWcWh1N2VZdGZqamJscnlUL094Wk5KSzdIZ2l3?=
- =?utf-8?Q?WG9JPPzNiXs+S?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d0MxUDFiNVVQVUZOVllUY3NYelcyWTJETHlEVUNaUWNuOGVxLzhINjhlYkkw?=
- =?utf-8?B?SWtMNkdkbm5MWGNQL0tydmFHazE0Z3NDeUFhalRnNUYwRzBHQzRjdTc0REk3?=
- =?utf-8?B?Y3R3QWt4UTUrNDJpaXNOaWE5eFZyNGtkd2h1MTJvdXNNL0lhS0hYdjlKbVhh?=
- =?utf-8?B?SHd6dUxCRXk4aHdSemx1S2RhRWFhZ2d6UWsycDY0Y3hKVnZMT2hkbk9MOVFS?=
- =?utf-8?B?TVBFcjN2eERUd09ocEdKaFo0RnZPLzhlYVEydUIyTm1BdXFmMnJOdy9NVkpr?=
- =?utf-8?B?Tk1nUjM4TGZqam9RZHlIVW1PZSsrTlByU0ljdk9pZ3JIS2R0R2IxRzFlNUJj?=
- =?utf-8?B?NTBnc05OZnNGMC9wTEV3MWU2K2wxZnVIY3RnWHlqU1RvM0U0eXhvU08yNkd6?=
- =?utf-8?B?VlQxQVFEdDRLV0Y4S1BRa01rcmwraVhFY1puWXBTck9zdzY2NW9QZVBJMDlE?=
- =?utf-8?B?OFVPVWF1aXF5Q0ZFNWJTTHZoNTFnS1B1R3hTYlJiSGc2aGtOODV1d2JpR2VU?=
- =?utf-8?B?Wk9TaW9CNm8yLy9Ha0NzMFByK2l4RFhzZ3RzVStxR3g3NlJrcUU0VWNuVUdy?=
- =?utf-8?B?Qjg3T3pta1psaTkwQWg5M3U4Tk5pQ2JVclFwQ0g4UkswVlhUYmZEZE8vcTZB?=
- =?utf-8?B?OFhXRjVVY3F4VnE0aFZYTnhLRXBaWWM3OVBMcjZ5dUdTZlFtTTdLcm44c1NM?=
- =?utf-8?B?QzRqS0FVOGR1L2JtM3FWdjhZcnhYRkVYVE5odVpHdnhLZDEyL3U1Q2ZnSHBw?=
- =?utf-8?B?bGFjU2RwUy9TeFU0OUh1WkVaaGhOaC9zVGRUeGR0Z2hVUHB3WWpSeTY1VFBZ?=
- =?utf-8?B?MmJBZmpyTkh1a0pjaklBeTIvZEJPTnlNSDZnZkZsc24zdjcvK1NDK0djZzQy?=
- =?utf-8?B?ZmlYWWc4eXZBbWE1VlZTYkcxZjRINncxaExpQm1yeEpwendkNnlHcU54UnRa?=
- =?utf-8?B?ZmpJMk82d2VUU1pENmIxNVUvTS8ySjhwbCt6N0VrUWlURkVFczFtdkdlenhZ?=
- =?utf-8?B?Y3BEa29UMWpwSitibzIra2p6WXNha2U4UWE3Y1ZwRmxnMjJSU3hlVXhXOVBF?=
- =?utf-8?B?eXZHSURBd20xejZqMThDbmF0SjlxVW1ZVWRjNHhEZTB0MXdGai9XY0VDKzlj?=
- =?utf-8?B?OXJwdUFUOUk4cC9KSGpmZk4xMStOLy9kZDAvVldhY0cvdDdnb1IxMnpVN25i?=
- =?utf-8?B?K2JCTUFMUnhDRzI2Sy9sd3pGWndnUTJqL2YxbTNVK3h2cXBza2tWYitxSzVM?=
- =?utf-8?B?MTFWeVkxQjYrNTV1U01SK0J3dUxjV0lZSFVvZ3o3VTE2cTdDTWV6dFdUZWhp?=
- =?utf-8?B?WHByNWhUMzhvaWQ4M3pST0hYVzlCQXAwNTZkRGtTRlBYSzNkUHBKRnQ0VXJv?=
- =?utf-8?B?akZUbDRjM3NVWU1tWWtzcnpLUkRMMlVoeUZBSmFXdUlUWDk2c0ZDZmdnMVdm?=
- =?utf-8?B?OWJtdk82bkxtVDNJRjQwelBVSENBUit0OTBhbFcyTklON2dWYk1HODdtdFo1?=
- =?utf-8?B?RmFaL2NYajdzNXd5MzVsdkVPcE9ZdlBnRUxhQmJ5ajZXUGk0a3N0b0J2ZWRD?=
- =?utf-8?B?alZRMGJyWHp2ZlpmL25DTEZXUkFlS05VaVVEUHdabEQvSnV6YlpraEpiejJy?=
- =?utf-8?B?bzcvYkVjbXp3anFWWDQvYnh4RlZlQkdvbVNETjVuc0tsYVBMeDBxakZiQWMz?=
- =?utf-8?B?N0JPYTRrT1JZdWpaREFIN3Q2cnduY3lkYlViTms4aGk2T0lWdWZLL1hUQnI0?=
- =?utf-8?B?d3hiM2dIazBNTFlkMkhsTlFXZktMNUVDNzVUTkpFNlpCUFpTcVR6RzJmcCs4?=
- =?utf-8?B?RThQdVBrN1JjdVpsQ2Ywd3ZmZGxhYm8rc2V6V3dYclgyTE5WTFhTMStCZUJq?=
- =?utf-8?B?enNVL1JUN2o4NzRvMGFnZmpDM2J4aFBDQ0FYUDZ6K0EvYW1rREVjTjV3RjUv?=
- =?utf-8?B?aXRhYndvLytHMDFDZk9jZ1lid2NtRjM1cDRkUS9qMUV2TjhVMUcvS0xRR0VX?=
- =?utf-8?B?dXQvSjRrSEFvZHVqaVF2Wmk4SnFqZ3JHSEx2ZUhuU3VBODFxVVhBVk5VM09Y?=
- =?utf-8?B?M1dxNUMyRmdxcTBiVmIyQW9PUEtDKzRyeU00cEhTVDdjOGhmRkwyYVk0TFl5?=
- =?utf-8?B?SlBVNnJVdHI4allsMThhZDRHc0tQa2xwOVUyWUFhb0lJTkZSajZNMnFhbllY?=
- =?utf-8?B?UEE9PQ==?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4ed60cca-c3ba-45db-5c8a-08dd4cec147a
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Feb 2025 11:38:19.8000
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: k5RjD17W91CMeuV2tLmWdGNRyhdFOjqzHadgbGOo764WW3EdRbNfDhQvQ+Tp0dyiNNFfZQ41Hhrn9fvx1vcChw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10733
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_033825_052789_752ED691 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20250214_035427_102149_364F7C9E 
+X-CRM114-Status: GOOD (  21.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -211,42 +80,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 07:20:08PM +0800, Abdul Rahim, Faizal wrote:
-> Okay. I can look into this in a separate patch submission, but just an
-> FYI—this adds another dependency to the second part of the igc fpe
-> submission (preemptible tc on taprio + mqprio). This new patch
-> (driver-specific priv flag to control 2 different priority scheme) would
-> need to be accepted first before the second part of igc fpe can be
-> submitted.
+On Do, 2025-02-13 at 22:58 -0800, Wilson Ding wrote:
+> Introduce the new ops for updating reset line and getting status. Thus,
+> the reset controller can be accessed through either direct I/O or regmap
+> interfaces.
 
-So perhaps now you're starting to understand why I had initially
-suggested you'd better draw the line now at just the MAC Merge layer
-and focus on harmonizing taprio and mqprio TX scheduling in a separate
-patch set.
+Please don't add a new layer of function pointer indirection, just add
+a new struct reset_control_ops for the regmap variant.
 
-I would expect that for uniform behavior, you would force the users a
-little bit to adopt the new TX scheduling mode in taprio, otherwise any
-configuration with preemptible traffic classes would be rejected by the
-driver. So, if preemption is used, then the scheduling model is the same
-between mqprio and taprio, and you don't have to handle preemptible
-traffic classes over the old scheduling model.
+> It enables the support of the syscon devices with the simple
+> reset code. To adapt the DT binding of the syscon device, the number of
+> reset lines must be specified in device data.
 
-I would also expect that you replace the current patch which handles
-preemptible traffic classes in taprio with another one which explicitly
-returns -EOPNOTSUPP if preemptible traffic classes exist - just like
-mqprio. When Kurt added that condition in mqprio, it wasn't strictly
-necessary, because mqprio_parse_tc_entries() already checks
-ethtool_dev_mm_supported() in the core and rejects the configuration.
-But after your MAC Merge series is accepted, you still won't be able to
-handle preemptible traffic classes even though the core will let you, so
-you will have to impose the restriction yourself, just like Kurt did.
-I'm not trying to be negative, but it's imaginable that there's a chance
-you won't succeed to bring the whole feature set to completion right
-away, and if you do abandon things in the middle (MAC Merge layer
-supported but preemptible traffic classes unsupported), it would be good
-if the driver at least rejected a configuration it doesn't support,
-instead of accepting it and not acting on it. Because if a significant
-amount of time passes in such an inconsistent state, it would be very
-difficult for anybody else to pick up from that position and not change
-the behavior in incompatible ways that are user-visible.
+If the DT node had a reg property, number of reset lines could be
+determined from its size, like for MMIO.
+
+> Signed-off-by: Wilson Ding <dingwei@marvell.com>
+> ---
+>  drivers/reset/reset-simple.c       | 117 +++++++++++++++++++++++------
+>  include/linux/reset/reset-simple.h |  11 +++
+>  2 files changed, 107 insertions(+), 21 deletions(-)
+>=20
+> diff --git a/drivers/reset/reset-simple.c b/drivers/reset/reset-simple.c
+> index 276067839830..e4e777d40a79 100644
+> --- a/drivers/reset/reset-simple.c
+> +++ b/drivers/reset/reset-simple.c
+> @@ -15,8 +15,10 @@
+>  #include <linux/device.h>
+>  #include <linux/err.h>
+>  #include <linux/io.h>
+> +#include <linux/mfd/syscon.h>
+>  #include <linux/of.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+>  #include <linux/reset-controller.h>
+>  #include <linux/reset/reset-simple.h>
+>  #include <linux/spinlock.h>
+> @@ -27,10 +29,9 @@ to_reset_simple_data(struct reset_controller_dev *rcde=
+v)
+>  	return container_of(rcdev, struct reset_simple_data, rcdev);
+>  }
+> =20
+> -static int reset_simple_update(struct reset_controller_dev *rcdev,
+> +static int reset_simple_update_mmio(struct reset_simple_data *data,
+>  			       unsigned long id, bool assert)
+
+No need to rename or change the function prototype.
+
+>  {
+> -	struct reset_simple_data *data =3D to_reset_simple_data(rcdev);
+>  	int reg_width =3D sizeof(u32);
+>  	int bank =3D id / (reg_width * BITS_PER_BYTE);
+>  	int offset =3D id % (reg_width * BITS_PER_BYTE);
+> @@ -51,16 +52,40 @@ static int reset_simple_update(struct reset_controlle=
+r_dev *rcdev,
+>  	return 0;
+>  }
+> =20
+> +static int reset_simple_update_regmap(struct reset_simple_data *data,
+> +				      unsigned long id, bool assert)
+
+I'd call this reset_simple_regmap_update().
+
+> +{
+> +	int reg_width =3D sizeof(u32);
+> +	int bank =3D id / (reg_width * BITS_PER_BYTE);
+> +	int offset =3D id % (reg_width * BITS_PER_BYTE);
+> +	u32 mask, val;
+> +
+> +	mask =3D BIT(offset);
+> +
+> +	if (assert ^ data->active_low)
+> +		val =3D mask;
+> +	else
+> +		val =3D 0;
+> +
+> +	return regmap_write_bits(data->regmap,
+> +				 data->reg_offset + (bank * reg_width),
+> +				 mask, val);
+> +}
+> +
+>  static int reset_simple_assert(struct reset_controller_dev *rcdev,
+>  			       unsigned long id)
+>  {
+> -	return reset_simple_update(rcdev, id, true);
+> +	struct reset_simple_data *data =3D to_reset_simple_data(rcdev);
+> +
+> +	return data->ops.update(data, id, true);
+>  }
+> =20
+>  static int reset_simple_deassert(struct reset_controller_dev *rcdev,
+>  				 unsigned long id)
+>  {
+> -	return reset_simple_update(rcdev, id, false);
+> +	struct reset_simple_data *data =3D to_reset_simple_data(rcdev);
+> +
+> +	return data->ops.update(data, id, false);
+>  }
+
+No need for indirection. Better to just add separate
+reset_simple_regmap_assert/deassert() functions.
+
+>  static int reset_simple_reset(struct reset_controller_dev *rcdev,
+> @@ -81,10 +106,9 @@ static int reset_simple_reset(struct reset_controller=
+_dev *rcdev,
+>  	return reset_simple_deassert(rcdev, id);
+>  }
+> =20
+> -static int reset_simple_status(struct reset_controller_dev *rcdev,
+> -			       unsigned long id)
+> +static int reset_simple_status_mmio(struct reset_simple_data *data,
+> +			     unsigned long id)
+>  {
+> -	struct reset_simple_data *data =3D to_reset_simple_data(rcdev);
+>  	int reg_width =3D sizeof(u32);
+>  	int bank =3D id / (reg_width * BITS_PER_BYTE);
+>  	int offset =3D id % (reg_width * BITS_PER_BYTE);
+> @@ -95,6 +119,31 @@ static int reset_simple_status(struct reset_controlle=
+r_dev *rcdev,
+>  	return !(reg & BIT(offset)) ^ !data->status_active_low;
+>  }
+> =20
+> +static int reset_simple_status_regmap(struct reset_simple_data *data,
+> +				    unsigned long id)
+> +{
+> +	int reg_width =3D sizeof(u32);
+> +	int bank =3D id / (reg_width * BITS_PER_BYTE);
+> +	int offset =3D id % (reg_width * BITS_PER_BYTE);
+> +	u32 reg;
+> +	int ret;
+> +
+> +	ret =3D regmap_read(data->regmap, data->reg_offset + (bank * reg_width)=
+,
+> +			  &reg);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return !(reg & BIT(offset)) ^ !data->status_active_low;
+> +}
+> +
+> +static int reset_simple_status(struct reset_controller_dev *rcdev,
+> +			       unsigned long id)
+> +{
+> +	struct reset_simple_data *data =3D to_reset_simple_data(rcdev);
+> +
+> +	return data->ops.status(data, id);
+> +}
+
+Same as above, no need for indirection.
+Just add separate reset_simple_regmap_assert/deassert() functions ...
+
+> +
+>  const struct reset_control_ops reset_simple_ops =3D {
+>  	.assert		=3D reset_simple_assert,
+>  	.deassert	=3D reset_simple_deassert,
+
+... and add a const struct reset_control_ops reset_simple_regmap_ops.
+
+regards
+Philipp
 
