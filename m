@@ -4,71 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C81C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:30:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66CC2C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vYszs/DB4wFktP2QVNbwZIxZexG9SRiLd8NF1/clmJ8=; b=YrfrXxLpCv24rJW/1RPpa/3qnR
-	Cg315xfDV3B2f7B+pwRUY5ZQxiBqawZcNqgnUqfVjmbmk2a1n045i+muk09YC5njYHImgXRxKtRsf
-	CDKq4vcbx+/B9RP9jXGnLdqjxD+nEnSvckr1e4UujNnVmr5OAldkP3Gu/gggfOrkjfzLf417r/dNN
-	hZNwrhtaWq+qoJvsJPkckqDm3SGU3TXNgTK1RZu4KvqkCuKZG9MbxBsK/waUdQ0H1cxd9RnGnLQKB
-	3wDrGxKQzS4wXz+B4ErRZIKuBVKqoDm8tPfnHzW5f+Z/R2oG9gjHPe4odYFtCTdyNw2OZI6SRs06E
-	eqDcxn+A==;
+	bh=vud2l+W++O1Da7DS2WaNrJ9AJreXoCTXE/UW9zsHPAo=; b=sYxO+EVMl45qjhTOCbEHfLO/+8
+	ezLEMcyQ2lktsc7EZTo2+1R1IyDsWgEi1uNc2ryfaqwrPGR7h5eSxpGd5cZ/zQgrJBd3LziyVNQNy
+	IIB9/BpfSO/zWv77Mg9UW6SeNlKsWJb+1gC0a3ONvaDVkWNQhK+S/iuIsO71YBq2O9JYPba/159lT
+	yyyH/KUXjR0urL5Kc5aWG++DbbTBRVmhyvGE4z9L6yRPHcIyXBp450XlsoaUJFHxbEL2ucdQO7MoQ
+	ySQtO5x5cYsOCvRHjyGsLPADI1U691uahqS/AuNpl1p9g44NZTG6ip/ynh5XuQe3D5VZ/z6DXMfTQ
+	boj2v1iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixdn-0000000FKAx-2bZp;
-	Fri, 14 Feb 2025 15:30:07 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tixfD-0000000FKa5-2Qv8;
+	Fri, 14 Feb 2025 15:31:35 +0000
+Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixPP-0000000FGiW-3Twd;
-	Fri, 14 Feb 2025 15:15:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739546114;
-	bh=gYGJtiW6FSC0FDX8qS6/krawDyDf5GHTiTmU7WJ3Af8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qX9YEGD0ml2gWVx35Ac2J306oISYovWOng1iOF0x/+LFzhhDxHVflwNrxOtJqod5W
-	 RMCqYmSg5FwP/N363m6hjsMHKn3yMO0lL7RyVtYm2YZOSt/GQ8gUziuvbgZuGg5Erm
-	 NrwHX6N1bHi5+qJ0uRK/6Y2CS/T6KY3Fj07xaoPI3TRG7kjNS2XXcnZNaMEMGOuXW8
-	 /i4iSWsrDhPuH4dpv/X209rsVzmN2v6OUNJ3NT3fvN0JgtJ8LH0iFT+YcVmNppcc9n
-	 eIPZ0uhmSIuF8gDqD9Ixnmz9afwDvzM3Y8T4s85qqnziGgpntg+QIqxLzJJmiknQ9t
-	 NV5YO83cvkgtw==
-Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1003])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 36BB717E1558;
-	Fri, 14 Feb 2025 16:15:10 +0100 (CET)
-From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Fri, 14 Feb 2025 12:14:31 -0300
-Subject: [PATCH 3/3] ASoC: mediatek: mt8188-mt6359: Add headset jack detect
- support
+	id 1tixSv-0000000FHak-3ezL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Feb 2025 15:18:55 +0000
+Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e46ac799015so1622987276.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 07:18:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739546333; x=1740151133; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vud2l+W++O1Da7DS2WaNrJ9AJreXoCTXE/UW9zsHPAo=;
+        b=Hgws/bpgbMZSUYLZd4ITElPFQg0+GiO8kkat59+2w07C7mzZ9nfi+L4jjAf76E0lAP
+         qeULKaRCJFjFJLR1MQ/ioAEJi77s97Ig1Q5cz890DNWQEn+qp6guRLLjGFvKz27vRBu+
+         b+cwc7dVwaSvJ4mj9N1fc1fmCavBU2CsAjV5seIiGsiaCf4sabWj4q4DvJQb/AisCbGz
+         WCbDj/HuNkAuTOSGT4X6hg0FsJeWJLnj3wDAkUA2C3gd5+x4VIj3zRv0/BcMQRSszi1R
+         YUNdP6umhbA2slPTuI/NfjAuNCgKiCMZtt3cA1G0z3JK3qF0fEJ3QkiyVZdacFQBAkA1
+         yfVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739546333; x=1740151133;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vud2l+W++O1Da7DS2WaNrJ9AJreXoCTXE/UW9zsHPAo=;
+        b=ca8JGfQpIfBlAEETnMfoBmPcXxMxG3RWCaGNueEQ9U7tGKWP7Dl+QcSLc/nX7laA/f
+         BUla8MszaqAQCPljrn8ZCcnk+1J9q0GzHxjHEk1+mQPRypd3Ha5EnQrGPTNv0UStq/wr
+         DaO7S/scOwhsaRX5SkMuwHBNAlRmXhDTRILFjQqNMMadWM8JnP+Jcic+vVxQaiXDajUL
+         gt2yXbJfdMrpsGzmm4MYztiL0SwVr7nxZ+3y/ACHPY/6LBdoZICedmzTpfnb72qHZ7GR
+         VX4CpUm7vrX45EIbv5TW6Hkp6QDlpVQPyq2pAm+E/xdMUVfSvvEz/iRdcWyR+9o7HLIE
+         wcWw==
+X-Forwarded-Encrypted: i=1; AJvYcCUeieJ1xRHiHL9eBUnqYvP9/YD8mVUPEl0jWbesabPPiWikf05e74Ppr8DM6bNsqXXF+na0D9uT0k2L8UJzqyZ6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw257AgNYAY6YjUpBTq0YSQP71Zy27FXfCf5FLFhQsUNhokwjtV
+	8pXubgGn/JsZ+A6N5VNQGBaUlDUOi89uE1VHdH37r5dj7YMkcqRTOk9eSXhLQIPw5fb3/T8k78w
+	UcWYjJIRidObB+O5Qw3i0CVjFimcJu47QJgdAWw==
+X-Gm-Gg: ASbGncsWL6HbJSUvrcvAPcI+VHU6A1pPsWx9URp1EDjvl2sgLr3/zaSMWSLnZN50Gth
+	YgzfOSyAwXyS6Ah7kyrijKP6ki2G74d0AYuWqOW9vNPWiSnlJquu1s3FdsmivDKTP0lqh06oe6v
+	x+uLlNuMu0EBj/HdyGrVs9pPCUXtGzlkA=
+X-Google-Smtp-Source: AGHT+IHBLi+DSdWwdkBiZJtFZDCRKWBo+hYt3CPdJ1MsUWNFmP3OHtc7puT3fPX9/BKcGYQszQlVBW84g9IFUoqX2jg=
+X-Received: by 2002:a05:6902:10c8:b0:e58:4a5:2ca8 with SMTP id
+ 3f1490d57ef6-e5d9f17a12dmr10834168276.37.1739546332754; Fri, 14 Feb 2025
+ 07:18:52 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250214-mt8188-accdet-v1-3-6bbd5483855b@collabora.com>
-References: <20250214-mt8188-accdet-v1-0-6bbd5483855b@collabora.com>
-In-Reply-To: <20250214-mt8188-accdet-v1-0-6bbd5483855b@collabora.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Trevor Wu <trevor.wu@mediatek.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>
-Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
- Zoran Zhan <zoran.zhan@mediatek.com>
-X-Mailer: b4 0.14.2
+References: <20250213204044.660-1-wachiturroxd150@gmail.com>
+ <20250213204044.660-3-wachiturroxd150@gmail.com> <CAPLW+4nJVf0raJ-O3u6uUteBi--N5xGwvzXp7cHqbkdMJ8gCSQ@mail.gmail.com>
+ <cf0a5ab5-265f-4429-8c11-8b669f00bc70@linaro.org>
+In-Reply-To: <cf0a5ab5-265f-4429-8c11-8b669f00bc70@linaro.org>
+From: Sam Protsenko <semen.protsenko@linaro.org>
+Date: Fri, 14 Feb 2025 09:18:42 -0600
+X-Gm-Features: AWEUYZltiapjR3VtfT1WDOygMRkvnzikuCurH43pDPL6b-n2GaubYKFDPd37TJA
+Message-ID: <CAPLW+4nYMShK=mgXcct0QFQa_bTLcdWdcCOKSToxgx8tWqTreg@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] spi: s3c64xx: add support exynos990-spi to new
+ port config data
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Denzeel Oliva <wachiturroxd150@gmail.com>, andi.shyti@kernel.org, broonie@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	alim.akhtar@samsung.com, linux-spi@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_071516_015018_3239070E 
-X-CRM114-Status: GOOD (  13.29  )
+X-CRM114-CacheID: sfid-20250214_071853_909026_FD1A4042 
+X-CRM114-Status: GOOD (  25.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,93 +100,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable headset jack detection for MT8188 platforms using the MT6359
-ACCDET block for it.
+On Fri, Feb 14, 2025 at 12:39=E2=80=AFAM Tudor Ambarus <tudor.ambarus@linar=
+o.org> wrote:
+>
+> Hi, Sam,
+>
+> On 2/14/25 12:08 AM, Sam Protsenko wrote:
+> > On Thu, Feb 13, 2025 at 2:41=E2=80=AFPM Denzeel Oliva <wachiturroxd150@=
+gmail.com> wrote:
+> >>
+> >> Exynos990 uses the same version of USI SPI (v2.1) as the GS101.
+> >> Removed fifo_lvl_mask and rx_lvl_offset, and changed to the new data
+> >> configuration port.
+> >>
+> >> The difference from other new port configuration data is that fifo_dep=
+th
+> >> is only specified in fifo-depth in DT.
+> >>
+> >
+> > In the code below I can see this bit:
+> >
+> >     /* If not specified in DT, defaults to 64 */
+> >     .fifo_depth     =3D 64,
+> >
+> > Is that intentional or is it some leftover that was meant to be
+> > removed before the submission? From s3c64xx_spi_probe() it looks like
+> > the "fifo-depth" DT property is ignored if .fifo_depth is set in the
+> > port_config:
+>
+> fifo-depth in port config is intended for IPs where all their instances
+> use the same FIFO depth. fifo-depth from DT is ignored because the
+> compatible knows better than what developers may in DT in this case, it
+> is intentional.
+>
+> >
+> >     if (sdd->port_conf->fifo_depth)
+> >         sdd->fifo_depth =3D sdd->port_conf->fifo_depth;
+> >     else if (of_property_read_u32(pdev->dev.of_node, "fifo-depth",
+> > &sdd->fifo_depth))
+> >         sdd->fifo_depth =3D FIFO_DEPTH(sdd);
+> >
+> > Btw, wouldn't it be reasonable to flip this probe() code the other way
+>
+> No, please. IPs that have instances with different FIFO depths shall
+> rely only on DT to specify their FIFO depths.
+>
 
-Co-developed-by: Zoran Zhan <zoran.zhan@mediatek.com>
-Signed-off-by: Zoran Zhan <zoran.zhan@mediatek.com>
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
----
- sound/soc/mediatek/mt8188/mt8188-mt6359.c | 43 +++++++++++++++++++++++++++++++
- 1 file changed, 43 insertions(+)
+Fair enough. Does it mean the port_config.fifo_depth should be made
+obsolete? Or it makes sense for older SoCs where FIFO depth is fixed,
+or something like that?
 
-diff --git a/sound/soc/mediatek/mt8188/mt8188-mt6359.c b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
-index 2d0d04e0232da07ba43a030b14853322427d55e7..4e19e6cfad1e1f42863b2e2f27131f880c5883bf 100644
---- a/sound/soc/mediatek/mt8188/mt8188-mt6359.c
-+++ b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
-@@ -17,6 +17,7 @@
- #include "mt8188-afe-common.h"
- #include "../../codecs/nau8825.h"
- #include "../../codecs/mt6359.h"
-+#include "../../codecs/mt6359-accdet.h"
- #include "../../codecs/rt5682.h"
- #include "../common/mtk-afe-platform-driver.h"
- #include "../common/mtk-soundcard-driver.h"
-@@ -266,6 +267,17 @@ static struct snd_soc_jack_pin nau8825_jack_pins[] = {
- 	},
- };
- 
-+static struct snd_soc_jack_pin mt8188_headset_jack_pins[] = {
-+	{
-+		.pin    = "Headphone",
-+		.mask   = SND_JACK_HEADPHONE,
-+	},
-+	{
-+		.pin    = "Headset Mic",
-+		.mask   = SND_JACK_MICROPHONE,
-+	},
-+};
-+
- static const struct snd_kcontrol_new mt8188_dumb_spk_controls[] = {
- 	SOC_DAPM_PIN_SWITCH("Ext Spk"),
- };
-@@ -500,6 +512,35 @@ static int mt8188_mt6359_mtkaif_calibration(struct snd_soc_pcm_runtime *rtd)
- 	return 0;
- }
- 
-+static int mt8188_mt6359_accdet_init(struct snd_soc_pcm_runtime *rtd)
-+{
-+	struct mtk_soc_card_data *soc_card_data = snd_soc_card_get_drvdata(rtd->card);
-+	struct snd_soc_jack *jack = &soc_card_data->card_data->jacks[MT8188_JACK_HEADSET];
-+	int ret;
-+
-+	if (!soc_card_data->accdet)
-+		return 0;
-+
-+	ret = snd_soc_card_jack_new_pins(rtd->card, "Headset Jack",
-+				   SND_JACK_HEADSET | SND_JACK_BTN_0 |
-+				   SND_JACK_BTN_1 | SND_JACK_BTN_2 |
-+				   SND_JACK_BTN_3,
-+				   jack, mt8188_headset_jack_pins,
-+				   ARRAY_SIZE(mt8188_headset_jack_pins));
-+	if (ret) {
-+		dev_err(rtd->dev, "Headset Jack create failed: %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = mt6359_accdet_enable_jack_detect(soc_card_data->accdet, jack);
-+	if (ret) {
-+		dev_err(rtd->dev, "Headset Jack enable failed: %d\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
- static int mt8188_mt6359_init(struct snd_soc_pcm_runtime *rtd)
- {
- 	struct snd_soc_component *cmpnt_codec =
-@@ -512,6 +553,8 @@ static int mt8188_mt6359_init(struct snd_soc_pcm_runtime *rtd)
- 	/* mtkaif calibration */
- 	mt8188_mt6359_mtkaif_calibration(rtd);
- 
-+	mt8188_mt6359_accdet_init(rtd);
-+
- 	return 0;
- }
- 
-
--- 
-2.48.1
-
+> Cheers,
+> ta
 
