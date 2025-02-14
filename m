@@ -4,88 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F709C021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 07:26:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE971C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 07:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l+sv0U2cyjukGfA/ZIjsFBOYnHcPPEH2EG7bSm4QAFU=; b=QAZBHONEhnN8RJqpbfrE3m+oet
-	KVGunrpGSPEHb1xv1Md5uIFZy7aXUdOuz5MkfJGv0zP0bpm80EQMHaIHCIDSqzHYqcf6Y83XQBZ9m
-	GqUhV4+ZPjC0KQjEpsbsIjRw/81Sjxu8bWIoaA5xUiFQ2dhWwkc5a3/BKvVxCEFIzbBKE086+pCxJ
-	IOiVxZjlTwcPtb53W6zbL37qVLgQgJ5jQnwm0THc7n+Ql6mzKXCY63CHdT4iWdvD9OVFyQ0zeeTNA
-	w2sWaLc5tZZH8itZSi1ETwNlJdfgBWeZtvEegmcGdkn5+ZeN55tPHcTWXUYLXtdhMaLZ3uD8WEKLi
-	h8XPnqzQ==;
+	bh=zSCjFfR20TU7hwUMrS4urDZFjwQFxtUiglQqA7+Ae/0=; b=jZCr61xz3pPlAsj1L0wXGKOlNV
+	+157FtUrLZfho9Z0tSBWcl9CNdpYufqLSeq8xXy3axTkPp2aqhwd8Mw45raaBrFZ9RENYMR/Yqn9X
+	RFiBzuYpsm1j3dKv3gOcWewHEjdB5cviNNvLRErOpnTVMW4//TI+bspS32s9o+TtDjFNIydVU4972
+	rvHmx1PV5HZnvaPR23v3m0EHUOW6C2BVsa+kphs7Yu4XGmAAqsD3zK2v0snfaZEOcHG/iB5PXf63W
+	fuaQAj7znu2bWGhDNnV0OzAqpkmFkNLnn07XRX/kAf+JhSSbhHY5cnxe1jVuBXnJ41ZJvFVZyck7K
+	6iNlAHow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiq60-0000000DxIx-1250;
-	Fri, 14 Feb 2025 07:26:44 +0000
-Received: from mail-ed1-f52.google.com ([209.85.208.52])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiq4Z-0000000Dx56-0MkN
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 07:25:16 +0000
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-5ded46f323fso1762799a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 23:25:14 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739517913; x=1740122713;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=l+sv0U2cyjukGfA/ZIjsFBOYnHcPPEH2EG7bSm4QAFU=;
-        b=UWQF1OA2CEWT9w/knjzyn5vMiL3gCEa5wNOX8AsbFe1sszuZeXpQbgxZnQbU/3WF+C
-         /RkxKqq63ZitaW+JWY6KyEPQQkqF+e6pwJyn9vjsi7uQJYBvYQweadOp0J/fQ1kwRi5V
-         M8i22wRzF9XKjHoKm90NIndbYpSTEs/ZFtQPaVarinTsaBy6kPQTiGktuGuHCccb0y+W
-         9d23R86WKqX9od0HFn8vMAkVPCOM3lalaFJVXvfldLS9wL3p/bI4X+wErHL78fWWgXez
-         3d4DEkIkQL3qz0BbOrwEf3GZsi4BvkJ5IY85y3Y7RQwHizfDz0mwUW1h/MXc+kSXxnaT
-         9NYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX6OCrzv5xSIJB8vb87K4CxnNooWUh5fwWBgvwehVkkDuSNtm/6cpJ7hLMK8tubkdxoDXEIMD24I2os4rcXkLVC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwknE0oRYIJwq/+dRbmgwBLQGA8T2seusKRygUeHtLYAbaUg7Kk
-	vbzdvRewDfxp3AcjgpiEGjWoDbScFLpUz70oOPcnSfKVwF0RVO9st2Cm6/ocHuQ=
-X-Gm-Gg: ASbGncuwHt9P3dmt1wASBFAqNrAVATI1n6SXAxq+2hF9jtwb3oglOYm2/IDrPlNXBok
-	8nO90/ZwcKKwzMf6OfGXIW7EWvPHycayXr4HM9eoB8ap4IG6oMkK19J2Hy4nR7HkwFxesDPhDBR
-	ASunS1wiYXAGFl11zuqTDzXGJ6jsSwYaherSEJqU/uKqZyxsg2gyR19KBnYumOHY8UJhMP0Igjk
-	4G0lv1dKwbIEZnU8I49sRuiMyoCz4qVXzRVaxG8syab/+09YH2PQAdw2WLMCM7OGKPt2Xuy8Yk7
-	JPF39lmDVLaVdFhRVDKmD7XOCHm22F5ggReZg0my1as7xQ==
-X-Google-Smtp-Source: AGHT+IHlruq+iasO/Xf4isf6TVh91BThvcXOEla4yZjGqTuKHawwQUKWxkBtd0qIfCVEgb7Oy7b4LA==
-X-Received: by 2002:a05:6402:3511:b0:5dc:8851:fc36 with SMTP id 4fb4d7f45d1cf-5deadd8c41fmr9981216a12.11.1739517912543;
-        Thu, 13 Feb 2025 23:25:12 -0800 (PST)
-Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com. [209.85.208.52])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1c4646sm2457908a12.27.2025.02.13.23.25.11
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Feb 2025 23:25:11 -0800 (PST)
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-5ded46f323fso1762762a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 23:25:11 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXc1i3ggKN24sthExku+0IoqbWnkf9Zd4Lpb+2VdDlnQ5o8bqKwDgnxuiACyaPJ2lxa5S1ts3m3JqMq/iWGKrtd@lists.infradead.org
-X-Received: by 2002:a17:907:1909:b0:ab7:8e0d:3d3c with SMTP id
- a640c23a62f3a-ab7f3473720mr1066973166b.42.1739517910868; Thu, 13 Feb 2025
- 23:25:10 -0800 (PST)
+	id 1tiq7O-0000000DxX2-3xBf;
+	Fri, 14 Feb 2025 07:28:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tiq5b-0000000DxCX-1qJt;
+	Fri, 14 Feb 2025 07:26:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2A3D113E;
+	Thu, 13 Feb 2025 23:26:38 -0800 (PST)
+Received: from [10.163.37.128] (unknown [10.163.37.128])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 57E413F58B;
+	Thu, 13 Feb 2025 23:26:08 -0800 (PST)
+Message-ID: <03b042ec-1cb7-4419-8741-c65e74e49d51@arm.com>
+Date: Fri, 14 Feb 2025 12:56:01 +0530
 MIME-Version: 1.0
-References: <20250214040306.16312-1-towinchenmi@gmail.com>
-In-Reply-To: <20250214040306.16312-1-towinchenmi@gmail.com>
-From: Neal Gompa <neal@gompa.dev>
-Date: Fri, 14 Feb 2025 02:24:34 -0500
-X-Gmail-Original-Message-ID: <CAEg-Je88-zfnD+Yx7GdxMaG8NZBBjDGZJJ33D0kUyYnAhMhrDA@mail.gmail.com>
-X-Gm-Features: AWEUYZmee1G4NO9TTRkSGcwt1I0mLzwp9RPxwW1Z78u96Fa7SXff07gmHN3DsJ8
-Message-ID: <CAEg-Je88-zfnD+Yx7GdxMaG8NZBBjDGZJJ33D0kUyYnAhMhrDA@mail.gmail.com>
-Subject: Re: [PATCH v6 0/3] Apple DWI backlight driver
-To: Nick Chan <towinchenmi@gmail.com>
-Cc: Janne Grunau <j@jannau.net>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Lee Jones <lee@kernel.org>, 
-	Daniel Thompson <danielt@kernel.org>, Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@ucw.cz>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Helge Deller <deller@gmx.de>, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-fbdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] mm: Rename GENERIC_PTDUMP and PTDUMP_CORE
+To: Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Steven Price <steven.price@arm.com>, linux-mm@kvack.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Heiko Carstens <hca@linux.ibm.com>,
+ Vasily Gorbik <gor@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org
+References: <20250213040934.3245750-1-anshuman.khandual@arm.com>
+ <20250213040934.3245750-5-anshuman.khandual@arm.com>
+ <8e75c5ff-a97b-4a6f-9c8b-ac2598eafe60@arm.com>
+ <6e1201a1-60c1-40a3-951f-d603b6341a11@csgroup.eu>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <6e1201a1-60c1-40a3-951f-d603b6341a11@csgroup.eu>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_232515_129653_1BED09A7 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20250213_232619_524450_8C1966B9 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,95 +77,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 11:04=E2=80=AFPM Nick Chan <towinchenmi@gmail.com> =
-wrote:
->
-> Apple SoCs come with a 2-wire interface named DWI. On some iPhones, iPads
-> and iPod touches the backlight controller is connected via this interface=
-.
-> This series adds a backlight driver for backlight controllers connected
-> this way.
->
-> Changes since v5:
-> - Remove default y from drivers/video/backlight/Kconfig
->
-> v5: https://lore.kernel.org/asahi/20250203115156.28174-1-towinchenmi@gmai=
-l.com/T
->
-> Changes since v4:
-> - Change type to BACKLIGHT_PLATFORM since the driver does not directly
-> interface with the backlight controller. The actual backlight controller
-> can be directly controlled via i2c and is not the same on all hardware
-> that supports the dwi interface.
-> - Rename file to apple_dwi_bl.c to better match config option.
-> - Rename driver to apple-dwi-bl to better match config option
-> - Indicate that the backlight scales linearly
->
-> v4: https://lore.kernel.org/asahi/20241211113512.19009-1-towinchenmi@gmai=
-l.com/T
->
-> Changes since v3:
-> - $ref to common.yaml in bindings
-> - (and then additionalProperties is changed to unevaluatedProperties)
-> - Use hex everywhere in bindings example
-> - Use sizeof(*dwi_bl) instead of the type of the struct when doing
-> devm_kzalloc()
-> - Use devm_platform_get_and_ioremap_resource() in driver
-> - Fix sorting in drivers/video/backlight/Makefile
-> - In drivers/video/backlight/Kconfig, move config to right after
-> BACKLIGHT_APPLE
-> - Explain this driver being completely different from apple_bl
->
-> v3: https://lore.kernel.org/asahi/20241209075908.140014-1-towinchenmi@gma=
-il.com/T
->
-> Changes since v2:
-> - Add missing includes in driver
-> - Fix file path in MAINTAINERS
->
-> v2: https://lore.kernel.org/asahi/20241207130433.30351-1-towinchenmi@gmai=
-l.com/T
->
-> Changes since v1:
-> - Fixed dt-bindings $id.
-> - Make power-domains an optional property in dt-bindings.
-> - Added missing error checking after devm_ioremap_resource() in
-> dwi_bl_probe().
->
-> v1: https://lore.kernel.org/asahi/20241206172735.4310-1-towinchenmi@gmail=
-.com/T
->
-> Nick Chan
->
-> ---
-> Nick Chan (3):
->   dt-bindings: leds: backlight: apple,dwi-bl: Add Apple DWI backlight
->   backlight: apple_dwi_bl: Add Apple DWI backlight driver
->   MAINTAINERS: Add entries for Apple DWI backlight controller
->
->  .../bindings/leds/backlight/apple,dwi-bl.yaml |  57 ++++++++
->  MAINTAINERS                                   |   2 +
->  drivers/video/backlight/Kconfig               |  11 ++
->  drivers/video/backlight/Makefile              |   1 +
->  drivers/video/backlight/apple_dwi_bl.c        | 123 ++++++++++++++++++
->  5 files changed, 194 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/leds/backlight/appl=
-e,dwi-bl.yaml
->  create mode 100644 drivers/video/backlight/apple_dwi_bl.c
->
->
-> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-> --
-> 2.48.1
->
->
-
-Series LGTM.
-
-Reviewed-by: Neal Gompa <neal@gompa.dev>
 
 
---=20
-=E7=9C=9F=E5=AE=9F=E3=81=AF=E3=81=84=E3=81=A4=E3=82=82=E4=B8=80=E3=81=A4=EF=
-=BC=81/ Always, there's only one truth!
+On 2/13/25 17:19, Christophe Leroy wrote:
+> 
+> 
+> Le 13/02/2025 à 12:23, Steven Price a écrit :
+>> On 13/02/2025 04:09, Anshuman Khandual wrote:
+>>> Platforms subscribe into generic ptdump implementation via GENERIC_PTDUMP.
+>>> But generic ptdump gets enabled via PTDUMP_CORE. These configs combination
+>>> is confusing as they sound very similar and does not differentiate between
+>>> platform's feature subscription and feature enablement for ptdump. Rename
+>>> the configs as ARCH_HAS_PTDUMP and PTDUMP making it more clear and improve
+>>> readability.
+>>
+>> [...]
+>>> diff --git a/arch/powerpc/configs/mpc885_ads_defconfig b/arch/powerpc/configs/mpc885_ads_defconfig
+>>> index 77306be62e9e..db005618690b 100644
+>>> --- a/arch/powerpc/configs/mpc885_ads_defconfig
+>>> +++ b/arch/powerpc/configs/mpc885_ads_defconfig
+>>> @@ -78,4 +78,4 @@ CONFIG_DEBUG_VM_PGTABLE=y
+>>>   CONFIG_DETECT_HUNG_TASK=y
+>>>   CONFIG_BDI_SWITCH=y
+>>>   CONFIG_PPC_EARLY_DEBUG=y
+>>> -CONFIG_GENERIC_PTDUMP=y
+>>> +CONFIG_PTDUMP=y
+>>
+>> I'd suggest dropp this from the defconfig too, just like patch 1 dropped
+>> it from debug.config.
+>>
+> 
+> Thanks for spotting that.
+> 
+> That one is wrong. Was introduced by commit d210ee3fdfe8 ("powerpc/configs: Update config files for removed/renamed symbols") which aimed at fixing commit e084728393a5 ("powerpc/ptdump: Convert powerpc to GENERIC_PTDUMP") but it did it wrong.
+> 
+> It is CONFIG_PTDUMP_DEBUGFS that is wanted.
+
+Should this replacement be done in the series or would you like it
+to be handled in powerpc later ?
 
