@@ -4,91 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D9CC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 14:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B76C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 14:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=93ulIb07lVRTZ2bnlkiTriMPC+tNo5d60q3YMCPv/Rk=; b=jDEl7JUew5uCR78QXd5h7R71l7
-	ByLlIJR95ZgsLqVQzXWjDhznnf/7vrnJXmFbrmUBo4Un1gCL4m3pQCxM6POEjzLEhL7gHwBLlF//7
-	8Ollc7+ky5x8f3YWNep6jEd1zXsQPuR520f4T9FEBl4Qew0WVQhRI3YuIMy8QQv1DbNSz9nBKrXcN
-	mPi1g/R5pZbwaPbKIs4kWdC0qjvWvmN6cpN7QQgqXJG4YS+0fgRcd+HgTbZNzSO08WzsEGXVgImXM
-	+d0+8rtJaKtymjzYZDrO3LbGg2jgdBDjRhrJqF2uOzIfaxlfYCkKP9LPnnfCizqA4fp5Oy9Qz8yJ+
-	UH3R7OmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9IuwqsGlZjI33H0qsRcuoXsHEUzl7oV+77uaxI+CUSc=; b=PPY1YxFIIeIGUFUJGkTu0U/Zad
+	D8fazcpEai7oOtwEHiSV6D67FZBsp1YrU4vzMn37FD8Q3CtmS9YMrkYs426gR/KHtTOJN7ICeHr5m
+	Fv5cDVugYhDme1n0ssNgr8J+LkQLreqiNvLu3aYIP92sZfRuTkhQdLpUgpQermR1hc1LdrbSMW+is
+	dH2zJcllJshUaP+kUgtcRhRueEO3jZG/UaIInGLJen30w/WcE+hE4WJ/rZYDdgwKH+fIpcm+fH7Uu
+	UvRx7YT9IDJHIbV7Su844DOjGTTeCptFpHW0qriA8GAUuQubRXIOdPNXmynVCQJ10eBXeSzrl4G55
+	HXYnOVHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiwIr-0000000F5p8-3pv3;
-	Fri, 14 Feb 2025 14:04:25 +0000
-Received: from albert.telenet-ops.be ([2a02:1800:110:4::f00:1a])
+	id 1tiwKX-0000000F63y-2P2Q;
+	Fri, 14 Feb 2025 14:06:09 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiwBB-0000000F4T0-32gI
+	id 1tiwJ4-0000000F5ru-2YqJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 13:56:32 +0000
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:6395:73cc:7fc4:4cab])
-	by albert.telenet-ops.be with cmsmtp
-	id DRvu2E00L1MuxXz06RvuVQ; Fri, 14 Feb 2025 14:56:27 +0100
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tiwAL-00000006p2f-11yq;
-	Fri, 14 Feb 2025 14:55:54 +0100
-Received: from geert by rox.of.borg with local (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tiwAc-00000000qEk-1tKI;
-	Fri, 14 Feb 2025 14:55:54 +0100
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Giovanni Cabiddu <giovanni.cabiddu@intel.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	David Miller <davem@davemloft.net>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Crt Mori <cmo@melexis.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Yury Norov <yury.norov@gmail.com>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Takashi Iwai <tiwai@suse.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Alex Elder <elder@ieee.org>,
-	David Laight <david.laight.linux@gmail.com>,
-	Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Cc: linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	qat-linux@intel.com,
-	linux-gpio@vger.kernel.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-iio@vger.kernel.org,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>
-Subject: [PATCH treewide v3 2/4] bitfield: Add non-constant field_{prep,get}() helpers
-Date: Fri, 14 Feb 2025 14:55:51 +0100
-Message-ID: <2d30e5ffe70ce35f952b7d497d2959391fbf0580.1739540679.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1739540679.git.geert+renesas@glider.be>
-References: <cover.1739540679.git.geert+renesas@glider.be>
+	Fri, 14 Feb 2025 14:04:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6F33B5C58FC;
+	Fri, 14 Feb 2025 14:03:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F99FC4CED1;
+	Fri, 14 Feb 2025 14:04:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739541877;
+	bh=OAmsH9wXdR9cCoL774VIgncB0RHMbJP2b2IZgPv+F+8=;
+	h=Date:From:To:Cc:Subject:From;
+	b=XQ96pBjjiIqxEgGDR75mtdrCy825EmAZajcvIuVyGCxcOQ4CtV3fGH7AvL6lHKtW8
+	 lI10/7WXLRU6o4BBgdyaLBn1JIYwUC4JzBxyuI+3yUh5bXFpZbqaRP+TgPdsrgcA8K
+	 7qV2TyImit40bF28WASYR3iR6381EokbZ2Z/Dt3rJxyTuK0RMpeZU4bk2w+2huVtV9
+	 g9/gbGnjvYbE78600SQe6GaPrwboXfAxN7NvRQO+cGZYneAu0ts4gVBCoV0pgPOpUg
+	 LE035uZnG0P+6+zdG28YdKaU9j2dQ+awZw0BLV1pETpJtUGld2TR0t6bMP05TDJNwa
+	 K35braZjZaphg==
+Date: Fri, 14 Feb 2025 14:04:32 +0000
+From: Will Deacon <will@kernel.org>
+To: torvalds@linux-foundation.org
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel-team@android.com,
+	ojeda@kernel.org
+Subject: [GIT PULL] arm64 fixes for -rc3
+Message-ID: <20250214140431.GA13374@willie-the-truck>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_055630_051763_48B94D91 
-X-CRM114-Status: GOOD (  23.32  )
+X-CRM114-CacheID: sfid-20250214_060438_765613_94E6ECF0 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,253 +71,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The existing FIELD_{GET,PREP}() macros are limited to compile-time
-constants.  However, it is very common to prepare or extract bitfield
-elements where the bitfield mask is not a compile-time constant.
+Hi Linus,
 
-To avoid this limitation, the AT91 clock driver and several other
-drivers already have their own non-const field_{prep,get}() macros.
-Make them available for general use by consolidating them in
-<linux/bitfield.h>, and improve them slightly:
-  1. Avoid evaluating macro parameters more than once,
-  2. Replace "ffs() - 1" by "__ffs()",
-  3. Support 64-bit use on 32-bit architectures.
+Please pull this batch of arm64 fixes for -rc3. I've provided the usual
+summary in the tag but there's nothing particularly major here.
 
-This is deliberately not merged into the existing FIELD_{GET,PREP}()
-macros, as people expressed the desire to keep stricter variants for
-increased safety, or for performance critical paths.
+Cheers,
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Acked-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
----
-v3:
-  - Add Acked-by,
-  - Drop underscores from macro parameters,
-  - Use __auto_type where possible,
-  - Correctly cast reg to the mask type,
-  - Introduces __val and __reg intermediates to simplify the actual
-    operation,
-  - Drop unneeded parentheses,
-  - Clarify having both FIELD_{GET,PREP}() and field_{get,prep}(),
+Will
 
-v2:
-  - Cast val resp. reg to the mask type,
-  - Fix 64-bit use on 32-bit architectures,
-  - Convert new upstream users:
-      - drivers/crypto/intel/qat/qat_common/adf_gen4_pm_debugfs.c
-      - drivers/gpio/gpio-aspeed.c
-      - drivers/iio/temperature/mlx90614.c
-      - drivers/pinctrl/nuvoton/pinctrl-ma35.c
-      - sound/usb/mixer_quirks.c
-  - Convert new user queued in renesas-devel for v6.15:
-      - drivers/soc/renesas/rz-sysc.c
----
- drivers/clk/at91/clk-peripheral.c             |  1 +
- drivers/clk/at91/pmc.h                        |  3 --
- .../qat/qat_common/adf_gen4_pm_debugfs.c      |  8 +----
- drivers/gpio/gpio-aspeed.c                    |  5 +--
- drivers/iio/temperature/mlx90614.c            |  5 +--
- drivers/pinctrl/nuvoton/pinctrl-ma35.c        |  4 ---
- drivers/soc/renesas/rz-sysc.c                 |  3 +-
- include/linux/bitfield.h                      | 36 +++++++++++++++++++
- sound/usb/mixer_quirks.c                      |  4 ---
- 9 files changed, 41 insertions(+), 28 deletions(-)
+--->8
 
-diff --git a/drivers/clk/at91/clk-peripheral.c b/drivers/clk/at91/clk-peripheral.c
-index c173a44c800aa8cc..60208bdc3fe4797e 100644
---- a/drivers/clk/at91/clk-peripheral.c
-+++ b/drivers/clk/at91/clk-peripheral.c
-@@ -3,6 +3,7 @@
-  *  Copyright (C) 2013 Boris BREZILLON <b.brezillon@overkiz.com>
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/bitops.h>
- #include <linux/clk-provider.h>
- #include <linux/clkdev.h>
-diff --git a/drivers/clk/at91/pmc.h b/drivers/clk/at91/pmc.h
-index 4fb29ca111f7d427..3838e4f7df2d4a70 100644
---- a/drivers/clk/at91/pmc.h
-+++ b/drivers/clk/at91/pmc.h
-@@ -116,9 +116,6 @@ struct at91_clk_pms {
- 	unsigned int parent;
- };
- 
--#define field_get(_mask, _reg) (((_reg) & (_mask)) >> (ffs(_mask) - 1))
--#define field_prep(_mask, _val) (((_val) << (ffs(_mask) - 1)) & (_mask))
--
- #define ndck(a, s) (a[s - 1].id + 1)
- #define nck(a) (a[ARRAY_SIZE(a) - 1].id + 1)
- 
-diff --git a/drivers/crypto/intel/qat/qat_common/adf_gen4_pm_debugfs.c b/drivers/crypto/intel/qat/qat_common/adf_gen4_pm_debugfs.c
-index 2e4095c4c12c94f9..ebaa59e934178309 100644
---- a/drivers/crypto/intel/qat/qat_common/adf_gen4_pm_debugfs.c
-+++ b/drivers/crypto/intel/qat/qat_common/adf_gen4_pm_debugfs.c
-@@ -1,5 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-only
- /* Copyright(c) 2023 Intel Corporation */
-+#include <linux/bitfield.h>
- #include <linux/dma-mapping.h>
- #include <linux/kernel.h>
- #include <linux/string_helpers.h>
-@@ -11,13 +12,6 @@
- #include "adf_gen4_pm.h"
- #include "icp_qat_fw_init_admin.h"
- 
--/*
-- * This is needed because a variable is used to index the mask at
-- * pm_scnprint_table(), making it not compile time constant, so the compile
-- * asserts from FIELD_GET() or u32_get_bits() won't be fulfilled.
-- */
--#define field_get(_mask, _reg) (((_reg) & (_mask)) >> (ffs(_mask) - 1))
--
- #define PM_INFO_MEMBER_OFF(member)	\
- 	(offsetof(struct icp_qat_fw_init_admin_pm_info, member) / sizeof(u32))
- 
-diff --git a/drivers/gpio/gpio-aspeed.c b/drivers/gpio/gpio-aspeed.c
-index 40c1bd80f8b0434d..b45e4dd8d8e4f00a 100644
---- a/drivers/gpio/gpio-aspeed.c
-+++ b/drivers/gpio/gpio-aspeed.c
-@@ -5,6 +5,7 @@
-  * Joel Stanley <joel@jms.id.au>
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/gpio/aspeed.h>
- #include <linux/gpio/driver.h>
-@@ -30,10 +31,6 @@
- #include <linux/gpio/consumer.h>
- #include "gpiolib.h"
- 
--/* Non-constant mask variant of FIELD_GET() and FIELD_PREP() */
--#define field_get(_mask, _reg)	(((_reg) & (_mask)) >> (ffs(_mask) - 1))
--#define field_prep(_mask, _val)	(((_val) << (ffs(_mask) - 1)) & (_mask))
--
- #define GPIO_G7_IRQ_STS_BASE 0x100
- #define GPIO_G7_IRQ_STS_OFFSET(x) (GPIO_G7_IRQ_STS_BASE + (x) * 0x4)
- #define GPIO_G7_CTRL_REG_BASE 0x180
-diff --git a/drivers/iio/temperature/mlx90614.c b/drivers/iio/temperature/mlx90614.c
-index 740018d4b3dfb35e..c58dc59d4f570831 100644
---- a/drivers/iio/temperature/mlx90614.c
-+++ b/drivers/iio/temperature/mlx90614.c
-@@ -22,6 +22,7 @@
-  * the "wakeup" GPIO is not given, power management will be disabled.
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/delay.h>
- #include <linux/err.h>
- #include <linux/gpio/consumer.h>
-@@ -68,10 +69,6 @@
- #define MLX90614_CONST_SCALE 20 /* Scale in milliKelvin (0.02 * 1000) */
- #define MLX90614_CONST_FIR 0x7 /* Fixed value for FIR part of low pass filter */
- 
--/* Non-constant mask variant of FIELD_GET() and FIELD_PREP() */
--#define field_get(_mask, _reg)	(((_reg) & (_mask)) >> (ffs(_mask) - 1))
--#define field_prep(_mask, _val)	(((_val) << (ffs(_mask) - 1)) & (_mask))
--
- struct mlx_chip_info {
- 	/* EEPROM offsets with 16-bit data, MSB first */
- 	/* emissivity correction coefficient */
-diff --git a/drivers/pinctrl/nuvoton/pinctrl-ma35.c b/drivers/pinctrl/nuvoton/pinctrl-ma35.c
-index 59c4e7c6cddea127..3ba28faa8e1418a9 100644
---- a/drivers/pinctrl/nuvoton/pinctrl-ma35.c
-+++ b/drivers/pinctrl/nuvoton/pinctrl-ma35.c
-@@ -81,10 +81,6 @@
- #define MVOLT_1800			0
- #define MVOLT_3300			1
- 
--/* Non-constant mask variant of FIELD_GET() and FIELD_PREP() */
--#define field_get(_mask, _reg)	(((_reg) & (_mask)) >> (ffs(_mask) - 1))
--#define field_prep(_mask, _val)	(((_val) << (ffs(_mask) - 1)) & (_mask))
--
- static const char * const gpio_group_name[] = {
- 	"gpioa", "gpiob", "gpioc", "gpiod", "gpioe", "gpiof", "gpiog",
- 	"gpioh", "gpioi", "gpioj", "gpiok", "gpiol", "gpiom", "gpion",
-diff --git a/drivers/soc/renesas/rz-sysc.c b/drivers/soc/renesas/rz-sysc.c
-index 1c98da37b7d18745..917a029d849585cd 100644
---- a/drivers/soc/renesas/rz-sysc.c
-+++ b/drivers/soc/renesas/rz-sysc.c
-@@ -5,6 +5,7 @@
-  * Copyright (C) 2024 Renesas Electronics Corp.
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/io.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-@@ -12,8 +13,6 @@
- 
- #include "rz-sysc.h"
- 
--#define field_get(_mask, _reg) (((_reg) & (_mask)) >> (ffs(_mask) - 1))
--
- /**
-  * struct rz_sysc - RZ SYSC private data structure
-  * @base: SYSC base address
-diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
-index e8269f23b824c4a9..4f43b00cc93d2f4f 100644
---- a/include/linux/bitfield.h
-+++ b/include/linux/bitfield.h
-@@ -203,4 +203,40 @@ __MAKE_OP(64)
- #undef __MAKE_OP
- #undef ____MAKE_OP
- 
-+/**
-+ * field_prep() - prepare a bitfield element
-+ * @mask: shifted mask defining the field's length and position
-+ * @val:  value to put in the field
-+ *
-+ * field_prep() masks and shifts up the value.  The result should be
-+ * combined with other fields of the bitfield using logical OR.
-+ * Unlike FIELD_PREP(), @mask is not limited to a compile-time constant.
-+ */
-+#define field_prep(mask, val)						\
-+	({								\
-+		__auto_type __mask = (mask);				\
-+		typeof(mask) __val = (val);				\
-+		unsigned int __shift = sizeof(mask) <= 4 ?		\
-+				       __ffs(__mask) : __ffs64(__mask);	\
-+		(__val << __shift) & __mask;	\
-+	})
-+
-+/**
-+ * field_get() - extract a bitfield element
-+ * @mask: shifted mask defining the field's length and position
-+ * @reg:  value of entire bitfield
-+ *
-+ * field_get() extracts the field specified by @mask from the
-+ * bitfield passed in as @reg by masking and shifting it down.
-+ * Unlike FIELD_GET(), @mask is not limited to a compile-time constant.
-+ */
-+#define field_get(mask, reg)						\
-+	({								\
-+		__auto_type __mask = (mask);				\
-+		typeof(mask) __reg =  (reg);				\
-+		unsigned int __shift = sizeof(mask) <= 4 ?		\
-+				       __ffs(__mask) : __ffs64(__mask);	\
-+		(__reg & __mask) >> __shift;	\
-+	})
-+
- #endif
-diff --git a/sound/usb/mixer_quirks.c b/sound/usb/mixer_quirks.c
-index ed6127b0389fff39..5899576c915b0a7e 100644
---- a/sound/usb/mixer_quirks.c
-+++ b/sound/usb/mixer_quirks.c
-@@ -3110,10 +3110,6 @@ static int snd_bbfpro_controls_create(struct usb_mixer_interface *mixer)
- #define RME_DIGIFACE_REGISTER(reg, mask) (((reg) << 16) | (mask))
- #define RME_DIGIFACE_INVERT BIT(31)
- 
--/* Nonconst helpers */
--#define field_get(_mask, _reg) (((_reg) & (_mask)) >> (ffs(_mask) - 1))
--#define field_prep(_mask, _val) (((_val) << (ffs(_mask) - 1)) & (_mask))
--
- static int snd_rme_digiface_write_reg(struct snd_kcontrol *kcontrol, int item, u16 mask, u16 val)
- {
- 	struct usb_mixer_elem_list *list = snd_kcontrol_chip(kcontrol);
--- 
-2.43.0
+The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
+  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+
+for you to fetch changes up to 446a8351f160d65a1c5df7097f31c74102ed2bb1:
+
+  arm64: rust: clean Rust 1.85.0 warning using softfloat target (2025-02-13 11:45:49 +0000)
+
+----------------------------------------------------------------
+arm64 fixes for -rc3
+
+* Fix kexec and hibernation when using 5-level page-table configuration
+
+* Remove references to non-existent SF8MM4 and SF8MM8 ID register
+  fields, hooking up hwcaps for the FPRCVT, F8MM4 and F8MM8 fields
+  instead
+
+* Drop unused .ARM.attributes ELF sections
+
+* Fix array indexing when probing CPU cache topology from firmware
+
+* Fix potential use-after-free in AMU initialisation code
+
+* Work around broken GTDT entries by tolerating excessively large timer
+  arrays
+
+* Force use of Rust's "softfloat" target to avoid a threatening warning
+  about the NEON target feature
+
+* Typo fix in GCS documentation and removal of duplicate Kconfig select
+
+----------------------------------------------------------------
+Ard Biesheuvel (1):
+      arm64: Fix 5-level paging support in kexec/hibernate trampoline
+
+Beata Michalska (1):
+      arm64: amu: Delay allocating cpumask for AMU FIE support
+
+Lukas Bulwahn (1):
+      arm64: Kconfig: Remove selecting replaced HAVE_FUNCTION_GRAPH_RETVAL
+
+Mark Brown (3):
+      arm64/gcs: Fix documentation for HWCAP
+      arm64/hwcap: Remove stray references to SF8MMx
+      arm64: Add missing registrations of hwcaps
+
+Miguel Ojeda (1):
+      arm64: rust: clean Rust 1.85.0 warning using softfloat target
+
+Nathan Chancellor (1):
+      arm64: Handle .ARM.attributes section in linker scripts
+
+Oliver Upton (1):
+      ACPI: GTDT: Relax sanity checking on Platform Timers array count
+
+Radu Rendec (1):
+      arm64: cacheinfo: Avoid out-of-bounds write to cacheinfo array
+
+ Documentation/arch/arm64/gcs.rst  |  2 +-
+ arch/arm64/Kconfig                |  1 -
+ arch/arm64/Makefile               |  4 ++++
+ arch/arm64/kernel/cacheinfo.c     | 12 +++++++-----
+ arch/arm64/kernel/cpufeature.c    |  5 +++--
+ arch/arm64/kernel/topology.c      | 22 ++++++++++------------
+ arch/arm64/kernel/vdso/vdso.lds.S |  1 +
+ arch/arm64/kernel/vmlinux.lds.S   |  1 +
+ arch/arm64/mm/trans_pgd.c         |  7 +++++++
+ drivers/acpi/arm64/gtdt.c         | 12 ++++++++----
+ 10 files changed, 42 insertions(+), 25 deletions(-)
 
