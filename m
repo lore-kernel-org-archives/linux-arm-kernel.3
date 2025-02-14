@@ -4,90 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B59C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 05:55:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22562C021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 05:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kuaEfA5jeCLNmqEp6nbVFJU+7x4Nc54jrs4+fyR+x8o=; b=rgqqpp/+3IlgRMuHyCXOZohQuf
-	u1auMjwR3rOQoZf4+vsu7YQ5vhvwCVSHMnWs+qY/8yNhvfD+E/4FGlDJiE76UFC93lYyN1svw6QeR
-	BItJ0zG2qHO9me8s5BHsUOyeLzr9AaTGh669hhHPKnCpZm/L7cuaTvr0Nh2y2yTxoh6hHC25sVl6U
-	XEU3pQIpqr80UyOz70GtDXBj+8/54YE/QYD09Atus06nJQQ19eCPn3CxNMSQSQiJxpo64uIxR/uEz
-	ak9kVvPChJ6EnwHps+tPICpakv+fuwZ9Sy0Zx4MObU+Zf/++jFzEyHSXR2CdBOdeeryNixGMKpsBh
-	fKJwRsQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=orTnkK40/j4ajEWBrPyqa344M+qGpD/Jz451eenCREo=; b=OfDQc9MgZZER/LsWzGDJI+uLcg
+	rOf70yaWGHJYF33OqAXbSdi8h7qtWmdRe8rMRZEwkqFoinMmxqe0+DWQRV89e1OmqfAw1IKBO/TC7
+	i3MOvMYojzl6uMQR4H5NSafrKIR5tq/bMvGnu1TDaxfaJBn7pC9g6FViNC4ctNB6W8UC5o0GemlQ2
+	o6YilrnS1U1dyO209/UA591tGDZU09LaTN8t5IRTmJPPaXC+nd5jEEA3E/bng8Z3C/NUYJG3u4UUn
+	XacEtKXO7fIBG6Zoe7/SMhisJuVO61k8QyI69A4/DRCoSSd1FH34zONTouKeEJP31AbGgXlX//qqj
+	Q36jGKuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiofl-0000000DkbV-2HIQ;
-	Fri, 14 Feb 2025 05:55:33 +0000
-Received: from out203-205-221-221.mail.qq.com ([203.205.221.221])
+	id 1tiogY-0000000Dkqr-0ALD;
+	Fri, 14 Feb 2025 05:56:22 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tioac-0000000Djvi-3i1R
+	id 1tinea-0000000DdAx-2E6U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 05:50:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1739512207; bh=kuaEfA5jeCLNmqEp6nbVFJU+7x4Nc54jrs4+fyR+x8o=;
-	h=Subject:From:In-Reply-To:Date:Cc:References:To;
-	b=bGK3N5lzprawk51sIQkyY8/BLNkWTi09hg29nkBARs/pxRIGbH/3mgWhpzmNCVhj4
-	 8+Z3VZoUUw0xt0nKv0JM6uw3iltsrC5RzuAx1V7kjNkELJXIDOv5ddthc57y3dA6m4
-	 0x1aqWscJRfAjmfjUNY4l1wSmnypqtL3HjkQr9iI=
-Received: from smtpclient.apple ([240e:379:2251:3600:540f:f26b:e57d:d390])
-	by newxmesmtplogicsvrszb20-0.qq.com (NewEsmtp) with SMTP
-	id C783140E; Fri, 14 Feb 2025 13:49:56 +0800
-X-QQ-mid: xmsmtpt1739512196to9ryvlw0
-Message-ID: <tencent_45B4E91CA370C563D6420A1A25F992056D09@qq.com>
-X-QQ-XMAILINFO: OIJV+wUmQOUAhsKvSrCboBLbOvTwz7BPR/J7d+3ZI/zlZHNYocoAT8aGPVQEaX
-	 YwuZld9+TrvkekV8QMnu2tV9Ue7nCeulC93wr+3XbKzr1KQo9eyzJ25fJYEXKiFSDUqXVMXkGSVb
-	 TGPzok1QGjyGv7zHlb7fFuwPNfSGb89fjz47C8ksozppYKgnD3AN+qTwtaaMIU0sL3w9hNT7AKUW
-	 UrN5zPdRckWosm276Q3rntZIDJ8xNHs6D19ttIpAQZguCRSU0mkFnxXVLBwBePfH7P0ZjqsxYy8n
-	 kjvYaFTNARTxmMerlNaDdAaRF3cZiv/Ey3hJCDWQcicDSrCvs01XvqggaXDJjHmBlKORVD7BoXkR
-	 rWs39F4aZkydcfOwlIOWWO8cP4Jpr/bdTkj/6FxObV2Cr4VqCpqMUCYJBJT4UTgLLcv8/0/+o5hC
-	 6vRF06pCW0eLT28weRuo0kD80bDJiZEF8IY7vx0etOpKEqjIFust11o7Me8ebNEywXp3jaE11AmE
-	 yPG8h67o+WmKY9Vw2J6MemgCuZDVfnrkAOAfIZErEASh3YmC+pnY+SQVtkTdCfwL0r6yv6J5ZOz6
-	 oj08dEDM8ZQ9fXZZxqZE+F216MbQLi1vnVpcIoY0RFNjCT6cJme5CG5mnPIhCrkvNYNmqVfN9JMh
-	 TdhStbh/paxUs1s776FcTpNBflTcAhnjQtRwhUUPVYrtXr9EnZ8Cwphc2qYr3quc21QUpOk1c/VO
-	 b8JaSpgoISJuTEIR/KlGC0FZusWipNe14h9KEfzFhVNJ/mgwkYneGw5f+uS3OB24V2CsfcLG3Oe8
-	 y+aNprM3WhWWcp5ZrKGC+y2TkZa5hM5XZtZ+isYQJUVbIgkLaNMnhsvjEgU0nvi5ujwWy0WASajP
-	 R8s6X17hVE9mxALcsYfNSTetBS0+1oUxslL+ALVI6KGkFhc+lJAqkh0PQA92IZPJlIyGiqncFTYy
-	 cBUQ3VmETcQOP4upQLqnAkHeEtNTeF
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
-Content-Type: text/plain;
-	charset=us-ascii
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
-Subject: Re: [PATCH 0/2] perf vendor events arm64: Add A720/A520
- events/metrics
-From: Yangyu Chen <cyy@cyyself.name>
-In-Reply-To: <Z66YjGvjD_yzEHUg@google.com>
-Date: Fri, 14 Feb 2025 13:49:46 +0800
-Cc: Ian Rogers <irogers@google.com>,
- linux-perf-users@vger.kernel.org,
- John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>,
- James Clark <james.clark@linaro.org>,
- Mike Leach <mike.leach@linaro.org>,
- Leo Yan <leo.yan@linux.dev>,
- Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Liang Kan <kan.liang@linux.intel.com>,
- Yoshihiro Furudera <fj5100bi@fujitsu.com>,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-X-OQ-MSGID: <9171D06F-03B3-4316-A82D-DD4191762D3F@cyyself.name>
-References: <tencent_5360DA048EE5B8CF3104213F8D037C698208@qq.com>
- <Z66YjGvjD_yzEHUg@google.com>
-To: Namhyung Kim <namhyung@kernel.org>
-X-Mailer: Apple Mail (2.3826.400.131.1.6)
+	Fri, 14 Feb 2025 04:50:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739508617; x=1771044617;
+  h=message-id:date:mime-version:subject:from:to:cc:
+   references:in-reply-to:content-transfer-encoding;
+  bh=gPVj4mO6xQJrCt3sZYWJNbH9C8SimtbKXR7wY1fjf90=;
+  b=S3zgFCi9ie8IbTCTrmDoUn/IDnMpdrCgrXWP2QsQtrOfwTl7HaZtHURt
+   Lam/vjKG4YyGpGT2UeLjC9Nk1ctVW5oVnt38bBoSvWApHpRzpdfWsijt4
+   xnvI3LyFujlPxGPvi7qoQE3BskIrck9OHMtflMOJYF4B4cGi6lU3vXgKT
+   v4dKXQ/WyKkyfu/DLON4+cXJbnbHD/oM8mzsmAPgr0ZvdVPGE8DO32zlq
+   mQYgFwacl70heqeNOpWmcje54v9uW5Gcat7iyxPAfnZL8uPlSL+9PvtpI
+   ExkGK83W739qfQ/Fw2rLPSYEXML0AHie7xDFh8uBUau3bn9+BwaX+QjpH
+   Q==;
+X-CSE-ConnectionGUID: F9GyGldoQL6KnzG+9rZEug==
+X-CSE-MsgGUID: sbPhkRg3Tsi/gLlLalRw4Q==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="40361831"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="40361831"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 20:50:15 -0800
+X-CSE-ConnectionGUID: 2b+fgtn9Q7+FDC4KwavSPQ==
+X-CSE-MsgGUID: wezvzmt3Tm6HcUS0QIfqlQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,284,1732608000"; 
+   d="scan'208";a="113096903"
+Received: from mohdfai2-mobl.gar.corp.intel.com (HELO [10.247.123.6]) ([10.247.123.6])
+  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 20:50:07 -0800
+Message-ID: <e5c5d7ed-9f47-4af1-aee4-4632099bd546@linux.intel.com>
+Date: Fri, 14 Feb 2025 12:50:04 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH iwl-next v4 0/9] igc: Add support for Frame Preemption
+ feature in IGC
+From: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
+To: Kurt Kanzenbach <kurt@linutronix.de>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>, Furong Xu <0x1207@gmail.com>,
+ Russell King <rmk+kernel@armlinux.org.uk>,
+ Serge Semin <fancer.lancer@gmail.com>,
+ Xiaolei Wang <xiaolei.wang@windriver.com>,
+ Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+ Kory Maincent <kory.maincent@bootlin.com>, Gal Pressman <gal@nvidia.com>,
+ Jesper Nilsson <jesper.nilsson@axis.com>,
+ Andrew Halaney <ahalaney@redhat.com>,
+ Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+ intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+References: <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
+ <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
+ <20250212220121.ici3qll66pfoov62@skbuf>
+ <b19357dc-590d-458c-9646-ee5993916044@linux.intel.com>
+ <87cyfmnjdh.fsf@kurt.kurt.home>
+ <5902cc28-a649-4ae9-a5ba-83aa265abaf8@linux.intel.com>
+ <20250213130003.nxt2ev47a6ppqzrq@skbuf>
+ <1c981aa1-e796-4c53-9853-3eae517f2f6d@linux.intel.com>
+ <877c5undbg.fsf@kurt.kurt.home> <20250213184613.cqc2zhj2wkaf5hn7@skbuf>
+ <87v7td3bi1.fsf@kurt.kurt.home>
+ <b7740709-6b4a-4f44-b4d7-e265bb823aca@linux.intel.com>
+Content-Language: en-US
+In-Reply-To: <b7740709-6b4a-4f44-b4d7-e265bb823aca@linux.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_215015_280394_A71DB32F 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20250213_205016_648987_B8541160 
+X-CRM114-Status: GOOD (  21.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,157 +121,71 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-> On 14 Feb 2025, at 09:12, Namhyung Kim <namhyung@kernel.org> wrote:
->=20
-> Hello,
->=20
-> On Thu, Feb 13, 2025 at 11:11:01PM +0800, Yangyu Chen wrote:
->> This patchset adds the perf JSON files for the Cortex-A720 and =
-Cortex-A520
->> processors. Some events have been tested on Raxda Orion 6 with Cix P1 =
-SoC
->> (8xA720 + 4xA520) running mainline Kernel with ACPI mode.
->=20
-> I'm curious how the name of PMUs look like.  It is cortex_a720 (or =
-a520)?
+On 14/2/2025 12:20 pm, Abdul Rahim, Faizal wrote:
+> 
+> 
+> On 14/2/2025 3:12 am, Kurt Kanzenbach wrote:
+>> On Thu Feb 13 2025, Vladimir Oltean wrote:
+>>> So, confusingly to me, it seems like one operating mode is fundamentally
+>>> different from the other, and something will have to change if both will
+>>> be made to behave the same. What will change? You say mqprio will behave
+>>> like taprio, but I think if anything, mqprio is the one which does the
+>>> right thing, in igc_tsn_tx_arb(), and taprio seems to use the default Tx
+>>> arbitration scheme?
+>>
+>> Correct. taprio is using the default scheme. mqprio configures it to
+>> what ever the user provided (in igc_tsn_tx_arb()).
+>>
+>>> I don't think I'm on the same page as you guys, because to me, it is
+>>> just odd that the P traffic classes would be the first ones with
+>>> mqprio, but the last ones with taprio.
+>>
+>> I think we are on the same page here. At the end both have to behave the
+>> same. Either by using igc_tsn_tx_arb() for taprio too or only using the
+>> default scheme for both (and thereby keeping broken_mqprio). Whatever
+>> Faizal implements I'll match the behavior with mqprio.
+>>
+> 
+> Hi Kurt & Vladimir,
+> 
+> After reading Vladimir's reply on tc, hw queue, and socket priority mapping 
+> for both taprio and mqprio, I agree they should follow the same priority 
+> scheme for consistency—both in code and command usage (i.e., taprio, 
+> mqprio, and fpe in both configurations). Since igc_tsn_tx_arb() ensures a 
+> standard mapping of tc, socket priority, and hardware queue priority, I'll 
+> enable taprio to use igc_tsn_tx_arb() in a separate patch submission.
+> 
+> I'll split the changes based on Vladimir's suggestion.
+> 
+> First part - ethtool-mm related:
+> igc: Add support to get frame preemption statistics via ethtool
+> igc: Add support to get MAC Merge data via ethtool
+> igc: Add support to set tx-min-frag-size
+> igc: Add support for frame preemption verification
+> igc: Set the RX packet buffer size for TSN mode
+> igc: Optimize TX packet buffer utilization
+> igc: Rename xdp_get_tx_ring() for non-XDP usage
+> net: ethtool: mm: Extract stmmac verification logic into a common library
+> 
+> Second part:
+> igc: Add support for preemptible traffic class in taprio and mqprio
+> igc: Use igc_tsn_tx_arb() for taprio queue priority scheme
+> igc: Kurt's patch on mqprio to use normal TSN Tx mode
+> 
+> Kurt can keep igc_tsn_tx_arb() for his mqprio patch, so preemptible tc 
+> should work the same for both taprio and mqprio.
+> 
+> I'm suggesting to include Kurt's patch in the second part since there's 
+> some dependency and potential code conflict, even though it mixes different 
+> functional changes in the same series.
 
-The name of PMUs comes from Arm's documentation. I have included these
-links in each patch.
+I forgot that the second part patch:
+igc: Add support for preemptible traffic class in taprio and mqprio
 
-> I remember there's a logic to check the length of hex digits at the =
-end.
->=20
+depends on the first part ethtool-mm, which would delay Kurt's patch.
 
-Could you provide more details about this?
+So Kurt, if you'd prefer to submit yours first, that's okay too.
 
-> Ian, are you ok with this?
->=20
-> Thanks,
-> Namhyung
->=20
->>=20
->> Yangyu Chen (2):
->>  perf vendor events arm64: Add Cortex-A720 events/metrics
->>  perf vendor events arm64: Add Cortex-A520 events/metrics
->>=20
->> .../arch/arm64/arm/cortex-a520/bus.json       |  26 ++
->> .../arch/arm64/arm/cortex-a520/exception.json |  18 +
->> .../arm64/arm/cortex-a520/fp_operation.json   |  14 +
->> .../arch/arm64/arm/cortex-a520/general.json   |   6 +
->> .../arch/arm64/arm/cortex-a520/l1d_cache.json |  50 ++
->> .../arch/arm64/arm/cortex-a520/l1i_cache.json |  14 +
->> .../arch/arm64/arm/cortex-a520/l2_cache.json  |  46 ++
->> .../arch/arm64/arm/cortex-a520/l3_cache.json  |  21 +
->> .../arch/arm64/arm/cortex-a520/ll_cache.json  |  10 +
->> .../arch/arm64/arm/cortex-a520/memory.json    |  58 +++
->> .../arch/arm64/arm/cortex-a520/metrics.json   | 373 +++++++++++++++
->> .../arch/arm64/arm/cortex-a520/pmu.json       |   8 +
->> .../arch/arm64/arm/cortex-a520/retired.json   |  90 ++++
->> .../arm64/arm/cortex-a520/spec_operation.json |  70 +++
->> .../arch/arm64/arm/cortex-a520/stall.json     |  82 ++++
->> .../arch/arm64/arm/cortex-a520/sve.json       |  22 +
->> .../arch/arm64/arm/cortex-a520/tlb.json       |  78 ++++
->> .../arch/arm64/arm/cortex-a520/trace.json     |  32 ++
->> .../arch/arm64/arm/cortex-a720/bus.json       |  18 +
->> .../arch/arm64/arm/cortex-a720/exception.json |  62 +++
->> .../arm64/arm/cortex-a720/fp_operation.json   |  22 +
->> .../arch/arm64/arm/cortex-a720/general.json   |  10 +
->> .../arch/arm64/arm/cortex-a720/l1d_cache.json |  50 ++
->> .../arch/arm64/arm/cortex-a720/l1i_cache.json |  14 +
->> .../arch/arm64/arm/cortex-a720/l2_cache.json  |  62 +++
->> .../arch/arm64/arm/cortex-a720/l3_cache.json  |  22 +
->> .../arch/arm64/arm/cortex-a720/ll_cache.json  |  10 +
->> .../arch/arm64/arm/cortex-a720/memory.json    |  54 +++
->> .../arch/arm64/arm/cortex-a720/metrics.json   | 436 =
-++++++++++++++++++
->> .../arch/arm64/arm/cortex-a720/pmu.json       |   8 +
->> .../arch/arm64/arm/cortex-a720/retired.json   |  90 ++++
->> .../arch/arm64/arm/cortex-a720/spe.json       |  42 ++
->> .../arm64/arm/cortex-a720/spec_operation.json |  90 ++++
->> .../arch/arm64/arm/cortex-a720/stall.json     |  82 ++++
->> .../arch/arm64/arm/cortex-a720/sve.json       |  50 ++
->> .../arch/arm64/arm/cortex-a720/tlb.json       |  74 +++
->> .../arch/arm64/arm/cortex-a720/trace.json     |  32 ++
->> .../arch/arm64/common-and-microarch.json      |  15 +
->> tools/perf/pmu-events/arch/arm64/mapfile.csv  |   2 +
->> 39 files changed, 2263 insertions(+)
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/bus.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/exception.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/fp_operation.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/general.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/l1d_cache.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/l1i_cache.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/l2_cache.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/l3_cache.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/ll_cache.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/memory.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/metrics.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/pmu.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/retired.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/spec_operation.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/stall.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/sve.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/tlb.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a520/trace.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/bus.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/exception.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/fp_operation.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/general.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/l1d_cache.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/l1i_cache.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/l2_cache.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/l3_cache.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/ll_cache.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/memory.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/metrics.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/pmu.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/retired.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/spe.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/spec_operation.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/stall.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/sve.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/tlb.json
->> create mode 100644 =
-tools/perf/pmu-events/arch/arm64/arm/cortex-a720/trace.json
->>=20
->> --=20
->> 2.47.2
->>=20
+
 
 
