@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 690FAC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 06:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36CC6C021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 06:54:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gawkt9In8aJG8h+rAcH7YnbMFtyCA6IgsBVkBeTJrC8=; b=gj1MgvuxOimpkxjpiq1mSFT20l
-	SigWch2SfpL1Yfkr9M47gA0Zrz45gj4+H6dQeuTo05Dw0xy11mjCBHnKnEeNBBpvDh9RWrT7uynTG
-	rNeruECV7fhM4lQ8JmN3Cc44dhZU4IMM6qOcdckzsyYCg7XRzkwulMzbK78mhazrRoCYH3gbNGDI2
-	FSegg3jP88ssCMQXVJtpAaYV1zqsppHIFfsDqSysL8TzyENYV8T3VUA4Bhdni0mHhbZUETFqc6QhZ
-	pVafrXaDxqibQV02dkeYd6o0KgDLp7iG8vQnDCkGkZiBco59kmtu4FSdKm+GRYmtdCh/A2BZsO19Z
-	jB+B1SfA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=00T2ImKqG2q8X/m5/Khez9kmb7XoPbfhx8Bnox/fhX8=; b=vdU4p0kslcsG+cON37JyiTyFJS
+	RmCCAaTnvenz9FfyFq6Qvl6BQ60YL1dtbNmMKPAfsAg5rc73CKF4lLHVcNQLAT0hznwYaHsJGLPjc
+	gGqEgx2yObvjMUmdBFw4jxBcW+C1l117bB1UepO68TkhAfJDy73Un0K2cNAFvK1Lzuub2XuDuvmqL
+	1AXtEPTGFLOAv2qMMEV1KiNamRD6pKurfZUYbnHFETzhjJWm02FGez6YQSNXNwicFaBHive9WVl93
+	k1WBbZLdTuf/Njk5pbtWnzTvRCxf1z2QkIXLKxMq6bDI1+YBizQZvS6XXqLtyuw9rdbcK0240nGxi
+	XuycRY2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tipXf-0000000Drw5-0wdx;
-	Fri, 14 Feb 2025 06:51:15 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1tipaw-0000000DsJv-3UBs;
+	Fri, 14 Feb 2025 06:54:38 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tipWE-0000000DriK-1Ufx
+	id 1tipZW-0000000DsAl-0M5S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 06:49:47 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5dee07e51aaso704531a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 22:49:46 -0800 (PST)
+	Fri, 14 Feb 2025 06:53:11 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5dc89df7eccso2968610a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 22:53:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739515785; x=1740120585; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739515988; x=1740120788; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Gawkt9In8aJG8h+rAcH7YnbMFtyCA6IgsBVkBeTJrC8=;
-        b=g3yjFXAoejrC+UMpHQl/AgTLPl6yy92T7TN6mpNU4F9Ti+sJvSv9o1KfBi5AAPxeIz
-         9QlrW6GKkDbTOwAof8F2DIz426ZRMMvV9Jow0OJFxEjqnyhtBvs63qG9F9PAz6l9amSw
-         SOxhlcKkDNiB0ut77JwamKBNUX+pkFrGCLz5qdQUHnNJvJZSr+vVfSiwlWuy68pjhp4v
-         SRwqPW9lWWQhjQYA3erAJ3nOHAxQ6KyyzCag27FIWgZq1qK0E6y3Rik+flO113bzLXYR
-         CZm0jVb7yFSMblvZmdI3MeKktGWkQvbO25LdHA1CoZH5HKdznCKSTiF5UKxkkHhwEXcw
-         Ageg==
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=00T2ImKqG2q8X/m5/Khez9kmb7XoPbfhx8Bnox/fhX8=;
+        b=Budh9fqI6MSLjNyp3A4e7c0JFDlpQNdJbEjpMn4WSlHsOaWshDR/fRF3JrrfMRpxXY
+         FCgrPC6iftj2dMJkDgQhHo3zSqjLbtaLGXxY86t1Axe1L6XqryOb6P/kAHX9Y45YkeGX
+         Fen/MUTCqa6qB77FCUOKVgisP1s8T7L7SrjStGCi0fC/yUwmVWPDDgun41aEFP+Oyn9W
+         kunv9ysqUknRQsqd+HcBrG4QQe9QiOQvkgeOMuNStioGPiwXCbGIkBlA19v63FkOaNAE
+         VZOkti7ebmiXVRU7dxzR8tn/fDhUbkbDP8q/DaxSlrRPCDFlqP8GQYSEXl8dL6trd9VW
+         G/2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739515785; x=1740120585;
+        d=1e100.net; s=20230601; t=1739515988; x=1740120788;
         h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :references:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Gawkt9In8aJG8h+rAcH7YnbMFtyCA6IgsBVkBeTJrC8=;
-        b=HNWaVfYdDrlvme8qeL2auL3avJc6b80lGpFkRHr/tvarAxg+JJYVb3BZyP+IHXbaqf
-         lJtrj43a5KP9KvKEPPOXS0L0340FWeWNIlHT2LOC56t/h4Y3meUMOM29pK6GZm8B3YGj
-         GNd1hTV4d4mnoBpzgASdGdkDCDclfl9r9pULx7Y7SWZYvy6SL0dicTu6/1KsGKpQhmOk
-         khMG3xvu5vaYn4klzEl2JOwBtsoE7CeptJcM71XCo+Br8HsfwQKk7hjfK5ebSboTnW44
-         azchuiY47VV3QhY1H1ZQk5FBzXvTTN6FJ1Mdt7gyfNNr4icqc1kxRhMWMe8eIeRUl8+i
-         5Abw==
-X-Forwarded-Encrypted: i=1; AJvYcCUncFezbBuivufpgnLDdI1K5meh6i1Ckju5E4wyTf7wEB8bEPXCcw3Pwcm9NcDx9nqDbBtQIkr5dM+4W/fnlFfS@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbLE53Se+7R7QHiV+J//eP0sgYjvLbeGcoVMHTMZgAEX6R5f4x
-	xikCUwNa9aVEWW11jSZQjO00SXMq7STDIiF/tkeJp+B9ZiOvmym6OrCU/I4qlcY=
-X-Gm-Gg: ASbGncsHXZ/CWChdbCLNKOMu52t3wd9uK2P5afkOF2XiUh2AOvFJ1iMcfEKshI5d1B5
-	8YLe7Iub2N/1sBwUYk0oa5agFchTb0hnLapTxtk1A0qgwUaPGQRsFg0Ypd++D6vXFleoANtUNLH
-	h/Xi1piFhyhc4BHBzmBtTeQVVhmq01hUBWdXwy3sOtJg/yxsDyxpyxtZMp4Dd9eWZgn7l/PVLlX
-	vIMWaHCwoND43yi2YwVknDSKpXtxsg+7+NgvUOEtrnbryHsDUCJ+HErkJWRQrW1KPI5gTc4m+fv
-	cWRr3mMscDGQqZKnXUO6amDa
-X-Google-Smtp-Source: AGHT+IFxiW3VpQW8qQ1jo57FdhoTZVGZoXp1u38iJkHijnUvtqdcxoOB5BNSokQAT/jC+GtZYlbZyQ==
-X-Received: by 2002:a05:6402:274d:b0:5de:5263:ae79 with SMTP id 4fb4d7f45d1cf-5deb08813d5mr8694445a12.12.1739515784670;
-        Thu, 13 Feb 2025 22:49:44 -0800 (PST)
+        bh=00T2ImKqG2q8X/m5/Khez9kmb7XoPbfhx8Bnox/fhX8=;
+        b=vCBgBpt6CgpDi0JSpWdU7GtHsBpl32VUSUmcFu3kYJy4JYluUW2x08dg9BCbODx0+m
+         xto1sBGj+QFQijQQy2x2Iqn9zlo2d83DhTQdh3IrqpJVn68jAgIjEyLQEX9+AMGzVNA7
+         rrmHDplgnEmu2X+wuSbn9bRFuSvFKAKY2WOnbhUviSqctBopo3n+ruXVXu1e94FRQkch
+         6/J6ecwaXQYYuOgIgHOtWjzoUUMo17CPJ42LllwXeelk+AjwelO2kxBOjdNli8nbsAjl
+         VhE68h209tJouakDvvbG53F4eiR6Dadv0DK7PNNAIVvsEMb7lfFmAhS2lTNBxQSN0HIa
+         kdvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUhRPdRJ8dWPUqMkmgVEXEpFwE8GVBK4igSjFK0wVqZyFgglPlpNpcz68f/+AhwCtu4wTndupE6jAFHQkiRKInL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzmz1Ybb0lLvs0xLbziBnU8Fo1Y+JGuUNKVAeKqwBTtPZrfmTR9
+	46iQyDIQPl9yq4XmHIXQsEXFtFM0/YVirDQUwNGNKLafFM2yQ+ql1u9ZZnXQ8Ko=
+X-Gm-Gg: ASbGncs8LJfs8GtpRe28QeJgZxnUC1SfOuwzh5WB96LjJ8+FQHEPNbnQKIWr7xDsZ45
+	szJth7ZfPcu8ni+Pdz3DEz50MTxdWxLkiB4nG08qG0Ci/7DuJGClzeXwM+cpm1iwbJy+MMyr9dA
+	IkIsVzW5QzFgaB+F0EKfqKFfWNL92XRDWTrX6y49phKeDI56x1rs3I8Q5I3GQazJfls3gP3ZSHi
+	TxLnzbojmW64WtnCjKagAYpR7bpDsf5XniJxVv2tbnWa3yX5hlMZUZoj7RbHRQOPgVFZiNo5G6X
+	evvDKBaEYn+j9eVQVWuFhTpe
+X-Google-Smtp-Source: AGHT+IGXgRThBo7whBqMDD6umXjpqv2Cx6RqhrMtLSVb4XCNTRlLfTHBJzqRYVPktZC+1NWyeqaxJQ==
+X-Received: by 2002:a05:6402:4025:b0:5da:b64:e5d4 with SMTP id 4fb4d7f45d1cf-5dec9fad55bmr6890118a12.25.1739515988458;
+        Thu, 13 Feb 2025 22:53:08 -0800 (PST)
 Received: from [192.168.0.14] ([79.115.63.124])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece287cebsm2386431a12.74.2025.02.13.22.49.42
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece287c7fsm2379602a12.70.2025.02.13.22.53.05
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Feb 2025 22:49:43 -0800 (PST)
-Message-ID: <2ed6c5d8-b559-4ffc-b08e-412bab1f7917@linaro.org>
-Date: Fri, 14 Feb 2025 06:49:41 +0000
+        Thu, 13 Feb 2025 22:53:07 -0800 (PST)
+Message-ID: <4dcf3258-5e98-4f6d-bce0-e79c36f1f8ca@linaro.org>
+Date: Fri, 14 Feb 2025 06:53:05 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/3] arm64: dts: exynos990: define all PERIC USI nodes
-To: Denzeel Oliva <wachiturroxd150@gmail.com>
-Cc: alim.akhtar@samsung.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
- gregkh@linuxfoundation.org, jirislaby@kernel.org, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-serial@vger.kernel.org,
- robh@kernel.org, semen.protsenko@linaro.org
-References: <20250212234034.284-1-wachiturroxd150@gmail.com>
- <20250212234034.284-4-wachiturroxd150@gmail.com>
- <40370a0e-775b-42e3-bb6c-8cacaa0482cf@linaro.org>
- <Z67f+lDxISVubiJJ@droid-r8s>
+Subject: Re: [PATCH v3 0/3] spi: s3c64xx: add support exynos990-spi to new
+ port config data
+To: Denzeel Oliva <wachiturroxd150@gmail.com>, andi.shyti@kernel.org,
+ broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, alim.akhtar@samsung.com, linux-spi@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250214043343.263-1-wachiturroxd150@gmail.com>
+ <Z67VP6zMwFcqFurH@droid-r8s>
 Content-Language: en-US
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <Z67f+lDxISVubiJJ@droid-r8s>
+In-Reply-To: <Z67VP6zMwFcqFurH@droid-r8s>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_224946_410313_4680D672 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20250213_225310_134101_B0284D32 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,84 +106,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2/14/25 6:17 AM, Denzeel Oliva wrote:
-> On Thu, Feb 13, 2025 at 07:38:35AM +0000, Tudor Ambarus wrote:
-
->> node properties shall be specified in a specific order. Follow similar
->> nodes that are already accepted, gs101 is one.
+On 2/14/25 5:31 AM, Denzeel Oliva wrote:
+> On Fri, Feb 14, 2025 at 04:33:40AM +0000, Denzeel Oliva wrote:
+>> Changes in v3:
+>> - Reordered fifo_depth handling in s3c64xx_spi_probe() so that the DT
+>>   property takes precedence over the default value in port_config.
+>>   This allows node-specific FIFO depths to be applied correctly while
+>>   preserving a fallback.
 > 
-> Not all Exynos SoCs will follow the same order
-
-you an fix them then. Please follow
-https://docs.kernel.org/devicetree/bindings/dts-coding-style.html#order-of-properties-in-device-node
-
+> Showing evidence:
+> [    0.339111] s3c64xx-spi 10920000.spi: spi bus clock parent not specified, using clock at index 0 as parent
+> [    0.339119] s3c64xx-spi 10920000.spi: number of chip select lines not specified, assuming 1 chip select line
+> [    0.339467] s3c64xx-spi 10920000.spi: registered host spi0
+> [    0.339589] s3c64xx-spi 10920000.spi: Samsung SoC SPI Driver loaded for Bus SPI-0 with 1 Targets attached
+> [    0.339597] s3c64xx-spi 10920000.spi:        IOmem=[[mem 0x10920000-0x1092002f]]     FIFO 256bytes
+> -------------------------------------------------------------------------------------------------------------
+> [    0.587452] s3c64xx-spi 10650000.spi: spi bus clock parent not specified, using clock at index 0 as parent
+> [    0.587462] s3c64xx-spi 10650000.spi: number of chip select lines not specified, assuming 1 chip select line
+> [    0.587847] s3c64xx-spi 10650000.spi: registered host spi1
+> [    0.587986] s3c64xx-spi 10650000.spi: Samsung SoC SPI Driver loaded for Bus SPI-1 with 1 Targets attached
+> [    0.587997] s3c64xx-spi 10650000.spi:        IOmem=[[mem 0x10650000-0x1065002f]]     FIFO 64bytes
 > 
->> <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_4>;
-> 
-> Is
-> 
-> GATE(CLK_GOUT_PERIC0_TOP0_IPCLK_4, "gout_peric0_top0_ipclk_4",
->      "dout_peric0_uart_dbg",
->      CLK_CON_GAT_GOUT_BLK_PERIC0_UID_PERIC0_TOP0_IPCLKPORT_IPCLK_4,
->      21, 0, 0), [Mainline CLK]
 
-I don't get this reasoning, sorry.
-> 
-> You can find it in the cmucal-node.c driver downstream of the kernel. [0]
-> 
->>> +			};
->>> +		};
->>> +
->>> +		usi0: usi@105500c0 {
+Why does this prove that the IP works?
 
-cut
-
->>> +			serial_2: serial@10550000 {
->>
->> why not serial_0 since you're in USI0.
-> 
-> Because it is simply displayed in the exynos9830-usi.dtsi [1]
-
-I don't think it matters what downstream specifies for labels. Use what
-common sense says.
-
-> 
->>> +		};
->>> +
->>> +		usi_i2c_0: usi@105600c0 {
->>> +			compatible = "samsung,exynos990-usi", "samsung,exynos850-usi";
->>> +			reg = <0x105600c0 0x20>;
->>> +			samsung,sysreg = <&sysreg_peric0 0x1008>;
->>> +			samsung,mode = <USI_V2_I2C>;
->>> +			#address-cells = <1>;
->>> +			#size-cells = <1>;
->>> +			ranges;
->>> +			clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_PCLK_6>,
->>> +				 <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_6>;
->>> +			clock-names = "pclk", "ipclk";
->>> +			status = "disabled";
->>> +
->>> +			hsi2c_1: i2c@10560000 {
->>> +				compatible = "samsung,exynos990-hsi2c",
->>> +					     "samsung,exynosautov9-hsi2c";
->>> +				reg = <0x10560000 0xc0>;
->>> +				interrupts = <GIC_SPI 398 IRQ_TYPE_LEVEL_HIGH>;
->>> +				pinctrl-names = "default";
->>> +				pinctrl-0 = <&hsi2c1_bus>;
->>> +				clocks = <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_IPCLK_6>,
->>> +					 <&cmu_peric0 CLK_GOUT_PERIC0_TOP0_PCLK_6>;
->>> +				clock-names = "hsi2c", "hsi2c_pclk";
->>> +				#address-cells = <1>;
->>> +				#size-cells = <0>;
->>> +				status = "disabled";
->>> +			};
->>
->> shouldn't you define serial and SPI too?
-> 
-> As shown in the node it only uses i2c which
-> corresponds to the exynos9830-usi.dts. [2]
-
-If you can't specify all the protocol modes for all the USI nodes, then
-make it clear in the commit message.
-
+Can you do a loopback test? See drivers/spi/spi-loopback-test.c
 
