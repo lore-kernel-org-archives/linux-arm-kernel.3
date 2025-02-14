@@ -4,59 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B76C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 14:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80217C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 14:08:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9IuwqsGlZjI33H0qsRcuoXsHEUzl7oV+77uaxI+CUSc=; b=PPY1YxFIIeIGUFUJGkTu0U/Zad
-	D8fazcpEai7oOtwEHiSV6D67FZBsp1YrU4vzMn37FD8Q3CtmS9YMrkYs426gR/KHtTOJN7ICeHr5m
-	Fv5cDVugYhDme1n0ssNgr8J+LkQLreqiNvLu3aYIP92sZfRuTkhQdLpUgpQermR1hc1LdrbSMW+is
-	dH2zJcllJshUaP+kUgtcRhRueEO3jZG/UaIInGLJen30w/WcE+hE4WJ/rZYDdgwKH+fIpcm+fH7Uu
-	UvRx7YT9IDJHIbV7Su844DOjGTTeCptFpHW0qriA8GAUuQubRXIOdPNXmynVCQJ10eBXeSzrl4G55
-	HXYnOVHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j1isEgqz4lMKKGjFq9i8WFvGCGtkmoVJAb+vZr5tW5s=; b=Inhy09olPmt47QlOKyxRCmRaP1
+	boTIaXs9SMTYMsFJsIeNh7xCjMkIwOd+c9NaAPiQmcgY32Zq5epGiDsifSzHM4Xs23h0McY+TTvVr
+	coquEttyKpGwuehED/cbT2eItW/y3B5tpL75hOt5F8rjv2iLZgtu9UO/6X5UMOWhahjb7daJSZ9xx
+	zDAPJ/UVSZbEBimgizTTHwht3TEAX4JAPYdXo53PBuQ2kTL0gXnBl62f/xxijGv6ie03fclxX2D4u
+	tgfsJCajmuqmV7WWcvhg1eizQVl6Ifo+uBgpa7srFKLtpL8mXnOLR2yvnT1Ax8HblCwmzmvoGHUBG
+	HZS3zYtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiwKX-0000000F63y-2P2Q;
-	Fri, 14 Feb 2025 14:06:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tiwMH-0000000F6K8-1Foy;
+	Fri, 14 Feb 2025 14:07:57 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiwJ4-0000000F5ru-2YqJ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 14:04:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6F33B5C58FC;
-	Fri, 14 Feb 2025 14:03:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F99FC4CED1;
-	Fri, 14 Feb 2025 14:04:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739541877;
-	bh=OAmsH9wXdR9cCoL774VIgncB0RHMbJP2b2IZgPv+F+8=;
-	h=Date:From:To:Cc:Subject:From;
-	b=XQ96pBjjiIqxEgGDR75mtdrCy825EmAZajcvIuVyGCxcOQ4CtV3fGH7AvL6lHKtW8
-	 lI10/7WXLRU6o4BBgdyaLBn1JIYwUC4JzBxyuI+3yUh5bXFpZbqaRP+TgPdsrgcA8K
-	 7qV2TyImit40bF28WASYR3iR6381EokbZ2Z/Dt3rJxyTuK0RMpeZU4bk2w+2huVtV9
-	 g9/gbGnjvYbE78600SQe6GaPrwboXfAxN7NvRQO+cGZYneAu0ts4gVBCoV0pgPOpUg
-	 LE035uZnG0P+6+zdG28YdKaU9j2dQ+awZw0BLV1pETpJtUGld2TR0t6bMP05TDJNwa
-	 K35braZjZaphg==
-Date: Fri, 14 Feb 2025 14:04:32 +0000
-From: Will Deacon <will@kernel.org>
-To: torvalds@linux-foundation.org
-Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, kernel-team@android.com,
-	ojeda@kernel.org
-Subject: [GIT PULL] arm64 fixes for -rc3
-Message-ID: <20250214140431.GA13374@willie-the-truck>
+	id 1tiwKp-0000000F67b-2ZHY;
+	Fri, 14 Feb 2025 14:06:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739541987; x=1771077987;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=9cBFlk2elfhIUBovJUgc2pj982hQ8Go+77xQ1AoDVOk=;
+  b=CCrWJsCruHl4hK68obUB2qrJNgX96WuWIl0gz62cmUKUCge3e7tUjKEP
+   D7e7kDRKJbEZ6NvwA9DcZ9WGioeXz13GJfTqO0gVXCfCIuv82dnFtIJBO
+   c7PcL4hlsj514wbfmzIyFbD+GhxEDyt/+jXw4N0Hor4u247XEYwFeQLKz
+   k6hkxf3OFbNAg9dI3HSuK8JZgUbRtSfPyvgPtGj6zRwoB1XvqWfP6EWKt
+   rxOotn4sVQhImIcGjWmAAlSXNjR6Sn22ncuMpi1hQBSpd3HJPzAkFeJt5
+   BzsJF4is7FXDq6jneZbOFWybr3FQ0OJG4VcYRU57Udfu47V4Gqe0urQuW
+   g==;
+X-CSE-ConnectionGUID: rDgNbYgAQdOG2dkVWfvevQ==
+X-CSE-MsgGUID: 5K1sD+ZCQNuk11OTftFiLw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11345"; a="51690481"
+X-IronPort-AV: E=Sophos;i="6.13,286,1732608000"; 
+   d="scan'208";a="51690481"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Feb 2025 06:06:26 -0800
+X-CSE-ConnectionGUID: GAM0Tt/hQbO7u9VXlp1RNg==
+X-CSE-MsgGUID: OeYg75QKQSWqKE5danBI+g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
+   d="scan'208";a="118399870"
+Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 14 Feb 2025 06:06:22 -0800
+Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tiwKg-0019df-34;
+	Fri, 14 Feb 2025 14:06:18 +0000
+Date: Fri, 14 Feb 2025 22:06:02 +0800
+From: kernel test robot <lkp@intel.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Vladimir Oltean <olteanv@gmail.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [PATCH net-next v4 14/16] net: airoha: Introduce flowtable
+ offload support
+Message-ID: <202502142131.na71FjkW-lkp@intel.com>
+References: <20250213-airoha-en7581-flowtable-offload-v4-14-b69ca16d74db@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250213-airoha-en7581-flowtable-offload-v4-14-b69ca16d74db@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_060438_765613_94E6ECF0 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20250214_060627_694150_8609F216 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,88 +104,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+Hi Lorenzo,
 
-Please pull this batch of arm64 fixes for -rc3. I've provided the usual
-summary in the tag but there's nothing particularly major here.
+kernel test robot noticed the following build warnings:
 
-Cheers,
+[auto build test WARNING on c3a97ccaed80986fc3c0581661bf9170847d23ba]
 
-Will
+url:    https://github.com/intel-lab-lkp/linux/commits/Lorenzo-Bianconi/net-airoha-Fix-TSO-support-for-header-cloned-skbs/20250213-234737
+base:   c3a97ccaed80986fc3c0581661bf9170847d23ba
+patch link:    https://lore.kernel.org/r/20250213-airoha-en7581-flowtable-offload-v4-14-b69ca16d74db%40kernel.org
+patch subject: [PATCH net-next v4 14/16] net: airoha: Introduce flowtable offload support
+config: hexagon-allyesconfig (https://download.01.org/0day-ci/archive/20250214/202502142131.na71FjkW-lkp@intel.com/config)
+compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250214/202502142131.na71FjkW-lkp@intel.com/reproduce)
 
---->8
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202502142131.na71FjkW-lkp@intel.com/
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+All warnings (new ones prefixed by >>):
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+>> drivers/net/ethernet/airoha/airoha_ppe.c:818:6: warning: variable 'err' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+     818 |         if (!eth->npu)
+         |             ^~~~~~~~~
+   drivers/net/ethernet/airoha/airoha_ppe.c:820:7: note: uninitialized use occurs here
+     820 |         if (!err)
+         |              ^~~
+   drivers/net/ethernet/airoha/airoha_ppe.c:818:2: note: remove the 'if' if its condition is always true
+     818 |         if (!eth->npu)
+         |         ^~~~~~~~~~~~~~
+     819 |                 err = airoha_ppe_offload_setup(eth);
+   drivers/net/ethernet/airoha/airoha_ppe.c:811:9: note: initialize the variable 'err' to silence this warning
+     811 |         int err;
+         |                ^
+         |                 = 0
+   1 warning generated.
 
-are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+vim +818 drivers/net/ethernet/airoha/airoha_ppe.c
 
-for you to fetch changes up to 446a8351f160d65a1c5df7097f31c74102ed2bb1:
+   803	
+   804	int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
+   805					 void *cb_priv)
+   806	{
+   807		struct flow_cls_offload *cls = type_data;
+   808		struct net_device *dev = cb_priv;
+   809		struct airoha_gdm_port *port = netdev_priv(dev);
+   810		struct airoha_eth *eth = port->qdma->eth;
+   811		int err;
+   812	
+   813		if (!tc_can_offload(dev) || type != TC_SETUP_CLSFLOWER)
+   814			return -EOPNOTSUPP;
+   815	
+   816		mutex_lock(&flow_offload_mutex);
+   817	
+ > 818		if (!eth->npu)
+   819			err = airoha_ppe_offload_setup(eth);
+   820		if (!err)
+   821			err = airoha_ppe_flow_offload_cmd(port, cls);
+   822	
+   823		mutex_unlock(&flow_offload_mutex);
+   824	
+   825		return err;
+   826	}
+   827	
 
-  arm64: rust: clean Rust 1.85.0 warning using softfloat target (2025-02-13 11:45:49 +0000)
-
-----------------------------------------------------------------
-arm64 fixes for -rc3
-
-* Fix kexec and hibernation when using 5-level page-table configuration
-
-* Remove references to non-existent SF8MM4 and SF8MM8 ID register
-  fields, hooking up hwcaps for the FPRCVT, F8MM4 and F8MM8 fields
-  instead
-
-* Drop unused .ARM.attributes ELF sections
-
-* Fix array indexing when probing CPU cache topology from firmware
-
-* Fix potential use-after-free in AMU initialisation code
-
-* Work around broken GTDT entries by tolerating excessively large timer
-  arrays
-
-* Force use of Rust's "softfloat" target to avoid a threatening warning
-  about the NEON target feature
-
-* Typo fix in GCS documentation and removal of duplicate Kconfig select
-
-----------------------------------------------------------------
-Ard Biesheuvel (1):
-      arm64: Fix 5-level paging support in kexec/hibernate trampoline
-
-Beata Michalska (1):
-      arm64: amu: Delay allocating cpumask for AMU FIE support
-
-Lukas Bulwahn (1):
-      arm64: Kconfig: Remove selecting replaced HAVE_FUNCTION_GRAPH_RETVAL
-
-Mark Brown (3):
-      arm64/gcs: Fix documentation for HWCAP
-      arm64/hwcap: Remove stray references to SF8MMx
-      arm64: Add missing registrations of hwcaps
-
-Miguel Ojeda (1):
-      arm64: rust: clean Rust 1.85.0 warning using softfloat target
-
-Nathan Chancellor (1):
-      arm64: Handle .ARM.attributes section in linker scripts
-
-Oliver Upton (1):
-      ACPI: GTDT: Relax sanity checking on Platform Timers array count
-
-Radu Rendec (1):
-      arm64: cacheinfo: Avoid out-of-bounds write to cacheinfo array
-
- Documentation/arch/arm64/gcs.rst  |  2 +-
- arch/arm64/Kconfig                |  1 -
- arch/arm64/Makefile               |  4 ++++
- arch/arm64/kernel/cacheinfo.c     | 12 +++++++-----
- arch/arm64/kernel/cpufeature.c    |  5 +++--
- arch/arm64/kernel/topology.c      | 22 ++++++++++------------
- arch/arm64/kernel/vdso/vdso.lds.S |  1 +
- arch/arm64/kernel/vmlinux.lds.S   |  1 +
- arch/arm64/mm/trans_pgd.c         |  7 +++++++
- drivers/acpi/arm64/gtdt.c         | 12 ++++++++----
- 10 files changed, 42 insertions(+), 25 deletions(-)
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
