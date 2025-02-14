@@ -4,61 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5DB9C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 13:19:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DBC0C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 13:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N4T9TQPvbv6+/vZrl7CljDG+E6EUsEuqBUyMxQnYxxU=; b=WGTz1oR/yjHiyf3TyV+Zr2EeUF
-	x5BFjP4YG/oOW4nSXpkMBo7ZIviki9OejaWtct+rBgdeF+H6Ki5GJHsT51lNtCpGlKPjChugp4r9F
-	yjI/HJv5/R2LCpcPUABy8QZ67mwgpceXuxygH5GSr6ZRJsgaaeclj+Fr7hdG5pSFm4BCl4z9MIslu
-	IRUsyRo9fue8MmdKfAw+KC14ptnl6tjMtsLO/gE9fZT6HQGrsnEFOR2YPBuUqzY6SoY3bMju1LaqZ
-	on7n5jAAHpsVt7pZcgr+RWZ++4Yo02Ubtdk+917SbNCa40LTNX+FuYT/Xt6h9JRnzgDuKY8iyG3a7
-	lUC0vNWA==;
+	bh=Eeic6vXkmMzY8YnqF8B8+d/0s0ePlY9ZRC/bULfVz9M=; b=ENTYpJSuZ0hxU+sAGPIoJP2r/B
+	tyt080WR3d3ZU3O5rLwFQ0/R5lmWEq4GQxsjrOQ6n5t/Tzy3d52dcwRUP8F3/iAW58eQV0JP7/pJy
+	Yomth2c+JOLS7DUhKlmZro6v8QbYTJKIPdXXw23Z5r5NFTYHd47aVIYT6JTa1S0Ry0RZOnJN2kNBC
+	fQD7iTp7USFGelWauatuznmfiN/ICRWFONMB8PBqveDnn5C6rv6BGKASHD+cTuP/8/0Llz9KJMd9q
+	WjukkDkzvqL1m5v0+3Akkg7vuQ80Vv/LNXaiEDdYQ4uWaD8z0BLp/zLRI07TXZWxz99mYbsiWxvDt
+	WOhk5B2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tivbQ-0000000EyZg-1mo0;
-	Fri, 14 Feb 2025 13:19:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tivFD-0000000Ethb-2n32
+	id 1tivcr-0000000Eytv-0HeN;
+	Fri, 14 Feb 2025 13:21:01 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tivGS-0000000Etx8-0JRd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 12:56:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A178C1596;
-	Fri, 14 Feb 2025 04:56:55 -0800 (PST)
-Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 61F9A3F58B;
-	Fri, 14 Feb 2025 04:56:33 -0800 (PST)
-From: Andre Przywara <andre.przywara@arm.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 15/15] clk: sunxi-ng: add support for the A523/T527 PRCM CCU
-Date: Fri, 14 Feb 2025 12:53:59 +0000
-Message-ID: <20250214125359.5204-16-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.46.3
-In-Reply-To: <20250214125359.5204-1-andre.przywara@arm.com>
-References: <20250214125359.5204-1-andre.przywara@arm.com>
+	Fri, 14 Feb 2025 12:57:53 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51E7i2wV015968;
+	Fri, 14 Feb 2025 12:57:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Eeic6vXkmMzY8YnqF8B8+d/0s0ePlY9ZRC/bULfVz9M=; b=PVgUCeCE9F2rRhXX
+	GzjSWiCH6P5O+kLbZtt+AEZ00puhiZnlYoo/pAAzuLWkhBph/rjI4DZd31iJmfi+
+	w8+AAy73Zwm+JekXLLMZIvS6Ece5ErQBvOEiS3OtI8glWeY7G+9ldBueMK0Cgu8u
+	TbUH8HTI5gRptoBqobtu0Tl0aCekLv5NbM6DNccHsjO2N53bm4O7uEDQYBkZj1jR
+	rtsOVsh7C9fJ6ZGGqC559iqh2qMu4nciP3boqhzPVDa7Olvt5Nm6hIeQ9cN8WusZ
+	uS6VK7KmdOLPDBV/uMM9CUtT6PG2PoEptRYrFYV8arfJO4DbPSyQ5594X99aCh4C
+	wkBp+g==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44sde8btc2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 14 Feb 2025 12:57:26 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51ECvPfS025861
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 14 Feb 2025 12:57:25 GMT
+Received: from [10.219.56.14] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 14 Feb
+ 2025 04:57:18 -0800
+Message-ID: <2a090f80-e145-410d-8d02-efdaf324c8c9@quicinc.com>
+Date: Fri, 14 Feb 2025 18:27:14 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] iommu: Handle race with default domain setup
+To: Robin Murphy <robin.murphy@arm.com>,
+        Lorenzo Pieralisi
+	<lpieralisi@kernel.org>,
+        Hanjun Guo <guohanjun@huawei.com>,
+        Sudeep Holla
+	<sudeep.holla@arm.com>,
+        "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown
+	<lenb@kernel.org>,
+        Russell King <linux@armlinux.org.uk>,
+        Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+        Danilo Krummrich <dakr@kernel.org>, Stuart
+ Yoder <stuyoder@gmail.com>,
+        Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+        Nipun
+ Gupta <nipun.gupta@amd.com>,
+        Nikhil Agarwal <nikhil.agarwal@amd.com>,
+        Joerg
+ Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+        Rob Herring
+	<robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+        Bjorn Helgaas
+	<bhelgaas@google.com>
+CC: <linux-acpi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+        <devicetree@vger.kernel.org>, <linux-pci@vger.kernel.org>
+References: <cover.1739486121.git.robin.murphy@arm.com>
+ <87bd187fa98a025c9665747fbfe757a8bf249c18.1739486121.git.robin.murphy@arm.com>
+Content-Language: en-US
+From: Charan Teja Kalla <quic_charante@quicinc.com>
+In-Reply-To: <87bd187fa98a025c9665747fbfe757a8bf249c18.1739486121.git.robin.murphy@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 8MPMEM59TFtEpOVHpTq1BK9dVBJIHPE2
+X-Proofpoint-ORIG-GUID: 8MPMEM59TFtEpOVHpTq1BK9dVBJIHPE2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-14_05,2025-02-13_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 suspectscore=0
+ adultscore=0 priorityscore=1501 bulkscore=0 lowpriorityscore=0
+ clxscore=1011 mlxscore=0 mlxlogscore=999 spamscore=0 impostorscore=0
+ malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502140095
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_045635_787593_1658DC73 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20250214_045752_258129_71D62EB0 
+X-CRM114-Status: GOOD (  20.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,334 +122,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A523/T527 SoCs have clock/reset controls in the PRCM part, like many
-previous SoCs. For a change, the whole PRCM is documented in the A523
-manual, including the system bus tree, so we can describe all those
-clocks correctly based on that. There layout seems to be derived from
-the H6 and H616 PRCM CCUs, though there are more clocks, and many clocks
-have subtly changed.
+Thanks a lot for posting these patches, Robin.
 
-Describe all the mod and gate clocks, including the three bus clocks
-(R_AHB, R_APB0, and R_APB1).
+On 2/14/2025 5:18 AM, Robin Murphy wrote:
+>  drivers/iommu/iommu.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+> index 870c3cdbd0f6..2486f6d6ef68 100644
+> --- a/drivers/iommu/iommu.c
+> +++ b/drivers/iommu/iommu.c
+> @@ -3097,6 +3097,11 @@ int iommu_device_use_default_domain(struct device *dev)
+>  		return 0;
+>  
+>  	mutex_lock(&group->mutex);
+> +	/* We may race against bus_iommu_probe() finalising groups here */
+> +	if (!group->default_domain) {
+> +		ret = -EPROBE_DEFER;
+> +		goto unlock_out;
+> +	}
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- drivers/clk/sunxi-ng/Kconfig             |   5 +
- drivers/clk/sunxi-ng/Makefile            |   2 +
- drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c | 245 +++++++++++++++++++++++
- drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h |  14 ++
- 4 files changed, 266 insertions(+)
- create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
- create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h
+We just hit the issue again even after picking up this patch, though
+very hard to reproduce, on 6.6 LTS.
 
-diff --git a/drivers/clk/sunxi-ng/Kconfig b/drivers/clk/sunxi-ng/Kconfig
-index 04efbda847cf9..5830a9d87bf25 100644
---- a/drivers/clk/sunxi-ng/Kconfig
-+++ b/drivers/clk/sunxi-ng/Kconfig
-@@ -57,6 +57,11 @@ config SUN55I_A523_CCU
- 	default y
- 	depends on ARM64 || COMPILE_TEST
- 
-+config SUN55I_A523_R_CCU
-+	tristate "Support for the Allwinner A523/T527 PRCM CCU"
-+	default y
-+	depends on ARM64 || COMPILE_TEST
-+
- config SUN4I_A10_CCU
- 	tristate "Support for the Allwinner A10/A20 CCU"
- 	default y
-diff --git a/drivers/clk/sunxi-ng/Makefile b/drivers/clk/sunxi-ng/Makefile
-index 01a887f7824bb..82e471036de69 100644
---- a/drivers/clk/sunxi-ng/Makefile
-+++ b/drivers/clk/sunxi-ng/Makefile
-@@ -34,6 +34,7 @@ obj-$(CONFIG_SUN50I_H6_CCU)	+= sun50i-h6-ccu.o
- obj-$(CONFIG_SUN50I_H6_R_CCU)	+= sun50i-h6-r-ccu.o
- obj-$(CONFIG_SUN50I_H616_CCU)	+= sun50i-h616-ccu.o
- obj-$(CONFIG_SUN55I_A523_CCU)	+= sun55i-a523-ccu.o
-+obj-$(CONFIG_SUN55I_A523_R_CCU)	+= sun55i-a523-r-ccu.o
- obj-$(CONFIG_SUN4I_A10_CCU)	+= sun4i-a10-ccu.o
- obj-$(CONFIG_SUN5I_CCU)		+= sun5i-ccu.o
- obj-$(CONFIG_SUN6I_A31_CCU)	+= sun6i-a31-ccu.o
-@@ -60,6 +61,7 @@ sun50i-h6-ccu-y			+= ccu-sun50i-h6.o
- sun50i-h6-r-ccu-y		+= ccu-sun50i-h6-r.o
- sun50i-h616-ccu-y		+= ccu-sun50i-h616.o
- sun55i-a523-ccu-y		+= ccu-sun55i-a523.o
-+sun55i-a523-r-ccu-y		+= ccu-sun55i-a523-r.o
- sun4i-a10-ccu-y			+= ccu-sun4i-a10.o
- sun5i-ccu-y			+= ccu-sun5i.o
- sun6i-a31-ccu-y			+= ccu-sun6i-a31.o
-diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-new file mode 100644
-index 0000000000000..0dafc38370f22
---- /dev/null
-+++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.c
-@@ -0,0 +1,245 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2024 Arm Ltd.
-+ * Based on the D1 CCU driver:
-+ *   Copyright (c) 2020 huangzhenwei@allwinnertech.com
-+ *   Copyright (C) 2021 Samuel Holland <samuel@sholland.org>
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+
-+#include "ccu_common.h"
-+#include "ccu_reset.h"
-+
-+#include "ccu_gate.h"
-+#include "ccu_mp.h"
-+
-+#include "ccu-sun55i-a523-r.h"
-+
-+static const struct clk_parent_data r_ahb_apb_parents[] = {
-+	{ .fw_name = "hosc" },
-+	{ .fw_name = "losc" },
-+	{ .fw_name = "iosc" },
-+	{ .fw_name = "pll-periph" },
-+	{ .fw_name = "pll-audio" },
-+};
-+static SUNXI_CCU_M_DATA_WITH_MUX(r_ahb_clk, "r-ahb",
-+				 r_ahb_apb_parents, 0x000,
-+				 0, 5,	/* M */
-+				 24, 3,	/* mux */
-+				 0);
-+
-+static SUNXI_CCU_M_DATA_WITH_MUX(r_apb0_clk, "r-apb0",
-+				 r_ahb_apb_parents, 0x00c,
-+				 0, 5,	/* M */
-+				 24, 3,	/* mux */
-+				 0);
-+
-+static SUNXI_CCU_M_DATA_WITH_MUX(r_apb1_clk, "r-apb1",
-+				 r_ahb_apb_parents, 0x010,
-+				 0, 5,	/* M */
-+				 24, 3,	/* mux */
-+				 0);
-+
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer0, "r-timer0",
-+				      r_ahb_apb_parents, 0x100,
-+				      1, 3,	/* P */
-+				      4, 3,	/* mux */
-+				      BIT(0),
-+				      0);
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer1, "r-timer1",
-+				      r_ahb_apb_parents, 0x104,
-+				      1, 3,	/* P */
-+				      4, 3,	/* mux */
-+				      BIT(0),
-+				      0);
-+static SUNXI_CCU_P_DATA_WITH_MUX_GATE(r_cpu_timer2, "r-timer2",
-+				      r_ahb_apb_parents, 0x108,
-+				      1, 3,	/* P */
-+				      4, 3,	/* mux */
-+				      BIT(0),
-+				      0);
-+
-+static SUNXI_CCU_GATE_HW(bus_r_timer_clk, "bus-r-timer", &r_ahb_clk.common.hw,
-+			 0x11c, BIT(0), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_twd_clk,	"bus-r-twd", &r_apb0_clk.common.hw,
-+			 0x12c, BIT(0), 0);
-+
-+static const struct clk_parent_data r_pwmctrl_parents[] = {
-+	{ .fw_name = "hosc" },
-+	{ .fw_name = "losc" },
-+	{ .fw_name = "iosc" },
-+};
-+static SUNXI_CCU_MUX_DATA_WITH_GATE(r_pwmctrl_clk, "r-pwmctrl",
-+				  r_pwmctrl_parents, 0x130,
-+				  24, 1,	/* mux */
-+				  BIT(31),
-+				  0);
-+static SUNXI_CCU_GATE_HW(bus_r_pwmctrl_clk, "bus-r-pwmctrl",
-+			 &r_apb0_clk.common.hw, 0x13c, BIT(0), 0);
-+
-+/* SPI clock is /M/N (same as new MMC?) */
-+static SUNXI_CCU_GATE_HW(bus_r_spi_clk, "bus-r-spi",
-+			 &r_ahb_clk.common.hw, 0x15c, BIT(0), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_spinlock_clk, "bus-r-spinlock",
-+			 &r_ahb_clk.common.hw, 0x16c, BIT(0), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_msgbox_clk, "bus-r-msgbox",
-+			 &r_ahb_clk.common.hw, 0x17c, BIT(0), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_uart0_clk, "bus-r-uart0",
-+			 &r_apb1_clk.common.hw, 0x18c, BIT(0), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_uart1_clk, "bus-r-uart1",
-+			 &r_apb1_clk.common.hw, 0x18c, BIT(1), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_i2c0_clk, "bus-r-i2c0",
-+			 &r_apb1_clk.common.hw, 0x19c, BIT(0), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_i2c1_clk, "bus-r-i2c1",
-+			 &r_apb1_clk.common.hw, 0x19c, BIT(1), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_i2c2_clk, "bus-r-i2c2",
-+			 &r_apb1_clk.common.hw, 0x19c, BIT(2), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_ppu0_clk, "bus-r-ppu0",
-+			 &r_apb0_clk.common.hw, 0x1ac, BIT(0), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_ppu1_clk, "bus-r-ppu1",
-+			 &r_apb0_clk.common.hw, 0x1ac, BIT(1), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_cpu_bist_clk, "bus-r-cpu-bist",
-+			 &r_apb0_clk.common.hw, 0x1bc, BIT(0), 0);
-+
-+static const struct clk_parent_data r_ir_rx_parents[] = {
-+	{ .fw_name = "losc" },
-+	{ .fw_name = "hosc" },
-+};
-+static SUNXI_CCU_M_DATA_WITH_MUX_GATE(r_ir_rx_clk, "r-ir-rx",
-+				      r_ir_rx_parents, 0x1c0,
-+				      0, 5,	/* M */
-+				      24, 2,	/* mux */
-+				      BIT(31),	/* gate */
-+				      0);
-+static SUNXI_CCU_GATE_HW(bus_r_ir_rx_clk, "bus-r-ir-rx",
-+			 &r_apb0_clk.common.hw, 0x1cc, BIT(0), 0);
-+
-+static SUNXI_CCU_GATE_HW(bus_r_dma_clk, "bus-r-dma",
-+			 &r_apb0_clk.common.hw, 0x1dc, BIT(0), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_rtc_clk, "bus-r-rtc",
-+			 &r_apb0_clk.common.hw, 0x20c, BIT(0), 0);
-+static SUNXI_CCU_GATE_HW(bus_r_cpucfg_clk, "bus-r-cpucfg",
-+			 &r_apb0_clk.common.hw, 0x22c, BIT(0), 0);
-+
-+static struct ccu_common *sun55i_a523_r_ccu_clks[] = {
-+	&r_ahb_clk.common,
-+	&r_apb0_clk.common,
-+	&r_apb1_clk.common,
-+	&r_cpu_timer0.common,
-+	&r_cpu_timer1.common,
-+	&r_cpu_timer2.common,
-+	&bus_r_timer_clk.common,
-+	&bus_r_twd_clk.common,
-+	&r_pwmctrl_clk.common,
-+	&bus_r_pwmctrl_clk.common,
-+	&bus_r_spi_clk.common,
-+	&bus_r_spinlock_clk.common,
-+	&bus_r_msgbox_clk.common,
-+	&bus_r_uart0_clk.common,
-+	&bus_r_uart1_clk.common,
-+	&bus_r_i2c0_clk.common,
-+	&bus_r_i2c1_clk.common,
-+	&bus_r_i2c2_clk.common,
-+	&bus_r_ppu0_clk.common,
-+	&bus_r_ppu1_clk.common,
-+	&bus_r_cpu_bist_clk.common,
-+	&r_ir_rx_clk.common,
-+	&bus_r_ir_rx_clk.common,
-+	&bus_r_dma_clk.common,
-+	&bus_r_rtc_clk.common,
-+	&bus_r_cpucfg_clk.common,
-+};
-+
-+static struct clk_hw_onecell_data sun55i_a523_r_hw_clks = {
-+	.num	= CLK_NUMBER,
-+	.hws	= {
-+		[CLK_R_AHB]		= &r_ahb_clk.common.hw,
-+		[CLK_R_APB0]		= &r_apb0_clk.common.hw,
-+		[CLK_R_APB1]		= &r_apb1_clk.common.hw,
-+		[CLK_R_TIMER0]		= &r_cpu_timer0.common.hw,
-+		[CLK_R_TIMER1]		= &r_cpu_timer1.common.hw,
-+		[CLK_R_TIMER2]		= &r_cpu_timer2.common.hw,
-+		[CLK_BUS_R_TIMER]	= &bus_r_timer_clk.common.hw,
-+		[CLK_BUS_R_TWD]		= &bus_r_twd_clk.common.hw,
-+		[CLK_R_PWMCTRL]		= &r_pwmctrl_clk.common.hw,
-+		[CLK_BUS_R_PWMCTRL]	= &bus_r_pwmctrl_clk.common.hw,
-+		[CLK_BUS_R_SPI]		= &bus_r_spi_clk.common.hw,
-+		[CLK_BUS_R_SPINLOCK]	= &bus_r_spinlock_clk.common.hw,
-+		[CLK_BUS_R_MSGBOX]	= &bus_r_msgbox_clk.common.hw,
-+		[CLK_BUS_R_UART0]	= &bus_r_uart0_clk.common.hw,
-+		[CLK_BUS_R_UART1]	= &bus_r_uart1_clk.common.hw,
-+		[CLK_BUS_R_I2C0]	= &bus_r_i2c0_clk.common.hw,
-+		[CLK_BUS_R_I2C1]	= &bus_r_i2c1_clk.common.hw,
-+		[CLK_BUS_R_I2C2]	= &bus_r_i2c2_clk.common.hw,
-+		[CLK_BUS_R_PPU0]	= &bus_r_ppu0_clk.common.hw,
-+		[CLK_BUS_R_PPU1]	= &bus_r_ppu1_clk.common.hw,
-+		[CLK_BUS_R_CPU_BIST]	= &bus_r_cpu_bist_clk.common.hw,
-+		[CLK_R_IR_RX]		= &r_ir_rx_clk.common.hw,
-+		[CLK_BUS_R_IR_RX]	= &bus_r_ir_rx_clk.common.hw,
-+		[CLK_BUS_R_DMA]		= &bus_r_dma_clk.common.hw,
-+		[CLK_BUS_R_RTC]		= &bus_r_rtc_clk.common.hw,
-+		[CLK_BUS_R_CPUCFG]	= &bus_r_cpucfg_clk.common.hw,
-+	},
-+};
-+
-+static struct ccu_reset_map sun55i_a523_r_ccu_resets[] = {
-+	[RST_BUS_R_TIMER]	= { 0x11c, BIT(16) },
-+	[RST_BUS_R_TWD]		= { 0x12c, BIT(16) },
-+	[RST_BUS_R_PWMCTRL]	= { 0x13c, BIT(16) },
-+	[RST_BUS_R_SPI]		= { 0x15c, BIT(16) },
-+	[RST_BUS_R_SPINLOCK]	= { 0x16c, BIT(16) },
-+	[RST_BUS_R_MSGBOX]	= { 0x17c, BIT(16) },
-+	[RST_BUS_R_UART0]	= { 0x18c, BIT(16) },
-+	[RST_BUS_R_UART1]	= { 0x18c, BIT(17) },
-+	[RST_BUS_R_I2C0]	= { 0x19c, BIT(16) },
-+	[RST_BUS_R_I2C1]	= { 0x19c, BIT(17) },
-+	[RST_BUS_R_I2C2]	= { 0x19c, BIT(18) },
-+	[RST_BUS_R_PPU1]	= { 0x1ac, BIT(17) },
-+	[RST_BUS_R_IR_RX]	= { 0x1cc, BIT(16) },
-+	[RST_BUS_R_RTC]		= { 0x20c, BIT(16) },
-+	[RST_BUS_R_CPUCFG]	= { 0x22c, BIT(16) },
-+};
-+
-+static const struct sunxi_ccu_desc sun55i_a523_r_ccu_desc = {
-+	.ccu_clks	= sun55i_a523_r_ccu_clks,
-+	.num_ccu_clks	= ARRAY_SIZE(sun55i_a523_r_ccu_clks),
-+
-+	.hw_clks	= &sun55i_a523_r_hw_clks,
-+
-+	.resets		= sun55i_a523_r_ccu_resets,
-+	.num_resets	= ARRAY_SIZE(sun55i_a523_r_ccu_resets),
-+};
-+
-+static int sun55i_a523_r_ccu_probe(struct platform_device *pdev)
-+{
-+	void __iomem *reg;
-+
-+	reg = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(reg))
-+		return PTR_ERR(reg);
-+
-+	return devm_sunxi_ccu_probe(&pdev->dev, reg, &sun55i_a523_r_ccu_desc);
-+}
-+
-+static const struct of_device_id sun55i_a523_r_ccu_ids[] = {
-+	{ .compatible = "allwinner,sun55i-a523-r-ccu" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, sun55i_a523_r_ccu_ids);
-+
-+static struct platform_driver sun55i_a523_r_ccu_driver = {
-+	.probe	= sun55i_a523_r_ccu_probe,
-+	.driver	= {
-+		.name			= "sun55i-a523-r-ccu",
-+		.suppress_bind_attrs	= true,
-+		.of_match_table		= sun55i_a523_r_ccu_ids,
-+	},
-+};
-+module_platform_driver(sun55i_a523_r_ccu_driver);
-+
-+MODULE_IMPORT_NS("SUNXI_CCU");
-+MODULE_DESCRIPTION("Support for the Allwinner A523 PRCM CCU");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h
-new file mode 100644
-index 0000000000000..d50f46ac4f3fe
---- /dev/null
-+++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523-r.h
-@@ -0,0 +1,14 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Copyright 2024 Arm Ltd.
-+ */
-+
-+#ifndef _CCU_SUN55I_A523_R_H
-+#define _CCU_SUN55I_A523_R_H
-+
-+#include <dt-bindings/clock/sun55i-a523-r-ccu.h>
-+#include <dt-bindings/reset/sun55i-a523-r-ccu.h>
-+
-+#define CLK_NUMBER	(CLK_BUS_R_CPUCFG + 1)
-+
-+#endif /* _CCU_SUN55I_A523_R_H */
--- 
-2.46.3
+After code inspection, it seems the issue is that - default domain is
+setup in the bus_iommu_probe() before hitting of this replay.
 
+A:async client probe in platform_dma_configure(), B:bus_iommu_probe() :-
+
+1) A: sets up iommu_fwspec under iommu_probe_device_lock.
+
+2) B: Sets the dev->iommu_group under iommu_probe_device_lock. Domain
+setup is deferred.
+
+3) A: Returns with out allocating the default domain, as
+dev->iommu_group is set, whose checks are also made under the same
+'iommu_probe_device_lock'. __This miss setting of the valid dev->dma_ops__.
+
+4) B: Sets up the group->default_domain under group->mutex.
+
+5) A: iommu_device_use_default_domain(): Relies on this
+group->default_domain, under the same mutex, to decide if need to go for
+replay, which is skipped. This is skipping the setting up of valid
+dma_ops and that's an issue.
+
+But I don't think that the same issue exists on 6.13 because of your
+patch, b67483b3c44e ("iommu/dma: Centralise iommu_setup_dma_ops()").
+bus_iommu_probe():
+     list_for_each_entry_safe(group, next, &group_list, entry) {
+		mutex_lock(&group->mutex);
+		for_each_group_device(group, gdev)
+			iommu_setup_dma_ops(gdev->dev);
+		mutex_unlock(&group->mutex);
+     }
+
+This makes the step4 above force to use the valid dma_iommu api, thus I
+see no issue when there is no probe deferral.
+
+So, I think we are good with this patch on 6.13.
+
+Now coming back to 6.6 LTS, any ideas you have here, please?
+
+>  	if (group->owner_cnt) {
+>  		if (group->domain != group->default_domain || group->owner ||
+>  		    !xa_empty(&group->pasid_array)) {
+
+
+Thanks,
+Charan
 
