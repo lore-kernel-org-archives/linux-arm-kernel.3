@@ -4,59 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78C17C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 00:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 960A5C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 01:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XlLJKA/rZVUHk60jeVpzwLxxcSxLepwcu1pCCYTuJMs=; b=ZRw/13L3A8uAtwD5vzbKpnYJqH
-	zM8QBOVqofz0wHrp9qtF310BcbEz0zcEcyDcOsau7zsJj/jLfVWOZ1oLSwQT/uzxljVYRuL/9Vdn7
-	pFBBQ1E2wDm0WVvwgPOWAGIkOyKNF3Mk5a9Hp80rzZECzNG8bfQix8TubRCpsVZLkb32hz8mFhN2h
-	RKnLRaNzEk3oEWNH995KBEAoXqa9r1cnAIj2BWE4J3GGXSlJCr1cPnpxuUIOmnxoGtio31QQ9mrc8
-	6DG3GI1LZmWEYRkVbM6Zl5MQeXNotJNBuQRUUV11QiZf2CUVE2yO+aVLsz+/LugllWwqRxFQnRloi
-	CIbqaQCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZLfW0rN/4qyXewetHV4qdQVWL6NJH6ThRORQVfeKYJ8=; b=UJXea6TdGqhMkE8PM9VuN54kpo
+	kNK3nOhwEmEF/jUyiJf/EqNftxF1ZoCJxFhjqQ+/FUHJq//MIwmGNHW6fCfSIwvjRI2ZHaw+jEBgU
+	/qBk6SQvHgj3thmct5r+3WjNm47Fnr0R4RXSvGCjyk/P7S1xLnpr2EJaBzwxrH6u34iACsnq8HWsl
+	CSUrY1FR785JPkc2MVybRf3wKJ2gxwPPD0c1iLyv3rahNLv/BaMZFFui60V9uEUCws3NuVSmdcM3N
+	RzTJ9vITG4Ro2Pb/AtyS65Y6H6K0jO+3/Nai16t4nn5fwg+Q0raNd1AYoKUTsWmJv2oaD/ZRKO//b
+	IWEiuY7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tijx7-0000000D7uP-02ZK;
-	Fri, 14 Feb 2025 00:53:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1tik8Z-0000000D9JY-1fhE;
+	Fri, 14 Feb 2025 01:04:59 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tijkc-0000000D63A-45yY
+	id 1tik78-0000000D98u-2SnY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 00:40:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C5F6113E;
-	Thu, 13 Feb 2025 16:40:35 -0800 (PST)
-Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DBE353F5A1;
-	Thu, 13 Feb 2025 16:40:12 -0800 (PST)
-From: Andre Przywara <andre.przywara@arm.com>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 8/8] pinctrl: sunxi: Add support for the secondary A523 GPIO ports
-Date: Fri, 14 Feb 2025 00:37:34 +0000
-Message-ID: <20250214003734.14944-9-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.46.3
-In-Reply-To: <20250214003734.14944-1-andre.przywara@arm.com>
-References: <20250214003734.14944-1-andre.przywara@arm.com>
+	Fri, 14 Feb 2025 01:03:32 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 1826C72C99C;
+	Fri, 14 Feb 2025 04:03:26 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+	id 054817CCB3A; Fri, 14 Feb 2025 03:03:25 +0200 (IST)
+Date: Fri, 14 Feb 2025 03:03:25 +0200
+From: "Dmitry V. Levin" <ldv@strace.io>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>,
+	Eugene Syromyatnikov <evgsyr@gmail.com>,
+	Russell King <linux@armlinux.org.uk>, Kees Cook <kees@kernel.org>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Will Drewry <wad@chromium.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>, Arnd Bergmann <arnd@arndb.de>,
+	Ard Biesheuvel <ardb@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 00/31] ARM: Switch to generic entry
+Message-ID: <20250214010325.GA12626@strace.io>
+References: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_164015_157064_7BAD3A6B 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20250213_170330_786326_50AE0DB4 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,107 +69,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As most other Allwinner SoCs before, the A523 chip contains a second
-GPIO controller, managing banks PL and PM.
-Use the newly introduced DT based pinctrl driver to describe just the
-generic pinctrl properties, so advertise the number of pins per bank
-and the interrupt capabilities. The actual function/mux assignment is
-taken from the devicetree.
+On Wed, Feb 12, 2025 at 12:22:54PM +0100, Linus Walleij wrote:
+[...]
+> - Tested some ptrace/strace obviously, such as issuing
+>   several instances of "ptrace find /" and let this scroll
+>   by in the terminal over some 10 minutes or so.
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- drivers/pinctrl/sunxi/Kconfig                 |  5 ++
- drivers/pinctrl/sunxi/Makefile                |  1 +
- drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c | 54 +++++++++++++++++++
- 3 files changed, 60 insertions(+)
- create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+Could you also run the strace test suite, please?  Given that it used to
+catch quite a few regressions in the past, it could be useful in this case
+as well.
 
-diff --git a/drivers/pinctrl/sunxi/Kconfig b/drivers/pinctrl/sunxi/Kconfig
-index 0cbe466683650..dc62eba96348e 100644
---- a/drivers/pinctrl/sunxi/Kconfig
-+++ b/drivers/pinctrl/sunxi/Kconfig
-@@ -136,4 +136,9 @@ config PINCTRL_SUN55I_A523
- 	default ARM64 && ARCH_SUNXI
- 	select PINCTRL_SUNXI
- 
-+config PINCTRL_SUN55I_A523_R
-+	bool "Support for the Allwinner A523 R-PIO"
-+	default ARM64 && ARCH_SUNXI
-+	select PINCTRL_SUNXI
-+
- endif
-diff --git a/drivers/pinctrl/sunxi/Makefile b/drivers/pinctrl/sunxi/Makefile
-index 4e55508ff7f76..951b3f1e4b4f1 100644
---- a/drivers/pinctrl/sunxi/Makefile
-+++ b/drivers/pinctrl/sunxi/Makefile
-@@ -28,5 +28,6 @@ obj-$(CONFIG_PINCTRL_SUN50I_H6_R)	+= pinctrl-sun50i-h6-r.o
- obj-$(CONFIG_PINCTRL_SUN50I_H616)	+= pinctrl-sun50i-h616.o
- obj-$(CONFIG_PINCTRL_SUN50I_H616_R)	+= pinctrl-sun50i-h616-r.o
- obj-$(CONFIG_PINCTRL_SUN55I_A523)	+= pinctrl-sun55i-a523.o
-+obj-$(CONFIG_PINCTRL_SUN55I_A523_R)	+= pinctrl-sun55i-a523-r.o
- obj-$(CONFIG_PINCTRL_SUN9I_A80)		+= pinctrl-sun9i-a80.o
- obj-$(CONFIG_PINCTRL_SUN9I_A80_R)	+= pinctrl-sun9i-a80-r.o
-diff --git a/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
-new file mode 100644
-index 0000000000000..69cd2b4ebd7d7
---- /dev/null
-+++ b/drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
-@@ -0,0 +1,54 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Allwinner A523 SoC r-pinctrl driver.
-+ *
-+ * Copyright (C) 2024 Arm Ltd.
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/pinctrl/pinctrl.h>
-+
-+#include "pinctrl-sunxi.h"
-+
-+static const u8 a523_r_nr_bank_pins[SUNXI_PINCTRL_MAX_BANKS] =
-+/*	  PL  PM */
-+	{ 14,  6 };
-+
-+static const unsigned int a523_r_irq_bank_map[] = { 0, 1 };
-+
-+static const u8 a523_r_irq_bank_muxes[SUNXI_PINCTRL_MAX_BANKS] =
-+/*	  PL  PM */
-+	{ 14, 14 };
-+
-+static struct sunxi_pinctrl_desc a523_r_pinctrl_data = {
-+	.irq_banks = ARRAY_SIZE(a523_r_irq_bank_map),
-+	.irq_bank_map = a523_r_irq_bank_map,
-+	.irq_read_needs_mux = true,
-+	.io_bias_cfg_variant = BIAS_VOLTAGE_PIO_POW_MODE_SEL,
-+	.pin_base = PL_BASE,
-+};
-+
-+static int a523_r_pinctrl_probe(struct platform_device *pdev)
-+{
-+	return sunxi_pinctrl_dt_table_init(pdev, a523_r_nr_bank_pins,
-+					   a523_r_irq_bank_muxes,
-+					   &a523_r_pinctrl_data,
-+					   SUNXI_PINCTRL_NEW_REG_LAYOUT);
-+}
-+
-+static const struct of_device_id a523_r_pinctrl_match[] = {
-+	{ .compatible = "allwinner,sun55i-a523-r-pinctrl", },
-+	{}
-+};
-+
-+static struct platform_driver a523_r_pinctrl_driver = {
-+	.probe	= a523_r_pinctrl_probe,
-+	.driver	= {
-+		.name		= "sun55i-a523-r-pinctrl",
-+		.of_match_table	= a523_r_pinctrl_match,
-+	},
-+};
-+builtin_platform_driver(a523_r_pinctrl_driver);
+
 -- 
-2.46.3
-
+ldv
 
