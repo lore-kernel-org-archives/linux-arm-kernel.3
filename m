@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8789AC02198
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF5CC021A7
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=otrCHsdfao2kVoDQN7xHYLDJvx8Ap1uHO6er0CH61hU=; b=ygyzeGTGAmi/x9UQSpbTRP2ZNS
-	b1mXFew7ZaoodVgZeaf1ICkzPOvY02yM61aMvHNvUlks0uMVnTSk/bVXO9xA4NTIFbpu3FBy6KDan
-	BNb9/BZKAlDVCveNYLWUjhLohlVA7ZkX0dk1vIV+YZnDkOCYZOA2EYYgEIsuj8Soox9xGBaZPgCD3
-	My5Fz0wBVM5J0F87Q/ZgN3VJFKchmrXdYzfJUc5Chf0P18QP70Hr/AekBBSNFjP3W9XzwALeCBZL4
-	8u5dU0xQj6s+0HokzzNfR8+nmoS9e7Ii8kzbnECAihee8UWq/F7p2Wd1BJtP1sg4VNYGawWld+e2A
-	4E62vs6A==;
+	bh=b0MWFk+dTHQBz1p7Hv/WwHFEEiTXSBr4DDoFyvcQqzI=; b=XaHNj+AOeTkt7L3zSxYJ1ovLH5
+	97zjwVniyJW5weKkoO6OnLap6r4/t2PoO0Gz+5ZY872X+vrkfJiofpnz7ANIausvO4v86lglu/6GE
+	0W8dGLNs4ej2GP2nS8n1Z8h0De8cJ78nkttNe9dS3qFU1z87JOq3B+r0IR0Dj15+P3mUptCBYrtcn
+	C8sfDV5vS1BlCBXhQn7xQpLBpTQ3Y/W5Jp/g2+lmbs3AAWoOp6xN4Ksa4HEYhhfmFt4wEvURrRSEb
+	t7ga0J2F9wN9FeX5RgKWgQZLJzJpcc8JPCIvB2ZtRWmQPf3r4f4XtLvA6NvNCEIROJdzU1353h7FC
+	DFKk9gtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj0rW-0000000Fx7X-1ICx;
-	Fri, 14 Feb 2025 18:56:30 +0000
+	id 1tj0rX-0000000Fx95-1kPW;
+	Fri, 14 Feb 2025 18:56:31 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tizLf-0000000Ffts-3Cov;
-	Fri, 14 Feb 2025 17:19:33 +0000
+	id 1tizLk-0000000Ffvr-3b2g;
+	Fri, 14 Feb 2025 17:19:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739553570;
-	bh=wI++aCyUGB25LBiHVhu7McH+lo9hKNW4TKBihjV2t5U=;
+	s=mail; t=1739553575;
+	bh=lPL1S5SCW1+PI23N/jcgP12hMhBfoTHib8FSUQooe88=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=IWrbobA7J++IfnQOw9xWZ2+m4v9jqen7hW+JDSNXSiUOt6shIZyidH35E3W9NNlrd
-	 IVPMdIiT1MYRz9LAv6Wq9JPOpm+Vl1JlzCsiiihVBAcSQfKC7u3o2ZRkHKlec4WZJx
-	 a9AE5x0r6RX7ca2y8nl7R/uFH3nfMO65JSeovN35VY/oBEoEu1zxzKeKkXzx6FoCDy
-	 LNOxSpkcjeSUNPD41iPJDBJhtnTdywV3hyKhCncWMwSu3MCdtCb6e9b/v4zmZuDOoP
-	 6+XqrVWcRpKBHwk0KkXN2fmUdZpj7+m809W0K1f/mIuJnvZl4PnN+nrOoSnR/BJ/UO
-	 a+RGSXpTfQiKA==
+	b=gIesuFvpOQ7/iFIFngOzZTm6MMmukdjPv3X0ec+jjsVWTpHWiOj8ZTRn4iHbg8i6n
+	 lkHkV3Gk83RNtg/wMlqz+n34f+cNavlirn+ucU7LgH3qNPZIQ/byWB7VHvRFpy6asJ
+	 /0awctKwFeOOnw7M5HSD16qVlUHQQiG2NRMlP5bb8QndM4gG4fbhUKOo9cUlYKKrd+
+	 XKjboOZrfkQVV4KWAsMK018sUEq2pj77ABcw33a7Xg9JlZGdYeoU20IGYXP8YJPNkY
+	 Fya6ZtvLW8cMLAxUaGFpiDqtOBwbe1z0iDECm6R2IJ4c6jGAg39NeV6qZbCvq5rAFV
+	 fjnRMsE8Wp+sA==
 Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1003])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8109E17E0239;
-	Fri, 14 Feb 2025 18:19:25 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B7F8417E1551;
+	Fri, 14 Feb 2025 18:19:30 +0100 (CET)
 From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Fri, 14 Feb 2025 14:18:34 -0300
-Subject: [PATCH 03/13] mfd: mt6397-core: Add mfd_cell for mt6359-accdet
+Date: Fri, 14 Feb 2025 14:18:35 -0300
+Subject: [PATCH 04/13] ASoC: mediatek: mt6359-accdet: Add compatible
+ property
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250214-mt6359-accdet-dts-v1-3-677a151b9b4c@collabora.com>
+Message-Id: <20250214-mt6359-accdet-dts-v1-4-677a151b9b4c@collabora.com>
 References: <20250214-mt6359-accdet-dts-v1-0-677a151b9b4c@collabora.com>
 In-Reply-To: <20250214-mt6359-accdet-dts-v1-0-677a151b9b4c@collabora.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -68,9 +69,8 @@ Cc: kernel@collabora.com, linux-sound@vger.kernel.org,
  Andrew Perepech <andrew.perepech@mediatek.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_091931_974385_94CEC240 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250214_091937_045118_69DB34C1 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,47 +85,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andrew Perepech <andrew.perepech@mediatek.com>
+Add a compatible property and add it to the module device table for the
+mt6359-accdet platform driver to allow automatic module loading and
+probing when the compatible is present in DT.
 
-Add an mfd_cell for mt6359-accdet and describe its IRQ resources to
-allow the mt6359-accdet driver to probe.
-
+Co-developed-by: Andrew Perepech <andrew.perepech@mediatek.com>
 Signed-off-by: Andrew Perepech <andrew.perepech@mediatek.com>
 Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
- drivers/mfd/mt6397-core.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ sound/soc/codecs/mt6359-accdet.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/drivers/mfd/mt6397-core.c b/drivers/mfd/mt6397-core.c
-index 0e5d59ae064a696ae2111e2b558b316667c14773..5f8ed898890783c0ce4e34c7eae0d8f678e7d7bc 100644
---- a/drivers/mfd/mt6397-core.c
-+++ b/drivers/mfd/mt6397-core.c
-@@ -84,6 +84,12 @@ static const struct resource mt6359_keys_resources[] = {
- 	DEFINE_RES_IRQ_NAMED(MT6359_IRQ_HOMEKEY_R, "homekey_r"),
- };
+diff --git a/sound/soc/codecs/mt6359-accdet.c b/sound/soc/codecs/mt6359-accdet.c
+index ed34cc15b80e856356c07fd53af22207124e0d19..6f07db879c6a56ce4843954f51bb9602373e4aa5 100644
+--- a/sound/soc/codecs/mt6359-accdet.c
++++ b/sound/soc/codecs/mt6359-accdet.c
+@@ -1047,9 +1047,19 @@ static int mt6359_accdet_probe(struct platform_device *pdev)
+ 	return ret;
+ }
  
-+static const struct resource mt6359_accdet_resources[] = {
-+	DEFINE_RES_IRQ_NAMED(MT6359_IRQ_ACCDET, "accdet_irq"),
-+	DEFINE_RES_IRQ_NAMED(MT6359_IRQ_ACCDET_EINT0, "accdet_eint0"),
-+	DEFINE_RES_IRQ_NAMED(MT6359_IRQ_ACCDET_EINT1, "accdet_eint1"),
-+};
-+
- static const struct resource mt6323_keys_resources[] = {
- 	DEFINE_RES_IRQ_NAMED(MT6323_IRQ_STATUS_PWRKEY, "powerkey"),
- 	DEFINE_RES_IRQ_NAMED(MT6323_IRQ_STATUS_FCHRKEY, "homekey"),
-@@ -239,6 +245,12 @@ static const struct mfd_cell mt6359_devs[] = {
- 		.resources = mt6359_keys_resources,
- 		.of_compatible = "mediatek,mt6359-keys"
- 	},
++const struct of_device_id accdet_of_match[] = {
 +	{
-+		.name = "mt6359-accdet",
-+		.of_compatible = "mediatek,mt6359-accdet",
-+		.num_resources = ARRAY_SIZE(mt6359_accdet_resources),
-+		.resources = mt6359_accdet_resources,
++		.compatible = "mediatek,mt6359-accdet",
++	}, {
++		/* sentinel */
 +	},
++};
++MODULE_DEVICE_TABLE(of, accdet_of_match);
++
+ static struct platform_driver mt6359_accdet_driver = {
+ 	.driver = {
+ 		.name = "pmic-codec-accdet",
++		.of_match_table = accdet_of_match,
+ 	},
+ 	.probe = mt6359_accdet_probe,
  };
- 
- static const struct mfd_cell mt6397_devs[] = {
 
 -- 
 2.48.1
