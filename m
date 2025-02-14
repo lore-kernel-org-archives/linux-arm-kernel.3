@@ -4,102 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E83BC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 03:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC4EC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 03:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9T6vDCQgh1gIYQoLsdnmEUZ+H4oulTkXaYpu8/f4F1Q=; b=mBvSCW+unP1/4se70oWQpRf8eX
-	2+35JsEmlzlbM2zX8qz+/QHLiY14h6U8CtGDHDQco9S2SsDOfPO6Or5q11erLBUfMyleqGwwdPN4f
-	HlONqPvwi8FS0jevzZcA6e3hGSPBAQbVF0icRWVhFpDpVp8SESuHSRJzZg+b4F15vQ23fqJres1T1
-	eqkBqHcjx9d93IzfrbgZdJ9eNPPv8YNlRzmE+O7YRveAGiprFiA9gVJG8GAqzYiG5+LsyMkHpmhtt
-	k3jeBN8MUbeAUYlq9jQptC43PcCR4a1dlYcFCtCI53fYiO5S/qQUi6QjUjsXymXqHtj4Us/tmj0Oo
-	Gnor4nWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dAco+YwYPEGkt4T/RB6q+1KKzbs6hySE2tC8jKn0Axo=; b=Y0eQr0x9L4R0O34CE2SqJh0Y70
+	rOqflytok4pKpH9J7QwDAvXHpk+BNkJDkXwzC1XhOxTs82589Z2P1JspxLGBYr8hw3EJjlz8rEgRX
+	fCGDa/YJNVWCOZ0pIa9cUa0Fy/oc6n3UZLg1/IgMVzck2OCe3snCZp8bb3en+LoDuaJrYXArbr8Wz
+	23n5q56GMaym0x1CsH3vmQAVSznVLGtMbKK3/mIqX0vdrDWYK4KsHBKYqT4QDd1ZdQ/51XAtTweCJ
+	cKvlDjXRARaZXo5DRnLkvfMt/mO0tLFUZXcPp2qzPdyDsnx4h+5nq6A/t4asDxyE+AWxsVQKH/deu
+	qBSZrSug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1timGJ-0000000DTTn-2ZTW;
-	Fri, 14 Feb 2025 03:21:07 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1timHj-0000000DTfZ-1Q6f;
+	Fri, 14 Feb 2025 03:22:35 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tildt-0000000DNZH-0seC
+	id 1tiltT-0000000DQQX-30rT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 02:41:26 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51DLhWOc002169;
-	Fri, 14 Feb 2025 02:41:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	9T6vDCQgh1gIYQoLsdnmEUZ+H4oulTkXaYpu8/f4F1Q=; b=MZ06cFvWsgnSuBa7
-	cm8yx6AFddqsNA1Iy4nuN0xsfydeNIb1s+QEK1efnHobuw9UnV7SM9G3ytutDhHr
-	gOHwtRV25sh/jNO63/AzqnwVFxKIydttAF8Ffw/duNEoBBc5fITGBeLlEzkArQyJ
-	TmxHraIq4blpqxvXs6SmF02sPpArYr8aGYmb15z/Nakt4D3zmx/XcEJMwxQz63g7
-	v44mIFvNAJDOuQQX1oUXXGePgqcoiTeFjiEgHTf9TkIAH9EpQ2DKZTrMuUV5e8K3
-	UFQisqecTU+Me6LrUdgQnCPDe8ttbRFq85iYhJlJ/vjFoY+02uVTieepiZ4LZCaJ
-	TaBtlA==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44s5w4bk5y-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 14 Feb 2025 02:41:14 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51E2fDwY018062
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 14 Feb 2025 02:41:13 GMT
-Received: from jiegan-gv.qualcomm.com (10.80.80.8) by
- nalasex01c.na.qualcomm.com (10.47.97.35) with Microsoft SMTP Server
+	Fri, 14 Feb 2025 02:57:32 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.163])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4YvGpC5pGcz2FdSY;
+	Fri, 14 Feb 2025 10:53:39 +0800 (CST)
+Received: from kwepemk500005.china.huawei.com (unknown [7.202.194.90])
+	by mail.maildlp.com (Postfix) with ESMTPS id CA35F180044;
+	Fri, 14 Feb 2025 10:57:27 +0800 (CST)
+Received: from [10.174.179.234] (10.174.179.234) by
+ kwepemk500005.china.huawei.com (7.202.194.90) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 13 Feb 2025 18:41:08 -0800
-From: Jie Gan <quic_jiegan@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        Jinlong Mao
-	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-Subject: [PATCH v11 5/7] dt-bindings: arm: Add Coresight TMC Control Unit hardware
-Date: Fri, 14 Feb 2025 10:40:19 +0800
-Message-ID: <20250214024021.249655-6-quic_jiegan@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250214024021.249655-1-quic_jiegan@quicinc.com>
-References: <20250214024021.249655-1-quic_jiegan@quicinc.com>
+ 15.2.1544.11; Fri, 14 Feb 2025 10:57:25 +0800
+Message-ID: <ed9cfe20-98a6-64de-66cf-43b536035ae3@huawei.com>
+Date: Fri, 14 Feb 2025 10:57:24 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH v13 5/5] arm64: introduce copy_mc_to_kernel()
+ implementation
+To: Catalin Marinas <catalin.marinas@arm.com>
+CC: Mark Rutland <mark.rutland@arm.com>, Jonathan Cameron
+	<Jonathan.Cameron@huawei.com>, Mauro Carvalho Chehab
+	<mchehab+huawei@kernel.org>, Will Deacon <will@kernel.org>, Andrew Morton
+	<akpm@linux-foundation.org>, James Morse <james.morse@arm.com>, Robin Murphy
+	<robin.murphy@arm.com>, Andrey Konovalov <andreyknvl@gmail.com>, Dmitry
+ Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko
+	<glider@google.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Aneesh
+ Kumar K.V <aneesh.kumar@kernel.org>, "Naveen N. Rao"
+	<naveen.n.rao@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+	<dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
+	<hpa@zytor.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
+	<kasan-dev@googlegroups.com>, <wangkefeng.wang@huawei.com>, Guohanjun
+	<guohanjun@huawei.com>
+References: <20241209024257.3618492-1-tongtiangen@huawei.com>
+ <20241209024257.3618492-6-tongtiangen@huawei.com> <Z6zX3Ro60sMH7C13@arm.com>
+From: Tong Tiangen <tongtiangen@huawei.com>
+In-Reply-To: <Z6zX3Ro60sMH7C13@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: en90kS7C3kE5SsOKQj_26hsTGyVnaTaJ
-X-Proofpoint-ORIG-GUID: en90kS7C3kE5SsOKQj_26hsTGyVnaTaJ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-13_09,2025-02-13_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 spamscore=0
- phishscore=0 impostorscore=0 lowpriorityscore=0 clxscore=1015
- suspectscore=0 mlxlogscore=999 priorityscore=1501 adultscore=2
- malwarescore=0 bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502140017
+X-Originating-IP: [10.174.179.234]
+X-ClientProxiedBy: dggems703-chm.china.huawei.com (10.3.19.180) To
+ kwepemk500005.china.huawei.com (7.202.194.90)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_184125_254896_707D5C31 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20250213_185731_904673_3BC0987C 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,112 +89,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add binding file to specify how to define a Coresight TMC
-Control Unit device in device tree.
 
-It is responsible for controlling the data filter function
-based on the source device's Trace ID for TMC ETR device.
-The trace data with that Trace id can get into ETR's buffer
-while other trace data gets ignored.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
----
- .../bindings/arm/qcom,coresight-ctcu.yaml     | 84 +++++++++++++++++++
- 1 file changed, 84 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+在 2025/2/13 1:18, Catalin Marinas 写道:
+> On Mon, Dec 09, 2024 at 10:42:57AM +0800, Tong Tiangen wrote:
+>> The copy_mc_to_kernel() helper is memory copy implementation that handles
+>> source exceptions. It can be used in memory copy scenarios that tolerate
+>> hardware memory errors(e.g: pmem_read/dax_copy_to_iter).
+>>
+>> Currently, only x86 and ppc support this helper, Add this for ARM64 as
+>> well, if ARCH_HAS_COPY_MC is defined, by implementing copy_mc_to_kernel()
+>> and memcpy_mc() functions.
+>>
+>> Because there is no caller-saved GPR is available for saving "bytes not
+>> copied" in memcpy(), the memcpy_mc() is referenced to the implementation
+>> of copy_from_user(). In addition, the fixup of MOPS insn is not considered
+>> at present.
+> 
+> Same question as on the previous patch, can we not avoid the memcpy()
+> duplication if the only difference is entries in the exception table?
+> IIUC in patch 2 fixup_exception() even ignores the new type. The error
+> must come on the do_sea() path.
 
-diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-new file mode 100644
-index 000000000000..843b52eaf872
---- /dev/null
-+++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-@@ -0,0 +1,84 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/arm/qcom,coresight-ctcu.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: CoreSight TMC Control Unit
-+
-+maintainers:
-+  - Yuanfang Zhang <quic_yuanfang@quicinc.com>
-+  - Mao Jinlong <quic_jinlmao@quicinc.com>
-+  - Jie Gan <quic_jiegan@quicinc.com>
-+
-+description: |
-+  The Trace Memory Controller(TMC) is used for Embedded Trace Buffer(ETB),
-+  Embedded Trace FIFO(ETF) and Embedded Trace Router(ETR) configurations.
-+  The configuration mode (ETB, ETF, ETR) is discovered at boot time when
-+  the device is probed.
-+
-+  The Coresight TMC Control unit controls various Coresight behaviors.
-+  It works as a helper device when connected to TMC ETR device.
-+  It is responsible for controlling the data filter function based on
-+  the source device's Trace ID for TMC ETR device. The trace data with
-+  that Trace id can get into ETR's buffer while other trace data gets
-+  ignored.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - qcom,sa8775p-ctcu
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    items:
-+      - const: apb
-+
-+  in-ports:
-+    $ref: /schemas/graph.yaml#/properties/ports
-+
-+    patternProperties:
-+      '^port(@[0-1])?$':
-+        description: Input connections from CoreSight Trace bus
-+        $ref: /schemas/graph.yaml#/properties/port
-+
-+required:
-+  - compatible
-+  - reg
-+  - in-ports
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    ctcu@1001000 {
-+        compatible = "qcom,sa8775p-ctcu";
-+        reg = <0x1001000 0x1000>;
-+
-+        clocks = <&aoss_qmp>;
-+        clock-names = "apb";
-+
-+        in-ports {
-+            #address-cells = <1>;
-+            #size-cells = <0>;
-+
-+            port@0 {
-+                reg = <0>;
-+                ctcu_in_port0: endpoint {
-+                    remote-endpoint = <&etr0_out_port>;
-+                };
-+            };
-+
-+            port@1 {
-+                reg = <1>;
-+                ctcu_in_port1: endpoint {
-+                    remote-endpoint = <&etr1_out_port>;
-+                };
-+            };
-+        };
-+    };
--- 
-2.34.1
+As I said in commit message, it is not normalized with the memcpy()
+because of the lack of GPR. If there is no GPR shortage problem, we can
+extract the common code of memcpy_mc() and memcpy()，The unextracted
+code is using different exception table entries.
 
+Thanks,
+Tong.
+
+> 
 
