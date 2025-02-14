@@ -4,178 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC73FC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A634C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
+	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IMb/WE3l6QZ2x6sQ1uFj9wxvEJ9f6/0Lq1zSg9iMPS4=; b=aP2n80nkt6r2hpLAZswYUET/R/
-	8bXQSdeoU5Gt/SSqrvMlG7OMR4nOufxJAiANesdZX/YAjlbEIyaiKO2ZolIfjFk/nHBPyb45PyWOk
-	MNrecvWxxyQRSdBE1XQDs9VN3hf66MKzCHBbYIzyn0NgARvsfbLpL4ImkE+IMPwDStpirN6Z8Rt28
-	Pyoj+JR8elHKzqTH7bsdU6DLAn4H/Pn4GnonLMG4pN0bOBSfJGuHmknJky+KRGPExMuOKJk4+BuJO
-	Db7vzVmHVRR0zbmNRaUC8HKxEXgHBn7WFw/vB8rUH03cmXHfFNk3c28TdL0WOOuTnBeM67SlDc7Gb
-	PozY6q9Q==;
+	bh=sOhOeuJi5yrz4/2ECZyl6aYLZu4BPC+rC7vskT2goxo=; b=FkhTfIGPjFiIJWZersMgiqL8bZ
+	A92Rf5hKEOiLJp3iuZqrcyHCxYPi+qwqqre5X91RX6s7+JqqZvfjy1UxIsR/piTt9eCVXBvEtF07t
+	1kFM8znUDmB7Os21FYzFhnqVKVbKFLGgWkV+VdYpT8HGr5t0/UK+9ybO2eFfKZI4KX8pzDpNmoTak
+	pR+88rG5gzb6FjW5rCRoWJu30wPI0jqQDPIbZIlMzNUfpF3voAyIevP6H1Pu6rrIqkku9aKzP37mt
+	cJ+rcHldE9EjEuC1vdbE5V5jsA9siNQudSisNgfIlNrIg/kr2CzzvLbxG/3ehOEzTuXdCZIGyOv3u
+	mk0qg3hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1titR3-0000000EasK-3SWZ;
-	Fri, 14 Feb 2025 11:00:41 +0000
-Received: from mail-co1nam11on2062a.outbound.protection.outlook.com ([2a01:111:f403:2416::62a] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1titSo-0000000EbCr-23i8;
+	Fri, 14 Feb 2025 11:02:30 +0000
+Received: from mail-vk1-f181.google.com ([209.85.221.181])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1titPb-0000000Eae3-0AZD
+	id 1titRN-0000000Eaw5-0MlO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 10:59:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AjDTjrExpSuDl6LkYnIePWC+zPc/Bmbt977rA7IhlFWuepHxl8xsRNyCCElw5Vh8Xo8wBQQKDms1CTB6RWuh8Ut7aiz5SrQLiEMYbPD8gW5Zg95DA9FfKsp9uCydJGYGlcAjPZ9mmmU7lx5yYBMMOEYCGswJDNfuZakT45/uP9VTAdw0vWayK7nz562zV1d3Lm2JAtTNU736vS1rL9ppuMZgh2N/HEMXAfUPyFOtH4wzfBsVpPQTc6vz3pfZE2/J1sqcCDYanxqENHr9NX0n61ZkE1OCqkljZO69ryBiFJGbk++SbUIkwifnfl5r/6p7XxJF5yngk7jcYliXaimBJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IMb/WE3l6QZ2x6sQ1uFj9wxvEJ9f6/0Lq1zSg9iMPS4=;
- b=wmURKxHuvzuJmZ0q5uztuguI6pRzM5yXwUahAByfV9U+yA2S6I6RNric6/etZLMwVo1/1SoaskykzHzo1+GyVgYb3LtWPX8pVYwIV+QlauNCIxovsQcgea0E/6i7zs9RnvzjDsNKOGtrlsaywAE5l9kX2Tnbe6X2jyyOInXvBW9XqMILl6e5X2XTK/tavo9xBz+S2jWka3BfzQlFQHPaSDUKp+v3pnD5Yb4xwALljDIFLwnVM3Is/rubu00mYC4rGVEqQUVlkpGBipQdPmzyitwgHucpVdLaiqFxYud8zpqdN3f5CrM0sMH5/t3+hllJ3PBDtkCi1mQVZy6AjrsfMA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IMb/WE3l6QZ2x6sQ1uFj9wxvEJ9f6/0Lq1zSg9iMPS4=;
- b=a9yZ3Kzi0ix2PAo421pWBfpANOLcPT+hgD8d3VWwnZfAVlO014m1k6Y1AbiOZC1RI7cYhuz3DUlCaVU20vRX2dr70LUO7LKG1RhrkWtWK+WKQYltnWkM3gcX5e3u2oMbVWjp4bCnDrOe2ywRwA/NkR8c7iEmJu+aJCcgVRGJaFcrvwi17lS9KY7vR/1paxidq8ssfCdxxSWFJDL+3v7WLq4GWpCjkyfLONmXBUXIlyWotCdoI5di2UsZaJc2RHzliOjwybPfekNbcXDDicv6PChvSheK2o2hfMKox5dgtuWoALlcI/IqSSnK8PQhWmEzN+Xrf7qFrVcNrK522d86Zg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
- by BY5PR12MB4131.namprd12.prod.outlook.com (2603:10b6:a03:212::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Fri, 14 Feb
- 2025 10:59:02 +0000
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9%6]) with mapi id 15.20.8445.013; Fri, 14 Feb 2025
- 10:59:01 +0000
-Message-ID: <05987b45-94b9-4744-a90d-9812cf3566d9@nvidia.com>
-Date: Fri, 14 Feb 2025 10:58:55 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 9/9] net: stmmac: convert to phylink managed EEE
- support
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>,
- Bryan Whitehead <bryan.whitehead@microchip.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Marcin Wojtas <marcin.s.wojtas@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
- <E1tYAEG-0014QH-9O@rmk-PC.armlinux.org.uk>
- <6ab08068-7d70-4616-8e88-b6915cbf7b1d@nvidia.com>
- <Z63Zbaf_4Rt57sox@shell.armlinux.org.uk>
- <Z63e-aFlvKMfqNBj@shell.armlinux.org.uk>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <Z63e-aFlvKMfqNBj@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0300.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:196::17) To SJ2PR12MB8784.namprd12.prod.outlook.com
- (2603:10b6:a03:4d0::11)
+	Fri, 14 Feb 2025 11:01:02 +0000
+Received: by mail-vk1-f181.google.com with SMTP id 71dfb90a1353d-51faf3342b3so532925e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 03:01:00 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739530859; x=1740135659;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sOhOeuJi5yrz4/2ECZyl6aYLZu4BPC+rC7vskT2goxo=;
+        b=JSKliRElo2ytyGtw0ET/08qTj19V4r8ngEGRj5uGaqhBLhL5rluQ49X+jjOCtW1C+5
+         UaRkAz1wcl4fQdCI5ZB7zZJcyJypOuNdtI5rQOkVMUO1IKE8PJSJPxkMC8+6hC14vXa6
+         5JJwGNKt/C9oepflx9G3JoT3uJojfktjOCH9Xv7kL7uIoxulHyyTGkqXnaeCHum5cE9p
+         keARS93mCLnpi6bTaU6tBoyy4hXLtemH+E4qquC5Pl7iY+7Pn87SYvNNbE0zGj2s6/rQ
+         Mu4ThyBY9y9I19EJn3mSa0kHD6vxQ1uq/JOyw96b+dp3wS3G5YkIzgetl3qVgX5KkPpw
+         I7mw==
+X-Forwarded-Encrypted: i=1; AJvYcCWgHsKwCKm0icFQKYgv6NM28dD0MRrBqG6JqcNPk0NQlSIc26J0xSGZTmvfL42cfU3E7o//BaAJOD0PVw4JX82g@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9Cq3ZnMcTsbAgclF3tafAfUenJzsTS9f/MLrZH4A+huRJVcry
+	lGzmvhFk3EE9zGKvVy9bBfD5i1ao9nuOUlkI/m4boDni4FZHStyxUsl+0iTLpv8=
+X-Gm-Gg: ASbGncvE2ncN39JzW7qo0rpPQVRXtlIhOmfsquTFoVr0jIviwZ1rnm86nKOgGBOSb1c
+	HYnRbSdwy3kMcAHqSAY6KdH1T59vTKNioBmLVJ0lAYukUH4mn2xmIn3znG2Dhfnup8X2dPMX4v4
+	bioT5MsvzM94nRI7fUSD+MxG3ZJ9QcpEr+7QIY2kwe+mvUmcvJiLExPfdudH4KZnLe/eKNrmiiX
+	aElm/gM1OlXSKHPQFpUIMft2bNZVb7cHI/B5mFI6lNHr7oRmMecxYSoWF7KRCHX11SQUWbxND8v
+	lX1NfU54Sg0GEs1YqlNEss5jZEcXghUPQsvketCXkho6Lgg2INZAoA==
+X-Google-Smtp-Source: AGHT+IEZHIfPA48zqzbwv3dQDGRLELlBwkYSI4r0o68M9K7AT7ZXyNphw7pPgOsj158XSBA9ZovZ5w==
+X-Received: by 2002:a05:6122:829a:b0:51f:4139:c30f with SMTP id 71dfb90a1353d-52067d8d86amr9257201e0c.11.1739530858959;
+        Fri, 14 Feb 2025 03:00:58 -0800 (PST)
+Received: from mail-vs1-f49.google.com (mail-vs1-f49.google.com. [209.85.217.49])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52098c98d26sm17861e0c.8.2025.02.14.03.00.58
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 14 Feb 2025 03:00:58 -0800 (PST)
+Received: by mail-vs1-f49.google.com with SMTP id ada2fe7eead31-4bbd554fe87so509841137.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 03:00:58 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXjCwACfAahQkswYWz0yXiYbTV7/uS1bMv6eJZDo0+aCPcXGQGFOsLFW95DGud9ewtadx7anwvdQe8gmXI/Pj4j@lists.infradead.org
+X-Received: by 2002:a05:6102:32c6:b0:4b2:adfb:4f91 with SMTP id
+ ada2fe7eead31-4bbf2312e79mr9166519137.21.1739530858000; Fri, 14 Feb 2025
+ 03:00:58 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|BY5PR12MB4131:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8bd12dfa-d8da-4080-5a65-08dd4ce696f5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|10070799003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Rks5OHVhYmZXNkxTbGd6UHBPd1ljdlpwTWttMURRYzBHbnNHL0w2MFRCbHMr?=
- =?utf-8?B?cVpUK2RzMTV6WmJObU1PcTYydTNKVlRwZG5lcjNsN2I5eGZrY21oNGI3UWkx?=
- =?utf-8?B?YXlnWXZKZHVmNFJYWGZvMHdDc21EeEFhVDZnUlNvRmc4ZU45K1BBY2ROVDc5?=
- =?utf-8?B?QXZrZUU4VmZIdjA0akhkdWNEelRGYzlrN1FlRlBjQ0Rma0FJb2t6WUV6WXJo?=
- =?utf-8?B?VnI2SzBGbmVpTXYyK2ZJTVlJMUZhZWRMVHpneEV0QW5vZ0hxMXdCam1iNE5O?=
- =?utf-8?B?ZnNBNW1Lb1NLSHZYd0twNXQzWStvbU5zS2pUajhxNzRYV25rQlU1dVpTV1Yv?=
- =?utf-8?B?Y2N6N0tKZExPeVE1emVxeFhWUmZ5eXJxcmROZnpra01DTEFvUGYrUHB6OHl5?=
- =?utf-8?B?TW15TlQ2cHNSYnRIVEwwZHJ4K09lQVJqNUlscGFDamZUTEdvd1EvTzV1S3JH?=
- =?utf-8?B?TW96YkxGdEhXNTJSellnc3JzbTUyU3RvOEJCczBvdytXYkhRVjNoZ29SSVI3?=
- =?utf-8?B?UGVnYlZmY2tIRnErOEpRV09IYjFoelJGZW5ZR0pLRkFUbVZ0RFFNa2FXOWhu?=
- =?utf-8?B?amJrMjkxaVdDVjlZcnM0ZStCT2VMY01lZVMzZUJtcFFXL2tsMVBWTUZHdncy?=
- =?utf-8?B?cDdIWkNmZ1c1QjRYZjBma08veDFOQk9TQmNDRHQxeW5UOUhvakZaYm5HL0Rz?=
- =?utf-8?B?TFZlS3l1czFpTm1IRFdTY0VIeEZrVDl2KzRHL0hTWFFSNHpNV1Z6MkczdTZO?=
- =?utf-8?B?djVzY0pwdUllU1VpdEpZZUd1NVVWZk5Rc0EyMnI5RlVUS1lyaDEzcllyN2FC?=
- =?utf-8?B?S3Urd3Jpdmw5cFdwUnJZTVlFZE15UUdvTDNDTGl3dWx5dkg1KzkrVDJTaHBo?=
- =?utf-8?B?TytNSFlRL243TWhXb29JUE1weCtGOWFlQ2RqQzdIRDk1R3JDbTQzSFVIalBK?=
- =?utf-8?B?U0xHOHB1K2xKWUNtTHJXa2xBZFZsMlU4Y3d3dk1INlNUMlU5V1lSVDEwT0xo?=
- =?utf-8?B?T2xmWlU0SEUvUG9TbFdtS1RtRVdQNS9TN1BXbDlUcXFaOGxLL1J2L3VNZk5F?=
- =?utf-8?B?RWdLcTFwcXNacm53MllWd1NHYi9WVTE5UURtNTk0Z2ZFeWp4bVpLeWt1SU9C?=
- =?utf-8?B?SjFOM1poVkFkbzZwSTM5OU5BcnIzM0cvdTF1cy9hSEN3SWR6NkUvb2RpNlF5?=
- =?utf-8?B?Vkg2R0pxbTF4c3FuNk1jcWNVaU1YZWFYWXZEYkNGSnc1NkNoL1ZmZU1wdVdC?=
- =?utf-8?B?N3dDMFlTdDcxQ3dDRUsveS9lZTVLNXFKT0lDeGtneGZOSk1yYXhCSzBtMCtZ?=
- =?utf-8?B?aDRKVHFRS1Y3U0xQcnJGODlmTThqRTN0ZlloNDJzN2RPV0wrcStJT29NRSsr?=
- =?utf-8?B?TTdUQW85OUxIVWZGSlVDeUhwZ0pCeWt2cnphMjVaVlZRd1Qrc2ZhaWRwb3cr?=
- =?utf-8?B?SSttaU5XWkFOdk4vVUNWSFZFV0dvMldhUUUvU2x2c05WaGIzQzhud1ZxRU8v?=
- =?utf-8?B?Sy9MNjk0NlFkSnVyWXRxZ1NJVU9hcTdZL2haNGZudXllL0x0NExyMnB5S0tD?=
- =?utf-8?B?a2czUG8vV1NYNkpUUzh1eUo4ZjJRNnRqSlMwdDRuSGc4NmlMRlRwODVuT0V1?=
- =?utf-8?B?eGt3OTdoZm5JT0dBM0RlMFJGMzFvVW9sN0x3MG5BQWRFcGZ4R1BNVmRLaS82?=
- =?utf-8?B?M0hib3JHckthU3F6UVdsT3NXNFlEREF5ejRNSzBMajZ5ZmZqbGpHTmZ1VFRV?=
- =?utf-8?B?d3AvQVlkZGlhcFFOUUJzaTA3UmhKdlB4MU9XY3NtU1V6emtaNUNjL2srVUlN?=
- =?utf-8?B?WExPQlNNK3hEV0FUdmRYSDZSTk91SUFlZ1hZcHRWSERSSzdJeExnWUpOcWJj?=
- =?utf-8?Q?+1Bx94Tb4dV9x?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(10070799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RTBiMmRiSjh0aFQ1aG54cWJCRmYrZ0F3YXNmelBlVG8rTUhLZmw0TEVqeld6?=
- =?utf-8?B?OFkvRTRLQVJsa0s4RlBmcUI5a05mbkZIREc1ZU5NSEhKalJoN01ZT0ViR3dz?=
- =?utf-8?B?RVZxUFdJU2sxM21qUkpyTnd2RkFLdTg3YXU2WER1MzlJVG1hOW02MW9yd2x4?=
- =?utf-8?B?WHpUUG5ySUdJMVN6RUVQUlJ1MTNpNFFKQlVndG93ODVVaXlOdjV4Z3BVTTVw?=
- =?utf-8?B?V29CZ3ZnN3NnWCtLK3E5L29rZUZ3QU93YVJIeFF0aC91d3E1TEhKR0xxTmxJ?=
- =?utf-8?B?SkpJcngydThZK0VadE1BRFZvUzdOalVseW1xTFRiL1R4RVRTZG9yM3BUblpq?=
- =?utf-8?B?S2hJRGJ3d3dVdUN6YjQwdkRBU1YwVWtJNVFuOHdTdGFCdW1JaUVSY3hZejdw?=
- =?utf-8?B?WkpzVUMzN1lwRmhrdEFKZ0xtbVMzZmNsRkI3M0dzdWdBTDArUkkxVDMrSGNl?=
- =?utf-8?B?ei94dHpDTVM0NjduR3F2b0c2b01sRDV4NjlPN0Q4dnkvbzZEMUZlYVcxNDIw?=
- =?utf-8?B?Y0t3KzZ0RVBibGxic29LdzQxNTFuYTNaK0g3bFhIaWZMdk5BdEV0TGlNZWNC?=
- =?utf-8?B?ektUZWNHQ1hlelFlWVFRNXhEcUdHY0VJWFN2a3RxVGNxNkJ3bUtBeFdkblU2?=
- =?utf-8?B?S3ZkSDRva2Ivb2h2TDFPdGthVmVpa3VsbHlLeDgvY3FVRW1QRXNvNUN0bjBR?=
- =?utf-8?B?ZGgwb0w0bWRsM0JDczc3dllrQ0NjYTdYQjhCeUZ4L1VSN3JNQWxHb0YvaHh5?=
- =?utf-8?B?eWVsSFVLV3I1K1R6bi9pYmN1TjZvT3J4RFhtdkh2bW9XNitOTjN6YXBhMGpO?=
- =?utf-8?B?Z04wUVFhU2drTkNuT3NvY1p2cndvaTlQZ3ZBN3JKa2Vja25zajBOTk1WT0oy?=
- =?utf-8?B?bUlzdUZvL2Q5SVM1WHMwTm1NN2I5MEJxQnlVeUVBL29mQVVRUjFJWGJTLzBu?=
- =?utf-8?B?MHpRUFRHTndIcXcwQS9KSjVvOG5HQXp6elJKMGJjUHIyaEdWdFBEcW5pSEVj?=
- =?utf-8?B?WHJoZHBYQ1FWZ0ZMYWppOTNzd2NnaXNHZWhaT2ludmY3ZGhoLzd6U01jVXhD?=
- =?utf-8?B?WnVnOER6ZFJNRkUzL3prZk1KVXQ4dC83KzBsaWxBUlllOE0zTUlqdGdBVmtl?=
- =?utf-8?B?ZHoxUFBKRVhUZWVLMW1mZFRvSW5sd1l4YkpaNTUxSE4ya0RTODhjQlBJeUto?=
- =?utf-8?B?SWswOUJVcWNBQ2h3MHg5L2E0RlYwRmcxYk05WkdZVTBuQkg4RXUvWFRuTUZx?=
- =?utf-8?B?NTNneGp3OWF3SHUwc1lSUGlnVlJ6QjJWSm1qd2pVY2g2MHMrbnU5MnBHNnlO?=
- =?utf-8?B?Y2JnYXNLUFhua0pKNWt4S0JOVVc0Rnp6NURUVm9rd1ova0JjRkFzWmZiNFNl?=
- =?utf-8?B?MnUvNDV6cEZqMndJRjZDQzU0THpCQ3YwVlNVOTRJRmhGaTlGcXpRRTV2ZU1C?=
- =?utf-8?B?YWZncEJhemFnazNqSlNTTFZjYWR5WlhBVG9GWEg0WkhqSitNcFRITkw0dHRY?=
- =?utf-8?B?K3o3VlM3OWJnYXFYYi9Gby9FZWRNRTJQOFpxWGxZMnVoTjVnRms2UDZoaW5t?=
- =?utf-8?B?N2dUejkzRm5UT0pqanlyMkVXVGsrTnlwUlNYcDlnR2lBWG5pUHg5VFpTUDds?=
- =?utf-8?B?WXBlZXlGOXl6aVpSdzRVbXFzeThnTHdSSCt5QkZUQjZ5elRNSk9FYXVEd1lw?=
- =?utf-8?B?eG1qTG5Qb0VTQ3UyeFdzVnZJR01ISVV6S1k4VENFWU5WY0swRy8wWjhkL2hi?=
- =?utf-8?B?T2o2YkhUb0RwbUlpcUxKdkZaR1dOeE1iZUxJM0h6Y1ZLaFZvNEdRUHhDdmFT?=
- =?utf-8?B?WVlMYitKTHRGM0M2b3dLaFMxamN1MFQxZGJOZmpQMlkwbnpXU21SUzBPZzU4?=
- =?utf-8?B?YmprUWlZdldCV29GejV2NURBUjFNTGljN25Ma2w1RWQ4T3B3NDVVOU1Dcnhw?=
- =?utf-8?B?ZXdNN21DVktWckw5R2ZYU0IzUGRlaG1WRkZSRnVabk13RWwya0kyOG1ka00w?=
- =?utf-8?B?aTJSR0t2OTZCQ3k4eTJ6TWNRL1duNy9wY1R0a3N2aExYTUtuV0xqOUhUY0Ey?=
- =?utf-8?B?aTJqVE9reVR4U1FPdERSZ0VEV2hxZDRTTXhRZjU3a0hWWCtQZysweUlRdUlr?=
- =?utf-8?B?bW41ZTZCSVZuNXhpWHprYnBxYWpJT2YyNzByQ1p5K2gwOHVML2VmSVdtSGlj?=
- =?utf-8?B?T2xsMFVVQTRIeGM2NWtlNlc4MEVFbnAxNFlISnhKMWx3dGZvM3M0cGYxWExy?=
- =?utf-8?B?T3AvUDJRdlpCZVQzb1FldzdLZ0pBPT0=?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8bd12dfa-d8da-4080-5a65-08dd4ce696f5
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Feb 2025 10:59:01.7920
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Y8OufsAl2d2RTgELJp5sQNoWn+e94UMvqx3HJeLNjzhuKRs9zdULmotLTxUm2DxeQuxxWHfVegDjy6Zpz0Ytmw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4131
+References: <cover.1738329458.git.geert+renesas@glider.be> <1824412519cb8791ab428065116927ee7b77cf35.1738329459.git.geert+renesas@glider.be>
+ <e20a177a-30cd-4088-89e1-b479aba1356c@wanadoo.fr> <20250204073011.5f6ca125@kernel.org>
+In-Reply-To: <20250204073011.5f6ca125@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 14 Feb 2025 12:00:44 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWe1Fe4ZvWHB1tf_NQNg6W9PmJzpEK_28g+ix9an3jw_Q@mail.gmail.com>
+X-Gm-Features: AWEUYZljxHasbqOWVQ67DCDXNharhoOj8Y29FWByT7hZT_VuVaki-I-AuDEVuCo
+Message-ID: <CAMuHMdWe1Fe4ZvWHB1tf_NQNg6W9PmJzpEK_28g+ix9an3jw_Q@mail.gmail.com>
+Subject: Re: [PATCH treewide v2 1/3] bitfield: Add non-constant
+ field_{prep,get}() helpers
+To: Jakub Kicinski <kuba@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_025911_085541_00E17CB2 
-X-CRM114-Status: GOOD (  28.18  )
+X-CRM114-CacheID: sfid-20250214_030101_130246_EC2BFC52 
+X-CRM114-Status: GOOD (  25.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,91 +90,48 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Crt Mori <cmo@melexis.com>, linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, Rasmus Villemoes <linux@rasmusvillemoes.dk>, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Shan-Chun Hung <schung@nuvoton.com>, linux-clk@vger.kernel.org, Lars-Peter Clausen <lars@metafoo.de>, Herbert Xu <herbert@gondor.apana.org.au>, Bartosz Golaszewski <brgl@bgdev.pl>, Takashi Iwai <tiwai@suse.com>, qat-linux@intel.com, Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Linus Walleij <linus.walleij@linaro.org>, Jacky Huang <ychuang3@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, linux-sound@vger.kernel.org, linux-gpio@vger.kernel.org, Alex Elder <elder@ieee.org>, Jaroslav Kysela <perex@perex.cz>, Vincent Mailhol <mailhol.vincent@wanadoo.fr>, linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, "David S . Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jakub,
 
-On 13/02/2025 12:00, Russell King (Oracle) wrote:
+On Tue, 4 Feb 2025 at 16:30, Jakub Kicinski <kuba@kernel.org> wrote:
+> On Sun, 2 Feb 2025 17:26:04 +0900 Vincent Mailhol wrote:
+> > On 31/01/2025 at 22:46, Geert Uytterhoeven wrote:
+> > > The existing FIELD_{GET,PREP}() macros are limited to compile-time
+> > > constants.  However, it is very common to prepare or extract bitfield
+> > > elements where the bitfield mask is not a compile-time constant.
+> >
+> > Why is it that the existing FIELD_{GET,PREP}() macros must be limited to
+> > compile time constants?
+>
+> Hard no, some high performance networking drivers use this on
+> the fastpath. We want to make sure that the compiler doesn't
+> do anything stupid, and decomposes the masks at build time.
+>
+> The macros work just fine for a *lot* of code:
+>
+> $ git grep -E 'FIELD_(PREP|GET)\(' | wc -l
+> 22407
 
-...
+Indeed.
 
->>> I have been tracking down a suspend regression on Tegra186 and bisect is
->>> pointing to this change. If I revert this on top of v6.14-rc2 then
->>> suspend is working again. This is observed on the Jetson TX2 board
->>> (specifically tegra186-p2771-0000.dts).
->>
->> Thanks for the report.
->>
->>> This device is using NFS for testing. So it appears that for this board
->>> networking does not restart and the board hangs. Looking at the logs I
->>> do see this on resume ...
->>>
->>> [   64.129079] dwc-eth-dwmac 2490000.ethernet: Failed to reset the dma
->>> [   64.133125] dwc-eth-dwmac 2490000.ethernet eth0: stmmac_hw_setup: DMA engine initialization failed
->>>
->>> My first thought was if 'dma_cap.eee' is not supported for this device,
->>> but from what I can see it is and 'dma_cap.eee' is true. Here are some
->>> more details on this device regarding the ethernet controller.
->>
->> Could you see whether disabling EEE through ethtool (maybe first try
->> turning tx-lpi off before using the "eee off") to see whether that
->> makes any difference please?
-> 
-> One thing that I'm wondering is - old code used to do:
-> 
-> -             phy_eee_rx_clock_stop(phy, !(priv->plat->flags &
-> -                                          STMMAC_FLAG_RX_CLK_RUNS_IN_LPI));
-> 
-> The new code sets:
-> 
-> +     if (!(priv->plat->flags & STMMAC_FLAG_RX_CLK_RUNS_IN_LPI))
-> +             priv->phylink_config.eee_rx_clk_stop_enable = true;
-> 
-> which does the same thing in phylink - phylink_bringup_phy() will call
-> phy_eee_rx_clock_stop() when the PHY is attahed. So this happens at a
-> different time.
-> 
-> We know that stmmac_reset() can fail when the PHY receive clock is
-> stopped - at least with some cores.
-> 
-> So, I'm wondering whether I've inadvertently fixed another bug in stmmac
-> which has uncovered a different bug - maybe the PHY clock must never be
-> stopped even in LPI - or maybe we need to have a way of temporarily
-> disabling the PHY's clock-stop ability during stmmac_reset().
-> 
-> In addition to what I asked previously, could you also intrument
-> phy_eee_rx_clock_stop() and test before/after this patch to see
-> (a) whether it gets called at all before this patch and (b) confirm
-> the enable/disable state before and after.
+> BTW aren't u32_get_bits(), u32_replace_bits() etc. not what
+> you need in the first place? I think people don't know about
+> those, with all due respect the way they are coded up looks
+> like an IOCCC submission..
 
+These support only compile-time constants, too.
 
-Thanks for the feedback. So ...
+Gr{oetje,eeting}s,
 
-1. I can confirm that suspend works if I disable EEE via ethtool
-2. Prior to this change I do see phy_eee_rx_clock_stop being called
-    to enable the clock resuming from suspend, but after this change
-    it is not.
-
-Prior to this change I see (note the prints around 389-392 are when
-we resume from suspend) ...
-
-[    4.654454] Broadcom BCM89610 stmmac-0:00: phy_eee_rx_clock_stop: clk_stop_enable 0
-[    4.723123] dwc-eth-dwmac 2490000.ethernet eth0: configuring for phy/rgmii link mode
-[    7.629652] Broadcom BCM89610 stmmac-0:00: phy_eee_rx_clock_stop: clk_stop_enable 1
-[  389.086185] dwc-eth-dwmac 2490000.ethernet eth0: configuring for phy/rgmii link mode
-[  392.863744] Broadcom BCM89610 stmmac-0:00: phy_eee_rx_clock_stop: clk_stop_enable 1
-
-After this change I see ...
-
-[    4.644614] Broadcom BCM89610 stmmac-0:00: phy_eee_rx_clock_stop: clk_stop_enable 1
-[    4.679224] dwc-eth-dwmac 2490000.ethernet eth0: configuring for phy/rgmii link mode
-[  191.219828] dwc-eth-dwmac 2490000.ethernet eth0: configuring for phy/rgmii link mode
-
-So yes definitely related to the PHY clock.
-
-Jon
+                        Geert
 
 -- 
-nvpublic
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
