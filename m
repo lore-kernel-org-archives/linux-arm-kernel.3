@@ -4,97 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF59BC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 19:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6614AC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 19:44:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TW9nWifCzwYZy8eQdCTo6EqgINRvFFYuVj87cGvTYVY=; b=a1bj/XgCurG29Tb4CFZVbB6N3j
-	BpAfJYiPDzQZgQAIzjujUtx7yJdtdfmjajdLJf5WE/KxbMbF15ZCi4hW/dz7bsYF5qIIXKQl7R4VI
-	8asrxAW10+99ZyiwIG0WBWKZL7yadO/Pq+OW1+Hl0g9X6aWdZ5Qe6UqqZdqTtehPB50iJMXesKsO/
-	v7MsE+EtICjB7W/QvqB0xqW2VUNAk3E0sDW8cyPWSRUsmqTU0DdG4Fl8D0diMqYX9Nxu8y6CTJxEG
-	JTQH/ePIMdWciljjnNuXLiA6Zw3IcnXVm8+Apa8n5HXQTKxUXZi9JuEt3n7gahftU5Qsk71hYPItR
-	OSF6JzSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ay9KrSCDlk64j/01MRKvLopnwWKqdJcsV9naZB1JPSs=; b=heYp8uewihx6oaEoqnqm8/wUZF
+	uLNOlifOlZizQn9EKngQmNHooz5SY+SOiZIADle3puStuZYZxU1/ytqNlI2+EdVnL9pPxWPZjRJRf
+	NBNOP7TV8nc0Wo6lD7y1d9TYyV5L2cTc5MQnwOnhgr5Q+O8zZvu70cFy/LvGrVuBdcEaoASQUnzuh
+	WQQ8nvgRfKemp2PsdRBWnP4ROH84C4sWx4xHyD6vZkqTCaFqHDmfh7/KchW5O4bk4/aG93L8ybqc0
+	cZV1uZbnjC4sD3euIj4BSZADT6UPXdLw7XftCCWn9S3ZmgYPFyBR/0onWQvb9YCp8KAjkFWhvOZfw
+	cZBoUxDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj1Z2-0000000G3ov-0NAK;
-	Fri, 14 Feb 2025 19:41:28 +0000
-Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
+	id 1tj1bi-0000000G4Np-3Uns;
+	Fri, 14 Feb 2025 19:44:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tizfb-0000000FkYB-1mvL
+	id 1tj1aG-0000000G44j-15v7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 17:40:09 +0000
-Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-5fcb8a9c1a6so782017eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 09:40:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1739554806; x=1740159606; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TW9nWifCzwYZy8eQdCTo6EqgINRvFFYuVj87cGvTYVY=;
-        b=FapJmCQ0X14iS9JhIy4DE/cTogq3rxjm6yQNw70EHfOZM/aFc6hXJhco4EgsJNVHJI
-         23I6Gcv+o2ClIhcbsBGuUzJV8ponqRVP+BL7VklKjfRYw68mMXWTrWRG8QtdDxax8RDg
-         TvqjGuyyWVSS7e0Hees39JLTdrdfaQ955B2pk=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739554806; x=1740159606;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TW9nWifCzwYZy8eQdCTo6EqgINRvFFYuVj87cGvTYVY=;
-        b=EnsbfBWOfmzAevWE60bUeaxldXYKfrdq8dtlD7tYJQ5FN0Mxpy/8SgUOIktqTl5oVh
-         qftNafTocD4P3jTqzNfzI7MPT4V8imNhfBud/lNA8fKo+epLu5hpT5y6avnNU1vAN+yB
-         K3Cb6c2MBcoV4ONoeBYeYHeXUbkYVgrH16iHhuupVTsL37EHJC8G70qkcor/3IcajP5t
-         4tFZ0n6Vk1Bhz4pGVX3x/o0E+QH2QUeV9qlPTUb/4Aur2gtyc6sYjJ6HBePwb/g1XQK0
-         afvWrrjer1Rx4r39ZkAPQ/ZRzWvO8KOyr5mXuKZq9x/aK+L0xxbznm866Lf1jTC8uCbC
-         Cb3w==
-X-Forwarded-Encrypted: i=1; AJvYcCUqWtGk+57DCjsfCtwojPAeGXQq28ckGyEnqjO2IcqYnohRMnx8A1kEKxr41A2X3x2tTljcDCMvbeXHRfEg6+Yp@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAdiNltX5MJryju+AieLT+Tmw/0ycs6zTg2fQDYF5JMYVzBG3q
-	XgBSokolYQ0SWdio/9K2krBsNKMbSw9X/GUW9e4eAkHePsitX+35R646vbcSF0bfcUuBxHxy96z
-	f8Q==
-X-Gm-Gg: ASbGncvrjPs0XDNe9PE5ngPb9UmLwsbdqwVgdsh/ZWcE5TcjIzsT6JsUY6Hq4uPj9kL
-	9Tdzf4gSHixE/lwcVurMvpkoV/GqYlly2ZNoyHKgwOMuqNNAib2t5cCBXnlcCQdAwQPLBHt5Vgw
-	m8WvAxFa7B10OHKkhScu9iQWXh6jmRBwLXCirfoIlHYQynNg2wqbYCr1+ymZf0u2ExNKpK5KU27
-	8pjJEiWTWY3mPQ4NfbDpLvQyC7qTSk5PPavy69ltNvjsR+irXUMj2OdDAVQrWZCtHDxXe+lsmzE
-	w3wWXyI52vhFaGgZgTJNmDyIMp/dzoZo1OTL6CH25VL6hGXsTazbfYQNBOB4TzMXCbd6Slc=
-X-Google-Smtp-Source: AGHT+IHsRBlmYmWP6ec6QvQPHeSSiuic4NDtKAA7m7DLRipohduC9tXO6eBUjYvMvWROPLOlA/zw6g==
-X-Received: by 2002:a05:6820:c85:b0:5fc:b1d9:9b68 with SMTP id 006d021491bc7-5fcb1d99d08mr4047840eaf.5.1739554806336;
-        Fri, 14 Feb 2025 09:40:06 -0800 (PST)
-Received: from stbsrv-and-02.and.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5fcb17a4ca4sm1284073eaf.30.2025.02.14.09.40.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Feb 2025 09:40:04 -0800 (PST)
-From: Jim Quinlan <james.quinlan@broadcom.com>
-To: linux-pci@vger.kernel.org,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Cyril Brulebois <kibi@debian.org>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	bcm-kernel-feedback-list@broadcom.com,
-	jim2101024@gmail.com,
-	james.quinlan@broadcom.com
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH v2 4/8] PCI: brcmstb: Fix error path upon call of regulator_bulk_get()
-Date: Fri, 14 Feb 2025 12:39:32 -0500
-Message-ID: <20250214173944.47506-5-james.quinlan@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250214173944.47506-1-james.quinlan@broadcom.com>
-References: <20250214173944.47506-1-james.quinlan@broadcom.com>
+	Fri, 14 Feb 2025 19:42:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 15C145C5B29;
+	Fri, 14 Feb 2025 19:42:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA5BDC4CED1;
+	Fri, 14 Feb 2025 19:42:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739562163;
+	bh=j8RbUnTVR+Rmdyxe3mjujeaLymNY6BVjB/yjOURYHBI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=If1z8UYMrV18l2O39VsnXxyaZX8j5zqCs7PfU7UiHofpUd0X0H+YHHVk1t/Zw+b4/
+	 eL+iiJzA1kIcgYiZQWhrjTrE8gm4hDWOkx1Xkziz4YBmkbRF6uSvpyObFlqsZ9+c4D
+	 4HfNbweBxiFFpugcKa++4K7rPMll4aqQB6BNnQlWlFXjYpQ+e3Q4lXOCtvCgFex/gj
+	 12AQ1FPMo7xdby/Gdbc00tsCjGcqjWxkbGzIUR67jveSRPnpVEzoE6ohrSxUjPxx8d
+	 SIlFCyr5xnX9Sx5EMfpt/w7xgyik+6soixxL8IXY16+k++w4OZI4PIGG1egPo/0zym
+	 5vltoOGyMwrhA==
+Date: Fri, 14 Feb 2025 11:42:41 -0800
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: Indu Bhagat <indu.bhagat@oracle.com>, Song Liu <song@kernel.org>,
+	Weinan Liu <wnliu@google.com>, Steven Rostedt <rostedt@goodmis.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
+	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
+	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
+	live-patching@vger.kernel.org, joe.lawrence@redhat.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+Message-ID: <20250214194241.3aymq2kr6gky5zfv@jpoimboe>
+References: <20250212234946.yuskayyu4gx3ul7m@jpoimboe>
+ <CAPhsuW5TeMXi_Mn8+jR9Qoa=rAWasMo7M3Hs=im6NT6=+CrxqA@mail.gmail.com>
+ <20250213024507.mvjkalvyqsxihp54@jpoimboe>
+ <CAPhsuW4iDuTBfZowJRhxLFyK=g=s+-pK2Eq4+SNj9uL99eNkmw@mail.gmail.com>
+ <3069bb9c-6245-4754-a187-ac8253103d32@oracle.com>
+ <mb61pa5apc610.fsf@kernel.org>
+ <f8d93a1b-3ad0-4e19-846f-c08d9cb19f48@oracle.com>
+ <d91eba9a-dbd1-488f-8e1b-bc5121c30cd1@oracle.com>
+ <mb61p1pw0qrpi.fsf@kernel.org>
+ <20250214193819.22yet42umilpugv5@jpoimboe>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250214193819.22yet42umilpugv5@jpoimboe>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_094007_467536_DC262039 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20250214_114244_337038_C054ECF4 
+X-CRM114-Status: GOOD (  10.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,34 +86,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If regulator_bulk_get() returns an error, no regulators are created and we
-need to set their number to zero.  If we do not do this and the PCIe
-link-up fails, regulator_bulk_free() will be invoked and effect a panic.
+On Fri, Feb 14, 2025 at 11:38:22AM -0800, Josh Poimboeuf wrote:
+> On Fri, Feb 14, 2025 at 06:58:01PM +0000, Puranjay Mohan wrote:
+> > and the linker script has this line:
+> > 
+> > .sframe : AT(ADDR(.sframe) - 0) { __start_sframe_header = .; KEEP(*(.sframe)) __stop_sframe_header = .; }
+> > 
+> > So, do can you suggest the best way to fix these warnings?
+> 
+> Just add *(.init.sframe) like so:
+> 
+> .sframe : AT(ADDR(.sframe) - 0) { __start_sframe_header = .; KEEP(*(.sframe) *(.init.sframe)) __stop_sframe_header = .; }
 
-Also print out the error value, as we cannot return an error upwards as
-Linux will WARN on an error from add_bus().
+Actually each probably needs its own KEEP:
 
-Fixes: 9e6be018b263 ("PCI: brcmstb: Enable child bus device regulators from DT")
-Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
----
- drivers/pci/controller/pcie-brcmstb.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+...  KEEP(*(.sframe)) KEEP(*(.init.sframe)) ...
 
-diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-index e0b20f58c604..56b49d3cae19 100644
---- a/drivers/pci/controller/pcie-brcmstb.c
-+++ b/drivers/pci/controller/pcie-brcmstb.c
-@@ -1416,7 +1416,8 @@ static int brcm_pcie_add_bus(struct pci_bus *bus)
- 
- 		ret = regulator_bulk_get(dev, sr->num_supplies, sr->supplies);
- 		if (ret) {
--			dev_info(dev, "No regulators for downstream device\n");
-+			dev_info(dev, "Did not get regulators; err=%d\n", ret);
-+			pcie->sr = NULL;
- 			goto no_regulators;
- 		}
- 
+or so.
+
 -- 
-2.43.0
-
+Josh
 
