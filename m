@@ -4,93 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3216C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 16:35:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E9EC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 16:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4XBfFJ1FenCRgkNrsfueC6356Qp34LK2NzxHgGhJ0c4=; b=h9BShKRI6Nkw5PUJA3SUwxi5gX
-	olciqQ2QXtHq10Y1PvNpbwfxUWqHbcwIwdzvlpCJM78f+DPtm9d+6xXlfaLTxhG1pqs0g0MNHcwSW
-	/1WK35expi4lrcZCu7N4CaDZUtAYMlMFecnyzwuKOYICktGhURnMJetrnUjLI+cbeld1j7bKkQ5/4
-	BZN6KkvEyAcOqItDoMRtZPWshLPDBVS2gxESI2aarr7wG34wKHtZ456l66efX52X0LCDKOyegGSBA
-	Se6imDnPl3/KUilgjpjb63GmtP/TtcXUryQY9QSdV08hWRzPVkHDuXGYqKg6MKjNx+0ubXCDmB7d0
-	1TYmefQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gIR0AdSggEhgWpMCtVYqLC2S9tpi2gmKnvd/bPSBRfk=; b=txOOzdI22ZCXXiwLjV2aowd2Bb
+	1TdOa6oMDdkwqrFyi4CXYoNFp2NJgaJ7kGDTsbJ4XgdvwgU6sZIw1NAUWbPT2k8RVj8FTtAd24fEF
+	M4Ej2tNTkNIim6DZAOztEi6GxKB5rI+D5Hi/hHU5eypGjj0t8+U86xuAsFhvWnk0Cy9lFks/P0nQE
+	nw0FUnD6z/+WA8fPUVQq215KPuB8UM/1KWqtC7Rii5sGD/3j6Lgp5/vtFYURJ722TxoIYqxDz6kp0
+	+YGllQck6sBiSapKwQkXsF6PDWIsfMptbX0VYqq48f2MCndGfmTQrBVA1lD/P/G22SbnI7fP+rvWt
+	fNzBFyQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiyek-0000000FX5n-3VTj;
-	Fri, 14 Feb 2025 16:35:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tiygB-0000000FXRn-0QPP;
+	Fri, 14 Feb 2025 16:36:39 +0000
+Received: from mail-wr1-x442.google.com ([2a00:1450:4864:20::442])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiydH-0000000FWkK-408F;
-	Fri, 14 Feb 2025 16:33:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A81205C551D;
-	Fri, 14 Feb 2025 16:32:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 437E2C4CED1;
-	Fri, 14 Feb 2025 16:33:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1739550818;
-	bh=CqVOqHb3hkAOpfkdQ0WY8NjkmJA6LRQqJbjC+25kotw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tT6SgSHnecSbLt2hHIvRD2w8P7Qen0E4uemod9P4Uzf/Rf5MujWLyRERt+PlyeEkj
-	 NFpQcVDgRI6COuLtv5omgBbkMykWng24oFznZCXdmpZhbuPh+fcv6yxx0/C/tXRtSA
-	 LgXjhckBG761hA8IWNDwD4WIQgMYa1b67sdvhg5E=
-Date: Fri, 14 Feb 2025 17:33:35 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Douglas Anderson <dianders@chromium.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v3 1/7] driver core: auxiliary bus: add device creation
- helpers
-Message-ID: <2025021437-washout-stonewall-d13e@gregkh>
-References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
- <20250211-aux-device-create-helper-v3-1-7edb50524909@baylibre.com>
+	id 1tiyeb-0000000FX3o-3zix
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Feb 2025 16:35:03 +0000
+Received: by mail-wr1-x442.google.com with SMTP id ffacd0b85a97d-38dd9b3419cso1210706f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 08:35:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739550900; x=1740155700; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gIR0AdSggEhgWpMCtVYqLC2S9tpi2gmKnvd/bPSBRfk=;
+        b=etZyQhutulc058EIH0r9fH/atTERH3QOx5U9PW/5Ti8DhE8Zr+b396geH37xyVcgwS
+         IB813XT7d/eWE8f+sqWe1XnY/KW3o9KaHDQO0h8sHz2o6jYPkU945HdSiOa4DEEp1sZe
+         9cbjOj/wjaizU7e0o+SdXWd9HceedPidryDlwC92WN521H2zEUTOE/fxb6Xyp2aaBNXO
+         uQfin0wMZwya0Uwg5Ubu+EA+5VRI1Dj3fZjjMDudR1SSBfSWHvv0usYFRizRcu48DoPE
+         fDsIo3TPInnZI/8pVrJR/2zUH9IGOBtDrJUEglM8/Mgcfu5dNoMch4um5Oie9AjoENhf
+         KSgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739550900; x=1740155700;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gIR0AdSggEhgWpMCtVYqLC2S9tpi2gmKnvd/bPSBRfk=;
+        b=Nt0vRbSfuBtDACnNZh+DuyiZ5W0+Dgj6m5QkuYDmJ0qvsU32zrqG/+FBgcwffK2vBE
+         FmWKxPUTjaqns1m4B01QSPcy4tN1E8mXujexHExTncZKv2IS6/L74dtabPB5Zd8HIhf+
+         LmaGMtenv0nPFAlZX9hVxPghcS8huV/e6kREONts3fV3SI9GXiuvcZNhzA7THjFTLz98
+         uqT/8gOnS0+pfRS6+KcvEmTPJYpubrAgyXVTbcoZF7vV+/VcEwzyFihI9IpcG/PH+hmI
+         VAvIRdIWdisIpPJiwH6/U3VvAwsowmKUEtIjTaf5AJFzfDg7uoXV2rYQgrTONMN/3pBW
+         3bOg==
+X-Forwarded-Encrypted: i=1; AJvYcCXK4JmdUR4jFnMe5tXIr0oz01VXv//q0K4LXvoKE1/MBDRyIIRkIm3CYFvOibcKUusdOsOLFBikafv89s2YIiDE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfxNNHqyM0+c8mJwFRIF5hFV/uoZ+Sky3UVXkN12SKSxqJF2nD
+	9KrQF8od490nsGMbVqUNz0B8bjShReIMjNjavmaNVa7hED7IALppRoj2+mX2nec=
+X-Gm-Gg: ASbGncufX+4g25ABy/MGklvcPuXnYQ/BKVXgq/WqoehMBXpDoHQK8v6d1fLaFRCz/e1
+	K7Kfp7vRuCfjn6TpV24uB6drbzPXuvQ0QJF7aqHJXPEuGuDN6MC39eP6s3ygQxgXRzbgVNwDNeQ
+	YkQKSAJtnrKwSDpXI2XPZhKlw1DruPVVur2VGDUm7OV0Vw9SThzWAedUecNU3uZTua8RirPpfIZ
+	lHd+74djLnKRu+2JK/sgXQuY9XsHMPkNXfejbKpCH+0z4VmnpHFLr00i8fsuonMKN0NfKeUSyar
+	iaavtarD1BWQBm8JaaAeh+PyxGaKMmpDUjkRsjeFBI8hyhRB6P6naqbtyA==
+X-Google-Smtp-Source: AGHT+IEMCdXyv0s4XDmuQOjYDPxcnYbsYJNf2NW1B+uWl0/9ePfEAn3vi4ArakFnU8g8DP+8vQOBGw==
+X-Received: by 2002:a05:6000:144e:b0:38f:2847:f5d4 with SMTP id ffacd0b85a97d-38f2847f702mr8619632f8f.28.1739550900149;
+        Fri, 14 Feb 2025 08:35:00 -0800 (PST)
+Received: from localhost (p200300f65f083b0400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f08:3b04::1b9])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f2591570esm5111371f8f.59.2025.02.14.08.34.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Feb 2025 08:34:57 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: linux-pwm@vger.kernel.org
+Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] pwm: clps711x: Drop of_match_ptr() usage for .of_match_table
+Date: Fri, 14 Feb 2025 17:34:42 +0100
+Message-ID: <20250214163442.192006-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250211-aux-device-create-helper-v3-1-7edb50524909@baylibre.com>
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1597; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=4nnLvcYtIwwsBUnYwVJaT81gdGfgqczxUSHuHeUAn4c=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnr3Cj9X55rnU9bMvi2/DXD1ODz9JH/bAkEqBmE Q9bTYrwZ1iJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ69wowAKCRCPgPtYfRL+ TunCCACR8VD3rkxhMiVVhtr0J0Izfxqx6SxRr//tRHgOZs77QV7M63StxkzLLxm2PklQmE/a63U MrIqkSS+N9bTle6bw0iY3b1sAwc3QbmShWtsYsUn0X+QQhaVt3AnRe1Qwt+2NDrmBzcbzpc2uj/ SR6zL0igt9fC0AWsY/Rz/gV3+SuTLnroSJ+Sc3dz9UHzvnAO4L/dqaSXawylNUyXaizDCqCm8SQ HUFdFkPdKXwGZ3nrYhpYJWbGPR662cCI5MSCC/d8n/hXsN19AjkvnSM5WBmWOK+hnIvDrOs/ygT iYMxmiJIWbno4qE8ahMU+uyxn7QukYdX/RTQXvE2gIRwj5Jv
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_083340_090963_B9E322C3 
-X-CRM114-Status: GOOD (  25.93  )
+X-CRM114-CacheID: sfid-20250214_083501_995379_E0D9BD6B 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,140 +98,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 06:27:58PM +0100, Jerome Brunet wrote:
-> Add helper functions to create a device on the auxiliary bus.
-> 
-> This is meant for fairly simple usage of the auxiliary bus, to avoid having
-> the same code repeated in the different drivers.
-> 
-> Suggested-by: Stephen Boyd <sboyd@kernel.org>
-> Cc: Arnd Bergmann <arnd@arndb.de>
-> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
-> ---
->  drivers/base/auxiliary.c      | 88 +++++++++++++++++++++++++++++++++++++++++++
->  include/linux/auxiliary_bus.h | 10 +++++
->  2 files changed, 98 insertions(+)
+The pwm-clps711x driver depends on ARCH_CLPS711X || COMPILE_TEST. With
+the former being an ARCH_MULTI_V4T platform, there is always OF=y when
+ARCH_CLPS711X=y, so in practise clps711x_pwm_dt_ids[] is always used.
+(And in the case COMPILE_TEST=y + OF=n this only increases the driver
+size a bit but still compiles.)
 
-I like the idea, see much the same of what I recently did for the "faux"
-bus here:
-	https://lore.kernel.org/all/2025021023-sandstorm-precise-9f5d@gregkh/
+So drop the usage of of_match_ptr().
 
-Some review comments:
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+Hello,
 
-> diff --git a/drivers/base/auxiliary.c b/drivers/base/auxiliary.c
-> index afa4df4c5a3f371b91d8dd8c4325495d32ad1291..0f697c9c243dc9a50498a52362806db594345faf 100644
-> --- a/drivers/base/auxiliary.c
-> +++ b/drivers/base/auxiliary.c
-> @@ -385,6 +385,94 @@ void auxiliary_driver_unregister(struct auxiliary_driver *auxdrv)
->  }
->  EXPORT_SYMBOL_GPL(auxiliary_driver_unregister);
->  
-> +static void auxiliary_device_release(struct device *dev)
-> +{
-> +	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
-> +
-> +	kfree(auxdev);
-> +}
-> +
-> +static struct auxiliary_device *auxiliary_device_create(struct device *dev,
-> +							const char *modname,
-> +							const char *devname,
-> +							void *platform_data,
+inspired by Andy's patch that does a similar thing for pwm-pca9685;
+see
+https://lore.kernel.org/r/20250214154031.3395014-1-andriy.shevchenko@linux.intel.com.
 
-Can you have the caller set the platform_data if they need/want it after
-the device is created?  Or do you need that in the probe callback?
+Best regards
+Uwe
 
-And can't this be a global function too for those that don't want to
-deal with devm stuff?
+ drivers/pwm/pwm-clps711x.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-> +							int id)
-> +{
-> +	struct auxiliary_device *auxdev;
-> +	int ret;
-> +
-> +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
-> +	if (!auxdev)
-> +		return ERR_PTR(-ENOMEM);
+diff --git a/drivers/pwm/pwm-clps711x.c b/drivers/pwm/pwm-clps711x.c
+index c950e1dbd2b8..04559a9de718 100644
+--- a/drivers/pwm/pwm-clps711x.c
++++ b/drivers/pwm/pwm-clps711x.c
+@@ -98,7 +98,7 @@ static int clps711x_pwm_probe(struct platform_device *pdev)
+ 	return devm_pwmchip_add(&pdev->dev, chip);
+ }
+ 
+-static const struct of_device_id __maybe_unused clps711x_pwm_dt_ids[] = {
++static const struct of_device_id clps711x_pwm_dt_ids[] = {
+ 	{ .compatible = "cirrus,ep7209-pwm", },
+ 	{ }
+ };
+@@ -107,7 +107,7 @@ MODULE_DEVICE_TABLE(of, clps711x_pwm_dt_ids);
+ static struct platform_driver clps711x_pwm_driver = {
+ 	.driver = {
+ 		.name = "clps711x-pwm",
+-		.of_match_table = of_match_ptr(clps711x_pwm_dt_ids),
++		.of_match_table = clps711x_pwm_dt_ids,
+ 	},
+ 	.probe = clps711x_pwm_probe,
+ };
 
-Ick, who cares what the error value really is?  Why not just do NULL or
-a valid pointer?  That makes the caller much simpler to handle, right?
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+-- 
+2.47.1
 
-> +
-> +	auxdev->id = id;
-> +	auxdev->name = devname;
-> +	auxdev->dev.parent = dev;
-> +	auxdev->dev.platform_data = platform_data;
-> +	auxdev->dev.release = auxiliary_device_release;
-> +	device_set_of_node_from_dev(&auxdev->dev, dev);
-> +
-> +	ret = auxiliary_device_init(auxdev);
-
-Only way this will fail is if you forgot to set parent or a valid name.
-So why not check for devname being non-NULL above this?
-
-> +	if (ret) {
-> +		kfree(auxdev);
-> +		return ERR_PTR(ret);
-> +	}
-> +
-> +	ret = __auxiliary_device_add(auxdev, modname);
-> +	if (ret) {
-> +		/*
-> +		 * NOTE: It may look odd but auxdev should not be freed
-> +		 * here. auxiliary_device_uninit() calls device_put()
-> +		 * which call the device release function, freeing auxdev.
-> +		 */
-> +		auxiliary_device_uninit(auxdev);
-
-Yes it is odd, are you SURE you should be calling device_del() on the
-device if this fails?  auxiliary_device_uninit(), makes sense so why not
-just call that here?
-
-> +		return ERR_PTR(ret);
-> +	}
-> +
-> +	return auxdev;
-> +}
-> +
-> +static void auxiliary_device_destroy(void *_auxdev)
-> +{
-> +	struct auxiliary_device *auxdev = _auxdev;
-> +
-> +	auxiliary_device_delete(auxdev);
-> +	auxiliary_device_uninit(auxdev);
-> +}
-> +
-> +/**
-> + * __devm_auxiliary_device_create - create a device on the auxiliary bus
-> + * @dev: parent device
-> + * @modname: module name used to create the auxiliary driver name.
-> + * @devname: auxiliary bus device name
-> + * @platform_data: auxiliary bus device platform data
-> + * @id: auxiliary bus device id
-> + *
-> + * Device managed helper to create an auxiliary bus device.
-> + * The device create matches driver 'modname.devname' on the auxiliary bus.
-> + */
-> +struct auxiliary_device *__devm_auxiliary_device_create(struct device *dev,
-> +							const char *modname,
-> +							const char *devname,
-> +							void *platform_data,
-> +							int id)
-> +{
-> +	struct auxiliary_device *auxdev;
-> +	int ret;
-> +
-> +	auxdev = auxiliary_device_create(dev, modname, devname, platform_data, id);
-> +	if (IS_ERR(auxdev))
-> +		return auxdev;
-> +
-> +	ret = devm_add_action_or_reset(dev, auxiliary_device_destroy,
-> +				       auxdev);
-
-Oh this is going to be messy, but I trust that callers know what they
-are doing here.  Good luck!  :)
-
-thanks,
-
-greg k-h
 
