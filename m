@@ -4,98 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736A5C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 05:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65A37C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 05:49:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7tFDb/PDAcFhkJuMfL/FkFDw5DG3Yhwan5HgE/ZkWKk=; b=L6V4LdMxFtvCg8uuFd5uOXtTxI
-	IqEsJaKJD92CAhTdrLX8KBkwLqrqQSyoyP+QiRTryiw94RVQ1W3yzJX/vayW/9hxEIwX3UAfNXTYA
-	Rn8oAuVe4bOyN0pGlK17kkOTay+Kwpav4d3Qx9Ljr3dNE6D85cqAV1LVl08fN5oXwa5fra58tMqz5
-	+YbdTSlxrc3oetPx2Nazt04sPRhpKilr+r6qvd4WYH1kym9cpcNQEGPBoJja8VIiw51eZyvy1SK7u
-	QDRcoBLOEA+DTJRoa4+0Y5wwMhFnj/4vQYbFXQXH3jVr7d6bs0/NH3UWm/ptv7BsE83r6RsqanROb
-	nz0RygxQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MnKTlw39qH8JSpFApJ+4dgvKkZCH/SzyZ+KIEqkl59c=; b=l6xzyvumLa6Zm/GMaL+R2A83ud
+	XkzALFgmwjY/ZOt+unKzW+ptXSXr+pMcJB63a3u4l4bvZw2SIajzId1pZ1oWSydI3q1BCkJsl926B
+	+XvnScPucDWpN6PzmA32FnCdYDtoi9S4XO9iIZeze4MP8gLqllBeVTiCE66N2c49pyZh0AbrjeQKY
+	9Q9uA+2evzaEYaWolXXz+gMUFJG3oooiEIOUKb8vlOyrXVuwNnAG9QUnPt+qs5ovcpq5v+OEgA+Xy
+	bwsB9UzxDrYi5b74w8+4Qrvc7sBr9i1tEVTVkpUkvUjxJlriw7LAAFJWR1qy+nCtsnMVJBLTA2rR6
+	YC7iunuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tioV1-0000000DjEV-2xWz;
-	Fri, 14 Feb 2025 05:44:27 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1tioa9-0000000Djqa-2qWp;
+	Fri, 14 Feb 2025 05:49:45 +0000
+Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tioTa-0000000Dj7H-1oGk
+	id 1tioYi-0000000DjYC-27l4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 05:42:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739511778; x=1771047778;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=h6p7Y22j2hIaMSGgYnBcUas0+FeWCyvYHlZZIhCytkM=;
-  b=PyEbNUjOQVIpHqqlnGUMmkTap2PZxZXgUU4jw2sWUd5H95DGc5aTzgjP
-   wkv3fz93yBvlvKOfgRkPpAySrRIo1p/qiEaaEJ8RD5UbSerNnDpMVWrmz
-   nO648rrfiPf/NAm7vfgU2mg5I6BRFBZDjAyPIyPMVWz8mIRS7hzNlBZP0
-   ETFgWqmz7Ihr7KdZE7hOJSQBf1Z5piIO1x1Y5VuxozohQAGoTlJceC+W8
-   eOZz5GSulPjbVHIuGjR6BfeVPKgqsAZiTq23VpEdJpF9b6ph2Xp9xWLHY
-   i5fM8jPusnsf+e3rrevhrRjw/BE/Qt/7j0nf0Q3E9MdogM0UYLYVNoqvo
-   w==;
-X-CSE-ConnectionGUID: /o4SsQgpRXaHCFg3jRY5lA==
-X-CSE-MsgGUID: 78vil2TTQQyVn+rfdlKkow==
-X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="51680986"
-X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
-   d="scan'208";a="51680986"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 21:42:53 -0800
-X-CSE-ConnectionGUID: HFEGjSazTHyw5Tz92aIw/w==
-X-CSE-MsgGUID: RMkJwxJhQSmPkE76rQWIFA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="118573799"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Feb 2025 21:42:47 -0800
-Message-ID: <bc9f4477-7976-4955-85dc-3e05ebe95ead@linux.intel.com>
-Date: Fri, 14 Feb 2025 13:39:52 +0800
+	Fri, 14 Feb 2025 05:48:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=MnKTlw39qH8JSpFApJ+4dgvKkZCH/SzyZ+KIEqkl59c=; b=Mw2L+2sluXcjYqn5M4hXah2CNk
+	gJ4H5NH0obxWcyxmz4a17eNR+1YkkM7aQjqC5Zk2RWrUEgKKxr8TOFDPDULm4EvF2sQaNhPWTwvXh
+	FNFznwJ9GjFV3wUAS3xL8Fke61wN8z9qvY/DYeIXuF2T/6ALiaZj+jxltUkvieE0Ik7n6j7pm8EFc
+	55+s+csnGZ+AyC+2okDY0ZPfc6zo4TnWv/kpPaIOHfR7kcXR3yfOXfn49YNAAslrLaFqM54XkpHaW
+	4BsTlA9QnousLDeK+HCtZ4X2dFSox9bBhu9mujdXtQze931fvQooPSTg7tSB1d+YzfVVHrpt1yIA3
+	ptNj0svg==;
+Received: from [122.175.9.182] (port=5380 helo=cypher.couthit.local)
+	by server.wki.vra.mybluehostin.me with esmtpa (Exim 4.96.2)
+	(envelope-from <parvathi@couthit.com>)
+	id 1tioXy-0001hH-1G;
+	Fri, 14 Feb 2025 11:17:30 +0530
+From: parvathi <parvathi@couthit.com>
+To: danishanwar@ti.com,
+	rogerq@kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	nm@ti.com,
+	ssantosh@kernel.org,
+	richardcochran@gmail.com,
+	parvathi@couthit.com,
+	basharath@couthit.com,
+	schnelle@linux.ibm.com,
+	diogo.ivo@siemens.com,
+	m-karicheri2@ti.com,
+	horms@kernel.org,
+	jacob.e.keller@intel.com,
+	m-malladi@ti.com,
+	javier.carrasco.cruz@gmail.com,
+	afd@ti.com,
+	s-anna@ti.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	pmohan@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next v3 00/10] PRU-ICSSM Ethernet Driver
+Date: Fri, 14 Feb 2025 11:16:52 +0530
+Message-Id: <20250214054702.1073139-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Zhangfei Gao <zhangfei.gao@linaro.org>, acpica-devel@lists.linux.dev,
- iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
- Kevin Tian <kevin.tian@intel.com>, kvm@vger.kernel.org,
- Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Robert Moore <robert.moore@intel.com>, Robin Murphy <robin.murphy@arm.com>,
- Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
- Alex Williamson <alex.williamson@redhat.com>,
- Donald Dutile <ddutile@redhat.com>, Eric Auger <eric.auger@redhat.com>,
- Hanjun Guo <guohanjun@huawei.com>,
- Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Jerry Snitselaar <jsnitsel@redhat.com>, Moritz Fischer <mdf@kernel.org>,
- Michael Shavit <mshavit@google.com>, Nicolin Chen <nicolinc@nvidia.com>,
- patches@lists.linux.dev, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
- Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
- Mostafa Saleh <smostafa@google.com>
-References: <20241112182938.GA172989@nvidia.com>
- <CABQgh9HOHzeRF7JfrXrRAcGB53o29HkW9rnVTf4JefeVWDvzyQ@mail.gmail.com>
- <20241113012359.GB35230@nvidia.com>
- <9df3dd17-375a-4327-b2a8-e9f7690d81b1@linux.intel.com>
- <20241113164316.GL35230@nvidia.com>
- <6ed97a10-853f-429e-8506-94b218050ad3@linux.intel.com>
- <20241115175522.GA35230@nvidia.com> <20250122192622.GA965540@nvidia.com>
- <284dd081-8d53-45ef-ae18-78b0388c98ca@linux.intel.com>
- <f7b6c833-b6c1-4154-9b77-13553e501f2b@linux.intel.com>
- <20250213184317.GB3886819@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <20250213184317.GB3886819@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.wki.vra.mybluehostin.me: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_214258_522326_450D281E 
-X-CRM114-Status: GOOD (  25.62  )
+X-CRM114-CacheID: sfid-20250213_214816_568345_001A4DDE 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,89 +115,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/14/25 02:43, Jason Gunthorpe wrote:
-> On Thu, Feb 13, 2025 at 07:57:51PM +0800, Baolu Lu wrote:
->> On 2025/2/5 11:45, Baolu Lu wrote:
->>> On 2025/1/23 3:26, Jason Gunthorpe wrote:
->>>> On Fri, Nov 15, 2024 at 01:55:22PM -0400, Jason Gunthorpe wrote:
->>>>>>> I need your help to remove IOMMU_DEV_FEAT_IOPF from the intel
->>>>>>> driver. I have a patch series that eliminates it from all the other
->>>>>>> drivers, and I wrote a patch to remove FEAT_SVA from intel..
->>>>>> Yes, sure. Let's make this happen in the next cycle.
->>>>>>
->>>>>> FEAT_IOPF could be removed. IOPF manipulation can be handled in the
->>>>>> domain attachment path. A per-device refcount can be implemented. This
->>>>>> count increments with each iopf-capable domain attachment
->>>>>> and decrements
->>>>>> with each detachment. PCI PRI is enabled for the first iopf-capable
->>>>>> domain and disabled when the last one is removed. Probably we can also
->>>>>> solve the PF/VF sharing PRI issue.
->>>>> Here is what I have so far, if you send me a patch for vt-d to move
->>>>> FEAT_IOPF into attach as you describe above (see what I did to arm for
->>>>> example), then I can send it next cycle
->>>>>
->>>>> https://github.com/jgunthorpe/linux/commits/iommu_no_feat/
->>>> Hey Baolu, a reminder on this, lets try for it next cycle?
->>>
->>> Oh, I forgot this. Thanks for the reminding. Sure, let's try to make it
->>> in the next cycle.
->>
->> Hi Jason,
->>
->> I've worked through the entire series. The patches are available here:
->>
->> https://github.com/LuBaolu/intel-iommu/commits/iommu-no-feat-v6.14-rc2
->>
->> Please check if this is the right direction.
-> 
-> Looks great, and you did all the cleanup stuff too!
-> 
-> The vt-d flow is a little more complicated than the ARM logic because
-> the driver flow is structed differently.
-> 
-> Do we really want ATS turned on if the only thing attached is an
-> IDENTITY domain? That will unnecessarily slow down ATS capable HW.. It
-> is functionally OK though.
+Hi,
 
-It depends. The Intel driver uses a simple approach.
+The Programmable Real-Time Unit Industrial Communication Sub-system (PRU-ICSS)
+is available on the TI SOCs in two flavors: Gigabit ICSS (ICSSG) and the older
+Megabit ICSS (ICSSM).
 
-When the IOMMU is working in legacy mode, PASID and PRI are not
-supported. In this case, ATS will not be enabled if the identity domain
-is attached to the device.
+Support for ICSSG Dual-EMAC mode has already been mainlined [1] and the
+fundamental components/drivers such as PRUSS driver, Remoteproc driver,
+PRU-ICSS INTC, and PRU-ICSS IEP drivers are already available in the mainline
+Linux kernel. The current set of patch series builds on top of these components
+and introduces changes to support the Dual-EMAC mode on ICSSM, especially on
+the TI AM57xx devices.
 
-When the IOMMU is working in scalable mode, PASID and PRI are supported.
-ATS will always be enabled, even if the identity domain is attached to
-the device, because the PASID might use PRI, which depends on ATS
-functionality. This might not be the best choice, but it is the
-simplest and functional.
+TI AM57xx series of devices have two identical PRU-ICSS instances (PRU-ICSS1
+and PRU-ICSS2), each with two 32-bit RISC PRU cores. Each PRU core has
+(a) dedicated Ethernet interface (MII, MDIO), timers, capture modules, and
+serial communication interfaces, and (b) dedicated data and instruction RAM as
+well as shared RAM for inter PRU communication within the PRU-ICSS.
 
-If any device does not work with the identity domain and ATS enabled,
-then we can add a quirk to the driver, as we already have such a
-mechanism.
+These patches have a dependency on an SOC patch, which we are including at the
+end of this series for reference. The SOC patch has been submitted in a separate
+thread [2] and we are awaiting for it to be merged.
 
-> 
-> Also, are there enough ATC flushes around any domain type change? I
-> didn't check..
+These patches add support for the following features:
+- RX and TX over PRU Ethernet ports in Dual-EMAC mode
+- Full duplex with 100 Mbps link speed.
+- VLAN Filtering
+- Multicast Filtering
+- Promiscuous mode
+- Storm prevention
+- Interrupt coalescing
+- Linux PTP (ptp4l) Ordinary clock
 
-The VT-d specification defines guidance for software to manage caches,
-both the IOTLB in the IOMMU and the ATC on the device (Table 28,
-Guidance to Software for Invalidations). The driver was written
-according to that guidance.
+Further, note that these are the first set of patches for PRU-ICSS2 Ethernet.
+Switch mode support, PRU-ICSS1 support, PRU Ethernet for AM437x and AM335x in
+Dual-EMAC and Switch mode support with full feature set changes will be posted
+subsequently.
 
-> I feel like we should leave "iommu: Move PRI enablement for VF to
-> iommu driver" out for now, every driver needs this check?  AMD
-> supports SVA and PRI so it needs it too.
+The patches presented in this series have gone through the patch verification
+tools and no warnings or errors are reported. Sample test logs verifying the
+functionality on Linux next kernel are available here:
 
-Yes, agreed.
+[Interface up Testing](https://gist.github.com/ParvathiPudi/f481837cc6994e400284cb4b58972804)
 
-> 
-> Do you want to squash those fixup patches and post it?
+[Ping Testing](https://gist.github.com/ParvathiPudi/a121aad402defcef389e93f303d79317)
 
-Yes, sure. Let me post it for further review.
+[Iperf Testing](https://gist.github.com/ParvathiPudi/581db46b0e9814ddb5903bdfee73fc6f)
 
-> Thanks,
-> Jason
+[1] https://lore.kernel.org/all/20230106121046.886863-1-danishanwar@ti.com/
+[2] https://lore.kernel.org/all/20250108125937.10604-1-basharath@couthit.com/
 
-Thanks,
-baolu
+
+This is the v3 of the patch series [v1]. This version of the patchset
+addresses the comments made on [v2] of the series.
+
+Changes from v2 to v3 :
+
+*) Addressed Conor Dooley comments on patch 1 of the series.
+*) Addressed Simon Horman comments on patch 2, 3, 4, 5 and 6 of the series.
+*) Addressed Joe Damato comments on patch 4 of the series.
+*) Rebased the series on latest net-next.
+
+Changes from v1 to v2 :
+
+*) Addressed Andrew Lunn, Rob Herring comments on patch 1 of the series.
+*) Addressed Andrew Lunn comments on patch 2, 3, and 4 of the series.
+*) Addressed Richard Cochran, Jason Xing comments on patch 6 of the series.
+*) Rebased patchset on next-202401xx linux-next.
+
+[v1] https://lore.kernel.org/all/20250109105600.41297-1-basharath@couthit.com/
+[v2] https://lore.kernel.org/all/20250124122353.1457174-1-basharath@couthit.com/
+
+Thanks and Regards,
+Parvathi.
+
+Murali Karicheri (1):
+  net: ti: prueth: Adds support for RX interrupt coalescing/pacing
+
+Parvathi Pudi (1):
+  dt-bindings: net: ti: Adds DUAL-EMAC mode support on PRU-ICSS2 for
+    AM57xx SOCs
+
+Roger Quadros (8):
+  net: ti: prueth: Adds ICSSM Ethernet driver
+  net: ti: prueth: Adds PRUETH HW and SW configuration
+  net: ti: prueth: Adds link detection, RX and TX support.
+  net: ti: prueth: Adds ethtool support for ICSSM PRUETH Driver
+  net: ti: prueth: Adds HW timestamping support for PTP using PRU-ICSS
+    IEP module
+  net: ti: prueth: Adds support for network filters for traffic control
+    supported by PRU-ICSS
+  net: ti: prueth: Adds power management support for PRU-ICSS
+  soc: ti: PRUSS OCP configuration
+
+ .../devicetree/bindings/net/ti,icss-iep.yaml  |    4 +-
+ .../bindings/net/ti,icssm-prueth.yaml         |  147 +
+ .../bindings/net/ti,pruss-ecap.yaml           |   32 +
+ .../devicetree/bindings/soc/ti/ti,pruss.yaml  |    9 +
+ drivers/net/ethernet/ti/Kconfig               |   24 +
+ drivers/net/ethernet/ti/Makefile              |    5 +
+ drivers/net/ethernet/ti/icssg/icss_iep.c      |   42 +
+ drivers/net/ethernet/ti/icssm/icssm_ethtool.c |  357 +++
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 2418 +++++++++++++++++
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  437 +++
+ .../net/ethernet/ti/icssm/icssm_prueth_dos.c  |  225 ++
+ .../net/ethernet/ti/icssm/icssm_prueth_ecap.c |  312 +++
+ .../net/ethernet/ti/icssm/icssm_prueth_ecap.h |   47 +
+ .../net/ethernet/ti/icssm/icssm_prueth_ptp.h  |   85 +
+ drivers/net/ethernet/ti/icssm/icssm_switch.h  |  285 ++
+ .../ti/icssm/icssm_vlan_mcast_filter_mmap.h   |  120 +
+ drivers/soc/ti/pruss.c                        |   77 +-
+ include/linux/pruss_driver.h                  |    6 +
+ 18 files changed, 4630 insertions(+), 2 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/ti,icssm-prueth.yaml
+ create mode 100644 Documentation/devicetree/bindings/net/ti,pruss-ecap.yaml
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_ethtool.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_dos.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.c
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ecap.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_ptp.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_switch.h
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_vlan_mcast_filter_mmap.h
+
+-- 
+2.34.1
+
 
