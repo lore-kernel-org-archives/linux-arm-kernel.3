@@ -4,216 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A82AC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 03:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF49CC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 03:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3NefPelYWMOZIMXl8NTpvJGLlU95R/fh9sN2SSGAKtY=; b=xEu5lEhi2390it7YhbwpmLpUqB
-	9R26SHn0aw6tYeEg5EfC65xgw5Ykg+oKcE2dvHsWLVZlWadHMNkYiUf8yDIzKlBiwGT+KoVBqap5w
-	2LaCAHAYJ+nPlNOq/qqr95li4ZKidXhqkpApGQJfWx2a0FjLNLOhS/3+Vuu6z3mWUoJhUMwyoxEa3
-	J8BmWmiDAQaBxkMZQG8hovkF6cVG81z3mCDaQm7iN9rIpJw11cRRJj5TGMPD2DLTvvCLlAB+MHSsM
-	3jU8yf1wpkjH7U+mq87fjFXI57Q4rE6g5IKKV8k4t2IdcgU7SmtZnSsMQDf7yo4jhLVhDwkIkBhJR
-	kVwiI7Ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=880EogUQ7YhTtxOXOr4zFxC4yPI4QQKvoHhCveXLots=; b=axg99+ktllziJR1RiPPQPGJEzF
+	I5rFegm9ut0RxhqR+UG9DBkANWhRFVfBuz1X5ufoYbmOXBiIt2RjNNpq2hv1khjEDCG8MNJLWLRBy
+	ztIXncGpwjzTvqqIlKmj21Dj4hs6BEUT3R+WMCmU1TmeV/iNlqsej6AOICu1NJvLAOmNxALC2qL1M
+	172EbeESVADWaSFg8kjGg8+S9Tfjeh3m/TaU1+EBY5mqBhCXXKvoL9xcweYOloe/v8EU0Ib2o4e1b
+	BVxcu+tGyni50+0rrKs0jCSiDqCKWSeQBWt64RmNGquL5ZbjfX5zJ5gsBj1NGE8nLJMkQBtH1WAvT
+	03FrchAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1timJ8-0000000DTsE-46mD;
-	Fri, 14 Feb 2025 03:24:02 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1timKZ-0000000DU4N-14WD;
+	Fri, 14 Feb 2025 03:25:31 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tilzm-0000000DRDJ-3y2A;
-	Fri, 14 Feb 2025 03:04:04 +0000
-X-UUID: 55826110ea8011ef9048ed6ed365623b-20250213
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=3NefPelYWMOZIMXl8NTpvJGLlU95R/fh9sN2SSGAKtY=;
-	b=EjfGCvWzE4QzgCWeVp88E6QZNt0mc4tOmQoAeXk5Z1SELr6U5bdNlOpl1A4Vmw3KPFwI4tmpuC4/3hWc9HJ1nVmcIv/qeCtA9AXCJW8/fP002xbS3CqL24bJSUlH2TN+IqNRuR9khjhPanzmfejmD0J5a7XXbRwUXAxJlMMC7Fc=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:e5d9a627-3f30-49a4-a864-efd82f844c8b,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:12f68c27-6332-4494-ac76-ecdca2a41930,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0
-	,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: 55826110ea8011ef9048ed6ed365623b-20250213
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <ck.hu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1600259287; Thu, 13 Feb 2025 20:03:58 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Fri, 14 Feb 2025 11:03:55 +0800
-Received: from HK2PR02CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Fri, 14 Feb 2025 11:03:55 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RVIamS+gdgxjqJI6u6SRmRzUmKpuoB76pDOxai6ytDfc42f19A/Or9qzMsk2jnwUDsHvCyaaPf62WKcMll6j/JWIOD75zOU4Qirp0G9j04LopsZ9wYr9LrTx+9GJs1OBc1HVEKuZyuDwWuwzEm9ZVIkB14Xq2ZJotdyHke8uJXvh2kkQ4XnpLVvVuHiXETL2YNinoHmftlPjdmw5kPq44ICe0+2EycRz0mTfNgsHmnB8SgvR1aalEU5CYi2ce/o2CThQ6e2Orn4k/bHwdaGUwOohL7r4fXicuhHbpAWGOnlKbQhlQUY+oG2HDTr/9HkDc0pe0yBneYOLaG9/kq/qAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3NefPelYWMOZIMXl8NTpvJGLlU95R/fh9sN2SSGAKtY=;
- b=vbik0cmrorrpkl3/w2IveDgNqVjIpvud0NLFER4+WhheuBQCeKubYPyQhFLNziC7JDWaPgwzv9PD2I7RozIzsCyKQbo9lV+xCpO2u5kb9b4BbLdfxYuQVwkq4p7zSjR+9vnbccNwXOy1qEmrP0si3WpCpQJWB9yRSwvfKEmkl/j74E02KgkcxgaJvJOWh3egFrMTRXCr/oKp1wDQqgjg9ZQp8T3Mgp6qy+Kj8d/4HnENiDBbRLWiXpYgaX8Qi3vId2Ujso0/dupwnathhwo0js2+THS8aILTA6Z6mUcXBqtos4nzwcpL6/rh/4TIcXyMcDoGTb+wH/8NUfR65zHRhw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1tim1K-0000000DRPz-3oTq
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Feb 2025 03:05:41 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-220e989edb6so15465285ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 19:05:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3NefPelYWMOZIMXl8NTpvJGLlU95R/fh9sN2SSGAKtY=;
- b=bkxEWtmU1QrAgJNnkdwH9V6YpLGf5XKNDotU7vcqi3iZlmu/XRAFLtfM2aEhP9sEeOU/xkgPm4SQm1jZWyjgGVMcqsvpWS3quwow/9RgGZFG9Qv2SEtEtCtSbh1zvIHdNvay7Q23ZrmjLwqJu5LEmXX0PhxIxn/ETrifHwlqCy8=
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
- by TYZPR03MB7668.apcprd03.prod.outlook.com (2603:1096:400:41a::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.11; Fri, 14 Feb
- 2025 03:03:51 +0000
-Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
- ([fe80::9ce6:1e85:c4a7:2a54%3]) with mapi id 15.20.8422.015; Fri, 14 Feb 2025
- 03:03:51 +0000
-From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-CC: "robh@kernel.org" <robh@kernel.org>, "jie.qiu@mediatek.com"
-	<jie.qiu@mediatek.com>, "tzimmermann@suse.de" <tzimmermann@suse.de>,
-	"simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
-	<mripard@kernel.org>, =?utf-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
-	<jitao.shi@mediatek.com>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "dri-devel@lists.freedesktop.org"
-	<dri-devel@lists.freedesktop.org>, "maarten.lankhorst@linux.intel.com"
-	<maarten.lankhorst@linux.intel.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
-	"dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	=?utf-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, =?utf-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?=
-	<TommyYL.Chen@mediatek.com>, =?utf-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?=
-	<Ives.Chenjh@mediatek.com>, "airlied@gmail.com" <airlied@gmail.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, =?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?=
-	<Jason-JH.Lin@mediatek.com>, "junzhi.zhao@mediatek.com"
-	<junzhi.zhao@mediatek.com>, Alexandre Mergnat <amergnat@baylibre.com>
-Subject: Re: [PATCH v6 15/42] drm/mediatek: mtk_hdmi: Convert to
- module_platform_driver macro
-Thread-Topic: [PATCH v6 15/42] drm/mediatek: mtk_hdmi: Convert to
- module_platform_driver macro
-Thread-Index: AQHbfHksGGbCqeHsQESo3SUjLKkT4rNGITIA
-Date: Fri, 14 Feb 2025 03:03:51 +0000
-Message-ID: <cda5c16b444038de9bf2a5411d1a963e88a312ba.camel@mediatek.com>
-References: <20250211113409.1517534-1-angelogioacchino.delregno@collabora.com>
-	 <20250211113409.1517534-16-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250211113409.1517534-16-angelogioacchino.delregno@collabora.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Evolution 3.52.3-0ubuntu1 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|TYZPR03MB7668:EE_
-x-ms-office365-filtering-correlation-id: 06088990-17f0-4a8d-e8f3-08dd4ca43571
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?S3Z4amFVYzFuNDJSV01PVDdEQ2tCSy9lWGZTbkIyMG9qV1pIUklYbS90Z0FX?=
- =?utf-8?B?RUFmb2dRTExrUlRWbU9PNVE2MC9LRE91ZkhhSVVVc25DMlgwNTJxUFRHcHJq?=
- =?utf-8?B?UVByM1diK2lTenFxRG5INXZaMllxUnJESzd3SVpzSE1jeENoL0xqaG1nc3U3?=
- =?utf-8?B?eDlkWkRrUm5WaUx4WVRXSWRsQmhvY29KNXJ6WXp2cm1Kc1MrRTR2MElsNTlV?=
- =?utf-8?B?WDVKZ1RhQXRsK3owL2UzSUJQa0lYZU10QXpVaVpMVkRWTEpGRFc2WmRNK0JW?=
- =?utf-8?B?cjZ4UFhxVUYzaWxWeFVQS0ZaWGVUajBkYXphanNRa3hoSEJBbXVtMCtKZ29R?=
- =?utf-8?B?anhTNnBSZUJDOTNGM3lvTGkrVnJJODRodUNaN1VzT1MxQUNUWkVPS2J3cEZh?=
- =?utf-8?B?eXphYU5ocEZ5OUlUMG1may9BTU1ZaUJ0SzUxckZuMDJjNEZ1eUk0U01lQnRF?=
- =?utf-8?B?NEZqWUpRTU9JZVdCcHJncGVDd0Y1MDF3QkVBaE5Wbzk1TWtFd2pNMmJVRFR2?=
- =?utf-8?B?OTNncm1ad21sNEc3NHFoWFNDQUpncUlBdDFDMzc1UFFqa1E5Y3l4Z2hVVlZu?=
- =?utf-8?B?aE1qM2tsQVYvOVZMRjErNDg3dDR0a3N1Vmk2OEVPTGF1Zzh1MTEwNklPSGhV?=
- =?utf-8?B?SUhZMy9oWFF4cDBaZGdnT2xkUy9NVVYyd09uWjFSWVRKR0xSRWxTS3drZ0Jx?=
- =?utf-8?B?dTN0OE5sN1BJNDZJUEdTMXp3Q0RNc2NqNXEvSlEraytYbjlkU3BCNW1kMXIy?=
- =?utf-8?B?T1Q4S2FqOU96NVVsWVNzWTFwQUYrUkFlTGpNeUljS3RvYklleVNleERENlJB?=
- =?utf-8?B?Slp1QnFoa09aQzFjTUduMU40Sm95blkwR0QvdW0zTThyRGpJRnl3K2Z1TlQ1?=
- =?utf-8?B?c2d1V04rYXRaS2ZLalVmVmZzajZTWGFXeWFjUk9LNncrN0dUV0x3c0ZwVzlh?=
- =?utf-8?B?ZUhKTE1nYU5vWXFEK0JKZ1h4TytQakdyTEtIc3VCQzJKM01jWStRTWFGMTM3?=
- =?utf-8?B?VFp3bDRwZTNZVmg3YnhYQUdlR1ZDTW9iMXNNeDREVWtOaCs4cHhVQU4xSFFq?=
- =?utf-8?B?ZWRVdDJvM1ViOWpIRzJkWi8wbUVqWjU4T0VzSEw5UEZlMlZJaGR2OEU0NXpC?=
- =?utf-8?B?SDFuWWRGQ3hjbWF3dXlCdVBTZWhtUklEU0E5aEZCLzJDMWY0bWtHcnFNT3ZB?=
- =?utf-8?B?bVA1YlV6S2FCMm1FVlZiYW55VUo2UHcybUNrZlhvOHhobHVJRUVpeFJhYndh?=
- =?utf-8?B?dFZwamNZSkxmbENtZDRFUHN4ZDllMnY0ZzNCUWtyVmtLUTNGRk0vZjR1T2VN?=
- =?utf-8?B?UExDdGtpMUpxb0lrb1NTNCtvZGxHcjJjZ2twL3ZuN1NVQjZpZXpuemRBS0RS?=
- =?utf-8?B?KzA2M0lZZUF5ZXY2L3R3YWxmbDNPZElzR3dFSXZ4TXRPZGNDZVFjclZWbVJI?=
- =?utf-8?B?TWtNZ0ZHenNkbTlUOXZaa2ZDZmlRMFo0aHJEZ1FwQzFoNmcreU9jMXlQdDFF?=
- =?utf-8?B?STRwN3hwdUJnSERaQkRSSUM4aW1xNk1KS2Y1ZDNPTGFmaUgrbzFuSjdHNXpp?=
- =?utf-8?B?ZzFKNzVTZk1COTl5UXdlV2xhYW1uYjhDL1hva1JQY2d2QXNMNElmWitUV1d1?=
- =?utf-8?B?NUJZRVg0UVM1MUNIeWw0ZEZEbzBUMTBST0llUTFzdUNiVk5lUTBZT3JaN25T?=
- =?utf-8?B?SnVzTmpoTm5HNUJsU1dZYkFHUmxZL2VLZDZoNFNjS1NzS2NzOHQrUnJuM2pw?=
- =?utf-8?B?TlQ1bnUyNGZWS3VISSs2OWttNHJtVGxPdHovR0dTRE14Q2JtWDJOTHZMU2lF?=
- =?utf-8?B?RE1kODlGUFdCMXJwcEFRdVNzZmFnV053TWVSS2taRGlFZzQ4YTFITXJRNjdx?=
- =?utf-8?B?SkJGbUJWUUtqM1dINW0ydUJNdkhYMnNQa3ZFUkk3ZjRIdUhxRHNiNEtKSmh6?=
- =?utf-8?Q?n27kDzr1mVqEoa1xGhGaATYq4uS9H0m0?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?emdTcDRUT2lLSkxJZXZMTi9FQXJFWU5LcFpJSmJTNndqMTBFeFRWVVlMTlpI?=
- =?utf-8?B?MWFieGEwMlRLaUJUNDB5cEwxZVQ0S3hVMzBkeEtqdk01NGFKL0kxcmpxM1pQ?=
- =?utf-8?B?cUdjaE5qOTNvc01hcFdsWUtUdUxpemVUNm5VRU5wM0ViTEl6M3JmbDRiWDlH?=
- =?utf-8?B?bEpJVFIza1pSM2E0ZE42REpIajB5N2VCblVaTXNWc1VSS0gwL2F0bURPWTBp?=
- =?utf-8?B?eS84TnpJT1dUMGsxeWtSaS91SDArSGZ3b0RhbVk3cVBJSDZ6eFpFTXdZaHFX?=
- =?utf-8?B?K2VwQlRqWHhmR2czV0llWDQzMHBGSnFnOThJYXphM3A5UzV6TmZCNDFVWml6?=
- =?utf-8?B?UitwclFxUWR0NUFmaEhTSElmdXJtT2VvdThmUFJJMzRlY3M4QnY5TXlGOFo5?=
- =?utf-8?B?RnBORGJ1ZlIxUGk0M3JOaXhlcTIyZmxOWFlpWE5od1lhZHB6U2Z4ZWRwTWJa?=
- =?utf-8?B?amFCYnlGYjZPVGtwbE5GTnV0eHUydHRiYjBpQitTWm5QclRJalN5RXBsY1dI?=
- =?utf-8?B?Z1Fqd1FVTU9RVCtkeFIrLzhtWDF5UWdmUDIvTk9yTHVBeFdYVTI1M1hzVFF0?=
- =?utf-8?B?NUpETlUrYjVOZ3hydmZQSm9sSzFsZ2x4RlRYZXlqREhNbHNwdDE3T2U5R29D?=
- =?utf-8?B?cDh1OHRWSDBsV2hIWHUyUTZuVHJSUSs2cG9RejlFQThZZzl3eW9lVjVEazVu?=
- =?utf-8?B?UXdveUNoYnU0WU1mRTNUWWV4UmI5akl5Rjh4dFhPL0ZlZE1KWEJZT2ZwckZY?=
- =?utf-8?B?MVRaREszc1BUQkE5aFFvQnpacUdJTk54Z1pUTk9GZWxZM2JiOFh5ZngwOHps?=
- =?utf-8?B?NU9sSlNEZlZTODh1UzZpd3JSM3ZINk5jS2dMV2RUSlZnYjEvRmFrUWFIMTN5?=
- =?utf-8?B?V2l1QjdCYVZKdHZJUGNyMGZUV0JaU2tqNTZyUEI4eU5rbGFQYnMrTnRiWTlP?=
- =?utf-8?B?RkxLQmRLSmMvaFNqdU5pRmpWZlpNa0llblZ5eERhK1JUbW9BUGtJUytUWVV1?=
- =?utf-8?B?REI4NGhtZlNSdmxXaldmNTVRTVBpa1lXbTJwMVcxKzRES0JFWlpPWVRubU1K?=
- =?utf-8?B?TkNjYWRTUll4MXFpMmZrYzZPZkhja1V3UHBBWlRKQTl2TVB1YWFENklFUXpJ?=
- =?utf-8?B?N1g2a3E2VXYybUpDbURpbTFZRDMwYndGanRnZDB6SHB0ZjVIZDZFWGZ4RjAv?=
- =?utf-8?B?SFJBRUl4QXlERTlVOGk5aFVNa2hDVHRjc2RKREZDUFFhcVRiSVc4U09UdzBP?=
- =?utf-8?B?VzVXbm1jd01MZDV6Qjc2TnpyY3RETVRuOWQ1SGNDSFUzS1Y0aDhHajR2NTJr?=
- =?utf-8?B?aTBQWmxBNkJjbXp0OWttcFl6d0xqN3psUndJclkxNy9DUmhqNzErcDQ1K1hC?=
- =?utf-8?B?c2FKZHNaVHlleVVYVFlUdXFVVDIwT0xSb0pHSjV6eHFFbGhJNGZtU3ZHbGYr?=
- =?utf-8?B?VjBSSG0yV0xvczNDR1F6Z0ROZzZtWU94YitwY00xZFEyam1XZ1dHNHlVK2d4?=
- =?utf-8?B?TTJKUHlEOWtYVS9iMWxvdTF4MGZkSkgwWDNiVDMrWkVTYWxFdEJnYnhjdXdD?=
- =?utf-8?B?WVVWTGJxcGp3dVVrcHB4Zm5xdlNtQjNNbzJhRkIyL0Y4ZVlOOVNSSitjM1Zq?=
- =?utf-8?B?ZmQ4WVpaMWUyUmg4ZDhFZFVBTnZJNlFoT2hZYjh4eGhiTXhzYzY1TXRjUjVo?=
- =?utf-8?B?SVJpendsN2RHY3VFcm5Odi84QlBGTUc0UFZHY2tWaExoR2d5YVVOUkkxdGd3?=
- =?utf-8?B?VEQ0c2JtMGM1L21iVFBqUi9KbmV6cERNNDl3cXZFYVNaQnFsbXlXZ3AvZ0V6?=
- =?utf-8?B?c29pdG83WXAwNHl0QTJwYzAzZGI1VzRrN1VpcFdYSWJVTXhNWTVFMHRZVlJS?=
- =?utf-8?B?blVtT2JMb1Y4Q1JmbjNJeTB3R0huM3d3RVRmSnVKL290dGRzVy9XTXp0T0FQ?=
- =?utf-8?B?c242QS9tU2ErSllianhiMldaNE5sUkZTQzRxMFk0WTkyeXZXMjRnTld5SW9E?=
- =?utf-8?B?Tk90NWU0MXVrMEo0eUhuR1dTcWxsUDhHWDNWT25KY2k5OEY5NlQ3OFo4Undm?=
- =?utf-8?B?c2pESHJJTDNRMnpjNmt3MUF3L0doUjhQV1QvWWdZMXcyekZaUmJEd3A3OXJ0?=
- =?utf-8?Q?byR0OXisqTOO98ts70dDgn9oj?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <455D9D08F6D58A4AB81A6F26AF79D43E@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=bytedance.com; s=google; t=1739502334; x=1740107134; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=880EogUQ7YhTtxOXOr4zFxC4yPI4QQKvoHhCveXLots=;
+        b=UtzfVDBR2zUVkEkw1p+YVrMyvBFzeSJzBFZwpjIMQty4lKyHMjn7hUTxLVGnbMCsju
+         9T/38xiSCZE+c4u+Z4Y+oV3IXfde6+rdtRvY8q+QH9890UumhRy5e0q45T1bwetqbGNo
+         ZJ0WA+dh1ohWSnA6y+fXI3133lp6aH4+QgKyK6TsLDhnZtsjBJhYIUCG6ZK4UTVmzA+F
+         q/rNZs0NVR8aHqd5P3FXIZxdRK3/494mCYFaZcQzMJyuoeAUFlq9lnOFQK+Yy/uLf3Tl
+         lDJIA/y8ziCoJiBky/dX84AHXWN/TEJnzl8r644LMeYB/EEU9dKYWfBMUk/Nv8/5Vsqm
+         U1xw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739502334; x=1740107134;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=880EogUQ7YhTtxOXOr4zFxC4yPI4QQKvoHhCveXLots=;
+        b=PsXpkgC3VCAhE7j97e7We9onNPJMZxXdJdS23l0E1AnOlt8/W4KnHx+P/3S03txW+f
+         l2WQk2RCRX5HfHz8mdpeZWEca8mad9/JJpmybB/FdeefUzyDbqVG7ktb9tCJaCPZRvP/
+         6gOUVeEU/Qd+e+7Du5lCYqmheRD8FVA7KRob3VVPhzKLQoDWJN2kzxQmhfjgOrewj0Cb
+         weSMjxcVuGVYyXOJ/y8LVsMb3KX2ELrYxLhmaj8/jLfSCMCWy+WPjhDn9Qw8tG/e7CKy
+         9JDlxYffrSsZODck2fVwWIE2Mgx6gWLJP1nAxWKdutXo31eQvaPvu9Ei0nl/T5yfyxaN
+         YF9A==
+X-Gm-Message-State: AOJu0YyxNjE3PIg5gxubT3Yp93JCsaRONoueuTq6r2jOXRkQnSqyJq/z
+	VmPKejl0Pn2fB0Zu2oy7tGTK3+NXDJu8mv/0XvKi44gzyi92Fyl+HqSV1sCba4I=
+X-Gm-Gg: ASbGncuvPhpkoktGfUsph4d8etQVNVYhi6M1Gt/b6HWYxjK6mmoQNlRysszPlnB092y
+	63ts5GHsHI4usaa7AmJ3YGr+1tU8qz8rAM02lgf0F7OtlCvaOXnSdUSRqvM+cWVfAuKLUIljRs2
+	4shT8UH2t/cDMLaMCVE68FPSxOljx93dyEMrqehni1AdfQpLaGv95n7NtG5hNI7NflRRf4cdcRr
+	MWhnSYth3yCGtk6ywk5qyJsqLA1a9JKG6pmc0sfXzJNQbyJVJUNpf3sCnAe/14sDWrgH+3vVafh
+	hgjNpJApx8mWLEzm08jaTVg8RjPOKCC+sqVy6RLWLDu2a4935lzPRbmY
+X-Google-Smtp-Source: AGHT+IE0j4ifNKT9H6YLxFTZoD5WzE6IGo9wOiQNtVXNtqnV2ixJQoeneDIT/l4UNMn6vQM3UgH1KQ==
+X-Received: by 2002:a05:6a20:431b:b0:1ee:6032:b1e9 with SMTP id adf61e73a8af0-1ee6b360aa3mr9894032637.21.1739502334088;
+        Thu, 13 Feb 2025 19:05:34 -0800 (PST)
+Received: from C02DW0BEMD6R.bytedance.net ([203.208.167.155])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73242568a78sm2130486b3a.55.2025.02.13.19.05.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Feb 2025 19:05:33 -0800 (PST)
+From: Qi Zheng <zhengqi.arch@bytedance.com>
+To: linux@armlinux.org.uk,
+	ezra@easyb.ch,
+	david@redhat.com,
+	hughd@google.com,
+	ryan.roberts@arm.com,
+	akpm@linux-foundation.org,
+	muchun.song@linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	Qi Zheng <zhengqi.arch@bytedance.com>,
+	Ezra Buehler <ezra.buehler@husqvarnagroup.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] arm: pgtable: fix NULL pointer dereference issue
+Date: Fri, 14 Feb 2025 11:03:49 +0800
+Message-Id: <20250214030349.45524-1-zhengqi.arch@bytedance.com>
+X-Mailer: git-send-email 2.24.3 (Apple Git-128)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06088990-17f0-4a8d-e8f3-08dd4ca43571
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Feb 2025 03:03:51.1120
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: riuyyjau4f71zkBFj2fkItIPrCj96FV8QwKz0M/n/D+104HN3uk1DSftLzwe/lu1A4EnkllWrOcz6QDrS2fiUQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB7668
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_190403_003595_2E822A05 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20250213_190539_205795_67326002 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -228,58 +103,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMDI1LTAyLTExIGF0IDEyOjMzICswMTAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
-ZWdubyB3cm90ZToNCj4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8gbm90IGNsaWNrIGxpbmtz
-IG9yIG9wZW4gYXR0YWNobWVudHMgdW50aWwgeW91IGhhdmUgdmVyaWZpZWQgdGhlIHNlbmRlciBv
-ciB0aGUgY29udGVudC4NCj4gDQo+IA0KPiBOb3cgdGhhdCBhbGwgb2YgdGhlIG10a19oZG1pIHN1
-YmRyaXZlcnMgYXJlIGEgcGxhdGZvcm0gZHJpdmVyIG9uDQo+IHRoZWlyIG93biBpdCBpcyBwb3Nz
-aWJsZSB0byByZW1vdmUgdGhlIGN1c3RvbSBpbml0L2V4aXQgZnVuY3Rpb25zDQo+IGluIHRoaXMg
-ZHJpdmVyIGFuZCBqdXN0IHVzZSB0aGUgbW9kdWxlX3BsYXRmb3JtX2RyaXZlcigpIG1hY3JvLg0K
-PiANCj4gV2hpbGUgYXQgaXQsIGFsc28gY29tcHJlc3Mgc3RydWN0IG9mX2RldmljZV9pZCBlbnRy
-aWVzIGFuZCByZW1vdmUNCj4gc3RyYXkgY29tbWFzIGluIG10a19oZG1pX2RyaXZlciBhc3NpZ25t
-ZW50cy4NCj4gDQo+IFJldmlld2VkLWJ5OiBBbGV4YW5kcmUgTWVyZ25hdCA8YW1lcmduYXRAYmF5
-bGlicmUuY29tPg0KPiBTaWduZWQtb2ZmLWJ5OiBBbmdlbG9HaW9hY2NoaW5vIERlbCBSZWdubyA8
-YW5nZWxvZ2lvYWNjaGluby5kZWxyZWdub0Bjb2xsYWJvcmEuY29tPg0KPiAtLS0NCj4gIGRyaXZl
-cnMvZ3B1L2RybS9tZWRpYXRlay9tdGtfaGRtaS5jIHwgMzcgKysrKysrLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0NCj4gIDEgZmlsZSBjaGFuZ2VkLCA3IGluc2VydGlvbnMoKyksIDMwIGRlbGV0aW9u
-cygtKQ0KPiANCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS9tZWRpYXRlay9tdGtfaGRt
-aS5jIGIvZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19oZG1pLmMNCj4gaW5kZXggZTY0OGZi
-NTcxNGU3Li5hNTQ3MWFiZjE2ZGQgMTAwNjQ0DQo+IC0tLSBhL2RyaXZlcnMvZ3B1L2RybS9tZWRp
-YXRlay9tdGtfaGRtaS5jDQo+ICsrKyBiL2RyaXZlcnMvZ3B1L2RybS9tZWRpYXRlay9tdGtfaGRt
-aS5jDQo+IEBAIC0xNzgwLDE1ICsxNzgwLDEwIEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3QgbXRrX2hk
-bWlfY29uZiBtdGtfaGRtaV9jb25mX210ODE2NyA9IHsNCj4gIH07DQo+IA0KPiAgc3RhdGljIGNv
-bnN0IHN0cnVjdCBvZl9kZXZpY2VfaWQgbXRrX2hkbWlfb2ZfaWRzW10gPSB7DQo+IC0gICAgICAg
-eyAuY29tcGF0aWJsZSA9ICJtZWRpYXRlayxtdDI3MDEtaGRtaSIsDQo+IC0gICAgICAgICAuZGF0
-YSA9ICZtdGtfaGRtaV9jb25mX210MjcwMSwNCj4gLSAgICAgICB9LA0KPiAtICAgICAgIHsgLmNv
-bXBhdGlibGUgPSAibWVkaWF0ZWssbXQ4MTY3LWhkbWkiLA0KPiAtICAgICAgICAgLmRhdGEgPSAm
-bXRrX2hkbWlfY29uZl9tdDgxNjcsDQo+IC0gICAgICAgfSwNCj4gLSAgICAgICB7IC5jb21wYXRp
-YmxlID0gIm1lZGlhdGVrLG10ODE3My1oZG1pIiwNCj4gLSAgICAgICB9LA0KPiAtICAgICAgIHt9
-DQo+ICsgICAgICAgeyAuY29tcGF0aWJsZSA9ICJtZWRpYXRlayxtdDI3MDEtaGRtaSIsIC5kYXRh
-ID0gJm10a19oZG1pX2NvbmZfbXQyNzAxIH0sDQo+ICsgICAgICAgeyAuY29tcGF0aWJsZSA9ICJt
-ZWRpYXRlayxtdDgxNjctaGRtaSIsIC5kYXRhID0gJm10a19oZG1pX2NvbmZfbXQ4MTY3IH0sDQo+
-ICsgICAgICAgeyAuY29tcGF0aWJsZSA9ICJtZWRpYXRlayxtdDgxNzMtaGRtaSIgfSwNCj4gKyAg
-ICAgICB7IC8qIHNlbnRpbmVsICovIH0NCg0KVGhpcyBpcyBub3QgcmVsYXRlZCB0byB0aGUgdGl0
-bGUsIHNlcGFyYXRlIHRoaXMgdG8gYW5vdGhlciBwYXRjaC4NCg0KPiAgfTsNCj4gIE1PRFVMRV9E
-RVZJQ0VfVEFCTEUob2YsIG10a19oZG1pX29mX2lkcyk7DQo+IA0KPiBAQCAtMTc5OCwyOCArMTc5
-MywxMCBAQCBzdGF0aWMgc3RydWN0IHBsYXRmb3JtX2RyaXZlciBtdGtfaGRtaV9kcml2ZXIgPSB7
-DQo+ICAgICAgICAgLmRyaXZlciA9IHsNCj4gICAgICAgICAgICAgICAgIC5uYW1lID0gIm1lZGlh
-dGVrLWRybS1oZG1pIiwNCj4gICAgICAgICAgICAgICAgIC5vZl9tYXRjaF90YWJsZSA9IG10a19o
-ZG1pX29mX2lkcywNCj4gLSAgICAgICAgICAgICAgIC5wbSA9ICZtdGtfaGRtaV9wbV9vcHMsDQo+
-IC0gICAgICAgfSwNCj4gLX07DQo+IC0NCj4gLXN0YXRpYyBzdHJ1Y3QgcGxhdGZvcm1fZHJpdmVy
-ICogY29uc3QgbXRrX2hkbWlfZHJpdmVyc1tdID0gew0KPiAtICAgICAgICZtdGtfaGRtaV9kcml2
-ZXIsDQo+ICsgICAgICAgICAgICAgICAucG0gPSAmbXRrX2hkbWlfcG1fb3BzDQoNClRoaXMgaXMg
-bm90IHJlbGF0ZWQgdG8gdGhlIHRpdGxlLCBzZXBhcmF0ZSB0aGlzIHRvIGFub3RoZXIgcGF0Y2gu
-DQoNCkFmdGVyIGFib3ZlIG1vZGlmaWNhdGlvbiwNCg0KUmV2aWV3ZWQtYnk6IENLIEh1IDxjay5o
-dUBtZWRpYXRlay5jb20+DQoNCj4gKyAgICAgICB9DQo+ICB9Ow0KPiAtDQo+IC1zdGF0aWMgaW50
-IF9faW5pdCBtdGtfaGRtaXR4X2luaXQodm9pZCkNCj4gLXsNCj4gLSAgICAgICByZXR1cm4gcGxh
-dGZvcm1fcmVnaXN0ZXJfZHJpdmVycyhtdGtfaGRtaV9kcml2ZXJzLA0KPiAtICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIEFSUkFZX1NJWkUobXRrX2hkbWlfZHJpdmVycykp
-Ow0KPiAtfQ0KPiAtDQo+IC1zdGF0aWMgdm9pZCBfX2V4aXQgbXRrX2hkbWl0eF9leGl0KHZvaWQp
-DQo+IC17DQo+IC0gICAgICAgcGxhdGZvcm1fdW5yZWdpc3Rlcl9kcml2ZXJzKG10a19oZG1pX2Ry
-aXZlcnMsDQo+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEFSUkFZX1NJWkUo
-bXRrX2hkbWlfZHJpdmVycykpOw0KPiAtfQ0KPiAtDQo+IC1tb2R1bGVfaW5pdChtdGtfaGRtaXR4
-X2luaXQpOw0KPiAtbW9kdWxlX2V4aXQobXRrX2hkbWl0eF9leGl0KTsNCj4gK21vZHVsZV9wbGF0
-Zm9ybV9kcml2ZXIobXRrX2hkbWlfZHJpdmVyKTsNCj4gDQo+ICBNT0RVTEVfQVVUSE9SKCJKaWUg
-UWl1IDxqaWUucWl1QG1lZGlhdGVrLmNvbT4iKTsNCj4gIE1PRFVMRV9ERVNDUklQVElPTigiTWVk
-aWFUZWsgSERNSSBEcml2ZXIiKTsNCj4gLS0NCj4gMi40OC4xDQo+IA0KDQo=
+When update_mmu_cache_range() is called by update_mmu_cache(), the vmf
+parameter is NULL, which will cause a NULL pointer dereference issue in
+adjust_pte():
+
+Unable to handle kernel NULL pointer dereference at virtual address 00000030 when read
+Hardware name: Atmel AT91SAM9
+PC is at update_mmu_cache_range+0x1e0/0x278
+LR is at pte_offset_map_rw_nolock+0x18/0x2c
+Call trace:
+ update_mmu_cache_range from remove_migration_pte+0x29c/0x2ec
+ remove_migration_pte from rmap_walk_file+0xcc/0x130
+ rmap_walk_file from remove_migration_ptes+0x90/0xa4
+ remove_migration_ptes from migrate_pages_batch+0x6d4/0x858
+ migrate_pages_batch from migrate_pages+0x188/0x488
+ migrate_pages from compact_zone+0x56c/0x954
+ compact_zone from compact_node+0x90/0xf0
+ compact_node from kcompactd+0x1d4/0x204
+ kcompactd from kthread+0x120/0x12c
+ kthread from ret_from_fork+0x14/0x38
+Exception stack(0xc0d8bfb0 to 0xc0d8bff8)
+
+To fix it, do not rely on whether 'ptl' is equal to decide whether to hold
+the pte lock, but decide it by whether CONFIG_SPLIT_PTE_PTLOCKS is
+enabled. In addition, if two vmas map to the same PTE page, there is no
+need to hold the pte lock again, otherwise a deadlock will occur. Just add
+the need_lock parameter to let adjust_pte() know this information.
+
+Reported-by: Ezra Buehler <ezra.buehler@husqvarnagroup.com>
+Closes: https://lore.kernel.org/lkml/CAM1KZSmZ2T_riHvay+7cKEFxoPgeVpHkVFTzVVEQ1BO0cLkHEQ@mail.gmail.com/
+Fixes: fc9c45b71f43 ("arm: adjust_pte() use pte_offset_map_rw_nolock()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Qi Zheng <zhengqi.arch@bytedance.com>
+---
+Changes in v2:
+ - change Ezra's email address (Ezra Buehler)
+ - some cleanups (David Hildenbrand)
+
+ arch/arm/mm/fault-armv.c | 38 ++++++++++++++++++++++++++------------
+ 1 file changed, 26 insertions(+), 12 deletions(-)
+
+diff --git a/arch/arm/mm/fault-armv.c b/arch/arm/mm/fault-armv.c
+index 2bec87c3327d2..ea4c4e15f0d31 100644
+--- a/arch/arm/mm/fault-armv.c
++++ b/arch/arm/mm/fault-armv.c
+@@ -62,7 +62,7 @@ static int do_adjust_pte(struct vm_area_struct *vma, unsigned long address,
+ }
+ 
+ static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
+-		      unsigned long pfn, struct vm_fault *vmf)
++		      unsigned long pfn, bool need_lock)
+ {
+ 	spinlock_t *ptl;
+ 	pgd_t *pgd;
+@@ -99,12 +99,11 @@ static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
+ 	if (!pte)
+ 		return 0;
+ 
+-	/*
+-	 * If we are using split PTE locks, then we need to take the page
+-	 * lock here.  Otherwise we are using shared mm->page_table_lock
+-	 * which is already locked, thus cannot take it.
+-	 */
+-	if (ptl != vmf->ptl) {
++	if (need_lock) {
++		/*
++		 * Use nested version here to indicate that we are already
++		 * holding one similar spinlock.
++		 */
+ 		spin_lock_nested(ptl, SINGLE_DEPTH_NESTING);
+ 		if (unlikely(!pmd_same(pmdval, pmdp_get_lockless(pmd)))) {
+ 			pte_unmap_unlock(pte, ptl);
+@@ -114,7 +113,7 @@ static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
+ 
+ 	ret = do_adjust_pte(vma, address, pfn, pte);
+ 
+-	if (ptl != vmf->ptl)
++	if (need_lock)
+ 		spin_unlock(ptl);
+ 	pte_unmap(pte);
+ 
+@@ -123,16 +122,18 @@ static int adjust_pte(struct vm_area_struct *vma, unsigned long address,
+ 
+ static void
+ make_coherent(struct address_space *mapping, struct vm_area_struct *vma,
+-	      unsigned long addr, pte_t *ptep, unsigned long pfn,
+-	      struct vm_fault *vmf)
++	      unsigned long addr, pte_t *ptep, unsigned long pfn)
+ {
+ 	struct mm_struct *mm = vma->vm_mm;
+ 	struct vm_area_struct *mpnt;
+ 	unsigned long offset;
++	unsigned long pmd_start_addr, pmd_end_addr;
+ 	pgoff_t pgoff;
+ 	int aliases = 0;
+ 
+ 	pgoff = vma->vm_pgoff + ((addr - vma->vm_start) >> PAGE_SHIFT);
++	pmd_start_addr = ALIGN_DOWN(addr, PMD_SIZE);
++	pmd_end_addr = pmd_start_addr + PMD_SIZE;
+ 
+ 	/*
+ 	 * If we have any shared mappings that are in the same mm
+@@ -141,6 +142,14 @@ make_coherent(struct address_space *mapping, struct vm_area_struct *vma,
+ 	 */
+ 	flush_dcache_mmap_lock(mapping);
+ 	vma_interval_tree_foreach(mpnt, &mapping->i_mmap, pgoff, pgoff) {
++		/*
++		 * If we are using split PTE locks, then we need to take the pte
++		 * lock. Otherwise we are using shared mm->page_table_lock which
++		 * is already locked, thus cannot take it.
++		 */
++		bool need_lock = IS_ENABLED(CONFIG_SPLIT_PTE_PTLOCKS);
++		unsigned long mpnt_addr;
++
+ 		/*
+ 		 * If this VMA is not in our MM, we can ignore it.
+ 		 * Note that we intentionally mask out the VMA
+@@ -151,7 +160,12 @@ make_coherent(struct address_space *mapping, struct vm_area_struct *vma,
+ 		if (!(mpnt->vm_flags & VM_MAYSHARE))
+ 			continue;
+ 		offset = (pgoff - mpnt->vm_pgoff) << PAGE_SHIFT;
+-		aliases += adjust_pte(mpnt, mpnt->vm_start + offset, pfn, vmf);
++		mpnt_addr = mpnt->vm_start + offset;
++
++		/* Avoid deadlocks by not grabbing the same PTE lock again. */
++		if (mpnt_addr >= pmd_start_addr && mpnt_addr < pmd_end_addr)
++			need_lock = false;
++		aliases += adjust_pte(mpnt, mpnt_addr, pfn, need_lock);
+ 	}
+ 	flush_dcache_mmap_unlock(mapping);
+ 	if (aliases)
+@@ -194,7 +208,7 @@ void update_mmu_cache_range(struct vm_fault *vmf, struct vm_area_struct *vma,
+ 		__flush_dcache_folio(mapping, folio);
+ 	if (mapping) {
+ 		if (cache_is_vivt())
+-			make_coherent(mapping, vma, addr, ptep, pfn, vmf);
++			make_coherent(mapping, vma, addr, ptep, pfn);
+ 		else if (vma->vm_flags & VM_EXEC)
+ 			__flush_icache_all();
+ 	}
+-- 
+2.20.1
+
 
