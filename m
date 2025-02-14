@@ -4,116 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 402F7C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 20:11:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47BE2C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 20:16:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WpzQbnLdagNuUxuQR/6JxQR5FVOFTqBbuMpnc5Onjr8=; b=2k0ML9l0hN322Iu2A8lrpOfHNH
-	dbMdKu8d8tDeOU3qrDCY1IMN++jvBB2sMAsDIPyNRCXyT1Qjg1wlAjHIKGUWvvaP8RdpnVrfswW8M
-	lDXAlAdY4S7E5CLgpso9yrN/p7xIYytrQn+gIrBj88I5PYjfr7c8IYDiGOA7CQCoi9/dvEES8xDCD
-	E7yHRyIMVGWVU9ccPU929qZT1Hay4qMQwZR0wZCVjB8sqYsbjR1CpHDln+coayHttANx82EJE/6TG
-	iB7++jThdpnYvTSTi65h75s9oLr1TB9d2tD5Ip/+VGfTTaX9+T7LrlCoYQDeIl5eK3uzIWlddZB9H
-	7m/W990A==;
+	bh=aitcMe7WROI3inmWPb5j5yTibRGZT3eFja/8dsNPCSo=; b=zVJSjmcu1DfHN4pVitM2j4LkJ4
+	7ZrmpoMJIxJUw63ImHYYfQm7Qil9VAc5abTbU2SutDOKcneDBjai89zxmb6M0s6n4i2c64jIDBgA0
+	HvF4VJOs6x1ni5kEWPZ5zGDndloduICcFYMe+VePPyn4sLd/wVodVvpyUeJ8bK+nweIpkBtLAe0c9
+	zmHjhRWrjEQGkwbbmri1n+0C0lUDLEpTkgDg3ZaBU4PCeTD10ROKkwyFvIwY0g82uLcZI82XWq0jc
+	nJZMeYenLP9ArGsZZRmdbI0HYEjYCC9IjyNI/gNR8IcJZhxi9p3U//L0xgVsSvEohQmh6ojG5z5od
+	MY7WNUcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj224-0000000G8Dg-17Qi;
-	Fri, 14 Feb 2025 20:11:28 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tj26a-0000000G94b-3kQj;
+	Fri, 14 Feb 2025 20:16:08 +0000
+Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj0Es-0000000FqW1-0Bvi
+	id 1tj258-0000000G8lu-1KeN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 18:16:35 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4395578be70so24507685e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 10:16:33 -0800 (PST)
+	Fri, 14 Feb 2025 20:14:39 +0000
+Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-6e65d6e1f12so28599436d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 12:14:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739556992; x=1740161792; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=WpzQbnLdagNuUxuQR/6JxQR5FVOFTqBbuMpnc5Onjr8=;
-        b=iXWfJPSE3KB8WUccuzDoBo6HWz3hD9aZ2rawEBkTmD2ac7vk/+/BpJ0DD9u+zgwz3P
-         6t4sDcMiRr5hyASY7Y7RvSd7m0fQvJCnVEC4tDqv3Wccqlq+eCX6FoIWvIl9U4OnSAqO
-         EFDxy0iMxs2CX/rIzwPbR1ObIzl8i38FE2Hej6ggaCyd5e3J3zReamE6HLnHpL/0m5tj
-         tGp35CUXccMtFKk/CD7UzIdV8wa85JlG75J4VhXwB7NU2TqorQ1sXwmxrmwtVngBXizD
-         Dd6UmNbAQOjM/EWey7t0cWjjPRkAzSmByrMUnlG0pplKtYfYVuasM9JwQ893gfXaFCkk
-         uJwA==
+        d=ziepe.ca; s=google; t=1739564077; x=1740168877; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=aitcMe7WROI3inmWPb5j5yTibRGZT3eFja/8dsNPCSo=;
+        b=dk3aCCaI6fDwYx28DaOM0Gzzll1YySX+o0uH03cz1idEJ+rm2YHb64XOeHBbZrYmbh
+         wpf5Me1tOioUX3Q9ZICl/stymNl9VE+Oo2rRuC05mxnJ233u3gzwlDv+3tsI9YJaaqrC
+         bV9/tnNS+o4e8GKXF1IeLjpgVA6ShIwJUPQzeto6MNhuib33+EmtB3FEZ5W9p/CLvMhp
+         s/1EbcIcLeUlgtK3YMjilJBBV57EExdI4Yr+N28SX6fa5khWZCicAGlq9h1D4A5v9t9F
+         5jhpFHyH0NaTH4rGljLaRbYCBRJ7Klr9L0675CNofwhiBSdKIug/+2NegsiZyr10yhyP
+         Z2fQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739556992; x=1740161792;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1739564077; x=1740168877;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=WpzQbnLdagNuUxuQR/6JxQR5FVOFTqBbuMpnc5Onjr8=;
-        b=fMFJBOwm4t5o6ZjzoCerZhjypN7k8h08/tOgNfIZAA/BGB3vT1kkb0x2SeZ4ckcnzB
-         Aa2IizmGo34rfzyZ4aW6GdhLLsiw2ODIfNMBTccbCYwQdJN9QsGe/BaYjbCH3hsAxN+v
-         VOjWkC4xeW0xSowZkN2mGBKKIMOL9PhpN+SL48M3wwjZG2tljEELo/uSTPoyVkpQZyyd
-         zlKEbjLy9nIQ8CWVICqLRybd5dXevasoF5WW5m1Wf6aovTt1CV1LTDZAGVfSh3lJ/gMG
-         wJ34Ff1swTUfepqs1N6NMVsoN43I6Jybf0a5tWhGuomFK6/vpaELah6L+r/HMauGGeyj
-         tjjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXxjZ/O+KVx9HGltwTtXHGjMYyNrrQ6VtGj5m0KyXUQzyuqRrxSMk1UD4o1iGMPkFCB5PQ8gCk/CSGeTnALb1R6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxh+W0Ry8qq3/vO4BbCiuMURoUE2j9BJdOtFYU9WwlNOiC/KQcZ
-	45DJl15hiPR6iabixzyGuEofMfUl1xSRgPBhJWOBvSaVXVAQtVylGYidzr1WMKg=
-X-Gm-Gg: ASbGncuM7jBKLH0gDdhypahwfVUNM378l7rgriMI9u0jwBqBBnC406r8BDIYmCVjXG8
-	cZA28Elghhseec0wU5McChRp+s1p8q6XmAAqVBNaNXdsvbguFepxVR8YGPvv8Xsm9vAf4HHLrRP
-	qDlRmTEMX28ezWpyeAvEOW2y9i6fqnT2b/O3AtyXi5qJp7dMcaQKnMWU1AEkUR0M01X1p26Wxbt
-	9BlCYmAm8NpAoEZVGYfSsZm4Yn/e3FcsUBpg1MwzoGGIZewFPw7vc6v2MTaYc1KgPAnVUsh0iLA
-	U246GLNwtpYwvw==
-X-Google-Smtp-Source: AGHT+IFBN3j/Zjv2CLSxpQNFmRLH07Um+mn6wIlqNWgyJFTqmPU8STnXQY2KZybJYPY9YWV6H4qloQ==
-X-Received: by 2002:a05:6000:154c:b0:38f:2025:9c2b with SMTP id ffacd0b85a97d-38f20259e49mr13952599f8f.33.1739556991710;
-        Fri, 14 Feb 2025 10:16:31 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:7018:8c7:bdd4:3436])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-38f258cccd3sm5221627f8f.23.2025.02.14.10.16.30
+        bh=aitcMe7WROI3inmWPb5j5yTibRGZT3eFja/8dsNPCSo=;
+        b=TiAXM+/tSilrM05tL8KuAfwcjWi7EEDKsjSAcL2t6g6Mg/bDVRzVFGgsXiZJYinNjA
+         5Cmpr3zhtftnrDk1RMecn38sh9Pi1G48nv3OiUZj2Q5zux13fjDtCFQHPwv/60u9HSxi
+         pJxTJwnP/FuiF1nQuFxravNY3WyYw7kwEBIxQWi7Cd/dfpVMExIaS2In7zxmqmzY118U
+         GLNQCBOWHVmau/O+KW6j/0uRJGVlqJUOk26KaSf8sdwdKI0AykIlU1jgFcHT1ULupnv/
+         dYGt12BbsIjH+KJ38cmnkk5TlD6+ttO22+SzVpiXEL+UOMMwqTmEzfmf2yKiHBV8vL0T
+         Untg==
+X-Forwarded-Encrypted: i=1; AJvYcCXNbipo8PHYU98sd0VUjZWSC3H33ifw7umLH1d8sJWtqoaKaoKx61ZlmGBt7BIlZXtBJzPB+A3s+IJHrnnUlL5c@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYkYFofSs33h3kXFyvU94x+e4DOyIhi4yhj8XnIqNcj8Gao3Ra
+	wbPTvyfxMW3wy3yfAZRrgaIFbR2mYb5/9uiJbV3zEufRvIE77N85OvN7rW6GQzE=
+X-Gm-Gg: ASbGncvGFHehk9wObHvWAmvkqPLaO5YllDpsq+EijFZMqSs5O05pRJjUoB0OmfAAvIi
+	h5RpFEnKoOLlvtAmwfJw+VUPKeqB1MKfsoChphGWDDICYHDA+zsHhrdC9mG+iIGNA8qCCb6LC8A
+	MeHgqNfQVntHZpFpHJETtPfObO7NILG3KWp2R+Rf1kLhrcuU9Q0nLTeIwlrf+m6DdgGyWfJ3Iiv
+	TplysQFtT4vhd7Rs9QcQacsA2ISYxynvyqGOo+Vg8kYlm8qKt7KHqDW5lKEz2kUpuj+EOv5JYYJ
+	41KLKJ34MwbchgSWyIiGQHjAo3vmMZSlSgBTONX69KCc9qHOgjlk9QZ/QELfSOkL
+X-Google-Smtp-Source: AGHT+IGnMpUVAQSaoCinCLx2FBIU+4N7ViIjMJqQfxMTZ4fEWvtSzvHCiXUgAsqSsNDrtdOvrjsIMg==
+X-Received: by 2002:ad4:4eed:0:b0:6d4:e0a:230e with SMTP id 6a1803df08f44-6e66ccc114cmr11243186d6.16.1739564077030;
+        Fri, 14 Feb 2025 12:14:37 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e65daffdbbsm24455776d6.99.2025.02.14.12.14.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Feb 2025 10:16:31 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Dave Ertman <david.m.ertman@intel.com>,  Ira Weiny
- <ira.weiny@intel.com>,  "Rafael J. Wysocki" <rafael@kernel.org>,  Stephen
- Boyd <sboyd@kernel.org>,  Arnd Bergmann <arnd@arndb.de>,  Danilo Krummrich
- <dakr@kernel.org>,  Conor Dooley <conor.dooley@microchip.com>,  Daire
- McNamara <daire.mcnamara@microchip.com>,  Philipp Zabel
- <p.zabel@pengutronix.de>,  Douglas Anderson <dianders@chromium.org>,
-  Andrzej Hajda <andrzej.hajda@intel.com>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Robert Foss <rfoss@kernel.org>,  Laurent
- Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
- <jonas@kwiboo.se>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
- <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>,  David
- Airlie <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Hans de
- Goede <hdegoede@redhat.com>,  Ilpo =?utf-8?Q?J=C3=A4rvinen?=
- <ilpo.jarvinen@linux.intel.com>,  Bryan O'Donoghue
- <bryan.odonoghue@linaro.org>,  Vladimir Kondratiev
- <vladimir.kondratiev@mobileye.com>,  Gregory CLEMENT
- <gregory.clement@bootlin.com>,  =?utf-8?Q?Th=C3=A9o?= Lebrun
- <theo.lebrun@bootlin.com>,
-  Michael Turquette <mturquette@baylibre.com>,  Abel Vesa
- <abelvesa@kernel.org>,  Peng Fan <peng.fan@nxp.com>,  Shawn Guo
- <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
-  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
- <festevam@gmail.com>,  Kevin Hilman <khilman@baylibre.com>,  Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,
-  linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org,
-  dri-devel@lists.freedesktop.org,  platform-driver-x86@vger.kernel.org,
-  linux-mips@vger.kernel.org,  linux-clk@vger.kernel.org,
-  imx@lists.linux.dev,  linux-arm-kernel@lists.infradead.org,
-  linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v3 1/7] driver core: auxiliary bus: add device creation
- helpers
-In-Reply-To: <2025021437-washout-stonewall-d13e@gregkh> (Greg Kroah-Hartman's
-	message of "Fri, 14 Feb 2025 17:33:35 +0100")
-References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
-	<20250211-aux-device-create-helper-v3-1-7edb50524909@baylibre.com>
-	<2025021437-washout-stonewall-d13e@gregkh>
-User-Agent: mu4e 1.12.8; emacs 29.4
-Date: Fri, 14 Feb 2025 19:16:30 +0100
-Message-ID: <1jwmdsxugx.fsf@starbuckisacylon.baylibre.com>
+        Fri, 14 Feb 2025 12:14:36 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1tj255-0000000GmgQ-3jtW;
+	Fri, 14 Feb 2025 16:14:35 -0400
+Date: Fri, 14 Feb 2025 16:14:35 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Stuart Yoder <stuyoder@gmail.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	Charan Teja Kalla <quic_charante@quicinc.com>
+Subject: Re: [PATCH 2/2] iommu: Get DT/ACPI parsing into the proper probe path
+Message-ID: <20250214201435.GF3696814@ziepe.ca>
+References: <cover.1739486121.git.robin.murphy@arm.com>
+ <c2f0ae276fd5a18e1653bae8bb0c51670e35b283.1739486121.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c2f0ae276fd5a18e1653bae8bb0c51670e35b283.1739486121.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_101634_080469_E653D8FD 
-X-CRM114-Status: GOOD (  42.70  )
+X-CRM114-CacheID: sfid-20250214_121438_356325_FD7AA498 
+X-CRM114-Status: GOOD (  32.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,188 +118,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri 14 Feb 2025 at 17:33, Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
+On Thu, Feb 13, 2025 at 11:49:00PM +0000, Robin Murphy wrote:
 
-> On Tue, Feb 11, 2025 at 06:27:58PM +0100, Jerome Brunet wrote:
->> Add helper functions to create a device on the auxiliary bus.
->> 
->> This is meant for fairly simple usage of the auxiliary bus, to avoid having
->> the same code repeated in the different drivers.
->> 
->> Suggested-by: Stephen Boyd <sboyd@kernel.org>
->> Cc: Arnd Bergmann <arnd@arndb.de>
->> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
->> ---
->>  drivers/base/auxiliary.c      | 88 +++++++++++++++++++++++++++++++++++++++++++
->>  include/linux/auxiliary_bus.h | 10 +++++
->>  2 files changed, 98 insertions(+)
->
-> I like the idea, see much the same of what I recently did for the "faux"
-> bus here:
-> 	https://lore.kernel.org/all/2025021023-sandstorm-precise-9f5d@gregkh/
+> much just calling the same path twice. At client driver probe time,
+> dev->driver is obviously set; conversely at device_add(), or a
+> subsequent bus_iommu_probe(), any device waiting for an IOMMU really
 
-Reading this, I'm getting the feeling that some (most?) simple auxiliary
-driver might be better off migrating to "faux", instead of what I'm
-proposing here ? Is this what you are suggesting ?
+Could you put the dev->driver test into iommu_device_use_default_domain()?
 
-Few Q:
-Is there some sort of 'platform_data' (sorry for the lack of a better
-term, no provocation intended ;) ) ... it there a
-simple way to pass an arbitrary struct to the created device with 'faux' ?
+It looks like many of the cases are just guarding that call.
 
-The difference between aux and faux I'm seeing it that aux seems to
-decouple things a bit more. The only thing aux needs is a module name to
-pop something up, while faux needs a reference to the ops instead.
+> should *not* have a driver already, so we can use that as a condition to
+> disambiguate the two cases, and avoid recursing back into the IOMMU core
+> at the wrong times.
 
-I can see the appeal to use aux for maintainers trying to decouple
-different subsystems.
+Which sounds like this:
 
->
-> Some review comments:
->
->> diff --git a/drivers/base/auxiliary.c b/drivers/base/auxiliary.c
->> index afa4df4c5a3f371b91d8dd8c4325495d32ad1291..0f697c9c243dc9a50498a52362806db594345faf 100644
->> --- a/drivers/base/auxiliary.c
->> +++ b/drivers/base/auxiliary.c
->> @@ -385,6 +385,94 @@ void auxiliary_driver_unregister(struct auxiliary_driver *auxdrv)
->>  }
->>  EXPORT_SYMBOL_GPL(auxiliary_driver_unregister);
->>  
->> +static void auxiliary_device_release(struct device *dev)
->> +{
->> +	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
->> +
->> +	kfree(auxdev);
->> +}
->> +
->> +static struct auxiliary_device *auxiliary_device_create(struct device *dev,
->> +							const char *modname,
->> +							const char *devname,
->> +							void *platform_data,
->
-> Can you have the caller set the platform_data if they need/want it after
-> the device is created?  Or do you need that in the probe callback?
+> +		mutex_unlock(&iommu_probe_device_lock);
+> +		dev->bus->dma_configure(dev);
+> +		mutex_lock(&iommu_probe_device_lock);
+> +	}
 
-My assumption was that it is needed in probe, but I guess that entirely
-depends on the driver. If that was ever needed, it could be added later
-I think.
+Shouldn't call iommu_device_use_default_domain() ?
 
->
-> And can't this be a global function too for those that don't want to
-> deal with devm stuff?
+But... I couldn't guess what the problem with calling it is?
 
-There was a note about that in the cover-letter of the v1 but I did not
-repeat it after.
+In the not-probed case it will see dev->iommu_group is NULL and succeed.
 
-It can be exported but I had no use for it so I thought It was better not
-export it until it was actually needed. I really do not have a strong
-preference over this.
+The probed case could be prevented by checking dev->iommu_group sooner
+in __iommu_probe_device()?
 
->
->> +							int id)
->> +{
->> +	struct auxiliary_device *auxdev;
->> +	int ret;
->> +
->> +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
->> +	if (!auxdev)
->> +		return ERR_PTR(-ENOMEM);
->
-> Ick, who cares what the error value really is?  Why not just do NULL or
-> a valid pointer?  That makes the caller much simpler to handle, right?
->
+Anyhow, the approach seems OK
 
-Sure why not
+> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+> index 9f4efa8f75a6..42b8f1833c3c 100644
+> --- a/drivers/acpi/scan.c
+> +++ b/drivers/acpi/scan.c
+> @@ -1619,6 +1619,9 @@ static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
+>  {
+>  	int err;
+>  
+> +	if (device_iommu_mapped(dev))
+> +		return 0;
 
->> +
->> +	auxdev->id = id;
->> +	auxdev->name = devname;
->> +	auxdev->dev.parent = dev;
->> +	auxdev->dev.platform_data = platform_data;
->> +	auxdev->dev.release = auxiliary_device_release;
->> +	device_set_of_node_from_dev(&auxdev->dev, dev);
->> +
->> +	ret = auxiliary_device_init(auxdev);
->
-> Only way this will fail is if you forgot to set parent or a valid name.
-> So why not check for devname being non-NULL above this?
+This is unlocked and outside a driver context, it should have a
+comment explaining why races with probe can't happen?
 
-If auxiliary_device_init() ever changes it would be easy to forget to
-update that and lead to something nasty to debug, don't you think ?
+> +	/*
+> +	 * For FDT-based systems and ACPI IORT/VIOT, the common firmware parsing
+> +	 * is buried in the bus dma_configure path. Properly unpicking that is
+> +	 * still a fairly big job, so for now just invoke the whole thing. Our
+> +	 * bus_iommu_probe() walk may see devices with drivers already bound,
+> +	 * but that must mean they're already configured - either probed by
+> +	 * another IOMMU, or there was no IOMMU for iommu_fwspec_init() to wait
+> +	 * for - so either way we can safely skip this and avoid worrying about
+> +	 * those recursing back here thinking they need a replay call.
+> +	 */
+> +	if (!dev->driver && dev->bus->dma_configure) {
+> +		mutex_unlock(&iommu_probe_device_lock);
+> +		dev->bus->dma_configure(dev);
+> +		mutex_lock(&iommu_probe_device_lock);
+> +	}
+> +
+> +	/*
+> +	 * At this point, either valid devices now have a fwspec, or we can
+> +	 * assume that only one of Intel, AMD, s390, PAMU or legacy SMMUv2 can
+> +	 * be present, and that any of their registered instances has suitable
+> +	 * ops for probing, and thus cheekily co-opt the same mechanism.
+> +	 */
+> +	ops = iommu_fwspec_ops(dev_iommu_fwspec_get(dev));
+> +	if (!ops)
+> +		return -ENODEV;
+> +
+>  	/* Device is probed already if in a group */
+>  	if (dev->iommu_group)
+>  		return 0;
 
-If you are OK with this, I could update in this direction.
+This is the test I mean, if iommu_group is set then
+dev->iommu->iommu_dev->ops is supposed to be valid too. It seems like
+it should be done earlier..
 
->
->> +	if (ret) {
->> +		kfree(auxdev);
->> +		return ERR_PTR(ret);
->> +	}
->> +
->> +	ret = __auxiliary_device_add(auxdev, modname);
->> +	if (ret) {
->> +		/*
->> +		 * NOTE: It may look odd but auxdev should not be freed
->> +		 * here. auxiliary_device_uninit() calls device_put()
->> +		 * which call the device release function, freeing auxdev.
->> +		 */
->> +		auxiliary_device_uninit(auxdev);
->
-> Yes it is odd, are you SURE you should be calling device_del() on the
-> device if this fails?  auxiliary_device_uninit(), makes sense so why not
-> just call that here?
+> +	/*
+> +	 * And if we do now see any replay calls, they would indicate someone
+> +	 * misusing the dma_configure path outside bus code.
+> +	 */
+> +	if (dev_iommu_fwspec_get(dev) && dev->driver)
+> +		dev_WARN(dev, "late IOMMU probe at driver bind, something fishy here!\n");
 
-I'm confused ... I am call auxiliary_device_uninit() here. What do you
-mean ? 
+WARN_ON_ONCE or dump_stack() to get the stack trace out?
 
->
->> +		return ERR_PTR(ret);
->> +	}
->> +
->> +	return auxdev;
->> +}
->> +
->> +static void auxiliary_device_destroy(void *_auxdev)
->> +{
->> +	struct auxiliary_device *auxdev = _auxdev;
->> +
->> +	auxiliary_device_delete(auxdev);
->> +	auxiliary_device_uninit(auxdev);
->> +}
->> +
->> +/**
->> + * __devm_auxiliary_device_create - create a device on the auxiliary bus
->> + * @dev: parent device
->> + * @modname: module name used to create the auxiliary driver name.
->> + * @devname: auxiliary bus device name
->> + * @platform_data: auxiliary bus device platform data
->> + * @id: auxiliary bus device id
->> + *
->> + * Device managed helper to create an auxiliary bus device.
->> + * The device create matches driver 'modname.devname' on the auxiliary bus.
->> + */
->> +struct auxiliary_device *__devm_auxiliary_device_create(struct device *dev,
->> +							const char *modname,
->> +							const char *devname,
->> +							void *platform_data,
->> +							int id)
->> +{
->> +	struct auxiliary_device *auxdev;
->> +	int ret;
->> +
->> +	auxdev = auxiliary_device_create(dev, modname, devname, platform_data, id);
->> +	if (IS_ERR(auxdev))
->> +		return auxdev;
->> +
->> +	ret = devm_add_action_or_reset(dev, auxiliary_device_destroy,
->> +				       auxdev);
->
-> Oh this is going to be messy, but I trust that callers know what they
-> are doing here.  Good luck!  :)
->
-> thanks,
->
-> greg k-h
+> @@ -121,6 +121,9 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
+>  	if (!master_np)
+>  		return -ENODEV;
+>  
+> +	if (device_iommu_mapped(dev))
+> +		return 0;
 
--- 
-Jerome
+Same note
+
+> @@ -151,7 +154,12 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
+>  		iommu_fwspec_free(dev);
+>  	mutex_unlock(&iommu_probe_device_lock);
+>  
+> -	if (!err && dev->bus)
+> +	/*
+> +	 * If we have reason to believe the IOMMU driver missed the initial
+> +	 * iommu_probe_device() call for dev, try to fix it up. This should
+> +	 * no longer happen unless of_dma_configure() is being misused.
+> +	 */
+> +	if (!err && dev->driver)
+>  		err = iommu_probe_device(dev);
+
+This is being conservative? After some time of nobody complaining
+it can be removed?
+
+Jason
 
