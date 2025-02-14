@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A909AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 22:26:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67688C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 22:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k2vnMCPQOojSTe6uMJg0l2Vez2CaiS93NKFlwUuMrgA=; b=0Q1ncHdp4UA/nt8SM2dA5JbxnI
-	DPI1gkNgI3vERZxMCmx9He1FVX1tND5cdPhL/cL+OfgOaUdEw2r6fmVXavPYKy9a/+yJD+coSGBbA
-	yyK9Q6p53Dl84We72Dy+O+lIA9wemkGEjrikn8ZhSobZdPD+9JcGQIn3D9bEIcVsLxZCq0fTrqvBN
-	tG2c2meA4l+rx6ECBkRJW8FPe0ZxqWWxabaz7Pe9RDQBh9yHXp/o6srk72lNWx8/+5a9RrpbC/swK
-	RlpAr82D3Nz0WqZlFs4UT3hwnhVgfNLp29j+UuViyUJG6F1lh6Qd3xD+khpSGg6hdjTMItVHDsFD6
-	eaBIagoQ==;
+	bh=PjjUjhR7vIQHCQ5PzFsfoOwqe27nlOhO0vUIUfr8iw4=; b=ack79lUOqAS+rEk8Xhz/wpjGnY
+	ZfA6HmQjOAwnKeUf42mWUGQbapsfnT7DT7T+TjiKuG8IRrMuUDzKvAE58WMeBlPlmdQHGUGO9/53o
+	COvphH92qanikWgxMdDdPYSujESxID7S7Vb+U0z6QqSqT+BcoXmIub8qo61YuvJIZ4EydGReI+j3U
+	NEeNy6tE9hJBbrle3iFKS2Ejk2PzZZA6f8Cdd6pO5MF+oHXULPHrJijCW95605NZaowVJgtSAVyQH
+	cejELs/NU5BVLK8W0U8h/E3UPzGYw3vQ6DcrAcHSkNHbo3M3K/S66MAR5fBnl1c/uaRLaVnJIMu8w
+	8K/SyXsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj48D-0000000GNiw-1q47;
-	Fri, 14 Feb 2025 22:25:57 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tj4Gx-0000000GOxa-465s;
+	Fri, 14 Feb 2025 22:34:59 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj46l-0000000GNYU-3jwR;
-	Fri, 14 Feb 2025 22:24:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=k2vnMCPQOojSTe6uMJg0l2Vez2CaiS93NKFlwUuMrgA=; b=J+H356ae4zUnjMOSGBw1B3YZL7
-	/T2/TQgh82Y03mrVH7Xlc4/P5f+G6nyffpsQd00bKp+zPTdNie2VrURG+797OKSxdjvDum5eiC+bs
-	qHMk3BxdEHul+ZH7et+bTP4Y+o5gcsLi4SbnU0vuUSF8E7sEBNoQQzIRom+monEH+SLBayf15MBme
-	2oMBHqCtLJkrptfSyladSdfbK3AvTfIvTdXdoi5VcHinbIQInl+jGlF+jW/0BesYnZSp4+lrQVfkJ
-	IEAHmyvio8ATJxeWo2hzwsGIkT5/AgfdQ1OTp+p/BKxLIAeibHgUhXlnrzFD3LZY8cLnX8IzN/aDf
-	oAE+TReg==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tj46c-0003Go-2m; Fri, 14 Feb 2025 23:24:18 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Andy Yan <andyshrk@163.com>
-Cc: hjc@rock-chips.com, krzk+dt@kernel.org, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- derek.foreman@collabora.com, detlev.casanova@collabora.com,
- daniel@fooishbar.org, robh@kernel.org, sebastian.reichel@collabora.com,
- Andy Yan <andy.yan@rock-chips.com>
-Subject: Re: [PATCH v14 04/13] drm/rockchip: vop2: Merge vop2_cluster/esmart_init
- function
-Date: Fri, 14 Feb 2025 23:24:17 +0100
-Message-ID: <8686639.gsGJI6kyIV@diego>
-In-Reply-To: <20250212093530.52961-5-andyshrk@163.com>
-References: <20250212093530.52961-1-andyshrk@163.com>
- <20250212093530.52961-5-andyshrk@163.com>
+	id 1tj4FV-0000000GOo9-1acc
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Feb 2025 22:33:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 57FD9A44BE4;
+	Fri, 14 Feb 2025 22:31:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AE53C4CED1;
+	Fri, 14 Feb 2025 22:33:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739572408;
+	bh=I0We4+HPs5dEfYhay/YlzzWO3zPvIdMYOxdN43pC8To=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gk9AIpKPgslAd8QCZWjsZYHVLZ4yoOxeYcGjCZCbJbZ0VeLu6fCzN3pqYz+JKeYKf
+	 mlRTta9VKKWflFC1qT9QN7/tt/xKEBXctO5Ue/0BRIR1Yvevuk0RXWD6xXXmnEpBDG
+	 c7gzl8AjapADNS6Jsbl/yfhhJeoSc5/Ux59NuVQpOHYkQh5Q3nb8Qu82XOkdkpupQl
+	 0GUdIS7VqcjYvWkgVJyCDy9EtahkWWGJQJ/duqZSBfVapW0NgW5zMTi7AhGUso6686
+	 ION1V/snvb2mgVAyvEmDzJq0/9VLWcFTSa+nG0J2oD++oY/ddsVbKxa/w+fqei6l9N
+	 mzk1QjM7BxEBA==
+Date: Fri, 14 Feb 2025 14:33:25 -0800
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Song Liu <song@kernel.org>
+Cc: Puranjay Mohan <puranjay@kernel.org>, Weinan Liu <wnliu@google.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Indu Bhagat <indu.bhagat@oracle.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
+	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, 
+	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
+	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+Message-ID: <z3msrl3u5wxdulvlecvehzbsu3rpeul7ckbjf4cy7guhcszqpm@xn4yhenfbvok>
+References: <20250212234946.yuskayyu4gx3ul7m@jpoimboe>
+ <CAPhsuW5TeMXi_Mn8+jR9Qoa=rAWasMo7M3Hs=im6NT6=+CrxqA@mail.gmail.com>
+ <20250213024507.mvjkalvyqsxihp54@jpoimboe>
+ <CAPhsuW4iDuTBfZowJRhxLFyK=g=s+-pK2Eq4+SNj9uL99eNkmw@mail.gmail.com>
+ <mb61py0yaz3qq.fsf@kernel.org>
+ <CAPhsuW7dV7UR3PsGVx_DLBH5-95DAmLMGTPuY0NfUwWLZMSTrQ@mail.gmail.com>
+ <20250214080848.5xpi2y2omk4vxyoj@jpoimboe>
+ <CAPhsuW6dxPtgqZaHrZEVhQXwm2+sETreZnGybZXVKYKfG9H6tg@mail.gmail.com>
+ <20250214193400.j4hp45jlufihv5eh@jpoimboe>
+ <CAPhsuW6q+yhn0pGQb0K+RhXHYDkjEgomZ2pu3P_MEeX+xNRe0g@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAPhsuW6q+yhn0pGQb0K+RhXHYDkjEgomZ2pu3P_MEeX+xNRe0g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_142427_921021_9D640610 
-X-CRM114-Status: GOOD (  20.23  )
+X-CRM114-CacheID: sfid-20250214_143329_471210_786F971B 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,95 +85,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 12. Februar 2025, 10:34:59 MEZ schrieb Andy Yan:
-> From: Andy Yan <andy.yan@rock-chips.com>
+On Fri, Feb 14, 2025 at 02:04:17PM -0800, Song Liu wrote:
+> Hi Josh,
 > 
-> Now these two function share the same logic, the can
-> be merged as one.
+> On Fri, Feb 14, 2025 at 11:34 AM Josh Poimboeuf <jpoimboe@kernel.org> wrote:
+> >
+> > On Fri, Feb 14, 2025 at 09:51:41AM -0800, Song Liu wrote:
+> > > > Ignorant arm64 question: is the module's text further away from slab
+> > > > memory than vmlinux text, thus requiring a different instruction (or
+> > > > GOT/TOC) to access memory further away in the address space?
+> > >
+> > > It appears to me the module text is very close to vmlinux text:
+> > >
+> > > vmlinux: ffff8000800b4b68 T copy_process
+> > > module: ffff80007b0f06d0 t copy_process [livepatch_always_inline_special_static]
+> >
+> > Hm... the only other thing I can think of is that the klp relas might be
+> > wrong somewhere.  If you share patched.o and .ko files from the same
+> > build I could take a look.
 > 
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> ---
+> A tarball with these files is available here:
 > 
-> (no changes since v1)
+> https://drive.google.com/file/d/1ONB1tC9oK-Z5ShmSXneqWLTjJgC5Xq-C/view?usp=drive_link
+
+Thanks, I'll take a look.
+
+> > That kallsyms issue has caused other headaches.  It really needs to be
+> > fixed to use the actual ELF symbol size.
 > 
->  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 42 +++++---------------
->  1 file changed, 11 insertions(+), 31 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> index a0d961cb5d21..844df4001159 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> @@ -2424,18 +2424,18 @@ static int vop2_find_rgb_encoder(struct vop2 *vop2)
->  	return -ENOENT;
->  }
->  
-> -static int vop2_cluster_init(struct vop2_win *win)
-> +static int vop2_regmap_init(struct vop2_win *win, const struct reg_field *regs,
-> +			    int nr_regs)
->  {
->  	struct vop2 *vop2 = win->vop2;
->  	int i;
->  
-> -	for (i = 0; i < vop2->data->nr_cluster_regs; i++) {
-> +	for (i = 0; i < nr_regs; i++) {
->  		const struct reg_field field = {
-> -			.reg = (vop2->data->cluster_reg[i].reg != 0xffffffff) ?
-> -				vop2->data->cluster_reg[i].reg + win->offset :
-> -				vop2->data->cluster_reg[i].reg,
-> -			.lsb = vop2->data->cluster_reg[i].lsb,
-> -			.msb = vop2->data->cluster_reg[i].msb
-> +			.reg = (regs[i].reg != 0xffffffff) ?
-> +				regs[i].reg + win->offset : regs[i].reg,
-> +			.lsb = regs[i].lsb,
-> +			.msb = regs[i].msb
->  		};
->  
->  		win->reg[i] = devm_regmap_field_alloc(vop2->dev, vop2->map, field);
-> @@ -2446,28 +2446,6 @@ static int vop2_cluster_init(struct vop2_win *win)
->  	return 0;
->  };
->  
-> -static int vop2_esmart_init(struct vop2_win *win)
-> -{
-> -	struct vop2 *vop2 = win->vop2;
-> -	int i;
-> -
-> -	for (i = 0; i < vop2->data->nr_smart_regs; i++) {
-> -		const struct reg_field field = {
-> -			.reg = (vop2->data->smart_reg[i].reg != 0xffffffff) ?
-> -				vop2->data->smart_reg[i].reg + win->offset :
-> -				vop2->data->smart_reg[i].reg,
-> -			.lsb = vop2->data->smart_reg[i].lsb,
-> -			.msb = vop2->data->smart_reg[i].msb
-> -		};
-> -
-> -		win->reg[i] = devm_regmap_field_alloc(vop2->dev, vop2->map, field);
-> -		if (IS_ERR(win->reg[i]))
-> -			return PTR_ERR(win->reg[i]);
-> -	}
-> -
-> -	return 0;
-> -}
-> -
->  static int vop2_win_init(struct vop2 *vop2)
->  {
->  	const struct vop2_data *vop2_data = vop2->data;
-> @@ -2484,9 +2462,11 @@ static int vop2_win_init(struct vop2 *vop2)
->  		win->win_id = i;
->  		win->vop2 = vop2;
->  		if (vop2_cluster_window(win))
-> -			ret = vop2_cluster_init(win);
-> +			ret = vop2_regmap_init(win, vop2->data->cluster_reg,
-> +					       vop2->data->nr_cluster_regs);
->  		else
-> -			ret = vop2_esmart_init(win);
-> +			ret = vop2_regmap_init(win, vop2->data->smart_reg,
-> +					       vop2->data->nr_cluster_regs);
+> Maybe we should have a "module_text_end" symbol?
 
-						^^ nr_smart_regs
-I think
+Maybe, though it would be a lot cleaner for kallsyms to just use the
+actual ELF sizes.  And actually I'm thinking that would be a pretty
+trivial change.
 
-
-
-
+-- 
+Josh
 
