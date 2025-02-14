@@ -4,69 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF6C5C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 17:02:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 930E5C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 17:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9GcI66ARCVslKCfKQh7UMhWeoLZ8nJLsPjSDyirjyjs=; b=l/6varK/p5loqwxi02iNyJqEdz
-	5HjF4x6jjjCV3hxkqU74gU+XLBp0esdXpXSnQDaTOVCy7MdWEoDiSNPgTYairxxtRx3tBRTtQWXrV
-	FBe4XA46VdOsvYmDXLi9yz9dYLhNF+2c5p7Ph0zTcquQH6mOIv4KKf2roxqecYbq/cy7gnnCeIMkW
-	ft8jJolFh3jzGTa9/r2pOMox3UaUSuO1K2vUsy00kMHtCG3nsKnEEI3hxfsCpBmpeh7ERmk3eXAAE
-	CQSDMftbAxzP+i480n8TCuBKJqVV2p5stR3I5ghBwEdOhXDEKMIHZeopbch3HLK+mYfYATO446pTM
-	FvflOTbg==;
+	bh=OFZ5q94qCb6gQ2z83DH6McxaDI95HqSUaNhYnMxrkeY=; b=2ruN86Cv3vU/ZtS/oy4/CWXf1Y
+	lKB+XtBAzGGp6PLLJi2qF8kd+x5A2KhAOwLteCmtp1Jnc9pd5sCca9L0bOhdcNm3f8SM51tjHVdfy
+	f4AaQgq1hMpRNW+PktEHU5p8PpCuRu0Afs4fWMb4b/BHOHoPgjzHMD0K4uGFHLAT4pLhK6Nkp3dSg
+	O1kNud0TkpFk9PPur2E9Mb2Xd97F8vZS6TgPbYtWouVNupmtZLrDNvcLd3YsgS25RcIsqYPjjmZmH
+	uXpcbDWhRAcTx1x4m11ptzaTJ1u6sQpO+WY2cdnU6Cn/AYipZdYFhd0nmtLe9tjnxUWgEYHlWLc24
+	ynj5Fa+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiz5I-0000000Fc1h-3ST0;
-	Fri, 14 Feb 2025 17:02:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tiz7d-0000000FcKu-2G0R;
+	Fri, 14 Feb 2025 17:05:01 +0000
+Received: from mail-bn7nam10on2060a.outbound.protection.outlook.com ([2a01:111:f403:2009::60a] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiz3q-0000000Fbmc-2YZv
+	id 1tiz6B-0000000Fc9U-40aI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 17:01:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A5197A43265;
-	Fri, 14 Feb 2025 16:59:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D099C4CED1;
-	Fri, 14 Feb 2025 17:01:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739552465;
-	bh=KieRTUcnMSc5WPsYxL5r2U6ULuh+BG887FXcKaW9vRw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KLIZq1cEt6U8tRefMY+0psNcrbzgIJnk5h7tNh0e0/upu/T97sRhKjRjePL/YNXyd
-	 9xmzwfFw2qnaA2USdGfA8IxfYvIa4sti7cjp2ffHtTgqy6MBl2JT05efegJbscwd8Y
-	 dMhRu5hbhlJnQGBZvfTfTNgflyTgT0B6xEVjqFT+Ds3esMjbSSXfu0w5y4jM+/VIm0
-	 AoS4MJK/zANf9LXjfHlhiTFeNmgFJD1ImM/Dbm4bq8EHmzs4k9stmg4ymjF40YBoH/
-	 n74ls55wL9q2U6sYam+u83SDTWeSUfu0jJHwR2LXsIGU5T6JP42ZBtdHzM38E/iL1F
-	 ZwZw1gYSNpPAw==
-Date: Fri, 14 Feb 2025 22:30:57 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bo Sun <Bo.Sun.CN@windriver.com>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Kexin.Hao@windriver.com, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Vidya Sagar <vidyas@nvidia.com>
-Subject: Re: [PATCH] PCI: controller: Restore PCI_REASSIGN_ALL_BUS when
- PCI_PROBE_ONLY is enabled
-Message-ID: <20250214170057.o3ffoiuxn4hxqqqe@thinkpad>
-References: <20250117082428.129353-1-Bo.Sun.CN@windriver.com>
- <20250210103707.c5ubeaowk7xwt6p5@thinkpad>
- <df5d3c54-d436-43bb-8b40-665c020d6bb5@windriver.com>
+	Fri, 14 Feb 2025 17:03:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=u+1RRkTvEaPGxguwWsRDCuKBJQZ6Uaq0Q3is5Plqk1HZDpdPGO6iP1QyIWl47SGi5q+imQCTigViQY4qHsXjxxeosUaMjlfvhKXrBK2SqMehCWyRerabhm6+rKC5P5kOuk2jvePjFM9Snw6JzR1+FEg+odKjrin20yNoc4cDcM4BaPRJLkBnyR1+MsY9sHRA+SyJUXvd0usSLQ6JG4Q9xWWAzg0l5P9TnviLs4Xlm6x+oXCEOMLeaipE34Ag9rJMV8tES2jPsCWInVke+4Duao+3O/wEa0bAdR50LghESP0Q+YL+XDdXtDngwzOAizmad7hva/tLoQe1OnE7W4tUYQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OFZ5q94qCb6gQ2z83DH6McxaDI95HqSUaNhYnMxrkeY=;
+ b=XdH5WxVDxlrGI+/m7UO/sXfX7N26ciA+dFQp3UINuJSiSQ1crhu1PvM7w9QrTUklt3v6q5O0D0sLaHLieOa0zJ1gKaAPHwvhb6l1jUgwhpnDt6xE4wfjNOmMZqNm+FjF00b4Kj8leGn4IXtr0XFVb9cpSaIpLbStNkq8LxashRFAVorz/zmsTRnCZ8qWZ27w12sQKWh2HBZ5NoL2Pdgmg9gp9kaKxze5O7n/+ne2Bxf/vRtTStVK27VuvzMJtbFOl9Jwu0JHfi/nPDT61JOeZHVcdZAi/rCGjzkOc075VUku3gw58HZaCBJzebcbSCFtcB9HjHGgEiMFdXIxV8nOGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OFZ5q94qCb6gQ2z83DH6McxaDI95HqSUaNhYnMxrkeY=;
+ b=G7hwf/R8E6SknNaJA/6aAOb/eyxup+QGLTfKJ4Ky35rHkCKHs416GcH7n6nGMnlx7+sReq8yIzvt2A3oo6mQ0cgYr2kcnGdbhup5mCtBH17b8CU0LDAkpCfL6JoFn/mCtQJAeHxkrbVVN6TOu4UBFj6qEtn/ZVDIS3Y50MpS8MIjFadpY1ES/Ku5xic6PfIckaCZZk5MCBUYaSmp8v/7ixZG/qNRP8SH0NPAUAEiWDgqb/Wl1Jicexeztg1lkmOG912OB0QnYCAekU030r+JiGSu2DoEfHTUBGrNlYVLWe33Fw0jBrbxw7c6kxN4Tw1vr30AKhCcPJv/JbV6SB4jhA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
+ by PH0PR12MB8824.namprd12.prod.outlook.com (2603:10b6:510:26f::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.15; Fri, 14 Feb
+ 2025 17:03:26 +0000
+Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
+ ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
+ ([fe80::1660:3173:eef6:6cd9%6]) with mapi id 15.20.8445.013; Fri, 14 Feb 2025
+ 17:03:26 +0000
+Message-ID: <53a47904-cb6c-4d76-86fd-2f78b911833c@nvidia.com>
+Date: Fri, 14 Feb 2025 17:03:19 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 9/9] net: stmmac: convert to phylink managed EEE
+ support
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ Bryan Whitehead <bryan.whitehead@microchip.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+References: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
+ <E1tYAEG-0014QH-9O@rmk-PC.armlinux.org.uk>
+ <6ab08068-7d70-4616-8e88-b6915cbf7b1d@nvidia.com>
+ <Z63Zbaf_4Rt57sox@shell.armlinux.org.uk>
+ <Z63e-aFlvKMfqNBj@shell.armlinux.org.uk>
+ <05987b45-94b9-4744-a90d-9812cf3566d9@nvidia.com>
+ <Z68nSJqVxcnCc1YB@shell.armlinux.org.uk>
+From: Jon Hunter <jonathanh@nvidia.com>
+Content-Language: en-US
+In-Reply-To: <Z68nSJqVxcnCc1YB@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0014.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:150::19) To SJ2PR12MB8784.namprd12.prod.outlook.com
+ (2603:10b6:a03:4d0::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <df5d3c54-d436-43bb-8b40-665c020d6bb5@windriver.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|PH0PR12MB8824:EE_
+X-MS-Office365-Filtering-Correlation-Id: 415c2a01-a6b9-4076-5a93-08dd4d197f71
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|10070799003|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y0kvTFFLbnpiaVZZek9NajUrR21HYm5CZVhLVkRRaHluTTlQSTlEeU5LNjNm?=
+ =?utf-8?B?TWtjQUlaZmFPUDZ4YThOb3JUSFJLd2NMVG9MYnVjSEZkVEI2N2VJekJEQUIx?=
+ =?utf-8?B?MkZET2lxNWhpTnNZSDE3amJOMmx6T3dGSnUvZkx2V3BJUTZGUDBMSzNyaEw3?=
+ =?utf-8?B?eEM2ZXFZN1BlOEo2ZjNBdmNlR1ZBM0ZiNnZteFUyT0pQbXRscWhwTjczL1hD?=
+ =?utf-8?B?eVp0ZlBuQ3FsMW1FZ24rNnlYS1FHTnNESy9UM2hDTHd0SXFnTkNJcWJIRS85?=
+ =?utf-8?B?UlFzVDFxZHpSWjZVZGNJc2NQbzMxcHQ4TnUvUFpVNnJIZXlia202dGp0Ungv?=
+ =?utf-8?B?Z1Q5bFZwckJVa2J0MWtmSGhIMVNScW93dlFQYm5ZRytsSFUyQiszdGVWNytS?=
+ =?utf-8?B?VGVraUYwT1FsbWNzeG95YjNjQ2pqK2swWWZlVitjbjlxVWg3aGp3bmYxQUgz?=
+ =?utf-8?B?UkhJbnp0eENkbDFLUVZaUlpCaGVuby9mSXR5cnNUcy9JNlQzSGd4ZmVVMUxH?=
+ =?utf-8?B?c295UHlNQnk2aW1tWC9Xei9ERUhLRy8ra0ZqWDRORlIzd01mQXAveE5WaStW?=
+ =?utf-8?B?SlhTYk95WHdOeU93ZG5yejg3aUQrWlBXUDg2RjdJdlRLalNzbGdoT29TWUxr?=
+ =?utf-8?B?WWlmblBXNnBpNlRJZGxZNjkrNE1DR040RGZnc05LbTVtcEVYWnRVamUxQkhE?=
+ =?utf-8?B?UWJhQjhDU2FZT1FXNXp6Y08ydE9Dem1CNUVWb2w5WG0vM3QzRGlrSWNLclE4?=
+ =?utf-8?B?d0Zyd3hqQjlDb2FqR1l5ODF3U1RUckt2YTZGTjZxc2tNRnFqWVEyVGxJdHgw?=
+ =?utf-8?B?R1BGd2lRbHdQeHJsSGJvT3Nzc014aDNyNVhheU82MTNlQVIzR3UyU0pIL0lp?=
+ =?utf-8?B?NnBackdiM2dYcGR5R2JzUVhOSzRPUDROYzg0TlFEcE94YnV5b3I0QWg0TWxF?=
+ =?utf-8?B?enA3SHZ1TGYvTWxOaHNpUFVYMnAzKzFKM0lXYWhsRlJXNVptanNGUjJDQlJ6?=
+ =?utf-8?B?Nk4vME8wRFBINDlUR3o1eHkxcmVQUGVHMWZ6VnNmZytnNnFGQmFlalN1ZHJI?=
+ =?utf-8?B?MTl4WE9oWDh3SDFEOWhINi9Da0U0cWFPaE1WaERseDkrQW4vVTRnMENOalNq?=
+ =?utf-8?B?ZXJyeHEyNzFTTWtwcmdjV0h5RTJmbHh5L1RJZ0hEYzdEMmxUZEtEd1B1cFJo?=
+ =?utf-8?B?S0tuanFMS2V5MVRXRS9aWFJ2cW1tOU04WllxQ29pTDBpN1hIYzBRbE05R3lh?=
+ =?utf-8?B?TG8xRjlNUzdVbDRkbnB3bTVQZ1Raa0t4eHRnZmVadGpzbWI3WlA4MTMvY3Rs?=
+ =?utf-8?B?SVFDV1dTNFlWb0Z2SnFmZGd1ZHBzWVZPVFVUaFVPdmdaWTJ6UDBJUzJwMnEx?=
+ =?utf-8?B?RGp0R0Zvd0J1K2o1SnZka0hVQXhNNUVGZUhpeFNodGZtcC9PWjJpbDNnUkxJ?=
+ =?utf-8?B?ekM1VDVEN0tleXNPalZudEp0bmxRalNXcWNxaGF6V2FXUnFVYXhEek9MM01V?=
+ =?utf-8?B?dS93M3BjbzQwcUpvL05qbXVRUTFFVXg0Vm1vK2F4NUIwTzIvZGVzYUJDdXNl?=
+ =?utf-8?B?d01URHErVUo2WXlZZnE3dmwyU2Z3SER6MFZvOTRXdkd0b1NFRUVFazR2Sm9Y?=
+ =?utf-8?B?NlpkYkloV21nWmg4MG5Nd0hCanVtVFREdDZsS0NLc1BRN3JsRUp6QkJleXJ1?=
+ =?utf-8?B?K3dOWnZ4RittdEd6b1FvMzlaZktpOHZ5MUN6cDBHNUtXaDNpTmFuMlYvRjky?=
+ =?utf-8?B?N1pNSW8vRDhtUnhFL1BlK04vNFd5UThNNU4vVmxuSzJYa3dYbmdMYlI5U0M0?=
+ =?utf-8?B?S1pqcW5UcjNmcGRvYlc5ZDB2T2lMai8zWnNsbjRmeDhtL21mT0FzcE9IRTVS?=
+ =?utf-8?Q?B0WldhquZ/VMn?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(10070799003)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q0hiQnRZb3JmRDNFb0RuRHM4cktWNWQxbm5FNnRha0RvdzBoWHIyMmEzK3li?=
+ =?utf-8?B?cTJYUi9XOFU2N0U0cXNQM2JvM2podEtpN3RVRytTUkRwS3FwcDRET3BXUjM2?=
+ =?utf-8?B?L045MGdOM0x6RGtRT0plOFBMcDNEUHQ5NnUyMndjZU82UU1wRzBBNVErK3Vq?=
+ =?utf-8?B?RXV1SFlPWHRsbFFsSkVrcDE1Q3BlR0FvdnpGUkRINEpta1NUay9xRWpudEVZ?=
+ =?utf-8?B?Yk52SFg5VkNXNG5ESjcxakVHVEpEOHpPdmJBOUJicjF3TjJCdklFeGJ0RkVJ?=
+ =?utf-8?B?L2Q0Y21VN2IzYTl2dFFhZDkyU2tCVk42ZnplbklmbFJxYTJMOWE2WnY5QXBl?=
+ =?utf-8?B?cTRNdzg4NGpyU1FpcDBWM1h3NmlWenZxMjdJbEFwRmhmT2g4TmxjMEYyV3Fo?=
+ =?utf-8?B?K3F3aVhGN0FNZk1YRXROWXloOU1mZ2tVWG1XK0pObWJITTZoUG9acFlhdi9G?=
+ =?utf-8?B?NTVQVzJLYUZhYWdvQ3doSmh3T1hjcDZlNWlYMG0wS05jbnRyWVFZdmgrcUgr?=
+ =?utf-8?B?ZklEVnJtbFNIY2lESHA4ZW5BL2cxQTVidFhiSDJZSUVvcExjdWkyWlJjTTVO?=
+ =?utf-8?B?WHl4RVgyejBZbEZjUlRHOWNnMDlxRHJKVjBHUm9PbEJPRHZXOUxuMk0yL2Jq?=
+ =?utf-8?B?L0hYTHJMNWxIb1ZTWmJRdHFPREZFN3NOWkY5YUJsVnBUVVc4WENucXo4T1Vs?=
+ =?utf-8?B?OEhXTlZBRE1BRXh0a2VaYStqdW1reVNQYXIvMU5KWGpRZVB1d2MvcHFJQjlX?=
+ =?utf-8?B?cDR1M0ZzbGtrVHNsTzdlQW9GYnd5UjkyaUExMXNZa3gxd25FM2M5TjhZdWJs?=
+ =?utf-8?B?NVc0N0VBL29RYkk3bEszRVZ1cDVFZ1l3Y2xacE1JbU1hU0tCRWFmOGJnUjBR?=
+ =?utf-8?B?NXJtTFlUVlZmY3J2d01LOE1vTnlmVTZySzd5N1oxdldxcWVFeTFVUHl0UFVp?=
+ =?utf-8?B?a0RGcGc0UHVHZzEwejA0MW5WdDNWanNGZU9RM1VoZmVmalk4RHE2NW9NYjAx?=
+ =?utf-8?B?Q2ROTDhITkQvRjhGWHgrYnpJL1ZNdVJMQ1hnbkp0ZlZaa2JXM1NqaTRxTGJC?=
+ =?utf-8?B?Ny9WZUtlNTVIb1pINkpkcEZUU2I1TjVTbnFHWjRsUXJCSDBHQS9INWNoN3RN?=
+ =?utf-8?B?N09IR2hDYytaKzl1MHZVN3dJZW5heGY5L1pFMXB4ckVlOHl0ZERwL3J5R2Fo?=
+ =?utf-8?B?SVY0cTk3anJSak4ra0RQV1FQZG1OaVN2aDBKSVpDMmpIekQ0cE1sU0xHQnR1?=
+ =?utf-8?B?emUyZFpNNTM0UktWcDhGT2UvR0ZVTFlNanlZMHZ2WXRSTUFMRGM4a0hoSExT?=
+ =?utf-8?B?Vk1kQ1Fna2pWZVN3QnM1MjF3SW02MTVGczNEQXU1QnplREtUT0ZxWmprRnF1?=
+ =?utf-8?B?d0RYUVgwaldEZ0g0VFYwMHR3Wk5ja05XTDYzbGNkcHZ0TWM5VnJ6NnVGQi9y?=
+ =?utf-8?B?OTl1b3Q5L2dRR0Z4aXFsWnB1UFJ1V01zRGVTdUZ1c2d6Q2N4WTFxOGR4dE5l?=
+ =?utf-8?B?UG9yWFNqNlhiR2QveC9vcEwxQitlWTNtQzlQSTMxOGNaMUlxNW5lTFkrTE5X?=
+ =?utf-8?B?dWw1YTVNaTdzQjlrYlpaaWdoSUducXJYTWRTMVJRZUc0SWZQM01sSVl2U3F5?=
+ =?utf-8?B?Z21QVHNmT1NjNEtzcWQyWkk2WmxPU3h1Yldta1kybnE1cWdBK0JkY1pRYlFJ?=
+ =?utf-8?B?LzVGZHpwMmlDYTJQWHZaV05IRTVCZ2c2eWFjd2hUcTlpZjdjUzZKOStMaVdz?=
+ =?utf-8?B?M3U4Tll3UHZVQzh0OFJCTXNlMFAvT0VHbUxGRkdaMTBNZmJTR25tQjczV2lM?=
+ =?utf-8?B?RHdUVjNGYzdZQzEwQVJBemxhdWhzR2FWUEVxQ2UwUU1RZlZQblBkWHRXekxo?=
+ =?utf-8?B?emk4bHpmb3duR0hycHA2NlR5OWpoSWwwWmJwTS9yWklLK0VNV1NGdzNHNi94?=
+ =?utf-8?B?OHZ0Y3RRSDZYNm5MZ0JTSk5VakZKeVpWRzMyK0w3ODExVXBGZkxPU2NTQ1dV?=
+ =?utf-8?B?cGhXbHFwVnB5eU15eGc2NGNBNS9NNm9zVmVSMDBFcGdGT1kySnRCRVpieWZr?=
+ =?utf-8?B?TUdxRTNqMUVvbVd2M3BIM3NUZndpUkg0OXpJcHJlR0hYYjZlbzE3SjFzN0tZ?=
+ =?utf-8?B?aDlBRzZjVmxUeEFYMXJxODFtLzFpZk9lQlNoUk1mV21BZzV0eHVGcHZOeUFU?=
+ =?utf-8?B?SEtCTkt4UkliL0I5Z1NuKzA3dDN3V2gxUU1VWDhuVERhL0tXcCs1OFRBNG1l?=
+ =?utf-8?B?UDJpUFFNR2crdjV3RURnd2R4Rkh3PT0=?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 415c2a01-a6b9-4076-5a93-08dd4d197f71
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Feb 2025 17:03:26.7055
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: M1VLwkNP+f5oRF6P/GxpzvOnR7KUglNleES4EsK/MvUHtmN2FAcFsYsJHXT6dwwhyeQSPPEGNY2PkdgcUHBiFQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_090106_777458_BB22924F 
-X-CRM114-Status: GOOD (  37.78  )
+X-CRM114-CacheID: sfid-20250214_090332_010783_1C4E383A 
+X-CRM114-Status: GOOD (  28.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,168 +192,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 03:07:56PM +0800, Bo Sun wrote:
-> On 2/10/25 18:37, Manivannan Sadhasivam wrote:
-> > CAUTION: This email comes from a non Wind River email account!
-> > Do not click links or open attachments unless you recognize the sender and know the content is safe.
-> > 
-> > On Fri, Jan 17, 2025 at 04:24:14PM +0800, Bo Sun wrote:
-> > > On our Marvell OCTEON CN96XX board, we observed the following panic on
-> > > the latest kernel:
-> > > Unable to handle kernel NULL pointer dereference at virtual address 0000000000000080
-> > > Mem abort info:
-> > >    ESR = 0x0000000096000005
-> > >    EC = 0x25: DABT (current EL), IL = 32 bits
-> > >    SET = 0, FnV = 0
-> > >    EA = 0, S1PTW = 0
-> > >    FSC = 0x05: level 1 translation fault
-> > > Data abort info:
-> > >    ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
-> > >    CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-> > >    GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> > > [0000000000000080] user address but active_mm is swapper
-> > > Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP
-> > > Modules linked in:
-> > > CPU: 9 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.13.0-rc7-00149-g9bffa1ad25b8 #1
-> > > Hardware name: Marvell OcteonTX CN96XX board (DT)
-> > > pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> > > pc : of_pci_add_properties+0x278/0x4c8
-> > > lr : of_pci_add_properties+0x258/0x4c8
-> > > sp : ffff8000822ef9b0
-> > > x29: ffff8000822ef9b0 x28: ffff000106dd8000 x27: ffff800081bc3b30
-> > > x26: ffff800081540118 x25: ffff8000813d2be0 x24: 0000000000000000
-> > > x23: ffff00010528a800 x22: ffff000107c50000 x21: ffff0001039c2630
-> > > x20: ffff0001039c2630 x19: 0000000000000000 x18: ffffffffffffffff
-> > > x17: 00000000a49c1b85 x16: 0000000084c07b58 x15: ffff000103a10f98
-> > > x14: ffffffffffffffff x13: ffff000103a10f96 x12: 0000000000000003
-> > > x11: 0101010101010101 x10: 000000000000002c x9 : ffff800080ca7acc
-> > > x8 : ffff0001038fd900 x7 : 0000000000000000 x6 : 0000000000696370
-> > > x5 : 0000000000000000 x4 : 0000000000000002 x3 : ffff8000822efa40
-> > > x2 : ffff800081341000 x1 : ffff000107c50000 x0 : 0000000000000000
-> > > Call trace:
-> > >   of_pci_add_properties+0x278/0x4c8 (P)
-> > >   of_pci_make_dev_node+0xe0/0x158
-> > >   pci_bus_add_device+0x158/0x210
-> > >   pci_bus_add_devices+0x40/0x98
-> > >   pci_host_probe+0x94/0x118
-> > >   pci_host_common_probe+0x120/0x1a0
-> > >   platform_probe+0x70/0xf0
-> > >   really_probe+0xb4/0x2a8
-> > >   __driver_probe_device+0x80/0x140
-> > >   driver_probe_device+0x48/0x170
-> > >   __driver_attach+0x9c/0x1b0
-> > >   bus_for_each_dev+0x7c/0xe8
-> > >   driver_attach+0x2c/0x40
-> > >   bus_add_driver+0xec/0x218
-> > >   driver_register+0x68/0x138
-> > >   __platform_driver_register+0x2c/0x40
-> > >   gen_pci_driver_init+0x24/0x38
-> > >   do_one_initcall+0x4c/0x278
-> > >   kernel_init_freeable+0x1f4/0x3d0
-> > >   kernel_init+0x28/0x1f0
-> > >   ret_from_fork+0x10/0x20
-> > > Code: aa1603e1 f0005522 d2800044 91000042 (f94040a0)
-> > > 
-> > > This regression was introduced by commit 7246a4520b4b ("PCI: Use
-> > > preserve_config in place of pci_flags"). On our board, the 002:00:07.0
-> > > bridge is misconfigured by the bootloader. Both its secondary and
-> > > subordinate bus numbers are initialized to 0, while its fixed secondary
-> > > bus number is set to 8.
-> > 
-> > What do you mean by 'fixed secondary bus number'?
-> > 
-> 
-> The 'fixed secondary bus number' refers to the value returned by the
-> function pci_ea_fixed_busnrs(), which reads the fixed Secondary and
-> Subordinate bus numbers from the EA (Extended Attributes) capability, if
-> present.
 
-Thanks! It'd be good to mention the EA capability.
+On 14/02/2025 11:21, Russell King (Oracle) wrote:
+> On Fri, Feb 14, 2025 at 10:58:55AM +0000, Jon Hunter wrote:
+>> Thanks for the feedback. So ...
+>>
+>> 1. I can confirm that suspend works if I disable EEE via ethtool
+>> 2. Prior to this change I do see phy_eee_rx_clock_stop being called
+>>     to enable the clock resuming from suspend, but after this change
+>>     it is not.
+>>
+>> Prior to this change I see (note the prints around 389-392 are when
+>> we resume from suspend) ...
+>>
+>> [    4.654454] Broadcom BCM89610 stmmac-0:00: phy_eee_rx_clock_stop: clk_stop_enable 0
+> 
+> This is a bug in phylink - it shouldn't have been calling
+> phy_eee_rx_clock_stop() where a MAC doesn't support phylink managed EEE.
+> 
+>> [    4.723123] dwc-eth-dwmac 2490000.ethernet eth0: configuring for phy/rgmii link mode
+>> [    7.629652] Broadcom BCM89610 stmmac-0:00: phy_eee_rx_clock_stop: clk_stop_enable 1
+> 
+> Presumably, this is when the link comes up before suspend, so the PHY
+> has been configured to allow the RX clock to be stopped prior to suspend
+> 
+>> [  389.086185] dwc-eth-dwmac 2490000.ethernet eth0: configuring for phy/rgmii link mode
+>> [  392.863744] Broadcom BCM89610 stmmac-0:00: phy_eee_rx_clock_stop: clk_stop_enable 1
+> 
+> Presumably, as this is after resume, this is again when the link comes
+> up (that's the only time that stmmac calls phy_eee_rx_clock_stop().)
+> 
+>> After this change I see ...
+>>
+>> [    4.644614] Broadcom BCM89610 stmmac-0:00: phy_eee_rx_clock_stop: clk_stop_enable 1
+>> [    4.679224] dwc-eth-dwmac 2490000.ethernet eth0: configuring for phy/rgmii link mode
+>> [  191.219828] dwc-eth-dwmac 2490000.ethernet eth0: configuring for phy/rgmii link mode
+> 
+> To me, this looks no different - the PHY was configured for clock stop
+> before suspending in both cases.
+> 
+> However, something else to verify with the old code - after boot and the
+> link comes up (so you get the second phy_eee_rx_clock_stop() at 7s),
+> try unplugging the link and re-plugging it. Then try suspending.
 
-> In the code at drivers/pci/probe.c, line 1439, we have the
-> following:
-> 
-> 		/* Read bus numbers from EA Capability (if present) */
-> 		fixed_buses = pci_ea_fixed_busnrs(dev, &fixed_sec, &fixed_sub);
-> 		if (fixed_buses)
-> 			next_busnr = fixed_sec;
-> 		else
-> 			next_busnr = max + 1;
-> 
-> > > However, bus number 8 is also assigned to another
-> > > bridge (0002:00:0f.0). Although this is a bootloader issue, before the
-> > > change in commit 7246a4520b4b, the PCI_REASSIGN_ALL_BUS flag was
-> > > set by default when PCI_PROBE_ONLY was enabled, ensuing that all the
-> > > bus number for these bridges were reassigned, avoiding any conflicts.
-> > > 
-> > 
-> > Isn't the opposite? PCI_REASSIGN_ALL_BUS was only added if the PCI_PROBE_ONLY
-> > flag was not set:
-> > 
-> >          /* Do not reassign resources if probe only */
-> >          if (!pci_has_flag(PCI_PROBE_ONLY))
-> >                  pci_add_flags(PCI_REASSIGN_ALL_BUS);
-> > 
-> 
-> Yes, you are correct. It’s a typo; it should be "when PCI_PROBE_ONLY was not
-> enabled." I will fix this in v2.
-> 
-> > 
-> > > After the change introduced in commit 7246a4520b4b, the bus numbers
-> > > assigned by the bootloader are reused by all other bridges, except
-> > > the misconfigured 002:00:07.0 bridge. The kernel attempt to reconfigure
-> > > 002:00:07.0 by reusing the fixed secondary bus number 8 assigned by
-> > > bootloader. However, since a pci_bus has already been allocated for
-> > > bus 8 due to the probe of 0002:00:0f.0, no new pci_bus allocated for
-> > > 002:00:07.0.
-> > 
-> > How come 0002:00:0f.0 is enumerated before 0002:00:07.0 in a depth first manner?
-> > 
-> 
-> The device 0002:00:07.0 is actually enumerated before 0002:00:0f.0, but it
-> appears misconfigured. The kernel attempts to reconfigure it during
-> initialization, which is where the issue arises.
-> 
+OK will do. I will have to try that when I am back in the office next week.
 
-Ok, thanks for the clarification. I think the bug is in this part of the code:
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/probe.c#n1451
+> The point of this test is to verify whether the PHY ignores changes to
+> the RX clock stop configuration while the link is up.
+> 
+> 
+> 
+> The next stage is to instrument dwmac4_set_eee_mode(),
+> dwmac4_reset_eee_mode() and dwmac4_set_eee_lpi_entry_timer() to print
+> the final register values in each function vs dwmac4_set_lpi_mode() in
+> the new code. Also, I think instrumenting stmmac_common_interrupt() to
+> print a message when we get either CORE_IRQ_TX_PATH_IN_LPI_MODE or
+> CORE_IRQ_TX_PATH_EXIT_LPI_MODE indicating a change in LPI state would
+> be a good idea.
+> 
+> I'd like to see how this all ties up with suspend, resume, link up
+> and down events, so please don't trim the log so much.
 
-It just reuses the fixed bus number even if the bus already exists, which is
-wrong. I think this should be fixed by evaluating the bus number read from EA
-capability as below:
+OK thanks. I will instrument these too and get some more logs.
 
-diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-index b6536ed599c3..097e2a01faae 100644
---- a/drivers/pci/probe.c
-+++ b/drivers/pci/probe.c
-@@ -1438,10 +1438,21 @@ static int pci_scan_bridge_extend(struct pci_bus *bus, struct pci_dev *dev,
- 
-                /* Read bus numbers from EA Capability (if present) */
-                fixed_buses = pci_ea_fixed_busnrs(dev, &fixed_sec, &fixed_sub);
--               if (fixed_buses)
--                       next_busnr = fixed_sec;
--               else
-+               if (fixed_buses) {
-+                       /*
-+                        * If the fixed bus number is already taken, use the
-+                        * next available bus number. This can happen if the
-+                        * bootloader has assigned a wrong bus number in EA
-+                        * capability of the bridge.
-+                        */
-+                       child = pci_find_bus(pci_domain_nr(bus), fixed_sec);
-+                       if (child)
-+                               next_busnr = max + 1;
-+                       else
-+                               next_busnr = fixed_sec;
-+               } else {
-                        next_busnr = max + 1;
-+               }
- 
-                /*
-                 * Prevent assigning a bus number that already exists.
-
-- Mani
+Cheers!
+Jon
 
 -- 
-மணிவண்ணன் சதாசிவம்
+nvpublic
+
 
