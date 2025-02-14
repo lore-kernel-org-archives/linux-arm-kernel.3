@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 125E4C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DB8C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:40:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=40kfap8VDfDH8hk27H/hMJFx9uMBhXw6N31yql9KOwE=; b=PdYfWgxR0nvuMYJxJGhkWuEFTH
-	2R7wQtCmxvFpLNzzR8yzN7yIe3AcLdJ1Ae6Geulo3d1N0n+puMOo7+XbDCxlZVGCrUoWXdnhL/hgg
-	wOPsjspRfp22hXB8J+65/QJqupZ5ypOpAPjDWupd0F/1tnnZjdcUsGCBPtOPbfMBPvw5pdyZI/pXK
-	tiyKhzgiGLedEcj08K1Tzb3kFlpRmFzUd2Jca1RQ6H4SB7QqZKE69vtw/cPnDNFIf8x/LUswEYh5L
-	N0OJkffuFGBQQgtq6FfM5gaKWa+4ONWMHpV1mf68Vi0kkqU25zRxTtkxGBoeyYijsN5rMSML5mi5I
-	IxRMT1Og==;
+	bh=6wygEz6vt3imSF3NwvzsbaEgG5kEjxbe8ddM+Vd/l/w=; b=MXwedyojGnsAqsRHW3jxOgTFVA
+	00SbDyHdVkQkvxZlCDxCy8ALyyKm5ZOJ90KheB4KrKefnYvNUWspb6GZC/Y/sxZCjXT75uxYub594
+	oFosmdOeOeRZ+4TlyYZlSqDSBAMbPqnk+oBwcE10JwtIaXg2JFq2eAcXIXOlEq9rtg6jUXwcEYWD+
+	ZC1TWlbFc6s+7b9p5OM7dvTqt/NUE37mE3n2+tbg8X9Orv61VuOPjaJV3DFb1KsUYuV+JgH9cDOiw
+	NdfaRu889DBHRGyS2OzlBOqUhrkqZ7gXFX8ifJIIxZ7yOwJDPPE3qiw/a9n1yCGAzmxWC6iw2x3d1
+	grHTo0mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixmT-0000000FMKf-0sJF;
-	Fri, 14 Feb 2025 15:39:05 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1tixns-0000000FMX7-3fXc;
+	Fri, 14 Feb 2025 15:40:32 +0000
+Received: from mail-yb1-xb31.google.com ([2607:f8b0:4864:20::b31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixZs-0000000FJ9k-3AKz
+	id 1tixbQ-0000000FJZb-3700
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 15:26:05 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e46ac799015so1628888276.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 07:26:04 -0800 (PST)
+	Fri, 14 Feb 2025 15:27:41 +0000
+Received: by mail-yb1-xb31.google.com with SMTP id 3f1490d57ef6-e53ef7462b6so1747595276.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 07:27:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739546764; x=1740151564; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739546859; x=1740151659; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=40kfap8VDfDH8hk27H/hMJFx9uMBhXw6N31yql9KOwE=;
-        b=qrZVGfKPSDYJLEwm3e7iHg/MOuS3MgDDVAtGF8d1e+ER6lRMkgsf4XTMjPX40Mnjb+
-         eNztgnDx/5EFayWsZTK6JD1n+yvgIaoS06gVU/51wCXySjFKfaj8hU/GK5I6PbMKq72r
-         nXiTmRwMSHJQfL0tJHeTl0PwqjIcfRazZq1wdfidgXgq15mM3bnysDcJFIQfdnU217Eo
-         Y1un0+A9JhUkzlrolUzyA/fMrxRErx6/lgP7dxINKD/y3gLkbBTr8y6Z9Sp6IxbCWoiR
-         1bXG+LELv/kvrER4VYEMusBs1LICNwX2P+wVt7ulCUSHUW6dAE+pdykVKZJhvUUBuCfT
-         J4tA==
+        bh=6wygEz6vt3imSF3NwvzsbaEgG5kEjxbe8ddM+Vd/l/w=;
+        b=MQygrjWDLZJldz9n1aAVGMdDoD7cFiWPjRhXmsTeYjM4NO0FiRKexYfFfTPwGj3GA/
+         KYrmf4qMpg6hb65Qs7WGe/ciPjpdT/XpKaTaBKN5CFd4pglzgZFakbXqwBndu/EMFLoc
+         bUaEoDakziKS/497TmO5HKzFBP6pbyrt/irtNj7pTUSWLysozJDiQE6hmY6OmN+FvG5X
+         HpCRb7U6nbPIlwmwfDgHWgC4tfUEjJYTvIOt+Lf2a/tyS9v5VgxuJ2KRbceQ6YorNFbG
+         /drJ9Hl9lRVu6fmNWUGs4v+2UPT4fePuBD9233BvIggvoAQFoNnsqf7+VqtIzK/USUTq
+         ooAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739546764; x=1740151564;
+        d=1e100.net; s=20230601; t=1739546859; x=1740151659;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=40kfap8VDfDH8hk27H/hMJFx9uMBhXw6N31yql9KOwE=;
-        b=dvHA3vcG2+ezzZCT6vQFKTM5ZE+5Qx2KMM054hCeaJ7i7N3GwTSBFQ/jJVFP/XIV90
-         0oif8qTp7/ONNUhyk/LeoTjhnH9hZ8AxxcSqE3n6wonvF33/di38loKKymH44Q6EYe26
-         nZ3jLIyldot0kK6Yvhc90ND6w/bngMEQDltSWa5mBADUs97XxzFC0SQOwKzhD8E7OZEK
-         Y5KDDLXNnL2geM2JoKvQm5PaUn5HGkuUs/1hBVlSgUZl+cn/ZUWzouk6IPv4SRL5G1eM
-         6Z83LmLqwq22oD+ewXUI2P/8MAvqZusuol4+pNpNDWsNOqWQc9Mir68j2AoN7UK7ZGBu
-         OZsg==
-X-Forwarded-Encrypted: i=1; AJvYcCWrXTMr81aMBQJZKkCwXzFkxj7DxXm+xeMlTTYyo6zJpVIDplp2f+T5gJ9tp5jAMFNtEh8/Yeo2v9jJO9JeiX6G@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjDTx9QvdQxElLk59h9zxks5ObACoLtGEaSaZTEm7kRDYaeR1n
-	e6lNkR8VAv1RRmrnByVcQj9+x9UtGGOZaz1eUVC6iZxoUzD6BLYmS4YQ6/gBeBR6SO1YXyjh/21
-	fG9qRCfGosFDtYp7e0xg7qX/2ky5XOSc+sHfBaQ==
-X-Gm-Gg: ASbGncuK0ZDt0rHWztQHCnI9RzSkvSwCaNOFXso5PJrb4GYuEuz7sl4QUEG5i+uWGxj
-	LrWZYB7C2dEfXuUfD+O3BWdMty1QaHevAw48Nap8Ttl0xHRrsCWD+qFZqBxAihp5A8k3pTu1KLm
-	0gKhQm7x+AQ0Mulri8jbfAVIM3lQpfBO4=
-X-Google-Smtp-Source: AGHT+IHZ2AvHwjAm58HmrUXzBfbtKaNh3ZhqjYj/r3cal992zurt7vRZq2oTP2grTR9IpbqtQfo+RsuwG6l/eqWLOA4=
-X-Received: by 2002:a05:6902:270a:b0:e58:37fe:4a17 with SMTP id
- 3f1490d57ef6-e5d9f1965cdmr11696325276.46.1739546763637; Fri, 14 Feb 2025
- 07:26:03 -0800 (PST)
+        bh=6wygEz6vt3imSF3NwvzsbaEgG5kEjxbe8ddM+Vd/l/w=;
+        b=qFyIwrZnydtObivBWlpUONdiWbWa9fiOkyYb5rD22qAitsa0Sg/kOZDBeGU8ib/Yv8
+         jSG1WlWF5Lz+5q9TdPYocMlxLijuG+Wm1wuFTXGlJG0If2IqUdpUQR2sqFMwAvMPr78x
+         hTkploA7rnRZXh/j5TxWtjHnIB0NN29+B0lb4eCwLwAopSkflDHBdyMf0hdBOqQl3QhK
+         tfr+UuExzL+1XB6geM1PXhd4W4MQnX4+XRVIEzmS65LtumS8J4K3yNILpzZY5qaoSVo1
+         qOvzm4J5gofyd99ZIU97/ASj1viZEl1E/p4WKWJorG3qL+swZtbEExTW3GoVJvVVVmzQ
+         Ql0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVjflICX84KtQ8pnxVKtSRyic/GwF2WPx5yYIz3xMGFLJBYpwq/VqGAU7jVmkpnTh1SsngHI57ES7jOya2xqnsN@lists.infradead.org
+X-Gm-Message-State: AOJu0YykHnHXsDT+/XiJrXdKyx9ulZ/qtZtD+6oIAAOe5ObetUPSjeF7
+	OHPMP8sn/lsYria5T6tit/sj9sgeXUYAEpcoQ/j8MexjWLb3oT3DdqjIfe5tDvZQbcOTWjm3HA+
+	R4NOZjcTQAkNdt0sXI8N0oye/nMHjn8RESSE4Ug==
+X-Gm-Gg: ASbGnctQXAPYaNkXN1xykN9a2mamB4ZQmEfbuAk5bIfTFf7G4eE3gueDhmTpJpNrG0+
+	D/ujTpjz0PQVsxYdCdzzo4xVsDkE8A2MBAJrfdOZWffnya3TB61mPWmJj8zLIvxcE8xnFrYwoU8
+	dHU60+ijCi7ewmR5Q+V2LrBIt+MRqmDIM=
+X-Google-Smtp-Source: AGHT+IG4t59iStpuyGq1+m+dvxq6YGK16dQkcUOiGs7tsyDTNdFxcN+r/HnSGFs01wlQ6aVqrC6vhWCS/t0g0Qj+n0o=
+X-Received: by 2002:a05:6902:f06:b0:e5b:21fe:d9bd with SMTP id
+ 3f1490d57ef6-e5da81026d3mr6137510276.10.1739546859693; Fri, 14 Feb 2025
+ 07:27:39 -0800 (PST)
 MIME-Version: 1.0
-References: <20250214043343.263-1-wachiturroxd150@gmail.com> <20250214043343.263-2-wachiturroxd150@gmail.com>
-In-Reply-To: <20250214043343.263-2-wachiturroxd150@gmail.com>
+References: <20250214-spi-s3c64xx-fifo-depth-v1-1-e1b1915e3ee7@linaro.org>
+In-Reply-To: <20250214-spi-s3c64xx-fifo-depth-v1-1-e1b1915e3ee7@linaro.org>
 From: Sam Protsenko <semen.protsenko@linaro.org>
-Date: Fri, 14 Feb 2025 09:25:52 -0600
-X-Gm-Features: AWEUYZm0a9iYbwJFulT6QDwvSZFUTkts4BDa7xViN-gwjOa66CO2DAjmCUVdtNI
-Message-ID: <CAPLW+4miogww5cgf=Vd_A0dX0=JaH+CV2G8__3Nx6B-Wddu9PA@mail.gmail.com>
-Subject: Re: [PATCH v3 1/3] spi: dt-bindings: samsung: add samsung,exynos990-spi
- compatible
-To: Denzeel Oliva <wachiturroxd150@gmail.com>
-Cc: andi.shyti@kernel.org, broonie@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com, 
-	linux-spi@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
+Date: Fri, 14 Feb 2025 09:27:29 -0600
+X-Gm-Features: AWEUYZkkGWUD60LMpHEHi4hDR2nuH8MPeQ82wDcgpZ-r7ywAfZ4HSSClhEmifNo
+Message-ID: <CAPLW+4n3bQOGDewkh1Yfftticp5n3sOnvmVxgNz=rnmWVf6vmg@mail.gmail.com>
+Subject: Re: [PATCH] spi: s3c64xx: extend description of compatible's fifo_depth
+To: Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Denzeel Oliva <wachiturroxd150@gmail.com>, linux-spi@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_072604_791188_DFD8FE9C 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20250214_072740_782923_B6EAE6EA 
+X-CRM114-Status: GOOD (  19.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,51 +97,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 10:34=E2=80=AFPM Denzeel Oliva
-<wachiturroxd150@gmail.com> wrote:
+On Fri, Feb 14, 2025 at 1:32=E2=80=AFAM Tudor Ambarus <tudor.ambarus@linaro=
+.org> wrote:
 >
-> Add "samsung,exynos990-spi" dedicated compatible for the SPI controller
-> on Exynos990 SoC. This ensures proper representation of the hardware
-> in the device tree.
+> The FIFO depth specified with the compatibles's data is used where all
+> the instances of the IP define the same FIFO depth. It naturally has
+> higher precedence than the FIFO depth specified via DT. Specifying FIFO
+> depth in DT becomes superfluous in this case. Extend comment about
+> compatible's FIFO depth.
 >
-> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
-
-If someone gives you any tags (like Reviewed-by, Acked-by, etc.)
-during previous patch version review round, you should collect them
-and add those around here. Only tags for the final patch series
-version (which is picked up by a maintainer) will be handled by the
-maintainer.
-
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
 > ---
 
-Please always add a change log for each patch version under "---"
-line, it helps reviewers and maintainers understand what to look for
-while reviewing. Something like:
+Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
 
-Changes in v3:
-  - none
-Changes in v2:
-  - changed this
-  - changed that
-
->  Documentation/devicetree/bindings/spi/samsung,spi.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  drivers/spi/spi-s3c64xx.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 >
-> diff --git a/Documentation/devicetree/bindings/spi/samsung,spi.yaml b/Doc=
-umentation/devicetree/bindings/spi/samsung,spi.yaml
-> index 3c206a64d..1d3c95bd2 100644
-> --- a/Documentation/devicetree/bindings/spi/samsung,spi.yaml
-> +++ b/Documentation/devicetree/bindings/spi/samsung,spi.yaml
-> @@ -24,6 +24,7 @@ properties:
->            - samsung,exynos4210-spi
->            - samsung,exynos5433-spi
->            - samsung,exynos850-spi
-> +          - samsung,exynos990-spi
->            - samsung,exynosautov9-spi
->            - tesla,fsd-spi
->        - items:
+> diff --git a/drivers/spi/spi-s3c64xx.c b/drivers/spi/spi-s3c64xx.c
+> index 389275dbc003..9c47f5741c5f 100644
+> --- a/drivers/spi/spi-s3c64xx.c
+> +++ b/drivers/spi/spi-s3c64xx.c
+> @@ -139,7 +139,9 @@ struct s3c64xx_spi_dma_data {
+>   * struct s3c64xx_spi_port_config - SPI Controller hardware info
+>   * @fifo_lvl_mask: [DEPRECATED] use @{rx, tx}_fifomask instead.
+>   * @rx_lvl_offset: [DEPRECATED] use @{rx,tx}_fifomask instead.
+> - * @fifo_depth: depth of the FIFO.
+> + * @fifo_depth: depth of the FIFOs. Used by compatibles where all the in=
+stances
+> + *              of the IP define the same FIFO depth. It has higher prec=
+edence
+> + *              than the FIFO depth specified via DT.
+>   * @rx_fifomask: SPI_STATUS.RX_FIFO_LVL mask. Shifted mask defining the =
+field's
+>   *               length and position.
+>   * @tx_fifomask: SPI_STATUS.TX_FIFO_LVL mask. Shifted mask defining the =
+field's
+>
+> ---
+> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+> change-id: 20250214-spi-s3c64xx-fifo-depth-6787f108be83
+>
+> Best regards,
 > --
-> 2.48.1
->
+> Tudor Ambarus <tudor.ambarus@linaro.org>
 >
 
