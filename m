@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF6F4C021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 07:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9846DC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 08:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9uAjxIlbcICoCcD2/IIOD0jpMv5rXMuodA7z7Ttw2Og=; b=VBKiSpdn8+7evpHHaWec/QZrQR
-	PIaqWM4UeSVHIVXlpOsCBV9nurCvrZ4IDCKz+SmnuZesduwNtW8EJeb+BgUOHK4EcVDYCJrCvJQNH
-	niTo7aD5fCOQ77CIi+9xq3+5kmAL6fj/KbdObzGyAG7Ef6fl5Zb0Gk+MEu58sEbDUysfgr+vL7Kku
-	sady+o1/XnJ8uJoNj0n1urrnru4Hlc01YS5Jm8h45iQydiqABJZvaNPtrPnbc9aYCz2ZhbXwKgPJO
-	1PJ70GVb83ySYwtTv8EyjyO0l979XCILkygHd92lUI8tobje6qyKsfs24QuoMsHzij300GVOFLsKd
-	vbzAzL1A==;
+	bh=5zPJSzB3ans/Le3b+v/iIwQk+DMI5JmC1qjWM3kVcJo=; b=qLG64P97KNCHzQ4e9ESB04n01L
+	mzGh6BatRS3MxILGMoKMHNET9CnNOZxy2LSpUqbpH/X7Iz9qeBxH2/PAXXDT67yokP3j1Ze6IY8yF
+	OR8fnuU+Ez/+n27VSNz8T/frLZzFHtlmnljlWD6bB7bseVjlHOE2k7LtUcbH2/4dBduhgAOE+e6vL
+	aZmfZOcCW2EguMpkukXAKAwipuHbLwIHIQQWgZZUMo4yDBHNpcf5IpwZgq5N508l7jBAUYAB+mmrJ
+	nByBtXv2YXn4mqVWXn1BjP96AVyHbWbcF2d/JfMFxbT0VLQNXElIw3XbqMTTQWftMozuUSY4sVhX+
+	hhvisPpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiqbl-0000000E1z8-2s3u;
-	Fri, 14 Feb 2025 07:59:33 +0000
+	id 1tiqhS-0000000E3BP-1y9T;
+	Fri, 14 Feb 2025 08:05:26 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiqaK-0000000E1qn-1RlY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 07:58:05 +0000
+	id 1tiqg1-0000000E2vS-2cs4;
+	Fri, 14 Feb 2025 08:03:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AA8E05C5417;
-	Fri, 14 Feb 2025 07:57:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80737C4CED1;
-	Fri, 14 Feb 2025 07:58:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 528E25C10B8;
+	Fri, 14 Feb 2025 08:03:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA967C4CED1;
+	Fri, 14 Feb 2025 08:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739519882;
-	bh=d3Ys6i0pcHC4QJ9ezhAppBA19L0NecIOEu/6ko+SHUg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=LRYL1LKIIgSuex9GsqyripdUVEEnfE32XtoUYWVHfqL/q8yrz2okT5sl4Fq6+SlOt
-	 3Vie9hJEh7jAeH1O1gxyo9IrUaTNXNWoLBgIzCqYe4n8UHtxcPwj3Rw6cYEE6GMqO6
-	 hkpGk7rcLe1H6ZUG6eqAYLu+BHPAMTGfSny25GHDUGF3PYVhlZzZ9UyFtazDffgjby
-	 rLR8l2PzMr+Et4sRI+RV9+E+xEkhRsKjwPZZJfixBSUphKWAFy1wwUHNPZZhN5Okgw
-	 rzRS0iIEjRFvTaVF+/Hnvr7a69uZiv+dMbzsWohH+5v8aKA4bLeeBC7HfFQ5hoXUfl
-	 1Ypmidf6UO8jg==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: Indu Bhagat <indu.bhagat@oracle.com>, Song Liu <song@kernel.org>, Josh
- Poimboeuf <jpoimboe@kernel.org>
-Cc: Weinan Liu <wnliu@google.com>, Steven Rostedt <rostedt@goodmis.org>,
- Peter Zijlstra <peterz@infradead.org>, Mark Rutland
- <mark.rutland@arm.com>, roman.gushchin@linux.dev, Will Deacon
- <will@kernel.org>, Ian Rogers <irogers@google.com>,
- linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
- live-patching@vger.kernel.org, joe.lawrence@redhat.com,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-In-Reply-To: <3069bb9c-6245-4754-a187-ac8253103d32@oracle.com>
-References: <20250127213310.2496133-1-wnliu@google.com>
- <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
- <20250212234946.yuskayyu4gx3ul7m@jpoimboe>
- <CAPhsuW5TeMXi_Mn8+jR9Qoa=rAWasMo7M3Hs=im6NT6=+CrxqA@mail.gmail.com>
- <20250213024507.mvjkalvyqsxihp54@jpoimboe>
- <CAPhsuW4iDuTBfZowJRhxLFyK=g=s+-pK2Eq4+SNj9uL99eNkmw@mail.gmail.com>
- <3069bb9c-6245-4754-a187-ac8253103d32@oracle.com>
-Date: Fri, 14 Feb 2025 07:57:47 +0000
-Message-ID: <mb61pa5apc610.fsf@kernel.org>
+	s=k20201202; t=1739520236;
+	bh=ZJTleOr+aCVydGuBXvDe9vmxgmg7Hou12+O0aC141WM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rNQyXiewYUFgMh/V+W+aYjDpnFSpGmByYccCQTdDs+utzhny0WTB/CV7Pzdtk6unF
+	 nIZ0LXNKlBANxtHtRqoN/q8ugYylWxYSafBFsUVmBpkTH94wGaT1JQqaZgbT+l9KDo
+	 z0kzoy37mljipUA+YCzLw1g7xedqbQIcv4I7rQqsIeztYoss6AhLGzabOMvyYAeNdX
+	 n5Vv4k4vXto83RiJc6QeEI8esqSmTLfSN7ncfglGEkHynuy6Xi5aZHy7icTc0oCJHf
+	 +ZCpiRW6GuWfeSokxvBGKZbOttm7c0ISkKTwJcaObnz2KeSVknBe3wxh7sz+8td7SS
+	 bO7KKW97He9/g==
+Date: Fri, 14 Feb 2025 09:03:52 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, 
+	Sean Wang <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, "Chester A. Unal" <chester.a.unal@arinc9.com>, 
+	Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, upstream@airoha.com
+Subject: Re: [PATCH net-next v4 11/16] dt-bindings: net: airoha: Add the NPU
+ node for EN7581 SoC
+Message-ID: <20250214-futuristic-goat-of-enthusiasm-bba020@krzk-bin>
+References: <20250213-airoha-en7581-flowtable-offload-v4-0-b69ca16d74db@kernel.org>
+ <20250213-airoha-en7581-flowtable-offload-v4-11-b69ca16d74db@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250213-airoha-en7581-flowtable-offload-v4-11-b69ca16d74db@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_235804_497613_01B9C765 
-X-CRM114-Status: GOOD (  22.65  )
+X-CRM114-CacheID: sfid-20250214_000357_737347_6F66323B 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,121 +81,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---=-=-=
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+On Thu, Feb 13, 2025 at 04:34:30PM +0100, Lorenzo Bianconi wrote:
+> This patch adds the NPU document binding for EN7581 SoC.
+> The Airoha Network Processor Unit (NPU) provides a configuration interface
+> to implement wired and wireless hardware flow offloading programming Packet
+> Processor Engine (PPE) flow table.
+> 
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  .../devicetree/bindings/net/airoha,en7581-npu.yaml | 72 ++++++++++++++++++++++
+>  1 file changed, 72 insertions(+)
 
-Indu Bhagat <indu.bhagat@oracle.com> writes:
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-> On 2/12/25 11:25 PM, Song Liu wrote:
->> On Wed, Feb 12, 2025 at 6:45=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.=
-org> wrote:
->>>
->>> On Wed, Feb 12, 2025 at 06:36:04PM -0800, Song Liu wrote:
->>>>>> [   81.261748]  copy_process+0xfdc/0xfd58 [livepatch_special_static]
->>>>>
->>>>> Does that copy_process+0xfdc/0xfd58 resolve to this line in
->>>>> copy_process()?
->>>>>
->>>>>                          refcount_inc(&current->signal->sigcnt);
->>>>>
->>>>> Maybe the klp rela reference to 'current' is bogus, or resolving to t=
-he
->>>>> wrong address somehow?
->>>>
->>>> It resolves the following line.
->>>>
->>>> p->signal->tty =3D tty_kref_get(current->signal->tty);
->>>>
->>>> I am not quite sure how 'current' should be resolved.
->>>
->>> Hm, on arm64 it looks like the value of 'current' is stored in the
->>> SP_EL0 register.  So I guess that shouldn't need any relocations.
->>>
->>>> The size of copy_process (0xfd58) is wrong. It is only about
->>>> 5.5kB in size. Also, the copy_process function in the .ko file
->>>> looks very broken. I will try a few more things.
->>=20
->> When I try each step of kpatch-build, the copy_process function
->> looks reasonable (according to gdb-disassemble) in fork.o and
->> output.o. However, copy_process looks weird in livepatch-special-static.=
-o,
->> which is generated by ld:
->>=20
->> ld -EL  -maarch64linux -z norelro -z noexecstack
->> --no-warn-rwx-segments -T ././kpatch.lds  -r -o
->> livepatch-special-static.o ./patch-hook.o ./output.o
->>=20
->> I have attached these files to the email. I am not sure whether
->> the email server will let them through.
->>=20
->> Indu, does this look like an issue with ld?
->>=20
->
-> Sorry for the delay.
->
-> Looks like there has been progress since and issue may be elsewhere, but:
->
-> FWIW, I looked at the .sframe and .rela.sframe sections here, the data=20
-> does look OK.  I noted that there is no .sframe for copy_process () in=20
-> output.o... I will take a look into it.
+Best regards,
+Krzysztof
 
-Hi Indu,
-
-I saw another issue in my kernel build with sframes enabled (-Wa,--gsframe):
-
-ld: warning: orphan section `.init.sframe' from `arch/arm64/kernel/pi/lib-f=
-dt.pi.o' being placed in section `.init.sframe'
-[... Many more similar warnings (.init.sframe) ...]
-
-So, this orphan sections is generated in the build process.
-
-I am using GNU ld version 2.41-50 and gcc (GCC) 11.4.1
-
-Is this section needed for sframes to work? or can we discard
-.init.sframe section with a patch like following to the linker script:
-
-=2D- 8< --
-
-diff --git a/include/asm-generic/vmlinux.lds.h b/include/asm-generic/vmlinu=
-x.lds.h
-index 6a437bd08..8e704c0a6 100644
-=2D-- a/include/asm-generic/vmlinux.lds.h
-+++ b/include/asm-generic/vmlinux.lds.h
-@@ -1044,9 +1044,16 @@ defined(CONFIG_AUTOFDO_CLANG) || defined(CONFIG_PROP=
-ELLER_CLANG)
- # define SANITIZER_DISCARDS
- #endif
-
-+#if defined(CONFIG_SFRAME_UNWIND_TABLE)
-+#define DISCARD_INIT_SFRAME *(.init.sframe)
-+#else
-+#define DISCARD_INIT_SFRAME
-+#endif
-+
- #define COMMON_DISCARDS                                                   =
-     \
-        SANITIZER_DISCARDS                                              \
-        PATCHABLE_DISCARDS                                              \
-+       DISCARD_INIT_SFRAME                                             \
-        *(.discard)                                                     \
-        *(.discard.*)                                                   \
-        *(.export_symbol)                                               \
-
-=2D- >8 --
-
-Thanks,
-Puranjay
-
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIoEARYKADIWIQQ3wHGvVs/5bdl78BKwwPkjG3B2nQUCZ673fRQccHVyYW5qYXlA
-a2VybmVsLm9yZwAKCRCwwPkjG3B2ne/eAQC3MvMRgb8+tzHOKgUa02OQ8qhh8Qda
-ugo9amOhQSojUwEA/O95Eq3WPvdzumKfUGDoCSjxPWA9E0HeESbhvVIuIAw=
-=Qfo9
------END PGP SIGNATURE-----
---=-=-=--
 
