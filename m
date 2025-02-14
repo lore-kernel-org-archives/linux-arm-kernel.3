@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C3C9C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 07:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C307BC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 07:03:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EbA/KVCwx7GPIYciWZdmeejj9QWfhZNBSRDFNiyQfP0=; b=UUR1cFSlCtT7jeV7W3HNbKq8PX
-	fte6j1oqAo0lpGAkD0fGBq9+7p/a6yTR6PK284ZcSSBatGvk6feAX2b0MHVYOSu6Rkur2DSYivK9E
-	qAAWwMVpI/nPMmwZbhsfFwIccS29zsZ+OyaT7gOs/CBQIkGcQXVjRWMJbXc4yM67jPDvKFp3OCRIf
-	o/Pf9SZ6cuCB9b/hKRgyVnu9FHQT5EWDX7hsWPu5AcQjSAVdcN05AQEOepqm5vtThk9bIAAGLRcPJ
-	24P4+InaZTfVC98gq0EfcVvO0s8/dHzz1JswSMW8wyaR6Tu2bsddLw4jex4VuX7QtB4nRu00jqX9B
-	q0nIBqOA==;
+	bh=hMLO/iCmOTSngQQNsGrK0MQ2i9rDTojv8dggzu/KvcQ=; b=N5LrENgK4/iayTKccKpcPkWGNb
+	l9h4FwRelfz9MZ+k8s+UFQ7XhHP8zFVhkRYyP/UubJdlFIFtxRx1LbUgCpJlKgEDk+oShj8NHeW7o
+	jQzJQ8woSqT8sTbiAOCwAIqiecykLcT0SHfonboBagFlG6oIxZgacZ7aDLXMf1Bb3t0Mrl2tHy3mQ
+	RxMdyWbP7V95hcfl3z39ue3r+5KTU0nF5WlzuOEU43v5zskEamorDnrJOWwhEVKgFo+F2u5HQScYt
+	9t+ApspEj+DCqT0RIMHwV/emUyETl6icwEH0SL7XEQTAp/WoS2DB2I/uwk8qWw+/wOBioqGOJho5E
+	4hik+vhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiphy-0000000Dtg0-1wj1;
-	Fri, 14 Feb 2025 07:01:54 +0000
+	id 1tipjN-0000000Dtrd-0Rrp;
+	Fri, 14 Feb 2025 07:03:21 +0000
 Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tipfC-0000000Dt7P-1yHe
+	id 1tipfe-0000000DtC5-0t4S
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 06:59:03 +0000
+	Fri, 14 Feb 2025 06:59:31 +0000
 Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51E5nq5w012357;
-	Thu, 13 Feb 2025 22:58:52 -0800
+	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51E5nqka012347;
+	Thu, 13 Feb 2025 22:59:26 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pfpt0220; bh=E
-	bA/KVCwx7GPIYciWZdmeejj9QWfhZNBSRDFNiyQfP0=; b=btWSNc3Ja9kUweW47
-	AmQul8Zoekd4oI15F8fGsjQOiOg/2ZuVVy+9NGg0tYblqrfqBaoeh+8q2cYJUaDH
-	SN+1aH52hlwbI9eh9tD1PnAUJRSMSdtgjr0VlvGr8arQmyiLq5AFEcGU8oip6oKU
-	JcsZjjv4dKwoGoCjRXw1JAWOG/qwjV/piIBMj5Mo8f620CdTOnAVIRtHBG3r5o9B
-	vFdgVlM1Zubvuhc1tjGxtBf2YpVdBbnRKVAlVI0yB+uKlWPeodgh15aU1nHdRbhq
-	WIXAn7tLTcKuJjMvUXkzO5NhczVZnnDhsfbuoDV/LkQBkHcBXsQhWE+/qmrpVm3e
-	Hzs8A==
-Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 44t01f03e2-6
+	:message-id:mime-version:references:subject:to; s=pfpt0220; bh=h
+	MLO/iCmOTSngQQNsGrK0MQ2i9rDTojv8dggzu/KvcQ=; b=iVoZvPyOX4Mc48EsP
+	y5jXce9IbS1KNO4Kbpjzjpw/u9ZhFTXNvU8xB+JwPQOsM30s3vytvzbXjBgbyutb
+	Gp+n8+5rIpHNVPhq2PWvIB0TIRNa8UAwQwvSDxpfT63BoXJ2RLz2EyC2qvwDY3UU
+	6mknYtRZNpCHQz5b9MBsCL8pgry+zcsWkRuuEJgcs/EWaaJPMnXLEptHenbkxaE7
+	ViGEKYs5TyAQRQzcxtASiu3dcKqIAfS/astCSAxAifrPrjrE9tN7+byx070raF2I
+	HxY/o3iA61AKsl6EYpmk+pplp7uhvu/WzPFtpsj65PHHDFLG0flxEVBVhpjVhXmB
+	eLpQw==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 44t01f03fa-5
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 13 Feb 2025 22:58:51 -0800 (PST)
-Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
- DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+	Thu, 13 Feb 2025 22:59:25 -0800 (PST)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Thu, 13 Feb 2025 22:58:46 -0800
-Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
- (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Thu, 13 Feb 2025 22:58:46 -0800
+ 15.2.1544.4; Thu, 13 Feb 2025 22:58:51 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Thu, 13 Feb 2025 22:58:51 -0800
 Received: from wd-ubuntu-24-04.marvell.com (wd-ubuntu-24-04.marvell.com [10.111.132.113])
-	by maili.marvell.com (Postfix) with ESMTP id 486413F7090;
-	Thu, 13 Feb 2025 22:58:46 -0800 (PST)
+	by maili.marvell.com (Postfix) with ESMTP id 206103F7090;
+	Thu, 13 Feb 2025 22:58:51 -0800 (PST)
 From: Wilson Ding <dingwei@marvell.com>
 To: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>
@@ -62,23 +62,24 @@ CC: <andrew@lunn.ch>, <gregory.clement@bootlin.com>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <p.zabel@pengutronix.de>,
         <salee@marvell.com>, <gakula@marvell.com>,
         Wilson Ding <dingwei@marvell.com>
-Subject: [PATCH 1/4] [PATCH 1/4] reset: simple: Add syscon device compatible
-Date: Thu, 13 Feb 2025 22:58:30 -0800
-Message-ID: <20250214065833.530276-3-dingwei@marvell.com>
+Subject: [PATCH 4/4] [PATCH 4/4] arm64: dts: marvell: cp11x: Add reset controller node
+Date: Thu, 13 Feb 2025 22:58:33 -0800
+Message-ID: <20250214065833.530276-6-dingwei@marvell.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250214065833.530276-1-dingwei@marvell.com>
 References: <20250214065833.530276-1-dingwei@marvell.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Proofpoint-ORIG-GUID: dGXSIC5ZYvieHwJXRZGvhisSkrUNVksF
-X-Proofpoint-GUID: dGXSIC5ZYvieHwJXRZGvhisSkrUNVksF
+X-Proofpoint-ORIG-GUID: UucUwbdaaezb49L7FSoaz7o8m4tbpU_3
+X-Proofpoint-GUID: UucUwbdaaezb49L7FSoaz7o8m4tbpU_3
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-14_02,2025-02-13_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_225902_516616_182F8063 
-X-CRM114-Status: GOOD (  19.13  )
+X-CRM114-CacheID: sfid-20250213_225930_254667_6E16B92E 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,239 +94,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce the new ops for updating reset line and getting status. Thus,
-the reset controller can be accessed through either direct I/O or regmap
-interfaces. It enables the support of the syscon devices with the simple
-reset code. To adapt the DT binding of the syscon device, the number of
-reset lines must be specified in device data.
+The unit soft-reset configuration register is part of the system
+controller register.
 
 Signed-off-by: Wilson Ding <dingwei@marvell.com>
 ---
- drivers/reset/reset-simple.c       | 117 +++++++++++++++++++++++------
- include/linux/reset/reset-simple.h |  11 +++
- 2 files changed, 107 insertions(+), 21 deletions(-)
+ arch/arm64/boot/dts/marvell/armada-cp11x.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/reset/reset-simple.c b/drivers/reset/reset-simple.c
-index 276067839830..e4e777d40a79 100644
---- a/drivers/reset/reset-simple.c
-+++ b/drivers/reset/reset-simple.c
-@@ -15,8 +15,10 @@
- #include <linux/device.h>
- #include <linux/err.h>
- #include <linux/io.h>
-+#include <linux/mfd/syscon.h>
- #include <linux/of.h>
- #include <linux/platform_device.h>
-+#include <linux/regmap.h>
- #include <linux/reset-controller.h>
- #include <linux/reset/reset-simple.h>
- #include <linux/spinlock.h>
-@@ -27,10 +29,9 @@ to_reset_simple_data(struct reset_controller_dev *rcdev)
- 	return container_of(rcdev, struct reset_simple_data, rcdev);
- }
+diff --git a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
+index 161beec0b6b0..b82003df15e0 100644
+--- a/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
++++ b/arch/arm64/boot/dts/marvell/armada-cp11x.dtsi
+@@ -273,6 +273,12 @@ CP11X_LABEL(gpio2): gpio@140 {
+ 					 <&CP11X_LABEL(clk) 1 17>;
+ 				status = "disabled";
+ 			};
++
++			CP11X_LABEL(soft_reset): soft-reset@268 {
++				compatible = "marvell,armada8k-reset";
++				offset = <0x268>;
++				#reset-cells = <1>;
++			};
+ 		};
  
--static int reset_simple_update(struct reset_controller_dev *rcdev,
-+static int reset_simple_update_mmio(struct reset_simple_data *data,
- 			       unsigned long id, bool assert)
- {
--	struct reset_simple_data *data = to_reset_simple_data(rcdev);
- 	int reg_width = sizeof(u32);
- 	int bank = id / (reg_width * BITS_PER_BYTE);
- 	int offset = id % (reg_width * BITS_PER_BYTE);
-@@ -51,16 +52,40 @@ static int reset_simple_update(struct reset_controller_dev *rcdev,
- 	return 0;
- }
- 
-+static int reset_simple_update_regmap(struct reset_simple_data *data,
-+				      unsigned long id, bool assert)
-+{
-+	int reg_width = sizeof(u32);
-+	int bank = id / (reg_width * BITS_PER_BYTE);
-+	int offset = id % (reg_width * BITS_PER_BYTE);
-+	u32 mask, val;
-+
-+	mask = BIT(offset);
-+
-+	if (assert ^ data->active_low)
-+		val = mask;
-+	else
-+		val = 0;
-+
-+	return regmap_write_bits(data->regmap,
-+				 data->reg_offset + (bank * reg_width),
-+				 mask, val);
-+}
-+
- static int reset_simple_assert(struct reset_controller_dev *rcdev,
- 			       unsigned long id)
- {
--	return reset_simple_update(rcdev, id, true);
-+	struct reset_simple_data *data = to_reset_simple_data(rcdev);
-+
-+	return data->ops.update(data, id, true);
- }
- 
- static int reset_simple_deassert(struct reset_controller_dev *rcdev,
- 				 unsigned long id)
- {
--	return reset_simple_update(rcdev, id, false);
-+	struct reset_simple_data *data = to_reset_simple_data(rcdev);
-+
-+	return data->ops.update(data, id, false);
- }
- 
- static int reset_simple_reset(struct reset_controller_dev *rcdev,
-@@ -81,10 +106,9 @@ static int reset_simple_reset(struct reset_controller_dev *rcdev,
- 	return reset_simple_deassert(rcdev, id);
- }
- 
--static int reset_simple_status(struct reset_controller_dev *rcdev,
--			       unsigned long id)
-+static int reset_simple_status_mmio(struct reset_simple_data *data,
-+			     unsigned long id)
- {
--	struct reset_simple_data *data = to_reset_simple_data(rcdev);
- 	int reg_width = sizeof(u32);
- 	int bank = id / (reg_width * BITS_PER_BYTE);
- 	int offset = id % (reg_width * BITS_PER_BYTE);
-@@ -95,6 +119,31 @@ static int reset_simple_status(struct reset_controller_dev *rcdev,
- 	return !(reg & BIT(offset)) ^ !data->status_active_low;
- }
- 
-+static int reset_simple_status_regmap(struct reset_simple_data *data,
-+				    unsigned long id)
-+{
-+	int reg_width = sizeof(u32);
-+	int bank = id / (reg_width * BITS_PER_BYTE);
-+	int offset = id % (reg_width * BITS_PER_BYTE);
-+	u32 reg;
-+	int ret;
-+
-+	ret = regmap_read(data->regmap, data->reg_offset + (bank * reg_width),
-+			  &reg);
-+	if (ret)
-+		return ret;
-+
-+	return !(reg & BIT(offset)) ^ !data->status_active_low;
-+}
-+
-+static int reset_simple_status(struct reset_controller_dev *rcdev,
-+			       unsigned long id)
-+{
-+	struct reset_simple_data *data = to_reset_simple_data(rcdev);
-+
-+	return data->ops.status(data, id);
-+}
-+
- const struct reset_control_ops reset_simple_ops = {
- 	.assert		= reset_simple_assert,
- 	.deassert	= reset_simple_deassert,
-@@ -118,6 +167,7 @@ struct reset_simple_devdata {
- 	u32 nr_resets;
- 	bool active_low;
- 	bool status_active_low;
-+	bool syscon_dev;
- };
- 
- #define SOCFPGA_NR_BANKS	8
-@@ -171,26 +221,51 @@ static int reset_simple_probe(struct platform_device *pdev)
- 	if (!data)
- 		return -ENOMEM;
- 
--	membase = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
--	if (IS_ERR(membase))
--		return PTR_ERR(membase);
-+	if (devdata && devdata->syscon_dev) {
-+		data->regmap = syscon_node_to_regmap(pdev->dev.parent->of_node);
-+		if (IS_ERR(data->regmap))
-+			return PTR_ERR(data->regmap);
- 
--	spin_lock_init(&data->lock);
--	data->membase = membase;
--	data->rcdev.owner = THIS_MODULE;
--	data->rcdev.nr_resets = resource_size(res) * BITS_PER_BYTE;
--	data->rcdev.ops = &reset_simple_ops;
--	data->rcdev.of_node = dev->of_node;
-+		if (device_property_read_u32(&pdev->dev, "offset",
-+					     &data->reg_offset))
-+			data->reg_offset = devdata->reg_offset;
- 
--	if (devdata) {
--		reg_offset = devdata->reg_offset;
--		if (devdata->nr_resets)
--			data->rcdev.nr_resets = devdata->nr_resets;
-+		if (devdata->nr_resets == 0) {
-+			dev_err(dev, "no reset line\n");
-+			return -EINVAL;
-+		}
-+
-+		data->rcdev.nr_resets = devdata->nr_resets;
- 		data->active_low = devdata->active_low;
- 		data->status_active_low = devdata->status_active_low;
-+
-+		data->ops.update = reset_simple_update_regmap;
-+		data->ops.status = reset_simple_status_regmap;
-+	} else {
-+		membase = devm_platform_get_and_ioremap_resource(pdev, 0, &res);
-+		if (IS_ERR(membase))
-+			return PTR_ERR(membase);
-+		data->membase = membase;
-+		data->rcdev.nr_resets = resource_size(res) * BITS_PER_BYTE;
-+
-+		if (devdata) {
-+			reg_offset = devdata->reg_offset;
-+			if (devdata->nr_resets)
-+				data->rcdev.nr_resets = devdata->nr_resets;
-+			data->active_low = devdata->active_low;
-+			data->status_active_low = devdata->status_active_low;
-+		}
-+
-+		data->membase += reg_offset;
-+
-+		data->ops.update = reset_simple_update_mmio;
-+		data->ops.status = reset_simple_status_mmio;
- 	}
- 
--	data->membase += reg_offset;
-+	spin_lock_init(&data->lock);
-+	data->rcdev.owner = THIS_MODULE;
-+	data->rcdev.ops = &reset_simple_ops;
-+	data->rcdev.of_node = dev->of_node;
- 
- 	return devm_reset_controller_register(dev, &data->rcdev);
- }
-diff --git a/include/linux/reset/reset-simple.h b/include/linux/reset/reset-simple.h
-index c3e44f45b0f7..cbcf9e364dd4 100644
---- a/include/linux/reset/reset-simple.h
-+++ b/include/linux/reset/reset-simple.h
-@@ -13,9 +13,17 @@
- #define __RESET_SIMPLE_H__
- 
- #include <linux/io.h>
-+#include <linux/regmap.h>
- #include <linux/reset-controller.h>
- #include <linux/spinlock.h>
- 
-+struct reset_simple_data;
-+
-+struct reset_simple_line_ops {
-+	int (*update)(struct reset_simple_data *data, unsigned long id, bool assert);
-+	int (*status)(struct reset_simple_data *data, unsigned long id);
-+};
-+
- /**
-  * struct reset_simple_data - driver data for simple reset controllers
-  * @lock: spinlock to protect registers during read-modify-write cycles
-@@ -37,6 +45,9 @@
- struct reset_simple_data {
- 	spinlock_t			lock;
- 	void __iomem			*membase;
-+	struct regmap			*regmap;
-+	u32				reg_offset;
-+	struct reset_simple_line_ops	ops;
- 	struct reset_controller_dev	rcdev;
- 	bool				active_low;
- 	bool				status_active_low;
+ 		CP11X_LABEL(syscon1): system-controller@400000 {
 -- 
 2.43.0
 
