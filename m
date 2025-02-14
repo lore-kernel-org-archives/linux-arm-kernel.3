@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26770C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 21:51:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7FCDC021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 21:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Xi/boYfh/IhsPYg+ypTpvM4tcaEwIBhHpIlYN4cYZE=; b=dFL1nYj4OPcesyb/rwPZJJDFM2
-	qK6/JFIe3fm7hMBBGmZznJ6Q5yCLMlo/u2ywKhirXn3rPbOorAqJPUFtUOgLmLOrTaEdntEdvEnd5
-	QgGwbk+FGw872TkuCWpSSvia0eB1VzGyekaqggeBE/d+G9zdx/dmYOcTTtlMUk3Q+yHc6m/kQxWuT
-	cfdlmXwTkeMY6JMewHV0gItyUE1TCCtXj5KMj9dvV7zBtsE7bUdCIR5dBJtoK3tmQk8RV1raHsuhQ
-	ic3B6BMpjbwBvFAXCJHIfiCWy4wISmazy5GSQmSLIITkKT70oNdYIVP066sA2WtEhToza9MVG3lK9
-	tcFTlATw==;
+	bh=spTDi2Mxdc6/QSr85Ih/YXGCO5MVDGJgInOIk6e13es=; b=07K5ybGxPcjJfJQavlq/OGCB/h
+	IDu72JPmHzZKchbGo1JliORaK5xDEhLVF3EZAiF/raqCcAMyKxehPjuiCRntswGwYCZI+arNF295b
+	yjWdoGeLno6J2HpCMMMSN5lJmyZpf2UvGCFLWQAf/DcBaKIObICTYd/CXwPYvG2nEswrR3c0mTcMO
+	cQy+DjqgYiudJ64On0dVqlnibYdqaIWUm76txTLpbxgJC820iLJK5rcIVCQDK9JvgIpib4ezpyg+I
+	IS0JqprtKyz/90tFoEOLdW8wQ6F87aUMYKSAL0vSyKXf4pIcTx5rlBMl5r9vzlzWmOnHj4pb00HMq
+	/Qx8B3Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj3b2-0000000GJTf-41bm;
-	Fri, 14 Feb 2025 21:51:40 +0000
+	id 1tj3cS-0000000GJky-2QZm;
+	Fri, 14 Feb 2025 21:53:08 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj3Zb-0000000GJI8-3xGQ
+	id 1tj3Zh-0000000GJJ6-19dF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 21:50:13 +0000
+	Fri, 14 Feb 2025 21:50:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 57720A44BAE;
-	Fri, 14 Feb 2025 21:48:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 398C2C4CED1;
-	Fri, 14 Feb 2025 21:50:10 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 63B88A44BB3;
+	Fri, 14 Feb 2025 21:48:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 408DCC4CED1;
+	Fri, 14 Feb 2025 21:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739569810;
-	bh=z1h2wB2bK+0PVbZBqeWldkozYIvTn5nsgGbyj9aRZYY=;
+	s=k20201202; t=1739569816;
+	bh=Kckz2TLbEWVxhN4tyZx07MCeYrJg4RMfeph7RfTIB/I=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=DkPZa+0Us/PS8WiwvVjjlaCwyWXc39w7PpXtnVy9xncj1wibdPRNJVqFI3npd32Du
-	 xM7CjMfqg0sR8iPN8guuzGZR3U2mvHbeJqJOHVB3HjuDHi2wrmB0dXDBxG1f5S6F2+
-	 77jm573zI+itiQ/I7q1YxWW5NTB1TiH+B+bAt3tBIywq2hi5zSh7yoxxoT2YetENRS
-	 qtLCuayVtgTVWr7IOwrdKWQAsxdXKDLf9ks3xGGejmcf3q8Z7Pwea4NnxzQJcOexQb
-	 B0k0quSPRodsnc575vpREpeK5pv+kfKAzUyV9bVyTSKbXgU8AcBmKeqQgW16Qs4mhO
-	 kSd+tlqPxtY6A==
+	b=cdOhJbgSdmNsof0RZWm2bNMcOgyMnbZt+W0tplE2Z42FRnhYN2MMjC/HZid4gAJnv
+	 cXzgJPNOG1t4PpQILLyjXxjR2iCMHRuT8dtOszNUaK1l7M+y1R5CXFcEWykXJVOqoq
+	 0oEZho2DelTmmNg7d7bolAS6148mq2/iyWr1V/ZAMtTvRYwBTFjA5j7AtiohUvk9SB
+	 JZhIv/eEYDTmSx7F9ZN8t38fGLyp2TjWZH+9fUVfjtyhwhBd9NrePCBudywVlg3KIy
+	 AWtEGEuJ2oo5x6guLSRmHSYSf331YWc5PdMca/CEcK/KScLXsHz1uuOA/biVVuPInb
+	 DirROEdI0JIfQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB3C2380CEE8;
-	Fri, 14 Feb 2025 21:50:40 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB383380CEE8;
+	Fri, 14 Feb 2025 21:50:46 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/8] net: phylink,xpcs,stmmac: support PCS EEE
- configuration
+Subject: Re: [PATCH net-next v2] net: stmmac: refactor clock management in EQoS
+ driver
 From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <173956983949.2115208.7960791375454243091.git-patchwork-notify@kernel.org>
-Date: Fri, 14 Feb 2025 21:50:39 +0000
-References: <Z6naiPpxfxGr1Ic6@shell.armlinux.org.uk>
-In-Reply-To: <Z6naiPpxfxGr1Ic6@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
- netdev@vger.kernel.org, pabeni@redhat.com
+Message-Id: <173956984555.2115208.11664802737268824641.git-patchwork-notify@kernel.org>
+Date: Fri, 14 Feb 2025 21:50:45 +0000
+References: <20250213041559.106111-1-swathi.ks@samsung.com>
+In-Reply-To: <20250213041559.106111-1-swathi.ks@samsung.com>
+To: Swathi K S <swathi.ks@samsung.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+ fancer.lancer@gmail.com, krzk@kernel.org, Joao.Pinto@synopsys.com,
+ treding@nvidia.com, ajayg@nvidia.com, Jisheng.Zhang@synaptics.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_135012_048906_AB1F7188 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20250214_135017_374894_2CB05EFF 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +83,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hello:
 
-This series was applied to netdev/net-next.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Mon, 10 Feb 2025 10:52:56 +0000 you wrote:
-> Hi,
+On Thu, 13 Feb 2025 09:45:59 +0530 you wrote:
+> Refactor clock management in EQoS driver for code reuse and to avoid
+> redundancy. This way, only minimal changes are required when a new platform
+> is added.
 > 
-> This series adds support for phylink managed EEE at the PCS level,
-> allowing xpcs_config_eee() to be removed. Sadly, we still end up with
-> a XPCS specific function to configure the clock multiplier.
+> Suggested-by: Andrew Lunn <andrew@lunn.ch>
+> Signed-off-by: Swathi K S <swathi.ks@samsung.com>
 > 
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  7 --
->  drivers/net/ethernet/stmicro/stmmac/stmmac_mdio.c |  2 +
->  drivers/net/pcs/pcs-xpcs.c                        | 89 +++++++++++++++--------
->  drivers/net/pcs/pcs-xpcs.h                        |  1 +
->  drivers/net/phy/phylink.c                         | 25 ++++++-
->  include/linux/pcs/pcs-xpcs.h                      |  3 +-
->  include/linux/phylink.h                           | 22 ++++++
->  7 files changed, 107 insertions(+), 42 deletions(-)
+> [...]
 
 Here is the summary with links:
-  - [net-next,1/8] net: phylink: add support for notifying PCS about EEE
-    https://git.kernel.org/netdev/net-next/c/e9f03a6a879b
-  - [net-next,2/8] net: xpcs: add function to configure EEE clock multiplying factor
-    https://git.kernel.org/netdev/net-next/c/8c841486674a
-  - [net-next,3/8] net: stmmac: call xpcs_config_eee_mult_fact()
-    https://git.kernel.org/netdev/net-next/c/060fb27060e8
-  - [net-next,4/8] net: xpcs: convert to phylink managed EEE
-    https://git.kernel.org/netdev/net-next/c/5a12b2cf29c1
-  - [net-next,5/8] net: stmmac: remove calls to xpcs_config_eee()
-    https://git.kernel.org/netdev/net-next/c/dba7441b3916
-  - [net-next,6/8] net: xpcs: remove xpcs_config_eee() from global scope
-    https://git.kernel.org/netdev/net-next/c/55faeb89968a
-  - [net-next,7/8] net: xpcs: clean up xpcs_config_eee()
-    https://git.kernel.org/netdev/net-next/c/760320145a5a
-  - [net-next,8/8] net: xpcs: group EEE code together
-    https://git.kernel.org/netdev/net-next/c/1d4c99a1ac12
+  - [net-next,v2] net: stmmac: refactor clock management in EQoS driver
+    https://git.kernel.org/netdev/net-next/c/a045e40645df
 
 You are awesome, thank you!
 -- 
