@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999D6C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 20:26:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6447C021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 20:26:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=llW5p/2cU9pyD6O50zTC+JdR5W3cKNUgmxri3DfiRBg=; b=fSzGFtc6lezsHllDtsc3E0w5LJ
-	NYz7nhZmtGOWY0NGaJeNUYB5A8EbdExLw290StU6vjzKDXfSnw6xwWXimCELDzvckTt2vd+l0fpLa
-	TeJscYjufrtncCqkU9uxu03dQlYdFmq2kOBwrb5Upg1UzRapmEMHwU4LtJDJO2fWEEOcwJSMTVLRX
-	afegXDtnHVgsRQ8SI0V5J0Ai5U3nG9kWISqwMEjb7OqUIp3TEKUV8bBr1Sf0GfJRJgb0Jr1zTLfAC
-	xBvciwUM0kXBhT/KceCXt6hhSNDD8yXxmSu7GzG6O/mztTmfjvuXgxlfjzOFHDva1kkNYVzAEWL1W
-	iset/Rjg==;
+	bh=WnVM151i0nVora0z7tRlLA9fgDXmT4xC1SQ5LMzsotY=; b=N9+vRdV7hoq/UxnRF7oENLtBdy
+	0x2lVKas+cts2vYGz1iVU2m7p+3oFtidkgUWMS2uLKs4wBYRVlKUFzho5+EFMzf0Ix80181544RH/
+	vZ2wCC/wuFnJHTafyuFOwjKpG+rE7+EBYpKBrv+g83jCZxsj0AGm6l2XSpKWsnN4j+xKCe/yNJpZT
+	QEU61LbOoFIS4hRz4Fj4ERQ4bxClxRAiw1XldN+9WqloIHXi+Vrg/EYwfTXHNoIwKzrS9dmPP4sWG
+	5D0TtCvsIAt6IzbOKzF0ihbjQ6bYukLT1mrsNdu7dnJMf+Ysllp0qaysNdI8Afg/RPRuawjr5B74e
+	FTJ9SBVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj2Ga-0000000GA4j-2T6M;
-	Fri, 14 Feb 2025 20:26:28 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tj2Gb-0000000GA5b-1nU7;
+	Fri, 14 Feb 2025 20:26:29 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tizM5-0000000Fg1g-16WN;
-	Fri, 14 Feb 2025 17:19:58 +0000
+	id 1tizMA-0000000Fg2r-1qwO;
+	Fri, 14 Feb 2025 17:20:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739553596;
-	bh=dllF4OZS+fykAk4GG2xX2cZG/gu45NNSuP+Q2RiVATk=;
+	s=mail; t=1739553601;
+	bh=e4vX1ANCZsil8oa3grPqu+Rm/8SSkvhXYxIqWE5LhdU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=i+JH/wh04YHiTTELCcPDvcxhtx7aSVDAI/6vzARmHr1S9N/g2EGH0i4tqWOhd6D5y
-	 HLwnhk+cyfXsOK2kYWFjreNP1YqwV3D3EKrUtn/JrZK92mGfQDcPxB1CzKAXaZpmrp
-	 N5ekz9gh9m4Tr1GCwFOA9zca6xYen2gRPqFFsq5cM1mGz2Nc9cbvFR4SmjO63Wbz78
-	 iHsVH+oAx6EvMtZJF8cL6MWQoqe2I445Xxao/4eJDs8zRJpIcpwfMspc/oYNwPa5mT
-	 GxeQ3FX1CLzRTWvvEaoei9yzk7rsEjbZEgB2K2HifLLPPoVwCZTqmJ/f7hHuY+u5r1
-	 gQBIn/RH8NwYw==
+	b=eVog1OR+93NsZ9uwafXhJ+tm84LtMXB9c1/OKQWR4BdurEO7+St6XVjcJMG+6vXFd
+	 lx2loLHC4zxJEnTYdu0FwfivKwrD+mbKrtljPJK8upkVdrIHaqbE+L3Vc+3vrak3ts
+	 bbko7xftvycY6liPVStAe4+MyfeosDIsAM6oh5QcGhLEEdD3u0bxjt3vgpyPbEoZ/S
+	 FWa0c+JsY6DoSk7qomK2PXnqnNmAD+U5iA8L5vFO4suxPqMQMVb923aCpEmbw5u5XI
+	 olzmK1NZJ1nHiBLFU5J8DDc4+zdkuoVzL23MRcRXtx+nxY5DVL1ZRQ3hbgqySO7AA9
+	 tlsEEJIQjj2aA==
 Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1003])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6AF4517E0FC1;
-	Fri, 14 Feb 2025 18:19:51 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6F2CE17E0239;
+	Fri, 14 Feb 2025 18:19:56 +0100 (CET)
 From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Fri, 14 Feb 2025 14:18:39 -0300
-Subject: [PATCH 08/13] ASoC: mediatek: mt6359-accdet: Drop dead code for
- EINT trigger setting
+Date: Fri, 14 Feb 2025 14:18:40 -0300
+Subject: [PATCH 09/13] ASoC: mediatek: mt6359-accdet: Drop dead code for
+ button detection
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250214-mt6359-accdet-dts-v1-8-677a151b9b4c@collabora.com>
+Message-Id: <20250214-mt6359-accdet-dts-v1-9-677a151b9b4c@collabora.com>
 References: <20250214-mt6359-accdet-dts-v1-0-677a151b9b4c@collabora.com>
 In-Reply-To: <20250214-mt6359-accdet-dts-v1-0-677a151b9b4c@collabora.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -68,9 +68,8 @@ Cc: kernel@collabora.com, linux-sound@vger.kernel.org,
  =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_091957_444618_35C5A5DB 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250214_092002_629431_1B2F6E87 
+X-CRM114-Status: GOOD (  14.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,43 +84,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-None of the EINT trigger options are implemented and the DT property is
-not described in the binding. Remove the unused code.
+The button detection functionality depends on a calibration voltage
+value which is currently not updated anywhere in the driver code, and
+hence it doesn't actually do anything. Remove this unused code.
 
 Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
- sound/soc/codecs/mt6359-accdet.c | 11 -----------
- 1 file changed, 11 deletions(-)
+ sound/soc/codecs/mt6359-accdet.c | 88 +---------------------------------------
+ sound/soc/codecs/mt6359-accdet.h | 15 -------
+ 2 files changed, 2 insertions(+), 101 deletions(-)
 
 diff --git a/sound/soc/codecs/mt6359-accdet.c b/sound/soc/codecs/mt6359-accdet.c
-index 57a70867b4b80fc904ae07ee05d0e554495ed6e7..e45630a134bb3a27bb52a80f43901c9fe4eac105 100644
+index e45630a134bb3a27bb52a80f43901c9fe4eac105..d2841b1385c7cbc5603100a56576eae3b6273b20 100644
 --- a/sound/soc/codecs/mt6359-accdet.c
 +++ b/sound/soc/codecs/mt6359-accdet.c
-@@ -35,8 +35,6 @@
- #define ACCDET_PMIC_EINT1		BIT(3)
- #define ACCDET_PMIC_BI_EINT		BIT(4)
+@@ -37,9 +37,6 @@
  
--#define ACCDET_PMIC_GPIO_TRIG_EINT	BIT(5)
--#define ACCDET_PMIC_INVERTER_TRIG_EINT	BIT(6)
  #define ACCDET_PMIC_RSV_EINT		BIT(7)
  
- #define ACCDET_THREE_KEY		BIT(8)
-@@ -596,15 +594,6 @@ static int mt6359_accdet_parse_dt(struct mt6359_accdet *priv)
- 	else if (tmp == 2)
- 		priv->caps |= ACCDET_PMIC_BI_EINT;
+-#define ACCDET_THREE_KEY		BIT(8)
+-#define ACCDET_FOUR_KEY			BIT(9)
+-#define ACCDET_TRI_KEY_CDD		BIT(10)
+ #define ACCDET_RSV_KEY			BIT(11)
  
--	ret = of_property_read_u32(node, "mediatek,eint-trig-mode",
--				   &tmp);
+ #define ACCDET_ANALOG_FASTDISCHARGE	BIT(12)
+@@ -322,41 +319,6 @@ static void mt6359_accdet_jack_report(struct mt6359_accdet *priv)
+ 	snd_soc_jack_report(priv->jack, report, MT6359_ACCDET_JACK_MASK);
+ }
+ 
+-static unsigned int check_button(struct mt6359_accdet *priv, unsigned int v)
+-{
+-	if (priv->caps & ACCDET_FOUR_KEY) {
+-		if (v < priv->data->four_key.down &&
+-		    v >= priv->data->four_key.up)
+-			priv->btn_type = SND_JACK_BTN_1;
+-		if (v < priv->data->four_key.up &&
+-		    v >= priv->data->four_key.voice)
+-			priv->btn_type = SND_JACK_BTN_2;
+-		if (v < priv->data->four_key.voice &&
+-		    v >= priv->data->four_key.mid)
+-			priv->btn_type = SND_JACK_BTN_3;
+-		if (v < priv->data->four_key.mid)
+-			priv->btn_type = SND_JACK_BTN_0;
+-	} else {
+-		if (v < priv->data->three_key.down &&
+-		    v >= priv->data->three_key.up)
+-			priv->btn_type = SND_JACK_BTN_1;
+-		if (v < priv->data->three_key.up &&
+-		    v >= priv->data->three_key.mid)
+-			priv->btn_type = SND_JACK_BTN_2;
+-		if (v < priv->data->three_key.mid)
+-			priv->btn_type = SND_JACK_BTN_0;
+-	}
+-	return 0;
+-}
+-
+-static void is_key_pressed(struct mt6359_accdet *priv, bool pressed)
+-{
+-	priv->btn_type = priv->jack_type & ~MT6359_ACCDET_BTN_MASK;
+-
+-	if (pressed)
+-		check_button(priv, priv->cali_voltage);
+-}
+-
+ static inline void check_jack_btn_type(struct mt6359_accdet *priv)
+ {
+ 	unsigned int val = 0;
+@@ -368,15 +330,11 @@ static inline void check_jack_btn_type(struct mt6359_accdet *priv)
+ 
+ 	switch (priv->accdet_status) {
+ 	case 0:
+-		if (priv->jack_type == SND_JACK_HEADSET)
+-			is_key_pressed(priv, true);
+-		else
++		if (priv->jack_type != SND_JACK_HEADSET)
+ 			priv->jack_type = SND_JACK_HEADPHONE;
+ 		break;
+ 	case 1:
+-		if (priv->jack_type == SND_JACK_HEADSET) {
+-			is_key_pressed(priv, false);
+-		} else {
++		if (priv->jack_type != SND_JACK_HEADSET) {
+ 			priv->jack_type = SND_JACK_HEADSET;
+ 			accdet_set_debounce(priv, eint_state011, 0x1);
+ 		}
+@@ -606,48 +564,6 @@ static int mt6359_accdet_parse_dt(struct mt6359_accdet *priv)
+ 	if (ret)
+ 		priv->data->eint_comp_vth = 0x0;
+ 
+-	ret = of_property_read_u32(node, "mediatek,key-mode", &tmp);
 -	if (ret)
 -		tmp = 0;
--	if (tmp == 0)
--		priv->caps |= ACCDET_PMIC_GPIO_TRIG_EINT;
--	else if (tmp == 1)
--		priv->caps |= ACCDET_PMIC_INVERTER_TRIG_EINT;
+-	if (tmp == 0) {
+-		int three_key[4];
 -
- 	ret = of_property_read_u32(node, "mediatek,eint-use-ext-res",
- 				   &priv->data->eint_use_ext_res);
- 	if (ret) {
+-		priv->caps |= ACCDET_THREE_KEY;
+-		ret = of_property_read_u32_array(node,
+-						 "mediatek,three-key-thr",
+-						 three_key,
+-						 ARRAY_SIZE(three_key));
+-		if (!ret)
+-			memcpy(&priv->data->three_key, three_key + 1,
+-			       sizeof(struct three_key_threshold));
+-	} else if (tmp == 1) {
+-		int four_key[5];
+-
+-		priv->caps |= ACCDET_FOUR_KEY;
+-		ret = of_property_read_u32_array(node,
+-						 "mediatek,four-key-thr",
+-						 four_key,
+-						 ARRAY_SIZE(four_key));
+-		if (!ret) {
+-			memcpy(&priv->data->four_key, four_key + 1,
+-			       sizeof(struct four_key_threshold));
+-		} else {
+-			dev_warn(priv->dev,
+-				 "accdet no 4-key-thrsh dts, use efuse\n");
+-		}
+-	} else if (tmp == 2) {
+-		int three_key[4];
+-
+-		priv->caps |= ACCDET_TRI_KEY_CDD;
+-		ret = of_property_read_u32_array(node,
+-						 "mediatek,tri-key-cdd-thr",
+-						 three_key,
+-						 ARRAY_SIZE(three_key));
+-		if (!ret)
+-			memcpy(&priv->data->three_key, three_key + 1,
+-			       sizeof(struct three_key_threshold));
+-	}
+-
+ 	of_node_put(node);
+ 	dev_warn(priv->dev, "accdet caps=%x\n", priv->caps);
+ 
+diff --git a/sound/soc/codecs/mt6359-accdet.h b/sound/soc/codecs/mt6359-accdet.h
+index c234f2f4276a12853a6fe0b13c4198dfc551b6b4..0ad5c8660a0bf4a87136a700698b04dff121b175 100644
+--- a/sound/soc/codecs/mt6359-accdet.h
++++ b/sound/soc/codecs/mt6359-accdet.h
+@@ -50,19 +50,6 @@ enum {
+ 	eint_inverter_state000,
+ };
+ 
+-struct three_key_threshold {
+-	unsigned int mid;
+-	unsigned int up;
+-	unsigned int down;
+-};
+-
+-struct four_key_threshold {
+-	unsigned int mid;
+-	unsigned int voice;
+-	unsigned int up;
+-	unsigned int down;
+-};
+-
+ struct pwm_deb_settings {
+ 	unsigned int pwm_width;
+ 	unsigned int pwm_thresh;
+@@ -88,8 +75,6 @@ struct dts_data {
+ 	unsigned int plugout_deb;
+ 	unsigned int eint_pol;
+ 	struct pwm_deb_settings *pwm_deb;
+-	struct three_key_threshold three_key;
+-	struct four_key_threshold four_key;
+ 	unsigned int moisture_detect_enable;
+ 	unsigned int eint_detect_mode;
+ 	unsigned int eint_use_ext_res;
 
 -- 
 2.48.1
