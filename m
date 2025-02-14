@@ -4,78 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E895C021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 10:56:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A256AC021A7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 10:56:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IFFX1vGDF+B307v2ULpRo/T+yugzgXw/qkTFoNDd/pc=; b=rJBX5Ny5L0zgyCD6ZUOf3PZkyU
-	vMHEBruCj75xOfMuHu/eeeDK53kQEhEy6kN2s1cBliHyVjR9+mmBEQjZghvT5YXX3JAKcljfBKvVf
-	vyAb01tH3pUmLD5kupABNaXz0hbifP1lKhstPuIi1au7i4Qm9FSYCA9HOXcgmnx2axRVjQ13IaTmF
-	5ich0g5cBUznYNxaCM7SX6RLoUnfeptsU8c/YuxNAtUuGVWy6m9LoMIAPGThcAVNbj8oKxWxNSqhf
-	l9woK+fMNibEafTfTEtvyTM4mb/8p3PPqtzzoBbjYVBqqvZvTeC1me27NjoZwCdej4IkRZ2dla6rf
-	FaC9DqHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pV4F50q6aGUXbvPJzNnvRliaS5adwLOXuLykzBQqR5s=; b=ug+/sadpiqz9LCZB3d2lFmuHDS
+	i4KszvpXbAL5m8ePIYNhm7Nkbk3AxlozHmTWZsu/rguKb9NdQfvDLJVmzpxqzKJbAZYAbeJlr3y89
+	aE4izzmVbt+fAS7Qa3HmWBbL+GOScSfTeQ9z2KWJ/7UypJd1oDKR1vPxAKFRgtJCgOBToRVmuFVCd
+	vunPi9JGTqfsNlfgZCVUHwEvIsN4bYSXzNSv1qyw1A0O98mLffIVbdtjgtKFUveM5kwCI9OJlRb5j
+	JsdzyCzS9mCMblotFlD6n01EIO5Af5aPBRkmuK1b0PuzIC69cI9dH1HvXiJVLyDVOY3tqfRdfkKtj
+	ZBCdwGfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1titMu-0000000EZnN-1Y5O;
-	Fri, 14 Feb 2025 10:56:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1titMw-0000000EZoj-0kas;
+	Fri, 14 Feb 2025 10:56:26 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tisDD-0000000EMv6-0fqK
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Feb 2025 09:42:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=IFFX1vGDF+B307v2ULpRo/T+yugzgXw/qkTFoNDd/pc=; b=ojZucgLHBYjOqNiezm5Ypn7L7w
-	dMGMnaTGAXXtsn00y54iqbWG61IZKKKEPH3puqwv1B4LVeHrjDAtXJSwfWb14cGqMyj1n7KAbyI93
-	a9XTuvdFcslA+UXbA58mLs8I7+s+JUJkOGZOfaKtI5z/IMS3Ofl7qp5JPMCNV3BnCKFa7ZIbuTjNj
-	UmuPPWYVRKhoXl208vG9cJ3k4bX6x7M1zlP9bZieQv0j++XjtJPur5lQINxPCML5JQcmFov+OUe20
-	u0Y9HupldmFiAmoJx5WPa74qPvtcRnM/TzMuuPaFcRaM3Ad9kYTIZjXoboO/IXig9JtUSLmdJwd9O
-	J98L3JWw==;
-Received: from weierstrass.telenet-ops.be ([2a02:1800:110:4::f00:11])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tisDA-00000001DWQ-072E
+	id 1tisJ3-0000000ENxE-0Zdt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 09:42:17 +0000
-Received: from albert.telenet-ops.be (albert.telenet-ops.be [IPv6:2a02:1800:110:4::f00:1a])
-	by weierstrass.telenet-ops.be (Postfix) with ESMTPS id 4YvRsb55NRz4x2Mr
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 10:42:11 +0100 (CET)
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:6395:73cc:7fc4:4cab])
-	by albert.telenet-ops.be with cmsmtp
-	id DMi72E0091MuxXz06Mi7Ja; Fri, 14 Feb 2025 10:42:08 +0100
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tisCj-00000006Xjm-3TOO;
-	Fri, 14 Feb 2025 10:42:07 +0100
-Received: from geert by rox.of.borg with local (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tisD1-00000000ggb-0ErY;
-	Fri, 14 Feb 2025 10:42:07 +0100
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Magnus Damm <magnus.damm@gmail.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 2/2] ARM: dts: renesas: r9a06g032: Drop snps,dw-apb-uart compatibility
-Date: Fri, 14 Feb 2025 10:42:04 +0100
-Message-ID: <e290dd28ecb68b4e164172a905da18a5a2d438a1.1739525488.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1739525488.git.geert+renesas@glider.be>
-References: <cover.1739525488.git.geert+renesas@glider.be>
+	Fri, 14 Feb 2025 09:48:22 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51E50K3t000955;
+	Fri, 14 Feb 2025 09:48:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=pV4F50q6aGUXbvPJzNnvRl
+	iaS5adwLOXuLykzBQqR5s=; b=HbyoZrUgrZjkmdlIvQcHT5pyo1pZlWk9jP5Jek
+	PZ/RumU/zhX1Pd+M/fmTy6B/AuFBJ6dspAC6Vvu5mCR7ruTruJ+/Ml7BhDf/F2b0
+	mJTRMJjXUF37+5oPHE7cD8xqmmRed9moDunGC8mo2fzwXJuVsmkvS5bJd4jdVEjk
+	Ndpn+7Z+/35Jdm41o1DTi6HIWXxouIBn8geL781Fn+k4HDR+//fbT2C1w8HXyBbK
+	doYb/aRqaNyJlZx9rvKZXIYGUieR+ED5BAussIvO9tnl+YKT5IM3m2mrqm6p48Ki
+	Nf1vUy8Kg6vuvg1UKbjp4/Py5cLz+gcDDOVDJ6nZH7N2lHmw==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44sc7bbnc1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 14 Feb 2025 09:48:13 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51E9mCrp002506
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 14 Feb 2025 09:48:12 GMT
+Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Fri, 14 Feb 2025 01:48:06 -0800
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
+        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <andersson@kernel.org>,
+        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
+        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
+        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v1 0/2] arm64: dts: qcom: qcs8300: Add qcs8300 camss support
+Date: Fri, 14 Feb 2025 15:17:45 +0530
+Message-ID: <20250214094747.2483058-1-quic_vikramsa@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: vgmVAyoP3W2_70y4ARlGUuIX6mqAaIdV
+X-Proofpoint-GUID: vgmVAyoP3W2_70y4ARlGUuIX6mqAaIdV
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-14_04,2025-02-13_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 mlxlogscore=582
+ phishscore=0 priorityscore=1501 adultscore=0 lowpriorityscore=0
+ bulkscore=0 mlxscore=0 malwarescore=0 clxscore=1015 impostorscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502140070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_094216_251064_2A4C9BF7 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20250214_014821_302463_A6B40A35 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,78 +100,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-make dtbs_check:
+QCS8300 is a Qualcomm SoC. This series adds bindings and devicetree to bring
+up CSIPHY, TPG, CSID, VFE/RDI interfaces in QCS8300.
 
-    arch/arm/boot/dts/renesas/r9a06g032-rzn1d400-db.dtb: serial@40060000: compatible: 'oneOf' conditional failed, one must be fixed:
-	    ['renesas,r9a06g032-uart', 'renesas,rzn1-uart', 'snps,dw-apb-uart'] is too long
-    ...
+QCS8300 provides
+- 2 x VFE, 3 RDI per VFE
+- 5 x VFE Lite, 6 RDI per VFE
+- 2 x CSID
+- 5 x CSID Lite
+- 3 x TPG
+- 3 x CSIPHY
 
-As per commit 72b0505f0830df95 ("dt: serial: Add Renesas RZ/N1 binding
-documentation"), the RZ/N1 UART is a modified Synopsys DesignWare UART.
-The modifications only relate to DMA, so you could actually use the
-controller with the Synopsys compatible string if you are not using DMA,
-but you should not do so.  Hence the first three UARTs (which don't
-support DMA) were added with a "snps,dw-apb-uart" fallback, to use the
-existing Synopsys DesignWare UART support.
+Used following tools for the sanity check of these changes.
 
-Since support for the RZ/N1-specific compatible value was added to the
-driver a long time ago (commit 2ff5fa7f742ab0c6 ("serial: 8250_dw: Add
-compatible string for Renesas RZ/N1 UART") in v4.19), the extra
-compatible value can be dropped safely.
+- make CHECK_DTBS=y W=1 DT_SCHEMA_FILES=media/qcom,qcs8300-camss.yaml
+- make DT_CHECKER_FLAGS=-m W=1
+DT_SCHEMA_FILES=media/qcom,qcs8300-camss.yaml dt_binding_check
+- make -j32 W=1
+- ./scripts/checkpatch.pl
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-Alternatively, the bindings[1] could be augmented with an extra section:
+Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 
-    - items:
-        - enum:
-            - renesas,r9a06g032-uart
-            - renesas,r9a06g033-uart
-        - const: renesas,rzn1-uart
-        - const: snps,dw-apb-uart     # RZ/N1 without DMA
+Vikram Sharma (2):
+  media: dt-bindings: Add qcom,qcs8300-camss
+  arm64: dts: qcom: qcs8300: Add support for camss
 
-and perhaps extra logic to prohibit the dmas property when both
-renesas,rzn1-uart and snps,dw-apb-uart are present.
+ .../bindings/media/qcom,qcs8300-camss.yaml    | 336 ++++++++++++++++++
+ arch/arm64/boot/dts/qcom/qcs8300.dtsi         | 171 +++++++++
+ 2 files changed, 507 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/media/qcom,qcs8300-camss.yaml
 
-Given the complexity of the latter, I went for the simple solution.
-
-[1] Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
----
- arch/arm/boot/dts/renesas/r9a06g032.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/arch/arm/boot/dts/renesas/r9a06g032.dtsi b/arch/arm/boot/dts/renesas/r9a06g032.dtsi
-index 87e03446fb4de705..fc523106c2a4c6a0 100644
---- a/arch/arm/boot/dts/renesas/r9a06g032.dtsi
-+++ b/arch/arm/boot/dts/renesas/r9a06g032.dtsi
-@@ -171,7 +171,7 @@ usb@2,0 {
- 		};
- 
- 		uart0: serial@40060000 {
--			compatible = "renesas,r9a06g032-uart", "renesas,rzn1-uart", "snps,dw-apb-uart";
-+			compatible = "renesas,r9a06g032-uart", "renesas,rzn1-uart";
- 			reg = <0x40060000 0x400>;
- 			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-shift = <2>;
-@@ -182,7 +182,7 @@ uart0: serial@40060000 {
- 		};
- 
- 		uart1: serial@40061000 {
--			compatible = "renesas,r9a06g032-uart", "renesas,rzn1-uart", "snps,dw-apb-uart";
-+			compatible = "renesas,r9a06g032-uart", "renesas,rzn1-uart";
- 			reg = <0x40061000 0x400>;
- 			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-shift = <2>;
-@@ -193,7 +193,7 @@ uart1: serial@40061000 {
- 		};
- 
- 		uart2: serial@40062000 {
--			compatible = "renesas,r9a06g032-uart", "renesas,rzn1-uart", "snps,dw-apb-uart";
-+			compatible = "renesas,r9a06g032-uart", "renesas,rzn1-uart";
- 			reg = <0x40062000 0x400>;
- 			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-shift = <2>;
 -- 
-2.43.0
-
+2.25.1
 
