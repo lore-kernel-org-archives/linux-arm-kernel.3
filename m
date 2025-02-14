@@ -4,73 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD2E7C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 03:52:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DCF4C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 04:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dSVMhfzPHKYPcVMTMnZqyr4OBSa7KstYIVuVF6WaaZE=; b=h+MBKxT8OsXSsUePmQpadjs9QT
-	MqvqYoSzrYBjLJf1iitNWiauAuf3/2Q5An4S2WeEFcu5mt+JE+TyiGGoxf7xjEH6caRozZ/OR2KjY
-	Y7VwvI2nKkZuEiPF6oV0raATZ2y1Cc9fudn/Cst1XAf3/GOCyxbJ3rIo/dkMA+7cGoxtgOnB6jARi
-	r/58jAI/JvVVNkQHnqBME2a1Kbq5+ePpkT88Ra6ye2uegivzR85NeQRq/Hi2czE/wVMD/61nR58yy
-	gWSY0lAr5swuEyAUAOvO66SuYDqQkOr3/tKPQYFVmj+WgjNvjYqlVWC9soVAIZ0hLOQqztzo0SRO2
-	0PR7dpKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GdpJvmwnLmBjouVPztYUe8jkPdTKUze0SWAyHKT6rno=; b=q62CsGAH0Kt6rTmyMvQ8arArdH
+	4rox3kXCMgEQbzX1Kkji/bPNgJdmouqkB+KkNLmQC8wUZDt90+E92ZiJFeVr4vN125hWJOPqIgWp4
+	I0I7xmb32blRqCdCmcW8QolsHEtQmgkOltNzC6Kubd8CJY7hcFt9/G6OgWN+EN/5WNxH8gGi0m5tY
+	KeiNXFvyGZxY7WeiEkvRpb0FInavdiaGJKXggYomGuJPCOzriOFei1mQH7HB2nigLHVDMtXdUUugW
+	UUZx0JKNE+5yFQqsWVIFt5md+Vp0tPxxgv+0US+oVE3I9q0TTfel/sANj8iWdq9y6TPvCNo/3xoaa
+	+EkvDJdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1timke-0000000DXam-08sQ;
-	Fri, 14 Feb 2025 03:52:28 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1timxH-0000000DYs6-3L5D;
+	Fri, 14 Feb 2025 04:05:31 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1timjA-0000000DXGL-2lKm
+	id 1timvp-0000000DYZS-3WJu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 03:50:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=dSVMhfzPHKYPcVMTMnZqyr4OBSa7KstYIVuVF6WaaZE=; b=dW5AinHJmfj9B8vPIT+PpH8p4X
-	E9tbjwbP/7wkcyLd+7sXxX58tjMwHxgdYqCUnjCq2y3EV6DvI5dHMmIqBJx5RcbPC41sPPB/qHzqD
-	DnXPfplfBE8Lzcj92BjefT+OSoF1ac4O+emS3L0bh1SW6GZIkLEK2h7cxO62cRc+WruGGmtlpsp2z
-	cd/cOJUlID0579rcCEtdaJxHwHa3T86WicSQUzIUC5qqpLFqyk8mHG6kJFzVVjfYyNSYkZeWHQlf+
-	nw9tUS5yUsXxq/inwkcvsEtiiYaSg5osggt/GuCvCF1XgUlTTuhqu80zPRD+6i0bhuByHydOalCwH
-	YAbom6bQ==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1timWA-000DqF-1W;
-	Fri, 14 Feb 2025 11:50:52 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 14 Feb 2025 11:50:51 +0800
-Date: Fri, 14 Feb 2025 11:50:51 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: fsverity@lists.linux.dev, linux-crypto@vger.kernel.org,
-	dm-devel@lists.linux.dev, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	David Howells <dhowells@redhat.com>, netdev@vger.kernel.org
-Subject: Re: [PATCH v8 0/7] Optimize dm-verity and fsverity using multibuffer
- hashing
-Message-ID: <Z669mxPsSpej6K6K@gondor.apana.org.au>
-References: <20250212154718.44255-1-ebiggers@kernel.org>
- <Z61yZjslWKmDGE_t@gondor.apana.org.au>
- <20250213063304.GA11664@sol.localdomain>
- <Z66uH_aeKc7ubONg@gondor.apana.org.au>
- <20250214033518.GA2771@sol.localdomain>
+	Fri, 14 Feb 2025 04:04:03 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-220e6028214so18419565ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 20:04:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739505840; x=1740110640; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=GdpJvmwnLmBjouVPztYUe8jkPdTKUze0SWAyHKT6rno=;
+        b=VdvonEZkUGyurp7C7qbSJeaSpbb4goOZeMia5J3sowYUNHJTL/uqNeWSWfRKMuP9l0
+         LFcQN70osPATbERAcPGwPa3vCzVqt1+UbkfHTAfiAfuzamfAHS8nk3P+kdi7KMjXM79F
+         rsbw97NEqtW9AMICpqylsqysAfW7cqEJ2WdvL3CyTStSOk3p7tJqHMen7hgEjs9oJrRR
+         06a5mCFyGGK4Cj+G6zyhqBpqWHKWzIq1GD/toecxbHSI35/1VqIRNsdxkq2DwNhpJYTp
+         EOXikB03FkwAMzhCOZOyaeL1cHUkDXZ4807/vnU66r0nM5JJ2bUfeW9DdlpFyuyyVWuq
+         UFcw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739505840; x=1740110640;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=GdpJvmwnLmBjouVPztYUe8jkPdTKUze0SWAyHKT6rno=;
+        b=wpIF6s+M3+qf1JS/FEehEii2fS3Q2EGSjsIx8lWfjn1/YPK9gOh/Zmf+Tb3wKpXEgu
+         bGMltWa8ajZlxz5t2PQLR2zPeh7/ausevJ88Nga8HNzUZDTLt1PuIvi/zCMemM8FvlLP
+         19P/1NSppmc0Zg+vlmhjb4qB2XoXfzs/hQGmULAQFt0ehe1U4v8+77WaobaeE7M0FEu4
+         uArTY7e2FtvO0DvsTFvVavX80qZIflZXkHtW8L1FNC3potB3VkfGT0m2Mv0c4N1jsNsP
+         v6P5zT6B8Ck1IthraR9kS3rVHDRggEAxq6BB1jCDku8UzQ2FqYBeQUTWZdc8AWr/x1+m
+         mGcA==
+X-Forwarded-Encrypted: i=1; AJvYcCX7wsIiXggDOtOs8Gn6t8vIbLkYD+OwEy/SQVvAyp77v6/Q3C62T/tL2X259yJEg2hWpvtIGC68ysdwKU/OiCoj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoPnCFTUEMGUEHbtWHeTrDQNavSWePM0R8gfV8e2GhnLC4xbpz
+	ARTSf+q9x3nVrpUmTF56bVfik/L9E8vdsDr5MmE2hb7kLdZP23bB
+X-Gm-Gg: ASbGncuwn0dMPFoajDdtrylJc2R5s1u4BvmXWA9l44GBqMqUoKjgS2FXKZ8XU029uuO
+	/E5BbAm4T5Esg0ekKkK2UvCu38eLvxL+eiQjcQVwq7LZgyLUH5tmR1GF1zcYImT6/c9GPt5rSgc
+	eK/lzB3g7Oy0rpWhY/lgLTyRW9C+b2rHCZ0Dk8JMUmcmsB2lzgkK/0hgByiXw6WtnW15ziDjHWl
+	VMrHNwwZIDheiaZZ+SjRqc0G+jGl9sCHTTpnoudzWtnoCqR7FJKe/MeQvtMuL1ryX8yz4l5+u4+
+	d7nUdEcElSg1p0M=
+X-Google-Smtp-Source: AGHT+IG/lvp3REMuEs1TqSkR5QKUuTnGFxemCOEmduTyXWx0aA8kwUQQ7GuOdHz5MXhdcM3OB4TycQ==
+X-Received: by 2002:a05:6a20:c998:b0:1e1:b12e:edb8 with SMTP id adf61e73a8af0-1ee5e666792mr17049651637.30.1739505840029;
+        Thu, 13 Feb 2025 20:04:00 -0800 (PST)
+Received: from nick-mbp.. ([49.130.17.220])
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-7324273e3e7sm2181227b3a.91.2025.02.13.20.03.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Feb 2025 20:03:59 -0800 (PST)
+From: Nick Chan <towinchenmi@gmail.com>
+To: Janne Grunau <j@jannau.net>,
+	Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Lee Jones <lee@kernel.org>,
+	Daniel Thompson <danielt@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Pavel Machek <pavel@ucw.cz>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Helge Deller <deller@gmx.de>,
+	Nick Chan <towinchenmi@gmail.com>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	linux-leds@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-fbdev@vger.kernel.org
+Subject: [PATCH v6 0/3] Apple DWI backlight driver
+Date: Fri, 14 Feb 2025 12:02:11 +0800
+Message-ID: <20250214040306.16312-1-towinchenmi@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250214033518.GA2771@sol.localdomain>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_195056_695345_50504637 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20250213_200401_879196_5D3F2676 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +109,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 07:35:18PM -0800, Eric Biggers wrote:
->
-> It absolutely is designed for an obsolete form of hardware offload.  Have you
-> ever tried actually using it?  Here's how to hash a buffer of data with shash:
-> 
-> 	return crypto_shash_tfm_digest(tfm, data, size, out)
-> 
-> ... and here's how to do it with the SHA-256 library, for what it's worth:
-> 
-> 	sha256(data, size, out)
-> 
-> and here's how to do it with ahash:
+Apple SoCs come with a 2-wire interface named DWI. On some iPhones, iPads
+and iPod touches the backlight controller is connected via this interface.
+This series adds a backlight driver for backlight controllers connected
+this way.
 
-Try the new virt ahash interface, and we could easily put the
-request object on the stack for sync algorithms:
+Changes since v5:
+- Remove default y from drivers/video/backlight/Kconfig
 
-	SYNC_AHASH_REQUEST_ON_STACK(req, alg);
+v5: https://lore.kernel.org/asahi/20250203115156.28174-1-towinchenmi@gmail.com/T
 
-	ahash_request_set_callback(req, CRYPTO_TFM_REQ_MAY_SLEEP, NULL, NULL);
-	ahash_request_set_virt(req, data, out, size);
+Changes since v4:
+- Change type to BACKLIGHT_PLATFORM since the driver does not directly
+interface with the backlight controller. The actual backlight controller
+can be directly controlled via i2c and is not the same on all hardware
+that supports the dwi interface.
+- Rename file to apple_dwi_bl.c to better match config option.
+- Rename driver to apple-dwi-bl to better match config option
+- Indicate that the backlight scales linearly
 
-	return crypto_ahash_digest(req);
- 
-> Hmm, I wonder which API users would rather use?
+v4: https://lore.kernel.org/asahi/20241211113512.19009-1-towinchenmi@gmail.com/T
 
-You're conflating the SG API problem with the interface itself.
-It's a separate issue, and quite easily solved.
+Changes since v3:
+- $ref to common.yaml in bindings
+- (and then additionalProperties is changed to unevaluatedProperties)
+- Use hex everywhere in bindings example
+- Use sizeof(*dwi_bl) instead of the type of the struct when doing
+devm_kzalloc()
+- Use devm_platform_get_and_ioremap_resource() in driver
+- Fix sorting in drivers/video/backlight/Makefile
+- In drivers/video/backlight/Kconfig, move config to right after
+BACKLIGHT_APPLE
+- Explain this driver being completely different from apple_bl
 
-> What?  GHASH is a polynomial hash function, so it is easily parallelizable.  If
-> you precompute N powers of the hash key then you can process N blocks in
-> parallel.  Check how the AES-GCM assembly code works; that's exactly what it
-> does.  This is fundamentally different from message digests like SHA-* where the
-> blocks have to be processed serially.
+v3: https://lore.kernel.org/asahi/20241209075908.140014-1-towinchenmi@gmail.com/T
 
-Fair enough.
+Changes since v2:
+- Add missing includes in driver
+- Fix file path in MAINTAINERS
 
-But there are plenty of other users who want batching, such as the
-zcomp with iaa, and I don't want everybody to invent their own API
-for the same thing.
+v2: https://lore.kernel.org/asahi/20241207130433.30351-1-towinchenmi@gmail.com/T
 
-Cheers,
+Changes since v1:
+- Fixed dt-bindings $id.
+- Make power-domains an optional property in dt-bindings.
+- Added missing error checking after devm_ioremap_resource() in
+dwi_bl_probe().
+
+v1: https://lore.kernel.org/asahi/20241206172735.4310-1-towinchenmi@gmail.com/T
+
+Nick Chan
+
+---
+Nick Chan (3):
+  dt-bindings: leds: backlight: apple,dwi-bl: Add Apple DWI backlight
+  backlight: apple_dwi_bl: Add Apple DWI backlight driver
+  MAINTAINERS: Add entries for Apple DWI backlight controller
+
+ .../bindings/leds/backlight/apple,dwi-bl.yaml |  57 ++++++++
+ MAINTAINERS                                   |   2 +
+ drivers/video/backlight/Kconfig               |  11 ++
+ drivers/video/backlight/Makefile              |   1 +
+ drivers/video/backlight/apple_dwi_bl.c        | 123 ++++++++++++++++++
+ 5 files changed, 194 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
+ create mode 100644 drivers/video/backlight/apple_dwi_bl.c
+
+
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+2.48.1
+
 
