@@ -4,76 +4,216 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93012C021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 02:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC313C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 02:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Pu+yCU8a3zHiD33i1SjhqECQAo1I4nsEwt4OD4Fy6ew=; b=rplAXVd8IxDf8eblE6raFsZa/1
-	jfzaMFnsf72Vb5ZcF1nSVYYJV1ltGJ3HvPYADt79JkmHlZNqxnol3xUIi0FEvqk2x8X9dNQOIKgWM
-	LE5PZKhUjS/nhmunSkl4VbZtXXVMmb0y0F8SGmefjNjI7uGnhhISO8fr/dlIo5r8QMx1iVBYzqvPM
-	ct4xCdNd7ALP7ebAYoX+AOxZouSbmfFCdebvisSEm4ndvLfTM+Ps67gvN0t/uQ661l9IqegvC67gw
-	IXdn5V+PDhd/4oKXZ2CA1b8HxlbEPMlK7RQ4U4AQCZF8MdTaLNUbQb/Nn106SMyxM4AZLIAu23je6
-	O75qfykA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h4UflJ+5lytUA6os/z/UB38c47Q83qItj7CxLvONRdA=; b=atKQ+Khu20GYHIQ/2Qz7GFnyzv
+	CG6o+Ff4Y/G5H4hYohsgDYH9bFiXXvH1OlBTLmTZH2o6b/THaVrlA8WydFq1DKkpGmeyNefcILtwW
+	v/Ey09NkoPJOcS3OvdyTyznhBq7+vxYVFjweJ/dxLguRVZg8DMI/cy5moe6wI7qh2AmQ8j6zC3SJP
+	8x183GJ/DnDNguC2zHMvxzIXmoO0bej+asoFhPeAZe3kcWUctfQzeoRoEyi10ePZ6zjhfMVrkim7N
+	QkvHERloiMebAr1ybh5Wa2u2cNZIe0Pi7Jae7D7TzkQ4/dOWhLKMesKBWO3ubiFyf7hMSdrIAxPCg
+	UH8+LVCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tilfY-0000000DNxe-3bD3;
-	Fri, 14 Feb 2025 02:43:08 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1tilgy-0000000DOEW-00m5;
+	Fri, 14 Feb 2025 02:44:36 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1til2l-0000000DFsk-42Z9
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 02:03:05 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-21f7f00c75eso29384435ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 18:03:03 -0800 (PST)
+	id 1til8o-0000000DIUV-3tVu;
+	Fri, 14 Feb 2025 02:09:20 +0000
+X-UUID: afb1a7b6ea7811ef9048ed6ed365623b-20250213
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=h4UflJ+5lytUA6os/z/UB38c47Q83qItj7CxLvONRdA=;
+	b=gBydg1UyOgJPPfGCjcWa4zmquDOleHNUOEYxOViWQH9b4ScgfmYd0JTSmkBqCATZRWsY9SyPVGdz7axmN0ur3V796krO9OtOu0DmL3dIq8HVcfVN/N19tfts081sl2FrCjTKg6pGncIfHwDcytAtBQoDqCMeJ1miX0epAwAD0JM=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:1ae0902e-4e72-460f-92fa-d457bca84aa6,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:60aa074,CLOUDID:f2dc588f-637d-4112-88e4-c7792fee6ae2,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
+	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: afb1a7b6ea7811ef9048ed6ed365623b-20250213
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
+	(envelope-from <ck.hu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 926422748; Thu, 13 Feb 2025 19:09:13 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Fri, 14 Feb 2025 10:09:10 +0800
+Received: from APC01-PSA-obe.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Fri, 14 Feb 2025 10:09:10 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h+NzEhnkzL1dlmdhdEJBIb/5gkXH415gO4Z/hNPfKtRzi8jwiwvKzYr+S8Gi5V0p3McBGUXvJPVNozr8C434K0liU3VGaYxsGmWr+GvJaZDR5k5LGbiWsVKEngWl9gMNp4SWSU7ZfHLxfeGFE/H+XvHaeQFqd3U9SicnAODZd9Bvy50y8lZ0nkQ6u9PaQusLD7ed4H1tp7QEAwWnnIgOrlGuiiCwTGKSbRNw/l7+o6zsDfwrUY8bds3JjaG6yLNglQlHwedJWcF3wFJnyqozj3VwrvkvvVxlfF9jkUbfTdLWir/paYZ7zJNGtbUURff706CX/0UGURSqv9Y5H6uK7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=h4UflJ+5lytUA6os/z/UB38c47Q83qItj7CxLvONRdA=;
+ b=EzkM/gg61lFy8KuNFKRGrwr5XcN1ofspn0633baZ7Fe4FzWmXVHRSsch7lIj76hd0LwjEoBwYO3IxZnUeu7lyWnuEe8vuYp24ywbMrfhDZbfj7m1AggUve681if1PoSpA4kxXbkq/J6B+pKTdGl2PfYvwdOHbX8Djc3dWRZEtJAN8F7Hi8i2J6iw+OeSkMtFJnSxHX2wL5j7rH+jcCVZDD0uKzpLsUaa2CaEQj3BCzPiG5enFohLQWfMfZzJ8OpMdthRnPTt3S28S1K9hFKPcbllRb4oUQeFkQxxM3Q09kmEh7N0YIVxKiuW9qvGGP2PDMOAXdiiK7Gzn/v84K34ww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739498582; x=1740103382; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=Pu+yCU8a3zHiD33i1SjhqECQAo1I4nsEwt4OD4Fy6ew=;
-        b=bz1RzBg3JvGtABpZdSv4sM0wQYWBN76GOayl8YgWmeU/HTyJLc2f3p6qHg4LHCDXTV
-         XT+B1o7x23R1hIKN5eT0ck+8Zg0vlGNLJOjA9amgUB7Y9+TW1wkviqKhZ/WoOS27ITf/
-         bs7QUKfbIn2/HxUm/G9fTv5UfKFDbLOxP5C9DNNoRz2mIR+p/WONA4jzq2zkdcoxUxQA
-         qvzh3CB7FhLi5UN/zyGIHlx8gFwUb87Cot6bEKR+wTsEpta6lMjMixm8Xbgokx6v21dM
-         1nbsUQIw+ITrVUVaoalL7a/cBwozy77iHBAoOM4JWHSJUQBNRJ9N1JZRyAyajsztmEgu
-         vZGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739498582; x=1740103382;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Pu+yCU8a3zHiD33i1SjhqECQAo1I4nsEwt4OD4Fy6ew=;
-        b=V7JkiT9/DQ9UvVvCRQi83Hkymguq5icPS/3IBKgYx2wpChVP1Kyt1N1XtWxIoet0Zc
-         KFWWLPRU+l4rth4FjwGhGGuLv5aE+JucLGubnf+MPzgCgjRx4d9uGTpUc8fbNhX7l6xT
-         ZYqQbAGzMx9Mp7I1xYqgODHRy4oyaTWbOS8aRkN2PZFoHRdKcRiUvE17ATiF5n40YtI/
-         bLABmB5ue9xlFqwTZUakHMSjOTl+MmLp7gZy82941lVWJi5EVM49ZSExLsGLvmZ2Fo3a
-         O1aDp2jVdUQa9Cq3cqfjOO4TH0L350viNFjMEIwU0RXO0CaVzlGDPidrvly0+MzfPDfr
-         P6+g==
-X-Forwarded-Encrypted: i=1; AJvYcCXdKN3FBdTAVZB9MF2LXq3Ytlbe7WoXj2lLpx9AOTuqgQzXOcn9Hz4nvlpkgWk8JRJkNS4tS20emEFSG1SNdE6E@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5uINro01TBH3bHTJdSJc0/cVcPJsFcEQoKEeYsxVmYggFCkVD
-	jnsRglVHBBL6P4+xDc/Junb3HpGxpYLmlQneDE8FAr3XzRUhYbqaVMs4A6PCz+LgOsAOpUapjSg
-	c+FUIWk8w04nZYGuehv15tg==
-X-Google-Smtp-Source: AGHT+IGDKMv9Ge+LtmxttXGfU0XRYxQrxU7yp68UK4PfQ4QF6cygJ52uXtFtg4A3ivblm2asbdQbQxNdGvLwybi7kA==
-X-Received: from pgka3.prod.google.com ([2002:a63:e843:0:b0:ad5:4a28:559a])
- (user=jingzhangos job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a20:6a05:b0:1ed:8cd8:77fb with SMTP id adf61e73a8af0-1ee5c739d63mr14674047637.16.1739498582541;
- Thu, 13 Feb 2025 18:03:02 -0800 (PST)
-Date: Thu, 13 Feb 2025 18:02:58 -0800
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
-Message-ID: <20250214020258.2436469-1-jingzhangos@google.com>
-Subject: [PATCH v1] KVM: arm64: vgic-its: Add debugfs interface to expose ITS tables
-From: Jing Zhang <jingzhangos@google.com>
-To: KVMARM <kvmarm@lists.linux.dev>, ARMLinux <linux-arm-kernel@lists.infradead.org>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Jing Zhang <jingzhangos@google.com>
-Content-Type: text/plain; charset="UTF-8"
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=h4UflJ+5lytUA6os/z/UB38c47Q83qItj7CxLvONRdA=;
+ b=f4Dfz6H1ZerVRBvhs9jaXj22JaI8dzRPkj7xjh3nfGRSfhDd/7XeQh6cAenHwZZJCtWiuAiHo4Hr8xgWxSiE7Tw7eASbc7WM+xIamg8d/ZRR3TIj44YkSei7XZL4GiTNLkmEuaBQzUp7kYXKnm0aJJqgrWJzNTwqNHfNmpYosDs=
+Received: from TYZPR03MB6624.apcprd03.prod.outlook.com (2603:1096:400:1f4::13)
+ by KL1PR03MB8240.apcprd03.prod.outlook.com (2603:1096:820:10c::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.15; Fri, 14 Feb
+ 2025 02:09:07 +0000
+Received: from TYZPR03MB6624.apcprd03.prod.outlook.com
+ ([fe80::9ce6:1e85:c4a7:2a54]) by TYZPR03MB6624.apcprd03.prod.outlook.com
+ ([fe80::9ce6:1e85:c4a7:2a54%3]) with mapi id 15.20.8422.015; Fri, 14 Feb 2025
+ 02:09:07 +0000
+From: =?utf-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
+CC: "robh@kernel.org" <robh@kernel.org>, "jie.qiu@mediatek.com"
+	<jie.qiu@mediatek.com>, "tzimmermann@suse.de" <tzimmermann@suse.de>,
+	"simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+	<mripard@kernel.org>, =?utf-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
+	<jitao.shi@mediatek.com>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "dri-devel@lists.freedesktop.org"
+	<dri-devel@lists.freedesktop.org>, "maarten.lankhorst@linux.intel.com"
+	<maarten.lankhorst@linux.intel.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "kernel@collabora.com" <kernel@collabora.com>,
+	"dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	=?utf-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, =?utf-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?=
+	<TommyYL.Chen@mediatek.com>, =?utf-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?=
+	<Ives.Chenjh@mediatek.com>, "airlied@gmail.com" <airlied@gmail.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, =?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?=
+	<Jason-JH.Lin@mediatek.com>, "junzhi.zhao@mediatek.com"
+	<junzhi.zhao@mediatek.com>
+Subject: Re: [PATCH v6 07/42] drm/mediatek: mtk_dpi: Add support for DPI input
+ clock from HDMI
+Thread-Topic: [PATCH v6 07/42] drm/mediatek: mtk_dpi: Add support for DPI
+ input clock from HDMI
+Thread-Index: AQHbfHkaFNF6vaQ60kaqYUwrqeW5wLNGEecA
+Date: Fri, 14 Feb 2025 02:09:07 +0000
+Message-ID: <500ce64dd1f4d0b18289418183011ea24938fe99.camel@mediatek.com>
+References: <20250211113409.1517534-1-angelogioacchino.delregno@collabora.com>
+	 <20250211113409.1517534-8-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250211113409.1517534-8-angelogioacchino.delregno@collabora.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.52.3-0ubuntu1 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TYZPR03MB6624:EE_|KL1PR03MB8240:EE_
+x-ms-office365-filtering-correlation-id: 2111ecbf-9ac5-4986-f681-08dd4c9c8ff4
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?aXVWcXVlNGQzamJ1RzliZGlTeGFWWFJJSWdWSitQdytEMEphSlRhNk9XMmp6?=
+ =?utf-8?B?ZDFPUnc2Q1c1ekZ6Yml4K1ppWHRFUUdoZVQyR290c1VnM2JNZURTMVh5aHZO?=
+ =?utf-8?B?dDJBdlVQQXo4bytVcHpRN1FpT1RDQVJkS0t2TUpYaUVVTEMySjZqa3F5bVIz?=
+ =?utf-8?B?b2RjaFFLYXhpUGVzV3dONzg1N3psQzdVbDc0UDI0bjNjQU5aSlJVK1duQWJj?=
+ =?utf-8?B?elhpR2I1VUc1eDRNdGtKWU5oYkIrUXpBaENnQm84Tm5Nb2pIWlZzZjN1cksz?=
+ =?utf-8?B?MjNoU1Zva2dOdVdSb3RMbXpZb29uek9XeVk1cVlWaFdDMWJ4ZithTEFua2gv?=
+ =?utf-8?B?TDZmdDlkQS9EVmVOTzVSWjdJMDI2cGVQTFpnR2pLS0s1NGhuUEVrRmdJM251?=
+ =?utf-8?B?clBlcXRuZHNKMU1VczI0SkFsZk8wbDFRR1RRVGh0cjY3c2duNDBLQzFNdlRL?=
+ =?utf-8?B?L1lITG83eklPWnBjNHpHcEFvOEV4R1pjYmVRbVZNeTFMRGRDV0dnMXEvcWl3?=
+ =?utf-8?B?UkNOYWhnN3pRa2dIRE1GK0doNG5ENDluV3hSVklPRForU2tmdy91VlNUWjBn?=
+ =?utf-8?B?VnpWVjZvSnZ5WmF0RmE0SjJTQlZoeS90OW1VT0loS3dUUjRBWlhxQnArakFq?=
+ =?utf-8?B?L1JzTzFIY3VFU1JtdlpSYnl1S2xWTmFhbUNwSHRRWEJNMDlPOVA1WUVwTDhk?=
+ =?utf-8?B?SkYyWkNIbGZQZlMzWnYvQTBHYUtrMVNsMjFhN0F6NnNLWGdCOUdrVjVJQzJh?=
+ =?utf-8?B?VStlcUZWclp1WWU3bEdWZlhFWTBtUUg0Uk9leFA5MGQwSUNieVoyOGdPUUFM?=
+ =?utf-8?B?Y3dkYmM2eTlYcVVIcG03dFhtQlJkRi9VVFppQWsyQ3ZKcko4Z25JY1BRRnln?=
+ =?utf-8?B?L2Q3eVg5dlBhaGU0OWRQWk5MT0VhWVVpZTZaTFVZc0Z6N25PRStGMDRIWGJj?=
+ =?utf-8?B?cjcxNzN5TzN4VE5XOTBwdTNma0FXNkZodDRudE5wbHNaYlRydzlTbDVqdCta?=
+ =?utf-8?B?aXp6WnRhbkZxa2ZlQm9rNmpCSEt1TnU0WGVydlNxZjZocUlETGtHLzd0Q042?=
+ =?utf-8?B?TkMwUnFsZGdNQkEvWXRqdEtZTXlJRFl6Qlk2U2JTeU1Oa0NXckcycVdxTUV4?=
+ =?utf-8?B?a29kNXM0d3M2YVkyZldFU2hNU0JoZFk2bWVWSjZyMDRzalM0SFFUaDE5RUJi?=
+ =?utf-8?B?Q1RZc2wwR2hIYThJdWwybU9DYnh1bU9FV2VZQU8reFNkZUphZHdxd2VFRExk?=
+ =?utf-8?B?NUNCb2dEelZ3YTlUMmEvcUJGbEkxZk53VHFwZFF6blFvbmR6MVJyT1V4ai9w?=
+ =?utf-8?B?c3kweFo1dGJ2cjN2aFc5WjhkdEFxSHJKbVhIQndKbVdSc1RvNFNEY1RMdHVj?=
+ =?utf-8?B?MFAyT2paNG1yYTd1dnowSHV3TUt5a1Zhb1lvYVpHWGpibXNFOEdSYkhuTG1E?=
+ =?utf-8?B?UXdWOUFSNEtDK3huTVhnVm9ma203SFN2Z05uaGVsd1p3cjZwTmpjaFVHVy9v?=
+ =?utf-8?B?ZmIySnR0UmNQdDN5N2ZpNW1qd1d5QXhUOUV1cHVyMXlrZ3dSa29qbkJFOG5E?=
+ =?utf-8?B?UkE2b21iM0pHSXlmcEoxMWJvUHRwK1o3LytmTDBHYmNPWDlNQTJ1SjFUWVpN?=
+ =?utf-8?B?ZjBxaEloMm5FVXhwQk8xUDl4eTZjMlIyekkvV2ZLUlNYUEJCZDRWNUIzd2p0?=
+ =?utf-8?B?elR5Nnp4SzlzT3ZNdzhlUldIaFpoN0RVTy9FV0RLVnd4MzluRngxQ0lOZGhD?=
+ =?utf-8?B?Y0YzcUZJa2tkVmgxTjZhcFJlQkcxVFRRODRjaGZ1VlFCUlZmQUtvM1hHOXdQ?=
+ =?utf-8?B?MVpJWnlRa3RURjZXTDB6OGRjcGtrd3Z1aVVrZWJLbzdYUUlVaGVaNndORGxt?=
+ =?utf-8?B?a2prVDh6N0pOcWNETGVKRmlLTDFzTkRPYUZvbWhXY0kxeDRyYUp0VFhLVmRl?=
+ =?utf-8?Q?7SY8ZldjIIYfdRyD1qi/EBN0FAzQtsGr?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR03MB6624.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?eTRQTm5zbFFSam5OMDJXcTNDdGtra0IwV0NqblJQRGcxQlR2a242SEY1Y251?=
+ =?utf-8?B?M2hvY1dzWFpqVmpFUk1rN2NEOE1zY2pCSlZ3cG5QOHMxNjNlWkp1aXUxMjBK?=
+ =?utf-8?B?SjBmaUMwdmw5K0ZMRWl1cXV6STVKb05uQ3h3bEZpSlBFTjA3ZFV5NHgvQ3g3?=
+ =?utf-8?B?aUIxdm1CT1hJSVN5TlkxcWphN2kycE80RHBoSHZiNGhsRDNoM0xRNmJkenpC?=
+ =?utf-8?B?czdOcU5sRjhHa0Y4WU5jblVnYnovOTBCQnIzMHU3eXJlZm5TeW13ZzhIRWZN?=
+ =?utf-8?B?aU02ZzhTSWlWVEdiQStCQjFJNWhNd3o3SGQ0MUpqYnVKbDI0bm1MdlF4eDJC?=
+ =?utf-8?B?SnJ3WkovUjYrRnZIUGtNSVh6aFdQREdSM1lKeFlYalZHSjFwQTdMNzdObnIv?=
+ =?utf-8?B?YWZQWFpuU2FkZE43aVJ6ejJSdXQrSk5QQXordkRhQ2JndzRLU25ocE9jbUVh?=
+ =?utf-8?B?ZlB1TjNlWnFvZzBRWFVxN2d0enlYb0tGSm5uaEdibmZjY1NnS2VYbmpSKzRH?=
+ =?utf-8?B?Y3FSZ0swNUN5Z1hzendjTmtnZ213dG1GZ2toM1JVdE5PSFl5UmJ1YTJGSmlD?=
+ =?utf-8?B?MDhGQWRndnRIOUFqTmtrMFVIR3pLcFRXWnMrN1d3d0FEOVJ3cWMrbW1vbVZG?=
+ =?utf-8?B?ZVZzVVRWY2Z2cnRQamhwRyt6TXhFSDBiRTZWOWFobEVQeFd3SW01U0gxaWk1?=
+ =?utf-8?B?TFJ0NStGSUluUytYeFV4M0doQUNrSjY5U2RHSWczNHZrZHJKandwc3dZYU9o?=
+ =?utf-8?B?L1pxbDN4TDJnVVdyWE16bGI3SEwrNTFZV2ZGNVJyYmNuSDdIZGVVdVVDZ0pV?=
+ =?utf-8?B?bXlKM3FTNjBIWnJPdVZiVGVPUGJsTm9sNUkwSDY3ZkNyRFB5NlZrNmtwWlVJ?=
+ =?utf-8?B?dWJBNkorTjVTU1kyTGhUbmFmdG03UjBBSStJV050d1djTUZ5WnhRTWhjUGpT?=
+ =?utf-8?B?SEY3NGZNWVVJMDVaLytmTWw5Uy9KSkdFYmh3dGIrNktwYVN3Rm9uMnU4KzA1?=
+ =?utf-8?B?cEo2QzBDT1V0NW1rbnhmTW8yK003Z01UNWZha0R3dHlhNDM5U1o1ZnI1RUZm?=
+ =?utf-8?B?SGt5SVdVVllyNjBwZXlUT2w1MUEvRFh1Um9La0w2a3V2bUtHb0lqcTBpMzJi?=
+ =?utf-8?B?WlA4MTI5NXE1dU04eVV5UzdwL1hmSm9KdGhNdVZYTjFzejdMSXZPS2JrOGVp?=
+ =?utf-8?B?WW4wTzM1Ri9VSkE5aW1WakoweGI0N09NY0xIN3JqMk10QklsMFFmTktqRXkr?=
+ =?utf-8?B?aWcrSkZiaWl3aHRLbEpQZjRaNko5OStsV0xwSk12eTB6anZCeitZTXNRUDlH?=
+ =?utf-8?B?KzNUNGp6Y3cvdjdJdDZMYjE0QzV3eVJvNzJCVHJrendZbzlmdzRIbkhBSTlR?=
+ =?utf-8?B?QytmcXNhc0NWMTNVTmsvOUU0Q015NUEyVGQxNTltWk9PQlZvN2ZFTExEOHQr?=
+ =?utf-8?B?d3kxR2kzU0JyR3U4R2Y4OU9VdXc4cXhzYXNkZDRwa0pZbE9DQy9pYy83WHFO?=
+ =?utf-8?B?SHJLREZZSmNDZ2IwalR3eE41dXUwSmtLTFFXRDZCZnJFSU0yMmhBbXFzUUcw?=
+ =?utf-8?B?aW9JWDVmUHk5UXJVZUNzbjlIWHIxT1FXd0FWZjhwVG11L25pZnFnbHg3UlNI?=
+ =?utf-8?B?Rmd0cktPWUdheko5Uzc1VzV1cHdBWXdZQWlLNW1ReU5uWURudmZQV3Z5RHc0?=
+ =?utf-8?B?ZEZrbEFKTUM5MFlXTXFtV2JhczY0c1VYL3BiTzlJR2xOYWphQW9OUFBiV01G?=
+ =?utf-8?B?bEJhOG92RmQ2WTgyVnBQZE1XSzkwWDJ3d0dCcXpBUElTbTJBb2luYkVSREx1?=
+ =?utf-8?B?NncvblJKMTVvQ29Oc3RMTVJkcXVaa0QySGRCSGF1dHVQQU1ocFRUUEJYYVUx?=
+ =?utf-8?B?c1RpQ0h0SVNLVDBONFZ4M0k2SHNELzJUU01uR3h0RVdIdUpDOHlRZ1Z3U1Ns?=
+ =?utf-8?B?dUVXaUdUWlBWVXJTd1g4UEJHRGdDMWZqZmFOVy9TMkJQOWhyL1JHNVQ5elEy?=
+ =?utf-8?B?cXJKOVFDTnVwbU9aTS90V0ZTblpGN0YxbFYycjhqQjNySVVNSkZCWkZWTmxk?=
+ =?utf-8?B?YlAraVhkNE1vWGM0UDdKdU93WHJYWmdTdFVXQU44cktGaCtEc3Zta2FCaU9y?=
+ =?utf-8?Q?Hc4rCmZYKkTCuC45/gGGEp2Sx?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <72A60AAEBEEC9749B7197BC15E44E9F4@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR03MB6624.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2111ecbf-9ac5-4986-f681-08dd4c9c8ff4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Feb 2025 02:09:07.0262
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: C1FerPmpE8mkVXXYstP5pdegeEJqBn1rrhNkz+cw3XQP9ogW2SYqYdOOuTQ30v9qHMwBWZAyQzUrOw/a+ikpzQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB8240
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_180304_023969_76571F67 
-X-CRM114-Status: GOOD (  33.15  )
+X-CRM114-CacheID: sfid-20250213_180918_977103_15D6E292 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,413 +228,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit introduces a debugfs interface to display the contents of the
-VGIC Interrupt Translation Service (ITS) tables.
-
-The ITS tables map Device/Event IDs to Interrupt IDs and target processors.
-Exposing this information through debugfs allows for easier inspection and
-debugging of the interrupt routing configuration.
-
-The debugfs interface presents the ITS table data in a tabular format:
-
-  Device ID: 0, Event ID Range: [0 - 65535]
-  EVENT_ID    INTID  HWINTID   TARGET   COL_ID HW
-  -----------------------------------------------
-         0       32        0        0        0  0
-         1       33        0        0        0  0
-         2       34        0        0        0  0
-       ...      ...      ...      ...      ... ..
-
-The output is generated using the seq_file interface, allowing for efficient
-handling of potentially large ITS tables.
-
-This interface is read-only and does not allow modification of the ITS
-tables. It is intended for debugging and informational purposes only.
-
-Signed-off-by: Jing Zhang <jingzhangos@google.com>
----
-rfc -> v1:
- - Rebase on to v6.14-rc2.
- - Retained only the debugfs interface patch from the original RFC [1].
-
-[1] https://lore.kernel.org/all/20250113193128.1533449-1-jingzhangos@google.com
----
- arch/arm64/kvm/Makefile              |   2 +-
- arch/arm64/kvm/vgic/vgic-its-debug.c | 234 +++++++++++++++++++++++++++
- arch/arm64/kvm/vgic/vgic-its.c       |  39 +----
- arch/arm64/kvm/vgic/vgic.h           |  33 ++++
- 4 files changed, 276 insertions(+), 32 deletions(-)
- create mode 100644 arch/arm64/kvm/vgic/vgic-its-debug.c
-
-diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-index 3cf7adb2b5038..b1e7b9c29589c 100644
---- a/arch/arm64/kvm/Makefile
-+++ b/arch/arm64/kvm/Makefile
-@@ -23,7 +23,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
- 	 vgic/vgic-v3.o vgic/vgic-v4.o \
- 	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
- 	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
--	 vgic/vgic-its.o vgic/vgic-debug.o
-+	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-its-debug.o
- 
- kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
- kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
-diff --git a/arch/arm64/kvm/vgic/vgic-its-debug.c b/arch/arm64/kvm/vgic/vgic-its-debug.c
-new file mode 100644
-index 0000000000000..1ff0dd0137939
---- /dev/null
-+++ b/arch/arm64/kvm/vgic/vgic-its-debug.c
-@@ -0,0 +1,234 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * vgic-its-debug.c - Debugfs interface for exposing VGIC ITS tables.
-+ *
-+ * Copyright (C) 2025 Google
-+ *
-+ * This file provides a debugfs interface to display the contents of the
-+ * VGIC Interrupt Translation Service (ITS) tables. This allows for
-+ * inspection of the mapping between Event IDs, Interrupt IDs, and target
-+ * processors. The information is presented in a tabular format through a
-+ * seq_file interface.
-+ */
-+
-+#include <linux/debugfs.h>
-+#include <linux/kvm_host.h>
-+#include <linux/seq_file.h>
-+#include <kvm/arm_vgic.h>
-+#include "vgic.h"
-+
-+/**
-+ * struct vgic_its_iter - Iterator for traversing VGIC ITS tables.
-+ * @dev: Pointer to the current its_device being processed.
-+ * @ite: Pointer to the current its_ite within the device being processed.
-+ *
-+ * This structure is used to maintain the current position during iteration
-+ * over the ITS tables. It holds pointers to both the current device and the
-+ * current ITE within that device.
-+ */
-+struct vgic_its_iter {
-+	struct its_device *dev;
-+	struct its_ite *ite;
-+};
-+
-+/**
-+ * end_of_iter - Checks if the iterator has reached the end of the ITS tables.
-+ * @iter: The iterator to check.
-+ *
-+ * Return: True if the iterator is at the end, false otherwise.
-+ */
-+static inline bool end_of_iter(struct vgic_its_iter *iter)
-+{
-+	return !iter->dev && !iter->ite;
-+}
-+
-+/**
-+ * iter_next - Advances the iterator to the next entry in the ITS tables.
-+ * @its: The VGIC ITS structure.
-+ * @iter: The iterator to advance.
-+ *
-+ * This function moves the iterator to the next ITE within the current device,
-+ * or to the first ITE of the next device if the current ITE is the last in
-+ * the device. If the current device is the last device, the iterator is set
-+ * to indicate the end of iteration.
-+ */
-+static void iter_next(struct vgic_its *its, struct vgic_its_iter *iter)
-+{
-+	struct its_device *dev = iter->dev;
-+	struct its_ite *ite = iter->ite;
-+
-+	if (!ite || list_is_last(&ite->ite_list, &dev->itt_head)) {
-+		if (list_is_last(&dev->dev_list, &its->device_list)) {
-+			dev = NULL;
-+			ite = NULL;
-+		} else {
-+			dev = list_next_entry(dev, dev_list);
-+			ite = list_first_entry_or_null(&dev->itt_head,
-+						       struct its_ite,
-+						       ite_list);
-+		}
-+	} else {
-+		ite = list_next_entry(ite, ite_list);
-+	}
-+
-+	iter->dev = dev;
-+	iter->ite = ite;
-+}
-+
-+/**
-+ * vgic_its_debug_start - Start function for the seq_file interface.
-+ * @s: The seq_file structure.
-+ * @pos: The starting position (offset).
-+ *
-+ * This function initializes the iterator to the beginning of the ITS tables
-+ * and advances it to the specified position. It acquires the its_lock mutex
-+ * to protect shared data.
-+ *
-+ * Return: An iterator pointer on success, NULL if no devices are found or
-+ *         the end of the list is reached, or ERR_PTR(-ENOMEM) on memory
-+ *         allocation failure.
-+ */
-+static void *vgic_its_debug_start(struct seq_file *s, loff_t *pos)
-+{
-+	struct vgic_its *its = s->private;
-+	struct vgic_its_iter *iter;
-+	struct its_device *dev;
-+	loff_t offset = *pos;
-+
-+	mutex_lock(&its->its_lock);
-+
-+	dev = list_first_entry_or_null(&its->device_list,
-+				       struct its_device, dev_list);
-+	if (!dev)
-+		return NULL;
-+
-+	iter = kmalloc(sizeof(*iter), GFP_KERNEL);
-+	if (!iter)
-+		return ERR_PTR(-ENOMEM);
-+
-+	iter->dev = dev;
-+	iter->ite = list_first_entry_or_null(&dev->itt_head,
-+					     struct its_ite, ite_list);
-+
-+	while (!end_of_iter(iter) && offset--)
-+		iter_next(its, iter);
-+
-+	if (end_of_iter(iter)) {
-+		kfree(iter);
-+		return NULL;
-+	}
-+
-+	return iter;
-+}
-+
-+/**
-+ * vgic_its_debug_next - Next function for the seq_file interface.
-+ * @s: The seq_file structure.
-+ * @v: The current iterator.
-+ * @pos: The current position (offset).
-+ *
-+ * This function advances the iterator to the next entry and increments the
-+ * position.
-+ *
-+ * Return: An iterator pointer on success, or NULL if the end of the list is
-+ *         reached.
-+ */
-+static void *vgic_its_debug_next(struct seq_file *s, void *v, loff_t *pos)
-+{
-+	struct vgic_its *its = s->private;
-+	struct vgic_its_iter *iter = v;
-+
-+	++*pos;
-+	iter_next(its, iter);
-+
-+	if (end_of_iter(iter)) {
-+		kfree(iter);
-+		return NULL;
-+	}
-+	return iter;
-+}
-+
-+/**
-+ * vgic_its_debug_stop - Stop function for the seq_file interface.
-+ * @s: The seq_file structure.
-+ * @v: The current iterator.
-+ *
-+ * This function frees the iterator and releases the its_lock mutex.
-+ */
-+static void vgic_its_debug_stop(struct seq_file *s, void *v)
-+{
-+	struct vgic_its *its = s->private;
-+	struct vgic_its_iter *iter = v;
-+
-+	if (!IS_ERR_OR_NULL(iter))
-+		kfree(iter);
-+	mutex_unlock(&its->its_lock);
-+}
-+
-+/**
-+ * vgic_its_debug_show - Show function for the seq_file interface.
-+ * @s: The seq_file structure.
-+ * @v: The current iterator.
-+ *
-+ * This function formats and prints the ITS table entry information to the
-+ * seq_file output.
-+ *
-+ * Return: 0 on success.
-+ */
-+static int vgic_its_debug_show(struct seq_file *s, void *v)
-+{
-+	struct vgic_its_iter *iter = v;
-+	struct its_device *dev = iter->dev;
-+	struct its_ite *ite = iter->ite;
-+
-+	if (list_is_first(&ite->ite_list, &dev->itt_head)) {
-+		seq_printf(s, "\n");
-+		seq_printf(s, "Device ID: %u, Event ID Range: [0 - %llu]\n",
-+			   dev->device_id, BIT_ULL(dev->num_eventid_bits) - 1);
-+		seq_printf(s, "EVENT_ID    INTID  HWINTID   TARGET   COL_ID HW\n");
-+		seq_printf(s, "-----------------------------------------------\n");
-+	}
-+
-+	if (ite && ite->irq && ite->collection) {
-+		seq_printf(s, "%8u %8u %8u %8u %8u %2d\n",
-+			   ite->event_id, ite->irq->intid, ite->irq->hwintid,
-+			   ite->collection->target_addr,
-+			   ite->collection->collection_id, ite->irq->hw);
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct seq_operations vgic_its_debug_sops = {
-+	.start = vgic_its_debug_start,
-+	.next  = vgic_its_debug_next,
-+	.stop  = vgic_its_debug_stop,
-+	.show  = vgic_its_debug_show
-+};
-+
-+DEFINE_SEQ_ATTRIBUTE(vgic_its_debug);
-+
-+/**
-+ * vgic_its_debug_init - Initializes the debugfs interface for VGIC ITS.
-+ * @dev: The KVM device structure.
-+ *
-+ * This function creates a debugfs file named "vgic-its-state@%its_base"
-+ * to expose the ITS table information.
-+ *
-+ * Return: 0 on success.
-+ */
-+int vgic_its_debug_init(struct kvm_device *dev)
-+{
-+	struct vgic_its *its = dev->private;
-+	char name[32];
-+
-+	snprintf(name, sizeof(name), "vgic-its-state@%llx", (u64)its->vgic_its_base);
-+	debugfs_create_file(name, 0444, dev->kvm->debugfs_dentry, its, &vgic_its_debug_fops);
-+
-+	return 0;
-+}
-+
-+void vgic_its_debug_destroy(struct kvm_device *dev)
-+{
-+}
-+
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index fb96802799c6f..569f9da9049fe 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -154,36 +154,6 @@ static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
- 	return irq;
- }
- 
--struct its_device {
--	struct list_head dev_list;
--
--	/* the head for the list of ITTEs */
--	struct list_head itt_head;
--	u32 num_eventid_bits;
--	gpa_t itt_addr;
--	u32 device_id;
--};
--
--#define COLLECTION_NOT_MAPPED ((u32)~0)
--
--struct its_collection {
--	struct list_head coll_list;
--
--	u32 collection_id;
--	u32 target_addr;
--};
--
--#define its_is_collection_mapped(coll) ((coll) && \
--				((coll)->target_addr != COLLECTION_NOT_MAPPED))
--
--struct its_ite {
--	struct list_head ite_list;
--
--	struct vgic_irq *irq;
--	struct its_collection *collection;
--	u32 event_id;
--};
--
- /**
-  * struct vgic_its_abi - ITS abi ops and settings
-  * @cte_esz: collection table entry size
-@@ -1938,6 +1908,8 @@ static void vgic_its_destroy(struct kvm_device *kvm_dev)
- 
- 	mutex_lock(&its->its_lock);
- 
-+	vgic_its_debug_destroy(kvm_dev);
-+
- 	vgic_its_free_device_list(kvm, its);
- 	vgic_its_free_collection_list(kvm, its);
- 	vgic_its_invalidate_cache(its);
-@@ -2771,7 +2743,12 @@ static int vgic_its_set_attr(struct kvm_device *dev,
- 		if (ret)
- 			return ret;
- 
--		return vgic_register_its_iodev(dev->kvm, its, addr);
-+		ret = vgic_register_its_iodev(dev->kvm, its, addr);
-+		if (ret)
-+			return ret;
-+
-+		return vgic_its_debug_init(dev);
-+
- 	}
- 	case KVM_DEV_ARM_VGIC_GRP_CTRL:
- 		return vgic_its_ctrl(dev->kvm, its, attr->attr);
-diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-index 122d95b4e2845..c2891d7b5e62e 100644
---- a/arch/arm64/kvm/vgic/vgic.h
-+++ b/arch/arm64/kvm/vgic/vgic.h
-@@ -172,6 +172,36 @@ struct vgic_reg_attr {
- 	gpa_t addr;
- };
- 
-+struct its_device {
-+	struct list_head dev_list;
-+
-+	/* the head for the list of ITTEs */
-+	struct list_head itt_head;
-+	u32 num_eventid_bits;
-+	gpa_t itt_addr;
-+	u32 device_id;
-+};
-+
-+#define COLLECTION_NOT_MAPPED ((u32)~0)
-+
-+struct its_collection {
-+	struct list_head coll_list;
-+
-+	u32 collection_id;
-+	u32 target_addr;
-+};
-+
-+#define its_is_collection_mapped(coll) ((coll) && \
-+				((coll)->target_addr != COLLECTION_NOT_MAPPED))
-+
-+struct its_ite {
-+	struct list_head ite_list;
-+
-+	struct vgic_irq *irq;
-+	struct its_collection *collection;
-+	u32 event_id;
-+};
-+
- int vgic_v3_parse_attr(struct kvm_device *dev, struct kvm_device_attr *attr,
- 		       struct vgic_reg_attr *reg_attr);
- int vgic_v2_parse_attr(struct kvm_device *dev, struct kvm_device_attr *attr,
-@@ -353,4 +383,7 @@ static inline bool kvm_has_gicv3(struct kvm *kvm)
- 	return kvm_has_feat(kvm, ID_AA64PFR0_EL1, GIC, IMP);
- }
- 
-+int vgic_its_debug_init(struct kvm_device *dev);
-+void vgic_its_debug_destroy(struct kvm_device *dev);
-+
- #endif
-
-base-commit: a64dcfb451e254085a7daee5fe51bf22959d52d3
--- 
-2.48.1.601.g30ceb7b040-goog
-
+T24gVHVlLCAyMDI1LTAyLTExIGF0IDEyOjMzICswMTAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
+ZWdubyB3cm90ZToNCj4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8gbm90IGNsaWNrIGxpbmtz
+IG9yIG9wZW4gYXR0YWNobWVudHMgdW50aWwgeW91IGhhdmUgdmVyaWZpZWQgdGhlIHNlbmRlciBv
+ciB0aGUgY29udGVudC4NCj4gDQo+IA0KPiBPbiBzb21lIFNvQ3MsIGxpa2UgTVQ4MTk1IGFuZCBN
+VDgxODgsIHRoZSBEUEkgaW5zdGFuY2UgdGhhdCBpcw0KPiByZXNlcnZlZCB0byB0aGUgSERNSSBU
+cmFuc21pdHRlciB1c2VzIGEgZGlmZmVyZW50IGNsb2NrIHRvcG9sb2d5Lg0KPiANCj4gSW4gdGhp
+cyBjYXNlLCB0aGUgRFBJIGlzIGNsb2NrZWQgYnkgdGhlIEhETUkgSVAsIGFuZCB0aGlzIG91dHB1
+dHMNCj4gaXRzIGNsb2NrIHRvIHRoZSBNTSBpbnB1dCBvZiBkcGlfcGl4ZWxfY2xrLCB3aGljaCBp
+cyBlc3NlbnRpYWwgdG8NCj4gZW5hYmxlIHJlZ2lzdGVyIGFjY2VzcyB0byB0aGUgRFBJIElQLg0K
+PiANCj4gQWRkIGEgYGNsb2NrZWRfYnlfaGRtaWAgbWVtYmVyIHRvIHN0cnVjdCBtdGtfZHBpX2Nv
+bmYsIGFuZCBjaGVjaw0KPiBpdCB0byBhdm9pZCBlbmFibGluZyB0aGUgRFBJIGNsb2NrcyBpbiB0
+aGUgbWVkaWF0ZWstZHJtIGludGVybmFsDQo+IC5zdGFydCgpIGNhbGxiYWNrIChhbmQgYXZvaWQg
+ZGlzYWJpbmcgaW4gdGhlIC5zdG9wKCkgY29tcG9uZW50DQo+IGNhbGxiYWNrKTogdGhpcyB3aWxs
+IG1ha2Ugc3VyZSB0aGF0IHRoZSBjbG9jayBjb25maWd1cmF0aW9uDQo+IHNlcXVlbmNlIGlzIHJl
+c3BlY3RlZCBkdXJpbmcgZGlzcGxheSBwaXBlbGluZSBzZXR1cCBieSBmb2xsb3dpbmcNCj4gdGhl
+IGJyaWRnZSBvcHMgYmV0d2VlbiBEUEkgYW5kIEhETUksIHdoZXJlIHRoZSBIRE1JIGRyaXZlciBp
+cw0KPiBleHBlY3RlZCB0byBlbmFibGUgdGhlIGNsb2NrcyBpbiB0aGUgYnJpZGdlJ3MgcHJlX2Vu
+YWJsZSgpLCBhbmQNCj4gRFBJIGluIHRoZSBlbmFibGUoKSBjYi4NCj4gDQo+IFNpZ25lZC1vZmYt
+Ynk6IEFuZ2Vsb0dpb2FjY2hpbm8gRGVsIFJlZ25vIDxhbmdlbG9naW9hY2NoaW5vLmRlbHJlZ25v
+QGNvbGxhYm9yYS5jb20+DQo+IC0tLQ0KPiAgZHJpdmVycy9ncHUvZHJtL21lZGlhdGVrL210a19k
+cGkuYyB8IDEzICsrKysrKysrKystLS0NCj4gIDEgZmlsZSBjaGFuZ2VkLCAxMCBpbnNlcnRpb25z
+KCspLCAzIGRlbGV0aW9ucygtKQ0KPiANCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvZ3B1L2RybS9t
+ZWRpYXRlay9tdGtfZHBpLmMgYi9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvbXRrX2RwaS5jDQo+
+IGluZGV4IGFkMDcwMDVhZDU2ZS4uNjQ5M2M3ZTJmYWU0IDEwMDY0NA0KPiAtLS0gYS9kcml2ZXJz
+L2dwdS9kcm0vbWVkaWF0ZWsvbXRrX2RwaS5jDQo+ICsrKyBiL2RyaXZlcnMvZ3B1L2RybS9tZWRp
+YXRlay9tdGtfZHBpLmMNCj4gQEAgLTE0Niw2ICsxNDYsOCBAQCBzdHJ1Y3QgbXRrX2RwaV9mYWN0
+b3Igew0KPiAgICogQGlucHV0XzJwX2VuX2JpdDogRW5hYmxlIGJpdCBvZiB0d28gcGl4ZWwgcGVy
+IHJvdW5kIGZlYXR1cmUNCj4gICAqIEBwaXhlbHNfcGVyX2l0ZXI6IFF1YW50aXR5IG9mIHRyYW5z
+ZmVycmVkIHBpeGVscyBwZXIgaXRlcmF0aW9uLg0KPiAgICogQGVkZ2VfY2ZnX2luX21tc3lzOiBJ
+ZiB0aGUgZWRnZSBjb25maWd1cmF0aW9uIGZvciBEUEkncyBvdXRwdXQgbmVlZHMgdG8gYmUgc2V0
+IGluIE1NU1lTLg0KPiArICogQGNsb2NrZWRfYnlfaGRtaTogSERNSSBJUCBvdXRwdXRzIGNsb2Nr
+IHRvIGRwaV9waXhlbF9jbGsgaW5wdXQgY2xvY2ssIG5lZWRlZA0KPiArICogICAgICAgICAgICAg
+ICAgICBmb3IgRFBJIHJlZ2lzdGVycyBhY2Nlc3MuDQo+ICAgKi8NCj4gIHN0cnVjdCBtdGtfZHBp
+X2NvbmYgew0KPiAgICAgICAgIGNvbnN0IHN0cnVjdCBtdGtfZHBpX2ZhY3RvciAqZHBpX2ZhY3Rv
+cjsNCj4gQEAgLTE2Nyw2ICsxNjksNyBAQCBzdHJ1Y3QgbXRrX2RwaV9jb25mIHsNCj4gICAgICAg
+ICB1MzIgaW5wdXRfMnBfZW5fYml0Ow0KPiAgICAgICAgIHUzMiBwaXhlbHNfcGVyX2l0ZXI7DQo+
+ICAgICAgICAgYm9vbCBlZGdlX2NmZ19pbl9tbXN5czsNCj4gKyAgICAgICBib29sIGNsb2NrZWRf
+YnlfaGRtaTsNCj4gIH07DQo+IA0KPiAgc3RhdGljIHZvaWQgbXRrX2RwaV9tYXNrKHN0cnVjdCBt
+dGtfZHBpICpkcGksIHUzMiBvZmZzZXQsIHUzMiB2YWwsIHUzMiBtYXNrKQ0KPiBAQCAtNTg3LDcg
+KzU5MCw5IEBAIHN0YXRpYyBpbnQgbXRrX2RwaV9zZXRfZGlzcGxheV9tb2RlKHN0cnVjdCBtdGtf
+ZHBpICpkcGksDQo+ICAgICAgICAgc3RydWN0IHZpZGVvbW9kZSB2bSA9IHsgMCB9Ow0KPiANCj4g
+ICAgICAgICBkcm1fZGlzcGxheV9tb2RlX3RvX3ZpZGVvbW9kZShtb2RlLCAmdm0pOw0KPiAtICAg
+ICAgIG10a19kcGlfc2V0X3BpeGVsX2NsayhkcGksICZ2bSwgbW9kZS0+Y2xvY2spOw0KPiArDQo+
+ICsgICAgICAgaWYgKCFkcGktPmNvbmYtPmNsb2NrZWRfYnlfaGRtaSkNCj4gKyAgICAgICAgICAg
+ICAgIG10a19kcGlfc2V0X3BpeGVsX2NsayhkcGksICZ2bSwgbW9kZS0+Y2xvY2spOw0KPiANCj4g
+ICAgICAgICBkcGlfcG9sLmNrX3BvbCA9IE1US19EUElfUE9MQVJJVFlfRkFMTElORzsNCj4gICAg
+ICAgICBkcGlfcG9sLmRlX3BvbCA9IE1US19EUElfUE9MQVJJVFlfUklTSU5HOw0KPiBAQCAtOTIy
+LDE0ICs5MjcsMTYgQEAgdm9pZCBtdGtfZHBpX3N0YXJ0KHN0cnVjdCBkZXZpY2UgKmRldikNCj4g
+IHsNCj4gICAgICAgICBzdHJ1Y3QgbXRrX2RwaSAqZHBpID0gZGV2X2dldF9kcnZkYXRhKGRldik7
+DQo+IA0KPiAtICAgICAgIG10a19kcGlfcG93ZXJfb24oZHBpKTsNCj4gKyAgICAgICBpZiAoIWRw
+aS0+Y29uZi0+Y2xvY2tlZF9ieV9oZG1pKQ0KPiArICAgICAgICAgICAgICAgbXRrX2RwaV9wb3dl
+cl9vbihkcGkpOw0KDQptdGtfZHBpX2JyaWRnZV9lbmFibGUoKSBhbHNvIGNhbGwgbXRrX2RwaV9w
+b3dlcl9vbigpLg0KQWRkIHRoaXMgY2hlY2tpbmcgaW4gbXRrX2RwaV9icmlkZ2VfZW5hYmxlKCkg
+YWxzby4NCg0KPiAgfQ0KPiANCj4gIHZvaWQgbXRrX2RwaV9zdG9wKHN0cnVjdCBkZXZpY2UgKmRl
+dikNCj4gIHsNCj4gICAgICAgICBzdHJ1Y3QgbXRrX2RwaSAqZHBpID0gZGV2X2dldF9kcnZkYXRh
+KGRldik7DQo+IA0KPiAtICAgICAgIG10a19kcGlfcG93ZXJfb2ZmKGRwaSk7DQo+ICsgICAgICAg
+aWYgKCFkcGktPmNvbmYtPmNsb2NrZWRfYnlfaGRtaSkNCj4gKyAgICAgICAgICAgICAgIG10a19k
+cGlfcG93ZXJfb2ZmKGRwaSk7DQoNCm10a19kcGlfYnJpZGdlX2Rpc2FibGUoKSBhbHNvIGNhbGwg
+bXRrX2RwaV9wb3dlcl9vZmYoKS4NCkFkZCB0aGlzIGNoZWNraW5nIGluIG10a19kcGlfYnJpZGdl
+X2Rpc2FibGUoKSBhbHNvLg0KDQpCZWNhdXNlIHRoZSBjbG9jayBpcyBmcm9tIGhkbWksIEkgdGhp
+bmsgdGhlIGNsb2NrIGRlZmluZSBpbiBEUEkgbm9kZSBpbiBkZXZpY2UgdHJlZSBzaG91bGQgYmUg
+cmVtb3ZlZC4NCkFsc28gY2hhbmdlIHRoZSBiaW5kaW5nIGRvY3VtZW50IGFuZCBsZXQgdGhlIGNs
+b2NrIG5vdCByZXF1aXJlZCBpbiBNVDgxOTUuDQoNClJlZ2FyZHMsDQpDSw0KDQo+ICB9DQo+IA0K
+PiAgdW5zaWduZWQgaW50IG10a19kcGlfZW5jb2Rlcl9pbmRleChzdHJ1Y3QgZGV2aWNlICpkZXYp
+DQo+IC0tDQo+IDIuNDguMQ0KPiANCg0K
 
