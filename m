@@ -4,82 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 710BBC021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD4AC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bg+mZKNcVt1VS+MRM5sg89MYwnJY9p5LILrLwwvhx8Q=; b=wxu1E72zF05RqcnQxD5l5Gq7Dg
-	H8LoYG+3IUCNo7UTLb8WVYgzTz5A0RvMyr+X44gajUKEHNhxvF4K2VP87DWXjacw+rC3NQwQLr53Z
-	6aW6qt2NKt87Ef1+Yj3EefQQcMaOcfSNRlHH91DZjVAN+wfZuKNfocgT/K8EbMoaCJRljQh9SelyH
-	f+20SSkUDAGz6HJ1ilFNajMdMbLLenTY0cgeeFJ3ppyyxMU6L6jSJEQUUqVsTX47g/+Alrv7yeS+g
-	QzoGwPZg5IOiGf9K7axPIQrTyjEVYH+Pz9UPk6E6poxSxFMwQMZ3aln8qcepAk8j8Q68L2B7MWWLW
-	Xcsl1PNQ==;
+	bh=QmEs8ouBliGOCMobju3l9AIdN9DwWGs50L/Ux0bkJ98=; b=r/fgE5nDx6nlU4fh6P75sc5RFg
+	xVMzru3Z5XqyLi5CMg9pfgWGOHSoGS8UdDQk2ATKLAAKG8AOFaTSngP0NDERNj7H0C1RuHyrAtfkw
+	g+yP5OzXHGpzSxuJJuW9Oag9fKuJfKyGiWq4ivRTMtoW3zenyrjKtg3w40UrAhPMGL6XrxhLLWL4f
+	mD4o1BXfyGcdCry+Yr0ky2pwBLdF21zC+PVRu0FvM63ExQess1zjUUOvCVtoC4UXNCNnipPkpC4hs
+	SGDAI5HOBVzsAADHfjHEFCH6+3d4s4DEG88e+AxV5KueuHUc5iPY89EMWFYP/6ccEz/M8JMhhbcsL
+	IzZj3WPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1titfJ-0000000EdNG-05Os;
-	Fri, 14 Feb 2025 11:15:25 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1titgj-0000000EdfB-0X0e;
+	Fri, 14 Feb 2025 11:16:53 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1titdn-0000000Ed3g-3aV7
+	id 1titfA-0000000EdLb-3jpQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 11:13:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 96BDCA42852;
-	Fri, 14 Feb 2025 11:12:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AD86C4CEDF;
-	Fri, 14 Feb 2025 11:13:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739531630;
-	bh=Ghs6jbYLNaRf8/9wC8oW8++BeIr/vpU43iyEmcHTTM8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RPjAke+DeIttbRlfFrrglJj5OoCQ/CZXX5ysuHMIJm9asBk83sDkJAhk/V/D7clQk
-	 lfH0OWsItmQCPmEo+2W62MKWfSwyJa9PNaBiSvnls3mVeJw8HVkRuXTjpGx30zv3T1
-	 WvqB6eDSr3D7Cr7FScO1/2FXrh/JLQTZZSj31ahgMjr4bNN9XszGAwjgos2/RgeKVK
-	 ljfuZk8V4JfQGj6qvClnerF4Fpzj8b9Pi0hxVexdd7hqYvXYclsHs7zLL0tg8TRfnN
-	 OnBPKX6LZ3TGkli5tchQFUdTyRhfMQt+VSNmPjhC4S/r2CXFoeWq0zs6vg6oelaICV
-	 0Im+JInrKqwlg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1titdk-0042lN-3F;
-	Fri, 14 Feb 2025 11:13:48 +0000
-Date: Fri, 14 Feb 2025 11:13:47 +0000
-Message-ID: <86o6z4srro.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: "Sven Peter" <sven@svenpeter.dev>
-Cc: "Alyssa Rosenzweig" <alyssa@rosenzweig.io>,	"Hector Martin"
- <marcan@marcan.st>,	"Bjorn Helgaas" <bhelgaas@google.com>,
-	"Lorenzo Pieralisi" <lpieralisi@kernel.org>,	Krzysztof =?UTF-8?B?V2lsY3p5?=
- =?UTF-8?B?xYRza2k=?= <kw@linux.com>,	"Manivannan Sadhasivam"
- <manivannan.sadhasivam@linaro.org>,	"Rob Herring" <robh@kernel.org>,
-	"Krzysztof Kozlowski" <krzk+dt@kernel.org>,	"Conor Dooley"
- <conor+dt@kernel.org>,	"Mark Kettenis" <kettenis@openbsd.org>,
-	"Stan Skowronek" <stan@corellium.com>,	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,	linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 7/7] PCI: apple: Add T602x PCIe support
-In-Reply-To: <ae7bdc0c-c691-43a7-8cd7-b1c22c7623c0@app.fastmail.com>
-References: <20250211-pcie-t6-v1-0-b60e6d2501bb@rosenzweig.io>
-	<20250211-pcie-t6-v1-7-b60e6d2501bb@rosenzweig.io>
-	<86y0ybsd0d.wl-maz@kernel.org>
-	<ae7bdc0c-c691-43a7-8cd7-b1c22c7623c0@app.fastmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: sven@svenpeter.dev, alyssa@rosenzweig.io, marcan@marcan.st, bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com, manivannan.sadhasivam@linaro.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, kettenis@openbsd.org, stan@corellium.com, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 14 Feb 2025 11:15:18 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4396794c044so6375245e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 03:15:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739531715; x=1740136515; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QmEs8ouBliGOCMobju3l9AIdN9DwWGs50L/Ux0bkJ98=;
+        b=DqFrHOwHBJoer6ueIWTG4esJrgEU/kunxr8u6lLHorfOGtvxzIkbGXbALT/rxZJOPz
+         bJaZgSo9lpEHn1o1LBLqWIFBZkT+/PGZoxcpfKa+fOaFe6XEmYa5JJ0mfJdjyG5sW6wY
+         ar50Wcpv159S2PBRo/7T1JPCuk+d2gCPplDywhKt4ETWtJbAyVfev9NHWjo40enxBAf6
+         rfh4IZSzCYMzWbxErBNChlJs7Cdpa/S/t9tXr4DNVLc7lNQT+mbJXcyRylSTqwA1v8b/
+         DrQOEXCXowm7idq0Lq/+AxwB7ROdzIeRAWUN5Vjyv91B+O+8UZHPLhpVq2FUMo/2jev+
+         bcFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739531715; x=1740136515;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=QmEs8ouBliGOCMobju3l9AIdN9DwWGs50L/Ux0bkJ98=;
+        b=vGirJc0Rchrq8zGK3pnMcJRPbtzMVn7/g/mKNXkFA3lYJwFxFVjzYSaC7GfJXDAv+k
+         Kz6fxV9BgqeaiQWGYsAZpqQ96y/Kzd5Ry/oQMPaPR/QaYvDBtPZvD+qss4AiIEB/hYtt
+         epdoFgFW1OdxOV1SjHvodYLnX6nLOFSypDpY1LNZs9i1DMUbxl5f/0v+cF2ov7OdLorB
+         wee0x6VkxGw9M7InRTqSbrpY4QuAppWFma7W3HRPEcuaaTy8WUdSA1H2Gm8+Ey6ByQUJ
+         qz4Ry6ud4GX2SWz2khUvg92hLLbzsGLahmLKZBTSbz8URgcFtdAV9H1g1WCa2SmqDLX5
+         RryQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU05gSpKEhPP4+H0JEDW+5Vsyi0UZqxgD//L2mRmWg3gWNOFZY9hJmTuzHwgN+lVOpkxVeqcP1WQG71TMdWh9pq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9CB2dCdMSuofLBNlGA9/t92ruuiMnmGCbj0dooBMtEiov9TJf
+	LKhld3AiBiWWNYbJxDYUsHXRHTX9MGeq6itHw8hxBv6wHQd22cww5yHMecgb2kY=
+X-Gm-Gg: ASbGncvzdVTOO1MLEcpjlLMulKRYgbSO9nAMavTKH6fU8Oybw0hRyCUH7aVrZ5/ica6
+	Wym6HKGr1ra9nwA7hRRw6Kv9LCErHyOIQh7IcUOy4AyOtwbPqCTXFrbB1NUeyQIKniyu290MyJU
+	Kk7pj6UWuFLfvXRsaVg7lQaj1EmMfMpecfpsitr80QdVrDZ0u+aw8wmuTMuS2NPkuzEHrqfVELw
+	oCj/Ju+REC091bHVPuJJaZG5MnfUKUVWPAtQ7hH9+IRjjY1QS44ul9HYPhj3XGXM09NJ70BCXh0
+	w4BZxdGYKpRlObqQxy9Equ6A+B8GpdD6zPIHYD6x5aBnfeVuimHbu0ngEufBoAs=
+X-Google-Smtp-Source: AGHT+IH5QDoLnhR0CwlUWQfd6my7FcGNb6CjS78uJgkB/lJP1TtFLz/ksqBTEmg2Q8Mj2ObQDYbmrg==
+X-Received: by 2002:a05:600c:783:b0:439:654e:ddf6 with SMTP id 5b1f17b1804b1-439654ede03mr61452765e9.9.1739531714673;
+        Fri, 14 Feb 2025 03:15:14 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:982:cbb0:1506:c298:390c:8a? ([2a01:e0a:982:cbb0:1506:c298:390c:8a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439617da91asm42409885e9.2.2025.02.14.03.15.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 14 Feb 2025 03:15:14 -0800 (PST)
+Message-ID: <d0ec285d-6a27-4f28-b622-6048a9dcb6e8@linaro.org>
+Date: Fri, 14 Feb 2025 12:15:14 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Neil Armstrong <neil.armstrong@linaro.org>
+Subject: Re: [PATCH] clk: meson: g12a: Fix kernel warnings when no display
+ attached
+To: Martijn van Deventer <linux@martijnvandeventer.nl>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250213221702.606-1-linux@martijnvandeventer.nl>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250213221702.606-1-linux@martijnvandeventer.nl>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_031352_024091_E63A296E 
-X-CRM114-Status: GOOD (  31.77  )
+X-CRM114-CacheID: sfid-20250214_031516_941588_6648DF6B 
+X-CRM114-Status: GOOD (  16.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,73 +128,108 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Feb 2025 19:51:31 +0000,
-"Sven Peter" <sven@svenpeter.dev> wrote:
+On 13/02/2025 23:17, Martijn van Deventer wrote:
+> When booting SM1 or G12A boards without a dislay attached to HDMI,
+> the kernel shows the following warning:
 > 
-> Hi,
+> [CRTC:46:meson_crtc] vblank wait timed out
+> WARNING: CPU: 2 PID: 265 at drivers/gpu/drm/drm_atomic_helper.c:1682 drm_atomic_helper_wait_for_vblanks.part.0+0x240/0x264
+> CPU: 2 UID: 0 PID: 265 Comm: setfont Tainted: G         C
+> Tainted: [C]=CRAP
+> pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> pc : drm_atomic_helper_wait_for_vblanks.part.0+0x240/0x264
+> lr : drm_atomic_helper_wait_for_vblanks.part.0+0x240/0x264
+> Call trace:
+>   drm_atomic_helper_wait_for_vblanks.part.0+0x240/0x264
+>   drm_atomic_helper_commit_tail_rpm+0x84/0xa0
+>   commit_tail+0xa4/0x18c
+>   drm_atomic_helper_commit+0x164/0x178
+>   drm_atomic_commit+0xb4/0xec
+>   drm_client_modeset_commit_atomic+0x210/0x270
+>   drm_client_modeset_commit_locked+0x5c/0x188
+>   drm_fb_helper_pan_display+0xb8/0x1d4
+>   fb_pan_display+0x7c/0x120
+>   bit_update_start+0x20/0x48
+>   fbcon_switch+0x418/0x54c
+>   el0t_64_sync+0x194/0x198
 > 
-> On Wed, Feb 12, 2025, at 10:55, Marc Zyngier wrote:
-> > On Tue, 11 Feb 2025 19:54:32 +0000,
-> > Alyssa Rosenzweig <alyssa@rosenzweig.io> wrote:
-> >> 
-> >> From: Hector Martin <marcan@marcan.st>
-> >> 
-> >> This version of the hardware moved around a bunch of registers, so we
-> >> drop the old compatible for these and introduce register offset
-> >> structures to handle the differences.
-> >> 
-> >> Signed-off-by: Hector Martin <marcan@marcan.st>
-> >> Signed-off-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-> >> ---
-> >>  drivers/pci/controller/pcie-apple.c | 125 ++++++++++++++++++++++++++++++------
-> >>  1 file changed, 105 insertions(+), 20 deletions(-)
-> >> 
-> >> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-> >> index 7f4839fb0a5b15a9ca87337f53c14a1ce08301fc..7c598334427cb56ca066890ac61143ae1d3ed744 100644
-> ...
-> >
-> >> +	else
-> >> +		rmw_set(PHY_LANE_CFG_REFCLKCGEN, port->phy + PHY_LANE_CFG);
-> >> +	rmw_clear(PORT_APPCLK_CGDIS, port->base + PORT_APPCLK);
-> >> +
-> >
-> > Can you elaborate on this particular change?
-> >
-> > I always assumed this was some clock-gating that needed to occur
-> > *before* the link training was started. This is now taking place after
-> > training, and the commit message doesn't say anything about it.
+> This happens when the kernel disables the unused clocks.
+> Sometimes this causes the boot to hang.
 > 
-> It's been a while but as far as I can tell APPCLK seems to be related
-> to the IOMMUs attached to this controller. If it's disabled all reads
-> from the respective IOMMU MMIO either came back as 0xffff.. or SError
-> (don't remember which one it was) but pcie itself worked just fine
-> (until any device tried DMA ofc).
+> By (re)adding the flag CLK_IGNORE_UNUSED to the VCLK2 clocks, these
+> clocks will not be disabled.
 > 
-> At least on M1 this entire sequence only works because we already
-> setup PORT_APPCLK_EN inside m1n1. If we didn't do this (like e.g
-> for the thunderbolt pcie/dart) the DART probe would already fail.
+> This partially reverts commit b70cb1a21a54 ("clk: meson: g12a:
+> make VCLK2 and ENCL clock path configurable by CCF").
+> 
+> Fixes: b70cb1a21a54 ("clk: meson: g12a: make VCLK2 and ENCL clock path configurable by CCF").
+> Signed-off-by: Martijn van Deventer <linux@martijnvandeventer.nl>
+> ---
+>   drivers/clk/meson/g12a.c | 12 ++++++------
+>   1 file changed, 6 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/clk/meson/g12a.c b/drivers/clk/meson/g12a.c
+> index cfffd434e998..1651898658f5 100644
+> --- a/drivers/clk/meson/g12a.c
+> +++ b/drivers/clk/meson/g12a.c
+> @@ -3234,7 +3234,7 @@ static struct clk_regmap g12a_vclk2_div = {
+>   			&g12a_vclk2_input.hw
+>   		},
+>   		.num_parents = 1,
+> -		.flags = CLK_SET_RATE_GATE,
+> +		.flags = CLK_SET_RATE_GATE | CLK_IGNORE_UNUSED,
+>   	},
+>   };
+>   
+> @@ -3270,7 +3270,7 @@ static struct clk_regmap g12a_vclk2 = {
+>   		.ops = &meson_vclk_gate_ops,
+>   		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2_div.hw },
+>   		.num_parents = 1,
+> -		.flags = CLK_SET_RATE_PARENT,
+> +		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
+>   	},
+>   };
+>   
+> @@ -3354,7 +3354,7 @@ static struct clk_regmap g12a_vclk2_div1 = {
+>   		.ops = &clk_regmap_gate_ops,
+>   		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2.hw },
+>   		.num_parents = 1,
+> -		.flags = CLK_SET_RATE_PARENT,
+> +		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
+>   	},
+>   };
+>   
+> @@ -3368,7 +3368,7 @@ static struct clk_regmap g12a_vclk2_div2_en = {
+>   		.ops = &clk_regmap_gate_ops,
+>   		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2.hw },
+>   		.num_parents = 1,
+> -		.flags = CLK_SET_RATE_PARENT,
+> +		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
+>   	},
+>   };
+>   
+> @@ -3382,7 +3382,7 @@ static struct clk_regmap g12a_vclk2_div4_en = {
+>   		.ops = &clk_regmap_gate_ops,
+>   		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2.hw },
+>   		.num_parents = 1,
+> -		.flags = CLK_SET_RATE_PARENT,
+> +		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
+>   	},
+>   };
+>   
+> @@ -3396,7 +3396,7 @@ static struct clk_regmap g12a_vclk2_div6_en = {
+>   		.ops = &clk_regmap_gate_ops,
+>   		.parent_hws = (const struct clk_hw *[]) { &g12a_vclk2.hw },
+>   		.num_parents = 1,
+> -		.flags = CLK_SET_RATE_PARENT,
+> +		.flags = CLK_SET_RATE_PARENT | CLK_IGNORE_UNUSED,
+>   	},
+>   };
+>   
 
-OK, so the exact location of this particular write doesn't matter as
-long as it happens before we start enabling a device on that port.
-
-I'm still perplexed by this one though:
-
-+	if (pcie->hw->port_refclk)
-+		rmw_clear(PORT_REFCLK_CGDIS, port->base + PORT_REFCLK);
-+	else
-+		rmw_set(PHY_LANE_CFG_REFCLKCGEN, port->phy + PHY_LANE_CFG);
-
-which looks like it switches on the reference clock for the port. I
-have a very vague recollection that it was required early before
-m1n1/u-boot grew some PCI initialisation (yes, a long while ago).
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 
