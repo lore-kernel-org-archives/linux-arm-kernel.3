@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FF5C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3094C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oqjP77RdlsrQ+PBarQ2plbLl14GnrAVdCEFqfCLgb08=; b=YZCCrPUZGtTnigp72VkEv+a/J0
-	v4oF8mku79QOhGc+pMN/NWuch6FxjNwb/zYedt8s1cGQcM9Nsg763Apn2r/8HyDUGu7cdtJU3NPRl
-	pA10MZt+RLjNyz2GLJKNAvn7q1HtU2yThDDuUMfgtmwzObpWGL826kZVVHKDsvTYQrrSd592PHyfN
-	OIEEl3HnMrP/TcGZ5WQo5zXG8sLTbKC5d7lpSxHbOcI8VWkNpSpwcH5/RdQPN3PvN01+fxW5RVq8Q
-	ZF2R0EetF5rhDAd0Sm4gR09o1/ikmFv0opm6cahXHgfLpGV+G27ayjC9DtveJ2F9ksFWTOnQW2VIm
-	O90P8TNQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nXtChml9DRiHxGkolGnpJNI0TSg0LXJfLXP1P/YuOZc=; b=WAu3+SNaB4uJNStsusrHlD9WO1
+	hfTV9W2byF+yLa6UhCWKRlWz6v/33zSF/gAsGVlt6fEJfajAgqfDO3v3Bt1Irs3rzx/HpTLiewmBG
+	7+qn+wcKTqyWs2ShRriXSg6Pm//AI48ONTqAiOT85hCdZxsYrYU3jrOt4cY5IRHhOSFHYMnF3kD2y
+	nc8FbjbxxszJeK5ZQNXusc8NSOWRHH0Rf6s0tLimeUjJwPk+930s+pEG/cKTphyoIcy+5xO582d5w
+	YEsf/sdCMFUCcYvi03InpstBNSQqlMK73iZS2ccLGHflv4IVxBoGU14Ic5ogb3BpML+A7j2CtYAxm
+	xifyGTrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj0fl-0000000FvXF-0DlY;
-	Fri, 14 Feb 2025 18:44:21 +0000
+	id 1tj0hB-0000000FvjM-2uxf;
+	Fri, 14 Feb 2025 18:45:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj07N-0000000Fp2M-0Ntc
+	id 1tj07P-0000000Fp3e-2z2C
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Feb 2025 18:08:49 +0000
+	Fri, 14 Feb 2025 18:08:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=oqjP77RdlsrQ+PBarQ2plbLl14GnrAVdCEFqfCLgb08=; b=UVlY4nk2idw10CiUh+s7MNpx5v
-	5JuCrOvDIButHNQGPB2ST2XdYGqEBQ9fqvYvawVe56NjS8O6o+4aOr4SIYBGK4R8BurErt8VftAG8
-	H+pFohWgY1T+2CuWC289VgctyeF+nHQ9H5rChnKuvIHNvLpKcYqz3Is7L4hjdxFkwyPtDCfR2ktYg
-	rQFBud7mrHyTugioKvdX83Q6qexAtmvI+JwLiM8YylEndMjeIk2EXZWAR+szjMrfRmOvpNGqUet4h
-	JFBS620/O9SMqIB/qnYUI+f2/PEJ1C/10WDC8/wyqCc+F7+OOXQX8ubC+QrVepPqZT5pk+fBmNKvE
-	96Pbubhg==;
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=nXtChml9DRiHxGkolGnpJNI0TSg0LXJfLXP1P/YuOZc=; b=NCpWBq35iAp1rZuiQ4lSMKhPdy
+	wazMHzKa8K21Smvok2of09jKZDIg/55D+Xc7VqN+BpO84FEwmWFVsbuMOi6KkKn8HxpdMaGFz8ZO0
+	oTK47Fmv/rM3bLd3+4R9+nZa5x/fDkqIsJ83hXdLo7252jGDJftzv30MrEnWCoVe6Pp0DaO18eDtc
+	7Ig7CBd0DxsEH2Zpidudy0XNAe6+tTWfG9nwe1G59CLlDKCP9gD05fnBQCqR6jkgQvIohfZs2pltx
+	Y5cmIEDAAj3ozPfQImrvb6x5oLhMLnf8+0u0qMXCnaoeV+5l9W7RYb/L8cARJg1pdeYqBvIq2oboN
+	TAxutWqQ==;
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj07J-00000001J2u-1z9q
+	id 1tj07M-00000001J2u-2LpF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 18:08:47 +0000
+	Fri, 14 Feb 2025 18:08:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1739556526; x=1771092526;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=H8tXLa2p1VhUWkXliwBLSLkbzNFdosczokdQ/wtBBm8=;
-  b=2B5rBUP7V4KddigoBqcDNUsIotBsqgvB05JwmnXWeYuP260jc9vbwqRs
-   ClE7wXMN3D1sW8OixUWfogF8E4iUMLDtEL/4Gz351jpFz3TdAKVufpxVp
-   H7AvpeUogWcg+SugCzGClrm6A7+3K5GWCQeLsFMz8TaaRDkiPB4rmCQH6
-   V3Hnj+gOHyaTRKcZSDfmdZlb9guB467KDRI1GYJeTHyeRhsDaLZpRk0nq
-   QuDOSkYYX1ZN2wR307oNk9nwD/8KixKQ4+T7zf8Q+dTbTF7BkjrQJVpiH
-   vkGHyI3C1Qxyj90As5QQdWVVyHa0Txid87rTtfAGhy1FgVJRkfyVpnnnH
-   w==;
+  t=1739556529; x=1771092529;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=sKWqjvEpkcI2HOheld8cEwxYIv45wbwACNAWn1NaBNQ=;
+  b=HXcaTnb/ogAbsGzJvh2bnmDq1zvEY4pfqWcKu2NNN4dgVGKw2zcCe6/L
+   eewjUt5b8rC4u14cegPo7H0seGlydVF0p9e5pIw7Avo1/zpZx/g8DL23y
+   kWOGsYVDFvLQLm0RJIKX1vbsWn2uEUQ0poxzmAX9Gmono/4vhV/8gQ1Kx
+   cBe9BV7jjqcdwjOpeZegAjCqG3nqmOpPN+jbN7KihgL9InGnZqDFtCbR1
+   8XxeA9dMoOfRD6xz/II/3x0vaM54qv2gw2ZhR3RbMeyp3nv9ZWL9ynE0g
+   w4H5dzTH/c6YSNpXtwJYHqVLhElArUs9XYTlgU7cVYSmUwH+FOXBb+80W
+   Q==;
 X-CSE-ConnectionGUID: afEECSQvQkGMMmDvtHvTFg==
-X-CSE-MsgGUID: 2lHh1jY2S7Kw2hWZ/xXjEA==
+X-CSE-MsgGUID: Hc1GFQtYTc6wh5HSOspKzQ==
 X-IronPort-AV: E=Sophos;i="6.13,286,1732604400"; 
-   d="scan'208";a="37700922"
+   d="scan'208";a="37700927"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Feb 2025 11:08:38 -0700
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 14 Feb 2025 11:08:39 -0700
 Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Fri, 14 Feb 2025 11:08:25 -0700
+ 15.1.2507.35; Fri, 14 Feb 2025 11:08:26 -0700
 Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Fri, 14 Feb 2025 11:08:25 -0700
+ 15.1.2507.35 via Frontend Transport; Fri, 14 Feb 2025 11:08:26 -0700
 From: <Ryan.Wanner@microchip.com>
 To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
@@ -77,16 +77,18 @@ To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <dmaengine@vger.kernel.org>,
 	<linux-watchdog@vger.kernel.org>, Ryan Wanner <Ryan.Wanner@microchip.com>
-Subject: [PATCH 0/8]  Add System Components for Microchip SAMA7D65 SoC
-Date: Fri, 14 Feb 2025 11:08:13 -0700
-Message-ID: <cover.1739555984.git.Ryan.Wanner@microchip.com>
+Subject: [PATCH 3/8] dt-bindings: dma: atmel: add microchip,sama7d65-dma
+Date: Fri, 14 Feb 2025 11:08:16 -0700
+Message-ID: <8b69f0c6d8955790edcdbe5d1e205b43dedb99ff.1739555984.git.Ryan.Wanner@microchip.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1739555984.git.Ryan.Wanner@microchip.com>
+References: <cover.1739555984.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_180846_297410_CE1B5EFC 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20250214_180849_056187_8937F793 
+X-CRM114-Status: UNSURE (   7.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,31 +106,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ryan Wanner <Ryan.Wanner@microchip.com>
 
-This patch set adds support for the following systems in the SAMA7D65
-SoC:
-- DMAs
-- Chip ID
-- Dual watchdog timer.
+Add microchip,sama7d65-dma compatible string to DT bindings
+documentation.
 
-Ryan Wanner (8):
-  dt-bindings: atmel-sysreg: Add SAMA7D65 Chip ID
-  dt-bindings: watchdog: sama5d4-wdt: Add sama7d65-wdt
-  dt-bindings: dma: atmel: add microchip,sama7d65-dma
-  ARM: at91: Add Support in SoC driver for SAMA7D65
-  ARM: dts: microchip: sama7d65: Add chipID for sama7d65
-  ARM: dts: microchip: sama7d65: Add watchdog for sama7d65
-  ARM: dts: microchip: sama7d65: Add DMAs to sama7d65 SoC
-  ARM: dts: microchip: sama7d65: Enable DMAs
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+---
+ Documentation/devicetree/bindings/dma/atmel,sama5d4-dma.yaml | 3 +++
+ 1 file changed, 3 insertions(+)
 
- .../devicetree/bindings/arm/atmel-sysregs.txt |  1 +
- .../bindings/dma/atmel,sama5d4-dma.yaml       |  3 ++
- .../bindings/watchdog/atmel,sama5d4-wdt.yaml  |  3 ++
- .../dts/microchip/at91-sama7d65_curiosity.dts | 12 +++++
- arch/arm/boot/dts/microchip/sama7d65.dtsi     | 44 +++++++++++++++++++
- drivers/soc/atmel/soc.c                       |  5 +++
- drivers/soc/atmel/soc.h                       |  3 ++
- 7 files changed, 71 insertions(+)
-
+diff --git a/Documentation/devicetree/bindings/dma/atmel,sama5d4-dma.yaml b/Documentation/devicetree/bindings/dma/atmel,sama5d4-dma.yaml
+index 9ca1c5d1f00f8..73fc13b902b38 100644
+--- a/Documentation/devicetree/bindings/dma/atmel,sama5d4-dma.yaml
++++ b/Documentation/devicetree/bindings/dma/atmel,sama5d4-dma.yaml
+@@ -32,6 +32,9 @@ properties:
+               - microchip,sam9x60-dma
+               - microchip,sam9x7-dma
+           - const: atmel,sama5d4-dma
++      - items:
++          - const: microchip,sama7d65-dma
++          - const: microchip,sama7g5-dma
+ 
+   "#dma-cells":
+     description: |
 -- 
 2.43.0
 
