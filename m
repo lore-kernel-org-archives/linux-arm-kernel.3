@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66CC2C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDBAAC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vud2l+W++O1Da7DS2WaNrJ9AJreXoCTXE/UW9zsHPAo=; b=sYxO+EVMl45qjhTOCbEHfLO/+8
-	ezLEMcyQ2lktsc7EZTo2+1R1IyDsWgEi1uNc2ryfaqwrPGR7h5eSxpGd5cZ/zQgrJBd3LziyVNQNy
-	IIB9/BpfSO/zWv77Mg9UW6SeNlKsWJb+1gC0a3ONvaDVkWNQhK+S/iuIsO71YBq2O9JYPba/159lT
-	yyyH/KUXjR0urL5Kc5aWG++DbbTBRVmhyvGE4z9L6yRPHcIyXBp450XlsoaUJFHxbEL2ucdQO7MoQ
-	ySQtO5x5cYsOCvRHjyGsLPADI1U691uahqS/AuNpl1p9g44NZTG6ip/ynh5XuQe3D5VZ/z6DXMfTQ
-	boj2v1iQ==;
+	bh=XIGWT/hG4tpt7K0ywnil/ic7qyIjws86Nr7lEaaCFVs=; b=SJKdqOsvw2CvNp1vXIFPhCKOXR
+	lJ6f9F48X1Wk+w99TzCNRPjgfu68hv2W7PUHoxrrebBOLxA7F/3O51MkXKLOa5gHaFdcbzKjz3fbU
+	7BX6adT+7iArvHThaxZFhHbCF7LKbDsjO2+zP9fNmA9qd2gwJ0hjahU9J/pM01QYDQz0uvP3L8QZB
+	zol+8u1gDSdL1l4zC0ZHbvTzrQPMUKG5VEfZ0/JIyEf9l1VcAgaW6nEY13otGHSdqrz9OaVwUdOc5
+	epOaK/FrUWw91NfbUIoO6rGtpYwGha45awlX4CpeWRn4U9Bv82MkPJ7nyodsdWBS98baxxmg1OKp/
+	5aua6cYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixfD-0000000FKa5-2Qv8;
-	Fri, 14 Feb 2025 15:31:35 +0000
-Received: from mail-yb1-xb32.google.com ([2607:f8b0:4864:20::b32])
+	id 1tixge-0000000FL26-0Vhd;
+	Fri, 14 Feb 2025 15:33:04 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixSv-0000000FHak-3ezL
+	id 1tixUl-0000000FI0p-08EW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 15:18:55 +0000
-Received: by mail-yb1-xb32.google.com with SMTP id 3f1490d57ef6-e46ac799015so1622987276.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 07:18:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739546333; x=1740151133; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vud2l+W++O1Da7DS2WaNrJ9AJreXoCTXE/UW9zsHPAo=;
-        b=Hgws/bpgbMZSUYLZd4ITElPFQg0+GiO8kkat59+2w07C7mzZ9nfi+L4jjAf76E0lAP
-         qeULKaRCJFjFJLR1MQ/ioAEJi77s97Ig1Q5cz890DNWQEn+qp6guRLLjGFvKz27vRBu+
-         b+cwc7dVwaSvJ4mj9N1fc1fmCavBU2CsAjV5seIiGsiaCf4sabWj4q4DvJQb/AisCbGz
-         WCbDj/HuNkAuTOSGT4X6hg0FsJeWJLnj3wDAkUA2C3gd5+x4VIj3zRv0/BcMQRSszi1R
-         YUNdP6umhbA2slPTuI/NfjAuNCgKiCMZtt3cA1G0z3JK3qF0fEJ3QkiyVZdacFQBAkA1
-         yfVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739546333; x=1740151133;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vud2l+W++O1Da7DS2WaNrJ9AJreXoCTXE/UW9zsHPAo=;
-        b=ca8JGfQpIfBlAEETnMfoBmPcXxMxG3RWCaGNueEQ9U7tGKWP7Dl+QcSLc/nX7laA/f
-         BUla8MszaqAQCPljrn8ZCcnk+1J9q0GzHxjHEk1+mQPRypd3Ha5EnQrGPTNv0UStq/wr
-         DaO7S/scOwhsaRX5SkMuwHBNAlRmXhDTRILFjQqNMMadWM8JnP+Jcic+vVxQaiXDajUL
-         gt2yXbJfdMrpsGzmm4MYztiL0SwVr7nxZ+3y/ACHPY/6LBdoZICedmzTpfnb72qHZ7GR
-         VX4CpUm7vrX45EIbv5TW6Hkp6QDlpVQPyq2pAm+E/xdMUVfSvvEz/iRdcWyR+9o7HLIE
-         wcWw==
-X-Forwarded-Encrypted: i=1; AJvYcCUeieJ1xRHiHL9eBUnqYvP9/YD8mVUPEl0jWbesabPPiWikf05e74Ppr8DM6bNsqXXF+na0D9uT0k2L8UJzqyZ6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw257AgNYAY6YjUpBTq0YSQP71Zy27FXfCf5FLFhQsUNhokwjtV
-	8pXubgGn/JsZ+A6N5VNQGBaUlDUOi89uE1VHdH37r5dj7YMkcqRTOk9eSXhLQIPw5fb3/T8k78w
-	UcWYjJIRidObB+O5Qw3i0CVjFimcJu47QJgdAWw==
-X-Gm-Gg: ASbGncsWL6HbJSUvrcvAPcI+VHU6A1pPsWx9URp1EDjvl2sgLr3/zaSMWSLnZN50Gth
-	YgzfOSyAwXyS6Ah7kyrijKP6ki2G74d0AYuWqOW9vNPWiSnlJquu1s3FdsmivDKTP0lqh06oe6v
-	x+uLlNuMu0EBj/HdyGrVs9pPCUXtGzlkA=
-X-Google-Smtp-Source: AGHT+IHBLi+DSdWwdkBiZJtFZDCRKWBo+hYt3CPdJ1MsUWNFmP3OHtc7puT3fPX9/BKcGYQszQlVBW84g9IFUoqX2jg=
-X-Received: by 2002:a05:6902:10c8:b0:e58:4a5:2ca8 with SMTP id
- 3f1490d57ef6-e5d9f17a12dmr10834168276.37.1739546332754; Fri, 14 Feb 2025
- 07:18:52 -0800 (PST)
+	Fri, 14 Feb 2025 15:20:48 +0000
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51ECjkJC012402;
+	Fri, 14 Feb 2025 16:20:39 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	XIGWT/hG4tpt7K0ywnil/ic7qyIjws86Nr7lEaaCFVs=; b=wiDAEXVTGHJtLkQr
+	/TkMG3g8S+w7ayPRJsIpOHOijNJn8pAUEfAWlRbA4kvjev2Sn0QQ/UHbMTJ+fs0f
+	VTAlenMa76krHFtcykdMbiFpKX/JPf9wxx4VZXsoy6kRXTXFjj599xsTYd0XWb02
+	sLDjqZFkNE+weUcY8z5p71g8CGTD56ugaW/mF4DLCaeE6pH9+XRKs3ADj6V3lO/q
+	1zfhNtcX6Bbcr++WJ4fcR2EAFtv1PtbXa5XKqA38+4KFtaMWTwxx6vJI+YaGMNp9
+	x+B9zOy/c1nIRRP/c6G7qlbyt07yrWYJOpldbf5Js3zHvp92ZyI+YS6DUWh+RUZq
+	PO/WxA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44rrfum80j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 14 Feb 2025 16:20:39 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 03B9F40047;
+	Fri, 14 Feb 2025 16:19:29 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 351DA2DC032;
+	Fri, 14 Feb 2025 16:18:33 +0100 (CET)
+Received: from [10.48.87.120] (10.48.87.120) by SHFDAG1NODE3.st.com
+ (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 14 Feb
+ 2025 16:18:32 +0100
+Message-ID: <e76829e9-26ee-44cc-8378-6e83f62eccd5@foss.st.com>
+Date: Fri, 14 Feb 2025 16:18:31 +0100
 MIME-Version: 1.0
-References: <20250213204044.660-1-wachiturroxd150@gmail.com>
- <20250213204044.660-3-wachiturroxd150@gmail.com> <CAPLW+4nJVf0raJ-O3u6uUteBi--N5xGwvzXp7cHqbkdMJ8gCSQ@mail.gmail.com>
- <cf0a5ab5-265f-4429-8c11-8b669f00bc70@linaro.org>
-In-Reply-To: <cf0a5ab5-265f-4429-8c11-8b669f00bc70@linaro.org>
-From: Sam Protsenko <semen.protsenko@linaro.org>
-Date: Fri, 14 Feb 2025 09:18:42 -0600
-X-Gm-Features: AWEUYZltiapjR3VtfT1WDOygMRkvnzikuCurH43pDPL6b-n2GaubYKFDPd37TJA
-Message-ID: <CAPLW+4nYMShK=mgXcct0QFQa_bTLcdWdcCOKSToxgx8tWqTreg@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] spi: s3c64xx: add support exynos990-spi to new
- port config data
-To: Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Denzeel Oliva <wachiturroxd150@gmail.com>, andi.shyti@kernel.org, broonie@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	alim.akhtar@samsung.com, linux-spi@vger.kernel.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 08/10] arm64: dts: st: introduce stm32mp21 SoCs family
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Richard Cochran <richardcochran@gmail.com>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>
+References: <20250210-b4-stm32mp2_new_dts-v1-0-e8ef1e666c5e@foss.st.com>
+ <20250210-b4-stm32mp2_new_dts-v1-8-e8ef1e666c5e@foss.st.com>
+ <20250213-accurate-acoustic-mushroom-a0dfbd@krzk-bin>
+Content-Language: en-US
+From: Amelie Delaunay <amelie.delaunay@foss.st.com>
+In-Reply-To: <20250213-accurate-acoustic-mushroom-a0dfbd@krzk-bin>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.120]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
+ (10.75.129.71)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-14_06,2025-02-13_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_071853_909026_FD1A4042 
-X-CRM114-Status: GOOD (  25.08  )
+X-CRM114-CacheID: sfid-20250214_072047_640286_1AE27726 
+X-CRM114-Status: GOOD (  19.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,56 +103,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 12:39=E2=80=AFAM Tudor Ambarus <tudor.ambarus@linar=
-o.org> wrote:
->
-> Hi, Sam,
->
-> On 2/14/25 12:08 AM, Sam Protsenko wrote:
-> > On Thu, Feb 13, 2025 at 2:41=E2=80=AFPM Denzeel Oliva <wachiturroxd150@=
-gmail.com> wrote:
-> >>
-> >> Exynos990 uses the same version of USI SPI (v2.1) as the GS101.
-> >> Removed fifo_lvl_mask and rx_lvl_offset, and changed to the new data
-> >> configuration port.
-> >>
-> >> The difference from other new port configuration data is that fifo_dep=
-th
-> >> is only specified in fifo-depth in DT.
-> >>
-> >
-> > In the code below I can see this bit:
-> >
-> >     /* If not specified in DT, defaults to 64 */
-> >     .fifo_depth     =3D 64,
-> >
-> > Is that intentional or is it some leftover that was meant to be
-> > removed before the submission? From s3c64xx_spi_probe() it looks like
-> > the "fifo-depth" DT property is ignored if .fifo_depth is set in the
-> > port_config:
->
-> fifo-depth in port config is intended for IPs where all their instances
-> use the same FIFO depth. fifo-depth from DT is ignored because the
-> compatible knows better than what developers may in DT in this case, it
-> is intentional.
->
-> >
-> >     if (sdd->port_conf->fifo_depth)
-> >         sdd->fifo_depth =3D sdd->port_conf->fifo_depth;
-> >     else if (of_property_read_u32(pdev->dev.of_node, "fifo-depth",
-> > &sdd->fifo_depth))
-> >         sdd->fifo_depth =3D FIFO_DEPTH(sdd);
-> >
-> > Btw, wouldn't it be reasonable to flip this probe() code the other way
->
-> No, please. IPs that have instances with different FIFO depths shall
-> rely only on DT to specify their FIFO depths.
->
+On 2/13/25 10:02, Krzysztof Kozlowski wrote:
+> On Mon, Feb 10, 2025 at 04:21:02PM +0100, Amelie Delaunay wrote:
+>> From: Alexandre Torgue <alexandre.torgue@foss.st.com>
+>>
+>> STM32MP21 family is composed of 3 SoCs defined as following:
+>>
+>> -STM32MP211: common part composed of 1*Cortex-A35, common peripherals
+>> like SDMMC, UART, SPI, I2C, parallel display, 1*ETH ...
+>>
+>> -STM32MP213: STM32MP211 + a second ETH, CAN-FD.
+>>
+>> -STM32MP215: STM32MP213 + Display and CSI2.
+>>
+>> A second diversity layer exists for security features/ A35 frequency:
+>> -STM32MP21xY, "Y" gives information:
+>>   -Y = A means A35@1.2GHz + no cryp IP and no secure boot.
+>>   -Y = C means A35@1.2GHz + cryp IP and secure boot.
+>>   -Y = D means A35@1.5GHz + no cryp IP and no secure boot.
+>>   -Y = F means A35@1.5GHz + cryp IP and secure boot.
+>>
+>> Signed-off-by: Alexandre Torgue <alexandre.torgue@foss.st.com>
+>> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+>> ---
+>>   arch/arm64/boot/dts/st/stm32mp211.dtsi  | 130 ++++++++++++++++++++++++++++++++
+>>   arch/arm64/boot/dts/st/stm32mp213.dtsi  |   9 +++
+>>   arch/arm64/boot/dts/st/stm32mp215.dtsi  |   9 +++
+>>   arch/arm64/boot/dts/st/stm32mp21xc.dtsi |   8 ++
+>>   arch/arm64/boot/dts/st/stm32mp21xf.dtsi |   8 ++
+>>   5 files changed, 164 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/st/stm32mp211.dtsi b/arch/arm64/boot/dts/st/stm32mp211.dtsi
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..d384359e0ea16e2593795ff48d4a699324c8ca75
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/st/stm32mp211.dtsi
+>> @@ -0,0 +1,130 @@
+>> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+>> +/*
+>> + * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
+>> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+>> + */
+>> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+>> +
+>> +/ {
+>> +	#address-cells = <2>;
+>> +	#size-cells = <2>;
+>> +
+>> +	cpus {
+>> +		#address-cells = <1>;
+>> +		#size-cells = <0>;
+>> +
+>> +		cpu0: cpu@0 {
+>> +			compatible = "arm,cortex-a35";
+>> +			device_type = "cpu";
+>> +			reg = <0>;
+>> +			enable-method = "psci";
+>> +		};
+>> +	};
+>> +
+>> +	arm-pmu {
+>> +		compatible = "arm,cortex-a35-pmu";
+>> +		interrupts = <GIC_SPI 368 IRQ_TYPE_LEVEL_HIGH>;
+>> +		interrupt-affinity = <&cpu0>;
+>> +		interrupt-parent = <&intc>;
+>> +	};
+>> +
+>> +	arm_wdt: watchdog {
+>> +		compatible = "arm,smc-wdt";
+>> +		arm,smc-id = <0xbc000000>;
+>> +		status = "disabled";
+>> +	};
+>> +
+>> +	clocks {
+>> +		ck_flexgen_08: ck-flexgen-08 {
+>> +			#clock-cells = <0>;
+>> +			compatible = "fixed-clock";
+>> +			clock-frequency = <64000000>;
+>> +		};
+>> +
+>> +		ck_flexgen_51: ck-flexgen-51 {
+>> +			#clock-cells = <0>;
+>> +			compatible = "fixed-clock";
+>> +			clock-frequency = <200000000>;
+>> +		};
+>> +	};
+>> +
+>> +	firmware {
+>> +		optee {
+>> +			compatible = "linaro,optee-tz";
+>> +			method = "smc";
+>> +		};
+>> +
+>> +		scmi: scmi {
+>> +			compatible = "linaro,scmi-optee";
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +			linaro,optee-channel-id = <0>;
+>> +
+>> +			scmi_clk: protocol@14 {
+>> +				reg = <0x14>;
+>> +				#clock-cells = <1>;
+>> +			};
+>> +
+>> +			scmi_reset: protocol@16 {
+>> +				reg = <0x16>;
+>> +				#reset-cells = <1>;
+>> +			};
+>> +		};
+>> +	};
+>> +
+>> +	intc: interrupt-controller@4ac00000 {
+> 
+> MMIO nodes belong to the soc.
+> 
 
-Fair enough. Does it mean the port_config.fifo_depth should be made
-obsolete? Or it makes sense for older SoCs where FIFO depth is fixed,
-or something like that?
+Indeed.
 
-> Cheers,
-> ta
+>> +		compatible = "arm,cortex-a7-gic";
+>> +		#interrupt-cells = <3>;
+>> +		interrupt-controller;
+>> +		reg = <0x0 0x4ac10000 0x0 0x1000>,
+>> +		      <0x0 0x4ac20000 0x0 0x2000>,
+>> +		      <0x0 0x4ac40000 0x0 0x2000>,
+>> +		      <0x0 0x4ac60000 0x0 0x2000>;
+>> +	};
+>> +
+>> +	psci {
+>> +		compatible = "arm,psci-1.0";
+>> +		method = "smc";
+>> +	};
+>> +
+>> +	timer {
+>> +		compatible = "arm,armv8-timer";
+>> +		interrupt-parent = <&intc>;
+>> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+>> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+>> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
+>> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
+>> +		arm,no-tick-in-suspend;
+>> +	};
+>> +
+>> +	soc@0 {
+>> +		compatible = "simple-bus";
+>> +		#address-cells = <1>;
+>> +		#size-cells = <2>;
+>> +		interrupt-parent = <&intc>;
+>> +		ranges = <0x0 0x0 0x0 0x0 0x80000000>;
+> 
+> ranges is the second property. See DTS coding style.
+> 
+
+Ok.
+
+>> +		dma-ranges = <0x0 0x0 0x80000000 0x1 0x0>;
+>> +
+>> +		rifsc: bus@42080000 {
+>> +			compatible = "simple-bus";
+>> +			reg = <0x42080000 0x0 0x1000>;
+>> +			#address-cells = <1>;
+>> +			#size-cells = <2>;
+>> +			ranges;
+> 
+> and here is third.
+> 
+>> +			dma-ranges;
+>> +
+>> +			usart2: serial@400e0000 {
+> 
+> Although addresses seem wrong. How bus could start at 0x4208 but device
+> at 0x400e?
+> 
+>> +				compatible = "st,stm32h7-uart";
+>> +				reg = <0x400e0000 0x0 0x400>;
+>> +				interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
+>> +				clocks = <&ck_flexgen_08>;
+>> +				status = "disabled";
+>> +			};
+>> +		};
+>> +
+>> +		syscfg: syscon@44230000 {
+>> +			compatible = "st,stm32mp25-syscfg", "syscon";
+> 
+> Which soc is this? DTSI says stm32mp211, commit STM32MP21, but
+> compatible xxx25?
+> 
+
+Looks like a new compatible is needed, and I guess it is also true for 
+stm32mp231.
+
+>> +			reg = <0x44230000 0x0 0x10000>;
+>> +		};
+>> +	};
+>> +};
+>> diff --git a/arch/arm64/boot/dts/st/stm32mp213.dtsi b/arch/arm64/boot/dts/st/stm32mp213.dtsi
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..22cdedd9abbf4efac2334d497618daa6cc76727b
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/st/stm32mp213.dtsi
+>> @@ -0,0 +1,9 @@
+>> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+>> +/*
+>> + * Copyright (C) STMicroelectronics 2024 - All Rights Reserved
+>> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+>> + */
+>> +#include "stm32mp211.dtsi"
+>> +
+>> +/ {
+>> +};
+>> diff --git a/arch/arm64/boot/dts/st/stm32mp215.dtsi b/arch/arm64/boot/dts/st/stm32mp215.dtsi
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..d2c63e92b3cc15ec64898374fd2e745a9c71eb6d
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/st/stm32mp215.dtsi
+>> @@ -0,0 +1,9 @@
+>> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+>> +/*
+>> + * Copyright (C) STMicroelectronics 2024 - All Rights Reserved
+>> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+>> + */
+>> +#include "stm32mp213.dtsi"
+>> +
+>> +/ {
+>> +};
+> 
+> What is the point of this file exactly?
+> 
+
+Skeleton file for upcoming second ethernet and can-fd peripherals, not 
+available on stm32mp211.
+
+>> diff --git a/arch/arm64/boot/dts/st/stm32mp21xc.dtsi b/arch/arm64/boot/dts/st/stm32mp21xc.dtsi
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..39507a7564c8488647a3276eb227eb5f446359e6
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/st/stm32mp21xc.dtsi
+>> @@ -0,0 +1,8 @@
+>> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+>> +/*
+>> + * Copyright (C) STMicroelectronics 2024 - All Rights Reserved
+>> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+>> + */
+>> +
+>> +/ {
+>> +};
+> 
+> And this and others.
+> 
+
+Skeleton file for upcoming cryptographic support, not available on 
+stm32mp21xa and stm32mp21xd.
+As said previously, same split is used on other STM32 MPUs.
+
+Regards,
+Amelie
 
