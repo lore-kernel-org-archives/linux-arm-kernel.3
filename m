@@ -4,91 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDBAAC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:33:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC85C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:34:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XIGWT/hG4tpt7K0ywnil/ic7qyIjws86Nr7lEaaCFVs=; b=SJKdqOsvw2CvNp1vXIFPhCKOXR
-	lJ6f9F48X1Wk+w99TzCNRPjgfu68hv2W7PUHoxrrebBOLxA7F/3O51MkXKLOa5gHaFdcbzKjz3fbU
-	7BX6adT+7iArvHThaxZFhHbCF7LKbDsjO2+zP9fNmA9qd2gwJ0hjahU9J/pM01QYDQz0uvP3L8QZB
-	zol+8u1gDSdL1l4zC0ZHbvTzrQPMUKG5VEfZ0/JIyEf9l1VcAgaW6nEY13otGHSdqrz9OaVwUdOc5
-	epOaK/FrUWw91NfbUIoO6rGtpYwGha45awlX4CpeWRn4U9Bv82MkPJ7nyodsdWBS98baxxmg1OKp/
-	5aua6cYA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vFx1ewI4CtMVYS9mN0DlbedoxiBG+RIMjxnXsYljAys=; b=y8d6wWDjfTHPaAEuFd9biuAMvG
+	B+DdGDkokIp/KY/FzLaOCoGUp4YvP/cvpQkcOuLOUwnf/+RwoAXn+wmdJHJg7QGOGuO94z+Wg0Ypf
+	EOkqij+8ohzNPz1cQJXb4XRbaQsZXPm1KcHKPHW79Z32KR8+NGE9vQ/8HLN/TBA8v2pVdgGe3NDxB
+	5R/TGbOK3k2/roXuz2XGMSe5mCiAgdTAxD7IZLbhH9Pc5WqRneegLnQhdWv8RyRkwL2IjlMbvTDb1
+	Kg2jV61PfBgPku+TiUKmFz3+YQA4pgHNLRqY67Dovhqz62r8g2gUbyg5SdpFl4X1a7n5sBLbnpUpx
+	LX6rnArA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixge-0000000FL26-0Vhd;
-	Fri, 14 Feb 2025 15:33:04 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tixiD-0000000FLKb-3Z60;
+	Fri, 14 Feb 2025 15:34:41 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixUl-0000000FI0p-08EW
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 15:20:48 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51ECjkJC012402;
-	Fri, 14 Feb 2025 16:20:39 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	XIGWT/hG4tpt7K0ywnil/ic7qyIjws86Nr7lEaaCFVs=; b=wiDAEXVTGHJtLkQr
-	/TkMG3g8S+w7ayPRJsIpOHOijNJn8pAUEfAWlRbA4kvjev2Sn0QQ/UHbMTJ+fs0f
-	VTAlenMa76krHFtcykdMbiFpKX/JPf9wxx4VZXsoy6kRXTXFjj599xsTYd0XWb02
-	sLDjqZFkNE+weUcY8z5p71g8CGTD56ugaW/mF4DLCaeE6pH9+XRKs3ADj6V3lO/q
-	1zfhNtcX6Bbcr++WJ4fcR2EAFtv1PtbXa5XKqA38+4KFtaMWTwxx6vJI+YaGMNp9
-	x+B9zOy/c1nIRRP/c6G7qlbyt07yrWYJOpldbf5Js3zHvp92ZyI+YS6DUWh+RUZq
-	PO/WxA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44rrfum80j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 14 Feb 2025 16:20:39 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 03B9F40047;
-	Fri, 14 Feb 2025 16:19:29 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 351DA2DC032;
-	Fri, 14 Feb 2025 16:18:33 +0100 (CET)
-Received: from [10.48.87.120] (10.48.87.120) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 14 Feb
- 2025 16:18:32 +0100
-Message-ID: <e76829e9-26ee-44cc-8378-6e83f62eccd5@foss.st.com>
-Date: Fri, 14 Feb 2025 16:18:31 +0100
+	id 1tixVR-0000000FID5-0Plj;
+	Fri, 14 Feb 2025 15:21:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739546487;
+	bh=5Jn9LvD1kCFvAnBMnLblKW/OjM5Da/usy28KK7+BVD0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qEZRfcj0b/uMY6ekjNtlB8xvLc3qbSsBJx2JeCAukGQRvEY6Qd+VgBnqkT1Fu6FDJ
+	 JAlmoWY+mVvDBEJqbOI2K+gDLyzx0RB91mfvqntmyd1Bz9L85ycXA3uKxNaHLF1gPs
+	 1gW3gryl8LFmNKo+NxcHjJQxQ5tx4c4WAunHcvvNv2X6HqcAlXURh97duAruZwVSbi
+	 yypEgkUwVzACqmlp8KANW9F9U+t8AIQp2meXghRZC4ikjWH2Ttl3HOCjGRWBdkFsUY
+	 PoVmUpX+su0o4jdLVRQ3IucYqkVP46wTMjPOfhF5GPm+PpeSpSSK76FOcGAhzcIpTs
+	 YgInW+JgstJTw==
+Received: from earth.mtl.collabora.ca (mtl.collabora.ca [66.171.169.34])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DB3C417E0E95;
+	Fri, 14 Feb 2025 16:21:24 +0100 (CET)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: linux-kernel@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chris Morgan <macromorgan@hotmail.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Tim Lunn <tim@feathertop.org>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Michael Riesch <michael.riesch@wolfvision.net>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Stephen Chen <stephen@radxa.com>,
+	Elon Zhang <zhangzj@rock-chips.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	kernel@collabora.com
+Subject: [PATCH v3 0/2] Add Radxa Rock 4D support
+Date: Fri, 14 Feb 2025 10:19:32 -0500
+Message-ID: <20250214152119.405803-1-detlev.casanova@collabora.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/10] arm64: dts: st: introduce stm32mp21 SoCs family
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>
-References: <20250210-b4-stm32mp2_new_dts-v1-0-e8ef1e666c5e@foss.st.com>
- <20250210-b4-stm32mp2_new_dts-v1-8-e8ef1e666c5e@foss.st.com>
- <20250213-accurate-acoustic-mushroom-a0dfbd@krzk-bin>
-Content-Language: en-US
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-In-Reply-To: <20250213-accurate-acoustic-mushroom-a0dfbd@krzk-bin>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.120]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-14_06,2025-02-13_01,2024-11-22_01
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_072047_640286_1AE27726 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20250214_072129_296089_ADCCB3F1 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,258 +87,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/13/25 10:02, Krzysztof Kozlowski wrote:
-> On Mon, Feb 10, 2025 at 04:21:02PM +0100, Amelie Delaunay wrote:
->> From: Alexandre Torgue <alexandre.torgue@foss.st.com>
->>
->> STM32MP21 family is composed of 3 SoCs defined as following:
->>
->> -STM32MP211: common part composed of 1*Cortex-A35, common peripherals
->> like SDMMC, UART, SPI, I2C, parallel display, 1*ETH ...
->>
->> -STM32MP213: STM32MP211 + a second ETH, CAN-FD.
->>
->> -STM32MP215: STM32MP213 + Display and CSI2.
->>
->> A second diversity layer exists for security features/ A35 frequency:
->> -STM32MP21xY, "Y" gives information:
->>   -Y = A means A35@1.2GHz + no cryp IP and no secure boot.
->>   -Y = C means A35@1.2GHz + cryp IP and secure boot.
->>   -Y = D means A35@1.5GHz + no cryp IP and no secure boot.
->>   -Y = F means A35@1.5GHz + cryp IP and secure boot.
->>
->> Signed-off-by: Alexandre Torgue <alexandre.torgue@foss.st.com>
->> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
->> ---
->>   arch/arm64/boot/dts/st/stm32mp211.dtsi  | 130 ++++++++++++++++++++++++++++++++
->>   arch/arm64/boot/dts/st/stm32mp213.dtsi  |   9 +++
->>   arch/arm64/boot/dts/st/stm32mp215.dtsi  |   9 +++
->>   arch/arm64/boot/dts/st/stm32mp21xc.dtsi |   8 ++
->>   arch/arm64/boot/dts/st/stm32mp21xf.dtsi |   8 ++
->>   5 files changed, 164 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/st/stm32mp211.dtsi b/arch/arm64/boot/dts/st/stm32mp211.dtsi
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..d384359e0ea16e2593795ff48d4a699324c8ca75
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/st/stm32mp211.dtsi
->> @@ -0,0 +1,130 @@
->> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
->> +/*
->> + * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
->> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
->> + */
->> +#include <dt-bindings/interrupt-controller/arm-gic.h>
->> +
->> +/ {
->> +	#address-cells = <2>;
->> +	#size-cells = <2>;
->> +
->> +	cpus {
->> +		#address-cells = <1>;
->> +		#size-cells = <0>;
->> +
->> +		cpu0: cpu@0 {
->> +			compatible = "arm,cortex-a35";
->> +			device_type = "cpu";
->> +			reg = <0>;
->> +			enable-method = "psci";
->> +		};
->> +	};
->> +
->> +	arm-pmu {
->> +		compatible = "arm,cortex-a35-pmu";
->> +		interrupts = <GIC_SPI 368 IRQ_TYPE_LEVEL_HIGH>;
->> +		interrupt-affinity = <&cpu0>;
->> +		interrupt-parent = <&intc>;
->> +	};
->> +
->> +	arm_wdt: watchdog {
->> +		compatible = "arm,smc-wdt";
->> +		arm,smc-id = <0xbc000000>;
->> +		status = "disabled";
->> +	};
->> +
->> +	clocks {
->> +		ck_flexgen_08: ck-flexgen-08 {
->> +			#clock-cells = <0>;
->> +			compatible = "fixed-clock";
->> +			clock-frequency = <64000000>;
->> +		};
->> +
->> +		ck_flexgen_51: ck-flexgen-51 {
->> +			#clock-cells = <0>;
->> +			compatible = "fixed-clock";
->> +			clock-frequency = <200000000>;
->> +		};
->> +	};
->> +
->> +	firmware {
->> +		optee {
->> +			compatible = "linaro,optee-tz";
->> +			method = "smc";
->> +		};
->> +
->> +		scmi: scmi {
->> +			compatible = "linaro,scmi-optee";
->> +			#address-cells = <1>;
->> +			#size-cells = <0>;
->> +			linaro,optee-channel-id = <0>;
->> +
->> +			scmi_clk: protocol@14 {
->> +				reg = <0x14>;
->> +				#clock-cells = <1>;
->> +			};
->> +
->> +			scmi_reset: protocol@16 {
->> +				reg = <0x16>;
->> +				#reset-cells = <1>;
->> +			};
->> +		};
->> +	};
->> +
->> +	intc: interrupt-controller@4ac00000 {
-> 
-> MMIO nodes belong to the soc.
-> 
+Add the basic support for the board. (Not officially released yet)
+It is based on the Rockchip rk3576 SoC, so I haven't added the
+following devices yet:
+ - VOP/HDMI
+ - UFS
+as the support for those has not been merged yet, but are close to be
+and I already validated that they work.
+It will come with another patch set.
 
-Indeed.
+The following devices are supported and working:
+ - UART
+ - SD Card
+ - Ethernet
+ - USB
+ - RTC
 
->> +		compatible = "arm,cortex-a7-gic";
->> +		#interrupt-cells = <3>;
->> +		interrupt-controller;
->> +		reg = <0x0 0x4ac10000 0x0 0x1000>,
->> +		      <0x0 0x4ac20000 0x0 0x2000>,
->> +		      <0x0 0x4ac40000 0x0 0x2000>,
->> +		      <0x0 0x4ac60000 0x0 0x2000>;
->> +	};
->> +
->> +	psci {
->> +		compatible = "arm,psci-1.0";
->> +		method = "smc";
->> +	};
->> +
->> +	timer {
->> +		compatible = "arm,armv8-timer";
->> +		interrupt-parent = <&intc>;
->> +		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
->> +			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
->> +			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>,
->> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(1) | IRQ_TYPE_LEVEL_LOW)>;
->> +		arm,no-tick-in-suspend;
->> +	};
->> +
->> +	soc@0 {
->> +		compatible = "simple-bus";
->> +		#address-cells = <1>;
->> +		#size-cells = <2>;
->> +		interrupt-parent = <&intc>;
->> +		ranges = <0x0 0x0 0x0 0x0 0x80000000>;
-> 
-> ranges is the second property. See DTS coding style.
-> 
+Changes since v2:
+ - Move and rename snps,reset-* props to the PHY node
+ - Rename phy@1 to phy-ethernet@1
 
-Ok.
+Changes since v1:
+ - Add missing dt bindings
+ - Remove clock-frequency in rtc node
+ - Add line break in pmic pinctrls
 
->> +		dma-ranges = <0x0 0x0 0x80000000 0x1 0x0>;
->> +
->> +		rifsc: bus@42080000 {
->> +			compatible = "simple-bus";
->> +			reg = <0x42080000 0x0 0x1000>;
->> +			#address-cells = <1>;
->> +			#size-cells = <2>;
->> +			ranges;
-> 
-> and here is third.
-> 
->> +			dma-ranges;
->> +
->> +			usart2: serial@400e0000 {
-> 
-> Although addresses seem wrong. How bus could start at 0x4208 but device
-> at 0x400e?
-> 
->> +				compatible = "st,stm32h7-uart";
->> +				reg = <0x400e0000 0x0 0x400>;
->> +				interrupts = <GIC_SPI 102 IRQ_TYPE_LEVEL_HIGH>;
->> +				clocks = <&ck_flexgen_08>;
->> +				status = "disabled";
->> +			};
->> +		};
->> +
->> +		syscfg: syscon@44230000 {
->> +			compatible = "st,stm32mp25-syscfg", "syscon";
-> 
-> Which soc is this? DTSI says stm32mp211, commit STM32MP21, but
-> compatible xxx25?
-> 
+Detlev Casanova (1):
+  dt-bindings: arm: rockchip: Add Radxa ROCK 4D board
 
-Looks like a new compatible is needed, and I guess it is also true for 
-stm32mp231.
+Stephen Chen (1):
+  arm64: dts: rockchip: Add Radxa ROCK 4D device tree
 
->> +			reg = <0x44230000 0x0 0x10000>;
->> +		};
->> +	};
->> +};
->> diff --git a/arch/arm64/boot/dts/st/stm32mp213.dtsi b/arch/arm64/boot/dts/st/stm32mp213.dtsi
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..22cdedd9abbf4efac2334d497618daa6cc76727b
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/st/stm32mp213.dtsi
->> @@ -0,0 +1,9 @@
->> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
->> +/*
->> + * Copyright (C) STMicroelectronics 2024 - All Rights Reserved
->> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
->> + */
->> +#include "stm32mp211.dtsi"
->> +
->> +/ {
->> +};
->> diff --git a/arch/arm64/boot/dts/st/stm32mp215.dtsi b/arch/arm64/boot/dts/st/stm32mp215.dtsi
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..d2c63e92b3cc15ec64898374fd2e745a9c71eb6d
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/st/stm32mp215.dtsi
->> @@ -0,0 +1,9 @@
->> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
->> +/*
->> + * Copyright (C) STMicroelectronics 2024 - All Rights Reserved
->> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
->> + */
->> +#include "stm32mp213.dtsi"
->> +
->> +/ {
->> +};
-> 
-> What is the point of this file exactly?
-> 
+ .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../boot/dts/rockchip/rk3576-rock-4d.dts      | 650 ++++++++++++++++++
+ 3 files changed, 656 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
 
-Skeleton file for upcoming second ethernet and can-fd peripherals, not 
-available on stm32mp211.
+-- 
+2.48.1
 
->> diff --git a/arch/arm64/boot/dts/st/stm32mp21xc.dtsi b/arch/arm64/boot/dts/st/stm32mp21xc.dtsi
->> new file mode 100644
->> index 0000000000000000000000000000000000000000..39507a7564c8488647a3276eb227eb5f446359e6
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/st/stm32mp21xc.dtsi
->> @@ -0,0 +1,8 @@
->> +// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
->> +/*
->> + * Copyright (C) STMicroelectronics 2024 - All Rights Reserved
->> + * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
->> + */
->> +
->> +/ {
->> +};
-> 
-> And this and others.
-> 
-
-Skeleton file for upcoming cryptographic support, not available on 
-stm32mp21xa and stm32mp21xd.
-As said previously, same split is used on other STM32 MPUs.
-
-Regards,
-Amelie
 
