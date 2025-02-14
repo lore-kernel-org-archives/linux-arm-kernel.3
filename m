@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1206C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:13:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE57C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YXS1HGsTHr9/1Ngx2AF+DGBdFhZg7bub1m4HSTPuIuc=; b=bTc+GQBrz5H1vNsCFytn4mfzwV
-	/R79RbTqf4c81oFBHiS7YPYXC9uxYLrzJnpUaFWK4YsFeK/79xsgEYIvAZ4l6Sl0TmgoQ95H0u68b
-	7a7OBgm2p4PM/deZYhseizGreaoIlzfDmaJbWE5gCl0xZi0jn6gFOSJYrXt2VQ43HoJW2wz42le0x
-	67l3NiOumMWb4EsyVQ3eTu9m3jbH9XE93zM62IzV+imsZYm8XywKd+TfoCJM1kWL5x7ThLBR8bAvI
-	ywjOFD2BDGSHdgeEHdAQNUgKTEav6cBujKURoU+KobkFVs/oPbffUPfWY0LOXP8U+hezDk+GIy1Dn
-	OLtMqdSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MqPXmYf6da/8Vonc+HLrWxd5/lraaVNs4gaAWBXdOT8=; b=WxiF2BshKExKRWFboKBPwiyzYn
+	l4BtHQmuZUD1YLbjwH0EZ6BhLffOALBruDLIp0ZU+xfbjq1raRFsGEZovhq2VHbBLiN//jbdb08wy
+	VRAp3Fi89B2Nn5TC2/ko+ubbTqL52zIj8FeXPFw1iGH8OkoxiZGj+tTQOkOYelc8pPZ2GndvybLU2
+	s5ytur+RnQH6mLkJ+mECz9OFkjQ8jmnE6Z2l/0xrrrOtWPsM6u9HXMJBSPQv/oCwJ4U/xaWtyeKla
+	g5fGZo+/WZChPlhIDmyHCz7XOmx+fOdePaZ4MOvRgbttICyT/ueU9W1LuroTrK0+kGiCT765WxON+
+	jnjgHipw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixNX-0000000FGLk-3C9m;
-	Fri, 14 Feb 2025 15:13:19 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tixPb-0000000FGlZ-2BmV;
+	Fri, 14 Feb 2025 15:15:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixIv-0000000FFP6-00pV
+	id 1tixO9-0000000FGUG-11zV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 15:08:34 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51ECjotE010500;
-	Fri, 14 Feb 2025 16:08:19 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	YXS1HGsTHr9/1Ngx2AF+DGBdFhZg7bub1m4HSTPuIuc=; b=GzC2Xguz8yBpUIFF
-	RI+aUtN4T9Bu5IcWJFA7srIVliH9g502kTSXOpj5TcB1vaVujiMXGWT1U1Udz6TL
-	kF0YOJVywNexGSdQ4wOypyYaSiXoTXXXd9+OgkGfD5L6qWjNXTXKdiigY256aWgI
-	KmdUlXRh3dlXsKs8Bf1hNHSq0IEyKpADMBVSY2ijAd9YAAkkB+MSNjvbM2fLtq6Z
-	5jRfdYkTttU+MRuwACRlGwyOFV9p5nFkZ29vT8YtVfVgTfuqEB1LrDhMpOLPzP/i
-	LC4Y6qkrwwqd6/blvFlPjuGbINnAsuXkER1ht2L1mjbOBbdK7ux0k7skdjbXq+gG
-	bxYN4A==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44rrh3uwgf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 14 Feb 2025 16:08:19 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 775EC4002D;
-	Fri, 14 Feb 2025 16:07:10 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id AAADE2DB172;
-	Fri, 14 Feb 2025 16:06:16 +0100 (CET)
-Received: from [10.48.87.120] (10.48.87.120) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 14 Feb
- 2025 16:06:15 +0100
-Message-ID: <450d2efa-f38b-4f3a-b308-f2fb01fdb8f7@foss.st.com>
-Date: Fri, 14 Feb 2025 16:06:15 +0100
+	Fri, 14 Feb 2025 15:13:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4534F5C5A92;
+	Fri, 14 Feb 2025 15:13:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9340C4CEDD;
+	Fri, 14 Feb 2025 15:13:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739546036;
+	bh=RFJpcfzla1/p+yWYqC1cUGJBffni0p3EoU1xXc12NtE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GL3W9qVJRdnVkROe2Jpk/w2dfKv9mGFjcE9L8pLVH4N1RfKzcJq/fZ8TX7dwk8O19
+	 /EbfgQHy0Axj6AsvQMM7ZqU0fEV4I7Br04DgFFZQspQ39PekulZTDBPoWaj7V+ZE3e
+	 N4ij2TZ87MzllNIOaUHXMIL4s7cmyWQgr7HIVuMKzvczBtUVMj7LgXwaTk1XCaLjp/
+	 t2GSIVrLipjlT7J+Bm59c5g5dilhwdFS3PEYKIL0N3koWLQwkt6XQShXXKisu2zyvQ
+	 ofphn9ih4xkL5zWvi8CpF9LBaH5dTcAR0896zurKsC3KgZ3neiBM70w0hf+QAD5UXV
+	 0BAweflLkRZ6w==
+Date: Fri, 14 Feb 2025 15:13:52 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v4 00/27] KVM: arm64: Implement support for SME in
+ non-protected guests
+Message-ID: <Z69dsGn1JVWPCqAi@finisterre.sirena.org.uk>
+References: <20250214-kvm-arm64-sme-v4-0-d64a681adcc2@kernel.org>
+ <86pljkswuk.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/10] arm64: Kconfig: expand STM32 Armv8 SoC with
- STM32MP21 SoCs family
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Richard Cochran <richardcochran@gmail.com>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>
-References: <20250210-b4-stm32mp2_new_dts-v1-0-e8ef1e666c5e@foss.st.com>
- <20250210-b4-stm32mp2_new_dts-v1-7-e8ef1e666c5e@foss.st.com>
- <20250213-polite-spiked-dingo-ce0f3a@krzk-bin>
-Content-Language: en-US
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-In-Reply-To: <20250213-polite-spiked-dingo-ce0f3a@krzk-bin>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.120]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-14_06,2025-02-13_01,2024-11-22_01
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="i3oZTUREBVwjVqsD"
+Content-Disposition: inline
+In-Reply-To: <86pljkswuk.wl-maz@kernel.org>
+X-Cookie: Editing is a rewording activity.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_070833_342031_210583E3 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20250214_071357_375559_9E65D9F8 
+X-CRM114-Status: GOOD (  30.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,43 +83,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/13/25 10:02, Krzysztof Kozlowski wrote:
-> On Mon, Feb 10, 2025 at 04:21:01PM +0100, Amelie Delaunay wrote:
->> Expand config ARCH_STM32 with the new STM32MP21 SoCs family which is
->> composed of STM32MP211, STM32MP213 and STM32MP215 SoCs.
->>
->> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
->> ---
->>   arch/arm64/Kconfig.platforms | 2 ++
->>   1 file changed, 2 insertions(+)
->>
->> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
->> index 844a39620cfea8bfc031a545d85e33894ef20994..f788dbc09c9eb6f5801758ccf6b0ffe50a96090e 100644
->> --- a/arch/arm64/Kconfig.platforms
->> +++ b/arch/arm64/Kconfig.platforms
->> @@ -325,6 +325,8 @@ config ARCH_STM32
->>   			- STM32MP251, STM32MP253, STM32MP255 and STM32MP257.
->>   		- STM32MP23:
->>   			- STM32MP231, STM32MP233, STM32MP235.
->> +		- STM32MP21:
-> 
-> Squash it with previous patch and keep some sort of order.
->
 
-Ok for squashing with patch 3.
-Do you mean to keep the current chronological order used here or to 
-change the order because "chronological" is not an appropriate order? In 
-this case, would the alphanumeric order be fine?
+--i3oZTUREBVwjVqsD
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->> +			- STM32MP211, STM32MP213, STM32MP215.
->>   
->>   config ARCH_SYNQUACER
->>   	bool "Socionext SynQuacer SoC Family"
->>
->> -- 
->> 2.25.1
->>
+On Fri, Feb 14, 2025 at 09:24:03AM +0000, Marc Zyngier wrote:
+> Mark Brown <broonie@kernel.org> wrote:
 
-Regards,
-Amelie
+> Just to be clear: I do not intend to review a series that doesn't
+> cover the full gamut of KVM from day 1. Protected mode is an absolute
+> requirement. It is the largest KVM deployment, and Android phones the
+> only commonly available platform with SME. If CCA gets merged prior to
+> SME support, supporting it will also be a requirement.
+
+OK, no problem.  This is a new requirement and I'd been trying to
+balance the concerns people have with the size of serieses like this
+with the need to get everything in, my plan had been to follow up as
+soon as possible with pKVM.
+
+> > Access to the floating point registers follows the architecture:
+
+> >  - When both SVE and SME are present:
+> >    - If PSTATE.SM =3D=3D 0 the vector length used for the Z and P regis=
+ters
+> >      is the SVE vector length.
+> >    - If PSTATE.SM =3D=3D 1 the vector length used for the Z and P regis=
+ters
+> >      is the SME vector length.
+> >  - If only SME is present:
+> >    - If PSTATE.SM =3D=3D 0 the Z and P registers are inaccessible and t=
+he
+> >      floating point state accessed via the encodings for the V register=
+s.=20
+> >    - If PSTATE.SM =3D=3D 1 the vector length used for the Z and P regis=
+ters
+> >  - The SME specific ZA and ZT0 registers are only accessible if SVCR.ZA=
+ is 1.
+
+> > The VMM must understand this, in particular when loading state SVCR
+> > should be configured before other state.
+
+> Why SVCR? This isn't a register, just an architected accessor to
+> PSTATE.{ZA,SM}. Userspace already has direct access to PSTATE, so I
+> don't understand this requirement.
+
+Could you be more explicit as to what you mean by direct access to
+PSTATE here?  The direct access to these PSTATE fields is in the form of
+SVCR register accesses, or writes via SMSTART or SMSTOP instructions
+when executing code - is there another access mechanism I'm not aware of
+here?  They don't appear in SPSR.  Or is this a terminology issue with
+referring to SVCR as the mechanism for configuring PSTATE.{SM,ZA}
+without explicitly calling out that that's what's happening?
+
+> Isn't it that there is simply a dependency between restoring PSTATE
+> and any of the vector stuff? Also, how do you preserve the current ABI
+> that do not have this requirement?
+
+Yes, that's the dependency - I'm spelling out explicitly what changes in
+the register view when PSTATE.{SM,ZA} are restored.  This ABI is what
+you appeared to be asking for the last time we discussed this.
+Previously I had also proposed either:
+
+ - Exposing the streaming mode view of the register state as separate
+   registers, selecting between the standard and streaming views for
+   load/save based on the mode when the guest runs and clearing the
+   inactive registers on userspace access.
+
+ - Always presenting userspace with the largest available vector length,
+   zero padding when userspace reads and discarding unused high bits
+   when loading into the registers for the guest.  This ends up
+   requiring rewriting between VLs, or to/from FPSIMD format, around
+   periods of userspace access since when normally executing and context
+   switching the guest we want to store the data in the native format
+   for the current PSTATE.SM for performance.
+
+both of which largely avoid the ordering requirements but add complexity
+to the implementation, and memory overhead in the first case.  I'd
+originally implemented the second case, that seems the best of the
+available options to me.  You weren't happy with these options and said
+that we should not translate register formats and always use the current
+mode for the vCPU, but given that changing PSTATE.SM changes the
+register sizes that ends up creating an ordering requirement.  You
+seemed to agree that it was reasonable to have an ordering requirement
+with PSTATE.SM so long as it only came when SME had been explicitly
+enabled.
+
+Would you prefer:
+
+ - Changing the register view based on the current value of PSTATE.SM.
+ - Exposing streaming mode Z and P as separate registers.
+ - Exposing the existing Z and P registers with the maximum S?E VL.
+
+or some other option?
+
+--i3oZTUREBVwjVqsD
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmevXa0ACgkQJNaLcl1U
+h9AvMAf/UX+5QSO5KD39QjMVwAjrzs5PpGSz3thq4Ajk3AvOq6MoZLM+cigoPhqX
+VlsiJ5F1ztiGHX5M2YNaZHgpA3xg5Q+deKieaEkqUPok0M6qFUG1k18RMiKLE672
+FXoKOBodF5HMK+avPXZVprpADSTCJXcWvKNYh8/eiDe3l/hkH6+GtTTtjsRmmW2w
+Rm7PdYpNDVKxs1oVgMWd4lG7OD55/NtKfBqDaKwLia1iFVtr7RAJIw+EUiWnj8tK
+R9UND4PmPkPqsi+7Z3ixTXmwc2v2k4SDeXn2rfwCf5p1FQgwj63LAKmX75LHvdFU
+rXcZgH/UQ7bWTd6ZTfug17WaPkswBw==
+=zfPV
+-----END PGP SIGNATURE-----
+
+--i3oZTUREBVwjVqsD--
 
