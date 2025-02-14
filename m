@@ -4,90 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2628FC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FFEBC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=/3o2bMiSvGxVu4FI2HwI9+Xu1xmEuorMKkRQXffTCjo=; b=dREipsHELrML2p
-	yMy+8VFQ6USK+eq6l2ubAh3sOrzMN6t5boylGU3hybjWyVZg6TsL2pw/S3AGk4GGghmLk/2okP/hu
-	/wQvIWnZXBFg3FuMYPGjakxZJxJUztb/81lz23xkq2vhSFoxL0cVj22cozzsrNlLcVhZWHNjoMzu2
-	Lja8awjTKXm72kV7xMGe4fOIPGi/lt1VKsvfcKnMQcXf6DURxd1pPeH7+cIBWgh3YyJeeOKT5xP0p
-	bUzRvbyEQLqT9Xt0XvNlBrG7w6Fr+xw7UxKGErU1G7kuBJyQsTbzOciz0N4wrK27Xf5XfDtON60LD
-	bIRBeeFix7Pu0v2F+YkQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1wZWBEhc+7XW/jxCHi0HvycEodKoaIiK2HmKP8Gx3AQ=; b=BS80xgb8V4BQ5daU812ozW5IaF
+	FzX9qRORGuOA2jNmF6P50kb/WAs85zmZP8xRWTJhkZE98fPYy/sFztSSNNxfewCNFdbUi3mzL+oSx
+	WSikNW4yuEQe466jyfDN0OMQ6vu9nyRgpn1igkIRINO3aU3+/Bn1sjCrGyxpN5eeil3mThrRM9Q3f
+	9b+XlByxXB00RJKOAXFAiaiW+IgNQMY8lfPcCYRCb+AI71yTHED/pe24Wb21oQhBy52kcHkunK/lj
+	dMKZgBB4LJwM6xgmFvewsdM0IyIu5/rRkXGzbb/OYRy9qGikEgL6J/zKNZc1RNzUJLhbhU3URQCoY
+	SfnrszWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj0Cz-0000000FqEW-1Sg8;
-	Fri, 14 Feb 2025 18:14:37 +0000
+	id 1tj0EP-0000000FqRY-0OVP;
+	Fri, 14 Feb 2025 18:16:05 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tizVp-0000000FiYd-0dr0
+	id 1tizaC-0000000FjUw-2Gt9
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Feb 2025 17:30:01 +0000
+	Fri, 14 Feb 2025 17:34:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:References;
-	bh=/3o2bMiSvGxVu4FI2HwI9+Xu1xmEuorMKkRQXffTCjo=; b=LilDbfyydEoTsPtSdmpLdRHVPU
-	VVeh94QGbwDyxDyuSP5yx0HDRRN2pU6M5SE+laqjCFE4zgjba3+/lzABEp7bjBhPXNs8vM6tnqp3q
-	nBdNFa2vDYcefiL0aYL3R89QT4JQfqaHeb7m6nuJUKnyF/WV5nceYIFouzS11quDSgRlQg1p6daNl
-	DQxF4et7jegxN73D+vKzWpHez0sEdfBjHTrcBZWk86puHuY1CgYD8XARH99colMW8oQ6vrTJoUsBG
-	pL+to1rQcBLmKkC69U+A1kIEx44J7ufUSmKkk8/5SvVaZWNCb3O678Y6ozNraryTsE+U1kgvgCZts
-	ASCbyA8g==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
+	Message-ID:In-Reply-To:Subject:cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=1wZWBEhc+7XW/jxCHi0HvycEodKoaIiK2HmKP8Gx3AQ=; b=kReSjhp7lg7D5b7YH8Yj4kK/xZ
+	M0Rr/02ZOb47mukUGdX5NbukBhVL/nTbdwXzM9T0edNRL3IiMgh3v1H5LvUpLVGVDlVaTotc1N+MF
+	UadeXKRz8sTNMoZUBje7cuSnjAW0MH6uC/TMDy9Aw0SmgN/GR2tPvPSP/O94aOnjF08+SnfKTINKK
+	dPQ35wVlo5cPBzv35RHvWL6v7RIk0jMZPFxpOww+uO0P9QWgHR+FrhDl0X6fhH/STqQZeJXIF80JT
+	OMzm9aloHFLP7OTuSjREkQ0IdNLRwBcT4iL1YfU6CAk+Rs1c12hBLvn0ek7uY7HQJQgzjYM+v1Gfu
+	J3eSxotQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tizVl-00000001Hi8-21I2
+	id 1tiza8-00000001Hur-1qhn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 17:29:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2780FA432F1;
-	Fri, 14 Feb 2025 17:28:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4F4DC4CED1;
-	Fri, 14 Feb 2025 17:29:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739554194;
-	bh=ugNKYKj3EZ9GfwxKpe8rqlpyyI0FbYTnmeF24bNSsC8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=BHn1ZR4oDyGQrRhyQOKoDk5BDD6j7oC9n0AqMB67Ou3R27KQMyO82eOBcxEVq0LBX
-	 zngRtBBvJXrIyiIUYul0MYnxpNx5/N9ZeK7utJ2XeuSArGKTNGOSs8qxF4Gjcf6gDY
-	 JPziCAXWn2i9OZ5fF/yJycan4zyhOp1fcNPRTs5wYt5aGXJZeiDrcpuNlTiKi30KOc
-	 Pu+mqKCAEdhYoI/xbYjUSipafB5GjhYJHxI/iXP7ZPyULzN/nDkmuwQa0jeCG5L8KT
-	 /x+DB9YPGJai5z8dPJlQfWX0fGfO+nYgrSm7Phi2mMZ/mdvDQe7YvbgB2CKH5yKaCf
-	 0Vct+rUX4WiXg==
-Date: Fri, 14 Feb 2025 11:29:51 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Stuart Yoder <stuyoder@gmail.com>,
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
-	Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	Charan Teja Kalla <quic_charante@quicinc.com>
-Subject: Re: [PATCH 2/2] iommu: Get DT/ACPI parsing into the proper probe path
-Message-ID: <20250214172951.GA158443@bhelgaas>
+	Fri, 14 Feb 2025 17:34:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739554465;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1wZWBEhc+7XW/jxCHi0HvycEodKoaIiK2HmKP8Gx3AQ=;
+	b=GyLGMU5La87E3vgLWHZzb4g3NdVXQtdziyYEoVZxejqmkcNx/++88LUYRz3UIECu9j+fS7
+	bxDzmZyS4ZeYzQz8wHcLk+6o7/EmWjfaqPS5xMSNTKGehkyFrzNmWXuj8Hi5dhD2QqMuCY
+	196a3Uwn67SKTh0otEGGu5SX6lKP9rc=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739554465;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1wZWBEhc+7XW/jxCHi0HvycEodKoaIiK2HmKP8Gx3AQ=;
+	b=GyLGMU5La87E3vgLWHZzb4g3NdVXQtdziyYEoVZxejqmkcNx/++88LUYRz3UIECu9j+fS7
+	bxDzmZyS4ZeYzQz8wHcLk+6o7/EmWjfaqPS5xMSNTKGehkyFrzNmWXuj8Hi5dhD2QqMuCY
+	196a3Uwn67SKTh0otEGGu5SX6lKP9rc=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-369-1brIfTPgObuADSD-sIidtg-1; Fri, 14 Feb 2025 12:34:23 -0500
+X-MC-Unique: 1brIfTPgObuADSD-sIidtg-1
+X-Mimecast-MFC-AGG-ID: 1brIfTPgObuADSD-sIidtg_1739554463
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-38ddba9814bso1514372f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 09:34:23 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739554462; x=1740159262;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hV8JhFPYcrWWOCZKVjI7/hmlqDr4nhneUKbFw+hGcGw=;
+        b=nRc46mhRgolbOetbHHZ0EJ5qieZT+my1+nYAK8dHuQQHFsXpCquGVXuVCOndJEQTlt
+         fbWlphtSwfesKXr85B0+6Pj0Am9hME7m37dp9+l9mX8sg3E+4j3dqulTy92J0NkwhTza
+         bdMFBip9OUUtBy44J2uDwX16BD+bx2/ZwHCGsaeGE34WYG9QipWqyyoCFjAPZp5Yx5H/
+         9/vHL3EFMM7lv1BVbNRSUOHBhPeHAc6UxIMcLH4QHZxoen3SUmClreWSx9efha12lh3M
+         awRpAyUq3N+yCnywWa3gCcs8k2IkZoNmkuTAYB820iEsjzgfE/FfAg+0ABFrdsDWwCXj
+         TTSA==
+X-Forwarded-Encrypted: i=1; AJvYcCWnJtO52IN06bthdnlQJwVtY1IgLqUu+oelr22Mtqts2jZ8HKR8zBV5IqqfiwtbYGDrTEOtaS7OOOduSeC2CAI9@lists.infradead.org
+X-Gm-Message-State: AOJu0YziplrVBfyyhcRboV28B+P0gZ9hQKegfXun/UdzxhWfAj0qC5wS
+	MJhBdcfHXBm621mDldJKSRx6+d0p2lRXuMp5Scdaxlcnr0L25lTKhCOzdQESyHhzyXaYivB9TdQ
+	haheJN95QvOdEF2DSyRTk9U/Smp5yr9v03fp/3FVsf6K0SdGAHKdsjKs6573p2fi7fhdLePIn
+X-Gm-Gg: ASbGnctiAvr//QiQcoItcyg/OAPqmf1HX+wY1XPgl7+ko1TcBNLNVjKvBGvqYyTRPkX
+	fH5Qs3H5dmqNPIHTp0nqC4M8FYw6v90KSdIiKvkqS9mmeueyd2t/xAxWCq0g6edI3EL1hOe1LiH
+	MTd6NE0x6SnZNYYE1gK6fvA36Cg+cHxm5yIOuEejU46dONcxMTUz0wAyFPpIeY935/UyIHI2Sed
+	BvX6BpQua6zekpkRpVKNO4NlLnbdtOAHEEsArxy3C6p2j8vRmCwM57buk5pnihRArXSLabNAEMg
+	qYSs0dzkSD2R/S4TEdqpQm5pMsxPiOYxSgjYH0bDMCA8hOChNA2gSg==
+X-Received: by 2002:a05:6000:4008:b0:385:ee40:2d88 with SMTP id ffacd0b85a97d-38f244d648cmr12747548f8f.3.1739554462560;
+        Fri, 14 Feb 2025 09:34:22 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHLq9R9sFnDs+J8hpOwo9gOo3BsH3NCojh2IMq354S0SwWU05YmSPCHC41tpgN81o7+Z7dgWw==
+X-Received: by 2002:a05:6000:4008:b0:385:ee40:2d88 with SMTP id ffacd0b85a97d-38f244d648cmr12747510f8f.3.1739554462192;
+        Fri, 14 Feb 2025 09:34:22 -0800 (PST)
+Received: from rh (p200300f6af0e4d00dda53016e366575f.dip0.t-ipconnect.de. [2003:f6:af0e:4d00:dda5:3016:e366:575f])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259f8115sm5200049f8f.92.2025.02.14.09.34.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Feb 2025 09:34:21 -0800 (PST)
+Date: Fri, 14 Feb 2025 18:34:20 +0100 (CET)
+From: Sebastian Ott <sebott@redhat.com>
+To: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+cc: kvmarm@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev, 
+    catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, 
+    cohuck@redhat.com, eric.auger@redhat.com, yuzenghui@huawei.com, 
+    wangzhou1@hisilicon.com, jiangkunkun@huawei.com, 
+    jonathan.cameron@huawei.com, anthony.jebson@huawei.com, 
+    linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
+Subject: Re: [PATCH v7 0/5] KVM: arm64: Errata management for VM Live
+ migration
+In-Reply-To: <20250214151343.61348-1-shameerali.kolothum.thodi@huawei.com>
+Message-ID: <0ea00cd9-0cdc-aef9-7a3f-f0101295e03f@redhat.com>
+References: <20250214151343.61348-1-shameerali.kolothum.thodi@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c2f0ae276fd5a18e1653bae8bb0c51670e35b283.1739486121.git.robin.murphy@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Bb1BMsjAmKnS905WDOQRaSe1kIfgRO1vEmxbi8aoqhU_1739554463
+X-Mimecast-Originator: redhat.com
+Content-Type: multipart/mixed; boundary="-1463806286-568075231-1739554461=:19562"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_172957_834391_5B9C0C57 
-X-CRM114-Status: GOOD (  52.87  )
+X-CRM114-CacheID: sfid-20250214_173428_681955_367C09B8 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,300 +133,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 11:49:00PM +0000, Robin Murphy wrote:
-> In hindsight, there were some crucial subtleties overlooked when moving
-> {of,acpi}_dma_configure() to driver probe time to allow waiting for
-> IOMMU drivers with -EPROBE_DEFER, and these have become an
-> ever-increasing source of problems. The IOMMU API has some fundamental
-> assumptions that iommu_probe_device() is called for every device added
-> to the system, in the order in which they are added. Calling it in a
-> random order or not at all dependent on driver binding leads to
-> malformed groups, a potential lack of isolation for devices with no
-> driver, and all manner of unexpected concurrency and race conditions.
-> We've attempted to mitigate the latter with point-fix bodges like
-> iommu_probe_device_lock, but it's a losing battle and the time has come
-> to bite the bullet and address the true source of the problem instead.
-> 
-> The crux of the matter is that the firmware parsing actually serves two
-> distinct purposes; one is identifying the IOMMU instance associated with
-> a device so we can check its availability, the second is actually
-> telling that instance about the relevant firmware-provided data for the
-> device. However the latter also depends on the former, and at the time
-> there was no good place to defer and retry that separately from the
-> availability check we also wanted for client driver probe.
-> 
-> Nowadays, though, we have a proper notion of multiple IOMMU instances in
-> the core API itself, and each one gets a chance to probe its own devices
-> upon registration, so we can finally make that work as intended for
-> DT/IORT/VIOT platforms too. All we need is for iommu_probe_device() to
-> be able to run the iommu_fwspec machinery currently buried deep in the
-> wrong end of {of,acpi}_dma_configure(). Luckily it turns out to be
-> surprisingly straightforward to bootstrap this transformation by pretty
-> much just calling the same path twice. At client driver probe time,
-> dev->driver is obviously set; conversely at device_add(), or a
-> subsequent bus_iommu_probe(), any device waiting for an IOMMU really
-> should *not* have a driver already, so we can use that as a condition to
-> disambiguate the two cases, and avoid recursing back into the IOMMU core
-> at the wrong times.
-> 
-> Obviously this isn't the nicest thing, but for now it gives us a
-> functional baseline to then unpick the layers in between without many
-> more awkward cross-subsystem patches. There are some minor side-effects
-> like dma_range_map potentially being created earlier, and some debug
-> prints being repeated, but these aren't significantly detrimental. Let's
-> make things work first, then deal with making them nice.
-> 
-> With the basic flow finally in the right order again, the next step is
-> probably turning the bus->dma_configure paths inside-out, since all we
-> really need from bus code is its notion of which device and input ID(s)
-> to parse the common firmware properties with...
-> 
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
-> ---
->  drivers/acpi/arm64/dma.c        |  5 ++++
->  drivers/acpi/scan.c             | 10 +++-----
->  drivers/amba/bus.c              |  2 +-
->  drivers/base/platform.c         |  2 +-
->  drivers/bus/fsl-mc/fsl-mc-bus.c |  2 +-
->  drivers/cdx/cdx.c               |  2 +-
->  drivers/iommu/iommu.c           | 43 ++++++++++++++++++++++++---------
->  drivers/iommu/of_iommu.c        | 10 +++++++-
->  drivers/of/device.c             |  7 +++++-
->  drivers/pci/pci-driver.c        |  2 +-
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
+---1463806286-568075231-1739554461=:19562
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8BIT
 
-Acked-by: Bjorn Helgaas <bhelgaas@google.com> # pci-driver.c
+On Fri, 14 Feb 2025, Shameer Kolothum wrote:
+> v6-->v7
+> https://lore.kernel.org/kvmarm/20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com/
+>
+> Changes:
+>  -Introduced KVM_REG_ARM_VENDOR_HYP_BMAP_2 register for new hypercall
+>  support(patch #3)
+> -Added selftest for KVM_REG_ARM_VENDOR_HYP_BMAP_2(patch #5).
+>
+> This can be sanity tested by the Qemu branch here,
+> https://github.com/hisilicon/qemu/tree/v9.0-nv-rfcv4-vcpu-model-v2-target-cpu-errata
+> (branch based on Eric's/Connie's NV + custom CPU series)
+> Eg: to specify target impl CPUs,
+> -machine virt,.., x-target-impl-cpus=0xMIDR1:0xREVIDR1-0xMIDR2:REVIDR2
+>
+> Please take a look and let me know your feedback.
 
-I assume this will be merged via the IOMMU tree.
+Reviewed-by: Sebastian Ott <sebott@redhat.com>
+---1463806286-568075231-1739554461=:19562--
 
->  10 files changed, 60 insertions(+), 25 deletions(-)
-> 
-> diff --git a/drivers/acpi/arm64/dma.c b/drivers/acpi/arm64/dma.c
-> index 52b2abf88689..f30f138352b7 100644
-> --- a/drivers/acpi/arm64/dma.c
-> +++ b/drivers/acpi/arm64/dma.c
-> @@ -26,6 +26,11 @@ void acpi_arch_dma_setup(struct device *dev)
->  	else
->  		end = (1ULL << 32) - 1;
->  
-> +	if (dev->dma_range_map) {
-> +		dev_dbg(dev, "dma_range_map already set\n");
-> +		return;
-> +	}
-> +
->  	ret = acpi_dma_get_range(dev, &map);
->  	if (!ret && map) {
->  		end = dma_range_map_max(map);
-> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-> index 9f4efa8f75a6..42b8f1833c3c 100644
-> --- a/drivers/acpi/scan.c
-> +++ b/drivers/acpi/scan.c
-> @@ -1619,6 +1619,9 @@ static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
->  {
->  	int err;
->  
-> +	if (device_iommu_mapped(dev))
-> +		return 0;
-> +
->  	/* Serialise to make dev->iommu stable under our potential fwspec */
->  	mutex_lock(&iommu_probe_device_lock);
->  	/* If we already translated the fwspec there is nothing left to do */
-> @@ -1632,13 +1635,6 @@ static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
->  		err = viot_iommu_configure(dev);
->  	mutex_unlock(&iommu_probe_device_lock);
->  
-> -	/*
-> -	 * If we have reason to believe the IOMMU driver missed the initial
-> -	 * iommu_probe_device() call for dev, replay it to get things in order.
-> -	 */
-> -	if (!err && dev->bus)
-> -		err = iommu_probe_device(dev);
-> -
->  	return err;
->  }
->  
-> diff --git a/drivers/amba/bus.c b/drivers/amba/bus.c
-> index 8ef259b4d037..abbb37d4d228 100644
-> --- a/drivers/amba/bus.c
-> +++ b/drivers/amba/bus.c
-> @@ -364,7 +364,7 @@ static int amba_dma_configure(struct device *dev)
->  		ret = acpi_dma_configure(dev, attr);
->  	}
->  
-> -	if (!ret && !drv->driver_managed_dma) {
-> +	if (dev->driver && !ret && !drv->driver_managed_dma) {
->  		ret = iommu_device_use_default_domain(dev);
->  		if (ret)
->  			arch_teardown_dma_ops(dev);
-> diff --git a/drivers/base/platform.c b/drivers/base/platform.c
-> index 6f2a33722c52..4c7570d637f9 100644
-> --- a/drivers/base/platform.c
-> +++ b/drivers/base/platform.c
-> @@ -1451,7 +1451,7 @@ static int platform_dma_configure(struct device *dev)
->  		attr = acpi_get_dma_attr(to_acpi_device_node(fwnode));
->  		ret = acpi_dma_configure(dev, attr);
->  	}
-> -	if (ret || drv->driver_managed_dma)
-> +	if (!dev->driver || ret || drv->driver_managed_dma)
->  		return ret;
->  
->  	ret = iommu_device_use_default_domain(dev);
-> diff --git a/drivers/bus/fsl-mc/fsl-mc-bus.c b/drivers/bus/fsl-mc/fsl-mc-bus.c
-> index d1f3d327ddd1..fb58833b222a 100644
-> --- a/drivers/bus/fsl-mc/fsl-mc-bus.c
-> +++ b/drivers/bus/fsl-mc/fsl-mc-bus.c
-> @@ -153,7 +153,7 @@ static int fsl_mc_dma_configure(struct device *dev)
->  	else
->  		ret = acpi_dma_configure_id(dev, DEV_DMA_COHERENT, &input_id);
->  
-> -	if (!ret && !mc_drv->driver_managed_dma) {
-> +	if (dev->driver && !ret && !mc_drv->driver_managed_dma) {
->  		ret = iommu_device_use_default_domain(dev);
->  		if (ret)
->  			arch_teardown_dma_ops(dev);
-> diff --git a/drivers/cdx/cdx.c b/drivers/cdx/cdx.c
-> index c573ed2ee71a..d5761b96a412 100644
-> --- a/drivers/cdx/cdx.c
-> +++ b/drivers/cdx/cdx.c
-> @@ -360,7 +360,7 @@ static int cdx_dma_configure(struct device *dev)
->  		return ret;
->  	}
->  
-> -	if (!ret && !cdx_drv->driver_managed_dma) {
-> +	if (dev->driver && !ret && !cdx_drv->driver_managed_dma) {
->  		ret = iommu_device_use_default_domain(dev);
->  		if (ret)
->  			arch_teardown_dma_ops(dev);
-> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-> index 2486f6d6ef68..89f634d46aad 100644
-> --- a/drivers/iommu/iommu.c
-> +++ b/drivers/iommu/iommu.c
-> @@ -519,17 +519,6 @@ static int __iommu_probe_device(struct device *dev, struct list_head *group_list
->  	struct group_device *gdev;
->  	int ret;
->  
-> -	/*
-> -	 * For FDT-based systems and ACPI IORT/VIOT, drivers register IOMMU
-> -	 * instances with non-NULL fwnodes, and client devices should have been
-> -	 * identified with a fwspec by this point. Otherwise, we can currently
-> -	 * assume that only one of Intel, AMD, s390, PAMU or legacy SMMUv2 can
-> -	 * be present, and that any of their registered instances has suitable
-> -	 * ops for probing, and thus cheekily co-opt the same mechanism.
-> -	 */
-> -	ops = iommu_fwspec_ops(dev_iommu_fwspec_get(dev));
-> -	if (!ops)
-> -		return -ENODEV;
->  	/*
->  	 * Serialise to avoid races between IOMMU drivers registering in
->  	 * parallel and/or the "replay" calls from ACPI/OF code via client
-> @@ -539,9 +528,41 @@ static int __iommu_probe_device(struct device *dev, struct list_head *group_list
->  	 */
->  	lockdep_assert_held(&iommu_probe_device_lock);
->  
-> +	/*
-> +	 * For FDT-based systems and ACPI IORT/VIOT, the common firmware parsing
-> +	 * is buried in the bus dma_configure path. Properly unpicking that is
-> +	 * still a fairly big job, so for now just invoke the whole thing. Our
-> +	 * bus_iommu_probe() walk may see devices with drivers already bound,
-> +	 * but that must mean they're already configured - either probed by
-> +	 * another IOMMU, or there was no IOMMU for iommu_fwspec_init() to wait
-> +	 * for - so either way we can safely skip this and avoid worrying about
-> +	 * those recursing back here thinking they need a replay call.
-> +	 */
-> +	if (!dev->driver && dev->bus->dma_configure) {
-> +		mutex_unlock(&iommu_probe_device_lock);
-> +		dev->bus->dma_configure(dev);
-> +		mutex_lock(&iommu_probe_device_lock);
-> +	}
-> +
-> +	/*
-> +	 * At this point, either valid devices now have a fwspec, or we can
-> +	 * assume that only one of Intel, AMD, s390, PAMU or legacy SMMUv2 can
-> +	 * be present, and that any of their registered instances has suitable
-> +	 * ops for probing, and thus cheekily co-opt the same mechanism.
-> +	 */
-> +	ops = iommu_fwspec_ops(dev_iommu_fwspec_get(dev));
-> +	if (!ops)
-> +		return -ENODEV;
-> +
->  	/* Device is probed already if in a group */
->  	if (dev->iommu_group)
->  		return 0;
-> +	/*
-> +	 * And if we do now see any replay calls, they would indicate someone
-> +	 * misusing the dma_configure path outside bus code.
-> +	 */
-> +	if (dev_iommu_fwspec_get(dev) && dev->driver)
-> +		dev_WARN(dev, "late IOMMU probe at driver bind, something fishy here!\n");
->  
->  	ret = iommu_init_device(dev, ops);
->  	if (ret)
-> diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
-> index 97987cd78da9..c9aaf5783b77 100644
-> --- a/drivers/iommu/of_iommu.c
-> +++ b/drivers/iommu/of_iommu.c
-> @@ -121,6 +121,9 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
->  	if (!master_np)
->  		return -ENODEV;
->  
-> +	if (device_iommu_mapped(dev))
-> +		return 0;
-> +
->  	/* Serialise to make dev->iommu stable under our potential fwspec */
->  	mutex_lock(&iommu_probe_device_lock);
->  	if (dev_iommu_fwspec_get(dev)) {
-> @@ -151,7 +154,12 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
->  		iommu_fwspec_free(dev);
->  	mutex_unlock(&iommu_probe_device_lock);
->  
-> -	if (!err && dev->bus)
-> +	/*
-> +	 * If we have reason to believe the IOMMU driver missed the initial
-> +	 * iommu_probe_device() call for dev, try to fix it up. This should
-> +	 * no longer happen unless of_dma_configure() is being misused.
-> +	 */
-> +	if (!err && dev->driver)
->  		err = iommu_probe_device(dev);
->  
->  	if (err && err != -EPROBE_DEFER)
-> diff --git a/drivers/of/device.c b/drivers/of/device.c
-> index edf3be197265..5053e5d532cc 100644
-> --- a/drivers/of/device.c
-> +++ b/drivers/of/device.c
-> @@ -99,6 +99,11 @@ int of_dma_configure_id(struct device *dev, struct device_node *np,
->  	bool coherent, set_map = false;
->  	int ret;
->  
-> +	if (dev->dma_range_map) {
-> +		dev_dbg(dev, "dma_range_map already set\n");
-> +		goto skip_map;
-> +	}
-> +
->  	if (np == dev->of_node)
->  		bus_np = __of_get_dma_parent(np);
->  	else
-> @@ -119,7 +124,7 @@ int of_dma_configure_id(struct device *dev, struct device_node *np,
->  		end = dma_range_map_max(map);
->  		set_map = true;
->  	}
-> -
-> +skip_map:
->  	/*
->  	 * If @dev is expected to be DMA-capable then the bus code that created
->  	 * it should have initialised its dma_mask pointer by this point. For
-> diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
-> index f57ea36d125d..143b2f2081ea 100644
-> --- a/drivers/pci/pci-driver.c
-> +++ b/drivers/pci/pci-driver.c
-> @@ -1653,7 +1653,7 @@ static int pci_dma_configure(struct device *dev)
->  
->  	pci_put_host_bridge_device(bridge);
->  
-> -	if (!ret && !driver->driver_managed_dma) {
-> +	if (dev->driver && !ret && !driver->driver_managed_dma) {
->  		ret = iommu_device_use_default_domain(dev);
->  		if (ret)
->  			arch_teardown_dma_ops(dev);
-> -- 
-> 2.39.2.101.g768bb238c484.dirty
-> 
 
