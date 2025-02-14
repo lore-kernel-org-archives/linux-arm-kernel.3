@@ -4,72 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CD4DC021A7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 20:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FE41C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 20:55:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ZfhZ+gGKT0tAP9EW1J9t4agSVKOHiQWCEqR28O1Vfk=; b=SFIXBZWjAgKov4ZiAaPmqdlXlK
-	jD20yj0myftF2ulXV50HIacee9iJXzjsR5W1kSreQLDG0Xh7RIpIbV04VLJ8AOJ8W79RPpLNUY5Nd
-	NKW6x0DFQkFs7JDhMWR0v46pPs5BKO5nrpdwrXMY8kBkLd4171UhbE890bXRdm4TP7dYVBgypAwJj
-	JNCVExSF4Ol4+vRJcw6s7Wo2Cg2PEr1R3nEREUd5PRSLuP1obRRhZ0JgmATNHiQRV4gV6Z9Ef6Vso
-	xnqaAgDThaetUB+1SHn1O0FCiDKz4I/VMdo3B6IsFcj4uKw9gajcuzjMPKK/WLa3axyb4sFJ2/J1D
-	G/5nrKmA==;
+	bh=tP6TWlVS+e0yQlRVKaAnhFvXz2tLpWX0gcV22HBOliI=; b=c0JUJjLgN0NoSFQoiShYwo00ak
+	wROhhGRIjTkjqLL6IOa7fXgQOw1iosuIKSPjvn6NGLflvwYkzYtY3o22ib8/RZwFYh/9uV+L2QR9g
+	fFIPRJlzAFkEqIEm3cE/sryRUAsotftcCWN5f0OR4kRIgFEjYC1xgccUVboSD+uHbW6j7KAvGuMF5
+	44Z6BaVIy44tdeaPEHfBoF0JkkUssh8ZNmXEtaZB6gixcbdoKbavurSmzfZyDjUbxKSXLk2EQmLOJ
+	d/tbUuxYg+5aquujIQUZuwTIq6zPqLKJO4GAGpeMZFQUZkH1qg6xpvMYGAcq6PdSfTYJxV9xy5Vve
+	iGAHtnNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj2Gc-0000000GA75-1p3Y;
-	Fri, 14 Feb 2025 20:26:30 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tj2i4-0000000GCok-1vTe;
+	Fri, 14 Feb 2025 20:54:52 +0000
+Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tizMJ-0000000Fg7s-3SLJ;
-	Fri, 14 Feb 2025 17:20:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739553610;
-	bh=daPg2Fccz1EsxoSOHSS26SMyam1GJAwCnpk0jrud1Jc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZDIWifHGTNohT2atoseUGMlz2wV56E7UPz45PLkn29wGPTh841/hlaVfWyCXPpFgJ
-	 HVwQ/XU+eSG1tUTwse6mW/3Nz5hMBLWU31dEUDjnVA3ljsKiZzO3CGHHg/9GB2V46t
-	 oss2kceiK/DYUuDt6ACSrEKRYjZ25sj+3nsrdRQ7YAu4uat9tMwq5UCoUVi2vNRbz3
-	 /otgmvMRGUR7iegJuheY7HFcQGoCJeOO3Fm6IE+3ewFZSIzNlJ7yjTj3ATHBgstJe7
-	 GxrmN7eS77a4UIjhkZqQg5FxfKvBcR5zKRGTbipeiBG0Ew/4q2OyeujIXsDJooriWs
-	 tV/ojXxwRwrug==
-Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1003])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 00C1017E0239;
-	Fri, 14 Feb 2025 18:20:05 +0100 (CET)
-From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Fri, 14 Feb 2025 14:18:42 -0300
-Subject: [PATCH 11/13] ASoC: mediatek: mt6359-accdet: Handle
- mediatek,eint-use-ext-res as bool
+	id 1tj2gb-0000000GCfE-3kAQ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Feb 2025 20:53:23 +0000
+Received: from phl-compute-13.internal (phl-compute-13.phl.internal [10.202.2.53])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 55A61254014C;
+	Fri, 14 Feb 2025 15:53:18 -0500 (EST)
+Received: from phl-imap-07 ([10.202.2.97])
+  by phl-compute-13.internal (MEProxy); Fri, 14 Feb 2025 15:53:18 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm3;
+	 t=1739566398; x=1739652798; bh=tP6TWlVS+e0yQlRVKaAnhFvXz2tLpWX0
+	gcV22HBOliI=; b=aZ+0EMixCqpdZdtygFkX0S5NBGsyyFNEF1OxH9wmAFRpd2+x
+	H9T4kgIRp9ety5bmXx//awaI9Ye9mGByE9z/W/CXrv7yN7S/0Dde8kTXxWyv8COn
+	bnJ+HKayeQE7RH4wWbrGJIucGG0J4Oq4gB3aSeT2IR6ULXzwgXqKSCoWbW/AZMAJ
+	DX96QnxIsfncLsMNH5eAsbEUVlznClWXPhzWxf6I0ygxNfrlmEUYCAedlxGomq3F
+	XAJ/jGiII5OIsTeJ5ieASE3Kpk1sir7JXNawqPGAvolpzBWTwebaBoi0gZKINY05
+	SR7FR6wSLfbrocr30QRIEFs63+To+8mm1qvi6A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739566398; x=
+	1739652798; bh=tP6TWlVS+e0yQlRVKaAnhFvXz2tLpWX0gcV22HBOliI=; b=G
+	XPFvkIkafwq9pfnR1aA9L4tSKLp1IV1xwHw549epdoSVWTf0rAvstBgMP0L+agMN
+	0IQ1s2WgWW5yFUB1iHtR5rZKa9qNTtGcG2S1rIPqdAezjNWDEM2b2Nf+gZIvSeHe
+	mJkCq1ztbMeIsKPRwyJxvK75z2GocIQHfsJ2ZEz99AJNeT9n6taQsWqSmYmnpLwa
+	amDBXC7v0oUXo9kdVgLMj6qM5K3axW1AggxZpW6cUuk9hTW9pUUy4nwTBt17xzEc
+	SM/2ZsdEY3mI98Srl+1WljR4Y/gQxsz5qnF0QwECHOU3mZ3Oy0spG78LazsI8XD2
+	pft4zcnJH8olmF3ByK+NA==
+X-ME-Sender: <xms:PK2vZ1bQHRyyNXmXjHOCrirIltApDcwXx88Zb0ZuP7t3ShBPY5KnIg>
+    <xme:PK2vZ8YUHa3l_F73hejLAXDx9iBL1sj_BsM4pSQAUpiJx3Pp6tSthgw6VUaa9FxEL
+    oEi2t5e-vd-mf-EBw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehtdeiiecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
+    jeenucfhrhhomhepfdfthigrnhcuhggrlhhklhhinhdfuceorhihrghnsehtvghsthhtoh
+    grshhtrdgtohhmqeenucggtffrrghtthgvrhhnpeehteeiveetgfefieevffffkedutdeu
+    heekffefudehhfevfefgfefgudfftdeivdenucffohhmrghinhepghhithhhuhgsrdgtoh
+    hmpdhrvggrughmvgdrmhgunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehm
+    rghilhhfrhhomheprhihrghnsehtvghsthhtohgrshhtrdgtohhmpdhnsggprhgtphhtth
+    hopedufedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepfigvnhhssegtshhivgdr
+    ohhrghdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghilhdrtghomh
+    dprhgtphhtthhopehlghhirhgufihoohgusehgmhgrihhlrdgtohhmpdhrtghpthhtohep
+    mhgrtghrohhmohhrghgrnheshhhothhmrghilhdrtghomhdprhgtphhtthhopehufihuse
+    hitggvnhhofiihrdhmvgdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhr
+    ghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfh
+    hrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhsuhhngihisehlihhsthhs
+    rdhlihhnuhigrdguvghvpdhrtghpthhtohepphgvrhgvgiesphgvrhgvgidrtgii
+X-ME-Proxy: <xmx:PK2vZ38U9KeVGeKZmCiWaVZdvWu6fuTEpUlIui-zIuOuvu1gmASOTQ>
+    <xmx:PK2vZzpAThlzlUvs7dDdOKTVmI5svS39XRisK8Esknm2O29V7VWSBQ>
+    <xmx:PK2vZwo5wdHzOyJ_rhjnG31fSnwiDoFsBPEhrRhIlkNihB68LTSVvA>
+    <xmx:PK2vZ5ThoqrVwpb9sHHHCTm2kme6fpvSagvPU6k_6PKNRllPnfZn4Q>
+    <xmx:Pq2vZ2gMF1BrKYKM1fpJx6-M3lyUPEhYYgXcX35NXIt8jNVrzXpHLIZk>
+Feedback-ID: idc0145fc:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 985B9BA006F; Fri, 14 Feb 2025 15:53:16 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250214-mt6359-accdet-dts-v1-11-677a151b9b4c@collabora.com>
-References: <20250214-mt6359-accdet-dts-v1-0-677a151b9b4c@collabora.com>
-In-Reply-To: <20250214-mt6359-accdet-dts-v1-0-677a151b9b4c@collabora.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-pm@vger.kernel.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-X-Mailer: b4 0.14.2
+Date: Sat, 15 Feb 2025 09:52:55 +1300
+From: "Ryan Walklin" <ryan@testtoast.com>
+To: "Icenowy Zheng" <uwu@icenowy.me>, "Liam Girdwood" <lgirdwood@gmail.com>,
+ "Mark Brown" <broonie@kernel.org>, "Jaroslav Kysela" <perex@perex.cz>,
+ "Takashi Iwai" <tiwai@suse.com>, "Chen-Yu Tsai" <wens@csie.org>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "Samuel Holland" <samuel@sholland.org>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
+ "Chris Morgan" <macromorgan@hotmail.com>
+Message-Id: <e1e08020-8284-47da-9cf1-fd7fd1461e74@app.fastmail.com>
+In-Reply-To: <c5ade280-d607-4870-a4e0-7d455f6bc6c3@app.fastmail.com>
+References: <20250125070458.13822-1-ryan@testtoast.com>
+ <20250125070458.13822-6-ryan@testtoast.com>
+ <db43243ea653073d223e640f064cd480da7e2cf5.camel@icenowy.me>
+ <c5ade280-d607-4870-a4e0-7d455f6bc6c3@app.fastmail.com>
+Subject: Re: [PATCH v2 5/5] ASoC: sun4i-codec: change h616 card name
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_092012_038289_4FFB0E0A 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250214_125322_157009_BCAB250A 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,69 +122,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The code currently allows for values between 0 and 4 for the
-eint_use_ext_res property, but it should be handled as a boolean, either
-configuring the internal resistor to be used or not. Update the code
-accordingly.
 
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
----
- sound/soc/codecs/mt6359-accdet.c | 12 +++---------
- sound/soc/codecs/mt6359-accdet.h |  2 +-
- 2 files changed, 4 insertions(+), 10 deletions(-)
 
-diff --git a/sound/soc/codecs/mt6359-accdet.c b/sound/soc/codecs/mt6359-accdet.c
-index c3d51c0753c815cd92935736300f57fd18e033f7..646cdd4e0b57f2a007fdcfcaecb7534e08ae61c4 100644
---- a/sound/soc/codecs/mt6359-accdet.c
-+++ b/sound/soc/codecs/mt6359-accdet.c
-@@ -82,8 +82,7 @@ static unsigned int adjust_eint_analog_setting(struct mt6359_accdet *priv)
- 					   RG_EINT1CONFIGACCDET_MASK_SFT,
- 					   BIT(RG_EINT1CONFIGACCDET_SFT));
- 		}
--		if (priv->data->eint_use_ext_res == 0x3 ||
--		    priv->data->eint_use_ext_res == 0x4) {
-+		if (!priv->data->eint_use_ext_res) {
- 			/*select 500k, use internal resistor */
- 			regmap_update_bits(priv->regmap,
- 					   RG_EINT0HIRENB_ADDR,
-@@ -547,12 +546,7 @@ static int mt6359_accdet_parse_dt(struct mt6359_accdet *priv)
- 	else if (tmp == 2)
- 		priv->caps |= ACCDET_PMIC_BI_EINT;
- 
--	ret = of_property_read_u32(node, "mediatek,eint-use-ext-res",
--				   &priv->data->eint_use_ext_res);
--	if (ret) {
--		/* eint use internal resister */
--		priv->data->eint_use_ext_res = 0x0;
--	}
-+	priv->data->eint_use_ext_res = of_property_read_bool(node, "mediatek,eint-use-ext-res");
- 
- 	ret = of_property_read_u32(node, "mediatek,eint-comp-vth",
- 				   &priv->data->eint_comp_vth);
-@@ -660,7 +654,7 @@ static void config_eint_init_by_mode(struct mt6359_accdet *priv)
- 	if (priv->data->eint_detect_mode == 0x1 ||
- 	    priv->data->eint_detect_mode == 0x2 ||
- 	    priv->data->eint_detect_mode == 0x3) {
--		if (priv->data->eint_use_ext_res == 0x1) {
-+		if (priv->data->eint_use_ext_res) {
- 			if (priv->caps & ACCDET_PMIC_EINT0) {
- 				regmap_update_bits(priv->regmap,
- 						   RG_EINT0CONFIGACCDET_ADDR,
-diff --git a/sound/soc/codecs/mt6359-accdet.h b/sound/soc/codecs/mt6359-accdet.h
-index 148e181fc00048ea349c029b382507542a33202e..1a255a360b2319396e9b7a5a145a9317e575587f 100644
---- a/sound/soc/codecs/mt6359-accdet.h
-+++ b/sound/soc/codecs/mt6359-accdet.h
-@@ -76,7 +76,7 @@ struct dts_data {
- 	struct pwm_deb_settings *pwm_deb;
- 	unsigned int moisture_detect_enable;
- 	unsigned int eint_detect_mode;
--	unsigned int eint_use_ext_res;
-+	bool eint_use_ext_res;
- 	unsigned int eint_comp_vth;
- 	unsigned int moisture_detect_mode;
- 	unsigned int moisture_comp_vth;
+On Tue, 28 Jan 2025, at 2:10 PM, Ryan Walklin wrote:
+> On Sun, 26 Jan 2025, at 8:51 PM, Icenowy Zheng wrote:
+>>> -=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0card->name=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=3D=
+ "H616 Audio Codec";
+>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0card->name=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=3D=
+ "h616-audio-codec";
+>>> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0card->long_name=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=3D "H616 Audio Codec";
+>>
+>> I think it's part of the userspace API that should be kept stable.
+>
+> I don't have a strong feeling about this change, but can anyone sugges=
+t=20
+> any other options for how to manage this name being picked up by UCM a=
+s=20
+> a file path? I guess the UCM paths can include spaces, but this is=20
+> slightly unwieldy and may break if proper escaping is not done.
 
--- 
-2.48.1
+Apologies I have misinterpreted what the user-space code expects, it see=
+ms (as per https://github.com/alsa-project/alsa-ucm-conf/blob/master/ucm=
+2/README.md) that the UCM file path is derived from long_name, not name,=
+ and name is only used as a fallback if long_name is not provided. Will =
+send a v3 just adding a long_name instead.
 
+Regards,
+
+Ryan
 
