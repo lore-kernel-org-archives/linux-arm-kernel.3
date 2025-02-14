@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB01C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 10:30:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F0DC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 10:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:
-	Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DD+ssK7Im57vlq5FNxfqHbbrTwFIXn9O88i3TIuD0PI=; b=3NWm7ZlJyPGaHRFa50qABmtPtU
-	Ya9SHnoTr3c67dRsmlttUdZc8VqJ04McoGCFvate4xJyUrJs+BiNmdH8u5nsjiAbgZa3SiAMi3gZ+
-	Y0wCjSAAWERaOiI9PykJY1P7Bpkq7iLggkq1vnbeaE+NwQoddQoAXO93OH2UNB/1tPrwwBGMYgVa+
-	Q3ZoEpLawYZWPBsBCXYOeI3zc3RS6UywnWDYISWxR98gSUi3BqDFlyWWBG+2B+IBLYg3BlYBxVdNA
-	0ldMWWkdCFK3HuUjDEH8sg9NIdCvCA66Hkq8ITxNHxGMXNB57eSdoYCUnQI/GrrkOwqt2WJzDevHc
-	yTxdzPOw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0WNA6XL5ePnboysrPE+Dr6WobR/NnMEUJhhNDKl0jrE=; b=dGy+OXRhqw3GkRoo1My81CPb6s
+	eSdinablnsErdFPo6g9uz5NJJsfEuQvM1Pknp6SZzKlvbxPNFKOuOdteiDx3KjNtL26UUX5cuxAjX
+	P+1IyjJEuQsVRkDnJtyPBGkVizXcO5pXgqTTaBz11LSx5J4FBQr3CUlNBhkLD1i/YDWz/+JLtfReM
+	vmr5RDD0WjIn1dTZq4a1Yl4WKyAkleb0nafCc9PAf7rwaxUvB7ju/6FhkJYP86CXHhw/cd8GRJxQc
+	wwb+HFzf5KsqBKUuecQDmzbHwrdivOniAGlpYoWsGd+2Wf84y+6XvTG3GVVkbG40+dv4wE66MeMgG
+	Nngsiq1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tisxz-0000000EVvn-2jyD;
-	Fri, 14 Feb 2025 10:30:39 +0000
-Received: from mail-vk1-f170.google.com ([209.85.221.170])
+	id 1tiszP-0000000EWBD-1gJX;
+	Fri, 14 Feb 2025 10:32:07 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tisvs-0000000EV90-3VUL
+	id 1tisvy-0000000EV9f-1hYX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 10:28:29 +0000
-Received: by mail-vk1-f170.google.com with SMTP id 71dfb90a1353d-52054c55991so1121520e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 02:28:28 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739528906; x=1740133706;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DD+ssK7Im57vlq5FNxfqHbbrTwFIXn9O88i3TIuD0PI=;
-        b=kb+KYDWG2aDp20Mpsop4QOSeEfhH6rIm1ZIcPqS7gafsaJpbOYFciMvsmcJQi2FIWo
-         +GIXXhLoBZvUyAxFKaSx99yI11r2nvXOX4X25W93NeJHf9fsSFroTzxkaMTGmaBV0KNu
-         nBfxo4rDTAFY2Mc9XNw10xgMawkfRDH6N9UMyKDByk0+FsUV179Ia7cWfCERCjuLi5Kc
-         rKnBOTjOsi3LYiwU7XZyHB/lb2p63gu2+fg64miTK1zAk4DXnb5BHiVda2PvtpRpMP+J
-         1EXT8Gq1i1j/LDYNYaU9PeWLCE7V0gpF21v1Sa4tob10MUcWBqApFIorEZ6NSU+kvubz
-         j+zw==
-X-Forwarded-Encrypted: i=1; AJvYcCXNcLfKEvOg4MGzYOWweJnnAWk69GYnoHvCy2tpujbvbL0XvB03N1yiGSAf4eknccTCv3f+0J0syjgL17rgWPyY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzrf3oJED+YwY/XtBzUMon1tsMLmUwf+06niChW2SLxN7s3pv8r
-	DAgWX+2s8DxuSBAo9LVomF3WkeipcN3EXNgRbyzYKqlg+0PImYMsfiXXnqUMU0g=
-X-Gm-Gg: ASbGncvYpHgzcTuuzLqyi7Lhv27Xy+HhQ0gDc+4UFquB3BacsTyWFNIYD2Z+ao6izIs
-	9w6+2jTs/n8LU8sLC2Cgzk5smNhBSHk6Tf5GxZbQdK4LXva0HTIjl9r3uD+MufvGytkF2oUQ8b0
-	u+7+qHNwehhCOhguk5XqrAB1yDs66Wdl/ONrO/5d/k73qDjEpfvSV+LOBxV3IbjjGLRI/KKJqMP
-	aBmSIEy66SFe8UQcQqVbPgxxw1QasuOqypMHIaoA+pxcdvcftT/dDxlIXAtirtuFUG+y3bVsYyz
-	sO96rK6oqeNmK0cvlXBcEkAOtj4MQ3J0jqBYafnNul6P2YkTIlf3rA==
-X-Google-Smtp-Source: AGHT+IEiSnrqUh0tpOugt8MtUFRDUcUBSEsXrtOQpFHChFjTYkJj3uNOpuuJPNj8MUu9wBCwQr8Gew==
-X-Received: by 2002:a05:6122:2218:b0:50d:39aa:7881 with SMTP id 71dfb90a1353d-52078a353eamr4938000e0c.0.1739528906081;
-        Fri, 14 Feb 2025 02:28:26 -0800 (PST)
-Received: from mail-ua1-f49.google.com (mail-ua1-f49.google.com. [209.85.222.49])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5207aa60600sm533969e0c.13.2025.02.14.02.28.23
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 14 Feb 2025 02:28:23 -0800 (PST)
-Received: by mail-ua1-f49.google.com with SMTP id a1e0cc1a2514c-868f322b8dfso712661241.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 02:28:23 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW5vPacy3LLmVI3PDcLeyl31qu2F2M2CaWNZUHcn+CBuPIn6zeRP7lH4RU6qy6hh31PAhq2nQhsA4xEWphlJ9Ix@lists.infradead.org
-X-Received: by 2002:a05:6102:50a4:b0:4bb:ceeb:eaca with SMTP id
- ada2fe7eead31-4bc04dc0ad2mr4618891137.1.1739528903305; Fri, 14 Feb 2025
- 02:28:23 -0800 (PST)
+	Fri, 14 Feb 2025 10:28:35 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7D9DA441FE;
+	Fri, 14 Feb 2025 10:28:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739528911;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0WNA6XL5ePnboysrPE+Dr6WobR/NnMEUJhhNDKl0jrE=;
+	b=PdWtCLGk2DkpKx2ZqMxJ4eNfXAGOEVOJdJHRNqbGGIpDrqwU5Srh9KL25DVX4dUgAmCIb5
+	W8+XF6dZy5zZJmYEAkZsePloSODQz2DF3HmM944MS61SuMBrqVXOJD1U58qV2iZ6D0hQfd
+	XwJJJ0xdabc4veUwCtgw4jqHGIQX4GQh91Edm/vluCyHmeicJBBSNPLgfmclf44ZSrLcB1
+	GxexAo8TtmRSW4zrGSbnnNd8/gy6Kf/lMPXqgBhaIYddE+lj1J59nMitV7lKi3LvAWdmfP
+	ok9phtuEDP0aUagn9QpZ/JGpmesIZvYDvlyD2UpuPrfVko7Tbrm+YHSpB2zV7g==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Magnus Damm <magnus.damm@gmail.com>,  Wolfram Sang
+ <wsa+renesas@sang-engineering.com>,  linux-renesas-soc@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  devicetree@vger.kernel.org
+Subject: Re: [PATCH 2/2] ARM: dts: renesas: r9a06g032: Drop snps,dw-apb-uart
+ compatibility
+In-Reply-To: <e290dd28ecb68b4e164172a905da18a5a2d438a1.1739525488.git.geert+renesas@glider.be>
+	(Geert Uytterhoeven's message of "Fri, 14 Feb 2025 10:42:04 +0100")
+References: <cover.1739525488.git.geert+renesas@glider.be>
+	<e290dd28ecb68b4e164172a905da18a5a2d438a1.1739525488.git.geert+renesas@glider.be>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Fri, 14 Feb 2025 11:28:29 +0100
+Message-ID: <87cyfkq0qa.fsf@bootlin.com>
 MIME-Version: 1.0
-References: <cover.1738329458.git.geert+renesas@glider.be> <1824412519cb8791ab428065116927ee7b77cf35.1738329459.git.geert+renesas@glider.be>
- <20250131190335.4c18fb3c@pumpkin>
-In-Reply-To: <20250131190335.4c18fb3c@pumpkin>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 14 Feb 2025 11:28:11 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVP+GBFMfd-C_7oiXHKSbycPv6adxJdM-Kt03+m9UqDiw@mail.gmail.com>
-X-Gm-Features: AWEUYZm97sUT3mKi6JQWzWdUxKryfF3L2VZZmMQJHiBs0ICC7K3YkCuZ7Ruhdt0
-Message-ID: <CAMuHMdVP+GBFMfd-C_7oiXHKSbycPv6adxJdM-Kt03+m9UqDiw@mail.gmail.com>
-Subject: Re: [PATCH treewide v2 1/3] bitfield: Add non-constant
- field_{prep,get}() helpers
-To: David Laight <david.laight.linux@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegleegudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhephffvvefujghffgffkfggtgfgsehtqhertddtreejnecuhfhrohhmpefoihhquhgvlhcutfgrhihnrghluceomhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepffeghfejtdefieeguddukedujeektdeihfelleeuieeuveehkedvleduheeivdefnecukfhppeelvddrudekgedrleekrdduieejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledvrddukeegrdelkedrudeijedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhepmhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepiedprhgtphhtthhopehgvggvrhhtodhrvghnvghsrghssehglhhiuggvrhdrsggvpdhrtghpthhtohepmhgrghhnuhhsrdgurghmmhesghhmrghilhdrtghomhdprhgtphhtthhopeifshgrodhrvghnvghsrghssehsrghnghdqvghnghhinhgvvghrihhnghdrtghomhdprhgtphhtthhopehlihhnuhigqdhrvghnvghsrghsqdhsohgtsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhin
+ hhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_022828_875167_B047A602 
-X-CRM114-Status: GOOD (  33.53  )
+X-CRM114-CacheID: sfid-20250214_022834_582389_7B7D6BE4 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,83 +77,59 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Giovanni Cabiddu <giovanni.cabiddu@intel.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Crt Mori <cmo@melexis.com>, linux-aspeed@lists.ozlabs.org, linux-iio@vger.kernel.org, Michael Turquette <mturquette@baylibre.com>, Rasmus Villemoes <linux@rasmusvillemoes.dk>, Jaroslav Kysela <perex@perex.cz>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Shan-Chun Hung <schung@nuvoton.com>, linux-clk@vger.kernel.org, Lars-Peter Clausen <lars@metafoo.de>, Herbert Xu <herbert@gondor.apana.org.au>, Bartosz Golaszewski <brgl@bgdev.pl>, Takashi Iwai <tiwai@suse.com>, qat-linux@intel.com, Joel Stanley <joel@jms.id.au>, Jakub Kicinski <kuba@kernel.org>, Andrew Jeffery <andrew@codeconstruct.com.au>, Linus Walleij <linus.walleij@linaro.org>, Jacky Huang <ychuang3@nuvoton.com>, Yury Norov <yury.norov@gmail.com>, linux-sound@vger.kernel.org, linux-gpio@vger.kernel.org, Alex Elder <elder@ieee.org>, linux-arm-kernel@lists.infradead.org, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, linux-crypto@vger.kernel.org, Johannes Berg <johannes@sipsolutions.net>, "David S . Miller" <davem@davemloft.net>, Jonathan Cameron <jic23@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
+Hello Geert,
 
-On Fri, 31 Jan 2025 at 20:03, David Laight <david.laight.linux@gmail.com> wrote:
-> On Fri, 31 Jan 2025 14:46:51 +0100
-> Geert Uytterhoeven <geert+renesas@glider.be> wrote:
-> > The existing FIELD_{GET,PREP}() macros are limited to compile-time
-> > constants.  However, it is very common to prepare or extract bitfield
-> > elements where the bitfield mask is not a compile-time constant.
-> >
-> > To avoid this limitation, the AT91 clock driver and several other
-> > drivers already have their own non-const field_{prep,get}() macros.
-> > Make them available for general use by consolidating them in
-> > <linux/bitfield.h>, and improve them slightly:
-> >   1. Avoid evaluating macro parameters more than once,
-> >   2. Replace "ffs() - 1" by "__ffs()",
-> >   3. Support 64-bit use on 32-bit architectures.
-> ...
-> > diff --git a/include/linux/bitfield.h b/include/linux/bitfield.h
-> > index 63928f1732230700..c62324a9fcc81241 100644
-> > --- a/include/linux/bitfield.h
-> > +++ b/include/linux/bitfield.h
-> > @@ -203,4 +203,38 @@ __MAKE_OP(64)
-> >  #undef __MAKE_OP
-> >  #undef ____MAKE_OP
-> >
-> > +/**
-> > + * field_prep() - prepare a bitfield element
-> > + * @_mask: shifted mask defining the field's length and position
-> > + * @_val:  value to put in the field
-> > + *
-> > + * field_prep() masks and shifts up the value.  The result should be
-> > + * combined with other fields of the bitfield using logical OR.
-> > + * Unlike FIELD_PREP(), @_mask is not limited to a compile-time constant.
-> > + */
-> > +#define field_prep(_mask, _val)                                              \
+On 14/02/2025 at 10:42:04 +01, Geert Uytterhoeven <geert+renesas@glider.be>=
+ wrote:
+
+> make dtbs_check:
 >
-> You don't need an _ prefix on the 'parameters' - it doesn't gain anything.
+>     arch/arm/boot/dts/renesas/r9a06g032-rzn1d400-db.dtb: serial@40060000:=
+ compatible: 'oneOf' conditional failed, one must be fixed:
+> 	    ['renesas,r9a06g032-uart', 'renesas,rzn1-uart', 'snps,dw-apb-uart'] =
+is too long
+>     ...
+>
+> As per commit 72b0505f0830df95 ("dt: serial: Add Renesas RZ/N1 binding
+> documentation"), the RZ/N1 UART is a modified Synopsys DesignWare UART.
+> The modifications only relate to DMA, so you could actually use the
+> controller with the Synopsys compatible string if you are not using DMA,
+> but you should not do so.  Hence the first three UARTs (which don't
+> support DMA) were added with a "snps,dw-apb-uart" fallback, to use the
+> existing Synopsys DesignWare UART support.
+>
+> Since support for the RZ/N1-specific compatible value was added to the
+> driver a long time ago (commit 2ff5fa7f742ab0c6 ("serial: 8250_dw: Add
+> compatible string for Renesas RZ/N1 UART") in v4.19), the extra
+> compatible value can be dropped safely.
+>
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> ---
+> Alternatively, the bindings[1] could be augmented with an extra section:
+>
+>     - items:
+>         - enum:
+>             - renesas,r9a06g032-uart
+>             - renesas,r9a06g033-uart
+>         - const: renesas,rzn1-uart
+>         - const: snps,dw-apb-uart     # RZ/N1 without DMA
+>
+> and perhaps extra logic to prohibit the dmas property when both
+> renesas,rzn1-uart and snps,dw-apb-uart are present.
 
-I just followed the style of all other macros in this file.
-I can add a new patch converting the existing macros, though...
+I must say that I prefer this secondary approach, which feels more
+accurate. I won't block the one that your proposed below for sure, but I
+feel like it is more relevant to add this third entry in the bindings
+rather than removing it from the DT. Either way, fine by me.
 
 >
-> > +     ({                                                              \
-> > +             typeof(_mask) __mask = (_mask);                         \
+> Given the complexity of the latter, I went for the simple solution.
 >
-> Use: __auto_type __mask = (_mask);
+> [1] Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
 
-Likewise ;-)
-
-> > +             unsigned int __shift = sizeof(_mask) <= 4 ?             \
-> > +                                    __ffs(__mask) : __ffs64(__mask); \
-> > +             (((typeof(_mask))(_val) << __shift) & (__mask));        \
->
-> There are a lot of () in that line, perhaps:
->
->                 __auto_type(__mask) = (_mask);
->                 typeof (__mask) __val = (_val);
->                 unsigned int __shift = ...;
->
->                 (__val << __shift) & __mask;
->
-> Note the typeof (__mask) - avoids line-length 'bloat' when the arguments are non-trivial.
-
-OK, thanks!
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Thanks,
+Miqu=C3=A8l
 
