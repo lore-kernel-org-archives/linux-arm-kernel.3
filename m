@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 399F1C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 07:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2D03C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 07:54:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iTbQLAgpjANr9FF26MbTNiTflsGKq1/SNVTlqX2eGXE=; b=hwlSFe6xGTDAL9
-	vctTiUSuTRqvOdahg+GADcJdWJlQorddhL69Qajcjqfc81a6gD4nya070qfibRGkFitzyBe5WJIGD
-	45NgMgqss7RkYfVXPTaBXxznV0VXjVYQsW7Dcj9vsFxXF0W0zMuvxAnA2g1vlVnz9kzB4QgepB8Oc
-	4Cu5Y0H1qg80mq55PKEpCht+Ln9s5VNKtxpOSNKbMu7NyF5Lr18X+10j6W9Tk2EjzqjeIQ+Y440/n
-	wi0UykIypJzlOfmhqUHu/Mcb47JWNzNArqLN/nfQ68qI44nh74kezBDXhqdSjdCfT+ObGOaloliCZ
-	AiR12baxyAFeDCw1vQew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QFvFAYmWYu0XHagjxxq3wvOF5VGdGMjLmscGN7Cl6Vw=; b=PCqcXPRIUeF50ZB8iy/0YZD2jn
+	2D1EmgD+6qTBwz2G+VTamrnhGcIwBXHmUL5F9BqKiGYo6ky7keRQ3zZn/1BmzdOBayTzr9w6vnupo
+	fUpVYqfT51aphCGl1Oz2t2UkIft422OW+gAkuZvj6Zb7CShFK3dcdmoLUNx19DgtH6YxHOx1OgnHA
+	NFkbBX4mM+CwesMZAlGnn9tjRXp6Vcn90V9kBPQrUwOXX20kYxf7QqtIZHVd85lgznJVH4n7univR
+	4kSZcGYk+ASbW6FWEAzu56FOWdQh5M3R7ZSOWVZSfmWP0uGGZYNt2WzNGX5Ek2vkt/HUcciI5M6FT
+	jkkYo+NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiqVk-0000000E16e-0KFr;
-	Fri, 14 Feb 2025 07:53:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tiqX8-0000000E1PH-378a;
+	Fri, 14 Feb 2025 07:54:46 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiqQ9-0000000E0JO-0leD
+	id 1tiqRA-0000000E0Wx-1ri2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 07:47:34 +0000
+	Fri, 14 Feb 2025 07:48:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A85AA5C58E7;
-	Fri, 14 Feb 2025 07:46:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F25D4C4CED1;
-	Fri, 14 Feb 2025 07:47:24 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5D2E8A40EF3;
+	Fri, 14 Feb 2025 07:46:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BF33C4CED1;
+	Fri, 14 Feb 2025 07:48:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739519251;
-	bh=EYmxegMfAeOmf9WfPU0zoAyXDFaCcyLf0boT+xp9GzI=;
+	s=k20201202; t=1739519315;
+	bh=5MY3iWyMndAEMYSaV5mEbVdwC2LV6f6DIkS96hlcgQw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=N07Gl9aocIzC5I04HiGdP03Mws1B5tWvZQNa4Hft8/45j5cB4ALd3qcnGufrUYktk
-	 artWM/ChcL+6uQrP21lToDMsM7U1LBJdCHQDBr9IuyXbqbPSdYChWrUSgUymQrFRJj
-	 mhC2CMfArzPXVjYnx5OiOwK4erS6A1QqkT721cz/08yJPSkfk5T1BDKnwzUwRc0AKg
-	 91vpDWQYaxb27HZ7N0Aruobkc1i34nyEeLXFqbdq7m0mozQEscMPbWTAoEU5rSzc7/
-	 qOfnKb4GiHGzzOWzBIaXRtHfJldYj6ZKq7m0utxtmr2F69AvYxXKjV9rEspNzXtPTQ
-	 th/UIPJNgrw8A==
-Message-ID: <826ded05-6ea8-420c-8bd9-97dcf9b18ccc@kernel.org>
-Date: Fri, 14 Feb 2025 08:47:23 +0100
+	b=bx2J24fpG/vOT7GO8dKCw6XA+xnaq0ZH5kqwWm0J34lbje1lMmVXBXU+GWcBx/3ps
+	 H3wK2RZEZS6d6a1ECntSo6YSFoNMyYhlfzJLRadlsxjooC1MJro5Jt7YRuzeK2aVwj
+	 J1KL3j8GxREGG1CBfBOOJk8YwToh4FSKlTZSc3Er7KCUSU8umbC+iJcsdEipJ3Dv8x
+	 5lkdCUnalJVMBo4QmEwJtjzkhWegyNp6PvuIPk7nvB7y4nO/1SWl46hem71lW7ovw6
+	 CMaEdxv6mZHRWvDabQ5SC3RpkWqhS74CceQvpyUdmo9gzky+eurByToYL8c047cYcR
+	 CVHatVndhXkMA==
+Message-ID: <32e3ffc2-d3f8-44eb-ae14-400ebcd6734f@kernel.org>
+Date: Fri, 14 Feb 2025 08:48:30 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/12] dt-bindings: bluetooth: describe wilc 3000
- bluetooth chip
-To: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-References: <20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com>
- <20250212-wilc3000_bt-v1-1-9609b784874e@bootlin.com>
- <20250213-chamois-of-unexpected-glory-dd3eab@krzk-bin>
- <99247019-bb41-4fd9-bc0c-d31e5688533b@bootlin.com>
+Subject: Re: [PATCH] spi: s3c64xx: extend description of compatible's
+ fifo_depth
+To: Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Andi Shyti <andi.shyti@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Denzeel Oliva <wachiturroxd150@gmail.com>,
+ Sam Protsenko <semen.protsenko@linaro.org>, linux-spi@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250214-spi-s3c64xx-fifo-depth-v1-1-e1b1915e3ee7@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -98,12 +101,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <99247019-bb41-4fd9-bc0c-d31e5688533b@bootlin.com>
+In-Reply-To: <20250214-spi-s3c64xx-fifo-depth-v1-1-e1b1915e3ee7@linaro.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_234733_338338_15CA0417 
-X-CRM114-Status: GOOD (  36.54  )
+X-CRM114-CacheID: sfid-20250213_234836_612556_33890A7D 
+X-CRM114-Status: UNSURE (   7.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,105 +119,20 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Eric Dumazet <edumazet@google.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Marek Vasut <marex@denx.de>, Rob Herring <robh@kernel.org>, Ajay Singh <ajay.kathat@microchip.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Kalle Valo <kvalo@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Marcel Holtmann <marcel@holtmann.org>, Luiz Augusto von Dentz <luiz.dentz@gmail.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-bluetooth@vger.kernel.org, Simon Horman <horms@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/02/2025 16:25, Alexis Lothoré wrote:
-> Hi Krzysztof,
+On 14/02/2025 08:32, Tudor Ambarus wrote:
+> The FIFO depth specified with the compatibles's data is used where all
+> the instances of the IP define the same FIFO depth. It naturally has
+> higher precedence than the FIFO depth specified via DT. Specifying FIFO
+> depth in DT becomes superfluous in this case. Extend comment about
+> compatible's FIFO depth.
 > 
-> On 2/13/25 10:25, Krzysztof Kozlowski wrote:
->>> +  wlan:
->>> +    $ref: /schemas/types.yaml#/definitions/phandle
->>> +    description:
->>> +      Phandle to the wlan part of the combo chip
->>
->> No resources here and judging by the driver everything is part of wifi.
->> Either you wrote it to match driver or indeed hardware is like that. In
->> the first case, why this cannot be part of WiFi with phandle to serial
->> bus? In the second case, this needs to be proper hardware description
-> 
-> First, I'd like to reclarify what the chip exactly is, to make sure that we are
-> talking about the same thing. The wilc3000 ([1]) is a single physical device
-> packaging two different discrete modules inside (one for 802.11, one for
-> bluetooth). The WLAN part has its own binding integrated in upstream kernel
-> ([2]) and is based on a similar chip in the same family (wilc1000, which only
-> have 802.11, and so only SPI/SDIO, no UART).
-> 
-> Now that it is said, no, I did not write this binding only aiming to match the
-> new driver. I tried to base this description on how similar WLAN/BT combo chips
-> are usually described (based on those which have existing bindings), and they
-> seem to describe distinctly the two internal parts of those chips as well. For
+> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+> ---
 
-
-Yes, because BT part is isolated enough that you datasheet tells which
-resources belong to it and DT describes these resources.
-
-You do not have any resources here.
-
-> those who use HCI commands over uart for the bluetooth part, they expose a
-> dedicated child node of a serial controller (distinct from the wlan part,
-> described as another node on PCI/SDIO/SPI/etc). The hardware architecture for
-> wilc3000 is similar to those, so since the serial bus is the primary interface
-> to operate the bluetooth part inside the chip, doesn't it makes sense to have it
-> under a serial controller node (and then to refer to wlan for the additional
-> operations needed on sdio/spi), than the other way around ?
-
-
-There is little benefit in describing one device in two places. This
-even lead to probe ordering issues and power sequencing problems, for
-example being explicitly addressed by recent power sequencing work from
-Bartosz by creating *third* node...
-
-You have no resources here, so I cannot even imagine inventing something
-in that third (PMU) node.
-
-But anyway in case of WCN devices, the reason of power sequencing
-patches, BT and WiFi are separate, can be enabled separately, can be
-even shipped one without another (I think).
-
-Not your case. Your BT needs WiFi to load firmware.
-
-> 
-> About the lack of other resources in the new node: there are indeed additional
-> resources that affect bluetooth, but I am not sure how it should be handled:
-
-You sent us then incomplete hardware description. So you got review like
-this.
-
-> there are for example a reset input and a chip enable input exposed by this
-> chip, which in fact do not only affect the WLAN part but the two parts inside
-> the chip. But those are currently described and handled by the WLAN part. I
-
-So everything is already defined in WiFi part and this node is not
-really necessary.
-
-> guess that an improvement regarding this point could then be to move those out
-> of the wlan binding, and find a way to describe it as shared resources between
-> those two parts of the chip, but how should it be handled ? Is it ok to remove
-> those from an existing binding (and if so, where to put those ? It is not
-> bluetooth specific neither) ? Is the issue rather about current WILC3000 binding
-> kind of mixing overall chip description and internal wlan part description ?
-
-
-Datasheet shows this as one device, not two, not three.
-
-Reset and chip enable, based on datasheet, are not specific to BT. They
-reset/enable entire chip, I assume, so it is even better proof that your
-HW description is not correct.
-
-How this device is supposed to work if you do not enable WiFi - do not
-deassert reset from Wifi driver? BT will stay in reset. Really, and
-that's correct hardware representation?
-
-This is exactly the power sequencing problem one more time and you keep
-asking exactly the same questions and repeating exactly the same
-mistakes. This is incomplete and, IMO, incorrect hardware description.
-
-Read all previous discussions, read/listen/watch the talks about power
-sequencing (there were two on LPCs - one with Abel to describe the
-problem, year later to solve it).
-
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
