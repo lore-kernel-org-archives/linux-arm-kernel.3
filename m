@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 819EAC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 08:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E4DC021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 08:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KV2r0YrTTL+9wA2XusEM2hZdRtyjt9Q1AO9mppdUNbM=; b=0MVQ7ENaY3Yk4+UB98mESU/tLO
-	hlrfQBaUtJrU/f4zW66Ruz7MoRWzpueHq/MVNwOalmJ+sP14FHD+Oo/vwngE7j/eNRCFeYtWPMyC0
-	mqNQ93xAh9EfxMXoaU3PSgQUr7XBfvGKYIenYCxBtDuzpnHiFwwl0Yr8A1N+iqcCs4HfRPpQ6RZj/
-	BkzBWBgJMkRfJI2y+HDRTKBrhhgX1CH4XRtAjAyerRHLeNLKm1kA1OtMCcVF9NGI3lWq8seEUJVIn
-	jL/JhKYzE+NOi4hLYqxlUXeiYnIsUoU3FBkZhvamCjrYjx2lvv9JjH031SkVeJRMZlMDKOOgnLkG3
-	bzRF5CoQ==;
+	bh=SZX52qQxRpSTE/icEZ+p8z/t5LMqvFN85Nnzz74nG2U=; b=R3ubp0t2PVCrSY8A6m8cA0iTS2
+	GZoQtKTSctZv0BZX5fSWgJO3JOz0tm7rPbepAALFQXmRxLMeh0dJb3bpTwGWQbh73TcPKOh4/U9EI
+	5b5f61hLj9N0QDXRyqMlRT88VX7JN570ewTI54DTBbXkq+v239+DK9dnxDkqA6feFK4pFzBbB2Sfq
+	qCQRqyCjgal5cuqmKQkJbMZubFUa4Di3r3LOHzsDaKLhId7zc4tvNOnqTx2lj6KhqpAkbvcmPD2nR
+	jtXM2NjqoV5ob4wscug3ZorA1iUiYupd+2kLCHvM/ytsHK0AdM4fZbdVba5NLxBd8zb4SmFtKIb3r
+	gsrxfBVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiqsf-0000000E5BI-39Pa;
-	Fri, 14 Feb 2025 08:17:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tiqu5-0000000E5at-1bGl;
+	Fri, 14 Feb 2025 08:18:29 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiqnw-0000000E49C-0wbK
+	id 1tiqoB-0000000E4Br-0U2C
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 08:12:09 +0000
+	Fri, 14 Feb 2025 08:12:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F281C5C5931;
-	Fri, 14 Feb 2025 08:11:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41BDDC4CEDF;
-	Fri, 14 Feb 2025 08:12:05 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EC60CA41657;
+	Fri, 14 Feb 2025 08:10:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35855C4CED1;
+	Fri, 14 Feb 2025 08:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739520727;
-	bh=pytx/AVfI7OMUgpHFJaLrLw4szRT5vok7RmUGdfF/YA=;
+	s=k20201202; t=1739520741;
+	bh=BFuIYIhdWv+oib3oeVpmwSBMF68TB7x1nKJsh5h41no=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hJBDnem2G8p7H0wp7/3KdXqCjJvu7jaaFQK7Ubi6wTIVuEn8a1ZdLVWSpw8+3irLg
-	 g/0geKZxhvomJAW9EQVE29Oz1SaktEFzJYwu+qiXXqu5/ut/cOLUSVxQIhM8Zs6sCw
-	 YWcShuIrnVfL7arjQmuljE9XEli5QDAsReYLIvm47IAfiBVu5h7o7+Fuc876AK5xXy
-	 ETS/F54s5TPzmdJ8Vy8WWoa8Wc6XbgSOKBD/UBJOXgoozaSHbIpklaA/LAWC+z7udo
-	 gcVRWSzU5zx+QqoTZLA4A/4Eid/8FYQBEkIibgs9oY9+pzgbFfV+vjl0ZwE9gSfXtz
-	 PkTzdeC8mMGlA==
-Date: Fri, 14 Feb 2025 09:12:03 +0100
+	b=sjDJMVPmIFSSXfqhSnAU05CyQWeBQxeb5+aTPVpgC44aqfr5Pb7FkkpLaHIAYegiI
+	 WRYXuOYPJZR2a1m0fF1ebE1VHjsaEy53j802tlxPYc/8i3IuQVkdwS95/0pwr7Eujj
+	 OLe5VQkt+22ytXrR9KTAyv61Mcv+QXsFFy2d2vFq8lvcrgheHyybmJZ6fl35B4mPz+
+	 KOgZGxbx4wVU/KYEhBFrH7u+mXw0K6Y1M7+BNuCPaQPnSxwm/zeseTnFAJ/GABid5n
+	 VgkD7qPKhRm9agLM1Ns9ZGFgYyOn6O0BOSH/+JG2oYAZqKCeGc0Y/MlqPX5BQDUb88
+	 nlYzu/y1zCwKQ==
+Date: Fri, 14 Feb 2025 09:12:18 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Vincenzo Frascino <vincenzo.frascino@arm.com>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
@@ -52,17 +52,18 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
 	Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>, 
 	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH v5 2/8] dt-bindings: arm: Add Morello fvp compatibility
-Message-ID: <20250214-utopian-griffin-of-innovation-fabc40@krzk-bin>
+Subject: Re: [PATCH v5 3/8] dt-bindings: arm: Add Rainier compatibility
+Message-ID: <20250214-dynamic-gainful-monkey-fbc0fd@krzk-bin>
 References: <20250213180309.485528-1-vincenzo.frascino@arm.com>
- <20250213180309.485528-3-vincenzo.frascino@arm.com>
+ <20250213180309.485528-4-vincenzo.frascino@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250213180309.485528-3-vincenzo.frascino@arm.com>
+In-Reply-To: <20250213180309.485528-4-vincenzo.frascino@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_001208_308876_03991EC5 
-X-CRM114-Status: GOOD (  13.31  )
+X-CRM114-CacheID: sfid-20250214_001223_213873_08388AB1 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,28 +78,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 06:03:03PM +0000, Vincenzo Frascino wrote:
-> Add compatibility to Arm Morello Fixed Virtual Platform.
+On Thu, Feb 13, 2025 at 06:03:04PM +0000, Vincenzo Frascino wrote:
+> The Arm Morello System Development Platform uses Rainier CPUs.
+> 
+> Add compatibility to Rainier.
 > 
 > Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 > ---
->  Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml b/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
-> index 40e7910756c8..e71e3e33c4be 100644
-> --- a/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
-> +++ b/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
-> @@ -122,6 +122,10 @@ properties:
->          items:
->            - const: arm,morello-sdp
+>  Documentation/devicetree/bindings/arm/cpus.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-That's just part of the enum here.
-
->            - const: arm,morello
-> +      - description: Arm Morello Fixed Virtual Platform
-> +        items:
-> +          - const: arm,morello-fvp
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
