@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F40EC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 10:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D96DC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 10:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+RvZPpwQCYzg+8o1DHR3C6tWw2mYjAqdjhIanmYv+iE=; b=FIEuPMcYo7BqCXAOOvbir3kJ3p
-	QdVOSrTkl7dnHABlDGT76oD2RC2b3X1LmgD0vxuylS7WX/RBERj5ymrMhLR/in1mzX1P0zwmBL3/I
-	rdZQTDB5PxzhUzW2rRqBNaq24ZkDVkTLwvbA9XTIy1lnuUqNi/DjJ1zYWVxr7wWGlgcCBsDIom+cX
-	SweynuRthSK/Ila9wEY1ZhIQTPYco/cDRvJ0ZItqSuMHpJaiYWIPiOM3nz0HmLPjBRgESiyacJxNh
-	eOroHP2XKZDQpujQ1bO7RLp/SeXm5FqUUxihu7P97wfVtO0qCB0RzTdld2jTavkVk3Xz1mJPNrovI
-	r7qqf6Sw==;
+	bh=39d87he4w+nqhvnifbqZl/bqbaPjTdXMuZ/SdAklOjo=; b=3jo+uyS5L6607+FPy+hhjE3r/2
+	OuFDdX6Ukap9MmiMN6k56WPXTd4L/bSqlRZ+pN+Ie7s0qfCLIHehWHqcra4T7Q87KMcf3YxdMh6+f
+	faQSiTANwZ+tFgBE54cnghBqvcZGFTcCG60yRIM3qi3A8gvbao7cwHmZz0Bu4FfCi05Lmw9t7E6Wf
+	i0QrA/UjQ2TLvFfzvkoN05S1qFcbGnc1gfATn6am0Q4CiwZ8eVJun3IXGk5//ZgzayjR4YDpBXtmy
+	ccTWiqqgM3JMxbv25V9MieDOlHBSb+AL4JgZDXUx0V21v2L2BGd4H2fysAWtpT5UehWQHVDrhXrRg
+	ji1lB9mQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tit7d-0000000EXFt-45Tn;
-	Fri, 14 Feb 2025 10:40:37 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1titFy-0000000EYKG-0sXE;
+	Fri, 14 Feb 2025 10:49:14 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tit6C-0000000EX7g-0OOV
+	id 1titEW-0000000EY9Q-2KSa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 10:39:09 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-3091fecb637so3953611fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 02:39:07 -0800 (PST)
+	Fri, 14 Feb 2025 10:47:45 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-6f7440444efso16505357b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 02:47:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739529546; x=1740134346; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739530063; x=1740134863; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+RvZPpwQCYzg+8o1DHR3C6tWw2mYjAqdjhIanmYv+iE=;
-        b=wIESCUZw4b43qQLGKz5q2vBDVINjSdSRhixsPqmHMrCzqOLrxKUe0DL9V1zNOMAGmS
-         5TrYNM4N4pSRkunQHEZ2afX2/WqkNseDNaWkN1bbeoauiLyW2t2VB2sqXLtj1hRvbbmS
-         PF07HkmhAfQjY2AKrnrLhWj8jgwi3oLMBC5WyQKldTcKa1oXEKvVtqEDrLkgkrNIC7qF
-         aV6XkBaSIq+g2p6s8o4Gc7rX4h+x1YL5dcY0tBeTKjaeurbMnvqyzv7NvpCAfUDc+XDZ
-         rdou7bCXJWt5kt7idfGmJ/7QzFuCQSEHboTkQFI67NwmSXev2RlqHauYZ9Jx7bNFCyyz
-         WXeg==
+        bh=39d87he4w+nqhvnifbqZl/bqbaPjTdXMuZ/SdAklOjo=;
+        b=Ya8CbAI51mUyEZiCcVsH6dzWo3mUc4JwvDLwulCgMFwsDDb2blzeMS26JJTjzJpyyU
+         wN+aByn7L+Ox51pI5bf+OhC4xhTV3YiTTbyRnTtJe4yu4AzwM0CsnFRrg8oJbvf9FhcF
+         0QER61jslNfdmtVAL4yQ8tHxag1Rv0OcPtufD5CyKdKM1soz696cTlMOV0C5oEeecF9b
+         k4vR9I3vRs71jwwAzFpz5fyQxQRZNf1a+WtF+0Ks+/KuAk82kfI2QpY8ENPEWCga2GU6
+         ULpUxiiJiuhHwVkH4LiX8F9uwvEtzH2JDGEgKPQQbaswL7pJXJ7fyrwvBt31Abc4BxCf
+         o5eg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739529546; x=1740134346;
+        d=1e100.net; s=20230601; t=1739530063; x=1740134863;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+RvZPpwQCYzg+8o1DHR3C6tWw2mYjAqdjhIanmYv+iE=;
-        b=bLxlfCkEckrjNPZlkUw4IR5CTYkuE4k/1HgSdDJIJdLQeWWVAODF+DP/M6FKMj9E52
-         cGjdIHB02gaPWmrm99KsvQH8oO9C8Ate6FQGwX7N2CQjRscDB8G9XxKCQFZ+tTPDFGSa
-         aJ5hn5ITEpw3/Gcacu2ahN6GZv4x7qBBUTD6dP7EfwMgB6/ypdXHnEyaAF8tDiieUkHX
-         0OPLOz6nuDzLGbRUDKlZBfNNv/omigMLAJcyvuGwhvndJ2XvZ0ElHf71sR9qwYkIE5TT
-         WzBKnBc6n9HcSZxu7Nw5tibLKmFT/E7aGqFXdCz6aAgyyC8OmzNbyMSK0O1OHfngh4ZU
-         d5Gw==
-X-Forwarded-Encrypted: i=1; AJvYcCWur+a0LC9MYkmDUmj67hsxx47uaKk7aJr4T/VlPdbLHZDRbF3NoJnrN+wHzvcbqMH2wdT4xXtyKC/23/b/m5M4@lists.infradead.org
-X-Gm-Message-State: AOJu0YweoFlnRaAkf9976OiUnTy/8bSUoBYGwlTq5T93l7vmepKI/7oK
-	lacg3oDgA8XM8uIZ1f61oYLtqyddULCEyLOXZe5jzC5wqoGHnZHqdM/HA30yLoP73yTYSTPjCPN
-	FcQpEC9NHyZeGZc+G1wEWgVySkF+udWUB6+H21A==
-X-Gm-Gg: ASbGncvOLNuULPjxYGUPDjyRzFRW1V2DK7untSLyVjs+WyeJRHa+0vkn2cJ29+h7nqH
-	jP1LsRWT+nq5TCxabpqnTIejZ0/tNmjgG7/8iwoOohRJGJ7cfeMZAmdN3kwH7Xlsr09ONPNkh
-X-Google-Smtp-Source: AGHT+IFcOuS4cumt2YODgYWKRsMLvcBHN8sxE4vos/EFY24hOieVy9WXAkHUqW6GJ2CI2TkzytddIGBb5y9f4GGOEpk=
-X-Received: by 2002:a2e:9a0b:0:b0:307:2b3e:a4a9 with SMTP id
- 38308e7fff4ca-3090dd33349mr28348041fa.20.1739529546052; Fri, 14 Feb 2025
- 02:39:06 -0800 (PST)
+        bh=39d87he4w+nqhvnifbqZl/bqbaPjTdXMuZ/SdAklOjo=;
+        b=cnonDx257sE2rP2YjCbECnytnTftXKPs57PFi/XbM7PeRoscBYjyC4LQft9Lm/QKMB
+         gz19erxtksjBhrNU27b4NVQD1tHXTV7i4YRAGreWQnoH3+KuymOw81C/WdJ+ACfm6OqI
+         8VemJHmo7IZ0OtUmCRH818kOcRph23aJ8ZdeaW7ZMu9sYeYUabiaUaSTTY3eYcX/DBZD
+         bwCnRu31fKqicwcscfAGrLWMmc/P9j+BlqFu7YEowEuUo1ZtGMqCBK5TTnhwCKCiBlbW
+         3w0QSbuBJWyFfg8i5L+NkOyxtQW+D4x5y41QLRyw5ueNnNpUMVm/yRbz3V18B/aS23e+
+         B9pw==
+X-Forwarded-Encrypted: i=1; AJvYcCXEa2QPJyIywvblRwhhpcJRtuNlwvSX10I5YzeoOuEytUNg6XN9VJqDUhw0Lzjl3wipf6jhFLTqZHgFHJ1pdel2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzzp52tiMpNRCiUeNI8roxRXgczvsxafcV+i5+bAFdvpeB/HYRG
+	1EJjvWgwTkDEs/OQEwA8egejAp6T58aza2nN9qTGDgcFu14nwCkq3Bkps0gLHXdU7345bcBaCIl
+	hOUUgFqgUGFrTOgDjTy5Zl1mgaINdSZjW+qG4sw==
+X-Gm-Gg: ASbGncvgLOHcXbq7F2buxYJdoRqI7Ajdr5qhKZRLp+Hl5ik/URIg/8I4SM2933GVxwX
+	GIW4lzEoUm0YmdWCxAQ9KwvfmjlyTLTuuyu9JrnvGrQETZ4qKDAyrtjMGZK2ToHGECjc/SDNW
+X-Google-Smtp-Source: AGHT+IFpq/TAGroz+gdgkVpMwZHPYA3s6SCCL9gaFmmcJASK+ip50/1eOiWJmQBpq6AFdEspn1ZcNflRwFQIDYc7lB0=
+X-Received: by 2002:a05:6902:f82:b0:e5b:248a:bf2f with SMTP id
+ 3f1490d57ef6-e5da81e7effmr6876170276.31.1739530063426; Fri, 14 Feb 2025
+ 02:47:43 -0800 (PST)
 MIME-Version: 1.0
-References: <20250213180309.485528-1-vincenzo.frascino@arm.com> <20250213180309.485528-2-vincenzo.frascino@arm.com>
-In-Reply-To: <20250213180309.485528-2-vincenzo.frascino@arm.com>
+References: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org> <20250214010325.GA12626@strace.io>
+In-Reply-To: <20250214010325.GA12626@strace.io>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Fri, 14 Feb 2025 11:38:54 +0100
-X-Gm-Features: AWEUYZkcoUajk8OY7YlPuAw6yk_Mx24LP1X0bHTPQEW1VEF0lTSP39l_2JHco3U
-Message-ID: <CACRpkda-J_NHC7Te=Shk0A-35qWms3xeM2MggdGM0ze3Gt0KMw@mail.gmail.com>
-Subject: Re: [PATCH v5 1/8] dt-bindings: arm: Add Morello compatibility
-To: Vincenzo Frascino <vincenzo.frascino@arm.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Date: Fri, 14 Feb 2025 11:47:30 +0100
+X-Gm-Features: AWEUYZlN3BW34B1Z-q6x6cSfXH7J9CenfXpmXt_ykKPAp-0W_NVi6kBmkZfgRDs
+Message-ID: <CACRpkdZJYFUhmPg3EWJeU42fzJMzWm7Sgn3XfELB2-PSCf6Ssw@mail.gmail.com>
+Subject: Re: [PATCH v4 00/31] ARM: Switch to generic entry
+To: "Dmitry V. Levin" <ldv@strace.io>
+Cc: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
+	Eugene Syromyatnikov <evgsyr@gmail.com>, Russell King <linux@armlinux.org.uk>, Kees Cook <kees@kernel.org>, 
+	Andy Lutomirski <luto@amacapital.net>, Will Drewry <wad@chromium.org>, 
+	Frederic Weisbecker <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Jinjie Ruan <ruanjinjie@huawei.com>, Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>, 
+	Al Viro <viro@zeniv.linux.org.uk>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_023908_145442_8DB03464 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20250214_024744_589089_CA4C39C1 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,33 +98,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vincenzo,
-
-thanks for your patch!
-
-On Thu, Feb 13, 2025 at 7:03=E2=80=AFPM Vincenzo Frascino
-<vincenzo.frascino@arm.com> wrote:
-
-> Add compatibility to Arm Morello System Development Platform.
+On Fri, Feb 14, 2025 at 2:03=E2=80=AFAM Dmitry V. Levin <ldv@strace.io> wro=
+te:
+> On Wed, Feb 12, 2025 at 12:22:54PM +0100, Linus Walleij wrote:
+> [...]
+> > - Tested some ptrace/strace obviously, such as issuing
+> >   several instances of "ptrace find /" and let this scroll
+> >   by in the terminal over some 10 minutes or so.
 >
-> Note: Morello is at the same time the name of an Architecture [1], an SoC
-> [2] and a Board [2].
-> To distinguish in between Architecture/SoC and Board we refer to the firs=
-t
-> as arm,morello and to the second as arm,morello-sdp.
->
-> [1] https://developer.arm.com/Architectures/Morello
-> [2] https://www.morello-project.org/
->
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
-> ---
->  Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml | 4 ++++
+> Could you also run the strace test suite, please?  Given that it used to
+> catch quite a few regressions in the past, it could be useful in this cas=
+e
+> as well.
 
-I was thinking, that since the .dtsi and .dts files are not reusing
-any of the Juno .dtsi (correct me if I'm wrong!) this should not
-be in vexpress-juno.yaml, instead perhaps you should create a new
-morello.yaml file?
+Sure, where can I find this test suite?
 
 Yours,
 Linus Walleij
