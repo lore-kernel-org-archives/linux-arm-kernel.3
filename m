@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E451C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28216C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:47:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V0lFTwfZZcUWkq9fJmOvcld23qYjy5biwQLrQr9JB8A=; b=cP2WbbwwP/zOQ0bSPyfUocaQ0c
-	RpVw1mZbdw2OskO/3tGNeELGJYyugAdIQ69owpldqwcu7RRTBcMNrDBI8Wv5pqYOmKLOWaDiLwANs
-	x4zj4Og3wQSyQa9RDq7rAsEBfGCEjqBYfEwTAY5tzlQUKgNYDypmH/CPFuHWCVMwzHolEl4mZYRpQ
-	XbRXXlcQD7weEq/jQvrJFTHvKzZpDXtIt9Z2IVrygdrlHYn+7RyeADnwWDXLfkze5tNjpVLjLDgoF
-	JlGBRcVTq4981z0qWAqKTu9OJ7qty1GaTpvj+oUNZOz6OfKKTqKsfWfhKPHQ7TUjtT7rEHfWa2ZqE
-	NdqBTdMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cSyZFdlaUnVJbrivt7PwHoPy62L8Yv5oWa7Mm3Dapxg=; b=RJyi96TVepFtKu93V1fe3FQ3Vc
+	zyJ7HgYd8wMonMsdLenf4v/2EaSRUUNNdFp+SYDaO6AHp5yQORzM4Gr84Lk+5Wmo79h8wwocefCye
+	uhMyg4NYD9TUDtGvwWJAutbx62sPtt5F92LkseWLpcP2qbBLsPInaYmO/l7edwVN7zq5MOb+CFkm5
+	pXy1RuYqb4zWxIJKGHzQ7JIR0ahihQJ/yZSIIro3oqD3Tt5l47ASJjvq53c3c6ISj6J3iF5Eb97hv
+	tKXqoIrMhO85vkaPrhIAyWFvNjVNHq/4bHurNjLc9SvI7iVvawrbV48gCtw53hFSsWqjpGQc4leOZ
+	DtaRonbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiu90-0000000EjGU-48Ei;
-	Fri, 14 Feb 2025 11:46:06 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	id 1tiuAP-0000000EjXc-2id5;
+	Fri, 14 Feb 2025 11:47:33 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1titq5-0000000EfZE-0k44
+	id 1titut-0000000EgSk-2mu6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 11:26:35 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-6f9c6d147edso18199577b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 03:26:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739532392; x=1740137192; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=V0lFTwfZZcUWkq9fJmOvcld23qYjy5biwQLrQr9JB8A=;
-        b=eI55O4Z9/+C8EXUyL0zhDNa0gjOKvtdVxVw80aMHRG/elcw3fyHUkrLQgwp8L9kaz/
-         HTmA9xyoo62PHsSvrNCjTVWd0BMxyp+hcLqRxenGKaLp90T02xVFpdrXJr5z2/Dp2hc1
-         poYA1dPF2UPyxWIbtVMv+Q8a/BuhcCLLi6W3Q9bvdFmPD1VMJcSak/Fmx908WWjLO9Nt
-         iAbwNtrFul/AU1LIifxUeiuAn63xF+IZMu8UARTmIhxtOVksVJFD2zgeEGxUFN7W3U36
-         +M455oYXd+fFhYQ3YrK0pI0YhUyjRO+0XFnj/7oLCxAQhyhwhb0y1YK6/w7R/JOIEdXQ
-         KGGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739532392; x=1740137192;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=V0lFTwfZZcUWkq9fJmOvcld23qYjy5biwQLrQr9JB8A=;
-        b=T9DpXKpTAMNaqg2gKGUsjm6IP6850ZCdCtembxj5sXIPZguVAMfXKHXrZPvz6OeWcD
-         SkId4ZV15CNx+aiObZo4rEHda4drWATa6uXnBavOPnmkxbDepQ+Ivik0ptNHCjPAHTsX
-         h5wPpQf8jXD4NJLI5xX78MMsFrIGF38uqNYlqgE3RpINvERLMUVcMjjIxcTWiwdPO8VH
-         HccUQggMu6dXi0QdHMYZKV66CIDXVrUwNsTk8kum/aQ6nJdc/F1tzjZB8AUobB0slZDk
-         uc/qWCbnQma6yfMKWCnDLMcCaKQHGr714xLd/ULL2GrbQeKQuBlD+ChUYjKy5hpVNqpK
-         R/dQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWBf0jDceTHZ8t4cHdhdKOYHrFO3AdJYpTz/Xb6jYpWGEJEfuarCc+3tQUrbwJPk0aONgczDmWFcqQAiCj++8cU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzq8inV5Yse+NDUJCz0r10VHk2tvySovZHBf0WslWr4sDkeQWls
-	Zk+Yth3e+U+7qwL1JP1OL0SjGJi0wkp/dcEXGm/j3D1tBoSFYv66rTW7kekWb+9kwigS6hoOF92
-	DmwEEIvzD8QU9UXHqOtYc5WjlpyPaOIzYuaMcgA==
-X-Gm-Gg: ASbGncv6tlbvWF120+S/ljxMuYRYtB+GRTpI4NHBVfGemkaPHPchgimxb2y+DvRuEKp
-	QomcHd8+raQkvi+Y7QQ7US3f2izbB3G6BmTxnfFC4y/VioNUN4AX1p8X3QMdkUMgUUHMXG4UkWg
-	==
-X-Google-Smtp-Source: AGHT+IHgAlZM0IOqZW2VzEw1FYIV10AUY+XwYeC5PGfb6gr8KMhdCaMYxrQJlkGON4FNOU8B5yXkDtD2hxcjbR8IEvM=
-X-Received: by 2002:a05:6902:2b11:b0:e5b:18ff:8cf4 with SMTP id
- 3f1490d57ef6-e5d9f0c85afmr10803625276.5.1739532391918; Fri, 14 Feb 2025
- 03:26:31 -0800 (PST)
+	Fri, 14 Feb 2025 11:31:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B7153A40145;
+	Fri, 14 Feb 2025 11:29:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69AFDC4CEE6;
+	Fri, 14 Feb 2025 11:31:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739532690;
+	bh=sDJ3GovbUss9aMUaAaOy+550jjRdY4AcEzY/v/nvd1I=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=P9vNBsh7vVarmOlPFNapX+jgf5rxP+ig9PH5HTI+AXYko96zwnaMqzUuU9YwMOUt+
+	 3BQCG8jCi3yVVKu4rLrfz60nCLK9mkBcd51Oifq4gdQfblNQ1Fljvg38AxgM98lAbA
+	 OftAzXmlwAYiW2LJlXydcwmk9XyDQibt8I6TQSYCcn1opwukwVK4wt9D4kps909pYt
+	 Z5Jc4FqnGvcKFrL0nSPbVF3Eb2QbVRws1d6idxN+3Cq5ZIER+Xu/M6YsJIm4u9c7+w
+	 NTj0yp9/R4Z1SxpICIKzEyXNPAy3ks3vi50M9KRxzdBjTCc3jnPExtb417B+SJLc55
+	 t7RljixG3IKTQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tituq-00431I-8p;
+	Fri, 14 Feb 2025 11:31:28 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: stable@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	gregkh@linuxfoundation.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: [PATCH 6.6.y] arm64: Filter out SVE hwcaps when FEAT_SVE isn't implemented
+Date: Fri, 14 Feb 2025 11:31:20 +0000
+Message-Id: <20250214113120.2985535-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <2025021004-lung-polyester-844c@gregkh>
+References: <2025021004-lung-polyester-844c@gregkh>
 MIME-Version: 1.0
-References: <20250205125225.1152849-1-szemzo.andras@gmail.com>
-In-Reply-To: <20250205125225.1152849-1-szemzo.andras@gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Fri, 14 Feb 2025 12:25:55 +0100
-X-Gm-Features: AWEUYZkzFAbsbuTJhoDDXcEDwXJNLijMk4rdL9iJXNhVee2PTovAo1vxRBOIWOQ
-Message-ID: <CAPDyKFq72fqa9xOOw3m2z2ceTj18JFn42PaqxA4Ks+o9dd3FXg@mail.gmail.com>
-Subject: Re: [PATCH v2 00/10] Support for Allwinner V853 SoC
-To: Andras Szemzo <szemzo.andras@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Maxime Ripard <mripard@kernel.org>, 
-	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: stable@vger.kernel.org, linux-arm-kernel@lists.infradead.org, gregkh@linuxfoundation.org, catalin.marinas@arm.com, broonie@kernel.org, will@kernel.org, mark.rutland@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_032633_228057_CFAE4C66 
-X-CRM114-Status: GOOD (  23.55  )
+X-CRM114-CacheID: sfid-20250214_033131_830603_BBC11C7E 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,106 +85,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 5 Feb 2025 at 13:52, Andras Szemzo <szemzo.andras@gmail.com> wrote:
->
-> V85x is a SoC from Allwinner with video encoding targeted for the field of
-> IP Camera. It integrates the single CA7 core, and a T-Head E907 RISC-V mcu.
-> The SoC has the usual Allwinner peripherals and a Vivante NPU.
-> V853 is a BGA package without DRAM, V851s/V851s3 has the same die with
-> co-packaged 64MB/128MB DRAM (in a QFN88 package).
->
-> This patchset tries to add basical support for the V853 device family.
+commit 064737920bdbca86df91b96aed256e88018fef3a upstream.
 
-Patch5 and patch6 applied for next via my pmdomain tree, thanks!
+The hwcaps code that exposes SVE features to userspace only
+considers ID_AA64ZFR0_EL1, while this is only valid when
+ID_AA64PFR0_EL1.SVE advertises that SVE is actually supported.
 
-Note, patch5 (the DT patch) is also available on the immutable dt
-branch, if soc maintainers need to pull it.
+The expectations are that when ID_AA64PFR0_EL1.SVE is 0, the
+ID_AA64ZFR0_EL1 register is also 0. So far, so good.
 
-Kind regards
-Uffe
+Things become a bit more interesting if the HW implements SME.
+In this case, a few ID_AA64ZFR0_EL1 fields indicate *SME*
+features. And these fields overlap with their SVE interpretations.
+But the architecture says that the SME and SVE feature sets must
+match, so we're still hunky-dory.
 
+This goes wrong if the HW implements SME, but not SVE. In this
+case, we end-up advertising some SVE features to userspace, even
+if the HW has none. That's because we never consider whether SVE
+is actually implemented. Oh well.
 
+Fix it by restricting all SVE capabilities to ID_AA64PFR0_EL1.SVE
+being non-zero. The HWCAPS documentation is amended to reflect the
+actually checks performed by the kernel.
 
->
-> Changelog - v2:
->  - rebased on 6.14-rc1
->  - add a needed gate with key support to sunxi clk
->  - rewrite the ccu-r driver
->  - fix license issues
->  - remove the pinctrl binding, as it has beed applied
->  - rework the pinctrl driver, use the new sunxi dt based mux support. This new pinctrl
->    driver depends on the new sunxi device-tree based mux support patch series [1].
->  - remove the new usb phy binding, as the v853's usb phy is very close to d1/a64
->  - add a board dts
->  - ccu: add module description
->  - ccu: fix PLL enable bits, and min multipliers
->  - ccu: change PLL flags to CLK_SET_RATE_GATE
->  - ccu: use SUNXI_CCU_M_HWS at peripheral PLLs
->  - ccu: convert the VIDEO and CSI PLLs from nm type to nkmp according to BSP
->  - ccu: cpu axi clk use pointer
->  - ccu: fix comments
->  - ccu: swap i2s1 and i2s0 bus clocks
->  - ccu: fix indentation
->  - ccu: fix RST_BUS_SPIF order
->  - ccu: convert RST_RISCV_CLK_GATING from reset to gate
->
-> [1]: https://lore.kernel.org/linux-sunxi/20241111005750.13071-1-andre.przywara@arm.com/T/
->
-> Andras Szemzo (10):
->   clk: sunxi-ng: allow key feature in ccu reset and gate
->   pinctrl: sunxi: add driver for Allwinner V853
->   dt-bindings: clock: sunxi-ng: add compatibles for V853
->   clk: sunxi-ng: add CCU drivers for V853
->   dt-bindings: power: add V853 ppu bindings
->   pmdomain: sunxi: add V853 ppu support
->   dt-bindings: phy: allwinner: add v853 usb phy
->   phy: allwinner: add v853 usb phy compatible
->   ARM: dts: sun8i: add DTSI file for V853
->   ARM: dts: sun8i: add DTS file for yuzuki-lizard V851s
->
->  .../clock/allwinner,sun4i-a10-ccu.yaml        |    3 +
->  .../phy/allwinner,sun50i-a64-usb-phy.yaml     |    2 +
->  .../power/allwinner,sun20i-d1-ppu.yaml        |    1 +
->  arch/arm/boot/dts/allwinner/Makefile          |    1 +
->  .../boot/dts/allwinner/sun8i-v851s-lizard.dts |  196 +++
->  arch/arm/boot/dts/allwinner/sun8i-v853.dtsi   |  656 ++++++++++
->  drivers/clk/sunxi-ng/Kconfig                  |   10 +
->  drivers/clk/sunxi-ng/Makefile                 |    4 +
->  drivers/clk/sunxi-ng/ccu-sun8i-v853-r.c       |  120 ++
->  drivers/clk/sunxi-ng/ccu-sun8i-v853-r.h       |   14 +
->  drivers/clk/sunxi-ng/ccu-sun8i-v853.c         | 1145 +++++++++++++++++
->  drivers/clk/sunxi-ng/ccu-sun8i-v853.h         |   14 +
->  drivers/clk/sunxi-ng/ccu_common.h             |    2 +
->  drivers/clk/sunxi-ng/ccu_gate.c               |    6 +
->  drivers/clk/sunxi-ng/ccu_gate.h               |   14 +
->  drivers/clk/sunxi-ng/ccu_mux.c                |    4 +-
->  drivers/clk/sunxi-ng/ccu_reset.c              |    7 +
->  drivers/clk/sunxi-ng/ccu_reset.h              |    2 +-
->  drivers/phy/allwinner/phy-sun4i-usb.c         |   10 +
->  drivers/pinctrl/sunxi/Kconfig                 |    5 +
->  drivers/pinctrl/sunxi/Makefile                |    1 +
->  drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c    |   53 +
->  drivers/pmdomain/sunxi/sun20i-ppu.c           |   15 +
->  .../clock/allwinner,sun8i-v853-ccu.h          |  132 ++
->  .../clock/allwinner,sun8i-v853-r-ccu.h        |   16 +
->  .../power/allwinner,sun8i-v853-ppu.h          |   10 +
->  .../reset/allwinner,sun8i-v853-ccu.h          |   60 +
->  .../reset/allwinner,sun8i-v853-r-ccu.h        |   14 +
->  28 files changed, 2513 insertions(+), 4 deletions(-)
->  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v851s-lizard.dts
->  create mode 100644 arch/arm/boot/dts/allwinner/sun8i-v853.dtsi
->  create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853-r.c
->  create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853-r.h
->  create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853.c
->  create mode 100644 drivers/clk/sunxi-ng/ccu-sun8i-v853.h
->  create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun8i-v853.c
->  create mode 100644 include/dt-bindings/clock/allwinner,sun8i-v853-ccu.h
->  create mode 100644 include/dt-bindings/clock/allwinner,sun8i-v853-r-ccu.h
->  create mode 100644 include/dt-bindings/power/allwinner,sun8i-v853-ppu.h
->  create mode 100644 include/dt-bindings/reset/allwinner,sun8i-v853-ccu.h
->  create mode 100644 include/dt-bindings/reset/allwinner,sun8i-v853-r-ccu.h
->
-> --
-> 2.39.5
->
+Fixes: 06a916feca2b ("arm64: Expose SVE2 features for userspace")
+Reported-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: stable@vger.kernel.org
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Link: https://lore.kernel.org/r/20250107-arm64-2024-dpisa-v5-1-7578da51fc3d@kernel.org
+Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ Documentation/arch/arm64/elf_hwcaps.rst | 36 +++++++++++++++--------
+ arch/arm64/kernel/cpufeature.c          | 38 +++++++++++++++++--------
+ 2 files changed, 50 insertions(+), 24 deletions(-)
+
+diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
+index 76ff9d7398fda..f88a24d621dd4 100644
+--- a/Documentation/arch/arm64/elf_hwcaps.rst
++++ b/Documentation/arch/arm64/elf_hwcaps.rst
+@@ -174,22 +174,28 @@ HWCAP2_DCPODP
+     Functionality implied by ID_AA64ISAR1_EL1.DPB == 0b0010.
+ 
+ HWCAP2_SVE2
+-    Functionality implied by ID_AA64ZFR0_EL1.SVEVer == 0b0001.
++    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
++    ID_AA64ZFR0_EL1.SVEver == 0b0001.
+ 
+ HWCAP2_SVEAES
+-    Functionality implied by ID_AA64ZFR0_EL1.AES == 0b0001.
++    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
++    ID_AA64ZFR0_EL1.AES == 0b0001.
+ 
+ HWCAP2_SVEPMULL
+-    Functionality implied by ID_AA64ZFR0_EL1.AES == 0b0010.
++    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
++    ID_AA64ZFR0_EL1.AES == 0b0010.
+ 
+ HWCAP2_SVEBITPERM
+-    Functionality implied by ID_AA64ZFR0_EL1.BitPerm == 0b0001.
++    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
++    ID_AA64ZFR0_EL1.BitPerm == 0b0001.
+ 
+ HWCAP2_SVESHA3
+-    Functionality implied by ID_AA64ZFR0_EL1.SHA3 == 0b0001.
++    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
++    ID_AA64ZFR0_EL1.SHA3 == 0b0001.
+ 
+ HWCAP2_SVESM4
+-    Functionality implied by ID_AA64ZFR0_EL1.SM4 == 0b0001.
++    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
++    ID_AA64ZFR0_EL1.SM4 == 0b0001.
+ 
+ HWCAP2_FLAGM2
+     Functionality implied by ID_AA64ISAR0_EL1.TS == 0b0010.
+@@ -198,16 +204,20 @@ HWCAP2_FRINT
+     Functionality implied by ID_AA64ISAR1_EL1.FRINTTS == 0b0001.
+ 
+ HWCAP2_SVEI8MM
+-    Functionality implied by ID_AA64ZFR0_EL1.I8MM == 0b0001.
++    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
++    ID_AA64ZFR0_EL1.I8MM == 0b0001.
+ 
+ HWCAP2_SVEF32MM
+-    Functionality implied by ID_AA64ZFR0_EL1.F32MM == 0b0001.
++    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
++    ID_AA64ZFR0_EL1.F32MM == 0b0001.
+ 
+ HWCAP2_SVEF64MM
+-    Functionality implied by ID_AA64ZFR0_EL1.F64MM == 0b0001.
++    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
++    ID_AA64ZFR0_EL1.F64MM == 0b0001.
+ 
+ HWCAP2_SVEBF16
+-    Functionality implied by ID_AA64ZFR0_EL1.BF16 == 0b0001.
++    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
++    ID_AA64ZFR0_EL1.BF16 == 0b0001.
+ 
+ HWCAP2_I8MM
+     Functionality implied by ID_AA64ISAR1_EL1.I8MM == 0b0001.
+@@ -273,7 +283,8 @@ HWCAP2_EBF16
+     Functionality implied by ID_AA64ISAR1_EL1.BF16 == 0b0010.
+ 
+ HWCAP2_SVE_EBF16
+-    Functionality implied by ID_AA64ZFR0_EL1.BF16 == 0b0010.
++    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
++    ID_AA64ZFR0_EL1.BF16 == 0b0010.
+ 
+ HWCAP2_CSSC
+     Functionality implied by ID_AA64ISAR2_EL1.CSSC == 0b0001.
+@@ -282,7 +293,8 @@ HWCAP2_RPRFM
+     Functionality implied by ID_AA64ISAR2_EL1.RPRFM == 0b0001.
+ 
+ HWCAP2_SVE2P1
+-    Functionality implied by ID_AA64ZFR0_EL1.SVEver == 0b0010.
++    Functionality implied by ID_AA64PFR0_EL1.SVE == 0b0001 and
++    ID_AA64ZFR0_EL1.SVEver == 0b0010.
+ 
+ HWCAP2_SME2
+     Functionality implied by ID_AA64SMFR0_EL1.SMEver == 0b0001.
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 7e96604559004..82778258855d1 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2762,6 +2762,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = match,						\
+ 	}
+ 
++#define HWCAP_CAP_MATCH_ID(match, reg, field, min_value, cap_type, cap)		\
++	{									\
++		__HWCAP_CAP(#cap, cap_type, cap)				\
++		HWCAP_CPUID_MATCH(reg, field, min_value) 			\
++		.matches = match,						\
++	}
++
+ #ifdef CONFIG_ARM64_PTR_AUTH
+ static const struct arm64_cpu_capabilities ptr_auth_hwcap_addr_matches[] = {
+ 	{
+@@ -2790,6 +2797,13 @@ static const struct arm64_cpu_capabilities ptr_auth_hwcap_gen_matches[] = {
+ };
+ #endif
+ 
++#ifdef CONFIG_ARM64_SVE
++static bool has_sve_feature(const struct arm64_cpu_capabilities *cap, int scope)
++{
++	return system_supports_sve() && has_user_cpuid_feature(cap, scope);
++}
++#endif
++
+ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64ISAR0_EL1, AES, PMULL, CAP_HWCAP, KERNEL_HWCAP_PMULL),
+ 	HWCAP_CAP(ID_AA64ISAR0_EL1, AES, AES, CAP_HWCAP, KERNEL_HWCAP_AES),
+@@ -2827,18 +2841,18 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
+ 	HWCAP_CAP(ID_AA64MMFR2_EL1, AT, IMP, CAP_HWCAP, KERNEL_HWCAP_USCAT),
+ #ifdef CONFIG_ARM64_SVE
+ 	HWCAP_CAP(ID_AA64PFR0_EL1, SVE, IMP, CAP_HWCAP, KERNEL_HWCAP_SVE),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, SVEver, SVE2p1, CAP_HWCAP, KERNEL_HWCAP_SVE2P1),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, SVEver, SVE2, CAP_HWCAP, KERNEL_HWCAP_SVE2),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, AES, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEAES),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, AES, PMULL128, CAP_HWCAP, KERNEL_HWCAP_SVEPMULL),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, BitPerm, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBITPERM),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, BF16, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBF16),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, BF16, EBF16, CAP_HWCAP, KERNEL_HWCAP_SVE_EBF16),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, SHA3, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESHA3),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, SM4, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESM4),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEI8MM),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, F32MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF32MM),
+-	HWCAP_CAP(ID_AA64ZFR0_EL1, F64MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF64MM),
++	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, SVEver, SVE2p1, CAP_HWCAP, KERNEL_HWCAP_SVE2P1),
++	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, SVEver, SVE2, CAP_HWCAP, KERNEL_HWCAP_SVE2),
++	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, AES, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEAES),
++	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, AES, PMULL128, CAP_HWCAP, KERNEL_HWCAP_SVEPMULL),
++	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, BitPerm, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBITPERM),
++	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, BF16, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEBF16),
++	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, BF16, EBF16, CAP_HWCAP, KERNEL_HWCAP_SVE_EBF16),
++	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, SHA3, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESHA3),
++	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, SM4, IMP, CAP_HWCAP, KERNEL_HWCAP_SVESM4),
++	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEI8MM),
++	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, F32MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF32MM),
++	HWCAP_CAP_MATCH_ID(has_sve_feature, ID_AA64ZFR0_EL1, F64MM, IMP, CAP_HWCAP, KERNEL_HWCAP_SVEF64MM),
+ #endif
+ 	HWCAP_CAP(ID_AA64PFR1_EL1, SSBS, SSBS2, CAP_HWCAP, KERNEL_HWCAP_SSBS),
+ #ifdef CONFIG_ARM64_BTI
+-- 
+2.39.2
+
 
