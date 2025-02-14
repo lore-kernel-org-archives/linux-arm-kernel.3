@@ -4,132 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF58C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 01:18:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D50D9C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 01:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XhBYabwod4LpaU83iHbE0xRxkIKJmiQo9VgFLEJXSFg=; b=JlrW4jWJg9da31v0K7/eKCYMqZ
-	JvgDjz0S4VE9jfwtw4vJoMwoduUqw8puNEVouq/L+G++X9FTQB5aYiz96jtg3qCol/lBpDnkYTZYl
-	1A/XXRJ9ZKVKd5WCC2n8gwom4AhATQX9mdcyUoorIywKeLWRqbqDajkE4mu2/eB5deKvToVrpX4vb
-	U4Pw7gy/LXrfZnzQVMi/16DDoLlOKmkTq1zih5G0dDeYN4LAPveBTIVkDYZERR1+djqjnmkYvIwng
-	587ejUAoGszZbHICob3Q8vPolKeUqD7RKGX6J1SEY2JuqwiP/acyVnz8S3KjTNS62utVa2dG0dqpv
-	k7hx6dQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7hExy0FLliF7/5KpbnNvgZT3zJtje/RlrmBG0QuhAfE=; b=XhtRAImZHTGIgHUohe+pnQWLzy
+	djY6KlSs01/vqYErc4O/iROyfy3boVKlqN9zLJJcpV83w5wdOwEYOtwfhu3OoaNkZ9TOJkjB8dT7s
+	SEeK+YSWE0ryq4d6Q9kQ4PcZEgThxyn3Eb/wse5kpwCudLLeXvwVQrv51nPIXhYXzAeHANWq3yFeR
+	ms7RyMmU3FbHoiPKczi6RzBAeBXyLx75TdCxEwAueV5l1ABybpzwymPdUCvW82nB5+593BtGUkUkH
+	IizDvozUKt8HZGzgWAb2shQ6jYV4TCFaA2dRbP/c6CVBNNH3AB5E55mlqxItgAhB3BwN1Y/OKuUTx
+	340W3qQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tikL9-0000000DAQu-1tWr;
-	Fri, 14 Feb 2025 01:17:59 +0000
-Received: from mail-koreacentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c40f::7] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1tikOO-0000000DAq7-1VeK;
+	Fri, 14 Feb 2025 01:21:20 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tikJj-0000000DALm-0RHF
+	id 1tikMx-0000000DAfP-2CdQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 01:16:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=H9QgMYzWIigPnW56Bza9oK6jJ6RLVC7OcUci4PCMbBxDhvfz1HkOh/9POSoBmkV4jx0Pw3NlWOuaAVRtNUt4xsqhzsLaWfNlFFwGyqeWwf/Ik1QQ9oQ8RC491vNK9XigmYrzVwxPg/cx6SW7is+o3ZluqF6lL8/jSXZMRz+KngDCXM5MKjUCG7laTD0y4gZbItgdPRf5HYNqL9KLfVffxKmuAR7zLKfPPR8gQNMjt1n4DL7XU1+GZ0qA/t7Gsh2115eorwBIKEt9RcooCmWuNG4dkG+MQAHJQBFfJJkR2DPGrONtXY6AUPvba/psZIC0l9NgtqPvJ5ukWe4FpXUO0Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XhBYabwod4LpaU83iHbE0xRxkIKJmiQo9VgFLEJXSFg=;
- b=SBvztswhTc46f0kdV1b/8ed3aIUNa2NC/erkzAlIV0W7lB7oySa8wqYCHvmnMHdnao38fV1TIyhHxCQqmU90NppP5Pk91tbfSVmgZ6gO9mxxgoBlH7Yxez05A7g+/3B9BMsfX4ccSGyKpTAZJesMcjQ6eZUW/FyT1aHGjiEc4Q5JSBvFMvlq+g3Ybv1dUG/GevJSgme2DD8SJvKN/ZoQMXSeh1LUXVrpgrhBkuDrbH7tRpXXCFFLsdvNqnM7zgTkLAbTyu7gFLE1b7Hnet/Unmj0A8f5o4g6twtOnyVSyOHQwSggramuBNHFugPfBw9560GRyq80zDFk/83VUbJpig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 211.20.1.79) smtp.rcpttodomain=stwcx.xyz smtp.mailfrom=wiwynn.com; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=wiwynn.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XhBYabwod4LpaU83iHbE0xRxkIKJmiQo9VgFLEJXSFg=;
- b=w+UJSSR5U0zepu5HRVAIFZvjvZRV6DpXl6WvSu3mGIY3uC02MWC0PJ+oQ4eQjSvrEywlNH69FwlXmTnbrbj9pDdVCrPd+2Eunp2FF/ZzvxlI9eKndeF/3T3tE5wQAPYp6LHsWL+cXHkPnWRKa7nEyGgMCnDyUo3VRrOeLzVVg7VHLt9z5ugHavcRsnmRNi9Twz7/P48cNXZLRfJSsLEE34bh9EuCg6paBcJa90O/12eg03MU/9GPaaIlluzbi2OzaUX/s2ac1AdMhqhrwgmTL7pXLxOje93v+Ll+l+GXEktKhUD0yQpV61i/9VxmfgBDoC9gKnkmlGJSsC40Os0pVA==
-Received: from SG2PR03CA0124.apcprd03.prod.outlook.com (2603:1096:4:91::28) by
- SEYPR04MB6752.apcprd04.prod.outlook.com (2603:1096:101:dd::11) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8445.16; Fri, 14 Feb 2025 01:16:00 +0000
-Received: from SG1PEPF000082E6.apcprd02.prod.outlook.com
- (2603:1096:4:91:cafe::d3) by SG2PR03CA0124.outlook.office365.com
- (2603:1096:4:91::28) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.8 via Frontend Transport; Fri,
- 14 Feb 2025 01:15:59 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 211.20.1.79)
- smtp.mailfrom=wiwynn.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=wiwynn.com;
-Received-SPF: Fail (protection.outlook.com: domain of wiwynn.com does not
- designate 211.20.1.79 as permitted sender) receiver=protection.outlook.com;
- client-ip=211.20.1.79; helo=localhost.localdomain;
-Received: from localhost.localdomain (211.20.1.79) by
- SG1PEPF000082E6.mail.protection.outlook.com (10.167.240.9) with Microsoft
- SMTP Server id 15.20.8445.10 via Frontend Transport; Fri, 14 Feb 2025
- 01:15:58 +0000
-From: MarshallZhan-wiwynn <marshall_zhan@wiwynn.com>
-To: patrick@stwcx.xyz,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: MarshallZhan-wiwynn <marshall_zhan@wiwynn.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH dev 6.6 v3] ARM: dts: aspeed: yosemite4: add I3C config in DTS
-Date: Fri, 14 Feb 2025 09:15:55 +0800
-Message-Id: <20250214011556.1891113-1-marshall_zhan@wiwynn.com>
-X-Mailer: git-send-email 2.25.1
+	Fri, 14 Feb 2025 01:19:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DEACF5C5CEF;
+	Fri, 14 Feb 2025 01:19:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBC4EC4CED1;
+	Fri, 14 Feb 2025 01:19:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739495990;
+	bh=sfaPPZ9gP5kgndwhB/ECTbbp0IEu/QeHTgJVNdmuwy0=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=XiSQLD906pcu2WDC2EPROMCXXWeS6auijB21WC1/0APPV98P5nxNnepP2GpHUYEqM
+	 nLtVUv3yqX9KjfSqpqyPfGJcmj4/pvaUMw4yj6uO4rS7pdtXBc2Uau8q14OTtrshAa
+	 12MV0IwP/2ZdGYhbdIpHSiIIeQuv24gd2B8FKNklG97FBHf84pIvHRBhvFN6BLH6Ap
+	 fsdeaHGb7rDR1qhVMoOwHbqH7IAZ84OtOlqUKaDlC8hDCJuV/64GnZvKhrGtFyPCUO
+	 p88qN0HJ69LTcXjyAw9xvVP6lbdTLQGR5ZsHlo1N8bcuoKiuNkBrEBlZsl0x6SFD0E
+	 UxlOKeUATTtHQ==
+Date: Thu, 13 Feb 2025 19:19:48 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E6:EE_|SEYPR04MB6752:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: ed2b0c0b-b767-4a30-fc5b-08dd4c9523f6
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KgrmApvqD4NtljMrZz0G4zZkl/xTIOkdeo1IbwkFqLOS+nN8mnv+QsHX3Qsd?=
- =?us-ascii?Q?9DR8gq9EB0ChAWJkkDIp8h/VGGoin1FA7+mvMvZZ3nyfu/V/GOCgyhkbyH+D?=
- =?us-ascii?Q?0L1/OzRQgeCqCA3nFfu5wqtpWsSPzMyXTeqYQmEIa0GQRG+iFfsHOCESPmQN?=
- =?us-ascii?Q?BXU5ceLSWFu7SnFTaZAkYC2olDV9zdFpLXibh47IhGa2qA54H2SZevoADL9t?=
- =?us-ascii?Q?dnAb8om227XIzPpOHRX4PkPhSO3FPA7wdfKXCQLebKYckc59YajnsUH045TD?=
- =?us-ascii?Q?1hMUlYuFC6fM5ZNNtxFkfdVm7mi8E7UwGnC4vWh/j4egHUEzN3Zy+d9gVFNF?=
- =?us-ascii?Q?dVmYI25dEk2J6GGzkbhC7HEoxVaLkie3f+T5REHY7zm1DINyNn+0QD6j6/H+?=
- =?us-ascii?Q?JxjxBUZgnRlO9zHueGnyiySDibJSmm2w8/5A16vD+0Rsd4lHQ8XrJshztPGy?=
- =?us-ascii?Q?UrazGkEOKuVTPr6xI+3X/2QVfwl++UXBuwKy3Bf0aICnDcXxdv+iO0+svwFo?=
- =?us-ascii?Q?c3Ul2TtjdFmWvXhcMcX0UfAUWBZkAgH/FbQUIaDmiANjA89iVE7flqX+ibsH?=
- =?us-ascii?Q?lxbWjoQmi5rISKXUmCFbwLEkhgqg8igz0ULA4eTX1ppwdK3+3Xs8g98SZmh2?=
- =?us-ascii?Q?+I9Xi35zuPBS5wNiWnxwI9c/m0vNnOBooqHaPOSJddteosinUh7eySr/SeqC?=
- =?us-ascii?Q?vxuc8zp9PRipBgoV/Tvl2/I2DeKJfzIH0Q6m1k+qlkoTaR/8MTXKEhkHp+LF?=
- =?us-ascii?Q?/YLLMlMFvz7q47h9KXf7iaCxzgMTjXd62SD+VPLJthErHHqfXLZ7NRxic+7+?=
- =?us-ascii?Q?WrzLlOnVi6GLLMqSxDer9tCTBz45U/YZ16gpaLo+542fzNokqgKoW9gTIYq+?=
- =?us-ascii?Q?jD4F/rksMeNE/uL7rwUyX1rrP181uOAlMKVHgmaRmSGbif583Lyz2q3zyBv5?=
- =?us-ascii?Q?i3Ldm2tGjShoEA/dnluAaItkgzpHv6fzrirO0y8+tZr9DRvOk/AzJVei7dcR?=
- =?us-ascii?Q?sBnzSUOwyGq/6rm/UnvllILcqA3AleBZXakeQUQSQlgEZirEM75uCy1b8yJv?=
- =?us-ascii?Q?4xt9Jvcu9ceslmrgQbgM4JlttMbeswmTfLjrHcAS+CRVdO7p9dZzL6gilERJ?=
- =?us-ascii?Q?A2auf1StHh3ShrMParIxg9E9nEVj/coKXE9eN8yQUxq2YbkB/9flm+kJso+/?=
- =?us-ascii?Q?3JlXOlPTYu402F5jlEG/2P8CMQJZrMHN5b0dtsC4ddT8WdC7UDpTrHuLUe9c?=
- =?us-ascii?Q?G4JpdtLvsEQVLggUrUDw8pUDOXts+Q/L3jQRdyez7TRMw602X5SYPnlm4JAa?=
- =?us-ascii?Q?vaQBXkWd5Rg3tpBFpHRQDW9s3+cPB2EiOvbw3Zcq3sHfjumGlbG0c33L8Y7Y?=
- =?us-ascii?Q?bfz6HrkGKq3VzhGF+hZzq1IhnJt2AvApBj+102+yyc7W7QNKEzt2QZdet4Ou?=
- =?us-ascii?Q?gq2jTCc6MCXR3OaGoOmzalUNSTd60UUYgCR0RHW3NNAasLwmWQxP+U1gzcjq?=
- =?us-ascii?Q?5FSXlVDuY9UOdUY=3D?=
-X-Forefront-Antispam-Report: CIP:211.20.1.79;CTRY:TW;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:localhost.localdomain;PTR:211-20-1-79.hinet-ip.hinet.net;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: wiwynn.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Feb 2025 01:15:58.6517
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed2b0c0b-b767-4a30-fc5b-08dd4c9523f6
-X-MS-Exchange-CrossTenant-Id: da6e0628-fc83-4caf-9dd2-73061cbab167
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=da6e0628-fc83-4caf-9dd2-73061cbab167;Ip=[211.20.1.79];Helo=[localhost.localdomain]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E6.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR04MB6752
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-sunxi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ Chen-Yu Tsai <wens@csie.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Samuel Holland <samuel@sholland.org>
+To: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <20250214003734.14944-7-andre.przywara@arm.com>
+References: <20250214003734.14944-1-andre.przywara@arm.com>
+ <20250214003734.14944-7-andre.przywara@arm.com>
+Message-Id: <173949598874.895319.6861900349653451498.robh@kernel.org>
+Subject: Re: [PATCH v2 6/8] dt-bindings: pinctrl: add compatible for
+ Allwinner A523/T527
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_171631_143992_E20B2333 
-X-CRM114-Status: UNSURE (   6.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_171951_707538_C5BF60D4 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,123 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set I3C config in yosemite4 DTS.
 
-Test plan:
-Tested pass with aspeed I3C patches and I3C hub driver.
+On Fri, 14 Feb 2025 00:37:32 +0000, Andre Przywara wrote:
+> The A523 contains a pin controller similar to previous SoCs, although
+> using 10 GPIO banks (PortB-PortK), all of them being IRQ capable.
+> With this SoC we introduce a new style of binding, where the pinmux values
+> for each pin group are stored in the new "allwinner,pinmux" property in
+> the DT node, instead of requiring every driver to store a mapping between
+> the function names and the required pinmux.
+> 
+> Add a new binding file, since all the different variants of the old
+> binding are making the file a bit unwieldy to handle already, and the new
+> property would make the situation worse.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  .../allwinner,sun55i-a523-pinctrl.yaml        | 177 ++++++++++++++++++
+>  1 file changed, 177 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml
+> 
 
-Signed-off-by: MarshallZhan-wiwynn <marshall_zhan@wiwynn.com>
----
- .../aspeed/aspeed-bmc-facebook-yosemite4.dts  | 88 +++++++++++++++++++
- 1 file changed, 88 insertions(+)
+My bot found errors running 'make dt_binding_check' on your patch:
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/a=
-rch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-index ab4904cf2c0e..3f98e67674d0 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-@@ -1317,6 +1317,94 @@ eeprom@50 {
-        };
- };
+yamllint warnings/errors:
 
-+&i3c0 {
-+       status =3D "okay";
-+       pinctrl-names =3D "default";
-+       pinctrl-0 =3D <&pinctrl_i3c1_default>;
-+       i3c-scl-hz =3D <8000000>;
-+       i3c-pp-scl-hi-period-ns =3D <62>;
-+       i3c-pp-scl-lo-period-ns =3D <63>;
-+       i3c-od-scl-hi-period-ns =3D <380>;
-+       i3c-od-scl-lo-period-ns =3D <620>;
-+       sda-tx-hold-ns =3D <10>;
-+
-+       mctp-controller;
-+       hub@0x70 {
-+               reg =3D <0x70 0x3c0 0x00700000>;
-+               cp0-ldo-en =3D "disabled";
-+               cp1-ldo-en =3D "disabled";
-+               cp0-ldo-volt =3D "1.2V";
-+               cp1-ldo-volt =3D "1.2V";
-+               tp0145-ldo-en =3D "disabled";
-+               tp2367-ldo-en =3D "disabled";
-+               tp0145-ldo-volt =3D "1.2V";
-+               tp2367-ldo-volt =3D "1.2V";
-+               tp0145-pullup =3D "2k";
-+               tp2367-pullup =3D "2k";
-+
-+               target-port@0 {
-+                       mode =3D "i3c";
-+                       pullup =3D "enabled";
-+               };
-+               target-port@1 {
-+                       mode =3D "i3c";
-+                       pullup =3D "enabled";
-+               };
-+               target-port@2 {
-+                       mode =3D "i3c";
-+                       pullup =3D "enabled";
-+               };
-+               target-port@3 {
-+                       mode =3D "i3c";
-+                       pullup =3D "enabled";
-+               };
-+       };
-+};
-+
-+&i3c1 {
-+       status =3D "okay";
-+       pinctrl-names =3D "default";
-+       pinctrl-0 =3D <&pinctrl_i3c2_default>;
-+       i3c-scl-hz =3D <8000000>;
-+       i3c-pp-scl-hi-period-ns =3D <62>;
-+       i3c-pp-scl-lo-period-ns =3D <63>;
-+       i3c-od-scl-hi-period-ns =3D <380>;
-+       i3c-od-scl-lo-period-ns =3D <620>;
-+       sda-tx-hold-ns =3D <10>;
-+
-+       mctp-controller;
-+       hub@0x70 {
-+               reg =3D <0x70 0x3c0 0x00700000>;
-+               cp0-ldo-en =3D "disabled";
-+               cp1-ldo-en =3D "disabled";
-+               cp0-ldo-volt =3D "1.2V";
-+               cp1-ldo-volt =3D "1.2V";
-+               tp0145-ldo-en =3D "disabled";
-+               tp2367-ldo-en =3D "disabled";
-+               tp0145-ldo-volt =3D "1.2V";
-+               tp2367-ldo-volt =3D "1.2V";
-+               tp0145-pullup =3D "2k";
-+               tp2367-pullup =3D "2k";
-+
-+               target-port@0 {
-+                       mode =3D "i3c";
-+                       pullup =3D "enabled";
-+               };
-+               target-port@1 {
-+                       mode =3D "i3c";
-+                       pullup =3D "enabled";
-+               };
-+               target-port@2 {
-+                       mode =3D "i3c";
-+                       pullup =3D "enabled";
-+               };
-+               target-port@3 {
-+                       mode =3D "i3c";
-+                       pullup =3D "enabled";
-+               };
-+       };
-+};
-+
- &adc0 {
-        status =3D "okay";
-        pinctrl-0 =3D <&pinctrl_adc0_default &pinctrl_adc1_default
---
-2.25.1
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.example.dts:24:18: fatal error: dt-bindings/clock/sun55i-a523-r-ccu.h: No such file or directory
+   24 |         #include <dt-bindings/clock/sun55i-a523-r-ccu.h>
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1511: dt_binding_check] Error 2
+make: *** [Makefile:251: __sub-make] Error 2
 
-WIWYNN PROPRIETARY
-This email (and any attachments) contains proprietary or confidential infor=
-mation and is for the sole use of its intended recipient. Any unauthorized =
-review, use, copying or distribution of this email or the content of this e=
-mail is strictly prohibited. If you are not the intended recipient, please =
-notify the sender and delete this email immediately.
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250214003734.14944-7-andre.przywara@arm.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
