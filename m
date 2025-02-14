@@ -4,67 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 481F2C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 06:31:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E06B5C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 06:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LohDz1eP1+TlmpfNSbH5KZR78QndI8A09SSMYEkIlg8=; b=Iv/RpN3tMsNKJdpHx2tSOrTupt
-	+Y+cHIKYelGVGXRUZM24fhSfu02hNk9cQqHuqpMIvf0emRyC+1ctIKdkEIgF/e63NP3FbLXYm2kLL
-	hJS3f3aBb+IM0TzsDdCw6nC95v/tAu4aiCCzr9fgpimK546T5GhpPtyZqcVRPRMaRzipRbIdKhidr
-	GD8yZU6C43utsHiT33coq0QseZgdTf5CFmBqQG+v6bCeece/Fdmc7V3PLCEeCNKLMbqgVfo39/ueH
-	ICTvBsVb/S/0GsXwo4pUmKV9VBmSujL6Rv+/jtI3+Yt9Bf14td26kCJFbY19zcWUjx6JCJB2PeOZx
-	1ci+Zj2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RS4NhYdSKIq0ZCVoddU4UM3ba+/5N5wTfgewbJrHpVM=; b=MEy5xf1+FKuv2FeuSMapmZff51
+	fqWH+MudbqZD8PKmvbkhbLZ0F0DgQHMnUi1T+zLtfxg3m7s8DFGITUEf0AsXE7jQRuK1PIGc7TQw5
+	K5nM45EqpgDf8LpxQGPUqlro+GRqcr0wFBVj2RDpqS6H0H47c5ZIwRAnfXBhgvRa8wcSodlBM5gXR
+	hxFrBIak4lFKsa16l8oKuV4bkfNPtdQhwZclHiAUhYa4UdjuTyY8JUoptPnOPWHeT5nGnavx2qBm5
+	f373AGWLwwk56U/+yw4AavspdVUFJJKL/f1QkvzWRluSixFIo40Hc83grvAf27pSz/Mj8XsZSKrPN
+	XXL03hzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tipEi-0000000DpbQ-2bFY;
-	Fri, 14 Feb 2025 06:31:40 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tipG8-0000000DpoA-13Mi;
+	Fri, 14 Feb 2025 06:33:08 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tipDG-0000000DpNQ-3QNl
+	id 1tipEP-0000000DpXK-2Uvs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 06:30:12 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tipDB-0006zp-I1; Fri, 14 Feb 2025 07:30:05 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tipDB-000s8w-0M;
-	Fri, 14 Feb 2025 07:30:05 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tipDB-00EbY2-01;
-	Fri, 14 Feb 2025 07:30:05 +0100
-Date: Fri, 14 Feb 2025 07:30:04 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, marex@denx.de,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH V3] soc: imx8m: Unregister cpufreq and soc dev in cleanup
- path
-Message-ID: <20250214063004.jvz5vukaxszcucd7@pengutronix.de>
-References: <20241219145029.1776006-1-peng.fan@oss.nxp.com>
- <20250214034923.GA20275@localhost.localdomain>
+	Fri, 14 Feb 2025 06:31:22 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5de3c29ebaeso2079719a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 22:31:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739514680; x=1740119480; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=RS4NhYdSKIq0ZCVoddU4UM3ba+/5N5wTfgewbJrHpVM=;
+        b=xll360Ad3N0vQEllnLH1IE0UzWXr+t3klbwpvXmhw0L41gaVXMAdvsfPfCG/8QGpsh
+         cY99erJALC7en3+McQOkR4hyxaDWGsnfyZXe6xiRQcr9AKbs5LPHP+DH4V8bpFwfiXvh
+         FuneShSURWErwPdMfrxquLp1CA4bboZGZit770/WIWuhtJknB1ki/XmBemtwlZwgkMRC
+         LIsvshi3d95D55f8kBelQkk5zhOxWZA/MGeRy/LUrTbDGWYCgzVrkF7aISqnm8AXlTiH
+         FHucmhWfhiW7bqJNSsEcI0R5cb01ZmskDNxvp09vYAdLrPvLY5sknEgYi201z/c6Juve
+         3NBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739514680; x=1740119480;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RS4NhYdSKIq0ZCVoddU4UM3ba+/5N5wTfgewbJrHpVM=;
+        b=aK+LRR5CAXw9xJ/h6RgUUkUTVwdBiUswg1RTNdGE37x7DAQGjK+/XkaKIxWshCu7RV
+         /U1RPXsAgIlWyjJHjbRuU+5sBN9H7uf39NXV7cawTOBibbGHabDwNpnAL+8uCZ42cwgS
+         crqYoa7r0ShsVXAHsC5NtVIdtj/XAPJKo+imCym7+t+qqitW/3UgNzSixZ9gUrc+YsSh
+         cwBxjOd7UN3waztXGD0xbD6kA3uxZRfuM0Zc4y+iWtwiiLeC2gG3btZi/7az5QO14XM7
+         qOFRDxQSRQ4Y+OdlOScH9zsu7vU6MjI76fwlZrs3laU7p8EmQvCDDNlGkStg70pe34Zc
+         AFcw==
+X-Forwarded-Encrypted: i=1; AJvYcCUA3GFDUJCDYeoVx2I3yZ4AtsB99Sw3MCgFrQeVIlHqCGHLj2olsTZnJwJ9+KUNwp+YkPEUJHLzParxjFZq9B/q@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPBA5g/nyetW1wZ/+5CIGRG3mhFjy0Rv8oxtOxnZfVCrjSvaRN
+	8TgmstawqDkQiwGd49SaSj/96ugeKP8niMCxyukEDnEIkxpdRx+zX635wfpr3RI=
+X-Gm-Gg: ASbGncsybvacjTAEEzd9kKDxm8fg++kIqut50TE9mn1/rstPQH5kwDP3yOTs0iXiIwI
+	+k1SCn7WlAqt2dOkSbQL4H1RqmJwwNSuF4PhpUoWIsDf/uNSwibtJDQHl1h6nlohpKU5EwB6hj5
+	1NadIa4gXvjihQ9mK6dlUwDiCjA6M/nNAZTSUCaWPQhqURLm1XqVknh+QeqT+l1V+2bnQ0ve2LJ
+	TyEDfprUr7aAjICr9NpMIxdx6Sxpct3ZNPWSGHQ6GWQsQlRmlcEeG7snzQy/dFtgnvqGPLUsxXX
+	KpczvMuttiomd/KvW1rgY3he
+X-Google-Smtp-Source: AGHT+IEN/RRE5hxQ5xNZNtT7rJsPTV3GPjWwm8qrFkScK0MAqhU1b09AXyINMIOW8g0Zg6OABiY4tw==
+X-Received: by 2002:a17:907:3da8:b0:aa6:79fa:b47d with SMTP id a640c23a62f3a-ab7f336d454mr924285066b.1.1739514680163;
+        Thu, 13 Feb 2025 22:31:20 -0800 (PST)
+Received: from [192.168.0.14] ([79.115.63.124])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece288e38sm2350948a12.79.2025.02.13.22.31.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Feb 2025 22:31:18 -0800 (PST)
+Message-ID: <49ce4bf7-fec2-4d1a-aff0-e342b31c4f57@linaro.org>
+Date: Fri, 14 Feb 2025 06:31:16 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250214034923.GA20275@localhost.localdomain>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/2] spi: s3c64xx: add support exynos990-spi to new
+ port config data
+To: Denzeel Oliva <wachiturroxd150@gmail.com>, andi.shyti@kernel.org,
+ broonie@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, alim.akhtar@samsung.com, linux-spi@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250213204044.660-1-wachiturroxd150@gmail.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250213204044.660-1-wachiturroxd150@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_223010_870687_D49F5F73 
-X-CRM114-Status: GOOD (  21.64  )
+X-CRM114-CacheID: sfid-20250213_223121_641731_A8ABE11C 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,104 +102,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
 
-On 25-02-14, Peng Fan wrote:
-> Hi Shawn,
-> 
-> On Thu, Dec 19, 2024 at 10:50:29PM +0800, Peng Fan (OSS) wrote:
-> >From: Peng Fan <peng.fan@nxp.com>
-> >
-> >Unregister the cpufreq device and soc device when resource unwinding,
-> >otherwise there will be warning when do removing test:
-> >sysfs: cannot create duplicate filename '/devices/platform/imx-cpufreq-dt'
-> >CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.13.0-rc1-next-20241204
-> >Hardware name: NXP i.MX8MPlus EVK board (DT)
-> >
-> >Fixes: 9cc832d37799 ("soc: imx8m: Probe the SoC driver as platform driver")
-> >Cc: Marco Felsch <m.felsch@pengutronix.de>
-> >Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> >---
-> 
-> Any comments?
-> 
-> Thanks,
-> Peng
-> 
-> >
-> >V3:
-> > Per Marco, drop remove function, use devm_add_action and update the patch
-> > title accordingly.
-> >
-> >V2:
-> > Add err check when create the cpufreq platform device
-> > https://lore.kernel.org/all/20241217015826.1374497-1-peng.fan@oss.nxp.com/
 
-This is got lost. Albeit platform_device_unregister() can handle
-IS_ERROR() cases I don't like the fact that we do not return the error
-if there is any during probe. Please see below.
+On 2/13/25 8:40 PM, Denzeel Oliva wrote:
+> - Added a default "fifo_depth = 64" to prevent crashes when "fifo-depth"
+>   is missing in the device tree (avoids divide-by-zero issues).
 
-> >
-> > drivers/soc/imx/soc-imx8m.c | 23 +++++++++++++++++++++--
-> > 1 file changed, 21 insertions(+), 2 deletions(-)
-> >
-> >diff --git a/drivers/soc/imx/soc-imx8m.c b/drivers/soc/imx/soc-imx8m.c
-> >index 8ac7658e3d52..585631b7ae44 100644
-> >--- a/drivers/soc/imx/soc-imx8m.c
-> >+++ b/drivers/soc/imx/soc-imx8m.c
-> >@@ -192,9 +192,20 @@ static __maybe_unused const struct of_device_id imx8_soc_match[] = {
-> > 	devm_kasprintf((dev), GFP_KERNEL, "%d.%d", ((soc_rev) >> 4) & 0xf, (soc_rev) & 0xf) : \
-> > 	"unknown"
-> > 
-> >+static void imx8m_unregister_soc(void *data)
-> >+{
-> >+	soc_device_unregister(data);
-> >+}
-> >+
-> >+static void imx8m_unregister_cpufreq(void *data)
-> >+{
-> >+	platform_device_unregister(data);
-> >+}
-> >+
-> > static int imx8m_soc_probe(struct platform_device *pdev)
-> > {
-> > 	struct soc_device_attribute *soc_dev_attr;
-> >+	struct platform_device *cpufreq_dev;
-> > 	const struct imx8_soc_data *data;
-> > 	struct device *dev = &pdev->dev;
-> > 	const struct of_device_id *id;
-> >@@ -239,11 +250,19 @@ static int imx8m_soc_probe(struct platform_device *pdev)
-> > 	if (IS_ERR(soc_dev))
-> > 		return PTR_ERR(soc_dev);
-> > 
-> >+	ret = devm_add_action(dev, imx8m_unregister_soc, soc_dev);
-> >+	if (ret)
-> >+		return ret;
-> >+
-> > 	pr_info("SoC: %s revision %s\n", soc_dev_attr->soc_id,
-> > 		soc_dev_attr->revision);
-> > 
-> >-	if (IS_ENABLED(CONFIG_ARM_IMX_CPUFREQ_DT))
-> >-		platform_device_register_simple("imx-cpufreq-dt", -1, NULL, 0);
-> >+	if (IS_ENABLED(CONFIG_ARM_IMX_CPUFREQ_DT)) {
-> >+		cpufreq_dev = platform_device_register_simple("imx-cpufreq-dt", -1, NULL, 0);
-		if (IS_ERROR(cpufreq_dev))
-			return dev_err_probe(dev, "Failed to imx-cpufreq-dev device\n",
-					     PTR_ERR(cpufreq_dev));
+no, you shouldn't use fifo_depth as a fallback, it's misleading.
+fifo_depth shall be used only if all your SPI instances use the same
+FIFO size. If that's not the case, as in yours, you specify the FIFO
+depth via DT.
 
-Regards,
-  Marco
+You need to determine whether your IP works with 0 sized FIFOs and if
+not, make the the DT fifo-depth mandatory and check that its value is > 0.
 
-> >+		ret = devm_add_action(dev, imx8m_unregister_cpufreq, cpufreq_dev);
-> >+		if (ret)
-> >+			return ret;
-> >+	}
-> > 
-> > 	return 0;
-> > }
-> >-- 
-> >2.37.1
-> >
-> >
-> 
+If the IP works with 0 sized FIFOs, you need to update the driver to
+allow that and let the fifo-depth property optional in DT.
 
