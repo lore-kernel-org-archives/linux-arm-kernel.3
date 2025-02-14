@@ -4,86 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 942A3C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC9ADC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 12:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=krnNlduV8FYZKW1Uss8LQ4PVHGiD+7ggpVNGpXMLdvM=; b=MGjVHTHUINE1S0A0363Zlxdm+X
-	x0d/9UDhRes9TE13iF/hQFQFhx7NILi3jzkqqGq/9NTyJmfJWrUExFx193vVPJA+9BcIZjmNSSvvo
-	vryLJK2LkA3XgtlzFfC27jw6mtr1FueWbLwfNB+rHauw940zWFqdWmz98dsegnAv2CmnWtUdM+ws5
-	fnLVuLDp5KhECGhgDPuvD1eFsS69+HiWloXdJUknflo4BhS6tWGSemfCVxH3g5WJcEDInYkJ7/09H
-	C1tjwR5ObstVQLsnc57Ldp0wuGtNeLHESmiRwlnpHQ1ngUOOiOXMQo3yvVnT1bmVCa9/A4oSBhAm3
-	HvyOnSTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GI3W9qR1fQieAycCsuIaEjCDuBJjNXKEwknKksP2WWw=; b=LtsP09JAzpPnSpjnvU6/Ui09XG
+	VGxCmjNHOKIq2SgzRMlodTnjEFcSUMCPlsDwzNC87I7cBPcUxEhx9Rtk5uJssseF0Phvsvv7ynp6r
+	fjsZdwx8LCFe66rFL3Asxnne2N43QwX8dZLjHd93KQhQqzTSMtU42r6FPP315SuBddoYmFnA8gTXJ
+	J6QRknoFIjj2Wtj1h5USwhkQFuiqnJTQdfseJZBogrv6aKFOeIIPvktMa43isSrKZOuW1I+nDTLYG
+	JWXYB1oxkuXgfbPmJdfuBUh8UiBbJfpGf7yJo9mE+HWefEHMVAsw5lE1CD5ve99GqybxrUuj1ryqT
+	8hzcit4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiuKX-0000000EmG1-2AP6;
-	Fri, 14 Feb 2025 11:58:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tiuOF-0000000Emp4-45oL;
+	Fri, 14 Feb 2025 12:01:51 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiuJ6-0000000Em2v-3ENL
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 11:56:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6CA205C5A76;
-	Fri, 14 Feb 2025 11:55:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B15DC4CED1;
-	Fri, 14 Feb 2025 11:56:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739534191;
-	bh=G2ROVBu5b+JAdTaOkWugsekPMRCegXPQ+zbKkmapIF8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=hChw4ib1wzFjnSheB50wsKRlt0AMG9/OBJve9zorJIKOVo7Z8RtHLK5BOLH3ckyyV
-	 BlzKYsmALZSUUaJozET+t8DP5gPwqdju12qywFSOEwrefUGLGOvWhdlS0vZi1yKwbu
-	 wXJAJNtQZEuTBbepTu6nofiPlw7DED4JyBGuq5HPhvMuLHRAuHk5lAz8dVXuQTKX+p
-	 y8g4XVRQZro3t7+pM2Z1jtGNivffbzvuVF+0v/nI/JeTIyKUKzMAV3WwjS9zc8n31r
-	 Hya56uxXHf5cdQ987/MVFJc3GBgTSIVABUWt0NhKqeNLalmqydVStcJt/My/wCXp7j
-	 4RoVALVFTpyuA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tiuJ3-0043Rj-HF;
-	Fri, 14 Feb 2025 11:56:29 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Alexander Potapenko <glider@google.com>,
-	Anders Roxell <anders.roxell@linaro.org>,
-	Ben Simner <ben.simner@cl.cam.ac.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Florian Weimer <fweimer@redhat.com>,
-	Fuad Tabba <tabba@google.com>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	kernel test robot <lkp@intel.com>,
-	Mark Brown <broonie@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Quentin Perret <qperret@google.com>,
-	Wilco Dijkstra <wilco.dijkstra@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] KVM/arm64 fixes for 6.14, take #2
-Date: Fri, 14 Feb 2025 11:56:08 +0000
-Message-Id: <20250214115608.2986061-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: pbonzini@redhat.com, glider@google.com, anders.roxell@linaro.org, ben.simner@cl.cam.ac.uk, catalin.marinas@arm.com, eric.auger@redhat.com, fweimer@redhat.com, tabba@google.com, jeremy.linton@arm.com, lkp@intel.com, broonie@kernel.org, mark.rutland@arm.com, oliver.upton@linux.dev, qperret@google.com, wilco.dijkstra@arm.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1tiuMm-0000000Emdq-2RMf;
+	Fri, 14 Feb 2025 12:00:22 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ab771575040so615434266b.1;
+        Fri, 14 Feb 2025 04:00:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739534419; x=1740139219; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GI3W9qR1fQieAycCsuIaEjCDuBJjNXKEwknKksP2WWw=;
+        b=eB7O27yxvbtmhH7fcDYyZyak8srmZ4n4SJBefbK6uWBCVkuxjAaDQtCjHzOBkb0CJY
+         u3FFE0bA9NHS1s0T8bOwHmb9D/UXwA2bWYbHkpM8+vwuHaGwtscfA4H9h8DCB5oo0oNx
+         XDJOF0rsxefveIqHroiEWOJbzcB+5ZE1LwyP26467tr0/r2RTGx8W+6GTm3Xk6WAGEMD
+         BZoWR7P1+ag1QaZeemm4CZHTtvU9MDKlnA8O/LvwXFFAzZCRrup97vmssm/sJGIvt68o
+         wXe4sr+bTRP7iA/bghRCUZS5tmwillPxz7zLQx8IjCKTrYoJEbxQtKrHDVkGIWRCpLNt
+         VraA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739534419; x=1740139219;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GI3W9qR1fQieAycCsuIaEjCDuBJjNXKEwknKksP2WWw=;
+        b=Hp1Zc4QR2EyORT2RGVS57q0a0xq2NsamdonEuw4Bq/aBb49d5c4lz3faNTH9QcoUBp
+         uq+AK2ORDVVHGJjXjDLyZJfrZBTYsFQmJRpQZu3M2HUYepmzqkZDlEQcOMu29b6Xm/Yo
+         i0Iupsm2+2tT7QAdGDAu+T7NOLagEB/AGbhnmWPS8W8swASG1H//jnoqvCH10DUW1H3h
+         Wf0yoanBUtIPNqCUkkgr/RMZOP9EXUHy3JpKADfOf1YP35H8GzitP/Iwum6rAU9yGcKi
+         sT1Lckk+ayDkReZukHXl8CV4cB1U8dhpeVznZoS+kIs9SuME9eQz+ibxh/2WWI98PISC
+         oQ/g==
+X-Forwarded-Encrypted: i=1; AJvYcCU2tYXL+1TRjN0kkfhdENJqaSQjDRX1Kzg3NOT8cc5h2EYN/LrTG4mY05CLscrKaYwFBsc9iQSD8vDML8lfLkeY@lists.infradead.org, AJvYcCUA5ajmskgQhh2sLZKhyOlsXHn/8SM9xCHLGcf2Z4Lp6GyKGsvybPnV+CiOkOrp7j4kCC8q57OqYZoigeZ/yCQ=@lists.infradead.org, AJvYcCUjlSABHeaOd26/xPghnmzXfy8N25zBSkPpzzK0akiyU87A/fgMeybdtHpqs1c+TxomVe2ELONHj1Xc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBDr+qksloisfwVBcPfQxmWcmJ4HCkV7JoNueopmz8MGFUr6z4
+	p0UhZrS/tKP46zd3yQMskw2jy47Otdw/wuVE0/zExLlLpPHux93C
+X-Gm-Gg: ASbGncsCLJgSIY19pvWNhY1w1iLyfLyjMCN0wNjVY6W1ZxTL8OgsLy8xl7zRxe1dLoa
+	ZY0fwaZeXxfrtgP3jm9ehP6opEJHnUWW6wkzSy8AltR46M4yqQQZoPtbHrLgPgatqXMOlHgDwT9
+	7gjTY02p5gXMhO63YuU86Qupm36tVJ57qISaPohREMbdMWi4tGB7/kY1mISVLOak6rGShhqyUXw
+	I8qAHbTxi3rU3Fd62zlANUennedwOWrDyUi5umk3y59YgiRbRzojhvb67fKurF7ee/wnBNcPDMF
+	Y6DE90p5Bxpdr+hmJf77WVtoVh3ns1WpeTF2sbWCYvPxRwoNCvt6ZqQCwiNIKMGRhFIcFKNY
+X-Google-Smtp-Source: AGHT+IEuZ76Lk8B5kT7BpvuBO88bUmgM7KzRYxZvjjTT1LTHSgCtEgbI85Tx+usx0aBQ6F7U8VS0vA==
+X-Received: by 2002:a17:906:fe02:b0:ab7:c11:a980 with SMTP id a640c23a62f3a-aba510aecf0mr643697766b.17.1739534416957;
+        Fri, 14 Feb 2025 04:00:16 -0800 (PST)
+Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1c416asm2819667a12.18.2025.02.14.04.00.14
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 14 Feb 2025 04:00:15 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
+Subject: Re: [PATCH v6 00/14] Add eDP support for RK3588
+From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+In-Reply-To: <tg6eyew4qahuxqakmmejne7xx2rkouj6htp55acun4ajz2irz2@vlmvqv3zc5vc>
+Date: Fri, 14 Feb 2025 13:00:03 +0100
+Cc: Damon Ding <damon.ding@rock-chips.com>,
+ heiko@sntech.de,
+ robh@kernel.org,
+ conor+dt@kernel.org,
+ algea.cao@rock-chips.com,
+ rfoss@kernel.org,
+ devicetree@vger.kernel.org,
+ linux-phy@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org,
+ hjc@rock-chips.com,
+ kever.yang@rock-chips.com,
+ dmitry.baryshkov@linaro.org,
+ vkoul@kernel.org,
+ andy.yan@rock-chips.com,
+ krzk+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ l.stach@pengutronix.de
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <C81810F2-6E9B-4DCC-85D1-CCB63CBFBFEA@gmail.com>
+References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
+ <5044FFCB-B325-40D0-BA82-03AF64EAF029@gmail.com>
+ <tg6eyew4qahuxqakmmejne7xx2rkouj6htp55acun4ajz2irz2@vlmvqv3zc5vc>
+To: Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: Apple Mail (2.3826.400.131.1.6)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_035632_894712_5111D81F 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20250214_040020_623585_CF165886 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,85 +117,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Paolo,
 
-Here's the second batch of KVM/arm64 fixes for 6.14.
 
-The most noticeable item here is a rather large rework of our
-FP/SIMD/SVE/SME handling, mostly removing a bunch of fairly pointless
-and not-quite-thought-out optimisations. This fixes a bunch of
-failures reported in the wild, and makes the code far more
-maintainable. Thanks to Mark Rutland for doing all the hard work.
+> Wiadomo=C5=9B=C4=87 napisana przez Sebastian Reichel =
+<sebastian.reichel@collabora.com> w dniu 13 lut 2025, o godz. 18:26:
+>=20
+> Hello Piotr,
+>=20
+>=20
+> The RK3588 has two different DP controllers. The one handled in this
+> series should get the eDP port running, which is routed to the
+> "eDP Panel" in the block diagram on page 3 of the Rock 5 ITX =
+schematics.
+> So this series adds support for using "HDMI/eDP TX0" and "HDMI/eDP =
+TX1"
+> in DP mode.
+>=20
+> The port routed to HDMI0 via RA620 is the other DP controller, which
+> also exists twice: "TYPEC0/DP0" and "TYPEC1/DP1". This DP controller
+> is not yet supported upstream and there is no pending patchset. As far
+> as I know Rockchip plans to work on preparing upstream support for =
+that
+> soon.
+>=20
 
-The rest is mostly a bunch of fixes cleanups after the merge window
-(timers, vgic, pKVM...).
+Oh - this is very valuable info and explains a lot.
+Thx.=20
 
-Please pull,
+> Note, that the two DisplayPort controllers are completely different.
+> The HDMI/eDP controller is a design from Analogix and the TypeC/DP
+> controller is a design from Synopsys.
+>=20
+> P.S.: Heiko merged support for HDMI1 (RK3588 SoC level) recently. So =
+you
+> should be able to get that running by some DT additions to the Rock 5
+> ITX board DT with the latest linux-next code :)
+>=20
 
-	M.
+And it works perfectly on all my 3588 bards (including audio and my cec =
+addition)
+But only on boards using both hdmi tx0 and tx1 to hdmi0/hdmi1 ports.
 
-The following changes since commit 0e459810285503fb354537e84049e212c5917c33:
+on rock5 itx: =20
 
-  KVM: arm64: timer: Don't adjust the EL2 virtual timer offset (2025-02-04 15:10:38 +0000)
+With both hdmi tx0 and tx1 enabled in dts it looks like kernel detects =
+hdmi tx0 as connected and tries read edid.=20
+As nothing is connected to J11 (eDP con) - i=E2=80=99m getting i2c ddc =
+timeouts=20
+[   54.188880] dwhdmiqp-rockchip fde80000.hdmi: i2c read timed out
+[   54.292207] dwhdmiqp-rockchip fde80000.hdmi: i2c read timed out
+[   54.395554] dwhdmiqp-rockchip fde80000.hdmi: i2c read timed out
 
-are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-6.14-2
+disabling hdmi0 makes kernel talking to hdmi1 but with issues:=20
+[    0.540446] dwhdmiqp-rockchip fdea0000.hdmi: registered DesignWare =
+HDMI QP I2C bus driver
+[    0.541230] rockchip-drm display-subsystem: bound fdea0000.hdmi (ops =
+dw_hdmi_qp_rockchip_ops)
+[    0.542285] [drm] Initialized rockchip 1.0.0 for display-subsystem on =
+minor 0
+[    0.542933] rockchip-drm display-subsystem: [drm] Cannot find any =
+crtc or sizes
+[    0.543605] rockchip-drm display-subsystem: [drm] Cannot find any =
+crtc or sizes
 
-for you to fetch changes up to b3aa9283c0c505b5cfd25f7d6cfd720de2adc807:
+and here i=E2=80=99m a bit puzzled as on other 3588 boards (i.e. rock5b) =
+- when i connected monitor to hdmi1 - all works perfectly
+(kernel, OS and app nicely skipping hdmi0 and talking to actually =
+connected hdmi1 port. all works)=20
 
-  KVM: arm64: vgic: Hoist SGI/PPI alloc from vgic_init() to kvm_create_vgic() (2025-02-13 18:03:54 +0000)
+on rock5 itx this not works.
 
-----------------------------------------------------------------
-KVM/arm64 fixes for 6.14, take #2
+my observations so far are:
+-on rock5 itx hdmi0 is falsely detected as connected - even when eDP =
+connector (J11) has nothing connected
+-on rock5 itx disabling hdmi0 in dts breaks hdmi1=20
+-on other 3588 (e.g. rock 5b) disabling hdmi0 in dts NOT breaks hdmi1 =20=
 
-- Large set of fixes for vector handling, specially in the interactions
-  between host and guest state. This fixes a number of bugs affecting
-  actual deployments, and greatly simplifies the FP/SIMD/SVE handling.
-  Thanks to Mark Rutland for dealing with this thankless task.
 
-- Fix an ugly race between vcpu and vgic creation/init, resulting in
-  unexpected behaviours.
+strange=E2=80=A6.
 
-- Fix use of kernel VAs at EL2 when emulating timers with nVHE.
+  =20
 
-- Small set of pKVM improvements and cleanups.
+> Greetings,
+>=20
+> -- Sebastian
+> _______________________________________________
+> Linux-rockchip mailing list
+> Linux-rockchip@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-rockchip
 
-----------------------------------------------------------------
-Marc Zyngier (4):
-      KVM: arm64: Fix __pkvm_host_mkyoung_guest() return value
-      KVM: arm64: Convert timer offset VA when accessed in HYP code
-      KVM: arm64: timer: Drop warning on failed interrupt signalling
-      KVM: arm64: vgic: Hoist SGI/PPI alloc from vgic_init() to kvm_create_vgic()
-
-Mark Rutland (9):
-      KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
-      KVM: arm64: Remove host FPSIMD saving for non-protected KVM
-      KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN
-      KVM: arm64: Remove VHE host restore of CPACR_EL1.SMEN
-      KVM: arm64: Refactor CPTR trap deactivation
-      KVM: arm64: Refactor exit handlers
-      KVM: arm64: Mark some header functions as inline
-      KVM: arm64: Eagerly switch ZCR_EL{1,2}
-      KVM: arm64: Simplify warning in kvm_arch_vcpu_load_fp()
-
-Quentin Perret (3):
-      KVM: arm64: Improve error handling from check_host_shared_guest()
-      KVM: arm64: Simplify np-guest hypercalls
-      KVM: arm64: Fix alignment of kvm_hyp_memcache allocations
-
- arch/arm64/include/asm/kvm_emulate.h    |  42 ---------
- arch/arm64/include/asm/kvm_host.h       |  24 ++----
- arch/arm64/kernel/fpsimd.c              |  25 ------
- arch/arm64/kvm/arch_timer.c             |  16 ++--
- arch/arm64/kvm/arm.c                    |   8 --
- arch/arm64/kvm/fpsimd.c                 | 107 ++---------------------
- arch/arm64/kvm/hyp/entry.S              |   5 ++
- arch/arm64/kvm/hyp/include/hyp/switch.h | 148 ++++++++++++++++++++++++--------
- arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  15 ++--
- arch/arm64/kvm/hyp/nvhe/mem_protect.c   |  76 ++++++++--------
- arch/arm64/kvm/hyp/nvhe/switch.c        |  89 +++++++++----------
- arch/arm64/kvm/hyp/vhe/switch.c         |  33 ++++---
- arch/arm64/kvm/vgic/vgic-init.c         |  74 ++++++++--------
- 13 files changed, 287 insertions(+), 375 deletions(-)
 
