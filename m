@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C687C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 00:11:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CDA5C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 00:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NqP9v9jg7baLiU2+93UgvbM9b74Tce3qrWwn1lgosFQ=; b=uSSQ/3wfNjvkWZZ3zHmbBppOXn
-	IYN1bHLJZ/4Z2m5wNUGJbhE4iCV3bnah1MIXjzaykvPz2wnPBo0p7ivKwzP+mcDHTL/bHflr0lP/G
-	sI0zHKTrwzTrNszPwgcNYJrO9ir9SPzEZD/CL0YWvgMuL7rbYv0XTnVkciYfAPDreHD32MU/dFh+0
-	EF83ow13qdy/oHXNMv3niFtjHiMzHq2zxZV6cOGBKHfXOgdEaXAZZATC+xmQNfGSqXVn4C/Bw6PQi
-	Z9l/+3uZJ/vv+YKKbR0D9geuIFHZ/nHk8OpoJR/rddAwQ0Qqr0dsmILIa//btRr4jwsrlbq2aqRRa
-	S0YT9a9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PTH5ubBaFvtiOuCzoEHsnbFqUHpQlK62t51BmbJr9DA=; b=OjQBpNkcGxxXx2+15uuuyp6Ajz
+	n93kOaKmSr75ovYZubK/LOCN8ZPyYBBYKE0AFdIW65IiEzn3Uly29NNjRfDCWI+3rTb+KYNiK908e
+	KTzeX5ScyHT5Vzs6/3kqRKUlOcrqMVplr2/S0DH+Pr3eh5+vzv8RM5HnR2UgZwuK3n44WFrTh/A+B
+	DuM09B7wzARz5sxhvF7d98wnk1RH5JviDKP1xJ84vcxnZTgIEjPkTq0QtvZGIY4VAL+K5Kj2Z6xAB
+	5h+OrAd4qxXBZsGo9HK3prUn5TkNOu6ku70709kzFNJ0f60X0w+ezhh0eW1bar1cEBU5saDr9BhIG
+	A4us9hEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tijIp-0000000D1Mm-2w0g;
-	Fri, 14 Feb 2025 00:11:31 +0000
-Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
+	id 1tijKN-0000000D1YG-1PTF;
+	Fri, 14 Feb 2025 00:13:07 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tijHF-0000000D17c-3d8h
+	id 1tijIw-0000000D1No-0ID2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 00:09:54 +0000
-Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-e3983426f80so1232169276.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 16:09:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739491793; x=1740096593; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NqP9v9jg7baLiU2+93UgvbM9b74Tce3qrWwn1lgosFQ=;
-        b=tAjwRZ9GXe7+5VPApRuRdrAx3rB+meVmnQpdH/P5KI1CL6saKxCtzPIpDk8x6BOeDg
-         re4wyDtiJB4zRBZGDk92VTxsRAutOhVl0kmU1QWQ5TfhznRnLIdhh9aFcETvm5WcQ5vW
-         K1PHN5vOI2e9GHYXxQtRDj9KU/D+w2eSzftcL67Pa7ryINKk5z2krf4ZYrAvbu0vYwwL
-         0rVDOd5LjKJpp4P8F+TOa1aYnSWnMtYMaCrDmy2ZEwUUA7D7UqqzrgA0GqSgmM6SsUZ6
-         FvHmbvLGIFFvFIWbjUtr9GXAEIIq14+Qyn469K4+ags0tj7o4JTVbHE0cEY4cB1+xpoY
-         TMHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739491793; x=1740096593;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NqP9v9jg7baLiU2+93UgvbM9b74Tce3qrWwn1lgosFQ=;
-        b=a/oXbFOVEoAioPw6NFHWCj0nfeXiVHS6u6PtGc/zYMBB4QyszMCgSCFkcfJCFS3Bfu
-         D3VTDcW7SIB64FtThyUURbkHzHoRqjxYKcC7tD93rPV2t7ctjr7/JQjvRJKq/oe0YaI/
-         xAaMrJHtOl7m4WvChjEmLHjxrq6dJMphsAgKyBahsFMfkDWL0Iym9u6SIX+gQK72EAoU
-         0tkQuOCfwnIIvDmG6JSZOyAm3p3OhTHx6JLRcaLfImma0DK2Q/mhJrIq7ahjBAVg3WKn
-         66uoTwgptN2SCy5cXg4YJxMkwfTlrywuszAzguzt/iIDglKfAwHxxnCDIfofVDwS54VU
-         H5TQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUxYPcbHD/5Aphk/ZrKIwcAm0s1FDgx6SAnN7gSVwVrMXyhLdXxBcBMdpHexSNbADP7+rN2b1tgOVAZjiC+7ooe@lists.infradead.org
-X-Gm-Message-State: AOJu0YzSfSI6meGvNHQm/TIhQE5wWnUVMJR/sG+ppFhs7ZD5IS2C09XC
-	PJ0l2xKTb8qA82tY5DjcKXk9aorMZwXymZs4aF98VsFMrJ0zVjllKm7CB5O0rcKd6VHz0LCBLx9
-	1dIoJde5UsPnKgX7ysWr/i/W29NLjRj9TyEhRkz3fR5qBIOAS
-X-Gm-Gg: ASbGncugwCuiynd20zqvikNd+hj3wpPT/CTCg7V6Fn4qZ8wUtH7kNvAgQB8XkDDQ4WX
-	HWeDjVc3v0h8L9NWm/+c9IeJcdBnWaPVCUEisCbvSDHoGNPMhPrdzqkHZ8fgf1oOJJij2LlLmhS
-	+K4wUE/6d9Msq4SxPhf4eiH0K0RVMXLPQ=
-X-Google-Smtp-Source: AGHT+IFd1EJtDVBHgzWdjgXFsf5jdNOMTYWQT9HHkgAZZC7VuvxH9RsRYnYxxoGtNZLN5u0QJ7cWcZkPmK0FyJYTFow=
-X-Received: by 2002:a05:6902:13c6:b0:e5b:3f8e:9e65 with SMTP id
- 3f1490d57ef6-e5d9f0f9e38mr9401293276.12.1739491792768; Thu, 13 Feb 2025
- 16:09:52 -0800 (PST)
+	Fri, 14 Feb 2025 00:11:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=PTH5ubBaFvtiOuCzoEHsnbFqUHpQlK62t51BmbJr9DA=; b=LLfcA2mGWS0v3jbNQghx4fyU9d
+	pV/tBQz/TBVmwzS/2Sa/YLtrAPEBLXhB8cDtEqs1ZbsS6eaLdMRn0S/thXSBxwC5a+jy3/nQt3RF4
+	YB7e356r9ydi2QZ/DLHLOyAtifoOu5spI33rkGRI9rTy7bVHXLfvJozkDSJ+bL28DJUk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tijIP-00Dthp-81; Fri, 14 Feb 2025 01:11:05 +0100
+Date: Fri, 14 Feb 2025 01:11:05 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Swathi K S <swathi.ks@samsung.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	fancer.lancer@gmail.com, krzk@kernel.org, Joao.Pinto@synopsys.com,
+	treding@nvidia.com, ajayg@nvidia.com, Jisheng.Zhang@synaptics.com,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2] net: stmmac: refactor clock management in
+ EQoS driver
+Message-ID: <00be469f-1363-4305-a631-0281c42c282c@lunn.ch>
+References: <CGME20250213041925epcas5p4d37d50047359b923efd9fdcaf4b2f6d2@epcas5p4.samsung.com>
+ <20250213041559.106111-1-swathi.ks@samsung.com>
 MIME-Version: 1.0
-References: <20250213204044.660-1-wachiturroxd150@gmail.com> <20250213204044.660-2-wachiturroxd150@gmail.com>
-In-Reply-To: <20250213204044.660-2-wachiturroxd150@gmail.com>
-From: Sam Protsenko <semen.protsenko@linaro.org>
-Date: Thu, 13 Feb 2025 18:09:42 -0600
-X-Gm-Features: AWEUYZnCMGwjd-AHWAZ_AQIcjbuE5HV5DBnJ9ZGUM8sZFqDGixnVhaKZX3Cd9ko
-Message-ID: <CAPLW+4=STm0=K8s+BTxiHWP9F_waw2H=fQ4W9_NTm7a4JcFy=w@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] spi: dt-bindings: samsung: add samsung,exynos990-spi
- compatible
-To: Denzeel Oliva <wachiturroxd150@gmail.com>
-Cc: andi.shyti@kernel.org, broonie@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com, 
-	linux-spi@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250213041559.106111-1-swathi.ks@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_160953_901870_0A66DED1 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20250213_161138_108799_9F9769A4 
+X-CRM114-Status: UNSURE (   7.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,36 +75,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 2:41=E2=80=AFPM Denzeel Oliva <wachiturroxd150@gmai=
-l.com> wrote:
->
-> Add "samsung,exynos990-spi" dedicated compatible for the SPI controller
-> on Exynos990 SoC. This ensures proper representation of the hardware
-> in the device tree.
->
-> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
-> ---
+On Thu, Feb 13, 2025 at 09:45:59AM +0530, Swathi K S wrote:
+> Refactor clock management in EQoS driver for code reuse and to avoid
+> redundancy. This way, only minimal changes are required when a new platform
+> is added.
+> 
+> Suggested-by: Andrew Lunn <andrew@lunn.ch>
+> Signed-off-by: Swathi K S <swathi.ks@samsung.com>
 
-Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
->  Documentation/devicetree/bindings/spi/samsung,spi.yaml | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/Documentation/devicetree/bindings/spi/samsung,spi.yaml b/Doc=
-umentation/devicetree/bindings/spi/samsung,spi.yaml
-> index 3c206a64d..1d3c95bd2 100644
-> --- a/Documentation/devicetree/bindings/spi/samsung,spi.yaml
-> +++ b/Documentation/devicetree/bindings/spi/samsung,spi.yaml
-> @@ -24,6 +24,7 @@ properties:
->            - samsung,exynos4210-spi
->            - samsung,exynos5433-spi
->            - samsung,exynos850-spi
-> +          - samsung,exynos990-spi
->            - samsung,exynosautov9-spi
->            - tesla,fsd-spi
->        - items:
-> --
-> 2.48.1
->
->
+    Andrew
 
