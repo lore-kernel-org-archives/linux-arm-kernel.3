@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF39C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 12:15:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E619CC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 12:41:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CmbDChViwB/+UwOHTKI02e+tLNTQDFiicERwA2zQsek=; b=TPc9cUvW6YceYHfIUBhmdG6QgF
-	ElpmUrgUTMxKfX9ncEmOfcp1DM7WVw1D9wOVvGu2bTo83VfhH8KWLJ9HWp4sv2zbMet1z8ZDhD1uL
-	7sF+QhBf6FVqxrpEjKggNfKjbE4QzE4O98qmeZnY1wovOThBnywUmyb0gMRdhTWF0DIR0KBZ6HXh9
-	RdkmHub+2KyNXA/u6JbRHUQQoq/Hs1uHkaSpo3JFoXRO9sU3rZjmtn6xJUEH8lUY9x7z1xDiDgq9H
-	SdSEImxQUMyxDbNmbEg4YyZIfNo7Vkm2ZhV1LpuUzD+V3vbELqD1JPBL0rICDolXSKDycaxDd1hnE
-	EnHenHOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GvLIdRB+kw/euoeY7rITEJDNGr0lT/fAIMkag3zH71k=; b=qywVudVLEkjzj+uz+pmEZUq4SI
+	H1WrVXHw3/L/uQCHsO0PgjY0KBMZP3lSlK2Y675ecBHOSwhK0bTS5LNTU9bbVV/qjvuLlYUYZMpW6
+	fBW6/ek9XmQZt04yna4j7umOrXTw49EGrGqmJFeQbt4yv01vOKDSETwD4rnnI0PEKR/2GBcXQsLSR
+	4/27RewYTk3DBY3ZDbyuyS+pgTFzLWb6nFLemaASN9/bZX24lo5dueWlsQMY23aXJWdSFQ4CFbViF
+	ejFllMUpChNMw0K93tx12iWOUSFx8/UY/PQLXCs1YhrtHsl97UTAE45WZ767GRXysDjyMJ7vWqL52
+	65Uxa3ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiubE-0000000Eo59-1MC0;
-	Fri, 14 Feb 2025 12:15:16 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiuZn-0000000EnxH-15EE;
-	Fri, 14 Feb 2025 12:13:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 33B145C25AE;
-	Fri, 14 Feb 2025 12:13:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A632DC4CED1;
-	Fri, 14 Feb 2025 12:13:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739535226;
-	bh=iBts8iIQtzQel9dZiL97eiLaLFzBf2jp89FOZmsjRrE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cxR3U64x0UbHv7UIXxJIeRLfMqYvQizaIEArf05g6aIFOfETi5Tr+hBTOo3Ngj/Ix
-	 4SBmwsQBt8+uCGHIiDXfieBYV+wKiVfW45YgidsnbAH8+BIsNJcDJkf5NfLGbHASCE
-	 1vz7YWuLbzYqyYTONU9XuSQjvvYiezcMvAuAvtOxD8lxxWzEBLW/lDAPA8DGyqfDlB
-	 1SzaOkh9vIwdp+NsSmG3+kT3OHJb/0cuffvEtzsF3F1fUqHGFJm3gsH6UZvAEmFzTQ
-	 UXN21RC8JeGZR6/tAFUzJ9kirpiAExQMo0uTeM+CZ9claceVIivDg0FTH6glU8pl/j
-	 tscqRblX7As8Q==
-Date: Fri, 14 Feb 2025 17:43:42 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, quentin.schulz@cherry.de,
-	sebastian.reichel@collabora.com, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	dse@thaumatec.com, Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH v6 2/2] phy: rockchip: Add Samsung MIPI D-/C-PHY driver
-Message-ID: <Z68zdiIl75k2Vv9i@vaman>
-References: <20250213210554.1645755-1-heiko@sntech.de>
- <20250213210554.1645755-3-heiko@sntech.de>
+	id 1tiv0W-0000000ErVt-2asq;
+	Fri, 14 Feb 2025 12:41:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1titju-0000000EeAN-2dpC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Feb 2025 11:20:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 863EF113E;
+	Fri, 14 Feb 2025 03:20:30 -0800 (PST)
+Received: from e132581.cambridge.arm.com (e132581.arm.com [10.2.76.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6AE8F3F6A8;
+	Fri, 14 Feb 2025 03:20:07 -0800 (PST)
+From: Leo Yan <leo.yan@arm.com>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	James Clark <james.clark@linaro.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>,
+	Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Graham Woodward <graham.woodward@arm.com>,
+	Paschalis.Mpeis@arm.com,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v2 08/11] perf arm-spe: Fill branch operations and events to record
+Date: Fri, 14 Feb 2025 11:19:33 +0000
+Message-Id: <20250214111936.15168-9-leo.yan@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250214111936.15168-1-leo.yan@arm.com>
+References: <20250214111936.15168-1-leo.yan@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250213210554.1645755-3-heiko@sntech.de>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_041347_386025_8FDBE320 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20250214_032010_799892_BFED1667 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,126 +79,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13-02-25, 22:05, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+The new added branch operations and events are filled into record, the
+information will be consumed when synthesizing samples.
 
-> +#define PLL_CON0		0x0100
-> +#define PLL_EN			BIT(12)
-> +#define S_MASK			GENMASK(10, 8)
-> +#define S(x)			FIELD_PREP(S_MASK, x)
-> +#define P_MASK			GENMASK(5, 0)
-> +#define P(x)			FIELD_PREP(P_MASK, x)
-> +#define PLL_CON1		0x0104
-> +#define PLL_CON2		0x0108
-> +#define M_MASK			GENMASK(9, 0)
-> +#define M(x)			FIELD_PREP(M_MASK, x)
-> +#define PLL_CON3		0x010c
+Reviewed-by: Ian Rogers <irogers@google.com>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ .../util/arm-spe-decoder/arm-spe-decoder.c     | 18 ++++++++++++++++++
+ .../util/arm-spe-decoder/arm-spe-decoder.h     | 10 ++++++++--
+ 2 files changed, 26 insertions(+), 2 deletions(-)
 
-lower case, nice.
-
-...
-
-> +#define COMBO_MD0_GNR_CON0	0x0400
-> +#define COMBO_MD0_GNR_CON1	0x0404
-> +#define COMBO_MD0_ANA_CON0	0x0408
-> +#define COMBO_MD0_ANA_CON1      0x040C
-
-upper one!
-
-> +#define COMBO_MD0_ANA_CON2	0x0410
-> +
-> +#define COMBO_MD0_TIME_CON0	0x0430
-> +#define COMBO_MD0_TIME_CON1	0x0434
-> +#define COMBO_MD0_TIME_CON2	0x0438
-> +#define COMBO_MD0_TIME_CON3	0x043C
-
-and few more, lets be lower case everywhere please?
-
-> +	{ 200,  7,   1,  0, 33,  9,  0, 26,  5,  0, 11},
-> +	{ 190,  7,   1,  0, 32,  9,  0, 25,  5,  0, 11},
-> +	{ 180,  6,   1,  0, 32,  8,  0, 25,  5,  0, 10},
-> +	{ 170,  6,   0,  0, 32,  8,  0, 25,  5,  0, 10},
-> +	{ 160,  5,   0,  0, 31,  8,  0, 24,  4,  0,  9},
-> +	{ 150,  5,   0,  0, 31,  8,  0, 24,  5,  0,  9},
-> +	{ 140,  5,   0,  0, 31,  8,  0, 24,  5,  0,  8},
-> +	{ 130,  4,   0,  0, 30,  6,  0, 23,  3,  0,  8},
-> +	{ 120,  4,   0,  0, 30,  6,  0, 23,  3,  0,  7},
-> +	{ 110,  3,   0,  0, 30,  6,  0, 23,  3,  0,  7},
-> +	{ 100,  3,   0,  0, 29,  5,  0, 22,  2,  0,  6},
-> +	{  90,  3,   0,  0, 29,  5,  0, 22,  2,  0,  6},
-> +	{  80,  2,   0,  0, 28,  5,  0, 22,  2,  0,  5},
-> +};
-
-any word on where this table came from, maybe worth documenting that
-part
-
-> +
-> +static void samsung_mipi_dcphy_bias_block_enable(struct samsung_mipi_dcphy *samsung)
-> +{
-> +	u32 bias_con2 = 0x3223;
-
-magic value?
-
-> +static void samsung_mipi_dphy_lane_disable(struct samsung_mipi_dcphy *samsung)
-> +{
-> +	regmap_update_bits(samsung->regmap, DPHY_MC_GNR_CON0, PHY_ENABLE, 0);
-> +	regmap_update_bits(samsung->regmap, COMBO_MD0_GNR_CON0, PHY_ENABLE, 0);
-> +	regmap_update_bits(samsung->regmap, COMBO_MD1_GNR_CON0, PHY_ENABLE, 0);
-> +	regmap_update_bits(samsung->regmap, COMBO_MD2_GNR_CON0, PHY_ENABLE, 0);
-> +	regmap_update_bits(samsung->regmap, DPHY_MD3_GNR_CON0, PHY_ENABLE, 0);
-
-Is writing to a register (mmio) faster than a switch case for checking
-lane count and disabling specific lanes?
-
-> +static void samsung_mipi_dcphy_pll_configure(struct samsung_mipi_dcphy *samsung)
-> +{
-> +	regmap_update_bits(samsung->regmap, PLL_CON0, S_MASK | P_MASK,
-> +			   S(samsung->pll.scaler) | P(samsung->pll.prediv));
-> +
-> +	if (samsung->pll.dsm < 0) {
-> +		u16 dsm_tmp;
-> +
-> +		/* Using opposite number subtraction to find complement */
-> +		dsm_tmp = abs(samsung->pll.dsm);
-> +		dsm_tmp = dsm_tmp - 1;
-> +		dsm_tmp ^= 0xffff;
-> +		regmap_write(samsung->regmap, PLL_CON1, dsm_tmp);
-> +	} else {
-> +		regmap_write(samsung->regmap, PLL_CON1, samsung->pll.dsm);
-> +	}
-> +
-> +	regmap_update_bits(samsung->regmap, PLL_CON2,
-> +			   M_MASK, M(samsung->pll.fbdiv));
-> +
-> +	if (samsung->pll.ssc_en) {
-> +		regmap_write(samsung->regmap, PLL_CON3,
-> +			     MRR(samsung->pll.mrr) | MFR(samsung->pll.mfr));
-> +		regmap_update_bits(samsung->regmap, PLL_CON4, SSCG_EN, SSCG_EN);
-> +	}
-> +
-> +	regmap_write(samsung->regmap, PLL_CON5, RESET_N_SEL | PLL_ENABLE_SEL);
-> +	regmap_write(samsung->regmap, PLL_CON7, PLL_LOCK_CNT(0xf000));
-> +	regmap_write(samsung->regmap, PLL_CON8, PLL_STB_CNT(0xf000));
-
-I guess you are writing to upper nibble, maybe define that, if we can
-
-> +static __maybe_unused int samsung_mipi_dcphy_runtime_resume(struct device *dev)
-> +{
-> +	struct samsung_mipi_dcphy *samsung = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = clk_prepare_enable(samsung->pclk);
-> +	if (ret) {
-> +		dev_err(samsung->dev, "Failed to enable pclk, %d\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	clk_prepare_enable(samsung->ref_clk);
-> +	if (ret) {
-> +		dev_err(samsung->dev, "Failed to enable reference clock, %d\n", ret);
-
-No rollback of pclk here?
-
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
+index ba807071d3c1..52bd0a4ea96d 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
+@@ -207,6 +207,18 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
+ 				break;
+ 			case SPE_OP_PKT_HDR_CLASS_BR_ERET:
+ 				decoder->record.op |= ARM_SPE_OP_BRANCH_ERET;
++				if (payload & SPE_OP_PKT_COND)
++					decoder->record.op |= ARM_SPE_OP_BR_COND;
++				if (payload & SPE_OP_PKT_INDIRECT_BRANCH)
++					decoder->record.op |= ARM_SPE_OP_BR_INDIRECT;
++				if (payload & SPE_OP_PKT_GCS)
++					decoder->record.op |= ARM_SPE_OP_BR_GCS;
++				if (SPE_OP_PKT_CR_BL(payload))
++					decoder->record.op |= ARM_SPE_OP_BR_CR_BL;
++				if (SPE_OP_PKT_CR_RET(payload))
++					decoder->record.op |= ARM_SPE_OP_BR_CR_RET;
++				if (SPE_OP_PKT_CR_NON_BL_RET(payload))
++					decoder->record.op |= ARM_SPE_OP_BR_CR_NON_BL_RET;
+ 				break;
+ 			default:
+ 				pr_err("Get packet error!\n");
+@@ -238,6 +250,12 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
+ 			if (payload & BIT(EV_MISPRED))
+ 				decoder->record.type |= ARM_SPE_BRANCH_MISS;
+ 
++			if (payload & BIT(EV_NOT_TAKEN))
++				decoder->record.type |= ARM_SPE_BRANCH_NOT_TAKEN;
++
++			if (payload & BIT(EV_TRANSACTIONAL))
++				decoder->record.type |= ARM_SPE_IN_TXN;
++
+ 			if (payload & BIT(EV_PARTIAL_PREDICATE))
+ 				decoder->record.type |= ARM_SPE_SVE_PARTIAL_PRED;
+ 
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+index 4bcd627e859f..85b688a97436 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
+@@ -24,6 +24,8 @@ enum arm_spe_sample_type {
+ 	ARM_SPE_REMOTE_ACCESS		= 1 << 7,
+ 	ARM_SPE_SVE_PARTIAL_PRED	= 1 << 8,
+ 	ARM_SPE_SVE_EMPTY_PRED		= 1 << 9,
++	ARM_SPE_BRANCH_NOT_TAKEN	= 1 << 10,
++	ARM_SPE_IN_TXN			= 1 << 11,
+ };
+ 
+ enum arm_spe_op_type {
+@@ -52,8 +54,12 @@ enum arm_spe_op_type {
+ 	ARM_SPE_OP_SVE_SG		= 1 << 27,
+ 
+ 	/* Second level operation type for BRANCH_ERET */
+-	ARM_SPE_OP_BR_COND	= 1 << 16,
+-	ARM_SPE_OP_BR_INDIRECT	= 1 << 17,
++	ARM_SPE_OP_BR_COND		= 1 << 16,
++	ARM_SPE_OP_BR_INDIRECT		= 1 << 17,
++	ARM_SPE_OP_BR_GCS		= 1 << 18,
++	ARM_SPE_OP_BR_CR_BL		= 1 << 19,
++	ARM_SPE_OP_BR_CR_RET		= 1 << 20,
++	ARM_SPE_OP_BR_CR_NON_BL_RET	= 1 << 21,
+ };
+ 
+ enum arm_spe_common_data_source {
 -- 
-~Vinod
+2.34.1
+
 
