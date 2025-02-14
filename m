@@ -4,76 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A0DC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 10:52:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E895C021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 10:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G9SzK2UEuhtJJT0GjeY2nATbMEf230d3JmnH92Hq97k=; b=hmDTfcxMgMYwyvT0/zJahKn0Zw
-	U1dYXenGa7x+NLjphMZ5CfnDeq0nJ7Mb1TYGrfy2WY4PubiVl1JqwECJATpiRnx9y2tAlnjzjJvVD
-	/el4R8jZzGHjJcD+2QfWJ2xS/LdDDLZ2EhRRv9WcH8pvkzddKpag+Ip+eXfUXEzNblG3P4gkGWgnq
-	c7xQFkA+Wf8uz2iP3+/smZpzdm56uVRo7ONY3IhtJBleSO0h0aeOvK7d2k95rSgnHDqakalvTpwwg
-	w8C0rshB7UGqhZkTz+zujs1562mWyw9q+1mfruPPkE+nlbYQ3mnO9hYQ8pT4YjjIvYPl1o8QLgl4u
-	WPJl2DJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IFFX1vGDF+B307v2ULpRo/T+yugzgXw/qkTFoNDd/pc=; b=rJBX5Ny5L0zgyCD6ZUOf3PZkyU
+	vMHEBruCj75xOfMuHu/eeeDK53kQEhEy6kN2s1cBliHyVjR9+mmBEQjZghvT5YXX3JAKcljfBKvVf
+	vyAb01tH3pUmLD5kupABNaXz0hbifP1lKhstPuIi1au7i4Qm9FSYCA9HOXcgmnx2axRVjQ13IaTmF
+	5ich0g5cBUznYNxaCM7SX6RLoUnfeptsU8c/YuxNAtUuGVWy6m9LoMIAPGThcAVNbj8oKxWxNSqhf
+	l9woK+fMNibEafTfTEtvyTM4mb/8p3PPqtzzoBbjYVBqqvZvTeC1me27NjoZwCdej4IkRZ2dla6rf
+	FaC9DqHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1titJE-0000000EZHI-2S1s;
-	Fri, 14 Feb 2025 10:52:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1titMu-0000000EZnN-1Y5O;
+	Fri, 14 Feb 2025 10:56:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1titHj-0000000EZ0H-3cVp
+	id 1tisDD-0000000EMv6-0fqK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 14 Feb 2025 09:42:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=IFFX1vGDF+B307v2ULpRo/T+yugzgXw/qkTFoNDd/pc=; b=ojZucgLHBYjOqNiezm5Ypn7L7w
+	dMGMnaTGAXXtsn00y54iqbWG61IZKKKEPH3puqwv1B4LVeHrjDAtXJSwfWb14cGqMyj1n7KAbyI93
+	a9XTuvdFcslA+UXbA58mLs8I7+s+JUJkOGZOfaKtI5z/IMS3Ofl7qp5JPMCNV3BnCKFa7ZIbuTjNj
+	UmuPPWYVRKhoXl208vG9cJ3k4bX6x7M1zlP9bZieQv0j++XjtJPur5lQINxPCML5JQcmFov+OUe20
+	u0Y9HupldmFiAmoJx5WPa74qPvtcRnM/TzMuuPaFcRaM3Ad9kYTIZjXoboO/IXig9JtUSLmdJwd9O
+	J98L3JWw==;
+Received: from weierstrass.telenet-ops.be ([2a02:1800:110:4::f00:11])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tisDA-00000001DWQ-072E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 10:51:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A4AA6A41B36
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 10:49:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F861C4CEE7
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 10:51:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739530262;
-	bh=6Jn8hY/sj0Vyp9Oc8m9BXlUSR+CXepQ6Dz6GoxyvGmM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=VRsIYOrXB4NBmaHnCnh1uRaIbgK1hXsNVaNz80MfbnD6MVpllwkX+Ak12MXoDJHcV
-	 ys6MmQ9o2cpS8i3Vi7Bu3Lc0qaPCyUl/+Wehmwb+DWyODTsnbbG70xkXTu09G85ek6
-	 oKOzzzEfsyiggpI64zaVrWPSzL7j2WgI8P+RDQH0vdoZuqQ/SL8X7IFVD98QPIX2up
-	 Yymer9b//q1dKe/m4zomdwTDoM8rJOr3/EgutNtanp1n1AQiwty6iUdSBdjPo2XY+M
-	 CQ0VKj0yNlCs2PAom9g9m52G7jyDnzJIpE1f6SMrCUf09pyfQt2/ehewrWeFXSS//H
-	 GhfM6r7edJq/w==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-543e49a10f5so2015146e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 02:51:02 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXXbCgCPt0CKSd32vXD+uum7KiA1a60AauJBH6cvqLPcDK4E9x8OAbE+8lZAIHfliPK3IsfEh9NYOiaKJ2f+48v@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5KPpDhBeZTKeztUjoJy0uDlGohzvS2WB0T8Erbsi4Hhq3luuj
-	SZJ5R9cLBvtZ3oYozRK9CBG8ysA8Wmm8jUzg3mTXDYeug4SqmLs8daG1Wy3ymCR6X/u8sSXOXaS
-	OVD66zeG/D5zujAz+ht3AggSrX5o=
-X-Google-Smtp-Source: AGHT+IE51G43p8pR1toPTVSYBg68ovY9ZnGfaoNwwqJs6GgOaOCJnB/+CJEzpaQ+RZJoWPf4T1kKfJId9pTwob2I0YE=
-X-Received: by 2002:a05:6512:1155:b0:545:296e:ac28 with SMTP id
- 2adb3069b0e04-545296eaef4mr578053e87.24.1739530260860; Fri, 14 Feb 2025
- 02:51:00 -0800 (PST)
+	Fri, 14 Feb 2025 09:42:17 +0000
+Received: from albert.telenet-ops.be (albert.telenet-ops.be [IPv6:2a02:1800:110:4::f00:1a])
+	by weierstrass.telenet-ops.be (Postfix) with ESMTPS id 4YvRsb55NRz4x2Mr
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 10:42:11 +0100 (CET)
+Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:6395:73cc:7fc4:4cab])
+	by albert.telenet-ops.be with cmsmtp
+	id DMi72E0091MuxXz06Mi7Ja; Fri, 14 Feb 2025 10:42:08 +0100
+Received: from rox.of.borg ([192.168.97.57])
+	by ramsan.of.borg with esmtp (Exim 4.97)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tisCj-00000006Xjm-3TOO;
+	Fri, 14 Feb 2025 10:42:07 +0100
+Received: from geert by rox.of.borg with local (Exim 4.97)
+	(envelope-from <geert@linux-m68k.org>)
+	id 1tisD1-00000000ggb-0ErY;
+	Fri, 14 Feb 2025 10:42:07 +0100
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Magnus Damm <magnus.damm@gmail.com>,
+	Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH 2/2] ARM: dts: renesas: r9a06g032: Drop snps,dw-apb-uart compatibility
+Date: Fri, 14 Feb 2025 10:42:04 +0100
+Message-ID: <e290dd28ecb68b4e164172a905da18a5a2d438a1.1739525488.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1739525488.git.geert+renesas@glider.be>
+References: <cover.1739525488.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-References: <20250212154718.44255-1-ebiggers@kernel.org> <Z61yZjslWKmDGE_t@gondor.apana.org.au>
- <20250213063304.GA11664@sol.localdomain> <Z66uH_aeKc7ubONg@gondor.apana.org.au>
- <20250214033518.GA2771@sol.localdomain> <Z669mxPsSpej6K6K@gondor.apana.org.au>
-In-Reply-To: <Z669mxPsSpej6K6K@gondor.apana.org.au>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 14 Feb 2025 11:50:49 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXHS+BaLnUSQf9uiTvXhSee=+8W1B-DY5MFHTxgpe1iMyg@mail.gmail.com>
-X-Gm-Features: AWEUYZk9BVG_mnviM5EBJUUBfeH7CmJgTUXwh6dulpUSYK22Lsgwd5629FUH9e4
-Message-ID: <CAMj1kXHS+BaLnUSQf9uiTvXhSee=+8W1B-DY5MFHTxgpe1iMyg@mail.gmail.com>
-Subject: Re: [PATCH v8 0/7] Optimize dm-verity and fsverity using multibuffer hashing
-To: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Eric Biggers <ebiggers@kernel.org>, fsverity@lists.linux.dev, 
-	linux-crypto@vger.kernel.org, dm-devel@lists.linux.dev, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Sami Tolvanen <samitolvanen@google.com>, Alasdair Kergon <agk@redhat.com>, 
-	Mike Snitzer <snitzer@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Mikulas Patocka <mpatocka@redhat.com>, David Howells <dhowells@redhat.com>, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_025104_028572_76617C42 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20250214_094216_251064_2A4C9BF7 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,43 +90,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Feb 2025 at 04:51, Herbert Xu <herbert@gondor.apana.org.au> wrote:
->
-> On Thu, Feb 13, 2025 at 07:35:18PM -0800, Eric Biggers wrote:
-> >
-> > It absolutely is designed for an obsolete form of hardware offload.  Have you
-> > ever tried actually using it?  Here's how to hash a buffer of data with shash:
-> >
-> >       return crypto_shash_tfm_digest(tfm, data, size, out)
-> >
-> > ... and here's how to do it with the SHA-256 library, for what it's worth:
-> >
-> >       sha256(data, size, out)
-> >
-> > and here's how to do it with ahash:
->
-> Try the new virt ahash interface, and we could easily put the
-> request object on the stack for sync algorithms:
->
->         SYNC_AHASH_REQUEST_ON_STACK(req, alg);
->
->         ahash_request_set_callback(req, CRYPTO_TFM_REQ_MAY_SLEEP, NULL, NULL);
->         ahash_request_set_virt(req, data, out, size);
->
->         return crypto_ahash_digest(req);
->
+make dtbs_check:
 
-Whatever happened to not adding infrastructure to the kernel without a user?
+    arch/arm/boot/dts/renesas/r9a06g032-rzn1d400-db.dtb: serial@40060000: compatible: 'oneOf' conditional failed, one must be fixed:
+	    ['renesas,r9a06g032-uart', 'renesas,rzn1-uart', 'snps,dw-apb-uart'] is too long
+    ...
 
-You keep saying how great this will all work for hypothetical cases,
-and from any other contributor, we would expect to see working code
-that demonstrates the advantages of the approach.
+As per commit 72b0505f0830df95 ("dt: serial: Add Renesas RZ/N1 binding
+documentation"), the RZ/N1 UART is a modified Synopsys DesignWare UART.
+The modifications only relate to DMA, so you could actually use the
+controller with the Synopsys compatible string if you are not using DMA,
+but you should not do so.  Hence the first three UARTs (which don't
+support DMA) were added with a "snps,dw-apb-uart" fallback, to use the
+existing Synopsys DesignWare UART support.
 
-But it seems you have no interest in actually writing this networking
-code, and nor has anybody else, as far as I can tell, which makes your
-claims rather dubious.
+Since support for the RZ/N1-specific compatible value was added to the
+driver a long time ago (commit 2ff5fa7f742ab0c6 ("serial: 8250_dw: Add
+compatible string for Renesas RZ/N1 UART") in v4.19), the extra
+compatible value can be dropped safely.
 
-IOW, even if all your claims are correct, it really makes no
-difference when nobody can be bothered to take advantage of it, and we
-should just go with Eric's working code.
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+Alternatively, the bindings[1] could be augmented with an extra section:
+
+    - items:
+        - enum:
+            - renesas,r9a06g032-uart
+            - renesas,r9a06g033-uart
+        - const: renesas,rzn1-uart
+        - const: snps,dw-apb-uart     # RZ/N1 without DMA
+
+and perhaps extra logic to prohibit the dmas property when both
+renesas,rzn1-uart and snps,dw-apb-uart are present.
+
+Given the complexity of the latter, I went for the simple solution.
+
+[1] Documentation/devicetree/bindings/serial/snps-dw-apb-uart.yaml
+---
+ arch/arm/boot/dts/renesas/r9a06g032.dtsi | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm/boot/dts/renesas/r9a06g032.dtsi b/arch/arm/boot/dts/renesas/r9a06g032.dtsi
+index 87e03446fb4de705..fc523106c2a4c6a0 100644
+--- a/arch/arm/boot/dts/renesas/r9a06g032.dtsi
++++ b/arch/arm/boot/dts/renesas/r9a06g032.dtsi
+@@ -171,7 +171,7 @@ usb@2,0 {
+ 		};
+ 
+ 		uart0: serial@40060000 {
+-			compatible = "renesas,r9a06g032-uart", "renesas,rzn1-uart", "snps,dw-apb-uart";
++			compatible = "renesas,r9a06g032-uart", "renesas,rzn1-uart";
+ 			reg = <0x40060000 0x400>;
+ 			interrupts = <GIC_SPI 6 IRQ_TYPE_LEVEL_HIGH>;
+ 			reg-shift = <2>;
+@@ -182,7 +182,7 @@ uart0: serial@40060000 {
+ 		};
+ 
+ 		uart1: serial@40061000 {
+-			compatible = "renesas,r9a06g032-uart", "renesas,rzn1-uart", "snps,dw-apb-uart";
++			compatible = "renesas,r9a06g032-uart", "renesas,rzn1-uart";
+ 			reg = <0x40061000 0x400>;
+ 			interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+ 			reg-shift = <2>;
+@@ -193,7 +193,7 @@ uart1: serial@40061000 {
+ 		};
+ 
+ 		uart2: serial@40062000 {
+-			compatible = "renesas,r9a06g032-uart", "renesas,rzn1-uart", "snps,dw-apb-uart";
++			compatible = "renesas,r9a06g032-uart", "renesas,rzn1-uart";
+ 			reg = <0x40062000 0x400>;
+ 			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
+ 			reg-shift = <2>;
+-- 
+2.43.0
+
 
