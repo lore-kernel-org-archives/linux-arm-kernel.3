@@ -4,100 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA25C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 14:51:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66AD7C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 14:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/SbMJsZTVEbKRuVrUDYyc5PB99lv959TP0uVc5Xd2A8=; b=mTkOdQpWaEVpKFlxsU0/YPJcTS
-	L9AJeV+NgMwJQe6ghV9Hd7FDofXSb4mfVSypMZROazhjluh0P5B8kb/NmAV0084CNRQmH78sZxdPH
-	fO9zUfuFuMZIsqZ/tk2Bos5kvXJyJCWcXECpwPYbOcSLb7HR1XP8gHdn7ExRi+ZK+R3xepgr1qvs9
-	bYNhuK6T+zu/lATbJtADR1Lk+hf/+X4JevbGAmTB1u00gS1faL2AhKaTB6+A46ErZsM6p1rCjRGTT
-	3wKWxCt7d41/7i3IGCoqsQZKvwL8/beCay3YupgV6vqKzyBSsuJIl3TEPVOTpplyuqjZbPixqUFw5
-	5NAw0J3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DQae58/7ZgRGmpkImz3Fvmxvfg6932EKFfHBFpHyTDE=; b=D6KyNkj5ljomcc3PfhO1XwTYAF
+	G0OxxG5cLIT+M2pbjZ08e/2CZ1yz5Db7Kw1iczdH5cBWGlLoHPTxUY+0+z6fcs6NQ6/SgzkkFYHEE
+	KtXtl9R3LXpU9Sds0kyhA901vLojnjBEJ880kFRGls4E4Udf9rqYMzBPDAQNOoSWk7rlEiYpBtNre
+	lLopSSFfebBkRpPFf89R790/ClltkMBg9YTBpF9dS+YfNEnDrqxR/Sub96gKowtibLlGxaW1XKyv1
+	rUqGTeftlOdJhDf+8GyI8YW/Qw2eTqNEVZH2ezDgz4kAsNbXmjHENtzEJAbT/Lf4XAwscolLBPVjs
+	3WPNjg2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tix1w-0000000FDQE-0kPj;
-	Fri, 14 Feb 2025 14:51:00 +0000
-Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
+	id 1tix9P-0000000FECs-3O2Z;
+	Fri, 14 Feb 2025 14:58:43 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiwuW-0000000FCBp-2lvo
+	id 1tix7y-0000000FE4b-11AU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 14:43:22 +0000
-Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
-	by mailfout.phl.internal (Postfix) with ESMTP id 67B6D1380894;
-	Fri, 14 Feb 2025 09:43:17 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-11.internal (MEProxy); Fri, 14 Feb 2025 09:43:17 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1739544197;
-	 x=1739630597; bh=/SbMJsZTVEbKRuVrUDYyc5PB99lv959TP0uVc5Xd2A8=; b=
-	fs60fQ7BtStTUuwD8Q8P+uojYJ9MTo2VLZrNnTANUDP9iK3Se8p27diSIjh3sXyU
-	uwbZNUVjqs99k0schJIwsyoYU4Mcnxr6LPZ0omnJJXPthtmrKP0SNdgkd/ricOnf
-	BNdN6i/qMPcIXDkmI1mKuWlukFjMNlsmfARyXod7pAcluMUT97gJXtO/lKWV5Buj
-	25oYwqqjrjWadiMQLkfkAZADuvjOH4uDccjeCYBUov7fvM7UBkE0nwppPywsdBzx
-	g7moeNP0APLqgZhD7i1xLY6CAeXRMmgtEcIb/SECkYsKM3mfQ7iQMz5fqNGyAn2l
-	0Wh6IXTmoOZ8YMNpX4qtDg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739544197; x=
-	1739630597; bh=/SbMJsZTVEbKRuVrUDYyc5PB99lv959TP0uVc5Xd2A8=; b=c
-	uuM4BawgJTWa5LmvMeClLgw7jOrfiHdwckzVV+t43Im4l34SxLhId9hgEj8Btqux
-	eXqUSQxBvr5r3TG8suRPv/T/RO2H09EDTk9tuZAifcWkGeBwaQ/KiQqKE20eVE+x
-	IneZJ3go+Nd3qBNF9Qkp/b03OHm2bGvNTyuVy6ptON3JNTHlv+J9tbKh/6CHnkvZ
-	qs6FYcvUG7aaj5b0M+ffoK6aFfoHDDQti8Ab4L2xp9fHgK/vcFC1AFfyAYF6xhnL
-	4+TFaPc4khMdDQcgqUU9rii40v0GU+73LGErb9CN7Q85hx7+20Qbw6nNtLV+rd4o
-	k4vxkSXcMCJx5EqnpEgEA==
-X-ME-Sender: <xms:hFavZ0DuHdk3xOAWhFZEdYESurpx1uHeUvh3RyltzVZhz_Qy1vfCtA>
-    <xme:hFavZ2gNwsAqf2F3WSSW-h5qqB6K4K3xo7TDuNJsFMSIB5uRqDWGbMUweQfCMan49
-    OKeHkNdtsQzXlt5FSU>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegleelvdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
-    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
-    druggvqeenucggtffrrghtthgvrhhnpeefhfehteffuddvgfeigefhjeetvdekteekjeef
-    keekleffjeetvedvgefhhfeihfenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuve
-    hluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegr
-    rhhnuggsrdguvgdpnhgspghrtghpthhtohepgedpmhhouggvpehsmhhtphhouhhtpdhrtg
-    hpthhtohepshhfrhestggrnhgsrdgruhhughdrohhrghdrrghupdhrtghpthhtoheplhhi
-    nhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpd
-    hrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-    pdhrtghpthhtoheplhhinhhugidqnhgvgihtsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:hFavZ3l96-0p0JHEEXGAmVruAvob4iabU8xg4PZ9HsV--2xGhK5B2g>
-    <xmx:hFavZ6yObr5oqRwXPuyTKzmJRjCsI4UqGi8yAzcEbJza91NLIuuG3Q>
-    <xmx:hFavZ5QLFVS_rA3WkNmkCjlItZAH1Kl58HpcwjX3IkVJdeuTQ37azQ>
-    <xmx:hFavZ1aCszo7vYHc70g1zV239uwSrnkQOCN_SYP8wPNWMSz82y1gzQ>
-    <xmx:hVavZ7ecLTXSFUDpGYlLgAAFj_R81csrc_xcheXbwboeyCkObn6ja11K>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id BFC6B2220072; Fri, 14 Feb 2025 09:43:16 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 14 Feb 2025 14:57:15 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-307c13298eeso21021431fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 06:57:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739545032; x=1740149832; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DQae58/7ZgRGmpkImz3Fvmxvfg6932EKFfHBFpHyTDE=;
+        b=Jr1Meq8ECWiriHvksnURn6KwU7Hn/UGmr5djnkiBaaiBQ9AVmXuN2gzS2YhxqiphA5
+         wsqExmzlJGRI0qWtJNm/qG7ijOQKDZhYOf3Art83QRn2SPG61OmtgOkpXl+Skz6DnYCu
+         eT9/0hr2vKQc3kAuA/LfReMqZSClmCtfJkKi/8amfb/qxx9mB1A2ShW6/5Nrn9Nv4W9y
+         Dd3RoOCm/u4FNSffQ7d1jnhS4kAHEE5f2KrYPBuAKlnOEpKY0lAaZ4l1mmhi+6Xxj3Zv
+         AkakPZzoDBBrYfQMf6oCdDLMbvDCeskgwh/fNzoZHS3xyz9Zkb2OtmpBYMeb5vpd2dzu
+         b/Lg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739545032; x=1740149832;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DQae58/7ZgRGmpkImz3Fvmxvfg6932EKFfHBFpHyTDE=;
+        b=D/kIbzEgBC6zZHrKpZzsYSe9DjFbEmjlY03u/NoeAgaWNTlJF7IP/8TF3VIXbdxcKf
+         oiZ+RBpASklhW8sEEdfy0fAAbQA/TX+7VstvfNJmaEIKt6KMQt5obFi7J0U/nYLhsT2o
+         rsCVOK17j0G/3IatKRiCEnhOuOKgka4hQV0f94W2xCQgAeqxbL29mWSXCKdNLiutpYLi
+         5Y+NNycX1Elhfc+ODZasGuxstpKRdlinDpSws2btNeixzIZmix4t0vx5+HSJDNNinINn
+         tWH6jmKv1w1WgE4ZzlDvavsV2EcT/56EnNUiNtI1SNJku3/mwvsTURmlEZkwvZ/qMcUG
+         OUSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXRTCN1qOH5L+R9Nbio0y/Fqh621Zb9GQLHe35P7Pk4xDrsMUzw3YpKmYb35yd8JF5fzHCrCe9vZTlWPwcJLxuU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDgA3SDmKcy+8M9TcWC0XIVpilRWvb7cC+8kLlpFol56ThgT5Q
+	NjKK4XYkzb+Kqtu2/2brG3oclmGlId6H+aOqlnnGm97yVN5MUS4A51sYNSMFIq8=
+X-Gm-Gg: ASbGncsop8IJelAuWGr71rSoqpJkBb9wfBfHZ5YL8UE+Rz9gu8qdwrROdw+IBYWeEkR
+	hqmaah4pMTxx4HJgQceAhsiuLtWSEsT3VeDKKPOgBEB16mi6qf5hoNO3aEFFSeV/nl8H5+EeXHs
+	qqnhGNQqHmwIUyV2ClZU040yB0GPEiCfUhUHdIzObW7KXai2Z62tSp2ViYTEiB9ixmaI5wl5lyH
+	Su8fFWZGLjlgts+houpXPO+ekeeY7ZzdCxZ4VF6DGTZxOEW7ZTjI3XtDXbBNi1fYrSZTD26OrNM
+	XiaXT1OR9wZ4ggLgDxhhkkQ=
+X-Google-Smtp-Source: AGHT+IEGXwyfxyoObKs7o/lt7dV9tEhqiBuBL0KpjS6e5z7omskUER6BZ1nOd81V/L7kuC4TLU7acA==
+X-Received: by 2002:a2e:a907:0:b0:308:e54d:61aa with SMTP id 38308e7fff4ca-3090f353cd9mr34630161fa.2.1739545032292;
+        Fri, 14 Feb 2025 06:57:12 -0800 (PST)
+Received: from umbar.lan ([192.130.178.90])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30921447bdcsm2129911fa.35.2025.02.14.06.57.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Feb 2025 06:57:11 -0800 (PST)
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Date: Fri, 14 Feb 2025 16:57:11 +0200
+Subject: [PATCH] arm64: defconfig: enable DRM_DISPLAY_CONNECTOR as a module
 MIME-Version: 1.0
-Date: Fri, 14 Feb 2025 15:42:56 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Stephen Rothwell" <sfr@canb.auug.org.au>,
- ARM <linux-arm-kernel@lists.infradead.org>
-Cc: "Linux Kernel Mailing List" <linux-kernel@vger.kernel.org>,
- linux-next <linux-next@vger.kernel.org>
-Message-Id: <8f70d200-f55b-4ded-97a3-9586615bcaa9@app.fastmail.com>
-In-Reply-To: <20250212093147.02ddbf2e@canb.auug.org.au>
-References: <20250212093147.02ddbf2e@canb.auug.org.au>
-Subject: Re: linux-next: failure fetching the arm-soc-fixes tree
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250214-arm64-display-connector-v1-1-306bca76316e@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAMZZr2cC/x3MSwqFMAxA0a1Ixi9gix/qVuQNSowa0FZSEUXcu
+ 8XhGdx7Q2IVTtAVNygfkiSGDPMrgGYfJkYZssGWti6tqdDr2lQ4SNoWfyHFEJj2qEiGTN240bX
+ OQa435VHO79z/n+cFzY/Bc2kAAAA=
+X-Change-ID: 20250214-arm64-display-connector-c1c1569f9799
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1134;
+ i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
+ bh=z2Q0IRBbFBY5UO2dBzF27h1+kSCMj9v5w1Ed/8luhF0=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBnr1nHdqBlbiOcs9Fq6bYoQ+iyjmFYH6QKSuxfO
+ /WMhlNqTjWJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ69ZxwAKCRCLPIo+Aiko
+ 1dUzB/91jaiBLtA2Q8zCpQ3QjdZ+QQiJ+ot6o6nCYuWdrktym6dcD4EKzYZwUmJ3Vh2WGNTsGMV
+ h6BwL6PgWizo3efy5boVtu7ecr80HjH/1Ug+saZSI/7ZkA3hzOUEooQUsUtg7sdhN18RXhzykXh
+ c6rgBzQhOnB4cq3zCf7rxGkwZCDwEn/6C2hI/luw86qLkxCNCrzcxGqO5R8oQV89DnUglP8akpK
+ BSxLXt7esBRbJAR2NhjPmslaZK9COmB7nGaw/L2Z/5XD8U8NKU6uQtX4+hLHIGWvloM/9TdDO8/
+ 3GuXHoOg15yu3UUAupDJYCQxzSPgQoadi6B/nWgl+EGv7EQ3
+X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
+ fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_064321_186884_E6EDB12C 
-X-CRM114-Status: UNSURE (   7.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250214_065714_296649_5061A140 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,16 +113,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025, at 23:31, Stephen Rothwell wrote:
-> Hi all,
->
-> Fetching the arm-soc-fixes tree
-> (git://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git#arm/fixes)
-> fails like this:
->
-> fatal: couldn't find remote ref refs/heads/arm/fixes
+The display connector family of bridges is used on a plenty of ARM64
+platforms (including, but not being limited to several Qualcomm Robotics
+and Dragonboard platforms). It doesn't make sense for the DRM drivers to
+select the driver, so select it via the defconfig.
 
-Thanks for the report, should work again now.
+Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-     Arnd
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index cb7da44155999b59aff95966f4cdc9107f2af46a..dfcc754962f7a40377d1f8e0f16983af5ace28f4 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -911,6 +911,7 @@ CONFIG_DRM_PANEL_SAMSUNG_ATNA33XC20=m
+ CONFIG_DRM_PANEL_SITRONIX_ST7703=m
+ CONFIG_DRM_PANEL_TRULY_NT35597_WQXGA=m
+ CONFIG_DRM_PANEL_VISIONOX_VTDR6130=m
++CONFIG_DRM_DISPLAY_CONNECTOR=m
+ CONFIG_DRM_FSL_LDB=m
+ CONFIG_DRM_ITE_IT6263=m
+ CONFIG_DRM_LONTIUM_LT8912B=m
+
+---
+base-commit: ed58d103e6da15a442ff87567898768dc3a66987
+change-id: 20250214-arm64-display-connector-c1c1569f9799
+
+Best regards,
+-- 
+Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+
 
