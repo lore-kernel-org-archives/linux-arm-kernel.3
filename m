@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE268C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 04:38:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7B9C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 04:39:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2vGOH5ZfDWXC0xrIsnf4fLnv+iec7XidVdhhTf3PgyI=; b=pn8UIMsEHyHvQQSSl0s28JHvyR
-	XgQ0e0q3COfFeJ9GevIJuKE0XHvi+PNTJTdMy1VfIPy467HECzonQTOzpmvDdUpH+2AnMM0d2KdCf
-	qHuDZ9coQMEDbbB/gQGyx+D8ggh8Qdh8br1KtIm9+IAUEY/iq2SIZprDneUe8Q66TYbDS2b4gGWpG
-	mka4J/iRAUgf7MDNr/xvn0eCixwIS/jfdKbY+NAayO+gcMJJWT8SQ159r246fmLAiYO2NYPRjjdcx
-	0gEKBl9asXflpBNrEwFCBQauQf3c6w5tj1W3yeTWUNByUSCxknA2uvKfT9i+GJG8xLSGxr+V/rkB5
-	oCQGKoWQ==;
+	bh=pABNnyGxDf0HWJPslows1Wypf0nJAcgv8KSSagBrIHM=; b=dSgpRPkEEgU1I/FDPr/nvEib0q
+	SaYtwvzU6FBRwJH19nzlLIBPUngHYOKGLGrT4oc8f+6zQ5yTtoIelK7Z2Mdaf1CVYaLaSOo10NXG5
+	ecLHlhz17KZTlnxrfllF3yq7tMBpHiz+C1tXegcrZo3rfBGfpj0TffQOkj1sY/0mXbrQ99BntrN3c
+	JxMJ1bzzy5isH1iM7LNiV7XnFLx24xUKBgT2S/wYDy9T1X92dQtdvSQ/gFHpz5IXQBxgKm2CF3KcS
+	G/NGVYQkYoGcNtFFxUQR3obN7X4zdxe0E0PiPUEf0ROFJ2ebXj7+Hg11yJFJFgzr1eCP5JXPi5EQt
+	UeSbZtKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tinT1-0000000DcIR-0tgV;
-	Fri, 14 Feb 2025 04:38:19 +0000
-Received: from mail-vs1-xe2a.google.com ([2607:f8b0:4864:20::e2a])
+	id 1tinUO-0000000DcQ8-3Upy;
+	Fri, 14 Feb 2025 04:39:44 +0000
+Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tinOu-0000000DbmD-3Z7c
+	id 1tinOy-0000000Dbmr-1njt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 04:34:05 +0000
-Received: by mail-vs1-xe2a.google.com with SMTP id ada2fe7eead31-4ba00b6821aso460252137.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 20:34:04 -0800 (PST)
+	Fri, 14 Feb 2025 04:34:09 +0000
+Received: by mail-vs1-xe35.google.com with SMTP id ada2fe7eead31-4ba722d3916so497808137.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 20:34:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739507643; x=1740112443; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739507647; x=1740112447; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2vGOH5ZfDWXC0xrIsnf4fLnv+iec7XidVdhhTf3PgyI=;
-        b=aiBqt/cEMTwRH71HAKfFgMINnNKFngXefxPMCgtvg+2My4GOn1JuMvny7WzUipnoEA
-         J7razJvV2UZBku3JFZNOnkLw9M5ug/8BFjdIREEjRfF3F+vLUUB3DkzgNbzKDmuND1O+
-         fGWaUuXg3+cEk8EzjjsOM8BgSNcyJjmYftFdvYJVUlMjyVSxfk8irW8Cz6fPBHS4tL4i
-         FYLG4kC37vhB0g7qV/mJScJw1ro0BYsIpgd/kDK6w3AklRijLR11OigGlhCWo500sJG2
-         qQ64dOL5uJAGTYaIskN3dcI189g62dXDxP2cSmt6C7DyjCgWLa/VTNwfZow0+8bgS1Bp
-         EBeg==
+        bh=pABNnyGxDf0HWJPslows1Wypf0nJAcgv8KSSagBrIHM=;
+        b=nTR0T/ddu6DHne+eI9tcFvM5liiG4vwJHW0Cd5zMde//epKjOsx7H9Cvr2M5lhOqUk
+         t8LTsY47oApkJp/QNaIFtyspL7QkduoX72aaN31X0lSoZukxvBiBlRq7AqejIh6hqzKp
+         Hzn7FM5QkVNg6Mf9VoRzVEWYrUxB1Gylq06tSnB/ihKmZOz9kKsiIPlXm2m3HMEqMGOX
+         AqXySyJUXfWwIYlTMh8y35QKH1tj5YARIyaFrDFsLwpC8QQuKkm6jRNwQOncTzhrWy0E
+         T9879U8JJ1ie7ve9Xwueq/z4tqBZeyHnhYAayA8kmDoTKw+0IITMP3TSnMjmp7RHw3pQ
+         4rSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739507643; x=1740112443;
+        d=1e100.net; s=20230601; t=1739507647; x=1740112447;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=2vGOH5ZfDWXC0xrIsnf4fLnv+iec7XidVdhhTf3PgyI=;
-        b=NzD2EzS8iGK5/UJGjSthz0GM89xy8ywc9A+0mS+CRAcX5155Ouzm3wg3DrX6NRLZ8a
-         mxfJTbWNbG1yCWfmNwoQo+Hs021xSgmLipyr6kiQtoiE1XAVsl1/EIhXIuzsB8fT6UJk
-         9Qi0SmKynVMAm+DdgnQh9KacgFOIW6wFxdmBLOvy6pJtFXv8MyAZYAUHruRXVY0XCEoX
-         RGBIRectrPXMjQ2fjg8wKesZnOVIaXP6UacTxIoB/HEaoegLGtrtQrn+4zErWORGU2y8
-         IH2FiZ8BU8CAK68LIOU1OvAhLigT8jt90CS9+BWzOg/8hJIs7CG2iLGqwHcmMgg2n2nk
-         sJcg==
-X-Forwarded-Encrypted: i=1; AJvYcCXA+Q2c82JCe76Fp6r6AMilHU21S+1dXQaQid4ndO8+/g7qC/jHPL+idNZNoy4vY8eRGt+D1XDDaRhyHDFf3bke@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7lJz5iGMfxIJ/3jvpXhnzLoXgADDc1kHy8ksbKVM45zA4LYMa
-	5JhzMNN5bP5IaiSI8hyTvG2q443CBbWC3vUrQ71O0TJc19uGZL+g
-X-Gm-Gg: ASbGnct45/YVzWU3Y/vax3XLQap3vkMDZpMAJj9/fmfZ9TtIo0VEmNhqutIw+WgY4Pl
-	qmQ/VdEJMEn0LKCheN+1R6soY1WaI5YqZHrT2m/LM03QC8i12mMokryhp5U/aSPHqfr969Xo/TF
-	PAVcX0HoLxNYsRjy2BLlFpRyhJ/i3mPoPnM1qmDl/eGMI02EAggkWbw0hRXELRaipGPTI8OJTpg
-	bnGPxTRishNSLWqC6t5qTmNTsoTp5u6tygMMKN3kPZm07e8VTcNyARbygFBU+PgJ6hWBcKRUk4B
-	miG8CwBDFuVYc9Z6cQtGCOTJ+1yayCFPfr4lsJs5ty5fB87lC4mun+DiZBj6h70Fh7glGR++JWF
-	uVQ==
-X-Google-Smtp-Source: AGHT+IHN3C0clGDeOw5iQJ/Yam+lOWcCUo9IUlBTZxkkZ9QAegrhpgsWbf5H3zijlrub4dNFxpqCeg==
-X-Received: by 2002:a05:6102:50aa:b0:4bb:d062:436 with SMTP id ada2fe7eead31-4bbf1fbb722mr10132162137.0.1739507643517;
-        Thu, 13 Feb 2025 20:34:03 -0800 (PST)
+        bh=pABNnyGxDf0HWJPslows1Wypf0nJAcgv8KSSagBrIHM=;
+        b=BHXQQZ3SLzpeEQLi1byjfNuuBcpa7wzPXjeZrXSWn7TmMEGKH41sGUoskn9/DCJ/77
+         iQ1R2a9TRZ/pUjC9o3lX5XB7Si4r6z53+ZhnmILcmZU585YvmsRJR1flP3UM1ekrldCD
+         /0t2Kbdt3r90QJZZJzSf8w9S26leaY1kivzvIEzhdyauxRTBsi8W7NkKbR2/oxmfbtN7
+         jdpyLjAJidpIwWr8630MPb0fPAYRqzS+WYmrnCkaLZnc83GdVelJBQHEtMV7dLjIoKJR
+         Hf5Pu/RumVo4HW7ADWNQadhCwGpZf7QwY+H2yUIPC7bwLaM5E2o/pPaU9nbc+/eRWRw6
+         QwNg==
+X-Forwarded-Encrypted: i=1; AJvYcCWP+KJ5A31uo+U+9zl4b1nLfCsuNNgNcdXCrfLT69k/QcwUx3x0uITZu7M/NDXfg6xfZ19KXdxRsjGpjt34By7m@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8q2zmjAD4qsI2nz67I5Py0BbSZPeR5uFTlZXJ3GGlM4IAoRHH
+	KW1j2mCKzFiV3a5AwU85F+2vIBRplCKMZKqBrceRL/GiYgKvPOtH
+X-Gm-Gg: ASbGncsqgWgrhPfRA+Rlt6P0UqojfN/RD//7KjaRO7RN9Z/WGWk4vz4qP/sIdrkJoVq
+	vnm1YuHE8JGBMaIZtGE0q1QIuCNdHzk+nMnRb1gs+3RezbdQre667vW5OKNefNCA/O2F/IMNNHb
+	9tgWv7CGGpUVffhIhlJg590gXqSUQIMvnjmE305E0UMqroRH9wG7lF5pnxMqSckb+gSK+zrU/CH
+	o6viKHgoqMyRtCRAfM/5AObH8yNbn3fGTitDtRmumRouT0JGNaJ9sdjzdEbL/fQH32mtIW6KDlj
+	nKI3FCiXP0SZnm/0or5sIpHdZnsTiTkt9WClS+TlRkqlEDQNoQaNfgz38Vw6NbuclJ9MEhl2AL3
+	heQ==
+X-Google-Smtp-Source: AGHT+IGYT0xEanrn1VszJ1wJSKytc/CMY4TaQR5OCqX/LZsid53fc32kk2bD91HzBNyw8KyfmgwniA==
+X-Received: by 2002:a05:6102:4191:b0:4bb:c24b:b623 with SMTP id ada2fe7eead31-4bbf568bd5amr8493930137.19.1739507647222;
+        Thu, 13 Feb 2025 20:34:07 -0800 (PST)
 Received: from localhost.localdomain ([38.44.237.182])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-868e857f2desm422800241.10.2025.02.13.20.34.00
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-868e857f2desm422800241.10.2025.02.13.20.34.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Feb 2025 20:34:03 -0800 (PST)
+        Thu, 13 Feb 2025 20:34:06 -0800 (PST)
 From: Denzeel Oliva <wachiturroxd150@gmail.com>
 To: andi.shyti@kernel.org,
 	broonie@kernel.org,
@@ -82,17 +82,17 @@ To: andi.shyti@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: Denzeel Oliva <wachiturroxd150@gmail.com>
-Subject: [PATCH v3 2/3] spi: s3c64xx: prioritize fifo-depth from DT over port_config
-Date: Fri, 14 Feb 2025 04:33:42 +0000
-Message-Id: <20250214043343.263-3-wachiturroxd150@gmail.com>
+Subject: [PATCH v3 3/3] spi: s3c64xx: add support exynos990-spi to new port config data
+Date: Fri, 14 Feb 2025 04:33:43 +0000
+Message-Id: <20250214043343.263-4-wachiturroxd150@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250214043343.263-1-wachiturroxd150@gmail.com>
 References: <20250214043343.263-1-wachiturroxd150@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_203404_886089_4604D0EA 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20250213_203408_466082_EE08826C 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,45 +107,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rearrange s3c64xx_spi_probe() to ensure that the 'fifo-depth' property
-from the device tree (DT) is always prioritized over the fallback
-values in port_config.
+Exynos990 uses the same version of USI SPI (v2.1) as the GS101.
+Removed fifo_lvl_mask and rx_lvl_offset, and changed to the new data
+configuration port.
 
-Previously, if port_config had a fifo_depth value, it would override
-the DT property. This prevented DT from correctly setting the depth
-per node.
+The difference from other new port configuration data is that fifo_depth
+is only specified in fifo-depth in DT.
 
-This ensures flexibility for device tree configurations while keeping
-a safe fallback.
+Exynos 990 data for SPI:
+- The depth of the FIFO is not the same size on all nodes.
+  A depth of 64 bytes is used on most nodes,
+  while a depth of 256 bytes is used on 3 specific nodes (SPI 8/9/10).
+- The Exynos 990 only allows access to 32-bit registers.
+  If access is attempted with a different size, an error interrupt
+  is generated. Therefore, it is necessary to perform write accesses to
+  registers in 32-bit blocks.
 
 Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
 ---
- drivers/spi/spi-s3c64xx.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+ drivers/spi/spi-s3c64xx.c | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
 diff --git a/drivers/spi/spi-s3c64xx.c b/drivers/spi/spi-s3c64xx.c
-index 389275dbc..dae63a105 100644
+index dae63a105..88d751c69 100644
 --- a/drivers/spi/spi-s3c64xx.c
 +++ b/drivers/spi/spi-s3c64xx.c
-@@ -1283,11 +1283,13 @@ static int s3c64xx_spi_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
+@@ -1588,6 +1588,20 @@ static const struct s3c64xx_spi_port_config exynos850_spi_port_config = {
+ 	.quirks		= S3C64XX_SPI_QUIRK_CS_AUTO,
+ };
  
--	if (sdd->port_conf->fifo_depth)
--		sdd->fifo_depth = sdd->port_conf->fifo_depth;
--	else if (of_property_read_u32(pdev->dev.of_node, "fifo-depth",
--				      &sdd->fifo_depth))
--		sdd->fifo_depth = FIFO_DEPTH(sdd);
-+	if (of_property_read_u32(pdev->dev.of_node, "fifo-depth",
-+				&sdd->fifo_depth)) {
-+		if (sdd->port_conf->fifo_depth)
-+			sdd->fifo_depth = sdd->port_conf->fifo_depth;
-+		else
-+			sdd->fifo_depth = FIFO_DEPTH(sdd);
-+	}
- 
- 	s3c64xx_spi_set_fifomask(sdd);
- 
++static const struct s3c64xx_spi_port_config exynos990_spi_port_config = {
++	/* If not specified in DT, defaults to 64 */
++	.fifo_depth     = 64,
++	.rx_fifomask    = S3C64XX_SPI_ST_RX_FIFO_RDY_V2,
++	.tx_fifomask    = S3C64XX_SPI_ST_TX_FIFO_RDY_V2,
++	.tx_st_done     = 25,
++	.clk_div        = 4,
++	.high_speed     = true,
++	.clk_from_cmu   = true,
++	.has_loopback   = true,
++	.use_32bit_io   = true,
++	.quirks         = S3C64XX_SPI_QUIRK_CS_AUTO,
++};
++
+ static const struct s3c64xx_spi_port_config exynosautov9_spi_port_config = {
+ 	/* fifo_lvl_mask is deprecated. Use {rx, tx}_fifomask instead. */
+ 	.fifo_lvl_mask	= { 0x1ff, 0x1ff, 0x7f, 0x7f, 0x7f, 0x7f, 0x1ff, 0x7f,
+@@ -1666,6 +1680,9 @@ static const struct of_device_id s3c64xx_spi_dt_match[] = {
+ 	{ .compatible = "samsung,exynos850-spi",
+ 			.data = &exynos850_spi_port_config,
+ 	},
++	{ .compatible = "samsung,exynos990-spi",
++			.data = &exynos990_spi_port_config,
++	},
+ 	{ .compatible = "samsung,exynosautov9-spi",
+ 			.data = &exynosautov9_spi_port_config,
+ 	},
 -- 
 2.48.1
 
