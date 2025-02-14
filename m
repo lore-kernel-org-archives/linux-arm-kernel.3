@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F13B5C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B754C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MuT0SdK7xXa7okOPanhG6y+T08LdgnDw3LDNbKyKy/0=; b=tySeOsvGBvIFVxqBL4+tLwFzDt
-	O2nIlSGbq3DE8Ooy6vAydUgzYV+lt3ftxu5500v5gTtL1pv/fl7AhRBAnTxVJiSlvTRz4MH75KLN6
-	9vxh3RRCGHLbYN+oWzoajWLLnKSfdicL8Dvn28Vq6POTUJoeM37EzaMUF/XZtx7seX+Ghlzuc9xmV
-	yPPTYNZnjfkmLvpuWx+H79kdvlzVRC51leUeB64PGwpjHvyZxxcmDCoUv/3rt6xjKW5CVF2k4S7Nb
-	b8ELidL/oa3ITYkIKHcRUnAAfq8aczyOdNDxuNFWS/2g0DR3C6BgCd/Ohj15NQJVD4er4Esw6SFwE
-	FgY2sDpw==;
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y42OaWjgB0rg7blG3Pk/mPM5kBIbWAmK/8gVhR7spnU=; b=ca8Y4nV4zhNzI3JIkGTBYz5vgt
+	1+vZyly6+y0Fkkucdw9ro/AstYvR9qX2jFlKiKgGNqL74f3vyfGqIWIh9B9qBtGouYYAaXw/GrW/l
+	y6YepWMqAnZm9DB6mfNQtXaHAaOHsMouQf4k63VO133tcSyP6U1Ltd+lNOawU+e+S6nonZI8Wz0th
+	JT1k5SjcNyTwobzjYmS0TF9m1Sbvqa1YshjNCmi5TZbcELoEgmme7tS392CZlXil+iddd52OqXm8f
+	ciarsUb4mZqv4VHP0PAMhXW25Tviugn4HqaKFaYHVXxNPhUr/GwO+uWCArd4qwz7sPf+8FVYyhbYw
+	zX4uGsOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixF2-0000000FExN-3MGQ;
-	Fri, 14 Feb 2025 15:04:32 +0000
-Received: from mail-lf1-x149.google.com ([2a00:1450:4864:20::149])
+	id 1tixGS-0000000FF7T-1eY6;
+	Fri, 14 Feb 2025 15:06:00 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixDa-0000000FEo6-20dJ
+	id 1tixDc-0000000FEoc-0PPI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 15:03:03 +0000
-Received: by mail-lf1-x149.google.com with SMTP id 2adb3069b0e04-545172f6803so1286332e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 07:03:01 -0800 (PST)
+	Fri, 14 Feb 2025 15:03:05 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43935bcec0aso17782745e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 07:03:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739545380; x=1740150180; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=MuT0SdK7xXa7okOPanhG6y+T08LdgnDw3LDNbKyKy/0=;
-        b=sVeIfVgMhmwjsDT9JApRfx9gc4f15MVq/AdoaahaF0DNbtS3VMtU6Kn9bLhoDQ+F4Z
-         RoySytZoE3vLxaH2b5s/1Dm37j7Dyc15isMkwqWV7YLTjNI5RWf4pdd+sgL3fGJbjlWT
-         kj1WDT35cZCp/TqMnA/23VsjODvE9umgJ+POXQtrJ5cvQWW11Ai+PKGZUz6zxaSbW8yN
-         zpS25F/Wa4vgblr89iWXYM8yvL62b6g2OT80JiLCpsPcE5AIfb/H0sTPlabBnlQD8Wig
-         eY6ollFF7jbk0njcXZ/ldAR36EB0DPjjrNjiz3cAuvbeCHxcXbdDzvw3CttYFI4n4QGE
-         hByg==
+        d=google.com; s=20230601; t=1739545382; x=1740150182; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=y42OaWjgB0rg7blG3Pk/mPM5kBIbWAmK/8gVhR7spnU=;
+        b=e46PfrN/LFp1tCKNXicsvL4PgUNJHOeC+h5jGF5/c5NUuwHn/CQuTnnJLx+8Altszq
+         QMkRUUw7ztH4bWQng0M5gv7ZS0p2sF6ejJg6z1vd8pnwfsQyDfqlZywP64welgeKhg4k
+         KucvAHyOT/pvTSjQzJLRkR8lOiXBIwoNQtDnQBhxyX71JlVD53shZyM8DilPgPcz3F4k
+         QcyHpztUZAmYSbGWG3IqisPKb46sc/9i4NBLSHp7BYti06qwyUjYTP9L4fyry3rPr+1f
+         gevEYW1Cy0dwHw1vZKmZna399UNVX7CWZk5FZWPwFjgfQhGB6Qlckd0o2MSu4V83wJQW
+         PPuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739545380; x=1740150180;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=MuT0SdK7xXa7okOPanhG6y+T08LdgnDw3LDNbKyKy/0=;
-        b=XS4srqhJtN4jrivkY+rmC/h3jxzFSeWrd8Q8dS+wglH/gTGAVwYZbY4dIO/T/3dQbc
-         OfPjtgeR1g8zQk6okUrEvMcPYwNbakrbZjbe6eDYakCmf9AB9VQ7d91AvdaVUba47W2B
-         73EPoioAQIsJAkfOr2GBqXta/2beNUzNXZJVkLT0WNlKkZlgeElDhM3x5BtxINfMwYEr
-         kaUd+08ETvg+H8k4JlqLXwwcRR9e7Pkbl5qMScC6J7xaj0QsmetMqhAz+UYokqQT+OtU
-         W9fQWyOT0EaoIrjPl4uQwadKRGMryUG3atgJu6h1R8cWc+29D/r7n0rg2wH3bU6AE6Ty
-         5CYA==
-X-Forwarded-Encrypted: i=1; AJvYcCX/VsrZlimsQkUm15mUzuOprAHtWAEI64EsLuXNItxEq4FNtzOZ8XzmodecN6yozawfkKAi/knO5sl+uIs1xU8/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxc8CxPjkbnoF7v4ZqPZxTPB3KGtqHsbhZdLBib5HNs3kxUXRTT
-	0Djt5JMKgWlpWnCamEnxPlHTLep0ed8iSV6/ZJ+MVkNBgqVafnQoSEHSvoGE51Vtlz0Gty/8NQ=
+        d=1e100.net; s=20230601; t=1739545382; x=1740150182;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=y42OaWjgB0rg7blG3Pk/mPM5kBIbWAmK/8gVhR7spnU=;
+        b=nqOzZty3Q2F21K+za3glv5qxGS2JmJTrdVFC7wKUHVHDhHJN2qQOJiOOWzoudghP6H
+         7/QcrxTNidWKV63xBVM9N7YaHC1s56W+y4V8FZGcEDi0xXHCXgCOkut0egYOGyVfI5pf
+         drzJx+vAIui9YjiX7BoOrZZSfbJvjG+lA1NqTECqG3CkYvfMPIZvuK/WFdTXjQfCw3nC
+         74bvfB7GumtWaUtT8KBR0/Am+xC//aRjSQF57GvBpfpg70RLzygbrVBbvr/kx+6zJUd9
+         O1aYfRzCwxN/8alQakEr8ILvCJGY8foYnYe7x9TREbIp0rRF6le4EWOv66WQcnWXTBBw
+         ejMA==
+X-Forwarded-Encrypted: i=1; AJvYcCWTNlIB1xi7qGF2luP+AGgsN6Yuk5q7FUYPmysDTDZBxHofi6ZRxPyvKC1OARfnb4ig1pAjnunZK+KI6nDVQV4U@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywm7rfNc4mhpC3j5iiQDJW55toPBEDXUaKqDcEGbVEKAWJerV1G
+	9Cu7GsTggcMMKOvaDlcZ3U6h9Doj8ySL2wO3fcKWjnSrsaIkIQbWBb5rBVpbC3D2dKO7cH1aig=
 	=
-X-Google-Smtp-Source: AGHT+IFw/r/gkZ/iRvXxaWP0G3NSL8AKpEXKuIDGJ2LZhDVuSFi7uIxQ5P1CupiTBcuVqdIzWFwpe/DwoA==
-X-Received: from wmbbi19.prod.google.com ([2002:a05:600c:3d93:b0:439:5529:c5a])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6512:1048:b0:545:1193:1256
- with SMTP id 2adb3069b0e04-5451dd84c89mr2102659e87.1.1739545380225; Fri, 14
- Feb 2025 07:03:00 -0800 (PST)
-Date: Fri, 14 Feb 2025 15:02:55 +0000
+X-Google-Smtp-Source: AGHT+IF62UW0ZAUqxob5YZZPd/L0FZ9/3SweMzcmTIEF6W/RKtm+jgMe9LQ3g7afaCYpLDIDmocY+1lPOw==
+X-Received: from wmqb9.prod.google.com ([2002:a05:600c:4e09:b0:439:6217:c147])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:3d9b:b0:439:5aa1:1efb
+ with SMTP id 5b1f17b1804b1-4396018a96bmr139269315e9.11.1739545382155; Fri, 14
+ Feb 2025 07:03:02 -0800 (PST)
+Date: Fri, 14 Feb 2025 15:02:56 +0000
+In-Reply-To: <20250214150258.464798-1-tabba@google.com>
 Mime-Version: 1.0
+References: <20250214150258.464798-1-tabba@google.com>
 X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
-Message-ID: <20250214150258.464798-1-tabba@google.com>
-Subject: [PATCH v1 0/3] KVM: arm64: Fix initializing HCRX_EL2 and other traps
- in pKVM
+Message-ID: <20250214150258.464798-2-tabba@google.com>
+Subject: [PATCH v1 1/3] KVM: arm64: Initialize HCRX_EL2 traps in pKVM
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com, 
@@ -74,8 +75,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com,
 	qperret@google.com, vdonnefort@google.com, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_070302_515415_4CC8EA50 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20250214_070304_135815_9071D139 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,50 +91,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the introduction of initializing and setting HCRX_EL2 traps
-in KVM, we haven't updated the pKVM code upstream do the same for
-the hyp view.
+Initialize and set the traps controlled by the HCRX_EL2 in pKVM
+when the register is supported by the system.
 
-Additionally, the current behavior of pKVM is to initialize the
-hyp view of the vm and of _all_ its vcpus when the _first_ vcpu
-is run. However, with the introduction of kvm_calculate_traps()
-[*], some of the host trap values are not calculated until the
-corresponding vcpu is run for the first time. This causes pKVM to
-get the wrong view of some of the system registers, e.g.,
-HCRX_EL2, for vcpus other than the first run vcpu, since it uses
-the host's version as a starting point --- particularly for
-non-protected vms. Because of these issues, it's might not be
-possible to run a non-protected VM when certain features (e.g.,
-MOPS) are supported by the system.
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/pkvm.c | 46 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 46 insertions(+)
 
-This series initializes HCRX_EL2 for VMs in protected mode. It
-also initializes the hyp view of each vcpu after its
-corresponding host vcpu has been fully initialized, i.e., run for
-the first time.
-
-This series is based on Linux 6.14-rc2.
-
-Cheers,
-/fuad
-
-[*] Commit f1ff3fc5209a ("KVM: arm64: unify code to prepare traps")
-
-Fuad Tabba (3):
-  KVM: arm64: Initialize HCRX_EL2 traps in pKVM
-  KVM: arm64: Factor out pkvm hyp vcpu creation to separate function
-  KVM: arm64: Create each pKVM hyp vcpu after its corresponding host
-    vcpu
-
- arch/arm64/include/asm/kvm_host.h      |   2 +
- arch/arm64/include/asm/kvm_pkvm.h      |   1 +
- arch/arm64/kvm/arm.c                   |   4 +
- arch/arm64/kvm/hyp/include/nvhe/pkvm.h |   6 --
- arch/arm64/kvm/hyp/nvhe/pkvm.c         | 100 +++++++++++++++++++------
- arch/arm64/kvm/pkvm.c                  |  70 +++++++++--------
- 6 files changed, 118 insertions(+), 65 deletions(-)
-
-
-base-commit: a64dcfb451e254085a7daee5fe51bf22959d52d3
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 3927fe52a3dd..668ebec27f1b 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -58,6 +58,30 @@ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
+ 		vcpu->arch.hcr_el2 |= HCR_ATA;
+ }
+ 
++static void pkvm_vcpu_reset_hcrx(struct pkvm_hyp_vcpu *hyp_vcpu)
++{
++	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
++	struct kvm_vcpu *vcpu = &hyp_vcpu->vcpu;
++
++	if (!cpus_have_final_cap(ARM64_HAS_HCX))
++		return;
++
++	/*
++	 * In general, all HCRX_EL2 bits are gated by a feature.
++	 * The only reason we can set SMPME without checking any
++	 * feature is that its effects are not directly observable
++	 * from the guest.
++	 */
++	vcpu->arch.hcrx_el2 = HCRX_EL2_SMPME;
++
++	/*
++	 * For non-protected VMs, the host is responsible for the guest's
++	 * features, so use the remaining host HCRX_EL2 bits.
++	 */
++	if ((!pkvm_hyp_vcpu_is_protected(hyp_vcpu)))
++		vcpu->arch.hcrx_el2 |= host_vcpu->arch.hcrx_el2;
++}
++
+ static void pvm_init_traps_hcr(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm *kvm = vcpu->kvm;
+@@ -92,6 +116,26 @@ static void pvm_init_traps_hcr(struct kvm_vcpu *vcpu)
+ 	vcpu->arch.hcr_el2 = val;
+ }
+ 
++static void pvm_init_traps_hcrx(struct kvm_vcpu *vcpu)
++{
++	struct kvm *kvm = vcpu->kvm;
++	u64 hcrx_set = 0;
++
++	if (!cpus_have_final_cap(ARM64_HAS_HCX))
++		return;
++
++	if (kvm_has_feat(kvm, ID_AA64ISAR2_EL1, MOPS, IMP))
++		hcrx_set |= (HCRX_EL2_MSCEn | HCRX_EL2_MCE2);
++
++	if (kvm_has_feat(kvm, ID_AA64MMFR3_EL1, TCRX, IMP))
++		hcrx_set |= HCRX_EL2_TCR2En;
++
++	if (kvm_has_fpmr(kvm))
++		hcrx_set |= HCRX_EL2_EnFPM;
++
++	vcpu->arch.hcrx_el2 |= hcrx_set;
++}
++
+ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm *kvm = vcpu->kvm;
+@@ -165,6 +209,7 @@ static int pkvm_vcpu_init_traps(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 	vcpu->arch.mdcr_el2 = 0;
+ 
+ 	pkvm_vcpu_reset_hcr(vcpu);
++	pkvm_vcpu_reset_hcrx(hyp_vcpu);
+ 
+ 	if ((!pkvm_hyp_vcpu_is_protected(hyp_vcpu)))
+ 		return 0;
+@@ -174,6 +219,7 @@ static int pkvm_vcpu_init_traps(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 		return ret;
+ 
+ 	pvm_init_traps_hcr(vcpu);
++	pvm_init_traps_hcrx(vcpu);
+ 	pvm_init_traps_mdcr(vcpu);
+ 
+ 	return 0;
 -- 
 2.48.1.601.g30ceb7b040-goog
 
