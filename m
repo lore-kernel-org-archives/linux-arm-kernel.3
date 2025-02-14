@@ -4,105 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A4EC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 22:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A909AC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 22:26:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bEB+wipqpxDExoX7XkJyi7zxDfuglvJ+HC5Ljm+PuFY=; b=eo3p6+epoQgLUKUnNFmzYzr4q+
-	TwUvg9aXSTpD6tVsUSmLkuqJKk2/6Z1ZpK3q15+bie4cBj7EdWV07qrXL2FQLxCuJMB4d4CgFeAfO
-	K+sjmqxLfwSFdEY/RgvsTfodTRW3qR1RBYL/mM+MG9Q51Tn1pdzFXReEnLrrxbyWITvA0a2dX2y9t
-	HaxedNsYlmchzgk3lmGM6kcJ3m2D9nZ2IRfUwXwIaIhTWafW8+BFHcUK7I06AfFCPCc0B+R3ZDJd4
-	GSEBL28RHQ8wiHdWDieTZtFMzhi8TAyjoA2Gb4deYI0fSYq6u40tI42irh6DcLvY+ku2nQrHQz+/R
-	gSZ+VXmA==;
+	bh=k2vnMCPQOojSTe6uMJg0l2Vez2CaiS93NKFlwUuMrgA=; b=0Q1ncHdp4UA/nt8SM2dA5JbxnI
+	DPI1gkNgI3vERZxMCmx9He1FVX1tND5cdPhL/cL+OfgOaUdEw2r6fmVXavPYKy9a/+yJD+coSGBbA
+	yyK9Q6p53Dl84We72Dy+O+lIA9wemkGEjrikn8ZhSobZdPD+9JcGQIn3D9bEIcVsLxZCq0fTrqvBN
+	tG2c2meA4l+rx6ECBkRJW8FPe0ZxqWWxabaz7Pe9RDQBh9yHXp/o6srk72lNWx8/+5a9RrpbC/swK
+	RlpAr82D3Nz0WqZlFs4UT3hwnhVgfNLp29j+UuViyUJG6F1lh6Qd3xD+khpSGg6hdjTMItVHDsFD6
+	eaBIagoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj3ym-0000000GMtN-0i0E;
-	Fri, 14 Feb 2025 22:16:12 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1tj48D-0000000GNiw-1q47;
+	Fri, 14 Feb 2025 22:25:57 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj3x9-0000000GMcP-0Pwk
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 22:14:32 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5de4d3bbc76so4090236a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 14:14:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739571269; x=1740176069; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bEB+wipqpxDExoX7XkJyi7zxDfuglvJ+HC5Ljm+PuFY=;
-        b=OX3amnoKSeMOctXEYBjobVvPAqbuuRERn28rzbDlY1nVC1U4/gvtx5ss4vIImC0KPZ
-         KVD0bT7J+a3bpNGyj2PPRwu9tkevWfbD6FqR9PZEcSWV1Z7T2R+fUF6xmOZJx/bYQl2G
-         kYI4tprMl8RLmHYOZa1Dwk1cy0KUVde+U6E6iQwBoZ4scX0XfgkmlLJTURlQrRQ5FgZG
-         r8vYCpy848jM5x0A6voYCsykEbC2Hs7ZArqdK67v8crIcMNIMliKeEEAQOeA+jLOzOU/
-         M90xIuW/eN2dLydGQGMqUdAQ11k23Uxiz0d3fqBG/R5qH5fvE4IlROaJ2XsDxQrldmVe
-         8VxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739571269; x=1740176069;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bEB+wipqpxDExoX7XkJyi7zxDfuglvJ+HC5Ljm+PuFY=;
-        b=VKX+aRDraCkQ9mTT6squ/YEgyLJKQdacewJfnGVzq45300E55KU6zR5i39WGK1C4Dp
-         yaFiwxLUX/2wY6W1W9zP42Df22LGkNtHe+URKyGqk9ipcftdmhz3y18BHO4XWbK+n5e9
-         ay7uflggFgIxA/sM8nqDhKrjAl9g/1m+Cwk43QWZ8HwTOVLJJ81CjKa8i3W1/zvGYMop
-         urqIGM4EicffjuDuLyMlHO6gjewa18hx2np6WylNn6ll8uh2E7awSP1zeOyeoy+JJI3O
-         oM9YEU1WepD2V+5r7HW8dfStte9C8pX0R/4UiAOM8tCs3KyjVCl/tNWnTBeHOz1epodF
-         JmcA==
-X-Forwarded-Encrypted: i=1; AJvYcCX09NqWzabvAoB21zlST373qxMOJuWr8MHunJcSsIDgqULxVhOn1x2KFOZXk5qbO0sZT/JOgk8KTEBx/8n4RndH@lists.infradead.org
-X-Gm-Message-State: AOJu0YztKXVk7c5Dj0qSiKkfoZOAIzBd/FnjJWN/nnrEAqYPyvGA2m+y
-	VW2SvzKx+3Wd8RTWJ1/EbbURjXoqFhLWmvmR1vi1e9oxb9bdLDg4
-X-Gm-Gg: ASbGncunoz+/KtDvHacXCjOiI3XOSOrwsVGdkG1pgoOlT5CoGgeRJteQf57yzsTgZ25
-	L/lgsOZNK6aNM+POcibcfAHgtA/aIvN7w20klL0s1i/I1Ctq/0K+8zfAi5rNzbsa8IodvkfDAdu
-	ynOglg91XTs0qJkIKA5oQEcgY6wRGCIQwpFHagRpA98E9ecm1Hp8TS4aayKObECRGMgF2csFlw+
-	/5PS2oRnzNI+k65BS/gINJFbqlt7M0mv4YgebA3x871+cPpIpKacOLISOlU2pgEbDljnqk5q0wy
-	QgePHIe0pgQ+aWpRgzaaV/b7lZmnDszR7MLt
-X-Google-Smtp-Source: AGHT+IGhKMUt6pQQ2eEdpEq9Kp47Mlkh7KYX18Dx2znHH1AwQvYGHh0IRemg9M7NamftnrBLcT9VIw==
-X-Received: by 2002:a05:6402:5210:b0:5de:dc08:9cc5 with SMTP id 4fb4d7f45d1cf-5e0360a1fb6mr766609a12.7.1739571269178;
-        Fri, 14 Feb 2025 14:14:29 -0800 (PST)
-Received: from krava (ip-94-113-247-30.net.vodafone.cz. [94.113.247.30])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1c46b3sm3547034a12.21.2025.02.14.14.14.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Feb 2025 14:14:28 -0800 (PST)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Fri, 14 Feb 2025 23:14:26 +0100
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	linux-kbuild@vger.kernel.org, bpf <bpf@vger.kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nicolas@fjasle.eu>,
-	Zheng Yejian <zhengyejian1@huawei.com>,
-	Martin Kelly <martin.kelly@crowdstrike.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Josh Poimboeuf <jpoimboe@redhat.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>
-Subject: Re: [PATCH v3 4/6] scripts/sorttable: Zero out weak functions in
- mcount_loc table
-Message-ID: <Z6_AQmaUWAekeB5B@krava>
-References: <20250213162047.306074881@goodmis.org>
- <20250213162145.986887092@goodmis.org>
+	id 1tj46l-0000000GNYU-3jwR;
+	Fri, 14 Feb 2025 22:24:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=k2vnMCPQOojSTe6uMJg0l2Vez2CaiS93NKFlwUuMrgA=; b=J+H356ae4zUnjMOSGBw1B3YZL7
+	/T2/TQgh82Y03mrVH7Xlc4/P5f+G6nyffpsQd00bKp+zPTdNie2VrURG+797OKSxdjvDum5eiC+bs
+	qHMk3BxdEHul+ZH7et+bTP4Y+o5gcsLi4SbnU0vuUSF8E7sEBNoQQzIRom+monEH+SLBayf15MBme
+	2oMBHqCtLJkrptfSyladSdfbK3AvTfIvTdXdoi5VcHinbIQInl+jGlF+jW/0BesYnZSp4+lrQVfkJ
+	IEAHmyvio8ATJxeWo2hzwsGIkT5/AgfdQ1OTp+p/BKxLIAeibHgUhXlnrzFD3LZY8cLnX8IzN/aDf
+	oAE+TReg==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tj46c-0003Go-2m; Fri, 14 Feb 2025 23:24:18 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Andy Yan <andyshrk@163.com>
+Cc: hjc@rock-chips.com, krzk+dt@kernel.org, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ derek.foreman@collabora.com, detlev.casanova@collabora.com,
+ daniel@fooishbar.org, robh@kernel.org, sebastian.reichel@collabora.com,
+ Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v14 04/13] drm/rockchip: vop2: Merge vop2_cluster/esmart_init
+ function
+Date: Fri, 14 Feb 2025 23:24:17 +0100
+Message-ID: <8686639.gsGJI6kyIV@diego>
+In-Reply-To: <20250212093530.52961-5-andyshrk@163.com>
+References: <20250212093530.52961-1-andyshrk@163.com>
+ <20250212093530.52961-5-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250213162145.986887092@goodmis.org>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_141431_136372_4C753105 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20250214_142427_921021_9D640610 
+X-CRM114-Status: GOOD (  20.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,46 +78,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 11:20:51AM -0500, Steven Rostedt wrote:
+Am Mittwoch, 12. Februar 2025, 10:34:59 MEZ schrieb Andy Yan:
+> From: Andy Yan <andy.yan@rock-chips.com>
+> 
+> Now these two function share the same logic, the can
+> be merged as one.
+> 
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> ---
+> 
+> (no changes since v1)
+> 
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 42 +++++---------------
+>  1 file changed, 11 insertions(+), 31 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> index a0d961cb5d21..844df4001159 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> @@ -2424,18 +2424,18 @@ static int vop2_find_rgb_encoder(struct vop2 *vop2)
+>  	return -ENOENT;
+>  }
+>  
+> -static int vop2_cluster_init(struct vop2_win *win)
+> +static int vop2_regmap_init(struct vop2_win *win, const struct reg_field *regs,
+> +			    int nr_regs)
+>  {
+>  	struct vop2 *vop2 = win->vop2;
+>  	int i;
+>  
+> -	for (i = 0; i < vop2->data->nr_cluster_regs; i++) {
+> +	for (i = 0; i < nr_regs; i++) {
+>  		const struct reg_field field = {
+> -			.reg = (vop2->data->cluster_reg[i].reg != 0xffffffff) ?
+> -				vop2->data->cluster_reg[i].reg + win->offset :
+> -				vop2->data->cluster_reg[i].reg,
+> -			.lsb = vop2->data->cluster_reg[i].lsb,
+> -			.msb = vop2->data->cluster_reg[i].msb
+> +			.reg = (regs[i].reg != 0xffffffff) ?
+> +				regs[i].reg + win->offset : regs[i].reg,
+> +			.lsb = regs[i].lsb,
+> +			.msb = regs[i].msb
+>  		};
+>  
+>  		win->reg[i] = devm_regmap_field_alloc(vop2->dev, vop2->map, field);
+> @@ -2446,28 +2446,6 @@ static int vop2_cluster_init(struct vop2_win *win)
+>  	return 0;
+>  };
+>  
+> -static int vop2_esmart_init(struct vop2_win *win)
+> -{
+> -	struct vop2 *vop2 = win->vop2;
+> -	int i;
+> -
+> -	for (i = 0; i < vop2->data->nr_smart_regs; i++) {
+> -		const struct reg_field field = {
+> -			.reg = (vop2->data->smart_reg[i].reg != 0xffffffff) ?
+> -				vop2->data->smart_reg[i].reg + win->offset :
+> -				vop2->data->smart_reg[i].reg,
+> -			.lsb = vop2->data->smart_reg[i].lsb,
+> -			.msb = vop2->data->smart_reg[i].msb
+> -		};
+> -
+> -		win->reg[i] = devm_regmap_field_alloc(vop2->dev, vop2->map, field);
+> -		if (IS_ERR(win->reg[i]))
+> -			return PTR_ERR(win->reg[i]);
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+>  static int vop2_win_init(struct vop2 *vop2)
+>  {
+>  	const struct vop2_data *vop2_data = vop2->data;
+> @@ -2484,9 +2462,11 @@ static int vop2_win_init(struct vop2 *vop2)
+>  		win->win_id = i;
+>  		win->vop2 = vop2;
+>  		if (vop2_cluster_window(win))
+> -			ret = vop2_cluster_init(win);
+> +			ret = vop2_regmap_init(win, vop2->data->cluster_reg,
+> +					       vop2->data->nr_cluster_regs);
+>  		else
+> -			ret = vop2_esmart_init(win);
+> +			ret = vop2_regmap_init(win, vop2->data->smart_reg,
+> +					       vop2->data->nr_cluster_regs);
 
-SNIP
-
-> +static int cmp_funcs(const void *A, const void *B)
-> +{
-> +	const struct func_info *a = A;
-> +	const struct func_info *b = B;
-> +
-> +	if (a->addr < b->addr)
-> +		return -1;
-> +	return a->addr > b->addr;
-> +}
-> +
-> +static int parse_symbols(const char *fname)
-> +{
-> +	FILE *fp;
-> +	char addr_str[20]; /* Only need 17, but round up to next int size */
-> +	char size_str[20];
-> +	char type;
-> +
-> +	fp = fopen(fname, "r");
-> +	if (!fp) {
-> +		perror(fname);
-> +		return -1;
-> +	}
-> +
-> +	while (fscanf(fp, "%16s %16s %c %*s\n", addr_str, size_str, &type) == 3) {
-> +		uint64_t addr;
-> +		uint64_t size;
-> +
-> +		/* Only care about functions */
-> +		if (type != 't' && type != 'T')
-> +			continue;
-
-hi,
-I think we need the 'W' check in here [1]
-
-jirka
+						^^ nr_smart_regs
+I think
 
 
-[1] https://lore.kernel.org/bpf/20250103071409.47db1479@batman.local.home/
+
+
 
