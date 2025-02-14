@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5FAFC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:11:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 569CDC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TgEyqFY0ggO1m5tJDRWEGWeR4vjBMYw3yKlVCYNni50=; b=UNzSxcalZS0SiS08uop5P8f+Jl
-	YNNRbIrdU8xYnsO/+7wMP53MuFo1XaI3bPmJKyioDClMx+q88LL6/lAIjpVcyOgPPJDOq4Ph89y0Q
-	XltlkPmTIs/A1mlkkc4uGUfzgdZ0NG70YIe4EVtEld7HvxmDtMzE/OZC4P/kg+9zjUqa+/CzLqJ7z
-	CGhSH24igFcXyM68Az2OYj8LANrL6SF315VXDC42SVt4xx4fHog/SH+Qt844TEHSWKsZjb0/IfNOw
-	hIb1SxvdGidgG+Yo4F5K8jkCfR527Wzf6arR7drNw0/XY8PezxJbHsjUBmsY8F22MwPOvZJuGiwdu
-	xYxRSNgw==;
+	bh=60n5NMsSu5p9tsnaVoxItfATXFLrUx3IhthS991yh80=; b=HH7RR83DWZOysxoGb9q/tk3Wua
+	/8FU/+xoL+Mm1515FS7EcgYNzFDBSRgdtu/YZbWUnGrjsP2sm95VLJvqxOUBf0JGIKUblnvgS0JOf
+	F/+LlTE/DWrY2q5WMUDyLDrEN3KC6Po5bcEECOEGJdvDED9oAYlpjt3dGwuK47T25iWxhPb7tDIQ4
+	BJ7e2JSpDbaiGVuZawM0zsHyBHI3KWReqeAruRgU8mZrwBH7otsxkdusKCMsGMiq/jeGG/0PjKBk7
+	B/zPIhvFtbKHHg+MDupQkfNuplT1AurY0xfle0/qVHsf1h/TOgTQiq7w8CzruYpvZJJGXDjjpQ3Ai
+	AU2TU27Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj0A8-0000000FpdE-3IeP;
-	Fri, 14 Feb 2025 18:11:40 +0000
+	id 1tj0BZ-0000000Fpvs-2rif;
+	Fri, 14 Feb 2025 18:13:09 +0000
 Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tizS7-0000000FheB-2jzP
+	id 1tizTb-0000000FhyZ-0fQQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 17:26:12 +0000
+	Fri, 14 Feb 2025 17:27:44 +0000
 Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=QkbdHz1QdCgSpPWTSSzdDhcQ12Mpzb59utA6h91owRHnT2MAWOnphp8Z3LIoLu79ypGbRkbZ910EeX7iKFLePZ9wWOayYNhdXZMDajXAJrJtDC7t4jJDAF4T+1BAlVasLG6DBkUfS0eYu+2P+w9tHQr/jhBz6zsK+zxwEqxPGiAPTdp34w7/MhfpL/epyVP2sOrkBqPmRIaQD5ge8DSUjUcRY7lg9qA/p/Waihfgj1ocELz2xrXYA8W3R3O8Q+2xBuhLgnKvbBWa34sEJkLFK18nh/Emnza3P8BzyIz8TTNlubGctmnaOglQgZ7jM0ScsVWsJfwI5Nuyuyki9AhG6Q==; s=purelymail3; d=purelymail.com; v=1; bh=iDXXbPWbID8m8JbMx1nJgBGgKzWTYtFCC6JsMVbw3I4=; h=Feedback-ID:Received:From:Date:Subject:To;
+DKIM-Signature: a=rsa-sha256; b=bmrZCM8zfP3zPV+6RHqJ7z9QaatJZOhI8+JcPVp9U5w5pRXGtkQcrP6JMG+FS9sSZ4w+1jwKKhm2APGywDnOG/Ile+9PEapdbiXPutxaKMQ964g1JjrUxg9zvUZMR98f0kVYCmHy7nD+me16C96WzzNNPNt8lL+st0bdai/a8knGL+/aubvudmUSREPVO3dfcSXPeX91zNy2AafroDJYcK/VXMNK0Q/3R5v7uEaY2G4KpdVhJBfaE15lXTp6VUIJMublm76sR2fsRAApJqOCEgG4nG2+K8B/0Zdbj0JxtRUxZRh186PYDZ9POGy9gPezwHk64ZL7/H/vmPwLggj/RQ==; s=purelymail3; d=purelymail.com; v=1; bh=ZMS5QlrnOFWtvu0XBY1Um3NZgokE8bFYmW8jBJp4Qcc=; h=Feedback-ID:Received:From:Date:Subject:To;
 Feedback-ID: 68247:10037:null:purelymail
 X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
 Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1457029256;
           (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Fri, 14 Feb 2025 17:25:51 +0000 (UTC)
+          Fri, 14 Feb 2025 17:25:53 +0000 (UTC)
 From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Date: Fri, 14 Feb 2025 18:21:07 +0100
-Subject: [PATCH 1/2] dt-bindings: phy: samsung,usb3-drd-phy: Add exynos990
- compatible
+Date: Fri, 14 Feb 2025 18:21:08 +0100
+Subject: [PATCH 2/2] phy: exynos5-usbdrd: Add support for the Exynos990
+ usbdrd phy
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250214-exynos990-dwusb-v1-1-d68282c51ba8@mentallysanemainliners.org>
+Message-Id: <20250214-exynos990-dwusb-v1-2-d68282c51ba8@mentallysanemainliners.org>
 References: <20250214-exynos990-dwusb-v1-0-d68282c51ba8@mentallysanemainliners.org>
 In-Reply-To: <20250214-exynos990-dwusb-v1-0-d68282c51ba8@mentallysanemainliners.org>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -56,17 +56,16 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  Igor Belwon <igor.belwon@mentallysanemainliners.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739553946; l=1219;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739553946; l=3061;
  i=igor.belwon@mentallysanemainliners.org; s=20241206;
- h=from:subject:message-id; bh=iDXXbPWbID8m8JbMx1nJgBGgKzWTYtFCC6JsMVbw3I4=;
- b=0CiJOuWyRSYcOvfmqT1w7uVi/46ykMVj0zRaUAklcpxVMoDlW9I9IdOuFpfRff+c4Z+DMXIob
- vBNio8EOCWBD6N76A5sGD2D0J0u2lDqr8AnWPzsaJgdg07rIrYlN5gY
+ h=from:subject:message-id; bh=ZMS5QlrnOFWtvu0XBY1Um3NZgokE8bFYmW8jBJp4Qcc=;
+ b=UhII8j++lRo2aszFpw+aipjHGRN4tJaQcZ+oQ/kVHElfiT6lQwtG+5aK0x+j1CpDieX4mV0/L
+ lYHw68ag4nzCjvfwPlZSAPVgop/S2q2id3tf3cvybz9w1tWWKKc/eWX
 X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
  pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_092611_776390_1DA6CDAA 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250214_092743_269697_0A36B2AD 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +80,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a compatible for the exynos990-usbdrd-phy. The PHY is compatible
-with the older exynos5420 design (two clocks) when running in highspeed mode.
+The Exynos990 usbdrd PHY is a combo PHY which supports USB SS, HS and
+DisplayPort outputs. This commit adds support only for UTMI+ (USB HS).
 
 Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
 ---
- Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/phy/samsung/phy-exynos5-usbdrd.c    | 32 +++++++++++++++++++++++++++++
+ include/linux/soc/samsung/exynos-regs-pmu.h |  3 +++
+ 2 files changed, 35 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-index 27295acbba7674f6cdc402f18ff4c505bd8760f6..b9ba92b8975d3e88162b938624558b3fca9f4faf 100644
---- a/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml
-@@ -31,6 +31,7 @@ properties:
-       - samsung,exynos5433-usbdrd-phy
-       - samsung,exynos7-usbdrd-phy
-       - samsung,exynos850-usbdrd-phy
-+      - samsung,exynos990-usbdrd-phy
+diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+index ff2436f11d6842b2503b2a603eb7a512d2f85018..a68926ac3b6a00282e51e552cb9ffdad95ab5152 100644
+--- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
++++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+@@ -1584,6 +1584,35 @@ static const struct exynos5_usbdrd_phy_drvdata exynos850_usbdrd_phy = {
+ 	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
+ };
  
-   clocks:
-     minItems: 2
-@@ -185,6 +186,7 @@ allOf:
-               - samsung,exynos5250-usbdrd-phy
-               - samsung,exynos5420-usbdrd-phy
-               - samsung,exynos850-usbdrd-phy
-+              - samsung,exynos990-usbdrd-phy
-     then:
-       properties:
-         clocks:
++static const struct exynos5_usbdrd_phy_tuning exynos990_tunes_utmi_postinit[] = {
++	PHY_TUNING_ENTRY_PHY(EXYNOS850_DRD_HSPPARACON,
++			     (HSPPARACON_TXVREF |
++			      HSPPARACON_TXPREEMPAMP | HSPPARACON_SQRX |
++			      HSPPARACON_COMPDIS),
++			     (FIELD_PREP_CONST(HSPPARACON_TXVREF, 7) |
++			      FIELD_PREP_CONST(HSPPARACON_TXPREEMPAMP, 3) |
++			      FIELD_PREP_CONST(HSPPARACON_SQRX, 5) |
++			      FIELD_PREP_CONST(HSPPARACON_COMPDIS, 7))),
++	PHY_TUNING_ENTRY_LAST
++};
++
++static const struct exynos5_usbdrd_phy_tuning *exynos990_tunes[PTS_MAX] = {
++	[PTS_UTMI_POSTINIT] = exynos990_tunes_utmi_postinit,
++};
++
++static const struct exynos5_usbdrd_phy_drvdata exynos990_usbdrd_phy = {
++	.phy_cfg		= phy_cfg_exynos850,
++	.phy_ops		= &exynos850_usbdrd_phy_ops,
++	.phy_tunes		= exynos990_tunes,
++	.pmu_offset_usbdrd0_phy	= EXYNOS990_PHY_CTRL_USB20,
++	.clk_names		= exynos5_clk_names,
++	.n_clks			= ARRAY_SIZE(exynos5_clk_names),
++	.core_clk_names		= exynos5_core_clk_names,
++	.n_core_clks		= ARRAY_SIZE(exynos5_core_clk_names),
++	.regulator_names	= exynos5_regulator_names,
++	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
++};
++
+ static const struct exynos5_usbdrd_phy_config phy_cfg_gs101[] = {
+ 	{
+ 		.id		= EXYNOS5_DRDPHY_UTMI,
+@@ -1781,6 +1810,9 @@ static const struct of_device_id exynos5_usbdrd_phy_of_match[] = {
+ 	}, {
+ 		.compatible = "samsung,exynos850-usbdrd-phy",
+ 		.data = &exynos850_usbdrd_phy
++	}, {
++		.compatible = "samsung,exynos990-usbdrd-phy",
++		.data = &exynos990_usbdrd_phy
+ 	},
+ 	{ },
+ };
+diff --git a/include/linux/soc/samsung/exynos-regs-pmu.h b/include/linux/soc/samsung/exynos-regs-pmu.h
+index ce1a3790d6fb0400021f5cc22394afedfb742152..4b2c44640b17c6c87acf26a82fd9c5003b65d433 100644
+--- a/include/linux/soc/samsung/exynos-regs-pmu.h
++++ b/include/linux/soc/samsung/exynos-regs-pmu.h
+@@ -657,6 +657,9 @@
+ #define EXYNOS5433_PAD_RETENTION_UFS_OPTION			(0x3268)
+ #define EXYNOS5433_PAD_RETENTION_FSYSGENIO_OPTION		(0x32A8)
+ 
++/* For Exynos990 */
++#define EXYNOS990_PHY_CTRL_USB20				(0x72C)
++
+ /* For Tensor GS101 */
+ #define GS101_SYSIP_DAT0					(0x810)
+ #define GS101_SYSTEM_CONFIGURATION				(0x3A00)
 
 -- 
 2.47.2
