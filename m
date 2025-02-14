@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9589C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:56:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A72C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qsZ3M7HjZdTjo5f5WrSVbOZM9SW596Y6SP7V0X9VgQ8=; b=JSnsSIX6W4athKE1zfnkvCL5wl
-	x48ITBW2ubukeT7Ncadjn0lAtlWuWvegXhNbv5+6ln8Cfkis9E0nEbBbVxZyrGKMfT6qmgnYVzTkd
-	jCcbGOmV2iH7RfPkNCd6k4CFoNC8ltnS9Mn5d1Zd1O6d0XNxlfKZEmL/psnlw6pTma8KjKF7l80xS
-	e42lw21QNMUbMNGy153WI7sEcNa6dsJfwNJf8orz5E0l9yxZrQlSPt5pJMzB0A3DKU7joy4B+nnjH
-	nqDFIQi1hVVoemcws10VjFkHMqak44q+6BhBFgJN2LpuvS3ATKeA9AjukP2BRoarb7CLl7XTpYIUR
-	5wV2zwWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=N6snzrDgUTK8ck9Ry9M8mhs36pJFOnl7+SAC181yyLg=; b=blA5BZr8DzwMck
+	im0O5QTephcJkhkPrx7g4JnqyMveUoUrG5F5wPoOat3Hma8UFIVieabLXLorUTMIPWzkPEObSFu92
+	w5wqP/P9ACWV5HVbKwMTzKSry66ZqhUIogvtiJvdlw3LFZm80WInSX9G+YkTYvahWlhAzul4x79p+
+	8e90l49DEzTdl8LleMz3T34HUaEbm5ZpwR888p0ISHycG7t2O6cFiHUP+edWMM6XwN84gFVqx0f+V
+	HcEixRS4MmAVcXfBQ9bNtgv18WCUOIDj35CFkJrDsYA2eq4P3PaPYidoQp2AgGkDzVW16uDy9zJy9
+	JSRVtcuW6PwVSeTwk0+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj0r4-0000000Fwxf-1Qme;
-	Fri, 14 Feb 2025 18:56:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tj0rT-0000000Fx4Q-1xDO;
+	Fri, 14 Feb 2025 18:56:27 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj09H-0000000FpSz-2zOR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Feb 2025 18:10:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=qsZ3M7HjZdTjo5f5WrSVbOZM9SW596Y6SP7V0X9VgQ8=; b=NyaaSqzhe4icAlewPTN/MjTYNO
-	dVBrrB65KdE5im5iVNFzqNkUChB1T7yAGAWguzHj701vxhK1IYj+Bi16vFaAZOubl2dfhqHclPA8n
-	DV/uEdDMM0ZWu7+0Q9Fyfga++8NsIPblnrqTsdumlF1cRSAA1exBB8dxcCD2koZs6l5TtPFwolZ0a
-	J6rsxkQotAZEnAaI5KOr+P9CUEbCSFe2QHqaIh1/htXsBlDqt7bqyVaEntfEsTGF5yBODbi4q+Ifo
-	bNcSwNwOwK4LF9OC8FB7TDDgTDHc6U7uQn+DVetjVFnkw+uwToDDj40CHpnTJaTtfEhhX+t7j6Tue
-	jJLU4hBA==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj09E-00000001JB0-0B6z
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 18:10:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EEBF15C5B21
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 18:10:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C728CC4CEE9
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 18:10:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739556641;
-	bh=qsZ3M7HjZdTjo5f5WrSVbOZM9SW596Y6SP7V0X9VgQ8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=bZ4ckviDNzJRoX58jtuwMBbs3xQ14eqGG8zrnD5z2qhjAnWh7XAbqnv24/noOLgLu
-	 olEqflJMzBqxLIEUyMVH3F4JxPU9p/38924gRExVw4lASKGNfh4Y0RKowlVmoMp+y9
-	 WrNx86OLMB/QPjzgAASBK3Cbi/Pz21kAMqpUQNneKoJPJUQ4/2UWGhc/0tYX1Ms1zp
-	 eB8cqCL00KIgU7sdFtDTngq0t2on1bw6LCWt1GzyeaCQkPVYQjfQv/nOu4ib+I40lY
-	 neKX0TUZmlPfSyUhUPHyxMw+0W8iXRWqAGjUL7JJhuY6e8NptBhrP7LztciXGJRnoD
-	 OdYj8zyXXbjPw==
-Received: by mail-il1-f176.google.com with SMTP id e9e14a558f8ab-3ce886a2d5bso19986515ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 10:10:41 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWscVZQpIRGoK3cj/E8Wo2rQR45+f6qsvOwAQD0S0bps/LUODVv1oCtqkHBeyCiX4DlS5iEOJPbc5Qth2DfE50w@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzymk0rJoCelrFVeMcD7e3RDKAsHjeuRKbdoX3AEpZ3+JkJ1bZ0
-	p6XYsmFzS7iiUYA+IQXTCbkLfYQZtHCVBKVBJt7C3oSbT6+zYLu9X0F6yn6598BAmHenCseWNyC
-	pj6d5qtrE5KtFoKDEAAxVxDFAzDk=
-X-Google-Smtp-Source: AGHT+IG8JZIw5oJUYOuAL23YnIRiuk4cQKNQCcLNAYc2hmGsxchwTn9wwIBLREFhDO96qyScsuyGb1CQAAe2KZkUZEM=
-X-Received: by 2002:a05:6e02:3103:b0:3d0:4e0c:2c96 with SMTP id
- e9e14a558f8ab-3d280771b4cmr3760875ab.2.1739556641173; Fri, 14 Feb 2025
- 10:10:41 -0800 (PST)
+	id 1tizLQ-0000000Ffno-1WBj;
+	Fri, 14 Feb 2025 17:19:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739553554;
+	bh=/Vq4HRI2BN0XjmmO8kOb2O01hlISp/5ZPmuCinm7xyQ=;
+	h=From:Subject:Date:To:Cc:From;
+	b=IUGXUY/ikc92B5KBNi1Q/E/BPJeorXdvdXpf9z4MeLr8tHubO3s6O1iySo15XcYST
+	 6B226mq0N8mUcJH3admq/6+MBMlT7HUgPMxa/51nMmJbRP1pXX/VTjlGz95cMO/JwO
+	 vc+dIWIB9bz3wf2E5o7JNYWZxGIB7pvDEYVWOwoZaJIICHdHBvcq9KrkL2BrND1+Y7
+	 odvR+2y6YZ4HymROR5zvlB4de0l3ZnCTgPcP+9upl45Do7khw20IBeggDCkaxPsfn/
+	 RMwtzwVK/LOJ1p2dpzIxIUM0mZqA9bZL8HQ6W8SoDtdedZwgiMF6iUGElE++mnBLar
+	 jNYjW/FkrF8eg==
+Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1003])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EDEEA17E0239;
+	Fri, 14 Feb 2025 18:19:09 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Subject: [PATCH 00/13] Get mt6359-accdet ready for usage in Devicetree
+Date: Fri, 14 Feb 2025 14:18:31 -0300
+Message-Id: <20250214-mt6359-accdet-dts-v1-0-677a151b9b4c@collabora.com>
 MIME-Version: 1.0
-References: <20250127213310.2496133-1-wnliu@google.com> <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
- <00fa304d-84bf-4fca-9b9a-f3b56cd97424@oracle.com> <CAPhsuW4ct6W_4B0LFEjLePH1pAeNm4h8ePuQ3HcSoknXhQWN0w@mail.gmail.com>
- <mb61p1pw21f0v.fsf@kernel.org> <CAPhsuW5VCmuPLd8wwzBp_Divnu=uaZQcrRLsjsEOJ9GmA0TR5A@mail.gmail.com>
- <mb61pseoiz1cq.fsf@kernel.org> <CAPhsuW7bo4efVYb8uPkQ1v9TE95_CQ6+G3q4kVyt-8g-3JD6Cw@mail.gmail.com>
- <mb61pr0411o57.fsf@kernel.org> <CAPhsuW7fBkZaKQzLvBqsrxTvpJsfJfUBfco4i=-=C_on+GdpKg@mail.gmail.com>
- <mb61p7c5sdhv6.fsf@kernel.org>
-In-Reply-To: <mb61p7c5sdhv6.fsf@kernel.org>
-From: Song Liu <song@kernel.org>
-Date: Fri, 14 Feb 2025 10:10:29 -0800
-X-Gmail-Original-Message-ID: <CAPhsuW6vDYjiy1_tOhy--ULC8UWtpu4E_nd8uY8qg98eLuygQw@mail.gmail.com>
-X-Gm-Features: AWEUYZlpNf1avV1LJZl1tk2itoEk1uL2WdB4o2NSm5faGZWiZiU7f7T7DB78KCg
-Message-ID: <CAPhsuW6vDYjiy1_tOhy--ULC8UWtpu4E_nd8uY8qg98eLuygQw@mail.gmail.com>
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-To: Puranjay Mohan <puranjay@kernel.org>
-Cc: Indu Bhagat <indu.bhagat@oracle.com>, Weinan Liu <wnliu@google.com>, 
-	Josh Poimboeuf <jpoimboe@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
-	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
-	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAOd6r2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDI0MT3dwSM2NTS93E5OSU1BLdlJJiXQODJEMLSwsT8zTjZCWgvoKi1LT
+ MCrCZ0bG1tQBQBtbGYwAAAA==
+X-Change-ID: 20250214-mt6359-accdet-dts-00b189847f3c
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-pm@vger.kernel.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ Andrew Perepech <andrew.perepech@mediatek.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_181044_413485_4384861B 
-X-CRM114-Status: GOOD (  16.79  )
+X-CRM114-CacheID: sfid-20250214_091916_554281_7AFEAB07 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,37 +87,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Puranjay,
+This series prepares the MT6359 ACCDET for actual usage in the
+Devicetree. Patches 1 and 2 add the required DT bindings, patches 3 and
+4 get the mt6359-accdet driver probing, patches 5-12 clean up code
+related to DT property parsing, and patch 13 adds the node in the
+Devicetree.
 
-Thanks for running the tests.
+Together with the series "Allow retrieving accessory detection reference
+on MT8188" [1], and one extra patch on top enabling it on the
+genio-700-evk DT, this series was tested on the Genio 700 EVK to get
+audio jack detection working on it.
 
-On Fri, Feb 14, 2025 at 12:56=E2=80=AFAM Puranjay Mohan <puranjay@kernel.or=
-g> wrote:
-[...]
-> >
-> > I am really curious whether you have the same problem in your
-> > setup.
->
-> Hi Song,
->
-> I did this test and found the same issue as you (gdb assembly broken),
-> but I can see this issue even without the inlining. I think GDB tried to
-> load the debuginfo and that is somehow broken therefore it fails to
-> disassemblt properly.
+[1] https://lore.kernel.org/all/20250214-mt8188-accdet-v1-0-6bbd5483855b@collabora.com
 
-Yes, this matches my observations: gcc-11 generates the .ko that
-confuses gdb.
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+Andrew Perepech (3):
+      mfd: mt6397-core: Add mfd_cell for mt6359-accdet
+      ASoC: mediatek: mt6359-accdet: Implement EINT IRQ polarity configuration
+      ASoC: mediatek: mt6359-accdet: Use IRQ_TYPE_LEVEL_LOW not raw value
 
-I tested with two versions of gdb (10.2 and 14.2), both have the
-problem. OTOH, lldb is able to disassemble copy_process from a
-gcc-compiled .ko file properly.
+Nícolas F. R. A. Prado (10):
+      ASoC: dt-bindings: Add document for mt6359-accdet
+      dt-bindings: mfd: mediatek: mt6397: Add accdet subnode
+      ASoC: mediatek: mt6359-accdet: Add compatible property
+      ASoC: mediatek: mt6359-accdet: Drop dead code for EINT/GPIO IRQ handling
+      ASoC: mediatek: mt6359-accdet: Drop dead code for EINT trigger setting
+      ASoC: mediatek: mt6359-accdet: Drop dead code for button detection
+      ASoC: mediatek: mt6359-accdet: Drop dead code for plugout-debounce
+      ASoC: mediatek: mt6359-accdet: Handle mediatek,eint-use-ext-res as bool
+      ASoC: mediatek: mt6359-accdet: Split mediatek,pwm-deb-setting properties
+      arm64: dts: mt6359: Add accessory detect node
 
-> But even with inlining, I couldn't see the warning about the refcount
-> with my setup.
+ .../devicetree/bindings/mfd/mediatek,mt6397.yaml   |   7 +
+ .../bindings/sound/mediatek,mt6359-accdet.yaml     | 293 +++++++++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt6359.dtsi           |  24 ++
+ drivers/mfd/mt6397-core.c                          |  12 +
+ sound/soc/codecs/mt6359-accdet.c                   | 208 +++++----------
+ sound/soc/codecs/mt6359-accdet.h                   |  18 +-
+ 6 files changed, 404 insertions(+), 158 deletions(-)
+---
+base-commit: dab2734f8e9ecba609d66d1dd087a392a7774c04
+change-id: 20250214-mt6359-accdet-dts-00b189847f3c
 
-This also matches my observations. gcc-11 compiled livepatch
-works fine.
+Best regards,
+-- 
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
-Thanks,
-Song
 
