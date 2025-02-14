@@ -4,91 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DC7FC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 03:12:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A246C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 03:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5KUmqiD0vNdiHaufVBA6PmE/rnFodVBnR1hs+8TLdrY=; b=wg+JCmjY9cQUrj/i61z7OsvVts
-	q1nqcPwFknDAlKPGfiNLyNpEpQrntNro3KXD3ie8sXk1A68Rv42w6zlwdG6iRUle5Kv38gMXo+/RW
-	t8LpuIW4xOgXPMMsyshkvPlhAFCWmi9ANLub2l4pECmBTjpxccdQxzSUTIPsrHjMiwLncMaTtQEOG
-	TxSRpGAZhC548rVV9VyipY7XoAKGbgpzFL+doTdC3syMfp55A7xRRYUbhi4+eRJAhJR9E5QQGpG7R
-	+aSV/9vevSdso2fLqiYOXgCcdl5C7zj+tF1Vf2Gx81vb/pLrHpPtHEZoVrHfooBb0cetVYjR8ReXq
-	OYTBuI+g==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GTFtqrF6yZGRRCg3VO14HQhQddeo2VtXZr+3p7TMZ+g=; b=GPf90z0e37M/GOoeIG22xmx29U
+	oqax/+WeL9R5K72FcaYZnM7IQyjZY8BFkCf7gHHyrIhVqLUB+Qno7QzDDsoP5h8qqMAuQ9WwxzSlp
+	U+ShKa4Gn61MDW8swsXiPCtRTGJKSkEqMyuDCRV+28jR41Jr2L0fXQ3pH5MqVL3CECWK5t8aiOgi9
+	PCYYxD6yGT9w3jRs7I53Ex08lp2hfByqg8/QmjR7tHZKAXNreKSaKGxRqX3e7n5fvVpVZ1H8ku7ER
+	E3/pb5r+Pce1Tzjmki9Yeqfynxn98x5QyBnKjelCiHJsJ6sTFHH0UpXtSfhG08/+EkwSdTQkgfMTH
+	F72UaPSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tim7q-0000000DSLZ-2KXO;
-	Fri, 14 Feb 2025 03:12:22 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1tim9G-0000000DSV4-14DE;
+	Fri, 14 Feb 2025 03:13:50 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tilZu-0000000DMww-2lgK
+	id 1tildV-0000000DNV2-3RRm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 02:37:20 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-38dcc6bfbccso864882f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 18:37:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739500636; x=1740105436; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5KUmqiD0vNdiHaufVBA6PmE/rnFodVBnR1hs+8TLdrY=;
-        b=NPOahevbTYHne/Xk5QJk72XWey/S++1THYNAm6fNiasGe5lywVmJ0pMKosL/kcbvPV
-         UpnJRDNP0Kn9iWPn0Ov7ylXbbHXh/sT2hZiG3U6bJFpiZkszvHWsbY8pxdPLyzVxXwkd
-         ztx3Cm3GgKSVP1QWs7/4vl3gLtQ9lF3OfMaPRxzCUWIHrCblvmdJjGWHlbTYBwvzDeyY
-         uLVnom5xCQ0wtCCLZqEh5KA0Xw1UPcnCXtzonBum/c6e5GLGR3g+ttZzzO2jpr77TrSY
-         vQ2L1E8ntpEBamaCk30KFlcNTiVNy++aQX4ikuhU2Yx1Nn3HZpxWn9T9sjANSBoEMu4Z
-         /PnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739500636; x=1740105436;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5KUmqiD0vNdiHaufVBA6PmE/rnFodVBnR1hs+8TLdrY=;
-        b=Fcak2um240AveFjdQ8nxtTr4S+rNf9+EjCcRxgKQejfipW5P15O54h+oj9SYXfVwKZ
-         zky25wQ4+1bN0gD3pebdNamCRCuQiZCSjfAFGe/fpLxFtW2hO/h9XLeYD6HwN31i7H3d
-         Zou9+APBenzcImfYUbJ3Y2sB+1sFzQyHs3D3kIeKqSfHUGhLvxXTrOmxCjOkz0idOY0J
-         UKpBNrX5565RsUPptjUNxpyDiGVzp+A2BYPDjMWeMtPeIlEOACpzDXZpAjVYumhNbhxs
-         IEqRTmfjzCb5nMErT+IKB3Xs1ZpV6ME49fkvR+KxMvU5tKwjIzDy6ahoAkSW+BdLdMXw
-         9PIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVV62Fkqg2Y4TUemGfT/+oAoabeDADsgnHPNqbLgB9gvmA5NDkNA1P2kMdl9ccMA5DBT5x/X/EUCnVekyjj7VZ+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7RPJ5Du4R7pyO6gYZ0Aszg1Lo8Dnblc12dfPgky8SDBqEUdSn
-	oI56b7f27F78YTgAPivnCx6LytuDEu18A+kAZRe+IyfvauUPXhmqY3D/Bj/P3iQeg7+qXdQHOsd
-	RtMkFLkvxyfTIrJBNC/20KIKP6Xc=
-X-Gm-Gg: ASbGnctRYCaugecpFf3QoZtq9rb17v+LnWX/T6qRuP3/mJJfGxGTHzUO4nvXp1KRa03
-	m2uBSUdb5dWjJirE1E7IE1mosDWj6Fqpdyvz9gRlGVdFQV+Gj3ViRomt0xUwjo+rN2VOvl4kcsX
-	TTxNX1q7NzAdRQ9Np1Rm2ey+4qzka2
-X-Google-Smtp-Source: AGHT+IHbDo/fX7dZyCThXH5BKcjz9Xs70T8ip54fyvB/3H4hdbGg+vKDIfh44X0cIwHgkovmTrEsFSfteHMVNJ83hSM=
-X-Received: by 2002:a5d:5885:0:b0:38f:27d3:1b47 with SMTP id
- ffacd0b85a97d-38f27d31d5amr4439990f8f.6.1739500636196; Thu, 13 Feb 2025
- 18:37:16 -0800 (PST)
+	Fri, 14 Feb 2025 02:41:03 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51DHEw2o008318;
+	Fri, 14 Feb 2025 02:40:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=GTFtqrF6yZGRRCg3VO14HQ
+	hQddeo2VtXZr+3p7TMZ+g=; b=C1TQiT0F0BMD5vqYiXmJXtW10Tf1LDCLYCUYiR
+	IvcoUMQilgCLoJNuvvwX4E5BQdjxsfXwHlEl4CSFmlSDSnOlYmeXNLcZ9qyC19zV
+	VIju0k/7J7EUiE18mWzOAkK51L5HfKx+J2KXjxhNfgEq2E+ZAfqhlhVaUyRZO2XO
+	Zs1VnFVW69EnrDvn6c9iPB5TX/etZtRxeaq0kiA4CRqXRFzMxKKhhKATgiFxCOvP
+	c8s4+Zqcl2iXwaQZ9MKn8z0PeUE5MThTCRaeNjCKS6INf4qm5El+M+9TczNM/DQZ
+	r2JBgajhd5aB8y+S+1Wcwr+LhHCNZ182QZf/4ed44pvnWgTw==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44qewhcqgn-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 14 Feb 2025 02:40:46 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51E2ekGf019496
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 14 Feb 2025 02:40:46 GMT
+Received: from jiegan-gv.qualcomm.com (10.80.80.8) by
+ nalasex01c.na.qualcomm.com (10.47.97.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Thu, 13 Feb 2025 18:40:40 -0800
+From: Jie Gan <quic_jiegan@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao
+	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>
+Subject: [PATCH v11 0/7] Coresight: Add Coresight TMC Control Unit driver
+Date: Fri, 14 Feb 2025 10:40:14 +0800
+Message-ID: <20250214024021.249655-1-quic_jiegan@quicinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250206105435.2159977-1-memxor@gmail.com> <20250210093840.GE10324@noisy.programming.kicks-ass.net>
- <20250210104931.GE31462@noisy.programming.kicks-ass.net> <CAADnVQ+3wu0WB2pXs4cccxfkbTb3TK8Z+act5egytiON+qN9tA@mail.gmail.com>
- <20250211104352.GC29593@noisy.programming.kicks-ass.net> <CAADnVQJ=81PE19JWeNjq6aNOy+GM-wo6n7WU9StX1b6kevqCUw@mail.gmail.com>
- <20250213095918.GB28068@noisy.programming.kicks-ass.net>
-In-Reply-To: <20250213095918.GB28068@noisy.programming.kicks-ass.net>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Thu, 13 Feb 2025 18:37:05 -0800
-X-Gm-Features: AWEUYZmb51D9-czVRbQRGCCzdB1QJHDgqGqO6urdXV_3TSHcf8DS2TLvXtiC-iM
-Message-ID: <CAADnVQJJbi-52mP6BivyAudWSk95f1mgGQXWnjD-H37b7_AtLw@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 00/26] Resilient Queued Spin Lock
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf <bpf@vger.kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon <will@kernel.org>, 
-	Waiman Long <llong@redhat.com>, Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@kernel.org>, 
-	Eduard Zingerman <eddyz87@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>, 
-	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>, Dohyun Kim <dohyunkim@google.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Kernel Team <kernel-team@meta.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: _KKpaMU8Kxtiy6DKrKCk62jRO3iGw-Jz
+X-Proofpoint-GUID: _KKpaMU8Kxtiy6DKrKCk62jRO3iGw-Jz
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-13_09,2025-02-13_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 spamscore=0
+ impostorscore=0 mlxlogscore=999 phishscore=0 clxscore=1015 adultscore=0
+ lowpriorityscore=0 malwarescore=0 bulkscore=0 suspectscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502140017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_183718_708108_19464AEA 
-X-CRM114-Status: GOOD (  52.24  )
+X-CRM114-CacheID: sfid-20250213_184101_947772_D2B2CF4F 
+X-CRM114-Status: GOOD (  31.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,248 +111,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 1:59=E2=80=AFAM Peter Zijlstra <peterz@infradead.or=
-g> wrote:
->
-> On Tue, Feb 11, 2025 at 10:33:00AM -0800, Alexei Starovoitov wrote:
->
-> > Ohh. No unpriv here.
-> > Since spectre was discovered unpriv bpf died.
-> > BPF_UNPRIV_DEFAULT_OFF=3Dy was the default for distros and
-> > all hyperscalers for quite some time.
->
-> Ah, okay. Time to remove the option then?
+From: Jie Gan <jie.gan@oss.qualcomm.com>
 
-Good point. Indeed.
-Will accept the patch if anyone has cycles to prep it, test it.
+The Coresight TMC Control Unit(CTCU) device hosts miscellaneous configuration
+registers to control various features related to TMC ETR device.
 
-> > > So much details not clear to me and not explained either :/
-> >
-> > Yes. The plan is to "kill" bpf prog when it misbehaves.
-> > But this is orthogonal to this res_spin_lock set which is
-> > a building block.
-> >
-> > > Right, but it might have already modified things, how are you going t=
-o
-> > > recover from that?
-> >
-> > Tracking resources acquisition and release by the bpf prog
-> > is a normal verifier job.
-> > When bpf prog does bpf_rcu_read_lock() the verifier makes sure
-> > that all execution paths from there on have bpf_rcu_read_unlock()
-> > before program reaches the exit.
-> > Same thing with locks.
->
-> Ah, okay, this wasn't stated anywhere. This is rather crucial
-> information.
+The CTCU device works as a helper device physically connected to the TMC ETR device.
+---------------------------------------------------------
+             |ETR0|             |ETR1|
+              . \                 / .
+              .  \               /  .
+              .   \             /   .
+              .    \           /    .
+---------------------------------------------------
+ETR0ATID0-ETR0ATID3     CTCU    ETR1ATID0-ETR1ATID3
+---------------------------------------------------
+Each ETR has four ATID registers with 128 bits long in total.
+e.g. ETR0ATID0-ETR0ATID3 registers are used by ETR0 device.
 
-This is kinda verifier 101. I don't think it needs to be in the log.
+Based on the trace id which is programed in CTCU ATID register of
+specific ETR, trace data with that trace id can get into ETR's buffer
+while other trace data gets ignored. The number of CTCU ATID registers
+depends on the number of defined TMC ETR devices. For example, two TMC
+ETR devices need eight ATID registers. ETR0 with ETR0ATID0-ETR0ATID3
+and ETR1 with ETR1ATID0-ETRATID3.
 
-> > We definitely don't want to bpf core to keep track of acquired resource=
-s.
-> > That just doesn't scale.
-> > There could be rcu_read_locks, all kinds of refcounted objects,
-> > locks taken, and so on.
-> > The verifier makes sure that the program does the release no matter
-> > what the execution path.
-> > That's how it scales.
-> > On my devserver I have 152 bpf programs running.
-> > All of them keep acquiring and releasing resources (locks, sockets,
-> > memory) million times a second.
-> > The verifier checks that each prog is doing its job individually.
->
-> Well, this patch set tracks the held lock stack -- which is required in
-> order to do the deadlock thing after all.
+The significant challenge in enabling the data filter function is how
+to collect the trace ID of the source device. The introduction of
+trace_id callback function addresses this challenge. The callback function
+collects trace ID of the device and return it back. The trace ID will be
+stored in the structure called coresight_path and transmitted to helper
+and sink devices.
 
-Right, but the held lock set is per-cpu global and not exhaustive.
-It cannot detect 3-lock circles _by design_.
-We rely on timeout for extreme cases.
+The coresight_path structure is created to address how to transmit
+parameters needs by coresight_enable_path/coresight_disbale_path
+functions.
 
-> > The bpf infra does static checks only.
-> > The core doesn't track objects at run-time.
-> > The only exceptions are map elements.
-> > bpf prog might store an acquired object in a map.
-> > Only in that case bpf infra will free that object when it frees
-> > the whole map.
-> > But that doesn't apply to short lived things like RCU CS and
-> > locks. Those cannot last long. They must complete within single
-> > execution of the prog.
->
-> Right. Held lock stack is like that.
-
-They're not equivalent and not used for correctness.
-See patch 26 and res_spin_lock_test_held_lock_max() selftest
-that was added specifically to overwhelm:
-
-+struct rqspinlock_held {
-+   int cnt;
-+   void *locks[RES_NR_HELD];
-+};
-
-It's an impossible case in reality, but the res_spin_lock
-code should be prepared for extreme cases like that.
-
-Just like existing qspinlock has 4 percpu qnodes and
-test-and-set fallback in case "if (unlikely(idx >=3D MAX_NODES))"
-line qspinlock.c:413.
-Can it happen in practice ? Probably never.
-But the code has to be ready to handle it.
-
-> > > > That was a conscious trade-off. Deadlocks are not normal.
-> > >
-> > > I really do think you should assume they are normal, unpriv and all
-> > > that.
-> >
-> > No unpriv and no, we don't want deadlocks to be considered normal
-> > by bpf users. They need to hear "fix your broken prog" message loud
-> > and clear. Patch 14 splat is a step in that direction.
-> > Currently it's only for in-kernel res_spin_lock() usage
-> > (like in bpf hashtab). Eventually we will deliver the message to users
-> > without polluting dmesg. Still debating the actual mechanism.
->
-> OK; how is the user supposed to handle locking two hash buckets? Does
-> the BPF prog create some global lock to serialize the multi bucket case?
-
-Not following.
-Are you talking about patch 19 where we convert per-bucket
-raw_spinlock_t in bpf hashmap to rqspinlock_t ?
-Only one bucket lock is held at a time by map update code,
-but due to reentrance and crazy kprobes in the wrong places
-two bucket locks of a single map can be held on the same cpu.
-
-bpf_prog_A -> bpf_map_update -> res_spin_lock(bucket_A)
-  -> kprobe or tracepoint
-    -> bpf_prob_B -> bpf_map_update -> res_spin_lock(bucket_B)
-
-and that's why we currently have:
-if (__this_cpu_inc_return(*(htab->map_locked[hash])) ...
-    return -EBUSY;
-
-.. workaround to prevent the most obvious AA deadlock,
-but it's not enough.
-People were able to hit ABBA.
-Note, raw_spin_lock today (and res_spin_lock after patch 19) is
-used by proper kernel code in kernel/bpf/hashtab.c.
-bpf prog just calls bpf_map_update() which is a normal
-helper call from the verifier point of view.
-It doesn't know whether there are locks inside or not.
-
-bpf_ktime_get_ns() helper is similar.
-The verifier knows that it's safe from NMI,
-but what kinds of locks inside it doesn't care.
-
-> Anyway, I wonder. Since the verifier tracks all this, it can determine
-> lock order for the prog. Can't it do what lockdep does and maintain lock
-> order graph of all loaded BPF programs?
->
-> This is load-time overhead, rather than runtime.
-
-I wish it was possible. Locks are dynamic. They protect
-dynamically allocated objects, so the order cannot be statically
-verified. We pushed the limit of static analysis a lot.
-Maybe too much.
-For example,
-the verifier can statically validate the following code:
-        struct node_data *n, *m, *o;
-        struct bpf_rb_node *res, *res2;
-
-        // here we allocate an object of type known to the verifier
-        n =3D bpf_obj_new(typeof(*n));
-        if (!n)
-                return 1;
-        n->key =3D 41;
-        n->data =3D 42;
-
-        // here the verifier knows that glock spin_lock
-        // protect rbtree groot
-        bpf_spin_lock(&glock);
-
-        // here it checks that the lock is held and type of
-        // objects in rbtree matches the type of 'n'
-        bpf_rbtree_add(&groot, &n->node, less);
-        bpf_spin_unlock(&glock);
-
-and all kinds of other more complex stuff,
-but it is not enough to cover necessary algorithms.
-
-Here is an example from real code that shows
-why we cannot verify two held locks:
-
-struct bpf_vqueue {
-        struct bpf_spin_lock lock;
-        int credit;
-        unsigned long long lasttime;
-        unsigned int rate;
+Here is the definition of the struct coresight_path:
+/**
+ * struct coresight_path - data needed by enable/disable path
+ * @path:               path from source to sink.
+ * @trace_id:           trace_id of the whole path.
+ */
+struct coresight_path {
+        struct list_head                *path;
+        u8                              trace_id;
 };
 
-struct {
-        __uint(type, BPF_MAP_TYPE_HASH);
-        __uint(max_entries, ...);
-        __type(key, int);
-        __type(value, struct bpf_vqueue);
-} vqueue SEC(".maps");
+The atid_offset mentioned before is the offset to ATID register in CTCU
+device.
 
-        q =3D bpf_map_lookup_elem(&vqueue, &key);
-        if (!q)
-                goto err;
-        curtime =3D bpf_ktime_get_ns();
-        bpf_spin_lock(&q->lock);
-        q->lasttime =3D curtime;
-        q->credit -=3D ...;
-        credit =3D q->credit;
-        bpf_spin_unlock(&q->lock);
+Enabling the source device will configure one bit in the ATID register based
+on its trace ID.
+Disabling the source devices will reset the bit in the AITD register
+based on its trace ID.
 
-the above is safe, but if there are two lookups:
+Useage:
+Enable:
+STM device with trace ID 5 and ETR0 is activated.
+Bitmap before the enablement:
+ETR0ATID0:
+31..................543210
+==========================
+0000000000000000000000...0
+==========================
 
-q1 =3D bpf_map_lookup_elem(&vqueue, &key1);
-q2 =3D bpf_map_lookup_elem(&vqueue, &key2);
+Bitmap after the enablement:
+31..................543210
+==========================
+0000000000000...0000100000
+==========================
 
-both will point to two different locks,
-and since the key is dynamic there is no way to know
-the order of q1->lock vs q2->lock.
-So we allow only one lock at a time with
-bare minimal operations while holding the lock,
-but it's not enough to do any meaningful work.
+The bit 5 of the ETR0ATID0 register is configured to 1 when enabling the
+STM device.
 
-The top feature request is to allow calls
-while holding locks (currently they're disallowed,
-like above bpf_ktime_get_ns() cannot be done
-while holding the lock)
-and allow grabbing more than one lock.
-That's what res_spin_lock() is achieving.
+Disable:
+STM device with trace ID 5 and ETR0 is activated.
+Bitmap before the disablement:
+ETR0ATID0:
+31................6543210
+=========================
+000000000010111...0100000
+=========================
 
-Having said all that I think the discussion is diverging into
-all-thing-bpf instead of focusing on res_spin_lock.
+Bitmap after the disablement
+ETR0ATID0:
+31................6543210
+=========================
+000000000010111...0000000
+=========================
 
-Just to make it clear... there is a patch 18:
+The bit 5 of the ETR0ATID0 register is reset to 0 when disabling the STM
+device.
 
- F: kernel/bpf/
- F: kernel/trace/bpf_trace.c
- F: lib/buildid.c
-+F: arch/*/include/asm/rqspinlock.h
-+F: include/asm-generic/rqspinlock.h
-+F: kernel/locking/rqspinlock.c
- F: lib/test_bpf.c
- F: net/bpf/
+Sincere thanks to James Clark for providing an excellent idea to handle
+the trace_id of the path.
 
-that adds maintainer entries to BPF scope.
+Changes in V11:
+1. Add reviewed-by tag to patch(2/7), (4/7), (6/7). Patch(3/7) is
+   contributed by James, so didnot add reviewed-by tag of James.
+2. Fix warning reported by kernel bot and verified with build(W=1).
+3. Restore to the original logic that responsible for allocate trace_id
+   of ETM device in perf mode according to James' comment.
+Link to V10 - https://lore.kernel.org/linux-arm-msm/20250207064213.2314482-1-quic_jiegan@quicinc.com/
 
-We're not asking locking experts to maintain this new res_spin_lock.
-It's not a generic kernel infra.
-It will only be used by bpf infra and by bpf progs.
-We will maintain it and we will fix whatever bugs
-we introduce.
+Changes in V10:
+1. Introduce a new API to allocate and read trace_id after path is built.
+2. Introduce a new API to allocate and read trace_id of ETM device.
+3. Add a new patch: [PATCH v10 3/7] Coresight: Use coresight_etm_get_trace_id() in traceid_show()
+4. Remove perf handle from coresight_path.
+5. Use u8 instead of atomic_t for traceid_refcnt.
+6. Optimize the part of code in CTCU drvier that is responsible for program atid register.
+Link to V9 - https://lore.kernel.org/all/20250124072537.1801030-1-quic_jiegan@quicinc.com/
 
-We can place it in kernel/bpf/rqspinlock.c
-to make things more obvious,
-but kernel/locking/ feels a bit cleaner.
+Changes in V9:
+1. Rebased on tag next-20250113.
+2. Separate the previous trace_id patch (patch 2/5 Coresight: Add trace_id function to
+   retrieving the trace ID) into two patches.
+3. Introduce a new struct coresight_path instead of cs_sink_data which was
+   created in previous version. The coresight_path will be initialized
+   and constructed in coresight_build_path function and released by
+   coresight_release_path function.
+   Detail of the struct coresight_path is shown below:
+/**
+ * struct coresight_path - data needed by enable/disable path
+ * @path:               path from source to sink.
+ * @trace_id:           trace_id of the whole path.
+ */
+struct coresight_path {
+        struct list_head                *path;
+        u8                              trace_id;
+};
 
-We're not asking to review patches 14 and higher.
-They are presented for completeness.
-(patch 17 was out-of-order. It will be moved sooner. Sorry about that)
+4. Introduce an array of atomic in CTCU driver to represent the refcnt or each
+   enabled trace_id for each sink. The reason is there is a scenario that more
+   than one TPDM device physically connected to the same TPDA device has
+   been enabled. The CTCU driver must verify the refcnt before resetting the
+   bit of the atid register according to the trace_id of the TPDA device.
+5. Remove redundant codes in CTCU driver.
+6. Add reviewed-by tag to the commit message for APB clock path(patch
+   1/5).
+Link to V8 - https://lore.kernel.org/all/20241226011022.1477160-1-quic_jiegan@quicinc.com/
 
-But welcome feedback for patches 1-13.
-Like the way you spotted broken smp_cond_load_acquire()
-on arm64 due to WFE.
-That was a great catch. We really appreciate it.
+Changes in V8:
+1. Rebased on tag next-20241220.
+2. Use raw_spinlock_t instead of spinlock_t.
+3. Remove redundant codes in CTCU driver:
+   - Eliminate unnecessary parameter validations.
+   - Correct log level when an error occurs.
+   - Optimize codes.
+4. Correct the subject prefix for DT patch.
+5. Collected reviewed-by tag from Konrad Dybcib for DT patch.
+Link to V7 - https://lore.kernel.org/all/20241210031545.3468561-1-quic_jiegan@quicinc.com/
+
+Changes in V7:
+1. Rebased on tag next-20241204.
+2. Fix format issue for dts patch.
+   - Padding the address part to 8 digits
+Link to V6 - https://lore.kernel.org/linux-arm-msm/20241009112503.1851585-1-quic_jiegan@quicinc.com/
+
+Changes in V6:
+1. Collected reviewed-by tag from Rob for dt-binding patch.
+2. Rebased on tag next-20241008.
+3. Dropped all depends-on tags.
+Link to V5 - https://lore.kernel.org/linux-arm-msm/20240909033458.3118238-1-quic_jiegan@quicinc.com/
+
+Changes in V5:
+1. Fix the format issue for description paragrah in dt binding file.
+2. Previous discussion for why use "in-ports" property instead of "ports".
+Link to V4 - https://lore.kernel.org/linux-arm-msm/20240828012706.543605-1-quic_jiegan@quicinc.com/
+
+Changes in V4:
+1. Add TMC description in binding file.
+2. Restrict the number of ports for the CTCU device to a range of 0 to 1 in the binding file,
+   because the maximum number of CTCU devices is 2 for existing projects.
+Link to V3 - https://lore.kernel.org/linux-arm-kernel/20240812024141.2867655-1-quic_jiegan@quicinc.com/
+
+Changes in V3:
+1. Rename the device to Coresight TMC Control Unit(CTCU).
+2. Introduce a new way to define the platform related configs. The new
+   structure, qcom_ctcu_config, is used to store configurations specific
+   to a platform. Each platform should have its own qcom_ctcu_config structure.
+3. In perf mode, the ETM devices allocate their trace IDs using the
+   perf_sink_id_map. In sysfs mode, the ETM devices allocate their trace
+   IDs using the id_map_default.
+4. Considering the scenario where both ETR devices might be enabled simultaneously
+   with multiple sources, retrieving and using trace IDs instead of id_map is more effective
+   for the CTCU device in sysfs mode. For example, We can configure one ETR as sink for high
+   throughput trace data like ETM and another ETR for low throughput trace data like STM.
+   In this case, STM data won’t be flushed out by ETM data quickly. However, if we use id_map to
+   manage the trace IDs, we need to create a separate id_map for each ETR device. Addtionally, We
+   would need to iterate through the entire id_map for each configuration.
+5. Add support for apb's clock name "apb". If the function fails to obtain the clock with
+   the name "apb_pclk", it will attempt to acquire the clock with the name "apb".
+Link to V2 - https://lore.kernel.org/linux-arm-msm/20240705090049.1656986-1-quic_jiegan@quicinc.com/T/#t
+
+Changes in V2:
+1. Rename the device to Coresight Control Unit.
+2. Introduce the trace_id function pointer to address the challeng how to
+   properly collect the trace ID of the device.
+3. Introduce a new way to define the qcom,ccu-atid-offset property in
+device tree.
+4. Disabling the filter function blocked on acquiring the ATID-offset,
+   which will be addressed in a separate patch once it’s ready.
+Link to V1 - https://lore.kernel.org/lkml/20240618072726.3767974-1-quic_jiegan@quicinc.com/T/#t
+
+James Clark (1):
+  Coresight: Use coresight_etm_get_trace_id() in traceid_show()
+
+Jie Gan (6):
+  Coresight: Add support for new APB clock name
+  Coresight: Add trace_id function to retrieving the trace ID
+  Coresight: Introduce a new struct coresight_path
+  dt-bindings: arm: Add Coresight TMC Control Unit hardware
+  Coresight: Add Coresight TMC Control Unit driver
+  arm64: dts: qcom: sa8775p: Add CTCU and ETR nodes
+
+ .../bindings/arm/qcom,coresight-ctcu.yaml     |  84 ++++++
+ arch/arm64/boot/dts/qcom/sa8775p.dtsi         | 153 ++++++++++
+ drivers/hwtracing/coresight/Kconfig           |  12 +
+ drivers/hwtracing/coresight/Makefile          |   1 +
+ drivers/hwtracing/coresight/coresight-core.c  | 133 +++++++--
+ drivers/hwtracing/coresight/coresight-ctcu.c  | 268 ++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-ctcu.h  |  24 ++
+ drivers/hwtracing/coresight/coresight-dummy.c |  16 +-
+ .../hwtracing/coresight/coresight-etm-perf.c  |  22 +-
+ .../hwtracing/coresight/coresight-etm-perf.h  |   2 +-
+ drivers/hwtracing/coresight/coresight-etm.h   |   1 -
+ .../coresight/coresight-etm3x-core.c          |  55 +---
+ .../coresight/coresight-etm3x-sysfs.c         |   3 +-
+ .../coresight/coresight-etm4x-core.c          |  55 +---
+ .../coresight/coresight-etm4x-sysfs.c         |   4 +-
+ drivers/hwtracing/coresight/coresight-etm4x.h |   1 -
+ drivers/hwtracing/coresight/coresight-priv.h  |  12 +-
+ drivers/hwtracing/coresight/coresight-stm.c   |  14 +-
+ drivers/hwtracing/coresight/coresight-sysfs.c |  17 +-
+ drivers/hwtracing/coresight/coresight-tpda.c  |  11 +
+ drivers/hwtracing/coresight/coresight-tpdm.c  |   3 +-
+ include/linux/coresight.h                     |  30 +-
+ 22 files changed, 761 insertions(+), 160 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+ create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.c
+ create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.h
+
+-- 
+2.34.1
+
 
