@@ -4,73 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAF5CC021A7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:56:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61044C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:59:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b0MWFk+dTHQBz1p7Hv/WwHFEEiTXSBr4DDoFyvcQqzI=; b=XaHNj+AOeTkt7L3zSxYJ1ovLH5
-	97zjwVniyJW5weKkoO6OnLap6r4/t2PoO0Gz+5ZY872X+vrkfJiofpnz7ANIausvO4v86lglu/6GE
-	0W8dGLNs4ej2GP2nS8n1Z8h0De8cJ78nkttNe9dS3qFU1z87JOq3B+r0IR0Dj15+P3mUptCBYrtcn
-	C8sfDV5vS1BlCBXhQn7xQpLBpTQ3Y/W5Jp/g2+lmbs3AAWoOp6xN4Ksa4HEYhhfmFt4wEvURrRSEb
-	t7ga0J2F9wN9FeX5RgKWgQZLJzJpcc8JPCIvB2ZtRWmQPf3r4f4XtLvA6NvNCEIROJdzU1353h7FC
-	DFKk9gtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LiwQPv6ok4yIcjSGgvmUI+UqSRNOd6zqIh/ZijyeTno=; b=CtlMN8P+4PzeFOdoMR4bwt/u9s
+	xkOJt1hmDD+ioD3iD0StzHommauBP7kdm82yjbIJdMzB12bBlJAV4Nifr3HwgE/Zn6QwYPZP+OrQY
+	dLftEBD3QcZ2S9mkWirqW1IFkXg3pDtzIY7lsyrzxWB2eXjDzcFToe+X4Z8Q0zgH8OkfGzdvM58Pi
+	2kRWja7s51ZpPEoaTW+EHiCXSqDVFn5m2tPW/4N5IUGZvyIWjgkiovcqxM6i5+UiyQhfKn8/CxBu9
+	XU8YjJVvnnN9XYv2dcfNOmbjoipATO6fjZDb+Dm3OKq1++ZEzKOSeROCWjqMhLDqmMB4CUTDMmBVo
+	HC/zC7Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj0rX-0000000Fx95-1kPW;
-	Fri, 14 Feb 2025 18:56:31 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tj0tv-0000000Fxmj-0wC1;
+	Fri, 14 Feb 2025 18:58:59 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tizLk-0000000Ffvr-3b2g;
-	Fri, 14 Feb 2025 17:19:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739553575;
-	bh=lPL1S5SCW1+PI23N/jcgP12hMhBfoTHib8FSUQooe88=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gIesuFvpOQ7/iFIFngOzZTm6MMmukdjPv3X0ec+jjsVWTpHWiOj8ZTRn4iHbg8i6n
-	 lkHkV3Gk83RNtg/wMlqz+n34f+cNavlirn+ucU7LgH3qNPZIQ/byWB7VHvRFpy6asJ
-	 /0awctKwFeOOnw7M5HSD16qVlUHQQiG2NRMlP5bb8QndM4gG4fbhUKOo9cUlYKKrd+
-	 XKjboOZrfkQVV4KWAsMK018sUEq2pj77ABcw33a7Xg9JlZGdYeoU20IGYXP8YJPNkY
-	 Fya6ZtvLW8cMLAxUaGFpiDqtOBwbe1z0iDECm6R2IJ4c6jGAg39NeV6qZbCvq5rAFV
-	 fjnRMsE8Wp+sA==
-Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1003])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B7F8417E1551;
-	Fri, 14 Feb 2025 18:19:30 +0100 (CET)
-From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Fri, 14 Feb 2025 14:18:35 -0300
-Subject: [PATCH 04/13] ASoC: mediatek: mt6359-accdet: Add compatible
- property
+	id 1tj0Iv-0000000Fr9N-15Qy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Feb 2025 18:20:48 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-38f32c1c787so214335f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 10:20:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739557243; x=1740162043; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=LiwQPv6ok4yIcjSGgvmUI+UqSRNOd6zqIh/ZijyeTno=;
+        b=arWrpM51SjA/A1sFkPU3dGxiiaCrV5KTSdG91sFiD/jGOPh7eQHxXBNhXzxykq6eYz
+         Gmj5kqB+5/CPjbmO6GYXFiUVv0D6mM8eqzVje8j8udzhy8+tW0nIkjGwWy49Nvmv6ZRz
+         ljKip56FMVD4dKsRV4BXrSZdXKsvWSOJwzLulvLPZEywA9LIeN/9AOyl0vIQw8wUj6iU
+         9sIn6RX60/Wn3yyriVw1ZzTGKMy4UIP7V3DbT+qodWZe6V2jThPwjIB8A0kPGVJfuDKE
+         0YRFzDOlrgKeDznh2jbRCLJxy27BzXKmnxBDLKqS3zav1MVObKO3c6/scf3dtG5sCAuN
+         +eoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739557243; x=1740162043;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LiwQPv6ok4yIcjSGgvmUI+UqSRNOd6zqIh/ZijyeTno=;
+        b=dMY65lCT/u8XWQ28JCuzd95a/6PEQOozmE3+emsVRT4tQ41TFwiLtTrt2JOrFxHKPR
+         K2WzoB8QkIQspQEovJTGeg3I7ng+gUGX+xFJXJRZAmQp6iAPyGOzV5XeSLhhGvnKi/64
+         3ISt68eSRqCcUdxk1cqHgJhEf5vS4PGVOyqS5ULcli6Wn3r6fvOw8++WIm7wkXg6qgZa
+         5NZk2+rDX5r8mdWR+MbrLNd9mXtMhRXCPBnq+gyttNvFLwrm1OaSGhUYfHkKr0fpb+Hh
+         KBQ2o1QGKvRIzD32/AgnzBmALnNr/himlLWzciFoGvqxTNOvfPEIXjHIfDZDpzIXypj+
+         UbEA==
+X-Forwarded-Encrypted: i=1; AJvYcCUXxdG7KaKfc7NL1IfHiGOHa2lJA1xE8Rv1fg2gSO2ZHUQW9pmgVeCJ37SrzBDslgTRey3IdaHgzeDFKRMwXij2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAixuj1VA3AzbZgvWF5gnDf8eQNOGMkqibjtpiuMBryjE8lHHj
+	bbmEAdwxA4E3E/6GqfGDl/p64htk8NxzQcygFmzov5K2JLcrnyrrJjknSQy8dPk=
+X-Gm-Gg: ASbGnctn04atG+Y0rSuVXYbU60+ms/JtOe7r4dymDBNRMoz19+GEl4Bg9pcDddsDSZd
+	farN3aVLgfroj1jYzB5IHG8MaJIhgcr0l8E26AE/ucjBE+fp8L+cCS+Rf20frXWSkJvPabw/KLi
+	83bSw9Uu/oKdSXlAF2nQKpdEaNWrpOlRhMcdICygioO+pcXBpZp+Xbwpkm2Q5IEQs+nB9a/v/m+
+	qqx4Zb7HRlVBZrSlo9Yt5N1z7auoekMjQtqrQ6O5y7tIjvxml2MvHibqCo8hmKEbF3NBE9H7y9Z
+	logdQ8wLo721ww==
+X-Google-Smtp-Source: AGHT+IHsTHTiL3wJj3nrHf3yF9cKckC3Rmpa9H0r1If+8TaecjIo4Dqny2vOXtw6IlfG2e9gn40oVw==
+X-Received: by 2002:a05:6000:1542:b0:38d:d4b5:84d5 with SMTP id ffacd0b85a97d-38f33f14a9dmr31093f8f.8.1739557243484;
+        Fri, 14 Feb 2025 10:20:43 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:7018:8c7:bdd4:3436])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43961884e88sm49912865e9.26.2025.02.14.10.20.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Feb 2025 10:20:42 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Ira Weiny <ira.weiny@intel.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Dave Ertman
+ <david.m.ertman@intel.com>,  "Rafael J. Wysocki" <rafael@kernel.org>,
+  "Stephen Boyd" <sboyd@kernel.org>,  Arnd Bergmann <arnd@arndb.de>,
+  Danilo Krummrich <dakr@kernel.org>,  Conor Dooley
+ <conor.dooley@microchip.com>,  Daire McNamara
+ <daire.mcnamara@microchip.com>,  Philipp Zabel <p.zabel@pengutronix.de>,
+  Douglas Anderson <dianders@chromium.org>,  Andrzej Hajda
+ <andrzej.hajda@intel.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
+  "Robert Foss" <rfoss@kernel.org>,  Laurent Pinchart
+ <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman <jonas@kwiboo.se>,
+  "Jernej Skrabec" <jernej.skrabec@gmail.com>,  Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
+  Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie
+ <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Hans de Goede
+ <hdegoede@redhat.com>,  Ilpo =?utf-8?Q?J=C3=A4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>,
+  Bryan O'Donoghue <bryan.odonoghue@linaro.org>,  Vladimir Kondratiev
+ <vladimir.kondratiev@mobileye.com>,  Gregory CLEMENT
+ <gregory.clement@bootlin.com>,  =?utf-8?Q?Th=C3=A9o?= Lebrun
+ <theo.lebrun@bootlin.com>,
+  Michael Turquette <mturquette@baylibre.com>,  "Abel Vesa"
+ <abelvesa@kernel.org>,  Peng Fan <peng.fan@nxp.com>,  Shawn Guo
+ <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
+  "Pengutronix Kernel Team" <kernel@pengutronix.de>,  Fabio Estevam
+ <festevam@gmail.com>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+  <linux-kernel@vger.kernel.org>,  <linux-riscv@lists.infradead.org>,
+  <dri-devel@lists.freedesktop.org>,
+  <platform-driver-x86@vger.kernel.org>,  <linux-mips@vger.kernel.org>,
+  <linux-clk@vger.kernel.org>,  <imx@lists.linux.dev>,
+  <linux-arm-kernel@lists.infradead.org>,
+  <linux-amlogic@lists.infradead.org>
+Subject: Re: [PATCH v3 6/7] clk: clk-imx8mp-audiomix: use the auxiliary
+ device creation helper
+In-Reply-To: <67af6c284c349_1614f3294dd@iweiny-mobl.notmuch> (Ira Weiny's
+	message of "Fri, 14 Feb 2025 10:15:36 -0600")
+References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
+	<20250211-aux-device-create-helper-v3-6-7edb50524909@baylibre.com>
+	<67af6c284c349_1614f3294dd@iweiny-mobl.notmuch>
+User-Agent: mu4e 1.12.8; emacs 29.4
+Date: Fri, 14 Feb 2025 19:20:40 +0100
+Message-ID: <1jr040xu9z.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250214-mt6359-accdet-dts-v1-4-677a151b9b4c@collabora.com>
-References: <20250214-mt6359-accdet-dts-v1-0-677a151b9b4c@collabora.com>
-In-Reply-To: <20250214-mt6359-accdet-dts-v1-0-677a151b9b4c@collabora.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-pm@vger.kernel.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
- Andrew Perepech <andrew.perepech@mediatek.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_091937_045118_69DB34C1 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250214_102045_310281_17E84458 
+X-CRM114-Status: GOOD (  22.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,43 +130,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a compatible property and add it to the module device table for the
-mt6359-accdet platform driver to allow automatic module loading and
-probing when the compatible is present in DT.
+On Fri 14 Feb 2025 at 10:15, Ira Weiny <ira.weiny@intel.com> wrote:
 
-Co-developed-by: Andrew Perepech <andrew.perepech@mediatek.com>
-Signed-off-by: Andrew Perepech <andrew.perepech@mediatek.com>
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
----
- sound/soc/codecs/mt6359-accdet.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+> Jerome Brunet wrote:
+>> The auxiliary device creation of this driver is simple enough to
+>> use the available auxiliary device creation helper.
+>> 
+>> Use it and remove some boilerplate code.
+>> 
+>> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+>> ---
+>>  drivers/clk/imx/clk-imx8mp-audiomix.c | 56 ++++-------------------------------
+>>  1 file changed, 6 insertions(+), 50 deletions(-)
+>> 
+>> diff --git a/drivers/clk/imx/clk-imx8mp-audiomix.c b/drivers/clk/imx/clk-imx8mp-audiomix.c
+>> index c409fc7e061869988f83c7df3ef7860500426323..988a5fffeb4e0e481ec57038d9d1f1b43432fc98 100644
+>> --- a/drivers/clk/imx/clk-imx8mp-audiomix.c
+>> +++ b/drivers/clk/imx/clk-imx8mp-audiomix.c
+>> @@ -228,64 +228,20 @@ struct clk_imx8mp_audiomix_priv {
+>>  	struct clk_hw_onecell_data clk_data;
+>>  };
+>>  
+>> -#if IS_ENABLED(CONFIG_RESET_CONTROLLER)
+>
+> I see the Kconfig ...
+>
+>         select AUXILIARY_BUS if RESET_CONTROLLER
+>
+> But I don't see how this code is omitted without AUXILIARY_BUS.  Is this
+> kconfig check safe to remove?
 
-diff --git a/sound/soc/codecs/mt6359-accdet.c b/sound/soc/codecs/mt6359-accdet.c
-index ed34cc15b80e856356c07fd53af22207124e0d19..6f07db879c6a56ce4843954f51bb9602373e4aa5 100644
---- a/sound/soc/codecs/mt6359-accdet.c
-+++ b/sound/soc/codecs/mt6359-accdet.c
-@@ -1047,9 +1047,19 @@ static int mt6359_accdet_probe(struct platform_device *pdev)
- 	return ret;
- }
- 
-+const struct of_device_id accdet_of_match[] = {
-+	{
-+		.compatible = "mediatek,mt6359-accdet",
-+	}, {
-+		/* sentinel */
-+	},
-+};
-+MODULE_DEVICE_TABLE(of, accdet_of_match);
-+
- static struct platform_driver mt6359_accdet_driver = {
- 	.driver = {
- 		.name = "pmic-codec-accdet",
-+		.of_match_table = accdet_of_match,
- 	},
- 	.probe = mt6359_accdet_probe,
- };
+Ahhh that's what this directive was for.
+
+I thought it was really odd to have an #if on RESET while auxialiary
+device was supposed to properly decouple the clock and reset part.
+
+To keep things as they were I'll add an #if on CONFIG_AUXILIARY_BUS I
+wonder if this driver should select CONFIG_AUXILIARY_BUS instead ?
+
+>
+> Ira
+>
+>> -
+>> -static void clk_imx8mp_audiomix_reset_unregister_adev(void *_adev)
+>> -{
+>> -	struct auxiliary_device *adev = _adev;
+>> -
+>> -	auxiliary_device_delete(adev);
+>> -	auxiliary_device_uninit(adev);
+>> -}
+>> -
+>> -static void clk_imx8mp_audiomix_reset_adev_release(struct device *dev)
+>> +static int clk_imx8mp_audiomix_reset_controller_register(struct device *dev)
+>>  {
+>> -	struct auxiliary_device *adev = to_auxiliary_dev(dev);
+>> -
+>> -	kfree(adev);
+>> -}
+>> -
+>> -static int clk_imx8mp_audiomix_reset_controller_register(struct device *dev,
+>> -							 struct clk_imx8mp_audiomix_priv *priv)
+>> -{
+>> -	struct auxiliary_device *adev __free(kfree) = NULL;
+>> -	int ret;
+>> +	struct auxiliary_device *adev;
+>>  
+>>  	if (!of_property_present(dev->of_node, "#reset-cells"))
+>>  		return 0;
+>>  
+>> -	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
+>> -	if (!adev)
+>> -		return -ENOMEM;
+>> -
+>> -	adev->name = "reset";
+>> -	adev->dev.parent = dev;
+>> -	adev->dev.release = clk_imx8mp_audiomix_reset_adev_release;
+>> -
+>> -	ret = auxiliary_device_init(adev);
+>> -	if (ret)
+>> -		return ret;
+>> -
+>> -	ret = auxiliary_device_add(adev);
+>> -	if (ret) {
+>> -		auxiliary_device_uninit(adev);
+>> -		return ret;
+>> -	}
+>> -
+>> -	return devm_add_action_or_reset(dev, clk_imx8mp_audiomix_reset_unregister_adev,
+>> -					no_free_ptr(adev));
+>> -}
+>> -
+>> -#else /* !CONFIG_RESET_CONTROLLER */
+>> +	adev = devm_auxiliary_device_create(dev, "reset", NULL, 0);
+>> +	if (IS_ERR_OR_NULL(adev))
+>> +		return PTR_ERR(adev);
+>>  
+>> -static int clk_imx8mp_audiomix_reset_controller_register(struct device *dev,
+>> -							 struct clk_imx8mp_audiomix_priv *priv)
+>> -{
+>>  	return 0;
+>>  }
+>>  
+>> -#endif /* !CONFIG_RESET_CONTROLLER */
+>> -
+>>  static void clk_imx8mp_audiomix_save_restore(struct device *dev, bool save)
+>>  {
+>>  	struct clk_imx8mp_audiomix_priv *priv = dev_get_drvdata(dev);
+>> @@ -408,7 +364,7 @@ static int clk_imx8mp_audiomix_probe(struct platform_device *pdev)
+>>  	if (ret)
+>>  		goto err_clk_register;
+>>  
+>> -	ret = clk_imx8mp_audiomix_reset_controller_register(dev, priv);
+>> +	ret = clk_imx8mp_audiomix_reset_controller_register(dev);
+>>  	if (ret)
+>>  		goto err_clk_register;
+>>  
+>> 
+>> -- 
+>> 2.45.2
+>> 
 
 -- 
-2.48.1
-
+Jerome
 
