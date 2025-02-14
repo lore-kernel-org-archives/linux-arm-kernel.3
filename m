@@ -4,121 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96CBDC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 08:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F9A4C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 08:12:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H6Gp9DB5WCSEcuQCJqQrEsWpuCn5jqk72qwNA/OoRvo=; b=a6r8enVD2a7+pMpTaaTGhEyCzH
-	GBXxVOlVDssyZcyISvjpBWRXem2t6mmoox8Kmb0JV9MBRtdZpx4qiiSd1+UM3Af36PSSowKdEWt/P
-	WWX//UQBWn6pTdR1B8a6bem30EVwLvzZRB8n2dEVdZZqYPjgWtiBgFOhSQ6iN0FNUFc1VlHC8koHI
-	sNBJvcXH1ySsF07SiKfazW9kq5pNnnk5x96mDkHOzJxDdrdA1sZ9LbNKsBtGRNUM7nrr4qSKjI8Lg
-	P24mnC1X1uzM32yVHMDdT9hzCED4pC1K2bsofux4tPg4nbwcu7oS7jSW/7YrSIvHWIHos837QI0Ye
-	SUv3j+og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uoHU4fruD6MEqxZdo0UiR+vpiz2t17cE/AjiMnXEXFo=; b=BLWvWYKunj+2cHBBPBZHeUefsS
+	StlN1NkA167wA3i+HHKH5mxvdwfF8cYDBrd4mkT5KMg3Dz+ZkssGy86W+BZ9Muoy1QvNkiUh7pq3E
+	T+XvDgS4ZeF3Lp9iuW79eBaq/ojx2bFIE2d2ecNXHggwyhgx/TOc0Oeg+Z8Z2IYFoE3bAVTMI1Mlt
+	z687CHrNWrNfa0Kd9dyQPdJLKOf7BHUBZUihb2JpHfOVEBDWSqFx0YuybA7u9gKkptAIW47DcBr4Q
+	Fb/JGfUPlEAWAdjqJU7WBPnI2na4ux8nfbBS0Sqez4+P6edp+mW/4mH7jyfoFxKcA9kF/mhYW6kDp
+	QUs7+3sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiqn3-0000000E427-1k6z;
-	Fri, 14 Feb 2025 08:11:13 +0000
-Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
+	id 1tiqoS-0000000E4F9-09lq;
+	Fri, 14 Feb 2025 08:12:40 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiqiF-0000000E3M5-2Tm7
+	id 1tiqkl-0000000E3jx-35QK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 08:06:17 +0000
-Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 20CBE2540178;
-	Fri, 14 Feb 2025 03:06:13 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-11.internal (MEProxy); Fri, 14 Feb 2025 03:06:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1739520372;
-	 x=1739606772; bh=H6Gp9DB5WCSEcuQCJqQrEsWpuCn5jqk72qwNA/OoRvo=; b=
-	THxQzU9iQfDw3CE2kEloob98WRdDJsA4gxfya+6oLzgcMF2JDy87H5cRz9zjwARo
-	WY5qC2W+FBP4JVx8rV0XhIDqg6oFweRIiWgPsyPbEQbEByuXyalL8kLP5TBb6/ud
-	NrBct4aYr2L1sIIHUdSkYYO1tvEnitpqKvjiHEzKYaqK0F8iupKn2EiV7RPCvxZM
-	bsX8gU5MdR+jfgYN2ILFS/W2LFqVM+OBIKojS62zv/4RBuDHcm1QB9NDPWvt7mu/
-	j+4kuJP/CPDx3ndOvEJKB/K/7i9WvyFnEQYjkXBBUCF6uJLT4zbJPJR+2hY2PE0a
-	2oYi+vsDQFwAbKUSUL05Eg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739520372; x=
-	1739606772; bh=H6Gp9DB5WCSEcuQCJqQrEsWpuCn5jqk72qwNA/OoRvo=; b=v
-	EKJI7qqv8tayGGKpzZBvYNDtRiipJJkcNGcKSP+EhQ8wsdY6ty7uUU6Qt1i1bETK
-	BcI8jB7a8WASkkqZ6jNqNelEzr41mhxXqpFa8z8yctr7LSEq93T8SuMve8vwZ+Ac
-	IDBGUOA2d66MqAAcZugQZGWvl+XhW3spqQUwReM8hqwJ+6Vm4v4Zaet/EAiz9Yiv
-	cytTwPN5JubeangvEE7VADU/MGof0L1H2U9GOXytP2/rqaxDOzvjvyLAyWgvZJ1d
-	wVnCAH4q3vPy3wFsshMhUCAjItMy2sU60bXTbH4W35t/EQDGQA5HxuAnx/ns+ZxD
-	pVfjGssMtwk9K0WoHhNpw==
-X-ME-Sender: <xms:c_muZwX48Lh_xZs2IU6bDL1rdB8LT6oqGgZpRonlo5sen0HwCImyrg>
-    <xme:c_muZ0k0AICaX-vC6XxNAIoV9pAWxQHAk2o5A5KRC8GL6hhilhZHSDgbk4Wv1nc_h
-    WwZzXS2D0O38pPVky0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdegleduvdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
-    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
-    druggvqeenucggtffrrghtthgvrhhnpefhtdfhvddtfeehudekteeggffghfejgeegteef
-    gffgvedugeduveelvdekhfdvieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
-    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopeef
-    tddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepsghpsegrlhhivghnkedruggvpd
-    hrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphht
-    thhopegshhgvlhhgrggrshesghhoohhglhgvrdgtohhmpdhrtghpthhtoheptghonhhorh
-    doughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgv
-    lhdrohhrghdprhgtphhtthhopehlphhivghrrghlihhsiheskhgvrhhnvghlrdhorhhgpd
-    hrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifvghirdhl
-    ihhusehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorh
-    hg
-X-ME-Proxy: <xmx:c_muZ0YxvCcRRznY5PEZ-WHP6YYtLBt-g5JzyS9xw7eTUTGJhFFLZA>
-    <xmx:c_muZ_VK0WT4H887Nvd27xHDQFNSj_V4PN6uNmtAA-vcr1KKc8zk5Q>
-    <xmx:c_muZ6nMlMLgiBiw9alU1wkGeocCf93h0y1G4R7Re8HKnpAIzgPaxQ>
-    <xmx:c_muZ0eW7UPUpepsHE6P-gBngPmgv84dTpielAQWIbSQ-6F_CWdLRg>
-    <xmx:dPmuZ6uhMhdzt-6CWdxmXjq8IYXRxbmmHE-3PCv20PutEwrLhkeSiX2S>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id C5C902220072; Fri, 14 Feb 2025 03:06:11 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 14 Feb 2025 08:08:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 42A455C58FF;
+	Fri, 14 Feb 2025 08:08:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6F8EC4CED1;
+	Fri, 14 Feb 2025 08:08:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739520530;
+	bh=8fIq6lw3P3TyFk9U6Dky3t367XWONU83XLGY7Ec0/4Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WAmbBAwGJaDrisyAiRs7d6rtf1gEdYFkfp2NxA37drWHXg0ZJycOZbKFzG+K+n58c
+	 kVqbfGYP0N+qw0mdFfdJwtB2kZKOGnnz4rIkWlZNfcMu49sOrMGYOoJdgD6A/sSUgL
+	 rCDxUH+P6CQe4T14lFvFL9CftGviplC7hsZjU876WerR43VCpYG5BgVajipmnA8NPC
+	 xzmjps1vFBEYM85bXiu5BWXDc+2zE3Kaw8HScv+5yFn3kf2Ol+3++YVIwEbsVWqAT2
+	 T1SIWlNxLGr9S05gk77oaRACklsGRKwz6P8K5jP07GF7ocZ+CWKfDBruAz6MsGhlVE
+	 P98kVABruTf+A==
+Date: Fri, 14 Feb 2025 00:08:48 -0800
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Song Liu <song@kernel.org>
+Cc: Puranjay Mohan <puranjay@kernel.org>, Weinan Liu <wnliu@google.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Indu Bhagat <indu.bhagat@oracle.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
+	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
+	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
+	live-patching@vger.kernel.org, joe.lawrence@redhat.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+Message-ID: <20250214080848.5xpi2y2omk4vxyoj@jpoimboe>
+References: <20250127213310.2496133-1-wnliu@google.com>
+ <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
+ <20250212234946.yuskayyu4gx3ul7m@jpoimboe>
+ <CAPhsuW5TeMXi_Mn8+jR9Qoa=rAWasMo7M3Hs=im6NT6=+CrxqA@mail.gmail.com>
+ <20250213024507.mvjkalvyqsxihp54@jpoimboe>
+ <CAPhsuW4iDuTBfZowJRhxLFyK=g=s+-pK2Eq4+SNj9uL99eNkmw@mail.gmail.com>
+ <mb61py0yaz3qq.fsf@kernel.org>
+ <CAPhsuW7dV7UR3PsGVx_DLBH5-95DAmLMGTPuY0NfUwWLZMSTrQ@mail.gmail.com>
 MIME-Version: 1.0
-Date: Fri, 14 Feb 2025 09:05:50 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Roman Kisel" <romank@linux.microsoft.com>, bhelgaas@google.com,
- "Borislav Petkov" <bp@alien8.de>,
- "Catalin Marinas" <catalin.marinas@arm.com>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Dexuan Cui" <decui@microsoft.com>,
- "Haiyang Zhang" <haiyangz@microsoft.com>,
- "H. Peter Anvin" <hpa@zytor.com>, krzk+dt@kernel.org,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>,
- "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- "Manivannan Sadhasivam" <manivannan.sadhasivam@linaro.org>,
- "Ingo Molnar" <mingo@redhat.com>, "Rob Herring" <robh@kernel.org>,
- ssengar@linux.microsoft.com, "Thomas Gleixner" <tglx@linutronix.de>,
- "Wei Liu" <wei.liu@kernel.org>, "Will Deacon" <will@kernel.org>,
- devicetree@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
-Cc: benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com
-Message-Id: <97887849-faa8-429b-862b-daf6faf89481@app.fastmail.com>
-In-Reply-To: <593c22ca-6544-423d-84ee-7a06c6b8b5b9@linux.microsoft.com>
-References: <20250212014321.1108840-1-romank@linux.microsoft.com>
- <20250212014321.1108840-2-romank@linux.microsoft.com>
- <1b14e3de-4d3e-420c-819c-31ffb2d448bd@app.fastmail.com>
- <593c22ca-6544-423d-84ee-7a06c6b8b5b9@linux.microsoft.com>
-Subject: Re: [PATCH hyperv-next v4 1/6] arm64: hyperv: Use SMCCC to detect hypervisor
- presence
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <CAPhsuW7dV7UR3PsGVx_DLBH5-95DAmLMGTPuY0NfUwWLZMSTrQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_000616_495573_A14EF807 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20250214_000851_829457_A5194A39 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,79 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025, at 00:23, Roman Kisel wrote:
-> On 2/11/2025 10:54 PM, Arnd Bergmann wrote:
+On Thu, Feb 13, 2025 at 11:40:43AM -0800, Song Liu wrote:
+> Yeah, objdump does show the same disassembly. However, if
+> I open the file with gdb, and do "disassemble copy_process",
+> the one in livepatch-special-static.o looks very weird.
 
-> index a74600d9f2d7..86f75f44895f 100644
-> --- a/drivers/firmware/smccc/smccc.c
-> +++ b/drivers/firmware/smccc/smccc.c
-> @@ -67,6 +67,30 @@ s32 arm_smccc_get_soc_id_revision(void)
->   }
->   EXPORT_SYMBOL_GPL(arm_smccc_get_soc_id_revision);
->
-> +bool arm_smccc_hyp_present(const uuid_t *hyp_uuid)
+The symbol table looks ok.  I'm not sure why gdb is getting confused,
+but that could possibly be a red herring.  Maybe it doesn't like the
+-ffunction-sections for some reason.
 
-The interface looks good to me.
+It's really weird the function length reported by kallsyms is so wrong.
+Can you share the .ko?
 
-> +{
-> +	struct arm_smccc_res res = {};
-> +	struct {
-> +		u32 dwords[4]
-> +	} __packed res_uuid;
+The refcount warning might indicate it's passing some bogus memory to
+tty_kref_get().  Any chance you have struct randomization enabled?
 
-The structure definition here looks odd because of the
-unexplained __packed attribute and the nonstandard byteorder.
+Are you sure there's no code or .config mismatch between the built
+kernel and the running kernel?
 
-The normal uuid_t is defined as an array of 16 bytes,
-so if you try to represent it in 32-bit words you need to
-decide between __le32 and __be32 representation.
+Ignorant arm64 question: is the module's text further away from slab
+memory than vmlinux text, thus requiring a different instruction (or
+GOT/TOC) to access memory further away in the address space?
 
-> +	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_HVC)
-> +		return false;
-> +	arm_smccc_1_1_hvc(ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID, &res);
-> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
-> +		return false;
-> +
-> +	res_uuid.dwords[0] = res.a0;
-> +	res_uuid.dwords[1] = res.a1;
-> +	res_uuid.dwords[2] = res.a2;
-> +	res_uuid.dwords[3] = res.a3;
-> +
-> +	return uuid_equal((uuid_t *)&res_uuid, hyp_uuid);
-
-The SMCCC standard defines the four words to be little-endian,
-so in order to compare them against a uuid byte array, you'd
-need to declare the array as __le32 and swap the result
-members with cpu_to_le32().
-
-Alternatively you could pass the four u32 values into the
-function in place of the uuid.
-
-Since the callers have the same endianess confusion, your
-implementation ends up working correctly even on big-endian,
-but I find it harder to follow when you call uuid_equal() on
-something that is not the actual uuid_t value.
-
-> +
-> +#define ARM_SMCCC_HYP_PRESENT(HYP) 								\
-> +	({															\
-> +		const u32 uuid_as_dwords[4] = {							\
-> +			ARM_SMCCC_VENDOR_HYP_UID_ ## HYP ## _REG_0,			\
-> +			ARM_SMCCC_VENDOR_HYP_UID_ ## HYP ## _REG_1,			\
-
-I don't think using a macro is helpful here, it just makes
-it impossible to grep for ARM_SMCCC_VENDOR_HYP_UID_* values when
-reading the source.
-
-I would suggest moving the UUID values into a variable next
-to the caller like
-
-#define ARM_SMCCC_VENDOR_HYP_UID_KVM \
-    UUID_INIT(0x28b46fb6, 0x2ec5, 0x11e9, 0xa9, 0xca, 0x4b, 0x56, 0x4d, 0x00, 0x3a, 0x74)
-
-and then just pass that into arm_smccc_hyp_present(). (please
-double-check the endianess of the definition here, I probably
-got it wrong myself).
-
-     Arnd
+-- 
+Josh
 
