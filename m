@@ -4,80 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9778C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 22:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A4EC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 22:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P41QYUawBpw997GdJNy/1K0xsnyRvnuZyY09o56WpN8=; b=JYJq/IrvQCbW1iyRPVOpemrIaS
-	/ZeSD3jLHHioe7W+1fLX7ow8GDjHRXnXbXsFit3XYimPVZPxWIiwqMxPS6fnHNWYJMuxVCl52mRd9
-	Mu6VyPs5Iqdz572UlZS0mPCWoEurld92+pRFkj0h//1biuMx9rxqXm+WDLDzdwLLF7CrVsQjXZQvB
-	X+/l0KNfL16Ai4S7kLH0nCgPoi2ks9T8dPPIY3Y/54fCTm0m8avaFca5Uuu6QTIUTlRbXxyzdc+g5
-	4lte59p7V73EphJMpUhJUpbFAmteU3u9ZsL1PinxpfNH5m1xRT/ow0wpuEPnENNg5JMRGFs0oz0A5
-	T3qjwDDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bEB+wipqpxDExoX7XkJyi7zxDfuglvJ+HC5Ljm+PuFY=; b=eo3p6+epoQgLUKUnNFmzYzr4q+
+	TwUvg9aXSTpD6tVsUSmLkuqJKk2/6Z1ZpK3q15+bie4cBj7EdWV07qrXL2FQLxCuJMB4d4CgFeAfO
+	K+sjmqxLfwSFdEY/RgvsTfodTRW3qR1RBYL/mM+MG9Q51Tn1pdzFXReEnLrrxbyWITvA0a2dX2y9t
+	HaxedNsYlmchzgk3lmGM6kcJ3m2D9nZ2IRfUwXwIaIhTWafW8+BFHcUK7I06AfFCPCc0B+R3ZDJd4
+	GSEBL28RHQ8wiHdWDieTZtFMzhi8TAyjoA2Gb4deYI0fSYq6u40tI42irh6DcLvY+ku2nQrHQz+/R
+	gSZ+VXmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj3xM-0000000GMeL-1yVZ;
-	Fri, 14 Feb 2025 22:14:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tj3ym-0000000GMtN-0i0E;
+	Fri, 14 Feb 2025 22:16:12 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj3nS-0000000GL8p-3fBf
+	id 1tj3x9-0000000GMcP-0Pwk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 22:04:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C81C55C5DA5
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 22:03:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5942C4CEEC
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 22:04:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739570669;
-	bh=8tx0cT67YSI1VPWBaLCgbv3IPwa8Ok1vayoF+KkWQtI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=uLHVRHFS26xxsnGrAv0qqSL+eQvw3BD89SEWx3gGRYKyABEdZwtczWKALmyPcnktM
-	 YVZAh6qTRU/1M6JnTGy3tq2Ijwg7k9bUumfrrTVQ8GUj0VBgGLKk6EU8jOC9dmajce
-	 dVxMac/mKAfvX+RI450cNQu1kZBEpyhjDbJQd+aZH9D3vf/zMbx2gtpyhIXe6daWtB
-	 uJj99Ee2rmka68jrI92rBe4vGBAnPjz2FL2cicKUCUJxdPelNWjH6KLC1qekJKlGeo
-	 PuK/ld8z4MlK3ooaNQO0R2GHj8Ar0kMyEzOVJHY0Y2vkQRY/G6z+eAaP2S9evcjfsE
-	 ckmJF1LYrNEpg==
-Received: by mail-il1-f169.google.com with SMTP id e9e14a558f8ab-3d1a428471fso6747855ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 14:04:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXmauDN49PFSYPMIrmqhqNa0cbJWSqUzjq0rmRv3co6ocUnnIQ8hNm9I/EnFkhF0kXw28xHJJ8AjCk44B+fS3qK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwskyR3wmRngUbtGAHjtW6SqmiC5tizPEmhJ3iJAzbMoeAWjuR8
-	k2QZEVx1FC5Vw2XvKhlBAF+4LPnkZWmUZG46RscCrk7tJyzOI5eXjRBd2uu8UlixYtiir9RZJmT
-	90rXPRJ8N1ga1fAZydTEgZqKrOfU=
-X-Google-Smtp-Source: AGHT+IGm2i4EXICEpW9bgwkPPolWAFKP9xL/quKy8NddqTVnLPh4rbcjf52ksHT5lD1Rnl/XKRrm4e1eyWcKs15JiNU=
-X-Received: by 2002:a92:c24d:0:b0:3cf:bb6e:3065 with SMTP id
- e9e14a558f8ab-3d279694a2emr9486645ab.0.1739570668959; Fri, 14 Feb 2025
- 14:04:28 -0800 (PST)
+	Fri, 14 Feb 2025 22:14:32 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5de4d3bbc76so4090236a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 14:14:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739571269; x=1740176069; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bEB+wipqpxDExoX7XkJyi7zxDfuglvJ+HC5Ljm+PuFY=;
+        b=OX3amnoKSeMOctXEYBjobVvPAqbuuRERn28rzbDlY1nVC1U4/gvtx5ss4vIImC0KPZ
+         KVD0bT7J+a3bpNGyj2PPRwu9tkevWfbD6FqR9PZEcSWV1Z7T2R+fUF6xmOZJx/bYQl2G
+         kYI4tprMl8RLmHYOZa1Dwk1cy0KUVde+U6E6iQwBoZ4scX0XfgkmlLJTURlQrRQ5FgZG
+         r8vYCpy848jM5x0A6voYCsykEbC2Hs7ZArqdK67v8crIcMNIMliKeEEAQOeA+jLOzOU/
+         M90xIuW/eN2dLydGQGMqUdAQ11k23Uxiz0d3fqBG/R5qH5fvE4IlROaJ2XsDxQrldmVe
+         8VxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739571269; x=1740176069;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bEB+wipqpxDExoX7XkJyi7zxDfuglvJ+HC5Ljm+PuFY=;
+        b=VKX+aRDraCkQ9mTT6squ/YEgyLJKQdacewJfnGVzq45300E55KU6zR5i39WGK1C4Dp
+         yaFiwxLUX/2wY6W1W9zP42Df22LGkNtHe+URKyGqk9ipcftdmhz3y18BHO4XWbK+n5e9
+         ay7uflggFgIxA/sM8nqDhKrjAl9g/1m+Cwk43QWZ8HwTOVLJJ81CjKa8i3W1/zvGYMop
+         urqIGM4EicffjuDuLyMlHO6gjewa18hx2np6WylNn6ll8uh2E7awSP1zeOyeoy+JJI3O
+         oM9YEU1WepD2V+5r7HW8dfStte9C8pX0R/4UiAOM8tCs3KyjVCl/tNWnTBeHOz1epodF
+         JmcA==
+X-Forwarded-Encrypted: i=1; AJvYcCX09NqWzabvAoB21zlST373qxMOJuWr8MHunJcSsIDgqULxVhOn1x2KFOZXk5qbO0sZT/JOgk8KTEBx/8n4RndH@lists.infradead.org
+X-Gm-Message-State: AOJu0YztKXVk7c5Dj0qSiKkfoZOAIzBd/FnjJWN/nnrEAqYPyvGA2m+y
+	VW2SvzKx+3Wd8RTWJ1/EbbURjXoqFhLWmvmR1vi1e9oxb9bdLDg4
+X-Gm-Gg: ASbGncunoz+/KtDvHacXCjOiI3XOSOrwsVGdkG1pgoOlT5CoGgeRJteQf57yzsTgZ25
+	L/lgsOZNK6aNM+POcibcfAHgtA/aIvN7w20klL0s1i/I1Ctq/0K+8zfAi5rNzbsa8IodvkfDAdu
+	ynOglg91XTs0qJkIKA5oQEcgY6wRGCIQwpFHagRpA98E9ecm1Hp8TS4aayKObECRGMgF2csFlw+
+	/5PS2oRnzNI+k65BS/gINJFbqlt7M0mv4YgebA3x871+cPpIpKacOLISOlU2pgEbDljnqk5q0wy
+	QgePHIe0pgQ+aWpRgzaaV/b7lZmnDszR7MLt
+X-Google-Smtp-Source: AGHT+IGhKMUt6pQQ2eEdpEq9Kp47Mlkh7KYX18Dx2znHH1AwQvYGHh0IRemg9M7NamftnrBLcT9VIw==
+X-Received: by 2002:a05:6402:5210:b0:5de:dc08:9cc5 with SMTP id 4fb4d7f45d1cf-5e0360a1fb6mr766609a12.7.1739571269178;
+        Fri, 14 Feb 2025 14:14:29 -0800 (PST)
+Received: from krava (ip-94-113-247-30.net.vodafone.cz. [94.113.247.30])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1c46b3sm3547034a12.21.2025.02.14.14.14.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 14 Feb 2025 14:14:28 -0800 (PST)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Fri, 14 Feb 2025 23:14:26 +0100
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, bpf <bpf@vger.kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Zheng Yejian <zhengyejian1@huawei.com>,
+	Martin Kelly <martin.kelly@crowdstrike.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Josh Poimboeuf <jpoimboe@redhat.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>
+Subject: Re: [PATCH v3 4/6] scripts/sorttable: Zero out weak functions in
+ mcount_loc table
+Message-ID: <Z6_AQmaUWAekeB5B@krava>
+References: <20250213162047.306074881@goodmis.org>
+ <20250213162145.986887092@goodmis.org>
 MIME-Version: 1.0
-References: <20250127213310.2496133-1-wnliu@google.com> <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
- <20250212234946.yuskayyu4gx3ul7m@jpoimboe> <CAPhsuW5TeMXi_Mn8+jR9Qoa=rAWasMo7M3Hs=im6NT6=+CrxqA@mail.gmail.com>
- <20250213024507.mvjkalvyqsxihp54@jpoimboe> <CAPhsuW4iDuTBfZowJRhxLFyK=g=s+-pK2Eq4+SNj9uL99eNkmw@mail.gmail.com>
- <mb61py0yaz3qq.fsf@kernel.org> <CAPhsuW7dV7UR3PsGVx_DLBH5-95DAmLMGTPuY0NfUwWLZMSTrQ@mail.gmail.com>
- <20250214080848.5xpi2y2omk4vxyoj@jpoimboe> <CAPhsuW6dxPtgqZaHrZEVhQXwm2+sETreZnGybZXVKYKfG9H6tg@mail.gmail.com>
- <20250214193400.j4hp45jlufihv5eh@jpoimboe>
-In-Reply-To: <20250214193400.j4hp45jlufihv5eh@jpoimboe>
-From: Song Liu <song@kernel.org>
-Date: Fri, 14 Feb 2025 14:04:17 -0800
-X-Gmail-Original-Message-ID: <CAPhsuW6q+yhn0pGQb0K+RhXHYDkjEgomZ2pu3P_MEeX+xNRe0g@mail.gmail.com>
-X-Gm-Features: AWEUYZmS9RgABXm_Z225NGGKzm18Fgmh_MxPC45lJBV_7EfAVM8AuVs83nd2IRc
-Message-ID: <CAPhsuW6q+yhn0pGQb0K+RhXHYDkjEgomZ2pu3P_MEeX+xNRe0g@mail.gmail.com>
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-To: Josh Poimboeuf <jpoimboe@kernel.org>
-Cc: Puranjay Mohan <puranjay@kernel.org>, Weinan Liu <wnliu@google.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Indu Bhagat <indu.bhagat@oracle.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
-	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
-	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250213162145.986887092@goodmis.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_140430_998583_2D8F4622 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20250214_141431_136372_4C753105 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,46 +117,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Josh,
+On Thu, Feb 13, 2025 at 11:20:51AM -0500, Steven Rostedt wrote:
 
-On Fri, Feb 14, 2025 at 11:34=E2=80=AFAM Josh Poimboeuf <jpoimboe@kernel.or=
-g> wrote:
->
-> On Fri, Feb 14, 2025 at 09:51:41AM -0800, Song Liu wrote:
-> > > Ignorant arm64 question: is the module's text further away from slab
-> > > memory than vmlinux text, thus requiring a different instruction (or
-> > > GOT/TOC) to access memory further away in the address space?
-> >
-> > It appears to me the module text is very close to vmlinux text:
-> >
-> > vmlinux: ffff8000800b4b68 T copy_process
-> > module: ffff80007b0f06d0 t copy_process [livepatch_always_inline_specia=
-l_static]
->
-> Hm... the only other thing I can think of is that the klp relas might be
-> wrong somewhere.  If you share patched.o and .ko files from the same
-> build I could take a look.
+SNIP
 
-A tarball with these files is available here:
+> +static int cmp_funcs(const void *A, const void *B)
+> +{
+> +	const struct func_info *a = A;
+> +	const struct func_info *b = B;
+> +
+> +	if (a->addr < b->addr)
+> +		return -1;
+> +	return a->addr > b->addr;
+> +}
+> +
+> +static int parse_symbols(const char *fname)
+> +{
+> +	FILE *fp;
+> +	char addr_str[20]; /* Only need 17, but round up to next int size */
+> +	char size_str[20];
+> +	char type;
+> +
+> +	fp = fopen(fname, "r");
+> +	if (!fp) {
+> +		perror(fname);
+> +		return -1;
+> +	}
+> +
+> +	while (fscanf(fp, "%16s %16s %c %*s\n", addr_str, size_str, &type) == 3) {
+> +		uint64_t addr;
+> +		uint64_t size;
+> +
+> +		/* Only care about functions */
+> +		if (type != 't' && type != 'T')
+> +			continue;
 
-https://drive.google.com/file/d/1ONB1tC9oK-Z5ShmSXneqWLTjJgC5Xq-C/view?usp=
-=3Ddrive_link
+hi,
+I think we need the 'W' check in here [1]
 
-> BTW, I realized the wrong function size shown in the WARNING stack trace
-> is probably just due to a kallsyms quirk.  It calculates a symbol's size
-> by subtracting its start address from the next symbol's start address.
-> It doesn't actually use the ELF symbol size.  So the next symbol after
-> copy_process() in the loaded module's address space might just be far
-> away.
+jirka
 
-Yeah, I also think kallsyms logic was the issue here. So it is not the same
-as the gdb-disassembly issue.
 
-> That kallsyms issue has caused other headaches.  It really needs to be
-> fixed to use the actual ELF symbol size.
-
-Maybe we should have a "module_text_end" symbol?
-
-Thanks,
-Song
+[1] https://lore.kernel.org/bpf/20250103071409.47db1479@batman.local.home/
 
