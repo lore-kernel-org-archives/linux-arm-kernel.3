@@ -4,66 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4F18C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 19:30:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61528C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 19:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XTcx2SnDD2C3Let5OKpcHYlSpOQJf/vzuwssUjTTGWA=; b=2smh3/AfZwx7cIcpZspStFlyfq
-	tQQo8xlYnZFw1ygqbeSfXS4I1GZCLo1aDGNkJwnIWdmaPDu5j0BeNhV6eZDt9QccOnQXqUkfXKmEm
-	8k5ueDjg7TyUN90IIrSf2kSxwrgyDjvB3sOQhRvehYG6VGwRFQM1XWPF9RNqXOwMbpMgO1GPq6U8o
-	sdjANL8lnD4r8Xjtm6KpI5YSqXFHq4k8zHymc4B5fxmSKGOxWjOgFVlUQi1bgPU9zNAa/rNtR16Pf
-	aTSbtVFgs40cOIv9iZmts7xhCywWrLqemLjRJMigkv5VQAu+wctN1apXFyaKEoTRJNHrdJ23PSdpy
-	Q+JlhrIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AQddq/dEL5k/xrRBPmEqe0CS+ih6MIApenU4d2OGycI=; b=aMa7RQOCbFK7Lu7il7z89cz49G
+	VT8Z2BfwQQXi4vOZQ0yjFRcM9gPlq00WijAONtPOcxxOMUcC34Htx6v45nALkUlk7kphSYswEx/ec
+	8MptYeCMNTB7SLTCbh3lr0pu1ZMmaPqoVD4+RkNkSUxRcw+sjGk1QAzyfkLoPivkVfUmikkskkiOm
+	+u2nTC/iHSJpjPCjrcuqmYPKLpDLCc7RJssiS03IO1BGbwyzM5dbpIIuBi7D7VFIdOSVj7gTrlLI0
+	galU+qouvwxOmXi98zy5yZ2xndZaz12ME6rWdNm+Hjwt1TywMoQMEA1QN4jCIuA7BmLG2CgtGHWt/
+	02L4ItyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj1ON-0000000G272-0ZQF;
-	Fri, 14 Feb 2025 19:30:27 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tj1Pw-0000000G2Vu-34Bb;
+	Fri, 14 Feb 2025 19:32:04 +0000
+Received: from [210.118.77.12] (helo=mailout2.w1.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj1Mu-0000000G1pG-2hwi
+	id 1tj1OQ-0000000G270-1ZN2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 19:28:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1FC7DA433E4;
-	Fri, 14 Feb 2025 19:27:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02BAFC4CED1;
-	Fri, 14 Feb 2025 19:28:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739561335;
-	bh=t9EkPDT36vEYRvlk4JqknyHm+B0lAvXvrkbVcUsqtRE=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=kPYNfd9OnJambKVJisEXQUjCrktfh5E1344Rm8akgdm9kB+ZSgnv1QxoMQU28na+W
-	 wg0pfnSwWNFq5xo9PnqHmoY8xBUatHGfeGUeLu/CbRQRV/R8xgK0HwzGHfWXu1A6S/
-	 PX6jHct/MxC8pYy54+RMXnJnQEOMC/8UXOFCFgojJQNhxZz8ifKeby5n5goOwKApES
-	 3Q66VKKZ7hscLhgHGeSyd/k1tjrV51QGKNLUD+VnxbeVZc+aK9Y0DWRW4b0W6F7J5L
-	 FQijzKx+1MXzsZNXgesgRtxRNlYet2TYWPD6NgFGhSWHvNAjDNcJjIFR2T+FZaSf1H
-	 M0ZVloWBa/VvA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADC11380CEE8;
-	Fri, 14 Feb 2025 19:29:25 +0000 (UTC)
-Subject: Re: [GIT PULL] arm64 fixes for -rc3
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20250214140431.GA13374@willie-the-truck>
-References: <20250214140431.GA13374@willie-the-truck>
-X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
-X-PR-Tracked-Message-Id: <20250214140431.GA13374@willie-the-truck>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
-X-PR-Tracked-Commit-Id: 446a8351f160d65a1c5df7097f31c74102ed2bb1
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 111b29599c189247919a514b6c3a93e828db27c2
-Message-Id: <173956136427.2081923.9703476748325422748.pr-tracker-bot@kernel.org>
-Date: Fri, 14 Feb 2025 19:29:24 +0000
-To: Will Deacon <will@kernel.org>
-Cc: torvalds@linux-foundation.org, catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, kernel-team@android.com, ojeda@kernel.org
+	Fri, 14 Feb 2025 19:30:34 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250214193025euoutp02e8bd81c796194d9c62ed3243f474bfd1~kKeZxqJfA1083810838euoutp02t
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 19:30:25 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250214193025euoutp02e8bd81c796194d9c62ed3243f474bfd1~kKeZxqJfA1083810838euoutp02t
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1739561425;
+	bh=AQddq/dEL5k/xrRBPmEqe0CS+ih6MIApenU4d2OGycI=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=A2MuRTuu4ahRzTDk2HUlvMjCoBzKMD5HOQvu3EGRlgFiAZ2asAaeVwmLWzHQgec73
+	 E+ugzYjYYL8r2VdxEwl6Ro024dhdVHpEzsez7b3LOsnPAXQFmd2DZeeUeGBrIHEdOH
+	 8/f+aP+TbqmhNxdAP5gFfBRXtWko1lNBBtz9pKdU=
+Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
+	20250214193024eucas1p251af6a3ef901ef48f2d639fbfe9f6883~kKeYoxOjE1279312793eucas1p2B;
+	Fri, 14 Feb 2025 19:30:24 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+	eusmges1new.samsung.com (EUCPMTA) with SMTP id AA.13.20821.0D99FA76; Fri, 14
+	Feb 2025 19:30:24 +0000 (GMT)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250214193023eucas1p26cdb1079f9847b3bfc9c897718206c97~kKeXUpHXX1280412804eucas1p2B;
+	Fri, 14 Feb 2025 19:30:23 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250214193023eusmtrp1af21e5b448ee7388ba69db3fcf7dbcba~kKeXTzM_O1138611386eusmtrp1E;
+	Fri, 14 Feb 2025 19:30:23 +0000 (GMT)
+X-AuditID: cbfec7f2-b09c370000005155-2d-67af99d05b42
+Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id 4D.08.19654.EC99FA76; Fri, 14
+	Feb 2025 19:30:22 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250214193020eusmtip1fb59377c383c77449d4cb499844b3263~kKeVQ3ahA0079000790eusmtip1A;
+	Fri, 14 Feb 2025 19:30:20 +0000 (GMT)
+Message-ID: <3c0b77e6-357d-453e-8b63-4757c3231bde@samsung.com>
+Date: Fri, 14 Feb 2025 20:30:19 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/7] phy: exynos5-usbdrd: subscribe to orientation
+ notifier if required
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, Vinod Koul
+	<vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim
+	Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	<tudor.ambarus@linaro.org>, Sam Protsenko <semen.protsenko@linaro.org>, Will
+	McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>,
+	kernel-team@android.com, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20241206-gs101-phy-lanes-orientation-phy-v4-6-f5961268b149@linaro.org>
+Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrEKsWRmVeSWpSXmKPExsWy7djP87oXZq5PN+g/J23xYN42Nostrzaz
+	WKzZe47JYv6Rc6wWO7aLWBxt/c9s8XLWPTaLTY+vsVpc3jWHzWLCqm8sFjPO72Oy2DDjH4vF
+	/z072C3aG06xWRx+085q8bwPKPHpVpzFzjsnmC1WffrP6CDssW33NlaPBZtKPTat6mTzuHNt
+	D5vH5iX1Hn1bVjF6fN4kF8AexWWTkpqTWZZapG+XwJXx+sF/1oILuhXPls1lbGBcrtLFyMkh
+	IWAisflLE3sXIxeHkMAKRolfP1uYIJwvjBInPx9igXA+M0pMOH2ODabl1eKbjBCJ5YwSczre
+	QVV9ZJTo+DCTHaSKV8BOYv+pX6wgNouAqsTCVdvZIOKCEidnPmEBsUUF5CXu35oBVi8skCDR
+	df0V2CARgYtMErvfnAdbwSzQyyyx4cUpZpAqZgFxiVtP5jOB2GwChhJdb7vApnIKhEh0T77E
+	AlEjL9G8dTYzSLOEwG5OiQO3lgI1cAA5LhKd30shfhCWeHV8CzuELSNxenIPC0R9O6PEgt/3
+	mSCcCYwSDc9vMUJUWUvcOfeLDWQQs4CmxPpd+hBhR4lFmxqZIebzSdx4KwhxA5/EpG3TocK8
+	Eh1tQhDVahKzjq+DW3vwwiXmCYxKs5DCZRaSL2ch+WYWwt4FjCyrGMVTS4tz01OLDfNSy/WK
+	E3OLS/PS9ZLzczcxApPh6X/HP+1gnPvqo94hRiYOxkOMEhzMSiK8EtPWpAvxpiRWVqUW5ccX
+	leakFh9ilOZgURLnXbS/NV1IID2xJDU7NbUgtQgmy8TBKdXANKOwxr9Ys/6+61++7YG9jT+9
+	K11LDgWn1W4+fjXYsq6yvfk5u/LzRRpORQ1/XoX5l0/80OZ4693sORPit3160XBuWkvwQo4/
+	TOIFkofDVl+40WYdmXTuuZKTapUje3oK97Xdu9ysD/A5CP58+kbo863of2q2vO+nRYn9k/Or
+	9DlSlKOxcGKuysUPIX+cPGpSSy8K3n92tel2QfPRf6m7FTbuLbbS/sR8yGmN2A3OPzJTzFa9
+	O/BAOfzSEc2bcp5H3i3lmlWuM2FBdfLiH1c3pHPUzeX9cfeP0UqztHorWX5OiQtqJvH5WjIr
+	D5R0J8gsPCxou731qO/2Dk9PVofm+spHapLZbgt/ml2fpPpUiaU4I9FQi7moOBEAVDlLM/UD
+	AAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrCIsWRmVeSWpSXmKPExsVy+t/xu7rnZ65PNzhgavFg3jY2iy2vNrNY
+	rNl7jsli/pFzrBY7totYHG39z2zxctY9NotNj6+xWlzeNYfNYsKqbywWM87vY7LYMOMfi8X/
+	PTvYLdobTrFZHH7TzmrxvA8o8elWnMXOOyeYLVZ9+s/oIOyxbfc2Vo8Fm0o9Nq3qZPO4c20P
+	m8fmJfUefVtWMXp83iQXwB6lZ1OUX1qSqpCRX1xiqxRtaGGkZ2hpoWdkYqlnaGwea2VkqqRv
+	Z5OSmpNZllqkb5egl/H6wX/Wggu6Fc+WzWVsYFyu0sXIySEhYCLxavFNxi5GLg4hgaWMEpM2
+	rGeBSMhInJzWwAphC0v8udbFBlH0nlFi3ddOsASvgJ3E/lO/wGwWAVWJhau2s0HEBSVOznwC
+	NkhUQF7i/q0Z7CC2sECCRNf1Vywgg0QELjNJLO/bxQriMAv0M0scPdTJDLHiI6PEpskNTCAt
+	zALiEreezAez2QQMJbredoGt4BQIkeiefIkFosZMomtrFyOELS/RvHU28wRGoVlILpmFZNQs
+	JC2zkLQsYGRZxSiSWlqcm55bbKRXnJhbXJqXrpecn7uJERj924793LKDceWrj3qHGJk4GA8x
+	SnAwK4nwSkxbky7Em5JYWZValB9fVJqTWnyI0RQYHBOZpUST84HpJ68k3tDMwNTQxMzSwNTS
+	zFhJnJftyvk0IYH0xJLU7NTUgtQimD4mDk6pBibOg4ynikIDExhallkKThWcMK360qMIh2+C
+	9Q9jNn9qOLDgmbpbjVz4rN1nr+/x26gjy83dX3XLgenip7tf5U33tDzRLrfnnpcd4WvkfiFv
+	fnIwY9HDc0tUJfpE1YRtXitpHg7/9bJOosPlIP+Mk85BV/PdWKb3J90QfPPPSbpt/5ELHBLe
+	LNVcDErpZ1YsuRdx5IGcRCifQ6iGpM9i/yLbT2JTS3Ya72pbfKLy0cJJlx3tUzp3Scal+bE2
+	GvyJuHT/U6SS+solt3QCVfZvz3s39aJ52SRexq4tags9pT/I305+w7Vzjdk6xiPH7C+utIot
+	Zvzg39x8hf/Qw63fFcouTL6mbNPAHLAt7Ni5MCWW4oxEQy3mouJEACpowR2HAwAA
+X-CMS-MailID: 20250214193023eucas1p26cdb1079f9847b3bfc9c897718206c97
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20241206163109eucas1p12aea3a9a6c404cd7c678009ea11aa5b3
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20241206163109eucas1p12aea3a9a6c404cd7c678009ea11aa5b3
+References: <20241206-gs101-phy-lanes-orientation-phy-v4-0-f5961268b149@linaro.org>
+	<CGME20241206163109eucas1p12aea3a9a6c404cd7c678009ea11aa5b3@eucas1p1.samsung.com>
+	<20241206-gs101-phy-lanes-orientation-phy-v4-6-f5961268b149@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_112856_749485_7A42C4B3 
-X-CRM114-Status: UNSURE (   4.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250214_113032_590250_ED92A32B 
+X-CRM114-Status: GOOD (  37.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +143,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 14 Feb 2025 14:04:32 +0000:
+On 06.12.2024 17:31, André Draszik wrote:
+> gs101's SS phy needs to be configured differently based on the
+> connector orientation, as the SS link can only be established if the
+> mux is configured correctly.
+>
+> The code to handle programming of the mux is in place already, this commit
+> now adds the missing pieces to subscribe to the Type-C orientation
+> switch event.
+>
+> Note that for this all to work we rely on the USB controller
+> re-initialising us. It should invoke our .exit() upon cable unplug, and
+> during cable plug we'll receive the orientation event after which we
+> expect our .init() to be called.
+>
+> Above reinitialisation happens if the DWC3 controller can enter runtime
+> suspend automatically. For the DWC3 driver, this is an opt-in:
+>      echo auto > /sys/devices/.../11110000.usb/power/control
+> Once done, things work as long as the UDC is not bound as otherwise it
+> stays busy because it doesn't cancel / stop outstanding TRBs. For now
+> we have to manually unbind the UDC in that case:
+>       echo "" > sys/kernel/config/usb_gadget/.../UDC
+>
+> Note that if the orientation-switch property is missing from the DT,
+> the code will behave as before this commit (meaning for gs101 it will
+> work in SS mode in one orientation only). Other platforms are not
+> affected either way.
+>
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+>
+> ---
+> v3:
+> * drop init to -1 of phy_drd->orientation (Vinod)
+> * avoid #ifdef and switch to normal conditional IS_ENABLED() for
+>    CONFIG_TYPEC
+>
+> v2:
+> * move #include typec_mux.h from parent patch into this one (Peter)
+> ---
+>   drivers/phy/samsung/Kconfig              |  1 +
+>   drivers/phy/samsung/phy-exynos5-usbdrd.c | 56 ++++++++++++++++++++++++++++++++
+>   2 files changed, 57 insertions(+)
+>
+> diff --git a/drivers/phy/samsung/Kconfig b/drivers/phy/samsung/Kconfig
+> index f10afa3d7ff5..fc7bd1088576 100644
+> --- a/drivers/phy/samsung/Kconfig
+> +++ b/drivers/phy/samsung/Kconfig
+> @@ -80,6 +80,7 @@ config PHY_EXYNOS5_USBDRD
+>   	tristate "Exynos5 SoC series USB DRD PHY driver"
+>   	depends on (ARCH_EXYNOS && OF) || COMPILE_TEST
+>   	depends on HAS_IOMEM
+> +	depends on TYPEC || (TYPEC=n && COMPILE_TEST)
+>   	depends on USB_DWC3_EXYNOS
+>   	select GENERIC_PHY
+>   	select MFD_SYSCON
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git tags/arm64-fixes
+I've just noticed that the above disables Exynos DRD PHY driver in the 
+default exynos_defconfig for arm 32bit. Enabling CONFIG_TYPEC is 
+exynos_defconfig probably is the easiest way to fix this. I will send a 
+patch then.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/111b29599c189247919a514b6c3a93e828db27c2
-
-Thank you!
-
+> diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> index 61e0de4b3d4b..8fc15847cfd8 100644
+> --- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> +++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+> @@ -24,6 +24,7 @@
+>   #include <linux/regulator/consumer.h>
+>   #include <linux/soc/samsung/exynos-regs-pmu.h>
+>   #include <linux/usb/typec.h>
+> +#include <linux/usb/typec_mux.h>
+>   
+>   /* Exynos USB PHY registers */
+>   #define EXYNOS5_FSEL_9MHZ6		0x0
+> @@ -394,6 +395,7 @@ struct exynos5_usbdrd_phy_drvdata {
+>    * @extrefclk: frequency select settings when using 'separate
+>    *	       reference clocks' for SS and HS operations
+>    * @regulators: regulators for phy
+> + * @sw: TypeC orientation switch handle
+>    * @orientation: TypeC connector orientation - normal or flipped
+>    */
+>   struct exynos5_usbdrd_phy {
+> @@ -415,6 +417,7 @@ struct exynos5_usbdrd_phy {
+>   	u32 extrefclk;
+>   	struct regulator_bulk_data *regulators;
+>   
+> +	struct typec_switch_dev *sw;
+>   	enum typec_orientation orientation;
+>   };
+>   
+> @@ -1397,6 +1400,55 @@ static int exynos5_usbdrd_phy_clk_handle(struct exynos5_usbdrd_phy *phy_drd)
+>   	return 0;
+>   }
+>   
+> +static int exynos5_usbdrd_orien_sw_set(struct typec_switch_dev *sw,
+> +				       enum typec_orientation orientation)
+> +{
+> +	struct exynos5_usbdrd_phy *phy_drd = typec_switch_get_drvdata(sw);
+> +
+> +	scoped_guard(mutex, &phy_drd->phy_mutex)
+> +		phy_drd->orientation = orientation;
+> +
+> +	return 0;
+> +}
+> +
+> +static void exynos5_usbdrd_orien_switch_unregister(void *data)
+> +{
+> +	struct exynos5_usbdrd_phy *phy_drd = data;
+> +
+> +	typec_switch_unregister(phy_drd->sw);
+> +}
+> +
+> +static int exynos5_usbdrd_setup_notifiers(struct exynos5_usbdrd_phy *phy_drd)
+> +{
+> +	int ret;
+> +
+> +	if (!IS_ENABLED(CONFIG_TYPEC))
+> +		return 0;
+> +
+> +	if (device_property_present(phy_drd->dev, "orientation-switch")) {
+> +		struct typec_switch_desc sw_desc = { };
+> +
+> +		sw_desc.drvdata = phy_drd;
+> +		sw_desc.fwnode = dev_fwnode(phy_drd->dev);
+> +		sw_desc.set = exynos5_usbdrd_orien_sw_set;
+> +
+> +		phy_drd->sw = typec_switch_register(phy_drd->dev, &sw_desc);
+> +		if (IS_ERR(phy_drd->sw))
+> +			return dev_err_probe(phy_drd->dev,
+> +					     PTR_ERR(phy_drd->sw),
+> +					     "Failed to register TypeC orientation switch\n");
+> +
+> +		ret = devm_add_action_or_reset(phy_drd->dev,
+> +					       exynos5_usbdrd_orien_switch_unregister,
+> +					       phy_drd);
+> +		if (ret)
+> +			return dev_err_probe(phy_drd->dev, ret,
+> +					     "Failed to register TypeC orientation devm action\n");
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>   static const struct exynos5_usbdrd_phy_config phy_cfg_exynos5[] = {
+>   	{
+>   		.id		= EXYNOS5_DRDPHY_UTMI,
+> @@ -1786,6 +1838,10 @@ static int exynos5_usbdrd_phy_probe(struct platform_device *pdev)
+>   	if (ret)
+>   		return dev_err_probe(dev, ret, "failed to get regulators\n");
+>   
+> +	ret = exynos5_usbdrd_setup_notifiers(phy_drd);
+> +	if (ret)
+> +		return ret;
+> +
+>   	dev_vdbg(dev, "Creating usbdrd_phy phy\n");
+>   
+>   	for (i = 0; i < EXYNOS5_DRDPHYS_NUM; i++) {
+>
+Best regards
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
