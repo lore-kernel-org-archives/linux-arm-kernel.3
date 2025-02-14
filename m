@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BB4C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 00:21:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB112C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 00:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vy5omDl6KJ0USqAk7erLvFOD2j4+PI0gYl7PBegS6lc=; b=Jl4d8WyvQ3o0pGLH4/MFgx2p7/
-	dgMJtBrdh+oLAeZkPzLwA75k0sKIUIjKi1cqEy98mUK9HsENid2PLk7ZGpY49znrUSh2wUkX+YRsa
-	0rkSxn0ceOQ8C7/j5OTYjm5DD+7z0s+ppGk4EV9QhWf+9kQ9Qyp2aWYisn9iDvA+1FfcvKJCAsfbP
-	C4krcDvwB77EEIIh7zfCky6krwe6nq+h4jLXdjC8x1a4F+y1XQbC6zBRgRenNfgnw5uAmMQ0HNZTl
-	XDz8skN671+2/Uz299lERmIvTSHVjWto+4QR7kPWq5SBQSWOQVYkt+8wdZKx7Sl4TZ07q4yM6cHDi
-	IGLIVDHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zOQzrpTX5w2maHpgcxn1Tq4R1bZcNTHNkgJWwk8X2LM=; b=2bYSgDKy46iJgyGxSY4hIAHAXb
+	bqT6oQ9rF9e3gjc6MTmQoSi/v4WAcR8jK2CRbq6A4d1dxwy1J9MqeSukli3Tx5J/slXwI+O7CxPwE
+	LhURuYh/U7xsdFmUGBEb4eN1L1tXuyhFW7qsdF2Dwa7VD6rNLQ4Kf4gHw0pXC/9UFkmOwjHFHdF6K
+	nUzlzsoyWkGbFe35oMH5RwM8fmaaZBl7jKygf7/FUXbcVxwexfdLiaBufkUrmO1kUlVGcz8cmD1ob
+	zw3rY43n0mPL0lEj5ow4M1mTXKmKMNG/guUNCNXkhJJjEIu/z9fAunM5IPNZLd2qEWK35239YDpHc
+	ckoXG8yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tijSK-0000000D2ha-2F1O;
-	Fri, 14 Feb 2025 00:21:20 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tijQr-0000000D28g-48DR
+	id 1tijls-0000000D6Jq-237U;
+	Fri, 14 Feb 2025 00:41:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tijkQ-0000000D5xY-3CLf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 00:19:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Vy5omDl6KJ0USqAk7erLvFOD2j4+PI0gYl7PBegS6lc=; b=17v1bXHYFf54qAGZYsVxZ490bL
-	yzvQWx+tpnTYiNIQLOopdRvSNKZ4Fj8sSgLvtYBja0uAxUZWAzufox+QypFXCsZG9y1uxtgMd15Ky
-	GopZS/CQ721Px5en8PgJm1AxSRQW3Rb5fwXm4+RdBd3+Pr3qDKcw6Uu6IHP8QAl13K5o=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tijQf-00Dtoy-OP; Fri, 14 Feb 2025 01:19:37 +0100
-Date: Fri, 14 Feb 2025 01:19:37 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Swathi K S <swathi.ks@samsung.com>
-Cc: krzk+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	robh@kernel.org, conor+dt@kernel.org, richardcochran@gmail.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, netdev@vger.kernel.org,
+	Fri, 14 Feb 2025 00:40:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C68D1113E;
+	Thu, 13 Feb 2025 16:40:19 -0800 (PST)
+Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9EBD23F5A1;
+	Thu, 13 Feb 2025 16:39:57 -0800 (PST)
+From: Andre Przywara <andre.przywara@arm.com>
+To: Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-gpio@vger.kernel.org,
 	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 1/2] dt-bindings: net: Add FSD EQoS device tree
- bindings
-Message-ID: <85e0dec0-5b40-427a-9417-cae0ed2aa484@lunn.ch>
-References: <20250213044624.37334-1-swathi.ks@samsung.com>
- <CGME20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff@epcas5p1.samsung.com>
- <20250213044624.37334-2-swathi.ks@samsung.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/8] pinctrl: sunxi: Add Allwinner A523 support
+Date: Fri, 14 Feb 2025 00:37:26 +0000
+Message-ID: <20250214003734.14944-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.46.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250213044624.37334-2-swathi.ks@samsung.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_161950_024789_41681DF0 
-X-CRM114-Status: UNSURE (   6.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250213_164002_908854_284E1401 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,17 +69,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +  phy-mode:
-> +    enum:
-> +      - rgmii-id
+Hi,
 
-phy-mode is normally a board property, in the .dts file, since the
-board might decide to have extra long clock lines and so want
-'rgmii'.
+this is the second drop of the series introducing pinctrl support for the
+Allwinner A523 family of SoCs (comprising A523, A527, T527, H728). [1]
+Aside from being (trivially) rebased on v6.14-rc1, this series just
+contains two fixes, for using all 11 GPIO banks on the A525/T527, and
+adds a more elaborate comment for the new pinctrl code. Also the DT
+binding is now in a separate file.
+It looks like we reached consensus that this approach of losing the
+pinctrl table in the kernel source is better than using the one used for
+Apple Silicon SoCs, so hopefully this gets reviewed and makes it into the
+tree. For a changelog see below.
 
-The only reason i can think of putting rgmii-id here is if the MAC
-only supports 'rgmii-id', it is impossible to make it not add delays.
-If that is true, a comment would be good.
+The first four patches extend the sunxi pinctrl core code to deal with
+some specialities of the new SoC: it uses every of the 11 possible banks
+except the first one, which required some register remapping. The first
+patch here is some cleanup, which we should take regardless, I think,
+since it fixes some hack we introduced with the D1 support.
 
-	Andrew
+The main feature is actually patch 5, which introduces a new way to
+express the required pinmux values for each function/pin pair. 
+Traditionally, we dumped a rather large table of data into the (single
+image!) kernel for that, but this approach now puts that value into
+the DT, and builds the table at runtime. This patch was posted twice
+before [2][3], the last time LinusW seemed to be fine with the idea,
+just complained about the abuse of the generic pinmux property. I changed
+that to allwinner,pinmux now.
+
+The rest of the patches are the usual suspects: the two files for the
+two pinctrl instances of the new SoC (now very small), and the DT
+binding.
+
+Based on v6.14-rc1. Please have a look, review and test!
+
+Cheers,
+Andre
+
+[1] https://linux-sunxi.org/A523#Family_of_sun55iw3
+[2] https://patchwork.ozlabs.org/project/linux-gpio/cover/20171113012523.2328-1-andre.przywara@arm.com/
+[3] https://lore.kernel.org/linux-arm-kernel/20221110014255.20711-1-andre.przywara@arm.com/
+
+Changelog v1 .. v2:
+- rebased on v6.14-rc1
+- extend regulator array to cover PortK as well
+- increase number of pins in A523 PortJ from 18 to 28
+- extend comment for new pinctrl DT code
+- move DT binding into separate yaml file
+- Add Jernej's Reviewed-by (with thanks!)
+
+Andre Przywara (8):
+  pinctrl: sunxi: refactor pinctrl variants into flags
+  pinctrl: sunxi: increase number of GPIO bank regulators
+  pinctrl: sunxi: move bank K register offset
+  pinctrl: sunxi: support moved power configuration registers
+  pinctrl: sunxi: allow reading mux values from DT
+  dt-bindings: pinctrl: add compatible for Allwinner A523/T527
+  pinctrl: sunxi: Add support for the Allwinner A523
+  pinctrl: sunxi: Add support for the secondary A523 GPIO ports
+
+ .../allwinner,sun55i-a523-pinctrl.yaml        | 177 +++++++++
+ drivers/pinctrl/sunxi/Kconfig                 |  10 +
+ drivers/pinctrl/sunxi/Makefile                |   3 +
+ drivers/pinctrl/sunxi/pinctrl-sun20i-d1.c     |   6 +-
+ drivers/pinctrl/sunxi/pinctrl-sun4i-a10.c     |   8 +-
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c |  54 +++
+ drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c   |  54 +++
+ drivers/pinctrl/sunxi/pinctrl-sun5i.c         |   8 +-
+ drivers/pinctrl/sunxi/pinctrl-sun6i-a31.c     |   8 +-
+ drivers/pinctrl/sunxi/pinctrl-sun8i-v3s.c     |   7 +-
+ drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c      | 374 ++++++++++++++++++
+ drivers/pinctrl/sunxi/pinctrl-sunxi.c         |  54 ++-
+ drivers/pinctrl/sunxi/pinctrl-sunxi.h         |  47 ++-
+ 13 files changed, 760 insertions(+), 50 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/allwinner,sun55i-a523-pinctrl.yaml
+ create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun55i-a523-r.c
+ create mode 100644 drivers/pinctrl/sunxi/pinctrl-sun55i-a523.c
+ create mode 100644 drivers/pinctrl/sunxi/pinctrl-sunxi-dt.c
+
+-- 
+2.46.3
+
 
