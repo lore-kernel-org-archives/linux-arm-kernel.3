@@ -4,89 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 028A4C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 16:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34088C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 16:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XIQxAOlocARNH49GYFxKSJxsCD0kfjdtJv143F2MNqM=; b=mGPpdMa3Dp2VGSQR+c+TyI2Dod
-	zT/BwtLeU4yzfZ8PeU3Odz5cqlpkr7bkcsDtbqx+7NR+ZKSJR8WTtbxcgpgLwlZe5zHvR9VcboZHw
-	aOaaRoy8kE5rNIFLvOIJGLLFeDqC577FAtFtNfR2jx3ZSvc7YZ1ea/dcy7eMIyMz3GseXkmRg/rtR
-	TxTnO9O58NnYeBv4pK5giaCYmlObqh5XPVvPtjHGKU0DKdScNKwFWs8UuaZoRPQJrDVjAR/ni9ne7
-	d6qDLEv43nPXtdvzsQBKkYAuPMnYK1RZmYWv1RSeqOoERvzcXbg/61pDw3Adq0UbFZMV0XgQCVrfP
-	S7oA+KrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u7I5GRvEE2pzUSXcf/Hf1yjiGAT7XxwAAoIY5GiufU8=; b=JWGD4CM+rVMAyvbj5J7j7tsR5C
+	rojeFZXvJHaTT3e78qTuUnnCI+sIPsSY8cc2YXyb4vN/J7HNWPSVJffyP32Y4F7GiRqgbP23EA7AL
+	5+3AxrNFVVnZWzsVxgS994POQvhKtKWe0kcJAJSLPH+iZi/5V/nlDon/C40NBBoNGiHhPwfTXJYiW
+	bsG9miAf8qf0NTj7makBO1VK/X+xo42qbs7ob2662t6dLiCWc/YDVcRztY6zz63/JSx9cOMVnJ1k3
+	Uo+vsCH36UN3MmN1lGv5D5AnFqk0J8tjBqWBlFrngf/4fEDg/vTOqcJ/0UYPJIif7ri9GYc/wC83P
+	aiwCVf+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiymU-0000000FYMN-0YCS;
-	Fri, 14 Feb 2025 16:43:10 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tiyoA-0000000FYfD-1fJl;
+	Fri, 14 Feb 2025 16:44:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiyl1-0000000FYBY-28Pe;
-	Fri, 14 Feb 2025 16:41:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739551297;
-	bh=vWYUlyzKnZJB5j79G/froqtYYA8MVpZ8A+1xbZe3+/w=;
-	h=From:To:Cc:Subject:Date:From;
-	b=S3Yl+E9YyB1uFs+KuY3OJBJx+doxHsAQQpFGaPW/tPn0N8ZngWwUZpTpwJluGiigH
-	 xL+2XP0255p9SxvVaibtUP1oA1WfptKXAWCGNpS/HJC8ZxQxqhUKccOfl0f02SqCFx
-	 GaROX8vqrDbOoUEVp8JH3VoLidg2+hpK/s/oPEQ4hNXsOBVkcGGWZx5FhkGVOahmf2
-	 UDIGgIqcZ+hOuuKNjYrP6e6zMFla80xAV+qWlRlvtVUAURwMd5HtqY+mKrJsDebI1r
-	 J1codIUUBH2v4G/gT8JuDPT7+B0RkrGunAVrH1hAlPHwkbOlJun3UxssNbu2XNYMRX
-	 i4HRxoWxU5xEQ==
-Received: from earth.mtl.collabora.ca (mtl.collabora.ca [66.171.169.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1E83317E0FBA;
-	Fri, 14 Feb 2025 17:41:34 +0100 (CET)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-To: linux-kernel@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Niklas Cassel <cassel@kernel.org>,
-	Dragan Simic <dsimic@manjaro.org>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Johan Jonker <jbx6244@gmail.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Algea Cao <algea.cao@rock-chips.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Sugar Zhang <sugar.zhang@rock-chips.com>,
-	devicetree@vger.kernel.org,
+	id 1tiymi-0000000FYQM-1lej
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 14 Feb 2025 16:43:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 604A35C4C05;
+	Fri, 14 Feb 2025 16:42:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CEBDC4CED1;
+	Fri, 14 Feb 2025 16:43:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739551403;
+	bh=nZvXCi+p67k4zNOl9SV+J07JZZJ0CvtmHctG/EhAgfc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=otpRedNLdmkSfIG1ewq3m7jO5EqL/ME7MqTtET8n1HLK3dt4IPmV0p24IycXb+lQU
+	 lq7aPURx50WL4kVol7fBVPUTg81g6i2EoNJMhhR/uUL2bWwij82aRsuzPcUtdiBUZy
+	 3o/NO1gxS1dQHxf2w91pdfHFpewi19Xwzk80qNv2pDJmDR+HZir076sz3eidPPHpD7
+	 hCwXDvC4heyobMZk5T4W74zC1q8rholTFsg0aDrVyeR7R5moyRaUvnMBlEF1EThwSV
+	 lGKTU9PDFuU9PjarYbohV92EIM6XML2SAFwCfSuAEWHcmnf95Efr4TSmg3x1DID4ZB
+	 EEvORoaH5KuQQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tiymf-0048hO-6A;
+	Fri, 14 Feb 2025 16:43:21 +0000
+Date: Fri, 14 Feb 2025 16:43:20 +0000
+Message-ID: <86mseoscif.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sebastian Ott <sebott@redhat.com>
+Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	kvmarm@lists.linux.dev,
+	oliver.upton@linux.dev,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	cohuck@redhat.com,
+	eric.auger@redhat.com,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	jiangkunkun@huawei.com,
+	jonathan.cameron@huawei.com,
+	anthony.jebson@huawei.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	kernel@collabora.com
-Subject: [PATCH v6 0/3] Add HDMI audio on the rk3588 SoC
-Date: Fri, 14 Feb 2025 11:39:24 -0500
-Message-ID: <20250214164126.533685-1-detlev.casanova@collabora.com>
-X-Mailer: git-send-email 2.48.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	linuxarm@huawei.com
+Subject: Re: [PATCH v7 4/5] smccc/kvm_guest: Enable errata based on implementation CPUs
+In-Reply-To: <10831a79-a21f-dc40-a374-81b300d26dac@redhat.com>
+References: <20250214151343.61348-1-shameerali.kolothum.thodi@huawei.com>
+	<20250214151343.61348-5-shameerali.kolothum.thodi@huawei.com>
+	<10831a79-a21f-dc40-a374-81b300d26dac@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sebott@redhat.com, shameerali.kolothum.thodi@huawei.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, cohuck@redhat.com, eric.auger@redhat.com, yuzenghui@huawei.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, jonathan.cameron@huawei.com, anthony.jebson@huawei.com, linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_084139_699382_A4F60150 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20250214_084324_512653_50366F09 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,64 +98,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To support HDMI audio on the rk3588 based devices, the generic HDMI
-Codec framework is used in the dw-hdmi-qp DRM bridge driver.
+On Fri, 14 Feb 2025 16:12:02 +0000,
+Sebastian Ott <sebott@redhat.com> wrote:
+> 
+> On Fri, 14 Feb 2025, Shameer Kolothum wrote:
+> > +++ b/arch/arm64/kernel/cpu_errata.c
+> > @@ -14,6 +14,9 @@
+> > #include <asm/kvm_asm.h>
+> > #include <asm/smp_plat.h>
+> > 
+> > +u32 target_impl_cpu_num;
+> > +struct target_impl_cpu *target_impl_cpus;
+> 
+> These should be exported (for configs using
+> CONFIG_CORESIGHT_SOURCE_ETM4X=m)
 
-The implementation is mainly based on the downstream driver, ported to the
-generic HDMI Codec framework [1] recently merged in the master branch.
-The parameters computation has been kept as is and the data stored in the
-dw_hdmi_qp struct as been cleaned up.
+It might be better to make is_midr_in_range() out of line, and export
+that. This could allow making the data static (by implementing a
+couple of additional accessors).
 
-The table for the N values has been edited to reflect N recommended values
-as well as CTS recommended values.
+Thanks,
 
-The downstream kernel also implements a machine driver for HDMI audio but
-it is doing exactly what the simple-audio-card driver does, so use that
-instead in the RK3588 SoC device tree.
-
-Based on Linus' master branch.
-
-[1]: https://lore.kernel.org/all/20241224-drm-bridge-hdmi-connector-v10-0-dc89577cd438@linaro.org/
-
-Changes since v5:
- - Simplify audio math computation for N
- - Move hdmi0-sound node up with other address-less nodes
-
-Changes since v4:
- - Moved hdmi0_audio node the rk3588-base.dtsi
- - Enable hdmi0_audio in rk3588-rock-5b.dts
-
-Changes since v3:
- - Renamed function to start with dw_hdmi_qp
-
-Changes since v2:
- - Also clear the audio infoframe
- - Write AUDI_CONTENTS0 to its default value in case it gets overwritten.
- - Store tmds_char_rate in the dw_hdmi_qp struct in atomic_enable
- - Clear tmds_char_rate in atomic_disable and only write registers when
-   tmds_char_rate is not 0.
- - Do not use connector_state duplicates
-
-Changes since v1:
- - Remove useless audio_mutex (was used downstream for multiple drivers access
-   to audio functions)
- - Let hdmi_codec build and setup audio infoframes
- - Only access audio registers when connector is connected
- - Rebased on master branch
-
-Detlev Casanova (2):
-  arm64: dts: rockchip: Add HDMI0 audio output for rk3588 SoC
-  arm64: dts: rockchip: Enable HDMI0 audio output for Rock 5B
-
-Sugar Zhang (1):
-  drm/bridge: synopsys: Add audio support for dw-hdmi-qp
-
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  17 +
- .../boot/dts/rockchip/rk3588-rock-5b.dts      |   8 +
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c  | 489 ++++++++++++++++++
- 3 files changed, 514 insertions(+)
+	M.
 
 -- 
-2.48.1
-
+Without deviation from the norm, progress is not possible.
 
