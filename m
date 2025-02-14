@@ -4,74 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE94DC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 06:13:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 553CFC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 06:15:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1YWeiljKExMoeSj6HOU20LKVG4PKih+J9q+gR+QvZPs=; b=b5k+NtZ2grPEd38VXQyobPBcrr
-	7dDDv72fBaL6+SyimGK/2zFdo3+Hr5QJAR5bm8BHS3+YkhYV5Oxg0EnfQxuPgFAM6za2k1eEdFxUg
-	ybF6dhU4BaZbKz3W28Yjo0UIAnMnnBe6j6Q6Y3K4f19FkbgqhvekhqCr6MoOTn3cMn2CSzctZcd+D
-	7hxI+SdWR4fRTKqiotWVz7ULRf8iQh4Le/c004zRqPZQcgBg6+9GVVF0v4wNAGWiHZVNskDld39id
-	5HVUyAo1UIJeWR+Q4Z8G60gtqrJ5+3UFBi9rFC4UHemEzFE12BgxVoJn+1+Kwv6yfijx9et1iJS79
-	caTr9WkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E+zHukzTxoUAqQh1pniz8wv7WSmBiWd4YYjBi2Wtb9c=; b=kQ6IJ3PgevZU5aiN595gVgOiT+
+	UkXe/6vOI4dg2fZh0pIVc1Jkp460MimabBK7P9l8My+0pMOYpUaxl4XqFX1fldRn29epTvludC3t9
+	T491S8uu3bsqwbewTK3h65B8xcR6kd5AJxDYlfr/FqHkmA+/W2tQ/TnwRB7SJqddMUgH34VMMIXIy
+	0c8lH2jmsLY/I1ywrsps8jTCpbxZ/KZ1XmgvakBHC7QfXjryOjX0sTQS+QTm/vJAllpfb74fsWA75
+	JZrlqFglJMSkPm/4HXXQAH4gSgNe9KW+X7lHWwwbB9Tlc1UENqqLgEwsJtHeLBeQ2iHWsfX+0HoFY
+	ytTZZxLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tioxB-0000000DmsO-0GoT;
-	Fri, 14 Feb 2025 06:13:33 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tiozL-0000000DnK0-38fm;
+	Fri, 14 Feb 2025 06:15:47 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiovi-0000000DmbL-3qXn
+	id 1tioxt-0000000Dn3i-0aqi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 06:12:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BDA2DA40AE3;
-	Fri, 14 Feb 2025 06:10:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40A4BC4CED1;
-	Fri, 14 Feb 2025 06:12:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739513521;
-	bh=kjKHneaaDBuIXsWcKyGK0NM3OpIrEwVZV5f1ZO7dz88=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jNYIiPYqj9k89L1AKdVGtNfga4LBPcic0J5cebK2pXX6HgY567bCvRpJVgbuS9m3L
-	 WVF/bU4zCZhy8J9rWmbVca5XFTefAOvM1HsSZ9lI6L8eN4cBOQ6JlNTxhsvf4tI9wO
-	 Pn3AezEVm4n1xUe/vQOPiVD55BvBVEf4l93S+4V1PD//j6Twur6PjqopS8ehqzdQYQ
-	 4tQvvuiao6KylzQ6cKbYYrZ/U1K2mKihuddgDMcbEyfQCOB9j+JLI27W4jZOLqRmEf
-	 iT3kd0zNFnUfuG3R99ecdcN7VDDqzkQ7Se2W1QVmsv3//FM+OIV8k36mNLqOC0aune
-	 v2GD8WXX8XNIw==
-Date: Thu, 13 Feb 2025 22:11:59 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: fsverity@lists.linux.dev, linux-crypto@vger.kernel.org,
-	dm-devel@lists.linux.dev, x86@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Mikulas Patocka <mpatocka@redhat.com>,
-	David Howells <dhowells@redhat.com>, netdev@vger.kernel.org
-Subject: Re: [PATCH v8 0/7] Optimize dm-verity and fsverity using multibuffer
- hashing
-Message-ID: <20250214061159.GC2771@sol.localdomain>
-References: <20250212154718.44255-1-ebiggers@kernel.org>
- <Z61yZjslWKmDGE_t@gondor.apana.org.au>
- <20250213063304.GA11664@sol.localdomain>
- <Z66uH_aeKc7ubONg@gondor.apana.org.au>
- <20250214033518.GA2771@sol.localdomain>
- <Z669mxPsSpej6K6K@gondor.apana.org.au>
- <20250214042951.GB2771@sol.localdomain>
- <Z67M6iSoMyvGwkAF@gondor.apana.org.au>
+	Fri, 14 Feb 2025 06:14:19 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5de5a853090so3736446a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 22:14:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739513655; x=1740118455; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=E+zHukzTxoUAqQh1pniz8wv7WSmBiWd4YYjBi2Wtb9c=;
+        b=sR+sOGfwMPusrPWUX9DPV7PEqX82LI1mMlyGig7altJ8coyH8RbSUEdcS98vQYQ2vX
+         ipwVPEKhAGM5adLVxUwT5sX4aPuwogycyVN/4Zza9U3AFLhhYQj6J7pn3VFrgJqIqGZG
+         cnvSrEuHxyAJG4IjudX0Kai28aLpqGlbXvy6fb5udoHoql4Xwhc8icb1Q3B/fS1auYPv
+         ecAAGciOdmBBUXQ243PRm/EQenWyT7Hj+anTaDsa8OvMQ1+dJ331LsGvFt3CQ3CcOGpB
+         w92lVCXwz2B1qgrIB5dhaKNAle0XDER3SGYs0YKANAIL4RL7idHaEHTKlA+AmBT0iEAq
+         j09g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739513655; x=1740118455;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=E+zHukzTxoUAqQh1pniz8wv7WSmBiWd4YYjBi2Wtb9c=;
+        b=cLX15+H6yzBo5rX2xOsAHENEaWarHpSMy3VjkvD6hoCQePpputUERR817MtroAixkV
+         HxJDC65EuUvp6DSBcXgJVMzgqHi8FVIjFmt4GV8W70adrd6oijByOQqihFzc/Rp9C63u
+         W0Drdzo2MfCXf6kTP5zcnF+KKR3p68x4/agm/IFKeCH1hkGN+CxvC6ioof6fx/r5ZD1v
+         DukQJgG+9wwbu2sYBw7yDloPJd8LNHQud3aCVmpR69SCw34m8cTgbcBNseze5hO4EgmB
+         ltCdNosRIcUPzZSQUkJAhBKKjOlPFztqnzrEUT5M8lIg5S4zStmY2Z0r6CNEcDJPFoyh
+         8vsg==
+X-Forwarded-Encrypted: i=1; AJvYcCXtOrR/qHUOrQPDKLLfGV13xyZxYqBbCt5NNPhPflfLXYZ6zTQjMIsgEGcoSl81sKN9CaRagS5L+cVtZbhAJYLx@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDmvx2h6ZDEli+hnLUk6vQIBT1IaBfKH0KtOyJIKN+H9JdUOnF
+	ZIIFAfUbD60sWUehwrxDGrrejWR9WNvz/3DuNvfPeFvRSq3A6p2k3lbAhSCqCog=
+X-Gm-Gg: ASbGnctVy6J5k0URz3sIbZfGUL9wkv6RVICyMPvq+8Ge6/JWdgpHj4XHgJzEYOG4pLb
+	5OofZisWQYyjzXy1RxmK03OnZUnOAFSpE+55s9bPpWzEcVgvrPii6fqJkTCq0V6Id61zVup5/TP
+	frsTMMs5OobNGIE/GYEG1rqUiE6sMqRFkgVEyhYYVmhlH9/ZA5I7WXL6/VBv/lNyDiA1PIjGje3
+	pOI6fq2duuwwShRGsnAtxbK/s7AK78PoOp+hf+warQxhziYM6bE8fCba7vjmQtAVlrOO8Qh042i
+	LQ3utLP6lbr8QH7SQKhCN/eq
+X-Google-Smtp-Source: AGHT+IEmV/spFwDvPJBmBni+qOvQYaJLBVXLCJxYkFEXGyz6aAo+8zl5YqR1HK+HjXkmRorI/a/vqw==
+X-Received: by 2002:a17:907:724c:b0:ab7:d10b:e1de with SMTP id a640c23a62f3a-ab7f339c868mr973175866b.13.1739513655453;
+        Thu, 13 Feb 2025 22:14:15 -0800 (PST)
+Received: from [192.168.0.14] ([79.115.63.124])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aba532580c5sm276049766b.56.2025.02.13.22.14.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Feb 2025 22:14:14 -0800 (PST)
+Message-ID: <f4967c68-d79d-4ba5-ad0c-5526e7e1ccec@linaro.org>
+Date: Fri, 14 Feb 2025 06:14:12 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z67M6iSoMyvGwkAF@gondor.apana.org.au>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 0/2] spi: s3c64xx: add support for
+ samsung,exynos990-spi
+To: Denzeel Oliva <wachiturroxd150@gmail.com>
+Cc: alim.akhtar@samsung.com, andi.shyti@kernel.org, andre.draszik@linaro.org,
+ broonie@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-spi@vger.kernel.org, peter.griffin@linaro.org, robh@kernel.org
+References: <20250212191241.280-1-wachiturroxd150@gmail.com>
+ <bad7b5b6-c61b-4e93-9415-6476976c8e81@linaro.org>
+ <Z65MYSNuDdCFNlv6@droid-r8s>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <Z65MYSNuDdCFNlv6@droid-r8s>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_221203_087026_A5AB1C40 
-X-CRM114-Status: GOOD (  30.16  )
+X-CRM114-CacheID: sfid-20250213_221417_191355_6FD7D739 
+X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,74 +106,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 12:56:10PM +0800, Herbert Xu wrote:
-> On Thu, Feb 13, 2025 at 08:29:51PM -0800, Eric Biggers wrote:
-> >
-> > That doesn't actually exist, and your code snippet is also buggy (undefined
-> > behavior) because it never sets the tfm pointer in the ahash_request.  So this
-> 
-> Well thanks for pointing out that deficiency.  It would be good
-> to be able to set the tfm in the macro, something like:
-> 
-> #define SYNC_AHASH_REQUEST_ON_STACK(name, _tfm) \
-> 	char __##name##_desc[sizeof(struct ahash_request) + \
-> 			     MAX_SYNC_AHASH_REQSIZE \
-> 			    ] CRYPTO_MINALIGN_ATTR; \
-> 	struct ahash_request *name = (((struct ahash_request *)__##name##_desc)->base.tfm = crypto_sync_ahash_tfm((_tfm)), (void *)__##name##_desc)
 
-I'm not sure what you intended with the second line, which looks like it won't
-compile.  The first line also shows that ahash_request has a large alignment for
-DMA, which is irrelevant for CPU based crypto.  And I'm not sure
-__attribute__((aligned)) with that alignment on the stack even works reliably
-all architectures; we've had issues with that in the past.  So again you're
-still proposing APIs with weird quirks caused by bolting CPU-based crypto
-support onto an API designed for an obsolete style of hardware offload.
 
-> > just shows that you still can't use your own proposed APIs correctly because
-> > they're still too complex.  Yes the virt address support would be an improvement
-> > on current ahash, but it would still be bolted onto an interface that wasn't
-> > designed for it.  There would still be the weirdness of having to initialize so
-> > many unnecessary fields in the request, and having "synchronous asynchronous
-> > hashes" which is always a fun one to try to explain to people.  The shash and
-> > lib/crypto/ interfaces are much better as they do not have these problems.
-> 
-> I'm more than happy to rename ahash to hash.  The only reason
-> it was called ahash is to distinguish it from shash, which will
-> no longer be necessary.
-> 
-> > never use exactly the same API anyway, just similar ones.  And FWIW, zswap is
-> > synchronous, so yet again all the weird async stuff just gets in the way.
-> 
-> I think you're again conflating two different concepts.  Yes
-> zswap/iaa are sleepable, but they're not synchronous.  
+On 2/13/25 7:47 PM, Denzeel Oliva wrote:
+> Yes, Exynos990 has SPI nodes with 256-byte FIFOs, and you can see this in
+> the downstream kernel. Here are some relevant references:
 
-Here's the compression in zswap:
-
-    comp_ret = crypto_wait_req(crypto_acomp_compress(acomp_ctx->req), &acomp_ctx->wait);
-
-And here's the decompression:
-
-    BUG_ON(crypto_wait_req(crypto_acomp_decompress(acomp_ctx->req), &acomp_ctx->wait));
-
-It waits synchronously for each request to complete.
-
-It doesn't want an asynchronous API.
-
-> iaa is also useable by IPsec, which is most certainly not sleepable.
-
-The IAA driver doesn't actually support encryption, so that's a very bad start.
-But even assuming it was added, the premise of IAA being helpful for IPsec seems
-questionable.  AES-GCM is already accelerated via the VAES and VPCLMULQDQ
-instructions, performing at 10-30 GB/s per thread on recent processors.  It's
-hard to see how legacy-style offload can beat that in practice, when accounting
-for all the driver overhead and the fact that memory often ends up as the
-bottleneck these days.  But of course for optimal IPsec performance you actually
-need adapter-level offload (inline crypto) which does not use the crypto API at
-all, so again the legacy-style offload support in the crypto API is irrelevant.
-
-But, this is tangential to this discussion, since we can still keep the legacy
-style hardware offload APIs around for the few users that think they want them.
-The point is that we shouldn't let them drag down everyone else.
-
-- Eric
+thanks for the references!
 
