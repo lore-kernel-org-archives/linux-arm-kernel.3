@@ -4,93 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C2FC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 09:58:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3E6BC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 10:00:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VBiD7/TI0aKseXEMmKgD2oELAB9ZikaBNgYWBQNctFA=; b=uW1IoQNkYO7nvb00YscRPd6wVr
-	0gn7Y4pEienQNH45h0/0+vQc9xDlfJ+iY6bzD9eHzFqbXKgxkZWjaqPI3y0rbuyhCpZ4eTz5QpUV8
-	CoerC/AuoMUP7vt8ef4a53DYcwyO4Q3KKM4hLOsIz+lvnYIPTq13kwZ8P+AeIRMtqmgaWAEFzYG9g
-	p2cMOh1xPNgoWXh2LkdvVYCcv1wCtxE52TsddAhC3tzTar/Np+8tAz6I5jHoS++yvaZuPNqnbgAdz
-	6QYS5YRDC1qE+U9SxXdtitu4H2HhoESSMER9ddRx/a+78dHzC1e1ctQoXg6eLIyPXHQHqDoeh367c
-	DDn16STQ==;
+	bh=WszC8fhjLFI047hUcNXHd7sMKPutQxHPN/QvhOHIq5c=; b=AYpbVw7oRDZab+4SN8IMYqIoR3
+	f1m496KiBXIUXW9v8D53b3B2/vGSPLsy/WUV2dhf+phErzhUNmWsbBJuIAThanbbzeWgkOFUMoyr3
+	D/4IL/43caxqqBoBWf/k7PrmQzuNilUeDF6KEtRRuiZp7eUFB7Qf9PCYZJtoBS7nt/FFGpomYOzjf
+	Vz1iYtXGDdQF0ltdhyyF3UwCPn8xS6kFbP4xQmRfgdKpBLi3Z8uOjKk7pCpHjSY/oJhS/gNuoEJmX
+	AwzUlO3WqHElNh/DUnfyPhaJsSQUS2EHteNKgcVkrjjqNAOQiKYBIFED48d3R8vkQ/uH6ArIZiB1t
+	Vy7qVZtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tisSs-0000000EPeI-1nUU;
-	Fri, 14 Feb 2025 09:58:30 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tisUI-0000000EQ4b-2klm;
+	Fri, 14 Feb 2025 09:59:58 +0000
+Received: from mail-tyzapc01on2072a.outbound.protection.outlook.com ([2a01:111:f403:2011::72a] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tisJE-0000000EO1I-2de4
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 09:48:33 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51E8oIwi020887;
-	Fri, 14 Feb 2025 09:48:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	VBiD7/TI0aKseXEMmKgD2oELAB9ZikaBNgYWBQNctFA=; b=pFcsebAzMv82jAHT
-	UkPnhxmze/K6gtfRBLz68CgeinFew8WbuNPJX9KRyCpvBeUiRGfRp47ChyCRcMdd
-	a/51g2pVy5Rwac9ydfZSPjYFTkHhNfAZWhbWTd9ZD27OkoToHRRszNSBzvXq3kEW
-	aKaWklsbS8DsC3J2xnqpQthMC4dlSQfNgbz68vUa0nmpuzOAbn61RoaqO9kKz99i
-	HMudYkYZSYhQRSJsrt1H4rnuToH58TV56ZV39Nk7Wa9HA5YTk2wTCgU3/RD44lrY
-	/LigQ5+Y5lklbZPisc3z1ADX1OwWVcxxNxpmZg2Uvn4vtrMSFXyaPI/UaaXljU/s
-	fgKkfQ==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44sdyxuafd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 14 Feb 2025 09:48:25 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51E9mOsa019242
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 14 Feb 2025 09:48:24 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 14 Feb 2025 01:48:18 -0800
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
-        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
-        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        "Suresh
- Vankadara" <quic_svankada@quicinc.com>
-Subject: [PATCH v1 2/2] arm64: dts: qcom: qcs8300: Add support for camss
-Date: Fri, 14 Feb 2025 15:17:47 +0530
-Message-ID: <20250214094747.2483058-3-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250214094747.2483058-1-quic_vikramsa@quicinc.com>
-References: <20250214094747.2483058-1-quic_vikramsa@quicinc.com>
-MIME-Version: 1.0
+	id 1tisMF-0000000EOX5-3TPn;
+	Fri, 14 Feb 2025 09:51:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IFdoxZdv9Idcz4ZvBt9Y3Ji60KSxFPc8AMMJrvrJSEoKGrwU4YX9ggXQxD/I4cdWs36eBJPwN7C961+nWP5yHGxeQ96OdfKs6RX+byPw2153Mx1knFn/Zw2qR4hhFdI/0t5iBjNfcgS6PKcwx6GTc3AlQiefCtG98jHAsjs+eDSK46Gb9pbl8nCmo4gKmA7yEBJRWoOMzaTTjr0MmZeNhZ6Fiqp1mjnT28XY58KfDGVJIwfplHsTnyS2ugh2XTZx7TBAUxT95xfYzS/i1ij9+rhzoveiCF6tGAZz8E7QYrYEzPpFcqdCtyCxr3TDu7PzSty595mp+1y/h2/imhGO2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WszC8fhjLFI047hUcNXHd7sMKPutQxHPN/QvhOHIq5c=;
+ b=TZknqOFwWz1kQtfpKNn4CRM/epPb3b6ay49KlB35Vh8B+BVHy8SKIG1KrkaMy6bWMcAlHhAC7HBDIOrFWwz8i4b6Nuhh41xYX19vhlWjv+U/9VR0q+9qA9V8/Q14eXjDIBUQd69V27d1ManM7UwXPCbmApfCP2EcmRR1sxVtN95PKSwLqyzTsybw4RfNSErs4Pst5X0GhkI82H0ZB1wcTUcdQN/uVOYBYNr8XYW/REWBaekLTNE1ssyPlty5ztP70s7xUPC7X9Ny0r82npq7hx8ERgz+T2ThBmS1B4CNttKiD61r147Qh04LvlpiFMJnKsgTW2nHp+9B+VwBJTzN2w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WszC8fhjLFI047hUcNXHd7sMKPutQxHPN/QvhOHIq5c=;
+ b=fbba2AcjrWRv5lZNYCbAicxqlrBrsadrUlIGNz8rZkrCf7qo4/xkoWW19RgBKREf03LvlFkywGpHxM78aghwAPXXbIxxi6uI8E9TeAutpEeDKQxvvL/uRoBb6mEoT87a6YpjQON0MPV3ltkYNoqvg59au8gZKgI2MiLPAG6MSrMzp6g4ljo2riSlFGg7WtRsOXijzeglxGku/kEmwVQ/HgauGJH6jIpH5ILLSvmXg55iRFLCelQUwwaijjy2fhOH8Joa4Jb1ss6cDpxPw9RW/2ocTPDXyeCFhnsEzz42aYbPsmzBpZGIngmSqG+SiTiKrG2I7G57AjciB0OtcC4s3Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from PUZPR03MB7135.apcprd03.prod.outlook.com (2603:1096:301:113::15)
+ by SI2PR03MB6782.apcprd03.prod.outlook.com (2603:1096:4:1ee::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.17; Fri, 14 Feb
+ 2025 09:51:33 +0000
+Received: from PUZPR03MB7135.apcprd03.prod.outlook.com
+ ([fe80::ecac:a387:36d8:144d]) by PUZPR03MB7135.apcprd03.prod.outlook.com
+ ([fe80::ecac:a387:36d8:144d%3]) with mapi id 15.20.8445.015; Fri, 14 Feb 2025
+ 09:51:33 +0000
+Message-ID: <d2677180-9e98-4ba0-86c7-7e1e499c4456@amlogic.com>
+Date: Fri, 14 Feb 2025 17:51:26 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/5] ASoC: meson: s4:support the audio clk
+From: Jiebing Chen <jiebing.chen@amlogic.com>
+To: Jerome Brunet <jbrunet@baylibre.com>,
+ jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org,
+ jian.xu@amlogic.com, shuai.li@amlogic.com, zhe.wang@amlogic.com
+References: <20250214-audio_drvier-v2-0-37881fa37c9e@amlogic.com>
+ <20250214-audio_drvier-v2-3-37881fa37c9e@amlogic.com>
+ <1jed00zy4i.fsf@starbuckisacylon.baylibre.com>
+ <1j8qq8zxzn.fsf@starbuckisacylon.baylibre.com>
+ <67aa2e46-b63e-4a7c-8b14-37e2b63d44ec@amlogic.com>
+In-Reply-To: <67aa2e46-b63e-4a7c-8b14-37e2b63d44ec@amlogic.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: CDpqfKuzPUeeVMlWX_doHzcv8WDk8bv_
-X-Proofpoint-GUID: CDpqfKuzPUeeVMlWX_doHzcv8WDk8bv_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-14_04,2025-02-13_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 mlxscore=0
- spamscore=0 bulkscore=0 suspectscore=0 mlxlogscore=828 priorityscore=1501
- clxscore=1015 lowpriorityscore=0 phishscore=0 impostorscore=0
- malwarescore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502140070
+X-ClientProxiedBy: SG2PR06CA0197.apcprd06.prod.outlook.com (2603:1096:4:1::29)
+ To PUZPR03MB7135.apcprd03.prod.outlook.com (2603:1096:301:113::15)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PUZPR03MB7135:EE_|SI2PR03MB6782:EE_
+X-MS-Office365-Filtering-Correlation-Id: c690167a-3140-4ac0-91f6-08dd4cdd29a7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?S3lhRzFLekp5aXhxTm04enpuVGpRR0JhalMxZjdoUUNYakt3RE0vdFhWZUpE?=
+ =?utf-8?B?bEJmTTBBTXJ6RzcyZ0MvaUpadGNOdFJMVVgydnVaM1RiNW5ZNXkrajlKUGNF?=
+ =?utf-8?B?U01LSHBlSk5GeURiNE9KRytUY0w2SERvVTJsbmRkMEFFdFd4OWZldTYrWm5F?=
+ =?utf-8?B?aTIwYTlDRGU4dFZud21mRVVhbTlOY1ppUThhVWwzTk9YUDNwL21hYU5sQ1dz?=
+ =?utf-8?B?ZEp5RDdqOW4yYWJoRkdpN0FOTWdsUHBnT0cxL0Q0WG5oVys0VFAwYmx3NTBX?=
+ =?utf-8?B?ZnltcmNQellkTjRBYzIya09DdzlzRUh5M3NJMDRHeGl2eGZxak12UkVKLy9L?=
+ =?utf-8?B?NEFYTWNONEx2Q1B6OXZvYktKS3dxS3FZckloR0VXb0hqRVJGcVpBQ0IraGNr?=
+ =?utf-8?B?cGFRRy9mMzk2QklXWW95MUdtQUFaRVZkWjdCekdCN0VXQ0orRUFkZE4zUGtH?=
+ =?utf-8?B?UGlhbHVUYVRTZXN2VEZnV1RicUZWZTE2c09jbnpiQmFkQzNmSGtvc1dNRGhB?=
+ =?utf-8?B?SldqMlZpL3U3ZkRidmNPYTEwdFdSelFWdHF5OUpOMTM4S21DQW0xSmlSS1Qw?=
+ =?utf-8?B?WW1oM29JU1hkLzVnYVFjTnI1R0RuWWJDNjFZODdORks1bXVHZC8rZVlYNnMz?=
+ =?utf-8?B?Q1R5Z05YWW82TUtTazJEd1hMVUpwcXl5ZXpaQndFVGxvL082K0R4QXY0T0Nr?=
+ =?utf-8?B?UXhDb2xBQ0pkR2MzenNvT2VTZWdDR3B6d29sQ0Z4czhwaTZlLzgvOFlaaUVl?=
+ =?utf-8?B?bzh2UmVaM0pmYXVkY1hPNU50dzZsSVJ3Ym50VkdhN0M5R2pxRUpGaTdrSkF3?=
+ =?utf-8?B?TlBwRFdjNVhXMU1tbWNUOU4rVWZuSTIzM3BLbUhaa1Y1ZUFBRUMxd3dLaEVr?=
+ =?utf-8?B?VExLNkc1dmRIODhXTUkyZzduK1g2OXUxSkZVUUtxUFpOV2c4MldLWmltK3Nv?=
+ =?utf-8?B?aUc3dFhVZ0RrKzcrUFB2T0VrK1FGeDZSTjZXaUxKR1NZYmo0SDJzLzdUM2xm?=
+ =?utf-8?B?c3d5Nks0NXFqazljQkRQZmtObW5mdmdBQ2I0MFBOYjZXeTVzbHE1dUtGZVdZ?=
+ =?utf-8?B?T0x5bnNMREF1MWpuN1hiVjJuaDlSc1FFTk16V0pvbDNNdXFrdFRONlBGaEEw?=
+ =?utf-8?B?K1ZPVjdQbnB4VityMGFPR1dRK1Q2ek50UDVrR1JWT3dtM3FnWGZIb1VMeU95?=
+ =?utf-8?B?dndWY2tVWVN6VWxHWVE3aVNaQkhhQVV6SkZvYUc1aDI2VW9FdWcrNkxmTjRu?=
+ =?utf-8?B?VGV0dnQ0ZTlEcDhyc1Q3UmVDR25nUkh2RWlRb29lZmtFV2hBWU92cHNrSVFk?=
+ =?utf-8?B?cG9PUHF6Y05sWG1jVXlMdS9zbnFvVVlwNTVibnpPRE1nMzN0TWRnNHAwZHpZ?=
+ =?utf-8?B?RXc2SHM3ZVY2ZXRqb2ppbUZlR2tXcmhyc1dxWDIyZUNNSlhwWXRJOTZKWWhk?=
+ =?utf-8?B?VE0wSW5NMVQyM0ZUM1RkeWQxN2JEMUtpUXNML09xRm02N1BVblF3blYycFpj?=
+ =?utf-8?B?akVwM21BRGZSZDhvR2tDOTRiemp5WEdPYVpoamVINnR4ZDBVUXY5V3ZCSDRx?=
+ =?utf-8?B?NENsdW5ibmd6L3BuVk1uTkJaQzZhS1gweXkxVEpZYlY0WExmYW4yWGFoRFdt?=
+ =?utf-8?B?U3FDdWhGWGkrbWNPOTBuU2pvYmpDTjRaT1Z3REFNZU5jNEtXUC9mM0YzTGFz?=
+ =?utf-8?B?Ri9iN0lmZ1V1ZjNNbEVQM0NsMnFCQUVnZjdxc2lldzdZeFZGcXBoYWhmWmxu?=
+ =?utf-8?B?WjNRV3kvd3RWbEQweE84Q3d0WnBXMEJ6aEltU0o5RXRqc3JReXlGR0NNdlhz?=
+ =?utf-8?B?RlRxYlpuclAxRDNZWmRpdk5xZ2M2QXNYSktuL280YUowU1o0aTd4SVNFb3JX?=
+ =?utf-8?Q?phIe14ErF5Bb/?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR03MB7135.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cTB4and3QUdRdjRXVC9GSEFSRmxUWG9WMkt1N3J3djlSc3Nra0hYMVVxY3pW?=
+ =?utf-8?B?QTJ2TzZaWXh1UnBjS0ZqOFV5UXUvMzIzNnVrYVdhdHdjbDFyYXBacmpoS3RC?=
+ =?utf-8?B?c0JVNmxubUV5STI0REFaenlRRk53em9DZm1IRzdpWC8zamdsQnBvbnFhUS9I?=
+ =?utf-8?B?YURMSk9iSWxBZURYUWpDZy9mZHpwMVlLUlkxS20wMHorTFh3YlNtbWJySkc1?=
+ =?utf-8?B?ZFJwUVc4QStPMk96MXFSc0g3L3Y5YXQzaVROOGhPS1hWTnRTbGxzSHoxTkxp?=
+ =?utf-8?B?eWdnaXlBais0UlA2M3FZN0VKR2N2Mmp2K01KWjhTYnYrbHVYKzRBcnZQbjBt?=
+ =?utf-8?B?QmZKWU5qOHFmRXdIelBSbTVGdE5peU90ZENFM0NWdUprbUJYU3F3eEpwSmlK?=
+ =?utf-8?B?dm8zZlJmSW9CMkxLbVhMVHl1T2t6S1F5RzIwcDdZSjI0b1p0UTNwbmZINXBv?=
+ =?utf-8?B?K1Q3NFNyTWhkd0crdTAybytZMTN6cURKZjQ0N0lBaml6bUhSOUxUZ25CQmxw?=
+ =?utf-8?B?L1JnU0J3MmVCei9UeHJPTDJVKzdmQjlIK1RudXU5UU1ZeTJSQWJxRVZUQW9t?=
+ =?utf-8?B?ZzhnQktFQ3pKdE1WL0QrbVJsc2ZNUWRjaFV0K0hpQVBiOGVWVUkzck55SWRC?=
+ =?utf-8?B?elJENytLK0dlbWx0dzV4VXBYK2VnRFo2VUZPSURPMWRCOXEydGZjNnNpMEN6?=
+ =?utf-8?B?OFArSURBeEsyWDY3VWRxNEVCTkFBYXpHd2dLN0VnZS8zeGhMd2RpQjB2T2Jj?=
+ =?utf-8?B?cjlrWHQ1d2p1UVBIWHlSd0Rva1Z1NHhsWDJwNit3MFdCNkZ1QnNINVo0MnMr?=
+ =?utf-8?B?RHlXQ0xUODcySEIzcTBTZUcxcVRta2hwWlNxTE1LZzJUQzgra2RtenBIb21s?=
+ =?utf-8?B?VEtUT3M3TFMycnVLZDU5dENNQnIxOGI0Nkp1T3E1aG5aVTdydTg1MFFtWFkr?=
+ =?utf-8?B?QVU2UXF2TXloQmhrTWdJOHJ1QnFRaUtTcU9DT2lTSm92YlFkL2pEak1HbjRm?=
+ =?utf-8?B?MWtNQWhsbkw1UHFyWGNrdUZrR2pOYks5NnBkalBRMUVMQ01DZFNoTEtPcXpZ?=
+ =?utf-8?B?Tm9SNzYrMEdvS3VrWWlsaUt2SEk4UndVVUNDNDdrVEkyMVVSRmp2WkF6cFpv?=
+ =?utf-8?B?Z0k0YjIwdEZVRmFnc0JjaVpVQlFzejlPaEVDWCt2WjNyVGxuR2trQXFJd1Fq?=
+ =?utf-8?B?SjBjY1d5Y3lWSXJZYnNDcHArOVg5Y05GeGhuSUJzdzFPRU5UTzNiWmdYb0tp?=
+ =?utf-8?B?QzJnVXBpbjNobHhhNzZQYkl4Q3M5MWs0ZHFQTVJRUytUcmc1VFM2SklNc3Mz?=
+ =?utf-8?B?di94VDhVdDN4Vm1OV1FEdE9oSWgzTER3VjZ6OGp2T0VDdXlEN3BLSW8ycVRN?=
+ =?utf-8?B?QjNjbDhxSVl6eGRwc3U0UlMraFg3ckpJMmZ0b0R1VHBLYWFSRXorR1dvcmNS?=
+ =?utf-8?B?OHl4VHEwTzY5Tzd2SHppTUNRZTZtbDBkaVAySnJPL0JKRFErci8relBWRE5R?=
+ =?utf-8?B?WkpNZFJ1WUxFNlRpMHpKMTRQaTAxNlo0OHJSU3BSSkpxNldGQmtOY3BOMElw?=
+ =?utf-8?B?eXpud2ZwWVF5RG1qYWYwUDlyVDMxdXNabjA5Q1NZNWtpaFNEL2FKcU5GbUhM?=
+ =?utf-8?B?YzhyS0gwb1FHemdzMTdJSTNtZk40QlhqRm5hQWZ1UjFyVUg4L0duN29YOHh5?=
+ =?utf-8?B?RFRBMUNZSml3cE9ZQzdPOVRBK3BCZG8raUxVYVR0emZQR29JNnliYm1rYmlr?=
+ =?utf-8?B?bjZmZUxmZ2djZE9XWDh3MHdmYVpjN2prN2FWQjN3QzBtZnlpcEtWaVFvbCti?=
+ =?utf-8?B?NitKeDNDaWJJWnNJb3RZblpBRWd0SzZHd1hyRVB0Z3l0OS94OVhEUXYvZDFX?=
+ =?utf-8?B?eDZiTWxUekd0a0VoYXhqWVA1MEIvMlNPSE5sTnFpblMyaXJka3ltMUxuMWNj?=
+ =?utf-8?B?T1RmVmhkeDRiV3lORHd6RGFYY05rZ29WV21UeHhoSllrYTRCa3F1bC9CZVha?=
+ =?utf-8?B?M09ZRGNIY0Jpclg4cDhYSXFVRWRuY0MrVlpVbFh6RmJ1dkQ1c3N6czdndkdr?=
+ =?utf-8?B?REdGMEVDOGVUcVgxV1V0UE9DQklHbTJkUWNkUEpZUEtRWGN5b3hlcklHUG5j?=
+ =?utf-8?B?TWVJK2puZE9vQk81SUN4VjFBSUFzcWVGTEtmVEg4UE53UDd3VlVWRkwrMVBn?=
+ =?utf-8?B?YUE9PQ==?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c690167a-3140-4ac0-91f6-08dd4cdd29a7
+X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB7135.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Feb 2025 09:51:32.9214
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Q2KS+MtUj+IUU/Q1e8PLHlLCtlr0BtjdkijfxUfQI5HMaYuneJTRS9G9WRqioLv80+teHeiW1PjbIlNOk7VR8hKObY303vco2XsW2BgRyGQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR03MB6782
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_014832_792050_3FB911FA 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250214_015139_984115_8300ECEE 
+X-CRM114-Status: GOOD (  19.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,198 +186,577 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add changes to support the camera subsystem on the QCS8300.
 
-Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
-Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
----
- arch/arm64/boot/dts/qcom/qcs8300.dtsi | 171 ++++++++++++++++++++++++++
- 1 file changed, 171 insertions(+)
+在 2025/2/14 17:44, Jiebing Chen 写道:
+>
+> 在 2025/2/14 17:17, Jerome Brunet 写道:
+>> [ EXTERNAL EMAIL ]
+>>
+>> On Fri 14 Feb 2025 at 10:14, Jerome Brunet <jbrunet@baylibre.com> wrote:
+>>
+>>> On Fri 14 Feb 2025 at 10:13, jiebing chen via B4 Relay 
+>>> <devnull+jiebing.chen.amlogic.com@kernel.org> wrote:
+>>>
+>>>> From: jiebing chen <jiebing.chen@amlogic.com>
+>>>>
+>>>> Add the audio clk tree for s4, add new mclk, sclk and lrclk pad.
+>>>>
+>>> This disregard previous feedback about the compatibility with the
+>>> axg/g12 platform.
+>>>
+>>> Is what follows really the only difference between the 2 ?
+>>> You previous reported the difference would be significant and now 
+>>> this ?
+>>> I don't get it.
+>> And the title is wrong
+>
+> Hi, jerome
+>
+> The s4 mclk pad  is different from the g12a ,for g12a. the mclk pad 
+> not to add the div factor,
+>
+> for the previous version, we only test the internal codec, it didn't 
+> rely on an mclk pad,
+>
+> if not use the external codec(dac/adc), old clock  id is compatible, 
+> so the old clock id still work,
+>
+> based on your suggestion, we re-added the full clk id for s4, the s4 
+> base on sm1,  except for some
+>
+> minor differences between the mclk pad and toodec and sm1, everything 
+> else is exactly the same
+>
+> This is the s4 mclkpad  register
 
-diff --git a/arch/arm64/boot/dts/qcom/qcs8300.dtsi b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
-index 4a057f7c0d9f..c628573d6f54 100644
---- a/arch/arm64/boot/dts/qcom/qcs8300.dtsi
-+++ b/arch/arm64/boot/dts/qcom/qcs8300.dtsi
-@@ -2942,6 +2942,177 @@ videocc: clock-controller@abf0000 {
- 			#power-domain-cells = <1>;
- 		};
- 
-+		camss: isp@ac78000 {
-+			compatible = "qcom,qcs8300-camss";
-+
-+			reg = <0x0 0xac78000 0x0 0x1000>,
-+			      <0x0 0xac7a000 0x0 0x0f01>,
-+			      <0x0 0xac7c000 0x0 0x0f01>,
-+			      <0x0 0xac84000 0x0 0x0f01>,
-+			      <0x0 0xac88000 0x0 0x0f01>,
-+			      <0x0 0xac8c000 0x0 0x0f01>,
-+			      <0x0 0xac90000 0x0 0x0f01>,
-+			      <0x0 0xac94000 0x0 0x0f01>,
-+			      <0x0 0xac9c000 0x0 0x2000>,
-+			      <0x0 0xac9e000 0x0 0x2000>,
-+			      <0x0 0xaca0000 0x0 0x2000>,
-+			      <0x0 0xacac000 0x0 0x0400>,
-+			      <0x0 0xacad000 0x0 0x0400>,
-+			      <0x0 0xacae000 0x0 0x0400>,
-+			      <0x0 0xac4d000 0x0 0xf000>,
-+			      <0x0 0xac60000 0x0 0xf000>,
-+			      <0x0 0xac85000 0x0 0x0d00>,
-+			      <0x0 0xac89000 0x0 0x0d00>,
-+			      <0x0 0xac8d000 0x0 0x0d00>,
-+			      <0x0 0xac91000 0x0 0x0d00>,
-+			      <0x0 0xac95000 0x0 0x0d00>;
-+			reg-names = "csid_wrapper",
-+				    "csid0",
-+				    "csid1",
-+				    "csid_lite0",
-+				    "csid_lite1",
-+				    "csid_lite2",
-+				    "csid_lite3",
-+				    "csid_lite4",
-+				    "csiphy0",
-+				    "csiphy1",
-+				    "csiphy2",
-+				    "tpg0",
-+				    "tpg1",
-+				    "tpg2",
-+				    "vfe0",
-+				    "vfe1",
-+				    "vfe_lite0",
-+				    "vfe_lite1",
-+				    "vfe_lite2",
-+				    "vfe_lite3",
-+				    "vfe_lite4";
-+
-+			clocks = <&camcc CAM_CC_CAMNOC_AXI_CLK>,
-+				 <&camcc CAM_CC_CORE_AHB_CLK>,
-+				 <&camcc CAM_CC_CPAS_AHB_CLK>,
-+				 <&camcc CAM_CC_CPAS_FAST_AHB_CLK>,
-+				 <&camcc CAM_CC_CPAS_IFE_LITE_CLK>,
-+				 <&camcc CAM_CC_CPAS_IFE_0_CLK>,
-+				 <&camcc CAM_CC_CPAS_IFE_1_CLK>,
-+				 <&camcc CAM_CC_CSID_CLK>,
-+				 <&camcc CAM_CC_CSIPHY0_CLK>,
-+				 <&camcc CAM_CC_CSI0PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY1_CLK>,
-+				 <&camcc CAM_CC_CSI1PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSIPHY2_CLK>,
-+				 <&camcc CAM_CC_CSI2PHYTIMER_CLK>,
-+				 <&camcc CAM_CC_CSID_CSIPHY_RX_CLK>,
-+				 <&gcc   GCC_CAMERA_HF_AXI_CLK>,
-+				 <&gcc   GCC_CAMERA_SF_AXI_CLK>,
-+				 <&camcc CAM_CC_ICP_AHB_CLK>,
-+				 <&camcc CAM_CC_IFE_0_CLK>,
-+				 <&camcc CAM_CC_IFE_0_FAST_AHB_CLK>,
-+				 <&camcc CAM_CC_IFE_1_CLK>,
-+				 <&camcc CAM_CC_IFE_1_FAST_AHB_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_AHB_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_CPHY_RX_CLK>,
-+				 <&camcc CAM_CC_IFE_LITE_CSID_CLK>;
-+			clock-names = "camnoc_axi",
-+				      "core_ahb",
-+				      "cpas_ahb",
-+				      "cpas_fast_ahb_clk",
-+				      "cpas_ife_lite",
-+				      "cpas_vfe0",
-+				      "cpas_vfe1",
-+				      "csid",
-+				      "csiphy0",
-+				      "csiphy0_timer",
-+				      "csiphy1",
-+				      "csiphy1_timer",
-+				      "csiphy2",
-+				      "csiphy2_timer",
-+				      "csiphy_rx",
-+				      "gcc_axi_hf",
-+				      "gcc_axi_sf",
-+				      "icp_ahb",
-+				      "vfe0",
-+				      "vfe0_fast_ahb",
-+				      "vfe1",
-+				      "vfe1_fast_ahb",
-+				      "vfe_lite",
-+				      "vfe_lite_ahb",
-+				      "vfe_lite_cphy_rx",
-+				      "vfe_lite_csid";
-+
-+			interrupts = <GIC_SPI 565 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 564 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 468 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 359 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 759 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 758 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 604 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 477 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 478 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 479 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 545 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 546 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 547 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 465 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 467 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 469 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 360 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 761 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 760 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 605 IRQ_TYPE_EDGE_RISING>;
-+			interrupt-names = "csid0",
-+					  "csid1",
-+					  "csid-lite0",
-+					  "csid-lite1",
-+					  "csid-lite2",
-+					  "csid-lite3",
-+					  "csid-lite4",
-+					  "csiphy0",
-+					  "csiphy1",
-+					  "csiphy2",
-+					  "tpg0",
-+					  "tpg1",
-+					  "tpg2",
-+					  "vfe0",
-+					  "vfe1",
-+					  "vfe-lite0",
-+					  "vfe-lite1",
-+					  "vfe-lite2",
-+					  "vfe-lite3",
-+					  "vfe-lite4";
-+
-+			interconnects = <&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-+					 &config_noc SLAVE_CAMERA_CFG QCOM_ICC_TAG_ACTIVE_ONLY>,
-+					<&mmss_noc MASTER_CAMNOC_HF QCOM_ICC_TAG_ALWAYS
-+					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
-+			interconnect-names = "ahb",
-+					     "hf_0";
-+
-+			iommus = <&apps_smmu 0x2400 0x20>;
-+
-+			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
-+			power-domain-names = "top";
-+
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				port@0 {
-+					reg = <0>;
-+				};
-+
-+				port@1 {
-+					reg = <1>;
-+				};
-+
-+				port@2 {
-+					reg = <2>;
-+				};
-+			};
-+		};
-+
- 		camcc: clock-controller@ade0000 {
- 			compatible = "qcom,qcs8300-camcc";
- 			reg = <0x0 0x0ade0000 0x0 0x20000>;
--- 
-2.25.1
+mclk pad0
 
+bit[15]:en
+
+bit[10:8] pad source
+
+bit[7:0] div
+
+>
+>
+>>
+>>>> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
+>>>> ---
+>>>>   drivers/clk/meson/axg-audio.c | 410 
+>>>> +++++++++++++++++++++++++++++++++++++++++-
+>>>>   drivers/clk/meson/axg-audio.h |   4 +
+>>>>   2 files changed, 412 insertions(+), 2 deletions(-)
+>>>>
+>>>> diff --git a/drivers/clk/meson/axg-audio.c 
+>>>> b/drivers/clk/meson/axg-audio.c
+>>>> index 
+>>>> 9df627b142f89788966ede0262aaaf39e13f0b49..e70559ee0fd8deaf9858b0592e839fdf49d05886 
+>>>> 100644
+>>>> --- a/drivers/clk/meson/axg-audio.c
+>>>> +++ b/drivers/clk/meson/axg-audio.c
+>>>> @@ -323,6 +323,16 @@ static const struct clk_parent_data 
+>>>> lrclk_pad_ctrl_parent_data[] = {
+>>>>       AUD_MUX(_name, _reg, 0x7, _shift, 0, _parents,          \
+>>>>               CLK_SET_RATE_NO_REPARENT)
+>>>>
+>>>> +#define AUD_MCLK_PAD_MUX(_name, _reg, 
+>>>> _shift)                                       \
+>>>> +    AUD_MUX(_name##_sel, _reg, 0x7, _shift, 
+>>>> CLK_MUX_ROUND_CLOSEST,                  \
+>>>> +            mclk_pad_ctrl_parent_data, 0)
+>>>> +#define AUD_MCLK_PAD_DIV(_name, _reg, 
+>>>> _shift)                                       \
+>>>> +    AUD_DIV(_name##_div, _reg, _shift, 8, 
+>>>> CLK_DIVIDER_ROUND_CLOSEST,                        \
+>>>> +            aud_##_name##_sel, CLK_SET_RATE_PARENT)
+>>>> +#define AUD_MCLK_PAD_GATE(_name, _reg, 
+>>>> _shift)                                      \
+>>>> +    AUD_GATE(_name, _reg, _shift, 
+>>>> aud_##_name##_div,                        \
+>>>> +             CLK_SET_RATE_PARENT)
+>>>> +
+>>>>   /* Common Clocks */
+>>>>   static struct clk_regmap ddr_arb =
+>>>>       AUD_PCLK_GATE(ddr_arb, AUDIO_CLK_GATE_EN, 0);
+>>>> @@ -826,6 +836,49 @@ static struct clk_regmap sm1_tdm_sclk_pad_1 = 
+>>>> AUD_TDM_PAD_CTRL(
+>>>>   static struct clk_regmap sm1_tdm_sclk_pad_2 = AUD_TDM_PAD_CTRL(
+>>>>       tdm_sclk_pad_2, AUDIO_SM1_MST_PAD_CTRL1, 8, 
+>>>> sclk_pad_ctrl_parent_data);
+>>>>
+>>>> +static struct clk_regmap s4_tdm_mclk_pad0_sel =
+>>>> +    AUD_MCLK_PAD_MUX(mclk_pad0, AUDIO_S4_MCLK_PAD_CTRL0, 8);
+>>>> +static struct clk_regmap s4_tdm_mclk_pad1_sel =
+>>>> +    AUD_MCLK_PAD_MUX(mclk_pad1, AUDIO_S4_MCLK_PAD_CTRL0, 24);
+>>>> +static struct clk_regmap s4_tdm_mclk_pad2_sel =
+>>>> +    AUD_MCLK_PAD_MUX(mclk_pad2, AUDIO_S4_MCLK_PAD_CTRL1, 8);
+>>>> +
+>>>> +static struct clk_regmap s4_tdm_mclk_pad0_div =
+>>>> +    AUD_MCLK_PAD_DIV(mclk_pad0, AUDIO_S4_MCLK_PAD_CTRL0, 0);
+>>>> +static struct clk_regmap s4_tdm_mclk_pad1_div =
+>>>> +    AUD_MCLK_PAD_DIV(mclk_pad1, AUDIO_S4_MCLK_PAD_CTRL0, 16);
+>>>> +static struct clk_regmap s4_tdm_mclk_pad2_div =
+>>>> +    AUD_MCLK_PAD_DIV(mclk_pad2, AUDIO_S4_MCLK_PAD_CTRL1, 0);
+>>>> +
+>>>> +static struct clk_regmap s4_tdm_mclk_pad_0 =
+>>>> +    AUD_MCLK_PAD_GATE(mclk_pad0, AUDIO_S4_MCLK_PAD_CTRL0, 15);
+>>>> +static struct clk_regmap s4_tdm_mclk_pad_1 =
+>>>> +    AUD_MCLK_PAD_GATE(mclk_pad1, AUDIO_S4_MCLK_PAD_CTRL0, 31);
+>>>> +static struct clk_regmap s4_tdm_mclk_pad_2 =
+>>>> +    AUD_MCLK_PAD_GATE(mclk_pad2, AUDIO_S4_MCLK_PAD_CTRL1, 15);
+>>>> +
+>>>> +static struct clk_regmap s4_tdm_sclk_pad_0 =
+>>>> +    AUD_TDM_PAD_CTRL(tdm_sclk_pad_0, AUDIO_S4_SCLK_PAD_CTRL0, 0, 
+>>>> lrclk_pad_ctrl_parent_data);
+>>>> +static struct clk_regmap s4_tdm_sclk_pad_1 =
+>>>> +    AUD_TDM_PAD_CTRL(tdm_sclk_pad_1, AUDIO_S4_SCLK_PAD_CTRL0, 4, 
+>>>> lrclk_pad_ctrl_parent_data);
+>>>> +static struct clk_regmap s4_tdm_sclk_pad_2 =
+>>>> +    AUD_TDM_PAD_CTRL(tdm_sclk_pad_2, AUDIO_S4_SCLK_PAD_CTRL0, 8, 
+>>>> lrclk_pad_ctrl_parent_data);
+>>>> +static struct clk_regmap s4_tdm_sclk_pad_3 =
+>>>> +    AUD_TDM_PAD_CTRL(tdm_sclk_pad_3, AUDIO_S4_SCLK_PAD_CTRL0, 16, 
+>>>> lrclk_pad_ctrl_parent_data);
+>>>> +static struct clk_regmap s4_tdm_sclk_pad_4 =
+>>>> +    AUD_TDM_PAD_CTRL(tdm_sclk_pad_4, AUDIO_S4_SCLK_PAD_CTRL0, 20, 
+>>>> lrclk_pad_ctrl_parent_data);
+>>>> +
+>>>> +static struct clk_regmap s4_tdm_lrclk_pad_0 =
+>>>> +    AUD_TDM_PAD_CTRL(tdm_lrclk_pad_0, AUDIO_S4_SCLK_PAD_CTRL1, 0, 
+>>>> lrclk_pad_ctrl_parent_data);
+>>>> +static struct clk_regmap s4_tdm_lrclk_pad_1 =
+>>>> +    AUD_TDM_PAD_CTRL(tdm_lrclk_pad_1, AUDIO_S4_SCLK_PAD_CTRL1, 4, 
+>>>> lrclk_pad_ctrl_parent_data);
+>>>> +static struct clk_regmap s4_tdm_lrclk_pad_2 =
+>>>> +    AUD_TDM_PAD_CTRL(tdm_lrclk_pad_2, AUDIO_S4_SCLK_PAD_CTRL1, 8, 
+>>>> lrclk_pad_ctrl_parent_data);
+>>>> +static struct clk_regmap s4_tdm_lrclk_pad_3 =
+>>>> +    AUD_TDM_PAD_CTRL(tdm_lrclk_pad_3, AUDIO_S4_SCLK_PAD_CTRL1, 16, 
+>>>> lrclk_pad_ctrl_parent_data);
+>>>> +static struct clk_regmap s4_tdm_lrclk_pad_4 =
+>>>> +    AUD_TDM_PAD_CTRL(tdm_lrclk_pad_4, AUDIO_S4_SCLK_PAD_CTRL1, 20, 
+>>>> lrclk_pad_ctrl_parent_data);
+>>>> +
+>>>>   /*
+>>>>    * Array of all clocks provided by this provider
+>>>>    * The input clocks of the controller will be populated at runtime
+>>>> @@ -1257,6 +1310,177 @@ static struct clk_hw *sm1_audio_hw_clks[] = {
+>>>>       [AUD_CLKID_EARCRX_DMAC]         = &sm1_earcrx_dmac_clk.hw,
+>>>>   };
+>>>>
+>>>> +/*
+>>>> + * Array of all S4 clocks provided by this provider
+>>>> + * The input clocks of the controller will be populated at runtime
+>>>> + */
+>>>> +static struct clk_hw *s4_audio_hw_clks[] = {
+>>>> +    [AUD_CLKID_DDR_ARB]             = &ddr_arb.hw,
+>>>> +    [AUD_CLKID_PDM]                 = &pdm.hw,
+>>>> +    [AUD_CLKID_TDMIN_A]             = &tdmin_a.hw,
+>>>> +    [AUD_CLKID_TDMIN_B]             = &tdmin_b.hw,
+>>>> +    [AUD_CLKID_TDMIN_C]             = &tdmin_c.hw,
+>>>> +    [AUD_CLKID_TDMIN_LB]            = &tdmin_lb.hw,
+>>>> +    [AUD_CLKID_TDMOUT_A]            = &tdmout_a.hw,
+>>>> +    [AUD_CLKID_TDMOUT_B]            = &tdmout_b.hw,
+>>>> +    [AUD_CLKID_TDMOUT_C]            = &tdmout_c.hw,
+>>>> +    [AUD_CLKID_FRDDR_A]             = &frddr_a.hw,
+>>>> +    [AUD_CLKID_FRDDR_B]             = &frddr_b.hw,
+>>>> +    [AUD_CLKID_FRDDR_C]             = &frddr_c.hw,
+>>>> +    [AUD_CLKID_TODDR_A]             = &toddr_a.hw,
+>>>> +    [AUD_CLKID_TODDR_B]             = &toddr_b.hw,
+>>>> +    [AUD_CLKID_TODDR_C]             = &toddr_c.hw,
+>>>> +    [AUD_CLKID_LOOPBACK]            = &loopback.hw,
+>>>> +    [AUD_CLKID_SPDIFIN]             = &spdifin.hw,
+>>>> +    [AUD_CLKID_SPDIFOUT]            = &spdifout.hw,
+>>>> +    [AUD_CLKID_RESAMPLE]            = &resample.hw,
+>>>> +    [AUD_CLKID_SPDIFOUT_B]          = &spdifout_b.hw,
+>>>> +    [AUD_CLKID_MST_A_MCLK_SEL]      = &sm1_mst_a_mclk_sel.hw,
+>>>> +    [AUD_CLKID_MST_B_MCLK_SEL]      = &sm1_mst_b_mclk_sel.hw,
+>>>> +    [AUD_CLKID_MST_C_MCLK_SEL]      = &sm1_mst_c_mclk_sel.hw,
+>>>> +    [AUD_CLKID_MST_D_MCLK_SEL]      = &sm1_mst_d_mclk_sel.hw,
+>>>> +    [AUD_CLKID_MST_E_MCLK_SEL]      = &sm1_mst_e_mclk_sel.hw,
+>>>> +    [AUD_CLKID_MST_F_MCLK_SEL]      = &sm1_mst_f_mclk_sel.hw,
+>>>> +    [AUD_CLKID_MST_A_MCLK_DIV]      = &sm1_mst_a_mclk_div.hw,
+>>>> +    [AUD_CLKID_MST_B_MCLK_DIV]      = &sm1_mst_b_mclk_div.hw,
+>>>> +    [AUD_CLKID_MST_C_MCLK_DIV]      = &sm1_mst_c_mclk_div.hw,
+>>>> +    [AUD_CLKID_MST_D_MCLK_DIV]      = &sm1_mst_d_mclk_div.hw,
+>>>> +    [AUD_CLKID_MST_E_MCLK_DIV]      = &sm1_mst_e_mclk_div.hw,
+>>>> +    [AUD_CLKID_MST_F_MCLK_DIV]      = &sm1_mst_f_mclk_div.hw,
+>>>> +    [AUD_CLKID_MST_A_MCLK]          = &sm1_mst_a_mclk.hw,
+>>>> +    [AUD_CLKID_MST_B_MCLK]          = &sm1_mst_b_mclk.hw,
+>>>> +    [AUD_CLKID_MST_C_MCLK]          = &sm1_mst_c_mclk.hw,
+>>>> +    [AUD_CLKID_MST_D_MCLK]          = &sm1_mst_d_mclk.hw,
+>>>> +    [AUD_CLKID_MST_E_MCLK]          = &sm1_mst_e_mclk.hw,
+>>>> +    [AUD_CLKID_MST_F_MCLK]          = &sm1_mst_f_mclk.hw,
+>>>> +    [AUD_CLKID_SPDIFOUT_CLK_SEL]    = &spdifout_clk_sel.hw,
+>>>> +    [AUD_CLKID_SPDIFOUT_CLK_DIV]    = &spdifout_clk_div.hw,
+>>>> +    [AUD_CLKID_SPDIFOUT_CLK]        = &spdifout_clk.hw,
+>>>> +    [AUD_CLKID_SPDIFOUT_B_CLK_SEL]  = &spdifout_b_clk_sel.hw,
+>>>> +    [AUD_CLKID_SPDIFOUT_B_CLK_DIV]  = &spdifout_b_clk_div.hw,
+>>>> +    [AUD_CLKID_SPDIFOUT_B_CLK]      = &spdifout_b_clk.hw,
+>>>> +    [AUD_CLKID_SPDIFIN_CLK_SEL]     = &spdifin_clk_sel.hw,
+>>>> +    [AUD_CLKID_SPDIFIN_CLK_DIV]     = &spdifin_clk_div.hw,
+>>>> +    [AUD_CLKID_SPDIFIN_CLK]         = &spdifin_clk.hw,
+>>>> +    [AUD_CLKID_PDM_DCLK_SEL]        = &pdm_dclk_sel.hw,
+>>>> +    [AUD_CLKID_PDM_DCLK_DIV]        = &pdm_dclk_div.hw,
+>>>> +    [AUD_CLKID_PDM_DCLK]            = &pdm_dclk.hw,
+>>>> +    [AUD_CLKID_PDM_SYSCLK_SEL]      = &pdm_sysclk_sel.hw,
+>>>> +    [AUD_CLKID_PDM_SYSCLK_DIV]      = &pdm_sysclk_div.hw,
+>>>> +    [AUD_CLKID_PDM_SYSCLK]          = &pdm_sysclk.hw,
+>>>> +    [AUD_CLKID_MST_A_SCLK_PRE_EN]   = &mst_a_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_MST_B_SCLK_PRE_EN]   = &mst_b_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_MST_C_SCLK_PRE_EN]   = &mst_c_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_MST_D_SCLK_PRE_EN]   = &mst_d_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_MST_E_SCLK_PRE_EN]   = &mst_e_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_MST_F_SCLK_PRE_EN]   = &mst_f_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_MST_A_SCLK_DIV]      = &mst_a_sclk_div.hw,
+>>>> +    [AUD_CLKID_MST_B_SCLK_DIV]      = &mst_b_sclk_div.hw,
+>>>> +    [AUD_CLKID_MST_C_SCLK_DIV]      = &mst_c_sclk_div.hw,
+>>>> +    [AUD_CLKID_MST_D_SCLK_DIV]      = &mst_d_sclk_div.hw,
+>>>> +    [AUD_CLKID_MST_E_SCLK_DIV]      = &mst_e_sclk_div.hw,
+>>>> +    [AUD_CLKID_MST_F_SCLK_DIV]      = &mst_f_sclk_div.hw,
+>>>> +    [AUD_CLKID_MST_A_SCLK_POST_EN]  = &mst_a_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_MST_B_SCLK_POST_EN]  = &mst_b_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_MST_C_SCLK_POST_EN]  = &mst_c_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_MST_D_SCLK_POST_EN]  = &mst_d_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_MST_E_SCLK_POST_EN]  = &mst_e_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_MST_F_SCLK_POST_EN]  = &mst_f_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_MST_A_SCLK]          = &mst_a_sclk.hw,
+>>>> +    [AUD_CLKID_MST_B_SCLK]          = &mst_b_sclk.hw,
+>>>> +    [AUD_CLKID_MST_C_SCLK]          = &mst_c_sclk.hw,
+>>>> +    [AUD_CLKID_MST_D_SCLK]          = &mst_d_sclk.hw,
+>>>> +    [AUD_CLKID_MST_E_SCLK]          = &mst_e_sclk.hw,
+>>>> +    [AUD_CLKID_MST_F_SCLK]          = &mst_f_sclk.hw,
+>>>> +    [AUD_CLKID_MST_A_LRCLK_DIV]     = &mst_a_lrclk_div.hw,
+>>>> +    [AUD_CLKID_MST_B_LRCLK_DIV]     = &mst_b_lrclk_div.hw,
+>>>> +    [AUD_CLKID_MST_C_LRCLK_DIV]     = &mst_c_lrclk_div.hw,
+>>>> +    [AUD_CLKID_MST_D_LRCLK_DIV]     = &mst_d_lrclk_div.hw,
+>>>> +    [AUD_CLKID_MST_E_LRCLK_DIV]     = &mst_e_lrclk_div.hw,
+>>>> +    [AUD_CLKID_MST_F_LRCLK_DIV]     = &mst_f_lrclk_div.hw,
+>>>> +    [AUD_CLKID_MST_A_LRCLK]         = &mst_a_lrclk.hw,
+>>>> +    [AUD_CLKID_MST_B_LRCLK]         = &mst_b_lrclk.hw,
+>>>> +    [AUD_CLKID_MST_C_LRCLK]         = &mst_c_lrclk.hw,
+>>>> +    [AUD_CLKID_MST_D_LRCLK]         = &mst_d_lrclk.hw,
+>>>> +    [AUD_CLKID_MST_E_LRCLK]         = &mst_e_lrclk.hw,
+>>>> +    [AUD_CLKID_MST_F_LRCLK]         = &mst_f_lrclk.hw,
+>>>> +    [AUD_CLKID_TDMIN_A_SCLK_SEL]    = &tdmin_a_sclk_sel.hw,
+>>>> +    [AUD_CLKID_TDMIN_B_SCLK_SEL]    = &tdmin_b_sclk_sel.hw,
+>>>> +    [AUD_CLKID_TDMIN_C_SCLK_SEL]    = &tdmin_c_sclk_sel.hw,
+>>>> +    [AUD_CLKID_TDMIN_LB_SCLK_SEL]   = &tdmin_lb_sclk_sel.hw,
+>>>> +    [AUD_CLKID_TDMOUT_A_SCLK_SEL]   = &tdmout_a_sclk_sel.hw,
+>>>> +    [AUD_CLKID_TDMOUT_B_SCLK_SEL]   = &tdmout_b_sclk_sel.hw,
+>>>> +    [AUD_CLKID_TDMOUT_C_SCLK_SEL]   = &tdmout_c_sclk_sel.hw,
+>>>> +    [AUD_CLKID_TDMIN_A_SCLK_PRE_EN] = &tdmin_a_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_TDMIN_B_SCLK_PRE_EN] = &tdmin_b_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_TDMIN_C_SCLK_PRE_EN] = &tdmin_c_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_TDMIN_LB_SCLK_PRE_EN] = &tdmin_lb_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_TDMOUT_A_SCLK_PRE_EN] = &tdmout_a_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_TDMOUT_B_SCLK_PRE_EN] = &tdmout_b_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_TDMOUT_C_SCLK_PRE_EN] = &tdmout_c_sclk_pre_en.hw,
+>>>> +    [AUD_CLKID_TDMIN_A_SCLK_POST_EN] = &tdmin_a_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_TDMIN_B_SCLK_POST_EN] = &tdmin_b_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_TDMIN_C_SCLK_POST_EN] = &tdmin_c_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_TDMIN_LB_SCLK_POST_EN] = &tdmin_lb_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_TDMOUT_A_SCLK_POST_EN] = &tdmout_a_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_TDMOUT_B_SCLK_POST_EN] = &tdmout_b_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_TDMOUT_C_SCLK_POST_EN] = &tdmout_c_sclk_post_en.hw,
+>>>> +    [AUD_CLKID_TDMIN_A_SCLK]        = &tdmin_a_sclk.hw,
+>>>> +    [AUD_CLKID_TDMIN_B_SCLK]        = &tdmin_b_sclk.hw,
+>>>> +    [AUD_CLKID_TDMIN_C_SCLK]        = &tdmin_c_sclk.hw,
+>>>> +    [AUD_CLKID_TDMIN_LB_SCLK]       = &tdmin_lb_sclk.hw,
+>>>> +    [AUD_CLKID_TDMOUT_A_SCLK]       = &g12a_tdmout_a_sclk.hw,
+>>>> +    [AUD_CLKID_TDMOUT_B_SCLK]       = &g12a_tdmout_b_sclk.hw,
+>>>> +    [AUD_CLKID_TDMOUT_C_SCLK]       = &g12a_tdmout_c_sclk.hw,
+>>>> +    [AUD_CLKID_TDMIN_A_LRCLK]       = &tdmin_a_lrclk.hw,
+>>>> +    [AUD_CLKID_TDMIN_B_LRCLK]       = &tdmin_b_lrclk.hw,
+>>>> +    [AUD_CLKID_TDMIN_C_LRCLK]       = &tdmin_c_lrclk.hw,
+>>>> +    [AUD_CLKID_TDMIN_LB_LRCLK]      = &tdmin_lb_lrclk.hw,
+>>>> +    [AUD_CLKID_TDMOUT_A_LRCLK]      = &tdmout_a_lrclk.hw,
+>>>> +    [AUD_CLKID_TDMOUT_B_LRCLK]      = &tdmout_b_lrclk.hw,
+>>>> +    [AUD_CLKID_TDMOUT_C_LRCLK]      = &tdmout_c_lrclk.hw,
+>>>> +    [AUD_CLKID_TDM_MCLK_PAD0]       = &s4_tdm_mclk_pad_0.hw,
+>>>> +    [AUD_CLKID_TDM_MCLK_PAD1]       = &s4_tdm_mclk_pad_1.hw,
+>>>> +    [AUD_CLKID_TDM_LRCLK_PAD0]      = &s4_tdm_lrclk_pad_0.hw,
+>>>> +    [AUD_CLKID_TDM_LRCLK_PAD1]      = &s4_tdm_lrclk_pad_1.hw,
+>>>> +    [AUD_CLKID_TDM_LRCLK_PAD2]      = &s4_tdm_lrclk_pad_2.hw,
+>>>> +    [AUD_CLKID_TDM_SCLK_PAD0]       = &s4_tdm_sclk_pad_0.hw,
+>>>> +    [AUD_CLKID_TDM_SCLK_PAD1]       = &s4_tdm_sclk_pad_1.hw,
+>>>> +    [AUD_CLKID_TDM_SCLK_PAD2]       = &s4_tdm_sclk_pad_2.hw,
+>>>> +    [AUD_CLKID_TOP]                 = &sm1_aud_top.hw,
+>>>> +    [AUD_CLKID_TORAM]               = &toram.hw,
+>>>> +    [AUD_CLKID_EQDRC]               = &eqdrc.hw,
+>>>> +    [AUD_CLKID_RESAMPLE_B]          = &resample_b.hw,
+>>>> +    [AUD_CLKID_TOVAD]               = &tovad.hw,
+>>>> +    [AUD_CLKID_LOCKER]              = &locker.hw,
+>>>> +    [AUD_CLKID_SPDIFIN_LB]          = &spdifin_lb.hw,
+>>>> +    [AUD_CLKID_FRDDR_D]             = &frddr_d.hw,
+>>>> +    [AUD_CLKID_TODDR_D]             = &toddr_d.hw,
+>>>> +    [AUD_CLKID_LOOPBACK_B]          = &loopback_b.hw,
+>>>> +    [AUD_CLKID_CLK81_EN]            = &sm1_clk81_en.hw,
+>>>> +    [AUD_CLKID_SYSCLK_A_DIV]        = &sm1_sysclk_a_div.hw,
+>>>> +    [AUD_CLKID_SYSCLK_A_EN]         = &sm1_sysclk_a_en.hw,
+>>>> +    [AUD_CLKID_SYSCLK_B_DIV]        = &sm1_sysclk_b_div.hw,
+>>>> +    [AUD_CLKID_SYSCLK_B_EN]         = &sm1_sysclk_b_en.hw,
+>>>> +    [AUD_CLKID_EARCRX]              = &earcrx.hw,
+>>>> +    [AUD_CLKID_EARCRX_CMDC_SEL]     = &sm1_earcrx_cmdc_clk_sel.hw,
+>>>> +    [AUD_CLKID_EARCRX_CMDC_DIV]     = &sm1_earcrx_cmdc_clk_div.hw,
+>>>> +    [AUD_CLKID_EARCRX_CMDC]         = &sm1_earcrx_cmdc_clk.hw,
+>>>> +    [AUD_CLKID_EARCRX_DMAC_SEL]     = &sm1_earcrx_dmac_clk_sel.hw,
+>>>> +    [AUD_CLKID_EARCRX_DMAC_DIV]     = &sm1_earcrx_dmac_clk_div.hw,
+>>>> +    [AUD_CLKID_EARCRX_DMAC]         = &sm1_earcrx_dmac_clk.hw,
+>>>> +    [AUD_CLKID_TDM_MCLK_PAD0_SEL]           = 
+>>>> &s4_tdm_mclk_pad0_sel.hw,
+>>>> +    [AUD_CLKID_TDM_MCLK_PAD1_SEL]       = &s4_tdm_mclk_pad1_sel.hw,
+>>>> +    [AUD_CLKID_TDM_MCLK_PAD0_DIV]           = 
+>>>> &s4_tdm_mclk_pad0_div.hw,
+>>>> +    [AUD_CLKID_TDM_MCLK_PAD1_DIV]       = &s4_tdm_mclk_pad1_div.hw,
+>>>> +    [AUD_CLKID_TDM_MCLK_PAD2]               = &s4_tdm_mclk_pad_2.hw,
+>>>> +    [AUD_CLKID_TDM_MCLK_PAD2_SEL]           = 
+>>>> &s4_tdm_mclk_pad2_sel.hw,
+>>>> +    [AUD_CLKID_TDM_MCLK_PAD2_DIV]       = &s4_tdm_mclk_pad2_div.hw,
+>>>> +    [AUD_CLKID_TDM_SCLK_PAD3]       = &s4_tdm_sclk_pad_3.hw,
+>>>> +    [AUD_CLKID_TDM_SCLK_PAD4]       = &s4_tdm_sclk_pad_4.hw,
+>>>> +    [AUD_CLKID_TDM_LRCLK_PAD3]      = &s4_tdm_lrclk_pad_3.hw,
+>>>> +    [AUD_CLKID_TDM_LRCLK_PAD4]      = &s4_tdm_lrclk_pad_4.hw,
+>>>> +};
+>>>>
+>>>>   /* Convenience table to populate regmap in .probe(). */
+>>>>   static struct clk_regmap *const axg_clk_regmaps[] = {
+>>>> @@ -1678,6 +1902,174 @@ static struct clk_regmap *const 
+>>>> sm1_clk_regmaps[] = {
+>>>>       &sm1_earcrx_dmac_clk,
+>>>>   };
+>>>>
+>>>> +static struct clk_regmap *const s4_clk_regmaps[] = {
+>>>> +    &ddr_arb,
+>>>> +    &pdm,
+>>>> +    &tdmin_a,
+>>>> +    &tdmin_b,
+>>>> +    &tdmin_c,
+>>>> +    &tdmin_lb,
+>>>> +    &tdmout_a,
+>>>> +    &tdmout_b,
+>>>> +    &tdmout_c,
+>>>> +    &frddr_a,
+>>>> +    &frddr_b,
+>>>> +    &frddr_c,
+>>>> +    &toddr_a,
+>>>> +    &toddr_b,
+>>>> +    &toddr_c,
+>>>> +    &loopback,
+>>>> +    &spdifin,
+>>>> +    &spdifout,
+>>>> +    &resample,
+>>>> +    &spdifout_b,
+>>>> +    &sm1_mst_a_mclk_sel,
+>>>> +    &sm1_mst_b_mclk_sel,
+>>>> +    &sm1_mst_c_mclk_sel,
+>>>> +    &sm1_mst_d_mclk_sel,
+>>>> +    &sm1_mst_e_mclk_sel,
+>>>> +    &sm1_mst_f_mclk_sel,
+>>>> +    &sm1_mst_a_mclk_div,
+>>>> +    &sm1_mst_b_mclk_div,
+>>>> +    &sm1_mst_c_mclk_div,
+>>>> +    &sm1_mst_d_mclk_div,
+>>>> +    &sm1_mst_e_mclk_div,
+>>>> +    &sm1_mst_f_mclk_div,
+>>>> +    &sm1_mst_a_mclk,
+>>>> +    &sm1_mst_b_mclk,
+>>>> +    &sm1_mst_c_mclk,
+>>>> +    &sm1_mst_d_mclk,
+>>>> +    &sm1_mst_e_mclk,
+>>>> +    &sm1_mst_f_mclk,
+>>>> +    &spdifout_clk_sel,
+>>>> +    &spdifout_clk_div,
+>>>> +    &spdifout_clk,
+>>>> +    &spdifin_clk_sel,
+>>>> +    &spdifin_clk_div,
+>>>> +    &spdifin_clk,
+>>>> +    &pdm_dclk_sel,
+>>>> +    &pdm_dclk_div,
+>>>> +    &pdm_dclk,
+>>>> +    &pdm_sysclk_sel,
+>>>> +    &pdm_sysclk_div,
+>>>> +    &pdm_sysclk,
+>>>> +    &mst_a_sclk_pre_en,
+>>>> +    &mst_b_sclk_pre_en,
+>>>> +    &mst_c_sclk_pre_en,
+>>>> +    &mst_d_sclk_pre_en,
+>>>> +    &mst_e_sclk_pre_en,
+>>>> +    &mst_f_sclk_pre_en,
+>>>> +    &mst_a_sclk_div,
+>>>> +    &mst_b_sclk_div,
+>>>> +    &mst_c_sclk_div,
+>>>> +    &mst_d_sclk_div,
+>>>> +    &mst_e_sclk_div,
+>>>> +    &mst_f_sclk_div,
+>>>> +    &mst_a_sclk_post_en,
+>>>> +    &mst_b_sclk_post_en,
+>>>> +    &mst_c_sclk_post_en,
+>>>> +    &mst_d_sclk_post_en,
+>>>> +    &mst_e_sclk_post_en,
+>>>> +    &mst_f_sclk_post_en,
+>>>> +    &mst_a_sclk,
+>>>> +    &mst_b_sclk,
+>>>> +    &mst_c_sclk,
+>>>> +    &mst_d_sclk,
+>>>> +    &mst_e_sclk,
+>>>> +    &mst_f_sclk,
+>>>> +    &mst_a_lrclk_div,
+>>>> +    &mst_b_lrclk_div,
+>>>> +    &mst_c_lrclk_div,
+>>>> +    &mst_d_lrclk_div,
+>>>> +    &mst_e_lrclk_div,
+>>>> +    &mst_f_lrclk_div,
+>>>> +    &mst_a_lrclk,
+>>>> +    &mst_b_lrclk,
+>>>> +    &mst_c_lrclk,
+>>>> +    &mst_d_lrclk,
+>>>> +    &mst_e_lrclk,
+>>>> +    &mst_f_lrclk,
+>>>> +    &tdmin_a_sclk_sel,
+>>>> +    &tdmin_b_sclk_sel,
+>>>> +    &tdmin_c_sclk_sel,
+>>>> +    &tdmin_lb_sclk_sel,
+>>>> +    &tdmout_a_sclk_sel,
+>>>> +    &tdmout_b_sclk_sel,
+>>>> +    &tdmout_c_sclk_sel,
+>>>> +    &tdmin_a_sclk_pre_en,
+>>>> +    &tdmin_b_sclk_pre_en,
+>>>> +    &tdmin_c_sclk_pre_en,
+>>>> +    &tdmin_lb_sclk_pre_en,
+>>>> +    &tdmout_a_sclk_pre_en,
+>>>> +    &tdmout_b_sclk_pre_en,
+>>>> +    &tdmout_c_sclk_pre_en,
+>>>> +    &tdmin_a_sclk_post_en,
+>>>> +    &tdmin_b_sclk_post_en,
+>>>> +    &tdmin_c_sclk_post_en,
+>>>> +    &tdmin_lb_sclk_post_en,
+>>>> +    &tdmout_a_sclk_post_en,
+>>>> +    &tdmout_b_sclk_post_en,
+>>>> +    &tdmout_c_sclk_post_en,
+>>>> +    &tdmin_a_sclk,
+>>>> +    &tdmin_b_sclk,
+>>>> +    &tdmin_c_sclk,
+>>>> +    &tdmin_lb_sclk,
+>>>> +    &g12a_tdmout_a_sclk,
+>>>> +    &g12a_tdmout_b_sclk,
+>>>> +    &g12a_tdmout_c_sclk,
+>>>> +    &tdmin_a_lrclk,
+>>>> +    &tdmin_b_lrclk,
+>>>> +    &tdmin_c_lrclk,
+>>>> +    &tdmin_lb_lrclk,
+>>>> +    &tdmout_a_lrclk,
+>>>> +    &tdmout_b_lrclk,
+>>>> +    &tdmout_c_lrclk,
+>>>> +    &spdifout_b_clk_sel,
+>>>> +    &spdifout_b_clk_div,
+>>>> +    &spdifout_b_clk,
+>>>> +    &s4_tdm_mclk_pad_0,
+>>>> +    &s4_tdm_mclk_pad_1,
+>>>> +    &s4_tdm_lrclk_pad_0,
+>>>> +    &s4_tdm_lrclk_pad_1,
+>>>> +    &s4_tdm_lrclk_pad_2,
+>>>> +    &s4_tdm_sclk_pad_0,
+>>>> +    &s4_tdm_sclk_pad_1,
+>>>> +    &s4_tdm_sclk_pad_2,
+>>>> +    &sm1_aud_top,
+>>>> +    &toram,
+>>>> +    &eqdrc,
+>>>> +    &resample_b,
+>>>> +    &tovad,
+>>>> +    &locker,
+>>>> +    &spdifin_lb,
+>>>> +    &frddr_d,
+>>>> +    &toddr_d,
+>>>> +    &loopback_b,
+>>>> +    &sm1_clk81_en,
+>>>> +    &sm1_sysclk_a_div,
+>>>> +    &sm1_sysclk_a_en,
+>>>> +    &sm1_sysclk_b_div,
+>>>> +    &sm1_sysclk_b_en,
+>>>> +    &earcrx,
+>>>> +    &sm1_earcrx_cmdc_clk_sel,
+>>>> +    &sm1_earcrx_cmdc_clk_div,
+>>>> +    &sm1_earcrx_cmdc_clk,
+>>>> +    &sm1_earcrx_dmac_clk_sel,
+>>>> +    &sm1_earcrx_dmac_clk_div,
+>>>> +    &sm1_earcrx_dmac_clk,
+>>>> +    &s4_tdm_mclk_pad0_sel,
+>>>> +    &s4_tdm_mclk_pad1_sel,
+>>>> +    &s4_tdm_mclk_pad0_div,
+>>>> +    &s4_tdm_mclk_pad1_div,
+>>>> +    &s4_tdm_mclk_pad_2,
+>>>> +    &s4_tdm_mclk_pad2_sel,
+>>>> +    &s4_tdm_mclk_pad2_div,
+>>>> +    &s4_tdm_sclk_pad_3,
+>>>> +    &s4_tdm_sclk_pad_4,
+>>>> +    &s4_tdm_lrclk_pad_3,
+>>>> +    &s4_tdm_lrclk_pad_4,
+>>>> +};
+>>>> +
+>>>>   struct axg_audio_reset_data {
+>>>>       struct reset_controller_dev rstc;
+>>>>       struct regmap *map;
+>>>> @@ -1822,7 +2214,6 @@ static int axg_audio_clkc_probe(struct 
+>>>> platform_device *pdev)
+>>>>                       continue;
+>>>>
+>>>>               name = hw->init->name;
+>>>> -
+>>>>               ret = devm_clk_hw_register(dev, hw);
+>>>>               if (ret) {
+>>>>                       dev_err(dev, "failed to register clock %s\n", 
+>>>> name);
+>>>> @@ -1886,6 +2277,18 @@ static const struct audioclk_data 
+>>>> sm1_audioclk_data = {
+>>>>       .max_register = AUDIO_EARCRX_DMAC_CLK_CTRL,
+>>>>   };
+>>>>
+>>>> +static const struct audioclk_data s4_audioclk_data = {
+>>>> +    .regmap_clks = s4_clk_regmaps,
+>>>> +    .regmap_clk_num = ARRAY_SIZE(s4_clk_regmaps),
+>>>> +    .hw_clks = {
+>>>> +            .hws = s4_audio_hw_clks,
+>>>> +            .num = ARRAY_SIZE(s4_audio_hw_clks),
+>>>> +    },
+>>>> +    .reset_offset = AUDIO_SM1_SW_RESET0,
+>>>> +    .reset_num = 39,
+>>>> +    .max_register = AUDIO_S4_SCLK_PAD_CTRL1,
+>>>> +};
+>>>> +
+>>>>   static const struct of_device_id clkc_match_table[] = {
+>>>>       {
+>>>>               .compatible = "amlogic,axg-audio-clkc",
+>>>> @@ -1896,7 +2299,10 @@ static const struct of_device_id 
+>>>> clkc_match_table[] = {
+>>>>       }, {
+>>>>               .compatible = "amlogic,sm1-audio-clkc",
+>>>>               .data = &sm1_audioclk_data
+>>>> -    }, {}
+>>>> +    }, {
+>>>> +            .compatible = "amlogic,s4-audio-clkc",
+>>>> +            .data = &s4_audioclk_data
+>>>> +    }, { }
+>>>>   };
+>>>>   MODULE_DEVICE_TABLE(of, clkc_match_table);
+>>>>
+>>>> diff --git a/drivers/clk/meson/axg-audio.h 
+>>>> b/drivers/clk/meson/axg-audio.h
+>>>> index 
+>>>> 9e7765b630c96a8029140539ffda789b7db5277a..2dd1c41d775da8f91ed281470d06e9c970cfc92c 
+>>>> 100644
+>>>> --- a/drivers/clk/meson/axg-audio.h
+>>>> +++ b/drivers/clk/meson/axg-audio.h
+>>>> @@ -66,5 +66,9 @@
+>>>>   #define AUDIO_CLK81_EN              0x034
+>>>>   #define AUDIO_EARCRX_CMDC_CLK_CTRL  0x0D0
+>>>>   #define AUDIO_EARCRX_DMAC_CLK_CTRL  0x0D4
+>>>> +#define AUDIO_S4_MCLK_PAD_CTRL0 0xE80
+>>>> +#define AUDIO_S4_MCLK_PAD_CTRL1 0xE84
+>>>> +#define AUDIO_S4_SCLK_PAD_CTRL0 0xE88
+>>>> +#define AUDIO_S4_SCLK_PAD_CTRL1 0xE8C
+>>>>
+>>>>   #endif /*__AXG_AUDIO_CLKC_H */
+>> -- 
+>> Jerome
 
