@@ -4,100 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0E1C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 04:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA4FFC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 04:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QO+zu628e71NdcN+8zZrldfWoYIRQKoPd1ObPN5VIh0=; b=wUvnT/VauoaUkuNI9TvjIx2qFv
-	9DUeaFZU+8bXLeyJHcJKDlnXtzcoRo4mA/NvTvFINorLlDkTjMUIfKf8p6r0iaF8BuNNwcwpoPZP8
-	dDqIA6FNC+pfENZHq85d8ZxnFdHGEaJMfZg73b1XOPv2+hFFDS+DO4xcizAMIowZjfBO1sftoVCe1
-	BMJyagNuau/zoMr3rXtaRS8+RAydsOT3l8TVo2AH0cU3pgV/1NtEJuv6S9n8bm9fIVg9kxpcz+qEI
-	T3fKLqhasXH5y9pOEcXF96Wp4VMSC6MseR3H9zl88mwGvod3k1MxJIrzC4mGLveVm/U9c1iZc637d
-	gcOZLpww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GFJe4qALkeQEhys3xW/L0dietQst9PmodQmHtovFhEA=; b=LyrDgmP2/Lqr6vwDL8nzwsXmH3
+	ph9RQefE/4mR4d0mr68RC9kLjrjcdr1y4Xb2RVn1um3Ij9BC98cz5WwODykhERM0pQ1j29Iru9Jvl
+	F7HQ8MCjGl1z8fR+3mDFZS0mzbOdlFFFYcy9//928sSXqVHIOfdfyDMgMih0vEPaImVN5RtSi8y3k
+	g4J4GiiicI636Y6Mxc3Yp4YxbTYIV146I4Es9c42dDCGn5qPPn9HW5Vz/J/RYcxi3E5pJx3vjnf3w
+	TEcL/68WK3rJO4K7/ktpnYx5CGOQVkZl9uTFCYRJslL8FSavZBtA+Au9Hncp/l4J+XRRTeAOUYsXv
+	RDrRzZww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tinhQ-0000000DdgU-1Ufu;
-	Fri, 14 Feb 2025 04:53:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tinkP-0000000DeMk-0UV3;
+	Fri, 14 Feb 2025 04:56:17 +0000
+Received: from [203.254.224.34] (helo=mailout4.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tinex-0000000DdFS-3vN2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 14 Feb 2025 04:50:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=QO+zu628e71NdcN+8zZrldfWoYIRQKoPd1ObPN5VIh0=; b=ECx/CjZEvII5+T/2c34L8vUbDR
-	AvHhhwlyiFQDpWqxjIbNdxoR3QiLjX3pEI6uzxFhI6HSbCdtA/raUMIiExveI36H3J4WC4sx7nG9c
-	mnJdOYC2Z8HV3ghPk7S8IQj9e7yFN1w/i9fStmgCyx/FlFA940EuHIF2BH3x96ObaYrlxDNUW7+WS
-	WmsYo0whUdUVXHhLIhR7cdv+kOqqEukcKF6Q5Fx7zR6GD/Akgt6IH0R/Fm5L5jRwMM2YAw5p1sEV5
-	NyPpNcvd8ga73xgu5xP1BQTxW9RZgzMNOLmvWmCc97Ph4viKerrWN2UTVIKhhvKb33kGxrstuPtF+
-	gK/gpLoA==;
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tineu-00000001BFc-2AUK
+	id 1tiniv-0000000De66-2CP4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 04:50:38 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-220dc3831e3so19269005ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 20:50:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739508633; x=1740113433; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=QO+zu628e71NdcN+8zZrldfWoYIRQKoPd1ObPN5VIh0=;
-        b=KKzTLyzbFtFCFj5OCvVCqngPaqHtMbP/D0WU/SPDe7B2J+9+DV0ygE55EE96iS7FLG
-         kBYqmwMtFR7XEkieqv6EZ97RuVeI4LDiIPQwJ8BjxQ+YKvhy4CXeThRFcOP4o5DuMFp5
-         53Aywki7A2bS574IudvmKzM/9vsWYOaz1hwJRRtxU1R8BRPD6a84tIysRWaHtXbRYkkW
-         jBRCGz9w8KwDLdy0HyEHu4b4xUQ0FOfvoJyxKvAT4fYrjN4ON2zJl3wJrspDc3Km8piv
-         tOvTh4BxqI+luq8nwCmDCfMbJeY84v8HkNEzILZL8YObIWh2MVosKTA8LKbmCJbfCr9s
-         RgiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739508633; x=1740113433;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QO+zu628e71NdcN+8zZrldfWoYIRQKoPd1ObPN5VIh0=;
-        b=lJterDho2rW2O+vBvsyHR+j0O1KZtx3nqcEUtMCArqjHgKSQcX411awFzfZOw1LNa5
-         rTmopykhHFitXi0DmHfdRdIvUGofEUQYW+CieljYln70wOfnBGyJuR6gHebp55hGuRGP
-         sNdsvC0ud8kQ/NoKe1uDxWukJwmyAi0qwL+6kPpcL/rAzicVRBF05swfpEMLs+ujWyWc
-         A5oCVadlSSMTV1f7uphG1Ox/jxB1VWvHKHfQvN3HRKHcPdhjJ8KC6fimllRE5WlHzX+x
-         MrNSafnrQxRGEv25w2Lro/BMlwx3SQLQZ5uzu6cEKBgRpZBosdQj6RMvfRT/OehZ/aQ0
-         danQ==
-X-Gm-Message-State: AOJu0Yz3sMHdkflKcoZdFTkbmms/YSF7ThCuVuOuC4lPvaK+mpXSv24E
-	cpXqQLy+KyMbh0P/2/Kpd5HC8sE8nfFBSWdhh0L5syPiH42b8Z1tlC9EhOriaeSetaFOCV99iVF
-	1
-X-Gm-Gg: ASbGnctYoZvF+3m6dpSHpKpk9SpEU3Ds/630zIi82fTm9huuQfJqTOtzebrnZzvU8sw
-	5cv/tyeMev3HkmuPUXLK1e87aSpq9ndmIMOv/HTjQUX6HAR1oiUfitbULxEyyiS7H8LVOJSKaIA
-	MoGVgR9KA05SmkjsAekRt8qt003fc2JivZXOIJgzesGiSfSwl93GAmYSuqJ4cK9hZj2+SKOYHJf
-	xvScp7DPgjybXeOjxBz2R3GWbrfpwdIfSOJ9Esb0Ozd12s9oAb0rf8cWclMNbXOTj0AHyWAYR+H
-	zfFlnqrri9lqMUb1QA==
-X-Google-Smtp-Source: AGHT+IEu0lDtclxbef6UwbmqEzWYZeKYwYx7xgSjvSbLYwRCBVDhhxMCDEy15vcZ987LsGRPTI7VuA==
-X-Received: by 2002:a05:6a00:3e0b:b0:730:940f:4fbf with SMTP id d2e1a72fcca58-7323c8dd0cdmr9141926b3a.2.1739508633461;
-        Thu, 13 Feb 2025 20:50:33 -0800 (PST)
-Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7324d5d4608sm728338b3a.129.2025.02.13.20.50.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Feb 2025 20:50:33 -0800 (PST)
-Date: Fri, 14 Feb 2025 10:20:30 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 06/18] firmware: arm_ffa: Refactor addition of
- partition information into XArray
-Message-ID: <20250214045030.mfegbypq27gdl6sg@vireshk-i7>
-References: <20250131-ffa_updates-v2-0-544ba4e35387@arm.com>
- <20250131-ffa_updates-v2-6-544ba4e35387@arm.com>
+	Fri, 14 Feb 2025 04:54:48 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250214045438epoutp04e8962c2279172775533a39cd447aa404~j_hvczAyK0263702637epoutp04G
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 04:54:38 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250214045438epoutp04e8962c2279172775533a39cd447aa404~j_hvczAyK0263702637epoutp04G
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1739508878;
+	bh=GFJe4qALkeQEhys3xW/L0dietQst9PmodQmHtovFhEA=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=OCSJZ3NGxdDlcKb32darMlmiZ9woTMMT0+iKvYj9+6VOgcr23M/cPHMpDXwV7R90r
+	 Hj0yIWN7mJrwtZb2aCdAFsucsVLf0WfdJUylOlj7nLVHW6RE8pIIglbtzrZM9f9VOn
+	 yYh275MWgLFb8JTa9dkuTKY34fit/TYk7wIISdww=
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTP id
+	20250214045438epcas5p40ed000ae5a1d8c794f122852605f60e7~j_hu587St1722717227epcas5p4t;
+	Fri, 14 Feb 2025 04:54:38 +0000 (GMT)
+Received: from epsmgec5p1new.samsung.com (unknown [182.195.38.182]) by
+	epsnrtp2.localdomain (Postfix) with ESMTP id 4YvKTm1MtZz4x9Px; Fri, 14 Feb
+	2025 04:54:36 +0000 (GMT)
+Received: from epcas5p4.samsung.com ( [182.195.41.42]) by
+	epsmgec5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	43.3F.19710.C8CCEA76; Fri, 14 Feb 2025 13:54:36 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250214045402epcas5p3396c5963c8764122bd0ea8e6def478bd~j_hNb8N6R1547315473epcas5p3p;
+	Fri, 14 Feb 2025 04:54:02 +0000 (GMT)
+Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250214045402epsmtrp17cf0464ecfc999f324a0bf7b16616463~j_hNaQEVX3205132051epsmtrp1b;
+	Fri, 14 Feb 2025 04:54:02 +0000 (GMT)
+X-AuditID: b6c32a44-36bdd70000004cfe-19-67aecc8cc583
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	2F.57.18949.96CCEA76; Fri, 14 Feb 2025 13:54:02 +0900 (KST)
+Received: from FDSFTE596 (unknown [107.122.82.131]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250214045359epsmtip1b27101d3b6fca803c4f2c4f69c76a4e4~j_hK_pWn-1563615636epsmtip1K;
+	Fri, 14 Feb 2025 04:53:59 +0000 (GMT)
+From: "Swathi K S" <swathi.ks@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
+Cc: <krzk+dt@kernel.org>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
+	<edumazet@google.com>, <kuba@kernel.org>, <pabeni@redhat.com>,
+	<robh@kernel.org>, <conor+dt@kernel.org>, <richardcochran@gmail.com>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+	<rmk+kernel@armlinux.org.uk>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+In-Reply-To: <27b0f5c5-ae51-4192-8847-20e471c55be7@kernel.org>
+Subject: RE: [PATCH v6 1/2] dt-bindings: net: Add FSD EQoS device tree
+ bindings
+Date: Fri, 14 Feb 2025 10:23:49 +0530
+Message-ID: <00ad01db7e9c$76c288a0$644799e0$@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250131-ffa_updates-v2-6-544ba4e35387@arm.com>
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQFMfZy5LnHh86L+CikZ+hKlrx3PbgHP/Q5uAh59lGQBgzSo3AGBIR3uAawmoOC0H0U3EA==
+Content-Language: en-in
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrNJsWRmVeSWpSXmKPExsWy7bCmlm7PmXXpBjtOslv8fDmN0WL5gx2s
+	Fmv2nmOymHO+hcVi/pFzrBZPjz1it3g56x6bxfnzG9gtLmzrY7XY9Pgaq8XlXXPYLLquPWG1
+	mPd3LavFsQViFt9Ov2G0OHLmBbPFpf6JTBb/9+xgdxDyuHztIrPHlpU3mTye9m9l99g56y67
+	x4JNpR6bVnWyeWxeUu+xc8dnJo/3+66yeRzcZ+jxeZNcAHdUtk1GamJKapFCal5yfkpmXrqt
+	kndwvHO8qZmBoa6hpYW5kkJeYm6qrZKLT4CuW2YO0F9KCmWJOaVAoYDE4mIlfTubovzSklSF
+	jPziElul1IKUnAKTAr3ixNzi0rx0vbzUEitDAwMjU6DChOyMN18+MhaclKzY0v+brYHxmkgX
+	IyeHhICJxJ6Dt9lAbCGB3YwS/58ldTFyAdmfGCVmHzjLBuF8Y5RY/vgjO0xH44puZojEXkaJ
+	e73voKpeMEqsOLoPbBabgJbEor59YB0iAroSm28sZwcpYhZ4wCzRM2MOC0iCU8BOYseW10Cj
+	ODiEBQIl2o7ygYRZBFQlJiw+CFbCK2Apcf3JVShbUOLkzCdgNrOAtsSyhSCtIBcpSPx8uowV
+	ZIyIQJjE9n86ECXiEkd/9oAdKiHQzSlxb+EjqA9cJNbMn8gGYQtLvDq+BSouJfGyvw3KjpdY
+	3QexV0IgQ+LuL5h6e4kDV0DO5wBaoCmxfpc+RFhWYuqpdUwQe/kken8/YYKI80rsmAdjK0v8
+	fX0NaqSkxLal79knMCrNQvLZLCSfzULywiyEbQsYWVYxSqYWFOempyabFhjmpZbD4zs5P3cT
+	IzjVa7nsYLwx/5/eIUYmDsZDjBIczEoivBLT1qQL8aYkVlalFuXHF5XmpBYfYjQFBvdEZinR
+	5HxgtskriTc0sTQwMTMzM7E0NjNUEudt3tmSLiSQnliSmp2aWpBaBNPHxMEp1cAU/uZfacRa
+	9WT51PXLp52tv2pn5cncUau27/4kOamlve8KNfNvyl9o8dzeGNs+2+vUlHPaDtcFszuj1nwN
+	YvNPPpp3P4PN4L7L6tWa753uCpQIuhUneJ+/FXno7Yzqn5P9bJa0qDYZBy14I1nkrS7XxbVa
+	Y7Olwa13a99yXKw/v9y2X5A9dM+S1swqMe22yNm+P5x/tLXqtovNqA3bLVF1tyUwKFtNclnz
+	ze9xrKK63hO+LJuyrdUi6si7I3ucb58LvnEtiy3xndht7YyD0tcVJa99dF8d2ad3xNBYj+Pf
+	jYvNvWfnreW+rzRBper/qph3kdMT3l+ZsmJR5ovzB8JfX1c7evRLnd+FIw/4+ISVWIozEg21
+	mIuKEwGklvbGfgQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrCIsWRmVeSWpSXmKPExsWy7bCSnG7WmXXpBl1nGS1+vpzGaLH8wQ5W
+	izV7zzFZzDnfwmIx/8g5Vounxx6xW7ycdY/N4vz5DewWF7b1sVpsenyN1eLyrjlsFl3XnrBa
+	zPu7ltXi2AIxi2+n3zBaHDnzgtniUv9EJov/e3awOwh5XL52kdljy8qbTB5P+7eye+ycdZfd
+	Y8GmUo9NqzrZPDYvqffYueMzk8f7fVfZPA7uM/T4vEkugDuKyyYlNSezLLVI3y6BK+PplVbm
+	gq8SFSe2b2ZrYGwS6WLk5JAQMJFoXNHNDGILCexmlJj4SxciLinxqXkqK4QtLLHy33P2LkYu
+	oJpnjBIr359iAUmwCWhJLOrbxw5iiwjoSmy+sRysiFngC7PE7PuTmSA6zjJJLG1bxQRSxSlg
+	J7Fjy2uwdcIC/hLve0+CdbMIqEpMWHwQbCqvgKXE9SdXoWxBiZMzn4DZzALaEk9vPoWzly2E
+	mCMhoCDx8+kyoFM5gK4Ik9j+TweiRFzi6M8e5gmMwrOQTJqFZNIsJJNmIWlZwMiyilEytaA4
+	Nz232LDAKC+1XK84Mbe4NC9dLzk/dxMjOOK1tHYw7ln1Qe8QIxMH4yFGCQ5mJRFeiWlr0oV4
+	UxIrq1KL8uOLSnNSiw8xSnOwKInzfnvdmyIkkJ5YkpqdmlqQWgSTZeLglGpg0jHubrzP6WGy
+	ntHTZ8qKp/c2TjFfxTVtSqJcbfiJhWqrvxzpel/Q4NJwcU149AT188EGjxbGvPqQGfcrYfrS
+	wsXef5vTGhamsgiZnmKos/7kw9qTWGdZcEbq8t4lWms/zbzVrXB9YvNFw2nJUy8lVlaycO99
+	f0T94intueIXNrjOlfFkO1Ll8kB16o21i96eZz3dXXYg9taMsnQ1kz4NmTjjlD8cPA/sw/i1
+	uq8GGAqEH3x468JCn6vG7EYxXe3nvkuuXvTvknyZ/rSu53cmMMg7Bp+VlIpNaou97l3A1td2
+	/e7OItfYrPYrfjYvbObH8a7N/up4yWy5/uTD/ku/T3x9qEmh8s7x7++TzOetUWIpzkg01GIu
+	Kk4EABZLXqpnAwAA
+X-CMS-MailID: 20250214045402epcas5p3396c5963c8764122bd0ea8e6def478bd
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff
+References: <20250213044624.37334-1-swathi.ks@samsung.com>
+	<CGME20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff@epcas5p1.samsung.com>
+	<20250213044624.37334-2-swathi.ks@samsung.com>
+	<20250213-adorable-arboreal-degu-6bdcb8@krzk-bin>
+	<009a01db7e07$132feb60$398fc220$@samsung.com>
+	<27b0f5c5-ae51-4192-8847-20e471c55be7@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_045036_752113_652A3E69 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20250213_205446_191139_3B0CD42E 
+X-CRM114-Status: GOOD (  26.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,32 +150,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31-01-25, 11:24, Sudeep Holla wrote:
-> @@ -1461,39 +1480,18 @@ static int ffa_setup_partitions(void)
->  		    !(tpbuf->properties & FFA_PARTITION_AARCH64_EXEC))
->  			ffa_mode_32bit_set(ffa_dev);
->  
-> -		info = kzalloc(sizeof(*info), GFP_KERNEL);
-> -		if (!info) {
-> +		if (ffa_xa_add_partition_info(ffa_dev->vm_id)) {
->  			ffa_device_unregister(ffa_dev);
->  			continue;
->  		}
-> -		rwlock_init(&info->rw_lock);
-> -		ret = xa_insert(&drv_info->partition_info, tpbuf->id,
-> -				info, GFP_KERNEL);
-> -		if (ret) {
-> -			pr_err("%s: failed to save partition ID 0x%x - ret:%d\n",
-> -			       __func__, tpbuf->id, ret);
-> -			ffa_device_unregister(ffa_dev);
-> -			kfree(info);
-> -		}
-> +
 
-Why extra blank line here ?
 
->  	}
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: 13 February 2025 17:31
+> To: Swathi K S <swathi.ks=40samsung.com>
+> Cc: krzk+dt=40kernel.org; andrew+netdev=40lunn.ch; davem=40davemloft.net;
+> edumazet=40google.com; kuba=40kernel.org; pabeni=40redhat.com;
+> robh=40kernel.org; conor+dt=40kernel.org; richardcochran=40gmail.com;
+> mcoquelin.stm32=40gmail.com; alexandre.torgue=40foss.st.com;
+> rmk+kernel=40armlinux.org.uk; netdev=40vger.kernel.org;
+> devicetree=40vger.kernel.org; linux-stm32=40st-md-mailman.stormreply.com;
+> linux-arm-kernel=40lists.infradead.org; linux-kernel=40vger.kernel.org
+> Subject: Re: =5BPATCH v6 1/2=5D dt-bindings: net: Add FSD EQoS device tre=
+e
+> bindings
+>=20
+> On 13/02/2025 12:04, Swathi K S wrote:
+> >
+> >
+> >> -----Original Message-----
+> >> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> >> Sent: 13 February 2025 13:24
+> >> To: Swathi K S <swathi.ks=40samsung.com>
+> >> Cc: krzk+dt=40kernel.org; andrew+netdev=40lunn.ch;
+> davem=40davemloft.net;
+> >> edumazet=40google.com; kuba=40kernel.org; pabeni=40redhat.com;
+> >> robh=40kernel.org; conor+dt=40kernel.org; richardcochran=40gmail.com;
+> >> mcoquelin.stm32=40gmail.com; alexandre.torgue=40foss.st.com;
+> >> rmk+kernel=40armlinux.org.uk; netdev=40vger.kernel.org;
+> >> devicetree=40vger.kernel.org; linux-stm32=40st-md-
+> mailman.stormreply.com;
+> >> linux-arm-kernel=40lists.infradead.org; linux-kernel=40vger.kernel.org
+> >> Subject: Re: =5BPATCH v6 1/2=5D dt-bindings: net: Add FSD EQoS device
+> >> tree bindings
+> >>
+> >> On Thu, Feb 13, 2025 at 10:16:23AM +0530, Swathi K S wrote:
+> >>> +  clock-names:
+> >>> +    minItems: 5
+> >>> +    maxItems: 10
+> >>> +    contains:
+> >>> +      enum:
+> >>> +        - ptp_ref
+> >>> +        - master_bus
+> >>> +        - slave_bus
+> >>> +        - tx
+> >>> +        - rx
+> >>> +        - master2_bus
+> >>> +        - slave2_bus
+> >>> +        - eqos_rxclk_mux
+> >>> +        - eqos_phyrxclk
+> >>> +        - dout_peric_rgmii_clk
+> >>
+> >> This does not match the previous entry. It should be strictly ordered
+> >> with
+> >> minItems: 5.
+> >
+> > Hi Krzysztof,
+> > Thanks for reviewing.
+> > In FSD SoC, we have 2 instances of ethernet in two blocks.
+> > One instance needs 5 clocks and the other needs 10 clocks.
+>=20
+> I understand and I do not think this is contradictory to what I asked.
+> If it is, then why/how?
+>=20
+> >
+> > I tried to understand this by looking at some other dt-binding files
+> > as given below, but looks like they follow similar approach
+> > Documentation/devicetree/bindings/net/stm32-dwmac.yaml
+> > Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> >
+> > Could you please guide me on how to implement this?
+> > Also, please help me understand what is meant by 'strictly ordered'
+>=20
+> Every other 99% of bindings. Just like your clocks property.
 
--- 
-viresh
+Hi Krzysztof,
+Thanks for your feedback.
+I want to make sure I fully understand your comment.=20
+I can see we have added clocks and clock names in the same order.
+Could you please help in detail what specifically needs to be modified rega=
+rding the ordering and minItems/maxItems usage?
+
+-Swathi
+
+>=20
+> Best regards,
+> Krzysztof
+
 
