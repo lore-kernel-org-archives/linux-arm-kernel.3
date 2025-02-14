@@ -4,68 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8FDFC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 942A3C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gPSMssSvsei07PxroFCthED2AzKm3q7L8MtcZbCIadA=; b=pfuYWJj9aPprEzWJb7Rmh8akQu
-	dHA5EanJbn1qYXqeU2xw+sP60O3qa68vTruetCx43y9zeZjk/ifIWTCrlbL1gKEQ2ntQXr68OdhLl
-	KAdRX16GHW45bCIN2AIVoZ9abEyg2CZULtJXNXIr0/BOp3g/OybuWQmlYXhjtpzpqCnwbqaCkaIp6
-	9ZyjA0zhpJYJUC6+Tiy6tRs2ZgQHuIa37+IejOKckrhpwCEY9RRjevzwvnpt5lVhJ+MltD9eQExOU
-	dNFRqpHjfPlZLSK2ivsB0keJWAskPowBFtC8x8/T3azL3fV6V51ARDnnbKf8SwQZAfquwkmA4G5mV
-	ddHY9j8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=krnNlduV8FYZKW1Uss8LQ4PVHGiD+7ggpVNGpXMLdvM=; b=MGjVHTHUINE1S0A0363Zlxdm+X
+	x0d/9UDhRes9TE13iF/hQFQFhx7NILi3jzkqqGq/9NTyJmfJWrUExFx193vVPJA+9BcIZjmNSSvvo
+	vryLJK2LkA3XgtlzFfC27jw6mtr1FueWbLwfNB+rHauw940zWFqdWmz98dsegnAv2CmnWtUdM+ws5
+	fnLVuLDp5KhECGhgDPuvD1eFsS69+HiWloXdJUknflo4BhS6tWGSemfCVxH3g5WJcEDInYkJ7/09H
+	C1tjwR5ObstVQLsnc57Ldp0wuGtNeLHESmiRwlnpHQ1ngUOOiOXMQo3yvVnT1bmVCa9/A4oSBhAm3
+	HvyOnSTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiuIW-0000000Elq1-3Uyw;
-	Fri, 14 Feb 2025 11:55:56 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tiuKX-0000000EmG1-2AP6;
+	Fri, 14 Feb 2025 11:58:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiuH5-0000000ElGH-0Gd9
+	id 1tiuJ6-0000000Em2v-3ENL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 11:54:28 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tiuGw-0007wn-Ob; Fri, 14 Feb 2025 12:54:18 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tiuGv-000uUu-2E;
-	Fri, 14 Feb 2025 12:54:17 +0100
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tiuGv-0005mD-1x;
-	Fri, 14 Feb 2025 12:54:17 +0100
-Message-ID: <6dd9ed2750abe1f5174805673411ccb919ee5461.camel@pengutronix.de>
-Subject: Re: [PATCH 1/4] [PATCH 1/4] reset: simple: Add syscon device
- compatible
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Wilson Ding <dingwei@marvell.com>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: andrew@lunn.ch, gregory.clement@bootlin.com, 
-	sebastian.hesselbarth@gmail.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, salee@marvell.com, gakula@marvell.com
-Date: Fri, 14 Feb 2025 12:54:17 +0100
-In-Reply-To: <20250214065833.530276-3-dingwei@marvell.com>
-References: <20250214065833.530276-1-dingwei@marvell.com>
-	 <20250214065833.530276-3-dingwei@marvell.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Fri, 14 Feb 2025 11:56:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6CA205C5A76;
+	Fri, 14 Feb 2025 11:55:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B15DC4CED1;
+	Fri, 14 Feb 2025 11:56:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739534191;
+	bh=G2ROVBu5b+JAdTaOkWugsekPMRCegXPQ+zbKkmapIF8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=hChw4ib1wzFjnSheB50wsKRlt0AMG9/OBJve9zorJIKOVo7Z8RtHLK5BOLH3ckyyV
+	 BlzKYsmALZSUUaJozET+t8DP5gPwqdju12qywFSOEwrefUGLGOvWhdlS0vZi1yKwbu
+	 wXJAJNtQZEuTBbepTu6nofiPlw7DED4JyBGuq5HPhvMuLHRAuHk5lAz8dVXuQTKX+p
+	 y8g4XVRQZro3t7+pM2Z1jtGNivffbzvuVF+0v/nI/JeTIyKUKzMAV3WwjS9zc8n31r
+	 Hya56uxXHf5cdQ987/MVFJc3GBgTSIVABUWt0NhKqeNLalmqydVStcJt/My/wCXp7j
+	 4RoVALVFTpyuA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tiuJ3-0043Rj-HF;
+	Fri, 14 Feb 2025 11:56:29 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Alexander Potapenko <glider@google.com>,
+	Anders Roxell <anders.roxell@linaro.org>,
+	Ben Simner <ben.simner@cl.cam.ac.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	Florian Weimer <fweimer@redhat.com>,
+	Fuad Tabba <tabba@google.com>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	kernel test robot <lkp@intel.com>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Quentin Perret <qperret@google.com>,
+	Wilco Dijkstra <wilco.dijkstra@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] KVM/arm64 fixes for 6.14, take #2
+Date: Fri, 14 Feb 2025 11:56:08 +0000
+Message-Id: <20250214115608.2986061-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, glider@google.com, anders.roxell@linaro.org, ben.simner@cl.cam.ac.uk, catalin.marinas@arm.com, eric.auger@redhat.com, fweimer@redhat.com, tabba@google.com, jeremy.linton@arm.com, lkp@intel.com, broonie@kernel.org, mark.rutland@arm.com, oliver.upton@linux.dev, qperret@google.com, wilco.dijkstra@arm.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_035427_102149_364F7C9E 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20250214_035632_894712_5111D81F 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,163 +98,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Do, 2025-02-13 at 22:58 -0800, Wilson Ding wrote:
-> Introduce the new ops for updating reset line and getting status. Thus,
-> the reset controller can be accessed through either direct I/O or regmap
-> interfaces.
+Paolo,
 
-Please don't add a new layer of function pointer indirection, just add
-a new struct reset_control_ops for the regmap variant.
+Here's the second batch of KVM/arm64 fixes for 6.14.
 
-> It enables the support of the syscon devices with the simple
-> reset code. To adapt the DT binding of the syscon device, the number of
-> reset lines must be specified in device data.
+The most noticeable item here is a rather large rework of our
+FP/SIMD/SVE/SME handling, mostly removing a bunch of fairly pointless
+and not-quite-thought-out optimisations. This fixes a bunch of
+failures reported in the wild, and makes the code far more
+maintainable. Thanks to Mark Rutland for doing all the hard work.
 
-If the DT node had a reg property, number of reset lines could be
-determined from its size, like for MMIO.
+The rest is mostly a bunch of fixes cleanups after the merge window
+(timers, vgic, pKVM...).
 
-> Signed-off-by: Wilson Ding <dingwei@marvell.com>
-> ---
->  drivers/reset/reset-simple.c       | 117 +++++++++++++++++++++++------
->  include/linux/reset/reset-simple.h |  11 +++
->  2 files changed, 107 insertions(+), 21 deletions(-)
->=20
-> diff --git a/drivers/reset/reset-simple.c b/drivers/reset/reset-simple.c
-> index 276067839830..e4e777d40a79 100644
-> --- a/drivers/reset/reset-simple.c
-> +++ b/drivers/reset/reset-simple.c
-> @@ -15,8 +15,10 @@
->  #include <linux/device.h>
->  #include <linux/err.h>
->  #include <linux/io.h>
-> +#include <linux/mfd/syscon.h>
->  #include <linux/of.h>
->  #include <linux/platform_device.h>
-> +#include <linux/regmap.h>
->  #include <linux/reset-controller.h>
->  #include <linux/reset/reset-simple.h>
->  #include <linux/spinlock.h>
-> @@ -27,10 +29,9 @@ to_reset_simple_data(struct reset_controller_dev *rcde=
-v)
->  	return container_of(rcdev, struct reset_simple_data, rcdev);
->  }
-> =20
-> -static int reset_simple_update(struct reset_controller_dev *rcdev,
-> +static int reset_simple_update_mmio(struct reset_simple_data *data,
->  			       unsigned long id, bool assert)
+Please pull,
 
-No need to rename or change the function prototype.
+	M.
 
->  {
-> -	struct reset_simple_data *data =3D to_reset_simple_data(rcdev);
->  	int reg_width =3D sizeof(u32);
->  	int bank =3D id / (reg_width * BITS_PER_BYTE);
->  	int offset =3D id % (reg_width * BITS_PER_BYTE);
-> @@ -51,16 +52,40 @@ static int reset_simple_update(struct reset_controlle=
-r_dev *rcdev,
->  	return 0;
->  }
-> =20
-> +static int reset_simple_update_regmap(struct reset_simple_data *data,
-> +				      unsigned long id, bool assert)
+The following changes since commit 0e459810285503fb354537e84049e212c5917c33:
 
-I'd call this reset_simple_regmap_update().
+  KVM: arm64: timer: Don't adjust the EL2 virtual timer offset (2025-02-04 15:10:38 +0000)
 
-> +{
-> +	int reg_width =3D sizeof(u32);
-> +	int bank =3D id / (reg_width * BITS_PER_BYTE);
-> +	int offset =3D id % (reg_width * BITS_PER_BYTE);
-> +	u32 mask, val;
-> +
-> +	mask =3D BIT(offset);
-> +
-> +	if (assert ^ data->active_low)
-> +		val =3D mask;
-> +	else
-> +		val =3D 0;
-> +
-> +	return regmap_write_bits(data->regmap,
-> +				 data->reg_offset + (bank * reg_width),
-> +				 mask, val);
-> +}
-> +
->  static int reset_simple_assert(struct reset_controller_dev *rcdev,
->  			       unsigned long id)
->  {
-> -	return reset_simple_update(rcdev, id, true);
-> +	struct reset_simple_data *data =3D to_reset_simple_data(rcdev);
-> +
-> +	return data->ops.update(data, id, true);
->  }
-> =20
->  static int reset_simple_deassert(struct reset_controller_dev *rcdev,
->  				 unsigned long id)
->  {
-> -	return reset_simple_update(rcdev, id, false);
-> +	struct reset_simple_data *data =3D to_reset_simple_data(rcdev);
-> +
-> +	return data->ops.update(data, id, false);
->  }
+are available in the Git repository at:
 
-No need for indirection. Better to just add separate
-reset_simple_regmap_assert/deassert() functions.
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-6.14-2
 
->  static int reset_simple_reset(struct reset_controller_dev *rcdev,
-> @@ -81,10 +106,9 @@ static int reset_simple_reset(struct reset_controller=
-_dev *rcdev,
->  	return reset_simple_deassert(rcdev, id);
->  }
-> =20
-> -static int reset_simple_status(struct reset_controller_dev *rcdev,
-> -			       unsigned long id)
-> +static int reset_simple_status_mmio(struct reset_simple_data *data,
-> +			     unsigned long id)
->  {
-> -	struct reset_simple_data *data =3D to_reset_simple_data(rcdev);
->  	int reg_width =3D sizeof(u32);
->  	int bank =3D id / (reg_width * BITS_PER_BYTE);
->  	int offset =3D id % (reg_width * BITS_PER_BYTE);
-> @@ -95,6 +119,31 @@ static int reset_simple_status(struct reset_controlle=
-r_dev *rcdev,
->  	return !(reg & BIT(offset)) ^ !data->status_active_low;
->  }
-> =20
-> +static int reset_simple_status_regmap(struct reset_simple_data *data,
-> +				    unsigned long id)
-> +{
-> +	int reg_width =3D sizeof(u32);
-> +	int bank =3D id / (reg_width * BITS_PER_BYTE);
-> +	int offset =3D id % (reg_width * BITS_PER_BYTE);
-> +	u32 reg;
-> +	int ret;
-> +
-> +	ret =3D regmap_read(data->regmap, data->reg_offset + (bank * reg_width)=
-,
-> +			  &reg);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return !(reg & BIT(offset)) ^ !data->status_active_low;
-> +}
-> +
-> +static int reset_simple_status(struct reset_controller_dev *rcdev,
-> +			       unsigned long id)
-> +{
-> +	struct reset_simple_data *data =3D to_reset_simple_data(rcdev);
-> +
-> +	return data->ops.status(data, id);
-> +}
+for you to fetch changes up to b3aa9283c0c505b5cfd25f7d6cfd720de2adc807:
 
-Same as above, no need for indirection.
-Just add separate reset_simple_regmap_assert/deassert() functions ...
+  KVM: arm64: vgic: Hoist SGI/PPI alloc from vgic_init() to kvm_create_vgic() (2025-02-13 18:03:54 +0000)
 
-> +
->  const struct reset_control_ops reset_simple_ops =3D {
->  	.assert		=3D reset_simple_assert,
->  	.deassert	=3D reset_simple_deassert,
+----------------------------------------------------------------
+KVM/arm64 fixes for 6.14, take #2
 
-... and add a const struct reset_control_ops reset_simple_regmap_ops.
+- Large set of fixes for vector handling, specially in the interactions
+  between host and guest state. This fixes a number of bugs affecting
+  actual deployments, and greatly simplifies the FP/SIMD/SVE handling.
+  Thanks to Mark Rutland for dealing with this thankless task.
 
-regards
-Philipp
+- Fix an ugly race between vcpu and vgic creation/init, resulting in
+  unexpected behaviours.
+
+- Fix use of kernel VAs at EL2 when emulating timers with nVHE.
+
+- Small set of pKVM improvements and cleanups.
+
+----------------------------------------------------------------
+Marc Zyngier (4):
+      KVM: arm64: Fix __pkvm_host_mkyoung_guest() return value
+      KVM: arm64: Convert timer offset VA when accessed in HYP code
+      KVM: arm64: timer: Drop warning on failed interrupt signalling
+      KVM: arm64: vgic: Hoist SGI/PPI alloc from vgic_init() to kvm_create_vgic()
+
+Mark Rutland (9):
+      KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
+      KVM: arm64: Remove host FPSIMD saving for non-protected KVM
+      KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN
+      KVM: arm64: Remove VHE host restore of CPACR_EL1.SMEN
+      KVM: arm64: Refactor CPTR trap deactivation
+      KVM: arm64: Refactor exit handlers
+      KVM: arm64: Mark some header functions as inline
+      KVM: arm64: Eagerly switch ZCR_EL{1,2}
+      KVM: arm64: Simplify warning in kvm_arch_vcpu_load_fp()
+
+Quentin Perret (3):
+      KVM: arm64: Improve error handling from check_host_shared_guest()
+      KVM: arm64: Simplify np-guest hypercalls
+      KVM: arm64: Fix alignment of kvm_hyp_memcache allocations
+
+ arch/arm64/include/asm/kvm_emulate.h    |  42 ---------
+ arch/arm64/include/asm/kvm_host.h       |  24 ++----
+ arch/arm64/kernel/fpsimd.c              |  25 ------
+ arch/arm64/kvm/arch_timer.c             |  16 ++--
+ arch/arm64/kvm/arm.c                    |   8 --
+ arch/arm64/kvm/fpsimd.c                 | 107 ++---------------------
+ arch/arm64/kvm/hyp/entry.S              |   5 ++
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 148 ++++++++++++++++++++++++--------
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c      |  15 ++--
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c   |  76 ++++++++--------
+ arch/arm64/kvm/hyp/nvhe/switch.c        |  89 +++++++++----------
+ arch/arm64/kvm/hyp/vhe/switch.c         |  33 ++++---
+ arch/arm64/kvm/vgic/vgic-init.c         |  74 ++++++++--------
+ 13 files changed, 287 insertions(+), 375 deletions(-)
 
