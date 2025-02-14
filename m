@@ -4,97 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D6DC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 09:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F34C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 09:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wt/iQvY38SLBB+vliNgUL2Hkrb2gXuog8nLwR89H8Dk=; b=JCaqi5bCp2GbKhXkfYza2GfILj
-	pqv0w/2I5PdTdL5NoHoUBC4/1ZYgyfXh67k+vVhlTfcn6Pj/yvZM9DV+uvbbLV6DSJOTcmDPa6l2J
-	8PpoOcTNES8WfY9V4vdIvuKNc6O5raDmhahebyvgw/bFU6VNa7zLnPQFOAfLMjRCMvy/fsWVRh7PW
-	tskCN9+pnXfJg4UILrPSrSJA1CTrDlGJ2GTaOqDP7smHBmw1tYnuuA0FVnohSuwfQzsqGXrJEMQKJ
-	rtuafeDxUV7kNkS7Dg+YGabd1epYvPVzcBnBWZHhPdglvVja/nhqA0/u0gqFo250jEsvjDPFp862i
-	XpIuoWcQ==;
+	bh=1KPxF4Nw7vEPDGlJw17L3iwsGbaEnoaLPgVLab6d4Tw=; b=m/Dg6YfMQP/ScGisMhUzz23gkY
+	aTt03f7kcvPpTRU2CUAxEzPb/3UareXD8W4j/1OaUDfyeiUzcarzRkQ/u8S5rUktkgtg16JEqRxQ8
+	WDXLSsmPliXsMaViFWehJ4Boz69bqLN8z7bqIBBFBLzK/fbjn0hH5LtdtmvChoHxKeZZ1SMzyIrkL
+	CMCn1/erHfl6P2KA5gjqvkeQwGNd+Ag0HTtqCX0eD3tefkkf1JibQbdQEdv7K3eO3EXQLnGriMS2u
+	UwmoqAtrek+fV82IYZG9+RuvA4ih7lBDdOv95523eOwHEnusETRC+s1GOu+nqzbiCW+JsQ83MF2tB
+	7GMRWEUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tisNB-0000000EOfm-3NeK;
-	Fri, 14 Feb 2025 09:52:37 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tisOb-0000000EOov-2RYQ;
+	Fri, 14 Feb 2025 09:54:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tisHr-0000000ENfH-2GjY
+	id 1tisIn-0000000ENpM-2wFn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 14 Feb 2025 09:48:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=1KPxF4Nw7vEPDGlJw17L3iwsGbaEnoaLPgVLab6d4Tw=; b=KSTzfGPh/vpQ5BJMGDXzfTo4Oa
+	yKVMDdZB23qIeB4CUikjIgfZwuvf63mJwLdlOJ0kcCIDht58EZTm7o8iVJFjDagHwY+N/qn25CIcs
+	RCHYnU6KODtEM5YJa58D2c5G2J+Vp/ruDMNhonPNtEnCigbu6W8UrblCVwbHlTDP54aHNl36uKpTP
+	/BK7PNZ/9ZdQkGWzU4S7T+6w1i/84qcJge5NfMuLQAPuO+1H+NDGOgolC6jEer2CoTG/H8q6WeJSg
+	tPRn4gB6kQyyMbkr6guzksgkcIvavsmqDjuWDtoXqPhBBr7NfdrQP18DSbrazekRZI6vuo8W+rT0n
+	fTh89Hfw==;
+Received: from mailout1.samsung.com ([203.254.224.24])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tisIi-00000001Dg1-0khh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 09:47:09 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51DLglXM001230;
-	Fri, 14 Feb 2025 09:46:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	wt/iQvY38SLBB+vliNgUL2Hkrb2gXuog8nLwR89H8Dk=; b=ZS5/K7f3DQyKDTEt
-	fdUCHOK6l8sGrYtcR8xaKtjIzkyizQpGkAYLRwwwuH4uN2DHV1lFPKhVv2DKFVSs
-	CkJ81DwTgi3wAAHoKb2F2wM1q3ylQheDCIJ+ZH/iU7u9eLWwsMaFqB6TGw1tfShF
-	JuOE55Rin6zz5qK92o9Cjec/uIeKivZkREJYguchI8W9m4p4vswuvqb507oY27JU
-	nhJKRt7F+MZp65U+8rBGYCKwrDbUYssjKzGqC9rDL0L+q0Ogc6J8iJvxF6w8PGH/
-	3zJp6uAqNBBd27uCmJTRFL+gTI/Cb+YL/qCqa0zQYgKHThhhzB1XecKD6IJvgHYY
-	DQ1s7w==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44seq0342c-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 14 Feb 2025 09:46:53 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51E9kqRU027585
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 14 Feb 2025 09:46:52 GMT
-Received: from [10.239.132.245] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 14 Feb
- 2025 01:46:48 -0800
-Message-ID: <f1e61bf3-31b8-4c81-8e6a-5a5f93926663@quicinc.com>
-Date: Fri, 14 Feb 2025 17:46:45 +0800
+	Fri, 14 Feb 2025 09:48:02 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250214094750epoutp01c9e46350705084f9be00dfb829af16a2~kChu7oZk01383113831epoutp01P
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 09:47:50 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250214094750epoutp01c9e46350705084f9be00dfb829af16a2~kChu7oZk01383113831epoutp01P
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1739526470;
+	bh=1KPxF4Nw7vEPDGlJw17L3iwsGbaEnoaLPgVLab6d4Tw=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=EM4HbyTQebG6jPrmcAxo8EXhbjBA8XaOkwYHOTkghe082cT8j6FUTj2wlAWHiHW1i
+	 wHtNW69MKl6/skZ4wB7EU2oekaVELPL7G7iaaKe3yxci663nrraWy0zd2AVYd/mS9f
+	 V3i/4bWGHgxu8j6vnmxkTuJzuVi0cc+EiqW4CH9g=
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTP id
+	20250214094749epcas5p443bd5f798d0035f7f20f05e525014acf~kChugsb2n3165931659epcas5p4l;
+	Fri, 14 Feb 2025 09:47:49 +0000 (GMT)
+Received: from epsmges5p3new.samsung.com (unknown [182.195.38.182]) by
+	epsnrtp2.localdomain (Postfix) with ESMTP id 4YvS036CqHz4x9Px; Fri, 14 Feb
+	2025 09:47:47 +0000 (GMT)
+Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
+	epsmges5p3new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	ED.0E.19956.3411FA76; Fri, 14 Feb 2025 18:47:47 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250214093326epcas5p4f53cf59ec2592203d8465e04fa9b6c76~kCVKt75SB2301023010epcas5p4D;
+	Fri, 14 Feb 2025 09:33:26 +0000 (GMT)
+Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250214093326epsmtrp2761241611125c39e6b2e61523e974e61~kCVKs60lp2248822488epsmtrp2W;
+	Fri, 14 Feb 2025 09:33:26 +0000 (GMT)
+X-AuditID: b6c32a4b-8408b24000004df4-12-67af1143d138
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	7A.19.18949.6ED0FA76; Fri, 14 Feb 2025 18:33:26 +0900 (KST)
+Received: from FDSFTE596 (unknown [107.122.82.131]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250214093324epsmtip17a62cf7e37c2409e00b59e359fb6b124~kCVIKWFhd2759327593epsmtip1T;
+	Fri, 14 Feb 2025 09:33:23 +0000 (GMT)
+From: "Swathi K S" <swathi.ks@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
+Cc: <krzk+dt@kernel.org>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
+	<edumazet@google.com>, <kuba@kernel.org>, <pabeni@redhat.com>,
+	<robh@kernel.org>, <conor+dt@kernel.org>, <richardcochran@gmail.com>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+	<rmk+kernel@armlinux.org.uk>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	"'Pankaj Dubey'" <pankaj.dubey@samsung.com>
+In-Reply-To: <7d50f55d-d0cd-4741-ab55-2f54dc45d6ab@kernel.org>
+Subject: RE: [PATCH v6 1/2] dt-bindings: net: Add FSD EQoS device tree
+ bindings
+Date: Fri, 14 Feb 2025 15:03:15 +0530
+Message-ID: <00ce01db7ec3$7f9ab750$7ed025f0$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6] arm64: mm: Populate vmemmap/linear at the page level
- for hotplugged sections
-To: David Hildenbrand <david@redhat.com>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>
-CC: <anshuman.khandual@arm.com>, <will@kernel.org>, <ardb@kernel.org>,
-        <ryan.roberts@arm.com>, <mark.rutland@arm.com>, <joey.gouly@arm.com>,
-        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
-        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
-        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <quic_tingweiz@quicinc.com>,
-        <stable@vger.kernel.org>
-References: <20250213075703.1270713-1-quic_zhenhuah@quicinc.com>
- <9bc91fe3-c590-48e2-b29f-736d0b056c34@redhat.com> <Z64UcwSGQ53mFmWF@arm.com>
- <b2964ea1-a22c-4b66-89ef-3082b6d00d21@redhat.com> <Z64yZRPpyR9A_BiR@arm.com>
- <e3e62864-f914-4ecd-bd26-0363ea72e991@redhat.com>
-Content-Language: en-US
-From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-In-Reply-To: <e3e62864-f914-4ecd-bd26-0363ea72e991@redhat.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 1xmDfeMpkahF76XFwUCOazOxk1QdiY81
-X-Proofpoint-ORIG-GUID: 1xmDfeMpkahF76XFwUCOazOxk1QdiY81
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-14_04,2025-02-13_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- impostorscore=0 bulkscore=0 clxscore=1011 priorityscore=1501 adultscore=0
- mlxscore=0 malwarescore=0 phishscore=0 spamscore=0 lowpriorityscore=0
- mlxlogscore=699 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502140070
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQFMfZy5LnHh86L+CikZ+hKlrx3PbgHP/Q5uAh59lGQBgzSo3AGBIR3uAawmoOABkF4oKQJdFV+JtAAkiQA=
+Content-Language: en-in
+X-Brightmail-Tracker: H4sIAAAAAAAAA01Ta0xbZRjO6Tk9bYfg4TL4YNmsZzoFgbVSutMFmLvEncgSu7Co0R/sSI8t
+	Am3tab2ghombhstgLGNIV0vBAgHGIB1gy1Y27hsjdBepbBm7QBEQgQnKBEO0pUX597yX533e
+	5/vycuGgp2gEN12ppTVKKhNHNyFt3ZEvxewPbJILhlYExPL0WYiofWRlE+ftQyzC4DiOEBU9
+	Q2xiom+MQ0zrH6CEw9HMIW62FbEJy7iTTdxpN6BEvtPFJoyrjWyizxRKLN34DSKqWv/gED2D
+	UzBxu7iERfxz2cp5LZi847wFky11d1nkRHErh7TpRzmkyaIjLfV5KHnRnEParIsscr5jGCWL
+	WuohsrNDSC5atkmfeTcjQUFTMlrDp5VpKlm6Up6IJ6ek7k+NFwuEMUIJsQvnK6ksOhE/cEga
+	83p6ptshzv+YytS5U1KKYfCdSQkalU5L8xUqRpuI02pZplqkjmWoLEanlMcqae1uoUDwary7
+	8WiGouf3e4h65eVPyytz4WPQBD8f4nEBJgIF9ztY+dAmbhB2CQKXy1wcb7AAAetTJ9sbLEHA
+	fNLMWacYq2Z8BTsEWmvv+yhTEHCVmdieLhSLAlVFHWuMECwGXBypXWuCsWIE/DJ1AvUUeFgS
+	aLllcmMuNxg7DL7pDfCkEexFMN2aC3uwPyYBpgsLqBcHguvlLsSDYewVUFM5A3s34oPliRq2
+	V+t98NdAPeTtCQO9y4WwRxdg53jg3lc/s72EA6DR7nHtwcHg1/4Wn7UIsDhnR704FTQUDSNe
+	rACjKyW+/B5w9ScD4tkZxiJBU/tOb3orKB24wPLqBoCTf7t84/2B1biOt4PVGadvZDhoq57n
+	nIJw/QZr+g3W9Bss6P9XM0FIPRROq5ksOc3Eq+OU9Cf//XiaKssCrV1AVLIVGnv0JLYLYnGh
+	LghwYTzEH5w9Lw/yl1GfZdMaVapGl0kzXVC8+71L4IjNaSr3CSm1qUKRRCASi8UiSZxYiIf5
+	f207Lg/C5JSWzqBpNa1Z57G4vIhjrIa7l75/tiln5s3VJqhz8ofJ6oQjZXXvOTHDeKPNdlig
+	MIZcCez7InSvfTEgbPBahXjxgzMFBTtOxwVHN8tz81wL0bndGWk1IuHtI1+aHUzFsmXWsDmv
+	c370x2wir7RaGNc8Uji8VHiUuTYpReNlS7xIB/HGw849/CV6Tir9lsUbmTVHnppP2qF8sNXY
+	HT09+NwV+fho6OPndQfBR9ld0X7tOY3a634NWE3dd09uyPbGHZwtuhowYp47h+3uTx89HRZU
+	F5D8wpnPK/tTZrYYwrdtf4eq+/DExEPrYz94S+lbb48F8mzRrt6kmypJ9ord4NhXLykfTomo
+	GPiz95BxEInZhSOMghJGwRqG+hem42BbigQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrPIsWRmVeSWpSXmKPExsWy7bCSnO4z3vXpBp8+q1v8fDmN0WL5gx2s
+	Fmv2nmOymHO+hcVi/pFzrBZPjz1it3g56x6bxfnzG9gtLmzrY7XY9Pgaq8XlXXPYLLquPWG1
+	mPd3LavFsQViFt9Ov2G0WLT1C7vFkTMvmC0u9U9ksvi/Zwe7g7DH5WsXmT22rLzJ5PG0fyu7
+	x85Zd9k9Fmwq9di0qpPNY/OSeo+dOz4zebzfd5XNo2/LKkaPg/sMPT5vkgvgieKySUnNySxL
+	LdK3S+DKWNB/kLWgSaOibU9qA+NL+S5GTg4JAROJeYtes3YxcnEICexmlLjX8ooRIiEp8al5
+	KiuELSyx8t9zdoiiZ4wS09p2gBWxCWhJLOrbxw5iiwjoSmy+sRysiFlgMYvE1EOdTBAda5kl
+	3r5fCjaKU8BOYsvFBWwgtrCAv8T73pNg3SwCqhIvtzYxg9i8ApYSC9Z9YoOwBSVOznzCAmIz
+	C2hLPL35FM5etvA1M8R5ChI/ny5jhbgiSeLHqVWMEDXiEkd/9jBPYBSehWTULCSjZiEZNQtJ
+	ywJGllWMkqkFxbnpucWGBUZ5qeV6xYm5xaV56XrJ+bmbGMFpQEtrB+OeVR/0DjEycTAeYpTg
+	YFYS4ZWYtiZdiDclsbIqtSg/vqg0J7X4EKM0B4uSOO+3170pQgLpiSWp2ampBalFMFkmDk6p
+	BqaQG7MqSmuPzRTymaTWeH6Lw8zgy1qW9XHNqbsOBu6YsunysURrK9/NAge8Q9IE9RclH/hr
+	X/BXgXtCzp8sT5ckrTOnr9hE//z1IIa//SSr6J0umesafjw7Szh0vwqaPb4keX3T7AoR7wgO
+	dllntUTJtytemVnJHg5IvP0iJ+PQ06Mc/02u39gjmPy3PULIwehgmOrPu+Iva89Ov7lluZbK
+	m66pAis3/ToUYV//dmeuucOr00kpe+zmP9CQjL3aMntmxerKe46rJ5i81Ln491H8N1aVvfLe
+	k/7bZO7k7OJZZevmfumw9v58rf75rbVeH/qYavcZmTCes9t/8z9fQatb0TXJY4ffCqleuCL9
+	PUuJpTgj0VCLuag4EQCpME5UcgMAAA==
+X-CMS-MailID: 20250214093326epcas5p4f53cf59ec2592203d8465e04fa9b6c76
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff
+References: <20250213044624.37334-1-swathi.ks@samsung.com>
+	<CGME20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff@epcas5p1.samsung.com>
+	<20250213044624.37334-2-swathi.ks@samsung.com>
+	<20250213-adorable-arboreal-degu-6bdcb8@krzk-bin>
+	<009a01db7e07$132feb60$398fc220$@samsung.com>
+	<27b0f5c5-ae51-4192-8847-20e471c55be7@kernel.org>
+	<00ad01db7e9c$76c288a0$644799e0$@samsung.com>
+	<7d50f55d-d0cd-4741-ab55-2f54dc45d6ab@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_014707_696273_F91898D5 
-X-CRM114-Status: GOOD (  30.70  )
+X-CRM114-CacheID: sfid-20250214_094800_962803_483CB1BE 
+X-CRM114-Status: GOOD (  33.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,114 +170,145 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2025/2/14 2:20, David Hildenbrand wrote:
-> On 13.02.25 18:56, Catalin Marinas wrote:
->> On Thu, Feb 13, 2025 at 05:16:37PM +0100, David Hildenbrand wrote:
->>> On 13.02.25 16:49, Catalin Marinas wrote:
->>>> On Thu, Feb 13, 2025 at 01:59:25PM +0100, David Hildenbrand wrote:
->>>>> On 13.02.25 08:57, Zhenhua Huang wrote:
->>>>>> On the arm64 platform with 4K base page config, SECTION_SIZE_BITS 
->>>>>> is set
->>>>>> to 27, making one section 128M. The related page struct which vmemmap
->>>>>> points to is 2M then.
->>>>>> Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
->>>>>> vmemmap to populate at the PMD section level which was suitable
->>>>>> initially since hot plug granule is always one section(128M). 
->>>>>> However,
->>>>>> commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
->>>>>> introduced a 2M(SUBSECTION_SIZE) hot plug granule, which disrupted 
->>>>>> the
->>>>>> existing arm64 assumptions.
->>>>>>
->>>>>> Considering the vmemmap_free -> unmap_hotplug_pmd_range path, when
->>>>>> pmd_sect() is true, the entire PMD section is cleared, even if 
->>>>>> there is
->>>>>> other effective subsection. For example page_struct_map1 and
->>>>>> page_strcut_map2 are part of a single PMD entry and they are hot- 
->>>>>> added
->>>>>> sequentially. Then page_struct_map1 is removed, vmemmap_free() 
->>>>>> will clear
->>>>>> the entire PMD entry freeing the struct page map for the whole 
->>>>>> section,
->>>>>> even though page_struct_map2 is still active. Similar problem exists
->>>>>> with linear mapping as well, for 16K base page(PMD size = 32M) or 64K
->>>>>> base page(PMD = 512M), their block mappings exceed SUBSECTION_SIZE.
->>>>>> Tearing down the entire PMD mapping too will leave other subsections
->>>>>> unmapped in the linear mapping.
->>>>>>
->>>>>> To address the issue, we need to prevent PMD/PUD/CONT mappings for 
->>>>>> both
->>>>>> linear and vmemmap for non-boot sections if corresponding size on the
->>>>>> given base page exceeds SUBSECTION_SIZE(2MB now).
->>>>>>
->>>>>> Cc: <stable@vger.kernel.org> # v5.4+
->>>>>> Fixes: ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
->>>>>> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
->>>>>> Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
->>>>>
->>>>> Just so I understand correctly: for ordinary memory-sections-size 
->>>>> hotplug
->>>>> (NVDIMM, virtio-mem), we still get a large mapping where possible?
->>>>
->>>> Up to 2MB blocks only since that's the SUBSECTION_SIZE value. The
->>>> vmemmap mapping is also limited to PAGE_SIZE mappings (we could use
->>>> contiguous mappings for vmemmap but it's not wired up; I don't think
->>>> it's worth the hassle).
->>>
->>> But that's messed up, no?
->>>
->>> If someone hotplugs a memory section, they have to hotunplug a memory
->>> section, not parts of it.
->>>
->>> That's why x86 does in vmemmap_populate():
->>>
->>> if (end - start < PAGES_PER_SECTION * sizeof(struct page))
->>>     err = vmemmap_populate_basepages(start, end, node, NULL);
->>> else if (boot_cpu_has(X86_FEATURE_PSE))
->>>     err = vmemmap_populate_hugepages(start, end, node, altmap);
->>> ...
->>>
->>> Maybe I'm missing something. Most importantly, why the weird subsection
->>> stuff is supposed to degrade ordinary hotplug of dimms/virtio-mem etc.
->>
->> I think that's based on the discussion for a previous version assuming
->> that the hotplug/unplug sizes are not guaranteed to be symmetric:
->>
->> https://lore.kernel.org/lkml/a720aaa5-a75e-481e-b396- 
->> a5f2b50ed362@quicinc.com/
->>
->  > If that's not the case, we can indeed ignore the SUBSECTION_SIZE> 
-> altogether and just rely on the start/end of the hotplugged region.
-> 
-> All cases I know about hotunplug system RAM in the same granularity they 
-> hotplugged (virtio-mem, dax/kmem, dimm, dlpar), and if they wouldn't, 
-> they wouldn't operate on sub-section sizes either way.
-> 
-> Regarding dax/pmem, I also recall that it happens always in the same 
-> granularity. If not, it should be fixed: this weird subsection hotplug 
-> should not make all other hotplug users suffer (e.g., no vmemmap PMD).
-> 
-> What can likely happen (dax/pmem) is that we hotplug something that 
-> spans part of 128 MiB section (subsections), to then hotplug something 
-> that spans another part of a 128 MiB section (subsections). 
-> Hotunplugging either should not hotplug something part of the other 
-> device (e.g., rip out the vmemmap PMD).
-> 
-> I think this was expressed with:
-> 
-> "However, if start or end is not aligned to a section boundary, such as 
-> when a subsection is hot added, populating the entire section is 
-> wasteful." -- which is what we should focus on.
-> 
-> I thought x86-64 would handle that case; it would surprise me if 
-> handling between both archs would have to differ in that regard: with 4k 
-> arm64 we have the same section/subsection sizes as on x86-64.
-> 
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: 14 February 2025 13:02
+> To: Swathi K S <swathi.ks=40samsung.com>
+> Cc: krzk+dt=40kernel.org; andrew+netdev=40lunn.ch; davem=40davemloft.net;
+> edumazet=40google.com; kuba=40kernel.org; pabeni=40redhat.com;
+> robh=40kernel.org; conor+dt=40kernel.org; richardcochran=40gmail.com;
+> mcoquelin.stm32=40gmail.com; alexandre.torgue=40foss.st.com;
+> rmk+kernel=40armlinux.org.uk; netdev=40vger.kernel.org;
+> devicetree=40vger.kernel.org; linux-stm32=40st-md-mailman.stormreply.com;
+> linux-arm-kernel=40lists.infradead.org; linux-kernel=40vger.kernel.org
+> Subject: Re: =5BPATCH v6 1/2=5D dt-bindings: net: Add FSD EQoS device tre=
+e
+> bindings
+>=20
+> On 14/02/2025 05:53, Swathi K S wrote:
+> >
+> >
+> >> -----Original Message-----
+> >> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> >> Sent: 13 February 2025 17:31
+> >> To: Swathi K S <swathi.ks=40samsung.com>
+> >> Cc: krzk+dt=40kernel.org; andrew+netdev=40lunn.ch;
+> davem=40davemloft.net;
+> >> edumazet=40google.com; kuba=40kernel.org; pabeni=40redhat.com;
+> >> robh=40kernel.org; conor+dt=40kernel.org; richardcochran=40gmail.com;
+> >> mcoquelin.stm32=40gmail.com; alexandre.torgue=40foss.st.com;
+> >> rmk+kernel=40armlinux.org.uk; netdev=40vger.kernel.org;
+> >> devicetree=40vger.kernel.org; linux-stm32=40st-md-
+> mailman.stormreply.com;
+> >> linux-arm-kernel=40lists.infradead.org; linux-kernel=40vger.kernel.org
+> >> Subject: Re: =5BPATCH v6 1/2=5D dt-bindings: net: Add FSD EQoS device
+> >> tree bindings
+> >>
+> >> On 13/02/2025 12:04, Swathi K S wrote:
+> >>>
+> >>>
+> >>>> -----Original Message-----
+> >>>> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> >>>> Sent: 13 February 2025 13:24
+> >>>> To: Swathi K S <swathi.ks=40samsung.com>
+> >>>> Cc: krzk+dt=40kernel.org; andrew+netdev=40lunn.ch;
+> >> davem=40davemloft.net;
+> >>>> edumazet=40google.com; kuba=40kernel.org; pabeni=40redhat.com;
+> >>>> robh=40kernel.org; conor+dt=40kernel.org; richardcochran=40gmail.com=
+;
+> >>>> mcoquelin.stm32=40gmail.com; alexandre.torgue=40foss.st.com;
+> >>>> rmk+kernel=40armlinux.org.uk; netdev=40vger.kernel.org;
+> >>>> devicetree=40vger.kernel.org; linux-stm32=40st-md-
+> >> mailman.stormreply.com;
+> >>>> linux-arm-kernel=40lists.infradead.org; linux-kernel=40vger.kernel.o=
+rg
+> >>>> Subject: Re: =5BPATCH v6 1/2=5D dt-bindings: net: Add FSD EQoS devic=
+e
+> >>>> tree bindings
+> >>>>
+> >>>> On Thu, Feb 13, 2025 at 10:16:23AM +0530, Swathi K S wrote:
+> >>>>> +  clock-names:
+> >>>>> +    minItems: 5
+> >>>>> +    maxItems: 10
+> >>>>> +    contains:
+> >>>>> +      enum:
+> >>>>> +        - ptp_ref
+> >>>>> +        - master_bus
+> >>>>> +        - slave_bus
+> >>>>> +        - tx
+> >>>>> +        - rx
+> >>>>> +        - master2_bus
+> >>>>> +        - slave2_bus
+> >>>>> +        - eqos_rxclk_mux
+> >>>>> +        - eqos_phyrxclk
+> >>>>> +        - dout_peric_rgmii_clk
+> >>>>
+> >>>> This does not match the previous entry. It should be strictly
+> >>>> ordered with
+> >>>> minItems: 5.
+> >>>
+> >>> Hi Krzysztof,
+> >>> Thanks for reviewing.
+> >>> In FSD SoC, we have 2 instances of ethernet in two blocks.
+> >>> One instance needs 5 clocks and the other needs 10 clocks.
+> >>
+> >> I understand and I do not think this is contradictory to what I asked.
+> >> If it is, then why/how?
+> >>
+> >>>
+> >>> I tried to understand this by looking at some other dt-binding files
+> >>> as given below, but looks like they follow similar approach
+> >>> Documentation/devicetree/bindings/net/stm32-dwmac.yaml
+> >>> Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> >>>
+> >>> Could you please guide me on how to implement this?
+> >>> Also, please help me understand what is meant by 'strictly ordered'
+> >>
+> >> Every other 99% of bindings. Just like your clocks property.
+> >
+> > Hi Krzysztof,
+> > Thanks for your feedback.
+> > I want to make sure I fully understand your comment.
+> > I can see we have added clocks and clock names in the same order.
+>=20
+> No, you did not. You can see syntax is very different - one uses items, o=
+ther
+> uses contains-enum. And now test it, change the order in DTS and see if y=
+ou
+> see any warning.
+>=20
+> > Could you please help in detail what specifically needs to be modified
+> regarding the ordering and minItems/maxItems usage?
+> You did not try hard enough.
+>=20
+> Open other bindings and look how they list clocks. For example any Samsun=
+g
+> clock controller bindings. Or any qcom bindings.
 
-Thanks David and Catalin. From your discussion, I understand that 
-hotplug/unplug sizes are guaranteed to be symmetric ? Therefore, it 
-should be straightforward to populate to base pages if (end - start < 
-PAGES_PER_SECTION * sizeof(struct page)) ? I will write patch and verify.
-Please correct me if my understanding is incorrect.
+Thanks for your insight. I tried understanding the dt-binding implementatio=
+ns from Samsung/ qcom as you suggested.
+I am thinking of making the following modification in clock-names:
+
+clock-names:
+     minItems: 5
+     items:
+         - const: ptp_ref
+         - const: master_bus
+         - const: slave_bus
+         - const: tx
+         - const: rx
+         - const: master2_bus
+         - const: slave2_bus
+         - const: eqos_rxclk_mux
+         - const: eqos_phyrxclk
+         - const: dout_peric_rgmii_clk
+		=20
+Does this align with your feedback or do you suggest any further changes?
+
+-Swathi
+
+>=20
+> Best regards,
+> Krzysztof
 
 
