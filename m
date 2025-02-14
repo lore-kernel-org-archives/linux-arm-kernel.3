@@ -4,95 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE7B9C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 04:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0E1C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 04:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pABNnyGxDf0HWJPslows1Wypf0nJAcgv8KSSagBrIHM=; b=dSgpRPkEEgU1I/FDPr/nvEib0q
-	SaYtwvzU6FBRwJH19nzlLIBPUngHYOKGLGrT4oc8f+6zQ5yTtoIelK7Z2Mdaf1CVYaLaSOo10NXG5
-	ecLHlhz17KZTlnxrfllF3yq7tMBpHiz+C1tXegcrZo3rfBGfpj0TffQOkj1sY/0mXbrQ99BntrN3c
-	JxMJ1bzzy5isH1iM7LNiV7XnFLx24xUKBgT2S/wYDy9T1X92dQtdvSQ/gFHpz5IXQBxgKm2CF3KcS
-	G/NGVYQkYoGcNtFFxUQR3obN7X4zdxe0E0PiPUEf0ROFJ2ebXj7+Hg11yJFJFgzr1eCP5JXPi5EQt
-	UeSbZtKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QO+zu628e71NdcN+8zZrldfWoYIRQKoPd1ObPN5VIh0=; b=wUvnT/VauoaUkuNI9TvjIx2qFv
+	9DUeaFZU+8bXLeyJHcJKDlnXtzcoRo4mA/NvTvFINorLlDkTjMUIfKf8p6r0iaF8BuNNwcwpoPZP8
+	dDqIA6FNC+pfENZHq85d8ZxnFdHGEaJMfZg73b1XOPv2+hFFDS+DO4xcizAMIowZjfBO1sftoVCe1
+	BMJyagNuau/zoMr3rXtaRS8+RAydsOT3l8TVo2AH0cU3pgV/1NtEJuv6S9n8bm9fIVg9kxpcz+qEI
+	T3fKLqhasXH5y9pOEcXF96Wp4VMSC6MseR3H9zl88mwGvod3k1MxJIrzC4mGLveVm/U9c1iZc637d
+	gcOZLpww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tinUO-0000000DcQ8-3Upy;
-	Fri, 14 Feb 2025 04:39:44 +0000
-Received: from mail-vs1-xe35.google.com ([2607:f8b0:4864:20::e35])
+	id 1tinhQ-0000000DdgU-1Ufu;
+	Fri, 14 Feb 2025 04:53:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tinOy-0000000Dbmr-1njt
+	id 1tinex-0000000DdFS-3vN2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 14 Feb 2025 04:50:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=QO+zu628e71NdcN+8zZrldfWoYIRQKoPd1ObPN5VIh0=; b=ECx/CjZEvII5+T/2c34L8vUbDR
+	AvHhhwlyiFQDpWqxjIbNdxoR3QiLjX3pEI6uzxFhI6HSbCdtA/raUMIiExveI36H3J4WC4sx7nG9c
+	mnJdOYC2Z8HV3ghPk7S8IQj9e7yFN1w/i9fStmgCyx/FlFA940EuHIF2BH3x96ObaYrlxDNUW7+WS
+	WmsYo0whUdUVXHhLIhR7cdv+kOqqEukcKF6Q5Fx7zR6GD/Akgt6IH0R/Fm5L5jRwMM2YAw5p1sEV5
+	NyPpNcvd8ga73xgu5xP1BQTxW9RZgzMNOLmvWmCc97Ph4viKerrWN2UTVIKhhvKb33kGxrstuPtF+
+	gK/gpLoA==;
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tineu-00000001BFc-2AUK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 04:34:09 +0000
-Received: by mail-vs1-xe35.google.com with SMTP id ada2fe7eead31-4ba722d3916so497808137.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 20:34:08 -0800 (PST)
+	Fri, 14 Feb 2025 04:50:38 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-220dc3831e3so19269005ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Feb 2025 20:50:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739507647; x=1740112447; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pABNnyGxDf0HWJPslows1Wypf0nJAcgv8KSSagBrIHM=;
-        b=nTR0T/ddu6DHne+eI9tcFvM5liiG4vwJHW0Cd5zMde//epKjOsx7H9Cvr2M5lhOqUk
-         t8LTsY47oApkJp/QNaIFtyspL7QkduoX72aaN31X0lSoZukxvBiBlRq7AqejIh6hqzKp
-         Hzn7FM5QkVNg6Mf9VoRzVEWYrUxB1Gylq06tSnB/ihKmZOz9kKsiIPlXm2m3HMEqMGOX
-         AqXySyJUXfWwIYlTMh8y35QKH1tj5YARIyaFrDFsLwpC8QQuKkm6jRNwQOncTzhrWy0E
-         T9879U8JJ1ie7ve9Xwueq/z4tqBZeyHnhYAayA8kmDoTKw+0IITMP3TSnMjmp7RHw3pQ
-         4rSA==
+        d=linaro.org; s=google; t=1739508633; x=1740113433; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=QO+zu628e71NdcN+8zZrldfWoYIRQKoPd1ObPN5VIh0=;
+        b=KKzTLyzbFtFCFj5OCvVCqngPaqHtMbP/D0WU/SPDe7B2J+9+DV0ygE55EE96iS7FLG
+         kBYqmwMtFR7XEkieqv6EZ97RuVeI4LDiIPQwJ8BjxQ+YKvhy4CXeThRFcOP4o5DuMFp5
+         53Aywki7A2bS574IudvmKzM/9vsWYOaz1hwJRRtxU1R8BRPD6a84tIysRWaHtXbRYkkW
+         jBRCGz9w8KwDLdy0HyEHu4b4xUQ0FOfvoJyxKvAT4fYrjN4ON2zJl3wJrspDc3Km8piv
+         tOvTh4BxqI+luq8nwCmDCfMbJeY84v8HkNEzILZL8YObIWh2MVosKTA8LKbmCJbfCr9s
+         RgiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739507647; x=1740112447;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pABNnyGxDf0HWJPslows1Wypf0nJAcgv8KSSagBrIHM=;
-        b=BHXQQZ3SLzpeEQLi1byjfNuuBcpa7wzPXjeZrXSWn7TmMEGKH41sGUoskn9/DCJ/77
-         iQ1R2a9TRZ/pUjC9o3lX5XB7Si4r6z53+ZhnmILcmZU585YvmsRJR1flP3UM1ekrldCD
-         /0t2Kbdt3r90QJZZJzSf8w9S26leaY1kivzvIEzhdyauxRTBsi8W7NkKbR2/oxmfbtN7
-         jdpyLjAJidpIwWr8630MPb0fPAYRqzS+WYmrnCkaLZnc83GdVelJBQHEtMV7dLjIoKJR
-         Hf5Pu/RumVo4HW7ADWNQadhCwGpZf7QwY+H2yUIPC7bwLaM5E2o/pPaU9nbc+/eRWRw6
-         QwNg==
-X-Forwarded-Encrypted: i=1; AJvYcCWP+KJ5A31uo+U+9zl4b1nLfCsuNNgNcdXCrfLT69k/QcwUx3x0uITZu7M/NDXfg6xfZ19KXdxRsjGpjt34By7m@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8q2zmjAD4qsI2nz67I5Py0BbSZPeR5uFTlZXJ3GGlM4IAoRHH
-	KW1j2mCKzFiV3a5AwU85F+2vIBRplCKMZKqBrceRL/GiYgKvPOtH
-X-Gm-Gg: ASbGncsqgWgrhPfRA+Rlt6P0UqojfN/RD//7KjaRO7RN9Z/WGWk4vz4qP/sIdrkJoVq
-	vnm1YuHE8JGBMaIZtGE0q1QIuCNdHzk+nMnRb1gs+3RezbdQre667vW5OKNefNCA/O2F/IMNNHb
-	9tgWv7CGGpUVffhIhlJg590gXqSUQIMvnjmE305E0UMqroRH9wG7lF5pnxMqSckb+gSK+zrU/CH
-	o6viKHgoqMyRtCRAfM/5AObH8yNbn3fGTitDtRmumRouT0JGNaJ9sdjzdEbL/fQH32mtIW6KDlj
-	nKI3FCiXP0SZnm/0or5sIpHdZnsTiTkt9WClS+TlRkqlEDQNoQaNfgz38Vw6NbuclJ9MEhl2AL3
-	heQ==
-X-Google-Smtp-Source: AGHT+IGYT0xEanrn1VszJ1wJSKytc/CMY4TaQR5OCqX/LZsid53fc32kk2bD91HzBNyw8KyfmgwniA==
-X-Received: by 2002:a05:6102:4191:b0:4bb:c24b:b623 with SMTP id ada2fe7eead31-4bbf568bd5amr8493930137.19.1739507647222;
-        Thu, 13 Feb 2025 20:34:07 -0800 (PST)
-Received: from localhost.localdomain ([38.44.237.182])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-868e857f2desm422800241.10.2025.02.13.20.34.03
+        d=1e100.net; s=20230601; t=1739508633; x=1740113433;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QO+zu628e71NdcN+8zZrldfWoYIRQKoPd1ObPN5VIh0=;
+        b=lJterDho2rW2O+vBvsyHR+j0O1KZtx3nqcEUtMCArqjHgKSQcX411awFzfZOw1LNa5
+         rTmopykhHFitXi0DmHfdRdIvUGofEUQYW+CieljYln70wOfnBGyJuR6gHebp55hGuRGP
+         sNdsvC0ud8kQ/NoKe1uDxWukJwmyAi0qwL+6kPpcL/rAzicVRBF05swfpEMLs+ujWyWc
+         A5oCVadlSSMTV1f7uphG1Ox/jxB1VWvHKHfQvN3HRKHcPdhjJ8KC6fimllRE5WlHzX+x
+         MrNSafnrQxRGEv25w2Lro/BMlwx3SQLQZ5uzu6cEKBgRpZBosdQj6RMvfRT/OehZ/aQ0
+         danQ==
+X-Gm-Message-State: AOJu0Yz3sMHdkflKcoZdFTkbmms/YSF7ThCuVuOuC4lPvaK+mpXSv24E
+	cpXqQLy+KyMbh0P/2/Kpd5HC8sE8nfFBSWdhh0L5syPiH42b8Z1tlC9EhOriaeSetaFOCV99iVF
+	1
+X-Gm-Gg: ASbGnctYoZvF+3m6dpSHpKpk9SpEU3Ds/630zIi82fTm9huuQfJqTOtzebrnZzvU8sw
+	5cv/tyeMev3HkmuPUXLK1e87aSpq9ndmIMOv/HTjQUX6HAR1oiUfitbULxEyyiS7H8LVOJSKaIA
+	MoGVgR9KA05SmkjsAekRt8qt003fc2JivZXOIJgzesGiSfSwl93GAmYSuqJ4cK9hZj2+SKOYHJf
+	xvScp7DPgjybXeOjxBz2R3GWbrfpwdIfSOJ9Esb0Ozd12s9oAb0rf8cWclMNbXOTj0AHyWAYR+H
+	zfFlnqrri9lqMUb1QA==
+X-Google-Smtp-Source: AGHT+IEu0lDtclxbef6UwbmqEzWYZeKYwYx7xgSjvSbLYwRCBVDhhxMCDEy15vcZ987LsGRPTI7VuA==
+X-Received: by 2002:a05:6a00:3e0b:b0:730:940f:4fbf with SMTP id d2e1a72fcca58-7323c8dd0cdmr9141926b3a.2.1739508633461;
+        Thu, 13 Feb 2025 20:50:33 -0800 (PST)
+Received: from localhost ([122.172.84.139])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7324d5d4608sm728338b3a.129.2025.02.13.20.50.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Feb 2025 20:34:06 -0800 (PST)
-From: Denzeel Oliva <wachiturroxd150@gmail.com>
-To: andi.shyti@kernel.org,
-	broonie@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	alim.akhtar@samsung.com,
-	linux-spi@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Denzeel Oliva <wachiturroxd150@gmail.com>
-Subject: [PATCH v3 3/3] spi: s3c64xx: add support exynos990-spi to new port config data
-Date: Fri, 14 Feb 2025 04:33:43 +0000
-Message-Id: <20250214043343.263-4-wachiturroxd150@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250214043343.263-1-wachiturroxd150@gmail.com>
-References: <20250214043343.263-1-wachiturroxd150@gmail.com>
+        Thu, 13 Feb 2025 20:50:33 -0800 (PST)
+Date: Fri, 14 Feb 2025 10:20:30 +0530
+From: Viresh Kumar <viresh.kumar@linaro.org>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 06/18] firmware: arm_ffa: Refactor addition of
+ partition information into XArray
+Message-ID: <20250214045030.mfegbypq27gdl6sg@vireshk-i7>
+References: <20250131-ffa_updates-v2-0-544ba4e35387@arm.com>
+ <20250131-ffa_updates-v2-6-544ba4e35387@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250131-ffa_updates-v2-6-544ba4e35387@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_203408_466082_EE08826C 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20250214_045036_752113_652A3E69 
+X-CRM114-Status: GOOD (  11.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,63 +112,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exynos990 uses the same version of USI SPI (v2.1) as the GS101.
-Removed fifo_lvl_mask and rx_lvl_offset, and changed to the new data
-configuration port.
+On 31-01-25, 11:24, Sudeep Holla wrote:
+> @@ -1461,39 +1480,18 @@ static int ffa_setup_partitions(void)
+>  		    !(tpbuf->properties & FFA_PARTITION_AARCH64_EXEC))
+>  			ffa_mode_32bit_set(ffa_dev);
+>  
+> -		info = kzalloc(sizeof(*info), GFP_KERNEL);
+> -		if (!info) {
+> +		if (ffa_xa_add_partition_info(ffa_dev->vm_id)) {
+>  			ffa_device_unregister(ffa_dev);
+>  			continue;
+>  		}
+> -		rwlock_init(&info->rw_lock);
+> -		ret = xa_insert(&drv_info->partition_info, tpbuf->id,
+> -				info, GFP_KERNEL);
+> -		if (ret) {
+> -			pr_err("%s: failed to save partition ID 0x%x - ret:%d\n",
+> -			       __func__, tpbuf->id, ret);
+> -			ffa_device_unregister(ffa_dev);
+> -			kfree(info);
+> -		}
+> +
 
-The difference from other new port configuration data is that fifo_depth
-is only specified in fifo-depth in DT.
+Why extra blank line here ?
 
-Exynos 990 data for SPI:
-- The depth of the FIFO is not the same size on all nodes.
-  A depth of 64 bytes is used on most nodes,
-  while a depth of 256 bytes is used on 3 specific nodes (SPI 8/9/10).
-- The Exynos 990 only allows access to 32-bit registers.
-  If access is attempted with a different size, an error interrupt
-  is generated. Therefore, it is necessary to perform write accesses to
-  registers in 32-bit blocks.
+>  	}
 
-Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
----
- drivers/spi/spi-s3c64xx.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
-
-diff --git a/drivers/spi/spi-s3c64xx.c b/drivers/spi/spi-s3c64xx.c
-index dae63a105..88d751c69 100644
---- a/drivers/spi/spi-s3c64xx.c
-+++ b/drivers/spi/spi-s3c64xx.c
-@@ -1588,6 +1588,20 @@ static const struct s3c64xx_spi_port_config exynos850_spi_port_config = {
- 	.quirks		= S3C64XX_SPI_QUIRK_CS_AUTO,
- };
- 
-+static const struct s3c64xx_spi_port_config exynos990_spi_port_config = {
-+	/* If not specified in DT, defaults to 64 */
-+	.fifo_depth     = 64,
-+	.rx_fifomask    = S3C64XX_SPI_ST_RX_FIFO_RDY_V2,
-+	.tx_fifomask    = S3C64XX_SPI_ST_TX_FIFO_RDY_V2,
-+	.tx_st_done     = 25,
-+	.clk_div        = 4,
-+	.high_speed     = true,
-+	.clk_from_cmu   = true,
-+	.has_loopback   = true,
-+	.use_32bit_io   = true,
-+	.quirks         = S3C64XX_SPI_QUIRK_CS_AUTO,
-+};
-+
- static const struct s3c64xx_spi_port_config exynosautov9_spi_port_config = {
- 	/* fifo_lvl_mask is deprecated. Use {rx, tx}_fifomask instead. */
- 	.fifo_lvl_mask	= { 0x1ff, 0x1ff, 0x7f, 0x7f, 0x7f, 0x7f, 0x1ff, 0x7f,
-@@ -1666,6 +1680,9 @@ static const struct of_device_id s3c64xx_spi_dt_match[] = {
- 	{ .compatible = "samsung,exynos850-spi",
- 			.data = &exynos850_spi_port_config,
- 	},
-+	{ .compatible = "samsung,exynos990-spi",
-+			.data = &exynos990_spi_port_config,
-+	},
- 	{ .compatible = "samsung,exynosautov9-spi",
- 			.data = &exynosautov9_spi_port_config,
- 	},
 -- 
-2.48.1
-
+viresh
 
