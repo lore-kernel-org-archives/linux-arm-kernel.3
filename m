@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE396C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 461D6C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 11:31:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0/DVAb0bAvrzIix5Vz/m7PbtnVjFFO7VEE8/IRnhReY=; b=cgF/3KwWQ1Fjv4W+IZ+55vZwwC
-	eZogaiN+fvuSTqHjduWVT64pF7MrZpqN+cxt5Kng1R9ehx5Iv3BRsX3n3fwawBXkUoNwJ6NoQEx2P
-	KFQiS2NOGV8XUuZQ1yLXQu5ONOLiCf7DhQ8ayYNab/Sad6IYgP914YrFI/C5BLSoc3ehNM0P6jIGU
-	pRMHpe+DGvAbOfhZhiafFaqc2HoNFcAWhDc/fU3jFA3Du07Kx3GD/C5JPRERVFPe8bK6pg7vyDrUi
-	h9KumSxy0F0u8nU5SyJvLPvz5sIO1OJs0PeCujZPCfpsiNOstPmP+gcxyfrH63gjPbMA70pgvAzK/
-	oxjhGaOA==;
+	bh=1hnaS7lueWgUHjeHgUmwzyUsXFRClDRjGMAc7bfw+yM=; b=Bmsep762FWmn9vGm4jGQ6Mi3bA
+	UXl1mLM9JzAhwOI31jyARFtj+QUHQAosyXo5UCwtAdV24v7d9mthEyR7Q3uecA/KGhJVJdQvC33/j
+	AJyPpn3c7TR04OgMPdCT5+T81fgnB0xuZUfZVoK8impQbovbAugcLMWXqC2ZoywO2Rm3yPoIVmR3X
+	yxkjxm1bxYZIGfAZws7K4gqL3MTZ7ptsFXN8sJpSAkf5ZKNsWQo+1iMvT1SSuEplQzvtWMr3IXm6D
+	JKofbtqOCA5Yjz7sk9LZEWhY/LYOFrum0Nt+LsbgWrxNyF7wu8wYg0Euy3lhA4dJo0igj0Qu9e4tZ
+	QzJsiqpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tittR-0000000EgED-32pd;
-	Fri, 14 Feb 2025 11:30:01 +0000
+	id 1titus-0000000EgS4-1zt4;
+	Fri, 14 Feb 2025 11:31:30 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1titjo-0000000Ee8R-1ssV
+	id 1titjr-0000000Ee9A-1urj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 11:20:05 +0000
+	Fri, 14 Feb 2025 11:20:08 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6EE46113E;
-	Fri, 14 Feb 2025 03:20:24 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A43D113E;
+	Fri, 14 Feb 2025 03:20:27 -0800 (PST)
 Received: from e132581.cambridge.arm.com (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 529DD3F6A8;
-	Fri, 14 Feb 2025 03:20:01 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5EE0C3F6A8;
+	Fri, 14 Feb 2025 03:20:04 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Namhyung Kim <namhyung@kernel.org>,
@@ -54,17 +54,17 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v2 06/11] perf arm-spe: Extend branch operations
-Date: Fri, 14 Feb 2025 11:19:31 +0000
-Message-Id: <20250214111936.15168-7-leo.yan@arm.com>
+Subject: [PATCH v2 07/11] perf arm-spe: Decode transactional event
+Date: Fri, 14 Feb 2025 11:19:32 +0000
+Message-Id: <20250214111936.15168-8-leo.yan@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250214111936.15168-1-leo.yan@arm.com>
 References: <20250214111936.15168-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_032004_622462_3E128612 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20250214_032007_544479_B6872BB2 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,83 +79,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In Arm ARM (ARM DDI 0487, L.a), the section "D18.2.7 Operation Type
-packet", the branch subclass is extended for Call Return (CR), Guarded
-control stack data access (GCS).
-
-This commit adds support CR and GCS operations.  The IND (indirect)
-operation is defined only in bit [1], its macro is updated accordingly.
-
-Move the COND (Conditional) macro into the same group with other
-operations for better maintenance.
+The bit[16] in an event payload indicates an operation is in
+transactional state.  Decode the bit.
 
 Reviewed-by: Ian Rogers <irogers@google.com>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- .../perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c  | 12 +++++++++---
- .../perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h  | 11 ++++++++---
- 2 files changed, 17 insertions(+), 6 deletions(-)
+ tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c | 2 ++
+ tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h | 1 +
+ 2 files changed, 3 insertions(+)
 
 diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-index 4cef10a83962..625834da7e20 100644
+index 625834da7e20..13cadb2f1cea 100644
 --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
 +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
-@@ -397,10 +397,16 @@ static int arm_spe_pkt_desc_op_type(const struct arm_spe_pkt *packet,
- 
- 		if (payload & SPE_OP_PKT_COND)
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " COND");
--
--		if (SPE_OP_PKT_IS_INDIRECT_BRANCH(payload))
-+		if (payload & SPE_OP_PKT_INDIRECT_BRANCH)
- 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " IND");
--
-+		if (payload & SPE_OP_PKT_GCS)
-+			arm_spe_pkt_out_string(&err, &buf, &buf_len, " GCS");
-+		if (SPE_OP_PKT_CR_BL(payload))
-+			arm_spe_pkt_out_string(&err, &buf, &buf_len, " CR-BL");
-+		if (SPE_OP_PKT_CR_RET(payload))
-+			arm_spe_pkt_out_string(&err, &buf, &buf_len, " CR-RET");
-+		if (SPE_OP_PKT_CR_NON_BL_RET(payload))
-+			arm_spe_pkt_out_string(&err, &buf, &buf_len, " CR-NON-BL-RET");
- 		break;
- 	default:
- 		/* Unknown index */
+@@ -308,6 +308,8 @@ static int arm_spe_pkt_desc_event(const struct arm_spe_pkt *packet,
+ 		arm_spe_pkt_out_string(&err, &buf, &buf_len, " REMOTE-ACCESS");
+ 	if (payload & BIT(EV_ALIGNMENT))
+ 		arm_spe_pkt_out_string(&err, &buf, &buf_len, " ALIGNMENT");
++	if (payload & BIT(EV_TRANSACTIONAL))
++		arm_spe_pkt_out_string(&err, &buf, &buf_len, " TXN");
+ 	if (payload & BIT(EV_PARTIAL_PREDICATE))
+ 		arm_spe_pkt_out_string(&err, &buf, &buf_len, " SVE-PARTIAL-PRED");
+ 	if (payload & BIT(EV_EMPTY_PREDICATE))
 diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
-index 464a912b221c..32d760ede701 100644
+index 32d760ede701..2cdf9f6da268 100644
 --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
 +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
-@@ -7,6 +7,7 @@
- #ifndef INCLUDE__ARM_SPE_PKT_DECODER_H__
- #define INCLUDE__ARM_SPE_PKT_DECODER_H__
- 
-+#include <linux/bitfield.h>
- #include <stddef.h>
- #include <stdint.h>
- 
-@@ -116,8 +117,6 @@ enum arm_spe_events {
- 
- #define SPE_OP_PKT_IS_OTHER_SVE_OP(v)		(((v) & (BIT(7) | BIT(3) | BIT(0))) == 0x8)
- 
--#define SPE_OP_PKT_COND				BIT(0)
--
- #define SPE_OP_PKT_LDST_SUBCLASS_GET(v)		((v) & GENMASK_ULL(7, 1))
- #define SPE_OP_PKT_LDST_SUBCLASS_GP_REG		0x0
- #define SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP	0x4
-@@ -148,7 +147,13 @@ enum arm_spe_events {
- #define SPE_OP_PKT_SVE_PRED			BIT(2)
- #define SPE_OP_PKT_SVE_FP			BIT(1)
- 
--#define SPE_OP_PKT_IS_INDIRECT_BRANCH(v)	(((v) & GENMASK_ULL(7, 1)) == 0x2)
-+#define SPE_OP_PKT_CR_MASK			GENMASK_ULL(4, 3)
-+#define SPE_OP_PKT_CR_BL(v)			(FIELD_GET(SPE_OP_PKT_CR_MASK, (v)) == 1)
-+#define SPE_OP_PKT_CR_RET(v)			(FIELD_GET(SPE_OP_PKT_CR_MASK, (v)) == 2)
-+#define SPE_OP_PKT_CR_NON_BL_RET(v)		(FIELD_GET(SPE_OP_PKT_CR_MASK, (v)) == 3)
-+#define SPE_OP_PKT_GCS				BIT(2)
-+#define SPE_OP_PKT_INDIRECT_BRANCH		BIT(1)
-+#define SPE_OP_PKT_COND				BIT(0)
- 
- const char *arm_spe_pkt_name(enum arm_spe_pkt_type);
- 
+@@ -105,6 +105,7 @@ enum arm_spe_events {
+ 	EV_LLC_MISS		= 9,
+ 	EV_REMOTE_ACCESS	= 10,
+ 	EV_ALIGNMENT		= 11,
++	EV_TRANSACTIONAL	= 16,
+ 	EV_PARTIAL_PREDICATE	= 17,
+ 	EV_EMPTY_PREDICATE	= 18,
+ };
 -- 
 2.34.1
 
