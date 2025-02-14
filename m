@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88E4C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 06:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE94DC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 06:13:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qw7XIK846oCUWiLOfnk5Jrq4uCGhW+CbWo1jUtxsbSc=; b=3MFx8PkqesedB0+lBKwNCbiw2B
-	wh0udtd/8J3P9irlyvP+R4EZk2OE71xOxoIsjZA/Zb3IQRK0qbBmZpMdKCd9DgnGBk/b5bk5zVgyW
-	jojg0kYe5UtyDki9OTMOFgN0F7/vGWnl/7zGix7Bnk8Ol9K4+BV0WR39ozJcLu3U7UDrDdZ/6EI3f
-	PPlYE9JpoO5te+2RXRfUbs12EAkpPuD88eMlCNvq/kkwMp1kU/fd29AFall3Srzm32tDUT6i+ew9v
-	gFOMJA3uff3v2TfWPZorle07lStFmmVl1SP9Ha9KkmS5YLcqAwG4D38mP1yKm/kADkM8ERTN8KMGH
-	RnuQNnyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1YWeiljKExMoeSj6HOU20LKVG4PKih+J9q+gR+QvZPs=; b=b5k+NtZ2grPEd38VXQyobPBcrr
+	7dDDv72fBaL6+SyimGK/2zFdo3+Hr5QJAR5bm8BHS3+YkhYV5Oxg0EnfQxuPgFAM6za2k1eEdFxUg
+	ybF6dhU4BaZbKz3W28Yjo0UIAnMnnBe6j6Q6Y3K4f19FkbgqhvekhqCr6MoOTn3cMn2CSzctZcd+D
+	7hxI+SdWR4fRTKqiotWVz7ULRf8iQh4Le/c004zRqPZQcgBg6+9GVVF0v4wNAGWiHZVNskDld39id
+	5HVUyAo1UIJeWR+Q4Z8G60gtqrJ5+3UFBi9rFC4UHemEzFE12BgxVoJn+1+Kwv6yfijx9et1iJS79
+	caTr9WkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tioqn-0000000Dm08-02F8;
-	Fri, 14 Feb 2025 06:06:57 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tioxB-0000000DmsO-0GoT;
+	Fri, 14 Feb 2025 06:13:33 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tiopK-0000000Dlkz-3hxg
+	id 1tiovi-0000000DmbL-3qXn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 06:05:28 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51E65E9V4158044
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 14 Feb 2025 00:05:14 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739513114;
-	bh=Qw7XIK846oCUWiLOfnk5Jrq4uCGhW+CbWo1jUtxsbSc=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=Ho/Sxa1bQv3IKJlC684wTKz5EGQBl7q/G4t7WCcZ2uoZ2OesrcT78b/ESjjagB28v
-	 r33YtHlV7Yp6EVrK9QTfMndgoyTHkrh38aJAY4zRDwTzLgmOviK11/T8qgY7g8kt0H
-	 +JQOCqwyESXT09/V14jVNF7f5cgGZ/mYS6ZwegJE=
-Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51E65EVo053089
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 14 Feb 2025 00:05:14 -0600
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 14
- Feb 2025 00:05:13 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 14 Feb 2025 00:05:13 -0600
-Received: from [10.249.140.156] ([10.249.140.156])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51E658er104524;
-	Fri, 14 Feb 2025 00:05:09 -0600
-Message-ID: <66f30c0f-dec8-4ad5-9578-a9dcc422355a@ti.com>
-Date: Fri, 14 Feb 2025 11:35:07 +0530
+	Fri, 14 Feb 2025 06:12:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BDA2DA40AE3;
+	Fri, 14 Feb 2025 06:10:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40A4BC4CED1;
+	Fri, 14 Feb 2025 06:12:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739513521;
+	bh=kjKHneaaDBuIXsWcKyGK0NM3OpIrEwVZV5f1ZO7dz88=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jNYIiPYqj9k89L1AKdVGtNfga4LBPcic0J5cebK2pXX6HgY567bCvRpJVgbuS9m3L
+	 WVF/bU4zCZhy8J9rWmbVca5XFTefAOvM1HsSZ9lI6L8eN4cBOQ6JlNTxhsvf4tI9wO
+	 Pn3AezEVm4n1xUe/vQOPiVD55BvBVEf4l93S+4V1PD//j6Twur6PjqopS8ehqzdQYQ
+	 4tQvvuiao6KylzQ6cKbYYrZ/U1K2mKihuddgDMcbEyfQCOB9j+JLI27W4jZOLqRmEf
+	 iT3kd0zNFnUfuG3R99ecdcN7VDDqzkQ7Se2W1QVmsv3//FM+OIV8k36mNLqOC0aune
+	 v2GD8WXX8XNIw==
+Date: Thu, 13 Feb 2025 22:11:59 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: fsverity@lists.linux.dev, linux-crypto@vger.kernel.org,
+	dm-devel@lists.linux.dev, x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Mikulas Patocka <mpatocka@redhat.com>,
+	David Howells <dhowells@redhat.com>, netdev@vger.kernel.org
+Subject: Re: [PATCH v8 0/7] Optimize dm-verity and fsverity using multibuffer
+ hashing
+Message-ID: <20250214061159.GC2771@sol.localdomain>
+References: <20250212154718.44255-1-ebiggers@kernel.org>
+ <Z61yZjslWKmDGE_t@gondor.apana.org.au>
+ <20250213063304.GA11664@sol.localdomain>
+ <Z66uH_aeKc7ubONg@gondor.apana.org.au>
+ <20250214033518.GA2771@sol.localdomain>
+ <Z669mxPsSpej6K6K@gondor.apana.org.au>
+ <20250214042951.GB2771@sol.localdomain>
+ <Z67M6iSoMyvGwkAF@gondor.apana.org.au>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXTERNAL] Re: [PATCH net 1/2] net: ti: icss-iep: Fix pwidth
- configuration for perout signal
-To: Paolo Abeni <pabeni@redhat.com>, <javier.carrasco.cruz@gmail.com>,
-        <diogo.ivo@siemens.com>, <horms@kernel.org>, <kuba@kernel.org>,
-        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-References: <20250211103527.923849-1-m-malladi@ti.com>
- <20250211103527.923849-2-m-malladi@ti.com>
- <3a979b56-e9d6-41c9-910b-63b5371b9631@redhat.com>
-Content-Language: en-US
-From: "Malladi, Meghana" <m-malladi@ti.com>
-In-Reply-To: <3a979b56-e9d6-41c9-910b-63b5371b9631@redhat.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z67M6iSoMyvGwkAF@gondor.apana.org.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250213_220527_052965_8FB78EFB 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20250213_221203_087026_A5AB1C40 
+X-CRM114-Status: GOOD (  30.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,51 +86,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Feb 14, 2025 at 12:56:10PM +0800, Herbert Xu wrote:
+> On Thu, Feb 13, 2025 at 08:29:51PM -0800, Eric Biggers wrote:
+> >
+> > That doesn't actually exist, and your code snippet is also buggy (undefined
+> > behavior) because it never sets the tfm pointer in the ahash_request.  So this
+> 
+> Well thanks for pointing out that deficiency.  It would be good
+> to be able to set the tfm in the macro, something like:
+> 
+> #define SYNC_AHASH_REQUEST_ON_STACK(name, _tfm) \
+> 	char __##name##_desc[sizeof(struct ahash_request) + \
+> 			     MAX_SYNC_AHASH_REQSIZE \
+> 			    ] CRYPTO_MINALIGN_ATTR; \
+> 	struct ahash_request *name = (((struct ahash_request *)__##name##_desc)->base.tfm = crypto_sync_ahash_tfm((_tfm)), (void *)__##name##_desc)
 
+I'm not sure what you intended with the second line, which looks like it won't
+compile.  The first line also shows that ahash_request has a large alignment for
+DMA, which is irrelevant for CPU based crypto.  And I'm not sure
+__attribute__((aligned)) with that alignment on the stack even works reliably
+all architectures; we've had issues with that in the past.  So again you're
+still proposing APIs with weird quirks caused by bolting CPU-based crypto
+support onto an API designed for an obsolete style of hardware offload.
 
-On 2/13/2025 4:53 PM, Paolo Abeni wrote:
-> On 2/11/25 11: 35 AM, Meghana Malladi wrote: > @@ -419,8 +426,9 @@ 
-> static int icss_iep_perout_enable_hw(struct icss_iep *iep, > 
-> regmap_write(iep->map, ICSS_IEP_CMP1_REG0, lower_32_bits(cmp)); > if 
-> (iep->plat_data->flags &
-> ZjQcmQRYFpfptBannerStart
-> This message was sent from outside of Texas Instruments.
-> Do not click links or open attachments unless you recognize the source 
-> of this email and know the content is safe.
-> Report Suspicious
-> <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! 
-> updqdzavl0dbisXOnfkDHxHqGlQUHEro3tgnljLa7x4DRPBIRKu8Nqm3bW1LeMtXFyqz6yM7_tLlrvUmslKj9m_IL0hUlNU$>
-> ZjQcmQRYFpfptBannerEnd
+> > just shows that you still can't use your own proposed APIs correctly because
+> > they're still too complex.  Yes the virt address support would be an improvement
+> > on current ahash, but it would still be bolted onto an interface that wasn't
+> > designed for it.  There would still be the weirdness of having to initialize so
+> > many unnecessary fields in the request, and having "synchronous asynchronous
+> > hashes" which is always a fun one to try to explain to people.  The shash and
+> > lib/crypto/ interfaces are much better as they do not have these problems.
 > 
-> On 2/11/25 11:35 AM, Meghana Malladi wrote:
->> @@ -419,8 +426,9 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
->>  			regmap_write(iep->map, ICSS_IEP_CMP1_REG0, lower_32_bits(cmp));
->>  			if (iep->plat_data->flags & ICSS_IEP_64BIT_COUNTER_SUPPORT)
->>  				regmap_write(iep->map, ICSS_IEP_CMP1_REG1, upper_32_bits(cmp));
->> -			/* Configure SYNC, 1ms pulse width */
->> -			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG, 1000000);
->> +			/* Configure SYNC, based on req on width */
->> +			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
->> +				     (u32)(ns_width / iep->def_inc));
+> I'm more than happy to rename ahash to hash.  The only reason
+> it was called ahash is to distinguish it from shash, which will
+> no longer be necessary.
 > 
-> This causes build errors on 32bits:
+> > never use exactly the same API anyway, just similar ones.  And FWIW, zswap is
+> > synchronous, so yet again all the weird async stuff just gets in the way.
 > 
-> ERROR: modpost: "__udivdi3" [drivers/net/ethernet/ti/icssg/icss_iep.ko]
-> undefined!
-> make[3]: *** [../scripts/Makefile.modpost:147: Module.symvers] Error 1
-> make[2]: *** [/home/nipa/net/wt-0/Makefile:1944: modpost] Error 2
-> make[1]: *** [/home/nipa/net/wt-0/Makefile:251: __sub-make] Error 2
-> make: *** [Makefile:251: __sub-make] Error 2
-> ERROR: modpost: "__udivdi3" [drivers/net/ethernet/ti/icssg/icss_iep.ko]
-> 
-> You should use div_u64()
-> 
+> I think you're again conflating two different concepts.  Yes
+> zswap/iaa are sleepable, but they're not synchronous.  
 
-I see, thanks.
-Can you tell me how can I reproduce this on my end for 32 bits.
-Will fix this in v2.
+Here's the compression in zswap:
 
-> /P
-> 
+    comp_ret = crypto_wait_req(crypto_acomp_compress(acomp_ctx->req), &acomp_ctx->wait);
 
+And here's the decompression:
+
+    BUG_ON(crypto_wait_req(crypto_acomp_decompress(acomp_ctx->req), &acomp_ctx->wait));
+
+It waits synchronously for each request to complete.
+
+It doesn't want an asynchronous API.
+
+> iaa is also useable by IPsec, which is most certainly not sleepable.
+
+The IAA driver doesn't actually support encryption, so that's a very bad start.
+But even assuming it was added, the premise of IAA being helpful for IPsec seems
+questionable.  AES-GCM is already accelerated via the VAES and VPCLMULQDQ
+instructions, performing at 10-30 GB/s per thread on recent processors.  It's
+hard to see how legacy-style offload can beat that in practice, when accounting
+for all the driver overhead and the fact that memory often ends up as the
+bottleneck these days.  But of course for optimal IPsec performance you actually
+need adapter-level offload (inline crypto) which does not use the crypto API at
+all, so again the legacy-style offload support in the crypto API is irrelevant.
+
+But, this is tangential to this discussion, since we can still keep the legacy
+style hardware offload APIs around for the few users that think they want them.
+The point is that we shouldn't let them drag down everyone else.
+
+- Eric
 
