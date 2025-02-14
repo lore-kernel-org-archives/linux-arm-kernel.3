@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B8D7C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B32AC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 15:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j2FmIDqvd36kBN0F2kMoITO8AWeuRAstSy9idzUrPS4=; b=q0q1NYuEMyD+r2fyPmT/Zrk8Vv
-	OoKZI6mhrVdAgIU2WFTwtKwZ8onr8Ydai9eb9utHADja59XAt+nej8QZsfwnfCFoQUIZ6MW50AcLH
-	U3Lqa19njwbDaQU016LB33ud+D/1ZeJNfvbMUrs7nBg3KIqggceK7PiuNGOtO6I6gKEQkSnTaQzQk
-	X8/I/qOI5z/77mepPIj5M2CpmAO91oWgnLkrR4CiNKwgZEyapw5Zq1qfQ0g6K5Fx0ScPmd7KEzrxf
-	d0ZOLolndpimJ04e3yDPf6hYLVKsA6ltxkBheczPnayFSEZJ1XMTeBatBtCE4Lr7HU7W7Nh1JUXd7
-	BipneILQ==;
+	bh=EpdFIyhWkp+yozbTNKUFfvhaqJJbV84l3vi9pc7fFsY=; b=XcXUlXkqxq3HT4nZgcaUtsri5o
+	EPyZclaeIrgkYIkBaAWt37pN9DwQL1tduJ8sNF6mxUF2duz+Ksx+88tlpmMdmwU8pgfiT/p5L5zIm
+	tCX/WBNm4TIrNJyK9h4Z5ACLKfTlocDrHSVk/5F69pGavDXle3lFyf7mjZdG7U+jNXgjTxjGOR5hK
+	uHA06QA3aAGzEGBsbdgIwKBkmrXE+MKYvkN3SRgHTid5AE5A7ohuw54zUUz9iLa+qBHyY5kLi0Ce4
+	Bc1TFLRE6+BtMGQ2iPEC0/R4AvL7ZDI2zxRK2cqpEIlGIKd+685GOrK4+Zlt5LU61xex6Vr+FRe8K
+	N28MpxoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixVH-0000000FI9l-0tly;
-	Fri, 14 Feb 2025 15:21:19 +0000
+	id 1tixWg-0000000FIZ5-3ymc;
+	Fri, 14 Feb 2025 15:22:46 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tixOp-0000000FGd5-1fB4
+	id 1tixOy-0000000FGei-1pJQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 15:14:40 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Yvb9b1L2rz6L50b;
-	Fri, 14 Feb 2025 23:11:31 +0800 (CST)
+	Fri, 14 Feb 2025 15:14:49 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Yvb9m1X8zz6L55s;
+	Fri, 14 Feb 2025 23:11:40 +0800 (CST)
 Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id F2EBF140B38;
-	Fri, 14 Feb 2025 23:14:37 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 08F47140113;
+	Fri, 14 Feb 2025 23:14:47 +0800 (CST)
 Received: from A2303104131.china.huawei.com (10.203.177.241) by
  frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Fri, 14 Feb 2025 16:14:30 +0100
+ 15.1.2507.39; Fri, 14 Feb 2025 16:14:39 +0100
 From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
 To: <kvmarm@lists.linux.dev>, <maz@kernel.org>, <oliver.upton@linux.dev>
 CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
@@ -44,9 +44,9 @@ CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
 	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <jiangkunkun@huawei.com>,
 	<jonathan.cameron@huawei.com>, <anthony.jebson@huawei.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
-Subject: [PATCH v7 3/5] KVM: arm64: Introduce KVM_REG_ARM_VENDOR_HYP_BMAP_2
-Date: Fri, 14 Feb 2025 15:13:41 +0000
-Message-ID: <20250214151343.61348-4-shameerali.kolothum.thodi@huawei.com>
+Subject: [PATCH v7 4/5] smccc/kvm_guest: Enable errata based on implementation CPUs
+Date: Fri, 14 Feb 2025 15:13:42 +0000
+Message-ID: <20250214151343.61348-5-shameerali.kolothum.thodi@huawei.com>
 X-Mailer: git-send-email 2.12.0.windows.1
 In-Reply-To: <20250214151343.61348-1-shameerali.kolothum.thodi@huawei.com>
 References: <20250214151343.61348-1-shameerali.kolothum.thodi@huawei.com>
@@ -56,8 +56,8 @@ X-Originating-IP: [10.203.177.241]
 X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_071439_717779_99333C92 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20250214_071448_767669_BBF0F9B5 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,159 +72,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vendor_hyp_bmap bitmap holds the information about the Vendor Hyp
-services available to the user space and can be get/set using
-{G, S}ET_ONE_REG interfaces. This is done using the pseudo-firmware
-bitmap register KVM_REG_ARM_VENDOR_HYP_BMAP.
+Retrieve any migration target implementation CPUs using the hypercall
+and enable associated errata.
 
-At present, this bitmap is a 64 bit one and since the function numbers
-for newly added DISCOVER_IPML_* hypercalls are 64-65, introduce
-another pseudo-firmware bitmap register KVM_REG_ARM_VENDOR_HYP_BMAP_2.
-
+Reviewed-by: Cornelia Huck <cohuck@redhat.com>
 Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
 ---
- .../virt/kvm/arm/fw-pseudo-registers.rst          | 15 ++++++++++++++-
- arch/arm64/include/asm/kvm_host.h                 |  3 ++-
- arch/arm64/include/uapi/asm/kvm.h                 | 12 ++++++++++++
- arch/arm64/kvm/hypercalls.c                       | 13 +++++++++++++
- 4 files changed, 41 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/cputype.h    | 24 ++++++++++-
+ arch/arm64/include/asm/hypervisor.h |  1 +
+ arch/arm64/kernel/cpu_errata.c      | 20 +++++++--
+ arch/arm64/kernel/cpufeature.c      |  2 +
+ arch/arm64/kernel/image-vars.h      |  2 +
+ drivers/firmware/smccc/kvm_guest.c  | 63 +++++++++++++++++++++++++++++
+ 6 files changed, 107 insertions(+), 5 deletions(-)
 
-diff --git a/Documentation/virt/kvm/arm/fw-pseudo-registers.rst b/Documentation/virt/kvm/arm/fw-pseudo-registers.rst
-index b90fd0b0fa66..d78b53b05dfc 100644
---- a/Documentation/virt/kvm/arm/fw-pseudo-registers.rst
-+++ b/Documentation/virt/kvm/arm/fw-pseudo-registers.rst
-@@ -116,7 +116,7 @@ The pseudo-firmware bitmap register are as follows:
-       ARM DEN0057A.
+diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+index 2a76f0e30006..975fbdfc9354 100644
+--- a/arch/arm64/include/asm/cputype.h
++++ b/arch/arm64/include/asm/cputype.h
+@@ -267,6 +267,15 @@ struct midr_range {
+ #define MIDR_REV(m, v, r) MIDR_RANGE(m, v, r, v, r)
+ #define MIDR_ALL_VERSIONS(m) MIDR_RANGE(m, 0, 0, 0xf, 0xf)
  
- * KVM_REG_ARM_VENDOR_HYP_BMAP:
--    Controls the bitmap of the Vendor specific Hypervisor Service Calls.
-+    Controls the bitmap of the Vendor specific Hypervisor Service Calls[0-63].
- 
-   The following bits are accepted:
- 
-@@ -127,6 +127,19 @@ The pseudo-firmware bitmap register are as follows:
-     Bit-1: KVM_REG_ARM_VENDOR_HYP_BIT_PTP:
-       The bit represents the Precision Time Protocol KVM service.
- 
-+* KVM_REG_ARM_VENDOR_HYP_BMAP_2:
-+    Controls the bitmap of the Vendor specific Hypervisor Service Calls[64-127].
-+
-+  The following bits are accepted:
-+
-+    Bit-0: KVM_REG_ARM_VENDOR_HYP_BIT_DISCOVER_IMPL_VER
-+      This represents the ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_VER_FUNC_ID
-+      function-id. This is reset to 0.
-+
-+    Bit-1: KVM_REG_ARM_VENDOR_HYP_BIT_DISCOVER_IMPL_CPUS
-+      This represents the ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID
-+      function-id. This is reset to 0.
-+
- Errors:
- 
-     =======  =============================================================
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 7cfa024de4e3..4cea172ebaaa 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -237,7 +237,8 @@ struct kvm_arch_memory_slot {
- struct kvm_smccc_features {
- 	unsigned long std_bmap;
- 	unsigned long std_hyp_bmap;
--	unsigned long vendor_hyp_bmap;
-+	unsigned long vendor_hyp_bmap; /* Function numbers 0-63 */
-+	unsigned long vendor_hyp_bmap_2; /* Function numbers 64-127 */
- };
- 
- typedef unsigned int pkvm_handle_t;
-diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-index 568bf858f319..072feeff74d0 100644
---- a/arch/arm64/include/uapi/asm/kvm.h
-+++ b/arch/arm64/include/uapi/asm/kvm.h
-@@ -371,6 +371,7 @@ enum {
- #endif
- };
- 
-+/* Vendor hyper call function numbers 0-63 */
- #define KVM_REG_ARM_VENDOR_HYP_BMAP		KVM_REG_ARM_FW_FEAT_BMAP_REG(2)
- 
- enum {
-@@ -381,6 +382,17 @@ enum {
- #endif
- };
- 
-+/* Vendor hyper call function numbers 64-127 */
-+#define KVM_REG_ARM_VENDOR_HYP_BMAP_2		KVM_REG_ARM_FW_FEAT_BMAP_REG(3)
-+
-+enum {
-+	KVM_REG_ARM_VENDOR_HYP_BIT_DISCOVER_IMPL_VER	= 0,
-+	KVM_REG_ARM_VENDOR_HYP_BIT_DISCOVER_IMPL_CPUS	= 1,
-+#ifdef __KERNEL__
-+	KVM_REG_ARM_VENDOR_HYP_BMAP_2_BIT_COUNT,
-+#endif
++struct target_impl_cpu {
++	u64 midr;
++	u64 revidr;
++	u64 aidr;
 +};
 +
- /* Device Control API on vm fd */
- #define KVM_ARM_VM_SMCCC_CTRL		0
- #define   KVM_ARM_VM_SMCCC_FILTER	0
-diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
-index 27ce4cb44904..569941eeb3fe 100644
---- a/arch/arm64/kvm/hypercalls.c
-+++ b/arch/arm64/kvm/hypercalls.c
-@@ -15,6 +15,8 @@
- 	GENMASK(KVM_REG_ARM_STD_HYP_BMAP_BIT_COUNT - 1, 0)
- #define KVM_ARM_SMCCC_VENDOR_HYP_FEATURES			\
- 	GENMASK(KVM_REG_ARM_VENDOR_HYP_BMAP_BIT_COUNT - 1, 0)
-+#define KVM_ARM_SMCCC_VENDOR_HYP_FEATURES_2			\
-+	GENMASK(KVM_REG_ARM_VENDOR_HYP_BMAP_2_BIT_COUNT - 1, 0)
- 
- static void kvm_ptp_get_time(struct kvm_vcpu *vcpu, u64 *val)
++extern u32 target_impl_cpu_num;
++extern struct target_impl_cpu *target_impl_cpus;
++
+ static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
+ 					   u32 rv_max)
  {
-@@ -360,6 +362,8 @@ int kvm_smccc_call_handler(struct kvm_vcpu *vcpu)
- 		break;
- 	case ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID:
- 		val[0] = smccc_feat->vendor_hyp_bmap;
-+		/* Function numbers 2-63 are reserved for pKVM for now */
-+		val[2] = smccc_feat->vendor_hyp_bmap_2;
- 		break;
- 	case ARM_SMCCC_VENDOR_HYP_KVM_PTP_FUNC_ID:
- 		kvm_ptp_get_time(vcpu, val);
-@@ -387,6 +391,7 @@ static const u64 kvm_arm_fw_reg_ids[] = {
- 	KVM_REG_ARM_STD_BMAP,
- 	KVM_REG_ARM_STD_HYP_BMAP,
- 	KVM_REG_ARM_VENDOR_HYP_BMAP,
-+	KVM_REG_ARM_VENDOR_HYP_BMAP_2,
- };
+@@ -278,8 +287,19 @@ static inline bool midr_is_cpu_model_range(u32 midr, u32 model, u32 rv_min,
  
- void kvm_arm_init_hypercalls(struct kvm *kvm)
-@@ -497,6 +502,9 @@ int kvm_arm_get_fw_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	case KVM_REG_ARM_VENDOR_HYP_BMAP:
- 		val = READ_ONCE(smccc_feat->vendor_hyp_bmap);
- 		break;
-+	case KVM_REG_ARM_VENDOR_HYP_BMAP_2:
-+		val = READ_ONCE(smccc_feat->vendor_hyp_bmap_2);
-+		break;
- 	default:
- 		return -ENOENT;
- 	}
-@@ -527,6 +535,10 @@ static int kvm_arm_set_fw_reg_bmap(struct kvm_vcpu *vcpu, u64 reg_id, u64 val)
- 		fw_reg_bmap = &smccc_feat->vendor_hyp_bmap;
- 		fw_reg_features = KVM_ARM_SMCCC_VENDOR_HYP_FEATURES;
- 		break;
-+	case KVM_REG_ARM_VENDOR_HYP_BMAP_2:
-+		fw_reg_bmap = &smccc_feat->vendor_hyp_bmap_2;
-+		fw_reg_features = KVM_ARM_SMCCC_VENDOR_HYP_FEATURES_2;
-+		break;
- 	default:
- 		return -ENOENT;
- 	}
-@@ -633,6 +645,7 @@ int kvm_arm_set_fw_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
- 	case KVM_REG_ARM_STD_BMAP:
- 	case KVM_REG_ARM_STD_HYP_BMAP:
- 	case KVM_REG_ARM_VENDOR_HYP_BMAP:
-+	case KVM_REG_ARM_VENDOR_HYP_BMAP_2:
- 		return kvm_arm_set_fw_reg_bmap(vcpu, reg->id, val);
- 	default:
- 		return -ENOENT;
+ static inline bool is_midr_in_range(struct midr_range const *range)
+ {
+-	return midr_is_cpu_model_range(read_cpuid_id(), range->model,
+-				       range->rv_min, range->rv_max);
++	int i;
++
++	if (!target_impl_cpu_num)
++		return midr_is_cpu_model_range(read_cpuid_id(), range->model,
++					       range->rv_min, range->rv_max);
++
++	for (i = 0; i < target_impl_cpu_num; i++) {
++		if (midr_is_cpu_model_range(target_impl_cpus[i].midr,
++					    range->model,
++					    range->rv_min, range->rv_max))
++			return true;
++	}
++	return false;
+ }
+ 
+ static inline bool
+diff --git a/arch/arm64/include/asm/hypervisor.h b/arch/arm64/include/asm/hypervisor.h
+index 409e239834d1..a12fd897c877 100644
+--- a/arch/arm64/include/asm/hypervisor.h
++++ b/arch/arm64/include/asm/hypervisor.h
+@@ -6,6 +6,7 @@
+ 
+ void kvm_init_hyp_services(void);
+ bool kvm_arm_hyp_service_available(u32 func_id);
++void kvm_arm_target_impl_cpu_init(void);
+ 
+ #ifdef CONFIG_ARM_PKVM_GUEST
+ void pkvm_init_hyp_services(void);
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index 99b55893fc4e..1177a3094cf2 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -14,6 +14,9 @@
+ #include <asm/kvm_asm.h>
+ #include <asm/smp_plat.h>
+ 
++u32 target_impl_cpu_num;
++struct target_impl_cpu *target_impl_cpus;
++
+ static bool __maybe_unused
+ __is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
+ 			 u32 midr, u32 revidr)
+@@ -32,9 +35,20 @@ __is_affected_midr_range(const struct arm64_cpu_capabilities *entry,
+ static bool __maybe_unused
+ is_affected_midr_range(const struct arm64_cpu_capabilities *entry, int scope)
+ {
+-	WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
+-	return __is_affected_midr_range(entry, read_cpuid_id(),
+-					read_cpuid(REVIDR_EL1));
++	int i;
++
++	if (!target_impl_cpu_num) {
++		WARN_ON(scope != SCOPE_LOCAL_CPU || preemptible());
++		return __is_affected_midr_range(entry, read_cpuid_id(),
++						read_cpuid(REVIDR_EL1));
++	}
++
++	for (i = 0; i < target_impl_cpu_num; i++) {
++		if (__is_affected_midr_range(entry, target_impl_cpus[i].midr,
++					     target_impl_cpus[i].midr))
++			return true;
++	}
++	return false;
+ }
+ 
+ static bool __maybe_unused
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 72e876f37cd4..5c61d9d9f097 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -86,6 +86,7 @@
+ #include <asm/kvm_host.h>
+ #include <asm/mmu_context.h>
+ #include <asm/mte.h>
++#include <asm/hypervisor.h>
+ #include <asm/processor.h>
+ #include <asm/smp.h>
+ #include <asm/sysreg.h>
+@@ -3679,6 +3680,7 @@ unsigned long cpu_get_elf_hwcap3(void)
+ 
+ static void __init setup_boot_cpu_capabilities(void)
+ {
++	kvm_arm_target_impl_cpu_init();
+ 	/*
+ 	 * The boot CPU's feature register values have been recorded. Detect
+ 	 * boot cpucaps and local cpucaps for the boot CPU, then enable and
+diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
+index ef3a69cc398e..a6926750faaf 100644
+--- a/arch/arm64/kernel/image-vars.h
++++ b/arch/arm64/kernel/image-vars.h
+@@ -49,6 +49,8 @@ PROVIDE(__pi_arm64_sw_feature_override	= arm64_sw_feature_override);
+ PROVIDE(__pi_arm64_use_ng_mappings	= arm64_use_ng_mappings);
+ #ifdef CONFIG_CAVIUM_ERRATUM_27456
+ PROVIDE(__pi_cavium_erratum_27456_cpus	= cavium_erratum_27456_cpus);
++PROVIDE(__pi_target_impl_cpu_num	= target_impl_cpu_num);
++PROVIDE(__pi_target_impl_cpus		= target_impl_cpus);
+ #endif
+ PROVIDE(__pi__ctype			= _ctype);
+ PROVIDE(__pi_memstart_offset_seed	= memstart_offset_seed);
+diff --git a/drivers/firmware/smccc/kvm_guest.c b/drivers/firmware/smccc/kvm_guest.c
+index f3319be20b36..c1d2f28b0f58 100644
+--- a/drivers/firmware/smccc/kvm_guest.c
++++ b/drivers/firmware/smccc/kvm_guest.c
+@@ -6,8 +6,11 @@
+ #include <linux/bitmap.h>
+ #include <linux/cache.h>
+ #include <linux/kernel.h>
++#include <linux/memblock.h>
+ #include <linux/string.h>
+ 
++#include <uapi/linux/psci.h>
++
+ #include <asm/hypervisor.h>
+ 
+ static DECLARE_BITMAP(__kvm_arm_hyp_services, ARM_SMCCC_KVM_NUM_FUNCS) __ro_after_init = { };
+@@ -51,3 +54,63 @@ bool kvm_arm_hyp_service_available(u32 func_id)
+ 	return test_bit(func_id, __kvm_arm_hyp_services);
+ }
+ EXPORT_SYMBOL_GPL(kvm_arm_hyp_service_available);
++
++void  __init kvm_arm_target_impl_cpu_init(void)
++{
++	int i;
++	u32 ver;
++	u64 max_cpus;
++	struct arm_smccc_res res;
++
++	/* Check we have already set targets */
++	if (target_impl_cpu_num)
++		return;
++
++	if (!kvm_arm_hyp_service_available(ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_VER) ||
++	    !kvm_arm_hyp_service_available(ARM_SMCCC_KVM_FUNC_DISCOVER_IMPL_CPUS))
++		return;
++
++	arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_VER_FUNC_ID,
++			     0, &res);
++	if (res.a0 != SMCCC_RET_SUCCESS)
++		return;
++
++	/* Version info is in lower 32 bits and is in SMMCCC_VERSION format */
++	ver = lower_32_bits(res.a1);
++	if (PSCI_VERSION_MAJOR(ver) != 1) {
++		pr_warn("Unsupported target CPU implementation version v%d:%d\n",
++			PSCI_VERSION_MAJOR(ver), PSCI_VERSION_MINOR(ver));
++		return;
++	}
++
++	if (!res.a2) {
++		pr_warn("No target implementation CPUs specified\n");
++		return;
++	}
++
++	max_cpus = res.a2;
++	target_impl_cpus = memblock_alloc(sizeof(*target_impl_cpus) * max_cpus,
++					  __alignof__(*target_impl_cpus));
++	if (!target_impl_cpus) {
++		pr_warn("Not enough memory for struct target_impl_cpu\n");
++		return;
++	}
++
++	for (i = 0; i < max_cpus; i++) {
++		arm_smccc_1_1_invoke(ARM_SMCCC_VENDOR_HYP_KVM_DISCOVER_IMPL_CPUS_FUNC_ID,
++				     i, &res);
++		if (res.a0 != SMCCC_RET_SUCCESS) {
++			memblock_free(target_impl_cpus,
++				      sizeof(*target_impl_cpus) * max_cpus);
++			target_impl_cpus = NULL;
++			pr_warn("Discovering target implementation CPUs failed\n");
++			return;
++		}
++		target_impl_cpus[i].midr = res.a1;
++		target_impl_cpus[i].revidr = res.a2;
++		target_impl_cpus[i].aidr = res.a3;
++	};
++
++	target_impl_cpu_num = max_cpus;
++	pr_info("Number of target implementation CPUs is %d\n", target_impl_cpu_num);
++}
 -- 
 2.47.0
 
