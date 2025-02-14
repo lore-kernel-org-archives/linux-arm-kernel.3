@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23079C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 19:35:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ADA7C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 19:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Llpo7dgERhb0cpJFa90lKu2LCfaqFaqyO+bj0pWKKDc=; b=yEJH3TEQjV8SXtCCsOeuYmXj35
-	6SiLHdwIILtJqSohqNdabo1q2qnc5aFiNE4tUDrpKif83CBQWgQxkrvgod9+/Qgtq0VMiyJ/QMIlj
-	cIo7Af4965kL2bszixdgncsLINec4KU+4nlxEcY9n7fG0+LSsE0xEIFG9p/BMbB8KVuNmJrOIdJhR
-	TIXXl6EXuMEwVpKM7EuBYy9z/3tOrQJnEL95k9FgkvEqf7Ei6XMzIF24DvmDVdAisGunrWSuNwKdw
-	IsC3dVl7wPyo591ixNvPyzqVSIbEIV5bgmPN+NuVZHDsmXgCTNqLkctvFMF6HtloZVKXx0ni2HWQj
-	ryocW4Rg==;
+	bh=UZM23pMml37op4okXxniC3lYPw0eUd7wKPUTu+RhmK8=; b=sYK5E3jMT+1/NECQ1YAZP5VVsZ
+	7+7Eov4qov4y24pcUvwiOUka5+EmkLI+u0MpCZk74Q72uV7lSZey8T5jcRNV3PN9+8yxcSh/69Np+
+	59rHr6qI86aWoZaHCzLQAswmo6aLoa554TGQ9ZN0VTunB2tiaaZJ99JBmhrfJSE3v220JYyVFaw6x
+	ybbm2gmKnpgYWOgY1vKn5TtzzkvrFJqo0fS/TLWKl+k1LkX797Qa9/1gRgP+eEjixaSbW/lMZ52Cr
+	gSFYCp5dqRCnLklWerw80plrFHLyoweBBi1bu6ypfMP/rT8AhwgyoAM+EyCm3FpjlKVUVAF+WtHuT
+	MK3xSpDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj1TM-0000000G32l-2T7w;
-	Fri, 14 Feb 2025 19:35:36 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tj1XV-0000000G3cH-1ga8;
+	Fri, 14 Feb 2025 19:39:53 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj1Rr-0000000G2lr-3lq7
+	id 1tj1W3-0000000G3OC-013r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 19:34:06 +0000
+	Fri, 14 Feb 2025 19:38:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 04A0DA42BCF;
-	Fri, 14 Feb 2025 19:32:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 373B0C4CED1;
-	Fri, 14 Feb 2025 19:34:02 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id ECC05A432C7;
+	Fri, 14 Feb 2025 19:36:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E2DFC4AF09;
+	Fri, 14 Feb 2025 19:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739561642;
-	bh=CKl2EjbG0ELi5S1ZKbHAQc1rq0HGkpxGF4N4RdLKqvU=;
+	s=k20201202; t=1739561902;
+	bh=V9sAZVtvPpbSHwjX3+ZKyFuEV2FgXN7gDRROnOTXxIQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Fuj7Bn2kcQmMxqPwhTbYHuB1Ns/qrQ64TiXnLfUhCbSLRweoEB7M+TcBmIQX0d+Iv
-	 81TlVLC4l4Wbz1szemM9E19vqnOqY2Sj2MoNkoDWtm4bJBuVR3aXNi+YIcb5NCniYN
-	 /WKkGAA8OhIL7eIMotQ2QIWAh5cxMoKDKJg0STu1xOqkO/HWgKZLOJJRm+/hxF1UeY
-	 ee5pnJst8fkjdBLBmUqIv+g6F1A0CE373Xc5g10n5ZkbYLIVD3ldtFF5QwyxsIsP6s
-	 t6YSDtoW9QIW93Zq08gVfBSsAPD4+x9TQMPUcTTYiGPIMYnI67A72KDC105HHLcJla
-	 QgtNABJFzhtYg==
-Date: Fri, 14 Feb 2025 11:34:00 -0800
+	b=ZnhThuL1rcyP/53Er7fRg9dl+i87uptxy5JQc7SC4U6VmxXJ+WDod5dQKlypT9FeX
+	 j84/E3srsPnLeibvW05a7qQd6yW7DfP9qhQY8kti0796mhX2AnWAK1N5CCbmk1ZJZm
+	 GLM6JpU50PhHU01Ab3frOCCpEWSIO8AsC0J8b82gmgQJJMebcU1WlIUapLTvpAjv5n
+	 m6KDXAL0CXO+GEqzCLB7T1yaudSUIhnp+00c3K4/EYEMTB83+DTP4onhooYBeG00hf
+	 LqMauNPIGSrgMOtWZxmc9Jp7NLCQlMQ9O65BXS/qRw2+4fmL4BK1vWGcT9ZkQ+o3K8
+	 gLVdiRpc9Jp8g==
+Date: Fri, 14 Feb 2025 11:38:19 -0800
 From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Song Liu <song@kernel.org>
-Cc: Puranjay Mohan <puranjay@kernel.org>, Weinan Liu <wnliu@google.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Indu Bhagat <indu.bhagat@oracle.com>,
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: Indu Bhagat <indu.bhagat@oracle.com>, Song Liu <song@kernel.org>,
+	Weinan Liu <wnliu@google.com>, Steven Rostedt <rostedt@goodmis.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
 	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
@@ -55,24 +54,25 @@ Cc: Puranjay Mohan <puranjay@kernel.org>, Weinan Liu <wnliu@google.com>,
 	live-patching@vger.kernel.org, joe.lawrence@redhat.com,
 	linux-arm-kernel@lists.infradead.org
 Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-Message-ID: <20250214193400.j4hp45jlufihv5eh@jpoimboe>
-References: <20250127213310.2496133-1-wnliu@google.com>
- <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
+Message-ID: <20250214193819.22yet42umilpugv5@jpoimboe>
+References: <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
  <20250212234946.yuskayyu4gx3ul7m@jpoimboe>
  <CAPhsuW5TeMXi_Mn8+jR9Qoa=rAWasMo7M3Hs=im6NT6=+CrxqA@mail.gmail.com>
  <20250213024507.mvjkalvyqsxihp54@jpoimboe>
  <CAPhsuW4iDuTBfZowJRhxLFyK=g=s+-pK2Eq4+SNj9uL99eNkmw@mail.gmail.com>
- <mb61py0yaz3qq.fsf@kernel.org>
- <CAPhsuW7dV7UR3PsGVx_DLBH5-95DAmLMGTPuY0NfUwWLZMSTrQ@mail.gmail.com>
- <20250214080848.5xpi2y2omk4vxyoj@jpoimboe>
- <CAPhsuW6dxPtgqZaHrZEVhQXwm2+sETreZnGybZXVKYKfG9H6tg@mail.gmail.com>
+ <3069bb9c-6245-4754-a187-ac8253103d32@oracle.com>
+ <mb61pa5apc610.fsf@kernel.org>
+ <f8d93a1b-3ad0-4e19-846f-c08d9cb19f48@oracle.com>
+ <d91eba9a-dbd1-488f-8e1b-bc5121c30cd1@oracle.com>
+ <mb61p1pw0qrpi.fsf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CAPhsuW6dxPtgqZaHrZEVhQXwm2+sETreZnGybZXVKYKfG9H6tg@mail.gmail.com>
+In-Reply-To: <mb61p1pw0qrpi.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_113403_998360_6912C59C 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250214_113823_106830_49517F67 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,29 +87,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 09:51:41AM -0800, Song Liu wrote:
-> > Ignorant arm64 question: is the module's text further away from slab
-> > memory than vmlinux text, thus requiring a different instruction (or
-> > GOT/TOC) to access memory further away in the address space?
+On Fri, Feb 14, 2025 at 06:58:01PM +0000, Puranjay Mohan wrote:
+> and the linker script has this line:
 > 
-> It appears to me the module text is very close to vmlinux text:
+> .sframe : AT(ADDR(.sframe) - 0) { __start_sframe_header = .; KEEP(*(.sframe)) __stop_sframe_header = .; }
 > 
-> vmlinux: ffff8000800b4b68 T copy_process
-> module: ffff80007b0f06d0 t copy_process [livepatch_always_inline_special_static]
+> So, do can you suggest the best way to fix these warnings?
 
-Hm... the only other thing I can think of is that the klp relas might be
-wrong somewhere.  If you share patched.o and .ko files from the same
-build I could take a look.
+Just add *(.init.sframe) like so:
 
-BTW, I realized the wrong function size shown in the WARNING stack trace
-is probably just due to a kallsyms quirk.  It calculates a symbol's size
-by subtracting its start address from the next symbol's start address.
-It doesn't actually use the ELF symbol size.  So the next symbol after
-copy_process() in the loaded module's address space might just be far
-away.
-
-That kallsyms issue has caused other headaches.  It really needs to be
-fixed to use the actual ELF symbol size.
+.sframe : AT(ADDR(.sframe) - 0) { __start_sframe_header = .; KEEP(*(.sframe) *(.init.sframe)) __stop_sframe_header = .; }
 
 -- 
 Josh
