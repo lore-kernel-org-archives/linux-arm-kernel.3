@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 569CDC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2628FC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=60n5NMsSu5p9tsnaVoxItfATXFLrUx3IhthS991yh80=; b=HH7RR83DWZOysxoGb9q/tk3Wua
-	/8FU/+xoL+Mm1515FS7EcgYNzFDBSRgdtu/YZbWUnGrjsP2sm95VLJvqxOUBf0JGIKUblnvgS0JOf
-	F/+LlTE/DWrY2q5WMUDyLDrEN3KC6Po5bcEECOEGJdvDED9oAYlpjt3dGwuK47T25iWxhPb7tDIQ4
-	BJ7e2JSpDbaiGVuZawM0zsHyBHI3KWReqeAruRgU8mZrwBH7otsxkdusKCMsGMiq/jeGG/0PjKBk7
-	B/zPIhvFtbKHHg+MDupQkfNuplT1AurY0xfle0/qVHsf1h/TOgTQiq7w8CzruYpvZJJGXDjjpQ3Ai
-	AU2TU27Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=/3o2bMiSvGxVu4FI2HwI9+Xu1xmEuorMKkRQXffTCjo=; b=dREipsHELrML2p
+	yMy+8VFQ6USK+eq6l2ubAh3sOrzMN6t5boylGU3hybjWyVZg6TsL2pw/S3AGk4GGghmLk/2okP/hu
+	/wQvIWnZXBFg3FuMYPGjakxZJxJUztb/81lz23xkq2vhSFoxL0cVj22cozzsrNlLcVhZWHNjoMzu2
+	Lja8awjTKXm72kV7xMGe4fOIPGi/lt1VKsvfcKnMQcXf6DURxd1pPeH7+cIBWgh3YyJeeOKT5xP0p
+	bUzRvbyEQLqT9Xt0XvNlBrG7w6Fr+xw7UxKGErU1G7kuBJyQsTbzOciz0N4wrK27Xf5XfDtON60LD
+	bIRBeeFix7Pu0v2F+YkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj0BZ-0000000Fpvs-2rif;
-	Fri, 14 Feb 2025 18:13:09 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1tj0Cz-0000000FqEW-1Sg8;
+	Fri, 14 Feb 2025 18:14:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tizTb-0000000FhyZ-0fQQ
+	id 1tizVp-0000000FiYd-0dr0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 14 Feb 2025 17:30:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:References;
+	bh=/3o2bMiSvGxVu4FI2HwI9+Xu1xmEuorMKkRQXffTCjo=; b=LilDbfyydEoTsPtSdmpLdRHVPU
+	VVeh94QGbwDyxDyuSP5yx0HDRRN2pU6M5SE+laqjCFE4zgjba3+/lzABEp7bjBhPXNs8vM6tnqp3q
+	nBdNFa2vDYcefiL0aYL3R89QT4JQfqaHeb7m6nuJUKnyF/WV5nceYIFouzS11quDSgRlQg1p6daNl
+	DQxF4et7jegxN73D+vKzWpHez0sEdfBjHTrcBZWk86puHuY1CgYD8XARH99colMW8oQ6vrTJoUsBG
+	pL+to1rQcBLmKkC69U+A1kIEx44J7ufUSmKkk8/5SvVaZWNCb3O678Y6ozNraryTsE+U1kgvgCZts
+	ASCbyA8g==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tizVl-00000001Hi8-21I2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 17:27:44 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=bmrZCM8zfP3zPV+6RHqJ7z9QaatJZOhI8+JcPVp9U5w5pRXGtkQcrP6JMG+FS9sSZ4w+1jwKKhm2APGywDnOG/Ile+9PEapdbiXPutxaKMQ964g1JjrUxg9zvUZMR98f0kVYCmHy7nD+me16C96WzzNNPNt8lL+st0bdai/a8knGL+/aubvudmUSREPVO3dfcSXPeX91zNy2AafroDJYcK/VXMNK0Q/3R5v7uEaY2G4KpdVhJBfaE15lXTp6VUIJMublm76sR2fsRAApJqOCEgG4nG2+K8B/0Zdbj0JxtRUxZRh186PYDZ9POGy9gPezwHk64ZL7/H/vmPwLggj/RQ==; s=purelymail3; d=purelymail.com; v=1; bh=ZMS5QlrnOFWtvu0XBY1Um3NZgokE8bFYmW8jBJp4Qcc=; h=Feedback-ID:Received:From:Date:Subject:To;
-Feedback-ID: 68247:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1457029256;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Fri, 14 Feb 2025 17:25:53 +0000 (UTC)
-From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Date: Fri, 14 Feb 2025 18:21:08 +0100
-Subject: [PATCH 2/2] phy: exynos5-usbdrd: Add support for the Exynos990
- usbdrd phy
+	Fri, 14 Feb 2025 17:29:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2780FA432F1;
+	Fri, 14 Feb 2025 17:28:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4F4DC4CED1;
+	Fri, 14 Feb 2025 17:29:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739554194;
+	bh=ugNKYKj3EZ9GfwxKpe8rqlpyyI0FbYTnmeF24bNSsC8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=BHn1ZR4oDyGQrRhyQOKoDk5BDD6j7oC9n0AqMB67Ou3R27KQMyO82eOBcxEVq0LBX
+	 zngRtBBvJXrIyiIUYul0MYnxpNx5/N9ZeK7utJ2XeuSArGKTNGOSs8qxF4Gjcf6gDY
+	 JPziCAXWn2i9OZ5fF/yJycan4zyhOp1fcNPRTs5wYt5aGXJZeiDrcpuNlTiKi30KOc
+	 Pu+mqKCAEdhYoI/xbYjUSipafB5GjhYJHxI/iXP7ZPyULzN/nDkmuwQa0jeCG5L8KT
+	 /x+DB9YPGJai5z8dPJlQfWX0fGfO+nYgrSm7Phi2mMZ/mdvDQe7YvbgB2CKH5yKaCf
+	 0Vct+rUX4WiXg==
+Date: Fri, 14 Feb 2025 11:29:51 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Stuart Yoder <stuyoder@gmail.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	Charan Teja Kalla <quic_charante@quicinc.com>
+Subject: Re: [PATCH 2/2] iommu: Get DT/ACPI parsing into the proper probe path
+Message-ID: <20250214172951.GA158443@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250214-exynos990-dwusb-v1-2-d68282c51ba8@mentallysanemainliners.org>
-References: <20250214-exynos990-dwusb-v1-0-d68282c51ba8@mentallysanemainliners.org>
-In-Reply-To: <20250214-exynos990-dwusb-v1-0-d68282c51ba8@mentallysanemainliners.org>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Marek Szyprowski <m.szyprowski@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Igor Belwon <igor.belwon@mentallysanemainliners.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739553946; l=3061;
- i=igor.belwon@mentallysanemainliners.org; s=20241206;
- h=from:subject:message-id; bh=ZMS5QlrnOFWtvu0XBY1Um3NZgokE8bFYmW8jBJp4Qcc=;
- b=UhII8j++lRo2aszFpw+aipjHGRN4tJaQcZ+oQ/kVHElfiT6lQwtG+5aK0x+j1CpDieX4mV0/L
- lYHw68ag4nzCjvfwPlZSAPVgop/S2q2id3tf3cvybz9w1tWWKKc/eWX
-X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
- pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c2f0ae276fd5a18e1653bae8bb0c51670e35b283.1739486121.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_092743_269697_0A36B2AD 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20250214_172957_834391_5B9C0C57 
+X-CRM114-Status: GOOD (  52.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,81 +102,300 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Exynos990 usbdrd PHY is a combo PHY which supports USB SS, HS and
-DisplayPort outputs. This commit adds support only for UTMI+ (USB HS).
+On Thu, Feb 13, 2025 at 11:49:00PM +0000, Robin Murphy wrote:
+> In hindsight, there were some crucial subtleties overlooked when moving
+> {of,acpi}_dma_configure() to driver probe time to allow waiting for
+> IOMMU drivers with -EPROBE_DEFER, and these have become an
+> ever-increasing source of problems. The IOMMU API has some fundamental
+> assumptions that iommu_probe_device() is called for every device added
+> to the system, in the order in which they are added. Calling it in a
+> random order or not at all dependent on driver binding leads to
+> malformed groups, a potential lack of isolation for devices with no
+> driver, and all manner of unexpected concurrency and race conditions.
+> We've attempted to mitigate the latter with point-fix bodges like
+> iommu_probe_device_lock, but it's a losing battle and the time has come
+> to bite the bullet and address the true source of the problem instead.
+> 
+> The crux of the matter is that the firmware parsing actually serves two
+> distinct purposes; one is identifying the IOMMU instance associated with
+> a device so we can check its availability, the second is actually
+> telling that instance about the relevant firmware-provided data for the
+> device. However the latter also depends on the former, and at the time
+> there was no good place to defer and retry that separately from the
+> availability check we also wanted for client driver probe.
+> 
+> Nowadays, though, we have a proper notion of multiple IOMMU instances in
+> the core API itself, and each one gets a chance to probe its own devices
+> upon registration, so we can finally make that work as intended for
+> DT/IORT/VIOT platforms too. All we need is for iommu_probe_device() to
+> be able to run the iommu_fwspec machinery currently buried deep in the
+> wrong end of {of,acpi}_dma_configure(). Luckily it turns out to be
+> surprisingly straightforward to bootstrap this transformation by pretty
+> much just calling the same path twice. At client driver probe time,
+> dev->driver is obviously set; conversely at device_add(), or a
+> subsequent bus_iommu_probe(), any device waiting for an IOMMU really
+> should *not* have a driver already, so we can use that as a condition to
+> disambiguate the two cases, and avoid recursing back into the IOMMU core
+> at the wrong times.
+> 
+> Obviously this isn't the nicest thing, but for now it gives us a
+> functional baseline to then unpick the layers in between without many
+> more awkward cross-subsystem patches. There are some minor side-effects
+> like dma_range_map potentially being created earlier, and some debug
+> prints being repeated, but these aren't significantly detrimental. Let's
+> make things work first, then deal with making them nice.
+> 
+> With the basic flow finally in the right order again, the next step is
+> probably turning the bus->dma_configure paths inside-out, since all we
+> really need from bus code is its notion of which device and input ID(s)
+> to parse the common firmware properties with...
+> 
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> ---
+>  drivers/acpi/arm64/dma.c        |  5 ++++
+>  drivers/acpi/scan.c             | 10 +++-----
+>  drivers/amba/bus.c              |  2 +-
+>  drivers/base/platform.c         |  2 +-
+>  drivers/bus/fsl-mc/fsl-mc-bus.c |  2 +-
+>  drivers/cdx/cdx.c               |  2 +-
+>  drivers/iommu/iommu.c           | 43 ++++++++++++++++++++++++---------
+>  drivers/iommu/of_iommu.c        | 10 +++++++-
+>  drivers/of/device.c             |  7 +++++-
+>  drivers/pci/pci-driver.c        |  2 +-
 
-Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
----
- drivers/phy/samsung/phy-exynos5-usbdrd.c    | 32 +++++++++++++++++++++++++++++
- include/linux/soc/samsung/exynos-regs-pmu.h |  3 +++
- 2 files changed, 35 insertions(+)
+Acked-by: Bjorn Helgaas <bhelgaas@google.com> # pci-driver.c
 
-diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index ff2436f11d6842b2503b2a603eb7a512d2f85018..a68926ac3b6a00282e51e552cb9ffdad95ab5152 100644
---- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-+++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -1584,6 +1584,35 @@ static const struct exynos5_usbdrd_phy_drvdata exynos850_usbdrd_phy = {
- 	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
- };
- 
-+static const struct exynos5_usbdrd_phy_tuning exynos990_tunes_utmi_postinit[] = {
-+	PHY_TUNING_ENTRY_PHY(EXYNOS850_DRD_HSPPARACON,
-+			     (HSPPARACON_TXVREF |
-+			      HSPPARACON_TXPREEMPAMP | HSPPARACON_SQRX |
-+			      HSPPARACON_COMPDIS),
-+			     (FIELD_PREP_CONST(HSPPARACON_TXVREF, 7) |
-+			      FIELD_PREP_CONST(HSPPARACON_TXPREEMPAMP, 3) |
-+			      FIELD_PREP_CONST(HSPPARACON_SQRX, 5) |
-+			      FIELD_PREP_CONST(HSPPARACON_COMPDIS, 7))),
-+	PHY_TUNING_ENTRY_LAST
-+};
-+
-+static const struct exynos5_usbdrd_phy_tuning *exynos990_tunes[PTS_MAX] = {
-+	[PTS_UTMI_POSTINIT] = exynos990_tunes_utmi_postinit,
-+};
-+
-+static const struct exynos5_usbdrd_phy_drvdata exynos990_usbdrd_phy = {
-+	.phy_cfg		= phy_cfg_exynos850,
-+	.phy_ops		= &exynos850_usbdrd_phy_ops,
-+	.phy_tunes		= exynos990_tunes,
-+	.pmu_offset_usbdrd0_phy	= EXYNOS990_PHY_CTRL_USB20,
-+	.clk_names		= exynos5_clk_names,
-+	.n_clks			= ARRAY_SIZE(exynos5_clk_names),
-+	.core_clk_names		= exynos5_core_clk_names,
-+	.n_core_clks		= ARRAY_SIZE(exynos5_core_clk_names),
-+	.regulator_names	= exynos5_regulator_names,
-+	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
-+};
-+
- static const struct exynos5_usbdrd_phy_config phy_cfg_gs101[] = {
- 	{
- 		.id		= EXYNOS5_DRDPHY_UTMI,
-@@ -1781,6 +1810,9 @@ static const struct of_device_id exynos5_usbdrd_phy_of_match[] = {
- 	}, {
- 		.compatible = "samsung,exynos850-usbdrd-phy",
- 		.data = &exynos850_usbdrd_phy
-+	}, {
-+		.compatible = "samsung,exynos990-usbdrd-phy",
-+		.data = &exynos990_usbdrd_phy
- 	},
- 	{ },
- };
-diff --git a/include/linux/soc/samsung/exynos-regs-pmu.h b/include/linux/soc/samsung/exynos-regs-pmu.h
-index ce1a3790d6fb0400021f5cc22394afedfb742152..4b2c44640b17c6c87acf26a82fd9c5003b65d433 100644
---- a/include/linux/soc/samsung/exynos-regs-pmu.h
-+++ b/include/linux/soc/samsung/exynos-regs-pmu.h
-@@ -657,6 +657,9 @@
- #define EXYNOS5433_PAD_RETENTION_UFS_OPTION			(0x3268)
- #define EXYNOS5433_PAD_RETENTION_FSYSGENIO_OPTION		(0x32A8)
- 
-+/* For Exynos990 */
-+#define EXYNOS990_PHY_CTRL_USB20				(0x72C)
-+
- /* For Tensor GS101 */
- #define GS101_SYSIP_DAT0					(0x810)
- #define GS101_SYSTEM_CONFIGURATION				(0x3A00)
+I assume this will be merged via the IOMMU tree.
 
--- 
-2.47.2
-
+>  10 files changed, 60 insertions(+), 25 deletions(-)
+> 
+> diff --git a/drivers/acpi/arm64/dma.c b/drivers/acpi/arm64/dma.c
+> index 52b2abf88689..f30f138352b7 100644
+> --- a/drivers/acpi/arm64/dma.c
+> +++ b/drivers/acpi/arm64/dma.c
+> @@ -26,6 +26,11 @@ void acpi_arch_dma_setup(struct device *dev)
+>  	else
+>  		end = (1ULL << 32) - 1;
+>  
+> +	if (dev->dma_range_map) {
+> +		dev_dbg(dev, "dma_range_map already set\n");
+> +		return;
+> +	}
+> +
+>  	ret = acpi_dma_get_range(dev, &map);
+>  	if (!ret && map) {
+>  		end = dma_range_map_max(map);
+> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+> index 9f4efa8f75a6..42b8f1833c3c 100644
+> --- a/drivers/acpi/scan.c
+> +++ b/drivers/acpi/scan.c
+> @@ -1619,6 +1619,9 @@ static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
+>  {
+>  	int err;
+>  
+> +	if (device_iommu_mapped(dev))
+> +		return 0;
+> +
+>  	/* Serialise to make dev->iommu stable under our potential fwspec */
+>  	mutex_lock(&iommu_probe_device_lock);
+>  	/* If we already translated the fwspec there is nothing left to do */
+> @@ -1632,13 +1635,6 @@ static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
+>  		err = viot_iommu_configure(dev);
+>  	mutex_unlock(&iommu_probe_device_lock);
+>  
+> -	/*
+> -	 * If we have reason to believe the IOMMU driver missed the initial
+> -	 * iommu_probe_device() call for dev, replay it to get things in order.
+> -	 */
+> -	if (!err && dev->bus)
+> -		err = iommu_probe_device(dev);
+> -
+>  	return err;
+>  }
+>  
+> diff --git a/drivers/amba/bus.c b/drivers/amba/bus.c
+> index 8ef259b4d037..abbb37d4d228 100644
+> --- a/drivers/amba/bus.c
+> +++ b/drivers/amba/bus.c
+> @@ -364,7 +364,7 @@ static int amba_dma_configure(struct device *dev)
+>  		ret = acpi_dma_configure(dev, attr);
+>  	}
+>  
+> -	if (!ret && !drv->driver_managed_dma) {
+> +	if (dev->driver && !ret && !drv->driver_managed_dma) {
+>  		ret = iommu_device_use_default_domain(dev);
+>  		if (ret)
+>  			arch_teardown_dma_ops(dev);
+> diff --git a/drivers/base/platform.c b/drivers/base/platform.c
+> index 6f2a33722c52..4c7570d637f9 100644
+> --- a/drivers/base/platform.c
+> +++ b/drivers/base/platform.c
+> @@ -1451,7 +1451,7 @@ static int platform_dma_configure(struct device *dev)
+>  		attr = acpi_get_dma_attr(to_acpi_device_node(fwnode));
+>  		ret = acpi_dma_configure(dev, attr);
+>  	}
+> -	if (ret || drv->driver_managed_dma)
+> +	if (!dev->driver || ret || drv->driver_managed_dma)
+>  		return ret;
+>  
+>  	ret = iommu_device_use_default_domain(dev);
+> diff --git a/drivers/bus/fsl-mc/fsl-mc-bus.c b/drivers/bus/fsl-mc/fsl-mc-bus.c
+> index d1f3d327ddd1..fb58833b222a 100644
+> --- a/drivers/bus/fsl-mc/fsl-mc-bus.c
+> +++ b/drivers/bus/fsl-mc/fsl-mc-bus.c
+> @@ -153,7 +153,7 @@ static int fsl_mc_dma_configure(struct device *dev)
+>  	else
+>  		ret = acpi_dma_configure_id(dev, DEV_DMA_COHERENT, &input_id);
+>  
+> -	if (!ret && !mc_drv->driver_managed_dma) {
+> +	if (dev->driver && !ret && !mc_drv->driver_managed_dma) {
+>  		ret = iommu_device_use_default_domain(dev);
+>  		if (ret)
+>  			arch_teardown_dma_ops(dev);
+> diff --git a/drivers/cdx/cdx.c b/drivers/cdx/cdx.c
+> index c573ed2ee71a..d5761b96a412 100644
+> --- a/drivers/cdx/cdx.c
+> +++ b/drivers/cdx/cdx.c
+> @@ -360,7 +360,7 @@ static int cdx_dma_configure(struct device *dev)
+>  		return ret;
+>  	}
+>  
+> -	if (!ret && !cdx_drv->driver_managed_dma) {
+> +	if (dev->driver && !ret && !cdx_drv->driver_managed_dma) {
+>  		ret = iommu_device_use_default_domain(dev);
+>  		if (ret)
+>  			arch_teardown_dma_ops(dev);
+> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+> index 2486f6d6ef68..89f634d46aad 100644
+> --- a/drivers/iommu/iommu.c
+> +++ b/drivers/iommu/iommu.c
+> @@ -519,17 +519,6 @@ static int __iommu_probe_device(struct device *dev, struct list_head *group_list
+>  	struct group_device *gdev;
+>  	int ret;
+>  
+> -	/*
+> -	 * For FDT-based systems and ACPI IORT/VIOT, drivers register IOMMU
+> -	 * instances with non-NULL fwnodes, and client devices should have been
+> -	 * identified with a fwspec by this point. Otherwise, we can currently
+> -	 * assume that only one of Intel, AMD, s390, PAMU or legacy SMMUv2 can
+> -	 * be present, and that any of their registered instances has suitable
+> -	 * ops for probing, and thus cheekily co-opt the same mechanism.
+> -	 */
+> -	ops = iommu_fwspec_ops(dev_iommu_fwspec_get(dev));
+> -	if (!ops)
+> -		return -ENODEV;
+>  	/*
+>  	 * Serialise to avoid races between IOMMU drivers registering in
+>  	 * parallel and/or the "replay" calls from ACPI/OF code via client
+> @@ -539,9 +528,41 @@ static int __iommu_probe_device(struct device *dev, struct list_head *group_list
+>  	 */
+>  	lockdep_assert_held(&iommu_probe_device_lock);
+>  
+> +	/*
+> +	 * For FDT-based systems and ACPI IORT/VIOT, the common firmware parsing
+> +	 * is buried in the bus dma_configure path. Properly unpicking that is
+> +	 * still a fairly big job, so for now just invoke the whole thing. Our
+> +	 * bus_iommu_probe() walk may see devices with drivers already bound,
+> +	 * but that must mean they're already configured - either probed by
+> +	 * another IOMMU, or there was no IOMMU for iommu_fwspec_init() to wait
+> +	 * for - so either way we can safely skip this and avoid worrying about
+> +	 * those recursing back here thinking they need a replay call.
+> +	 */
+> +	if (!dev->driver && dev->bus->dma_configure) {
+> +		mutex_unlock(&iommu_probe_device_lock);
+> +		dev->bus->dma_configure(dev);
+> +		mutex_lock(&iommu_probe_device_lock);
+> +	}
+> +
+> +	/*
+> +	 * At this point, either valid devices now have a fwspec, or we can
+> +	 * assume that only one of Intel, AMD, s390, PAMU or legacy SMMUv2 can
+> +	 * be present, and that any of their registered instances has suitable
+> +	 * ops for probing, and thus cheekily co-opt the same mechanism.
+> +	 */
+> +	ops = iommu_fwspec_ops(dev_iommu_fwspec_get(dev));
+> +	if (!ops)
+> +		return -ENODEV;
+> +
+>  	/* Device is probed already if in a group */
+>  	if (dev->iommu_group)
+>  		return 0;
+> +	/*
+> +	 * And if we do now see any replay calls, they would indicate someone
+> +	 * misusing the dma_configure path outside bus code.
+> +	 */
+> +	if (dev_iommu_fwspec_get(dev) && dev->driver)
+> +		dev_WARN(dev, "late IOMMU probe at driver bind, something fishy here!\n");
+>  
+>  	ret = iommu_init_device(dev, ops);
+>  	if (ret)
+> diff --git a/drivers/iommu/of_iommu.c b/drivers/iommu/of_iommu.c
+> index 97987cd78da9..c9aaf5783b77 100644
+> --- a/drivers/iommu/of_iommu.c
+> +++ b/drivers/iommu/of_iommu.c
+> @@ -121,6 +121,9 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
+>  	if (!master_np)
+>  		return -ENODEV;
+>  
+> +	if (device_iommu_mapped(dev))
+> +		return 0;
+> +
+>  	/* Serialise to make dev->iommu stable under our potential fwspec */
+>  	mutex_lock(&iommu_probe_device_lock);
+>  	if (dev_iommu_fwspec_get(dev)) {
+> @@ -151,7 +154,12 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
+>  		iommu_fwspec_free(dev);
+>  	mutex_unlock(&iommu_probe_device_lock);
+>  
+> -	if (!err && dev->bus)
+> +	/*
+> +	 * If we have reason to believe the IOMMU driver missed the initial
+> +	 * iommu_probe_device() call for dev, try to fix it up. This should
+> +	 * no longer happen unless of_dma_configure() is being misused.
+> +	 */
+> +	if (!err && dev->driver)
+>  		err = iommu_probe_device(dev);
+>  
+>  	if (err && err != -EPROBE_DEFER)
+> diff --git a/drivers/of/device.c b/drivers/of/device.c
+> index edf3be197265..5053e5d532cc 100644
+> --- a/drivers/of/device.c
+> +++ b/drivers/of/device.c
+> @@ -99,6 +99,11 @@ int of_dma_configure_id(struct device *dev, struct device_node *np,
+>  	bool coherent, set_map = false;
+>  	int ret;
+>  
+> +	if (dev->dma_range_map) {
+> +		dev_dbg(dev, "dma_range_map already set\n");
+> +		goto skip_map;
+> +	}
+> +
+>  	if (np == dev->of_node)
+>  		bus_np = __of_get_dma_parent(np);
+>  	else
+> @@ -119,7 +124,7 @@ int of_dma_configure_id(struct device *dev, struct device_node *np,
+>  		end = dma_range_map_max(map);
+>  		set_map = true;
+>  	}
+> -
+> +skip_map:
+>  	/*
+>  	 * If @dev is expected to be DMA-capable then the bus code that created
+>  	 * it should have initialised its dma_mask pointer by this point. For
+> diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
+> index f57ea36d125d..143b2f2081ea 100644
+> --- a/drivers/pci/pci-driver.c
+> +++ b/drivers/pci/pci-driver.c
+> @@ -1653,7 +1653,7 @@ static int pci_dma_configure(struct device *dev)
+>  
+>  	pci_put_host_bridge_device(bridge);
+>  
+> -	if (!ret && !driver->driver_managed_dma) {
+> +	if (dev->driver && !ret && !driver->driver_managed_dma) {
+>  		ret = iommu_device_use_default_domain(dev);
+>  		if (ret)
+>  			arch_teardown_dma_ops(dev);
+> -- 
+> 2.39.2.101.g768bb238c484.dirty
+> 
 
