@@ -4,118 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61044C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 18:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40D15C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 19:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LiwQPv6ok4yIcjSGgvmUI+UqSRNOd6zqIh/ZijyeTno=; b=CtlMN8P+4PzeFOdoMR4bwt/u9s
-	xkOJt1hmDD+ioD3iD0StzHommauBP7kdm82yjbIJdMzB12bBlJAV4Nifr3HwgE/Zn6QwYPZP+OrQY
-	dLftEBD3QcZ2S9mkWirqW1IFkXg3pDtzIY7lsyrzxWB2eXjDzcFToe+X4Z8Q0zgH8OkfGzdvM58Pi
-	2kRWja7s51ZpPEoaTW+EHiCXSqDVFn5m2tPW/4N5IUGZvyIWjgkiovcqxM6i5+UiyQhfKn8/CxBu9
-	XU8YjJVvnnN9XYv2dcfNOmbjoipATO6fjZDb+Dm3OKq1++ZEzKOSeROCWjqMhLDqmMB4CUTDMmBVo
-	HC/zC7Hw==;
+	bh=0R7CClKFrSXiIhfS8RdyO5YoafWx3vgmfgbtnqzfBuQ=; b=B2WZSt1sb9tB6zpjOGl/7OZEy3
+	1xo0EmJQM6TnjoRLnLaVSUZjok0Ezxg0m84EFXgWz7k95TvoWvBIl56Hk20RWyNZnmFnHS2LGoBsw
+	QNFoy2pq0nZ9hfhGd1QBlgNCt/Fr/cgfiNondxyM1ZXM0HxgzBk8Y2SlLX2kwOEgyTKQ1Lkj2yAOo
+	DxgEwr3m79UYI2CVS69xi9Bg5ttcq3n9pK6tXwbwkt/vNsg/dn8QqB/vLcG6fM9KNsKcNfYtheT8q
+	n9D7n2Kwdcm+uUMEl54rS6sKepuNszPWhIZnWynZMjVgtXxJl2W4GTwfcKP2kdxTjtXTJC5W0jdLb
+	r4N2ojTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj0tv-0000000Fxmj-0wC1;
-	Fri, 14 Feb 2025 18:58:59 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1tj0vK-0000000FxxS-21qe;
+	Fri, 14 Feb 2025 19:00:26 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj0Iv-0000000Fr9N-15Qy
+	id 1tj0Mk-0000000FrhB-0wLj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 18:20:48 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-38f32c1c787so214335f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 10:20:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739557243; x=1740162043; darn=lists.infradead.org;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=LiwQPv6ok4yIcjSGgvmUI+UqSRNOd6zqIh/ZijyeTno=;
-        b=arWrpM51SjA/A1sFkPU3dGxiiaCrV5KTSdG91sFiD/jGOPh7eQHxXBNhXzxykq6eYz
-         Gmj5kqB+5/CPjbmO6GYXFiUVv0D6mM8eqzVje8j8udzhy8+tW0nIkjGwWy49Nvmv6ZRz
-         ljKip56FMVD4dKsRV4BXrSZdXKsvWSOJwzLulvLPZEywA9LIeN/9AOyl0vIQw8wUj6iU
-         9sIn6RX60/Wn3yyriVw1ZzTGKMy4UIP7V3DbT+qodWZe6V2jThPwjIB8A0kPGVJfuDKE
-         0YRFzDOlrgKeDznh2jbRCLJxy27BzXKmnxBDLKqS3zav1MVObKO3c6/scf3dtG5sCAuN
-         +eoQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739557243; x=1740162043;
-        h=mime-version:message-id:date:user-agent:references:in-reply-to
-         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LiwQPv6ok4yIcjSGgvmUI+UqSRNOd6zqIh/ZijyeTno=;
-        b=dMY65lCT/u8XWQ28JCuzd95a/6PEQOozmE3+emsVRT4tQ41TFwiLtTrt2JOrFxHKPR
-         K2WzoB8QkIQspQEovJTGeg3I7ng+gUGX+xFJXJRZAmQp6iAPyGOzV5XeSLhhGvnKi/64
-         3ISt68eSRqCcUdxk1cqHgJhEf5vS4PGVOyqS5ULcli6Wn3r6fvOw8++WIm7wkXg6qgZa
-         5NZk2+rDX5r8mdWR+MbrLNd9mXtMhRXCPBnq+gyttNvFLwrm1OaSGhUYfHkKr0fpb+Hh
-         KBQ2o1QGKvRIzD32/AgnzBmALnNr/himlLWzciFoGvqxTNOvfPEIXjHIfDZDpzIXypj+
-         UbEA==
-X-Forwarded-Encrypted: i=1; AJvYcCUXxdG7KaKfc7NL1IfHiGOHa2lJA1xE8Rv1fg2gSO2ZHUQW9pmgVeCJ37SrzBDslgTRey3IdaHgzeDFKRMwXij2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAixuj1VA3AzbZgvWF5gnDf8eQNOGMkqibjtpiuMBryjE8lHHj
-	bbmEAdwxA4E3E/6GqfGDl/p64htk8NxzQcygFmzov5K2JLcrnyrrJjknSQy8dPk=
-X-Gm-Gg: ASbGnctn04atG+Y0rSuVXYbU60+ms/JtOe7r4dymDBNRMoz19+GEl4Bg9pcDddsDSZd
-	farN3aVLgfroj1jYzB5IHG8MaJIhgcr0l8E26AE/ucjBE+fp8L+cCS+Rf20frXWSkJvPabw/KLi
-	83bSw9Uu/oKdSXlAF2nQKpdEaNWrpOlRhMcdICygioO+pcXBpZp+Xbwpkm2Q5IEQs+nB9a/v/m+
-	qqx4Zb7HRlVBZrSlo9Yt5N1z7auoekMjQtqrQ6O5y7tIjvxml2MvHibqCo8hmKEbF3NBE9H7y9Z
-	logdQ8wLo721ww==
-X-Google-Smtp-Source: AGHT+IHsTHTiL3wJj3nrHf3yF9cKckC3Rmpa9H0r1If+8TaecjIo4Dqny2vOXtw6IlfG2e9gn40oVw==
-X-Received: by 2002:a05:6000:1542:b0:38d:d4b5:84d5 with SMTP id ffacd0b85a97d-38f33f14a9dmr31093f8f.8.1739557243484;
-        Fri, 14 Feb 2025 10:20:43 -0800 (PST)
-Received: from localhost ([2a01:e0a:3c5:5fb1:7018:8c7:bdd4:3436])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43961884e88sm49912865e9.26.2025.02.14.10.20.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Feb 2025 10:20:42 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Ira Weiny <ira.weiny@intel.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Dave Ertman
- <david.m.ertman@intel.com>,  "Rafael J. Wysocki" <rafael@kernel.org>,
-  "Stephen Boyd" <sboyd@kernel.org>,  Arnd Bergmann <arnd@arndb.de>,
-  Danilo Krummrich <dakr@kernel.org>,  Conor Dooley
- <conor.dooley@microchip.com>,  Daire McNamara
- <daire.mcnamara@microchip.com>,  Philipp Zabel <p.zabel@pengutronix.de>,
-  Douglas Anderson <dianders@chromium.org>,  Andrzej Hajda
- <andrzej.hajda@intel.com>,  Neil Armstrong <neil.armstrong@linaro.org>,
-  "Robert Foss" <rfoss@kernel.org>,  Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman <jonas@kwiboo.se>,
-  "Jernej Skrabec" <jernej.skrabec@gmail.com>,  Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
-  Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie
- <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Hans de Goede
- <hdegoede@redhat.com>,  Ilpo =?utf-8?Q?J=C3=A4rvinen?=
- <ilpo.jarvinen@linux.intel.com>,
-  Bryan O'Donoghue <bryan.odonoghue@linaro.org>,  Vladimir Kondratiev
- <vladimir.kondratiev@mobileye.com>,  Gregory CLEMENT
- <gregory.clement@bootlin.com>,  =?utf-8?Q?Th=C3=A9o?= Lebrun
- <theo.lebrun@bootlin.com>,
-  Michael Turquette <mturquette@baylibre.com>,  "Abel Vesa"
- <abelvesa@kernel.org>,  Peng Fan <peng.fan@nxp.com>,  Shawn Guo
- <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
-  "Pengutronix Kernel Team" <kernel@pengutronix.de>,  Fabio Estevam
- <festevam@gmail.com>,  Kevin Hilman <khilman@baylibre.com>,  Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,
-  <linux-kernel@vger.kernel.org>,  <linux-riscv@lists.infradead.org>,
-  <dri-devel@lists.freedesktop.org>,
-  <platform-driver-x86@vger.kernel.org>,  <linux-mips@vger.kernel.org>,
-  <linux-clk@vger.kernel.org>,  <imx@lists.linux.dev>,
-  <linux-arm-kernel@lists.infradead.org>,
-  <linux-amlogic@lists.infradead.org>
-Subject: Re: [PATCH v3 6/7] clk: clk-imx8mp-audiomix: use the auxiliary
- device creation helper
-In-Reply-To: <67af6c284c349_1614f3294dd@iweiny-mobl.notmuch> (Ira Weiny's
-	message of "Fri, 14 Feb 2025 10:15:36 -0600")
-References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
-	<20250211-aux-device-create-helper-v3-6-7edb50524909@baylibre.com>
-	<67af6c284c349_1614f3294dd@iweiny-mobl.notmuch>
-User-Agent: mu4e 1.12.8; emacs 29.4
-Date: Fri, 14 Feb 2025 19:20:40 +0100
-Message-ID: <1jr040xu9z.fsf@starbuckisacylon.baylibre.com>
+	Fri, 14 Feb 2025 18:24:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 20697A4336D;
+	Fri, 14 Feb 2025 18:22:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 859E2C4CED1;
+	Fri, 14 Feb 2025 18:24:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739557481;
+	bh=qcahaJjxOPF2+xYUsg3HR7q67xvZO5cp5xgsBNVsZHY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ke+Lu86Il0gbEC9tvWXHdbBP12IpV/yk43MGmN22VmqWWg7AjL/L3fiXu7UldG2S2
+	 7OOwCshZ10vkxyVym1yTfLX3/6RfULL2PR78xdqFADvHg6utE68b6hr6SRLfrkzi0o
+	 tHtoY6Ur0EiBk62ptu5WrOO9irskzDoIJdeGKbCywGOhp/C4eJ1ZE8JZX4MCne3aA6
+	 TbVz8lpq//Q5XQ9DVJAHogt6OmzRsxohuie/uv0/deRI+WjJmtw2El6b7vWPxW7PdB
+	 SOX7GLgM+sNTeH793CsYEDo3WX8A6o3xt7TNFuYI53lNT6cBf80hKHBVhC6Lz3J9aG
+	 KCf5Kd4maN3yw==
+Date: Fri, 14 Feb 2025 10:24:39 -0800
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: Song Liu <song@kernel.org>, Indu Bhagat <indu.bhagat@oracle.com>,
+	Weinan Liu <wnliu@google.com>, Steven Rostedt <rostedt@goodmis.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
+	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
+	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
+	live-patching@vger.kernel.org, joe.lawrence@redhat.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+Message-ID: <20250214182439.gpavslsvgw4xy7sf@jpoimboe>
+References: <CAPhsuW6S1JPn0Dp+bhJiSVs9iUv7v7HThBSE85iaDAvw=_2TUw@mail.gmail.com>
+ <00fa304d-84bf-4fca-9b9a-f3b56cd97424@oracle.com>
+ <CAPhsuW4ct6W_4B0LFEjLePH1pAeNm4h8ePuQ3HcSoknXhQWN0w@mail.gmail.com>
+ <mb61p1pw21f0v.fsf@kernel.org>
+ <CAPhsuW5VCmuPLd8wwzBp_Divnu=uaZQcrRLsjsEOJ9GmA0TR5A@mail.gmail.com>
+ <mb61pseoiz1cq.fsf@kernel.org>
+ <CAPhsuW7bo4efVYb8uPkQ1v9TE95_CQ6+G3q4kVyt-8g-3JD6Cw@mail.gmail.com>
+ <mb61pr0411o57.fsf@kernel.org>
+ <CAPhsuW7fBkZaKQzLvBqsrxTvpJsfJfUBfco4i=-=C_on+GdpKg@mail.gmail.com>
+ <mb61p7c5sdhv6.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <mb61p7c5sdhv6.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_102045_310281_17E84458 
-X-CRM114-Status: GOOD (  22.54  )
+X-CRM114-CacheID: sfid-20250214_102442_327722_44AB64C4 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,126 +86,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri 14 Feb 2025 at 10:15, Ira Weiny <ira.weiny@intel.com> wrote:
+On Fri, Feb 14, 2025 at 08:56:45AM +0000, Puranjay Mohan wrote:
+> I did this test and found the same issue as you (gdb assembly broken),
+> but I can see this issue even without the inlining. I think GDB tried to
+> load the debuginfo and that is somehow broken therefore it fails to
+> disassemblt properly.
 
-> Jerome Brunet wrote:
->> The auxiliary device creation of this driver is simple enough to
->> use the available auxiliary device creation helper.
->> 
->> Use it and remove some boilerplate code.
->> 
->> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
->> ---
->>  drivers/clk/imx/clk-imx8mp-audiomix.c | 56 ++++-------------------------------
->>  1 file changed, 6 insertions(+), 50 deletions(-)
->> 
->> diff --git a/drivers/clk/imx/clk-imx8mp-audiomix.c b/drivers/clk/imx/clk-imx8mp-audiomix.c
->> index c409fc7e061869988f83c7df3ef7860500426323..988a5fffeb4e0e481ec57038d9d1f1b43432fc98 100644
->> --- a/drivers/clk/imx/clk-imx8mp-audiomix.c
->> +++ b/drivers/clk/imx/clk-imx8mp-audiomix.c
->> @@ -228,64 +228,20 @@ struct clk_imx8mp_audiomix_priv {
->>  	struct clk_hw_onecell_data clk_data;
->>  };
->>  
->> -#if IS_ENABLED(CONFIG_RESET_CONTROLLER)
->
-> I see the Kconfig ...
->
->         select AUXILIARY_BUS if RESET_CONTROLLER
->
-> But I don't see how this code is omitted without AUXILIARY_BUS.  Is this
-> kconfig check safe to remove?
+I had the same theory about the debuginfo, but I stripped debug sections
+from that file and gdb still got confused.
 
-Ahhh that's what this directive was for.
-
-I thought it was really odd to have an #if on RESET while auxialiary
-device was supposed to properly decouple the clock and reset part.
-
-To keep things as they were I'll add an #if on CONFIG_AUXILIARY_BUS I
-wonder if this driver should select CONFIG_AUXILIARY_BUS instead ?
-
->
-> Ira
->
->> -
->> -static void clk_imx8mp_audiomix_reset_unregister_adev(void *_adev)
->> -{
->> -	struct auxiliary_device *adev = _adev;
->> -
->> -	auxiliary_device_delete(adev);
->> -	auxiliary_device_uninit(adev);
->> -}
->> -
->> -static void clk_imx8mp_audiomix_reset_adev_release(struct device *dev)
->> +static int clk_imx8mp_audiomix_reset_controller_register(struct device *dev)
->>  {
->> -	struct auxiliary_device *adev = to_auxiliary_dev(dev);
->> -
->> -	kfree(adev);
->> -}
->> -
->> -static int clk_imx8mp_audiomix_reset_controller_register(struct device *dev,
->> -							 struct clk_imx8mp_audiomix_priv *priv)
->> -{
->> -	struct auxiliary_device *adev __free(kfree) = NULL;
->> -	int ret;
->> +	struct auxiliary_device *adev;
->>  
->>  	if (!of_property_present(dev->of_node, "#reset-cells"))
->>  		return 0;
->>  
->> -	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
->> -	if (!adev)
->> -		return -ENOMEM;
->> -
->> -	adev->name = "reset";
->> -	adev->dev.parent = dev;
->> -	adev->dev.release = clk_imx8mp_audiomix_reset_adev_release;
->> -
->> -	ret = auxiliary_device_init(adev);
->> -	if (ret)
->> -		return ret;
->> -
->> -	ret = auxiliary_device_add(adev);
->> -	if (ret) {
->> -		auxiliary_device_uninit(adev);
->> -		return ret;
->> -	}
->> -
->> -	return devm_add_action_or_reset(dev, clk_imx8mp_audiomix_reset_unregister_adev,
->> -					no_free_ptr(adev));
->> -}
->> -
->> -#else /* !CONFIG_RESET_CONTROLLER */
->> +	adev = devm_auxiliary_device_create(dev, "reset", NULL, 0);
->> +	if (IS_ERR_OR_NULL(adev))
->> +		return PTR_ERR(adev);
->>  
->> -static int clk_imx8mp_audiomix_reset_controller_register(struct device *dev,
->> -							 struct clk_imx8mp_audiomix_priv *priv)
->> -{
->>  	return 0;
->>  }
->>  
->> -#endif /* !CONFIG_RESET_CONTROLLER */
->> -
->>  static void clk_imx8mp_audiomix_save_restore(struct device *dev, bool save)
->>  {
->>  	struct clk_imx8mp_audiomix_priv *priv = dev_get_drvdata(dev);
->> @@ -408,7 +364,7 @@ static int clk_imx8mp_audiomix_probe(struct platform_device *pdev)
->>  	if (ret)
->>  		goto err_clk_register;
->>  
->> -	ret = clk_imx8mp_audiomix_reset_controller_register(dev, priv);
->> +	ret = clk_imx8mp_audiomix_reset_controller_register(dev);
->>  	if (ret)
->>  		goto err_clk_register;
->>  
->> 
->> -- 
->> 2.45.2
->> 
+Still, the symbol table looked normal, so the gdb issue might be
+completely separate from the kernel runtime issues.
 
 -- 
-Jerome
+Josh
 
