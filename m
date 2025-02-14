@@ -4,151 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43BBC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 19:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0A1C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 20:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xoqeFrgvjgdrxVq7JubIVfUNZMfdn2q2JXFEC/uMALw=; b=QUV1L0B2q8InQe+HE35N0Npa10
-	1UVUaXT4Snn9n38GTeDjz+TjYCy1YdnPHq7DDfACJdZHKERrU8Z3jQ5vNGTOHR2M1Ng13wGSo66AX
-	/FDkyaxksDFQQ575lRiNC3ZfGr3TnJbQpDQjxfzDmVMAuhSw988B+8VX9CrNP3gBAdC9crPbqPMEb
-	gFVU36jxnJ1ADDAc5CH/l+cufxzM7oxKxP+Rq/kPI3F5zGe0veUuZKE8AzsmYtfkO+A3ZsDK9hi2G
-	2MuoPxlpAphFjPN0PMSxwOB4hF5jCTSSta3XF0xLpYsZZlgyPb5BeNKkLDLwsWIzj/idlokZpSFdg
-	PDjHdc8w==;
+	bh=3gA+i0CmP9DnNBxjfP0Se+gQOkkXX1tuBuCnmXo7jZk=; b=zrmhpi2+b8NTkOQcOi1+PbifN8
+	4RNsTpa3zxj77nmgHPcYOjNArP82/q7BrvNxGn3ze3Gv+FFAoGDT1//viaE7PvSrlb8ERVpwOOUUP
+	/QeovgetK9vfHn9nxaHdHBumAFxwQeIcOluEcDyLz4SSqnUhvYOCuGv9Q2dRiTu1ggB7v3rsaynUA
+	CH4Ap3FtAsELWCQ9vk4iCEdcJGAOkgWJd/TveKTc5NjOW5wJT4NgPbX2MoJ8HRNwznDJ0eS+YwZVH
+	deJuxl5ogvnqQct+kB5By6+cZ1EFVdSyv0Tv8RNN6NmgdwUV7vlqgBJcBospZ/3FcDmuwJk0Cl/H0
+	tGs5+XJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj1nk-0000000G6Gy-2pna;
-	Fri, 14 Feb 2025 19:56:40 +0000
-Received: from mail-vi1eur05on20621.outbound.protection.outlook.com ([2a01:111:f403:2613::621] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tj1zq-0000000G7wO-13Q5;
+	Fri, 14 Feb 2025 20:09:10 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj1mI-0000000G5u2-0sh5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 14 Feb 2025 19:55:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Wq1CtvE3zZzBNkeo3rWxwlRpraDBLKq2O173YhBnSVgi8XF3iw0SA9KoAidNp4mlxQG5hWEB4KenfSI9N51wACU9xp4Jp8zy9ktXUNTrNKey+UbB0Hm/TRNCaFTXNoCwtMeRxPuqxPfcBWKcevLXEmLiWOby2inDinaAzJXdQVHP3q0/cNWl3m2hms/vk3TJ9ObfQPLhPCIc4bYb4xjF35RzG+rMM7D/uep6pDEUtw4DV+mXxn5kIJx1qUUKvp6NYfRMdQbxN5yCP5ng1hzPtcvcUhzyccGM91Bd3QvGq5DJtIJUwB+bduyL5qUMhumzwXIGQZPQdwC6LIP7DKaBDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xoqeFrgvjgdrxVq7JubIVfUNZMfdn2q2JXFEC/uMALw=;
- b=A/GQo2MRJYgdjFY0NUV0C8HUnEGd+Q+U7FcemkbVx+IJuEuWX6Eg4A80gy85n7wbQgkIW/z8xM/Kz42+daEsth4N0VYfHwqkxzrRd5IYOVC3owCcteZOF7xRvvt8gHSCaIYiDHXKNLxrCqwbJrglE7VkPb0yeLSbF5yBcfk5B6MjJKjphlMjT5TiPHdDllbDjTSvY4nl8705g6dYPqSLPSOcIjO0X3WPyqWHyNuJP0t8P0FqGtULv3b1ZCGS/EKj8GiLv+uklEIqqyphAEufAGMSw5HqEFg2xVPXsYs7Lfgpgb0vrqjCezbvOUEsSzEthZtSM4s3wYZP+kVgyR+hIg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xoqeFrgvjgdrxVq7JubIVfUNZMfdn2q2JXFEC/uMALw=;
- b=AKlk6oCzYdEje2EegB8VsalUTMQb/iWqYNafV58cIhTSP0UzdKKwBCy+xVvr0ptiJrJs2JbV5y8+pNhPdnuRR8G1gsYLkljp+3j1jOi8x1G6FTkXwXKXxKr7WWQ/sBG6ySa61j0Z5Y4e+IrtxlQz/C4XeYkQPMwlyipVlxVUuLm/NzSNjekhthbMlAlfNtRMjrDABpzIMVqvl+R2cLrst1U62YROSjMfvWZRio2raCsZWOzJdEZB0KdOWJzeuDGenI4+fUTKwK/S80fu0h1oRYeCO4UtaQBFheC/VfW3fdzBFploPKkwiWN2hQXNXomWmmhnsmih1yx9kzlK51sMWQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PR3PR04MB7211.eurprd04.prod.outlook.com (2603:10a6:102:93::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.17; Fri, 14 Feb
- 2025 19:55:03 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%4]) with mapi id 15.20.8445.015; Fri, 14 Feb 2025
- 19:55:03 +0000
-Date: Fri, 14 Feb 2025 14:54:55 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Francesco Dolcini <francesco@dolcini.it>
+	id 1tj1yO-0000000G7mn-3RKl;
+	Fri, 14 Feb 2025 20:07:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=3gA+i0CmP9DnNBxjfP0Se+gQOkkXX1tuBuCnmXo7jZk=; b=h2oPIxc5LSQ9HrqIpwYraIWK2d
+	OVZnGGtUhj1zTYD3LrBiEDjWwkR36EKaperNnbYz9XKgtflB4ct53f7MvAUPjNtySI0+yXdYXgcbY
+	g+16clC//0zdgygviKbeJkmU0asTKPLnMGeCNhAP5MKNFGHgJXuqBziRG9q3u+/pHVO+59fNPbZ4n
+	eraqJTdMJyI62Zb6EE28ucaE/YHoxiUHijc5KzLiDu2mVn8MjlZCBeQxda/5fqqNO44ps1ppPPDBd
+	OTnibedW2U6c6ESyD5jKyBA2I+RuplsWZU26A/ORoPDNb/w1oyRZkZZRlVe9iewvru+SRalFMYpRh
+	o1Fw296Q==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tj1y0-00026P-Tb; Fri, 14 Feb 2025 21:07:16 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: linux-kernel@vger.kernel.org,
+ Detlev Casanova <detlev.casanova@collabora.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] arm64: dts: freescale: imx8mm-verdin: Remove LVDS
- panel and backlight
-Message-ID: <Z6+fjygpOeCUM9nd@lizhi-Precision-Tower-5810>
-References: <20250214092634.12414-1-francesco@dolcini.it>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250214092634.12414-1-francesco@dolcini.it>
-X-ClientProxiedBy: SJ0PR03CA0075.namprd03.prod.outlook.com
- (2603:10b6:a03:331::20) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+ Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+ Chris Morgan <macromorgan@hotmail.com>,
+ Kever Yang <kever.yang@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>,
+ Tim Lunn <tim@feathertop.org>, FUKAUMI Naoki <naoki@radxa.com>,
+ Michael Riesch <michael.riesch@wolfvision.net>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ Stephen Chen <stephen@radxa.com>, Elon Zhang <zhangzj@rock-chips.com>,
+ Alexey Charkov <alchark@gmail.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ kernel@collabora.com
+Subject: Re: [PATCH v3 2/2] arm64: dts: rockchip: Add Radxa ROCK 4D device tree
+Date: Fri, 14 Feb 2025 21:07:15 +0100
+Message-ID: <2629121.1xdlsreqCQ@diego>
+In-Reply-To: <20250214152119.405803-3-detlev.casanova@collabora.com>
+References: <20250214152119.405803-1-detlev.casanova@collabora.com>
+ <20250214152119.405803-3-detlev.casanova@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PR3PR04MB7211:EE_
-X-MS-Office365-Filtering-Correlation-Id: c0d1877e-15e5-4d14-1d08-08dd4d3178c8
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ZbXKD7IlzFsd2efFSD7DZEYJTOmxNVrq0NWDTzTFQe97Vr0GJoCrTOYnNnfg?=
- =?us-ascii?Q?XRorrLFmp22gr3uB5LTWN59Vqox08FUzreL84I91NS19hUyEjnN5S4XfNobg?=
- =?us-ascii?Q?s3txmMrlblNM2glLjskd8ChHcpk1McwhADKeXgiMDFwJRVxFGPTieS652QtM?=
- =?us-ascii?Q?4nv8+IoD1orvFJIsat5owi0C5qEehWKBm8LBat+p9rGQQQMxygZe/tmk2kNr?=
- =?us-ascii?Q?12d96jTD2eesBjOJ57tMaTjnT5jB9ZZL1Q0gEQ7SybPaYaXSCTXjA+9SxUqS?=
- =?us-ascii?Q?KvDW55F5vDjKbBNq9QydtoaA6vWljMWNd6de0f1XteWx0D31cL1PILZbVU2P?=
- =?us-ascii?Q?9umEJ7pQ5kjxfp8Hf31d0KtWHaVzAdcJQyJwUkF2zACmfcI1iSyiIy0lXl62?=
- =?us-ascii?Q?06/nZCY+fjz8APfIG9hCXWGyMC2QxW7xukQMLsWk9NQsnhTadTH1gGzFmAIT?=
- =?us-ascii?Q?XYOA6Z9pysStMmTiXzydWgZ4yqNRsrFGOi78lmFKu3bOMf+Kay1JB2HGE2G2?=
- =?us-ascii?Q?aeHf/U2XIkCouG9dVhFwaD45Jl6CMN8dNm6oTariBt1rqmodtsySKcd6j+o+?=
- =?us-ascii?Q?5NTS+nx5+f7v4ocA2Fzfxvu7LYkYWG+kvanpZGzZ6fx8chle8vRSC33Gf9sw?=
- =?us-ascii?Q?JAIQ3dSwqqCgmO/atxYjlkNaqtOVTawCDgMuX02tjgDf1kEqpDB3OcaWIbqS?=
- =?us-ascii?Q?NazaknNsr8llj5EIBokcDG/PyFdKPWDPfnc7Gl49YLzsc88erEXqAMEKg3DK?=
- =?us-ascii?Q?2x4Nm93iSzEWBeMoEZLG1ae6m92BjL6oVxev8KAs4UcsS6qrBaNp69B3dBBs?=
- =?us-ascii?Q?WszD7QejQXMrLiGF5pxTvuESrS0TQtXcGXgi+VTbgicxOR3Zavj1znXFBKE1?=
- =?us-ascii?Q?6TAVfT0rr4BatrT8lDr0dQogRlC/OgK5GlBW5EihBv4dWpfdpCYFyblkbVZb?=
- =?us-ascii?Q?+7zXrMqRjnhdX/49+7Ks6Ie+VuwWLMCHECJjRcj1OVa9gcX/bAQzhNFEXWZZ?=
- =?us-ascii?Q?V3qHLhVIi2abUqJwS7VddwL4wPEbaUa+g+doi0Rl7tRRBHfD54pgUkgFIsM5?=
- =?us-ascii?Q?5OqoDWSTEa0IYlSDZwszrlsJq1L8P83t6sFcDCYKXiNb3BOWrQ36odsvcJQ+?=
- =?us-ascii?Q?TnQoPa8n1YpRO69ov4M86zLjE9CZV2rUYDbbWgGcnxbd1rHiHFZUk0eaB/Mc?=
- =?us-ascii?Q?9UCzuooqAH61mZnCTUaIRglCr/YTAXfpvqQYnF82Tz5I0BD0FJohSZTXYJxs?=
- =?us-ascii?Q?cw+mXvDBqDB19UAIa3A3j8Y/SgbnqMfWSU6V2YSDQhskAUlXAnFw5NUd/A0S?=
- =?us-ascii?Q?wWPxJaV2WPjVhhANpFSuvep3qe9eJUGM/6MMlJA+NG02jUVHeGcmYC39C4Z1?=
- =?us-ascii?Q?gQYBqbt98YLmA/mRwmmiZ+tK+NPvXeXa+Fem0OZBmI8tEXipQfL54TDJmXRR?=
- =?us-ascii?Q?6NoYKNfEakG6RcWxLL3yxQztB4B43kpJ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JiLQtTeICbg34SsBpxxvq5TOdWV7xvyvs9yRh+sfoDnfus167uMjPb+tGCx5?=
- =?us-ascii?Q?BwBgeRp2T/jJ/rv/AkTMSWH7ACClW6/gHpiYj9e+xUtOqQdcctg/1pOc20+B?=
- =?us-ascii?Q?QK0nFkMSiH2jcM/U9ulzwluBnqXeikHjWQyX1VhXPrHkvzEB/IyR7RKy03oz?=
- =?us-ascii?Q?BsOa563ybmyNl44xiD4RRgjapiW7HC+EkiS9IPVBJvUoflF5XUTD+UIRunrb?=
- =?us-ascii?Q?cnZ8IDDNCx6WXkwBnQV4BEwIbQQPfSjxbKH/bpInYDGaZq7dHJ+2LxhGW/hg?=
- =?us-ascii?Q?POE/PviPTl+xF8Emg/AZo/7Ar8TO1KcN8lNUDO/g7+7I1JlcLxR2mZcPULXg?=
- =?us-ascii?Q?c1fKPTz8mNcDQmAyfFL1QvVv3XBrUCANW6NHI68/EUZrGBm6bJnjNVe9rpcT?=
- =?us-ascii?Q?qG7PYZvjJwUk3X1hBwAwCAkZ++Wdv+glG7FABSghvzCgjQE1Yj9bep1ixgWS?=
- =?us-ascii?Q?bEVoqmGeF8OKpvTDHav7W7c/kVsVRFZKtrIUr+7SsCuCeUCF1xztceV37OWl?=
- =?us-ascii?Q?PCynrNHDYxrDpDDdndhNdOeFk5u375N0HXrMdv5Mc80NCUAsZeG3LG+S5LpM?=
- =?us-ascii?Q?FjqOkealcn1gyj3vqKh1mxH9ZDzf6S0hIGqra3xhOetKXKar9pJx+qkmg3Am?=
- =?us-ascii?Q?FP8ZPQWkSw70yu8pX7YrRoc5/UZgc8g7uGo9YMIOpmdExM6Y6eTorlWj8WLw?=
- =?us-ascii?Q?3D4Y+v0FeCMELRCn4al50iVdhaeRuhubUIzkljsfqOYnusgiko3Bxoy+6XmF?=
- =?us-ascii?Q?/fanMsEc+/Fk5Lpv/iCIHnCU/em+wuO5fjA2VR0/BMNnQtJWYnaCE/gKKIh0?=
- =?us-ascii?Q?wVdG+JQ3bQIS7iNjPYn8UEJkS4E3uFrGEgvrOa2IDgcNcW6uVEGjCp04m0Th?=
- =?us-ascii?Q?AjaTwFo2X+NltmsMLT+jquuYc4yajC01GpNScWdu4+yYhzT6Hz9I1HJJeul3?=
- =?us-ascii?Q?62zbO9XdyhSnEVPZa4S4U8TOPyVBFDaIRqF9cyAIjgcasMsybMsSITLJuIRF?=
- =?us-ascii?Q?+7/VzuGsHV+FMsnUOQqTT3Gp6/qN791C5fleRmX6zFjLWOcvf1QyhoM7JXA/?=
- =?us-ascii?Q?aogqDbw2sYkU9b+SsEJxniqVLJvTzlAAdMG2PmiXM9DfUVOmIt6KB4i6jcUV?=
- =?us-ascii?Q?7gM7sJU1Jgjzfp7hUCAMvheePF5nR1porIUUVoC8a6L+3s7bRjt+Du6Zk4qO?=
- =?us-ascii?Q?sTbcSkO7DXOK5aD0ZNrLG28YsTS3OlO6wgLUCv0391ARwnfhjhDrN72gmiKl?=
- =?us-ascii?Q?NQutXBV1cGeK1hDZo6eDXSTebOMqR2PUAY4G0q61pRxDu4DzTAWEgSSoAx4R?=
- =?us-ascii?Q?tTUt/vr9Zs9zn7g0tilX2p6ATit5Y6W4K4iRt1wI56RWQYypMuse70s1+a1t?=
- =?us-ascii?Q?slC9Ea3ia5pRbTxAzEqkuquJ1tP/CBPXySaXWNMoMqwfre0O4ZAeClaBt+dQ?=
- =?us-ascii?Q?p+QnfvPqDxKGlNWQ1wjLoK1kpg9EGkxSJngEVWHHxQOx8dKeCKuObKKcNnPU?=
- =?us-ascii?Q?RMWur0mQ/rx7Ap9fryghlEePo1JhtC2GAyqqJ1Zd/YTMud07XU5aiwUJAsFu?=
- =?us-ascii?Q?Vd2njzammJj0a+j+R1bJ93/gBSTU+cH9tO9iuB4y?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c0d1877e-15e5-4d14-1d08-08dd4d3178c8
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Feb 2025 19:55:03.2919
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SaRaODLajnjPUBFWrksJAo96Cgij+x6Hy0Ac3xOCSTK6xUrCFncsbHh0t3sO9D3qe7IXNEA4aZOkOVODkKYnLw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7211
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_115510_248895_52D731DA 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20250214_120740_884732_8086B25B 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,65 +83,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 10:26:34AM +0100, Francesco Dolcini wrote:
-> From: Francesco Dolcini <francesco.dolcini@toradex.com>
->
-> Remove LVDS panel and backlight nodes from the Verdin iMX8M Mini SoM
-> dtsi file, those two hardware components are not part of the SoM,
-> therefore they should not be present in this file.
->
-> This is solving a dtb checker warning about panel-lvds compatible.
->
-> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> ---
+Hi Detlev,
 
-Thank you very much.
+all the style nitpick I'd changed myself, but the cpu-supplies did throw me
+off, see below.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
->  .../boot/dts/freescale/imx8mm-verdin.dtsi     | 21 -------------------
->  1 file changed, 21 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-> index c528594ac442..7251ad3a0017 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi
-> @@ -18,20 +18,6 @@ aliases {
->  		rtc1 = &snvs_rtc;
->  	};
->
-> -	backlight: backlight {
-> -		compatible = "pwm-backlight";
-> -		brightness-levels = <0 45 63 88 119 158 203 255>;
-> -		default-brightness-level = <4>;
-> -		/* Verdin I2S_2_D_OUT (DSI_1_BKL_EN/DSI_1_BKL_EN_LVDS, SODIMM 46) */
-> -		enable-gpios = <&gpio3 24 GPIO_ACTIVE_HIGH>;
-> -		pinctrl-names = "default";
-> -		pinctrl-0 = <&pinctrl_i2s_2_d_out_dsi_1_bkl_en>;
-> -		power-supply = <&reg_3p3v>;
-> -		/* Verdin PWM_3_DSI/PWM_3_DSI_LVDS (SODIMM 19) */
-> -		pwms = <&pwm1 0 6666667 PWM_POLARITY_INVERTED>;
-> -		status = "disabled";
-> -	};
-> -
->  	/* Fixed clock dedicated to SPI CAN controller */
->  	clk40m: oscillator {
->  		compatible = "fixed-clock";
-> @@ -66,13 +52,6 @@ hdmi_connector: hdmi-connector {
->  		status = "disabled";
->  	};
->
-> -	panel_lvds: panel-lvds {
-> -		compatible = "panel-lvds";
-> -		backlight = <&backlight>;
-> -		data-mapping = "vesa-24";
-> -		status = "disabled";
-> -	};
-> -
->  	/* Carrier Board Supplies */
->  	reg_1p8v: regulator-1p8v {
->  		compatible = "regulator-fixed";
-> --
-> 2.39.5
->
+Am Freitag, 14. Februar 2025, 16:19:34 MEZ schrieb Detlev Casanova:
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+> new file mode 100644
+> index 0000000000000..822abb82fae40
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+> @@ -0,0 +1,650 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +/*
+> + * Copyright (c) 2024 Radxa Computer (Shenzhen) Co., Ltd.
+> + *
+
+empty comment line can probably go away
+
+> +	vcc_12v0_dcin: regulator-vcc-12v0-dcin {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc_12v0_dcin";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <12000000>;
+> +		regulator-max-microvolt = <12000000>;
+> +	};
+> +
+> +	vcc_5v0_sys: regulator-vcc-5v0-sys {
+
+alphabetical sorting, by node-name please, so
+regulator-vcc-3v3* comes before regulator-vcc-5v0* etc
+
+Goes for all regulator-* nodes of course.
+
+> +	vcc_3v3_pcie: regulator-vcc-3v3-pcie {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc_3v3_pcie";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		enable-active-high;
+> +		gpio = <&gpio2 RK_PD3 GPIO_ACTIVE_HIGH>;
+> +		startup-delay-us = <5000>;
+> +		vin-supply = <&vcc_5v0_sys>;
+> +	};
+> +
+> +	vcc_5v0_host: regulator-vcc-5v0-host {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc5v0_host";
+> +		regulator-boot-on;
+> +		regulator-always-on;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		enable-active-high;
+> +		gpio = <&gpio0 RK_PD3 GPIO_ACTIVE_HIGH>;
+> +		vin-supply = <&vcc_5v0_device>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&usb_host_pwren>;
+
+both of the above, alphabetical sorting of properties please
+
+> +	};
+> +};
+> +
+> +&cpu_l0 {
+> +	cpu-supply = <&vdd_cpu_lit_s0>;
+> +};
+
+What happened to the supplies of the other cores?
+cpu_l1 - cpu_l3 probably need the same reference as above.
+
+Who is powering the cpu_b* cores?
+
+
+> +&i2c1 {
+> +	status = "okay";
+> +
+> +	pmic@23 {
+> +		compatible = "rockchip,rk806";
+> +		reg = <0x23>;
+> +
+> +		interrupt-parent = <&gpio0>;
+> +		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pmic_pins
+> +			     &rk806_dvs1_null
+> +			     &rk806_dvs2_null
+> +			     &rk806_dvs3_null>;
+> +
+> +		system-power-controller;
+> +
+> +		vcc1-supply = <&vcc_5v0_sys>;
+> +		vcc2-supply = <&vcc_5v0_sys>;
+> +		vcc3-supply = <&vcc_5v0_sys>;
+> +		vcc4-supply = <&vcc_5v0_sys>;
+> +		vcc5-supply = <&vcc_5v0_sys>;
+> +		vcc6-supply = <&vcc_5v0_sys>;
+> +		vcc7-supply = <&vcc_5v0_sys>;
+> +		vcc8-supply = <&vcc_5v0_sys>;
+> +		vcc9-supply = <&vcc_5v0_sys>;
+> +		vcc10-supply = <&vcc_5v0_sys>;
+> +		vcc11-supply = <&vcc_2v0_pldo_s3>;
+> +		vcc12-supply = <&vcc_5v0_sys>;
+> +		vcc13-supply = <&vcc_1v1_nldo_s3>;
+> +		vcc14-supply = <&vcc_1v1_nldo_s3>;
+> +		vcca-supply = <&vcc_5v0_sys>;
+> +
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+
+alphabetical sorting ... gpio* farther up please.
+
+
+> +&uart0 {
+> +	pinctrl-0 = <&uart0m0_xfer>;
+> +	status = "okay";
+> +};
+> +
+> +&combphy1_psu {
+> +	status = "okay";
+> +};
+
+phandles also sorted alphabetical please
+
+> +
+> +&u2phy0 {
+> +	status = "okay";
+> +};
+> +
+> +&u2phy1 {
+> +	status = "okay";
+> +};
+> +
+> +&usb_drd1_dwc3 {
+> +	dr_mode = "host";
+> +	status = "okay";
+> +};
+
+Thanks a lot
+Heiko
+
+
+
 
