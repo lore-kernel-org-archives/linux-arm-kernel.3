@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13B78C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 12:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 303C1C021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 14 Feb 2025 13:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q1twrBfPm/HRBOzjdwAFBK8QlVfGf3t9PIZZQoqfNZQ=; b=lY8JjYv5iHytDTHvf08Ie5BAnU
-	bWZ/c+g2W1cEFxBtkI2jLeesHRYFro7wml+vw+BRVLtVe+FTAaYk/Kz/Ws/09MrajWdj/U6HJRGMt
-	iwmMHy6tHmW84kMjNVAWvRYUOs9sJe8jbTE2PMa/NNAzJl/z5v21vELlAL8XF0scWvGphYje6oGoG
-	DFyCOrd1lsFbX3xv2YNdU/NsICfivVmLqSVe6ZvbpOZ6AGJ4NiN8++Wzh5IFL4G2qwrkVs00ecd9r
-	qklbkArz8FPA3r/M4UfqoQIUp8hzgRBVkpIEd+rkuLVQzkpS+iEqRwIeooSLRFQ3xhVDHYmOkC5Ho
-	CBUb8djQ==;
+	bh=S5lCqmlyMh8x+kA1xPSJ9idy5nYA6CvTdZY1fsmBsN8=; b=hHd/SdJ1PTUQ/V57fPoNbmuSyX
+	IIk1JTgzf8LJTxVNhOmH1Ixnf2FwAL8iAJE1GdO6oHg32dM43GbaxrLnkfI6A64v+I4Ql5w+P7hy1
+	eZy5ex0REkfGC3bD5rgfkYqt5Yk3hcrvSTPYqTNb3M3casqECx84DimyiS1J4ouGoRwit8Oon1rOw
+	n29du5xNNOpRWT4O0mZcyn4KzKpExMkLRJGmGOk2mXpEDpOpgJOl4W5XagpQEJgKwieEQ72ogfPla
+	bTkkSVGFFZ/ja8kS5y02qElOvl71/xiH00C9KvFIvtASEWtftSoep1WVdtluk9wP3mCApYtaQQ2dI
+	RcKmlI6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tivHc-0000000EuId-2gJR;
-	Fri, 14 Feb 2025 12:59:04 +0000
+	id 1tivJ3-0000000EucK-1OoK;
+	Fri, 14 Feb 2025 13:00:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tivEk-0000000EtUa-0CTZ
+	id 1tivEm-0000000EtVA-0vFt
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 14 Feb 2025 12:56:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE32327D3;
-	Fri, 14 Feb 2025 04:56:25 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0466D1596;
+	Fri, 14 Feb 2025 04:56:28 -0800 (PST)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1F213F58B;
-	Fri, 14 Feb 2025 04:56:03 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CB6923F58B;
+	Fri, 14 Feb 2025 04:56:05 -0800 (PST)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -48,17 +48,17 @@ Cc: Philipp Zabel <p.zabel@pengutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 01/15] clk: sunxi-ng: mp: Add SUNXI_CCU_P_DATA_WITH_MUX_GATE wrapper
-Date: Fri, 14 Feb 2025 12:53:45 +0000
-Message-ID: <20250214125359.5204-2-andre.przywara@arm.com>
+Subject: [PATCH v2 02/15] clk: sunxi-ng: mp: introduce dual-divider clock
+Date: Fri, 14 Feb 2025 12:53:46 +0000
+Message-ID: <20250214125359.5204-3-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.3
 In-Reply-To: <20250214125359.5204-1-andre.przywara@arm.com>
 References: <20250214125359.5204-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_045606_128648_E69D2BBC 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20250214_045608_347112_6D57D0BE 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,45 +73,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PRCM CCU in the A523 SoC contains some clocks that only feature a
-P (shift) factor, but no M divider.
-Treat this as a special case of an MP clock: by forcing the M mask to be
-0 bits wide, this always result in the M divider value to be 1.
+The Allwinner A523 SoC introduces some new MP-style mod clock, where the
+second "P" divider is an actual numerical divider value, and not the
+numbers of bits to shift (1..32 instead of 1,2,4,8).
+The rest of the clock is the same as the existing MP clock, so enhance the
+existing code to accommodate for this.
+
+Introduce the new CCU feature bit CCU_FEATURE_DUAL_DIV to mark an MP
+clock as having two dividers, and change the dividing and encoding code
+to differentiate the two cases.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- drivers/clk/sunxi-ng/ccu_mp.h | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ drivers/clk/sunxi-ng/ccu_common.h |  1 +
+ drivers/clk/sunxi-ng/ccu_mp.c     | 51 +++++++++++++++++++++++++------
+ 2 files changed, 42 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/clk/sunxi-ng/ccu_mp.h b/drivers/clk/sunxi-ng/ccu_mp.h
-index 6e50f3728fb5f..e235fdfde2d36 100644
---- a/drivers/clk/sunxi-ng/ccu_mp.h
-+++ b/drivers/clk/sunxi-ng/ccu_mp.h
-@@ -71,6 +71,24 @@ struct ccu_mp {
- 		}							\
+diff --git a/drivers/clk/sunxi-ng/ccu_common.h b/drivers/clk/sunxi-ng/ccu_common.h
+index dd330426a6e5f..50fd268329671 100644
+--- a/drivers/clk/sunxi-ng/ccu_common.h
++++ b/drivers/clk/sunxi-ng/ccu_common.h
+@@ -19,6 +19,7 @@
+ #define CCU_FEATURE_SIGMA_DELTA_MOD	BIT(7)
+ #define CCU_FEATURE_KEY_FIELD		BIT(8)
+ #define CCU_FEATURE_CLOSEST_RATE	BIT(9)
++#define CCU_FEATURE_DUAL_DIV		BIT(10)
+ 
+ /* MMC timing mode switch bit */
+ #define CCU_MMC_NEW_TIMING_MODE		BIT(30)
+diff --git a/drivers/clk/sunxi-ng/ccu_mp.c b/drivers/clk/sunxi-ng/ccu_mp.c
+index 2bb8987ddcc20..354c981943b6f 100644
+--- a/drivers/clk/sunxi-ng/ccu_mp.c
++++ b/drivers/clk/sunxi-ng/ccu_mp.c
+@@ -10,15 +10,23 @@
+ #include "ccu_gate.h"
+ #include "ccu_mp.h"
+ 
++static unsigned int next_div(unsigned int div, bool shift)
++{
++	if (shift)
++		return div << 1;
++	return div + 1;
++}
++
+ static unsigned long ccu_mp_find_best(unsigned long parent, unsigned long rate,
+ 				      unsigned int max_m, unsigned int max_p,
++				      bool shift,
+ 				      unsigned int *m, unsigned int *p)
+ {
+ 	unsigned long best_rate = 0;
+ 	unsigned int best_m = 0, best_p = 0;
+ 	unsigned int _m, _p;
+ 
+-	for (_p = 1; _p <= max_p; _p <<= 1) {
++	for (_p = 1; _p <= max_p; _p = next_div(_p, shift)) {
+ 		for (_m = 1; _m <= max_m; _m++) {
+ 			unsigned long tmp_rate = parent / _p / _m;
+ 
+@@ -43,7 +51,8 @@ static unsigned long ccu_mp_find_best_with_parent_adj(struct clk_hw *hw,
+ 						      unsigned long *parent,
+ 						      unsigned long rate,
+ 						      unsigned int max_m,
+-						      unsigned int max_p)
++						      unsigned int max_p,
++						      bool shift)
+ {
+ 	unsigned long parent_rate_saved;
+ 	unsigned long parent_rate, now;
+@@ -60,7 +69,7 @@ static unsigned long ccu_mp_find_best_with_parent_adj(struct clk_hw *hw,
+ 	maxdiv = max_m * max_p;
+ 	maxdiv = min(ULONG_MAX / rate, maxdiv);
+ 
+-	for (_p = 1; _p <= max_p; _p <<= 1) {
++	for (_p = 1; _p <= max_p; _p = next_div(_p, shift)) {
+ 		for (_m = 1; _m <= max_m; _m++) {
+ 			div = _m * _p;
+ 
+@@ -103,18 +112,26 @@ static unsigned long ccu_mp_round_rate(struct ccu_mux_internal *mux,
+ 	struct ccu_mp *cmp = data;
+ 	unsigned int max_m, max_p;
+ 	unsigned int m, p;
++	bool shift = true;
+ 
+ 	if (cmp->common.features & CCU_FEATURE_FIXED_POSTDIV)
+ 		rate *= cmp->fixed_post_div;
+ 
++	if (cmp->common.features & CCU_FEATURE_DUAL_DIV)
++		shift = false;
++
+ 	max_m = cmp->m.max ?: 1 << cmp->m.width;
+-	max_p = cmp->p.max ?: 1 << ((1 << cmp->p.width) - 1);
++	if (shift)
++		max_p = cmp->p.max ?: 1 << ((1 << cmp->p.width) - 1);
++	else
++		max_p = cmp->p.max ?: 1 << cmp->p.width;
+ 
+ 	if (!clk_hw_can_set_rate_parent(&cmp->common.hw)) {
+-		rate = ccu_mp_find_best(*parent_rate, rate, max_m, max_p, &m, &p);
++		rate = ccu_mp_find_best(*parent_rate, rate, max_m, max_p, shift,
++					&m, &p);
+ 	} else {
+ 		rate = ccu_mp_find_best_with_parent_adj(hw, parent_rate, rate,
+-							max_m, max_p);
++							max_m, max_p, shift);
  	}
  
-+#define SUNXI_CCU_P_DATA_WITH_MUX_GATE(_struct, _name, _parents, _reg,	\
-+				       _pshift, _pwidth,		\
-+				       _muxshift, _muxwidth,		\
-+				       _gate, _flags)			\
-+	struct ccu_mp _struct = {					\
-+		.enable	= _gate,					\
-+		.m	= _SUNXI_CCU_DIV(0, 0),				\
-+		.p	= _SUNXI_CCU_DIV(_pshift, _pwidth),		\
-+		.mux	= _SUNXI_CCU_MUX(_muxshift, _muxwidth),		\
-+		.common	= {						\
-+			.reg		= _reg,				\
-+			.hw.init	= CLK_HW_INIT_PARENTS_DATA(_name,    \
-+								   _parents, \
-+								   &ccu_mp_ops,\
-+								   _flags),  \
-+		}							\
-+	}
+ 	if (cmp->common.features & CCU_FEATURE_FIXED_POSTDIV)
+@@ -167,7 +184,11 @@ static unsigned long ccu_mp_recalc_rate(struct clk_hw *hw,
+ 	p = reg >> cmp->p.shift;
+ 	p &= (1 << cmp->p.width) - 1;
+ 
+-	rate = (parent_rate >> p) / m;
++	if (cmp->common.features & CCU_FEATURE_DUAL_DIV)
++		rate = (parent_rate / p) / m;
++	else
++		rate = (parent_rate >> p) / m;
 +
- #define SUNXI_CCU_MP_WITH_MUX(_struct, _name, _parents, _reg,		\
- 			      _mshift, _mwidth,				\
- 			      _pshift, _pwidth,				\
+ 	if (cmp->common.features & CCU_FEATURE_FIXED_POSTDIV)
+ 		rate /= cmp->fixed_post_div;
+ 
+@@ -190,20 +211,27 @@ static int ccu_mp_set_rate(struct clk_hw *hw, unsigned long rate,
+ 	unsigned long flags;
+ 	unsigned int max_m, max_p;
+ 	unsigned int m, p;
++	bool shift = true;
+ 	u32 reg;
+ 
++	if (cmp->common.features & CCU_FEATURE_DUAL_DIV)
++		shift = false;
++
+ 	/* Adjust parent_rate according to pre-dividers */
+ 	parent_rate = ccu_mux_helper_apply_prediv(&cmp->common, &cmp->mux, -1,
+ 						  parent_rate);
+ 
+ 	max_m = cmp->m.max ?: 1 << cmp->m.width;
+-	max_p = cmp->p.max ?: 1 << ((1 << cmp->p.width) - 1);
++	if (shift)
++		max_p = cmp->p.max ?: 1 << ((1 << cmp->p.width) - 1);
++	else
++		max_p = cmp->p.max ?: 1 << cmp->p.width;
+ 
+ 	/* Adjust target rate according to post-dividers */
+ 	if (cmp->common.features & CCU_FEATURE_FIXED_POSTDIV)
+ 		rate = rate * cmp->fixed_post_div;
+ 
+-	ccu_mp_find_best(parent_rate, rate, max_m, max_p, &m, &p);
++	ccu_mp_find_best(parent_rate, rate, max_m, max_p, shift, &m, &p);
+ 
+ 	spin_lock_irqsave(cmp->common.lock, flags);
+ 
+@@ -211,7 +239,10 @@ static int ccu_mp_set_rate(struct clk_hw *hw, unsigned long rate,
+ 	reg &= ~GENMASK(cmp->m.width + cmp->m.shift - 1, cmp->m.shift);
+ 	reg &= ~GENMASK(cmp->p.width + cmp->p.shift - 1, cmp->p.shift);
+ 	reg |= (m - cmp->m.offset) << cmp->m.shift;
+-	reg |= ilog2(p) << cmp->p.shift;
++	if (shift)
++		reg |= ilog2(p) << cmp->p.shift;
++	else
++		reg |= (p - cmp->p.offset) << cmp->p.shift;
+ 
+ 	writel(reg, cmp->common.base + cmp->common.reg);
+ 
 -- 
 2.46.3
 
