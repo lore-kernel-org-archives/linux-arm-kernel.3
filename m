@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9761C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 17:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55C2BC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 17:41:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z0EbrfsbOetLtFShOOfGN77ABNqlRqdu3JLgmFzgAao=; b=QwLJCE0E3UfGuqjM2xC6icFDNE
-	yokxKT6EquLjbmyc/5SRms8WezVO4rVvrtnWLAM5yoKCGq81kUeFdTglpcsqmCpcW+EWPsZNhdd6P
-	g6NRZaH5uhDwMlhuOKyvWPtvbFyFnCv9rB3dvne4XQOzWsduuQgnZGE0Bs64mktYpbto3Qv/69KAQ
-	QnCtHMAOqHajwMRvcgsOrf7KmdOGGdNtmu1WbPaVZolA1h578s4VdgQJf2LwI0FXJTn6WTOgFmLAq
-	EAO8qz1qeTyQeZN52aW3yTPneHoiK33Fg/V/17dq912As0mvkY/LqokuBv1vV5BEsJ64Sy+XM/s4d
-	zc7in5sg==;
+	bh=PjTgu38sXvUYUy0LyZ0TZPxnwknuJRGQTm2vknWiP0E=; b=be0dboS8Py8Lejo1640c78oBCH
+	yFxXUzAiF0XrHetl7ESsCX1rzYZLdpCDXIGdpT/JMWSNaglC8fqpPEVgRe0NIseNIlThrMxwQPDr4
+	57q8wET7elECIcPOE9lhbW4BrAuDtwA6ZSwoTvPtZHo2aVWC+Uz6rhzygS1yyLebz/P+bsmd8CJb/
+	qPxiMXyByP21jgWTH3pU06F7uN81rnrnk/X10FsK4xtT9DOA+feVj5GtIQ64ca96xChkjVgksLvF3
+	uWuOpAkI5RFCnZ8S16ZB/U5GnRVkJryq0Z/47szMGJpjKPhwHxBQ6yhkLJkbmoAbwqwlivMUMHyxq
+	iK+yPo/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjM8w-00000000VID-19tC;
-	Sat, 15 Feb 2025 17:39:54 +0000
+	id 1tjMAM-00000000VaI-3oX6;
+	Sat, 15 Feb 2025 17:41:22 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjM7T-00000000Up0-0xKi
+	id 1tjM7T-00000000Up4-2N5o
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 15 Feb 2025 17:38:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5367E5C2659;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8FA825C4277;
 	Sat, 15 Feb 2025 17:37:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62494C4CEE2;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A79FDC4CEE9;
 	Sat, 15 Feb 2025 17:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1739641102;
-	bh=XymYMKvSscNoNyr9c1xKeKhz7KoZPOt8xd5DrF64n9g=;
+	bh=RvUSEhI6cySQmIz8ZQ/36MwcnMPJHyHB8RpivDDZCT0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IlgoqgP8oGA2xyi/FZ9j07Armi+ZphS1EixA0//5+jEH1TlM8fNIXu5CfG4GzL7fm
-	 3rkTxzRYzSfU06RYn6dGnVdjmdAU4LzlxSf8yJvKPEhLr6RUev/88VUsLN4Z5fHp0j
-	 S9iZmQO65I5fzjgi5VBWmCTcHWZKnPtGpKoZeL6sDt4qMv9gpgUesM9ajoThcuVOtZ
-	 pX5LpB5jK89OgSNfgAcRahlsjWSKMsSi1xvQZsjNA1nZNDPV+YN8NWBjg1nKgqKLLn
-	 czp7yLZD0jsB5VmYOwh7bg3huPyUjATAEVRodZ43/hgDx2XmbTyQOJhBC/JfGCwVEN
-	 gf6Dg+bC0qBmQ==
+	b=ZvE8lp76JHWDIZ+YoLeqobRmcKQlBxX+5GAAEV0eA3N+VacgrFup8o4/C4a9Wq+dn
+	 T1VwXkeSPx2m3zIl/q+eoKCvCcFx8kPE7zWXnEzDp++uHS4oAgZiyin3glu7MFhyS5
+	 76t2Yhzi2uYpfo8Th87d5PfVKv7rzGbQgHV7KUTtrUlBzYgwnrZ2o28i+DVoUx62+H
+	 I5JxNMWeiCF6bMKayAjVDiSRnNW4cybBYoMoKpvfsKz42LYlde189rsTK8ezCvk3R7
+	 fY4vdq0X21OWE9Clx4zkY7LXosg6TziYJ+82CD3jnrj9JRo5AgGLyeUSZvzdPHJq/a
+	 jRpt5606qc6tA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tjM7Q-004Pqp-GC;
+	id 1tjM7Q-004Pqp-Sc;
 	Sat, 15 Feb 2025 17:38:20 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -57,9 +57,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH 01/14] arm64: cpufeature: Handle NV_frac as a synonym of NV2
-Date: Sat, 15 Feb 2025 17:38:03 +0000
-Message-Id: <20250215173816.3767330-2-maz@kernel.org>
+Subject: [PATCH 03/14] KVM: arm64: Mark HCR.EL2.E2H RES0 when ID_AA64MMFR1_EL1.VH is zero
+Date: Sat, 15 Feb 2025 17:38:05 +0000
+Message-Id: <20250215173816.3767330-4-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250215173816.3767330-1-maz@kernel.org>
 References: <20250215173816.3767330-1-maz@kernel.org>
@@ -70,8 +70,9 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_093823_352101_96C46374 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20250215_093823_649206_51C29508 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,62 +87,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With ARMv9.5, an implementation supporting Nested Virtualization
-is allowed to only support NV2, and to avoid supporting the old
-(and useless) ARMv8.3 variant.
-
-This is indicated by ID_AA64MMFR2_EL1.NV being 0 (as if NV wasn't
-implemented) and ID_AA64MMDR4_EL1.NV_frac being 1 (indicating that
-NV2 is actually supported).
-
-Given that KVM only deals with NV2 and refuses to use the old NV,
-detecting NV2 or NV_frac is what we need to enable it.
+Enforce HCR_EL2.E2H being RES0 when VHE is disabled, so that we can
+actually rely on that bit never being flipped behind our back.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kernel/cpufeature.c | 15 +++++++++++++--
- 1 file changed, 13 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/nested.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 4eb7c6698ae43..94605e91f0e5f 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -497,6 +497,7 @@ static const struct arm64_ftr_bits ftr_id_aa64mmfr3[] = {
- 
- static const struct arm64_ftr_bits ftr_id_aa64mmfr4[] = {
- 	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR4_EL1_E2H0_SHIFT, 4, 0),
-+	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR4_EL1_NV_frac_SHIFT, 4, 0),
- 	ARM64_FTR_END,
- };
- 
-@@ -2162,7 +2163,7 @@ static bool has_nested_virt_support(const struct arm64_cpu_capabilities *cap,
- 	if (kvm_get_mode() != KVM_MODE_NV)
- 		return false;
- 
--	if (!has_cpuid_feature(cap, scope)) {
-+	if (!cpucap_multi_entry_cap_matches(cap, scope)) {
- 		pr_warn("unavailable: %s\n", cap->desc);
- 		return false;
- 	}
-@@ -2519,7 +2520,17 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.capability = ARM64_HAS_NESTED_VIRT,
- 		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
- 		.matches = has_nested_virt_support,
--		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, NV, NV2)
-+		.match_list = (const struct arm64_cpu_capabilities []){
-+			{
-+				.matches = has_cpuid_feature,
-+				ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, NV, NV2)
-+			},
-+			{
-+				.matches = has_cpuid_feature,
-+				ARM64_CPUID_FIELDS(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY)
-+			},
-+			{ /* Sentinel */ }
-+		},
- 	},
- 	{
- 		.capability = ARM64_HAS_32BIT_EL0_DO_NOT_USE,
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 0c9387d2f5070..ed3add7d32f66 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1034,6 +1034,8 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
+ 		res0 |= (HCR_TEA | HCR_TERR);
+ 	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, LO, IMP))
+ 		res0 |= HCR_TLOR;
++	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, VH, IMP))
++		res0 |= HCR_E2H;
+ 	if (!kvm_has_feat(kvm, ID_AA64MMFR4_EL1, E2H0, IMP))
+ 		res1 |= HCR_E2H;
+ 	set_sysreg_masks(kvm, HCR_EL2, res0, res1);
 -- 
 2.39.2
 
