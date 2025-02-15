@@ -4,88 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2916AC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 12:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D92A8C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 12:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sOzHbiOoS5yihAuEFC/WAZMn5LqH9HEiJMUp2IVfaik=; b=EJvZqY6ck7egedRjKx5fQJgKPR
-	Z4p15fxo+wGdukpCdaU9q1aAvcQGV/cZBKlxig9Z/dkLTVASRPnlZubY+j7El0Vvjo0JPu4mGIBpr
-	pPA8383gy4QHb5l6WvmUsr6sUVImHSNXXiheV2Awj5f7yzw/IC3r9oBBUcLcgMZoXSFWgy6lcxJPb
-	bxuSprFw4BZQlg69HwjZhnSyRTsy3XJ4WRgxia/RHlnATFFC//ljhg0p0ACRvKLuBoScxmxsL0I/C
-	07z1Fxemklv35eiR7VoP57aaEn7gztGz/5lA6rWjzRm/xStZrXmIBtsV8TMKYlovO8j7t6vDudH+q
-	PMkLSsPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=drN/Xok8UudjMurUXacPKQ2++MI+GHNgJsb1gQKHxmw=; b=akGHFjRWeq+t0SqwVh+9LTGNyD
+	hBdeIa0bDl9YRThNgwmW2xuaGDDJsZ7ja8ywiSPBC1zIYqU6dtV2F7unyUM/KFHbxjN1HWysNo40R
+	NQa8C1/KbZMid1G7IPMJz6RhJAR2t/9r6dVNw+21OpHvi/p8vdBYEvMmwKK7X0MOE2WZwiTX18oO7
+	SzAsXk7IoEXiaR05tYfv5/WTKJGz/pY4Cv2BYk4SSuQsO2m/cD+jMAN9f5QT3Sbwu8RQvyujFIr2z
+	q/RLXBzcEbJTTlCpYNFxuMCaRFUljGw0cNu1BbvIahjhWBvZCEa1lTCzOeTDcg7uxyGeUXld1VgKU
+	mjUZwIEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjHTl-000000004Ql-1qI4;
-	Sat, 15 Feb 2025 12:41:05 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1tjHeF-000000005hF-1UkB;
+	Sat, 15 Feb 2025 12:51:55 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjHSJ-000000004GH-03uA
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Feb 2025 12:39:36 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43962f7b0e4so17351375e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Feb 2025 04:39:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739623173; x=1740227973; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=sOzHbiOoS5yihAuEFC/WAZMn5LqH9HEiJMUp2IVfaik=;
-        b=lb+qQqZxNr1x0uDOximFKIzcFq58pSxe5r5V7hrQDo/Nu+5bMHveWjUVniajK8ZMc6
-         c22H1jaYMPe5Om7/VpXwLcDi4Mbh+4hCms8SJYqck9yQGO4iLi09LZfkbDnqvDtB6J0o
-         uIQLe5jgAQGcEwXxtKRriW4WGxrnhHJlulRsP94HLkI3Z1yNn2fbyARn2UW44jFAT5k6
-         tRwJytnI0cMGpnFe4judRbpkNtWqSaHYYe/5xftqrpHKz3HqiSf62pSxpl1oFeGdyzWn
-         wHBV/Aml0wfblKIS4hzexYzIQBF6w4LisgNyzXA/gWJN6p7vvdy2VPiFAHw/UCd1CzqR
-         UQMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739623173; x=1740227973;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=sOzHbiOoS5yihAuEFC/WAZMn5LqH9HEiJMUp2IVfaik=;
-        b=OCoBtMz/6adyqDDsa0p1bsok4T9HFdhX1IDcZal59R8Qb13tj3dclk5BCWgRNQu7sn
-         2fVR9VMb570u3TrCawp6I7q1hmjb2CdE15rIn8G0I8TGCmlX+62gQd03amCnP32F7Bzg
-         /qJKvorjLREcH01cpZNpCSXGq26zd5EHZsRC5FBJ0sty30y6a/YIETXkTaCnOE15aNBM
-         dmcxeMExbfkOpeXlYVL9/OG9F5OaHMlfYuw1wtryn7V7up0Dy/aB2T/+rWk0qJxPy73C
-         jBrC5h4nFR5h0SYGR+mTkSGFuMSN7ZSjWr71TAz4sDqBcrQsw7h/tHCoVZS7MzocNhve
-         0oNw==
-X-Gm-Message-State: AOJu0YwWw+js03JuW+pZN2M9zEpihdKUxR1wARCgaVAa6x1S3BFGaYcG
-	UTq3yQ8N16c6cXdgqFQ8BZQtVYgIiOf+68MejxbHnBXQt6K7ODknb4IOqg==
-X-Gm-Gg: ASbGncu6w9/fWJdLRxmVpjjczeNrYfKrouOsBnwCx9S7m4o1RxalNVTlW/gny+/C/cT
-	U1nvjgd/g19iy57nsDA025twRZdthwSA2INqVMou/2XHLXOWpMRgp3UZJiLZFna7KfUw0W94GWC
-	llfBFNXqq6Moj2NxJa9IO1HPmdDMgqQ9xAKER8b0aynF6ma2zlE2xLfmN65nr56svSk7yI05hv1
-	V5vGkSwomPbYDdRIOf60itAk4ddsMSj7xLQd4CnoILEg6bOekMBNQbi1KH+lRVO++L0tamlTid+
-	Y8rlHnLbq8VV/uSQttJrZCsBVA1MqtWqaBM3E8W/J5dPtjMYcaMSRyodaV4nLHm+WDI=
-X-Google-Smtp-Source: AGHT+IG7zNrA01xgjYEn/MTIJYOqGw1HZPW6RPoPt4xc17909V642AX/ilwKBKzO9yBWRkBEkSVrLw==
-X-Received: by 2002:a05:6000:2c8:b0:38d:dd52:1b5d with SMTP id ffacd0b85a97d-38f33f11861mr2472767f8f.4.1739623173271;
-        Sat, 15 Feb 2025 04:39:33 -0800 (PST)
-Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258b410dsm7156112f8f.5.2025.02.15.04.39.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Feb 2025 04:39:32 -0800 (PST)
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1] dt-bindings: timer: exynos4210-mct: add samsung,exynos2200-mct-peris compatible
-Date: Sat, 15 Feb 2025 14:39:22 +0200
-Message-ID: <20250215123922.163630-1-ivo.ivanov.ivanov1@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tjHcm-000000005Xl-3qBu;
+	Sat, 15 Feb 2025 12:50:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C8520A40362;
+	Sat, 15 Feb 2025 12:48:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84BD0C4CEE9;
+	Sat, 15 Feb 2025 12:50:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739623822;
+	bh=drN/Xok8UudjMurUXacPKQ2++MI+GHNgJsb1gQKHxmw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TI7OwbBejVq+s0MNcjVR0OO68WWGeU3nLMSFjv/iooPZQkFgekvtYlJVZMHL4yhGu
+	 X+NvMH38mriKk1PDUcyHjwbzECOAXrRCBNn9U36VXx/c8m+LhK9r+9CyTE6RYI4i18
+	 r1pLW7R4TInPKnEeFX9WUG5PqtfWIPuLmmuUoi3E8A0A0/4ZupRtFx5ykSkJfxoWU1
+	 JSSIsK/AtdQvdtCF3n/UYl3JTA4Hs4cA70QyCuK0IzY+i8/ZvMd1HSVZ2fGkRVyFmc
+	 3KBpadsxw7ag6TDN+7Q0Rn0JRDwxVXa6Ic4DnHHR5HSm4OAwa2yr2Q1DySe1dJlh9Y
+	 F8vI+B2Os2Bpg==
+Date: Sat, 15 Feb 2025 12:50:12 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Doug Anderson <dianders@chromium.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dave Ertman <david.m.ertman@intel.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-clk@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v3 2/7] reset: mpfs: use the auxiliary device creation
+ helper
+Message-ID: <20250215-scared-clothing-942f9bf3d039@spud>
+References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
+ <20250211-aux-device-create-helper-v3-2-7edb50524909@baylibre.com>
+ <20250213-crown-clustered-81c6434c892b@spud>
+ <1jv7tczytk.fsf@starbuckisacylon.baylibre.com>
+ <CAD=FV=VeSrZktEbxNXXTgD80QGTpW5b-WiXUFko+a8FUzmN+fQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="2DqldZNjQ+dLYWFk"
+Content-Disposition: inline
+In-Reply-To: <CAD=FV=VeSrZktEbxNXXTgD80QGTpW5b-WiXUFko+a8FUzmN+fQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_043935_059147_07538763 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20250215_045025_088602_05D33EAD 
+X-CRM114-Status: GOOD (  21.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,41 +114,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Whilst having a new multicore timer that differs from the old designs in
-functionality and registers (marked as MCTv2 in vendor kernels),
-Exynos2200 also keeps an additional multicore timer connected over PERIS
-that reuses the same design as older exynos socs.
 
-Add a compatible for the legacy multicore timer of Exynos2200. Rather
-than differentiating it based on the block version, mark it as the
-one connected over PERIS.
+--2DqldZNjQ+dLYWFk
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
----
- .../devicetree/bindings/timer/samsung,exynos4210-mct.yaml       | 2 ++
- 1 file changed, 2 insertions(+)
+On Fri, Feb 14, 2025 at 07:25:59AM -0800, Doug Anderson wrote:
+> Hi,
+>=20
+> On Fri, Feb 14, 2025 at 12:59=E2=80=AFAM Jerome Brunet <jbrunet@baylibre.=
+com> wrote:
+> >
+> > > One think that's always felt a bit meh to me is this id number stuff,
+> > > I just threw in 666 for meme value.
+> >
+> > :)
+> >
+> > > The whole thing seems super
+> > > arbitrary, do any of the users of this helper actually put meaningful
+> > > values into the id parameter?
+> >
+> > In example changes I've sent, no.
+> >
+> > In other simple usages (those using container_of()) of the auxiliary
+> > bus, I think there are a few that uses 0 and 1 for 2 instances.
+> >
+> > I guess your question is "do we really need this parameter here ?"
+> >
+> > We could remove it and still address 90% of the original target.
+> >
+> > Keeping it leaves the door open in case the figure above does not hold
+> > and it is pretty cheap to do. It could also enable drivers requiring an
+> > IDA to use the helper, possibly.
+>=20
+> FWIW, once you resolve the conflicts in drm-misc with ti-sn65dsi86
+> you'll need the ID value. ;-)
+>=20
+> There was a big-ol' discussion here:
+>=20
+> https://lore.kernel.org/r/8c2df6a903f87d4932586b25f1d3bd548fe8e6d1.172918=
+0470.git.geert+renesas@glider.be
+>=20
+> I eventually pushed v2 of the patch:
+>=20
+> https://lore.kernel.org/r/7a68a0e3f927e26edca6040067fb653eb06efb79.173384=
+0089.git.geert+renesas@glider.be
 
-diff --git a/Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml b/Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml
-index 12ff972bf..10578f544 100644
---- a/Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml
-+++ b/Documentation/devicetree/bindings/timer/samsung,exynos4210-mct.yaml
-@@ -27,6 +27,7 @@ properties:
-           - enum:
-               - axis,artpec8-mct
-               - google,gs101-mct
-+              - samsung,exynos2200-mct-peris
-               - samsung,exynos3250-mct
-               - samsung,exynos5250-mct
-               - samsung,exynos5260-mct
-@@ -131,6 +132,7 @@ allOf:
-             enum:
-               - axis,artpec8-mct
-               - google,gs101-mct
-+              - samsung,exynos2200-mct-peris
-               - samsung,exynos5260-mct
-               - samsung,exynos5420-mct
-               - samsung,exynos5433-mct
--- 
-2.43.0
+Think it makes sense to have a "simplified" wrapper for the cases where
+the id has no meaning then? Not really a fan of the drivers coming up with
+magic numbers.
 
+--2DqldZNjQ+dLYWFk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ7CNhAAKCRB4tDGHoIJi
+0tAUAQCqnRPkOySGXu//3wT8OcQkfE+e51feUW6fi3X49on2qQD9FeMpjQKlnQ9Q
+UjJ/Rxce6BMBO5o9ndbm21Ie8SKdSAY=
+=owAZ
+-----END PGP SIGNATURE-----
+
+--2DqldZNjQ+dLYWFk--
 
