@@ -4,95 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49F8C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 18:02:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24BF8C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 18:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lwOANHD7rRUjNgtZHP/ICo60H9B1yC39Gbbr8IKBsDo=; b=RhAK6xc3h4mjzj16aNQctd2F/o
-	G7b+fPyRSwxyXUGpeN2INRFAcNz30HPBPDL+FUQC/vGhNYkCqy8N5fSVTby6zcwiC8M1Mzn1TjMFK
-	ikISC8n1+hw7EghIPWtToroyJgSvQe+xZ4+ykv77q/EfmrlDlfzBbA76B2oDhWCOqXfaFZ5pBoDOJ
-	P5Qpe11RKgxY8OfrVnCiLbLQzkVxyC9DJ3oZbAasMUsDsHyY/9mHlxfa5IOHLrmdHiU5O14e1217r
-	uW390ICxBC4arOqwm2C/OTSV6ZoZpR9I1JjdCmul74vItz2uyL5zlcl7szBoQhO2PSlqL8mmGTpXJ
-	RhBYo9MQ==;
+	bh=q4LqKRCXJnPDKHuRcvP8uYDa5EhADrSmcCiECY0GjxM=; b=hG+3dmPhn85Et3QHJzF8jbayP7
+	eLxREhlim8m6jn+n2KATRUFHT2aKqq2gos7Xg05N71d42mESXVtsN/RBZ8seKjPT/EZnBDDFHwYOk
+	YTEmTnUzoSBFiDQSeRJLGqvjYw/r672xTXWZPCBSTWopejXk3DM3JPERrVBTdK4LbjsTqxsIpLUql
+	1CUEoE9PKimzjh2HDW1Xdx66qtKiP/vadfa4Jg3cu3YTCbWofVnzA3krej/9wkrSLO6JdIQjPtiig
+	alcpSIAqXB2CAbNCXjT+JowLNKv6k0Xt4WeRQQ6Eo20nd3Vj3BfidRe+FAQZ73vO5xHY4LhQdoBPO
+	MsFyZH6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjMUH-00000000XxC-0kFF;
-	Sat, 15 Feb 2025 18:01:57 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tjNNZ-00000000bU1-2URg;
+	Sat, 15 Feb 2025 18:59:05 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjMIv-00000000Wlc-2U2L
+	id 1tjNM6-00000000bOD-31bj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Feb 2025 17:50:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ABD6A5C28BB;
-	Sat, 15 Feb 2025 17:49:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2459C4CEDF;
-	Sat, 15 Feb 2025 17:50:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739641811;
-	bh=A51e6JcDqBBxxRkVKA0V/7fSn5jRxsBs2bLls+VWRiM=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=KR0sWtiQJ8yi1gvD8QbU/Ul+R+dVqgW9Lgrlrmn10gIwmG4Z9n9fDJcEx6W1vqO9k
-	 Qhte3SQxCB2TJzESKDHloaaaqGJKoNTS0S0l90UoUxBLu9eFEFhOG+OQNkAFtmQufp
-	 NVkw+h3zackvyxC/nx+4VNk9qsNkXgohPIKNgpUBvoKulT4womsv38bqgwJ7by9cyB
-	 IaKYA/ApU+40w7d0XOM6qCoP1rUVSqNkiaxXV1gQtqyaiEEtlqgKXruc7EhBNtjNt8
-	 3nYI0rRdjFz3O0bsfYM6vfgtjmMkM7y9FVQWEpfM9MQL67Qt07eLXDwGw3KZ08eLJI
-	 SeJ9v0TdmHGJw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tjMIr-004Q9y-PA;
-	Sat, 15 Feb 2025 17:50:09 +0000
-Date: Sat, 15 Feb 2025 17:50:09 +0000
-Message-ID: <87tt8v14j2.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Eric Auger <eauger@redhat.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	kvmarm <kvmarm@lists.linux.dev>,
+	Sat, 15 Feb 2025 18:57:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=q4LqKRCXJnPDKHuRcvP8uYDa5EhADrSmcCiECY0GjxM=; b=zuaE5qWfzmZLlfybUdO4Ful9fX
+	Xvpz0iKNb62xJZJcS9AjOF7w1g90YGN2BSDUF3gQ6MKPPwaPNIy4o0tnJtLPN9Y7dxT8N4Xg43aYX
+	KKI++HSMbNUP3hmELC/qFIkBpIAMmYfBkjRaWWK+ntwwQwgRUeB0mOc6hKHo+buP2QjHzC+iR9JI6
+	Otw+CJYdDPe+67oPxzbd9/lqY7BsiBUcP46MIyZbuvro3TtJuvq/KI3ubrWaA2r/KXO2aCo7OWwKq
+	6fHn/UNAPS2QYADk3YVBADdeQOHb+7BZ8UF1DF9dp3lYUSlNMXuQBf+sYAL7+yipIdYNoLw4jr1CO
+	lER37mjQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50940)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tjNLk-00010g-2o;
+	Sat, 15 Feb 2025 18:57:13 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tjNLZ-0004Pp-2G;
+	Sat, 15 Feb 2025 18:57:01 +0000
+Date: Sat, 15 Feb 2025 18:57:01 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	christoffer.dall@arm.com,
-	suzuki.poulose@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	coltonlewis@google.com,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	darren@os.amperecomputing.com,
-	vishnu@os.amperecomputing.com
-Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
-In-Reply-To: <8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
-References: <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
-	<86y10osr19.wl-maz@kernel.org>
-	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
-	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
-	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
-	<86h661wje4.wl-maz@kernel.org>
-	<4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
-	<86cygpwfy0.wl-maz@kernel.org>
-	<b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
-	<86frkptzr6.wl-maz@kernel.org>
-	<Z6ZMdv8jJUvYwQzT@linux.dev>
-	<86bjvdtxb5.wl-maz@kernel.org>
-	<8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: eauger@redhat.com, oliver.upton@linux.dev, gankulkarni@os.amperecomputing.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
+	Sean Anderson <seanga2@gmail.com>
+Subject: Re: [PATCH net-next v4 05/15] net: phy: Create a phy_port for
+ PHY-driven SFPs
+Message-ID: <Z7DjfRwd3dbcEXTY@shell.armlinux.org.uk>
+References: <20250213101606.1154014-1-maxime.chevallier@bootlin.com>
+ <20250213101606.1154014-6-maxime.chevallier@bootlin.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250213101606.1154014-6-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_095013_747034_682F5DE3 
-X-CRM114-Status: GOOD (  31.34  )
+X-CRM114-CacheID: sfid-20250215_105735_052037_88A75C3E 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,61 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Feb 2025 18:26:48 +0000,
-Eric Auger <eauger@redhat.com> wrote:
+On Thu, Feb 13, 2025 at 11:15:53AM +0100, Maxime Chevallier wrote:
+> Some PHY devices may be used as media-converters to drive SFP ports (for
+> example, to allow using SFP when the SoC can only output RGMII). This is
+> already supported to some extend by allowing PHY drivers to registers
+> themselves as being SFP upstream.
 > 
-> Hi Marc,
+> However, the logic to drive the SFP can actually be split to a per-port
+> control logic, allowing support for multi-port PHYs, or PHYs that can
+> either drive SFPs or Copper.
 > 
-> On 2/7/25 7:38 PM, Marc Zyngier wrote:
-> > On Fri, 07 Feb 2025 18:09:58 +0000,
-> > Oliver Upton <oliver.upton@linux.dev> wrote:
-> >>
-> >> Hey,
-> >>
-> >> On Fri, Feb 07, 2025 at 05:45:33PM +0000, Marc Zyngier wrote:
-> >>> I found at least one issue that could fail the migration. Before the
-> >>> VM starts running, we limit the feature set to the subset we actually
-> >>> support with NV.
-> >>>
-> >>> By doing this, we also change the value of IDreg fields that are not
-> >>> writable, because they describe features that we don't support.
-> >>> Obviously, that fails on restore.
-> >>>
-> >>> I need to have a think...
-> >>
-> >> We spoke about this a while ago (and I forgot til now), but I was
-> >> wondering if we could use vCPU feature flags to describe NV, including
-> >> the selection between FEAT_E2H0 and FEAT_VHE.
-> >>
-> >> I think this might match userspace expectations a bit more closely where
-> >> the state of the ID registers after init gives the actual feature set
-> >> supported by the VM.
-> > 
-> > I'm not sure that's enough. Let me give you an example:
-> > 
-> > My host has FEAT_XNX, described in ID_AA64MMFR1_EL1.XNX. For whatever
-> > reason, we don't allow this field to be written to, even out of NV
-> > context. This is odd, because for an EL1 VM, this field means nothing
-> > at all.
-> So the curprit fields for me look like
+> To that extent, create a phy_port when registering an SFP bus onto a
+> PHY. This port is considered a "serdes" port, in that it can feed data
+> to anther entity on the link. The PHY driver needs to specify the
+> various PHY_INTERFACE_MODE_XXX that this port supports.
 > 
-> - ID_AA64MMFR1_EL1.XNX
-> - ID_AA64DFR0_EL1.DoubleLock
-> - ID_AA64PFR0_EL1.RAS
-> 
-> This is still based on your nv-next branch from Jan 9
-> https://github.com/eauger/linux/tree/nv_next_jan9_2025
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-I have now pushed out a new nv-next branch with the new and improved
-UAPI. I expect migration to work a bit better, or at least not to
-explode on ID register restore. You will notice that things have
-changed a bit (extra flag and cap for FEAT_E2H0), but nothing really
-major.
+With this change, using phy_port requires phylink to also be built in
+an appropriate manner. Currently, phylink depends on phylib. phy_port
+becomes part of phylib. This patch makes phylib depend on phylink,
+thereby creating a circular dependency when modular.
 
-Thanks,
-
-	M.
+I think a different approach is needed here.
 
 -- 
-Without deviation from the norm, progress is not possible.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
