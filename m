@@ -4,68 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C00FEC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 14:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B948C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 14:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=425MDoh4XpQuAizB/w+AJc97rueSZkPQBT2tGL1i6KA=; b=1r36Li+Q4/uSOTepH1Jj8E3fqr
-	q2FQR+9cD0gD1MmJWOt+qzq44IuMaoWOK+Xzs6TvwF4gSRg81mMZFV6PNO7JtpmIVi/MHxsLP0MPT
-	bbvIuN7Ke7gxfazUGX4Z0IRwc2Z6znGQmD4oMB81QQnr7dRjM+HDY2j6YtpkNaIWCIt3euscpPOAc
-	3Btpv8ZygbjkW91J6e/1SS527iPVbTpk9hJ0qe6X9ozvA8zYmT9ND1mlv2OguRnSK/KjsbuyFbH83
-	YZtE3URj0NBGUCqc1ZmSz88bm8C87WkM9Y2qVBpe3J/DqkJCpO9W+l1bMv/vHq2Rhu3xUXwqJ0S+o
-	VNHCWSyQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nSaNx8YQ2EWhxCnCr/97FLvnOt+570/h4vEIeiMge+k=; b=t8BnS9qxpOve8u2Y/0pPrK1VKq
+	/PCOekL9j/A1fHEUPgetbhGJfladOmWoYGDbqfnALXv7deACuup1H6syqE2VTqdiJyc452vF+FZmt
+	dW5lf1/lcoBF/THrSUWUKOmb6DJIoBNscUCURNG0c8Gkckpz1NtXt4IYnam9q3vhZLH6rKS1h5lh1
+	0/njHLduX77BrCmtGgeJRcKzI8ONmMA7wfHuPulKnHwsIMcAjHhOMQZdvB7zstuZs076pb/kuUcYL
+	3oPmsS5iiyth5QbswO9O31A1HSwWB09hYAJuqx+yXBzYsU7qTlUd1/dVtwapZoLVzqyKJZaSQHdLQ
+	hNjjHz3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjJ5C-00000000DQp-0d73;
-	Sat, 15 Feb 2025 14:23:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tjJK6-00000000F9Q-0UnC;
+	Sat, 15 Feb 2025 14:39:14 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjJ3j-00000000DHD-3EhZ
+	id 1tjJIc-00000000Exx-1HVJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Feb 2025 14:22:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5EF435C103F;
-	Sat, 15 Feb 2025 14:21:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40255C4CEDF;
-	Sat, 15 Feb 2025 14:22:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739629338;
-	bh=hqW6ymOflAStCUdXwcL9PQWcJaSBxkT9va/7k3d0riM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=r5LU7CJFB5NReP5POx76or/k0jq3lZN/wUK2VoEhsj4S2hJ4z/4WojyEoTIzNUOgo
-	 ip0tcxCVf4hKRiR0voivRcnHCmEaUfS5l53O3nNqEhtLKm/A0VWCLxNSHaM8xZwK2+
-	 JeLsHT7tPbQYSAloBIuPHNfUK8d5addpf0BkkrjnmMqZM7QL/UY4wg7CpORQVVrrcx
-	 s3FH+/vWiNauiH0myW7s7ImisAmeNpX7LkUXXnJN4VCyP5NlIw4jt8CkPWc1ks6tE1
-	 aNluGGv4W8/8iNIkveq0X9hmrhZ+ZTzxYJ4vFHsnE5WrxquoeCrrLNoe15TmEd71y4
-	 GIEhu3DXsqS/g==
-X-Mailer: emacs 31.0.50 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, will@kernel.org,
-	maz@kernel.org, catalin.marinas@arm.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	gregkh@linuxfoundation.org, steven.price@arm.com,
-	suzuki.poulose@arm.com,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Christoph Hellwig <hch@lst.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>
-Subject: Re: [PATCH 1/1] arm64: realm: Use aliased addresses for device DMA
- to shared buffers
-In-Reply-To: <20250212171411.951874-2-suzuki.poulose@arm.com>
-References: <20250212171411.951874-1-suzuki.poulose@arm.com>
- <20250212171411.951874-2-suzuki.poulose@arm.com>
-Date: Sat, 15 Feb 2025 19:52:11 +0530
-Message-ID: <yq5apljj9tkc.fsf@kernel.org>
+	Sat, 15 Feb 2025 14:37:44 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5e02eba02e8so1314354a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Feb 2025 06:37:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739630260; x=1740235060; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nSaNx8YQ2EWhxCnCr/97FLvnOt+570/h4vEIeiMge+k=;
+        b=WShGkOPpOjAWYRBftkLbcvbS/6PHVFPmLwm32JNCgWT987VNPEkt1qOj2aDP6IFHmU
+         qGvTrFbWJLyKYCbvQhwncIj3bNL7RK+EFWub5JXaTp3Czk+3RLT9Vc73dJYM7sfNJ+gQ
+         Rr/WeboFhqQohchgmAAhpI1IvjGLtNYXRTILFChvh1hWxSO+wrwMaUPTMGcB2GGogS6x
+         6+B+5qNgyghfsmisgHoLSHXzI99cSL9x269f1bH1fA+JzYpqs3XKzfZ27TfNrDK8dEUH
+         tTRKSin/d06zfhx6XYsvM4YbbIsdIPBDoW5dJuzjxB3hsXwUjV5ZSXNbTf2/GxPs+ef5
+         Xo7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739630260; x=1740235060;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nSaNx8YQ2EWhxCnCr/97FLvnOt+570/h4vEIeiMge+k=;
+        b=dZWozNAuSU7KspXlwve+JUAaIT6OZ7E4NO5xYzmKVsXYpofefRKX4zAyCZ9hGz/Rqv
+         VK1dSqdXTYBTmiUWz/Y/FKQzk2M7DJM31MG75oXmySetngO7e3w7xIyFecr6o9dUPrr8
+         INUT5z0NVqwesh6leweqNvB1iyMGfYGUHMbuOIoCphvpFhOJuN3BxnI+BU7/PJIeofz1
+         UHyu4Bz7lFb1cWPsY5Ng/p1HgyW2tD7zn0rJ1gcSCi9Nmnm8/uszgCE7tEk/9iiDv2sj
+         SRavkMSuPJJ2LkG5C240n7Zc+AKGMZ/NLnwTV/0l51Ykq3A/ZjE13W7KgF9n63ACT8A4
+         FMSA==
+X-Forwarded-Encrypted: i=1; AJvYcCUoydnQuvcJvi0qVm+P1fV4AoYbGp6OS1gaxc/uhsbdI4nKZIoLhkhfH3siziCy0eEvBdTY1wkOEl3qxwGoYSKU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9VmbQupys9Ulqk8x4hiXn1uk+eO2ntZBoZdcpfFP2QCUQrvYV
+	BKSsYZ7/boMDtb7PbdZTFXAELQzQybYsZ0qgif6Zwp5RUAju7sIFfY4E/q3A0clMf+2GjIANNPy
+	s4a4=
+X-Gm-Gg: ASbGncsNbybs38beJfq1x25Y8Temx2q/IOCh6QRjuOY7F//JZBrqXnZpB3QiGNZcYu+
+	4E4YsB6dh4z3Tta3M2nkHraIfojUubCh6VC2g0fXfY0wo8GbSDrsjhDX3J14c7Ti2zjR3odE8rc
+	Tquav0daMSAVDRVx5yMN0gxXG/PRh//F1kod6xQvy5Hv+RBd874OikPW9NhwApGPNLorhMDx2hk
+	aWPLAbShiKzb0f/UAfPIgsOMrC+lZDBPNOWZhoq63UaN3+JVNA8IT0ULXDBA1oTRBWesGLNGb8e
+	JvGSuyhJBLRujdmIVZSP
+X-Google-Smtp-Source: AGHT+IFt+EQlS1yD/Pqn470UtSRXl2RwFv111R6YU8LvXgLUSAycfdItfiHCwgWYA+V/QSES0Rr1ew==
+X-Received: by 2002:a17:906:30db:b0:ab6:f68c:746e with SMTP id a640c23a62f3a-abb70d7994bmr260292266b.41.1739630260245;
+        Sat, 15 Feb 2025 06:37:40 -0800 (PST)
+Received: from localhost ([2a02:8071:b783:6940:36f3:9aff:fec2:7e46])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aba569dd320sm508104466b.72.2025.02.15.06.37.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 15 Feb 2025 06:37:39 -0800 (PST)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-pwm@vger.kernel.org
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] pwm: stmpe: Allow to compile as a module
+Date: Sat, 15 Feb 2025 15:37:22 +0100
+Message-ID: <20250215143723.636591-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2134; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=7EURNpoHSBP3WHFlLw0KLAnxXhoJ+QFpagdnWt5h0qo=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBnsKajSFpSGYDQiIEQHcSvInMz9OmjgQlzntWWc Yw5UfZs1LaJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCZ7CmowAKCRCPgPtYfRL+ TnJ7B/wLIPZby+assjCEHqaTkuBWgWI4PjQyAydedxwVJ6OmtxlZm4lXOkuVb2m5Y7RFwydwZon uduuSGK539qG4tGVF/mcHOhcrRQxmgrWnJgFvaC0UivpfmPti0S5cbveo+ceIMYtHk9bNSHpI/T h/oyeSUcj+0NM5MoRLjf5qNpGfOFgfUuTIdDPtcEysOqS5IESFREXBp5xuYrrGzqDRDTbkHF+h6 6JNKF7pQ2wWw4KnltVBz+aZk6YCp1Cav8vSG1VBIDwBbfkb4W5UaGtD0MnBK4mQSsRL/pbdPyOg VglGaQanwAq3ajbxUGR7HoJqrvRrqK/6BYXbFVdgm/GFw7SJ
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_062219_901136_BB9F33BC 
-X-CRM114-Status: GOOD (  29.95  )
+X-CRM114-CacheID: sfid-20250215_063742_597736_790EC27A 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,230 +100,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Suzuki K Poulose <suzuki.poulose@arm.com> writes:
+pwm-stmpe is the only driver that cannot be built as a module. Add the
+necessary boilerplate to also make this driver modular.
 
-> When a device performs DMA to a shared buffer using physical addresses,
-> (without Stage1 translation), the device must use the "{I}PA address" wit=
-h the
-> top bit set in Realm. This is to make sure that a trusted device will be =
-able
-> to write to shared buffers as well as the protected buffers. Thus, a Real=
-m must
-> always program the full address including the "protection" bit, like AMD =
-SME
-> encryption bits.
->
-> Add the support for this by providing arm64 version of the phys_to_dma().=
- We
-> cannot use the __sme_mask as it assumes the "encryption" always "sets a b=
-it",
-> which is the opposite for CCA. i.e., "set a bit" for "decrypted" address.=
- So,
-> move the common code that can be reused by all - i.e., add __phys_to_dma(=
-) and
-> __dma_to_phys() - and do the arch specific processing.
->
-> Please note that the VMM needs to similarly make sure that the SMMU Stage=
-2 in
-> the Non-secure world is setup accordingly to map IPA at the unprotected a=
-lias.
->
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: Steven Price <steven.price@arm.com>
-> Cc: Christoph Hellwig <hch@lst.de>
-> Cc: Tom Lendacky <thomas.lendacky@amd.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> ---
->  arch/arm64/Kconfig                  |  1 +
->  arch/arm64/include/asm/dma-direct.h | 38 +++++++++++++++++++++++++++++
->  include/linux/dma-direct.h          | 35 +++++++++++++++++---------
->  3 files changed, 62 insertions(+), 12 deletions(-)
->  create mode 100644 arch/arm64/include/asm/dma-direct.h
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index fcdd0ed3eca8..7befe04106de 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -41,6 +41,7 @@ config ARM64
->  	select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
->  	select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
->  	select ARCH_HAS_NONLEAF_PMD_YOUNG if ARM64_HAFT
-> +	select ARCH_HAS_PHYS_TO_DMA
->  	select ARCH_HAS_PTE_DEVMAP
->  	select ARCH_HAS_PTE_SPECIAL
->  	select ARCH_HAS_HW_PTE_YOUNG
-> diff --git a/arch/arm64/include/asm/dma-direct.h b/arch/arm64/include/asm=
-/dma-direct.h
-> new file mode 100644
-> index 000000000000..37c3270542b8
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/dma-direct.h
-> @@ -0,0 +1,38 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +#ifndef __ASM_DMA_DIRECT_H
-> +#define __ASM_DMA_DIRECT_H
-> +
-> +#include <asm/pgtable-prot.h>
-> +
-> +static inline unsigned long addr_to_shared(unsigned long addr)
-> +{
-> +	if (is_realm_world())
-> +		addr |=3D prot_ns_shared;
-> +	return addr;
-> +}
-> +
-> +static inline unsigned long addr_to_private(unsigned long addr)
-> +{
-> +	if (is_realm_world())
-> +		addr &=3D prot_ns_shared - 1;
-> +	return addr;
-> +}
-> +
-> +static inline dma_addr_t phys_to_dma(struct device *dev, phys_addr_t pad=
-dr)
-> +{
-> +	return __phys_to_dma(dev, paddr);
-> +}
-> +
-> +static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
-> +						 phys_addr_t paddr)
-> +{
-> +	return addr_to_shared(__phys_to_dma(dev, paddr));
-> +}
-> +#define phys_to_dma_unencrypted phys_to_dma_unencrypted
-> +
-> +static inline phys_addr_t dma_to_phys(struct device *dev, dma_addr_t dma=
-_addr)
-> +{
-> +	return addr_to_private(__dma_to_phys(dev, dma_addr));
-> +}
-> +
-> +#endif	/* __ASM_DMA_DIRECT_H */
-> diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
-> index d7e30d4f7503..3e9bf6ca640e 100644
-> --- a/include/linux/dma-direct.h
-> +++ b/include/linux/dma-direct.h
-> @@ -72,18 +72,36 @@ static inline dma_addr_t dma_range_map_max(const stru=
-ct bus_dma_region *map)
->  	return ret;
->  }
->=20=20
-> +static inline dma_addr_t __phys_to_dma(struct device *dev, phys_addr_t p=
-addr)
-> +{
-> +	if (dev->dma_range_map)
-> +		return translate_phys_to_dma(dev, paddr);
-> +	return paddr;
-> +}
-> +
-> +static inline phys_addr_t __dma_to_phys(struct device *dev, dma_addr_t d=
-ma_addr)
-> +{
-> +	phys_addr_t paddr;
-> +
-> +	if (dev->dma_range_map)
-> +		paddr =3D translate_dma_to_phys(dev, dma_addr);
-> +	else
-> +		paddr =3D dma_addr;
-> +
-> +	return paddr;
-> +}
-> +
->  #ifdef CONFIG_ARCH_HAS_PHYS_TO_DMA
->  #include <asm/dma-direct.h>
->  #ifndef phys_to_dma_unencrypted
->  #define phys_to_dma_unencrypted		phys_to_dma
->  #endif
->  #else
-> +
->  static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
->  		phys_addr_t paddr)
->  {
-> -	if (dev->dma_range_map)
-> -		return translate_phys_to_dma(dev, paddr);
-> -	return paddr;
-> +	return __phys_to_dma(dev, paddr);
->  }
->=20=20
->  /*
-> @@ -94,19 +112,12 @@ static inline dma_addr_t phys_to_dma_unencrypted(str=
-uct device *dev,
->   */
->  static inline dma_addr_t phys_to_dma(struct device *dev, phys_addr_t pad=
-dr)
->  {
-> -	return __sme_set(phys_to_dma_unencrypted(dev, paddr));
-> +	return __sme_set(__phys_to_dma(dev, paddr));
->  }
->=20=20
->  static inline phys_addr_t dma_to_phys(struct device *dev, dma_addr_t dma=
-_addr)
->  {
-> -	phys_addr_t paddr;
-> -
-> -	if (dev->dma_range_map)
-> -		paddr =3D translate_dma_to_phys(dev, dma_addr);
-> -	else
-> -		paddr =3D dma_addr;
-> -
-> -	return __sme_clr(paddr);
-> +	return __sme_clr(__dma_to_phys(dev, dma_addr));
->  }
->  #endif /* !CONFIG_ARCH_HAS_PHYS_TO_DMA */
->=20=20
-> --=20
-> 2.43.0
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+ drivers/pwm/Kconfig     |  2 +-
+ drivers/pwm/pwm-stmpe.c | 25 +++++++++++++++++++++++--
+ 2 files changed, 24 insertions(+), 3 deletions(-)
 
-How about the below?
-
-The function name addr_to_shared is too generic to be included in the
-dma-direct.h header file. Since we don=E2=80=99t expect it to be called
-directly, we can either inline it or find a more specific name.
-
-Additionally, for dma_to_phys conversion, we first retrieve the private
-address/alias before switching to the physical address. While both
-approaches yield the correct result, this change more clearly defines the
-conversion rules?
-
-modified   arch/arm64/include/asm/dma-direct.h
-@@ -4,14 +4,14 @@
-=20
- #include <asm/pgtable-prot.h>
-=20
--static inline unsigned long addr_to_shared(unsigned long addr)
-+static inline unsigned long shared_dma_addr(unsigned long addr)
- {
- 	if (is_realm_world())
- 		addr |=3D prot_ns_shared;
- 	return addr;
+diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
+index ec85f3895936..35559b541f89 100644
+--- a/drivers/pwm/Kconfig
++++ b/drivers/pwm/Kconfig
+@@ -646,7 +646,7 @@ config PWM_STM32_LP
+ 	  will be called pwm-stm32-lp.
+ 
+ config PWM_STMPE
+-	bool "STMPE expander PWM export"
++	tristate "STMPE expander PWM export"
+ 	depends on MFD_STMPE
+ 	help
+ 	  This enables support for the PWMs found in the STMPE I/O
+diff --git a/drivers/pwm/pwm-stmpe.c b/drivers/pwm/pwm-stmpe.c
+index bb91062d5f1d..73f12843999a 100644
+--- a/drivers/pwm/pwm-stmpe.c
++++ b/drivers/pwm/pwm-stmpe.c
+@@ -326,12 +326,33 @@ static int __init stmpe_pwm_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
++	platform_set_drvdata(pdev, chip);
++
+ 	return 0;
  }
-=20
--static inline unsigned long addr_to_private(unsigned long addr)
-+static inline unsigned long private_dma_addr(unsigned long addr)
- {
- 	if (is_realm_world())
- 		addr &=3D prot_ns_shared - 1;
-@@ -26,13 +26,14 @@ static inline dma_addr_t phys_to_dma(struct device *dev=
-, phys_addr_t paddr)
- static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
- 						 phys_addr_t paddr)
- {
--	return addr_to_shared(__phys_to_dma(dev, paddr));
-+	return shared_dma_addr(__phys_to_dma(dev, paddr));
- }
- #define phys_to_dma_unencrypted phys_to_dma_unencrypted
-=20
- static inline phys_addr_t dma_to_phys(struct device *dev, dma_addr_t dma_a=
-ddr)
- {
--	return addr_to_private(__dma_to_phys(dev, dma_addr));
-+	/* if it is a shared dma addr convert to private before looking for phys_=
-addr */
-+	return __dma_to_phys(dev, private_dma_addr(dma_addr));
- }
-=20
- #endif	/* __ASM_DMA_DIRECT_H */
+ 
++static void __exit stmpe_pwm_remove(struct platform_device *pdev)
++{
++	struct stmpe *stmpe = dev_get_drvdata(pdev->dev.parent);
++	struct pwm_chip *chip = platform_get_drvdata(pdev);
++
++	pwmchip_remove(chip);
++	stmpe_disable(stmpe, STMPE_BLOCK_PWM);
++}
++
++/*
++ * stmpe_pwm_remove() lives in .exit.text. For drivers registered via
++ * module_platform_driver_probe() this is ok because they cannot get unbound at
++ * runtime. So mark the driver struct with __refdata to prevent modpost
++ * triggering a section mismatch warning.
++ */
+-static struct platform_driver stmpe_pwm_driver = {
++static struct platform_driver stmpe_pwm_driver __refdata = {
+ 	.driver = {
+ 		.name = "stmpe-pwm",
+ 	},
++	.remove = __exit_p(stmpe_pwm_remove),
+ };
+-builtin_platform_driver_probe(stmpe_pwm_driver, stmpe_pwm_probe);
++module_platform_driver_probe(stmpe_pwm_driver, stmpe_pwm_probe);
++
++MODULE_DESCRIPTION("STMPE expander PWM");
++MODULE_LICENSE("GPL");
+
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+-- 
+2.47.1
+
 
