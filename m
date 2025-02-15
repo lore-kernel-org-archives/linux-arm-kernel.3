@@ -4,101 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D397FC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 03:06:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D6B3C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 03:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D1ke7H8+M8yCjXV+9PJPO/6rsexf+VnewbpjFFNJVx4=; b=nvmXUEMFOg1a9/00SRE6gApKEX
-	sqke1gUpq+qwOxSSX1G6Pmx/PkMo2+o+nsC6+E9izntLe5oYvMscjyH17epuDdskwaCvJASy9nuid
-	oq+Fpruhe3HeR+6Zrr+w73x7+2ijuflLMmOZMZhak5To9I7cuaOn+njZZ/n4a6JmNEAi9kCesCnP3
-	Qt+hrS50nhrenWZ32dkQ1F6NotgJa8Yroc19ZKsvD2hsubtbCQG8beadyhJg0QsHbU4PZoCQjirGK
-	umaf32RBadqFLVGg2Zxyt0hikJcHOPx2hlBadCZrZoeBDvcHYF3gj2Er8zXwOZzofC/r+8lkeAGlv
-	8vzIhdXw==;
+	bh=myPH6l0fPDFrYP8tIa5SQdEq5I1Vnw5X3g3YUMM3Fvo=; b=crT7LUER5kz6hL3T+1usMYhMZa
+	JSt82O+hIJEv6AqThwNFfuyqhxsSsg5Sa+/c2ZLP1scxgNpmXILu/+94g8kAto4qFCF/LkHB2J1v6
+	dESwxWtVua1AFnkbC/7SUudoRIEjPcoouNj3C2MYUcl6zr3sK0z0NTfR4h0hwCVbppVu5lmF5BrAq
+	jfsu3AvEA2zBL21HHi+Jp1RXLvXdmKNzLjw/Bj8n+u59A4QQK/t4PeD4++ewiBQedFYGrRR8dJ/4N
+	224cFKt3ci8V//nR5YifVMUdZYwpfzwwY/4ID4nsQrDF4P8tueVt6UciSwVXFswMhNNAfQTGgObOg
+	54AFFSPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj8VA-0000000GslA-0cqf;
-	Sat, 15 Feb 2025 03:05:56 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tj9CM-0000000GwJu-1CN6;
+	Sat, 15 Feb 2025 03:50:34 +0000
+Received: from fhigh-a5-smtp.messagingengine.com ([103.168.172.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj8Ti-0000000Gsdb-2xrO
+	id 1tj9At-0000000Gw7a-1Xz5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Feb 2025 03:04:27 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43971025798so344245e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 19:04:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739588664; x=1740193464; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=D1ke7H8+M8yCjXV+9PJPO/6rsexf+VnewbpjFFNJVx4=;
-        b=E7RjKmTFjIHxGtNR/Fsd5C9HRSE2iSJfjNU+XBLFseNZrOL6Lvc766v4QkRncnE8DZ
-         EvELnSavt3RaJu+eomU3LHRw49BSMzf/fZQIZenTZmcvylz2ab+EFASWHsQkXl/8oOkp
-         7sg76JaiabPKKk1psJ+aKl89E0yieuqhDcfFrDdK09TgYWiOOFkV/thIwNMiO22imfFR
-         iUaoS4qho2Db7Y0WeKZmeEGsEbv2AZ5OFRQF0eoLlef7qFopEmTTgyCHBEbP6WKSFnjb
-         +YX6XdPlsBVv+tom7G/Hadel6XnZBirFvz504Qf7zyVh79lJgUBQBkFkMppoWJYU3DRv
-         +BUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739588664; x=1740193464;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=D1ke7H8+M8yCjXV+9PJPO/6rsexf+VnewbpjFFNJVx4=;
-        b=OnPpIrS2UD3uZ+/ipIrUOMZlFDo6NNolMOSVewaawfX+o3wUBb4SGI98nqAivfGfo4
-         E81LnZcbEybeNRKNP9QpN2JnPvMesDtOV24sgxRkjuWVS8aDMi8hfRhPTwYAGlJjaSoG
-         3WACy1DShsl0ziLcIHmPnVy4CjIqsc1eOb6F9NxQU0kkEYHNQkXCqTjiZxCjYfHm5NMR
-         henL7zsReVTdcWYx9Mpmto4KYl2j/KLsV0mBYdMIpQOC0kH2q2jeJUa77XvqgwcCPxYM
-         9etF2IGOySi2Uv+xxMTUkV9HQl6BNSxbEAK9n+Co3SBMvobWqKfPnDIfR52txMx/bknc
-         qZoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWQ1OFLLSQGGYW+YvQLF38fnZZ0o698sz6pEwaZcF3jCBC7MDOhT+DSR4ISsheaK0PHiSxo2l3E9JOIU5KPHIZP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZI5OKt6X3/65bmQ0oM0IQozwB0W7DlH73WcfyDW1xNGQ/Zpj1
-	K6AkgAC85Z7CDYCxq56CWIBo+X3YTpGEVBqY+kvzyuFoy89BlzbqM4mPG4wjnS2GTr4J6EKpWVX
-	s/sUvPApYKlsPj/2Fdy5TQtGYzKM=
-X-Gm-Gg: ASbGnctP/2gHhzMqt3m7LNGOVE0ohs5DDPNLLeq5ZZDprmOtFjWR5ONRXJgSStic+wV
-	9yAm76oeVz1stPP85sOGymCBIZKfkpFLkl2/uiZs24ffeUvFKdvEJlik6ZsZmNLTJNVR/947B
-X-Google-Smtp-Source: AGHT+IGDmDaemoeZfMeIUnkaZyc8p3ts9pgGPm4BMDfRwRIGcfPCqXQEOelUoI+XwIc4D/xg+4rdj4ZLSWD9udHVlGo=
-X-Received: by 2002:a05:6000:184e:b0:38f:227e:6ff2 with SMTP id
- ffacd0b85a97d-38f33f1c711mr1918249f8f.14.1739588664456; Fri, 14 Feb 2025
- 19:04:24 -0800 (PST)
+	Sat, 15 Feb 2025 03:49:05 +0000
+Received: from phl-compute-13.internal (phl-compute-13.phl.internal [10.202.2.53])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id C4F5C11401A1;
+	Fri, 14 Feb 2025 22:49:01 -0500 (EST)
+Received: from phl-imap-07 ([10.202.2.97])
+  by phl-compute-13.internal (MEProxy); Fri, 14 Feb 2025 22:49:01 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm3;
+	 t=1739591341; x=1739677741; bh=myPH6l0fPDFrYP8tIa5SQdEq5I1Vnw5X
+	3g3YUMM3Fvo=; b=f2mN4FYAsZWTmcoXQzLdOm6nhCSQVsklPCaxxA3I0gRl6Llb
+	r7XnsUtluxKlfvd0CvNdhDXW5oqw0eXUTxWXGPRwEAe8/48OmMyUZ5DaRga+/+om
+	T49CWoIlw6YUesuxbcrecerkGSFutscBq4RLnY1K+DaTvzDIhbaEHI6ax33FgLgC
+	zk486z37on20gABwb27Uludiseema+Zywyshlxfjg23XHb1u1FqUPP0o0wbSLfOE
+	PgFdntSbZxXBHsucZTX6a1r2UgZiaumeoVzSaJENkC5DisSWrs2ueAAoxpCG8CvJ
+	9O+DVifnxQo1Up2Tm7ZUi4DsqFT7BLF9FICa+g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739591341; x=
+	1739677741; bh=myPH6l0fPDFrYP8tIa5SQdEq5I1Vnw5X3g3YUMM3Fvo=; b=h
+	5kGlGKe8nmS4hPtg4pyM/dztqaM1EI/EUXKsufWrss4oipO4lSS9bFUucVo4SNp1
+	+JXOOypne61enHqc5tB5kn88ixbz/gd5CDUao5NaeDAq8x7/E6tuc27d16u48QfS
+	J9Iu9d8r0Dl+brQaLUprh0KktWb+CYPA0S6JztTAyEdR3yRcZ1ez0ZrzBHN3qU95
+	QNhuPw65PjxSjtqcrzSwynVyKoB6pffHN8Nz8U8XLUutkCAHeKFLjQuiswM4xVPu
+	QL42I5S4zEcIODBJ8U5WQRaJkgPEV5TgHhhHgq7bDfN5W26/5to+X4KAtzajydcc
+	WBVM+Q5TSBs0pR5iPkRcQ==
+X-ME-Sender: <xms:qw6wZ3Nc5rAOzMC_OTcN0l0edsxhS-uHEt9Sa7PrG6D6mwUQAtKocA>
+    <xme:qw6wZx_LHoVEOB_G13QugvaiTAkZRDFj1YEa9aHqHFd8i9vQqGs7dbXxGCPuXrDmp
+    0CcVTkoHx1_LLGRgA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehudeglecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
+    tdenucfhrhhomhepfdfthigrnhcuhggrlhhklhhinhdfuceorhihrghnsehtvghsthhtoh
+    grshhtrdgtohhmqeenucggtffrrghtthgvrhhnpeejhfeukeejjefguddvffehveevjefh
+    tddutdfhudduvdevfeejfffgvdelfeeugfenucevlhhushhtvghrufhiiigvpedtnecurf
+    grrhgrmhepmhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgs
+    pghrtghpthhtohepvddupdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhgurh
+    gvrdhprhiihiifrghrrgesrghrmhdrtghomhdprhgtphhtthhopehmthhurhhquhgvthht
+    vgessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtohepfigvnhhssegtshhivgdrohhrgh
+    dprhgtphhtthhopegurghnihgvlhesfhhffihllhdrtghhpdhrtghpthhtoheprghirhhl
+    ihgvugesghhmrghilhdrtghomhdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtg
+    esghhmrghilhdrtghomhdprhgtphhtthhopehmrggtrhhorghlphhhrgekvdesghhmrghi
+    lhdrtghomhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtg
+    hpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:qw6wZ2SujnKu_6uipJMxuvzHBwznXkOUFi4IQc6DAf04ouMRp0sR3Q>
+    <xmx:qw6wZ7uEgbjmfrGBLm1FIJath51BFS5DtwamInX0oUUVWq--KZOe0Q>
+    <xmx:qw6wZ_dJDa88Ul43SQZRdrfFvtanu8cSuRQkj_uri896EP7RTUWTjw>
+    <xmx:qw6wZ30Et1uGUl--L6okTQMkGs0qI1C2w6hwzu_tR1UxvxTfY84y7A>
+    <xmx:rQ6wZ18oljfrxqA20zSQwEBuF_J-YT7KozvLnYThvbAI55hTEkpjvDsM>
+Feedback-ID: idc0145fc:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 981AEBA006F; Fri, 14 Feb 2025 22:48:59 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <cover.1738888641.git.yepeilin@google.com> <d03d8c3305e311c6cb29924119b5eecae8370bbc.1738888641.git.yepeilin@google.com>
- <CAADnVQ+L0h8qXfYkC3+ORyQkXFJ2MgO8FDHr_Ha0QMAtS_ujag@mail.gmail.com>
- <Z6gRHDLfA7cjnlSn@google.com> <CAADnVQLkHA9LGv99k2TZOJEGUU=dw=q6nVurJ=aoh0v6cFS6zQ@mail.gmail.com>
- <Z6qC303CzfUMN8nV@google.com> <Z60dO2sV6VIVNE6t@google.com>
- <CAADnVQ+OyoBPOJk6dcUFozTt0RD-o-hHdR4Dgy+dK2r0uHyC7Q@mail.gmail.com>
- <Z63aX0Tv_zdw8LOQ@google.com> <Z6_9LgfOMeR18HGe@google.com>
-In-Reply-To: <Z6_9LgfOMeR18HGe@google.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Fri, 14 Feb 2025 19:04:13 -0800
-X-Gm-Features: AWEUYZmlNFZtUB1WliSaQIbmQErfRpNsKDqUO-NqyAwWdkRImN9BdvQxTrZQ4H4
-Message-ID: <CAADnVQKZ=pjXjyzB8tJj5Gen4odcj5H5JhXyRtVgphTEDCisTg@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 4/9] bpf: Introduce load-acquire and
- store-release instructions
-To: Peilin Ye <yepeilin@google.com>
-Cc: bpf <bpf@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, bpf@ietf.org, 
-	Xu Kuohai <xukuohai@huaweicloud.com>, Eduard Zingerman <eddyz87@gmail.com>, 
-	David Vernet <void@manifault.com>, Alexei Starovoitov <ast@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Quentin Monnet <qmo@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
-	Ihor Solodrai <ihor.solodrai@linux.dev>, Yingchi Long <longyingchi24s@ict.ac.cn>, 
-	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu <neelnatu@google.com>, 
-	Benjamin Segall <bsegall@google.com>, LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Date: Sat, 15 Feb 2025 16:48:39 +1300
+From: "Ryan Walklin" <ryan@testtoast.com>
+To: "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>
+Cc: "Maxime Ripard" <mripard@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>,
+ "David Airlie" <airlied@gmail.com>, "Daniel Vetter" <daniel@ffwll.ch>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "Samuel Holland" <samuel@sholland.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Michael Turquette" <mturquette@baylibre.com>,
+ "Stephen Boyd" <sboyd@kernel.org>, "Andre Przywara" <andre.przywara@arm.com>,
+ "Chris Morgan" <macroalpha82@gmail.com>, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-clk@vger.kernel.org
+Message-Id: <6f14b319-fbb8-413d-a88d-edebf624c7fb@app.fastmail.com>
+In-Reply-To: <4c31826f-0ffa-4ada-bcf9-199fcbe6db07@app.fastmail.com>
+References: <20240929091107.838023-1-ryan@testtoast.com>
+ <20240929091107.838023-9-ryan@testtoast.com>
+ <4cumvwkhmbi7fecjeq6r7elon63u3ytootqcvavjg5vfnargy3@wrjpy6pnphmb>
+ <4c31826f-0ffa-4ada-bcf9-199fcbe6db07@app.fastmail.com>
+Subject: Re: [PATCH v5 08/26] drm: sun4i: de3: add YUV support to the DE3 mixer
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_190426_746461_09BD01B1 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20250214_194903_989414_F5229264 
+X-CRM114-Status: GOOD (  11.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,41 +127,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 6:34=E2=80=AFPM Peilin Ye <yepeilin@google.com> wro=
-te:
+On Sat, 15 Feb 2025, at 2:18 PM, Ryan Walklin wrote:
+> On Sun, 20 Oct 2024, at 3:14 AM, Dmitry Baryshkov wrote:
+>> On Sun, Sep 29, 2024 at 10:04:40PM +1300, Ryan Walklin wrote:
 >
-> > On Wed, Feb 12, 2025 at 09:55:43PM -0800, Alexei Starovoitov wrote:
-> > > How about:
-> > > #define BPF_LOAD_ACQ 2
-> > > #define BPF_STORE_REL 3
-> > >
-> > > and only use them with BPF_MOV like
-> > >
-> > > imm =3D BPF_MOV | BPF_LOAD_ACQ - is actual load acquire
-> > > imm =3D BPF_MOV | BPF_STORE_REL - release
+>>> diff --git a/drivers/gpu/drm/sun4i/sunxi_engine.h b/drivers/gpu/drm/sun4i/sunxi_engine.h
+>>> index c48cbc1aceb80..ffafc29b3a0c3 100644
+>>> --- a/drivers/gpu/drm/sun4i/sunxi_engine.h
+>>> +++ b/drivers/gpu/drm/sun4i/sunxi_engine.h
 >
-> Based on everything discussed, should we proceed with the above
-> suggestion?  Specifically:
+>>> @@ -151,6 +153,9 @@ struct sunxi_engine {
+>>>  
+>>>  	int id;
+>>>  
+>>> +	u32				format;
+>>> +	enum drm_color_encoding		encoding;
+>>
+>> Should these be a part of the state instead of being a part of the
+>> sunxi_engine?
 >
->   #define BPF_LD_ST     BPF_MOV /* 0xb0 */
+> Sure, would you suggest in sun8i_mixer_cfg?
 
-The aliasing still bothers me.
-I hated doing it when going from cBPF to eBPF,
-but we only had 8-bit to work with.
-Here we have 32-bit.
-Aliases make disassemblers trickier, since value no longer
-translates to string as-is. It depends on the context.
-There is probably no use for BPF_MOV operation in atomic
-context, but by reusing BPF_ADD, BPF_XOR, etc in atomic
-we signed up ourselves for all of alu ops.
-That's why BPF_XCHG and BPF_CMPXCHG are outside
-of alu op range.
+Hmm, on second thought the mixer config is a const struct, presumably because it is defined per engine variant in sun8i_mixer.c. Is there a better place to store state like this? Otherwise the engine may not be the worst choice, as the color format and encoding apply to the entire pipeline, at least in the case of a single display?
 
-So my preference is to do:
-#define BPF_LOAD_ACQ 0x100
-#define BPF_STORE_REL 0x110
-#define BPF_CMPWAIT_RELAXED   0x120
+Regards,
 
-and keep growing it.
-We burn the first nibble, but so be it.
+Ryan
 
