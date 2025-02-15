@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E35A5C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 09:47:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78730C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 09:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lmr3YaTLm2TMny3Haqb4MzDdaWsOi7W4RHKlgDAQeoc=; b=JkKZ6QR6YFVBvY8xtvxCgAyJru
-	UXwYi+b2gYEAxBXvoMf4GPfv0wdyGzAO0uQmSbKah7b8392t8ZKkdeYryT4XmOpCsWvgyNSU6F4Vp
-	ZUoPp8g5Vs/jUyyrvRYPK1PTj2g9EJc1SpIBt30B2LtDJoofde8wFK5pbRP9lAW8TMhlGYgYYUpdI
-	nyjfgFE4tBIo/Gm78Ei/5bnftxXV8texfJhvjcJR9UdsGlxnd+uwo0YQeu1pavNFhZQHgpIWs5JOm
-	SMRHE/YdbVdUtWFkjMxnVgKfdPOOWBi8uS7v/IJUpUuMcNGjd9C6Nk+SxdDcuX6PqYeQCFa0n3USO
-	909XTQYA==;
+	bh=KSHi7ULc5hxohEMqjG29q4+9VaxsYsZCGB+mI9gBuBk=; b=x05WXiEwN3TPo63lmz9idMRIvR
+	nB0KtK3tdGsPrGcyNQ83AKpYTpLANCBja0d9Rf3fu9fuECGB2lsxzbESZpTR+u2GPooWKKYNmc8/E
+	L/Ty7c4roWFERPqgyIjOvBqX1Ryp5AMDDGD/aRdF2NjN+otBzzo5UOud0gG8+15TlgOlYxhCPI60x
+	kz+wcVNBR8cfRGzpQ/krbnmJIpC2twDBINd+hBYMAOb8sNnAoag8Emf/UyZ7u9FzMFCg9Rm1Siqn/
+	tsAVQTr6e0KPSeTihYZdfrtnG1IS8RyGLQaMv6ZveKaZnvGdoFTOjBMksPZwIjnwd7gMPX7LdEsMk
+	y/jw92DA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjElR-0000000HMs0-3Aed;
-	Sat, 15 Feb 2025 09:47:09 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1tjEmr-0000000HN2J-1yQZ;
+	Sat, 15 Feb 2025 09:48:37 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjEeQ-0000000HLbg-147Z
+	id 1tjEeS-0000000HLcS-1jzM
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Feb 2025 09:39:55 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5de56ff9851so5105015a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Feb 2025 01:39:53 -0800 (PST)
+	Sat, 15 Feb 2025 09:39:57 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-abadccdfe5aso188600466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Feb 2025 01:39:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739612392; x=1740217192; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739612395; x=1740217195; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Lmr3YaTLm2TMny3Haqb4MzDdaWsOi7W4RHKlgDAQeoc=;
-        b=bsPgOii25lb0gc2OVeU+7fSq8YgowmtIisHEbw57NIZ3UYmzuN6NlduY91rTJqvo1G
-         qO6unUrVovSZjDy0h7rs2SfIDnR5OXfRB7CTF/f7BoG+I/XgObhsld7kvhZIsui6FnhN
-         b1copFDNbkJkD74ODVH2s5iXXo7+MbI+1nZhO/8QkN7sAbb43QfXfgm2vTIdKMfesEh/
-         3kIRqKlsWMAqob3vv9/GsorvdLYoDQZNWqodlljUQJtji9cYFMjpc9xZFAkKE+QMe8BL
-         bgPYPAaDAwEctv95peWvoZ/eESWCvYXWxcmPz/kgMoyDRo5hOTK5v/vUsSG9213POLZT
-         T/+w==
+        bh=KSHi7ULc5hxohEMqjG29q4+9VaxsYsZCGB+mI9gBuBk=;
+        b=bnnh5MMJ+bbSmIYEZMPLpAugg7eXaSy7SwUqoR3rhzSG/lDCYymFRUa7KDVDioHkPc
+         3vYebEQFY0afuXepy36u9RcMaJw0ZGfnt/RoN6Xl8Qlc+QhH6A38hoZxHl29JD+NDM+g
+         h9LV5iZa/hhyumO0dZasynPV3oNl3iW2Fzm5cgUs/8dM5wfyZglD6flPbf7NFQlwG2fs
+         nS6iGHNFStM7RjC2DMgNThAtPqB0Cq4/IFuWNvruGU29dSSEwu2v9fjg/23b6T+uqQ5q
+         WyWweqlyUPwHQMEqZSObcxHCU8C3WIbDEtWJV03yhksCFEhV2H8cGHB9xckhENfhHpVT
+         gPcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739612392; x=1740217192;
+        d=1e100.net; s=20230601; t=1739612395; x=1740217195;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Lmr3YaTLm2TMny3Haqb4MzDdaWsOi7W4RHKlgDAQeoc=;
-        b=R6IkFFHZEkbOzKpWELLSqwAOcsH77qwaKl+PT3a5w41xL2w/lfGtipGsria0bfIbS6
-         H8pGxeiyl31RiVT7II7ELBNxkmdD8b9cQrroI3aDiJAqmGNnWlHF4f3C40jelm1UQVXI
-         3foNVI4caXyTELygAU/f16VX5L2uwJoGmGz80UyNPJSKXDvqviLX7ePUnEKhWiB/uJzC
-         NT2H18wUtIKuCqTzEuL2nR0BcBW6Ra5V2vRLcnIF2RLuAkqJ6hALv/BJRTKE6L9r0yE3
-         F79IQYBMO7i8blrPPpXNrnrU7Zqt52JgWze8q36u/yhG2F8em6Db2VZqh6qFbydSmIi6
-         Hdag==
-X-Forwarded-Encrypted: i=1; AJvYcCX3I4nlF3rJN+PMvFmnOSJq5H497FQBRL7CLeuhMfAyBXh0jdkoV/lkV8UtihKYjHqpM0pjlRGGa/O8o1EHr5ix@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDVNC0HO7NV+hvS8ZKILHFtiMvRzvoTeCArR05dDPJXLAmLZvQ
-	68HsKxe6DqOFyAqeM5y+DAy1RtKb3Hd4xwE20CXA6ncOTroVWK+y
-X-Gm-Gg: ASbGncsVjIl2jHFPygh8PuqGQOKA0KWfG1kwk6RgOOPsAf6ipWgM4D8NZYfHx6WgiXw
-	cFmLimTzIi8NGWswuY/TWD2vAuwrGQzqtqUk7i8ENxmeta9L7BgDIbWJ3UBFgv6y2lDCkAW5qz9
-	GSY0DCOjWEqdVw0ZCa3C1YZlROUupdK2Fumx5rXa+HifOKK73I5Lg6vW1i1JCjTMiVc2MVyQiZd
-	0ehPWEbKZaWi5SGDmRTVDPSTMwGGtgMDcjqHdpY3IlmsPQQO7XRDsARvb+V21WHulpggWpFN/CR
-	FfZs4y1OcJ53ih4ydHmuZplJjObiDgAEVkQHl0D/yA4ubTKDhpFrd1Kf1Tz/aw==
-X-Google-Smtp-Source: AGHT+IHtTXRio0IX06KOJvwoIMmlRaNtlLQCehWw0G/jGNUuBFc/oOUVGLxub/bXrDSDqkRPvqMN7Q==
-X-Received: by 2002:a17:906:6a0c:b0:ab6:621a:f87e with SMTP id a640c23a62f3a-abb70de28e8mr203210866b.41.1739612392466;
-        Sat, 15 Feb 2025 01:39:52 -0800 (PST)
+        bh=KSHi7ULc5hxohEMqjG29q4+9VaxsYsZCGB+mI9gBuBk=;
+        b=SsnKeyxkulDrJhu/lRgH+Eoarv6G/i8DNkLDCgoBEzcXZsq0kcDQMya8mN3VyoTiNB
+         tK+ZR2WlWUlc/lzIAzYLSQ8GtWs/XriqvaCj7VP8+A2e6ktIvCLmvR8gfzcfL3fINq+F
+         8skslx0nm/ZfNlH6MjqAAhKbUMHTOKgTESCeBhbd2Kemms9DmX6yq1iQUpwFP269mqxo
+         dnu0+eoEuHgJ4G/kuOgvcqPMj1qWKISdRLHm5Me51wXyMJsbBdMKjSghzQOwk+wRYNwv
+         SD01QYS7AbQ6RVobq4mP4eQRb6JLElyI/oFQDJfvYbYH0AEWuWqBBSrcancOjDxXWH7Z
+         S1vw==
+X-Forwarded-Encrypted: i=1; AJvYcCUuekUnb/G4ID03VreB1XSCQnLsWz5UylIJUoP9UQq1d/MhhXhkciPWUS7Hozcq9+fUyD2A2/6bssxJgNLhYulb@lists.infradead.org
+X-Gm-Message-State: AOJu0YydpD9qi+Ixd11/GbqTuXViFHTjUa8D44lIBXUFgIB0cYtGxVv0
+	5f3oiDESPacJx1RQLX0mJQK/mgd5eSQND3RJjN7roIs0j4F6IQteGY/DGA==
+X-Gm-Gg: ASbGncsbILpgQhQGsvzITSVyA7cMjHz6XZkfkp0Xd3xz/G2npiAHrAKVDI6nuSTT2rG
+	m/rYAcq54NGyvSEdWAxciGZn4BwhwO+wZpMpUfra+f/HKuDexNmW34L3oFBhp6BIYturJQj/0w1
+	gU8LKUfOac9Mjc+5413TuJPtf/MwLZ4+bKVs3j5SwJOW7q0G5Pni58khwB9K9PyikqXWNa3xmzO
+	004Qn4KB18iglm2KbLILjKNYllSEC8kWE3CF4Li9KCdevU8gHOhYZ6lsDEISzUpitEZF/j0/yHl
+	TMChFZFpFWFs4VaMdC22rfJHCePgepFrH3Z8meT+0aJ1lxtduOB/LpdKZ6TSuA==
+X-Google-Smtp-Source: AGHT+IFyrQImPdhkXlUK0i/cJqlYoCjV9CaIt4H7aNflilngOsNxjxgQcObmRoJ4y7oOeBbOZ2j07Q==
+X-Received: by 2002:a17:906:31c4:b0:aba:ec4f:fa4 with SMTP id a640c23a62f3a-abb709211d6mr184760766b.12.1739612394478;
+        Sat, 15 Feb 2025 01:39:54 -0800 (PST)
 Received: from hex.my.domain (83.8.115.239.ipv4.supernova.orange.pl. [83.8.115.239])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb7aecd3d5sm69698966b.148.2025.02.15.01.39.51
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb7aecd3d5sm69698966b.148.2025.02.15.01.39.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 15 Feb 2025 01:39:52 -0800 (PST)
+        Sat, 15 Feb 2025 01:39:54 -0800 (PST)
 From: Artur Weber <aweber.kernel@gmail.com>
-Date: Sat, 15 Feb 2025 10:39:39 +0100
-Subject: [PATCH v4 4/9] mfd: bcm590xx: Add support for multiple device
- types + BCM59054 compatible
+Date: Sat, 15 Feb 2025 10:39:40 +0100
+Subject: [PATCH v4 5/9] mfd: bcm590xx: Add PMU ID/revision parsing function
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250215-bcm59054-v4-4-dbfb2d76a855@gmail.com>
+Message-Id: <20250215-bcm59054-v4-5-dbfb2d76a855@gmail.com>
 References: <20250215-bcm59054-v4-0-dbfb2d76a855@gmail.com>
 In-Reply-To: <20250215-bcm59054-v4-0-dbfb2d76a855@gmail.com>
 To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -90,16 +89,16 @@ Cc: Stanislav Jakubek <stano.jakubek@gmail.com>, devicetree@vger.kernel.org,
  ~postmarketos/upstreaming@lists.sr.ht, 
  Artur Weber <aweber.kernel@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739612381; l=2626;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739612381; l=4714;
  i=aweber.kernel@gmail.com; s=20231030; h=from:subject:message-id;
- bh=t1GHjMmU0ognTEYJZcAOAhbfDin+9ghT43s1MEvfcck=;
- b=RI7LbX6FOYxKwKO5J3j4rVS2/w7E9TrebFBzOHQhttEmNKSR0kMMUamL2Z3ORnLJfWXP+Yzyn
- HzjcYFHR+11BeG0xkJbBEnDlocdF6zjqJYkOshq74kGlY0L9C6aZ4ll
+ bh=nlN0yd6P8KVs8h7+hjut7O2QhOwizp6bOkkjTgZWqVw=;
+ b=eI1XUZ6UU3sJHiIe+4reovvtp9PCU4kUBpXdOFbfjRTbDlf4dwaNAVSHIPANqcHmVS9JM1Sc9
+ Hcq9GfqkhqiC+w7ntxFjoeEhjZSq4/Phktgl4aHVA4JF36mJjIs1Nwa
 X-Developer-Key: i=aweber.kernel@gmail.com; a=ed25519;
  pk=RhDBfWbJEHqDibXbhNEBAnc9FMkyznGxX/hwfhL8bv8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_013954_298923_3ACA27EB 
-X-CRM114-Status: GOOD (  18.73  )
+X-CRM114-CacheID: sfid-20250215_013956_462417_B20F94B1 
+X-CRM114-Status: GOOD (  24.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,79 +113,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The BCM59054 is another chip from the BCM590xx line of PMUs,
-commonly used on devices with the BCM21664/BCM23550 chipsets.
+The BCM590xx PMUs have two I2C registers for reading the PMU ID
+and revision. The revision is useful for subdevice drivers, since
+different revisions may have slight differences in behavior.
 
-Prepare the BCM590xx driver for supporting other devices by
-adding a "bcm590xx_dev_type" enum with supported chip types
-and store it in the MFD data struct as "dev_type". Then, add
-a DT compatible for the BCM59054, and provide the device type
-as OF match data.
+Add a function to parse the data contained in the ID/revision
+registers. Use the ID value to verify that the correct compatible is
+used; store the revision value as two separate variables, rev_dig
+and rev_ana, for later usage.
+
+Also add some known revision values to bcm590xx.h, for convenience
+when writing subdevice drivers.
 
 Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
 ---
 Changes in v4:
-- Rewrite commit message description
-- Rename "device_type" member to "dev_type"
-- Drop awkward line break to fit function call
-- Add PMU ID/revision parsing function
-
-Changes in v3:
-- Fix compilation warning about device_type pointer cast type
-- Name the device types enum and use it as the type in the MFD struct
+- Added this commit
 ---
- drivers/mfd/bcm590xx.c       | 5 ++++-
- include/linux/mfd/bcm590xx.h | 8 ++++++++
- 2 files changed, 12 insertions(+), 1 deletion(-)
+ drivers/mfd/bcm590xx.c       | 81 ++++++++++++++++++++++++++++++++++++++++++++
+ include/linux/mfd/bcm590xx.h | 14 ++++++++
+ 2 files changed, 95 insertions(+)
 
 diff --git a/drivers/mfd/bcm590xx.c b/drivers/mfd/bcm590xx.c
-index 8b56786d85d0182acf91da203b5f943556c08422..632eb57d0d9e9f20f801fac22eae21b3c46cefd5 100644
+index 632eb57d0d9e9f20f801fac22eae21b3c46cefd5..094186165efa5a2356a442efdfb4da02ad9be9da 100644
 --- a/drivers/mfd/bcm590xx.c
 +++ b/drivers/mfd/bcm590xx.c
-@@ -50,6 +50,8 @@ static int bcm590xx_i2c_probe(struct i2c_client *i2c_pri)
- 	bcm590xx->dev = &i2c_pri->dev;
- 	bcm590xx->i2c_pri = i2c_pri;
- 
-+	bcm590xx->dev_type = (uintptr_t) of_device_get_match_data(bcm590xx->dev);
-+
- 	bcm590xx->regmap_pri = devm_regmap_init_i2c(i2c_pri,
- 						 &bcm590xx_regmap_config_pri);
- 	if (IS_ERR(bcm590xx->regmap_pri)) {
-@@ -91,7 +93,8 @@ static int bcm590xx_i2c_probe(struct i2c_client *i2c_pri)
- }
- 
- static const struct of_device_id bcm590xx_of_match[] = {
--	{ .compatible = "brcm,bcm59056" },
-+	{ .compatible = "brcm,bcm59054", .data = (void *)BCM59054_TYPE },
-+	{ .compatible = "brcm,bcm59056", .data = (void *)BCM59056_TYPE },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, bcm590xx_of_match);
-diff --git a/include/linux/mfd/bcm590xx.h b/include/linux/mfd/bcm590xx.h
-index 6b8791da6119b22514447bf1572238b71c8b0e97..83e62b5a6c45805bc2acc88ccc7119d86f9ac424 100644
---- a/include/linux/mfd/bcm590xx.h
-+++ b/include/linux/mfd/bcm590xx.h
-@@ -13,12 +13,20 @@
- #include <linux/i2c.h>
+@@ -17,6 +17,17 @@
  #include <linux/regmap.h>
+ #include <linux/slab.h>
  
-+/* device types */
-+enum bcm590xx_dev_type {
-+	BCM59054_TYPE,
-+	BCM59056_TYPE,
-+	BCM590XX_TYPE_MAX,
++/* Under primary I2C address: */
++#define BCM590XX_PMUID			0x1e
++#define BCM590XX_PMUID_BCM59054		0x54
++#define BCM590XX_PMUID_BCM59056		0x56
++
++#define BCM590XX_PMUREV			0x1f
++#define BCM590XX_PMUREV_DIG_MASK	0xF
++#define BCM590XX_PMUREV_DIG_SHIFT	0
++#define BCM590XX_PMUREV_ANA_MASK	0xF0
++#define BCM590XX_PMUREV_ANA_SHIFT	4
++
+ static const struct mfd_cell bcm590xx_devs[] = {
+ 	{
+ 		.name = "bcm590xx-vregs",
+@@ -37,6 +48,72 @@ static const struct regmap_config bcm590xx_regmap_config_sec = {
+ 	.cache_type	= REGCACHE_MAPLE,
+ };
+ 
++/* Map device_type enum value to model name string */
++static const char * const bcm590xx_names[BCM590XX_TYPE_MAX] = {
++	[BCM59054_TYPE] = "BCM59054",
++	[BCM59056_TYPE] = "BCM59056",
 +};
 +
- /* max register address */
- #define BCM590XX_MAX_REGISTER_PRI	0xe7
- #define BCM590XX_MAX_REGISTER_SEC	0xf0
++/*
++ * Parse the version from version registers and make sure it matches
++ * the device type passed to the compatible.
++ */
++static int bcm590xx_parse_version(struct bcm590xx *bcm590xx)
++{
++	unsigned int id, rev;
++	int ret;
++
++	/* Get PMU ID and verify that it matches compatible */
++	ret = regmap_read(bcm590xx->regmap_pri, BCM590XX_PMUID, &id);
++	if (ret) {
++		dev_err(bcm590xx->dev, "failed to read PMU ID: %d\n", ret);
++		return ret;
++	}
++
++	switch (bcm590xx->dev_type) {
++	case BCM59054_TYPE:
++		if (id != BCM590XX_PMUID_BCM59054) {
++			dev_err(bcm590xx->dev,
++				"Incorrect ID for BCM59054: expected %x, got %x. Check your DT compatible.\n",
++				BCM590XX_PMUID_BCM59054, id);
++			return -EINVAL;
++		}
++		break;
++	case BCM59056_TYPE:
++		if (id != BCM590XX_PMUID_BCM59056) {
++			dev_err(bcm590xx->dev,
++				"Incorrect ID for BCM59056: expected %x, got %x. Check your DT compatible.\n",
++				BCM590XX_PMUID_BCM59056, id);
++			return -EINVAL;
++		}
++		break;
++	default:
++		dev_err(bcm590xx->dev,
++			"Unknown device type, this is a driver bug!\n");
++		return -EINVAL;
++	}
++
++	/* Get PMU revision and store it in the info struct */
++	ret = regmap_read(bcm590xx->regmap_pri, BCM590XX_PMUREV, &rev);
++	if (ret) {
++		dev_err(bcm590xx->dev, "failed to read PMU revision: %d\n",
++			ret);
++		return ret;
++	}
++
++	bcm590xx->rev_dig = (rev & BCM590XX_PMUREV_DIG_MASK)
++				 >> BCM590XX_PMUREV_DIG_SHIFT;
++
++	bcm590xx->rev_ana = (rev & BCM590XX_PMUREV_ANA_MASK)
++				 >> BCM590XX_PMUREV_ANA_SHIFT;
++
++	dev_info(bcm590xx->dev, "PMU ID 0x%x (%s), revision: dig %d ana %d",
++		 id, bcm590xx_names[bcm590xx->dev_type],
++		 bcm590xx->rev_dig, bcm590xx->rev_ana);
++
++	return 0;
++}
++
+ static int bcm590xx_i2c_probe(struct i2c_client *i2c_pri)
+ {
+ 	struct bcm590xx *bcm590xx;
+@@ -78,6 +155,10 @@ static int bcm590xx_i2c_probe(struct i2c_client *i2c_pri)
+ 		goto err;
+ 	}
  
- struct bcm590xx {
- 	struct device *dev;
-+	enum bcm590xx_dev_type dev_type;
- 	struct i2c_client *i2c_pri;
- 	struct i2c_client *i2c_sec;
++	ret = bcm590xx_parse_version(bcm590xx);
++	if (ret)
++		goto err;
++
+ 	ret = devm_mfd_add_devices(&i2c_pri->dev, -1, bcm590xx_devs,
+ 				   ARRAY_SIZE(bcm590xx_devs), NULL, 0, NULL);
+ 	if (ret < 0) {
+diff --git a/include/linux/mfd/bcm590xx.h b/include/linux/mfd/bcm590xx.h
+index 83e62b5a6c45805bc2acc88ccc7119d86f9ac424..ba1cb3716b383d7a2ee396e0595a3b94d3b4ca5e 100644
+--- a/include/linux/mfd/bcm590xx.h
++++ b/include/linux/mfd/bcm590xx.h
+@@ -32,6 +32,20 @@ struct bcm590xx {
  	struct regmap *regmap_pri;
+ 	struct regmap *regmap_sec;
+ 	unsigned int id;
++
++	/* Chip revision, read from PMUREV reg */
++	u8 rev_dig;
++	u8 rev_ana;
+ };
+ 
++/* Known chip revision IDs */
++#define BCM59054_REV_DIG_A1		1
++#define BCM59054_REV_ANA_A1		2
++
++#define BCM59056_REV_DIG_A0		1
++#define BCM59056_REV_ANA_A0		1
++
++#define BCM59056_REV_DIG_B0		2
++#define BCM59056_REV_ANA_B0		2
++
+ #endif /*  __LINUX_MFD_BCM590XX_H */
 
 -- 
 2.48.1
