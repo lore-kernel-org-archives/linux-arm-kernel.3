@@ -4,65 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA17C021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 13:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA25C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 13:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=52yYloJE8V1JzcU39yNpMtvB1l1P9VRylhZ6UCVZjpw=; b=olHvLB37vSfuJANGxr6+u9Fc6H
-	AbHm7YkiJy+nSeR4/N2O70PdMUWxYEIOSi3eqVVbp4A/6nYnJ7v7IW1xPZ2HzT/AG+JbtoveVavTU
-	uP2PWh7Bg+boNzAwGaGQIDmmleTRbR6vwsZAEWP7J4mTk2n+ci4Yyh7pmRAckq8nCB+tBD7lfaPhu
-	z8bwRkVlYrdrxO4Hbr22IrA8cZTD4nclCbqGwEVDM989pFmFJMzW928PVLTcBCrR9YvfOd0+7UCoZ
-	4I2+GEFBzFcXiYll0R9UPOA4oqOmDibZEu5+6Jm/KIAudrr3qVM5dTr+caByePnJPyZalUEX2LgsY
-	/uVphtpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bzb9KoEVAxpceRAqAhOtXPFddy5YM0ujKSt02fGNR/I=; b=Sxd4Fy51XProW6yHKPz6ZLJfnQ
+	TD0+qo709LCxvJvp5VfN9egt+bO8/q28HlkdltErN9jGA/OsjejrQ4mEoJualTTD/sdKUlIYdcPam
+	R2F59GHuMoM+fLa1yF8U7D9Z+iPJLYBpGXFxgfOAWU6FEAnCUTPvBcfT5pyRw2xIw3DRuySRswjni
+	43nwPIMHZkLUbbq/nQ8G6dml+jSWLPqC/O8xI3donQSYqIigst4Xu3JxpNtHwFbGfmpwHHubee4ZB
+	6CzZSNmYUsVWxJQ5TT6YbdYrNgjZ8UZdVMJ05dqcwnI5kP+VdNb4CfZ0xlhMQ2MfGtg+kIDHTGepn
+	SUK/OiIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjIHe-000000009hR-3qsy;
-	Sat, 15 Feb 2025 13:32:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tjIT4-00000000AcP-2JZN;
+	Sat, 15 Feb 2025 13:44:26 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjIEn-000000009F8-3mAQ;
-	Sat, 15 Feb 2025 13:29:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B70BD5C480F;
-	Sat, 15 Feb 2025 13:29:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F6B3C4CEE6;
-	Sat, 15 Feb 2025 13:29:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739626180;
-	bh=v07NLwnORgC/H0e++oVg4DTMt03GjGLqNa/Cm3BNWRA=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Hb0Pa/AE/uEFOEjiqZQqXCQIC6iezuOQhOzemPZ8XUsa5o4VY+JOmYPsL3Sm8DIh0
-	 13vDy57PVgWJ6X+DD+cWu8y518LiatTqdJOWgr/KZKNRM5jCcITxRFGzU2ch5+agCO
-	 SAlNCYI6yJjmpRCS5hE43b3jfFSDbyeYmH0mp5Ps0wmioKjbnhMpBYatTjYXN9vm6F
-	 Sk8hoQ2ZJw9xRD3Gff1tY95k19SjFLW9syR2qKbIfv7bAiCHkhQrXtnqW9wP5yyfAr
-	 ACPenKhj8hhU/XVkkA1RX0UYniYSkGvjfIBMW8WVmj+szM57d3EEVQyLiVzDh7wMIq
-	 9ZAlGsSAoV18A==
-Date: Sat, 15 Feb 2025 07:29:39 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1tjIRc-00000000ARa-2R3t
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 15 Feb 2025 13:42:57 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-38f333c5d35so119631f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Feb 2025 05:42:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739626975; x=1740231775; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Bzb9KoEVAxpceRAqAhOtXPFddy5YM0ujKSt02fGNR/I=;
+        b=oouiObPp10eB7blGEU/K7XLQgRYvFEvPtJphIKnM05+SSvKdMYbzU6R5m8V223SAAn
+         +QBdG2npfr8b0cJTObTo1nT2JhmdcolmasdErldfgG97Z26XC2yVmJYjezw+A+LqWkks
+         hDzJ1ekFunf6E3m2lI20sM0Atkr3p4DDXp8+syS7rd3/gIdxV0Y9GAdr+rSquwKVDIxb
+         50S3Y/uEJ4yNlihFUxg42vZeW/BTnj26wzESvf16uRX4hnRyLqQTNivWbBDfQ51WKsUE
+         pUOwJC+nieZAbBI5RBNAA/s/WnE55fEkXTeALQ8Es+IhQxu/VelNIT0jlfaXXuV9PDjp
+         OEmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739626975; x=1740231775;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Bzb9KoEVAxpceRAqAhOtXPFddy5YM0ujKSt02fGNR/I=;
+        b=fmCqkbe6ebmFpd8QvQXjq4dH9korje5YkzwaNvQd5SoMypucazZADoZIZH1ZkoFhP+
+         MQaLo757khxkMXXPrL511EiTmXIlXIKjYxOZqp2ES+wIy7IZQ0vFDPjYpnx79y0zR45N
+         tO+TfePlzE7V8zCk/jk+q5xg7+4OOOnDkxM/SuJ1spVHziSA3q7aPKfQ/djDnXJBQ/vG
+         OPtzj+oIMVFpNoRIteBzVenNtYufBk5zxvTt7A1bDsV0E+XKzQzEcOL0+EkdBAWMKuwI
+         OQRXIaEPEvrc6FPi8oZMhQLDuoBbtnOYNcaA07vzKEbPt16vaO0iSBFuqquI2q/+idC5
+         CTwg==
+X-Gm-Message-State: AOJu0YzlKgTCetR/5UTkAikZDvKBTaefRwMaG4ELULF3SU5Em9u+svZn
+	z+eLxyHhVG9O/beLe4EJhLDIJUvRCa0L/zxplVgGP+Vr2Kg1HWOLW6yiYA1+nuI=
+X-Gm-Gg: ASbGncuII0b0rxLOMEGKM+fFFRnapPcK7I451yJhyKBV0Ymz8mpwKy8wEzk66lvEL/Y
+	TtFHp5v7NFDkPTFTthe4Tw8ysos3Ya+D85rb8AEttxZR778/5mwsGZ9iZw6fuj1WXNgTNMJDC42
+	HyJ1IqKROMmGM+WtoG2+VuB2cLwz3bRWesLftesEx/Ho63NL9b2XF3llpDI+ZtOWNhGw7kM5pLh
+	6q6435PsFazOkOAjRJO8W6v74Hdc9djFvtNHCJRylCagCWKcCQj7X+TQ3PuA3rT6LKe/SvXU4Yx
+	1ML71L7+V+vwaZ0RYco4ZDkbFZqShf4=
+X-Google-Smtp-Source: AGHT+IGDxXB1E+X6jTSdESQDd36Tzc/wr84k6EKAU8sGUlvYMhjz/DzYT3hbSvKe0KicE5yIGLmyJQ==
+X-Received: by 2002:a05:600c:3ba5:b0:439:5a37:814e with SMTP id 5b1f17b1804b1-4396e78789emr14566145e9.7.1739626974755;
+        Sat, 15 Feb 2025 05:42:54 -0800 (PST)
+Received: from [127.0.1.1] ([178.197.218.144])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4396181026fsm69929005e9.18.2025.02.15.05.42.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 15 Feb 2025 05:42:54 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: krzk@kernel.org, alim.akhtar@samsung.com, richardcochran@gmail.com, 
+ Chenyuan Yang <chenyuan0y@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+In-Reply-To: <20250212213518.69432-1-chenyuan0y@gmail.com>
+References: <20250212213518.69432-1-chenyuan0y@gmail.com>
+Subject: Re: [PATCH] soc: samsung: exynos-chipid: Add NULL pointer check in
+ exynos_chipid_probe()
+Message-Id: <173962697359.235665.7938168679485045244.b4-ty@linaro.org>
+Date: Sat, 15 Feb 2025 14:42:53 +0100
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>, 
- linux-phy@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Kishon Vijay Abraham I <kishon@kernel.org>
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <20250215122409.162810-3-ivo.ivanov.ivanov1@gmail.com>
-References: <20250215122409.162810-1-ivo.ivanov.ivanov1@gmail.com>
- <20250215122409.162810-3-ivo.ivanov.ivanov1@gmail.com>
-Message-Id: <173962617803.765517.17948286888997426214.robh@kernel.org>
-Subject: Re: [PATCH v1 2/4] dt-bindings: phy: add
- samsung,exynos2200-usbcon-phy schema file
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_052941_992258_3672E2AB 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20250215_054256_638871_444D0305 
+X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,39 +101,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 15 Feb 2025 14:24:07 +0200, Ivaylo Ivanov wrote:
-> The Exynos2200 SoC has a USB phy controller block that controls the
-> usage of USB phys. Add a dt-binding schema for the new driver.
+On Wed, 12 Feb 2025 15:35:18 -0600, Chenyuan Yang wrote:
+> soc_dev_attr->revision could be NULL, thus,
+> a pointer check is added to prevent potential NULL pointer dereference.
+> This is similar to the fix in commit 3027e7b15b02
+> ("ice: Fix some null pointer dereference issues in ice_ptp.c").
 > 
-> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> ---
->  .../phy/samsung,exynos2200-usbcon-phy.yaml    | 70 +++++++++++++++++++
->  1 file changed, 70 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+> This issue is found by our static analysis tool.
 > 
+> [...]
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Applied, thanks!
 
-yamllint warnings/errors:
+[1/1] soc: samsung: exynos-chipid: Add NULL pointer check in exynos_chipid_probe()
+      https://git.kernel.org/krzk/linux/c/c8222ef6cf29dd7cad21643228f96535cc02b327
 
-dtschema/dtc warnings/errors:
-
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250215122409.162810-3-ivo.ivanov.ivanov1@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 
