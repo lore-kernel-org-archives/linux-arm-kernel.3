@@ -4,74 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7187CC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 16:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB5CC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 16:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gJIgrGMAfJIbfAbbyA8EuZ8Vh2YSbToMFUdiKJFFnOo=; b=hxp0ijr1uGe+bUtx8ak4HIXCGZ
-	MIOMFG0uFa+BfwJwjZlHGA+6mDwU1E69ZxRKdt1wu7LUfa0WRkJ2qFJfLw7f3jvtz1U8zmCzls0rJ
-	BaiQ4yzmK9d1/ve7r4M1VJz5zU87ABy89KrELeFEvjxEPbwcZRKx7jAEBX+Z2jignAgx9lF6CLwlw
-	5R6UB56KHjymhIxRtYH9k5uJgagJT6DXZMiYDK3gnUcHVp/M+SRcRHYTyCriZ1du7XoDavwAwY4rP
-	3TbhciKJkOA7h83J7biU1/Hj+m8Qt6tHPEMohUqiWz7K1TlKz9j4G9MCidluSE28HohfL9DGf3Tvx
-	qVgvp5jw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Zen24IcM3djM9YgCwghgtHtMwzQ4LV/2qqQkL+b6/N0=; b=IbWh5iQPP7i1KjOYWheRNfmr6c
+	BmhIokszVU4n01SKgqBPnk7IwQdkmPeWaHF82J7CHF5vx4eM6igx+G1Al5NYdPas4yEH3Hz/EJjFJ
+	nD3sp1ryMW6cKHdsi3cdeC93v3JuDU5dHryLLLNmoDmi03mLb/960aFyk/+myjwNPyAP0tKMo0Is3
+	9kgUmhTC5aR0KD69GjZUCsarjzA4273Sl+SO9qOIOSLZ1CmgXIJtR5xy9nFb+DvNipD1xEzQVOlkT
+	iwLGCAboVCmBmLNol9VthmJ5vN642gIJ4//5aWS5jsy3eGoraJFejLqFY0KLEuPcTugdLqY/taHKZ
+	sB+n25Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjLGP-00000000QMB-3NYv;
-	Sat, 15 Feb 2025 16:43:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tjLIc-00000000QdT-1xd7;
+	Sat, 15 Feb 2025 16:45:50 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjLEw-00000000QFN-3t4S
+	id 1tjLHA-00000000QQx-1od5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Feb 2025 16:42:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 052365C067B;
-	Sat, 15 Feb 2025 16:41:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18EB0C4CEDF;
-	Sat, 15 Feb 2025 16:42:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739637721;
-	bh=MBdSKSQl5qKoLwg1wjEtWvk67McJc5SXlc6YFBBxgZI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=W2iVQKjqSoa88iXkUmC/QsqLJbTtY+g+QAwHNR1pZBhxKmxqkjnWjDPt2GrnxiDWf
-	 0kZ84IMg2EYQWnsebOIkmU8gBwChNpzvYue9sNIH92DMCafy6fFd0Qpgn6X2kRIHCA
-	 NsGCY5tVI9fhqIuvqQbVYMQ9mi9gQV0f3bj6gKaD2syFQItwqa1b9286FZ7061j+Qt
-	 roJSOZ7r/WKkY/uOm2qB5I9eUIBwOQk/FBlZh7JDASb7kWp8QQA6nbJ54qKv35neXh
-	 vdu0e7JgQRImjIdO7xb+se/fr6jchAHtneHu3ZwyspIdcBLovOAmm1hjbTuKmmo0R3
-	 aUOfWz+3uAG7A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tjLEs-004PKM-Vc;
-	Sat, 15 Feb 2025 16:41:59 +0000
-Date: Sat, 15 Feb 2025 16:41:55 +0000
-Message-ID: <87v7tb17os.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: luoyonggang@gmail.com
-Cc: Oliver Upton <oliver.upton@linux.dev>,	Sebastian Ott <sebott@redhat.com>,	Joey Gouly <joey.gouly@arm.com>,	Suzuki K Poulose <suzuki.poulose@arm.com>,	Zenghui Yu <yuzenghui@huawei.com>,	Catalin Marinas <catalin.marinas@arm.com>,	Will Deacon <will@kernel.org>,	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,	Cornelia Huck <cohuck@redhat.com>,	Eric Auger <eric.auger@redhat.com>,	linux-arm-kernel@lists.infradead.org,	kvmarm@lists.linux.dev,	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] KVM: arm64: Allow userspace to change MIDR_EL1
-In-Reply-To: <CAE2XoE_8ihJZQF856w-_F+cgJW7fLWGz7M7Ztoxzw2vE51_m1A@mail.gmail.com>
-References: <20250211143910.16775-1-sebott@redhat.com>
-	<20250211143910.16775-2-sebott@redhat.com>
-	<Z7BoydkyT_h0gwOV@linux.dev>
-	<CAE2XoE_8ihJZQF856w-_F+cgJW7fLWGz7M7Ztoxzw2vE51_m1A@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: luoyonggang@gmail.com, oliver.upton@linux.dev, sebott@redhat.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, shameerali.kolothum.thodi@huawei.com, cohuck@redhat.com, eric.auger@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Sat, 15 Feb 2025 16:44:21 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-22113560c57so5152375ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Feb 2025 08:44:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739637859; x=1740242659; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Zen24IcM3djM9YgCwghgtHtMwzQ4LV/2qqQkL+b6/N0=;
+        b=bfFCkcl+eTImNcEx2RiMzwbeUi3RThJer4CMV2wJ95sW7+a6g9mHwVjjT7T2rObeqK
+         V1Yup+OAInEonnnvpfcxmVuSgTmdZE0M7rfeDsBwMVHxX2PH/ZzvFTqSQA5RFWyRlYtc
+         UNIGwpF0b01pCLbj+sSrwfSmRMDnf/3vOsYKkMKsZDNRftn7MuJkXB0KklTTwBetzkk0
+         0jEjhw4RDwFhQpcIEZuzBg95d0relKstgh7Pl5zCDV+GkkLqX6xfDsc9gLW2wQ4z/yVW
+         i9lhofPpLHbTVo+tOrJgIN0oKYHkdndYrycgM5LA7PavgKIx7ujnRs3CEuNaVpDo13Xd
+         5LFA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739637859; x=1740242659;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Zen24IcM3djM9YgCwghgtHtMwzQ4LV/2qqQkL+b6/N0=;
+        b=g9HzQTLUS0ZxMnKVgyz64lUpwFTk00f5RpzGbPZhoJS5qvUacoZJ6Fwr4rs5fT3dqi
+         +rbQ/bmsRPwjhsCrT7ucxMCb3mggv6PWySndHw2ZU2AZLEXIwF3ikh4Wt7f5XKnkTllF
+         f/nd9E0FVyMc86IKLJwUk+hQmoaqCD2fk739ptzkT5WIw3GQGNUWyWsBKTAstvPBVm+/
+         Cub8d3uMVbsSrB08GY5Gs8co3HF4Y0/Ta/PaqDTbR3OH834c8gHC/yBHtFYlri924/4N
+         KmHdycLADMR8GpMVzptaO/DWxd81nFsHyXavRA3rcZJj3nWY6ktbkKBXLuLIDI8m0uzF
+         HzhA==
+X-Forwarded-Encrypted: i=1; AJvYcCU83/26WvGd5gUomzInLXognjZtA6031rpQZ3WTM6Z7e69/zekiOEe6v92dg7/te89c9qS1xzpqmx/ZeJ+80g1a@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTGRboSSNxtHUPG//LVvwc4GfbT8JLk+tI+GVdfgJm4366mIKT
+	i1rpnjuXtqSIkNOb5+GuRphNJSt8bGXDIAnnpJHLWzJW4idQutWq
+X-Gm-Gg: ASbGncsGP97BSyVmHmMVQYQ/gB8ENUv8kQTdN9zl3pDeJziBfWTtgem5UgC1uiSlJ3b
+	Wl1I6+u6X4UCzHZK5SJQNfL+NLGuQ/pc5sQ0jijCZ514zJlX9MeIS0vlKFA2mXxznYTwqzd4cGI
+	8n/hAmnwFhqNQRlAzTtKke9yVU+DHCA8Reo81w2DyuF2+WBcoh9y01oVYOpk+qbqiTY10iDPss9
+	Eed9mA9dAQf+okv3U/eJk6Hn4sUuAKjBtk/0YY7m9P4FQ8Fi2E1MOGbGitHfVVSXMdAqeOhe6aJ
+	1qDTKkYZaUxr/MD6p5Sy
+X-Google-Smtp-Source: AGHT+IEB5/OkP6MlT6rURyfDn95k/vC4OmFIg6jcwrba1EZXG0N0SK2ZbXoBU4WJ2hpKhgmrU7THSQ==
+X-Received: by 2002:a05:6a00:c9:b0:732:6221:7180 with SMTP id d2e1a72fcca58-732622171dfmr3553434b3a.5.1739637858885;
+        Sat, 15 Feb 2025 08:44:18 -0800 (PST)
+Received: from eleanor-wkdl.. ([140.116.96.203])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7326dba6585sm483348b3a.14.2025.02.15.08.44.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 15 Feb 2025 08:44:18 -0800 (PST)
+From: Yu-Chun Lin <eleanor15x@gmail.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jserv@ccns.ncku.edu.tw,
+	visitorckw@gmail.com,
+	Yu-Chun Lin <eleanor15x@gmail.com>,
+	kernel test robot <lkp@intel.com>
+Subject: [PATCH] net: stmmac: Use str_enabled_disabled() helper
+Date: Sun, 16 Feb 2025 00:44:12 +0800
+Message-ID: <20250215164412.2040338-1-eleanor15x@gmail.com>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_084203_471690_1AD05C23 
-X-CRM114-Status: GOOD (  23.62  )
+X-CRM114-CacheID: sfid-20250215_084420_470106_2DF9972E 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,63 +106,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 15 Feb 2025 16:16:44 +0000,
-"=E7=BD=97=E5=8B=87=E5=88=9A(Yonggang Luo)" <luoyonggang@gmail.com> wrote:
->=20
-> On Sat, Feb 15, 2025 at 6:15=E2=80=AFPM Oliver Upton <oliver.upton@linux.=
-dev> wrote:
-> >
-> > Hi Sebastian,
-> >
-> > On Tue, Feb 11, 2025 at 03:39:07PM +0100, Sebastian Ott wrote:
-> > > +static int set_id_reg_non_ftr(struct kvm_vcpu *vcpu, const struct sy=
-s_reg_desc *rd,
-> > > +                           u64 val)
-> > > +{
-> > > +     u32 id =3D reg_to_encoding(rd);
-> > > +     int ret;
-> > > +
-> > > +     mutex_lock(&vcpu->kvm->arch.config_lock);
-> >
-> > There's quite a few early outs, guard() might be a better fit than
-> > explicitly dropping the lock.
-> >
-> > > +     /*
-> > > +      * Since guest access to MIDR_EL1 is not trapped
-> > > +      * set up VPIDR_EL2 to hold the MIDR_EL1 value.
-> > > +      */
-> > > +     if (id =3D=3D SYS_MIDR_EL1)
-> > > +             write_sysreg(val, vpidr_el2);
-> >
-> > This is problematic for a couple reasons:
-> >
-> >  - If the kernel isn't running at EL2, VPIDR_EL2 is undefined
-> >
-> >  - VPIDR_EL2 needs to be handled as part of the vCPU context, not
-> >    written to without a running vCPU. What would happen if two vCPUs
-> >    have different MIDR values?
-> >
-> > Here's a new diff with some hacks thrown in to handle VPIDR_EL2
-> > correctly. Very lightly tested :)
->=20
-> Thans, I am also faced this issue, but other than this, I am also
-> facing a issue, after updating
-> MIDR_EL1, The CP15 register MIDR for aarch32 not updated.
-> The instruction is `MRC p15,0,<Rt>,c0,c0,0    ; Read CP15 Main ID Registe=
-r` from
-> https://developer.arm.com/documentation/ddi0406/b/System-Level-Architectu=
-re/Protected-Memory-System-Architecture--PMSA-/CP15-registers-for-a-PMSA-im=
-plementation/c0--Main-ID-Register--MIDR-
->=20
-> The value of this instruction is not updated
+As kernel test robot reported, the following warning occurs:
 
-How do you determine that MIDR isn't updated? How do you update the
-userspace view?
+cocci warnings: (new ones prefixed by >>)
+>> drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c:582:6-8: opportunity for str_enabled_disabled(on)
 
-Thanks,
+Replace ternary (condition ? "enabled" : "disabled") with
+str_enabled_disabled() from string_choices.h to improve readability,
+maintain uniform string usage, and reduce binary size through linker
+deduplication.
 
-	M.
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202502111616.xnebdSv1-lkp@intel.com/
+Signed-off-by: Yu-Chun Lin <eleanor15x@gmail.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
---=20
-Without deviation from the norm, progress is not possible.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+index 96bcda0856ec..3efee70f46b3 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+@@ -16,6 +16,7 @@
+ #include <linux/slab.h>
+ #include <linux/ethtool.h>
+ #include <linux/io.h>
++#include <linux/string_choices.h>
+ #include "stmmac.h"
+ #include "stmmac_pcs.h"
+ #include "stmmac_ptp.h"
+@@ -633,7 +634,7 @@ int dwmac1000_ptp_enable(struct ptp_clock_info *ptp,
+ 		}
+ 
+ 		netdev_dbg(priv->dev, "Auxiliary Snapshot %s.\n",
+-			   on ? "enabled" : "disabled");
++			   str_enabled_disabled(on));
+ 		writel(tcr_val, ptpaddr + PTP_TCR);
+ 
+ 		/* wait for auxts fifo clear to finish */
+-- 
+2.43.0
+
 
