@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E48EC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 01:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9CBC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 01:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E5HZF6HoxLw+mqb2sDw/0YxFjcVq8a52RuloZrjW1Ts=; b=TtXpH2V9J2cIy6j9tIttNbeaeG
-	PdZO4l0W7IPR/nVFQGNaSJlTbfKChhAtKWXR9hTzD77d0h7/OsELw3q2jADgrD1vXUj3ZN4rGIusp
-	il251jEodv78TqJNIxc/4J+tHzPwxpaMUwFZpXaDanK9/gvvUMlrgjJO7zjA/aIrP2HIaiEmlCH84
-	ICs/q14sxNPUdlk5vqXERsGLi+5EgefArIgRsWHbFpPeSdEUQwXUh0Rc84IARoLScj8dZaEwLl1wG
-	+kywZsvu/LTtyNSFB8R+hNOyGJir65tOaazjtB4tFFGFdcTtRvexi7EZzVPdV+GaAD8V3odPUldul
-	s+pVVILA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=clvSOaTIwEa9bgc9cdZpN3zTDEuSaQ80Bs4rjxPQt4M=; b=yeTZWOMW71Z+KLsysaD+h9h34l
+	C2AEGemosmfdMfI8P71AkaKWCmWI11QcAj3NMBjAAbMa9jtoN2vGvyAd5Hyu7HHuTv93beUjMCtpk
+	257Vs/9r0C8fVlHOI97ry5ltbHl7fjFb/J0ySYONAwu2xAqDboRe8zcX2P6lACHo+gqwoijuyuTOJ
+	Pjju/vg3Dc/f8DnH6JPwQ75rlXuz0eqXEKdqJ+ZObksjiHV7gBXMLbRE/RdznfJYyDZ0XWqStO1dC
+	2H5dEkp3yCta7D4a5e+kICqlQHN8de/q4q3L9aWpKs1AFHu/RkbBLq3CArRtFN2MSdMt6E89YmSPa
+	oFo5DmUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj6aV-0000000Ggzh-0C8q;
-	Sat, 15 Feb 2025 01:03:19 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tj6bw-0000000GhP6-1KIF;
+	Sat, 15 Feb 2025 01:04:48 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj6TR-0000000Gf44-0SSG;
-	Sat, 15 Feb 2025 00:56:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739580959;
-	bh=SamXBzmLvsEp0Jz0d1kldxkjLOu7b/3p5uRtusyt+UA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=YHX+RxPrOuFbD+K59CXEFQAKW0HgHAw+8zomFsb8XCMPAUAIK9LnBBkYXUAGtoZot
-	 Yr2h1HVHvWsManylI0wE8R54lIaqsvDqPHcw2vs5q2C6BjA9mcWMZDMEI7WfPSwrVW
-	 DMCHpLcI+jjq/fMurpyrvcxTsp4n55fXyCVl6MyrGYPweNpty1qeQjUbQEKlNGKfcr
-	 Y+tcnqZb2JHSTgh1M21nkOsTONZ6mpTln9Y42PVtMw/n/tA4FZaf7RcQExzH+9ILnT
-	 3ZxLNvamZHzLkAetsNE+EJAwVrql4HGXdF7lf0OzPagELxU4A4tkAuIX3V4CmPnWx7
-	 wox9izcsH8Ifw==
-Received: from localhost (144.232.221.87.dynamic.jazztel.es [87.221.232.144])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 3229D17E1553;
-	Sat, 15 Feb 2025 01:55:59 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Sat, 15 Feb 2025 02:55:40 +0200
-Subject: [PATCH 4/4] arm64: dts: rockchip: Enable HDMI1 on rk3588-evb1
-MIME-Version: 1.0
+	id 1tj6U3-0000000GfGn-3NpU
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 15 Feb 2025 00:56:41 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2fc1eabf4f7so4000787a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 14 Feb 2025 16:56:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1739580999; x=1740185799; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=clvSOaTIwEa9bgc9cdZpN3zTDEuSaQ80Bs4rjxPQt4M=;
+        b=AFJxDJ6Khwmy7wDj9+R2Rg1oi84W4mZl/pnzBt48uX6MRRO5LkfmnObRsxNBB4l0ad
+         ZDo0Pj2yO37adfyWnakp3wSHh3UV75dsTW1Y/SwHlT/TrgIWR7qxV5oWTPojJAqmQjup
+         2mLZ/c7CPlqahC+B/VmbBWIGNGeEi3Gep1Nt1cKIWyORUBaBCqISHGsyqbY/MZmVkHr6
+         j91i5FXWVBB/NK0LMuWQvefJUvFL592xaOo58eFpYe3LR9V0+9Gs8TlSbveVWmO5qgcY
+         pC7/+w/LwoSYeDou6qrV1kKyCIWm7OxV9poX+t4R+b357o1YSLVp0oBQt95tVbeHvHHv
+         +qOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739580999; x=1740185799;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=clvSOaTIwEa9bgc9cdZpN3zTDEuSaQ80Bs4rjxPQt4M=;
+        b=bWmF8kW0X6IUzY+zDNlmDuQBbx3T4VDQDYJEBTQ4I54OLfmyKn6JZ9zw8aqeISL+TN
+         ogO4uJfMUPA2hPJifnJ4GVbuHnUXaSzXo5xOi4sY22P22xQCVCCGKhY3I75y/uP6LS0f
+         WmVNkOSAedsnS8jMwxmbB0FXPUbPf+YgFX2789RN91ebVGs585puNZP8xL88MWvvokzp
+         jY16VtPLyy/GDqShzHHxqI1Cmwhd5PpEyjzsy4SOspSs08huMLmRXesytptFiS+9Vy+h
+         FKXVmPW2OdY86LrA+708blDPyBup6AJvHlog47YnzE9Rh9JDUS2BTSM14x/Zo9ehdukC
+         y2VA==
+X-Gm-Message-State: AOJu0Ywsexpn8HaB6OG0wOtZALi9H/u0tQ8qHSepCSPqSAlJ8wZ9CgHT
+	M/eXqLgDB9VMwCYu5Wng6SvqrBDfqtqj6408FgLPbaP6CL6pD3DcFXwG952zge0PZ8QJviTZn2f
+	Z6Q==
+X-Google-Smtp-Source: AGHT+IEDBkpXU3G4/lKZrs/PoISbfgAX1w1fyvpk5cFq3/CN1zXVNsLI9tdZL04a2XEND4anIVs8+UjqyEg=
+X-Received: from pjbsp4.prod.google.com ([2002:a17:90b:52c4:b0:2ef:8055:93d9])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4a49:b0:2ea:aa56:499
+ with SMTP id 98e67ed59e1d1-2fc40d13e61mr1911642a91.1.1739580998875; Fri, 14
+ Feb 2025 16:56:38 -0800 (PST)
+Date: Fri, 14 Feb 2025 16:50:35 -0800
+In-Reply-To: <20250111005049.1247555-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20250111005049.1247555-1-seanjc@google.com>
+X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
+Message-ID: <173958028389.1189761.4728178272323667525.b4-ty@google.com>
+Subject: Re: [PATCH v2 0/9] KVM: selftests: Binary stats fixes and infra updates
+From: Sean Christopherson <seanjc@google.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250215-vop2-hdmi1-disp-modes-v1-4-81962a7151d6@collabora.com>
-References: <20250215-vop2-hdmi1-disp-modes-v1-0-81962a7151d6@collabora.com>
-In-Reply-To: <20250215-vop2-hdmi1-disp-modes-v1-0-81962a7151d6@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_165601_324183_D14A1DD7 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250214_165639_841962_25F78A07 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,97 +94,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the necessary DT changes to enable the second HDMI output port on
-Rockchip RK3588 EVB1.
+On Fri, 10 Jan 2025 16:50:40 -0800, Sean Christopherson wrote:
+> Fix a handful of bugs in the binary stats infrastructure, expand support
+> to vCPU-scoped stats, enumerate all KVM stats in selftests, and use the
+> enumerated stats to assert at compile-time that {vm,vcpu}_get_stat() is
+> getting a stat that actually exists.
+> 
+> Most of the bugs are benign, and AFAICT, none actually cause problems in
+> the current code base.  The worst of the bugs is lack of validation that
+> the requested stat actually exists, which is quite annoying if someone
+> fat fingers a stat name, tries to get a vCPU stat on a VM FD, etc.
+> 
+> [...]
 
-While at it, switch the position of &vop_mmu and @vop to maintain the
-alphabetical order.
+Applied to kvm-x86 selftests (attempt #2).  Like the previous attempt, I skipped
+the compile-time assertions.
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts | 42 ++++++++++++++++++++++--
- 1 file changed, 40 insertions(+), 2 deletions(-)
+[1/9] KVM: selftests: Fix mostly theoretical leak of VM's binary stats FD
+      https://github.com/kvm-x86/linux/commit/fd546aba1967
+[2/9] KVM: selftests: Close VM's binary stats FD when releasing VM
+      https://github.com/kvm-x86/linux/commit/f7f232a01f3d
+[3/9] KVM: selftests: Assert that __vm_get_stat() actually finds a stat
+      https://github.com/kvm-x86/linux/commit/eead13d493af
+[4/9] KVM: selftests: Macrofy vm_get_stat() to auto-generate stat name string
+      https://github.com/kvm-x86/linux/commit/b0c3f5df9291
+[5/9] KVM: selftests: Add struct and helpers to wrap binary stats cache
+      https://github.com/kvm-x86/linux/commit/e65faf71bd54
+[6/9] KVM: selftests: Get VM's binary stats FD when opening VM
+      https://github.com/kvm-x86/linux/commit/ea7179f99514
+[7/9] KVM: selftests: Adjust number of files rlimit for all "standard" VMs
+      https://github.com/kvm-x86/linux/commit/9b56532b8a59
+[8/9] KVM: selftests: Add infrastructure for getting vCPU binary stats
+      https://github.com/kvm-x86/linux/commit/16fc7cb406a5
+[9/9] KVM: selftests: Add compile-time assertions to guard against stats typos
+      (no commit info)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
-index 3fd0665cde2ca15cd309919ff751b00e0f53a400..27a7895595ee9fa2f5d5f3096cbe334c1d3792cf 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts
-@@ -132,6 +132,17 @@ hdmi0_con_in: endpoint {
- 		};
- 	};
- 
-+	hdmi1-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi1_con_in: endpoint {
-+				remote-endpoint = <&hdmi1_out_con>;
-+			};
-+		};
-+	};
-+
- 	pcie20_avdd0v85: regulator-pcie20-avdd0v85 {
- 		compatible = "regulator-fixed";
- 		regulator-name = "pcie20_avdd0v85";
-@@ -364,10 +375,30 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
-+&hdmi1 {
-+	status = "okay";
-+};
-+
-+&hdmi1_in {
-+	hdmi1_in_vp1: endpoint {
-+		remote-endpoint = <&vp1_out_hdmi1>;
-+	};
-+};
-+
-+&hdmi1_out {
-+	hdmi1_out_con: endpoint {
-+		remote-endpoint = <&hdmi1_con_in>;
-+	};
-+};
-+
- &hdptxphy0 {
- 	status = "okay";
- };
- 
-+&hdptxphy1 {
-+	status = "okay";
-+};
-+
- &i2c2 {
- 	status = "okay";
- 
-@@ -1371,11 +1402,11 @@ &usb_host1_xhci {
- 	status = "okay";
- };
- 
--&vop_mmu {
-+&vop {
- 	status = "okay";
- };
- 
--&vop {
-+&vop_mmu {
- 	status = "okay";
- };
- 
-@@ -1385,3 +1416,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
- 		remote-endpoint = <&hdmi0_in_vp0>;
- 	};
- };
-+
-+&vp1 {
-+	vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI1>;
-+		remote-endpoint = <&hdmi1_in_vp1>;
-+	};
-+};
-
--- 
-2.48.1
-
+--
+https://github.com/kvm-x86/linux/tree/next
 
