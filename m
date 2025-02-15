@@ -4,110 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A835C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 13:46:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 363B9C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 13:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/shqzrzzIMnMZwthjOut4t2Ws0xY/wz6KFO0sDQOE5w=; b=OgZVbQuLKSI4OEhgw0/y0Iat3p
-	gOhhIxhJIoHgEq+Eb+0Su2ovREOhc5p74WPPGp0Jbas/YnS0bhrWqez8a3bcOPP75Gqp9UqZaVjDW
-	1ZkNPifkHxcMIlFr+veZcXPRvT9IzjMtbT6z0vezl2cwpPg/c0+F85DUN1IoxZDUt6QzHRLshNy22
-	mvvP2rf+pWdwXcAGahPMYl1rZ9RqedKh3r6WZLbYVXnpgWiH8yd1po4PS0qH4lsnjPorIrZPT0qmg
-	fCnXXiDdrA9gdA5ZF4YscuMiTZQKLSvY9lxH4MitrNaGOeNF7rjP8Va/e9MWJ9LBuTypDhoCQanvK
-	hAoH/Yzg==;
+	bh=4wEV1ADnqQWD8L1k/XFokDETvht2ffBYSspDwjyPN8g=; b=ttxPemjqU7ci1v2njLupQCDBdX
+	OSzdmiqJXlQNnY8gR6QnxkR+bCNBuHobYOXIIPzI7cYbVi6UedCK0pFBQhLzqSGju2vDjyLt/8ktv
+	chql2sT8oqWPykvpftvX6jYohQdK6zBeRML2qKZPMGYRXXDUQs60R0Ay27kW9pYn2Blhhq8yHHaG9
+	t5aBNOBVNj30PrIgavAxLpxybl7I4CKJGhIiXbfijaUGv+tmk9ijLICWNXSrz0kvay48PaidqoL23
+	roLFhPpPnAFYckuasDNOIPW+skRAcjaz2d5BjnwsJMHd/oFcWfN4L3UDOkKGXhBBQUSfcbRp1mGXv
+	PvVtuB9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjIUZ-00000000Aoy-0sOW;
-	Sat, 15 Feb 2025 13:45:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tjIc8-00000000BNQ-1Nyj;
+	Sat, 15 Feb 2025 13:53:48 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjIT5-00000000AcV-2Kg9
+	id 1tjIag-00000000BEa-1pik
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Feb 2025 13:44:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5D5AD5C53E1;
-	Sat, 15 Feb 2025 13:43:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 554CEC4CEDF;
-	Sat, 15 Feb 2025 13:44:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739627066;
-	bh=5X9O1V615LQC2ynrpFns9PJxRgb0MBKRB5TEyBxo1GQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hgVFFKEipKD3T+y8lktbpqhBIy+FGV9xzgSEls0FI4lb8OiLOfXZCD07W+llDFGIJ
-	 HPE0lSbUc7aE9cjJfTZUUD/5SGRrm0PJDxSVQJHQUiSl8zrn0vNYABs8aIgf3O8ZjM
-	 odUGql7krwRTrt90w79JnL8qV29IUbluqrzLG1YHlUi5s7LRZMx9mACIsn3dZgm1qS
-	 4H8+A51dOb2JLmiFG0TyZ1Q6t6JNtYsVfRS6pY0kr4LVe/Kxk0DYTBkY5lFt2rDVkp
-	 BfY5p1ULMiRJCL14vJhIT+22VDaP17i6AjFfBBlIt2SslMzVrcM4HrHnQcXJ1KtGw1
-	 R9ILkXi3/z4JA==
-Message-ID: <9c468342-b5c4-4bc4-b6cd-9f25d2ce99aa@kernel.org>
-Date: Sat, 15 Feb 2025 14:44:19 +0100
+	Sat, 15 Feb 2025 13:52:19 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-38f32c1c787so654191f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Feb 2025 05:52:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739627537; x=1740232337; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4wEV1ADnqQWD8L1k/XFokDETvht2ffBYSspDwjyPN8g=;
+        b=AiG2jJGDoDedZZErOL9mnpuWyBP7fwNroJ0Cg7NqFWfGXxzEfzOfJos+PoDOPudoRV
+         /J3H39/yg/fU6UhupqDMdvfzN78uNTUo5QLB1sjzHAI0p5HSSxLcKUP8cQoRDrLw+otC
+         CJkipg/fO83BvrmkW9v0vakxf+IRhPY4DYK4ODiBKol2qWtpsP+GwsDucTnSMR+iPC86
+         3/6zNPmkF1n/36F29J5KdSes4YtCx88miNGPmprcLN8nRuhJVG8MbKwDQ8PaoSqPOZ+k
+         1+BBmS46Kf4IbHBYp7bjWRlgQuQWmy1CNNaLO60gkfyQma25TCPc2P0Xq024v0Pzpcgy
+         yNyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739627537; x=1740232337;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4wEV1ADnqQWD8L1k/XFokDETvht2ffBYSspDwjyPN8g=;
+        b=ejGIpb0DRbDw4M8V61VmGsgS0OS8nrhy9g7DGJe82kcctYDCRKNKNr9BlaAwCGK3UR
+         OXPaC+PiKhzqscKhE1wV81xMpCkyPS6frKb/yYBIeti17lIHIaJ0Qmeoh78jzqcVCtFl
+         UGX/p3xuzozU+TUndY2+iQyWDN+zLdl2x4NAW262A3MSHoAXjGZLDPrLbwYKr/L57Hyj
+         UOXyaYFShhN+nEToIbAru8ps1HopKKBH6ZeA25dfJn3eCOlHWZOdf1xsszUI9K77jZQB
+         4phIkLNn17/H1VsKK1a5eo3XYqs5cHMQ4Yhv24WcKAEDJ2AKw21+qOUQoClManmkhJj3
+         lVGg==
+X-Forwarded-Encrypted: i=1; AJvYcCXNsNSIveX2CzxTUt3u3Wnx8TH4rzMa+Z4BsEGoz104mLt0xBgOO6HUkZTQZfXXqlfc/SYtASdDWtROnITIt9aX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz690b4+CwPfz/MYXgWyp6Q8EhGTf+eVIPtlqHKamQb7CLcj4NF
+	QQXKYNtQDzM2nkgUFekE9pFdahthWSV3sFMqthIN+eZ1S2QTMG8b
+X-Gm-Gg: ASbGncuuwTmvssicvlTD9BD14hCOfKBEo8SHlT+pOwM5K1yuo0eftT9T0ThfQAN7g0l
+	AD2BvOoL9AEwTQ9v7V91wE+QlNBRNYvtxsX+Sp5UxLDO6Aiw367wfeOkBDT1asFwHhwLL8ysAOv
+	gLmcRPxhk9dSdGXz6Od2/7awE12faHcSYQ6vhbN4ezOS4KNtCLZ3giSPIWEIz9z+qGZgdX65kLF
+	JDwFdsfZhf5QGGN3spQn+3nCvFKPI2I7Hom8C+zywsUuSlQaRXGAyXFNZdkU6mb+6PjD5u1CsjI
+	k1fw2idDPop9t5poe4tvUQIxb2aobQJ8P3C63c+Zo9wT42JVL8GSa64J8xLAFI99zdwu6Q==
+X-Google-Smtp-Source: AGHT+IHUH/PSZrSEvYPRf7g1ThAvmE/rux13z69XbwZo1Qmd9SlXptEtu6drLDmn4VEdSVQBss2m8Q==
+X-Received: by 2002:a5d:64cc:0:b0:38d:e707:f312 with SMTP id ffacd0b85a97d-38f33f53f95mr3614339f8f.46.1739627536424;
+        Sat, 15 Feb 2025 05:52:16 -0800 (PST)
+Received: from [192.168.1.105] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259f7df2sm7291484f8f.84.2025.02.15.05.52.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 15 Feb 2025 05:52:15 -0800 (PST)
+Message-ID: <8bcf7557-dff3-4017-84b1-184b20e028bf@gmail.com>
+Date: Sat, 15 Feb 2025 15:52:14 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] gs101 reboot updates (DT)
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250210-gs101-renppt-dts-v2-0-fb33fda6fc4b@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v1] arm64: dts: exynos: update all samsung,mode constants
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250210-gs101-renppt-dts-v2-0-fb33fda6fc4b@linaro.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>, devicetree@vger.kernel.org,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Conor Dooley <conor+dt@kernel.org>,
+ linux-samsung-soc@vger.kernel.org, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>
+References: <20250209132043.3906127-1-ivo.ivanov.ivanov1@gmail.com>
+ <173920411901.476943.11749535762195189252.robh@kernel.org>
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <173920411901.476943.11749535762195189252.robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_054427_681466_30F3B976 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250215_055218_483915_B5C51038 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,23 +105,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/02/2025 13:52, André Draszik wrote:
-> Hi,
-> 
-> These patches update some of gs101's reboot / power off DT nodes to
-> bring them in line with downstream / bootloader / EL3 monitor
-> expectations.
-> 
-> In particular:
-> * an unnecessary property is removed from the DT
-> * the shutdown SMC call is aligned with downstream now
-> * we now implement the requested boot mode as a notification for the
->   boot loader 
-> 
+On 2/10/25 18:22, Rob Herring (Arm) wrote:
+> On Sun, 09 Feb 2025 15:20:43 +0200, Ivaylo Ivanov wrote:
+>> Update all samsung,mode property values to account for renaming USI_V2
+>> constants to USI_MODE in the bindings.
+>>
+>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>> ---
+>> Patch picked from [1] and rebased on linux-next
+>>
+>> [1] https://lore.kernel.org/all/20250204172803.3425496-1-ivo.ivanov.ivanov1@gmail.com/
+>> ---
+>>  arch/arm64/boot/dts/exynos/exynos850.dtsi     | 14 +++---
+>>  arch/arm64/boot/dts/exynos/exynosautov9.dtsi  | 48 +++++++++----------
+>>  .../arm64/boot/dts/exynos/exynosautov920.dtsi |  2 +-
+>>  .../dts/exynos/google/gs101-pixel-common.dtsi |  4 +-
+>>  arch/arm64/boot/dts/exynos/google/gs101.dtsi  |  2 +-
+>>  5 files changed, 35 insertions(+), 35 deletions(-)
+>>
+>
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
 
-Thanks, applied
-(lost b4 tracking so no commit hashes)
+Please note that this is happening because the bot didn't account for
+header changes in the previous USIv1 patchset. Should be safe to apply
+since the latter is in linux-next now (if it even merges).
 
 Best regards,
-Krzysztof
+Ivaylo
+
+>
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
+>
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
+>
+>   pip3 install dtschema --upgrade
+>
+>
+> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250209132043.3906127-1-ivo.ivanov.ivanov1@gmail.com:
+>
+> Error: arch/arm64/boot/dts/exynos/exynos850.dtsi:654.20-21 syntax error
+> FATAL ERROR: Unable to parse input tree
+> make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynos850-e850-96.dtb] Error 1
+> make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
+> make[2]: Target 'arch/arm64/boot/dts/exynos/exynos850-e850-96.dtb' not remade because of errors.
+> make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynos850-e850-96.dtb] Error 2
+> Error: arch/arm64/boot/dts/exynos/exynosautov920.dtsi:309.20-21 syntax error
+> FATAL ERROR: Unable to parse input tree
+> make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb] Error 1
+> make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
+> make[2]: Target 'arch/arm64/boot/dts/exynos/exynosautov920-sadk.dtb' not remade because of errors.
+> make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynosautov920-sadk.dtb] Error 2
+> Error: arch/arm64/boot/dts/exynos/exynosautov9.dtsi:445.20-21 syntax error
+> FATAL ERROR: Unable to parse input tree
+> make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynosautov9-sadk.dtb] Error 1
+> make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
+> make[2]: Target 'arch/arm64/boot/dts/exynos/exynosautov9-sadk.dtb' not remade because of errors.
+> make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynosautov9-sadk.dtb] Error 2
+> Error: arch/arm64/boot/dts/exynos/google/gs101.dtsi:828.20-21 syntax error
+> FATAL ERROR: Unable to parse input tree
+> make[4]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb] Error 1
+> make[3]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos/google] Error 2
+> make[3]: Target 'arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb' not remade because of errors.
+> make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
+> make[2]: Target 'arch/arm64/boot/dts/exynos/google/gs101-oriole.dtb' not remade because of errors.
+> make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/google/gs101-oriole.dtb] Error 2
+> make: *** [Makefile:251: __sub-make] Error 2
+> make: Target 'exynos/exynos8895-dreamlte.dtb' not remade because of errors.
+> make: Target 'exynos/exynos850-e850-96.dtb' not remade because of errors.
+> make: Target 'exynos/exynos7885-jackpotlte.dtb' not remade because of errors.
+> make: Target 'exynos/exynos990-x1slte.dtb' not remade because of errors.
+> make: Target 'exynos/exynos5433-tm2.dtb' not remade because of errors.
+> make: Target 'exynos/exynos990-r8s.dtb' not remade because of errors.
+> make: Target 'exynos/exynos7-espresso.dtb' not remade because of errors.
+> make: Target 'exynos/google/gs101-oriole.dtb' not remade because of errors.
+> make: Target 'exynos/exynosautov920-sadk.dtb' not remade because of errors.
+> make: Target 'exynos/exynosautov9-sadk.dtb' not remade because of errors.
+> make: Target 'exynos/exynos990-c1s.dtb' not remade because of errors.
+> make: Target 'exynos/exynos9810-starlte.dtb' not remade because of errors.
+> make: Target 'exynos/exynos990-x1s.dtb' not remade because of errors.
+> make: Target 'exynos/exynos5433-tm2e.dtb' not remade because of errors.
+>
+>
+>
+>
+>
+
 
