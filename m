@@ -4,77 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E84BC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 09:59:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EA9C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 10:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1XRwV3v0Pr5UX8e3+ENacWcRYH9cJyzTBU7O5dVKwSQ=; b=knlUTxNBiEjGmzbSQgHJAKGW4z
-	gMGYTYWlgp+EdnBvC+W2tOarynZJTawPzB0uYKeoWrbgvMBmGn/HqC25XZtjtuDQhjxZ+3DPpBG48
-	4pJYD6Wp2HxATacSqLhLzCEmW424qSB7pvmOHqn0Qt+sU7vpWDF1VH+xPoiU2BmFpbxztrdPBP9v0
-	wTMdKmxsMlp+xVOAcwxWFnOSW47BQBnLxZAsQltW0JI3mx9xl/i1wzm3kM1BBR1E9Q0oD+/bscgws
-	y/MxypNMcTWlTjMz9qfM1e/sxzZhV38YbdfPzqvgDhfC0OXPFRCPOg9an9Q7ms3+zoYwSlPE1rs8h
-	eVkHc+dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wn5PqQDu8hz9K4Oy4JOIS3Q71qnLvlCk/FbvxOIh0t0=; b=WzRrHZ/j+d6yWQ/4hCLIoCYIk+
+	Q1BGG7Dre00PkkY9fooq/RkRSAoPQoGx4+UGy+fSI1YS0j7NGli7c0B4TfffW3ZhVA4/sJt7veULA
+	r9z8SVtreBZBJxc33mmHvlhhZ+wEOxtlxVKw4e2xp8Xh1BgV1dGC3pG/E6Ev0NaQ5QOF7Dx7JyzWm
+	7q2XOatC1VK4eEsn4E+iuK+KqRue2UHn+RD7KmPYIZZr+a54P6Il/e66tkXhkgurkbRejn1WmGV4x
+	CfDfGsknsJVoHj5X7Za7RRdHOt8FYPycm95IjO11EBsQ0PdUOUvCq8a1CQ1K5nNw8csVUjt7khGTM
+	ljq89ytw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjEwq-0000000HOKZ-05RU;
-	Sat, 15 Feb 2025 09:58:56 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tjEyG-0000000HOWq-1OCd;
+	Sat, 15 Feb 2025 10:00:24 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjEil-0000000HMQO-2ei7;
-	Sat, 15 Feb 2025 09:44:24 +0000
-X-UUID: 6bc59bf2eb8111ef9048ed6ed365623b-20250215
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=1XRwV3v0Pr5UX8e3+ENacWcRYH9cJyzTBU7O5dVKwSQ=;
-	b=lvUyxxqzUNF5OQ2JPAvIfyScN8AnxyZfaImVuHKTe8xQ7xxXV62akasdkmVhkpm2PEVD4SoQDseQsL5FglUfHHde9sKrHSgi3F2121Du8j6x7zG/LFb5nsT9iivcQkPcqWgGkbAQvvW3PomCSe6TfILt520p0M/nA9VWnLWrMYA=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:7e65528c-826c-431f-bd0d-66b9496698b2,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:c2f9cb24-96bd-4ac5-8f2e-15aa1ef9defa,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 6bc59bf2eb8111ef9048ed6ed365623b-20250215
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <chunfeng.yun@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1030995723; Sat, 15 Feb 2025 02:44:16 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Sat, 15 Feb 2025 17:44:13 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Sat, 15 Feb 2025 17:44:13 +0800
-From: Chunfeng Yun <chunfeng.yun@mediatek.com>
-To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>
-CC: Chunfeng Yun <chunfeng.yun@mediatek.com>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 2/2] phy: mediatek: xsphy: add support to set disconnect threshold
-Date: Sat, 15 Feb 2025 17:44:10 +0800
-Message-ID: <20250215094410.547-2-chunfeng.yun@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250215094410.547-1-chunfeng.yun@mediatek.com>
-References: <20250215094410.547-1-chunfeng.yun@mediatek.com>
+	id 1tjEpA-0000000HNLG-1yDh;
+	Sat, 15 Feb 2025 09:51:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739613060; x=1771149060;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=MYtye3mXOSgmjNVwAdiLAWnVTAT6ccam/tc+AZHY5DU=;
+  b=mjhbU+GTzvDhJAr1978ue7rsM8wxVYVYEiZptbfarIZQl9Po+D3uA6md
+   oneL6qXUBvlig5eqlZUlNBh64vA8SuE3cACb3YfCLHx8pVMvGzvYXjups
+   WjJbERIdRjzySQjZPaon/5dMzdO3xN8XsVETpcy5c/DG2AT1x1TGcvO27
+   PbRxFPKtiR/UQROTfyw4iYAbXSYpsjQb8wpi6HDE+M/eQ4YGbR4FlKsID
+   MzVDSmu9qHWqEu8jolUNnGAkfTEpDu4ctZM7IVY1Eo6nwAhzOyEGve052
+   Ad9M87Qha2Jg/aDfnsEf5Fp3YhQJ7L0kIvFI37hChRzFDgSSD2DMiWLR8
+   w==;
+X-CSE-ConnectionGUID: CKjC3y4bSguxWC484j4fXA==
+X-CSE-MsgGUID: YiTkGTiVSiyo9wycb3v2cg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11345"; a="62830874"
+X-IronPort-AV: E=Sophos;i="6.13,288,1732608000"; 
+   d="scan'208";a="62830874"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Feb 2025 01:50:56 -0800
+X-CSE-ConnectionGUID: Wx9nhBKeSyWUiDCwEGa+UA==
+X-CSE-MsgGUID: tBrnDxKzSJ2qq/G5C/lSng==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,288,1732608000"; 
+   d="scan'208";a="113858921"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Feb 2025 01:50:48 -0800
+Message-ID: <d66e555b-8054-4f73-8077-201b51139773@linux.intel.com>
+Date: Sat, 15 Feb 2025 17:47:51 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 23/23] iommu/pages: Remove iommu_alloc_pages_node()
+To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
+ Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
+ <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
+ Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
+Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+ David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
+References: <23-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <23-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_014423_672019_E6E543FB 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20250215_015100_543037_C795768E 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,62 +101,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a property to tune usb2 phy's disconnect threshold.
+On 2/15/25 01:07, Jason Gunthorpe wrote:
+> diff --git a/drivers/iommu/intel/iommu.h b/drivers/iommu/intel/iommu.h
+> index dd980808998da9..1036ed0d899472 100644
+> --- a/drivers/iommu/intel/iommu.h
+> +++ b/drivers/iommu/intel/iommu.h
+> @@ -493,14 +493,13 @@ struct q_inval {
+>   
+>   /* Page Request Queue depth */
+>   #define PRQ_ORDER	4
+> -#define PRQ_RING_MASK	((0x1000 << PRQ_ORDER) - 0x20)
+> -#define PRQ_DEPTH	((0x1000 << PRQ_ORDER) >> 5)
+> +#define PRQ_SIZE	(SZ_4K << PRQ_ORDER)
+> +#define PRQ_RING_MASK	(PRQ_SIZE - 0x20)
+> +#define PRQ_DEPTH	(PRQ_SIZE >> 5)
+>   
+>   struct dmar_pci_notify_info;
+>   
+>   #ifdef CONFIG_IRQ_REMAP
+> -/* 1MB - maximum possible interrupt remapping table size */
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
----
-v2: Add Reviewed by Angelo
----
- drivers/phy/mediatek/phy-mtk-xsphy.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+Can we keep this line of comment,
 
-diff --git a/drivers/phy/mediatek/phy-mtk-xsphy.c b/drivers/phy/mediatek/phy-mtk-xsphy.c
-index 7c248f5cfca5..718ed8f17c2d 100644
---- a/drivers/phy/mediatek/phy-mtk-xsphy.c
-+++ b/drivers/phy/mediatek/phy-mtk-xsphy.c
-@@ -59,6 +59,7 @@
- #define XSP_USBPHYACR6		((SSUSB_SIFSLV_U2PHY_COM) + 0x018)
- #define P2A6_RG_BC11_SW_EN	BIT(23)
- #define P2A6_RG_OTG_VBUSCMP_EN	BIT(20)
-+#define PA6_RG_U2_DISCTH	GENMASK(7, 4)
- 
- #define XSP_U2PHYDTM1		((SSUSB_SIFSLV_U2PHY_COM) + 0x06C)
- #define P2D_FORCE_IDDIG		BIT(9)
-@@ -95,6 +96,7 @@ struct xsphy_instance {
- 	int eye_src;
- 	int eye_vrt;
- 	int eye_term;
-+	int discth;
- };
- 
- struct mtk_xsphy {
-@@ -244,9 +246,12 @@ static void phy_parse_property(struct mtk_xsphy *xsphy,
- 					 &inst->eye_vrt);
- 		device_property_read_u32(dev, "mediatek,eye-term",
- 					 &inst->eye_term);
--		dev_dbg(dev, "intr:%d, src:%d, vrt:%d, term:%d\n",
-+		device_property_read_u32(dev, "mediatek,discth",
-+					 &inst->discth);
-+		dev_dbg(dev, "intr:%d, src:%d, vrt:%d, term:%d, discth:%d\n",
- 			inst->efuse_intr, inst->eye_src,
--			inst->eye_vrt, inst->eye_term);
-+			inst->eye_vrt, inst->eye_term,
-+			inst->discth);
- 		break;
- 	case PHY_TYPE_USB3:
- 		device_property_read_u32(dev, "mediatek,efuse-intr",
-@@ -285,6 +290,9 @@ static void u2_phy_props_set(struct mtk_xsphy *xsphy,
- 	if (inst->eye_term)
- 		mtk_phy_update_field(pbase + XSP_USBPHYACR1, P2A1_RG_TERM_SEL,
- 				     inst->eye_term);
-+	if (inst->discth)
-+		mtk_phy_update_field(pbase + XSP_USBPHYACR6, PA6_RG_U2_DISCTH,
-+				     inst->discth);
- }
- 
- static void u3_phy_props_set(struct mtk_xsphy *xsphy,
--- 
-2.46.0
+and move it ...
 
+> -#define INTR_REMAP_PAGE_ORDER	8
+>   #define INTR_REMAP_TABLE_REG_SIZE	0xf
+>   #define INTR_REMAP_TABLE_REG_SIZE_MASK  0xf
+>   
+> diff --git a/drivers/iommu/intel/irq_remapping.c b/drivers/iommu/intel/irq_remapping.c
+> index d6b796f8f100cd..735e26498ee9f2 100644
+> --- a/drivers/iommu/intel/irq_remapping.c
+> +++ b/drivers/iommu/intel/irq_remapping.c
+> @@ -538,11 +538,10 @@ static int intel_setup_irq_remapping(struct intel_iommu *iommu)
+>   	if (!ir_table)
+>   		return -ENOMEM;
+>   
+> -	ir_table_base = iommu_alloc_pages_node(iommu->node, GFP_KERNEL,
+> -					       INTR_REMAP_PAGE_ORDER);
+> +	ir_table_base =
+
+... here?
+
+> +		iommu_alloc_pages_node_sz(iommu->node, GFP_KERNEL, SZ_1M);
+>   	if (!ir_table_base) {
+> -		pr_err("IR%d: failed to allocate pages of order %d\n",
+> -		       iommu->seq_id, INTR_REMAP_PAGE_ORDER);
+> +		pr_err("IR%d: failed to allocate 1M of pages\n", iommu->seq_id);
+>   		goto out_free_table;
+>   	}
+
+Thanks,
+baolu
 
