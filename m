@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF79AC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 15:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 477B6C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 15:18:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wxa1NEmkHNZdnvigK+LG91Nu0vtbIXiclL94yHdqg+s=; b=WZrBw3e6fix/vixQMdhfPFp54f
-	sZbPbDZm8az4It36BIDCDjV6ZhI6vLn2dulqBmYqR8Cu2LchC37JH0/GHLsjwbcPQ1HVbUUQOZ9Hy
-	TFwWZlVJ4RlOMA/slG0+vIdw1r86YM+yXXxQ28KKpmqo+M2x/wtcaqmPcbO7/jyKtKAYK6ClR4zwN
-	ux8wHqiTrRBe6mYoEtOHXRzdotjaM+QhefxoxPUOeTAcO4f5lMhoBSphs4Oz0k7Uzih0JyK/tXoeG
-	5OXKv0mYf1lCDBAcm3zfIpnCQ8wb4+QknE1iWg1Wf9su92QX934sMqLlBiFyAezi8lJ4blTw7yej+
-	JJe3Vuag==;
+	bh=UCfh+MEyEtcot8hd46rxJtRt2vOT5JMsSl8Rt04xEmU=; b=zrWyCPW7RAYZ3526OulbVgEvgB
+	uOxxWSBNvtZI+vUNi1GeRds80Jpe5AUdaK/DDPEk3bF/hfN/WPO9wZC7IUQjgxTV4f0uclYNki6Yu
+	XjJ6l89s59oSyjo+THJU5NkQSFOFXFVetmnJ1fXF075Lw0a1TPf8heENpI4QotNmQrMLyZ3OssYZc
+	G+Uve1srP4fMK/wP3zhhGV16Mj0V+f+w00zz+qH1h5GqLob+A7MSgiQLMrJbcA4CtxFHCtMWOIa86
+	Bt1rFCr8HS/yra2dT+sQVpbrcMe8bBRD8zLgRj1YFUNgnwTvdUjd4cqeqosDXVia+0uvDNLn09Rci
+	wv/sdo5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjJuQ-00000000ItJ-46ps;
-	Sat, 15 Feb 2025 15:16:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tjJvq-00000000J4Z-2gOB;
+	Sat, 15 Feb 2025 15:18:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjJgE-00000000H3F-1SZW
+	id 1tjJgD-00000000H2c-2p4m
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 15 Feb 2025 15:02:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 56CE35C5419;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 106C05C5415;
 	Sat, 15 Feb 2025 15:01:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77A8AC4CEE9;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 323BBC4CEDF;
 	Sat, 15 Feb 2025 15:02:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1739631723;
-	bh=zkHr3vkzDC1kIdGLI1aElkjYHYfjk/IsB6KkkSw5XXM=;
+	bh=PpoF2F+1+wn+5ob8I5NtW1ySbrqpV7c5zsFC4HILuKo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nrUd42OyfvCH1SC3wCEszYBngm0+i3DA9zYt4hGbMtC7fjSETBHv0m+6lVKJoHGVG
-	 cPxsQSv1Z9LGKCob2niUx6AhNCFj4Pbrpell6ZUENOPCpdhnCQgK55Ix5LOM4lJ2/O
-	 ZVtxj1WZzR4DEujiGCixM3MWBG2d7dSlSFlrJmp4uJVzZ4MF9KKzNuXoYSiz/l/WSQ
-	 1fxhWnPWv3CIwf+drsXxnb42G/sv5MYEDo+LIPDqWdklRgbjwd1vH63COLRKhTvpSg
-	 XeTEMgmW0qQZpcwoICNscctf/Wg4m8GC/D771W2Lpm6P/wfQYaMuL6Ly6CESBrbCqc
-	 rV7+uMKi/wMvA==
+	b=VW6bEWVhseSajhayzaAGS7lxFOgbpxRKhYnzuy6LNN2/KwoiLKl67/RWj46YH2WWk
+	 1JpRW4ZtqPVIE2U45QRcPexbeZFPrtu6wKHe5tq1b6O35UcaWc3IWIQ8IYJPioLi3K
+	 TZ0hCiJUAUHQf6Nql2TE9PC35e4QEylPSHLheXCgY1LDsu7hcBhxAEUeIQuLTYIwQB
+	 TM4b25Z9BhRT0R3eejKudxMq6P+5zyg3ElMug5RxziE3CkXewLQCZk8B4kNEAKRjt+
+	 j3h0/Y8qfJ1IprSiuDABskclpBHx1Pi3mlF0YMTMBtPW8xGeKBWSOq6tjiFARUyKGc
+	 OFxGxpw1B05aA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tjJg9-004Nz6-Om;
+	id 1tjJg9-004Nz6-Bw;
 	Sat, 15 Feb 2025 15:02:01 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -57,9 +57,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH 08/14] KVM: arm64: nv: Add userspace and guest handling of VNCR_EL2
-Date: Sat, 15 Feb 2025 15:01:28 +0000
-Message-Id: <20250215150134.3765791-9-maz@kernel.org>
+Subject: [PATCH 06/14] KVM: arm64: nv: Don't adjust PSTATE.M when L2 is nesting
+Date: Sat, 15 Feb 2025 15:01:26 +0000
+Message-Id: <20250215150134.3765791-7-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250215150134.3765791-1-maz@kernel.org>
 References: <20250215150134.3765791-1-maz@kernel.org>
@@ -70,8 +70,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_070206_475343_D0913B84 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20250215_070205_824485_41F0EB0D 
+X-CRM114-Status: GOOD (  18.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,100 +86,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Plug VNCR_EL2 in the vcpu_sysreg enum, define its RES0/RES1 bits,
-and make it accessible to userspace when the VM is configured to
-support FEAT_NV2.
+We currently check for HCR_EL2.NV being set to decide whether we
+need to repaint PSTATE.M to say EL2 instead of EL1 on exit.
+
+However, this isn't correct when L2 is itself a hypervisor, and
+that L1 as set its own HCR_EL2.NV. That's because we "flatten"
+the state and inherit parts of the guest's own setup. In that case,
+we shouldn't adjust PSTATE.M, as this is really EL1 for both us
+and the guest.
+
+Instead of trying to try and work out how we ended-up with HCR_EL2.NV
+being set by introspecting both the host and guest states, use
+a per-CPU flag to remember the context (HYP or not), and use that
+information to decide whether PSTATE needs tweaking.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h |  2 ++
- arch/arm64/kvm/nested.c           |  3 +++
- arch/arm64/kvm/sys_regs.c         | 24 +++++++++++++++---------
- 3 files changed, 20 insertions(+), 9 deletions(-)
+ arch/arm64/include/asm/kvm_host.h |  1 +
+ arch/arm64/kvm/hyp/vhe/switch.c   | 22 ++++++++++++++++++++--
+ 2 files changed, 21 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index dd287ccaffdb7..9b91a9e97cdce 100644
+index 7cfa024de4e34..519023dad3b47 100644
 --- a/arch/arm64/include/asm/kvm_host.h
 +++ b/arch/arm64/include/asm/kvm_host.h
-@@ -551,6 +551,8 @@ enum vcpu_sysreg {
- 	VNCR(HDFGWTR_EL2),
- 	VNCR(HAFGRTR_EL2),
+@@ -619,6 +619,7 @@ struct kvm_host_data {
+ #define KVM_HOST_DATA_FLAG_HOST_SME_ENABLED		3
+ #define KVM_HOST_DATA_FLAG_TRBE_ENABLED			4
+ #define KVM_HOST_DATA_FLAG_EL1_TRACING_CONFIGURED	5
++#define KVM_HOST_DATA_FLAG_VCPU_IN_HYP_CONTEXT		6
+ 	unsigned long flags;
  
-+	VNCR(VNCR_EL2),
-+
- 	VNCR(CNTVOFF_EL2),
- 	VNCR(CNTV_CVAL_EL0),
- 	VNCR(CNTV_CTL_EL0),
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 6ae5ec43ddeaa..aed25a003750d 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1371,6 +1371,9 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
- 		res0 |= GENMASK(11, 8);
- 	set_sysreg_masks(kvm, CNTHCTL_EL2, res0, res1);
+ 	struct kvm_cpu_context host_ctxt;
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index b5b9dbaf1fdd6..3453fb76cf0e3 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -53,13 +53,23 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
+ 	if (!vcpu_has_nv(vcpu))
+ 		return hcr;
  
-+	/* VNCR_EL2 */
-+	set_sysreg_masks(kvm, VNCR_EL2, VNCR_EL2_RES0, VNCR_EL2_RES1);
++	/*
++	 * We rely on the invariant that a vcpu entered from HYP
++	 * context must also exit in the same context, as only an ERET
++	 * instruction can kick us out of it, and we obviously trap
++	 * that sucker. PSTATE.M will get fixed-up on exit.
++	 */
+ 	if (is_hyp_ctxt(vcpu)) {
++		host_data_set_flag(VCPU_IN_HYP_CONTEXT);
 +
- out:
- 	for (enum vcpu_sysreg sr = __SANITISED_REG_START__; sr < NR_SYS_REGS; sr++)
- 		(void)__vcpu_sys_reg(vcpu, sr);
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 24eaff9379e75..cf1243dd04548 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2234,15 +2234,6 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
- 			"trap of EL2 register redirected to EL1");
+ 		hcr |= HCR_NV | HCR_NV2 | HCR_AT | HCR_TTLB;
+ 
+ 		if (!vcpu_el2_e2h_is_set(vcpu))
+ 			hcr |= HCR_NV1;
+ 
+ 		write_sysreg_s(vcpu->arch.ctxt.vncr_array, SYS_VNCR_EL2);
++	} else {
++		host_data_clear_flag(VCPU_IN_HYP_CONTEXT);
+ 	}
+ 
+ 	return hcr | (__vcpu_sys_reg(vcpu, HCR_EL2) & ~NV_HCR_GUEST_EXCLUDE);
+@@ -545,11 +555,16 @@ static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu)
+ 
+ static void early_exit_filter(struct kvm_vcpu *vcpu, u64 *exit_code)
+ {
++	if (!vcpu_has_nv(vcpu))
++		return;
++
+ 	/*
+ 	 * If we were in HYP context on entry, adjust the PSTATE view
+-	 * so that the usual helpers work correctly.
++	 * so that the usual helpers work correctly. This enforces our
++	 * invariant that the guest's HYP context status is preserved
++	 * across a run.
+ 	 */
+-	if (vcpu_has_nv(vcpu) && (read_sysreg(hcr_el2) & HCR_NV)) {
++	if (unlikely(host_data_test_flag(VCPU_IN_HYP_CONTEXT))) {
+ 		u64 mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
+ 
+ 		switch (mode) {
+@@ -564,6 +579,9 @@ static void early_exit_filter(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 		*vcpu_cpsr(vcpu) &= ~(PSR_MODE_MASK | PSR_MODE32_BIT);
+ 		*vcpu_cpsr(vcpu) |= mode;
+ 	}
++
++	/* Apply extreme paranoia! */
++	BUG_ON(!!host_data_test_flag(VCPU_IN_HYP_CONTEXT) != is_hyp_ctxt(vcpu));
  }
  
--#define EL2_REG(name, acc, rst, v) {		\
--	SYS_DESC(SYS_##name),			\
--	.access = acc,				\
--	.reset = rst,				\
--	.reg = name,				\
--	.visibility = el2_visibility,		\
--	.val = v,				\
--}
--
- #define EL2_REG_FILTERED(name, acc, rst, v, filter) {	\
- 	SYS_DESC(SYS_##name),			\
- 	.access = acc,				\
-@@ -2252,6 +2243,9 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
- 	.val = v,				\
- }
- 
-+#define EL2_REG(name, acc, rst, v)			\
-+	EL2_REG_FILTERED(name, acc, rst, v, el2_visibility)
-+
- #define EL2_REG_VNCR(name, rst, v)	EL2_REG(name, bad_vncr_trap, rst, v)
- #define EL2_REG_REDIR(name, rst, v)	EL2_REG(name, bad_redir_trap, rst, v)
- 
-@@ -2407,6 +2401,16 @@ static unsigned int sve_el2_visibility(const struct kvm_vcpu *vcpu,
- 	return __el2_visibility(vcpu, rd, sve_visibility);
- }
- 
-+static unsigned int vncr_el2_visibility(const struct kvm_vcpu *vcpu,
-+					const struct sys_reg_desc *rd)
-+{
-+	if (el2_visibility(vcpu, rd) == 0 &&
-+	    kvm_has_feat(vcpu->kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY))
-+		return 0;
-+
-+	return REG_HIDDEN;
-+}
-+
- static bool access_zcr_el2(struct kvm_vcpu *vcpu,
- 			   struct sys_reg_params *p,
- 			   const struct sys_reg_desc *r)
-@@ -3054,6 +3058,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 			 tcr2_el2_visibility),
- 	EL2_REG_VNCR(VTTBR_EL2, reset_val, 0),
- 	EL2_REG_VNCR(VTCR_EL2, reset_val, 0),
-+	EL2_REG_FILTERED(VNCR_EL2, bad_vncr_trap, reset_val, 0,
-+			 vncr_el2_visibility),
- 
- 	{ SYS_DESC(SYS_DACR32_EL2), undef_access, reset_unknown, DACR32_EL2 },
- 	EL2_REG_VNCR(HDFGRTR_EL2, reset_val, 0),
+ /* Switch to the guest for VHE systems running in EL2 */
 -- 
 2.39.2
 
