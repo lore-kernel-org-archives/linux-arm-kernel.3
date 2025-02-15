@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA148C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 17:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA769C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 17:59:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fG9eNLAZJUZTuIvF0w5SB78GN1GvreEw429gv6gjbOU=; b=Y7UQgUQDFd+NUCtVTqE0zRyVCS
-	j+F4aP9c33IGetqzgmXn8V4zgdH+eCauCf7faPgJK80mhAafAa9ngj1VwSkTV+JO7L+LTULOPAzxA
-	FCaBpJbrSO2HACm5HN8ExkpzgfsehmOUIBb/74BxvWxm9sWVsE0d8Aju+NozwAZGmKhZ0+EFhikZe
-	MOiacLqOIiyX28iOo/rDgXY60Rv7mKp4cnh11z2Rf8gEr2oOW5zGLScuPLdFtF4+wmhYybz2kxo7B
-	50g6ifpxASxzgBuuVL9ssQHyqZHwEqyMK/gjhpk/QvHSaMRKPwXGTriWtyVeDaVcoxqNwA3pRSCXi
-	Idq35pcA==;
+	bh=ip1WsbEJTMycwVxUxR+L4TiBaWyj1XMo8ATzil3InR4=; b=fuqFfstYYM3swN1is0R9dJG11C
+	LpAVT7dp9dH/7b1MlvTiPklqU+8FxwhMzzOmOixjDmAvASCcvAb8wy+dKBo59Pg5ox0J/M59sijUh
+	ee4uLy8+OIpOIAqNFteooxyJBLVMe+Qvpp1y9QyN0J7dWnfHPFgg5B6sl59GKBNHzlAg3VG3EYOuA
+	ws0LajeIZ4IMJJeI0P+s/YAbCcWnN89zMEOFhBhwMhsG5vWCozvc5PKMR8w6R5AEZiH45+781c6ub
+	EXHybaI1NSMCn0OHo5+KTdMivd9cgYeGMOrj/oqPnRS3OSU7zbQSVgIltAi76siitlrW3Ih+C+qEf
+	zvjWdfxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjMQ0-00000000XS7-1Bgq;
-	Sat, 15 Feb 2025 17:57:32 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tjMRQ-00000000Xal-3nd1;
+	Sat, 15 Feb 2025 17:59:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjM7W-00000000Us0-0tVN
+	id 1tjM7W-00000000Urx-0gVf
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 15 Feb 2025 17:38:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id ABCECA40765;
-	Sat, 15 Feb 2025 17:36:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A029AC4CEE9;
-	Sat, 15 Feb 2025 17:38:24 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id C6175A406D3;
+	Sat, 15 Feb 2025 17:36:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B1CAC4CEEB;
+	Sat, 15 Feb 2025 17:38:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739641104;
-	bh=XrR6EufsQEHc3su339NPCgvj8egd8HG9nLlDbIZ7ZzI=;
+	s=k20201202; t=1739641103;
+	bh=56SIWRxmkIc0NGhh9uSDjlX1Hg9JEfvHAZmk7x9h1hQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CYYw7Lp/tf67yV7SEf83U0rIspum+TG0z1f4OhgFLMZ6wUcvVW1hBu38dL++/0LE9
-	 HRLyNZam6lqIL1bBNq39v8tDuScFrdzOl/bz3/3onca9CPEYyDvDKkxvEYNBQa7jf6
-	 hd8DJ+WOF7clwPxF3oitOITZhL3TvdtnkvEMPXmoyDZtQPbGicP0rA/L5HuyRz9Qpv
-	 WskQ/FHaOH2baw65NqwycoaueeHxttg9gtk3GKMM2cu1kPhL3trQm71P6dMeV1gBFr
-	 6hXhMD4Se0mBA2CNSwC0By36J2jr9OfDvU+2oUxMlmsNZyfU1K9nmE4zT2W4p533Mt
-	 Tx0ER+w01i6Uw==
+	b=SgOC32MDprkHirQZPXfpwG99NfqRINDVIOf8Hds315WXcyQGXUdi2jDttgP6HDon2
+	 qaUjC1Q6AHhABq3r5vdioRDAo8OQBbZ0j+R/f7HRK71iksv/NR0cJClVw+Y3CZS2nA
+	 Cf9ZdkWAHTSs46vIDVMmQU3uP27l3LzvR0Bv3hMaXsm0U4jT/8zwzN+BzfNH6ISbzW
+	 k392NgCTIpQTdajVhQPkCe7przEHJbX18/jrBEXx27hpegEaY3dPC53KOweRzR3RKO
+	 adCqb25x8/03AEMzXZNXAT9xTjb/w54gdre+6/Kq/SSTG8DY+j7BdmO0Z1rBC08NS9
+	 dtjXnpdA1WCjA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tjM7T-004Pqp-0P;
-	Sat, 15 Feb 2025 17:38:23 +0000
+	id 1tjM7R-004Pqp-Qt;
+	Sat, 15 Feb 2025 17:38:21 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -57,9 +57,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH 14/14] KVM: arm64: Document NV caps and vcpu flags
-Date: Sat, 15 Feb 2025 17:38:16 +0000
-Message-Id: <20250215173816.3767330-15-maz@kernel.org>
+Subject: [PATCH 08/14] KVM: arm64: Enforce NV limits on a per-idregs basis
+Date: Sat, 15 Feb 2025 17:38:10 +0000
+Message-Id: <20250215173816.3767330-9-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250215173816.3767330-1-maz@kernel.org>
 References: <20250215173816.3767330-1-maz@kernel.org>
@@ -70,8 +70,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_093826_331045_7CA3CB37 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20250215_093826_364571_ABD72DD2 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,45 +86,301 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe the two new vcpu flags that control NV, together with
-the capabilities that advertise them.
+As we are about to change the way the idreg reset values are computed,
+move all the NV limits into a function that initialises one register
+at a time.
+
+This will be most useful in the upcoming patches. We take this opportunity
+to remove the NV_FTR() macro and rely on the generated names instead.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- Documentation/virt/kvm/api.rst | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/nested.c | 239 +++++++++++++++++++++++-----------------
+ 1 file changed, 136 insertions(+), 103 deletions(-)
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index 2b52eb77e29cb..2d7b516ae408d 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -3456,7 +3456,8 @@ The initial values are defined as:
- 	- FPSIMD/NEON registers: set to 0
- 	- SVE registers: set to 0
- 	- System registers: Reset to their architecturally defined
--	  values as for a warm reset to EL1 (resp. SVC)
-+	  values as for a warm reset to EL1 (resp. SVC) or EL2 (in the
-+	  case of EL2 being enabled).
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 9f140560a6f5d..2cc82e69ab523 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -16,9 +16,6 @@
  
- Note that because some registers reflect machine topology, all vcpus
- should be created before this ioctl is invoked.
-@@ -3523,6 +3524,17 @@ Possible features:
- 	      - the KVM_REG_ARM64_SVE_VLS pseudo-register is immutable, and can
- 	        no longer be written using KVM_SET_ONE_REG.
+ #include "sys_regs.h"
  
-+	- KVM_ARM_VCPU_HAS_EL2: Enable Nested Virtualisation support,
-+	  booting the guest from EL2 instead of EL1.
-+	  Depends on KVM_CAP_ARM_EL2.
-+	  The VM is running with HCR_EL2.E2H being RES1 (VHE) unless
-+	  KVM_ARM_VCPU_HAS_EL2_E2H0 is also set.
+-/* Protection against the sysreg repainting madness... */
+-#define NV_FTR(r, f)		ID_AA64##r##_EL1_##f
+-
+ /*
+  * Ratio of live shadow S2 MMU per vcpu. This is a trade-off between
+  * memory usage and potential number of different sets of S2 PTs in
+@@ -807,133 +804,169 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
+  * This list should get updated as new features get added to the NV
+  * support, and new extension to the architecture.
+  */
++static u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
++{
++	switch (reg) {
++	case SYS_ID_AA64ISAR0_EL1:
++		/* Support everything but TME */
++		val &= ~ID_AA64ISAR0_EL1_TME;
++		break;
 +
-+	- KVM_ARM_VCPU_HAS_EL2_E2H0: Restrict Nested Virtualisation
-+	  support to HCR_EL2.E2H being RES0 (non-VHE).
-+	  Depends on KVM_CAP_ARM_EL2_E2H0.
-+	  KVM_ARM_VCPU_HAS_EL2 must also be set.
++	case SYS_ID_AA64ISAR1_EL1:
++		/* Support everything but LS64 and Spec Invalidation */
++		val &= ~(ID_AA64ISAR1_EL1_LS64	|
++			 ID_AA64ISAR1_EL1_SPECRES);
++		break;
 +
- 4.83 KVM_ARM_PREFERRED_TARGET
- -----------------------------
++	case SYS_ID_AA64PFR0_EL1:
++		/* No RME, AMU, MPAM, S-EL2, or RAS */
++		val &= ~(ID_AA64PFR0_EL1_RME	|
++			 ID_AA64PFR0_EL1_AMU	|
++			 ID_AA64PFR0_EL1_MPAM	|
++			 ID_AA64PFR0_EL1_SEL2	|
++			 ID_AA64PFR0_EL1_RAS	|
++			 ID_AA64PFR0_EL1_EL3	|
++			 ID_AA64PFR0_EL1_EL2	|
++			 ID_AA64PFR0_EL1_EL1	|
++			 ID_AA64PFR0_EL1_EL0);
++		/* 64bit only at any EL */
++		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, EL0, IMP);
++		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, EL1, IMP);
++		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, EL2, IMP);
++		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, EL3, IMP);
++		break;
++
++	case SYS_ID_AA64PFR1_EL1:
++		/* Only support BTI, SSBS, CSV2_frac */
++		val &= (ID_AA64PFR1_EL1_BT	|
++			ID_AA64PFR1_EL1_SSBS	|
++			ID_AA64PFR1_EL1_CSV2_frac);
++		break;
++
++	case SYS_ID_AA64MMFR0_EL1:
++		/* Hide ECV, ExS, Secure Memory */
++		val &= ~(ID_AA64MMFR0_EL1_EVC		|
++			 ID_AA64MMFR0_EL1_EXS		|
++			 ID_AA64MMFR0_EL1_TGRAN4_2	|
++			 ID_AA64MMFR0_EL1_TGRAN16_2	|
++			 ID_AA64MMFR0_EL1_TGRAN64_2	|
++			 ID_AA64MMFR0_EL1_SNSMEM);
++
++		/* Disallow unsupported S2 page sizes */
++		switch (PAGE_SIZE) {
++		case SZ_64K:
++			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN16_2, NI);
++			fallthrough;
++		case SZ_16K:
++			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN4_2, NI);
++			fallthrough;
++		case SZ_4K:
++			/* Support everything */
++			break;
++		}
++
++		/*
++		 * Since we can't support a guest S2 page size smaller
++		 * than the host's own page size (due to KVM only
++		 * populating its own S2 using the kernel's page
++		 * size), advertise the limitation using FEAT_GTG.
++		 */
++		switch (PAGE_SIZE) {
++		case SZ_4K:
++			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN4_2, IMP);
++			fallthrough;
++		case SZ_16K:
++			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN16_2, IMP);
++			fallthrough;
++		case SZ_64K:
++			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN64_2, IMP);
++			break;
++		}
++
++		/* Cap PARange to 48bits */
++		val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64MMFR0_EL1, PARANGE, 48);
++		break;
++
++	case SYS_ID_AA64MMFR1_EL1:
++		val &= (ID_AA64MMFR1_EL1_HCX	|
++			ID_AA64MMFR1_EL1_PAN	|
++			ID_AA64MMFR1_EL1_LO	|
++			ID_AA64MMFR1_EL1_HPDS	|
++			ID_AA64MMFR1_EL1_VH	|
++			ID_AA64MMFR1_EL1_VMIDBits);
++		break;
++
++	case SYS_ID_AA64MMFR2_EL1:
++		val &= ~(ID_AA64MMFR2_EL1_BBM	|
++			 ID_AA64MMFR2_EL1_TTL	|
++			 GENMASK_ULL(47, 44)	|
++			 ID_AA64MMFR2_EL1_ST	|
++			 ID_AA64MMFR2_EL1_CCIDX	|
++			 ID_AA64MMFR2_EL1_VARange);
++
++		/* Force TTL support */
++		val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR2_EL1, TTL, IMP);
++		break;
++
++	case SYS_ID_AA64MMFR4_EL1:
++		val = SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY);
++		val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, E2H0, NI_NV1);
++		break;
++
++	case SYS_ID_AA64DFR0_EL1:
++		/* Only limited support for PMU, Debug, BPs, WPs, and HPMN0 */
++		val &= (ID_AA64DFR0_EL1_PMUVer	|
++			ID_AA64DFR0_EL1_WRPs	|
++			ID_AA64DFR0_EL1_BRPs	|
++			ID_AA64DFR0_EL1_DebugVer|
++			ID_AA64DFR0_EL1_HPMN0);
++
++		/* Cap Debug to ARMv8.1 */
++		val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64DFR0_EL1, DebugVer, VHE);
++		break;
++	}
++
++	return val;
++}
++
+ static void limit_nv_id_regs(struct kvm *kvm)
+ {
+-	u64 val, tmp;
++	u64 val;
+ 
+-	/* Support everything but TME */
+ 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64ISAR0_EL1);
+-	val &= ~NV_FTR(ISAR0, TME);
++	val = limit_nv_id_reg(kvm, SYS_ID_AA64ISAR0_EL1, val);
+ 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64ISAR0_EL1, val);
+ 
+-	/* Support everything but Spec Invalidation and LS64 */
+ 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64ISAR1_EL1);
+-	val &= ~(NV_FTR(ISAR1, LS64)	|
+-		 NV_FTR(ISAR1, SPECRES));
++	val = limit_nv_id_reg(kvm, SYS_ID_AA64ISAR1_EL1, val);
+ 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64ISAR1_EL1, val);
+ 
+-	/* No AMU, MPAM, S-EL2, or RAS */
+ 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1);
+-	val &= ~(GENMASK_ULL(55, 52)	|
+-		 NV_FTR(PFR0, AMU)	|
+-		 NV_FTR(PFR0, MPAM)	|
+-		 NV_FTR(PFR0, SEL2)	|
+-		 NV_FTR(PFR0, RAS)	|
+-		 NV_FTR(PFR0, EL3)	|
+-		 NV_FTR(PFR0, EL2)	|
+-		 NV_FTR(PFR0, EL1)	|
+-		 NV_FTR(PFR0, EL0));
+-	/* 64bit only at any EL */
+-	val |= FIELD_PREP(NV_FTR(PFR0, EL0), 0b0001);
+-	val |= FIELD_PREP(NV_FTR(PFR0, EL1), 0b0001);
+-	val |= FIELD_PREP(NV_FTR(PFR0, EL2), 0b0001);
+-	val |= FIELD_PREP(NV_FTR(PFR0, EL3), 0b0001);
++	val = limit_nv_id_reg(kvm, SYS_ID_AA64PFR0_EL1, val);
+ 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1, val);
+ 
+-	/* Only support BTI, SSBS, CSV2_frac */
+ 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR1_EL1);
+-	val &= (NV_FTR(PFR1, BT)	|
+-		NV_FTR(PFR1, SSBS)	|
+-		NV_FTR(PFR1, CSV2_frac));
++	val = limit_nv_id_reg(kvm, SYS_ID_AA64PFR1_EL1, val);
+ 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR1_EL1, val);
+ 
+-	/* Hide ECV, ExS, Secure Memory */
+ 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64MMFR0_EL1);
+-	val &= ~(NV_FTR(MMFR0, ECV)		|
+-		 NV_FTR(MMFR0, EXS)		|
+-		 NV_FTR(MMFR0, TGRAN4_2)	|
+-		 NV_FTR(MMFR0, TGRAN16_2)	|
+-		 NV_FTR(MMFR0, TGRAN64_2)	|
+-		 NV_FTR(MMFR0, SNSMEM));
+-
+-	/* Disallow unsupported S2 page sizes */
+-	switch (PAGE_SIZE) {
+-	case SZ_64K:
+-		val |= FIELD_PREP(NV_FTR(MMFR0, TGRAN16_2), 0b0001);
+-		fallthrough;
+-	case SZ_16K:
+-		val |= FIELD_PREP(NV_FTR(MMFR0, TGRAN4_2), 0b0001);
+-		fallthrough;
+-	case SZ_4K:
+-		/* Support everything */
+-		break;
+-	}
+-	/*
+-	 * Since we can't support a guest S2 page size smaller than
+-	 * the host's own page size (due to KVM only populating its
+-	 * own S2 using the kernel's page size), advertise the
+-	 * limitation using FEAT_GTG.
+-	 */
+-	switch (PAGE_SIZE) {
+-	case SZ_4K:
+-		val |= FIELD_PREP(NV_FTR(MMFR0, TGRAN4_2), 0b0010);
+-		fallthrough;
+-	case SZ_16K:
+-		val |= FIELD_PREP(NV_FTR(MMFR0, TGRAN16_2), 0b0010);
+-		fallthrough;
+-	case SZ_64K:
+-		val |= FIELD_PREP(NV_FTR(MMFR0, TGRAN64_2), 0b0010);
+-		break;
+-	}
+-	/* Cap PARange to 48bits */
+-	tmp = FIELD_GET(NV_FTR(MMFR0, PARANGE), val);
+-	if (tmp > 0b0101) {
+-		val &= ~NV_FTR(MMFR0, PARANGE);
+-		val |= FIELD_PREP(NV_FTR(MMFR0, PARANGE), 0b0101);
+-	}
++	val = limit_nv_id_reg(kvm, SYS_ID_AA64MMFR0_EL1, val);
+ 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64MMFR0_EL1, val);
+ 
+ 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64MMFR1_EL1);
+-	val &= (NV_FTR(MMFR1, HCX)	|
+-		NV_FTR(MMFR1, PAN)	|
+-		NV_FTR(MMFR1, LO)	|
+-		NV_FTR(MMFR1, HPDS)	|
+-		NV_FTR(MMFR1, VH)	|
+-		NV_FTR(MMFR1, VMIDBits));
++	val = limit_nv_id_reg(kvm, SYS_ID_AA64MMFR1_EL1, val);
+ 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64MMFR1_EL1, val);
+ 
+ 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64MMFR2_EL1);
+-	val &= ~(NV_FTR(MMFR2, BBM)	|
+-		 NV_FTR(MMFR2, TTL)	|
+-		 GENMASK_ULL(47, 44)	|
+-		 NV_FTR(MMFR2, ST)	|
+-		 NV_FTR(MMFR2, CCIDX)	|
+-		 NV_FTR(MMFR2, VARange));
+-
+-	/* Force TTL support */
+-	val |= FIELD_PREP(NV_FTR(MMFR2, TTL), 0b0001);
++	val = limit_nv_id_reg(kvm, SYS_ID_AA64MMFR2_EL1, val);
+ 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64MMFR2_EL1, val);
+ 
+-	val = 0;
+-	if (!cpus_have_final_cap(ARM64_HAS_HCR_NV1))
+-		val |= FIELD_PREP(NV_FTR(MMFR4, E2H0),
+-				  ID_AA64MMFR4_EL1_E2H0_NI_NV1);
++	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64MMFR4_EL1);
++	val = limit_nv_id_reg(kvm, SYS_ID_AA64MMFR4_EL1, val);
+ 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64MMFR4_EL1, val);
+ 
+-	/* Only limited support for PMU, Debug, BPs, WPs, and HPMN0 */
+ 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64DFR0_EL1);
+-	val &= (NV_FTR(DFR0, PMUVer)	|
+-		NV_FTR(DFR0, WRPs)	|
+-		NV_FTR(DFR0, BRPs)	|
+-		NV_FTR(DFR0, DebugVer)	|
+-		NV_FTR(DFR0, HPMN0));
+-
+-	/* Cap Debug to ARMv8.1 */
+-	tmp = FIELD_GET(NV_FTR(DFR0, DebugVer), val);
+-	if (tmp > 0b0111) {
+-		val &= ~NV_FTR(DFR0, DebugVer);
+-		val |= FIELD_PREP(NV_FTR(DFR0, DebugVer), 0b0111);
+-	}
++	val = limit_nv_id_reg(kvm, SYS_ID_AA64DFR0_EL1, val);
+ 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64DFR0_EL1, val);
+ }
  
 -- 
 2.39.2
