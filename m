@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0206BC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 10:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D6EC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 10:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UO8OXsaa3odBgE5srPoYYQ+h0WWuqfLyGTzGtOP9HPM=; b=z9WJ2Kpa5rhTGsi6E5ju3ulJdk
-	c9C9IJYVEcnuzfCikZSppIGNhMzZ9gxMTGj36WP1VzfuStweo1HuukrS4+qrlrIlQryUQ/8BZhw7E
-	CKgkO6YeGMLWe4axvJuFbGTCz7eWP5WBHJmmCoMM7/ILNzSfKhqZqSBa0TyDl1s/sZLTZorQ7SAV5
-	942qrSFhKwVq0BCkpYd9GUVW3avgj2RFkrxUoMSeLMFWiMWZwUljXcEu2AUgjK/x9dQ8F4MGI5ciV
-	MITHr2GGRn2SuTYvQmdbB2AY8D7MQHZPc4fpawvOwZvVceBa3kEMrhM5HwvSwIHvRd1yl9/+ELhK7
-	sYIZ8KIQ==;
+	bh=XURBkwfcJxZoqxhVQlJFP8gtLabU/vtRhWXMeh+LSYg=; b=IoZR+yR8KoL4DJ2cf7sq6TqjB6
+	rVqvLFoC68Mveu/Rq7O06t2S8UBcPMpBpkSgC8zUXZmw8fhZ66Yw5oYuwYgoZtfP0/j0RBlXQzeRN
+	4Vn9ReyxtPRBPUXHXBJvopV8aLhjzRD3V0Zdj4j6+qBYsN3qPLfmpnAh9FfFxmmEoRLc8i8Bh0MyG
+	ssrR7y/pZpaG+JP74eo+Hk339/NUnUoNzMQEaJc0PmIvwZWMJoZEVmmNIAWFASsji3hFyds/SdOn0
+	WvMpuLUUVSkUmvbjgkFzVY/qhCc2v3AmBKd1TlfnXrSsPz/LPTQc9162twVvR3hiWHaIz+a74GV6O
+	0z8MapKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjFQt-0000000HRpo-2NGT;
-	Sat, 15 Feb 2025 10:29:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tjFSJ-0000000HS1P-0kFe;
+	Sat, 15 Feb 2025 10:31:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjFPR-0000000HRdl-0kkb
+	id 1tjFPS-0000000HReP-0vwV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Feb 2025 10:28:30 +0000
+	Sat, 15 Feb 2025 10:28:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6FB385C4A51;
-	Sat, 15 Feb 2025 10:27:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59EC8C4CEDF;
-	Sat, 15 Feb 2025 10:28:27 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 45461A4029E;
+	Sat, 15 Feb 2025 10:26:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D561DC4CEE8;
+	Sat, 15 Feb 2025 10:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739615307;
-	bh=CEEKh7N14ok4a75LQPAkohKFtemp3HZBXqHD1CvOiWo=;
+	s=k20201202; t=1739615309;
+	bh=gNprYAi87qXWXNPsGmU77W5/QOMMYo/jVxd3xT4q5IE=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=OJDsM2JSsQlZMvIf51jy+TYtyGGWH8/FcywOqLviO/+8+XP551Ma8f0UnzxEI/PU4
-	 WtIofqRXNsppbmn1SkPcdmZZIvSlehazilnCQAm9+eMfyn9BPghUSJ81xI+uHZTUrd
-	 PsMqRIhIdxpq1AY9YPBwzw44vO+44aw+BzfEHfFvZ8d2rlcjbSpIqeSUUEUO1Vuls/
-	 L/kBQXuthXpW8SaeYeQxx/eUbC6J6MFQTs4b0mqWyzTJ4MmXRIkmKm+4N5PHUZqBB3
-	 Ogep1s81cq+Yv6tpMirUtcE9+X6sf5dnP/qGa3mNi1iwgzs3F7X9H4rayeh7RQdadb
-	 TJSrt3/rSMNdw==
-Date: Sat, 15 Feb 2025 04:28:26 -0600
+	b=oQwX7l6QUrwrSgf9XWJLP2EKJBpj/ccnw4KMliE/W1UQtATb+AgeyLPch2pSBQxrp
+	 +1koWenoRzEVpOpn5DafzZYqV4Y+F1aluMEv71LVph0YhEgqV0dwuHd0hedxcmksmD
+	 kvm3r5akTZ/DhdZbS7l2rEr91elvx2kdf4wTFe35+m0UIrNiCNnx585yc41bB97TP6
+	 0HgRnnbmOl+EfyzawAT9f66idI9TfG/oxQ5j0m3xTolH8HvLIN1/LKcvEY1kptvLq+
+	 8AfHDZlpxmXzmKtuvhOTNkqKRxsXDfUjMvR5ZE/FDnlLm+IUEePpY3kBc1OmThtpEG
+	 E3f2U79HrpuTA==
+Date: Sat, 15 Feb 2025 04:28:27 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, ~postmarketos/upstreaming@lists.sr.ht, 
+Cc: Mark Brown <broonie@kernel.org>, 
  Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Ray Jui <rjui@broadcom.com>, 
- Mark Brown <broonie@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Scott Branden <sbranden@broadcom.com>, 
+ Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ linux-kernel@vger.kernel.org, Stanislav Jakubek <stano.jakubek@gmail.com>, 
+ Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ devicetree@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
  Florian Fainelli <florian.fainelli@broadcom.com>, 
- Stanislav Jakubek <stano.jakubek@gmail.com>, 
- Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Scott Branden <sbranden@broadcom.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- linux-arm-kernel@lists.infradead.org
+ Ray Jui <rjui@broadcom.com>
 To: Artur Weber <aweber.kernel@gmail.com>
-In-Reply-To: <20250215-bcm59054-v4-1-dbfb2d76a855@gmail.com>
+In-Reply-To: <20250215-bcm59054-v4-2-dbfb2d76a855@gmail.com>
 References: <20250215-bcm59054-v4-0-dbfb2d76a855@gmail.com>
- <20250215-bcm59054-v4-1-dbfb2d76a855@gmail.com>
-Message-Id: <173961530505.188543.13359016373130021930.robh@kernel.org>
-Subject: Re: [PATCH v4 1/9] dt-bindings: mfd: brcm,bcm59056: Convert to
- YAML
+ <20250215-bcm59054-v4-2-dbfb2d76a855@gmail.com>
+Message-Id: <173961530619.188590.17123911097531884942.robh@kernel.org>
+Subject: Re: [PATCH v4 2/9] dt-bindings: mfd: brcm,bcm59056: Add compatible
+ for BCM59054
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_022829_332296_3C195DE4 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20250215_022830_392942_07C0CDFD 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,36 +81,35 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 15 Feb 2025 10:39:36 +0100, Artur Weber wrote:
-> Convert devicetree bindings for the Broadcom BCM59056 PMU MFD from
-> TXT to YAML format. This patch does not change any functionality;
-> the bindings remain the same.
-> 
-> The bindings have been split into two parts: the MFD binding and
-> a separate binding for the regulator node, to simplify the addition
-> of other models later (which have different regulators).
+On Sat, 15 Feb 2025 10:39:37 +0100, Artur Weber wrote:
+> The BCM59054 MFD is fairly similar to the BCM59056, and will use
+> the same driver. Add compatible and specify the allowed regulator
+> nodes.
 > 
 > Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
 > ---
 > Changes in v4:
-> - Made $ref use full schema path
-> - Cleaned up example
-> - Dropped regulator name list comment
-> - Changed description of regulator binding to mention BCM59056
+> - Fix yamllint errors (missing unevaluatedProperties)
+> - Drop comment with regulator name list
+> - Use full schema paths for $reg
+> - Change description of regulator binding to mention BCM59054
 >   explicitly
-> - Changed "Power Management IC" to "Power Management Unit" to match
+> - Drop quotes around vbus reg name
+> - Change "Power Management IC" to "Power Management Unit" to match
 >   official Broadcom naming
-> - Renamed mfd/brcm,bcm59056.yaml to mfd/brcm,bcm590xx.yaml
+> 
+> Note that I did not end up moving the regulator refs from
+> allOf compatible matches; I explained my reasoning in [1].
+> 
+> [1] https://lore.kernel.org/lkml/ab853605-859d-44c6-8cbd-44391cd677e6@gmail.com/
 > 
 > Changes in v3:
-> - Moved regulator node to separate binding
-> - Removed quotes around compatibles/vbus property
-> - Style fixes for example
+> - Split regulator node into separate file
+> - Removed quotes around compatible
 > ---
->  .../devicetree/bindings/mfd/brcm,bcm59056.txt      | 39 ----------------
->  .../devicetree/bindings/mfd/brcm,bcm590xx.yaml     | 54 ++++++++++++++++++++++
->  .../bindings/regulator/brcm,bcm59056.yaml          | 51 ++++++++++++++++++++
->  3 files changed, 105 insertions(+), 39 deletions(-)
+>  .../devicetree/bindings/mfd/brcm,bcm590xx.yaml     | 26 +++++++++-
+>  .../bindings/regulator/brcm,bcm59054.yaml          | 56 ++++++++++++++++++++++
+>  2 files changed, 80 insertions(+), 2 deletions(-)
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
@@ -121,10 +120,10 @@ dtschema/dtc warnings/errors:
 
 
 doc reference errors (make refcheckdocs):
-Warning: Documentation/devicetree/bindings/regulator/brcm,bcm59056.yaml references a file that doesn't exist: Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml
-Documentation/devicetree/bindings/regulator/brcm,bcm59056.yaml: Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml
+Warning: Documentation/devicetree/bindings/regulator/brcm,bcm59054.yaml references a file that doesn't exist: Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml
+Documentation/devicetree/bindings/regulator/brcm,bcm59054.yaml: Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250215-bcm59054-v4-1-dbfb2d76a855@gmail.com
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250215-bcm59054-v4-2-dbfb2d76a855@gmail.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
