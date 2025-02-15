@@ -4,68 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D6EC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 10:31:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4E5C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 11:09:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XURBkwfcJxZoqxhVQlJFP8gtLabU/vtRhWXMeh+LSYg=; b=IoZR+yR8KoL4DJ2cf7sq6TqjB6
-	rVqvLFoC68Mveu/Rq7O06t2S8UBcPMpBpkSgC8zUXZmw8fhZ66Yw5oYuwYgoZtfP0/j0RBlXQzeRN
-	4Vn9ReyxtPRBPUXHXBJvopV8aLhjzRD3V0Zdj4j6+qBYsN3qPLfmpnAh9FfFxmmEoRLc8i8Bh0MyG
-	ssrR7y/pZpaG+JP74eo+Hk339/NUnUoNzMQEaJc0PmIvwZWMJoZEVmmNIAWFASsji3hFyds/SdOn0
-	WvMpuLUUVSkUmvbjgkFzVY/qhCc2v3AmBKd1TlfnXrSsPz/LPTQc9162twVvR3hiWHaIz+a74GV6O
-	0z8MapKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X+uITPL1MA6j9F7/d6uOb4dkNY7HMIvpcOJUxLgXtLQ=; b=gKgYxB4vlNN7BTV2zdbIW+5+2g
+	e/+xx7u1D3xohUsKHTcA6R/mmq+a8KFAAykqUk0ENXGCiD9PY6X78sdoA4bey5droT0oCaKriKs+a
+	F7jg4Y64OnHPu9z2s6whrYHn/crAol4XA1UVr0QOo6igkzv4rxVT1qtfoQPhwiVvnRUqdIQtmvPIr
+	1B5jBoOTo45CUWHr/B3Yh0QjUbgUdyXpAGzzse/AMvkj5k9DRJklIfJ85wl6b5Bs6mLcWa4+MpQ9q
+	z3gIflv+vl1XJeeP5OE8vVfQBUHYu1Uw64cXohg0KsagJiadglceWTLajV4FGOO6JvslgqOg61hBv
+	zU0l5NjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjFSJ-0000000HS1P-0kFe;
-	Sat, 15 Feb 2025 10:31:27 +0000
+	id 1tjG2w-0000000HVRv-0yos;
+	Sat, 15 Feb 2025 11:09:18 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjFPS-0000000HReP-0vwV
+	id 1tjG1U-0000000HVLM-02mf
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Feb 2025 10:28:31 +0000
+	Sat, 15 Feb 2025 11:07:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 45461A4029E;
-	Sat, 15 Feb 2025 10:26:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D561DC4CEE8;
-	Sat, 15 Feb 2025 10:28:28 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EC964A402BE;
+	Sat, 15 Feb 2025 11:06:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C89FAC4CEDF;
+	Sat, 15 Feb 2025 11:07:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739615309;
-	bh=gNprYAi87qXWXNPsGmU77W5/QOMMYo/jVxd3xT4q5IE=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=oQwX7l6QUrwrSgf9XWJLP2EKJBpj/ccnw4KMliE/W1UQtATb+AgeyLPch2pSBQxrp
-	 +1koWenoRzEVpOpn5DafzZYqV4Y+F1aluMEv71LVph0YhEgqV0dwuHd0hedxcmksmD
-	 kvm3r5akTZ/DhdZbS7l2rEr91elvx2kdf4wTFe35+m0UIrNiCNnx585yc41bB97TP6
-	 0HgRnnbmOl+EfyzawAT9f66idI9TfG/oxQ5j0m3xTolH8HvLIN1/LKcvEY1kptvLq+
-	 8AfHDZlpxmXzmKtuvhOTNkqKRxsXDfUjMvR5ZE/FDnlLm+IUEePpY3kBc1OmThtpEG
-	 E3f2U79HrpuTA==
-Date: Sat, 15 Feb 2025 04:28:27 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1739617666;
+	bh=aviqrW+4MMM0OACMiFIOXdC21DPQ4amvmUKmI0yVnsc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mFW6meLh6335BCBVacv3KLcHO3Lnh6ZpSDXy/9IXWDFgzUwZIW1SxqylwEuTLXAfz
+	 3KUwHnvFAv0Qyn3s/p5GVuVygQqlCSSOwxqJQLsnWkCAW/MPD5N7FJs0of2XpXZtTx
+	 9NeCIkkRgIEsUcwJHI4t1jq7rpVGJUSoJ7kVH0LfmQ29+1orsNuvbbmE3K38DlkB9W
+	 S5u5YdiF+hcNUeMMo5nd9FWUSRkkgjzDuN3DqR44cSohZy4aCheFQr129ouxWqWGyJ
+	 xLAUI8BcokmJ1drd4ogMNlJLXZHQThsm7EBDjKwQXbymiosyyIjpdm+C6vaBL2nD0a
+	 d+0iZxdlYB2ug==
+Message-ID: <87e21b2a-b0f5-41c3-ba6e-960da5c1f836@kernel.org>
+Date: Sat, 15 Feb 2025 12:07:39 +0100
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- linux-arm-kernel@lists.infradead.org, Scott Branden <sbranden@broadcom.com>, 
- Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
- linux-kernel@vger.kernel.org, Stanislav Jakubek <stano.jakubek@gmail.com>, 
- Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- devicetree@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>
-To: Artur Weber <aweber.kernel@gmail.com>
-In-Reply-To: <20250215-bcm59054-v4-2-dbfb2d76a855@gmail.com>
-References: <20250215-bcm59054-v4-0-dbfb2d76a855@gmail.com>
- <20250215-bcm59054-v4-2-dbfb2d76a855@gmail.com>
-Message-Id: <173961530619.188590.17123911097531884942.robh@kernel.org>
-Subject: Re: [PATCH v4 2/9] dt-bindings: mfd: brcm,bcm59056: Add compatible
- for BCM59054
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 1/3] dt-binding: clock: ast2700: modify soc0/1 clock
+ define
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20250210085004.1898895-1-ryan_chen@aspeedtech.com>
+ <20250210085004.1898895-2-ryan_chen@aspeedtech.com>
+ <20250211-encouraging-free-aardwolf-0fabb1@krzk-bin>
+ <OS8PR06MB7541287BC48C500E50C7C77FF2F92@OS8PR06MB7541.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <OS8PR06MB7541287BC48C500E50C7C77FF2F92@OS8PR06MB7541.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_022830_392942_07C0CDFD 
-X-CRM114-Status: GOOD (  16.22  )
+X-CRM114-CacheID: sfid-20250215_030748_184492_EAAEF57A 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,62 +129,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sat, 15 Feb 2025 10:39:37 +0100, Artur Weber wrote:
-> The BCM59054 MFD is fairly similar to the BCM59056, and will use
-> the same driver. Add compatible and specify the allowed regulator
-> nodes.
+On 15/02/2025 03:14, Ryan Chen wrote:
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: Tuesday, February 11, 2025 4:18 PM
+>> To: Ryan Chen <ryan_chen@aspeedtech.com>
+>> Cc: Michael Turquette <mturquette@baylibre.com>; Stephen Boyd
+>> <sboyd@kernel.org>; Philipp Zabel <p.zabel@pengutronix.de>; Joel Stanley
+>> <joel@jms.id.au>; Andrew Jeffery <andrew@aj.id.au>;
+>> linux-clk@vger.kernel.org; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
+>> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>;
+>> linux-arm-kernel@lists.infradead.org; linux-aspeed@lists.ozlabs.org;
+>> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org
+>> Subject: Re: [PATCH v8 1/3] dt-binding: clock: ast2700: modify soc0/1 clock
+>> define
+>>
+>> On Mon, Feb 10, 2025 at 04:50:02PM +0800, Ryan Chen wrote:
+>>> remove soc0 clock:
+>>
+>> Why? Your commit msg must explain why. What is obvious from the diff, isn't
+>> it?
+> Thank you for your feedback. I will add explanation in next commit patch.
+>>
+>>>  SOC0_CLK_UART_DIV13
+>>>  SOC0_CLK_HPLL_DIV_AHB
+>>>  SOC0_CLK_MPLL_DIV_AHB
+>>> add soc0 clock:
+>>>  SOC0_CLK_AHBMUX
+>>>  SOC0_CLK_MPHYSRC
+>>>  SOC0_CLK_U2PHY_REFCLKSRC
+>>> add soc1 clock:
+>>>  SOC1_CLK_I3C
+>>>
+>>> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+>>> ---
+>>>  include/dt-bindings/clock/aspeed,ast2700-scu.h | 7 ++++---
+>>>  1 file changed, 4 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/include/dt-bindings/clock/aspeed,ast2700-scu.h
+>>> b/include/dt-bindings/clock/aspeed,ast2700-scu.h
+>>> index 63021af3caf5..c7389530629d 100644
+>>> --- a/include/dt-bindings/clock/aspeed,ast2700-scu.h
+>>> +++ b/include/dt-bindings/clock/aspeed,ast2700-scu.h
+>>> @@ -13,18 +13,17 @@
+>>>  #define SCU0_CLK_24M		1
+>>>  #define SCU0_CLK_192M		2
+>>>  #define SCU0_CLK_UART		3
+>>> -#define SCU0_CLK_UART_DIV13	3
+>>
+>> NAK, ABI break without any explanation.
 > 
-> Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
-> ---
-> Changes in v4:
-> - Fix yamllint errors (missing unevaluatedProperties)
-> - Drop comment with regulator name list
-> - Use full schema paths for $reg
-> - Change description of regulator binding to mention BCM59054
->   explicitly
-> - Drop quotes around vbus reg name
-> - Change "Power Management IC" to "Power Management Unit" to match
->   official Broadcom naming
-> 
-> Note that I did not end up moving the regulator refs from
-> allOf compatible matches; I explained my reasoning in [1].
-> 
-> [1] https://lore.kernel.org/lkml/ab853605-859d-44c6-8cbd-44391cd677e6@gmail.com/
-> 
-> Changes in v3:
-> - Split regulator node into separate file
-> - Removed quotes around compatible
-> ---
->  .../devicetree/bindings/mfd/brcm,bcm590xx.yaml     | 26 +++++++++-
->  .../bindings/regulator/brcm,bcm59054.yaml          | 56 ++++++++++++++++++++++
->  2 files changed, 80 insertions(+), 2 deletions(-)
-> 
+> The `SCU0_CLK_UART_DIV13` was originally defined as a separate clock identifier, reviewing the AST2700 clock driver implement, I realized it is no longer necessary.
+> The clk-ast2700.c driver I have **integrated the SOC0 UART clock (`soc0_uartclk`) with `ast2700_clk_uart_div_table`**. 
+> The UART clock source will get from ast2700_clk_uart_div_table, that will div from source 24M div13 or div1.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Wrap your replies correctly.
 
-yamllint warnings/errors:
+So all this means you exported clocks which are not clocks?
+How are ABI consumers behaving now?
 
-dtschema/dtc warnings/errors:
+Anyway, any ABI impact must be clearly justified in commit msg.
 
 
-doc reference errors (make refcheckdocs):
-Warning: Documentation/devicetree/bindings/regulator/brcm,bcm59054.yaml references a file that doesn't exist: Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml
-Documentation/devicetree/bindings/regulator/brcm,bcm59054.yaml: Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250215-bcm59054-v4-2-dbfb2d76a855@gmail.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Best regards,
+Krzysztof
 
