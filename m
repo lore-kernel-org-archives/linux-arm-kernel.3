@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 662F1C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 01:19:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1DF3C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 01:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPBYFiAweKzLygU/co8iY53bvVtiA5upX/HaNd3eSYM=; b=tJrtQXCPzxIIat2ft7gNVI6fzy
-	k6RZNGLwumCFAGENqEbMFuOT4rjNTrxQqBk7f4RHLXsgDjzCpJqMavzYEB/qCsXnlGUL+HtNu6Ujg
-	TXYuse0rPgHma4317FJ8fjbHephFkq0pjMlA33zWUFC4EZKx5wFIZQhfeMwycy9N3TywPCPi+bzk9
-	B9IHYLcDbASdbo/bskhJGAxThztmF5VD5vcgv2wpa09fTlVDrrEmLwPuvOrmhBYq35ZtBR+TnDQk7
-	tc3lyz15u3g2dnsCoVCbvaH8lIxUDM8R2uj2qJ6PKq/WeE1u1M4jM5g0QduXCDHvtIVe38E6SQphh
-	nWMYNDlA==;
+	bh=tOuJgsb9reT9v24EZ+TEHw2W8peMs2GzsTIwm6goNGc=; b=e3Snj2xLKp/HLUhDxK2lasnJbr
+	NeKAOhvYMpgY5+A7Q0ZsheUEllzxgM9LJeahYpOP7BIlH+y6GXYBUBbBcwdiV00jgFXvwJ1C0Szj/
+	8eRdX8Y0g0k/s0AMXBFojgvOVz+DXr054+xgBYZf5gQNY76i9pY8f5L2s9rbE+kS4V2q0S1rRC5rT
+	wZ0RzfOtaGFwaPh+izLbnYQt4j3GiWW3xCtgYLQ3ygoQ6ECIQuESL6Z6QvjDoeJDNroml5bTB0iER
+	DApaqOq+1LnOStrHkxf2YmRuYUrNnh1tqwoO01I1iKlJfQmUIlnSCi7DCmnp3H9pZDe8Q9fTcqIKp
+	JaPYXspQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj6pt-0000000Gk5T-4C1d;
-	Sat, 15 Feb 2025 01:19:14 +0000
-Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
+	id 1tj6rU-0000000GkNp-2gF2;
+	Sat, 15 Feb 2025 01:20:52 +0000
+Received: from fhigh-a3-smtp.messagingengine.com ([103.168.172.154])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tj6oR-0000000Gjwk-1R11
+	id 1tj6q1-0000000Gk6t-3PNA
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Feb 2025 01:17:44 +0000
+	Sat, 15 Feb 2025 01:19:23 +0000
 Received: from phl-compute-13.internal (phl-compute-13.phl.internal [10.202.2.53])
-	by mailfout.phl.internal (Postfix) with ESMTP id DB3D21380105;
-	Fri, 14 Feb 2025 20:17:41 -0500 (EST)
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 6BC6D11401B6;
+	Fri, 14 Feb 2025 20:19:20 -0500 (EST)
 Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-13.internal (MEProxy); Fri, 14 Feb 2025 20:17:41 -0500
+  by phl-compute-13.internal (MEProxy); Fri, 14 Feb 2025 20:19:20 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
 	 h=cc:cc:content-transfer-encoding:content-type:content-type
 	:date:date:from:from:in-reply-to:in-reply-to:message-id
 	:mime-version:references:reply-to:subject:subject:to:to; s=fm3;
-	 t=1739582261; x=1739668661; bh=hPBYFiAweKzLygU/co8iY53bvVtiA5up
-	X/HaNd3eSYM=; b=Hxhx1nkyQ5uF4Ow8rzokIProVSGAzqzyB2NygjkCRpoCVBhZ
-	1zVzXpaNJf7Y8ZTxXigS6XFKUUzjC3GfH3xek/2PfeWnL7TDRV5Q6ayGkMs9gtA9
-	wVINimPihowRNxpNm8jRSxPDMpmC430ynzD72FUnIY79Ojtea7oev5d9Qf62cgR9
-	hW/VOW+R+aRnw3xYNx2NM62SpU337D2BHyIoLkiUAVYSWRvH4hqoTOIaaqdHj1Ts
-	k7WPX6ee6sYAaSzCnwMMupQjtuiioY6gSKrQssEdbjNafCz0qf1Tr/pXJsvUEpfX
-	9LMabGfXlLZbZ3lRgpPFaDX8TBa+mex1AyaBjg==
+	 t=1739582360; x=1739668760; bh=tOuJgsb9reT9v24EZ+TEHw2W8peMs2Gz
+	sTIwm6goNGc=; b=Hl2dxZXeV307gE122iJ/3jRfFeTDxZQISO5FBFwIgCvbs1YP
+	wlQSzTfHHGgfDCSf33uabD+jcQ/2J+kDGe3EXgl6CVJOQxMZ4BAEM5VwWxt1HXqk
+	9OuiO7JMiFpCk3ApcVeW43JiwT0PbPyJWCZOXWnkUhHm5XzH3Cd/CZu3VAkwpcsi
+	MHEY/eNmSzIuA1Sf83jhjQRJ0YF107EhoS860ucNxGMRLcePEsL5b84978STsWFz
+	HqZBmn/KHUcUWLoO2iQJLLxhJHvt6NlWNT6kfODpJRyu+zpRZeahwSuTDEoBhMkH
+	mTQXVxpLYMyYYG7Lztqxjs77wEE3XbYccaQlwQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739582261; x=
-	1739668661; bh=hPBYFiAweKzLygU/co8iY53bvVtiA5upX/HaNd3eSYM=; b=O
-	N1iSdRXvdS33leQGOQaUeO0XVj2m2kBDw5uabBTwFOk0CBX3nzgnDiOWswKEkRXY
-	GBzkrLObdjw2LipUuAlOMn92f8sUGL2acPODzuIpboZCtKVfLDXkokgDB/LAoRn2
-	GMXDiUaWdrPlPBWKBvrQA46CFdNxW+AeeawKUNQ94H/GzfQVyG7cSDn8ns9TwQW+
-	l7QfysoX1fBvNeQ0qUlBNJ0OpeYDuJ0iNf59xzfvbn9z2Kv42cxhxpighdw4/tJl
-	EIwqeTjqN7KSqFqr/ACxJySbDIazfilzTREqQtWHELED7ksCcLPbWMCTI+1xQmkW
-	bnkIlJeD8L+95EXKXr9QQ==
-X-ME-Sender: <xms:NOuvZ2m1JWa_dM05Egspp3NUZb-EucncXLW-5xIUpVeFRacklHev6g>
-    <xme:NOuvZ92vzPEfdL9w4jp4iBIbxu7O0f72N6FJjzUF2BlFR0M9laStv5yD7TDPn5TH4
-    EAXfmXZX6RV4VheuA>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739582360; x=
+	1739668760; bh=tOuJgsb9reT9v24EZ+TEHw2W8peMs2GzsTIwm6goNGc=; b=F
+	vlWvLG99wUSOP/zMRkP9qVr+B/2dTNe9AqxVr/mKKNc091mS3zqVrQaXyBthor6E
+	h3Gi01UYL62L1mCUPEc8zgpIpyO7th9jNVXOz0hnrh2620vFL0zdm5TFnjibaxYj
+	d8Yrbyz84MBTgHzs4ByzZWeUxrwtAUJ9NjotRP/1z4IXmWTMhxQLIyrStHAecjU5
+	qOLyqJYS3nr/zJcCeb3REIOP4keYza2EoF1pLP1RvHu7X5W1xLnDeVqXbISURuaj
+	YxSvtk64lz1qunGsuK96u8qYQT3ehZmoikZjpotygo0TuyZP9sAg++o4iyRQ8OwD
+	N+g+r9C27UMzGyYgm6XHg==
+X-ME-Sender: <xms:mOuvZ58osQ0I3vOmGKfQdpQBY83_i83DfAdI1HvRkVEiTHu7nuOEMQ>
+    <xme:mOuvZ9tBd5v0DM5FjV4xHRfRyyqqcMDevNG9toTbWfUfQ47ox966KmbitaTyH25U-
+    UlIU4ixnQP3lM1efQ>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehuddulecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
     uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
     hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
     tdenucfhrhhomhepfdfthigrnhcuhggrlhhklhhinhdfuceorhihrghnsehtvghsthhtoh
     grshhtrdgtohhmqeenucggtffrrghtthgvrhhnpeejhfeukeejjefguddvffehveevjefh
-    tddutdfhudduvdevfeejfffgvdelfeeugfenucevlhhushhtvghrufhiiigvpedtnecurf
+    tddutdfhudduvdevfeejfffgvdelfeeugfenucevlhhushhtvghrufhiiigvpedunecurf
     grrhgrmhepmhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgs
     pghrtghpthhtohepvddupdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhgurh
     gvrdhprhiihiifrghrrgesrghrmhdrtghomhdprhgtphhtthhopehmthhurhhquhgvthht
@@ -75,17 +75,17 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehuddulecutefuodetgg
     esghhmrghilhdrtghomhdprhgtphhtthhopehmrggtrhhorghlphhhrgekvdesghhmrghi
     lhdrtghomhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtg
     hpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:NOuvZ0rHQ5e6sbUBcy5t76b_C0Oh9jpZPxrjuqVep3FaomZk9Sf25Q>
-    <xmx:NOuvZ6nCA3aM90ZVzT1kDiyuXOAwB2Dh-IrQIUGwUepb2rLDvgY9QA>
-    <xmx:NOuvZ018jd52c-TNbNxRaEwu8LWYEJM2NyqATFz_jKlk4Co6Yg7wOQ>
-    <xmx:NOuvZxu3zb1RggKnd4ZY63bH8xdgKWrhQb0bBhkE0prbt8LYZOnO0w>
-    <xmx:NeuvZ-XZ820qASIJ3wVhpgyixDut7xHJznx1iHQ5tg7f7AoKOECLuVEd>
+X-ME-Proxy: <xmx:mOuvZ3AkNu5FEzvDhjznN9rdipvJ5mHnqNeSuE_PNojHd9hrZ3GCUg>
+    <xmx:mOuvZ9eP7Q2NP4e19l68Xa3Ayi3Xa_JDMDbqWUZM17dql_ttn57l0g>
+    <xmx:mOuvZ-Ms2aUq_dCBvtstZfX12jE7Pg0D0K-hYv-Lgy7o6ecsb4JeIA>
+    <xmx:mOuvZ_mq9nez5yynAmFWQX2RcXkvq5vB-b_HS8xMf6VWMfpwfc7zlA>
+    <xmx:mOuvZ6srJHxh6iK0HRdurHbPvILiwIhGlkJpRxXqAmBtbtDB62vIttO7>
 Feedback-ID: idc0145fc:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id BF98FBA006F; Fri, 14 Feb 2025 20:17:40 -0500 (EST)
+	id 408AEBA0070; Fri, 14 Feb 2025 20:19:20 -0500 (EST)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Date: Sat, 15 Feb 2025 14:17:19 +1300
+Date: Sat, 15 Feb 2025 14:18:59 +1300
 From: "Ryan Walklin" <ryan@testtoast.com>
 To: "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>
 Cc: "Maxime Ripard" <mripard@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>,
@@ -101,17 +101,17 @@ Cc: "Maxime Ripard" <mripard@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>,
  "Chris Morgan" <macroalpha82@gmail.com>, dri-devel@lists.freedesktop.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  devicetree@vger.kernel.org, linux-clk@vger.kernel.org
-Message-Id: <40fdbece-009e-4c7d-85e9-2d2488dfd91e@app.fastmail.com>
-In-Reply-To: <635hn2vkmoyna7fxzgrzp7q3tlk76aoggssjbt2mpkhpvvo4fx@2pmvvxgvmfpq>
+Message-Id: <4c31826f-0ffa-4ada-bcf9-199fcbe6db07@app.fastmail.com>
+In-Reply-To: <4cumvwkhmbi7fecjeq6r7elon63u3ytootqcvavjg5vfnargy3@wrjpy6pnphmb>
 References: <20240929091107.838023-1-ryan@testtoast.com>
- <20240929091107.838023-2-ryan@testtoast.com>
- <635hn2vkmoyna7fxzgrzp7q3tlk76aoggssjbt2mpkhpvvo4fx@2pmvvxgvmfpq>
-Subject: Re: [PATCH v5 01/26] drm: sun4i: de2/de3: Change CSC argument
+ <20240929091107.838023-9-ryan@testtoast.com>
+ <4cumvwkhmbi7fecjeq6r7elon63u3ytootqcvavjg5vfnargy3@wrjpy6pnphmb>
+Subject: Re: [PATCH v5 08/26] drm: sun4i: de3: add YUV support to the DE3 mixer
 Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250214_171743_626286_4CAA4946 
-X-CRM114-Status: UNSURE (   5.49  )
+X-CRM114-CacheID: sfid-20250214_171921_925966_B1B90107 
+X-CRM114-Status: UNSURE (   8.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -127,21 +127,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 20 Oct 2024, at 3:11 AM, Dmitry Baryshkov wrote:
-> On Sun, Sep 29, 2024 at 10:04:33PM +1300, Ryan Walklin wrote:
 
-Hi Dmitry, thanks for reviewing, and apologies for the delay in replying.
 
->> -enum sun8i_csc_mode {
->> -	SUN8I_CSC_MODE_OFF,
->> -	SUN8I_CSC_MODE_YUV2RGB,
->> -	SUN8I_CSC_MODE_YVU2RGB,
->> +enum format_type {
+On Sun, 20 Oct 2024, at 3:14 AM, Dmitry Baryshkov wrote:
+> On Sun, Sep 29, 2024 at 10:04:40PM +1300, Ryan Walklin wrote:
+
+>> diff --git a/drivers/gpu/drm/sun4i/sunxi_engine.h b/drivers/gpu/drm/sun4i/sunxi_engine.h
+>> index c48cbc1aceb80..ffafc29b3a0c3 100644
+>> --- a/drivers/gpu/drm/sun4i/sunxi_engine.h
+>> +++ b/drivers/gpu/drm/sun4i/sunxi_engine.h
+
+>> @@ -151,6 +153,9 @@ struct sunxi_engine {
+>>  
+>>  	int id;
+>>  
+>> +	u32				format;
+>> +	enum drm_color_encoding		encoding;
 >
-> enum sun8i_format_type, unless there is a strong reason to name it
-> otherwise.
+> Should these be a part of the state instead of being a part of the
+> sunxi_engine?
 
-No problem, will make that change.
+Sure, would you suggest in sun8i_mixer_cfg?
 
 Regards,
 
