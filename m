@@ -4,74 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8894EC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 18:00:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49F8C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 18:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FHiMen2ioP8EU7UobQlLlS9w9ORwuSKvjcn4Zww8KB8=; b=IQXPn3Ynh4g6TyVt3acTh/PtKp
-	PdgwZMXv25tVR35o+cpcSszf9WsLJuAth/epON9ruX3j+JkQD9wkT3KcHafoRtLrTuVbBWrbS9xHy
-	QZqUk8AeLiLbCCzY7518liykN2KDXVrxf95SuB0mE5EeMyx631PZrFOd/L6yC50Y5TW6fP+tVfE5U
-	nLKYlT9T83bteD5s/LQjPRSOlFufAEj//G/53Isv2v8G3S+8dMGXhjePMdfk421E9SzWA0GJNgooB
-	oGNnN6lGjhB32fK/MqvllOeZ9+P3NRynB6t5AfWpvg1RQD/zBGqXR0fhMaN5zwigE3nhVQj5pyg0U
-	FdmLnJ+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lwOANHD7rRUjNgtZHP/ICo60H9B1yC39Gbbr8IKBsDo=; b=RhAK6xc3h4mjzj16aNQctd2F/o
+	G7b+fPyRSwxyXUGpeN2INRFAcNz30HPBPDL+FUQC/vGhNYkCqy8N5fSVTby6zcwiC8M1Mzn1TjMFK
+	ikISC8n1+hw7EghIPWtToroyJgSvQe+xZ4+ykv77q/EfmrlDlfzBbA76B2oDhWCOqXfaFZ5pBoDOJ
+	P5Qpe11RKgxY8OfrVnCiLbLQzkVxyC9DJ3oZbAasMUsDsHyY/9mHlxfa5IOHLrmdHiU5O14e1217r
+	uW390ICxBC4arOqwm2C/OTSV6ZoZpR9I1JjdCmul74vItz2uyL5zlcl7szBoQhO2PSlqL8mmGTpXJ
+	RhBYo9MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjMSq-00000000Xjp-2LUC;
-	Sat, 15 Feb 2025 18:00:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tjMUH-00000000XxC-0kFF;
+	Sat, 15 Feb 2025 18:01:57 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjM7W-00000000Us1-17xQ
+	id 1tjMIv-00000000Wlc-2U2L
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Feb 2025 17:38:28 +0000
+	Sat, 15 Feb 2025 17:50:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 92DE5A406E6;
-	Sat, 15 Feb 2025 17:36:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 892FFC4CEEA;
-	Sat, 15 Feb 2025 17:38:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id ABD6A5C28BB;
+	Sat, 15 Feb 2025 17:49:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2459C4CEDF;
+	Sat, 15 Feb 2025 17:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739641104;
-	bh=CL/9quSdT/4WkdKxdC8OB8oLAC8r+jS/LhcwV8O3nUI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qlJ8LWvqArerfAe90+kHAHuKR6bt2MdYr7xQ/Gdc/JZ3fT5Ij2ed5s0lc3GiTqIWV
-	 0PGwBCEvfzr2ciN4y1097VWGswxGwvnyO5jKNZRHL7KOf7WleH0DbgGRZIBknBQBmm
-	 CLMqvzsTaOcyc+Owkde7sXUmFLqTsBjCTuZOtjjRm71OmMHyl/jtPk8VMtCZB+rqy7
-	 lg0FQMeV0cOon680vQ3YRCtcTO8V9zfYwF09MlBrgXISBSfHoYEvX/C7lpVQPneByt
-	 Cthq96XVcagSESNDsXhgk5KcRoluw/vJvvm9FyNbOmWwxSy/OT9w3j0z1wjnK5QxMJ
-	 d9UfoW759E2lg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	s=k20201202; t=1739641811;
+	bh=A51e6JcDqBBxxRkVKA0V/7fSn5jRxsBs2bLls+VWRiM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=KR0sWtiQJ8yi1gvD8QbU/Ul+R+dVqgW9Lgrlrmn10gIwmG4Z9n9fDJcEx6W1vqO9k
+	 Qhte3SQxCB2TJzESKDHloaaaqGJKoNTS0S0l90UoUxBLu9eFEFhOG+OQNkAFtmQufp
+	 NVkw+h3zackvyxC/nx+4VNk9qsNkXgohPIKNgpUBvoKulT4womsv38bqgwJ7by9cyB
+	 IaKYA/ApU+40w7d0XOM6qCoP1rUVSqNkiaxXV1gQtqyaiEEtlqgKXruc7EhBNtjNt8
+	 3nYI0rRdjFz3O0bsfYM6vfgtjmMkM7y9FVQWEpfM9MQL67Qt07eLXDwGw3KZ08eLJI
+	 SeJ9v0TdmHGJw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tjM7S-004Pqp-QH;
-	Sat, 15 Feb 2025 17:38:22 +0000
+	id 1tjMIr-004Q9y-PA;
+	Sat, 15 Feb 2025 17:50:09 +0000
+Date: Sat, 15 Feb 2025 17:50:09 +0000
+Message-ID: <87tt8v14j2.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH 13/14] KVM: arm64: Allow userspace to request KVM_ARM_VCPU_EL2*
-Date: Sat, 15 Feb 2025 17:38:15 +0000
-Message-Id: <20250215173816.3767330-14-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250215173816.3767330-1-maz@kernel.org>
-References: <20250215173816.3767330-1-maz@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+To: Eric Auger <eauger@redhat.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	kvmarm <kvmarm@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	christoffer.dall@arm.com,
+	suzuki.poulose@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	coltonlewis@google.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
+In-Reply-To: <8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
+References: <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
+	<86y10osr19.wl-maz@kernel.org>
+	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
+	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
+	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
+	<86h661wje4.wl-maz@kernel.org>
+	<4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
+	<86cygpwfy0.wl-maz@kernel.org>
+	<b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
+	<86frkptzr6.wl-maz@kernel.org>
+	<Z6ZMdv8jJUvYwQzT@linux.dev>
+	<86bjvdtxb5.wl-maz@kernel.org>
+	<8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com
+X-SA-Exim-Rcpt-To: eauger@redhat.com, oliver.upton@linux.dev, gankulkarni@os.amperecomputing.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_093826_446277_4665AF58 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20250215_095013_747034_682F5DE3 
+X-CRM114-Status: GOOD (  31.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,64 +107,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since we're (almost) feature complete, let's allow userspace to
-request KVM_ARM_VCPU_EL2* by bumping KVM_VCPU_MAX_FEATURES up.
+On Mon, 10 Feb 2025 18:26:48 +0000,
+Eric Auger <eauger@redhat.com> wrote:
+> 
+> Hi Marc,
+> 
+> On 2/7/25 7:38 PM, Marc Zyngier wrote:
+> > On Fri, 07 Feb 2025 18:09:58 +0000,
+> > Oliver Upton <oliver.upton@linux.dev> wrote:
+> >>
+> >> Hey,
+> >>
+> >> On Fri, Feb 07, 2025 at 05:45:33PM +0000, Marc Zyngier wrote:
+> >>> I found at least one issue that could fail the migration. Before the
+> >>> VM starts running, we limit the feature set to the subset we actually
+> >>> support with NV.
+> >>>
+> >>> By doing this, we also change the value of IDreg fields that are not
+> >>> writable, because they describe features that we don't support.
+> >>> Obviously, that fails on restore.
+> >>>
+> >>> I need to have a think...
+> >>
+> >> We spoke about this a while ago (and I forgot til now), but I was
+> >> wondering if we could use vCPU feature flags to describe NV, including
+> >> the selection between FEAT_E2H0 and FEAT_VHE.
+> >>
+> >> I think this might match userspace expectations a bit more closely where
+> >> the state of the ID registers after init gives the actual feature set
+> >> supported by the VM.
+> > 
+> > I'm not sure that's enough. Let me give you an example:
+> > 
+> > My host has FEAT_XNX, described in ID_AA64MMFR1_EL1.XNX. For whatever
+> > reason, we don't allow this field to be written to, even out of NV
+> > context. This is odd, because for an EL1 VM, this field means nothing
+> > at all.
+> So the curprit fields for me look like
+> 
+> - ID_AA64MMFR1_EL1.XNX
+> - ID_AA64DFR0_EL1.DoubleLock
+> - ID_AA64PFR0_EL1.RAS
+> 
+> This is still based on your nv-next branch from Jan 9
+> https://github.com/eauger/linux/tree/nv_next_jan9_2025
 
-We also now advertise the features to userspace with a new capabilities.
+I have now pushed out a new nv-next branch with the new and improved
+UAPI. I expect migration to work a bit better, or at least not to
+explode on ID register restore. You will notice that things have
+changed a bit (extra flag and cap for FEAT_E2H0), but nothing really
+major.
 
-It's going to be great...
+Thanks,
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/kvm_host.h | 2 +-
- arch/arm64/kvm/arm.c              | 6 ++++++
- include/uapi/linux/kvm.h          | 2 ++
- 3 files changed, 9 insertions(+), 1 deletion(-)
+	M.
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 7cfa024de4e34..2a9ab9abf0f81 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -39,7 +39,7 @@
- 
- #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
- 
--#define KVM_VCPU_MAX_FEATURES 7
-+#define KVM_VCPU_MAX_FEATURES 9
- #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
- 
- #define KVM_REQ_SLEEP \
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 4746c6cace2a8..6554379cdcada 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -359,6 +359,12 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 	case KVM_CAP_ARM_EL1_32BIT:
- 		r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
- 		break;
-+	case KVM_CAP_ARM_EL2:
-+		r = cpus_have_final_cap(ARM64_HAS_NESTED_VIRT);
-+		break;
-+	case KVM_CAP_ARM_EL2_E2H0:
-+		r = cpus_have_final_cap(ARM64_HAS_HCR_NV1);
-+		break;
- 	case KVM_CAP_GUEST_DEBUG_HW_BPS:
- 		r = get_num_brps();
- 		break;
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 45e6d8fca9b99..9a6674f51b8be 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -929,6 +929,8 @@ struct kvm_enable_cap {
- #define KVM_CAP_PRE_FAULT_MEMORY 236
- #define KVM_CAP_X86_APIC_BUS_CYCLES_NS 237
- #define KVM_CAP_X86_GUEST_MODE 238
-+#define KVM_CAP_ARM_EL2 239
-+#define KVM_CAP_ARM_EL2_E2H0 240
- 
- struct kvm_irq_routing_irqchip {
- 	__u32 irqchip;
 -- 
-2.39.2
-
+Without deviation from the norm, progress is not possible.
 
