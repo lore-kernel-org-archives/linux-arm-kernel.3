@@ -4,66 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E4E5C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 11:09:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 626B8C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 11:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X+uITPL1MA6j9F7/d6uOb4dkNY7HMIvpcOJUxLgXtLQ=; b=gKgYxB4vlNN7BTV2zdbIW+5+2g
-	e/+xx7u1D3xohUsKHTcA6R/mmq+a8KFAAykqUk0ENXGCiD9PY6X78sdoA4bey5droT0oCaKriKs+a
-	F7jg4Y64OnHPu9z2s6whrYHn/crAol4XA1UVr0QOo6igkzv4rxVT1qtfoQPhwiVvnRUqdIQtmvPIr
-	1B5jBoOTo45CUWHr/B3Yh0QjUbgUdyXpAGzzse/AMvkj5k9DRJklIfJ85wl6b5Bs6mLcWa4+MpQ9q
-	z3gIflv+vl1XJeeP5OE8vVfQBUHYu1Uw64cXohg0KsagJiadglceWTLajV4FGOO6JvslgqOg61hBv
-	zU0l5NjQ==;
+	bh=p1Ssp/xN/K8WuUAsNnSdDmGTZ55z5KrBh8V9cB0p5dE=; b=ddxQklF/vSGVJDbrXAGdjbsG7T
+	lHjoMKSFgEEu5UaSZU5NOHwxHDqk+EvZd+KtVyTfcepT9td6hO4mBqgy9O2mtmAlUe8Sd+xBIZoDm
+	4LN9CAZBXPl3i4PZ4e3tIDX/pW7w2XuqrtUWntrMDbEwABIu7w6w1PMzHvhlrlMhAePz7Fte/rClt
+	JUN3x+TVtVu8KK8nJ7qPdf2d1wR80qZ4NkWPMmZ6ZAS/p3fNcv/ir7opgkX56naLqnSjmT2COG+2s
+	DnMuQDylte/DcTTApUXNy8qj2ePG4vjW7NTbS9smNRaVDdGCdD4iGZzE0N+BFv7cvg+bVTMBkGxY/
+	sJUY0XOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjG2w-0000000HVRv-0yos;
-	Sat, 15 Feb 2025 11:09:18 +0000
+	id 1tjG9D-0000000HVzp-189O;
+	Sat, 15 Feb 2025 11:15:47 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjG1U-0000000HVLM-02mf
+	id 1tjG7l-0000000HVqp-2hlV
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 15 Feb 2025 11:07:49 +0000
+	Sat, 15 Feb 2025 11:14:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EC964A402BE;
-	Sat, 15 Feb 2025 11:06:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C89FAC4CEDF;
-	Sat, 15 Feb 2025 11:07:41 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6630EA40109;
+	Sat, 15 Feb 2025 11:12:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E927C4CEDF;
+	Sat, 15 Feb 2025 11:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739617666;
-	bh=aviqrW+4MMM0OACMiFIOXdC21DPQ4amvmUKmI0yVnsc=;
+	s=k20201202; t=1739618056;
+	bh=2MG5CjrZ+8pQDI+3FotFCAtkUVEZsU+0uSwPnGrtv1U=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mFW6meLh6335BCBVacv3KLcHO3Lnh6ZpSDXy/9IXWDFgzUwZIW1SxqylwEuTLXAfz
-	 3KUwHnvFAv0Qyn3s/p5GVuVygQqlCSSOwxqJQLsnWkCAW/MPD5N7FJs0of2XpXZtTx
-	 9NeCIkkRgIEsUcwJHI4t1jq7rpVGJUSoJ7kVH0LfmQ29+1orsNuvbbmE3K38DlkB9W
-	 S5u5YdiF+hcNUeMMo5nd9FWUSRkkgjzDuN3DqR44cSohZy4aCheFQr129ouxWqWGyJ
-	 xLAUI8BcokmJ1drd4ogMNlJLXZHQThsm7EBDjKwQXbymiosyyIjpdm+C6vaBL2nD0a
-	 d+0iZxdlYB2ug==
-Message-ID: <87e21b2a-b0f5-41c3-ba6e-960da5c1f836@kernel.org>
-Date: Sat, 15 Feb 2025 12:07:39 +0100
+	b=isXhq3ktq4XF7Ur7evEAeexK9bmTJ9BXtTQteA6D7utao/Uqi+shVcotQWzmu0PBQ
+	 3miM4u5GxdFgLlj2NIHnWRB4QY2N9pg2P5AOOt3AsVXsEHxq+d/m769aqlcCJse2/V
+	 IMCK1MD2TYsdAFeJHCEp/uHcon78tQwwBBIXS+vbGuQ+Ko4QUVuBRMc2foaxtK4yzG
+	 jFMaYVIYfav246rsYl64PCj/mWvPkDYqXXHIuvH+zXGbpzeXBvlxU6uVjVltLjPgT2
+	 l8J7oMaZ+qN7bDqIESZKcIIBvDcIRh358UuDEdhqdYAEHxxSUmRkZC2BGKMr07xsGr
+	 ADc1u82knp58Q==
+Message-ID: <8eab6c81-2015-4d5e-a1af-7ebe0208996a@kernel.org>
+Date: Sat, 15 Feb 2025 12:14:10 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 1/3] dt-binding: clock: ast2700: modify soc0/1 clock
- define
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@aj.id.au>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+Subject: Re: [PATCH 07/10] arm64: Kconfig: expand STM32 Armv8 SoC with
+ STM32MP21 SoCs family
+To: Amelie Delaunay <amelie.delaunay@foss.st.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20250210085004.1898895-1-ryan_chen@aspeedtech.com>
- <20250210085004.1898895-2-ryan_chen@aspeedtech.com>
- <20250211-encouraging-free-aardwolf-0fabb1@krzk-bin>
- <OS8PR06MB7541287BC48C500E50C7C77FF2F92@OS8PR06MB7541.apcprd06.prod.outlook.com>
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Richard Cochran <richardcochran@gmail.com>, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20250210-b4-stm32mp2_new_dts-v1-0-e8ef1e666c5e@foss.st.com>
+ <20250210-b4-stm32mp2_new_dts-v1-7-e8ef1e666c5e@foss.st.com>
+ <20250213-polite-spiked-dingo-ce0f3a@krzk-bin>
+ <450d2efa-f38b-4f3a-b308-f2fb01fdb8f7@foss.st.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +107,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <OS8PR06MB7541287BC48C500E50C7C77FF2F92@OS8PR06MB7541.apcprd06.prod.outlook.com>
+In-Reply-To: <450d2efa-f38b-4f3a-b308-f2fb01fdb8f7@foss.st.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_030748_184492_EAAEF57A 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20250215_031417_832506_FF70950F 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,68 +127,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/02/2025 03:14, Ryan Chen wrote:
->> -----Original Message-----
->> From: Krzysztof Kozlowski <krzk@kernel.org>
->> Sent: Tuesday, February 11, 2025 4:18 PM
->> To: Ryan Chen <ryan_chen@aspeedtech.com>
->> Cc: Michael Turquette <mturquette@baylibre.com>; Stephen Boyd
->> <sboyd@kernel.org>; Philipp Zabel <p.zabel@pengutronix.de>; Joel Stanley
->> <joel@jms.id.au>; Andrew Jeffery <andrew@aj.id.au>;
->> linux-clk@vger.kernel.org; Rob Herring <robh@kernel.org>; Krzysztof Kozlowski
->> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>;
->> linux-arm-kernel@lists.infradead.org; linux-aspeed@lists.ozlabs.org;
->> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org
->> Subject: Re: [PATCH v8 1/3] dt-binding: clock: ast2700: modify soc0/1 clock
->> define
->>
->> On Mon, Feb 10, 2025 at 04:50:02PM +0800, Ryan Chen wrote:
->>> remove soc0 clock:
->>
->> Why? Your commit msg must explain why. What is obvious from the diff, isn't
->> it?
-> Thank you for your feedback. I will add explanation in next commit patch.
->>
->>>  SOC0_CLK_UART_DIV13
->>>  SOC0_CLK_HPLL_DIV_AHB
->>>  SOC0_CLK_MPLL_DIV_AHB
->>> add soc0 clock:
->>>  SOC0_CLK_AHBMUX
->>>  SOC0_CLK_MPHYSRC
->>>  SOC0_CLK_U2PHY_REFCLKSRC
->>> add soc1 clock:
->>>  SOC1_CLK_I3C
+On 14/02/2025 16:06, Amelie Delaunay wrote:
+> On 2/13/25 10:02, Krzysztof Kozlowski wrote:
+>> On Mon, Feb 10, 2025 at 04:21:01PM +0100, Amelie Delaunay wrote:
+>>> Expand config ARCH_STM32 with the new STM32MP21 SoCs family which is
+>>> composed of STM32MP211, STM32MP213 and STM32MP215 SoCs.
 >>>
->>> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+>>> Signed-off-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
 >>> ---
->>>  include/dt-bindings/clock/aspeed,ast2700-scu.h | 7 ++++---
->>>  1 file changed, 4 insertions(+), 3 deletions(-)
+>>>   arch/arm64/Kconfig.platforms | 2 ++
+>>>   1 file changed, 2 insertions(+)
 >>>
->>> diff --git a/include/dt-bindings/clock/aspeed,ast2700-scu.h
->>> b/include/dt-bindings/clock/aspeed,ast2700-scu.h
->>> index 63021af3caf5..c7389530629d 100644
->>> --- a/include/dt-bindings/clock/aspeed,ast2700-scu.h
->>> +++ b/include/dt-bindings/clock/aspeed,ast2700-scu.h
->>> @@ -13,18 +13,17 @@
->>>  #define SCU0_CLK_24M		1
->>>  #define SCU0_CLK_192M		2
->>>  #define SCU0_CLK_UART		3
->>> -#define SCU0_CLK_UART_DIV13	3
+>>> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+>>> index 844a39620cfea8bfc031a545d85e33894ef20994..f788dbc09c9eb6f5801758ccf6b0ffe50a96090e 100644
+>>> --- a/arch/arm64/Kconfig.platforms
+>>> +++ b/arch/arm64/Kconfig.platforms
+>>> @@ -325,6 +325,8 @@ config ARCH_STM32
+>>>   			- STM32MP251, STM32MP253, STM32MP255 and STM32MP257.
+>>>   		- STM32MP23:
+>>>   			- STM32MP231, STM32MP233, STM32MP235.
+>>> +		- STM32MP21:
 >>
->> NAK, ABI break without any explanation.
+>> Squash it with previous patch and keep some sort of order.
+>>
 > 
-> The `SCU0_CLK_UART_DIV13` was originally defined as a separate clock identifier, reviewing the AST2700 clock driver implement, I realized it is no longer necessary.
-> The clk-ast2700.c driver I have **integrated the SOC0 UART clock (`soc0_uartclk`) with `ast2700_clk_uart_div_table`**. 
-> The UART clock source will get from ast2700_clk_uart_div_table, that will div from source 24M div13 or div1.
+> Ok for squashing with patch 3.
+> Do you mean to keep the current chronological order used here or to 
 
-Wrap your replies correctly.
+chronological of what? Adding it? That's the worse of possible orders,
+because it is basically random invitation to conflicts.
 
-So all this means you exported clocks which are not clocks?
-How are ABI consumers behaving now?
+If chronological of market release, that's tricky to any contributor to
+figure out.
 
-Anyway, any ABI impact must be clearly justified in commit msg.
+> change the order because "chronological" is not an appropriate order? In 
+> this case, would the alphanumeric order be fine?
 
-
+Many lists go alphanumerical because it is most obvious and avoids
+conflicts.
 
 Best regards,
 Krzysztof
