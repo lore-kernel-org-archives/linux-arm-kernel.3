@@ -4,102 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D92A8C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 12:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4115BC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 13:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=drN/Xok8UudjMurUXacPKQ2++MI+GHNgJsb1gQKHxmw=; b=akGHFjRWeq+t0SqwVh+9LTGNyD
-	hBdeIa0bDl9YRThNgwmW2xuaGDDJsZ7ja8ywiSPBC1zIYqU6dtV2F7unyUM/KFHbxjN1HWysNo40R
-	NQa8C1/KbZMid1G7IPMJz6RhJAR2t/9r6dVNw+21OpHvi/p8vdBYEvMmwKK7X0MOE2WZwiTX18oO7
-	SzAsXk7IoEXiaR05tYfv5/WTKJGz/pY4Cv2BYk4SSuQsO2m/cD+jMAN9f5QT3Sbwu8RQvyujFIr2z
-	q/RLXBzcEbJTTlCpYNFxuMCaRFUljGw0cNu1BbvIahjhWBvZCEa1lTCzOeTDcg7uxyGeUXld1VgKU
-	mjUZwIEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EnzWEyG0F/nkFAdJDRcXTNC91j8CDzx+Ml98DGY+G/I=; b=mkrmp4Zo5z6WWWGhxBeTchMI/h
+	BSaD11H4f3+nnFcCsNhRG0q1mBtE+yVFPUmY6HGdnt1w/9PZryTpSSYC5ALfX9EWxWPy+2mnwA96E
+	sHJD6Bfldc51cmqR8LeIzwBtiriSc3mg/kwajMOeutwFYZ/QbD43XEMV5asi1tB5ubx3y+1ipafyy
+	fl0UaiFQK3zs9qFIgXhPqcqNPSg3DDQGRCoMw008nwrPiIRKjtE+/uzV5JnCIN+T8EqDTKXVRiKw+
+	PicmMPvmcA3roJwgBmutOBDHv/JjlnBp31U89YURGn2t++f5INpFhOTbmIMmusynsigdE9W7GPhCY
+	2/nfIiuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjHeF-000000005hF-1UkB;
-	Sat, 15 Feb 2025 12:51:55 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tjHsU-000000007Cp-29WI;
+	Sat, 15 Feb 2025 13:06:38 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjHcm-000000005Xl-3qBu;
-	Sat, 15 Feb 2025 12:50:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C8520A40362;
-	Sat, 15 Feb 2025 12:48:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84BD0C4CEE9;
-	Sat, 15 Feb 2025 12:50:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739623822;
-	bh=drN/Xok8UudjMurUXacPKQ2++MI+GHNgJsb1gQKHxmw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TI7OwbBejVq+s0MNcjVR0OO68WWGeU3nLMSFjv/iooPZQkFgekvtYlJVZMHL4yhGu
-	 X+NvMH38mriKk1PDUcyHjwbzECOAXrRCBNn9U36VXx/c8m+LhK9r+9CyTE6RYI4i18
-	 r1pLW7R4TInPKnEeFX9WUG5PqtfWIPuLmmuUoi3E8A0A0/4ZupRtFx5ykSkJfxoWU1
-	 JSSIsK/AtdQvdtCF3n/UYl3JTA4Hs4cA70QyCuK0IzY+i8/ZvMd1HSVZ2fGkRVyFmc
-	 3KBpadsxw7ag6TDN+7Q0Rn0JRDwxVXa6Ic4DnHHR5HSm4OAwa2yr2Q1DySe1dJlh9Y
-	 F8vI+B2Os2Bpg==
-Date: Sat, 15 Feb 2025 12:50:12 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Doug Anderson <dianders@chromium.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Dave Ertman <david.m.ertman@intel.com>,
-	Ira Weiny <ira.weiny@intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
+	id 1tjHr3-000000006vh-08Ap
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 15 Feb 2025 13:05:10 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38dc5764fc0so2470848f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 15 Feb 2025 05:05:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739624707; x=1740229507; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EnzWEyG0F/nkFAdJDRcXTNC91j8CDzx+Ml98DGY+G/I=;
+        b=Lc7CB5qf2G2bj4e+edKRHZlg7tNbtXx4bmfIUq7ZQcBTNUr3+mqWmxaV8cVqdRJWcN
+         77fIrn62qfGZEmmco60xz2w4tbsbDi3B+vO5XVEncaxjECBVOMR1Z5bSGGrVZ94bjftE
+         xuPhCBWRzG5L9tTVINvoQfhQ/E9n8FRLwdIBgCsUSYQ/FIpYa1MHflILuI2F7b4h5XWJ
+         wyaNpEg9rkPFUbz2E5gT9EMDdY3R8lSZle1YPjD0X3QgfLwvScVwgvO8am7gNmKbFDh0
+         SrLaPjtta/7MgmIVyhCUXB13OCTeGasXnNAvCG2xMjSqjleOhfsgB2V6SA26N+7FR+Xm
+         c0BA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739624707; x=1740229507;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EnzWEyG0F/nkFAdJDRcXTNC91j8CDzx+Ml98DGY+G/I=;
+        b=uPNUMDyIl+12vsc729ELlMb+8I4H4jWyN/FGYOf76Cf0QC3Eu1AMArSQ0GLozr0vgu
+         2rjxuRgUXhw8X4INYQEQWjF/H6HD08Kv+dg6VGsVyQHqYHGH4+LrdwBdEAAS9vY5knYP
+         vldkxhGtEolYl475aapnUOgmQS0iPyMJOr+9QIgn3hALHbhG5DXGhqFKvLhJr8J3V6VL
+         Worji/QRQMZrxuv/haXSsuPOVxEAIUrHw766Bz1yG7NmecoZMQvnya/HWxbs3eOlysl6
+         /3yc93g1os+HBFZQV+HH3qu0YjuXN2EflxeWvC3na0FS9qS7BEzl+HapCplS/ZZT7b/W
+         kN0A==
+X-Forwarded-Encrypted: i=1; AJvYcCVKiQRqV21GQy1Oapnw28LMWbHUEDNffisW+6tJKf3UKMMvTdt5jJRlBha1y4209PlC5Ya5oyGi1fLxqAIGACuD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYvaIvL7ImUAV7qA+pqDePv1SzfcbLYbnzM0xTGrREVYYP08WH
+	vZrACNLNIMdIR0T1/IpwvZfaFQEGyHdHTjs7lC4vjqtV2HN+t6ld
+X-Gm-Gg: ASbGncta4qGIhJIeS/WNlPX5CDp6kxS8fz4NM6ZdbEEZp8IAfVALQwRjbMjGDKXv6VL
+	eN5SRP4N+P0k1UzGYUdv+ZHaA3gcPY5gymCJI4vG11g4MRujfNEygw2Nsxa6sziZWb9x5SdGBmh
+	JL5q62TIci6N0m2NL+JL8dOdrfB3OJg72NaV48V7SBI6UMefgvzm8QAIXPH5m3Ev6GXv5segK+V
+	+UbS4ZlgDPN3ZHABDYVsQVfOg71bUdGeoDUmrGGPJoK94jAtbprPva5K7Ue7T9dEyWjYEqyeDPF
+	S5IyEGvPSQJwn6OEU7mcdY76NHtQnElyZeDYfLW5fxUBnRFmsOK+QlM+4X7dy6UE5MU=
+X-Google-Smtp-Source: AGHT+IGPH6nFSzgJGVGOdy5Vv5Ptqx1cOrQXhqFYvlTcihepkkW9W18HUSoDwHWBrrhWnva3n8h1ew==
+X-Received: by 2002:adf:ed48:0:b0:38f:2a3e:870c with SMTP id ffacd0b85a97d-38f33f38891mr3726621f8f.16.1739624706983;
+        Sat, 15 Feb 2025 05:05:06 -0800 (PST)
+Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258b412esm7091418f8f.1.2025.02.15.05.05.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 15 Feb 2025 05:05:06 -0800 (PST)
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v3 2/7] reset: mpfs: use the auxiliary device creation
- helper
-Message-ID: <20250215-scared-clothing-942f9bf3d039@spud>
-References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
- <20250211-aux-device-create-helper-v3-2-7edb50524909@baylibre.com>
- <20250213-crown-clustered-81c6434c892b@spud>
- <1jv7tczytk.fsf@starbuckisacylon.baylibre.com>
- <CAD=FV=VeSrZktEbxNXXTgD80QGTpW5b-WiXUFko+a8FUzmN+fQ@mail.gmail.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/3] arm64: dts: exynos: add initial support for Samsung Galaxy S22+
+Date: Sat, 15 Feb 2025 15:04:57 +0200
+Message-ID: <20250215130500.170738-1-ivo.ivanov.ivanov1@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="2DqldZNjQ+dLYWFk"
-Content-Disposition: inline
-In-Reply-To: <CAD=FV=VeSrZktEbxNXXTgD80QGTpW5b-WiXUFko+a8FUzmN+fQ@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_045025_088602_05D33EAD 
-X-CRM114-Status: GOOD (  21.77  )
+X-CRM114-CacheID: sfid-20250215_050509_071441_846F4A08 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,67 +99,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hey folks,
 
---2DqldZNjQ+dLYWFk
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+This patchset adds device tree files for Exynos 2200 and Samsung
+Galaxy S22+.
 
-On Fri, Feb 14, 2025 at 07:25:59AM -0800, Doug Anderson wrote:
-> Hi,
->=20
-> On Fri, Feb 14, 2025 at 12:59=E2=80=AFAM Jerome Brunet <jbrunet@baylibre.=
-com> wrote:
-> >
-> > > One think that's always felt a bit meh to me is this id number stuff,
-> > > I just threw in 666 for meme value.
-> >
-> > :)
-> >
-> > > The whole thing seems super
-> > > arbitrary, do any of the users of this helper actually put meaningful
-> > > values into the id parameter?
-> >
-> > In example changes I've sent, no.
-> >
-> > In other simple usages (those using container_of()) of the auxiliary
-> > bus, I think there are a few that uses 0 and 1 for 2 instances.
-> >
-> > I guess your question is "do we really need this parameter here ?"
-> >
-> > We could remove it and still address 90% of the original target.
-> >
-> > Keeping it leaves the door open in case the figure above does not hold
-> > and it is pretty cheap to do. It could also enable drivers requiring an
-> > IDA to use the helper, possibly.
->=20
-> FWIW, once you resolve the conflicts in drm-misc with ti-sn65dsi86
-> you'll need the ID value. ;-)
->=20
-> There was a big-ol' discussion here:
->=20
-> https://lore.kernel.org/r/8c2df6a903f87d4932586b25f1d3bd548fe8e6d1.172918=
-0470.git.geert+renesas@glider.be
->=20
-> I eventually pushed v2 of the patch:
->=20
-> https://lore.kernel.org/r/7a68a0e3f927e26edca6040067fb653eb06efb79.173384=
-0089.git.geert+renesas@glider.be
+Exynos 2200 SoC is an ARMv8 mobile SoC found in the Samsung Galaxy S22
+(r0s), S22+ (g0s), S22 Ultra (b0s) Add minimal support for that SoC,
+including psci, pmu, chipid, architecture timer and mct, pinctrl,
+clocks and usb.
 
-Think it makes sense to have a "simplified" wrapper for the cases where
-the id has no meaning then? Not really a fan of the drivers coming up with
-magic numbers.
+The devices using this SoC suffer from an issue caused by the stock
+Samsung bootloader, as it doesn't configure CNTFRQ_EL0. Hence it's
+needed to hardcode the adequate frequency in the timer node,
+otherwise the kernel panics.
 
---2DqldZNjQ+dLYWFk
-Content-Type: application/pgp-signature; name="signature.asc"
+Another issue is that cpu2 and cpu3 fail to come up consistently, which
+leads to a hang later in the boot process. As A510 cores are clustered
+by two, it makes sense for both of these cpus to fail if there is a
+power issue. Disable them until the problem is figured out.
 
------BEGIN PGP SIGNATURE-----
+Samsung Galaxy S22+ (SM-S906B), codenamed g0s, is a mobile phone from
+2022. It features 8GB RAM, 128/256GB UFS 3.1, Exynos 2200 SoC and a
+1080x2340 Dynamic AMOLED display.
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ7CNhAAKCRB4tDGHoIJi
-0tAUAQCqnRPkOySGXu//3wT8OcQkfE+e51feUW6fi3X49on2qQD9FeMpjQKlnQ9Q
-UjJ/Rxce6BMBO5o9ndbm21Ie8SKdSAY=
-=owAZ
------END PGP SIGNATURE-----
+Further platform support will be added over time.
 
---2DqldZNjQ+dLYWFk--
+I expect [1], [2], [3], [4], [5], [6] to be merged before this patchset
+because it relies on the aforementioned series for drivers and device
+tree bindings.
+
+[1] https://lore.kernel.org/all/20250215112716.159110-1-ivo.ivanov.ivanov1@gmail.com/
+[2] https://lore.kernel.org/all/20250215113248.159386-1-ivo.ivanov.ivanov1@gmail.com/
+[3] https://lore.kernel.org/all/20250215115433.161091-1-ivo.ivanov.ivanov1@gmail.com/
+[4] https://lore.kernel.org/all/20250215122409.162810-1-ivo.ivanov.ivanov1@gmail.com/
+[5] https://lore.kernel.org/all/20250215123453.163434-1-ivo.ivanov.ivanov1@gmail.com/
+[6] https://lore.kernel.org/all/20250215123922.163630-1-ivo.ivanov.ivanov1@gmail.com/
+
+Best regards,
+Ivaylo
+
+Ivaylo Ivanov (3):
+  dt-bindings: arm: samsung: document g0s board binding
+  arm64: dts: exynos: add initial support for exynos2200 SoC
+  arm64: dts: exynos: add initial support for Samsung Galaxy S22+
+
+ .../bindings/arm/samsung/samsung-boards.yaml  |    6 +
+ arch/arm64/boot/dts/exynos/Makefile           |    1 +
+ arch/arm64/boot/dts/exynos/exynos2200-g0s.dts |  178 ++
+ .../boot/dts/exynos/exynos2200-pinctrl.dtsi   | 1765 +++++++++++++++++
+ arch/arm64/boot/dts/exynos/exynos2200.dtsi    |  560 ++++++
+ 5 files changed, 2510 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos2200-g0s.dts
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
+ create mode 100644 arch/arm64/boot/dts/exynos/exynos2200.dtsi
+
+-- 
+2.43.0
+
 
