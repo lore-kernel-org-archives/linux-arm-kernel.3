@@ -4,118 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 300C9C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 10:14:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC8B7C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 10:15:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pRZAdQusZ5AXHUMm3w7VYychC5gXr/XD/8xX/V+MQZs=; b=dQtF/0C+TlH3ubvAekxbo86uYI
-	/nzYJOb0YPWBczyAgiMKtwE/7CHqFwILRq2lvemItK+cK4cEzOf+n64qxThqk780dr1tHR8bKCRwO
-	B4bYjbdLi0nWptDHX62t07kH7C9fupo3hw0ib8Thl0XvQCohAu8w7B1pUi9m93UrZoW6OyKtaXV+3
-	F8PhqGhjVEqE4Q81c1mqCnWtC9WHLM/pgDQJiWJGUMh9h8wBEqJB9CBxCQuYQAHu6FK0KiSbaRWTp
-	+JYlSaX6zqrRAunNICE3l1UMbDgwYIFuxG9ROMBQ4lNgk897I/fLxaQ+S+vajkhFgLE1EiJP5ELZR
-	aV8IqFTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dy3olq3E5jadbVfjBXT4DnMOc2rqSKWH12ClnJamJeA=; b=1d+PlFDzJ92TXEoacv3H7etYcx
+	9aFDWw1Ho6bJtSjHHonRtnYG6r7BhKoOKAmO8yWM71nv3vX3OaOrXDQFI8EHFB/nx5FR1rDSNsL0n
+	0jkCEEihPE0/GwEmw4ouYkhiRRog12aIgj3NqTTOE0SmqZhY8/impVULvJjTHrIS767B3Gp6FUhZN
+	QBOwLOqWfSe6W6Na5lL+VjNWr6tq5NpoYFEF17kWK9fT08atAMzEQTRHIoERtVFaMsH5CmHLlRw+O
+	/fW8OA7+VHRVSXmR3KNdZg5vOCwhUgsKswiq0BZjX1uYKRcOzyRD7I6bCtvCPP4Z0JJ1Qnciw6lO9
+	MfF0vkGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjFBD-0000000HQFB-00fi;
-	Sat, 15 Feb 2025 10:13:47 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tjFCc-0000000HQiS-45dm;
+	Sat, 15 Feb 2025 10:15:14 +0000
+Received: from out-173.mta1.migadu.com ([2001:41d0:203:375::ad])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjF5Y-0000000HPRj-0ETd;
-	Sat, 15 Feb 2025 10:07:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F1430A4034E;
-	Sat, 15 Feb 2025 10:06:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 536A4C4CEDF;
-	Sat, 15 Feb 2025 10:07:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739614074;
-	bh=tIDU56jo1s+8ObGKmjKkETRM71pM0ipfljqXskOq1B8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qi/k3+A5Xa5039kXxfQKobZt5SEFykpdULmJVuAdf4Ztgd36omY3Lf+bxJhlx/VbV
-	 WRsJpETiz1GYv450e5jyBRJ0e36rg68oYKFoBG11lZUzzgoyBfHdZfgtXurhXNocCt
-	 dDOavZy8T4laQniqN+x2AsMc+C5lJ4t1VjWjKH0pZGZsJFJaLZApzg2Abu6wwbYsqj
-	 39x2PBOWshqbq0xE7dylOxaEeUyaSrgJ85bpdCVQIqfB+kRAzNuV8jPB/1M4iUkZ0f
-	 E++o3Rzp1T3cGznja9cbYRX/irFPEtl2BO//q+2Tbh1CKpAmMAjBMfKN3wJQw7yUvq
-	 QYrckA0bbRP+g==
-Message-ID: <7c0dcf24-187c-4dc8-aa4a-4a8f814775b2@kernel.org>
-Date: Sat, 15 Feb 2025 11:07:45 +0100
+	id 1tjFB9-0000000HQB8-2cxv
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 15 Feb 2025 10:13:45 +0000
+Date: Sat, 15 Feb 2025 02:13:29 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1739614418;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dy3olq3E5jadbVfjBXT4DnMOc2rqSKWH12ClnJamJeA=;
+	b=klUcepXrGPatRwl2AXtl0bWN9JAoryVIFhLxFMxGnWDwrsEtMnXNlRWeJADSGvBay9alA8
+	zRbnkTpmelJPLy/LrCWo16ViUB5Y0ymEqkzZygMaEC+hYm1nBwFPG7ucWsbYfcO1poTh5R
+	HhTBPS0wQ7H2Zo5a7iWmj6Gdnfu9Ijw=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Sebastian Ott <sebott@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Cornelia Huck <cohuck@redhat.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] KVM: arm64: Allow userspace to change MIDR_EL1
+Message-ID: <Z7BoydkyT_h0gwOV@linux.dev>
+References: <20250211143910.16775-1-sebott@redhat.com>
+ <20250211143910.16775-2-sebott@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/7] phy: exynos5-usbdrd: subscribe to orientation
- notifier if required
-To: Marek Szyprowski <m.szyprowski@samsung.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Sam Protsenko <semen.protsenko@linaro.org>,
- Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>,
- kernel-team@android.com, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-References: <20241206-gs101-phy-lanes-orientation-phy-v4-0-f5961268b149@linaro.org>
- <CGME20241206163109eucas1p12aea3a9a6c404cd7c678009ea11aa5b3@eucas1p1.samsung.com>
- <20241206-gs101-phy-lanes-orientation-phy-v4-6-f5961268b149@linaro.org>
- <3c0b77e6-357d-453e-8b63-4757c3231bde@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <3c0b77e6-357d-453e-8b63-4757c3231bde@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250211143910.16775-2-sebott@redhat.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_020756_227433_E24DB793 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20250215_021344_160253_0B503363 
+X-CRM114-Status: GOOD (  25.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,71 +76,253 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/02/2025 20:30, Marek Szyprowski wrote:
-> On 06.12.2024 17:31, André Draszik wrote:
->> gs101's SS phy needs to be configured differently based on the
->> connector orientation, as the SS link can only be established if the
->> mux is configured correctly.
->>
->> The code to handle programming of the mux is in place already, this commit
->> now adds the missing pieces to subscribe to the Type-C orientation
->> switch event.
->>
->> Note that for this all to work we rely on the USB controller
->> re-initialising us. It should invoke our .exit() upon cable unplug, and
->> during cable plug we'll receive the orientation event after which we
->> expect our .init() to be called.
->>
->> Above reinitialisation happens if the DWC3 controller can enter runtime
->> suspend automatically. For the DWC3 driver, this is an opt-in:
->>      echo auto > /sys/devices/.../11110000.usb/power/control
->> Once done, things work as long as the UDC is not bound as otherwise it
->> stays busy because it doesn't cancel / stop outstanding TRBs. For now
->> we have to manually unbind the UDC in that case:
->>       echo "" > sys/kernel/config/usb_gadget/.../UDC
->>
->> Note that if the orientation-switch property is missing from the DT,
->> the code will behave as before this commit (meaning for gs101 it will
->> work in SS mode in one orientation only). Other platforms are not
->> affected either way.
->>
->> Signed-off-by: André Draszik <andre.draszik@linaro.org>
->>
->> ---
->> v3:
->> * drop init to -1 of phy_drd->orientation (Vinod)
->> * avoid #ifdef and switch to normal conditional IS_ENABLED() for
->>    CONFIG_TYPEC
->>
->> v2:
->> * move #include typec_mux.h from parent patch into this one (Peter)
->> ---
->>   drivers/phy/samsung/Kconfig              |  1 +
->>   drivers/phy/samsung/phy-exynos5-usbdrd.c | 56 ++++++++++++++++++++++++++++++++
->>   2 files changed, 57 insertions(+)
->>
->> diff --git a/drivers/phy/samsung/Kconfig b/drivers/phy/samsung/Kconfig
->> index f10afa3d7ff5..fc7bd1088576 100644
->> --- a/drivers/phy/samsung/Kconfig
->> +++ b/drivers/phy/samsung/Kconfig
->> @@ -80,6 +80,7 @@ config PHY_EXYNOS5_USBDRD
->>   	tristate "Exynos5 SoC series USB DRD PHY driver"
->>   	depends on (ARCH_EXYNOS && OF) || COMPILE_TEST
->>   	depends on HAS_IOMEM
->> +	depends on TYPEC || (TYPEC=n && COMPILE_TEST)
+Hi Sebastian,
 
-BTW, this syntax never made any sense - it did not work. The optional
-dependency is expressed as:
-	depends on TYPEC || !TYPEC
+On Tue, Feb 11, 2025 at 03:39:07PM +0100, Sebastian Ott wrote:
+> +static int set_id_reg_non_ftr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
+> +			      u64 val)
+> +{
+> +	u32 id = reg_to_encoding(rd);
+> +	int ret;
+> +
+> +	mutex_lock(&vcpu->kvm->arch.config_lock);
 
-but what it epxressed is that it is possible to build it without typec
-only for compile test, which is odd if this was meant to be optional.
-And further code:
-	if (!IS_ENABLED(CONFIG_TYPEC))
+There's quite a few early outs, guard() might be a better fit than
+explicitly dropping the lock.
 
-clearly suggests this should be optional.
+> +	/*
+> +	 * Since guest access to MIDR_EL1 is not trapped
+> +	 * set up VPIDR_EL2 to hold the MIDR_EL1 value.
+> +	 */
+> +	if (id == SYS_MIDR_EL1)
+> +		write_sysreg(val, vpidr_el2);
 
+This is problematic for a couple reasons:
 
-Best regards,
-Krzysztof
+ - If the kernel isn't running at EL2, VPIDR_EL2 is undefined
+
+ - VPIDR_EL2 needs to be handled as part of the vCPU context, not
+   written to without a running vCPU. What would happen if two vCPUs
+   have different MIDR values?
+
+Here's a new diff with some hacks thrown in to handle VPIDR_EL2
+correctly. Very lightly tested :)
+
+Thanks,
+Oliver
+---
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 7cfa024de4e3..3db8c773339e 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -373,6 +373,7 @@ struct kvm_arch {
+ #define KVM_ARM_ID_REG_NUM	(IDREG_IDX(sys_reg(3, 0, 0, 7, 7)) + 1)
+ 	u64 id_regs[KVM_ARM_ID_REG_NUM];
+ 
++	u64 midr_el1;
+ 	u64 ctr_el0;
+ 
+ 	/* Masks for VNCR-backed and general EL2 sysregs */
+@@ -1469,6 +1470,8 @@ static inline u64 *__vm_id_reg(struct kvm_arch *ka, u32 reg)
+ 	switch (reg) {
+ 	case sys_reg(3, 0, 0, 1, 0) ... sys_reg(3, 0, 0, 7, 7):
+ 		return &ka->id_regs[IDREG_IDX(reg)];
++	case SYS_MIDR_EL1:
++		return &ka->midr_el1;
+ 	case SYS_CTR_EL0:
+ 		return &ka->ctr_el0;
+ 	default:
+diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+index 76ff095c6b6e..866411621a39 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
++++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
+@@ -168,9 +168,11 @@ static inline void __sysreg_restore_user_state(struct kvm_cpu_context *ctxt)
+ }
+ 
+ static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt,
+-					      u64 mpidr)
++					      u64 midr, u64 mpidr)
+ {
+-	write_sysreg(mpidr,				vmpidr_el2);
++	write_sysreg(midr, vpidr_el2);
++	write_sysreg(mpidr, vmpidr_el2);
++
+ 
+ 	if (has_vhe() ||
+ 	    !cpus_have_final_cap(ARM64_WORKAROUND_SPECULATIVE_AT)) {
+diff --git a/arch/arm64/kvm/hyp/nvhe/sysreg-sr.c b/arch/arm64/kvm/hyp/nvhe/sysreg-sr.c
+index dba101565de3..a01be1add5ad 100644
+--- a/arch/arm64/kvm/hyp/nvhe/sysreg-sr.c
++++ b/arch/arm64/kvm/hyp/nvhe/sysreg-sr.c
+@@ -28,7 +28,15 @@ void __sysreg_save_state_nvhe(struct kvm_cpu_context *ctxt)
+ 
+ void __sysreg_restore_state_nvhe(struct kvm_cpu_context *ctxt)
+ {
+-	__sysreg_restore_el1_state(ctxt, ctxt_sys_reg(ctxt, MPIDR_EL1));
++	u64 midr;
++
++	if (ctxt_is_guest(ctxt))
++		midr = kvm_read_vm_id_reg(kern_hyp_va(ctxt_to_vcpu(ctxt)->kvm),
++					  SYS_MIDR_EL1);
++	else
++		midr = read_cpuid_id();
++
++	__sysreg_restore_el1_state(ctxt, midr, ctxt_sys_reg(ctxt, MPIDR_EL1));
+ 	__sysreg_restore_common_state(ctxt);
+ 	__sysreg_restore_user_state(ctxt);
+ 	__sysreg_restore_el2_return_state(ctxt);
+diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+index 90b018e06f2c..1d4b9597eb29 100644
+--- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
++++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
+@@ -87,11 +87,12 @@ static void __sysreg_restore_vel2_state(struct kvm_vcpu *vcpu)
+ 	write_sysreg(__vcpu_sys_reg(vcpu, PAR_EL1),	par_el1);
+ 	write_sysreg(__vcpu_sys_reg(vcpu, TPIDR_EL1),	tpidr_el1);
+ 
+-	write_sysreg(__vcpu_sys_reg(vcpu, MPIDR_EL1),		vmpidr_el2);
+-	write_sysreg_el1(__vcpu_sys_reg(vcpu, MAIR_EL2),	SYS_MAIR);
+-	write_sysreg_el1(__vcpu_sys_reg(vcpu, VBAR_EL2),	SYS_VBAR);
+-	write_sysreg_el1(__vcpu_sys_reg(vcpu, CONTEXTIDR_EL2),	SYS_CONTEXTIDR);
+-	write_sysreg_el1(__vcpu_sys_reg(vcpu, AMAIR_EL2),	SYS_AMAIR);
++	write_sysreg(kvm_read_vm_id_reg(vcpu->kvm, SYS_MIDR_EL1),	vpidr_el2);
++	write_sysreg(__vcpu_sys_reg(vcpu, MPIDR_EL1),			vmpidr_el2);
++	write_sysreg_el1(__vcpu_sys_reg(vcpu, MAIR_EL2),		SYS_MAIR);
++	write_sysreg_el1(__vcpu_sys_reg(vcpu, VBAR_EL2),		SYS_VBAR);
++	write_sysreg_el1(__vcpu_sys_reg(vcpu, CONTEXTIDR_EL2),		SYS_CONTEXTIDR);
++	write_sysreg_el1(__vcpu_sys_reg(vcpu, AMAIR_EL2),		SYS_AMAIR);
+ 
+ 	if (vcpu_el2_e2h_is_set(vcpu)) {
+ 		/*
+@@ -191,7 +192,7 @@ void __vcpu_load_switch_sysregs(struct kvm_vcpu *vcpu)
+ {
+ 	struct kvm_cpu_context *guest_ctxt = &vcpu->arch.ctxt;
+ 	struct kvm_cpu_context *host_ctxt;
+-	u64 mpidr;
++	u64 midr, mpidr;
+ 
+ 	host_ctxt = host_data_ptr(host_ctxt);
+ 	__sysreg_save_user_state(host_ctxt);
+@@ -222,10 +223,9 @@ void __vcpu_load_switch_sysregs(struct kvm_vcpu *vcpu)
+ 		if (vcpu_has_nv(vcpu)) {
+ 			/*
+ 			 * Use the guest hypervisor's VPIDR_EL2 when in a
+-			 * nested state. The hardware value of MIDR_EL1 gets
+-			 * restored on put.
++			 * nested state.
+ 			 */
+-			write_sysreg(ctxt_sys_reg(guest_ctxt, VPIDR_EL2), vpidr_el2);
++			midr = ctxt_sys_reg(guest_ctxt, VPIDR_EL2);
+ 
+ 			/*
+ 			 * As we're restoring a nested guest, set the value
+@@ -233,10 +233,11 @@ void __vcpu_load_switch_sysregs(struct kvm_vcpu *vcpu)
+ 			 */
+ 			mpidr = ctxt_sys_reg(guest_ctxt, VMPIDR_EL2);
+ 		} else {
++			midr = kvm_read_vm_id_reg(vcpu->kvm, SYS_MIDR_EL1);
+ 			mpidr = ctxt_sys_reg(guest_ctxt, MPIDR_EL1);
+ 		}
+ 
+-		__sysreg_restore_el1_state(guest_ctxt, mpidr);
++		__sysreg_restore_el1_state(guest_ctxt, midr, mpidr);
+ 	}
+ 
+ 	vcpu_set_flag(vcpu, SYSREGS_ON_CPU);
+@@ -271,9 +272,5 @@ void __vcpu_put_switch_sysregs(struct kvm_vcpu *vcpu)
+ 	/* Restore host user state */
+ 	__sysreg_restore_user_state(host_ctxt);
+ 
+-	/* If leaving a nesting guest, restore MIDR_EL1 default view */
+-	if (vcpu_has_nv(vcpu))
+-		write_sysreg(read_cpuid_id(),	vpidr_el2);
+-
+ 	vcpu_clear_flag(vcpu, SYSREGS_ON_CPU);
+ }
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index f6cd1ea7fb55..aa1a0443dc6a 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1656,7 +1656,7 @@ static bool is_feature_id_reg(u32 encoding)
+  */
+ static inline bool is_vm_ftr_id_reg(u32 id)
+ {
+-	if (id == SYS_CTR_EL0)
++	if (id == SYS_CTR_EL0 || id == SYS_MIDR_EL1)
+ 		return true;
+ 
+ 	return (sys_reg_Op0(id) == 3 && sys_reg_Op1(id) == 0 &&
+@@ -1989,6 +1989,34 @@ static int get_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
+ 	return 0;
+ }
+ 
++static int set_id_reg_non_ftr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
++			      u64 val)
++{
++	u32 id = reg_to_encoding(rd);
++
++	guard(mutex)(&vcpu->kvm->arch.config_lock);
++
++	/*
++	 * Once the VM has started the ID registers are immutable. Reject any
++	 * write that does not match the final register value.
++	 */
++	if (kvm_vm_has_ran_once(vcpu->kvm)) {
++		if (val != read_id_reg(vcpu, rd))
++			return -EBUSY;
++
++		return 0;
++	}
++
++	/*
++	 * For non ftr regs do a limited test against the writable mask only.
++	 */
++	if ((rd->val & val) != val)
++		return -EINVAL;
++
++	kvm_set_vm_id_reg(vcpu->kvm, id, val);
++	return 0;
++}
++
+ static int set_id_reg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *rd,
+ 		      u64 val)
+ {
+@@ -2483,6 +2511,15 @@ static bool access_mdcr(struct kvm_vcpu *vcpu,
+ 	return true;
+ }
+ 
++#define FUNCTION_RESET(reg)						\
++	static u64 reset_##reg(struct kvm_vcpu *v,			\
++			       const struct sys_reg_desc *r)		\
++	{								\
++		return read_sysreg(reg);				\
++	}
++
++FUNCTION_RESET(midr_el1)
++
+ 
+ /*
+  * Architected system registers.
+@@ -2532,6 +2569,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 
+ 	{ SYS_DESC(SYS_DBGVCR32_EL2), undef_access, reset_val, DBGVCR32_EL2, 0 },
+ 
++	{ ID_DESC(MIDR_EL1), .set_user = set_id_reg_non_ftr, .visibility = id_visibility,
++	  .reset = reset_midr_el1, .val = GENMASK_ULL(31, 0) },
+ 	{ SYS_DESC(SYS_MPIDR_EL1), NULL, reset_mpidr, MPIDR_EL1 },
+ 
+ 	/*
+@@ -4584,13 +4623,11 @@ id_to_sys_reg_desc(struct kvm_vcpu *vcpu, u64 id,
+ 		return ((struct sys_reg_desc *)r)->val;			\
+ 	}
+ 
+-FUNCTION_INVARIANT(midr_el1)
+ FUNCTION_INVARIANT(revidr_el1)
+ FUNCTION_INVARIANT(aidr_el1)
+ 
+ /* ->val is filled in by kvm_sys_reg_table_init() */
+ static struct sys_reg_desc invariant_sys_regs[] __ro_after_init = {
+-	{ SYS_DESC(SYS_MIDR_EL1), NULL, reset_midr_el1 },
+ 	{ SYS_DESC(SYS_REVIDR_EL1), NULL, reset_revidr_el1 },
+ 	{ SYS_DESC(SYS_AIDR_EL1), NULL, reset_aidr_el1 },
+ };
 
