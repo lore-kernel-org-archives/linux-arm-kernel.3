@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 477B6C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 15:18:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A118C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 15:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UCfh+MEyEtcot8hd46rxJtRt2vOT5JMsSl8Rt04xEmU=; b=zrWyCPW7RAYZ3526OulbVgEvgB
-	uOxxWSBNvtZI+vUNi1GeRds80Jpe5AUdaK/DDPEk3bF/hfN/WPO9wZC7IUQjgxTV4f0uclYNki6Yu
-	XjJ6l89s59oSyjo+THJU5NkQSFOFXFVetmnJ1fXF075Lw0a1TPf8heENpI4QotNmQrMLyZ3OssYZc
-	G+Uve1srP4fMK/wP3zhhGV16Mj0V+f+w00zz+qH1h5GqLob+A7MSgiQLMrJbcA4CtxFHCtMWOIa86
-	Bt1rFCr8HS/yra2dT+sQVpbrcMe8bBRD8zLgRj1YFUNgnwTvdUjd4cqeqosDXVia+0uvDNLn09Rci
-	wv/sdo5g==;
+	bh=yGMZorCL5okxEYy2GPHN8b4VL49ZcYeLLF0m3ybMBCI=; b=bJiPO3DUOGrIjP6wyvRzSfPtce
+	0zi4beoIzuZZ5p55Jj8+s9Iap3ze68dlZOlPMW1/eLsaHA1ctw/dpcE33P8q5FrBLBeNL5aBkukiZ
+	aogvvjpO0JM21hPvPA5gwA6GdsT7SojAan6JvNcF4gKbb5nuleLTdTCFRgo1Z9zD8fQgBd2knW7f1
+	8PYKtDRkjIykGbr14qabgRI9c5bae/NK14cXSXaj45HlrkIRjjtK98j09Ne0S42n5qlDkoLRA2Y3L
+	12uMUwnDGARGeFeImEoSbR0JYtvemqFj0cQoKihNwgMELHmBdJEFyFoX/BSLLy8Atz5Fpk5iKODJC
+	HbeLbwrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjJvq-00000000J4Z-2gOB;
-	Sat, 15 Feb 2025 15:18:14 +0000
+	id 1tjJxH-00000000JDL-1AUv;
+	Sat, 15 Feb 2025 15:19:43 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjJgD-00000000H2c-2p4m
+	id 1tjJgE-00000000H3O-2oPt
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 15 Feb 2025 15:02:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 106C05C5415;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8E0C15C542D;
 	Sat, 15 Feb 2025 15:01:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 323BBC4CEDF;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACA95C4CEE7;
 	Sat, 15 Feb 2025 15:02:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1739631723;
-	bh=PpoF2F+1+wn+5ob8I5NtW1ySbrqpV7c5zsFC4HILuKo=;
+	bh=f/pcKqA3eatbyRq1aMaamHU8PeCpvh11bwWeiHhbhNU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VW6bEWVhseSajhayzaAGS7lxFOgbpxRKhYnzuy6LNN2/KwoiLKl67/RWj46YH2WWk
-	 1JpRW4ZtqPVIE2U45QRcPexbeZFPrtu6wKHe5tq1b6O35UcaWc3IWIQ8IYJPioLi3K
-	 TZ0hCiJUAUHQf6Nql2TE9PC35e4QEylPSHLheXCgY1LDsu7hcBhxAEUeIQuLTYIwQB
-	 TM4b25Z9BhRT0R3eejKudxMq6P+5zyg3ElMug5RxziE3CkXewLQCZk8B4kNEAKRjt+
-	 j3h0/Y8qfJ1IprSiuDABskclpBHx1Pi3mlF0YMTMBtPW8xGeKBWSOq6tjiFARUyKGc
-	 OFxGxpw1B05aA==
+	b=idz2zJ/giIuvwQ+AxWiCkDRNgAphVdNxnFi8bOyJ+omlGuOI3L4PMqwk43QVtb+BU
+	 7h+JYTrH4wcZtLFf7Ysz0vhzrNDdH8aew3bdCQn874Jd5E/JWqgY5dU04pu9z+iEvi
+	 cpdIBS7qQB1GYr8paCT6oGXiGhQV58VL/oysh+p4CgBgfDuO0+sESVh+2PjWxZ/mtC
+	 kzoljFp1MUQCC1opLVsaPE71aX7e91BhAqCXkzIGMVFgggbaGxwNHEWbghjv7jGLAf
+	 mbywPhakvSF6spvYADAN+9etA9uWb6O5B1Vup+EcYqRqaKURCAaK+uO8NEEpZlDo5E
+	 9DoZHE8QBLnZA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tjJg9-004Nz6-Bw;
-	Sat, 15 Feb 2025 15:02:01 +0000
+	id 1tjJg9-004Nz6-Uk;
+	Sat, 15 Feb 2025 15:02:02 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -57,9 +57,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>
-Subject: [PATCH 06/14] KVM: arm64: nv: Don't adjust PSTATE.M when L2 is nesting
-Date: Sat, 15 Feb 2025 15:01:26 +0000
-Message-Id: <20250215150134.3765791-7-maz@kernel.org>
+Subject: [PATCH 09/14] KVM: arm64: nv: Handle VNCR_EL2-triggered faults
+Date: Sat, 15 Feb 2025 15:01:29 +0000
+Message-Id: <20250215150134.3765791-10-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250215150134.3765791-1-maz@kernel.org>
 References: <20250215150134.3765791-1-maz@kernel.org>
@@ -70,8 +70,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_070205_824485_41F0EB0D 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20250215_070206_887403_BF99AC3B 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,95 +86,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently check for HCR_EL2.NV being set to decide whether we
-need to repaint PSTATE.M to say EL2 instead of EL1 on exit.
+As VNCR_EL2.BADDR contains a VA, it is bound to trigger faults.
 
-However, this isn't correct when L2 is itself a hypervisor, and
-that L1 as set its own HCR_EL2.NV. That's because we "flatten"
-the state and inherit parts of the guest's own setup. In that case,
-we shouldn't adjust PSTATE.M, as this is really EL1 for both us
-and the guest.
+These faults can have multiple source:
 
-Instead of trying to try and work out how we ended-up with HCR_EL2.NV
-being set by introspecting both the host and guest states, use
-a per-CPU flag to remember the context (HYP or not), and use that
-information to decide whether PSTATE needs tweaking.
+- We haven't mapped anything on the host: we need to compute the
+  resulting translation, populate a TLB, and eventually map
+  the corresponding page
+
+- The permissions are out of whack: we need to tell the guest about
+  this state of affairs
+
+Note that the kernel doesn't support S1POE for itself yet, so
+the particular case of a VNCR page mapped with no permissions
+or with write-only permissions is not correctly handled yet.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h |  1 +
- arch/arm64/kvm/hyp/vhe/switch.c   | 22 ++++++++++++++++++++--
- 2 files changed, 21 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/esr.h        |   2 +
+ arch/arm64/include/asm/kvm_host.h   |   1 +
+ arch/arm64/include/asm/kvm_nested.h |   1 +
+ arch/arm64/kvm/handle_exit.c        |   1 +
+ arch/arm64/kvm/nested.c             | 158 ++++++++++++++++++++++++++++
+ 5 files changed, 163 insertions(+)
 
+diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+index d1b1a33f9a8b0..011d29c017b9e 100644
+--- a/arch/arm64/include/asm/esr.h
++++ b/arch/arm64/include/asm/esr.h
+@@ -99,6 +99,8 @@
+ #define ESR_ELx_AET_CE		(UL(6) << ESR_ELx_AET_SHIFT)
+ 
+ /* Shared ISS field definitions for Data/Instruction aborts */
++#define ESR_ELx_VNCR_SHIFT	(13)
++#define ESR_ELx_VNCR		(UL(1) << ESR_ELx_VNCR_SHIFT)
+ #define ESR_ELx_SET_SHIFT	(11)
+ #define ESR_ELx_SET_MASK	(UL(3) << ESR_ELx_SET_SHIFT)
+ #define ESR_ELx_FnV_SHIFT	(10)
 diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 7cfa024de4e34..519023dad3b47 100644
+index 9b91a9e97cdce..3cccf6fca4dfa 100644
 --- a/arch/arm64/include/asm/kvm_host.h
 +++ b/arch/arm64/include/asm/kvm_host.h
-@@ -619,6 +619,7 @@ struct kvm_host_data {
- #define KVM_HOST_DATA_FLAG_HOST_SME_ENABLED		3
- #define KVM_HOST_DATA_FLAG_TRBE_ENABLED			4
- #define KVM_HOST_DATA_FLAG_EL1_TRACING_CONFIGURED	5
-+#define KVM_HOST_DATA_FLAG_VCPU_IN_HYP_CONTEXT		6
- 	unsigned long flags;
+@@ -52,6 +52,7 @@
+ #define KVM_REQ_SUSPEND		KVM_ARCH_REQ(6)
+ #define KVM_REQ_RESYNC_PMU_EL0	KVM_ARCH_REQ(7)
+ #define KVM_REQ_NESTED_S2_UNMAP	KVM_ARCH_REQ(8)
++#define KVM_REQ_MAP_L1_VNCR_EL2	KVM_ARCH_REQ(9)
  
- 	struct kvm_cpu_context host_ctxt;
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index b5b9dbaf1fdd6..3453fb76cf0e3 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -53,13 +53,23 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
- 	if (!vcpu_has_nv(vcpu))
- 		return hcr;
+ #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
+ 				     KVM_DIRTY_LOG_INITIALLY_SET)
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index 6a168ae95aef4..53ff314b9ecd1 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -334,5 +334,6 @@ int __kvm_translate_va(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
  
-+	/*
-+	 * We rely on the invariant that a vcpu entered from HYP
-+	 * context must also exit in the same context, as only an ERET
-+	 * instruction can kick us out of it, and we obviously trap
-+	 * that sucker. PSTATE.M will get fixed-up on exit.
-+	 */
- 	if (is_hyp_ctxt(vcpu)) {
-+		host_data_set_flag(VCPU_IN_HYP_CONTEXT);
-+
- 		hcr |= HCR_NV | HCR_NV2 | HCR_AT | HCR_TTLB;
+ /* VNCR management */
+ int kvm_vcpu_allocate_vncr_tlb(struct kvm_vcpu *vcpu);
++int kvm_handle_vncr_abort(struct kvm_vcpu *vcpu);
  
- 		if (!vcpu_el2_e2h_is_set(vcpu))
- 			hcr |= HCR_NV1;
- 
- 		write_sysreg_s(vcpu->arch.ctxt.vncr_array, SYS_VNCR_EL2);
-+	} else {
-+		host_data_clear_flag(VCPU_IN_HYP_CONTEXT);
- 	}
- 
- 	return hcr | (__vcpu_sys_reg(vcpu, HCR_EL2) & ~NV_HCR_GUEST_EXCLUDE);
-@@ -545,11 +555,16 @@ static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu)
- 
- static void early_exit_filter(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
-+	if (!vcpu_has_nv(vcpu))
-+		return;
-+
- 	/*
- 	 * If we were in HYP context on entry, adjust the PSTATE view
--	 * so that the usual helpers work correctly.
-+	 * so that the usual helpers work correctly. This enforces our
-+	 * invariant that the guest's HYP context status is preserved
-+	 * across a run.
- 	 */
--	if (vcpu_has_nv(vcpu) && (read_sysreg(hcr_el2) & HCR_NV)) {
-+	if (unlikely(host_data_test_flag(VCPU_IN_HYP_CONTEXT))) {
- 		u64 mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
- 
- 		switch (mode) {
-@@ -564,6 +579,9 @@ static void early_exit_filter(struct kvm_vcpu *vcpu, u64 *exit_code)
- 		*vcpu_cpsr(vcpu) &= ~(PSR_MODE_MASK | PSR_MODE32_BIT);
- 		*vcpu_cpsr(vcpu) |= mode;
- 	}
-+
-+	/* Apply extreme paranoia! */
-+	BUG_ON(!!host_data_test_flag(VCPU_IN_HYP_CONTEXT) != is_hyp_ctxt(vcpu));
+ #endif /* __ARM64_KVM_NESTED_H */
+diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+index 512d152233ff2..e89132673630d 100644
+--- a/arch/arm64/kvm/handle_exit.c
++++ b/arch/arm64/kvm/handle_exit.c
+@@ -313,6 +313,7 @@ static exit_handle_fn arm_exit_handlers[] = {
+ 	[ESR_ELx_EC_ERET]	= kvm_handle_eret,
+ 	[ESR_ELx_EC_IABT_LOW]	= kvm_handle_guest_abort,
+ 	[ESR_ELx_EC_DABT_LOW]	= kvm_handle_guest_abort,
++	[ESR_ELx_EC_DABT_CUR]	= kvm_handle_vncr_abort,
+ 	[ESR_ELx_EC_SOFTSTP_LOW]= kvm_handle_guest_debug,
+ 	[ESR_ELx_EC_WATCHPT_LOW]= kvm_handle_guest_debug,
+ 	[ESR_ELx_EC_BREAKPT_LOW]= kvm_handle_guest_debug,
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index aed25a003750d..2c4991a84e003 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -881,6 +881,164 @@ int kvm_vcpu_allocate_vncr_tlb(struct kvm_vcpu *vcpu)
+ 	return 0;
  }
  
- /* Switch to the guest for VHE systems running in EL2 */
++static u64 read_vncr_el2(struct kvm_vcpu *vcpu)
++{
++	return (u64)sign_extend64(__vcpu_sys_reg(vcpu, VNCR_EL2), 48);
++}
++
++static int kvm_translate_vncr(struct kvm_vcpu *vcpu)
++{
++	bool write_fault, writable;
++	unsigned long mmu_seq;
++	struct vncr_tlb *vt;
++	struct page *page;
++	u64 va, pfn, gfn;
++	int ret;
++
++	vt = vcpu->arch.vncr_tlb;
++
++	vt->wi = (struct s1_walk_info) {
++		.regime	= TR_EL20,
++		.as_el0	= false,
++		.pan	= false,
++	};
++	vt->wr = (struct s1_walk_result){};
++	vt->valid = false;
++	
++	guard(srcu)(&vcpu->kvm->srcu);
++
++	va =  read_vncr_el2(vcpu);
++
++	ret = __kvm_translate_va(vcpu, &vt->wi, &vt->wr, va);
++	if (ret)
++		return ret;
++
++	write_fault = kvm_is_write_fault(vcpu);
++
++	mmu_seq = vcpu->kvm->mmu_invalidate_seq;
++	smp_rmb();
++
++	gfn = vt->wr.pa >> PAGE_SHIFT;
++	pfn = kvm_faultin_pfn(vcpu, gfn, write_fault, &writable, &page);
++	if (is_error_noslot_pfn(pfn) || (write_fault && !writable))
++		return -EFAULT;
++
++	scoped_guard(write_lock, &vcpu->kvm->mmu_lock) {
++		if (mmu_invalidate_retry(vcpu->kvm, mmu_seq))
++			return -EAGAIN;
++
++		vt->gva = va;
++		vt->hpa = pfn << PAGE_SHIFT;
++		vt->valid = true;
++		vt->cpu = -1;
++
++		kvm_make_request(KVM_REQ_MAP_L1_VNCR_EL2, vcpu);
++	}
++
++	kvm_release_faultin_page(vcpu->kvm, page, false, vt->wr.pw);
++	if (vt->wr.pw)
++		mark_page_dirty(vcpu->kvm, gfn);
++
++	return 0;
++}
++
++static void inject_vncr_perm(struct kvm_vcpu *vcpu)
++{
++	struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
++	u64 esr = kvm_vcpu_get_esr(vcpu);
++
++	/* Adjust the fault level to reflect that of the guest's */
++	esr &= ~ESR_ELx_FSC;
++	esr |= FIELD_PREP(ESR_ELx_FSC,
++			  ESR_ELx_FSC_PERM_L(vt->wr.level));
++
++	kvm_inject_nested_sync(vcpu, esr);
++}
++
++static bool kvm_vncr_tlb_lookup(struct kvm_vcpu *vcpu)
++{
++	struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
++
++	lockdep_assert_held_read(&vcpu->kvm->mmu_lock);
++
++	if (!vt->valid)
++		return false;
++
++	if (read_vncr_el2(vcpu) != vt->gva)
++		return false;
++
++	if (vt->wr.nG) {
++		u64 tcr = vcpu_read_sys_reg(vcpu, TCR_EL2);
++		u64 ttbr = ((tcr & TCR_A1) ?
++			    vcpu_read_sys_reg(vcpu, TTBR1_EL2) :
++			    vcpu_read_sys_reg(vcpu, TTBR0_EL2));
++		u16 asid;
++
++		asid = FIELD_GET(TTBR_ASID_MASK, ttbr);
++		if (!kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR0_EL1, ASIDBITS, 16) ||
++		    !(tcr & TCR_ASID16))
++			asid &= GENMASK(7, 0);
++
++		return asid != vt->wr.asid;
++	}
++
++	return true;
++}
++
++int kvm_handle_vncr_abort(struct kvm_vcpu *vcpu)
++{
++	struct vncr_tlb *vt = vcpu->arch.vncr_tlb;
++	u64 esr = kvm_vcpu_get_esr(vcpu);
++
++	BUG_ON(!(esr & ESR_ELx_VNCR_SHIFT));
++
++	if (esr_fsc_is_permission_fault(esr)) {
++		inject_vncr_perm(vcpu);
++	} else if (esr_fsc_is_translation_fault(esr)) {
++		bool valid;
++		int ret;
++
++		scoped_guard(read_lock, &vcpu->kvm->mmu_lock)
++			valid = kvm_vncr_tlb_lookup(vcpu);
++
++		if (!valid)
++			ret = kvm_translate_vncr(vcpu);
++		else
++			ret = -EPERM;
++
++		switch (ret) {
++		case -EAGAIN:
++		case -ENOMEM:
++			/* Let's try again... */
++			break;
++		case -EFAULT:
++		case -EINVAL:
++		case -ENOENT:
++			/*
++			 * Translation failed, inject the corresponding
++			 * exception back to EL2.
++			 */
++			BUG_ON(!vt->wr.failed);
++
++			esr &= ~ESR_ELx_FSC;
++			esr |= FIELD_PREP(ESR_ELx_FSC, vt->wr.fst);
++
++			kvm_inject_nested_sync(vcpu, esr);
++			break;
++		case -EPERM:
++			/* Hack to deal with POE until we get kernel support */
++			inject_vncr_perm(vcpu);
++			break;
++		case 0:
++			break;
++		}
++	} else {
++		WARN_ONCE(1, "Unhandled VNCR abort, ESR=%llx\n", esr);
++	}
++
++	return 1;
++}
++
+ /*
+  * Our emulated CPU doesn't support all the possible features. For the
+  * sake of simplicity (and probably mental sanity), wipe out a number
 -- 
 2.39.2
 
