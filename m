@@ -4,78 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86F40C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 10:12:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 300C9C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 15 Feb 2025 10:14:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wwUQ1gG+zU9mZ9mhGyEm41TVXi67wZbR+prnRoQw8Sc=; b=15oijuVOfEDuVlhP8jVMDyc/Jo
-	FrIZ44FObiwOa1eenLbibiTpVeHNtHiBylbv0uYRhmz4OtIV4BeTHM2YaTwFMD2JRD4aTEAIEhB0q
-	PFVTdmS/PVBZuLp7F/dhEL/idjYvQccgQQwOdy+QJyrxOw+SxObFhP74/dr8hz0Fm8BDEZbWM4qsr
-	ZQOzghDBZzaeKLOfYFRW8gCJHS75uVFVTlA8E/1z48DqGoTGPVjw52Mihn6Gq3WFI+7D45aq4JZgI
-	m2FI9Gyp9Zy55cPQ2Oh9Kt87RT3mnPj7Eh1/QgMVnVpAg7aLQ6CNshwJh5oIuPRm+9msbhZTPV+nk
-	IIlMj/rA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pRZAdQusZ5AXHUMm3w7VYychC5gXr/XD/8xX/V+MQZs=; b=dQtF/0C+TlH3ubvAekxbo86uYI
+	/nzYJOb0YPWBczyAgiMKtwE/7CHqFwILRq2lvemItK+cK4cEzOf+n64qxThqk780dr1tHR8bKCRwO
+	B4bYjbdLi0nWptDHX62t07kH7C9fupo3hw0ib8Thl0XvQCohAu8w7B1pUi9m93UrZoW6OyKtaXV+3
+	F8PhqGhjVEqE4Q81c1mqCnWtC9WHLM/pgDQJiWJGUMh9h8wBEqJB9CBxCQuYQAHu6FK0KiSbaRWTp
+	+JYlSaX6zqrRAunNICE3l1UMbDgwYIFuxG9ROMBQ4lNgk897I/fLxaQ+S+vajkhFgLE1EiJP5ELZR
+	aV8IqFTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjF9n-0000000HPyY-1XOQ;
-	Sat, 15 Feb 2025 10:12:19 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tjFBD-0000000HQFB-00fi;
+	Sat, 15 Feb 2025 10:13:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjF48-0000000HPCi-02Gs;
-	Sat, 15 Feb 2025 10:06:29 +0000
-X-UUID: 81e1258eeb8411ef9048ed6ed365623b-20250215
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=wwUQ1gG+zU9mZ9mhGyEm41TVXi67wZbR+prnRoQw8Sc=;
-	b=FvgmFSCmihpHrvGxlg1ecI2CEIh8HaUBLtROxfrH1EnmDsMY7vPLXTKpWFgUtxnQ5G4op24PqfVPLbtMTfgqwq64qMbwKvOtJH1LjcZj8xAsPLVZMagH57FXwC56PiZ/auiWgxxWrMEWqyzFNa0hYxQiAX3WNpzYN1s95QCbcrs=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:1324dd50-0bb9-4ea5-a145-92aa9d89fb4a,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:60aa074,CLOUDID:1d316988-f9ab-4ac1-951b-e3a689bed90c,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 81e1258eeb8411ef9048ed6ed365623b-20250215
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <chunfeng.yun@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1858017273; Sat, 15 Feb 2025 03:06:21 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Sat, 15 Feb 2025 18:06:19 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Sat, 15 Feb 2025 18:06:18 +0800
-From: Chunfeng Yun <chunfeng.yun@mediatek.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring
-	<robh@kernel.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: Chunfeng Yun <chunfeng.yun@mediatek.com>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, Mathias Nyman <mathias.nyman@intel.com>,
-	<linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 4/4] usb: mtu3: add support remote wakeup of mt8196
-Date: Sat, 15 Feb 2025 18:06:14 +0800
-Message-ID: <20250215100615.808-4-chunfeng.yun@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250215100615.808-1-chunfeng.yun@mediatek.com>
-References: <20250215100615.808-1-chunfeng.yun@mediatek.com>
+	id 1tjF5Y-0000000HPRj-0ETd;
+	Sat, 15 Feb 2025 10:07:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id F1430A4034E;
+	Sat, 15 Feb 2025 10:06:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 536A4C4CEDF;
+	Sat, 15 Feb 2025 10:07:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739614074;
+	bh=tIDU56jo1s+8ObGKmjKkETRM71pM0ipfljqXskOq1B8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qi/k3+A5Xa5039kXxfQKobZt5SEFykpdULmJVuAdf4Ztgd36omY3Lf+bxJhlx/VbV
+	 WRsJpETiz1GYv450e5jyBRJ0e36rg68oYKFoBG11lZUzzgoyBfHdZfgtXurhXNocCt
+	 dDOavZy8T4laQniqN+x2AsMc+C5lJ4t1VjWjKH0pZGZsJFJaLZApzg2Abu6wwbYsqj
+	 39x2PBOWshqbq0xE7dylOxaEeUyaSrgJ85bpdCVQIqfB+kRAzNuV8jPB/1M4iUkZ0f
+	 E++o3Rzp1T3cGznja9cbYRX/irFPEtl2BO//q+2Tbh1CKpAmMAjBMfKN3wJQw7yUvq
+	 QYrckA0bbRP+g==
+Message-ID: <7c0dcf24-187c-4dc8-aa4a-4a8f814775b2@kernel.org>
+Date: Sat, 15 Feb 2025 11:07:45 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/7] phy: exynos5-usbdrd: subscribe to orientation
+ notifier if required
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, Roy Luo <royluo@google.com>,
+ kernel-team@android.com, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+References: <20241206-gs101-phy-lanes-orientation-phy-v4-0-f5961268b149@linaro.org>
+ <CGME20241206163109eucas1p12aea3a9a6c404cd7c678009ea11aa5b3@eucas1p1.samsung.com>
+ <20241206-gs101-phy-lanes-orientation-phy-v4-6-f5961268b149@linaro.org>
+ <3c0b77e6-357d-453e-8b63-4757c3231bde@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <3c0b77e6-357d-453e-8b63-4757c3231bde@samsung.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_020628_050078_9F8BC7A7 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20250215_020756_227433_E24DB793 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,69 +130,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are three USB controllers on mt8196, each controller's wakeup
-control is different, add some specific versions for them.
+On 14/02/2025 20:30, Marek Szyprowski wrote:
+> On 06.12.2024 17:31, André Draszik wrote:
+>> gs101's SS phy needs to be configured differently based on the
+>> connector orientation, as the SS link can only be established if the
+>> mux is configured correctly.
+>>
+>> The code to handle programming of the mux is in place already, this commit
+>> now adds the missing pieces to subscribe to the Type-C orientation
+>> switch event.
+>>
+>> Note that for this all to work we rely on the USB controller
+>> re-initialising us. It should invoke our .exit() upon cable unplug, and
+>> during cable plug we'll receive the orientation event after which we
+>> expect our .init() to be called.
+>>
+>> Above reinitialisation happens if the DWC3 controller can enter runtime
+>> suspend automatically. For the DWC3 driver, this is an opt-in:
+>>      echo auto > /sys/devices/.../11110000.usb/power/control
+>> Once done, things work as long as the UDC is not bound as otherwise it
+>> stays busy because it doesn't cancel / stop outstanding TRBs. For now
+>> we have to manually unbind the UDC in that case:
+>>       echo "" > sys/kernel/config/usb_gadget/.../UDC
+>>
+>> Note that if the orientation-switch property is missing from the DT,
+>> the code will behave as before this commit (meaning for gs101 it will
+>> work in SS mode in one orientation only). Other platforms are not
+>> affected either way.
+>>
+>> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+>>
+>> ---
+>> v3:
+>> * drop init to -1 of phy_drd->orientation (Vinod)
+>> * avoid #ifdef and switch to normal conditional IS_ENABLED() for
+>>    CONFIG_TYPEC
+>>
+>> v2:
+>> * move #include typec_mux.h from parent patch into this one (Peter)
+>> ---
+>>   drivers/phy/samsung/Kconfig              |  1 +
+>>   drivers/phy/samsung/phy-exynos5-usbdrd.c | 56 ++++++++++++++++++++++++++++++++
+>>   2 files changed, 57 insertions(+)
+>>
+>> diff --git a/drivers/phy/samsung/Kconfig b/drivers/phy/samsung/Kconfig
+>> index f10afa3d7ff5..fc7bd1088576 100644
+>> --- a/drivers/phy/samsung/Kconfig
+>> +++ b/drivers/phy/samsung/Kconfig
+>> @@ -80,6 +80,7 @@ config PHY_EXYNOS5_USBDRD
+>>   	tristate "Exynos5 SoC series USB DRD PHY driver"
+>>   	depends on (ARCH_EXYNOS && OF) || COMPILE_TEST
+>>   	depends on HAS_IOMEM
+>> +	depends on TYPEC || (TYPEC=n && COMPILE_TEST)
 
-Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
----
-v3: add the ommitted third dual-role controller suggested by Angelo
-v2: add wakeup for dual-role controllers
----
- drivers/usb/mtu3/mtu3_host.c | 26 ++++++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+BTW, this syntax never made any sense - it did not work. The optional
+dependency is expressed as:
+	depends on TYPEC || !TYPEC
 
-diff --git a/drivers/usb/mtu3/mtu3_host.c b/drivers/usb/mtu3/mtu3_host.c
-index 7c657ea2dabd..8138b3f3096a 100644
---- a/drivers/usb/mtu3/mtu3_host.c
-+++ b/drivers/usb/mtu3/mtu3_host.c
-@@ -46,6 +46,14 @@
- #define WC1_IS_P_95		BIT(12)
- #define WC1_IS_EN_P0_95		BIT(6)
- 
-+/* mt8196 */
-+#define PERI_WK_CTRL0_8196	0x08
-+#define WC0_IS_EN_P0_96		BIT(0)
-+#define WC0_IS_EN_P1_96		BIT(7)
-+
-+#define PERI_WK_CTRL1_8196	0x10
-+#define WC1_IS_EN_P2_96		BIT(0)
-+
- /* mt2712 etc */
- #define PERI_SSUSB_SPM_CTRL	0x0
- #define SSC_IP_SLEEP_EN	BIT(4)
-@@ -59,6 +67,9 @@ enum ssusb_uwk_vers {
- 	SSUSB_UWK_V1_3,		/* mt8195 IP0 */
- 	SSUSB_UWK_V1_5 = 105,	/* mt8195 IP2 */
- 	SSUSB_UWK_V1_6,		/* mt8195 IP3 */
-+	SSUSB_UWK_V1_7, 	/* mt8196 IP0 */
-+	SSUSB_UWK_V1_8, 	/* mt8196 IP1 */
-+	SSUSB_UWK_V1_9, 	/* mt8196 IP2 */
- };
- 
- /*
-@@ -100,6 +111,21 @@ static void ssusb_wakeup_ip_sleep_set(struct ssusb_mtk *ssusb, bool enable)
- 		msk = WC0_IS_EN_P3_95 | WC0_IS_C_95(0x7) | WC0_IS_P_95;
- 		val = enable ? (WC0_IS_EN_P3_95 | WC0_IS_C_95(0x1)) : 0;
- 		break;
-+	case SSUSB_UWK_V1_7:
-+		reg = ssusb->uwk_reg_base + PERI_WK_CTRL0_8196;
-+		msk = WC0_IS_EN_P0_96;
-+		val = enable ? msk : 0;
-+		break;
-+	case SSUSB_UWK_V1_8:
-+		reg = ssusb->uwk_reg_base + PERI_WK_CTRL0_8196;
-+		msk = WC0_IS_EN_P1_96;
-+		val = enable ? msk : 0;
-+		break;
-+	case SSUSB_UWK_V1_9:
-+		reg = ssusb->uwk_reg_base + PERI_WK_CTRL1_8196;
-+		msk = WC1_IS_EN_P2_96;
-+		val = enable ? msk : 0;
-+		break;
- 	case SSUSB_UWK_V2:
- 		reg = ssusb->uwk_reg_base + PERI_SSUSB_SPM_CTRL;
- 		msk = SSC_IP_SLEEP_EN | SSC_SPM_INT_EN;
--- 
-2.46.0
+but what it epxressed is that it is possible to build it without typec
+only for compile test, which is odd if this was meant to be optional.
+And further code:
+	if (!IS_ENABLED(CONFIG_TYPEC))
 
+clearly suggests this should be optional.
+
+
+Best regards,
+Krzysztof
 
