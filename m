@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F472C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 08:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE19BC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 08:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wXpKHX0ZasccCQS/rRdK60+YV5wRpbezRfa/+sNSrQ4=; b=XwrPVMhHv9r6ro
-	dR0qxBRrMbqrctJftVxnTlcXMmvaHVKiI8C6Oza8VQ7MeCzV8PFYtUsblQ4JAwhkPVD5igNzjt4R7
-	R8tZbtqLp+/teQEEbw64m4bcZpAluvxyfiIx1UT54cPKlpDAmU2ccL6atuT1TFM/lFxS2hyvitWKK
-	tanDUFjHpaYS91agixDizF9US4o6I/qPrOE8Wih1vL+WTXF3d0No/XjT4d6/6t1CgEsrp10S8kL8x
-	KRUFnLDqnIQhS3+99ETX6tJBukSE0VQTNDTTT9t4NoTmnh+/4EN3Z6pWs9cgoG8AJ8/IHdinw8/Qz
-	AO9M7SqpgR2YNang05IA==;
+	List-Owner; bh=Dpo5WMvSHiZdUjnCU7ZcgyQ986Sd3fENuocGlx6aSZQ=; b=X7odyG+qQB+yhX
+	+CA+hrIfg/8WZRMoe0cvHjonTC8jFJwZOAiChaBgtDt/fMzrdzg+FX6dz68sDDDSly/qWNEiyiBI5
+	ovf2UWvBiOBXgJqF7oddu1J+V6E1E5EgYFocIOu3fdlwXEmNS1NGES/TWXCJ9gVopTxVdln6TdNwn
+	vgTumVRGuHyoEWtk9kuuSY26Sxxcai6rnqAUs6isArykfK5aXvtztGVra2FftzX2/5VaKBlQf5YOS
+	xs/ykfbP0U2QFdUCPJCEl12nMcCz3MTYKpl1aCUyvHLJ8Jnej5DGLvB8Jrm19VaXyCdZisXqUQPA7
+	H6jIhMn2wnm/Q3YUDwpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjaEf-00000001ShY-2NF8;
-	Sun, 16 Feb 2025 08:42:45 +0000
-Received: from mail-io1-f51.google.com ([209.85.166.51])
+	id 1tjaG5-00000001SpS-19aU;
+	Sun, 16 Feb 2025 08:44:13 +0000
+Received: from mail-il1-f172.google.com ([209.85.166.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjaC0-00000001SNN-41fk
+	id 1tjaDQ-00000001SX0-0qim
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Feb 2025 08:40:01 +0000
-Received: by mail-io1-f51.google.com with SMTP id ca18e2360f4ac-8556adad825so256003639f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Feb 2025 00:40:00 -0800 (PST)
+	Sun, 16 Feb 2025 08:41:29 +0000
+Received: by mail-il1-f172.google.com with SMTP id e9e14a558f8ab-3d193fc345aso7772625ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Feb 2025 00:41:27 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739695198; x=1740299998;
+        d=1e100.net; s=20230601; t=1739695283; x=1740300083;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=wXpKHX0ZasccCQS/rRdK60+YV5wRpbezRfa/+sNSrQ4=;
-        b=OWRYvSc7fvuLrP11aR1fNIQymPUieMeVlBOfqAd8hE1vtWt08XB0GKAu875QNsC7bK
-         WBZm9yla7beEt135wfRQURorrJ/ZKeXH/QxqRaAw8uMBBiZkqneCs71p2jVXVbZtHXHA
-         Wg4+NshAPNBMtsJ5dBZxees202VGqsah7dfD158KmK9Af92eQNXZgYK3xPU+6qnv4FsX
-         y2VIz769lAZI+555yamS6REffjuWXgQDsUpY5ByipKxtoAVMDZdRkKB0MKtRT0dfW+wI
-         IwCNLXqjdXYeyh0MKXs3WaYtGIH9qtxhsG/o3p8Nea2Uoa+HWyVL7gdAyO1Wyvo2LZcf
-         vIXw==
-X-Forwarded-Encrypted: i=1; AJvYcCV9XpyOJuav5mCVCXjoZ4zltD4pFzN4OBqmf3bHOlPB/ULu0OGW+hxXVRNehPd4+WNTJZsZCevNW46ISyytsed5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXFE39j6mEm7iqmiW+5jaov9dS3Niogt9DUE0k4ZDi7hImx6nP
-	1zioxUVsyw3gVt4hwZ4qSHUlDYxGNWzUOAcjzS5I7/B6w5lBPAsel7DUHfjenaA=
-X-Gm-Gg: ASbGncvUDYM/qRj6RrimXy9XyMIuXSL5owDBiQ2DthE6ESgJwKOLi61SZf9ystCQg54
-	OLJlLMFDBSDDz9F8Vj9BwKZ9DSRjJ8UauxfXNaA8QPWk5djqb1Hb12XiYqZKKSU71a6PdEZvK7n
-	OETfrlu2bQNvHKBjQ1RV93h2onaL604ggUyf6iwiNHU9SXf75xTz648BcjhABXSr3wRQ+9GoSbh
-	25pboesJHWzdCWgJly0WeyqHjGly4cW++4eSVFMi5SYSaEGiA2Uc2pQs+VQdiTbuRfjNH4oSZql
-	NNEfPjhfg5etEFpwOLsCNzIZwOSOsmXqVijhCLZchaUjvax7
-X-Google-Smtp-Source: AGHT+IFhBIFeA39w+B4sc4O5ikTaG9AvQ3+N74yn102N7+lkslJDabYCTtEd5uYgXQLwduyHzAIptA==
-X-Received: by 2002:a05:6e02:1b09:b0:3cf:fb97:c313 with SMTP id e9e14a558f8ab-3d2809cf122mr52715785ab.18.1739695198036;
-        Sun, 16 Feb 2025 00:39:58 -0800 (PST)
-Received: from mail-il1-f180.google.com (mail-il1-f180.google.com. [209.85.166.180])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3d19eccff96sm10419355ab.11.2025.02.16.00.39.57
+        bh=Dpo5WMvSHiZdUjnCU7ZcgyQ986Sd3fENuocGlx6aSZQ=;
+        b=m/QasE6wSDkyR2LU9Um4sUrSSN6NbqIqCvqbczyPOMKZP/VN8VYOKQApE2AR/kxnff
+         +eg/0GSGfNvCnLlIL6dUJoQ7kCdek29742YBGt4UIEJmufI+zX6swcVIFP371bk+VsKm
+         91CbvxypN/4otGDWvoSfbJvXj1lTplcp1wemsXO4mw9gOFFNs3T2pXB84L983363Cfwj
+         Fcww+UAZz+V8CW26pVIzByV2QsmQRb7K7oDtjavt+L9jKV+KxzZ+VIJnMtksLy4YD1CZ
+         tOWGVnJvC16u6+egxJSfGkfmLY77vlfkaa/RTSnRfIkyw4uqL1WCjUKctvZ0kd0OYPw/
+         ZsSw==
+X-Forwarded-Encrypted: i=1; AJvYcCWjBqR4Tv3SMD51yjYs9azYrOiYbhZ4SB494SgjlNLC+xeMbAc9gQSqCDlzX2TxdeGapxpPeJrXDPEyQF5Or3rH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxacCDscT23+FwSqm6zzXPaTlx8YdSDsiZLB6/v4IMDzLbUQC9X
+	dEypQfJ7hldP3CLsrma3O2nve7cloe5oZ0WvXPfH27+PI8EqrtXKzULmxGeYm1E=
+X-Gm-Gg: ASbGncudYeDu/9mvzwJqERWmNnBsZ0XqpQJf0fzIieGPT8QDXXzpGeVyK+KVGKX0HQ9
+	yg6v4IjJD1sevgGb/TqyfnctLtTx1EUc0Glubj1gWKm/dEAilKwpUGqcZ9j2idn1AuPGdbRgNiN
+	cjhku648xrosn4mUYK/Q/5pMGabrlzOZ6KfKjmKlixBTz7/TT65rRC1KKL8Td2OpPqOh3kJSIdG
+	sjXYD6GZj4ROc77+Uha9WQOhHjpm8Iuzh2W6v1WJ6+yTlUHtsevvzLlSe1yCjTIZZOjJ8NXij4g
+	/4VWrKXlvUGnWSkW43ZMoTCbl2RkmzDuTzKaCizjGUESqwOa
+X-Google-Smtp-Source: AGHT+IHkYlbJOLLmObQwcpexXN4j4LyYw1kRsCuDmB8ExxZBDf8OjyKeu1taVTKHNV5hUzfZuKzhNg==
+X-Received: by 2002:a05:6e02:1c83:b0:3cf:bc71:94f5 with SMTP id e9e14a558f8ab-3d28098a122mr40310035ab.22.1739695282845;
+        Sun, 16 Feb 2025 00:41:22 -0800 (PST)
+Received: from mail-il1-f173.google.com (mail-il1-f173.google.com. [209.85.166.173])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3d18fb57636sm14619585ab.52.2025.02.16.00.41.22
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 16 Feb 2025 00:39:57 -0800 (PST)
-Received: by mail-il1-f180.google.com with SMTP id e9e14a558f8ab-3ce873818a3so31682235ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Feb 2025 00:39:57 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVjdc0P0aYd06x8LUsBJBnbEF7+N1muZ0qpUTULbNfUya1dTJDlwgz5YBz+SJGEDQiRq7RTIzs8K34alCD7vZku@lists.infradead.org
-X-Received: by 2002:a05:6e02:3182:b0:3d1:8ab7:9569 with SMTP id
- e9e14a558f8ab-3d279685dacmr46970125ab.0.1739695197464; Sun, 16 Feb 2025
- 00:39:57 -0800 (PST)
+        Sun, 16 Feb 2025 00:41:22 -0800 (PST)
+Received: by mail-il1-f173.google.com with SMTP id e9e14a558f8ab-3d193fc345aso7772535ab.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Feb 2025 00:41:22 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCV1Rst9oGuaA/EYhyKXwAyQ+Kf//TtJJKXR0Y5FOsldPYNh2HcxSKSPNN7D6bhboir2hWLHBFE5djakneMlGiDG@lists.infradead.org
+X-Received: by 2002:a05:6e02:2610:b0:3d1:78f1:8a86 with SMTP id
+ e9e14a558f8ab-3d2809471f1mr44082585ab.15.1739695282060; Sun, 16 Feb 2025
+ 00:41:22 -0800 (PST)
 MIME-Version: 1.0
-References: <20250214125359.5204-1-andre.przywara@arm.com> <20250214125359.5204-3-andre.przywara@arm.com>
-In-Reply-To: <20250214125359.5204-3-andre.przywara@arm.com>
+References: <20250214125359.5204-1-andre.przywara@arm.com> <20250214125359.5204-4-andre.przywara@arm.com>
+In-Reply-To: <20250214125359.5204-4-andre.przywara@arm.com>
 From: Chen-Yu Tsai <wens@csie.org>
-Date: Sun, 16 Feb 2025 16:39:38 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67JF-NBLG8GBnReHvczKXgiKBYHTR15HTCtspGcWTK5ag@mail.gmail.com>
-X-Gm-Features: AWEUYZnAYxHy4jgtgA_B5U0mMvfm0UP2fVTcNC4hjtdhMTuDWPQD0C_dkfISXeo
-Message-ID: <CAGb2v67JF-NBLG8GBnReHvczKXgiKBYHTR15HTCtspGcWTK5ag@mail.gmail.com>
-Subject: Re: [PATCH v2 02/15] clk: sunxi-ng: mp: introduce dual-divider clock
+Date: Sun, 16 Feb 2025 16:41:07 +0800
+X-Gmail-Original-Message-ID: <CAGb2v64z4xVfDkwcgdc6Bp9k1GoN-DWH4vjSEwioMGrmE3Ywsg@mail.gmail.com>
+X-Gm-Features: AWEUYZmw3abG4Std0u6pbgvDtbaKDpoG1yzPXqXz-ASh85n4DeWqACoMoRsm03w
+Message-ID: <CAGb2v64z4xVfDkwcgdc6Bp9k1GoN-DWH4vjSEwioMGrmE3Ywsg@mail.gmail.com>
+Subject: Re: [PATCH v2 03/15] clk: sunxi-ng: mp: provide wrapper for setting
+ feature flags
 To: Andre Przywara <andre.przywara@arm.com>
 Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -82,8 +83,8 @@ Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_004001_005086_824E4AB6 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20250216_004128_243586_75DA5E37 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,18 +103,88 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Fri, Feb 14, 2025 at 8:56=E2=80=AFPM Andre Przywara <andre.przywara@arm.=
 com> wrote:
 >
-> The Allwinner A523 SoC introduces some new MP-style mod clock, where the
-> second "P" divider is an actual numerical divider value, and not the
-> numbers of bits to shift (1..32 instead of 1,2,4,8).
-> The rest of the clock is the same as the existing MP clock, so enhance th=
-e
-> existing code to accommodate for this.
+> So far our sunxi clock instantiation macros set the required flags
+> depending on the clock type, but the new "dual divider MP clock"
+> requires us to pass that piece of information in by the user.
 >
-> Introduce the new CCU feature bit CCU_FEATURE_DUAL_DIV to mark an MP
-> clock as having two dividers, and change the dividing and encoding code
-> to differentiate the two cases.
+> Add a new wrapper macro that allows to specify a "features" field, to
+> allow marking those dual-divider clocks accordingly.
 >
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  drivers/clk/sunxi-ng/ccu_mp.h | 19 ++++++++++++++++---
+>  1 file changed, 16 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/clk/sunxi-ng/ccu_mp.h b/drivers/clk/sunxi-ng/ccu_mp.=
+h
+> index e235fdfde2d36..687bd2ec798e2 100644
+> --- a/drivers/clk/sunxi-ng/ccu_mp.h
+> +++ b/drivers/clk/sunxi-ng/ccu_mp.h
+> @@ -100,11 +100,12 @@ struct ccu_mp {
+>                                    _muxshift, _muxwidth,                \
+>                                    0, _flags)
+>
+> -#define SUNXI_CCU_MP_DATA_WITH_MUX_GATE(_struct, _name, _parents, _reg, =
+       \
+> +#define SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(_struct, _name, _parents, _=
+reg, \
+>                                         _mshift, _mwidth,               \
+>                                         _pshift, _pwidth,               \
+>                                         _muxshift, _muxwidth,           \
+> -                                       _gate, _flags)                  \
+> +                                       _gate, _flags,                  \
+> +                                       _features)                      \
+>         struct ccu_mp _struct =3D {                                      =
+ \
+>                 .enable =3D _gate,                                       =
+ \
+>                 .m      =3D _SUNXI_CCU_DIV(_mshift, _mwidth),            =
+ \
+> @@ -112,13 +113,25 @@ struct ccu_mp {
+>                 .mux    =3D _SUNXI_CCU_MUX(_muxshift, _muxwidth),        =
+ \
+>                 .common =3D {                                            =
+ \
+>                         .reg            =3D _reg,                        =
+ \
+> +                       .features       =3D _features,                   =
+ \
+>                         .hw.init        =3D CLK_HW_INIT_PARENTS_DATA(_nam=
+e, \
+>                                                                    _paren=
+ts, \
+> -                                                                  &ccu_m=
+p_ops, \
+> +                                                                  &ccu_m=
+p_ops,\
+
+Accidental change?
+
+Otherwise,
 
 Reviewed-by: Chen-Yu Tsai <wens@csie.org>
+
+>                                                                    _flags=
+), \
+>                 }                                                       \
+>         }
+>
+> +#define SUNXI_CCU_MP_DATA_WITH_MUX_GATE(_struct, _name, _parents, _reg, =
+       \
+> +                                       _mshift, _mwidth,               \
+> +                                       _pshift, _pwidth,               \
+> +                                       _muxshift, _muxwidth,           \
+> +                                       _gate, _flags)                  \
+> +       SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(_struct, _name, _parents,  \
+> +                                            _reg, _mshift, _mwidth,    \
+> +                                            _pshift, _pwidth,          \
+> +                                            _muxshift, _muxwidth,      \
+> +                                            _gate, _flags, 0)
+> +
+>  #define SUNXI_CCU_MP_DATA_WITH_MUX(_struct, _name, _parents, _reg,     \
+>                                    _mshift, _mwidth,                    \
+>                                    _pshift, _pwidth,                    \
+> --
+> 2.46.3
+>
 
