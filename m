@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECE6C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 09:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C60BC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 09:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9vWrxkdJO0dfpBjkfIgsKAeydLi/izf9pI2P/yUQt9k=; b=0T+P79Xg1B8xExNN97fE2edy4x
-	f1aAbQf952FjgWkZaqxBf79Mtbu6yyEHUbSquzVBApiShKMpQz380WTE3Tvod/YrKKkwoICa+p5be
-	b7rc3jZc+2l+5JCMx85ogt6A4ngEZO+Ei3Ei2RVQ6Zaq65Gkiz0mZ/bW2tqhEVJHRj2Gi6tWFFndJ
-	5oibpzvkQAWuX8U405QYv0FXjh/ul7o2FXSQfkCf02Kfxx9LMA+ZCEMV7tV/oY9v+u2xvLpqNh+TT
-	WVzplf0HAPUkNkY+pcOZKgQMkBjmIKTjXro1BmaTZIr5QBJ1e/n6DadYSXMFCcACBvd+5LtXGkh6+
-	ktw48iww==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gPbxwCyH4yC6dtOlRIW7+ZjzgpjAHcZbbIEzFv6rlEs=; b=4M2Zxecb9vxplkV/NrfuaZhylJ
+	PAKhFgQd/1FL08fOvs6FuHwmkMiBxp47XaIC1LXJ11VH0gIVS0lBalCQ3RXC3K9JAZq4DRj1ImfyV
+	8RXLxlBKUOpp2RO0/Sbuu6gBSrnymJ4gweGVgea/11upcNMqJZelTQa1lYG7eSbXnQ96lOLs2SNIW
+	MnSkKzXvU/vvDgM7lU6aqa9oIdT/YBFd+WG65x6GhSuJua/2Ws37j0aSUJOVhhcQHVEuKXgqDLrPC
+	avMxS65Z7gQT79NYF71sJ+BhDODw0s/LpvaHykIv3WFuMZPT20awmLKLV2klbI12KbSP/l4jnjDBt
+	7ufhKfog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjbDN-00000001a28-2SUK;
-	Sun, 16 Feb 2025 09:45:29 +0000
+	id 1tjbEn-00000001aEy-16Ww;
+	Sun, 16 Feb 2025 09:46:57 +0000
 Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjax9-00000001XP3-33zI
+	id 1tjaxE-00000001XQg-3M9K
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Feb 2025 09:28:45 +0000
-Received: from phl-compute-12.internal (phl-compute-12.phl.internal [10.202.2.52])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 71B472540111;
-	Sun, 16 Feb 2025 04:28:42 -0500 (EST)
+	Sun, 16 Feb 2025 09:28:50 +0000
+Received: from phl-compute-06.internal (phl-compute-06.phl.internal [10.202.2.46])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id A55842540115;
+	Sun, 16 Feb 2025 04:28:47 -0500 (EST)
 Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-12.internal (MEProxy); Sun, 16 Feb 2025 04:28:42 -0500
+  by phl-compute-06.internal (MEProxy); Sun, 16 Feb 2025 04:28:48 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm3; t=1739698122; x=1739784522; bh=9vWrxkdJO0
-	dfpBjkfIgsKAeydLi/izf9pI2P/yUQt9k=; b=TnS4ZvGcjmNcHcThPob+4lkFfs
-	Ok8ynTUxDnN+HKzgPRPEALIFzPn98SqEAHWPRZpBhFPV/P/KY7+mu+QNSygKU5V5
-	6afaY7ehh+bu1MmL6reNHPWIIt/WNAzMZc6u7RTNFSUhORBPqwdDiecaTm5JbVVQ
-	/8HIwFaKdQcyzpCGlA/izjikJ1n59pLhe7/C4seme+Xyh1e1vehIavh0arz9qQN/
-	oGoHkb9yjQy6nI2nKWj+OsSpYl6Xp2FPAvnpu6ABFDztTws4VtMNek1Vl2eH5FqA
-	FIo7Pd1Oi0PkLl6s5ZvyTivWsJ5TqyVeDRhQcb+Yx9rWjUGI0LUhWkwRdxVA==
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm3; t=1739698127; x=
+	1739784527; bh=gPbxwCyH4yC6dtOlRIW7+ZjzgpjAHcZbbIEzFv6rlEs=; b=F
+	iAUkBTqZVGRLSor4M03Bu3KKk/saSl/IcrnSJEoje3okIHchFotCixmrDte60R8I
+	8P4A1oS1heh3W+lGH8a5GHnW3wvijn9v3iRs3xV8EHIbRTucigLQeSmyO7xT2zuo
+	/htnRI4cbDb58NpHQZXCVqqiUVhfqeh8YnlKAY4wcEAb+lZuZXI/nf9SSJE+Fh7L
+	zVNxKhdCfZ5+tHJ2BScJNpBqotfKPA7ohShdlXI7Y/4uKLXWJX82JyVwqfeQYQ8b
+	JfNZGRx30oSTw/ajVaTfsN37bj4qHR/tdRp2s9Bat1KIwIm8wk4Yh1KZLRsRATwh
+	KJXv+8/adUA7vZFjpZD1A==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1739698122; x=1739784522; bh=9vWrxkdJO0dfpBjkfIgsKAeydLi/izf9pI2
-	P/yUQt9k=; b=b9KzmkmnUxRhqTAddNUkXycFSIsxBGbkytbKxvW61xgMPuA6Mgt
-	CRTZx+0d5PTKtqw4elLVDU5zJUqk5Jw8z+HnyQiYh6ljZXDvaGBF+ZTr6Yo6xt5o
-	m29QQbfWTCtpYEskA2lPBTsCOe+D97CItXm2fdo+whPasDLPcVnO0VxUWwRoqkFG
-	+svztD9BU1dhmo8HDjnSAGF035ImxISC9PNCTmoW6/GNt3LoSZ8veE26Nr/D8nPl
-	QuxAsA8m+LbL/qiBh6AuzIlCjU9HxgTLvo9p9g6UZHJaoRqjTdqdUN4Cswq0Zy+8
-	dO+wvUvdL5HEzrSbR9bET/pLHk1COZzJDFQ==
-X-ME-Sender: <xms:ya-xZxUytV8M8nzwIDu6_sTNrxiL-1IABXlRKKmVmqGr14Pz-uDPSQ>
-    <xme:ya-xZxlNdzS5cFoDzfZ1YLMGX6CrDDy-zJPG4FDlDL48doZ9EQn2RF4wf3vMeukds
-    GeA5vt7ZgeWvDeLyA>
-X-ME-Received: <xmr:ya-xZ9ahfD4cG_NyG-HunaPVOLRZEvBgHRkhn-gpupYDV8HPT6e0zaX0lE-Dq6nOIgFBpkFrY4G2e4GnZH2kGRaX9XparWb_qWXFdJ6xfvxv>
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm3; t=1739698127; x=1739784527; bh=g
+	PbxwCyH4yC6dtOlRIW7+ZjzgpjAHcZbbIEzFv6rlEs=; b=gQGO6X/vUUa+tvRC2
+	ESUcAkkvEtpili0EgtTkDylvMcWHyNbAsjZqdbfWqQetWG65plUpIV3j3mqAkOXQ
+	l6ZmcmHyUM6MWSq1GDUtURIhP7ncCp7ADeGCEtUCJnfelyOjqdDiHx6iltllHshp
+	5EhpziKFPL1pqUz1wftyJGvseqxB3drAGvRyxFdnQ6OWZiSTKle9yKyKY9lurBti
+	UjnAYdDUJGDKw1CchKubzNvxhysSv/MMw0jGOmzGSl53YiMJ1kQr+xDLz9P6vv6B
+	G8qiRp5SCsZeOGsfeqqecyNNFWmDE1eS1K2R/n7CK0GU4pc2SQCTvC3nM26iXb0N
+	LzzfA==
+X-ME-Sender: <xms:z6-xZ9Ly0kuZhVLDNkR52nxmQ1IRaH3JVBr65Qg-_4o4EpCKVxNbLQ>
+    <xme:z6-xZ5IriAxKt5bu_doDV4tVP1N3_fvVhw40_751ME5DdFCRtDjRMkldgvzUs7HQ1
+    oSvLnfD0taMvnXEhQ>
+X-ME-Received: <xmr:z6-xZ1sRGGsPV6_LrRCMAxyfU_12DtG1zyQVaD_WsB-IVwCs_o3N14wPDovcwfTr1i5F2uNG-mdw0bLqXTy1n9I_JTEt4joLN3nqePFCGdzF>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehhedutdcutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
     uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecu
-    hfhrohhmpefthigrnhcuhggrlhhklhhinhcuoehrhigrnhesthgvshhtthhorghsthdrtg
-    homheqnecuggftrfgrthhtvghrnhepfeejjefhjefhgfeitdellefhueekfeetueektdej
-    vdeuueegudehudffkeevudeunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlh
-    hushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehrhigrnhesthgv
-    shhtthhorghsthdrtghomhdpnhgspghrtghpthhtohepudegpdhmohguvgepshhmthhpoh
-    huthdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhr
-    iihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvg
-    hrnhgvlhdrohhrghdprhgtphhtthhopeifvghnshestghsihgvrdhorhhgpdhrtghpthht
-    ohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepsh
-    grmhhuvghlsehshhholhhlrghnugdrohhrghdprhgtphhtthhopegrnhgurhgvrdhprhii
-    hiifrghrrgesrghrmhdrtghomhdprhgtphhtthhopehmrggtrhhorghlphhhrgekvdesgh
-    hmrghilhdrtghomhdprhgtphhtthhopehkihhkuhgthhgrnhelkeesghhmrghilhdrtgho
-    mh
-X-ME-Proxy: <xmx:ya-xZ0WYop4DZMjFYPiDdruPnDaHqMVpPZKjWVNjdMw4pnbex0ZVFw>
-    <xmx:ya-xZ7mX6BFiKxwlRvgG0Y6_YtzqAjR6C7jjwMqcxKugWqAmlmR2-g>
-    <xmx:ya-xZxdsy2VWkCiwH_DUoaVtx4sAGzQDXveBjS-Gq5yjt4rYmW_Q8Q>
-    <xmx:ya-xZ1FBiySdoogsmZLAs6oQ9VOpHXcWGXM9qYtH7nP6uXkzd6LCNw>
-    <xmx:yq-xZw8ruD8YetD0qr29I-XT4-556R4xw5hnnd82dwNl5OKUbFOeYKxw>
+    hnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddt
+    necuhfhrohhmpefthigrnhcuhggrlhhklhhinhcuoehrhigrnhesthgvshhtthhorghsth
+    drtghomheqnecuggftrfgrthhtvghrnhepffehieffgedtgfffjeetveegfeekleeileek
+    veeuteffteetudffveegieeiheetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomheprhihrghnsehtvghsthhtohgrshhtrdgtohhmpdhnsggprhgt
+    phhtthhopedugedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprhhosghhsehkvg
+    hrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdp
+    rhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfi
+    gvnhhssegtshhivgdrohhrghdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtges
+    ghhmrghilhdrtghomhdprhgtphhtthhopehsrghmuhgvlhesshhhohhllhgrnhgurdhorh
+    hgpdhrtghpthhtoheprghnughrvgdrphhriiihfigrrhgrsegrrhhmrdgtohhmpdhrtghp
+    thhtohepmhgrtghrohgrlhhphhgrkedvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepkh
+    hikhhutghhrghnleeksehgmhgrihhlrdgtohhm
+X-ME-Proxy: <xmx:z6-xZ-aRnmdjcjTnRhPr1biK7DcIWSdEK5Mky9yKrdGu-LN9UIsjtw>
+    <xmx:z6-xZ0aH5MU_7RdG4XMKzAw03oQjJKrnDNQtyEGUB3YXxuIeedj2zA>
+    <xmx:z6-xZyAZRX25bxCHcrCXP8Leb2irXvBa7DuL3Mdl33xh06ncllZA7g>
+    <xmx:z6-xZyYEHMf6p50oQJo5Ypruvunzgg9qMLlgOuH_N0OeRhzen9dKog>
+    <xmx:z6-xZ6z3PR5AMP95jkTIAtqgWlUOMBjntY7kDKqbR62DVVU5IBPkhT4o>
 Feedback-ID: idc0145fc:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 16 Feb 2025 04:28:37 -0500 (EST)
+ 16 Feb 2025 04:28:43 -0500 (EST)
 From: Ryan Walklin <ryan@testtoast.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -98,15 +99,17 @@ Cc: Andre Przywara <andre.przywara@arm.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Ryan Walklin <ryan@testtoast.com>
-Subject: [PATCH 0/8] arm64: dts: allwinner: h616: add LCD timing controller and display engine support
-Date: Sun, 16 Feb 2025 22:27:07 +1300
-Message-ID: <20250216092827.15444-1-ryan@testtoast.com>
+Subject: [PATCH 1/8] bus: sun50i: add DE33 compatible string to the DE2 bus driver
+Date: Sun, 16 Feb 2025 22:27:08 +1300
+Message-ID: <20250216092827.15444-2-ryan@testtoast.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250216092827.15444-1-ryan@testtoast.com>
+References: <20250216092827.15444-1-ryan@testtoast.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_012843_853902_6ACCC1A4 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250216_012848_947833_78AE4616 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,39 +124,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H616 series of SoCs has an LCD timing controller as part of its display pipeline, capable of outputting to an LCD display, as well as HDMI and (depending on the SoC) composite TV signals. The pins are not exposed on all die variants, but the H700 variant is exposes RGB and LVDS pins. Building on the DE33 display engine patches on the list (https://lore.kernel.org/linux-sunxi/20250216085432.6373-2-ryan@testtoast.com), this patch series:
+The Allwinner H616 series includes a newer display engine (DE33). Add a
+compatible string to the existing bus driver.
 
-- adds the required device tree configuration for the display pipeline to the H616 (bus, display engine, mixer and timing controller)
-- adds a quirk to the sun4i TCON driver for the Allwinner R40 (compatible with the H616/H618/H700/T507)
-- describes the H616 RGB and LVDS GPIO pins
-- adds the required pipeline endpoints to the device tree for the Anbernic RG35XX devices featuring this SoC
-- adds LCD panel description, and required power supply configuration for the panel, backlight and GPIO pins for the RG35XX
+Signed-off-by: Ryan Walklin <ryan@testtoast.com>
+---
+ drivers/bus/sun50i-de2.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Thanks to Jernej Skrabec for the initial out-of-tree patch for the T507.
-
-Regards,
-
-Ryan
-
-Jernej Skrabec (4):
-  arm64: dts: allwinner: h616: add display engine, bus and mixer nodes
-  drm/sun4i: tcon: Add support for R40 LCD
-  arm64: dts: allwinner: h616: Add TCON nodes to H616 DTSI
-  arm64: dts: allwinner: h616: add LCD, LVDS and PWM pins
-
-Ryan Walklin (4):
-  bus: sun50i: add DE33 compatible string to the DE2 bus driver
-  dt-bindings: allwinner: Add TCON_TOP and TCON_LCD clock/reset defines
-  arm64: dts: allwinner: rg35xx: Enable LCD output
-  arm64: dts: allwinner: rg35xx: Add GPIO backlight control
-
- .../arm64/boot/dts/allwinner/sun50i-h616.dtsi | 221 ++++++++++++++++++
- .../sun50i-h700-anbernic-rg35xx-2024.dts      |  64 +++++
- drivers/bus/sun50i-de2.c                      |   1 +
- drivers/gpu/drm/sun4i/sun4i_tcon.c            |   9 +
- include/dt-bindings/clock/sun8i-tcon-top.h    |   2 +
- 5 files changed, 297 insertions(+)
-
+diff --git a/drivers/bus/sun50i-de2.c b/drivers/bus/sun50i-de2.c
+index dfe588179acab..47c87d51a603b 100644
+--- a/drivers/bus/sun50i-de2.c
++++ b/drivers/bus/sun50i-de2.c
+@@ -31,6 +31,7 @@ static void sun50i_de2_bus_remove(struct platform_device *pdev)
+ 
+ static const struct of_device_id sun50i_de2_bus_of_match[] = {
+ 	{ .compatible = "allwinner,sun50i-a64-de2", },
++	{ .compatible = "allwinner,sun50i-h616-de33", },
+ 	{ /* sentinel */ }
+ };
+ 
 -- 
 2.48.1
 
