@@ -4,88 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F8EC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 17:09:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C90C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 18:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7hZ1fSExpzVyKpRFgU6VF7mxJS6w1IMWmpYoUWdP8zU=; b=2s338O0JtC+lQ8yyk3C/WIGL4R
-	3rJkRjTQCmTq8jnOpCChv7nbqVIOMQFTOUP8wURsQS5TbDh5FJvorOy7poc+1dtNx49JenuqgFN8T
-	1i2eMBjve8PFGTZS5uxWjIWn+dGwUqrI4JJLcEhU7EY3qq1na54Ft0n6+31WlAQW3nr0C+oZ655+A
-	5UhagqrqrmHAqq/vbgv3OdzP9ltnx3gWXyb+BFteHO8zRFt6Sntab/ubL6F44ppUnMl6ofA18vyHo
-	OthmD+2S1bPMXqfeftUkFZV1nfqhh9UfiA+QW/NgAujCTwYVtPD4TwMFiuhYCiCkpWD5/sqAIxGSL
-	ZyWb70MQ==;
+	bh=UKxz9u0rArAp/AK9r6arANTq1yalES7FLUDN71RLM1Y=; b=GXV+DL+Kw2YSkOUhBJVgnub7lV
+	oAi4dCMp8iSXQQ5N7rHZcCE5Zdeqg9/R99c1EMy2PjDjcQVUcSrpPchizqrb1G8fPCmznYLAMvU/d
+	q8cBZSDjBVXWp75Q7imPFrogp7q9846MTTjl17T7y3u1SxMMK0rjCkTpqWn2zj80v3kKiWK8evldE
+	OmL0Feuc3G0frC+4Ivcg/jLwFJ1aP4F61fvZZLxVOPRiK78ZDrO4E39LIqQ3A2Py5zRDnCBId9c3H
+	3AzyJW81bz0mbiuS2UmTvwwujarwQUizavczN6k+Yquwx7B0WjZRZaVyhp5KkLR6+U2iyV/RlbW1o
+	OPKVJP1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tji8Y-00000002D8r-2Z1v;
-	Sun, 16 Feb 2025 17:08:58 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tjj6b-00000002Ihu-1tYH;
+	Sun, 16 Feb 2025 18:11:01 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tji76-00000002Cuy-3CkZ;
-	Sun, 16 Feb 2025 17:07:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=7hZ1fSExpzVyKpRFgU6VF7mxJS6w1IMWmpYoUWdP8zU=; b=B8uFo8Lw1gxr7PSjRioQ8WDC7M
-	RB4rvTQkIiL+FxUZ/tl2g/b8/c8gA69f6BVQgjHWJDfZt1svMu4dwCcCywlxvzTi4QV7K91m9XQvu
-	7Mx6JqYWdHVCF8qDfYC5MdDw7siI5bws4rdjL42azaIOwmkrGk0oZ7JGDtqruXvdmrBk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tji6j-00Ei2d-C0; Sun, 16 Feb 2025 18:07:05 +0100
-Date: Sun, 16 Feb 2025 18:07:05 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-	Hariprasad Kelam <hkelam@marvell.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Lothar Rubusch <l.rubusch@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
+	id 1tjj55-00000002ITK-21OO
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 16 Feb 2025 18:09:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 03164A40149;
+	Sun, 16 Feb 2025 18:07:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A44A3C4CEDD;
+	Sun, 16 Feb 2025 18:09:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739729365;
+	bh=O/E/r5ASZKXffJhOIy6Fl6+74Z3ePdDBUDsU152mGFo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=H7T9LPn/uWmvfZ3KjI/F5rPc6+db5eXkhogkBeuN9CI8rMEPFVh7XxqOL8KB06fKl
+	 qVmjn6fQlFMHzLN5F6ExW0YX8OK1LO6DJIg5ODqks3r1WAgAOz+fkKUDFWoZqQnDOn
+	 lLx70FoaNJ7P57N0iWy7/zZM8QIXgTXy5iN8i+o49YCWbpO6eYzQFr1/h8GFwUthbq
+	 3oco4TwdcLfZg+Jmz2tdM2MTnC7r6gFRBLyL2xnfq5/O57ihh/pvznnwv/tV/YV0GQ
+	 gAUz+veYkHclqDTncQWNEAXgDS5Q0o5v1UDkzI8aUkSzX0/S1p+4Ulk4yZopzxQ+8A
+	 M6Y9AaMq+bKjA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tjj51-004b85-7o;
+	Sun, 16 Feb 2025 18:09:23 +0000
+Date: Sun, 16 Feb 2025 18:09:22 +0000
+Message-ID: <86jz9psqwd.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: luoyonggang@gmail.com
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Sebastian Ott <sebott@redhat.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Cornelia Huck <cohuck@redhat.com>,
+	Eric Auger <eric.auger@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add glue layer for Sophgo
- SG2044 SoC
-Message-ID: <5e481b95-3cf8-4f71-a76b-939d96e1c4f3@lunn.ch>
-References: <20250216123953.1252523-1-inochiama@gmail.com>
- <20250216123953.1252523-4-inochiama@gmail.com>
- <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] KVM: arm64: Allow userspace to change MIDR_EL1
+In-Reply-To: <CAE2XoE9=hjP+qpsy+FcYcSDectDajiXjtcMCVpacSo4cFOo=tQ@mail.gmail.com>
+References: <20250211143910.16775-1-sebott@redhat.com>
+	<20250211143910.16775-2-sebott@redhat.com>
+	<Z7BoydkyT_h0gwOV@linux.dev>
+	<CAE2XoE_8ihJZQF856w-_F+cgJW7fLWGz7M7Ztoxzw2vE51_m1A@mail.gmail.com>
+	<87v7tb17os.wl-maz@kernel.org>
+	<CAE2XoE9=hjP+qpsy+FcYcSDectDajiXjtcMCVpacSo4cFOo=tQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: luoyonggang@gmail.com, oliver.upton@linux.dev, sebott@redhat.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, shameerali.kolothum.thodi@huawei.com, cohuck@redhat.com, eric.auger@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_090728_802951_1F89A5D5 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20250216_100927_647389_8088523D 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,45 +100,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 16, 2025 at 03:47:18PM +0000, Russell King (Oracle) wrote:
-> On Sun, Feb 16, 2025 at 08:39:51PM +0800, Inochi Amaoto wrote:
-> > +static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
-> > +{
-> > +	struct sophgo_dwmac *dwmac = priv;
-> > +	long rate;
-> > +	int ret;
-> > +
-> > +	rate = rgmii_clock(speed);
-> > +	if (rate < 0) {
-> > +		dev_err(dwmac->dev, "invalid speed %u\n", speed);
-> > +		return;
-> > +	}
-> > +
-> > +	ret = clk_set_rate(dwmac->clk_tx, rate);
-> > +	if (ret)
-> > +		dev_err(dwmac->dev, "failed to set tx rate %ld: %pe\n",
-> > +			rate, ERR_PTR(ret));
-> > +}
-> 
-> There are a bunch of other platform support in stmmac that are doing
-> the same:
-> 
-> dwmac-s32.c is virtually identical
-> dwmac-imx.c does the same, although has some pre-conditions
-> dwmac-dwc-qos-eth.c is virually identical but the two steps are split
->   across a bunch of register writes
-> dwmac-starfive.c looks the same
-> dwmac-rk.c also
-> dwmac-intel-plat.c also
-> 
-> So, I wonder whether either this should be a helper, or whether core
-> code should be doing this. Maybe something to look at as a part of
-> this patch submission?
+On Sat, 15 Feb 2025 19:04:20 +0000,
+"=E7=BD=97=E5=8B=87=E5=88=9A(Yonggang Luo)" <luoyonggang@gmail.com> wrote:
+>=20
+> According to this, the MIDR EL1 is updated properly, but the MIDR for
+> aarch32 is not updated, and I don't know how to hook the update for
+> MIDR for aarch32
 
-Inochi, please could you look at the datasheet for this IP. Is the
-transmit clock a part of the IP? Can we expect all devices integrating
-this IP to have such a clock? That would be a good indicator the clock
-handling should be moved into the core.
+It is the same thing. The AArch32 view is configured the same way as
+the AArch64 view, and there is nothing to do at all (that's what
+VPIDR_EL2 is all about).
 
-	Andrew
+With Oliver's change, I'm correctly getting a different MIDR using a
+hacked up kvmtool, see below. I suspect you're not running with the
+correct patch applied.
+
+	M.
+
+* kvmtool hack:
+
+diff --git a/arm/aarch64/kvm-cpu.c b/arm/aarch64/kvm-cpu.c
+index c8be10b..f8ecbfe 100644
+--- a/arm/aarch64/kvm-cpu.c
++++ b/arm/aarch64/kvm-cpu.c
+@@ -128,6 +128,18 @@ static void reset_vcpu_aarch64(struct kvm_cpu *vcpu)
+ 	}
+ }
+=20
++static void reset_vcpu_midr(struct kvm_cpu *vcpu)
++{
++	struct kvm_one_reg reg;
++	u64 midr =3D 0xbadf00d5;
++
++	reg.id =3D ARM64_SYS_REG(ARM_CPU_ID, 0);
++	reg.addr =3D (u64)&midr;
++
++	if (ioctl(vcpu->vcpu_fd, KVM_SET_ONE_REG, &reg) < 0)
++		die("KVM_SET_ONE_REG failed (set_midr vcpu%ld", vcpu->cpu_id);
++}
++
+ void kvm_cpu__select_features(struct kvm *kvm, struct kvm_vcpu_init *init)
+ {
+ 	if (kvm->cfg.arch.aarch32_guest) {
+@@ -181,6 +193,8 @@ void kvm_cpu__reset_vcpu(struct kvm_cpu *vcpu)
+ 			die_perror("sched_setaffinity");
+ 	}
+=20
++	reset_vcpu_midr(vcpu);
++
+ 	if (kvm->cfg.arch.aarch32_guest)
+ 		return reset_vcpu_aarch32(vcpu);
+ 	else
+
+* arm64 host:
+
+$ cat /proc/cpuinfo=20
+processor	: 0
+BogoMIPS	: 200.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+CPU implementer	: 0x41
+CPU architecture: 8
+CPU variant	: 0x0
+CPU part	: 0xd03
+CPU revision	: 4
+
+* arm64 guest:
+
+# cat /proc/cpuinfo
+processor	: 0
+BogoMIPS	: 200.00
+Features	: fp asimd evtstrm aes pmull sha1 sha2 crc32 cpuid
+CPU implementer	: 0xba
+CPU architecture: 8
+CPU variant	: 0xd
+CPU part	: 0x00d
+CPU revision	: 5
+
+* arm32 guest:
+
+# cat /proc/cpuinfo=20
+processor	: 0
+model name	: ARMv7 Processor rev 5 (v7l)
+BogoMIPS	: 200.00
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vf=
+pd32 lpae evtstrm aes pmull sha1 sha2 crc32=20
+CPU implementer	: 0xba
+CPU architecture: 7
+CPU variant	: 0xd
+CPU part	: 0x00d
+CPU revision	: 5
+
+--=20
+Without deviation from the norm, progress is not possible.
 
