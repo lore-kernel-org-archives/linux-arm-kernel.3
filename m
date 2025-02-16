@@ -4,123 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3322C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 19:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A094C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 19:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yn06nNMTN3kxcpZkZJtZKmYTN2rUWD3mBgjPfdEVi54=; b=s9kxIRVcKYrhGt6jdIJQg907HV
-	NFV7iIqBiHqxABJwpUOQHueR+wpBxTirSXxH4AWIvq8D5D4q6UhmC7557gXV6fYQjeOVuc5zfvhM5
-	ReO2gkr3dRGrsc4shWMo8IlWmO98cxEbEKUmwcRbuvqUc6I2H1z230kqvFTmf03syrNPcWxBA6Y/d
-	/Hes8KmS//Hp/9SzDJWf5gIRae+uXlfNr76evjalWtQA5IVCG8xjZaVV0CV04hv5/EWITnqdBJCFf
-	hvCaV0fj254/VzJ/5RD2bHHiJ+aEnjZXvkt+GNER/7QECJzgQAbSHEDvD0oA0hG5BCGSd7Gk73mGz
-	y4m6hoiA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hC5pjueK3njHG+/S0PsoYfxNvXRhtdE6Y8ckyHhZnt8=; b=pLLJYn8Odbkn16
+	JGFdLZ5YHSobxG/KObdaQ6Vxektg1G2+I6pk3jcub1SndGIlGLMx5bFu0voucwNSGVGVp6D5ULFKB
+	FTtKb0wLYO26VAdpC0XzMIUeYvTwxj0rTfipOzcd2wCmG+CMEgL8DRySNpAg2EXY3zs2xgttoQdw3
+	PKLN4lShI6M/Q3Gx5vAe0Imhsd47RnvKbuYKnV1sB7g3+hRM3zGWfCNl8dI8Dmhu9tIRppfaV4Zgz
+	Kc/f8Zb0pkwVqmQD1Rc8PLYoOpjdOb3VEK+UUpuibB3n3XJscNbDeRFW0JobkINiUwRB2Tn+Vyd5G
+	A6M4fuWrgHojZF+A+fRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjk8U-00000002RlK-3AWn;
-	Sun, 16 Feb 2025 19:17:02 +0000
-Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
+	id 1tjk9v-00000002Rtq-25GU;
+	Sun, 16 Feb 2025 19:18:31 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjjZq-00000002Mfc-2yVL
+	id 1tjjnm-00000002Orj-248z
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Feb 2025 18:41:15 +0000
-Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 66EA61140114;
-	Sun, 16 Feb 2025 13:41:13 -0500 (EST)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Sun, 16 Feb 2025 13:41:14 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1739731273; x=
-	1739817673; bh=yn06nNMTN3kxcpZkZJtZKmYTN2rUWD3mBgjPfdEVi54=; b=K
-	rTVil1P8qkkoDMJY6hJSN7BPViuIMzoPyWQTydIpHUANaNPX1UzbXIdV+GZpymOi
-	DrcQ5nO9KKkqfntjmcHq2TNxrdRlcYWuFUocSl7ztcHny1M6OetrKbFbl/VgBqOr
-	YKZhnrqptYCAmJhP2gv5gOiWfFzj0MTKn/Y6FSn91ow4MtqUIOpsi5pP4FjnJtCR
-	PTBdGi7HxcikZ8HgP4eZY4ESGjsatJUJPB8DVjf1Jwp3+y6kUEluMLDs2BNjKRnF
-	YmNFyBDu9eXMgp6MyQbG2HBk9TmN0KNYs+kaCpRqIDUeukf4TEXvQEldcb3IRz3h
-	gXWSVAfzqvrdWL+0L4PwA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1739731273; x=1739817673; bh=y
-	n06nNMTN3kxcpZkZJtZKmYTN2rUWD3mBgjPfdEVi54=; b=MR2e+PAs5SYel3vaQ
-	fBcQNiEpZIhNVdDFIj7EXkledti4o6MG1Vq/doWT/lwGXrnIExyevNfEMLS06NOk
-	uGWiNwd5By/B3x1f2363tYmJZ8LthJOgEsfXnN/sc+xrQY6vEtDMz9ZtekgWUIWC
-	rwBheGs3jxu7FmxZiUKp4y+CC6lIDMKZ9BibP/YAle4C8DjBeVH7dD1N7S/sz6II
-	1Axi+8JYelF3vMLq/HgRS5USMhE34qfFUEH31mhQ5iOYethY7R+DKoob5stuQmJ9
-	bk8CIVUCJSgSBr77CfRmrKainxReC365Z6X+Mh61HnyepeuswCH1/UFtajiIyPjn
-	PoV4Q==
-X-ME-Sender: <xms:STGyZzEi4Eo9MocwZJRxVDveCrCTXarcfKd_mbqHD2R6MTrORDGXmg>
-    <xme:STGyZwWxSIs_iBPuBao3J70VojZxBrIfYp89S8ZzX3bKzCEC7kAK386_nbg343jKB
-    d4Hi3sP61dFvvAVsw>
-X-ME-Received: <xmr:STGyZ1I1-hrOHj7gxoqzbWQfNdr34IpRznrj9CS78PwXmkwGtwbAMmDS0mzimHAz1Qh7GX31YOjiWODfbCWaWdE-a3cZuWT7YXD_d9snAlW6>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehiedvudcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddt
-    necuhfhrohhmpefthigrnhcuhggrlhhklhhinhcuoehrhigrnhesthgvshhtthhorghsth
-    drtghomheqnecuggftrfgrthhtvghrnhepffehieffgedtgfffjeetveegfeekleeileek
-    veeuteffteetudffveegieeiheetnecuvehluhhsthgvrhfuihiivgepjeenucfrrghrrg
-    hmpehmrghilhhfrhhomheprhihrghnsehtvghsthhtohgrshhtrdgtohhmpdhnsggprhgt
-    phhtthhopedvhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepmhhrihhprghrug
-    eskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfigvnhhssegtshhivgdrohhrghdprhgt
-    phhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrd
-    gtohhmpdhrtghpthhtohepthiiihhmmhgvrhhmrghnnhesshhushgvrdguvgdprhgtphht
-    thhopegrihhrlhhivggusehgmhgrihhlrdgtohhmpdhrtghpthhtohepuggrnhhivghlse
-    hffhiflhhlrdgthhdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghi
-    lhdrtghomhdprhgtphhtthhopehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgpdhrtg
-    hpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:STGyZxHM69Aet00ps82H0t8Y3QXokFhvvbKS8gnJDi8Yq8Cw8VyMtA>
-    <xmx:STGyZ5XtrOfXDD5M7j6yCIX15YWPhVNQzAetgsI0Y939kfBAPCqA6Q>
-    <xmx:STGyZ8OiV77nOaBf5SCN5JDBLiTbsxN-62Z9CO6te7dCIwTlt47zrA>
-    <xmx:STGyZ40Q7V_ZzYUCh-V-X_CzMBT4w0VeAU8d1NFO4pQdndxcq3ZsyQ>
-    <xmx:STGyZ8q_E1dHZNz2CrOB1te7v5jYcnMxnZLHozQw1odHOq2lD6FTFAiE>
-Feedback-ID: idc0145fc:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 16 Feb 2025 13:41:05 -0500 (EST)
-From: Ryan Walklin <ryan@testtoast.com>
-To: Maxime Ripard <mripard@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Chris Morgan <macroalpha82@gmail.com>,
-	Hironori KIKUCHI <kikuchan98@gmail.com>,
-	Philippe Simons <simons.philippe@gmail.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Ryan Walklin <ryan@testtoast.com>,
-	Chris Morgan <macromorgan@hotmail.com>
-Subject: [PATCH v7 27/27] drm: sun4i: de33: csc: add Display Engine 3.3 (DE33) support
-Date: Mon, 17 Feb 2025 07:36:27 +1300
-Message-ID: <20250216183710.8443-28-ryan@testtoast.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250216183710.8443-3-ryan@testtoast.com>
-References: <20250216183710.8443-3-ryan@testtoast.com>
+	Sun, 16 Feb 2025 18:55:39 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5e02eba02e8so2226822a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Feb 2025 10:55:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739732136; x=1740336936; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=hC5pjueK3njHG+/S0PsoYfxNvXRhtdE6Y8ckyHhZnt8=;
+        b=AdgGyJxFqW6e/wIcqldeHKbmEPG7l/VHeX1Sf50Swo4HV4c/SS5nEKF5tvINuFvNCo
+         DYbmNIBYr3kDBWY1JRZAJels2sF6kmj8blo3sU8ztUOiBCQSYIoSgP9nCnE01RlW2iM1
+         aybID2LmzYpZ4pWJeTwl71jxiBNvJJY8UPeQFldh48+E3+4KMbRQyhyPW/czb5xY5R3F
+         Ij7Q5Ru3ci8JOFG5iK5v5rLMZDSwX4KsAUj9icTnZz+udCL3sb+dSlLOdl38G7we5iRu
+         9nxbPCipEdm7CXe0ilnNn9hjyq3YH2S3cYfneID0etYinEnSH4cK43/Xn9R6qnTa4Jg5
+         72+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739732136; x=1740336936;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hC5pjueK3njHG+/S0PsoYfxNvXRhtdE6Y8ckyHhZnt8=;
+        b=AwYrubXxCAiY9W9q/vznMLnS107oX7+UDOx6GLn2NFH+8L+OwNc78/wBz8/CfKX/Q9
+         LsXeuOhkIC+erLH8iDjz2mDlS9tnKa4Ird/l/dPp6TdXlXaztwuZ+DsN3G9EOrbT4ATB
+         3k8stXfN26PZQTcjIeg3R81g9tT73+bE33UkQjXPAMrG+3W8FDJC+EiTwceRvtoKWQu9
+         v5QJ6wt1PeVd13xmWnTjpuOkzoHUIdDP4SXkds1gfQKhjVO/NbZ4utdmdExVcbPcL7kR
+         6ohZmutuL2eHMKdl+3M+M+cEpXQ3lDUuLfgszPhve+CxI7xMza783bZq/5OGhV7XeCQh
+         ZWIw==
+X-Forwarded-Encrypted: i=1; AJvYcCWzUJGFf0/l7ysRB1YARVb00d5bNHStB488okZ6nyy0LuWbouZokrqs9PUz+UilCFqZwPaAw4erVNYc/YT8Is6g@lists.infradead.org
+X-Gm-Message-State: AOJu0YztvRYFsjWnBN5ADRZJcjXR+0RJI2GOeObqXycFyujpR4ATj9Xk
+	9OuUSDmjTX9WCsByzCxjen6819OR5WiPg+MwVGYUH2DEqgHGcaeeJTyMuROLjlZmxeJFwjtli0H
+	2BpxWuEST3Yw9tm0ElyCTl3X405E=
+X-Gm-Gg: ASbGnctfywPbk0EmdsyodRsWbKLDk5/RoT9qbg2dp1DIAVAeJkGVPcqUoTgKuf5cV5S
+	/dKmxUcbhHiHofKQfoqbPDQM7nB3s3JpwkMJ9bku5OhL4LTUCaThKy7cXlSGvzMfiSnPw+vJG
+X-Google-Smtp-Source: AGHT+IEMhW69OjMic/GlsnphTy5HjgljXL7lYabt3t/KZP5dlB7Z7axgQFJTFGXD1Wtre/ru3ZMNXPSCNMU+4lVJMnc=
+X-Received: by 2002:a17:907:7f27:b0:ab7:d77b:43a3 with SMTP id
+ a640c23a62f3a-abb70bdba40mr717236866b.32.1739732135933; Sun, 16 Feb 2025
+ 10:55:35 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250211143910.16775-1-sebott@redhat.com> <20250211143910.16775-2-sebott@redhat.com>
+ <Z7BoydkyT_h0gwOV@linux.dev> <CAE2XoE_8ihJZQF856w-_F+cgJW7fLWGz7M7Ztoxzw2vE51_m1A@mail.gmail.com>
+ <87v7tb17os.wl-maz@kernel.org> <CAE2XoE9=hjP+qpsy+FcYcSDectDajiXjtcMCVpacSo4cFOo=tQ@mail.gmail.com>
+ <86jz9psqwd.wl-maz@kernel.org>
+In-Reply-To: <86jz9psqwd.wl-maz@kernel.org>
+From: =?UTF-8?B?572X5YuH5YiaKFlvbmdnYW5nIEx1byk=?= <luoyonggang@gmail.com>
+Date: Mon, 17 Feb 2025 02:55:23 +0800
+X-Gm-Features: AWEUYZk3_EEMv5D6Rj82ShfmoPzBCN_NwGOjAGxgYCLPZKy3POf8ciw95cVy4Uc
+Message-ID: <CAE2XoE8i=jPgSea5jXY0eOxas9Y_2pa7QheqS1xuw2qeTQDNyw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] KVM: arm64: Allow userspace to change MIDR_EL1
+To: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Sebastian Ott <sebott@redhat.com>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>, 
+	Cornelia Huck <cohuck@redhat.com>, Eric Auger <eric.auger@redhat.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_104114_806975_CD3EFA26 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20250216_105538_536657_9ACC4C01 
+X-CRM114-Status: GOOD (  14.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,167 +98,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: luoyonggang@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Like earlier DE versions, the DE33 has a CSC (Color Space Correction)
-module. which provides color space conversion between BT2020/BT709, and
-dynamic range conversion between SDR/ST2084/HLG.
+On Mon, Feb 17, 2025 at 2:09=E2=80=AFAM Marc Zyngier <maz@kernel.org> wrote=
+:
+>
+> On Sat, 15 Feb 2025 19:04:20 +0000,
+> "=E7=BD=97=E5=8B=87=E5=88=9A(Yonggang Luo)" <luoyonggang@gmail.com> wrote=
+:
+> >
+> > According to this, the MIDR EL1 is updated properly, but the MIDR for
+> > aarch32 is not updated, and I don't know how to hook the update for
+> > MIDR for aarch32
+>
+> It is the same thing. The AArch32 view is configured the same way as
+> the AArch64 view, and there is nothing to do at all (that's what
+> VPIDR_EL2 is all about).
+>
+> With Oliver's change, I'm correctly getting a different MIDR using a
+> hacked up kvmtool, see below. I suspect you're not running with the
+> correct patch applied.
+>
+The applied patch is V2, with writing vpidr_el2 disabled, Is that the cause=
+?
+The branch is here
+https://github.com/lygstate/linux/tree/main
+I am not applying your patch
 
-Add support for the DE33.
-
-Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-Tested-by: Philippe Simons <simons.philippe@gmail.com>
-Tested-by: Chris Morgan <macromorgan@hotmail.com>
-
---
-Changelog v5..v6:
-- Amend format_type to sun8i_format_type
-- Add Tested-by: tags
----
- drivers/gpu/drm/sun4i/sun8i_csc.c | 98 +++++++++++++++++++++++++++++++
- drivers/gpu/drm/sun4i/sun8i_csc.h |  3 +
- 2 files changed, 101 insertions(+)
-
-diff --git a/drivers/gpu/drm/sun4i/sun8i_csc.c b/drivers/gpu/drm/sun4i/sun8i_csc.c
-index 66c9ee29842cd..2274a82223164 100644
---- a/drivers/gpu/drm/sun4i/sun8i_csc.c
-+++ b/drivers/gpu/drm/sun4i/sun8i_csc.c
-@@ -238,6 +238,14 @@ static const u32 yuv2yuv_de3[2][3][3][12] = {
- 	},
- };
- 
-+static u32 sun8i_csc_base(struct sun8i_mixer *mixer, int layer)
-+{
-+	if (mixer->cfg->de_type == sun8i_mixer_de33)
-+		return sun8i_channel_base(mixer, layer) - 0x800;
-+	else
-+		return ccsc_base[mixer->cfg->ccsc][layer];
-+}
-+
- static void sun8i_csc_setup(struct regmap *map, u32 base,
- 			    enum sun8i_format_type fmt_type,
- 			    enum drm_color_encoding encoding,
-@@ -360,6 +368,92 @@ static void sun8i_de3_ccsc_setup(struct sun8i_mixer *mixer, int layer,
- 			   mask, val);
- }
- 
-+/* extract constant from high word and invert sign if necessary */
-+static u32 sun8i_de33_ccsc_get_constant(u32 value)
-+{
-+	value >>= 16;
-+
-+	if (value & BIT(15))
-+		return 0x400 - (value & 0x3ff);
-+
-+	return value;
-+}
-+
-+static void sun8i_de33_convert_table(const u32 *src, u32 *dst)
-+{
-+	dst[0] = sun8i_de33_ccsc_get_constant(src[3]);
-+	dst[1] = sun8i_de33_ccsc_get_constant(src[7]);
-+	dst[2] = sun8i_de33_ccsc_get_constant(src[11]);
-+	memcpy(&dst[3], src, sizeof(u32) * 12);
-+	dst[6] &= 0xffff;
-+	dst[10] &= 0xffff;
-+	dst[14] &= 0xffff;
-+}
-+
-+static void sun8i_de33_ccsc_setup(struct sun8i_mixer *mixer, int layer,
-+				  enum sun8i_format_type fmt_type,
-+				  enum drm_color_encoding encoding,
-+				  enum drm_color_range range)
-+{
-+	u32 addr, val = 0, base, csc[15];
-+	struct sunxi_engine *engine;
-+	struct regmap *map;
-+	const u32 *table;
-+	int i;
-+	struct sun8i_color_model model;
-+
-+	table = yuv2rgb_de3[range][encoding];
-+	base = sun8i_csc_base(mixer, layer);
-+	model = mixer->color_model;
-+	engine = &mixer->engine;
-+	map = engine->regs;
-+
-+	switch (fmt_type) {
-+	case FORMAT_TYPE_RGB:
-+		if (mixer->color_model.format == MEDIA_BUS_FMT_RGB888_1X24)
-+			break;
-+		val = SUN8I_CSC_CTRL_EN;
-+		sun8i_de33_convert_table(rgb2yuv_de3[mixer->color_model.encoding], csc);
-+		regmap_bulk_write(map, SUN50I_CSC_COEFF(base, 0), csc, 15);
-+		break;
-+	case FORMAT_TYPE_YUV:
-+		table = sun8i_csc_get_de3_yuv_table(encoding, range,
-+						    model.format,
-+						    model.encoding);
-+		if (!table)
-+			break;
-+		val = SUN8I_CSC_CTRL_EN;
-+		sun8i_de33_convert_table(table, csc);
-+		regmap_bulk_write(map, SUN50I_CSC_COEFF(base, 0), csc, 15);
-+		break;
-+	case FORMAT_TYPE_YVU:
-+		table = sun8i_csc_get_de3_yuv_table(encoding, range,
-+						    model.format,
-+						    model.encoding);
-+		if (!table)
-+			table = yuv2yuv_de3[range][encoding][encoding];
-+		val = SUN8I_CSC_CTRL_EN;
-+		sun8i_de33_convert_table(table, csc);
-+		for (i = 0; i < 15; i++) {
-+			addr = SUN50I_CSC_COEFF(base, i);
-+			if (i > 3) {
-+				if (((i - 3) & 3) == 1)
-+					addr = SUN50I_CSC_COEFF(base, i + 1);
-+				else if (((i - 3) & 3) == 2)
-+					addr = SUN50I_CSC_COEFF(base, i - 1);
-+			}
-+			regmap_write(map, addr, csc[i]);
-+		}
-+		break;
-+	default:
-+		val = 0;
-+		DRM_WARN("Wrong CSC mode specified.\n");
-+		return;
-+	}
-+
-+	regmap_write(map, SUN8I_CSC_CTRL(base), val);
-+}
-+
- void sun8i_csc_set_ccsc(struct sun8i_mixer *mixer, int layer,
- 			enum sun8i_format_type fmt_type,
- 			enum drm_color_encoding encoding,
-@@ -371,6 +465,10 @@ void sun8i_csc_set_ccsc(struct sun8i_mixer *mixer, int layer,
- 		sun8i_de3_ccsc_setup(mixer, layer,
- 				     fmt_type, encoding, range);
- 		return;
-+	} else if (mixer->cfg->de_type == sun8i_mixer_de33) {
-+		sun8i_de33_ccsc_setup(mixer, layer, fmt_type,
-+				      encoding, range);
-+		return;
- 	}
- 
- 	if (layer < mixer->cfg->vi_num) {
-diff --git a/drivers/gpu/drm/sun4i/sun8i_csc.h b/drivers/gpu/drm/sun4i/sun8i_csc.h
-index 9b63c92782f56..4a06fc43de2d0 100644
---- a/drivers/gpu/drm/sun4i/sun8i_csc.h
-+++ b/drivers/gpu/drm/sun4i/sun8i_csc.h
-@@ -20,6 +20,9 @@ struct sun8i_mixer;
- #define SUN8I_CSC_CTRL(base)		((base) + 0x0)
- #define SUN8I_CSC_COEFF(base, i)	((base) + 0x10 + 4 * (i))
- 
-+#define SUN50I_CSC_COEFF(base, i)	((base) + 0x04 + 4 * (i))
-+#define SUN50I_CSC_ALPHA(base)		((base) + 0x40)
-+
- #define SUN8I_CSC_CTRL_EN		BIT(0)
- 
- enum sun8i_format_type {
--- 
-2.48.1
-
+--=20
+         =E6=AD=A4=E8=87=B4
+=E7=A4=BC
+=E7=BD=97=E5=8B=87=E5=88=9A
+Yours
+    sincerely,
+Yonggang Luo
 
