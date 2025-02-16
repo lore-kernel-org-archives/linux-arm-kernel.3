@@ -4,113 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147FBC021A4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 13:21:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74B98C021A7
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 13:51:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qqm+u2ELVKUEx3Lh7rmu3m9lO1zIxY3drMkrF0TKQ+w=; b=JErFudDehBb3aBePmnOq65ZuUO
-	JZqaTs8tHiT9hh+N26SnCc7x1BDMjhXQmJv4qglArmt1HCLBptzOM7CCNfz0+udr03sz0IAhvNHgk
-	RqMgv6rcwznI073EpBDoP9cEuaeWS5tUmTxWqFx/Rss8y8jSmwtSaD9twhGbugm1gjQ9QwFw+iHSL
-	MjgTyFS2lHnOJ7BtF5wXgLXnN/M7zdnOQnlY/1THVmL8izpCSQA0lhh4cyJg8IXm5QItRo/oRDLK1
-	Z+NdaZoC4UROAK77O463w4dGQnAUYmW3e4zpINiETdXMS8GhvtHslmYgAMspC5TS0AFLg/RD5XGz3
-	zkmad4aw==;
+	bh=S7e8sMABN2b7K5nBtyYMhJN891hqdkLBfQA9iEPb1kM=; b=J7aatN0kY66lKwPLQp7hsP+LET
+	xiSZQ+wKSqcfGK0o6Qqa9mXXd5lqEugCUsnIwRKJXzYX5L+TDVGPnqiYSdKYOrMBoUO19+4cgaJVM
+	kyYOcj7XJtvNKRiloIWQAmH5Q2Lo1AsmZ4gJFs4sI9TKKdNQhLMnXFhQEHQmKDsClQSXUnMTFGgGd
+	5LX29vWwhELMCDH4/M+BIkltROQNHgjASzgmMtessfyNYaCqZb0obcEhPcef9scjI4Ve0v7PZDApv
+	rkaGuLvNFq1Bgl2TBo3PjlMQN8FCAU/ScRbmbdmdWXgQH0pwCBHKXV3qZquXchjlUCVF6d+kJ3rFV
+	QFycTBqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjea9-00000001r1k-41Nj;
-	Sun, 16 Feb 2025 13:21:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tjf2v-00000001t6K-0qtB;
+	Sun, 16 Feb 2025 13:50:57 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjeYh-00000001qsx-3Xfc;
-	Sun, 16 Feb 2025 13:19:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 98BA35C5661;
-	Sun, 16 Feb 2025 13:19:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A7D6C4CEDD;
-	Sun, 16 Feb 2025 13:19:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739711982;
-	bh=v6Nt2Y+8iHq87fjnFJRgzXvuOS9r0e0EJDUvhWvayQs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uuobK6Usa9e7F/KxFzT3aKd13/ZOq5opq2Ha6mFnDf9aJVR3D3WoAtfXt12CdRczF
-	 c1B/8NS/HdQa6ZBxmnlhs3xfqUnuatoAnpJX9mp4FFyEOI7ecWg//I79V9iSxUg/o8
-	 NCxh8cfUTtZkoHNhe0bpJoPgDSP+fszjVKCmNUq4RdmFP400rMEl60AdD7v7sb92M9
-	 9qRWMGz7qvsZm68R0Dp56mOfXhPi2unSKmu24GdFdLnG9hYfRInDduSnjmaLXYs68t
-	 l7+wbdcpzfiuIAZDdLKMIE/+CNuDFpv+cYNN7k3v+qtgNUNOV9L9lecHFyiazDgrxv
-	 C+5W3O77SNCpg==
-Message-ID: <065ea296-480c-4ac4-bb4a-0fc2915b59f1@kernel.org>
-Date: Sun, 16 Feb 2025 14:19:35 +0100
+	id 1tjf1S-00000001syY-3ANJ;
+	Sun, 16 Feb 2025 13:49:28 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-22134a64d8cso168645ad.3;
+        Sun, 16 Feb 2025 05:49:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739713766; x=1740318566; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=S7e8sMABN2b7K5nBtyYMhJN891hqdkLBfQA9iEPb1kM=;
+        b=EdP6dKCT3voZeZ+irUdSmz6xg/05JjdMWnXBNp3RLdys/+ZYtKDokpa8p2zjtbdFMp
+         g1EebdF/0rLJqHwFNvuxRxSiqU6VcVgKQum/KQQThptDYOlm6DjmC7Y8HpwUAVIHzlsV
+         tHFgtBqb0ThMPynuX8kBDQzKtflLoXs0EDa3LlOYDZ3cea2JtWBWdSLHIBkakAXHuLPc
+         dUfvVDRAFqqoe4LDSPmMPDLyPcV0gIvWeq8/kolHpVMq/t/CGK1sM+HCPoMu3nfMyrvd
+         aTzoLY+9jYtuJHV5HWEdMvS93f03a0UT+gH3C4pDCpsgGQDjFRnkucdiGSR92D1NLBWx
+         FmYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739713766; x=1740318566;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=S7e8sMABN2b7K5nBtyYMhJN891hqdkLBfQA9iEPb1kM=;
+        b=B0q0wQ84Q0qNp549Q52HH5IRNI5NdLLHM+OBO+T0NPKgAklcSRz+vBjzsl6z0BFDgq
+         qXyMkABm2aSdbaScYya7RZbWyrtwdQYqsiOhA4nh3qJ+UepEKMUQ+Kk90vJhYiYE30wm
+         /lYgAx7zfzVVKmNLNaw70/2ZhM/daqhCLPNRWuErvhmJUQwWz10UQuIin4qcacmIJvYU
+         j9C/eEEN0cswVYYgCxqPTgiwO3yYGdcwOg/h/2wRvrxdX2inOIctQPrebzuPuVAzye9N
+         VWppJ03a4yo74JBE3eBJSA/MNF3NldUDKFuXjkhDhdGGU4C8nuke9ZBBE71Qbap5G7cq
+         UYtA==
+X-Forwarded-Encrypted: i=1; AJvYcCW8Xw+bukeyLszv+9I9vFnypg9J7pKZI3AO7IkzYFm4L6YSlU3rHpmF4DnIfHnSgAY0MyfbDNUfnrPmaR+6WQON@lists.infradead.org, AJvYcCX3SC5/nElecrY70vZPtSJWo8PtoGLfYObKgyVFA4LjhW125cr2ZsPXD+EPICkCDc7GbRXLkXMSmwNfRFjywgs=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRDG1P2L/iDFNQSZ9vpvA0wylSACM4A8dw3HM/Eih2MQmmOjRO
+	QjnnaIU9aWTyocL2liAQ3bPmyqmGbKxmD+bG/K3bqvEIXdZYe7Rz6uTg0QnI
+X-Gm-Gg: ASbGncv88Fq6ybd3+ofdBNli+VCVvi8WtZ53KwzI+m2N07bjIcx+dr0eDdZ6zukeo+n
+	OJDVMODerGwYjNF5NKr2V9ZbRsD7ksPoshSvz2VIs51kpspa9EKR2cr+RxVIKeevo1/Y6/kEE0F
+	ZID1hid2h0u6JXQXl21xAu2gxKbALqfs++d7Dq+PsGzEr1P/afGtH/cE3sDSXQBIRViPzJ4BBt+
+	JQYVSUtEdilazTpt0W5thDJyBK4dTQbl3MpB12BjLwTf+bdbzkFQ7YA2FmKwYLVLQAjBUOv6j/f
+	hszdM9sf6FwKoKDIpzlr
+X-Google-Smtp-Source: AGHT+IFXugIHaSfIg+wP+gViyrZOahiwtYnx7ACfVX1OGYP3jnCr/KLLZZXjEFpO+K+dZuGLwR5xtg==
+X-Received: by 2002:a17:902:c94f:b0:220:fce5:977c with SMTP id d9443c01a7336-2210402b42amr36437495ad.8.1739713765745;
+        Sun, 16 Feb 2025 05:49:25 -0800 (PST)
+Received: from rock-5b.. ([221.220.131.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d5349056sm56776745ad.22.2025.02.16.05.49.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 16 Feb 2025 05:49:25 -0800 (PST)
+From: Jianfeng Liu <liujianfeng1994@gmail.com>
+To: piotr.oniszczuk@gmail.com
+Cc: conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	liujianfeng1994@gmail.com,
+	robh@kernel.org,
+	sfr@canb.auug.org.au
+Subject: Re: [PATCH] arm64: dts: rockchip: add hdmi1 support to ROCK 5 ITX
+Date: Sun, 16 Feb 2025 21:49:17 +0800
+Message-ID: <20250216134918.1357069-1-liujianfeng1994@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <566E6F11-765C-4415-8805-55DFD3C2BD4D@gmail.com>
+References: <566E6F11-765C-4415-8805-55DFD3C2BD4D@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/4] phy: samsung: add Exynos2200 SNPS eUSB2 driver
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250215122409.162810-1-ivo.ivanov.ivanov1@gmail.com>
- <20250215122409.162810-4-ivo.ivanov.ivanov1@gmail.com>
- <a10f8a77-9440-477d-b6f6-9d651e3ab49a@kernel.org>
- <537698af-841f-48e7-bd7c-4077d0a240a1@gmail.com>
- <9b58a985-3d63-42bb-9a76-e5b04a4b6012@kernel.org>
- <f3d38b63-dc97-482e-aeac-b59e65f91424@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <f3d38b63-dc97-482e-aeac-b59e65f91424@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_051943_998049_D24B3883 
-X-CRM114-Status: GOOD (  10.53  )
+X-CRM114-CacheID: sfid-20250216_054926_791794_5DE86578 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,34 +106,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/02/2025 10:51, Ivaylo Ivanov wrote:
->>
->>>>  You need to
->>>> integrate the changes, not create duplicated driver.
->>> I can do that, but it would be come a bit cluttered, won't it? Depends on
->>> if we want to follow the current oem-provided initialization sequence, or
->>> try and fully reuse what we have in there.
->>
->> I think it duplicates a lot, so it won't be clutter. We have many
->> drivers having common code and per-variant ops.
-> 
-> So the approach to take here is to make a common driver?
+Hi Piotr,
 
-For example: one common module and two modules per each soc, because I
-assume some per-soc stuff might be needed. But maybe even these two
-modules are not necessary and everything could be in one driver.
+On Sun, 16 Feb 2025 13:37:05 +0100, Piotr wrote:
+>Is there anywhere repo with this patch applied to test it on rock5 itx hw?
 
+This patch is applied to 6.13 and I was testing with armbian:
+https://github.com/armbian/build/pull/7829.
 
-> 
-> What about the current modelling scheme, as-in taking the phandle to
-> the usbcon phy and handling it?
+>(asking as I can’t get it working; even with hdmi1 only vop clocks like here: https://gist.github.com/warpme/49feadbe1f53ea31fca76f41d5bb3ee4)
 
-What about it? Did you look at the bindings of qcom snps eusb2? Are you
-saying you do not have here repeater? If so, then this phy phandle might
-not be correct.
+vop has a dependency of hdptxphy0, so only hdptxphy1 won't work.
+If you are testing with 6.13 or 6.14, you have to add hdptxphy_hdmi0, and
+if you are testing with linux-next, you should add hdptxphy0.
 
-
+And I recommend testing with this series since it adds more display mode
+support to hdmi1:
+https://patchwork.kernel.org/project/linux-rockchip/list/?series=934232
 
 Best regards,
-Krzysztof
+Jianfeng
 
