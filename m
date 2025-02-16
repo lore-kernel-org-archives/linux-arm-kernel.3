@@ -4,51 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B40F6C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 10:08:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD73C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 10:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bgnSNGYH1WyLVuqyD0b2w1S5fUFT+IS2/YUe2xVlw/g=; b=VLeXzqMTsWgLSZ5A04whIrx5II
-	BxUycrGE+CJCsUrhjWL+T7xgkMx6JsyUQL5EVO5uDR26jTgDatpXi3MMewFJSm75rp2q9X3aR1GU9
-	Ddeq5UTNNOULoN6tPf/b/pYBeEh1NoQp2cCTE57okUyme775v1U1E/6w/IrC5pXK/U1EO1gs0t67b
-	fZJMI+HF1EcCr86j7+OrQVUgt4NHB0pgT54XdK9XB8Dmu5BwuJU4juPGQkp9SDTKGql40XWfA+POv
-	189vajJsSrTHWkJQugtKSr5qMfgRQrloY17ga9RC/I/Wgb7zaAZepg/eD5Y9M5UGkAJgEmQwDBrlV
-	lrI/wAzA==;
+	bh=8Pv2ab+l4k/GmIjg6UFnNL/02FoWRRTFcUTIE2g9NS0=; b=FgpfosSCSK53loVuPn/EJu2bL/
+	UxTlUDYwedrrnKOb6Or+fFvjAEULlCu28J0R5BAgoRyRBI7wPvNzuXEwrr0qcKEMsM+VA0nlOxZ0L
+	6VqIEtPh6laut+5XMBT3xu2d6h0eQMgzuj0wv6r1jm1poKhFoFAcpEjRQwmWrhvGOjm8kPItL3M10
+	WeRMdMj6w3a5RCUEdgJXX+QPTuya3cveHDhMEUNklaUJsz5KgxZV5048LByCAqCilNd9GnaGhMx9t
+	NfrhSkKSWJbJ5ip9t77lJaCmrYbSyTUE2rJWBZtXszyntWPV1S664l5GKOFnSSq8+WW58GpN7Vi17
+	kgb3aYIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjbZ0-00000001cZ5-2IqQ;
-	Sun, 16 Feb 2025 10:07:50 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tjbaQ-00000001cgp-16xR;
+	Sun, 16 Feb 2025 10:09:18 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjb5L-00000001Z1J-06EF;
-	Sun, 16 Feb 2025 09:37:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2F7C9A40AF7;
-	Sun, 16 Feb 2025 09:35:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5592C4CEDD;
-	Sun, 16 Feb 2025 09:37:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739698629;
-	bh=LItlxkeVY3OlbSolxlRak/BIF6duZftC7VGrnR1A50w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UXJKEKe+wzhWLqWS10DcTSM4go2ftC+8AhFNAuGoDk+eRt4krFOieACAsyO2Drmy5
-	 bAMEFOuq+JmodZNpPeB7PImAyhgZaiJHrF/z06P4NKWndgy6zbIBSvaE2uudq5vXvj
-	 Y7d01ejYy1R95SAgOjg2j5pUWWaxogjEK5jCqyQ1efK+3ilgUP+S2arJglWEsZ3PEY
-	 xJzA4QHwEzI5ZpFfZRTtDe1VVACt6LfuYrMktVsVmHMhmlmvV99fozcLUQcjnBUIlP
-	 R0ZZPl6VtVeS8VlX6+idLQ0m3XcIzAN2qtB4qJRPLizLLSXtiPGeg6Jk1UdEc8hdwy
-	 cuTkVRMInqZrg==
-Message-ID: <b7cab5cc-c560-4128-8f2b-184ffb400d01@kernel.org>
-Date: Sun, 16 Feb 2025 10:37:04 +0100
+	id 1tjbQU-00000001baA-3eXe;
+	Sun, 16 Feb 2025 09:59:04 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-38f1e8efef5so1749429f8f.1;
+        Sun, 16 Feb 2025 01:59:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739699941; x=1740304741; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8Pv2ab+l4k/GmIjg6UFnNL/02FoWRRTFcUTIE2g9NS0=;
+        b=SqLESU5KBCLdrIeRt+99KZgLQ31by7lJh5uklgzyd+MYWtuz8XPtX0+0G853vzJYvq
+         0ZCrgzw9Uto/lslTiYnBnkfOeGzzjTZvYoRbzzA6nTFyT1eW+ouBhWUPrtZC02ZRbHEG
+         hevlpRSOPGUxAwCrn45Fvi6KaqtNieddKU19AMaatuaHaY/TRAQ3V04/fK2Ejsz315z4
+         kzgfVZ9hMxImbS52v9P48WTGnsySWcSGDTcsxH0avOBxJsjmoA4YBzUS9xkiNydIuSMv
+         YWoq5gKX8iJGQJXOcc4j/L8DU9d+5x+nidrfHeWsnUHPHPbBFvPUppxR4mXCgmiDSPgC
+         Zl7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739699941; x=1740304741;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8Pv2ab+l4k/GmIjg6UFnNL/02FoWRRTFcUTIE2g9NS0=;
+        b=J5klFxHFETanbKx9TL09u2z19C2sqgUhqz+xcxcb6waGEpXjE2sPeOcqfvVsIj+4di
+         9RGnRoYxD7MkYt5s7kRTzUyCJY1BFaPrjWhGL4rBoLcTqjHppLoDEZawfHt6byqLj452
+         RVdbV3jRU7PD7P7tdXv+67y8QUbkoq1NIqK91s4/0R1Q4MyrPorVEqb3+2P7yt0Ddj2e
+         s3eVtfCvTVDkwCBin30IIwZIVYibVgaV2lUpPe11VLYRvtCoVWvGpBP0dfqg16qnjIR3
+         5IPP8FV5tK5c8f4xSwTKiWLUAf60L0Ba7y5i6EtweLRMOtLhFsNMuO+UEYBbrDjW0W5D
+         LesA==
+X-Forwarded-Encrypted: i=1; AJvYcCVcbK1r1D9eaZMW4O9y5+7ykzU6XM8MU/XVkQoJgXBHMusYQL3kmbMUlDYARIw+L1xbACRHV0Ozp90=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzW8xx4bfsxNLuXwyy7B5huZ/i9mIT4xJLnuVflrEt1KI4tZPj9
+	uftyDzQGJc6HM8DznxJdq7tCYDgoo87k1nB6VzkaXq13y1Mh8vtk
+X-Gm-Gg: ASbGnct7jF+mf6VZwpH5CpJhPH0oL//suj6VJUxKbyubhhhpRv7cUBLWC+JlI/a6QsG
+	8ZHNPRQFtqZsi9riQRyxBarlDV0TLq7HCetAwZm+yQJiC1uaI2YrVwUFVWdxNra0IHGI48rag1O
+	3swOVfP0TXRnZP1KpmWjUYRzn7Oc9yle1w5+CHsvCtHUo2X1R4ngYPeRGWosECs2mAo2/5rLKg9
+	hIv9H61dn6ELkdFrtcAn0rr7gQAShbuUZQfIzFy1yFWRD9gZYfRd54pMeu8JCDPeXYrrWe5bdI3
+	Ijxa9k3wfi8XWqxoNNbNZEktVLeMwdJ5xWcdh/klY15kFgO8zEs7fozen+6Y2OpKm3jzcA==
+X-Google-Smtp-Source: AGHT+IHZgNqHyHCv5yT6p4apSYBg8SJTvge1/YRU31W+9aRlNzcxZQY9QQK2OBKvkkzXkaKW1nJebA==
+X-Received: by 2002:a5d:59af:0:b0:385:ee40:2d88 with SMTP id ffacd0b85a97d-38f33f117d1mr4534496f8f.3.1739699941089;
+        Sun, 16 Feb 2025 01:59:01 -0800 (PST)
+Received: from [192.168.1.105] (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258f5efdsm9144911f8f.43.2025.02.16.01.58.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 16 Feb 2025 01:59:00 -0800 (PST)
+Message-ID: <9451f339-c8ff-4be2-9cde-1aaf78fa8e7b@gmail.com>
+Date: Sun, 16 Feb 2025 11:58:59 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/4] dt-bindings: phy: add
- samsung,exynos2200-snps-eusb2-phy schema file
-To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Diederik de Haas <didi.debian@cknow.org>, Vinod Koul <vkoul@kernel.org>,
+Subject: Re: [PATCH v1 4/4] phy: samsung: add Exynos2200 usb phy controller
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzk@kernel.org>, Vinod Koul <vkoul@kernel.org>,
  Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
@@ -57,62 +82,15 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20250215122409.162810-1-ivo.ivanov.ivanov1@gmail.com>
- <20250215122409.162810-2-ivo.ivanov.ivanov1@gmail.com>
- <D7TR7VP9UPQA.2U5BL328HNSXU@cknow.org>
- <fc860290-c5e5-4193-a8b7-a53137dd4155@kernel.org>
- <9c23e529-92ac-408f-a7e5-7cb7beda35b6@gmail.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <9c23e529-92ac-408f-a7e5-7cb7beda35b6@gmail.com>
+ <20250215122409.162810-5-ivo.ivanov.ivanov1@gmail.com>
+ <32b67c56-9331-4391-90ad-031e0388434f@kernel.org>
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <32b67c56-9331-4391-90ad-031e0388434f@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_013711_195477_16567E2D 
-X-CRM114-Status: UNSURE (   7.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250216_015902_974313_480D566A 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,36 +105,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/02/2025 10:27, Ivaylo Ivanov wrote:
-> On 2/16/25 11:22, Krzysztof Kozlowski wrote:
->> On 16/02/2025 10:14, Diederik de Haas wrote:
->>>> +examples:
->>>> +  - |
->>>> +    #include <dt-bindings/clock/samsung,exynos2200.h>
->>>> +
->>>> +    usb_hsphy: phy@10ab0000 {
->>>> +        compatible = "samsung,exynos2200-snps-eusb2-phy";
->>>> +        reg = <0 0x10ab0000 0 0x10000>;
->>>> +        clocks = <&cmu_hsi0 CLK_MOUT_HSI0_USB32DRD>,
->>>> +                 <&cmu_hsi0 CLK_MOUT_HSI0_NOC>,
->>>> +                 <&cmu_hsi0 CLK_DOUT_DIV_CLK_HSI0_EUSB>;
->>>> +        clock-names = "ref", "apb", "ctrl";
->>>> +        #phy-cells = <0>;
->>>> +        phys = <&usbcon_phy>;
->>>> +    };
->>> Shouldn't the example have at least all the *required* properties?
->>> Same for patch 2 of this series.
+On 2/16/25 11:36, Krzysztof Kozlowski wrote:
+> On 15/02/2025 13:24, Ivaylo Ivanov wrote:
+>> The Exynos2200 SoC comes with 3 PHYs - snps eUSB2, snps USBDP combophy
+>> and a cut-off phy that origins from exynos5-usbdrd. The latter is used
+>> for link control, as well as pipe3 attachment and detachment.
 >>
->> Yeah, this wasn't ever tested.
-> 
-> Device trees were tested with dtbs_check W=1 but I overlooked testing bindings
-> with dt_bindings_check. Anyways this is rather a small problem, will be fixed
-> in a v2.
-> 
+>> Add a new driver for it.
+>>
+>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>> ---
+>>  drivers/phy/samsung/Kconfig                 |  13 ++
+>>  drivers/phy/samsung/Makefile                |   1 +
+>>  drivers/phy/samsung/phy-exynos2200-usbcon.c | 241 ++++++++++++++++++++
+>>  include/linux/soc/samsung/exynos-regs-pmu.h |   3 +
+>>  4 files changed, 258 insertions(+)
+>>  create mode 100644 drivers/phy/samsung/phy-exynos2200-usbcon.c
+>>
+>> diff --git a/drivers/phy/samsung/Kconfig b/drivers/phy/samsung/Kconfig
+>> index f62285254..47e9b9926 100644
+>> --- a/drivers/phy/samsung/Kconfig
+>> +++ b/drivers/phy/samsung/Kconfig
+>> @@ -90,6 +90,19 @@ config PHY_EXYNOS2200_SNPS_EUSB2
+>>  	  This driver provides PHY interface for eUSB 2.0 controller
+>>  	  present on Exynos5 SoC series.
+>>  
+>> +config PHY_EXYNOS2200_USBCON
+>> +	tristate "Exynos2200 USBCON PHY driver"
+>> +	depends on (ARCH_EXYNOS && OF) || COMPILE_TEST
+>> +	depends on HAS_IOMEM
+>> +	depends on USB_DWC3_EXYNOS
+> How? What are you using from DWC3?
 
-This makes the bindings unreviewable and they will be marked as "changes
-requested".
+Will drop.
+
+>
+>> +	select GENERIC_PHY
+>> +	select MFD_SYSCON
+>> +	default y
+>> +	help
+>> +	  Enable USBCON PHY support for Exynos2200 SoC.
+>> +	  This driver provides PHY interface for USB controller present
+>> +	  on Exynos2200 SoC.
+>> +
+>>  config PHY_EXYNOS5_USBDRD
+>>  	tristate "Exynos5 SoC series USB DRD PHY driver"
+>>  	depends on (ARCH_EXYNOS && OF) || COMPILE_TEST
+>> diff --git a/drivers/phy/samsung/Makefile b/drivers/phy/samsung/Makefile
+>> index 90b84c7fc..f70e12ddf 100644
+>> --- a/drivers/phy/samsung/Makefile
+>> +++ b/drivers/phy/samsung/Makefile
+>> @@ -15,5 +15,6 @@ phy-exynos-usb2-$(CONFIG_PHY_EXYNOS4X12_USB2)	+= phy-exynos4x12-usb2.o
+>>  phy-exynos-usb2-$(CONFIG_PHY_EXYNOS5250_USB2)	+= phy-exynos5250-usb2.o
+>>  phy-exynos-usb2-$(CONFIG_PHY_S5PV210_USB2)	+= phy-s5pv210-usb2.o
+>>  obj-$(CONFIG_PHY_EXYNOS2200_SNPS_EUSB2)	+= phy-exynos2200-snps-eusb2.o
+>> +obj-$(CONFIG_PHY_EXYNOS2200_USBCON)	+= phy-exynos2200-usbcon.o
+>>  obj-$(CONFIG_PHY_EXYNOS5_USBDRD)	+= phy-exynos5-usbdrd.o
+>>  obj-$(CONFIG_PHY_EXYNOS5250_SATA)	+= phy-exynos5250-sata.o
+>> diff --git a/drivers/phy/samsung/phy-exynos2200-usbcon.c b/drivers/phy/samsung/phy-exynos2200-usbcon.c
+>> new file mode 100644
+>> index 000000000..7968c9792
+>> --- /dev/null
+>> +++ b/drivers/phy/samsung/phy-exynos2200-usbcon.c
+>> @@ -0,0 +1,241 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * Copyright (c) 2025, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>> + */
+>> +
+>> +#include <linux/bitfield.h>
+> Are you using this header?
+>
+>> +#include <linux/clk.h>
+>> +#include <linux/delay.h>
+>> +#include <linux/iopoll.h>
+> And rhis?
+>
+>> +#include <linux/mfd/syscon.h>
+>> +#include <linux/mod_devicetable.h>
+>> +#include <linux/phy/phy.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/regmap.h>
+>> +#include <linux/regulator/consumer.h>
+>> +#include <linux/reset.h>
+> And this?
+
+Nope, it's a leftover I forgot to drop. Same with the above
+
+...
+> Same comments as on previous patch.
+
+Alright. Thanks for the feedback!
 
 Best regards,
-Krzysztof
+Ivaylo
+
+>
+>
+>
+> Best regards,
+> Krzysztof
+
 
