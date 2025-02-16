@@ -4,73 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEFCCC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 05:27:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 761FCC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 08:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hMOMpz3rHzMOkguWMPiJFqJ9y7VD90/T+fEEHUjYmcM=; b=gcoVcTTvp/9gvbtdQ8ANgI1ZJ9
-	Jm3cwXjSCBSg52AiSmw1yrqJrXEcrELUdBSDvy+K4a5MFW3uFFfz3FZtN5ol7jr6Xzc3U/dhaqEft
-	1L5+1V1SVQCpol0fl4/tqwsgW0Fgc8ByvAPwq8LH02tx2mhW8IR4LMLQkKwrtWrMCpSdbpI0ALQqY
-	yPBfOEJNpGLVdv76O2APaHz/s10hV0im0chOa3kUpF2kAYemJMDr4TRKBhUgSu9a/HsX1MS3K2flR
-	SyDAAg+nZnmgmB6XSSt3OIMJ1KMIs4S2xDJTearRXPJAOCRsQuc5Zvu8Hq/zVZZjFMF6ty4P33PcC
-	5wx3GWfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=I7JGj9Y2NvlR+Ur5b6WMaXa2nlsT9ZFJEwFDS8Jks74=; b=YqURAj/JRIgWCwmuAN6kWlKmDe
+	z0g+9fZfGh5V4gzVrgbPr3H4FXu3SLy+MwTrvdji72woMaUXulN+JyVppbO0ErqbacR7mTIg55YzP
+	biCmAd53TdX+p5eOh4SdabuY/ilBObTI/zrvIvGeiSg0SLr1zq9bTGOGnakpqR5er1uISpwx7kWj9
+	VD5Ya+tmnyKsE+lrZgCkrJ/E5IR1Bql08mz+0wYxUh8ARTZfG6dirGajEDNv8jKbJ+vC3hbwRYr1C
+	1KWa3IXjim3Pc+sMpIJWgfgFmCq/C8cRLN8N3Yqw6NQQutYK1HVEb0s5Ci+MZpbgx/2eEXixQhLkH
+	vRsNbbzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjXBh-00000001EqB-0d7J;
-	Sun, 16 Feb 2025 05:27:29 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1tjZaY-00000001PVE-2pno;
+	Sun, 16 Feb 2025 08:01:18 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjXAF-00000001EZJ-1nSf;
-	Sun, 16 Feb 2025 05:26:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=hMOMpz3rHzMOkguWMPiJFqJ9y7VD90/T+fEEHUjYmcM=; b=MLePav5M0nhtNVRiOZAP6i3Irx
-	8MwyL7KSpPLXQk5quYnJ8JY/9OVSv2fbIHLTZBOfEN2rkhHHVbtvC18htPpJ2xoWi8Hm89ABLpRT2
-	x3PfiZGgZ03mccuy+Q+MYKC+vgtSF8X2/zW6rC4hyapZsFLTlwOafOW2xC+nyJgLPMLqpn7h3a+uL
-	cIIa3EhxrN1MQFUTIRxouWAP+k26f6g8U/eVPa3FxNWpVLzpylnvkDODsJHl9/pXdpvkqSBW4ifGX
-	tra9iol3zcOAwNllnm+0rZNUjYrZ1ccS+fMMK+gDQZgGgxa3Etpy8Ty/0egN4m0a9a+v9zZzQXMUu
-	xbyy2wDA==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1tjWwi-000hJg-1K;
-	Sun, 16 Feb 2025 13:25:22 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sun, 16 Feb 2025 13:25:21 +0800
-Date: Sun, 16 Feb 2025 13:25:21 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+	id 1tjZZ5-00000001PN3-0C4g;
+	Sun, 16 Feb 2025 07:59:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t+IOj9xzxmD20y8xDo/mXx2aLJXFoxxrHJSsmC1crFG0ImsXEZAmW0nr18I1SGMppWwr14lBolXp6Wq5MBfH/p9x5wrSDe8ELPZNSdYR/EGr6RraKA+ThqG0zEe3Nb4xka1ZzPdbGoBRq1gDdQ5WeljPHme5jnV7CFk1STQeNlIGMRQE300qRlV91gh1kTL5totwMPE+BUkWLSXOmvjZxOTANY1WpNpuZsKolJFOnMUJA/eBTx+OrnZo4UXx3wEgUxFWex7/Zdp20ulWGMebSBilusQ9zwpAX6QrJWMAf7oEQ1YLDFylNKgf575ALxyu3rfsoIeUVxYMznjRo38Dsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=I7JGj9Y2NvlR+Ur5b6WMaXa2nlsT9ZFJEwFDS8Jks74=;
+ b=nde4yHoXtvJsg02lpn04yUWQ/T+XbvsUeKeTqVJ+jBy8FNqHQe1fWChhIplTSAKw7w4c/GO59N5hEVDwV2pDr+D1V4n/L6VvewFVWMgDc5+QokkqvOl0eKI0eZpjKQsv25v9fIk2YBg/oT21MWTJJS5TzGlHKlByxyPya6Pp4TOnNZ2Go5HLVQrf5PVlIj0iilwRT8BQGW2PcvucV8pVoNXpRntzLLsoKIJ1g+8jPiz5RSeXBCffD00kNRN4thxErE00fIMi3H4Nd6/yzGvTqphlmBRiYpxl5Fcs1O2vSdwhCvuzxbg2AKkg0rVWmKqTn2Zhzr6A2aHz5CtKjhy+Yg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=I7JGj9Y2NvlR+Ur5b6WMaXa2nlsT9ZFJEwFDS8Jks74=;
+ b=nPmwIxTAPVl6A6BwkbUzvQkfZWEP5dxtNnJNh1cCqxX/ZRl3rY7pp5FPZJzCnxE9wAHxi28AuNHTSKmwojq8AEb8/3hbQQ1XH0ERu/5hNheUS0OUZcXYsiCM/IpfW/1tygjHfaSohuJKDW1+eHxuBq17nlunwbYWUQD35NOSHesrNUOwWaVA97y+b2+i/yaIc0nKu1gbwtfInu0VPnUgUrXBJ6+93oyaJOPqmPwhUaaFORqCgsMMLiCJhoj02I71xYWNEdybQJkmtDphgRldz69wwmdVNSfUXNstm8B/RPGLB3vCQ5klO7RU4yoz9EPxm54G5PNOZbplU4MJ52TB+g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by GV1PR08MB10572.eurprd08.prod.outlook.com (2603:10a6:150:169::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Sun, 16 Feb
+ 2025 07:59:35 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%4]) with mapi id 15.20.8445.017; Sun, 16 Feb 2025
+ 07:59:35 +0000
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Olivia Mackall <olivia@selenic.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	kernel@collabora.com, devicetree@vger.kernel.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	XiaoDong Huang <derrick.huang@rock-chips.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Lin Jinhan <troy.lin@rock-chips.com>
-Subject: Re: [PATCH v2 0/7] RK3588 Hardware Random Number Generator Driver
-Message-ID: <Z7F2wdG99A0na-ie@gondor.apana.org.au>
-References: <20250204-rk3588-trng-submission-v2-0-608172b6fd91@collabora.com>
+	linux-mediatek@lists.infradead.org
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Subject: [PATCH] arm64: dts: mediatek: mt7986: fix pwn fan settings for sinovoip bpi-r3 board
+Date: Sun, 16 Feb 2025 10:59:26 +0300
+Message-ID: <20250216075926.1083813-1-mikhail.kshevetskiy@iopsys.eu>
+X-Mailer: git-send-email 2.47.2
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MI2P293CA0004.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:290:45::15) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250204-rk3588-trng-submission-v2-0-608172b6fd91@collabora.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|GV1PR08MB10572:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5970ec0a-2b2a-4355-25bd-08dd4e5fda77
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6sLF3u6EdnLXS6pMmVqDhPOafT4Cp18lCnUsxbQlpFkjeBFDmauNXynn3sZ9?=
+ =?us-ascii?Q?DVVlBXcLAxV698QdwrAsycFA1fS3O7AZRH0ODMMjlfLDHC3Nup8HYGpVX/+o?=
+ =?us-ascii?Q?fZvKwxJ9h+VJgcfzckAm/OfqXpWyPh/ZnNvszDN25i6WtGZILgzFf9l3AjHD?=
+ =?us-ascii?Q?jpQtfBpaRhJu223fL2xKQRPlXMVZNYMO9EGOFrKWWKroiMQSuz+IuN0vmx/c?=
+ =?us-ascii?Q?zVuHSHa+YcbmEtpzAKRYKz5GHQPDcfCalTLyhfbcoIA5apVoEy7u6LHGrF2G?=
+ =?us-ascii?Q?DacnFvg0CTDnA7HC+hBC8n9aLk+7y9O5jrLcnO0iV6bBOzFfRgeYrZvNFYue?=
+ =?us-ascii?Q?BUrR2DXjwNFV5TMajTBxnqZcRNKOmGsXRUPpqXkw0yXloBbFoHWMvygbrWZ/?=
+ =?us-ascii?Q?k7v86Rlw+iS8HaI2px77c0Ha6cuifee6FlF00VgjibS0/suc7x59bBMR9wLL?=
+ =?us-ascii?Q?9eTwZYX6/JayGOODiXgKZAIH+fGsjmpUUy4omlw2vVPC0LRqb+04pnwtpHoi?=
+ =?us-ascii?Q?xTZSHRSrwTnOy0AW15/joC8xTEkIXOMYzJJBrmnRpi4Ra9KMKVW5fKTyj+P5?=
+ =?us-ascii?Q?D82VcU6mYORGwRCnEbhqR4wuV5CLsZc/i0mHxDcXfdzUE0U12tbYeY5kRL9V?=
+ =?us-ascii?Q?37qYJQwo3TsZO1QHFydgGqtfqEL6AIGJ5Oq426LVBXrCWUxd1F7wYJRnlzp1?=
+ =?us-ascii?Q?Fhsm4oFX92kKUlcDHz49zjxuLpq/UIW3I5NdiREP0ucZ4VUCuv4afLxxVZUC?=
+ =?us-ascii?Q?AyCjmdiRg+HG6/b+8jh15jhJieA3S0Ro731PsRcig/IXepTFcFI6aC5Lbqz6?=
+ =?us-ascii?Q?C5tT+E508iCXpipAG3awKp7/Tn1pZGNM33EZBel35n9DakUeUMw+gfx0lxAy?=
+ =?us-ascii?Q?sQkvikhEGg/aT5DnF21p9AHFg/7jsJ4HqQ0a8WLwWtVJGwnD5kKC5CG6WVyZ?=
+ =?us-ascii?Q?O9iX1furLcsQmYSeCJYCXeQoMpJ0cscSo8wDP598ekjR9BuC4LfB+zY2D8CU?=
+ =?us-ascii?Q?Z03JR53JwGHgzOlqN5VAjDe0E7hQGvCkBUgTmm9qtOosP+lR4swpdCO22msc?=
+ =?us-ascii?Q?ZCchzBL83w73uJc6Pc1ilOE1KOcFBf2pB7kiitpC6Mg+sWA6M9TwFb99b2fn?=
+ =?us-ascii?Q?RHvQt1YlpFsl8bVh4ietkBA+x6weYlvbN6+J4px5kKuD9LXMny73bq4oGBDA?=
+ =?us-ascii?Q?3cHnMzEqXAHLKOSoUO8GLIFdgJVUzTETzPkANFFxPncaXyM7QOHj80RhKjxW?=
+ =?us-ascii?Q?dpEo4vUP60nHpBUyQ0Toz/Zhj4X8vtTZg0tK4hyQdr9p6UBLRS6eMINAASFs?=
+ =?us-ascii?Q?ogJTJdMzB/7Q5DEBNMcX2HIZsEkBntCLKmDrx49xThJU3d2I+pRa6VB3Cqnv?=
+ =?us-ascii?Q?1ETIIs3MV8Km2HHH1wJ/l8fiRFFoxtvai1EkMkBZ5/6UU6CBtCgjsrkUMjmt?=
+ =?us-ascii?Q?69xbIFBnbHoKcAn8iAPpP0Zyu11LPkmZ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?kOOoZ36eFnled11GdbKW4GP3KKvzOnC2UHBIEEFu//50r3EygAQFtiyjINiE?=
+ =?us-ascii?Q?op6f/O0PVPZx2Ur9YNWnPixoWXGtOgMwpjR60ODYR5ViW31uPA8/TP5kVIHK?=
+ =?us-ascii?Q?kx6PxElucRtHYuaTDveJ/4LgRQ53m4JF+DR4VoQIWfovbZcb3xOg881u9RTY?=
+ =?us-ascii?Q?fBSpI5gzEyhBpo8+SCr1l0KmHZsCYNGjbxzLwrYUsaZtme5azjOCbSqrFEMp?=
+ =?us-ascii?Q?nh22iHsilu4juKrjVL9sD4WF8fKE5fbWF7cAqp4lKAO7susVQkRn50hJjf1d?=
+ =?us-ascii?Q?UjS/HaM+fpA0sYsnS/Gt6xT3lJ/8YN/kfRAGYBX5cMDLFw7DASJWnhyVC/h/?=
+ =?us-ascii?Q?nVtt5b8u+iyT4978qFbZZCi/YMb1yMHoXDXz4M70eq4HQdsGE7n+l3FxSFEh?=
+ =?us-ascii?Q?Kt/4N9sM1J7IB3v+MfOXKFzk7vFeZ3NLonawror+J+TRFtjrjbPP1bRvwEZz?=
+ =?us-ascii?Q?MjoHuo+u/3lwO+28GAeD5lcPDXF/cBN/lmm9zom0iAEIhHIPOqso/Glfl/Hz?=
+ =?us-ascii?Q?8JxIdhOUsUL0QhH+0b8PNEEqyLM2cZFB9xR11A15bNQC8m5jsjKhIGzwHLrm?=
+ =?us-ascii?Q?/hB2Nlx0JgPzN/cMehzRfQFc+wqd59M8zIed9WMSeK9NJcs5PDCwsPLSCJ3x?=
+ =?us-ascii?Q?YH8zOeuvkpyFK701qEqzvpbq/Dl2dD10PsJh4/U1zGDpGuYyS4sg1Vvb05/a?=
+ =?us-ascii?Q?+MK/R6kLvwKCO/4EDtUwu+NhQyIG8l/WlXqzbR2cIfd6IHQnj8ynWDr3bNIq?=
+ =?us-ascii?Q?7y9FzXpDaQRH/B6nsIFMDlRsWQxUJQGI7YnFKVZKW3jsfyZrwD93gkrI3vWS?=
+ =?us-ascii?Q?qzSSxCYiEeqvMzrc3780nHqEdh0W9Ta1fV2JqBchmux//rTphh4WFZOtU5L0?=
+ =?us-ascii?Q?ZTtafCz4ua7Wa1E9qeVy/mku89ZULsRgvNzmd80MxkQTOhfWtFbRfr/KHVf5?=
+ =?us-ascii?Q?wMXueq64ZOrDXyvkDP3hcCACrzwIqlvkwIFYX9/mkppE5tbuf4KipwgYq+1C?=
+ =?us-ascii?Q?ovKA1z7ItsF0lK7vgJE/8h4gcvWyAy3liqhdXGI/hSK5nOhld4aLngPJsv/x?=
+ =?us-ascii?Q?g+I4hNbxZqFtsqFRL7OgAp9alf+wa/1fZMSj/CyU4zAJq/xIQeIYgL7Nh3MV?=
+ =?us-ascii?Q?/kRNQzasRFHn93n8jK1ZOVArdH42y42DWQXSTcJAjJCRRfNBJatF41cSOuKr?=
+ =?us-ascii?Q?LthJrCaglYixwBiriOj+Qz5weR9m+VqNTDLZtfpSRIm17hyrpsTVadJv0Gt5?=
+ =?us-ascii?Q?bFn6c80NeCuXNxEABX0LcvsFqSIDd3JgFrv1RRindQKicr8O1DL7Fdpu1LAD?=
+ =?us-ascii?Q?BhXwHXscehwCFXFmTP12xj8sFWQmAjEu5tMjgUSjUXnrfGolrYj904P5W1Bp?=
+ =?us-ascii?Q?ui59ZdbhdYHkR0BKJsz1a/1dUoiuJ5A+TDUjbb+T5/NMqM61CE+f9do3go/Y?=
+ =?us-ascii?Q?ZqXl6nhmPjE+G9dk5/8BdkAiCt9Fa6Tao+D8WqAqHm37GnUxyzBExIEbuxt8?=
+ =?us-ascii?Q?Wti8gUSJGOVxEM1laKxTvY3VhqeXCwOIV6qRDU+ZqqinMEWLetW6bIKzUNqx?=
+ =?us-ascii?Q?3dwpKRgwHMNkl9zR9R9yaV9yowYEYPouIfHV/TTemczLD0zijz86W6LDQxRH?=
+ =?us-ascii?Q?nXp4KyGSpcouew3ko0oG5Wk=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5970ec0a-2b2a-4355-25bd-08dd4e5fda77
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Feb 2025 07:59:35.2980
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: msb4M2xyVsqXNa6+V4ZTsvf21ZdZOC9Shy5DbukpcSrod751jQK59MC7SuZOLWJzptRiihf/OBQTEIYYuYMs4IfTeICyJsJ4oijrYDAC/B8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB10572
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250215_212559_525332_1EA90662 
-X-CRM114-Status: GOOD (  41.72  )
+X-CRM114-CacheID: sfid-20250215_235947_891391_9BAACEF0 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,118 +162,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 04, 2025 at 04:35:45PM +0100, Nicolas Frattaroli wrote:
-> This series adds support for the Rockchip RK3588's standalone hardware
-> random number generator to the existing mainline rockchip-rng driver.
-> 
-> The RK3588 has several hardware random number generators, one in each
-> the secure-world and non-secure-world crypto accelerator, and one
-> standalone one in each the secure-world and non-secure-world, so 4
-> hwrngs in total. This series adds support for the standalone hwrng,
-> which is an entirely new IP on this SoC and distinct from the one in the
-> Crypto IP.
-> 
-> The decision to integrate this into the existing rockchip-rng driver was
-> made based on a few factors:
-> 
-> 1. The driver is fairly small.
-> 2. While not much code is shared, some code is, specifically relating to
->    power management, the hwrng interface and the probe function.
-> 3. I don't want users to figure out why "CONFIG_HW_RANDOM_ROCKCHIP"
->    doesn't enable the RK3588 one, and I really don't see a reason to
->    build without both of them considering the other RK3588 TRNG (for
->    which there is not yet a driver iirc) *does* share code with the
->    existing rockchip-rng driver.
-> 
-> Here are the rngtest5 results from this new driver on my board:
-> 
->   user@debian-rockchip-rock5b-rk3588:~$ cat /sys/class/misc/hw_random/rng_current 
->   rockchip-rng
->   user@debian-rockchip-rock5b-rk3588:~$ sudo cat /dev/hwrng | rngtest -c 10000 
->   [...]
->   rngtest: bits received from input: 200000032
->   rngtest: FIPS 140-2 successes: 9990
->   rngtest: FIPS 140-2 failures: 10
->   rngtest: FIPS 140-2(2001-10-10) Monobit: 1
->   rngtest: FIPS 140-2(2001-10-10) Poker: 0
->   rngtest: FIPS 140-2(2001-10-10) Runs: 5
->   rngtest: FIPS 140-2(2001-10-10) Long run: 4
->   rngtest: FIPS 140-2(2001-10-10) Continuous run: 0
->   rngtest: input channel speed: (min=212.255; avg=29089.272; max=19531250.000)Kibits/s
->   rngtest: FIPS tests speed: (min=64.005; avg=102.494; max=153.818)Mibits/s
->   rngtest: Program run time: 11292340 microseconds
-> 
-> As you can see, the quality of the entropy is quite good, and the
-> throughput is an acceptable 29 Mibit/s.
-> 
-> The series starts out with two patches for the bindings. The bindings
-> are separate from the rockchip,rk3568-rng bindings, as the required
-> properties differ. The SCMI reset ID numbers are needed because mainline
-> uses a different reset numbering scheme, but TF-A uses the downstream
-> numbering scheme as far as I know. The TRNG must be reset through SCMI.
-> 
-> Next up are two cleanup patches for the existing driver. Even if a
-> decision is made to split the drivers for whatever reason, these two
-> patches should be used in the rk3568-rng driver as they get rid of small
-> peculiarities in the code without meaningfully changing how the driver
-> works.
-> 
-> Next up is the main driver patch that adds support for the new TRNG. As
-> the driver was developed by reading the downstream vendor code for this
-> particular device and reworking it, I've included the downstream vendor
-> developer who wrote the driver as a Co-developed-by tag with their
-> existing downstream sign-off.
-> 
-> The penultimate patch adds the node to the rk3588-base.dtsi, and
-> enables it.
-> 
-> The final patch adds myself to the MAINTAINERS of this driver and these
-> bindings.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
-> Changes in v2:
-> - Drop mailmap patch
-> - driver: restore the OF matching to how it was, and change soc_data to
->   const
-> - dts: get rid of the board specific DTS enablement and instead enable
->   it in rk3588-base
-> - bindings: drop the change of adding myself to maintainers from the
->   bindings patch, make it a separate patch
-> - bindings: get rid of the comments
-> - bindings: set status = "okay" in the example
-> - bindings: make interrupts property required
-> - Add a patch to add me to the MAINTAINERS for this driver/binding
-> - Link to v1: https://lore.kernel.org/r/20250130-rk3588-trng-submission-v1-0-97ff76568e49@collabora.com
-> 
-> ---
-> Nicolas Frattaroli (7):
->       dt-bindings: reset: Add SCMI reset IDs for RK3588
->       dt-bindings: rng: add binding for Rockchip RK3588 RNG
->       hwrng: rockchip: store dev pointer in driver struct
->       hwrng: rockchip: eliminate some unnecessary dereferences
->       hwrng: rockchip: add support for rk3588's standalone TRNG
->       arm64: dts: rockchip: Add rng node to RK3588
->       MAINTAINERS: add Nicolas Frattaroli to rockchip-rng maintainers
-> 
->  .../bindings/rng/rockchip,rk3588-rng.yaml          |  60 +++++
->  MAINTAINERS                                        |   2 +
->  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |   9 +
->  drivers/char/hw_random/Kconfig                     |   3 +-
->  drivers/char/hw_random/rockchip-rng.c              | 250 ++++++++++++++++++---
->  include/dt-bindings/reset/rockchip,rk3588-cru.h    |  41 +++-
->  6 files changed, 335 insertions(+), 30 deletions(-)
-> ---
-> base-commit: 72deda0abee6e705ae71a93f69f55e33be5bca5c
-> change-id: 20250130-rk3588-trng-submission-055255c96689
-> 
-> Best regards,
-> -- 
-> Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Popular bpi-r3 pwm fans like this one
 
-Patches 1-5,7 applied.  Thanks.
+  https://www.amazon.com/youyeetoo-Barebone-Fan-BPI-R3-Integrated/dp/B0CCCTY8PS
+
+will not work properly. Trying different pwm setting using a command
+
+  echo $value > /sys/devices/platform/pwm-fan/hwmon/hwmon1/pwm1
+
+I found:
+
+  pwm1 value     fan rotation speed   cpu temperature     notes
+  -----------------------------------------------------------------
+    0            maximal              31.5 Celsius        too noisy
+   40            optimal              35.2 Celsius        no noise hearable
+   95            minimal
+   above 95      does not rotate      55.5 Celsius
+  -----------------------------------------------------------------
+
+At the moment we have following cooling levels defined:
+
+  cooling-levels = <255 96 0>;
+
+for cpu-active-low, cpu-active-medium and cpu-active-high modes
+correspondingly. Thus only cpu-active-high and cpu-active-low are usable.
+I think this is wrong.
+
+This patch fixes cpu-active-medium settings for bpi-r3 board.
+
+PS: I know, the patch is not ideal as it can break pwm fan for some users.
+    There are some peoples that use handmade cooling solutions, but:
+      * discussed cooler is the only 'official' pwm cooler for bpi-r3
+        available on the market.
+      * most peoples will use passive cooling available on the market or
+        the discussed cooler.
+      * the pwm-fan dts section was added before the official cooler
+        appears on the market.
+    Thus it should not be a lot of harm from this fix.
+
+This patch may not be enough. Users may wants to tweak their thermal_zone0
+trip points, thus tuning fan rotation speed depending on cpu temperature.
+That can be done on the base of the folloving example:
+
+  === example =========
+  # cpu temterature below 25 Celsius degrees, no rotation
+  echo 25000 > /sys/class/thermal/thermal_zone0/trip_point_4_temp
+  # cpu temperature in [25..32] Celsius degrees, normal rotation speed
+  echo 32000 > /sys/class/thermal/thermal_zone0/trip_point_3_temp
+  # cpu temperature above 50 Celsius degrees, max rotation speed
+  echo 50000 > /sys/class/thermal/thermal_zone0/trip_point_2_temp
+  =====================
+
+Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+---
+ arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+index ed79ad1ae871..b0cc0cbdff0f 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+@@ -42,7 +42,7 @@ fan: pwm-fan {
+ 		compatible = "pwm-fan";
+ 		#cooling-cells = <2>;
+ 		/* cooling level (0, 1, 2) - pwm inverted */
+-		cooling-levels = <255 96 0>;
++		cooling-levels = <255 40 0>;
+ 		pwms = <&pwm 0 10000>;
+ 		status = "okay";
+ 	};
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+2.47.2
+
 
