@@ -4,60 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23289C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 16:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA86C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 16:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pW3qjSxkCH92H2whhfbYLPJ+Rua7jGtrn3gaobu7xXU=; b=4zb1YRISW0CgTKeWrI/o5RfaoJ
-	mAqc9jN8pQXMGynUQPPN6Q0evzSSRufB/OWbqw2MOvNeSFPchMd1YHiv0+39FbTQeTS+9wSqNk3gf
-	21bIh9lIZPlL2fz/JDFC7bcTs+bS85xGWrCpraodC6x7ZEteYTVmdgyu1jX6XQw6gApDe8eoOe8Ep
-	GOQVL2JPLawo+0nSPotyMtENKNToOc9sYO4aGZno4BCAmNOPOVXpRjgnjBz/lJxE3WpfXywNGyU+b
-	CUDHjSASabK4kRLUfuQhOpI/yJ88MG7pw3qwKijeD9vjZqWxq/Vh9LVUL91xEwwiNVaivUgSxpHDP
-	/DZsXoqQ==;
+	bh=ECtYGyfh6XO4+F8yQJHe0X3LXhbxNpjObJPeySLpTPQ=; b=47riW8pvSHg80nO59cXNV30i/E
+	JnluKJzfHrL6hQk2KzcSAIQovqUt0viqK3r7/ENOK9LnaU6TGTOV4aly+JPWBUegThRvSK5IREOVn
+	J5M/4ViH+MWk36Svb4RtloPWb7ATqetz4nJ5Mq7DJpVy9+7R3eruyoCZBcioX3C7iRAO8tPB1e6TT
+	bnHZ45rOwOYumX1YEluBXYOA8SmZeViRbNcR60LgJsuBtd+9svPyZ6aoV5XTjhhzrjzX3cNbhpupJ
+	qIAF/f3v4/cQNdF3oAYxQhRe9tL7ZCBc1FmfOer9YG5fRW2E844trGp2pUxAU7be7IwOrECZbKl8v
+	4fMyJL8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjhCc-000000025Qo-2qcA;
-	Sun, 16 Feb 2025 16:09:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tjhGy-0000000268J-2EMl;
+	Sun, 16 Feb 2025 16:13:36 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjhBB-000000025Fv-1raS
+	id 1tjhFV-000000025qZ-1Ecr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Feb 2025 16:07:38 +0000
+	Sun, 16 Feb 2025 16:12:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 133C75C5530;
-	Sun, 16 Feb 2025 16:06:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06BB6C4CEDD;
-	Sun, 16 Feb 2025 16:07:31 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 43D64A40C67;
+	Sun, 16 Feb 2025 16:10:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F739C4CEDD;
+	Sun, 16 Feb 2025 16:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739722056;
-	bh=43hB0V5xGtsW08Wu4x/+54J0/oLkkgqApWLJEGgtdtg=;
+	s=k20201202; t=1739722324;
+	bh=vhzqR3wBf1c57XXipqo0apwTE664UU5tqcgb4s9Eg1g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LlM6MgGh//jb+HqFo2mNjO2abwlassCQW6QN1S0IhXrx9UWPKTL5lXIMRVICZOzHG
-	 +aYnJH6ZYStPAMiRJq9BoaA6fzzHLdcCGBjnpM5huUWXgAncyX5dPH9jTWi91Cv77M
-	 +3WB5YZYxAlEHNJp704sGJRxxnh02eUtAbNDOw2MfHkvNQ059CHOsRU99vDxYhKXt7
-	 vit/P0fUJ3Q1Fdij3Rpolx/Bjd5n5gQEy+dOsP9hDJgFvZpHViTnJNBLuCntrxlzRm
-	 45+oqW8LoqDcKA8k4nG/gqp6QP/yPQubFrpCeejequuS5/T2OBUF34Br4sw9waNrgt
-	 jsqu0/NtZNKhw==
-Date: Sun, 16 Feb 2025 16:07:29 +0000
+	b=F3joIj4zFNHizlHbVPob2/AHjpRkbvFIcNE/o3uBJg4FRZztHwNKkpQqRI2NfCSnh
+	 BRz0QcTjzXsQrVDUSsx7wfD5R30i7C3Y+OXFa8/nX74NhFOu/9PjY4b6AyQNAF0Mzm
+	 fh0Mx9KgTpt9J3oViV2B4cPfnDCOt7EMjz5q+F/OR9Z7ie7HAcsonH6gsEeS9PFPwu
+	 15mvy8rCfS5sFJtJTfByTGMOmDPDuw2Y1VgUexEHaerxqbZ1tWm3sUdEWs4Mr8L9qW
+	 Dse7ugMS8h7vTc86vpMYu02Py3SXKCfLOAQVMlCdX+N8o6OMIaez0277mXI0uFUJie
+	 jK8GSlpBKc6yA==
+Date: Sun, 16 Feb 2025 16:11:58 +0000
 From: Simon Horman <horms@kernel.org>
-To: Alexis =?utf-8?Q?Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-Subject: Re: [PATCH 09/12] wifi: wilc1000: disable firmware power save if
- bluetooth is in use
-Message-ID: <20250216160729.GG1615191@kernel.org>
-References: <20250212-wilc3000_bt-v1-0-9609b784874e@bootlin.com>
- <20250212-wilc3000_bt-v1-9-9609b784874e@bootlin.com>
+To: "Malladi, Meghana" <m-malladi@ti.com>
+Cc: Paolo Abeni <pabeni@redhat.com>, javier.carrasco.cruz@gmail.com,
+	diogo.ivo@siemens.com, kuba@kernel.org, edumazet@google.com,
+	davem@davemloft.net, andrew+netdev@lunn.ch,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
+Subject: Re: [EXTERNAL] Re: [PATCH net 1/2] net: ti: icss-iep: Fix pwidth
+ configuration for perout signal
+Message-ID: <20250216161158.GH1615191@kernel.org>
+References: <20250211103527.923849-1-m-malladi@ti.com>
+ <20250211103527.923849-2-m-malladi@ti.com>
+ <3a979b56-e9d6-41c9-910b-63b5371b9631@redhat.com>
+ <66f30c0f-dec8-4ad5-9578-a9dcc422355a@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250212-wilc3000_bt-v1-9-9609b784874e@bootlin.com>
+In-Reply-To: <66f30c0f-dec8-4ad5-9578-a9dcc422355a@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_080737_567419_B4EA559B 
-X-CRM114-Status: GOOD (  27.52  )
+X-CRM114-CacheID: sfid-20250216_081205_476570_27730ED5 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,106 +78,68 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Eric Dumazet <edumazet@google.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Marek Vasut <marex@denx.de>, Rob Herring <robh@kernel.org>, Ajay Singh <ajay.kathat@microchip.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Kalle Valo <kvalo@kernel.org>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Marcel Holtmann <marcel@holtmann.org>, Luiz Augusto von Dentz <luiz.dentz@gmail.com>, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-bluetooth@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, "David S. Miller" <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 04:46:28PM +0100, Alexis Lothoré wrote:
-> If the wlan interface exposed by wilc driver has power save enabled
-> (either explicitly with iw dev wlan set power_save on, or because
-> kernel is built with CONFIG_CFG80211_DEFAULT_PS), it will send a power
-> management command to the wlan firmware when corresponding interface is
-> brought up. The bluetooth part, if used, is supposed to work
-> independently from the WLAN CPU. Unfortunately, this power save
-> management, if applied by the WLAN side, disrupts bluetooth operations
-> (the bluetooth CPU does not answer any command anymore on the UART
-> interface)
+On Fri, Feb 14, 2025 at 11:35:07AM +0530, Malladi, Meghana wrote:
 > 
-> Make sure that the bluetooth part can work independently by disabling
-> power save in wlan firmware when bluetooth is in use.
 > 
-> Signed-off-by: Alexis Lothoré <alexis.lothore@bootlin.com>
-> ---
->  drivers/net/wireless/microchip/wilc1000/bt.c       | 29 +++++++++++++++++++---
->  drivers/net/wireless/microchip/wilc1000/cfg80211.c |  5 +++-
->  drivers/net/wireless/microchip/wilc1000/netdev.h   |  3 +++
->  3 files changed, 33 insertions(+), 4 deletions(-)
+> On 2/13/2025 4:53 PM, Paolo Abeni wrote:
+> > On 2/11/25 11: 35 AM, Meghana Malladi wrote: > @@ -419,8 +426,9 @@
+> > static int icss_iep_perout_enable_hw(struct icss_iep *iep, >
+> > regmap_write(iep->map, ICSS_IEP_CMP1_REG0, lower_32_bits(cmp)); > if
+> > (iep->plat_data->flags &
+> > ZjQcmQRYFpfptBannerStart
+> > This message was sent from outside of Texas Instruments.
+> > Do not click links or open attachments unless you recognize the source
+> > of this email and know the content is safe.
+> > Report Suspicious
+> > <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! updqdzavl0dbisXOnfkDHxHqGlQUHEro3tgnljLa7x4DRPBIRKu8Nqm3bW1LeMtXFyqz6yM7_tLlrvUmslKj9m_IL0hUlNU$>
+> > ZjQcmQRYFpfptBannerEnd
+> > 
+> > On 2/11/25 11:35 AM, Meghana Malladi wrote:
+> > > @@ -419,8 +426,9 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
+> > >  			regmap_write(iep->map, ICSS_IEP_CMP1_REG0, lower_32_bits(cmp));
+> > >  			if (iep->plat_data->flags & ICSS_IEP_64BIT_COUNTER_SUPPORT)
+> > >  				regmap_write(iep->map, ICSS_IEP_CMP1_REG1, upper_32_bits(cmp));
+> > > -			/* Configure SYNC, 1ms pulse width */
+> > > -			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG, 1000000);
+> > > +			/* Configure SYNC, based on req on width */
+> > > +			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
+> > > +				     (u32)(ns_width / iep->def_inc));
+> > 
+> > This causes build errors on 32bits:
+> > 
+> > ERROR: modpost: "__udivdi3" [drivers/net/ethernet/ti/icssg/icss_iep.ko]
+> > undefined!
+> > make[3]: *** [../scripts/Makefile.modpost:147: Module.symvers] Error 1
+> > make[2]: *** [/home/nipa/net/wt-0/Makefile:1944: modpost] Error 2
+> > make[1]: *** [/home/nipa/net/wt-0/Makefile:251: __sub-make] Error 2
+> > make: *** [Makefile:251: __sub-make] Error 2
+> > ERROR: modpost: "__udivdi3" [drivers/net/ethernet/ti/icssg/icss_iep.ko]
+> > 
+> > You should use div_u64()
+> > 
 > 
-> diff --git a/drivers/net/wireless/microchip/wilc1000/bt.c b/drivers/net/wireless/microchip/wilc1000/bt.c
-> index b0f68a5479a5bd6f70e2390a35512037dc6c332b..f0eb5fb506eddf0f6f4f3f0b182eaa650c1c7a87 100644
-> --- a/drivers/net/wireless/microchip/wilc1000/bt.c
-> +++ b/drivers/net/wireless/microchip/wilc1000/bt.c
-> @@ -7,6 +7,7 @@
->  #include <linux/of_platform.h>
->  #include <linux/platform_device.h>
->  #include <net/wilc.h>
-> +#include "cfg80211.h"
->  #include "netdev.h"
->  #include "wlan_if.h"
->  #include "wlan.h"
-> @@ -261,22 +262,36 @@ static int wilc_bt_start(struct wilc *wilc)
->  int wilc_bt_init(void *wilc_wl_priv)
->  {
->  	struct wilc *wilc = (struct wilc *)wilc_wl_priv;
-> +	struct wilc_vif *vif;
->  	int ret;
->  
-> +	wilc->bt_enabled = true;
-> +
->  	if (!wilc->hif_func->hif_is_init(wilc)) {
->  		dev_info(wilc->dev, "Initializing bus before starting BT");
->  		acquire_bus(wilc, WILC_BUS_ACQUIRE_ONLY);
->  		ret = wilc->hif_func->hif_init(wilc, false);
->  		release_bus(wilc, WILC_BUS_RELEASE_ONLY);
-> -		if (ret)
-> +		if (ret) {
-> +			wilc->bt_enabled = false;
->  			return ret;
-> +		}
->  	}
->  
-> +	/* Power save feature managed by WLAN firmware may disrupt
-> +	 * operations from the bluetooth CPU, so disable it while bluetooth
-> +	 * is in use (if enabled, it will be enabled back when bluetooth is
-> +	 * not used anymore)
-> +	 */
-> +	vif = wilc_get_wl_to_vif(wilc);
-> +	if (wilc->power_save_mode && wilc_set_power_mgmt(vif, false))
-> +		goto hif_deinit;
+> I see, thanks.
+> Can you tell me how can I reproduce this on my end for 32 bits.
+> Will fix this in v2.
 
-Hi Alexis,
+Hi Meghana,
 
-Jumping to hif_deinit will result in the function returning ret.
-But ret may not not be initialised until a few lines below.
+FWIIW, I was able to reproduce this problem running the following
+on an x86_64 system:
 
-Flagged by Smatch.
+ARCH=i386 make tinyconfig
 
-> +
->  	mutex_lock(&wilc->radio_fw_start);
->  	ret = wilc_bt_power_up(wilc);
->  	if (ret) {
->  		dev_err(wilc->dev, "Error powering up bluetooth chip\n");
-> -		goto hif_deinit;
-> +		goto reenable_power_save;
->  	}
->  	ret = wilc_bt_firmware_download(wilc);
->  	if (ret) {
-> @@ -293,10 +308,14 @@ int wilc_bt_init(void *wilc_wl_priv)
->  
->  power_down:
->  	wilc_bt_power_down(wilc);
-> -hif_deinit:
-> +reenable_power_save:
-> +	if (wilc->power_save_mode_request)
-> +		wilc_set_power_mgmt(vif, true);
->  	mutex_unlock(&wilc->radio_fw_start);
-> +hif_deinit:
->  	if (!wilc->initialized)
->  		wilc->hif_func->hif_deinit(wilc);
-> +	wilc->bt_enabled = false;
->  	return ret;
->  }
->  EXPORT_SYMBOL(wilc_bt_init);
+echo CONFIG_COMPILE_TEST=y >> .config
+echo CONFIG_PCI=y >> .config
+echo CONFIG_SOC_TI=y >> .config
+echo CONFIG_TI_PRUSS=y >> .config
+echo CONFIG_NET=y >> .config
+echo CONFIG_NETDEVICES=y >> .config
 
-...
+yes "" | ARCH=i386 make oldconfig
+
+ARCH=i386 make -j$(nproc)
 
