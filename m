@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90E5BC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 09:28:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A94C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 09:29:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8S0LM67ZallGhiis5MmmYmAmKnXDOKUkcZarC5rYtYI=; b=r9OSC0PQQucC28Zxl5xVcJ2cO9
-	3o71lbEzy2zoBosjHht2p9SbG/mmxH768fyMkX6g6mMOYWNtQKT5yuuycADR7hJhxg4TU9go7lc1p
-	cSMpeOYIR+d46vkPElfUX4MjTKhuE5Mj2ho2OQoH82bZG8lhAYwzWI2sRw231FnYQT4EvH6bf7QEE
-	TZr97uYTG+twILdp8LDhhtTLNqFoUt7XPlx6W6iUHi0Krs+es2iqHhnndaF5sBa+5ZAWsdVtBgowp
-	I2305RBYhTfThKED8QRSuhxZFwxfhLnaFynXKbMoqX9YfWS24oqLSUN4gezWb6tQmg2sNzFUKA9yb
-	YpApbsDw==;
+	bh=MHFZi57lqGB7elcnnVw9vwRemFAicTlVo9LJ+zS40fQ=; b=acupKVDBvDUno0JD/mo5ouKgmX
+	qb8Djafk3zrhe9cFGzhGQwS8cG2Oz0NY7gSCK1OJrEUui3YUP+6gDM58ymKTJycerEGR/kVK5mbDk
+	HTeN0h33Z3OEsBQneNTpbJP791JjvUuG3+ozLWpL85BvN+Ir4fjwtG33oWUdzX/tVhlOryeklciHx
+	A0J+7DFba6yuMjsFWVBxVmPtnFum5zP7iK8oUkqxnFMC8Nu8zCBwPY3XlvV3LZu7KSEbMhOFJNxxC
+	XMFDG353dPx+PRPcvnZAHIv2RjWKUEBY/ewxsHC4WDdezaYi85V/h3SbxRLNHnczit0qFjAYGXp1N
+	gOkMNifg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjawN-00000001XGM-1cnd;
-	Sun, 16 Feb 2025 09:27:55 +0000
-Received: from fout-b6-smtp.messagingengine.com ([202.12.124.149])
+	id 1tjaxn-00000001XZH-0SDN;
+	Sun, 16 Feb 2025 09:29:23 +0000
+Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjaTm-00000001Tyx-2s8p
+	id 1tjaTu-00000001Tzs-2oIg
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Feb 2025 08:58:23 +0000
-Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailfout.stl.internal (Postfix) with ESMTP id 4D2511140138;
-	Sun, 16 Feb 2025 03:58:21 -0500 (EST)
+	Sun, 16 Feb 2025 08:58:31 +0000
+Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 41E9225400CE;
+	Sun, 16 Feb 2025 03:58:29 -0500 (EST)
 Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-07.internal (MEProxy); Sun, 16 Feb 2025 03:58:21 -0500
+  by phl-compute-04.internal (MEProxy); Sun, 16 Feb 2025 03:58:29 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1739696301; x=
-	1739782701; bh=8S0LM67ZallGhiis5MmmYmAmKnXDOKUkcZarC5rYtYI=; b=p
-	pAJ+TwEbooChpbktJxalBPRlKtBwZqxM42ncKll28dXvx9dOCPN91keqYTrXGGRy
-	sNwQnVwSlWeSGnHF9EXy9Vul3mZNY1KfWLpQKPGo0nW/8zPBvU7wTEzLy7i4KjnU
-	yvrTf6vdO61kJejRKkxNT9s+gNxdbyKGuosuO4RKme5FrC+os/PgLDR+yF0U06HN
-	f48IVUXeong5Jzkj80T4XMJVk7RpxwqUhcTLnSS3v6xXy+LqSMybAeM0hzGKTXJz
-	K/evpzCX4RvpQHzvfULo7hUU92FagLnru1DwZBLfYoMRxBddb05xTJF9KzJ/JXNo
-	ifYjV8Y61M8XYOcwyHDgQ==
+	:reply-to:subject:subject:to:to; s=fm3; t=1739696309; x=
+	1739782709; bh=MHFZi57lqGB7elcnnVw9vwRemFAicTlVo9LJ+zS40fQ=; b=l
+	uloQ2zZfrvaEles6N3NfXWLzq9eqCSbhpfdjactSGTdKWqVrp4shMP3iyLzaCXa7
+	H2jYtV+YwNUzVEkZaQrCHva/YLN0tqQl/Dq0d2dM5KzTQPdL8hOZMVUq0TgA5QYD
+	jfq9J2o8k8pjRmId9n0tdRbq+15OJTby54hMUT7aCn398KKhjfIqboPp5RL+t1LY
+	zCElb5OPXyTc0xaYFFi2BdB9phEskJq/J8Leez9HU9UUDVWTMmd0EUL3AB2/Ea4s
+	fUvyptOKsbVbjO+A256LUAOGJzBmwgivy65m+/Jf/xonda44u6PyAzlzEJO7/2Y4
+	G7MeRiHVqJRQC8LMxeQ9w==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1739696301; x=1739782701; bh=8
-	S0LM67ZallGhiis5MmmYmAmKnXDOKUkcZarC5rYtYI=; b=mhFc/Qh1pYV586Qqi
-	B6MhPm5MwiZs5GcSNfLZaqbVAq924ZrPweSAwxYazF9LUIXFzMN0DRvKDuKoZIVp
-	hlQbnN8oAX+Gqx7Xgdxm43HZH3CYh9GskSSHc9q3umSUWJcckIekin+YXrGTb2lB
-	C1eD6hQloksoTFWkiF3YiGSnve5Ol53GJssdrl04XVeCWrLLvtJuDU2kKpHPoRIw
-	HW7/0tpD7p5gUtMLkQsohd/sceXv4iR/UFjsL55zOo6dw42Jf1ztjhge8llPGImI
-	P8PdiBflBj3X+8zY2y6RzquhWvaw/9wjwTmMKzZkF4XdR6A79ijS4inTj3pwNLMP
-	FkGvQ==
-X-ME-Sender: <xms:rKixZ5Ex5OYP4IGl9_ynsuYcNaZsc8mV4J1Tjxus4-Sha80kmF-iyA>
-    <xme:rKixZ-V8Uwsazr_jYHpV0tf4DEpsCNflukqhKyoqHCnqDoAwaKZnVY2mGuulScyBk
-    HPfpbhJ0OWfC9yYrA>
-X-ME-Received: <xmr:rKixZ7JDPoU81pWSyCAXMkWiRTZxuIiWIfUjH_2kdaqreola1VdyQHIyVgymlGyr2HrepFrBZwLWOyRbsl26ouUVbckQh8mKf06BLp-pajTk>
+	:x-me-sender:x-sasl-enc; s=fm3; t=1739696309; x=1739782709; bh=M
+	HFZi57lqGB7elcnnVw9vwRemFAicTlVo9LJ+zS40fQ=; b=AXFvNKDsrOKeLZ6bX
+	p0JcPgZ13fkKp+0fr5vw0aIzrXOeSeAURiV+V29bjsgxGoJ8rtJfY7e5o2no+Lv9
+	cXbgnH1IlViqcVr7LB/F25kVl4d5GNtVUb89juq/4guGV49WB3AHt+F0osjU/Vd5
+	GD0sgi4aDVgJXxnz3BoppkPDsqSd40iSSR6w4uHWI8yJbPeIGJIhGJuLIbSk3r4E
+	KAxIpoPdQiC4C8Zbanz3zixipNBYC36KXI0B3kyh5oMZeREmBrdq2vB7RJFgdQmT
+	V3y06y01V7u2xv+1rI5qvv8M8KxjGP+Mcb2qbWp/xEgjM5LrOZ4dzq3MBEGX/7hS
+	tf8ew==
+X-ME-Sender: <xms:tKixZ6LzQ3c_EOo5lHJd82J-HmhGQDF-bFmRc9F8xxLoAjUHK6pkcQ>
+    <xme:tKixZyJkIDLF4uchTaogJ6-z-2sCZchUOZa2eCzwfERvvLrT_6ov59pcF1AXPo1PY
+    PPm97-ZyFUNE_IgIA>
+X-ME-Received: <xmr:tKixZ6uGeTT3uwFTviPCH_5yfGCYlu4GLZUv4GiFCIDnhKEyOxcoRf6y6E8-8IOlOwaZZNS-Yp1s4LIvDnPzd6RpDa9lWdQwn6v5HDNcGCWU>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehhedtgecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
     uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
@@ -76,14 +76,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehhedtgecutefuodetgg
     hffhiflhhlrdgthhdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghi
     lhdrtghomhdprhgtphhtthhopehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgpdhrtg
     hpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:rKixZ_EqULXZ-p63WoXRhjBbNLN4-29iZxwYtKfsWLDN9WX87cb2lg>
-    <xmx:raixZ_WSJgq0GEpwb47WOfVDO1jiVfDULfYykvx7UzQzO0XoSYnVgQ>
-    <xmx:raixZ6NMN2uG7vQ6hMR8lWicBc5FjIiiiPLnLAU8a91gYAJiufy_4Q>
-    <xmx:raixZ-2kR8i5xWnIvp31PrANdeBHTGof6u3wcwzEnhgtGdmhdzDPig>
-    <xmx:raixZ1_9PLqVAioWh6f8MI50Om9h0lYpG-2Rkzh4ipggMCFCLDBQGJLJ>
+X-ME-Proxy: <xmx:tKixZ_ZkQzuZ9PbecnHyJyUx0hU_gZe-7_7Ni7fRykfl5Otm3mD8BQ>
+    <xmx:taixZxbFcmu9SGzA58H-cK3iQnjU2oPQoJf1V14Mtno-SNdj-_VBDA>
+    <xmx:taixZ7BKHiIy8DTdGOdFQSZE76CIoew4NkDKh14brBm4ANb-ZYgnRw>
+    <xmx:taixZ3Z-3apiVPQdiIrXYBK17CBhTlDJFytJ-KMagNTCUYPC934ADw>
+    <xmx:taixZ-Sd9uJwi72tSkOngufYPp8XPRc34scUAo0rsWq1X-PwaOIQ8u5u>
 Feedback-ID: idc0145fc:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 16 Feb 2025 03:58:14 -0500 (EST)
+ 16 Feb 2025 03:58:22 -0500 (EST)
 From: Ryan Walklin <ryan@testtoast.com>
 To: Maxime Ripard <mripard@kernel.org>,
 	Chen-Yu Tsai <wens@csie.org>,
@@ -110,18 +110,17 @@ Cc: Andre Przywara <andre.przywara@arm.com>,
 	linux-clk@vger.kernel.org,
 	Ryan Walklin <ryan@testtoast.com>,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v6 21/27] dt-bindings: allwinner: add H616 DE33 clock binding
-Date: Sun, 16 Feb 2025 21:50:52 +1300
-Message-ID: <20250216085432.6373-23-ryan@testtoast.com>
+Subject: [PATCH v6 22/27] dt-bindings: allwinner: add H616 DE33 mixer binding
+Date: Sun, 16 Feb 2025 21:50:53 +1300
+Message-ID: <20250216085432.6373-24-ryan@testtoast.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250216085432.6373-2-ryan@testtoast.com>
 References: <20250216085432.6373-2-ryan@testtoast.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_005822_807484_5171CD64 
-X-CRM114-Status: UNSURE (   8.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250216_005830_793299_AB4222BC 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,7 +138,11 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 The Allwinner H616 and variants have a new display engine revision
 (DE33).
 
-Add a clock binding for the DE33.
+The mixer configuration registers are significantly different to the DE3
+and DE2 revisions, being split into separate top and display blocks,
+therefore a fallback for the mixer compatible is not provided.
+
+Add a display engine mixer binding for the DE33.
 
 Signed-off-by: Ryan Walklin <ryan@testtoast.com>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
@@ -148,22 +151,54 @@ Reviewed-by: Chen-Yu Tsai <wens@csie.org>
 ---
 Changelog v2..v3:
 - Separate content into three patches for three separate subsystems
----
- .../devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml  | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml
-index 70369bd633e40..7fcd55d468d49 100644
---- a/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml
-+++ b/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml
-@@ -25,6 +25,7 @@ properties:
-       - const: allwinner,sun50i-a64-de2-clk
-       - const: allwinner,sun50i-h5-de2-clk
-       - const: allwinner,sun50i-h6-de3-clk
-+      - const: allwinner,sun50i-h616-de33-clk
-       - items:
-           - const: allwinner,sun8i-r40-de2-clk
-           - const: allwinner,sun8i-h3-de2-clk
+Changelog v5..v6:
+- increase reg maxItems to 3 and add conditional for h616-de33
+---
+ .../allwinner,sun8i-a83t-de2-mixer.yaml       | 21 ++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
+index b75c1ec686ad2..274f5e6327333 100644
+--- a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
++++ b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
+@@ -24,9 +24,11 @@ properties:
+       - allwinner,sun50i-a64-de2-mixer-0
+       - allwinner,sun50i-a64-de2-mixer-1
+       - allwinner,sun50i-h6-de3-mixer-0
++      - allwinner,sun50i-h616-de33-mixer-0
+ 
+   reg:
+-    maxItems: 1
++    minItems: 1
++    maxItems: 3
+ 
+   clocks:
+     items:
+@@ -61,6 +63,23 @@ properties:
+     required:
+       - port@1
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          enum:
++            - allwinner,sun50i-h616-de33-mixer-0
++
++    then:
++      properties:
++        reg:
++          maxItems: 3
++
++    else:
++      properties:
++        reg:
++          maxItems: 1
++
+ required:
+   - compatible
+   - reg
 -- 
 2.48.1
 
