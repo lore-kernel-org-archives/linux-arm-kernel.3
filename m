@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7E52C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 09:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74FE2C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 09:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QPdCxuabrLIuRDUeD933vccGGTB/XjpDLeIgKga9SYU=; b=lBWa2ca0BzxZwk+GTZkNnepbCZ
-	XznmiZN2PeYFsMrzK102o1ETovDTOj+gAfwmLrPM/r0OmkXV0qCLQztIq02CEfHrv+D30Wt0VRmAM
-	Z/4PtP7Paw3iuRfoEcGgsuPpGWksx8F1eydOGIWJ/4bOzqq2kPTRMwW6HeWh/vjJJr0Gq7lpdRSyJ
-	kLmV3Ce7P461priEzct4t67HoDG84YRbE0U/OBD1RiJAxHcNHvHEoJ2dZhaLZEXr1mjzrqOQzxqGc
-	P2CyxZ0oVmAwXJ1s20iycTUe2T/A7MFWpGDBPj4FMjF3Mr1tMnmFv9Gnph8+jO3vB/NgvDWjs51pM
-	tFADJBRA==;
+	bh=kXF3bkk0nQEeZXtnQRQlZ2DWuXOtus1tZBMzkwUJKMA=; b=CTtEJYnUt91FAI5EfAM39W9o45
+	T3X4zT/nvm/52yniLEaFlnXsEfHqwA+WNmRsLvggQkS/5rJGIQWjrxdNspBnHATUkpV4Fagrktpw0
+	tJHFEAPT/jOAIZ/y57rJ+h7Vrh3Ukte4Dvhbw7VYp4GB/8763Jws1hGdjiBbc9Uxg8ba5AGuSe2Fq
+	phGiP7KnPFt5bSH67IdZP2k1PALcd1jwtRT/pG5E4GtRZnHYa++xvgm0gwOmKO+wS3Sk5MOU46B/H
+	qi9ic6NsmP91FbIe33ntXxhpwxq+YlPR07IAj7m4q5sFnHHKbhKPclWP2yrXK3kzEbXqdk9Z5+H4B
+	3pA8XDaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjb97-00000001ZWY-1JqM;
-	Sun, 16 Feb 2025 09:41:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tjbAX-00000001Zjd-1lwJ;
+	Sun, 16 Feb 2025 09:42:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjari-00000001WdW-2HVn;
-	Sun, 16 Feb 2025 09:23:07 +0000
+	id 1tjavX-00000001X4L-2L4e;
+	Sun, 16 Feb 2025 09:27:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AA363A40AC0;
-	Sun, 16 Feb 2025 09:21:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C0DBC4CEDD;
-	Sun, 16 Feb 2025 09:23:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E5D485C55B1;
+	Sun, 16 Feb 2025 09:26:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4826BC4CEDD;
+	Sun, 16 Feb 2025 09:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739697785;
-	bh=VmlxNCvtpElT137a/Hp42+ErwPH4etbgXswEcnmNOYU=;
+	s=k20201202; t=1739698021;
+	bh=KCr9jygXAg+0o4J6BBNz+HNon4o3TNCuw5LJpm2Y8CY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SvXv4U+lxQgP939ccDcLNPqNTLnnrqQaS32Y7oweKkQCQg4UCP+1wgY++iVffHHBY
-	 GBJetBx0r8xSEuIXyUXfI8b1IsiIPrbFdqTYQaPeuwVgzyHiXWUnNyl8rfuVWjmiR6
-	 c70pM9cDfhybVZt/UNSOGm3bPORcEZRk+GI0eVZDS9eybyF6Ny2biGURYUkgkbqFXS
-	 UkMqczzMVNR8UxY/EoSvzgFSqKZKON0MAj1r8GK2o6F0fnR9aXDJvOwcY9wI0Wdl/l
-	 oPpn9eL1u5wJLHkDxyNHu/nyArBTh4gyFM1dsqZNjvuDiynyVUwSKhhfchCinVsDBj
-	 f/3CHN3aQ1Dxg==
-Message-ID: <fc860290-c5e5-4193-a8b7-a53137dd4155@kernel.org>
-Date: Sun, 16 Feb 2025 10:22:58 +0100
+	b=jmwyELEKKT2068Vxfa/KEodRqQbsSTAeInBzDx5otFgQa0s4zOBJr8DkoBa+mym1R
+	 PAyM9wCWC/3Lmh0f8qCv1a0TTxRgVwu0I/BPY31MQCqyrJFi/inlGX3zr2AshDMFGh
+	 XZZM28Bep332zd4+gFxRVNfkLltowa4aORfVBiiqxVX1vFCCqdLIbxykBU+9rd/Dq3
+	 GfZ6wp28wb3ObRWHt9Qwgtu3wsR8JP1UKZvjpCLnw6jxXr1V8D2mkgAXXjrJviPa2g
+	 QcFbhM3hf16X5tA960QNfmsDv3kFnQeEgX3LbnogdOKRr/kKjxYLQy47+dG4Cx2JPG
+	 Ms+HCV6tjMFfg==
+Message-ID: <a10f8a77-9440-477d-b6f6-9d651e3ab49a@kernel.org>
+Date: Sun, 16 Feb 2025 10:26:55 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/4] dt-bindings: phy: add
- samsung,exynos2200-snps-eusb2-phy schema file
-To: Diederik de Haas <didi.debian@cknow.org>,
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+Subject: Re: [PATCH v1 3/4] phy: samsung: add Exynos2200 SNPS eUSB2 driver
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
  Philipp Zabel <p.zabel@pengutronix.de>
 Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20250215122409.162810-1-ivo.ivanov.ivanov1@gmail.com>
- <20250215122409.162810-2-ivo.ivanov.ivanov1@gmail.com>
- <D7TR7VP9UPQA.2U5BL328HNSXU@cknow.org>
+ <20250215122409.162810-4-ivo.ivanov.ivanov1@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,13 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <D7TR7VP9UPQA.2U5BL328HNSXU@cknow.org>
+In-Reply-To: <20250215122409.162810-4-ivo.ivanov.ivanov1@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_012306_714890_4E9CA39E 
-X-CRM114-Status: UNSURE (   6.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250216_012703_687622_E5C4D7E0 
+X-CRM114-Status: GOOD (  24.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,28 +121,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/02/2025 10:14, Diederik de Haas wrote:
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/samsung,exynos2200.h>
->> +
->> +    usb_hsphy: phy@10ab0000 {
->> +        compatible = "samsung,exynos2200-snps-eusb2-phy";
->> +        reg = <0 0x10ab0000 0 0x10000>;
->> +        clocks = <&cmu_hsi0 CLK_MOUT_HSI0_USB32DRD>,
->> +                 <&cmu_hsi0 CLK_MOUT_HSI0_NOC>,
->> +                 <&cmu_hsi0 CLK_DOUT_DIV_CLK_HSI0_EUSB>;
->> +        clock-names = "ref", "apb", "ctrl";
->> +        #phy-cells = <0>;
->> +        phys = <&usbcon_phy>;
->> +    };
+On 15/02/2025 13:24, Ivaylo Ivanov wrote:
+> The Exynos2200 SoC uses Synopsis eUSB2 PHY for USB 2.0. Add a new
+> driver for it.
 > 
-> Shouldn't the example have at least all the *required* properties?
-> Same for patch 2 of this series.
+> eUSB2 on Exynos SoCs is usually paired alongside a USB PHY controller.
+> Currently the driver is modelled to take and enable/disable the usb phy
+> controller when needed.
+> 
+> The driver is based on information from downstream drivers.
+> 
+> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> ---
+>  drivers/phy/samsung/Kconfig                   |  13 +
+>  drivers/phy/samsung/Makefile                  |   1 +
+>  .../phy/samsung/phy-exynos2200-snps-eusb2.c   | 351 ++++++++++++++++++
+>  3 files changed, 365 insertions(+)
+>  create mode 100644 drivers/phy/samsung/phy-exynos2200-snps-eusb2.c
+> 
+> diff --git a/drivers/phy/samsung/Kconfig b/drivers/phy/samsung/Kconfig
+> index e2330b089..f62285254 100644
+> --- a/drivers/phy/samsung/Kconfig
+> +++ b/drivers/phy/samsung/Kconfig
+> @@ -77,6 +77,19 @@ config PHY_S5PV210_USB2
+>  	  particular SoC is compiled in the driver. In case of S5PV210 two phys
+>  	  are available - device and host.
+>  
+> +config PHY_EXYNOS2200_SNPS_EUSB2
+> +	tristate "Exynos2200 eUSB 2.0 PHY driver"
+> +	depends on (ARCH_EXYNOS && OF) || COMPILE_TEST
+> +	depends on HAS_IOMEM
+> +	depends on USB_DWC3_EXYNOS
 
 
-Yeah, this wasn't ever tested.
+How does it depend? What are you using from DWC3?
 
+> +	select GENERIC_PHY
+> +	select MFD_SYSCON
+
+Where do you use it?
+
+> +	default y
+> +	help
+> +	  Enable USBCON PHY support for Exynos2200 SoC.
+> +	  This driver provides PHY interface for eUSB 2.0 controller
+> +	  present on Exynos5 SoC series.
+> +
+>  config PHY_EXYNOS5_USBDRD
+>  	tristate "Exynos5 SoC series USB DRD PHY driver"
+>  	depends on (ARCH_EXYNOS && OF) || COMPILE_TEST
+> diff --git a/drivers/phy/samsung/Makefile b/drivers/phy/samsung/Makefile
+> index fea1f96d0..90b84c7fc 100644
+> --- a/drivers/phy/samsung/Makefile
+> +++ b/drivers/phy/samsung/Makefile
+> @@ -14,5 +14,6 @@ phy-exynos-usb2-$(CONFIG_PHY_EXYNOS4210_USB2)	+= phy-exynos4210-usb2.o
+>  phy-exynos-usb2-$(CONFIG_PHY_EXYNOS4X12_USB2)	+= phy-exynos4x12-usb2.o
+>  phy-exynos-usb2-$(CONFIG_PHY_EXYNOS5250_USB2)	+= phy-exynos5250-usb2.o
+>  phy-exynos-usb2-$(CONFIG_PHY_S5PV210_USB2)	+= phy-s5pv210-usb2.o
+> +obj-$(CONFIG_PHY_EXYNOS2200_SNPS_EUSB2)	+= phy-exynos2200-snps-eusb2.o
+
+Entire driver looks like repeating existing qcom-snps-eusb2. You need to
+integrate the changes, not create duplicated driver.
+
+...
+
+> +
+> +	ret = devm_clk_bulk_get(dev, drv_data->n_clks,
+> +				phy->clks);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "failed to get phy clock(s)\n");
+> +
+> +	for (int i = 0; i < phy->drv_data->n_clks; ++i) {
+> +		if (!strcmp(phy->clks[i].id, "ref")) {
+> +			phy->ref_clk = phy->clks[i].clk;
+> +			break;
+> +		}
+> +	}
+> +
+> +	phy->vregs = devm_kcalloc(dev, drv_data->n_regulators,
+> +				  sizeof(*phy->vregs), GFP_KERNEL);
+> +	if (!phy->vregs)
+> +		return -ENOMEM;
+> +	regulator_bulk_set_supply_names(phy->vregs,
+> +					drv_data->regulator_names,
+> +					drv_data->n_regulators);
+> +	ret = devm_regulator_bulk_get(dev, drv_data->n_regulators,
+> +				      phy->vregs);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to get regulators\n");
+> +
+> +	/* we treat the usblink controller phy as a separate phy */
+> +	phy->usbcon = devm_of_phy_get_by_index(dev, np, 0);
+> +	if (IS_ERR(phy->usbcon))
+> +		return dev_err_probe(dev, PTR_ERR(phy->usbcon),
+> +				     "failed to get usbcon\n");
+> +
+> +	generic_phy = devm_phy_create(dev, NULL, &exynos2200_snps_eusb2_phy_ops);
+> +	if (IS_ERR(generic_phy)) {
+> +		dev_err(dev, "failed to create phy %d\n", ret);
+
+
+Syntax is return dev_err_probe
+
+> +		return PTR_ERR(generic_phy);
+> +	}
+> +
+> +	dev_set_drvdata(dev, phy);
+> +	phy_set_drvdata(generic_phy, phy);
+> +
+> +	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
+> +	if (IS_ERR(phy_provider)) {
+> +		dev_err(dev, "failed to register phy provider\n");
+
+
+Syntax is return dev_err_probe
+
+> +		return PTR_ERR(phy_provider);
+> +	};
+> +
+> +	return 0;
+> +}
 Best regards,
 Krzysztof
 
