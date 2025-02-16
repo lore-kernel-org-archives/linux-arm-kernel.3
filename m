@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90EC5C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 19:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43FBAC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 19:09:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8S0LM67ZallGhiis5MmmYmAmKnXDOKUkcZarC5rYtYI=; b=3pdZOkJEzv8AgVuktortMcYakO
-	ldLKhXwEH8XULtrXpBulyMUDkgvjSXEq1zUZ9G7IeTG7ak9PUKqoYvByZe0eCZhwQBTxLY2dDNYqz
-	+VD4BqmdPkuV38RyS/96Mj5cAA55M93tg8mF0nhX/dc6syRADmpqGHBKvdbsg6yOgYG+B9utpV1Dc
-	o5MBN7QHLPQP+gf2rK3/BxpiHJqdtWVOKG4jJ9eZrv4TM0O0kgcFEWUb/cHDWPqsgs7aY3rJm/Mb7
-	s2W+muthY1V4jk1lQ8JSx3x4HMCPSazwqxVIVQVekh+YxRe/X9Fa2sDuNxjKkPULtgolF3BXFwWHW
-	K0LG55bQ==;
+	bh=MHFZi57lqGB7elcnnVw9vwRemFAicTlVo9LJ+zS40fQ=; b=iQloFH7rjAW//1KWNCvCZvRo12
+	rtTDOQJu+R9iuZh7QYFuH0wx2Ybv+ePsiogLsZvFeOhWdSWS6EQ6hMndfrgmqP7WWRbU1Xze/vkvc
+	qw30f2Bjn1cZ6ZbNzY+eps5fUrW9rzBkHVduPARxUbXju5MfI/XSljkVMhwcn6kx2g/+5YmJt6PQx
+	RqKaK9Oxlhp/r1o2JtkdFtFWmsuR3hUIdxP7QVhDM4NLbP8sBjvD8QXnxvavAfowdoz5kFY/hp3GS
+	+gOPx01g6Dj9WFtKiny7Wbahb9gkHSgZhHM2uGfimf8IlbknsXtoZenyZvPvjrrLKuKLWYtF+kGk2
+	JgMJaFWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjjzw-00000002QqW-3NkZ;
-	Sun, 16 Feb 2025 19:08:12 +0000
-Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
+	id 1tjk1M-00000002R0O-1yKg;
+	Sun, 16 Feb 2025 19:09:40 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjjZ1-00000002MUD-1DLf
+	id 1tjjZ9-00000002MW3-20y4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Feb 2025 18:40:24 +0000
-Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 1CB7625400C3;
-	Sun, 16 Feb 2025 13:40:22 -0500 (EST)
+	Sun, 16 Feb 2025 18:40:32 +0000
+Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
+	by mailfout.stl.internal (Postfix) with ESMTP id 44FAA114009B;
+	Sun, 16 Feb 2025 13:40:30 -0500 (EST)
 Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-11.internal (MEProxy); Sun, 16 Feb 2025 13:40:22 -0500
+  by phl-compute-04.internal (MEProxy); Sun, 16 Feb 2025 13:40:30 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
 	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
 	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1739731221; x=
-	1739817621; bh=8S0LM67ZallGhiis5MmmYmAmKnXDOKUkcZarC5rYtYI=; b=S
-	9/Ruk9OGI1fHRkob/9Y67jzlqMZaeKF/NeUc2Bk6b54vs4OHDfenmvKsry+67Hcn
-	Bmbxc8F1ZQ+2YIva1p01QoIUKlM0fGPiQumZUBCQOP5comKy1mNxuDSSvzMEeY5M
-	3ey+Sccm3MphM3TwHCBRnrDt/W1IPugoRdB3O0TVA0lnd4Wbj975jO9nmteaXVFp
-	V3CpiEQVmQZcO9Hn/SLzULNkNoKUGy5XMeyswZj4VDpOcbAHRiwCaZYqmo6R6mKA
-	84sE3W7EM7xx66VdUTL4Kt6bvO+tAh6UE6ZvLyasbGe9xRX4MoF+70e9BeiTGqw9
-	le304pp+xyk7hYf/kQHFQ==
+	:reply-to:subject:subject:to:to; s=fm3; t=1739731230; x=
+	1739817630; bh=MHFZi57lqGB7elcnnVw9vwRemFAicTlVo9LJ+zS40fQ=; b=i
+	G99F3mJbOXIouy+T+w06ojkGWhkqIcY6N9P7fAOh19ja1/cNPkiDyLHCAZJcRYgJ
+	GSgmvxiCiTLCldafHAoVWi+MRYJ1wdp/9+4LnUhS1iHXSOC/Cu267Ls3cWcbXBXW
+	ZSioF9Jmkk9qLrjHQ7ZLs9BWVQyYqRZPaL0k8ecHlofrY1DRoLS9DOFgNnQeggP9
+	0YVPM4bmqoM7MrwPFtnY5XRJSCBdLOM37D+cWmFDiHC+4CkM0g3nvK0Mj72Andhp
+	4ZFrD0ykFMSGbdgTXqxWIhswTW1rKv6AIr4YBpOLg0VeeKNNscOl/sT18VdNyUGM
+	9Ms+M1wjK5HMypPwAfh4g==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
 	:in-reply-to:in-reply-to:message-id:mime-version:references
 	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1739731221; x=1739817621; bh=8
-	S0LM67ZallGhiis5MmmYmAmKnXDOKUkcZarC5rYtYI=; b=g7iJc4tMVK4JDm2pu
-	NTnaEbGA3DcV90CBTXvUFzGSn9gftSGIaNVTQxIbBERMAMBV/iAQKfhoomNVC8+y
-	3CZkbuYKH1QjdollwISLWjFv7CCWM89LxGNLzBHRlTaBDj+Vn+NPlXpSCXgxYOqi
-	OsIwhGuOrtgcQVWf/RremJ2YthD0FJyBpwshrpu6UeiqAijHzjCgSQr7ioks0/r+
-	NfZSVZI3PPZbyt7rw9h6SCcKzwD/41xXbSg2QgzX5RY8XeS0QAYN+bLsBbHSZKts
-	6E/JGOCwkPo0EvTkCbsolCx1OGUzxcvUQrX7MVTZ0EkZ5/qv3lxu43rPb0rH36R4
-	Bq7Gg==
-X-ME-Sender: <xms:FTGyZzXIWnZl9wER3MmnE6DsO_9VjnqqeEj42VPUb-VmjmqcUVfSww>
-    <xme:FTGyZ7n4WMPDF04weBFUbwW46aZge0ndvJs5esqUv7KkDmjxRaNeYIQMsIuZpNkFO
-    TV-I0ggFv0w0qMAQg>
-X-ME-Received: <xmr:FTGyZ_Z0RMw3buwGoB_4mokNN3fm8rI5JTPORSWRRxN_JLLA2qJ6MUKBDGBFHb-_kR53QGFjKBH3YVCBd5kd_scgxta3XrCw1P_CtzBezg2m>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehiedvtdcutefuodetggdotefrod
+	:x-me-sender:x-sasl-enc; s=fm3; t=1739731230; x=1739817630; bh=M
+	HFZi57lqGB7elcnnVw9vwRemFAicTlVo9LJ+zS40fQ=; b=vzq66jYGyrbmIo3Ln
+	FMXVH9kQCOyHEevCE8P/3SvI+1v/7RoYcQsPKPMAMVQ5LkUgACEdiCVgckSS0tqX
+	XopXzcl8HZOsztw7GjW6RTBrOF9i/CdI30f0Ow71EwCcGnFEQAxeCGCebYVoEGjb
+	KmTqtTpnwkcc4z/rkTvcMkEOLMP09Xc+YcHZwuaiFIeUPrVEVzL6g0Sx63AU7Ibj
+	TXNwPfQpzRjB6NWimOePNg9t1NvDKrzJN6gFO8OJUyRa0Y2Bh0LClWj20NLwCyOE
+	mHtsxTjTIA7TQv0YiETRBCODfBED+vRIjXl2v+PaWkHylyG2IHea88RqOVQusK7x
+	gDNsg==
+X-ME-Sender: <xms:HTGyZ9-PnChoXI__3mtAcrAQdD8T3vBpdp355kGgIyhPZhGLMBN5uA>
+    <xme:HTGyZxu4dT_OFjaMLUjwuIxrQC6Nz-NCUrxDg_bkTi3_KThhXAjPikr0_LUzA-glo
+    vQhW4YQwCeq_2v6_w>
+X-ME-Received: <xmr:HTGyZ7D9y-JWHaxEPSMgO4SVDpuiD77FywqOgl8sDCWl5UwqUh65G8igW3jNC3UUDY5RGFoXqcd9bl03ZiN5c8R08EQIBFGNRjwUPBnQpnzj>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehiedvudcutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
     uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
     hnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddt
     necuhfhrohhmpefthigrnhcuhggrlhhklhhinhcuoehrhigrnhesthgvshhtthhorghsth
     drtghomheqnecuggftrfgrthhtvghrnhepffehieffgedtgfffjeetveegfeekleeileek
-    veeuteffteetudffveegieeiheetnecuvehluhhsthgvrhfuihiivgepfeenucfrrghrrg
+    veeuteffteetudffveegieeiheetnecuvehluhhsthgvrhfuihiivgepheenucfrrghrrg
     hmpehmrghilhhfrhhomheprhihrghnsehtvghsthhtohgrshhtrdgtohhmpdhnsggprhgt
     phhtthhopedvhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepmhhrihhprghrug
     eskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfigvnhhssegtshhivgdrohhrghdprhgt
@@ -76,14 +76,14 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehiedvtdcutefuodetgg
     hffhiflhhlrdgthhdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtgesghhmrghi
     lhdrtghomhdprhgtphhtthhopehsrghmuhgvlhesshhhohhllhgrnhgurdhorhhgpdhrtg
     hpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:FTGyZ-U85uWqlsyUHiRSjV1NMN2MZeQ1btwAyDt4yMxWO3Y6t_I6TA>
-    <xmx:FTGyZ9lvHbOHeulGv1nvJgCG0R3MK0o5Ox70IqVxMBODiufGylcvVg>
-    <xmx:FTGyZ7cx-IDY2lYyaeCKChuvCo1gltRXPhBnl5VoALXbE7npKNM7uQ>
-    <xmx:FTGyZ3Emqd_nopGXeNgrWJSkRyUMiUG1Ni7fi23o4yhr3_GmW0inzg>
-    <xmx:FTGyZ1MZJxY2aYa0Fdfc_Gj9Y6VoMu559YwlJ0AH3LGjEhRvVYpEJ2Me>
+X-ME-Proxy: <xmx:HTGyZxeQ6pnF20Vkq0ygRGPsxxocxnCkYr4mriKkvxI4E5O9LZgF1w>
+    <xmx:HTGyZyPIy0nJqQGGz4j-jF5XTUsdw5pVNbNtGYSVBjbLOhx7miCkPw>
+    <xmx:HTGyZzlFvtycBR8wUJL9dih390a83qIYa5bn-pMJiE58jFHsJOwn5Q>
+    <xmx:HTGyZ8tAXqBEAesq8au5wAm0Q6Z1XJ-WZhHcEeYD3EJ0K7Mq6ewwUQ>
+    <xmx:HjGyZ4XtHpyQRDadaSYm-xAuid72Q3hhK1l4y5cottzWdjO7y5R1ulDe>
 Feedback-ID: idc0145fc:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 16 Feb 2025 13:40:15 -0500 (EST)
+ 16 Feb 2025 13:40:23 -0500 (EST)
 From: Ryan Walklin <ryan@testtoast.com>
 To: Maxime Ripard <mripard@kernel.org>,
 	Chen-Yu Tsai <wens@csie.org>,
@@ -110,18 +110,17 @@ Cc: Andre Przywara <andre.przywara@arm.com>,
 	linux-clk@vger.kernel.org,
 	Ryan Walklin <ryan@testtoast.com>,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v7 21/27] dt-bindings: allwinner: add H616 DE33 clock binding
-Date: Mon, 17 Feb 2025 07:36:21 +1300
-Message-ID: <20250216183710.8443-22-ryan@testtoast.com>
+Subject: [PATCH v7 22/27] dt-bindings: allwinner: add H616 DE33 mixer binding
+Date: Mon, 17 Feb 2025 07:36:22 +1300
+Message-ID: <20250216183710.8443-23-ryan@testtoast.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250216183710.8443-3-ryan@testtoast.com>
 References: <20250216183710.8443-3-ryan@testtoast.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_104023_378645_90108A72 
-X-CRM114-Status: UNSURE (   8.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250216_104031_570772_C5E396C3 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,7 +138,11 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 The Allwinner H616 and variants have a new display engine revision
 (DE33).
 
-Add a clock binding for the DE33.
+The mixer configuration registers are significantly different to the DE3
+and DE2 revisions, being split into separate top and display blocks,
+therefore a fallback for the mixer compatible is not provided.
+
+Add a display engine mixer binding for the DE33.
 
 Signed-off-by: Ryan Walklin <ryan@testtoast.com>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
@@ -148,22 +151,54 @@ Reviewed-by: Chen-Yu Tsai <wens@csie.org>
 ---
 Changelog v2..v3:
 - Separate content into three patches for three separate subsystems
----
- .../devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml  | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml
-index 70369bd633e40..7fcd55d468d49 100644
---- a/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml
-+++ b/Documentation/devicetree/bindings/clock/allwinner,sun8i-a83t-de2-clk.yaml
-@@ -25,6 +25,7 @@ properties:
-       - const: allwinner,sun50i-a64-de2-clk
-       - const: allwinner,sun50i-h5-de2-clk
-       - const: allwinner,sun50i-h6-de3-clk
-+      - const: allwinner,sun50i-h616-de33-clk
-       - items:
-           - const: allwinner,sun8i-r40-de2-clk
-           - const: allwinner,sun8i-h3-de2-clk
+Changelog v5..v6:
+- increase reg maxItems to 3 and add conditional for h616-de33
+---
+ .../allwinner,sun8i-a83t-de2-mixer.yaml       | 21 ++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
+index b75c1ec686ad2..274f5e6327333 100644
+--- a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
++++ b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
+@@ -24,9 +24,11 @@ properties:
+       - allwinner,sun50i-a64-de2-mixer-0
+       - allwinner,sun50i-a64-de2-mixer-1
+       - allwinner,sun50i-h6-de3-mixer-0
++      - allwinner,sun50i-h616-de33-mixer-0
+ 
+   reg:
+-    maxItems: 1
++    minItems: 1
++    maxItems: 3
+ 
+   clocks:
+     items:
+@@ -61,6 +63,23 @@ properties:
+     required:
+       - port@1
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          enum:
++            - allwinner,sun50i-h616-de33-mixer-0
++
++    then:
++      properties:
++        reg:
++          maxItems: 3
++
++    else:
++      properties:
++        reg:
++          maxItems: 1
++
+ required:
+   - compatible
+   - reg
 -- 
 2.48.1
 
