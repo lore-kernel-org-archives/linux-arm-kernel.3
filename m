@@ -4,78 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5EB2C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 15:36:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C89C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 15:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X3B5AHta8iT81vmhTEO3/fEUlWSWkvof26s+ONKqoy0=; b=SW8b3JielQPFgvuaf2aX7sPu2t
-	0+Ds8B77VG8+EqgnVgLfY0hw3Z2/wyQPaoOnr9xxn/6LYwcfwtqSNVZOI1M+AmChy68wtQtuZ+YET
-	U8RnujiNE5fOiePj3Ui565oCWD/n/GoWI2LKPJnNb35jSPHlP2eMCIOxGRurJy9aKg62r+hbGsIIZ
-	cK4Aku4tbvyPWE4GCQ3yEtt9v9iPSCcYTvomtrBk0nJxg/s1h1a4GJMUTgqem5T5S74rBlEDQ43VT
-	mUIKrJIZT1zfjVjL+xsOwjbrz5ID+r+piVq9i8ba/tk+bnWOkTnHGjko5mk9jaVjILeAoN6s1m3Xf
-	wSfz6JwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/FrEnAM0Ty8b3TT2wk1qUCREpGSXW5825yX1yLHlP7U=; b=WXUTyAZ1ervRWqeC5vpQWmKW75
+	+eD4rEoBYQff1oeXNqEQIIA4tbAa0CYXk60JeG4xAIUxMoHGR6Fd7JIzeDfPF/ZJA89qRJIiawIED
+	G0r4cz1jf5cqtDH42KJ5tJtAKTx9HkeK2P1c4/O4IRtTW2597CmQlCEQEjVh+B+UaKmsMbs0xcjkv
+	nYB9ik7llS78k8pzIvezHir1JMrgBIRFF7byAfQK/j4aeMNeaQrhoMkpyZ/mSYjUUxswMn2g9Tdfj
+	4FElQ8983BVXq/GpouDWUDBNXW4AbOZPOFj0qdIbRBEvZl10hr8krQD+cNRzQTQG/kuiQEv5+uNK3
+	yU+JHi8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjggO-000000021sd-0dFc;
-	Sun, 16 Feb 2025 15:35:48 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tjgtj-000000023HP-446v;
+	Sun, 16 Feb 2025 15:49:35 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjgew-000000021hL-2C4l;
-	Sun, 16 Feb 2025 15:34:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=X3B5AHta8iT81vmhTEO3/fEUlWSWkvof26s+ONKqoy0=; b=sfEtQBKPCi+F28t1DCWdgzr+rS
-	ZT0m+CgsJ/TAjHBJfAkL6XIWqlm/gAVG5gbA+jSKTjOdO4i+LUPw8dt/+bBPYbwrK+2wI6wbshOA/
-	7ctZhdsbaEuwtMXbdPxMLmdres3KxLyF2I6nJM6A4TDFXXnCUDGTSCIVhFFIlmCdG7y4wfDkhb4aA
-	VJExjfyLn6B5NmvNQz9hctvZyUeAeZZlLH+MU4Q5n5T5fYy0Af+9kKZHwBvzvxbkGp5RwRHvzh6or
-	rxb/WfRFI1i1xanjQxM9Vq0db8NSVOTLPSg0IbP8dpaVtkm6oyWhGbW3OEAEni1qpbRoV7NwtiIOi
-	Xqwl+HNA==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tjgeS-0007m6-5F; Sun, 16 Feb 2025 16:33:48 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
+	id 1tjgsI-0000000238D-0OoH;
+	Sun, 16 Feb 2025 15:48:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=/FrEnAM0Ty8b3TT2wk1qUCREpGSXW5825yX1yLHlP7U=; b=TH/sXzoGZDKFZxyyyYNMJfCCcJ
+	haaiHeMXtkJd0EXixYhy5qRVdKxKvo6QU4s+3xu/7RPBJy8inXCaysxqUhpogLaQcnHn5agZHY7vC
+	ISA3JdH8ZIaySnObQY2s/fgesQH838h2X0hJ3Ddzde/x05GIMag/3XwrgarNWLs68l5ow65dSA6Ez
+	GZTTUyKV3vIU8VQAcZF8t39IRm/HYkxgn7wil+eIRf85b52fO03F2CLRoj36JaFDK0f/aQ/io0ge3
+	q8X+LcpW8NGBveQyqdM7nD9heEDOB1Jz6Zd2z8FuDZLqL3ahCTvqdWKkxt/Upnvkzk8EOTmfUfgiT
+	8owusuhQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39494)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tjgrh-0003Z0-1w;
+	Sun, 16 Feb 2025 15:47:29 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tjgrW-0005Ji-15;
+	Sun, 16 Feb 2025 15:47:18 +0000
+Date: Sun, 16 Feb 2025 15:47:18 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	kernel@collabora.com,
-	devicetree@vger.kernel.org,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	Hariprasad Kelam <hkelam@marvell.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Lothar Rubusch <l.rubusch@gmail.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org,
-	XiaoDong Huang <derrick.huang@rock-chips.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Lin Jinhan <troy.lin@rock-chips.com>
-Subject: Re: (subset) [PATCH v2 0/7] RK3588 Hardware Random Number Generator Driver
-Date: Sun, 16 Feb 2025 16:33:37 +0100
-Message-ID: <173971983108.1865604.1801020506672691939.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250204-rk3588-trng-submission-v2-0-608172b6fd91@collabora.com>
-References: <20250204-rk3588-trng-submission-v2-0-608172b6fd91@collabora.com>
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add glue layer for Sophgo
+ SG2044 SoC
+Message-ID: <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
+References: <20250216123953.1252523-1-inochiama@gmail.com>
+ <20250216123953.1252523-4-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250216123953.1252523-4-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_073418_615016_B53214D2 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20250216_074806_133175_1F7049EB 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,39 +109,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Feb 16, 2025 at 08:39:51PM +0800, Inochi Amaoto wrote:
+> +static void sophgo_dwmac_fix_mac_speed(void *priv, unsigned int speed, unsigned int mode)
+> +{
+> +	struct sophgo_dwmac *dwmac = priv;
+> +	long rate;
+> +	int ret;
+> +
+> +	rate = rgmii_clock(speed);
+> +	if (rate < 0) {
+> +		dev_err(dwmac->dev, "invalid speed %u\n", speed);
+> +		return;
+> +	}
+> +
+> +	ret = clk_set_rate(dwmac->clk_tx, rate);
+> +	if (ret)
+> +		dev_err(dwmac->dev, "failed to set tx rate %ld: %pe\n",
+> +			rate, ERR_PTR(ret));
+> +}
 
-On Tue, 04 Feb 2025 16:35:45 +0100, Nicolas Frattaroli wrote:
-> This series adds support for the Rockchip RK3588's standalone hardware
-> random number generator to the existing mainline rockchip-rng driver.
-> 
-> The RK3588 has several hardware random number generators, one in each
-> the secure-world and non-secure-world crypto accelerator, and one
-> standalone one in each the secure-world and non-secure-world, so 4
-> hwrngs in total. This series adds support for the standalone hwrng,
-> which is an entirely new IP on this SoC and distinct from the one in the
-> Crypto IP.
-> 
-> [...]
+There are a bunch of other platform support in stmmac that are doing
+the same:
 
-Applied, thanks!
+dwmac-s32.c is virtually identical
+dwmac-imx.c does the same, although has some pre-conditions
+dwmac-dwc-qos-eth.c is virually identical but the two steps are split
+  across a bunch of register writes
+dwmac-starfive.c looks the same
+dwmac-rk.c also
+dwmac-intel-plat.c also
 
-[6/7] arm64: dts: rockchip: Add rng node to RK3588
-      commit: 6ee0b9ad3995ee5fa229035c69013b7dd0d3634b
+So, I wonder whether either this should be a helper, or whether core
+code should be doing this. Maybe something to look at as a part of
+this patch submission?
 
-I've dropped the status=okay - this is the default so not needed
-on always-on blocks
+We really need to stop writing the same code in different ways and
+think more about how to reuse the code that's already present!
 
-Also dropped the rng phandle, as boards should not need to change
-the rng.
-
-And I've changed the reset-id constant to its "48" numeric equivalent.
-The reset-id change is making its way through the crypto tree
-(needed by the binding-example).
-I've also queued a patch for 6.16 to change that back once the
-header is available to everything after 6.15-rc1.
-
-
-Best regards,
 -- 
-Heiko Stuebner <heiko@sntech.de>
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
