@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E80C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 13:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147FBC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 13:21:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/L1HTW347mvkRoskC1gF00ccpee4CBPgV+9x/ywakdQ=; b=L3EyhhfkQJT4xscMHe9aoal3ul
-	g5JM7/TOWKnXsHBgbn1jTNbkaQ8nO/a3UMNKRY5ar7tdAA5ySLHtiu4WsmJkTPhh+n75CpE3Rap+9
-	hQ6RXKmuK/hGVAw7qY2Ox6q9ZgcbeKNvUxLe/g8Z6M1Q0iJosCQOvg+kpnHjFAzBbxScRS1VNdgTH
-	kLeYZy/UdJZGxTHf2Pq0z8WglUnA9LmTpEMM4Zr7wVws/LUoSBK0okeyVlS6OmcKLrPW3evg8ym0B
-	PkmJqCy2pedUhSvhi42GGHSh2juHITaFNCHwTESGjDYHn6l+Hw9It0MCsSVWRDReOd8HwmBZgcNpR
-	f0+sQ+CA==;
+	bh=qqm+u2ELVKUEx3Lh7rmu3m9lO1zIxY3drMkrF0TKQ+w=; b=JErFudDehBb3aBePmnOq65ZuUO
+	JZqaTs8tHiT9hh+N26SnCc7x1BDMjhXQmJv4qglArmt1HCLBptzOM7CCNfz0+udr03sz0IAhvNHgk
+	RqMgv6rcwznI073EpBDoP9cEuaeWS5tUmTxWqFx/Rss8y8jSmwtSaD9twhGbugm1gjQ9QwFw+iHSL
+	MjgTyFS2lHnOJ7BtF5wXgLXnN/M7zdnOQnlY/1THVmL8izpCSQA0lhh4cyJg8IXm5QItRo/oRDLK1
+	Z+NdaZoC4UROAK77O463w4dGQnAUYmW3e4zpINiETdXMS8GhvtHslmYgAMspC5TS0AFLg/RD5XGz3
+	zkmad4aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjeUD-00000001qSS-3knC;
-	Sun, 16 Feb 2025 13:15:05 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tjea9-00000001r1k-41Nj;
+	Sun, 16 Feb 2025 13:21:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjeSl-00000001qIE-17OR;
-	Sun, 16 Feb 2025 13:13:36 +0000
+	id 1tjeYh-00000001qsx-3Xfc;
+	Sun, 16 Feb 2025 13:19:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 28F88A409B3;
-	Sun, 16 Feb 2025 13:11:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF123C4CEDD;
-	Sun, 16 Feb 2025 13:13:28 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 98BA35C5661;
+	Sun, 16 Feb 2025 13:19:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A7D6C4CEDD;
+	Sun, 16 Feb 2025 13:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739711613;
-	bh=PZx6BuP/dAC0HJlapUZQyUVs9LyPefBCZ7QGLfAyiv4=;
+	s=k20201202; t=1739711982;
+	bh=v6Nt2Y+8iHq87fjnFJRgzXvuOS9r0e0EJDUvhWvayQs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cm3wkLVtpkJ/w7U7M/RbbK/9IPH239DW6CEad5eK0ASABQKSMyitmyxmL9PxEyNkV
-	 d5JSuEHwUhgChHIGlH958NA4Sgd+S/j3wJBq2dA/mojSac7bHezbIKYOCZ6NjMBxvu
-	 fsUfikTrc1TyufNMZjMQFqWKiqPhreV9cDMC2xTrh/E3KpDFFmzbbwR0Jvr89opJC8
-	 CYs4awcHWI68KlqZDxYIjKeTp1HcPVLCEIqby53hwypYi55oxnsBqo3KtkyGb0fUf0
-	 W/jnsIChkQk6MnUG42ecRssI9MaaSk/EWKyBLdIg1XzRoktAusCkT6yabHOM22zuLS
-	 MTc/wHvll3oSA==
-Message-ID: <c3672f33-c383-42db-853a-3a45fecc6a0f@kernel.org>
-Date: Sun, 16 Feb 2025 14:13:26 +0100
+	b=uuobK6Usa9e7F/KxFzT3aKd13/ZOq5opq2Ha6mFnDf9aJVR3D3WoAtfXt12CdRczF
+	 c1B/8NS/HdQa6ZBxmnlhs3xfqUnuatoAnpJX9mp4FFyEOI7ecWg//I79V9iSxUg/o8
+	 NCxh8cfUTtZkoHNhe0bpJoPgDSP+fszjVKCmNUq4RdmFP400rMEl60AdD7v7sb92M9
+	 9qRWMGz7qvsZm68R0Dp56mOfXhPi2unSKmu24GdFdLnG9hYfRInDduSnjmaLXYs68t
+	 l7+wbdcpzfiuIAZDdLKMIE/+CNuDFpv+cYNN7k3v+qtgNUNOV9L9lecHFyiazDgrxv
+	 C+5W3O77SNCpg==
+Message-ID: <065ea296-480c-4ac4-bb4a-0fc2915b59f1@kernel.org>
+Date: Sun, 16 Feb 2025 14:19:35 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] dt-bindings: mmc: Fix the mmc-slot and Convert
- atmel,hsmci to json schema
-To: Dharma Balasubiramani <dharma.b@microchip.com>,
- Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+Subject: Re: [PATCH v1 3/4] phy: samsung: add Exynos2200 SNPS eUSB2 driver
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
-References: <20250212-mmc-slot-v3-0-2bf288207040@microchip.com>
-Content-Language: en-US
+References: <20250215122409.162810-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250215122409.162810-4-ivo.ivanov.ivanov1@gmail.com>
+ <a10f8a77-9440-477d-b6f6-9d651e3ab49a@kernel.org>
+ <537698af-841f-48e7-bd7c-4077d0a240a1@gmail.com>
+ <9b58a985-3d63-42bb-9a76-e5b04a4b6012@kernel.org>
+ <f3d38b63-dc97-482e-aeac-b59e65f91424@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -102,13 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250212-mmc-slot-v3-0-2bf288207040@microchip.com>
+In-Reply-To: <f3d38b63-dc97-482e-aeac-b59e65f91424@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_051335_443451_E81C9EC7 
-X-CRM114-Status: UNSURE (   6.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250216_051943_998049_D24B3883 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,13 +125,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/02/2025 10:22, Dharma Balasubiramani wrote:
-> This patch series modifies the property status of "compatible"
-> (required/optional).
+On 16/02/2025 10:51, Ivaylo Ivanov wrote:
+>>
+>>>>  You need to
+>>>> integrate the changes, not create duplicated driver.
+>>> I can do that, but it would be come a bit cluttered, won't it? Depends on
+>>> if we want to follow the current oem-provided initialization sequence, or
+>>> try and fully reuse what we have in there.
+>>
+>> I think it duplicates a lot, so it won't be clutter. We have many
+>> drivers having common code and per-variant ops.
 > 
-> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+> So the approach to take here is to make a common driver?
 
-Are you sure you run checkpatch before sending?
+For example: one common module and two modules per each soc, because I
+assume some per-soc stuff might be needed. But maybe even these two
+modules are not necessary and everything could be in one driver.
+
+
+> 
+> What about the current modelling scheme, as-in taking the phandle to
+> the usbcon phy and handling it?
+
+What about it? Did you look at the bindings of qcom snps eusb2? Are you
+saying you do not have here repeater? If so, then this phy phandle might
+not be correct.
+
+
 
 Best regards,
 Krzysztof
