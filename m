@@ -4,90 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B220C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 13:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7246EC021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 13:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=77G+qwzoFLoNAsQ3YZKaFAwVbGfr3rRsvhGhU7TMI/g=; b=R5z3VKfaB2tecnA8ohQ5Q5UBLT
-	+fRmZR9x7W8vE+T4kKjm5etokR3UK9455YJnDibdZiXek2LeO2LhXxPe4Qs+EWaacBrql63NmcsUk
-	++vueLOm9/1oNgBhyNqgIGztZBxFihEgBDEpVF7BSYkPE/VTbfblqYfjGYNLHIEpe3SJzNNRWBGRN
-	mw0HMoXCqp7Q9veN5QB0fDS7qJe72gh8aiKjKgvgaObIKItJ9YzfNuT+xqre3Pk9hD0vLW324SGyR
-	oPEpLgqggHusG7V0QXDwvr126ITybrT+BWPt8KHQT8Xd3rEyNr2xgvPQmqrk7E8TquYvXq/3FQOqg
-	kZ1Pg/QA==;
+	bh=SJx0RMOQzLEeoQEOowvKuV4McVZIzUlDCT0lM4MZ6YA=; b=eCeu/PPGlINy6Evd3BcqIN4bJ1
+	ZwPuV06LWIZwYZukHiWv0qxQXO/KuIP9YRuJaawgtw+89czqh9MbihcECBT/VIAWNqKq3FBFDJzWt
+	SpwsK5ys8979WZb8IwxtjlaRrhCnVtvhW5DryUUIfpgTE8GS9UXuUIDwZA1kogHY+ZvhnTqj1Od22
+	lZjcFVsLADVPPsk06qYWso1OXYFxxa14DL9btfdzb1PM06g1GSLNejy0JJfT5hv64t4SIUpXgUSEz
+	SK3VkdbucFe7z5K59kod3PCWwheooD3Z+iyJeOFrsjrJBC5EOrCqD0vYtlQS2PwtEyKLG+lmzx1IQ
+	IonQWSmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1I2-00000004h4D-01YS;
-	Mon, 17 Feb 2025 13:36:02 +0000
-Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1Cc-00000004fhB-3RC8
+	id 1tk1KR-00000004hcg-0bZ4;
+	Mon, 17 Feb 2025 13:38:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk1IH-00000004hAp-3t59
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 13:30:27 +0000
-Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e545c1e8a15so4395297276.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 05:30:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739799025; x=1740403825; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=77G+qwzoFLoNAsQ3YZKaFAwVbGfr3rRsvhGhU7TMI/g=;
-        b=e5W42wYmw1/KzO2iLWG/tyBP4zvqs4NcEgPhEbsg3rnLgJcz5vblx1GEfTJPsN3kz7
-         D4aeyN0dDlgyXi4ifP0BIjfFPvPouS3mWJpTxFp+E00XnIud4DP0EUhW06EOkOLeRgnF
-         WXDmPb4kPss1evcHYykF306add31b8cBfTKXUpcYnv8PGgmkYd5sXAUMXTW0DWIpZubf
-         Jz0QL7S7HqqmTDSvnJSDLdrqaN6m02l870jYXsDdwA07yZX12USRZAvqG5JytNq4zrGj
-         GXNwQw9s9ZJHfbPc9ISXf2pKTiJTehLkaxYhxvccLiGcj5YZQyO86ybxL/xHTuL2X0/7
-         waQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739799025; x=1740403825;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=77G+qwzoFLoNAsQ3YZKaFAwVbGfr3rRsvhGhU7TMI/g=;
-        b=WrAq7CbgXSoG+M7oVIA6wxLlXPUR7wMTjLs0QtwIomTrVH+H8BWgVbfbVpVRmc+aYq
-         wjFzuJf2pEKgL5ZDYqwjUUltWfVrOSJFTvRi6VgCqvuGOLcja5x7o85zlPj3vRZ9xRs1
-         82sCVROpjk1GxFKyV6FODwqvznLBO4VTHMirv1bYarbV/OK7yBA6cjHW0rMxMq6U6HIx
-         vsrPJWS/Q/3c2GZLugz20xbaGW5bcuKTZMPcbT7/cT5XVIuEhod0gfY8FJok5iw+dsRB
-         D4yeGW+b8VZ60FZ1xWPMixSs53jK5hs3/p7CzmpI5ubC8at77vWCmSqaTkQr9LkP2Y6v
-         23pA==
-X-Forwarded-Encrypted: i=1; AJvYcCXDSRAgWNnMoMkbaJI7ZVsc/SwgvyQ89jewlfKqnC7/mIlJLMNW+SSyupRXwWidpY1u7nEqLEVx862euXAm/eqZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwMU+XWVvTTyXXeuikb0tNGZj5gWEMR9BUN6RrOyOdXUECK8r+4
-	La39jhkjtQOD8pkFvAHxCkJ39lle4gz4FTIEZda60GRnWdRXLI3wM2ie/FzL+BybQf+3dULAH3z
-	/St/c9XgDdJ82R6usLrJj8n6NUGs=
-X-Gm-Gg: ASbGncsgRKvr+iCDW2miyxdBGewwwa/QMM2LsuUQMM94P3+edTH0fap2ENIGRdu5xPB
-	soHZFcPCTdXLaOkD7GoEuJbT0XtFOLzgKhGvt3X2KzYwPeFqDcPFKzDhAmXW9ev+csWGJnjBVGg
-	==
-X-Google-Smtp-Source: AGHT+IEB+MJzs+GIv2z74KvmTn3I75FACBN5SxbyoNwzXh0aK5QoppHOlpFhtMuTvychYCVQsoczFA/mnvfT2jm3ops=
-X-Received: by 2002:a05:6902:3387:b0:e5d:bf09:452c with SMTP id
- 3f1490d57ef6-e5dc932727fmr6866952276.49.1739799024419; Mon, 17 Feb 2025
- 05:30:24 -0800 (PST)
+	Mon, 17 Feb 2025 13:36:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C59CE13D5;
+	Mon, 17 Feb 2025 05:36:33 -0800 (PST)
+Received: from e133380.arm.com (e133380.arm.com [10.1.197.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC9EB3F6A8;
+	Mon, 17 Feb 2025 05:36:13 -0800 (PST)
+Date: Mon, 17 Feb 2025 13:36:07 +0000
+From: Dave Martin <Dave.Martin@arm.com>
+To: Zeng Heng <zengheng4@huawei.com>
+Cc: james.morse@arm.com, bobo.shaobowang@huawei.com,
+	jonathan.cameron@huawei.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH mpam mpam/snapshot/v6.14-rc1 3/5] arm_mpam: Provide
+ conversion method for new closid/rmid pairs
+Message-ID: <Z7M7R8uf4g2C68cO@e133380.arm.com>
+References: <20250217031852.2014939-1-zengheng4@huawei.com>
+ <20250217031852.2014939-4-zengheng4@huawei.com>
+ <d7069933-903e-9e1e-d7a4-5a6a9fa53064@huawei.com>
 MIME-Version: 1.0
-References: <20250217-adpdrm-v7-0-ca2e44b3c7d8@gmail.com> <20250217-adpdrm-v7-2-ca2e44b3c7d8@gmail.com>
- <40e59cf1-86da-4c1d-aafd-f409d8179167@suse.de>
-In-Reply-To: <40e59cf1-86da-4c1d-aafd-f409d8179167@suse.de>
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Date: Mon, 17 Feb 2025 14:30:13 +0100
-X-Gm-Features: AWEUYZmCQ2KktIIoXJ32NnC-FVTPM5zygmYh9xHWyp5QfVtkMZOiANCC-UiM5nc
-Message-ID: <CAMT+MTS016CLK7cawdF2kKv2tpGH-N4p3rqGLBPLkPv4A=j67g@mail.gmail.com>
-Subject: Re: [PATCH v7 2/5] drm: adp: Add Apple Display Pipe driver
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Jessica Zhang <quic_jesszhan@quicinc.com>, 
-	asahi@lists.linux.dev, Janne Grunau <j@jannau.net>, linux-arm-kernel@lists.infradead.org, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Alyssa Ross <hi@alyssa.is>, 
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Neal Gompa <neal@gompa.dev>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d7069933-903e-9e1e-d7a4-5a6a9fa53064@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_053026_857711_2CDDD68C 
-X-CRM114-Status: UNSURE (   7.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_053618_016577_E1F9E2E2 
+X-CRM114-Status: GOOD (  23.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,12 +66,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Feb 2025 at 14:22, Thomas Zimmermann <tzimmermann@suse.de> wrote:
-> Unless the described problem really happens
-> in practice, I'd drop this workaround. There's no point in working
-> around legacy userspace in modern drivers.
+Hi,
 
-This workaround was put in place after we noticed x11 either preventing
-the userspace daemon from working, or breaking itself. So, yes,
-it does happen in practice.
+On Mon, Feb 17, 2025 at 02:18:44PM +0800, Zeng Heng wrote:
+> Hi Martin,
+> 
+> On 2025/2/17 11:18, Zeng Heng wrote:
+> > The MPAM driver statically assigns all reqPARTIDs to respective intPARTIDs.
+> > For the new rmid allocation strategy, it will check if there is an
+> > available rmid of any reqPARTID which belongs to the input closid, not just
+> > the rmids belonging to the closid.
+> > 
+> > For a mixture of MSCs system, for MSCs that do not support narrow-partid,
+> > we use the PARTIDs exceeding the number of closids as reqPARTIDs for
+> > expanding the monitoring groups.
+> > 
+> > In order to keep the existing resctrl API interface, the rmid contains both
+> > req_idx and PMG information instead of PMG only under the MPAM driver. The
+> > req_idx represents the req_idx-th sub-monitoring group under the control
+> > group. The new rmid would be like:
+> > 
+> >      rmid = (req_idx << shift | pmg).
+> > 
+> 
+> To consider future compatibility with dynamically allocated reqpartid,
+> should I refactor the rmid?
+> 
+> Instead of defining rmid.req_idx, we could place the entire reqpartid
+> directly within rmid. In This way, the allocation of reqpartid will no
+> longer be constrained by the static allocation of closid, facilitating
+> future compatibility with dynamic allocation mechanisms.
+> 
+> In this case, it needs to refactor the resctrl_arch_rmid_idx_encode()
+> and resctrl_arch_rmid_idx_decode(), and we can simplify
+> closid_rmid2reqpartid() to rmid2reqpartid().
+> 
+> What are your thoughts on this idea? Thank you in advance for your
+> reply.
+> 
+> Best regards,
+> Zeng Heng
+
+Does this mean that the RMID must be expanded to cover all possible
+(reqPARTID, PMG) combinations?
+
+A single reqPARTID cannot be allocated to two different resctrl control
+groups at the same time, even though a PMG value can be reused across
+multiple control groups -- so it sounds like your proposal would
+require changes in the resctrl core code as well as possibly requiring
+a larger rmid_ptrs table.
+
+But I might have misunderstood what you are proposing here...
+
+Can you illustrate with one or two examples?
+
+Cheers
+---Dave
 
