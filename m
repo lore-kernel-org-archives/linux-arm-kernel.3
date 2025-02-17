@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDB8C021A9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1635C021A0
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ldGwrx2cT3RoWK8xQPpncYSf7C74wmzaVDctYgnNzT8=; b=XUMKptWfAZq6mLzYNw+6Gbu4CN
-	aiFYsp9L8sntHYBci1vJPfkOJy6zeQ8DINkTo3e9KupUSc64LltLKXTn3knzypIhw6l2RuaOiQlzP
-	RFm9FJSWgf5rkWZMd/iyBWqp0yohQL30oFAqIU/8PQ8K6b9Zbw4i7RH5WJlUAXkruYMoSADoU/w5t
-	CgvPyH2sjQPmv1BxjvVWC7xLbVxCsStx3EklxKXaznMVsMYbzMEp3iCzPk2yEgfAiGUWbkvcwguE8
-	Eg0fIwwHRW/VHKhvLAYgiORigYDZPfeTC7VXlnSKsIqMgIkSNY7NrrU2F18Ry8hmKl52RIqvcxIl8
-	w93V/Qhg==;
+	bh=pjqSIaqjo22M/fJ6WrzBYInBLUW49xWtc11H9nbdufw=; b=CgO/8eR2oUxJCtkAeqe3rYUSIo
+	J4+DgmnF606iAELowzcKKYsS3qnWyNODoni+zLnWYSJae8D8KjKvPbpnX1RS61Rast7HBHjjQD64h
+	bK9zXPb4GWg+zmAVo7tuPZIS4qp8BlnzFZVGBK6dlg9a98x0iEHWT+tzR6IILtx5a3GeFWZVg+jOX
+	yuecpooOm9Jb5142F2vI0o+YyOARUz8suhwk2w61LzJxfJ27V8ep6uoz/J2+7E0JE285nLFP2v5zt
+	EXeEYwG4wrkoFenQub1fDVwaNjb2ucnwmr0h3bMpAIQMkmLhUgHNtdOaP+9aZU6TReINxX4XdrzQI
+	jNYHdieA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjykw-00000004BFy-1EFg;
-	Mon, 17 Feb 2025 10:53:42 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1tjyku-00000004BCz-3U3I;
+	Mon, 17 Feb 2025 10:53:40 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjyCM-000000045MY-0oVM
+	id 1tjyCK-000000045LZ-2lsw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 10:17:59 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5e04c044224so1910909a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 02:17:57 -0800 (PST)
+	Mon, 17 Feb 2025 10:17:57 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-abb81285d33so280395066b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 02:17:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739787477; x=1740392277; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739787475; x=1740392275; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ldGwrx2cT3RoWK8xQPpncYSf7C74wmzaVDctYgnNzT8=;
-        b=Tq90Pi05kKtT+KFFH/C7M0edervs84aupubM7/lScoLYf2PPaU9fZscL+rYUx6gr2W
-         VVYKBQ0WbBkMDzJlPSdsTVcto13jKgt5FewZJfPHc6nmavrX4uhmiDp8fMWhR+yeU0xu
-         r38f97uwaPTMrwtHI6dUlmy1T8eLFRUXrPEqPJqgw0AZXuxDzx45i4TkOHKie8B0Xsmc
-         PjIWPe43dihUKqKeK93rjOt85udwPkfgWa0cvwG0afqA7ULglZ6VpWjhnNwk9SExY9tA
-         5mrw6yJWyK1cAkD3yydLclMFOdA6JJ6KSPnx3GtY7u820L5UqNZOy3EFE/5vjALivN/F
-         4aYA==
+        bh=pjqSIaqjo22M/fJ6WrzBYInBLUW49xWtc11H9nbdufw=;
+        b=xwcycu9ZTrHAfGD3vzLsHN/BeO3D96X6CpNclngFBNnI4giMnFH6MNsJhhY1ua55YK
+         JonAXDQK+yWlV+3f16p/8bIsGtx+K5czIBkU2Fou7jzqroxC6xcqlyUWdhejJo0/g6lQ
+         2bdyOKRKWI6f6/rcQ074PZ1Kt0UEXYU9N/5v3DG/HeXIqsmHYlKqReBhJpnXOXEnJyAe
+         Y50+b6oyOtBXPGH8IdTUxoZRwUc9MYM8CG/1Y+wlVAP9bF5JHd02o/YANPeY5TChIvAz
+         pcaCbqtOlcRO/1eCiNQGP0nPuIGBdL6o5fL/ITdId9vmL5xCyWPF42J7BEbbcM7RXyvp
+         n9sA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739787477; x=1740392277;
+        d=1e100.net; s=20230601; t=1739787475; x=1740392275;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ldGwrx2cT3RoWK8xQPpncYSf7C74wmzaVDctYgnNzT8=;
-        b=TMIMP3vv2LBty2ep9Oc7Q9i4wVAi8ke6JPjIypEY2jV8AmkibxFGaDPIef2Zf7YCRM
-         oE/8F+z7UAe40Ytq+zDHWeUGnKA6BajRTOAUteLl338KKVF7ZdKj7Je2ZHwIVr337Ig1
-         /UV2gAUQCalhgav5spZMgXdsHnAzJmBMiiVDcqdh8oTvZemLH7zwzR9NfoojwvTlJ6Ju
-         bbMGFbKy03tLzGAbpHesei28OUFKlBFhNDQ1I+svGkU0flA44zbXiafpmB1xXil2FKBe
-         D2Fjz/3OVyZxk+dB3viIgoxmnXQkL1LA9s3cskrWu+xndNDPxijfVcoM9ViWMsy31rxd
-         g9og==
-X-Forwarded-Encrypted: i=1; AJvYcCWpRJ0ktUUCrA+9/1iDAbiGRRwzpSWMOPve7MrBp++bbmSCYtHtY7bwL8hgJjN7/AnpZ3K0cBSw3AvmCj6V0sen@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBLIPhHFBLrwROKTOk+O9pmAFEeBgUXQBQmqgy5FkQ3EDC1v7F
-	LLqukM43p0BTePsGTIvDASm3diZW4HXJndc04SQY7UhtVZvJnLTaaV/J6GSryDE=
-X-Gm-Gg: ASbGncvaSClwLEN+kkM5kcukVtrwP5yt9bUE153JXLL+dz7DYNWw0WqkgoOQ7RJ12t8
-	GiyK7BGTqhH3zWWQUBH859McvjIGFdB7r6DeCfOWUL0qtlPQXUExoIXM8DntNbhasetXMyrcS9z
-	p2OscV5BJX0I3rWYiu+cv/CG1WN5Rg1kjGtqdBFTWKbgzNiBRwJyNTQw3xHeVEud7808jpFHZ0j
-	VrOOhdT//XE64Qh6pTO+o1VU73+IFQ9ig6eO8OIYMMRGF/DhFwQjD9Ftu20snolYBrBe5pCVW95
-	JbTiDQhfIQRwMmc/WdrYptur
-X-Google-Smtp-Source: AGHT+IGLJ6wBq1Q2Otx2cXUsLqwI686ZT/K4uXqflhPHhYRM3ByDKMZpdTFQUXVBYhqRHLkwN7a7fQ==
-X-Received: by 2002:a17:907:78b:b0:ab7:c115:68fd with SMTP id a640c23a62f3a-abb70e61a23mr916824766b.53.1739787476706;
-        Mon, 17 Feb 2025 02:17:56 -0800 (PST)
+        bh=pjqSIaqjo22M/fJ6WrzBYInBLUW49xWtc11H9nbdufw=;
+        b=c9qdPsopxCKHjWd2GPpxle+WbbNLMl21nja5Yvx/plV0ptfB6TqyWxXst31/hi6t+b
+         6RfLJCsTWuSIymNglZzdK2FFeoZKm7xU9HKCdvx0JAsqDHzUtaMm2tfKl7YbzaL4YHzn
+         fUUBUvzd0avCPQADwDh9Gw2jrdFJVFCE9ANF/GY8g418yKxC07amt+8J53AhKLfS0Zeh
+         AfF71H9tUc2P1O/h0ZCgl9Xm7T1ayKi1aprAtOlYdmewcLNDGirXEd2cQZWPUYPa1lEB
+         7IPxIIt+JFCy+F1TamA2E43ITqnsH1mPVdVe4uATh2ub6pvFHtoOyJGE6WV9DFh/KgxJ
+         IsBg==
+X-Forwarded-Encrypted: i=1; AJvYcCXdJfF/pYgl2m+PpL5fbKTMDoxqU1vt+IlaCY3Itd0v7ehqjta7BlMxPz0yhazuMcCutFun1BXgRQXX9uXCwe8e@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyipo5TsUeU6Tyt1kOAoFyOENTIbPVDgTrtl1OBZxKOByUqhyxF
+	wKqaS1fjSL+XWLyi+TAbx3HK2Dc0U7hk9+0FRCoIby3GA/Qs298LfoZXisC0stk=
+X-Gm-Gg: ASbGncvsRbUHTIeaNoNx7wCJaWk1pzIYZK06gfoUfy0LXdGdnZmTu05fZgp/4JrRGqz
+	n0pkYnxWIvAHnZFSLOMYl6vczc1CczQBOW0HWOptFAKYj+Z5WnZvUid8YNWv3N8txKy1sxDvxI+
+	SSdN8xrQ3T7zFfKK8cUcrbl8seh9/YLFApFP455bpX1EHz9FIzht3I6XrKg9cj+A4PT9zI1l4Zs
+	J8UI/uzeOrLKCLjBvG50sL4iDmbRe5SuO9AW/+PnrudT/+IzS1vEOLwF6rN7NOamANwzCvi8a/v
+	o87jA3PBynM8d4ILwmJSxRzZ
+X-Google-Smtp-Source: AGHT+IFlDyIupv/Dc3O4C3y1gwzt/272w46jucKO95aSvrTTvzjMkzKCPNIWu+2421TQveFqhl50lg==
+X-Received: by 2002:a17:907:26ce:b0:ab7:b878:e8bc with SMTP id a640c23a62f3a-abb70de288cmr1064938866b.38.1739787474939;
+        Mon, 17 Feb 2025 02:17:54 -0800 (PST)
 Received: from eugen-station.. ([82.76.24.202])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb8b1767e8sm308583266b.174.2025.02.17.02.17.55
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb8b1767e8sm308583266b.174.2025.02.17.02.17.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 02:17:56 -0800 (PST)
+        Mon, 17 Feb 2025 02:17:54 -0800 (PST)
 From: Eugen Hristev <eugen.hristev@linaro.org>
 To: linux-arm-msm@vger.kernel.org,
 	linux-hardening@vger.kernel.org,
@@ -89,18 +89,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@quicinc.com,
 	Eugen Hristev <eugen.hristev@linaro.org>
-Subject: [RFC][PATCH 07/10] printk: export symbols for buffer address and length functions
-Date: Mon, 17 Feb 2025 12:17:03 +0200
-Message-ID: <20250217101706.2104498-8-eugen.hristev@linaro.org>
+Subject: [RFC][PATCH 06/10] qcom: smem: enable smem pstore backend
+Date: Mon, 17 Feb 2025 12:17:02 +0200
+Message-ID: <20250217101706.2104498-7-eugen.hristev@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250217101706.2104498-1-eugen.hristev@linaro.org>
 References: <20250217101706.2104498-1-eugen.hristev@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_021758_228813_8036D2E7 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_021756_696863_0106499E 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,33 +114,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-log_buf_addr_get() and log_buf_len_get() can be reused in another module,
-export the symbols.
+Enable smem pstore backend that registers regions into the minidump
+table.
 
 Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
 ---
- kernel/printk/printk.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/soc/qcom/smem.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 07668433644b..022947f9b61d 100644
---- a/kernel/printk/printk.c
-+++ b/kernel/printk/printk.c
-@@ -588,12 +588,14 @@ char *log_buf_addr_get(void)
- {
- 	return log_buf;
- }
-+EXPORT_SYMBOL_GPL(log_buf_addr_get);
+diff --git a/drivers/soc/qcom/smem.c b/drivers/soc/qcom/smem.c
+index 592819701809..f4d2646fcc0b 100644
+--- a/drivers/soc/qcom/smem.c
++++ b/drivers/soc/qcom/smem.c
+@@ -1236,11 +1236,21 @@ static int qcom_smem_probe(struct platform_device *pdev)
+ 	if (IS_ERR(smem->socinfo))
+ 		dev_dbg(&pdev->dev, "failed to register socinfo device\n");
  
- /* Return log buffer size */
- u32 log_buf_len_get(void)
- {
- 	return log_buf_len;
++	ret = qcom_smem_md_init(&pdev->dev);
++	if (ret)
++		dev_info(&pdev->dev, "smem minidump backend init failed\n");
++
++	ret = qcom_register_pstore_smem(&pdev->dev);
++	if (ret)
++		dev_info(&pdev->dev, "smem pstore backend registration failed\n");
++
+ 	return 0;
  }
-+EXPORT_SYMBOL_GPL(log_buf_len_get);
  
- /*
-  * Define how much of the log buffer we could take at maximum. The value
+ static void qcom_smem_remove(struct platform_device *pdev)
+ {
++	qcom_unregister_pstore_smem();
++
+ 	platform_device_unregister(__smem->socinfo);
+ 
+ 	hwspin_lock_free(__smem->hwlock);
 -- 
 2.43.0
 
