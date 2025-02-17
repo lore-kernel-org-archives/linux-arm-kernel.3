@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DDBEC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:43:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00FCFC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:44:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=5GzUE8+22PDvx9TU35PcoTRaUTTz7IbxNCev5oEIp2I=; b=0vW40eIT+m8QrM
-	p8SCEfFGnc5X8MuWoATympx62ItIl1qLxwFAPKgw2VmLOw6mXqx5WVnhdDRTkmDT0ftPjSCT6ATvQ
-	gUCym4rNR0Z3N6OI+wiudCrWS5EMQsT9gRU0xaO55rqsTTcYxS+03z1YKfNg746x0jqKeP7dj7cys
-	TlwC8a+IYoi9DH45VfGs4A2BoiKi3wjGAnd3cM4wZfVR0hFrEHw4v/iEK6TpiaqB44ISWNQ6FNW/t
-	K6Sgb20315Fy6J4eyo4cp/kMSAgKYlGoBoqmvxxKKNr9PLQevlr7/+2HkUotjAeL+7eLZbedKJjgL
-	FT0r82V7m0ipkqsa3ORw==;
+	List-Owner; bh=0/mDtlBikO57slA120u7KN6mjQODM33+MQPnGr4fUrc=; b=iLyXpbfyLizREL
+	XBXxCZ7f4aKnbm6ldAHhpf90FIIrl6+od7FA56wOK2OBldy7F1l4lWZmj2QFsaZwWoYDZR6Tsvdmp
+	DdiEelNgRlFYUazt6J81V5FdkaG0bqnf3LLr7V1kEMu9suug2VcwnqdeEGKunvoAKAl6n3wikDgX2
+	GIOnUsTFgvlwohwqFPAi59M1VhrstZ73rDFPxL8q7GPC3qfAO1RxXHtqSVZEKta/mflHKxeqefi2q
+	am6VL351WFZtOFE6/WOFyGv4q8pecmDWdwo8+O68dLIaHkJSc2aOc11qzJndGuFgGFh7ZhU/SkfYS
+	SfHqpZ84qYgK76SWmqPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3H8-000000056Ym-47EZ;
-	Mon, 17 Feb 2025 15:43:14 +0000
+	id 1tk3Ia-000000056sH-2XhN;
+	Mon, 17 Feb 2025 15:44:44 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk38t-000000053yk-1z9g
+	id 1tk38t-000000053yn-2GLJ
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 17 Feb 2025 15:34:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=5GzUE8+22PDvx9TU35PcoTRaUTTz7IbxNCev5oEIp2I=; b=f42h6zekR8E003dFaSQZ3+S59X
-	hPOGI8ryHsmk3ZC5mhvpCl14RUmayquRAZRFVlEAhutDauriAY89QCIuzm8pJwoxj1rIg+5IUwPh9
-	sZaf/mbAwk6lPcBAnfhkWz1pISD7alxOlf6BDX1k51Vbhe4EQCXn3NUQFXs2x0c6DllmcIGOJbiCI
-	zNYPSw3dqvPsQOxsst7waJhmmuIWRMXfB0Pnr2JWRgGnUWADiTZOSrS69ccOfvSaBkx9FzX98Wlli
-	L3SM/5nnyqSRi2sLiHbJPzJpUWA18EGSRedc6t3O3Q4+MJIYiHjjr7kZwg9JQ/jVPnSwA1EmHtwHh
-	8VvgS53A==;
+	bh=0/mDtlBikO57slA120u7KN6mjQODM33+MQPnGr4fUrc=; b=OmWudmN6Dy6ldnOVQ8c4FEJi2j
+	+8bi+a0ZSIgGOWjOc7iMVtZn7I/aClY/xwmt8ootgGJgc6R8VZpMbUZuptJCuci+BW1/HUPY6GGkZ
+	PtjIfHPkVtTGu8L7KfS6lQNOZOmjzpwuXjNLg/QcKdxSuBDaZqaw6sE/hUqR/hir5GIWdM0TaNKKV
+	DNv7YLgxPN0aUYaacn609cYbqWYznBLEuiQyXLaLLHDge1UMZdEcBicmq8EV42eRDP/vup8I9BhC9
+	aefsBsoWRX7+CKCqsVLQBK2geJCdO/nsgY9LebG+8qsJ35xE0GBfvomrfE/f71gz0nOisGPxg32zH
+	6rs+TC8w==;
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk38o-00000001qnd-2nVm
+	id 1tk38o-00000001qnf-2fJ9
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 17 Feb 2025 15:34:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 75C57A4162A;
+	by nyc.source.kernel.org (Postfix) with ESMTP id A2780A41634;
 	Mon, 17 Feb 2025 15:32:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DE74C4AF13;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 389B4C4CEEB;
 	Mon, 17 Feb 2025 15:34:34 +0000 (UTC)
 Received: from rostedt by gandalf with local (Exim 4.98)
 	(envelope-from <rostedt@goodmis.org>)
-	id 1tk393-00000003aLr-3wJu;
-	Mon, 17 Feb 2025 10:34:53 -0500
-Message-ID: <20250217153453.792481985@goodmis.org>
+	id 1tk394-00000003aML-0SO6;
+	Mon, 17 Feb 2025 10:34:54 -0500
+Message-ID: <20250217153453.960950584@goodmis.org>
 User-Agent: quilt/0.68
-Date: Mon, 17 Feb 2025 10:34:06 -0500
+Date: Mon, 17 Feb 2025 10:34:07 -0500
 From: Steven Rostedt <rostedt@goodmis.org>
 To: linux-kernel@vger.kernel.org,
  linux-trace-kernel@vger.kernel.org,
@@ -79,13 +79,13 @@ Cc: Masami Hiramatsu <mhiramat@kernel.org>,
  Will Deacon <will@kernel.org>,
  Vasily Gorbik <gor@linux.ibm.com>,
  Alexander Gordeev <agordeev@linux.ibm.com>
-Subject: [PATCH v4 5/6] ftrace: Update the mcount_loc check of skipped entries
+Subject: [PATCH v4 6/6] ftrace: Have ftrace pages output reflect freed pages
 References: <20250217153401.022858448@goodmis.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_153438_915030_D457D84B 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20250217_153438_920287_C36F040A 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,50 +102,86 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Steven Rostedt <rostedt@goodmis.org>
 
-Now that weak functions turn into skipped entries, update the check to
-make sure the amount that was allocated would fit both the entries that
-were allocated as well as those that were skipped.
+The amount of memory that ftrace uses to save the descriptors to manage
+the functions it can trace is shown at output. But if there are a lot of
+functions that are skipped because they were weak or the architecture
+added holes into the tables, then the extra pages that were allocated are
+freed. But these freed pages are not reflected in the numbers shown, and
+they can even be inconsistent with what is reported:
+
+ ftrace: allocating 57482 entries in 225 pages
+ ftrace: allocated 224 pages with 3 groups
+
+The above shows the number of original entries that are in the mcount_loc
+section and the pages needed to save them (225), but the second output
+reflects the number of pages that were actually used. The two should be
+consistent as:
+
+ ftrace: allocating 56739 entries in 224 pages
+ ftrace: allocated 224 pages with 3 groups
+
+The above also shows the accurate number of entires that were actually
+stored and does not include the entries that were removed.
 
 Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
 ---
- kernel/trace/ftrace.c | 24 +++++++++++++++++++++++-
- 1 file changed, 23 insertions(+), 1 deletion(-)
+ kernel/trace/ftrace.c | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
 
 diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index e3f89924f603..55d28c060784 100644
+index 55d28c060784..fa7c3417d995 100644
 --- a/kernel/trace/ftrace.c
 +++ b/kernel/trace/ftrace.c
-@@ -7111,7 +7111,29 @@ static int ftrace_process_locs(struct module *mod,
+@@ -7006,6 +7006,7 @@ static int ftrace_process_locs(struct module *mod,
+ 	unsigned long addr;
+ 	unsigned long kaslr;
+ 	unsigned long flags = 0; /* Shut up gcc */
++	unsigned long pages;
+ 	int ret = -ENOMEM;
  
- 	/* We should have used all pages unless we skipped some */
- 	if (pg_unuse) {
--		WARN_ON(!skipped);
-+		unsigned long pg_remaining, remaining;
-+		unsigned long skip;
+ 	count = end - start;
+@@ -7013,6 +7014,8 @@ static int ftrace_process_locs(struct module *mod,
+ 	if (!count)
+ 		return 0;
+ 
++	pages = DIV_ROUND_UP(count, ENTRIES_PER_PAGE);
 +
-+		/* Count the number of entries unused and compare it to skipped. */
-+		pg_remaining = (ENTRIES_PER_PAGE << pg->order) - pg->index;
+ 	/*
+ 	 * Sorting mcount in vmlinux at build time depend on
+ 	 * CONFIG_BUILDTIME_MCOUNT_SORT, while mcount loc in
+@@ -7125,6 +7128,8 @@ static int ftrace_process_locs(struct module *mod,
+ 				remaining += 1 << pg->order;
+ 			}
+ 
++			pages -= remaining;
 +
-+		if (!WARN(skipped < pg_remaining, "Extra allocated pages for ftrace")) {
-+
-+			skip = skipped - pg_remaining;
-+
-+			for (pg = pg_unuse; pg; pg = pg->next) {
-+				remaining += 1 << pg->order;
-+			}
-+
-+			skip = DIV_ROUND_UP(skip, ENTRIES_PER_PAGE);
-+
-+			/*
-+			 * Check to see if the number of pages remaining would
-+			 * just fit the number of entries skipped.
-+			 */
-+			WARN(skip != remaining, "Extra allocated pages for ftrace: %lu with %lu skipped",
-+			     remaining, skipped);
-+		}
- 		/* Need to synchronize with ftrace_location_range() */
+ 			skip = DIV_ROUND_UP(skip, ENTRIES_PER_PAGE);
+ 
+ 			/*
+@@ -7138,6 +7143,13 @@ static int ftrace_process_locs(struct module *mod,
  		synchronize_rcu();
  		ftrace_free_pages(pg_unuse);
+ 	}
++
++	if (!mod) {
++		count -= skipped;
++		pr_info("ftrace: allocating %ld entries in %ld pages\n",
++			count, pages);
++	}
++
+ 	return ret;
+ }
+ 
+@@ -7783,9 +7795,6 @@ void __init ftrace_init(void)
+ 		goto failed;
+ 	}
+ 
+-	pr_info("ftrace: allocating %ld entries in %ld pages\n",
+-		count, DIV_ROUND_UP(count, ENTRIES_PER_PAGE));
+-
+ 	ret = ftrace_process_locs(NULL,
+ 				  __start_mcount_loc,
+ 				  __stop_mcount_loc);
 -- 
 2.47.2
 
