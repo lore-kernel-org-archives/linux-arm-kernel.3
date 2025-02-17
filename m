@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07A65C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:30:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AF13C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:30:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZrzveV3yJfkPYl/HtQGv60ZGdyQJcVgInP4M19o5eMg=; b=y4Pi8aLTEnLB+G8D/q4dBQzmSy
-	IDUnK3wrTe7/aBWEq7YLC0tE4bIHo74f7UQ3RRNQpkAu+4s6KviEKurJ0xnZHar2jnBgzR0m1YMlZ
-	PZXDs0qTSnLxfZ/SyUrRl0IU0f9maE1SpCf8UbjTYSFIb83lgxbs2Z/6YygqCmMNN2QZohoj/cGV4
-	JmHNABtp3zxeHMlqsOpbDYrhtsnkV0ZhqhfPAqUrp594v07Ir7SMCy6SF+gbTWss+Ws3ug+cMelcL
-	xIOPOQch6YCVo7F9EdH/fMAWJOUd7HG7uKh4MmCF/8Fe7haOBQKwBrz+iOsCPqMTPQERePdwMUoai
-	w0f3QUlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BR3LESeh5qWqE1nsMsX6OvvYNBnjmcXgWQfYW0WVmZc=; b=EdmmXlLjPSdYpQY6Z/z2XitfnF
+	p5tD/8QkCfLhjO+TMNZ/EzwrVCht9/Cn5b3q24o4as37I8pRyYI3EtfgPkWIuigxnS7r3Xiw5+YbX
+	Zmi5PYuldeebjEj0un6tDCUPSMmgudI2vOcFHEl9Cn1rv5/QQ5nMCa1xrcmZ5ARPtGQQcuIX4cgg7
+	79p3c7AdjzkaHBg6CHNPE9ttFOJ2ZBgF8tgRsd6H7fwbOwwbhwlJ4/pH6zJWgzI9C23hc9G7J5fYK
+	dAzcq+/iHprfXPPATqFksgOI/7NSYSJmnSonMgNa0KlDCmk+P+0nL8iav6eEkkeeBE4RCapLzjNTn
+	0R2wKecA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0G3-00000004SMm-2EmO;
-	Mon, 17 Feb 2025 12:29:55 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tk0G5-00000004SPy-1T2K;
+	Mon, 17 Feb 2025 12:29:57 +0000
+Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjzXF-00000004M2p-06ya
+	id 1tjzXj-00000004M73-3J93
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 11:43:38 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4396a4d5e3bso27236715e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 03:43:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1739792615; x=1740397415; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZrzveV3yJfkPYl/HtQGv60ZGdyQJcVgInP4M19o5eMg=;
-        b=Ro3gOFqEIgnmubTrkSfjNQfEh9vNsTooA5q7YtfB7NljyHyKo+M3w6Zrg9pql3lv9X
-         Lfp6hTXxE39aIJV5gwDmN8vGlCyq/kb5So8tRZsIUp99QqpMID8DWk2nHTzZw4swJ8b1
-         GM4X35iLkl8g1Hzxx6lDZIrlwBdpFEUgBGaiM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739792615; x=1740397415;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZrzveV3yJfkPYl/HtQGv60ZGdyQJcVgInP4M19o5eMg=;
-        b=rMtBtljdXr88umQxTW32/Mn1GN6YFsKLnzBP1ZuT7FtTljY6n5cF687BJoEKWrey3V
-         g7XRHgpu5V7D8hUmObTkrRQOaIB5cDfnqBNBUH1tzg4MJ4WlCn6LxxloTp/4/hzAc+7W
-         BzanN1O2AVs1Jq74vpBVzj0ODDgLhknjXGJXy4ZuON7C4rDW5ttoo6V0AqQRjCf9Fk4C
-         15GS/T8VBun+Bekpp5NiYadPLf7WCciMvyrLZQ54WCf7j2a3dgE/+ylO/8v5u4GibfrP
-         +/Ee+tLsMqVJIHXq2E3AtXbUl+fVsWw2rNbDkBnJcoyLLtrB/+1fty2LJ2u/4h8tWE9C
-         /WjA==
-X-Forwarded-Encrypted: i=1; AJvYcCVeS5slxlvTfOgMbCECoIn4v072GoQM1Kxm//gYfKMyEVv1vERmfnjbXFut81NlTJTAJFt9jgyh48zuB+2vwt0+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPkx14mOkjJGfA7AD406AlvAaznGLwbsqL9gclqjMoGH1wYLMc
-	qtDYGU9EBM9hczRJDqbv26mJH2F/a9KV3VB5fK3q1sYAd+Bpyv7H6m7H2KpZ5Qk=
-X-Gm-Gg: ASbGncvJLM5jlGmpkVJpU7Pgokpl1ugslRWSmoZ40wmf6k1iShxIxEbeLFLeeMLsvhn
-	XKjVOsObFLMkdhtahnQ9dsSHzAstWaLwfstANkwPTPDHjkwlAIv3DZb2OgXJleNHziBqmy3PJwV
-	/tLQRe5VYB601Esvurcq5C7BxObGmXa4fBC8/7fsMuowIfJNchmENP8JFAhVSCTSgtRPVEC+FKw
-	MAjJYFEhOoNpKSjV+06guOFGHYMj35jkD0qGmkXPDvBq8Q+vlO2r3OSdkGH5a6O+pTkfpA/xQ2v
-	dyRdpPo8NUX8oOjoyys2iAEVRk+F3Uiv85a/7mf7g0p+FckKWbE2YJxRZk9G7mdDzqgBN6lp6Cw
-	qe/pb9UjoYxs=
-X-Google-Smtp-Source: AGHT+IF609P3CALKCKzz+rtZjz9vss0xU2nv7oly2Unvy2CCr8jtqlkrTWn26An774F51BMNCDUg9g==
-X-Received: by 2002:a05:600d:1b:b0:439:7c0b:13f6 with SMTP id 5b1f17b1804b1-4397c0b19fbmr45089825e9.31.1739792615169;
-        Mon, 17 Feb 2025 03:43:35 -0800 (PST)
-Received: from dario-ThinkPad-T14s-Gen-2i.amarulasolutions.com ([2001:b07:6474:ebbf:78d7:ec72:38e9:87de])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43987088ecbsm18918465e9.31.2025.02.17.03.43.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 03:43:34 -0800 (PST)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 1/2] ARM: dts: stm32: add led to stm32f746 Discovery board
-Date: Mon, 17 Feb 2025 12:43:22 +0100
-Message-ID: <20250217114332.1098482-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 17 Feb 2025 11:44:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
+	Resent-Cc:Resent-Message-ID; bh=BR3LESeh5qWqE1nsMsX6OvvYNBnjmcXgWQfYW0WVmZc=;
+	t=1739792647; x=1741002247; b=k5zckOQ501krUQ9xv8QTG/U7k0H+FgmcL/+NFVhTd6SLXIJ
+	is6qO0oVeSucxxrhcISxOAFUTvHQnsK9qpO47FPTcjP6wstWwzblNJb+iOPobTIeXarl1qLdqqzY4
+	v91jEoJRDx/2PsrNrTKA0VRdx0M3R9mNlaG+D0a4bo/XZV1npDXhmsrAk6cDTmDsyMvoDzJkYa/8s
+	gj7TkQaQFm+9geWyHXeu6zYvkxkhE0CvWcFJJR/miIQk/eShFR8Zyyy81jLKqrFobh6oysOWEB5HJ
+	BOe0QbED0U9YMKS316GXI0+KtOyygc4+G15c7DNhlC5UIWgu3hTCNl16hCgyNIeg==;
+Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.98)
+	(envelope-from <johannes@sipsolutions.net>)
+	id 1tjzXZ-00000000JSW-1v57;
+	Mon, 17 Feb 2025 12:43:57 +0100
+Message-ID: <673d0ef9477f1dfbed474cc51ad68092814dfe85.camel@sipsolutions.net>
+Subject: Re: [RFC][PATCH 00/10] pstore: directly mapped regions
+From: Johannes Berg <johannes@sipsolutions.net>
+To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+ 	linux-hardening@vger.kernel.org, kees@kernel.org
+Cc: linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org,
+ rafael@kernel.org, 	dakr@kernel.org, andersson@kernel.org,
+ konradybcio@kernel.org, tony.luck@intel.com, 	gpiccoli@igalia.com,
+ pmladek@suse.com, rostedt@goodmis.org, 	john.ogness@linutronix.de,
+ senozhatsky@chromium.org, quic_mojha@quicinc.com, 
+	linux-arm-kernel@lists.infradead.org, kernel@quicinc.com
+Date: Mon, 17 Feb 2025 12:43:56 +0100
+In-Reply-To: <885a9312-484a-4b60-bec0-5adf8f1e4a0e@linaro.org>
+References: <20250217101706.2104498-1-eugen.hristev@linaro.org>
+	 <c4b48faeae8531e670ea5909800d1a0bfed69862.camel@sipsolutions.net>
+	 <b304d582-9328-4e1b-9e34-5604125b0c06@linaro.org>
+	 <59333d4aa8a3bb3222967d70d10d9288cece444c.camel@sipsolutions.net>
+	 <885a9312-484a-4b60-bec0-5adf8f1e4a0e@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-malware-bazaar: not-scanned
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_034337_077774_E4352FFA 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20250217_034407_824003_68068781 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +82,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add node for the user led.
+On Mon, 2025-02-17 at 13:39 +0200, Eugen Hristev wrote:
+>=20
+> On 2/17/25 13:19, Johannes Berg wrote:
+> > On Mon, 2025-02-17 at 12:44 +0200, Eugen Hristev wrote:
+> > >=20
+> > > At this moment going through devcoredump is not something that impact=
+s
+> > > the idea of the implementation.
+> >=20
+> > Yeah. I don't think it _should_ go through it at all.
+> >=20
+> > > The whole reason of going through it (because things work without it =
+as
+> > > well), is to see whether this has any kind of impact or not, and if
+> > > there is any kind of fit/reason of going through it.
+> >=20
+> > So it's just a trial balloon?
+>=20
+> Yes, that's why it's marked as an RFC.
+>=20
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
----
+(IMHO) that doesn't make it acceptable to just randomly go modify code
+you don't understand the purpose of, certainly not without actually
+stating such. But anyway, I'll leave it at that.
 
- arch/arm/boot/dts/st/stm32f746-disco.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/arch/arm/boot/dts/st/stm32f746-disco.dts b/arch/arm/boot/dts/st/stm32f746-disco.dts
-index 087de6f09629..8bdd10644bf1 100644
---- a/arch/arm/boot/dts/st/stm32f746-disco.dts
-+++ b/arch/arm/boot/dts/st/stm32f746-disco.dts
-@@ -78,6 +78,14 @@ aliases {
- 		serial0 = &usart1;
- 	};
- 
-+	leds {
-+		compatible = "gpio-leds";
-+		led-usr {
-+			gpios = <&gpioi 1 GPIO_ACTIVE_HIGH>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
- 	usbotg_hs_phy: usb-phy {
- 		#phy-cells = <0>;
- 		compatible = "usb-nop-xceiv";
--- 
-2.43.0
-
+johannes
 
