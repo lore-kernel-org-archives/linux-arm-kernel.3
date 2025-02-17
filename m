@@ -4,63 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52FE3C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D4CAC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t1dNM9JM90rBmspFvnFJJnBHEG8lJQq6n88kpxM+tj8=; b=jhh6B46fWUhZu6s4GjcGJv+VsY
-	ifkgVr/Wxt1r5V19hZu+xCnsiYvtQCzRt+u2bvSAx0aM6Vf/1tYbcAM+7JFWxugJg3jTL3KtAw/ki
-	ObqHrkzRXBkGEBBpOfBuTDPO+ddnGYgNrZDjkW6sGJPzbk9TvPuLS/q6tr5K9JF4VZ1SgO7rLYQus
-	cIrX26xOXbBavRXC7v4ERR0NPr7IBMoYf5FjXDhTEv+I3BUgkiTqmOALtpzo17sZMg0NZEWqjsZ1p
-	9LCnImF1nnLoVOzo7C5UbglRqtCFBa5ik50HHEn0Xr9B34FCtBTKQbO2sPIOwPutm0psrT0O/InTK
-	1wr4RgVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Tyg8b+xD0Br85DGNOgrIPE01EZSzRbYGNzNPsDnqag=; b=Zgd25tJStF5+yAZDZ10b2ecf3M
+	V7b7NHfZWJ8+/VroOwXWCvV0BUNbaJ1G3tBkU8ZM1gxoYJIqncgwEa/elNzg1/CzvL4hbNHUGxwAk
+	gREZXQYVdd+1tJ5CjhK4OzVDb+j6QqD7zXec9LHZKWITK8pOI33DiKNYWibJ0t5zQf/Y7Z5WNQ5JA
+	qoEIpEESWJ4TEwuYdvn5hc31v9it0gba8I+uf+wbkULUV+TmmMZ0tjtlAV7OBjpfd0TUwp3x0iPk5
+	gHbIUsPzovKT+Ct7vH8q0djtu1KWrpFDTpaFc3NVHOzSCvPJeVY+2fcpzO/38ck8S8ZbNJ7anslaK
+	xtbILFbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2CR-00000004sFA-1K0X;
-	Mon, 17 Feb 2025 14:34:19 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1ns-00000004mdU-1uXN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 14:08:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 42E83244C;
-	Mon, 17 Feb 2025 06:09:15 -0800 (PST)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C9BE63F6A8;
-	Mon, 17 Feb 2025 06:08:53 -0800 (PST)
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	id 1tk2Dt-00000004sfj-0JGo;
+	Mon, 17 Feb 2025 14:35:49 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk1qM-00000004nBI-2uaL;
+	Mon, 17 Feb 2025 14:11:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=+Tyg8b+xD0Br85DGNOgrIPE01EZSzRbYGNzNPsDnqag=; b=tpBEUbseu3svPJZjMXU0nSpYr8
+	GmffVj6GQ869k1Jh3niah2GmA3mLVEENfzotxr/MZcFH2FhCCIZZp9Kxnz9msHHPG5C3vOB6+kUR6
+	6+RgjsyJNUEgL+6lYKHDXyLR6/ewFtS87FmKFoT6ICF87RC/fVEfuEgPooJINzuvQmyjV2AyVv+vJ
+	YbKo0YZXyP0coO8OvabMIii2bRao+9FXH6GvaO7AaWwc839h0w6a9KrOGu1gVklIfC15Ikw1Jj9vX
+	kQjlQzNDVeKcCrSDBXVW9IiUYc+OsOsTXab9schzXS/+HNDTbVhhy9fSvNf09tdiCq2hPlM2Xz3M4
+	CM1EF8aw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39042)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tk1ps-0006pq-1t;
+	Mon, 17 Feb 2025 14:11:00 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tk1pi-0006HQ-2v;
+	Mon, 17 Feb 2025 14:10:50 +0000
+Date: Mon, 17 Feb 2025 14:10:50 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	Hariprasad Kelam <hkelam@marvell.com>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	Drew Fustini <dfustini@tenstorrent.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Lothar Rubusch <l.rubusch@gmail.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 14/14] arm64/mm: Batch barriers when updating kernel mappings
-Date: Mon, 17 Feb 2025 14:08:06 +0000
-Message-ID: <20250217140809.1702789-15-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250217140809.1702789-1-ryan.roberts@arm.com>
-References: <20250217140809.1702789-1-ryan.roberts@arm.com>
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add glue layer for Sophgo
+ SG2044 SoC
+Message-ID: <Z7NDakd7zpQ_345D@shell.armlinux.org.uk>
+References: <20250216123953.1252523-1-inochiama@gmail.com>
+ <20250216123953.1252523-4-inochiama@gmail.com>
+ <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
+ <5e481b95-3cf8-4f71-a76b-939d96e1c4f3@lunn.ch>
+ <js3z3ra7fyg4qwxbly24xqpnvsv76jyikbhk7aturqigewllbx@gvus6ub46vow>
+ <24eecc48-9061-4575-9e3b-6ef35226407a@lunn.ch>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <24eecc48-9061-4575-9e3b-6ef35226407a@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_060856_581542_D79AFFEC 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20250217_061130_733343_05F1791F 
+X-CRM114-Status: GOOD (  14.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,183 +114,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Because the kernel can't tolerate page faults for kernel mappings, when
-setting a valid, kernel space pte (or pmd/pud/p4d/pgd), it emits a
-dsb(ishst) to ensure that the store to the pgtable is observed by the
-table walker immediately. Additionally it emits an isb() to ensure that
-any already speculatively determined invalid mapping fault gets
-canceled.
+On Mon, Feb 17, 2025 at 02:25:33PM +0100, Andrew Lunn wrote:
+> > I am not sure all whether devices has this clock, but it appears in
+> > the databook. So I think it is possible to move this in the core so
+> > any platform with these clock can reuse it.
+> 
+> Great
+> 
+> The next problem will be, has everybody called it the same thing in
+> DT. Since there has been a lot of cut/paste, maybe they have, by
+> accident.
 
-We can improve the performance of vmalloc operations by batching these
-barriers until the end of a set of entry updates. The newly added
-arch_update_kernel_mappings_begin() / arch_update_kernel_mappings_end()
-provide the required hooks.
+Tegra186: "tx"
+imx: "tx"
+intel: "tx_clk"
+rk: "clk_mac_speed"
+s32: "tx"
+starfive: "tx"
+sti: "sti-ethclk"
 
-vmalloc improves by up to 30% as a result.
+so 50% have settled on "tx" and the rest are doing their own thing, and
+that horse has already bolted.
 
-A new TIF_ flag is created; TIF_KMAP_UPDATE_ACTIVE tells us if we are in
-the batch mode and can therefore defer any barriers until the end of the
-batch.
+I have some ideas on sorting this out, and I'm working on some patches
+today.
 
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
----
- arch/arm64/include/asm/pgtable.h     | 73 ++++++++++++++++++++--------
- arch/arm64/include/asm/thread_info.h |  1 +
- arch/arm64/kernel/process.c          |  9 ++--
- 3 files changed, 59 insertions(+), 24 deletions(-)
-
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 51128c2956f8..f8866dbdfde7 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -39,6 +39,49 @@
- #include <linux/mm_types.h>
- #include <linux/sched.h>
- #include <linux/page_table_check.h>
-+#include <linux/pgtable_modmask.h>
-+
-+static inline void emit_pte_barriers(void)
-+{
-+	/*
-+	 * These barriers are emitted under certain conditions after a pte entry
-+	 * was modified (see e.g. __set_pte_complete()). The dsb makes the store
-+	 * visible to the table walker. The isb ensures that any previous
-+	 * speculative "invalid translation" marker that is in the CPU's
-+	 * pipeline gets cleared, so that any access to that address after
-+	 * setting the pte to valid won't cause a spurious fault. If the thread
-+	 * gets preempted after storing to the pgtable but before emitting these
-+	 * barriers, __switch_to() emits a dsb which ensure the walker gets to
-+	 * see the store. There is no guarrantee of an isb being issued though.
-+	 * This is safe because it will still get issued (albeit on a
-+	 * potentially different CPU) when the thread starts running again,
-+	 * before any access to the address.
-+	 */
-+	dsb(ishst);
-+	isb();
-+}
-+
-+static inline void queue_pte_barriers(void)
-+{
-+	if (!test_thread_flag(TIF_KMAP_UPDATE_ACTIVE))
-+		emit_pte_barriers();
-+}
-+
-+#define arch_update_kernel_mappings_begin arch_update_kernel_mappings_begin
-+static inline void arch_update_kernel_mappings_begin(unsigned long start,
-+						     unsigned long end)
-+{
-+	set_thread_flag(TIF_KMAP_UPDATE_ACTIVE);
-+}
-+
-+#define arch_update_kernel_mappings_end arch_update_kernel_mappings_end
-+static inline void arch_update_kernel_mappings_end(unsigned long start,
-+						   unsigned long end,
-+						   pgtbl_mod_mask mask)
-+{
-+	clear_thread_flag(TIF_KMAP_UPDATE_ACTIVE);
-+	emit_pte_barriers();
-+}
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
- #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
-@@ -323,10 +366,8 @@ static inline void __set_pte_complete(pte_t pte)
- 	 * Only if the new pte is valid and kernel, otherwise TLB maintenance
- 	 * or update_mmu_cache() have the necessary barriers.
- 	 */
--	if (pte_valid_not_user(pte)) {
--		dsb(ishst);
--		isb();
--	}
-+	if (pte_valid_not_user(pte))
-+		queue_pte_barriers();
- }
- 
- static inline void __set_pte(pte_t *ptep, pte_t pte)
-@@ -791,10 +832,8 @@ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
- 
- 	WRITE_ONCE(*pmdp, pmd);
- 
--	if (pmd_valid_not_user(pmd)) {
--		dsb(ishst);
--		isb();
--	}
-+	if (pmd_valid_not_user(pmd))
-+		queue_pte_barriers();
- }
- 
- static inline void pmd_clear(pmd_t *pmdp)
-@@ -859,10 +898,8 @@ static inline void set_pud(pud_t *pudp, pud_t pud)
- 
- 	WRITE_ONCE(*pudp, pud);
- 
--	if (pud_valid_not_user(pud)) {
--		dsb(ishst);
--		isb();
--	}
-+	if (pud_valid_not_user(pud))
-+		queue_pte_barriers();
- }
- 
- static inline void pud_clear(pud_t *pudp)
-@@ -941,10 +978,8 @@ static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
- 
- 	WRITE_ONCE(*p4dp, p4d);
- 
--	if (p4d_valid_not_user(p4d)) {
--		dsb(ishst);
--		isb();
--	}
-+	if (p4d_valid_not_user(p4d))
-+		queue_pte_barriers();
- }
- 
- static inline void p4d_clear(p4d_t *p4dp)
-@@ -1072,10 +1107,8 @@ static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
- 
- 	WRITE_ONCE(*pgdp, pgd);
- 
--	if (pgd_valid_not_user(pgd)) {
--		dsb(ishst);
--		isb();
--	}
-+	if (pgd_valid_not_user(pgd))
-+		queue_pte_barriers();
- }
- 
- static inline void pgd_clear(pgd_t *pgdp)
-diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-index 1114c1c3300a..3856e0759cc3 100644
---- a/arch/arm64/include/asm/thread_info.h
-+++ b/arch/arm64/include/asm/thread_info.h
-@@ -82,6 +82,7 @@ void arch_setup_new_exec(void);
- #define TIF_SME_VL_INHERIT	28	/* Inherit SME vl_onexec across exec */
- #define TIF_KERNEL_FPSTATE	29	/* Task is in a kernel mode FPSIMD section */
- #define TIF_TSC_SIGSEGV		30	/* SIGSEGV on counter-timer access */
-+#define TIF_KMAP_UPDATE_ACTIVE	31	/* kernel map update in progress */
- 
- #define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
- #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index 42faebb7b712..45a55fe81788 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -680,10 +680,11 @@ struct task_struct *__switch_to(struct task_struct *prev,
- 	gcs_thread_switch(next);
- 
- 	/*
--	 * Complete any pending TLB or cache maintenance on this CPU in case
--	 * the thread migrates to a different CPU.
--	 * This full barrier is also required by the membarrier system
--	 * call.
-+	 * Complete any pending TLB or cache maintenance on this CPU in case the
-+	 * thread migrates to a different CPU. This full barrier is also
-+	 * required by the membarrier system call. Additionally it makes any
-+	 * in-progress pgtable writes visible to the table walker; See
-+	 * emit_pte_barriers().
- 	 */
- 	dsb(ish);
- 
 -- 
-2.43.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
