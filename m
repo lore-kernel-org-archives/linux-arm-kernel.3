@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 008C5C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD25C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:33:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zw4vZu0X095hQTpAYGpfAGxwgGtSu1Wp4rJvqtPB/Ts=; b=MandyHxgnSp4ncxVYybvKJW5hO
-	yHGjwXDIPcRPcn5LrxFwPE/Y/m1BjjBIydZ3WxGoHEOoLRe6d8aqBuF6PyjBJDv9WKxVrYHWY3RhH
-	fSnnrUIR3OgJPiPmWfLiBSK4inHTjzbu8DbHLyNeeay1LAOIfX40/aDEXnEfew+gz3v8aFiwIZk0k
-	i2vWwrWnkpzCzSY27gwUSFRBA49kHt9TVm+92btraJOz4G+YDqZ8wSJNZPYC3XldS/AuMOE8ybY8u
-	QD+dw7PXTZ9t+lLVRVlYtr2VBxy6UfyS/DoqAtoSef0uRDH6ExbnA9cFq36svDwBsducyLkfT+eVh
-	obUP3VYQ==;
+	bh=0ChFArhQc4UjuOW/ZrRHu4cHoDy98pviZhV3Uu5a5Yo=; b=K+0NbbbUxNF75cH2SQjgwIozKB
+	e0upNAXOEtlYc0/vXb4Hdb/L3f+pXJlZkrfcwGykJzd32VmaF+gv/oDZ/GKR7WjM0qUe+9UuVTCzx
+	7eAdjlbm/dY5Y1wNXsZ9r58WirKHQF6O1NRPMSDzjF84fP1OrXU2WyjZY8p+82za3nzCkZl4/SuBC
+	VkuQ03joVt9DF6LkWmyCZr5wRIxWod/V0cVgnJ6NLqKimqs+dqKDyUX+P6qm5LnKtKw4BBj4VZMT2
+	/dVKMBoP88T4yvc2KMSXzFDatf0HjzGXXSCEg6eKBi9lhs0+LstLh+h71akC4xTdR62XiUobCJOTu
+	ua/kLgxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk29a-00000004reS-09gE;
-	Mon, 17 Feb 2025 14:31:22 +0000
+	id 1tk2B0-00000004rxE-2paz;
+	Mon, 17 Feb 2025 14:32:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1nn-00000004mZp-18XV
+	id 1tk1np-00000004mbb-3MG8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 14:08:52 +0000
+	Mon, 17 Feb 2025 14:08:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F5881A2D;
-	Mon, 17 Feb 2025 06:09:10 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B39F6244C;
+	Mon, 17 Feb 2025 06:09:12 -0800 (PST)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 96F693F6A8;
-	Mon, 17 Feb 2025 06:08:48 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 459AE3F6A8;
+	Mon, 17 Feb 2025 06:08:51 -0800 (PST)
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -50,17 +50,17 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 12/14] mm: Generalize arch_sync_kernel_mappings()
-Date: Mon, 17 Feb 2025 14:08:04 +0000
-Message-ID: <20250217140809.1702789-13-ryan.roberts@arm.com>
+Subject: [PATCH v2 13/14] mm: Only call arch_update_kernel_mappings_[begin|end]() for kernel mappings
+Date: Mon, 17 Feb 2025 14:08:05 +0000
+Message-ID: <20250217140809.1702789-14-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250217140809.1702789-1-ryan.roberts@arm.com>
 References: <20250217140809.1702789-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_060851_413018_734D13A1 
-X-CRM114-Status: GOOD (  27.07  )
+X-CRM114-CacheID: sfid-20250217_060853_881671_39C434BC 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,262 +75,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arch_sync_kernel_mappings() is an optional hook for arches to allow them
-to synchonize certain levels of the kernel pgtables after modification.
-But arm64 could benefit from a hook similar to this, paired with a call
-prior to starting the batch of modifications.
+arch_update_kernel_mappings_[begin|end]() is called from
+__apply_to_page_range(), which operates both on kernel and user
+mappings. Previously arch_update_kernel_mappings_[begin|end]() was
+called unconditionally for both user and kernel mappings.
 
-So let's introduce arch_update_kernel_mappings_begin() and
-arch_update_kernel_mappings_end(). Both have a default implementation
-which can be overridden by the arch code. The default for the former is
-a nop, and the default for the latter is to call
-arch_sync_kernel_mappings(), so the latter replaces previous
-arch_sync_kernel_mappings() callsites. So by default, the resulting
-behaviour is unchanged.
-
-To avoid include hell, the pgtbl_mod_mask type and it's associated
-macros are moved to their own header.
-
-In a future patch, arm64 will opt-in to overriding both functions.
+The existing arch implementations of arch_sync_kernel_mappings() (which
+is called by the default implementation of
+arch_update_kernel_mappings_end()) filter on kernel address ranges so
+this change is still correct for those users. But given
+"kernel_mappings" is in the function name, we really shouldn't be
+calling it for user mappings. This change will also make the upcoming
+arm64 implementation simpler.
 
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- include/linux/pgtable.h         | 24 +----------------
- include/linux/pgtable_modmask.h | 32 ++++++++++++++++++++++
- include/linux/vmalloc.h         | 47 +++++++++++++++++++++++++++++++++
- mm/memory.c                     |  5 ++--
- mm/vmalloc.c                    | 15 ++++++-----
- 5 files changed, 92 insertions(+), 31 deletions(-)
- create mode 100644 include/linux/pgtable_modmask.h
+ mm/memory.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 94d267d02372..7f70786a73b3 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -4,6 +4,7 @@
- 
- #include <linux/pfn.h>
- #include <asm/pgtable.h>
-+#include <linux/pgtable_modmask.h>
- 
- #define PMD_ORDER	(PMD_SHIFT - PAGE_SHIFT)
- #define PUD_ORDER	(PUD_SHIFT - PAGE_SHIFT)
-@@ -1786,29 +1787,6 @@ static inline bool arch_has_pfn_modify_check(void)
- # define PAGE_KERNEL_EXEC PAGE_KERNEL
- #endif
- 
--/*
-- * Page Table Modification bits for pgtbl_mod_mask.
-- *
-- * These are used by the p?d_alloc_track*() set of functions an in the generic
-- * vmalloc/ioremap code to track at which page-table levels entries have been
-- * modified. Based on that the code can better decide when vmalloc and ioremap
-- * mapping changes need to be synchronized to other page-tables in the system.
-- */
--#define		__PGTBL_PGD_MODIFIED	0
--#define		__PGTBL_P4D_MODIFIED	1
--#define		__PGTBL_PUD_MODIFIED	2
--#define		__PGTBL_PMD_MODIFIED	3
--#define		__PGTBL_PTE_MODIFIED	4
--
--#define		PGTBL_PGD_MODIFIED	BIT(__PGTBL_PGD_MODIFIED)
--#define		PGTBL_P4D_MODIFIED	BIT(__PGTBL_P4D_MODIFIED)
--#define		PGTBL_PUD_MODIFIED	BIT(__PGTBL_PUD_MODIFIED)
--#define		PGTBL_PMD_MODIFIED	BIT(__PGTBL_PMD_MODIFIED)
--#define		PGTBL_PTE_MODIFIED	BIT(__PGTBL_PTE_MODIFIED)
--
--/* Page-Table Modification Mask */
--typedef unsigned int pgtbl_mod_mask;
--
- #endif /* !__ASSEMBLY__ */
- 
- #if !defined(MAX_POSSIBLE_PHYSMEM_BITS) && !defined(CONFIG_64BIT)
-diff --git a/include/linux/pgtable_modmask.h b/include/linux/pgtable_modmask.h
-new file mode 100644
-index 000000000000..5a21b1bb8df3
---- /dev/null
-+++ b/include/linux/pgtable_modmask.h
-@@ -0,0 +1,32 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _LINUX_PGTABLE_MODMASK_H
-+#define _LINUX_PGTABLE_MODMASK_H
-+
-+#ifndef __ASSEMBLY__
-+
-+/*
-+ * Page Table Modification bits for pgtbl_mod_mask.
-+ *
-+ * These are used by the p?d_alloc_track*() set of functions an in the generic
-+ * vmalloc/ioremap code to track at which page-table levels entries have been
-+ * modified. Based on that the code can better decide when vmalloc and ioremap
-+ * mapping changes need to be synchronized to other page-tables in the system.
-+ */
-+#define		__PGTBL_PGD_MODIFIED	0
-+#define		__PGTBL_P4D_MODIFIED	1
-+#define		__PGTBL_PUD_MODIFIED	2
-+#define		__PGTBL_PMD_MODIFIED	3
-+#define		__PGTBL_PTE_MODIFIED	4
-+
-+#define		PGTBL_PGD_MODIFIED	BIT(__PGTBL_PGD_MODIFIED)
-+#define		PGTBL_P4D_MODIFIED	BIT(__PGTBL_P4D_MODIFIED)
-+#define		PGTBL_PUD_MODIFIED	BIT(__PGTBL_PUD_MODIFIED)
-+#define		PGTBL_PMD_MODIFIED	BIT(__PGTBL_PMD_MODIFIED)
-+#define		PGTBL_PTE_MODIFIED	BIT(__PGTBL_PTE_MODIFIED)
-+
-+/* Page-Table Modification Mask */
-+typedef unsigned int pgtbl_mod_mask;
-+
-+#endif /* !__ASSEMBLY__ */
-+
-+#endif /* _LINUX_PGTABLE_MODMASK_H */
-diff --git a/include/linux/vmalloc.h b/include/linux/vmalloc.h
-index 16dd4cba64f2..cb5d8f1965a1 100644
---- a/include/linux/vmalloc.h
-+++ b/include/linux/vmalloc.h
-@@ -11,6 +11,7 @@
- #include <asm/page.h>		/* pgprot_t */
- #include <linux/rbtree.h>
- #include <linux/overflow.h>
-+#include <linux/pgtable_modmask.h>
- 
- #include <asm/vmalloc.h>
- 
-@@ -213,6 +214,26 @@ extern int remap_vmalloc_range(struct vm_area_struct *vma, void *addr,
- int vmap_pages_range(unsigned long addr, unsigned long end, pgprot_t prot,
- 		     struct page **pages, unsigned int page_shift);
- 
-+#ifndef arch_update_kernel_mappings_begin
-+/**
-+ * arch_update_kernel_mappings_begin - A batch of kernel pgtable mappings are
-+ * about to be updated.
-+ * @start: Virtual address of start of range to be updated.
-+ * @end: Virtual address of end of range to be updated.
-+ *
-+ * An optional hook to allow architecture code to prepare for a batch of kernel
-+ * pgtable mapping updates. An architecture may use this to enter a lazy mode
-+ * where some operations can be deferred until the end of the batch.
-+ *
-+ * Context: Called in task context and may be preemptible.
-+ */
-+static inline void arch_update_kernel_mappings_begin(unsigned long start,
-+						     unsigned long end)
-+{
-+}
-+#endif
-+
-+#ifndef arch_update_kernel_mappings_end
- /*
-  * Architectures can set this mask to a combination of PGTBL_P?D_MODIFIED values
-  * and let generic vmalloc and ioremap code know when arch_sync_kernel_mappings()
-@@ -229,6 +250,32 @@ int vmap_pages_range(unsigned long addr, unsigned long end, pgprot_t prot,
-  */
- void arch_sync_kernel_mappings(unsigned long start, unsigned long end);
- 
-+/**
-+ * arch_update_kernel_mappings_end - A batch of kernel pgtable mappings have
-+ * been updated.
-+ * @start: Virtual address of start of range that was updated.
-+ * @end: Virtual address of end of range that was updated.
-+ *
-+ * An optional hook to inform architecture code that a batch update is complete.
-+ * This balances a previous call to arch_update_kernel_mappings_begin().
-+ *
-+ * An architecture may override this for any purpose, such as exiting a lazy
-+ * mode previously entered with arch_update_kernel_mappings_begin() or syncing
-+ * kernel mappings to a secondary pgtable. The default implementation calls an
-+ * arch-provided arch_sync_kernel_mappings() if any arch-defined pgtable level
-+ * was updated.
-+ *
-+ * Context: Called in task context and may be preemptible.
-+ */
-+static inline void arch_update_kernel_mappings_end(unsigned long start,
-+						   unsigned long end,
-+						   pgtbl_mod_mask mask)
-+{
-+	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
-+		arch_sync_kernel_mappings(start, end);
-+}
-+#endif
-+
- /*
-  *	Lowlevel-APIs (not for driver use!)
-  */
 diff --git a/mm/memory.c b/mm/memory.c
-index a15f7dd500ea..f80930bc19f6 100644
+index f80930bc19f6..4e299d254a11 100644
 --- a/mm/memory.c
 +++ b/mm/memory.c
-@@ -3035,6 +3035,8 @@ static int __apply_to_page_range(struct mm_struct *mm, unsigned long addr,
+@@ -3035,7 +3035,8 @@ static int __apply_to_page_range(struct mm_struct *mm, unsigned long addr,
  	if (WARN_ON(addr >= end))
  		return -EINVAL;
  
-+	arch_update_kernel_mappings_begin(start, end);
-+
+-	arch_update_kernel_mappings_begin(start, end);
++	if (mm == &init_mm)
++		arch_update_kernel_mappings_begin(start, end);
+ 
  	pgd = pgd_offset(mm, addr);
  	do {
- 		next = pgd_addr_end(addr, end);
-@@ -3055,8 +3057,7 @@ static int __apply_to_page_range(struct mm_struct *mm, unsigned long addr,
+@@ -3057,7 +3058,8 @@ static int __apply_to_page_range(struct mm_struct *mm, unsigned long addr,
  			break;
  	} while (pgd++, addr = next, addr != end);
  
--	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
--		arch_sync_kernel_mappings(start, start + size);
-+	arch_update_kernel_mappings_end(start, end, mask);
- 
- 	return err;
- }
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index 50fd44439875..c5c51d86ef78 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -312,10 +312,10 @@ int vmap_page_range(unsigned long addr, unsigned long end,
- 	pgtbl_mod_mask mask = 0;
- 	int err;
- 
-+	arch_update_kernel_mappings_begin(addr, end);
- 	err = vmap_range_noflush(addr, end, phys_addr, pgprot_nx(prot),
- 				 ioremap_max_page_shift, &mask);
--	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
--		arch_sync_kernel_mappings(addr, end);
-+	arch_update_kernel_mappings_end(addr, end, mask);
- 
- 	flush_cache_vmap(addr, end);
- 	if (!err)
-@@ -463,6 +463,9 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
- 	pgtbl_mod_mask mask = 0;
- 
- 	BUG_ON(addr >= end);
-+
-+	arch_update_kernel_mappings_begin(start, end);
-+
- 	pgd = pgd_offset_k(addr);
- 	do {
- 		next = pgd_addr_end(addr, end);
-@@ -473,8 +476,7 @@ void __vunmap_range_noflush(unsigned long start, unsigned long end)
- 		vunmap_p4d_range(pgd, addr, next, &mask);
- 	} while (pgd++, addr = next, addr != end);
- 
--	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
--		arch_sync_kernel_mappings(start, end);
-+	arch_update_kernel_mappings_end(start, end, mask);
- }
- 
- void vunmap_range_noflush(unsigned long start, unsigned long end)
-@@ -625,6 +627,8 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
- 
- 	WARN_ON(page_shift < PAGE_SHIFT);
- 
-+	arch_update_kernel_mappings_begin(start, end);
-+
- 	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
- 			page_shift == PAGE_SHIFT) {
- 		err = vmap_small_pages_range_noflush(addr, end, prot, pages,
-@@ -642,8 +646,7 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
- 		}
- 	}
- 
--	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
--		arch_sync_kernel_mappings(start, end);
-+	arch_update_kernel_mappings_end(start, end, mask);
+-	arch_update_kernel_mappings_end(start, end, mask);
++	if (mm == &init_mm)
++		arch_update_kernel_mappings_end(start, end, mask);
  
  	return err;
  }
