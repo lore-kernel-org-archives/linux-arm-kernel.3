@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C385C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 21:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B3CC021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 21:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZRcH/eHQm5mS4X7voC0Jy7SUfTjo7Kv8eDq6w4o/DDU=; b=L6b0Q65SkVf5M2pQr8TPFv1As6
-	0oSmTc80JEZmtuqq01TI7eupvuqYLz+8+WoUmo6Pw5YN7A+l2ZT3aPIPP4SFO4hmqHj/pDMF7fDlM
-	I429DZD9L8irVEiokRO8c6hNh2cqeXw94UnAfAaEoEE295g44J5NG1EzLZqrKZOJqb9rNg6A/6EN/
-	MMBijUM1wcYbhcbPCms3GhoQVf7y7I5t2JKR+bR2vFIS2cODwoLClFoie12LxKg0W0NiomOs+S9+c
-	IkZnrRkVyHzxFJj51kQT2gxMtI7AQc9atNjrcyQi4UStxTu4LjzXdZoQpHzO3SKFnCKG7NnMpOuH/
-	WxuFB/1A==;
+	bh=WeyWvK56Gz4dHDkKikTZ+ehni9evsCvlBef063tqcas=; b=fU3rOorSJJSPeEKLyT6KKhLKg7
+	zldYBX+DvzT31HWzFCnA7+3kz57ujYM/Bs8CifaJu5ODIdsst8D8235ZbvO7YIWNEYSfGrG9I2o8/
+	NiIIlz2xiZrzJrgc5JDnuPNSneMhmmp9Lz89EvgfLalCD37zLaLmUHxkgbpFvo8Tchsa6oeSUTuzi
+	ST5AEJrYee0JptWR68zRs4m9S3UBPUxYQ01qoAEWoP2y2goF3uR58Cbuvu+JFo/J2WdcWkQS0n1uK
+	L1QhRQEUkQ5glu3RuH6UTGpVFvAP8078nn7QmwgeKQXoqe6eairX2hSkEMG7/EybmQ5LoWHPz5cnZ
+	eoeOFXGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk8rj-0000000633m-1P5O;
-	Mon, 17 Feb 2025 21:41:23 +0000
+	id 1tk8t9-000000063Cc-47zl;
+	Mon, 17 Feb 2025 21:42:51 +0000
 Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk8jT-000000061WQ-2DWC
+	id 1tk8jW-000000061Xr-3SFr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 21:32:52 +0000
+	Mon, 17 Feb 2025 21:32:55 +0000
 Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=eYj3ws0lIGsVHsw3N0VISHwu3eK10dmpNuKwriaKXMewIeqstQmYqcC6SVFx2RA2uj+TbwUKhSj5xi95BcoKWLPfUZsOwSfrA6BLo0p6t6h/wzS173iJnmVPwfkP4xUwuCpLLanKxk3HA8Am6v0slaeUeNMVUvP39pKJavIcyYcV4fiBE8M1GOe2emvkvXnJgMn+sBzH9fToaUd2ZV/FbVTpjX3pnTx8GQ0mEBOY1GUVVwmUA/9EswdvD4KMO3uZk90G2Au7S1zmieKVdQZ/aIaFfWBRkCNlxOjdR/JH9E82sUJ3Rejmwy/IUAj4O1ci/+4wokKB8gQAfXIsLgR32g==; s=purelymail3; d=purelymail.com; v=1; bh=d90e+aG/dLPhZ45Wax0yq+hKJxVgTdMsCYq09/QZQ0s=; h=Feedback-ID:Received:From:Date:Subject:To;
+DKIM-Signature: a=rsa-sha256; b=j7/+O/5nqqeQgi/p0ZhWmPZ7zn5c9yJ9wKwo2TxqoEMCK0dguCmRLK7Xq/jvqF7+YWdVE+pxea//4kc0PXgm8ebfMhxF/heIYofG9ZytZ+6IXkm+sw+4kjehiubzw6eTLcaQYhk0bjotn2AoKJOM1kN91T9mpo9VkokCijCzGfJ6H/cZYEBvCXLW7lw20hfHDlxoof9vfDLtK97ENeE9uhHfpSJpui20jT/c6iT/2Ld24O56TFAG1F3Z9d7sNNL80inBaLHRF+XyHKNGtBPuq6Z2uMovtThbBKA7GqhPPeUCxbE3QYIvA7wAEwRFOPmIjWnTZuI3k27F73XXAcGnVw==; s=purelymail3; d=purelymail.com; v=1; bh=clxVsQKkrnR9wv8DKul25lTsvvLat2HJc7+oSMFkZlk=; h=Feedback-ID:Received:From:Date:Subject:To;
 Feedback-ID: 68247:10037:null:purelymail
 X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
 Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 42194286;
           (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Mon, 17 Feb 2025 21:32:37 +0000 (UTC)
+          Mon, 17 Feb 2025 21:32:38 +0000 (UTC)
 From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Date: Mon, 17 Feb 2025 22:32:05 +0100
-Subject: [PATCH 3/5] arm64: dts: exynos990-x1s-common: Enable USB
+Date: Mon, 17 Feb 2025 22:32:06 +0100
+Subject: [PATCH 4/5] arm64: dts: exynos990-c1s: Enable USB
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250217-exynos990-dt-changes-febuary-v1-3-99935218cbf4@mentallysanemainliners.org>
+Message-Id: <20250217-exynos990-dt-changes-febuary-v1-4-99935218cbf4@mentallysanemainliners.org>
 References: <20250217-exynos990-dt-changes-febuary-v1-0-99935218cbf4@mentallysanemainliners.org>
 In-Reply-To: <20250217-exynos990-dt-changes-febuary-v1-0-99935218cbf4@mentallysanemainliners.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -49,16 +49,16 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Igor Belwon <igor.belwon@mentallysanemainliners.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739827951; l=1301;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739827951; l=1236;
  i=igor.belwon@mentallysanemainliners.org; s=20241206;
- h=from:subject:message-id; bh=d90e+aG/dLPhZ45Wax0yq+hKJxVgTdMsCYq09/QZQ0s=;
- b=Obkdhx9gjqTphT/XZf+SeeVBwNcPUVVI4LdkeHzZTZyuX9KjyvyWQzNj5ap2XocW4QEGQPAOq
- fDOeWiQk3dNBUD31zENjl+XuJqR0tH+pZwbe15BUTRBTDCM3TTRHcgf
+ h=from:subject:message-id; bh=clxVsQKkrnR9wv8DKul25lTsvvLat2HJc7+oSMFkZlk=;
+ b=uNx9dfyurKSRBPBfpd7A/W/zAnInNW/LtKIaEL9s1jozxXoP3wXPTiR89w7OjX2iqQ2wNgAHD
+ 7FxQ6mhRpR3Ap6S3sTjUaM5xHNcjOeOMj04hwZlwg4C06M8FidBvUrG
 X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
  pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_133251_650000_CCB14A34 
-X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-CacheID: sfid-20250217_133254_942877_CCAD244F 
+X-CRM114-Status: UNSURE (   8.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -74,23 +74,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The x1s family uses a shared USB configuration. Enable both the
-USB PHY as well as the DWC3 controller.
+Enable both the USB PHY as well as the DWC3 controller nodes.
 
 Since we do not have any PMIC for USB implemented yet, use dummy
 regulators until we do.
 
 Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
 ---
- arch/arm64/boot/dts/exynos/exynos990-x1s-common.dtsi | 16 ++++++++++++++++
+ arch/arm64/boot/dts/exynos/exynos990-c1s.dts | 16 ++++++++++++++++
  1 file changed, 16 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos990-x1s-common.dtsi b/arch/arm64/boot/dts/exynos/exynos990-x1s-common.dtsi
-index 55fa8e9e05db8af51109d20d74cbd7b9a2af38df..7b97220cccb7442dbc5a9f31ae9b9124bee85c62 100644
---- a/arch/arm64/boot/dts/exynos/exynos990-x1s-common.dtsi
-+++ b/arch/arm64/boot/dts/exynos/exynos990-x1s-common.dtsi
-@@ -27,6 +27,12 @@ framebuffer0: framebuffer@f1000000 {
- 		};
+diff --git a/arch/arm64/boot/dts/exynos/exynos990-c1s.dts b/arch/arm64/boot/dts/exynos/exynos990-c1s.dts
+index 36a6f1377e92b40716c606cceb752f642ae603e3..9f0ad4f9673a87b4d75f3c7d208c8c37bb51fe2d 100644
+--- a/arch/arm64/boot/dts/exynos/exynos990-c1s.dts
++++ b/arch/arm64/boot/dts/exynos/exynos990-c1s.dts
+@@ -44,6 +44,12 @@ memory@80000000 {
+ 		      <0x8 0x80000000 0x1 0x7ec00000>;
  	};
  
 +	/* TODO: Remove this once PMIC is implemented */
@@ -102,7 +101,7 @@ index 55fa8e9e05db8af51109d20d74cbd7b9a2af38df..7b97220cccb7442dbc5a9f31ae9b9124
  	reserved-memory {
  		#address-cells = <2>;
  		#size-cells = <2>;
-@@ -96,3 +102,13 @@ key_volup: key-volup-pins {
+@@ -113,3 +119,13 @@ key_volup: key-volup-pins {
  		samsung,pin-drv = <EXYNOS5420_PIN_DRV_LV1>;
  	};
  };
