@@ -4,94 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B551C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 16 Feb 2025 20:06:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 693BFC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 00:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vHP5M3yeaCi7IF7vXp1agOw6DIq9vLMPFGh0uk4OOmc=; b=lkI7l0Ai/JutbMz45sL0JD1LUL
-	ElotBLEttHGRJHGuOBbwExAgHCqp/DFLuDbJ2HLFf2F8E1VLigTgG26GD7pYRKAs3+f6yrkVPCGvq
-	0mAs9LeLqKCrfvJw+DqTzKqFpUj5XnDF+SlJk/BGbKVBjA5lCbZQpbM8D3MA6rxAqtApv3H/12jRV
-	SRrhdo6B2lZRbm+eZ7+91Wtp3YUnNoIcesa0sYTA1CbtYnD3LeRQg0YM6p24tAZO6rCHq4ROs8xVS
-	x+PE68d7ScBsD9ErzWpJUI9DVnce5YA0lmf049dHH+XOM5IbBzjG/loXNjC6vFPe70X/rzBowo2HO
-	MWVh6XHw==;
+	bh=JcU/Mrdr18cGs3dTnCLq4um8s+90+rSXo/XjDVljqqs=; b=pCYxit1HFLlxl9/LC3pxzeDltE
+	mvdNW4Q5niLiEUfEkPh3C5iplGqvltGKUm4mcSZ6mFqo6xe2TiaylxBghQTSQ0IlsghCSKwjE5Uzd
+	3YX7R3ue4idSW+HsCh9mpjxjV30m4oh53YqWW+fS3fkwMAahoG7HfpV5//0qKnz0p8ShT8niwgv82
+	laPmgF+kibZ7Cituqgm68Xud8hKlkNQIuzzK/8VlZq7Gku39vdzkGcrN75jyuRdcjnMHWeY6S0Nq4
+	xMti5b+shxajk5FuxYOyGBzy5H6Mi3MfuJyfHJh3kOJVG2lH7Y1riqCXNcgRijA0ss5CHeSUrsObE
+	6ilGTQ2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjkuO-00000002WRJ-25zp;
-	Sun, 16 Feb 2025 20:06:32 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1tjojo-00000002rqu-0E8Q;
+	Mon, 17 Feb 2025 00:11:52 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjkng-00000002VZD-3CEM
+	id 1tjoiL-00000002rfJ-3OQA
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 16 Feb 2025 19:59:37 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2fbfa8c73a6so6942786a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Feb 2025 11:59:36 -0800 (PST)
+	Mon, 17 Feb 2025 00:10:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739735976; x=1740340776; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vHP5M3yeaCi7IF7vXp1agOw6DIq9vLMPFGh0uk4OOmc=;
-        b=lhBSQiBBYBQWzatCAgadxW7XmR0U14U57/ar4PuO33TSQOMZUT2BySOolcjmWZR7vu
-         lGe14nflLL8SPr+sVwDYQtLE3TjsUb7HwZRFUpVK8j7VIVBS+m0vKVktIaNsQLpsKTjv
-         rFM4EJgDYfzp1oDy6fPvjhGWTxW+de2nNrb723jBxtEY3oa0o6O/bJ5KbuoWg/Ok/zpS
-         Hp0r1rAWKI5rWdohqOOYn9KHggzp8a73LvnkfV8sJ3IK1COlmzhWukc/5Uxs0YvNnbmD
-         kOi/DeITfQRPI8Nc2cYfqsxi+58CM/0LcvDVnXrfFQw8vzFEKMquLUXIrCAJPA7FlPjh
-         XARw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739735976; x=1740340776;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vHP5M3yeaCi7IF7vXp1agOw6DIq9vLMPFGh0uk4OOmc=;
-        b=SqvCxPZ3DVluX2UAc00ysycTkicp/782Nzqn/j4oAR/W0Xx5JMpBpi7aWsdl7+9J7v
-         fSFgUkN53lTS1eeFxmVc4zXTn/r0oSVq4yenyig/dUCzYKwuHf8rrPAW1RRdSStJ1Rkz
-         e1DQaPO949tv2xk1shtXOCxBt1Ph8/fqB9tzr+28SoxZk6VHeeiyG7Th36qk7HjP0Y59
-         G6S49NsaP74VA3iyoINcL9qwCDrDh4DECcYsqKQnwulBgOZW+TpPmyzaxqG8nuCLkPD3
-         0VDvqbc7kRJIJyLqIGh6Av73j0rHHaUobQur/te/ksYSUa1CCHXkJjkCFyPdBUSWwdNL
-         vsCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVZDfgqQxPIG8Oe8Oi2SGBJ8/07+z5MLUCq6sLMs3j8cRlRvd7KhijEy4IL1co86qS/TzX8BAt8xFWhTFK2BETx@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZyCH4BNdhxnQb9SjPSX2EOWUBYTtDO76a0dCUOaHWXmvcdbaR
-	Ijy0FsfZrAncjhfzVP7Z2xvynzzp1ZaikKHIxTVGbh7RVVgqr1LH
-X-Gm-Gg: ASbGnctz2/9HMPe0nyq+/13ilrDPbyFWxWdJUPOjx1DPjy1RcSryQH3tQd1leMqcCAV
-	6Q7egjciG2riEiARiwt0LfkeeSEpIGC0zmNatkTckn2h0O904gs0Cm5INVof+7hEumgrQPdGBmh
-	4xR109prD3cvROq3XBPu8XeVDOH167PBUdXAcP6vUTccHZd2UrL49fm84XuE0+f185sIdHNdjWZ
-	RhJco5xXgE03wKD7xt4+4ew9gU9Y7kPzpZgCLjDouONc73XlD61ajR4GtFg16tas65tC2WqjY73
-	G1oe8iu24mp924oHG47ZR3RQuvzJaw==
-X-Google-Smtp-Source: AGHT+IHBlw/ULOY6wy1JfyENVCkx1GmwQZMDVZZdLPpzLlvKhW8EBtZbG/71OUMbBtVJDDU3RGHmAA==
-X-Received: by 2002:a05:6a00:2d0b:b0:72a:9ddf:55ab with SMTP id d2e1a72fcca58-732617b5545mr9505891b3a.10.1739735975841;
-        Sun, 16 Feb 2025 11:59:35 -0800 (PST)
-Received: from localhost.localdomain ([110.44.101.11])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73265098570sm3023559b3a.22.2025.02.16.11.59.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Feb 2025 11:59:35 -0800 (PST)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-pm@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
-	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v3 4/4] drivers/thermal/exymos: Use guard notation when acquiring mutex
-Date: Mon, 17 Feb 2025 01:28:37 +0530
-Message-ID: <20250216195850.5352-5-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250216195850.5352-1-linux.amoon@gmail.com>
-References: <20250216195850.5352-1-linux.amoon@gmail.com>
+	d=codeconstruct.com.au; s=2022a; t=1739751013;
+	bh=JcU/Mrdr18cGs3dTnCLq4um8s+90+rSXo/XjDVljqqs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=FfU3qebSurQNgcxzYBYi8q46USfa5cym7WWDYWfYGlOG+JJkETsZRLR5jcu7jDH+Z
+	 VXszDdoBHfNr9qcdQGZVmwlHuy/EHjbLACc06SRFlOWNrDOvbXuR1Qk1FNrdUkizKL
+	 ef8/noP7BTqMblsLm3qEnKxNkoOvVv0uZNGwyL8pQtig/RUUK7391c8bwuQO4UEHy5
+	 LQWGMzlQiCc2L2WMms7mGCGX5ryTXMKnI0boqITdXMqjv5oBD9PcaS3mjWu64VSvCV
+	 LX6qMGvh/EYLaRvLLV1DKBIk5AfPmvRl9VOWnG2H2ybmHzoZdvg1ZL7yOyXIAz+u8o
+	 2FKb+V+lCD7TA==
+Received: from [127.0.1.1] (ppp118-210-174-88.adl-adc-lon-bras34.tpg.internode.on.net [118.210.174.88])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id C910C72F1E;
+	Mon, 17 Feb 2025 08:10:09 +0800 (AWST)
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Patrick Williams <patrick@stwcx.xyz>, Potin Lai <potin.lai.pt@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Cosmo Chou <cosmo.chou@quantatw.com>, Potin Lai <potin.lai@quantatw.com>
+In-Reply-To: <20250213-bletchley-dts-fix-v1-1-c953315eb894@gmail.com>
+References: <20250213-bletchley-dts-fix-v1-1-c953315eb894@gmail.com>
+Subject: Re: [PATCH] ARM: dts: aspeed: bletchley: remove unused
+ ethernet-phy node
+Message-Id: <173975100971.56771.12087846830640085961.b4-ty@codeconstruct.com.au>
+Date: Mon, 17 Feb 2025 10:40:09 +1030
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_115936_799024_1A97AA97 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20250216_161022_055977_E67CF199 
+X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,131 +75,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using guard notation makes the code more compact and error handling
-more robust by ensuring that mutexes are released in all code paths
-when control leaves critical section.
+On Thu, 13 Feb 2025 15:12:58 +0800, Potin Lai wrote:
+> Remove the unused `ethernet-phy` node and the `phy-handle` property
+> from the Bletchley device tree. This fixes warnings reported by the
+> kernel DTB checks.
+> 
+> 
 
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
-v3: new patch
----
- drivers/thermal/samsung/exynos_tmu.c | 21 +++++++--------------
- 1 file changed, 7 insertions(+), 14 deletions(-)
+Thanks, I've applied this to be picked up through the BMC tree.
 
-diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-index fe090c1a93ab..a34ba3858d64 100644
---- a/drivers/thermal/samsung/exynos_tmu.c
-+++ b/drivers/thermal/samsung/exynos_tmu.c
-@@ -256,7 +256,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
- 	unsigned int status;
- 	int ret = 0;
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 	clk_enable(data->clk_sec);
- 
-@@ -270,7 +270,6 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
- 
- 	clk_disable(data->clk_sec);
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- 
- 	return ret;
- }
-@@ -292,13 +291,12 @@ static int exynos_thermal_zone_configure(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 
- 	data->tmu_set_crit_temp(data, temp / MCELSIUS);
- 
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- 
- 	return 0;
- }
-@@ -325,12 +323,11 @@ static void exynos_tmu_control(struct platform_device *pdev, bool on)
- {
- 	struct exynos_tmu_data *data = platform_get_drvdata(pdev);
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 	data->tmu_control(pdev, on);
- 	data->enabled = on;
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- }
- 
- static void exynos_tmu_update_bit(struct exynos_tmu_data *data, int reg_off,
-@@ -645,7 +642,7 @@ static int exynos_get_temp(struct thermal_zone_device *tz, int *temp)
- 		 */
- 		return -EAGAIN;
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 
- 	value = data->tmu_read(data);
-@@ -655,7 +652,6 @@ static int exynos_get_temp(struct thermal_zone_device *tz, int *temp)
- 		*temp = code_to_temp(data, value) * MCELSIUS;
- 
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- 
- 	return ret;
- }
-@@ -720,11 +716,10 @@ static int exynos_tmu_set_emulation(struct thermal_zone_device *tz, int temp)
- 	if (temp && temp < MCELSIUS)
- 		goto out;
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 	data->tmu_set_emulation(data, temp);
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- 	return 0;
- out:
- 	return ret;
-@@ -760,14 +755,13 @@ static irqreturn_t exynos_tmu_threaded_irq(int irq, void *id)
- 
- 	thermal_zone_device_update(data->tzd, THERMAL_EVENT_UNSPECIFIED);
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 
- 	/* TODO: take action based on particular interrupt */
- 	data->tmu_clear_irqs(data);
- 
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- 
- 	return IRQ_HANDLED;
- }
-@@ -987,7 +981,7 @@ static int exynos_set_trips(struct thermal_zone_device *tz, int low, int high)
- {
- 	struct exynos_tmu_data *data = thermal_zone_device_priv(tz);
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 
- 	if (low > INT_MIN)
-@@ -1000,7 +994,6 @@ static int exynos_set_trips(struct thermal_zone_device *tz, int low, int high)
- 		data->tmu_disable_high(data);
- 
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- 
- 	return 0;
- }
--- 
-2.48.1
+--
+Andrew Jeffery <andrew@codeconstruct.com.au>
 
 
