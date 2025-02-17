@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD84C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 16:17:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B71DCC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 16:19:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s5Qn3Izea1XkIFjORxwyxiB7Rz8OfU+yXngImMLSszU=; b=ezJvtzSXwPRknTEHSl3ZhAacsU
-	FCndnujyfEIA1MQNvZeYPGJh9Fj2Wdnuo7ZBK7y3vuz/PhkX+ZCBRo+fbL2BJ9cl71+G3I6EPAFnW
-	JY7wxnQ8qNLUHfsm1+l4HLB3F9dX+9nEl9XiLZnIWjpXAOuJgiIzHbuQC0CgeZWRwoUG6oRhpMyt0
-	reLKcilSUOJn7/+TRXZRj98MRADpwVyUN/3LlOaOZqson8QIJxqSMJBmA2aHGxBstUcXTUp8IRwUH
-	QDFlPnz8HGDm6A5Ockt0D/1MR4/oo+recN+R3bMHIVUEjQ3lLuo1lUWoLaPgsT/W1OzhYOnd1j5bX
-	gMhQTuXw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oT48PO3HfIeDjSDux1vBuhE4VoEwoL5q99u+4AwOVE8=; b=A386J1A/1rsfcG
+	2Xre+8sRbwiU/tYo/R3FzNHzizODY43AjYpcBPF1Aro5UqqJLRuu4qCag44IE52rab/vypTAc5iDS
+	4GH4KdJFASUp2avuZEBFg0JuEHp7/bZxQO0akuzWlL1SMxjE1LMoYyC5L66l1PqoD/8rCNmDCr63d
+	MgkzJ6yEtfpMeaQEnjB+N+4T7xkyDqT3ZZnriwDBIM52qo4Dhg9mijWabZQK5hiFBaWxkPOFvm7zH
+	WdLkgoZGx4eQwtFd4VBiCDTXUz+bsvo3MynD+7CeERukQB0AK+8uHqEngk0jWUYsZk42DK6HjhkJt
+	FJVFgY4e1legKdqX0SRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3oD-00000005ESe-1ylq;
-	Mon, 17 Feb 2025 16:17:25 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1tk3pf-00000005Ejt-0L9q;
+	Mon, 17 Feb 2025 16:18:55 +0000
+Received: from mail-lf1-f48.google.com ([209.85.167.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3Fl-000000056Br-2BHC
+	id 1tk3MD-000000057nN-3x7c
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 15:41:50 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-471fa3b19bcso80331cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 07:41:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739806908; x=1740411708; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=s5Qn3Izea1XkIFjORxwyxiB7Rz8OfU+yXngImMLSszU=;
-        b=jXam/HmM5eR9Dns02RiS0ssQp3koP5ZAoEnOUgN2uslLhstaJx3nn1hZDtjm7oYNbM
-         oVhLAuPgHMqvB07yDKMVNCX0HcCeaj5LbpEz0D7NLEO/1n1PUUH9zqExDR5Ox+AZ0UAs
-         pdJz8EWZbRrwRrGsoc+4KEQDzmuFESuVY8hG2H28+USDkiXsA5qyLGmI/VYP18frvEDs
-         89b6rqDuZ6Grz3GZCiHf1DdpGqZqnmIWcG1hEKXLuc+t2cPCAoPvV1BHJLhHIOOsXPeb
-         E6VLZX7EkQvS16Tzd+ZU8he9rmZT2lYuGJzUBNQ1vrJ2h+dpVuFU2Ei0dR5Rx5B9SwU+
-         S54A==
+	Mon, 17 Feb 2025 15:48:31 +0000
+Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-545fed4642aso1739441e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 07:48:29 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739806908; x=1740411708;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=s5Qn3Izea1XkIFjORxwyxiB7Rz8OfU+yXngImMLSszU=;
-        b=Vo7BdY5pEVZR5hmiJQmNsWVN5drq06R0myGAJiPgjSsRBp1XV2dQHHsCGBRD5l3ziw
-         tHDIKas4aDznHxqn0xmypjWsYvtwL7hyVsFn11CarFL7sCI/eG2hTXEpP8emcRJkaLZa
-         bHPMLrxfr7/JEshNmRzEn29PrMTv8QKblTkYDP94dcpqzX3v9l8J8Sc2LXHIqF+xFmu+
-         s7UMkE6sHntTAvYxJTEEVKoo7OjFMh5JoZtA7PVrefg8AHQBf3XRq3iQlvn1kVaG3G+1
-         4gMdvGtAW2sebz0y1oppOKGqQ+9gXUTSIESoqZ7Mm+GIdz02jdg9MjCyjhhqKOjiYo8g
-         5ieg==
-X-Forwarded-Encrypted: i=1; AJvYcCU/7U5WvTOg7EmmWVs3vKApfAJWcj8zYtjIp8vwUED5qOLX88FbDoL+fuIBdvP1Q9ohPbG+Pv8ntEi/E7vfnBDF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbtiHvZoVm8M9IAO391+DNW7E3U858d4oqXpW9SKmuJGRg4FcX
-	UZZo4wTbXkeX836l+yS1kHKjxYxgpGRAoan35FE4Fh7CR7GEsdwsjd7EvpViUWv+v8tmzdWDAZt
-	rct62zzrvsY03BVpcPm9GeIpiE0SR2aOPfxSo
-X-Gm-Gg: ASbGncubaIrdq5SYoQc1oUW28PbhlJLIyxT+U6s/PEbpX8FW84SNWQNyedJEBfpGnrM
-	bQI5ffyvGSXrQKztTj4zXV/yKv42xXx5fb54TAmLr6Rj6F+oRJegUpBCCeVZWYxCOjfQIXo0=
-X-Google-Smtp-Source: AGHT+IEV69uZM3laRSzjCGKBZlseoILARY1eAIAe+bkM661+fIqBeto74KePJaR81k8/nxiNWACCqrXZjC0ZbFzBnwY=
-X-Received: by 2002:a05:622a:1899:b0:467:7c30:3446 with SMTP id
- d75a77b69052e-471de0b5ed9mr6696061cf.25.1739806907930; Mon, 17 Feb 2025
- 07:41:47 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739807307; x=1740412107;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=oT48PO3HfIeDjSDux1vBuhE4VoEwoL5q99u+4AwOVE8=;
+        b=KGOo1NfLKiY2R3NXlNbqEZKNF9I12ZIPA8QdhQ62JHDaVkgMThQIjdGMqBsWoWk7GJ
+         qgMLkuGVZk8jtHjTx6h0+UHAZzlrwXZeupvAd2bcrzZ9LDV3glPfAF8ATd4ZnSAO+aNr
+         LFjvIPhBXrnB/UDb4G/4BEyoH4c4K+rVZ9/O1LpWr9Fd0+qo/Zxb1zh/0Fk9jGHSdoNL
+         QMi8GXm7wC6I+y3ITIDVInBuMWdSVRCbGIJ7utSnpC5iKKNFiiLKfrrIRq50q+kSlkV3
+         0Wzl0o8SmKtcxOnKHHVt+6YggYqTU4/tPEv0oIweC+dEHxaAkss3mYCFWR7mza/gOf4n
+         dmyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW1O3qax/6yS1ceR+WXQHZe49SBeXzmiGWrW5razp67VBP5QObx1dqSIDKjY2fLaE+NNGgQaXPthjIFjfm4jG7Q@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy73PSyMI6iEzzsOnk4a4g3ST38eL3SAv8LpXyskIboOgMeIMRK
+	801anHz2MN5qa76o2La1NBf5uSzadWubnWW6YnZLMLqq9/Mu/JWZavBgHxq1
+X-Gm-Gg: ASbGncvJYph0HswEflKrBbz5GFob3fZ6VnUyb1IhF+0wBUgjBpgRMsPe7VOENjwb4GH
+	JgrYIK3StqLDwjhhvFg+AvoqRmaDgLl5poPpJwVUITp1Yubd8qyKa4mpBocE0cnirh2iu1NRHgq
+	sLcNbxkAuYIkz7dJVb4AkTso3PEPNaupImh5Es5PHLDkjg7ZB9DYQuF8k5J2tv8/YSIbm4A/krg
+	qSDz/pVZlJA1KpYDPSSKY69qFQfnGePVgCfwDiXqaSStx0IydjpXvQtgblrHJIjhc2C0iMXoya1
+	TxP0JxgXguAL93kvuF+acKy0C+9i4GYFQByAuVCCFcizhLcZ
+X-Google-Smtp-Source: AGHT+IH+ruTBlKNKROiuC04Q/08jy56RhyX78N6rvbMVDeyGaqT8TFAAycJvYLTePkOKo5iKufps0w==
+X-Received: by 2002:a05:6512:33c9:b0:545:225d:6463 with SMTP id 2adb3069b0e04-5452fe8befdmr2369354e87.42.1739807307385;
+        Mon, 17 Feb 2025 07:48:27 -0800 (PST)
+Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com. [209.85.208.180])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5461ab8a220sm731429e87.236.2025.02.17.07.48.26
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Feb 2025 07:48:26 -0800 (PST)
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-30a36eecb9dso7122711fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 07:48:26 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXyaItJ5Atj/gaLVsOaENGPxn+7SiHPXbVtV98ZkEERW98gG4WPlz9H+PvwEOduwNd0Lq3oIPfGiZGH1zVtwCEc@lists.infradead.org
+X-Received: by 2002:a2e:88c9:0:b0:309:2012:cc5d with SMTP id
+ 38308e7fff4ca-30927ad64e9mr23653441fa.24.1739807306250; Mon, 17 Feb 2025
+ 07:48:26 -0800 (PST)
 MIME-Version: 1.0
-References: <20250214150258.464798-1-tabba@google.com> <20250214150258.464798-4-tabba@google.com>
- <20250217153031.GA16398@willie-the-truck>
-In-Reply-To: <20250217153031.GA16398@willie-the-truck>
-From: Fuad Tabba <tabba@google.com>
-Date: Mon, 17 Feb 2025 15:41:10 +0000
-X-Gm-Features: AWEUYZkFTQSHdZxvo_v7HWx6s0y_SqFFArebD5bJZjqRw5mfCRmh2Sc8vDT1ZT8
-Message-ID: <CA+EHjTyOk_VpcTaD-VsH9X7KjpPKWu-HyVE3EEV+rzhnHar84A@mail.gmail.com>
-Subject: Re: [PATCH v1 3/3] KVM: arm64: Create each pKVM hyp vcpu after its
- corresponding host vcpu
-To: Will Deacon <will@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, 
-	vdonnefort@google.com
+References: <20250214003734.14944-1-andre.przywara@arm.com> <20250214003734.14944-5-andre.przywara@arm.com>
+In-Reply-To: <20250214003734.14944-5-andre.przywara@arm.com>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Mon, 17 Feb 2025 23:48:13 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67V7PAOC8MLVzE5SwwvpogN_WLNhQnRVD2pikGVDHtJjA@mail.gmail.com>
+X-Gm-Features: AWEUYZlCDWHC9MbTz92hd57HNQUJnNXRSXbL_QnKKWLChMmYjVCum1sff3H_yMQ
+Message-ID: <CAGb2v67V7PAOC8MLVzE5SwwvpogN_WLNhQnRVD2pikGVDHtJjA@mail.gmail.com>
+Subject: Re: [PATCH v2 4/8] pinctrl: sunxi: support moved power configuration registers
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_074149_587096_D6E87355 
-X-CRM114-Status: GOOD (  25.57  )
+X-CRM114-CacheID: sfid-20250217_074829_984750_66E51DD2 
+X-CRM114-Status: GOOD (  22.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,101 +95,110 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+On Fri, Feb 14, 2025 at 8:40=E2=80=AFAM Andre Przywara <andre.przywara@arm.=
+com> wrote:
+>
+> The Allwinner pincontroller IP features some registers to control the
+> withstand voltage of each pin group. So far those registers were always
+> located at the same offset, but the A523 SoC has moved them (probably to
+> accommodate all eleven pin banks).
+>
+> Add a flag to note this feature, and use that to program the registers
+> either at offset 0x340 or 0x380. So far no pincontroller driver uses
+> this flag, but we need it for the upcoming A523 support.
+>
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  drivers/pinctrl/sunxi/pinctrl-sunxi.c | 15 +++++++++++----
+>  drivers/pinctrl/sunxi/pinctrl-sunxi.h |  7 +++++--
+>  2 files changed, 16 insertions(+), 6 deletions(-)
+>
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/sunx=
+i/pinctrl-sunxi.c
+> index 83a031ceb29f2..a1057122272bd 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> @@ -736,9 +736,9 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sunxi=
+_pinctrl *pctl,
+>                 val =3D uV > 1800000 && uV <=3D 2500000 ? BIT(bank) : 0;
+>
+>                 raw_spin_lock_irqsave(&pctl->lock, flags);
+> -               reg =3D readl(pctl->membase + PIO_POW_MOD_CTL_REG);
+> +               reg =3D readl(pctl->membase + pctl->pow_mod_sel_offset);
+>                 reg &=3D ~BIT(bank);
+> -               writel(reg | val, pctl->membase + PIO_POW_MOD_CTL_REG);
+> +               writel(reg | val, pctl->membase + pctl->pow_mod_sel_offse=
+t);
+>                 raw_spin_unlock_irqrestore(&pctl->lock, flags);
+>
+>                 fallthrough;
+> @@ -746,9 +746,12 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sunx=
+i_pinctrl *pctl,
+>                 val =3D uV <=3D 1800000 ? 1 : 0;
+>
+>                 raw_spin_lock_irqsave(&pctl->lock, flags);
+> -               reg =3D readl(pctl->membase + PIO_POW_MOD_SEL_REG);
+> +               reg =3D readl(pctl->membase + pctl->pow_mod_sel_offset +
+> +                           PIO_POW_MOD_SEL_OFS);
+>                 reg &=3D ~(1 << bank);
+> -               writel(reg | val << bank, pctl->membase + PIO_POW_MOD_SEL=
+_REG);
+> +               writel(reg | val << bank,
+> +                      pctl->membase + pctl->pow_mod_sel_offset +
+> +                      PIO_POW_MOD_SEL_OFS);
+>                 raw_spin_unlock_irqrestore(&pctl->lock, flags);
+>                 return 0;
+>         default:
+> @@ -1520,6 +1523,10 @@ int sunxi_pinctrl_init_with_flags(struct platform_=
+device *pdev,
+>                 pctl->pull_regs_offset =3D PULL_REGS_OFFSET;
+>                 pctl->dlevel_field_width =3D DLEVEL_FIELD_WIDTH;
+>         }
+> +       if (flags & SUNXI_PINCTRL_ELEVEN_BANKS)
+> +               pctl->pow_mod_sel_offset =3D PIO_11B_POW_MOD_SEL_REG;
+> +       else
+> +               pctl->pow_mod_sel_offset =3D PIO_POW_MOD_SEL_REG;
+>
+>         pctl->irq_array =3D devm_kcalloc(&pdev->dev,
+>                                        IRQ_PER_BANK * pctl->desc->irq_ban=
+ks,
+> diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/sunx=
+i/pinctrl-sunxi.h
+> index 6cf721876d89d..a93385e456a57 100644
+> --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> @@ -87,9 +87,11 @@
+>  #define SUNXI_PINCTRL_VARIANT_MASK     GENMASK(7, 0)
+>  #define SUNXI_PINCTRL_NEW_REG_LAYOUT   BIT(8)
+>  #define SUNXI_PINCTRL_PORTF_SWITCH     BIT(9)
+> +#define SUNXI_PINCTRL_ELEVEN_BANKS     BIT(10)
+>
+> -#define PIO_POW_MOD_SEL_REG    0x340
+> -#define PIO_POW_MOD_CTL_REG    0x344
+> +#define PIO_POW_MOD_SEL_REG            0x340
+> +#define PIO_11B_POW_MOD_SEL_REG                0x380
+> +#define PIO_POW_MOD_SEL_OFS            0x004
 
-On Mon, 17 Feb 2025 at 15:30, Will Deacon <will@kernel.org> wrote:
->
-> On Fri, Feb 14, 2025 at 03:02:58PM +0000, Fuad Tabba wrote:
-> > Instead of creating and initializing _all_ hyp vcpus in pKVM when
-> > the first host vcpu runs for the first time, initialize _each_
-> > hyp vcpu in conjunction with its corresponding host vcpu.
-> >
-> > Some of the host vcpu state (e.g., system registers and traps
-> > values) are not initialized until the first time the host vcpu is
-> > run. Therefore, initializing a hyp vcpu before its corresponding
-> > host vcpu has run for the first time might not view the complete
-> > host state of these vcpus.
-> >
-> > Additionally, this behavior is inline with non-protected modes.
-> >
-> > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > ---
-> >  arch/arm64/include/asm/kvm_host.h      |  2 +
-> >  arch/arm64/include/asm/kvm_pkvm.h      |  1 +
-> >  arch/arm64/kvm/arm.c                   |  4 ++
-> >  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  6 ---
-> >  arch/arm64/kvm/hyp/nvhe/pkvm.c         | 54 +++++++++++++++-----------
-> >  arch/arm64/kvm/pkvm.c                  | 28 ++++++-------
-> >  6 files changed, 53 insertions(+), 42 deletions(-)
->
-> [...]
->
-> >  static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
-> >                             struct pkvm_hyp_vm *hyp_vm,
-> > -                           struct kvm_vcpu *host_vcpu,
-> > -                           unsigned int vcpu_idx)
-> > +                           struct kvm_vcpu *host_vcpu)
-> >  {
-> >       int ret = 0;
-> >
-> >       if (hyp_pin_shared_mem(host_vcpu, host_vcpu + 1))
-> >               return -EBUSY;
-> >
-> > -     if (host_vcpu->vcpu_idx != vcpu_idx) {
-> > -             ret = -EINVAL;
-> > -             goto done;
-> > -     }
-> > -
-> >       hyp_vcpu->host_vcpu = host_vcpu;
-> >
-> >       hyp_vcpu->vcpu.kvm = &hyp_vm->kvm;
-> >       hyp_vcpu->vcpu.vcpu_id = READ_ONCE(host_vcpu->vcpu_id);
-> > -     hyp_vcpu->vcpu.vcpu_idx = vcpu_idx;
-> > +     hyp_vcpu->vcpu.vcpu_idx = READ_ONCE(host_vcpu->vcpu_idx);
-> >
-> >       hyp_vcpu->vcpu.arch.hw_mmu = &hyp_vm->kvm.arch.mmu;
-> >       hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
-> > @@ -687,27 +689,28 @@ int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
-> >               goto unlock;
-> >       }
-> >
-> > -     idx = hyp_vm->nr_vcpus;
-> > +     ret = init_pkvm_hyp_vcpu(hyp_vcpu, hyp_vm, host_vcpu);
-> > +     if (ret)
-> > +             goto unlock;
-> > +
-> > +     idx = hyp_vcpu->vcpu.vcpu_idx;
-> >       if (idx >= hyp_vm->kvm.created_vcpus) {
-> >               ret = -EINVAL;
-> >               goto unlock;
-> >       }
-> >
-> > -     ret = init_pkvm_hyp_vcpu(hyp_vcpu, hyp_vm, host_vcpu, idx);
-> > -     if (ret)
-> > +     if (hyp_vm->vcpus[idx]) {
-> > +             ret = -EINVAL;
-> >               goto unlock;
-> > +     }
->
-> I'm not sure how much we care at EL2, but it looks like there's a
-> potential spectre gadget here given that 'idx' is now untrusted.
-> Perhaps chuck something like:
->
->         idx = array_index_nospec(idx, hyp_vm->kvm.created_vcpus);
->
-> before indexing into 'hyp_vm->vcpus[]'?
+Shouldn't this be PIO_POW_MOD_CTL_OFS instead?
 
-I'll add that when I respin.
+ChenYu
 
-> Either way:
 >
-> Acked-by: Will Deacon <will@kernel.org>
-
-Thanks,
-/fuad
-
-> Will
+>  #define PIO_BANK_K_OFFSET              0x500
+>
+> @@ -173,6 +175,7 @@ struct sunxi_pinctrl {
+>         u32                             bank_mem_size;
+>         u32                             pull_regs_offset;
+>         u32                             dlevel_field_width;
+> +       u32                             pow_mod_sel_offset;
+>  };
+>
+>  #define SUNXI_PIN(_pin, ...)                                   \
+> --
+> 2.46.3
+>
 
