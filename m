@@ -4,70 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 411E9C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 01:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06E58C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 01:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jSNFXtv0XV+vD2f7lyDqoboer+mdz+7wiBnDN75YsDQ=; b=0Yt3GUbIIPkE74s3BwxkG2Vpbl
-	98Z/l4LQ+pXIqV2+8DbwADVUiusWfjaHBv9paRypS0ZmByROh2sp3K9nXmY9uN2CA4Qq+if0AO4nb
-	Pkv2Vs8NKO0S650LA0vALxpjavJx76mv3ghCByZAMMVpSJN4cqWtvaOOcUhr4GavQpVKTWePIu+FL
-	G2Usmy1AiEv9tBv6WSh0c71std2FX/6VqYHqg1cP82Ek6oWIxjMMatZGmScNXcl3vETXWBp3heU/4
-	xqxZPVgGssGzLVL9axo/6hkRzZHVIWQQ3ovtm6TpoGe5lqRZlDBXksN36b49gKDqmrgLxzLlFHxMi
-	E+QHBJkA==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QEWtjHoNU9NHeQt4i7TL5SjyB4mbjcKUSANV4HeIacY=; b=AOjhNEK7a3bEXfhCfR6NwzdJdm
+	vi+aXqtHT0dtI8AzmGpEtZ3CZ3yyRIflJSpwg4/aAdDVqTZFALLimflVVg1LKoGJDADwJ22t+gREL
+	ai6/GFHNwpGRGVs1uabdLmfaroXIUJ/bpkGL0TEr69mbRAvoKeCRZWFY5ciGluYQhenP8f+cZcSFB
+	7RkdT/jvFhV3VLvsVbZ+ioJFxLLi0wdOXnQb3Ayei6rzLkGUUdjqAzlMSy979NQ1MeZU+h4nurShl
+	AdtUAZNlODoNVh35EgVEqK49p4ak9er0nZGmHLjCaxrpr4/sJ4jXniYS4nl4CzsAsmqoK/cGjQ84Y
+	lrvOTUrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjpk9-00000002xFL-19c9;
-	Mon, 17 Feb 2025 01:16:17 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1tjplZ-00000002xOK-3n24;
+	Mon, 17 Feb 2025 01:17:45 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjpif-00000002x5K-1KlO
+	id 1tjpjE-00000002x9H-064U
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 01:14:46 +0000
-Received: from icess-ProLiant-DL380-Gen10.. (unknown [183.174.60.14])
-	by APP-05 (Coremail) with SMTP id zQCowADn7ChzjbJnCEy0DQ--.20851S2;
-	Mon, 17 Feb 2025 09:14:36 +0800 (CST)
-From: Ma Ke <make24@iscas.ac.cn>
-To: linux@armlinux.org.uk,
-	gregkh@linuxfoundation.org,
-	elder@kernel.org,
-	sumit.garg@linaro.org,
-	make24@iscas.ac.cn
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	akpm@linux-foundation.org,
-	stable@vger.kernel.org
-Subject: [PATCH v5 RESEND] [ARM] fix reference leak in locomo_init_one_child()
-Date: Mon, 17 Feb 2025 09:14:26 +0800
-Message-Id: <20250217011426.2239159-1-make24@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	Mon, 17 Feb 2025 01:15:21 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51H03ATu003101;
+	Mon, 17 Feb 2025 01:15:00 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	QEWtjHoNU9NHeQt4i7TL5SjyB4mbjcKUSANV4HeIacY=; b=iyT66gWyEWb+iNmP
+	W0DOspffSWoDU+ma/fpk4gHVCpQWKKqngH/NAJQdvnsZ9eVuKwRBmaA1uw9e27/l
+	sptmnes6vjQejj9mb66SntVkNIR4FdlhbfpH1GqM4bsbBhyhgL7qMzGMS+5xw3gm
+	KaxIQpKn6ClN3IUrNDn/oVfctl6HeOu/iFsKgoTAREhgw3b753z8GjICBaE0VVUB
+	M7Ap0WOq2+mW4Tvibpi4kjOfcgxo7URn3eXDHt3eTWF21tPgIJrTQpL+qLFaUJ8A
+	M2aAN4U5L4bO+zvG4bSkus78SEqD/wsWh8kkGykXdRbkzdAclKx0sVlDBgxSOWHj
+	42sbTw==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44ut7v839a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 17 Feb 2025 01:14:59 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51H1EwWC029430
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 17 Feb 2025 01:14:58 GMT
+Received: from [10.133.33.23] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 16 Feb
+ 2025 17:14:54 -0800
+Message-ID: <5e6edfce-ef2e-48d2-ad0c-0120606394fb@quicinc.com>
+Date: Mon, 17 Feb 2025 09:14:51 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 4/7] Coresight: Introduce a new struct coresight_path
+To: James Clark <james.clark@linaro.org>
+CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao
+	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+References: <20250207064213.2314482-1-quic_jiegan@quicinc.com>
+ <20250207064213.2314482-5-quic_jiegan@quicinc.com>
+ <a633f52c-81e8-4c0d-aca7-cc18360866eb@linaro.org>
+ <4b521b49-7104-4f25-82cb-4f9be7b235f4@quicinc.com>
+ <b61af324-7488-4a4f-9f9e-2ecb004fc4c7@linaro.org>
+Content-Language: en-US
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <b61af324-7488-4a4f-9f9e-2ecb004fc4c7@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowADn7ChzjbJnCEy0DQ--.20851S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7WryrKw13CF4fuFW7AryDGFg_yoW8Wry7pa
-	s7Cas8trWUWr4vgFW0qFn7ZFyUGayIkw45GrW8C340g3s0vrWIqFy0ga429w1UXrWkAFnY
-	vF4xXw4UG3WUCaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9Y14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r
-	4UJVWxJr1lnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG
-	64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r
-	1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAq
-	YI8I648v4I1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCT
-	nIWIevJa73UjIFyTuYvjfUF0eHDUUUU
-X-Originating-IP: [183.174.60.14]
-X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: ncpn-UUadyPb6vXM7jc6XjlAZmOQIyol
+X-Proofpoint-GUID: ncpn-UUadyPb6vXM7jc6XjlAZmOQIyol
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-17_01,2025-02-13_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ adultscore=0 suspectscore=0 mlxscore=0 mlxlogscore=908 priorityscore=1501
+ impostorscore=0 spamscore=0 clxscore=1015 bulkscore=0 malwarescore=0
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502170007
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_171445_736880_085979EA 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20250216_171520_188463_D780614D 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,63 +119,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Once device_register() failed, we should call put_device() to
-decrement reference count for cleanup. Or it could cause memory leak.
 
-As comment of device_register() says, 'NOTE: _Never_ directly free
-@dev after calling this function, even if it returned an error! Always
-use put_device() to give up the reference initialized in this function
-instead.'
 
-Found by code review.
-Cc: stable@vger.kernel.org
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Signed-off-by: Ma Ke <make24@iscas.ac.cn>
----
-Changes in v5:
-- modified the bug description as suggestions;
-Changes in v4:
-- deleted the redundant initialization;
-Changes in v3:
-- modified the patch as suggestions;
-Changes in v2:
-- modified the patch as suggestions.
----
- arch/arm/common/locomo.c | 13 +++++--------
- 1 file changed, 5 insertions(+), 8 deletions(-)
+On 2/14/2025 7:09 PM, James Clark wrote:
+> 
+> 
+> On 14/02/2025 1:34 am, Jie Gan wrote:
+>>
+>>
+>> On 2/14/2025 12:00 AM, James Clark wrote:
+>>>
+>>>
+>>> On 07/02/2025 6:42 am, Jie Gan wrote:
+>>>> Add 'struct coresight_path' to store the data that is needed by
+>>>> coresight_enable_path/coresight_disable_path. The structure will be
+>>>> transmitted to any required devices to enable related funcationalities.
+>>>>
+>>>> The trace_id will be allocated after the path is built. Consequently,
+>>>> The ETM3x and ETM4x devices will directly read the trace_id from path
+>>>> which result in etm_read_alloc_trace_id and etm4_read_alloc_trace_id
+>>>> being deleted.
+>>>>
+>>>> Co-developed-by: James Clark <james.clark@linaro.org>
+>>>> Signed-off-by: James Clark <james.clark@linaro.org>
+>>>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+>>>> ---
+>>>>   drivers/hwtracing/coresight/coresight-core.c  | 106 ++++++++++++ 
+>>>> +-----
+>>>>   drivers/hwtracing/coresight/coresight-dummy.c |   5 +-
+>>>>   .../hwtracing/coresight/coresight-etm-perf.c  |  30 +++--
+>>>>   .../hwtracing/coresight/coresight-etm-perf.h  |   2 +-
+>>>>   drivers/hwtracing/coresight/coresight-etm.h   |   1 -
+>>>>   .../coresight/coresight-etm3x-core.c          |  54 ++-------
+>>>>   .../coresight/coresight-etm4x-core.c          |  54 ++-------
+>>>>   drivers/hwtracing/coresight/coresight-etm4x.h |   1 -
+>>>>   drivers/hwtracing/coresight/coresight-priv.h  |  12 +-
+>>>>   drivers/hwtracing/coresight/coresight-stm.c   |   3 +-
+>>>>   drivers/hwtracing/coresight/coresight-sysfs.c |  17 ++-
+>>>>   drivers/hwtracing/coresight/coresight-tpdm.c  |   3 +-
+>>>>   include/linux/coresight.h                     |  12 +-
+>>>>   13 files changed, 143 insertions(+), 157 deletions(-)
+>>>>
+>>> [...]
+>>>> @@ -352,7 +352,7 @@ static void *etm_setup_aux(struct perf_event 
+>>>> *event, void **pages,
+>>>>        * CPUs, we can handle it and fail the session.
+>>>>        */
+>>>>       for_each_cpu(cpu, mask) {
+>>>> -        struct list_head *path;
+>>>> +        struct coresight_path *path;
+>>>>           struct coresight_device *csdev;
+>>>>           csdev = per_cpu(csdev_src, cpu);
+>>>> @@ -405,15 +405,15 @@ static void *etm_setup_aux(struct perf_event 
+>>>> *event, void **pages,
+>>>>               cpumask_clear_cpu(cpu, mask);
+>>>>               continue;
+>>>>           }
+>>>> -
+>>>>           /* ensure we can allocate a trace ID for this CPU */
+>>>> -        trace_id = coresight_trace_id_get_cpu_id_map(cpu, &sink- 
+>>>> >perf_sink_id_map);
+>>>> -        if (!IS_VALID_CS_TRACE_ID(trace_id)) {
+>>>> +        trace_id = coresight_path_assign_trace_id(path, CS_MODE_PERF);
+>>>> +
+>>>> +        /* Can be 0 and valid, ETE doesn't need an ID */
+>>>> +        if (trace_id < 0) {
+>>>
+>>> Not sure why I wrote it like this, but I think we should leave it as 
+>>> it was with !IS_VALID_CS_TRACE_ID(). Even with ETE it calls the trace 
+>>> ID allocator, so nothing has changed here.
+>>>
+>> Sure, Will restore. For ETE or ETM, we dont need traverse the path, 
+>> just directly allocate the trace id based on cpu id.
+>>
+>> Jie
+>>
+>>
+> 
+> Sorry I meant to only keep the !IS_VALID_CS_TRACE_ID() bit. We still 
+> need to call the new coresight_path_assign_trace_id() otherwise it 
+> doesn't get assigned to the path. I saw that got removed in v11.
+> 
+> 
+Sorry for the misunderstanding, I was focused on "nothing has changed 
+here", lol.
 
-diff --git a/arch/arm/common/locomo.c b/arch/arm/common/locomo.c
-index cb6ef449b987..45106066a17f 100644
---- a/arch/arm/common/locomo.c
-+++ b/arch/arm/common/locomo.c
-@@ -223,10 +223,8 @@ locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
- 	int ret;
- 
- 	dev = kzalloc(sizeof(struct locomo_dev), GFP_KERNEL);
--	if (!dev) {
--		ret = -ENOMEM;
--		goto out;
--	}
-+	if (!dev)
-+		return -ENOMEM;
- 
- 	/*
- 	 * If the parent device has a DMA mask associated with it,
-@@ -254,10 +252,9 @@ locomo_init_one_child(struct locomo *lchip, struct locomo_dev_info *info)
- 			NO_IRQ : lchip->irq_base + info->irq[0];
- 
- 	ret = device_register(&dev->dev);
--	if (ret) {
-- out:
--		kfree(dev);
--	}
-+	if (ret)
-+		put_device(&dev->dev);
-+
- 	return ret;
- }
- 
--- 
-2.25.1
+I got your point here.
+So the updated codes should be:
+...
+                 /* ensure we can allocate a trace ID for this CPU */
+                 trace_id = coresight_path_assign_trace_id(path, 
+CS_MODE_PERF);
+                 if (!IS_VALID_CS_TRACE_ID(trace_id)) {
+                         cpumask_clear_cpu(cpu, mask);
+                         coresight_release_path(path);
+                         continue;
+                 }
+...
 
+
+Thanks,
+Jie
 
