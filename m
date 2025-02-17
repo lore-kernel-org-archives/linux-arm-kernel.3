@@ -4,97 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8082EC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 19:02:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B4DAC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 19:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FbEfh1V/TCyzyVBnzOPjw0bmm27Qjtw3b9033vGjqT8=; b=pMW+eEgdBy7pklM4UxaZTzR2I2
-	ey9lSb4K0C5NDILEa+4CYDsfZOLBh83ni7qybVJ2UrFIautgIoFk9FvrsJXhMNCqfpIMoOXRTfMzq
-	ut4kZh/vU8UaM9HdFKoCykoqPNz//w4BnKwLw9RYk7Ky0mk2zjmiDMYrIQjrkCHXhxlgQWV0yX3Ob
-	JOG/6cp0o5WNfwEfetYc7l4QenvxoqJN1ZLeTbGExNmcUfalrS0a0uslxL8rpPxiG/IKYKQ3sbAfj
-	EJj/yD00mgIwPzyvsK46+NJd88d29qBLAv7kLGZjwyMz2IalJdl+867kJ5bgVWT7a6c/XYoYUoan/
-	5/CN0rfQ==;
+	bh=bIXATMlFsol/5fq4fVFFrsD5S9CGCNGuy/RXPDsnOZ8=; b=AZClWbiIVXNF3W1VCbb01dcBR5
+	GN9tyJstuwmOeGCSFZxa8hfPEBTkubUmbcBsw051OAS+RCRzgjRWadq1CbTWhAUwtGnoZI6CH4xut
+	qIqjB4XKa+XXHjoqF5eO1I78DLJt+2uRb0/6soixU+l9zZKIDeCkx7QJasZ0yIIQt0XW0xxHg6WPm
+	I/Rip3gvLoZvOU+HuP5f0wVGnTtXVtxeZa2wJZX47YXeKjln8iNnzEYlQ2z0luix7t9Eoo1cFycWN
+	uFXv/8tPMU3VT7MXt+nThVUYAv1KoJ8UGSxSQ1uSjX+5p4vz+GCIXJVbkGd5wCWS2BKbEQgH+I+uK
+	A/YPRN8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk6NQ-00000005h5k-0cvw;
-	Mon, 17 Feb 2025 19:01:56 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tk6T8-00000005hm9-0tQr;
+	Mon, 17 Feb 2025 19:07:50 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk6Lw-00000005gnj-0mNU;
-	Mon, 17 Feb 2025 19:00:25 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-4398e839cd4so3521095e9.0;
-        Mon, 17 Feb 2025 11:00:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739818822; x=1740423622; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FbEfh1V/TCyzyVBnzOPjw0bmm27Qjtw3b9033vGjqT8=;
-        b=DSELSRsGXZvfXblulTuQ9TX2zYCRXjc6T6P36XbbkSoflm7PuKKdVmaqOTC9cohv1g
-         92Al3zJnNupTHd0Khr1afkdJQ+fpNmnNGvL1bbVStYTSaY/JVaHA+zRmlvTWxaekmY/z
-         8QpcWTfWWHL+95wlEHWsE9f0ARBm34BWo/gqcc6HHRYFnpi+AxwREAXLyYR5zXFvpfDq
-         Hnx9naabq+zyMDe1G2fCA3yt3tPZBWJA36UDuLlvPWRLc5i6NlZAq10OrnPzRKPgdITl
-         Q1qb1tnMRVVelChICvVhRA6/L9SjDuBCfCwxDXtLJOVT8qEqSmHlvdjdB/5cHfF4yKcZ
-         Mi9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739818822; x=1740423622;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FbEfh1V/TCyzyVBnzOPjw0bmm27Qjtw3b9033vGjqT8=;
-        b=Sf/VVaPXX5pWl+TUNqrS+fz616IH2mVW3gUFhEJlHyg0cAAuP/7M+yxNy5Latgqy3a
-         7mv7DQQZVSpxyV0BzJrritsVXdWtOsCkvh1f1Gtt7/74QSBvvH/luwHVHhIuIS/6SC1v
-         dt3DokQJrEWXipxlk6tM6sYe7ynZqUwCYfs0NW9Zqp46RTdnoyIlC8Z4FV0NUncnEEF2
-         o5zN9a+7jQJLiJlLhS4Q/qgK1HR9IcYDRRHMaD8O0JPaKAlVYhHgze7tKwchmpgAgTxw
-         c6VxZytXUpJH4X3pYI5vu2CXDgGxlyjMSAXNzbBMbgxE4JeLLd7424m5LwliVQbJVqBG
-         +dvw==
-X-Forwarded-Encrypted: i=1; AJvYcCU7jOR1Bqf0eBSZv7eiDi75e/hhBZeh901fsmEdb8Vou4sAKeT6i4pHB0QoKCwePHAgnbD513NdA7kFM94=@lists.infradead.org, AJvYcCXejj8CFj4bHIvK7mQaHEcyTWV/ThrM0Gt+1mT+30PsHeSnnrF5NJdOsRuQw/kzjviCvWDORDKAEHVJYVSuE5Fz@lists.infradead.org
-X-Gm-Message-State: AOJu0YwACgD4E0vWDXB3g7UJtPZhWfwaralxzKfZBpYtEAkVzcDJgtCo
-	etcjfzClvoWS8DL2z7xL6qqgYO9NMUc1O80fxd7Xyduu9ZbRluV34fqX5tmyfRSCQ0THuu7LkG1
-	n464zZCU162T6Swq2CSE8iSGs88I=
-X-Gm-Gg: ASbGncs1GBKTk/ec2J5vWb5qY8Nvvx8rxX4g13aoWvyV7h7770rG/85Kg8cuw/w3Qsx
-	BjJ2qcwn+1qeAN/7Hu60Q1SW+6uBJuOMjdQcB6kxwvPL2QgFFVPK5xFSEd4KxQ85n1LyN7CaEU6
-	U=
-X-Google-Smtp-Source: AGHT+IHcNajZe0ENO6NqqO6ktnv6S1yT2v8yKjsxjfUHFFdU9DGQ1lgEBrKS4eB3xN2pkGDfNvSOKZpFCcjlLy+KwRc=
-X-Received: by 2002:a5d:6d81:0:b0:38f:2c10:da1e with SMTP id
- ffacd0b85a97d-38f33c288cfmr8157628f8f.27.1739818822023; Mon, 17 Feb 2025
- 11:00:22 -0800 (PST)
+	id 1tk6Rf-00000005haf-1eye
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Feb 2025 19:06:20 +0000
+Authentication-Results: purelymail.com; auth=pass
+DKIM-Signature: a=rsa-sha256; b=nZTsEu0PUaQTrGS6zr4sRtubB7tc8aZnK+KA0FgN+HGOrtC0sQdDOkb1fh51B9BrbmcFiPO8nrff+jm2NA0cZ97Rkyk+Rf+GIZThCMDyJP/aLLGDVSrhQQqY0Ir7TRWUsUkl18cukSXet8mHCDEzUEgOyDYyNv+IFliZeucBGlPqx334QXnggWuhbd8+faUc570YAkmfJLpidRD8o6KCFFFN/oVbGJ9dzTIzEim3oUB5bXLsP6ZJFVcmWHsg2ok0LQ0CpLIPWSQASt8DoArOkBEO3vTeQE30Nmx1K0rFA3d08yBcakx5cezKrgScTsIsomQAzbki/tfUS2JpoT20/w==; s=purelymail3; d=purelymail.com; v=1; bh=ooAfCtIBB4Gn/GKkD7UJYql1T65TueuYbZ/OTNt6n3I=; h=Feedback-ID:Received:From:Date:Subject:To;
+Feedback-ID: 68247:10037:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1350358103;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Mon, 17 Feb 2025 19:05:55 +0000 (UTC)
+From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Date: Mon, 17 Feb 2025 20:05:20 +0100
+Subject: [PATCH 2/2] watchdog: s3c2410_wdt: Add exynos990-wdt compatible
+ data
 MIME-Version: 1.0
-References: <CA+fCnZeBEe3VWm=VfYvG-f4eh2jAFP-p4Xn4SLEeFCGTudVuEw@mail.gmail.com>
- <e7t5yzfw3dq5stp5xjy5yclcx6ikne4vwz7d6w2ukfw2b7gr6t@oomoynf3b2jl>
- <zjuvfdbl7q76ahdxk3lrgaznk7vjj43f5ftzfgrnca6dqtcd5x@5qj24womzgyq>
- <CA+fCnZfySpeRy0FCFidLdUUeqp97eBdjAqQyYPpz1WxYwcsW9A@mail.gmail.com>
- <aqhm7lc57srsfuff3bceb3dcmsdyxksb7t6bgwbqi54ppevpoh@apolj3nteaz6>
- <CA+fCnZdjTkreTcoo+J8wMhwDuAFM4g33U5BFy0OPtE0UCvyJbQ@mail.gmail.com>
- <CA+fCnZcoVdfXVN8VBFLx835cV0eGAT6Ewror2whLW761JnHjNQ@mail.gmail.com>
- <sjownmnyf4ygi5rtbedan6oauzvyk2d7xcummo5rykiryrpcrt@kasomz5imkkm>
- <tuwambkzk6ca5mpni7ev5hvr47dkbk6ru3vikplx67hyvqj2sw@rugqv7vhikxb>
- <CA+fCnZcHnWr0++8omB5ju8E3uSK+s+JOFZ3=UqgtVEcBzrm2Lg@mail.gmail.com> <kmibbbrtlwds6td64hloau7pf3smqth4wff33soebvujohsvli@kni5dtvpwsxf>
-In-Reply-To: <kmibbbrtlwds6td64hloau7pf3smqth4wff33soebvujohsvli@kni5dtvpwsxf>
-From: Andrey Konovalov <andreyknvl@gmail.com>
-Date: Mon, 17 Feb 2025 20:00:10 +0100
-X-Gm-Features: AWEUYZlRIhjmXsKyPCZOszIx8_jhLBbTZLCGYgAeVzNSeJCRFZ5-FeRBt2Jwp0w
-Message-ID: <CA+fCnZfBsQd=nJVu7QOX09w6uR5LK1Gc5UqiHS8aCxzhDJsssA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/9] kasan: sw_tags: Use arithmetic shift for shadow computation
-To: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
-Cc: Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	linux-riscv@lists.infradead.org, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
-	Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, kasan-dev@googlegroups.com, 
-	llvm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	Alexandre Ghiti <alexghiti@rivosinc.com>, Will Deacon <will@kernel.org>, 
-	Evgenii Stepanov <eugenis@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250217-exynos990-wdt-v1-2-9b49df5256b0@mentallysanemainliners.org>
+References: <20250217-exynos990-wdt-v1-0-9b49df5256b0@mentallysanemainliners.org>
+In-Reply-To: <20250217-exynos990-wdt-v1-0-9b49df5256b0@mentallysanemainliners.org>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-watchdog@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739819149; l=3489;
+ i=igor.belwon@mentallysanemainliners.org; s=20241206;
+ h=from:subject:message-id; bh=ooAfCtIBB4Gn/GKkD7UJYql1T65TueuYbZ/OTNt6n3I=;
+ b=52j0yL0JmFDhHfLO0JNk1R4BLqQFJ1/n/TFVE18WHMD956oD9C47L+KT7I/Ut+ber7hp79cAP
+ 3N50GSYq4boCc9Ac1YhpDcQUnoNRBqqcpV8rOHzyNclwKk1p1AZUywg
+X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
+ pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_110024_223412_8565045B 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20250217_110619_536070_99F3D076 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,30 +77,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 7:38=E2=80=AFPM Maciej Wieczor-Retman
-<maciej.wieczor-retman@intel.com> wrote:
->
-> >I'm a bit lost with these calculations at this point. Please send the
-> >full patch, including the new values for KASAN_SHADOW_OFFSET (do I
-> >understand correctly that you want to change them?). It'll be easier
-> >to look at the code.
->
-> Sorry, this thread became a little bit confusing. No, I think the
-> KASAN_SHADOW_OFFSET values are fine. I just wanted to embrace the idea of
-> overflow for the purpose of the check in kasan_non_canonical_hook().
->
-> But I'll put down my train of thought about the overflow + calculations i=
-n the
-> patch message.
->
-> >
-> >Feel free to send this patch separately from the rest of the series,
-> >so that we can finalize it first.
->
-> I have the x86 tag-based series basically ready (just need to re-read it)=
- so I
-> think I can send it as whole with this patch and 3 others from this serie=
-s.
+The Exynos990 has two watchdog clusters - cl0 and cl2. Add new
+driver data for these two clusters, making it possible to use the
+watchdog timer on this SoC.
 
-Sounds good!
+Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+---
+ drivers/watchdog/s3c2410_wdt.c | 39 ++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 38 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
+index 30450e99e5e9d40b5596e2f87cc47c80ccbd2ddd..8f406e08d848646348dafabced5bc0f2bbcf49df 100644
+--- a/drivers/watchdog/s3c2410_wdt.c
++++ b/drivers/watchdog/s3c2410_wdt.c
+@@ -80,6 +80,10 @@
+ #define GS_CLUSTER2_NONCPU_INT_EN		0x1644
+ #define GS_RST_STAT_REG_OFFSET			0x3B44
+ 
++#define EXYNOS990_CLUSTER2_NONCPU_OUT		0x1620
++#define EXYNOS990_CLUSTER2_NONCPU_INT_EN	0x1644
++#define EXYNOS990_CLUSTER2_WDTRESET_BIT		23
++
+ /**
+  * DOC: Quirk flags for different Samsung watchdog IP-cores
+  *
+@@ -257,6 +261,32 @@ static const struct s3c2410_wdt_variant drv_data_exynos850_cl1 = {
+ 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN,
+ };
+ 
++static const struct s3c2410_wdt_variant drv_data_exynos990_cl0 = {
++	.mask_reset_reg = GS_CLUSTER0_NONCPU_INT_EN,
++	.mask_bit = 2,
++	.mask_reset_inv = true,
++	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
++	.rst_stat_bit = EXYNOS850_CLUSTER0_WDTRESET_BIT,
++	.cnt_en_reg = EXYNOSAUTOV920_CLUSTER0_NONCPU_OUT,
++	.cnt_en_bit = 7,
++	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
++		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
++		  QUIRK_HAS_DBGACK_BIT,
++};
++
++static const struct s3c2410_wdt_variant drv_data_exynos990_cl2 = {
++	.mask_reset_reg = EXYNOS990_CLUSTER2_NONCPU_INT_EN,
++	.mask_bit = 2,
++	.mask_reset_inv = true,
++	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
++	.rst_stat_bit = EXYNOS990_CLUSTER2_WDTRESET_BIT,
++	.cnt_en_reg = EXYNOS990_CLUSTER2_NONCPU_OUT,
++	.cnt_en_bit = 7,
++	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
++		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
++		  QUIRK_HAS_DBGACK_BIT,
++};
++
+ static const struct s3c2410_wdt_variant drv_data_exynosautov9_cl0 = {
+ 	.mask_reset_reg = EXYNOS850_CLUSTER0_NONCPU_INT_EN,
+ 	.mask_bit = 2,
+@@ -348,6 +378,8 @@ static const struct of_device_id s3c2410_wdt_match[] = {
+ 	  .data = &drv_data_exynos7 },
+ 	{ .compatible = "samsung,exynos850-wdt",
+ 	  .data = &drv_data_exynos850_cl0 },
++	{ .compatible = "samsung,exynos990-wdt",
++	  .data = &drv_data_exynos990_cl0 },
+ 	{ .compatible = "samsung,exynosautov9-wdt",
+ 	  .data = &drv_data_exynosautov9_cl0 },
+ 	{ .compatible = "samsung,exynosautov920-wdt",
+@@ -676,7 +708,8 @@ s3c2410_get_wdt_drv_data(struct platform_device *pdev, struct s3c2410_wdt *wdt)
+ 	if (variant == &drv_data_exynos850_cl0 ||
+ 	    variant == &drv_data_exynosautov9_cl0 ||
+ 	    variant == &drv_data_gs101_cl0 ||
+-	    variant == &drv_data_exynosautov920_cl0) {
++	    variant == &drv_data_exynosautov920_cl0 ||
++	    variant == &drv_data_exynos990_cl0) {
+ 		u32 index;
+ 		int err;
+ 
+@@ -698,6 +731,10 @@ s3c2410_get_wdt_drv_data(struct platform_device *pdev, struct s3c2410_wdt *wdt)
+ 			else if (variant == &drv_data_exynosautov920_cl0)
+ 				variant = &drv_data_exynosautov920_cl1;
+ 			break;
++		case 2:
++			if (variant == &drv_data_exynos990_cl0)
++				variant = &drv_data_exynos990_cl2;
++			break;
+ 		default:
+ 			return dev_err_probe(dev, -EINVAL, "wrong cluster index: %u\n", index);
+ 		}
+
+-- 
+2.47.2
+
 
