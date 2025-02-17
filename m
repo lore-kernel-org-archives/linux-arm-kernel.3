@@ -4,90 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3198CC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:00:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC4B2C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+eM01ELy6RFiGkjcxOpb1cojVzPpVE9t9t3LF3deNmc=; b=zR0deoz6CQaIpjuuw27pLaHHPO
-	WNf25ARFchNCmDM3KpDdjPZ31cA2X3uFGFbSVI7sJFsJFWE80DfUiIDqPOWTRVXCd80cNvOr7JkW1
-	4rY0VR6BRSbfUyFZNPBfDQBfrr6rdOp8tkGJEQzTr8a9ciVDRlnHMcyjVwaqhENOrVwzW/l9fC8vk
-	ixAaXcQDlhI3Ex4p/7FyEizYU3BbdQn8OgG04iGK2bujp1hyCgO4mjzkGV3ggfGGTNVtXKbPfjA1s
-	P+lrAdpdGFcTI7WXs9pXI8Vasb+YjXrhQFItjnbEuPcLuBokb648a5BDwOflbKJrIk88e2Y7wFY64
-	dw1Amaig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NlktFKbt7fWOri2OGRbyYiQR64jGh1ap4Xy3JViDRMo=; b=4TmP+7i1uR1qOSbBfoWDTzF0Ty
+	Ju974j1Y6fMguHn/nyA2kERE7F7KQRU4PTY8xI0jI6ZSHH77in2uvL47Cl+9714CnA6b9RN9V/AGU
+	oWz/EKPOBwbIe1Gn+8QU1X8vq9264oklaKYhTnIe1kdZrKv4FaSXs1ZnbZzjdPxuqw+XewbeOzZBz
+	EQ9dU9bXYZr1a0+dXFJqoNe5dQxweri+0Ov3Pq5apQg/jynCRj6j2u1RBX2icWJzcC9LMTpnNrfIS
+	ZKxhsV60at/Wd209P/OFCNrfd0/tIzSkE+vwh0qARtYU5P/HXDPV0RxXYiwFvm17lhqgACWQOeuUz
+	MixWgWKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk7Ha-00000005p0j-32Cm;
-	Mon, 17 Feb 2025 19:59:58 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
+	id 1tk7J6-00000005pP2-3kwp;
+	Mon, 17 Feb 2025 20:01:32 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk7G7-00000005oZe-19sQ
+	id 1tk7GT-00000005oe0-1Rka
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 19:58:28 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5452c2805bcso3504547e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 11:58:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739822305; x=1740427105; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+eM01ELy6RFiGkjcxOpb1cojVzPpVE9t9t3LF3deNmc=;
-        b=taII7sGrPRuyVBHuqamikgRAGikwfAlsZTRqzgc4pSY9IZtuG6x5ncGA1JPKUxT2N8
-         tuN9kBMSGlr9UzvOPIDvXGOa2kmnuat9R6vDhZxiVOEyd64AIxpe3OL91cY5H4hY3h9X
-         7du5Le3y0A9VIxaKg/exCgMTH3BeL2STNz3oZQaAtwS2iOQHyVwurJL5r3VtZ9lIo+Oo
-         f5EUoi0ZS6yCwrgzMn7DxmSZfcaJQcbh1cbSjE1wxWeSkMrTye4cdhJB+Y48V6k5C9Z6
-         v6flEpeXhUcrTQeUAfE+wcRgNxO3oO/PtWlItiXHEspEEGgiOmt9tYjHAtudMwKMnt4A
-         nmdA==
+	Mon, 17 Feb 2025 19:58:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739822328;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=NlktFKbt7fWOri2OGRbyYiQR64jGh1ap4Xy3JViDRMo=;
+	b=XEv90QqLiwNBMjF1S27daonlXuEOOLHs7NrLdcZ852Eyi1X0g2ufVb6bYGyDj1wuiNUSyK
+	OOBPeN7XymK/ge0Rmg+nO6mu7L5GXaisEI3ml3V4pcEkt4r95P8NqsEYp/9GUtEx4L6ur7
+	MgBXpRf8Wjsgw/9gagCKLkl9aewXYac=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-296-nHRPpOUMMNqWVHzgLYGXzQ-1; Mon, 17 Feb 2025 14:58:46 -0500
+X-MC-Unique: nHRPpOUMMNqWVHzgLYGXzQ-1
+X-Mimecast-MFC-AGG-ID: nHRPpOUMMNqWVHzgLYGXzQ_1739822326
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-38f3bac2944so773381f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 11:58:46 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739822305; x=1740427105;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+eM01ELy6RFiGkjcxOpb1cojVzPpVE9t9t3LF3deNmc=;
-        b=ivz0mZZrUP9l5OlGFrLqfMUiwsvR+ru7yyTernUl05gFDaN0/1xCZZPBVhNcdp4TbW
-         36YW6eRLP/Zza731m6NEiaUAnTSXfpc9aJ5amnUBQvDHRpnZLaNgKZaypLfp6061qUK0
-         Gu5mXJOEh4OrNfnpk1Er9GzjnGnWGr7RqHvFXuqdIGJ76iDG6AUxYoLlq+b10/b+VZ+v
-         HJ3L4PQlJ5R8zdKaY+rNnkPLHjJeBrcPTQRtw8TIx6VR/Rk0IkPW0YfWovViZgQv7q1+
-         YvzPiI5D8xoxLNUSmJuUg5GFYVSJ47VcSIVnGULuqMl+bFAF5pe6pBENCeHQToFbQqhR
-         YlyA==
-X-Forwarded-Encrypted: i=1; AJvYcCUzPEZ97b1ZIHEYXeiZuEuX1OCmnD7UM4whGylMuNZVoKFwjsyQEqcFqrlHS3x+gmAffH37B1RtLjE6fjUhVKpm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcPdrBGfkGlnh9JPN0xFo0jsMEyTu2wRdcG3r8hLWWiUXRkRf0
-	k2I9OrQn5z5DkvyZ5OZ2ROqXE92gIFsoLQhArra5hgguAhShArQKlfl0GjH3DHE=
-X-Gm-Gg: ASbGncuwvBwN3dwtdTWmxgD7qTqR3NTnf7zwNzppkK0cnCm254cgNdf2SZ648gpDLS5
-	kjJvxmXFLP23uwSKaLrv+teAbyX6lspbZUMPY1GIhAysFoEjBokJ2RsPWbu3dJs6+Q5dq1FeSAp
-	Zo90moEQsfxzOwOy/gjgGPLvFWR83eI6IGGrVhafVdZ/B217O8dWHwUroLhu/vWPmoOoEbtW7mF
-	M/ZUp6rn+KhsJAmvkN2+1hpRiIELSd3PvEfZuNQvvCcgPrItxlwjKJeJCXV7DVua+f9lhGXd7kb
-	Udw6d3yDnpZGvyRI+T0jPy6dxzhBTo7b14DkZ5OFYUi+PPKPL05W4daY3LBVCg1KbxwIZeI=
-X-Google-Smtp-Source: AGHT+IEbKDaSdPLHIMQ9eXv6L5J9v69avK8N05Xy7KhfzTpN1ljeSBVhl0WhGYyS/jPkWJgZWNtb/A==
-X-Received: by 2002:a05:6512:2823:b0:545:4cb:b25d with SMTP id 2adb3069b0e04-5452fe37326mr3210895e87.13.1739822302051;
-        Mon, 17 Feb 2025 11:58:22 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5452b496aafsm1288648e87.29.2025.02.17.11.58.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 11:58:20 -0800 (PST)
-Date: Mon, 17 Feb 2025 21:58:18 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Vishal Sagar <vishal.sagar@amd.com>, 
-	Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: Re: [PATCH v3 03/11] drm/fourcc: Add DRM_FORMAT_Y8
-Message-ID: <lzzp5cgsh3qegxtctttys3tvtr2j2ciurm2jnmmm3d6cgjei5z@rzu4p5afxf6f>
-References: <20250212-xilinx-formats-v3-0-90d0fe106995@ideasonboard.com>
- <20250212-xilinx-formats-v3-3-90d0fe106995@ideasonboard.com>
+        d=1e100.net; s=20230601; t=1739822325; x=1740427125;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=NlktFKbt7fWOri2OGRbyYiQR64jGh1ap4Xy3JViDRMo=;
+        b=BZ7c/qpy+dJF5dNwEjIt7gWFv3Uigv9DhInMWampsJcmFKcs8jQ/PcC0S8DjNPK7A+
+         H2VfD+ZWPFcOuFRY273tuKMyit7mEK9WZnQWwa863qklnEtZwIfLcEKL34TNkUXOofy/
+         QuYT0pcpTv/iZE5b4SbvAQ9HxWof+AZ7u71ii0tBwZK33iBPxKHo/sQ9zwQ08+NAhe14
+         vlvxfD2GhysTw+H4CHvdjjD98VucqQKvjMEebRoBNB/wAOVSXhD+PqtPZq8um6xIXvdq
+         43iSs+k65RRavN+9qNQLAFGaB5gSCzXvOnycWiS3XRAm1SNUr0TRwc8J4awHb7sVebI6
+         5N0g==
+X-Forwarded-Encrypted: i=1; AJvYcCVAUkzY3tivSP3/K9gwYmdlqmAhzKRPxNxT0ie8rr29bV70/jwUzDGm72Ql2o2wsdYtkZQvDZr8g9xGSpvB6sEP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKvFdgh+4gF4YMNdf6IhcihSOZ6fYtcm9VyIrfimtSWEOywznl
+	ptro50NgOlGZoj3UFpv1XEIZ8PA6b8q43u+ZYdNIVa4yUGuxgx1azlUYW3u3Rp7d0art1u4zpzv
+	bAdo4KpIr9UzFZxefZB/N/gJ+1IoPDEAPtQE9m3EuKf8b2FjWz39V9RBLWvHcA+0zfsnZ0zFR
+X-Gm-Gg: ASbGncvbxGWEHNCrsKq5mkcxzbr7cnJi/QPXQrtQYbSiib1nB7leKy9W/rK9fVhUnyK
+	v9TSktiRQZspwqVNshgYg+U2NlfYzzhGQ4xv6j8eI9enx520fGY6HQcMdu375PPK5d96PVK8U7v
+	W6yUQw1R9VE7vrk2EgvQqXmtqzjUxyikS2G9zTBV8K5/gXpIhDMRyGFkmyqmz5/H0l5dA05t2eY
+	HO4/PNBFWdhSaU7wQax1I2gV7TmFzBFuek0e6dVROQe1xCAGFN452sU4BQMg6hFONxBXtMa+icR
+	ChbycCp5FJduozBoS3MZOWtR+GeFLHO6WVOIfwNazuakjq2hcMDS4VS/1QbPk18Q979BzGjrIBa
+	qwRcDQWoTIalLpx6aICoEu6NiaRQ0Og==
+X-Received: by 2002:a5d:4a43:0:b0:38f:3392:9fd8 with SMTP id ffacd0b85a97d-38f33f2cb57mr8062664f8f.18.1739822325476;
+        Mon, 17 Feb 2025 11:58:45 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGmnf+EH+x2w9Z3amJyvk4I4a5QL1krZ5SQiXGUsJvRabwqfhUp4vd7zVPxaXWLqtKKNwXS0Q==
+X-Received: by 2002:a5d:4a43:0:b0:38f:3392:9fd8 with SMTP id ffacd0b85a97d-38f33f2cb57mr8062617f8f.18.1739822325081;
+        Mon, 17 Feb 2025 11:58:45 -0800 (PST)
+Received: from ?IPV6:2003:cb:c739:900:900f:3c9e:2f7b:5d0a? (p200300cbc7390900900f3c9e2f7b5d0a.dip0.t-ipconnect.de. [2003:cb:c739:900:900f:3c9e:2f7b:5d0a])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258b4118sm13425148f8f.18.2025.02.17.11.58.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Feb 2025 11:58:43 -0800 (PST)
+Message-ID: <519c6ef7-ca56-4aac-8e43-f75b17353d66@redhat.com>
+Date: Mon, 17 Feb 2025 20:58:38 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250212-xilinx-formats-v3-3-90d0fe106995@ideasonboard.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 16/20] huge_memory: Add vmf_insert_folio_pmd()
+To: Alistair Popple <apopple@nvidia.com>
+Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, linux-mm@kvack.org,
+ Alison Schofield <alison.schofield@intel.com>, lina@asahilina.net,
+ zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com,
+ vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com,
+ bhelgaas@google.com, jack@suse.cz, jgg@ziepe.ca, catalin.marinas@arm.com,
+ will@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com,
+ dave.hansen@linux.intel.com, ira.weiny@intel.com, willy@infradead.org,
+ djwong@kernel.org, tytso@mit.edu, linmiaohe@huawei.com, peterx@redhat.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
+ nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
+ david@fromorbit.com, chenhuacai@kernel.org, kernel@xen0n.name,
+ loongarch@lists.linux.dev
+References: <cover.472dfc700f28c65ecad7591096a1dc7878ff6172.1738709036.git-series.apopple@nvidia.com>
+ <9f10e88441f3cb26eff6be0c9ef5997844c8c24e.1738709036.git-series.apopple@nvidia.com>
+ <afff4368-9401-4943-b802-1b15bdcf5aaa@redhat.com>
+ <6mmjoe27y63cfe5cycqje63gehgumod3bp7zzgvpz7qehgfuv4@uomvqgizba2m>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <6mmjoe27y63cfe5cycqje63gehgumod3bp7zzgvpz7qehgfuv4@uomvqgizba2m>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ByGOvja-scQGX0MCPUmztm4rCYmMsBi9FhVqVel5psI_1739822326
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_115827_305388_1C9F894C 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250217_115849_460929_07DAFC0B 
+X-CRM114-Status: GOOD (  26.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,22 +172,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 04:56:07PM +0200, Tomi Valkeinen wrote:
-> Add greyscale Y8 format.
+On 17.02.25 05:29, Alistair Popple wrote:
+> On Mon, Feb 10, 2025 at 07:45:09PM +0100, David Hildenbrand wrote:
+>> On 04.02.25 23:48, Alistair Popple wrote:
+>>> Currently DAX folio/page reference counts are managed differently to normal
+>>> pages. To allow these to be managed the same as normal pages introduce
+>>> vmf_insert_folio_pmd. This will map the entire PMD-sized folio and take
+>>> references as it would for a normally mapped page.
+>>>
+>>> This is distinct from the current mechanism, vmf_insert_pfn_pmd, which
+>>> simply inserts a special devmap PMD entry into the page table without
+>>> holding a reference to the page for the mapping.
+>>>
+>>> It is not currently useful to implement a more generic vmf_insert_folio()
+>>> which selects the correct behaviour based on folio_order(). This is because
+>>> PTE faults require only a subpage of the folio to be PTE mapped rather than
+>>> the entire folio. It would be possible to add this context somewhere but
+>>> callers already need to handle PTE faults and PMD faults separately so a
+>>> more generic function is not useful.
+>>>
+>>> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+>>
+>> Nit: patch subject ;)
+>>
+>>>
+>>> ---
+>>>
+>>> Changes for v7:
+>>>
+>>>    - Fix bad pgtable handling for PPC64 (Thanks Dan and Dave)
+>>
+>> Is it? ;) insert_pfn_pmd() still doesn't consume a "pgtable_t *"
+>>
+>> But maybe I am missing something ...
 > 
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
->  drivers/gpu/drm/drm_fourcc.c  | 1 +
->  include/uapi/drm/drm_fourcc.h | 3 +++
->  2 files changed, 4 insertions(+)
+> At a high-level all I'm trying to do (perhaps badly) is pull the ptl locking one
+> level up the callstack.
+> 
+> As far as I can tell the pgtable is consumed here:
+> 
+> static int insert_pfn_pmd(struct vm_area_struct *vma, unsigned long addr,
+> 		pmd_t *pmd, pfn_t pfn, pgprot_t prot, bool write,
+> 		pgtable_t pgtable)
+> 
+> [...]
+> 
+> 	if (pgtable) {
+> 		pgtable_trans_huge_deposit(mm, pmd, pgtable);
+> 		mm_inc_nr_ptes(mm);
+> 		pgtable = NULL;
+> 	}
+> 
+> [...]
+> 
+> 	return 0;
+> 
+> Now I can see I failed to clean up the useless pgtable = NULL asignment, which
+> is confusing because I'm not trying to look at pgtable in the caller (ie.
+> vmf_insert_pfn_pmd()/vmf_insert_folio_pmd()) to determine if it needs freeing.
+> So I will remove this assignment.
 
-My 2c is that it's useful to have YUV (well, Y-only) grayscale formats.
+Ahhh, yes, the "pgtable = NULL" confused me, so I was looking for a 
+"pgtable_t *pgtable" being passed instead, that we could manipulate.
 
+> 
+> Instead callers just look at the return code from insert_pfn_pmd() - if there
+> was an error pgtable_trans_huge_deposit(pgtable) wasn't called and if the caller
+> passed a pgtable it should be freed. Otherwise if insert_pfn_pmd() succeeded
+> then callers can assume the pgtable was consumed by pgtable_trans_huge_deposit()
+> and therefore should not be freed.
+> 
+> Hopefully that all makes sense, but maybe I've missed something obvious too...
 
-Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Yes, you assume that if insert_pfn_pmd() succeeds, the table was 
+consumed, otherwise it must be freed.
 
+Thanks!
+
+Acked-by: David Hildenbrand <david@redhat.com>
 
 -- 
-With best wishes
-Dmitry
+Cheers,
+
+David / dhildenb
+
 
