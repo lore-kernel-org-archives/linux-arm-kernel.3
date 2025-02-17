@@ -4,72 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7897C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 11:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BB41C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 11:33:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bG5p2pMwHsY3bRuQ4UASbPlGJNVPCVCWWGf7nV9sj6A=; b=z1Q5sHfUltoB6CIjgdORnAgwju
-	7Jmp/VlZLTXlBzE1plmfSYIM67au9NVJiyJQT4MGVrZe+O25WzNcmUaK0kAo8llF2sJpaonGSuqbe
-	GRkox1/H2vvSJAelYQ+JO1FBPm0R0bCu6KxM1OKsTnmDGnwr6ih1fle+xujUi7+JeaAfR6iq51DgZ
-	p4B4KUHMX271Pkw553Wht5bZg1AiUWxUwHuTD3MslriszpV0Xj4BT+VboYh4S4TiVJ/Uru6N8Q4VG
-	4tokkrDp/HijC2lr5Z/m/IjDJ4wxmT8OD4kMJPcvtK7hUJNmoshtjg3y+2xI7rcsYrKFekqC7CtEY
-	IfY23bAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rXZoNdUIJJnZShIOY1SKEQ9C5imd0JT3HSgWwpXyows=; b=OGAJbMflkNU4YFpPfGZ+uvzI8g
+	d2PdK/GvGNHrxcwxHsglukOlEPOT1i8br/h9S1sHzdLOYSJdrk6iO9aP6tIYNbcZPDB4exN1C8+wa
+	i2zCt3deDSGZs1dBOtxEZ+yJmlwLJ+VhW3jKKx+YpBXDDdn/Xmhy48oEJd7Y4RL5fnbAH0jYeLC78
+	+Z9o7uyBbZtzdEQ0AEvaOaGU5jnOhu2U2LQhQJaP0Bn4OI3c7aclF6kL3sTZhJxbfM4QpNcshg7fQ
+	lVhCbKDYSWDElIeUY40/7fwZSnNWwOMuriMx7C89jfr72Rw6R0oKLYgUXR/t47hkFmFgsz0WdyzWg
+	YmgWExAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjzIu-00000004Ixa-1I7m;
-	Mon, 17 Feb 2025 11:28:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tjzMt-00000004Jg5-2KAi;
+	Mon, 17 Feb 2025 11:32:55 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjzEZ-00000004INu-3Po2
+	id 1tjzLP-00000004JNi-1Vx7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 11:24:21 +0000
+	Mon, 17 Feb 2025 11:31:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EAF055C49B6;
-	Mon, 17 Feb 2025 11:23:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3C3DC4AF09;
-	Mon, 17 Feb 2025 11:24:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3043A5C51A7;
+	Mon, 17 Feb 2025 11:30:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 322ECC4CED1;
+	Mon, 17 Feb 2025 11:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739791459;
-	bh=dYz+hTJxMRqs58+wHRFEMd3G0Mri3nv5zfDY/9xb8X0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GqQHP/CSer1zhF69pvmREx/y72TUZZFJ8cdBebmkEpqYCebvcVuiPcC/CudaH9T6i
-	 B2hkkOe96Hzt21HsN8NPIylVz40fqwFDyJcpoqXeAEE2k92qkzVlL53T64DxcLFUkr
-	 iYkdGVuuBgd6wJgZLUvY5Bfj5CFyVpp6aj1b/GRaF3rS3DIesYoCDGRTqSGmblzceD
-	 tPeS5JWFLq1bgmRbDurWiJJ1BL1d3FHeugOuC4US2LwWI4+yqBRZdflF5epSMISNKj
-	 nD1BPlznFwdADf4ybPxEk5iLiWD9UEwv+thXziRtCEUuj8cK1ikYFSiK8mb4JJQcBh
-	 jAXaQX98VCwlg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tjzEX-0052DP-06;
-	Mon, 17 Feb 2025 11:24:17 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 1/2] KVM: arm64: Fix MDCR_EL2.HPMN reset value
-Date: Mon, 17 Feb 2025 11:24:11 +0000
-Message-Id: <20250217112412.3963324-2-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250217112412.3963324-1-maz@kernel.org>
-References: <20250217112412.3963324-1-maz@kernel.org>
+	s=k20201202; t=1739791882;
+	bh=x59L7IqL94IFM2zao/QYrrn1Ck873l+zRRObe6nR3ZY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FntKGJ2gEe8KQtXAM1A7/RQn+PfYq8H5dWKYZn5oss5qZBf9JJncJE+R18hFL8Lm9
+	 PFPpYqcpS5EoPKMf2J66Tc0mJGlB837NAOJlOR8NTAl4z0mfHEvAkYdhwMS9wYhdKJ
+	 HEiZuuptHx2U2UuENVvlZPPOD8mlcYbVLdg9xYKBvzRLVk1cxv7vKgZUb9VcRqL5Lp
+	 nZcpJgysIZTcUAwuJCuFc5CgPBBFycmNx72h4mVdtw8TrXX0x7EKS9IV1CpLtU44w5
+	 2lFAIvwLk9KmxV7+5Q6jltQEsCH16ycLhTcgGiskBxqc2hX/gfn1u19wzSWtFwHK40
+	 qURVopF4ZbD4g==
+Date: Mon, 17 Feb 2025 11:31:13 +0000
+From: Simon Horman <horms@kernel.org>
+To: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Xiaolei Wang <xiaolei.wang@windriver.com>,
+	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Gal Pressman <gal@nvidia.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Andrew Halaney <ahalaney@redhat.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH iwl-next v4 5/9] igc: Add support for frame preemption
+ verification
+Message-ID: <20250217113113.GK1615191@kernel.org>
+References: <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
+ <20250210070207.2615418-6-faizal.abdul.rahim@linux.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250210070207.2615418-6-faizal.abdul.rahim@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_032419_937050_B48DC2C2 
-X-CRM114-Status: GOOD (  14.29  )
+X-CRM114-CacheID: sfid-20250217_033123_513487_DA121C50 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,73 +101,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MDCR_EL2 documentation indicates that the HPMN field has
-the following behaviour:
+On Mon, Feb 10, 2025 at 02:02:03AM -0500, Faizal Rahim wrote:
 
-"On a Warm reset, this field resets to the expression NUM_PMU_COUNTERS."
+...
 
-However, it appears we reset it to zero, which is not very useful.
+> diff --git a/drivers/net/ethernet/intel/igc/igc_tsn.c b/drivers/net/ethernet/intel/igc/igc_tsn.c
 
-Add a reset helper for MDCR_EL2, and handle the case where userspace
-changes the target PMU, which may force us to change HPMN again.
+...
 
-Reported-by: Joey Gouly <joey.gouly@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/pmu-emul.c | 13 +++++++++++++
- arch/arm64/kvm/sys_regs.c |  7 ++++++-
- 2 files changed, 19 insertions(+), 1 deletion(-)
+> +bool igc_fpe_transmitted_smd_v(union igc_adv_tx_desc *tx_desc)
+> +{
+> +	u8 smd = FIELD_GET(IGC_TXD_POPTS_SMD_MASK, tx_desc->read.olinfo_status);
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 6c5950b9ceac8..5a71c3744c4d7 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -1007,6 +1007,19 @@ static void kvm_arm_set_pmu(struct kvm *kvm, struct arm_pmu *arm_pmu)
- 
- 	kvm->arch.arm_pmu = arm_pmu;
- 	kvm->arch.pmcr_n = kvm_arm_pmu_get_max_counters(kvm);
-+
-+	/* Reset MDCR_EL2.HPMN behind the vcpus' back... */
-+	if (test_bit(KVM_ARM_VCPU_HAS_EL2, kvm->arch.vcpu_features)) {
-+		struct kvm_vcpu *vcpu;
-+		unsigned long i;
-+
-+		kvm_for_each_vcpu(i, vcpu, kvm) {
-+			u64 val = __vcpu_sys_reg(vcpu, MDCR_EL2);
-+			val &= ~MDCR_EL2_HPMN;
-+			val |= FIELD_PREP(MDCR_EL2_HPMN, kvm->arch.pmcr_n);
-+			__vcpu_sys_reg(vcpu, MDCR_EL2) = val;
-+		}
-+	}
- }
- 
- /**
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 82430c1e1dd02..380f22f19cb42 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2493,6 +2493,11 @@ static bool access_mdcr(struct kvm_vcpu *vcpu,
- 	return true;
- }
- 
-+static u64 reset_mdcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r)
-+{
-+	__vcpu_sys_reg(vcpu, r->reg) = vcpu->kvm->arch.pmcr_n;
-+	return vcpu->kvm->arch.pmcr_n;
-+}
- 
- /*
-  * Architected system registers.
-@@ -3034,7 +3039,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	EL2_REG(SCTLR_EL2, access_rw, reset_val, SCTLR_EL2_RES1),
- 	EL2_REG(ACTLR_EL2, access_rw, reset_val, 0),
- 	EL2_REG_VNCR(HCR_EL2, reset_hcr, 0),
--	EL2_REG(MDCR_EL2, access_mdcr, reset_val, 0),
-+	EL2_REG(MDCR_EL2, access_mdcr, reset_mdcr, 0),
- 	EL2_REG(CPTR_EL2, access_rw, reset_val, CPTR_NVHE_EL2_RES1),
- 	EL2_REG_VNCR(HSTR_EL2, reset_val, 0),
- 	EL2_REG_VNCR(HFGRTR_EL2, reset_val, 0),
--- 
-2.39.2
+olininfo_status is little-endian, so I think it needs
+to be converted to host byte order when used as an
+argument to FIELD_GET().
 
+Flagged by Sparse.
+
+> +
+> +	return smd == SMD_V;
+> +}
+
+...
+
+> diff --git a/drivers/net/ethernet/intel/igc/igc_tsn.h b/drivers/net/ethernet/intel/igc/igc_tsn.h
+
+...
+
+> +static inline void igc_fpe_lp_event_status(union igc_adv_rx_desc *rx_desc,
+> +					   struct ethtool_mmsv *mmsv)
+> +{
+> +	__le32 status_error = le32_to_cpu(rx_desc->wb.upper.status_error);
+
+It looks like the type of status_error should be a host byte order integer,
+such as u32.
+
+Also flagged by Sparse.
+
+> +	int smd;
+> +
+> +	smd = FIELD_GET(IGC_RXDADV_STAT_SMD_TYPE_MASK, status_error);
+> +
+> +	if (smd == IGC_RXD_STAT_SMD_TYPE_V)
+> +		ethtool_mmsv_event_handle(mmsv, ETHTOOL_MMSV_LP_SENT_VERIFY_MPACKET);
+> +	else if (smd == IGC_RXD_STAT_SMD_TYPE_R)
+> +		ethtool_mmsv_event_handle(mmsv, ETHTOOL_MMSV_LP_SENT_RESPONSE_MPACKET);
+> +}
+> +
+> +static inline bool igc_fpe_is_verify_or_response(union igc_adv_rx_desc *rx_desc,
+> +						 unsigned int size)
+> +{
+> +	__le32 status_error = le32_to_cpu(rx_desc->wb.upper.status_error);
+
+Ditto.
+
+> +	int smd;
+> +
+> +	smd = FIELD_GET(IGC_RXDADV_STAT_SMD_TYPE_MASK, status_error);
+> +
+> +	return ((smd == IGC_RXD_STAT_SMD_TYPE_V || smd == IGC_RXD_STAT_SMD_TYPE_R) &&
+> +		size == SMD_FRAME_SIZE);
+> +}
+> +
+>  #endif /* _IGC_BASE_H */
+> -- 
+> 2.34.1
+> 
 
