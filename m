@@ -4,89 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84581C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 09:42:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ABA3C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 09:44:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SO8T0nIRKcbdmM4ftj1RFljqcKZxemj3VTPTdtlNmjc=; b=4V2iqMjRmWu36Cfh+BI0dH/3SP
-	GoeridsDisooFe5MjbmhgC9rVkXik7iAyXAiWiTWxIZu6oOx0jV7SpdNNQDqetHxxHcuk2XGSk9wk
-	tSyOI/WhnyfJVx9edLbkMT1Tx38mKX/RutEFgeUn/NN1tAw+SELQmEK9JByAwgHpP40b39aSXe2PL
-	jvuHbdoL/lDbmFKRnBArhXGg9ji8rE4yHlj7bUEk20dIHUWPyuKgh3sJOWVIYdW1ggC8Ce1pfZIjC
-	prRggkUvb9FFFor7wQgi9/H/6+aGALpvp0zjYnEepzkwO4MeE9zsdfOTE5PcmyxrOR76ptLLBK7gD
-	xYyXuPig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MMb+tLlYn6VHNWNF2n/4Z/lgRcF295GIGpb11Gobqag=; b=uj2bI1kIWRhYAbxMuUX/WJ6PKt
+	aqy9Pjxu/ccVKGnMd366XdchvRF6zIkHmidBKjmj/+UtPAeYMOpoe21A06LWd+Iuiv07ywNWI+lPL
+	W3tbUUyTEjHnoIdFiso3uDEh2mb0AcC5lVGlqWIBLuU5wLgkGFC7BchpWAiuHKNxFP6sv85zG08x/
+	Gkqt1do06Sy6tbVK5T7DOiWViG1Mpdkh4ZVvbJOk2j6JHw18Daa9iXBm5rO2NqTb4KrscuF1IYsY6
+	jt3tpwId1vmgN5JlxuMrb6julb6xNbqJAdsi1gAazDFO3AhfTwmZDz9POdj8l/eU9ZKAWNHfQkZuJ
+	XOAqNuMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjxdx-00000003yFi-36wf;
-	Mon, 17 Feb 2025 09:42:25 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1tjxfO-00000003yZD-41ho;
+	Mon, 17 Feb 2025 09:43:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjxOD-00000003vFu-03Mf
+	id 1tjxRi-00000003vsB-2ign
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 17 Feb 2025 09:29:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=MMb+tLlYn6VHNWNF2n/4Z/lgRcF295GIGpb11Gobqag=; b=W85EnauchUgoW6wOuAaOGMHR6v
+	vl4f6LB3gJdgE95pYSwaYmGg9Q9ZVaHO1ecKYqcBP8qmTK+pqiyRwsnJGkaLqKoXgplpdOTs53SGn
+	n6Y7gbLNy623SiXbyhJN9c1RGSnVfRV17tH18Y4qGJ4TULWcQo3UoHjdNvX7BQcxnO2tg3E6LbkEQ
+	rXAaipRJF9yinV1xhsPVM1qP0VYuk1ryAG+/agfw9wxmY69QGWo1DqbvlveO/qjMiVZeyXf1kxD1u
+	dXzBRB7oH1I9GS5SEVeaGXOzK9ZoLb/Rv69XjdHttxXYIkcIhw8NTtVUaPwff6rS6mo4MDA+gwCVn
+	HQn9yx7A==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tjxRf-00000001kt9-1Ltb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 09:26:10 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0E9AC43287;
-	Mon, 17 Feb 2025 09:26:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739784366;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SO8T0nIRKcbdmM4ftj1RFljqcKZxemj3VTPTdtlNmjc=;
-	b=MLFtirCxqUcwJLqDAF9h1I3aRDy2RzlA7h1E+0KjutTWO/wcKl9ZvtjtBwdKchSCyaJDgy
-	CaxGL5CGTLJplLIvSYEpH8fqOeGchC0bYgBehPZzPyO9swh92IOGDIUs0qVkGVh0w/PUPR
-	GSb/6weTO2IvE+PDO2D1gKXCLtUh4My8GR1xgiyB6jhQelAC0Q7rY2Rssv3qrAdgxQvQza
-	75Pde7zQE6/rEwCbZHi5hBdDVvXx0dC+impytylGgwEo1bJIxRwex1B7bCTYhtrLJ0974X
-	MFGDaYDIiu3DB7bJRxXl6wHIorTetdJCGWA1PB62miaDEYo2BWmhHJpDLsxENQ==
-Date: Mon, 17 Feb 2025 10:26:03 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: "Fedrau Dimitri (LED)" <Dimitri.Fedrau@liebherr.com>
-Cc: "davem@davemloft.net" <davem@davemloft.net>, "netdev@vger.kernel.org"
- <netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-arm-msm@vger.kernel.org"
- <linux-arm-msm@vger.kernel.org>, "thomas.petazzoni@bootlin.com"
- <thomas.petazzoni@bootlin.com>, Andrew Lunn <andrew@lunn.ch>, Jakub
- Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- "mwojtas@chromium.org" <mwojtas@chromium.org>, Antoine Tenart
- <atenart@kernel.org>, "devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
- Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
- Sean Anderson <seanga2@gmail.com>, "dima.fedrau@gmail.com"
- <dima.fedrau@gmail.com>
-Subject: Re: [PATCH net-next v4 04/15] net: phy: dp83822: Add support for
- phy_port representation
-Message-ID: <20250217102603.3e9f79c6@fedora.home>
-In-Reply-To: <DB8P192MB08386B9F0FB342EB7B0FA785F3F92@DB8P192MB0838.EURP192.PROD.OUTLOOK.COM>
-References: <20250213101606.1154014-1-maxime.chevallier@bootlin.com>
-	<20250213101606.1154014-5-maxime.chevallier@bootlin.com>
-	<DB8P192MB08386B9F0FB342EB7B0FA785F3F92@DB8P192MB0838.EURP192.PROD.OUTLOOK.COM>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Mon, 17 Feb 2025 09:29:45 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51H034L8022247;
+	Mon, 17 Feb 2025 09:29:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=MMb+tLlYn6VHNWNF2n/4Z/
+	lgRcF295GIGpb11Gobqag=; b=O6yFe/aEeENcOhSuFPpJ3DsB3ITW/m+5/wmpoo
+	GmJ6MA0nX8NiDG7XCKFy/t1s1pJR/GoMKSDmEmf7bZq83ogmhwMuqNgTydhasFSw
+	kTc1bLYe1H6yTdlwwMU8Op8K/5SmjaRhH9Ha7lcCWjYEk/8ZA18kHFByykIjxP41
+	UV4dT5D4FS8r2B22TQGCaxtuVpps4iE4MlKQudMoYwvBp+dtJC08G8LGREGmo6nj
+	NVrDt6/FJ1rj0BrWVF1MwCYzNlwLTeHlRZjtSOVGSlOVCgtBg/Uw/1O6cx0hB28h
+	FMiQ/b1xMuekjRyzz3rc7K9Q0mZYkDmduCxxnHYE4ofBHFug==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44ut7u955s-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 17 Feb 2025 09:29:25 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51H9TO53004284
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 17 Feb 2025 09:29:24 GMT
+Received: from ap-kernel-sh01-lnx.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Mon, 17 Feb 2025 01:29:20 -0800
+From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+To: <anshuman.khandual@arm.com>, <catalin.marinas@arm.com>, <david@redhat.com>
+CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
+        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
+        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
+        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
+        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <quic_tingweiz@quicinc.com>,
+        Zhenhua Huang <quic_zhenhuah@quicinc.com>
+Subject: [PATCH v7] arm64: mm: Populate vmemmap at the page level if not section aligned
+Date: Mon, 17 Feb 2025 17:29:07 +0800
+Message-ID: <20250217092907.3474806-1-quic_zhenhuah@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehkedtfecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthhqredtredtjeenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeuhfefgffgtdfhgffhvdfhhffhteeutdektefghfetveehheejjefgudeiudehudenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefvddprhgtphhtthhopeffihhmihhtrhhirdfhvggurhgruheslhhivggshhgvrhhrrdgtohhmpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkv
- ghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: ZOKV0jmXvUiSquowFIyeXjllNSgPbq_O
+X-Proofpoint-ORIG-GUID: ZOKV0jmXvUiSquowFIyeXjllNSgPbq_O
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-17_04,2025-02-13_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
+ impostorscore=0 lowpriorityscore=0 mlxlogscore=999 spamscore=0
+ priorityscore=1501 phishscore=0 clxscore=1015 bulkscore=0 adultscore=0
+ mlxscore=0 suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502170083
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_012609_184140_2F9BD8AD 
-X-CRM114-Status: GOOD (  23.03  )
+X-CRM114-CacheID: sfid-20250217_092943_790940_06D2FAA6 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,144 +114,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Dimitri,
+On the arm64 platform with 4K base page config, SECTION_SIZE_BITS is set
+to 27, making one section 128M. The related page struct which vmemmap
+points to is 2M then.
+Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
+vmemmap to populate at the PMD section level which was suitable
+initially since hot plug granule is always one section(128M). However,
+commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+introduced a 2M(SUBSECTION_SIZE) hot plug granule, which disrupted the
+existing arm64 assumptions.
 
-On Sat, 15 Feb 2025 11:31:28 +0000
-"Fedrau Dimitri (LED)" <Dimitri.Fedrau@liebherr.com> wrote:
+The first problem is that if start or end is not aligned to a section
+boundary, such as when a subsection is hot added, populating the entire
+section is wasteful.
 
-> Hi Maxime,
->=20
-> > -----Urspr=C3=BCngliche Nachricht-----
-> > Von: Maxime Chevallier <maxime.chevallier@bootlin.com>=20
-> > Gesendet: Donnerstag, 13. Februar 2025 11:16
-> > =20
-> [...]
-> > =20
-> > @@ -781,17 +782,6 @@ static int dp83822_of_init(struct phy_device *phyd=
-ev)
-> >  	struct device *dev =3D &phydev->mdio.dev;
-> >  	const char *of_val;
-> > =20
-> > -	/* Signal detection for the PHY is only enabled if the FX_EN and the
-> > -	 * SD_EN pins are strapped. Signal detection can only enabled if FX_EN
-> > -	 * is strapped otherwise signal detection is disabled for the PHY.
-> > -	 */ =20
-> Does it make sense to keep the comment ?
->
+The Next problem is if we hotplug something that spans part of 128 MiB
+section (subsections, let's call it memblock1), and then hotplug something
+that spans another part of a 128 MiB section(subsections, let's call it
+memblock2), and subsequently unplug memblock1, vmemmap_free() will clear
+the entire PMD entry which also supports memblock2 even though memblock2
+is still active.
 
-I think so, this behaviour isn't expected to change with this patchset
+Assuming hotplug/unplug sizes are guaranteed to be symmetric. Do the
+fix similar to x86-64: populate to pages levels if start/end is not aligned
+with section boundary.
 
-> > -	if (dp83822->fx_enabled && dp83822->fx_sd_enable)
-> > -		dp83822->fx_signal_det_low =3D device_property_present(dev,
-> > -								     "ti,link-loss-low");
-> > -	if (!dp83822->fx_enabled)
-> > -		dp83822->fx_enabled =3D device_property_present(dev,
-> > -							      "ti,fiber-mode");
-> > -
-> >  	if (!device_property_read_string(dev, "ti,gpio2-clk-out", &of_val)) {
-> >  		if (strcmp(of_val, "mac-if") =3D=3D 0) {
-> >  			dp83822->gpio2_clk_out =3D DP83822_CLK_SRC_MAC_IF;
-> > @@ -884,6 +874,43 @@ static int dp83822_read_straps(struct phy_device *=
-phydev)
-> >  	return 0;
-> >  }
-> > =20
-> > +static int dp83822_attach_port(struct phy_device *phydev, struct phy_p=
-ort *port)
-> > +{
-> > +	struct dp83822_private *dp83822 =3D phydev->priv;
-> > +	int ret;
-> > +
-> > +	if (port->mediums) {
-> > +		if (phy_port_is_fiber(port) ||
-> > +		    port->mediums & BIT(ETHTOOL_LINK_MEDIUM_BASEX))
-> > +			dp83822->fx_enabled =3D true;
-> > +	} else {
-> > +		ret =3D dp83822_read_straps(phydev);
-> > +		if (ret)
-> > +			return ret;
-> > +
-> > +#ifdef CONFIG_OF_MDIO
-> > +		if (dp83822->fx_enabled && dp83822->fx_sd_enable)
-> > +			dp83822->fx_signal_det_low =3D
-> > +				device_property_present(dev, "ti,link-loss-low");
-> > +		if (!dp83822->fx_enabled)
-> > +			dp83822->fx_enabled =3D
-> > +				device_property_present(dev, "ti,fiber-mode");
-> > +#endif =20
->=20
-> I think this is to make it backwards compatible to the dp83822 bindings,
-> is it worth mentioning this in a comment ?
+Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+---
+ arch/arm64/mm/mmu.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Good point yes, I'll mention that.
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index b4df5bc5b1b8..eec1666da368 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -1178,7 +1178,8 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+ {
+ 	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+ 
+-	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
++	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
++		(end - start < PAGES_PER_SECTION * sizeof(struct page)))
+ 		return vmemmap_populate_basepages(start, end, node, altmap);
+ 	else
+ 		return vmemmap_populate_hugepages(start, end, node, altmap);
+-- 
+2.25.1
 
-> > +
-> > +		if (dp83822->fx_enabled) {
-> > +			port->lanes =3D 1;
-> > +			port->mediums =3D BIT(ETHTOOL_LINK_MEDIUM_BASEF) |
-> > +					BIT(ETHTOOL_LINK_MEDIUM_BASEX);
-> > +		} else {
-> > +			/* This PHY can only to 100BaseTX max, so on 2 lanes */
-> > +			port->lanes =3D 2;
-> > +			port->mediums =3D BIT(ETHTOOL_LINK_MEDIUM_BASET);
-> > +		}
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +
-> >  static int dp8382x_probe(struct phy_device *phydev)
-> >  {
-> >  	struct dp83822_private *dp83822;
-> > @@ -900,25 +927,13 @@ static int dp8382x_probe(struct phy_device *phyde=
-v)
-> > =20
-> >  static int dp83822_probe(struct phy_device *phydev)
-> >  {
-> > -	struct dp83822_private *dp83822;
-> >  	int ret;
-> > =20
-> >  	ret =3D dp8382x_probe(phydev);
-> >  	if (ret)
-> >  		return ret;
-> > =20
-> > -	dp83822 =3D phydev->priv;
-> > -
-> > -	ret =3D dp83822_read_straps(phydev);
-> > -	if (ret)
-> > -		return ret;
-> > -
-> > -	ret =3D dp83822_of_init(phydev);
-> > -	if (ret)
-> > -		return ret;
-> > -
-> > -	if (dp83822->fx_enabled)
-> > -		phydev->port =3D PORT_FIBRE;
-> > +	dp83822_of_init(phydev); =20
->=20
-> Keep the check of the return value.
-
-Ah yes indeed, the check should indeed stay. Thanks !
-
-> > =20
-> >  	return 0;
-> >  }
-> > @@ -1104,6 +1119,7 @@ static int dp83822_led_hw_control_get(struct phy_=
-device *phydev, u8 index,
-> >  		.led_hw_is_supported =3D dp83822_led_hw_is_supported,	\
-> >  		.led_hw_control_set =3D dp83822_led_hw_control_set,	\
-> >  		.led_hw_control_get =3D dp83822_led_hw_control_get,	\
-> > +		.attach_port =3D dp83822_attach_port		\
-> >  	}
-> > =20
-> >  #define DP83825_PHY_DRIVER(_id, _name)				\
-> > --=20
-> > 2.48.1 =20
->=20
-> Best regards,
-> Dimitri Fedrau
-
-Thanks for reviewing,
-
-Maxime
 
