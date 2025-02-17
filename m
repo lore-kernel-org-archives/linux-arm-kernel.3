@@ -4,44 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F68C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 18:41:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3164C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 18:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mtuUTbp62aFPj/ZeUkv8uLsp4jGOl2K076Q7pLoM5yg=; b=USjEX2j1tQVY9daA1htV4vEG1O
-	52gGOLvdh3K2lOOzfsN2UKU8Nel5VDIgFWwGqYpcRQnA3DH9edbjSM8o+M9ujAR2OLjcsd20prNl5
-	D32MzJOcQ/tEauQJx89Wgs3sIZL0TbKYYOXD/Rt0pU3rYpeVQAHbxqDt+NLI63TlM5d6cICOLSk7H
-	jvL1RiLM15jidJISaU/KOP/fsI4ZDfaocDwlhn9ZVl2LoXOPpvKJo7jZT+TkV0/rWbSG7SCk60tPS
-	NH/UwG2xoN2b4jl+d34bBiKuR9r80txCiUivePsCyl2UD9VxT/8MSkNYdtxBRlOlaGBTcnR2SVpRZ
-	l7YRO6Mw==;
+	bh=EwsNs4rTkCq+1gD7AYy++hzMPwVpqQxCJeslYKSIXTY=; b=m+FTzYV7lFq+FRx6W8ufbtE6W5
+	rVA5bAOWGCBiW1zTDA9vb+ft7LuI3LZOu3lvMlFxurq9tEfJU1f7WRHn+bQxKL+RI1TQQF4FAv3Rv
+	oOOxwGhI+uOEQdYJGFniwRMZBqhZrji62RBPOCUIp7eQdtjW5zRvWg4hfb67AOceG2Kcr8s+phJ+7
+	5aw8nm85AxbxmOe4bJzkn89DvY2484pdAXpm5l0/n8qIWDLs73kOiXUp16YpGsH5mlmGespQm1eqg
+	Y47JYu/xvS5aAkw42l92mBNVYjQSCiZcc3IjpTybgH7WHm3s/t2Dg+xeDEwx/xkVj9Ye9T0pQpUAD
+	WN/JA2wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk63T-00000005dpf-12pU;
-	Mon, 17 Feb 2025 18:41:19 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tk680-00000005eO6-3ItI;
+	Mon, 17 Feb 2025 18:46:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk61H-00000005dU7-0Hgy;
-	Mon, 17 Feb 2025 18:39:04 +0000
+	id 1tk66Y-00000005eA3-12Q3;
+	Mon, 17 Feb 2025 18:44:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=EwsNs4rTkCq+1gD7AYy++hzMPwVpqQxCJeslYKSIXTY=; b=QDX1P+ctaBzPfHZ8Sa9jxwJs8L
+	JcSMki5tqUx/DA2/nE8aNpazpnrlbUdO7Oozd/YPLGylqFTgK7YcYisKBLboJM5CuPXAxjX9AG7fN
+	5OkcnlCnQCXQKGB27w0TtSHJeFF3fo17Ve02FlfBeW6hyNvmw5McT0qEnIpbI9MnaFw7RjnAORosH
+	hhv+Lk12e1atry5kVnWnLf+PuYeWMUM9ZER0dDM4n8EkNOSUJbH7l65WRVxu+kqNJVMhNegtUjU5F
+	QVBrezmjIsSbPcIJmCk/pYeuxAMbTVXKgW1mDnclVl4GAlnpoLeS6DQfV3/rXvzOsiY/hUVTpVrkR
+	400er2XA==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk66V-00000001sDf-1NbX;
+	Mon, 17 Feb 2025 18:44:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BFEEDA41AB1;
-	Mon, 17 Feb 2025 18:37:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 180BFC4CED1;
-	Mon, 17 Feb 2025 18:38:56 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7513AA40FC9;
+	Mon, 17 Feb 2025 18:42:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCBF9C4CED1;
+	Mon, 17 Feb 2025 18:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739817541;
-	bh=dZsC/3h/MKO8YfPS5c8QTfQjs6ZTCKMOtcNcVvSS5+8=;
+	s=k20201202; t=1739817863;
+	bh=hvJmtOA0hWqdrwewer4IWWSTXNheMWESg95g21xhQrU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TputmEFhGLuDkSadMvjCrBnrYPBQ981+8f1P+q7EctybtfBgbapK54U1ua6Jwbf8H
-	 sQIyuXwklpqkaCj34MiFpl+l1MwvKeZ3Wj79VH6dYgSD/tiH/3GWC1gpF1/E3SPXyr
-	 p3jF/uKHfxummcjwZ6VO6WpB6x2XTYJ+eJvuGWkI7ij596Zqo4oSsQDNItcPXeWiF8
-	 PoAMj6ibTObC0E79gj0EkVjVCCjDCMAoYHnbbdXJbxjyi31m2D3FderirberBolW4/
-	 SRF8Jc3e27ZgbluuIKIsl05nRiuFu8RjTq04Ty0QH0ogXBVMePTPFIY3ZyE/yB+eRD
-	 M6uQkH1dDnqKA==
-Date: Mon, 17 Feb 2025 18:38:54 +0000
+	b=ECO4WBLVH6vcxQaP1em3PQFuRdPLwaJyGRECgte5JxlUQg1SE2w9c4ZETGj9bYn96
+	 BTxsCXe7x/dvdDGteIZHJdpiOG7cqvSrAUvROo4x7h//C6W72zLNRrXmpAVGYJSQVd
+	 NhuVpbUduXFTY1QwO8PYkH2qLBh+VysqtAdmV5zv09bXnmko1+2PNaJV07deqxLvV2
+	 U6vV0ZMgVKT7Hb1K24nZixUabg0/URFZyN+GKFzuHCO7HGHcKYKQhutA6vhjjQzDXj
+	 p13Lzp5sAPXkhyZhb5shtiSB5kfHYMB3f6nUIp4nwXYvajhQ4AWQ96vq7kM23OOofk
+	 yNsY0nMF/bBSA==
+Date: Mon, 17 Feb 2025 18:44:16 +0000
 From: Simon Horman <horms@kernel.org>
 To: Lorenzo Bianconi <lorenzo@kernel.org>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -62,18 +76,18 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
 	upstream@airoha.com
-Subject: Re: [PATCH net-next v4 13/16] net: airoha: Introduce Airoha NPU
+Subject: Re: [PATCH net-next v4 16/16] net: airoha: Introduce PPE debugfs
  support
-Message-ID: <20250217183854.GP1615191@kernel.org>
+Message-ID: <20250217184416.GQ1615191@kernel.org>
 References: <20250213-airoha-en7581-flowtable-offload-v4-0-b69ca16d74db@kernel.org>
- <20250213-airoha-en7581-flowtable-offload-v4-13-b69ca16d74db@kernel.org>
+ <20250213-airoha-en7581-flowtable-offload-v4-16-b69ca16d74db@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250213-airoha-en7581-flowtable-offload-v4-13-b69ca16d74db@kernel.org>
+In-Reply-To: <20250213-airoha-en7581-flowtable-offload-v4-16-b69ca16d74db@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_103903_246264_5E0001F1 
-X-CRM114-Status: GOOD (  30.17  )
+X-CRM114-CacheID: sfid-20250217_184427_677407_43B6DEA3 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,533 +102,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 13, 2025 at 04:34:32PM +0100, Lorenzo Bianconi wrote:
-> Packet Processor Engine (PPE) module available on EN7581 SoC populates
-> the PPE table with 5-tuples flower rules learned from traffic forwarded
-> between the GDM ports connected to the Packet Switch Engine (PSE) module.
-> The airoha_eth driver can enable hw acceleration of learned 5-tuples
-> rules if the user configure them in netfilter flowtable (netfilter
-> flowtable support will be added with subsequent patches).
-> airoha_eth driver configures and collects data from the PPE module via a
-> Network Processor Unit (NPU) RISC-V module available on the EN7581 SoC.
-> Introduce basic support for Airoha NPU moudle.
-
-nit: module
-
+On Thu, Feb 13, 2025 at 04:34:35PM +0100, Lorenzo Bianconi wrote:
+> Similar to PPE support for Mediatek devices, introduce PPE debugfs
+> in order to dump binded and unbinded flows.
 > 
 > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
 ...
 
-> diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c b/drivers/net/ethernet/airoha/airoha_ppe_debugfs.c
 
 ...
 
-> +static int airoha_npu_probe(struct platform_device *pdev)
+> +static int airoha_ppe_debugfs_foe_show(struct seq_file *m, void *private,
+> +				       bool bind)
 > +{
-> +	struct device *dev = &pdev->dev;
-> +	struct reserved_mem *rmem;
-> +	struct airoha_npu *npu;
-> +	struct device_node *np;
-> +	void __iomem *base;
-> +	int i, irq, err;
+> +	static const char *const ppe_type_str[] = {
+> +		[PPE_PKT_TYPE_IPV4_HNAPT] = "IPv4 5T",
+> +		[PPE_PKT_TYPE_IPV4_ROUTE] = "IPv4 3T",
+> +		[PPE_PKT_TYPE_BRIDGE] = "L2B",
+> +		[PPE_PKT_TYPE_IPV4_DSLITE] = "DS-LITE",
+> +		[PPE_PKT_TYPE_IPV6_ROUTE_3T] = "IPv6 3T",
+> +		[PPE_PKT_TYPE_IPV6_ROUTE_5T] = "IPv6 5T",
+> +		[PPE_PKT_TYPE_IPV6_6RD] = "6RD",
+> +	};
+> +	static const char *const ppe_state_str[] = {
+> +		[AIROHA_FOE_STATE_INVALID] = "INV",
+> +		[AIROHA_FOE_STATE_UNBIND] = "UNB",
+> +		[AIROHA_FOE_STATE_BIND] = "BND",
+> +		[AIROHA_FOE_STATE_FIN] = "FIN",
+> +	};
+> +	struct airoha_ppe *ppe = m->private;
+> +	int i;
 > +
-> +	base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(base))
-> +		return PTR_ERR(base);
+> +	for (i = 0; i < PPE_NUM_ENTRIES; i++) {
+> +		const char *state_str, *type_str = "UNKNOWN";
+> +		u16 *src_port = NULL, *dest_port = NULL;
+> +		struct airoha_foe_mac_info_common *l2;
+> +		unsigned char h_source[ETH_ALEN] = {};
+> +		unsigned char h_dest[ETH_ALEN];
+> +		struct airoha_foe_entry *hwe;
+> +		u32 type, state, ib2, data;
+> +		void *src_addr, *dest_addr;
+> +		bool ipv6 = false;
 > +
-> +	npu = devm_kzalloc(dev, sizeof(*npu), GFP_KERNEL);
-> +	if (!npu)
-> +		return -ENOMEM;
+> +		hwe = airoha_ppe_foe_get_entry(ppe, i);
+> +		if (!hwe)
+> +			continue;
 > +
-> +	npu->dev = dev;
-> +	npu->regmap = devm_regmap_init_mmio(dev, base, &regmap_config);
-> +	if (IS_ERR(npu->regmap))
-> +		return PTR_ERR(npu->regmap);
+> +		state = FIELD_GET(AIROHA_FOE_IB1_STATE, hwe->ib1);
+> +		if (!state)
+> +			continue;
 > +
-> +	np = of_parse_phandle(dev->of_node, "memory-region", 0);
-> +	if (!np)
-> +		return -ENODEV;
+> +		if (bind && state != AIROHA_FOE_STATE_BIND)
+> +			continue;
 > +
-> +	rmem = of_reserved_mem_lookup(np);
-> +	of_node_put(np);
+> +		state_str = ppe_state_str[state % ARRAY_SIZE(ppe_state_str)];
+> +		type = FIELD_GET(AIROHA_FOE_IB1_PACKET_TYPE, hwe->ib1);
+> +		if (type < ARRAY_SIZE(ppe_type_str) && ppe_type_str[type])
+> +			type_str = ppe_type_str[type];
 > +
-> +	if (!rmem)
-> +		return -ENODEV;
+> +		seq_printf(m, "%05x %s %7s", i, state_str, type_str);
 > +
-> +	irq = platform_get_irq(pdev, 0);
-> +	if (irq < 0)
-> +		return irq;
-> +
-> +	err = devm_request_irq(dev, irq, airoha_npu_mbox_handler,
-> +			       IRQF_SHARED, "airoha-npu-mbox", npu);
-> +	if (err)
-> +		return err;
-> +
-> +	for (i = 0; i < ARRAY_SIZE(npu->cores); i++) {
-> +		struct airoha_npu_core *core = &npu->cores[i];
-> +
-> +		spin_lock_init(&core->lock);
-> +		core->npu = npu;
-> +
-> +		irq = platform_get_irq(pdev, i + 1);
-> +		if (irq < 0)
-> +			return err;
+> +		switch (type) {
+> +		case PPE_PKT_TYPE_IPV4_HNAPT:
+> +		case PPE_PKT_TYPE_IPV4_DSLITE:
+> +			src_port = &hwe->ipv4.orig_tuple.src_port;
+> +			dest_port = &hwe->ipv4.orig_tuple.dest_port;
+> +			fallthrough;
+> +		case PPE_PKT_TYPE_IPV4_ROUTE:
+> +			src_addr = &hwe->ipv4.orig_tuple.src_ip;
+> +			dest_addr = &hwe->ipv4.orig_tuple.dest_ip;
+> +			break;
+> +		case PPE_PKT_TYPE_IPV6_ROUTE_5T:
+> +			src_port = &hwe->ipv6.src_port;
+> +			dest_port = &hwe->ipv6.dest_port;
+> +			fallthrough;
+> +		case PPE_PKT_TYPE_IPV6_ROUTE_3T:
+> +		case PPE_PKT_TYPE_IPV6_6RD:
+> +			src_addr = &hwe->ipv6.src_ip;
+> +			dest_addr = &hwe->ipv6.dest_ip;
+> +			ipv6 = true;
+> +			break;
+> +		}
 
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..3620f4e771e659de4c91b40575e18d689199fb4c
-> --- /dev/null
-> +++ b/drivers/net/ethernet/airoha/airoha_npu.c
-> @@ -0,0 +1,521 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (c) 2025 AIROHA Inc
-> + * Author: Lorenzo Bianconi <lorenzo@kernel.org>
-> + */
-> +
-> +#include <linux/devcoredump.h>
-> +#include <linux/firmware.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/of_net.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/of_reserved_mem.h>
-> +#include <linux/regmap.h>
-> +
-> +#include "airoha_npu.h"
-> +
-> +#define NPU_EN7581_FIRMWARE_DATA		"airoha/en7581_npu_data.bin"
-> +#define NPU_EN7581_FIRMWARE_RV32		"airoha/en7581_npu_rv32.bin"
-> +#define NPU_EN7581_FIRMWARE_RV32_MAX_SIZE	0x200000
-> +#define NPU_EN7581_FIRMWARE_DATA_MAX_SIZE	0x10000
-> +#define NPU_DUMP_SIZE				512
-> +
-> +#define REG_NPU_LOCAL_SRAM		0x0
-> +
-> +#define NPU_PC_BASE_ADDR		0x305000
-> +#define REG_PC_DBG(_n)			(0x305000 + ((_n) * 0x100))
-> +
-> +#define NPU_CLUSTER_BASE_ADDR		0x306000
-> +
-> +#define REG_CR_BOOT_TRIGGER		(NPU_CLUSTER_BASE_ADDR + 0x000)
-> +#define REG_CR_BOOT_CONFIG		(NPU_CLUSTER_BASE_ADDR + 0x004)
-> +#define REG_CR_BOOT_BASE(_n)		(NPU_CLUSTER_BASE_ADDR + 0x020 + ((_n) << 2))
-> +
-> +#define NPU_MBOX_BASE_ADDR		0x30c000
-> +
-> +#define REG_CR_MBOX_INT_STATUS		(NPU_MBOX_BASE_ADDR + 0x000)
-> +#define MBOX_INT_STATUS_MASK		BIT(8)
-> +
-> +#define REG_CR_MBOX_INT_MASK(_n)	(NPU_MBOX_BASE_ADDR + 0x004 + ((_n) << 2))
-> +#define REG_CR_MBQ0_CTRL(_n)		(NPU_MBOX_BASE_ADDR + 0x030 + ((_n) << 2))
-> +#define REG_CR_MBQ8_CTRL(_n)		(NPU_MBOX_BASE_ADDR + 0x0b0 + ((_n) << 2))
-> +#define REG_CR_NPU_MIB(_n)		(NPU_MBOX_BASE_ADDR + 0x140 + ((_n) << 2))
-> +
-> +#define NPU_TIMER_BASE_ADDR		0x310100
-> +#define REG_WDT_TIMER_CTRL(_n)		(NPU_TIMER_BASE_ADDR + ((_n) * 0x100))
-> +#define WDT_EN_MASK			BIT(25)
-> +#define WDT_INTR_MASK			BIT(21)
-> +
-> +enum {
-> +	NPU_OP_SET = 1,
-> +	NPU_OP_SET_NO_WAIT,
-> +	NPU_OP_GET,
-> +	NPU_OP_GET_NO_WAIT,
-> +};
-> +
-> +enum {
-> +	NPU_FUNC_WIFI,
-> +	NPU_FUNC_TUNNEL,
-> +	NPU_FUNC_NOTIFY,
-> +	NPU_FUNC_DBA,
-> +	NPU_FUNC_TR471,
-> +	NPU_FUNC_PPE,
-> +};
-> +
-> +enum {
-> +	NPU_MBOX_ERROR,
-> +	NPU_MBOX_SUCCESS,
-> +};
-> +
-> +enum {
-> +	PPE_FUNC_SET_WAIT,
-> +	PPE_FUNC_SET_WAIT_HWNAT_INIT,
-> +	PPE_FUNC_SET_WAIT_HWNAT_DEINIT,
-> +	PPE_FUNC_SET_WAIT_API,
-> +};
-> +
-> +enum {
-> +	PPE2_SRAM_SET_ENTRY,
-> +	PPE_SRAM_SET_ENTRY,
-> +	PPE_SRAM_SET_VAL,
-> +	PPE_SRAM_RESET_VAL,
-> +};
-> +
-> +enum {
-> +	QDMA_WAN_ETHER = 1,
-> +	QDMA_WAN_PON_XDSL,
-> +};
-> +
-> +#define MBOX_MSG_FUNC_ID	GENMASK(14, 11)
-> +#define MBOX_MSG_STATIC_BUF	BIT(5)
-> +#define MBOX_MSG_STATUS		GENMASK(4, 2)
-> +#define MBOX_MSG_DONE		BIT(1)
-> +#define MBOX_MSG_WAIT_RSP	BIT(0)
-> +
-> +#define PPE_TYPE_L2B_IPV4	2
-> +#define PPE_TYPE_L2B_IPV4_IPV6	3
-> +
-> +struct ppe_mbox_data {
-> +	u32 func_type;
-> +	u32 func_id;
-> +	union {
-> +		struct {
-> +			u8 cds;
-> +			u8 xpon_hal_api;
-> +			u8 wan_xsi;
-> +			u8 ct_joyme4;
-> +			int ppe_type;
-> +			int wan_mode;
-> +			int wan_sel;
-> +		} init_info;
-> +		struct {
-> +			int func_id;
-> +			u32 size;
-> +			u32 data;
-> +		} set_info;
-> +	};
-> +};
-> +
-> +static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
-> +			       void *p, int size)
-> +{
-> +	u16 core = 0; /* FIXME */
-> +	u32 val, offset = core << 4;
-> +	dma_addr_t dma_addr;
-> +	void *addr;
-> +	int ret;
-> +
-> +	addr = kzalloc(size, GFP_ATOMIC | GFP_DMA);
-> +	if (!addr)
-> +		return -ENOMEM;
-> +
-> +	memcpy(addr, p, size);
-> +	dma_addr = dma_map_single(npu->dev, addr, size, DMA_TO_DEVICE);
-> +	ret = dma_mapping_error(npu->dev, dma_addr);
-> +	if (ret)
-> +		goto out;
-> +
-> +	spin_lock_bh(&npu->cores[core].lock);
-> +
-> +	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(0) + offset, dma_addr);
-> +	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(1) + offset, size);
-> +	regmap_read(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, &val);
-> +	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, val + 1);
-> +	val = FIELD_PREP(MBOX_MSG_FUNC_ID, func_id) | MBOX_MSG_WAIT_RSP;
-> +	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(3) + offset, val);
-> +
-> +	ret = regmap_read_poll_timeout_atomic(npu->regmap,
-> +					      REG_CR_MBQ0_CTRL(3) + offset,
-> +					      val, (val & MBOX_MSG_DONE),
-> +					      100, 100 * MSEC_PER_SEC);
-> +	if (!ret && FIELD_GET(MBOX_MSG_STATUS, val) != NPU_MBOX_SUCCESS)
-> +		ret = -EINVAL;
-> +
-> +	spin_unlock_bh(&npu->cores[core].lock);
-> +
-> +	dma_unmap_single(npu->dev, dma_addr, size, DMA_TO_DEVICE);
-> +out:
-> +	kfree(addr);
-> +
-> +	return ret;
-> +}
-> +
-> +static int airoha_npu_run_firmware(struct device *dev, void __iomem *base,
-> +				   struct reserved_mem *rmem)
-> +{
-> +	const struct firmware *fw;
-> +	void __iomem *addr;
-> +	int ret;
-> +
-> +	ret = request_firmware(&fw, NPU_EN7581_FIRMWARE_RV32, dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (fw->size > NPU_EN7581_FIRMWARE_RV32_MAX_SIZE) {
-> +		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
-> +			NPU_EN7581_FIRMWARE_RV32, fw->size);
-> +		ret = -E2BIG;
-> +		goto out;
-> +	}
-> +
-> +	addr = devm_ioremap(dev, rmem->base, rmem->size);
-> +	if (!addr) {
-> +		ret = -ENOMEM;
-> +		goto out;
-> +	}
-> +
-> +	memcpy_toio(addr, fw->data, fw->size);
-> +	release_firmware(fw);
-> +
-> +	ret = request_firmware(&fw, NPU_EN7581_FIRMWARE_DATA, dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (fw->size > NPU_EN7581_FIRMWARE_DATA_MAX_SIZE) {
-> +		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
-> +			NPU_EN7581_FIRMWARE_DATA, fw->size);
-> +		ret = -E2BIG;
-> +		goto out;
-> +	}
-> +
-> +	memcpy_toio(base + REG_NPU_LOCAL_SRAM, fw->data, fw->size);
-> +out:
-> +	release_firmware(fw);
-> +
-> +	return ret;
-> +}
-> +
-> +static irqreturn_t airoha_npu_mbox_handler(int irq, void *npu_instance)
-> +{
-> +	struct airoha_npu *npu = npu_instance;
-> +
-> +	/* clear mbox interrupt status */
-> +	regmap_write(npu->regmap, REG_CR_MBOX_INT_STATUS,
-> +		     MBOX_INT_STATUS_MASK);
-> +
-> +	/* acknowledge npu */
-> +	regmap_update_bits(npu->regmap, REG_CR_MBQ8_CTRL(3),
-> +			   MBOX_MSG_STATUS | MBOX_MSG_DONE, MBOX_MSG_DONE);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static void airoha_npu_wdt_work(struct work_struct *work)
-> +{
-> +	struct airoha_npu_core *core;
-> +	struct airoha_npu *npu;
-> +	void *dump;
-> +	u32 val[3];
-> +	int c;
-> +
-> +	core = container_of(work, struct airoha_npu_core, wdt_work);
-> +	npu = core->npu;
-> +
-> +	dump = vzalloc(NPU_DUMP_SIZE);
-> +	if (!dump)
-> +		return;
-> +
-> +	c = core - &npu->cores[0];
-> +	regmap_bulk_read(npu->regmap, REG_PC_DBG(c), val, ARRAY_SIZE(val));
-> +	snprintf(dump, NPU_DUMP_SIZE, "PC: %08x SP: %08x LR: %08x\n",
-> +		 val[0], val[1], val[2]);
-> +
-> +	dev_coredumpv(npu->dev, dump, NPU_DUMP_SIZE, GFP_KERNEL);
-> +}
-> +
-> +static irqreturn_t airoha_npu_wdt_handler(int irq, void *core_instance)
-> +{
-> +	struct airoha_npu_core *core = core_instance;
-> +	struct airoha_npu *npu = core->npu;
-> +	int c = core - &npu->cores[0];
-> +	u32 val;
-> +
-> +	regmap_set_bits(npu->regmap, REG_WDT_TIMER_CTRL(c), WDT_INTR_MASK);
-> +	if (!regmap_read(npu->regmap, REG_WDT_TIMER_CTRL(c), &val) &&
-> +	    FIELD_GET(WDT_EN_MASK, val))
-> +		schedule_work(&core->wdt_work);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static int airoha_npu_ppe_init(struct airoha_npu *npu)
-> +{
-> +	struct ppe_mbox_data ppe_data = {
-> +		.func_type = NPU_OP_SET,
-> +		.func_id = PPE_FUNC_SET_WAIT_HWNAT_INIT,
-> +		.init_info = {
-> +			.ppe_type = PPE_TYPE_L2B_IPV4_IPV6,
-> +			.wan_mode = QDMA_WAN_ETHER,
-> +		},
-> +	};
-> +
-> +	return airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-> +				   sizeof(struct ppe_mbox_data));
-> +}
-> +
-> +int airoha_npu_ppe_deinit(struct airoha_npu *npu)
-> +{
-> +	struct ppe_mbox_data ppe_data = {
-> +		.func_type = NPU_OP_SET,
-> +		.func_id = PPE_FUNC_SET_WAIT_HWNAT_DEINIT,
-> +	};
-> +
-> +	return airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-> +				   sizeof(struct ppe_mbox_data));
-> +}
-> +EXPORT_SYMBOL_GPL(airoha_npu_ppe_deinit);
-> +
-> +int airoha_npu_ppe_flush_sram_entries(struct airoha_npu *npu,
-> +				      dma_addr_t foe_addr,
-> +				      int sram_num_entries)
-> +{
-> +	struct ppe_mbox_data ppe_data = {
-> +		.func_type = NPU_OP_SET,
-> +		.func_id = PPE_FUNC_SET_WAIT_API,
-> +		.set_info = {
-> +			.func_id = PPE_SRAM_RESET_VAL,
-> +			.data = foe_addr,
-> +			.size = sram_num_entries,
-> +		},
-> +	};
-> +
-> +	return airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-> +				   sizeof(struct ppe_mbox_data));
-> +}
-> +EXPORT_SYMBOL_GPL(airoha_npu_ppe_flush_sram_entries);
-> +
-> +int airoha_npu_foe_commit_entry(struct airoha_npu *npu, dma_addr_t foe_addr,
-> +				u32 entry_size, u32 hash, bool ppe2)
-> +{
-> +	struct ppe_mbox_data ppe_data = {
-> +		.func_type = NPU_OP_SET,
-> +		.func_id = PPE_FUNC_SET_WAIT_API,
-> +		.set_info = {
-> +			.data = foe_addr,
-> +			.size = entry_size,
-> +		},
-> +	};
-> +	int err;
-> +
-> +	ppe_data.set_info.func_id = ppe2 ? PPE2_SRAM_SET_ENTRY
-> +					 : PPE_SRAM_SET_ENTRY;
-> +
-> +	err = airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-> +				  sizeof(struct ppe_mbox_data));
-> +	if (err)
-> +		return err;
-> +
-> +	ppe_data.set_info.func_id = PPE_SRAM_SET_VAL;
-> +	ppe_data.set_info.data = hash;
-> +	ppe_data.set_info.size = sizeof(u32);
-> +
-> +	return airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-> +				   sizeof(struct ppe_mbox_data));
-> +}
-> +EXPORT_SYMBOL_GPL(airoha_npu_foe_commit_entry);
-> +
-> +struct airoha_npu *airoha_npu_get(struct device *dev)
-> +{
-> +	struct platform_device *pdev;
-> +	struct device_node *np;
-> +	struct airoha_npu *npu;
-> +
-> +	np = of_parse_phandle(dev->of_node, "airoha,npu", 0);
-> +	if (!np)
-> +		return ERR_PTR(-ENODEV);
-> +
-> +	pdev = of_find_device_by_node(np);
-> +	of_node_put(np);
-> +
-> +	if (!pdev) {
-> +		dev_err(dev, "cannot find device node %s\n", np->name);
-> +		return ERR_PTR(-ENODEV);
-> +	}
-> +
-> +	if (!try_module_get(THIS_MODULE)) {
-> +		dev_err(dev, "failed to get the device driver module\n");
-> +		npu = ERR_PTR(-ENODEV);
-> +		goto error_pdev_put;
-> +	}
-> +
-> +	npu = platform_get_drvdata(pdev);
-> +	if (!npu) {
-> +		npu = ERR_PTR(-ENODEV);
-> +		goto error_module_put;
-> +	}
-> +
-> +	if (!device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_SUPPLIER)) {
-> +		dev_err(&pdev->dev,
-> +			"failed to create device link to consumer %s\n",
-> +			dev_name(dev));
-> +		npu = ERR_PTR(-EINVAL);
-> +		goto error_module_put;
-> +	}
-> +
-> +	return npu;
-> +
-> +error_module_put:
-> +	module_put(THIS_MODULE);
-> +error_pdev_put:
-> +	platform_device_put(pdev);
-> +
-> +	return npu;
-> +}
-> +EXPORT_SYMBOL_GPL(airoha_npu_get);
-> +
-> +void airoha_npu_put(struct airoha_npu *npu)
-> +{
-> +	module_put(THIS_MODULE);
-> +	put_device(npu->dev);
-> +}
-> +EXPORT_SYMBOL_GPL(airoha_npu_put);
-> +
-> +static const struct of_device_id of_airoha_npu_match[] = {
-> +	{ .compatible = "airoha,en7581-npu" },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, of_airoha_npu_match);
-> +
-> +static const struct regmap_config regmap_config = {
-> +	.name			= "npu",
-> +	.reg_bits		= 32,
-> +	.val_bits		= 32,
-> +	.reg_stride		= 4,
-> +	.disable_locking	= true,
-> +};
+Hi Lorenzo,
 
-Should this return irq rather than err?
+Perhaps it can't happen, but if type is not one of the cases handled
+by the switch statement above then src_addr and dest_addr will
+be used while uninitialised by the call to airoha_debugfs_ppe_print_tuple()
+below.
 
 Flagged by Smatch.
 
 > +
-> +		err = devm_request_irq(dev, irq, airoha_npu_wdt_handler,
-> +				       IRQF_SHARED, "airoha-npu-wdt", core);
-> +		if (err)
-> +			return err;
+> +		seq_puts(m, " orig=");
+> +		airoha_debugfs_ppe_print_tuple(m, src_addr, dest_addr,
+> +					       src_port, dest_port, ipv6);
 > +
-> +		INIT_WORK(&core->wdt_work, airoha_npu_wdt_work);
+> +		switch (type) {
+> +		case PPE_PKT_TYPE_IPV4_HNAPT:
+> +		case PPE_PKT_TYPE_IPV4_DSLITE:
+> +			src_port = &hwe->ipv4.new_tuple.src_port;
+> +			dest_port = &hwe->ipv4.new_tuple.dest_port;
+> +			fallthrough;
+> +		case PPE_PKT_TYPE_IPV4_ROUTE:
+> +			src_addr = &hwe->ipv4.new_tuple.src_ip;
+> +			dest_addr = &hwe->ipv4.new_tuple.dest_ip;
+> +			seq_puts(m, " new=");
+> +			airoha_debugfs_ppe_print_tuple(m, src_addr, dest_addr,
+> +						       src_port, dest_port,
+> +						       ipv6);
+> +			break;
+> +		}
+> +
+> +		if (type >= PPE_PKT_TYPE_IPV6_ROUTE_3T) {
+> +			data = hwe->ipv6.data;
+> +			ib2 = hwe->ipv6.ib2;
+> +			l2 = &hwe->ipv6.l2;
+> +		} else {
+> +			data = hwe->ipv4.data;
+> +			ib2 = hwe->ipv4.ib2;
+> +			l2 = &hwe->ipv4.l2.common;
+> +			*((__be16 *)&h_source[4]) =
+> +				cpu_to_be16(hwe->ipv4.l2.src_mac_lo);
+> +		}
+> +
+> +		*((__be32 *)h_dest) = cpu_to_be32(l2->dest_mac_hi);
+> +		*((__be16 *)&h_dest[4]) = cpu_to_be16(l2->dest_mac_lo);
+> +		*((__be32 *)h_source) = cpu_to_be32(l2->src_mac_hi);
+> +
+> +		seq_printf(m, " eth=%pM->%pM etype=%04x data=%08x"
+> +			      " vlan=%d,%d ib1=%08x ib2=%08x\n",
+> +			   h_source, h_dest, l2->etype, data,
+> +			   l2->vlan1, l2->vlan2, hwe->ib1, ib2);
 > +	}
-> +
-> +	if (dma_set_coherent_mask(dev, 0xbfffffff))
-> +		dev_warn(dev, "failed coherent DMA configuration\n");
-> +
-> +	err = airoha_npu_run_firmware(dev, base, rmem);
-> +	if (err)
-> +		return err;
-> +
-> +	regmap_write(npu->regmap, REG_CR_NPU_MIB(10),
-> +		     rmem->base + NPU_EN7581_FIRMWARE_RV32_MAX_SIZE);
-> +	regmap_write(npu->regmap, REG_CR_NPU_MIB(11), 0x40000); /* SRAM 256K */
-> +	regmap_write(npu->regmap, REG_CR_NPU_MIB(12), 0);
-> +	regmap_write(npu->regmap, REG_CR_NPU_MIB(21), 1);
-> +	msleep(100);
-> +
-> +	/* setting booting address */
-> +	for (i = 0; i < NPU_NUM_CORES; i++)
-> +		regmap_write(npu->regmap, REG_CR_BOOT_BASE(i), rmem->base);
-> +	usleep_range(1000, 2000);
-> +
-> +	/* enable NPU cores */
-> +	/* do not start core3 since it is used for WiFi offloading */
-> +	regmap_write(npu->regmap, REG_CR_BOOT_CONFIG, 0xf7);
-> +	regmap_write(npu->regmap, REG_CR_BOOT_TRIGGER, 0x1);
-> +	msleep(100);
-> +
-> +	err = airoha_npu_ppe_init(npu);
-> +	if (err)
-> +		return err;
-> +
-> +	platform_set_drvdata(pdev, npu);
 > +
 > +	return 0;
 > +}
