@@ -4,94 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B257EC021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 18:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C29C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 18:22:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W+FExaZ6awrhNUR+O/77ICcKPBMvq+e06oZnkz4XEEQ=; b=eQ+x45tS0U6d1eA4LK7GB3o46i
-	RTsC/5R6im4V3XTXOujph06sg+GLKzb/ukATAyA7h941vI4QC1y1iS+UZbyq8osTc0oxvtdvfwnuj
-	y0aXslLITmtRuvK45w09dA495DEERtLB6bN9KePF2TR9sSwe8HjbtV5FehvIavZMnERlkFYxmsLxO
-	mD60z+e+zhTsVXb3HkANUB5zFJzRuHMB83Ki0+QJ/mZfODi9jfaGFJEJoRxDE8eUFhHlKsKWEQni6
-	cE7gjBX5/OjR7gJabXBJTQLX1awjEKP9QWTW5bfWxvU5oEz5yS+HGudllWD+HH4+uXBfWfhr+4NzJ
-	9vXZ6pOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WYdQMpmWfwfRPZrNOq/JI6U8Fyr73ByGTD+9Af1nU7I=; b=cCPFJRzvwlhA9FyYB/+71rlts+
+	p8NCf4WI1y/VfqKWYPicFnGM5PYqdbnL8N1ac9ltebzFb4AWHdf0pmF7OfnyG/NTV/YxKZ8ZQa/xq
+	Lis5OAeIuxKByZROv6j4ql5ZQypVoAknBtcERYGxxJYOYqPoKKADn4iH02IMC1O/SD7aUzOj13uMi
+	pHXnzpaxcP5IJxAyp/6Qekb55JXoazJI5QMxOceA/oOesCtDTCeY7pxINzDrNIzzMdK9Qsu2t18jL
+	/JQbfmDX71QCJMM5xGWjp0omqfEyBLpcGEdQuqPm7TbX7G0GaucX/muWOuQM1+ZJxyex7+sm3z2yy
+	lZkF5NPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk5lG-00000005aYn-4BN4;
-	Mon, 17 Feb 2025 18:22:31 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1tk5lP-00000005ahG-2z9c;
+	Mon, 17 Feb 2025 18:22:39 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk5Li-00000005XEm-10zs;
-	Mon, 17 Feb 2025 17:56:08 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 9DF5A442C2;
-	Mon, 17 Feb 2025 17:56:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739814963;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=W+FExaZ6awrhNUR+O/77ICcKPBMvq+e06oZnkz4XEEQ=;
-	b=dBGwhhD9TPznMPEScqRh19KvL6CEKEuLzlFafe7E1jnKps3zMUCBrrMRYguWZJLHPI44oV
-	ekTkDtdkum0ZeJ6hkcNiQW6qr9z6y0HRLyzv2E2xoHG2N0TUiR3KEr3qiiv523eslP3GZq
-	mbfJKM7PvHWK2qZ50LsuyZFxtPAjPqp70A3C84kBw9Mj0ZPcptakpKA7ulM8xWOQbXG2+g
-	zxqDOf/ixcKxH8kvhJszWrMu1W1LFZi+o7u+zfWNdnkwQL3JKaID9KGRmNehk0XpsNweNv
-	qlZrhiy31AlPoLJw/hDv2uNwsyWJoxEKF80XjMH2xfBJplAxm7aUMO9QpDxYcw==
-Date: Mon, 17 Feb 2025 18:55:59 +0100
-From: Herve Codina <herve.codina@bootlin.com>
-To: Phil Elwell <phil@raspberrypi.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrea della Porta
- <andrea.porta@suse.com>, Arnd Bergmann <arnd@arndb.de>,
- "maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE"
- <bcm-kernel-feedback-list@broadcom.com>, bhelgaas@google.com,
- brgl@bgdev.pl, Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
- <conor+dt@kernel.org>, derek.kiernan@amd.com, devicetree@vger.kernel.org,
- dragan.cvetic@amd.com, Florian Fainelli <florian.fainelli@broadcom.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, krzk+dt@kernel.org,
- kw@linux.com, Linus Walleij <linus.walleij@linaro.org>, linux-arm-kernel
- <linux-arm-kernel@lists.infradead.org>, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, "open
- list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS"
- <linux-pci@vger.kernel.org>, "moderated list:BROADCOM BCM2711/BCM2835 ARM
- ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
- lpieralisi@kernel.org, luca.ceresoli@bootlin.com,
- manivannan.sadhasivam@linaro.org, masahiroy@kernel.org, Michael Turquette
- <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
- saravanak@google.com, Stephen Boyd <sboyd@kernel.org>,
- thomas.petazzoni@bootlin.com, Stefan Wahren <wahrenst@gmx.net>, Will Deacon
- <will@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device
- using a DT overlay
-Message-ID: <20250217185559.2e56bd75@bootlin.com>
-In-Reply-To: <CAMEGJJ13476pKJb441o5X0Y+rbfromj5-3V-j2KZiOt326OL4A@mail.gmail.com>
-References: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
-	<20250213171435.1c2ce376@bootlin.com>
-	<a3c5103c-829a-4301-ba53-6ef9bd1e74e7@lunn.ch>
-	<CAMEGJJ3-JXhin_Ht76EqUNAwLiNisa9PrCrdUzCgj=msGZfb5A@mail.gmail.com>
-	<821d4c74-09b0-4c1b-b8ef-f8c08d0f6b5b@lunn.ch>
-	<CAMEGJJ0QbzCScfTRA_pw_8A=iMYMAAFs69zFNLwcOxF5Syugpw@mail.gmail.com>
-	<20250213195304.3a2df02c@bootlin.com>
-	<CAMEGJJ0kGCj=tjM6KswbG_+ZFkzMwPY+06BXCU0qSnbBKz0=ug@mail.gmail.com>
-	<20250213220639.373da07b@bootlin.com>
-	<CAMEGJJ2_HVKfsE3P22baadbzxSDAX=yTr=m76YuXa5A2cJsJig@mail.gmail.com>
-	<20250217165306.3f055b94@bootlin.com>
-	<CAMEGJJ13476pKJb441o5X0Y+rbfromj5-3V-j2KZiOt326OL4A@mail.gmail.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1tk5a8-00000005ZHR-0fyX
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Feb 2025 18:11:02 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-38f488f3161so517846f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 10:10:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739815858; x=1740420658; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=WYdQMpmWfwfRPZrNOq/JI6U8Fyr73ByGTD+9Af1nU7I=;
+        b=gcc8N/XPvKrfVMvrJ5ObQpRi+keSIMVacJZVCJxaPwKNWM1rvtYnijFU69DchoH0TY
+         8WP5edx6dUA7lSznjr7GBAiVzD6qltDu+IC9plIFHFZq+qBwjoCbdb9K/x9pXRJCVcmF
+         f3Wi/QRzR0NYhOxmNibPZMX6HYJMsFBEorygjcCVBvqgPACfJDrTON9xArwQoRABqlkQ
+         y6HUN32LLcE1n1BxGnFxyZk5V4Mo7iPSwq/HdHLqMd20fbZy1sW57OydlGNCfv/nPwCD
+         Vs3FGio0oEno+11dga/jc/0oiHCA8SllDSnc3HS8fcl11o+5QthSG6SaPstFoOP0lK6M
+         Q2PQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739815858; x=1740420658;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WYdQMpmWfwfRPZrNOq/JI6U8Fyr73ByGTD+9Af1nU7I=;
+        b=oh7Y3473vWdRoboNYoixDAvrALswpt3j95cTo12cncrajc4eF03mBVIorqcrayNtFP
+         DnAxB4/RMh9P+GwoMkbUwj1uVhus4SohClCCoZgk752/sO5OiTYtRGSrqcTctNeEe5bh
+         UxEFkRg+jyNjGKc1igRANdJZk7ikulR5EAyBZuHVwiqyzwA5jj/980LXyozwa3HNEUzh
+         TOg+MiHDBvzvSlnuYlzQqrPopK1tsFntZpvpqhh+GtQNX5oXMzZbcNA5U1PfVrltTta0
+         3t53eWDQh0aVR+KTDfo2HsdhRStZsrNAVqIcnfIUvvyu9TNvF4SEFcjrzcQscMWdz9DN
+         o8jg==
+X-Forwarded-Encrypted: i=1; AJvYcCVmcQVCRPGdFs256/XV98q9AEM+aPdikpcQe6RU6miuifoSWZNAXFfChCq4i98Dd56Krx0jGDIocLmwjApOZANH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwgTititsDCvV/wyMjD7mWdQ+9UM/+8EsHk27zDDGF8xWDoW2Es
+	WOz8F08SGDp+3nL0hW4cETpWhZIr/Zm+v3j8NTyXAjN/XrqIp3m2XgnYrqIAUlg=
+X-Gm-Gg: ASbGnctNv9ViBPNHYamib07VHqjkqWsaJe4Sa2+6rGARJGuuDUH6+wVehY+5K120YZC
+	B36KSxj4Q9GuS7pHOk4UnwS8pqq5k1qcEpJyr0fcadR0NeHhM6YLZiB4YF9k/6zBCSBNPVOrdVk
+	Wj29zCU/0wkd/H/dPH723mOQdWjewOlJ5zl3WZvrLU9jIk7Hn80oTAkJGsN9zIy3yvfwOlww8+K
+	7rlXwXb4yIea9zQl72pZRRWZbv948bPPcY6bwJGTEff5jIiHm0xjGuxi01S+lkK8ea7Eo1t//Jf
+	0O4jTc6PXIVRTQ==
+X-Google-Smtp-Source: AGHT+IFTAKZ9BquOVY29sEYMChLDnuqHcqVlSqR4NiZlMjD4bUMe9qRI5EU9r/6iyIf02WCX+Y2KzA==
+X-Received: by 2002:a5d:4cca:0:b0:38a:2b34:e13e with SMTP id ffacd0b85a97d-38f33f28c01mr7768806f8f.18.1739815856721;
+        Mon, 17 Feb 2025 10:10:56 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:a529:8667:e9bd:7f7])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4395afaf052sm155075695e9.13.2025.02.17.10.10.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 10:10:55 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Dave Ertman <david.m.ertman@intel.com>,  Ira Weiny
+ <ira.weiny@intel.com>,  "Rafael J. Wysocki" <rafael@kernel.org>,  Stephen
+ Boyd <sboyd@kernel.org>,  Arnd Bergmann <arnd@arndb.de>,  Danilo Krummrich
+ <dakr@kernel.org>,  Conor Dooley <conor.dooley@microchip.com>,  Daire
+ McNamara <daire.mcnamara@microchip.com>,  Philipp Zabel
+ <p.zabel@pengutronix.de>,  Douglas Anderson <dianders@chromium.org>,
+  Andrzej Hajda <andrzej.hajda@intel.com>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Robert Foss <rfoss@kernel.org>,  Laurent
+ Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
+ <jonas@kwiboo.se>,  Jernej Skrabec <jernej.skrabec@gmail.com>,  Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
+ <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>,  David
+ Airlie <airlied@gmail.com>,  Simona Vetter <simona@ffwll.ch>,  Hans de
+ Goede <hdegoede@redhat.com>,  Ilpo =?utf-8?Q?J=C3=A4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>,  Bryan O'Donoghue
+ <bryan.odonoghue@linaro.org>,  Vladimir Kondratiev
+ <vladimir.kondratiev@mobileye.com>,  Gregory CLEMENT
+ <gregory.clement@bootlin.com>,  =?utf-8?Q?Th=C3=A9o?= Lebrun
+ <theo.lebrun@bootlin.com>,
+  Michael Turquette <mturquette@baylibre.com>,  Abel Vesa
+ <abelvesa@kernel.org>,  Peng Fan <peng.fan@nxp.com>,  Shawn Guo
+ <shawnguo@kernel.org>,  Sascha Hauer <s.hauer@pengutronix.de>,
+  Pengutronix Kernel Team <kernel@pengutronix.de>,  Fabio Estevam
+ <festevam@gmail.com>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,
+  linux-kernel@vger.kernel.org,  linux-riscv@lists.infradead.org,
+  dri-devel@lists.freedesktop.org,  platform-driver-x86@vger.kernel.org,
+  linux-mips@vger.kernel.org,  linux-clk@vger.kernel.org,
+  imx@lists.linux.dev,  linux-arm-kernel@lists.infradead.org,
+  linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v3 1/7] driver core: auxiliary bus: add device creation
+ helpers
+In-Reply-To: <2025021501-tamer-sank-142a@gregkh> (Greg Kroah-Hartman's message
+	of "Sat, 15 Feb 2025 07:53:12 +0100")
+References: <20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com>
+	<20250211-aux-device-create-helper-v3-1-7edb50524909@baylibre.com>
+	<2025021437-washout-stonewall-d13e@gregkh>
+	<1jwmdsxugx.fsf@starbuckisacylon.baylibre.com>
+	<2025021501-tamer-sank-142a@gregkh>
+User-Agent: mu4e 1.12.8; emacs 29.4
+Date: Mon, 17 Feb 2025 19:10:54 +0100
+Message-ID: <1jikp8xx01.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehledtiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthekredtredtjeenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpedvhfeljedtfedtjeevffegtddutdeghfettdduhfeuhfdttdffieeuiefgvdfhvdenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvrgdtudemvgdtrgemvdegieemjeejledtmedviegtgeemvgdvvdemiedtfegumeehkegrnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegvtdgrmedvgeeimeejjeeltdemvdeitgegmegvvddvmeeitdefugemheekrgdphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhephhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefhedprhgtphhtthhopehphhhilhesrhgrshhpsggvrhhrhihpihdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopegrnhgurhgvrgdrphhorhhtrgesshhushgvrdgtohhmpdhrtghpthhtoheprghrn
- hgusegrrhhnuggsrdguvgdprhgtphhtthhopegstghmqdhkvghrnhgvlhdqfhgvvggusggrtghkqdhlihhsthessghrohgruggtohhmrdgtohhmpdhrtghpthhtohepsghhvghlghgrrghssehgohhoghhlvgdrtghomhdprhgtphhtthhopegsrhhglhessghguggvvhdrphhlpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomh
-X-GND-Sasl: herve.codina@bootlin.com
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_095606_592337_56D208F7 
-X-CRM114-Status: GOOD (  62.80  )
+X-CRM114-CacheID: sfid-20250217_101100_197121_578B6E9D 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,170 +130,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Feb 2025 17:03:34 +0000
-Phil Elwell <phil@raspberrypi.com> wrote:
+On Sat 15 Feb 2025 at 07:53, Greg Kroah-Hartman <gregkh@linuxfoundation.org> wrote:
 
-> Hi Hervé,
-> 
-> On Mon, 17 Feb 2025 at 15:53, Herve Codina <herve.codina@bootlin.com> wrote:
-> >
-> > Hi Phil,
-> >
-> > On Thu, 13 Feb 2025 21:12:43 +0000
-> > Phil Elwell <phil@raspberrypi.com> wrote:
-> >  
-> > > On Thu, 13 Feb 2025, 21:06 Herve Codina, <herve.codina@bootlin.com> wrote:  
-> > > >
-> > > > Hi Phil,
-> > > >
-> > > > On Thu, 13 Feb 2025 20:15:06 +0000
-> > > > Phil Elwell <phil@raspberrypi.com> wrote:
-> > > >  
-> > > > > Once more, with plain text, which I'd hoped the Android GMail client
-> > > > > would work out for itself.
-> > > > >
-> > > > > On Thu, 13 Feb 2025, 18:53 Herve Codina, <herve.codina@bootlin.com> wrote:  
-> > > > > >
-> > > > > > Hi Phil,
-> > > > > >
-> > > > > > On Thu, 13 Feb 2025 17:57:37 +0000
-> > > > > > Phil Elwell <phil@raspberrypi.com> wrote:
-> > > > > >  
-> > > > > > > On Thu, 13 Feb 2025 at 17:45, Andrew Lunn <andrew@lunn.ch> wrote:  
-> > > > > > > >  
-> > > > > > > > > > Or do you mean a custom board, which has a CPU, RP1 and the button and
-> > > > > > > > > > fan are directly on this custom board? You then want a board DTS which
-> > > > > > > > > > includes all these pieces?  
-> > > > > > > > >
-> > > > > > > > > That depends on whether you count the Raspberry Pi 5 as a custom board.  
-> > > > > > > >
-> > > > > > > > So you mean the Pi 5 board would itself make use of the resources the
-> > > > > > > > RP1 device has? They are not simply connected to headers for plugin
-> > > > > > > > boards, but used by the main board? Hence you want to describe them in
-> > > > > > > > the board .DTS file.  
-> > > > > > >
-> > > > > > > That's correct. But even for plug-in devices, those which are on
-> > > > > > > non-discoverable buses need overlays to declare them, which causes a
-> > > > > > > problem when the overlay application happens before the kernel is
-> > > > > > > started.
-> > > > > > >  
-> > > > > >
-> > > > > > Hum, I see.
-> > > > > >
-> > > > > > We worked on overlay usage on non-discoverable buses wired to a connector
-> > > > > > and we did a talk about issues we are facing on at Plumber [0].
-> > > > > >
-> > > > > > You can also find our big picture in [1] and a last contribution introducing
-> > > > > > export-symbols feature in [2]. export-symbols is also under discussion on
-> > > > > > some other threads.
-> > > > > >
-> > > > > > Also, we proposed the i2c bus extensions feature [3] whose goal is to allow
-> > > > > > an addon board to add devices on an i2c bus provided by a base board and
-> > > > > > wired to an connector the addon board is connected to.
-> > > > > >
-> > > > > > Maybe in your case, you can decouple resources (gpio, pwm) provided by the
-> > > > > > addon board and used by the base board using also nexus node.
-> > > > > >
-> > > > > > We use a nexus node [4] (not presented at the Plumbers talk because the idea
-> > > > > > came during 'out of talk' discussions in Plumbers) in order to allow our
-> > > > > > addon board to use resources provided by the base board.
-> > > > > >
-> > > > > > In your case, if I understood, you are in the other direction but why not
-> > > > > > using also a nexus node to decouple and translate resources in this other
-> > > > > > direction ?
-> > > > > >
-> > > > > > Don't know if this idea can help but feel free to ask for some more
-> > > > > > information if needed.  
-> > > > >
-> > > > > Nexus nodes look interesting - I see them as adding a layer of
-> > > > > abstraction such that, for example, boards can declare which of their
-> > > > > specific resources performs a common function so that clients can
-> > > > > treat them all the same. We do the same thing in a limited way by
-> > > > > using common labels on nodes, but this goes much further.
-> > > > >
-> > > > > In the case of Pi 5 and RP1, I imagine you are proposing that the Pi 5
-> > > > > dtb declares the connector node and the overlay fills in the content
-> > > > > with references to its GPIO controller, PWM controller etc. However, I
-> > > > > think the overlay would also have to be board specific because it's
-> > > > > not possible to patch part of a property from an overlay, so you'd end
-> > > > > up overwriting the GPIO number as well as the controller reference.
-> > > > >
-> > > > > What is needed to make this work is the ability to cope with
-> > > > > unresolved references in the base dtb, to be resolved as each overlay
-> > > > > is applied, with runtime checking that each reference is resolved
-> > > > > before it is used, all of which sounds like a nightmare. Plus, we
-> > > > > really don't want to have to change the way all our camera and display
-> > > > > overlays work on all Raspberry Pis just to accommodate somebody's idea
-> > > > > of how RP1 should be handled.  
-> > > >
-> > > > Just to be clear, my comments were not there to tell you how RP1 should
-> > > > work. I just proposed ideas without trying to force anything and I can
-> > > > fully understand that ideas proposed don't feed your needs.
-> > > >
-> > > > Sorry if my approach was misunderstood.  
-> > >
-> > > I feel I've been misunderstood - I appreciate your ideas.
-> > >
-> > > Perhaps it would help if you could outline how you think we could
-> > > apply your suggestions?
-> > >  
-> >
-> > I was thinking about what your mentioned, i.e. the overlay fill the nexus node.
-> > No sure to understand why the overlay should patch some properties.
-> > Also where are the unresolved references in that case. The base DT refers to
-> > the Nexus node.
-> > The issue will probably be that the translation performed by the nexus node is
-> > not available until the overlay is applied. The consumer will see errors other
-> > than PROBE_DEFER when if probes while the overlay is not applied.  
-> 
-> The job of the nexus node would be to translate a generic request for
-> a numbered resource to a specific request for an RP1 resource with
-> arbitrary properties. The arbitrary properties could be GPIO offsets,
-> which are board specific, while the node supplying the resource is
-> provided by the overlay. This means that an entry in the table,
-> described by a single property, could have contributions from the base
-> DT and the overlay, which is not possible since overlays overwrite
-> whole properties.
+[...]
 
-Hum, I am a bit lost.
-Some DT example (base and overlay) could help me to understand.
+>> 
+>> >
+>> >> +							int id)
+>> >> +{
+>> >> +	struct auxiliary_device *auxdev;
+>> >> +	int ret;
+>> >> +
+>> >> +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
+>> >> +	if (!auxdev)
+>> >> +		return ERR_PTR(-ENOMEM);
+>> >
+>> > Ick, who cares what the error value really is?  Why not just do NULL or
+>> > a valid pointer?  That makes the caller much simpler to handle, right?
+>> >
+>> 
+>> Sure why not
 
-> 
-> Perhaps that particular problem could be overcome by creating a
-> single-entry map, using the map-mask feature to pass through all of
-> the GPIO offset and flags to the parent, so that the whole table
-> becomes a proxy for RP1's GPIO controller. Is that what you had in
-> mind?
-> 
-> > Also, the solution will lead to memory leak at runtime. Indeed, the overlay
-> > add properties in an already existing node.
-> > If the overlay is applied by the Kernel itself, this lead to memory leak when
-> > the overlay is removed.
-> > Indeed, an overlay can add/remove node without any issue but it cannot
-> > add/remove properties to/from existing nodes.  
-> 
-> Fortunately for me I'm not arguing _for_ the use of an overlay.
-> 
-> > In the case described here, the nexus node is already present in the DT and the
-> > overlay add/remove properties to/from this existing node.  
-> 
-> I think I can see how that could be made to work for GPIOs. It looks
-> as though the GPIO subsystem is the only one making use of
-> of_parse_phandle_with_args_map. Interrupts seem to have an open-coded
-> equivalent, and iommus. What about I2C and PWM?
+I have tried the 'NULL or valid' approach. In the consumers,
+which mostly return an integer from their various init function, I got
+this weird to come up with one from NULL. EINVAL, ENOMEM, etc ... can't
+really pick one.
 
-Support for PWM has been recently accepted.
-  https://lore.kernel.org/all/ufl4kwrjyp4zid4muvghefevqc6hk3zyvxnsu72fxd4f46fzg6@hufkci2dzjid/
+It is actually easier to pass something along.
 
-For i2c, nexus node is not suitable.
+>> 
+>> >> +
+>> >> +	auxdev->id = id;
+>> >> +	auxdev->name = devname;
+>> >> +	auxdev->dev.parent = dev;
+>> >> +	auxdev->dev.platform_data = platform_data;
+>> >> +	auxdev->dev.release = auxiliary_device_release;
+>> >> +	device_set_of_node_from_dev(&auxdev->dev, dev);
+>> >> +
+>> >> +	ret = auxiliary_device_init(auxdev);
+>> >
+>> > Only way this will fail is if you forgot to set parent or a valid name.
+>> > So why not check for devname being non-NULL above this?
+>> 
+>> If auxiliary_device_init() ever changes it would be easy to forget to
+>> update that and lead to something nasty to debug, don't you think ?
+>
+> Yes, this is being more defensive, I take back my objection, thanks.
+>
+>> >> +	if (ret) {
+>> >> +		kfree(auxdev);
+>> >> +		return ERR_PTR(ret);
+>> >> +	}
+>> >> +
+>> >> +	ret = __auxiliary_device_add(auxdev, modname);
+>> >> +	if (ret) {
+>> >> +		/*
+>> >> +		 * NOTE: It may look odd but auxdev should not be freed
+>> >> +		 * here. auxiliary_device_uninit() calls device_put()
+>> >> +		 * which call the device release function, freeing auxdev.
+>> >> +		 */
+>> >> +		auxiliary_device_uninit(auxdev);
+>> >
+>> > Yes it is odd, are you SURE you should be calling device_del() on the
+>> > device if this fails?  auxiliary_device_uninit(), makes sense so why not
+>> > just call that here?
+>> 
+>> I'm confused ... I am call auxiliary_device_uninit() here. What do you
+>> mean ? 
+>
+> Oh wow, I got this wrong, sorry, I was thinking you were calling
+> auxiliary_device_destroy().  Nevermind, ugh, it was a long day...
+>
 
-Nexus node works well when resources are indexed (gpio line in a gpio chip
-for instance). For bus controller there is no index.
-I mean we never refer a i2c bus controller using <&i2c-ctrl 12>.
+No worries
 
-For i2c, I proposed i2c bus extension:
-  https://lore.kernel.org/all/20250205173918.600037-1-herve.codina@bootlin.com/
+> thanks,
+>
+> greg k-h
 
-Best regards,
-Hervé
+-- 
+Jerome
 
