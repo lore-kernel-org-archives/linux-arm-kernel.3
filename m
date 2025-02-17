@@ -4,96 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1589AC021A1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:53:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF31BC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7hjqKwAEjBQEmoqd+2ugTsyb6OUqNmOcwB/Gk2YNfnE=; b=QJVc1rLykG/4nZ4KEMGGnVksnh
-	hoVexV5OsXjGFl3wQqaMZ5pDfeiBQAE1Ra7s1Fp1xTm1m+s9pNQZhWYytsMqPhK2wYpSoXJ0rWBXh
-	C8m8k4TxeaZEEnu/w6mSHU/z4b4bOM1E/xD7wFfLCUQn3X/yp8BEtbJsGMORKux5lpJeP6TZEq5xQ
-	lJU2pmt6lkx8BNg/xAY99fUuVAuuiuKGsxHmw5lfXPFt8h923EwHprcwS7l3HCCc/rLrackdW1lHM
-	tdoHmtpeiTMmaiy1Ur7ap0IW96X+9ofSeVGJDEnjI0xt9nWHnPo2a+dhHlVfutwwJGiFRuddlsW77
-	OvFAEO0A==;
+	bh=/6BYtQ0vagWpucItzriIw7qjC34OuqzM5CfNcTita1Q=; b=WYzN/Hs4O2EnNpWLXu/5/OTLge
+	tLBGyTsnSGqybTww5/G5PZwQy7fHhy4azuG3houumkvkRj0Pq6jF6vAAvTaoxBF5Qj7MaKebzjPq5
+	gALcUO0sQEGxy3fiOXrIIrfJBAQxs0ggGG4UMW269WQGYHEZyidh7CNRgWIN4FyCiI0jOhLZjpSuZ
+	OLSnmTQi5Nn8hmGRaZkOdgDGe2l5mLBnJ94Z3Xe0ILAjOy5+rZTuMLg/qpE4JZGv8jLbZlb2jpA2H
+	3nuq9jHzbIfnkho0ECIxPufxdCY0+zcdt5Li8USpn6/Fsm6UogBMrnrE3sjJyOwBf1o8XmeXkHdXA
+	aFk6rkfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjyki-00000004Aqq-47Ry;
-	Mon, 17 Feb 2025 10:53:28 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tjykn-00000004B0b-2SkH;
+	Mon, 17 Feb 2025 10:53:33 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjyAT-0000000452g-1sZJ
+	id 1tjyCC-000000045IB-1ZND
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 10:16:02 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51H030c9002910;
-	Mon, 17 Feb 2025 10:15:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	7hjqKwAEjBQEmoqd+2ugTsyb6OUqNmOcwB/Gk2YNfnE=; b=F/pmuLRfn6c4NBZK
-	9tZU2fCc604KUl4L9SEJnQhanqQ6lJLmxSErU+937agx6vjAGZFIAeI3YH1CsbxC
-	T6S/HgwIt/Oet0N8C3RUuaTkdZwIsDqYpMgD+9HmbvXffg4qwS2tVm6bd3Tpswdt
-	iKswX/eVmDpCTwGS7t2u0aebKVmFzZE8fn0+/J5GOMkzefUxv6mJay6lpoUcZB2r
-	zvaRGlZu9D4/qLuANJ3oweI2Yy1mvdwKX/nt0fIsbZ8gzkmXSmPVATc0euUFs7eO
-	jXKMFOOG9diS6870nYkAdUHMdMzkBgIgG3LI42dIt/B62pZtLP/VZa5/pDo5IWL6
-	jVcWGA==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44ut7tsa2t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 17 Feb 2025 10:15:50 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51HAFn2o021933
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 17 Feb 2025 10:15:49 GMT
-Received: from [10.151.37.100] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 17 Feb
- 2025 02:15:43 -0800
-Message-ID: <779a23f9-868a-4fe3-abc6-9240fd3ab491@quicinc.com>
-Date: Mon, 17 Feb 2025 15:45:24 +0530
+	Mon, 17 Feb 2025 10:17:49 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5e0373c7f55so3150001a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 02:17:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739787467; x=1740392267; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/6BYtQ0vagWpucItzriIw7qjC34OuqzM5CfNcTita1Q=;
+        b=tsGEKHVNGfBW9M7FsCimBjT4Y1EPkxm22ceHh/0Oc1MWytVNtspCrmGzJGHPqEzvH9
+         NghkyulL9qLERu9oRyURAGxBDODLE353DXu7n/MSetcGJoYb7pRelh63mwXhHdKYHQz3
+         bhsbBVC9h2gVI+z+8FOM+r6Mrpboal9Jz1eOtfyRYnZjSAzHScEcPC+Yxz5onve2si0+
+         AXMYwaWjAwqleNF3ZB9u5Lh+6jlmKtsHajTPWX8vx0ClHen6E/eRfRygjzwp6Xk6RUTJ
+         Oftyfs+B5vJWH6urYujKSsrWs0PYiJduFR3u9UJ3/XTgSBQPYpesg+yuBmTV+aRD/l7I
+         F25w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739787467; x=1740392267;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/6BYtQ0vagWpucItzriIw7qjC34OuqzM5CfNcTita1Q=;
+        b=piy/CeUNtN4+zdALYR4OzAC8aIMlnfGoVjWilS2Q/agz4UG97EncruyvrB63/QaOX4
+         hUcIikNS5AWQ7KczLXZSJwFo38xkD4GWrdnoECq8aRjavYvgHp2aScC2rxLoPlafIowd
+         9s+Lj00yjJOcPumGPU+0+sReVcn0DgSATGzyl85XzmmJbh0JOcuQH6CG+X3pHIYGeJhC
+         GJ5xnxLFVOeIRokh0RFhCaKLchJksHLnjjLtFEyE9aQP1Jj3ojREdWx+VvMzrJqG1ja3
+         CBiC01rCFi4TAe/NmrCl7vesdMLokVC3fdiYdnUQUoQZis14HCuoIPFZsiSkVFHTTS9b
+         vpWg==
+X-Forwarded-Encrypted: i=1; AJvYcCXXpb0AOe59xGmSyAUwmhjlMUwPFUxShqYt1LuVdtRlpfcovmvlgIrVeo+vZeUgsM6AK0obY5ppTfkaQFP/6wqR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzg2QtAyFCGBXgbB3ffCJMDzBEYRyQLV85jnudvqI51ljGWpVB1
+	abKkJytLvUm5vFqrllyUtmT4FR4djzMchmn4CJ2dBDAbpswOX7xKoJtr+bAMTGk=
+X-Gm-Gg: ASbGncs0zpy7BYo0wc+qaWLlyIR5YyVB7MV2skWX7nSYpeUh/dxObwjij8d3ZJCHwBK
+	2KAgZPhDbIIDXSF8wVneiW6SgYQOa1svCMlrCeQPBV86joHxuX7d0xVejuqToxy0bdxBZ8RJNSm
+	3lqgj8gVdSOcDTf7AGreeMInUQncYDEmAnHUwnZfBwdNZLW6D8wgV6u4WagZcVtHc8hWOMzs2JM
+	46mH75RxBjISEx+nSOR3drojs2das9Cgd9s43qH7EenMXze3yYmrAXiImAoCIapYW2wlcgyYH/W
+	7Z8k18BhrT38Ha8uFQ+XgPW/
+X-Google-Smtp-Source: AGHT+IFgDnivD1OBw8RBeqZ1T3wvlR/UtXkBn7pRJ5OfcJBMf9SgRGM/cdk3Igb/07dwRLGbAITBVQ==
+X-Received: by 2002:a17:907:1c85:b0:abb:6ea6:161 with SMTP id a640c23a62f3a-abb70e4e28cmr925547666b.56.1739787466832;
+        Mon, 17 Feb 2025 02:17:46 -0800 (PST)
+Received: from eugen-station.. ([82.76.24.202])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb8b1767e8sm308583266b.174.2025.02.17.02.17.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 02:17:46 -0800 (PST)
+From: Eugen Hristev <eugen.hristev@linaro.org>
+To: linux-arm-msm@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	kees@kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	johannes@sipsolutions.net,
+	gregkh@linuxfoundation.org,
+	rafael@kernel.org,
+	dakr@kernel.org,
+	andersson@kernel.org,
+	konradybcio@kernel.org,
+	tony.luck@intel.com,
+	gpiccoli@igalia.com,
+	pmladek@suse.com,
+	rostedt@goodmis.org,
+	john.ogness@linutronix.de,
+	senozhatsky@chromium.org,
+	quic_mojha@quicinc.com,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@quicinc.com,
+	Eugen Hristev <eugen.hristev@linaro.org>
+Subject: [RFC][PATCH 01/10] pstore/zone: move pstore_device_info into zone header
+Date: Mon, 17 Feb 2025 12:16:57 +0200
+Message-ID: <20250217101706.2104498-2-eugen.hristev@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250217101706.2104498-1-eugen.hristev@linaro.org>
+References: <20250217101706.2104498-1-eugen.hristev@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: (subset) [PATCH V5 0/6] Add minimal boot support for IPQ5424
-To: Bjorn Andersson <andersson@kernel.org>, <konradybcio@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <mturquette@baylibre.com>, <sboyd@kernel.org>,
-        <ulf.hansson@linaro.org>, <linus.walleij@linaro.org>,
-        <catalin.marinas@arm.com>, <p.zabel@pengutronix.de>,
-        <geert+renesas@glider.be>, <dmitry.baryshkov@linaro.org>,
-        <neil.armstrong@linaro.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>, <linux-mmc@vger.kernel.org>,
-        <linux-gpio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <quic_varada@quicinc.com>
-References: <20241028060506.246606-1-quic_srichara@quicinc.com>
- <173085441672.26510.12002868497417768812.b4-ty@kernel.org>
-Content-Language: en-US
-From: Sricharan Ramabadhran <quic_srichara@quicinc.com>
-In-Reply-To: <173085441672.26510.12002868497417768812.b4-ty@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 0vfDTzgoZsBo6oayox3MWP30CzYjNDKX
-X-Proofpoint-ORIG-GUID: 0vfDTzgoZsBo6oayox3MWP30CzYjNDKX
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-17_05,2025-02-13_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 spamscore=0
- suspectscore=0 lowpriorityscore=0 malwarescore=0 impostorscore=0
- mlxscore=0 mlxlogscore=842 clxscore=1011 phishscore=0 priorityscore=1501
- adultscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502170090
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_021601_612697_C5C20E77 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_021748_410219_EB4783EA 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,29 +114,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Struct pstore_device_info is used in pstore/zone, and it's
+not really connected to anything related to pstore/blk.
+To further improve on the pstore zone and allow other types of
+drivers to connect, it is logical to have this struct into
+pstore_zone.h file.
 
+Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
+---
+ include/linux/pstore_blk.h  | 14 --------------
+ include/linux/pstore_zone.h | 14 ++++++++++++++
+ 2 files changed, 14 insertions(+), 14 deletions(-)
 
-On 11/6/2024 6:23 AM, Bjorn Andersson wrote:
-> 
-> On Mon, 28 Oct 2024 11:35:00 +0530, Sricharan R wrote:
->> From: Sricharan Ramabadhran <quic_srichara@quicinc.com>
->>
->> The IPQ5424 is Qualcomm's 802.11be SoC for Routers, Gateways and
->> Access Points.
->>
->> This series adds minimal board boot support for ipq5424-rdp466 board.
->>
->> [...]
-> 
-> Applied, thanks!
-> 
-> [6/6] arm64: defconfig: Enable IPQ5424 RDP466 base configs
->        commit: fd516bb4f48fc527744cae42d8e156fb09bce157
+diff --git a/include/linux/pstore_blk.h b/include/linux/pstore_blk.h
+index 924ca07aafbd..d0c8fb40c46c 100644
+--- a/include/linux/pstore_blk.h
++++ b/include/linux/pstore_blk.h
+@@ -7,20 +7,6 @@
+ #include <linux/pstore.h>
+ #include <linux/pstore_zone.h>
+ 
+-/**
+- * struct pstore_device_info - back-end pstore/blk driver structure.
+- *
+- * @flags:	Refer to macro starting with PSTORE_FLAGS defined in
+- *		linux/pstore.h. It means what front-ends this device support.
+- *		Zero means all backends for compatible.
+- * @zone:	The struct pstore_zone_info details.
+- *
+- */
+-struct pstore_device_info {
+-	unsigned int flags;
+-	struct pstore_zone_info zone;
+-};
+-
+ int  register_pstore_device(struct pstore_device_info *dev);
+ void unregister_pstore_device(struct pstore_device_info *dev);
+ 
+diff --git a/include/linux/pstore_zone.h b/include/linux/pstore_zone.h
+index 1e35eaa33e5e..284364234162 100644
+--- a/include/linux/pstore_zone.h
++++ b/include/linux/pstore_zone.h
+@@ -54,6 +54,20 @@ struct pstore_zone_info {
+ 	pstore_zone_write_op panic_write;
+ };
+ 
++/**
++ * struct pstore_device_info - back-end pstore device driver structure.
++ *
++ * @flags:	Refer to macro starting with PSTORE_FLAGS defined in
++ *		linux/pstore.h. It means what front-ends this device support.
++ *		Zero means all backends for compatible.
++ * @zone:	The struct pstore_zone_info details.
++ *
++ */
++struct pstore_device_info {
++	unsigned int flags;
++	struct pstore_zone_info zone;
++};
++
+ extern int register_pstore_zone(struct pstore_zone_info *info);
+ extern void unregister_pstore_zone(struct pstore_zone_info *info);
+ 
+-- 
+2.43.0
 
-Hi Bjorn,
-    This patch is not appearing in mainline. Can you please
-    help ?
-
-Regards,
-  Sricharan
 
