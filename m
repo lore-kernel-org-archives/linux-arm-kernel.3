@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F230DC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DCD2C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Av6N2v99kQHQnPnSJFrkMLTImKrQ1RUbvtaexxYCx2o=; b=BVSYjCC5la56885zXrzgxfviwo
-	qXYHUq2ek5r0hK7+pooiSaBwWZq/8ZjO2hrTRoXiT8DtRJEaOBnK/BlyXzhxnbiW9KxhiAuyuNHML
-	B3kUcTxa6CSb3bhEtK++B5YEWo+oaOaBfNihRJ6pbTz4CURbVmDODpwUlX/ZfGFYoZNLb1atMFWKk
-	d6KXtaH9dkJBGTv3KAIokvPCYkVQsOoIzwkxhWKv0Mgqw62W6BLehG5Y3eyIOlkevmWLdqUMSPyVm
-	cWQrnxXHHzPte+gBcB78gujcitNCL/7ItFSPR8uNRgwVxOmEP3JVHeG66iQnjjlaEhpIm/neX1A9A
-	w3Dzwejg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HUZ432gKgi0KggvujYgnbGJmNuc8WYNHfNYEkFs27jY=; b=ZYNl85Czl8b0JJ/mtr2QHmoV6H
+	y0I348mlwiSlHh0y9cYfr2veFL4Xs+DInCnuRMkXjnmm0QYatAG4nPJ5yTGf0JvLA8NeLb4kzwu4f
+	gsndzBzzUTPK9rLHnomI2KfRXg4CHF7K5SQT89tkT6hLug5733A65Wx9W60Ogdmgwz6HFujeML+1D
+	E6O0rboxz1iNp2SJm8rlCkOginx1YWbUX8wC34HOqhzoCErel7j4qGB/1izfbj5bJpXJjAZjFeHW2
+	xu57tTu9acSgmOLPWab6yZcvGw2f9Ei+Acpai4zX3CNfzSSJzWV62rm3+Oc9SIzOjkyakIxr/J+ZH
+	NhIz/Sig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2ki-00000004zYr-0XzF;
-	Mon, 17 Feb 2025 15:09:44 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2ZM-00000004xgh-2UcZ
+	id 1tk2m9-00000004znL-3ZAx;
+	Mon, 17 Feb 2025 15:11:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk2cB-00000004yHo-1cMa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 14:58:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 83D1F5C580B;
-	Mon, 17 Feb 2025 14:57:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D58F0C4CEE4;
-	Mon, 17 Feb 2025 14:57:55 +0000 (UTC)
-Date: Mon, 17 Feb 2025 14:57:53 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Beata Michalska <beata.michalska@arm.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	ionela.voinescu@arm.com, sudeep.holla@arm.com, will@kernel.org,
-	viresh.kumar@linaro.org, sumitg@nvidia.com,
-	yang@os.amperecomputing.com, vanshikonda@os.amperecomputing.com,
-	lihuisong@huawei.com, zhanjie9@hisilicon.com,
-	ptsm@linux.microsoft.com, Jonathan Corbet <corbet@lwn.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
-	x86@kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v10 2/4] cpufreq: Introduce an optional cpuinfo_avg_freq
- sysfs entry
-Message-ID: <Z7NOcd3IamyMTjbH@arm.com>
-References: <20250131162439.3843071-1-beata.michalska@arm.com>
- <20250131162439.3843071-3-beata.michalska@arm.com>
- <CAJZ5v0g+yax=pT4m_2MTd9kUwbk5VBp2wkctTYJpFRU3myEjPQ@mail.gmail.com>
+	Mon, 17 Feb 2025 15:00:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D949C152B;
+	Mon, 17 Feb 2025 07:01:11 -0800 (PST)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5CF9D3F6A8;
+	Mon, 17 Feb 2025 07:00:49 -0800 (PST)
+Message-ID: <4a7823b2-2634-4148-8446-ad01a09b6880@arm.com>
+Date: Mon, 17 Feb 2025 15:00:46 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAJZ5v0g+yax=pT4m_2MTd9kUwbk5VBp2wkctTYJpFRU3myEjPQ@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] iommu: Get DT/ACPI parsing into the proper probe path
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Stuart Yoder <stuyoder@gmail.com>,
+ Laurentiu Tudor <laurentiu.tudor@nxp.com>, Nipun Gupta
+ <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+ Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iommu@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-pci@vger.kernel.org, Charan Teja Kalla <quic_charante@quicinc.com>
+References: <cover.1739486121.git.robin.murphy@arm.com>
+ <c2f0ae276fd5a18e1653bae8bb0c51670e35b283.1739486121.git.robin.murphy@arm.com>
+ <20250214201435.GF3696814@ziepe.ca>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250214201435.GF3696814@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_065800_709710_7E913156 
-X-CRM114-Status: GOOD (  24.57  )
+X-CRM114-CacheID: sfid-20250217_070055_523081_7855609C 
+X-CRM114-Status: GOOD (  37.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,46 +78,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 12:52:44PM +0100, Rafael J. Wysocki wrote:
-> On Fri, Jan 31, 2025 at 5:25 PM Beata Michalska <beata.michalska@arm.com> wrote:
-> >
-> > Currently the CPUFreq core exposes two sysfs attributes that can be used
-> > to query current frequency of a given CPU(s): namely cpuinfo_cur_freq
-> > and scaling_cur_freq. Both provide slightly different view on the
-> > subject and they do come with their own drawbacks.
-> >
-> > cpuinfo_cur_freq provides higher precision though at a cost of being
-> > rather expensive. Moreover, the information retrieved via this attribute
-> > is somewhat short lived as frequency can change at any point of time
-> > making it difficult to reason from.
-> >
-> > scaling_cur_freq, on the other hand, tends to be less accurate but then
-> > the actual level of precision (and source of information) varies between
-> > architectures making it a bit ambiguous.
-> >
-> > The new attribute, cpuinfo_avg_freq, is intended to provide more stable,
-> > distinct interface, exposing an average frequency of a given CPU(s), as
-> > reported by the hardware, over a time frame spanning no more than a few
-> > milliseconds. As it requires appropriate hardware support, this
-> > interface is optional.
-> >
-> > Note that under the hood, the new attribute relies on the information
-> > provided by arch_freq_get_on_cpu, which, up to this point, has been
-> > feeding data for scaling_cur_freq attribute, being the source of
-> > ambiguity when it comes to interpretation. This has been amended by
-> > restoring the intended behavior for scaling_cur_freq, with a new
-> > dedicated config option to maintain status quo for those, who may need
-> > it.
+On 14/02/2025 8:14 pm, Jason Gunthorpe wrote:
+> On Thu, Feb 13, 2025 at 11:49:00PM +0000, Robin Murphy wrote:
 > 
-> In case anyone is waiting for my input here
+>> much just calling the same path twice. At client driver probe time,
+>> dev->driver is obviously set; conversely at device_add(), or a
+>> subsequent bus_iommu_probe(), any device waiting for an IOMMU really
 > 
-> Acked-by: Rafael J. Wysocki <rafael@kernel.org>
+> Could you put the dev->driver test into iommu_device_use_default_domain()?
 > 
-> for this and the previous patch and please feel free to route them
-> both through ARM64.
+> It looks like many of the cases are just guarding that call.
+> 
+>> should *not* have a driver already, so we can use that as a condition to
+>> disambiguate the two cases, and avoid recursing back into the IOMMU core
+>> at the wrong times.
+> 
+> Which sounds like this:
+> 
+>> +		mutex_unlock(&iommu_probe_device_lock);
+>> +		dev->bus->dma_configure(dev);
+>> +		mutex_lock(&iommu_probe_device_lock);
+>> +	}
+> 
+> Shouldn't call iommu_device_use_default_domain() ?
 
-Thanks Rafael. I indeed plan to take them through the arm64 tree.
+Semantically it shouldn't really be called at this stage, but it won't 
+be anyway since "to_<x>_driver(NULL)->driver_managed_dma" is not false - 
+trouble is it's also not true ;)
 
--- 
-Catalin
+> But... I couldn't guess what the problem with calling it is?
+> 
+> In the not-probed case it will see dev->iommu_group is NULL and succeed.
+> 
+> The probed case could be prevented by checking dev->iommu_group sooner
+> in __iommu_probe_device()?
+> 
+> Anyhow, the approach seems OK
+> 
+>> diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
+>> index 9f4efa8f75a6..42b8f1833c3c 100644
+>> --- a/drivers/acpi/scan.c
+>> +++ b/drivers/acpi/scan.c
+>> @@ -1619,6 +1619,9 @@ static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
+>>   {
+>>   	int err;
+>>   
+>> +	if (device_iommu_mapped(dev))
+>> +		return 0;
+> 
+> This is unlocked and outside a driver context, it should have a
+> comment explaining why races with probe can't happen?
+
+Sure, for now this is more just an opportunistic thing - since we'll now 
+expect to come through this path twice, if we see a group assigned then 
+we know for sure that someone else already set up the fwspec for that to 
+happen, so there's definitely nothing to do here and we can skip 
+potentially waiting for iommu_probe_device_lock.
+
+>> +	/*
+>> +	 * For FDT-based systems and ACPI IORT/VIOT, the common firmware parsing
+>> +	 * is buried in the bus dma_configure path. Properly unpicking that is
+>> +	 * still a fairly big job, so for now just invoke the whole thing. Our
+>> +	 * bus_iommu_probe() walk may see devices with drivers already bound,
+>> +	 * but that must mean they're already configured - either probed by
+>> +	 * another IOMMU, or there was no IOMMU for iommu_fwspec_init() to wait
+>> +	 * for - so either way we can safely skip this and avoid worrying about
+>> +	 * those recursing back here thinking they need a replay call.
+>> +	 */
+>> +	if (!dev->driver && dev->bus->dma_configure) {
+>> +		mutex_unlock(&iommu_probe_device_lock);
+>> +		dev->bus->dma_configure(dev);
+>> +		mutex_lock(&iommu_probe_device_lock);
+>> +	}
+>> +
+>> +	/*
+>> +	 * At this point, either valid devices now have a fwspec, or we can
+>> +	 * assume that only one of Intel, AMD, s390, PAMU or legacy SMMUv2 can
+>> +	 * be present, and that any of their registered instances has suitable
+>> +	 * ops for probing, and thus cheekily co-opt the same mechanism.
+>> +	 */
+>> +	ops = iommu_fwspec_ops(dev_iommu_fwspec_get(dev));
+>> +	if (!ops)
+>> +		return -ENODEV;
+>> +
+>>   	/* Device is probed already if in a group */
+>>   	if (dev->iommu_group)
+>>   		return 0;
+> 
+> This is the test I mean, if iommu_group is set then
+> dev->iommu->iommu_dev->ops is supposed to be valid too. It seems like
+> it should be done earlier..
+
+Yeah, looking at it now I'm really not sure why this ended up in this 
+order - I guess I was effectively adding the dma_configure() call to the 
+front of the existing iommu_fwspec_ops() check, and then I moved the 
+lockdep_assert() up to make more sense. But then the ops check probably 
+should have been after the group check to begin with, for much the same 
+reasoning as above. I'll sort that out for v2.
+
+>> +	/*
+>> +	 * And if we do now see any replay calls, they would indicate someone
+>> +	 * misusing the dma_configure path outside bus code.
+>> +	 */
+>> +	if (dev_iommu_fwspec_get(dev) && dev->driver)
+>> +		dev_WARN(dev, "late IOMMU probe at driver bind, something fishy here!\n");
+> 
+> WARN_ON_ONCE or dump_stack() to get the stack trace out?
+
+Indeed, hence dev_WARN() (!= dev_warn())
+
+>> @@ -121,6 +121,9 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
+>>   	if (!master_np)
+>>   		return -ENODEV;
+>>   
+>> +	if (device_iommu_mapped(dev))
+>> +		return 0;
+> 
+> Same note
+
+Ack.
+
+>> @@ -151,7 +154,12 @@ int of_iommu_configure(struct device *dev, struct device_node *master_np,
+>>   		iommu_fwspec_free(dev);
+>>   	mutex_unlock(&iommu_probe_device_lock);
+>>   
+>> -	if (!err && dev->bus)
+>> +	/*
+>> +	 * If we have reason to believe the IOMMU driver missed the initial
+>> +	 * iommu_probe_device() call for dev, try to fix it up. This should
+>> +	 * no longer happen unless of_dma_configure() is being misused.
+>> +	 */
+>> +	if (!err && dev->driver)
+>>   		err = iommu_probe_device(dev);
+> 
+> This is being conservative? After some time of nobody complaining
+> it can be removed?
+
+Indeed I feel sufficiently confident about the ACPI path (which at the 
+moment is effectively arm64-only) to remove it from there already, but 
+less so about all the assorted DT platforms. That said, I guess adding a 
+new dependency on dev->driver here might still represent a change of 
+behaviour for the sketchy direct calls of of_dma_configure() outside bus 
+code, since in a lot of those the target device doesn't actually have 
+its own driver either. Maybe I need to think about this a bit more...
+
+Thanks,
+Robin.
 
