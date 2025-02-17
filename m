@@ -4,92 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34518C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A47C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BUY8RBuJLNPYXLzFRSZTltcWOxb/JvQg0i4KGslCkvs=; b=3QMhypMl/fnBQyJbFgktJdPZMv
-	s7oDAVRbl5tM24pZvvioQldfTLOaoaF4OyujDM8tuFq9Qwr3kxtG1xrxbfOqe0myTUMk8j23o5w0M
-	9rGWizBmb0nyV4cfJoA4tZKeON1WVlNQPCiRvzhZbzL3/Xs6t9YqR8s+nicOB2CKYKh141vbRMBMF
-	z2b56wmaOrigBlAxGzlb/2zBQaASJHf0A6gf3md74f6WbuauMAnND3sfOWQiBgXfjYnkCyQMEGlvw
-	bnLdtjWxCZPJJ7LfHdJl4bmEzql/Vsz77iwJhqno4L8PL4xUcpFSvHTJ1J2hN0ZszU7PsH9+iRfRU
-	3pY44OUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hdwxmEwGAVaWxBcFASmVA+2qnyozZBSbOEWsN4ftwnI=; b=L8yWMBwX8ix25b7bZBZqU2qU1f
+	34QcTVBYVxPE1yUNr6GMQRQBQkE5WNC6K72Py5VclwICAWV/9AJaj9GwPtDIQywPM6N40rCFabMab
+	5WVtV+VTLKXZ999QP56xHTFTmamqE8RX4eJozFjap7lr85vXzKKg/GMK5XpqMhr3HRfugW+1WZWVF
+	XFHBKCccM4mEonmFPzBaoMFAr6EQ9q1QkrjDaTekF6UH9CG4YjiYDmmI2oeCHKe3tXoPMFuYzaXPY
+	6L+sCnzRJHdcAj/TZaGGscL0JgQVhsNSqftEJpul1L8fH4iOm62l5O4WUpOqjOZMW5KNMVj/Vx2R0
+	UViDrl7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk4hS-00000005Pzv-1vhY;
-	Mon, 17 Feb 2025 17:14:30 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1tk4iu-00000005QAj-2Tbf;
+	Mon, 17 Feb 2025 17:16:00 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3Qq-000000059Xd-41tT;
-	Mon, 17 Feb 2025 15:53:18 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id BC6DA4431C;
-	Mon, 17 Feb 2025 15:53:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739807591;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BUY8RBuJLNPYXLzFRSZTltcWOxb/JvQg0i4KGslCkvs=;
-	b=S757mGQvV6XaSYr+mgBWjh0K/YWYYsvnfs9J/kFPfSNhsPJ+UKZgTntfAgOV5a76Ra4iQA
-	JvQHnjeKsW7dOOkALyAJeE97I18GirxyxL+75bh/DaHkQ+VgZwSYgV/K7UI4IXmWotroF2
-	R8D1Sv6uIma2Sd7bR/UZOYq57MOfecag85vXp/cYfMgR/rcKJu79TllCMfbNRgdS0DFtOh
-	w6zH6dvx5KrkkCnCHJ5v+GeGMJgSOFuqAXr8U1zsBMcJwgWlOP1rmdjyNLVY43k5kWWQkL
-	4C+wainse0oqxUNQ8XDKfOV3L4AvpWoa716e9sYsO8Qjtq3MfXSKtmtX1MFykw==
-Date: Mon, 17 Feb 2025 16:53:06 +0100
-From: Herve Codina <herve.codina@bootlin.com>
-To: Phil Elwell <phil@raspberrypi.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, Andrea della Porta
- <andrea.porta@suse.com>, Arnd Bergmann <arnd@arndb.de>,
- "maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE"
- <bcm-kernel-feedback-list@broadcom.com>, bhelgaas@google.com,
- brgl@bgdev.pl, Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
- <conor+dt@kernel.org>, derek.kiernan@amd.com, devicetree@vger.kernel.org,
- dragan.cvetic@amd.com, Florian Fainelli <florian.fainelli@broadcom.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, krzk+dt@kernel.org,
- kw@linux.com, Linus Walleij <linus.walleij@linaro.org>, linux-arm-kernel
- <linux-arm-kernel@lists.infradead.org>, linux-clk@vger.kernel.org,
- linux-gpio@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, "open
- list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS"
- <linux-pci@vger.kernel.org>, "moderated list:BROADCOM BCM2711/BCM2835 ARM
- ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
- lpieralisi@kernel.org, luca.ceresoli@bootlin.com,
- manivannan.sadhasivam@linaro.org, masahiroy@kernel.org, Michael Turquette
- <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
- saravanak@google.com, Stephen Boyd <sboyd@kernel.org>,
- thomas.petazzoni@bootlin.com, Stefan Wahren <wahrenst@gmx.net>, Will Deacon
- <will@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-Subject: Re: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device
- using a DT overlay
-Message-ID: <20250217165306.3f055b94@bootlin.com>
-In-Reply-To: <CAMEGJJ2_HVKfsE3P22baadbzxSDAX=yTr=m76YuXa5A2cJsJig@mail.gmail.com>
-References: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
-	<20250213171435.1c2ce376@bootlin.com>
-	<a3c5103c-829a-4301-ba53-6ef9bd1e74e7@lunn.ch>
-	<CAMEGJJ3-JXhin_Ht76EqUNAwLiNisa9PrCrdUzCgj=msGZfb5A@mail.gmail.com>
-	<821d4c74-09b0-4c1b-b8ef-f8c08d0f6b5b@lunn.ch>
-	<CAMEGJJ0QbzCScfTRA_pw_8A=iMYMAAFs69zFNLwcOxF5Syugpw@mail.gmail.com>
-	<20250213195304.3a2df02c@bootlin.com>
-	<CAMEGJJ0kGCj=tjM6KswbG_+ZFkzMwPY+06BXCU0qSnbBKz0=ug@mail.gmail.com>
-	<20250213220639.373da07b@bootlin.com>
-	<CAMEGJJ2_HVKfsE3P22baadbzxSDAX=yTr=m76YuXa5A2cJsJig@mail.gmail.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1tk3Ux-00000005Ae2-1lAg
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Feb 2025 15:57:32 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-471f1dd5b80so208681cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 07:57:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1739807850; x=1740412650; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=hdwxmEwGAVaWxBcFASmVA+2qnyozZBSbOEWsN4ftwnI=;
+        b=s/TPtvOpQr8m079e5yksRlqjHp5xnVmTbJUwauB1KlSCIPAW1ZpY9OXRyfhG34nAMB
+         EPRVxJ+6mHFcgdUWD00P1wjg4ywO6bPSVz6QLRyqhsEC/0MYnLuwoozdsCqsnVnOE7M9
+         ntZFiDyXsaF+fUbAnv3ljEPz2H0SA4tC9vwi49FyK6tCX06z15os1Q9//VcZogquUyGr
+         ydDJ4IhG+BJbikdQnI4lRRMxpPGsJ3yOkjAJ5NHkBF4YmpwIdIudRhGJpteLfz9zTaEE
+         xE0IhBoeEE+APTsE1BYEn3wNLmCJk3JP1k9/MK8FHL+16ibHnUGPJOd+9pOg3MEBLUmn
+         beUw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739807850; x=1740412650;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hdwxmEwGAVaWxBcFASmVA+2qnyozZBSbOEWsN4ftwnI=;
+        b=sB4wErOuv/P6zNtkW1R5zF/ODLIoSqLVQ0JT7j80nuzuwkSwmlUoBD80KA54lQ9p3W
+         OhUecLtktYBvX1z5GG4kEl52yrQTceJyAawVlx/+YSIJ1THVH6tRBaQX4BqIwOcv+qAt
+         J7LaxZkmOuxteoSpyE1vVue6fbixSfP2x8wY5V139YyI5+GL3+UNzCTntdhLEUvEBDB0
+         TEstpoPuADkKEzktEy30cwjaYRseVIWyFw4mCpdrZ0FdCOl9WeeC86hMBA/wGVooXSGh
+         IGnQ1+EAn6obSvOfqEMb0b/IAbRWW+5RtMdv8Ox9XfJCO6ZkmrhC9jPPXlqZ1V+sriYs
+         R7xw==
+X-Forwarded-Encrypted: i=1; AJvYcCWJgdQghL5C6aG9ejrfT1bP1BAULTYbBECC5q2ZgKJwHjgCvWF3NYnwzZ5FO09oNQyw0vLnk8IdjSdVF5Ypt2rx@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywty++x8fvBMn+jZmZp8LEK4gTAI20Rgokdzsbl469mosL3uB+2
+	Jo46c2OVHWNF/rjznPrasez2CmpYe2GY+lAIz0Wn9QIFsscfAHkjTRuzzwhROh4TsfD4J1m1UIa
+	gEBP98L5V4i3HXHGzpR+DrWzpAVduxhfNcJ1M
+X-Gm-Gg: ASbGnctjyRFL5yVgYwu89faNkI1B5UZLOdB8IXhpSjT8eNaqug8QFWMxQiitYIORGZ8
+	1ysg6FoFUftFbdjovQUE2q04k1z3S4TghDoOAVmm/Q4vqAcCl066GxBNV5mbrwKLioa1MHt4=
+X-Google-Smtp-Source: AGHT+IFYjVjyk51aYuA0xgEP1r81NXa4uUmrTwcuX1LAIFx2e5X6SYCkOVaP2cczo18FT3m0bA6e4juvCYH94Jd75dc=
+X-Received: by 2002:a05:622a:54e:b0:471:badd:bd2f with SMTP id
+ d75a77b69052e-471dc6602d2mr7426021cf.0.1739807850116; Mon, 17 Feb 2025
+ 07:57:30 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehkeekudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthekredtredtjeenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeviefffeegiedtleelieeghfejleeuueevkeevteegffehledtkeegudeigffgvdenucfkphepvdgrtddumegvtdgrmedvgeeimeejjeeltdemvdeitgegmegvvddvmeeitdefugemheekrgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemvdegieemjeejledtmedviegtgeemvgdvvdemiedtfegumeehkegrpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeehpdhrtghpthhtohepphhhihhlsehrrghsphgsvghrrhihphhirdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtoheprghnughrvggrrdhpohhrthgrsehsuhhsvgdrtghomhdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtoheps
- ggtmhdqkhgvrhhnvghlqdhfvggvuggsrggtkhdqlhhishhtsegsrhhorggutghomhdrtghomhdprhgtphhtthhopegshhgvlhhgrggrshesghhoohhglhgvrdgtohhmpdhrtghpthhtohepsghrghhlsegsghguvghvrdhplhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhm
-X-GND-Sasl: herve.codina@bootlin.com
+References: <20250214150258.464798-1-tabba@google.com> <20250214150258.464798-4-tabba@google.com>
+ <20250217153031.GA16398@willie-the-truck> <CA+EHjTyOk_VpcTaD-VsH9X7KjpPKWu-HyVE3EEV+rzhnHar84A@mail.gmail.com>
+In-Reply-To: <CA+EHjTyOk_VpcTaD-VsH9X7KjpPKWu-HyVE3EEV+rzhnHar84A@mail.gmail.com>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 17 Feb 2025 15:56:53 +0000
+X-Gm-Features: AWEUYZmLG6GraU3YF5iPhS1GFxu1UOebrI4yee2IulD_nEJ1kmtP1NSNIbx20Uo
+Message-ID: <CA+EHjTzLW1HiiPr+=vStMYJcYEHUBFcEy_YMT3uJuLRA3zDzEw@mail.gmail.com>
+Subject: Re: [PATCH v1 3/3] KVM: arm64: Create each pKVM hyp vcpu after its
+ corresponding host vcpu
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, 
+	vdonnefort@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_075317_151174_3105ABC4 
-X-CRM114-Status: GOOD (  52.01  )
+X-CRM114-CacheID: sfid-20250217_075731_456969_DC7D58FF 
+X-CRM114-Status: GOOD (  28.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,128 +96,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Phil,
+Hi Will,
 
-On Thu, 13 Feb 2025 21:12:43 +0000
-Phil Elwell <phil@raspberrypi.com> wrote:
-
-> On Thu, 13 Feb 2025, 21:06 Herve Codina, <herve.codina@bootlin.com> wrote:
+On Mon, 17 Feb 2025 at 15:41, Fuad Tabba <tabba@google.com> wrote:
+>
+> Hi Will,
+>
+> On Mon, 17 Feb 2025 at 15:30, Will Deacon <will@kernel.org> wrote:
 > >
-> > Hi Phil,
+> > On Fri, Feb 14, 2025 at 03:02:58PM +0000, Fuad Tabba wrote:
+> > > Instead of creating and initializing _all_ hyp vcpus in pKVM when
+> > > the first host vcpu runs for the first time, initialize _each_
+> > > hyp vcpu in conjunction with its corresponding host vcpu.
+> > >
+> > > Some of the host vcpu state (e.g., system registers and traps
+> > > values) are not initialized until the first time the host vcpu is
+> > > run. Therefore, initializing a hyp vcpu before its corresponding
+> > > host vcpu has run for the first time might not view the complete
+> > > host state of these vcpus.
+> > >
+> > > Additionally, this behavior is inline with non-protected modes.
+> > >
+> > > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > > ---
+> > >  arch/arm64/include/asm/kvm_host.h      |  2 +
+> > >  arch/arm64/include/asm/kvm_pkvm.h      |  1 +
+> > >  arch/arm64/kvm/arm.c                   |  4 ++
+> > >  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  6 ---
+> > >  arch/arm64/kvm/hyp/nvhe/pkvm.c         | 54 +++++++++++++++-----------
+> > >  arch/arm64/kvm/pkvm.c                  | 28 ++++++-------
+> > >  6 files changed, 53 insertions(+), 42 deletions(-)
 > >
-> > On Thu, 13 Feb 2025 20:15:06 +0000
-> > Phil Elwell <phil@raspberrypi.com> wrote:
-> >  
-> > > Once more, with plain text, which I'd hoped the Android GMail client
-> > > would work out for itself.
-> > >
-> > > On Thu, 13 Feb 2025, 18:53 Herve Codina, <herve.codina@bootlin.com> wrote:  
-> > > >
-> > > > Hi Phil,
-> > > >
-> > > > On Thu, 13 Feb 2025 17:57:37 +0000
-> > > > Phil Elwell <phil@raspberrypi.com> wrote:
-> > > >  
-> > > > > On Thu, 13 Feb 2025 at 17:45, Andrew Lunn <andrew@lunn.ch> wrote:  
-> > > > > >  
-> > > > > > > > Or do you mean a custom board, which has a CPU, RP1 and the button and
-> > > > > > > > fan are directly on this custom board? You then want a board DTS which
-> > > > > > > > includes all these pieces?  
-> > > > > > >
-> > > > > > > That depends on whether you count the Raspberry Pi 5 as a custom board.  
-> > > > > >
-> > > > > > So you mean the Pi 5 board would itself make use of the resources the
-> > > > > > RP1 device has? They are not simply connected to headers for plugin
-> > > > > > boards, but used by the main board? Hence you want to describe them in
-> > > > > > the board .DTS file.  
-> > > > >
-> > > > > That's correct. But even for plug-in devices, those which are on
-> > > > > non-discoverable buses need overlays to declare them, which causes a
-> > > > > problem when the overlay application happens before the kernel is
-> > > > > started.
-> > > > >  
-> > > >
-> > > > Hum, I see.
-> > > >
-> > > > We worked on overlay usage on non-discoverable buses wired to a connector
-> > > > and we did a talk about issues we are facing on at Plumber [0].
-> > > >
-> > > > You can also find our big picture in [1] and a last contribution introducing
-> > > > export-symbols feature in [2]. export-symbols is also under discussion on
-> > > > some other threads.
-> > > >
-> > > > Also, we proposed the i2c bus extensions feature [3] whose goal is to allow
-> > > > an addon board to add devices on an i2c bus provided by a base board and
-> > > > wired to an connector the addon board is connected to.
-> > > >
-> > > > Maybe in your case, you can decouple resources (gpio, pwm) provided by the
-> > > > addon board and used by the base board using also nexus node.
-> > > >
-> > > > We use a nexus node [4] (not presented at the Plumbers talk because the idea
-> > > > came during 'out of talk' discussions in Plumbers) in order to allow our
-> > > > addon board to use resources provided by the base board.
-> > > >
-> > > > In your case, if I understood, you are in the other direction but why not
-> > > > using also a nexus node to decouple and translate resources in this other
-> > > > direction ?
-> > > >
-> > > > Don't know if this idea can help but feel free to ask for some more
-> > > > information if needed.  
-> > >
-> > > Nexus nodes look interesting - I see them as adding a layer of
-> > > abstraction such that, for example, boards can declare which of their
-> > > specific resources performs a common function so that clients can
-> > > treat them all the same. We do the same thing in a limited way by
-> > > using common labels on nodes, but this goes much further.
-> > >
-> > > In the case of Pi 5 and RP1, I imagine you are proposing that the Pi 5
-> > > dtb declares the connector node and the overlay fills in the content
-> > > with references to its GPIO controller, PWM controller etc. However, I
-> > > think the overlay would also have to be board specific because it's
-> > > not possible to patch part of a property from an overlay, so you'd end
-> > > up overwriting the GPIO number as well as the controller reference.
-> > >
-> > > What is needed to make this work is the ability to cope with
-> > > unresolved references in the base dtb, to be resolved as each overlay
-> > > is applied, with runtime checking that each reference is resolved
-> > > before it is used, all of which sounds like a nightmare. Plus, we
-> > > really don't want to have to change the way all our camera and display
-> > > overlays work on all Raspberry Pis just to accommodate somebody's idea
-> > > of how RP1 should be handled.  
+> > [...]
 > >
-> > Just to be clear, my comments were not there to tell you how RP1 should
-> > work. I just proposed ideas without trying to force anything and I can
-> > fully understand that ideas proposed don't feed your needs.
+> > >  static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
+> > >                             struct pkvm_hyp_vm *hyp_vm,
+> > > -                           struct kvm_vcpu *host_vcpu,
+> > > -                           unsigned int vcpu_idx)
+> > > +                           struct kvm_vcpu *host_vcpu)
+> > >  {
+> > >       int ret = 0;
+> > >
+> > >       if (hyp_pin_shared_mem(host_vcpu, host_vcpu + 1))
+> > >               return -EBUSY;
+> > >
+> > > -     if (host_vcpu->vcpu_idx != vcpu_idx) {
+> > > -             ret = -EINVAL;
+> > > -             goto done;
+> > > -     }
+> > > -
+> > >       hyp_vcpu->host_vcpu = host_vcpu;
+> > >
+> > >       hyp_vcpu->vcpu.kvm = &hyp_vm->kvm;
+> > >       hyp_vcpu->vcpu.vcpu_id = READ_ONCE(host_vcpu->vcpu_id);
+> > > -     hyp_vcpu->vcpu.vcpu_idx = vcpu_idx;
+> > > +     hyp_vcpu->vcpu.vcpu_idx = READ_ONCE(host_vcpu->vcpu_idx);
+> > >
+> > >       hyp_vcpu->vcpu.arch.hw_mmu = &hyp_vm->kvm.arch.mmu;
+> > >       hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
+> > > @@ -687,27 +689,28 @@ int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
+> > >               goto unlock;
+> > >       }
+> > >
+> > > -     idx = hyp_vm->nr_vcpus;
+> > > +     ret = init_pkvm_hyp_vcpu(hyp_vcpu, hyp_vm, host_vcpu);
+> > > +     if (ret)
+> > > +             goto unlock;
+> > > +
+> > > +     idx = hyp_vcpu->vcpu.vcpu_idx;
+> > >       if (idx >= hyp_vm->kvm.created_vcpus) {
+> > >               ret = -EINVAL;
+> > >               goto unlock;
+> > >       }
+> > >
+> > > -     ret = init_pkvm_hyp_vcpu(hyp_vcpu, hyp_vm, host_vcpu, idx);
+> > > -     if (ret)
+> > > +     if (hyp_vm->vcpus[idx]) {
+> > > +             ret = -EINVAL;
+> > >               goto unlock;
+> > > +     }
 > >
-> > Sorry if my approach was misunderstood.  
-> 
-> I feel I've been misunderstood - I appreciate your ideas.
-> 
-> Perhaps it would help if you could outline how you think we could
-> apply your suggestions?
-> 
+> > I'm not sure how much we care at EL2, but it looks like there's a
+> > potential spectre gadget here given that 'idx' is now untrusted.
+> > Perhaps chuck something like:
+> >
+> >         idx = array_index_nospec(idx, hyp_vm->kvm.created_vcpus);
+> >
+> > before indexing into 'hyp_vm->vcpus[]'?
+>
+> I'll add that when I respin.
 
-I was thinking about what your mentioned, i.e. the overlay fill the nexus node.
-No sure to understand why the overlay should patch some properties.
-Also where are the unresolved references in that case. The base DT refers to
-the Nexus node.
-The issue will probably be that the translation performed by the nexus node is
-not available until the overlay is applied. The consumer will see errors other
-than PROBE_DEFER when if probes while the overlay is not applied.
+pKVM is riddled with these kinds of accesses (e.g.,
+get_vm_by_handle(). It might be better if I address this in a separate
+series.
 
-Also, the solution will lead to memory leak at runtime. Indeed, the overlay
-add properties in an already existing node.
-If the overlay is applied by the Kernel itself, this lead to memory leak when
-the overlay is removed.
-Indeed, an overlay can add/remove node without any issue but it cannot
-add/remove properties to/from existing nodes.
+Cheers,
+/fuad
 
-In the case described here, the nexus node is already present in the DT and the
-overlay add/remove properties to/from this existing node.
-
-I haven't got any better idea for the moment in order to have this kind of
-'reverse' Nexus node.
-
-Best regards,
-Hervé
+>
+> > Either way:
+> >
+> > Acked-by: Will Deacon <will@kernel.org>
+>
+> Thanks,
+> /fuad
+>
+> > Will
 
