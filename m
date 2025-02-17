@@ -4,68 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11331C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07A7EC021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IrtkyRmrhRGlL8wdnAEtLnAgVfwK5XB6OxNOY4o46+E=; b=3GY5j6sOr8szTgD/EB5W1d28C9
-	ojBZI0pZ6+oSfGXBNxCuaQQl//Y6iJVQqEV1gtJ2UKNOsPDcQhAvOKEWqEtJoPmkIWL+SmOTt8S77
-	v0I40KLOs1p+t5o7QTNgNt1OK3rqbT9hy9gSAxCfdaXvKSINvaArQwBgkLQbwdeQhjrsdl6Aj8w8j
-	KYfBdJYlP6mdUqxThaBxaNBrsy5E7xOpsR/Kqg+TQpBg9FC+Z/x2EK0/0BWvjHF8al2DpBprveDru
-	SK/wnQXjo7FvXZkoqhPaej7kzpQXcU5fxLQL9JMCcqnOH/cPJgHd1c39p/pxCuDo1ujxpIjaGB26p
-	hKp/xPcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1KxbE/LUi+pBeXrp6r1WoRsJN4gZHatc3HSxCggqAc8=; b=FNxv0tdbYWWgysey1Do29Tv/4D
+	kSB0mTVnOPWRvf6vK9PvBXrWtQQIicpCJeX2zhN6C9mNm3VebQ+GrEWqTyASSVKa7alPd12nvuwMS
+	VAkiP3BOtZfZzD/pYK+ytVDPv5sVRBjE7pSiktU1oo+XzDkVKFQPkk805mRV1byIN62FBJQavMsbF
+	G6lGrgAZiHuQ3yC6ryZ2wUzMj6JIBdDnZv/Dy1EhbUE2rb3knqe00X4So0mCCnYbTT5ih2DADshFy
+	8H7o+Lo6jNHoWRzDObGPxnCn3N0L+wdUjphrMdxpU2OdNKi3iDa94Jt//Dd3tOGPu7ieB5mEuUoVe
+	xK/CghZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk4oe-00000005Qx2-3vFq;
-	Mon, 17 Feb 2025 17:21:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3cr-00000005CPQ-2Pfa
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 16:05:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BE99152B;
-	Mon, 17 Feb 2025 08:06:00 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 561253F5A1;
-	Mon, 17 Feb 2025 08:05:37 -0800 (PST)
-Date: Mon, 17 Feb 2025 16:05:34 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Ionela Voinescu <ionela.voinescu@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Beata Michalska <beata.michalska@arm.com>,
-	<linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<will@kernel.org>, <viresh.kumar@linaro.org>, <sumitg@nvidia.com>,
-	<yang@os.amperecomputing.com>, <vanshikonda@os.amperecomputing.com>,
-	<lihuisong@huawei.com>, <zhanjie9@hisilicon.com>,
-	<ptsm@linux.microsoft.com>, Jonathan Corbet <corbet@lwn.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
-	<x86@kernel.org>, <linux-doc@vger.kernel.org>
-Subject: Re: [PATCH v10 2/4] cpufreq: Introduce an optional cpuinfo_avg_freq
- sysfs entry
-Message-ID: <Z7NeTrorAqDxa8QM@bogus>
-References: <20250131162439.3843071-1-beata.michalska@arm.com>
- <20250131162439.3843071-3-beata.michalska@arm.com>
- <CAJZ5v0g+yax=pT4m_2MTd9kUwbk5VBp2wkctTYJpFRU3myEjPQ@mail.gmail.com>
- <Z7NOcd3IamyMTjbH@arm.com>
- <Z7NQrBvnfYwXva1W@arm.com>
+	id 1tk4q6-00000005RGD-3crU;
+	Mon, 17 Feb 2025 17:23:26 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk3kW-00000005Dpz-22ie;
+	Mon, 17 Feb 2025 16:13:37 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-38f2f783e4dso2273362f8f.3;
+        Mon, 17 Feb 2025 08:13:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739808814; x=1740413614; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1KxbE/LUi+pBeXrp6r1WoRsJN4gZHatc3HSxCggqAc8=;
+        b=CITy9zIxJ5BxPDqycyf5FzR88I4cerZR+tBg2R93m4Dlad8VEcSeFEgMrnt++5mc1L
+         GYfNU1tlcPg6XJy/ybJ6KMB8Y74+u+SmhXxiQ+qlM48OSi/0Wfv9Mso1uafPuPbdz78r
+         xP8pm1PWye193zCYfGT7b4cBSLrbxaUkh7BW2/RiRUF9zt82I6X23vAVH4wLnOo+/yX7
+         6v9zm1k0/2hj1Dt2hJa9D+jF03p0vwFDtFnSn6vDDeHOwKs1G9oSEgQ1AJPUS+6ZcxcG
+         FcOhfk+waPWrj9fyk4MFcxAPFSjUEi/eLSdORdoA6BYBejgogO7+85sx4X3+N9YQniLV
+         dkjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739808814; x=1740413614;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1KxbE/LUi+pBeXrp6r1WoRsJN4gZHatc3HSxCggqAc8=;
+        b=fNxDDw+lQ8cn1ZfUlwlMDmDurA/LTY7r88BPOjAe/bQnt1kSAgO9Vd5yXUvoeK7jr4
+         wAN4869Vyd46cgwZZx707iAlcZjL3FU4crl0oxgIerflxDaA74ECUeDLvvYfy/kjtoRD
+         vQarAX2QzTKevh5VLWcuS0dzXyudWvq+KuM9Wdk92ig8nf4mDlQSd+R/6ShysevPsXFQ
+         6xEwPvM9tRyERPHrB314QgsomVMEMPScZGlenBQRh8RobO8y01IAPVYHPDB2fVyTsDnc
+         btxSqeSoVmK3160uY124+hQcjBB2jY5HvnMQ0Vk5bIMR9teF02488qpeFRwGscRsVMom
+         Ay5w==
+X-Forwarded-Encrypted: i=1; AJvYcCULdPUksZ8vi8QMQjvC0otA+WeXPpkG6/MapFeEnAfLDBlykxMib0ZfzoVx9xvDQc8PwtOFz+/tYekBp8o=@lists.infradead.org, AJvYcCX8/PrsfY3bzbTHtxsmB9X6d7tIsHz+H5s+fd5qwW5nkS3buxQnoDJ59WwGwcCubfYGBLhNqM2qUn3zjFIG5azZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzny7x5xVBMQki9/piKDWZm7nqXF+IHz4JHdiqXvaqvypcDrZAL
+	f3Ij+gFRhd0cZBuWxcJeUfR1HMKj1iAGBzRMBsH6Ux27Ly90zQMoN7TC46rpfk25/EpLJDe//AF
+	ko6QHZf9zY03kjQlngPueWVwtedM=
+X-Gm-Gg: ASbGncuMbnEfCO60USJVh2RCXm7vaE8CJcnVV2Py3pWR60aI0+wZzXNs7x40GXgjtW0
+	GDU7NCtHsLT7c3utoTlwHzr48K7+TQ/lt5VIKRp0vggFrDpzypj3fSoGD32WzBkyHtlE4dUuvEP
+	M=
+X-Google-Smtp-Source: AGHT+IHm8HBgn3sImk7NTjtXb+A27btOABGGevI0EONCrC/Ff9AcLGqA4yAvmgT0QuA1lhKIHNQku0J8pxt9SI1xfb8=
+X-Received: by 2002:a5d:64cc:0:b0:38f:4fa6:bb24 with SMTP id
+ ffacd0b85a97d-38f4fa6bca3mr698753f8f.39.1739808814051; Mon, 17 Feb 2025
+ 08:13:34 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z7NQrBvnfYwXva1W@arm.com>
+References: <20241022015913.3524425-1-samuel.holland@sifive.com>
+ <20241022015913.3524425-2-samuel.holland@sifive.com> <CA+fCnZeBEe3VWm=VfYvG-f4eh2jAFP-p4Xn4SLEeFCGTudVuEw@mail.gmail.com>
+ <e7t5yzfw3dq5stp5xjy5yclcx6ikne4vwz7d6w2ukfw2b7gr6t@oomoynf3b2jl>
+ <zjuvfdbl7q76ahdxk3lrgaznk7vjj43f5ftzfgrnca6dqtcd5x@5qj24womzgyq>
+ <CA+fCnZfySpeRy0FCFidLdUUeqp97eBdjAqQyYPpz1WxYwcsW9A@mail.gmail.com>
+ <aqhm7lc57srsfuff3bceb3dcmsdyxksb7t6bgwbqi54ppevpoh@apolj3nteaz6>
+ <CA+fCnZdjTkreTcoo+J8wMhwDuAFM4g33U5BFy0OPtE0UCvyJbQ@mail.gmail.com>
+ <CA+fCnZcoVdfXVN8VBFLx835cV0eGAT6Ewror2whLW761JnHjNQ@mail.gmail.com>
+ <sjownmnyf4ygi5rtbedan6oauzvyk2d7xcummo5rykiryrpcrt@kasomz5imkkm> <tuwambkzk6ca5mpni7ev5hvr47dkbk6ru3vikplx67hyvqj2sw@rugqv7vhikxb>
+In-Reply-To: <tuwambkzk6ca5mpni7ev5hvr47dkbk6ru3vikplx67hyvqj2sw@rugqv7vhikxb>
+From: Andrey Konovalov <andreyknvl@gmail.com>
+Date: Mon, 17 Feb 2025 17:13:23 +0100
+X-Gm-Features: AWEUYZmQ1uvVHZE607fk9A3oqamhim11vzns-dfPoe7sFHHzYYWlnLIpBeOBi1A
+Message-ID: <CA+fCnZcHnWr0++8omB5ju8E3uSK+s+JOFZ3=UqgtVEcBzrm2Lg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/9] kasan: sw_tags: Use arithmetic shift for shadow computation
+To: Maciej Wieczor-Retman <maciej.wieczor-retman@intel.com>
+Cc: Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	linux-riscv@lists.infradead.org, Andrey Ryabinin <ryabinin.a.a@gmail.com>, 
+	Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, kasan-dev@googlegroups.com, 
+	llvm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	Alexandre Ghiti <alexghiti@rivosinc.com>, Will Deacon <will@kernel.org>, 
+	Evgenii Stepanov <eugenis@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_080541_705126_FAC14DCD 
-X-CRM114-Status: GOOD (  31.81  )
+X-CRM114-CacheID: sfid-20250217_081336_526175_37A7DC19 
+X-CRM114-Status: GOOD (  33.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,62 +108,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 03:07:24PM +0000, Ionela Voinescu wrote:
-> Hi Catalin,
-> 
-> On Monday 17 Feb 2025 at 14:57:53 (+0000), Catalin Marinas wrote:
-> > On Mon, Feb 17, 2025 at 12:52:44PM +0100, Rafael J. Wysocki wrote:
-> > > On Fri, Jan 31, 2025 at 5:25 PM Beata Michalska <beata.michalska@arm.com> wrote:
-> > > >
-> > > > Currently the CPUFreq core exposes two sysfs attributes that can be used
-> > > > to query current frequency of a given CPU(s): namely cpuinfo_cur_freq
-> > > > and scaling_cur_freq. Both provide slightly different view on the
-> > > > subject and they do come with their own drawbacks.
-> > > >
-> > > > cpuinfo_cur_freq provides higher precision though at a cost of being
-> > > > rather expensive. Moreover, the information retrieved via this attribute
-> > > > is somewhat short lived as frequency can change at any point of time
-> > > > making it difficult to reason from.
-> > > >
-> > > > scaling_cur_freq, on the other hand, tends to be less accurate but then
-> > > > the actual level of precision (and source of information) varies between
-> > > > architectures making it a bit ambiguous.
-> > > >
-> > > > The new attribute, cpuinfo_avg_freq, is intended to provide more stable,
-> > > > distinct interface, exposing an average frequency of a given CPU(s), as
-> > > > reported by the hardware, over a time frame spanning no more than a few
-> > > > milliseconds. As it requires appropriate hardware support, this
-> > > > interface is optional.
-> > > >
-> > > > Note that under the hood, the new attribute relies on the information
-> > > > provided by arch_freq_get_on_cpu, which, up to this point, has been
-> > > > feeding data for scaling_cur_freq attribute, being the source of
-> > > > ambiguity when it comes to interpretation. This has been amended by
-> > > > restoring the intended behavior for scaling_cur_freq, with a new
-> > > > dedicated config option to maintain status quo for those, who may need
-> > > > it.
-> > > 
-> > > In case anyone is waiting for my input here
-> > > 
-> > > Acked-by: Rafael J. Wysocki <rafael@kernel.org>
-> > > 
-> > > for this and the previous patch and please feel free to route them
-> > > both through ARM64.
-> > 
-> > Thanks Rafael. I indeed plan to take them through the arm64 tree.
-> 
-> Just a mention that this set depends on the patch that Beata linked at
-> [6]. That patch applies cleanly on next-20250217 and it still
-> builds/boots/works as expected.
-> 
+On Fri, Feb 14, 2025 at 9:21=E2=80=AFAM Maciej Wieczor-Retman
+<maciej.wieczor-retman@intel.com> wrote:
+>
+> On 2025-02-13 at 17:20:22 +0100, Maciej Wieczor-Retman wrote:
+> >On 2025-02-13 at 02:28:08 +0100, Andrey Konovalov wrote:
+> >>On Thu, Feb 13, 2025 at 2:21=E2=80=AFAM Andrey Konovalov <andreyknvl@gm=
+ail.com> wrote:
+> >>>
+> >>> On Tue, Feb 11, 2025 at 7:07=E2=80=AFPM Maciej Wieczor-Retman
+> >>> <maciej.wieczor-retman@intel.com> wrote:
+> >>> >
+> >>> > I did some experiments with multiple addresses passed through
+> >>> > kasan_mem_to_shadow(). And it seems like we can get almost any addr=
+ess out when
+> >>> > we consider any random bogus pointers.
+> >>> >
+> >>> > I used the KASAN_SHADOW_OFFSET from your example above. Userspace a=
+ddresses seem
+> >>> > to map to the range [KASAN_SHADOW_OFFSET - 0xffff8fffffffffff]. The=
+n going
+> >>> > through non-canonical addresses until 0x0007ffffffffffff we reach t=
+he end of
+> >>> > kernel LA and we loop around. Then the addresses seem to go from 0 =
+until we
+> >>> > again start reaching the kernel space and then it maps into the pro=
+per shadow
+> >>> > memory.
+> >>> >
+> >>> > It gave me the same results when using the previous version of
+> >>> > kasan_mem_to_shadow() so I'm wondering whether I'm doing this exper=
+iment
+> >>> > incorrectly or if there aren't any addresses we can rule out here?
+> >>>
+> >>> By the definition of the shadow mapping, if we apply that mapping to
+> >>> the whole 64-bit address space, the result will only contain 1/8th
+> >>> (1/16th for SW/HW_TAGS) of that space.
+> >>>
+> >>> For example, with the current upstream value of KASAN_SHADOW_OFFSET o=
+n
+> >>> x86 and arm64, the value of the top 3 bits (4 for SW/HW_TAGS) of any
+> >>> shadow address are always the same: KASAN_SHADOW_OFFSET's value is
+> >>> such that the shadow address calculation never overflows. Addresses
+> >>> that have a different value for those top 3 bits are the once we can
+> >>> rule out.
+> >>
+> >>Eh, scratch that, the 3rd bit from the top changes, as
+> >>KASAN_SHADOW_OFFSET is not a that-well-aligned value, the overall size
+> >>of the mapping holds.
+> >>
+> >>> The KASAN_SHADOW_OFFSET value from my example does rely on the
+> >>> overflow (arguably, this makes things more confusing [1]). But still,
+> >>> the possible values of shadow addresses should only cover 1/16th of
+> >>> the address space.
+> >>>
+> >>> So whether the address belongs to that 1/8th (1/16th) of the address
+> >>> space is what we want to check in kasan_non_canonical_hook().
+> >>>
+> >
+> >Right, I somehow forgot that obviously the whole LA has to map to 1/16th=
+ of the
+> >address space and it shold stay contiguous.
+> >
+> >After rethinking how the mapping worked before and will work after makin=
+g stuff
+> >signed I thought this patch could make use of the overflow?
+> >
+> >From what I noticed, all the Kconfig values for KASAN_SHADOW_OFFSET shou=
+ld make
+> >it so there will be overflow when inputing more and more positive addres=
+ses.
+> >
+> >So maybe we should first find what the most negative and most positive (=
+signed)
+> >addresses map to in shadow memory address space. And then when looking f=
+or
+> >invalid values that aren't the product of kasan_mem_to_shadow() we shoul=
+d check
+> >
+> >       if (addr > kasan_mem_to_shadow(biggest_positive_address) &&
+> >           addr < kasan_mem_to_shadow(smallest_negative_address))
+> >               return;
+> >
+> >Is this correct?
+>
+> I suppose the original code in the patch does the same thing when you cha=
+nge the
+> || into &&:
+>
+>         if (addr < KASAN_SHADOW_OFFSET - max_shadow_size / 2 &&
+>             addr >=3D KASAN_SHADOW_OFFSET + max_shadow_size / 2)
+>                 return;
+>
+> kasan_mem_to_shadow(0x7FFFFFFFFFFFFFFF) -> 0x07ff7fffffffffff
+> kasan_mem_to_shadow(0x8000000000000000) -> 0xf7ff800000000000
 
-Ah I see it is indeed dependent. Just responded on the other thread before
-reading this. So it is better if Catalin picks up [6] as well. Sorry for
-the confusion.
+I'm a bit lost with these calculations at this point. Please send the
+full patch, including the new values for KASAN_SHADOW_OFFSET (do I
+understand correctly that you want to change them?). It'll be easier
+to look at the code.
 
--- 
-Regards,
-Sudeep
-
-[6] https://lore.kernel.org/all/20240827154818.1195849-1-ionela.voinescu@arm.com/
+Feel free to send this patch separately from the rest of the series,
+so that we can finalize it first.
 
