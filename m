@@ -4,60 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B04C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:20:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11331C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LJk8/SrPdoFLdWOcpo+5G6r5AMsEus7osPwto4bzZjk=; b=NvN4bFeH0yQlPoFe2FZ9+oRmV+
-	4gixDc/B5WWaZ7yv0jYVGlWyWCLoGnR9fIJfOhYvGuCpPYj/cI+nnm5D1II28GNQ+vpOdbzguHtAG
-	UmD/mHZWENWFureCYqFNOdF248vOIcM2BfI9q0l1esK8iVCgdVbXkB7IMKRssOMoNOjY7MknQN1pr
-	tLmJLlW7p2nCV5NycP/dzY+hPkY0n9x+JaXHUtitxBZ+22IVVgswjC+P9bhnvVJNhyikaw8GCrlPl
-	ds9k2t15hhmQFcDOVW+lrBWT/jFra6oB3ZoCJezC1+tmNNdlg5z+ke7jO7UMtlDZsbclqDOrVQ5K5
-	pB0O4Kgw==;
+	bh=IrtkyRmrhRGlL8wdnAEtLnAgVfwK5XB6OxNOY4o46+E=; b=3GY5j6sOr8szTgD/EB5W1d28C9
+	ojBZI0pZ6+oSfGXBNxCuaQQl//Y6iJVQqEV1gtJ2UKNOsPDcQhAvOKEWqEtJoPmkIWL+SmOTt8S77
+	v0I40KLOs1p+t5o7QTNgNt1OK3rqbT9hy9gSAxCfdaXvKSINvaArQwBgkLQbwdeQhjrsdl6Aj8w8j
+	KYfBdJYlP6mdUqxThaBxaNBrsy5E7xOpsR/Kqg+TQpBg9FC+Z/x2EK0/0BWvjHF8al2DpBprveDru
+	SK/wnQXjo7FvXZkoqhPaej7kzpQXcU5fxLQL9JMCcqnOH/cPJgHd1c39p/pxCuDo1ujxpIjaGB26p
+	hKp/xPcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk4nD-00000005Qj7-3xYM;
-	Mon, 17 Feb 2025 17:20:28 +0000
-Received: from out-180.mta0.migadu.com ([91.218.175.180])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3b8-00000005C3S-30I7
+	id 1tk4oe-00000005Qx2-3vFq;
+	Mon, 17 Feb 2025 17:21:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk3cr-00000005CPQ-2Pfa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 16:03:56 +0000
-Date: Mon, 17 Feb 2025 21:32:52 +0530
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1739808230;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LJk8/SrPdoFLdWOcpo+5G6r5AMsEus7osPwto4bzZjk=;
-	b=UzVhoRfoddKHqqP66smA3oqpO0D17suASPDPjZxQBauD8Qq6oF7lpHmxlwEv8MeBP2rZOT
-	COw9uGcvmvRNy3RHLH8S/oGEl6hQtiyGOvizQeYm8u/Q6JO9IneD9gGPtzeNxcvohRB7dY
-	yIjn9XNSXQnagi0COlfR+ne4d8dnwSo=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Jai Luthra <jai.luthra@linux.dev>
-To: Stefan Eichenberger <eichest@gmail.com>
-Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, francesco.dolcini@toradex.com, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Subject: Re: [PATCH v1] arm64: dts: ti: k3-am62-verdin-dahlia: add Microphone
- Jack to sound card
-Message-ID: <vax3z776aw6aujpyvwc6zkfqgxn34oawxgc3wn6bjkkj7kjhpz@svmc3nasmjei>
-X-PGP-Key: http://jailuthra.in/files/public-key.asc
-References: <20250217144643.178222-1-eichest@gmail.com>
+	Mon, 17 Feb 2025 16:05:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4BE99152B;
+	Mon, 17 Feb 2025 08:06:00 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 561253F5A1;
+	Mon, 17 Feb 2025 08:05:37 -0800 (PST)
+Date: Mon, 17 Feb 2025 16:05:34 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Ionela Voinescu <ionela.voinescu@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Beata Michalska <beata.michalska@arm.com>,
+	<linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<will@kernel.org>, <viresh.kumar@linaro.org>, <sumitg@nvidia.com>,
+	<yang@os.amperecomputing.com>, <vanshikonda@os.amperecomputing.com>,
+	<lihuisong@huawei.com>, <zhanjie9@hisilicon.com>,
+	<ptsm@linux.microsoft.com>, Jonathan Corbet <corbet@lwn.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
+	<x86@kernel.org>, <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH v10 2/4] cpufreq: Introduce an optional cpuinfo_avg_freq
+ sysfs entry
+Message-ID: <Z7NeTrorAqDxa8QM@bogus>
+References: <20250131162439.3843071-1-beata.michalska@arm.com>
+ <20250131162439.3843071-3-beata.michalska@arm.com>
+ <CAJZ5v0g+yax=pT4m_2MTd9kUwbk5VBp2wkctTYJpFRU3myEjPQ@mail.gmail.com>
+ <Z7NOcd3IamyMTjbH@arm.com>
+ <Z7NQrBvnfYwXva1W@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="3vpxn6jmqqd3gcsw"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250217144643.178222-1-eichest@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z7NQrBvnfYwXva1W@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_080354_968100_01560876 
-X-CRM114-Status: GOOD (  17.35  )
+X-CRM114-CacheID: sfid-20250217_080541_705126_FAC14DCD 
+X-CRM114-Status: GOOD (  31.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,83 +80,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Feb 17, 2025 at 03:07:24PM +0000, Ionela Voinescu wrote:
+> Hi Catalin,
+> 
+> On Monday 17 Feb 2025 at 14:57:53 (+0000), Catalin Marinas wrote:
+> > On Mon, Feb 17, 2025 at 12:52:44PM +0100, Rafael J. Wysocki wrote:
+> > > On Fri, Jan 31, 2025 at 5:25 PM Beata Michalska <beata.michalska@arm.com> wrote:
+> > > >
+> > > > Currently the CPUFreq core exposes two sysfs attributes that can be used
+> > > > to query current frequency of a given CPU(s): namely cpuinfo_cur_freq
+> > > > and scaling_cur_freq. Both provide slightly different view on the
+> > > > subject and they do come with their own drawbacks.
+> > > >
+> > > > cpuinfo_cur_freq provides higher precision though at a cost of being
+> > > > rather expensive. Moreover, the information retrieved via this attribute
+> > > > is somewhat short lived as frequency can change at any point of time
+> > > > making it difficult to reason from.
+> > > >
+> > > > scaling_cur_freq, on the other hand, tends to be less accurate but then
+> > > > the actual level of precision (and source of information) varies between
+> > > > architectures making it a bit ambiguous.
+> > > >
+> > > > The new attribute, cpuinfo_avg_freq, is intended to provide more stable,
+> > > > distinct interface, exposing an average frequency of a given CPU(s), as
+> > > > reported by the hardware, over a time frame spanning no more than a few
+> > > > milliseconds. As it requires appropriate hardware support, this
+> > > > interface is optional.
+> > > >
+> > > > Note that under the hood, the new attribute relies on the information
+> > > > provided by arch_freq_get_on_cpu, which, up to this point, has been
+> > > > feeding data for scaling_cur_freq attribute, being the source of
+> > > > ambiguity when it comes to interpretation. This has been amended by
+> > > > restoring the intended behavior for scaling_cur_freq, with a new
+> > > > dedicated config option to maintain status quo for those, who may need
+> > > > it.
+> > > 
+> > > In case anyone is waiting for my input here
+> > > 
+> > > Acked-by: Rafael J. Wysocki <rafael@kernel.org>
+> > > 
+> > > for this and the previous patch and please feel free to route them
+> > > both through ARM64.
+> > 
+> > Thanks Rafael. I indeed plan to take them through the arm64 tree.
+> 
+> Just a mention that this set depends on the patch that Beata linked at
+> [6]. That patch applies cleanly on next-20250217 and it still
+> builds/boots/works as expected.
+> 
 
---3vpxn6jmqqd3gcsw
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v1] arm64: dts: ti: k3-am62-verdin-dahlia: add Microphone
- Jack to sound card
-MIME-Version: 1.0
+Ah I see it is indeed dependent. Just responded on the other thread before
+reading this. So it is better if Catalin picks up [6] as well. Sorry for
+the confusion.
 
-Hi Stefan,
+-- 
+Regards,
+Sudeep
 
-Thanks for the patch.
-
-On Mon, Feb 17, 2025 at 03:46:04PM +0100, Stefan Eichenberger wrote:
-> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
->=20
-> The simple-audio-card's microphone widget currently connects to the
-> headphone jack. Routing the microphone input to the microphone jack
-> allows for independent operation of the microphone and headphones.
->=20
-> This resolves the following boot-time kernel log message, which
-> indicated a conflict when the microphone and headphone functions were
-> not separated:
->   debugfs: File 'Headphone Jack' in directory 'dapm' already present!
->=20
-> Fixes: f5bf894c865b ("arm64: dts: ti: verdin-am62: dahlia: add sound card=
-")
-> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-
-Reviewed-by: Jai Luthra <jai.luthra@linux.dev>
-
-> ---
->  arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi b/arch/arm=
-64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi
-> index 9202181fbd652..fcc4cb2e9389b 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi
-> @@ -28,10 +28,10 @@ sound {
->  			"Headphone Jack", "HPOUTR",
->  			"IN2L", "Line In Jack",
->  			"IN2R", "Line In Jack",
-> -			"Headphone Jack", "MICBIAS",
-> -			"IN1L", "Headphone Jack";
-> +			"Microphone Jack", "MICBIAS",
-> +			"IN1L", "Microphone Jack";
->  		simple-audio-card,widgets =3D
-> -			"Microphone", "Headphone Jack",
-> +			"Microphone", "Microphone Jack",
->  			"Headphone", "Headphone Jack",
->  			"Line", "Line In Jack";
-> =20
-> --=20
-> 2.45.2
->=20
-
---3vpxn6jmqqd3gcsw
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEETeDYGOXVdejUWq/FQ96R+SSacUUFAmezXasACgkQQ96R+SSa
-cUWD5A//ajdJiy6GNGANtya5phW2W6ZCuzpPK+v9N7yhiy1N3Y/5lMhvjaBeP5S0
-CbH41SIXF5HrvDdUwOFnjlUzdHaqTsTmgrEBUFVYduv3B0F7msWjVzA8kgmxFX9T
-lofiKy/vJ6a2gaQZi5KzalmnCkrgP/qHSzPVm7homHtB5injypFSrBWBAMsHgVO7
-F63TS7q7Ct6LugWqQMUMwTByRFNm7lfL41UWsMBVLOQPsaY/F2NMhPudZbvCGLev
-Mn/29ChwcjCe475YfX/zZ+SQ8Lo5BdthIRGZYJerQ5XAhTnulnICJJtkNnRaEGZi
-BuDV6gKvMR1Ia6g2KPGaL5Zg73TLCLVucIg3coBDocbhIWAKw3jIZhel7j+cM0nS
-rZVbYy35HT4qcnW4cmNdNc/v2/jL6y5EtqIsQZ9gup+/banHPitnKYjg0bsD2Iq7
-iy1VLOzgRT3AXAGH5YmfXqe5zfg7WTFBCvwh6slAZXabHgw6UPphR4e14teU2zxi
-6qYoTHmE6F4djj/5IbqLgWraNXp829QM8n+rK6SBCr8yMtnnYfXJblUXrw1kbCXr
-N2roMgEIvGvSTEVd8+W0BDOuS1ExmJJ/vYUhLrGCIZ6bl3Qi4dYIl42WdVefRDT4
-qtzIf5QAiMcqVitGzYmlGf/m+24KaGgPqsTLoGdumkagEgMVKz4=
-=Qg3k
------END PGP SIGNATURE-----
-
---3vpxn6jmqqd3gcsw--
+[6] https://lore.kernel.org/all/20240827154818.1195849-1-ionela.voinescu@arm.com/
 
