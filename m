@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6E31C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 16:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00914C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 16:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9CXLT5+rce72W2sgqCsP19S4Sed63axLZ9ijyW9yKq8=; b=ubrC6fL9M4CETQuZ1szjwWhQsw
-	93ZPIghublVLAsGJntt8ZiMtOCUf1k3W0FxzG98Ljs03B0aKAFhKT81cuHLN/gMaU4HVKHhQVDDJW
-	wOPSOOZHmQ4k1VSN3v8MLbm4aFWQuVyQlwiU2Lld08z/S6EUEktFcFsF6S7uWWAtZ4NUYmeQfYKan
-	yJpU4xYsO9h9GfWk4v2FrgetlR7bLR8dStw8zuxNPvihVx1qBsaYGiixITewbGw8q9SoZwzv6xstm
-	Xxg0eYZZwKxvJwQ6WgW5VjwvzYqsESbIwiwKMp3qgz6O8jc+ztwUuJEBe7BvQZeqbWl9JbIqNvIeW
-	3eEeI3ow==;
+	bh=thmNAt/bS5cjPtqSeseDlr+1sbK0astTbAhV3j96tPU=; b=hPuP4qhEiVqU1FrZSef6EVfIyg
+	SsulrpslQx8jQfgDbOGPDhanTDwXQ3r3HB7DKvqMmQoMJv5X/O+0hJUuFREe7KAKSZ/1rGCenKeXI
+	f6P2mvaYB5VZqxzdD11k774qcECfzEmbV+7Mn4do7YQUZOetdtwUpf940K4FVbQpkcOl/84iZde9X
+	uRAYREx+5HtE/OL0m2QzHP0ETl/IL+hEEQaACCfwoDAZgEtBsQRH2aDPOUXFVHO8jAyfkFD1ClqBR
+	4XaizV9piYYGG1H71dXp1aVh6UR80f4nwaDlfh/8sIrS2/jkzEXxq2dE86dZrkC2IIW25Tl0FXy8u
+	/iYkv09w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk4BD-00000005JGZ-3ocr;
-	Mon, 17 Feb 2025 16:41:11 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tk4DG-00000005Jzm-2QO9;
+	Mon, 17 Feb 2025 16:43:18 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3NV-000000058J0-34By;
-	Mon, 17 Feb 2025 15:49:51 +0000
+	id 1tk3Nb-000000058O0-3wSd;
+	Mon, 17 Feb 2025 15:49:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739807388;
-	bh=2dasbND+rrNLp+jVYyPAywHrwL3gyHBhQ4dsr0a+LKQ=;
+	s=mail; t=1739807394;
+	bh=2mLfGme/tIHjm5sQqXCYOwFFVUmNwDtFhU/TJYw2TcM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=p7hWSwiWHAb9dcg6B8ot+2LntnLq3kmJl/IomHpchFmvDeRN2vStSZLt4IPH4mgS1
-	 OI/nzj1AI4/LpR/rCy9cHnxYIhHWpkjK2ogBjJzRUB/NIrKeFj/WtU/7GB8NVC9Fqx
-	 bkXhyIQAJB1VGZ7bk2M5HNYgXEcshYMABIOUiCV00kbjxbYCspqaaJJB8fOTXSoEas
-	 a1uC5hsIXC8zE5KXnRG6hnIuxy5pR0RPWiQvn4xMChHIPFRFKRg61hW4FXD4Xi/nnC
-	 nhdseUx8ugrxghM7xuITlZrw8UcouQLBS8d0oQeTTOBjA6RmSTBIF0gpcFb7ztvpNl
-	 is805tzkJgBuA==
+	b=REPxOSr+qLFAS+XcSMfWZXdD2iwBmzyuxwZzlZkFNpPNsyc7m4Pm8GGUnMkr+hbKj
+	 nJZjbH8YyMhyEwYYJw4w0k0JMvEFSQNYanmEXKrXdgJihkDmVMPuLg9DXKD8vlKUtQ
+	 tiKiTbesz3YvTaiE3eGnU/bxhypuPkj/txaB1d8nz5ZyuTUN32WjkS1PSBU7hy9L4/
+	 JQxuUiUMXLKhknBn2sULS9++qwDW5eLUHWGmsXT6jWRHmUH5RCI6Vm3184DtIwfZXF
+	 0ihEPjj9v/In5Vo3m3McQp5ao3t3sU1FczyDt1AkZUNBXx19yaKaHd+sCnrnahNkvr
+	 wuRwvdFrfV62Q==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1DD0017E1564;
-	Mon, 17 Feb 2025 16:49:47 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 22D6917E0CA2;
+	Mon, 17 Feb 2025 16:49:53 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -71,17 +71,17 @@ Cc: p.zabel@pengutronix.de,
 	ives.chenjh@mediatek.com,
 	tommyyl.chen@mediatek.com,
 	jason-jh.lin@mediatek.com
-Subject: [PATCH v7 21/43] drm/mediatek: mtk_hdmi: Move audio params selection to new function
-Date: Mon, 17 Feb 2025 16:48:14 +0100
-Message-ID: <20250217154836.108895-22-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v7 25/43] drm/mediatek: mtk_hdmi: Use dev_err_probe() in mtk_hdmi_dt_parse_pdata()
+Date: Mon, 17 Feb 2025 16:48:18 +0100
+Message-ID: <20250217154836.108895-26-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com>
 References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_074949_912017_AB28FEC1 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20250217_074956_149665_B7EA323E 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,128 +96,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for splitting common bits of this driver, move the
-audio params (codec, sample rate/size, input type, i2s format, etc)
-selection to a new function called mtk_hdmi_audio_params().
-
-While at it, also rename "hdmi_params" to "aud_params" both to match
-the mtk_hdmi struct member name and to clarify that those parameters
-are for HDMI Audio and not for HDMI Video configuration.
+Change error prints to use dev_err_probe() instead of dev_err()
+where possible in function mtk_hdmi_dt_parse_pdata(), used only
+during device probe.
+While at it, also beautify some prints.
 
 Reviewed-by: CK Hu <ck.hu@mediatek.com>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 63 ++++++++++++++++-------------
- 1 file changed, 35 insertions(+), 28 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 31 ++++++++++-------------------
+ 1 file changed, 10 insertions(+), 21 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index 1f90cac112e2..25ea3f3d982b 100644
+index 4bf19574463d..61e521430b48 100644
 --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -1465,19 +1465,13 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
-  * HDMI audio codec callbacks
-  */
- 
--static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
--				    struct hdmi_codec_daifmt *daifmt,
--				    struct hdmi_codec_params *params)
-+static int mtk_hdmi_audio_params(struct mtk_hdmi *hdmi,
-+				 struct hdmi_codec_daifmt *daifmt,
-+				 struct hdmi_codec_params *params)
+@@ -1372,25 +1372,19 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
  {
--	struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
--	struct hdmi_audio_param hdmi_params;
-+	struct hdmi_audio_param aud_params = { 0 };
- 	unsigned int chan = params->cea.channels;
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *np = dev->of_node;
+-	struct device_node *cec_np, *remote, *i2c_np;
++	struct device_node *remote, *i2c_np;
+ 	struct platform_device *cec_pdev;
+ 	struct regmap *regmap;
+ 	int ret;
  
--	if (!hdmi->audio_enable) {
--		dev_err(hdmi->dev, "hdmi audio is in disable state!\n");
+ 	ret = mtk_hdmi_get_all_clk(hdmi, np);
+-	if (ret) {
+-		if (ret != -EPROBE_DEFER)
+-			dev_err(dev, "Failed to get clocks: %d\n", ret);
+-
+-		return ret;
+-	}
++	if (ret)
++		return dev_err_probe(dev, ret, "Failed to get clocks\n");
+ 
+ 	/* The CEC module handles HDMI hotplug detection */
+ 	cec_np = of_get_compatible_child(np->parent, "mediatek,mt8173-cec");
+-	if (!cec_np) {
+-		dev_err(dev, "Failed to find CEC node\n");
 -		return -EINVAL;
 -	}
--
- 	dev_dbg(hdmi->dev, "%s: %u Hz, %d bit, %d channels\n", __func__,
- 		params->sample_rate, params->sample_width, chan);
++	if (!cec_np)
++		return dev_err_probe(dev, -EINVAL, "Failed to find CEC node\n");
  
-@@ -1486,16 +1480,16 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
- 
- 	switch (chan) {
- 	case 2:
--		hdmi_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
-+		aud_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
- 		break;
- 	case 4:
--		hdmi_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_4_0;
-+		aud_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_4_0;
- 		break;
- 	case 6:
--		hdmi_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_5_1;
-+		aud_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_5_1;
- 		break;
- 	case 8:
--		hdmi_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_7_1;
-+		aud_params.aud_input_chan_type = HDMI_AUD_CHAN_TYPE_7_1;
- 		break;
- 	default:
- 		dev_err(hdmi->dev, "channel[%d] not supported!\n", chan);
-@@ -1519,31 +1513,44 @@ static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
- 
- 	switch (daifmt->fmt) {
- 	case HDMI_I2S:
--		hdmi_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
--		hdmi_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
--		hdmi_params.aud_input_type = HDMI_AUD_INPUT_I2S;
--		hdmi_params.aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
--		hdmi_params.aud_mclk = HDMI_AUD_MCLK_128FS;
-+		aud_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
-+		aud_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
-+		aud_params.aud_input_type = HDMI_AUD_INPUT_I2S;
-+		aud_params.aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
-+		aud_params.aud_mclk = HDMI_AUD_MCLK_128FS;
- 		break;
- 	case HDMI_SPDIF:
--		hdmi_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
--		hdmi_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
--		hdmi_params.aud_input_type = HDMI_AUD_INPUT_SPDIF;
-+		aud_params.aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
-+		aud_params.aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
-+		aud_params.aud_input_type = HDMI_AUD_INPUT_SPDIF;
- 		break;
- 	default:
- 		dev_err(hdmi->dev, "%s: Invalid DAI format %d\n", __func__,
- 			daifmt->fmt);
- 		return -EINVAL;
+ 	cec_pdev = of_find_device_by_node(cec_np);
+ 	if (!cec_pdev) {
+@@ -1413,9 +1407,8 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
+ 	if (IS_ERR(regmap))
+ 		ret = PTR_ERR(regmap);
+ 	if (ret) {
+-		dev_err(dev,
+-			"Failed to get system configuration registers: %d\n",
+-			ret);
++		dev_err_probe(dev, ret,
++			      "Failed to get system configuration registers\n");
+ 		goto put_device;
  	}
--
--	memcpy(&hdmi_params.codec_params, params,
--	       sizeof(hdmi_params.codec_params));
--	memcpy(&hdmi->aud_param, &hdmi_params, sizeof(hdmi_params));
-+	memcpy(&aud_params.codec_params, params, sizeof(aud_params.codec_params));
-+	memcpy(&hdmi->aud_param, &aud_params, sizeof(aud_params));
+ 	hdmi->sys_regmap = regmap;
+@@ -1443,20 +1436,16 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
+ 	}
  
- 	dev_dbg(hdmi->dev, "codec:%d, input:%d, channel:%d, fs:%d\n",
--		hdmi_params.aud_codec, hdmi_params.aud_input_type,
--		hdmi_params.aud_input_chan_type, hdmi_params.codec_params.sample_rate);
-+		aud_params.aud_codec, aud_params.aud_input_type,
-+		aud_params.aud_input_chan_type, aud_params.codec_params.sample_rate);
-+
-+	return 0;
-+}
-+
-+static int mtk_hdmi_audio_hw_params(struct device *dev, void *data,
-+				    struct hdmi_codec_daifmt *daifmt,
-+				    struct hdmi_codec_params *params)
-+{
-+	struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
-+
-+	if (!hdmi->audio_enable) {
-+		dev_err(hdmi->dev, "hdmi audio is in disable state!\n");
-+		return -EINVAL;
-+	}
+ 	i2c_np = of_parse_phandle(remote, "ddc-i2c-bus", 0);
++	of_node_put(remote);
+ 	if (!i2c_np) {
+-		dev_err(dev, "Failed to find ddc-i2c-bus node in %pOF\n",
+-			remote);
+-		of_node_put(remote);
+-		ret = -EINVAL;
++		ret = dev_err_probe(dev, -EINVAL, "No ddc-i2c-bus in connector\n");
+ 		goto put_device;
+ 	}
+-	of_node_put(remote);
  
-+	mtk_hdmi_audio_params(hdmi, daifmt, params);
- 	mtk_hdmi_aud_output_config(hdmi, &hdmi->mode);
+ 	hdmi->ddc_adpt = of_find_i2c_adapter_by_node(i2c_np);
+ 	of_node_put(i2c_np);
+ 	if (!hdmi->ddc_adpt) {
+-		dev_err(dev, "Failed to get ddc i2c adapter by node\n");
+-		ret = -EINVAL;
++		ret = dev_err_probe(dev, -EINVAL, "Failed to get ddc i2c adapter by node\n");
+ 		goto put_device;
+ 	}
  
- 	return 0;
 -- 
 2.48.1
 
