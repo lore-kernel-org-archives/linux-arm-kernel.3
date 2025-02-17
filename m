@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D13C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6792C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A2sPfQZeay/1JXMe5RGbQaAOhB59g6LOSfQU+7lUlqI=; b=fDjnpm2Wd/xKKwFvo9i0gzSqE7
-	fw38IgZD+rBaml+6p17KDb7Gd8MCee2MMToFogiykHjdLep2LYKakuKuj23H/oyLFtcNk3ejrk/oa
-	4Z18OFofV6BP3z4eXvPGLYV2fGWhfnzbQfPYp1WRK5e9gVca/v/quM/3s32GCOCV0W8SzKFW0X/+Y
-	1Cs6RfnW3vA4a5oiyHF8TGOIOUEIvlpZV+Jhq98Snnla3zrLKnjUkfbYbIQZtHN7OyKaOj+uXg6Wm
-	vnqCPJfxIUsz8A1xDUnr0kX/nK5lh4XUN8SZcWufm/f4UeduLCyZ7Smvrdcc5APQW6ull+xN9yU0b
-	2Ur7/c8A==;
+	bh=+M34uV/zkct1kEAaK2pLJ3/QmCI3GfHP6imSRuJbcm8=; b=Q92D0s6xfUCOEbTrIqzyrFTXBX
+	z72ecEKq5OjnGr0eiD9V31n7xaoEJOn5gxrvph9bIGApolUJd87aCKCONEmPMCJHKWxJjwA4gEzbo
+	u5pgLZVKKG8ofb59N420lYdEhpnprMrPJHmpxpEBzngURu9Hj1+Tq7xRDXWhp3TB3sjZDlITQsJk5
+	JdW9Eb1mWxtyJzjYFMeKVfLycGIerVWcKSxmdnMY3VAMpNfEUT3aO1g34HWF76tWCzftP/PeC9EsH
+	aLYCGnNL4xwwti3Ahsp6rPX7bketXKJ5empoXWetxcb/nMFlpb3qoHWnaerDKxoD80DtqgOb6Hnjv
+	Xoc2bypg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2c8-00000004yHK-0VXn;
-	Mon, 17 Feb 2025 15:00:52 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tk2dY-00000004yZ5-3HO1;
+	Mon, 17 Feb 2025 15:02:20 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2SZ-00000004vq4-2b7f
+	id 1tk2X7-00000004wn7-1qRC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 14:51:01 +0000
-Date: Mon, 17 Feb 2025 15:50:54 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1739803857;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=A2sPfQZeay/1JXMe5RGbQaAOhB59g6LOSfQU+7lUlqI=;
-	b=LdMNlwDC5lDIT/Jpq8cLWTPbvimW/JscZDQRx4CxlRBjyO/RfxVBHBovmcfvwei48Zi1n4
-	Cki8D6+FtvFxa/l2hwUfJIeiW9Fh2wh2RP4Ah3o6l7kopWo0ckWjdk6SVWIxIUJ6HCoWec
-	s5l693cp41fYWV4fI/PLXR6TB+h4qOtcNHBke+frCLq1zfwihx3sUbECsKI6AGfMQ30o2V
-	V+lccjqrKjEX3cdPDFWlRv2Wi4eJNIbfJrKDUmls/OiSqt58ETNVf68E8trM88QMtzn250
-	PRaw0wJCra+Ud+xcquDBmLSyBnbCqWIZKQJKZ4pz0l0yEADzlphijA+ZCJAv5g==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1739803857;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=A2sPfQZeay/1JXMe5RGbQaAOhB59g6LOSfQU+7lUlqI=;
-	b=S2jI3v4/Olq9v83ieKDobcjhEdUL3f81KbO/RhkmrGvI44BHA4HRqSEHES+BQP4DOv0T87
-	AKFQxN+/p89+35Bg==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Patrice Chotard <patrice.chotard@foss.st.com>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] usb: core: Don't use %pK through printk
-Message-ID: <20250217153444-4e1fd8ec-7f0e-4f40-8fc1-e323e4622284@linutronix.de>
-References: <20250217-restricted-pointers-usb-v1-0-78da55158832@linutronix.de>
- <20250217-restricted-pointers-usb-v1-1-78da55158832@linutronix.de>
- <2025021733-strudel-curator-bfaf@gregkh>
+	Mon, 17 Feb 2025 14:55:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4E9CC5C57AC;
+	Mon, 17 Feb 2025 14:55:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 453CDC4CED1;
+	Mon, 17 Feb 2025 14:55:35 +0000 (UTC)
+Date: Mon, 17 Feb 2025 14:55:32 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Tong Tiangen <tongtiangen@huawei.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	James Morse <james.morse@arm.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com, wangkefeng.wang@huawei.com,
+	Guohanjun <guohanjun@huawei.com>
+Subject: Re: [PATCH v13 4/5] arm64: support copy_mc_[user]_highpage()
+Message-ID: <Z7NN5Pa-c5PtIbcF@arm.com>
+References: <20241209024257.3618492-1-tongtiangen@huawei.com>
+ <20241209024257.3618492-5-tongtiangen@huawei.com>
+ <Z6zWSXzKctkpyH7-@arm.com>
+ <69955002-c3b1-459d-9b42-8d07475c3fd3@huawei.com>
+ <Z698SFVqHjpGeGC0@arm.com>
+ <e1d2affb-5c6b-00b5-8209-34bbca36f96b@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <2025021733-strudel-curator-bfaf@gregkh>
+In-Reply-To: <e1d2affb-5c6b-00b5-8209-34bbca36f96b@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_065059_795162_918542CF 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20250217_065541_561196_84F56856 
+X-CRM114-Status: GOOD (  32.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,35 +91,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 02:52:05PM +0100, Greg Kroah-Hartman wrote:
-> On Mon, Feb 17, 2025 at 02:20:51PM +0100, Thomas Wei�schuh wrote:
-> > Restricted pointers ("%pK") are not meant to be used through printk().
-> > It can unintentionally expose security sensitive, raw pointer values.
+On Mon, Feb 17, 2025 at 04:07:49PM +0800, Tong Tiangen wrote:
+> 在 2025/2/15 1:24, Catalin Marinas 写道:
+> > On Fri, Feb 14, 2025 at 10:49:01AM +0800, Tong Tiangen wrote:
+> > > 在 2025/2/13 1:11, Catalin Marinas 写道:
+> > > > On Mon, Dec 09, 2024 at 10:42:56AM +0800, Tong Tiangen wrote:
+> > > > > Currently, many scenarios that can tolerate memory errors when copying page
+> > > > > have been supported in the kernel[1~5], all of which are implemented by
+> > > > > copy_mc_[user]_highpage(). arm64 should also support this mechanism.
+> > > > > 
+> > > > > Due to mte, arm64 needs to have its own copy_mc_[user]_highpage()
+> > > > > architecture implementation, macros __HAVE_ARCH_COPY_MC_HIGHPAGE and
+> > > > > __HAVE_ARCH_COPY_MC_USER_HIGHPAGE have been added to control it.
+> > > > > 
+> > > > > Add new helper copy_mc_page() which provide a page copy implementation with
+> > > > > hardware memory error safe. The code logic of copy_mc_page() is the same as
+> > > > > copy_page(), the main difference is that the ldp insn of copy_mc_page()
+> > > > > contains the fixup type EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR, therefore, the
+> > > > > main logic is extracted to copy_page_template.S. In addition, the fixup of
+> > > > > MOPS insn is not considered at present.
+> > > > 
+> > > > Could we not add the exception table entry permanently but ignore the
+> > > > exception table entry if it's not on the do_sea() path? That would save
+> > > > some code duplication.
+> > > 
+> > > I'm sorry, I didn't catch your point, that the do_sea() and non do_sea()
+> > > paths use different exception tables?
 > > 
-> > Use regular pointer formatting instead.
-> > 
-> > Link: https://lore.kernel.org/lkml/20250113171731-dc10e3c1-da64-4af0-b767-7c7070468023@linutronix.de/
-> > Signed-off-by: Thomas Wei�schuh <thomas.weissschuh@linutronix.de>
+> > No, they would have the same exception table, only that we'd interpret
+> > it differently depending on whether it's a SEA error or not. Or rather
+> > ignore the exception table altogether for non-SEA errors.
 > 
-> So really this is just a revert of 2f964780c03b ("USB: core: replace %p
-> with %pK"), right?
+> You mean to use the same exception type (EX_TYPE_KACCESS_ERR_ZERO) and
+> then do different processing on SEA errors and non-SEA errors, right?
 
-In this case, yes.
+Right.
 
-> Why not express it that way, and explain _why_ it's somehow now ok to
-> use %p when previously it wasn't?
+> If so, some instructions of copy_page() did not add to the exception
+> table will be added to the exception table, and the original logic will
+> be affected.
+> 
+> For example, if an instruction is not added to the exception table, the
+> instruction will panic when it triggers a non-SEA error. If this
+> instruction is added to the exception table because of SEA processing,
+> and then a non-SEA error is triggered, should we fix it?
 
-The full background is in the email linked from the commit message.
-%p is more secure than %pK since
-commit ad67b74d2469 ("printk: hash addresses printed with %p").
-%pK was never intended to be used through printk() in the first place.
+No, we shouldn't fix it. The exception table entries have a type
+associated. For a non-SEA error, we preserve the original behaviour even
+if we find a SEA-specific entry in the exception table. You already need
+such logic even if you duplicate the code for configurations where you
+have MC enabled.
 
-I'm doing the these changes for various subsystems using a common
-commit message. The changes are not reverts for all of them and
-digging out the specific history for each single line is a bunch
-of extra work.
-If you want more historical context, I'll resend the series, though.
-
-
-Thomas
+-- 
+Catalin
 
