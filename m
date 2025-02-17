@@ -4,71 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC59C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191FDC021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vtt7prXDEjZ4aMiH3Y0nAYK4aEl2wQJc9YSXnvv/CzU=; b=zlmXZ9WNeTNiVi3MAAtK4I8JeM
-	76YVDRB9lAtTzpcRwZE5U6aNoNV44LLgTY5ahNKX7Y/wBZMUBoOEic8J13HpYkL49WPxXKRPis2tV
-	eOw0XTrUfJ65WyVY+elvmM0xUOM91hu0kOj2KBg0VRAEEaNMMbneD3RC4N+dUfF4NiqZk+13S0ww7
-	bCGQ8gz9TdOLXVKVHh6frcrWndx/oxhWoJJsYimUbgU9un1TR3YzeTj3wwOpbbUr+octKY22nyoRO
-	7EzHA35Favs3YYmTl5lq0W8sXhAoiIrDdXPYlnuEvMw2IcZF8S+X2V4c4bH1TbmPonKf50g4Y7oCn
-	7y7j0jMA==;
+	bh=UOF6QBnm1Fg94nNzGAS2r+WBFBfz7qL3PHeBCr6ULOw=; b=is+ON61K9YMwZ8ZGeQ6h5JuCmj
+	m87zWkNfMUOj4EwhpMxyE2ALWrhXbO6hg981sPeJLJdIZ3sCTLwYIKa3lm7Xj25wU5tVtEezQ/Z+G
+	t6Ml9FDxw7iuyd6kqsOHOSTMIQoGUV6jd756f7XIaSsrp3goks2dlIE2V7E8Sosq8AQcfDWJ2bDFa
+	0wVNAF8TedJFO2czKEq7PDrQ2DpeFE0d0aXk1OhSKS/UYNWGwmQalPT1cyxWnGEeOOtL7Ui0aK/fH
+	16x1z7vNVrbLo5GJBxmplooQrtZK8LQGp8t14fVCvsNuqbeIKZhSP3EdaXFvt4fc9YArI/U7k1WPB
+	nvlyGD/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0GX-00000004TJy-13Mr;
-	Mon, 17 Feb 2025 12:30:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk05Y-00000004QqP-1Jtz;
-	Mon, 17 Feb 2025 12:19:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 728E25C1038;
-	Mon, 17 Feb 2025 12:18:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 256D2C4CED1;
-	Mon, 17 Feb 2025 12:19:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739794742;
-	bh=wyEMxJSE4ut2qD9vvgKYF1uHbf5olLm7PCB7mopaezc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Zj3zJVGLaouZLXnzIJXFuNsrKpMsmPoeDnw9lLcRLibpLL+oIqHjoQnx53/NpJMaT
-	 1obkaYTrOUIoO+baSTIgHL3v+87w0VtQxnnPh71a6wpmwuy0OlH/uutPpBt2ASdEXw
-	 Y1a2lkUKXWaHGBHR/ao6nkcEvLaBe4SbvJCu0rwZySIQcJfLNqJO6AtZsIjlcQXqAt
-	 FJ1jA4lLVpjCBWk1vSr7bY0oGqyJx9vu4bR5NYF+SFaWIvvWyyTLhAXMr3Qb/A0wlo
-	 GUzWRedJnc7Q4WYfKXUEGhiklHWnDqROR2KlwtKY5zO7ZIHZUhEBsP01yqAW2DqRha
-	 b95ToCfNsaezA==
-Date: Mon, 17 Feb 2025 13:19:00 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] PCI: mediatek-gen3: Configure PBUS_CSR registers
- for EN7581 SoC
-Message-ID: <Z7MpNADDFxPTX1Yy@lore-desk>
-References: <20250202-en7581-pcie-pbus-csr-v2-0-65dcb201c9a9@kernel.org>
- <20250202-en7581-pcie-pbus-csr-v2-2-65dcb201c9a9@kernel.org>
- <20250214171106.ul3fwzcwhadhdwhj@thinkpad>
+	id 1tk0JS-00000004Uov-3JJ1;
+	Mon, 17 Feb 2025 12:33:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk0I0-00000004Uer-25m6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Feb 2025 12:31:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 16C171692;
+	Mon, 17 Feb 2025 04:32:12 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 198303F5A1;
+	Mon, 17 Feb 2025 04:31:49 -0800 (PST)
+Date: Mon, 17 Feb 2025 12:31:47 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Keita Morisaki <keyz@google.com>, Ulf Hansson <ulf.hansson@linaro.org>,
+	lpieralisi@kernel.org, linux-kernel@vger.kernel.org,
+	daniel.lezcano@linaro.org, linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, rostedt@goodmis.org,
+	mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org, aarontian@google.com,
+	Sudeep Holla <sudeep.holla@arm.com>, yimingtseng@google.com,
+	Dhruva Gole <d-gole@ti.com>, Kevin Hilman <khilman@baylibre.com>
+Subject: Re: [PATCH v5 RESEND] cpuidle: psci: Add trace for PSCI domain idle
+Message-ID: <Z7MsM5Va5xi-Nuis@bogus>
+References: <20250210055828.1875372-1-keyz@google.com>
+ <CAJZ5v0hWNYB69ydM4--GNtLBgG3WS4MT+S10w46883kHnFMMEQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2DDNq2ksAqtJIqnN"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250214171106.ul3fwzcwhadhdwhj@thinkpad>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAJZ5v0hWNYB69ydM4--GNtLBgG3WS4MT+S10w46883kHnFMMEQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_041904_464201_60220B70 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20250217_043156_578975_E30A0B11 
+X-CRM114-Status: GOOD (  14.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,113 +70,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---2DDNq2ksAqtJIqnN
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> On Sun, Feb 02, 2025 at 08:34:24PM +0100, Lorenzo Bianconi wrote:
-> > Configure PBus base address and address mask to allow the hw
-> > to detect if a given address is on PCIE0, PCIE1 or PCIE2.
-> >=20
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+On Mon, Feb 17, 2025 at 12:57:07PM +0100, Rafael J. Wysocki wrote:
+> +Ulf
+> 
+> On Mon, Feb 10, 2025 at 6:58 AM Keita Morisaki <keyz@google.com> wrote:
+> >
+> > The trace event cpu_idle provides insufficient information for debugging
+> > PSCI requests due to lacking access to determined PSCI domain idle
+> > states. The cpu_idle usually only shows -1, 0, or 1 regardless how many
+> > idle states the power domain has.
+> >
+> > Add new trace events namely psci_domain_idle_enter and
+> > psci_domain_idle_exit to trace enter and exit events with a determined
+> > idle state.
+> >
+> > These new trace events will help developers debug CPUidle issues on ARM
+> > systems using PSCI by providing more detailed information about the
+> > requested idle states.
+> >
+> > Signed-off-by: Keita Morisaki <keyz@google.com>
+> > Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+> > Reviewed-by: Dhruva Gole <d-gole@ti.com>
+> > Tested-by: Kevin Hilman <khilman@baylibre.com>
 > > ---
-> >  drivers/pci/controller/pcie-mediatek-gen3.c | 30 +++++++++++++++++++++=
-+++++++-
-> >  1 file changed, 29 insertions(+), 1 deletion(-)
-> >=20
-> > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/=
-controller/pcie-mediatek-gen3.c
-> > index aa24ac9aaecc749b53cfc4faf6399913d20cdbf2..9c2a592cae959de8fbe9ca5=
-c5c2253f8eadf2c76 100644
-> > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> > @@ -15,6 +15,7 @@
-> >  #include <linux/irqchip/chained_irq.h>
-> >  #include <linux/irqdomain.h>
-> >  #include <linux/kernel.h>
-> > +#include <linux/mfd/syscon.h>
-> >  #include <linux/module.h>
-> >  #include <linux/msi.h>
-> >  #include <linux/of_device.h>
-> > @@ -24,6 +25,7 @@
-> >  #include <linux/platform_device.h>
-> >  #include <linux/pm_domain.h>
-> >  #include <linux/pm_runtime.h>
-> > +#include <linux/regmap.h>
-> >  #include <linux/reset.h>
-> > =20
-> >  #include "../pci.h"
-> > @@ -127,6 +129,13 @@
-> > =20
-> >  #define PCIE_MTK_RESET_TIME_US		10
-> > =20
-> > +#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
-> > +#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
-> > +#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
-> > +	((_n) =3D=3D 2 ? 0x28000000 :	\
-> > +	 (_n) =3D=3D 1 ? 0x24000000 : 0x20000000)
-> > +#define PCIE_EN7581_PBUS_BASE_ADDR_MASK	GENMASK(31, 26)
-> > +
-> >  /* Time in ms needed to complete PCIe reset on EN7581 SoC */
-> >  #define PCIE_EN7581_RESET_TIME_MS	100
-> > =20
-> > @@ -931,7 +940,8 @@ static int mtk_pcie_parse_port(struct mtk_gen3_pcie=
- *pcie)
-> >  static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
-> >  {
-> >  	struct device *dev =3D pcie->dev;
-> > -	int err;
-> > +	struct regmap *map;
-> > +	int err, slot;
-> >  	u32 val;
-> > =20
-> >  	/*
-> > @@ -945,6 +955,24 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen=
-3_pcie *pcie)
-> >  	/* Wait for the time needed to complete the reset lines assert. */
-> >  	msleep(PCIE_EN7581_RESET_TIME_MS);
-> > =20
-> > +	map =3D syscon_regmap_lookup_by_phandle(dev->of_node,
-> > +					      "mediatek,pbus-csr");
-> > +	if (IS_ERR(map))
-> > +		return PTR_ERR(map);
->=20
-> So this is going to regress the devicetree's that do not define this sysc=
-on
-> region? But I do not see any devicetree using this 'airoha,en7581-pcie'
-> compatible, so not sure if this is going to be an issue. Are the downstre=
-am
-> devicetrees used?
+> > v1->v2: Split the ftrace event into two (psci_domain_idle_(enter|exit))
+> >         and rephrase the commit message accordingly. Rebased onto the latest.
+> > v2->v3: Add "Reviewed-by: Steven Rostedt"
+> > v3->v4: Add the Tested-by label
+> > v4->v5: Add "Reviewed-by: Dhruva Gole"
+> >
+> > Hopefully this patch gets attention from maintainers of
+> > drivers/cpuidle/cpuidle-psci.c too.
+>
+> Lorenzo, Sudeep, Ulf, any comments?
+>
 
-AFAIK there is no upstream or downstream (e.g. OpenWrt) en7581 dts with PCIe
-support yet so I do not know if this is an issue or not. If so, I guess we
-need to add the proper Fixes tag:
+Looks good to me. I left it to Ulf, FWIW:
 
-Fixes: f6ab898356dd ("PCI: mediatek-gen3: Add Airoha EN7581 support")
+Acked-by: Sudeep Holla <sudeep.holla@arm.com>
 
+-- 
 Regards,
-Lorenzo
-
->=20
-> - Mani
->=20
-> --=20
-> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
-=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
-=E0=AF=8D
-
---2DDNq2ksAqtJIqnN
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ7MpNAAKCRA6cBh0uS2t
-rIuEAP9rnTTRV1mWaP3Z7uCsLUu0NlHr8BpEtVsjDGVDIPv7+wEA9eryLOzy0dp5
-zACOFi5/qvhsY75r70+bG8mpUeyRYg8=
-=IvLf
------END PGP SIGNATURE-----
-
---2DDNq2ksAqtJIqnN--
+Sudeep
 
