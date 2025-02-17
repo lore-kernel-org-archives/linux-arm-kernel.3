@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5398DC021A9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC59C021AA
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Message-Id:Subject:
-	References:In-Reply-To:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3mv0xJbhYi/YeQykAiRAVemoksn2UXfZFh8IxjRHB3s=; b=CYfc/Yl/Iyqyne
-	v0bpgdCEQZ30jcumprKpFxyEj+s0nZ/acuESiJ0pWuq4s+MbJv2qZA437kpFKbvWDfSHBXv8TKtlq
-	RoMXSsW65d7qXOEQzCHlkWxd9e6HNl2UUjzjHHzEHE1ibyeZuH8EwNu5mNS1P4bXrZX5p/mje7RUB
-	vTdsUjn02wgMFUV3eP3CRJTmyGticBTACL7vEfds0a9ysnnbCAk7cUaKqrF9pL02QazgLuoO7b5ik
-	9MIHKAc5wXrEkfZgBdZZVLHNSDC50Gi7EK2m4jPNpTGs0+bhTFeyMTtxihz2Bn2rfEqn9R1aLgLgH
-	LpnIg/ayfMTySpdBh42w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vtt7prXDEjZ4aMiH3Y0nAYK4aEl2wQJc9YSXnvv/CzU=; b=zlmXZ9WNeTNiVi3MAAtK4I8JeM
+	76YVDRB9lAtTzpcRwZE5U6aNoNV44LLgTY5ahNKX7Y/wBZMUBoOEic8J13HpYkL49WPxXKRPis2tV
+	eOw0XTrUfJ65WyVY+elvmM0xUOM91hu0kOj2KBg0VRAEEaNMMbneD3RC4N+dUfF4NiqZk+13S0ww7
+	bCGQ8gz9TdOLXVKVHh6frcrWndx/oxhWoJJsYimUbgU9un1TR3YzeTj3wwOpbbUr+octKY22nyoRO
+	7EzHA35Favs3YYmTl5lq0W8sXhAoiIrDdXPYlnuEvMw2IcZF8S+X2V4c4bH1TbmPonKf50g4Y7oCn
+	7y7j0jMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0Ga-00000004TR6-0tts;
-	Mon, 17 Feb 2025 12:30:28 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tk0GX-00000004TJy-13Mr;
+	Mon, 17 Feb 2025 12:30:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0An-00000004RQ8-0bWh
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 12:24:30 +0000
+	id 1tk05Y-00000004QqP-1Jtz;
+	Mon, 17 Feb 2025 12:19:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EDA41A40A73;
-	Mon, 17 Feb 2025 12:22:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DCC7C4CED1;
-	Mon, 17 Feb 2025 12:24:25 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 728E25C1038;
+	Mon, 17 Feb 2025 12:18:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 256D2C4CED1;
+	Mon, 17 Feb 2025 12:19:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739795067;
-	bh=TJYEevfjJhbZc3qn+igox9ieijgb5voH+UahcAHp2sQ=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=EpQ50d5hscsOE0Mv4QRUAC0NqvA4X69TVieE9LcTkTbnJWv4xMJDBFDpfUA11Ylve
-	 EHnNrEBnZIVxoX8eRoZP6Kkd257eVQjAfUPF+pQZlChsSdwu7eBy5M1FaW8mWPRTRe
-	 mweuQ5r4oHGuYRJojkE+XrpLyuQPvRwYNJBooHdULvt00PvhNPBdURzl591Ho7M7vo
-	 BfYVNqJ2NRDiNMWiQidEr5A7Wx6CQYuAN8bcAgoPcdPNcf5cCgZEuxc9ytkPkEyqCa
-	 ovaCZve7OyecQpYl28rdMKjB3rnbf0xGTeFy7kumPZq4mb1Ww2DlS6n715heyZFcEE
-	 ocRLBWot9rJxQ==
-From: Mark Brown <broonie@kernel.org>
-To: Varshini Rajendran <varshini.rajendran@microchip.com>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, linux-spi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Bence_Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-In-Reply-To: <20250207122145.162183-2-csokas.bence@prolan.hu>
-References: <20250207122145.162183-2-csokas.bence@prolan.hu>
-Subject: Re: [PATCH resubmit2] spi: atmel-quadspi: remove references to
- runtime PM on error path
-Message-Id: <173979506523.23527.7426002054333724142.b4-ty@kernel.org>
-Date: Mon, 17 Feb 2025 12:24:25 +0000
+	s=k20201202; t=1739794742;
+	bh=wyEMxJSE4ut2qD9vvgKYF1uHbf5olLm7PCB7mopaezc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Zj3zJVGLaouZLXnzIJXFuNsrKpMsmPoeDnw9lLcRLibpLL+oIqHjoQnx53/NpJMaT
+	 1obkaYTrOUIoO+baSTIgHL3v+87w0VtQxnnPh71a6wpmwuy0OlH/uutPpBt2ASdEXw
+	 Y1a2lkUKXWaHGBHR/ao6nkcEvLaBe4SbvJCu0rwZySIQcJfLNqJO6AtZsIjlcQXqAt
+	 FJ1jA4lLVpjCBWk1vSr7bY0oGqyJx9vu4bR5NYF+SFaWIvvWyyTLhAXMr3Qb/A0wlo
+	 GUzWRedJnc7Q4WYfKXUEGhiklHWnDqROR2KlwtKY5zO7ZIHZUhEBsP01yqAW2DqRha
+	 b95ToCfNsaezA==
+Date: Mon, 17 Feb 2025 13:19:00 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] PCI: mediatek-gen3: Configure PBUS_CSR registers
+ for EN7581 SoC
+Message-ID: <Z7MpNADDFxPTX1Yy@lore-desk>
+References: <20250202-en7581-pcie-pbus-csr-v2-0-65dcb201c9a9@kernel.org>
+ <20250202-en7581-pcie-pbus-csr-v2-2-65dcb201c9a9@kernel.org>
+ <20250214171106.ul3fwzcwhadhdwhj@thinkpad>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15-dev-1b0d6
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2DDNq2ksAqtJIqnN"
+Content-Disposition: inline
+In-Reply-To: <20250214171106.ul3fwzcwhadhdwhj@thinkpad>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_042429_244678_99FE66D5 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20250217_041904_464201_60220B70 
+X-CRM114-Status: GOOD (  25.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,43 +80,116 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexander Dahl <ada@thorsis.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Durai Manickam KR <durai.manickamkr@microchip.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Feb 2025 13:21:45 +0100, Bence Csókás wrote:
-> There is no need to call runtime PM put APIs on error path of
-> `atmel_qspi_sama7g5_transfer()` as the caller (`atmel_qspi_exec_op()`)
-> of it will take care of this if needed.
-> 
-> 
 
-Applied to
+--2DDNq2ksAqtJIqnN
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+> On Sun, Feb 02, 2025 at 08:34:24PM +0100, Lorenzo Bianconi wrote:
+> > Configure PBus base address and address mask to allow the hw
+> > to detect if a given address is on PCIE0, PCIE1 or PCIE2.
+> >=20
+> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> > ---
+> >  drivers/pci/controller/pcie-mediatek-gen3.c | 30 +++++++++++++++++++++=
++++++++-
+> >  1 file changed, 29 insertions(+), 1 deletion(-)
+> >=20
+> > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/=
+controller/pcie-mediatek-gen3.c
+> > index aa24ac9aaecc749b53cfc4faf6399913d20cdbf2..9c2a592cae959de8fbe9ca5=
+c5c2253f8eadf2c76 100644
+> > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> > @@ -15,6 +15,7 @@
+> >  #include <linux/irqchip/chained_irq.h>
+> >  #include <linux/irqdomain.h>
+> >  #include <linux/kernel.h>
+> > +#include <linux/mfd/syscon.h>
+> >  #include <linux/module.h>
+> >  #include <linux/msi.h>
+> >  #include <linux/of_device.h>
+> > @@ -24,6 +25,7 @@
+> >  #include <linux/platform_device.h>
+> >  #include <linux/pm_domain.h>
+> >  #include <linux/pm_runtime.h>
+> > +#include <linux/regmap.h>
+> >  #include <linux/reset.h>
+> > =20
+> >  #include "../pci.h"
+> > @@ -127,6 +129,13 @@
+> > =20
+> >  #define PCIE_MTK_RESET_TIME_US		10
+> > =20
+> > +#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
+> > +#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
+> > +#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
+> > +	((_n) =3D=3D 2 ? 0x28000000 :	\
+> > +	 (_n) =3D=3D 1 ? 0x24000000 : 0x20000000)
+> > +#define PCIE_EN7581_PBUS_BASE_ADDR_MASK	GENMASK(31, 26)
+> > +
+> >  /* Time in ms needed to complete PCIe reset on EN7581 SoC */
+> >  #define PCIE_EN7581_RESET_TIME_MS	100
+> > =20
+> > @@ -931,7 +940,8 @@ static int mtk_pcie_parse_port(struct mtk_gen3_pcie=
+ *pcie)
+> >  static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
+> >  {
+> >  	struct device *dev =3D pcie->dev;
+> > -	int err;
+> > +	struct regmap *map;
+> > +	int err, slot;
+> >  	u32 val;
+> > =20
+> >  	/*
+> > @@ -945,6 +955,24 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen=
+3_pcie *pcie)
+> >  	/* Wait for the time needed to complete the reset lines assert. */
+> >  	msleep(PCIE_EN7581_RESET_TIME_MS);
+> > =20
+> > +	map =3D syscon_regmap_lookup_by_phandle(dev->of_node,
+> > +					      "mediatek,pbus-csr");
+> > +	if (IS_ERR(map))
+> > +		return PTR_ERR(map);
+>=20
+> So this is going to regress the devicetree's that do not define this sysc=
+on
+> region? But I do not see any devicetree using this 'airoha,en7581-pcie'
+> compatible, so not sure if this is going to be an issue. Are the downstre=
+am
+> devicetrees used?
 
-Thanks!
+AFAIK there is no upstream or downstream (e.g. OpenWrt) en7581 dts with PCIe
+support yet so I do not know if this is an issue or not. If so, I guess we
+need to add the proper Fixes tag:
 
-[1/1] spi: atmel-quadspi: remove references to runtime PM on error path
-      commit: 99e6ea912340d6a262a60d5dd0c87c5e7b2d6ff2
+Fixes: f6ab898356dd ("PCI: mediatek-gen3: Add Airoha EN7581 support")
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Regards,
+Lorenzo
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+>=20
+> - Mani
+>=20
+> --=20
+> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
+=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
+=E0=AF=8D
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+--2DDNq2ksAqtJIqnN
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+-----BEGIN PGP SIGNATURE-----
 
-Thanks,
-Mark
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ7MpNAAKCRA6cBh0uS2t
+rIuEAP9rnTTRV1mWaP3Z7uCsLUu0NlHr8BpEtVsjDGVDIPv7+wEA9eryLOzy0dp5
+zACOFi5/qvhsY75r70+bG8mpUeyRYg8=
+=IvLf
+-----END PGP SIGNATURE-----
 
+--2DDNq2ksAqtJIqnN--
 
