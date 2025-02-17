@@ -4,75 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F9AC021AC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3326C021AD
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QkLHkO8f+dtiECvO32iPe6s76zqKQy2BcbCmfeCvtmw=; b=jyPJFxAKkTgr97vhFzHmw1HbOk
-	LfS/9GOUqLr9W9EpRAil3WiC6FulAvnlJxRujPTq2OOUeOCgjlmbVItinRcep9jNjwbbM+GOTPbYO
-	vpGgFNxHI6GhpOpiz05LcURWU4L2eHTHi5iiTZS/E99GsrfLg9ZAkXKr5m0LLrstbAmT9UtVMeRvH
-	J+ZAuUuQ1vcZa55vH4ZlC6PllEYTpecqIzM+pBx3SdJlJfMg7+T+4eyHx38bEyw4fUi2BuYNPmNd4
-	64MlQG9uyvPwoA72tIqw/+RzD7kzrVvGEf65N8f3X2wNrDEWwBemodrYYhie3AfwsffQ2ayUcCA89
-	CG8JZYNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8mNKZOJms8nGQ3S2fWlSQO9UA69PQ8M7ytF/ZpdkAWk=; b=KAYSWoo33aaBNO4SjSPv9X+bHE
+	tOaO/mk7MRIgyHb4367weWaNpfSLRzGawdjqCkWeDNMvupv60ADgISQE2/NY96lKQx0U/R6XlYDcA
+	ZU7mcWtbdUPTcQ2jm6nHLsbtrANL4d/M8xESJ4EBvIVdXcVtRI2zTJikaiVCfpiOVgU2lF2YokXzV
+	PQMpmeoWxYepEcQaGIpxVJfKLpZDwdt6+bDVnVbVuh3tvADRpJ24vj6/5pRCy0qkkn/RGKyTDHB9G
+	fu/Ud5fs+wO8kGuuI466p75tnA0Q6m5q1K25yKvakxUnc2FrT3xy/iOCzgWjDnQuTkhMfL99q2sNH
+	i2sDhypg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0GN-00000004T0D-3neh;
-	Mon, 17 Feb 2025 12:30:15 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tk0GP-00000004T4V-3cx1;
+	Mon, 17 Feb 2025 12:30:17 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjzkW-00000004OaJ-3Fy7
+	id 1tjzlU-00000004OjM-3jlY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 11:57:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DD1B2A411BF
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 11:55:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95C78C4CEE9
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 11:57:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739793439;
-	bh=Y/TN2bh9LSXg3FW05NB+yXIAvd1FTqOs+ZHW/w1bA90=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=cfv+iQDrdlvQhTaqmTSjjFAW0FI5sUTOl67HXFXxgts+jSAGVIuTfp5jpzwcsBtZ6
-	 GJuA92555UBfHT+pKctv0gc9wkFh4gzmvZfuOkS5fwDHJDqeEcKzVUliWqFC6WW6m+
-	 00aKxI2H65TKhey8O+fp0FK4qH7FvSOD5Am80Wh6yg81CPerUtNIRwpa6foYMyh3Ff
-	 v7EkH2Xx91D0lrJ9i6ZIXFH/gS9tPGpr7Itq9FPswe8EL4262ExHLItgWYKDwfaUQQ
-	 t40pWxGJcGDIgJIEbPIBfyj06/E8Jw/MHG9KLdxFrSe7dLaMJeQBz+Qfv19nbNKJtL
-	 /eKinNhoEyzdw==
-Received: by mail-oi1-f180.google.com with SMTP id 5614622812f47-3f3ecb58c95so878642b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 03:57:19 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWLeHYPz1Ai9v+6dxiF09V+kjKr8pYoXf7Zfk7hneJDSsvBcUS+Vh1VewD0hE9i4j6YC/rWafLjfB7CmJq5s8UR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhDmzxfthXuvJgV1L8hCNhUGSrkpJ3RRleGaBaaK9qgY8uOwjt
-	JTYtlKilb7kNA5RbdYkql50HtWzXNnIIIOOyZVz+SiGvwoAMF96PMm6O8Z0/51GT7uqLlJS1mZ3
-	uLIQMME7tPsc4sfJnFsjjxIiY4t4=
-X-Google-Smtp-Source: AGHT+IGgk9wjF7NwnX8et0jzER6LayQU2MY0yj2pfOSKSlhSiBlMxG4HuFD/YSGpYLbiMFfjiKIXrDujz+RjTFY3bqo=
-X-Received: by 2002:a05:6808:13c2:b0:3f3:e1c3:39d8 with SMTP id
- 5614622812f47-3f3eb088af9mr6680370b6e.7.1739793438923; Mon, 17 Feb 2025
- 03:57:18 -0800 (PST)
-MIME-Version: 1.0
-References: <20250210055828.1875372-1-keyz@google.com>
-In-Reply-To: <20250210055828.1875372-1-keyz@google.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Mon, 17 Feb 2025 12:57:07 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0hWNYB69ydM4--GNtLBgG3WS4MT+S10w46883kHnFMMEQ@mail.gmail.com>
-X-Gm-Features: AWEUYZlerGW8CaScCPlNU0kV18tmC8lLU10SucLC1QEGtyvEZia5QSOw4UT49-U
-Message-ID: <CAJZ5v0hWNYB69ydM4--GNtLBgG3WS4MT+S10w46883kHnFMMEQ@mail.gmail.com>
-Subject: Re: [PATCH v5 RESEND] cpuidle: psci: Add trace for PSCI domain idle
-To: Keita Morisaki <keyz@google.com>, Ulf Hansson <ulf.hansson@linaro.org>, lpieralisi@kernel.org, 
-	sudeep.holla@arm.com
-Cc: linux-kernel@vger.kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org, 
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
-	linux-trace-kernel@vger.kernel.org, aarontian@google.com, 
-	yimingtseng@google.com, Dhruva Gole <d-gole@ti.com>, Kevin Hilman <khilman@baylibre.com>
+	Mon, 17 Feb 2025 11:58:21 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <l.stach@pengutronix.de>)
+	id 1tjzlC-0003zP-JD; Mon, 17 Feb 2025 12:58:02 +0100
+Message-ID: <ab721b4a96495516f5149e91f3e4764014e39ba6.camel@pengutronix.de>
+Subject: Re: [PATCH] mmc: sdhci-esdhc-imx: improve imx8mq emmc/sd read
+ performance
+From: Lucas Stach <l.stach@pengutronix.de>
+To: ziniu.wang_1@nxp.com, adrian.hunter@intel.com, ulf.hansson@linaro.org
+Cc: imx@lists.linux.dev, s32@nxp.com, shawnguo@kernel.org,
+ s.hauer@pengutronix.de,  linux-mmc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, haibo.chen@nxp.com,  kernel@pengutronix.de,
+ festevam@gmail.com, linux-arm-kernel@lists.infradead.org
+Date: Mon, 17 Feb 2025 12:58:01 +0100
+In-Reply-To: <20250217110623.2383142-1-ziniu.wang_1@nxp.com>
+References: <20250217110623.2383142-1-ziniu.wang_1@nxp.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: l.stach@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_035720_941982_51993E1B 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20250217_035820_929699_B52F074E 
+X-CRM114-Status: GOOD (  24.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,121 +69,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+Ulf
+Hi Luke,
 
-On Mon, Feb 10, 2025 at 6:58=E2=80=AFAM Keita Morisaki <keyz@google.com> wr=
-ote:
->
-> The trace event cpu_idle provides insufficient information for debugging
-> PSCI requests due to lacking access to determined PSCI domain idle
-> states. The cpu_idle usually only shows -1, 0, or 1 regardless how many
-> idle states the power domain has.
->
-> Add new trace events namely psci_domain_idle_enter and
-> psci_domain_idle_exit to trace enter and exit events with a determined
-> idle state.
->
-> These new trace events will help developers debug CPUidle issues on ARM
-> systems using PSCI by providing more detailed information about the
-> requested idle states.
->
-> Signed-off-by: Keita Morisaki <keyz@google.com>
-> Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
-> Reviewed-by: Dhruva Gole <d-gole@ti.com>
-> Tested-by: Kevin Hilman <khilman@baylibre.com>
+Am Montag, dem 17.02.2025 um 19:06 +0800 schrieb ziniu.wang_1@nxp.com:
+> From: Luke Wang <ziniu.wang_1@nxp.com>
+>=20
+> Compared with kernel 6.1, imx8mq eMMC/SD read performance drops by about
+> 30% with kernel 6.6.
+>=20
+> The eMMC/SD read thread will be put to sleep until the hardware completes
+> data transfer. Normally, the read thread will be woken up immediately
+> when the data transfer is completed. However, due to a known ic bug, if
+> imx8mq is in cpuidle, it will take a long time (about 500us) to exit
+> cpuidle. As a result, the read thread cannot immediately read the next
+> data block, affecting the read performance.
+>=20
+Is this really a problem with the upstream kernel? i.MX8MQ upstream
+does not use the deeper PSCI idle states, but only uses WFI, so I doubt
+that upstream is affected by this issue.
+
+Regards,
+Lucas
+
+> Kernel 6.6 uses EEVDF as the new scheduler, which affects cpu scheduling
+> and cpuidle behavior. With kernel 6.6, the cpu which the read thread
+> resides has a greater probability in cpuidle (about 80%), while with
+> kernel 6.1, the probability is only about 20-30%. For other platforms,
+> this does not have a significant impact on read performance because the
+> cpuidle exit time is very short (for example, imx93 is about 60us). But
+> for imx8mq, this results in longer waits for the thread to be woken up
+> while reading eMMC/SD, which drops performance.
+>=20
+> So for imx8mq, use the ESDHC_FLAG_PMQOS flag to request the cpu latency
+> QoS constraint. This can prevent entering cpuidle during data transfer.
+>=20
+> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
 > ---
-> v1->v2: Split the ftrace event into two (psci_domain_idle_(enter|exit))
->         and rephrase the commit message accordingly. Rebased onto the lat=
-est.
-> v2->v3: Add "Reviewed-by: Steven Rostedt"
-> v3->v4: Add the Tested-by label
-> v4->v5: Add "Reviewed-by: Dhruva Gole"
->
-> Hopefully this patch gets attention from maintainers of
-> drivers/cpuidle/cpuidle-psci.c too.
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+>=20
+> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-=
+esdhc-imx.c
+> index ff78a7c6a04c..b3bf9c171d46 100644
+> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> @@ -337,6 +337,15 @@ static struct esdhc_soc_data usdhc_imx8mm_data =3D {
+>  	.quirks =3D SDHCI_QUIRK_NO_LED,
+>  };
+> =20
+> +static struct esdhc_soc_data usdhc_imx8mq_data =3D {
+> +	.flags =3D ESDHC_FLAG_USDHC | ESDHC_FLAG_STD_TUNING
+> +			| ESDHC_FLAG_HAVE_CAP1 | ESDHC_FLAG_HS200
+> +			| ESDHC_FLAG_HS400 | ESDHC_FLAG_PMQOS
+> +			| ESDHC_FLAG_STATE_LOST_IN_LPMODE
+> +			| ESDHC_FLAG_BROKEN_AUTO_CMD23,
+> +	.quirks =3D SDHCI_QUIRK_NO_LED,
+> +};
+> +
+>  struct pltfm_imx_data {
+>  	u32 scratchpad;
+>  	struct pinctrl *pinctrl;
+> @@ -381,6 +390,7 @@ static const struct of_device_id imx_esdhc_dt_ids[] =
+=3D {
+>  	{ .compatible =3D "fsl,imx7ulp-usdhc", .data =3D &usdhc_imx7ulp_data, }=
+,
+>  	{ .compatible =3D "fsl,imx8qxp-usdhc", .data =3D &usdhc_imx8qxp_data, }=
+,
+>  	{ .compatible =3D "fsl,imx8mm-usdhc", .data =3D &usdhc_imx8mm_data, },
+> +	{ .compatible =3D "fsl,imx8mq-usdhc", .data =3D &usdhc_imx8mq_data, },
+>  	{ .compatible =3D "fsl,imxrt1050-usdhc", .data =3D &usdhc_imxrt1050_dat=
+a, },
+>  	{ .compatible =3D "nxp,s32g2-usdhc", .data =3D &usdhc_s32g2_data, },
+>  	{ /* sentinel */ }
 
-Lorenzo, Sudeep, Ulf, any comments?
-
->  drivers/cpuidle/cpuidle-psci.c |  3 +++
->  include/trace/events/power.h   | 37 ++++++++++++++++++++++++++++++++++
->  2 files changed, 40 insertions(+)
->
-> diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psc=
-i.c
-> index 2562dc001fc1..dd8d776d6e39 100644
-> --- a/drivers/cpuidle/cpuidle-psci.c
-> +++ b/drivers/cpuidle/cpuidle-psci.c
-> @@ -25,6 +25,7 @@
->  #include <linux/syscore_ops.h>
->
->  #include <asm/cpuidle.h>
-> +#include <trace/events/power.h>
->
->  #include "cpuidle-psci.h"
->  #include "dt_idle_states.h"
-> @@ -74,7 +75,9 @@ static __cpuidle int __psci_enter_domain_idle_state(str=
-uct cpuidle_device *dev,
->         if (!state)
->                 state =3D states[idx];
->
-> +       trace_psci_domain_idle_enter(dev->cpu, state, s2idle);
->         ret =3D psci_cpu_suspend_enter(state) ? -1 : idx;
-> +       trace_psci_domain_idle_exit(dev->cpu, state, s2idle);
->
->         if (s2idle)
->                 dev_pm_genpd_resume(pd_dev);
-> diff --git a/include/trace/events/power.h b/include/trace/events/power.h
-> index d2349b6b531a..9253e83b9bb4 100644
-> --- a/include/trace/events/power.h
-> +++ b/include/trace/events/power.h
-> @@ -62,6 +62,43 @@ TRACE_EVENT(cpu_idle_miss,
->                 (unsigned long)__entry->state, (__entry->below)?"below":"=
-above")
->  );
->
-> +DECLARE_EVENT_CLASS(psci_domain_idle,
-> +
-> +       TP_PROTO(unsigned int cpu_id, unsigned int state, bool s2idle),
-> +
-> +       TP_ARGS(cpu_id, state, s2idle),
-> +
-> +       TP_STRUCT__entry(
-> +               __field(u32,            cpu_id)
-> +               __field(u32,            state)
-> +               __field(bool,           s2idle)
-> +       ),
-> +
-> +       TP_fast_assign(
-> +               __entry->cpu_id =3D cpu_id;
-> +               __entry->state =3D state;
-> +               __entry->s2idle =3D s2idle;
-> +       ),
-> +
-> +       TP_printk("cpu_id=3D%lu state=3D0x%lx is_s2idle=3D%s",
-> +                 (unsigned long)__entry->cpu_id, (unsigned long)__entry-=
->state,
-> +                 (__entry->s2idle)?"yes":"no")
-> +);
-> +
-> +DEFINE_EVENT(psci_domain_idle, psci_domain_idle_enter,
-> +
-> +       TP_PROTO(unsigned int cpu_id, unsigned int state, bool s2idle),
-> +
-> +       TP_ARGS(cpu_id, state, s2idle)
-> +);
-> +
-> +DEFINE_EVENT(psci_domain_idle, psci_domain_idle_exit,
-> +
-> +       TP_PROTO(unsigned int cpu_id, unsigned int state, bool s2idle),
-> +
-> +       TP_ARGS(cpu_id, state, s2idle)
-> +);
-> +
->  TRACE_EVENT(powernv_throttle,
->
->         TP_PROTO(int chip_id, const char *reason, int pmax),
->
-> base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
-> --
-> 2.48.1.362.g079036d154-goog
 
