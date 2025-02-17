@@ -4,74 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 947C4C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 13:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A910C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:03:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tmA8rYpdIvb3NvxXuSSG9N+JD3/0hvHrzucT4jfzO8M=; b=pxm2GqjaP3lQESg7DqPaoV242F
-	CfJoxF4gWNxqO358+fN9Ax6IJcyWoF9p605i+JS1r4nS665iBW1iQMlzkQYCxoOyKSY1T4c4CPYyk
-	5+15PVtuODq0rmr+GW3BFtegcJSlDYQx9KXVtYKy64CobxxhimDNaXlLK/KJxqTkRQvKgFxKhWM4T
-	Ers/3V8n1zNxnoAsC7BFp4bOpCQ+LIiPDTAX3jxpXq0IZt8itFqOxTG7PmKPHqL+9qFSRTUz0P4r0
-	Y9NZNFyxVB9z4mLd3c6RcsdNYW2ARf2FKIXKKGLHU0vLZIk7pR/jC43BriNoinEIymfl5+GQEHVYS
-	JSZs+KyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p1v5BxmP2rCNFSOwTVJRGcqOBB5QdIDbO+mvb6vcgSU=; b=GqdhnsivrtEHG+7EQJM2cpnMiW
+	3A2Tn7ZqAy0ceB8Dg4ial7idtqcoYpBLfpLPteKuqJo4Id7unpjlgjKFi9F8hHaGji30ZI2np9icP
+	5SKEhkAALHSQ8i3O+lkhW4vfTEeUwv/1442j0VkOjE5Q5eqFdW/mLObVA2tbgh9b61bn84ZwqilK8
+	bUKRjAwWNTjAY5BdBrovY90ofw9XOkoRi9eFk7bbdP+Qdr2b2zs/tSmbqsnK5Ry5wqNsSskohpubN
+	m8FXjKAhJPdHDLZ8UzC+P/CF7oTRo2izyNlr5yFAeI0FESlt7viSwBoCMmTXQeuLVZJe2X/UPGJ5h
+	CB68rKcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1ZC-00000004jts-3nNK;
-	Mon, 17 Feb 2025 13:53:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tk1ib-00000004lAI-0aA1;
+	Mon, 17 Feb 2025 14:03:29 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1Xl-00000004jmb-0HWD
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 17 Feb 2025 13:52:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=tmA8rYpdIvb3NvxXuSSG9N+JD3/0hvHrzucT4jfzO8M=; b=BdBOSsbP8bdf1fiUvTml8BN6iD
-	lELUqnqYP7gIPlO/dZG4YsnFIE2H7SV7KGBiqVFGlnwAylF4i1D7Iov8lrJbLYcg3kv5EhA2gWOMW
-	KoK/j0yHO5SNfQwXTzi1sXYnB5xjvP5SSdHmkcIc6fGEaNbR/5z8kNN0PeWXb4NBGtpDPzEqXBFe0
-	jq1k4CJx8LWMa+xEsVIot+ePnxz4jsnS9C/Zwx/nsyOM9mAb8hZ8kdeaOjtlk8j/agsf59/VdhGpg
-	lBcohi+JxkGZw6YSYawWtcyWCl1JwuskaauRFCzOHv8FLLqXA3l7ZBhBsHBriEo/O9vXVZxQyKiYe
-	DDl1wjmg==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1Xh-00000001pzB-0Lej
+	id 1tk1h7-00000004ku9-11Dv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 13:52:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6F865A412F9;
-	Mon, 17 Feb 2025 13:50:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B486CC4CED1;
-	Mon, 17 Feb 2025 13:52:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1739800329;
-	bh=dk+4Bdm4TSj5u/V4NiBQIblx2mw2lCSFWo0dOUa0rtU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=E60OH1gXA5aQjK3LZFBT5xHF1BW8IaBO/NZ38rAQhAaCuA9wvab4WMNy4RSw003hk
-	 QkDmRmuM33eqveAL3Uf6z6RWfz94tEmfB+EgISN9ytSGXCkHWe4ZEzDJIzRNWf/p/2
-	 Ve/m9zlPvSPXngIKI2vrpL4EA9T5WwE9iUfyIhoI=
-Date: Mon, 17 Feb 2025 14:52:05 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Patrice Chotard <patrice.chotard@foss.st.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] usb: core: Don't use %pK through printk
-Message-ID: <2025021733-strudel-curator-bfaf@gregkh>
-References: <20250217-restricted-pointers-usb-v1-0-78da55158832@linutronix.de>
- <20250217-restricted-pointers-usb-v1-1-78da55158832@linutronix.de>
+	Mon, 17 Feb 2025 14:01:58 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5461a485a72so1154700e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 06:01:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739800915; x=1740405715; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=p1v5BxmP2rCNFSOwTVJRGcqOBB5QdIDbO+mvb6vcgSU=;
+        b=hkANVxNOENLozlW2s2DAQ8Tqtkec8Ro3CeIv5UVAva+juN+7H1XV+rAnAvmYLmXnc6
+         IRWthaIHsNiFraXv5uQGdJSQLl+Lydr18XjhjTMc7Jkv/bs6Tu28WrFlOMfzOVCtAajd
+         WfYLZr4lIF8nzuwIzWJjZLBjcf3mo2wa1NbNE4+K4ljdEDZetnRITGuBexoqXFlWlMPN
+         d/5i1Gdz7D4XlgTuQZzHhrMcbhVSpBn63j57gKo6qlKbpZ+17gclf2I9YwKNbFsjzHY1
+         5uW7mgcFjfFYcbm7j4W6q2rCEwspEbnxC5DzuGov1PN5YayLKjGSuAJuWl/Fi6963R1u
+         8HNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739800915; x=1740405715;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=p1v5BxmP2rCNFSOwTVJRGcqOBB5QdIDbO+mvb6vcgSU=;
+        b=h8MPqurNfzxtfxEL1WP1F0sUtFIqaHAy8Q3XIqL8sl4LQRazjxdgxSUWBtJr+XVXd1
+         /r+TuAg2rAtLiyai53zdvTAjnxCn3aWLFVpe2BqMMMTce3Wy7FhfTpekbGl4MDkrB1DF
+         t15Y4aufrqdDtwa9Duvo30uwjfhIsakRIg6J1Fzd8zUeWzO3my3abOWkZS7QShbJbTXf
+         KbP+/aXpX7/8JNzfWHWkVSzJ9x75m/Wq2Q8dvO9nB8Puc67uhdjPFF0RmppxjxdeWWNK
+         Nmt7rPkdgJyUScTOQDFvnPT4T6Oyghb0p7B5It6w9kFqV2Km+blJ1XPB46lSv7k18Of2
+         6whg==
+X-Forwarded-Encrypted: i=1; AJvYcCUQKMrEnFd8VcidkuTqadFM62T6W2vmoyARs5VOeFW7Ox9iI0gDfxGo1vLCC8HcLL2xgaVn/AeIWKOkIygGRzH1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyw7HwLyRpsV4ubvtmg+XNI8KCqKrZDoD8A4wTGL4tK11KNqIMP
+	Rc0q1NktpODCO0q1zJlYUb90c0DbUONHHjoRxehgFE/wyRRmkdr66pCCYND1dWI=
+X-Gm-Gg: ASbGncvZFuirgCj6kd6xIw3lMlWJABDNTsjPuInd5jalUaGi7akELamQPn9ycBfGsnP
+	JAz5z8KktscEL7IwfyvWZm9Km4+tohZWtRLmbuYhe3CJIpo0p/+bfzOJtrJeF0WYIJnPCF5kPE1
+	C53bbBssAMeWj6BOl5/m9UgPsL7S2kpIklgB6W7g/9nW25cgMbVvCzW4Iu9feq0EGuQw/eNCG6+
+	mL6buP6GUfoDMdpIWNaWexprbdp5tozQGD6aFyNVC5KzodC2a6w6V0lvPbS+89SSGJyisyvpK+r
+	9FJ8eSZd/4noPlNjflptYfkX7MlN0gt8fb3Tjjv7uwvlgvOYGw4wX2Jfc8V/IwS/Dw==
+X-Google-Smtp-Source: AGHT+IF/D52Y4+TysjkW4Xz5QNqCyiJ7TzizrtncOHf/Kr3p06spV8nAGCs/R5F9Gjj5PmpWjUddzw==
+X-Received: by 2002:a05:6512:1389:b0:545:1718:98d3 with SMTP id 2adb3069b0e04-5452fe93081mr3468336e87.34.1739800913531;
+        Mon, 17 Feb 2025 06:01:53 -0800 (PST)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5461d1d8fcbsm608806e87.83.2025.02.17.06.01.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 06:01:52 -0800 (PST)
+From: Ulf Hansson <ulf.hansson@linaro.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-pm@vger.kernel.org
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] MAINTAINERS: Update section for cpuidle-psci
+Date: Mon, 17 Feb 2025 15:01:45 +0100
+Message-ID: <20250217140145.117086-1-ulf.hansson@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250217-restricted-pointers-usb-v1-1-78da55158832@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_135213_713837_9DA176EC 
-X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-CacheID: sfid-20250217_060157_288026_8FA1C875 
+X-CRM114-Status: UNSURE (   9.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,22 +99,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 02:20:51PM +0100, Thomas Weiﬂschuh wrote:
-> Restricted pointers ("%pK") are not meant to be used through printk().
-> It can unintentionally expose security sensitive, raw pointer values.
-> 
-> Use regular pointer formatting instead.
-> 
-> Link: https://lore.kernel.org/lkml/20250113171731-dc10e3c1-da64-4af0-b767-7c7070468023@linutronix.de/
-> Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+Add myself as a co-maintainer for the cpuidle-psci driver and the
+corresponding git-tree, which I am already using for this.
 
-So really this is just a revert of 2f964780c03b ("USB: core: replace %p
-with %pK"), right?
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Sudeep Holla <sudeep.holla@arm.com>
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+---
+ MAINTAINERS | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Why not express it that way, and explain _why_ it's somehow now ok to
-use %p when previously it wasn't?
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 25c86f47353d..f2be70dec4ee 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -6087,9 +6087,11 @@ F:	include/linux/platform_data/cpuidle-exynos.h
+ CPUIDLE DRIVER - ARM PSCI
+ M:	Lorenzo Pieralisi <lpieralisi@kernel.org>
+ M:	Sudeep Holla <sudeep.holla@arm.com>
++M:	Ulf Hansson <ulf.hansson@linaro.org>
+ L:	linux-pm@vger.kernel.org
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
+ S:	Supported
++T:	git git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git
+ F:	drivers/cpuidle/cpuidle-psci.c
+ 
+ CPUIDLE DRIVER - ARM PSCI PM DOMAIN
+-- 
+2.43.0
 
-thanks,
-
-greg k-h
 
