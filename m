@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98ADAC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 16:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E1BC021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 16:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/aMdmdeuG4GwO+gqHcxrSjamR9dGEFQfEwNfU4KLuoQ=; b=pBdhZagK9sin4cdAYaGUORcIip
-	mKQVSblgI+p+lv7reATxV/mkFJ7rO3Vvckcr4KHLZYuV7jIK2Q/6cFU4P+kVLy9wup18C7Hnw/WOY
-	xHF/ujfeioJq2LoOsiAOPC2W/ORK1cDfKYSRz7QiNi3IfHPuSILa7ACeiHnG1LzIoLUKwcK3OePYP
-	g352AVHxR2Jnt8s8uU5gOK3rHy5yF4ujXdss9VkGPbz8Irs9X4Ayp8G+Ddt7XOM2vPWL6VlGs5Ls3
-	vh/BslqtNRZhIAYgBgr1zDgnVQRjdEVpjGgsERk/bb+3Nz1VZ0t9eXlLHR/T+NRipEps5gmH9BJ9n
-	D573qDiQ==;
+	bh=8oEYFSUCFe1XHtjsO3bK+GVD/JoxfCJBrcyddlpVWZg=; b=M96cUNl8WaDv18kUiBR7jbahm7
+	Fl42jVDAaXD7r/gXjGrwe1YCPaIe9pzf0rntf0LfDRiFQaIdvZZuOrA4N3r6RCRmkO8q/0juuzwkK
+	1W/z+L6wnfqMKg9ijfDLhGMvduFB62Wd4MFm/kkhodha9Lqhq8Xruz4BAatwErJUNpnlQghvZ2Xse
+	PN5suPfCU+1Loylp987baC/SEX8uioHbIesCGqocowmZhXwGC6+EayZCCU+W9xZvepqt2rE2r6VDL
+	e3BqEixbW0ymuOvRWaXIcbdtbv5WpK1fS2aTVnGjzNKmA8U6qo7D0DmEOqWs2Wll4WuysWSDHJ8zL
+	lBi55zVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3bJ-00000005C4p-1RAc;
-	Mon, 17 Feb 2025 16:04:05 +0000
+	id 1tk3cj-00000005CMk-46zu;
+	Mon, 17 Feb 2025 16:05:33 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3Dg-000000055XP-1Gan
+	id 1tk3Dh-000000055Y5-1OK8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 15:39:41 +0000
+	Mon, 17 Feb 2025 15:39:42 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E086152B;
-	Mon, 17 Feb 2025 07:39:59 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 542F61692;
+	Mon, 17 Feb 2025 07:40:00 -0800 (PST)
 Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A0AB3F6A8;
-	Mon, 17 Feb 2025 07:39:39 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 703B63F6A8;
+	Mon, 17 Feb 2025 07:39:40 -0800 (PST)
 From: Sudeep Holla <sudeep.holla@arm.com>
-Date: Mon, 17 Feb 2025 15:38:52 +0000
-Subject: [PATCH v3 11/19] firmware: arm_ffa: Upgrade FF-A version to v1.2
- in the driver
+Date: Mon, 17 Feb 2025 15:38:53 +0000
+Subject: [PATCH v3 12/19] firmware: arm_ffa: Reject higher major version as
+ incompatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250217-ffa_updates-v3-11-bd1d9de615e7@arm.com>
+Message-Id: <20250217-ffa_updates-v3-12-bd1d9de615e7@arm.com>
 References: <20250217-ffa_updates-v3-0-bd1d9de615e7@arm.com>
 In-Reply-To: <20250217-ffa_updates-v3-0-bd1d9de615e7@arm.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Sudeep Holla <sudeep.holla@arm.com>, Viresh Kumar <viresh.kumar@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1423; i=sudeep.holla@arm.com;
- h=from:subject:message-id; bh=hSnmX8m0IsvUg6QjDxQaXp5gbNOPxEHIjGzf5RS8CBA=;
- b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBns1gutymg8h1/T86Z4nSr1TM+hJU4oaA7tvNo7
- 9DWTozgOcKJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ7NYLgAKCRAAQbq8MX7i
- mMPdEACymHmnWTf7JKO7Y7K3csg+AiOXdSGzbiUCwVe6V+Fa8bQ5plLUh5t9vUjPJvUraFC4/Ac
- rvwwJ9BYf6CrurMqCa9hgnDrehOdAlMObRIkCZpWDh/2s48+p+mJkOvnHGLCc/7efYK/vzrOpiS
- 3bfCcFbRoUZqOPs6Gwnxjkh2ZqfECWCIBJquk+QYhqiXZTjkmuYsXQeyKUP6vCdt4n5ICCL/w4o
- WY6DWVlhC9bpkKJVbooYdRFAv9SyqCj3jT+TokwlHRVkSmdyhzmeOsS9B5+EaNQaQSPGBb4K90k
- Mj52pChrkVJKpwRll1T5BnCj4047Ikn0/q30pmCud/i7S4wTgS0x/KXv9vb4ri6vrtSwu6RLQLo
- +ppQ0JBgB+/0wqEQUmzNYfG+UhgAol+tSY9xPQuXvM+Fpdstbe5OApqAqi5x7wzgIJUhQ50Zliv
- F/y+7bWSGemN7DO5ZNPjQVvRi4Wv1AIVZ1393mu8gjamsk3kbnFt8JEW/6Lm3AgoJ+Bl7K9xwoW
- jCJfY1MQPttLpG6CBoogCSzsxSOvrkPA6qa+5ZMSKD86s7ZRenSIRulIMSxZvXxwBNNPWw7C65Q
- gN53nGe4vZIl9VPdts7ZrpWKrjkENfwWJly5HXaJ8CsfyrUJmQkG5e3jM/GlsRRe1wtFDX4bz0L
- GCbcHhIQ4XaXSdg==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1654; i=sudeep.holla@arm.com;
+ h=from:subject:message-id; bh=hUYLqZtlRI6Y6zWVPccEHPCN6XfeE5xkOBosV7oWkjw=;
+ b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBns1gvPBXUm+PU5UaWOx8OeaNF2Sib2Z4JpmBpW
+ YHmcXla4vyJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ7NYLwAKCRAAQbq8MX7i
+ mHtID/42BE/x0L0hVj8+T1jkTQJeIPYpa2lZbI2IUchyI9APrySzXzTdsoGWa0Ybkf9LEt0wOI5
+ mW7qVAaxN4tTOPNpP+a7TvyMI/6J6ZDjA57obCdIeG2IvMaMivhpEjKNEPjiwxiNnTe56eyZmOC
+ LOCuF76kcXILynWZrA/w68GonydunUrDqxU3mVuegw8E988ew4VNE5UIBeEAyaqM+10EqxlL9FU
+ GKbu4TCJqpME7blSpbCpFAiZb4cFF+Pb9ES+T+xgN7MY0dbX6VIuZjmAP98VJ7oXYTQ2SX+jrRH
+ usJnh0s/9GfMxGXE81z5GXCssmqjVTFq0pZpUNs+rtG+AyrNhweW3BgpqoWaQBu4bgYC0nzk6XJ
+ jL4Xv6vX2/8gN/J3PI4werouYzfNxOfjgWoCmFHECW5LP34LvdHunOXVhwEbAO7EqOIDMgayVoy
+ 26FYt4Tpu9J2h3WE/qFaZ+Aa074W0fL7Rz01yYoT7SRX+YV6bswsXkMdAr60++izvw67FJwE7aS
+ +MvuyeF+sz+gnLSm3zlE0C15ZiYrObOPGJo0cPd285MAQHXX7aO+UeJVePvFy0tox0MZgQgy1zH
+ NMNrxEHhVAnYaZb+4PQ8kw9boSB3jpPvHLSrahZn7kuYvuRzl1aAniq7AT8++PtWzKeboKK/EHh
+ LJXYECxMv6cXqpA==
 X-Developer-Key: i=sudeep.holla@arm.com; a=openpgp;
  fpr=7360A21742ADF5A11767C1C139CFD4755FE2D5B4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_073940_385187_7B7F1429 
-X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-CacheID: sfid-20250217_073941_428508_46D04321 
+X-CRM114-Status: UNSURE (   9.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,41 +80,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The basic and mandatory features of FF-A v1.2 are all supported now.
-The driver supported version can be bumped from v1.1 to v1.2
+When the firmware compatibility was handled previously in the commit
+8e3f9da608f1 ("firmware: arm_ffa: Handle compatibility with different firmware versions"),
+we only addressed firmware versions that have higher minor versions
+compared to the driver version which is should be considered compatible
+unless the firmware returns NOT_SUPPORTED.
+
+However, if the firmware reports higher major version than the driver
+supported, we need to reject it. If the firmware can work in a compatible
+mode with the driver requested version, it must return the same major
+version as requested.
 
 Tested-by: Viresh Kumar <viresh.kumar@linaro.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
- drivers/firmware/arm_ffa/driver.c | 2 +-
- include/linux/arm_ffa.h           | 1 +
- 2 files changed, 2 insertions(+), 1 deletion(-)
+ drivers/firmware/arm_ffa/driver.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
 diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index 545b1772df0095787b20332a7d5189c71bd5cacd..d8421a32a92fed6d56770cba282ea55b2571b155 100644
+index d8421a32a92fed6d56770cba282ea55b2571b155..ad2f6b410e4431bb133fa0f05dd3eec802f5ee07 100644
 --- a/drivers/firmware/arm_ffa/driver.c
 +++ b/drivers/firmware/arm_ffa/driver.c
-@@ -44,7 +44,7 @@
+@@ -150,6 +150,14 @@ static int ffa_version_check(u32 *version)
+ 		return -EOPNOTSUPP;
+ 	}
  
- #include "common.h"
- 
--#define FFA_DRIVER_VERSION	FFA_VERSION_1_1
-+#define FFA_DRIVER_VERSION	FFA_VERSION_1_2
- #define FFA_MIN_VERSION		FFA_VERSION_1_0
- 
- #define SENDER_ID_MASK		GENMASK(31, 16)
-diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-index bd78deeff284e2f46d42cfc7af218f4a0f3d1478..4fcbdc70cbc985eabb90733329c974384d229053 100644
---- a/include/linux/arm_ffa.h
-+++ b/include/linux/arm_ffa.h
-@@ -112,6 +112,7 @@
- 	 FIELD_PREP(FFA_MINOR_VERSION_MASK, (minor)))
- #define FFA_VERSION_1_0		FFA_PACK_VERSION_INFO(1, 0)
- #define FFA_VERSION_1_1		FFA_PACK_VERSION_INFO(1, 1)
-+#define FFA_VERSION_1_2		FFA_PACK_VERSION_INFO(1, 2)
- 
- /**
-  * FF-A specification mentions explicitly about '4K pages'. This should
++	if (FFA_MAJOR_VERSION(ver.a0) > FFA_MAJOR_VERSION(FFA_DRIVER_VERSION)) {
++		pr_err("Incompatible v%d.%d! Latest supported v%d.%d\n",
++		       FFA_MAJOR_VERSION(ver.a0), FFA_MINOR_VERSION(ver.a0),
++		       FFA_MAJOR_VERSION(FFA_DRIVER_VERSION),
++		       FFA_MINOR_VERSION(FFA_DRIVER_VERSION));
++		return -EINVAL;
++	}
++
+ 	if (ver.a0 < FFA_MIN_VERSION) {
+ 		pr_err("Incompatible v%d.%d! Earliest supported v%d.%d\n",
+ 		       FFA_MAJOR_VERSION(ver.a0), FFA_MINOR_VERSION(ver.a0),
 
 -- 
 2.34.1
