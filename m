@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12662C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 06:23:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 223B6C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 06:25:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yq5m0Vs+IbA5tS76mUyjcukPBR2/nmT4yZo11uEVqDc=; b=LxQHp2M0wbrXO/rqQdWI/5e8ow
-	rmufMgm0OokxVnzRKbs3o9XWB7nOvf04NZUsmUMqpWvttp6w8hwfnRqSkcnZuq3HM824Hkcth0mHW
-	yluCkSAy55C9ywYsI9SxFBto31/hPbZYeBA/CifIPse4RpYH5Fqb4obV/93MkuvXzJ+EUPCSNiCyb
-	R5t1J3jbCziuyYQV78GM7AU0EA/Y5WMqf7jAAS6drsOcnPrGX/+TAFvLLu1REd4Rk14+G/U6n3Nza
-	qj/6YSPd0y39yYDcTcK8DsiKyY4bMTFmZZ7+bmrTVmVUCuexDa0oeGSY6WRsOgdDoNh6OSpJRxCed
-	5BxZz85g==;
+	bh=tV2vd8vUCs/5ZVYSwbVZwFtsJg1M3bWs/tOG1x1qPqA=; b=SDFOLR7w+MG7DE3EbGFb8SYnvc
+	c+E8OsaF9shAdZaeUKBNzCb/0YyHadckn1gZ/slJL5zu3IYFM4o7EnU/upOyKvaowU+vxts2QBaYJ
+	P4qgoWPDdrinKUwoa/CLyC5+KIIzXyck7RSqnfrc3afcHr1BXjr5kI+rK5b/7lKfGsFnYqMav93IP
+	rajt6m39/FfftSXPznu2lGIs6MM5XLYqxB4n4xEPX5zorI/HdRTinDXhM9lkVj9aUM08+HbVkwrFc
+	4X25lQnJqtTmMD4ADd0S8+5vn8BQVz7kDNwZ43sT5OR4siv2c5nh09LlmP6LLyg0jJDB1YPyAgRBS
+	/W2b0wXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjuXU-00000003T3G-4BgP;
-	Mon, 17 Feb 2025 06:23:33 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1tjuYu-00000003TEN-4B1t;
+	Mon, 17 Feb 2025 06:25:00 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjuNr-00000003RYt-2beH;
-	Mon, 17 Feb 2025 06:13:36 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id E65C625B3E;
-	Mon, 17 Feb 2025 07:13:30 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id GR83PAvBYqGs; Mon, 17 Feb 2025 07:13:29 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1739772809; bh=KL5LWq3tVG+rNZGNlilgz13R0OzrXLbjR5j5u9DTUSM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=FV7GwqZ0VXSCWqTPXo96NcjvgXQxs0uWMbycvE+ItZhmBdV7JroMmtyjzNluvGv0+
-	 /r1/iw0Xj8cWN+x86B84mx5U5B+audILT9/7BX/1hjLwhQAP5afRN/hcg1Q6uLs9ic
-	 j2aN/XMN1m8y0hpVWwHsu1wIAu0SiuWvkE5CaN723YCxcS+mJ9aKtmcdvwVFKYVLkx
-	 Zwnol6vLuIfdj3KXgrlfsxY0EZ8NROWqPUCfLHY7dIthuCsQFDmTGk4dWfmVD8uaLp
-	 bY/6k7tyyiCiubY9GQ/OeHeHSgtC5CEtlrCD0ptm0D4JFLt/Ivwrul+NqIjqehJe92
-	 RGvuteT/hmewQ==
-From: Yao Zi <ziyao@disroot.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH v3 5/5] arm64: dts: rockchip: Add UART clocks for RK3528 SoC
-Date: Mon, 17 Feb 2025 06:11:46 +0000
-Message-ID: <20250217061142.38480-10-ziyao@disroot.org>
-In-Reply-To: <20250217061142.38480-5-ziyao@disroot.org>
-References: <20250217061142.38480-5-ziyao@disroot.org>
+	id 1tjuSv-00000003SMU-2I3d
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Feb 2025 06:18:52 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4YxC9g5PSjzrYpZ;
+	Mon, 17 Feb 2025 14:17:11 +0800 (CST)
+Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
+	by mail.maildlp.com (Postfix) with ESMTPS id 987CB1401E9;
+	Mon, 17 Feb 2025 14:18:45 +0800 (CST)
+Received: from [10.174.178.24] (10.174.178.24) by
+ kwepemf100008.china.huawei.com (7.202.181.222) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 17 Feb 2025 14:18:44 +0800
+Message-ID: <d7069933-903e-9e1e-d7a4-5a6a9fa53064@huawei.com>
+Date: Mon, 17 Feb 2025 14:18:44 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.11.0
+Subject: Re: [PATCH mpam mpam/snapshot/v6.14-rc1 3/5] arm_mpam: Provide
+ conversion method for new closid/rmid pairs
+Content-Language: en-US
+From: Zeng Heng <zengheng4@huawei.com>
+To: <Dave.Martin@arm.com>, <james.morse@arm.com>
+CC: <bobo.shaobowang@huawei.com>, <jonathan.cameron@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250217031852.2014939-1-zengheng4@huawei.com>
+ <20250217031852.2014939-4-zengheng4@huawei.com>
+In-Reply-To: <20250217031852.2014939-4-zengheng4@huawei.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.24]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_221335_789182_E5D70AD9 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250216_221849_753451_B1B6F72F 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,91 +74,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing clocks in UART nodes for RK3528 SoC.
+Hi Martin,
 
-Signed-off-by: Yao Zi <ziyao@disroot.org>
----
- arch/arm64/boot/dts/rockchip/rk3528.dtsi | 17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
+On 2025/2/17 11:18, Zeng Heng wrote:
+> The MPAM driver statically assigns all reqPARTIDs to respective intPARTIDs.
+> For the new rmid allocation strategy, it will check if there is an
+> available rmid of any reqPARTID which belongs to the input closid, not just
+> the rmids belonging to the closid.
+> 
+> For a mixture of MSCs system, for MSCs that do not support narrow-partid,
+> we use the PARTIDs exceeding the number of closids as reqPARTIDs for
+> expanding the monitoring groups.
+> 
+> In order to keep the existing resctrl API interface, the rmid contains both
+> req_idx and PMG information instead of PMG only under the MPAM driver. The
+> req_idx represents the req_idx-th sub-monitoring group under the control
+> group. The new rmid would be like:
+> 
+>      rmid = (req_idx << shift | pmg).
+> 
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-index 37fd40377076..5b334690356a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-@@ -168,7 +168,8 @@ cru: clock-controller@ff4a0000 {
- 		uart0: serial@ff9f0000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xff9f0000 0x0 0x100>;
--			clock-frequency = <24000000>;
-+			clocks = <&cru SCLK_UART0>, <&cru PCLK_UART0>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -178,6 +179,8 @@ uart0: serial@ff9f0000 {
- 		uart1: serial@ff9f8000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xff9f8000 0x0 0x100>;
-+			clocks = <&cru SCLK_UART1>, <&cru PCLK_UART1>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -187,6 +190,8 @@ uart1: serial@ff9f8000 {
- 		uart2: serial@ffa00000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xffa00000 0x0 0x100>;
-+			clocks = <&cru SCLK_UART2>, <&cru PCLK_UART2>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -195,6 +200,8 @@ uart2: serial@ffa00000 {
- 
- 		uart3: serial@ffa08000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
-+			clocks = <&cru SCLK_UART3>, <&cru PCLK_UART3>;
-+			clock-names = "baudclk", "apb_pclk";
- 			reg = <0x0 0xffa08000 0x0 0x100>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -204,6 +211,8 @@ uart3: serial@ffa08000 {
- 		uart4: serial@ffa10000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xffa10000 0x0 0x100>;
-+			clocks = <&cru SCLK_UART4>, <&cru PCLK_UART4>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -213,6 +222,8 @@ uart4: serial@ffa10000 {
- 		uart5: serial@ffa18000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xffa18000 0x0 0x100>;
-+			clocks = <&cru SCLK_UART5>, <&cru PCLK_UART5>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -222,6 +233,8 @@ uart5: serial@ffa18000 {
- 		uart6: serial@ffa20000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xffa20000 0x0 0x100>;
-+			clocks = <&cru SCLK_UART6>, <&cru PCLK_UART6>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
-@@ -231,6 +244,8 @@ uart6: serial@ffa20000 {
- 		uart7: serial@ffa28000 {
- 			compatible = "rockchip,rk3528-uart", "snps,dw-apb-uart";
- 			reg = <0x0 0xffa28000 0x0 0x100>;
-+			clocks = <&cru SCLK_UART7>, <&cru PCLK_UART7>;
-+			clock-names = "baudclk", "apb_pclk";
- 			interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
- 			reg-io-width = <4>;
- 			reg-shift = <2>;
--- 
-2.48.1
+To consider future compatibility with dynamically allocated reqpartid,
+should I refactor the rmid?
+
+Instead of defining rmid.req_idx, we could place the entire reqpartid
+directly within rmid. In This way, the allocation of reqpartid will no
+longer be constrained by the static allocation of closid, facilitating
+future compatibility with dynamic allocation mechanisms.
+
+In this case, it needs to refactor the resctrl_arch_rmid_idx_encode()
+and resctrl_arch_rmid_idx_decode(), and we can simplify
+closid_rmid2reqpartid() to rmid2reqpartid().
+
+What are your thoughts on this idea? Thank you in advance for your
+reply.
+
+Best regards,
+Zeng Heng
 
 
