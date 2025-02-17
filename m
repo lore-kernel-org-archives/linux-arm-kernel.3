@@ -4,108 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5FAC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8F9AC021AC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5jMgw4xZ0wqnre7NmHUUtqCj41LQfgBvCVLLEKVgy5U=; b=i7/m2JG+1OjfwX+65zkuRJVARO
-	TP4FTig6OAiaBxO78Luosmazd+5rS4Uj7zywy49bMfyVPSqQLeh35OwKTgaOLQ+77t/4X/mT5o4MP
-	xVw6QaP8qHPDlg3dLztom2OGznvpcIoR+k2T/oEoTuQB7NMuDnnewWauBRmEwubynBi0GF6oVAdTq
-	+uubDOZok7vGjEKsMkcilDCenKmP32wLZTfukKWkWLY6XSH7JXlOGGCVaG5VE0KfO5N3XfvhqX+Bv
-	lWLHIJeKdsqfZEJHMkgNGjmgzhr0y42YUieTEBACfFQ90kol05ragBGQzlZ8l+PwVjvqQelCRcrUD
-	wIrmaGoQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QkLHkO8f+dtiECvO32iPe6s76zqKQy2BcbCmfeCvtmw=; b=jyPJFxAKkTgr97vhFzHmw1HbOk
+	LfS/9GOUqLr9W9EpRAil3WiC6FulAvnlJxRujPTq2OOUeOCgjlmbVItinRcep9jNjwbbM+GOTPbYO
+	vpGgFNxHI6GhpOpiz05LcURWU4L2eHTHi5iiTZS/E99GsrfLg9ZAkXKr5m0LLrstbAmT9UtVMeRvH
+	J+ZAuUuQ1vcZa55vH4ZlC6PllEYTpecqIzM+pBx3SdJlJfMg7+T+4eyHx38bEyw4fUi2BuYNPmNd4
+	64MlQG9uyvPwoA72tIqw/+RzD7kzrVvGEf65N8f3X2wNrDEWwBemodrYYhie3AfwsffQ2ayUcCA89
+	CG8JZYNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0GK-00000004Sse-17E5;
-	Mon, 17 Feb 2025 12:30:12 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tk0GN-00000004T0D-3neh;
+	Mon, 17 Feb 2025 12:30:15 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjzjU-00000004OOQ-1JE2
+	id 1tjzkW-00000004OaJ-3Fy7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 11:56:17 +0000
+	Mon, 17 Feb 2025 11:57:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 78AFCA40B49;
-	Mon, 17 Feb 2025 11:54:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89027C4CED1;
-	Mon, 17 Feb 2025 11:56:11 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DD1B2A411BF
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 11:55:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95C78C4CEE9
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 11:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739793375;
-	bh=BwweQqmHmd4epRmfYOdDtMF+OmsJru6LslOEtC7cpwg=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=Xt6UZJpgjp6XnRyJ8w+VHIRjSmSrMzxbjB2jGloRyTEDP4W5+ybqqZycj1VYFZFhM
-	 ZA1ULlLKBeWrugAxyWVAtuGgbQKlPyQ2V0et3uefRn6MBLzmw8x2t2esuDbAHxiGIm
-	 0OGWDNbOLWi5aDCP88F3sUHDCasg8U1GSMg8saSIi2eqG98GdG/DwSo9KRRF2/nut5
-	 Dr0aGWtKDJdo681qI6tDZCIPcaidEH3myuRdhsN+m20NNlJi3Qm5GZlBMMaBukdfbO
-	 I25aLbOXnvwvd92zK89uGApLIoRHcmQpglftRoXeXcYIK4odc3bpqK9x+I7bHaPRXr
-	 44Rjdy9Lr1B8Q==
-Message-ID: <6ab0afc3-dcfa-4ae8-a695-b8b3864c0a6e@kernel.org>
-Date: Mon, 17 Feb 2025 12:56:09 +0100
+	s=k20201202; t=1739793439;
+	bh=Y/TN2bh9LSXg3FW05NB+yXIAvd1FTqOs+ZHW/w1bA90=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=cfv+iQDrdlvQhTaqmTSjjFAW0FI5sUTOl67HXFXxgts+jSAGVIuTfp5jpzwcsBtZ6
+	 GJuA92555UBfHT+pKctv0gc9wkFh4gzmvZfuOkS5fwDHJDqeEcKzVUliWqFC6WW6m+
+	 00aKxI2H65TKhey8O+fp0FK4qH7FvSOD5Am80Wh6yg81CPerUtNIRwpa6foYMyh3Ff
+	 v7EkH2Xx91D0lrJ9i6ZIXFH/gS9tPGpr7Itq9FPswe8EL4262ExHLItgWYKDwfaUQQ
+	 t40pWxGJcGDIgJIEbPIBfyj06/E8Jw/MHG9KLdxFrSe7dLaMJeQBz+Qfv19nbNKJtL
+	 /eKinNhoEyzdw==
+Received: by mail-oi1-f180.google.com with SMTP id 5614622812f47-3f3ecb58c95so878642b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 03:57:19 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWLeHYPz1Ai9v+6dxiF09V+kjKr8pYoXf7Zfk7hneJDSsvBcUS+Vh1VewD0hE9i4j6YC/rWafLjfB7CmJq5s8UR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhDmzxfthXuvJgV1L8hCNhUGSrkpJ3RRleGaBaaK9qgY8uOwjt
+	JTYtlKilb7kNA5RbdYkql50HtWzXNnIIIOOyZVz+SiGvwoAMF96PMm6O8Z0/51GT7uqLlJS1mZ3
+	uLIQMME7tPsc4sfJnFsjjxIiY4t4=
+X-Google-Smtp-Source: AGHT+IGgk9wjF7NwnX8et0jzER6LayQU2MY0yj2pfOSKSlhSiBlMxG4HuFD/YSGpYLbiMFfjiKIXrDujz+RjTFY3bqo=
+X-Received: by 2002:a05:6808:13c2:b0:3f3:e1c3:39d8 with SMTP id
+ 5614622812f47-3f3eb088af9mr6680370b6e.7.1739793438923; Mon, 17 Feb 2025
+ 03:57:18 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/3] dt-binding: aspeed: Add LPC PCC controller
-To: Kevin Chen <kevin_chen@aspeedtech.com>, lee@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
- andrew@codeconstruct.com.au, chiawei_wang@aspeedtech.com,
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250217114831.3225970-1-kevin_chen@aspeedtech.com>
- <20250217114831.3225970-2-kevin_chen@aspeedtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250217114831.3225970-2-kevin_chen@aspeedtech.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250210055828.1875372-1-keyz@google.com>
+In-Reply-To: <20250210055828.1875372-1-keyz@google.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Mon, 17 Feb 2025 12:57:07 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0hWNYB69ydM4--GNtLBgG3WS4MT+S10w46883kHnFMMEQ@mail.gmail.com>
+X-Gm-Features: AWEUYZlerGW8CaScCPlNU0kV18tmC8lLU10SucLC1QEGtyvEZia5QSOw4UT49-U
+Message-ID: <CAJZ5v0hWNYB69ydM4--GNtLBgG3WS4MT+S10w46883kHnFMMEQ@mail.gmail.com>
+Subject: Re: [PATCH v5 RESEND] cpuidle: psci: Add trace for PSCI domain idle
+To: Keita Morisaki <keyz@google.com>, Ulf Hansson <ulf.hansson@linaro.org>, lpieralisi@kernel.org, 
+	sudeep.holla@arm.com
+Cc: linux-kernel@vger.kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
+	linux-trace-kernel@vger.kernel.org, aarontian@google.com, 
+	yimingtseng@google.com, Dhruva Gole <d-gole@ti.com>, Kevin Hilman <khilman@baylibre.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_035616_498239_5A429936 
-X-CRM114-Status: UNSURE (   9.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_035720_941982_51993E1B 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,39 +87,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/02/2025 12:48, Kevin Chen wrote:
-> Add dt-bindings for Aspeed for Aspeed LPC POST code capture controller.
-> 
-> Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
++Ulf
+
+On Mon, Feb 10, 2025 at 6:58=E2=80=AFAM Keita Morisaki <keyz@google.com> wr=
+ote:
+>
+> The trace event cpu_idle provides insufficient information for debugging
+> PSCI requests due to lacking access to determined PSCI domain idle
+> states. The cpu_idle usually only shows -1, 0, or 1 regardless how many
+> idle states the power domain has.
+>
+> Add new trace events namely psci_domain_idle_enter and
+> psci_domain_idle_exit to trace enter and exit events with a determined
+> idle state.
+>
+> These new trace events will help developers debug CPUidle issues on ARM
+> systems using PSCI by providing more detailed information about the
+> requested idle states.
+>
+> Signed-off-by: Keita Morisaki <keyz@google.com>
+> Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+> Reviewed-by: Dhruva Gole <d-gole@ti.com>
+> Tested-by: Kevin Hilman <khilman@baylibre.com>
 > ---
->  .../devicetree/bindings/mfd/aspeed-lpc.yaml   | 36 +++++++++++++++++++
+> v1->v2: Split the ftrace event into two (psci_domain_idle_(enter|exit))
+>         and rephrase the commit message accordingly. Rebased onto the lat=
+est.
+> v2->v3: Add "Reviewed-by: Steven Rostedt"
+> v3->v4: Add the Tested-by label
+> v4->v5: Add "Reviewed-by: Dhruva Gole"
+>
+> Hopefully this patch gets attention from maintainers of
+> drivers/cpuidle/cpuidle-psci.c too.
 
-Nothing improved. You will not get different review.
+Lorenzo, Sudeep, Ulf, any comments?
 
-Also, provide detailed changelog explaining how you fixed here
-previously reported issues.
-
-
-<form letter>
-Please use scripts/get_maintainers.pl to get a list of necessary people
-and lists to CC. It might happen, that command when run on an older
-kernel, gives you outdated entries. Therefore please be sure you base
-your patches on recent Linux kernel.
-
-Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-people, so fix your workflow. Tools might also fail if you work on some
-ancient tree (don't, instead use mainline) or work on fork of kernel
-(don't, instead use mainline). Just use b4 and everything should be
-fine, although remember about `b4 prep --auto-to-cc` if you added new
-patches to the patchset.
-
-You missed at least devicetree list (maybe more), so this won't be
-tested by automated tooling. Performing review on untested code might be
-a waste of time.
-
-Please kindly resend and include all necessary To/Cc entries.
-</form letter>
-
-Best regards,
-Krzysztof
+>  drivers/cpuidle/cpuidle-psci.c |  3 +++
+>  include/trace/events/power.h   | 37 ++++++++++++++++++++++++++++++++++
+>  2 files changed, 40 insertions(+)
+>
+> diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psc=
+i.c
+> index 2562dc001fc1..dd8d776d6e39 100644
+> --- a/drivers/cpuidle/cpuidle-psci.c
+> +++ b/drivers/cpuidle/cpuidle-psci.c
+> @@ -25,6 +25,7 @@
+>  #include <linux/syscore_ops.h>
+>
+>  #include <asm/cpuidle.h>
+> +#include <trace/events/power.h>
+>
+>  #include "cpuidle-psci.h"
+>  #include "dt_idle_states.h"
+> @@ -74,7 +75,9 @@ static __cpuidle int __psci_enter_domain_idle_state(str=
+uct cpuidle_device *dev,
+>         if (!state)
+>                 state =3D states[idx];
+>
+> +       trace_psci_domain_idle_enter(dev->cpu, state, s2idle);
+>         ret =3D psci_cpu_suspend_enter(state) ? -1 : idx;
+> +       trace_psci_domain_idle_exit(dev->cpu, state, s2idle);
+>
+>         if (s2idle)
+>                 dev_pm_genpd_resume(pd_dev);
+> diff --git a/include/trace/events/power.h b/include/trace/events/power.h
+> index d2349b6b531a..9253e83b9bb4 100644
+> --- a/include/trace/events/power.h
+> +++ b/include/trace/events/power.h
+> @@ -62,6 +62,43 @@ TRACE_EVENT(cpu_idle_miss,
+>                 (unsigned long)__entry->state, (__entry->below)?"below":"=
+above")
+>  );
+>
+> +DECLARE_EVENT_CLASS(psci_domain_idle,
+> +
+> +       TP_PROTO(unsigned int cpu_id, unsigned int state, bool s2idle),
+> +
+> +       TP_ARGS(cpu_id, state, s2idle),
+> +
+> +       TP_STRUCT__entry(
+> +               __field(u32,            cpu_id)
+> +               __field(u32,            state)
+> +               __field(bool,           s2idle)
+> +       ),
+> +
+> +       TP_fast_assign(
+> +               __entry->cpu_id =3D cpu_id;
+> +               __entry->state =3D state;
+> +               __entry->s2idle =3D s2idle;
+> +       ),
+> +
+> +       TP_printk("cpu_id=3D%lu state=3D0x%lx is_s2idle=3D%s",
+> +                 (unsigned long)__entry->cpu_id, (unsigned long)__entry-=
+>state,
+> +                 (__entry->s2idle)?"yes":"no")
+> +);
+> +
+> +DEFINE_EVENT(psci_domain_idle, psci_domain_idle_enter,
+> +
+> +       TP_PROTO(unsigned int cpu_id, unsigned int state, bool s2idle),
+> +
+> +       TP_ARGS(cpu_id, state, s2idle)
+> +);
+> +
+> +DEFINE_EVENT(psci_domain_idle, psci_domain_idle_exit,
+> +
+> +       TP_PROTO(unsigned int cpu_id, unsigned int state, bool s2idle),
+> +
+> +       TP_ARGS(cpu_id, state, s2idle)
+> +);
+> +
+>  TRACE_EVENT(powernv_throttle,
+>
+>         TP_PROTO(int chip_id, const char *reason, int pmax),
+>
+> base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
+> --
+> 2.48.1.362.g079036d154-goog
 
