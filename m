@@ -4,57 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D376EC021A6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 08:24:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE6EBC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 08:31:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d/YS5MLfKMkBBAVf8P8Cp96BPI3XDXrrM6Jt7SBSVb8=; b=hNlNTWPbQe0MKftzHRdZGWj7Ub
-	D44uRsnARCpBJBR8FmCkd2QWqXIIXmYFWgN5UwTg9T3LNb2RCzOMpOdpfJ2PskHqImhwNVts0GdLo
-	/SG4JKuRrS20kuiGv8tGJ+4OLE7/1JacucaskyzFTI8H7EFymjkbgiv8Ub8KY+yIwdt0GxaDB/s8Q
-	SLwR+524rT9xbeKgNTCHBrjoI0/CsB+I65tet0dYMHpIGxKwe1Qy0tUfoIFjhzilIAuMWhn6WVWYm
-	y26PUqkec6QL1Yzx4oKN2XfhW/96xQ8r4x4O37aBc4PVmL49CfZL8jaXsGYIx70G6NZFg2KbMi/gb
-	5IdU/6uQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v5AnTb28mQKtjEHDL/Wk7VuZHdL8LuplyEfPirr+QDY=; b=jjz/6O9N0OLwg1S5G2QnYMRICD
+	511iK/NUT8POdOhi41e5f+LKmFGTTOpJI9UYr2TZWSi11rSRCCiu4aNSisMVMOJA5Ty/ndSzDtbve
+	jh2Mpdq0Nzj2yP9fZB2RPzRzxIC7MAAblwQ8ooPzG+qKWUtjgaynnEzz+5pKSrbA28A/5va6O/ZqW
+	+eKii0SQ8VuPrSEv7nkqZP8AAzdNtW7EX1ZkO7MEeW+srjFGGpHqx+itZUOUnDY7NXUUaX2YPRQTD
+	gZB0VNEWWk+VVpGAyR2fc527TgCnHpHPVtE2DfRb1CInKi2InDe6vhq/UcEqqq4mBpR37JX6rmKqN
+	NDigLD7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjwQe-00000003kk2-1gp1;
-	Mon, 17 Feb 2025 08:24:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjwMU-00000003k4u-0HMM
+	id 1tjwWj-00000003lsn-10MP;
+	Mon, 17 Feb 2025 08:30:53 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tjwVF-00000003ldP-1UBR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 08:20:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F4D31007;
-	Mon, 17 Feb 2025 00:20:34 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 576B53F5A1;
-	Mon, 17 Feb 2025 00:20:14 -0800 (PST)
-Date: Mon, 17 Feb 2025 08:20:08 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] perf arm-spe: Report error if set frequency
-Message-ID: <20250217082008.GA8144@e132581.arm.com>
-References: <20250205183009.224182-1-leo.yan@arm.com>
+	Mon, 17 Feb 2025 08:29:23 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E51C0442AA;
+	Mon, 17 Feb 2025 08:29:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739780956;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=v5AnTb28mQKtjEHDL/Wk7VuZHdL8LuplyEfPirr+QDY=;
+	b=LnBzlFkcgZdoEtjFLY3rmc7Fv9NnY81cKg9mYY/HiYt9UxhsWLnGxsV9cIF4Abzd17XhGe
+	4kneXCqLG+QzaJNapTEBQyXVi3//cC7NdpLsTv0XhY9/D58ZsnH3ydpdOf2L7ccHO7XJ8A
+	wKjo7XpWTprsPoUai+IAO8+AXYJFX2vDlszT6+M+C2Hjp+jxk07z3k+uFp2DJslPVfeZKo
+	a3UI3mIZfkEjWMjNCMu+3dqfBqnc0acxFIPL5CS7+yDfws9QkU2fQGYfs5GFu9Y7Sfivrv
+	5khQc4Kx7WRi6T55WBGbKgEjBGPRn15o176YQsxsQvxbgJWTtOJraFEVzc5kNA==
+Date: Mon, 17 Feb 2025 09:29:11 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
+ =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
+ <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
+ mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
+ Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>, Sean Anderson
+ <seanga2@gmail.com>
+Subject: Re: [PATCH net-next v4 05/15] net: phy: Create a phy_port for
+ PHY-driven SFPs
+Message-ID: <20250217092911.772da5d0@fedora.home>
+In-Reply-To: <Z7DjfRwd3dbcEXTY@shell.armlinux.org.uk>
+References: <20250213101606.1154014-1-maxime.chevallier@bootlin.com>
+	<20250213101606.1154014-6-maxime.chevallier@bootlin.com>
+	<Z7DjfRwd3dbcEXTY@shell.armlinux.org.uk>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250205183009.224182-1-leo.yan@arm.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehjeeltdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdro
+ hhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_002018_145292_FE2114E0 
-X-CRM114-Status: GOOD (  24.88  )
+X-CRM114-CacheID: sfid-20250217_002921_856326_CABEF876 
+X-CRM114-Status: GOOD (  21.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,74 +96,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 05, 2025 at 06:30:09PM +0000, Leo Yan wrote:
-> When users set the parameter '-F' to specify frequency for Arm SPE, the
-> tool reports error:
-> 
->   perf record -F 1000 -e arm_spe_0// -- sleep 1
->   Error:
->   Invalid event (arm_spe_0//) in per-thread mode, enable system wide with '-a'.
-> 
-> The output logs are confused and it does not give the correct reminding.
-> Arm SPE does not support frequency setting given it adopts a statistical
-> based approach.
-> 
-> Alternatively, Arm SPE supports setting period.  This commit adds a
-> for frequency setting.  It reports error and reminds users to set period
-> instead.
-> 
-> After:
-> 
->   perf record -F 100 -e arm_spe_0// -- sleep 1
->   Arm SPE: Frequency is not supported. Check manual 'man perf-record' on how to set period.
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+Hello Russell,
 
-Gentle ping.
+On Sat, 15 Feb 2025 18:57:01 +0000
+"Russell King (Oracle)" <linux@armlinux.org.uk> wrote:
 
-> ---
->  tools/perf/arch/arm64/util/arm-spe.c | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
+> On Thu, Feb 13, 2025 at 11:15:53AM +0100, Maxime Chevallier wrote:
+> > Some PHY devices may be used as media-converters to drive SFP ports (for
+> > example, to allow using SFP when the SoC can only output RGMII). This is
+> > already supported to some extend by allowing PHY drivers to registers
+> > themselves as being SFP upstream.
+> > 
+> > However, the logic to drive the SFP can actually be split to a per-port
+> > control logic, allowing support for multi-port PHYs, or PHYs that can
+> > either drive SFPs or Copper.
+> > 
+> > To that extent, create a phy_port when registering an SFP bus onto a
+> > PHY. This port is considered a "serdes" port, in that it can feed data
+> > to anther entity on the link. The PHY driver needs to specify the
+> > various PHY_INTERFACE_MODE_XXX that this port supports.
+> > 
+> > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>  
 > 
-> diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
-> index 4301181b8e45..baef0812dc19 100644
-> --- a/tools/perf/arch/arm64/util/arm-spe.c
-> +++ b/tools/perf/arch/arm64/util/arm-spe.c
-> @@ -40,6 +40,19 @@ struct arm_spe_recording {
->  	bool			*wrapped;
->  };
->  
-> +/* Iterate config list to detect if the "freq" parameter is set */
-> +static bool arm_spe_is_set_freq(struct evsel *evsel)
-> +{
-> +	struct evsel_config_term *term;
-> +
-> +	list_for_each_entry(term, &evsel->config_terms, list) {
-> +		if (term->type == EVSEL__CONFIG_TERM_FREQ)
-> +			return true;
-> +	}
-> +
-> +	return false;
-> +}
-> +
->  /*
->   * arm_spe_find_cpus() returns a new cpu map, and the caller should invoke
->   * perf_cpu_map__put() to release the map after use.
-> @@ -389,6 +402,13 @@ static int arm_spe_recording_options(struct auxtrace_record *itr,
->  				return -EINVAL;
->  			}
->  			opts->full_auxtrace = true;
-> +
-> +			if (opts->user_freq != UINT_MAX ||
-> +			    arm_spe_is_set_freq(evsel)) {
-> +				pr_err("Arm SPE: Frequency is not supported. "
-> +				       "Check manual 'man perf-record' on how to set period.\n");
-> +				return -EINVAL;
-> +			}
->  		}
->  	}
->  
-> -- 
-> 2.34.1
+> With this change, using phy_port requires phylink to also be built in
+> an appropriate manner. Currently, phylink depends on phylib. phy_port
+> becomes part of phylib. This patch makes phylib depend on phylink,
+> thereby creating a circular dependency when modular.
 > 
+> I think a different approach is needed here.
+
+That's true.
+
+One way to avoid that would be to extract out of phylink/phylib all the
+functions for linkmode handling that aren't tied to phylink/phylib
+directly, but are about managing the capabilities of each interface,
+linkmode, speed, duplex, etc. For phylink, that would be :
+
+phylink_merge_link_mode
+phylink_get_capabilities
+phylink_cap_from_speed_duplex
+phylink_limit_mac_speed
+phylink_caps_to_linkmodes
+phylink_interface_max_speed
+phylink_interface_signal_rate
+phylink_is_empty_linkmode
+phylink_an_mode_str
+phylink_set_port_modes
+
+For now all these are phylink internal and that makes sense, but if we want
+phy-driven SFP support, stackable PHYs and so on, we'll need some ways for
+the PHY to expose its media-side capabilities, and we'd reuse these.
+
+These would go into linkmode.c/h for example, and we'd have a shared set
+of helpers that we can use in phylink, phylib and phy_port.
+
+Before I go around and rearrange that, are you OK with this approach ?
+
+Maxime
 
