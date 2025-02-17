@@ -4,64 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC579C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBCE6C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P/ZYNLNYi9izsPpQnS4Vt2j2EX6aZ+ZTlib9rqaQyc0=; b=PrpQeKayU9rcRtNXpoRZWPArB+
-	rp5MYT/eeIX5Xhc3xcR9RKj8N/N7Y2wrMwbT/c9lYQCU+RVV92SMfI++F+opmD/YtD1flKz/IfRx7
-	RIHpgVKkoQ/2GNMRIPVFPjfNj9KtPoMNFg6a5ogr3MHv7Mcs0vRlYuT/To/lvFPhyYudo4Urz9CHa
-	KucnvHDbeWGEmTj+1cFmnQIC0cSO3ro5HTYePic2JbZJQw6X9n+tykCaovLOYe9l2U5JxAY4lB6fU
-	cVXluABPnzOR4FZQJXFjFF5lc84JiWpZ87jHL2FMwO7aNv91ctcVbZJhqRWGiWcCzhzhs/rzalXhI
-	DzZq8TOg==;
+	bh=eRkHg5Ucp6RGHWusT3IEAggViQD31EKhbXy2GP0vglI=; b=Zzz/z5xj6KsqxLDxmtEsmiTUr6
+	HajNmK7+K5MiVZLpr4R8pkg9YqxidiAbu2wV3jnBOm2e0miYEt4voJHdVTy8X2QYkij9VXPbBLpmy
+	zdBd0FrRvlk5+i2t6yQxhwEEBGHe/tofJ0G/zWyGFTbj+F6mEUE4iCFquHaVItFPJN8qubr6UKrOh
+	s1w3WKYZWF9bAuoFeq6ZJ0u2LiZ5UGp4YVxRUYRrsEedqTbtgpkPNqc9gw+dMKIlcnjZqnxGrKd/H
+	YyVmPXu/rexURvV02pg7q+Qd5SQktUHuFrBNJQdVCpFq6ZSfZloPXzgqPK0gWu+ezRjnYORhdRpm3
+	/8/UZD/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk7jH-00000005tYJ-2zbo;
-	Mon, 17 Feb 2025 20:28:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk7Lj-00000005q0H-3GUL
+	id 1tk7ki-00000005tng-1Wd3;
+	Mon, 17 Feb 2025 20:30:04 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk7Wb-00000005rS2-0Sg5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 20:04:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6AB2A152B;
-	Mon, 17 Feb 2025 12:04:34 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E09D73F6A8;
-	Mon, 17 Feb 2025 12:04:14 -0800 (PST)
-Date: Mon, 17 Feb 2025 20:04:09 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Graham Woodward <graham.woodward@arm.com>, Paschalis.Mpeis@arm.com,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 08/11] perf arm-spe: Fill branch operations and events
- to record
-Message-ID: <20250217200409.GC8144@e132581.arm.com>
-References: <20250214111936.15168-1-leo.yan@arm.com>
- <20250214111936.15168-9-leo.yan@arm.com>
- <a5d99e7f-1d8d-41f1-976d-7d67a0d5decb@linaro.org>
+	Mon, 17 Feb 2025 20:15:30 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5439e331cceso5640047e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 12:15:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739823327; x=1740428127; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=eRkHg5Ucp6RGHWusT3IEAggViQD31EKhbXy2GP0vglI=;
+        b=z82facSg6OMGRGxg8oWVnbISKVTZ7grRjpKfWm8bb7/UxJ77CLGjkkeqQSJo3Brhbb
+         dFwFUixnkbCkIkkZ4DRna1ueY67Xi2dbZssodG/K7eAzDMcORhjTjyLdxeMQS3WgDGJI
+         A/VjEKXWaVPjV/WA10m4BtywZK/NYSVtMfHxq7lUr5nHWPXhLHlM7HG+I+is5QHKyIML
+         TZwB1W5KZ0La77YsVwWcZP6uxcczhf9/SAVxKeibELefbgSa6CyBQYowptHzUERP+Iaq
+         JQB00vyXWJRz+zVEzsPbLjt/ZqKUjVMREA/7bgQ5/PJk6XHfVqdIulWV31PjUq9JLhdo
+         gKlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739823327; x=1740428127;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=eRkHg5Ucp6RGHWusT3IEAggViQD31EKhbXy2GP0vglI=;
+        b=VNMJ+Ef43zqMn0O9YpExOF0PtwuV+IK3o0Jjm1woJEW7mORTwJf9OhYtkGkbO7CeyH
+         coCrBlrlQzGYE1g+nt40HA32PBb1MqKxAFPfzkb1ptvZVmsQJOumpNE2ZPleQrWRVtHy
+         iRpUzyTUlmTPOHpDr3MSH1ijqOi8Kn+JZDItDufZGB1a3VfKNa8Yn78896NSlatqQLgG
+         FAUcivL31bmMxNGs5q5Sexk0BcWrHOUbsa70ZYQiit+AIT5LvRMb0/Z7tzr4qFUZ7zsb
+         Ugx8+NGyPFBkePdOowfoOtD/SObJtEppWG9v5U8//Pp+RDnuJyxSP4kawItK2XySytAM
+         gQUw==
+X-Forwarded-Encrypted: i=1; AJvYcCVMI/tU2NZf8MywJxsRl9UhXqEmmvgKwLy3pRc2lygQPWAA0Kl/hruJxV6POvQf+5ww9you3oiOemw5mNPAj+v5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxeeq8aKSDM53KOi8pv51j4eC/YAwxHLlLkKa8r2V1KVNJtMAVE
+	pH6NTecgy0V2hstjmclKAoZk+9ODg9pPRaChNRayFiaOzNP64Oh1yYT+QOGaH7o=
+X-Gm-Gg: ASbGncstGpK4U0/5qgzRFrJY+R2UtGtVr0YXkLUrzHA889YBzqzRsipn4S5QGvumGo1
+	aUwAb6FHtAQ2eH5Po1jL7XYVwvMLMDy8PeffIE9zrDaDtrEYB+z07fJfo0wDbfsyzxwpVCBsMCv
+	sVGpJ2FXdUALI0vWxFYy4Q175DXOCqYNE3Td+I2+QuRUPdPKI+BCQmKef/5VCgnDZs7ZIC4Yhve
+	1AFwi34b4b4x9eAZhFBi0fQc4lKs1jDm6/q6WDC8MStB5Za3axqSe19Anyv+1VEeKS37vdAPb4S
+	XtE1UctshRpUzgWxuo9V9Bh10BNZv65VdKmMtjDc8EbF/VNgDe3YD7V4GpXcbr9/hpsLRJ8=
+X-Google-Smtp-Source: AGHT+IHN4TQQDcSOwXKpfuPORhrxQ9cJeq7yFtgX9iUm7RPvnEU4xWfa1ad7OdRTHhcIA1rKUqRDiA==
+X-Received: by 2002:a05:6512:3ba9:b0:545:1233:d4f9 with SMTP id 2adb3069b0e04-5452fe66b4fmr2845657e87.30.1739823327250;
+        Mon, 17 Feb 2025 12:15:27 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54620544eacsm565555e87.136.2025.02.17.12.15.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 12:15:25 -0800 (PST)
+Date: Mon, 17 Feb 2025 22:15:23 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: Vishal Sagar <vishal.sagar@amd.com>, 
+	Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: Re: [PATCH v3 06/11] drm/fourcc: Add DRM_FORMAT_XVUY2101010
+Message-ID: <bdpw2g65uor77tijlhpabodog7haqvdcemnr3wzqkooerzuib5@hfdn5zsrbkgg>
+References: <20250212-xilinx-formats-v3-0-90d0fe106995@ideasonboard.com>
+ <20250212-xilinx-formats-v3-6-90d0fe106995@ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <a5d99e7f-1d8d-41f1-976d-7d67a0d5decb@linaro.org>
+In-Reply-To: <20250212-xilinx-formats-v3-6-90d0fe106995@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_120415_860407_83B0FA7C 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20250217_121529_150764_869943A6 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,35 +102,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 04:20:57PM +0000, James Clark wrote:
+On Wed, Feb 12, 2025 at 04:56:10PM +0200, Tomi Valkeinen wrote:
+> Add XVUY2101010, a 10 bits per component YCbCr format in a 32 bit
+> container.
 
-[...]
+Is there a more common name for this format? Otherwise googling for it
+reveals only your series.
 
-> > diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-> > index ba807071d3c1..52bd0a4ea96d 100644
-> > --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-> > +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-> > @@ -207,6 +207,18 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
-> >                               break;
-> >                       case SPE_OP_PKT_HDR_CLASS_BR_ERET:
-> >                               decoder->record.op |= ARM_SPE_OP_BRANCH_ERET;
-> > +                             if (payload & SPE_OP_PKT_COND)
-> > +                                     decoder->record.op |= ARM_SPE_OP_BR_COND;
 > 
-> I think this results in memory events being synthesised for these
-> samples because of a bug in arm_spe__synth_data_source().
-> ARM_SPE_OP_BR_COND overlaps with bits from other packet types like
-> ARM_SPE_OP_LD:
+> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> ---
+>  drivers/gpu/drm/drm_fourcc.c  | 1 +
+>  include/uapi/drm/drm_fourcc.h | 1 +
+>  2 files changed, 2 insertions(+)
 > 
->        if (record->op & ARM_SPE_OP_LD)
->                data_src.mem_op = PERF_MEM_OP_LOAD;
+> diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
+> index cc7e1ef4ef21..07b03b0fe9ad 100644
+> --- a/drivers/gpu/drm/drm_fourcc.c
+> +++ b/drivers/gpu/drm/drm_fourcc.c
+> @@ -280,6 +280,7 @@ const struct drm_format_info *__drm_format_info(u32 format)
+>  		{ .format = DRM_FORMAT_VYUY,		.depth = 0,  .num_planes = 1, .cpp = { 2, 0, 0 }, .hsub = 2, .vsub = 1, .is_yuv = true },
+>  		{ .format = DRM_FORMAT_XYUV8888,	.depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 1, .vsub = 1, .is_yuv = true },
+>  		{ .format = DRM_FORMAT_VUY888,          .depth = 0,  .num_planes = 1, .cpp = { 3, 0, 0 }, .hsub = 1, .vsub = 1, .is_yuv = true },
+> +		{ .format = DRM_FORMAT_XVUY2101010,     .depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 1, .vsub = 1, .is_yuv = true },
+>  		{ .format = DRM_FORMAT_AYUV,		.depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 1, .vsub = 1, .has_alpha = true, .is_yuv = true },
+>  		{ .format = DRM_FORMAT_Y210,            .depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 2, .vsub = 1, .is_yuv = true },
+>  		{ .format = DRM_FORMAT_Y212,            .depth = 0,  .num_planes = 1, .cpp = { 4, 0, 0 }, .hsub = 2, .vsub = 1, .is_yuv = true },
+> diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
+> index f936cac2aebc..7e8aa3bd52b9 100644
+> --- a/include/uapi/drm/drm_fourcc.h
+> +++ b/include/uapi/drm/drm_fourcc.h
+> @@ -246,6 +246,7 @@ extern "C" {
+>  #define DRM_FORMAT_XVUY8888	fourcc_code('X', 'V', 'U', 'Y') /* [31:0] X:Cr:Cb:Y 8:8:8:8 little endian */
+>  #define DRM_FORMAT_VUY888	fourcc_code('V', 'U', '2', '4') /* [23:0] Cr:Cb:Y 8:8:8 little endian */
+>  #define DRM_FORMAT_VUY101010	fourcc_code('V', 'U', '3', '0') /* Y followed by U then V, 10:10:10. Non-linear modifier only */
+> +#define DRM_FORMAT_XVUY2101010	fourcc_code('X', 'Y', '3', '0') /* [31:0] x:Cr:Cb:Y 2:10:10:10 little endian */
+>  
+>  /*
+>   * packed Y2xx indicate for each component, xx valid data occupy msb
 > 
-> arm_spe__synth_data_source() needs to only interpret that as a data
-> source packet if ARM_SPE_OP_LDST is set. This was reported by Mike
-> Williams but you have the privilege of hitting it for real first.
+> -- 
+> 2.43.0
+> 
 
-Good catching.  I have added a new patch 06 to fix the bug in the
-v3 series.  Thanks for hooking up the info.
-
-Leo
+-- 
+With best wishes
+Dmitry
 
