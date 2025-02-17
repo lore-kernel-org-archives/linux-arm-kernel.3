@@ -4,99 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2272C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:41:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F46C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hliszru8I65AnPHW7tmPd8zU3hebz8wd15dEVYUIRXU=; b=qJ5/wueaIfB/vUTiENj8zA9gMd
-	8zIpKqrpknMO4IAcAUl/QFUWSmk18ORYMHhsXB6SM9PULk3ymtOWYlB4OdGYCN0e9DP1ZseytsdIa
-	SF4hGeP85JOEA7xjNr+juo+w1HOZIc1VBLsklrHiqgIbvMJsxSlTDhCE8kK7uLn1yQO5Da2IXGCmF
-	rhXDVu6vqunbv8iB2ogvx9XWX/bAwmSndrax+gD9DwdRapsO5oeJUaioq8mWL8JWLeupnBLMntDox
-	KVY+GPreRisjS7JMOJL/jKpwg6YquBIr8Q+uRDgJb8eWwqiCyDCEmGsoLOvXWvqeKgxkNXGeDn7wH
-	WGNxshGQ==;
+	bh=x6Me8ZURi9BHMA5VBv/dcrhQFM3Dtg/x5OSHUQbvC6g=; b=nr8FYorIMP1OaqjDymGhF/CDP/
+	vYfIU4DS3ySDIeReA+ZrIUDkqK7/HUY/iyBg6Hp5SouOSOnlIpToKiYl3HWPsDPwsGyinIGPmLCq/
+	Tp9AyLZSu9dqthWE+5eI/geIi7TE3hx32NeyWKdoSormyDIwgTgbk3Jtqg2hdlac1yWfdgkqZ0whu
+	UzlbYRXyqISYTMrwHatEvGeI0Y8XyDS3uhrPnXvFKc1WFW2xqlpPGnhwn6Whp4Zi7MwmL2xLPvwqu
+	+psaeCTLEgUZXJQwfpQ/OTrc1KAA7rZ/N5mrvZJmpI6MyK76a2Lo/GJMaZQoKyjU1rXT9jals9yoy
+	RMIpHHFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk57N-00000005UUM-2mqF;
-	Mon, 17 Feb 2025 17:41:17 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tk58o-00000005UlN-1Ztl;
+	Mon, 17 Feb 2025 17:42:46 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3rh-00000005F0A-0Mji
+	id 1tk3vK-00000005FVe-0HSV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 16:21:02 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4396a4d5e3bso30237865e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 08:21:00 -0800 (PST)
+	Mon, 17 Feb 2025 16:24:47 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-aaec111762bso1050898766b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 08:24:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739809259; x=1740414059; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Hliszru8I65AnPHW7tmPd8zU3hebz8wd15dEVYUIRXU=;
-        b=eDLt3c2vNdFH12ZMG+uSG1erUh7HvDUe9lj/Y0Vje9nK3PZi9CoRDe3jvSSRQK7xmf
-         +aWoHhis9LBXOWpCKVHxxTTow94ZEXrcVf5WQA0BGfha9HhLM6c8kudj4KKTqwaLyVFV
-         XJy552fhSroe2EYM8EDCeNostAV5Ph7upBeBU+eIZvbOZGVnHOTCh/9syKQ4v2YBfz31
-         7AbWQ5a6SQsW+nBKbe3dxTHgPHY4kyUajy17pckcFXjodI+yykobH0i9H1Nf7F2cK4MR
-         BokuyMTFoalXw2uAg+OCk1wv746Ofaxh5LiQy3SYSjUkmpurOlZdfy3aB8JQEAACP0VX
-         4CNA==
+        d=gmail.com; s=20230601; t=1739809484; x=1740414284; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=x6Me8ZURi9BHMA5VBv/dcrhQFM3Dtg/x5OSHUQbvC6g=;
+        b=eg+/TBKmp8+fIujg7UN3QWDPKqMJN5r6p448v25PB8zJ1p8iXjzr4O0Yv7wyDEKtd0
+         XzU+BJlGRPtwmp+an+dIQh8U1XG0RRXy5GFKUviz1XnzrahJ19kuntuBmP8ejnkbgDTg
+         Xq8nMemDlTltc8ek2H9lr3HGiBW2HtWcb8NFP/lWzoKIYKSMwN/qKVBOyhL2ZLVS82KU
+         +J6oEnv9V2sRnhSpFh7rgWipC0LVplE78RcF/VDdd9A0rSRsf9ck1u6XkOVCAleuk9yr
+         lqb+ntdJltcMvRcJHVyXISM2CJYsxh8RFmvHzGFZsDnYljgKoiy0WMSXCnKM/wP/YgFl
+         WnZQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739809259; x=1740414059;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1739809484; x=1740414284;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Hliszru8I65AnPHW7tmPd8zU3hebz8wd15dEVYUIRXU=;
-        b=xVbpG1Xh4OJs8ERnx55C0BwDuqaxTGMCPXe9bXHm7OMteBz4zOW1u3cLsfA8SRLZ8A
-         h7Zym6l0nrEEz+EPYjj+9vV/7FYwr8XAos8iOTNNLTWwCYDphnhInlM7vTEktLnG4K93
-         rXUQdCZXQNWFGNKHged/Xzflo/nTMMph55YG5uBGgn4qsE8BKdyAB+sZEaEwSwqGYpNv
-         4kuh84AoOgioKOM7dgL9I5XL09SQkQ/sMI+rKrtf3NRI0pJ0GHS7zncpcSTDl8PaSLlR
-         Rr5WS+DVxh1Z8zKV8fRuTAJoHE8JcyH5rKfzOovOtvtEZ933qsTlMxPNAfyNgFlX0CFb
-         Is+w==
-X-Forwarded-Encrypted: i=1; AJvYcCUMfkrVBmNGsi2lKQq2ihtXlctg+i+4Bjs5Bmwt3pm2hFgEKRzV0A7trEwnnlFHUvk2ouPqvi5AxoT5Pu3OI6ok@lists.infradead.org
-X-Gm-Message-State: AOJu0YybZkVBRCtNSk+83fb7e24EdauXWGVIohnP8Am42Z8hEEquqKBD
-	mZ6sk/NBlDMcO/heK+P8ZU2puDHBAOZr6A2Swq718WXLAStlxF67Ihai2lPYkB8=
-X-Gm-Gg: ASbGncvslFI5w4XJ/KpLLQlKmql+l77eg/VgLAho1SDGV5eu1CoI/WGuimuCiNb5HMj
-	N4hW4q3G/KHuOQt7zg81LSP8JnW82YQ9c1xEpP3CmsslQbB4TSShbva84NwaTrcBk4fiAeJ1vFU
-	/D/VoQ0exG/pkWpYDY+MjYsOG+4z0HOhhOpkQx/SfTgJfLjDyPxwgczvcH/kHtVFGXhdpTWtDTa
-	uw6jxq+vNp5aZODaEQ9c9I5xm4efgyXVjO40MipzP0K4wIoJiN6tI2BO8KmW/sr1zfGNz30WE6t
-	pTZBoOnIkRRwa9whNknK3kg5rQ==
-X-Google-Smtp-Source: AGHT+IGdNrAgcV9AT4395Oyj88ssWQXJfojFnIpoXQA8wy4Csu5ENmq+Sh9avVfhPt2Ol9bspdhIfg==
-X-Received: by 2002:a05:600c:1d23:b0:439:6b57:c68 with SMTP id 5b1f17b1804b1-4396e6df8bemr92447005e9.17.1739809259341;
-        Mon, 17 Feb 2025 08:20:59 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.90.202])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4395a06d22csm157199225e9.22.2025.02.17.08.20.58
+        bh=x6Me8ZURi9BHMA5VBv/dcrhQFM3Dtg/x5OSHUQbvC6g=;
+        b=bXFL25faRozutXAXSaS/KJSD70CeDmpFHNf8bGjbfOOvypGOk0vq58lqi2OTfSTLN5
+         UZ51heUUO9TseBt1Ye4j4X1PRUrc10pL0QUKdDzr3IzxL52jrWmRPrKTv539BHrhfy7d
+         5FTFpxXHWBgg45FE+MXh3Vj3igoVuzTRCG5Od4FrNKEV8ZY8hC2+qt+tqnks4Vmji1ED
+         Brp1NT+55EesNkn91Ph6pPfOniGTp1jD1AfWAGlCJ/8Qcca3fMe4ruqNi0bSL5vb3/Jr
+         QLsKogJSxUGkEHPUC9VuvH/DsQkpey+NP4NBWKkN4BCf2hX4QQhJabxTpaFlgTydfZL1
+         dCmw==
+X-Forwarded-Encrypted: i=1; AJvYcCVGJyyUcO6zXKH3GfiIqZ9MGDK8hgdYVxNxC+D0oArprydON51iI+e1r7hfuS9gaEyGKk6uz3WlZmvlgGOi0mBg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcUm1qU/47R8M+Z7sDPsmXBdcf9/pgXGhuOW5WALgrbMo93Bvx
+	U/768jl6mzr2mM922tySIuZmC6jThEMuwbURwO3/q2zJnMvATpQ0
+X-Gm-Gg: ASbGncvLKJntTIiAiffxwmJ43+N0iZVjzVd0wifxBvfmUHM8nN2fb8duWxCMykkFJhc
+	JRZbyfADT3ATibaIriMGPt3/OsHl/qbopyfUn/Jm4vPawPyJdfON6qs3GoaMdcNwlz0fpQz11lm
+	I0qGpo/nSSMSezYw2phOOzs/ycAP1eP3kXLTiJFHkDycb9uWqtuPMSwzGg6pvjKCDaHRYI9G0pF
+	kJff3A78mCHZtUw9lKhNkLlfRWtR3hyganIxoy1DdBtK0LwlVoZZMb9OSP70mbf8XzPhlTq3Io9
+	y+DKAAU6Wa8r+OqFA7bAogKy6k29phIP+52yVN2IP/ez
+X-Google-Smtp-Source: AGHT+IF485TpglsHoYcM2qPJw/DdadQMT0idtEVOh9tCPnUieChDKELqnF5ni403s2wOT43n83j0+A==
+X-Received: by 2002:a17:907:1b04:b0:ab7:d66f:c86d with SMTP id a640c23a62f3a-abb70df5d76mr1030222066b.34.1739809483644;
+        Mon, 17 Feb 2025 08:24:43 -0800 (PST)
+Received: from [192.168.1.130] ([82.79.237.175])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb837378e7sm421915566b.52.2025.02.17.08.24.41
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Feb 2025 08:20:58 -0800 (PST)
-Message-ID: <a5d99e7f-1d8d-41f1-976d-7d67a0d5decb@linaro.org>
-Date: Mon, 17 Feb 2025 16:20:57 +0000
+        Mon, 17 Feb 2025 08:24:43 -0800 (PST)
+Message-ID: <c6c5e039-7c86-4813-a880-89b864822d80@gmail.com>
+Date: Mon, 17 Feb 2025 18:24:40 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/11] perf arm-spe: Fill branch operations and events
- to record
-To: Leo Yan <leo.yan@arm.com>
-References: <20250214111936.15168-1-leo.yan@arm.com>
- <20250214111936.15168-9-leo.yan@arm.com>
+Subject: Re: [PATCH 0/2] ASoC: SOF: imx: fix a couple Smatch bugs
 Content-Language: en-US
-Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- "Liang, Kan" <kan.liang@linux.intel.com>,
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@linaro.org>, Graham Woodward
- <graham.woodward@arm.com>, Paschalis.Mpeis@arm.com,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250214111936.15168-9-leo.yan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+To: Dan Carpenter <dan.carpenter@linaro.org>,
+ Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+Cc: Bard Liao <yung-chuan.liao@linux.intel.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ Frank Li <Frank.Li@nxp.com>, imx@lists.linux.dev,
+ Jaroslav Kysela <perex@perex.cz>, Kai Vehmanen
+ <kai.vehmanen@linux.intel.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-sound@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Peter Ujfalusi <peter.ujfalusi@linux.intel.com>,
+ Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>,
+ Ranjani Sridharan <ranjani.sridharan@linux.intel.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+ sound-open-firmware@alsa-project.org, Takashi Iwai <tiwai@suse.com>
+References: <fffa1613-72e8-4cd0-a4db-b6b13a5222e9@stanley.mountain>
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <fffa1613-72e8-4cd0-a4db-b6b13a5222e9@stanley.mountain>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_082101_121641_0D4C2614 
-X-CRM114-Status: GOOD (  19.81  )
+X-CRM114-CacheID: sfid-20250217_082446_107502_A195C7A2 
+X-CRM114-Status: UNSURE (   9.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,94 +113,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 14/02/2025 11:19 am, Leo Yan wrote:
-> The new added branch operations and events are filled into record, the
-> information will be consumed when synthesizing samples.
-> 
-> Reviewed-by: Ian Rogers <irogers@google.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   .../util/arm-spe-decoder/arm-spe-decoder.c     | 18 ++++++++++++++++++
->   .../util/arm-spe-decoder/arm-spe-decoder.h     | 10 ++++++++--
->   2 files changed, 26 insertions(+), 2 deletions(-)
-> 
-> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-> index ba807071d3c1..52bd0a4ea96d 100644
-> --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-> @@ -207,6 +207,18 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
->   				break;
->   			case SPE_OP_PKT_HDR_CLASS_BR_ERET:
->   				decoder->record.op |= ARM_SPE_OP_BRANCH_ERET;
-> +				if (payload & SPE_OP_PKT_COND)
-> +					decoder->record.op |= ARM_SPE_OP_BR_COND;
-
-I think this results in memory events being synthesised for these 
-samples because of a bug in arm_spe__synth_data_source(). 
-ARM_SPE_OP_BR_COND overlaps with bits from other packet types like 
-ARM_SPE_OP_LD:
-
-	if (record->op & ARM_SPE_OP_LD)
-		data_src.mem_op = PERF_MEM_OP_LOAD;
-
-arm_spe__synth_data_source() needs to only interpret that as a data 
-source packet if ARM_SPE_OP_LDST is set. This was reported by Mike 
-Williams but you have the privilege of hitting it for real first.
-
-> +				if (payload & SPE_OP_PKT_INDIRECT_BRANCH)
-> +					decoder->record.op |= ARM_SPE_OP_BR_INDIRECT;
-> +				if (payload & SPE_OP_PKT_GCS)
-> +					decoder->record.op |= ARM_SPE_OP_BR_GCS;
-> +				if (SPE_OP_PKT_CR_BL(payload))
-> +					decoder->record.op |= ARM_SPE_OP_BR_CR_BL;
-> +				if (SPE_OP_PKT_CR_RET(payload))
-> +					decoder->record.op |= ARM_SPE_OP_BR_CR_RET;
-> +				if (SPE_OP_PKT_CR_NON_BL_RET(payload))
-> +					decoder->record.op |= ARM_SPE_OP_BR_CR_NON_BL_RET;
->   				break;
->   			default:
->   				pr_err("Get packet error!\n");
-> @@ -238,6 +250,12 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
->   			if (payload & BIT(EV_MISPRED))
->   				decoder->record.type |= ARM_SPE_BRANCH_MISS;
->   
-> +			if (payload & BIT(EV_NOT_TAKEN))
-> +				decoder->record.type |= ARM_SPE_BRANCH_NOT_TAKEN;
-> +
-> +			if (payload & BIT(EV_TRANSACTIONAL))
-> +				decoder->record.type |= ARM_SPE_IN_TXN;
-> +
->   			if (payload & BIT(EV_PARTIAL_PREDICATE))
->   				decoder->record.type |= ARM_SPE_SVE_PARTIAL_PRED;
->   
-> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-> index 4bcd627e859f..85b688a97436 100644
-> --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-> @@ -24,6 +24,8 @@ enum arm_spe_sample_type {
->   	ARM_SPE_REMOTE_ACCESS		= 1 << 7,
->   	ARM_SPE_SVE_PARTIAL_PRED	= 1 << 8,
->   	ARM_SPE_SVE_EMPTY_PRED		= 1 << 9,
-> +	ARM_SPE_BRANCH_NOT_TAKEN	= 1 << 10,
-> +	ARM_SPE_IN_TXN			= 1 << 11,
->   };
->   
->   enum arm_spe_op_type {
-> @@ -52,8 +54,12 @@ enum arm_spe_op_type {
->   	ARM_SPE_OP_SVE_SG		= 1 << 27,
->   
->   	/* Second level operation type for BRANCH_ERET */
-> -	ARM_SPE_OP_BR_COND	= 1 << 16,
-> -	ARM_SPE_OP_BR_INDIRECT	= 1 << 17,
-> +	ARM_SPE_OP_BR_COND		= 1 << 16,
-> +	ARM_SPE_OP_BR_INDIRECT		= 1 << 17,
-> +	ARM_SPE_OP_BR_GCS		= 1 << 18,
-> +	ARM_SPE_OP_BR_CR_BL		= 1 << 19,
-> +	ARM_SPE_OP_BR_CR_RET		= 1 << 20,
-> +	ARM_SPE_OP_BR_CR_NON_BL_RET	= 1 << 21,
->   };
->   
->   enum arm_spe_common_data_source {
-
+On 2/17/2025 9:32 AM, Dan Carpenter wrote:
+> Fix a couple of bugs which were detected using Smatch.
+> (https://github.com/error27/smatch)
+>
+> Dan Carpenter (2):
+>   ASoC: SOF: imx: Fix an IS_ERR() vs NULL bug in
+>     imx_parse_ioremap_memory()
+>   ASoC: SOF: imx: Fix error code in probe()
+>
+>  sound/soc/sof/imx/imx-common.c | 7 +++----
+>  1 file changed, 3 insertions(+), 4 deletions(-)
+Thanks! For the whole series: Reviewed-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
