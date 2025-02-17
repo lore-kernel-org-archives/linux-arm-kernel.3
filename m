@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B91BC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E99C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:54:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/PEWwDl9MB7g9G1AMh/oGEgtW4u5T+aVOkhOdQ40XU=; b=ybSK/2AIxJcJWp6Em8U+KJD1Es
-	7l41hVByGbNRdTaOEg6/p3iCD1ILQXaXW7OXnWdpuVJnPKUAZldAtEM/MPMadS8yaS3oEMdF+guRR
-	d8cqKGK3nM9UHuTYy+VrTODZr7UJSTbWJpthSguRoAfcIZ7VSgyvKZEj16Yi2Q39VMhJ43pBbjcCo
-	YKa9SH2eHIg5Thj11U0sUDgW3AX605O/4A/Zpo8FmUTs++DEnDk5Tx3diN7mXruqJnENvPy4DoHYg
-	bR8ktG0VQgTnPrCI/4VxnAyAmatBDyv8VYIywR7BtYFWH0t4OwlEI0hwJ7zb2ntQcUAspwOLl29KX
-	H/VLbkvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RnkB0lMKqmJYB0j8S/qL/mNwpGucnwjbOHxfTNKAOoc=; b=MmNtihZQcmEivNBD6E/da3bviq
+	zDE13+2lDeVcWlY5FntqQ3umQokT3BUSSKb/JiOxNC6FZrNgB0MJAoPjOHFkfGEwej9DF+HIMQY0t
+	Gb18zBqPvNsOAKOZ9J/KfVBCLThNGS/LF9uy6ZirDyJJkGrYqR12AI8FkmVTdTT9XzWOJ0L9Z9vMC
+	0YxIQrdoIjb/NHulADgZ+ZaMWfOQUcFmU++yZ+7dNmhmYvQG0F6MbPW+WYJ0I1xTu0Z/Vk0exqEVL
+	qBPLKfHbh7OR5qUyvDiAhbOFm7+QcdpictAGVVEyhG7XLc+M8uGhU9wBS+kbT+/AgiT9VFfrj1FYN
+	1iEUc4vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjylZ-00000004CO6-0BwN;
-	Mon, 17 Feb 2025 10:54:21 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1tjylk-00000004Cet-229v;
+	Mon, 17 Feb 2025 10:54:32 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjyUX-000000048PI-44qd
+	id 1tjyWL-000000048lz-3Dx0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 10:36:47 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ab7c4350826so74794166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 02:36:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739788604; x=1740393404; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=N/PEWwDl9MB7g9G1AMh/oGEgtW4u5T+aVOkhOdQ40XU=;
-        b=DTNEY9KzMTftJh98ZvSTuQMMpf9isg2EsjPd+LYUU0r47nZa8/YlNWB5EIWuZSGNCB
-         21IRWbPF0NrUJhh54TnXX1CwJ0Ple0rXBV3DK9N0tMF+WamlnvcUvSjvKbfRO4BBBcmC
-         AZxmBAFo/yloDIA89wfcEQHi4IuioesGcXMI7lWdUHxnx8bySOSZ6XQ1oz1xLpb6qhCU
-         E2Q0IgQxSS8WqpkaH2123QP35TPJ+CbNOSo7qeKKc1NhSgqPl9tF/PwXARTQuBz0MqFo
-         KRh7R+Qh18xVIsHsFThS4m4m6DGUjsrErvIwNpRsjqgUYH9evnuPk56reWJu89EqHoqP
-         Cppg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739788604; x=1740393404;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=N/PEWwDl9MB7g9G1AMh/oGEgtW4u5T+aVOkhOdQ40XU=;
-        b=t5QJcRiegsPgenP7Ot2TXq9+K7Y0vCvv4FhbnqM7JOXTRTbh17XGNRDY4OPNT3vbZJ
-         Xi0YEsctzmbB9DT4IwMsUwhIUN8171GUn+gu1GpV26V5SNmAHVQwxXn5BLambArkRc5x
-         ulO2iSjPpKVCx39hKFz1am+rUWRR5JieETRTnZ/SaGu0NYzgxZbMej0fHcDIsQk3gilB
-         eY5BG2d2aSXAOvTMDAO2W27o37obYpZhELNoAb1+Tb16Oj/z7PqL/H9Puwnzf8PAy9Al
-         Jh7C5UC03kmj9h0KVCPMwN3ylONB4O2+P0kfa4QxMToeO6PLCQomuDciMEeqTWB513LU
-         Xj8w==
-X-Forwarded-Encrypted: i=1; AJvYcCVx3XADQQ/IUIbLv0WNVLbfVTRhD244Jc4RgflNO1cIlfU4O9AGZIUyc2NjT8PFgVlU9SOQ1l88JiVx/aVBXoMU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIRwgmLTd9clBMCLDUZEtqLd/ynrSyebabGAnFcJZYFTNGLJ4i
-	IlQtkg6ehIJLUzHgFZo2hV7+w9/ycQ759QK1Oq1wslZfXOhIBE7fbeitDnZjkQEq/fgM+81dtUN
-	F
-X-Gm-Gg: ASbGnctPgCtcrclvE+q/pJ/FNPVClNsq/PNuZoE+xH0GKqojuaZ98adKKNaoMfCIZH/
-	m46Zi/D12TKAYvT5RFOfiuVg3ZpUiHWFUtbN4GtVkHEDRhNKcE+sx+plDYNZnscuoefldO3/fQk
-	PWKfkqw8xOg3SDakf8iupaalWOJ/OEeEbEZ/LT94y1xcDsMF+ruxnMrnm4FfgpHozFCoxQ0b+pT
-	m9T0GaevP7FWAjkBCpA3WwfwAppdpFmeh6YWDnENsVqYFOjHBeDQ5gjrgwYcKJ2irRzS+UccU1B
-	aBMqg815I9swpiYb3kQdm/IgxFbmoYo=
-X-Google-Smtp-Source: AGHT+IGmMJF4ViTaqLqJAPAEqki9C4gvYmwTm6OvO86oLDWZLtgcjDXJ1cUh7+WEg2+muDpD9D2hyg==
-X-Received: by 2002:a17:907:94d6:b0:ab7:c28f:de59 with SMTP id a640c23a62f3a-abb70e5eca0mr311989366b.13.1739788603832;
-        Mon, 17 Feb 2025 02:36:43 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb961594absm230383566b.111.2025.02.17.02.36.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 02:36:42 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: alim.akhtar@samsung.com, robh@kernel.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org, Devang Tailor <dev.tailor@samsung.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- faraz.ata@samsung.com
-In-Reply-To: <20250108055012.1938530-1-dev.tailor@samsung.com>
-References: <CGME20250108054224epcas5p399f3d734f8d9f82e5ae75d183d1a5344@epcas5p3.samsung.com>
- <20250108055012.1938530-1-dev.tailor@samsung.com>
-Subject: Re: [PATCH v2] arm64: dts: add cpu cache information to
- ExynosAuto-v920
-Message-Id: <173978860144.144850.3570517854379450471.b4-ty@linaro.org>
-Date: Mon, 17 Feb 2025 11:36:41 +0100
+	Mon, 17 Feb 2025 10:38:39 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51HAcWYH1338030
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 17 Feb 2025 04:38:32 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1739788712;
+	bh=RnkB0lMKqmJYB0j8S/qL/mNwpGucnwjbOHxfTNKAOoc=;
+	h=From:To:CC:Subject:Date;
+	b=th7plpvSE7vmNp+XTc40HVTUwIjW7i57yob23ziU650u/Hw+0R1+TPeFzdQ+Hor9N
+	 3V5h+0vnwjUXsjUtzleYUePUY2DbJnV5NWciEzN+/xysY2otd3OLcCaofyD+Ey2tDn
+	 dSUFdWwNVA6JPyLbxXiJaPuvxV+54oMq4aNZe5Mc=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51HAcWln042498
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 17 Feb 2025 04:38:32 -0600
+Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 17
+ Feb 2025 04:38:31 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 17 Feb 2025 04:38:31 -0600
+Received: from ubuntu.myguest.virtualbox.org ([10.249.128.48])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51HAcRh7023531;
+	Mon, 17 Feb 2025 04:38:28 -0600
+From: Keerthy <j-keerthy@ti.com>
+To: <robh+dt@kernel.org>, <nm@ti.com>, <vigneshr@ti.com>,
+        <conor+dt@kernel.org>, <kristo@kernel.org>, <krzk+dt@kernel.org>
+CC: <j-keerthy@ti.com>, <u-kumar1@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: [PATCH] arm64: dts: ti: k3-j784s4-j742s2-main-common: Correct the GICD size
+Date: Mon, 17 Feb 2025 16:08:14 +0530
+Message-ID: <20250217103814.2657-1-j-keerthy@ti.com>
+X-Mailer: git-send-email 2.17.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_023646_014369_75B9D411 
-X-CRM114-Status: UNSURE (   7.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_023837_892783_603C8FFC 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,22 +83,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Currently we get the warning:
 
-On Wed, 08 Jan 2025 11:20:12 +0530, Devang Tailor wrote:
-> Add CPU caches information to its dt nodes so that the same is
-> available to userspace via sysfs. This SoC has 64/64 KB I/D cache and
-> 256KB of L2 cache for each core, 2 MB of shared L3 cache for each quad
-> cpu cluster and 1 MB of shared L3 cache for the dual cpu cluster.
-> 
-> 
+"GICv3: [Firmware Bug]: GICR region 0x0000000001900000 has
+overlapping address"
 
-Applied, thanks!
+As per TRM GICD is 64 KB. Fix it by correcting the size of GICD.
 
-[1/1] arm64: dts: add cpu cache information to ExynosAuto-v920
-      https://git.kernel.org/krzk/linux/c/bbfc70ca7fd26ee3e7eb16872cf7b1f1be5907e3
+Signed-off-by: Keerthy <j-keerthy@ti.com>
+---
+ arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Best regards,
+diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+index 83bbf94b58d1..3b72fca158ad 100644
+--- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+@@ -193,7 +193,7 @@
+ 		ranges;
+ 		#interrupt-cells = <3>;
+ 		interrupt-controller;
+-		reg = <0x00 0x01800000 0x00 0x200000>, /* GICD */
++		reg = <0x00 0x01800000 0x00 0x10000>, /* GICD */
+ 		      <0x00 0x01900000 0x00 0x100000>, /* GICR */
+ 		      <0x00 0x6f000000 0x00 0x2000>,   /* GICC */
+ 		      <0x00 0x6f010000 0x00 0x1000>,   /* GICH */
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+2.17.1
 
 
