@@ -4,58 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1CE7C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:11:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF33DC021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ychoTIYUDfWoAxLjnl2uUah2giqPU08urAHpAFQWzs8=; b=VF/J1Bj/pJCRbInMSDM7Xf73ww
-	TooyTHbUqlv5BNq0CPMj/trnEPfOWZoL1iegC8u+3Ku5S09wV3D+XHLnVnpCUck/xtKswPQZx5uL+
-	thQngaWp5vP59U1dKyGqaCl1aaKbzI0+A+RbD98PzPrEUrRqVcL/Au8URtfOYGjskbuj5d2qi5GFR
-	a5FXtTXJDB8m0ioi7yYJA0Jp8Ef8woOPUiJNlWokSx3exSifg4R5B8sPdUbICPXYsucfvu2ALnXUH
-	HQsKg31dcz9QIGmeWZo9B4SrwgIDGdZrgH3ZQ/cCP5PVAtuFYkGuWxo1szWtmgHvSn2a97irdo9Zy
-	Dd3sxNAA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vhO6TKqpsRSX/Z3PyNgRIwuNSxJl8FNrUTnyd+ppH1c=; b=xw92tIcFsHn5yK4m68ERWjQUgx
+	xvHf2cF6Bk8hPDs/cJzPJura+WSJsS7hQEpK2NLnLzycJS/bks720/4S5DFbkVKd2aqYd7FoQ+alX
+	VAa2yQAMtM0r0CJZSd9VBAFeiPg5RwLIP8wsS9UskFv/uF7U2d7YJW4rmxVPeakSLnnu5rY5+bt5D
+	Co3hVMSfzexJKDQCj1kOGQy2D8m7mV+eyYp4U1l2gYOuitOioPZm8EYbq/0+eJd3ZxuRh4OcSKqSk
+	GARl0RdqEp8mLgx4mTxXU/YJmBIwEEJJlXu+QKMblgniEKZwlzo7W7jo4joRg3pVSq+7pSS1HJv6p
+	4fcZCvFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk4eb-00000005PSD-0nKq;
-	Mon, 17 Feb 2025 17:11:33 +0000
+	id 1tk4g1-00000005PnN-3T1T;
+	Mon, 17 Feb 2025 17:13:01 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3PD-0000000596W-2hwy
+	id 1tk3QT-000000059Sd-2KgX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 15:51:37 +0000
+	Mon, 17 Feb 2025 15:52:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAFF0152B;
-	Mon, 17 Feb 2025 07:51:53 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB129152B;
+	Mon, 17 Feb 2025 07:53:11 -0800 (PST)
 Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E5E683F5A1;
-	Mon, 17 Feb 2025 07:51:32 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 63D0D3F5A1;
+	Mon, 17 Feb 2025 07:52:51 -0800 (PST)
 From: Sudeep Holla <sudeep.holla@arm.com>
-To: cristian.marussi@arm.com,
-	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+To: ARM SoC Team <arm@kernel.org>,
+	SoC Team <soc@kernel.org>,
+	ALKML <linux-arm-kernel@lists.infradead.org>
 Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Jason Liu <jason.hui.liu@nxp.com>
-Subject: Re: [PATCH] firmware: arm_scmi: imx: Correct tx size of scmi_imx_misc_ctrl_set
-Date: Mon, 17 Feb 2025 15:51:21 +0000
-Message-Id: <173980739601.1667400.18386300454514478201.b4-ty@arm.com>
+	Arnd Bergmann <arnd@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [GIT PULL] firmware: arm_scmi: Fix for v6.14
+Date: Mon, 17 Feb 2025 15:52:46 +0000
+Message-Id: <20250217155246.1668182-1-sudeep.holla@arm.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250123063441.392555-1-peng.fan@oss.nxp.com>
-References: <20250123063441.392555-1-peng.fan@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_075135_725847_E7828169 
-X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-CacheID: sfid-20250217_075253_637881_62941534 
+X-CRM114-Status: UNSURE (   7.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,22 +64,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 23 Jan 2025 14:34:41 +0800, Peng Fan (OSS) wrote:
-> 'struct scmi_imx_misc_ctrl_set_in' has a zero length array in the end,
-> so sizeof will not count 'value[]', and txsize is smaller than actual
-> size for tx,and SCMI firmware will take this protocol error.
-> 
-> Fix this by enlarge the txsize with 'num * 4' to count in the size of
-> data.
-> 
-> [...]
+Hi ARM SoC Team,
 
-Applied with some minor changes to sudeep.holla/linux (for-next/scmi/fixes), thanks!
+Please pull !
 
-[1/1] firmware: arm_scmi: imx: Correct tx size of scmi_imx_misc_ctrl_set
-      https://git.kernel.org/sudeep.holla/c/ab027c488fc4
---
 Regards,
 Sudeep
 
+-->8
+
+The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+
+  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/scmi-fix-6.14
+
+for you to fetch changes up to ab027c488fc4a1fff0a5b712d4bdb2d2d324e8f8:
+
+  firmware: arm_scmi: imx: Correct tx size of scmi_imx_misc_ctrl_set (2025-02-13 14:27:37 +0000)
+
+----------------------------------------------------------------
+Arm SCMI fix for v6.14
+
+Just a single fix to address the incorrect size of the Tx buffer in the
+function scmi_imx_misc_ctrl_set() which is part of NXP/i.MX SCMI vendor
+extensions.
+
+----------------------------------------------------------------
+Peng Fan (1):
+      firmware: arm_scmi: imx: Correct tx size of scmi_imx_misc_ctrl_set
+
+ drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
