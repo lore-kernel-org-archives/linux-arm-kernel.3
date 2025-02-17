@@ -4,90 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB8AC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 19:32:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA871C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 19:43:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KBBGRVrDPOzL/cJXETAGl1eWZIx2QG5N8tUkdFnRiL0=; b=Csv+zuI7GZAa+weQ6F5aW6XQcx
-	lFbuFE3GE1RQUzHqSfqIRgrKvupwq3N8a5QmoOR1kL0bPyuNnJPfyCJS6L0tOT9Gd+lUzriZ2hSgc
-	/QVqku+3IzRLRwqzkkDxqxSlFf3ClegXvxEIAAlcH8m79JIy7xwQQS5P9KFZGZGQgqC9qCFu/jrPD
-	/ZMKySrb9gSQbruq58zUgVJV5lKha4vlral6LOoDWlLSMHLYyaUZBTq0p+6yBfXXn8F2wuPRPqU3w
-	yoFMR6hu3uFFVJRKjNZ9afTmeCyAXnsSkcrTnY09Wzp/eCxDXbqLeY5gWDWrvsJJdTg4fJN+/XXNZ
-	w/mX/m0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YxjXyQqeMw1J5Qloq0r9LKBH/PNw5/cyffxXlOaLX/0=; b=Jrt6ZwF2hKSEE0EtHUFdojvLKw
+	5gaSLm75rqpKY92kj7U0+7m6rkvFzCJAEP+3RRrP72R1kn7sFXVFv2Oe0PgWSrbghnljFWg3nngOQ
+	ALHS6tGEKg19xQ3L4gxTWTkf3xPMi+AFE/U4l6ZQj0Gu7eqgcw9kqcajlY9QYZUN/2yltmB4tAjs8
+	FrwDZMjAJ4zQU/zJ4Pdm7fy8N1Qks/ePhvwlqFX/0Kg7dyMpOKRSZBTV+Pbl19Yo9AOyg+1dSXFQM
+	B6/4DN4QIV+hLApJ/jHKyCnVYVcExgiZxGvmDPiNZFhmC/D6L564xRNtLlg8ysDVvZeeVKp8QXT9L
+	o79N5FIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk6qN-00000005lId-2TAB;
-	Mon, 17 Feb 2025 19:31:51 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tk71r-00000005mjo-4Avu;
+	Mon, 17 Feb 2025 19:43:43 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk6om-00000005kxU-259G
+	id 1tk70P-00000005mXS-0kfR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 19:30:13 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43948f77f1aso30827315e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 11:30:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739820611; x=1740425411; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KBBGRVrDPOzL/cJXETAGl1eWZIx2QG5N8tUkdFnRiL0=;
-        b=eRxkyOHkNOvCxSYqNNyuaN69ibTVlHjRny9sUn2oIE/f3nse8ZHU1DsnR+D6tpw778
-         skFAi3pAEMsC05nxgXOx1bGuWnmdd4AYvvWx9QVFYyMTqvMR/x9l7gDK4JvN0tNDoMvj
-         VZGLjKZSB9nrPYcRBGBeqRNhT+JrGZUcsxWGejjH2rhV9x56GMeNkz0FEAzPODSHHqWM
-         T9JO9T+gnf37EMim1JLUfGAghjkJM3D36bBbzIC1ibkrQh0Du77VJHbRBkiaXP5B9Z5s
-         H92B0Pww1UMcldMGDlQuGKC7b5dpTV+1g1Fmo8abk0zcBcAe/mvSFvm0uTSv5buBuhly
-         LjXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739820611; x=1740425411;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KBBGRVrDPOzL/cJXETAGl1eWZIx2QG5N8tUkdFnRiL0=;
-        b=Scj26TmvhyViJeq0DU7aWuNxmRj2QwXLMJI/bfuqMPsLCDgMLMRPrZA4Mu6GEWxsuN
-         eVZ5W+VlCu+n2czVZLnVRqB3vma3YVr/xJQi1eMpROepS2d6LLt4xslemBtJ3a8CV0rz
-         O4Rg4iFgfTA8UrJA+VXzFO6bapLtxR2ZU4krr8J7sBDtd1C3Y7z07upc5YwYIGj0BCAN
-         nWewYrBMRt1iGzbSbM1AviLhNowmDiHrcuZHUv1GH73dQj/TlOD/+COWLT30fLDUYRpW
-         lqOfakGf51a9IJN36vwxkxUfGKJr4x8oCW/vOQpLNRzyQlfZw7UKWEmHV541vQjj6N0k
-         XdpA==
-X-Forwarded-Encrypted: i=1; AJvYcCUb1FFboHNkrA/oQlzeabIUzhKs8Zlt+3gA030YOjAQeOkm25zMbHEYX8Q4L4sTVHNSHFimNVUGDxl8Q40ZE4O7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVf9nucIhKz8US4eYHGwT/cBkA8dH+DPzQpZmfDCrhMMALE9bC
-	KMxrbMYoGXRHYYXB66pc3QS27L3x3MKpvVfhmaxXLNU18owJa+oG
-X-Gm-Gg: ASbGncssbOLMcSanxTFwHt7WlkPIWn/33LV73/wK9FORkLgiAKZ+vL7oaZ9+Btm0b8g
-	NosiUqecSmE2E6dSCEtaYfvYJUJDCo8lnHFRIkc4y3Kkxx/yYMvwzFtQHzkKFNhFB02EFAIYWYg
-	3pJQmmbfKG9NyUyjwAOKEGl740ghNnre2oapdfxkWtSfRN31tCJpyzgsxDSyQkXY5Rx3Y6LdyyE
-	7IfAoCsjbU7812e/DkG72erNobcKOwkQbEsTJIQbBhCX5PJjBs2C8wYSfybOz9KB+xBI6R8wj1S
-	j//mdwKbA3qqdQ==
-X-Google-Smtp-Source: AGHT+IG/GTBYMutX0ifvnaDNTHsFLz/DL9WhNAt4ojV3o2SFm28L0BvhF5nSaoivdCJhJhpmzmztPw==
-X-Received: by 2002:a05:600c:4f02:b0:439:930a:58aa with SMTP id 5b1f17b1804b1-439930a5aacmr1691095e9.0.1739820610515;
-        Mon, 17 Feb 2025 11:30:10 -0800 (PST)
-Received: from eichest-laptop ([2a02:168:af72:0:bb08:332f:1cf1:cf5])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439858ec5fasm34378135e9.29.2025.02.17.11.30.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 11:30:10 -0800 (PST)
-Date: Mon, 17 Feb 2025 20:30:08 +0100
-From: Stefan Eichenberger <eichest@gmail.com>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, francesco.dolcini@toradex.com,
-	broonie@kernel.org
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Subject: Re: [PATCH v1 1/2] arm64: dts: freescale: imx8mp-verdin-dahlia: add
- Microphone Jack to sound card
-Message-ID: <Z7OOQNnlGCAfWYws@eichest-laptop>
-References: <20250217145744.179213-1-eichest@gmail.com>
- <20250217145744.179213-2-eichest@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250217145744.179213-2-eichest@gmail.com>
+	Mon, 17 Feb 2025 19:42:14 +0000
+Authentication-Results: purelymail.com; auth=pass
+DKIM-Signature: a=rsa-sha256; b=lV84h0Em5ss0x1cbUHkV9HfjfNbc7ITWw815Cn+d5bkyDMCBn1w8amYBUCiORLxa/A3A7DKFELl9AjTM2c56k8sRH0lTWKWVvPamC3tNTp4hN85EAzjX/X0Ljr3o0P6N6A1mQ8L/vqp6klsd57+6q4zo0dVvK5cJAxxG7PNyAJPsBPaNQMiTx/zeeEHWrMOzoCm1Ql30ALtXwiC0enryFJh6a8YVGHKL1iXeUbHTMXb1V3i4IBmEiJFvPiXe5WHDnpSFTwVgARsgcRjjcn1z7Nj0K8aK4ssNenRZntLdeJnhiPQSfT7JM34rBw6rRpZS0AQ3rUikmPAHlBvNL7jDMQ==; s=purelymail3; d=purelymail.com; v=1; bh=yYX/SR79Dqqvmyu22HwNz7TvqcDwF99ty5EMBfajVJ8=; h=Feedback-ID:Received:Date:Subject:From:To;
+Feedback-ID: 68247:10037:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1182872981;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Mon, 17 Feb 2025 19:41:34 +0000 (UTC)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 17 Feb 2025 20:41:32 +0100
+Message-Id: <D7UZ6BSEU6DD.2QRKZBTKMPD9F@mentallysanemainliners.org>
+Cc: "Krzysztof Kozlowski" <krzk@kernel.org>,
+ <linux-watchdog@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-samsung-soc@vger.kernel.org>
+Subject: Re: [PATCH 0/2] watchdog: Exynos990 WDT enablement
+From: "Igor Belwon" <igor.belwon@mentallysanemainliners.org>
+To: "Igor Belwon" <igor.belwon@mentallysanemainliners.org>, "Wim Van
+ Sebroeck" <wim@linux-watchdog.org>, "Guenter Roeck" <linux@roeck-us.net>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Alim Akhtar"
+ <alim.akhtar@samsung.com>
+X-Mailer: aerc 0.20.0
+References: <20250217-exynos990-wdt-v1-0-9b49df5256b0@mentallysanemainliners.org>
+In-Reply-To: <20250217-exynos990-wdt-v1-0-9b49df5256b0@mentallysanemainliners.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_113012_536146_3D79F580 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250217_114213_701713_B87C2691 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,20 +70,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 03:56:40PM +0100, Stefan Eichenberger wrote:
-> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> 
-> The simple-audio-card's microphone widget currently connects to the
-> headphone jack. Routing the microphone input to the microphone jack
-> allows for independent operation of the microphone and headphones.
-> 
-> This resolves the following boot-time kernel log message, which
-> indicated a conflict when the microphone and headphone functions were
-> not separated:
->   debugfs: File 'Headphone Jack' in directory 'dapm' already present!
-> 
-> Fixes: 874958916844 ("arm64: dts: freescale: verdin-imx8mp: dahlia: add sound card")
-> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+On Mon Feb 17, 2025 at 8:05 PM CET, Igor Belwon wrote:
+> Hi all!
+> This series enables the two clusters of the Exynos990 watchdog timer
+> to be used. Weirdly enough, this SoC is missing the cl1 cluster, it has
+> the cl0 cluster and then jumps over to cl2. As such, new cluster index
+> code has been added to accomodate this oddity.
+>
+> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+> ---
+> Igor Belwon (2):
+>       dt-bindings: watchdog: samsung-wdt: Add exynos990-wdt compatible
+>       watchdog: s3c2410_wdt: Add exynos990-wdt compatible data
+>
+>  .../devicetree/bindings/watchdog/samsung-wdt.yaml  |  9 +++--
+>  drivers/watchdog/s3c2410_wdt.c                     | 39 ++++++++++++++++=
++++++-
+>  2 files changed, 44 insertions(+), 4 deletions(-)
+> ---
+> base-commit: 253c82b3a2cec22bf9db65645f934fbe095899a3
+> change-id: 20250217-exynos990-wdt-0e9100ec5f99
+>
+> Best regards,
 
-CC: Mark Brown <broonie@kernel.org>
+Please ignore this patchset. I did not test the bindings with my device
+tree changes - as such, I did not account for the cluster-index being
+more than 1. I will send a fixed v2 shortly. My apologies.
 
