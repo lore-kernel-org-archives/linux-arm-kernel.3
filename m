@@ -4,93 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6428C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B866C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X/0biRJus/9M4PhuIap27DDVgRLzlMn9BGl57AT63dU=; b=M25q8Pq5meO4YvC/AOFpAH3nqZ
-	C+ShrmXD6KwGZYJbT6PXS51tNLElRpOzWxPF5m6iYJAB6CLmlnitogLY0ek6YhAsq5ApTDFKKpHYD
-	vWqABY0RZYaauSb4m9p/IWVGL1c015ozziyOR7ZF3xRNsMDTIy1b9Tx7e9gyZ1vcauQCG9AuZbSjp
-	XIJVUduVdvchuM42IRZn5SEI/jh1jJEsL8Q8p6Q00LgZ19NyWPayZgkFVEoQsj0DuvkrRu98eWUK+
-	kdUia9xGqi2INP2RjHNz2JqxvI0tXWOSiGfqQsSTbVd62FeiwiKs15n6KJAColbB4OJbEaj47TSHh
-	whw1i5dw==;
+	bh=JqaLFrErmA8TuMfUKne+UP0vowW73z4ybOt+Ip1qbmc=; b=OtsTl/jmpACcrmdJgUfmnqwdxG
+	KQdF9qDj5bxezoiHvJ3YE3631hkgiI6cNWy9a5iP4C64UaqQ7YDxog9MHr1OQkA7H1BvJFezGCfIH
+	A7LD0Jxjv0nVbCSJ1xNmHoD7MdClk/WicaEDGrz1XMq5eb1fdzgnO+D7Aqf6hVM6V1QMnNGOy194s
+	Z4r7SIn/TZZOCSw4JPWM1ogLJBc/iNWUKFdYCvz2DlZNN1M3JaDJ/uIIuTEeg2e15XFjTUB+PGJFT
+	JyopTYZhRL8gC+q4/GXG8lSdonr+AVMr72V+XyhDSvUAeEh7wh4a5pQIokOWzN637r6OFrVRUeTtp
+	coGpXC+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk5HR-00000005WCw-1Zl5;
-	Mon, 17 Feb 2025 17:51:41 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tk5LC-00000005X6m-0aPX;
+	Mon, 17 Feb 2025 17:55:34 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk47a-00000005I7g-39GJ;
-	Mon, 17 Feb 2025 16:37:27 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43948f77f1aso29757645e9.0;
-        Mon, 17 Feb 2025 08:37:26 -0800 (PST)
+	id 1tk4UI-00000005NQI-2BSR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Feb 2025 17:00:55 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e02eba02e8so3476218a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 09:00:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739810245; x=1740415045; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739811653; x=1740416453; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=X/0biRJus/9M4PhuIap27DDVgRLzlMn9BGl57AT63dU=;
-        b=KEOJEkv4VE4uzdT9nw6rIiRbgwjTmIuxU9+6M2IrLLIjjxtgSsGMrdlm1I1LOL6YuG
-         +XTG+vVA3S4C0gh4xIGyPEAnlkCcCRSJEAJv+LXKe0ltIN1pNqBJy19tA196q3+fNq54
-         yVPiYfNrTYc0I4ZmdXGdAA2Lk61hsRTL/1pTFmykiQR8tGErr/ZES5NQu43JaQRVmqzY
-         iaUS/W3RzQzzBg9Crb/s0nQQc66R1+uo1zIfjrqVI+gESmZ82AuaGwS3GiH2EzAHGqrr
-         0jgYhdtVcGPtYpGz9lLsp+MaI980+2Ov5JzCihE31qGM3K3FWxuQly4iayS2M3p2AdOF
-         EuxQ==
+        bh=JqaLFrErmA8TuMfUKne+UP0vowW73z4ybOt+Ip1qbmc=;
+        b=cGUHWZqt1k4NsS/JAoRXHG3hW8FSY04nYxQ3p2/DIC2ofn7U8gdSdvDv+HERYglR+8
+         U996/g/iPfpnCg6hULYiwKHru1Poqz5/2HZHZLKq0/C716P6dEt8031X+Hr25+xacyPt
+         cLZcR3Ap7lZPUL9766p2zrcJrNkHlGpo3SkxR/lznTj4910vlWRJHLtS1nLG+7/OFjta
+         8fyckdJJta99aUFuiMuxB5Kz5YIanPXpfFiNDytadtyV0AhWjWB/4ioN7KWEFI87d+cm
+         vJ4Z8jvnUJZZp5KHqig86xu+PnaEDW6lvAaH1VAvUWBmEr1wWtoUpYgAWWWme1Oy0gKk
+         eJ8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739810245; x=1740415045;
+        d=1e100.net; s=20230601; t=1739811653; x=1740416453;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=X/0biRJus/9M4PhuIap27DDVgRLzlMn9BGl57AT63dU=;
-        b=uGTE5Xzabmm5jwaMVsZM7QvAC+4FSDeLk42b9PfRmRJ8H6I7CmeaW9YqX85wH374Ri
-         eAmn95AupL3t6A4ENJ3k2Zn6TuEyQM3W7SlPo20S1+0Ld2u9+dxxUQyj40P5Mt0pGJGI
-         gZDHnGK6iZxZ0J4gphpNvcPePv+IlUf55jbbCHgGZsTTagDOmYdGEUn3IGpNUQ+Mtwxe
-         EhuRV/uNd5o4YtUYl8WJC3i94eZ1lK6/DmBMSxUSPkELoqoI3AUllt8yUzxL4Mhoqa5S
-         EmaB1rF4xdYru7aBJE6fmadTj+OtXEjN1e3DbESp6FhRmsJo/4Was0Y7UYrXpwjqFtcg
-         gwTw==
-X-Forwarded-Encrypted: i=1; AJvYcCV4Gt8G/xorcpx9kjTsFEjPGN50sVFjiHYSPfmJZTC2x0BZXn8aUA9X7+XL7vKWnhEHZ3RPzwK56iryldhqXob/@lists.infradead.org, AJvYcCWJmq0v7JpDHpl9e04HbXV78iNKtzv42MS+m6mH3lPac2j+S7pRnb6nyHAwgyP6zr74ZBNiXSKuU6P0Jsg=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3zk6IIHBk0JFzBVAJmVCaRSrR/TVCvYmdZp9eqEJg+jz3vjUf
-	b5biTm1VBNlcmVjOTHehNAzYsS6uhDu72hOufqVh9/k95XFDbxDi
-X-Gm-Gg: ASbGncuk6ek8ZOYR8E6Br3+qN6B2a33WFOgoE7axoFSjmEasVB90eQII6p7pK43j4Rt
-	HLBLm2KMzq6F/KXjBEU+n0Jeb2UAVH3ppuWHqQ33aXpxPh2f93q2L8onVpBSzE7Fv7n6eHSQDjn
-	2Y+mDsCieDelhM32tiqa8ocN7TMiMA6AVJYeFaNiRqS9tqScFD/2qFmjiLGoExCXuuc2Z3oOU9N
-	InBK210HeMwcHFJXEGg8oO9DIASuAEHY/MtbwI2bUxLN5ktq8KP8kMVIdRZA/HBpWbn8qjg1piB
-	0Dt2q8oXV/qgJpiTbZvjxiPnhFIBteVnYRT8OC8FnH9qGpKLeEbcWR81e0Mo+bmP1wdbtZnFC0x
-	t7Vmskgk=
-X-Google-Smtp-Source: AGHT+IGnpGd1arKCvdVh8OB0EDoGo4KblVvIlIVVW7BFnKV8rTfrkS3K0VNVohWAHieTwgBwEJe4Nw==
-X-Received: by 2002:a05:600c:4688:b0:439:89e9:4eff with SMTP id 5b1f17b1804b1-43989e951bbmr25428885e9.10.1739810245015;
-        Mon, 17 Feb 2025 08:37:25 -0800 (PST)
-Received: from localhost (p200300e41f22a600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f22:a600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4398872fa85sm24012905e9.28.2025.02.17.08.37.23
+        bh=JqaLFrErmA8TuMfUKne+UP0vowW73z4ybOt+Ip1qbmc=;
+        b=aIdN0lYMSM+kmwRYXG6uzp574iFKJSJAhOL7cKfhpjMDX5/K5rUwF9e8fnnQOXS2m3
+         iKXwm6uUK8LAaN5GGN724f9AOTUtQpD3vV0oaTNXaVmT2IiPlZViqU6Rf7ykS/SzclGQ
+         Yy3Axz3+VSJ8PxfhoD/Vjn9QvEQszHyYiRcg5c7JCJ69EUAFCt1f0JDGs05APDxKtfAh
+         kJnjJekG+DKke/uOkukUcIVfzwDXFTZ7ie6Rnh16Sav3cpRdweQvCWDxA462DmkCsTyS
+         2jLQAEgR2u4v4WY10ks/M/DaLA+sAoLK4DzplQcuOTqYgk3CDNjg6diXPBYkaJ5GHA7B
+         8Tiw==
+X-Forwarded-Encrypted: i=1; AJvYcCXK55sm14qkE2uzHcm5Glqd4MxsUnGOjT+UbifWADWVNFG9SYe7j8dhEjAw/CfnADw7XH/o/w33FtdsqF70+Pjz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvTljlgRx9bP4IInZNYzWHRGJ06nVIlpZxfeUOoxtfxmtYOQbM
+	FqpS1gbAl41vz/eo0OnXmGqQkFAMtOe6kODMgAHFerme0U38oisMru675wK8
+X-Gm-Gg: ASbGncu1/h7eTEDLRHJ4DpUxifzORfUpYyJDzZ0DYXNaA/qRLgOL8nINbbLMT5D5M9c
+	QI6Zm+eHzmZOpV8v9PRUJ+2ERckBKQjn0aGu7vvr6AhI/hwZqYH8bB1uq6m+qDXhjnQRsWJrnJ6
+	kMpUtedc4um147XTqIVSIR++amkoUR7Zfoo4wiqr5ArvjJKHEN5kqRCj6KaRejwT9w+0wEzylNR
+	wk+Z3xDf1Jzkq4cxqiCpy9DQ6kP2Ab1xD+TCsGa2cmOynmolmGidzjKVInMzXoUcijfDS9nriCN
+	Z4q/bPBpCrb5jF0Wzhh0uxUl2p0OyaM4jtoc877qRZpKw2dCSoSYfQ==
+X-Google-Smtp-Source: AGHT+IHrNiu7Mfg0Om2Rj3jVA5y5sNcTyvnjB9HoCWBNScTUmN+dS44zo9eg//XHmKb0LBd6UmiAuw==
+X-Received: by 2002:a17:907:1b12:b0:ab7:bfb1:99c3 with SMTP id a640c23a62f3a-abb70e323cdmr1177370066b.53.1739811652549;
+        Mon, 17 Feb 2025 09:00:52 -0800 (PST)
+Received: from playground.localdomain ([82.79.237.175])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aba53376aa2sm920570766b.103.2025.02.17.09.00.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 08:37:23 -0800 (PST)
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: x86@kernel.org,
+        Mon, 17 Feb 2025 09:00:52 -0800 (PST)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Marek Vasut <marex@denx.de>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-sh@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/7] MIPS: Embed syscore_ops in PCI context
-Date: Mon, 17 Feb 2025 17:37:08 +0100
-Message-ID: <20250217163713.211949-3-thierry.reding@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250217163713.211949-1-thierry.reding@gmail.com>
-References: <20250217163713.211949-1-thierry.reding@gmail.com>
+Subject: [PATCH 4/4] arm64: dts: imx8mp: change AUDIO_AXI_CLK_ROOT freq. to 800MHz
+Date: Mon, 17 Feb 2025 11:57:18 -0500
+Message-Id: <20250217165718.74619-5-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250217165718.74619-1-laurentiumihalcea111@gmail.com>
+References: <20250217165718.74619-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_083726_807499_140A7DF2 
-X-CRM114-Status: GOOD (  14.30  )
+X-CRM114-CacheID: sfid-20250217_090054_557895_842E268F 
+X-CRM114-Status: GOOD (  12.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,87 +108,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thierry Reding <treding@nvidia.com>
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-This enables the syscore callbacks to obtain the PCI context without
-relying on a separate global variable.
+AUDIO_AXI_CLK_ROOT can't run at currently requested 600MHz w/ its parent
+SYS_PLL1 configured at 800MHz. Configure it to run at 800MHz as some
+applications running on the DSP expect the core to run at this frequency
+anyways. This change also affects the AUDIOMIX NoC.
 
-Signed-off-by: Thierry Reding <treding@nvidia.com>
+Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
- arch/mips/pci/pci-alchemy.c | 24 ++++++++++++------------
- 1 file changed, 12 insertions(+), 12 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/mips/pci/pci-alchemy.c b/arch/mips/pci/pci-alchemy.c
-index a20de7160b6b..02f0616518e1 100644
---- a/arch/mips/pci/pci-alchemy.c
-+++ b/arch/mips/pci/pci-alchemy.c
-@@ -33,6 +33,7 @@
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+index 86c3055789ba..54147bce3b83 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+@@ -834,7 +834,7 @@ pgc_audio: power-domain@5 {
+ 						assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>,
+ 									 <&clk IMX8MP_SYS_PLL1_800M>;
+ 						assigned-clock-rates = <400000000>,
+-								       <600000000>;
++								       <800000000>;
+ 					};
  
- struct alchemy_pci_context {
- 	struct pci_controller alchemy_pci_ctrl; /* leave as first member! */
-+	struct syscore_ops pmops;
- 	void __iomem *regs;			/* ctrl base */
- 	/* tools for wired entry for config space access */
- 	unsigned long last_elo0;
-@@ -46,6 +47,12 @@ struct alchemy_pci_context {
- 	int (*board_pci_idsel)(unsigned int devsel, int assert);
- };
- 
-+static inline struct alchemy_pci_context *
-+syscore_to_pci_context(struct syscore_ops *ops)
-+{
-+	return container_of(ops, struct alchemy_pci_context, pmops);
-+}
-+
- /* for syscore_ops. There's only one PCI controller on Alchemy chips, so this
-  * should suffice for now.
-  */
-@@ -306,9 +313,7 @@ static int alchemy_pci_def_idsel(unsigned int devsel, int assert)
- /* save PCI controller register contents. */
- static int alchemy_pci_suspend(struct syscore_ops *ops)
- {
--	struct alchemy_pci_context *ctx = __alchemy_pci_ctx;
--	if (!ctx)
--		return 0;
-+	struct alchemy_pci_context *ctx = syscore_to_pci_context(ops);
- 
- 	ctx->pm[0]  = __raw_readl(ctx->regs + PCI_REG_CMEM);
- 	ctx->pm[1]  = __raw_readl(ctx->regs + PCI_REG_CONFIG) & 0x0009ffff;
-@@ -328,9 +333,7 @@ static int alchemy_pci_suspend(struct syscore_ops *ops)
- 
- static void alchemy_pci_resume(struct syscore_ops *ops)
- {
--	struct alchemy_pci_context *ctx = __alchemy_pci_ctx;
--	if (!ctx)
--		return;
-+	struct alchemy_pci_context *ctx = syscore_to_pci_context(ops);
- 
- 	__raw_writel(ctx->pm[0],  ctx->regs + PCI_REG_CMEM);
- 	__raw_writel(ctx->pm[2],  ctx->regs + PCI_REG_B2BMASK_CCH);
-@@ -354,11 +357,6 @@ static void alchemy_pci_resume(struct syscore_ops *ops)
- 	alchemy_pci_wired_entry(ctx);	/* install it */
- }
- 
--static struct syscore_ops alchemy_pci_pmops = {
--	.suspend	= alchemy_pci_suspend,
--	.resume		= alchemy_pci_resume,
--};
--
- static int alchemy_pci_probe(struct platform_device *pdev)
- {
- 	struct alchemy_pci_platdata *pd = pdev->dev.platform_data;
-@@ -478,7 +476,9 @@ static int alchemy_pci_probe(struct platform_device *pdev)
- 
- 	__alchemy_pci_ctx = ctx;
- 	platform_set_drvdata(pdev, ctx);
--	register_syscore_ops(&alchemy_pci_pmops);
-+	ctx->pmops.suspend = alchemy_pci_suspend;
-+	ctx->pmops.resume = alchemy_pci_resume;
-+	register_syscore_ops(&ctx->pmops);
- 	register_pci_controller(&ctx->alchemy_pci_ctrl);
- 
- 	dev_info(&pdev->dev, "PCI controller at %ld MHz\n",
+ 					pgc_gpu2d: power-domain@6 {
 -- 
-2.48.1
+2.34.1
 
 
