@@ -4,102 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ABA3C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 09:44:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 966B1C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 09:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MMb+tLlYn6VHNWNF2n/4Z/lgRcF295GIGpb11Gobqag=; b=uj2bI1kIWRhYAbxMuUX/WJ6PKt
-	aqy9Pjxu/ccVKGnMd366XdchvRF6zIkHmidBKjmj/+UtPAeYMOpoe21A06LWd+Iuiv07ywNWI+lPL
-	W3tbUUyTEjHnoIdFiso3uDEh2mb0AcC5lVGlqWIBLuU5wLgkGFC7BchpWAiuHKNxFP6sv85zG08x/
-	Gkqt1do06Sy6tbVK5T7DOiWViG1Mpdkh4ZVvbJOk2j6JHw18Daa9iXBm5rO2NqTb4KrscuF1IYsY6
-	jt3tpwId1vmgN5JlxuMrb6julb6xNbqJAdsi1gAazDFO3AhfTwmZDz9POdj8l/eU9ZKAWNHfQkZuJ
-	XOAqNuMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=58Bz1QKfZOad7GgqHLpkRAEs5EmHMBrfxA4BSwSNpew=; b=ukD2O+FP8k3xs2NTQGYFtgD3/b
+	NFQvXLMg/SRor9/Lj38loC/JfBx+0EAZblBqUaVTUwQtIRtD/R+by5UJuAMLCY7NshRSoGlE9oKTs
+	sABcb5N/PwbQSg0IZE57Zs/SfssazzW8uIg26c4Yvql+u0e+cH8EzxqIlozzdDxB8kdweu38SvoEh
+	GaH+L6bIRxRA1pbECtjv7HTcV2NK4NtlCDBf/v4ZkRHhGdUlcpSD2Suux0jJasB0BW/tUG1KtwEs4
+	Nvsl2GSoK7eRpFEpEK3WXVqpx94VRgyHmzB532Yh+TYz2d3UjY2XXjl+JfwkkMg7J4Bwq4vu4afN+
+	vkhfgqtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjxfO-00000003yZD-41ho;
-	Mon, 17 Feb 2025 09:43:54 +0000
+	id 1tjxgp-00000003ykO-2UWj;
+	Mon, 17 Feb 2025 09:45:23 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjxRi-00000003vsB-2ign
+	id 1tjxT2-00000003w3I-1PGC
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 17 Feb 2025 09:29:46 +0000
+	Mon, 17 Feb 2025 09:31:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
 	Content-Description:In-Reply-To:References;
-	bh=MMb+tLlYn6VHNWNF2n/4Z/lgRcF295GIGpb11Gobqag=; b=W85EnauchUgoW6wOuAaOGMHR6v
-	vl4f6LB3gJdgE95pYSwaYmGg9Q9ZVaHO1ecKYqcBP8qmTK+pqiyRwsnJGkaLqKoXgplpdOTs53SGn
-	n6Y7gbLNy623SiXbyhJN9c1RGSnVfRV17tH18Y4qGJ4TULWcQo3UoHjdNvX7BQcxnO2tg3E6LbkEQ
-	rXAaipRJF9yinV1xhsPVM1qP0VYuk1ryAG+/agfw9wxmY69QGWo1DqbvlveO/qjMiVZeyXf1kxD1u
-	dXzBRB7oH1I9GS5SEVeaGXOzK9ZoLb/Rv69XjdHttxXYIkcIhw8NTtVUaPwff6rS6mo4MDA+gwCVn
-	HQn9yx7A==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	bh=58Bz1QKfZOad7GgqHLpkRAEs5EmHMBrfxA4BSwSNpew=; b=qIlNB0qlaTa0vOMlJsPQU41Gwa
+	Dk9/D0TIuynFBUaTZKudlKAn+tuFhbMgYV1+VZ1CQc+1MFNVJze0YwKeVXbHxdRwDuNypnK3jR64d
+	ld1OlXtb7IDyM+G1fpsjgN1BTKkEnl6AkhyJVT9ru3q2jxtm3CtwNR51hXWLUlw+7avcvJojqj4uF
+	I+j3w94wV951h5ZK29oTwA+RgzlDpG5liyutNhpGev3WF5A/RpyjtdTR509EOHEJNK10F0kdS/FAK
+	8lEENmGRRnjURvgnbfa1HtaLv7pxBBk1LvcYMK1ugKpOt92JhxjlvO/QsR9l0osHuAIY9gg3QEJQX
+	2RuFULTA==;
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjxRf-00000001kt9-1Ltb
+	id 1tjxSy-00000001kwP-2fnc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 09:29:45 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51H034L8022247;
-	Mon, 17 Feb 2025 09:29:26 GMT
+	Mon, 17 Feb 2025 09:31:07 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51H102iE031493;
+	Mon, 17 Feb 2025 09:30:48 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=MMb+tLlYn6VHNWNF2n/4Z/
-	lgRcF295GIGpb11Gobqag=; b=O6yFe/aEeENcOhSuFPpJ3DsB3ITW/m+5/wmpoo
-	GmJ6MA0nX8NiDG7XCKFy/t1s1pJR/GoMKSDmEmf7bZq83ogmhwMuqNgTydhasFSw
-	kTc1bLYe1H6yTdlwwMU8Op8K/5SmjaRhH9Ha7lcCWjYEk/8ZA18kHFByykIjxP41
-	UV4dT5D4FS8r2B22TQGCaxtuVpps4iE4MlKQudMoYwvBp+dtJC08G8LGREGmo6nj
-	NVrDt6/FJ1rj0BrWVF1MwCYzNlwLTeHlRZjtSOVGSlOVCgtBg/Uw/1O6cx0hB28h
-	FMiQ/b1xMuekjRyzz3rc7K9Q0mZYkDmduCxxnHYE4ofBHFug==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44ut7u955s-1
+	:mime-version:subject:to; s=qcppdkim1; bh=58Bz1QKfZOad7GgqHLpkRA
+	Es5EmHMBrfxA4BSwSNpew=; b=gZ+/m+0/cUd5D3bqreV0o622eaIBJ4yt2hYcoV
+	JS4ei+k//Qdu6H2N84SSW5oxSZ5hUVSRyGqZgi0ww9S2ApZeZq/yPQ56beXgQ9gW
+	nihsNLN4jqmnBDhtt8luAP5JGFMTICruNbKWYwv7qC/gT0OosOCG1m+vpcJlbQOl
+	xskYm01k1lubKv3EFwfdBL3esU8O6wBzbvTjtXk9aHnfimu8J57YtTcy3wwI40Rj
+	DzvKBZAvlAyp55QDD+oxpn35Xd7n/PZbldu4nBr0SEz2evfMEo3k5IOZvDd3NDJi
+	on/6nAxpY+swHA8tBAfq9Yrz91HSMwUGY1MPI9R2OZdvVL8w==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44ut7ws5na-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 17 Feb 2025 09:29:25 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51H9TO53004284
+	Mon, 17 Feb 2025 09:30:48 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51H9UlB4023494
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 17 Feb 2025 09:29:24 GMT
-Received: from ap-kernel-sh01-lnx.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+	Mon, 17 Feb 2025 09:30:47 GMT
+Received: from jiegan-gv.qualcomm.com (10.80.80.8) by
+ nalasex01c.na.qualcomm.com (10.47.97.35) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Mon, 17 Feb 2025 01:29:20 -0800
-From: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-To: <anshuman.khandual@arm.com>, <catalin.marinas@arm.com>, <david@redhat.com>
-CC: <will@kernel.org>, <ardb@kernel.org>, <ryan.roberts@arm.com>,
-        <mark.rutland@arm.com>, <joey.gouly@arm.com>,
-        <dave.hansen@linux.intel.com>, <akpm@linux-foundation.org>,
-        <chenfeiyang@loongson.cn>, <chenhuacai@kernel.org>,
-        <linux-mm@kvack.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <quic_tingweiz@quicinc.com>,
-        Zhenhua Huang <quic_zhenhuah@quicinc.com>
-Subject: [PATCH v7] arm64: mm: Populate vmemmap at the page level if not section aligned
-Date: Mon, 17 Feb 2025 17:29:07 +0800
-Message-ID: <20250217092907.3474806-1-quic_zhenhuah@quicinc.com>
-X-Mailer: git-send-email 2.25.1
+ 15.2.1544.9; Mon, 17 Feb 2025 01:30:41 -0800
+From: Jie Gan <quic_jiegan@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao
+	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>
+Subject: [PATCH v12 0/7] Coresight: Add Coresight TMC Control Unit driver
+Date: Mon, 17 Feb 2025 17:30:17 +0800
+Message-ID: <20250217093024.1133096-1-quic_jiegan@quicinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: ZOKV0jmXvUiSquowFIyeXjllNSgPbq_O
-X-Proofpoint-ORIG-GUID: ZOKV0jmXvUiSquowFIyeXjllNSgPbq_O
+X-Proofpoint-GUID: yS0JbvNovVgONu4sJuOs--_8dXy5N1UM
+X-Proofpoint-ORIG-GUID: yS0JbvNovVgONu4sJuOs--_8dXy5N1UM
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-17_04,2025-02-13_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0
- impostorscore=0 lowpriorityscore=0 mlxlogscore=999 spamscore=0
- priorityscore=1501 phishscore=0 clxscore=1015 bulkscore=0 adultscore=0
- mlxscore=0 suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 phishscore=0
+ lowpriorityscore=0 priorityscore=1501 clxscore=1015 malwarescore=0
+ bulkscore=0 mlxlogscore=999 spamscore=0 adultscore=0 mlxscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2501170000 definitions=main-2502170083
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_092943_790940_06D2FAA6 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20250217_093105_216760_CF512954 
+X-CRM114-Status: GOOD (  32.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,51 +126,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the arm64 platform with 4K base page config, SECTION_SIZE_BITS is set
-to 27, making one section 128M. The related page struct which vmemmap
-points to is 2M then.
-Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
-vmemmap to populate at the PMD section level which was suitable
-initially since hot plug granule is always one section(128M). However,
-commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
-introduced a 2M(SUBSECTION_SIZE) hot plug granule, which disrupted the
-existing arm64 assumptions.
+From: Jie Gan <jie.gan@oss.qualcomm.com>
 
-The first problem is that if start or end is not aligned to a section
-boundary, such as when a subsection is hot added, populating the entire
-section is wasteful.
+The Coresight TMC Control Unit(CTCU) device hosts miscellaneous configuration
+registers to control various features related to TMC ETR device.
 
-The Next problem is if we hotplug something that spans part of 128 MiB
-section (subsections, let's call it memblock1), and then hotplug something
-that spans another part of a 128 MiB section(subsections, let's call it
-memblock2), and subsequently unplug memblock1, vmemmap_free() will clear
-the entire PMD entry which also supports memblock2 even though memblock2
-is still active.
+The CTCU device works as a helper device physically connected to the TMC ETR device.
+---------------------------------------------------------
+             |ETR0|             |ETR1|
+              . \                 / .
+              .  \               /  .
+              .   \             /   .
+              .    \           /    .
+---------------------------------------------------
+ETR0ATID0-ETR0ATID3     CTCU    ETR1ATID0-ETR1ATID3
+---------------------------------------------------
+Each ETR has four ATID registers with 128 bits long in total.
+e.g. ETR0ATID0-ETR0ATID3 registers are used by ETR0 device.
 
-Assuming hotplug/unplug sizes are guaranteed to be symmetric. Do the
-fix similar to x86-64: populate to pages levels if start/end is not aligned
-with section boundary.
+Based on the trace id which is programed in CTCU ATID register of
+specific ETR, trace data with that trace id can get into ETR's buffer
+while other trace data gets ignored. The number of CTCU ATID registers
+depends on the number of defined TMC ETR devices. For example, two TMC
+ETR devices need eight ATID registers. ETR0 with ETR0ATID0-ETR0ATID3
+and ETR1 with ETR1ATID0-ETRATID3.
 
-Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
----
- arch/arm64/mm/mmu.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+The significant challenge in enabling the data filter function is how
+to collect the trace ID of the source device. The introduction of
+trace_id callback function addresses this challenge. The callback function
+collects trace ID of the device and return it back. The trace ID will be
+stored in the structure called coresight_path and transmitted to helper
+and sink devices.
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index b4df5bc5b1b8..eec1666da368 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1178,7 +1178,8 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
- {
- 	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
- 
--	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
-+	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
-+		(end - start < PAGES_PER_SECTION * sizeof(struct page)))
- 		return vmemmap_populate_basepages(start, end, node, altmap);
- 	else
- 		return vmemmap_populate_hugepages(start, end, node, altmap);
+The coresight_path structure is created to address how to transmit
+parameters needs by coresight_enable_path/coresight_disbale_path
+functions.
+
+Here is the definition of the struct coresight_path:
+/**
+ * struct coresight_path - data needed by enable/disable path
+ * @path:               path from source to sink.
+ * @trace_id:           trace_id of the whole path.
+ */
+struct coresight_path {
+        struct list_head                *path;
+        u8                              trace_id;
+};
+
+The atid_offset mentioned before is the offset to ATID register in CTCU
+device.
+
+Enabling the source device will configure one bit in the ATID register based
+on its trace ID.
+Disabling the source devices will reset the bit in the AITD register
+based on its trace ID.
+
+Useage:
+Enable:
+STM device with trace ID 5 and ETR0 is activated.
+Bitmap before the enablement:
+ETR0ATID0:
+31..................543210
+==========================
+0000000000000000000000...0
+==========================
+
+Bitmap after the enablement:
+31..................543210
+==========================
+0000000000000...0000100000
+==========================
+
+The bit 5 of the ETR0ATID0 register is configured to 1 when enabling the
+STM device.
+
+Disable:
+STM device with trace ID 5 and ETR0 is activated.
+Bitmap before the disablement:
+ETR0ATID0:
+31................6543210
+=========================
+000000000010111...0100000
+=========================
+
+Bitmap after the disablement
+ETR0ATID0:
+31................6543210
+=========================
+000000000010111...0000000
+=========================
+
+The bit 5 of the ETR0ATID0 register is reset to 0 when disabling the STM
+device.
+
+Sincere thanks to James Clark for providing an excellent idea to handle
+the trace_id of the path.
+
+Changes in V12:
+1. Update the method for allocating trace_id for perf mode.
+Link to V11 - https://lore.kernel.org/linux-arm-msm/20250214024021.249655-1-quic_jiegan@quicinc.com/
+
+Changes in V11:
+1. Add reviewed-by tag to patch(2/7), (4/7), (6/7). Patch(3/7) is
+   contributed by James, so didnot add reviewed-by tag of James.
+2. Fix warning reported by kernel bot and verified with build(W=1).
+3. Restore to the original logic that responsible for allocate trace_id
+   of ETM device in perf mode according to James' comment.
+Link to V10 - https://lore.kernel.org/linux-arm-msm/20250207064213.2314482-1-quic_jiegan@quicinc.com/
+
+Changes in V10:
+1. Introduce a new API to allocate and read trace_id after path is built.
+2. Introduce a new API to allocate and read trace_id of ETM device.
+3. Add a new patch: [PATCH v10 3/7] Coresight: Use coresight_etm_get_trace_id() in traceid_show()
+4. Remove perf handle from coresight_path.
+5. Use u8 instead of atomic_t for traceid_refcnt.
+6. Optimize the part of code in CTCU drvier that is responsible for program atid register.
+Link to V9 - https://lore.kernel.org/all/20250124072537.1801030-1-quic_jiegan@quicinc.com/
+
+Changes in V9:
+1. Rebased on tag next-20250113.
+2. Separate the previous trace_id patch (patch 2/5 Coresight: Add trace_id function to
+   retrieving the trace ID) into two patches.
+3. Introduce a new struct coresight_path instead of cs_sink_data which was
+   created in previous version. The coresight_path will be initialized
+   and constructed in coresight_build_path function and released by
+   coresight_release_path function.
+   Detail of the struct coresight_path is shown below:
+/**
+ * struct coresight_path - data needed by enable/disable path
+ * @path:               path from source to sink.
+ * @trace_id:           trace_id of the whole path.
+ */
+struct coresight_path {
+        struct list_head                *path;
+        u8                              trace_id;
+};
+
+4. Introduce an array of atomic in CTCU driver to represent the refcnt or each
+   enabled trace_id for each sink. The reason is there is a scenario that more
+   than one TPDM device physically connected to the same TPDA device has
+   been enabled. The CTCU driver must verify the refcnt before resetting the
+   bit of the atid register according to the trace_id of the TPDA device.
+5. Remove redundant codes in CTCU driver.
+6. Add reviewed-by tag to the commit message for APB clock path(patch
+   1/5).
+Link to V8 - https://lore.kernel.org/all/20241226011022.1477160-1-quic_jiegan@quicinc.com/
+
+Changes in V8:
+1. Rebased on tag next-20241220.
+2. Use raw_spinlock_t instead of spinlock_t.
+3. Remove redundant codes in CTCU driver:
+   - Eliminate unnecessary parameter validations.
+   - Correct log level when an error occurs.
+   - Optimize codes.
+4. Correct the subject prefix for DT patch.
+5. Collected reviewed-by tag from Konrad Dybcib for DT patch.
+Link to V7 - https://lore.kernel.org/all/20241210031545.3468561-1-quic_jiegan@quicinc.com/
+
+Changes in V7:
+1. Rebased on tag next-20241204.
+2. Fix format issue for dts patch.
+   - Padding the address part to 8 digits
+Link to V6 - https://lore.kernel.org/linux-arm-msm/20241009112503.1851585-1-quic_jiegan@quicinc.com/
+
+Changes in V6:
+1. Collected reviewed-by tag from Rob for dt-binding patch.
+2. Rebased on tag next-20241008.
+3. Dropped all depends-on tags.
+Link to V5 - https://lore.kernel.org/linux-arm-msm/20240909033458.3118238-1-quic_jiegan@quicinc.com/
+
+Changes in V5:
+1. Fix the format issue for description paragrah in dt binding file.
+2. Previous discussion for why use "in-ports" property instead of "ports".
+Link to V4 - https://lore.kernel.org/linux-arm-msm/20240828012706.543605-1-quic_jiegan@quicinc.com/
+
+Changes in V4:
+1. Add TMC description in binding file.
+2. Restrict the number of ports for the CTCU device to a range of 0 to 1 in the binding file,
+   because the maximum number of CTCU devices is 2 for existing projects.
+Link to V3 - https://lore.kernel.org/linux-arm-kernel/20240812024141.2867655-1-quic_jiegan@quicinc.com/
+
+Changes in V3:
+1. Rename the device to Coresight TMC Control Unit(CTCU).
+2. Introduce a new way to define the platform related configs. The new
+   structure, qcom_ctcu_config, is used to store configurations specific
+   to a platform. Each platform should have its own qcom_ctcu_config structure.
+3. In perf mode, the ETM devices allocate their trace IDs using the
+   perf_sink_id_map. In sysfs mode, the ETM devices allocate their trace
+   IDs using the id_map_default.
+4. Considering the scenario where both ETR devices might be enabled simultaneously
+   with multiple sources, retrieving and using trace IDs instead of id_map is more effective
+   for the CTCU device in sysfs mode. For example, We can configure one ETR as sink for high
+   throughput trace data like ETM and another ETR for low throughput trace data like STM.
+   In this case, STM data won’t be flushed out by ETM data quickly. However, if we use id_map to
+   manage the trace IDs, we need to create a separate id_map for each ETR device. Addtionally, We
+   would need to iterate through the entire id_map for each configuration.
+5. Add support for apb's clock name "apb". If the function fails to obtain the clock with
+   the name "apb_pclk", it will attempt to acquire the clock with the name "apb".
+Link to V2 - https://lore.kernel.org/linux-arm-msm/20240705090049.1656986-1-quic_jiegan@quicinc.com/T/#t
+
+Changes in V2:
+1. Rename the device to Coresight Control Unit.
+2. Introduce the trace_id function pointer to address the challeng how to
+   properly collect the trace ID of the device.
+3. Introduce a new way to define the qcom,ccu-atid-offset property in
+device tree.
+4. Disabling the filter function blocked on acquiring the ATID-offset,
+   which will be addressed in a separate patch once it’s ready.
+Link to V1 - https://lore.kernel.org/lkml/20240618072726.3767974-1-quic_jiegan@quicinc.com/T/#t
+
+James Clark (1):
+  Coresight: Use coresight_etm_get_trace_id() in traceid_show()
+
+Jie Gan (6):
+  Coresight: Add support for new APB clock name
+  Coresight: Add trace_id function to retrieving the trace ID
+  Coresight: Introduce a new struct coresight_path
+  dt-bindings: arm: Add Coresight TMC Control Unit hardware
+  Coresight: Add Coresight TMC Control Unit driver
+  arm64: dts: qcom: sa8775p: Add CTCU and ETR nodes
+
+ .../bindings/arm/qcom,coresight-ctcu.yaml     |  84 ++++++
+ arch/arm64/boot/dts/qcom/sa8775p.dtsi         | 153 ++++++++++
+ drivers/hwtracing/coresight/Kconfig           |  12 +
+ drivers/hwtracing/coresight/Makefile          |   1 +
+ drivers/hwtracing/coresight/coresight-core.c  | 133 +++++++--
+ drivers/hwtracing/coresight/coresight-ctcu.c  | 268 ++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-ctcu.h  |  24 ++
+ drivers/hwtracing/coresight/coresight-dummy.c |  16 +-
+ .../hwtracing/coresight/coresight-etm-perf.c  |  24 +-
+ .../hwtracing/coresight/coresight-etm-perf.h  |   2 +-
+ drivers/hwtracing/coresight/coresight-etm.h   |   1 -
+ .../coresight/coresight-etm3x-core.c          |  55 +---
+ .../coresight/coresight-etm3x-sysfs.c         |   3 +-
+ .../coresight/coresight-etm4x-core.c          |  55 +---
+ .../coresight/coresight-etm4x-sysfs.c         |   4 +-
+ drivers/hwtracing/coresight/coresight-etm4x.h |   1 -
+ drivers/hwtracing/coresight/coresight-priv.h  |  12 +-
+ drivers/hwtracing/coresight/coresight-stm.c   |  14 +-
+ drivers/hwtracing/coresight/coresight-sysfs.c |  17 +-
+ drivers/hwtracing/coresight/coresight-tpda.c  |  11 +
+ drivers/hwtracing/coresight/coresight-tpdm.c  |   3 +-
+ include/linux/coresight.h                     |  30 +-
+ 22 files changed, 762 insertions(+), 161 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+ create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.c
+ create mode 100644 drivers/hwtracing/coresight/coresight-ctcu.h
+
 -- 
-2.25.1
+2.34.1
 
 
