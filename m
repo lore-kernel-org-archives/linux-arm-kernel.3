@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1635C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704E8C0219E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pjqSIaqjo22M/fJ6WrzBYInBLUW49xWtc11H9nbdufw=; b=CgO/8eR2oUxJCtkAeqe3rYUSIo
-	J4+DgmnF606iAELowzcKKYsS3qnWyNODoni+zLnWYSJae8D8KjKvPbpnX1RS61Rast7HBHjjQD64h
-	bK9zXPb4GWg+zmAVo7tuPZIS4qp8BlnzFZVGBK6dlg9a98x0iEHWT+tzR6IILtx5a3GeFWZVg+jOX
-	yuecpooOm9Jb5142F2vI0o+YyOARUz8suhwk2w61LzJxfJ27V8ep6uoz/J2+7E0JE285nLFP2v5zt
-	EXeEYwG4wrkoFenQub1fDVwaNjb2ucnwmr0h3bMpAIQMkmLhUgHNtdOaP+9aZU6TReINxX4XdrzQI
-	jNYHdieA==;
+	bh=6Td102jvjcyxJvAztEsXWW/VUH0CMT8UhqkeVVK6uLU=; b=ZHlf7FCF9ZtQ/V/7HeuFezUIU8
+	4DokmJVUSv64/wNNbbe3J+TEVvY83zYXbt4ungjhhPs3iIYvNh32sxAlS/sM53qvQyAKFyErZvMSD
+	q/yMDa7+2DT6YLGQRwBX3jHboRp3+UTJ5YXbEgfk9Jy3rz+GVau5eyrYq0b7Vl71TslQiSYIQ4/xc
+	sriTJyUfzQwRg8X4MAHiFQpRbTaTEAhveRSbaomBC4ChKATkSilvDeAeivS9V7ZC2WGuCfDibQb+6
+	0FUYQVclqWzHeXK5SomCdvm5EASPYxSwbni0qzA6txxy8J5nTgtpP3xPJtzxYrmIR1FiUb6SNlc0S
+	8R7gT0Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjyku-00000004BCz-3U3I;
-	Mon, 17 Feb 2025 10:53:40 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1tjyky-00000004BJx-0SQQ;
+	Mon, 17 Feb 2025 10:53:44 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjyCK-000000045LZ-2lsw
+	id 1tjyCN-000000045NF-47in
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 10:17:57 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-abb81285d33so280395066b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 02:17:56 -0800 (PST)
+	Mon, 17 Feb 2025 10:18:01 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-abb8e405640so160943966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 02:17:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739787475; x=1740392275; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739787478; x=1740392278; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pjqSIaqjo22M/fJ6WrzBYInBLUW49xWtc11H9nbdufw=;
-        b=xwcycu9ZTrHAfGD3vzLsHN/BeO3D96X6CpNclngFBNnI4giMnFH6MNsJhhY1ua55YK
-         JonAXDQK+yWlV+3f16p/8bIsGtx+K5czIBkU2Fou7jzqroxC6xcqlyUWdhejJo0/g6lQ
-         2bdyOKRKWI6f6/rcQ074PZ1Kt0UEXYU9N/5v3DG/HeXIqsmHYlKqReBhJpnXOXEnJyAe
-         Y50+b6oyOtBXPGH8IdTUxoZRwUc9MYM8CG/1Y+wlVAP9bF5JHd02o/YANPeY5TChIvAz
-         pcaCbqtOlcRO/1eCiNQGP0nPuIGBdL6o5fL/ITdId9vmL5xCyWPF42J7BEbbcM7RXyvp
-         n9sA==
+        bh=6Td102jvjcyxJvAztEsXWW/VUH0CMT8UhqkeVVK6uLU=;
+        b=Vqlh8rqtbj196p2BPBJX08E3cxmkhQ+Y16oxL3+Xay2l9sIJRgvdufQOyhHUQoYSgi
+         sNrVMU4qLBcwH4fhbZZgiHWReqz/QekUdsA4tBZzQgtYwBnYmB2Gy+Ng2ewIwejgqWnf
+         /AkxfB86ituszcPHAthhNnOz0sCkEVWvLqb6vcUUon130TUxon53AZNaI3aS9uSZGIru
+         zRRvn4lbT8SqGtym0pp54tZlrsmN/2zIOQCBxLXntLewylqPETDd8jtzsgI6nnOk/A9m
+         N88cXMeFFrke2M/5FyKplXT9r68dFdi7K5dp/GikTG3oOAx1ZWPrttQUjJQhsw2pMrl9
+         H3qQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739787475; x=1740392275;
+        d=1e100.net; s=20230601; t=1739787478; x=1740392278;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pjqSIaqjo22M/fJ6WrzBYInBLUW49xWtc11H9nbdufw=;
-        b=c9qdPsopxCKHjWd2GPpxle+WbbNLMl21nja5Yvx/plV0ptfB6TqyWxXst31/hi6t+b
-         6RfLJCsTWuSIymNglZzdK2FFeoZKm7xU9HKCdvx0JAsqDHzUtaMm2tfKl7YbzaL4YHzn
-         fUUBUvzd0avCPQADwDh9Gw2jrdFJVFCE9ANF/GY8g418yKxC07amt+8J53AhKLfS0Zeh
-         AfF71H9tUc2P1O/h0ZCgl9Xm7T1ayKi1aprAtOlYdmewcLNDGirXEd2cQZWPUYPa1lEB
-         7IPxIIt+JFCy+F1TamA2E43ITqnsH1mPVdVe4uATh2ub6pvFHtoOyJGE6WV9DFh/KgxJ
-         IsBg==
-X-Forwarded-Encrypted: i=1; AJvYcCXdJfF/pYgl2m+PpL5fbKTMDoxqU1vt+IlaCY3Itd0v7ehqjta7BlMxPz0yhazuMcCutFun1BXgRQXX9uXCwe8e@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyipo5TsUeU6Tyt1kOAoFyOENTIbPVDgTrtl1OBZxKOByUqhyxF
-	wKqaS1fjSL+XWLyi+TAbx3HK2Dc0U7hk9+0FRCoIby3GA/Qs298LfoZXisC0stk=
-X-Gm-Gg: ASbGncvsRbUHTIeaNoNx7wCJaWk1pzIYZK06gfoUfy0LXdGdnZmTu05fZgp/4JrRGqz
-	n0pkYnxWIvAHnZFSLOMYl6vczc1CczQBOW0HWOptFAKYj+Z5WnZvUid8YNWv3N8txKy1sxDvxI+
-	SSdN8xrQ3T7zFfKK8cUcrbl8seh9/YLFApFP455bpX1EHz9FIzht3I6XrKg9cj+A4PT9zI1l4Zs
-	J8UI/uzeOrLKCLjBvG50sL4iDmbRe5SuO9AW/+PnrudT/+IzS1vEOLwF6rN7NOamANwzCvi8a/v
-	o87jA3PBynM8d4ILwmJSxRzZ
-X-Google-Smtp-Source: AGHT+IFlDyIupv/Dc3O4C3y1gwzt/272w46jucKO95aSvrTTvzjMkzKCPNIWu+2421TQveFqhl50lg==
-X-Received: by 2002:a17:907:26ce:b0:ab7:b878:e8bc with SMTP id a640c23a62f3a-abb70de288cmr1064938866b.38.1739787474939;
-        Mon, 17 Feb 2025 02:17:54 -0800 (PST)
+        bh=6Td102jvjcyxJvAztEsXWW/VUH0CMT8UhqkeVVK6uLU=;
+        b=MEWbFIjJVRDF49yGH+w8kK1PTZp7B/O6zFCuSHrROLmnkqB0V2Ugj7EMhgtR4gYu5k
+         k4RVY3mH/7ya2nUmjrQMO3uN4enRsaP6CfboddpqYwSgeAu3e9LKZ+t6Nl1CoVaD35XA
+         l+c/hk26W2kgiX8FPfrSeT1awEFIrnKMeXMY8liFXeRuH3xz0LY6kYiVq5mu9big+Ubz
+         hxnleZPFiQHursDyAjKMvxE3JZgeSAg8Z/PuSzUd1e29pFsfgYOQRqHe0kR9bjk5YvUG
+         KPmbGSN2uHWczXAOd2nr6/hS9RJGjXCuGo9tFgtWjSNzHL4is2+zFhaO2ujv7O/eSCbC
+         eRGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUc3Avbsd59VtEpeHxne/cCxLm0T71JR8bkolziRev5KDObskV1fqD3kKw40KwBoc/lH5Tb180dUrunb8yexKHy@lists.infradead.org
+X-Gm-Message-State: AOJu0YwokHTHokS411uf75MT8fL9X3qDWy6GAXGhEi9biQS+pRwNBMdi
+	s7CLkOibbS9uQeKqYaeaYJmGIHfFMBTTXm/nE409kPqSuJTMahaEE/mk2svuyWY=
+X-Gm-Gg: ASbGncvDHJPnEwX1rO7+BcYQ0kDqXwxGc8giQG3Twv+XSBXOGx3wiwHVwbvgrBiQFdG
+	DSB2J7dk013Y05dkoOFeQfi471hle8azagLYdroTPYVRD/NaWloB4nOFV/jk8mudytSq9l41bM9
+	i9dv392Lw1/BLNHEaI/JS26FASk7/7rcwhEAEbqBD+yRd922OOvmZMj5DygiVp9RR0u/+V9KhKW
+	tFeWTFGDT1TfgOiCrrmqnaYFiwCV3Ix7Zl0BPeO1LfqaCnVXGo77JPXmy4QcHTFUGokJb121gYo
+	llkvSACNdlXIC4UzhxnRpJ2v
+X-Google-Smtp-Source: AGHT+IHY65P+Xz4TNjemyphPqqQ9+ru/mohlrB5vFIKJf/R1MNkDOblIAzwWX9YVxAvz0IWpeGk+4w==
+X-Received: by 2002:a17:907:7752:b0:aa6:79fa:b47d with SMTP id a640c23a62f3a-abb7091cedcmr752835166b.1.1739787478322;
+        Mon, 17 Feb 2025 02:17:58 -0800 (PST)
 Received: from eugen-station.. ([82.76.24.202])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb8b1767e8sm308583266b.174.2025.02.17.02.17.53
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb8b1767e8sm308583266b.174.2025.02.17.02.17.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 02:17:54 -0800 (PST)
+        Mon, 17 Feb 2025 02:17:57 -0800 (PST)
 From: Eugen Hristev <eugen.hristev@linaro.org>
 To: linux-arm-msm@vger.kernel.org,
 	linux-hardening@vger.kernel.org,
@@ -89,17 +89,18 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@quicinc.com,
 	Eugen Hristev <eugen.hristev@linaro.org>
-Subject: [RFC][PATCH 06/10] qcom: smem: enable smem pstore backend
-Date: Mon, 17 Feb 2025 12:17:02 +0200
-Message-ID: <20250217101706.2104498-7-eugen.hristev@linaro.org>
+Subject: [RFC][PATCH 08/10] pstore: register kmsg into directly mapped zones if available
+Date: Mon, 17 Feb 2025 12:17:04 +0200
+Message-ID: <20250217101706.2104498-9-eugen.hristev@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250217101706.2104498-1-eugen.hristev@linaro.org>
 References: <20250217101706.2104498-1-eugen.hristev@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_021756_696863_0106499E 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20250217_021800_025049_3D511373 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,40 +115,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable smem pstore backend that registers regions into the minidump
-table.
+If dmapped zones are available, register the log buffer into one zone.
 
 Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
 ---
- drivers/soc/qcom/smem.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+ fs/pstore/platform.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/drivers/soc/qcom/smem.c b/drivers/soc/qcom/smem.c
-index 592819701809..f4d2646fcc0b 100644
---- a/drivers/soc/qcom/smem.c
-+++ b/drivers/soc/qcom/smem.c
-@@ -1236,11 +1236,21 @@ static int qcom_smem_probe(struct platform_device *pdev)
- 	if (IS_ERR(smem->socinfo))
- 		dev_dbg(&pdev->dev, "failed to register socinfo device\n");
- 
-+	ret = qcom_smem_md_init(&pdev->dev);
-+	if (ret)
-+		dev_info(&pdev->dev, "smem minidump backend init failed\n");
-+
-+	ret = qcom_register_pstore_smem(&pdev->dev);
-+	if (ret)
-+		dev_info(&pdev->dev, "smem pstore backend registration failed\n");
-+
- 	return 0;
+diff --git a/fs/pstore/platform.c b/fs/pstore/platform.c
+index 32448d9dd316..9a5c1d6d5031 100644
+--- a/fs/pstore/platform.c
++++ b/fs/pstore/platform.c
+@@ -452,11 +452,22 @@ static void pstore_register_kmsg(void)
+ 	kmsg_dump_register(&pstore_dumper);
  }
  
- static void qcom_smem_remove(struct platform_device *pdev)
- {
-+	qcom_unregister_pstore_smem();
++static int pstore_register_kmsg_dmapped(void)
++{
++	return pstore_register_core_area("dmesg", log_buf_addr_get(),
++					 log_buf_len_get());
++}
 +
- 	platform_device_unregister(__smem->socinfo);
+ static void pstore_unregister_kmsg(void)
+ {
+ 	kmsg_dump_unregister(&pstore_dumper);
+ }
  
- 	hwspin_lock_free(__smem->hwlock);
++static int pstore_unregister_kmsg_dmapped(void)
++{
++	return pstore_unregister_core_area("dmesg", log_buf_addr_get(),
++					   log_buf_len_get());
++}
+ #ifdef CONFIG_PSTORE_CONSOLE
+ static void pstore_console_write(struct console *con, const char *s, unsigned c)
+ {
+@@ -582,6 +593,9 @@ int pstore_register(struct pstore_info *psi)
+ 		pstore_dumper.max_reason = psinfo->max_reason;
+ 		pstore_register_kmsg();
+ 	}
++	if (psi->flags & PSTORE_FLAGS_DMAPPED)
++		if (pstore_register_kmsg_dmapped())
++			pr_warn("Registering kmsg as dmapped failed.\n");
+ 	if (psi->flags & PSTORE_FLAGS_CONSOLE)
+ 		pstore_register_console();
+ 	if (psi->flags & PSTORE_FLAGS_FTRACE)
+@@ -628,6 +642,8 @@ void pstore_unregister(struct pstore_info *psi)
+ 		pstore_unregister_console();
+ 	if (psi->flags & PSTORE_FLAGS_DMESG)
+ 		pstore_unregister_kmsg();
++	if (psi->flags & PSTORE_FLAGS_DMAPPED)
++		pstore_unregister_kmsg_dmapped();
+ 
+ 	/* Stop timer and make sure all work has finished. */
+ 	del_timer_sync(&pstore_timer);
 -- 
 2.43.0
 
