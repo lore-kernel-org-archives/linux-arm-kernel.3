@@ -4,102 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D4CAC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:36:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E743C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Tyg8b+xD0Br85DGNOgrIPE01EZSzRbYGNzNPsDnqag=; b=Zgd25tJStF5+yAZDZ10b2ecf3M
-	V7b7NHfZWJ8+/VroOwXWCvV0BUNbaJ1G3tBkU8ZM1gxoYJIqncgwEa/elNzg1/CzvL4hbNHUGxwAk
-	gREZXQYVdd+1tJ5CjhK4OzVDb+j6QqD7zXec9LHZKWITK8pOI33DiKNYWibJ0t5zQf/Y7Z5WNQ5JA
-	qoEIpEESWJ4TEwuYdvn5hc31v9it0gba8I+uf+wbkULUV+TmmMZ0tjtlAV7OBjpfd0TUwp3x0iPk5
-	gHbIUsPzovKT+Ct7vH8q0djtu1KWrpFDTpaFc3NVHOzSCvPJeVY+2fcpzO/38ck8S8ZbNJ7anslaK
-	xtbILFbg==;
+	bh=CBjifDT2yWCpEiPcPVoxuSXGvWaJ5sB6oKsyghiYmEw=; b=FvtZc9RlY2qT0jNQNcBlRksAPm
+	DqpW9JWTZTb50lL1fsS5TKZFP63qArvzcH6PiIcdeWGg8OO9tpUaBghYn4/ZTnykRLNaT8xSXuqaD
+	A9MEAOxWXoN4s/vnXkCpDrZQMYoeoI2JTHhJ2C3bPm8Zkh4DKq4mgdALRt/DoWAZHfn0BvhOHPWcF
+	KCHHObhd9aBFefz/3k8V6Hpq5FBawDTmpaSupLD7itdYTbqoHBVD34eT8U8HRePqmK+08ptQP4mrP
+	D874HUBxzBdR34SU3uzpacteG8ifjBbLD3wHQJ9UF+gtK+reG2mhcNm1QSF9OGZpKDwl19SADDNVN
+	WO3tGpyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2Dt-00000004sfj-0JGo;
-	Mon, 17 Feb 2025 14:35:49 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1qM-00000004nBI-2uaL;
-	Mon, 17 Feb 2025 14:11:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+Tyg8b+xD0Br85DGNOgrIPE01EZSzRbYGNzNPsDnqag=; b=tpBEUbseu3svPJZjMXU0nSpYr8
-	GmffVj6GQ869k1Jh3niah2GmA3mLVEENfzotxr/MZcFH2FhCCIZZp9Kxnz9msHHPG5C3vOB6+kUR6
-	6+RgjsyJNUEgL+6lYKHDXyLR6/ewFtS87FmKFoT6ICF87RC/fVEfuEgPooJINzuvQmyjV2AyVv+vJ
-	YbKo0YZXyP0coO8OvabMIii2bRao+9FXH6GvaO7AaWwc839h0w6a9KrOGu1gVklIfC15Ikw1Jj9vX
-	kQjlQzNDVeKcCrSDBXVW9IiUYc+OsOsTXab9schzXS/+HNDTbVhhy9fSvNf09tdiCq2hPlM2Xz3M4
-	CM1EF8aw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39042)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tk1ps-0006pq-1t;
-	Mon, 17 Feb 2025 14:11:00 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tk1pi-0006HQ-2v;
-	Mon, 17 Feb 2025 14:10:50 +0000
-Date: Mon, 17 Feb 2025 14:10:50 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Inochi Amaoto <inochiama@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-	Hariprasad Kelam <hkelam@marvell.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
-	Drew Fustini <dfustini@tenstorrent.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Lothar Rubusch <l.rubusch@gmail.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add glue layer for Sophgo
- SG2044 SoC
-Message-ID: <Z7NDakd7zpQ_345D@shell.armlinux.org.uk>
-References: <20250216123953.1252523-1-inochiama@gmail.com>
- <20250216123953.1252523-4-inochiama@gmail.com>
- <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
- <5e481b95-3cf8-4f71-a76b-939d96e1c4f3@lunn.ch>
- <js3z3ra7fyg4qwxbly24xqpnvsv76jyikbhk7aturqigewllbx@gvus6ub46vow>
- <24eecc48-9061-4575-9e3b-6ef35226407a@lunn.ch>
+	id 1tk2FK-00000004t2c-1VZ7;
+	Mon, 17 Feb 2025 14:37:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk1sa-00000004nhR-2D3l
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Feb 2025 14:13:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 379CA152B;
+	Mon, 17 Feb 2025 06:14:07 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4D4523F6A8;
+	Mon, 17 Feb 2025 06:13:47 -0800 (PST)
+Date: Mon, 17 Feb 2025 14:13:44 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Viresh Kumar <viresh.kumar@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 06/18] firmware: arm_ffa: Refactor addition of
+ partition information into XArray
+Message-ID: <Z7NEGG3DKiMUEu83@bogus>
+References: <20250131-ffa_updates-v2-0-544ba4e35387@arm.com>
+ <20250131-ffa_updates-v2-6-544ba4e35387@arm.com>
+ <20250214045030.mfegbypq27gdl6sg@vireshk-i7>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <24eecc48-9061-4575-9e3b-6ef35226407a@lunn.ch>
+In-Reply-To: <20250214045030.mfegbypq27gdl6sg@vireshk-i7>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_061130_733343_05F1791F 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20250217_061348_605670_CAC6DD2A 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,32 +64,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 02:25:33PM +0100, Andrew Lunn wrote:
-> > I am not sure all whether devices has this clock, but it appears in
-> > the databook. So I think it is possible to move this in the core so
-> > any platform with these clock can reuse it.
+On Fri, Feb 14, 2025 at 10:20:30AM +0530, Viresh Kumar wrote:
+> On 31-01-25, 11:24, Sudeep Holla wrote:
+> > @@ -1461,39 +1480,18 @@ static int ffa_setup_partitions(void)
+> >  		    !(tpbuf->properties & FFA_PARTITION_AARCH64_EXEC))
+> >  			ffa_mode_32bit_set(ffa_dev);
+> >  
+> > -		info = kzalloc(sizeof(*info), GFP_KERNEL);
+> > -		if (!info) {
+> > +		if (ffa_xa_add_partition_info(ffa_dev->vm_id)) {
+> >  			ffa_device_unregister(ffa_dev);
+> >  			continue;
+> >  		}
+> > -		rwlock_init(&info->rw_lock);
+> > -		ret = xa_insert(&drv_info->partition_info, tpbuf->id,
+> > -				info, GFP_KERNEL);
+> > -		if (ret) {
+> > -			pr_err("%s: failed to save partition ID 0x%x - ret:%d\n",
+> > -			       __func__, tpbuf->id, ret);
+> > -			ffa_device_unregister(ffa_dev);
+> > -			kfree(info);
+> > -		}
+> > +
 > 
-> Great
+> Why extra blank line here ?
 > 
-> The next problem will be, has everybody called it the same thing in
-> DT. Since there has been a lot of cut/paste, maybe they have, by
-> accident.
 
-Tegra186: "tx"
-imx: "tx"
-intel: "tx_clk"
-rk: "clk_mac_speed"
-s32: "tx"
-starfive: "tx"
-sti: "sti-ethclk"
-
-so 50% have settled on "tx" and the rest are doing their own thing, and
-that horse has already bolted.
-
-I have some ideas on sorting this out, and I'm working on some patches
-today.
+Spurious for sure, no idea how I managed that though. Dropped it now.
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Regards,
+Sudeep
 
