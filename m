@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC278C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 19:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3198CC021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:00:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WcqpG+BYolhuyDeMZi6qI20BSLp3GYG0+vieo87EGmk=; b=d2waz0YNlRn+PHxzP+2TuQFPTl
-	FCu8RtC2dqkaDs8yTQy5g8LdgLFh568b7wTQyEN+yzU9tWOtpOPRMZMh3oR6iDb6vZEUWYX+cqHm4
-	YkdtakhORzxq9zrF3IME7mp37P3pnHraBQ48COH8+8E4x8EY40VSkz6VtvfVfR1qqKtPfwIV6O9hU
-	BNwNMHoe/ZjY9wVk/LjiquyIC3zda2xwPi8CwD8xxy84FM/mwYIbYaO7vVix3s8yi0LuM8IrYoMyb
-	znc0gBvOjy9Ub/J2ANKzt1XJVyIbdYVwBlOcM1TdR5r9K9czRgD2rbHfwwBifN06J99L97QoqpUpP
-	KXEECiKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+eM01ELy6RFiGkjcxOpb1cojVzPpVE9t9t3LF3deNmc=; b=zR0deoz6CQaIpjuuw27pLaHHPO
+	WNf25ARFchNCmDM3KpDdjPZ31cA2X3uFGFbSVI7sJFsJFWE80DfUiIDqPOWTRVXCd80cNvOr7JkW1
+	4rY0VR6BRSbfUyFZNPBfDQBfrr6rdOp8tkGJEQzTr8a9ciVDRlnHMcyjVwaqhENOrVwzW/l9fC8vk
+	ixAaXcQDlhI3Ex4p/7FyEizYU3BbdQn8OgG04iGK2bujp1hyCgO4mjzkGV3ggfGGTNVtXKbPfjA1s
+	P+lrAdpdGFcTI7WXs9pXI8Vasb+YjXrhQFItjnbEuPcLuBokb648a5BDwOflbKJrIk88e2Y7wFY64
+	dw1Amaig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk74A-00000005n8k-2oQv;
-	Mon, 17 Feb 2025 19:46:06 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1tk7Ha-00000005p0j-32Cm;
+	Mon, 17 Feb 2025 19:59:58 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk72i-00000005msZ-0SCL
+	id 1tk7G7-00000005oZe-19sQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 19:44:37 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=ocExaFjsgLFVQzh8ijKBYhiO9N1lKDnf3zFjEDFvKJwAYlJT8gGMCucPkiD/jb2oyZYBV9oLWOAwWuO8+mhv//oT1tq/MYqYNYjs6eov+EY5lGc6I7zuKbUKg4zXyyss3Y9ro4VsAoZ+ppbnUC5Cm33AydgVOI4kVMyHBIi1kn4P+YMQfJkH+j9NEWmdTBwedT+IqOfVEiG/Mib81I6Be3fdrzb1qvFGXXnwu0Zvur6Y5fePvzn6dsY78JtM/OEvNUokWGpV9w+Z/S9gMPwjeuSn6QhX+XZng5NwvyLyTh2ct0QegEl8giXyINQHwvBQqqQqaUmKV6qM2MkB17DAPw==; s=purelymail3; d=purelymail.com; v=1; bh=IgmrKZQ+U6jM19WQ1y4s62f1uaoWol9FnsSA1ZFXU+4=; h=Feedback-ID:Received:From:Date:Subject:To;
-Feedback-ID: 68247:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1112335277;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Mon, 17 Feb 2025 19:44:15 +0000 (UTC)
-From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Date: Mon, 17 Feb 2025 20:44:04 +0100
-Subject: [PATCH v2] dt-bindings: usb: samsung,exynos-dwc3 Add exynos990
- compatible
+	Mon, 17 Feb 2025 19:58:28 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5452c2805bcso3504547e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 11:58:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739822305; x=1740427105; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+eM01ELy6RFiGkjcxOpb1cojVzPpVE9t9t3LF3deNmc=;
+        b=taII7sGrPRuyVBHuqamikgRAGikwfAlsZTRqzgc4pSY9IZtuG6x5ncGA1JPKUxT2N8
+         tuN9kBMSGlr9UzvOPIDvXGOa2kmnuat9R6vDhZxiVOEyd64AIxpe3OL91cY5H4hY3h9X
+         7du5Le3y0A9VIxaKg/exCgMTH3BeL2STNz3oZQaAtwS2iOQHyVwurJL5r3VtZ9lIo+Oo
+         f5EUoi0ZS6yCwrgzMn7DxmSZfcaJQcbh1cbSjE1wxWeSkMrTye4cdhJB+Y48V6k5C9Z6
+         v6flEpeXhUcrTQeUAfE+wcRgNxO3oO/PtWlItiXHEspEEGgiOmt9tYjHAtudMwKMnt4A
+         nmdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739822305; x=1740427105;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+eM01ELy6RFiGkjcxOpb1cojVzPpVE9t9t3LF3deNmc=;
+        b=ivz0mZZrUP9l5OlGFrLqfMUiwsvR+ru7yyTernUl05gFDaN0/1xCZZPBVhNcdp4TbW
+         36YW6eRLP/Zza731m6NEiaUAnTSXfpc9aJ5amnUBQvDHRpnZLaNgKZaypLfp6061qUK0
+         Gu5mXJOEh4OrNfnpk1Er9GzjnGnWGr7RqHvFXuqdIGJ76iDG6AUxYoLlq+b10/b+VZ+v
+         HJ3L4PQlJ5R8zdKaY+rNnkPLHjJeBrcPTQRtw8TIx6VR/Rk0IkPW0YfWovViZgQv7q1+
+         YvzPiI5D8xoxLNUSmJuUg5GFYVSJ47VcSIVnGULuqMl+bFAF5pe6pBENCeHQToFbQqhR
+         YlyA==
+X-Forwarded-Encrypted: i=1; AJvYcCUzPEZ97b1ZIHEYXeiZuEuX1OCmnD7UM4whGylMuNZVoKFwjsyQEqcFqrlHS3x+gmAffH37B1RtLjE6fjUhVKpm@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcPdrBGfkGlnh9JPN0xFo0jsMEyTu2wRdcG3r8hLWWiUXRkRf0
+	k2I9OrQn5z5DkvyZ5OZ2ROqXE92gIFsoLQhArra5hgguAhShArQKlfl0GjH3DHE=
+X-Gm-Gg: ASbGncuwvBwN3dwtdTWmxgD7qTqR3NTnf7zwNzppkK0cnCm254cgNdf2SZ648gpDLS5
+	kjJvxmXFLP23uwSKaLrv+teAbyX6lspbZUMPY1GIhAysFoEjBokJ2RsPWbu3dJs6+Q5dq1FeSAp
+	Zo90moEQsfxzOwOy/gjgGPLvFWR83eI6IGGrVhafVdZ/B217O8dWHwUroLhu/vWPmoOoEbtW7mF
+	M/ZUp6rn+KhsJAmvkN2+1hpRiIELSd3PvEfZuNQvvCcgPrItxlwjKJeJCXV7DVua+f9lhGXd7kb
+	Udw6d3yDnpZGvyRI+T0jPy6dxzhBTo7b14DkZ5OFYUi+PPKPL05W4daY3LBVCg1KbxwIZeI=
+X-Google-Smtp-Source: AGHT+IEbKDaSdPLHIMQ9eXv6L5J9v69avK8N05Xy7KhfzTpN1ljeSBVhl0WhGYyS/jPkWJgZWNtb/A==
+X-Received: by 2002:a05:6512:2823:b0:545:4cb:b25d with SMTP id 2adb3069b0e04-5452fe37326mr3210895e87.13.1739822302051;
+        Mon, 17 Feb 2025 11:58:22 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5452b496aafsm1288648e87.29.2025.02.17.11.58.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 11:58:20 -0800 (PST)
+Date: Mon, 17 Feb 2025 21:58:18 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: Vishal Sagar <vishal.sagar@amd.com>, 
+	Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>
+Subject: Re: [PATCH v3 03/11] drm/fourcc: Add DRM_FORMAT_Y8
+Message-ID: <lzzp5cgsh3qegxtctttys3tvtr2j2ciurm2jnmmm3d6cgjei5z@rzu4p5afxf6f>
+References: <20250212-xilinx-formats-v3-0-90d0fe106995@ideasonboard.com>
+ <20250212-xilinx-formats-v3-3-90d0fe106995@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250217-exynos990-bindings-usb3-v2-1-3b3f0809f4fb@mentallysanemainliners.org>
-X-B4-Tracking: v=1; b=H4sIAIORs2cC/4WNQQqDMBBFryJZNyWJWk1XvUdxEXXUAZ1Ixooi3
- r2pF+jyPfjvH4IhILB4JocIsCKjpwjmlohmcNSDxDayMMrkyuhMwraTZ2uVrJFapJ7lh+tUPrp
- SdYW2mU4LEddzgA63q/yuIg/Iiw/7dbTqn/3fXLXUMoW8NYXRjS2b1wS0uHHc2RFMDmlEgsB3H
- 3pRnef5BbmVk/LPAAAA
-X-Change-ID: 20250214-exynos990-bindings-usb3-6f80f7194137
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-usb@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Igor Belwon <igor.belwon@mentallysanemainliners.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739821453; l=1933;
- i=igor.belwon@mentallysanemainliners.org; s=20241206;
- h=from:subject:message-id; bh=IgmrKZQ+U6jM19WQ1y4s62f1uaoWol9FnsSA1ZFXU+4=;
- b=B6t7KTHxA+iuFtJA+yAANoa5OJat58KmWVxgOUSKRZvxMNtbaoOTTAlv4dPWmlT5LWwh2Pu8k
- q6eEIZ+JUKrDuBKPF+X1xlb64anSsoZh8AOFx9Q0WEbW2fD/l12oaJy
-X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
- pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250212-xilinx-formats-v3-3-90d0fe106995@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_114436_217847_9C5ECE1F 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_115827_305388_1C9F894C 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,59 +102,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a compatible for the exynos990-dwusb3 node. It's compatible with the
-exynos850 variant when using the highspeed mode.
+On Wed, Feb 12, 2025 at 04:56:07PM +0200, Tomi Valkeinen wrote:
+> Add greyscale Y8 format.
+> 
+> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> ---
+>  drivers/gpu/drm/drm_fourcc.c  | 1 +
+>  include/uapi/drm/drm_fourcc.h | 3 +++
+>  2 files changed, 4 insertions(+)
 
-Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
----
-The Exynos990 SoC embeds a DWC3 USB3 DRD controller.
+My 2c is that it's useful to have YUV (well, Y-only) grayscale formats.
 
-The controller's design is compatible with the Exynos850 design
-for high-speed mode.
 
-This patchset adds in the new exynos990-dwusb3 compatible.
----
-Changes in v2:
-- bindings: re-check, fix picking the dwusb3 compatible
-- Link to v1: https://lore.kernel.org/r/20250214-exynos990-bindings-usb3-v1-1-3e5d2721c98c@mentallysanemainliners.org
----
- .../devicetree/bindings/usb/samsung,exynos-dwc3.yaml     | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
+Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-diff --git a/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml b/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
-index 2b3430cebe99106f3b6201ab31d4d9e3fcc55627..f11e767a8abe1d2fb7faa6d6b5be09970c5c9b37 100644
---- a/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
-+++ b/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
-@@ -11,12 +11,16 @@ maintainers:
- 
- properties:
-   compatible:
--    enum:
--      - google,gs101-dwusb3
--      - samsung,exynos5250-dwusb3
--      - samsung,exynos5433-dwusb3
--      - samsung,exynos7-dwusb3
--      - samsung,exynos850-dwusb3
-+    oneOf:
-+      - enum:
-+          - google,gs101-dwusb3
-+          - samsung,exynos5250-dwusb3
-+          - samsung,exynos5433-dwusb3
-+          - samsung,exynos7-dwusb3
-+          - samsung,exynos850-dwusb3
-+      - items:
-+          - const: samsung,exynos990-dwusb3
-+          - const: samsung,exynos850-dwusb3
- 
-   '#address-cells':
-     const: 1
 
----
-base-commit: 5cbcf2652f4cd84eac21f5e88fe2a0baecc601fb
-change-id: 20250214-exynos990-bindings-usb3-6f80f7194137
-
-Best regards,
 -- 
-Igor Belwon <igor.belwon@mentallysanemainliners.org>
-
+With best wishes
+Dmitry
 
