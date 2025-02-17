@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F16AC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 18:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FFEAC021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 18:04:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z/Pliae2eQBpyDaB/rhM+Xrce+n5H7ftTZ7yML/5v4Q=; b=Otl+Fi8CaxU5x2N1VS8wf+r79J
-	ztOgOiX6U+z8gIJcSp18e8aVN0vJKsPA9XUN9/VJmIvZ7t4GnzFrvzae2bek/JONqtZTGzscz1eNr
-	eRBQIf1Fo9i+9TbxyADtfQ8C4na+wejQ1tDVsz9bdBIos1o9Ohojj6UKrO2apO1pbhGse5ND/JOJ5
-	3oa4LWa/vEijU4uFqGfCbtHbt8uPZ4fIBDT7Awu43GO21g68xvqhyDLOXOXbj9A0A4qbommPffeI4
-	iW94r62qfMI9krbtcYMDOzy5eh++TXt38mH8E0EvuEamA2h59f1I+uMKpMPtfAHPQHoVzU/phmkw1
-	ej3K/sXA==;
+	bh=TKpi0u6vaUnsrplCnc00ydxIjOGnOYCvPvGm+BeJUhk=; b=djOiVJxfszNmXdjj+BFF91gha3
+	hqs5HbGeE4ZXGw/TJ29AfLnBdig4G2sbXCwYIystAItuLk+tctMJkkvu6LtrmxwHIuswxnR/ZSf7J
+	fXDMf0p7MifstN48P5Uqnd4vKcWakr3CSNaj/3QfqUNzKOHnaf2Kcdkaja8kSlMU79tyuHkqeUWvV
+	Dq5DmdS/rpgkFOIT+Fp3xt8vb27SauDNuER0LkAkbL1bk0m7myT3dGR1wzfMA1x896pRQaXyvYXQd
+	2AlMafqKfMLeTFOGKPMH52MVFey1gZHtUO4wRyD+c+jS0S12OBIu4r9rBJJQ3bQty/2L8hEAabors
+	qr4VagOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk5R9-00000005YAi-0qBX;
-	Mon, 17 Feb 2025 18:01:43 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1tk5U1-00000005YSs-0J2m;
+	Mon, 17 Feb 2025 18:04:41 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk47f-00000005I9h-0Ido;
-	Mon, 17 Feb 2025 16:37:32 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-38f504f087eso845f8f.1;
-        Mon, 17 Feb 2025 08:37:30 -0800 (PST)
+	id 1tk47j-00000005ICe-05GT;
+	Mon, 17 Feb 2025 16:37:36 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-38de1a5f039so4444069f8f.2;
+        Mon, 17 Feb 2025 08:37:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739810249; x=1740415049; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739810253; x=1740415053; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=z/Pliae2eQBpyDaB/rhM+Xrce+n5H7ftTZ7yML/5v4Q=;
-        b=G5qRWMpkUn19M5HR/XfBS0J7GIQ7c3x0dsI5Vs1Kbxuc6UG6TauPOKZQnGC7XCaM7Q
-         971u/KyhPxtTdTLEvCf6LzyMwGhaht8MlkqCLq6GIC6xRd64ioXp8t3QfcJNPEzq7FoT
-         8wNVHFd6OgZsxYi6SB7/N+tBrT59HdAwG6244Y6WacfwMsPPO9m2s4VEwbAPx01/zqrH
-         6x/+mQwfd9PA04rcLqGPgZHPslskV6TPpg51pYURg7I/kjszgkz0xaBjFQF+QZapLlbv
-         Jh4gm3Mg10SLHLPV6QmMoRlcI26oiyxyWny0JohSSmzR8+KbTc1NteEOPpDxjZ3zNM6n
-         vaaw==
+        bh=TKpi0u6vaUnsrplCnc00ydxIjOGnOYCvPvGm+BeJUhk=;
+        b=e+hNyY4gKBOqWrP9LbHeKj13gy/kkoFmY9SAfuCch9eHapc5xsiybo6hw51wDkiKUO
+         3PCLmQ07TBxh1abNS1EWJlsM4M0vX1C/QOzxX7AtL3VXe5NT1Urna7pYkM9ZyR7D5Y0m
+         p1Qz0uMdMngMbGRCpUwxCDLP70KnCRY4IExpu5OzDZ0U8qs/Oa0AhfYyLf5azxgh/eRz
+         SlNDqIfiwlW0KWkHya6Ytsx1Y7YdBI+DiShD7CVevjRxhtZjE8MDn/SO+33BVFufdMkq
+         K6JKmF/vFymPbDy0yOfjBAdDfkR85HDUCyN5c0E+OetdF9f47jj/H/Dwaxn+zpjxT3Tv
+         szjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739810249; x=1740415049;
+        d=1e100.net; s=20230601; t=1739810253; x=1740415053;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=z/Pliae2eQBpyDaB/rhM+Xrce+n5H7ftTZ7yML/5v4Q=;
-        b=D8EUvs2pB3aSr4XJog++VlKHckQZcAtdL2u5/oW2nygNCI8KDBEy9+QpS3OGpWUtrx
-         rNgaONKa2dHVaZOjXuXWf+wLSZGw0K0oIbauj25KK1C06BNdZXG/0a207F/x5YEY30Hx
-         NV9hVhWth7+f3IxvvehD2GOyhmH2QLKPNPZryC2fuKO3qc4mO5ifrRX/YViis3bf/eAx
-         8vSmpd1Y6iyg3ROJTpAWhy3WtdXjch4tS73rZ1xwDSAV3RDXIUIBFgabkFHhkGf6sd+L
-         YKpnkfQ5QzDkE7n37oyBg9sZPa8591aIf+tcNabl6vx/86LnR8b3Si38Mtw3akNccDEs
-         e78w==
-X-Forwarded-Encrypted: i=1; AJvYcCUM1WGwLcvYAJwLCiVPB05MAYGVbSl/qFmtGBkVrpnnyNJ9fvZzeOFOTTOyPj7OQRPTACgzgmRLs2rh9Uw=@lists.infradead.org, AJvYcCVKRgHa0FFq9BkCAJ2mJcwBXAp97jLWpV/q8n8vBQOLPp+OMFCZBVmg7vBQqw6l60xanUL+TUpjlqcTFJenE93o@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzbr3SAToifyT5kiaz5PuCcezNkoKHX3WqsDjuKl9Z9873k4sjj
-	K5bCxrToFR2+mEfKsBoxn6XHgab8ZIbJpenWoGXLHQDEWv9aM6DGIQN6uQ==
-X-Gm-Gg: ASbGncsax2k9sXt8BdroAUtiz/ESxZJxfK8G0BtDQr0msYoHbCI1SfWs8dYEzmfmitC
-	Sycxjy2o3HgbzBdh7qZTusRDaIwRk9cHFh8aaU+GH+SW49370xrp61iJBDRIuvOQcoq+DcokQ3r
-	IC8peDjxm3hMvzQaKasw+Z7B+T9rEkuq1JTUBVBZNHg9amULpnLJpMG7Mdm3ZKWZteNpk1OLjCD
-	MhMllMCmnayof+m4+sdQgnazYk5J1G7qzuo2LK6VhfWVxU1Nz4fBkMMrx009jKFuMeymaI0ErDT
-	cwYJ6jEazKrVZTuMIODt+95B/udAkymmivIYWWQrrdXgYPkSRTb+g9UsXxa1AwlOlyvTzmkN2fa
-	Ff6L6e0U=
-X-Google-Smtp-Source: AGHT+IEcmZoV9E3nZ+6g02c1M8tS19/XgVVrKGZ1S0RbQ0hvdrhxp+y24wkbvweGnlTFrgLbDmIhiQ==
-X-Received: by 2002:a5d:6a0a:0:b0:38f:2e78:450c with SMTP id ffacd0b85a97d-38f33f2961cmr6950160f8f.19.1739810249186;
-        Mon, 17 Feb 2025 08:37:29 -0800 (PST)
+        bh=TKpi0u6vaUnsrplCnc00ydxIjOGnOYCvPvGm+BeJUhk=;
+        b=IOFEosnVjqx9wKvE4xUtkaZNtsPkPOqhaP5MpsjNaFKDkC4/XQNjzM76MmztCh5+El
+         rNRA8X+54yMvdaupqBwPViplD8lkagAhWBCkMlrze13x1zb3Eie8k1+a+61l6KuFiv3z
+         YTcUx6YRPT5In+wVhy8a/zme+ySdMIn+hHIUetyQAmsLqrokkJx/DRx9iBvu3Eg94Dr3
+         mmMrDHQvnLgVDrnPea4l+6ujj27LDa+qq3lJOmSV+W11oLr2h/eKtPcXEUpo0/i1SnVu
+         Ou7vGp3Sp+DfyNDww8GV6UBQ5S67smYODcPsXCVEAq3m+RGuATEP55fYeQ0gy8BeFh67
+         4/Pg==
+X-Forwarded-Encrypted: i=1; AJvYcCV2kOQ4cAYfWwkBTPJaLBHtfipwYl1A5hZT/y7w9OCgN19uVUtn+rpwheez7Q/26XttjiWnsrxM5KdD5NbXx+PJ@lists.infradead.org, AJvYcCWCmO+Eobs7RbGcL4SrgHK6gy5JbWlWb6j2k+AFo7E26mqX+a4hWhVrO68JxdBWKffai0aEvp1ahSomxys=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEExlOl87sAgyiDHiSpAdh9ksnfc7140wuchIfzf5p57sSTy7K
+	4iSVQZ1kE0rsOBg/dcct24ZjE97eRsTvYqKdWtJq2XWPGG6WlAsX
+X-Gm-Gg: ASbGncvTi2nkk3cszFUjBaMjTB0R16gcC6fjvlizzWqs79o/E0k0W6gZpMnC5OB6qJP
+	hQVURLgFSI7GMaXivg4qns8nzKgDLGFNIU8/8nBsAmZOGleqK8pURpeqKQTJdEwgA0m1y/ef+4X
+	pQpe58F3q3PZnhlw5zblnyFTbX92R7KOtrWNXEnCIpmIGtdvbSEQ2hwBctfo70obM3ogOAEd4kN
+	soSKYlr5sWqSZtTl8zYPjqbFwbelFZq2Ytq08WvNXg+DnqjRymI3H446KcxU5uJMd6S6OVEz1ja
+	G0Fl8inFN1xDaiXq4Y56FEKCWKtsh23cv2Tbecx4Sq6EmmEufiKjpGyey8G4uwnKjbXwLMbD5fT
+	z1/4jrnk=
+X-Google-Smtp-Source: AGHT+IGTsVCL+NTHpDgAjbfPGCf82Ky2fpMBBCHIOPIzC5FN2MM8zcjn3L7PrIBL8Fr/RKV6YFjIXQ==
+X-Received: by 2002:a5d:64c6:0:b0:38d:cab2:921a with SMTP id ffacd0b85a97d-38f33f1249bmr8380187f8f.1.1739810253132;
+        Mon, 17 Feb 2025 08:37:33 -0800 (PST)
 Received: from localhost (p200300e41f22a600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f22:a600:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-38f259fe1efsm12791371f8f.97.2025.02.17.08.37.27
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-38f259f7979sm12509797f8f.83.2025.02.17.08.37.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 08:37:28 -0800 (PST)
+        Mon, 17 Feb 2025 08:37:32 -0800 (PST)
 From: Thierry Reding <thierry.reding@gmail.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Cc: x86@kernel.org,
@@ -80,17 +80,17 @@ Cc: x86@kernel.org,
 	linux-pci@vger.kernel.org,
 	linux-acpi@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/7] clk: ingenic: tcu: Embed syscore_ops in TCU context
-Date: Mon, 17 Feb 2025 17:37:10 +0100
-Message-ID: <20250217163713.211949-5-thierry.reding@gmail.com>
+Subject: [PATCH 6/7] irqchip/irq-imx-gpcv2: Embed syscore_ops in chip context
+Date: Mon, 17 Feb 2025 17:37:12 +0100
+Message-ID: <20250217163713.211949-7-thierry.reding@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250217163713.211949-1-thierry.reding@gmail.com>
 References: <20250217163713.211949-1-thierry.reding@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_083731_110134_0791DB69 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20250217_083735_059948_13B40C68 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,107 +107,91 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Thierry Reding <treding@nvidia.com>
 
-This enables the syscore callbacks to obtain the TCU context without
-relying on a separate global variable.
+This enables the syscore callbacks to obtain the IRQ chip context
+without relying on a separate global variable.
 
 Signed-off-by: Thierry Reding <treding@nvidia.com>
 ---
- drivers/clk/ingenic/tcu.c | 54 ++++++++++++++++++---------------------
- 1 file changed, 25 insertions(+), 29 deletions(-)
+ drivers/irqchip/irq-imx-gpcv2.c | 29 +++++++++++------------------
+ 1 file changed, 11 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/clk/ingenic/tcu.c b/drivers/clk/ingenic/tcu.c
-index 85bd4bc73c1b..503a58d08224 100644
---- a/drivers/clk/ingenic/tcu.c
-+++ b/drivers/clk/ingenic/tcu.c
-@@ -53,9 +53,9 @@ struct ingenic_tcu {
- 	struct clk *clk;
+diff --git a/drivers/irqchip/irq-imx-gpcv2.c b/drivers/irqchip/irq-imx-gpcv2.c
+index 83b009881e2a..61ba06a28fc4 100644
+--- a/drivers/irqchip/irq-imx-gpcv2.c
++++ b/drivers/irqchip/irq-imx-gpcv2.c
+@@ -19,6 +19,7 @@
  
- 	struct clk_hw_onecell_data *clocks;
--};
  
--static struct ingenic_tcu *ingenic_tcu;
-+	struct syscore_ops syscore;
-+};
- 
- static inline struct ingenic_tcu_clk *to_tcu_clk(struct clk_hw *hw)
- {
-@@ -332,6 +332,24 @@ static const struct of_device_id __maybe_unused ingenic_tcu_of_match[] __initcon
- 	{ /* sentinel */ }
+ struct gpcv2_irqchip_data {
++	struct syscore_ops	syscore;
+ 	struct raw_spinlock	rlock;
+ 	void __iomem		*gpc_base;
+ 	u32			wakeup_sources[IMR_NUM];
+@@ -26,7 +27,11 @@ struct gpcv2_irqchip_data {
+ 	u32			cpu2wakeup;
  };
  
-+static int __maybe_unused tcu_pm_suspend(struct syscore_ops *ops)
+-static struct gpcv2_irqchip_data *imx_gpcv2_instance __ro_after_init;
++static inline struct gpcv2_irqchip_data *
++from_syscore(struct syscore_ops *ops)
 +{
-+	struct ingenic_tcu *tcu = container_of(ops, typeof(*tcu), syscore);
-+
-+	if (tcu->clk)
-+		clk_disable(tcu->clk);
-+
-+	return 0;
++	return container_of(ops, struct gpcv2_irqchip_data, syscore);
 +}
-+
-+static void __maybe_unused tcu_pm_resume(struct syscore_ops *ops)
-+{
-+	struct ingenic_tcu *tcu = container_of(ops, typeof(*tcu), syscore);
-+
-+	if (tcu->clk)
-+		clk_enable(tcu->clk);
-+}
-+
- static int __init ingenic_tcu_probe(struct device_node *np)
+ 
+ static void __iomem *gpcv2_idx_to_reg(struct gpcv2_irqchip_data *cd, int i)
  {
- 	const struct of_device_id *id = of_match_node(ingenic_tcu_of_match, np);
-@@ -430,7 +448,11 @@ static int __init ingenic_tcu_probe(struct device_node *np)
- 		goto err_unregister_ost_clock;
- 	}
+@@ -35,14 +40,10 @@ static void __iomem *gpcv2_idx_to_reg(struct gpcv2_irqchip_data *cd, int i)
  
--	ingenic_tcu = tcu;
-+	if (IS_ENABLED(CONFIG_PM_SLEEP)) {
-+		tcu->syscore.suspend = tcu_pm_suspend;
-+		tcu->syscore.resume = tcu_pm_resume;
-+		register_syscore_ops(&tcu->syscore);
-+	}
+ static int gpcv2_wakeup_source_save(struct syscore_ops *ops)
+ {
+-	struct gpcv2_irqchip_data *cd;
++	struct gpcv2_irqchip_data *cd = from_syscore(ops);
+ 	void __iomem *reg;
+ 	int i;
  
- 	return 0;
+-	cd = imx_gpcv2_instance;
+-	if (!cd)
+-		return 0;
+-
+ 	for (i = 0; i < IMR_NUM; i++) {
+ 		reg = gpcv2_idx_to_reg(cd, i);
+ 		cd->saved_irq_mask[i] = readl_relaxed(reg);
+@@ -54,22 +55,13 @@ static int gpcv2_wakeup_source_save(struct syscore_ops *ops)
  
-@@ -455,38 +477,12 @@ static int __init ingenic_tcu_probe(struct device_node *np)
- 	return ret;
+ static void gpcv2_wakeup_source_restore(struct syscore_ops *ops)
+ {
+-	struct gpcv2_irqchip_data *cd;
++	struct gpcv2_irqchip_data *cd = from_syscore(ops);
+ 	int i;
+ 
+-	cd = imx_gpcv2_instance;
+-	if (!cd)
+-		return;
+-
+ 	for (i = 0; i < IMR_NUM; i++)
+ 		writel_relaxed(cd->saved_irq_mask[i], gpcv2_idx_to_reg(cd, i));
  }
  
--static int __maybe_unused tcu_pm_suspend(struct syscore_ops *ops)
--{
--	struct ingenic_tcu *tcu = ingenic_tcu;
--
--	if (tcu->clk)
--		clk_disable(tcu->clk);
--
--	return 0;
--}
--
--static void __maybe_unused tcu_pm_resume(struct syscore_ops *ops)
--{
--	struct ingenic_tcu *tcu = ingenic_tcu;
--
--	if (tcu->clk)
--		clk_enable(tcu->clk);
--}
--
--static struct syscore_ops __maybe_unused tcu_pm_ops = {
--	.suspend = tcu_pm_suspend,
--	.resume = tcu_pm_resume,
+-static struct syscore_ops imx_gpcv2_syscore_ops = {
+-	.suspend	= gpcv2_wakeup_source_save,
+-	.resume		= gpcv2_wakeup_source_restore,
 -};
 -
- static void __init ingenic_tcu_init(struct device_node *np)
+ static int imx_gpcv2_irq_set_wake(struct irq_data *d, unsigned int on)
  {
- 	int ret = ingenic_tcu_probe(np);
+ 	struct gpcv2_irqchip_data *cd = d->chip_data;
+@@ -275,8 +267,9 @@ static int __init imx_gpcv2_irqchip_init(struct device_node *node,
+ 	 */
+ 	writel_relaxed(~0x1, cd->gpc_base + cd->cpu2wakeup);
  
- 	if (ret)
- 		pr_crit("Failed to initialize TCU clocks: %d\n", ret);
--
--	if (IS_ENABLED(CONFIG_PM_SLEEP))
--		register_syscore_ops(&tcu_pm_ops);
- }
+-	imx_gpcv2_instance = cd;
+-	register_syscore_ops(&imx_gpcv2_syscore_ops);
++	cd->syscore.suspend = gpcv2_wakeup_source_save;
++	cd->syscore.resume = gpcv2_wakeup_source_restore;
++	register_syscore_ops(&cd->syscore);
  
- CLK_OF_DECLARE_DRIVER(jz4740_cgu, "ingenic,jz4740-tcu", ingenic_tcu_init);
+ 	/*
+ 	 * Clear the OF_POPULATED flag set in of_irq_init so that
 -- 
 2.48.1
 
