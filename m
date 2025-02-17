@@ -4,88 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D22DC021AB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:46:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03144C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=5RbhS+zMfnJaqNmZ2hrpoGWgBgTc8EWmgM+o7CODprw=; b=YDpIF/268mZ7Fk
-	UWn9SKPZukRvbAoVrQ5l0Z4RtxhEbsh5tNd/nE6XYLRIe+E7+QCYG3a45cDu8Z9K+7ss+T32591BI
-	LJDs8m1lqg6GH4/jWiL0TXAafDxY+ifP2/5AU/5sp9ChEWtVsBOZJldXEIDCGl2FjXqswiU94KEvq
-	w8e9L5cvZtDXD4DYJ+uyyQJDpmLKc7yRks/XFbQadJGyAyoNSS04MxmQ5RwMzDwaoDQCm6jZnRGId
-	zcgEoYM894xKTovt7Na41QPt6HhWF523dC7sVDGbVgo2FmPKv52dTpSDp0rbt9p793Fk9kmb8F761
-	Emdx+9ToqrMM1wLG8jOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Content-Transfer-Encoding
+	:Content-Type:MIME-Version:Message-Id:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R8naEOTdABQ6ek42F96g0zKj5wjNDhuqMoSCqjLqNUE=; b=Pg3y0xl0c1YCuQoLWj/TSmX/n4
+	mdTpLzwhxkqsVvOhHQZxEnIOIf1CWZaO8flW8i3ZejVRIYZEsM1eNUm7mN7fe74FwLw9WQ93LpKKy
+	ufc58r+E6J14+3Fx6I827zmuEONaL/Sw0qN3dlFeKjsgyKk7BUHGakZ22pwE8ci4iMxIMVHiJ2vxI
+	Dj8bwkLJrvvfvNpJF+W39+bFGd1jJWV/BY26NH0fx1T0m2NISt9d6AAnCWn18dJLCNWTaz8Ca0vAO
+	Jbg1i8NmLbtnWWg3wNGUGXF09izcxQL3E7mZZ9ZdJaoztrXI1o9jWfqiTU/ec17IGniSUXq4pgQtk
+	jzx6wQ7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3K1-000000057GK-1EVs;
-	Mon, 17 Feb 2025 15:46:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk38t-000000053yl-1yed
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 17 Feb 2025 15:34:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:In-Reply-To;
-	bh=5RbhS+zMfnJaqNmZ2hrpoGWgBgTc8EWmgM+o7CODprw=; b=JgGTIFKPIeUV3c73dj3C/5Jin4
-	2ImV6olONPY0rrLmWb9E33riDsdzMr2tgPIzUJUGC1oP7dRFmsdqDNkuyMuC6W7CeaC8TWb3DNaFl
-	vNQjPscALGG7TfuIl+LBd3VxLxDWjb0r5RduHxZk0E3uKyHFCeImvQBf2Z+i/vmqbXWLs1wVDIzUp
-	N9Htn96Kdx3efwowOYcCUT4MqIaH5XOjUHXXXRGDHYLGJuOmwmLNVptJJgXXFfpsanc7U9gnMg/zJ
-	RF03OJgaCO5lNP9RljtlXIVkAIjFAO04F4M5v9clHc9EZmf+TkitkwdZeT0O6ALnAxmc+XqqzjYsZ
-	KEtq/WiQ==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk38o-00000001qnb-2afq
+	id 1tk3LT-000000057be-1TLU;
+	Mon, 17 Feb 2025 15:47:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk3DV-000000055VR-2dco
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 15:34:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6A379A41627;
-	Mon, 17 Feb 2025 15:32:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADE11C4CEEF;
-	Mon, 17 Feb 2025 15:34:33 +0000 (UTC)
-Received: from rostedt by gandalf with local (Exim 4.98)
-	(envelope-from <rostedt@goodmis.org>)
-	id 1tk393-00000003aKs-2RZE;
-	Mon, 17 Feb 2025 10:34:53 -0500
-Message-ID: <20250217153453.433822299@goodmis.org>
-User-Agent: quilt/0.68
-Date: Mon, 17 Feb 2025 10:34:04 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org,
- linux-kbuild@vger.kernel.org,
- bpf <bpf@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org,
- linux-s390@vger.kernel.org
-Cc: Masami Hiramatsu <mhiramat@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Masahiro Yamada <masahiroy@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>,
- Nicolas Schier <nicolas@fjasle.eu>,
- Zheng Yejian <zhengyejian1@huawei.com>,
- Martin  Kelly <martin.kelly@crowdstrike.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Josh Poimboeuf <jpoimboe@redhat.com>,
- Heiko Carstens <hca@linux.ibm.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>
-Subject: [PATCH v4 3/6] scripts/sorttable: Always use an array for the mcount_loc sorting
-References: <20250217153401.022858448@goodmis.org>
+	Mon, 17 Feb 2025 15:39:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04CAB152B;
+	Mon, 17 Feb 2025 07:39:48 -0800 (PST)
+Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E9393F6A8;
+	Mon, 17 Feb 2025 07:39:27 -0800 (PST)
+From: Sudeep Holla <sudeep.holla@arm.com>
+Subject: [PATCH v3 00/19] firmware: arm_ffa: Framework notification support
+ + other updates and fixes
+Date: Mon, 17 Feb 2025 15:38:41 +0000
+Message-Id: <20250217-ffa_updates-v3-0-bd1d9de615e7@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAZYs2cC/23MSwrCMBSF4a2UjI3k5ia+Ru5DRNLmxmbQpiQ1K
+ KV7Ny2ICA7Pge+fWKLoKbFTNbFI2Scf+jJwU7GmNf2duLdlMymkAikVd87cHoM1IyUOYucsWnd
+ Eq1kRQyTnn2vtci279WkM8bXGMyzv/04GLrgAiWhqgwR0NrHbNqFjSyXLj9QCEH6lLFIrVRtFq
+ PGw/8p5nt9c5vTu3gAAAA==
+X-Change-ID: 20241224-ffa_updates-106fd3df93d5
+To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Sudeep Holla <sudeep.holla@arm.com>, Viresh Kumar <viresh.kumar@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3957; i=sudeep.holla@arm.com;
+ h=from:subject:message-id; bh=RhTnNYTfj2ffvvqL8JaHV8Axj4MhUpAhKy1ZgSM7abE=;
+ b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBns1gtlQjXSIZZ1QilM4KEtRmZZGA/mabcIzQyM
+ HMQGh7ifgWJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ7NYLQAKCRAAQbq8MX7i
+ mMaTEADXtL3GaYTyX9jBF0qryyucuCDMc0PT3DNxvYndxYVB4X0pWfMLajZqMB4sjbJe0NXpy2e
+ M1OKrlAp/6C6X7aLkGEvzELgzlHPdk4VLjw+vG3hBKsTc7Ej4iqORfSASIwUwV/xYN/CWri4xD4
+ z3KH3Soj20Fb4858gGph5P+++ZJR+66onbTrI/b0GXesqd+s0pwoZ2eO5ggnZkNlIEo0lM+kxPI
+ vPX698S4vQbZJvT85v+Pv80er/XZZswj3Yj4g+8XZrdESjEY6tEOc5LbOl20nuX/ZL/TERV9opt
+ JCqX6vWN8IMFcAbUPACK6//3HR+Fwm/CYrBN2RMHeN6NkQ1z3m+fB5qV17IIloqp3RJ0rzxudam
+ ZcqyVlwOct5e3HMTiiLQ4aGZJqQrxvMpLefMXKexOcg/lqChxNRKD/V7fHnAGW34QTt1IhW5wd/
+ 88IbTg4+sm4KCThcBYus4OnnqkxXTDW7jV47np0p0GT2jv/GrpqKyv+nqmyElLyiHXH6IqGXja2
+ Atp7moVDW9TKpS4i/L77rlbTDh/EcmGUNZMLxH8WkZVNAUJ3A1YLFbN6gnRN+vrur6FsWzBxyD6
+ xS0ZtVvKbf0u7OfLYTO2a6GjO5p68CuF72QMzEMbipl02u50YhBUP+fUVjOcm+tEOCd0DT1+x03
+ hB98ma3NAwS0IuQ==
+X-Developer-Key: i=sudeep.holla@arm.com; a=openpgp;
+ fpr=7360A21742ADF5A11767C1C139CFD4755FE2D5B4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_153438_880863_9B62DD26 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20250217_073929_756483_CEB507F8 
+X-CRM114-Status: GOOD (  12.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,213 +82,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Steven Rostedt <rostedt@goodmis.org>
+This bundle of changes mainly have FF-A framework notification support
+along with other minor updates and fixes.
 
-The sorting of the mcount_loc section is done directly to the section for
-x86 and arm32 but it uses a separate array for arm64 as arm64 has the
-values for the mcount_loc stored in the rela sections of the vmlinux ELF
-file.
+It adds support to allow multiple UUIDs per partition to register
+individual SRI callback, to handle Rx buffer full framework notification
+in particular and general framework/interface to extend in the future.
 
-In order to use the same code to remove weak functions, always use a
-separate array to do the sorting. This requires splitting up the filling
-of the array into one function and the placing the contents of the array
-back into the rela sections or into the mcount_loc section into a separate
-file.
+It also adds support for passing UUID in FFA_MSG_SEND2 which improves
+the multiple UUID/services per partition support in the driver and
+an helper to check if a partition can receive REQUEST2 messages or not.
 
-Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
+It also improves cleaning up the partitions by adding unregistration of
+the devices as well as handles the presence of host partition in the
+partition info.
+
+It also contain fixes big-endian support in couple of functions:
+__ffa_partition_info_regs_get() and __ffa_partition_info_get().
+Big-endian support is still not complete. Only these changes can be
+verified at the moment without any additional application or testing
+support changes.
+
+Regarding the FF-A versions, it upgrades the driver version to v1.2
+and rejects any higher major version than the driver version as
+incompatible.
+
+It also fixes the mis-alignment with sync_send_receive{,2} function
+prototypes.
+
+It replaces UUID buffer to standard UUID format in the ffa_partition_info
+structure and fixes a typo in some FF-A bus macros.
+
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
- scripts/sorttable.c | 122 ++++++++++++++++++++++++++++++++------------
- 1 file changed, 90 insertions(+), 32 deletions(-)
+Changes in v3:
+- Dropped spurious extra blank line in ffa_setup_partitions()
+- Fixed issue with Xarray erase in ffa_partitions_cleanup()
+- Used kmemdup() instead of kmalloc() + memcpy()
+- Extend support to read non-secure notification bitmaps
+- Added Viresh's Tested-by tag
+- Link to v2: https://lore.kernel.org/r/20250131-ffa_updates-v2-0-544ba4e35387@arm.com
 
-diff --git a/scripts/sorttable.c b/scripts/sorttable.c
-index f62a91d8af0a..ec02a2852efb 100644
---- a/scripts/sorttable.c
-+++ b/scripts/sorttable.c
-@@ -594,31 +594,19 @@ struct elf_mcount_loc {
- 	uint64_t stop_mcount_loc;
- };
- 
--/* Sort the relocations not the address itself */
--static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
-+/* Fill the array with the content of the relocs */
-+static int fill_relocs(void *ptr, uint64_t size, Elf_Ehdr *ehdr, uint64_t start_loc)
- {
- 	Elf_Shdr *shdr_start;
- 	Elf_Rela *rel;
- 	unsigned int shnum;
--	unsigned int count;
-+	unsigned int count = 0;
- 	int shentsize;
--	void *vals;
--	void *ptr;
--
--	compare_values = long_size == 4 ? compare_values_32 : compare_values_64;
-+	void *array_end = ptr + size;
- 
- 	shdr_start = (Elf_Shdr *)((char *)ehdr + ehdr_shoff(ehdr));
- 	shentsize = ehdr_shentsize(ehdr);
- 
--	vals = malloc(long_size * size);
--	if (!vals) {
--		snprintf(m_err, ERRSTR_MAXSZ, "Failed to allocate sort array");
--		pthread_exit(m_err);
--		return NULL;
--	}
--
--	ptr = vals;
--
- 	shnum = ehdr_shnum(ehdr);
- 	if (shnum == SHN_UNDEF)
- 		shnum = shdr_size(shdr_start);
-@@ -637,22 +625,18 @@ static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
- 			uint64_t offset = rela_offset(rel);
- 
- 			if (offset >= start_loc && offset < start_loc + size) {
--				if (ptr + long_size > vals + size) {
--					free(vals);
-+				if (ptr + long_size > array_end) {
- 					snprintf(m_err, ERRSTR_MAXSZ,
- 						 "Too many relocations");
--					pthread_exit(m_err);
--					return NULL;
-+					return -1;
- 				}
- 
- 				/* Make sure this has the correct type */
- 				if (rela_info(rel) != rela_type) {
--					free(vals);
- 					snprintf(m_err, ERRSTR_MAXSZ,
- 						"rela has type %lx but expected %lx\n",
- 						(long)rela_info(rel), rela_type);
--					pthread_exit(m_err);
--					return NULL;
-+					return -1;
- 				}
- 
- 				if (long_size == 4)
-@@ -660,13 +644,28 @@ static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
- 				else
- 					*(uint64_t *)ptr = rela_addend(rel);
- 				ptr += long_size;
-+				count++;
- 			}
- 		}
- 	}
--	count = ptr - vals;
--	qsort(vals, count / long_size, long_size, compare_values);
-+	return count;
-+}
-+
-+/* Put the sorted vals back into the relocation elements */
-+static void replace_relocs(void *ptr, uint64_t size, Elf_Ehdr *ehdr, uint64_t start_loc)
-+{
-+	Elf_Shdr *shdr_start;
-+	Elf_Rela *rel;
-+	unsigned int shnum;
-+	int shentsize;
-+
-+	shdr_start = (Elf_Shdr *)((char *)ehdr + ehdr_shoff(ehdr));
-+	shentsize = ehdr_shentsize(ehdr);
-+
-+	shnum = ehdr_shnum(ehdr);
-+	if (shnum == SHN_UNDEF)
-+		shnum = shdr_size(shdr_start);
- 
--	ptr = vals;
- 	for (int i = 0; i < shnum; i++) {
- 		Elf_Shdr *shdr = get_index(shdr_start, shentsize, i);
- 		void *end;
-@@ -689,8 +688,32 @@ static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
- 			}
- 		}
- 	}
--	free(vals);
--	return NULL;
-+}
-+
-+static int fill_addrs(void *ptr, uint64_t size, void *addrs)
-+{
-+	void *end = ptr + size;
-+	int count = 0;
-+
-+	for (; ptr < end; ptr += long_size, addrs += long_size, count++) {
-+		if (long_size == 4)
-+			*(uint32_t *)ptr = r(addrs);
-+		else
-+			*(uint64_t *)ptr = r8(addrs);
-+	}
-+	return count;
-+}
-+
-+static void replace_addrs(void *ptr, uint64_t size, void *addrs)
-+{
-+	void *end = ptr + size;
-+
-+	for (; ptr < end; ptr += long_size, addrs += long_size) {
-+		if (long_size == 4)
-+			w(*(uint32_t *)ptr, addrs);
-+		else
-+			w8(*(uint64_t *)ptr, addrs);
-+	}
- }
- 
- /* Sort the addresses stored between __start_mcount_loc to __stop_mcount_loc in vmlinux */
-@@ -699,14 +722,49 @@ static void *sort_mcount_loc(void *arg)
- 	struct elf_mcount_loc *emloc = (struct elf_mcount_loc *)arg;
- 	uint64_t offset = emloc->start_mcount_loc - shdr_addr(emloc->init_data_sec)
- 					+ shdr_offset(emloc->init_data_sec);
--	uint64_t count = emloc->stop_mcount_loc - emloc->start_mcount_loc;
-+	uint64_t size = emloc->stop_mcount_loc - emloc->start_mcount_loc;
- 	unsigned char *start_loc = (void *)emloc->ehdr + offset;
-+	Elf_Ehdr *ehdr = emloc->ehdr;
-+	void *e_msg = NULL;
-+	void *vals;
-+	int count;
-+
-+	vals = malloc(long_size * size);
-+	if (!vals) {
-+		snprintf(m_err, ERRSTR_MAXSZ, "Failed to allocate sort array");
-+		pthread_exit(m_err);
-+	}
- 
- 	if (sort_reloc)
--		return sort_relocs(emloc->ehdr, emloc->start_mcount_loc, count);
-+		count = fill_relocs(vals, size, ehdr, emloc->start_mcount_loc);
-+	else
-+		count = fill_addrs(vals, size, start_loc);
-+
-+	if (count < 0) {
-+		e_msg = m_err;
-+		goto out;
-+	}
-+
-+	if (count != size / long_size) {
-+		snprintf(m_err, ERRSTR_MAXSZ, "Expected %u mcount elements but found %u\n",
-+			(int)(size / long_size), count);
-+		e_msg = m_err;
-+		goto out;
-+	}
-+
-+	compare_values = long_size == 4 ? compare_values_32 : compare_values_64;
-+
-+	qsort(vals, count, long_size, compare_values);
-+
-+	if (sort_reloc)
-+		replace_relocs(vals, size, ehdr, emloc->start_mcount_loc);
-+	else
-+		replace_addrs(vals, size, start_loc);
-+
-+out:
-+	free(vals);
- 
--	qsort(start_loc, count/long_size, long_size, compare_extable);
--	return NULL;
-+	pthread_exit(e_msg);
- }
- 
- /* Get the address of __start_mcount_loc and __stop_mcount_loc in System.map */
+Changes in v2:
+- No changes in the patches sent as v1 itself.
+- Addition of framework notification support and other updates as listed
+  above
+- Link to v1: https://lore.kernel.org/r/20241224-ffa_updates-v1-0-01233aba3e1e@arm.com
+
+---
+Sudeep Holla (18):
+      firmware: arm_ffa: Replace SCMI by FF-A in the macro
+      firmware: arm_ffa: Replace UUID buffer to standard UUID format
+      firmware: arm_ffa: Align sync_send_receive{,2} function prototypes
+      firmware: arm_ffa: Fix big-endian support in __ffa_partition_info_get()
+      firmware: arm_ffa: Fix big-endian support in __ffa_partition_info_regs_get()
+      firmware: arm_ffa: Handle the presence of host partition in the partition info
+      firmware: arm_ffa: Unregister the FF-A devices when cleaning up the partitions
+      firmware: arm_ffa: Helper to check if a partition can receive REQUEST2 messages
+      firmware: arm_ffa: Add support for passing UUID in FFA_MSG_SEND2
+      firmware: arm_ffa: Upgrade FF-A version to v1.2 in the driver
+      firmware: arm_ffa: Reject higher major version as incompatible
+      firmware: arm_ffa: Remove unnecessary declaration of ffa_partitions_cleanup()
+      firmware: arm_ffa: Refactoring to prepare for framework notification support
+      firmware: arm_ffa: Stash ffa_device instead of notify_type in notifier_cb_info
+      firmware: arm_ffa: Add support for {un,}registration of framework notifications
+      firmware: arm_ffa: Add support for handling framework notifications
+      firmware: arm_ffa: Allow multiple UUIDs per partition to register SRI callback
+      firmware: arm_ffa: Handle ffa_notification_get correctly at virtual FF-A instance
+
+Viresh Kumar (1):
+      firmware: arm_ffa: Refactor addition of partition information into XArray
+
+ drivers/firmware/arm_ffa/bus.c    |  13 +-
+ drivers/firmware/arm_ffa/driver.c | 526 ++++++++++++++++++++++++++++----------
+ include/linux/arm_ffa.h           |  22 +-
+ 3 files changed, 418 insertions(+), 143 deletions(-)
+---
+base-commit: 0ad2507d5d93f39619fc42372c347d6006b64319
+change-id: 20241224-ffa_updates-106fd3df93d5
+
+Best regards,
 -- 
-2.47.2
-
+Regards,
+Sudeep
 
 
