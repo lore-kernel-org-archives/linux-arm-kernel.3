@@ -4,67 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01545C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 19:11:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D9EAC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 19:11:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=dUT9QjPcleGjeO3WBtkcZWNbDB71er7LY0kPdi9BDR0=; b=E8QrRoY+60QYxP
-	h0n+HtykS62oKa/Rk9xnckYUiY3sZA6ESFKajdB0H2Ra2WCBqbYO9nkp7CNlbDO6srAQcOb3/K30U
-	Sz35HNjEr7pbqDXsUC88c5UhCHce7iXVQOGqkhpeKAKHyn1zKKr2wOZKzquRRJcL9bo/DLy97rpzS
-	Ublss6iEasdaod/GJmtstQXIKcb6OCUL4raXC6eT3HzP4re00k3muSYhjytmKs4UZWjy0Fx6NrrRM
-	+PfWzD5umUYa43namdxKSG4fl4Kau0eemVyHyvSeinMpczu416hjCm0MJFC1zL15uKHCcbhXYVstn
-	BemHSS7jeRfgUg479w+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hZ36QZVLWFwcj8T2KkUEKH5QEwqEfUJk7NDzYKKZiQU=; b=LSw4+K3TLav1lKmD50N2AprQDw
+	OFmXFyf4GY96r8Zig1cofhqUxpLw0YSrKltlRC4/YcjsL7WTtIEezE6rLkTFMbk0VhN/cF7v7xRen
+	CNmS1cUGaaPrdS3C9FXc8p7vQSWndL+93gW3q3k8htCRkcSvajdpKYFchv3QNiTU7taxwljXKH+ey
+	0++s1RQZG/rcGSrsixUtWe+LcT0E1qtPW//klY5IlIKIcm2ie0O8guBrY3xZZcamo0tDBh6en7M/J
+	8AKDTynqs6vLJPv7yyTV9cIbqdkzJoCZqHV33y2ins2+yArpaj1CnwYR6gZLoxnZKB/eLgqvFx55V
+	pSShyH/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk6W0-00000005iL6-0VNH;
-	Mon, 17 Feb 2025 19:10:48 +0000
-Received: from sendmail.purelymail.com ([34.202.193.197])
+	id 1tk6W9-00000005iTp-2wiW;
+	Mon, 17 Feb 2025 19:10:57 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk6Rf-00000005haj-491X
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 19:06:21 +0000
-Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=zLynZRs8Q49O7Lsgn2PdPf2DNKCgae1hip94DaxzczZGDo41KfW0zZnJ6usqsU14O7mywRgAYOTHYhcISxezMbCYsY+zd1eZDKQfOpSVRJsy5q6lGBB92CtG8x+v25FgYV86XCQ1RVW+RDQ2fFT9XjxeaH15UY0ZBhxPhNq4WZkCY1lr2HwEvywuqrWz5/GSlW99D/sXHzj98/LSmWP7Uly9wEODTmNIKkN8PuZuBQDk48f8QGnl/wDdBEKZEz+m/8nXAWqB9k0rakpM5v93iw/Y/pX2+tMA6QzwZZkDVwC4AfiWZ8ln1Dim3lTeLt5UWXbaMYiOQO3Ih9f804QXjw==; s=purelymail3; d=purelymail.com; v=1; bh=3ay3/NpwCM4uEJeiShAcGmbiyZhukhe5T732PsCDCKY=; h=Feedback-ID:Received:From:Subject:Date:To;
-Feedback-ID: 68247:10037:null:purelymail
-X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1350358103;
-          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Mon, 17 Feb 2025 19:05:51 +0000 (UTC)
-From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-Subject: [PATCH 0/2] watchdog: Exynos990 WDT enablement
-Date: Mon, 17 Feb 2025 20:05:18 +0100
-Message-Id: <20250217-exynos990-wdt-v1-0-9b49df5256b0@mentallysanemainliners.org>
+	id 1tk47c-00000005I8j-3VXk;
+	Mon, 17 Feb 2025 16:37:29 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43948f77f1aso29757825e9.0;
+        Mon, 17 Feb 2025 08:37:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739810247; x=1740415047; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hZ36QZVLWFwcj8T2KkUEKH5QEwqEfUJk7NDzYKKZiQU=;
+        b=PRXqPH1usQFzipxbV/oVq5us5vGgYPeovxJvgJyuD2zcGm/KGREUjJo/v6UXJKCXEH
+         dWFlWhmL0+ALuLKq5FExvKHHlRmTUpnrrciZK/KUdLbD+q1o79A7xYtnJC/M+jDcFzXi
+         FxAlti2aU6Tq6oA0BgyLwWnlv+d+ScBCQ3bob/VUMWLcgkXHglP2RTz1dpIvN0JrvTHj
+         JqDkfU/N6W3g7w5UzhrUMT2RD1o73AfBgE/kufEaCRGlICEBhIDQ5umc4XXhF93b9s6Q
+         7+mj/1A6P3nUQAvBPHSoySmuk2RMsKRjmSYSDAmLaYBw7CU1EyEpyAbizBXnJAhOZWeo
+         lPgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739810247; x=1740415047;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hZ36QZVLWFwcj8T2KkUEKH5QEwqEfUJk7NDzYKKZiQU=;
+        b=Lr8hq9aVpEgxJvWF3tJyLYRYz3kvmqiH+JHsirbv598YfQwVBN15YGo/Pb4Hu1wa1f
+         6aXQAoMrYWsFS3sQRmGEAySjSx5rSHa/AAamp9Pmgv+QAIlogH3VFHp4DIOORTlvc6ze
+         pBxLqjK477Ab3+KQRAV+/LsfY4F6ulvh8NgjcUWMujLUTTsL4G0k+cT6M4V90sIk07iC
+         d1tgj2UObXsaWsvW0RfODAq2UFZPe9+Fa0kXddQM8MruYlZq65caE5J14KnCmgXUx0T6
+         3ytFnGhb4KCt2tUjgYkerETHZmCGRux4/4K68fGODlRn0ktePmpA3g4reaPzanjEMeId
+         sFeg==
+X-Forwarded-Encrypted: i=1; AJvYcCUtmqudo7qgYjTcxdS4NaRsTEi10N5t1Ym/Lu1nvBsxQmUxvzZZ7AzAQ2dXDgG5UDHN1WGKi9G2l/EpJ8UphDpd@lists.infradead.org, AJvYcCVqEeagO0jJ6xKLpjGqYCmjUHhWwfkZYdP1cXV5tWd23rweQhmMcYhADCbeeHRn6rw3U6eFOL2XfwDAtf8=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfuGDuKoDSEx8S6ceDkuVNDpocm24pZLqEaBIf7GUJ3G/huIuU
+	PcI9pCS84mj4z1/63QO0Wo8Tk0swwn0Qyo+HT+gQyoqW59WFig0pdGFRdA==
+X-Gm-Gg: ASbGncsXwaJQKkGUwpNJcCmDbMmLU61WXlgex6/Sqe8abi/IcpKYfHLTyCpNvM0jaLs
+	bibEZPKC4ZE91LWEoFv0hNr+sptGN4gPrCeq2zkQD/CKJFOmj6v5veIiFQ8J5hnAViUvBqaKp6M
+	a7oRaJkKtvf6IGiNG0kHoTnZR0I4hefDo62IQPOS71Kd9s2nEMm777HBZicYOAD0Qw1QuB3oN8B
+	MhjtbAMqHTkjT9gGum/guPRcyr21oKl0C49ZsPjiYl3mHdUSaspKSEdrkh4QMz7McvF9Ojrc1ZG
+	ZvXSqfG4diwSKWHyCoWMOU4EuMZMAUqGXowpTaGioRFMEcQPW2PS9QYrIYddoJpxsKeBmr2Vp/1
+	hQ8P59a8=
+X-Google-Smtp-Source: AGHT+IEy54knXhOWSdtV9GyJZiVARzLmEOfX1F7j3ZG37VozHahpHs0vmYGUgUyc0AkFNGY48X3mRg==
+X-Received: by 2002:a05:600c:3585:b0:439:5b36:b4e3 with SMTP id 5b1f17b1804b1-4396e6e19abmr89349955e9.12.1739810247218;
+        Mon, 17 Feb 2025 08:37:27 -0800 (PST)
+Received: from localhost (p200300e41f22a600f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f22:a600:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-439618a9ab0sm125047905e9.35.2025.02.17.08.37.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 08:37:25 -0800 (PST)
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: x86@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-sh@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 3/7] bus: mvebu-mbus: Embed syscore_ops in mbus context
+Date: Mon, 17 Feb 2025 17:37:09 +0100
+Message-ID: <20250217163713.211949-4-thierry.reding@gmail.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250217163713.211949-1-thierry.reding@gmail.com>
+References: <20250217163713.211949-1-thierry.reding@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAG6Is2cC/x3MPQqAMAxA4atIZgtpoUi8ijiITTVLlUb8QXp3i
- +M3vPeCchZW6JsXMp+isqUK2zYwr1Na2EioBofOo7Od4ftJmxKhucJhkMki8uwjEdRmzxzl/n/
- DWMoHR/wo9l8AAAA=
-X-Change-ID: 20250217-exynos990-wdt-0e9100ec5f99
-To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-watchdog@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- Igor Belwon <igor.belwon@mentallysanemainliners.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739819149; l=885;
- i=igor.belwon@mentallysanemainliners.org; s=20241206;
- h=from:subject:message-id; bh=3ay3/NpwCM4uEJeiShAcGmbiyZhukhe5T732PsCDCKY=;
- b=yLF3P0Avq7SlNcQxFp+m8USAXVOXTw9vvfL4PZpeHmmhG37wVGZnjHZFzYwZJ0VEyIKLKLs9v
- HNrcGtLa/GhB/i6Q1QS0ZZhpgCm1lio1+Zr093rk8cWjCMqHS4OHyG6
-X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
- pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_110620_108935_205EF1C8 
-X-CRM114-Status: UNSURE (   7.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_083728_876094_6F25B7E1 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,27 +105,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all!
-This series enables the two clusters of the Exynos990 watchdog timer
-to be used. Weirdly enough, this SoC is missing the cl1 cluster, it has
-the cl0 cluster and then jumps over to cl2. As such, new cluster index
-code has been added to accomodate this oddity.
+From: Thierry Reding <treding@nvidia.com>
 
-Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+This enables the syscore callbacks to obtain the mbus context without
+relying on a separate global variable.
+
+Signed-off-by: Thierry Reding <treding@nvidia.com>
 ---
-Igor Belwon (2):
-      dt-bindings: watchdog: samsung-wdt: Add exynos990-wdt compatible
-      watchdog: s3c2410_wdt: Add exynos990-wdt compatible data
+ drivers/bus/mvebu-mbus.c | 20 ++++++++++++--------
+ 1 file changed, 12 insertions(+), 8 deletions(-)
 
- .../devicetree/bindings/watchdog/samsung-wdt.yaml  |  9 +++--
- drivers/watchdog/s3c2410_wdt.c                     | 39 +++++++++++++++++++++-
- 2 files changed, 44 insertions(+), 4 deletions(-)
----
-base-commit: 253c82b3a2cec22bf9db65645f934fbe095899a3
-change-id: 20250217-exynos990-wdt-0e9100ec5f99
-
-Best regards,
+diff --git a/drivers/bus/mvebu-mbus.c b/drivers/bus/mvebu-mbus.c
+index 92daa45cc844..1f22bff0773c 100644
+--- a/drivers/bus/mvebu-mbus.c
++++ b/drivers/bus/mvebu-mbus.c
+@@ -130,6 +130,7 @@ struct mvebu_mbus_win_data {
+ };
+ 
+ struct mvebu_mbus_state {
++	struct syscore_ops syscore;
+ 	void __iomem *mbuswins_base;
+ 	void __iomem *sdramwins_base;
+ 	void __iomem *mbusbridge_base;
+@@ -148,6 +149,12 @@ struct mvebu_mbus_state {
+ 	struct mvebu_mbus_win_data wins[MBUS_WINS_MAX];
+ };
+ 
++static inline struct mvebu_mbus_state *
++syscore_to_mbus(struct syscore_ops *ops)
++{
++	return container_of(ops, struct mvebu_mbus_state, syscore);
++}
++
+ static struct mvebu_mbus_state mbus_state;
+ 
+ /*
+@@ -1008,7 +1015,7 @@ fs_initcall(mvebu_mbus_debugfs_init);
+ 
+ static int mvebu_mbus_suspend(struct syscore_ops *ops)
+ {
+-	struct mvebu_mbus_state *s = &mbus_state;
++	struct mvebu_mbus_state *s = syscore_to_mbus(ops);
+ 	int win;
+ 
+ 	if (!s->mbusbridge_base)
+@@ -1042,7 +1049,7 @@ static int mvebu_mbus_suspend(struct syscore_ops *ops)
+ 
+ static void mvebu_mbus_resume(struct syscore_ops *ops)
+ {
+-	struct mvebu_mbus_state *s = &mbus_state;
++	struct mvebu_mbus_state *s = syscore_to_mbus(ops);
+ 	int win;
+ 
+ 	writel(s->mbus_bridge_ctrl,
+@@ -1069,11 +1076,6 @@ static void mvebu_mbus_resume(struct syscore_ops *ops)
+ 	}
+ }
+ 
+-static struct syscore_ops mvebu_mbus_syscore_ops = {
+-	.suspend	= mvebu_mbus_suspend,
+-	.resume		= mvebu_mbus_resume,
+-};
+-
+ static int __init mvebu_mbus_common_init(struct mvebu_mbus_state *mbus,
+ 					 phys_addr_t mbuswins_phys_base,
+ 					 size_t mbuswins_size,
+@@ -1118,7 +1120,9 @@ static int __init mvebu_mbus_common_init(struct mvebu_mbus_state *mbus,
+ 		writel(UNIT_SYNC_BARRIER_ALL,
+ 		       mbus->mbuswins_base + UNIT_SYNC_BARRIER_OFF);
+ 
+-	register_syscore_ops(&mvebu_mbus_syscore_ops);
++	mbus->syscore.suspend = mvebu_mbus_suspend;
++	mbus->syscore.resume = mvebu_mbus_resume;
++	register_syscore_ops(&mbus->syscore);
+ 
+ 	return 0;
+ }
 -- 
-Igor Belwon <igor.belwon@mentallysanemainliners.org>
+2.48.1
 
 
