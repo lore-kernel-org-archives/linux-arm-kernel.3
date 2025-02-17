@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F8DCC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:28:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B028DC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YcimCt12M3537/OZTbdudhpXR/S8bHCeIQvJ781xMdc=; b=YdkRdcFOK/RXZOI+faP3WSy4fb
-	FqBe1dSUwute3rKmthX3QdtcJsfv5uWNtlVZt1ZhvDhy0Hm+ECfWxM5i9gjgSSzIY8xFYKZUbC1hl
-	DXbBYR7PHBhSGLtdCHCkVR0ajhkbDTRYzqQjodYUNKz/elEyAHpSTzqbeV7Bel2yfWwoqbQ7jXntP
-	PPpXjE/47hYXsSdcmO6udCPMUhLM/2G1vKcg/O8Qb4jVTc3Fyl1hROBM8lcaVteelADVsA/lUn6dA
-	YqTx+OX+POJLqSlgoyXfGWZlPZl+Yc25t766e/CzXe3Q5qVpiiiIgaES8mHpXxNkZzxLzT3/80m2u
-	4sheMJrg==;
+	bh=uaCYE6J03jFfScCeArmGchXyS88UX/fmWKyf4HvQMQw=; b=Q7VRrOyKWiilRfL5BJC8EDsf4B
+	xm3THmOIlWTUfsWOfBRmmOOyt3wG9gTzcS6I/AmAKNacTgNmUE4ZF9AiEOrGFSDi5yBwNF9IoKHS5
+	mz1fi72FCGzP+y1NI1fzgXRQQCz4jqC9H4IR5cRDzDlpeMG0hMVuFKWyPVwVdwFpKrqaC96i2mGdG
+	QzbWQg0Ii0OQmZXYa4uQohvv/jBgBDeneNAE3Tpzxf84gzlsdqhkFs1WTdWd6Mn8+zfh6v8Jy6wgv
+	gRKuqYGYtgO4m+/iyQT0aFX5sNsZbFwj6mRPQJc3ACoR2bVjNR6VotyfU1zs2ast6lTVtXyevKjBY
+	YpETaR2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk26h-00000004r1t-2jLP;
-	Mon, 17 Feb 2025 14:28:23 +0000
+	id 1tk288-00000004rJ5-1cic;
+	Mon, 17 Feb 2025 14:29:52 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1ni-00000004mXK-0LfB
+	id 1tk1nk-00000004mYY-2SGQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 14:08:47 +0000
+	Mon, 17 Feb 2025 14:08:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F17D81A2D;
-	Mon, 17 Feb 2025 06:09:04 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 80BD71E5E;
+	Mon, 17 Feb 2025 06:09:07 -0800 (PST)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 83BC73F6A8;
-	Mon, 17 Feb 2025 06:08:43 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 134433F6A8;
+	Mon, 17 Feb 2025 06:08:45 -0800 (PST)
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -50,17 +50,17 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 10/14] arm64/mm: Support huge pte-mapped pages in vmap
-Date: Mon, 17 Feb 2025 14:08:02 +0000
-Message-ID: <20250217140809.1702789-11-ryan.roberts@arm.com>
+Subject: [PATCH v2 11/14] mm/vmalloc: Batch arch_sync_kernel_mappings() more efficiently
+Date: Mon, 17 Feb 2025 14:08:03 +0000
+Message-ID: <20250217140809.1702789-12-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250217140809.1702789-1-ryan.roberts@arm.com>
 References: <20250217140809.1702789-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_060846_245500_04CDC3BA 
-X-CRM114-Status: GOOD (  18.85  )
+X-CRM114-CacheID: sfid-20250217_060848_709093_1EAC4C4B 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,111 +75,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the required arch functions to enable use of contpte in the
-vmap when VM_ALLOW_HUGE_VMAP is specified. This speeds up vmap
-operations due to only having to issue a DSB and ISB per contpte block
-instead of per pte. But it also means that the TLB pressure reduces due
-to only needing a single TLB entry for the whole contpte block.
+When page_shift is greater than PAGE_SIZE, __vmap_pages_range_noflush()
+will call vmap_range_noflush() for each individual huge page. But
+vmap_range_noflush() would previously call arch_sync_kernel_mappings()
+directly so this would end up being called for every huge page.
 
-Since vmap uses set_huge_pte_at() to set the contpte, that API is now
-used for kernel mappings for the first time. Although in the vmap case
-we never expect it to be called to modify a valid mapping so
-clear_flush() should never be called, it's still wise to make it robust
-for the kernel case, so amend the tlb flush function if the mm is for
-kernel space.
+We can do better than this; refactor the call into the outer
+__vmap_pages_range_noflush() so that it is only called once for the
+entire batch operation.
 
-Tested with vmalloc performance selftests:
-
-  # kself/mm/test_vmalloc.sh \
-	run_test_mask=1
-	test_repeat_count=5
-	nr_pages=256
-	test_loop_count=100000
-	use_huge=1
-
-Duration reduced from 1274243 usec to 1083553 usec on Apple M2 for 15%
-reduction in time taken.
+This will benefit performance for arm64 which is about to opt-in to
+using the hook.
 
 Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- arch/arm64/include/asm/vmalloc.h | 46 ++++++++++++++++++++++++++++++++
- arch/arm64/mm/hugetlbpage.c      |  5 +++-
- 2 files changed, 50 insertions(+), 1 deletion(-)
+ mm/vmalloc.c | 60 ++++++++++++++++++++++++++--------------------------
+ 1 file changed, 30 insertions(+), 30 deletions(-)
 
-diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
-index 38fafffe699f..40ebc664190b 100644
---- a/arch/arm64/include/asm/vmalloc.h
-+++ b/arch/arm64/include/asm/vmalloc.h
-@@ -23,6 +23,52 @@ static inline bool arch_vmap_pmd_supported(pgprot_t prot)
- 	return !IS_ENABLED(CONFIG_PTDUMP_DEBUGFS);
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index 68950b1824d0..50fd44439875 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -285,40 +285,38 @@ static int vmap_p4d_range(pgd_t *pgd, unsigned long addr, unsigned long end,
+ 
+ static int vmap_range_noflush(unsigned long addr, unsigned long end,
+ 			phys_addr_t phys_addr, pgprot_t prot,
+-			unsigned int max_page_shift)
++			unsigned int max_page_shift, pgtbl_mod_mask *mask)
+ {
+ 	pgd_t *pgd;
+-	unsigned long start;
+ 	unsigned long next;
+ 	int err;
+-	pgtbl_mod_mask mask = 0;
+ 
+ 	might_sleep();
+ 	BUG_ON(addr >= end);
+ 
+-	start = addr;
+ 	pgd = pgd_offset_k(addr);
+ 	do {
+ 		next = pgd_addr_end(addr, end);
+ 		err = vmap_p4d_range(pgd, addr, next, phys_addr, prot,
+-					max_page_shift, &mask);
++					max_page_shift, mask);
+ 		if (err)
+ 			break;
+ 	} while (pgd++, phys_addr += (next - addr), addr = next, addr != end);
+ 
+-	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
+-		arch_sync_kernel_mappings(start, end);
+-
+ 	return err;
  }
  
-+#define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
-+static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
-+						unsigned long end, u64 pfn,
-+						unsigned int max_page_shift)
-+{
-+	/*
-+	 * If the block is at least CONT_PTE_SIZE in size, and is naturally
-+	 * aligned in both virtual and physical space, then we can pte-map the
-+	 * block using the PTE_CONT bit for more efficient use of the TLB.
-+	 */
-+
-+	if (max_page_shift < CONT_PTE_SHIFT)
-+		return PAGE_SIZE;
-+
-+	if (end - addr < CONT_PTE_SIZE)
-+		return PAGE_SIZE;
-+
-+	if (!IS_ALIGNED(addr, CONT_PTE_SIZE))
-+		return PAGE_SIZE;
-+
-+	if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
-+		return PAGE_SIZE;
-+
-+	return CONT_PTE_SIZE;
-+}
-+
-+#define arch_vmap_pte_range_unmap_size arch_vmap_pte_range_unmap_size
-+static inline unsigned long arch_vmap_pte_range_unmap_size(unsigned long addr,
-+							   pte_t *ptep)
-+{
-+	/*
-+	 * The caller handles alignment so it's sufficient just to check
-+	 * PTE_CONT.
-+	 */
-+	return pte_valid_cont(__ptep_get(ptep)) ? CONT_PTE_SIZE : PAGE_SIZE;
-+}
-+
-+#define arch_vmap_pte_supported_shift arch_vmap_pte_supported_shift
-+static inline int arch_vmap_pte_supported_shift(unsigned long size)
-+{
-+	if (size >= CONT_PTE_SIZE)
-+		return CONT_PTE_SHIFT;
-+
-+	return PAGE_SHIFT;
-+}
-+
- #endif
+ int vmap_page_range(unsigned long addr, unsigned long end,
+ 		    phys_addr_t phys_addr, pgprot_t prot)
+ {
++	pgtbl_mod_mask mask = 0;
+ 	int err;
  
- #define arch_vmap_pgprot_tagged arch_vmap_pgprot_tagged
-diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-index 8ac86cd180b3..a29f347fea54 100644
---- a/arch/arm64/mm/hugetlbpage.c
-+++ b/arch/arm64/mm/hugetlbpage.c
-@@ -217,7 +217,10 @@ static void clear_flush(struct mm_struct *mm,
- 	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
- 		ptep_get_and_clear_anysz(mm, ptep, pgsize);
- 
--	__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
-+	if (mm == &init_mm)
-+		flush_tlb_kernel_range(saddr, addr);
-+	else
-+		__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
+ 	err = vmap_range_noflush(addr, end, phys_addr, pgprot_nx(prot),
+-				 ioremap_max_page_shift);
++				 ioremap_max_page_shift, &mask);
++	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
++		arch_sync_kernel_mappings(addr, end);
++
+ 	flush_cache_vmap(addr, end);
+ 	if (!err)
+ 		err = kmsan_ioremap_page_range(addr, end, phys_addr, prot,
+@@ -587,29 +585,24 @@ static int vmap_pages_p4d_range(pgd_t *pgd, unsigned long addr,
  }
  
- void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
+-		pgprot_t prot, struct page **pages)
++		pgprot_t prot, struct page **pages, pgtbl_mod_mask *mask)
+ {
+-	unsigned long start = addr;
+ 	pgd_t *pgd;
+ 	unsigned long next;
+ 	int err = 0;
+ 	int nr = 0;
+-	pgtbl_mod_mask mask = 0;
+ 
+ 	BUG_ON(addr >= end);
+ 	pgd = pgd_offset_k(addr);
+ 	do {
+ 		next = pgd_addr_end(addr, end);
+ 		if (pgd_bad(*pgd))
+-			mask |= PGTBL_PGD_MODIFIED;
+-		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, &mask);
++			*mask |= PGTBL_PGD_MODIFIED;
++		err = vmap_pages_p4d_range(pgd, addr, next, prot, pages, &nr, mask);
+ 		if (err)
+ 			break;
+ 	} while (pgd++, addr = next, addr != end);
+ 
+-	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
+-		arch_sync_kernel_mappings(start, end);
+-
+ 	return err;
+ }
+ 
+@@ -626,26 +619,33 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
+ 		pgprot_t prot, struct page **pages, unsigned int page_shift)
+ {
+ 	unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
++	unsigned long start = addr;
++	pgtbl_mod_mask mask = 0;
++	int err = 0;
+ 
+ 	WARN_ON(page_shift < PAGE_SHIFT);
+ 
+ 	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMALLOC) ||
+-			page_shift == PAGE_SHIFT)
+-		return vmap_small_pages_range_noflush(addr, end, prot, pages);
+-
+-	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
+-		int err;
+-
+-		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
+-					page_to_phys(pages[i]), prot,
+-					page_shift);
+-		if (err)
+-			return err;
++			page_shift == PAGE_SHIFT) {
++		err = vmap_small_pages_range_noflush(addr, end, prot, pages,
++						&mask);
++	} else {
++		for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
++			err = vmap_range_noflush(addr,
++						addr + (1UL << page_shift),
++						page_to_phys(pages[i]), prot,
++						page_shift, &mask);
++			if (err)
++				break;
+ 
+-		addr += 1UL << page_shift;
++			addr += 1UL << page_shift;
++		}
+ 	}
+ 
+-	return 0;
++	if (mask & ARCH_PAGE_TABLE_SYNC_MASK)
++		arch_sync_kernel_mappings(start, end);
++
++	return err;
+ }
+ 
+ int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
 -- 
 2.43.0
 
