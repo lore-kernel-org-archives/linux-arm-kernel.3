@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2686AC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13A8C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V2Vnms014tBeQ2aDubgu33i9XqfLahH1ItRSe+XSTNA=; b=KFZGHGaGJvhFv0COTybXE/HR9m
-	5N0edoDlqOW0umq+ljVceaCmKg5QD0GUxCPWEVFTcSo9Ueh8aHkxBD2uioYigAvsW87ph7t1OiU+H
-	xDsKHU5jen8VB/ytoVJHm60pNxjh7gMHFbCr1Qw0KLlREl7OcVVJbwwR3+BECqpvKLIQU6p/erAYM
-	kF5KfgCPksN/+c7ehIMNfxxQmo/fnWwxLCYzc0wgx99oJINCHkjYA/hvEMsKUBh6HxV1TFn4IqVzP
-	bN3fsqfn949XlJh79O0E5eVWk+vz6OEXLfGgDkz0vbucOZJMlrr0ohLfRB2Hd1rKkUx+H6ahnzuzS
-	DSj4jVlQ==;
+	bh=jbmknSv2CnoXbbPF8lnL4r735rmsj4i15khMffB9jKk=; b=uA/3VLbuC4yS7Kjp52+vUaWSEy
+	RhXbvivbRJZHd/GEGJYB/1cZre/SiWUyog5rjvc7OD7yk/yXHHUS1a6JwtsqGhEPxD84O8iyWG8TZ
+	G76EkUrLcIjzb+vvtnFuaVAINLhLH4nRMeYErYhdoyvcDMa/02Vm2vM9Q3x4CG+o63tiLcR6ZdpWU
+	Z4jRf7PlkVg7PU9k+PWiO3WAumJro1T2TJ1YqMzMUfebNHcp8jIUm2eK+VEvPizFpKGqqAAluZyBW
+	N+ZuuCdtUxYc/9S9iAQ9BANFShy9ow6UaAf6S9V5DZ51SFxeRantw9Y8Fb/skL0d8Ie4ttK74aK87
+	uu6603yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk7dW-00000005sca-3xFg;
-	Mon, 17 Feb 2025 20:22:38 +0000
+	id 1tk7ey-00000005sup-2nhN;
+	Mon, 17 Feb 2025 20:24:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk7HS-00000005oz2-24fO
+	id 1tk7H2-00000005oog-07KY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 19:59:51 +0000
+	Mon, 17 Feb 2025 19:59:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E91D152B;
-	Mon, 17 Feb 2025 12:00:09 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA1F6152B;
+	Mon, 17 Feb 2025 11:59:42 -0800 (PST)
 Received: from e132581.cambridge.arm.com (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CA5A73F6A8;
-	Mon, 17 Feb 2025 11:59:47 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 31A183F6A8;
+	Mon, 17 Feb 2025 11:59:21 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Namhyung Kim <namhyung@kernel.org>,
@@ -51,17 +51,17 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v3 12/12] perf arm-spe: Support previous branch target (PBT) address
-Date: Mon, 17 Feb 2025 19:59:08 +0000
-Message-Id: <20250217195908.176207-13-leo.yan@arm.com>
+Subject: [PATCH v3 02/12] perf script: Refactor sample_flags_to_name() function
+Date: Mon, 17 Feb 2025 19:58:58 +0000
+Message-Id: <20250217195908.176207-3-leo.yan@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250217195908.176207-1-leo.yan@arm.com>
 References: <20250217195908.176207-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_115950_622416_297313E9 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20250217_115924_153658_8276911D 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,238 +76,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When FEAT_SPE_PBT is implemented, the previous branch target address
-(named as PBT) before the sampled operation, will be recorded.
+When generating a string for sample flags, the sample_flags_to_name()
+function lacks the ability to parse the trace start bit or trace end bit.
+Therefore, the function is invoked multiple times after clearing its
+unsupported bits.
 
-This commit first introduces a 'prev_br_tgt' field in the record for
-saving the PBT address in the decoder.
+This commit improves the sample_flags_to_name() function to parse sample
+flags in one go for three kinds of information:
+- The prefix info for trace start, trace end, etc.
+- Branch types.
+- Extra info for transaction and interrupt related info.
 
-If the current operation is a branch instruction, by combining with PBT,
-it can create a chain with two consecutive branches.  As the branch
-stack stores branches in descending order, meaning a newer branch is
-stored in a lower entry in the stack.  Arm SPE stores the latest branch
-in the first entry of branch stack, and the previous branch coming from
-PBT is stored into the second entry.
-
-Otherwise, if current operation is not a branch, the last branch will be
-saved for PBT only.  PBT lacks associated information such as branch
-source address, branch type, and events.  The branch entry fills zeros
-for the corresponding fields and only set its target address.
-
-After:
-
-  perf script -f --itrace=bl -F flags,addr,brstack
-  jcc                   ffff800080187914 0xffff8000801878fc/0xffff800080187914/P/-/-/1/COND/-  0x0/0xffff8000801878f8/-/-/-/0//-
-  jcc                   ffff8000802d12d8 0xffff8000802d12f8/0xffff8000802d12d8/P/-/-/1/COND/-  0x0/0xffff8000802d12ec/-/-/-/0//-
-  jcc                   ffff8000813fe200 0xffff8000813fe20c/0xffff8000813fe200/P/-/-/1/COND/-  0x0/0xffff8000813fe200/-/-/-/0//-
-  jcc                   ffff8000813fe200 0xffff8000813fe20c/0xffff8000813fe200/P/-/-/1/COND/-  0x0/0xffff8000813fe200/-/-/-/0//-
-  jmp                   ffff800081410980 0xffff800081419108/0xffff800081410980/P/-/-/1//-  0x0/0xffff800081419104/-/-/-/0//-
-  return                ffff80008036e064 0xffff80008141ba84/0xffff80008036e064/P/-/-/1/RET/-  0x0/0xffff80008141ba60/-/-/-/0//-
-  jcc                   ffff8000803d54f0 0xffff8000803d54e8/0xffff8000803d54f0/P/-/-/1/COND/-  0x0/0xffff8000803d54e0/-/-/-/0//-
-  jmp                   ffff80008015e468 0xffff8000803d46dc/0xffff80008015e468/P/-/-/1//-  0x0/0xffff8000803d46c8/-/-/-/0//-
-  jmp                   ffff8000806e2d50 0xffff80008040f710/0xffff8000806e2d50/P/-/-/1//-  0x0/0xffff80008040f6e8/-/-/-/0//-
-  jcc                   ffff800080721704 0xffff8000807216b4/0xffff800080721704/P/-/-/1/COND/-  0x0/0xffff8000807216ac/-/-/-/0//-
+As a result, the code is simplified to call the sample_flags_to_name()
+only once.  No expectation for any changes in the perf script output.
 
 Reviewed-by: Ian Rogers <irogers@google.com>
 Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- .../util/arm-spe-decoder/arm-spe-decoder.c    |   5 +-
- .../util/arm-spe-decoder/arm-spe-decoder.h    |   1 +
- tools/perf/util/arm-spe.c                     | 114 ++++++++++--------
- 3 files changed, 70 insertions(+), 50 deletions(-)
+ tools/perf/util/event.h                 |  5 ++
+ tools/perf/util/trace-event-scripting.c | 85 ++++++++++++++++---------
+ 2 files changed, 59 insertions(+), 31 deletions(-)
 
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-index 52bd0a4ea96d..688fe6d75244 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
-@@ -28,7 +28,8 @@ static u64 arm_spe_calc_ip(int index, u64 payload)
+diff --git a/tools/perf/util/event.h b/tools/perf/util/event.h
+index 2744c54f404e..cd75efc09834 100644
+--- a/tools/perf/util/event.h
++++ b/tools/perf/util/event.h
+@@ -71,6 +71,11 @@ enum {
  
- 	/* Instruction virtual address or Branch target address */
- 	if (index == SPE_ADDR_PKT_HDR_INDEX_INS ||
--	    index == SPE_ADDR_PKT_HDR_INDEX_BRANCH) {
-+	    index == SPE_ADDR_PKT_HDR_INDEX_BRANCH ||
-+	    index == SPE_ADDR_PKT_HDR_INDEX_PREV_BRANCH) {
- 		ns = SPE_ADDR_PKT_GET_NS(payload);
- 		el = SPE_ADDR_PKT_GET_EL(payload);
+ #define PERF_IP_FLAG_CHARS "bcrosyiABExghDt"
  
-@@ -181,6 +182,8 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
- 				decoder->record.virt_addr = ip;
- 			else if (idx == SPE_ADDR_PKT_HDR_INDEX_DATA_PHYS)
- 				decoder->record.phys_addr = ip;
-+			else if (idx == SPE_ADDR_PKT_HDR_INDEX_PREV_BRANCH)
-+				decoder->record.prev_br_tgt = ip;
- 			break;
- 		case ARM_SPE_COUNTER:
- 			if (idx == SPE_CNT_PKT_HDR_INDEX_TOTAL_LAT)
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-index 85b688a97436..5d232188643b 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-@@ -89,6 +89,7 @@ struct arm_spe_record {
- 	u32 latency;
- 	u64 from_ip;
- 	u64 to_ip;
-+	u64 prev_br_tgt;
- 	u64 timestamp;
- 	u64 virt_addr;
- 	u64 phys_addr;
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index ed89b7dbc244..2a9775649cc2 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -237,8 +237,9 @@ static struct arm_spe_queue *arm_spe__alloc_queue(struct arm_spe *spe,
- 	if (spe->synth_opts.last_branch) {
- 		size_t sz = sizeof(struct branch_stack);
- 
--		/* Allocate one entry for TGT */
--		sz += sizeof(struct branch_entry);
-+		/* Allocate up to two entries for PBT + TGT */
-+		sz += sizeof(struct branch_entry) *
-+			min(spe->synth_opts.last_branch_sz, 2U);
- 		speq->last_branch = zalloc(sz);
- 		if (!speq->last_branch)
- 			goto out_free;
-@@ -362,68 +363,83 @@ static void arm_spe_prep_sample(struct arm_spe *spe,
- 
- static void arm_spe__prep_branch_stack(struct arm_spe_queue *speq)
- {
-+	struct arm_spe *spe = speq->spe;
- 	struct arm_spe_record *record = &speq->decoder->record;
- 	struct branch_stack *bstack = speq->last_branch;
- 	struct branch_flags *bs_flags;
-+	unsigned int last_branch_sz = spe->synth_opts.last_branch_sz;
-+	bool have_tgt = !!(speq->flags & PERF_IP_FLAG_BRANCH);
-+	bool have_pbt = last_branch_sz >= (have_tgt + 1U) && record->prev_br_tgt;
- 	size_t sz = sizeof(struct branch_stack) +
--		    sizeof(struct branch_entry) /* TGT */;
-+		    sizeof(struct branch_entry) * min(last_branch_sz, 2U) /* PBT + TGT */;
-+	int i = 0;
- 
- 	/* Clean up branch stack */
- 	memset(bstack, 0x0, sz);
- 
--	if (!(speq->flags & PERF_IP_FLAG_BRANCH))
-+	if (!have_tgt && !have_pbt)
- 		return;
- 
--	bstack->entries[0].from = record->from_ip;
--	bstack->entries[0].to = record->to_ip;
-+	if (have_tgt) {
-+		bstack->entries[i].from = record->from_ip;
-+		bstack->entries[i].to = record->to_ip;
- 
--	bs_flags = &bstack->entries[0].flags;
--	bs_flags->value = 0;
-+		bs_flags = &bstack->entries[i].flags;
-+		bs_flags->value = 0;
- 
--	if (record->op & ARM_SPE_OP_BR_CR_BL) {
--		if (record->op & ARM_SPE_OP_BR_COND)
--			bs_flags->type |= PERF_BR_COND_CALL;
--		else
--			bs_flags->type |= PERF_BR_CALL;
--	/*
--	 * Indirect branch instruction without link (e.g. BR),
--	 * take this case as function return.
--	 */
--	} else if (record->op & ARM_SPE_OP_BR_CR_RET ||
--		   record->op & ARM_SPE_OP_BR_INDIRECT) {
--		if (record->op & ARM_SPE_OP_BR_COND)
--			bs_flags->type |= PERF_BR_COND_RET;
--		else
--			bs_flags->type |= PERF_BR_RET;
--	} else if (record->op & ARM_SPE_OP_BR_CR_NON_BL_RET) {
--		if (record->op & ARM_SPE_OP_BR_COND)
--			bs_flags->type |= PERF_BR_COND;
--		else
--			bs_flags->type |= PERF_BR_UNCOND;
--	} else {
--		if (record->op & ARM_SPE_OP_BR_COND)
--			bs_flags->type |= PERF_BR_COND;
--		else
--			bs_flags->type |= PERF_BR_UNKNOWN;
--	}
-+		if (record->op & ARM_SPE_OP_BR_CR_BL) {
-+			if (record->op & ARM_SPE_OP_BR_COND)
-+				bs_flags->type |= PERF_BR_COND_CALL;
-+			else
-+				bs_flags->type |= PERF_BR_CALL;
-+		/*
-+		 * Indirect branch instruction without link (e.g. BR),
-+		 * take this case as function return.
-+		 */
-+		} else if (record->op & ARM_SPE_OP_BR_CR_RET ||
-+			   record->op & ARM_SPE_OP_BR_INDIRECT) {
-+			if (record->op & ARM_SPE_OP_BR_COND)
-+				bs_flags->type |= PERF_BR_COND_RET;
-+			else
-+				bs_flags->type |= PERF_BR_RET;
-+		} else if (record->op & ARM_SPE_OP_BR_CR_NON_BL_RET) {
-+			if (record->op & ARM_SPE_OP_BR_COND)
-+				bs_flags->type |= PERF_BR_COND;
-+			else
-+				bs_flags->type |= PERF_BR_UNCOND;
-+		} else {
-+			if (record->op & ARM_SPE_OP_BR_COND)
-+				bs_flags->type |= PERF_BR_COND;
-+			else
-+				bs_flags->type |= PERF_BR_UNKNOWN;
-+		}
- 
--	if (record->type & ARM_SPE_BRANCH_MISS) {
--		bs_flags->mispred = 1;
--		bs_flags->predicted = 0;
--	} else {
--		bs_flags->mispred = 0;
--		bs_flags->predicted = 1;
--	}
-+		if (record->type & ARM_SPE_BRANCH_MISS) {
-+			bs_flags->mispred = 1;
-+			bs_flags->predicted = 0;
-+		} else {
-+			bs_flags->mispred = 0;
-+			bs_flags->predicted = 1;
-+		}
++#define PERF_ADDITIONAL_STATE_MASK	\
++	(PERF_IP_FLAG_IN_TX |		\
++	 PERF_IP_FLAG_INTR_DISABLE |	\
++	 PERF_IP_FLAG_INTR_TOGGLE)
 +
-+		if (record->type & ARM_SPE_BRANCH_NOT_TAKEN)
-+			bs_flags->not_taken = 1;
+ #define PERF_BRANCH_MASK		(\
+ 	PERF_IP_FLAG_BRANCH		|\
+ 	PERF_IP_FLAG_CALL		|\
+diff --git a/tools/perf/util/trace-event-scripting.c b/tools/perf/util/trace-event-scripting.c
+index 4e81e02a4f18..712ba3a51bbe 100644
+--- a/tools/perf/util/trace-event-scripting.c
++++ b/tools/perf/util/trace-event-scripting.c
+@@ -313,49 +313,72 @@ static const struct {
+ 	{0, NULL}
+ };
  
--	if (record->type & ARM_SPE_BRANCH_NOT_TAKEN)
--		bs_flags->not_taken = 1;
-+		if (record->type & ARM_SPE_IN_TXN)
-+			bs_flags->in_tx = 1;
- 
--	if (record->type & ARM_SPE_IN_TXN)
--		bs_flags->in_tx = 1;
-+		bs_flags->cycles = min(record->latency, 0xFFFFU);
-+		i++;
-+	}
- 
--	bs_flags->cycles = min(record->latency, 0xFFFFU);
-+	if (have_pbt) {
-+		bs_flags = &bstack->entries[i].flags;
-+		bs_flags->type |= PERF_BR_UNKNOWN;
-+		bstack->entries[i].to = record->prev_br_tgt;
-+		i++;
-+	}
- 
--	bstack->nr = 1;
-+	bstack->nr = i;
- 	bstack->hw_idx = -1ULL;
- }
- 
-@@ -1584,8 +1600,8 @@ arm_spe_synth_events(struct arm_spe *spe, struct perf_session *session)
+-static const char *sample_flags_to_name(u32 flags)
++static int sample_flags_to_name(u32 flags, char *str, size_t size)
+ {
+ 	int i;
+-
+-	for (i = 0; sample_flags[i].name ; i++) {
+-		if (sample_flags[i].flags == flags)
+-			return sample_flags[i].name;
++	const char *prefix;
++	int pos = 0, ret;
++	u32 xf = flags & PERF_ADDITIONAL_STATE_MASK;
++	char xs[16] = { 0 };
++
++	/* Clear additional state bits */
++	flags &= ~PERF_ADDITIONAL_STATE_MASK;
++
++	if (flags & PERF_IP_FLAG_TRACE_BEGIN)
++		prefix = "tr strt ";
++	else if (flags & PERF_IP_FLAG_TRACE_END)
++		prefix = "tr end  ";
++	else
++		prefix = "";
++
++	ret = snprintf(str + pos, size - pos, "%s", prefix);
++	if (ret < 0)
++		return ret;
++	pos += ret;
++
++	flags &= ~(PERF_IP_FLAG_TRACE_BEGIN | PERF_IP_FLAG_TRACE_END);
++
++	for (i = 0; sample_flags[i].name; i++) {
++		if (sample_flags[i].flags != flags)
++			continue;
++
++		ret = snprintf(str + pos, size - pos, "%s", sample_flags[i].name);
++		if (ret < 0)
++			return ret;
++		pos += ret;
++		break;
  	}
  
- 	if (spe->synth_opts.last_branch) {
--		if (spe->synth_opts.last_branch_sz > 1)
--			pr_debug("Arm SPE supports only one bstack entry (TGT).\n");
-+		if (spe->synth_opts.last_branch_sz > 2)
-+			pr_debug("Arm SPE supports only two bstack entries (PBT+TGT).\n");
+-	return NULL;
++	if (!xf)
++		return pos;
++
++	snprintf(xs, sizeof(xs), "(%s%s%s)",
++		 flags & PERF_IP_FLAG_IN_TX ? "x" : "",
++		 flags & PERF_IP_FLAG_INTR_DISABLE ? "D" : "",
++		 flags & PERF_IP_FLAG_INTR_TOGGLE ? "t" : "");
++
++	/* Right align the string if its length is less than the limit */
++	if ((pos + strlen(xs)) < SAMPLE_FLAGS_STR_ALIGNED_SIZE)
++		ret = snprintf(str + pos, size - pos, "%*s",
++			       (int)(SAMPLE_FLAGS_STR_ALIGNED_SIZE - ret), xs);
++	else
++		ret = snprintf(str + pos, size - pos, " %s", xs);
++	if (ret < 0)
++		return ret;
++
++	return pos + ret;
+ }
  
- 		attr.sample_type |= PERF_SAMPLE_BRANCH_STACK;
- 		/*
+ int perf_sample__sprintf_flags(u32 flags, char *str, size_t sz)
+ {
+-	u32 xf = PERF_IP_FLAG_IN_TX | PERF_IP_FLAG_INTR_DISABLE |
+-		 PERF_IP_FLAG_INTR_TOGGLE;
+ 	const char *chars = PERF_IP_FLAG_CHARS;
+ 	const size_t n = strlen(PERF_IP_FLAG_CHARS);
+-	const char *name = NULL;
+ 	size_t i, pos = 0;
+-	char xs[16] = {0};
+-
+-	if (flags & xf)
+-		snprintf(xs, sizeof(xs), "(%s%s%s)",
+-			 flags & PERF_IP_FLAG_IN_TX ? "x" : "",
+-			 flags & PERF_IP_FLAG_INTR_DISABLE ? "D" : "",
+-			 flags & PERF_IP_FLAG_INTR_TOGGLE ? "t" : "");
+-
+-	name = sample_flags_to_name(flags & ~xf);
+-	if (name)
+-		return snprintf(str, sz, "%-15s%6s", name, xs);
+-
+-	if (flags & PERF_IP_FLAG_TRACE_BEGIN) {
+-		name = sample_flags_to_name(flags & ~(xf | PERF_IP_FLAG_TRACE_BEGIN));
+-		if (name)
+-			return snprintf(str, sz, "tr strt %-7s%6s", name, xs);
+-	}
++	int ret;
+ 
+-	if (flags & PERF_IP_FLAG_TRACE_END) {
+-		name = sample_flags_to_name(flags & ~(xf | PERF_IP_FLAG_TRACE_END));
+-		if (name)
+-			return snprintf(str, sz, "tr end  %-7s%6s", name, xs);
+-	}
++	ret = sample_flags_to_name(flags, str, sz);
++	if (ret > 0)
++		return ret;
+ 
+ 	for (i = 0; i < n; i++, flags >>= 1) {
+ 		if ((flags & 1) && pos < sz)
 -- 
 2.34.1
 
