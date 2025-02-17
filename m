@@ -4,87 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A91C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 07:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62EE6C021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 07:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hDTAaNjPvymL+5POOcQD3DHgYRwOtZyMkyZgmLHZc7Y=; b=gmS2Tk2cnntcj4
-	g6ghx07ITCxxZ5vr26yrH1LQ5xN8GevGUkdzD3x1aT1VPAf3WANpRoCCnyI12xWdiU8YNYuNF3VJO
-	OEiff4v69S+xNfkpf9skMtsrm/xhOeRA05SJOFa08OHB5CZHuIsnAh+B4xeAPCR1qM379Ei8XbnSR
-	MG7qNMHcCWR5aStov50A5tOc5JxWsJ7LiMExYKFFQFYbbZLgKx/VviN6FMV5zarLNpkIxiRdleTu+
-	KchCADY1epSRVcFneeXCvK4yqcd/PpeO62tItZpfhJ0WUFRV2SnmqItuBHX8sgL39vjz85o8HZIFJ
-	Dw8OJZv8v2nfQo/h99oA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v25VmnSqYqj8M3Jcj4xEeFG2OqH96nULrB9jJ3rOS7k=; b=YiWgP8f93+Zloq+849l+G3qdbp
+	L0JldHScqONv0o0Vun39J0FLN8fOm9OKFVdnmgw4DUx8pksAaFfS5VoEOTBg1yc0HmaqC2/YP+2v+
+	GXExi3ZZZ2OCEZhKVi+/NVzdTxiv8u51Ows6fuogvfN8M9ZANr2jAgSKvmYinTkahgktgFomSMaGP
+	6sPVgTXHcJEWKpRb9BF9I2qfNX4cHJ30WHwW16w1VXtuiF7NC+XbTd4fPK8v3tSHm6bgQ02ILMC6w
+	IxLqpWdOje6KJBaJo6xZmTBW4bhfM7YP1XIn3QwXkupLbmXi4LHznp/3mBL1ONRnZnFRn5RTfhFXx
+	PV4Bu9/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjvDt-00000003YeJ-3I4M;
-	Mon, 17 Feb 2025 07:07:21 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1tjvQQ-00000003aBg-2FYb;
+	Mon, 17 Feb 2025 07:20:18 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjvCR-00000003YSG-1m8C
+	id 1tjvOx-00000003ZvX-2VHn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 07:05:52 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-aaf900cc7fbso595409566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Feb 2025 23:05:50 -0800 (PST)
+	Mon, 17 Feb 2025 07:18:49 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5dec996069aso7054137a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 16 Feb 2025 23:18:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1739775949; x=1740380749; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1739776726; x=1740381526; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=hDTAaNjPvymL+5POOcQD3DHgYRwOtZyMkyZgmLHZc7Y=;
-        b=XYSFJ1l16xN7OUif4TDulDRwQitwo0pfXGJAdlFa7ib+jJ6w4QN5pYNG8do9zId5oV
-         PVQvl6/3ffnNcoFhmXIjwK64uXDSlscurheeffq0ZcODhQTt+lmJxsmRDyhb5uNh5dxk
-         oQr2tElebcscfQM43a5TMnrj9rwwI7yKXBf+2vOPVCCv3FLUnVG4/p1EibZDNP/963ab
-         lKYcBg1GgmjHvMIMDMldEfkZ79TSSNYSLaep+l81m8On6Sf/4HeGRne5NyLH1mtrOyvR
-         ETdWj1TYhqRtqFXdRwA/5h6IAZ4ZU9+ZJkF9Y8OqvwLhm0pTUKB2YSzsJsQBVVeq+49I
-         YW3Q==
+        bh=v25VmnSqYqj8M3Jcj4xEeFG2OqH96nULrB9jJ3rOS7k=;
+        b=CmEVGFl4mC6zVgoHmbEBQ+y5nwBpPf5gkRHGouXOERG13CQ0TbpzpFGUPSuGFtXbiu
+         yhqmLCPUtGIk+jDN6qs50PCnm+4Ar8w82n1VzK4ZTrp+wzKUDHYsIjRVnA2GUXWtfreo
+         NqR+GXrXWAeDJKyc3nVXenCEtk80q9wpldcmp0wrozOeFWBPdiaYpivtX0IDwexHwBX0
+         lEqdfN0LK8BhmtKvQFzH81FZEfszJzlbJPj57f6Cq1vI74zwTWm6rib/sK1j1BOzUizT
+         8JGnUUXacDcuTjBfofbKjtBjuH+ZTOraKdcCqt08haXHKuEqmbMwxL1HpbmWVrCtBRqH
+         I4XQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739775949; x=1740380749;
+        d=1e100.net; s=20230601; t=1739776726; x=1740381526;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hDTAaNjPvymL+5POOcQD3DHgYRwOtZyMkyZgmLHZc7Y=;
-        b=T1iX+NeFurPq/54X0Zth95ejoXz3i7ILuTezEw/DI2SLKORZOmzg0IOxDB+F0Cci0P
-         mx1910A78TpMY/g5m+mWbpvGCoJ5WBSnINILQueMRh6aKuPU9qdafE1l6xTzCPaems1I
-         Wr72EtV6AdAnOqNm5dHbIeH6WjtUD7bZ0ZYACtE0H1MwtkXFCW9KxGGvgiiootTITJDD
-         E8EjkmFmrPWvVIaEEu+GATOlcifQ56HSJdBQA7ZRAxF+UCSr/6Eey/uH20FDjkEfxwdw
-         nggiJxiuDF+ucf73lJi6JAl6BJ/OrGOPcIG0+q0q4cDV41OJ44f0+fw0L1YpZVSEzJ0t
-         w5rA==
-X-Forwarded-Encrypted: i=1; AJvYcCUHas97o0LodLrEGJHxrXGhnNgzzaTYDU6RGJ8B5yvp0+4SlHqVIXdp0dOp7lDmUgG6H3zV9+bQc4aKuHvrlu+Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVsrhOb/IUtMgvRLuuRWCu8yPbcUjd5zzV5t4NaOez5eCEI2qP
-	2wQeqhTqTCAhHgb9LNBYIw5pLBIcK1m9wHeQC1DDi34hI5fPBXLXCTMWgC7QmTQ=
-X-Gm-Gg: ASbGncunFUR8cR1Gwu2w/3saLmD6IyScmqZrnk+KABIpntNS0dmx+TAiIPG247HpLDx
-	1nL+P0DHDGQ4SyiZRZ0tHR1GLdX8c78+rKTNg9IyxndhnPM3ocJ0UeN6HiJPbzWtjD39sc6qfo5
-	IMPCVkTtyu/vagMTkuIRdFkknD9dHpHPItgDp4w256zSz/u11pr6QmNeJ4MmjnRftTbO9xO4reE
-	7ByrC5uLI1/attn+AYfrlhvQzo+uKfeaPy7u7HpyF+aqoHsjXjfR2YXJeTn/veGS8zGHMsJAhm8
-	TpntVB87yPOedlbDOkGjV4A=
-X-Google-Smtp-Source: AGHT+IE/V6kFksjmU9jpYeXFzBYu7bIgsDyXTPfFPUEcs+l8eg8Sk2rnVz8ksJX5C4iCTediHir1+g==
-X-Received: by 2002:a17:906:c154:b0:ab6:db3e:2649 with SMTP id a640c23a62f3a-abb70a95729mr814742466b.14.1739775949500;
-        Sun, 16 Feb 2025 23:05:49 -0800 (PST)
+        bh=v25VmnSqYqj8M3Jcj4xEeFG2OqH96nULrB9jJ3rOS7k=;
+        b=xO2RGHUF0ux9LrVPaE5HcuolBp/s5OBKKwTc1ZaE0TuoQ3gCtN7PH5X2BRAoHaRn7e
+         vujuuBQtlHne8fLPhuyE3uHKSIWIVuWDc2fNyI0ESyj8S/vGAH1Or6YG6fVukhwDSawa
+         Yx84XCISsHcIp/9ldiAKpU7KCFxZnKIHI2kUwG+QV9WzWSCzBjqK5bApmUJn5tjE3kTS
+         4Izbif+dBKHarjS5N8UAGlAMNGL4uX+uRVbRHfuSAuaq4INTe5947wS/C+i6h7x/pn9F
+         xB/pIaq5DJHqGdzxThqzcGq1BYL7CymJLjG9t18+FywKfUDlziKFWYqRjian81wEAvmm
+         bTqg==
+X-Forwarded-Encrypted: i=1; AJvYcCXEFMdPALJ8xEiU4TLVXRYig22niQzHfIOYBOnLDsd7l905amTn/P/UNKV8THEX2sWd0I12ZAZRxQGY8ygnVXVm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe0EgSTs1v57bi7OiXY5+nNwMu/1e82fFp7MSJjlAUCj1u08NI
+	KspGJgB8O54GJl2cSuHMiEn3T+bb/0NZE0I81hipLyEe6dnNOeMdWOHqYK4XNHg=
+X-Gm-Gg: ASbGnctPBnrXWlJ02NVfd0vb9xHdM8d9/Qk32lYegGcKz2YzD9ne5UnEHVoiNbSpYrc
+	6l5d6nY0fB9IIwMdt9vFvLSyW1lYd8XlllSCdgbDmtR0DWpYXnIJCtwBCGCgBcOGzDssnkWBDUb
+	aQX/D/TJxxMFZkUqz3odbxh5p8HancNE23bd/OK+7/2SzYxRrrc8zrxvZUIx4cTCeEOqVerEpVs
+	eLbnreuvP/w9pqSHojXur7C4wZUVv7atdLmt3/UI8gbVSe1TgTSZjfaMZZNqYgbKHwjEG3K0uZW
+	9V3HsBrst/CngG0YM8rcdbc=
+X-Google-Smtp-Source: AGHT+IF1/c910bLyP5ZGsW8SMD1Us/Tiqwk8Gd/bi0zx7ghNldlF31bI+7fijFr2TMBGRt4mEJHTzg==
+X-Received: by 2002:a05:6402:430b:b0:5db:f423:19c5 with SMTP id 4fb4d7f45d1cf-5e036055c4cmr8283539a12.5.1739776725480;
+        Sun, 16 Feb 2025 23:18:45 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.25])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aba53376326sm827729466b.87.2025.02.16.23.05.48
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1d00d9sm6777672a12.32.2025.02.16.23.18.42
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 16 Feb 2025 23:05:49 -0800 (PST)
-Message-ID: <c04fc470-5ac7-4cef-98ef-5f06c3315ce4@tuxon.dev>
-Date: Mon, 17 Feb 2025 09:05:47 +0200
+        Sun, 16 Feb 2025 23:18:44 -0800 (PST)
+Message-ID: <b3de47a4-614c-4650-a866-5718b2e2b50a@tuxon.dev>
+Date: Mon, 17 Feb 2025 09:18:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: microchip: Move address/size-cells properties
- to SoC dtsi
-To: Alexander Dahl <ada@thorsis.com>, devicetree@vger.kernel.org
-References: <20250204165205.2375940-1-ada@thorsis.com>
+Subject: Re: [PATCH v2 12/15] ARM: at91: pm: Enable ULP0 for SAMA7D65
+To: Ryan.Wanner@microchip.com, lee@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, sre@kernel.org,
+ Nicolas.Ferre@microchip.com, alexandre.belloni@bootlin.com,
+ p.zabel@pengutronix.de
+Cc: linux@armlinux.org.uk, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+References: <cover.1739221064.git.Ryan.Wanner@microchip.com>
+ <a00b193df9e0cb95d144a249b12f1b13188d1ab7.1739221064.git.Ryan.Wanner@microchip.com>
+ <32ad3a1a-c6b6-4db1-8e80-8b5f951055a8@tuxon.dev>
+ <5c6910ce-b0e4-47e6-9c9b-f0093d34f4a6@microchip.com>
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-In-Reply-To: <20250204165205.2375940-1-ada@thorsis.com>
+In-Reply-To: <5c6910ce-b0e4-47e6-9c9b-f0093d34f4a6@microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_230551_503272_91A21376 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250216_231847_646473_03F57D06 
+X-CRM114-Status: GOOD (  35.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,70 +103,413 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, open list <linux-kernel@vger.kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Peter Rosin <peda@axentia.se>, "moderated list:ARM/Microchip \(AT91\) SoC support" <linux-arm-kernel@lists.infradead.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Alexander,
+Hi, Ryan,
 
-
-On 04.02.2025 18:52, Alexander Dahl wrote:
-> Avoids warnings with board dts files enabling ethernet-controller node
-> together with phy child node(s).
+On 14.02.2025 20:09, Ryan.Wanner@microchip.com wrote:
+> On 2/13/25 01:20, Claudiu Beznea wrote:
+>> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
+>>
+>> Hi, Ryan,
+>>
+>>
+>> On 10.02.2025 23:13, Ryan.Wanner@microchip.com wrote:
+>>> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+>>>
+>>> New clocks are saved to enable ULP0 for SAMA7D65 because this SoC has a
+>>> total of 10 main clocks that need to be saved for ULP0 mode.
+>>
+>> Isn't 9 the total number of MCKs that are handled in the last/first phase
+>> of suspend/resume?
+> Yes I was including 10 to match the indexing in the mck_count variable.
+> Since bgt instruction was suggested I will correct this to reflect the
+> true behavior of the change.
+>>
+>> Also, the state of MCKs are saved/restored for ULP0 and ULP1 as well.
+>>
+>>>
+>>> Add mck_count member to at91_pm_data, this will be used to determine
+>>> how many mcks need to be saved. In the mck_count member will also make
+>>> sure that no unnecessary clock settings are written during
+>>> mck_ps_restore.
+>>>
+>>> Add SHDWC to ULP0 mapping to clear the SHDWC status after exiting low
+>>> power modes.
+>>
+>> Can you explain why this clear need to be done? The commit message should
+>> answer to the "what?" and "why?" questions.
+>>
+>>>
+>>> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+>>> Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
+>>> ---
+>>>  arch/arm/mach-at91/pm.c              | 19 +++++-
+>>>  arch/arm/mach-at91/pm.h              |  1 +
+>>>  arch/arm/mach-at91/pm_data-offsets.c |  2 +
+>>>  arch/arm/mach-at91/pm_suspend.S      | 97 ++++++++++++++++++++++++++--
+>>>  4 files changed, 110 insertions(+), 9 deletions(-)
+>>>
+>>> diff --git a/arch/arm/mach-at91/pm.c b/arch/arm/mach-at91/pm.c
+>>> index 55cab31ce1ecb..50bada544eede 100644
+>>> --- a/arch/arm/mach-at91/pm.c
+>>> +++ b/arch/arm/mach-at91/pm.c
+>>> @@ -1337,6 +1337,7 @@ struct pmc_info {
+>>>       unsigned long uhp_udp_mask;
+>>>       unsigned long mckr;
+>>>       unsigned long version;
+>>> +     unsigned long mck_count;>  };
+>>>
+>>>  static const struct pmc_info pmc_infos[] __initconst = {
+>>> @@ -1344,30 +1345,42 @@ static const struct pmc_info pmc_infos[] __initconst = {
+>>>               .uhp_udp_mask = AT91RM9200_PMC_UHP | AT91RM9200_PMC_UDP,
+>>>               .mckr = 0x30,
+>>>               .version = AT91_PMC_V1,
+>>> +             .mck_count = 1,
+>>
+>> As this member is used only for SAMA7 SoCs I would drop it here and above
+>> (where initialized with 1).
+>>
+>>>       },
+>>>
+>>>       {
+>>>               .uhp_udp_mask = AT91SAM926x_PMC_UHP | AT91SAM926x_PMC_UDP,
+>>>               .mckr = 0x30,
+>>>               .version = AT91_PMC_V1,
+>>> +             .mck_count = 1,
+>>>       },
+>>>       {
+>>>               .uhp_udp_mask = AT91SAM926x_PMC_UHP,
+>>>               .mckr = 0x30,
+>>>               .version = AT91_PMC_V1,
+>>> +             .mck_count = 1,
+>>>       },
+>>>       {       .uhp_udp_mask = 0,
+>>>               .mckr = 0x30,
+>>>               .version = AT91_PMC_V1,
+>>> +             .mck_count = 1,
+>>>       },
+>>>       {
+>>>               .uhp_udp_mask = AT91SAM926x_PMC_UHP | AT91SAM926x_PMC_UDP,
+>>>               .mckr = 0x28,
+>>>               .version = AT91_PMC_V2,
+>>> +             .mck_count = 1,
+>>>       },
+>>>       {
+>>>               .mckr = 0x28,
+>>>               .version = AT91_PMC_V2,
+>>> +             .mck_count = 5,
+>>
+>> I'm not sure mck_count is a good name when used like proposed in this
+>> patch. We know that only 4 MCKs need to be handled for SAMA7G5 and 9 for
+>> SAMA7D65.
+>>
+>> Maybe, better change it here to 4 (.mck_count = 4) and to 9 above
+>> (.mck_count = 9) and adjust properly the assembly macros (see below)? What
+>> do you think?
 > 
-> Signed-off-by: Alexander Dahl <ada@thorsis.com>
-> ---
->  arch/arm/boot/dts/microchip/at91-dvk_su60_somc.dtsi    | 4 ----
->  arch/arm/boot/dts/microchip/at91-sam9_l9260.dts        | 2 --
->  arch/arm/boot/dts/microchip/at91-sam9x60_curiosity.dts | 2 --
->  arch/arm/boot/dts/microchip/at91-sam9x60ek.dts         | 2 --
->  arch/arm/boot/dts/microchip/at91-sama5d27_som1.dtsi    | 2 --
->  arch/arm/boot/dts/microchip/at91-sama5d27_wlsom1.dtsi  | 2 --
->  arch/arm/boot/dts/microchip/at91-sama5d2_ptc_ek.dts    | 2 --
->  arch/arm/boot/dts/microchip/at91-sama5d2_xplained.dts  | 2 --
->  arch/arm/boot/dts/microchip/at91-sama5d3_xplained.dts  | 4 ----
->  arch/arm/boot/dts/microchip/at91-sama7g5ek.dts         | 4 ----
->  arch/arm/boot/dts/microchip/at91-tse850-3.dts          | 3 ---
->  arch/arm/boot/dts/microchip/at91-vinco.dts             | 3 ---
->  arch/arm/boot/dts/microchip/at91rm9200.dtsi            | 2 ++
->  arch/arm/boot/dts/microchip/at91sam9260.dtsi           | 2 ++
->  arch/arm/boot/dts/microchip/at91sam9263.dtsi           | 2 ++
->  arch/arm/boot/dts/microchip/at91sam9g45.dtsi           | 2 ++
->  arch/arm/boot/dts/microchip/at91sam9x5_macb0.dtsi      | 2 ++
->  arch/arm/boot/dts/microchip/at91sam9x5_macb1.dtsi      | 2 ++
->  arch/arm/boot/dts/microchip/sam9x60.dtsi               | 4 ++++
->  arch/arm/boot/dts/microchip/sam9x7.dtsi                | 2 ++
->  arch/arm/boot/dts/microchip/sama5d2.dtsi               | 2 ++
->  arch/arm/boot/dts/microchip/sama5d3_emac.dtsi          | 2 ++
->  arch/arm/boot/dts/microchip/sama5d3_gmac.dtsi          | 2 ++
->  arch/arm/boot/dts/microchip/sama5d3xcm_cmp.dtsi        | 2 --
->  arch/arm/boot/dts/microchip/sama5d3xmb_cmp.dtsi        | 2 --
->  arch/arm/boot/dts/microchip/sama5d3xmb_emac.dtsi       | 2 --
->  arch/arm/boot/dts/microchip/sama5d3xmb_gmac.dtsi       | 2 --
->  arch/arm/boot/dts/microchip/sama7g5.dtsi               | 4 ++++
->  28 files changed, 28 insertions(+), 40 deletions(-)
+> Yes I think this is better and cleaner to read. Should this mck_count
+> match the pmc_mck_count variable name? Or should this be more
+> descriptive or would mcks be sufficient.
+
+mck_count/mcks should be enough. These will be anyway in the context of
+pmc_info.
+
+>>
+>>> +     },
+>>> +     {
+>>> +             .uhp_udp_mask = AT91SAM926x_PMC_UHP,
+>>> +             .mckr = 0x28,
+>>> +             .version = AT91_PMC_V2,
+>>> +             .mck_count = 10,
+>>>       },
+>>>
+>>>  };
+>>> @@ -1386,7 +1399,7 @@ static const struct of_device_id atmel_pmc_ids[] __initconst = {
+>>>       { .compatible = "atmel,sama5d2-pmc", .data = &pmc_infos[1] },
+>>>       { .compatible = "microchip,sam9x60-pmc", .data = &pmc_infos[4] },
+>>>       { .compatible = "microchip,sam9x7-pmc", .data = &pmc_infos[4] },
+>>> -     { .compatible = "microchip,sama7d65-pmc", .data = &pmc_infos[4] },
+>>> +     { .compatible = "microchip,sama7d65-pmc", .data = &pmc_infos[6] },
+>>>       { .compatible = "microchip,sama7g5-pmc", .data = &pmc_infos[5] },
+>>>       { /* sentinel */ },
+>>>  };
+>>> @@ -1457,6 +1470,7 @@ static void __init at91_pm_init(void (*pm_idle)(void))
+>>>       soc_pm.data.uhp_udp_mask = pmc->uhp_udp_mask;
+>>>       soc_pm.data.pmc_mckr_offset = pmc->mckr;
+>>>       soc_pm.data.pmc_version = pmc->version;
+>>> +     soc_pm.data.pmc_mck_count = pmc->mck_count;
+>>>
+>>>       if (pm_idle)
+>>>               arm_pm_idle = pm_idle;
+>>> @@ -1659,7 +1673,8 @@ void __init sama7_pm_init(void)
+>>>               AT91_PM_STANDBY, AT91_PM_ULP0, AT91_PM_ULP1, AT91_PM_BACKUP,
+>>>       };
+>>>       static const u32 iomaps[] __initconst = {
+>>> -             [AT91_PM_ULP0]          = AT91_PM_IOMAP(SFRBU),
+>>> +             [AT91_PM_ULP0]          = AT91_PM_IOMAP(SFRBU) |
+>>> +                                       AT91_PM_IOMAP(SHDWC),
+>>
+>> In theory, as the wakeup sources can also resumes the system from standby
+>> (WFI), the shdwc should be mapped for standby, too. Unless I'm wrong and
+>> the wakeup sources covered by the SHDWC_SR register don't apply to standby
+>> (WFI).
+> The device can wake up from an RTT or RTC alarm event on both the
+> standby power mode and the ULP0 power mode, since the RTT/RTC are
+> included in the SHDWC_SR I think it is safe to have this.
+> If I understand what you are asking correctly.
+
+I was asking if the SHDWC should also be mapped for standby like:
+
+        static const u32 iomaps[] __initconst = {
+
+                [AT91_PM_STANDBY]       = AT91_PM_IOMAP(SHDWC) |
+
+                [AT91_PM_ULP0]          = AT91_PM_IOMAP(SFRBU) |
+
+                                          AT91_PM_IOMAP(SHDWC),
+
+                [AT91_PM_ULP1]          = AT91_PM_IOMAP(SFRBU) |
+
+                                          AT91_PM_IOMAP(SHDWC) |
+
+                                          AT91_PM_IOMAP(ETHC),
+
+                [AT91_PM_BACKUP]        = AT91_PM_IOMAP(SFRBU) |
+
+                                          AT91_PM_IOMAP(SHDWC),
+
+        };
+
+
+
+>>
+>>
+>>>               [AT91_PM_ULP1]          = AT91_PM_IOMAP(SFRBU) |
+>>>                                         AT91_PM_IOMAP(SHDWC) |
+>>>                                         AT91_PM_IOMAP(ETHC),
+>>> diff --git a/arch/arm/mach-at91/pm.h b/arch/arm/mach-at91/pm.h
+>>> index 53bdc9000e447..ccde9c8728c27 100644
+>>> --- a/arch/arm/mach-at91/pm.h
+>>> +++ b/arch/arm/mach-at91/pm.h
+>>> @@ -39,6 +39,7 @@ struct at91_pm_data {
+>>>       unsigned int suspend_mode;
+>>>       unsigned int pmc_mckr_offset;
+>>>       unsigned int pmc_version;
+>>> +     unsigned int pmc_mck_count;
+>>>  };
+>>>  #endif
+>>>
+>>> diff --git a/arch/arm/mach-at91/pm_data-offsets.c b/arch/arm/mach-at91/pm_data-offsets.c
+>>> index 40bd4e8fe40a5..59a4838038381 100644
+>>> --- a/arch/arm/mach-at91/pm_data-offsets.c
+>>> +++ b/arch/arm/mach-at91/pm_data-offsets.c
+>>> @@ -18,6 +18,8 @@ int main(void)
+>>>                                                pmc_mckr_offset));
+>>>       DEFINE(PM_DATA_PMC_VERSION,     offsetof(struct at91_pm_data,
+>>>                                                pmc_version));
+>>> +     DEFINE(PM_DATA_PMC_MCK_COUNT,   offsetof(struct at91_pm_data,
+>>> +                                              pmc_mck_count));
+>>>
+>>>       return 0;
+>>>  }
+>>> diff --git a/arch/arm/mach-at91/pm_suspend.S b/arch/arm/mach-at91/pm_suspend.S
+>>> index e5869cca5e791..2bbcbb26adb28 100644
+>>> --- a/arch/arm/mach-at91/pm_suspend.S
+>>> +++ b/arch/arm/mach-at91/pm_suspend.S
+>>> @@ -814,17 +814,19 @@ sr_dis_exit:
+>>>  .endm
+>>>
+>>>  /**
+>>> - * at91_mckx_ps_enable:      save MCK1..4 settings and switch it to main clock
+>>> + * at91_mckx_ps_enable:      save MCK settings and switch it to main clock
+>>>   *
+>>> - * Side effects: overwrites tmp1, tmp2
+>>> + * Side effects: overwrites tmp1, tmp2, tmp3
+>>>   */
+>>>  .macro at91_mckx_ps_enable
+>>>  #ifdef CONFIG_SOC_SAMA7
+>>>       ldr     pmc, .pmc_base
+>>> +     ldr     tmp3, .mck_count
+>>>
+>>> -     /* There are 4 MCKs we need to handle: MCK1..4 */
+>>> +     /* Start at MCK1 and go until MCK_count */
+>>
+>> s/MCK_count/mck_count to align with the mck_count above.
+>>
+>>>       mov     tmp1, #1
+>>> -e_loop:      cmp     tmp1, #5
+>>> +e_loop:
+>>> +     cmp     tmp1, tmp3
+>>>       beq     e_done
+>>
+>> If providing mck_count = 4 (for SAMA7G5) and mck_count = 9 (for SAMA7D65)
+>> you can change this to:
+>>
+>>         bqt     e_done
+>>
+>>>
+>>>       /* Write MCK ID to retrieve the settings. */
+>>> @@ -850,7 +852,37 @@ e_save_mck3:
+>>>       b       e_ps
+>>>
+>>>  e_save_mck4:
+>>> +     cmp     tmp1, #4
+>>> +     bne     e_save_mck5
+>>>       str     tmp2, .saved_mck4
+>>> +     b       e_ps
+>>> +
+>>> +e_save_mck5:
+>>> +     cmp     tmp1, #5
+>>> +     bne     e_save_mck6
+>>> +     str     tmp2, .saved_mck5
+>>> +     b       e_ps
+>>> +
+>>> +e_save_mck6:
+>>> +     cmp     tmp1, #6
+>>> +     bne     e_save_mck7
+>>> +     str     tmp2, .saved_mck6
+>>> +     b       e_ps
+>>> +
+>>> +e_save_mck7:
+>>> +     cmp     tmp1, #7
+>>> +     bne     e_save_mck8
+>>> +     str     tmp2, .saved_mck7
+>>> +     b       e_ps
+>>> +
+>>> +e_save_mck8:
+>>> +     cmp     tmp1, #8
+>>> +     bne     e_save_mck9
+>>> +     str     tmp2, .saved_mck8
+>>> +     b       e_ps
+>>> +
+>>> +e_save_mck9:
+>>> +     str     tmp2, .saved_mck9
+>>>
+>>>  e_ps:
+>>>       /* Use CSS=MAINCK and DIV=1. */
+>>> @@ -870,17 +902,19 @@ e_done:
+>>>  .endm
+>>>
+>>>  /**
+>>> - * at91_mckx_ps_restore: restore MCK1..4 settings
+>>> + * at91_mckx_ps_restore: restore MCKx settings
+>>
+>> s/MCKx/MCK to align with the description from at91_mckx_ps_enable
+>>
+>>>   *
+>>>   * Side effects: overwrites tmp1, tmp2
+>>>   */
+>>>  .macro at91_mckx_ps_restore
+>>>  #ifdef CONFIG_SOC_SAMA7
+>>>       ldr     pmc, .pmc_base
+>>> +     ldr     tmp2, .mck_count
+>>>
+>>> -     /* There are 4 MCKs we need to handle: MCK1..4 */
+>>> +     /* Start from MCK1 and go up to MCK_count */
+>>>       mov     tmp1, #1
+>>> -r_loop:      cmp     tmp1, #5
+>>> +r_loop:
+>>> +     cmp     tmp1, tmp2
+>>>       beq     r_done
+>>
+>> Same here:
+>>         bgt     r_done
+>>
+>> should be enough if providing mck_count = 4 or 9
+>>
+>>>
+>>>  r_save_mck1:
+>>> @@ -902,7 +936,37 @@ r_save_mck3:
+>>>       b       r_ps
+>>>
+>>>  r_save_mck4:
+>>> +     cmp     tmp1, #4
+>>> +     bne     r_save_mck5
+>>>       ldr     tmp2, .saved_mck4
+>>> +     b       r_ps
+>>> +
+>>> +r_save_mck5:
+>>> +     cmp     tmp1, #5
+>>> +     bne     r_save_mck6
+>>> +     ldr     tmp2, .saved_mck5
+>>> +     b       r_ps
+>>> +
+>>> +r_save_mck6:
+>>> +     cmp     tmp1, #6
+>>> +     bne     r_save_mck7
+>>> +     ldr     tmp2, .saved_mck6
+>>> +     b       r_ps
+>>> +
+>>> +r_save_mck7:
+>>> +     cmp     tmp1, #7
+>>> +     bne     r_save_mck8
+>>> +     ldr     tmp2, .saved_mck7
+>>> +     b       r_ps
+>>> +
+>>> +r_save_mck8:
+>>> +     cmp     tmp1, #8
+>>> +     bne     r_save_mck9
+>>> +     ldr     tmp2, .saved_mck8
+>>> +     b       r_ps
+>>> +
+>>> +r_save_mck9:
+>>> +     ldr     tmp2, .saved_mck9
+>>>
+>>>  r_ps:
+>>>       /* Write MCK ID to retrieve the settings. */
+>>> @@ -921,6 +985,7 @@ r_ps:
+>>>       wait_mckrdy tmp1
+>>>
+>>>       add     tmp1, tmp1, #1
+>>> +     ldr     tmp2, .mck_count
+>>
+>> Or you can add tmp4 for this
+>>
+>>>       b       r_loop
+>>>  r_done:
+>>>  #endif
+>>> @@ -1045,6 +1110,10 @@ ENTRY(at91_pm_suspend_in_sram)
+>>>       str     tmp1, .memtype
+>>>       ldr     tmp1, [r0, #PM_DATA_MODE]
+>>>       str     tmp1, .pm_mode
+>>> +#ifdef CONFIG_SOC_SAMA7
+>>> +     ldr     tmp1, [r0, #PM_DATA_PMC_MCK_COUNT]
+>>> +     str     tmp1, .mck_count
+>>> +#endif
+>>>
+>>>       /*
+>>>        * ldrne below are here to preload their address in the TLB as access
+>>> @@ -1132,6 +1201,10 @@ ENDPROC(at91_pm_suspend_in_sram)
+>>>       .word 0
+>>>  .pmc_version:
+>>>       .word 0
+>>> +#ifdef CONFIG_SOC_SAMA7
+>>> +.mck_count:
+>>> +     .word 0
+>>> +#endif
+>>>  .saved_mckr:
+>>>       .word 0
+>>>  .saved_pllar:
+>>> @@ -1155,6 +1228,16 @@ ENDPROC(at91_pm_suspend_in_sram)
+>>>       .word 0
+>>>  .saved_mck4:
+>>>       .word 0
+>>> +.saved_mck5:
+>>> +     .word 0
+>>> +.saved_mck6:
+>>> +     .word 0
+>>> +.saved_mck7:
+>>> +     .word 0
+>>> +.saved_mck8:
+>>> +     .word 0
+>>> +.saved_mck9:
+>>> +     .word 0
+>>>  #endif
+>>>
+>>>  ENTRY(at91_pm_suspend_in_sram_sz)
+>>
 > 
 
-There are some other warnings triggered by these changes:
-
-  DTC [C] arch/arm/boot/dts/microchip/at91sam9m10g45ek.dtb
-../arch/arm/boot/dts/microchip/at91rm9200.dtsi:213.29-225.6: Warning
-(avoid_unnecessary_addr_size): /ahb/apb/ethernet@fffbc000: unnecessary
-#address-cells/#size-cells without "ranges", "dma-ranges" or child "reg"
-property
-/home/claudiu/repos/linux-microchip/build-arm32/arch/arm/boot/dts/microchip/at91rm9200ek.dtb:
-ethernet-phy: 'reg' is a required property
-../arch/arm/boot/dts/microchip/sama5d3_gmac.dtsi:66.29-77.6: Warning
-(avoid_unnecessary_addr_size): /ahb/apb/ethernet@f0028000: unnecessary
-#address-cells/#size-cells without "ranges", "dma-ranges" or child "reg"
-property
-  also defined at
-../arch/arm/boot/dts/microchip/at91-sama5d3_ksz9477_evb.dts:50.8-58.3
-../arch/arm/boot/dts/microchip/sama5d2.dtsi:382.29-393.6: Warning
-(avoid_unnecessary_addr_size): /ahb/apb/ethernet@f8008000: unnecessary
-#address-cells/#size-cells without "ranges", "dma-ranges" or child "reg"
-property
-
-Thank you,
-Claudiu
 
