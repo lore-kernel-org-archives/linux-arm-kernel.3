@@ -4,77 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCDDDC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 08:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06AB2C021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 08:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qcLmadiNH84yKe/L4JYojk3Qejz7s9KQF2cXf3WqfYU=; b=l29vGI2U6N77zLbbYb3Dr4akGP
-	PPkEZFXjp9L1MJKVRMHvqYlpe2kggwPLfKTzzFlVCNcABcGYhE/4JLYaSZ/6aW3Lg/eVSVfwRgqeJ
-	SF+51m1oDodpOhu93J865yEea/KKz7+kAl1/t2ehM0WOI6qvwNFj8igfKOnzXfMP8Tt+d+HG5/KTe
-	T1RmBeCLyS728arAncAxtRAJP2Acv7SbtSQXFWZ2B4yXCeypU9Sf5aGertvKnuLM1vjBncIbL5Das
-	SDTVm3zfzQMp7mtvf8K28x42g00RxHk5Xbu7EjAdiMsS7NcLTifYHlGqNlXfcaf+nPLwsawCbFUgL
-	wOD+l39g==;
+	bh=Ed0dltqBzdC5HZEa2Ds04Fdf98U466s3nHyR/nqOJbA=; b=nEnCwQkWPQvLUCLkomwdGd1gEh
+	NCifwlM07W9ytaq7ga6fxHEy5fZvZJb3b+YbuH8WE5MllanEq3Q1CdNJJ0S/x3cCiwAQDwaoaF88N
+	9NdQ4rGfOTGXxu9ZFWdXnd4kxp27KPPgl9y24vXuWT+vW/7PT2dQKsQVrGrz6MyRAenTHzD0Id0cG
+	Aam7q8ybgPgL1gzwZR7ahAhe+wve5Nt1lzgzxpUdjgO1+M3m+QszlpAGuTiubymfYnQij38Sa+3vr
+	jrpfS+mbNljFqQo9i4Al1A+FDWICwnZWkOeCorvrXfQcIQJ3f2wtxK85Cg3ZKUv4u3IROjXS0r2UU
+	6WzcPUTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjwC9-00000003hxc-32cJ;
-	Mon, 17 Feb 2025 08:09:37 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1tjwHl-00000003jLL-0cEy;
+	Mon, 17 Feb 2025 08:15:25 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjwAf-00000003hdD-3Bnh
+	id 1tjwGI-00000003jAg-101U
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 08:08:07 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4YxFXw2mFXz2JYY6;
-	Mon, 17 Feb 2025 16:04:00 +0800 (CST)
-Received: from kwepemk500005.china.huawei.com (unknown [7.202.194.90])
-	by mail.maildlp.com (Postfix) with ESMTPS id 765EE1A0188;
-	Mon, 17 Feb 2025 16:07:52 +0800 (CST)
-Received: from [10.174.179.234] (10.174.179.234) by
- kwepemk500005.china.huawei.com (7.202.194.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 17 Feb 2025 16:07:50 +0800
-Message-ID: <e1d2affb-5c6b-00b5-8209-34bbca36f96b@huawei.com>
-Date: Mon, 17 Feb 2025 16:07:49 +0800
+	Mon, 17 Feb 2025 08:13:55 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5e0373c7f55so2906950a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 00:13:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739780032; x=1740384832; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Ed0dltqBzdC5HZEa2Ds04Fdf98U466s3nHyR/nqOJbA=;
+        b=WQ7dNrZrFiamIDvWB0CCu6L2z40L4cp5ygHZZEbFw8gK5uPxEbk4PI1AqXlHI4AAz6
+         oMwRsWAzF8tBshgc0D2DwWz7Nx9gLQSCX58+5QLA0r+8hXx7L/HM1cZtgjjaiHzRcMXy
+         UjtrcFKIoyaglHUYX99tZlfeOWxY5eV7rQT6bj6HCB1nSJvY3V6tCvGomivCXxD9VHVy
+         MPzuojLtaUOXl21ZU43sDdbT4lBYVU3i7nIPszQ9+UAg0ehTtxMnlLC401O6/iujtW4I
+         j/EcxA3y6LxdxTnCgL0RIPrn+Af0zmkVI6j65CWp4Sj837Xf5NFHV2w8EevjVeh1ICcS
+         XDIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739780032; x=1740384832;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ed0dltqBzdC5HZEa2Ds04Fdf98U466s3nHyR/nqOJbA=;
+        b=RjzCK2NNewGkJO/Q3wX0vTHaEqamdJPZa8UQW+yxVFWKFtlFgcMPZpInEoM0kqvzsT
+         2LFeLzn+jUHKG1rXtSylVhAM0LMTRZ4ztOo53n12lahQDuwZJGE8KKk8pWAHsBPCmFdD
+         gRvdCj/lvMGqyT9th7vw3bG+YDB7nDOr4r5TkQMrICrjj1CFlK9w6toVw6CyKiPneg35
+         /wTTCwWXfClKSVE6mvdfhBgiw2HuES7TbApV/Q7um8thoZQc7XkfLedY0vCjLfJX5Grn
+         34TnnEW44imJ0b+uL2ftAaAb8+8cgyMKLNQzYzpjvt56iLKgeY83c9P0rouBXv6WwiMx
+         zFtA==
+X-Forwarded-Encrypted: i=1; AJvYcCVBbphv5HIOpnUDjfK34WxfqHLqeHEdXEMxVe50OkknC6zkrmwXLUOOWYd+avwrEf+KzIf1gIkYlUv/xft1C2Xd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyK3sJnYOVsAlj4ny00kmkkeFKa6So9sAArNaW/LQFv1KA6NRy
+	X2Xrl8cLIt0aXSHlCIgkzEpKjCOBPXlXyQ1dVHWpauOYT8pgVAp7
+X-Gm-Gg: ASbGncscOVEFMRxc6QQsM9tFpHGqli5K0FLWMZXGqFxIZZeAOn63P6Jv8lV01sWK2Lu
+	cl+LcYtJhlvy3uZTj3B8lGhXhrKMj1Iv9HLnpkU2xX87KcbwGe+4qrywUxQ2ZNRFYGNGqSHJI8s
+	CCsM4EWo8aOtu5YxHlrHpf0XMK+Ny+AEoRsDjSA08t15ejHX0MgBOUI3M5MdBGrtAGNjG93t+fs
+	uju3gqKhndU1MygbmZV3Sq1uUZFeELtcm11MXB0tirj05TmWvJfk8AnV/c2dOMYCp4WE04A0T/O
+	dgokosrXKR39N7dmX5/N26we5BgEQKqI42Tiq2G6jrreJ3GZtGSpohtVYGwHe78ytg==
+X-Google-Smtp-Source: AGHT+IH9hASZetg0pomp/3PLBU1jTDpvzjle4RrQcRZBFNibluAmBZRivSYjX4BTIAIbbRumPxxbPA==
+X-Received: by 2002:a05:6402:2548:b0:5dc:8ed9:6bc3 with SMTP id 4fb4d7f45d1cf-5e036217ca2mr7647503a12.26.1739780032077;
+        Mon, 17 Feb 2025 00:13:52 -0800 (PST)
+Received: from [10.13.13.3] (146.10-240-81.adsl-dyn.isp.belgacom.be. [81.240.10.146])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1b4e53sm6846077a12.9.2025.02.17.00.13.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Feb 2025 00:13:51 -0800 (PST)
+Message-ID: <603e7d61-71ab-4ec8-8c37-133dd9847aca@gmail.com>
+Date: Mon, 17 Feb 2025 09:13:50 +0100
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH v13 4/5] arm64: support copy_mc_[user]_highpage()
-To: Catalin Marinas <catalin.marinas@arm.com>
-CC: Mark Rutland <mark.rutland@arm.com>, Jonathan Cameron
-	<Jonathan.Cameron@huawei.com>, Mauro Carvalho Chehab
-	<mchehab+huawei@kernel.org>, Will Deacon <will@kernel.org>, Andrew Morton
-	<akpm@linux-foundation.org>, James Morse <james.morse@arm.com>, Robin Murphy
-	<robin.murphy@arm.com>, Andrey Konovalov <andreyknvl@gmail.com>, Dmitry
- Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko
-	<glider@google.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Aneesh
- Kumar K.V <aneesh.kumar@kernel.org>, "Naveen N. Rao"
-	<naveen.n.rao@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo
- Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
-	<hpa@zytor.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
-	<kasan-dev@googlegroups.com>, <wangkefeng.wang@huawei.com>, Guohanjun
-	<guohanjun@huawei.com>
-References: <20241209024257.3618492-1-tongtiangen@huawei.com>
- <20241209024257.3618492-5-tongtiangen@huawei.com> <Z6zWSXzKctkpyH7-@arm.com>
- <69955002-c3b1-459d-9b42-8d07475c3fd3@huawei.com> <Z698SFVqHjpGeGC0@arm.com>
-From: Tong Tiangen <tongtiangen@huawei.com>
-In-Reply-To: <Z698SFVqHjpGeGC0@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.179.234]
-X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
- kwepemk500005.china.huawei.com (7.202.194.90)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 8/8] arm64: dts: allwinner: rg35xx: Add GPIO backlight
+ control
+To: Ryan Walklin <ryan@testtoast.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>
+Cc: Andre Przywara <andre.przywara@arm.com>,
+ Chris Morgan <macroalpha82@gmail.com>,
+ Hironori KIKUCHI <kikuchan98@gmail.com>, linux-sunxi@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250216092827.15444-1-ryan@testtoast.com>
+ <20250216092827.15444-9-ryan@testtoast.com>
+Content-Language: en-US
+From: Philippe Simons <simons.philippe@gmail.com>
+In-Reply-To: <20250216092827.15444-9-ryan@testtoast.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_000806_097832_057A9F43 
-X-CRM114-Status: GOOD (  18.05  )
+X-CRM114-CacheID: sfid-20250217_001354_280690_9178D034 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,62 +107,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Tested on RG355XX-H
 
+Tested-by: Philippe Simons <simons.philippe@gmail.com>
 
-在 2025/2/15 1:24, Catalin Marinas 写道:
-> On Fri, Feb 14, 2025 at 10:49:01AM +0800, Tong Tiangen wrote:
->> 在 2025/2/13 1:11, Catalin Marinas 写道:
->>> On Mon, Dec 09, 2024 at 10:42:56AM +0800, Tong Tiangen wrote:
->>>> Currently, many scenarios that can tolerate memory errors when copying page
->>>> have been supported in the kernel[1~5], all of which are implemented by
->>>> copy_mc_[user]_highpage(). arm64 should also support this mechanism.
->>>>
->>>> Due to mte, arm64 needs to have its own copy_mc_[user]_highpage()
->>>> architecture implementation, macros __HAVE_ARCH_COPY_MC_HIGHPAGE and
->>>> __HAVE_ARCH_COPY_MC_USER_HIGHPAGE have been added to control it.
->>>>
->>>> Add new helper copy_mc_page() which provide a page copy implementation with
->>>> hardware memory error safe. The code logic of copy_mc_page() is the same as
->>>> copy_page(), the main difference is that the ldp insn of copy_mc_page()
->>>> contains the fixup type EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR, therefore, the
->>>> main logic is extracted to copy_page_template.S. In addition, the fixup of
->>>> MOPS insn is not considered at present.
->>>
->>> Could we not add the exception table entry permanently but ignore the
->>> exception table entry if it's not on the do_sea() path? That would save
->>> some code duplication.
->>
->> I'm sorry, I didn't catch your point, that the do_sea() and non do_sea()
->> paths use different exception tables?
-> 
-> No, they would have the same exception table, only that we'd interpret
-> it differently depending on whether it's a SEA error or not. Or rather
-> ignore the exception table altogether for non-SEA errors.
-
-You mean to use the same exception type (EX_TYPE_KACCESS_ERR_ZERO) and
-then do different processing on SEA errors and non-SEA errors, right?
-
-If so, some instructions of copy_page() did not add to the exception
-table will be added to the exception table, and the original logic will
-be affected.
-
-For example, if an instruction is not added to the exception table, the
-instruction will panic when it triggers a non-SEA error. If this
-instruction is added to the exception table because of SEA processing,
-and then a non-SEA error is triggered, should we fix it?
-
-Thanks,
-Tong.
-
-> 
->> My understanding is that the
->> exception table entry problem is fine. After all, the search is
->> performed only after a fault trigger. Code duplication can be solved by
->> extracting repeated logic to a public file.
-> 
-> If the new exception table entries are only taken into account for SEA
-> errors, why do we need a duplicate copy_mc_page() function generated?
-> Isn't the copy_page() and copy_mc_page() code identical (except for the
-> additional labels to jump to for the exception)?
-> 
+On 16/02/2025 10:27, Ryan Walklin wrote:
+> The LCD backlight for this device can be exposed as a simple GPIO-
+> controlled device. It would be more accurately modelled using PWM to
+> enable brightness control, however the PWM driver design for the H616 is
+> not yet upstreamed.
+>
+> Add a GPIO backlight node to the DTS.
+>
+> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
+> ---
+>   .../boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts | 6 ++++++
+>   1 file changed, 6 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+> index 388487d4720e2..29d1144fc3987 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+> @@ -21,6 +21,12 @@ aliases {
+>   		serial0 = &uart0;
+>   	};
+>   
+> +	backlight: backlight {
+> +		compatible = "gpio-backlight";
+> +		gpios = <&pio 3 28 GPIO_ACTIVE_HIGH>; // PD28
+> +		default-on;
+> +	};
+> +	
+>   	battery: battery {
+>   		compatible = "simple-battery";
+>   		constant-charge-current-max-microamp = <1024000>;
 
