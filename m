@@ -4,86 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DC5EC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4EE3C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=agWMaaEU4vp0cnAil5eV67woVUsr1A/2Ld8pyt7qoFI=; b=qfajg21xCqssnGf8UAGLlKxeXT
-	4kJ3j4ONPbmpoQ7TRUfEnygGoA2oG6BbPTd7QR1+t6dBhhqvUfZwO8OdPhWCXvxR3ZrYl/DZTqiJ/
-	G3Y7B8iAcpUd2U67oO1Uv1UGic5YbowbUkTNKnyVNlBzp8rCmrY2nvTByuFCpoM0dku2GMuNfjIC3
-	2pkHz8fXf5X8bZXt8zZvFKwugJnqm3n7k3299r5LxQmeLTFQUz+W7nMHkO4jl5r2QamWwH6nnJGCX
-	zzIfwlTErJFhBLbjV9utRypbJZy7E1itv7xRi2dnHie2jXLakADmq/q5uyif/JO52GoOwec1SyXWt
-	ZnNinAag==;
+	bh=Zfh1J1wScY6I6AtqTGV541Y/0tcJ30PORLPEWwfay08=; b=4NjL9nvgMDBnt7y+p2+NB72lZS
+	g1029oJFh/joyT60nTmvWjAO9WEgYgYdxbLSgE5tJCm+lUnLPZSEPgMIIpXpYif0HsLIfNKdzjUGj
+	3rlv3s5tM4LJc9aeFqCIqv2knwDFjzU7CBurOQpef1ofGLo3Yhsl+TCwgUEgXReBIeIYNbUZO94Ql
+	eYmfTilsBu0zxFbIV1SWMAbdBp6cJTBzfvh/DAkrc9lJyE5G49CEfPwe4Q6MOryf5Lw9p/R/HdU4d
+	R5F+Usd4rMp4DA8GFu09/PTAAZZ/t5ILk/AR4XScjq+PsGCI2Ytbhs8yVf/7AMh05/PkzHTWWKlzL
+	niUe4Cnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2Uv-00000004wLT-0U9u;
-	Mon, 17 Feb 2025 14:53:25 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	id 1tk2WL-00000004weY-3Bzk;
+	Mon, 17 Feb 2025 14:54:53 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk20t-00000004peM-30BP
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 14:22:25 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 478D844430;
-	Mon, 17 Feb 2025 14:22:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1739802140;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=agWMaaEU4vp0cnAil5eV67woVUsr1A/2Ld8pyt7qoFI=;
-	b=S4t1vLHCw/Kg2C8kbN3Ak0U48q7PKjHPfh+PurW6NQBhIvLAbuA7cHLbuIku/84RI3Bu8g
-	OPo4PqbadCh5mZrs+bLTE2W1Zs4gF1o4mXCI89e51kvaIGHAjlUXTNnBhVrIJgPbxU5cPv
-	P8ynGOg5eQUOXQeRpIlrQcSn8mGgJksmJ4hs8sswTyA5YGqIeezGdMzj9Se3kFXtItB31g
-	tZX0kgMGR78MftYI5rHq2rwIaPUYWGBd1o0u5N18R5ohzCfCxtEdtNJnlrUmXL1q33IpkE
-	iTTCKjdJTbzELpM4HDVjJ5xdsnbJk+hMtWlULGuaHck0mhoyA75iiQG+xC/PDg==
-Date: Mon, 17 Feb 2025 15:22:16 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>, davem@davemloft.net,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
- Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>, Sean Anderson
- <seanga2@gmail.com>
-Subject: Re: [PATCH net-next v4 05/15] net: phy: Create a phy_port for
- PHY-driven SFPs
-Message-ID: <20250217152216.5b206284@fedora.home>
-In-Reply-To: <5d618829-a9bc-4dd4-8a2e-6ce3a4acd51e@lunn.ch>
-References: <20250213101606.1154014-1-maxime.chevallier@bootlin.com>
-	<20250213101606.1154014-6-maxime.chevallier@bootlin.com>
-	<Z7DjfRwd3dbcEXTY@shell.armlinux.org.uk>
-	<20250217092911.772da5d0@fedora.home>
-	<5d618829-a9bc-4dd4-8a2e-6ce3a4acd51e@lunn.ch>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1tk24G-00000004qT6-15TZ;
+	Mon, 17 Feb 2025 14:25:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739802350;
+	bh=GUAxZImZWtamppr8zlI/A9rVG2tyYKU95DwC2jGXbBg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mJOE/RVj3wNsVYObyE/oZbGXxop1evH9WUwdJoZUmA8+53sjNIBAVNW6klqDyio4L
+	 OxQv+iqv5Lq/tD7aiwNo5rmA7a9FChrl45oo143dGcKIVxMJIufdV2b8IzE6eG2TWH
+	 IOuxuElpbrjwjmuRzMIebMsDLB0+nPNVYi8E2wV18dZ/io13aQjFEGoD2I1bjiEzAw
+	 A+oSCGd6CjFfz2+UbqZG7FY5oSdyn5PEp4sDFcEdQ4hJ4h0jh65WUMQGaFMjQ2lysj
+	 t2Wz3yY13uQUyKxGnvd0YichLhTjV3Y98R/FBkIFgdlRQTk/ONx9VRx4SFGd+lHCG4
+	 9UY81byDPryCQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D4D4117E0F86;
+	Mon, 17 Feb 2025 15:25:49 +0100 (CET)
+Message-ID: <041ffe38-ca24-4e05-90c1-e37f9323c7cf@collabora.com>
+Date: Mon, 17 Feb 2025 15:25:49 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehkeeifecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthejredtredtvdenucfhrhhomhepofgrgihimhgvucevhhgvvhgrlhhlihgvrhcuoehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeegveeltddvveeuhefhvefhlefhkeevfedtgfeiudefffeiledttdfgfeeuhfeukeenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtt
- hhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/5] drm/mediatek: Change main display path to support PQ
+ for MT8196
+To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ =?UTF-8?B?U3VubnkgU2hlbiAo5rKI5aeN5aeNKQ==?= <Sunny.Shen@mediatek.com>
+Cc: =?UTF-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
+ "treapking@chromium.org" <treapking@chromium.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ =?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
+ =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ =?UTF-8?B?UGF1bC1wbCBDaGVuICjpmbPmn4/pnJYp?= <Paul-pl.Chen@mediatek.com>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>
+References: <20250211025317.399534-1-sunny.shen@mediatek.com>
+ <20250211025317.399534-6-sunny.shen@mediatek.com>
+ <b3a6afa2e818d31dc60632615215a88449fb78bf.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <b3a6afa2e818d31dc60632615215a88449fb78bf.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_062224_067546_D762ED15 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20250217_062552_443217_C4AC37C0 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,41 +93,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
-
-On Mon, 17 Feb 2025 14:43:00 +0100
-Andrew Lunn <andrew@lunn.ch> wrote:
-
-> > One way to avoid that would be to extract out of phylink/phylib all the
-> > functions for linkmode handling that aren't tied to phylink/phylib
-> > directly, but are about managing the capabilities of each interface,
-> > linkmode, speed, duplex, etc. For phylink, that would be :
-> > 
-> > phylink_merge_link_mode
-> > phylink_get_capabilities
-> > phylink_cap_from_speed_duplex
-> > phylink_limit_mac_speed
-> > phylink_caps_to_linkmodes
-> > phylink_interface_max_speed
-> > phylink_interface_signal_rate
-> > phylink_is_empty_linkmode
-> > phylink_an_mode_str
-> > phylink_set_port_modes  
+Il 17/02/25 07:06, CK Hu (胡俊光) ha scritto:
+> On Tue, 2025-02-11 at 10:52 +0800, Sunny Shen wrote:
+>> Due to the path mux design of the MT8196, the following components
+>> need to be added to support Picture Quality (PQ) in the main display
+>> path: CCORR0, CCORR1, DITHER0, GAMMA0, MDP_RSZ0, POSTMASK0, TDSHP0.
 > 
-> ...
+> Reviewed-by: CK Hu <ck.hu@mediatek.com>
 > 
-> > These would go into linkmode.c/h for example, and we'd have a shared set
-> > of helpers that we can use in phylink, phylib and phy_port.  
+>>
+>> Signed-off-by: Sunny Shen <sunny.shen@mediatek.com>
+>> ---
+>>   drivers/gpu/drm/mediatek/mtk_drm_drv.c | 7 +++++++
+>>   1 file changed, 7 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+>> index b810a197f58b..1c97dc46ae70 100644
+>> --- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+>> +++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+>> @@ -242,6 +242,13 @@ static const unsigned int mt8196_mtk_ddp_ovl0_main[] = {
+>>   
+>>   static const unsigned int mt8196_mtk_ddp_disp0_main[] = {
+
+If you build the display controller path with an OF graph, you don't need to
+introduce any mt8196_mtk_ddp_disp0_main, at all.
+
+Since all this work was done and upstreamed, and was done because hardcoding
+the display pipeline for each board is only bloating the driver (and wrong),
+just express the pipeline with a graph in the devicetree.
+
+The driver doesn't need that array, not anymore.
+
+Regards,
+Angelo
+
+>>   	DDP_COMPONENT_DLI_ASYNC0,
+>> +	DDP_COMPONENT_MDP_RSZ0,
+>> +	DDP_COMPONENT_TDSHP0,
+>> +	DDP_COMPONENT_CCORR0,
+>> +	DDP_COMPONENT_CCORR1,
+>> +	DDP_COMPONENT_GAMMA0,
+>> +	DDP_COMPONENT_POSTMASK0,
+>> +	DDP_COMPONENT_DITHER0,
+>>   	DDP_COMPONENT_DLO_ASYNC1,
+>>   };
+>>   
 > 
-> Please be careful with the scope of these. Heiner is going through
-> phylib and trying to reduce the scope of some of the functions we
-> exporting in include/linux/phy.h to just being available in
-> drivers/net/phy. That will help stop MAC drivers abuse them. We should
-> do the same here, limit what can actually use these helpers to stop
-> abuse.
 
-Can we consider having an header file sitting in drivers/net/phy
-directly for this kind of things ?
 
-Maxime
+
 
