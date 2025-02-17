@@ -4,58 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA871C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 19:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC278C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 19:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YxjXyQqeMw1J5Qloq0r9LKBH/PNw5/cyffxXlOaLX/0=; b=Jrt6ZwF2hKSEE0EtHUFdojvLKw
-	5gaSLm75rqpKY92kj7U0+7m6rkvFzCJAEP+3RRrP72R1kn7sFXVFv2Oe0PgWSrbghnljFWg3nngOQ
-	ALHS6tGEKg19xQ3L4gxTWTkf3xPMi+AFE/U4l6ZQj0Gu7eqgcw9kqcajlY9QYZUN/2yltmB4tAjs8
-	FrwDZMjAJ4zQU/zJ4Pdm7fy8N1Qks/ePhvwlqFX/0Kg7dyMpOKRSZBTV+Pbl19Yo9AOyg+1dSXFQM
-	B6/4DN4QIV+hLApJ/jHKyCnVYVcExgiZxGvmDPiNZFhmC/D6L564xRNtLlg8ysDVvZeeVKp8QXT9L
-	o79N5FIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=WcqpG+BYolhuyDeMZi6qI20BSLp3GYG0+vieo87EGmk=; b=d2waz0YNlRn+PHxzP+2TuQFPTl
+	FCu8RtC2dqkaDs8yTQy5g8LdgLFh568b7wTQyEN+yzU9tWOtpOPRMZMh3oR6iDb6vZEUWYX+cqHm4
+	YkdtakhORzxq9zrF3IME7mp37P3pnHraBQ48COH8+8E4x8EY40VSkz6VtvfVfR1qqKtPfwIV6O9hU
+	BNwNMHoe/ZjY9wVk/LjiquyIC3zda2xwPi8CwD8xxy84FM/mwYIbYaO7vVix3s8yi0LuM8IrYoMyb
+	znc0gBvOjy9Ub/J2ANKzt1XJVyIbdYVwBlOcM1TdR5r9K9czRgD2rbHfwwBifN06J99L97QoqpUpP
+	KXEECiKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk71r-00000005mjo-4Avu;
-	Mon, 17 Feb 2025 19:43:43 +0000
+	id 1tk74A-00000005n8k-2oQv;
+	Mon, 17 Feb 2025 19:46:06 +0000
 Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk70P-00000005mXS-0kfR
+	id 1tk72i-00000005msZ-0SCL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 19:42:14 +0000
+	Mon, 17 Feb 2025 19:44:37 +0000
 Authentication-Results: purelymail.com; auth=pass
-DKIM-Signature: a=rsa-sha256; b=lV84h0Em5ss0x1cbUHkV9HfjfNbc7ITWw815Cn+d5bkyDMCBn1w8amYBUCiORLxa/A3A7DKFELl9AjTM2c56k8sRH0lTWKWVvPamC3tNTp4hN85EAzjX/X0Ljr3o0P6N6A1mQ8L/vqp6klsd57+6q4zo0dVvK5cJAxxG7PNyAJPsBPaNQMiTx/zeeEHWrMOzoCm1Ql30ALtXwiC0enryFJh6a8YVGHKL1iXeUbHTMXb1V3i4IBmEiJFvPiXe5WHDnpSFTwVgARsgcRjjcn1z7Nj0K8aK4ssNenRZntLdeJnhiPQSfT7JM34rBw6rRpZS0AQ3rUikmPAHlBvNL7jDMQ==; s=purelymail3; d=purelymail.com; v=1; bh=yYX/SR79Dqqvmyu22HwNz7TvqcDwF99ty5EMBfajVJ8=; h=Feedback-ID:Received:Date:Subject:From:To;
+DKIM-Signature: a=rsa-sha256; b=ocExaFjsgLFVQzh8ijKBYhiO9N1lKDnf3zFjEDFvKJwAYlJT8gGMCucPkiD/jb2oyZYBV9oLWOAwWuO8+mhv//oT1tq/MYqYNYjs6eov+EY5lGc6I7zuKbUKg4zXyyss3Y9ro4VsAoZ+ppbnUC5Cm33AydgVOI4kVMyHBIi1kn4P+YMQfJkH+j9NEWmdTBwedT+IqOfVEiG/Mib81I6Be3fdrzb1qvFGXXnwu0Zvur6Y5fePvzn6dsY78JtM/OEvNUokWGpV9w+Z/S9gMPwjeuSn6QhX+XZng5NwvyLyTh2ct0QegEl8giXyINQHwvBQqqQqaUmKV6qM2MkB17DAPw==; s=purelymail3; d=purelymail.com; v=1; bh=IgmrKZQ+U6jM19WQ1y4s62f1uaoWol9FnsSA1ZFXU+4=; h=Feedback-ID:Received:From:Date:Subject:To;
 Feedback-ID: 68247:10037:null:purelymail
 X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
-Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1182872981;
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id 1112335277;
           (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-          Mon, 17 Feb 2025 19:41:34 +0000 (UTC)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 17 Feb 2025 20:41:32 +0100
-Message-Id: <D7UZ6BSEU6DD.2QRKZBTKMPD9F@mentallysanemainliners.org>
-Cc: "Krzysztof Kozlowski" <krzk@kernel.org>,
- <linux-watchdog@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-samsung-soc@vger.kernel.org>
-Subject: Re: [PATCH 0/2] watchdog: Exynos990 WDT enablement
-From: "Igor Belwon" <igor.belwon@mentallysanemainliners.org>
-To: "Igor Belwon" <igor.belwon@mentallysanemainliners.org>, "Wim Van
- Sebroeck" <wim@linux-watchdog.org>, "Guenter Roeck" <linux@roeck-us.net>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Alim Akhtar"
- <alim.akhtar@samsung.com>
-X-Mailer: aerc 0.20.0
-References: <20250217-exynos990-wdt-v1-0-9b49df5256b0@mentallysanemainliners.org>
-In-Reply-To: <20250217-exynos990-wdt-v1-0-9b49df5256b0@mentallysanemainliners.org>
+          Mon, 17 Feb 2025 19:44:15 +0000 (UTC)
+From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Date: Mon, 17 Feb 2025 20:44:04 +0100
+Subject: [PATCH v2] dt-bindings: usb: samsung,exynos-dwc3 Add exynos990
+ compatible
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250217-exynos990-bindings-usb3-v2-1-3b3f0809f4fb@mentallysanemainliners.org>
+X-B4-Tracking: v=1; b=H4sIAIORs2cC/4WNQQqDMBBFryJZNyWJWk1XvUdxEXXUAZ1Ixooi3
+ r2pF+jyPfjvH4IhILB4JocIsCKjpwjmlohmcNSDxDayMMrkyuhMwraTZ2uVrJFapJ7lh+tUPrp
+ SdYW2mU4LEddzgA63q/yuIg/Iiw/7dbTqn/3fXLXUMoW8NYXRjS2b1wS0uHHc2RFMDmlEgsB3H
+ 3pRnef5BbmVk/LPAAAA
+X-Change-ID: 20250214-exynos990-bindings-usb3-6f80f7194137
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-usb@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739821453; l=1933;
+ i=igor.belwon@mentallysanemainliners.org; s=20241206;
+ h=from:subject:message-id; bh=IgmrKZQ+U6jM19WQ1y4s62f1uaoWol9FnsSA1ZFXU+4=;
+ b=B6t7KTHxA+iuFtJA+yAANoa5OJat58KmWVxgOUSKRZvxMNtbaoOTTAlv4dPWmlT5LWwh2Pu8k
+ q6eEIZ+JUKrDuBKPF+X1xlb64anSsoZh8AOFx9Q0WEbW2fD/l12oaJy
+X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
+ pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_114213_701713_B87C2691 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20250217_114436_217847_9C5ECE1F 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,30 +80,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Feb 17, 2025 at 8:05 PM CET, Igor Belwon wrote:
-> Hi all!
-> This series enables the two clusters of the Exynos990 watchdog timer
-> to be used. Weirdly enough, this SoC is missing the cl1 cluster, it has
-> the cl0 cluster and then jumps over to cl2. As such, new cluster index
-> code has been added to accomodate this oddity.
->
-> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-> ---
-> Igor Belwon (2):
->       dt-bindings: watchdog: samsung-wdt: Add exynos990-wdt compatible
->       watchdog: s3c2410_wdt: Add exynos990-wdt compatible data
->
->  .../devicetree/bindings/watchdog/samsung-wdt.yaml  |  9 +++--
->  drivers/watchdog/s3c2410_wdt.c                     | 39 ++++++++++++++++=
-+++++-
->  2 files changed, 44 insertions(+), 4 deletions(-)
-> ---
-> base-commit: 253c82b3a2cec22bf9db65645f934fbe095899a3
-> change-id: 20250217-exynos990-wdt-0e9100ec5f99
->
-> Best regards,
+Add a compatible for the exynos990-dwusb3 node. It's compatible with the
+exynos850 variant when using the highspeed mode.
 
-Please ignore this patchset. I did not test the bindings with my device
-tree changes - as such, I did not account for the cluster-index being
-more than 1. I will send a fixed v2 shortly. My apologies.
+Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+---
+The Exynos990 SoC embeds a DWC3 USB3 DRD controller.
+
+The controller's design is compatible with the Exynos850 design
+for high-speed mode.
+
+This patchset adds in the new exynos990-dwusb3 compatible.
+---
+Changes in v2:
+- bindings: re-check, fix picking the dwusb3 compatible
+- Link to v1: https://lore.kernel.org/r/20250214-exynos990-bindings-usb3-v1-1-3e5d2721c98c@mentallysanemainliners.org
+---
+ .../devicetree/bindings/usb/samsung,exynos-dwc3.yaml     | 16 ++++++++++------
+ 1 file changed, 10 insertions(+), 6 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml b/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
+index 2b3430cebe99106f3b6201ab31d4d9e3fcc55627..f11e767a8abe1d2fb7faa6d6b5be09970c5c9b37 100644
+--- a/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
++++ b/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
+@@ -11,12 +11,16 @@ maintainers:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - google,gs101-dwusb3
+-      - samsung,exynos5250-dwusb3
+-      - samsung,exynos5433-dwusb3
+-      - samsung,exynos7-dwusb3
+-      - samsung,exynos850-dwusb3
++    oneOf:
++      - enum:
++          - google,gs101-dwusb3
++          - samsung,exynos5250-dwusb3
++          - samsung,exynos5433-dwusb3
++          - samsung,exynos7-dwusb3
++          - samsung,exynos850-dwusb3
++      - items:
++          - const: samsung,exynos990-dwusb3
++          - const: samsung,exynos850-dwusb3
+ 
+   '#address-cells':
+     const: 1
+
+---
+base-commit: 5cbcf2652f4cd84eac21f5e88fe2a0baecc601fb
+change-id: 20250214-exynos990-bindings-usb3-6f80f7194137
+
+Best regards,
+-- 
+Igor Belwon <igor.belwon@mentallysanemainliners.org>
+
 
