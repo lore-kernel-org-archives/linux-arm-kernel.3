@@ -4,84 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43109C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 08:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D376EC021A6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 08:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aa9FjOC+0NkttZ/C72me1JnGrEV9KjFWVVh8kZ1wp0Q=; b=PMphkCLdTE1Y8FRVpR9S7q/Qi4
-	8YfD9kNIg5TuvJwvqRNlwq+wh8ppSHEkh/pm4yi5pCCOjgVjIU5hNWU/U+o8OEmlnKkKPlG/nv3It
-	n5yG43/1ALAm2XcqLH9cYyHMza/EjMRjFMe57EIUx3BX/p01eHkK89IWQcr+qAISG1xNow/vB0X0D
-	IztEThGYI2WWW+dc17AxMZ0Syb4y2gfgjSzcWTjLclWQpYYsGqwbfMl4k4S6v7ZfPd1BOAu703EG8
-	tbkgizgdalbdOqb5WcWQuP6QybulhExGZtZxUFsVauKcQ2/S0eFhoHm8Ldq5d6Ja4G7lSislvxw2G
-	McVcY6Ug==;
+	bh=d/YS5MLfKMkBBAVf8P8Cp96BPI3XDXrrM6Jt7SBSVb8=; b=hNlNTWPbQe0MKftzHRdZGWj7Ub
+	D44uRsnARCpBJBR8FmCkd2QWqXIIXmYFWgN5UwTg9T3LNb2RCzOMpOdpfJ2PskHqImhwNVts0GdLo
+	/SG4JKuRrS20kuiGv8tGJ+4OLE7/1JacucaskyzFTI8H7EFymjkbgiv8Ub8KY+yIwdt0GxaDB/s8Q
+	SLwR+524rT9xbeKgNTCHBrjoI0/CsB+I65tet0dYMHpIGxKwe1Qy0tUfoIFjhzilIAuMWhn6WVWYm
+	y26PUqkec6QL1Yzx4oKN2XfhW/96xQ8r4x4O37aBc4PVmL49CfZL8jaXsGYIx70G6NZFg2KbMi/gb
+	5IdU/6uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjwPD-00000003kXM-36zH;
-	Mon, 17 Feb 2025 08:23:07 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjwMK-00000003k3t-3IZC;
-	Mon, 17 Feb 2025 08:20:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739780408; x=1771316408;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=oPkuHL9Dy3/UxnFwaQibKWWo5ejIr+ylnjV+e/PO7Mc=;
-  b=QqUJMTiz+ztUKgqipZU9B1H/oNnixNoD6fmVFRhxFv3NosbXSibU7hg3
-   1ANbLpj9By2kKWR+Pp1Fd7YM+uinY5Q3IHGd3QWlWkGNcqn4tEaUsv5Kb
-   8wszyQQ9YRLr30wwPmZRcDJbfVDIDmEhfZoeOf6HfjwvS2iMtuzZ85eb7
-   X4/eKM3g1Z/NRZyQ8sOef3cGTzfEftwWo5vycphh67eNCqwvJajbf202O
-   JsvnXfxI1Wll/M3MZQaEUSNWaBGu7XH5rZCY70WtqksnyDCfjTcs3VN9b
-   /xFdooevdeO6/Y2/JXZOzQLHLLN4WX+qZiS1DieDGMruhoo4QI2hodGja
-   w==;
-X-CSE-ConnectionGUID: pfMZhKHLSPCa5B3keIPniA==
-X-CSE-MsgGUID: ZZuKFYcOT5qdZN1hSiCWXg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11347"; a="40377400"
-X-IronPort-AV: E=Sophos;i="6.13,292,1732608000"; 
-   d="scan'208";a="40377400"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Feb 2025 00:20:07 -0800
-X-CSE-ConnectionGUID: psU11MIcQB+yvaheySR5bA==
-X-CSE-MsgGUID: OMcPVd88Qeai6K8lHCZInQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.11,199,1725346800"; 
-   d="scan'208";a="118977219"
-Received: from lkp-server01.sh.intel.com (HELO d63d4d77d921) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 17 Feb 2025 00:20:04 -0800
-Received: from kbuild by d63d4d77d921 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tjwMD-001CmY-1A;
-	Mon, 17 Feb 2025 08:20:01 +0000
-Date: Mon, 17 Feb 2025 16:19:59 +0800
-From: kernel test robot <lkp@intel.com>
-To: Qingfang Deng <dqfext@gmail.com>, Felix Fietkau <nbd@nbd.name>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Russell King <linux@armlinux.org.uk>, linux-kernel@vger.kernel.org,
+	id 1tjwQe-00000003kk2-1gp1;
+	Mon, 17 Feb 2025 08:24:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tjwMU-00000003k4u-0HMM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Feb 2025 08:20:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F4D31007;
+	Mon, 17 Feb 2025 00:20:34 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.2.76.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 576B53F5A1;
+	Mon, 17 Feb 2025 00:20:14 -0800 (PST)
+Date: Mon, 17 Feb 2025 08:20:08 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v3] net: ethernet: mediatek: add EEE support
-Message-ID: <202502171610.TU1Cuzq5-lkp@intel.com>
-References: <20250217033954.3698772-1-dqfext@gmail.com>
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] perf arm-spe: Report error if set frequency
+Message-ID: <20250217082008.GA8144@e132581.arm.com>
+References: <20250205183009.224182-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250217033954.3698772-1-dqfext@gmail.com>
+In-Reply-To: <20250205183009.224182-1-leo.yan@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_002008_866691_6C6F70BC 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20250217_002018_145292_FE2114E0 
+X-CRM114-Status: GOOD (  24.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,73 +69,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Qingfang,
+On Wed, Feb 05, 2025 at 06:30:09PM +0000, Leo Yan wrote:
+> When users set the parameter '-F' to specify frequency for Arm SPE, the
+> tool reports error:
+> 
+>   perf record -F 1000 -e arm_spe_0// -- sleep 1
+>   Error:
+>   Invalid event (arm_spe_0//) in per-thread mode, enable system wide with '-a'.
+> 
+> The output logs are confused and it does not give the correct reminding.
+> Arm SPE does not support frequency setting given it adopts a statistical
+> based approach.
+> 
+> Alternatively, Arm SPE supports setting period.  This commit adds a
+> for frequency setting.  It reports error and reminds users to set period
+> instead.
+> 
+> After:
+> 
+>   perf record -F 100 -e arm_spe_0// -- sleep 1
+>   Arm SPE: Frequency is not supported. Check manual 'man perf-record' on how to set period.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-kernel test robot noticed the following build warnings:
+Gentle ping.
 
-[auto build test WARNING on net-next/main]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Qingfang-Deng/net-ethernet-mediatek-add-EEE-support/20250217-114148
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20250217033954.3698772-1-dqfext%40gmail.com
-patch subject: [PATCH net-next v3] net: ethernet: mediatek: add EEE support
-config: arm64-randconfig-001-20250217 (https://download.01.org/0day-ci/archive/20250217/202502171610.TU1Cuzq5-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250217/202502171610.TU1Cuzq5-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202502171610.TU1Cuzq5-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/net/ethernet/mediatek/mtk_eth_soc.c: In function 'mtk_mac_enable_tx_lpi':
->> drivers/net/ethernet/mediatek/mtk_eth_soc.c:860:1: warning: control reaches end of non-void function [-Wreturn-type]
-     860 | }
-         | ^
-
-
-vim +860 drivers/net/ethernet/mediatek/mtk_eth_soc.c
-
-   826	
-   827	static int mtk_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
-   828					 bool tx_clk_stop)
-   829	{
-   830		struct mtk_mac *mac = container_of(config, struct mtk_mac,
-   831						   phylink_config);
-   832		struct mtk_eth *eth = mac->hw;
-   833		u32 val;
-   834	
-   835		/* Tx idle timer in ms */
-   836		timer = DIV_ROUND_UP(timer, 1000);
-   837	
-   838		/* If the timer is zero, then set LPI_MODE, which allows the
-   839		 * system to enter LPI mode immediately rather than waiting for
-   840		 * the LPI threshold.
-   841		 */
-   842		if (!timer)
-   843			val = MAC_EEE_LPI_MODE;
-   844		else if (FIELD_FIT(MAC_EEE_LPI_TXIDLE_THD, timer))
-   845			val = FIELD_PREP(MAC_EEE_LPI_TXIDLE_THD, timer);
-   846		else
-   847			val = MAC_EEE_LPI_TXIDLE_THD;
-   848	
-   849		if (tx_clk_stop)
-   850			val |= MAC_EEE_CKG_TXIDLE;
-   851	
-   852		/* PHY Wake-up time, this field does not have a reset value, so use the
-   853		 * reset value from MT7531 (36us for 100M and 17us for 1000M).
-   854		 */
-   855		val |= FIELD_PREP(MAC_EEE_WAKEUP_TIME_1000, 17) |
-   856		       FIELD_PREP(MAC_EEE_WAKEUP_TIME_100, 36);
-   857	
-   858		mtk_w32(eth, val, MTK_MAC_EEECR(mac->id));
-   859		mtk_m32(eth, 0, MAC_MCR_EEE100M | MAC_MCR_EEE1G, MTK_MAC_MCR(mac->id));
- > 860	}
-   861	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> ---
+>  tools/perf/arch/arm64/util/arm-spe.c | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+> 
+> diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
+> index 4301181b8e45..baef0812dc19 100644
+> --- a/tools/perf/arch/arm64/util/arm-spe.c
+> +++ b/tools/perf/arch/arm64/util/arm-spe.c
+> @@ -40,6 +40,19 @@ struct arm_spe_recording {
+>  	bool			*wrapped;
+>  };
+>  
+> +/* Iterate config list to detect if the "freq" parameter is set */
+> +static bool arm_spe_is_set_freq(struct evsel *evsel)
+> +{
+> +	struct evsel_config_term *term;
+> +
+> +	list_for_each_entry(term, &evsel->config_terms, list) {
+> +		if (term->type == EVSEL__CONFIG_TERM_FREQ)
+> +			return true;
+> +	}
+> +
+> +	return false;
+> +}
+> +
+>  /*
+>   * arm_spe_find_cpus() returns a new cpu map, and the caller should invoke
+>   * perf_cpu_map__put() to release the map after use.
+> @@ -389,6 +402,13 @@ static int arm_spe_recording_options(struct auxtrace_record *itr,
+>  				return -EINVAL;
+>  			}
+>  			opts->full_auxtrace = true;
+> +
+> +			if (opts->user_freq != UINT_MAX ||
+> +			    arm_spe_is_set_freq(evsel)) {
+> +				pr_err("Arm SPE: Frequency is not supported. "
+> +				       "Check manual 'man perf-record' on how to set period.\n");
+> +				return -EINVAL;
+> +			}
+>  		}
+>  	}
+>  
+> -- 
+> 2.34.1
+> 
 
