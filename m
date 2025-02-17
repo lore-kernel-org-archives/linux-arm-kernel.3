@@ -4,136 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB726C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:08:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71234C021A1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:53:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0YxsblgvyhPceRn9CV3F5txUITBVLC+2fUBTAYKfjRI=; b=DjfKXVy8cbr6REKJs4zGEHoqP5
-	bEC/s3v6zY/C5Kaj2P+asYeXO6h4YMyVE9PW5Vos354mp4Sc+In6cb17tNyqeUdB6YdqgK2JsyRma
-	49MzxUOAGROGn2rG3VT0H0GA5OgEKZKg0YZjQgOjZVWXlG0E0beI1pOTwBfj3ebna/APb1R/OK9V8
-	xNLNrTG+uOIedbY0+V88Byv30+aJVoZurBXe7kCier7OvXNu4KCd7ZcM59jwm3qsJLzmxuda2RQl8
-	Qjxav7HDpDgIABl6vP9D8/iMoQNB/F4FvoX+gp7biJyj32XE3q2gfQWk9Ao4PKh9p2FYXTl+vQ53J
-	0RHvBmTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Atdfv1u3QJvV1o68tlPZkH3S4E5LyywsJGNj7mblCio=; b=kjfIM8Qj4zLB0+kcJbKw+kx4v8
+	tuDl7BtgdzO0sonBZ6yGq+wcCy4znF/C05/7PLTcn/YcI1SgYDd408QYtV1BtaH4TDS+S2OPhT/AN
+	YA23d/5r2Lorbxd7+qCnK5VH09x5Z5BtzuTZF9WZ6R/+uZl6Hijf+zDqGKhkToi7aNaFsvQQ3zV8z
+	ukZ2YKBQ/+G3LEfcaXqS3Gz1UJZvAIIaDtxSo1UqpccVAfbXTWygJfdGjqNGQBFfI6vNJXJXzbT3K
+	cEvTcUJtCv9EC33ieN4k29SqGG5SKypjqAgPCvXvBZQ2CjyX9gQsa1pHrLlxne7fwR9PdSlhBcVW8
+	559u2X9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjy3R-000000043Uv-2pqZ;
-	Mon, 17 Feb 2025 10:08:45 +0000
-Received: from mail-sn1nam02on20618.outbound.protection.outlook.com ([2a01:111:f403:2406::618] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1tjykN-00000004ANt-2byp;
+	Mon, 17 Feb 2025 10:53:07 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjxp9-000000040Mx-1WVA
+	id 1tjwww-00000003pa4-0B1M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 09:54:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Brq2t8O0WMLJ+QR/rECDEAMH59X9zvB2cHELPtoepGgKgjLxbUFuNf7/PWtCgQpTTfOaWmx7kTz+c0b0S8HtPhWfDIRgrqlIdE93AZz2vdNDzjv21JmNL8Ad8emiRZsxKA6RTcFSjZ38uIci7I0YlBc1voLnKWjjwwa+FQJjDl7vVe012FjPgiYlaT0vJz+6F3nBcFvjM+5D0mdd32QT8N13vssnXs8y73CFKOzCb1fI47VroYk8+u9WC5RW9PEQEpsbLDjZXI4uiBWlUJ8Isn6SFqhXjG4S7af+cSY+lWFfTmFEkwjteq7w0rSxA4FXGozjm+L+IGnv0YHUXPnp9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0YxsblgvyhPceRn9CV3F5txUITBVLC+2fUBTAYKfjRI=;
- b=AHWawrIZyV4nCXYamqSb6ngPqPk0GQLLnok0Ao2MFBIHSwGKXqBf18YfrvRO7WFiq32SzKoO1+bxfM/IbrbUfHhyaobObGQtg8Tk9rI6bA30B/2nDbWNVJpHDK6fe0abAkZukUTmkK3xK/586zUG5zKEJATKOikdxNccdHQtmtI3T6RtdzPG+ZpEVQH1QK9lSzQcsOoXqLVyWVU422mZdhHH66Q2hYVjsGz+URl6itUtGUdJZW7n8AN0tOYjqA3EndddmuSjnSDIpBGMgPViQFrsfRdOjwkjTPqPszCB0HGe6NDpXLtCeR2B8Ds7Tzw7LgmDFbwE66v/Voyh8ClQzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0YxsblgvyhPceRn9CV3F5txUITBVLC+2fUBTAYKfjRI=;
- b=z6cLmWKVtZnxAHNNB7cqCK3l9lJRlu4sEPcx+jsxjQhfI1dVWFac3EOv0iH4zx2yYcV5KGX5G7jVvuO31f11FYyNNzINLx99iMNNvaB+RiGsgnM7L7D51TZFvgKAim1gzn9CRrCM32wCJ+ZmoLqLzC4E/xDBTkUEXjoOibCndj0=
-Received: from PH0PR07CA0082.namprd07.prod.outlook.com (2603:10b6:510:f::27)
- by SJ2PR12MB9243.namprd12.prod.outlook.com (2603:10b6:a03:578::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Mon, 17 Feb
- 2025 09:53:52 +0000
-Received: from CY4PEPF0000EDD1.namprd03.prod.outlook.com
- (2603:10b6:510:f:cafe::65) by PH0PR07CA0082.outlook.office365.com
- (2603:10b6:510:f::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8445.17 via Frontend Transport; Mon,
- 17 Feb 2025 09:53:52 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- CY4PEPF0000EDD1.mail.protection.outlook.com (10.167.241.197) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8466.11 via Frontend Transport; Mon, 17 Feb 2025 09:53:51 +0000
-Received: from SATLEXMB06.amd.com (10.181.40.147) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 17 Feb
- 2025 03:53:51 -0600
-Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB06.amd.com
- (10.181.40.147) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 17 Feb
- 2025 03:53:49 -0600
-Received: from xhdshubhraj40.xilinx.com (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Mon, 17 Feb 2025 03:53:47 -0600
-From: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Michal Simek <michal.simek@amd.com>, <linux-pm@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <git@amd.com>, Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
-Subject: [PATCH] dt-bindings: power: reset: xilinx: Make "interrupts" property optional
-Date: Mon, 17 Feb 2025 15:22:26 +0530
-Message-ID: <20250217095226.12606-1-shubhrajyoti.datta@amd.com>
-X-Mailer: git-send-email 2.17.1
+	Mon, 17 Feb 2025 08:57:59 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-220e989edb6so76091775ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 00:57:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1739782677; x=1740387477; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Atdfv1u3QJvV1o68tlPZkH3S4E5LyywsJGNj7mblCio=;
+        b=N5GZiwzPhb3hogKX/hCLPo1FRYQeET8F9SGiqJwJCz9P0EXkCd48OI1grZXB4Swezk
+         NzK2CgjhP3sbxbFPUm6fvdXa0hFJfGXUnnU0LK2D5d8kp16TJaK19g/B5R91yqOiryyX
+         MHPb0Qak149maV7EEMaMqWpY2hiyTuKYsFwXlq9rBZTFb4S7VE7TlFtoNFxB8HhZUDXL
+         Nelnsd/gySLelKRegVcna9opIH43z0KhIsbK6MmhDsFdwuMjI/n7p3usf3nC8L1+cMML
+         EN+Fdg7L0wavMSBNhyb/l+y8Pn3UHTpInifN2xZkF/sZGebQqFy2aPOH07zm3jSsZXRc
+         XVtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739782677; x=1740387477;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Atdfv1u3QJvV1o68tlPZkH3S4E5LyywsJGNj7mblCio=;
+        b=SY+iLPIKnFdKFF3b9/hYnBaMX93CWU1c0gFwSjIT6Qj1u5cY/HVv5pcorHJo0hwMPO
+         N3WuOIeuDCsHQNDXyZrDIbhER0NLQw7vwTHx6HsS325ZfLYZakchN1301bAI8SAFmdT1
+         ubW7J//0Yj32i4WCEv4DPYd8Nozo2vMHioPTWI36zrXGl7atrvTn9p7rlql+treNBLnR
+         sONIYtQM0uyXPyck9FOwVPt+grQnXeNr+2A91Se82MhAXd0acQT0gSncZwH4Nj2R8m9s
+         SymdLvT24Q4RGNQnc92gA+W3EgDkSBvwbW5M1w4ArC7TIh5B+pOSOsKKK9Qkj9Tn8Y3+
+         kW0w==
+X-Forwarded-Encrypted: i=1; AJvYcCUx82LOrrNFn3LmGm8woRqWMMT34hhVkrVnZJMEndKpuC+66dLwjX8KEmlk5+EJgZWCb2fL8h4YUYvB24D8HEvs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2bGwF0KgZwNDWUhLCAeJzRJrQf3Q/RYaRI9gr05qDdh7nGPw3
+	DAnkL1xc1H+UPjtIDRdGrdVeWjkqBDRBUdX5EOqxNe4WKI+YG16SnjX1YYnZE2M=
+X-Gm-Gg: ASbGncu+6aQR8DazbDhLRIne1tKTzNgu0yYrGlm8O+tg1st04Zg3yPai/4Q1wAWxfG/
+	kcbNSVMjVmfMK4DpYi4WZ2f7LwPn45RmEAW745KxD1NUJhikHB+aeLWQ8tGUH56c76A2kkkyzTP
+	3bNLbC8PeLU4772p0HJL8dwdtw+4mskfrTdKNfoCmWGapQXnQ2VkdRlZjS9cHoHvDbU7SqFSl+8
+	ZOGAz1SXX2fC1GfXcrSn/2beHzwSl5R2NAIlSO09E+ZY/16jRAyRkxORyfIEWIgwJJHz2a/PSEz
+	lAskRLi3oU22U8aXc34JxgtzczWQ/+ImlWnOTP382U4F9s0AYAj+A58=
+X-Google-Smtp-Source: AGHT+IFPW0gjXYzToorJlW4AuIzo5YfoCgQvbwScUi6k6HolCkujw1LAnVbhNnt/U0DkIfz+68pqpQ==
+X-Received: by 2002:a05:6a00:cd4:b0:725:9d70:6ace with SMTP id d2e1a72fcca58-73261798a0amr14960838b3a.6.1739782677006;
+        Mon, 17 Feb 2025 00:57:57 -0800 (PST)
+Received: from anup-ubuntu-vm.localdomain ([122.171.22.227])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73242546867sm7632018b3a.24.2025.02.17.00.57.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 00:57:56 -0800 (PST)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org
+Cc: hpa@zytor.com,
+	Marc Zyngier <maz@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Atish Patra <atishp@atishpatra.org>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Sunil V L <sunilvl@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH v6 01/10] irqchip/riscv-imsic: Set irq_set_affinity for IMSIC base
+Date: Mon, 17 Feb 2025 14:26:47 +0530
+Message-ID: <20250217085657.789309-2-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250217085657.789309-1-apatel@ventanamicro.com>
+References: <20250217085657.789309-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD1:EE_|SJ2PR12MB9243:EE_
-X-MS-Office365-Filtering-Correlation-Id: e40f48e0-e215-4a1d-5e04-08dd4f38fc09
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Ukk2D6JmChjmxVv267/CAnSOS/0yc5rpljo44X9Wa/iMfCSxIy77Guv5YvW9?=
- =?us-ascii?Q?e120eXxr/0qk3ysWNWFQZXEwQX/S1iALHewRVFkrZQUIY7Zr86qSnkF/Cvfr?=
- =?us-ascii?Q?JJoLfHzNDM7+q45OGT9Z33+EYiVRw8WXIWvLg9GZO0cHG2a/3+G2PKkuzaCI?=
- =?us-ascii?Q?oh+BDpck8FElu3xQSYHkdXpVL9pXeXD3rT5qZmcsDs54o1oPfBUzLKBTmM/y?=
- =?us-ascii?Q?NGhT86m8AOsRtN/ItQiD/ykNAKSKHJLTWFgXK7C6Y4wzPfcayFy78dRUM71h?=
- =?us-ascii?Q?f+cmfGGn1y7W6UMC7w82cri0ZY8bIiz7QHISPdcB9YAd2j1x/iQtd6ARKHPP?=
- =?us-ascii?Q?eNNfzVUoHMmBNW4rxjAlRE+wMpccdwztrKQ7twlfMEU+Lzebw48yCrnz/kS+?=
- =?us-ascii?Q?1t3h36rdIjs2x+ksAECA0zFtgXEKqpk+gu32MyAqnlQbSZSCtKH/17NaKS5v?=
- =?us-ascii?Q?4VKwmhd3dyLKLDR1+HQSZB2nczLXRB5H0QbmsXYnaUDZZeW9Kd5mdWkSHwYp?=
- =?us-ascii?Q?fBWtX1ekuoBewRhf5NLoylKFR/5htKBxtEAZH7jM9lR2mX5zEfwRpFNCIZGh?=
- =?us-ascii?Q?YxJtBsMWZeCUwozb5FR+JjdSzs4O1H9tpprVSor3xDGx4zAmKItNTuQymhGo?=
- =?us-ascii?Q?3jCBiAEqvTgvbm5fMjmcKLlBGf6hhj/KgwSoDU25rMcgns4wwaR+iqrkA/zP?=
- =?us-ascii?Q?GcKcdJKibEtPQ8IHsP57/ZvhySRcz6gTgsfxfF0CX+sxTxWKqbtD2vj2zxEQ?=
- =?us-ascii?Q?yqqi4WFXRhI0WM/rPiHjJG3xqEr0zPgWppPw7Y2IvhrWyZsTmBVrn1ss+TBR?=
- =?us-ascii?Q?7KKJxjdYtTurcONHJycKdxvrJdu8H9MKvLHf2of8C3THNMyCsrpyeYQB4FWx?=
- =?us-ascii?Q?XZZqgXZsvEpghRRcOY/tRUbun+PUBy6e+lvGuYZve10qVNyk/QZJLWcblNOj?=
- =?us-ascii?Q?kd7enDn0l+z9cgqsvEOcJ4pBeyrrne3qHCV+hdSQKczAGcPSd0ZBhAwhMHBo?=
- =?us-ascii?Q?G+Pbz+GvfsM/2+JRSqqjm32H0Uy5s3GGTGV//vCI7UcSN4YsKz/wQo7xEnWe?=
- =?us-ascii?Q?Pp5P1naqhn2Bgv436XGopiTwClNgq59l5XWYutM3bCYJRir1FlVuJdC+qEzt?=
- =?us-ascii?Q?0VjYHmGTWv5VseRQh74OGRCZaDa1+uNnE8oUuY8OPUOUzR2vNKsGoY2W24TC?=
- =?us-ascii?Q?uXlJb3u0KU1ASONmRlRofgCjgW7ihXmAjAy03EQCixzW/pq1IoiX5kC0gg8U?=
- =?us-ascii?Q?3XMeGXAtEfAnUjUtnE6ZHvIFDsf8iNZ4Fmi8tC54teDcKkF7vVtbNAe5DiK2?=
- =?us-ascii?Q?CzdgXLA0SilruOs/MMLWZayca5sp0EEeHw4ESWjtYVVaNsx/9oaFlxrRtUvP?=
- =?us-ascii?Q?DXC3LCAXbANIxZC5p5o9K+WA70J6kibvAz/reglPSPjlmsAfeTg/N3hw/z+h?=
- =?us-ascii?Q?nboghxL0cfe2/SgTy7NQdmW0Ma2/ei3QTbAShjvufsC7jHcBSMxpN4FFmHrF?=
- =?us-ascii?Q?ViwayYn2wOpOj8A=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2025 09:53:51.9994
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e40f48e0-e215-4a1d-5e04-08dd4f38fc09
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD1.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9243
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_015359_663010_4285BEAF 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_005758_085293_76AE693F 
+X-CRM114-Status: GOOD (  14.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,35 +118,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "interrupts" property in the ZynqMP power/reset binding was previously
-marked as required. However, there are multiple mechanisms for
-handling power/reset events, including:
--Event management registration,
--Mailbox (mboxes),
--Interrupts (interrupts).
+From: Andrew Jones <ajones@ventanamicro.com>
 
-When event management support is available (default on Versal SoC), the
-"interrupts" property is not used hence not required.
+Instead of using imsic_irq_set_affinity() for leaf MSI domains, use
+imsic_irq_set_affinity() for the non-leaf IMSIC base domain and use
+irq_chip_set_affinity_parent() for leaf MSI domains. This is required
+for moving the IMSIC driver to the common MSI lib which uses a generic
+msi_domain_set_affinity() for device MSI domains.
 
-Signed-off-by: Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
+ drivers/irqchip/irq-riscv-imsic-platform.c | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
 
- .../devicetree/bindings/power/reset/xlnx,zynqmp-power.yaml       | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/Documentation/devicetree/bindings/power/reset/xlnx,zynqmp-power.yaml b/Documentation/devicetree/bindings/power/reset/xlnx,zynqmp-power.yaml
-index 799831636194..079ad977b907 100644
---- a/Documentation/devicetree/bindings/power/reset/xlnx,zynqmp-power.yaml
-+++ b/Documentation/devicetree/bindings/power/reset/xlnx,zynqmp-power.yaml
-@@ -46,7 +46,6 @@ properties:
+diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
+index c708780e8760..5d7c30ad8855 100644
+--- a/drivers/irqchip/irq-riscv-imsic-platform.c
++++ b/drivers/irqchip/irq-riscv-imsic-platform.c
+@@ -96,9 +96,8 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+ 				  bool force)
+ {
+ 	struct imsic_vector *old_vec, *new_vec;
+-	struct irq_data *pd = d->parent_data;
  
- required:
-   - compatible
--  - interrupts
+-	old_vec = irq_data_get_irq_chip_data(pd);
++	old_vec = irq_data_get_irq_chip_data(d);
+ 	if (WARN_ON(!old_vec))
+ 		return -ENOENT;
  
- additionalProperties: false
+@@ -116,13 +115,13 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
+ 		return -ENOSPC;
  
+ 	/* Point device to the new vector */
+-	imsic_msi_update_msg(d, new_vec);
++	imsic_msi_update_msg(irq_get_irq_data(d->irq), new_vec);
+ 
+ 	/* Update irq descriptors with the new vector */
+-	pd->chip_data = new_vec;
++	d->chip_data = new_vec;
+ 
+-	/* Update effective affinity of parent irq data */
+-	irq_data_update_effective_affinity(pd, cpumask_of(new_vec->cpu));
++	/* Update effective affinity */
++	irq_data_update_effective_affinity(d, cpumask_of(new_vec->cpu));
+ 
+ 	/* Move state of the old vector to the new vector */
+ 	imsic_vector_move(old_vec, new_vec);
+@@ -135,6 +134,9 @@ static struct irq_chip imsic_irq_base_chip = {
+ 	.name			= "IMSIC",
+ 	.irq_mask		= imsic_irq_mask,
+ 	.irq_unmask		= imsic_irq_unmask,
++#ifdef CONFIG_SMP
++	.irq_set_affinity	= imsic_irq_set_affinity,
++#endif
+ 	.irq_retrigger		= imsic_irq_retrigger,
+ 	.irq_compose_msi_msg	= imsic_irq_compose_msg,
+ 	.flags			= IRQCHIP_SKIP_SET_WAKE |
+@@ -245,7 +247,7 @@ static bool imsic_init_dev_msi_info(struct device *dev,
+ 		if (WARN_ON_ONCE(domain != real_parent))
+ 			return false;
+ #ifdef CONFIG_SMP
+-		info->chip->irq_set_affinity = imsic_irq_set_affinity;
++		info->chip->irq_set_affinity = irq_chip_set_affinity_parent;
+ #endif
+ 		break;
+ 	default:
 -- 
-2.17.1
+2.43.0
 
 
