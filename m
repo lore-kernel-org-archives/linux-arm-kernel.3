@@ -4,90 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7453DC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:27:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC579C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gpqEL8DpAJMrJ/rNxfQI3uKIUT/9KC6tNWKUzxHa+5g=; b=tduwfzTBOwWZekGJet+amFz3VM
-	Iq5adO6ovS9aAHfcDMW0ONU1g22JJMBbjstOVnKh33+sqaMVsYlhms1vQj+ruNATDYomklW5AcH+7
-	8XsZjXv44szVvbg/k0AkcowrlBm0ppTKQXf3bmC9R8lXfnEPtgNCd130p1dRS8xU6EzIxKrU1tJwy
-	H3he3msqIeDEJhBZ4qwNS5t9y8vrAsFsAM6m5JihnU1nbs8J+PnRYgSYCebfrMPtZNfA/lFpO3dlq
-	O5chasapWjKJIPlmELkGbDAbjQzJPrbi7hYOHhmWuLGfcrciVzf6UeEOMR4FrM58fOzzvEvl1hWbZ
-	X/ddKxZg==;
+	bh=P/ZYNLNYi9izsPpQnS4Vt2j2EX6aZ+ZTlib9rqaQyc0=; b=PrpQeKayU9rcRtNXpoRZWPArB+
+	rp5MYT/eeIX5Xhc3xcR9RKj8N/N7Y2wrMwbT/c9lYQCU+RVV92SMfI++F+opmD/YtD1flKz/IfRx7
+	RIHpgVKkoQ/2GNMRIPVFPjfNj9KtPoMNFg6a5ogr3MHv7Mcs0vRlYuT/To/lvFPhyYudo4Urz9CHa
+	KucnvHDbeWGEmTj+1cFmnQIC0cSO3ro5HTYePic2JbZJQw6X9n+tykCaovLOYe9l2U5JxAY4lB6fU
+	cVXluABPnzOR4FZQJXFjFF5lc84JiWpZ87jHL2FMwO7aNv91ctcVbZJhqRWGiWcCzhzhs/rzalXhI
+	DzZq8TOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk7hq-00000005tL3-0FvQ;
-	Mon, 17 Feb 2025 20:27:06 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk7I2-00000005p9L-17rN
+	id 1tk7jH-00000005tYJ-2zbo;
+	Mon, 17 Feb 2025 20:28:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk7Lj-00000005q0H-3GUL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 20:00:27 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5461f2ca386so1359721e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 12:00:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739822424; x=1740427224; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gpqEL8DpAJMrJ/rNxfQI3uKIUT/9KC6tNWKUzxHa+5g=;
-        b=Udnposr15Qd01FTKRkFxKZp6IXquDP2XG3ktHcnD6RD37mLdm2kaZHl/hHgSwwCczP
-         GtUnYFM4iZkRyMno2vf4dA8As7c57P6qS3p9Ndcif/LIdk1ivIkhLOm0h/dq/0SdVQ06
-         jJl9UicoMzWiv6DlbjkiHRyzD4YXDIZCGBDqBqsJU1QnnsWKBM8HVWbiGXMQOkIehbrh
-         0ITrJhAmQbaJyjhRSuysArY80SkY3VT+zdI7r00o14VbEgtOorhW7dw6qFRSZ8t/+aUS
-         lRqoJ7CIkVcgsWTDxhi7dDsIKN74ddaKEoE7Grmx+ZP/2/meS/bYvLEPM7FeWZ/ZCvB7
-         Jy2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739822424; x=1740427224;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gpqEL8DpAJMrJ/rNxfQI3uKIUT/9KC6tNWKUzxHa+5g=;
-        b=rT7TNMczuEwFdWW7ntcu6TY9ubHIpGwjRP0e957YT07bCnR1QthobcwJulu2r8gGpw
-         bhMrii78EDNMt8Bzpb0M4zSZxuTgpqRFajwJc7XTVq/shecNdedpTjqbYpRdhSeXxIBW
-         CqkOSpzeO+cXfi2ombRKNL+QyjFB8s78X8524QBlADdfdwJvIXAdLUV/NJA1KyyvlBRM
-         x1tNNWWXhuSyK+HPimq8ug61Q4drEjJfL72SaqMrC46QTybKKHD3uJLlikgLGEqMFP/Z
-         MzFswcja5rYJ28/wNVn3apoynyxFikAqzecC/03tOikAQ5yn/4qGsCsNYSMh/nqSjXxu
-         WvIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVqmTYt3WsnCL8GzqHSxm+pDUDHA6xHMR4wQ4SWFnZV9m+/ohSj13fWuk097RWzEo7rl5/HIdLH7ihD4dHmFo1P@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywe7gxDiiJbcc9R+N179+QxSkAbl85lix5Mp76XtrXrS7dPjgty
-	yZtACfvnmyNqMlRt5pE99tsyCHLCrDO/S6G1S76LZ2OjGVsG8R+OMSY71BqkxBo=
-X-Gm-Gg: ASbGncvFS3non98MOxkM1CF1qCUruyoGk2VqH4V72WWCxredoEjgPYF+AfXxGdOzgkm
-	6TLNiF0Fi6NlvPCktUew20w2vR/kGLfmgmtQ/BFbwyIPNRBS/i1Q2qNDpS/isDXWA7ssBg/gsF/
-	7nnHoH2exdpoH8E7PFL9Cgd4yf2YPvgY5YX6l1DzZZpTfgTmLiNbVc6TtltevYF08e7Pxf1bmCA
-	aCUmMwLSuVREAbIDUT5jOxBvJs5LX84fEhM6LUDJsHLgcdodMCfZ+8BCzSr2vqZZIm6X2+Iw+5D
-	FMfrJ4wDxB0DkMUGJVBdg1ouWJ65/pOtsWkdKjWwj2CbuHDZM3UK0f+MgOkdlUWp7LA+oxU=
-X-Google-Smtp-Source: AGHT+IHfYFHYucbMv9ssVZrygfyI/KAzMXlRnYVSK6/tZCdLiSCDTSlyjiu2Y9vqwm/0Wc+nrvZGmQ==
-X-Received: by 2002:a05:6512:2398:b0:545:2c86:17e6 with SMTP id 2adb3069b0e04-5452fe2f270mr3457419e87.5.1739822424412;
-        Mon, 17 Feb 2025 12:00:24 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54525784de2sm1436453e87.109.2025.02.17.12.00.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 12:00:23 -0800 (PST)
-Date: Mon, 17 Feb 2025 22:00:20 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Vishal Sagar <vishal.sagar@amd.com>, 
-	Anatoliy Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven <geert@linux-m68k.org>
-Subject: Re: [PATCH v3 02/11] drm/fourcc: Add DRM_FORMAT_XV15/XV20
-Message-ID: <e5ujn5lhj5vuvkbavoc3oppt3cpxnr7mm2vwh6liojmpxkfy2d@grpmckvbl5h4>
-References: <20250212-xilinx-formats-v3-0-90d0fe106995@ideasonboard.com>
- <20250212-xilinx-formats-v3-2-90d0fe106995@ideasonboard.com>
+	Mon, 17 Feb 2025 20:04:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6AB2A152B;
+	Mon, 17 Feb 2025 12:04:34 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.2.76.71])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E09D73F6A8;
+	Mon, 17 Feb 2025 12:04:14 -0800 (PST)
+Date: Mon, 17 Feb 2025 20:04:09 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Graham Woodward <graham.woodward@arm.com>, Paschalis.Mpeis@arm.com,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 08/11] perf arm-spe: Fill branch operations and events
+ to record
+Message-ID: <20250217200409.GC8144@e132581.arm.com>
+References: <20250214111936.15168-1-leo.yan@arm.com>
+ <20250214111936.15168-9-leo.yan@arm.com>
+ <a5d99e7f-1d8d-41f1-976d-7d67a0d5decb@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250212-xilinx-formats-v3-2-90d0fe106995@ideasonboard.com>
+In-Reply-To: <a5d99e7f-1d8d-41f1-976d-7d67a0d5decb@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_120026_308285_F3918F70 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20250217_120415_860407_83B0FA7C 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,77 +76,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 12, 2025 at 04:56:06PM +0200, Tomi Valkeinen wrote:
-> Add two new pixel formats:
+On Mon, Feb 17, 2025 at 04:20:57PM +0000, James Clark wrote:
+
+[...]
+
+> > diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
+> > index ba807071d3c1..52bd0a4ea96d 100644
+> > --- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
+> > +++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
+> > @@ -207,6 +207,18 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
+> >                               break;
+> >                       case SPE_OP_PKT_HDR_CLASS_BR_ERET:
+> >                               decoder->record.op |= ARM_SPE_OP_BRANCH_ERET;
+> > +                             if (payload & SPE_OP_PKT_COND)
+> > +                                     decoder->record.op |= ARM_SPE_OP_BR_COND;
 > 
-> DRM_FORMAT_XV15 ("XV15")
-> DRM_FORMAT_XV20 ("XV20")
+> I think this results in memory events being synthesised for these
+> samples because of a bug in arm_spe__synth_data_source().
+> ARM_SPE_OP_BR_COND overlaps with bits from other packet types like
+> ARM_SPE_OP_LD:
 > 
-> The formats are 2 plane 10 bit per component YCbCr, with the XV15 2x2
-> subsampled whereas XV20 is 2x1 subsampled.
+>        if (record->op & ARM_SPE_OP_LD)
+>                data_src.mem_op = PERF_MEM_OP_LOAD;
 > 
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
->  drivers/gpu/drm/drm_fourcc.c  | 8 ++++++++
->  include/uapi/drm/drm_fourcc.h | 8 ++++++++
->  2 files changed, 16 insertions(+)
-> 
-> diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
-> index 1e9afbf6ef99..bb0a2294573b 100644
-> --- a/drivers/gpu/drm/drm_fourcc.c
-> +++ b/drivers/gpu/drm/drm_fourcc.c
-> @@ -346,6 +346,14 @@ const struct drm_format_info *__drm_format_info(u32 format)
->  		{ .format = DRM_FORMAT_P030,            .depth = 0,  .num_planes = 2,
->  		  .char_per_block = { 4, 8, 0 }, .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 },
->  		  .hsub = 2, .vsub = 2, .is_yuv = true},
-> +		{ .format = DRM_FORMAT_XV15,		.depth = 0,
-> +		  .num_planes = 2, .char_per_block = { 4, 8, 0 },
-> +		  .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 }, .hsub = 2,
-> +		  .vsub = 2, .is_yuv = true },
-> +		{ .format = DRM_FORMAT_XV20,		.depth = 0,
-> +		  .num_planes = 2, .char_per_block = { 4, 8, 0 },
-> +		  .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 }, .hsub = 2,
-> +		  .vsub = 1, .is_yuv = true },
+> arm_spe__synth_data_source() needs to only interpret that as a data
+> source packet if ARM_SPE_OP_LDST is set. This was reported by Mike
+> Williams but you have the privilege of hitting it for real first.
 
-It might be beneficial to use the same formatting as previous entries,
-it simplifies reviewing. If the patchset is resent, it would be nice to
-get that fixed..
+Good catching.  I have added a new patch 06 to fix the bug in the
+v3 series.  Thanks for hooking up the info.
 
-However the patch looks correct, so
-
-
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-
-
-
->  	};
->  
->  	unsigned int i;
-> diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
-> index e41a3cec6a9e..ead756a71825 100644
-> --- a/include/uapi/drm/drm_fourcc.h
-> +++ b/include/uapi/drm/drm_fourcc.h
-> @@ -304,6 +304,14 @@ extern "C" {
->  #define DRM_FORMAT_RGB565_A8	fourcc_code('R', '5', 'A', '8')
->  #define DRM_FORMAT_BGR565_A8	fourcc_code('B', '5', 'A', '8')
->  
-> +/*
-> + * 2 plane 10 bit per component YCrCb
-> + * index 0 = Y plane, [31:0] x:Y2:Y1:Y0 2:10:10:10 little endian
-> + * index 1 = Cb:Cr plane, [63:0] x:Cr2:Cb2:Cr1:x:Cb1:Cr0:Cb0 2:10:10:10:2:10:10:10 little endian
-> + */
-> +#define DRM_FORMAT_XV15		fourcc_code('X', 'V', '1', '5') /* 2x2 subsampled Cr:Cb plane 2:10:10:10 */
-> +#define DRM_FORMAT_XV20		fourcc_code('X', 'V', '2', '0') /* 2x1 subsampled Cr:Cb plane 2:10:10:10 */
-> +
->  /*
->   * 2 plane YCbCr
->   * index 0 = Y plane, [7:0] Y
-> 
-> -- 
-> 2.43.0
-> 
-
--- 
-With best wishes
-Dmitry
+Leo
 
