@@ -4,174 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1556AC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A3FEC021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v+mTMD+pAH6A4YKrgr+gReSXGikIJE788Ny2TOlgw+M=; b=Lw1s1RSW5PudFVnPrLbkyZjy20
-	v2Ox8Qg65XaRbC3mnvXNHapW5ymOsk2zRrzqe/k/iiD8PwjrDq7mgfP4iez2p6GJVZXRd8+K+lhCj
-	KNxq1iMQAVlOsL6mNv8hRo3lyknGG1f5hanB1mOn5kt0V/PaTd6BQnGSv5c14sMaCIrUPleMxBXNm
-	Pqbge1WV8iZbyhSRt4ODCfek1/NZIzsnkMrVMLVJ4QoHtktNgzWyl5TtecZ9QpzdnOpRJE3SIrGJ/
-	2DdNi+rC7pmIfBEIwQ9uSLO2duAQ9qID5m/O1na8eP2X8z23zy2I43ni6PheEebSw5d4LoGGkFlRm
-	DVsT1xZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RZGgBpcp8HuoDdnVbyjD6nbTX5PiNpopNc/IO+zHmIo=; b=CywEiKMRwNGMkAQiB1XVGu4BzK
+	afjpmXldZoqL5J0kGJFWCM4PUbQZdTTpYxWqa+sL1bYwUYZUGfTr5tpjLXv+W0C7kHNGy1y2uC11b
+	wBRq4o/LBx92cKi/d5Pe8ZxA8ReZpxoTHcXr95Ct3mUvKlNzQB/1leQ9qrelUSa5UnKOKnSlFg/dA
+	Bo2CaXGTPahS7Ozz+ZN4so9MLDz6qLqQU8wW6nJdz7s+V/+4+Kqy//jM6RGLKcjJwqofrbiZMfC8P
+	K0d1OgY9SS9WokjBX5bXTtyyFlmhJs9l2iuCkrdsNI6b2bJqUqiW/opwVCpwKP8LMz7xQaBXLoUzb
+	ipOKPDfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk5AF-00000005UxR-05KH;
-	Mon, 17 Feb 2025 17:44:15 +0000
-Received: from mail-vi1eur05on20617.outbound.protection.outlook.com ([2a01:111:f403:2613::617] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tk5Bg-00000005VDq-1K4c;
+	Mon, 17 Feb 2025 17:45:44 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3vK-00000005FVL-3cFq;
-	Mon, 17 Feb 2025 16:24:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tmmi3lvf2EOM3YOznqT2O1NY6EZd89cbJOKCLftC5uJu0gdUZZzP5BNTGkjkaYJ6LmFg6L0QyRNglEaRQe7hBWYQfW48wSrY23rTzV+xSsYhOb77M0HYBiuTrClyG2IT0S9Dziul0xxP3OIh3gdxNbcu7z5kaXlJ59p3/LT6Y3h2LpBvsiNCHQWtsGFtgcnGCGWo6jZFZbe/5NeCnWtiO5gwwEKyjwbFlqCOOHT9wPsiXbQun32ydFneXI8NXt/oRsV/3pDmdt8gVVKPUkinI76j31X0aNDWKUqNZN3G7DSj6NiE9VdQc6O+K+mcaU8TsMCsv4c+IGZtU3FCW5rVGA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=v+mTMD+pAH6A4YKrgr+gReSXGikIJE788Ny2TOlgw+M=;
- b=V8GBLnQkfdjNNVPx+jNr6lAFHC2/NRh9gfgi9auQFy8bqrwiFIy2aYsulI/7k80EhLpgQh1hRXxOD8oRutepnvjyV8knEXglg0oDGJobNArxMagGK3fes2Jje13gi3kqOmk1e2O8LHv88UTNvVaI3/J3zwwwPWyTx6YqEslXCAygjxgYXBEw1uryCE1KLQ6/5Vpu6/fQGpH5Q2Yn9UrqNGjYkvGDdprZyVx+19uylxeMAWz0Mm1LeHmh1YXeVNd1P9bsMVgusmreYpoqT6iwk2gD7i6dkQb5idz9UJi/eTdqoc+pwSqp7rNPwRi2m84W/8rKS0e0CjGDhsAnND5Ysw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=v+mTMD+pAH6A4YKrgr+gReSXGikIJE788Ny2TOlgw+M=;
- b=Z3nXdZas/mzARyjOs2EEkTfMDhIp0hlv+EaWBtvp1lsragx8hKHhphPE8U/4s/UalnMscAFV7zycrFk4diWRlqTgPsHu5nCzcYjYFU6khnMHNRQwDyY2dfT7pwdguzgur22ibSFUgSyZKt9sg3in5OcUV3TSa4tqEtS3INPJuTI=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by VI1PR04MB6813.eurprd04.prod.outlook.com (2603:10a6:803:13c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Mon, 17 Feb
- 2025 16:24:34 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%6]) with mapi id 15.20.8445.016; Mon, 17 Feb 2025
- 16:24:34 +0000
-Message-ID: <62901afd-0944-4ecb-8f3c-90904410a0f6@cherry.de>
-Date: Mon, 17 Feb 2025 17:24:32 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 7/8] arm64: dts: rockchip: Add OPP data for CPU cores
- on RK3588j
-To: Alexey Charkov <alchark@gmail.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Dragan Simic
- <dsimic@manjaro.org>, Viresh Kumar <viresh.kumar@linaro.org>,
- Chen-Yu Tsai <wens@kernel.org>, Diederik de Haas <didi.debian@cknow.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Kever Yang <kever.yang@rock-chips.com>
-References: <20240617-rk-dts-additions-v5-0-c1f5f3267f1e@gmail.com>
- <d8ce8db2-1717-40f8-b53e-24cc71a758c9@cherry.de>
- <CABjd4Yw-r-ogfwcrph4K1wbkybS25gk6LFg8wpqLG27uWdybNA@mail.gmail.com>
- <2914631.KiezcSG77Q@diego>
- <CABjd4YxF4N1tAgGUZk-oKkMUO+Q9rWHZsas9gMQdJ+TF4A1=NA@mail.gmail.com>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <CABjd4YxF4N1tAgGUZk-oKkMUO+Q9rWHZsas9gMQdJ+TF4A1=NA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0171.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:b7::18) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+	id 1tk3zL-00000005GNp-2jCO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Feb 2025 16:28:56 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-38f3ea6207cso1234424f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 08:28:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739809734; x=1740414534; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=RZGgBpcp8HuoDdnVbyjD6nbTX5PiNpopNc/IO+zHmIo=;
+        b=auzMrMDlfQXLRqoNvqeGiMvnpfnHSlu6ZXHayfi26UA2twkc6LOacHgu1P1OcHfRP0
+         RZJVRK5M8ipDCm2iEkU6g9FETvAsXCs9xyhEkcLD8q3LhQlwT7027DvPfl3wQkEJmYMZ
+         +go6R1YmICjH+SjU1Fv7ABM8qBxq4SR7pkh8MXoCls+HPTl5TxNCLJn2EYcXlDexOhKx
+         iIMRT+tqCO7ve/bPKjayHwR4b/lHeErwy570XssGMe5DJqD1kHHkfH/d3UkpffIxGayA
+         1shgPR6IdCbKI5DrqzKSMDxKyCJjjh34wUtzNWLNschj8BA+QuN9o6cdb5fG3UqhReHV
+         cEjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739809734; x=1740414534;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RZGgBpcp8HuoDdnVbyjD6nbTX5PiNpopNc/IO+zHmIo=;
+        b=eVTgC5lDctVp/skQrAZ7oMHjBIquHW+8RgA04fTKnLf/msafVDE/szc229qmLDW0b7
+         6JdasqfbK19nI8XzI9DV6cg39uQoU9iG8myTTTirFNWNA5FAadlxnUyCgRsMhuX7rhJk
+         SCmdzfHX/O5zOPC8HUBjbclgBAIOzE+KaXQ17uMeoXc5wh2uuNXvUecaNxAQT0KcD31o
+         G/rzD92HfNaA8A0DDjAdwamJ6MvI28v0wuZ2WJkStx+FUqKySWFGQbw34t3ik/9SwJCN
+         qeMzrC+PN0OC0d79ORTNveXguARFKq4bxIyOTCIPJucZLFYG3ZwNVA2cmjB6VkHpYO3i
+         cA5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXpgKaxOfLKiLLCgxGxZvuoBeNB/M7wY+RnICH2Q8CSXr1iDr5O/EyF+KBcbmFd+Vox/PZnMF0jFe+etCxNCzS1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKYqwiuWAUQDl0E60nd9Ntc91vCxCLc3PnjpQ0+KHBn0uxz3d3
+	yqYDfmOkWRqPUBjk+0a4SlUZikHvncy2V/EuzDtxyHoXmW6fb2levYv5x+48Ez0=
+X-Gm-Gg: ASbGncu/DcpjajlpIVLHQi0sAEFxviVqksbBwyaNT/xRkBvIKpidQLVZsfdNoH90MSj
+	8eZGR+fAKfgVUDiVdfZlKqyELM8hkoNNT58e/OwDEQdsy5waMQpDSd5RNKZrkoGw+YPKxhKckJl
+	Y4WrQRG4oavoa38gPl6LkkSV+Cq4g04XzafZTEqE/07wKCYfq0DiRjQtAnyExdVeMZDkWzPRSZz
+	1guH4zz5Chb026BMyYDXnti5JwYNEvQYEbKPHGb8jRov2vootDxqc2bEu7DRc6qS7mjqtXvRoCd
+	GGREHK7fbtGS+Llax7Z2pIKpOQ==
+X-Google-Smtp-Source: AGHT+IHuH77s0Gc3jaj6SvUYPZ9P8VnXHclSL5deuIzHmW+q14rWha9t/xkM04tw0RHHjunQ1PBdgA==
+X-Received: by 2002:adf:e6ce:0:b0:385:f6b9:e762 with SMTP id ffacd0b85a97d-38f340676a5mr8093772f8f.36.1739809733997;
+        Mon, 17 Feb 2025 08:28:53 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.202])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258cccd3sm12655932f8f.23.2025.02.17.08.28.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Feb 2025 08:28:53 -0800 (PST)
+Message-ID: <cd0c08e2-351c-43fb-863c-85a405714284@linaro.org>
+Date: Mon, 17 Feb 2025 16:28:52 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|VI1PR04MB6813:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0faad05b-4299-4d96-6db6-08dd4f6f9076
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Tmg4YXpXQXphVmpDWThrcVpGaGorT1FPMUtvQTJmOGlOV0hrOW12Y1JxZm4z?=
- =?utf-8?B?V3J2U1pWcno3bVkyNTdVZEN2amNNOXNqQ3BrcmZrcDU2MzlrSHhxSG9YTDVL?=
- =?utf-8?B?T1ZIM3hxUkRwQ1NvT1loOUFHSWNLSGx5Q1NkQWdMWng3NWh1WWJjbFpsek1M?=
- =?utf-8?B?VHhXM1dJNGVwQ0RJZGJaQm1rQjN5UGxwclRCbTRVQWNXVXVPaDBXNm4va2NL?=
- =?utf-8?B?ZkpnZENMOFVwUWhFMy8xWWQ5NWFoNmovVDlkTUU0ejFyNVhNNUJUSkhKQWRB?=
- =?utf-8?B?MUR0d21meEYyZkRjMHNnazFjRDViWUZvNThIRURQTk9yM1ZLRFIwMlpVbVNE?=
- =?utf-8?B?V3JJZWRjT1pVbWs2SE9yRVdxOUlteGRIT0QzMkJ3eWxnV2tKMG5CTlBzOUFp?=
- =?utf-8?B?T2NCQmJtWnNscUthWitGSFUwc01LME9FSzR4VnNpT3g2MzdZelFvNlozbm5n?=
- =?utf-8?B?UlVvTUNIRDgxN3lFNkk4RUg3SUxHTVNRUXo1V1NBZTZwajNQYS9SZzRWS3l2?=
- =?utf-8?B?a3lnM0cyNXg4KzRGMFdwOWtUWDV4c0F4QlFhaE1iUVVPQUpCWFRGTWNZclRk?=
- =?utf-8?B?NnBXOTZuMDdvbnI3YnlyV0Y1MXoySFhzcVZnWjhINitXeEJSTWpacHAxQ0ZL?=
- =?utf-8?B?WUVzaEd0NHNxTktZUG82SDNTOXRzZjQzU0tTYmV3ODd1SXlSU0s1bEVqNVZZ?=
- =?utf-8?B?RVRaMU8rTDgvQkhRQlJZRkhsa0hYRk1sNDZNUGtqeGZBU1FxL1dwUDZnQ3R3?=
- =?utf-8?B?VS9QUDQ1STV2WFhQZ2xraC92QTNncVJacWdTa2hpek00TlR2WWdSc1BFaDU4?=
- =?utf-8?B?bm4xcVhXK3NTa2dkYXpWaHArNUxLVVlkU0lSMCtzZWdQbVlRT1BwajBoci9G?=
- =?utf-8?B?NmVnM09rNmtiNmxKTGl2a1doNEJSUUVSM0FQZldCZFlqS3E2QnhyalFpeTFl?=
- =?utf-8?B?b1hSS0NUUnlJY2E5Mk9nNXdNQUlSbUJwMnNKYm14ZVhEcVJLWjFMOGJaUVRs?=
- =?utf-8?B?WUpCb3lhMi9oeC81c1lkY1NHRU5FQS80d3lUOGtrZFI3ZUFrY3c4RnIxT29T?=
- =?utf-8?B?VmwyZG50cWgvUUpDbWtKbW1JUU92RklBM3JsS3QxdDVBOEpxNldjTGcvM0NR?=
- =?utf-8?B?QmhCYUpUQy9KdHpFeU5KMFVBWnF0WTlUaDdLZUpnWE5rY1R0RUFGSXVZb08z?=
- =?utf-8?B?cG9YVm9TRjZ2ZitCM0lWUS9OWi9jdzB5K2llMkZtVndQVGRQQTZjZjBsc0J3?=
- =?utf-8?B?UTNqNmFmeUNnSlRlcFZYUXl4R2JZc0UvdXEyVGppRFNpM3E1OHZzV2NaOHZt?=
- =?utf-8?B?TWJwSUhlNS8vYzJVNFJzTE92V3N4aTMzRWRjckt6M3BPbzI4MllNOTBvUmpM?=
- =?utf-8?B?VjA0NjdOU2V4Wk5MMnRvbnIzNXd4M0xwdmNiRzNnSnMwakhGUzlTUFQyc2Ra?=
- =?utf-8?B?a1R3MGRVaFZiaU9rc3gzd2FVZ2hpRU0xVEF4TTlKSTRwMzE5aTZVWXhnN1JC?=
- =?utf-8?B?eVdoT05Vc0Jqc1FaeE9pWFpZSXJwVE1NbFRjWUZwekxZQk54TndSUTZ5Y2Jx?=
- =?utf-8?B?T1B3bTZnUTY1akQydEtaR2doQzgxWEkrNUlYSy9HaUtXTFR3WXdjUTBqazI2?=
- =?utf-8?B?UGNjTEE4enBmc2d5blhya0hrbzZSQThkMElDK2tqdTJWc3dBb1pCSklHV3Jr?=
- =?utf-8?B?K1RXbHJmUExKWVlQdXZnVWt6VXVhVmE1bkhjUGlPNmtINXAzTHUzS1NxNENx?=
- =?utf-8?B?YTFHZnRGaXZzNW5lbGlJajdvUUhQNXU4VERzZW1sR0IzdHB6KzVHQVNnc282?=
- =?utf-8?B?VDZKVGJGN0JWWnhyRE9oUT09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YXhJc3h6UFR6cW91V3I3dmZyamlqYTdOUzVBNjRyQnlzTmFlTVl2UzNyZWlF?=
- =?utf-8?B?QVRKVkdETWJKQnVqc2lDUE1Jc0N2TWNIVHkwNEFFMU5hTDRtc2pmTjlLZGUx?=
- =?utf-8?B?Ym5ONXNOVjZUK3pHc096UnFNTnVRSlJvS2hCb0JtMTN3TjFFb3B0NGxsY1oy?=
- =?utf-8?B?TGRMTWtrbzU0V2dBZ0F4RUpBd2FUZ09lTHprcUo4L2J4dHhCbVppOUY0NFM4?=
- =?utf-8?B?dy9xNXIyM2NKNUd0M20xVjZNY010MjZ2WEtPTnR4TnVFb2RWbjdaM1NiUTBL?=
- =?utf-8?B?c09QcDB2b1B3RkU3VHVadUdaeEc5VmwySDhBVGZHQ2Qya3lOTjN3dC81V0hC?=
- =?utf-8?B?ZWljN2Y2U1pIazYrYkR5bU93QVljWHdEY0daRnRMalE3QVNaMEg2b2pOWUFX?=
- =?utf-8?B?Q0MzR1l6SjQ2d094MEZocEtBYWVmVGEvcHpsZjBrNVlUVUJIaVpFREIvTnhn?=
- =?utf-8?B?b29XQ2hBQnBWUEVzNUR5bGVhTURjb0dGLytvU2VhY0hpYXRETGRlTE1yaDQ1?=
- =?utf-8?B?L0hlcjJSNEN5R2VEaFlPeGFtZ1lkTXdvVXNkaHVrRFZNS1BoUkhBaWluWnVC?=
- =?utf-8?B?b2VCS3pXd24waXdMVTVwNE51KzRGMlN5VzI2VGhmVzlkU0x3amI2VEFWVlpY?=
- =?utf-8?B?elZ0MTBWUjVGMGFNZ0I0eHBHTElhdGh1ajExMy92RUNyNkgvSlZZSDN3MXV5?=
- =?utf-8?B?VHYvdDh0V1kwb2J2Tlc3eVB3UXd3ZGdEMFdkd25DQW1LTlAzYlQzZkxORDBk?=
- =?utf-8?B?SXN3VUJ2WVdEYlJjaXFxVFNMZ0FjRk8yVHdjM3dxdkhGVnE1bkhGVWVQZHJi?=
- =?utf-8?B?WFUrcys0RXY2ZGlXSU1uNE5JazdqaUZ2eEVDMkNlNjd0QklGRXloTFZHb3VI?=
- =?utf-8?B?ZStZdkVqREtZUGhKRlRPeXVQT1pXTmhkNGc3bmhqK2M4V1RXdXFmMHRPZVJS?=
- =?utf-8?B?WTNQc2hCQjl3Yi9hUjB3cTl2dGNJS2dIbXBpanJjd2h3bVJTUXI5SFQ5M20r?=
- =?utf-8?B?ZU1pVHpkZ0dRcHlhT1o4aFRPZmlxQXFScXJlV01XaTN1SWp6NlR1eWRoZ0cr?=
- =?utf-8?B?WEZ3V1BZamR6cmMzMGdISjExN0d5RCtIV0lpSU1Ka2tBSkhCS1hjN0tZVmM3?=
- =?utf-8?B?eTNUUTdvS1lLMjVVZUhXb2dhRUh4bW1CUHlnd00wcVpwSmhyaXBpbFZobkpy?=
- =?utf-8?B?T2VIMkgzUnNuS2ZIRHkzN1R3dWtpelg5Z0NKemNNbVFnaFpUa2cvckUyeEYz?=
- =?utf-8?B?NTlJd2dzaDR5S2s0SzhuaXZndlhxSm9paWdQaC9acnp3S1Zoanl6a1ZQaXpY?=
- =?utf-8?B?OTZPUzc0VDJhVXo4a3dGM2taNFh1ZWRqbWFJMGJYVGVVK25ZalltQ1doenNY?=
- =?utf-8?B?NDFEVWlPWDdmZFY1WUQwNTJiZEYraWxPWmlTd1o5ZEE3VlZndXpaamxlbjBu?=
- =?utf-8?B?M1pjRGZpY1l2WTlnYlU1Uy9RVTRyOU9JbWd0SGJiSWIwakFmbzdLbWIvdEhL?=
- =?utf-8?B?NDk3Sm42eENnS2I3Tk1KdEtNSEl2MHZlM2dQNEg2TFNqcmYxa0NrTFB2YmpT?=
- =?utf-8?B?dGJmRG1keWkzdldmeVVTcjBzYm14TVZLTTl4NjRTS0FZRHNqbWNkVXg5bXBL?=
- =?utf-8?B?UExucmdVTVhoWWQxcXdjbjk1clBhZlV5bWtGUUxKbWtVamNlUXExUkIwdVJL?=
- =?utf-8?B?ektVKytJaTgxbjA2ckJuQ0M3VTI3NXVRV2NNWTVXK3U5aWZ6WjJ4R0RXa1Rk?=
- =?utf-8?B?bFRIMHFvczkrS2p1NG1JL3lFYUZnL2hCekpLMWNPRUlhSkZ4RHR2cmVHNWc2?=
- =?utf-8?B?VnFCNjVhd3FObVZjcU1VS2hBQUY2cGkyVUxIU3BESElIZ0ZJNHUyUWpUTkov?=
- =?utf-8?B?d3NxcmhkN2FMQXJPc3ZDQnNHUzUwV0RQVjVLYVRFTGhiVi84aHVmd3ZiSDYx?=
- =?utf-8?B?RitGTVJtRjdaVEdEVVdUczdFWitkQWJuK3FsVDhIREpmRXRNdGlEMk1xcC9p?=
- =?utf-8?B?NFhYMlVJb1BINlFHNHlQSlNkOWlwSFRoKytoMCt2TnRwcHJ3d0p5N0JCcGI5?=
- =?utf-8?B?eVFkZnF5ZENGUmlOcHgySy9iOWRjbjMreGUvb2Z1NU5ZNFBubkVXQVlTenlw?=
- =?utf-8?B?ZFkySHFXdjl5bFE2OHRWa1ZVbEVCZStXTGtpMVVOdE1yTlFTbDBnMzZZdTk1?=
- =?utf-8?B?Z3c9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0faad05b-4299-4d96-6db6-08dd4f6f9076
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2025 16:24:34.1959
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Qsje2GydMZXhH58TvyYdbclV2ubt2HNJQ57lRQVlovopg+55iIOdY+uDf5CREyzLDoXxH49Oz42fyBJf0ybhBUsvjRNcMz2T8BiARa+/LRM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6813
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/11] perf script: Refactor branch flags for Arm SPE
+To: Leo Yan <leo.yan@arm.com>
+References: <20250214111936.15168-1-leo.yan@arm.com>
+Content-Language: en-US
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ "Liang, Kan" <kan.liang@linux.intel.com>,
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@linaro.org>, Graham Woodward
+ <graham.woodward@arm.com>, Paschalis.Mpeis@arm.com,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250214111936.15168-1-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_082447_100949_B75E7974 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20250217_082855_700848_9AF16B88 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,233 +109,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
 
-On 2/16/25 1:32 PM, Alexey Charkov wrote:
-> Hi Heiko,
+
+On 14/02/2025 11:19 am, Leo Yan wrote:
+> This patch series refactors branch flags for support Arm SPE.  The patch
+> set is divided into two parts, the first part is for refactoring common
+> code and the second part is for enabling Arm SPE.
 > 
-> On Sat, Feb 15, 2025 at 11:30 PM Heiko Stübner <heiko@sntech.de> wrote:
->>
->> Am Samstag, 15. Februar 2025, 19:59:44 MEZ schrieb Alexey Charkov:
->>> On Tue, Feb 11, 2025 at 7:32 PM Quentin Schulz <quentin.schulz@cherry.de> wrote:
->>>> On 6/17/24 8:28 PM, Alexey Charkov wrote:
->>>>> RK3588j is the 'industrial' variant of RK3588, and it uses a different
->>>>> set of OPPs both in terms of allowed frequencies and in terms of
->>>>> applicable voltages at each frequency setpoint.
->>>>>
->>>>> Add the OPPs that apply to RK3588j (and apparently RK3588m too) to
->>>>> enable dynamic CPU frequency scaling.
->>>>>
->>>>> OPP values are derived from Rockchip downstream sources [1] by taking
->>>>> only those OPPs which have the highest frequency for a given voltage
->>>>> level and dropping the rest (if they are included, the kernel complains
->>>>> at boot time about them being inefficient)
->>>>>
->>>>> [1] https://github.com/rockchip-linux/kernel/blob/604cec4004abe5a96c734f2fab7b74809d2d742f/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
->>>>>
->>>>
->>>> Funny stuff actually. Rockchip have their own downstream cpufreq driver
->>>> which autodetects at runtime the SoC variant and filter out OPPs based
->>>> on that info. And this patch is based on those values and filters.
->>>>
->>>> However, they also decided that maybe this isn't the best way to do it
->>>> and they decided to have an rk3588j.dtsi where they remove some of those
->>>> OPPs instead of just updating the mask/filter in their base dtsi
->>>> (rk3588s.dtsi downstream). See
->>>> https://github.com/rockchip-linux/kernel/blob/604cec4004abe5a96c734f2fab7b74809d2d742f/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
->>>
->>> Funny stuff indeed! Judging by the comments in the file you
->>> referenced, those higher OPP values constitute an 'overdrive' mode,
->>> and apparently the chip shouldn't stay in those for prolonged periods
->>> of time. However, I couldn't locate any dts file inside Rockchip
->>> sources that would include this rk3588j.dtsi - so not sure if we
->>> should follow what it says too zealously.
->>>
-
-That was a clear oversight on my side.
-
-The commit adding support for the J/M OPPs in rk3588s.dtsi downstream 
-just precedes the one adding the removal of the J OPPs in rk3588j.dtsi, 
-so not sure what was the intended effect there. I'll open a ticket with 
-them to see if I can get some answer until/unless Kever chimes in.
-
->>>> So...
->>>>
->>>>> Signed-off-by: Alexey Charkov <alchark@gmail.com>
->>>>> ---
->>>>>    arch/arm64/boot/dts/rockchip/rk3588j.dtsi | 108 ++++++++++++++++++++++++++++++
->>>>>    1 file changed, 108 insertions(+)
->>>>>
->>>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
->>>>> index 0bbeee399a63..b7e69553857b 100644
->>>>> --- a/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
->>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3588j.dtsi
->>>>> @@ -5,3 +5,111 @@
->>>>>     */
->>>>>
->>>>>    #include "rk3588-extra.dtsi"
->>>>> +
->>>>> +/ {
->>>>> +     cluster0_opp_table: opp-table-cluster0 {
->>>>> +             compatible = "operating-points-v2";
->>>>> +             opp-shared;
->>>>> +
->>>>> +             opp-1416000000 {
->>>>> +                     opp-hz = /bits/ 64 <1416000000>;
->>>>> +                     opp-microvolt = <750000 750000 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +                     opp-suspend;
->>>>> +             };
->>>>> +             opp-1608000000 {
->>>>> +                     opp-hz = /bits/ 64 <1608000000>;
->>>>> +                     opp-microvolt = <887500 887500 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>> +             opp-1704000000 {
->>>>> +                     opp-hz = /bits/ 64 <1704000000>;
->>>>> +                     opp-microvolt = <937500 937500 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>
->>>> None of those are valid according to Rockchip, we should have
->>>
->>> Well, valid but more taxing on the hardware apparently.
->>>
->>>>                  opp-1296000000 {
->>>>                          opp-hz = /bits/ 64 <1296000000>;
->>>>                          opp-microvolt = <750000 750000 950000>;
->>>>                          clock-latency-ns = <40000>;
->>>>                          opp-suspend;
->>>>                  };
->>>>
->>>> instead?
->>>
->>> I dropped this one because it uses a lower frequency but same voltage
->>> as the 1.416 GHz one, thus being 'inefficient' as the thermal
->>> subsystem says in the logs. It can be added back if we decide to
->>> remove opp-1416000000.
-
-That was exactly my point, the 1.296GHz OPP would then be the highest 
-frequency at that voltage.
-
->>>
->>>> and...
->>>>
->>>>> +     };
->>>>> +
->>>>> +     cluster1_opp_table: opp-table-cluster1 {
->>>>> +             compatible = "operating-points-v2";
->>>>> +             opp-shared;
->>>>> +
->>>>> +             opp-1416000000 {
->>>>> +                     opp-hz = /bits/ 64 <1416000000>;
->>>>> +                     opp-microvolt = <750000 750000 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>> +             opp-1608000000 {
->>>>> +                     opp-hz = /bits/ 64 <1608000000>;
->>>>> +                     opp-microvolt = <787500 787500 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>> +             opp-1800000000 {
->>>>> +                     opp-hz = /bits/ 64 <1800000000>;
->>>>> +                     opp-microvolt = <875000 875000 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>> +             opp-2016000000 {
->>>>> +                     opp-hz = /bits/ 64 <2016000000>;
->>>>> +                     opp-microvolt = <950000 950000 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>
->>>> opp-1800000000 and opp-2016000000 should be removed.
->>>>
->>>> and...
->>>>
->>>>> +     };
->>>>> +
->>>>> +     cluster2_opp_table: opp-table-cluster2 {
->>>>> +             compatible = "operating-points-v2";
->>>>> +             opp-shared;
->>>>> +
->>>>> +             opp-1416000000 {
->>>>> +                     opp-hz = /bits/ 64 <1416000000>;
->>>>> +                     opp-microvolt = <750000 750000 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>> +             opp-1608000000 {
->>>>> +                     opp-hz = /bits/ 64 <1608000000>;
->>>>> +                     opp-microvolt = <787500 787500 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>> +             opp-1800000000 {
->>>>> +                     opp-hz = /bits/ 64 <1800000000>;
->>>>> +                     opp-microvolt = <875000 875000 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>> +             opp-2016000000 {
->>>>> +                     opp-hz = /bits/ 64 <2016000000>;
->>>>> +                     opp-microvolt = <950000 950000 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>
->>>> opp-1800000000 and opp-2016000000 should be removed as well.
->>>>
->>>> Did I misunderstand what Rockchip did here? Adding Kever in Cc at least
->>>> for awareness on Rockchip side :)
->>>>
->>>> I guess another option could be to mark those above as
->>>>
->>>> turbo-mode;
->>>>
->>>> though no clue what this would entail. From a glance at cpufreq, it
->>>> seems that for Rockchip since we use the default cpufreq-dt, it would
->>>> mark those as unusable, so essentially a no-op, so better remove them
->>>> entirely?
->>>
->>> I believe the opp core just marks 'turbo-mode' opps as
->>> CPUFREQ_BOOST_FREQ, and cpufreq-dt only passes that flag along to the
->>> cpufreq core. But then to actually use those boost frequencies I would
->>> guess the governor needs to somehow know the power/thermal constraints
->>> of the chip?.. Don't know where that is defined.
->>
->> personally I don't believe in "boost" frequencies - except when they are
->> declared officially.
->>
->> Rockchip for the longest time maintains that running the chip outside
->> the declared power/rate envelope can reduce its overall lifetime.
->>
->> So for Rockchip in mainline a "it runs stable for me" has never been a
->> suitable reasoning ;-) .
+> For refactoring branch flags, the sample flaghs are classified as branch
+> types and events.  A program branch type can be conditional branch,
+> function call, return or expection taken.  A branch event happens when
+> taking a branch.  This series combines branch types and the associated
+> events to present a sample flag.
 > 
-> My key concern here was perhaps that we are looking at a file inside
-> the Rockchip source tree which looks relevant by the name of it, but
-> doesn't actually get included anywhere for any of the boards. This may
-> or may not constitute an endorsement by Rockchip of any OPPs listed
-> there :-D
+> The second part is to enable Arm SPE's sample flags for expressing
+> branch types and events, and support branch stack.
+> 
+> Patches 01 - 03 are to refactor branch types and branch events.
+> Patches 04, 05 extend to support not-taken event.
+> 
+> Patches 06 - 09 enables branch flags in Arm SPE.  This allows to print
+> out sample flags for samples.
+> 
+> Patch 10 supports branch stack for Arm SPE.  Patch 11 is an enhancement
+> for PBT feature.
+> 
+> Changes from v1:
+> - For patch 05, changed to append the 'not_taken' bit in the branch_flags.
+>    This can avoid altering bit layout and cause breakage.
+> - Added Ian's review tags.
+> 
+> 
+> Leo Yan (11):
+>    perf script: Make printing flags reliable
+>    perf script: Refactor sample_flags_to_name() function
+>    perf script: Separate events from branch types
+>    perf script: Add not taken event for branches
+>    perf script: Add not taken event for branch stack
+>    perf arm-spe: Extend branch operations
+>    perf arm-spe: Decode transactional event
+>    perf arm-spe: Fill branch operations and events to record
+>    perf arm-spe: Set sample flags with supplement info
+>    perf arm-spe: Add branch stack
+>    perf arm-spe: Support previous branch target (PBT) address
+> 
+>   tools/perf/builtin-script.c                   |  30 ++--
+>   .../util/arm-spe-decoder/arm-spe-decoder.c    |  23 ++-
+>   .../util/arm-spe-decoder/arm-spe-decoder.h    |  11 +-
+>   .../arm-spe-decoder/arm-spe-pkt-decoder.c     |  14 +-
+>   .../arm-spe-decoder/arm-spe-pkt-decoder.h     |  12 +-
+>   tools/perf/util/arm-spe.c                     | 135 ++++++++++++++++++
+>   tools/perf/util/branch.h                      |   3 +-
+>   tools/perf/util/event.h                       |  12 +-
+>   tools/perf/util/trace-event-scripting.c       | 116 +++++++++++----
+>   tools/perf/util/trace-event.h                 |   2 +
+>   10 files changed, 307 insertions(+), 51 deletions(-)
 > 
 
-Will ask for confirmation through their ticket system.
+Just one potential issue on patch 8, with that fixed:
 
-> I haven't seen a TRM for the J variant, nor do I have a board with
-> RK3588J to run tests, so it would be great if Kever could chime in
-> with how these OPPs are different from the others (or not).
-> 
+Reviewed-by: James Clark <james.clark@linaro.org>
 
-I do have access to some J variant product but that won't help if you 
-need to run the boards for months/years at the highest freq in a 
-temperature-controlled chamber at the highest supported temperature for 
-the SoC. I don't think there's a TRM for the J variant, that wouldn't 
-make sense as it's the exact same SoC, just a different binning. 
-Similarly to what was done for RK3588S, RK3588S2, RK3582, RK3583, etc.. 
-I don't think there's a TRM for those, but there's a datasheet, c.f. 
-https://www.lcsc.com/datasheet/lcsc_datasheet_2403201054_Rockchip-RK3588J_C22364189.pdf 
-but that says 1.6GHz for the A76 cores and 1.3GHz for the A55 while the 
-the j-m OPP in rk3558s.dtsi downstream list the highest as 1.7GHz (but 
-rk3588j.dtsi removes it).
-
-Will report if Rockchip has answered on their ticket system.
-
-Cheers,
-Quentin
 
