@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AD3CC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 18:07:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B3C1C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 18:09:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iH7djJdqbVA0RGbJPAhEv0VEGRDLXuA71XT5JykB/JY=; b=dVwwq07rwTSfq44eliD95+ggpk
-	zQwBL2WbK+12HQw0TnITXJ3qIR+HNnVWXINsOljgWgWGzcWJZKPbfOHIwl/BzcsrtAYGXhU58cnHQ
-	l1sOzUrCCXrEag7zEn6aHfRqXTwRFCBbKszc6BGQziSDaluQiFav66cQ53VxVzvdZZaIuRt4Z3egz
-	G2baYgVwOQOL3W4G/w2kgGJ09nRg7tPKmOxhfzpi+2wsG6WIIgRYh0G45Lc0Z+0NXb5gqDsGDr8Fe
-	Y1lEm8SginnyowvtMp6K2O+skftiAOXwiqSykZ+2TbPs9Q/gaiYoOR1glCxLrMTw1bq9wP3FAMo1B
-	LRJkgWDQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uSmIRDqz5hyQFPdpXAuJTO2isFyroG+03fNCyyzcfnA=; b=Cv++R1sk0iZkuzWEz0ZNgSbIbe
+	InW5IaO4FrvNfqjtTSD7iaxkYfVgai1QqmiEi87wi4zyFUwjpVRkS9Zseog0zv8xZtQk95upGbZQm
+	p+MS63HQ8mXJ/o0HRXW+Cpc2W1p4Xn4ojRpaAMwYYslvQ6uAayWpChJLT3qcTFfwH87aXF+VqtVgb
+	k8T8HwoeFNq6XopN1k1NdPLx8mBwKpOKYU99t6l0vu8ZyR/FUgPnD3uKW+bAi1lExWO1hIcGFLCbp
+	mS+DtvemtRmDgx91GsTc55NILoVdFj94bvJOhlzSdfAfNWETS/dQh6oxin5Uw9vKl/+n2zi1IzZZx
+	4unpeAbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk5Ws-00000005YoF-2Qoh;
-	Mon, 17 Feb 2025 18:07:38 +0000
+	id 1tk5YJ-00000005Z28-0vNa;
+	Mon, 17 Feb 2025 18:09:07 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk4AP-00000005J4c-0iCL;
-	Mon, 17 Feb 2025 16:40:22 +0000
+	id 1tk4AU-00000005J5k-1wPT;
+	Mon, 17 Feb 2025 16:40:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739810419;
-	bh=XEdmeLzKffShZNKSBGP54NehTb23qsGdyVLr4uesvog=;
-	h=From:To:Cc:Subject:Date:From;
-	b=bdx70IWtsPSzWk58ZU9BHFu9MuYnTjnCMRWZmU8nf8WhbIXqV09f6Rtq1rXsGEiOu
-	 5EqbR5172a36TenFGFZvZw7GUNxSucYTlmxURaamBHD+bTonncihpez+piDS+iYP9/
-	 vW6sYC/HoCbS9lrX7+SC2P36fkbnu1sI2i/xGYV2lY/k2cF9y0FhPlHP5o66RQOHdl
-	 tbFfSdmEnt9RvrLDFCI6pu0PriYSGHIOwe+bkrgZ3lac37NsVckfB1odVkJuibPBCw
-	 HjyJaRTlBRjRzBxNO7wjLv4ddDiRLMqzxS5acnXYH4dpRBjNt1tm5GsR2QiQEGByh4
-	 kBrfvrXO/FBig==
+	s=mail; t=1739810424;
+	bh=ZO0lUUOVRwRafqNoWetQgISwi5s0VD7UwZ87lSrTg34=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=QpvRt9174RSz/2WWS1HtWCfx5iYmw5FRak+kNoAEF362fAiJ6IxTVOSqegB9jswsK
+	 mqg/jOTL4wbDF4KTAvuRetacBZskgloEvDttfxmYyG1gdJt2ifGYLpXXhWzM2fqQjB
+	 X8Q5RKt6gzbmrJ8Ztp2R5fgBeP4MeDofRA0hPt7Iy5RdiCss9tKsDIercTIN7gZsC7
+	 ksCB/CCS0GSle0j1PV1GIgKLdaOEln17b3VeeLQw6M6Wh8GnW4Cs39AcH0ng+zBGTC
+	 1SghL+Dzg10+nBSJGMiw4j5G1IQZnaErno/Z5kk36dEWpkVb1/CKRXa0fkVLp3illb
+	 8k7JowKHBQkKA==
 Received: from earth.mtl.collabora.ca (mtl.collabora.ca [66.171.169.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 89A0517E154F;
-	Mon, 17 Feb 2025 17:40:14 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AE1A717E155A;
+	Mon, 17 Feb 2025 17:40:19 +0100 (CET)
 From: Detlev Casanova <detlev.casanova@collabora.com>
 To: linux-kernel@vger.kernel.org
 Cc: Rob Herring <robh@kernel.org>,
@@ -63,16 +63,20 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH v4 0/2] Add Radxa Rock 4D support
-Date: Mon, 17 Feb 2025 11:34:29 -0500
-Message-ID: <20250217164009.130286-1-detlev.casanova@collabora.com>
+	kernel@collabora.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v4 1/2] dt-bindings: arm: rockchip: Add Radxa ROCK 4D board
+Date: Mon, 17 Feb 2025 11:34:30 -0500
+Message-ID: <20250217164009.130286-2-detlev.casanova@collabora.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250217164009.130286-1-detlev.casanova@collabora.com>
+References: <20250217164009.130286-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_084021_376788_054CE51A 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20250217_084026_671039_68D5CA86 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,47 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the basic support for the board. (Not officially released yet)
-It is based on the Rockchip rk3576 SoC, so I haven't added the
-following devices yet:
- - VOP/HDMI
- - UFS
-as the support for those has not been merged yet, but are close to be
-and I already validated that they work.
-It will come with another patch set.
+The board is based on the Rockchip rk3576 SoC.
 
-The following devices are supported and working:
- - UART
- - SD Card
- - Ethernet
- - USB
- - RTC
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Changes since v3:
- - Reorder nodes alphabetically
- - Add missing cpu supply
-
-Changes since v2:
- - Move and rename snps,reset-* props to the PHY node
- - Rename phy@1 to phy-ethernet@1
-
-Changes since v1:
- - Add missing dt bindings
- - Remove clock-frequency in rtc node
- - Add line break in pmic pinctrls
-
-Detlev Casanova (1):
-  dt-bindings: arm: rockchip: Add Radxa ROCK 4D board
-
-Stephen Chen (1):
-  arm64: dts: rockchip: Add Radxa ROCK 4D device tree
-
- .../devicetree/bindings/arm/rockchip.yaml     |   5 +
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../boot/dts/rockchip/rk3576-rock-4d.dts      | 678 ++++++++++++++++++
- 3 files changed, 684 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
-
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 522a6f0450eae..9ddb20890627f 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -862,6 +862,11 @@ properties:
+           - const: radxa,rock-4c-plus
+           - const: rockchip,rk3399
+ 
++      - description: Radxa ROCK 4D
++        items:
++          - const: radxa,rock-4d
++          - const: rockchip,rk3576
++
+       - description: Radxa ROCK 4SE
+         items:
+           - const: radxa,rock-4se
 -- 
 2.48.1
 
