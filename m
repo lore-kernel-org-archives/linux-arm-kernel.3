@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15078C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:15:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7680C021AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QjvR6b5BjqryM3DMHxFhTSbOzPrvcdNa2MPAXtRZ3A4=; b=3p2+xtRpIOv3/iHsfWHe7LzINB
-	CqjAmRdjrAlNFEhQ/KTNC2L3E74vLAI2DOw/SE0fEzOuVIOfNW/Z9lkqoCgmeG1k/6kbhGG+hs4+d
-	voO9QAJ4lmcX+9IMyxrHKkYmvEuH51Lacsty9Lurucs7js7vM82HUSIcoAha3PQ+yMaDTx82g6Dgt
-	EM/xUjdocD1KK3hLqqO1tsOJ8eWL4N0tPOSDd7X/PqxgSf2leUvDySqiLMuXATE8++E2XKUl9qb/c
-	qx8n/F8cly6Ty2WJ6MYTt+DaxtjXtKp9ag3E79Px0QFUlWbsqw1RmARj5K8BWsoKOb2oLKT46mEW+
-	fZQ/mV7A==;
+	bh=F8P6CnZIKWih8v53EKSQOz8corlrU6mPWHF0BWlrBYA=; b=ZX+YkAKzBa6Cdb57MLT97CwsA1
+	Q9ZmfmzYNvFFAmrjZx8WFDJpqj7QLOg07+qkIWtufiPC2FTJ9+z/24fT0R+/YWyAEZNZ6YuxoNXRD
+	ytdqzpASogUdys9tRNOaZWQLmDjtS15lEP19DDknL8dLpE1uuBsMA6rxFWQvJ/e1iUSs9YXi1pL8y
+	421nfTU4KPhfzoHluPdafAlcHgZEQIr+bxpDoEXZPq3r2AqxHMKOS9MjuhSSGeauqixl/NEK/YVBx
+	prwZ8MXM5r9E+oI4E1HXBi4hIG3USCbP3FqDQs2QiUWEOKlDVZqwvSU8gDe/1+Te4bUNAWTxnjfPl
+	WvzCXJSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1tk-00000004nya-3NaY;
-	Mon, 17 Feb 2025 14:15:00 +0000
+	id 1tk1vB-00000004oIu-2TsD;
+	Mon, 17 Feb 2025 14:16:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1nL-00000004mG4-0uhk
+	id 1tk1nN-00000004mHb-33ha
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 14:08:24 +0000
+	Mon, 17 Feb 2025 14:08:26 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1DD911A2D;
-	Mon, 17 Feb 2025 06:08:42 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A18691A2D;
+	Mon, 17 Feb 2025 06:08:44 -0800 (PST)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A3E023F6A8;
-	Mon, 17 Feb 2025 06:08:20 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 33ED53F6A8;
+	Mon, 17 Feb 2025 06:08:23 -0800 (PST)
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
@@ -50,17 +50,17 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 01/14] arm64: hugetlb: Cleanup huge_pte size discovery mechanisms
-Date: Mon, 17 Feb 2025 14:07:53 +0000
-Message-ID: <20250217140809.1702789-2-ryan.roberts@arm.com>
+Subject: [PATCH v2 02/14] arm64: hugetlb: Refine tlb maintenance scope
+Date: Mon, 17 Feb 2025 14:07:54 +0000
+Message-ID: <20250217140809.1702789-3-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250217140809.1702789-1-ryan.roberts@arm.com>
 References: <20250217140809.1702789-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_060823_385814_8DAD3132 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20250217_060825_858663_F0029A4F 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,107 +75,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Not all huge_pte helper APIs explicitly provide the size of the
-huge_pte. So the helpers have to depend on various methods to determine
-the size of the huge_pte. Some of these methods are dubious.
+When operating on contiguous blocks of ptes (or pmds) for some hugetlb
+sizes, we must honour break-before-make requirements and clear down the
+block to invalid state in the pgtable then invalidate the relevant tlb
+entries before making the pgtable entries valid again.
 
-Let's clean up the code to use preferred methods and retire the dubious
-ones. The options in order of preference:
+However, the tlb maintenance is currently always done assuming the worst
+case stride (PAGE_SIZE), last_level (false) and tlb_level
+(TLBI_TTL_UNKNOWN). We can do much better with the hinting; In reality,
+we know the stride from the huge_pte pgsize, we are always operating
+only on the last level, and we always know the tlb_level, again based on
+pgsize. So let's start providing these hints.
 
- - If size is provided as parameter, use it together with
-   num_contig_ptes(). This is explicit and works for both present and
-   non-present ptes.
-
- - If vma is provided as a parameter, retrieve size via
-   huge_page_size(hstate_vma(vma)) and use it together with
-   num_contig_ptes(). This is explicit and works for both present and
-   non-present ptes.
-
- - If the pte is present and contiguous, use find_num_contig() to walk
-   the pgtable to find the level and infer the number of ptes from
-   level. Only works for *present* ptes.
-
- - If the pte is present and not contiguous and you can infer from this
-   that only 1 pte needs to be operated on. This is ok if you don't care
-   about the absolute size, and just want to know the number of ptes.
-
- - NEVER rely on resolving the PFN of a present pte to a folio and
-   getting the folio's size. This is fragile at best, because there is
-   nothing to stop the core-mm from allocating a folio twice as big as
-   the huge_pte then mapping it across 2 consecutive huge_ptes. Or just
-   partially mapping it.
-
-Where we require that the pte is present, add warnings if not-present.
+Additionally, avoid tlb maintenace in set_huge_pte_at().
+Break-before-make is only required if we are transitioning the
+contiguous pte block from valid -> valid. So let's elide the
+clear-and-flush ("break") if the pte range was previously invalid.
 
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- arch/arm64/mm/hugetlbpage.c | 20 +++++++++++++++-----
- 1 file changed, 15 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/hugetlb.h | 29 +++++++++++++++++++----------
+ arch/arm64/mm/hugetlbpage.c      |  9 ++++++---
+ 2 files changed, 25 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-index 614b2feddba2..31ea826a8a09 100644
---- a/arch/arm64/mm/hugetlbpage.c
-+++ b/arch/arm64/mm/hugetlbpage.c
-@@ -136,7 +136,7 @@ pte_t huge_ptep_get(struct mm_struct *mm, unsigned long addr, pte_t *ptep)
- 	if (!pte_present(orig_pte) || !pte_cont(orig_pte))
- 		return orig_pte;
+diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
+index 07fbf5bf85a7..2a8155c4a882 100644
+--- a/arch/arm64/include/asm/hugetlb.h
++++ b/arch/arm64/include/asm/hugetlb.h
+@@ -69,29 +69,38 @@ extern void huge_ptep_modify_prot_commit(struct vm_area_struct *vma,
  
--	ncontig = num_contig_ptes(page_size(pte_page(orig_pte)), &pgsize);
-+	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
- 	for (i = 0; i < ncontig; i++, ptep++) {
- 		pte_t pte = __ptep_get(ptep);
+ #include <asm-generic/hugetlb.h>
  
-@@ -445,16 +445,19 @@ int huge_ptep_set_access_flags(struct vm_area_struct *vma,
- 	pgprot_t hugeprot;
- 	pte_t orig_pte;
- 
-+	VM_WARN_ON(!pte_present(pte));
-+
- 	if (!pte_cont(pte))
- 		return __ptep_set_access_flags(vma, addr, ptep, pte, dirty);
- 
--	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
-+	ncontig = num_contig_ptes(huge_page_size(hstate_vma(vma)), &pgsize);
- 	dpfn = pgsize >> PAGE_SHIFT;
- 
- 	if (!__cont_access_flags_changed(ptep, pte, ncontig))
- 		return 0;
- 
- 	orig_pte = get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
-+	VM_WARN_ON(!pte_present(orig_pte));
- 
- 	/* Make sure we don't lose the dirty or young state */
- 	if (pte_dirty(orig_pte))
-@@ -479,7 +482,10 @@ void huge_ptep_set_wrprotect(struct mm_struct *mm,
- 	size_t pgsize;
- 	pte_t pte;
- 
--	if (!pte_cont(__ptep_get(ptep))) {
-+	pte = __ptep_get(ptep);
-+	VM_WARN_ON(!pte_present(pte));
-+
-+	if (!pte_cont(pte)) {
- 		__ptep_set_wrprotect(mm, addr, ptep);
- 		return;
+-#define __HAVE_ARCH_FLUSH_HUGETLB_TLB_RANGE
+-static inline void flush_hugetlb_tlb_range(struct vm_area_struct *vma,
+-					   unsigned long start,
+-					   unsigned long end)
++static inline void __flush_hugetlb_tlb_range(struct vm_area_struct *vma,
++					     unsigned long start,
++					     unsigned long end,
++					     unsigned long stride,
++					     bool last_level)
+ {
+-	unsigned long stride = huge_page_size(hstate_vma(vma));
+-
+ 	switch (stride) {
+ #ifndef __PAGETABLE_PMD_FOLDED
+ 	case PUD_SIZE:
+-		__flush_tlb_range(vma, start, end, PUD_SIZE, false, 1);
++		__flush_tlb_range(vma, start, end, PUD_SIZE, last_level, 1);
+ 		break;
+ #endif
+ 	case CONT_PMD_SIZE:
+ 	case PMD_SIZE:
+-		__flush_tlb_range(vma, start, end, PMD_SIZE, false, 2);
++		__flush_tlb_range(vma, start, end, PMD_SIZE, last_level, 2);
+ 		break;
+ 	case CONT_PTE_SIZE:
+-		__flush_tlb_range(vma, start, end, PAGE_SIZE, false, 3);
++		__flush_tlb_range(vma, start, end, PAGE_SIZE, last_level, 3);
+ 		break;
+ 	default:
+-		__flush_tlb_range(vma, start, end, PAGE_SIZE, false, TLBI_TTL_UNKNOWN);
++		__flush_tlb_range(vma, start, end, PAGE_SIZE, last_level, TLBI_TTL_UNKNOWN);
  	}
-@@ -503,11 +509,15 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
- 	struct mm_struct *mm = vma->vm_mm;
- 	size_t pgsize;
- 	int ncontig;
-+	pte_t pte;
-+
-+	pte = __ptep_get(ptep);
-+	VM_WARN_ON(!pte_present(pte));
- 
--	if (!pte_cont(__ptep_get(ptep)))
-+	if (!pte_cont(pte))
- 		return ptep_clear_flush(vma, addr, ptep);
- 
--	ncontig = find_num_contig(mm, addr, ptep, &pgsize);
-+	ncontig = num_contig_ptes(huge_page_size(hstate_vma(vma)), &pgsize);
- 	return get_clear_contig_flush(mm, addr, ptep, pgsize, ncontig);
  }
  
++#define __HAVE_ARCH_FLUSH_HUGETLB_TLB_RANGE
++static inline void flush_hugetlb_tlb_range(struct vm_area_struct *vma,
++					   unsigned long start,
++					   unsigned long end)
++{
++	unsigned long stride = huge_page_size(hstate_vma(vma));
++
++	__flush_hugetlb_tlb_range(vma, start, end, stride, false);
++}
++
+ #endif /* __ASM_HUGETLB_H */
+diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+index 31ea826a8a09..b7434ed1b93b 100644
+--- a/arch/arm64/mm/hugetlbpage.c
++++ b/arch/arm64/mm/hugetlbpage.c
+@@ -190,8 +190,9 @@ static pte_t get_clear_contig_flush(struct mm_struct *mm,
+ {
+ 	pte_t orig_pte = get_clear_contig(mm, addr, ptep, pgsize, ncontig);
+ 	struct vm_area_struct vma = TLB_FLUSH_VMA(mm, 0);
++	unsigned long end = addr + (pgsize * ncontig);
+ 
+-	flush_tlb_range(&vma, addr, addr + (pgsize * ncontig));
++	__flush_hugetlb_tlb_range(&vma, addr, end, pgsize, true);
+ 	return orig_pte;
+ }
+ 
+@@ -216,7 +217,7 @@ static void clear_flush(struct mm_struct *mm,
+ 	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++)
+ 		__ptep_get_and_clear(mm, addr, ptep);
+ 
+-	flush_tlb_range(&vma, saddr, addr);
++	__flush_hugetlb_tlb_range(&vma, saddr, addr, pgsize, true);
+ }
+ 
+ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+@@ -245,7 +246,9 @@ void set_huge_pte_at(struct mm_struct *mm, unsigned long addr,
+ 	dpfn = pgsize >> PAGE_SHIFT;
+ 	hugeprot = pte_pgprot(pte);
+ 
+-	clear_flush(mm, addr, ptep, pgsize, ncontig);
++	/* Only need to "break" if transitioning valid -> valid. */
++	if (pte_valid(__ptep_get(ptep)))
++		clear_flush(mm, addr, ptep, pgsize, ncontig);
+ 
+ 	for (i = 0; i < ncontig; i++, ptep++, addr += pgsize, pfn += dpfn)
+ 		__set_ptes(mm, addr, ptep, pfn_pte(pfn, hugeprot), 1);
 -- 
 2.43.0
 
