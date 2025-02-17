@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15AA6C0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03764C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:53:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dLhLqEj5CnQGR3HAISzr8o6znCJqNhfLLG9jh4rRpzQ=; b=zSpcVXzlFK6InhUMhHWiLZ5ymX
-	omyFqGDhMrCv9o/CVSDO1tQCsUO9sIbCSkKXO3bs4+z7ugmELsGfRSfmjBfLsRm/BOoW1UcjHR/HZ
-	7Cz9HhaSphmQkZp4cGnjYb/TWh7VLgTuDTo/xq6laHkk3MilXZqezdqYkvfxkliIg/tVPIB7ZEQWT
-	tJYtDGXL6UNzRoBiURN4N32WHaIiiG4Za06o/biWiOVYzVQsZL1XhqkDsR69NqkXE1ztkE5w1SaKZ
-	j/8LL8iOc/6irLDPZD51LwTinf/juuR8pVjEbHpWMr8WD1zoZlBIi9Tnwiwz3WPZLc+aW9QK6ejcO
-	A3GMSikw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wXzcU5MFpNvV+1Iapr36hDkhqv8Rk3kBwf8g/lXGurs=; b=nSvkME6SE5678/9B0IWUR0lPxX
+	fjClANrGPH1/8zCxCH7d4LlOB03VmYsxI+CddFJMF7uDqlPXFoa75ZIgr7QiFOXzZjTtXHc/uSvN8
+	GCFK660iP62aoOiDcJMAKEWym7SMcSM0hfdlaDGdCfslv/t2RjXi/7SBwBnOIjdtj2P/qlObP3kQu
+	TOgbM6EImvQMH/mT8/RUv2CjJOolPwf9AJoNczaQ09NMO+F8XQC9jzRskiImdTOdL6+xzEkzjy+7r
+	IohG7VdrncTa2CCPMpT8oUHml7XoZvZ3MN7XOiLcYt1ZZrr5OejkykrPjjGbxul/rn9znLgpG08/e
+	Wx/b5hsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjykm-00000004Ay0-275m;
-	Mon, 17 Feb 2025 10:53:32 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1tjykp-00000004B4U-3BaG;
+	Mon, 17 Feb 2025 10:53:35 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjyCB-000000045I6-2jo4
+	id 1tjyCF-000000045Jo-3KsO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 10:17:48 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5de38c3d2acso6554524a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 02:17:46 -0800 (PST)
+	Mon, 17 Feb 2025 10:17:52 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-abb90c20baeso145509466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 02:17:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739787465; x=1740392265; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dLhLqEj5CnQGR3HAISzr8o6znCJqNhfLLG9jh4rRpzQ=;
-        b=KWgFH3PPhG+HeiaPP/gRRqjq8EdRFOpVpbLmwP664z1P5P1mt5G2VQCt6SEi9e0O30
-         IafwLxjLMwWxPEr3JVlxdVSgex8eHsPU5c+VrZFQnfwf98lPANdX4BbQgMIeMYxpKUu1
-         jISkGXMYojLjSA2vEXlsUGl6LbDwaQ6R/Gf/F+xMUzRYblg5CykZ9C+nPM901ZTwZf80
-         HaY+8e4NvlnP2fqqyWfYl1E4DKre0KA5wU4KWrTtB16MaS6Irqw40UZCX7LeJ/GPZBG0
-         z5PDE9icdRZedUcd1sdfmpbw7Bf790pVUrpABe2FZ8E+q7AqrZ4S6ou6JGHzw00QfSuG
-         czRQ==
+        d=linaro.org; s=google; t=1739787470; x=1740392270; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wXzcU5MFpNvV+1Iapr36hDkhqv8Rk3kBwf8g/lXGurs=;
+        b=tOyZMi1m9IyMn25fgPKQxKeRPX23W+/Er/y48gspSPYnOXaV3yBINKyujnq92ow684
+         VtEJ03YCm1PzxnHKiy/rJobu5HZDiYmZjPTcUkEjFyrC4w6WQ89FjpuL2vu3jVgvT4UY
+         ZN+gc5yzgqxuN8BzkR3MWE31UeD+dRSHf5/BawembCBUW5V7xLDID4pyQ9wU0cJQrZTA
+         /p9+YnOy+o8P4AWAjCaG3Mf6c0+n/sQ0EQ53Qyn2AB9FiOSBecEtqQawdF2ZgaD09bEO
+         NRA3eCx7jxhEOtTI0Q2WLtkMzIe22erTLFat7855H1/XcLSwyvSytK8sQphFx0ViBAHM
+         GWxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739787465; x=1740392265;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dLhLqEj5CnQGR3HAISzr8o6znCJqNhfLLG9jh4rRpzQ=;
-        b=Wl7vK737hZHvzQ9mleyLICpZXDl4tqZwjbD29XnCVoPkvhAhU0K11X26I45a4EfJ1z
-         ug34exi8alvx9Odcd9lbOIJxzVmWiUqfEkXemf2665nItclB3vc9IFT2vL1CjP5gxN9Q
-         5hfNfgOt81C301KBGAqsN/NMvgI95zhZWA+UwI9dOI1A6QBZGWRam7ynZEXRbX8RokA4
-         O2VsxFyymAfXUhE5SeQsWcOIF420co63F30TDgayJzApXEVwV8QNacFHtZ1cJfVijgiv
-         sXzyHUlfmPfGizTwYNPI0Dkox+0+mKABkRSB8bOrEHWAYQDxXbPba9Z31wmyBkQ71ohh
-         V5lQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWOL4FGM7VAw3A0T3WPZnxaAdw54XEphztX0QmNwISpFfpknXzOPdjtWjg1BsFORnOR8oPgDdP2988E+xFI8uLV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEpDIcenYzxCN+rTO3XgGH6VrpWFemM8O4bPCu5p4v1RFO3KHX
-	Z0G7FmQ7B/EWnCmMZ774pMuT6KQU6dW4bRyWPQhUY0N/oz0b0Un1kqf9yziAMCQ=
-X-Gm-Gg: ASbGncvAGRGTpKdYu4s8NLe5Zd9i5qJ95gbJ7EYVbdwtONCikiUUL6HxI5WM/1dvwA6
-	K4xOyb8/XsFdA+5/PBBRLCw9DC4tbvZ75tEsUFfHbxPaHJLLHMnAFkPxVwkfBeSBrhSJkb7esJQ
-	TbltxKRFFh6SXbz376QS3Y4+WS0x78vIeVreJYCWilaCwQHNTSRV4olmg+AH9HFbdotGKDzkIen
-	c6mahx/9hLyjNHANkutCQHA6CFoLShxVhtpH8V+fnoKlpp+V8Uzs0iXjCL91rrBytOUhYCAjNmI
-	QW/E/VWPy+8xZYaFop3+a2b4
-X-Google-Smtp-Source: AGHT+IGhAefa1tvvBaYve+g3pCx7CrvFHmDaSY+YPBz5y8cOdMoT47LHpy0cyxq3ytVFBIUJ3pcdAg==
-X-Received: by 2002:a17:907:2da0:b0:ab7:83c2:bdbf with SMTP id a640c23a62f3a-abb710dc6cbmr892362566b.41.1739787465317;
-        Mon, 17 Feb 2025 02:17:45 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739787470; x=1740392270;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=wXzcU5MFpNvV+1Iapr36hDkhqv8Rk3kBwf8g/lXGurs=;
+        b=MSBBw31D2G62jThZlSeOH8ykLsiXjulRzvZsRkaOl9TGm8xEmOvheCI4XtouOPg5CM
+         wXqvGh4oFG3TuTSxGBy9jRRSQLJ31qxguzWxf0uV8AYKWFwLNm+NPOC7/fmUPYeMR/p6
+         vVewo71u8FIWS0Lqp9BOusXrSEBTGucW76rFO1+NQQfE5nRej7ZFIvfoCmotT65V25fU
+         glRCRDVK2jD94SvhRSz3KTrrtVl8U89G0QN2GxIXG0oox041lfh+WDnurzKaGvgjlc63
+         F9LR6JSh5SYRD4jy6hIIEHEQdpRfyfnLgxLqXRbfrO81U6q0fpOcmnbinMOTQefMSzXB
+         chrA==
+X-Forwarded-Encrypted: i=1; AJvYcCXQCFWdHDQ7rTAKJu7fD3tfbJpFNZp+4VXbc7fi8Fcgc03rwunnnmChymoGYc/Eq/uNdflPiIV0nEntKvwHi7HH@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQlwbTPfLyouFHFPLgj1pQz4W18JKLiyA1gpmZf3iA9CEUT1BI
+	6mph2aqNPJLPEUd+3Klh8tCHXVjYBjsG7JUB2BwxWQ4hfc4aW1hgKR7AsidxCHQ=
+X-Gm-Gg: ASbGnctIm9wnHXPYpPAhcB/STtR2MRz1bUfwgoNijjJc4ASUs3Psqj3KPiGPjzqul3i
+	/tAR79N+NMqHJedzxA0cRyP3sndQ0Htbm/aJz4fi2E4JEZlwI32KD14+RG/ATPaBnxoT7Q5nqgJ
+	IynoMUHi5R3KqDNABldGowAGwdO6tuXEEQYGLKR7/0PUlfOaKDF/ngnmAVEI/qSV5/SSUQkEUb9
+	CnoPy9nlpCiJu+Db4Nr4GehaUfbC8QZTHx1DWbwxMxAU1RbniDskI+UuDomvv58bbnw7sl6emTJ
+	Mb3x3cQKcf5a1feDjaDcQBAa
+X-Google-Smtp-Source: AGHT+IFlpcMLdWWAy879FRRX8kAbYx+cTtUPfK71e6uWIwxDjhZr04LaUoJwILHRa7T4Dh47h6Jv7g==
+X-Received: by 2002:a17:907:d27:b0:aba:5f40:7f2e with SMTP id a640c23a62f3a-abb70d95048mr848206466b.45.1739787470024;
+        Mon, 17 Feb 2025 02:17:50 -0800 (PST)
 Received: from eugen-station.. ([82.76.24.202])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb8b1767e8sm308583266b.174.2025.02.17.02.17.43
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb8b1767e8sm308583266b.174.2025.02.17.02.17.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 02:17:44 -0800 (PST)
+        Mon, 17 Feb 2025 02:17:49 -0800 (PST)
 From: Eugen Hristev <eugen.hristev@linaro.org>
 To: linux-arm-msm@vger.kernel.org,
 	linux-hardening@vger.kernel.org,
@@ -88,15 +89,17 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@quicinc.com,
 	Eugen Hristev <eugen.hristev@linaro.org>
-Subject: [RFC][PATCH 00/10] pstore: directly mapped regions
-Date: Mon, 17 Feb 2025 12:16:56 +0200
-Message-ID: <20250217101706.2104498-1-eugen.hristev@linaro.org>
+Subject: [RFC][PATCH 03/10] pstore/zone: introduce directly mapped zones
+Date: Mon, 17 Feb 2025 12:16:59 +0200
+Message-ID: <20250217101706.2104498-4-eugen.hristev@linaro.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250217101706.2104498-1-eugen.hristev@linaro.org>
+References: <20250217101706.2104498-1-eugen.hristev@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_021747_699966_1FEF943D 
-X-CRM114-Status: GOOD (  29.03  )
+X-CRM114-CacheID: sfid-20250217_021751_835998_EFCC37D2 
+X-CRM114-Status: GOOD (  22.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,122 +114,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Directly mapped zones have a different semantic from usual pstore zones.
+Such zones use a pointer to data in their buffer struct, instead of
+keeping the buffer locally.
+The data pointer and size is then passed to the backend for further use.
+Having a different semantics, backends supporting only these do not offer
+read/write ops, and only new register_dmr and unregister_dmr ops.
+Ofcourse, a backend could support both classic zones and directly mapped.
+Directly mapped zones have the advantage of not being passed through
+in the event of a crashed, but rather at registration time.
 
-This series comes as an RFC proposed solution to enhance pstore and
-devcoredump with the following functionality:
-It is interesting to mark specific memory regions in the kernel
-as core areas, such that in the even of a cataclysmic event like
-panic, deadlock, hardware fault, those areas can be retrieved by
-an external agent, that can be JTAG, firmware, additional debug
-processor, etc.
-Even though pstore panic handlers attempt to copy data into the
-persistent storage, this is not always working, because the kernel
-could be in a deadlock, have irqs disabled, panic handler could
-crash itself, or even some memory areas could be corrupted badly
-enough that the recovery mechanism doesn't work.
-This patch series attempts to solve this by reusing existing
-infrastructure in pstore and devcoredump, and provide a copy-free
-possibility to have core kernel data exposed for creating debug
-information like a coredump or list of binary elements with data.
+Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
+---
+ fs/pstore/platform.c        |  1 +
+ fs/pstore/smem.c            |  6 ++---
+ fs/pstore/zone.c            | 45 ++++++++++++++++++++++++++++---------
+ include/linux/pstore.h      |  4 ++++
+ include/linux/pstore_zone.h |  3 +++
+ 5 files changed, 45 insertions(+), 14 deletions(-)
 
-How this works:
-Drivers and key kernel infrastructure, like for example the dmesg
-buffer (ftrace buffer is still work in progress and not in the series),
-would register themselves into pstore, with a simple function
-call taking a name, a pointer to the area and size.
-That would be all, and the patch labeled "EXAMPLE" shows a driver
-doing exactly that, registering it's own dev struct with string markers
-that can help identifying the data later once it's being retrieved.
-Further, pstore and pstore/zone would keep track of all registered
-areas inside the intermediary back-end. There would not be any copy of
-the data.
-Pstore would require a new type of back-end, named directly mapped
-(because there is no copy, and each zone directly maps the incoming
-buffer). If this back-end is available, then pstore further calls
-the back-end to register the area.
-The back-end itself is then free to do whatever it wishes with the
-received area. It can (possibly) do a copy to store data, it can
-have a timer to check the area every x time periods, or store the
-pointers inside a table of contents (which is what the qcom smem is
-doing).
-The qcom smem driver registers itself into pstore as a new type of
-back-end called shared memory. It's very similar with the pstore/blk
-but much simplified, to cope with just a shared memory storage.
-The areas metadata are stored in a shared memory that is being managed
-by the qcom_smem driver. It's called shared memory because it's being
-shared between the main processor running the kernel and additional
-secondary remote processors running firmware.
-In this qcom smem backend case, the firmware runs when there is a
-panic event, of watchdog timeout, and uses the table of contents to
-retrieve useful kernel debug data.
-
-The advantages of this proposed idea are: no kernel panic handler
-intervention. Everything is being marked and prepared ahead of time,
-before there is an actual crash. There is no overhead associated,
-simply the areas are being marked and metadata created, no buffers
-associated, no memory areas reserved for it. Memory areas being marked,
-there is no possibility of getting older useless data, that was copied
-before the actual events leading to a crash would occur, so the data
-would be the real actual data the kernel was working on.
-Of course, this would not work if there is no external agent to parse
-the areas and get the useful data. However as the hardware becomes
-more and more advanced, in the cases where this is available, kernel
-debugging had no way of using this advantage. As the hardware evolves,
-so is the kernel.
-
-There is another aspect to underline: the directly mapped zones
-change the semantics of pstore using them. Pstore relies on user being
-able to read the data from a previous kernel run once the system
-has rebooted. This is not valid with the directly mapped zones unless
-the JTAG/firmware would copy this data into a persistent area and make
-it available upon reboot (which is not impossible).
-
-I would like to thank everyone reviewing and chiping in on the series.
-
-The back-end implementation for qcom_smem is based on the minidump
-patch series and driver written by Mukesh Ojha, thanks:
-https://lore.kernel.org/lkml/20240131110837.14218-1-quic_mojha@quicinc.com/
-
-Eugen
-
-Eugen Hristev (10):
-  pstore/zone: move pstore_device_info into zone header
-  pstore/smem: add new pstore/smem type of pstore
-  pstore/zone: introduce directly mapped zones
-  qcom: smem: add pstore smem backend
-  pstore: implement core area registration
-  qcom: smem: enable smem pstore backend
-  printk: export symbols for buffer address and length functions
-  pstore: register kmsg into directly mapped zones if available
-  devcoredump: add devcd_{un}register_core_area API
-  rng: qcom_rng: EXAMPLE: registering dev structure
-
- drivers/base/devcoredump.c     |  13 ++
- drivers/crypto/qcom-rng.c      |  11 ++
- drivers/soc/qcom/Kconfig       |   9 +
- drivers/soc/qcom/Makefile      |   6 +-
- drivers/soc/qcom/smem.c        |  10 ++
- drivers/soc/qcom/smem_md.c     | 306 +++++++++++++++++++++++++++++++++
- drivers/soc/qcom/smem_pstore.c | 112 ++++++++++++
- fs/pstore/Kconfig              |  13 ++
- fs/pstore/Makefile             |   3 +
- fs/pstore/platform.c           |  84 +++++++++
- fs/pstore/smem.c               | 115 +++++++++++++
- fs/pstore/zone.c               | 122 +++++++++++--
- include/linux/devcoredump.h    |   3 +
- include/linux/pstore.h         |  20 +++
- include/linux/pstore_blk.h     |  14 --
- include/linux/pstore_smem.h    |   9 +
- include/linux/pstore_zone.h    |  17 ++
- include/linux/soc/qcom/smem.h  |  43 +++++
- kernel/printk/printk.c         |   2 +
- 19 files changed, 885 insertions(+), 27 deletions(-)
- create mode 100644 drivers/soc/qcom/smem_md.c
- create mode 100644 drivers/soc/qcom/smem_pstore.c
- create mode 100644 fs/pstore/smem.c
- create mode 100644 include/linux/pstore_smem.h
-
+diff --git a/fs/pstore/platform.c b/fs/pstore/platform.c
+index f56b066ab80c..e20e60b88727 100644
+--- a/fs/pstore/platform.c
++++ b/fs/pstore/platform.c
+@@ -51,6 +51,7 @@ static const char * const pstore_type_names[] = {
+ 	"powerpc-common",
+ 	"pmsg",
+ 	"powerpc-opal",
++	"directly-mapped",
+ };
+ 
+ static int pstore_new_entry;
+diff --git a/fs/pstore/smem.c b/fs/pstore/smem.c
+index 9eedd7df5446..684ecc20cae5 100644
+--- a/fs/pstore/smem.c
++++ b/fs/pstore/smem.c
+@@ -36,15 +36,15 @@ static int __register_pstore_device(struct pstore_device_info *dev)
+ 		pr_err("NULL device info\n");
+ 		return -EINVAL;
+ 	}
+-	if (!dev->zone.total_size) {
++	if (!dev->zone.total_size && !dev->zone.dmapped_cnt) {
+ 		pr_err("zero sized device\n");
+ 		return -EINVAL;
+ 	}
+-	if (!dev->zone.read) {
++	if (!dev->zone.read && !dev->zone.dmapped_cnt) {
+ 		pr_err("no read handler for device\n");
+ 		return -EINVAL;
+ 	}
+-	if (!dev->zone.write) {
++	if (!dev->zone.write && !dev->zone.dmapped_cnt) {
+ 		pr_err("no write handler for device\n");
+ 		return -EINVAL;
+ 	}
+diff --git a/fs/pstore/zone.c b/fs/pstore/zone.c
+index 5fa2fa2e7aa7..affa4370208c 100644
+--- a/fs/pstore/zone.c
++++ b/fs/pstore/zone.c
+@@ -113,6 +113,7 @@ struct psz_context {
+ 	struct pstore_zone *ppsz;
+ 	struct pstore_zone *cpsz;
+ 	struct pstore_zone **fpszs;
++	struct pstore_zone **dmszs;
+ 	unsigned int kmsg_max_cnt;
+ 	unsigned int kmsg_read_cnt;
+ 	unsigned int kmsg_write_cnt;
+@@ -120,6 +121,7 @@ struct psz_context {
+ 	unsigned int console_read_cnt;
+ 	unsigned int ftrace_max_cnt;
+ 	unsigned int ftrace_read_cnt;
++	unsigned int dmapped_max_cnt;
+ 	/*
+ 	 * These counters should be calculated during recovery.
+ 	 * It records the oops/panic times after crashes rather than boots.
+@@ -1148,6 +1150,8 @@ static void psz_free_all_zones(struct psz_context *cxt)
+ 		psz_free_zone(&cxt->cpsz);
+ 	if (cxt->fpszs)
+ 		psz_free_zones(&cxt->fpszs, &cxt->ftrace_max_cnt);
++	if (cxt->dmszs)
++		psz_free_zones(&cxt->dmszs, &cxt->dmapped_max_cnt);
+ }
+ 
+ static struct pstore_zone *psz_init_zone(enum pstore_type_id type,
+@@ -1160,9 +1164,9 @@ static struct pstore_zone *psz_init_zone(enum pstore_type_id type,
+ 	if (!size)
+ 		return NULL;
+ 
+-	if (*off + size > info->total_size) {
+-		pr_err("no room for %s (0x%zx@0x%llx over 0x%lx)\n",
+-			name, size, *off, info->total_size);
++	if (*off + size > info->total_size && type != PSTORE_TYPE_DMAPPED) {
++		pr_err("no room for %s type %d (0x%zx@0x%llx over 0x%lx)\n",
++			name, type, size, *off, info->total_size);
+ 		return ERR_PTR(-ENOMEM);
+ 	}
+ 
+@@ -1170,7 +1174,8 @@ static struct pstore_zone *psz_init_zone(enum pstore_type_id type,
+ 	if (!zone)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	zone->buffer = kmalloc(size, GFP_KERNEL);
++	zone->buffer = kmalloc(type == PSTORE_TYPE_DMAPPED ?
++			       sizeof(struct psz_buffer) : size, GFP_KERNEL);
+ 	if (!zone->buffer) {
+ 		kfree(zone);
+ 		return ERR_PTR(-ENOMEM);
+@@ -1179,7 +1184,10 @@ static struct pstore_zone *psz_init_zone(enum pstore_type_id type,
+ 	zone->off = *off;
+ 	zone->name = name;
+ 	zone->type = type;
+-	zone->buffer_size = size - sizeof(struct psz_buffer);
++	if (zone->type == PSTORE_TYPE_DMAPPED)
++		zone->buffer_size = 0;
++	else
++		zone->buffer_size = size - sizeof(struct psz_buffer);
+ 	zone->buffer->sig = type ^ PSZ_SIG;
+ 	zone->oldbuf = NULL;
+ 	atomic_set(&zone->dirty, 0);
+@@ -1188,8 +1196,9 @@ static struct pstore_zone *psz_init_zone(enum pstore_type_id type,
+ 
+ 	*off += size;
+ 
+-	pr_debug("pszone %s: off 0x%llx, %zu header, %zu data\n", zone->name,
+-			zone->off, sizeof(*zone->buffer), zone->buffer_size);
++	pr_debug("pszone %s: off 0x%llx, %zu header, %zu data %s\n", zone->name,
++			zone->off, sizeof(*zone->buffer), zone->buffer_size,
++			zone->type == PSTORE_TYPE_DMAPPED ? " dmapped " : "");
+ 	return zone;
+ }
+ 
+@@ -1206,7 +1215,7 @@ static struct pstore_zone **psz_init_zones(enum pstore_type_id type,
+ 	if (!total_size || !record_size)
+ 		return NULL;
+ 
+-	if (*off + total_size > info->total_size) {
++	if (*off + total_size > info->total_size && type != PSTORE_TYPE_DMAPPED) {
+ 		pr_err("no room for zones %s (0x%zx@0x%llx over 0x%lx)\n",
+ 			name, total_size, *off, info->total_size);
+ 		return ERR_PTR(-ENOMEM);
+@@ -1245,6 +1254,15 @@ static int psz_alloc_zones(struct psz_context *cxt)
+ 	int err;
+ 	size_t off_size = 0;
+ 
++	cxt->dmszs = psz_init_zones(PSTORE_TYPE_DMAPPED, &off,
++			info->dmapped_cnt,
++			1, &cxt->dmapped_max_cnt);
++	if (IS_ERR(cxt->dmszs)) {
++		err = PTR_ERR(cxt->dmszs);
++		cxt->dmszs = NULL;
++		goto free_out;
++	}
++
+ 	off_size += info->pmsg_size;
+ 	cxt->ppsz = psz_init_zone(PSTORE_TYPE_PMSG, &off, info->pmsg_size);
+ 	if (IS_ERR(cxt->ppsz)) {
+@@ -1302,7 +1320,7 @@ int register_pstore_zone(struct pstore_zone_info *info)
+ 	int err = -EINVAL;
+ 	struct psz_context *cxt = &pstore_zone_cxt;
+ 
+-	if (info->total_size < 4096) {
++	if (info->total_size < 4096 && !info->dmapped_cnt) {
+ 		pr_warn("total_size must be >= 4096\n");
+ 		return -EINVAL;
+ 	}
+@@ -1312,7 +1330,7 @@ int register_pstore_zone(struct pstore_zone_info *info)
+ 	}
+ 
+ 	if (!info->kmsg_size && !info->pmsg_size && !info->console_size &&
+-	    !info->ftrace_size) {
++	    !info->ftrace_size && !info->dmapped_cnt) {
+ 		pr_warn("at least one record size must be non-zero\n");
+ 		return -EINVAL;
+ 	}
+@@ -1345,7 +1363,7 @@ int register_pstore_zone(struct pstore_zone_info *info)
+ 	 * if no @read, pstore may mount failed.
+ 	 * if no @write, pstore do not support to remove record file.
+ 	 */
+-	if (!info->read || !info->write) {
++	if (!info->dmapped_cnt && (!info->read || !info->write)) {
+ 		pr_err("no valid general read/write interface\n");
+ 		return -EINVAL;
+ 	}
+@@ -1365,6 +1383,7 @@ int register_pstore_zone(struct pstore_zone_info *info)
+ 	pr_debug("\tpmsg size : %ld Bytes\n", info->pmsg_size);
+ 	pr_debug("\tconsole size : %ld Bytes\n", info->console_size);
+ 	pr_debug("\tftrace size : %ld Bytes\n", info->ftrace_size);
++	pr_debug("\tdmapped areas : %ld\n", info->dmapped_cnt);
+ 
+ 	err = psz_alloc_zones(cxt);
+ 	if (err) {
+@@ -1406,6 +1425,10 @@ int register_pstore_zone(struct pstore_zone_info *info)
+ 		cxt->pstore.flags |= PSTORE_FLAGS_FTRACE;
+ 		pr_cont(" ftrace");
+ 	}
++	if (info->dmapped_cnt) {
++		cxt->pstore.flags |= PSTORE_FLAGS_DMAPPED;
++		pr_cont(" dmapped");
++	}
+ 	pr_cont("\n");
+ 
+ 	err = pstore_register(&cxt->pstore);
+diff --git a/include/linux/pstore.h b/include/linux/pstore.h
+index fed601053c51..8360d94c96b6 100644
+--- a/include/linux/pstore.h
++++ b/include/linux/pstore.h
+@@ -39,6 +39,7 @@ enum pstore_type_id {
+ 	PSTORE_TYPE_PMSG	= 7,
+ 	PSTORE_TYPE_PPC_OPAL	= 8,
+ 
++	PSTORE_TYPE_DMAPPED	= 9,
+ 	/* End of the list */
+ 	PSTORE_TYPE_MAX
+ };
+@@ -199,6 +200,8 @@ struct pstore_info {
+ 	int		(*write_user)(struct pstore_record *record,
+ 				      const char __user *buf);
+ 	int		(*erase)(struct pstore_record *record);
++	int		(*register_dmr)(struct pstore_record *record);
++	int		(*unregister_dmr)(struct pstore_record *record);
+ };
+ 
+ /* Supported frontends */
+@@ -206,6 +209,7 @@ struct pstore_info {
+ #define PSTORE_FLAGS_CONSOLE	BIT(1)
+ #define PSTORE_FLAGS_FTRACE	BIT(2)
+ #define PSTORE_FLAGS_PMSG	BIT(3)
++#define PSTORE_FLAGS_DMAPPED	BIT(4)
+ 
+ extern int pstore_register(struct pstore_info *);
+ extern void pstore_unregister(struct pstore_info *);
+diff --git a/include/linux/pstore_zone.h b/include/linux/pstore_zone.h
+index 284364234162..a74d0cc75577 100644
+--- a/include/linux/pstore_zone.h
++++ b/include/linux/pstore_zone.h
+@@ -48,10 +48,13 @@ struct pstore_zone_info {
+ 	unsigned long pmsg_size;
+ 	unsigned long console_size;
+ 	unsigned long ftrace_size;
++	unsigned long dmapped_cnt;
+ 	pstore_zone_read_op read;
+ 	pstore_zone_write_op write;
+ 	pstore_zone_erase_op erase;
+ 	pstore_zone_write_op panic_write;
++	int (*register_dmr)(char *, int, void *, size_t);
++	int (*unregister_dmr)(void *, size_t);
+ };
+ 
+ /**
 -- 
 2.43.0
 
