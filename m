@@ -4,80 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C066C021AB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5FAC021AA
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zr2pUxlJBm2TOCCs09jq0wzdOR2n6KgUEqs9NG+fgE8=; b=mZS5bxLBmxQgAJoWo1DooIHuwz
-	gDbweGSzQJTnuXzqdIIwcOWP1VOd7nP27uvhigFgzq+mo0g7aGqQqSEiPY0/xH6DMeeIRmL4xVlgz
-	xc2Co7VG6etsF9pHKsOQ/6bB29BKivjsmJNN5kklfMT3eDC2yuxDVR7B2HQSrBi/kYJAWwveGyBWA
-	FNcWA1F4Mmke0IYgV1aVz9GqnIrPn1yeUeKdGyeqgYvWjNa9T2Ddq23bJ/v0pCUbCtXDCN+nGA2t8
-	PSQg0uAkZZobDf/XoqnseRGRt4iR7EVzRd30qI88NpKjlHANfwLIMt/xZQ5W5QgACw2gJ7RnmItBU
-	tb8QWUjA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5jMgw4xZ0wqnre7NmHUUtqCj41LQfgBvCVLLEKVgy5U=; b=i7/m2JG+1OjfwX+65zkuRJVARO
+	TP4FTig6OAiaBxO78Luosmazd+5rS4Uj7zywy49bMfyVPSqQLeh35OwKTgaOLQ+77t/4X/mT5o4MP
+	xVw6QaP8qHPDlg3dLztom2OGznvpcIoR+k2T/oEoTuQB7NMuDnnewWauBRmEwubynBi0GF6oVAdTq
+	+uubDOZok7vGjEKsMkcilDCenKmP32wLZTfukKWkWLY6XSH7JXlOGGCVaG5VE0KfO5N3XfvhqX+Bv
+	lWLHIJeKdsqfZEJHMkgNGjmgzhr0y42YUieTEBACfFQ90kol05ragBGQzlZ8l+PwVjvqQelCRcrUD
+	wIrmaGoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0GG-00000004SlH-1vbQ;
-	Mon, 17 Feb 2025 12:30:08 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tk0GK-00000004Sse-17E5;
+	Mon, 17 Feb 2025 12:30:12 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjzgL-00000004Nb8-0PI8
+	id 1tjzjU-00000004OOQ-1JE2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 11:53:02 +0000
+	Mon, 17 Feb 2025 11:56:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8B4805C5518
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 11:52:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49998C4CEF2
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 11:52:59 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 78AFCA40B49;
+	Mon, 17 Feb 2025 11:54:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89027C4CED1;
+	Mon, 17 Feb 2025 11:56:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739793179;
-	bh=fALyPesKDexFLqrL682vo6Gg3diI4uJ8t5o+EuWB7lg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ga3BjvGmBpNta6i7xzE9CH2etGrzAJ0PbyRInlzWCm+mzOjBoi1eAPelwFhzDdD6v
-	 EIRz1Bs+AM6q+ofQubnxQn7CZZaH4Ad1ld8U/zyoG+pZGi1HZqnseKugrDVqTmNh5T
-	 DlySaHrNWqvJ1WmgsRFLpU4Qyov4ubv8MtGtvOu4dbp8DuLvHzBnuiAPIU475WW2SS
-	 ih06UxrcB9CaCfbyIngebdDu/jcvqVd95ffetDzlewTdK1zilbdISHyDECB7K/8vLo
-	 OsGTMs67/QHl5NKF+WR6STOkiwPqkIhyxtsW4zmYvi2hF5qMO5YFAjrleuKXIJg2F9
-	 GJSUL5KcogFsQ==
-Received: by mail-ot1-f49.google.com with SMTP id 46e09a7af769-726fec215d7so2693534a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 03:52:59 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWROuu6FCst4IHBvdKe5U3l5wyOueeb6fMrSBaAvlFmizd0EjchYJESaoqSQKGqG8lHnLqeHzViw4GZnZV++Kcb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKWvc357nijYF2J9PdiVsoa9s0DAjEkWdlCMZ/2QWQRCPWyKGB
-	58PoY6rPse+Nl0LKQUQV9kciKo7VOhhQ7uyIXfn9DnPSHGvXRx1PPGZVQP28+lV60W7EADBS1oh
-	/KW3b59QqPobUTyEBM1ycx/X3RZE=
-X-Google-Smtp-Source: AGHT+IFVVYYbfWFp50Vgm/8/jOG1dKsdvDum4jRfwfMYeu7eMmrCifCE4J9b/zE1tfHWUNE1oMSm7u8tEJSuPg+CO3k=
-X-Received: by 2002:a05:6808:2e99:b0:3f3:c301:c9e3 with SMTP id
- 5614622812f47-3f3eb0dfdcfmr5815289b6e.12.1739793178328; Mon, 17 Feb 2025
- 03:52:58 -0800 (PST)
+	s=k20201202; t=1739793375;
+	bh=BwweQqmHmd4epRmfYOdDtMF+OmsJru6LslOEtC7cpwg=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=Xt6UZJpgjp6XnRyJ8w+VHIRjSmSrMzxbjB2jGloRyTEDP4W5+ybqqZycj1VYFZFhM
+	 ZA1ULlLKBeWrugAxyWVAtuGgbQKlPyQ2V0et3uefRn6MBLzmw8x2t2esuDbAHxiGIm
+	 0OGWDNbOLWi5aDCP88F3sUHDCasg8U1GSMg8saSIi2eqG98GdG/DwSo9KRRF2/nut5
+	 Dr0aGWtKDJdo681qI6tDZCIPcaidEH3myuRdhsN+m20NNlJi3Qm5GZlBMMaBukdfbO
+	 I25aLbOXnvwvd92zK89uGApLIoRHcmQpglftRoXeXcYIK4odc3bpqK9x+I7bHaPRXr
+	 44Rjdy9Lr1B8Q==
+Message-ID: <6ab0afc3-dcfa-4ae8-a695-b8b3864c0a6e@kernel.org>
+Date: Mon, 17 Feb 2025 12:56:09 +0100
 MIME-Version: 1.0
-References: <20250131162439.3843071-1-beata.michalska@arm.com> <20250131162439.3843071-3-beata.michalska@arm.com>
-In-Reply-To: <20250131162439.3843071-3-beata.michalska@arm.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Mon, 17 Feb 2025 12:52:44 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0g+yax=pT4m_2MTd9kUwbk5VBp2wkctTYJpFRU3myEjPQ@mail.gmail.com>
-X-Gm-Features: AWEUYZnn9bgmOxkTXEcn87pSetveYQRe_SyW5ltWCODIphxbCVMgI8FLshf-Yx0
-Message-ID: <CAJZ5v0g+yax=pT4m_2MTd9kUwbk5VBp2wkctTYJpFRU3myEjPQ@mail.gmail.com>
-Subject: Re: [PATCH v10 2/4] cpufreq: Introduce an optional cpuinfo_avg_freq
- sysfs entry
-To: Beata Michalska <beata.michalska@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-pm@vger.kernel.org, ionela.voinescu@arm.com, sudeep.holla@arm.com, 
-	will@kernel.org, catalin.marinas@arm.com, rafael@kernel.org, 
-	viresh.kumar@linaro.org, sumitg@nvidia.com, yang@os.amperecomputing.com, 
-	vanshikonda@os.amperecomputing.com, lihuisong@huawei.com, 
-	zhanjie9@hisilicon.com, ptsm@linux.microsoft.com, 
-	Jonathan Corbet <corbet@lwn.net>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>, x86@kernel.org, 
-	linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/3] dt-binding: aspeed: Add LPC PCC controller
+To: Kevin Chen <kevin_chen@aspeedtech.com>, lee@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+ andrew@codeconstruct.com.au, chiawei_wang@aspeedtech.com,
+ linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250217114831.3225970-1-kevin_chen@aspeedtech.com>
+ <20250217114831.3225970-2-kevin_chen@aspeedtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250217114831.3225970-2-kevin_chen@aspeedtech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_035301_223056_4AAB7294 
-X-CRM114-Status: GOOD (  42.41  )
+X-CRM114-CacheID: sfid-20250217_035616_498239_5A429936 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,209 +120,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 31, 2025 at 5:25=E2=80=AFPM Beata Michalska <beata.michalska@ar=
-m.com> wrote:
->
-> Currently the CPUFreq core exposes two sysfs attributes that can be used
-> to query current frequency of a given CPU(s): namely cpuinfo_cur_freq
-> and scaling_cur_freq. Both provide slightly different view on the
-> subject and they do come with their own drawbacks.
->
-> cpuinfo_cur_freq provides higher precision though at a cost of being
-> rather expensive. Moreover, the information retrieved via this attribute
-> is somewhat short lived as frequency can change at any point of time
-> making it difficult to reason from.
->
-> scaling_cur_freq, on the other hand, tends to be less accurate but then
-> the actual level of precision (and source of information) varies between
-> architectures making it a bit ambiguous.
->
-> The new attribute, cpuinfo_avg_freq, is intended to provide more stable,
-> distinct interface, exposing an average frequency of a given CPU(s), as
-> reported by the hardware, over a time frame spanning no more than a few
-> milliseconds. As it requires appropriate hardware support, this
-> interface is optional.
->
-> Note that under the hood, the new attribute relies on the information
-> provided by arch_freq_get_on_cpu, which, up to this point, has been
-> feeding data for scaling_cur_freq attribute, being the source of
-> ambiguity when it comes to interpretation. This has been amended by
-> restoring the intended behavior for scaling_cur_freq, with a new
-> dedicated config option to maintain status quo for those, who may need
-> it.
-
-In case anyone is waiting for my input here
-
-Acked-by: Rafael J. Wysocki <rafael@kernel.org>
-
-for this and the previous patch and please feel free to route them
-both through ARM64.
-
-Thanks!
-
-> CC: Jonathan Corbet <corbet@lwn.net>
-> CC: Thomas Gleixner <tglx@linutronix.de>
-> CC: Ingo Molnar <mingo@redhat.com>
-> CC: Borislav Petkov <bp@alien8.de>
-> CC: Dave Hansen <dave.hansen@linux.intel.com>
-> CC: H. Peter Anvin <hpa@zytor.com>
-> CC: Phil Auld <pauld@redhat.com>
-> CC: x86@kernel.org
-> CC: linux-doc@vger.kernel.org
->
-> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-> Reviewed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-> Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
+On 17/02/2025 12:48, Kevin Chen wrote:
+> Add dt-bindings for Aspeed for Aspeed LPC POST code capture controller.
+> 
+> Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
 > ---
->  Documentation/admin-guide/pm/cpufreq.rst | 17 +++++++++++++-
->  drivers/cpufreq/Kconfig.x86              | 12 ++++++++++
->  drivers/cpufreq/cpufreq.c                | 30 +++++++++++++++++++++++-
->  3 files changed, 57 insertions(+), 2 deletions(-)
->
-> diff --git a/Documentation/admin-guide/pm/cpufreq.rst b/Documentation/adm=
-in-guide/pm/cpufreq.rst
-> index a21369eba034..3950583f2b15 100644
-> --- a/Documentation/admin-guide/pm/cpufreq.rst
-> +++ b/Documentation/admin-guide/pm/cpufreq.rst
-> @@ -248,6 +248,20 @@ are the following:
->         If that frequency cannot be determined, this attribute should not
->         be present.
->
-> +``cpuinfo_avg_freq``
-> +        An average frequency (in KHz) of all CPUs belonging to a given p=
-olicy,
-> +        derived from a hardware provided feedback and reported on a time=
- frame
-> +        spanning at most few milliseconds.
-> +
-> +        This is expected to be based on the frequency the hardware actua=
-lly runs
-> +        at and, as such, might require specialised hardware support (suc=
-h as AMU
-> +        extension on ARM). If one cannot be determined, this attribute s=
-hould
-> +        not be present.
-> +
-> +        Note, that failed attempt to retrieve current frequency for a gi=
-ven
-> +        CPU(s) will result in an appropriate error, i.e: EAGAIN for CPU =
-that
-> +        remains idle (raised on ARM).
-> +
->  ``cpuinfo_max_freq``
->         Maximum possible operating frequency the CPUs belonging to this p=
-olicy
->         can run at (in kHz).
-> @@ -293,7 +307,8 @@ are the following:
->         Some architectures (e.g. ``x86``) may attempt to provide informat=
-ion
->         more precisely reflecting the current CPU frequency through this
->         attribute, but that still may not be the exact current CPU freque=
-ncy as
-> -       seen by the hardware at the moment.
-> +       seen by the hardware at the moment. This behavior though, is only
-> +       available via c:macro:``CPUFREQ_ARCH_CUR_FREQ`` option.
->
->  ``scaling_driver``
->         The scaling driver currently in use.
-> diff --git a/drivers/cpufreq/Kconfig.x86 b/drivers/cpufreq/Kconfig.x86
-> index 97c2d4f15d76..2c5c228408bf 100644
-> --- a/drivers/cpufreq/Kconfig.x86
-> +++ b/drivers/cpufreq/Kconfig.x86
-> @@ -340,3 +340,15 @@ config X86_SPEEDSTEP_RELAXED_CAP_CHECK
->           option lets the probing code bypass some of those checks if the
->           parameter "relaxed_check=3D1" is passed to the module.
->
-> +config CPUFREQ_ARCH_CUR_FREQ
-> +       default y
-> +       bool "Current frequency derived from HW provided feedback"
-> +       help
-> +         This determines whether the scaling_cur_freq sysfs attribute re=
-turns
-> +         the last requested frequency or a more precise value based on h=
-ardware
-> +         provided feedback (as architected counters).
-> +         Given that a more precise frequency can now be provided via the
-> +         cpuinfo_avg_freq attribute, by enabling this option,
-> +         scaling_cur_freq maintains the provision of a counter based fre=
-quency,
-> +         for compatibility reasons.
-> +
-> diff --git a/drivers/cpufreq/cpufreq.c b/drivers/cpufreq/cpufreq.c
-> index 96b013ea177c..a2f31fbb1774 100644
-> --- a/drivers/cpufreq/cpufreq.c
-> +++ b/drivers/cpufreq/cpufreq.c
-> @@ -734,12 +734,20 @@ __weak int arch_freq_get_on_cpu(int cpu)
->         return -EOPNOTSUPP;
->  }
->
-> +static inline bool cpufreq_avg_freq_supported(struct cpufreq_policy *pol=
-icy)
-> +{
-> +       return arch_freq_get_on_cpu(policy->cpu) !=3D -EOPNOTSUPP;
-> +}
-> +
->  static ssize_t show_scaling_cur_freq(struct cpufreq_policy *policy, char=
- *buf)
->  {
->         ssize_t ret;
->         int freq;
->
-> -       freq =3D arch_freq_get_on_cpu(policy->cpu);
-> +       freq =3D IS_ENABLED(CONFIG_CPUFREQ_ARCH_CUR_FREQ)
-> +               ? arch_freq_get_on_cpu(policy->cpu)
-> +               : 0;
-> +
->         if (freq > 0)
->                 ret =3D sysfs_emit(buf, "%u\n", freq);
->         else if (cpufreq_driver->setpolicy && cpufreq_driver->get)
-> @@ -784,6 +792,19 @@ static ssize_t show_cpuinfo_cur_freq(struct cpufreq_=
-policy *policy,
->         return sysfs_emit(buf, "<unknown>\n");
->  }
->
-> +/*
-> + * show_cpuinfo_avg_freq - average CPU frequency as detected by hardware
-> + */
-> +static ssize_t show_cpuinfo_avg_freq(struct cpufreq_policy *policy,
-> +                                    char *buf)
-> +{
-> +       int avg_freq =3D arch_freq_get_on_cpu(policy->cpu);
-> +
-> +       if (avg_freq > 0)
-> +               return sysfs_emit(buf, "%u\n", avg_freq);
-> +       return avg_freq !=3D 0 ? avg_freq : -EINVAL;
-> +}
-> +
->  /*
->   * show_scaling_governor - show the current policy for the specified CPU
->   */
-> @@ -946,6 +967,7 @@ static ssize_t show_bios_limit(struct cpufreq_policy =
-*policy, char *buf)
->  }
->
->  cpufreq_freq_attr_ro_perm(cpuinfo_cur_freq, 0400);
-> +cpufreq_freq_attr_ro(cpuinfo_avg_freq);
->  cpufreq_freq_attr_ro(cpuinfo_min_freq);
->  cpufreq_freq_attr_ro(cpuinfo_max_freq);
->  cpufreq_freq_attr_ro(cpuinfo_transition_latency);
-> @@ -1073,6 +1095,12 @@ static int cpufreq_add_dev_interface(struct cpufre=
-q_policy *policy)
->                         return ret;
->         }
->
-> +       if (cpufreq_avg_freq_supported(policy)) {
-> +               ret =3D sysfs_create_file(&policy->kobj, &cpuinfo_avg_fre=
-q.attr);
-> +               if (ret)
-> +                       return ret;
-> +       }
-> +
->         ret =3D sysfs_create_file(&policy->kobj, &scaling_cur_freq.attr);
->         if (ret)
->                 return ret;
-> --
-> 2.25.1
->
->
+>  .../devicetree/bindings/mfd/aspeed-lpc.yaml   | 36 +++++++++++++++++++
+
+Nothing improved. You will not get different review.
+
+Also, provide detailed changelog explaining how you fixed here
+previously reported issues.
+
+
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
+
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
+
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
+
+Please kindly resend and include all necessary To/Cc entries.
+</form letter>
+
+Best regards,
+Krzysztof
 
