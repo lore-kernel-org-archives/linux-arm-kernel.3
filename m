@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03144C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A84EC021AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Content-Transfer-Encoding
-	:Content-Type:MIME-Version:Message-Id:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R8naEOTdABQ6ek42F96g0zKj5wjNDhuqMoSCqjLqNUE=; b=Pg3y0xl0c1YCuQoLWj/TSmX/n4
-	mdTpLzwhxkqsVvOhHQZxEnIOIf1CWZaO8flW8i3ZejVRIYZEsM1eNUm7mN7fe74FwLw9WQ93LpKKy
-	ufc58r+E6J14+3Fx6I827zmuEONaL/Sw0qN3dlFeKjsgyKk7BUHGakZ22pwE8ci4iMxIMVHiJ2vxI
-	Dj8bwkLJrvvfvNpJF+W39+bFGd1jJWV/BY26NH0fx1T0m2NISt9d6AAnCWn18dJLCNWTaz8Ca0vAO
-	Jbg1i8NmLbtnWWg3wNGUGXF09izcxQL3E7mZZ9ZdJaoztrXI1o9jWfqiTU/ec17IGniSUXq4pgQtk
-	jzx6wQ7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JSFDjESCF0e4nMJZ2/RT2u9Nm4d866jIp7I72zpFvYw=; b=Fe97cUmB9Vl455JyNBPzvVlA6w
+	MmOkq8jmegbp5k0TGfVR2iYLchsEBjq1Cuyf6zIUQgkYE+ZvOmcPTEe+jOOM1GhkBP+QTft9g2YLY
+	qA+lmCqwsvrg9UhKSpPKzHFksR45W0ELWZHIfUckZOcVq3DeV7iHOgQwCzKSBUdjY2oZIY6q3OniG
+	0aHkptuZjXUWlOnV0kxzHnjImd58qFfZ4VGNPn49pRTvRlp823jV1WkI56IUYjOvo+InzkjCVLEXS
+	55WMK54dngYSdfhmiZrTD/1R2LhAHeBcMqkFItPtrJL0EmZvUjHFQG9zbSFLXh4F1Jl9Kl1QLxWVy
+	BER7FkyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3LT-000000057be-1TLU;
-	Mon, 17 Feb 2025 15:47:43 +0000
+	id 1tk3Mu-000000057u9-0RMj;
+	Mon, 17 Feb 2025 15:49:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3DV-000000055VR-2dco
+	id 1tk3DW-000000055WF-3Jbr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 15:39:30 +0000
+	Mon, 17 Feb 2025 15:39:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 04CAB152B;
-	Mon, 17 Feb 2025 07:39:48 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0A3EC1692;
+	Mon, 17 Feb 2025 07:39:49 -0800 (PST)
 Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E9393F6A8;
-	Mon, 17 Feb 2025 07:39:27 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 25D243F6A8;
+	Mon, 17 Feb 2025 07:39:29 -0800 (PST)
 From: Sudeep Holla <sudeep.holla@arm.com>
-Subject: [PATCH v3 00/19] firmware: arm_ffa: Framework notification support
- + other updates and fixes
-Date: Mon, 17 Feb 2025 15:38:41 +0000
-Message-Id: <20250217-ffa_updates-v3-0-bd1d9de615e7@arm.com>
+Date: Mon, 17 Feb 2025 15:38:42 +0000
+Subject: [PATCH v3 01/19] firmware: arm_ffa: Replace SCMI by FF-A in the
+ macro
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAZYs2cC/23MSwrCMBSF4a2UjI3k5ia+Ru5DRNLmxmbQpiQ1K
- KV7Ny2ICA7Pge+fWKLoKbFTNbFI2Scf+jJwU7GmNf2duLdlMymkAikVd87cHoM1IyUOYucsWnd
- Eq1kRQyTnn2vtci279WkM8bXGMyzv/04GLrgAiWhqgwR0NrHbNqFjSyXLj9QCEH6lLFIrVRtFq
- PGw/8p5nt9c5vTu3gAAAA==
-X-Change-ID: 20241224-ffa_updates-106fd3df93d5
+Message-Id: <20250217-ffa_updates-v3-1-bd1d9de615e7@arm.com>
+References: <20250217-ffa_updates-v3-0-bd1d9de615e7@arm.com>
+In-Reply-To: <20250217-ffa_updates-v3-0-bd1d9de615e7@arm.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Sudeep Holla <sudeep.holla@arm.com>, Viresh Kumar <viresh.kumar@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3957; i=sudeep.holla@arm.com;
- h=from:subject:message-id; bh=RhTnNYTfj2ffvvqL8JaHV8Axj4MhUpAhKy1ZgSM7abE=;
- b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBns1gtlQjXSIZZ1QilM4KEtRmZZGA/mabcIzQyM
- HMQGh7ifgWJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ7NYLQAKCRAAQbq8MX7i
- mMaTEADXtL3GaYTyX9jBF0qryyucuCDMc0PT3DNxvYndxYVB4X0pWfMLajZqMB4sjbJe0NXpy2e
- M1OKrlAp/6C6X7aLkGEvzELgzlHPdk4VLjw+vG3hBKsTc7Ej4iqORfSASIwUwV/xYN/CWri4xD4
- z3KH3Soj20Fb4858gGph5P+++ZJR+66onbTrI/b0GXesqd+s0pwoZ2eO5ggnZkNlIEo0lM+kxPI
- vPX698S4vQbZJvT85v+Pv80er/XZZswj3Yj4g+8XZrdESjEY6tEOc5LbOl20nuX/ZL/TERV9opt
- JCqX6vWN8IMFcAbUPACK6//3HR+Fwm/CYrBN2RMHeN6NkQ1z3m+fB5qV17IIloqp3RJ0rzxudam
- ZcqyVlwOct5e3HMTiiLQ4aGZJqQrxvMpLefMXKexOcg/lqChxNRKD/V7fHnAGW34QTt1IhW5wd/
- 88IbTg4+sm4KCThcBYus4OnnqkxXTDW7jV47np0p0GT2jv/GrpqKyv+nqmyElLyiHXH6IqGXja2
- Atp7moVDW9TKpS4i/L77rlbTDh/EcmGUNZMLxH8WkZVNAUJ3A1YLFbN6gnRN+vrur6FsWzBxyD6
- xS0ZtVvKbf0u7OfLYTO2a6GjO5p68CuF72QMzEMbipl02u50YhBUP+fUVjOcm+tEOCd0DT1+x03
- hB98ma3NAwS0IuQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1599; i=sudeep.holla@arm.com;
+ h=from:subject:message-id; bh=tJtJ+iZ/RH0kV6E8FVz8GWyFPWw0X5nxEmvPF+pyVpA=;
+ b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBns1gtXHWnKMr9WB5CJdIm1VEcTqqQjHoG8va+Y
+ X+57qiPKpOJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ7NYLQAKCRAAQbq8MX7i
+ mC22EACTJ1oYJdI/jH3Mk8BIbelop4SG8s08yql/bZfcv1x+PDI8uqU+FBC/c//aJVpOaNmDPXf
+ BKFVqR3r5o9svjC82IAsKRD6ZW4JjGrUsn6QGJxHKS4eW+LGaNEduPnr+mb8GHT1YzDju2ZLDDh
+ 97OQ/j4mVz5CVJdtlmcgAXHjVY/W15F2iE/PkRfVgVlsVeLdKuNGH5TSIyLZGSempxZvHHukxIT
+ fPSopQAPDGFWZchtSzzA4TW50gevDU46kEYa54iqa2uVw2H+ne9qvXuXzesc+ddUGLFfqeF6oCD
+ pjPw8F544ZDRfw3zMiqprjyD+bIE4WWpOfpu/iUJZ+rUMkUiMJdCYZbed6QMswj9r5iNTL2pCcO
+ /t0jRtiUWkGaAjONSI2j2KJDWaFuqNNTkBXCnkniam5UQe85P9xfVPMHlbSMQo9pCl8/igVHNS9
+ 23sfDJt0Qjw79Cdw6Rgzqu1Ps5KyO9o++c5QlvrYrUz7+jGim5GuLX5LtduNWUtAG4Dc3wzruFE
+ qFhD9LokcPbKVyMTErbDonSV07AwRli6OFuAvYhMoZ/bkgpSN8onj2HbjGWJTrDk+D7fXcBgraY
+ RLACo93enHMMfIutecbjQ8q7c5jIGTeZGlDtGAGqY/K90z3qI6yt1OA6DXlYOc4b94ASxJ4u8bR
+ OB0SxNn84EAe9BQ==
 X-Developer-Key: i=sudeep.holla@arm.com; a=openpgp;
  fpr=7360A21742ADF5A11767C1C139CFD4755FE2D5B4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_073929_756483_CEB507F8 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20250217_073930_892862_D4906173 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,88 +79,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This bundle of changes mainly have FF-A framework notification support
-along with other minor updates and fixes.
+Commit 22779149e93d ("firmware: arm_ffa: Emit modalias for FF-A devices")
+added modalias for FF-A devices. However the macro added used SCMI
+incorrectly. Replace the reference to SCMI by FF-A and update the macro.
+(i.e. s/SCMI/FFA/)
 
-It adds support to allow multiple UUIDs per partition to register
-individual SRI callback, to handle Rx buffer full framework notification
-in particular and general framework/interface to extend in the future.
+No functional change.
 
-It also adds support for passing UUID in FFA_MSG_SEND2 which improves
-the multiple UUID/services per partition support in the driver and
-an helper to check if a partition can receive REQUEST2 messages or not.
-
-It also improves cleaning up the partitions by adding unregistration of
-the devices as well as handles the presence of host partition in the
-partition info.
-
-It also contain fixes big-endian support in couple of functions:
-__ffa_partition_info_regs_get() and __ffa_partition_info_get().
-Big-endian support is still not complete. Only these changes can be
-verified at the moment without any additional application or testing
-support changes.
-
-Regarding the FF-A versions, it upgrades the driver version to v1.2
-and rejects any higher major version than the driver version as
-incompatible.
-
-It also fixes the mis-alignment with sync_send_receive{,2} function
-prototypes.
-
-It replaces UUID buffer to standard UUID format in the ffa_partition_info
-structure and fixes a typo in some FF-A bus macros.
-
+Tested-by: Viresh Kumar <viresh.kumar@linaro.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
-Changes in v3:
-- Dropped spurious extra blank line in ffa_setup_partitions()
-- Fixed issue with Xarray erase in ffa_partitions_cleanup()
-- Used kmemdup() instead of kmalloc() + memcpy()
-- Extend support to read non-secure notification bitmaps
-- Added Viresh's Tested-by tag
-- Link to v2: https://lore.kernel.org/r/20250131-ffa_updates-v2-0-544ba4e35387@arm.com
+ drivers/firmware/arm_ffa/bus.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Changes in v2:
-- No changes in the patches sent as v1 itself.
-- Addition of framework notification support and other updates as listed
-  above
-- Link to v1: https://lore.kernel.org/r/20241224-ffa_updates-v1-0-01233aba3e1e@arm.com
+diff --git a/drivers/firmware/arm_ffa/bus.c b/drivers/firmware/arm_ffa/bus.c
+index dfda5ffc14db7208e8b622cdd648194c9cb1ef34..52b1f09209a0e51e321cd23a69aa7e4c4daa8dd1 100644
+--- a/drivers/firmware/arm_ffa/bus.c
++++ b/drivers/firmware/arm_ffa/bus.c
+@@ -15,7 +15,7 @@
+ 
+ #include "common.h"
+ 
+-#define SCMI_UEVENT_MODALIAS_FMT	"arm_ffa:%04x:%pUb"
++#define FFA_UEVENT_MODALIAS_FMT	"arm_ffa:%04x:%pUb"
+ 
+ static DEFINE_IDA(ffa_bus_id);
+ 
+@@ -68,7 +68,7 @@ static int ffa_device_uevent(const struct device *dev, struct kobj_uevent_env *e
+ {
+ 	const struct ffa_device *ffa_dev = to_ffa_dev(dev);
+ 
+-	return add_uevent_var(env, "MODALIAS=" SCMI_UEVENT_MODALIAS_FMT,
++	return add_uevent_var(env, "MODALIAS=" FFA_UEVENT_MODALIAS_FMT,
+ 			      ffa_dev->vm_id, &ffa_dev->uuid);
+ }
+ 
+@@ -77,7 +77,7 @@ static ssize_t modalias_show(struct device *dev,
+ {
+ 	struct ffa_device *ffa_dev = to_ffa_dev(dev);
+ 
+-	return sysfs_emit(buf, SCMI_UEVENT_MODALIAS_FMT, ffa_dev->vm_id,
++	return sysfs_emit(buf, FFA_UEVENT_MODALIAS_FMT, ffa_dev->vm_id,
+ 			  &ffa_dev->uuid);
+ }
+ static DEVICE_ATTR_RO(modalias);
 
----
-Sudeep Holla (18):
-      firmware: arm_ffa: Replace SCMI by FF-A in the macro
-      firmware: arm_ffa: Replace UUID buffer to standard UUID format
-      firmware: arm_ffa: Align sync_send_receive{,2} function prototypes
-      firmware: arm_ffa: Fix big-endian support in __ffa_partition_info_get()
-      firmware: arm_ffa: Fix big-endian support in __ffa_partition_info_regs_get()
-      firmware: arm_ffa: Handle the presence of host partition in the partition info
-      firmware: arm_ffa: Unregister the FF-A devices when cleaning up the partitions
-      firmware: arm_ffa: Helper to check if a partition can receive REQUEST2 messages
-      firmware: arm_ffa: Add support for passing UUID in FFA_MSG_SEND2
-      firmware: arm_ffa: Upgrade FF-A version to v1.2 in the driver
-      firmware: arm_ffa: Reject higher major version as incompatible
-      firmware: arm_ffa: Remove unnecessary declaration of ffa_partitions_cleanup()
-      firmware: arm_ffa: Refactoring to prepare for framework notification support
-      firmware: arm_ffa: Stash ffa_device instead of notify_type in notifier_cb_info
-      firmware: arm_ffa: Add support for {un,}registration of framework notifications
-      firmware: arm_ffa: Add support for handling framework notifications
-      firmware: arm_ffa: Allow multiple UUIDs per partition to register SRI callback
-      firmware: arm_ffa: Handle ffa_notification_get correctly at virtual FF-A instance
-
-Viresh Kumar (1):
-      firmware: arm_ffa: Refactor addition of partition information into XArray
-
- drivers/firmware/arm_ffa/bus.c    |  13 +-
- drivers/firmware/arm_ffa/driver.c | 526 ++++++++++++++++++++++++++++----------
- include/linux/arm_ffa.h           |  22 +-
- 3 files changed, 418 insertions(+), 143 deletions(-)
----
-base-commit: 0ad2507d5d93f39619fc42372c347d6006b64319
-change-id: 20241224-ffa_updates-106fd3df93d5
-
-Best regards,
 -- 
-Regards,
-Sudeep
+2.34.1
 
 
