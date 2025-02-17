@@ -4,52 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF33DC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34518C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vhO6TKqpsRSX/Z3PyNgRIwuNSxJl8FNrUTnyd+ppH1c=; b=xw92tIcFsHn5yK4m68ERWjQUgx
-	xvHf2cF6Bk8hPDs/cJzPJura+WSJsS7hQEpK2NLnLzycJS/bks720/4S5DFbkVKd2aqYd7FoQ+alX
-	VAa2yQAMtM0r0CJZSd9VBAFeiPg5RwLIP8wsS9UskFv/uF7U2d7YJW4rmxVPeakSLnnu5rY5+bt5D
-	Co3hVMSfzexJKDQCj1kOGQy2D8m7mV+eyYp4U1l2gYOuitOioPZm8EYbq/0+eJd3ZxuRh4OcSKqSk
-	GARl0RdqEp8mLgx4mTxXU/YJmBIwEEJJlXu+QKMblgniEKZwlzo7W7jo4joRg3pVSq+7pSS1HJv6p
-	4fcZCvFQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BUY8RBuJLNPYXLzFRSZTltcWOxb/JvQg0i4KGslCkvs=; b=3QMhypMl/fnBQyJbFgktJdPZMv
+	s7oDAVRbl5tM24pZvvioQldfTLOaoaF4OyujDM8tuFq9Qwr3kxtG1xrxbfOqe0myTUMk8j23o5w0M
+	9rGWizBmb0nyV4cfJoA4tZKeON1WVlNQPCiRvzhZbzL3/Xs6t9YqR8s+nicOB2CKYKh141vbRMBMF
+	z2b56wmaOrigBlAxGzlb/2zBQaASJHf0A6gf3md74f6WbuauMAnND3sfOWQiBgXfjYnkCyQMEGlvw
+	bnLdtjWxCZPJJ7LfHdJl4bmEzql/Vsz77iwJhqno4L8PL4xUcpFSvHTJ1J2hN0ZszU7PsH9+iRfRU
+	3pY44OUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk4g1-00000005PnN-3T1T;
-	Mon, 17 Feb 2025 17:13:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3QT-000000059Sd-2KgX
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 15:52:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BB129152B;
-	Mon, 17 Feb 2025 07:53:11 -0800 (PST)
-Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 63D0D3F5A1;
-	Mon, 17 Feb 2025 07:52:51 -0800 (PST)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: ARM SoC Team <arm@kernel.org>,
-	SoC Team <soc@kernel.org>,
-	ALKML <linux-arm-kernel@lists.infradead.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [GIT PULL] firmware: arm_scmi: Fix for v6.14
-Date: Mon, 17 Feb 2025 15:52:46 +0000
-Message-Id: <20250217155246.1668182-1-sudeep.holla@arm.com>
-X-Mailer: git-send-email 2.34.1
+	id 1tk4hS-00000005Pzv-1vhY;
+	Mon, 17 Feb 2025 17:14:30 +0000
+Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk3Qq-000000059Xd-41tT;
+	Mon, 17 Feb 2025 15:53:18 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id BC6DA4431C;
+	Mon, 17 Feb 2025 15:53:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1739807591;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BUY8RBuJLNPYXLzFRSZTltcWOxb/JvQg0i4KGslCkvs=;
+	b=S757mGQvV6XaSYr+mgBWjh0K/YWYYsvnfs9J/kFPfSNhsPJ+UKZgTntfAgOV5a76Ra4iQA
+	JvQHnjeKsW7dOOkALyAJeE97I18GirxyxL+75bh/DaHkQ+VgZwSYgV/K7UI4IXmWotroF2
+	R8D1Sv6uIma2Sd7bR/UZOYq57MOfecag85vXp/cYfMgR/rcKJu79TllCMfbNRgdS0DFtOh
+	w6zH6dvx5KrkkCnCHJ5v+GeGMJgSOFuqAXr8U1zsBMcJwgWlOP1rmdjyNLVY43k5kWWQkL
+	4C+wainse0oqxUNQ8XDKfOV3L4AvpWoa716e9sYsO8Qjtq3MfXSKtmtX1MFykw==
+Date: Mon, 17 Feb 2025 16:53:06 +0100
+From: Herve Codina <herve.codina@bootlin.com>
+To: Phil Elwell <phil@raspberrypi.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Andrea della Porta
+ <andrea.porta@suse.com>, Arnd Bergmann <arnd@arndb.de>,
+ "maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE"
+ <bcm-kernel-feedback-list@broadcom.com>, bhelgaas@google.com,
+ brgl@bgdev.pl, Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
+ <conor+dt@kernel.org>, derek.kiernan@amd.com, devicetree@vger.kernel.org,
+ dragan.cvetic@amd.com, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, krzk+dt@kernel.org,
+ kw@linux.com, Linus Walleij <linus.walleij@linaro.org>, linux-arm-kernel
+ <linux-arm-kernel@lists.infradead.org>, linux-clk@vger.kernel.org,
+ linux-gpio@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, "open
+ list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS"
+ <linux-pci@vger.kernel.org>, "moderated list:BROADCOM BCM2711/BCM2835 ARM
+ ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+ lpieralisi@kernel.org, luca.ceresoli@bootlin.com,
+ manivannan.sadhasivam@linaro.org, masahiroy@kernel.org, Michael Turquette
+ <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
+ saravanak@google.com, Stephen Boyd <sboyd@kernel.org>,
+ thomas.petazzoni@bootlin.com, Stefan Wahren <wahrenst@gmx.net>, Will Deacon
+ <will@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device
+ using a DT overlay
+Message-ID: <20250217165306.3f055b94@bootlin.com>
+In-Reply-To: <CAMEGJJ2_HVKfsE3P22baadbzxSDAX=yTr=m76YuXa5A2cJsJig@mail.gmail.com>
+References: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
+	<20250213171435.1c2ce376@bootlin.com>
+	<a3c5103c-829a-4301-ba53-6ef9bd1e74e7@lunn.ch>
+	<CAMEGJJ3-JXhin_Ht76EqUNAwLiNisa9PrCrdUzCgj=msGZfb5A@mail.gmail.com>
+	<821d4c74-09b0-4c1b-b8ef-f8c08d0f6b5b@lunn.ch>
+	<CAMEGJJ0QbzCScfTRA_pw_8A=iMYMAAFs69zFNLwcOxF5Syugpw@mail.gmail.com>
+	<20250213195304.3a2df02c@bootlin.com>
+	<CAMEGJJ0kGCj=tjM6KswbG_+ZFkzMwPY+06BXCU0qSnbBKz0=ug@mail.gmail.com>
+	<20250213220639.373da07b@bootlin.com>
+	<CAMEGJJ2_HVKfsE3P22baadbzxSDAX=yTr=m76YuXa5A2cJsJig@mail.gmail.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdehkeekudcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepfffhvfevuffkjghfohfogggtgfesthekredtredtjeenucfhrhhomhepjfgvrhhvvgcuvehoughinhgruceohhgvrhhvvgdrtghoughinhgrsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeviefffeegiedtleelieeghfejleeuueevkeevteegffehledtkeegudeigffgvdenucfkphepvdgrtddumegvtdgrmedvgeeimeejjeeltdemvdeitgegmegvvddvmeeitdefugemheekrgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemvgdtrgemvdegieemjeejledtmedviegtgeemvgdvvdemiedtfegumeehkegrpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeehpdhrtghpthhtohepphhhihhlsehrrghsphgsvghrrhihphhirdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtoheprghnughrvggrrdhpohhrthgrsehsuhhsvgdrtghomhdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtoheps
+ ggtmhdqkhgvrhhnvghlqdhfvggvuggsrggtkhdqlhhishhtsegsrhhorggutghomhdrtghomhdprhgtphhtthhopegshhgvlhhgrggrshesghhoohhglhgvrdgtohhmpdhrtghpthhtohepsghrghhlsegsghguvghvrdhplhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhm
+X-GND-Sasl: herve.codina@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_075253_637881_62941534 
-X-CRM114-Status: UNSURE (   7.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_075317_151174_3105ABC4 
+X-CRM114-Status: GOOD (  52.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,38 +104,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ARM SoC Team,
+Hi Phil,
 
-Please pull !
+On Thu, 13 Feb 2025 21:12:43 +0000
+Phil Elwell <phil@raspberrypi.com> wrote:
 
-Regards,
-Sudeep
+> On Thu, 13 Feb 2025, 21:06 Herve Codina, <herve.codina@bootlin.com> wrote:
+> >
+> > Hi Phil,
+> >
+> > On Thu, 13 Feb 2025 20:15:06 +0000
+> > Phil Elwell <phil@raspberrypi.com> wrote:
+> >  
+> > > Once more, with plain text, which I'd hoped the Android GMail client
+> > > would work out for itself.
+> > >
+> > > On Thu, 13 Feb 2025, 18:53 Herve Codina, <herve.codina@bootlin.com> wrote:  
+> > > >
+> > > > Hi Phil,
+> > > >
+> > > > On Thu, 13 Feb 2025 17:57:37 +0000
+> > > > Phil Elwell <phil@raspberrypi.com> wrote:
+> > > >  
+> > > > > On Thu, 13 Feb 2025 at 17:45, Andrew Lunn <andrew@lunn.ch> wrote:  
+> > > > > >  
+> > > > > > > > Or do you mean a custom board, which has a CPU, RP1 and the button and
+> > > > > > > > fan are directly on this custom board? You then want a board DTS which
+> > > > > > > > includes all these pieces?  
+> > > > > > >
+> > > > > > > That depends on whether you count the Raspberry Pi 5 as a custom board.  
+> > > > > >
+> > > > > > So you mean the Pi 5 board would itself make use of the resources the
+> > > > > > RP1 device has? They are not simply connected to headers for plugin
+> > > > > > boards, but used by the main board? Hence you want to describe them in
+> > > > > > the board .DTS file.  
+> > > > >
+> > > > > That's correct. But even for plug-in devices, those which are on
+> > > > > non-discoverable buses need overlays to declare them, which causes a
+> > > > > problem when the overlay application happens before the kernel is
+> > > > > started.
+> > > > >  
+> > > >
+> > > > Hum, I see.
+> > > >
+> > > > We worked on overlay usage on non-discoverable buses wired to a connector
+> > > > and we did a talk about issues we are facing on at Plumber [0].
+> > > >
+> > > > You can also find our big picture in [1] and a last contribution introducing
+> > > > export-symbols feature in [2]. export-symbols is also under discussion on
+> > > > some other threads.
+> > > >
+> > > > Also, we proposed the i2c bus extensions feature [3] whose goal is to allow
+> > > > an addon board to add devices on an i2c bus provided by a base board and
+> > > > wired to an connector the addon board is connected to.
+> > > >
+> > > > Maybe in your case, you can decouple resources (gpio, pwm) provided by the
+> > > > addon board and used by the base board using also nexus node.
+> > > >
+> > > > We use a nexus node [4] (not presented at the Plumbers talk because the idea
+> > > > came during 'out of talk' discussions in Plumbers) in order to allow our
+> > > > addon board to use resources provided by the base board.
+> > > >
+> > > > In your case, if I understood, you are in the other direction but why not
+> > > > using also a nexus node to decouple and translate resources in this other
+> > > > direction ?
+> > > >
+> > > > Don't know if this idea can help but feel free to ask for some more
+> > > > information if needed.  
+> > >
+> > > Nexus nodes look interesting - I see them as adding a layer of
+> > > abstraction such that, for example, boards can declare which of their
+> > > specific resources performs a common function so that clients can
+> > > treat them all the same. We do the same thing in a limited way by
+> > > using common labels on nodes, but this goes much further.
+> > >
+> > > In the case of Pi 5 and RP1, I imagine you are proposing that the Pi 5
+> > > dtb declares the connector node and the overlay fills in the content
+> > > with references to its GPIO controller, PWM controller etc. However, I
+> > > think the overlay would also have to be board specific because it's
+> > > not possible to patch part of a property from an overlay, so you'd end
+> > > up overwriting the GPIO number as well as the controller reference.
+> > >
+> > > What is needed to make this work is the ability to cope with
+> > > unresolved references in the base dtb, to be resolved as each overlay
+> > > is applied, with runtime checking that each reference is resolved
+> > > before it is used, all of which sounds like a nightmare. Plus, we
+> > > really don't want to have to change the way all our camera and display
+> > > overlays work on all Raspberry Pis just to accommodate somebody's idea
+> > > of how RP1 should be handled.  
+> >
+> > Just to be clear, my comments were not there to tell you how RP1 should
+> > work. I just proposed ideas without trying to force anything and I can
+> > fully understand that ideas proposed don't feed your needs.
+> >
+> > Sorry if my approach was misunderstood.  
+> 
+> I feel I've been misunderstood - I appreciate your ideas.
+> 
+> Perhaps it would help if you could outline how you think we could
+> apply your suggestions?
+> 
 
--->8
+I was thinking about what your mentioned, i.e. the overlay fill the nexus node.
+No sure to understand why the overlay should patch some properties.
+Also where are the unresolved references in that case. The base DT refers to
+the Nexus node.
+The issue will probably be that the translation performed by the nexus node is
+not available until the overlay is applied. The consumer will see errors other
+than PROBE_DEFER when if probes while the overlay is not applied.
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+Also, the solution will lead to memory leak at runtime. Indeed, the overlay
+add properties in an already existing node.
+If the overlay is applied by the Kernel itself, this lead to memory leak when
+the overlay is removed.
+Indeed, an overlay can add/remove node without any issue but it cannot
+add/remove properties to/from existing nodes.
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+In the case described here, the nexus node is already present in the DT and the
+overlay add/remove properties to/from this existing node.
 
-are available in the Git repository at:
+I haven't got any better idea for the moment in order to have this kind of
+'reverse' Nexus node.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/scmi-fix-6.14
-
-for you to fetch changes up to ab027c488fc4a1fff0a5b712d4bdb2d2d324e8f8:
-
-  firmware: arm_scmi: imx: Correct tx size of scmi_imx_misc_ctrl_set (2025-02-13 14:27:37 +0000)
-
-----------------------------------------------------------------
-Arm SCMI fix for v6.14
-
-Just a single fix to address the incorrect size of the Tx buffer in the
-function scmi_imx_misc_ctrl_set() which is part of NXP/i.MX SCMI vendor
-extensions.
-
-----------------------------------------------------------------
-Peng Fan (1):
-      firmware: arm_scmi: imx: Correct tx size of scmi_imx_misc_ctrl_set
-
- drivers/firmware/arm_scmi/vendors/imx/imx-sm-misc.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Best regards,
+Hervé
 
