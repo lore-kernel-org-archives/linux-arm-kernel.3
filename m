@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83E43C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C4A7C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:09:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BI1lVkAmzWUvIm0bRjG0vF+CvCBX+BC/PZaTREAI+bQ=; b=2nR9DHqT1+5rn/kzWGCVTNlXJs
-	aoael96RHQbw7k0tqqXHeVly1H0C8GIGjgoe+IfWn82OE+2huSHwF6IoM63C1+neD0mqv5YA80CY0
-	dmMIctlnUcNqN1DlWQ4+nhLC5+2kq+1yQPrgBAygpisnkdX+gvHSRIwqE+3A6rsigLPKrEbwguBF8
-	aOwWiuNCAnge3QpH+yhPfwQgreqWV5zngLFNigGLNZSSCUe7I8GaHtwGFo6kEDh6V60IRE1elCiVy
-	ZAa5Z8NUSH8QjDFX53qor7mQYT2CxkHWgxYzwVi/av30zjAXhKs2mxYLXa3H8goAweUu21OR+VLrb
-	53QXSrIg==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rEk8UwHzsEoUHL1TkyZB4EaSi5zKbAPrOJuwT6ycYlI=; b=kD3t8MlMqXnzdlI9ekvpyI1dOz
+	FRtR1E8tjIYHG0FnhQBrruKlW+jleiRSsWh4YyoTR4zfmOgD1yXufpAsS4tbaX3vxAyNUykZ+Zxxu
+	wnwLzICUa2Ri4kQe7pPfQP4reXUxr49NX3jiVBvCQLetkIvE4spp0DmCp8e7w0EfaH7XUrfBcwY/V
+	Gii3UUYsi7fMng12Us0UoNNNXtUQqdf4QZLvNZBLEDSaPoDf8AmO5YZE77klwGC33eH1x/pesWR8b
+	xbN3hwggbsTMFVjceep7d0cf7jbf1T+gVPkxB2psWY8xl7Fy1h0dX0pG3zZ1fEGZasj+aqZJUBXZs
+	oy6I6vvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk7Oq-00000005qTZ-2cz8;
-	Mon, 17 Feb 2025 20:07:28 +0000
+	id 1tk7QH-00000005qeX-1PPo;
+	Mon, 17 Feb 2025 20:08:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk7Gx-00000005om2-3UXM
+	id 1tk7Gz-00000005onY-2soE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 19:59:21 +0000
+	Mon, 17 Feb 2025 19:59:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A53E152B;
-	Mon, 17 Feb 2025 11:59:37 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07DE41692;
+	Mon, 17 Feb 2025 11:59:40 -0800 (PST)
 Received: from e132581.cambridge.arm.com (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D3BA53F6A8;
-	Mon, 17 Feb 2025 11:59:15 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 828623F6A8;
+	Mon, 17 Feb 2025 11:59:18 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Namhyung Kim <namhyung@kernel.org>,
@@ -51,15 +51,17 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v3 00/12] perf script: Refactor branch flags for Arm SPE
-Date: Mon, 17 Feb 2025 19:58:56 +0000
-Message-Id: <20250217195908.176207-1-leo.yan@arm.com>
+Subject: [PATCH v3 01/12] perf script: Make printing flags reliable
+Date: Mon, 17 Feb 2025 19:58:57 +0000
+Message-Id: <20250217195908.176207-2-leo.yan@arm.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250217195908.176207-1-leo.yan@arm.com>
+References: <20250217195908.176207-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_115919_960969_60300868 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20250217_115921_781182_A61D913F 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,68 +76,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series refactors branch flags for support Arm SPE.  The patch
-set is divided into two parts, the first part is for refactoring common
-code and the second part is for enabling Arm SPE.
+Add a check for the generated string of flags.  Print out the raw number
+if the string generation fails.
 
-For refactoring branch flags, the sample flaghs are classified as branch
-types and events.  A program branch type can be conditional branch,
-function call, return or expection taken.  A branch event happens when
-taking a branch.  This series combines branch types and the associated
-events to present a sample flag.
+In another case, if the string length is longer than the aligned size,
+allow the completed string to be printed.
 
-The second part is to enable Arm SPE's sample flags for expressing
-branch types and events, and support branch stack.
+Reviewed-by: Ian Rogers <irogers@google.com>
+Reviewed-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ tools/perf/builtin-script.c   | 10 ++++++++--
+ tools/perf/util/trace-event.h |  2 ++
+ 2 files changed, 10 insertions(+), 2 deletions(-)
 
-Patches 01 - 03 are to refactor branch types and branch events.
-Patches 04, 05 extend to support not-taken event.
-
-Patch 06 is to fix a bug for parsing ldst operations.  Without this fix,
-the seqential changes will cause breaking for memory samples.
-
-Patches 07 - 10 enables branch flags in Arm SPE.  This allows to print
-out sample flags for samples.
-
-Patch 11 supports branch stack for Arm SPE.  Patch 12 is an enhancement
-for PBT feature.
-
-Changes from v2:
-- Added a new patch 06 for fixing the ldst operation bug (James).
-- Added James' review tags (except the new added patch 06).
-- Removed a wrong output result in the last patch's commit log.
-
-Changes from v1:
-- For patch 05, changed to append the 'not_taken' bit in the branch_flags.
-  This can avoid altering bit layout and cause breakage.
-- Added Ian's review tags.
-
-
-Leo Yan (12):
-  perf script: Make printing flags reliable
-  perf script: Refactor sample_flags_to_name() function
-  perf script: Separate events from branch types
-  perf script: Add not taken event for branches
-  perf script: Add not taken event for branch stack
-  perf arm-spe: Fix load-store operation checking
-  perf arm-spe: Extend branch operations
-  perf arm-spe: Decode transactional event
-  perf arm-spe: Fill branch operations and events to record
-  perf arm-spe: Set sample flags with supplement info
-  perf arm-spe: Add branch stack
-  perf arm-spe: Support previous branch target (PBT) address
-
- tools/perf/builtin-script.c                   |  30 ++--
- .../util/arm-spe-decoder/arm-spe-decoder.c    |  23 ++-
- .../util/arm-spe-decoder/arm-spe-decoder.h    |  11 +-
- .../arm-spe-decoder/arm-spe-pkt-decoder.c     |  14 +-
- .../arm-spe-decoder/arm-spe-pkt-decoder.h     |  12 +-
- tools/perf/util/arm-spe.c                     | 143 +++++++++++++++++-
- tools/perf/util/branch.h                      |   3 +-
- tools/perf/util/event.h                       |  12 +-
- tools/perf/util/trace-event-scripting.c       | 116 ++++++++++----
- tools/perf/util/trace-event.h                 |   2 +
- 10 files changed, 314 insertions(+), 52 deletions(-)
-
+diff --git a/tools/perf/builtin-script.c b/tools/perf/builtin-script.c
+index d797cec4f054..2c4b1fb7dc72 100644
+--- a/tools/perf/builtin-script.c
++++ b/tools/perf/builtin-script.c
+@@ -1709,9 +1709,15 @@ static int perf_sample__fprintf_bts(struct perf_sample *sample,
+ static int perf_sample__fprintf_flags(u32 flags, FILE *fp)
+ {
+ 	char str[SAMPLE_FLAGS_BUF_SIZE];
++	int ret;
++
++	ret = perf_sample__sprintf_flags(flags, str, sizeof(str));
++	if (ret < 0)
++		return fprintf(fp, "  raw flags:0x%-*x ",
++			       SAMPLE_FLAGS_STR_ALIGNED_SIZE - 12, flags);
+ 
+-	perf_sample__sprintf_flags(flags, str, sizeof(str));
+-	return fprintf(fp, "  %-21s ", str);
++	ret = max(ret, SAMPLE_FLAGS_STR_ALIGNED_SIZE);
++	return fprintf(fp, "  %-*s ", ret, str);
+ }
+ 
+ struct printer_data {
+diff --git a/tools/perf/util/trace-event.h b/tools/perf/util/trace-event.h
+index ac9fde2f980c..71e680bc3d4b 100644
+--- a/tools/perf/util/trace-event.h
++++ b/tools/perf/util/trace-event.h
+@@ -145,6 +145,8 @@ int common_flags(struct scripting_context *context);
+ int common_lock_depth(struct scripting_context *context);
+ 
+ #define SAMPLE_FLAGS_BUF_SIZE 64
++#define SAMPLE_FLAGS_STR_ALIGNED_SIZE	21
++
+ int perf_sample__sprintf_flags(u32 flags, char *str, size_t sz);
+ 
+ #if defined(LIBTRACEEVENT_VERSION) &&  LIBTRACEEVENT_VERSION >= MAKE_LIBTRACEEVENT_VERSION(1, 5, 0)
 -- 
 2.34.1
 
