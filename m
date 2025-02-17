@@ -4,209 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3398CC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B0FCC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvJBOAYDu62oh7a7/T2uNQkZ4YCwiPjI83T8kCNjWPk=; b=wnIZoObByodtQ/nhMwY/O475mB
-	tKI8uMfA6Y5WHaCL+iiyb6yrmilkr699sAXJnXUkdN1Ism9r8kSd32ReJa/OMazZq0T/j5mfCs20J
-	2I8dMOmjfboA6HhLtKmULQxCrYlbtkOg5nyRMv1p8pa6F4tO4NecJivXroLhjGAIeAJkBIL7BvX+o
-	3l9ZZ092CymBApUWye3k4VyT5xvZ+bejBt3sDddrTcS/WJI1soqENwFllT7BkGEI3S/PkTwX0Ofz7
-	0hkxm24HLNfAX96a+TlF03ghl1JJM/o5/CajS61vaiwYZwmS7kfYqMGvOjpfZLdsNhMhTeks4GnG4
-	olCDQmeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1gRK3Ew1hi0PFgqsl/YmhtfeV57oqbHi+ExGuEM3zt8=; b=nHvDiCItKAd0IHkMH2BOxEbs1r
+	a17pBJytnwAILpPEtLY+mhyeSwvUq2dq8t2QjWdEAkdhpybfn6wVLxNXnpL1UTRegoJimxveagm4s
+	QdK9OBWU/otHS/bwZj/KwdAJkQBybJUrGDTRWH4YmN10izvdORBTzrPEKOfAYhfY32qccCfXFLa7E
+	Iq/fhXqZKGbZ3ekDczJfHn5wkveGwQPFlgBQvXuBUSCrfahNMu7grw27oi82JVrWLe7GZO4SLZ8zD
+	MC3Q5S0psRZcQsHshwLuten2guFUlRDvf7u0Pj7M1rOBkcq6ATfrcyIPU5OJfHAvQ1Wze7ELehIub
+	hHgk7lTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2Xm-00000004wwv-1h3n;
-	Mon, 17 Feb 2025 14:56:22 +0000
-Received: from mail-mw2nam12on20625.outbound.protection.outlook.com ([2a01:111:f403:200a::625] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tk2ZE-00000004xbv-207v;
+	Mon, 17 Feb 2025 14:57:52 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2N4-00000004ulW-3iAy
+	id 1tk2Oc-00000004v2H-2ZnY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 14:45:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NEKe/5lNz+pIBRg382QqFtdGP8BXRzKkR7ySj9TzqKB61rMOxlL8hE+JASuebK+en94qCWbVCbpfu+l0ex9AguU7zffwilLd5Gt8xFeS7LRXL4rJhPq9TIJWK7GKrQqZWfJeDXg+qVA9TpfbOrEdKaiMeLmRDg1eJ0WuEDqbnqxPcFx0GF9isg7QvY2RIZkMDQyZzCiWyvp37onRi3QAxw3eTdx7V7AcsYk7I5BoiNjSC2JO/+dRa2vsJ/rNmsElipA5zHSWxGYRZ9ZaS34+BfXAdxC/4VCQhSr3EswdBWfrjVSPgRq0X/Fd9Q7dhxm49XqDHjfmCzGP/MvgyaJMww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kvJBOAYDu62oh7a7/T2uNQkZ4YCwiPjI83T8kCNjWPk=;
- b=bTe8KMBuVasYnKAWrQXd0ExzK8GBA2lq+RSYr1ccXINo4w6CcROzVaWXqAumfYJbYSq4fcBq/HrSMiGYKqwPRIdTmlP5ArgheNDLuJA/EKeWjDJYP1C7ywO8XCCAxzNZyQimSbceK0l0Hi1RVWXFwPqTRkRQ2LajWIRH0CqRVG39gdvhBhFGgWrpOj5oQ4ul/X1T716RYg4HVGvElY2VqVr4tjSAa6OXzKE5uWC9n9KWE2AoM5x2DQS1KCpB1akJUI5BdtMwBd9XhcgV75R+WRlOb1pwUy7bSMuFM8/h28z8lFrXUYaFBDXzlkhPIB8TnyzdkxJmIOCPCkvIOV1YNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kvJBOAYDu62oh7a7/T2uNQkZ4YCwiPjI83T8kCNjWPk=;
- b=Tl3AnHQk0CKkm27NypV5O8iMykDYlNZdlO/q9l5TVU/Uh/S4+ciep0FS80czTQyUM+Z+Z/eWe5i0ZxrBtqBBos01xNLoE/wZV4eDHTptQDek4jEjjoTMPsSDSJcy4mmObKwiU1fxhoRA2I4XFpIfZgYkAUV+OvjrnCxrwj1L8Mo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SJ2PR12MB8109.namprd12.prod.outlook.com (2603:10b6:a03:4f5::8)
- by CY5PR12MB6082.namprd12.prod.outlook.com (2603:10b6:930:2a::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.20; Mon, 17 Feb
- 2025 14:45:13 +0000
-Received: from SJ2PR12MB8109.namprd12.prod.outlook.com
- ([fe80::7f35:efe7:5e82:5e30]) by SJ2PR12MB8109.namprd12.prod.outlook.com
- ([fe80::7f35:efe7:5e82:5e30%7]) with mapi id 15.20.8445.015; Mon, 17 Feb 2025
- 14:45:13 +0000
-Message-ID: <319df4ca-ea42-4c1a-bc02-88f86cb03e62@amd.com>
-Date: Mon, 17 Feb 2025 15:45:09 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] firmware: xilinx: Dont send linux address to get fpga
- config get status
-To: Nava kishore Manne <nava.kishore.manne@amd.com>, ronak.jain@amd.com,
- gregkh@linuxfoundation.org, jay.buddhabhatti@amd.com,
- srinivas.kandagatla@linaro.org, u.kleine-koenig@baylibre.com,
- praveen.teja.kundanala@amd.com, siva.durga.prasad.paladugu@amd.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250207054951.1650534-1-nava.kishore.manne@amd.com>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- 3i3l5DA=
-In-Reply-To: <20250207054951.1650534-1-nava.kishore.manne@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR13CA0049.namprd13.prod.outlook.com
- (2603:10b6:a03:2c2::24) To SJ2PR12MB8109.namprd12.prod.outlook.com
- (2603:10b6:a03:4f5::8)
+	Mon, 17 Feb 2025 14:46:55 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38f22fe889aso3462175f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 06:46:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739803612; x=1740408412; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=1gRK3Ew1hi0PFgqsl/YmhtfeV57oqbHi+ExGuEM3zt8=;
+        b=nmY8X9/WH2Wfr1tRD3wOkj0wLjCWkgV9NhEnSMFuh7LBnwpdWhOF9jBhuKFScYaCaW
+         95cGQoKn8a6CsbG/4/2XZ6QhLBKxmYrsJEmXAAWL67Sw0X1EdCttwg/UIASDzjTMH1ll
+         971PRDFwBt5cDYBUPmFLMMbZrqSofZ1l8jH/dzW6UTtUl7U1LMIqZWJOpLtuAXOE8rnA
+         z9BOVXVMSrjVari2YGfQfMaJwNdwWfCL1xQ3etvcp++MbwOhoolGTGbxikJQUf3r0ZUt
+         UYUIfZNZPLmHe9D+/FLEi83puOtp44RKPDyJBsEIdPIoFU3dBSmn42TM/W3goYYqTRZg
+         YuwA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739803612; x=1740408412;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1gRK3Ew1hi0PFgqsl/YmhtfeV57oqbHi+ExGuEM3zt8=;
+        b=Y8KXT7FMZEj+6LnANiMHjY0D08yY2xGWQdxf4uOUZSu4pT98twhnSzoLE/eKqpiBqt
+         lJt4YAi6zvIJ9L+IZEWIrcsSemtB4YvroAQvvA48NlOUNVA2AWtxD/46AEECL5BDHnYW
+         JtPYgjBAZMEDuEiK8zExFHAG9kI+5BXMtJsMZXD6v0D0rclmBsjPQ6jL3vOeYtEM1759
+         ZxGEoAVh50bZyhTByh1l8Ps6k0tH4Yat+TOPW7bam+lgk1oo+SAZqjRZcAaxl3GdHnLR
+         RiIr0lowwrpk0W85V6CmVOZ41aXGISe2pWB3acASLOJro/pZ7F5KPee3yHY+8yW7AS/r
+         0ooQ==
+X-Gm-Message-State: AOJu0Yzf+MChY9Tc0Q+nGWgcaS0bIrPsiizSmIi0Hv6BO4naS4H1mTiV
+	SPbCSlOMwcx6TTh5YpiTNk428uSp1M5j9dTn8gIXbwvDYdTidT9D
+X-Gm-Gg: ASbGncu/vso2IQcj3X8TeByXPObwaLWZcqCbJQMI4rOSyUL3r2MtcOXRUmLTsE7ClWY
+	o8sqHMpJGc0poqnUh0kGIqfwp9ThPyMsK8qXAVaCcD4kMhF/tKlW7jXkV7vk04AQn0MGthAWQZu
+	Wrm5gJHI19GgyXtN4JniqE5oLMspxIZEIo2z575NBRDs8AvtnXmYkpC7eSOZvvGA/fCAZ1WWVn4
+	s6I+DCB3n0V60lfB1qoMfva3GoqJtc9u5KY+MGyJJx983xHtg6Y/i4Dpe9fKQ1ueAJ6JvjJ0ARm
+	h6yaUpd1lCwI7u2Y16hrUO6+pcZlG10=
+X-Google-Smtp-Source: AGHT+IEvsVySnJ+l7Fovemaa+2WhfTAXf+xumNmEOKxOaoi6B4K38BG9ABeK/x2mrfAU1A28oIBrvg==
+X-Received: by 2002:a05:6000:2c1:b0:38f:474f:f3f3 with SMTP id ffacd0b85a97d-38f474ff5bdmr3521133f8f.13.1739803611955;
+        Mon, 17 Feb 2025 06:46:51 -0800 (PST)
+Received: from eichest-laptop.toradex.int ([2a02:168:af72:0:48e7:ac19:aeba:f677])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258cccd3sm12424688f8f.23.2025.02.17.06.46.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 06:46:51 -0800 (PST)
+From: Stefan Eichenberger <eichest@gmail.com>
+To: nm@ti.com,
+	vigneshr@ti.com,
+	kristo@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	jai.luthra@linux.dev,
+	francesco.dolcini@toradex.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: [PATCH v1] arm64: dts: ti: k3-am62-verdin-dahlia: add Microphone Jack to sound card
+Date: Mon, 17 Feb 2025 15:46:04 +0100
+Message-ID: <20250217144643.178222-1-eichest@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8109:EE_|CY5PR12MB6082:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c9f68ad-4aa8-4a71-18fa-08dd4f61afc7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aXdNS0d1OWFveGovZk0xekl6Vm1DY0pOV2xFb2FpTTlURVNGaGg3NW1GNzNl?=
- =?utf-8?B?bkFKM0RTSlR3ODBHY2hYYjNZSTZSQ0dYVU1QSWhZb3l5bUlLRm9ZU2l0OUFH?=
- =?utf-8?B?VHM3UzhIMC9zeFhxUDQrSk0xSEt2Zm1PbXg5SjAvWHFTVTRPWnJMT0FYQWtS?=
- =?utf-8?B?SVhKNXIyU3BMb3h6TUdkZjU2L1phTm0wMXFvV0xucmRVeFd1NHdHMWV6MXdF?=
- =?utf-8?B?N002Z2dUL3F0bjQzT1pxS0VGYk5zQXZQVW9QMHlYYWorb1RBVm9COFVTOThD?=
- =?utf-8?B?a3pETWI5dDg1MUtycVdnTDdWYmU2M2pVWEhXZFFySjBraGo5Q0h3QlZBVkhx?=
- =?utf-8?B?WlJsQjVTQ2hTc2hYa0h1aEJoVTF3b0ZxeDk3bWhjbHFqRUhEVTV1M0RzRklw?=
- =?utf-8?B?anc4dFB6SFB3THMvWEgrdzZzUnJvcDIyN3EyNkxnT0E1VFJkZ3NLWUdVcU9x?=
- =?utf-8?B?MGd4MkZadmJtSXFnMUVUMU5Mc1NlUlNhMGEybUxscHFWWDFjaUw2Q1FWdHJ3?=
- =?utf-8?B?WG82YWtRZURybkQ3UmpZbm5RU1VvVHBQS0YyWEtybld3TXIxeXZSM3llUC9E?=
- =?utf-8?B?d0ZpUDU2eTBqZUZtQVhhTzcwdlFLcVcwUWM0ZFQ5b0g1Z1pZNlRVM2UyLzhI?=
- =?utf-8?B?bzJ2TXg2ejR3R05XN3RPcXFTSXR0NmFxckE4blhYTW9UV3hncGdLOGtVbU9o?=
- =?utf-8?B?azFzZ1dMTTVqak54cm1vMUhBb0RnWHFvU3VqdXJ4M1UwYko1bStpYzk5cnZG?=
- =?utf-8?B?eERqOE40c05YV1FJV05ZZHJNVW1VSWRXUDllOXhqSGtTRk1XT0xpNHlDWW5r?=
- =?utf-8?B?QVR1ckNacldPNSttTy9wZitzZHNicDhRMys4Q3YvZm1CVnF4b2ovZHJQejUx?=
- =?utf-8?B?ZXo3aWRWeHJoWmdxUVRXV0RXRmVOMzlKVTltalZWZ3IzK0RaQ05YUVlLT2pm?=
- =?utf-8?B?WjQ5Z0QvMXZDZERzaWtKcUVXRE9HeDh1OHlLZ1FHYUlWVk9qRzNIK2dUYlhF?=
- =?utf-8?B?c25NSjZSMWlyUkxtQnZnM3BtRVBpQkhnbjFOUXVBKzljMENNMzNaeHlKY2No?=
- =?utf-8?B?T3pYNVZQQ25rWWVKTHMyaldYZC9xckdZOWNGb2FBem9CV3pYUGpVTW9YN3g0?=
- =?utf-8?B?VUd5Mk8xb1dHbkhpb1Z1emRnY3BSYWZid0JWV0pPQm85QXVTREJyVThacUNz?=
- =?utf-8?B?bHhQRjdSMEk5ZHBuMlUxc21JU0hsY3NZUERYVHRYejRTNC9wU2R6dzVWNXRL?=
- =?utf-8?B?YnFvS0QzRmNQQXU5djZGVlJCd2Z6TTlIKzZtdGwwR1M2VS94NVU2VjN0eFd0?=
- =?utf-8?B?VnJXaktRWnZaZEU3WEVXV2dqaHgxM3loY1AvNXA0M21SY0Z1cFNQNTVpSHB2?=
- =?utf-8?B?L2lCSTVGbzFKTmEzYjNXM2duOWNOV1pzeU9iemlSa1owVXBKc3ZRaGd5enk2?=
- =?utf-8?B?NVJmRHdYaThKY3BHdS9XUXdQKy9MSFpmWjM3ZFdNbi82NTBGSGE1THMvbjBF?=
- =?utf-8?B?eklpUXd1TzJ5RjltWmZmYUNBckFKK1hYRTQvUXpaeTd3a0t1ZXVhK3FTNnNp?=
- =?utf-8?B?VXcxZDN0d3JmbWY5WGZDdE9MakcyUXF6Z2d4YnhpYjcvZysxeEViNGlhdHN2?=
- =?utf-8?B?bnRNeGoyMG9yWkk4R0VzS1JTOGMvTGJLSVNPcTR5dTFrT0RjNFdadnUzRjdi?=
- =?utf-8?B?Q1c4YVR3cFpkQWJKaGYwS0RCOCs2SjVoT0tBUURrM2tuYVlGYXEzV1MybmQw?=
- =?utf-8?B?RklSamlBZ3BPMDlJUjdJTE9tL3lJYTBSUGx3NmRGZ2RjRWhpbnA1clhBNmlB?=
- =?utf-8?B?SGw4QzJqRmwrOVhvSzIyMFF4OXZSMlZQZExNRWdIQzBIUW1ERzF0SmRCMWZX?=
- =?utf-8?B?VXlaMm5hRHNCcjlYREw1OFRJWXZrNDZRb3F2a1pXWGhHT0xtb3d3N0pzT011?=
- =?utf-8?Q?0oFCP2iHXj0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8109.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cmJQN2hqWjBnN2VBNjZhRDdvUXVsSmthM1Z3cmJoQ0xiekpMME9FOFFOVklM?=
- =?utf-8?B?SlVNaE5WbXZNYU1HVmQ2MUt6QkExUVN2RHRsbEE2d0duTitOQWRtN3pxcFFu?=
- =?utf-8?B?UDBYdXdkbDhkSVdtbmpLbkJUdVZEOWxZRWxhK21LcnRFbGY3OSs2Zit2S0hX?=
- =?utf-8?B?UUZmMjk3ajMwT0JwdUtORnQxSzZwd0l4cjVBTk1HM01MSXkxR3JVWmZxSGJk?=
- =?utf-8?B?Y2poYy8vVzZjUjBIMGJXd3NxQ05KTWx0bTdmSDZpYmJoZGttUzdjOHlISGFY?=
- =?utf-8?B?cVBBalozaTQ1SkJMaEdoQjdjYVpHUkxkcWRmZytuaFVJOWY1WFIzcDZ6ODgz?=
- =?utf-8?B?VjlVMjhnL1AwTXB1M3ZPV29ZWGVZdEJnS0V2OGJ4aE9hTUM4Rjl6UTBvcGY1?=
- =?utf-8?B?M2cxM2Iya0dXVW12SW1TTXNjdHh2akwyS253ZHVsbWVHSHJSNE5rSDFob0U3?=
- =?utf-8?B?SWliOXZuZnptTFlDVlJnNXBTNGVEdkVlMVNyWFZyTHlrSkxuTThodG1GZk1r?=
- =?utf-8?B?R24xelZrRUZvY1lySHBjeUN0NFBuVC9sRTh3SjFSb3N5Z0Q5U2hjQ3ptK1Vj?=
- =?utf-8?B?dk9DVi9sb0dEYStwZHlqSjdwOTNKUU5sd2I5OFlGUHMyZk5nZVUwRFBrWUdE?=
- =?utf-8?B?Z3F6Qm9SU0xsVWhTUlNGWFpONzZlak5BQmE4cC9jL3RCc1BBSC9LVDBJVVoz?=
- =?utf-8?B?Qm01WVBRdTB2eXdyZVVjc2N4OXFrZU5rNUFVRjR2QWIzZ0JaTjNpRE4wWmV4?=
- =?utf-8?B?cWwvUTEza0xoQVoyUGxjUnZjamVCODZIK2ppOXlpYm43aTk0Q1lyOUtpWVZa?=
- =?utf-8?B?Q1diRTFSM1BOZWpvWklJUFlSc3BZSW9CRjk0eVdzT09iZmNCWDI0TEQwd3Az?=
- =?utf-8?B?RU43NkJac2IydVloYjQ3WlZ6UWFUbGtxVHdSazdiYUgrWWVJLzIzRzR2SXNq?=
- =?utf-8?B?MEhZOUd5YnNobDh4SmhSUXNIQTdqVEdqVjJYYmdvckpyT1hoT0tFRnMxWTh5?=
- =?utf-8?B?YUs4TVFKR2hiRFFBZW5jTWhvRVdCdEQxa1BtQkhmS2dUTkw2bnVCK2NyUEF0?=
- =?utf-8?B?Q3pIbU9ScVZ0N3dZdms0aGFRLzJQYlczWFNMR0Y2aVJiM3hLeGwzckRlVjl2?=
- =?utf-8?B?RDNpenVwenZjcDd4YnZuTWhUcVZ6SDZnTDk2cU5NV2t0d2Q0bTNDbkFZS1F2?=
- =?utf-8?B?dWN6QUsyMXdNc0IyOThicHVlNVNPUi9WMGcvdytmQ0RFTTV1QWU5Um9kK1Aw?=
- =?utf-8?B?R2YrbFQ1RjBJSU5HbVNUU0RDMnI1NjlxNEVqRUVwLzZ3Mmg1MDBxREdxWGxJ?=
- =?utf-8?B?N1RqRE0zK2JpY01USGUvWnFpc2g4b3VUSHNLZERVWElGRzVsMCtZdnFVdzRj?=
- =?utf-8?B?cUZOZC9hQnVTdzFJR2M2S2NnWisrQmhJR3lyd0Y1YXJvMzg0bnMwRlZEMktD?=
- =?utf-8?B?Y2VUZk53UEpzdW1VaG5xOEkvVGVtT3MrNFFCaC9YaDNheFNyUVZFcTdocUNC?=
- =?utf-8?B?NFY4WksyWUFrNUZ4U09IT1NCZjQxQ1FCQmwwNExsZlpsSHhpM3d6Uk1RRmRp?=
- =?utf-8?B?dUVpV3lrYmdSNkxqb0dNcTg0RFdyVk1seWl5VUVhbDUza2ZpdHMyZUJHcE5v?=
- =?utf-8?B?MmxGQ2R6WUZaUUw5NDFWZTZSL1ZtazNIMVBmY2ZTL2NyOW9GTHVubHBxTTFp?=
- =?utf-8?B?REo1dUVmOTI0N2ZGNGY0UEJQU0VzN0ltRnVxcFZoNitqcEhxSTNFR3BLWkF3?=
- =?utf-8?B?eG1hTkhKekdQdjdXcllOMkVCVTFkV2FmUnRVSWJlZ3dkVkhlVGIzcG1SZ0tC?=
- =?utf-8?B?QXN1ZEh1OW9sZ1o2cmhEMWQzWk5ydlFLbk5Wa3pCTE9OL1VEOWJtRklvaVR0?=
- =?utf-8?B?d1ZieHNocUthaHRMLys2SDZYUGZTcjU2QzZQdktwQnM5cmw1UmNqVGJBNmlO?=
- =?utf-8?B?NGtMTHQwQlhBYk9nbE5SK1FvaVk2SzFka2N0UXdLaE5IdFZXcU1HL1BYVTBC?=
- =?utf-8?B?V3YzdlhTcHZ3cUF3Z080aUdkK2REYTVzMHhzakJkbjVkWXVIUnpkTXJ5RWxk?=
- =?utf-8?B?SHBaUDJ3TUdtWlNpTEhTdUs1Yy9nSmhSS2MvanZWL0FMNC9vTVM2UUN1SUpI?=
- =?utf-8?Q?qnSdItU6wfZLs7uIbB/rdTKrg?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c9f68ad-4aa8-4a71-18fa-08dd4f61afc7
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8109.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2025 14:45:13.6851
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lv+gMmyFkAfnxewu6HgjhaOabshmWYZr93IGMZBDfhGeptEWc/KvgAeHLZNfeP1k
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6082
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_064519_086783_AAF589AA 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20250217_064654_651531_33B7321A 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -221,53 +102,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 
+The simple-audio-card's microphone widget currently connects to the
+headphone jack. Routing the microphone input to the microphone jack
+allows for independent operation of the microphone and headphones.
 
-On 2/7/25 06:49, Nava kishore Manne wrote:
-> From: Siva Durga Prasad Paladugu <siva.durga.prasad.paladugu@amd.com>
-> 
-> Fpga get config status just returns status through ret_payload and there
-> is no need to allocate local buf and send its address through SMC args.
-> Moreover, the address that is being passed till now is linux virtual
-> address and is incorrect.
-> Corresponding modification has been done in the firmware to avoid using the
-> address sent by linux.
-> 
-> Signed-off-by: Siva Durga Prasad Paladugu <siva.durga.prasad.paladugu@amd.com>
-> Signed-off-by: Nava kishore Manne <nava.kishore.manne@amd.com>
-> ---
-> Changes for v2:
->   - Drop the specified patch:
->     https://lore.kernel.org/lkml/DS7PR12MB6070A83267558A7D545E3383CDF72@DS7PR12MB6070.namprd12.prod.outlook.com/
->   - Rebase the patch on v6.14-rc1 without any changes.
-> 
->   drivers/firmware/xilinx/zynqmp.c | 6 +-----
->   1 file changed, 1 insertion(+), 5 deletions(-)
-> 
-> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-> index 720fa8b5d8e9..7356e860e65c 100644
-> --- a/drivers/firmware/xilinx/zynqmp.c
-> +++ b/drivers/firmware/xilinx/zynqmp.c
-> @@ -1139,17 +1139,13 @@ EXPORT_SYMBOL_GPL(zynqmp_pm_fpga_get_status);
->   int zynqmp_pm_fpga_get_config_status(u32 *value)
->   {
->   	u32 ret_payload[PAYLOAD_ARG_CNT];
-> -	u32 buf, lower_addr, upper_addr;
->   	int ret;
->   
->   	if (!value)
->   		return -EINVAL;
->   
-> -	lower_addr = lower_32_bits((u64)&buf);
-> -	upper_addr = upper_32_bits((u64)&buf);
-> -
->   	ret = zynqmp_pm_invoke_fn(PM_FPGA_READ, ret_payload, 4,
-> -				  XILINX_ZYNQMP_PM_FPGA_CONFIG_STAT_OFFSET, lower_addr, upper_addr,
-> +				  XILINX_ZYNQMP_PM_FPGA_CONFIG_STAT_OFFSET, 0, 0,
->   				  XILINX_ZYNQMP_PM_FPGA_READ_CONFIG_REG);
->   
->   	*value = ret_payload[1];
+This resolves the following boot-time kernel log message, which
+indicated a conflict when the microphone and headphone functions were
+not separated:
+  debugfs: File 'Headphone Jack' in directory 'dapm' already present!
 
-Applied.
-M
+Fixes: f5bf894c865b ("arm64: dts: ti: verdin-am62: dahlia: add sound card")
+Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+---
+ arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi
+index 9202181fbd652..fcc4cb2e9389b 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi
+@@ -28,10 +28,10 @@ sound {
+ 			"Headphone Jack", "HPOUTR",
+ 			"IN2L", "Line In Jack",
+ 			"IN2R", "Line In Jack",
+-			"Headphone Jack", "MICBIAS",
+-			"IN1L", "Headphone Jack";
++			"Microphone Jack", "MICBIAS",
++			"IN1L", "Microphone Jack";
+ 		simple-audio-card,widgets =
+-			"Microphone", "Headphone Jack",
++			"Microphone", "Microphone Jack",
+ 			"Headphone", "Headphone Jack",
+ 			"Line", "Line In Jack";
+ 
+-- 
+2.45.2
+
 
