@@ -4,67 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D62D4C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 16:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD84C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 16:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pTQFM2801396naWh35lRT9WkJuMqqDxKG1z8AIEdHfE=; b=yyljQqTNunfhsQNXmuxTy0Egea
-	PLNspRNAxi2B/1C5buPtsGOJb7tvINeho28YSorwUAJRFLrc4Ee//S3PnOJ0HxTXAAw5XC2A/X3JK
-	pctgwGI2gdSC8yG4JSm5xHJWJW2ozg7vKGjBVyxdF6+lZyJhoussdP4H9OdMgTz3DrfaQyirN9Qzy
-	M0UdD17BvZlm6SFVgunqfrzie9Fni2oItwjnpTQpS0opXYLwMvc4P/3aXStGPR3ORfBukcCgBQ02L
-	NgBgplpw1nn8/DCrOAzh4Ed9c8Ta1/DKqnhnQKSdlU27ZpBWjibRPKbLWygLNWdr9fDUqxkF1zymr
-	CZKRcBzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s5Qn3Izea1XkIFjORxwyxiB7Rz8OfU+yXngImMLSszU=; b=ezJvtzSXwPRknTEHSl3ZhAacsU
+	FCndnujyfEIA1MQNvZeYPGJh9Fj2Wdnuo7ZBK7y3vuz/PhkX+ZCBRo+fbL2BJ9cl71+G3I6EPAFnW
+	JY7wxnQ8qNLUHfsm1+l4HLB3F9dX+9nEl9XiLZnIWjpXAOuJgiIzHbuQC0CgeZWRwoUG6oRhpMyt0
+	reLKcilSUOJn7/+TRXZRj98MRADpwVyUN/3LlOaOZqson8QIJxqSMJBmA2aHGxBstUcXTUp8IRwUH
+	QDFlPnz8HGDm6A5Ockt0D/1MR4/oo+recN+R3bMHIVUEjQ3lLuo1lUWoLaPgsT/W1OzhYOnd1j5bX
+	gMhQTuXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3mm-00000005EF1-3KLw;
-	Mon, 17 Feb 2025 16:15:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3Do-000000055XP-2IUV
+	id 1tk3oD-00000005ESe-1ylq;
+	Mon, 17 Feb 2025 16:17:25 +0000
+Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk3Fl-000000056Br-2BHC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 15:39:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 80045152B;
-	Mon, 17 Feb 2025 07:40:07 -0800 (PST)
-Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C5153F6A8;
-	Mon, 17 Feb 2025 07:39:47 -0800 (PST)
-From: Sudeep Holla <sudeep.holla@arm.com>
-Date: Mon, 17 Feb 2025 15:39:00 +0000
-Subject: [PATCH v3 19/19] firmware: arm_ffa: Handle ffa_notification_get
- correctly at virtual FF-A instance
+	Mon, 17 Feb 2025 15:41:50 +0000
+Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-471fa3b19bcso80331cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 07:41:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1739806908; x=1740411708; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=s5Qn3Izea1XkIFjORxwyxiB7Rz8OfU+yXngImMLSszU=;
+        b=jXam/HmM5eR9Dns02RiS0ssQp3koP5ZAoEnOUgN2uslLhstaJx3nn1hZDtjm7oYNbM
+         oVhLAuPgHMqvB07yDKMVNCX0HcCeaj5LbpEz0D7NLEO/1n1PUUH9zqExDR5Ox+AZ0UAs
+         pdJz8EWZbRrwRrGsoc+4KEQDzmuFESuVY8hG2H28+USDkiXsA5qyLGmI/VYP18frvEDs
+         89b6rqDuZ6Grz3GZCiHf1DdpGqZqnmIWcG1hEKXLuc+t2cPCAoPvV1BHJLhHIOOsXPeb
+         E6VLZX7EkQvS16Tzd+ZU8he9rmZT2lYuGJzUBNQ1vrJ2h+dpVuFU2Ei0dR5Rx5B9SwU+
+         S54A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739806908; x=1740411708;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=s5Qn3Izea1XkIFjORxwyxiB7Rz8OfU+yXngImMLSszU=;
+        b=Vo7BdY5pEVZR5hmiJQmNsWVN5drq06R0myGAJiPgjSsRBp1XV2dQHHsCGBRD5l3ziw
+         tHDIKas4aDznHxqn0xmypjWsYvtwL7hyVsFn11CarFL7sCI/eG2hTXEpP8emcRJkaLZa
+         bHPMLrxfr7/JEshNmRzEn29PrMTv8QKblTkYDP94dcpqzX3v9l8J8Sc2LXHIqF+xFmu+
+         s7UMkE6sHntTAvYxJTEEVKoo7OjFMh5JoZtA7PVrefg8AHQBf3XRq3iQlvn1kVaG3G+1
+         4gMdvGtAW2sebz0y1oppOKGqQ+9gXUTSIESoqZ7Mm+GIdz02jdg9MjCyjhhqKOjiYo8g
+         5ieg==
+X-Forwarded-Encrypted: i=1; AJvYcCU/7U5WvTOg7EmmWVs3vKApfAJWcj8zYtjIp8vwUED5qOLX88FbDoL+fuIBdvP1Q9ohPbG+Pv8ntEi/E7vfnBDF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbtiHvZoVm8M9IAO391+DNW7E3U858d4oqXpW9SKmuJGRg4FcX
+	UZZo4wTbXkeX836l+yS1kHKjxYxgpGRAoan35FE4Fh7CR7GEsdwsjd7EvpViUWv+v8tmzdWDAZt
+	rct62zzrvsY03BVpcPm9GeIpiE0SR2aOPfxSo
+X-Gm-Gg: ASbGncubaIrdq5SYoQc1oUW28PbhlJLIyxT+U6s/PEbpX8FW84SNWQNyedJEBfpGnrM
+	bQI5ffyvGSXrQKztTj4zXV/yKv42xXx5fb54TAmLr6Rj6F+oRJegUpBCCeVZWYxCOjfQIXo0=
+X-Google-Smtp-Source: AGHT+IEV69uZM3laRSzjCGKBZlseoILARY1eAIAe+bkM661+fIqBeto74KePJaR81k8/nxiNWACCqrXZjC0ZbFzBnwY=
+X-Received: by 2002:a05:622a:1899:b0:467:7c30:3446 with SMTP id
+ d75a77b69052e-471de0b5ed9mr6696061cf.25.1739806907930; Mon, 17 Feb 2025
+ 07:41:47 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250217-ffa_updates-v3-19-bd1d9de615e7@arm.com>
-References: <20250217-ffa_updates-v3-0-bd1d9de615e7@arm.com>
-In-Reply-To: <20250217-ffa_updates-v3-0-bd1d9de615e7@arm.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Sudeep Holla <sudeep.holla@arm.com>, Viresh Kumar <viresh.kumar@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3134; i=sudeep.holla@arm.com;
- h=from:subject:message-id; bh=glQcibRPZ3LfxkYdcYsdlJeo9DnLI2cUT7CIltYuAok=;
- b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBns1gvLiiYeNuHpZrc1TNX2jkRDa6aSrZvzKVhn
- Z9uHQpPgVaJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ7NYLwAKCRAAQbq8MX7i
- mLB8D/4jUASnurXChQYVGRrJFk2N+5zQlPN+hwPXF6W7okyL28JUVvKWTGrshQ28N/O2uns8NLM
- RJaSHgSMXPDsVpxbbshCUYUFBnzZ+9IXzIJCkNGzwGVHmM9aLGWGw7wAHo6JEJ74uJhcrJ2xb47
- v3ZsSbyZx5gkxcakkKmXCr1mh/kTvv2m4opFRULoItyeKWrtFJSkTKkmlhNz4sh4kWroV7KGJEV
- CzgsmbHAnofrupMXj402hYBCgEVM+msMEhlPv9bHodefo+Z4VcY5hzHVtdpc8yjDL7JTvAKOPhL
- cQtj4/fzj/vfVRGsHV1I8WzzUWhEisxSPBWkkATj6itSJOMjH6tWx+xc29vYwi/Ro60t7QKv4Yk
- zUdvEx1WThdhKkwLTp+b+z6Sb8xyyNSM1aRO+w2GNvvu1xu3XqOwtp+AhIZz8TtTE6QEpwOsSH5
- KGt3YYu/x0wKZu+Z2w8vmWbOnpKQbt3GT8cp+xAg6sNElC2IsqCWB1nNVMZYWs8bV52I0qGk5Ow
- Lm39R/o9Crxvgz8TNtqLZnGeq3rPgJPpkR/Fx0ZZO1lDtN8+20yBQS3MGNWQz5ujq91tO0Jk74a
- 4jfTgLsA4vzWl4bn2ipkWLdh+k2Z4gdichiq5VX8xXVT7Y7miU6WakJiNOoOfJ8yShRUlzF2+CC
- 2k4JyvqmWgsjuJQ==
-X-Developer-Key: i=sudeep.holla@arm.com; a=openpgp;
- fpr=7360A21742ADF5A11767C1C139CFD4755FE2D5B4
+References: <20250214150258.464798-1-tabba@google.com> <20250214150258.464798-4-tabba@google.com>
+ <20250217153031.GA16398@willie-the-truck>
+In-Reply-To: <20250217153031.GA16398@willie-the-truck>
+From: Fuad Tabba <tabba@google.com>
+Date: Mon, 17 Feb 2025 15:41:10 +0000
+X-Gm-Features: AWEUYZkFTQSHdZxvo_v7HWx6s0y_SqFFArebD5bJZjqRw5mfCRmh2Sc8vDT1ZT8
+Message-ID: <CA+EHjTyOk_VpcTaD-VsH9X7KjpPKWu-HyVE3EEV+rzhnHar84A@mail.gmail.com>
+Subject: Re: [PATCH v1 3/3] KVM: arm64: Create each pKVM hyp vcpu after its
+ corresponding host vcpu
+To: Will Deacon <will@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com, 
+	vdonnefort@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_073948_714394_E5FCF482 
-X-CRM114-Status: GOOD (  14.35  )
+X-CRM114-CacheID: sfid-20250217_074149_587096_D6E87355 
+X-CRM114-Status: GOOD (  25.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,82 +96,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently it is assumed that the driver always calls ffa_notification_get()
-at the NS physical FF-A instance to request the SPMC to return pending
-SP or SPM Framework notifications. However, in order to support the driver
-invoking ffa_notification_get() at virtual FF-A instance, we need to make
-sure correct bits are enabled in the bitmaps enable flag.
+Hi Will,
 
-It is expected to have hypervisor framework and VM notifications bitmap
-to be zero at the non-secure physical FF-A instance.
+On Mon, 17 Feb 2025 at 15:30, Will Deacon <will@kernel.org> wrote:
+>
+> On Fri, Feb 14, 2025 at 03:02:58PM +0000, Fuad Tabba wrote:
+> > Instead of creating and initializing _all_ hyp vcpus in pKVM when
+> > the first host vcpu runs for the first time, initialize _each_
+> > hyp vcpu in conjunction with its corresponding host vcpu.
+> >
+> > Some of the host vcpu state (e.g., system registers and traps
+> > values) are not initialized until the first time the host vcpu is
+> > run. Therefore, initializing a hyp vcpu before its corresponding
+> > host vcpu has run for the first time might not view the complete
+> > host state of these vcpus.
+> >
+> > Additionally, this behavior is inline with non-protected modes.
+> >
+> > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > ---
+> >  arch/arm64/include/asm/kvm_host.h      |  2 +
+> >  arch/arm64/include/asm/kvm_pkvm.h      |  1 +
+> >  arch/arm64/kvm/arm.c                   |  4 ++
+> >  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  6 ---
+> >  arch/arm64/kvm/hyp/nvhe/pkvm.c         | 54 +++++++++++++++-----------
+> >  arch/arm64/kvm/pkvm.c                  | 28 ++++++-------
+> >  6 files changed, 53 insertions(+), 42 deletions(-)
+>
+> [...]
+>
+> >  static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
+> >                             struct pkvm_hyp_vm *hyp_vm,
+> > -                           struct kvm_vcpu *host_vcpu,
+> > -                           unsigned int vcpu_idx)
+> > +                           struct kvm_vcpu *host_vcpu)
+> >  {
+> >       int ret = 0;
+> >
+> >       if (hyp_pin_shared_mem(host_vcpu, host_vcpu + 1))
+> >               return -EBUSY;
+> >
+> > -     if (host_vcpu->vcpu_idx != vcpu_idx) {
+> > -             ret = -EINVAL;
+> > -             goto done;
+> > -     }
+> > -
+> >       hyp_vcpu->host_vcpu = host_vcpu;
+> >
+> >       hyp_vcpu->vcpu.kvm = &hyp_vm->kvm;
+> >       hyp_vcpu->vcpu.vcpu_id = READ_ONCE(host_vcpu->vcpu_id);
+> > -     hyp_vcpu->vcpu.vcpu_idx = vcpu_idx;
+> > +     hyp_vcpu->vcpu.vcpu_idx = READ_ONCE(host_vcpu->vcpu_idx);
+> >
+> >       hyp_vcpu->vcpu.arch.hw_mmu = &hyp_vm->kvm.arch.mmu;
+> >       hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
+> > @@ -687,27 +689,28 @@ int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
+> >               goto unlock;
+> >       }
+> >
+> > -     idx = hyp_vm->nr_vcpus;
+> > +     ret = init_pkvm_hyp_vcpu(hyp_vcpu, hyp_vm, host_vcpu);
+> > +     if (ret)
+> > +             goto unlock;
+> > +
+> > +     idx = hyp_vcpu->vcpu.vcpu_idx;
+> >       if (idx >= hyp_vm->kvm.created_vcpus) {
+> >               ret = -EINVAL;
+> >               goto unlock;
+> >       }
+> >
+> > -     ret = init_pkvm_hyp_vcpu(hyp_vcpu, hyp_vm, host_vcpu, idx);
+> > -     if (ret)
+> > +     if (hyp_vm->vcpus[idx]) {
+> > +             ret = -EINVAL;
+> >               goto unlock;
+> > +     }
+>
+> I'm not sure how much we care at EL2, but it looks like there's a
+> potential spectre gadget here given that 'idx' is now untrusted.
+> Perhaps chuck something like:
+>
+>         idx = array_index_nospec(idx, hyp_vm->kvm.created_vcpus);
+>
+> before indexing into 'hyp_vm->vcpus[]'?
 
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
----
- drivers/firmware/arm_ffa/driver.c | 31 ++++++++++++++++++++++++-------
- 1 file changed, 24 insertions(+), 7 deletions(-)
+I'll add that when I respin.
 
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index db6334f0c532566565246173373d8f0a42c836af..f3ca703a44413b6394559c68b12fda6a75acadf0 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -841,8 +841,12 @@ enum notify_type {
- #define NON_SECURE_VM_BITMAP_ENABLE		BIT(NON_SECURE_VM)
- #define SPM_FRAMEWORK_BITMAP_ENABLE		BIT(SPM_FRAMEWORK)
- #define NS_HYP_FRAMEWORK_BITMAP_ENABLE		BIT(NS_HYP_FRAMEWORK)
--#define FFA_BITMAP_ENABLE_MASK			\
-+#define FFA_BITMAP_SECURE_ENABLE_MASK		\
- 	(SECURE_PARTITION_BITMAP_ENABLE | SPM_FRAMEWORK_BITMAP_ENABLE)
-+#define FFA_BITMAP_NS_ENABLE_MASK		\
-+	(NON_SECURE_VM_BITMAP_ENABLE | NS_HYP_FRAMEWORK_BITMAP_ENABLE)
-+#define FFA_BITMAP_ALL_ENABLE_MASK		\
-+	(FFA_BITMAP_SECURE_ENABLE_MASK | FFA_BITMAP_NS_ENABLE_MASK)
- 
- #define FFA_SECURE_PARTITION_ID_FLAG		BIT(15)
- 
-@@ -914,9 +918,15 @@ static int ffa_notification_get(u32 flags, struct ffa_notify_bitmaps *notify)
- 	else if (ret.a0 != FFA_SUCCESS)
- 		return -EINVAL; /* Something else went wrong. */
- 
--	notify->sp_map = PACK_NOTIFICATION_BITMAP(ret.a2, ret.a3);
--	notify->vm_map = PACK_NOTIFICATION_BITMAP(ret.a4, ret.a5);
--	notify->arch_map = PACK_NOTIFICATION_BITMAP(ret.a6, ret.a7);
-+	if (flags & SECURE_PARTITION_BITMAP_ENABLE)
-+		notify->sp_map = PACK_NOTIFICATION_BITMAP(ret.a2, ret.a3);
-+	if (flags & NON_SECURE_VM_BITMAP_ENABLE)
-+		notify->vm_map = PACK_NOTIFICATION_BITMAP(ret.a4, ret.a5);
-+	if (flags & SPM_FRAMEWORK_BITMAP_ENABLE)
-+		notify->arch_map = SPM_FRAMEWORK_BITMAP(ret.a6);
-+	if (flags & NS_HYP_FRAMEWORK_BITMAP_ENABLE)
-+		notify->arch_map = PACK_NOTIFICATION_BITMAP(notify->arch_map,
-+							    ret.a7);
- 
- 	return 0;
- }
-@@ -1444,12 +1454,19 @@ static void handle_fwk_notif_callbacks(u32 bitmap)
- 	kfree(buf);
- }
- 
--static void notif_get_and_handle(void *unused)
-+static void notif_get_and_handle(void *cb_data)
- {
- 	int rc;
--	struct ffa_notify_bitmaps bitmaps;
-+	u32 flags;
-+	struct ffa_drv_info *info = cb_data;
-+	struct ffa_notify_bitmaps bitmaps = { 0 };
-+
-+	if (info->vm_id == 0) /* Non secure physical instance */
-+		flags = FFA_BITMAP_SECURE_ENABLE_MASK;
-+	else
-+		flags = FFA_BITMAP_ALL_ENABLE_MASK;
- 
--	rc = ffa_notification_get(FFA_BITMAP_ENABLE_MASK, &bitmaps);
-+	rc = ffa_notification_get(flags, &bitmaps);
- 	if (rc) {
- 		pr_err("Failed to retrieve notifications with %d!\n", rc);
- 		return;
+> Either way:
+>
+> Acked-by: Will Deacon <will@kernel.org>
 
--- 
-2.34.1
+Thanks,
+/fuad
 
+> Will
 
