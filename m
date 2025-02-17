@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A3AEC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:55:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC6CC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1u8wXzo5hiqn9vO3x0T8iv1O+rtKz0TIe0ExrEGiJ9Y=; b=Ai/6gsxFgi5VzauG/+Su98XNi+
-	swr0SmXyF5XEm1gINnOkcgHdPKKOLkClzA0RcNV/InoyeenEspr55KWx6Cuel++C2CKaS7R2NpFb4
-	5fwIngjNSEjMBlhs9D9b3Smk2oPGVQyRSXh9K6mBkao5B9hCGoq0sMm1VrGNIGW1uhzlKlTeUV9gD
-	QTd5YrWlb/RrZ7I59MEBBsZkEJ5xm/WH9MK4p9XxRQaGF1wpIdtnMixiH5mBWiSmLw60/rmxM6+zC
-	PLlKRrYKt/9jCTk6fBzHUZ/IKa/a8ufskUBQtK4jGO5h6ureOEerNk7Xgv1GLEYVxEp+ndXmVgU7l
-	xnfUO+rQ==;
+	bh=3ldEvxm++ErwgHwnpJt3Ghq4YXVW+8w1frETmAkJhv0=; b=Xo5B0tpuVJiJbCL3FkJ2XtV+D6
+	uqZ5mcBUvbLFMibZwpoX8C6EU+/MA77HfBW58gEsiOUyn/CUs8xE3FBlV2WOcsSyk/VrnV23I3QTg
+	jpUZJ5IpGPe9moahbsK9JMBvq6ESIDpoQOwg2c8VWbiTmhQHbncy5ONwoi5yhaquwLa2+acE/qlae
+	Aw4WagDSYmYq0c3ZAnIbRFGMiujkm3YWjHRKyg1p7pXKuGUYMTk2FBh9H+s0eEYIHkScvSK8HhcJE
+	LUDCa0sPs8BFzRmGqFJ3hPnq38ei3oAG0pqCqKhmpGMeLmbv9sbNeXH/Todvk01PXwGKMT0FJWpTd
+	stJpww8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3Sf-00000005A4S-3lVT;
-	Mon, 17 Feb 2025 15:55:09 +0000
+	id 1tk3U7-00000005ARC-2TPq;
+	Mon, 17 Feb 2025 15:56:39 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3Da-000000055XP-0mLp
+	id 1tk3Db-000000055Y5-0tx3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 15:39:35 +0000
+	Mon, 17 Feb 2025 15:39:36 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 282881692;
-	Mon, 17 Feb 2025 07:39:53 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E9F0176C;
+	Mon, 17 Feb 2025 07:39:54 -0800 (PST)
 Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 417D83F6A8;
-	Mon, 17 Feb 2025 07:39:33 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A9BD3F6A8;
+	Mon, 17 Feb 2025 07:39:34 -0800 (PST)
 From: Sudeep Holla <sudeep.holla@arm.com>
-Date: Mon, 17 Feb 2025 15:38:46 +0000
-Subject: [PATCH v3 05/19] firmware: arm_ffa: Fix big-endian support in
- __ffa_partition_info_regs_get()
+Date: Mon, 17 Feb 2025 15:38:47 +0000
+Subject: [PATCH v3 06/19] firmware: arm_ffa: Refactor addition of partition
+ information into XArray
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250217-ffa_updates-v3-5-bd1d9de615e7@arm.com>
+Message-Id: <20250217-ffa_updates-v3-6-bd1d9de615e7@arm.com>
 References: <20250217-ffa_updates-v3-0-bd1d9de615e7@arm.com>
 In-Reply-To: <20250217-ffa_updates-v3-0-bd1d9de615e7@arm.com>
 To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Sudeep Holla <sudeep.holla@arm.com>, Viresh Kumar <viresh.kumar@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3021; i=sudeep.holla@arm.com;
- h=from:subject:message-id; bh=ZiI+o4/xD0+sVTO80TuOTg2mkZUoOiDa0Hm9f3l0JUE=;
- b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBns1guew0YRkg8z32s3kG6Fe1sx95jZL5K1KIVT
- gWi0evAxp+JAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ7NYLgAKCRAAQbq8MX7i
- mPDnEACqI8MINPPKKOLiDxwBMxxWvLh8vA/CCDimYHgIW4Y2Qv2QbO5GG88LWxeTrxFp+2PUni5
- DeEGMHWmnLemPp8FxjTBf47KzdHk/4GHhNCWxO/oVYw3cKL/5w5MyR0GGI26Qh+dwiU8TaNDEvL
- pLxRudQcrRof9vNxkCfVaIbGbnja6Ee6HSDxZip4JVKLBRKtKlF9K6E15NFxDb00GiTw6c/CHA6
- TnPuVGffcoVZINhWU7T+BnuEvIliZNmUQt6N26VmgvgSGn7QSLBOU8LlYiJM/Om25D3N2rYEF/g
- 4hXDxbUiCnbvy4nowvMg7JCQZSThhRqwUXFMeu2K+MMWnoBTG2jPyj8mXx/7HcBW6Jcs8Luj0d4
- QVH3Jnio1389tb/SEdXKL1g7L/ZfiiMome3GACtDRTDloo4uaZYAwmUv94vZkeC/NUIe8ehdixq
- oqvq9iFCvPbElDMOhmrOo8RGgvWdQTTXvSaT4v0I2doPRKhoBmsUizTQupKOKkeaDytIql4U77U
- SHbxcbnR2relc68vKHSnH+PH+IOmJDDVfulOmPtLG5qURlsIybcvq/ShKiXXdL5ivSlIXiBX0qD
- GjPLiMmTGcWRkZLxTDaWHhTGBQ2BrnMtmsNQJFTpxoGdzCbbzNBQJeJGjOm5lepGsppBHecr8N6
- csc1WG1viaKNb3Q==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2738; i=sudeep.holla@arm.com;
+ h=from:subject:message-id; bh=0rtRvJYON+bBWGuI7xH2qiK+GlnT4NIkX7bmwfVc55I=;
+ b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBns1guRY129t9hXimLHH74gX733HjYK1vFoEV4y
+ d/024VfviOJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ7NYLgAKCRAAQbq8MX7i
+ mMHKEADOvrF2of7ReK/hGLkBM+iIObw4IIA0HmrXAFytlxoBicuIytplDbeoHH79vLASlI/rxRH
+ RpQTqCpnksJoCYpvbxG5VdmoT8OyNFcXiqqk8VefIf12hdJ0Gk9aeFcBPFTS+S+hNoyWfIxG6bD
+ R14rbzRMW5EdcHjMfF6WmMDtwD/3O30WKnPI/lwPXnEXybXM+Xk3mluoLJqRZ7JuoaHXw2Fck+S
+ nUhpNqofZpD7ZRh0iSEIjh7huhnndAtmBLnspDBZc3Jam1E4IXpBOup8J28856MA8tla1GY4E+3
+ 34W01AUozEa4nBRE3i0C9cuoBBvdDso8ttYfyRgp8DJAnULg+pBO4474v8gpa8sOYRdreg9Ld7n
+ brF9PGKN7J/BPecen8nTeHDH6c58ZgNFz0IB157P8VPM48IaFMUEUgBeZ1/DBc7Ddsf8Xi0Wq91
+ oEmJzoHf8T54WGQVu+W5YRt8LXwAMiI4Q954zF9R/n8OBducc+4U93WwIlDsO54/yUE5iEaP4sK
+ saT4p2yXQ4CEVCnFiB40T2QEJIQpCDsgBkLKjtUQn96d+3iz/ZNiidEpQy1ZMiCMacwpWSlWqTF
+ dZh7pbCu/nGirN5ZNj1pHcTL1y5SSY2jZXPfuLG/Vuo862zQztTYD+CyIgruVdY3PEnj14lP0+P
+ Fs8G1PXRgcaYCBw==
 X-Developer-Key: i=sudeep.holla@arm.com; a=openpgp;
  fpr=7360A21742ADF5A11767C1C139CFD4755FE2D5B4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_073934_359111_25459DB4 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20250217_073935_412634_592CA29B 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,80 +79,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the FF-A driver doesn't support big-endian correctly. It is
-hard to regularly test the setup due to lack of test infrastructure and
-tools.
+From: Viresh Kumar <viresh.kumar@linaro.org>
 
-In order to support full stack, we need to take small steps in getting
-the support for big-endian kernel added slowly. This change fixes the
-support in __ffa_partition_info_regs_get() so that the response from the
-firmware are converted correctly as required. With this change, we can
-enumerate all the FF-A devices correctly in the big-endian kernel if the
-FFA_PARTITION_INFO_REGS_GET is supported.
+Move the common code handling addition of the FF-A partition information
+into the XArray as a new routine. No functional change.
 
-Tested-by: Viresh Kumar <viresh.kumar@linaro.org>
+Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
- drivers/firmware/arm_ffa/driver.c | 31 +++++++++++++++++++++++++++++--
- 1 file changed, 29 insertions(+), 2 deletions(-)
+ drivers/firmware/arm_ffa/driver.c | 47 ++++++++++++++++++---------------------
+ 1 file changed, 22 insertions(+), 25 deletions(-)
 
 diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index bc6ffd25ad2e2fea0fe3610cf896718dbed8f0ad..87e106c728b89f3ce7c11219cf7cad9cc166dda2 100644
+index 87e106c728b89f3ce7c11219cf7cad9cc166dda2..2994b5ee63bc7feafc15e535cf8a2d46e6003968 100644
 --- a/drivers/firmware/arm_ffa/driver.c
 +++ b/drivers/firmware/arm_ffa/driver.c
-@@ -307,14 +307,24 @@ __ffa_partition_info_get(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
- #define CURRENT_INDEX(x)	((u16)(FIELD_GET(CURRENT_INDEX_MASK, (x))))
- #define UUID_INFO_TAG(x)	((u16)(FIELD_GET(UUID_INFO_TAG_MASK, (x))))
- #define PARTITION_INFO_SZ(x)	((u16)(FIELD_GET(PARTITION_INFO_SZ_MASK, (x))))
-+#define PART_INFO_ID_MASK	GENMASK(15, 0)
-+#define PART_INFO_EXEC_CXT_MASK	GENMASK(31, 16)
-+#define PART_INFO_PROPS_MASK	GENMASK(63, 32)
-+#define PART_INFO_ID(x)		((u16)(FIELD_GET(PART_INFO_ID_MASK, (x))))
-+#define PART_INFO_EXEC_CXT(x)	((u16)(FIELD_GET(PART_INFO_EXEC_CXT_MASK, (x))))
-+#define PART_INFO_PROPERTIES(x)	((u32)(FIELD_GET(PART_INFO_PROPS_MASK, (x))))
- static int
- __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
- 			      struct ffa_partition_info *buffer, int num_parts)
+@@ -1423,11 +1423,30 @@ static struct notifier_block ffa_bus_nb = {
+ 	.notifier_call = ffa_bus_notifier,
+ };
+ 
++static int ffa_xa_add_partition_info(int vm_id)
++{
++	struct ffa_dev_part_info *info;
++	int ret;
++
++	info = kzalloc(sizeof(*info), GFP_KERNEL);
++	if (!info)
++		return -ENOMEM;
++
++	rwlock_init(&info->rw_lock);
++	ret = xa_insert(&drv_info->partition_info, vm_id, info, GFP_KERNEL);
++	if (ret) {
++		pr_err("%s: failed to save partition ID 0x%x - ret:%d. Abort.\n",
++		       __func__, vm_id, ret);
++		kfree(info);
++	}
++
++	return ret;
++}
++
+ static int ffa_setup_partitions(void)
  {
- 	u16 buf_sz, start_idx, cur_idx, count = 0, prev_idx = 0, tag = 0;
-+	struct ffa_partition_info *buf = buffer;
- 	ffa_value_t partition_info;
+ 	int count, idx, ret;
+ 	struct ffa_device *ffa_dev;
+-	struct ffa_dev_part_info *info;
+ 	struct ffa_partition_info *pbuf, *tpbuf;
  
- 	do {
-+		__le64 *regs;
-+		int idx;
-+
- 		start_idx = prev_idx ? prev_idx + 1 : 0;
+ 	if (drv_info->version == FFA_VERSION_1_0) {
+@@ -1461,39 +1480,17 @@ static int ffa_setup_partitions(void)
+ 		    !(tpbuf->properties & FFA_PARTITION_AARCH64_EXEC))
+ 			ffa_mode_32bit_set(ffa_dev);
  
- 		invoke_ffa_fn((ffa_value_t){
-@@ -338,8 +348,25 @@ __ffa_partition_info_get_regs(u32 uuid0, u32 uuid1, u32 uuid2, u32 uuid3,
- 		if (buf_sz > sizeof(*buffer))
- 			buf_sz = sizeof(*buffer);
+-		info = kzalloc(sizeof(*info), GFP_KERNEL);
+-		if (!info) {
++		if (ffa_xa_add_partition_info(ffa_dev->vm_id)) {
+ 			ffa_device_unregister(ffa_dev);
+ 			continue;
+ 		}
+-		rwlock_init(&info->rw_lock);
+-		ret = xa_insert(&drv_info->partition_info, tpbuf->id,
+-				info, GFP_KERNEL);
+-		if (ret) {
+-			pr_err("%s: failed to save partition ID 0x%x - ret:%d\n",
+-			       __func__, tpbuf->id, ret);
+-			ffa_device_unregister(ffa_dev);
+-			kfree(info);
+-		}
+ 	}
  
--		memcpy(buffer + prev_idx * buf_sz, &partition_info.a3,
--		       (cur_idx - start_idx + 1) * buf_sz);
-+		regs = (void *)&partition_info.a3;
-+		for (idx = 0; idx < cur_idx - start_idx + 1; idx++, buf++) {
-+			union {
-+				uuid_t uuid;
-+				u64 regs[2];
-+			} uuid_regs = {
-+				.regs = {
-+					le64_to_cpu(*(regs + 1)),
-+					le64_to_cpu(*(regs + 2)),
-+					}
-+			};
-+			u64 val = *(u64 *)regs;
-+
-+			buf->id = PART_INFO_ID(val);
-+			buf->exec_ctxt = PART_INFO_EXEC_CXT(val);
-+			buf->properties = PART_INFO_PROPERTIES(val);
-+			uuid_copy(&buf->uuid, &uuid_regs.uuid);
-+			regs += 3;
-+		}
- 		prev_idx = cur_idx;
+ 	kfree(pbuf);
  
- 	} while (cur_idx < (count - 1));
+ 	/* Allocate for the host */
+-	info = kzalloc(sizeof(*info), GFP_KERNEL);
+-	if (!info) {
+-		/* Already registered devices are freed on bus_exit */
+-		ffa_partitions_cleanup();
+-		return -ENOMEM;
+-	}
+-
+-	rwlock_init(&info->rw_lock);
+-	ret = xa_insert(&drv_info->partition_info, drv_info->vm_id,
+-			info, GFP_KERNEL);
++	ret = ffa_xa_add_partition_info(drv_info->vm_id);
+ 	if (ret) {
+-		pr_err("%s: failed to save Host partition ID 0x%x - ret:%d. Abort.\n",
+-		       __func__, drv_info->vm_id, ret);
+-		kfree(info);
+ 		/* Already registered devices are freed on bus_exit */
+ 		ffa_partitions_cleanup();
+ 	}
 
 -- 
 2.34.1
