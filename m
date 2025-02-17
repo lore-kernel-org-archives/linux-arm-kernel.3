@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2042C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 16:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC2C3C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 16:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AxwOhIkWRpKP+PQm5K7ozuqtWIAAZj8HF7kaLB5EgLk=; b=c++4QNHhcOJaCB84iO8Pi+m93u
-	ru4yHNmFjl0p2f4NtrPRW7F5+tYB4B4q5OMzYDrr7LAxVQuJgjVnXpW3lLes3ImjQ+w/l1y/pV3Sa
-	P0TTjIenbP3j4uwX3SXe8u4OkH5YDxI74BkOwDyzjHkEzHgsC1Zk55wYkBCfZlY8i0RCZaGQ8eSQ1
-	WE2g0zn7+BBDrmG0dxp2HHpPoOfIPKOoY/1UgIeb0UAIJKu+822kgt/YP+CTs5KBAcQpKDkXAHcva
-	fwWbCrGmFiUupEs0YuD8nhXgYs2kMDI8fbg9pKFLWPQNzZ1Xg6vuGWamil5HRjKDu5FWTx8EmGM6U
-	Cpmkz6cQ==;
+	bh=30PlbxkiscdIDzSUVg/qs9QLgb3GmGDNn6zZWB5Im9I=; b=IxwkWBPHKQl0nnQQIOGhD/elX7
+	pjQkAn9ifoHjxP39RTfYTOiYmAZEK4eglC44ICyJHgjfqLUnwF9+KyrORdj2fGuBWvVUGCUO69xSs
+	b97lIIEOUzWnc7JRwa7tg3kkSgiQcXPF/0QwnYN4HjF3pS7HkB9nb+fVMjIVCnSRd+7DLYesuCuMM
+	U1hWlA9Cgxpf82TjEmZMae0Kh5tB3T+oalekQ/grduQZ1Tyne0o3K2bBrr1UoVK5/aPbiYVz4wFzI
+	bHFPEcfIzTJ7hILHGrYsmInFtEMO9k/fdniuCzVlJAUVswdeEpSY1udxYehUJBYVMkiN5zUrIg6jK
+	0TunYQzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk4Eh-00000005KK1-28TG;
-	Mon, 17 Feb 2025 16:44:47 +0000
+	id 1tk4G8-00000005KgU-1yDI;
+	Mon, 17 Feb 2025 16:46:16 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3Nd-000000058Oy-1iAz;
-	Mon, 17 Feb 2025 15:49:58 +0000
+	id 1tk3Ne-000000058Pa-3uWN;
+	Mon, 17 Feb 2025 15:50:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739807395;
-	bh=7KIrdPlS46LgPwdeG0b/fb9kc5jCE6vTHbUKhxg08dg=;
+	s=mail; t=1739807397;
+	bh=AEBaymnMtzThhAWbasPZaB4nuTDWvbmgn6/H+d95Th0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Y/LzyE4Vame8pDsespMnZIAtC/ctYkh00+pZ5N/vcfIJLcn5znMZtkIVpiTebOpOJ
-	 x5uZxfvodJJ5B+U9rQ4i4ilc1bFQ2lb1MAvxaab/jVCByl8WV0i3TELQQqkHI6uvbc
-	 rG12ShMlJrBx13k3NLUZ3o2tUIAysiUkXX9Z2lCTEvNB4H0m6Kbq3aGGQMwqLMnN45
-	 1pM7BWnfnSiAjbZRl6CVXOZrlZjUh61WzSa4kyqnGyoa9iZHrupWuvROAsUL8XKR+2
-	 JC68TyEYZIyUmn5/82/JIleDcku8CktQBKX1VPFLnxNbIuAsXUbdFyAD4iJyk1NPSQ
-	 edUJtRT7m/IJA==
+	b=YX5ZUx9sJ2plJo/oWgVGpZTMOOJ6Hv8j2Q40fudL12f1rI9Pw+vridxzoRhvT6ApT
+	 1NUctgP3FmFj9AaYPj/cGhO69fmapdkkLMNUqzHjcCntS80GLdUl4Ib0VxR+/9ouT6
+	 tasvXebohR1MJlqwDolGkeUfWe3NYsJ4U3snCDbzpn8kKaZa7JwVNZcU84DJKNezbm
+	 nw1ZNHjNVb/U4KMCpoAZILydsBmvAU2zMqo04muXPMNf3tsUWY6B8+OOp8crXBMVF5
+	 I+nlkLY/Z8uwZtnnrI9OEHw436j2JmyveEb+Cawi/z12LnZ8SSPxEsnSuyH6vDLAUu
+	 b95Wy0aXZPXGg==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9EBE817E154F;
-	Mon, 17 Feb 2025 16:49:54 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 22A9B17E156A;
+	Mon, 17 Feb 2025 16:49:56 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -71,17 +71,18 @@ Cc: p.zabel@pengutronix.de,
 	ives.chenjh@mediatek.com,
 	tommyyl.chen@mediatek.com,
 	jason-jh.lin@mediatek.com
-Subject: [PATCH v7 26/43] drm/mediatek: mtk_hdmi: Move CEC device parsing in new function
-Date: Mon, 17 Feb 2025 16:48:19 +0100
-Message-ID: <20250217154836.108895-27-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v7 27/43] drm/mediatek: mtk_hdmi: Remove unused members of struct mtk_hdmi
+Date: Mon, 17 Feb 2025 16:48:20 +0100
+Message-ID: <20250217154836.108895-28-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com>
 References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_074957_615859_0D895112 
-X-CRM114-Status: GOOD (  15.30  )
+X-CRM114-CacheID: sfid-20250217_074959_162529_27520909 
+X-CRM114-Status: UNSURE (   9.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,147 +97,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the CEC device parsing logic to a new function called
-mtk_hdmi_get_cec_dev(), and move the parsing action to the end
-of mtk_hdmi_dt_parse_pdata(), allowing to remove gotos in this
-function, reducing code size and improving readability.
+The hdmi_colorspace csp member of struct mtk_hdmi is initialized
+once but then it's never used at all.
+Remove said member and the only assignment to it as a cleanup.
+
+Also remove the ibias, ibias_up, min_clock, max_clock, min_hdisplay
+and max_vdisplay members, as those were really completely unused.
+
+This commit brings no functional changes.
 
 Reviewed-by: CK Hu <ck.hu@mediatek.com>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_hdmi.c | 82 ++++++++++++++---------------
- 1 file changed, 39 insertions(+), 43 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_hdmi.c | 8 --------
+ 1 file changed, 8 deletions(-)
 
 diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-index 61e521430b48..eb3b1009c305 100644
+index eb3b1009c305..6e4900f99b51 100644
 --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
 +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-@@ -1367,20 +1367,12 @@ static const struct drm_bridge_funcs mtk_hdmi_bridge_funcs = {
- 	.edid_read = mtk_hdmi_bridge_edid_read,
- };
- 
--static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
--				   struct platform_device *pdev)
-+static int mtk_hdmi_get_cec_dev(struct mtk_hdmi *hdmi, struct device *dev, struct device_node *np)
+@@ -162,16 +162,9 @@ struct mtk_hdmi {
+ 	struct clk *clk[MTK_HDMI_CLK_COUNT];
+ 	struct drm_display_mode mode;
+ 	bool dvi_mode;
+-	u32 min_clock;
+-	u32 max_clock;
+-	u32 max_hdisplay;
+-	u32 max_vdisplay;
+-	u32 ibias;
+-	u32 ibias_up;
+ 	struct regmap *sys_regmap;
+ 	unsigned int sys_offset;
+ 	struct regmap *regs;
+-	enum hdmi_colorspace csp;
+ 	struct platform_device *audio_pdev;
+ 	struct hdmi_audio_param aud_param;
+ 	bool audio_enable;
+@@ -1036,7 +1029,6 @@ static int mtk_hdmi_output_init(struct mtk_hdmi *hdmi)
  {
--	struct device *dev = &pdev->dev;
--	struct device_node *np = dev->of_node;
--	struct device_node *remote, *i2c_np;
- 	struct platform_device *cec_pdev;
--	struct regmap *regmap;
-+	struct device_node *cec_np;
- 	int ret;
+ 	struct hdmi_audio_param *aud_param = &hdmi->aud_param;
  
--	ret = mtk_hdmi_get_all_clk(hdmi, np);
--	if (ret)
--		return dev_err_probe(dev, ret, "Failed to get clocks\n");
--
- 	/* The CEC module handles HDMI hotplug detection */
- 	cec_np = of_get_compatible_child(np->parent, "mediatek,mt8173-cec");
- 	if (!cec_np)
-@@ -1394,65 +1386,69 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
- 		return -EPROBE_DEFER;
- 	}
- 	of_node_put(cec_np);
--	hdmi->cec_dev = &cec_pdev->dev;
- 
- 	/*
- 	 * The mediatek,syscon-hdmi property contains a phandle link to the
- 	 * MMSYS_CONFIG device and the register offset of the HDMI_SYS_CFG
- 	 * registers it contains.
- 	 */
--	regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,syscon-hdmi");
--	ret = of_property_read_u32_index(np, "mediatek,syscon-hdmi", 1,
--					 &hdmi->sys_offset);
--	if (IS_ERR(regmap))
--		ret = PTR_ERR(regmap);
--	if (ret) {
--		dev_err_probe(dev, ret,
--			      "Failed to get system configuration registers\n");
--		goto put_device;
--	}
--	hdmi->sys_regmap = regmap;
-+	hdmi->sys_regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,syscon-hdmi");
-+	if (IS_ERR(hdmi->sys_regmap))
-+		return PTR_ERR(hdmi->sys_regmap);
-+
-+	ret = of_property_read_u32_index(np, "mediatek,syscon-hdmi", 1, &hdmi->sys_offset);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "Failed to get system configuration registers\n");
-+
-+	hdmi->cec_dev = &cec_pdev->dev;
-+	return 0;
-+}
-+
-+static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *hdmi,
-+				   struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	struct device_node *remote, *i2c_np;
-+	int ret;
-+
-+	ret = mtk_hdmi_get_all_clk(hdmi, np);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to get clocks\n");
- 
- 	hdmi->regs = device_node_to_regmap(dev->of_node);
--	if (IS_ERR(hdmi->regs)) {
--		ret = PTR_ERR(hdmi->regs);
--		goto put_device;
--	}
-+	if (IS_ERR(hdmi->regs))
-+		return PTR_ERR(hdmi->regs);
- 
- 	remote = of_graph_get_remote_node(np, 1, 0);
--	if (!remote) {
--		ret = -EINVAL;
--		goto put_device;
--	}
-+	if (!remote)
-+		return -EINVAL;
- 
- 	if (!of_device_is_compatible(remote, "hdmi-connector")) {
- 		hdmi->next_bridge = of_drm_find_bridge(remote);
- 		if (!hdmi->next_bridge) {
- 			dev_err(dev, "Waiting for external bridge\n");
- 			of_node_put(remote);
--			ret = -EPROBE_DEFER;
--			goto put_device;
-+			return -EPROBE_DEFER;
- 		}
- 	}
- 
- 	i2c_np = of_parse_phandle(remote, "ddc-i2c-bus", 0);
- 	of_node_put(remote);
--	if (!i2c_np) {
--		ret = dev_err_probe(dev, -EINVAL, "No ddc-i2c-bus in connector\n");
--		goto put_device;
--	}
-+	if (!i2c_np)
-+		return dev_err_probe(dev, -EINVAL, "No ddc-i2c-bus in connector\n");
- 
- 	hdmi->ddc_adpt = of_find_i2c_adapter_by_node(i2c_np);
- 	of_node_put(i2c_np);
--	if (!hdmi->ddc_adpt) {
--		ret = dev_err_probe(dev, -EINVAL, "Failed to get ddc i2c adapter by node\n");
--		goto put_device;
--	}
-+	if (!hdmi->ddc_adpt)
-+		return dev_err_probe(dev, -EINVAL, "Failed to get ddc i2c adapter by node\n");
-+
-+	ret = mtk_hdmi_get_cec_dev(hdmi, dev, np);
-+	if (ret)
-+		return ret;
- 
- 	return 0;
--put_device:
--	put_device(hdmi->cec_dev);
--	return ret;
- }
- 
- /*
+-	hdmi->csp = HDMI_COLORSPACE_RGB;
+ 	aud_param->aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
+ 	aud_param->aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
+ 	aud_param->aud_input_type = HDMI_AUD_INPUT_I2S;
 -- 
 2.48.1
 
