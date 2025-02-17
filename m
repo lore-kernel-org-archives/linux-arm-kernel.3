@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00FCFC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D22DC021AB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=0/mDtlBikO57slA120u7KN6mjQODM33+MQPnGr4fUrc=; b=iLyXpbfyLizREL
-	XBXxCZ7f4aKnbm6ldAHhpf90FIIrl6+od7FA56wOK2OBldy7F1l4lWZmj2QFsaZwWoYDZR6Tsvdmp
-	DdiEelNgRlFYUazt6J81V5FdkaG0bqnf3LLr7V1kEMu9suug2VcwnqdeEGKunvoAKAl6n3wikDgX2
-	GIOnUsTFgvlwohwqFPAi59M1VhrstZ73rDFPxL8q7GPC3qfAO1RxXHtqSVZEKta/mflHKxeqefi2q
-	am6VL351WFZtOFE6/WOFyGv4q8pecmDWdwo8+O68dLIaHkJSc2aOc11qzJndGuFgGFh7ZhU/SkfYS
-	SfHqpZ84qYgK76SWmqPw==;
+	List-Owner; bh=5RbhS+zMfnJaqNmZ2hrpoGWgBgTc8EWmgM+o7CODprw=; b=YDpIF/268mZ7Fk
+	UWn9SKPZukRvbAoVrQ5l0Z4RtxhEbsh5tNd/nE6XYLRIe+E7+QCYG3a45cDu8Z9K+7ss+T32591BI
+	LJDs8m1lqg6GH4/jWiL0TXAafDxY+ifP2/5AU/5sp9ChEWtVsBOZJldXEIDCGl2FjXqswiU94KEvq
+	w8e9L5cvZtDXD4DYJ+uyyQJDpmLKc7yRks/XFbQadJGyAyoNSS04MxmQ5RwMzDwaoDQCm6jZnRGId
+	zcgEoYM894xKTovt7Na41QPt6HhWF523dC7sVDGbVgo2FmPKv52dTpSDp0rbt9p793Fk9kmb8F761
+	Emdx+9ToqrMM1wLG8jOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3Ia-000000056sH-2XhN;
-	Mon, 17 Feb 2025 15:44:44 +0000
+	id 1tk3K1-000000057GK-1EVs;
+	Mon, 17 Feb 2025 15:46:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk38t-000000053yn-2GLJ
+	id 1tk38t-000000053yl-1yed
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 17 Feb 2025 15:34:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
 	Subject:Cc:To:From:Date:Message-ID:Sender:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:In-Reply-To;
-	bh=0/mDtlBikO57slA120u7KN6mjQODM33+MQPnGr4fUrc=; b=OmWudmN6Dy6ldnOVQ8c4FEJi2j
-	+8bi+a0ZSIgGOWjOc7iMVtZn7I/aClY/xwmt8ootgGJgc6R8VZpMbUZuptJCuci+BW1/HUPY6GGkZ
-	PtjIfHPkVtTGu8L7KfS6lQNOZOmjzpwuXjNLg/QcKdxSuBDaZqaw6sE/hUqR/hir5GIWdM0TaNKKV
-	DNv7YLgxPN0aUYaacn609cYbqWYznBLEuiQyXLaLLHDge1UMZdEcBicmq8EV42eRDP/vup8I9BhC9
-	aefsBsoWRX7+CKCqsVLQBK2geJCdO/nsgY9LebG+8qsJ35xE0GBfvomrfE/f71gz0nOisGPxg32zH
-	6rs+TC8w==;
+	bh=5RbhS+zMfnJaqNmZ2hrpoGWgBgTc8EWmgM+o7CODprw=; b=JgGTIFKPIeUV3c73dj3C/5Jin4
+	2ImV6olONPY0rrLmWb9E33riDsdzMr2tgPIzUJUGC1oP7dRFmsdqDNkuyMuC6W7CeaC8TWb3DNaFl
+	vNQjPscALGG7TfuIl+LBd3VxLxDWjb0r5RduHxZk0E3uKyHFCeImvQBf2Z+i/vmqbXWLs1wVDIzUp
+	N9Htn96Kdx3efwowOYcCUT4MqIaH5XOjUHXXXRGDHYLGJuOmwmLNVptJJgXXFfpsanc7U9gnMg/zJ
+	RF03OJgaCO5lNP9RljtlXIVkAIjFAO04F4M5v9clHc9EZmf+TkitkwdZeT0O6ALnAxmc+XqqzjYsZ
+	KEtq/WiQ==;
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk38o-00000001qnf-2fJ9
+	id 1tk38o-00000001qnb-2afq
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 17 Feb 2025 15:34:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A2780A41634;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6A379A41627;
 	Mon, 17 Feb 2025 15:32:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 389B4C4CEEB;
-	Mon, 17 Feb 2025 15:34:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADE11C4CEEF;
+	Mon, 17 Feb 2025 15:34:33 +0000 (UTC)
 Received: from rostedt by gandalf with local (Exim 4.98)
 	(envelope-from <rostedt@goodmis.org>)
-	id 1tk394-00000003aML-0SO6;
-	Mon, 17 Feb 2025 10:34:54 -0500
-Message-ID: <20250217153453.960950584@goodmis.org>
+	id 1tk393-00000003aKs-2RZE;
+	Mon, 17 Feb 2025 10:34:53 -0500
+Message-ID: <20250217153453.433822299@goodmis.org>
 User-Agent: quilt/0.68
-Date: Mon, 17 Feb 2025 10:34:07 -0500
+Date: Mon, 17 Feb 2025 10:34:04 -0500
 From: Steven Rostedt <rostedt@goodmis.org>
 To: linux-kernel@vger.kernel.org,
  linux-trace-kernel@vger.kernel.org,
@@ -79,13 +79,13 @@ Cc: Masami Hiramatsu <mhiramat@kernel.org>,
  Will Deacon <will@kernel.org>,
  Vasily Gorbik <gor@linux.ibm.com>,
  Alexander Gordeev <agordeev@linux.ibm.com>
-Subject: [PATCH v4 6/6] ftrace: Have ftrace pages output reflect freed pages
+Subject: [PATCH v4 3/6] scripts/sorttable: Always use an array for the mcount_loc sorting
 References: <20250217153401.022858448@goodmis.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_153438_920287_C36F040A 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20250217_153438_880863_9B62DD26 
+X-CRM114-Status: GOOD (  21.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,86 +102,209 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Steven Rostedt <rostedt@goodmis.org>
 
-The amount of memory that ftrace uses to save the descriptors to manage
-the functions it can trace is shown at output. But if there are a lot of
-functions that are skipped because they were weak or the architecture
-added holes into the tables, then the extra pages that were allocated are
-freed. But these freed pages are not reflected in the numbers shown, and
-they can even be inconsistent with what is reported:
+The sorting of the mcount_loc section is done directly to the section for
+x86 and arm32 but it uses a separate array for arm64 as arm64 has the
+values for the mcount_loc stored in the rela sections of the vmlinux ELF
+file.
 
- ftrace: allocating 57482 entries in 225 pages
- ftrace: allocated 224 pages with 3 groups
-
-The above shows the number of original entries that are in the mcount_loc
-section and the pages needed to save them (225), but the second output
-reflects the number of pages that were actually used. The two should be
-consistent as:
-
- ftrace: allocating 56739 entries in 224 pages
- ftrace: allocated 224 pages with 3 groups
-
-The above also shows the accurate number of entires that were actually
-stored and does not include the entries that were removed.
+In order to use the same code to remove weak functions, always use a
+separate array to do the sorting. This requires splitting up the filling
+of the array into one function and the placing the contents of the array
+back into the rela sections or into the mcount_loc section into a separate
+file.
 
 Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
 ---
- kernel/trace/ftrace.c | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+ scripts/sorttable.c | 122 ++++++++++++++++++++++++++++++++------------
+ 1 file changed, 90 insertions(+), 32 deletions(-)
 
-diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index 55d28c060784..fa7c3417d995 100644
---- a/kernel/trace/ftrace.c
-+++ b/kernel/trace/ftrace.c
-@@ -7006,6 +7006,7 @@ static int ftrace_process_locs(struct module *mod,
- 	unsigned long addr;
- 	unsigned long kaslr;
- 	unsigned long flags = 0; /* Shut up gcc */
-+	unsigned long pages;
- 	int ret = -ENOMEM;
+diff --git a/scripts/sorttable.c b/scripts/sorttable.c
+index f62a91d8af0a..ec02a2852efb 100644
+--- a/scripts/sorttable.c
++++ b/scripts/sorttable.c
+@@ -594,31 +594,19 @@ struct elf_mcount_loc {
+ 	uint64_t stop_mcount_loc;
+ };
  
- 	count = end - start;
-@@ -7013,6 +7014,8 @@ static int ftrace_process_locs(struct module *mod,
- 	if (!count)
- 		return 0;
+-/* Sort the relocations not the address itself */
+-static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
++/* Fill the array with the content of the relocs */
++static int fill_relocs(void *ptr, uint64_t size, Elf_Ehdr *ehdr, uint64_t start_loc)
+ {
+ 	Elf_Shdr *shdr_start;
+ 	Elf_Rela *rel;
+ 	unsigned int shnum;
+-	unsigned int count;
++	unsigned int count = 0;
+ 	int shentsize;
+-	void *vals;
+-	void *ptr;
+-
+-	compare_values = long_size == 4 ? compare_values_32 : compare_values_64;
++	void *array_end = ptr + size;
  
-+	pages = DIV_ROUND_UP(count, ENTRIES_PER_PAGE);
-+
- 	/*
- 	 * Sorting mcount in vmlinux at build time depend on
- 	 * CONFIG_BUILDTIME_MCOUNT_SORT, while mcount loc in
-@@ -7125,6 +7128,8 @@ static int ftrace_process_locs(struct module *mod,
- 				remaining += 1 << pg->order;
+ 	shdr_start = (Elf_Shdr *)((char *)ehdr + ehdr_shoff(ehdr));
+ 	shentsize = ehdr_shentsize(ehdr);
+ 
+-	vals = malloc(long_size * size);
+-	if (!vals) {
+-		snprintf(m_err, ERRSTR_MAXSZ, "Failed to allocate sort array");
+-		pthread_exit(m_err);
+-		return NULL;
+-	}
+-
+-	ptr = vals;
+-
+ 	shnum = ehdr_shnum(ehdr);
+ 	if (shnum == SHN_UNDEF)
+ 		shnum = shdr_size(shdr_start);
+@@ -637,22 +625,18 @@ static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
+ 			uint64_t offset = rela_offset(rel);
+ 
+ 			if (offset >= start_loc && offset < start_loc + size) {
+-				if (ptr + long_size > vals + size) {
+-					free(vals);
++				if (ptr + long_size > array_end) {
+ 					snprintf(m_err, ERRSTR_MAXSZ,
+ 						 "Too many relocations");
+-					pthread_exit(m_err);
+-					return NULL;
++					return -1;
+ 				}
+ 
+ 				/* Make sure this has the correct type */
+ 				if (rela_info(rel) != rela_type) {
+-					free(vals);
+ 					snprintf(m_err, ERRSTR_MAXSZ,
+ 						"rela has type %lx but expected %lx\n",
+ 						(long)rela_info(rel), rela_type);
+-					pthread_exit(m_err);
+-					return NULL;
++					return -1;
+ 				}
+ 
+ 				if (long_size == 4)
+@@ -660,13 +644,28 @@ static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
+ 				else
+ 					*(uint64_t *)ptr = rela_addend(rel);
+ 				ptr += long_size;
++				count++;
  			}
- 
-+			pages -= remaining;
-+
- 			skip = DIV_ROUND_UP(skip, ENTRIES_PER_PAGE);
- 
- 			/*
-@@ -7138,6 +7143,13 @@ static int ftrace_process_locs(struct module *mod,
- 		synchronize_rcu();
- 		ftrace_free_pages(pg_unuse);
+ 		}
  	}
+-	count = ptr - vals;
+-	qsort(vals, count / long_size, long_size, compare_values);
++	return count;
++}
 +
-+	if (!mod) {
-+		count -= skipped;
-+		pr_info("ftrace: allocating %ld entries in %ld pages\n",
-+			count, pages);
++/* Put the sorted vals back into the relocation elements */
++static void replace_relocs(void *ptr, uint64_t size, Elf_Ehdr *ehdr, uint64_t start_loc)
++{
++	Elf_Shdr *shdr_start;
++	Elf_Rela *rel;
++	unsigned int shnum;
++	int shentsize;
++
++	shdr_start = (Elf_Shdr *)((char *)ehdr + ehdr_shoff(ehdr));
++	shentsize = ehdr_shentsize(ehdr);
++
++	shnum = ehdr_shnum(ehdr);
++	if (shnum == SHN_UNDEF)
++		shnum = shdr_size(shdr_start);
+ 
+-	ptr = vals;
+ 	for (int i = 0; i < shnum; i++) {
+ 		Elf_Shdr *shdr = get_index(shdr_start, shentsize, i);
+ 		void *end;
+@@ -689,8 +688,32 @@ static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
+ 			}
+ 		}
+ 	}
+-	free(vals);
+-	return NULL;
++}
++
++static int fill_addrs(void *ptr, uint64_t size, void *addrs)
++{
++	void *end = ptr + size;
++	int count = 0;
++
++	for (; ptr < end; ptr += long_size, addrs += long_size, count++) {
++		if (long_size == 4)
++			*(uint32_t *)ptr = r(addrs);
++		else
++			*(uint64_t *)ptr = r8(addrs);
 +	}
++	return count;
++}
 +
- 	return ret;
++static void replace_addrs(void *ptr, uint64_t size, void *addrs)
++{
++	void *end = ptr + size;
++
++	for (; ptr < end; ptr += long_size, addrs += long_size) {
++		if (long_size == 4)
++			w(*(uint32_t *)ptr, addrs);
++		else
++			w8(*(uint64_t *)ptr, addrs);
++	}
  }
  
-@@ -7783,9 +7795,6 @@ void __init ftrace_init(void)
- 		goto failed;
- 	}
+ /* Sort the addresses stored between __start_mcount_loc to __stop_mcount_loc in vmlinux */
+@@ -699,14 +722,49 @@ static void *sort_mcount_loc(void *arg)
+ 	struct elf_mcount_loc *emloc = (struct elf_mcount_loc *)arg;
+ 	uint64_t offset = emloc->start_mcount_loc - shdr_addr(emloc->init_data_sec)
+ 					+ shdr_offset(emloc->init_data_sec);
+-	uint64_t count = emloc->stop_mcount_loc - emloc->start_mcount_loc;
++	uint64_t size = emloc->stop_mcount_loc - emloc->start_mcount_loc;
+ 	unsigned char *start_loc = (void *)emloc->ehdr + offset;
++	Elf_Ehdr *ehdr = emloc->ehdr;
++	void *e_msg = NULL;
++	void *vals;
++	int count;
++
++	vals = malloc(long_size * size);
++	if (!vals) {
++		snprintf(m_err, ERRSTR_MAXSZ, "Failed to allocate sort array");
++		pthread_exit(m_err);
++	}
  
--	pr_info("ftrace: allocating %ld entries in %ld pages\n",
--		count, DIV_ROUND_UP(count, ENTRIES_PER_PAGE));
--
- 	ret = ftrace_process_locs(NULL,
- 				  __start_mcount_loc,
- 				  __stop_mcount_loc);
+ 	if (sort_reloc)
+-		return sort_relocs(emloc->ehdr, emloc->start_mcount_loc, count);
++		count = fill_relocs(vals, size, ehdr, emloc->start_mcount_loc);
++	else
++		count = fill_addrs(vals, size, start_loc);
++
++	if (count < 0) {
++		e_msg = m_err;
++		goto out;
++	}
++
++	if (count != size / long_size) {
++		snprintf(m_err, ERRSTR_MAXSZ, "Expected %u mcount elements but found %u\n",
++			(int)(size / long_size), count);
++		e_msg = m_err;
++		goto out;
++	}
++
++	compare_values = long_size == 4 ? compare_values_32 : compare_values_64;
++
++	qsort(vals, count, long_size, compare_values);
++
++	if (sort_reloc)
++		replace_relocs(vals, size, ehdr, emloc->start_mcount_loc);
++	else
++		replace_addrs(vals, size, start_loc);
++
++out:
++	free(vals);
+ 
+-	qsort(start_loc, count/long_size, long_size, compare_extable);
+-	return NULL;
++	pthread_exit(e_msg);
+ }
+ 
+ /* Get the address of __start_mcount_loc and __stop_mcount_loc in System.map */
 -- 
 2.47.2
 
