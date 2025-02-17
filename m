@@ -4,58 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191FDC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:33:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B84EEC021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UOF6QBnm1Fg94nNzGAS2r+WBFBfz7qL3PHeBCr6ULOw=; b=is+ON61K9YMwZ8ZGeQ6h5JuCmj
-	m87zWkNfMUOj4EwhpMxyE2ALWrhXbO6hg981sPeJLJdIZ3sCTLwYIKa3lm7Xj25wU5tVtEezQ/Z+G
-	t6Ml9FDxw7iuyd6kqsOHOSTMIQoGUV6jd756f7XIaSsrp3goks2dlIE2V7E8Sosq8AQcfDWJ2bDFa
-	0wVNAF8TedJFO2czKEq7PDrQ2DpeFE0d0aXk1OhSKS/UYNWGwmQalPT1cyxWnGEeOOtL7Ui0aK/fH
-	16x1z7vNVrbLo5GJBxmplooQrtZK8LQGp8t14fVCvsNuqbeIKZhSP3EdaXFvt4fc9YArI/U7k1WPB
-	nvlyGD/w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fyyQn04qSJgYSD1sA7lC3ArSUrMY9LCBhg2ySpWehL4=; b=SOB4hzpXQC/Uqx4vbvBU75OlkJ
+	9nk1kUaGJwFBqaHYyjbe1MBPSPqNUBiHN+1G2H83UOtyTYjoCsDvwMvnhUE9Dm7Zb4xfRc7621DvC
+	fN0rsHr9bhpD4Nflynd2NSIAFyBcGv99/uxz5r4fYJVcKLE8AYkQQLbfWccIvUXlojPciYXOI0Ze/
+	b9SxuvV53wfI9GNpvtmmcYhj4f1TAOs3NIwPAuDU+bWUuK4wi4Ip7GknXYfOcWMBfWO3dzmotPwjy
+	m+4mHw3t/u0+qOencrcKjg5TCIlxQl6HwfsqKnGkGukX9kF8RENJxldrQwUCuQO7V8OK5Ig1ohL00
+	nNmTvc8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0JS-00000004Uov-3JJ1;
-	Mon, 17 Feb 2025 12:33:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0I0-00000004Uer-25m6
+	id 1tk0fE-00000004XcP-036Z;
+	Mon, 17 Feb 2025 12:55:56 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tjzSA-00000004KmP-3is9
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 17 Feb 2025 11:38:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=fyyQn04qSJgYSD1sA7lC3ArSUrMY9LCBhg2ySpWehL4=; b=q2e5nQlyMBqBZKJj+vcGV8p/3g
+	byCDNiHFoKl/E+Er7jRsziksHUZlD1ayuBQBqNg1aWTHfuDaWCTvV6dPJCfGskkaDRTebHAQ9xIPw
+	bBe11XKDLCEqMggOsa5yQ/VV0BW4qGOU+eyOW+M3SDwslfTZs2EqQZsR9cR7tUcNYgbiBNTUyVExp
+	KNktqPgREdpDqn5uoiSZu52Nhi/N1idZDWbYM2k3pONkxwEP14l4TX+I9H+g5SF+r3aC0ujyC7cWj
+	U9czSF9R+ruiyhv8zlqEEp2c+ajYkOM1K+hhJ49NYNrkRuwzTslfUq0xvxpmjxSLLHeTtQQBcHW8j
+	G0RstUfA==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tjzS7-00000001nmc-2XID
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 12:31:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 16C171692;
-	Mon, 17 Feb 2025 04:32:12 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 198303F5A1;
-	Mon, 17 Feb 2025 04:31:49 -0800 (PST)
-Date: Mon, 17 Feb 2025 12:31:47 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Keita Morisaki <keyz@google.com>, Ulf Hansson <ulf.hansson@linaro.org>,
-	lpieralisi@kernel.org, linux-kernel@vger.kernel.org,
-	daniel.lezcano@linaro.org, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, rostedt@goodmis.org,
-	mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
-	linux-trace-kernel@vger.kernel.org, aarontian@google.com,
-	Sudeep Holla <sudeep.holla@arm.com>, yimingtseng@google.com,
-	Dhruva Gole <d-gole@ti.com>, Kevin Hilman <khilman@baylibre.com>
-Subject: Re: [PATCH v5 RESEND] cpuidle: psci: Add trace for PSCI domain idle
-Message-ID: <Z7MsM5Va5xi-Nuis@bogus>
-References: <20250210055828.1875372-1-keyz@google.com>
- <CAJZ5v0hWNYB69ydM4--GNtLBgG3WS4MT+S10w46883kHnFMMEQ@mail.gmail.com>
+	Mon, 17 Feb 2025 11:38:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 443DC5C5470;
+	Mon, 17 Feb 2025 11:37:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E95E9C4CEE4;
+	Mon, 17 Feb 2025 11:38:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739792296;
+	bh=3WCeHKUquon5irHUJD4jzhZkUaSii5krx8N1K9lpJEs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=XTwVs4xMstkSdsc6nnu41U8Pg0FQ5v/gXsMLeJTB90WGqdi17EFBaPspvmd3Vm44e
+	 3UeO4IFmHXD/CEtQG+5VkEKKyL6gZ7kTFQ7MtokUmoPFZTcxmCoyEt7moaaG54hIF7
+	 4nbKIabx2kus23TB5av2/bkNUu9Q1Yjlh/TUSTw4e6DiVXxXL9ZJjqarXl+S/NFpIb
+	 78ezbCUIQTxaC1Ggf1y9KhD+yxVP4Of64xfNsrVwdOdRA5DQx7fUUzNtPfxV478847
+	 APaqmczG3c/9btcYcY1IwVCWyYmcwkmRio1+P4s9y8u0XzE9ETpGBhJAkGfdXeDaAz
+	 PElX162of6ngA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CEE63C021A1;
+	Mon, 17 Feb 2025 11:38:15 +0000 (UTC)
+From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
+Date: Mon, 17 Feb 2025 12:38:01 +0100
+Subject: [PATCH RESEND v6 1/4] dt-bindings: input: touchscreen: Add Z2
+ controller
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAJZ5v0hWNYB69ydM4--GNtLBgG3WS4MT+S10w46883kHnFMMEQ@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250217-z2-v6-1-c2115d6e5a8f@gmail.com>
+References: <20250217-z2-v6-0-c2115d6e5a8f@gmail.com>
+In-Reply-To: <20250217-z2-v6-0-c2115d6e5a8f@gmail.com>
+To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Henrik Rydberg <rydberg@bitmath.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-input@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Neal Gompa <neal@gompa.dev>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739792294; l=2558;
+ i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
+ bh=YsJBZIlUWueL847WfE8oTE2SBEqURcyodFewZWJ1ffc=;
+ b=rA1joOhpl6gtY4zVBwGyGNR6YhoXYzWJG4KcZPN0Ysom5CZ9CFZkdX12kOjccZjFguxFoyRvL
+ hquJjuIyB5ODRsG6LlWD4k3A394dWaWcgeWCM89Lqs6BKnS7dMREhZJ
+X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
+ auth_id=283
+X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_043156_578975_E30A0B11 
-X-CRM114-Status: GOOD (  14.03  )
+X-CRM114-CacheID: sfid-20250217_113819_986362_2242350F 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,49 +105,101 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 12:57:07PM +0100, Rafael J. Wysocki wrote:
-> +Ulf
-> 
-> On Mon, Feb 10, 2025 at 6:58 AM Keita Morisaki <keyz@google.com> wrote:
-> >
-> > The trace event cpu_idle provides insufficient information for debugging
-> > PSCI requests due to lacking access to determined PSCI domain idle
-> > states. The cpu_idle usually only shows -1, 0, or 1 regardless how many
-> > idle states the power domain has.
-> >
-> > Add new trace events namely psci_domain_idle_enter and
-> > psci_domain_idle_exit to trace enter and exit events with a determined
-> > idle state.
-> >
-> > These new trace events will help developers debug CPUidle issues on ARM
-> > systems using PSCI by providing more detailed information about the
-> > requested idle states.
-> >
-> > Signed-off-by: Keita Morisaki <keyz@google.com>
-> > Reviewed-by: Steven Rostedt (Google) <rostedt@goodmis.org>
-> > Reviewed-by: Dhruva Gole <d-gole@ti.com>
-> > Tested-by: Kevin Hilman <khilman@baylibre.com>
-> > ---
-> > v1->v2: Split the ftrace event into two (psci_domain_idle_(enter|exit))
-> >         and rephrase the commit message accordingly. Rebased onto the latest.
-> > v2->v3: Add "Reviewed-by: Steven Rostedt"
-> > v3->v4: Add the Tested-by label
-> > v4->v5: Add "Reviewed-by: Dhruva Gole"
-> >
-> > Hopefully this patch gets attention from maintainers of
-> > drivers/cpuidle/cpuidle-psci.c too.
->
-> Lorenzo, Sudeep, Ulf, any comments?
->
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-Looks good to me. I left it to Ulf, FWIW:
+Add bindings for touchscreen controllers attached using the Z2 protocol.
+Those are present in most Apple devices.
 
-Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+---
+ .../input/touchscreen/apple,z2-multitouch.yaml     | 70 ++++++++++++++++++++++
+ 1 file changed, 70 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml b/Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..402ca6bffd3473a1a889ced7890e9836e6a76e45
+--- /dev/null
++++ b/Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+@@ -0,0 +1,70 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/input/touchscreen/apple,z2-multitouch.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Apple touchscreens attached using the Z2 protocol
++
++maintainers:
++  - Sasha Finkelstein <fnkl.kernel@gmail.com>
++
++description: A series of touschscreen controllers used in Apple products
++
++allOf:
++  - $ref: touchscreen.yaml#
++  - $ref: /schemas/spi/spi-peripheral-props.yaml#
++
++properties:
++  compatible:
++    enum:
++      - apple,j293-touchbar
++      - apple,j493-touchbar
++
++  interrupts:
++    maxItems: 1
++
++  reset-gpios:
++    maxItems: 1
++
++  firmware-name:
++    maxItems: 1
++
++  apple,z2-cal-blob:
++    $ref: /schemas/types.yaml#/definitions/uint8-array
++    maxItems: 4096
++    description:
++      Calibration blob supplied by the bootloader
++
++required:
++  - compatible
++  - interrupts
++  - reset-gpios
++  - firmware-name
++  - touchscreen-size-x
++  - touchscreen-size-y
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/gpio/gpio.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++
++    spi {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        touchscreen@0 {
++            compatible = "apple,j293-touchbar";
++            reg = <0>;
++            spi-max-frequency = <11500000>;
++            reset-gpios = <&pinctrl_ap 139 GPIO_ACTIVE_LOW>;
++            interrupts-extended = <&pinctrl_ap 194 IRQ_TYPE_EDGE_FALLING>;
++            firmware-name = "apple/dfrmtfw-j293.bin";
++            touchscreen-size-x = <23045>;
++            touchscreen-size-y = <640>;
++        };
++    };
++
++...
 
 -- 
-Regards,
-Sudeep
+2.48.1
+
+
 
