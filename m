@@ -4,54 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82207C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B04C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:20:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=70MVYEgDjY1crziy4hTvIM0nPOVV3LCX+mvXS86Re2Q=; b=Cqqz4k40BeuEJHsa+jO0UWeOSM
-	jEEuS6xaoi9rE1HSeeuugabxY5mmsxnSTiXi03sEfmXR5jxjYU74euhZzZ2GpT6v2ye1niWH6opdT
-	LB3uHWUzjVFbwKWE6XmcO0e9pXVSmh3aT43JEXClmpP7vidzfL1I9wi3/Jr3VX35T5D5OMkqcg7Gv
-	LxcGHQGRE/tsf/rnHuAogslD3IN1jbl7M9lAxOpKG8sJleMYNWtducLxU0BY2QvnuWGkuGq0UXxpM
-	87koXY+jjZ/q532hthnwmSke9kS1qdL7CE3k6nyDpkVhrvyiH6SijbTuIF1+qszYuGetOEGRbOzMo
-	1bcEtu8w==;
+	bh=LJk8/SrPdoFLdWOcpo+5G6r5AMsEus7osPwto4bzZjk=; b=NvN4bFeH0yQlPoFe2FZ9+oRmV+
+	4gixDc/B5WWaZ7yv0jYVGlWyWCLoGnR9fIJfOhYvGuCpPYj/cI+nnm5D1II28GNQ+vpOdbzguHtAG
+	UmD/mHZWENWFureCYqFNOdF248vOIcM2BfI9q0l1esK8iVCgdVbXkB7IMKRssOMoNOjY7MknQN1pr
+	tLmJLlW7p2nCV5NycP/dzY+hPkY0n9x+JaXHUtitxBZ+22IVVgswjC+P9bhnvVJNhyikaw8GCrlPl
+	ds9k2t15hhmQFcDOVW+lrBWT/jFra6oB3ZoCJezC1+tmNNdlg5z+ke7jO7UMtlDZsbclqDOrVQ5K5
+	pB0O4Kgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk4ln-00000005QXO-02hx;
-	Mon, 17 Feb 2025 17:18:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3Yj-00000005BZK-0B3h
+	id 1tk4nD-00000005Qj7-3xYM;
+	Mon, 17 Feb 2025 17:20:28 +0000
+Received: from out-180.mta0.migadu.com ([91.218.175.180])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk3b8-00000005C3S-30I7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 16:01:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5133C152B;
-	Mon, 17 Feb 2025 08:01:43 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 677C03F5A1;
-	Mon, 17 Feb 2025 08:01:22 -0800 (PST)
-Date: Mon, 17 Feb 2025 16:01:19 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Ionela Voinescu <ionela.voinescu@arm.com>
-Cc: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<catalin.marinas@arm.com>, <vincent.guittot@linaro.org>,
-	<beata.michalska@arm.com>, <rafael@kernel.org>,
-	<viresh.kumar@linaro.org>, <dietmar.eggemann@arm.com>,
-	<pierre.gondois@arm.com>
-Subject: Re: [PATCH] arch_topology: init capacity_freq_ref to 0
-Message-ID: <Z7NdT2OBJPRveDHQ@bogus>
-References: <20240827154818.1195849-1-ionela.voinescu@arm.com>
- <Z7NPEic3jxLAQBTd@arm.com>
+	Mon, 17 Feb 2025 16:03:56 +0000
+Date: Mon, 17 Feb 2025 21:32:52 +0530
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1739808230;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=LJk8/SrPdoFLdWOcpo+5G6r5AMsEus7osPwto4bzZjk=;
+	b=UzVhoRfoddKHqqP66smA3oqpO0D17suASPDPjZxQBauD8Qq6oF7lpHmxlwEv8MeBP2rZOT
+	COw9uGcvmvRNy3RHLH8S/oGEl6hQtiyGOvizQeYm8u/Q6JO9IneD9gGPtzeNxcvohRB7dY
+	yIjn9XNSXQnagi0COlfR+ne4d8dnwSo=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Jai Luthra <jai.luthra@linux.dev>
+To: Stefan Eichenberger <eichest@gmail.com>
+Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, francesco.dolcini@toradex.com, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: Re: [PATCH v1] arm64: dts: ti: k3-am62-verdin-dahlia: add Microphone
+ Jack to sound card
+Message-ID: <vax3z776aw6aujpyvwc6zkfqgxn34oawxgc3wn6bjkkj7kjhpz@svmc3nasmjei>
+X-PGP-Key: http://jailuthra.in/files/public-key.asc
+References: <20250217144643.178222-1-eichest@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="3vpxn6jmqqd3gcsw"
 Content-Disposition: inline
-In-Reply-To: <Z7NPEic3jxLAQBTd@arm.com>
+In-Reply-To: <20250217144643.178222-1-eichest@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_080125_121074_1AE0576F 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20250217_080354_968100_01560876 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,26 +72,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 03:01:23PM +0000, Ionela Voinescu wrote:
-> Hi folks,
-> 
-> I just wanted to mention that this patch still applies cleanly on
-> next-20250217 as well, and it still builds/boots/works as expected.
-> 
-> I've rechecked it given that the patches at [1] seem ready to be picked
-> up, and those patches depend on this one.
->
 
-Is there a dependency on [1] ?
+--3vpxn6jmqqd3gcsw
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v1] arm64: dts: ti: k3-am62-verdin-dahlia: add Microphone
+ Jack to sound card
+MIME-Version: 1.0
 
-Either way, if Catalin is happy to pick it up along with [1], that would
-be best and easiest.
+Hi Stefan,
 
-If not and there are not dependencies, then we can ask Greg to pick up.
-Which means you need to repost with him cc-ed ? Lets wait and see if
-Catalin is happy to pick up before reposting though.
+Thanks for the patch.
 
---
-Regards,
-Sudeep
+On Mon, Feb 17, 2025 at 03:46:04PM +0100, Stefan Eichenberger wrote:
+> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+>=20
+> The simple-audio-card's microphone widget currently connects to the
+> headphone jack. Routing the microphone input to the microphone jack
+> allows for independent operation of the microphone and headphones.
+>=20
+> This resolves the following boot-time kernel log message, which
+> indicated a conflict when the microphone and headphone functions were
+> not separated:
+>   debugfs: File 'Headphone Jack' in directory 'dapm' already present!
+>=20
+> Fixes: f5bf894c865b ("arm64: dts: ti: verdin-am62: dahlia: add sound card=
+")
+> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+
+Reviewed-by: Jai Luthra <jai.luthra@linux.dev>
+
+> ---
+>  arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi b/arch/arm=
+64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi
+> index 9202181fbd652..fcc4cb2e9389b 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi
+> @@ -28,10 +28,10 @@ sound {
+>  			"Headphone Jack", "HPOUTR",
+>  			"IN2L", "Line In Jack",
+>  			"IN2R", "Line In Jack",
+> -			"Headphone Jack", "MICBIAS",
+> -			"IN1L", "Headphone Jack";
+> +			"Microphone Jack", "MICBIAS",
+> +			"IN1L", "Microphone Jack";
+>  		simple-audio-card,widgets =3D
+> -			"Microphone", "Headphone Jack",
+> +			"Microphone", "Microphone Jack",
+>  			"Headphone", "Headphone Jack",
+>  			"Line", "Line In Jack";
+> =20
+> --=20
+> 2.45.2
+>=20
+
+--3vpxn6jmqqd3gcsw
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEETeDYGOXVdejUWq/FQ96R+SSacUUFAmezXasACgkQQ96R+SSa
+cUWD5A//ajdJiy6GNGANtya5phW2W6ZCuzpPK+v9N7yhiy1N3Y/5lMhvjaBeP5S0
+CbH41SIXF5HrvDdUwOFnjlUzdHaqTsTmgrEBUFVYduv3B0F7msWjVzA8kgmxFX9T
+lofiKy/vJ6a2gaQZi5KzalmnCkrgP/qHSzPVm7homHtB5injypFSrBWBAMsHgVO7
+F63TS7q7Ct6LugWqQMUMwTByRFNm7lfL41UWsMBVLOQPsaY/F2NMhPudZbvCGLev
+Mn/29ChwcjCe475YfX/zZ+SQ8Lo5BdthIRGZYJerQ5XAhTnulnICJJtkNnRaEGZi
+BuDV6gKvMR1Ia6g2KPGaL5Zg73TLCLVucIg3coBDocbhIWAKw3jIZhel7j+cM0nS
+rZVbYy35HT4qcnW4cmNdNc/v2/jL6y5EtqIsQZ9gup+/banHPitnKYjg0bsD2Iq7
+iy1VLOzgRT3AXAGH5YmfXqe5zfg7WTFBCvwh6slAZXabHgw6UPphR4e14teU2zxi
+6qYoTHmE6F4djj/5IbqLgWraNXp829QM8n+rK6SBCr8yMtnnYfXJblUXrw1kbCXr
+N2roMgEIvGvSTEVd8+W0BDOuS1ExmJJ/vYUhLrGCIZ6bl3Qi4dYIl42WdVefRDT4
+qtzIf5QAiMcqVitGzYmlGf/m+24KaGgPqsTLoGdumkagEgMVKz4=
+=Qg3k
+-----END PGP SIGNATURE-----
+
+--3vpxn6jmqqd3gcsw--
 
