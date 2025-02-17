@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B4BC0219E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B91BC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 10:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=odA1UbFuInXahoaueYcnkzROOat5/muuif/VvbnJ9j0=; b=GvmmEukSa6FcUh3gcVQjdD13W7
-	3+QSAtFFeyE7l/1WgeSd+kxHzWn0yhzmQAcnxfbRXrEh6aZ85OohvHJGAGRInCW0Nw5ixZABR2yjX
-	vCXV0dFN/2VD6o9ZtT41jFO57To3vdleOSEYjSC9LF0K36w7Y5vKugGewrocbKUA6Qqj247KNwWVV
-	V3TsxXV5NsiX96o6FPzRPFfQ7jTCNDD1mcU5dtSu96HFnVrLsDvRdiUcYzLkDODpDGsPVfqp+094x
-	JPc6trXJLkPgGoixZCeJgua7hLDqkVTAwC2/t6/8HI3AyPPP7hLZ6ObglufOa1tCOkTgfnCN/uKt+
-	CVRYRb0g==;
+	bh=N/PEWwDl9MB7g9G1AMh/oGEgtW4u5T+aVOkhOdQ40XU=; b=ybSK/2AIxJcJWp6Em8U+KJD1Es
+	7l41hVByGbNRdTaOEg6/p3iCD1ILQXaXW7OXnWdpuVJnPKUAZldAtEM/MPMadS8yaS3oEMdF+guRR
+	d8cqKGK3nM9UHuTYy+VrTODZr7UJSTbWJpthSguRoAfcIZ7VSgyvKZEj16Yi2Q39VMhJ43pBbjcCo
+	YKa9SH2eHIg5Thj11U0sUDgW3AX605O/4A/Zpo8FmUTs++DEnDk5Tx3diN7mXruqJnENvPy4DoHYg
+	bR8ktG0VQgTnPrCI/4VxnAyAmatBDyv8VYIywR7BtYFWH0t4OwlEI0hwJ7zb2ntQcUAspwOLl29KX
+	H/VLbkvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjyla-00000004CRQ-3Wso;
-	Mon, 17 Feb 2025 10:54:22 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1tjylZ-00000004CO6-0BwN;
+	Mon, 17 Feb 2025 10:54:21 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjyUZ-000000048PV-1k04
+	id 1tjyUX-000000048PI-44qd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 10:36:48 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5e064eff5daso38941a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 02:36:46 -0800 (PST)
+	Mon, 17 Feb 2025 10:36:47 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ab7c4350826so74794166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 02:36:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739788605; x=1740393405; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739788604; x=1740393404; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=odA1UbFuInXahoaueYcnkzROOat5/muuif/VvbnJ9j0=;
-        b=PDeIXFhNHfysfnhN0qA3rnMBd4bR4qWRhKk/N2XvnfrhcI+kDRNZ+QQs0YMmRFax1C
-         Qa0JLCUrPyNRxlbwPpGo13cP22V+JzcFFG5aI+9U2Em/vX/F7+MTHVLhI/Ae4CJPqdI3
-         GAMIrTuSUhQiyXXdd/hSRQ32Zjx7zTcIr7Qle2suTwL/DBxdwCctc11Ciz3GWxdc1z7M
-         1qsTA2547LNI7ihlEO7JpjgtewgvddzAfeQ9kkFp+APIRePG0g9ttFwMYPnp5bCsrttP
-         1IexNZBbDSs+HxR0i5a0C4uD7FyqCnEXCv5vlVd0nT1GMHt2oyCKGeaQttEtX9CnSt+S
-         VExw==
+        bh=N/PEWwDl9MB7g9G1AMh/oGEgtW4u5T+aVOkhOdQ40XU=;
+        b=DTNEY9KzMTftJh98ZvSTuQMMpf9isg2EsjPd+LYUU0r47nZa8/YlNWB5EIWuZSGNCB
+         21IRWbPF0NrUJhh54TnXX1CwJ0Ple0rXBV3DK9N0tMF+WamlnvcUvSjvKbfRO4BBBcmC
+         AZxmBAFo/yloDIA89wfcEQHi4IuioesGcXMI7lWdUHxnx8bySOSZ6XQ1oz1xLpb6qhCU
+         E2Q0IgQxSS8WqpkaH2123QP35TPJ+CbNOSo7qeKKc1NhSgqPl9tF/PwXARTQuBz0MqFo
+         KRh7R+Qh18xVIsHsFThS4m4m6DGUjsrErvIwNpRsjqgUYH9evnuPk56reWJu89EqHoqP
+         Cppg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739788605; x=1740393405;
+        d=1e100.net; s=20230601; t=1739788604; x=1740393404;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=odA1UbFuInXahoaueYcnkzROOat5/muuif/VvbnJ9j0=;
-        b=bMfWwz4fia2W84vbuVmLfwl5T4DaeZDDPdm6T53vkoHjYZMUlQ6RY8LvxynqSucm+L
-         PB649aTASHQROY9hmxVH9hmZ6uizH1j+8Z6eHvHquaC1y38QSTDJAuJtCfG2EaLoS3Kk
-         0vhKZtAXWCgEL+TD7xS50qDyiKS+ggi3felf4KY6yV2WliV9ibvBNCEN334+cREKAae0
-         JFMiRQ2l1Yz+Wfc911EkHh5byPtoHBr8YTCU6LL5pF9OrCc3MNeo9xB/slTikz4Kcmtl
-         wMav7xaV0+1px0zDgD89fonAx2tXsuN+Vm6X2piLdDxRnMrbMC7VfpforsmfoB7l2qWP
-         fTaw==
-X-Forwarded-Encrypted: i=1; AJvYcCUhPt1CvVFU7828ShmmBxh+We0PxG6ZVAj8LOwpq8dQFfLCADn7atcVE73a/fcZWm9mPnTcLH4sykc7pYQeh//H@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy43ue1vBYguYdTXba4ROvd0xIBumOO6fBbfAYipo1kTZb5Lys8
-	1L/LezQi0itURGhxjfqmplOfaaCPba9KAYo6fJs4XSaeNkD5dLIpN/g5WbUp4U2VtyV5/5WnRLX
-	p
-X-Gm-Gg: ASbGncsK6NzZrovYF8jDiLW/KzejNfW09t9kv3Ro2fZdkgoWUgXgi4fqJR9csSA1Xb1
-	lb8BMQtw31OPowU/G8ApmG0Vr0hNuhXftaEllllZSYOu3pi3+tvPxx6gD/Nul46vLfKJVpGlxkX
-	Frna+R/bvb4AaQkcDitTPDOtrgOuBOTUpt6JmaC1I66I55yXAHSCmYVAgtxnfB0mhMrZVpwAu8X
-	dsEzUHvNHN60FvG3V7t5pX9sYSvs8jETIHjbVOT2Fv8WJdv8s1pPz2y2sbHneGeOieeguCMv2oZ
-	2DFV5YwhsSnGzXrDIw+YFPLvp6/DP5Q=
-X-Google-Smtp-Source: AGHT+IGLK9kay2HyRqmw0YxEsi1Oq3aDAG9+iUL0UrTRPcqhtxeRK3H6GewyV/X09yl8wLNmhln4kw==
-X-Received: by 2002:a05:6402:5254:b0:5de:b604:355e with SMTP id 4fb4d7f45d1cf-5e0361b8ac9mr2830518a12.8.1739788605299;
-        Mon, 17 Feb 2025 02:36:45 -0800 (PST)
+        bh=N/PEWwDl9MB7g9G1AMh/oGEgtW4u5T+aVOkhOdQ40XU=;
+        b=t5QJcRiegsPgenP7Ot2TXq9+K7Y0vCvv4FhbnqM7JOXTRTbh17XGNRDY4OPNT3vbZJ
+         Xi0YEsctzmbB9DT4IwMsUwhIUN8171GUn+gu1GpV26V5SNmAHVQwxXn5BLambArkRc5x
+         ulO2iSjPpKVCx39hKFz1am+rUWRR5JieETRTnZ/SaGu0NYzgxZbMej0fHcDIsQk3gilB
+         eY5BG2d2aSXAOvTMDAO2W27o37obYpZhELNoAb1+Tb16Oj/z7PqL/H9Puwnzf8PAy9Al
+         Jh7C5UC03kmj9h0KVCPMwN3ylONB4O2+P0kfa4QxMToeO6PLCQomuDciMEeqTWB513LU
+         Xj8w==
+X-Forwarded-Encrypted: i=1; AJvYcCVx3XADQQ/IUIbLv0WNVLbfVTRhD244Jc4RgflNO1cIlfU4O9AGZIUyc2NjT8PFgVlU9SOQ1l88JiVx/aVBXoMU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIRwgmLTd9clBMCLDUZEtqLd/ynrSyebabGAnFcJZYFTNGLJ4i
+	IlQtkg6ehIJLUzHgFZo2hV7+w9/ycQ759QK1Oq1wslZfXOhIBE7fbeitDnZjkQEq/fgM+81dtUN
+	F
+X-Gm-Gg: ASbGnctPgCtcrclvE+q/pJ/FNPVClNsq/PNuZoE+xH0GKqojuaZ98adKKNaoMfCIZH/
+	m46Zi/D12TKAYvT5RFOfiuVg3ZpUiHWFUtbN4GtVkHEDRhNKcE+sx+plDYNZnscuoefldO3/fQk
+	PWKfkqw8xOg3SDakf8iupaalWOJ/OEeEbEZ/LT94y1xcDsMF+ruxnMrnm4FfgpHozFCoxQ0b+pT
+	m9T0GaevP7FWAjkBCpA3WwfwAppdpFmeh6YWDnENsVqYFOjHBeDQ5gjrgwYcKJ2irRzS+UccU1B
+	aBMqg815I9swpiYb3kQdm/IgxFbmoYo=
+X-Google-Smtp-Source: AGHT+IGmMJF4ViTaqLqJAPAEqki9C4gvYmwTm6OvO86oLDWZLtgcjDXJ1cUh7+WEg2+muDpD9D2hyg==
+X-Received: by 2002:a17:907:94d6:b0:ab7:c28f:de59 with SMTP id a640c23a62f3a-abb70e5eca0mr311989366b.13.1739788603832;
+        Mon, 17 Feb 2025 02:36:43 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb961594absm230383566b.111.2025.02.17.02.36.44
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb961594absm230383566b.111.2025.02.17.02.36.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 02:36:44 -0800 (PST)
+        Mon, 17 Feb 2025 02:36:42 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, linux-samsung-soc@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Colin Ian King <colin.i.king@gmail.com>
-Cc: kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250217091341.297401-1-colin.i.king@gmail.com>
-References: <20250217091341.297401-1-colin.i.king@gmail.com>
-Subject: Re: [PATCH][next] firmware: Exynos ACPM: Fix spelling mistake
- "Faile" -> "Failed"
-Message-Id: <173978860321.144850.18127886620209008962.b4-ty@linaro.org>
-Date: Mon, 17 Feb 2025 11:36:43 +0100
+To: alim.akhtar@samsung.com, robh@kernel.org, krzk+dt@kernel.org, 
+ conor+dt@kernel.org, Devang Tailor <dev.tailor@samsung.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ faraz.ata@samsung.com
+In-Reply-To: <20250108055012.1938530-1-dev.tailor@samsung.com>
+References: <CGME20250108054224epcas5p399f3d734f8d9f82e5ae75d183d1a5344@epcas5p3.samsung.com>
+ <20250108055012.1938530-1-dev.tailor@samsung.com>
+Subject: Re: [PATCH v2] arm64: dts: add cpu cache information to
+ ExynosAuto-v920
+Message-Id: <173978860144.144850.3570517854379450471.b4-ty@linaro.org>
+Date: Mon, 17 Feb 2025 11:36:41 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_023647_458855_CD745746 
-X-CRM114-Status: UNSURE (   6.13  )
+X-CRM114-CacheID: sfid-20250217_023646_014369_75B9D411 
+X-CRM114-Status: UNSURE (   7.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,15 +105,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 17 Feb 2025 09:13:41 +0000, Colin Ian King wrote:
-> There is a spelling mistake in a dev_err_probe message. Fix it.
+On Wed, 08 Jan 2025 11:20:12 +0530, Devang Tailor wrote:
+> Add CPU caches information to its dt nodes so that the same is
+> available to userspace via sysfs. This SoC has 64/64 KB I/D cache and
+> 256KB of L2 cache for each core, 2 MB of shared L3 cache for each quad
+> cpu cluster and 1 MB of shared L3 cache for the dual cpu cluster.
 > 
 > 
 
 Applied, thanks!
 
-[1/1] firmware: Exynos ACPM: Fix spelling mistake "Faile" -> "Failed"
-      https://git.kernel.org/krzk/linux/c/8c47b744b49f61604a2c0b64453bd410ee0f3f08
+[1/1] arm64: dts: add cpu cache information to ExynosAuto-v920
+      https://git.kernel.org/krzk/linux/c/bbfc70ca7fd26ee3e7eb16872cf7b1f1be5907e3
 
 Best regards,
 -- 
