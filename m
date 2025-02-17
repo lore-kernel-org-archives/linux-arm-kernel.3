@@ -1,104 +1,142 @@
 Return-Path: <linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org>
+X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+	aws-us-west-2-korg-lkml-1.web.codeaurora.org
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 898ACC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 04:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B127C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 05:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tW75+n8L4UP9fwvag6ULQcpZ0mCuLWSE3rOx+1N0Hl0=; b=vu/yJTboME1Xtv3d3waN0XOnQF
-	zLAFa6NkHoutpvIo9lUFhfusR/hmSmzi8Jfr/w0yFF8EaW6/vUcQd9uEbu0Ta6lU8J9gIlVc8Ln8c
-	r0J+h98xLyK8kHIkmrQL2Uj6CtiaH+KzJO5LwqadEPQLcMrspJy0FgOF8V5LYygRLmVZ4W8rRLPN8
-	9xBGpmPIVGzvwWFqieN2wcQGLTpmng6yUn/EtyLi8MIdvI1G6lFFXlGwDAGe9C8SF/WeWEzVREmPN
-	pDzsQM4r3Ml8aNR00km9i9mZQm86WYvfZOe8b/QxNNpCfD70DMIDtbHEQWFN9v7hOy7lszxMmtrri
-	Y4igd0LQ==;
+	bh=LE2NSYeZH23QXmbZS7l6O7jVWaH+Ew774CmFY8TBAv8=; b=Iv0r72RW/z95zDBNMgFk6F83Ya
+	Ng1KCkzOic4rEPG1nXQk6MJKGV28N8++2JY2SVJX33Wz4lNZNq5E6sZ2IIcHiJOwgjBupsBC5uOCq
+	WCmcK5rqHBGaavoTOjjONOWAG9alz70+imCbu2akRfPQ+GESqiNxKTmLPjruq1hkPYDJwu3lwCSzO
+	ehe1jYDfK0wY4kmdhLS97t03GQqO8Uw+1RKBKCtSwww3Uj7Ic7qiSQVuBWDcmqLZsuRSAC9GiCznw
+	lu2ITw6EKjVILfoh5hqlJrU2xTnMu5qy+Ih8g6gWEKGnWj2xTJ5SIu9tH0qoLSzC/nY8XgU5flKgM
+	OQ6IQ8sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjt53-00000003H94-3ZRq;
-	Mon, 17 Feb 2025 04:50:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjt3a-00000003Gzi-41mW
+	id 1tjtgd-00000003LEd-3ACw;
+	Mon, 17 Feb 2025 05:28:55 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tjtf7-00000003KzR-3rpm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 04:48:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 723011063;
-	Sun, 16 Feb 2025 20:48:53 -0800 (PST)
-Received: from [10.162.16.135] (unknown [10.162.16.135])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 745A53F59E;
-	Sun, 16 Feb 2025 20:48:29 -0800 (PST)
-Message-ID: <77dfb8ae-2a57-4d76-a3d2-8a486dd9721b@arm.com>
-Date: Mon, 17 Feb 2025 10:18:26 +0530
+	Mon, 17 Feb 2025 05:27:25 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250217052716epoutp03d2ee73e939c03eccb2d713aab765f45d~k56FTHbs50313403134epoutp03J
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 05:27:16 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250217052716epoutp03d2ee73e939c03eccb2d713aab765f45d~k56FTHbs50313403134epoutp03J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1739770036;
+	bh=LE2NSYeZH23QXmbZS7l6O7jVWaH+Ew774CmFY8TBAv8=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=CJjNIpFvP72/VqgPhxiourXjZqQltm1v38xLH2P2KaTSUrZEwyVJ7jWhleq2n/XMH
+	 8mwWCTk+U/X9wIxWsaAyE955P4M8bTI84GVFNwg8WdHrOVPtvHIeSFpCZYvUqtfwwH
+	 Dfyrtll03dtB1bLufZP0AMzB05qlBcOYd6sFba4k=
+Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTP id
+	20250217052715epcas5p15a501bbab9db0d35ea37d2646ad893fa~k56EvVsFS3093030930epcas5p1x;
+	Mon, 17 Feb 2025 05:27:15 +0000 (GMT)
+Received: from epsmges5p3new.samsung.com (unknown [182.195.38.174]) by
+	epsnrtp1.localdomain (Postfix) with ESMTP id 4YxB400YlCz4x9Q7; Mon, 17 Feb
+	2025 05:27:12 +0000 (GMT)
+Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
+	epsmges5p3new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	90.5B.19956.FA8C2B76; Mon, 17 Feb 2025 14:27:11 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250217051946epcas5p2d1d096036a9f58c168b2e1405e57a0a0~k5ziON6ug1152811528epcas5p20;
+	Mon, 17 Feb 2025 05:19:46 +0000 (GMT)
+Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250217051946epsmtrp2f359fc620ddf55575bd11eba5ca3889a~k5ziNP4St2094520945epsmtrp29;
+	Mon, 17 Feb 2025 05:19:46 +0000 (GMT)
+X-AuditID: b6c32a4b-fe9f470000004df4-b4-67b2c8af79e0
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	58.89.23488.1F6C2B76; Mon, 17 Feb 2025 14:19:45 +0900 (KST)
+Received: from FDSFTE596 (unknown [107.122.82.131]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250217051943epsmtip1901341b4e923142fd69315dee582f4ba~k5zfgAmch0905409054epsmtip1f;
+	Mon, 17 Feb 2025 05:19:43 +0000 (GMT)
+From: "Swathi K S" <swathi.ks@samsung.com>
+To: "'Andrew Lunn'" <andrew@lunn.ch>
+Cc: <krzk+dt@kernel.org>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
+	<edumazet@google.com>, <kuba@kernel.org>, <pabeni@redhat.com>,
+	<robh@kernel.org>, <conor+dt@kernel.org>, <richardcochran@gmail.com>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+	<rmk+kernel@armlinux.org.uk>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	"'Pankaj	Dubey'" <pankaj.dubey@samsung.com>, <ravi.patel@samsung.com>
+In-Reply-To: <ffb13051-ab93-4729-8b98-20e278552673@lunn.ch>
+Subject: RE: [PATCH v6 1/2] dt-bindings: net: Add FSD EQoS device tree
+ bindings
+Date: Mon, 17 Feb 2025 10:49:33 +0530
+Message-ID: <011901db80fb$8e968f60$abc3ae20$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 16/16] arm64/mm: Defer barriers when updating kernel
- mappings
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Muchun Song <muchun.song@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250205151003.88959-1-ryan.roberts@arm.com>
- <20250205151003.88959-17-ryan.roberts@arm.com>
- <9bc5527e-16f4-45cc-aced-55b1ace6c143@arm.com>
- <a5d66063-c3a0-46fc-ab88-21ae2448c9f0@arm.com>
- <0052097e-2284-4f9e-b37c-2ca2de527667@arm.com>
- <43d852bb-ab5f-40be-b188-166c57ab795c@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <43d852bb-ab5f-40be-b188-166c57ab795c@arm.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQFMfZy5LnHh86L+CikZ+hKlrx3PbgHP/Q5uAh59lGQCP3Rr5gHaDzZ5Aa7CoQO0G0SW4A==
+Content-Language: en-in
+X-Brightmail-Tracker: H4sIAAAAAAAAA01Te0xTVxzeubePixnmUnEcGmRNdYmyga0WvJXHWCTmKkvEuRFn5uAO7gqh
+	tKW3nZubwQAyRwQhgGh56qoT5KEdYFseGwVhguEhwqIZBXkYUCcISETDXMuFjf++853vO9/v
+	OycHQwUveUIsXqWjtSpKKeat49S3btvqW/OHSSExXQkiFqfOAeKXETOX6BmyoURlUzdCFPWk
+	cYjStm4uMdE+yiemDHYe0VufxSVMY4Ncot9axCMyBse5RMlSFZdoL3uHWOh6CohLdfN84uFM
+	I59ouzOJEnfP5iDEm0YzP9Sd7B/sQ8na8vsIOXG2jk9aDEN8ssykJ00VP/HIX43JpMU8h5DT
+	zQM8Mqu2ApAtzVJyzuQd8faRhKA4moqltSJaFaOOjVcpgsXhh6L2RPkHSKS+UjmxSyxSUYl0
+	sDjs4wjfvfFKR02x6BtKqXdQERTDiLeHBGnVeh0tilMzumAxrYlVamQaP4ZKZPQqhZ+K1u2W
+	SiQ7/B3C6IS4G+V7NS1e3z5qEJ4ERo8M4IJBXAbNY6PcDLAOE+ANABa+TAXsYhbAgXQj4lQJ
+	8AUAF1J2rTrmpwYRVtQEYOeLFj4rmgTQkkk5MQ/3gZeympd5d3wLLCnOWzageDkH9v9ZznVu
+	uOCBsOqy3SHCsA34QZh+a72T5uDvwZzGIY4Tu+Jy2NY3h7LYDd6+ML7Mo/i78ObfRSg7kAgu
+	TlzhslmR0DiTi7AaD3hr8QzqzIX4zy6wr/faiiEMzrz+kcPiDfBxRy2fxUI496yJx+IoeC1r
+	YEUTB4de5azwH8Lf7xVxnDOj+DZYY93O0ptgfmf1Su56mPl6HGF5V2guWcWb4dKTwZUjPWH9
+	5Wl+NhAb1lQzrKlmWFPB8H9aGeBUAE9awyQqaMZfs1NFH/vvtWPUiSaw/AV8ws1gdGTGzwYQ
+	DNgAxFCxu6st47pC4BpLfXec1qqjtHolzdiAv+O+c1Dhxhi14w+pdFFSmVwiCwgIkMl3BkjF
+	Hq6pljSFAFdQOjqBpjW0dtWHYC7CkwhlqU95ejubOb10czQ085OWXAOvN6O3bkKC7tu66cEz
+	rC48XXfUQLa3HlzYk5R/7vrkKX3jo/jCLzqD7SnDP1QJ99GmYK+kY3l/HaAL7hnzv2e85d4f
+	HXpYGhkYXSCvjHzOKf4t/O4OI/X1Z+HwsOLG2HD7dMfjjs/PuHlfTFV05Y7ubrR9uWT/qsEQ
+	km3LeZ52XxiGFM4PX/zUnDxrtb7fZVMqko8UlMpnr4ae8CwNHN/sY35xwP1whbWi2n4VjHyQ
+	GZKCydwz83SnHliOh3V4dfcIT1sr4/E3rV4bC9z233mypB87r/nn1YliZt7mLZp4a4/taPV5
+	e1K0QHshJqymbb+Yw8RRUh9Uy1D/AtMvEoiLBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrIIsWRmVeSWpSXmKPExsWy7bCSnO7HY5vSDa5ut7H4+XIao8XyBztY
+	Lc7fPcRssWbvOSaLOedbWCzmHznHavH02CN2i5ez7rFZXNjWx2qx6fE1VovLu+awWXRde8Jq
+	Me/vWlaLYwvELL6dfsNosWjrF3aLhx/2sFscOfOC2eJS/0Qmi/97drA7iHhcvnaR2WPLyptM
+	Hk/7t7J77Jx1l91jwaZSj02rOtk8Ni+p99i54zOTx/t9V9k8+rasYvQ4uM/Q4/MmuQCeKC6b
+	lNSczLLUIn27BK6MjSvdCg7KVDzbLdXAuES8i5GTQ0LAROLLy2tMXYxcHEICuxklfh5dyQKR
+	kJT41DyVFcIWllj57zk7RNEzRomNu66CJdgEtCQW9e1jB7FFBFQk5s2dAjaJWWA/i8SUWbNZ
+	IDqOM0nMvf6PEaSKU8BaYu3Se2AdwgL+Eu97T4LZLAKqEhP33AVbzStgKXHk4mdmCFtQ4uTM
+	J0BxDqCpehJtG8HGMAvIS2x/O4cZ4joFiZ9Pl7FCHBEmseTDZCaIGnGJoz97mCcwCs9CMmkW
+	wqRZSCbNQtKxgJFlFaNkakFxbnpusmGBYV5quV5xYm5xaV66XnJ+7iZGcCrQ0tjB+O5bk/4h
+	RiYOxkOMEhzMSiK8h7o2pAvxpiRWVqUW5ccXleakFh9ilOZgURLnXWkYkS4kkJ5YkpqdmlqQ
+	WgSTZeLglGpgsigsTo4J9vlom7p4JfOtmZvV73rOZ1n/m59TISOp0ee0a+jXY8lZCb7GGTe/
+	FBjnuHJcm/jx35Tiiw5PZCu5f7Dkpi+tc4yrifqr+H8T76X3+87NtL425cfSgPRI1vfrv8bU
+	9Z46vNndNpzP9O+P+H83T+nV9CWuvLuEJXzexxsd9rO7ip7F/zntWO4ZEWglUHdg3bG8jWcF
+	3s/i6Qo257Rnd370aUOne9GFppMawnnizr3/Pm5m+HzuSEfLatnJ8xnd19+f8GmL1ZEnup0/
+	Nt04fkDi5oNUK+s3nLcEWb4uLOJvqEvz2tw9fdXheu3EinnSai1Nusorsl9WTvut3J6Qs76x
+	dKbJS79XJfcclFiKMxINtZiLihMB0XcB03QDAAA=
+X-CMS-MailID: 20250217051946epcas5p2d1d096036a9f58c168b2e1405e57a0a0
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff
+References: <20250213044624.37334-1-swathi.ks@samsung.com>
+	<CGME20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff@epcas5p1.samsung.com>
+	<20250213044624.37334-2-swathi.ks@samsung.com>
+	<85e0dec0-5b40-427a-9417-cae0ed2aa484@lunn.ch>
+	<00b001db7e9f$ca7cfbd0$5f76f370$@samsung.com>
+	<ffb13051-ab93-4729-8b98-20e278552673@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_204835_098501_965A9BF2 
-X-CRM114-Status: GOOD (  35.54  )
-X-Spam-Score: -4.2 (----)
-X-Spam-Report: Spam detection software, running on the system "bombadil.infradead.org",
- has NOT identified this incoming email as spam.  The original
- message has been attached to this so you can view it or label
- similar future email.  If you have any questions, see
- the administrator of that system for details.
- 
- Content preview:  On 2/13/25 15:08, Ryan Roberts wrote: > On 13/02/2025 05:30,
-    Anshuman Khandual wrote: >> >> >> On 2/10/25 16:42, Ryan Roberts wrote: >>>
-    On 10/02/2025 08:03, Anshuman Khandual wrote: >>>> >>>> >>>> On [...] 
- 
- Content analysis details:   (-4.2 points, 5.0 required)
- 
-  pts rule name              description
- ---- ---------------------- --------------------------------------------------
- -2.3 RCVD_IN_DNSWL_MED      RBL: Sender listed at https://www.dnswl.org/,
-                             medium trust
-                             [217.140.110.172 listed in list.dnswl.org]
- -0.0 SPF_PASS               SPF: sender matches SPF record
-  0.0 SPF_HELO_NONE          SPF: HELO does not publish an SPF Record
- -1.9 BAYES_00               BODY: Bayes spam probability is 0 to 1%
-                             [score: 0.0000]
-  0.0 RCVD_IN_VALIDITY_CERTIFIED_BLOCKED RBL: ADMINISTRATOR NOTICE: The
-                             query to Validity was blocked.  See
-                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
-                              for more information.
-                        [217.140.110.172 listed in sa-trusted.bondedsender.org]
-  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
-                              Validity was blocked.  See
-                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
-                              for more information.
-                             [217.140.110.172 listed in sa-accredit.habeas.com]
-  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
-                              Validity was blocked.  See
-                             https://knowledge.validity.com/hc/en-us/articles/20961730681243
-                              for more information.
-                           [217.140.110.172 listed in bl.score.senderscore.com]
+X-CRM114-CacheID: sfid-20250216_212722_281015_2E2E518E 
+X-CRM114-Status: GOOD (  30.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,266 +153,97 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2/13/25 15:08, Ryan Roberts wrote:
-> On 13/02/2025 05:30, Anshuman Khandual wrote:
->>
->>
->> On 2/10/25 16:42, Ryan Roberts wrote:
->>> On 10/02/2025 08:03, Anshuman Khandual wrote:
->>>>
->>>>
->>>> On 2/5/25 20:39, Ryan Roberts wrote:
->>>>> Because the kernel can't tolerate page faults for kernel mappings, when
->>>>> setting a valid, kernel space pte (or pmd/pud/p4d/pgd), it emits a
->>>>> dsb(ishst) to ensure that the store to the pgtable is observed by the
->>>>> table walker immediately. Additionally it emits an isb() to ensure that
->>>>> any already speculatively determined invalid mapping fault gets
->>>>> canceled.> 
->>>>> We can improve the performance of vmalloc operations by batching these
->>>>> barriers until the end of a set up entry updates. The newly added
->>>>> arch_update_kernel_mappings_begin() / arch_update_kernel_mappings_end()
->>>>> provide the required hooks.
->>>>>
->>>>> vmalloc improves by up to 30% as a result.
->>>>>
->>>>> Two new TIF_ flags are created; TIF_KMAP_UPDATE_ACTIVE tells us if we
->>>>> are in the batch mode and can therefore defer any barriers until the end
->>>>> of the batch. TIF_KMAP_UPDATE_PENDING tells us if barriers are queued to
->>>>> be emited at the end of the batch.
->>>>
->>>> Why cannot this be achieved with a single TIF_KMAP_UPDATE_ACTIVE which is
->>>> set in __begin(), cleared in __end() and saved across a __switch_to().
->>>
->>> So unconditionally emit the barriers in _end(), and emit them in __switch_to()
->>> if TIF_KMAP_UPDATE_ACTIVE is set?
->>
->> Right.
->>
->>>
->>> I guess if calling _begin() then you are definitely going to be setting at least
->>> 1 PTE. So you can definitely emit the barriers unconditionally. I was trying to
->>> protect against the case where you get pre-empted (potentially multiple times)
->>> while in the loop. The TIF_KMAP_UPDATE_PENDING flag ensures you only emit the
->>> barriers when you definitely need to. Without it, you would have to emit on
->>> every pre-emption even if no more PTEs got set.
->>>
->>> But I suspect this is a premature optimization. Probably it will never occur. So
->>
->> Agreed.
+> -----Original Message-----
+> From: Andrew Lunn <andrew@lunn.ch>
+> Sent: 14 February 2025 18:40
+> To: Swathi K S <swathi.ks@samsung.com>
+> Cc: krzk+dt@kernel.org; andrew+netdev@lunn.ch; davem@davemloft.net;
+> edumazet@google.com; kuba@kernel.org; pabeni@redhat.com;
+> robh@kernel.org; conor+dt@kernel.org; richardcochran@gmail.com;
+> mcoquelin.stm32@gmail.com; alexandre.torgue@foss.st.com;
+> rmk+kernel@armlinux.org.uk; netdev@vger.kernel.org;
+> devicetree@vger.kernel.org; linux-stm32@st-md-mailman.stormreply.com;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
+'Pankaj
+> Dubey' <pankaj.dubey@samsung.com>
+> Subject: Re: [PATCH v6 1/2] dt-bindings: net: Add FSD EQoS device tree
+> bindings
 > 
-> Having done this simplification, I've just noticed that one of the
-> arch_update_kernel_mappings_begin/end callsites is __apply_to_page_range() which
-> gets called for user space mappings as well as kernel mappings. So actually with
-> the simplification I'll be emitting barriers even when only user space mappings
-> were touched.
+> On Fri, Feb 14, 2025 at 10:47:39AM +0530, Swathi K S wrote:
+> >
+> >
+> > > -----Original Message-----
+> > > From: Andrew Lunn <andrew@lunn.ch>
+> > > Sent: 14 February 2025 05:50
+> > > To: Swathi K S <swathi.ks@samsung.com>
+> > > Cc: krzk+dt@kernel.org; andrew+netdev@lunn.ch;
+> davem@davemloft.net;
+> > > edumazet@google.com; kuba@kernel.org; pabeni@redhat.com;
+> > > robh@kernel.org; conor+dt@kernel.org; richardcochran@gmail.com;
+> > > mcoquelin.stm32@gmail.com; alexandre.torgue@foss.st.com;
+> > > rmk+kernel@armlinux.org.uk; netdev@vger.kernel.org;
+> > > devicetree@vger.kernel.org;
+> > > linux-stm32@st-md-mailman.stormreply.com;
+> > > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> > > Subject: Re: [PATCH v6 1/2] dt-bindings: net: Add FSD EQoS device
+> > > tree bindings
+> > >
+> > > > +  phy-mode:
+> > > > +    enum:
+> > > > +      - rgmii-id
+> > >
+> > > phy-mode is normally a board property, in the .dts file, since the
+> > > board
+> > might
+> > > decide to have extra long clock lines and so want 'rgmii'.
+> > >
+> > > The only reason i can think of putting rgmii-id here is if the MAC
+> > > only supports 'rgmii-id', it is impossible to make it not add delays.
+> > > If that is true, a comment would be good.
+> >
+> >
+> > Hi Andrew,
+> > Thanks for reviewing.
+> > I think we already discussed this part some time back here [1] [1] :
+> > https://patchwork.kernel.org/project/linux-arm-kernel/patch/2023081411
+> > 2539.7
+> > 0453-2-sriranjani.p@samsung.com/#25879995
+> > Please do let me know if there is any other concern on this.
+> 
+> We partially discussed this in this thread.
+> 
+> As i said, what value you need here depends on the board design. The PCB
+> could provide the 2ns delay, in which case, 'rgmii' would be the correct
+value
+> to have in the board .dts file. Hence the binding should not restrict the
+value
+> of phy-mode to just rgmii-id. All 4 rmgii values should be accepted.
+> 
+> The only reason you would force only rgmii-id is if the MAC/PHY pair
+cannot
+> do anything else. If that really is true, i would expect a comment in the
+> binding, and the MAC driver to return -EINVAL for anything but rgmii-id.
 
-Right, that will not be desirable.
+Hi Andrew, 
+What you said is right. Generally, PCB provides internal delay.
+But in this case, due to customer request, the delay was added into SoC.
+
+The following doc on rgmii says that "Devices which implement internal delay
+shall be referred to as RGMII-ID. 
+Devices may offer an option to operate with/without internal delay and still
+remain compliant with this spec"
+https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/2
+0655/1/RGMIIv2_0_final_hp.pdf
+
+Also, the driver is in such a way that it handles all four rgmii in the same
+way. 
+
+Considering this, could you let us know what will be the right approach to
+take in this case?
+
+-Swathi
 
 > 
-> I think there are a couple of options to fix this:
-> 
-> - Revert to the 2 flag approach. For the user space case, I'll get to _end() and
-> notice that no barriers are queued so will emit nothing.
-> 
-> - Only set TIF_KMAP_UPDATE_ACTIVE if the address range passed to _begin() is a
-> kernel address range. I guess that's just a case of checking if the MSB is set
-> in "end"?
-> 
-> - pass mm to _begin() and only set TIF_KMAP_UPDATE_ACTIVE if mm == &init_mm. I
-> guess this should be the same as option 2.
-> 
-> I'm leaning towards option 2. But I have a niggling feeling that my proposed
-> check isn't quite correct. What do you think?
+> 	Andrew
 
-Option 2 and 3 looks better than the two flags approach proposed earlier. But is
-not option 3 bit more simplistic than option 2 ? Does getting struct mm argument
-into these function create more code churn ?
-
-> 
-> Thanks,
-> Ryan
-> 
-> 
->>
->>> I'll simplify as you suggest.
->>>
->>> Thanks,
->>> Ryan
->>>
->>>>
->>>>>
->>>>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->>>>> ---
->>>>>  arch/arm64/include/asm/pgtable.h     | 65 +++++++++++++++++++---------
->>>>>  arch/arm64/include/asm/thread_info.h |  2 +
->>>>>  arch/arm64/kernel/process.c          | 20 +++++++--
->>>>>  3 files changed, 63 insertions(+), 24 deletions(-)
->>>>>
->>>>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->>>>> index ff358d983583..1ee9b9588502 100644
->>>>> --- a/arch/arm64/include/asm/pgtable.h
->>>>> +++ b/arch/arm64/include/asm/pgtable.h
->>>>> @@ -39,6 +39,41 @@
->>>>>  #include <linux/mm_types.h>
->>>>>  #include <linux/sched.h>
->>>>>  #include <linux/page_table_check.h>
->>>>> +#include <linux/pgtable_modmask.h>
->>>>> +
->>>>> +static inline void emit_pte_barriers(void)
->>>>> +{
->>>>> +	dsb(ishst);
->>>>> +	isb();
->>>>> +}
->>>>
->>>> There are many sequence of these two barriers in this particular header,
->>>> hence probably a good idea to factor this out into a common helper.
->>>>>> +
->>>>> +static inline void queue_pte_barriers(void)
->>>>> +{
->>>>> +	if (test_thread_flag(TIF_KMAP_UPDATE_ACTIVE)) {
->>>>> +		if (!test_thread_flag(TIF_KMAP_UPDATE_PENDING))
->>>>> +			set_thread_flag(TIF_KMAP_UPDATE_PENDING);
->>>>> +	} else
->>>>> +		emit_pte_barriers();
->>>>> +}
->>>>> +
->>>>> +#define arch_update_kernel_mappings_begin arch_update_kernel_mappings_begin
->>>>> +static inline void arch_update_kernel_mappings_begin(unsigned long start,
->>>>> +						     unsigned long end)
->>>>> +{
->>>>> +	set_thread_flag(TIF_KMAP_UPDATE_ACTIVE);
->>>>> +}
->>>>> +
->>>>> +#define arch_update_kernel_mappings_end arch_update_kernel_mappings_end
->>>>> +static inline void arch_update_kernel_mappings_end(unsigned long start,
->>>>> +						   unsigned long end,
->>>>> +						   pgtbl_mod_mask mask)
->>>>> +{
->>>>> +	if (test_thread_flag(TIF_KMAP_UPDATE_PENDING))
->>>>> +		emit_pte_barriers();
->>>>> +
->>>>> +	clear_thread_flag(TIF_KMAP_UPDATE_PENDING);
->>>>> +	clear_thread_flag(TIF_KMAP_UPDATE_ACTIVE);
->>>>> +}
->>>>>  
->>>>>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
->>>>>  #define __HAVE_ARCH_FLUSH_PMD_TLB_RANGE
->>>>> @@ -323,10 +358,8 @@ static inline void __set_pte_complete(pte_t pte)
->>>>>  	 * Only if the new pte is valid and kernel, otherwise TLB maintenance
->>>>>  	 * or update_mmu_cache() have the necessary barriers.
->>>>>  	 */
->>>>> -	if (pte_valid_not_user(pte)) {
->>>>> -		dsb(ishst);
->>>>> -		isb();
->>>>> -	}
->>>>> +	if (pte_valid_not_user(pte))
->>>>> +		queue_pte_barriers();
->>>>>  }
->>>>>  
->>>>>  static inline void __set_pte(pte_t *ptep, pte_t pte)
->>>>> @@ -791,10 +824,8 @@ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
->>>>>  
->>>>>  	WRITE_ONCE(*pmdp, pmd);
->>>>>  
->>>>> -	if (pmd_valid_not_user(pmd)) {
->>>>> -		dsb(ishst);
->>>>> -		isb();
->>>>> -	}
->>>>> +	if (pmd_valid_not_user(pmd))
->>>>> +		queue_pte_barriers();
->>>>>  }
->>>>>  
->>>>>  static inline void pmd_clear(pmd_t *pmdp)
->>>>> @@ -869,10 +900,8 @@ static inline void set_pud(pud_t *pudp, pud_t pud)
->>>>>  
->>>>>  	WRITE_ONCE(*pudp, pud);
->>>>>  
->>>>> -	if (pud_valid_not_user(pud)) {
->>>>> -		dsb(ishst);
->>>>> -		isb();
->>>>> -	}
->>>>> +	if (pud_valid_not_user(pud))
->>>>> +		queue_pte_barriers();
->>>>>  }
->>>>>  
->>>>>  static inline void pud_clear(pud_t *pudp)
->>>>> @@ -960,10 +989,8 @@ static inline void set_p4d(p4d_t *p4dp, p4d_t p4d)
->>>>>  
->>>>>  	WRITE_ONCE(*p4dp, p4d);
->>>>>  
->>>>> -	if (p4d_valid_not_user(p4d)) {
->>>>> -		dsb(ishst);
->>>>> -		isb();
->>>>> -	}
->>>>> +	if (p4d_valid_not_user(p4d))
->>>>> +		queue_pte_barriers();
->>>>>  }
->>>>>  
->>>>>  static inline void p4d_clear(p4d_t *p4dp)
->>>>> @@ -1098,10 +1125,8 @@ static inline void set_pgd(pgd_t *pgdp, pgd_t pgd)
->>>>>  
->>>>>  	WRITE_ONCE(*pgdp, pgd);
->>>>>  
->>>>> -	if (pgd_valid_not_user(pgd)) {
->>>>> -		dsb(ishst);
->>>>> -		isb();
->>>>> -	}
->>>>> +	if (pgd_valid_not_user(pgd))
->>>>> +		queue_pte_barriers();
->>>>>  }
->>>>>  
->>>>>  static inline void pgd_clear(pgd_t *pgdp)
->>>>> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
->>>>> index 1114c1c3300a..382d2121261e 100644
->>>>> --- a/arch/arm64/include/asm/thread_info.h
->>>>> +++ b/arch/arm64/include/asm/thread_info.h
->>>>> @@ -82,6 +82,8 @@ void arch_setup_new_exec(void);
->>>>>  #define TIF_SME_VL_INHERIT	28	/* Inherit SME vl_onexec across exec */
->>>>>  #define TIF_KERNEL_FPSTATE	29	/* Task is in a kernel mode FPSIMD section */
->>>>>  #define TIF_TSC_SIGSEGV		30	/* SIGSEGV on counter-timer access */
->>>>> +#define TIF_KMAP_UPDATE_ACTIVE	31	/* kernel map update in progress */
->>>>> +#define TIF_KMAP_UPDATE_PENDING	32	/* kernel map updated with deferred barriers */
->>>>>  
->>>>>  #define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
->>>>>  #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
->>>>> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
->>>>> index 42faebb7b712..1367ec6407d1 100644
->>>>> --- a/arch/arm64/kernel/process.c
->>>>> +++ b/arch/arm64/kernel/process.c
->>>>> @@ -680,10 +680,10 @@ struct task_struct *__switch_to(struct task_struct *prev,
->>>>>  	gcs_thread_switch(next);
->>>>>  
->>>>>  	/*
->>>>> -	 * Complete any pending TLB or cache maintenance on this CPU in case
->>>>> -	 * the thread migrates to a different CPU.
->>>>> -	 * This full barrier is also required by the membarrier system
->>>>> -	 * call.
->>>>> +	 * Complete any pending TLB or cache maintenance on this CPU in case the
->>>>> +	 * thread migrates to a different CPU. This full barrier is also
->>>>> +	 * required by the membarrier system call. Additionally it is required
->>>>> +	 * for TIF_KMAP_UPDATE_PENDING, see below.
->>>>>  	 */
->>>>>  	dsb(ish);
->>>>>  
->>>>> @@ -696,6 +696,18 @@ struct task_struct *__switch_to(struct task_struct *prev,
->>>>>  	/* avoid expensive SCTLR_EL1 accesses if no change */
->>>>>  	if (prev->thread.sctlr_user != next->thread.sctlr_user)
->>>>>  		update_sctlr_el1(next->thread.sctlr_user);
->>>>> +	else if (unlikely(test_thread_flag(TIF_KMAP_UPDATE_PENDING))) {
->>>>> +		/*
->>>>> +		 * In unlikely event that a kernel map update is on-going when
->>>>> +		 * preemption occurs, we must emit_pte_barriers() if pending.
->>>>> +		 * emit_pte_barriers() consists of "dsb(ishst); isb();". The dsb
->>>>> +		 * is already handled above. The isb() is handled if
->>>>> +		 * update_sctlr_el1() was called. So only need to emit isb()
->>>>> +		 * here if it wasn't called.
->>>>> +		 */
->>>>> +		isb();
->>>>> +		clear_thread_flag(TIF_KMAP_UPDATE_PENDING);
->>>>> +	}
->>>>>  
->>>>>  	/* the actual thread switch */
->>>>>  	last = cpu_switch_to(prev, next);
->>>
-> 
 
