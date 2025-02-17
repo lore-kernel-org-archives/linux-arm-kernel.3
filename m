@@ -4,155 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A4CC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 04:34:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72D0DC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 04:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dGOimbpfus8MFEfxmpQbaLXermq2/GxsTg/Y4HxAweg=; b=kqxxhn/7WwmRY0BfeJdyy/nX1e
-	uwriOD3WmceSKdoVsrCRIzKYMKVDIfuO8p3UGila5qARanq8v8MS16ZPSYz5IJIHxn4Etq+U+T8dE
-	QaVIvaZgk8SLUQhXI51ukrdKQnXDD0P1K+z1wcaRtEifGM0pROVrTLyaJpKQiAOEKYmGongpc7SpC
-	F0Cl5jTKplIS2taOuQcRuSQhait0aegcUTLfBvkHtfFnwd0e+BWFJ1MQfkzYNmCa9bQb+Ag9dwc40
-	UmvDe0QZLoNLnvzUvuo9JB83w5rjvWKaQ9FVru5MXcthG2qLoooFwXNW5FkHkNoAMs7SCNXoplT7I
-	3nMqkQMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+tOQ187njbe5z4RyF0k4IJnhNqgW/KM/sOwzxrx3J+s=; b=GEUHfpq0iivbx22cSNJWqb93Ui
+	npc5uQ+ZU1rJ2F/dAEyahICpLP8gIKg35+hQbGV/QRtsdrb/LudbkvCqVYnhdS4MDCpfVJ/hkM7uy
+	OgQmXmd+hni2PrMOVE4Onco3FXJRloB8bsIdKhVAlxaRSO+KgXT6THnJ0zD5gaZDW4QT4qlCLEilu
+	qkGTp1857fshH8VHAOhjHYyzAPQnR6SEXqw6JHkT+ucVjry8wMU1c+kEPcf/lukslS2aIMpDMgNvT
+	f2QwEQQaUuZYmOs6Te9aJs6RirAi2LkTVwHZDAHAkdhcnAObgg+pn8bhCz5shCmSPt/wpuASY90wW
+	BartPxfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjspv-00000003FbP-1OmN;
-	Mon, 17 Feb 2025 04:34:27 +0000
-Received: from mail-bn7nam10on2060f.outbound.protection.outlook.com ([2a01:111:f403:2009::60f] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjslU-00000003EiI-00Fb
+	id 1tjsrM-00000003Fk5-0It1;
+	Mon, 17 Feb 2025 04:35:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tjsp9-00000003FTd-2NWf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 04:29:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AJ4M64q4wgq0t1blhS9iqj1byoVzf0LS0O2j51HC9nsaGKGbZiWd7lqpCTfvY6xK5YkYuamfsI6OZeCucztYDlTHn1oKkbKmX8kSI0N6ZS1y14ibHDqpSnjvpB6CmDRzmyFO3UCO/cmV5LhkaBtvA/Wxrj9mgGTKlxmZ7hUAr9dMgoZBQk21VgjJZnWK1Znj0iqR2aBzkBPcBo7Bkm3KcfO0Q8GUxMrbNQwbr/31sCAPhX1wVYi8LDDannnaSBYg2JN763I5IWYvL9fuEyiXouP0YslYz3HmOGTzlqHIipU585ZQLip7sjVeJ6u4UHUVTPzrpxoXxzFvRdyus+gy1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dGOimbpfus8MFEfxmpQbaLXermq2/GxsTg/Y4HxAweg=;
- b=P92kl42WnCYB1LP5Fk/5BTZdYrPjXQsXn9BlMpOXxzVFYH6frqxS6bkv6EuSASerg7nIfNr75+/pVPEFgCYSn6Ne7lp7aGMn5BO8ALoFIkuOGX0AOlbOFjgijljMh0LTHfQj4cxi/KJ7O1yssx6z8/Wt0LOEakzmc1cywuVlYLntWeEpYa0UVuAVLGGsYYFeqjCvP/jh5ccZ6O3PumcTRZ8Q5MagTWmRF2eZezY7wwvtRcAgDQKddNkB9iGIqDxkLgcipV0wzXkVDp52PB502L6zYEPEc4eCfl5+SIgnXDeX/pzf7xmq4mqCFVFLPXhoaiUMdgitDo69maUGuELfWA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dGOimbpfus8MFEfxmpQbaLXermq2/GxsTg/Y4HxAweg=;
- b=FHGXbXyOgMPq8FVRrgX1BDrf5xid9RarP3nlBky2+L0b1KLDZYeCOLQpBZvgY5/AWcl3d7pY99HiyP1vg+8jdUJ3CTGKhBsp4nI2uU2QmriWXVHnJrVCvBN+bLTefEolgsbpsQHKWLCHc/qPMk05GCtTj/xIRgCCaEVlmJhqDX7J52VCYruhHvPJg+SzIaB9QzBDnWiWaZO/4KnxTfCa+PCIIqF220YMnjkivw4XJOXcuaV7kaejO5frcgg453Ebk3IGsgXmJTUmBNAm33xmzq5R3JAj8C6TldJwT406l8jaiC+VZeIyQZ9nKP2YBA2qk3Gv4jozgn3WKPzPFvGlaQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
- DS0PR12MB7629.namprd12.prod.outlook.com (2603:10b6:8:13e::13) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8445.18; Mon, 17 Feb 2025 04:29:47 +0000
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8445.017; Mon, 17 Feb 2025
- 04:29:47 +0000
-Date: Mon, 17 Feb 2025 15:29:40 +1100
-From: Alistair Popple <apopple@nvidia.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, 
-	linux-mm@kvack.org, Alison Schofield <alison.schofield@intel.com>, 
-	lina@asahilina.net, zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com, 
-	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com, bhelgaas@google.com, 
-	jack@suse.cz, jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org, 
-	mpe@ellerman.id.au, npiggin@gmail.com, dave.hansen@linux.intel.com, 
-	ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, tytso@mit.edu, 
-	linmiaohe@huawei.com, peterx@redhat.com, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, 
-	jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com, chenhuacai@kernel.org, 
-	kernel@xen0n.name, loongarch@lists.linux.dev
-Subject: Re: [PATCH v7 16/20] huge_memory: Add vmf_insert_folio_pmd()
-Message-ID: <6mmjoe27y63cfe5cycqje63gehgumod3bp7zzgvpz7qehgfuv4@uomvqgizba2m>
-References: <cover.472dfc700f28c65ecad7591096a1dc7878ff6172.1738709036.git-series.apopple@nvidia.com>
- <9f10e88441f3cb26eff6be0c9ef5997844c8c24e.1738709036.git-series.apopple@nvidia.com>
- <afff4368-9401-4943-b802-1b15bdcf5aaa@redhat.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <afff4368-9401-4943-b802-1b15bdcf5aaa@redhat.com>
-X-ClientProxiedBy: SY6PR01CA0052.ausprd01.prod.outlook.com
- (2603:10c6:10:e9::21) To DS0PR12MB7726.namprd12.prod.outlook.com
- (2603:10b6:8:130::6)
+	Mon, 17 Feb 2025 04:33:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3077E1063;
+	Sun, 16 Feb 2025 20:33:58 -0800 (PST)
+Received: from [10.162.16.135] (unknown [10.162.16.135])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C2B43F59E;
+	Sun, 16 Feb 2025 20:33:34 -0800 (PST)
+Message-ID: <72f188c5-c078-4ff5-81a6-3a0c8b2edaea@arm.com>
+Date: Mon, 17 Feb 2025 10:03:31 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|DS0PR12MB7629:EE_
-X-MS-Office365-Filtering-Correlation-Id: b215f871-bd3f-4bba-65d2-08dd4f0bb584
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6S7xwEV7PjkMlL4FYRDxK/YJYaVjHnvsqv2EFJ1iRof2wO9++oT/sZjvsNiy?=
- =?us-ascii?Q?2QopW/hZUwlVfCOnYaU7pffoXwt15VpsKvsQfjzaiO7XQGp5V7xuV10fGwws?=
- =?us-ascii?Q?zsHFHliiA6qzEJFHub9zwbUeov4USAQ5ddJZONIf5NFNVpFEiBNCusJJCMt1?=
- =?us-ascii?Q?Hmej/SDQyahtdIr6HEymn6h1LXNGtYHGK+PBujTnCqIN/WjmW3q/4ahLRohX?=
- =?us-ascii?Q?GTLS7heZh+c5qdNt806T9sJrGb/4pQQy1ihk4eWzsspJ40JT99HY5kfXXSJ4?=
- =?us-ascii?Q?KSSXmae33XMRheOfj3o+UUUM64H8Ii9Xar/o4cuCpgyPzKBapLrVE3FM6UsN?=
- =?us-ascii?Q?ewrynx0g8EWlrV9sj0mstOSEYXtDu3+Mk6Opj4QZEafOTkqXmJDaM8HuCyGI?=
- =?us-ascii?Q?1L0DTChuOtpr2XC38ySvH/2r9IFOXdc9/TLJ3R2x9YPZzi2MuE+eilOxXsyB?=
- =?us-ascii?Q?+LreZSWL5ZW/ixk1XWqzd2jf5RIhfvexWrSp5UpZKoCFvk/hSOcLBANke6o7?=
- =?us-ascii?Q?gFXBsa+Qp/tK9zMehaNsRPR+FHWfAta7NAhvg76KtM+Q/cWrMkLnzipJQrOF?=
- =?us-ascii?Q?bWGOdVOZ4VKHbLDB1wMplYsIN0lviDPhyCeVKYTdzp1SUHOc37tSdpooFepZ?=
- =?us-ascii?Q?nL/n4bLALvWVjB5UYmWBvs3ramVtqTelletxBiGcu6gAzI6cWdQELJRBA0ZO?=
- =?us-ascii?Q?O5x+r0GZlmZsTyUT5tghWhDZ9zwkg4rqW7JTipNyJQkiSRLWsAovtpP0TKuB?=
- =?us-ascii?Q?4Xb0yU4mOWkREA+W9+mtp0a1cuCNICQiEYab9JHprLJRnY0x3g/vV9gf5/Uu?=
- =?us-ascii?Q?/phqYD4MZ9foii8zRsR0Yh+/RKQLY+BuCDNZoUV6OMT9ThDU5POVQDhoh+yq?=
- =?us-ascii?Q?3hbumzkQkcRXNeeTXd38GUeZNtOGFVIJWrW0Zl98M7FK+3bIZN5YakZ3gXpD?=
- =?us-ascii?Q?4SPV9cGnyCAtoA7Cag3oYiM8JVjFH0IZ7gOP7KoZ6h/Q81KToqXa7Nopyp14?=
- =?us-ascii?Q?YoeRqQmuuVjiUF+CnITDXcuVxj+pnvu/N3AO6GNAiTPM7U9P52FSj+tgzjqt?=
- =?us-ascii?Q?S/r5vxsSl/FEhXFStyeWTY3w7GPERjaYg9wWiDuMag8VvjLXVznzX8m/VFdr?=
- =?us-ascii?Q?KZw/fyakJ1mUQLwPJ0WoCj1UxbEE3nbj5KWC6yKtOhg+tYpasYCEXL+yMUjY?=
- =?us-ascii?Q?nvC6h63aWthJWHlQWqyCU/7Z2zpYYZJofUuywYU+yThkBl5ber26t8+cKhOO?=
- =?us-ascii?Q?+Qsq7gd49yK0+cOXHhs3g76EJgdhMFN1wsDmsSpKy3DLPGZGVojJ8J/VFS5u?=
- =?us-ascii?Q?wZi6fHUtLy4JO0d+LXp9FhjVws9T6IUc0R/dCq5yJL7rPmFG/cj47Mo+O7sX?=
- =?us-ascii?Q?ZxlBSawikZaogzpz64TAIIO2D+f0?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LefaUx789c/ZCYo5Ei5asWFeWZMdh6zlBMJCfAt/3vhRFA/qjAoQSiKZOqab?=
- =?us-ascii?Q?JwGy66u822HaLuCKzEvb+vwwiluCFVw6pKO1fSw9nggLu0xu3yPWSis6EvFm?=
- =?us-ascii?Q?vLCSJNrp6qW4Uxcn8OwnyFiYEOo0KmAAiFfKrULcjp7iEbZa4pj+vEVcSy1u?=
- =?us-ascii?Q?TheCSjk+H/kSHlV36NZbAlSyg8nKIKMO+XsH/RadICp9wNWLDsHwEiJl8h7l?=
- =?us-ascii?Q?v8MJKpXegjAVUx/YtDJWYMr0ss/RPq05vP+VsLyjZojdJg9gO+a68YOjplr+?=
- =?us-ascii?Q?Gsmjdo1wn/XfZ27ys82Eh2etVWnZLB+pW0kVeTJma74aFLIlqqKQjnFRXwf6?=
- =?us-ascii?Q?I4muHCgYjmYC1hBrVfGjqrrtNQGSybziRvbuoQbgMXqMnxWnYC8P58+hrA8+?=
- =?us-ascii?Q?c6zRKtd+iodwu8pDryM4yfA//3IqJe/X/wL9wops1IDgkzDxpRgtftekVFty?=
- =?us-ascii?Q?JpoBzPQnTF6sLpdKuPw0tFnomUtID6Xv3tbYf+aB1b9n7c9CTbO/+kzj9BAq?=
- =?us-ascii?Q?wnVbM/Mls1FAnF5hf8Is7Jg4LPyOA4sNm1O9YdNnnd+ggxRSuFDc0PlY6IOR?=
- =?us-ascii?Q?XW3Hma0naa12LqOn4Ww1ymEgKn+MKzThgQyvStU111cPTuO4LgXmz1i0INWY?=
- =?us-ascii?Q?WIltHRKGlolVZVvt7rnPx0SoQiR/WqgYWJaRTBbm9VLRpI2NWpM2sO0IVIYS?=
- =?us-ascii?Q?YjqeLbb7t9h3exIM7qeGXdkXQldydueO+BfocjzzIB383Bk6aiYJHBqrvMd8?=
- =?us-ascii?Q?hnIkYg0sK9D5jD9REtXex0uB65wRb2WZc8KQQXvP2WGInMkPx45zG2H+OSAt?=
- =?us-ascii?Q?smpHQKQkDa2SdWHSec8HUhe396UIgrR6qaGLqYspWpQlMKTqdaCDjC2BEbNP?=
- =?us-ascii?Q?NaLWWw4sdOjrDjtTfK+8bOuC+/F5ENNzTR5p3BAot5+1KkqlCFrQFpp2DTlj?=
- =?us-ascii?Q?X5Iq8SINOA1/TtM1zq0DplFNYvj95wXG8e4Z8rup1NWq+s678++wCPTAZapE?=
- =?us-ascii?Q?UHc5rVAyjgurYJaOPIq05Dj6HqVevLiIEzeX+jH++zZeTzuwyhV1C//iLItG?=
- =?us-ascii?Q?PATExwLPMXSreMVB5qMrE8IQJWJ4W0gJlhhwMP7IgmJLQUcWXjvB1HGwkkfP?=
- =?us-ascii?Q?di59Ec1yrfEOsJ+jDtkeXAsaj0GDB1CYc69fYLblbz4S/9boClvaDVAj8RFb?=
- =?us-ascii?Q?AEae/TP9p0YAvoN5Pn2x2r+NvlRhjZ0NgUig7sJ2pT6nwUYHprcxk276akPX?=
- =?us-ascii?Q?miaVYx2JvMtYuE/t/Y9WcBRKGbegchmCjMqm78AVDPsw8ZBNIOfuXrVZah3t?=
- =?us-ascii?Q?o0+2UKFC6Wd/968jqoUMnTiz8UgdQ7q1AvhZkPYQgtUEQM2I1lMwnQvajgcZ?=
- =?us-ascii?Q?0CZte7yEnoTHPIq5/sr6px5uaqw8gH5m9Wk2p/Gl2Quvq5U0h25RoGY4a6ep?=
- =?us-ascii?Q?zPH3QigZiB4H+lHIqGl2RlhY856LUhFNFq7oYmjtqNbXQtjnvEP7fPb2F6vS?=
- =?us-ascii?Q?IghV2dXl8Ga+Hz5PrlpMIFTrRZjuEB4rt1mxGggkE5gimtfHKPZZ1AOeQkhA?=
- =?us-ascii?Q?KtjBF7ResGA55oasOJKBAjQDEkWmHorWcm6eLxXt?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b215f871-bd3f-4bba-65d2-08dd4f0bb584
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2025 04:29:46.8465
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uHEouTfMeWI8qlCfgisPUQAP13ny3hcHQu7+Q6+8UpuCZ4IxXBKsJzyMSFXszBrdx3kJMhSr139Pac60/WfxJg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7629
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 12/16] arm64/mm: Support huge pte-mapped pages in vmap
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Muchun Song <muchun.song@linux.dev>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Steve Capper <steve.capper@linaro.org>, Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org
+References: <20250205151003.88959-1-ryan.roberts@arm.com>
+ <20250205151003.88959-13-ryan.roberts@arm.com>
+ <9a0d3009-18fc-4b53-941a-b6d830fce36a@arm.com>
+ <21da59a8-165d-4423-a00d-d5859f42ec11@arm.com>
+ <0dd74f57-902a-4a6d-9f77-31963b5953d1@arm.com>
+ <d6af21f1-e539-4fa6-a3f8-c4859b1325c5@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <d6af21f1-e539-4fa6-a3f8-c4859b1325c5@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_202952_047950_504BD16A 
-X-CRM114-Status: GOOD (  24.90  )
+X-CRM114-CacheID: sfid-20250216_203339_643287_E69F89F1 
+X-CRM114-Status: GOOD (  13.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,78 +77,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 10, 2025 at 07:45:09PM +0100, David Hildenbrand wrote:
-> On 04.02.25 23:48, Alistair Popple wrote:
-> > Currently DAX folio/page reference counts are managed differently to normal
-> > pages. To allow these to be managed the same as normal pages introduce
-> > vmf_insert_folio_pmd. This will map the entire PMD-sized folio and take
-> > references as it would for a normally mapped page.
-> > 
-> > This is distinct from the current mechanism, vmf_insert_pfn_pmd, which
-> > simply inserts a special devmap PMD entry into the page table without
-> > holding a reference to the page for the mapping.
-> > 
-> > It is not currently useful to implement a more generic vmf_insert_folio()
-> > which selects the correct behaviour based on folio_order(). This is because
-> > PTE faults require only a subpage of the folio to be PTE mapped rather than
-> > the entire folio. It would be possible to add this context somewhere but
-> > callers already need to handle PTE faults and PMD faults separately so a
-> > more generic function is not useful.
-> > 
-> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
+
+
+On 2/13/25 14:39, Ryan Roberts wrote:
 > 
-> Nit: patch subject ;)
+>>>>> +#define arch_vmap_pte_range_map_size arch_vmap_pte_range_map_size
+>>>>> +static inline unsigned long arch_vmap_pte_range_map_size(unsigned long addr,
+>>>>> +						unsigned long end, u64 pfn,
+>>>>> +						unsigned int max_page_shift)
+>>>>> +{
+>>>>> +	if (max_page_shift < CONT_PTE_SHIFT)
+>>>>> +		return PAGE_SIZE;
+>>>>> +
+>>>>> +	if (end - addr < CONT_PTE_SIZE)
+>>>>> +		return PAGE_SIZE;
+>>>>> +
+>>>>> +	if (!IS_ALIGNED(addr, CONT_PTE_SIZE))
+>>>>> +		return PAGE_SIZE;
+>>>>> +
+>>>>> +	if (!IS_ALIGNED(PFN_PHYS(pfn), CONT_PTE_SIZE))
+>>>>> +		return PAGE_SIZE;
+>>>>> +
+>>>>> +	return CONT_PTE_SIZE;
+>>>>
+>>>> A small nit:
+>>>>
+>>>> Should the rationale behind picking CONT_PTE_SIZE be added here as an in code
+>>>> comment or something in the function - just to make things bit clear.
+>>>
+>>> I'm not sure what other size we would pick?
+>>
+>> The suggestion was to add a small comment in the above helper function explaining
+>> the rationale for various conditions in there while returning either PAGE_SIZE or
+>> CONT_PTE_SIZE to improve readability etc.
 > 
-> > 
-> > ---
-> > 
-> > Changes for v7:
-> > 
-> >   - Fix bad pgtable handling for PPC64 (Thanks Dan and Dave)
+> OK I've added the following:
 > 
-> Is it? ;) insert_pfn_pmd() still doesn't consume a "pgtable_t *"
-> 
-> But maybe I am missing something ...
+> /*
+>  * If the block is at least CONT_PTE_SIZE in size, and is naturally
+>  * aligned in both virtual and physical space, then we can pte-map the
+>  * block using the PTE_CONT bit for more efficient use of the TLB.
+>  */
 
-At a high-level all I'm trying to do (perhaps badly) is pull the ptl locking one
-level up the callstack.
-
-As far as I can tell the pgtable is consumed here:
-
-static int insert_pfn_pmd(struct vm_area_struct *vma, unsigned long addr,
-		pmd_t *pmd, pfn_t pfn, pgprot_t prot, bool write,
-		pgtable_t pgtable)
-
-[...]
-
-	if (pgtable) {
-		pgtable_trans_huge_deposit(mm, pmd, pgtable);
-		mm_inc_nr_ptes(mm);
-		pgtable = NULL;
-	}
-
-[...]
-
-	return 0;
-
-Now I can see I failed to clean up the useless pgtable = NULL asignment, which
-is confusing because I'm not trying to look at pgtable in the caller (ie.
-vmf_insert_pfn_pmd()/vmf_insert_folio_pmd()) to determine if it needs freeing.
-So I will remove this assignment.
-
-Instead callers just look at the return code from insert_pfn_pmd() - if there
-was an error pgtable_trans_huge_deposit(pgtable) wasn't called and if the caller
-passed a pgtable it should be freed. Otherwise if insert_pfn_pmd() succeeded
-then callers can assume the pgtable was consumed by pgtable_trans_huge_deposit()
-and therefore should not be freed.
-
-Hopefully that all makes sense, but maybe I've missed something obvious too...
-
- - Alistair
-
-> -- 
-> Cheers,
-> 
-> David / dhildenb
-> 
+Sounds good, thanks !
 
