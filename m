@@ -4,89 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28245C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:36:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14F3C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zn9X5QbkJIdIagTel3G7oOAnIXhkOjaCrnBaeYGODeE=; b=EzJyvVuztaqDl9uzgA7O8StA+w
-	LSSzFASF9/vCevoY6BWN3Ni/fqjsNz01msG7ywjhiR9uguC5lMx1kM30S6mw3HHe7L9cx9gf4UrlQ
-	GHDDlJ3w7uKQz0FagtQ0SHtvHiVZinREAPi15YeoJ3rhIhH0C+QN39gEh5PM2mZ471LA9LEPxrsQ0
-	AuXT/zsvPt6XexJeDQFM8r7PPy0b00QslhQEJMAjqY+6T57N9SyOLLqiBbpYdmZz8qe8RGNdIG/KH
-	lRiRkrkzoqmjEbl46zOC292fplL3oJ/GNyhgUyHmvLCB3iJ3sfoxujVToeB6Hai9tGrwnhZF1Pf8u
-	ZjrAgnMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Cc:To:From:Date:
+	Message-ID:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C7VjhmW7Ji1O81mMVXsP2dK74SX9e3LQ0nzhMOEopUs=; b=h/rn6+k55+3AQVpDLqTifWxFw3
+	14quUxauyN5wSdZKQKyofsrPnkvrvxRsvQRRbJQiBprw7VeaTbNRm75rQjp+994S0YOQ3kFKKC8sd
+	FxyJY/rVuxBnQ0dOYU7fH9FOlyoF8cH4wOYvCAutPL6w8vPkT+rEgu9N1AEJjEVfSdXXhaL6ao0bj
+	OkfpV69kOYHvFUDnHQyNm142trEe4Qf7yK4o//gy/oC9n4hn3qbHIhsEeK8Zs9+Lhi+I0oVh+TubT
+	vwilwSrzJtUlFsIC/k6HaKGWerT44TdkdpUMnp1C/uWaqsRP7eyqp0Ky+Cs4PpJq8xEGtiqYToHzU
+	f2Z5DleA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk39x-000000054Nc-0peY;
-	Mon, 17 Feb 2025 15:35:49 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tk3BO-000000054tL-1LLV;
+	Mon, 17 Feb 2025 15:37:18 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk38S-000000053X2-2UhI;
-	Mon, 17 Feb 2025 15:34:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739806454;
-	bh=lyGfHrjhZ3jptbHzIILAzBz3U/SLoQdMy2EzDU6nSXk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=a1VS6O25oIsd0ptLDudjGC9gQqK/8d9OW1uYWMPEwY/goXTIElKTAw6J5Juio8/qd
-	 14MqJJ2qkXQa3WITW6nDmoWe6RO4oSIug3DhUgU31l33ycBd9NvI4/e2aD8YMM71px
-	 exrlMpEQ3n42aZTu9NmpZclEvnAAjkb6bft7PAEdZEdfoBnQGwT5Mjb3hzGYoT7RxA
-	 fD3i9IE7RFHdy67eG/+cqq0T3Y4ReU7vEzoJ+tPORmhgp47M6REl2ELw7S0R1laiop
-	 fJI67ItULKckWvdchfZgmUh76Xd7TKaS8vti1ngdk8SpXwEhN5gDza0YADdtAkn+7k
-	 ztQjn0KGh52XQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7D92817E1507;
-	Mon, 17 Feb 2025 16:34:13 +0100 (CET)
-Message-ID: <5d09d32b-d5cf-44a9-96de-30c8b5e23256@collabora.com>
-Date: Mon, 17 Feb 2025 16:34:13 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 27/42] drm/mediatek: mtk_hdmi: Move output init to
- mtk_hdmi_register_audio_driver()
-To: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>
-Cc: "robh@kernel.org" <robh@kernel.org>,
- "jie.qiu@mediatek.com" <jie.qiu@mediatek.com>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, =?UTF-8?B?Sml0YW8gU2hpICjnn7PorrDmtpsp?=
- <jitao.shi@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "kernel@collabora.com" <kernel@collabora.com>,
- "dmitry.baryshkov@linaro.org" <dmitry.baryshkov@linaro.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- =?UTF-8?B?TGV3aXMgTGlhbyAo5buW5p+P6YieKQ==?= <Lewis.Liao@mediatek.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- =?UTF-8?B?VG9tbXlZTCBDaGVuICjpmbPlvaXoia8p?= <TommyYL.Chen@mediatek.com>,
- =?UTF-8?B?SXZlcyBDaGVuamggKOmZs+S/iuW8mCk=?= <Ives.Chenjh@mediatek.com>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
- "junzhi.zhao@mediatek.com" <junzhi.zhao@mediatek.com>
-References: <20250211113409.1517534-1-angelogioacchino.delregno@collabora.com>
- <20250211113409.1517534-28-angelogioacchino.delregno@collabora.com>
- <6378d714b5f5197b70aba1adaa6ca5d358aa2c41.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <6378d714b5f5197b70aba1adaa6ca5d358aa2c41.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	id 1tk38k-000000053ok-28jo
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Feb 2025 15:34:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B50FEA415EA;
+	Mon, 17 Feb 2025 15:32:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B556C4CEE7;
+	Mon, 17 Feb 2025 15:34:33 +0000 (UTC)
+Received: from rostedt by gandalf with local (Exim 4.98)
+	(envelope-from <rostedt@goodmis.org>)
+	id 1tk393-00000003aJN-0HcM;
+	Mon, 17 Feb 2025 10:34:53 -0500
+Message-ID: <20250217153401.022858448@goodmis.org>
+User-Agent: quilt/0.68
+Date: Mon, 17 Feb 2025 10:34:01 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: linux-kernel@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org,
+ bpf <bpf@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org,
+ linux-s390@vger.kernel.org
+Cc: Masami Hiramatsu <mhiramat@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Masahiro Yamada <masahiroy@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nicolas Schier <nicolas@fjasle.eu>,
+ Zheng Yejian <zhengyejian1@huawei.com>,
+ Martin  Kelly <martin.kelly@crowdstrike.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Josh Poimboeuf <jpoimboe@redhat.com>,
+ Heiko Carstens <hca@linux.ibm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>,
+ Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>
+Subject: [PATCH v4 0/6] scripts/sorttable: ftrace: Remove place holders for weak functions in available_filter_functions
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_073416_787351_F79CF54E 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20250217_073434_690715_5A139735 
+X-CRM114-Status: GOOD (  22.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,104 +82,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 14/02/25 04:20, CK Hu (胡俊光) ha scritto:
-> On Tue, 2025-02-11 at 12:33 +0100, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until you have verified the sender or the content.
->>
->>
->> In preparation for moving the common bits of this driver, merge the
->> contents of mtk_hdmi_output_init in mtk_hdmi_register_audio_driver
->> function to aggregate all of the initial audio setup together in
->> the same function and to make it clear that all of the setup that
->> is performed in mtk_hdmi_output_init is specifically related only
->> to audio and not video.
->>
->> While at it, also remove the "%s driver bound to HDMI" debugging
->> print disguised as informative.
-> 
-> Previous reply only to Angelo, so re-replay to all agian.
-> 
-> This patch does not include print modification,
-> After remove this message,
-> 
 
-Sorry, forgot to remove that, too many patches to care about :')
+This series removes the place holder __ftrace_invalid_address___ from
+the available_filter_functions file.
 
-Removing for v7.
+The rewriting of the sorttable.c code to make it more manageable
+has already been merged:
 
-Thanks!
-Angelo
+  https://git.kernel.org/torvalds/c/c0e75905caf368e19aab585d20151500e750de89
 
-> Reviewed-by: CK Hu <ck.hu@mediatek.com>
-> 
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   drivers/gpu/drm/mediatek/mtk_hdmi.c | 27 ++++++++-------------------
->>   1 file changed, 8 insertions(+), 19 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> index e43dbcc0d068..98e8c186dff4 100644
->> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
->> @@ -1025,20 +1025,6 @@ static int mtk_hdmi_setup_vendor_specific_infoframe(struct mtk_hdmi *hdmi,
->>          return 0;
->>   }
->>
->> -static int mtk_hdmi_output_init(struct mtk_hdmi *hdmi)
->> -{
->> -       struct hdmi_audio_param *aud_param = &hdmi->aud_param;
->> -
->> -       aud_param->aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
->> -       aud_param->aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
->> -       aud_param->aud_input_type = HDMI_AUD_INPUT_I2S;
->> -       aud_param->aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
->> -       aud_param->aud_mclk = HDMI_AUD_MCLK_128FS;
->> -       aud_param->aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
->> -
->> -       return 0;
->> -}
->> -
->>   static void mtk_hdmi_audio_enable(struct mtk_hdmi *hdmi)
->>   {
->>          mtk_hdmi_hw_send_aud_packet(hdmi, true);
->> @@ -1617,6 +1603,7 @@ static void mtk_hdmi_unregister_audio_driver(void *data)
->>   static int mtk_hdmi_register_audio_driver(struct device *dev)
->>   {
->>          struct mtk_hdmi *hdmi = dev_get_drvdata(dev);
->> +       struct hdmi_audio_param *aud_param = &hdmi->aud_param;
->>          struct hdmi_codec_pdata codec_data = {
->>                  .ops = &mtk_hdmi_audio_codec_ops,
->>                  .max_i2s_channels = 2,
->> @@ -1626,6 +1613,13 @@ static int mtk_hdmi_register_audio_driver(struct device *dev)
->>          };
->>          int ret;
->>
->> +       aud_param->aud_codec = HDMI_AUDIO_CODING_TYPE_PCM;
->> +       aud_param->aud_sample_size = HDMI_AUDIO_SAMPLE_SIZE_16;
->> +       aud_param->aud_input_type = HDMI_AUD_INPUT_I2S;
->> +       aud_param->aud_i2s_fmt = HDMI_I2S_MODE_I2S_24BIT;
->> +       aud_param->aud_mclk = HDMI_AUD_MCLK_128FS;
->> +       aud_param->aud_input_chan_type = HDMI_AUD_CHAN_TYPE_2_0;
->> +
->>          hdmi->audio_pdev = platform_device_register_data(dev,
->>                                                           HDMI_CODEC_DRV_NAME,
->>                                                           PLATFORM_DEVID_AUTO,
->> @@ -1668,11 +1662,6 @@ static int mtk_hdmi_probe(struct platform_device *pdev)
->>          mutex_init(&hdmi->update_plugged_status_lock);
->>          platform_set_drvdata(pdev, hdmi);
->>
->> -       ret = mtk_hdmi_output_init(hdmi);
->> -       if (ret)
->> -               return dev_err_probe(dev, ret,
->> -                                    "Failed to initialize hdmi output\n");
->> -
->>          ret = mtk_hdmi_register_audio_driver(dev);
->>          if (ret)
->>                  return dev_err_probe(dev, ret,
->> --
->> 2.48.1
->>
-> 
+Now this is only for getting rid of the ftrace invalid function place holders.
 
+The first patch adds arm64 sorting, which requires copying the Elf_Rela into
+a separate array and sorting that.
+
+There's a slight fix patch that adds using a compare function that checks the
+direct values without swapping bytes as the current method will swap bytes,
+but the copying into the array already did the necessary swapping.
+
+The third patch makes it always copy the section into an array, sort that,
+then copy it back. This allows updates to the values in one place.
+
+The forth patch adds the option "-s <file>" to sorttable.c. Now this code
+is called by:
+
+  ${NM} -S vmlinux > .tmp_vmlinux.nm-sort
+  ${objtree}/scripts/sorttable -s .tmp_vmlinux.nm-sort ${1}
+
+Where the file created by "nm -S" is read, recording the address and the
+associated sizes of each function. It then is sorted, and before sorting the
+mcount_loc table, it is scanned to make sure all symbols in the mcount_loc are
+within the boundaries of the functions defined by nm. If they are not, they
+are zeroed out, as they are most likely weak functions (I don't know what else
+they would be).
+
+Since the KASLR address can be added to the values in this section, when the
+section is read to populate the ftrace records, if the value is zero or equal
+to kaslr_offset() it is skipped and not added.
+
+Before:
+    
+ ~# grep __ftrace_invalid_address___ /sys/kernel/tracing/available_filter_functions | wc -l
+ 551
+
+After:
+
+ ~# grep __ftrace_invalid_address___ /sys/kernel/tracing/available_filter_functions | wc -l
+ 0
+
+The last patches are fixes to ftrace accounting to handle the fact that it
+will likely always have skipped values (at least for x86), and to modify the
+code to verify that the amount of skipped and saved records do match the
+calculated allocations necessary.
+
+And finally, to change the reporting of how much was allocated to reflect the
+freed pages that were allocated but not used due to the skipped entries.
+
+Changes since v3: https://lore.kernel.org/all/20250213162047.306074881@goodmis.org/
+
+- Do not remove 'W' weak functions that are still used.
+
+Changes since v2: https://lore.kernel.org/linux-trace-kernel/20250102232609.529842248@goodmis.org/
+
+- Rebased on mainline that has the rewriting of sorttable.c
+
+- Added the code to handle the sections being stored in Elf_Rela sections as
+  arm64 uses.
+
+- No longer use the "ftrace_skip_sym" variable to skip over the zeroed out
+  functions and instead just compare with kalsr_offset.
+
+- Sort via an array and not directly in the file's section.
+
+- Update the verification code to make sure the skipped value is correct.
+
+- Update the output to correctly reflect what was allocated.
+
+
+Changes since v1: https://lore.kernel.org/all/20250102185845.928488650@goodmis.org/
+
+- Replaced the last patch with 3 patches.
+
+  The first of the 3 patches removed the hack of reading System.map
+  with properly reading the Elf symbol table to find start_mcount_loc
+  and stop_mcount_loc.
+
+  The second patch adds the call to "nm -S vmlinux" to get the sizes
+  of each function.
+
+  The previous last patch would just check the zeroed out values and compare
+  them to kaslr_offset(). Instead, this time, the last patch adds a new
+  ftrace_mcount_skip that is used to simply skip over the first entries
+  that the sorttable.c moved to the beginning, as they were the weak functions
+  that were found.
+
+
+
+Steven Rostedt (6):
+      arm64: scripts/sorttable: Implement sorting mcount_loc at boot for arm64
+      scripts/sorttable: Have mcount rela sort use direct values
+      scripts/sorttable: Always use an array for the mcount_loc sorting
+      scripts/sorttable: Zero out weak functions in mcount_loc table
+      ftrace: Update the mcount_loc check of skipped entries
+      ftrace: Have ftrace pages output reflect freed pages
+
+----
+ arch/arm64/Kconfig      |   1 +
+ kernel/trace/ftrace.c   |  45 +++++-
+ scripts/link-vmlinux.sh |   4 +-
+ scripts/sorttable.c     | 401 +++++++++++++++++++++++++++++++++++++++++++++++-
+ 4 files changed, 437 insertions(+), 14 deletions(-)
 
