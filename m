@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F402C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A05C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CX0cKuWIN/izcmRShlftpFObnQaAOxE9smmXy7S4rN8=; b=Etd63xKYjsVM+F
-	OgbNeRLvKPF6cPYEqwyf+amsgDLuR62UYv5WCbKjGY7+JGModfo7KTnFQ2qYDIhM9UaJW8tenLVAk
-	4UEIO0Gcx/BoAAwhHGhqWASIZY6qJIFff/vBNfCescIjKPZpsacaDBwGJCjiZL05g0qagejBI+HiP
-	8+eY7hv5bvlAzKkI0/fwO2J3UieQW5LwSIqSCN1EM3GmVTIPN0LLOLUICmu919rKikpbemAhW1F52
-	nRgA5h2LLLmrH4GAswH0DfkV1dgtqwujJMjn17a/zS0jbyAlBzu0I7Zve5tnppCqTBQzZk+nm0PBj
-	VzsWkJkHykEy3DJZEc2g==;
+	List-Owner; bh=WqBPs7TXi1TZ+t7BcT1Oc3H2Z/zeW3wGdbgAmH8XYY0=; b=o1xJA/wVppXfuf
+	6z2Mz0MbocYAWUh0Qm+giUCOdVa+j36xQrsaS0bkdky1X0nPaulBD+M5eVu7PL5RgVz47nXKz9xHd
+	6raE39F/RLAH9+INMeOHCx7KKBhyR4LKmWQ19bA7Z3jGm1px59D9BavqMJ1sB+OYWZnYlymCvLQra
+	0WJBMBSl91t4lvzdheadjV7eXTvBjojkqCIhrrWVCC01tmsDOQX7uzb+ICCLEaIcufHvVHvTeP+j6
+	e64hcC9O1uQPggOSOx8ll0Kdue4CA0Orsk9CFAQF7RuN0l8tnGnq9+BJfQFAMWzV+mC5gJw6GV0Oa
+	BbOzREOT4IDKbQ/FBQ4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2uj-0000000514G-1o35;
-	Mon, 17 Feb 2025 15:20:05 +0000
-Received: from mail-lf1-f49.google.com ([209.85.167.49])
+	id 1tk2w9-000000051HM-0FdQ;
+	Mon, 17 Feb 2025 15:21:33 +0000
+Received: from mail-lf1-f47.google.com ([209.85.167.47])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2mo-00000004zts-0oBQ
+	id 1tk2o0-0000000503O-3TA5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 15:11:55 +0000
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-543e4bbcd86so4478404e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 07:11:53 -0800 (PST)
+	Mon, 17 Feb 2025 15:13:09 +0000
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-54529e15643so2685101e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 07:13:08 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739805110; x=1740409910;
+        d=1e100.net; s=20230601; t=1739805186; x=1740409986;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=CX0cKuWIN/izcmRShlftpFObnQaAOxE9smmXy7S4rN8=;
-        b=Ye/Vqn8c1bfJnwK8lUILvFiJ7A9JUaa9OqGByvVzckISqmaSVx0M+lAKfgpNpt7Bu3
-         ZGvBFvbIMJJ9n+ix6TFGDNFvcmh+HhNpDvMGXA0tBg2Axiwcg3CMEfXcunzlSsshAaBK
-         9wi1bCjA8SCcj8xpJjupmlBRCjLukArH9D0rZXFdIvqBbO7JtQRlIo1Uu5pOTmAeebRX
-         VyHRwBcIyoOrk2+qzFN4CF4S8fO0hh51QeplTaWh9px7w154BU6LdZAoZx4HQbrVKiRP
-         rHhWghPhv6OBkxI+1c30NSsVZMbElMPiO8PuSeZJ7De7qpkuBduBkpbpR8hks/LFzKC6
-         9FSw==
-X-Forwarded-Encrypted: i=1; AJvYcCX03QG2BQVbokBFhKMAB9x8mJ6TgZH1RI2O8SgTv1oHjGNxGe4hs7Fm9PDBW+RfDZpxl3RQ4hARQ52H7oz87gIV@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywf8hLEQRnruP3kxIcaeSrVpcgt56eUxEF6POV7fOg4ybNPSguj
-	vNGLoip/OYX7QPY0saKtkXj3pe1lCL6z8v8AgD4AXUFBufT3rldWxwgevJGK
-X-Gm-Gg: ASbGncsj/BOnBtToAKsaJ+OnzAe0t991JfVcImzFpoRpHSbJaZ4GJ7L63kdOaaHLHXx
-	ANTsU+1PMDSkRIKSrXIbJClyMleZ9EvZdavq9nYMhOFQYxOZc1hmtGbXTsBmfaUzuCOq0hAqLYS
-	s7iOPeAcDdSYxLVXnHN/xjU0znYV032gM4TsMz5NPIUDxFMPFN7m000j4E+nksW4IUlYKFHgAu3
-	7hPc6POiUKyhmkzTRUJpKLeKjoI1cNc1rk1gR66sqXyi6WPOhWq9SWo0ruZtbHTc3PZn7CWeFeZ
-	1Hze89tggye1J/rXAQfV14btTBLyB9q1mRwWwyTGp+sCB6xP
-X-Google-Smtp-Source: AGHT+IG74bLhKlZqctRh0cx+lisoFHlFryydlPvsb99VYF2WOPMgU2P/5aEh7J3WE0FJfhLnYsaeBQ==
-X-Received: by 2002:a05:6512:2809:b0:545:a2f:22b4 with SMTP id 2adb3069b0e04-5452fe82d23mr2268653e87.40.1739805109651;
-        Mon, 17 Feb 2025 07:11:49 -0800 (PST)
-Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com. [209.85.208.179])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5453035f233sm997606e87.215.2025.02.17.07.11.48
+        bh=WqBPs7TXi1TZ+t7BcT1Oc3H2Z/zeW3wGdbgAmH8XYY0=;
+        b=oGdmSXsad83UF1Z7t4k7hJ9H+xtrnLmOD1Ih+No9mkSalM2S+hF70mx7AkEcna1xo5
+         u33pjVClL8wAUHELfgdvSwbib87AFm1DOL4Yz7mtbDnZMtWrHtLGLN1cP7CqzTUuFbY6
+         MHS/om8DxW+bNmjaWk4JKvAnCFno5xYlkyldECDEbSfx4hpd3dm6el1H76HUdch0s8wN
+         sGUkwM6kEHALpmyTcVR+ixaeTVacefjbk724IgCVZnUmNoq3y/ZfhQ8cmb4HZxQL55UW
+         ApPNE2Z4u0FCruRhuKNTVseDwdj6M/UBP4ojjxoFOcG6/Rr9r0K+5G23zVDR+qCB6JGT
+         e0ag==
+X-Forwarded-Encrypted: i=1; AJvYcCUfTUBKPqEpm6vbBYVkynQUqcY0PI7MAjlgbtV4LnNUpVWZkwxOrNug9eZzUD4DidilQIik8hp+7i0F/nfNDxvm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzz95zjlJiUXscQ0NeAlgOZLREMQ+d2lqTuXNJ61V8/YPaMSG4Y
+	wAL4LitBGWQbLu0zWrf8ktzSr9X89Oma/w32tgLrPOhMpUECbkGj77wnBbRl
+X-Gm-Gg: ASbGncvWYI39o4/AH7lCPABpYWzfcUtPgl1FyIl2xwW3t3/ZDAqXJDX3fmIIBrF/BVM
+	kiWUyOZzQ7LokTjpHZ5f1+YcVhu2Em8VqpSTan6vuhKqOK9Odi8WfsXNimXDx6L2J2msvPjn5h4
+	7LefmaSfy6KzAVRN/WL09QPhbQnq5NMVWwSEiPhdVaI4xWm1qrEPlTZb5mBBqh8atnaEu3GxUe0
+	3n1vPkUq64kLo6XpXQPactC6x3eiLyjbvcO/nTHzyNx6zxT4kSZy3CUT5/W1hjLSlODoCvg6itA
+	FeV0Gl/GOShpdg3gnDzCpwjZgmLm24GNIX8JA6kbZq+fnBNS
+X-Google-Smtp-Source: AGHT+IErmY7H3xWfNNKiNLb0fDBf23zvgvdAdlNOvrziKRBX4OB5GugPICRcuF55vZG7sBLFk00pvQ==
+X-Received: by 2002:a05:6512:3ba3:b0:545:11a3:7775 with SMTP id 2adb3069b0e04-5451dfcb82fmr5272608e87.7.1739805185515;
+        Mon, 17 Feb 2025 07:13:05 -0800 (PST)
+Received: from mail-lj1-f175.google.com (mail-lj1-f175.google.com. [209.85.208.175])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54618f83486sm756000e87.140.2025.02.17.07.13.05
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Feb 2025 07:11:49 -0800 (PST)
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-30a29f4bd43so13223451fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 07:11:48 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVwpz49KmPL8S1d5m16gCWDO/qWB3w2yQWfKjeJM2cfL/fj2sDS9jQoOb2FGO9QRW1vnuIwIy81lq+ff1gdXCOO@lists.infradead.org
-X-Received: by 2002:a2e:8757:0:b0:308:eb58:657d with SMTP id
- 38308e7fff4ca-30927952830mr26737901fa.0.1739805108110; Mon, 17 Feb 2025
- 07:11:48 -0800 (PST)
+        Mon, 17 Feb 2025 07:13:05 -0800 (PST)
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-307c13298eeso45965941fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 07:13:05 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWbdZW3LyBiGCzcCdgAmZ3B3SBEoGZo16r/C4zY6TN5hKj3IoYzRLQm9/NpmV9rqhjRQ6ocFw+iAJOUL9/qqqim@lists.infradead.org
+X-Received: by 2002:a2e:bcc1:0:b0:308:e521:591 with SMTP id
+ 38308e7fff4ca-30928b55670mr39756701fa.16.1739805185075; Mon, 17 Feb 2025
+ 07:13:05 -0800 (PST)
 MIME-Version: 1.0
-References: <20250214003734.14944-1-andre.przywara@arm.com> <20250214003734.14944-3-andre.przywara@arm.com>
-In-Reply-To: <20250214003734.14944-3-andre.przywara@arm.com>
+References: <20250214003734.14944-1-andre.przywara@arm.com> <20250214003734.14944-4-andre.przywara@arm.com>
+In-Reply-To: <20250214003734.14944-4-andre.przywara@arm.com>
 From: Chen-Yu Tsai <wens@csie.org>
-Date: Mon, 17 Feb 2025 23:11:35 +0800
-X-Gmail-Original-Message-ID: <CAGb2v66gSuv6egek05QfpRZNH=Rn-eZXxQ_GVfDWpJ-HuojX_w@mail.gmail.com>
-X-Gm-Features: AWEUYZnwpP6pvAEUU7QbWQG6w8gtn-pOi6TW3aQOb0FOCh7uCxrlelNQmMUxnZU
-Message-ID: <CAGb2v66gSuv6egek05QfpRZNH=Rn-eZXxQ_GVfDWpJ-HuojX_w@mail.gmail.com>
-Subject: Re: [PATCH v2 2/8] pinctrl: sunxi: increase number of GPIO bank regulators
+Date: Mon, 17 Feb 2025 23:12:52 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65PNymVgAW5gJzoaAN9bCvbNrUPh=MOGT71wimkGnT8Hg@mail.gmail.com>
+X-Gm-Features: AWEUYZkPH3DyqUAjqlsWUrgFVAz25I3j7gx6gVj35UBevzeFHJcZOXdE_CBm2aU
+Message-ID: <CAGb2v65PNymVgAW5gJzoaAN9bCvbNrUPh=MOGT71wimkGnT8Hg@mail.gmail.com>
+Subject: Re: [PATCH v2 3/8] pinctrl: sunxi: move bank K register offset
 To: Andre Przywara <andre.przywara@arm.com>
 Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -82,8 +82,8 @@ Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_071154_234004_E8533839 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20250217_071308_865941_02B8E11D 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,13 +102,24 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Fri, Feb 14, 2025 at 8:40=E2=80=AFAM Andre Przywara <andre.przywara@arm.=
 com> wrote:
 >
-> By design, the Allwinner pinctrl IP always supported up to 11 GPIO banks,
-> though no SoC ever used more than 9 banks so far.
-> The Allwinner A523 has pins in all 11 banks, which exceeds the number of
-> per-bank regulators that we currently support, as this was set to 9.
+> The Allwinner pincontroller register layout used to allow for at least
+> 11 banks per controller, any more banks would reside at a second
+> controller instance.
+> When the per-bank register map size was increased with the D1, it turned
+> out that the last bank (port K) of those maximum 11 banks actually would
+> not fit anymore in the 512 bytes reserved for the pincontroller registers=
+.
+> On new SoCs Allwinner thus moved the last bank beyond the existing
+> registers, at offset 0x500.
 >
-> Increase the size of the array to hold up to 11 regulator structs, to
-> support pins in bank J and K as well.
+> So far SoCs never used more than 9 banks per controller, but the new
+> Allwinner A523 actually uses all 11 banks. Since that SoC also uses the
+> extended layout, its PortK needs to be programmed at offset 0x500.
+>
+> Factor out the bank offset calculation into a new function, and handle
+> the case for the last bank separately. Since none of the older SoCs ever
+> used PortK, we can ignore this case, and just always use offset 0x500
+> for the last bank.
 >
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
