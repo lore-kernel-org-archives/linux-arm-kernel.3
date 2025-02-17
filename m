@@ -4,79 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6792C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7798C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+M34uV/zkct1kEAaK2pLJ3/QmCI3GfHP6imSRuJbcm8=; b=Q92D0s6xfUCOEbTrIqzyrFTXBX
-	z72ecEKq5OjnGr0eiD9V31n7xaoEJOn5gxrvph9bIGApolUJd87aCKCONEmPMCJHKWxJjwA4gEzbo
-	u5pgLZVKKG8ofb59N420lYdEhpnprMrPJHmpxpEBzngURu9Hj1+Tq7xRDXWhp3TB3sjZDlITQsJk5
-	JdW9Eb1mWxtyJzjYFMeKVfLycGIerVWcKSxmdnMY3VAMpNfEUT3aO1g34HWF76tWCzftP/PeC9EsH
-	aLYCGnNL4xwwti3Ahsp6rPX7bketXKJ5empoXWetxcb/nMFlpb3qoHWnaerDKxoD80DtqgOb6Hnjv
-	Xoc2bypg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oXoBLoBhkmHAsPATjYXnbeVHXKCoJYAoeA07HXhsnTQ=; b=Ee7kOVL3QhAPmNcoW6MTdAmmMo
+	VVYbzL8FMCc09xLDkGN4CLJwR4OjFzfKbR+jB02G4xRrex0XVfkz30I0BepaHs+WQa8PJnBiIcASh
+	eqQpbaUkVP813jVeGrCYHfwuHRmZ4GDpv4owXdx1FKuA1IwZQl+y6kSIA7pwS0O+SeZI/doURQNHx
+	4GqhMR3OFcr7uqktRpWGKpjva2UacRzuVpc56nKcVXDwvATk4ZZKCK4uPemXb9upJDpb/0wLgadaB
+	bT2xTuMPhf/q4F+yyDgXgNYsf9ecfDNrwsMtyyxLZX4Olfs6kpuY7uAoaHGT1tcEIVt8jZC/vLWwH
+	/NSqXQBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2dY-00000004yZ5-3HO1;
-	Mon, 17 Feb 2025 15:02:20 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tk2ez-00000004ykb-1lbm;
+	Mon, 17 Feb 2025 15:03:49 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2X7-00000004wn7-1qRC
+	id 1tk2Z9-00000004xaY-1SvO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 14:55:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4E9CC5C57AC;
-	Mon, 17 Feb 2025 14:55:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 453CDC4CED1;
-	Mon, 17 Feb 2025 14:55:35 +0000 (UTC)
-Date: Mon, 17 Feb 2025 14:55:32 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Tong Tiangen <tongtiangen@huawei.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	James Morse <james.morse@arm.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
-	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com, wangkefeng.wang@huawei.com,
-	Guohanjun <guohanjun@huawei.com>
-Subject: Re: [PATCH v13 4/5] arm64: support copy_mc_[user]_highpage()
-Message-ID: <Z7NN5Pa-c5PtIbcF@arm.com>
-References: <20241209024257.3618492-1-tongtiangen@huawei.com>
- <20241209024257.3618492-5-tongtiangen@huawei.com>
- <Z6zWSXzKctkpyH7-@arm.com>
- <69955002-c3b1-459d-9b42-8d07475c3fd3@huawei.com>
- <Z698SFVqHjpGeGC0@arm.com>
- <e1d2affb-5c6b-00b5-8209-34bbca36f96b@huawei.com>
+	Mon, 17 Feb 2025 14:57:48 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43932b9b09aso48629225e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 06:57:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739804266; x=1740409066; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=oXoBLoBhkmHAsPATjYXnbeVHXKCoJYAoeA07HXhsnTQ=;
+        b=IZe8PiOC6gq42uoC5m2tEiVJBGU05e1VzugdzkpzCcG6bMpaqFqRINNZ69octbXsSp
+         I2APN/MFRYLwkQrQcu1IRDnA/kj/vXAZtQG8fhw4biFAp6VoPYUXI7cXdPas8K1pgH7g
+         /8xEgd7xMm+dLtI54L+293qR7kfs7zJoOmcAbI3rPWhOi+4i4tJslYTYIEMEBX1HnSZj
+         asXDBaNd3ogZukiI5GiHMLfrC+dKNEOiibHU3xW+DXZzD7taQvI9vBaLBndHko38z3iZ
+         KIZtuKsvrBaxJZ9Cffei47DTNLaM7cmvjcHzTuEqGH8e5MZQUQgKVqGU5WqDyZVO7dQy
+         v7UQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739804266; x=1740409066;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=oXoBLoBhkmHAsPATjYXnbeVHXKCoJYAoeA07HXhsnTQ=;
+        b=dGXDiHVeV+rfEkIVRPqhsOkPb4Chn/Vqrbc+ElHWWx0tkoLG5NTzk2lK6CDBu3KL+g
+         9qxvG2PbHQ3MP/oS7NFHC5g0WzuzaaYWb+YMY8nTUfPPb/1LVzTCj2lJH7xFzIrhvttn
+         hb/FJUzuvsDgBHISfiA/W3Lb1hQicDjvTBhmeygzUNmW9NB2euP8oHmlWy7lDbKLT6GU
+         DDJ5+ytWNYM/qMdHGL0mXOt1+RWHtFoZcnM7HSe0XbOmF+GQ4QaaV7Ues/QTbgzNfMNP
+         Ysl/4nATcTU5oApWlWjbbIQFarA6FJuJcpmvDA70Kesr6NB8aUvRCtS6MioFWC4PmL/i
+         NRDA==
+X-Forwarded-Encrypted: i=1; AJvYcCV07JzhIBXF68UDhE0qmTlW++sJg45/4rh8miI0GVEsryCmBRFc+7dmSZ3vvrJI5mbEGQM0KYFSTAbYspFRZpG5@lists.infradead.org
+X-Gm-Message-State: AOJu0YztQkiGAeJ3cwtDnRZCQGNIBnAxdYXSK3sE4Xl78igH8o2smqCp
+	IWaPTwtZF99KYmwFzdCE8l8874tpagOBqaqCR/IJ9kBGPoEvAWt1
+X-Gm-Gg: ASbGncug+AYaZhdKopjd5ElQWzZmhBGU/ZogN/32qJ7g4uSoXQpXY/LDYBl8CdL16mv
+	pz4tyZZMEZRJLoS3/AF2C+73/4RaW6/YITTBbslsvsPIFtibgifxNvexEE4ubIfbGRauaOVacM+
+	DvVR4oIkq/HnAaFXU4TsWseupwyCREiDyOOTIWZrhtd88t81ltPHel/F2lEodg+H6pNgyg4sKeO
+	e7tpmcx9qK7Hexko3AJQcJxqUS6L1w3DM4aH8TIy0Dx/GTn+MCe2XQZKr/IDPW6i1HPW9Hkk1Lu
+	lZQppI2wsAwekcjfOFgDPR1NCB87rO8=
+X-Google-Smtp-Source: AGHT+IFXCMAdjJ/GydfAREXf0KPq6/DlSCRVX1j0O/vO0UDb9MfjoWtFC0m9aDzP5dEgyS4d1XL08A==
+X-Received: by 2002:a05:600c:19c9:b0:439:5760:39a with SMTP id 5b1f17b1804b1-4396e716e8cmr101394035e9.23.1739804265610;
+        Mon, 17 Feb 2025 06:57:45 -0800 (PST)
+Received: from eichest-laptop.toradex.int ([2a02:168:af72:0:48e7:ac19:aeba:f677])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f25915146sm12645020f8f.56.2025.02.17.06.57.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 06:57:45 -0800 (PST)
+From: Stefan Eichenberger <eichest@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	francesco.dolcini@toradex.com
+Cc: devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 0/2] arm64: dts: freescale: imx8mm/imx8mp-verdin-dahlia: add Microphone Jack to sound card
+Date: Mon, 17 Feb 2025 15:56:39 +0100
+Message-ID: <20250217145744.179213-1-eichest@gmail.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <e1d2affb-5c6b-00b5-8209-34bbca36f96b@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_065541_561196_84F56856 
-X-CRM114-Status: GOOD (  32.42  )
+X-CRM114-CacheID: sfid-20250217_065747_396152_B299A818 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,57 +103,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 04:07:49PM +0800, Tong Tiangen wrote:
-> 在 2025/2/15 1:24, Catalin Marinas 写道:
-> > On Fri, Feb 14, 2025 at 10:49:01AM +0800, Tong Tiangen wrote:
-> > > 在 2025/2/13 1:11, Catalin Marinas 写道:
-> > > > On Mon, Dec 09, 2024 at 10:42:56AM +0800, Tong Tiangen wrote:
-> > > > > Currently, many scenarios that can tolerate memory errors when copying page
-> > > > > have been supported in the kernel[1~5], all of which are implemented by
-> > > > > copy_mc_[user]_highpage(). arm64 should also support this mechanism.
-> > > > > 
-> > > > > Due to mte, arm64 needs to have its own copy_mc_[user]_highpage()
-> > > > > architecture implementation, macros __HAVE_ARCH_COPY_MC_HIGHPAGE and
-> > > > > __HAVE_ARCH_COPY_MC_USER_HIGHPAGE have been added to control it.
-> > > > > 
-> > > > > Add new helper copy_mc_page() which provide a page copy implementation with
-> > > > > hardware memory error safe. The code logic of copy_mc_page() is the same as
-> > > > > copy_page(), the main difference is that the ldp insn of copy_mc_page()
-> > > > > contains the fixup type EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR, therefore, the
-> > > > > main logic is extracted to copy_page_template.S. In addition, the fixup of
-> > > > > MOPS insn is not considered at present.
-> > > > 
-> > > > Could we not add the exception table entry permanently but ignore the
-> > > > exception table entry if it's not on the do_sea() path? That would save
-> > > > some code duplication.
-> > > 
-> > > I'm sorry, I didn't catch your point, that the do_sea() and non do_sea()
-> > > paths use different exception tables?
-> > 
-> > No, they would have the same exception table, only that we'd interpret
-> > it differently depending on whether it's a SEA error or not. Or rather
-> > ignore the exception table altogether for non-SEA errors.
-> 
-> You mean to use the same exception type (EX_TYPE_KACCESS_ERR_ZERO) and
-> then do different processing on SEA errors and non-SEA errors, right?
+This patch series adds a Microphone Jack to the simple-audio-card of the
+Verdin iMX8MM and iMX8MP Dahlia carrier board device trees to separate
+the microphone and headphone functions.
 
-Right.
+This resolves the following boot-time kernel log message, which
+indicated a conflict when the microphone and headphone functions were
+not separated:
+  debugfs: File 'Headphone Jack' in directory 'dapm' already present!
 
-> If so, some instructions of copy_page() did not add to the exception
-> table will be added to the exception table, and the original logic will
-> be affected.
-> 
-> For example, if an instruction is not added to the exception table, the
-> instruction will panic when it triggers a non-SEA error. If this
-> instruction is added to the exception table because of SEA processing,
-> and then a non-SEA error is triggered, should we fix it?
+Stefan Eichenberger (2):
+  arm64: dts: freescale: imx8mp-verdin-dahlia: add Microphone Jack to
+    sound card
+  arm64: dts: freescale: imx8mm-verdin-dahlia: add Microphone Jack to
+    sound card
 
-No, we shouldn't fix it. The exception table entries have a type
-associated. For a non-SEA error, we preserve the original behaviour even
-if we find a SEA-specific entry in the exception table. You already need
-such logic even if you duplicate the code for configurations where you
-have MC enabled.
+ arch/arm64/boot/dts/freescale/imx8mm-verdin-dahlia.dtsi | 6 +++---
+ arch/arm64/boot/dts/freescale/imx8mp-verdin-dahlia.dtsi | 6 +++---
+ 2 files changed, 6 insertions(+), 6 deletions(-)
 
 -- 
-Catalin
+2.45.2
+
 
