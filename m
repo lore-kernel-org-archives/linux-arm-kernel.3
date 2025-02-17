@@ -4,161 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE0EC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 02:23:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9430DC021A4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 02:37:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GUhK2IBAZRKyLIR6BKuHhfeORUFZlBb+X2i/U37Ew2M=; b=Rbn2fCCK7TVQshedlLdahmjgwN
-	zooP5zXlj7Ki73NFVSv0Z+lZXaDUf2rDOGNeuiVABAleef9KVGEzWjFoTpxqx/UfOZ+vGpH/dMFiJ
-	f/Q8GDDh7B4MhgGDvMAVVlugt2GJMlp7ZCqQliwqV0LtCG9JizqypMarQLW36ZBWxHvLt70RGkvCy
-	tW8KYBitJDc7diDTkyhXboC0fWn8WYq9xNaI4ZXZc1bhr8qfA9QjBOOhnxS7NxLlFz63Y/oHTbdTF
-	zotfA4CgBpTC21GWc3L/P1sp/uVw8pyHOk6yiLfklC0wxvHmK2clc78aZbVObyUXlnnlrlLcTJqdD
-	CRuZm/VA==;
+	bh=jd4HwW3C0GzbkZ4o5YXYERwcRmz2KQTD3y8I//0WkKo=; b=albaCvBsPi02wiGOELf9g9E/5E
+	fpQQS1L15Mha2N3/o9KQzCinJosV+berPUAOELDx+Mbwp0mkjgaKy+E4E/IqIAwq+2Vfug8QqnlG3
+	vkL3RXLXsEIcbQ5MVpcwXM6HZ1WU1GCGAxz52EB5f+t0qY9kFq8GigZHnC9I+nb96HkS0JGVF6y6E
+	A0Rhz5d9ILCy96B7W2X65DX4uSJRlJ77ICEbVEkuBbgiaFA2lKtKPT5FhSSqNm7IFuiOBfS5QcL7W
+	teGabq4rRgRuiA5jSm/sCwfO9wN7jpnk9SM3rVzZLwiZHWR3Jzj+5tRCGtW/0ccv+KHk43/nYxqfp
+	M2i2dYZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjqmk-000000032Ij-2H16;
-	Mon, 17 Feb 2025 02:23:02 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1tjr0H-000000033QU-0Y44;
+	Mon, 17 Feb 2025 02:37:01 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjqia-000000031kp-2Zim
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 02:18:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NiC1vA8euNFEMropuZNw34KzxmwqOST+vbOz9jQQjuEpmYTJKQVlFCHfzlw/7KWJQIOhgYXTwtxlg19en9vAUY+5+LdKqjSFVKoeIG6EygK7n1FWI4lLA/HuzqYeRm9/WgJND4g6fndrbNU3zyYYxfdKxyvu5QhDpi588XDD7AQMNz3L4Uw9m0XstvFiBbo11YXozbc/d8G7zFwwelZ1qjaqSV3Wq6+GOdkWTZWxz0e7rP6vr3Vq/+zEynY6SiE1Jn00Keo+ekugbKmtprwmttO62kWKULV9+jrSKAIhpjZiYDluC9h2UQTy4HeEoQ92yf9pRDx6rLuFFhs0EPpe+A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GUhK2IBAZRKyLIR6BKuHhfeORUFZlBb+X2i/U37Ew2M=;
- b=RxKToaNUBAHH7862pNogQbTCD9Jo5YgOuNNJP7pENRVJ5n60+QMYfaf4REY1u3cCpqzFyO5+shuPhcA67+F2p4PFIWxCya39xRDFPQPjbt+7pPfROSDekvljctz0uBGpFyuxOX/k41IQ8qDsuyAK1WtiXxeLz1zcWU98EzwmA4sYccZTiZqz9Cly8JpND/n4FdnwNwlEDw6jlXMzPDl6L/Pdzaoz3vc97k3TIAbqFImmfw8n28BcRmlSeLWx2Kl+Zs2A5fZAlP1NaT5cuHQ/xA293kmMCfbEUaIZXtjMMW3mCs6erq0CbRk60uALI279AkmBsdiH8tAwSV6hFSPXhw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GUhK2IBAZRKyLIR6BKuHhfeORUFZlBb+X2i/U37Ew2M=;
- b=WWIey4P1S+rPZHYg8ygRrfNKmWijevb38YwUem2xeLZ/mH+XxnANC2gdpvKLyCmLOS+UQ0bg4g6xdab5bwtUV320YliFtYq0nCtSw0Dp5ch2FZbbwgAA/R+obYIL7RxYBFSUNL6YNfZud2fq5rahbpimvoIHlu0D6z+MAlN9sSqTe/qK8WMAL+xbHfJs6QrMDtvM53MGbIBqd9Vk61NAXqiVUvqzckI3sk8L0ZFGm9xhR+5sOqpn39ziwMLFwrhR9zoAyXzrIEW32PxdpGW6n3FxhMx+dlAbb4SZDOPMXJVom54ZIesYumLpJd2EbcMALfyZEog1WRaqCqqvF5f8XA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com (2603:10a6:208:191::20)
- by DBBPR04MB7865.eurprd04.prod.outlook.com (2603:10a6:10:1e2::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Mon, 17 Feb
- 2025 02:18:40 +0000
-Received: from AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::7be0:296:768c:e891]) by AM0PR04MB7044.eurprd04.prod.outlook.com
- ([fe80::7be0:296:768c:e891%3]) with mapi id 15.20.8445.017; Mon, 17 Feb 2025
- 02:18:38 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: shengjiu.wang@gmail.com,
-	Xiubo.Lee@gmail.com,
-	festevam@gmail.com,
-	nicoleotsuka@gmail.com,
-	lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	linux-sound@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	imx@lists.linux.dev,
+	id 1tjqyn-000000033F3-3TT8;
+	Mon, 17 Feb 2025 02:35:31 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-21f8f3bd828so7240285ad.2;
+        Sun, 16 Feb 2025 18:35:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739759728; x=1740364528; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jd4HwW3C0GzbkZ4o5YXYERwcRmz2KQTD3y8I//0WkKo=;
+        b=fSwzAcNtqV77zaVivPzWkobZ3XNa4E1SIjewWtIe0ictxhhZel6zYKH/ZxLuvTpIEu
+         +IYvPWhqBqWze+/PxcONi7/mEQmoH4kLffuqQ3VrgAR2jT+Z9Fu3heItii75G1d8Rajj
+         t4AfFJNMqOsWEJG30DcEX0y8Vs48ZXSiK7PWjs8twJ+IIxKcsCI2bT77IU4M8ajVcxvC
+         Xn56wiT5qbopyejBsxa00Tben7/58KluZQOKy5/zcqIQvmiVNilP3L/RaPVm/FRLKL68
+         RMypKcTPmUoMb2u8uommqmoS/4CcDtwZ2WJuZ0BqqRWN17jaV6QsEpBxfAjbO+AQQxEf
+         Y9mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739759728; x=1740364528;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jd4HwW3C0GzbkZ4o5YXYERwcRmz2KQTD3y8I//0WkKo=;
+        b=VGYuL40Ejpi5h+ApeUVVIxZXa3QuoyuoxQANX3QiUQq+V0DiTR5UiyaK7Aw1YsBSIl
+         jU/xQsrzy9u2+h7Pneg3+mNkFdsA/92jJfckBzC+UlmQQVfnGhwxTsxwMohkNElw31Ag
+         nRgMLfBkgf1RgRIjGtoNmgsW6kGrXJ9gO7Iit9QmAMygdsPm+E6LMdh43VmCpd8TMcZG
+         UKY4FnyB6KNSe962ZDLD8Aio+T95tUXjkcotxs7TUyVjWUksHZjoKnA5m1lHLWjPu3YC
+         9h7xTOYmOdyjAIDspVpp9KekuN04b3krLowUxqlYrwEhuDW4vuAPnX5g9INNyCN2U8dw
+         KzQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVOg0322zNI2+wzBk43z6znKb+kWb93c0+Owcaj1ZeDt1fsrNcH+ux0aVd0VT4ZO/5laZ3h3xMfYdFSrTKoX5o=@lists.infradead.org, AJvYcCW1Hg2ZrMfEN3YYOXiXnyPYeQLGIszwN1RS5jq3u0SO1gJO/Hni9IMNaSe0Jbq/ldREkMsPu+nWVV/318fLkv7K@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUiYlKyF6a+R/bSGKr509q1DSfqyCAFmZNWAQkBqc1gsMH6Bu3
+	Pn4SgywCZOzpvfCtqEovW8atFMUXoT3GFf+nxcAGoNRWsrM1EdeS4Cj2Owkw
+X-Gm-Gg: ASbGnct21/MoSJwS0zZ1uCCZCpz1d3VMSYaZUBh7U2h4kDYx75wPlV+4HXZ+dE/VMdl
+	uDXwmKJ2tS17e8Z431jp3EE0ne+niPmdX6drA0n7XMjLgGQojf/haJmk8lKEev2CRE0EsOg40n1
+	HQQBsNFMcpidgIPNmzLQZ7wxu7OhQxOS3WejEiXhNyYO3vjVzxW8H8Zw3WKZyOZ7/7LUfNjovP7
+	BCS5XCvwzr1BpA0WEidQYfA4NoUT5Ebfy9vs5NAcyYs2hcXIGvceLHdqmQsF06u7GPiqyB1rbPV
+	Cw4Ln4JTdUdvE3yyTVL8
+X-Google-Smtp-Source: AGHT+IGNbbo7ikAW7Im+6gY74ZetG4o01fHwxCYPD6wtGVa+4XQqxJ9KfHcssadTuHK692BYrU0wVA==
+X-Received: by 2002:a05:6a21:78a1:b0:1ea:ddd1:2fe4 with SMTP id adf61e73a8af0-1ee8c9aa127mr5494706637.0.1739759728075;
+        Sun, 16 Feb 2025 18:35:28 -0800 (PST)
+Received: from rock-5b.. ([221.220.131.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73260f9e6e2sm3702199b3a.79.2025.02.16.18.35.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 16 Feb 2025 18:35:27 -0800 (PST)
+From: Jianfeng Liu <liujianfeng1994@gmail.com>
+To: piotr.oniszczuk@gmail.com
+Cc: conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	krzk+dt@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	liujianfeng1994@gmail.com,
 	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH v3 2/2] ASoC: imx-card: Add playback_only or capture_only support
-Date: Mon, 17 Feb 2025 10:17:15 +0800
-Message-Id: <20250217021715.284951-3-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20250217021715.284951-1-shengjiu.wang@nxp.com>
-References: <20250217021715.284951-1-shengjiu.wang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR02CA0103.apcprd02.prod.outlook.com
- (2603:1096:4:92::19) To AM0PR04MB7044.eurprd04.prod.outlook.com
- (2603:10a6:208:191::20)
+	sfr@canb.auug.org.au
+Subject: Re: [PATCH] arm64: dts: rockchip: add hdmi1 support to ROCK 5 ITX
+Date: Mon, 17 Feb 2025 10:35:21 +0800
+Message-ID: <20250217023521.35071-1-liujianfeng1994@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <2FE649E5-61FE-4299-81D1-F838298A04A5@gmail.com>
+References: <2FE649E5-61FE-4299-81D1-F838298A04A5@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB7044:EE_|DBBPR04MB7865:EE_
-X-MS-Office365-Filtering-Correlation-Id: caf04d64-f0e0-4343-fc72-08dd4ef9632a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|52116014|376014|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tRqbA6Q/Bdwj5JmPH+g7j1OEr4LA9+AT6RSokCAak0RcPR+lMY2Xi7LQlFCd?=
- =?us-ascii?Q?DoZidfeG3K/1aD/FHqtNJaYVjolrUwE+JX4mnrMLwFqJJ0BjuYfzMXXo4jQi?=
- =?us-ascii?Q?Rug2+pKeGWKNEUIwhqIv3P5oniwzoqUBlejrNVtbHbC4PXG0wdyZH6XTck95?=
- =?us-ascii?Q?6gTeDRcmr3OQuT69t+3UUvRnz9Intbj3yoEoyj1O34KC7FeazrkP+ggZlzXl?=
- =?us-ascii?Q?Q3wQ7JcQY9BI9bS2kEr8yx+id7ZVCAXc2RmW09YWMtRQZEtiPFlFGrsrEdE3?=
- =?us-ascii?Q?TIsC3DKl9KYJHAfubyuRkT44OLxUrwQHWXk4c8WhxYm0t6kNBLAz3q26abt3?=
- =?us-ascii?Q?OqoNKL97cv6MFJopY8cH3XkQ69fck5+QojNgfzkUuC1NlgN9RmS3G6CKNNEw?=
- =?us-ascii?Q?s4YXlVDFi96WPSPv7/cK3GEJcKQ0Aw1/Ex04JGqr03IjTUMvzFNhrefZOOeU?=
- =?us-ascii?Q?eWxQ8tmdUUXhAHbhzOLb3zj+PLN6cyLBgFepQPbdwAHQeFcWT1kRG8meCR9/?=
- =?us-ascii?Q?kW18Ks1xjDNGg/NYjqtDB51yM5yFlnYNQ6NEDYUyxoIJzBNDIYUN4sjFJTcj?=
- =?us-ascii?Q?aUZSz4AjjO4qW0pN4qcqKm2bj/ZfjrOXxQJNvG45/fKleYEqbhS/Ti81TkyL?=
- =?us-ascii?Q?vumvEF7KT3ZhR7SLRBQdP9Ta4cQPRWA8nhKSuFMjPro19+6sFi6+YlJag/39?=
- =?us-ascii?Q?7R2c1fHJ/RtZw/HGCHiUGyLaJfqQkmSafut/6Y15nOVrb51/r5/Fpl3BvmwR?=
- =?us-ascii?Q?ZMW1LCpjh0uOFBA/ZmzZdr6DGZ/hgWrwyBE9NDbdOvcpynKOZ65MPF9guMTN?=
- =?us-ascii?Q?llxCMUsLYDbCU0nABLJb6Qr4je+t1JulF7nvWuSqaaijIQdb7N6eath8pi3V?=
- =?us-ascii?Q?eqENuLqcb7ZXfaU7pr035fp4CQplj0Ox4WZdM73IQRgforcMrKUxuvYd3abv?=
- =?us-ascii?Q?DLctVzH5H249f2mpgi2vr1al6pR6R1uLssGIsAGwmxT67A4OqjNvg2krLUxm?=
- =?us-ascii?Q?mYdY02TOrZQe9j/8PFCO/3fxOWS2+oxq1WRZS2diAgOVzOzHwe2jf0KBbFEd?=
- =?us-ascii?Q?RZG7I1NwBcOSHOaU4H6GTwbHrWTPm34uTkqYrxF0TsiwUJIQ4LP6Ot3EB03p?=
- =?us-ascii?Q?rG9kX5wWrV5Z36tYdlHnDFeSYhYUzQilh2XPP2JkN3xgl6tpi20L9BX8agpf?=
- =?us-ascii?Q?WbuPdk9vggWrS4I7eSfUzRAVZaUjCnl9SgEpJ3pcpNmU6HtVhaKaKztFgJ7e?=
- =?us-ascii?Q?h9v59BJELmlwgwYuah4U8wlWgqa+UA4lBqdD6g41Mw0wF8aB/bAHr7oiofeD?=
- =?us-ascii?Q?PaPGKZlEeY5nwSKC00faT/jBbpTwx6mh5NlemDMks8AnDJviwst3I3mrCO3l?=
- =?us-ascii?Q?SVEMO0z7Pcur2NcXiN9FjEaqW6dtbfzcbEbGfs4bBver5yNir2mRG7HcCkB5?=
- =?us-ascii?Q?e21joMpuzGzbU1CN0eqygevjRa1Cbso8WRtASirNUBjSMtuFOK1L2w=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB7044.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(52116014)(376014)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rWyME3ypWZkgBiqQT5XQ61st0WQyecGv0w3q0DPX/2vB2hBjM9HJyO0ttB1O?=
- =?us-ascii?Q?FnccIgMo2hpjD5B8OK+XVWGY1GwGVs8SEgfcfRi/LysF4fAh0KPGQ8SB0fR2?=
- =?us-ascii?Q?OeUsetSePDNkKDBBw4o2Xy1nmJqXQ0sVPZJfKntW5iOlppD+yrkZDmTu2tLX?=
- =?us-ascii?Q?JXrkcZfhIO/88rSMEydYuk9S9HjmPb8EBiR5RdGVeRtYimoRm0u/RH9j4RYO?=
- =?us-ascii?Q?/nctDUOYdvIrvCMDfWkfnrEyr3OQJmGcYo/Z76BwRKcN2hvgzLiyo84XkEGm?=
- =?us-ascii?Q?G291AaSwnrF+XE1oboxlsIw4z7/J1w/yqZGdLaZmX/OdeI1PrIOYpT8k2EY0?=
- =?us-ascii?Q?9/Qypi6q79ZJA9YgtA214LeWG0BTfWUzfMuREazyd5BPJpkudwHC4hOZ76UP?=
- =?us-ascii?Q?XvJuiWj5xI3vxQ0UNpdpfSzcJmw+2xqUZ3+Tl3Y3HPppFgMtyhGekdWCpwvT?=
- =?us-ascii?Q?RA7koxIqCUZKg8PoMq2eMhGXE0T5IQW75njVHvoqapgfhogrRjT6tdEPaafp?=
- =?us-ascii?Q?oBdL7VUblpCXbiuI6LUiSYs/KQ1ghfoPOYt5vdKY3hl2zIBXBGlp5qRmy3+X?=
- =?us-ascii?Q?9MOLgMsEfEl172c7Iq9VT6BPVCJciLEVB95FRRDs2ch5RRchx2kDuNRjHCd/?=
- =?us-ascii?Q?2Eq1CicV5qoRJ+fNzV+BGARbpaKtArX4mD1VLzADg10R1LNtn6fqbLKZWKif?=
- =?us-ascii?Q?VYUskruUhoukR7DDDCA9vaamHrHKCRHpsFOU9SAbql7E8KCCZCMX+kajdxQ4?=
- =?us-ascii?Q?mOF9cJRVWX54SL+FuB2aclD2fNtDYjktx0bYh8PsmZ5rAKDMgm4kK8tF1JPJ?=
- =?us-ascii?Q?fugs2Ev6Ljjbe0TgIinTukN55TCe2bXrzlGMCxEEUKFF7KidBmTviNtM7mXm?=
- =?us-ascii?Q?RIQDO3E9IGx29uCPJBcUTPz5YgysgDj3M3obtQqof/KQXbSFJLplpKPYqOWS?=
- =?us-ascii?Q?jEy5xNSYZgDWSI75wL9o0EgOQ6hin7HhPDXDICiedh0o+2ua/8dHXApnj/4g?=
- =?us-ascii?Q?gqUGLJt+nQr8CF7WLYeuKgI2aW4wz6ghgejULnyaw8L6/2UBfQqOR69FWImQ?=
- =?us-ascii?Q?F8GAXgy9/vpYKItolGyqDiFXwJlhBSnDEqPIJ0OpvnVYCkW8I/x1z72LX+mf?=
- =?us-ascii?Q?/c8iPXyuOJJBavicxpfZmF71zF+SkGgwMoWJ4VtKhEnhKyy62ZcHFnbHjKrY?=
- =?us-ascii?Q?2nnydVCN8EbEuSFBZSdJSo5ilzsY33VWORnTSMPi45IhLW/srm6ZccEV89i8?=
- =?us-ascii?Q?/FD3BGnk+1XNnpMPCKwjQwFUsLWloGVSHtMmuvakwlUydiXLvEaXMQUcAd2c?=
- =?us-ascii?Q?eR1xpyNV1PAFUJGdmlicHzEXNoKAy2huMXjxnDTg43ey7RmFfFvNzRydnTP7?=
- =?us-ascii?Q?sKZXCoNN39DOyW4EBZqRQw8FAUxtebQlB7VC5Tlkbu4rcNUmMvPA9zDxcH0P?=
- =?us-ascii?Q?kIksCOmHGMuKAB7yK91gjlTSXmbUe5nz7n8srAXmRMlSB3/yv1d7B2hPkUoo?=
- =?us-ascii?Q?D3eU77wUGUhdZXDO6QBRQudQw2ZrqyS5LL3vyyXkteplwbcvQO79TOTqrYlA?=
- =?us-ascii?Q?bHo6j1gPghSsJpr9vbX02C5b7ytGzzmQNu3HiTby?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: caf04d64-f0e0-4343-fc72-08dd4ef9632a
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB7044.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2025 02:18:38.0336
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Zw9No2+YODxNMxJhYVa4SH3i+z+rq1UvW9Ws7UykBBml7v5NLPCm21XIOlpPNn4lb7m8mQNRpHLkVHFZsccPuA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7865
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_181844_653568_6CE61FF9 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250216_183529_866426_B38DCA68 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,42 +105,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the DPCM case, the backend only support capture or playback, then
-the linked frontend can only support capture or playback, but frontend
-can't automatically enable only capture or playback, it needs the input
-from dt-binding.
+Hi,
 
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-Reviewed-by: Iuliana Prodan <iuliana.prodan@nxp.com>
----
- sound/soc/fsl/imx-card.c | 5 +++++
- 1 file changed, 5 insertions(+)
+On Sun, 16 Feb 2025 20:53:27 +0100, Piotr Oniszczuk wrote:
+>[    0.531139] rockchip-drm display-subsystem: bound fdea0000.hdmi (ops dw_hdmi_qp_rockchip_ops)
 
-diff --git a/sound/soc/fsl/imx-card.c b/sound/soc/fsl/imx-card.c
-index ac043ad367ac..905294682996 100644
---- a/sound/soc/fsl/imx-card.c
-+++ b/sound/soc/fsl/imx-card.c
-@@ -518,6 +518,7 @@ static int imx_card_parse_of(struct imx_card_data *data)
- 	struct snd_soc_dai_link *link;
- 	struct dai_link_data *link_data;
- 	struct of_phandle_args args;
-+	bool playback_only, capture_only;
- 	int ret, num_links;
- 	u32 asrc_fmt = 0;
- 	u32 width;
-@@ -679,6 +680,10 @@ static int imx_card_parse_of(struct imx_card_data *data)
- 			link->ops = &imx_aif_ops;
- 		}
- 
-+		graph_util_parse_link_direction(np, &playback_only, &capture_only);
-+		link->playback_only = playback_only;
-+		link->capture_only = capture_only;
-+
- 		/* Get dai fmt */
- 		ret = simple_util_parse_daifmt(dev, np, codec,
- 					       NULL, &link->dai_fmt);
--- 
-2.34.1
+It seems that hdmi qp driver is built in kernel, while armbian builds it
+as module. I don't know if this is related. And here is the dmesg output
+of drm on armbian:
 
+jfliu@rock-5-itx:~$ sudo dmesg |grep drm
+[    2.190256] panthor fb000000.gpu: [drm] clock rate = 198000000
+[    2.191470] panthor fb000000.gpu: [drm] mali-g610 id 0xa867 major 0x0 minor 0x0 status 0x5
+[    2.191478] panthor fb000000.gpu: [drm] Features: L2:0x7120306 Tiler:0x809 Mem:0x301 MMU:0x2830 AS:0xff
+[    2.191482] panthor fb000000.gpu: [drm] shader_present=0x50005 l2_present=0x1 tiler_present=0x1
+[    2.195853] panthor fb000000.gpu: [drm] Firmware protected mode entry not be supported, ignoring
+[    2.196019] panthor fb000000.gpu: [drm] Firmware git sha: 814b47b551159067b67a37c4e9adda458ad9d852
+[    2.196407] panthor fb000000.gpu: [drm] CSF FW using interface v1.1.0, Features 0x0 Instrumentation features 0x71
+[    2.221006] [drm] Initialized panthor 1.3.0 for fb000000.gpu on minor 0
+[    2.566800] rockchip-drm display-subsystem: bound fdd90000.vop (ops rockchip_drm_fini [rockchipdrm])
+[    2.567523] rockchip-drm display-subsystem: bound fdea0000.hdmi (ops rockchip_drm_fini [rockchipdrm])
+[    2.567882] [drm] Initialized rockchip 1.0.0 for display-subsystem on minor 1
+[    2.740995] rockchip-drm display-subsystem: [drm] fb0: rockchipdrmfb frame buffer device
+
+>Is it possible to provide me url with kernel package you are using (wich works ok for you)?
+
+I'm working on 6.14-rc2 now and this patch is included in this armbian pr:
+https://github.com/armbian/build/pull/7835
+
+And here is the kernel deb I built, which is confirmed working:
+https://cdn.haguro.top/share/kernel-rockchip64-edge_6.14-rc2-rock5itx-hdmi1_arm64.tar
+
+Best regards,
+Jianfeng
 
