@@ -4,106 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78165C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 09:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03BADC021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 09:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=koCL3sGSNowxnA2uthh7D1mm9ult5obqPLO5TypzPmY=; b=iA9zpL2qTeEtz+ikfYOpvTzIIJ
-	UnJqaV30kKKTgOfGk9LuSo4Xe6/ZBJgGktwu7OYPUzhfp4jC0Qp6B78hp5oaK60gf/Gtsju6CpU2q
-	l8DCj0vvxQYqtKk7DSIeXgwLgrb3GdrXOD3OvcZm4sJvMVeMM5kAqGQLdjfoLpvKGxwkmPNpIfLgO
-	7FNRU4vO4UvZhTcCs3zM+ay/mHRvIZi1inBt2pXwT2M05Tay8wnk2UH3uf8n6BvMjFhsnIk0gRVUy
-	PgdgKOLfesg7uV4OfTcMF91hqmdeV/52FbTkyJaw4eTKjMot/LCi1hOKPwQfSjjjID2odYVI+12DJ
-	Q8czvh2w==;
+	bh=SE8tl46fYvjJ7VyBKIUtdP2mHPp9Kw7y+n3z4AR1a/M=; b=PdZ4kBw6Fy5AC7XJq/QYOCFLqa
+	PVsM3bto6i1/H615SfUXDrsM92W7VJE59Mar0zb5LH/KQnmMt2LzaGcEfwHOZBKCPbamVMI0bFetL
+	YaPuobC+vqLMjD0CBtb4QJn7eiF0O8gDwe9xvZp0bjBS2eE/LrMw/6nnvIcVZOUAoosUKSUBzUD81
+	ybhb6DAoURYhRIWxVRVI8rtmHNqbkHUXqZzc++Tn1u3XZRLPaATYK2eypYaaNK1o5IBlnJzrjFlHL
+	6oJl4AM4Z9gUmnU0oEVu52ohfE0ULqZrujhz4DmVOZeySup3SnOQclD54TIVlSFX57p7jKk2dUOjg
+	NJ4qzNoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjxBK-00000003tFd-1ocO;
-	Mon, 17 Feb 2025 09:12:50 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1tjxFc-00000003u2M-3hHR;
+	Mon, 17 Feb 2025 09:17:16 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjwxy-00000003pok-2Brd
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 08:59:03 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2fc1f410186so5455988a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 00:59:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1739782742; x=1740387542; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=koCL3sGSNowxnA2uthh7D1mm9ult5obqPLO5TypzPmY=;
-        b=PH00+nYQ6Vf3D150ksjsP5miu5HL/gVaiAwwhUb0YGdBcokD52Y6S/2NN5b4d6cxfa
-         vyuM/9npvGj3mS6yckbFm1LDjL1+5oOyW+Fyl657gEGYs9sD3uc3+N5Ci0DukW1Se6k9
-         XVMBzS/stz0PmoZGmoR5jsLIjMvl1amXoB3bb5Q4j67hBsAe2oGVty0uczC7sACEWRLr
-         pXsZA/dSD3pQvGdxLQM1veB+1vzV2NjkrwNGyBBkipAJSpXF0wtf4ewI4FWglnPmqs1C
-         q83lG9SF3rwCI2RYaDUe5WHn7VRllFV+JIbgxt2TuJ/sTdLye3WoHNODypWmsTXicVI9
-         YM5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739782742; x=1740387542;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=koCL3sGSNowxnA2uthh7D1mm9ult5obqPLO5TypzPmY=;
-        b=jr7vbm8uvQDEk2x02RKmBsooJiRTaMCmtPtdSJ8Ejtjn8BJaxQ3H6UuWSBsqmolRV5
-         puwhPiKjqSup6kL4WvpQP5+q2N3ZQUGx4Yf5W/s7SC/P3mhK8LjpB4tLu1xefyevu+K8
-         icF37tJgPuE/6ruYIq12bSfwCmi8Eq43hfbpy2VhaN1NpSdf5FbCUF+dQMvpgXYKbBbF
-         umEKC0/3k3Sw7qIHrFwPPKNcAfw+TvxhcASB0a9jC0545iI9OP1jCO53lLYQ59+hAE1M
-         jUm/my3h9tLiIuvVPdHiylm250UcV0D4LmHCIOhInvFbk2mva0dP7wKVOkDO2J7GsWhp
-         Snqg==
-X-Forwarded-Encrypted: i=1; AJvYcCUdEmBoLb2V6mW0eL8e6wlh3v65U3BJCtDcOK4YsFqF/oza9Tc5sq4btYfavMRaMxswLEVQt2pjb2bOdbT7TtAG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZFsIvCybW1H75f6MfH6VcVYrENazR+MSdF2lcAJ3Oe210J6St
-	X0hqlglzAzmnPkBIQuQvBB9x+F+Mei3YNCrrojF9cRTQFiXYiKADa1jt1APzdE4=
-X-Gm-Gg: ASbGnctoYYXyrJCQ2IkAKjSvPs+Zxr7xWhha6CgBtQ7GurcRnXOHZotcJhtlEnr2ART
-	3vTu1nX77SXKzDJVz3Uc6Mm4+yjcJOaOzO9HLFswYy5TxYDZX14J3QaLDtv0BqQGJJKuWqEk9o3
-	7NekXT9pUcgmyE1hVfWdCvkyqdcWaD19rpn5/4DM/Gk3VSPxNQVu7BLCnn2vZrteslRHLDaPV3o
-	8wh0KjVXCgYPdPUbSHfjdzRlEVv8CPm6m7d4P7E+QoqvAgH4UYyR9/+8kkiIJ+5hTUDiQUuCJ2y
-	Mjy5nBKYqVRhPcWdRzzJmjqPF9ZZWp6eGx2Dn4HMf9x548EinUkfX00=
-X-Google-Smtp-Source: AGHT+IHbBvzPw0Wn7/Eyf5Y7dSkIAJVrU71JRxh4insgq9Beex3YYjwNlgnCYaOLqfIHDCH+B/xxjA==
-X-Received: by 2002:a05:6a00:4fd2:b0:730:949d:2d52 with SMTP id d2e1a72fcca58-73262158ademr14543775b3a.3.1739782741534;
-        Mon, 17 Feb 2025 00:59:01 -0800 (PST)
-Received: from anup-ubuntu-vm.localdomain ([122.171.22.227])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73242546867sm7632018b3a.24.2025.02.17.00.58.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Feb 2025 00:59:00 -0800 (PST)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org
-Cc: hpa@zytor.com,
-	Marc Zyngier <maz@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Sunil V L <sunilvl@ventanamicro.com>,
-	Anup Patel <anup@brainfault.org>,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH v6 09/10] irqchip/riscv-imsic: Replace hwirq with irq in the IMSIC vector
-Date: Mon, 17 Feb 2025 14:26:55 +0530
-Message-ID: <20250217085657.789309-10-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250217085657.789309-1-apatel@ventanamicro.com>
-References: <20250217085657.789309-1-apatel@ventanamicro.com>
+	id 1tjx20-00000003qzd-021f;
+	Mon, 17 Feb 2025 09:03:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 029EEA40C77;
+	Mon, 17 Feb 2025 09:01:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5FC7C4CED1;
+	Mon, 17 Feb 2025 09:03:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739782990;
+	bh=+/V/f2UmhABPBHEhpM89O0v+/BuOgWChXwtKqLdZojE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=T/C7nE3ZJzcytEDaob79THSWlUDYhbCSpWGOShDoLnx/nAYGb2tsMnJnFEM1p3u+L
+	 QysCsOL9T63Gi044GNTJ7aIMBv4hxm3JkaonTgJ4A44H+XJXXxnyBTdKPfmr/4xbCq
+	 W6IlRt9CW2l3h3L4MxPGTbUjn9tmmn2zicAHX0iy6BxHOMXih5Cbs4qXrRoJWV5pNG
+	 xpTMJghoPlEh9L6ToAmsuLtAIhwDKTeBFXc3zCO9ZGr8bouTBDUi50F4p5lWJ73902
+	 V30LJVPDdtmMR1qWQx9EGOtkC3ciDnR60FBEXI5E+lm9x6w/bUg4pXSFH9hmvNL0Io
+	 27zzQqJjDpM8g==
+Message-ID: <35d9c210-1ffb-4878-863c-912f389b18e5@kernel.org>
+Date: Mon, 17 Feb 2025 10:03:03 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] phy: exynos5-usbdrd: Fix broken USB on Exynos5422
+ (TYPEC dependency)
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Peter Griffin <peter.griffin@linaro.org>, linux-phy@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+References: <20250216114136.245814-1-krzysztof.kozlowski@linaro.org>
+ <88b00cc53cd5cb3682a29d6a2ec491c7640129ce.camel@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <88b00cc53cd5cb3682a29d6a2ec491c7640129ce.camel@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_005902_559326_43F16EE0 
-X-CRM114-Status: GOOD (  17.99  )
+X-CRM114-CacheID: sfid-20250217_010312_182103_E1606D11 
+X-CRM114-Status: GOOD (  21.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,119 +122,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, the imsic_handle_irq() uses generic_handle_domain_irq() to
-handle the irq which internally has an extra step of resolving hwirq
-using domain. This extra step can be avoided by replacing hwirq with
-irq in the IMSIC vector and directly calling generic_handle_irq().
+On 17/02/2025 06:59, André Draszik wrote:
+> Hi Krzysztof,
+> 
+> On Sun, 2025-02-16 at 12:41 +0100, Krzysztof Kozlowski wrote:
+>> Older Exynos designs, like Exynos5422, do not have USB Type-C and the
+>> USB DRD PHY does not really depend on Type-C for these devices at all.
+>> Incorrectly added optional dependency on CONFIG_TYPEC caused this driver
+>> to be missing for exynos_defconfig and as result Exynos5422-based boards
+>> like Hardkernel Odroid HC1 failed to probe USB.
+>>
+>> However ARM64 boards should have CONFIG_TYPEC enabled and in proper
+>> state (e.g. =y when PHY_EXYNOS5_USBDRD is =y) for proper USB support on
+>> Google GS101 boards.
+>>
+>> Add itermediate CONFIG_PHY_EXYNOS5_USBDRD_TYPEC symbol to skip TYPEC on
+>> older boards, while still expressing optional dependency.
+>>
+>> Reported-by: Krzysztof Kozlowski <krzk@kernel.org>
+>> Closes: https://krzk.eu/#/builders/21/builds/6139
+>> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>> Closes: https://lore.kernel.org/all/3c0b77e6-357d-453e-8b63-4757c3231bde@samsung.com/
+>> Fixes: 09dc674295a3 ("phy: exynos5-usbdrd: subscribe to orientation notifier if required")
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>
+>> ---
+>>
+>> Patch for issue in linux-next
+>>
+>> Changes in v2:
+>> 1. Add PHY_EXYNOS5_USBDRD_TYPEC, so arm64 defconfig will have both
+>>    symbols in-sync
+>> ---
+>>  drivers/phy/samsung/Kconfig              | 12 +++++++++++-
+>>  drivers/phy/samsung/phy-exynos5-usbdrd.c |  1 +
+>>  2 files changed, 12 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/phy/samsung/Kconfig b/drivers/phy/samsung/Kconfig
+>> index 7fba571c0e2b..b20ac6b75993 100644
+>> --- a/drivers/phy/samsung/Kconfig
+>> +++ b/drivers/phy/samsung/Kconfig
+>> @@ -77,12 +77,22 @@ config PHY_S5PV210_USB2
+>>  	  particular SoC is compiled in the driver. In case of S5PV210 two phys
+>>  	  are available - device and host.
+>>  
+>> +# None of ARM32 Samsung boards use Type-C, however newer ARM64 do and
+>> +# PHY_EXYNOS5_USBDRD driver needs TYPEC to be in a matching state to avoid link
+>> +# failures (see optional dependencies in kconfig-language.rst).  Intermediate
+>> +# PHY_EXYNOS5_USBDRD_TYPEC symbol allows to skip TYPEC on ARM32 boards.
+>> +config PHY_EXYNOS5_USBDRD_TYPEC
+>> +	tristate
+>> +	depends on ARCH_EXYNOS
+>> +	depends on ARM || TYPEC || !TYPEC
+>> +	default y
+>> +
+>>  config PHY_EXYNOS5_USBDRD
+>>  	tristate "Exynos5 SoC series USB DRD PHY driver"
+>>  	depends on (ARCH_EXYNOS && OF) || COMPILE_TEST
+>>  	depends on HAS_IOMEM
+>> -	depends on TYPEC || (TYPEC=n && COMPILE_TEST)
+> 
+> Is it not possible to just drop the '&& COMPILE_TEST' part to make
+> it
+>   depends on TYPEC || TYPEC=n
+> or
+>   depends on TYPEC || !TYPEC
+> (without any of the other changes)?
+> 
+> If not, why not, are there corner cases that doesn't catch? Some
+> minimal testing seems to suggest that that works, too.
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- drivers/irqchip/irq-riscv-imsic-early.c    | 6 ++----
- drivers/irqchip/irq-riscv-imsic-platform.c | 2 +-
- drivers/irqchip/irq-riscv-imsic-state.c    | 8 ++++----
- drivers/irqchip/irq-riscv-imsic-state.h    | 4 ++--
- 4 files changed, 9 insertions(+), 11 deletions(-)
+Yeah, I think I overcomplicated it. I wanted to make it really
+independent from TYPEC on ARM, but that's not trivial and my patch fails
+here.
 
-diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
-index 553650932c75..d9ae87808651 100644
---- a/drivers/irqchip/irq-riscv-imsic-early.c
-+++ b/drivers/irqchip/irq-riscv-imsic-early.c
-@@ -73,7 +73,7 @@ static int __init imsic_ipi_domain_init(void) { return 0; }
- static void imsic_handle_irq(struct irq_desc *desc)
- {
- 	struct irq_chip *chip = irq_desc_get_chip(desc);
--	int err, cpu = smp_processor_id();
-+	int cpu = smp_processor_id();
- 	struct imsic_vector *vec;
- 	unsigned long local_id;
- 
-@@ -103,9 +103,7 @@ static void imsic_handle_irq(struct irq_desc *desc)
- 			continue;
- 		}
- 
--		err = generic_handle_domain_irq(imsic->base_domain, vec->hwirq);
--		if (unlikely(err))
--			pr_warn_ratelimited("hwirq 0x%x mapping not found\n", vec->hwirq);
-+		generic_handle_irq(vec->irq);
- 	}
- 
- 	chained_irq_exit(chip, desc);
-diff --git a/drivers/irqchip/irq-riscv-imsic-platform.c b/drivers/irqchip/irq-riscv-imsic-platform.c
-index b9e3f9030bdf..6bf5d63f614e 100644
---- a/drivers/irqchip/irq-riscv-imsic-platform.c
-+++ b/drivers/irqchip/irq-riscv-imsic-platform.c
-@@ -111,7 +111,7 @@ static int imsic_irq_set_affinity(struct irq_data *d, const struct cpumask *mask
- 		return -EBUSY;
- 
- 	/* Get a new vector on the desired set of CPUs */
--	new_vec = imsic_vector_alloc(old_vec->hwirq, mask_val);
-+	new_vec = imsic_vector_alloc(old_vec->irq, mask_val);
- 	if (!new_vec)
- 		return -ENOSPC;
- 
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
-index 5ec2b6bdffb2..d0148e48ab05 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.c
-+++ b/drivers/irqchip/irq-riscv-imsic-state.c
-@@ -422,7 +422,7 @@ struct imsic_vector *imsic_vector_from_local_id(unsigned int cpu, unsigned int l
- 	return &lpriv->vectors[local_id];
- }
- 
--struct imsic_vector *imsic_vector_alloc(unsigned int hwirq, const struct cpumask *mask)
-+struct imsic_vector *imsic_vector_alloc(unsigned int irq, const struct cpumask *mask)
- {
- 	struct imsic_vector *vec = NULL;
- 	struct imsic_local_priv *lpriv;
-@@ -438,7 +438,7 @@ struct imsic_vector *imsic_vector_alloc(unsigned int hwirq, const struct cpumask
- 
- 	lpriv = per_cpu_ptr(imsic->lpriv, cpu);
- 	vec = &lpriv->vectors[local_id];
--	vec->hwirq = hwirq;
-+	vec->irq = irq;
- 	vec->enable = false;
- 	vec->move_next = NULL;
- 	vec->move_prev = NULL;
-@@ -451,7 +451,7 @@ void imsic_vector_free(struct imsic_vector *vec)
- 	unsigned long flags;
- 
- 	raw_spin_lock_irqsave(&imsic->matrix_lock, flags);
--	vec->hwirq = UINT_MAX;
-+	vec->irq = 0;
- 	irq_matrix_free(imsic->matrix, vec->cpu, vec->local_id, false);
- 	raw_spin_unlock_irqrestore(&imsic->matrix_lock, flags);
- }
-@@ -510,7 +510,7 @@ static int __init imsic_local_init(void)
- 			vec = &lpriv->vectors[i];
- 			vec->cpu = cpu;
- 			vec->local_id = i;
--			vec->hwirq = UINT_MAX;
-+			vec->irq = 0;
- 		}
- 	}
- 
-diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
-index 19dea0c77738..3202ffa4e849 100644
---- a/drivers/irqchip/irq-riscv-imsic-state.h
-+++ b/drivers/irqchip/irq-riscv-imsic-state.h
-@@ -20,7 +20,7 @@ struct imsic_vector {
- 	unsigned int				cpu;
- 	unsigned int				local_id;
- 	/* Details saved by driver in the vector */
--	unsigned int				hwirq;
-+	unsigned int				irq;
- 	/* Details accessed using local lock held */
- 	bool					enable;
- 	struct imsic_vector			*move_next;
-@@ -96,7 +96,7 @@ void imsic_vector_move(struct imsic_vector *old_vec, struct imsic_vector *new_ve
- 
- struct imsic_vector *imsic_vector_from_local_id(unsigned int cpu, unsigned int local_id);
- 
--struct imsic_vector *imsic_vector_alloc(unsigned int hwirq, const struct cpumask *mask);
-+struct imsic_vector *imsic_vector_alloc(unsigned int irq, const struct cpumask *mask);
- void imsic_vector_free(struct imsic_vector *vector);
- 
- void imsic_vector_debug_show(struct seq_file *m, struct imsic_vector *vec, int ind);
--- 
-2.43.0
-
+Best regards,
+Krzysztof
 
