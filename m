@@ -4,69 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3269C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CFE8C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 15:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NvYluRdkIYTZI6ccj4hQ+kAHZsTnKaccn8jpIrnuS3A=; b=AwbjLmMge+aldmx/KHJkYq6ghF
-	CBH1+4+rhUr0uITvbNkb0SezUVSLuMp7ntOvdDO2ZQVC5mh11l2HCJnBSD3yp9/AfrEfYTyHjq0ME
-	NCmhIQk5k5K16l5JwbyRrpPhr04no84TMM8jDm5duk7t4x0lH1feAddZSWsJbbdkMGr6lCl4MCbhS
-	Qsr3Ni0vbXlcj/9PQmoIZ7PanDxUgN6iRZcmEjwsXUOWakpzaFziwRwIPU/xYyq0wPoPVZ1scGRfL
-	AK/VYtPFE1o+LBJRkBX7mqhURVnvhMfEApEzvby8ec01svGd8Sr/bp4TSY8GCzDfFVy3vhLBYvALN
-	Vd/slsNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1YhJvpJbWGqD5e7zDPMRnMkaA+A/Mj+tescBN5wjWJo=; b=TdXluIi/0ModNO3fgl6qaHsRo3
+	8M+3abHZD8E9iGK3dpTtMoxNFEupNdB/+CFxc/0wh16n53cJW+dEwUxQG8eq0dM6N1N/YLxTI9kgY
+	0aN2wq+uN9zZTItwYQ5+fLhL6PcIq9ARj0h88sOxY5YV7liI9Yr/xZiNOaZdF4rr6HGJspa9XHEKQ
+	iDO2umcQfOHU4OHj1g+q/Ba2CrNk6coIiCuFZK2SqF8g1OGuFKMlGH7Gati+rx8FXR+jYo/jfoJGg
+	wK2U4MKmx2N8LTBkOB+yCQtb2XFyiq9AjOyzbQHcsy6YygErVUCTukLI9vb0TioHKRR5LZ6BxvlIo
+	WQR/KlAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2z0-000000051dz-0PDD;
-	Mon, 17 Feb 2025 15:24:30 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tk30Q-000000051vR-3E1z;
+	Mon, 17 Feb 2025 15:25:58 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2t7-000000050nF-0OSx
+	id 1tk2vI-000000051Ah-0vXf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 15:18:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=NvYluRdkIYTZI6ccj4hQ+kAHZsTnKaccn8jpIrnuS3A=; b=2UefaQrU/d+T+mYtpph7dWPoXp
-	aVvHZBJgTEnrOinhX8HEMfrJs70OqL4CD3KhJuGXaJGvR9OpbNBqCMg+gEX1R/V7jE4RuB6j2CHxG
-	Puzdg59ZwMIzvxt+ZI8HuIo6fHQbXq3ijGCm1odfEaEchH67hhBwbD2n8tyNyPBo+DRU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tk2st-00F0Ij-7o; Mon, 17 Feb 2025 16:18:11 +0100
-Date: Mon, 17 Feb 2025 16:18:11 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Swathi K S <swathi.ks@samsung.com>
-Cc: krzk+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	robh@kernel.org, conor+dt@kernel.org, richardcochran@gmail.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	'Pankaj	Dubey' <pankaj.dubey@samsung.com>, ravi.patel@samsung.com
-Subject: Re: [PATCH v6 1/2] dt-bindings: net: Add FSD EQoS device tree
- bindings
-Message-ID: <18746e2f-4124-4f85-97d2-a040b78b4b34@lunn.ch>
-References: <20250213044624.37334-1-swathi.ks@samsung.com>
- <CGME20250213044955epcas5p110d1e582c8ee02579ead73f9686819ff@epcas5p1.samsung.com>
- <20250213044624.37334-2-swathi.ks@samsung.com>
- <85e0dec0-5b40-427a-9417-cae0ed2aa484@lunn.ch>
- <00b001db7e9f$ca7cfbd0$5f76f370$@samsung.com>
- <ffb13051-ab93-4729-8b98-20e278552673@lunn.ch>
- <011901db80fb$8e968f60$abc3ae20$@samsung.com>
+	Mon, 17 Feb 2025 15:20:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0C31CA41592;
+	Mon, 17 Feb 2025 15:18:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E2C8C4CED1;
+	Mon, 17 Feb 2025 15:20:36 +0000 (UTC)
+Date: Mon, 17 Feb 2025 10:20:55 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Jiri Olsa <olsajiri@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, bpf <bpf@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org, Masami
+ Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Andrew Morton
+ <akpm@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, Linus
+ Torvalds <torvalds@linux-foundation.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nicolas
+ Schier <nicolas@fjasle.eu>, Zheng Yejian <zhengyejian1@huawei.com>, Martin
+ Kelly <martin.kelly@crowdstrike.com>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Josh Poimboeuf <jpoimboe@redhat.com>, Heiko
+ Carstens <hca@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>, Alexander
+ Gordeev <agordeev@linux.ibm.com>
+Subject: Re: [PATCH v3 4/6] scripts/sorttable: Zero out weak functions in
+ mcount_loc table
+Message-ID: <20250217102055.53318267@gandalf.local.home>
+In-Reply-To: <Z6_AQmaUWAekeB5B@krava>
+References: <20250213162047.306074881@goodmis.org>
+	<20250213162145.986887092@goodmis.org>
+	<Z6_AQmaUWAekeB5B@krava>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <011901db80fb$8e968f60$abc3ae20$@samsung.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_071825_132312_B8839B31 
-X-CRM114-Status: GOOD (  16.64  )
+X-CRM114-CacheID: sfid-20250217_072040_333961_B3C0C4DF 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,43 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > > > > +  phy-mode:
-> > > > > +    enum:
-> > > > > +      - rgmii-id
-> > > >
-> > > > phy-mode is normally a board property, in the .dts file, since the
-> > > > board
-> > > might
-> > > > decide to have extra long clock lines and so want 'rgmii'.
+On Fri, 14 Feb 2025 23:14:26 +0100
+Jiri Olsa <olsajiri@gmail.com> wrote:
 
-> Hi Andrew, 
-> What you said is right. Generally, PCB provides internal delay.
-
-It is actually pretty unusual for the PCB to add the delays. But there
-are some boards which do this. Which is why you should support it.
-
-> But in this case, due to customer request, the delay was added into SoC.
-
-Idealy, by the PHY. However, in terms of DT, the board .dts file just
-needs to say 'rmgii-id', meaning that the board does not provide the
-delays, so the MAC/PHY pair needs to provide the delay.
-
-> The following doc on rgmii says that "Devices which implement internal delay
-> shall be referred to as RGMII-ID. 
-> Devices may offer an option to operate with/without internal delay and still
-> remain compliant with this spec"
-> https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/imx-processors/2
-> 0655/1/RGMIIv2_0_final_hp.pdf
+> > +	while (fscanf(fp, "%16s %16s %c %*s\n", addr_str, size_str, &type) == 3) {
+> > +		uint64_t addr;
+> > +		uint64_t size;
+> > +
+> > +		/* Only care about functions */
+> > +		if (type != 't' && type != 'T')
+> > +			continue;  
 > 
-> Also, the driver is in such a way that it handles all four rgmii in the same
-> way. 
+> hi,
+> I think we need the 'W' check in here [1]
+
+Good catch!
+
 > 
-> Considering this, could you let us know what will be the right approach to
-> take in this case?
+> jirka
+> 
+> 
+> [1] https://lore.kernel.org/bpf/20250103071409.47db1479@batman.local.home/
 
-List all four phy-modes in the binding. They should all be
-valid. However, the .dtsi file should not list a phy-mode, since it is
-a board property, not a SoC property.
+Bah, I just pulled from patchwork and forgot about that fix.
 
-	Andrew
+Will send a v4.
+
+-- Steve
 
