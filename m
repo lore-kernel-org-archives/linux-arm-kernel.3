@@ -4,75 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B54C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 13:30:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9336DC021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 13:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gbeb5r83+UPFkm2mU3wjQcSB1vvJRZ9Ts2ZaqiOY/R4=; b=EVeJWHVMWrIUNhRjc/4WhGoebE
-	SyZndVjZ+guestxSRC7UcNojMCtUXF2DgsNzSLE+++H4XfwUpAnHfYuVzV28sc6uy6jFj2mYBnnpU
-	HgA+3e5gNK1si6sTalcakWftkivkwpwW5dZZsrWpe3V6IqJiLV90J1bFaiQNOY4cNLPDuIG1FY6DH
-	S/1RxgkIuGXjDPM+Ho41D1WDohYQXgCKQ83/pRADyiAZ+Q0ThvV2oJblV5tTSrV394KUyKr+Avwsv
-	j0phkcC7BQ5JTW4ol6nQdjsfgROwZ9o0eqghrvoGqFU9gx+Wjn/ZmIt+/csEUgocvz8Un0X+0gm9E
-	cMf0Dk0Q==;
+	bh=fZY5+MxpkCm+wbQpW1TRwuF9fogTCzc2MTVqMxBIRjE=; b=MU7Sj4f+McvUo7CIUfREBFdG0J
+	7F2mtN6TaI9JPSGsikY1pkH80ZzzKdRo8kzL1S7/UWRyJ8mjy+t0dqrcOkjA0xaW6RZpif43VqoUM
+	IIV7k2CxEdUaHrMWZaXvEVRUyTEcWtUt5C18PCMsokFsPh0bgG6axJOqdcrBt3F6Ix1tg0l8siG4W
+	ujC9X+/QxUcNCpnnBEY69ZYGvTnwiwzOhNdKXbZcPHV2ht8kgowkHg5G3OW9IeEs79h5aNeZkjkBx
+	zctmi58DShPQsojXZGi6tqyXxKxh1qc9LxnoP9RP0GBbPexU1FC5iDHgdwU4dHEyuwGX4al1kMx08
+	ThY4NT7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk1CH-00000004fd1-1Zi4;
-	Mon, 17 Feb 2025 13:30:05 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tk1Di-00000004fur-032q;
+	Mon, 17 Feb 2025 13:31:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk13T-00000004dJP-09rb
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 13:21:00 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1739798456;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gbeb5r83+UPFkm2mU3wjQcSB1vvJRZ9Ts2ZaqiOY/R4=;
-	b=d5jB0xJXoTyTwgDgL40gNhL7fZs+btbkLpIzQuu38ljnPA9b8w2LA9NKyfifL3mJAc6Qvp
-	pytLIsp+wLaDrsxRG+VuqR+9kGoIEPU/McIAAJzave9ybBFeZfiF7SvbgM8+hdK45EdDA1
-	vDDV/yaRJ8BBYDptzZo7G4TzopIKPhVaVW04/M3g7MraDIzgWaTfeRxD/OKt7Gy2/dkUqI
-	acYCFbyMEwkKDlq97wNKNSCMIKrElxQZ5ybAcfO8hpJbZTH78k2mgB9tfK1RkNqVWqtqWQ
-	wViguwAAJ6gVlzu0oZfvG7m0mT49vsQJ0gY8Umg9WD8zOMnxGUyZcKg4T7h8LA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1739798456;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gbeb5r83+UPFkm2mU3wjQcSB1vvJRZ9Ts2ZaqiOY/R4=;
-	b=mubjWXn7gLl3dddAC7nuohS/Ogk87r44F8Bri2mDA86y1PwASaWyFRvyb9d4TXLF4uOwFq
-	980OJgClFJ/NavDw==
-Date: Mon, 17 Feb 2025 14:20:52 +0100
-Subject: [PATCH 2/2] usb: dwc3: Don't use %pK through printk
+	id 1tk14R-00000004dbR-1xeX;
+	Mon, 17 Feb 2025 13:21:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=fZY5+MxpkCm+wbQpW1TRwuF9fogTCzc2MTVqMxBIRjE=; b=PnFBkOepghRBdQygsYGbaSfW/X
+	QoTJhDgJtPC70c9+BWIeJwgFteDAR3cGxKLTrc3ctE41LQsCrROdRH86plskhVdD6I/e95OawD1CL
+	XUA5zoRxgMHuIqwMw7lx5+aJyfSgjInlllyrKdnkY5MmclKOguSCEEiWiP3sUX25+Roz+dk3grNTV
+	t6v2JwS1bneqv0jy2X96upvlfTDVKXiG/d7roxktlLUjidZRVmrG621KoPRkYRhQ/Si7jWLh8C2NG
+	44DFx0s5oomhfAJ/GO6Pmf5NaXcwHjsi0ziL6F8j7VgWlP+P7AwimaR9w8P0kve2oYOrk4hR8br69
+	SXydsv3w==;
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk14O-00000001pcu-0dQs;
+	Mon, 17 Feb 2025 13:21:58 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-220d27fcdaaso10755795ad.0;
+        Mon, 17 Feb 2025 05:21:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739798513; x=1740403313; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fZY5+MxpkCm+wbQpW1TRwuF9fogTCzc2MTVqMxBIRjE=;
+        b=i6cz/Jv+j44yHaM7UlC8Td7t7gieOBUQhV2vlRUIzvpsuhp4fKrsHzn7Tz5+jJPot4
+         Trgr6unFr/ZnjcQUImUWCBijPzrfUWtxN0nXrija0OTTQUE5aZ5G5h2ULp/aMfMR+s9J
+         NY3U8wbhm+SyyAhMLxM4qU+q+yg/k11M9EsYCrvf8uw1Wwqg4eAJwCcbpQOeMUk/8eow
+         bxvVOLYpewL5Zev5ccQMzSx0UBwwxnaqgB7BmrFjLOYyT1x/45T5DVAANwOsgOQ9R83W
+         JjwqN0uTaWBoDtKxpyCblUFYuSNvl0l8EMalLYAjznS+n72ZY5a0HlziJYieHJ2BHIQZ
+         W7dw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739798513; x=1740403313;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fZY5+MxpkCm+wbQpW1TRwuF9fogTCzc2MTVqMxBIRjE=;
+        b=t7NV66gzAETGQr9C8zBoIFP3TM5FAS35qixD+/go5fkNliWabWCkxx1qg4mb9niDbC
+         vdWENx58XzbOBb3DhrjuhEyjSgXqFMqPGVp9GhlXQpDqojtlKD54LpASHjor+B+k9hb9
+         31gaYO4af+/o4avvJdbl5hG6uXCMGhDPlHE0NjQooOJZoDKHTD8V+ZYpRDhqilA3bUEi
+         /yfI8zl5SGJg3arbjy49K9bL6TjFz8uXaugFXJwuFuEW+lr6DQz5+kbSDFl5m57pwZLl
+         36f0qyLy1oYMSJ3TC9x1umTBy8OaIrpPWBNFh+dxrKWXl+Hsprvg5HKbH9JrEurGG7TC
+         Skyw==
+X-Forwarded-Encrypted: i=1; AJvYcCU3KSAB4r7uiSUtfoLiFWOIOkuQvKfkjRJ40ZQyTO/hREYfDasT96Mgfh5HVolXy9gvPz99MMtYzFtBDGYCC4U=@lists.infradead.org, AJvYcCWV7wDKKE2dO6fLjCxyZ/qjLljr6eVjhhJj9muauFo+uLomKIyli1mhnk+JaHjQBvDhuEDPFOjKH/fYLgM+/PGG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFj42g5yOHP1+VWxx1bJXCUEfNc13BPRigh/d0SLA5i4QZ5D7o
+	ZW5+CHP7/LE615/NKpt2ripYtfYG2eUPDi3tTROuPS2GVmAKpMx4
+X-Gm-Gg: ASbGnctocEZ6XBrohDuul+eIbn1G6LtWCg8QREBw7osK76o1wvx9NamtVODAnLWY7we
+	IBem+P+yWc4QJSewFFZBDFwSSvUtODMhKKSeLKLVf8hiqFRxPFABVy41ifkbdkIhOqECUa2uzWB
+	jy1FyvGur8d/d7qjP1Xr2IukgvYi7WRwq6l37e01qXblaoaQxgPVSEs2VYsJTGeRPHeYTr5USPU
+	tUUL5UrIceGvvfhbbusH7RZ8qHHRc8q5frSqtrMpli3DH+gQHgumq6mTlO94PWkc7TXC2JHBbDN
+	+LQCuzTXbW54j2GmyNau
+X-Google-Smtp-Source: AGHT+IE8azzrvYuY9vtV+dztsz41c/YP2MD1M6ETGEr0TQOLWNYceX9noZ/t3S1swZw5I7fqL8kmaA==
+X-Received: by 2002:a17:902:d507:b0:21f:795:8fc0 with SMTP id d9443c01a7336-22103ef20c8mr53951745ad.2.1739798513066;
+        Mon, 17 Feb 2025 05:21:53 -0800 (PST)
+Received: from rock-5b.. ([221.220.131.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d545cf8fsm70994875ad.152.2025.02.17.05.21.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 05:21:52 -0800 (PST)
+From: Jianfeng Liu <liujianfeng1994@gmail.com>
+To: piotr.oniszczuk@gmail.com
+Cc: conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	heiko@sntech.de,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	liujianfeng1994@gmail.com,
+	robh@kernel.org,
+	sfr@canb.auug.org.au
+Subject: Re: [PATCH] arm64: dts: rockchip: add hdmi1 support to ROCK 5 ITX
+Date: Mon, 17 Feb 2025 21:21:46 +0800
+Message-ID: <20250217132146.604090-1-liujianfeng1994@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <975CFBEF-4E37-41E4-BE3F-7294FE7E4D3F@gmail.com>
+References: <975CFBEF-4E37-41E4-BE3F-7294FE7E4D3F@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250217-restricted-pointers-usb-v1-2-78da55158832@linutronix.de>
-References: <20250217-restricted-pointers-usb-v1-0-78da55158832@linutronix.de>
-In-Reply-To: <20250217-restricted-pointers-usb-v1-0-78da55158832@linutronix.de>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Patrice Chotard <patrice.chotard@foss.st.com>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739798454; l=2152;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=NmTXArkbCsEGtrZw6Htg9wNi1YzBDBTbhT9Se3ioLsU=;
- b=DUElj98qKMcAbor1XcE693UU/tdrxjutcIGl4jtddyzHWb5R/Rp2abI+G1ZDv4QsZvtvFvqKW
- Xwl965q69SOCkAFoEEjVju4vIpz3PWYgAn+5cAoqErLd5rY0HeX9UO6
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_052059_218626_31E9E26B 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20250217_132156_353786_88947F71 
+X-CRM114-Status: UNSURE (   6.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,61 +119,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Restricted pointers ("%pK") are not meant to be used through printk().
-It can unintentionally expose security sensitive, raw pointer values.
+Hi,
 
-Use regular pointer formatting instead.
+On Mon, 17 Feb 2025 10:48:00 +0100, Piotr Oniszczuk wrote:
+>I manually installed it on my sd card and sill getting:
 
-Link: https://lore.kernel.org/lkml/20250113171731-dc10e3c1-da64-4af0-b767-7c7070468023@linutronix.de/
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
- drivers/usb/dwc3/dwc3-st.c | 2 +-
- drivers/usb/dwc3/gadget.c  | 6 +++---
- 2 files changed, 4 insertions(+), 4 deletions(-)
+I have built a armbian bookworm minimal image, you can test it in case
+there are hardware related issues:
+http://cdn.haguro.top/share/Armbian-unofficial_25.02.0-trunk_Rock-5-itx_bookworm_edge_6.14.0-rc2_minimal.img.xz
 
-diff --git a/drivers/usb/dwc3/dwc3-st.c b/drivers/usb/dwc3/dwc3-st.c
-index ef7c43008946e15b72d88aba4941dc52bf0788d7..5d513decaacd22de15825dc061c2747cf09fef07 100644
---- a/drivers/usb/dwc3/dwc3-st.c
-+++ b/drivers/usb/dwc3/dwc3-st.c
-@@ -225,7 +225,7 @@ static int st_dwc3_probe(struct platform_device *pdev)
- 
- 	dwc3_data->syscfg_reg_off = res->start;
- 
--	dev_vdbg(dev, "glue-logic addr 0x%pK, syscfg-reg offset 0x%x\n",
-+	dev_vdbg(dev, "glue-logic addr 0x%p, syscfg-reg offset 0x%x\n",
- 		 dwc3_data->glue_base, dwc3_data->syscfg_reg_off);
- 
- 	struct device_node *child __free(device_node) = of_get_compatible_child(node,
-diff --git a/drivers/usb/dwc3/gadget.c b/drivers/usb/dwc3/gadget.c
-index ddd6b2ce57107cb62c5cec02eae3fe3524164469..7ea1dcd07f02999c913f1520ec05bbcf1a43d8d5 100644
---- a/drivers/usb/dwc3/gadget.c
-+++ b/drivers/usb/dwc3/gadget.c
-@@ -1971,12 +1971,12 @@ static int __dwc3_gadget_ep_queue(struct dwc3_ep *dep, struct dwc3_request *req)
- 		return -ESHUTDOWN;
- 	}
- 
--	if (WARN(req->dep != dep, "request %pK belongs to '%s'\n",
-+	if (WARN(req->dep != dep, "request %p belongs to '%s'\n",
- 				&req->request, req->dep->name))
- 		return -EINVAL;
- 
- 	if (WARN(req->status < DWC3_REQUEST_STATUS_COMPLETED,
--				"%s: request %pK already in flight\n",
-+				"%s: request %p already in flight\n",
- 				dep->name, &req->request))
- 		return -EINVAL;
- 
-@@ -2165,7 +2165,7 @@ static int dwc3_gadget_ep_dequeue(struct usb_ep *ep,
- 		}
- 	}
- 
--	dev_err(dwc->dev, "request %pK was not queued to %s\n",
-+	dev_err(dwc->dev, "request %p was not queued to %s\n",
- 		request, ep->name);
- 	ret = -EINVAL;
- out:
-
--- 
-2.48.1
-
+Best regards,
+Jianfeng
 
