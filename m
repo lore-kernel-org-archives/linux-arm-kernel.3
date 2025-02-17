@@ -4,85 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10067C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1CE7C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 17:11:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wtxXp9w2f/J0f6mWEaq0vcPmmD3bdGJybeAi4zchJTE=; b=Bko2/+q/QjyfpTC/Ax01VlYDwE
-	ugiVAQkKFboaSscjjKbv8kIet68w3OImvrvzw6TK7TNdWVkNNCtQXiWmfGmtQ/jDWwnhKr39zGMfH
-	IDhQ71AMwstOwYaLdofSekQbmQsp7xllyIaJ3tdc04JwPbSGjGx2ekWzHvxXUGBSJ0yfAsc6wY1lN
-	1hT8tObC5A5N7X8DHm7Qa46ekAvxzqzbmf/iK2M9oB6Ms+b5bVOmNHdbDUGM2KbBKXoEHFwndt7sN
-	iG16mPrrel6A3figOA7BMuT8N9J+EzwaSzFmM0rah1cGf1DRmeCYpvtO6aqxXoIVEhmyH7BIZWtq6
-	76VOER5g==;
+	bh=ychoTIYUDfWoAxLjnl2uUah2giqPU08urAHpAFQWzs8=; b=VF/J1Bj/pJCRbInMSDM7Xf73ww
+	TooyTHbUqlv5BNq0CPMj/trnEPfOWZoL1iegC8u+3Ku5S09wV3D+XHLnVnpCUck/xtKswPQZx5uL+
+	thQngaWp5vP59U1dKyGqaCl1aaKbzI0+A+RbD98PzPrEUrRqVcL/Au8URtfOYGjskbuj5d2qi5GFR
+	a5FXtTXJDB8m0ioi7yYJA0Jp8Ef8woOPUiJNlWokSx3exSifg4R5B8sPdUbICPXYsucfvu2ALnXUH
+	HQsKg31dcz9QIGmeWZo9B4SrwgIDGdZrgH3ZQ/cCP5PVAtuFYkGuWxo1szWtmgHvSn2a97irdo9Zy
+	Dd3sxNAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk4d9-00000005PA3-0kkC;
-	Mon, 17 Feb 2025 17:10:03 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk3O3-000000058jc-07ei;
-	Mon, 17 Feb 2025 15:50:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739807421;
-	bh=AQORTGEMJRTeOzgv2ykstrnHNuBXQ26g7MQ0Fgeka9U=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SzvRfy6ZQONbwRZseCTd/qCY7RuJC4UB+shUIvg0Khs7nJiydSU1+hJry2rGmR5tw
-	 R6D8ddUHGrBllZDZiSpgzoliaVf0HQbZ0GEHAzXEhAxoaIy9ycMovZOI/5Q2oJRTwV
-	 c1wShv8q4z+/7EwNYJBb+2qk4J/cWYONbmv4ss3CZylqoVZfeftOg4Oq1B10nPxKx8
-	 V8HKzXMfgQWIRDWKckRK3frVokC7eLL3coJUsAnWX66AlRT+bZWe19bfRCBKI9EmhH
-	 WigkB6Bj9IrqH2anWw+p9WXO6GIfENJMa2R7yxpYo2IzXmnMDaDu2yXJXecWN+wV5U
-	 k8BKruPfNSHqw==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 588CB17E155A;
-	Mon, 17 Feb 2025 16:50:20 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	ck.hu@mediatek.com,
-	jitao.shi@mediatek.com,
-	jie.qiu@mediatek.com,
-	junzhi.zhao@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	id 1tk4eb-00000005PSD-0nKq;
+	Mon, 17 Feb 2025 17:11:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk3PD-0000000596W-2hwy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Feb 2025 15:51:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAFF0152B;
+	Mon, 17 Feb 2025 07:51:53 -0800 (PST)
+Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E5E683F5A1;
+	Mon, 17 Feb 2025 07:51:32 -0800 (PST)
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: cristian.marussi@arm.com,
+	"Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	dmitry.baryshkov@linaro.org,
-	lewis.liao@mediatek.com,
-	ives.chenjh@mediatek.com,
-	tommyyl.chen@mediatek.com,
-	jason-jh.lin@mediatek.com,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v7 43/43] drm/mediatek/hdmi: Use syscon_regmap_lookup_by_phandle_args
-Date: Mon, 17 Feb 2025 16:48:36 +0100
-Message-ID: <20250217154836.108895-44-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com>
-References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com>
+	linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Jason Liu <jason.hui.liu@nxp.com>
+Subject: Re: [PATCH] firmware: arm_scmi: imx: Correct tx size of scmi_imx_misc_ctrl_set
+Date: Mon, 17 Feb 2025 15:51:21 +0000
+Message-Id: <173980739601.1667400.18386300454514478201.b4-ty@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250123063441.392555-1-peng.fan@oss.nxp.com>
+References: <20250123063441.392555-1-peng.fan@oss.nxp.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_075023_247998_C4B4655B 
-X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-CacheID: sfid-20250217_075135_725847_E7828169 
+X-CRM114-Status: UNSURE (   7.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,46 +71,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On Thu, 23 Jan 2025 14:34:41 +0800, Peng Fan (OSS) wrote:
+> 'struct scmi_imx_misc_ctrl_set_in' has a zero length array in the end,
+> so sizeof will not count 'value[]', and txsize is smaller than actual
+> size for tx,and SCMI firmware will take this protocol error.
+> 
+> Fix this by enlarge the txsize with 'num * 4' to count in the size of
+> data.
+> 
+> [...]
 
-Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
-syscon_regmap_lookup_by_phandle() combined with getting the syscon
-argument.  Except simpler code this annotates within one line that given
-phandle has arguments, so grepping for code would be easier.
+Applied with some minor changes to sudeep.holla/linux (for-next/scmi/fixes), thanks!
 
-There is also no real benefit in printing errors on missing syscon
-argument, because this is done just too late: runtime check on
-static/build-time data.  Dtschema and Devicetree bindings offer the
-static/build-time check for this already.
-
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-[Angelo: Rebased over HDMIv2/DDCv2 series cleanups]
-Reviewed-by: CK Hu <ck.hu@mediatek.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
-index 784bc05c9541..00a638a3caf4 100644
---- a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
-+++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
-@@ -269,12 +269,9 @@ static int mtk_hdmi_get_cec_dev(struct mtk_hdmi *hdmi, struct device *dev, struc
- 	 * MMSYS_CONFIG device and the register offset of the HDMI_SYS_CFG
- 	 * registers it contains.
- 	 */
--	hdmi->sys_regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,syscon-hdmi");
-+	hdmi->sys_regmap = syscon_regmap_lookup_by_phandle_args(np, "mediatek,syscon-hdmi",
-+								1, &hdmi->sys_offset);
- 	if (IS_ERR(hdmi->sys_regmap))
--		return PTR_ERR(hdmi->sys_regmap);
--
--	ret = of_property_read_u32_index(np, "mediatek,syscon-hdmi", 1, &hdmi->sys_offset);
--	if (ret)
- 		return dev_err_probe(dev, ret,
- 				     "Failed to get system configuration registers\n");
- 
--- 
-2.48.1
+[1/1] firmware: arm_scmi: imx: Correct tx size of scmi_imx_misc_ctrl_set
+      https://git.kernel.org/sudeep.holla/c/ab027c488fc4
+--
+Regards,
+Sudeep
 
 
