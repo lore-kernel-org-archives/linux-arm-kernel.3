@@ -4,100 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E5CFC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 11:54:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DA3C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=++xiowYqljzYNc1yRgdLw7cNanJkRSMEsPaPeSgY2cY=; b=PxzxN9RhiMHy9LncKUKtQiQZ5k
-	neaAN0oht2mBZRJmRCWLUBcT3cR9puidQs1sgaLP+myOW2K+rJ3qGWbpS5MlhvO+Bt+3YqEn3OJqs
-	UV0IW1Y5SDOPe5R5Khe2GMaWYwMeNE4g+U5wfO7MwmvhqRKXmNynklCVApe0nwCwTxVoSfFAEdRTB
-	Q/h/+gkBZ2aWPFGxZ5qsXwakfVEqgGOJbRKEiFQ6WN6z22H2HwXDFgn5k8GALDM914XOLpwY7uQ4d
-	pklRpi9j+gJapzN4uoT68LCp4mzx4qPupmvkSab03k0iUS+j1oDQRTDCNEifXjYLqaKVNKKXbFrMG
-	xk4An/GQ==;
+	bh=BPsuvIVCjk9dgW5qk+ZZy8wtpQYYoP8bQTH9T/Us5UE=; b=G6vUoCPqeVp2tZEtYE9wuhr73j
+	/w74ZA77Ygar5nQcQ0Z9JsRYvrpedNf1EszRKj3b/RbOqwaZKyjF+8ZDcnsKtnynUj1U4Ke5Ytta+
+	EtGfqG6NTPpOs3UelguYygbFRDm+9bRCAIaE2OFUj0Y0zfTjfUNFt0EXwgmT6FDRIuKceP3m+DAO4
+	Ko+hifCBNE1tbv1NIXdQiKPIe1hP5OSMeOItHmDBbpFgdp7YZIY03sTljT8hgR1ivWvIePCKo9YDg
+	zCJHQdSZ7CgcXF2I95X8jRk+mKWIPtGo2qNCx2f+P6W0QParroX409EuGWBJocoqwmBxOVAqNUvE+
+	STYye7dA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjzhn-00000004Nwe-2suJ;
-	Mon, 17 Feb 2025 11:54:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tk0Fu-00000004SEi-1V2K;
+	Mon, 17 Feb 2025 12:29:46 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjzTS-00000004L32-44T2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 17 Feb 2025 11:39:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=++xiowYqljzYNc1yRgdLw7cNanJkRSMEsPaPeSgY2cY=; b=NVCiIL8AivzHwXFnCv/BmNm4v8
-	NbxomqCWMx5T38RZpwWH24eZrbfWBh+755rBk4Xa2su/zDK5pb3dMW07zLh4DZ3n7WjurgpRBTXrf
-	xCXMbqw+1SywmoDWao6vNDWIqQTQCmpFiSXHtYFfQ8k89SGpj1pw3/+qKiAzbQG6ClUsEvi5h8BYu
-	Hr5zBST+4tWQGks2QndQrtk20x0C8XI5EfoQkxrX7PA6D1GvvIWEyFDtxTxvZxrWR5ja0y5yStRTq
-	/U4ItA8i+UjBeQUnfCbd0EM5H/Nljs4VLF5a35ZAFNtbvs43SijqHA0qANFzUFe5Ws03/uqsUrkRH
-	esIQJw8A==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjzTP-00000001now-3J6o
+	id 1tjxoV-000000040I6-2aUe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 11:39:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9027F5C557E;
-	Mon, 17 Feb 2025 11:38:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 30806C4CEF6;
-	Mon, 17 Feb 2025 11:39:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739792377;
-	bh=jgUIKutYD6JHar/7UGNU4iJs/xInxZUk3vydF/EOQVw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=kzxT3XhRjCcjpnvE3++zGyD9rzcaqOjhZUt/UwNxmggVTfyXuL+FyUMHghPQJ33Uf
-	 1rvZjaF+3G9gd9m7RLw0rbRRCtWJQbY+sN8tmHdWm9fKv/eY0IlIldYXXZqadUn/w2
-	 0jTsj/baJIlu63Fd18V1qbxPzuMevn1QLyLrz+R5K59se/dSthFBOHL4D4jGGlyEGR
-	 9ERMKkptF43foAxm3qFoPVJYD3O2X35BTmsvzTzNgs6ogdQ4RuPA/Wd7EW5KplNzld
-	 bXhryTX+2FPKcjbc331ZjMf4Hqh+A5vASO01aZzSDv6rffP6bF+Ggw4d9CNEV33Oba
-	 mTH58v5bVgszA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2586CC021AB;
-	Mon, 17 Feb 2025 11:39:37 +0000 (UTC)
-From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Mon, 17 Feb 2025 12:39:35 +0100
-Subject: [PATCH v7 5/5] MAINTAINERS: Add entries for touchbar display
- driver
+	Mon, 17 Feb 2025 09:53:20 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-439350f1a0bso24395315e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 01:53:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739785998; x=1740390798; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BPsuvIVCjk9dgW5qk+ZZy8wtpQYYoP8bQTH9T/Us5UE=;
+        b=sC7XF7YpJcgHBXmqf4IdBeKd9bkfhGybppxFcvdPjualDtQq1QqXOdzqngFCGn31Fx
+         lotDVMg2MTQ2YEZ0Bjxa8tmkM8lHjMHWCyYvo8oB5LfjfyptNWDLkG3kG9Bo2StfqK+U
+         KJvxhArWF8KknYq+gQiAFL5CoMQufy/2dYCjSNR38zddKBEY+qcFf0hlxdenU/EWg9jM
+         ggncwH6WCFfrur+dVN1rs7psUA4rPqkY8VSSWQj1L2MTJxuyHtiBAYy0EcUEsNF9+5Wp
+         Bmldm8k0vlIdUuY785LnpTr3AF/PVKYOiUoKp286xmuv1/euLGFenj6K+ZkqLWHj83/S
+         qZJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739785998; x=1740390798;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BPsuvIVCjk9dgW5qk+ZZy8wtpQYYoP8bQTH9T/Us5UE=;
+        b=CJ2vA1SKJdepbu9/PWQ8kY+FtSoB59XxZKyPHjLgSIFSYGWbnTVIsSHyTGI6K5T31N
+         SoL3DzjLDSCUeegqcwTFNj6A+6poIYvGdUr3Y1MgJZuPZrX+9Ay9DlirpOSL948ud4m6
+         r1DCmkNE+A1+IOWaT3fGhXY6IhxCcP7FXZoNl9VHnkre3E5x23TasxPQMuP2PUC9RTz4
+         sZz/N7L42mt3X7PFMBPHVSMdF15qaL6tDDQAjUgjSC5jQqc4YuTLLhWlThokRND8+4ox
+         wfu/Iy9z/L9H/I7k+g4NMappCEtf29KqgRUtZ+YFPaSYTWjvUjOt4Rugg1sDHTyZ1w/f
+         I6Hw==
+X-Forwarded-Encrypted: i=1; AJvYcCV9iZav/DLAz9ZMwJE0ZLRf4KUfj8rSfu40uC/hSgnmcxUEvJUuR1LhroXqMpQfvtp5awqH8MhRoDloJbgsr+4J@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAWX1iuVH5RpHKR8hxHF2B34yBGw4KZZcP2HxUB/qIQHwdjOBo
+	6NEiVIhA8/PokcwusjEu2mYkGCnWC5E6OW3NfP4HNeehPFZUZ6PpP56NRPqikts=
+X-Gm-Gg: ASbGncueijwIGRC2xDaUJyzeYaNMJ9PNklcJrb0ic+c/IMwCvdUwr/X0rUMB4nQ7IOD
+	HcEcOZWWpQorrV9HoVl7RKbhzQ2Ofd4KNISdFzi7TyH5r602PO6IQ9xjPJUAEb9iDJHg19qhpjr
+	Rmst8SkZvRm9tTfEq75rjqJtYENwCwchPyR03Rytt7u9xAsMXezs7++3VQvb6JUed2DG4xCZSrF
+	j2tb185487XBybxN0AdgDmkDtHNfWpJnQ5AZJ5Q5UA6VhSnIvik3HtdvR0VfqMyQMfmPa87219k
+	lLTXg7qt+4YOXdy/2dtkEDS1b6eiRaPjvg==
+X-Google-Smtp-Source: AGHT+IEOYIa8ffLFYb2JZ8gSPjsLQ0t83+FYPxRHrdauemZg6o916N1LhDz8exoVJs4omLbErDeTDw==
+X-Received: by 2002:a05:600c:3012:b0:439:8490:d1e5 with SMTP id 5b1f17b1804b1-4398490d2b2mr22061025e9.4.1739785997586;
+        Mon, 17 Feb 2025 01:53:17 -0800 (PST)
+Received: from [192.168.68.111] ([5.133.47.210])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4398a64febasm9743935e9.1.2025.02.17.01.53.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 01:53:17 -0800 (PST)
+From: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-clk@vger.kernel.org, detlev.casanova@collabora.com, 
+ sebastian.reichel@collabora.com
+In-Reply-To: <20250210224510.1194963-1-heiko@sntech.de>
+References: <20250210224510.1194963-1-heiko@sntech.de>
+Subject: Re: (subset) [PATCH RESEND v2 0/6] RK3576 OTP support
+Message-Id: <173978599692.25901.15315285566342669137.b4-ty@linaro.org>
+Date: Mon, 17 Feb 2025 09:53:16 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250217-adpdrm-v7-5-ca2e44b3c7d8@gmail.com>
-References: <20250217-adpdrm-v7-0-ca2e44b3c7d8@gmail.com>
-In-Reply-To: <20250217-adpdrm-v7-0-ca2e44b3c7d8@gmail.com>
-To: Hector Martin <marcan@marcan.st>, Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Jessica Zhang <quic_jesszhan@quicinc.com>, asahi@lists.linux.dev, 
- Janne Grunau <j@jannau.net>
-Cc: linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Alyssa Ross <hi@alyssa.is>, Sasha Finkelstein <fnkl.kernel@gmail.com>, 
- Neal Gompa <neal@gompa.dev>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739792375; l=1450;
- i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=bjGQY6YcAfvFhQstvcidH714PAZmif+zGGMT8HLhTJg=;
- b=CP5gH1NHTRgD2P0uDekGEfmEIKssn+z/69IoffnSBjcMumJcL/ltIZ3nNsYf28XV4BSrdBGq7
- abPAy+0Gi3tBOEnhmFXEFHPOtzA6nZvYx8j1STsY/VT6AWQIzzSzrXK
-X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
- auth_id=283
-X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+X-Mailer: b4 0.12.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_113940_171698_65A81683 
-X-CRM114-Status: UNSURE (   8.23  )
+X-CRM114-CacheID: sfid-20250217_015319_673822_0FB7E681 
+X-CRM114-Status: UNSURE (   9.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,52 +99,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-Add the MAINTAINERS entries for the driver
+On Mon, 10 Feb 2025 23:45:04 +0100, Heiko Stuebner wrote:
+> This enables OTP support in the nvmem driver for rk3576.
+> 
+> I expect to pick the clock patch (patch1) and the arm64-dts patch (patch6)
+> myself, after the nvmem-driver and -binding patches have been applied
+> (patches 2-5).
+> 
+> But kept them together for people wanting to try this series.
+> 
+> [...]
 
-Acked-by: Sven Peter <sven@svenpeter.dev>
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Reviewed-by: Neal Gompa <neal@gompa.dev>
-Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
----
- MAINTAINERS | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
+Applied, thanks!
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a87ddad78e26f28ffd0f3433560d6db1518f9f95..895d682bcf4e351971b04c6515ebf685fd39b662 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -7746,6 +7746,22 @@ F:	drivers/gpu/host1x/
- F:	include/linux/host1x.h
- F:	include/uapi/drm/tegra_drm.h
- 
-+DRM DRIVERS FOR PRE-DCP APPLE DISPLAY OUTPUT
-+M:	Sasha Finkelstein <fnkl.kernel@gmail.com>
-+R:	Janne Grunau <j@jannau.net>
-+L:	dri-devel@lists.freedesktop.org
-+L:	asahi@lists.linux.dev
-+S:	Maintained
-+W:	https://asahilinux.org
-+B:	https://github.com/AsahiLinux/linux/issues
-+C:	irc://irc.oftc.net/asahi-dev
-+T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
-+F:	Documentation/devicetree/bindings/display/apple,h7-display-pipe-mipi.yaml
-+F:	Documentation/devicetree/bindings/display/apple,h7-display-pipe.yaml
-+F:	Documentation/devicetree/bindings/display/panel/apple,summit.yaml
-+F:	drivers/gpu/drm/adp/
-+F:	drivers/gpu/drm/panel/panel-summit.c
-+
- DRM DRIVERS FOR RENESAS R-CAR
- M:	Laurent Pinchart <laurent.pinchart@ideasonboard.com>
- M:	Kieran Bingham <kieran.bingham+renesas@ideasonboard.com>
+[1/6] clk: rockchip: rk3576: define clk_otp_phy_g
+      commit: 3e081aa132bbefe31ac95dd6dfc8d787ffa83d0b
+[2/6] nvmem: rockchip-otp: Move read-offset into variant-data
+      commit: 024e21343f3cbcde0343473fcaf094d2c19cc7bf
+[3/6] dt-bindings: nvmem: rockchip,otp: add missing limits for clock-names
+      commit: a1bf00100d06ad69286154a63e548ae6f6ce8539
+[4/6] dt-bindings: nvmem: rockchip,otp: Add compatible for RK3576
+      commit: 8c94337ebbfb840944574f82df0cbe35930d8df8
+[5/6] nvmem: rockchip-otp: add rk3576 variant data
+      commit: c5ebefe4e20d9fd99ae49cbfd1c18632cf338fa5
 
+Best regards,
 -- 
-2.48.1
-
+Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
 
 
