@@ -4,92 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C696C021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 03:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B899C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 04:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Nl62NtlkEq5ALtFLjtQ5AGx38czK9K3XMJPBTb4YpgM=; b=iGUTEfJNFZaQFtVTiMvAsWRfhp
-	3G4FaGeXyESBW9Ccp6+IFWownmfhP6V5KELOHIoyYs7HzNBWnZywpVyxZi6QHuUwYP4dDdUXN6xcM
-	QQokZ4sj1LTqOv9yFSXe0fhLBIcLidAuBRoLMzztpFCmgIAEIay9AUy0HdfotHrhvI++nY+YaKbX4
-	P+kyQnB/SySrMdDs1rd15COB81qnp6W4GXJ6iB1KEio84Jg2d1rxIzl2AD1c+PtUSK34mmVNqhcvg
-	NQnEi6wegYbj112ptJN6pLwXUDfAF/5nUHsDFZww0BmXObCO2oX2Lfk6h6w6eJmxJPj2f3QnnUSLA
-	P1ODryMA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/V2mmoCanQT/pwcWtV0/o0PvfX4+qGd2AcVlqml8A+o=; b=lGFXtcJ8OcATcdhPhJk6kbDFXi
+	yJSIgtlQcD0EOXpIPz90oA1tEqvsg6Ad4O5wwYcyIYGqp9wpSee89MVErIZNDujKXQCpY8Rby5/EP
+	4w/HfAr7GCy39+Zxkt2Kgyksbfb5Q+Oa/k+Ayy0KLETffj62IcufLLTcFDxAGUs2bdGfcv44WGif/
+	PMXE6cek/vBmQ1BDi9P2tnRbgDXZOZNVeqchLbHMPDcIwavG0YqdzxACXwiTmh/DkP95o/CLGXrwe
+	xLA+zXUb2hRgkjYxKq/4PRM6gBXIsh7+WUV1WOOQIZw3yJquj4utRnHM72HSYNzQnpdQBLZy0bCuH
+	+6C10+UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjs0i-000000039Hy-2b9g;
-	Mon, 17 Feb 2025 03:41:32 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1tjsOm-00000003BjP-1SGN;
+	Mon, 17 Feb 2025 04:06:24 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjrzG-000000039AC-1ML0;
-	Mon, 17 Feb 2025 03:40:03 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2fc4418c0e1so1811410a91.1;
-        Sun, 16 Feb 2025 19:40:01 -0800 (PST)
+	id 1tjsNJ-00000003BVm-0tmf;
+	Mon, 17 Feb 2025 04:04:54 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-aba868c6e88so360774666b.2;
+        Sun, 16 Feb 2025 20:04:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739763601; x=1740368401; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Nl62NtlkEq5ALtFLjtQ5AGx38czK9K3XMJPBTb4YpgM=;
-        b=kqoN3g6gvRP0wybNQYycUlMdb0hcpejDxoLtK3bF665lT0Dt6XKXWZ8oUwU/vll/9O
-         2nGjEmlOFyF76owY4vmJvceb9UHRXONLHEbjIdDU6ZzaxACXric7VXsAqbyA++2dE197
-         B2rRy2zrOOLZ4B4/HbEJtjyO8EfyH+PctouLgQ98tiARTwoIeaDpiH7s2V2tGoSuY1fo
-         UHEd4PuYp9kUQU1lEJBQf4LA5ad0MAAUDkZxA4QznwnkEHNbk7k9WImh4Ig9OXyqIeph
-         06n9aSJ726oNC1cz223zAfN35DMsi8+wifYopfae539rtZ+e+oKKM2xIR2M9iqIgBeg4
-         XcJw==
+        d=gmail.com; s=20230601; t=1739765091; x=1740369891; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/V2mmoCanQT/pwcWtV0/o0PvfX4+qGd2AcVlqml8A+o=;
+        b=YghMIsSrPG7ZgZGUMwKMHXvUM+d81IT6DyEqTm2vOSsEFIq4vXAchDw+La9bH3PzYz
+         tqeNxam2+ohJ9fMl6bAgxJnfAWJ8sNV0ERPacI9+a5WtNYPPfw+7q/Tfzn0ABBg+AZOm
+         zvI9IOS1/d8ZIc3pgL218OqXK0eAobHlAjCC1rQHtuAARJ5IMouKihxVViBXhJS4Vuuk
+         3sxY50qYKH0Z9IstfZrIxF0vlFTla+GKBVWZSjUj1yVfBg8DvQgIdFJpXD7sbLo8sCgx
+         BxaSLcFkiGqWG+s21GqjAA1J4Bc154c+SQn9nklhImuoNZb+oE8kAjDuacnnj1fW+o9A
+         024g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739763601; x=1740368401;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Nl62NtlkEq5ALtFLjtQ5AGx38czK9K3XMJPBTb4YpgM=;
-        b=QpLhtvkBBOfULGVhLsxv+j8wTl0QT5MKknCLGhAs4JCMU2fZ1h5UelFQ5i/EfLGo8X
-         K2p4JBGFjtt8uC2NNDCEftjpEYlE+bp6+/xKAmZzSKe2gVd4gs0Aq2tlkRrmcSlLlHlX
-         RAs5scWWCXNbsEdHIduMHmGSX4x6e877rkZQn4AcPeAo1kDBEVku3YpghlcC4c9/8uFu
-         ciex/+7unOQkjxOr2cjlYiEBcmwUycHazJEem+JJ+O7Xu/hBzAHxsdxnneFddeaN+I8L
-         pHTwPBGg89VJ6qkqa0raeqOixRxH20TS+B/XJ2im9Ky3yx2xKTs1N77dpd83PRs8AKhE
-         QEmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVBV0ZTn+noFyMZagTM9YBmwPBbjOj0Pt9Fc5eLhALw9BcN9opIEsEnYcBHk4UYWaSfbEK1yNg3tqESLnbcoJE=@lists.infradead.org, AJvYcCWiaEd8NqbTj8QhRNzXpfzOXhBmz2G4+9/iy9Xbck6cbrAu2UiDhxpsgU3L/SI0NNpd4VZPFp3J5pd2OPwMN0u/@lists.infradead.org
-X-Gm-Message-State: AOJu0YwohyGGye+MP2C8TxtuosZ34aAJLEN2eGxjKck0evrvRDC84cbM
-	ivmerSAEj3KCf+fLy3Cbeg+lPnWusnUuTwz6Hs2ONLHeRpAOEtBX
-X-Gm-Gg: ASbGncsuBJrSY/5zp0sISmiIt9vinrQ2oEGsiAkbLhbfhFl540uKX0DI4He9NGY14z6
-	tNTGAaAzujJckiuxQJdB99qrDaJJ25pi7Mz3hM6aj1g42QBgRuR996V2CzlmY30vBacD5oTBoAp
-	KL1BFLGQufZsgpQA2BHtlmbvQP1CP1/M8Ga+AVo7ZbMsMvYmy1dhBqEicTpV6ltCgmw2AmgNSsI
-	dnDYyzMJijHg+++Ie2Tinme1ExzfvVetCiPjRTGiq0so6AGIVBrRJG9pEr3zRUtnZCLL2aNqRVO
-	Z9km0V0h
-X-Google-Smtp-Source: AGHT+IFMjtFP6+eFxDZoPED1z+G8rAnlAtkY/tMQA24zNyKne9VxhqPhvrZG/sxzoSOa5figDdM6qw==
-X-Received: by 2002:a17:90b:4b48:b0:2fa:2133:bc87 with SMTP id 98e67ed59e1d1-2fc0f955234mr25277232a91.6.1739763600850;
-        Sun, 16 Feb 2025 19:40:00 -0800 (PST)
-Received: from gmail.com ([116.237.135.88])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fc327a9d68sm5895139a91.1.2025.02.16.19.39.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Feb 2025 19:40:00 -0800 (PST)
-From: Qingfang Deng <dqfext@gmail.com>
-To: Felix Fietkau <nbd@nbd.name>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Russell King <linux@armlinux.org.uk>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net-next v3] net: ethernet: mediatek: add EEE support
-Date: Mon, 17 Feb 2025 11:39:53 +0800
-Message-ID: <20250217033954.3698772-1-dqfext@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20230601; t=1739765091; x=1740369891;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=/V2mmoCanQT/pwcWtV0/o0PvfX4+qGd2AcVlqml8A+o=;
+        b=FhSkeHizbJZUfEQ/Jooa4g17mtVes1rj1GJgWWNu66Pohc46nLAzFIJq16ntfuXoOT
+         wxAoMg/UeHuYLtUlXBWUPfEfzo5UDJNQK4VCD0uLd/Q12Q+8aHkj5eywgvPUJH10hFuB
+         tgHHNqtexRinVKxe149thQvh4LsXFwFzQtynxZL3mlqwUYJiFR07I5z8SZ4ZSIRQBS3b
+         DBbwwergF+uAo2mH0K2vXqb7KfMuL2jrvglXDJlm+6MIiA2OKY4bbSRN2riyYe2W0pPW
+         GXsBXKt2EnsEH9hQCB2xTaOQLYd0ZORVzypQnJR+u768gBFzLsBMF8cgFYjEvHaA72+d
+         pTNg==
+X-Forwarded-Encrypted: i=1; AJvYcCX7z2rlyqg5IBQr9tqoi6NT2ClguuKGOcN/95KnpKczyVvRPXGvjl5i//Ymk4c3g5frgHvlOQ==@lists.infradead.org, AJvYcCXE1dBtZq1QJS0fDJRbT85C791WJL3VyT5KdDtY7MLkvsUvoQbZGKYDFXr5zczWACnT0ctighOGeTeKnxeQ5d5sFw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHUv6Yo+H7TPFf5b1Vo8QN+dpyRGPnIkvPy8vms5yGJVQEXG9f
+	JCC5tYIZlC7McugAs6YCs1CCLfqBFnl1/JLzactG045jkW5HqQbb
+X-Gm-Gg: ASbGnctFulvcIGl6EKXUVNeI04hel1mobAwNNl6dTNN/bl0m9yPW0LwJUjoXqh41GVc
+	zEzltv3ONAhh0c4qWRcSKdUUUXXU7SOxCUiaW84NJUcHsHG2C702SeY0YGj/dpMX3ieNez3zeWr
+	zZ/LGUr4RqKPBzXMbHtRqVJKZvQUg1ZC7fjbvwJC9eEonl6HNWlLthoFba3ajkAFYx3MKGFQkTE
+	cnePhc8XRoIpTQLaDcOFQi9WflOFRjkJvop4NJoB/VVtRYtjUMKCMQZex3toErVkmdCq/WsBjxB
+	+WK+pDhHTDSoVpo=
+X-Google-Smtp-Source: AGHT+IGMLRPGsc1YpdO8muFNdeSP2zhH8Ioro7wmde7M2ghBjV9zkhB7Y03DXnpBI6WgZUsZLU2s/w==
+X-Received: by 2002:a17:907:2da0:b0:ab7:c4db:a044 with SMTP id a640c23a62f3a-abb70a7a647mr781879666b.8.1739765090766;
+        Sun, 16 Feb 2025 20:04:50 -0800 (PST)
+Received: from localhost ([185.92.221.13])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aba5323202dsm806661766b.6.2025.02.16.20.04.48
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Sun, 16 Feb 2025 20:04:49 -0800 (PST)
+Date: Mon, 17 Feb 2025 04:04:48 +0000
+From: Wei Yang <richard.weiyang@gmail.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 13/14] memblock: Add KHO support for reserve_mem
+Message-ID: <20250217040448.56xejbvsr2a73h4c@master>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-14-rppt@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250206132754.2596694-14-rppt@kernel.org>
+User-Agent: NeoMutt/20170113 (1.7.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_194002_366433_020D0FED 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20250216_200453_255009_223863AD 
+X-CRM114-Status: GOOD (  18.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,154 +123,55 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add EEE support to MediaTek SoC Ethernet. The register fields are
-similar to the ones in MT7531, except that the LPI threshold is in
-milliseconds.
+On Thu, Feb 06, 2025 at 03:27:53PM +0200, Mike Rapoport wrote:
+>From: Alexander Graf <graf@amazon.com>
+>
+>Linux has recently gained support for "reserve_mem": A mechanism to
+>allocate a region of memory early enough in boot that we can cross our
+>fingers and hope it stays at the same location during most boots, so we
+>can store for example ftrace buffers into it.
+>
+>Thanks to KASLR, we can never be really sure that "reserve_mem"
+>allocations are static across kexec. Let's teach it KHO awareness so
+>that it serializes its reservations on kexec exit and deserializes them
+>again on boot, preserving the exact same mapping across kexec.
+>
+>This is an example user for KHO in the KHO patch set to ensure we have
+>at least one (not very controversial) user in the tree before extending
+>KHO's use to more subsystems.
+>
+>Signed-off-by: Alexander Graf <graf@amazon.com>
+>Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>---
+> mm/memblock.c | 131 ++++++++++++++++++++++++++++++++++++++++++++++++++
+> 1 file changed, 131 insertions(+)
+>
+>diff --git a/mm/memblock.c b/mm/memblock.c
+>index 84df96efca62..fdb08b60efc1 100644
+>--- a/mm/memblock.c
+>+++ b/mm/memblock.c
+>@@ -16,6 +16,9 @@
+> #include <linux/kmemleak.h>
+> #include <linux/seq_file.h>
+> #include <linux/memblock.h>
+>+#include <linux/kexec_handover.h>
 
-Signed-off-by: Qingfang Deng <dqfext@gmail.com>
----
-v3: use phylink managed EEE
+Looks this one breaks the memblock test in tools/testing/memblock.
 
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 65 +++++++++++++++++++++
- drivers/net/ethernet/mediatek/mtk_eth_soc.h | 11 ++++
- 2 files changed, 76 insertions(+)
+memblock.c:19:10: fatal error: linux/kexec_handover.h: No such file or directory
+   19 | #include <linux/kexec_handover.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 0ad965ced5ef..985010a7b277 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -815,12 +815,58 @@ static void mtk_mac_link_up(struct phylink_config *config,
- 	mtk_w32(mac->hw, mcr, MTK_MAC_MCR(mac->id));
- }
- 
-+static void mtk_mac_disable_tx_lpi(struct phylink_config *config)
-+{
-+	struct mtk_mac *mac = container_of(config, struct mtk_mac,
-+					   phylink_config);
-+	struct mtk_eth *eth = mac->hw;
-+
-+	mtk_m32(eth, MAC_MCR_EEE100M | MAC_MCR_EEE1G, 0, MTK_MAC_MCR(mac->id));
-+}
-+
-+static int mtk_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
-+				 bool tx_clk_stop)
-+{
-+	struct mtk_mac *mac = container_of(config, struct mtk_mac,
-+					   phylink_config);
-+	struct mtk_eth *eth = mac->hw;
-+	u32 val;
-+
-+	/* Tx idle timer in ms */
-+	timer = DIV_ROUND_UP(timer, 1000);
-+
-+	/* If the timer is zero, then set LPI_MODE, which allows the
-+	 * system to enter LPI mode immediately rather than waiting for
-+	 * the LPI threshold.
-+	 */
-+	if (!timer)
-+		val = MAC_EEE_LPI_MODE;
-+	else if (FIELD_FIT(MAC_EEE_LPI_TXIDLE_THD, timer))
-+		val = FIELD_PREP(MAC_EEE_LPI_TXIDLE_THD, timer);
-+	else
-+		val = MAC_EEE_LPI_TXIDLE_THD;
-+
-+	if (tx_clk_stop)
-+		val |= MAC_EEE_CKG_TXIDLE;
-+
-+	/* PHY Wake-up time, this field does not have a reset value, so use the
-+	 * reset value from MT7531 (36us for 100M and 17us for 1000M).
-+	 */
-+	val |= FIELD_PREP(MAC_EEE_WAKEUP_TIME_1000, 17) |
-+	       FIELD_PREP(MAC_EEE_WAKEUP_TIME_100, 36);
-+
-+	mtk_w32(eth, val, MTK_MAC_EEECR(mac->id));
-+	mtk_m32(eth, 0, MAC_MCR_EEE100M | MAC_MCR_EEE1G, MTK_MAC_MCR(mac->id));
-+}
-+
- static const struct phylink_mac_ops mtk_phylink_ops = {
- 	.mac_select_pcs = mtk_mac_select_pcs,
- 	.mac_config = mtk_mac_config,
- 	.mac_finish = mtk_mac_finish,
- 	.mac_link_down = mtk_mac_link_down,
- 	.mac_link_up = mtk_mac_link_up,
-+	.mac_disable_tx_lpi = mtk_mac_disable_tx_lpi,
-+	.mac_enable_tx_lpi = mtk_mac_enable_tx_lpi,
- };
- 
- static int mtk_mdio_init(struct mtk_eth *eth)
-@@ -4469,6 +4515,20 @@ static int mtk_set_pauseparam(struct net_device *dev, struct ethtool_pauseparam
- 	return phylink_ethtool_set_pauseparam(mac->phylink, pause);
- }
- 
-+static int mtk_get_eee(struct net_device *dev, struct ethtool_keee *eee)
-+{
-+	struct mtk_mac *mac = netdev_priv(dev);
-+
-+	return phylink_ethtool_get_eee(mac->phylink, eee);
-+}
-+
-+static int mtk_set_eee(struct net_device *dev, struct ethtool_keee *eee)
-+{
-+	struct mtk_mac *mac = netdev_priv(dev);
-+
-+	return phylink_ethtool_set_eee(mac->phylink, eee);
-+}
-+
- static u16 mtk_select_queue(struct net_device *dev, struct sk_buff *skb,
- 			    struct net_device *sb_dev)
- {
-@@ -4501,6 +4561,8 @@ static const struct ethtool_ops mtk_ethtool_ops = {
- 	.set_pauseparam		= mtk_set_pauseparam,
- 	.get_rxnfc		= mtk_get_rxnfc,
- 	.set_rxnfc		= mtk_set_rxnfc,
-+	.get_eee		= mtk_get_eee,
-+	.set_eee		= mtk_set_eee,
- };
- 
- static const struct net_device_ops mtk_netdev_ops = {
-@@ -4610,6 +4672,9 @@ static int mtk_add_mac(struct mtk_eth *eth, struct device_node *np)
- 	mac->phylink_config.type = PHYLINK_NETDEV;
- 	mac->phylink_config.mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
- 		MAC_10 | MAC_100 | MAC_1000 | MAC_2500FD;
-+	mac->phylink_config.lpi_capabilities = MAC_100FD | MAC_1000FD |
-+		MAC_2500FD;
-+	mac->phylink_config.lpi_timer_default = 1000;
- 
- 	/* MT7623 gmac0 is now missing its speed-specific PLL configuration
- 	 * in its .mac_config method (since state->speed is not valid there.
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-index 0d5225f1d3ee..90a377ab4359 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
-@@ -453,6 +453,8 @@
- #define MAC_MCR_RX_FIFO_CLR_DIS	BIT(12)
- #define MAC_MCR_BACKOFF_EN	BIT(9)
- #define MAC_MCR_BACKPR_EN	BIT(8)
-+#define MAC_MCR_EEE1G		BIT(7)
-+#define MAC_MCR_EEE100M		BIT(6)
- #define MAC_MCR_FORCE_RX_FC	BIT(5)
- #define MAC_MCR_FORCE_TX_FC	BIT(4)
- #define MAC_MCR_SPEED_1000	BIT(3)
-@@ -461,6 +463,15 @@
- #define MAC_MCR_FORCE_LINK	BIT(0)
- #define MAC_MCR_FORCE_LINK_DOWN	(MAC_MCR_FORCE_MODE)
- 
-+/* Mac EEE control registers */
-+#define MTK_MAC_EEECR(x)		(0x10104 + (x * 0x100))
-+#define MAC_EEE_WAKEUP_TIME_1000	GENMASK(31, 24)
-+#define MAC_EEE_WAKEUP_TIME_100		GENMASK(23, 16)
-+#define MAC_EEE_LPI_TXIDLE_THD		GENMASK(15, 8)
-+#define MAC_EEE_CKG_TXIDLE		BIT(3)
-+#define MAC_EEE_CKG_RXLPI		BIT(2)
-+#define MAC_EEE_LPI_MODE		BIT(0)
-+
- /* Mac status registers */
- #define MTK_MAC_MSR(x)		(0x10108 + (x * 0x100))
- #define MAC_MSR_EEE1G		BIT(7)
+>+#include <linux/kexec.h>
+>+#include <linux/libfdt.h>
+> 
+
 -- 
-2.43.0
-
+Wei Yang
+Help you, Help me
 
