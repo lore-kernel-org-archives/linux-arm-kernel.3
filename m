@@ -4,78 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3D70C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 19:25:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E18C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 19:26:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KfKnUUWtStrtKV9wPRAsZoWjhplTNxGCRujGqNOYsHo=; b=fhvmZqJ4c5BI/m2UrnnOb+tvGZ
-	CwgMMkNpLG50oiFeBIWTonyIEVq4+o165MoGraoDGkC8FTcNhEw5yX9QVoZdsIcGOHK912Z9zzPKK
-	PHoSvVrseIxr+9J9uR544A8q/hjMqa7JD5vTkWFFQA43Z6S2LHt7Aiu3S0+e7hg5BysI5UltQWywa
-	bLca/c37ji52vChCE9BzBu7zhGp2Bg5JI+n18vlJ9GHgEWg6zJ8tvWHl0GDRCntmhEnOks3x+Yufv
-	5DCIbUuGSPQxaGQO/nWwl5/emveUOa4BgVmbsE0wu6umHS+WnWzUhVv2A2kj8vbNc0xg38SbFP4Pw
-	6Xq3ojcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7SCJ0pUE2LwQE2TDd0hXt9uN83Fn/ucHR2/2/GAmZHY=; b=bQGaiWFUjxEVOfGZIMOGN4E9tM
+	zfh7fO4gM9vls88jqQg/bH1Zu7yLSOxuXlkR3pZucJdpf6H1CdM17eqqgRZFAp/os+dBJR3d/XXyR
+	CBXCFsRNwPqMB+Qpek/cWhCZbHQYjD/d56QH1mbhDyHNe7Nmj3ycG/eRCxUVVQ6V1PwM8jkq1MxIW
+	liLSzj9UKlY4arIvn4H9m7okeHPOAJ7SjiBctxBGs7xtbuhWLBUqDwGuR4RsC3oJj0WDL1GJv9JrV
+	mjlYulvK1citPlYikQ/AcialYx+5ZwjsWYvcrpVuxv2XS9gSgdcqYOXUB3Ddd9D3M1xi3tyvf2Sad
+	flthGH7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk6k2-00000005k9k-3mne;
-	Mon, 17 Feb 2025 19:25:18 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tk6kf-00000005kLK-2jYA;
+	Mon, 17 Feb 2025 19:25:57 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk6iZ-00000005jvO-1FMv;
-	Mon, 17 Feb 2025 19:23:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 83F9BA41B71;
-	Mon, 17 Feb 2025 19:22:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F75BC4CED1;
-	Mon, 17 Feb 2025 19:23:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739820226;
-	bh=di2f8ZfXxCBNhR7tv+4nGQXXN3J9VR0ctQdlXHHgSYk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pIo9w2YblFjZSZMaEOhGejB9c414kgaJgJ6HG5VwvXh/+u51F3hBjG/gA7rz5T7RS
-	 GT/Fj7TqqhkeDjZuZG4PO6MRq3+QBTVfNyV2I6CUFY9apW4eyL6ijfJnGymzXjAhy/
-	 ZsjwRwoMo7Q34ReT01vHNVIfwHPuzdPZ5LZqDZ3OW71n1ZTD91WSzBlCJ2pgb9k1fA
-	 4YGEVdmqgIYF8UHMqXLoAwf49oyeBkPqapQ79aIpzefGKN1rvk71XHuiN+kwVQHcgO
-	 asLClEcALL+ODomNhlQyUL4qK1++i0s0IUGFIpytZQrIwLL2brjvJswkE6RiCyAWz+
-	 du9M2PEAqi62w==
-Date: Mon, 17 Feb 2025 20:23:43 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
+	id 1tk4UD-00000005NOj-2kul
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 17 Feb 2025 17:00:50 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-aaee2c5ee6eso710488166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 09:00:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739811648; x=1740416448; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7SCJ0pUE2LwQE2TDd0hXt9uN83Fn/ucHR2/2/GAmZHY=;
+        b=jEp8TvkMOVQ5mwlzJBOdVu9ZKOfCWGadibryoo2RDHlA0cHvhgjXqzflmSwOESHCpT
+         kVKywGtvXrO3YKGz0OkLA3FQu6FLkcLRhQNlLInhkMtbP51s9YZV7CBiMdOKvV9loP1g
+         PDeU5hhxF3x5Yyoc5orR1a+OSmjs0o2jDT3F86efmAMH5oUpU6qtq1HF8AVm8nGgpY/5
+         bt2xPf1neIeghuPLq3KO3F6Qj4eim5LcU7gunxbVZXcYRXWaY8gOgjkKXKhKGdJoHmjd
+         XwK14EqxSGebG/uKLlNjscc7pBU5/a3pRC3CRdb4usl8wHrHhEgPm6Cw+Xfn+p94aFgB
+         T6ow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739811648; x=1740416448;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7SCJ0pUE2LwQE2TDd0hXt9uN83Fn/ucHR2/2/GAmZHY=;
+        b=i9jYgEV94fs5BoSyP+YWJIjXrz3FE8qfHh13ntksKbaV841F62SVXooy8xH7LjHVzl
+         mo4z/0sT9u71qeDTQDiGZGVp7Kdb+pYZfR9KHLE/C9Em6423vXb2SiZtZnM8Ov5Syypa
+         JTODS4B3zlDU5poQdY3OmDlPVanTTIMUyG+lgPnKUPREcyMkMWzcwqpSlapvF898FS+o
+         W5iN7AwT8Smi11Xha4DK+IeuM7Y7lY7B13bZPhfimVBFIArKPfir568Zv9vF7J+pOLfC
+         SjzkaJlDZLE7Jofzv/IDx/DvX9TuBPHAcwxkZPovtNcEcBRyZCmKU9r4w2AFnRlDRoW5
+         t/5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVtDlV0jab2hnDrkDLY35k6/e40iuqsiOT+0ejXLCUE5iEN3ouJOIK/Kvm7a0TfyhmF+dPcD+b6S8W7+Z40crwP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzE1rfx5uVdCu+VkL08c/E7l99XTGhDxIU/+x3FXN/gQHL4KdHt
+	x82FazqRg/krnrtK4luKrUTmILHJM/EGcUxxHMfELjaD+dduh0VI
+X-Gm-Gg: ASbGncskZ7gjX3roov3eiu/b0ICNSt66NWF6vZw86IUJWFkbs8AnldE3erZOp05Kx1e
+	ufo86Zj7Wbz4yXZc847L6Kz8vXBGlLSkBaDtsVdUl9dWhG4l9bvJ47Uz560JXsSseZ1STsEY6LG
+	e/31EgBMjN3FD/TU0HmJtUScdDKAcbOw4/qmO1x0qTePEehy9Ar7y/URADWVDI74IOslkpE84Dc
+	XjmLx3ZKENjFT2Vc9UOCJahB4yECgKqpZp0BLrXfoxAb/Woy7Wyo8u8KsjuSa2/HpBG6OBS86LK
+	w3ufvi8czC9HosYrEg8zxrsgSPj1b7+Ti7e5pojG+Uek7OoRqMS/KA==
+X-Google-Smtp-Source: AGHT+IE8uiVGrKUzV55CQFqCJ8GrM70TxsS8ElrSoepZMqDoUHx4Rfw20qczDxgzE3AFyPp76GMMbQ==
+X-Received: by 2002:a17:907:9802:b0:ab7:bcc0:9067 with SMTP id a640c23a62f3a-abb70dd72f8mr1224609566b.40.1739811647800;
+        Mon, 17 Feb 2025 09:00:47 -0800 (PST)
+Received: from playground.localdomain ([82.79.237.175])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aba53376aa2sm920570766b.103.2025.02.17.09.00.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 09:00:47 -0800 (PST)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org,
+	Shawn Guo <shawnguo@kernel.org>,
+	Marek Vasut <marex@denx.de>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [PATCH net-next v4 13/16] net: airoha: Introduce Airoha NPU
- support
-Message-ID: <Z7OMv-7UBVtKaEFb@lore-desk>
-References: <20250213-airoha-en7581-flowtable-offload-v4-0-b69ca16d74db@kernel.org>
- <20250213-airoha-en7581-flowtable-offload-v4-13-b69ca16d74db@kernel.org>
- <20250217183854.GP1615191@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 2/4] clk: clk-imx8mp-audiomix: fix dsp/ocram_a clock parents
+Date: Mon, 17 Feb 2025 11:57:16 -0500
+Message-Id: <20250217165718.74619-3-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250217165718.74619-1-laurentiumihalcea111@gmail.com>
+References: <20250217165718.74619-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="F5Pg8/RejpjKeEzO"
-Content-Disposition: inline
-In-Reply-To: <20250217183854.GP1615191@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_112347_474008_2E855818 
-X-CRM114-Status: GOOD (  31.10  )
+X-CRM114-CacheID: sfid-20250217_090049_693203_2846E87D 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,580 +108,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
---F5Pg8/RejpjKeEzO
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The DSP and OCRAM_A modules from AUDIOMIX are clocked by
+AUDIO_AXI_CLK_ROOT, not AUDIO_AHB_CLK_ROOT. Update the clock data
+accordingly.
 
-> On Thu, Feb 13, 2025 at 04:34:32PM +0100, Lorenzo Bianconi wrote:
-> > Packet Processor Engine (PPE) module available on EN7581 SoC populates
-> > the PPE table with 5-tuples flower rules learned from traffic forwarded
-> > between the GDM ports connected to the Packet Switch Engine (PSE) modul=
-e.
-> > The airoha_eth driver can enable hw acceleration of learned 5-tuples
-> > rules if the user configure them in netfilter flowtable (netfilter
-> > flowtable support will be added with subsequent patches).
-> > airoha_eth driver configures and collects data from the PPE module via a
-> > Network Processor Unit (NPU) RISC-V module available on the EN7581 SoC.
-> > Introduce basic support for Airoha NPU moudle.
->=20
-> nit: module
+Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+---
+ drivers/clk/imx/clk-imx8mp-audiomix.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-ack, I will fix it in v6
+diff --git a/drivers/clk/imx/clk-imx8mp-audiomix.c b/drivers/clk/imx/clk-imx8mp-audiomix.c
+index c409fc7e0618..775f62dddb11 100644
+--- a/drivers/clk/imx/clk-imx8mp-audiomix.c
++++ b/drivers/clk/imx/clk-imx8mp-audiomix.c
+@@ -180,14 +180,14 @@ static struct clk_imx8mp_audiomix_sel sels[] = {
+ 	CLK_GATE("asrc", ASRC_IPG),
+ 	CLK_GATE("pdm", PDM_IPG),
+ 	CLK_GATE("earc", EARC_IPG),
+-	CLK_GATE("ocrama", OCRAMA_IPG),
++	CLK_GATE_PARENT("ocrama", OCRAMA_IPG, "axi"),
+ 	CLK_GATE("aud2htx", AUD2HTX_IPG),
+ 	CLK_GATE_PARENT("earc_phy", EARC_PHY, "sai_pll_out_div2"),
+ 	CLK_GATE("sdma2", SDMA2_ROOT),
+ 	CLK_GATE("sdma3", SDMA3_ROOT),
+ 	CLK_GATE("spba2", SPBA2_ROOT),
+-	CLK_GATE("dsp", DSP_ROOT),
+-	CLK_GATE("dspdbg", DSPDBG_ROOT),
++	CLK_GATE_PARENT("dsp", DSP_ROOT, "axi"),
++	CLK_GATE_PARENT("dspdbg", DSPDBG_ROOT, "axi"),
+ 	CLK_GATE("edma", EDMA_ROOT),
+ 	CLK_GATE_PARENT("audpll", AUDPLL_ROOT, "osc_24m"),
+ 	CLK_GATE("mu2", MU2_ROOT),
+-- 
+2.34.1
 
->=20
-> >=20
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
->=20
-> ...
->=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/eth=
-ernet/airoha/airoha_npu.c
->=20
-> ...
->=20
-> > +static int airoha_npu_probe(struct platform_device *pdev)
-> > +{
-> > +	struct device *dev =3D &pdev->dev;
-> > +	struct reserved_mem *rmem;
-> > +	struct airoha_npu *npu;
-> > +	struct device_node *np;
-> > +	void __iomem *base;
-> > +	int i, irq, err;
-> > +
-> > +	base =3D devm_platform_ioremap_resource(pdev, 0);
-> > +	if (IS_ERR(base))
-> > +		return PTR_ERR(base);
-> > +
-> > +	npu =3D devm_kzalloc(dev, sizeof(*npu), GFP_KERNEL);
-> > +	if (!npu)
-> > +		return -ENOMEM;
-> > +
-> > +	npu->dev =3D dev;
-> > +	npu->regmap =3D devm_regmap_init_mmio(dev, base, &regmap_config);
-> > +	if (IS_ERR(npu->regmap))
-> > +		return PTR_ERR(npu->regmap);
-> > +
-> > +	np =3D of_parse_phandle(dev->of_node, "memory-region", 0);
-> > +	if (!np)
-> > +		return -ENODEV;
-> > +
-> > +	rmem =3D of_reserved_mem_lookup(np);
-> > +	of_node_put(np);
-> > +
-> > +	if (!rmem)
-> > +		return -ENODEV;
-> > +
-> > +	irq =3D platform_get_irq(pdev, 0);
-> > +	if (irq < 0)
-> > +		return irq;
-> > +
-> > +	err =3D devm_request_irq(dev, irq, airoha_npu_mbox_handler,
-> > +			       IRQF_SHARED, "airoha-npu-mbox", npu);
-> > +	if (err)
-> > +		return err;
-> > +
-> > +	for (i =3D 0; i < ARRAY_SIZE(npu->cores); i++) {
-> > +		struct airoha_npu_core *core =3D &npu->cores[i];
-> > +
-> > +		spin_lock_init(&core->lock);
-> > +		core->npu =3D npu;
-> > +
-> > +		irq =3D platform_get_irq(pdev, i + 1);
-> > +		if (irq < 0)
-> > +			return err;
->=20
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..3620f4e771e659de4c91b40=
-575e18d689199fb4c
-> > --- /dev/null
-> > +++ b/drivers/net/ethernet/airoha/airoha_npu.c
-> > @@ -0,0 +1,521 @@
-> > +// SPDX-License-Identifier: GPL-2.0-only
-> > +/*
-> > + * Copyright (c) 2025 AIROHA Inc
-> > + * Author: Lorenzo Bianconi <lorenzo@kernel.org>
-> > + */
-> > +
-> > +#include <linux/devcoredump.h>
-> > +#include <linux/firmware.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/of_net.h>
-> > +#include <linux/of_platform.h>
-> > +#include <linux/of_reserved_mem.h>
-> > +#include <linux/regmap.h>
-> > +
-> > +#include "airoha_npu.h"
-> > +
-> > +#define NPU_EN7581_FIRMWARE_DATA		"airoha/en7581_npu_data.bin"
-> > +#define NPU_EN7581_FIRMWARE_RV32		"airoha/en7581_npu_rv32.bin"
-> > +#define NPU_EN7581_FIRMWARE_RV32_MAX_SIZE	0x200000
-> > +#define NPU_EN7581_FIRMWARE_DATA_MAX_SIZE	0x10000
-> > +#define NPU_DUMP_SIZE				512
-> > +
-> > +#define REG_NPU_LOCAL_SRAM		0x0
-> > +
-> > +#define NPU_PC_BASE_ADDR		0x305000
-> > +#define REG_PC_DBG(_n)			(0x305000 + ((_n) * 0x100))
-> > +
-> > +#define NPU_CLUSTER_BASE_ADDR		0x306000
-> > +
-> > +#define REG_CR_BOOT_TRIGGER		(NPU_CLUSTER_BASE_ADDR + 0x000)
-> > +#define REG_CR_BOOT_CONFIG		(NPU_CLUSTER_BASE_ADDR + 0x004)
-> > +#define REG_CR_BOOT_BASE(_n)		(NPU_CLUSTER_BASE_ADDR + 0x020 + ((_n) <=
-< 2))
-> > +
-> > +#define NPU_MBOX_BASE_ADDR		0x30c000
-> > +
-> > +#define REG_CR_MBOX_INT_STATUS		(NPU_MBOX_BASE_ADDR + 0x000)
-> > +#define MBOX_INT_STATUS_MASK		BIT(8)
-> > +
-> > +#define REG_CR_MBOX_INT_MASK(_n)	(NPU_MBOX_BASE_ADDR + 0x004 + ((_n) <=
-< 2))
-> > +#define REG_CR_MBQ0_CTRL(_n)		(NPU_MBOX_BASE_ADDR + 0x030 + ((_n) << 2=
-))
-> > +#define REG_CR_MBQ8_CTRL(_n)		(NPU_MBOX_BASE_ADDR + 0x0b0 + ((_n) << 2=
-))
-> > +#define REG_CR_NPU_MIB(_n)		(NPU_MBOX_BASE_ADDR + 0x140 + ((_n) << 2))
-> > +
-> > +#define NPU_TIMER_BASE_ADDR		0x310100
-> > +#define REG_WDT_TIMER_CTRL(_n)		(NPU_TIMER_BASE_ADDR + ((_n) * 0x100))
-> > +#define WDT_EN_MASK			BIT(25)
-> > +#define WDT_INTR_MASK			BIT(21)
-> > +
-> > +enum {
-> > +	NPU_OP_SET =3D 1,
-> > +	NPU_OP_SET_NO_WAIT,
-> > +	NPU_OP_GET,
-> > +	NPU_OP_GET_NO_WAIT,
-> > +};
-> > +
-> > +enum {
-> > +	NPU_FUNC_WIFI,
-> > +	NPU_FUNC_TUNNEL,
-> > +	NPU_FUNC_NOTIFY,
-> > +	NPU_FUNC_DBA,
-> > +	NPU_FUNC_TR471,
-> > +	NPU_FUNC_PPE,
-> > +};
-> > +
-> > +enum {
-> > +	NPU_MBOX_ERROR,
-> > +	NPU_MBOX_SUCCESS,
-> > +};
-> > +
-> > +enum {
-> > +	PPE_FUNC_SET_WAIT,
-> > +	PPE_FUNC_SET_WAIT_HWNAT_INIT,
-> > +	PPE_FUNC_SET_WAIT_HWNAT_DEINIT,
-> > +	PPE_FUNC_SET_WAIT_API,
-> > +};
-> > +
-> > +enum {
-> > +	PPE2_SRAM_SET_ENTRY,
-> > +	PPE_SRAM_SET_ENTRY,
-> > +	PPE_SRAM_SET_VAL,
-> > +	PPE_SRAM_RESET_VAL,
-> > +};
-> > +
-> > +enum {
-> > +	QDMA_WAN_ETHER =3D 1,
-> > +	QDMA_WAN_PON_XDSL,
-> > +};
-> > +
-> > +#define MBOX_MSG_FUNC_ID	GENMASK(14, 11)
-> > +#define MBOX_MSG_STATIC_BUF	BIT(5)
-> > +#define MBOX_MSG_STATUS		GENMASK(4, 2)
-> > +#define MBOX_MSG_DONE		BIT(1)
-> > +#define MBOX_MSG_WAIT_RSP	BIT(0)
-> > +
-> > +#define PPE_TYPE_L2B_IPV4	2
-> > +#define PPE_TYPE_L2B_IPV4_IPV6	3
-> > +
-> > +struct ppe_mbox_data {
-> > +	u32 func_type;
-> > +	u32 func_id;
-> > +	union {
-> > +		struct {
-> > +			u8 cds;
-> > +			u8 xpon_hal_api;
-> > +			u8 wan_xsi;
-> > +			u8 ct_joyme4;
-> > +			int ppe_type;
-> > +			int wan_mode;
-> > +			int wan_sel;
-> > +		} init_info;
-> > +		struct {
-> > +			int func_id;
-> > +			u32 size;
-> > +			u32 data;
-> > +		} set_info;
-> > +	};
-> > +};
-> > +
-> > +static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
-> > +			       void *p, int size)
-> > +{
-> > +	u16 core =3D 0; /* FIXME */
-> > +	u32 val, offset =3D core << 4;
-> > +	dma_addr_t dma_addr;
-> > +	void *addr;
-> > +	int ret;
-> > +
-> > +	addr =3D kzalloc(size, GFP_ATOMIC | GFP_DMA);
-> > +	if (!addr)
-> > +		return -ENOMEM;
-> > +
-> > +	memcpy(addr, p, size);
-> > +	dma_addr =3D dma_map_single(npu->dev, addr, size, DMA_TO_DEVICE);
-> > +	ret =3D dma_mapping_error(npu->dev, dma_addr);
-> > +	if (ret)
-> > +		goto out;
-> > +
-> > +	spin_lock_bh(&npu->cores[core].lock);
-> > +
-> > +	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(0) + offset, dma_addr);
-> > +	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(1) + offset, size);
-> > +	regmap_read(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, &val);
-> > +	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, val + 1);
-> > +	val =3D FIELD_PREP(MBOX_MSG_FUNC_ID, func_id) | MBOX_MSG_WAIT_RSP;
-> > +	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(3) + offset, val);
-> > +
-> > +	ret =3D regmap_read_poll_timeout_atomic(npu->regmap,
-> > +					      REG_CR_MBQ0_CTRL(3) + offset,
-> > +					      val, (val & MBOX_MSG_DONE),
-> > +					      100, 100 * MSEC_PER_SEC);
-> > +	if (!ret && FIELD_GET(MBOX_MSG_STATUS, val) !=3D NPU_MBOX_SUCCESS)
-> > +		ret =3D -EINVAL;
-> > +
-> > +	spin_unlock_bh(&npu->cores[core].lock);
-> > +
-> > +	dma_unmap_single(npu->dev, dma_addr, size, DMA_TO_DEVICE);
-> > +out:
-> > +	kfree(addr);
-> > +
-> > +	return ret;
-> > +}
-> > +
-> > +static int airoha_npu_run_firmware(struct device *dev, void __iomem *b=
-ase,
-> > +				   struct reserved_mem *rmem)
-> > +{
-> > +	const struct firmware *fw;
-> > +	void __iomem *addr;
-> > +	int ret;
-> > +
-> > +	ret =3D request_firmware(&fw, NPU_EN7581_FIRMWARE_RV32, dev);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (fw->size > NPU_EN7581_FIRMWARE_RV32_MAX_SIZE) {
-> > +		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
-> > +			NPU_EN7581_FIRMWARE_RV32, fw->size);
-> > +		ret =3D -E2BIG;
-> > +		goto out;
-> > +	}
-> > +
-> > +	addr =3D devm_ioremap(dev, rmem->base, rmem->size);
-> > +	if (!addr) {
-> > +		ret =3D -ENOMEM;
-> > +		goto out;
-> > +	}
-> > +
-> > +	memcpy_toio(addr, fw->data, fw->size);
-> > +	release_firmware(fw);
-> > +
-> > +	ret =3D request_firmware(&fw, NPU_EN7581_FIRMWARE_DATA, dev);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	if (fw->size > NPU_EN7581_FIRMWARE_DATA_MAX_SIZE) {
-> > +		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
-> > +			NPU_EN7581_FIRMWARE_DATA, fw->size);
-> > +		ret =3D -E2BIG;
-> > +		goto out;
-> > +	}
-> > +
-> > +	memcpy_toio(base + REG_NPU_LOCAL_SRAM, fw->data, fw->size);
-> > +out:
-> > +	release_firmware(fw);
-> > +
-> > +	return ret;
-> > +}
-> > +
-> > +static irqreturn_t airoha_npu_mbox_handler(int irq, void *npu_instance)
-> > +{
-> > +	struct airoha_npu *npu =3D npu_instance;
-> > +
-> > +	/* clear mbox interrupt status */
-> > +	regmap_write(npu->regmap, REG_CR_MBOX_INT_STATUS,
-> > +		     MBOX_INT_STATUS_MASK);
-> > +
-> > +	/* acknowledge npu */
-> > +	regmap_update_bits(npu->regmap, REG_CR_MBQ8_CTRL(3),
-> > +			   MBOX_MSG_STATUS | MBOX_MSG_DONE, MBOX_MSG_DONE);
-> > +
-> > +	return IRQ_HANDLED;
-> > +}
-> > +
-> > +static void airoha_npu_wdt_work(struct work_struct *work)
-> > +{
-> > +	struct airoha_npu_core *core;
-> > +	struct airoha_npu *npu;
-> > +	void *dump;
-> > +	u32 val[3];
-> > +	int c;
-> > +
-> > +	core =3D container_of(work, struct airoha_npu_core, wdt_work);
-> > +	npu =3D core->npu;
-> > +
-> > +	dump =3D vzalloc(NPU_DUMP_SIZE);
-> > +	if (!dump)
-> > +		return;
-> > +
-> > +	c =3D core - &npu->cores[0];
-> > +	regmap_bulk_read(npu->regmap, REG_PC_DBG(c), val, ARRAY_SIZE(val));
-> > +	snprintf(dump, NPU_DUMP_SIZE, "PC: %08x SP: %08x LR: %08x\n",
-> > +		 val[0], val[1], val[2]);
-> > +
-> > +	dev_coredumpv(npu->dev, dump, NPU_DUMP_SIZE, GFP_KERNEL);
-> > +}
-> > +
-> > +static irqreturn_t airoha_npu_wdt_handler(int irq, void *core_instance)
-> > +{
-> > +	struct airoha_npu_core *core =3D core_instance;
-> > +	struct airoha_npu *npu =3D core->npu;
-> > +	int c =3D core - &npu->cores[0];
-> > +	u32 val;
-> > +
-> > +	regmap_set_bits(npu->regmap, REG_WDT_TIMER_CTRL(c), WDT_INTR_MASK);
-> > +	if (!regmap_read(npu->regmap, REG_WDT_TIMER_CTRL(c), &val) &&
-> > +	    FIELD_GET(WDT_EN_MASK, val))
-> > +		schedule_work(&core->wdt_work);
-> > +
-> > +	return IRQ_HANDLED;
-> > +}
-> > +
-> > +static int airoha_npu_ppe_init(struct airoha_npu *npu)
-> > +{
-> > +	struct ppe_mbox_data ppe_data =3D {
-> > +		.func_type =3D NPU_OP_SET,
-> > +		.func_id =3D PPE_FUNC_SET_WAIT_HWNAT_INIT,
-> > +		.init_info =3D {
-> > +			.ppe_type =3D PPE_TYPE_L2B_IPV4_IPV6,
-> > +			.wan_mode =3D QDMA_WAN_ETHER,
-> > +		},
-> > +	};
-> > +
-> > +	return airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-> > +				   sizeof(struct ppe_mbox_data));
-> > +}
-> > +
-> > +int airoha_npu_ppe_deinit(struct airoha_npu *npu)
-> > +{
-> > +	struct ppe_mbox_data ppe_data =3D {
-> > +		.func_type =3D NPU_OP_SET,
-> > +		.func_id =3D PPE_FUNC_SET_WAIT_HWNAT_DEINIT,
-> > +	};
-> > +
-> > +	return airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-> > +				   sizeof(struct ppe_mbox_data));
-> > +}
-> > +EXPORT_SYMBOL_GPL(airoha_npu_ppe_deinit);
-> > +
-> > +int airoha_npu_ppe_flush_sram_entries(struct airoha_npu *npu,
-> > +				      dma_addr_t foe_addr,
-> > +				      int sram_num_entries)
-> > +{
-> > +	struct ppe_mbox_data ppe_data =3D {
-> > +		.func_type =3D NPU_OP_SET,
-> > +		.func_id =3D PPE_FUNC_SET_WAIT_API,
-> > +		.set_info =3D {
-> > +			.func_id =3D PPE_SRAM_RESET_VAL,
-> > +			.data =3D foe_addr,
-> > +			.size =3D sram_num_entries,
-> > +		},
-> > +	};
-> > +
-> > +	return airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-> > +				   sizeof(struct ppe_mbox_data));
-> > +}
-> > +EXPORT_SYMBOL_GPL(airoha_npu_ppe_flush_sram_entries);
-> > +
-> > +int airoha_npu_foe_commit_entry(struct airoha_npu *npu, dma_addr_t foe=
-_addr,
-> > +				u32 entry_size, u32 hash, bool ppe2)
-> > +{
-> > +	struct ppe_mbox_data ppe_data =3D {
-> > +		.func_type =3D NPU_OP_SET,
-> > +		.func_id =3D PPE_FUNC_SET_WAIT_API,
-> > +		.set_info =3D {
-> > +			.data =3D foe_addr,
-> > +			.size =3D entry_size,
-> > +		},
-> > +	};
-> > +	int err;
-> > +
-> > +	ppe_data.set_info.func_id =3D ppe2 ? PPE2_SRAM_SET_ENTRY
-> > +					 : PPE_SRAM_SET_ENTRY;
-> > +
-> > +	err =3D airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-> > +				  sizeof(struct ppe_mbox_data));
-> > +	if (err)
-> > +		return err;
-> > +
-> > +	ppe_data.set_info.func_id =3D PPE_SRAM_SET_VAL;
-> > +	ppe_data.set_info.data =3D hash;
-> > +	ppe_data.set_info.size =3D sizeof(u32);
-> > +
-> > +	return airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-> > +				   sizeof(struct ppe_mbox_data));
-> > +}
-> > +EXPORT_SYMBOL_GPL(airoha_npu_foe_commit_entry);
-> > +
-> > +struct airoha_npu *airoha_npu_get(struct device *dev)
-> > +{
-> > +	struct platform_device *pdev;
-> > +	struct device_node *np;
-> > +	struct airoha_npu *npu;
-> > +
-> > +	np =3D of_parse_phandle(dev->of_node, "airoha,npu", 0);
-> > +	if (!np)
-> > +		return ERR_PTR(-ENODEV);
-> > +
-> > +	pdev =3D of_find_device_by_node(np);
-> > +	of_node_put(np);
-> > +
-> > +	if (!pdev) {
-> > +		dev_err(dev, "cannot find device node %s\n", np->name);
-> > +		return ERR_PTR(-ENODEV);
-> > +	}
-> > +
-> > +	if (!try_module_get(THIS_MODULE)) {
-> > +		dev_err(dev, "failed to get the device driver module\n");
-> > +		npu =3D ERR_PTR(-ENODEV);
-> > +		goto error_pdev_put;
-> > +	}
-> > +
-> > +	npu =3D platform_get_drvdata(pdev);
-> > +	if (!npu) {
-> > +		npu =3D ERR_PTR(-ENODEV);
-> > +		goto error_module_put;
-> > +	}
-> > +
-> > +	if (!device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_SUPPLIER)) {
-> > +		dev_err(&pdev->dev,
-> > +			"failed to create device link to consumer %s\n",
-> > +			dev_name(dev));
-> > +		npu =3D ERR_PTR(-EINVAL);
-> > +		goto error_module_put;
-> > +	}
-> > +
-> > +	return npu;
-> > +
-> > +error_module_put:
-> > +	module_put(THIS_MODULE);
-> > +error_pdev_put:
-> > +	platform_device_put(pdev);
-> > +
-> > +	return npu;
-> > +}
-> > +EXPORT_SYMBOL_GPL(airoha_npu_get);
-> > +
-> > +void airoha_npu_put(struct airoha_npu *npu)
-> > +{
-> > +	module_put(THIS_MODULE);
-> > +	put_device(npu->dev);
-> > +}
-> > +EXPORT_SYMBOL_GPL(airoha_npu_put);
-> > +
-> > +static const struct of_device_id of_airoha_npu_match[] =3D {
-> > +	{ .compatible =3D "airoha,en7581-npu" },
-> > +	{ /* sentinel */ }
-> > +};
-> > +MODULE_DEVICE_TABLE(of, of_airoha_npu_match);
-> > +
-> > +static const struct regmap_config regmap_config =3D {
-> > +	.name			=3D "npu",
-> > +	.reg_bits		=3D 32,
-> > +	.val_bits		=3D 32,
-> > +	.reg_stride		=3D 4,
-> > +	.disable_locking	=3D true,
-> > +};
->=20
-> Should this return irq rather than err?
-
-are you referring to devm_request_irq()?
-
-https://elixir.bootlin.com/linux/v6.13.2/source/include/linux/interrupt.h#L=
-215
-https://elixir.bootlin.com/linux/v6.13.2/source/kernel/irq/devres.c#L52
-
-I guess it returns 0 on success and a negative value in case of error.
-
-Regards,
-Lorenzo
-
->=20
-> Flagged by Smatch.
->=20
-> > +
-> > +		err =3D devm_request_irq(dev, irq, airoha_npu_wdt_handler,
-> > +				       IRQF_SHARED, "airoha-npu-wdt", core);
-> > +		if (err)
-> > +			return err;
-> > +
-> > +		INIT_WORK(&core->wdt_work, airoha_npu_wdt_work);
-> > +	}
-> > +
-> > +	if (dma_set_coherent_mask(dev, 0xbfffffff))
-> > +		dev_warn(dev, "failed coherent DMA configuration\n");
-> > +
-> > +	err =3D airoha_npu_run_firmware(dev, base, rmem);
-> > +	if (err)
-> > +		return err;
-> > +
-> > +	regmap_write(npu->regmap, REG_CR_NPU_MIB(10),
-> > +		     rmem->base + NPU_EN7581_FIRMWARE_RV32_MAX_SIZE);
-> > +	regmap_write(npu->regmap, REG_CR_NPU_MIB(11), 0x40000); /* SRAM 256K =
-*/
-> > +	regmap_write(npu->regmap, REG_CR_NPU_MIB(12), 0);
-> > +	regmap_write(npu->regmap, REG_CR_NPU_MIB(21), 1);
-> > +	msleep(100);
-> > +
-> > +	/* setting booting address */
-> > +	for (i =3D 0; i < NPU_NUM_CORES; i++)
-> > +		regmap_write(npu->regmap, REG_CR_BOOT_BASE(i), rmem->base);
-> > +	usleep_range(1000, 2000);
-> > +
-> > +	/* enable NPU cores */
-> > +	/* do not start core3 since it is used for WiFi offloading */
-> > +	regmap_write(npu->regmap, REG_CR_BOOT_CONFIG, 0xf7);
-> > +	regmap_write(npu->regmap, REG_CR_BOOT_TRIGGER, 0x1);
-> > +	msleep(100);
-> > +
-> > +	err =3D airoha_npu_ppe_init(npu);
-> > +	if (err)
-> > +		return err;
-> > +
-> > +	platform_set_drvdata(pdev, npu);
-> > +
-> > +	return 0;
-> > +}
->=20
-> ...
-
---F5Pg8/RejpjKeEzO
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ7OMvwAKCRA6cBh0uS2t
-rNdoAQCWECWS+xpZrJhW08Zy2QpYhsJo0Gc0KMrwPgcgruXSbAD/ROnhy1StLrYn
-aSa2+VJUlypYktccdeQA3FymQxN9xwQ=
-=sz77
------END PGP SIGNATURE-----
-
---F5Pg8/RejpjKeEzO--
 
