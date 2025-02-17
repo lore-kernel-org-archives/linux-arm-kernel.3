@@ -4,209 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F99C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C282C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 14:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P5eEY0CwFCO2uHoY8OikoUUvhu7pT9nPplB0Eb+NLro=; b=tGXDzK+uMwJIyHyz5JW4w9ny/D
-	dTgNHIVSvi+zrtVQXS7R1wo87tTBvW+1H6nF3TFVNL3fww/Vxto789TjlCQcrlNuT49G8Qlasgm5k
-	nXNES0phu6lHs5mSBDhw0hlj3XrftztfgxJmTauFbMsqcprpMmT+KLkFiUBOm6cA0zVYWdaaGEraw
-	t2t1o2LLkBSBatzeO+VnjL+YAdJe2vayX4ttmo/xnzhT27I2eUAUP2zeZwE0P4aSqoh+TWR+h8pW5
-	9wU6e26GALOwt1XnbTHARLo8P83OPR2EV/XHuv+9hZRqFVp7SWRV0Llrc1ReqAxUiAlO1SocUM0GR
-	bUVJI6WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TFLguTKriOEaEoNxtvT7MAJvdtieE227Ck7gm5fmJV0=; b=jPvl8c4MFT1mTpkPLeqbbeg537
+	yLA13pvTJag9GzPuM8NoMcyj125nE4/JnVS2c8ET3qz7s8fnosjc7eSBwuIKONIfoHP/tSMdSoa99
+	wKvGiMRlsRfYtI/r4fNLUytX/ydisrOKmDgfF68u9F+Rurtcz4B7Tyevs6KQXEGVgXbOD3odyEiBt
+	90i2mhNfrq1f0iwzfkGUhCJf4J0WKDzQBLJv73lvGHKrtIdRYGEhcI/GgtouLwxuWtcnI01RE2hFV
+	DYhijpFRHq7jlZv8byvvnegMXexobSa22SqmRAQLsOdbpvalejIdCWseSoeeRUPtIB8RKWLNliPmm
+	pv3HSxrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk2Nj-00000004uqo-0zl8;
-	Mon, 17 Feb 2025 14:45:59 +0000
-Received: from mail-mw2nam12on20602.outbound.protection.outlook.com ([2a01:111:f403:200a::602] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tk2P9-00000004v7L-44xc;
+	Mon, 17 Feb 2025 14:47:27 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk28h-00000004rTw-0z7H
+	id 1tk28l-00000004rV2-1wLO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 14:30:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UTmmUvL1rV/JhjfuCyJMFxD/LO1bMfmS+U1XweLnvkw4Vfq4SUGB3mGEBRMmeljIIN6rxe6FYKvxivjMvJX+UDPt+aE89NR0J+UIFYTV5FTqfCk9/FT+XKK6ImtN4qBZzSLFEPEgR6+lGl3/dBDCsrf6VJX+weQqaOjWAYx8RVPlbQZTH8Lrxaj94g2OUeK61y2wxrM9cBzDh1NFRqn3+G6RyFxNcqk4PM4msrhwfiyktgST+POeQQRoTfaufV7C0DnuMszqvJDX7eSu4cDcSNePWt7IBtK76ytNk5aAYTPlTOYmX/itj7FELqtxDmzBU93VgHL38cqfbMvdI1+lWA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P5eEY0CwFCO2uHoY8OikoUUvhu7pT9nPplB0Eb+NLro=;
- b=aUhgH1owQBJYHngV3W5vqsjquTUpmgDlVP6OqpCfoBeYVL+T+95UvVvfUeJiOsHXFGkZG1Vh1P26OPenAzx55UxTdVjyF3aJ04h4aOur3ypXdE2Cl7/rnvjnPy9vF+bd0R4zzJluPbWACiO6QTWYEtLcssRL+ZCfDLF5mHlIVhGXb2PS1sa72Tssa7IUAXWkV4IEA80ouwozA2W57IIk9VeCbfminF5GiVqRsxsYlPDt2uQKUcCyWdFRFV3+Eq5a7ockNao41gPIqJHY7RtV2Sq76dw0Fd3AQvPalwPSTVhPUZkRns3zMKjGyyRNpVhZQE9BUqJTsir/COwf3VnHtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P5eEY0CwFCO2uHoY8OikoUUvhu7pT9nPplB0Eb+NLro=;
- b=GzKsnx23PYf0XraT5HDGijzGXQMORRv6XWIA5VArLWp7LVNnOg/Qomz64u9TpleJ5i5todqNDW9eWeJpTExBuJeNbCHKrYlNgCnHXwnOKGxJvFgVRGBgh2nxJ4j3Ba9/XYjF1PZNNOJI1v3fUuPojRGlzAGaHnrzI4TfJ8xUAqo=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SJ2PR12MB8109.namprd12.prod.outlook.com (2603:10b6:a03:4f5::8)
- by SA0PR12MB7090.namprd12.prod.outlook.com (2603:10b6:806:2d5::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.17; Mon, 17 Feb
- 2025 14:30:19 +0000
-Received: from SJ2PR12MB8109.namprd12.prod.outlook.com
- ([fe80::7f35:efe7:5e82:5e30]) by SJ2PR12MB8109.namprd12.prod.outlook.com
- ([fe80::7f35:efe7:5e82:5e30%7]) with mapi id 15.20.8445.015; Mon, 17 Feb 2025
- 14:30:19 +0000
-Message-ID: <f098b7b8-29a1-40f4-b348-39bc6d0411ef@amd.com>
-Date: Mon, 17 Feb 2025 15:30:15 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] arm64: versal-net: Add description for VN-X board
-To: linux-kernel@vger.kernel.org, monstr@monstr.eu, michal.simek@xilinx.com,
- git@xilinx.com
-Cc: Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
-References: <cover.1738657826.git.michal.simek@amd.com>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- 3i3l5DA=
-In-Reply-To: <cover.1738657826.git.michal.simek@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR03CA0230.namprd03.prod.outlook.com
- (2603:10b6:a03:39f::25) To SJ2PR12MB8109.namprd12.prod.outlook.com
- (2603:10b6:a03:4f5::8)
+	Mon, 17 Feb 2025 14:30:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739802629;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=TFLguTKriOEaEoNxtvT7MAJvdtieE227Ck7gm5fmJV0=;
+	b=NYpqkRj7paELgjJIP8Yt7wWQrHtS63s8xltJKIwmPeB2NHiKjadsx5+OkxALVZYAN/kTUa
+	ZkHuNENzE7CtAoiz3w9mR156x/uwzD8BLXDnjg7Q26h3UbVRchsQviPJ4D+BOWqSzsPafB
+	nnew8HI9XYXILcHXzzBhAcB8X+aPTcc=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-641-u5aFSG1lO424YaT_Cztavg-1; Mon, 17 Feb 2025 09:30:28 -0500
+X-MC-Unique: u5aFSG1lO424YaT_Cztavg-1
+X-Mimecast-MFC-AGG-ID: u5aFSG1lO424YaT_Cztavg_1739802627
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-439868806bbso4019115e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 06:30:27 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739802627; x=1740407427;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=TFLguTKriOEaEoNxtvT7MAJvdtieE227Ck7gm5fmJV0=;
+        b=ApJniHMnf2x1nEfObtwKFVsfd0zqe2NT0kzbbJYe79egPKjN5mDVZuIfIqcWwdQcFz
+         iZxZot6g1Z6rHAKOpm5xLmJiqxVKzlHl/PeMovwl+cTRLilTfZ+wgSvFLKkLdAlvLEDA
+         mVeureW/edGctALNgooHKjnpQli2Ytuun/hJcePgp+EPf8cFd2H5gakPoFmdCWq/dn3+
+         ZajpHG0tmVh6iwylRo3fikrJ+GYAMu46VKvnyosQj0ppI25F5nTd5uePwiW2M/ycZo3Q
+         Lx3VlgpL23vvBsQAfN9qQkUIFDwa3YDYfEdeiwhNCPHKzvtuGBUZVz1IzqA4YSRgmzwY
+         vBrg==
+X-Forwarded-Encrypted: i=1; AJvYcCWOS6tynXUJgK/O4d8nrjExjjqWfEemZ1Ueb4A813i/NJPfieY6gGmC3bstumUZLI7A1g4d+vGhTCK0YRqXjt7X@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzj6IMdcI7H1DA0d9q/Y5QSkONB/nQ4sHlyG0ZglHiF285kWZug
+	M80cLvyXCUWh/r69BHUYxdIYR6Jg4KhaTM7sBRH4Nny6MCx7J8o7f9+q4BSGoxK25fdr/NbvZ97
+	cK3eAagAP7WSctjwrefkxeyn+9Fmz1fDYL4wbO06Zpp1YPjcXB4j6ogbIE9UGjmOg8uSwyR+s
+X-Gm-Gg: ASbGncsXFmsO/u29QpsOjS3V79MK/A9gxs3FV+Mw+GYRatJ75wRe7RJczsmR7xo6zwK
+	2J5EWQXpmu0HUSQ+gATyA7A9bqPwyr8ACCV5ua3HlWWyQoqYadqqt77DmZgBxh/ISmObBCaLMlA
+	7bJMpKiVn3IymqnttG3ZCCoMBsVgRTYgkf8wzm6PcLTta0b4jvCIv26wlNlw6vr2AmHuJo1/v9/
+	OaBKNxyg0XHb375Kt6jq6ze8kVio2X0E8BxS8DiqqLXXEYhhDPP6nSz+4qvniRLLGrOrxUDhl+/
+	FDW4h4flewDnyPweh0JI+Du8ZHl0bkkqyF3/Re5X9kcXIHH73aG0liiAXFbDOpEEvOwLzRH10aJ
+	5K+OZsYxIrBuu2RgPNIvAFpnRgSHI0w==
+X-Received: by 2002:a05:600c:5124:b0:434:f9ad:7222 with SMTP id 5b1f17b1804b1-4396ec31d4amr87218175e9.7.1739802626798;
+        Mon, 17 Feb 2025 06:30:26 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHBuJdRX9HJWRT+6db3iV86k8EuFY+S3+GwbF5Y1fECsH+Mh1mHoyPVYo4RmvcbtrSvtMMq3Q==
+X-Received: by 2002:a05:600c:5124:b0:434:f9ad:7222 with SMTP id 5b1f17b1804b1-4396ec31d4amr87217745e9.7.1739802626429;
+        Mon, 17 Feb 2025 06:30:26 -0800 (PST)
+Received: from ?IPV6:2003:cb:c739:900:900f:3c9e:2f7b:5d0a? (p200300cbc7390900900f3c9e2f7b5d0a.dip0.t-ipconnect.de. [2003:cb:c739:900:900f:3c9e:2f7b:5d0a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4395a04f208sm153583685e9.6.2025.02.17.06.30.23
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Feb 2025 06:30:25 -0800 (PST)
+Message-ID: <871c0dae-c419-4ac2-9472-6901aab90dcf@redhat.com>
+Date: Mon, 17 Feb 2025 15:30:23 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8109:EE_|SA0PR12MB7090:EE_
-X-MS-Office365-Filtering-Correlation-Id: f92a93fd-897a-43a4-d851-08dd4f5f9af8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?N2Q0MGZ0UGNKUkRJMXE0ajhoWkxLMjJkQ3d3RW5teFVnVTRKaEFzT0NSc0tU?=
- =?utf-8?B?bm1HOWJlNVZZeHdxUitGUXo4K05XUE1aL0xISk5YN0VoRVEvL29GTDFLSXMy?=
- =?utf-8?B?WFh1Y3NSekZmQVM4TGhIZHhtNE9xbU1hMmVoMVZPU3d5WkdiWWd1QzlCU0s2?=
- =?utf-8?B?aURtck0ySngvMllZc2FFNDZYSm91d1paNmZYNitmbzQwcU9oZ3hFS2YrajdI?=
- =?utf-8?B?RCtwa2kzd2ZPbzB4NDhTK3EvRzBOMXhpM0tnNlBYdW5rSG81bHpZT2Q3MnBL?=
- =?utf-8?B?bkZ0RUJFV09PN3dveUJDL2crYlpGYVZhajA2aTBhNTZhTlZHVHNxNzR6U1hH?=
- =?utf-8?B?b2k3SkVQVDZSNFR4WGVVT1NhNkRCMkxMdjM5VXJndTVEV1E0QnZkNVVlREpm?=
- =?utf-8?B?QnRKVkIvUXZ0Y3hwWjNaOHo3RXBLZ3pid3BFNWFaMWpFd2hLQUZaNG5xWldk?=
- =?utf-8?B?NWlSb3FnR0NlYmlBQS9YanhvTzF1OGVQMVp4dkYrWkFFRU4xWDZTc05xdjJU?=
- =?utf-8?B?QVMySzl6YVJjN3ExL1FsVHJhVnVUVGRXd242WFpUbXVISGZkL0JMd0hyZitt?=
- =?utf-8?B?L1EvMExSTWdPN2ZVRkFTKzRHODNZZDkvUHQwdzFXNzlBZGtsdU5HR21PUm1C?=
- =?utf-8?B?SEY1ODE4QUtiei9HcVkzbGN5QlFTS1I2MDZ4Tk5vL2ZJaTVUN3Iwamt2eXZ3?=
- =?utf-8?B?bHlibDdBQmFYYThCRmlyanFLNFlsTVNIa3BUWUVXTk1xS09sL0sxVnJqZDJa?=
- =?utf-8?B?TSt1SGNkNjhWblVOb0lySUJTQzVEZWJiZXdna3pJUElBdFFoUStRNW05NU9u?=
- =?utf-8?B?ZElaMjA0V21ERmZkb3pyY1lDQmU1RFZ5TndRYjRCR2ZGb0N0aDN4ZHhsY2pX?=
- =?utf-8?B?L1FiM0Z5RWJqcjBDSE9GMU4zL2ZpZlFJbEFRWUd4K0x3Nk80V0xKUVBzM2J4?=
- =?utf-8?B?c0dpZ25wdi9WTFBBUFVOY0dNNUZHY0Jqd1hYUE9uWUw1Q2xJVWFpbk5YWWIy?=
- =?utf-8?B?VnBPK3JtYjJzUHJxdjlVbmIza1Z6enVKdXVNYkpKQ0JGRDhmSTdkR1hvaFBD?=
- =?utf-8?B?OE5QYXU4QkpyT0NLV29UcmZGZ1BMa3pZY2ZjYms1UGRzUGVHeG1SMnRsU2pt?=
- =?utf-8?B?RzRvcjNBejRHb1h2ZzVmdGJhVkFlaVJ0aWoxNy9lS0U5UjkwdUtYQTR0NkdG?=
- =?utf-8?B?N0phV2JtNXpib2puclRZOTM2UW9rQmZTcEJOclIyeTB1M250ZTJMS3JUMXlO?=
- =?utf-8?B?Z0tVMndZVStLNjNvaTFpQ0FWeEh6MGw4V0lLdjFZVWM4dlA5SHNYcXRjWWRt?=
- =?utf-8?B?SEgxOE9ZYUZLSXQxMit5cGRqNmFQY3Fua0tCZjdpc24vaFRLdFFrRHZ3M1VO?=
- =?utf-8?B?eHRDQmhFSFFjbnlETDJoR3o2RlRibzB2TkZOZktDMG5PdUZKOUliRzlsZ0lO?=
- =?utf-8?B?QTVHL3ZiL1hwTFpWV0NRd2pVQUtqOGNDcWdOMWYxdkJheVVDNzBMQmt1elEz?=
- =?utf-8?B?eDNldTIxR3N4Qmg1Q2VpU25VaEhKRlY3eWF2ZGZDNlJUV08rUThTN3dpeGc1?=
- =?utf-8?B?U012QXN0ZHAvcXZzbHpWVzZkOGh2SE1uaUt1RGJiN0UraWhWNEM3bzlkR2pO?=
- =?utf-8?B?Mm1KM0liSjd1c2taUHBHZTRzY25zZUY0ek9Id0d5TjZGUThUNTJobkhSZmQ1?=
- =?utf-8?B?dGtRdTFZOTdwOWJrRExhYUtCNHg5YTR1cjdYVE15WnRqdHVTWkNmbExFbERa?=
- =?utf-8?B?c3NoNkx5QU1oQ2R5NElPTkhFbWYyQWlzR1lyd0RKdWw5MGc5YXpLakt0WW5H?=
- =?utf-8?B?QUwrR1JQcjNNRWd1bm9nMDZFbzV4L1B5eDRFdmU3RjcrMU9CSHJKS2pZUUJ1?=
- =?utf-8?Q?j3SMXwqYm8jX2?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8109.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dDMzc0U2ekxPRmRVMnNJVFowcWIwWjZ3RWhjaUl0TjcvS0xWRytOSnRrZTQv?=
- =?utf-8?B?YkNsZ0p0aGtlNHYrM3NDN2JHd01LS2lXQzBoWHRXMWdrSzFaZG1oRE9raFIw?=
- =?utf-8?B?YXN4VC9aZUpmZ21oWENuRVl3ckt5UGx2QWkzVDlCNmtaa3dLa1ZTUkpDdFh6?=
- =?utf-8?B?cnU3cnpqekx2WDc3cEJWVjQ1ZHNTbjF0KzJnNUMrZ3I5TjBnUXo2UGozS01w?=
- =?utf-8?B?V2RFR2Ewclg1QVFrSHM4WFMyMDhNdDBLbFQyWWsyUWdqOWZMaXhtajJMTGtW?=
- =?utf-8?B?WTU1d3ZBSUNnWTlYUWl0NHczWW5JNzJqRlNlbWpKZys0MzZsUmpYbENkZ2Fi?=
- =?utf-8?B?Z24yU3VpcWw0NjY3UE0wMmczOS8xcncyVWEzYXhGaFZsSy90akM0dEoySGM4?=
- =?utf-8?B?Q2V5eHl2c3Jub3dFUGk0eGdEb3lvcWJocXpwejQ5aW1HNU1HVzQzYmp5Qjda?=
- =?utf-8?B?aHlXajdZdnltS3pFVUFiVE41OWN2SHliOWlJVHZ2dVpGTXlVMTRNMzFDVURU?=
- =?utf-8?B?a0lXekRVM3FvNzcrcVpTcVNzNG1oTzUrU09rQmZRc1NFY3RxRDN2TSsrSTVr?=
- =?utf-8?B?WnNQbWNiUmxXUlQ4OXlEWEdOZUk0bkVxdUlEem5Jc29xeG40REpZdHBjT2Y5?=
- =?utf-8?B?NDdxVjlmaGduZktWMllZd0FFMUc5T1dwdFpGWFVSNm1PYVpRY3ZNMnhvZmRh?=
- =?utf-8?B?VGJVaEhOMGY4cE85ZkdkWjFjbkZzbFV5d0FtYmdPODMydGtDWkN0L2dEQTJ6?=
- =?utf-8?B?azZSb3pQcEFRM2cyaEpvbW12WE1hRTdnUm85Zm5XSlUrUTYwSmwvWk1qalRW?=
- =?utf-8?B?MjFEQURJTTJpRFlreE5vYUVZQTNRaW5oTmtlS2FSSDhlbnpEa2tGbGl2VDdo?=
- =?utf-8?B?TmgzMkR5dTNQNmZhUnNIci9FTjF0Q1JrQWVmS0FJZ1Z0SER3UmdIbXBMc0Z5?=
- =?utf-8?B?ekFDTEx6SDZ4QVRWSFljUGJzSjhkUXZXYnhRWGlwaGFCckU3aW1vZzlEVTNG?=
- =?utf-8?B?SitHZzRSNFFxY1lzc0taNjkxNGg2Wm0yOWdiVjJpSWNTUEtpRGxrb0p6UENY?=
- =?utf-8?B?aitjRGdnNk1ibWJERWl0eDdXYTZncFFOWkpVcG1nVlpLOFZtWjBrQ2cvOXEz?=
- =?utf-8?B?TlJrVDZpTEduWkJhbm5TSldsaXFuSGk5ampyN2IzRmFkSitkUitjbG9GS1hw?=
- =?utf-8?B?Qjg4Y1d6ZGkySDJRWUE2QkdQbjg4bXl4UkFSNnF0eG8zaDUrdmI3L0NNUjMy?=
- =?utf-8?B?QVRnR0dSMW8yYy8vOXNWQzVsQnUyYk9NeU5qdWNvMHVOSkU0b2RnYjIvamxV?=
- =?utf-8?B?dTNSV1ppSWE3Wm9nNU5RKzU2R3gwaS9PTHJ0a01CSURkd0p6amtyc3JzcjNP?=
- =?utf-8?B?a0tiamNPU1BQNzJ5RXB2eTNiSDU0cmgvdEIyMFAycTl4VkkrNkRVZ1UzNGtK?=
- =?utf-8?B?VGFhQmp1OUpMNDI5cFNVVmxpNExXai9PQ0FjM1YrTmg5T3pocWZiaEY0TVh4?=
- =?utf-8?B?Z0hpak1wUzFPNHB5dG03SHQvMC92RGpNQUpFVzQ5K1ZPQXgvU001L2l0MTFP?=
- =?utf-8?B?NHI2K2N4OFErTWYrR3FwTkcxejVKNkNpZTdLdE5vS1BJcEtJNlczYVFzWVQx?=
- =?utf-8?B?N0ovdzNDcjVYdGJUdVU2bDVFM1lJN3VDcHg2TFkwQTF0VzVMSTd6dzJVQy82?=
- =?utf-8?B?bjdhODhNOWRLQVBPWHpQbWFiR1dkaU5ydWtQZ1JrK3lDNWRIcFZoVVo0TGo0?=
- =?utf-8?B?YkpoOTVNS0d0QUhnRlExQVpGSUVSUGg2OUhWaEhrL1ZhbjlFSDROM3kwTkQz?=
- =?utf-8?B?aEpDeWNXcGdXRDk4akxXUFJnRE8xL1dnMXByZFlUR1lnNkE3bzcrRjhWcHRh?=
- =?utf-8?B?ekx4R3BYK0NHMFpTTURNTDVLajF2V1I1djBlT1F2L2pibDF6dm5veWlMbjU3?=
- =?utf-8?B?ZThVRk9xL1dPVHp1b2xqazErbWhldkJvWVQvZ1FmTktlaG5tcnQ0ZnNua0dZ?=
- =?utf-8?B?RmxERkhQQlBCaTY1THVPNmhVKzNFd0krYTlCR1VrRGRkSXpyWUlSNE0ydTVO?=
- =?utf-8?B?ZmtXSk5xaG52SlZsTWhXTGhXbXJiV0RmK1BZOHpKMU5EQXgxa2RpWjc5ZTBD?=
- =?utf-8?Q?b6zv0JtGg7TCEgBypok/HpqY3?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f92a93fd-897a-43a4-d851-08dd4f5f9af8
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8109.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Feb 2025 14:30:19.8134
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7iB9GoC0eXTBQGY8A3ZzZOP+bN34jpkqAXai13LyhAJYOeDWALLeTIDBD4/9QKay
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB7090
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7] arm64: mm: Populate vmemmap at the page level if not
+ section aligned
+To: Zhenhua Huang <quic_zhenhuah@quicinc.com>, anshuman.khandual@arm.com,
+ catalin.marinas@arm.com
+Cc: will@kernel.org, ardb@kernel.org, ryan.roberts@arm.com,
+ mark.rutland@arm.com, joey.gouly@arm.com, dave.hansen@linux.intel.com,
+ akpm@linux-foundation.org, chenfeiyang@loongson.cn, chenhuacai@kernel.org,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, quic_tingweiz@quicinc.com
+References: <20250217092907.3474806-1-quic_zhenhuah@quicinc.com>
+ <8c1578ed-cfef-4fba-a334-ebf5eac26d60@redhat.com>
+ <ce2bd045-3e3a-42bf-9a48-9ad806ff3765@quicinc.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <ce2bd045-3e3a-42bf-9a48-9ad806ff3765@quicinc.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Iht4yd-bX3sGY3CMbUl9EQ2wobU998V7Jos-AdHMiMU_1739802627
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_063027_285632_9E5A46AA 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20250217_063031_581652_489FFC95 
+X-CRM114-Status: GOOD (  27.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -221,47 +163,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 17.02.25 11:34, Zhenhua Huang wrote:
+> 
+> 
+> On 2025/2/17 17:44, David Hildenbrand wrote:
+>> On 17.02.25 10:29, Zhenhua Huang wrote:
+>>> On the arm64 platform with 4K base page config, SECTION_SIZE_BITS is set
+>>> to 27, making one section 128M. The related page struct which vmemmap
+>>> points to is 2M then.
+>>> Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
+>>> vmemmap to populate at the PMD section level which was suitable
+>>> initially since hot plug granule is always one section(128M). However,
+>>> commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+>>> introduced a 2M(SUBSECTION_SIZE) hot plug granule, which disrupted the
+>>> existing arm64 assumptions.
+>>>
+>>> The first problem is that if start or end is not aligned to a section
+>>> boundary, such as when a subsection is hot added, populating the entire
+>>> section is wasteful.
+>>>
+>>> The Next problem is if we hotplug something that spans part of 128 MiB
+>>> section (subsections, let's call it memblock1), and then hotplug
+>>> something
+>>> that spans another part of a 128 MiB section(subsections, let's call it
+>>> memblock2), and subsequently unplug memblock1, vmemmap_free() will clear
+>>> the entire PMD entry which also supports memblock2 even though memblock2
+>>> is still active.
+>>>
+>>> Assuming hotplug/unplug sizes are guaranteed to be symmetric. Do the
+>>> fix similar to x86-64: populate to pages levels if start/end is not
+>>> aligned
+>>> with section boundary.
+>>>
+>>> Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+>>> ---
+>>>    arch/arm64/mm/mmu.c | 3 ++-
+>>>    1 file changed, 2 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>> index b4df5bc5b1b8..eec1666da368 100644
+>>> --- a/arch/arm64/mm/mmu.c
+>>> +++ b/arch/arm64/mm/mmu.c
+>>> @@ -1178,7 +1178,8 @@ int __meminit vmemmap_populate(unsigned long
+>>> start, unsigned long end, int node,
+>>>    {
+>>>        WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+>>> -    if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+>>> +    if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
+>>> +        (end - start < PAGES_PER_SECTION * sizeof(struct page)))
+>>>            return vmemmap_populate_basepages(start, end, node, altmap);
+>>>        else
+>>>            return vmemmap_populate_hugepages(start, end, node, altmap);
+>>
+>> Yes, this does mimic what x86 does. That handling does look weird,
+>> because it
+>> doesn't care about any address alignments, only about the size, which is
+>> odd.
+>>
+>> I wonder if we could do better and move this handling
+>> into vmemmap_populate_hugepages(), where we already have a fallback
+>> to vmemmap_populate_basepages().
+> 
+> Hi David,
+> 
+> I had the same doubt initially.
+> After going through the codes, I noticed for vmemmap_populate(), the
+> arguments "start" and "end" passed down should already be within one
+> section.
+> early path:
+> for_each_present_section_nr
+> 	__populate_section_memmap
+> 		..
+> 		vmemmap_populate()
+> 
+> hotplug path:
+> __add_pages
+> 	section_activate
+> 		vmemmap_populate()
+> 
+> Therefore.. focusing only on the size seems OK to me, and fall back
+> solution below appears unnecessary?
+
+Ah, in that case it is fine. Might make sense to document/enforce that 
+somehow for the time being ...
 
 
-On 2/4/25 09:30, Michal Simek wrote:
-> Hi,
+>> +/*
+>> + * Try to populate PMDs, but fallback to populating base pages when ranges
+>> + * would only partially cover a PMD.
+>> + */
+>>    int __meminit vmemmap_populate_hugepages(unsigned long start, unsigned
+>> long end,
+>>                                            int node, struct vmem_altmap
+>> *altmap)
+>>    {
+>> @@ -313,6 +317,9 @@ int __meminit vmemmap_populate_hugepages(unsigned
+>> long start, unsigned long end,
+>>           for (addr = start; addr < end; addr = next) {
 > 
-> add description for VN-X board with Versal NET SoC to see how that SoC look
-> like. DT binding patch was sent already as v1 but make more sense to send
-> it together also with board description to see full description.
-> 
-> v1 of DT binding patch is at
-> https://lore.kernel.org/all/20250108113338.20289-1-shubhrajyoti.datta@amd.com/
-> 
-> That's why this series is sent as v2.
-> 
-> Thanks,
-> Michal
-> 
-> Changes in v2:
-> - Remove | from description
-> - Change description
-> - Update subject to match VN-X
-> - Add description for VN-X
-> - New patch in series
-> 
-> Michal Simek (1):
->    arm64: versal-net: Add description for b2197-00 revA board
-> 
-> Shubhrajyoti Datta (1):
->    dt-bindings: soc: Add new VN-X board description based on Versal NET
-> 
->   .../bindings/soc/xilinx/xilinx.yaml           |  11 +-
->   arch/arm64/boot/dts/xilinx/Makefile           |   2 +
->   .../arm64/boot/dts/xilinx/versal-net-clk.dtsi | 231 ++++++
->   .../xilinx/versal-net-vn-x-b2197-01-revA.dts  | 116 +++
->   arch/arm64/boot/dts/xilinx/versal-net.dtsi    | 752 ++++++++++++++++++
->   5 files changed, 1110 insertions(+), 2 deletions(-)
->   create mode 100644 arch/arm64/boot/dts/xilinx/versal-net-clk.dtsi
->   create mode 100644 arch/arm64/boot/dts/xilinx/versal-net-vn-x-b2197-01-revA.dts
->   create mode 100644 arch/arm64/boot/dts/xilinx/versal-net.dtsi
-> 
+> This for loop appears to be redundant for arm64 as well, as above
+> mentioned, a single call to pmd_addr_end() should suffice.
 
-Applied.
-M
+Right, that was what was confusing me in the first place.
+
+> 
+>>                   next = pmd_addr_end(addr, end);
+>>
+>> +               if (!IS_ALIGNED(addr, PMD_SIZE) || !IS_ALIGNED(next,
+>> PMD_SIZE))
+>> +                       goto fallback;
+>> +
+>>                   pgd = vmemmap_pgd_populate(addr, node);
+>>                   if (!pgd)
+>>                           return -ENOMEM;
+>> @@ -346,6 +353,7 @@ int __meminit vmemmap_populate_hugepages(unsigned
+>> long start, unsigned long end,
+>>                           }
+>>                   } else if (vmemmap_check_pmd(pmd, node, addr, next))
+>>                           continue;
+>> +fallback:
+>>                   if (vmemmap_populate_basepages(addr, next, node, altmap))
+>>                           return -ENOMEM;
+> 
+> It seems we have no chance to call populate_basepages here?
+
+
+Can you elaborate?
+
+
+-- 
+Cheers,
+
+David / dhildenb
+
 
