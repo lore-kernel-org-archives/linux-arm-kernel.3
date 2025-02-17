@@ -4,101 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23CDAC021A0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 09:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23C86C021A0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 09:24:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
 	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZuVc/9e1Yj/sPI8+yIxKHV0o19gCf//rneJUR1cMCGw=; b=cWshAnvle83n6O
-	3aVtY64ySfr6Huw2HFGh+kCd0IRoOZND2GIxS7J9bCYKzyMMBPj2si+IOumY+FTmowdkHjSTAdDDj
-	iPFr9wyS1CMilU39/BybvNqkOY5ojkt2HvxkiLSwrEI7mwNTGaFQDKaKY4s1QiUOujncwkH5Vnzi4
-	8tu+Ugd40usqHo7OGBDjeg72kyR+UW1LGOtXdSXdYnt5MviBRVCCcWqbe12Pig4yD1pJwJNlpdRpF
-	KsE4nxuLeUbNfO4kYRUKid6pkzAsgt7LBV9VjzMWxH7gahb85U3b3XACZFNYrQh2Ej9vK22wlj1av
-	CBGouJTdnw79+iSBUsBg==;
+	List-Owner; bh=fM64uRKLmrwWOZ1Ir+jCO/kphMaDgkxnNNITVcvwwUI=; b=ctMsN9FXMe4p1t
+	GTsRiLSCOvt+/CqpD8FAjhI4ve6z6broJt8mi66uzjiPM3go3u2xtZjnWpZkbWvZMwpOuaX1YpLB7
+	Gnf3s/C5z0CR39Wl36YlJ29htyY3Zmd0SdEfyI88pXv4aUEKAEcylNU20C5S9QmwTaZPmdT7zYAlm
+	hixmv3td9RpOJ39EVZEYaW2j3CmfIkVLYoe873Cjt9fm8018IZxkunD22YoOdQpeJygEHtlODaN8r
+	pfUUfFRsBuSAhcsHCpqcAJkiPgSotzT0J8CgKW0RZWspluLvqrfHv/eLy6wzVIDXSk8EXpc9EZKT3
+	508Sm/7ArcMRmTP4VPzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjxLL-00000003utz-05ba;
-	Mon, 17 Feb 2025 09:23:11 +0000
+	id 1tjxMm-00000003v4w-2nJN;
+	Mon, 17 Feb 2025 09:24:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjx9J-00000003she-0Ee8
+	id 1tjx9R-00000003sjq-15DW
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 17 Feb 2025 09:10:45 +0000
+	Mon, 17 Feb 2025 09:10:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ZuVc/9e1Yj/sPI8+yIxKHV0o19gCf//rneJUR1cMCGw=; b=TGA0UqMH9kGMvrtPk+DhcaM0cC
-	AsYcK580LXs0cQL3HJMk48zerXPw0j4njGyo+rN7TG74MAUG8QXO8XZCMt98qQlbyjZ5HzzMeUK0Q
-	DvYSF3hHmsyzXT0/Y20I5mSxBx0eWsmvoo6IsgXIzJseMj+j4op8rDeURI9csgYaq4vl4SBzgxpej
-	NCBcenTD5KBLQV9sgop1SND20uQCE+NCtfGyYP357Y9p/9PnoY7baJVfKFfzlh0AWU6Q7dhMr9Lfw
-	of6PfrsEj6Uo6lyyk/P1bzzJ7OboRb3CgA/ETL7OWX/CZBqLXd/zKB67P7/NvXjxyUkPW1/pRPsmG
-	KSkVrpWg==;
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	bh=fM64uRKLmrwWOZ1Ir+jCO/kphMaDgkxnNNITVcvwwUI=; b=q2OFroy19LqnWuYWLqG7iBFl8B
+	GUoUonxfo9NdS6RfwfvSvBeDB67EwK070XuxiN+Mq/0wJWd8C2Y2HUAPSMrMhOpmjB3hIU3mGwXdD
+	OWvg1lSj0srCtnarOL2p6JHpybUTFPVBJZl1XGvsrjwymVyJhxoFBD5eBhbU0Udd1LM8/H1vYC3V5
+	7HVwuYeHCIGcOkarnRypWMuqgJMIRLyQfGyMC4/by+vEc1YsGs2a3P8OgrMA9I7WzE5u+Fjpzwm6k
+	jeoTEU+4WzU/0aM+l/+DJZku1GlXkV6Ca8aos3vbKshKG3sAlvrekRAECoWYb/s596NHW0gktdr0F
+	KdGNjnvw==;
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjx9G-00000001kAr-0Q0s
+	id 1tjx9O-00000001kCs-1H8i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 09:10:43 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5de63846e56so7948595a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 01:10:40 -0800 (PST)
+	Mon, 17 Feb 2025 09:10:52 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-abb90f68f8cso189745366b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 01:10:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1739783439; x=1740388239; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1739783448; x=1740388248; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZuVc/9e1Yj/sPI8+yIxKHV0o19gCf//rneJUR1cMCGw=;
-        b=Wrmx2qhO6WCtHU/lGxDFE9wJDGZdSnAGQvGPwjPBBb1qXS5pgkYOoRZ742LT1CMiS6
-         wBdSIKN2BzdzUkwT0sM6kWZM+NLituNhQgaAfzUm4T6mbkcgw3xM6ogxGZ1KAZqx1Z0J
-         68VPj8skzOZWL/b+7NqvHprvBGOCtDoZYje22NT5SBZQ0PGQK4Ah0W56H2+eXoVv+wLi
-         Zk3BWOVJVsoJr7CxpOiATT5ImLmyPpilznSH/pstt+f7gSlZBhVyi1OdIqlG6fwMxGQ+
-         dFVAXM2VR10g/6bkK2R6OSur0F8nxtuBYhBRzgFcO38nwjDTwUcuSM7p09PvAQiKgDBM
-         ytkQ==
+        bh=fM64uRKLmrwWOZ1Ir+jCO/kphMaDgkxnNNITVcvwwUI=;
+        b=R0HU6j3wN4ec7Onc5JpDh5rG1VWAaL3LM0Iv7Jn7YS20MDLXoS7xsZOV1ame1oxV3z
+         XJ+QXxBbVs+pTc9/9bCEPfAoSEriXtwCD2Lc/OYrTMsHWn2CqSKNJ4DAZfmmKt0TAMPu
+         ZipXzTcFpq1oKTMU3YJOxkv2DBvsj78Xu8baHwdtgdvZjOW9Ig45J874AiQBwrV+ayVn
+         y9kJXuVu7qqXCL4JXg0SYPIqPPNp9VieKJHMRsfgi1zgvTfqYKXQdBGzdTTxOgM+hO73
+         NcdnDIHcmdN0MEYPVpLbLavktgt3hcJ6zE/jUtltgJ8NMiv61R4hfNa/zeFXy3xPyxD8
+         r5Mw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739783439; x=1740388239;
+        d=1e100.net; s=20230601; t=1739783448; x=1740388248;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZuVc/9e1Yj/sPI8+yIxKHV0o19gCf//rneJUR1cMCGw=;
-        b=VCrZBQOjA6z0aS9zDdNHuwrAsQrELxEiUlqxMvZSiSUkOvZTQlsEZXQlNLDqBKJBce
-         zLgMoi6/FjfQxccaZ/whipnedocEzthtjU0UO2gMt7Dr7u/QXOZaWnSkM6bYV1KRKUqm
-         LVQYlADftyxH32dQjwtd6zywvDR+VND+CquM3GrOBnQ5mcdDtXc5FvQiBPelUdXvGaLX
-         CGqkrAy5G7kI/54vkFvHx50/UQYS9sy570OLzrw3Xe/SAOEvw8H/zWkT041wFOcQDFk3
-         933Y64039QtmHiiEQvn3JLGv8XRPc/4ZJGhO5jshOW7OTeA5ZpJmr4+vPpn0Yb9OFkMl
-         AHYA==
-X-Forwarded-Encrypted: i=1; AJvYcCVu6y5SjgsWFHD49UZxoSZmHI5vr5nK//Qza42nZXKBpwyW7DEBzONxOIByR1a+FeyQtAMypTQY70wPbGNemvuL@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKXWBuBvE3Q7dHy8labWTIw6p3eCWvouurdsM+E2yQYuq93e6e
-	GqEFv+KyKDaA1bkUwWoh9jKyuuy3Mjvso+qCh1g5P3ty4adF5RqgEth1DaWxDvI=
-X-Gm-Gg: ASbGncsAFhQxVd11DeKBESUz1JRxRx96VPkTcji8dZqEzgBPOgMD4YULDJjGGGV/BB3
-	dUjvHDeIIJct1L+3VxXIerSad1U0WwpUWSUFC6iojl9/etSnOoXVj9fZNSrxCF3eYQsBEKpguAe
-	yQxDDooqVtgF3vCv7vcxzqhWKQNDsBldJnrypQb9WA65ggf5gbUi54j7my2vTc2z820Lz6zvsph
-	Qsm0R26aindpyfRekArfH3rgEC2mfJEMHaqcdgxhpn4x5sy2lPt7vviDyEe+7XV6t6n5dq7ELOB
-	k9/1hjALLxfOQPyAoNqBuDM=
-X-Google-Smtp-Source: AGHT+IH9wIn/oFp0HQ5Ml9Fr0/i0O7BRhz9FvkPajM9aPkSSBQ0mED5a3gvKqPWrNLKiBiFNMqW84Q==
-X-Received: by 2002:a05:6402:4609:b0:5dc:1f35:552 with SMTP id 4fb4d7f45d1cf-5e0360441d1mr7250545a12.1.1739783439236;
-        Mon, 17 Feb 2025 01:10:39 -0800 (PST)
+        bh=fM64uRKLmrwWOZ1Ir+jCO/kphMaDgkxnNNITVcvwwUI=;
+        b=uqkJ881t2E5dGZCHdcsgBiXehyPNvOSYTiXrJ3akFicg3kjNIrSQayJnG3Xy24mPUw
+         wNowwXGaprzG/Y7KmLIBpk02UVaJXueDE9HBKyrXdGR4T0C/yzRZrrySR7D6Hb28UTew
+         uKhcnTLmM9QMQjkB9+E3vHqCr/KeVqKcM1EDQXjTd9udYdRWB0z8QjQcJXJsmMh22n1r
+         Z03eZrD1FOCjJ/P8Dl3m1tTsMCMhL3zJVARQBQAlnvZ8ipIoroUOV/lTkP3NyroJRa/3
+         GphLz4rp2pbm7yeW62zVgdrPKZy+0/QevDrwMRsPx61FuyC8BB/aRF5xjgJUs53FjEFn
+         bkFw==
+X-Forwarded-Encrypted: i=1; AJvYcCWna2l9tfZqBVuWSONOBameP1kdmso4a/Krpe6KmzvGCx+r7/yn1SmzZLNDM1JzwIAiWgBCfZOMS9p2NbCmxBcT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxM0pwNItcgf0bMKYqOMFCksL0ZF5oXPiKvur2MwzyqHqaE85t2
+	A1lpFI5XU/6g0BnvzCPFNfIS6iYIfnfmwOWJYcfRcBDvqZfLU7uqrbY7zvMjsFM=
+X-Gm-Gg: ASbGnctYlNr571BptM7CdhgdR1ESbQ6xpAy0rJ/ktVL21pjQ5NbRXvnsH8U7vWtx9Zj
+	RAHDc779VyyawPMePoPTb0PCW3W9AzBXd+05DFd3autOSzPF1sN2zckC7VeZx+YBbc97PEmx/iY
+	Us90ZAYEcrOMiTR0TLwPNgV9pH8amXezosAMnIoL6+J6wLM8B1ZmTkHGITe4/cO6etH+57H1EaA
+	bHCvSf+fLzlm3z4RDuS5S3f+3DQ98maTkuKIpv45YFPKi5AHbJmUKH00f1qdQennWNKiJL/zjm8
+	fzxl/TkHGakUY+SCYHom4CQ=
+X-Google-Smtp-Source: AGHT+IHrxbwT11nHlNtihnFEo6GxLB5WUZzVMCb1sDWISI6fMsTNPgPdGYggA0tSbgXZaPERaVzy5g==
+X-Received: by 2002:a17:907:da4:b0:ab7:a5f2:ed22 with SMTP id a640c23a62f3a-abb70a7c9b4mr851455266b.1.1739783448057;
+        Mon, 17 Feb 2025 01:10:48 -0800 (PST)
 Received: from [192.168.50.4] ([82.78.167.25])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1b4ed9sm6835151a12.10.2025.02.17.01.10.36
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abba3d765acsm91405266b.130.2025.02.17.01.10.46
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Feb 2025 01:10:38 -0800 (PST)
-Message-ID: <e01ed1d6-32e5-4e0d-a4f3-01acde843b5a@tuxon.dev>
-Date: Mon, 17 Feb 2025 11:10:36 +0200
+        Mon, 17 Feb 2025 01:10:47 -0800 (PST)
+Message-ID: <116c9e5c-8bb3-422a-a52d-9d6d8c79e10a@tuxon.dev>
+Date: Mon, 17 Feb 2025 11:10:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 13/16] ARM: dts: microchip: sam9x60: Add OTPC node
+Subject: Re: [PATCH v2 10/16] nvmem: microchip-otpc: Fix swapped 'sleep' and
+ 'timeout' parameters
 To: Alexander Dahl <ada@thorsis.com>
 References: <20250210164506.495747-1-ada@thorsis.com>
- <20250211065304.5019-1-ada@thorsis.com>
+ <20250211065223.4831-1-ada@thorsis.com>
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-In-Reply-To: <20250211065304.5019-1-ada@thorsis.com>
+In-Reply-To: <20250211065223.4831-1-ada@thorsis.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_091042_365670_6485843E 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20250217_091050_575000_B95BCD7F 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,60 +111,46 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, Alexandre Belloni <alexandre.belloni@bootlin.com>, Ryan Wanner <ryan.wanner@microchip.com>, Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org, Ryan Wanner <ryan.wanner@microchip.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-kernel@vger.kernel.org, Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
 
-On 11.02.2025 08:53, Alexander Dahl wrote:
-> The One-Time Programmable (OTP) Memory Controller (OTPC) is the secure
-> interface between the system and the OTP memory.  It also features the
-> Unique Product ID (UID) registers containing a unique serial number.
-> 
-> See datasheet (DS60001579G) sections "7. Memories" and "23. OTP Memory
-> Controller (OTPC)" for reference.
+On 11.02.2025 08:52, Alexander Dahl wrote:
+> Makes no sense to have a timeout shorter than the sleep time, it would
+> run into timeout right after the first sleep already.
+> While at it, use a more specific macro instead of the generic one, which
+> does exactly the same, but needs less parameters.
 > 
 > Signed-off-by: Alexander Dahl <ada@thorsis.com>
+> Fixes: 98830350d3fc ("nvmem: microchip-otpc: add support")
+
+Fixes tag goes above you SoB tag.
+
 > ---
 > 
 > Notes:
 >     v2:
->     - squashed with patch adding the clock properties
+>     - Add Fixes tag
 > 
->  arch/arm/boot/dts/microchip/sam9x60.dtsi | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+>  drivers/nvmem/microchip-otpc.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/arm/boot/dts/microchip/sam9x60.dtsi b/arch/arm/boot/dts/microchip/sam9x60.dtsi
-> index 1724b79967a17..af859f0b83a0f 100644
-> --- a/arch/arm/boot/dts/microchip/sam9x60.dtsi
-> +++ b/arch/arm/boot/dts/microchip/sam9x60.dtsi
-> @@ -15,6 +15,7 @@
->  #include <dt-bindings/clock/microchip,sam9x60-pmc.h>
->  #include <dt-bindings/mfd/at91-usart.h>
->  #include <dt-bindings/mfd/atmel-flexcom.h>
-> +#include <dt-bindings/nvmem/microchip,sama7g5-otpc.h>
-
-This is not needed, atm.
-
+> diff --git a/drivers/nvmem/microchip-otpc.c b/drivers/nvmem/microchip-otpc.c
+> index e2851c63cc0b4..bf7e5167152cb 100644
+> --- a/drivers/nvmem/microchip-otpc.c
+> +++ b/drivers/nvmem/microchip-otpc.c
+> @@ -85,8 +85,8 @@ static int mchp_otpc_prepare_read(struct mchp_otpc *otpc,
+>  	writel_relaxed(MCHP_OTPC_CR_READ, otpc->base + MCHP_OTPC_CR);
 >  
->  / {
->  	#address-cells = <1>;
-> @@ -157,6 +158,15 @@ sdmmc1: sdio-host@90000000 {
->  			status = "disabled";
->  		};
+>  	/* Wait for packet to be transferred into temporary buffers. */
+> -	return read_poll_timeout(readl_relaxed, tmp, !(tmp & MCHP_OTPC_SR_READ),
+> -				 10000, 2000, false, otpc->base + MCHP_OTPC_SR);
+> +	return readl_relaxed_poll_timeout(otpc->base + MCHP_OTPC_SR, tmp,
+> +					  !(tmp & MCHP_OTPC_SR_READ), 2000, 10000);
+>  }
 >  
-> +		otpc: efuse@eff00000 {
-> +			compatible = "microchip,sam9x60-otpc", "syscon";
-> +			reg = <0xeff00000 0xec>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			clocks = <&pmc PMC_TYPE_CORE SAM9X60_PMC_MAIN_RC>, <&pmc PMC_TYPE_PERIPHERAL 46>;
-> +			clock-names = "main_rc_osc", "otpc_clk";
-> +		};
-> +
->  		apb {
->  			compatible = "simple-bus";
->  			#address-cells = <1>;
+>  /*
 
 
