@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 171C7C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 03:12:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54782C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 03:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cBaakO5aECxCfpozEeyD08tv2wxTJj0NOmen0Rs1b68=; b=E3nlBJS5AJJIiXWpAdTn7Q2YKV
-	qUMDfLUgcMTIdzQr/dfSuSHEGc70Ypv+f2zeWZtLry+GC+OW6tGa9Ca8AdJ+RZuirNW25IITpW/6W
-	+AdxN2G+HeRW8i1Y5k1MYOB/ymCAj2+9kFv58fNDBZ1LCfvc3YgyhfMXtMQzUSjN+zFOAC/o+Sp39
-	mr+UUNCClpe0KrzBjdLIIHvc50hQ8Su1b1Q36yPGVjY8yEH7kA6cQkK641dNmnDrkPks5s3gHZDGn
-	zSLQvQWskxMi4wmi96U32Wb3bMNsKz9P8yJqZ04E3zlj8oUOYXVubNikqwb1swGVxggfNlRxpW2KJ
-	L+dY1vcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hld2AoK1TYiqQuj/1s8gjSthxZPoOsMXsAVpTo0qXyI=; b=RgCsYqI8S7lGrtlC2LACqT/Kwn
+	Z4wcGBAc/HuIEWRNpI8QczCF0oZGCsXBQJw5riZaEfsvSOpUmfDZugFcg9seLOf2ZBcVRxW9XoQtr
+	06eN5cw0Rj7bxa8GrLl5kjeqAP3XmNgzp1TbHbZ0Ciwt51PL4M1gtRLLY9/KUuJU0/n2dKQbVicKV
+	eenN0j+D/JHkOv6E5fSHuhNiQUjEKBPREn2++T8/MHbbmSGvDIP4O9z8Gzj/ozZ5DXZ3WCpejyGTm
+	FMOk8v9GfU+VOGrAJ6Ao2cUWv2e3ZgpfVduvQ0p47abyJYyrUM+5n01Kq5ead4VTbPC7RKr315Sbr
+	mWt7Zyhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjrYL-000000036no-2KsL;
-	Mon, 17 Feb 2025 03:12:13 +0000
-Received: from szxga04-in.huawei.com ([45.249.212.190])
+	id 1tjrZm-000000036wA-15OV;
+	Mon, 17 Feb 2025 03:13:42 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjrVR-000000036MO-0MPe
+	id 1tjrVR-000000036Md-2FEg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 03:09:15 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Yx6xB3STfz22sww;
-	Mon, 17 Feb 2025 11:06:06 +0800 (CST)
+	Mon, 17 Feb 2025 03:09:16 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Yx6vQ2G9Lz11VXs;
+	Mon, 17 Feb 2025 11:04:34 +0800 (CST)
 Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 5A7A21A0188;
-	Mon, 17 Feb 2025 11:09:04 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id A0CBA1401E9;
+	Mon, 17 Feb 2025 11:09:07 +0800 (CST)
 Received: from huawei.com (10.175.103.91) by kwepemf100008.china.huawei.com
  (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 17 Feb
- 2025 11:09:03 +0800
+ 2025 11:09:06 +0800
 From: Zeng Heng <zengheng4@huawei.com>
 To: <Dave.Martin@arm.com>, <james.morse@arm.com>
 CC: <bobo.shaobowang@huawei.com>, <linux-kernel@vger.kernel.org>,
 	<jonathan.cameron@huawei.com>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH mpam mpam/snapshot/v6.14-rc1 0/5] arm_mpam: Introduce the Narrow-PARTID feature for MPAM driver
-Date: Mon, 17 Feb 2025 11:18:47 +0800
-Message-ID: <20250217031852.2014939-1-zengheng4@huawei.com>
+Subject: [PATCH mpam mpam/snapshot/v6.14-rc1 5/5] arm_mpam: Automatically synchronize the configuration of all sub-monitoring groups
+Date: Mon, 17 Feb 2025 11:18:52 +0800
+Message-ID: <20250217031852.2014939-6-zengheng4@huawei.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250217031852.2014939-1-zengheng4@huawei.com>
+References: <20250217031852.2014939-1-zengheng4@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-Originating-IP: [10.175.103.91]
 X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
  kwepemf100008.china.huawei.com (7.202.181.222)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250216_190913_281880_9F39C0C3 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250216_190913_950395_5A290FFF 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,75 +70,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The patch set is applied for mpam/snapshot/v6.14-rc1 branch of
-https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git
-repository.
+After the system expands the narrow-partid feature and statically assigns
+all (req)PARTIDs to each control group, the following scenarios require
+configuration synchronization operations:
 
-The narrow-partid feature in MPAM allows for a more efficient use of
-PARTIDs by enabling a many-to-one mapping of reqpartids (requested PARTIDs)
-to intpartids (internal PARTIDs). This mapping reduces the number of unique
-PARTIDs needed, thus allowing more tasks or processes to be monitored and
-managed with the available resources.
+  1. MSCs that support narrow-partid need to establish a mapping between
+     reqPARTID and intPARTID after creating a new monitoring group.
+  2. MSCs that do not support narrow-partid need to synchronize the
+     configuration of sub-monitoring groups after users update the control
+     group configuration.
 
-For a mixture of MSCs system, for MSCs that do not support narrow-partid,
-we use the PARTIDs exceeding the number of closids as reqPARTIDs for
-expanding the monitoring groups.
+In __write_config(), we synchronize a control group's configuration to each
+sub-monitoring group.
 
-In order to keep the existing resctrl API interface, the rmid contains both
-req_idx and PMG information instead of PMG only under the MPAM driver. The
-req_idx represents the req_idx-th sub-monitoring group under the control
-group. The new rmid would be like:
-
-    rmid = (req_idx << shift | pmg).
-
-The new conversion relationship between closid/rmid and (req)PARTID/PMG is:
-
-    (req)PARTID = (rmid.req_idx * n) + closid
-    PMG = rmid.pmg
-
-Each intPARTID has m reqPARTIDs, which are used to expand the number of
-monitoring groups under one control group. Therefore, the number of
-monitoring groups is no longer limited by the range of MPAM PMG, which
-enhances the extensibility of the system's monitoring capabilities.
-
+Signed-off-by: Zeng Heng <zengheng4@huawei.com>
 ---
-Compared with RFC-v4:
-  - Rebase the patch set on the v6.14-rc1 branch.
+ drivers/platform/arm64/mpam/mpam_devices.c  | 25 ++++++++++++++++++---
+ drivers/platform/arm64/mpam/mpam_internal.h |  3 +++
+ drivers/platform/arm64/mpam/mpam_resctrl.c  |  4 ++--
+ 3 files changed, 27 insertions(+), 5 deletions(-)
 
-Compared with RFC-v3:
-  - Add limitation of the Narrow-PARTID feature (See Patch 2).
-  - Remove redundant reqpartid2closid() and reqpartid_pmg2rmid().
-  - Refactor closid_rmid2reqpartid() partially.
-  - Merge the PARTID conversion-related patches into a single patch for
-    bisectability.
-  - Skip adaptation of resctrl_arch_set_rmid() which is going to be
-    removed.
-
-Compared with RFC-v2:
-  - Refactor closid/rmid pair translation
-  - Simplify the logic of synchronize configuration
-  - Remove reqPARTID source bitmap
-
-Compared with RFC-v1:
-  - Rebase this patch set on latest MPAM driver of the v6.12-rc1 branch.
----
-
-Dave Martin (1):
-  arm_mpam: Set INTERNAL as needed when setting MSC controls
-
-Zeng Heng (4):
-  arm_mpam: Introduce the definitions of intPARTID and reqPARTID
-  arm_mpam: Add limitation for the Narrow-PARTID feature
-  arm_mpam: Provide conversion method for new closid/rmid pairs
-  arm_mpam: Automatically synchronize the configuration of all
-    sub-monitoring groups
-
- drivers/platform/arm64/mpam/mpam_devices.c  |  61 ++++++--
- drivers/platform/arm64/mpam/mpam_internal.h |   5 +
- drivers/platform/arm64/mpam/mpam_resctrl.c  | 157 ++++++++++++++------
- 3 files changed, 172 insertions(+), 51 deletions(-)
-
---
+diff --git a/drivers/platform/arm64/mpam/mpam_devices.c b/drivers/platform/arm64/mpam/mpam_devices.c
+index a1efd08eb914..380e10a7aebd 100644
+--- a/drivers/platform/arm64/mpam/mpam_devices.c
++++ b/drivers/platform/arm64/mpam/mpam_devices.c
+@@ -1535,6 +1535,7 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 	u32 pri_val = 0;
+ 	u16 cmax = MPAMCFG_CMAX_CMAX;
+ 	u16 bwa_fract = MPAMCFG_MBW_MAX_MAX;
++	u16 intpartid = req2intpartid(partid);
+ 	struct mpam_msc *msc = ris->vmsc->msc;
+ 	struct mpam_props *rprops = &ris->props;
+ 	u16 dspri = GENMASK(rprops->dspri_wd, 0);
+@@ -1545,8 +1546,14 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 
+ 	if (mpam_has_feature(mpam_feat_partid_nrw, rprops)) {
+ 		mpam_write_partsel_reg(msc, INTPARTID,
+-				       MPAMCFG_INTPARTID_INTERNAL | partid);
+-		__mpam_intpart_sel(ris->ris_idx, partid, msc);
++				       MPAMCFG_INTPARTID_INTERNAL |
++				       intpartid);
++
++		/* Already finish mapping reqPARTID to intPARTID */
++		if (partid != intpartid)
++			goto out;
++
++		__mpam_intpart_sel(ris->ris_idx, intpartid, msc);
+ 	}
+ 
+ 	if (mpam_has_feature(mpam_feat_cpor_part, rprops)) {
+@@ -1606,6 +1613,7 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 
+ 	mpam_quirk_post_config_change(ris, partid, cfg);
+ 
++out:
+ 	mutex_unlock(&msc->part_sel_lock);
+ }
+ 
+@@ -3066,9 +3074,20 @@ struct mpam_write_config_arg {
+ 
+ static int __write_config(void *arg)
+ {
++	int closid_num = resctrl_arch_get_num_closid(NULL);
+ 	struct mpam_write_config_arg *c = arg;
++	u32 reqpartid, req_idx;
++
++	WARN_ON(c->partid >= closid_num);
+ 
+-	mpam_reprogram_ris_partid(c->ris, c->partid, &c->comp->cfg[c->partid]);
++	/* Synchronize the configuration to each sub-monitoring group. */
++	for (req_idx = 0; req_idx < get_num_reqpartid_per_closid();
++	     req_idx++) {
++		reqpartid = req_idx * closid_num + c->partid;
++
++		mpam_reprogram_ris_partid(c->ris, reqpartid,
++					 &c->comp->cfg[c->partid]);
++	}
+ 
+ 	return 0;
+ }
+diff --git a/drivers/platform/arm64/mpam/mpam_internal.h b/drivers/platform/arm64/mpam/mpam_internal.h
+index 7bc4694df23a..10609d744a2a 100644
+--- a/drivers/platform/arm64/mpam/mpam_internal.h
++++ b/drivers/platform/arm64/mpam/mpam_internal.h
+@@ -768,4 +768,7 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
+  */
+ #define MSMON_CAPT_EVNT_NOW    BIT(0)
+ 
++u32 get_num_reqpartid_per_closid(void);
++u32 req2intpartid(u32 reqpartid);
++
+ #endif /* MPAM_INTERNAL_H */
+diff --git a/drivers/platform/arm64/mpam/mpam_resctrl.c b/drivers/platform/arm64/mpam/mpam_resctrl.c
+index c6ca086f7dd8..31565a49aee9 100644
+--- a/drivers/platform/arm64/mpam/mpam_resctrl.c
++++ b/drivers/platform/arm64/mpam/mpam_resctrl.c
+@@ -186,7 +186,7 @@ static u32 get_num_reqpartid(void)
+ 	return mpam_partid_max + 1;
+ }
+ 
+-static u32 get_num_reqpartid_per_closid(void)
++u32 get_num_reqpartid_per_closid(void)
+ {
+ 	return get_num_reqpartid() / resctrl_arch_get_num_closid(NULL);
+ }
+@@ -260,7 +260,7 @@ static u32 rmid2pmg(u32 rmid)
+ 	return rmid & pmg_mask;
+ }
+ 
+-static u32 req2intpartid(u32 reqpartid)
++u32 req2intpartid(u32 reqpartid)
+ {
+ 	u8 intpartid_shift = fls(mpam_intpartid_max);
+ 	u32 intpartid_mask = ~(~0 << intpartid_shift);
+-- 
 2.25.1
 
 
