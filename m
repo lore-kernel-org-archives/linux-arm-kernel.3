@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198C0C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 430E4C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 20:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XCK/2Cq3UngyWXY5ALWSss69otbXHSYIu2lH6Hk7vUA=; b=YAJYDSGJmwZG63L/0Z/HZ+cWwf
-	qg5MC0epqC8FqBIUHyYVa+Po9iekoIqLOG6E3a1KGo6xZ4dejNl1CqxO9pZaeWhVdpqY5QfflLftp
-	ksI6VhKablK+cYYkQ0NF8xl/i3ijV1c0BM+Y2XXd14ZXA/cBePNVtMxxfGX3MDwJ96wMvEAftnZU8
-	NN/grI63MR4hc9Mqdp1g2QBVqZtZ85feZsdlroVa3Jd+EhTKze6sytv6uDyusanra+7iJrPiDtgK7
-	JpyQzkDP53PMNdFXNIrPB51mJJ+zV/C17SJrAYNaRoIdRj5DEud0aTYKFF8/+mSpRviJqgfC3RgTN
-	KeYTjyUw==;
+	bh=gK0O9Mcmw6rZXY0ofq1bIp+/41+7mWYJ5zUTGwKpGK8=; b=Wk/6uip09gA5GUbJiT/h9w9mjG
+	LlWLD3obK30iavCGNLgIeN0M4CGNZ6ezloW6nLl/cdLw6hIMw7W+B8VZXLR3pXEc8b0RVZrNToS7l
+	ADUwSXfGRjeBc5Q1cy1Aoo/ONZf2IXSUXXSXqL83fiAh/1cZtmmxdMHfLYDdsx9hlRVkRpLoL2vkb
+	gHmxmaRD4zjNIzelsSaWc4pIhxkrwp16wfsY9axYHjZ8sNuSMDZrd6FBT5u066rprdOG6R79sZMbc
+	PZbdg+8AqEOg+VEa8lyA4lADoHoiZUfI+pgT7/cIypuRV1dmGoEOqNig0GvTLtfO+qyCaaHz4W4Fa
+	j6/0qkdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk7S5-00000005qsj-0788;
-	Mon, 17 Feb 2025 20:10:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk7H7-00000005oql-1z2k
+	id 1tk7SE-00000005quY-2NZr;
+	Mon, 17 Feb 2025 20:10:58 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tk6Rf-00000005hai-3hz5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 19:59:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 059661692;
-	Mon, 17 Feb 2025 11:59:48 -0800 (PST)
-Received: from e132581.cambridge.arm.com (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 811CF3F6A8;
-	Mon, 17 Feb 2025 11:59:26 -0800 (PST)
-From: Leo Yan <leo.yan@arm.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Will Deacon <will@kernel.org>,
-	Graham Woodward <graham.woodward@arm.com>,
-	Paschalis.Mpeis@arm.com,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v3 04/12] perf script: Add not taken event for branches
-Date: Mon, 17 Feb 2025 19:59:00 +0000
-Message-Id: <20250217195908.176207-5-leo.yan@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250217195908.176207-1-leo.yan@arm.com>
-References: <20250217195908.176207-1-leo.yan@arm.com>
+	Mon, 17 Feb 2025 19:06:21 +0000
+Authentication-Results: purelymail.com; auth=pass
+DKIM-Signature: a=rsa-sha256; b=gEabBLK4/OW9lEl+1Pr1HTKx6Hj3IzZhsCCbDu3V6Y6hfw9uvxvbexfvobOgE8xgDizX9/PfVRefb5BN5HCS7P5u9eHT/zFz3JMpCVm1MLOg1xjWqvFROWo4wjM7fXeFJd+9VW39qF6DCqeovJrcA4FHdXqYvG8hIbcvy3oPnZR4K3LmXA75xw4o4V6ts5aGp/FjhiHCLQQF5vmmrZjc78Zzy6JT+hC9tU+bu8LJY2y7Zww5uvVJHY0UnnyWBCNTGo/G4aLWRDMSFbCLMfXs78evUtYpzREZo8Um0Z+htB8xxix4CFqMQS54pCHFa2z2a4cQLbksX+STb8V3d+hM+w==; s=purelymail3; d=purelymail.com; v=1; bh=ExVaCUBzcNC+wkHRkApsOynmUd07dvbz0C9qAwKk5Qg=; h=Feedback-ID:Received:From:Date:Subject:To;
+Feedback-ID: 68247:10037:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -1350358103;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Mon, 17 Feb 2025 19:05:53 +0000 (UTC)
+From: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+Date: Mon, 17 Feb 2025 20:05:19 +0100
+Subject: [PATCH 1/2] dt-bindings: watchdog: samsung-wdt: Add exynos990-wdt
+ compatible
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250217-exynos990-wdt-v1-1-9b49df5256b0@mentallysanemainliners.org>
+References: <20250217-exynos990-wdt-v1-0-9b49df5256b0@mentallysanemainliners.org>
+In-Reply-To: <20250217-exynos990-wdt-v1-0-9b49df5256b0@mentallysanemainliners.org>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-watchdog@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ Igor Belwon <igor.belwon@mentallysanemainliners.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739819149; l=2481;
+ i=igor.belwon@mentallysanemainliners.org; s=20241206;
+ h=from:subject:message-id; bh=ExVaCUBzcNC+wkHRkApsOynmUd07dvbz0C9qAwKk5Qg=;
+ b=mRkJpujMaWtYA215YBhSum3Q3+AFasnoTKmdWZixH/WWoYNb5mwvZeJo5hqxbqv0/xSMMiEtf
+ M+WhVBsl/ZqDEKKLNTpStdiPv6c9fwSWBzXeGvHQ1sQaSV2zg9nPTvY
+X-Developer-Key: i=igor.belwon@mentallysanemainliners.org; a=ed25519;
+ pk=qKAuSTWKTaGQM0vwBxV0p6hPKMN4vh0CwZ+bozrG5lY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_115929_552287_6C0577D9 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250217_110620_002096_9D8BED59 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,56 +77,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some hardware (e.g., Arm SPE) can trace the not taken event for
-branches.  Add a flag for this event and support printing it.
+Add a dt-binding compatible for the Exynos990 Watchdog timer.
+This watchdog is compatible with the GS101/Exynos850 design, as
+such it requires the cluster-index and syscon-phandle properties
+to be present.
 
-Reviewed-by: Ian Rogers <irogers@google.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
 ---
- tools/perf/util/event.h                 | 6 ++++--
- tools/perf/util/trace-event-scripting.c | 1 +
- 2 files changed, 5 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/tools/perf/util/event.h b/tools/perf/util/event.h
-index 962fbc1714cf..c7f4b4b841ca 100644
---- a/tools/perf/util/event.h
-+++ b/tools/perf/util/event.h
-@@ -67,9 +67,10 @@ enum {
- 	PERF_IP_FLAG_INTR_DISABLE	= 1ULL << 13,
- 	PERF_IP_FLAG_INTR_TOGGLE	= 1ULL << 14,
- 	PERF_IP_FLAG_BRANCH_MISS	= 1ULL << 15,
-+	PERF_IP_FLAG_NOT_TAKEN		= 1ULL << 16,
- };
+diff --git a/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml b/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
+index d175ae9683366d33b1f9d9d820501d1e7c5964bd..e36f87830ea8a185a1543e62fdeebd97fb9a8abb 100644
+--- a/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
++++ b/Documentation/devicetree/bindings/watchdog/samsung-wdt.yaml
+@@ -25,6 +25,7 @@ properties:
+           - samsung,exynos5420-wdt                # for Exynos5420
+           - samsung,exynos7-wdt                   # for Exynos7
+           - samsung,exynos850-wdt                 # for Exynos850
++          - samsung,exynos990-wdt                 # for Exynos990
+           - samsung,exynosautov9-wdt              # for Exynosautov9
+           - samsung,exynosautov920-wdt            # for Exynosautov920
+       - items:
+@@ -49,14 +50,14 @@ properties:
+   samsung,cluster-index:
+     $ref: /schemas/types.yaml#/definitions/uint32
+     description:
+-      Index of CPU cluster on which watchdog is running (in case of Exynos850
+-      or Google gs101).
++      Index of CPU cluster on which watchdog is running (in case of Exynos850,
++      Exynos990 or Google gs101).
  
--#define PERF_IP_FLAG_CHARS "bcrosyiABExghDtm"
-+#define PERF_IP_FLAG_CHARS "bcrosyiABExghDtmn"
+   samsung,syscon-phandle:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description:
+       Phandle to the PMU system controller node (in case of Exynos5250,
+-      Exynos5420, Exynos7, Exynos850 and gs101).
++      Exynos5420, Exynos7, Exynos850, Exynos990 and gs101).
  
- #define PERF_ADDITIONAL_STATE_MASK	\
- 	(PERF_IP_FLAG_IN_TX |		\
-@@ -91,7 +92,8 @@ enum {
- 	PERF_IP_FLAG_VMEXIT)
- 
- #define PERF_IP_FLAG_BRACH_EVENT_MASK	\
--	PERF_IP_FLAG_BRANCH_MISS
-+	(PERF_IP_FLAG_BRANCH_MISS |	\
-+	 PERF_IP_FLAG_NOT_TAKEN)
- 
- #define PERF_MEM_DATA_SRC_NONE \
- 	(PERF_MEM_S(OP, NA) |\
-diff --git a/tools/perf/util/trace-event-scripting.c b/tools/perf/util/trace-event-scripting.c
-index 55d7e4e612d5..29cc467be14a 100644
---- a/tools/perf/util/trace-event-scripting.c
-+++ b/tools/perf/util/trace-event-scripting.c
-@@ -317,6 +317,7 @@ static const struct {
- 	const char *name;
- } branch_events[] = {
- 	{PERF_IP_FLAG_BRANCH_MISS, "miss"},
-+	{PERF_IP_FLAG_NOT_TAKEN, "not_taken"},
- 	{0, NULL}
- };
- 
+ required:
+   - compatible
+@@ -77,6 +78,7 @@ allOf:
+               - samsung,exynos5420-wdt
+               - samsung,exynos7-wdt
+               - samsung,exynos850-wdt
++              - samsung,exynos990-wdt
+               - samsung,exynosautov9-wdt
+               - samsung,exynosautov920-wdt
+     then:
+@@ -89,6 +91,7 @@ allOf:
+             enum:
+               - google,gs101-wdt
+               - samsung,exynos850-wdt
++              - samsung,exynos990-wdt
+               - samsung,exynosautov9-wdt
+               - samsung,exynosautov920-wdt
+     then:
+
 -- 
-2.34.1
+2.47.2
 
 
