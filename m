@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF4BC021AD
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E82FBC021AC
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 12:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,82 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=drEhK3cDQdkh38kldJ0Y/4vDN7xVhcKxyh6okSkh4XI=; b=gtyA90E9Wqh6bvE+CPJO69cdWF
-	Ttl/FDzlqxm6gN1Y5kLJ77RyGJjF02iNEku2fZZWPJg3U6NVTmSNYMF5hqQWXrtDt/8DW/p/4TkQc
-	psgnUy5VtLA21GvHF57KkpW7+fS+SSFbHbysWbt2C5ivWKrUT3B7RSE5S0tLPpVsUeg+CRVzY8Xck
-	PLhSm8YvDO+zecu/qC9Ske3JBSlbml/xOfn1rPVHLiIqIEWfM/AbEaBmHjo1xzMiwwtmE2yzdJoGA
-	TEzrqcYkiZFwbQGdtXjyqS9ZLTdkZbjUik6iSGV0U92eHQHhnwMfGehSsMB2UvAE0m2Rsh4cR0oMq
-	THtYQcAg==;
+	bh=xvO6VVVrxL25G9tkhpz936tDjybjrpvtb36RnaeyFF0=; b=bYwI7snHwlSh1jOiAFQk3Gll0J
+	mJdy27LfDLYJfdAGinyQ/7HfhtmWyoc+YTtwE2A6VReeichcuJKA0O301JNkLVU2YWj9WGxkJucVb
+	IfHUIVFICHQsX2b2AMGz4VlBdpQwRI2gM1s1Uw2tB4uNcnfp1NAcsNB0hLPaiRGBeW0YxSQfoZum/
+	KQ9k6VX38s4J7zjmseWuJucbdgiA3aolLO/vg7RfQmj7tEG2/iFpGFXWK0lGsiz4LnuCDMyxtlu/L
+	1CFl2Q1fG5P+XanKFLZQUmEdjjS/nhIjA9JMQZYntlJ65FMCYTZB0Avoh2z2boAkWcQRaq/D/nZa6
+	4y5rC1dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tk0Fu-00000004SEp-3gVX;
-	Mon, 17 Feb 2025 12:29:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tk0G4-00000004SOJ-1vOR;
+	Mon, 17 Feb 2025 12:29:56 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjymw-00000004DsM-3CZc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 17 Feb 2025 10:55:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=drEhK3cDQdkh38kldJ0Y/4vDN7xVhcKxyh6okSkh4XI=; b=ezaPpQE9b4iaw7Tvh5GI4BbtLb
-	YR0I83ozt3APALnVU0DUgvWF8CW85CY+cXikMtN82kh+LfspPjCwpf2km12ti3JrKaY1/grgaVHk1
-	vxmPhdTqM+vA6ZWxpDpDdkMAmUAB4IqGFz/6lhkLVZcreCahsLDOXPloV80IX7a8GTxBjvpd6kiDJ
-	IgKj754aa/cLMhWInfk3jfRoPZElaAJJkHKJmjO9usKOvnuRy2e1x1QCtOz40SXuf8T1zCL9o14TF
-	VDgXP4iCJvPoIS91ZavNweYJIAZ/XtwpfET2s9e+eJ3+ISJbBcg9gZyGDsm0jdIM5Pc9oLfFPAaIW
-	yTrUWWoA==;
-Received: from relmlor2.renesas.com ([210.160.252.172] helo=relmlie6.idc.renesas.com)
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tjymt-00000001mQQ-2FZI
+	id 1tjzXF-00000004M2w-1tWF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 17 Feb 2025 10:55:45 +0000
-X-CSE-ConnectionGUID: dH1SiHvuTcqhKOIHg+ullQ==
-X-CSE-MsgGUID: pBJC6dxFRmaq9ePj81h7vA==
-Received: from unknown (HELO relmlir6.idc.renesas.com) ([10.200.68.152])
-  by relmlie6.idc.renesas.com with ESMTP; 17 Feb 2025 19:55:32 +0900
-Received: from superbuilder.administration.lan (unknown [10.226.93.254])
-	by relmlir6.idc.renesas.com (Postfix) with ESMTP id D0FC84280572;
-	Mon, 17 Feb 2025 19:55:29 +0900 (JST)
-From: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
-To: thierry.bultel@linatsea.fr,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: linux-renesas-soc@vger.kernel.org,
-	Thierry Bultel <thierry.bultel.yh@bp.renesas.com>,
+	Mon, 17 Feb 2025 11:43:39 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4397dff185fso10187615e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 03:43:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1739792616; x=1740397416; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xvO6VVVrxL25G9tkhpz936tDjybjrpvtb36RnaeyFF0=;
+        b=YNSCMXaFXsI9gjAu+stHBW5Gg1yf4SDemxX/Az5ZCXduqVPv7SDCe3belyT5gOsKSq
+         Zm9xsO/qxqfVZHw47IWiIcNPDV6M2YJxvanmg08qjxQR+yA42+4bmnjF1I2shr3T55bv
+         3MbXcm/v+zK3cEBkb1Yc1ZCAZguaLfhpmBvK0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739792616; x=1740397416;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xvO6VVVrxL25G9tkhpz936tDjybjrpvtb36RnaeyFF0=;
+        b=Q/jh5Gg+ATw8CRqkO4U0Xy0/uWZkqiplGgM2KBb1r1TM5dORZH9B7vdaTpkvVcArSM
+         KDvebVCHM+a7vP8OjoCSlehPT3hGiemrmwhKlroFlFR0nomm8Yrx8GDfbJIFQBknJU7x
+         yEn6H/cygOENzgPDfO/FuNWQ2lbwtxH4TSKo+Qs0iU+2yWhIIscxfkGIUi2Y5CKa+4xb
+         ZbXmxWjvKDizXAG+kZI+so5/J3+4JL5RadKG9gbVohroBkYJSQJjsH3+aFCevE7Fn+Ab
+         21fr5DahEIBn5155Uu1qTWMu9IfzD0qFEEoG49y09HgiYdb1ZzBCOQaF9qE8BJ5AtvrY
+         pd7A==
+X-Forwarded-Encrypted: i=1; AJvYcCXsjEJBKVKrqr8prUMxwCAsJk34RQWq20ooB6Iub2LJKwIyzwK69+Srg1nJ1gaG8OLa9J/YbxRy9IazqojPjWF4@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywce2ggQZPPYewUMnexjy05NlMQPXAmV9tBMY+ET2aruG7CtSNs
+	VE+ITtUImiDecKFhKpFkpoJldaBC+ox2W3Rry71lqO2nTImDAy/8SCgBGAlx9GI=
+X-Gm-Gg: ASbGncvKmI33FmnK3k1pWAJv7SzvwkzyVGRhJSQUr8vzoWLhvd+d35zYmaBr/SSrLQ/
+	O7O7mmMqLMnhsm8lGA5Y1Uai7EThzqnlxDiGBF+hvGAtETIdHODgey7t9g2wS+B7ohG3qtMGuoj
+	eBcf4NlkM4p+/Ff52BSgApnrInXL7QEVvSyeL3dhKPavM27sZHnzHdDMP5wCRsZer522zSaUBUW
+	+ltabKaBMCZ7mt0kxEiTcvPbVfJcouXBIV+3dvZXxDw1MUfPC2hrJkTngsVKnmP1UJDw9UvG6U5
+	42ZE9uPBiiuasLCEMUQ9I1Mkaycx8vi0jVs9YzJFjrTwwfyIQP+PEqXGRQf65YwF7JaJQ3sMY+1
+	VjuoWCSn63/w=
+X-Google-Smtp-Source: AGHT+IG1kMvLCwkIlZ/7WxOf9BHdIUQElSPpYHSnhNergf/DVzd0TcB4oDWYyjgd4zWn0XxpcWvmxw==
+X-Received: by 2002:a05:600c:468a:b0:439:6ab6:5d45 with SMTP id 5b1f17b1804b1-4396e73742fmr77147445e9.28.1739792616186;
+        Mon, 17 Feb 2025 03:43:36 -0800 (PST)
+Received: from dario-ThinkPad-T14s-Gen-2i.amarulasolutions.com ([2001:b07:6474:ebbf:78d7:ec72:38e9:87de])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43987088ecbsm18918465e9.31.2025.02.17.03.43.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 17 Feb 2025 03:43:35 -0800 (PST)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 13/13] defconfig: Enable RZ/T2H Soc and RZ_SCI
-Date: Mon, 17 Feb 2025 11:52:14 +0100
-Message-ID: <20250217105354.551788-14-thierry.bultel.yh@bp.renesas.com>
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH 2/2] ARM: dts: stm32: add push button to stm32f746 Discovery board
+Date: Mon, 17 Feb 2025 12:43:23 +0100
+Message-ID: <20250217114332.1098482-2-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250217105354.551788-1-thierry.bultel.yh@bp.renesas.com>
-References: <20250217105354.551788-1-thierry.bultel.yh@bp.renesas.com>
+In-Reply-To: <20250217114332.1098482-1-dario.binacchi@amarulasolutions.com>
+References: <20250217114332.1098482-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_105543_938293_6088A61B 
-X-CRM114-Status: UNSURE (   6.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_034337_508213_DC551B3A 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,31 +102,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
----
- arch/arm64/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+Add node for user push button.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index c62831e61586..a1cc7a37386d 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -486,6 +486,7 @@ CONFIG_SERIAL_TEGRA_TCU=y
- CONFIG_SERIAL_IMX=y
- CONFIG_SERIAL_IMX_CONSOLE=y
- CONFIG_SERIAL_SH_SCI=y
-+CONFIG_SERIAL_RZ_SCI=y
- CONFIG_SERIAL_MSM=y
- CONFIG_SERIAL_MSM_CONSOLE=y
- CONFIG_SERIAL_QCOM_GENI=y
-@@ -1457,6 +1458,7 @@ CONFIG_ARCH_R9A07G054=y
- CONFIG_ARCH_R9A08G045=y
- CONFIG_ARCH_R9A09G011=y
- CONFIG_ARCH_R9A09G057=y
-+CONFIG_ARCH_R9A09G077=y
- CONFIG_ROCKCHIP_IODOMAIN=y
- CONFIG_ARCH_TEGRA_132_SOC=y
- CONFIG_ARCH_TEGRA_210_SOC=y
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+---
+
+ arch/arm/boot/dts/st/stm32f746-disco.dts | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/arch/arm/boot/dts/st/stm32f746-disco.dts b/arch/arm/boot/dts/st/stm32f746-disco.dts
+index 8bdd10644bf1..b57dbdce2f40 100644
+--- a/arch/arm/boot/dts/st/stm32f746-disco.dts
++++ b/arch/arm/boot/dts/st/stm32f746-disco.dts
+@@ -86,6 +86,16 @@ led-usr {
+ 		};
+ 	};
+ 
++	gpio-keys {
++		compatible = "gpio-keys";
++		autorepeat;
++		button-0 {
++			label = "User";
++			linux,code = <KEY_HOME>;
++			gpios = <&gpioi 11 GPIO_ACTIVE_HIGH>;
++		};
++	};
++
+ 	usbotg_hs_phy: usb-phy {
+ 		#phy-cells = <0>;
+ 		compatible = "usb-nop-xceiv";
 -- 
 2.43.0
 
