@@ -4,71 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1231AC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 21:37:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CEEC021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 21:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x1hw6gDziFrNzu+B09LwrkyYT+G67r5LGe0BYt45hm0=; b=0sDeBflXbajpN4EXmuaoaTp6fZ
-	d5OcN++vVTbwuOizCjimZki+UQ39Y4pTGpUMrXJUCbBSqLVKsYYkRo87XtlsN9e8thewViLolGUoM
-	As7uWJIK3L00JfAlZ+VRe0Dg3zSc+KNxpU8Meoowq3IHp3iBYUmnXf+bMM2Id00dyVFiXaCFxxGlP
-	aNPb+wrMvAXvUhgCL6TLtsK2Adun3yDBfkGXcTPj6W0hfscUZCoiukPdu9akI4EVsqEDz9fdlbDrQ
-	NeYk2uDZuPyxQP2JRJrV4f/dVnH6rGXLtrARMgOex4xYMPCOpk6U2R3JVhFCQhLvqTxKkr+18ovSP
-	juWhelhg==;
+	bh=nWSQQE4q/rb+7PJFeD76TZRQ/0FEDlDVpFPNBTprE7o=; b=2LTCNvhgcWSMpvgSq/vYM3IoPr
+	QOu1Mo+k8hS08sw1/3+yGcGVmJwsQ4LDoIJDvj6QDqthsja4blf5iWDfc5pp57pqxhZi6iLS5AWXL
+	BqVcfXEpD85RkwqTUBcyfULItuE9o36S9b1k1xgu8zKEju4USWe6cA3UHzTixtGFus+6xGxLPOTqT
+	S6+tEjnueVvI86F6FflfqDPztlrE5L1OrzWziAFBNw5b0d5S9MhLTrX/S+STd2IwAGK7AYiliiE5z
+	AOPSJPZkP4MzqtbOcMhbY2FQpM8cbWVsITm2gMQwnXxRPo4zE5xFnp7VN7IpdlMIn8JLN4a8zne8p
+	qvPzxY+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkVHj-0000000A1wc-0RT7;
-	Tue, 18 Feb 2025 21:37:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tkVJA-0000000A2CN-3GW2;
+	Tue, 18 Feb 2025 21:39:12 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkV2C-00000009y6R-0xDU
+	id 1tkV4m-00000009yde-08fN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 21:21:41 +0000
+	Tue, 18 Feb 2025 21:24:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 78F3F5C2570;
-	Tue, 18 Feb 2025 21:21:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E6D0C4CEE2;
-	Tue, 18 Feb 2025 21:21:39 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 64EE6A41BEE;
+	Tue, 18 Feb 2025 21:22:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEEDEC4CEE2;
+	Tue, 18 Feb 2025 21:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739913699;
-	bh=B9lSIUKtKaBWlF14BOO6dZrB7G6K1Zk063vl/H8dksY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rRRl3Oft5D1yNq8A/9GdXQlhT4a0/layZcEr6m168EFyUt483vukkReL1VrsLfdVW
-	 zOO6npRBlyNM4X9gkvxRqfp6wI453gdsRZlmJofmiL8zFsCY0YRhJuey7zQfw9fWFU
-	 xogFI9TFgXaaOcQZYVUhiS3aMAEuqHwyWwWSH0Dzt2B5hsdZV/dN0urTVADAhSk6G0
-	 V9Ut2rkKOCfMDY7wY1cEm2cEiHavDVfRO2cvjELFHVIb0Z+e80RwGR/n6Z2ptYlHVt
-	 r5EzUyJauBdauhOBLVtjpVAvKiMVdxIfXO/TXeUhmiYpot8O+xydOproUw8+D0zbPb
-	 GGcv6XBWrNaOQ==
-Date: Tue, 18 Feb 2025 15:21:38 -0600
-From: Rob Herring <robh@kernel.org>
-To: patrice.chotard@foss.st.com
-Cc: Mark Brown <broonie@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	christophe.kerello@foss.st.com
-Subject: Re: [PATCH v4 0/8] Add STM32MP25 SPI NOR support
-Message-ID: <20250218212138.GA1092771-robh@kernel.org>
-References: <20250218130000.87889-1-patrice.chotard@foss.st.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250218130000.87889-1-patrice.chotard@foss.st.com>
+	s=k20201202; t=1739913858;
+	bh=wx7D8VpPf7IjLab4q2shP+SjBbJcxvKfZvq8kyxl2Gk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cnFH17Lk1g/+oi9wQQ55O48Kl6n5U4RnvyVh0gfxeObrmCk8hy7Y8cD8j/JzfYw69
+	 TrhXY0WJoiglBCHAKTrOXpe5LYABp8smOgtkn4MBWOptkCMw/hGY4IG9yldVqsw3hb
+	 FauCOON+agE5mjDFH8WYBh6fYq1R2HkSnE+Zo6a+4fDnhRHvUvyh91q3wMKaeEb2DQ
+	 1w5QWtfnr7evr2nJJ0JbsgniTQDNPwPT1qMnnAHSWOF5g7qwzm7SytvDH0xMIhXd/G
+	 ev4Z4h9oBSVdIB05hTb+aaVvBPb6K5qHeVX9hQ6o/WGXJq4IGgEIzTAdbf+2axo6+l
+	 4Jh36CISPbzHg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tkV4i-005bzR-Gy;
+	Tue, 18 Feb 2025 21:24:16 +0000
+Date: Tue, 18 Feb 2025 21:24:16 +0000
+Message-ID: <86cyffrlof.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: Eric Auger <eauger@redhat.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	kvmarm <kvmarm@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	christoffer.dall@arm.com,
+	suzuki.poulose@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	coltonlewis@google.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
+In-Reply-To: <1a19dacc-72ca-4631-bce8-7426b3de0b47@os.amperecomputing.com>
+References: <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
+	<86y10osr19.wl-maz@kernel.org>
+	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
+	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
+	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
+	<86h661wje4.wl-maz@kernel.org>
+	<4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
+	<86cygpwfy0.wl-maz@kernel.org>
+	<b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
+	<86frkptzr6.wl-maz@kernel.org>
+	<Z6ZMdv8jJUvYwQzT@linux.dev>
+	<86bjvdtxb5.wl-maz@kernel.org>
+	<8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
+	<87tt8v14j2.wl-maz@kernel.org>
+	<1a19dacc-72ca-4631-bce8-7426b3de0b47@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, eauger@redhat.com, oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_132140_313041_FBBEE978 
-X-CRM114-Status: GOOD (  16.01  )
+X-CRM114-CacheID: sfid-20250218_132420_206234_06C3FE94 
+X-CRM114-Status: GOOD (  36.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,40 +109,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 01:59:52PM +0100, patrice.chotard@foss.st.com wrote:
-> From: Patrice Chotard <patrice.chotard@foss.st.com>
+On Tue, 18 Feb 2025 07:33:11 +0000,
+Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
 > 
-> This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics.
 > 
-> On STM32MP25 SoCs family, an Octo Memory Manager block manages the muxing,
-> the memory area split, the chip select override and the time constraint 
-> between its 2 Octo SPI children.
+> Hi Marc,
 > 
-> Due to these depedencies, this series adds support for: 
->   - Octo Memory Manager driver.
->   - Octo SPI driver.
->   - yaml schema for Octo Memory Manager and Octo SPI drivers.
+> On 15-02-2025 11:20 pm, Marc Zyngier wrote:
+> > On Mon, 10 Feb 2025 18:26:48 +0000,
+> > Eric Auger <eauger@redhat.com> wrote:
+> >> 
+> >> Hi Marc,
+> >> 
+> >> On 2/7/25 7:38 PM, Marc Zyngier wrote:
+> >>> On Fri, 07 Feb 2025 18:09:58 +0000,
+> >>> Oliver Upton <oliver.upton@linux.dev> wrote:
+> >>>> 
+> >>>> Hey,
+> >>>> 
+> >>>> On Fri, Feb 07, 2025 at 05:45:33PM +0000, Marc Zyngier wrote:
+> >>>>> I found at least one issue that could fail the migration. Before the
+> >>>>> VM starts running, we limit the feature set to the subset we actually
+> >>>>> support with NV.
+> >>>>> 
+> >>>>> By doing this, we also change the value of IDreg fields that are not
+> >>>>> writable, because they describe features that we don't support.
+> >>>>> Obviously, that fails on restore.
+> >>>>> 
+> >>>>> I need to have a think...
+> >>>> 
+> >>>> We spoke about this a while ago (and I forgot til now), but I was
+> >>>> wondering if we could use vCPU feature flags to describe NV, including
+> >>>> the selection between FEAT_E2H0 and FEAT_VHE.
+> >>>> 
+> >>>> I think this might match userspace expectations a bit more closely where
+> >>>> the state of the ID registers after init gives the actual feature set
+> >>>> supported by the VM.
+> >>> 
+> >>> I'm not sure that's enough. Let me give you an example:
+> >>> 
+> >>> My host has FEAT_XNX, described in ID_AA64MMFR1_EL1.XNX. For whatever
+> >>> reason, we don't allow this field to be written to, even out of NV
+> >>> context. This is odd, because for an EL1 VM, this field means nothing
+> >>> at all.
+> >> So the curprit fields for me look like
+> >> 
+> >> - ID_AA64MMFR1_EL1.XNX
+> >> - ID_AA64DFR0_EL1.DoubleLock
+> >> - ID_AA64PFR0_EL1.RAS
+> >> 
+> >> This is still based on your nv-next branch from Jan 9
+> >> https://github.com/eauger/linux/tree/nv_next_jan9_2025
+> > 
+> > I have now pushed out a new nv-next branch with the new and improved
+> > UAPI. I expect migration to work a bit better, or at least not to
+> > explode on ID register restore. You will notice that things have
+> > changed a bit (extra flag and cap for FEAT_E2H0), but nothing really
+> > major.
+> > 
 > 
-> The device tree files adds Octo Memory Manager and its 2 associated Octo 
-> SPI chidren in stm32mp251.dtsi and adds SPI NOR support in stm32mp257f-ev1
-> board.
-> 
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
-> 
-> Changes in v4:
->   - Add default value requested by Krzysztof for st,omm-req2ack-ns, 
->     st,omm-cssel-ovr and st,omm-mux properties in st,stm32mp25-omm.yaml
->   - Remove constraint in free form test for st,omm-mux property.
->   - Fix drivers/memory/Kconfig by replacing TEST_COMPILE_ by COMPILE_TEST.
->   - Fix SPDX-License-Identifier for stm32-omm.c.
->   - Fix Kernel test robot by fixing dev_err() format in stm32-omm.c.
->   - Add missing pm_runtime_disable() in the error handling path in
->     stm32-omm.c.
->   - Replace an int by an unsigned int in stm32-omm.c
->   - Remove uneeded "," after terminator in stm32-omm.c.
->   - Update cover letter description to explain dependecies between 
->     Octo Memory Manager and its 2 Octo SPI children.
->   - Add Reviewed-by Krzysztof Kozlowski for patch 1 and 3.
+> Tried nv-next branch and it is breaking(kernel Oops) for normal VM
+> boot itself with qemu. Looks like this is happening since qemu is
+> trying to write to ID_UNALLOCATED mapped registers as part of
+> save-restore of registers.
 
-No, you didn't.
+My take on this problem ends up being more consolidation, and make
+sure that the individual macros only override the default callbacks
+for idregs.
+
+Additionally, ID_UNALLOCATED gets a name matching the architectural
+encoding.
+
+	M.
+
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index e6f4599dca48e..2e14562b5841f 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2261,24 +2261,26 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+  * from userspace.
+  */
+ 
+-#define ID_DESC(name)				\
+-	SYS_DESC(SYS_##name),			\
++#define ID_DESC_DEFAULT_CALLBACKS		\
+ 	.access	= access_id_reg,		\
+ 	.get_user = get_id_reg,			\
++	.set_user = set_id_reg,			\
++	.visibility = id_visibility,		\
+ 	.reset = kvm_read_sanitised_id_reg
+ 
++#define ID_DESC(name)				\
++	SYS_DESC(SYS_##name),			\
++	ID_DESC_DEFAULT_CALLBACKS
++
+ /* sys_reg_desc initialiser for known cpufeature ID registers */
+ #define ID_SANITISED(name) {			\
+ 	ID_DESC(name),				\
+-	.set_user = set_id_reg,			\
+-	.visibility = id_visibility,		\
+ 	.val = 0,				\
+ }
+ 
+ /* sys_reg_desc initialiser for known cpufeature ID registers */
+ #define AA32_ID_SANITISED(name) {		\
+ 	ID_DESC(name),				\
+-	.set_user = set_id_reg,			\
+ 	.visibility = aa32_id_visibility,	\
+ 	.val = 0,				\
+ }
+@@ -2286,8 +2288,6 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+ /* sys_reg_desc initialiser for writable ID registers */
+ #define ID_WRITABLE(name, mask) {		\
+ 	ID_DESC(name),				\
+-	.set_user = set_id_reg,			\
+-	.visibility = id_visibility,		\
+ 	.val = mask,				\
+ }
+ 
+@@ -2295,7 +2295,6 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+ #define ID_FILTERED(sysreg, name, mask) {	\
+ 	ID_DESC(sysreg),				\
+ 	.set_user = set_##name,				\
+-	.visibility = id_visibility,			\
+ 	.val = (mask),					\
+ }
+ 
+@@ -2305,10 +2304,9 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+  * (1 <= crm < 8, 0 <= Op2 < 8).
+  */
+ #define ID_UNALLOCATED(crm, op2) {			\
++	.name = "S3_0_0_" #crm "_" #op2,		\
+ 	Op0(3), Op1(0), CRn(0), CRm(crm), Op2(op2),	\
+-	.access = access_id_reg,			\
+-	.get_user = get_id_reg,				\
+-	.set_user = set_id_reg,				\
++	ID_DESC_DEFAULT_CALLBACKS,			\
+ 	.visibility = raz_visibility,			\
+ 	.val = 0,					\
+ }
+@@ -2320,7 +2318,6 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+  */
+ #define ID_HIDDEN(name) {			\
+ 	ID_DESC(name),				\
+-	.set_user = set_id_reg,			\
+ 	.visibility = raz_visibility,		\
+ 	.val = 0,				\
+ }
+
+-- 
+Without deviation from the norm, progress is not possible.
 
