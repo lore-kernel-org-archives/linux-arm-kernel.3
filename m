@@ -4,82 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA79C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E233CC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r1w3SuJ03gvDIe9MXtj8IMQSlg/9NytuFaJY97llj9s=; b=13+dRqwZcCizkFWjlJZ5sDmR7O
-	/TAB3bre3fuexGYjHFS2NP6W87EqXN2ID0jl4VwSqSeYyDycCK6t8mBmu+QV22KimpS23e9mx0cU6
-	G4FjEmu1YdCadFzK7ZUo8KMwhG6fT7S3wZM/gydFNPNSpDtVLIoxbGpF999TRbZLw+3Fk0mlGR5yW
-	oJjAd/LVqg5YXwaEv8dvDVm3FKX6yzcmpC2ytn6Tvi/jANBm6EmTT5KeHlgHFKiB4KbApVgcayR8C
-	IyvkJizaHxeRobxL4V0yNx8m/7aQrkiUdYzXD5HX4KDe57c5EBd9ruO7c6yrtCmcYlMhSYQCReJ5l
-	IerLtmkQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MWFT9m6GN4GxrZYX8Rpent2wFQfA0PjR3otNOfevNYU=; b=ZqNTn/xrjMrzudnB41xh9K9HW4
+	0vZblVlD3NnRsgn/JdaCTYjEkkl77c6nc9pvRox7MUDOtZ9xxYB3AN6igD7rn3VZ+VoRveoh9ukW7
+	qiViZ+2lmIvDZA0P9AVPemdvyi3APVIYcY/Bo0Iu9rzo4Jur6n23hvgOs5QQtI1G0K25TE/O+Lerk
+	SkXqbGq3s7UyJ3tSGoUCLBMwfaYHsuoQGdyYgntm/U5YKZdXoeGzAkCSTtoy40O9++lbelCAI+mj4
+	2KA9gcRpSSWhd9Z/htLodtCw4y2U7Q0t9P4Hmb2eOMa9KR7OrbUA9bcsjFCcrl8IpO86yPkxkOVh6
+	/wpeQbng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOYU-00000008VVU-2hYG;
-	Tue, 18 Feb 2025 14:26:34 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tkOil-00000008Znt-0Qpi;
+	Tue, 18 Feb 2025 14:37:11 +0000
+Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOX0-00000008UhJ-0n5k;
-	Tue, 18 Feb 2025 14:25:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739888700;
-	bh=J2eO9J9+mwdPHssF4xChq4+/7PjWA0b/HAjHIFjPlDM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=T0PM7SUXm0tzDEgb3p7/B4sIX18u9xqr1zsMb31gron78SXny/pUQb6dWPugS+zHK
-	 zoRxMEOJH5ELNcNoNXjLsff5yFYH9vXdMnovMKc7AMmN62b2pQNnov79IbV0FQLk3B
-	 PXFsY/eKKaFsJH2puzbVSOdMjnxVVnDaIFcUftyxAvwpHK/X54+h5zn/KiNHU+9j/5
-	 VucuGlCZG1/a1HhI92k+VT46yqGIAsFt0VVpaC6SkCDd4pHOvCciFMzuexi8zTfCIk
-	 2vVJ3A3uIonc1hKstWUjrHX7JeMqNSLFHvAZzL7rTzLm+7LB+UPa04mp/oKg3+4mxU
-	 hhbiJDpHVNpUw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 636C717E0391;
-	Tue, 18 Feb 2025 15:24:59 +0100 (CET)
-Message-ID: <ddd1d62e-b1d2-4271-99a3-74bb0a48fb48@collabora.com>
-Date: Tue, 18 Feb 2025 15:24:58 +0100
+	id 1tkOhG-00000008ZJ6-281u
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Feb 2025 14:35:40 +0000
+Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-3078fb1fa28so51199111fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 06:35:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739889336; x=1740494136; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=MWFT9m6GN4GxrZYX8Rpent2wFQfA0PjR3otNOfevNYU=;
+        b=GS4IDYE6AF1timAEqAMelkGmK6HhGt+k7c9UjD5YXj/4gGF1KQJRlYMR7/VsSB+gyE
+         EG1pGHnt5TRaXHBBGburvaJpR60ipKMBkSheMiqR64dqscu43b5gwzJ2DopOqImiT+fG
+         gWc4u56S89xNkROu56TcACcbhuxV44QvirNLElwSyjjo5v6PUAzE8pVqRA06tKUW83uV
+         zL2Tbud/lpZChItAB5U1sb6TTf3MwaHXJNRqmjC5aAEL05QHWBUgb5WqXYGHZX/WscER
+         JJpBdMMyPy8Q0wG9D3BbdTz3/oE8UVnTvR3roaV5aN2dbpvg9w6qpjVbRohM94hTOe1d
+         jlTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739889336; x=1740494136;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MWFT9m6GN4GxrZYX8Rpent2wFQfA0PjR3otNOfevNYU=;
+        b=jcZGl03v4IdhgyZuIxpQF0OjvmM2sqeeUxOSikTzcJNoEE5ZMY+p3ywj16vFJeExNW
+         heM6pTtV5tZN/8KsnQOR+Sf/kG1LGWafrrAa5CqC9y2HXgnJSHvmZB3nA+yKPTprdu5J
+         xvWbJKLlYtAlvhJ/8qv1RZBzTX4h5UfWA5kdBfE2HFxtbGvTDsJSIkzuWc+CGpgA//31
+         42xcaOomUKsI3FY9JqKTfUxWJttYu01m0uYh28mkYRVDf/dqJ+2zsPFMIUUTPqtDzvqV
+         t4BatP8K96k49SWjyyE/VOVm9baHVgFVUYpFUxQOPia4OP7FxxAPvCMSt1I5/7N9Br4B
+         9tvQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXZPRRNOSnuaKdJ8EUbzaclg9l9mS4yEAwe0GK3IzYHfZpg0+D8GUnz58ddbuK0l5/KKLEvu18fgJr7CPXK92UL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzG0/4NSk1/Kh6kFWUqxhSNIQCB9uuC76iH6zmYWGajWajiG7iP
+	EHdmQDrqAssSRYlZuasR6HJGHBXubjPgTlllNZSv+pxNDekvq2gP1Hc9JbH2SQI=
+X-Gm-Gg: ASbGnct24Bc6yaTp+eLc+JYNjuK/JKOOYzilo/Moh1Vx2WkTXuY3NF3Q9GMNEn6w0Ul
+	oh+kvR70GGnVjl1iyOV0xFbrN8+VCscDUoToOq00S8dHLS0CmS2z3NDqtp3NZ6iEunw87Tg21uE
+	4HIPRldfiUvytbPPPT7UMqf5MoYaPjkJ4vWse2GQnb4eUnqP8PildGtuq56QDlh/S3VUargR10C
+	QziWFMUheZ4Ac8PV7wnh+2xsuqNNIJX7pWJKFBnsJgX0j2TgIPxhUdOI2PpoWd67z6uYtjnQxAi
+	8sGnNYE9qKLviC599huh/HzeqOaccZ7o2kiHjFvMEGpK5HZetLljU1ZNu+f5gM2v6Rvc
+X-Google-Smtp-Source: AGHT+IGRQRyenVlztaodJXNdRWoqSHnEiV6CAyLZN/0VHpW+LYtybqKnx2XoHGvKGUJTmzr2eF8qRg==
+X-Received: by 2002:a2e:885a:0:b0:309:251a:df12 with SMTP id 38308e7fff4ca-30927aa59ecmr37278251fa.19.1739889336018;
+        Tue, 18 Feb 2025 06:35:36 -0800 (PST)
+Received: from rayden.urgonet (h-98-128-140-123.A175.priv.bahnhof.se. [98.128.140.123])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-309311777a8sm12360831fa.25.2025.02.18.06.35.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2025 06:35:34 -0800 (PST)
+From: Jens Wiklander <jens.wiklander@linaro.org>
+To: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Sumit Garg <sumit.garg@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Jens Wiklander <jens.wiklander@linaro.org>
+Subject: [PATCH v5 0/7] TEE subsystem for restricted dma-buf allocations
+Date: Tue, 18 Feb 2025 15:34:49 +0100
+Message-ID: <20250218143527.1236668-1-jens.wiklander@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] dt-bindings: clock: mediatek: Add SMI LARBs reset
- for MT8188
-To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "mturquette@baylibre.com" <mturquette@baylibre.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- =?UTF-8?B?R2FybWluIENoYW5nICjlvLXlrrbpipgp?= <Garmin.Chang@mediatek.com>,
- "sboyd@kernel.org" <sboyd@kernel.org>, =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?=
- <Yong.Wu@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor@kernel.org" <conor@kernel.org>
-References: <20250121065045.13514-1-friday.yang@mediatek.com>
- <20250121065045.13514-2-friday.yang@mediatek.com>
- <20250121-violet-widely-df3567b085a4@spud>
- <2bfb6c05a3471e54f51c06895709853661e82c9a.camel@mediatek.com>
- <20250124-aide-feisty-821cf9cf1382@spud>
- <85c616dd195da26313cab552b24f514b539193c1.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <85c616dd195da26313cab552b24f514b539193c1.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_062502_382612_4EAA21F3 
-X-CRM114-Status: GOOD (  38.36  )
+X-CRM114-CacheID: sfid-20250218_063538_548880_657432C9 
+X-CRM114-Status: GOOD (  24.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,214 +112,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 18/02/25 13:44, Friday Yang (杨阳) ha scritto:
-> On Fri, 2025-01-24 at 17:31 +0000, Conor Dooley wrote:
->> On Wed, Jan 22, 2025 at 07:40:12AM +0000, Friday Yang (杨阳) wrote:
->>> On Tue, 2025-01-21 at 17:30 +0000, Conor Dooley wrote:
->>>> On Tue, Jan 21, 2025 at 02:50:40PM +0800, Friday Yang wrote:
->>>>> SMI LARBs require reset functions when applying clamp
->>>>> operations.
->>>>> Add '#reset-cells' for the clock controller located in image,
->>>>> camera
->>>>> and IPE subsystems.
->>>>
->>>> A new required property is an abi break, please explain why this
->>>> is
->>>> required.
->>
->> You never answered this part. From a quick check, looks like the
->> change
->> you made will cause probe failures if the resets are not present?
->> Maybe
->> I misread the driver code in my quick skim - but that is the
->> implication
->> of a new required property, so I didn't dig super far.
->>
->> Adding new properties that break a driver is not really acceptable,
->> so I
->> hope I made a mistake there.
->>
-> 
-> Sorry to reply late.
-> This is a known bus glitch issue. It worked because MediaTek has
-> provided patches 1, 2 and 3. In other word, it can not work
-> without patches 1, 2 and 3.
-> 
-> 1.
-> https://lore.kernel.org/all/20240327055732.28198-1-yu-chang.lee@mediatek.com/
-> 2.
-> https://lore.kernel.org/all/20240327055732.28198-2-yu-chang.lee@mediatek.com/
-> 3.
-> https://lore.kernel.org/all/20240327055732.28198-3-yu-chang.lee@mediatek.com/
-> 
-> Patches 1, 2 and 3 have been previously reviewed, and the reviewers
-> provided the following comments:
-> 4.
-> https://lore.kernel.org/all/CAFGrd9qZhObQXvm2_abqaX83xMLqxjQETB2=wXpobDWU1CnvkA@mail.gmail.com/
-> 5.
-> https://lore.kernel.org/all/CAPDyKFpokXV2gJDgowbixTvOH_5VL3B5H8eyhP+KJ5Fasm2rFg@mail.gmail.com/
-> As I mentioned earlier, SMI clamp and reset operations should be
-> implemented in SMI driver rather than the PM driver. Additionally, the
-> reset operations have already been implemented in the clock control
-> driver. There is no need to submit duplicate code.
-> 
-> To address this, I have provided patches 6, 7 to replace patches 1, 2,
-> and 3, as I believe this approach aligns more closely with the
-> reviewers' requirements.
-> 6.
-> https://lore.kernel.org/lkml/20250121065045.13514-1-friday.yang@mediatek.com/
-> 7.
-> https://lore.kernel.org/lkml/20250121064934.13482-1-friday.yang@mediatek.com/
-> 
-> What's more, I have tested the patch 6, 7 in MediaTek MT8188 SoC.
-> It could work well. If you have any questions, please feel free to
-> contact me.
-> 
->>> What are "SMI LARBs"? Why did things previously work
->>>> without
->>>> acting as a reset controller?
->>>>
->>>
->>> The background can refer to the discussion in the following link:
->>>
->>>
-> https://lore.kernel.org/all/CAFGrd9qZhObQXvm2_abqaX83xMLqxjQETB2=wXpobDWU1CnvkA@mail.gmail.com/
->>>
->>>
-> https://lore.kernel.org/all/CAPDyKFpokXV2gJDgowbixTvOH_5VL3B5H8eyhP+KJ5Fasm2rFg@mail.gmail.com/
->>> SMI clamp and reset operations should be implemented in SMI driver
->>> instead of PM driver.
->>
->> So the answer to how it worked previously was that nothing actually
->> used
->> this multimedia interface?
->>
->> Your commit message needs to explain why a new required property is
->> okay
->> and why it was not there before.
->>
+Hi,
 
-This conversation slipped through the cracks - wanted to reply to this quite a bit
-of time ago but then for whatever reason .... eh here we are :-)
+[Now with a Gstreamer demo, see below.]
 
-Anyway.
+This patch set allocates the restricted DMA-bufs via the TEE subsystem.
 
-The cleanest option to get the glitching situation to get resolved is probably
-exactly the one that Friday proposed with this series...
+The TEE subsystem handles the DMA-buf allocations since it is the TEE
+(OP-TEE, AMD-TEE, TS-TEE, or perhaps a future QCOMTEE) which sets up the
+restrictions for the memory used for the DMA-bufs.
 
-I agree that the commit needs a proper description, though, and even though the
-drivers were never actually used (so it's not a huge problem - as in - no device
-gets broken when this is merged), it's still an ABI breakage, and that has to be
-justified with a good reason.
+I've added a new IOCTL, TEE_IOC_RSTMEM_ALLOC, to allocate the restricted
+DMA-bufs. This IOCTL reaches the backend TEE driver, allowing it to choose
+how to allocate the restricted physical memory.
 
-The good reason is that there's a hardware bug that you're trying to resolve here
-and that emerged only after the initial upstreaming of this binding (do *not*
-mention drivers in DT bindings, those describe the hardware, not software!), and
-the only way to resolve this situation is by resetting the Local Arbiter (LARB)
-of the cam/img/ipe macro-blocks.
+TEE_IOC_RSTMEM_ALLOC takes in addition to a size and flags parameters also
+a use-case parameter. This is used by the backend TEE driver to decide on
+allocation policy and which devices should be able to access the memory.
 
-Failing to do this, the hardware is going to be unstable during high/dynamic load
-conditions.
+Three use-cases (Secure Video Playback, Trusted UI, and Secure Video
+Recording) has been identified so far to serve as examples of what can be
+expected. More use-cases can be added in userspace ABI, but it's up to the
+backend TEE drivers to provide the implementation.
 
-So, just describe the problem and how you're solving it in the commit description:
-that's going to be okay and justifying everything that you're doing here.
+Each use-case has it's own restricted memory pool since different use-cases
+requires isolation from different parts of the system. A restricted memory
+pool can be based on a static carveout instantiated while probing the TEE
+backend driver, or dynamically allocated from CMA and made restricted as
+needed by the TEE.
 
-I'm sorry for chiming in that late, btw.
+This can be tested on a RockPi 4B+ with the following steps:
+repo init -u https://github.com/jenswi-linaro/manifest.git -m rockpi4.xml \
+        -b prototype/sdp-v5
+repo sync -j8
+cd build
+make toolchains -j$(nproc)
+make all -j$(nproc)
+# Copy ../out/rockpi4.img to an SD card and boot the RockPi from that
+# Connect a monitor to the RockPi
+# login and at the prompt:
+gst-launch-1.0 videotestsrc ! \
+        aesenc key=1f9423681beb9a79215820f6bda73d0f \
+                iv=e9aa8e834d8d70b7e0d254ff670dd718 serialize-iv=true ! \
+        aesdec key=1f9423681beb9a79215820f6bda73d0f ! \
+        kmssink
 
-Cheers,
-Angelo
+The aesdec module has been hacked to use an OP-TEE TA to decrypt the stream
+into restricted DMA-bufs which are consumed by the kmssink.
 
->> Thanks,
->> Conor.
->>
->>>
->>> I previously added the SMI reset control driver. However, the
->>> reviewer's comments are correct, these functions have already
->>> been implemented in the clock control driver. There is no need
->>> to submit duplicate code.
->>>
->>>
-> https://lore.kernel.org/lkml/20241120063305.8135-2-friday.yang@mediatek.com/
->>>
->>>
-> https://lore.kernel.org/lkml/20241120063305.8135-3-friday.yang@mediatek.com/
->>>
->>>
->>> On the MediaTek platform, the SMI block diagram like this:
->>>
->>>                  DRAM
->>>                   |
->>>              EMI(External Memory Interface)
->>>                   |  |
->>>            MediaTek IOMMU(Input Output Memory Management Unit)
->>>                   |  |
->>>               SMI-Common(Smart Multimedia Interface Common)
->>>                   |
->>>           +----------------+------------------+
->>>           |                |                  |
->>>           |                |                  |
->>>           |                |                  |
->>>           |                |                  |
->>>           |                |                  |
->>>         larb0       SMI-Sub-Common0     SMI-Sub-Common1
->>>                     |      |     |      |             |
->>>                    larb1  larb2 larb3  larb7       larb9
->>>
->>> The SMI-Common connects with SMI LARBs and IOMMU. The maximum LARBs
->>> number that connects with a SMI-Common is 8. If the engines number
->>> is
->>> over 8, sometimes we use a SMI-Sub-Common which is nearly same with
->>> SMI-Common. It supports up to 8 input and 1 output(SMI-Common has 2
->>> output).
->>>
->>>>>
->>>>> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
->>>>> ---
->>>>>   .../bindings/clock/mediatek,mt8188-clock.yaml | 21
->>>>> +++++++++++++++++++
->>>>>   1 file changed, 21 insertions(+)
->>>>>
->>>>> diff --git
->>>>> a/Documentation/devicetree/bindings/clock/mediatek,mt8188-
->>>>> clock.yaml
->>>>> b/Documentation/devicetree/bindings/clock/mediatek,mt8188-
->>>>> clock.yaml
->>>>> index 860570320545..2985c8c717d7 100644
->>>>> --- a/Documentation/devicetree/bindings/clock/mediatek,mt8188-
->>>>> clock.yaml
->>>>> +++ b/Documentation/devicetree/bindings/clock/mediatek,mt8188-
->>>>> clock.yaml
->>>>> @@ -57,6 +57,27 @@ required:
->>>>>     - reg
->>>>>     - '#clock-cells'
->>>>>
->>>>> +allOf:
->>>>> +  - if:
->>>>> +      properties:
->>>>> +        compatible:
->>>>> +          contains:
->>>>> +            enum:
->>>>> +              - mediatek,mt8188-camsys-rawa
->>>>> +              - mediatek,mt8188-camsys-rawb
->>>>> +              - mediatek,mt8188-camsys-yuva
->>>>> +              - mediatek,mt8188-camsys-yuvb
->>>>> +              - mediatek,mt8188-imgsys-wpe1
->>>>> +              - mediatek,mt8188-imgsys-wpe2
->>>>> +              - mediatek,mt8188-imgsys-wpe3
->>>>> +              - mediatek,mt8188-imgsys1-dip-nr
->>>>> +              - mediatek,mt8188-imgsys1-dip-top
->>>>> +              - mediatek,mt8188-ipesys
->>>>> +
->>>>> +    then:
->>>>> +      required:
->>>>> +        - '#reset-cells'
->>>>> +
->>>>>   additionalProperties: false
->>>>>
->>>>>   examples:
->>>>> --
->>>>> 2.46.0
->>>>>
+The primitive QEMU tests from previous patch set can be tested on RockPi
+in the same way with:
+xtest --sdp-basic
 
+The primitive test are tested on QEMU with the following steps:
+repo init -u https://github.com/jenswi-linaro/manifest.git -m qemu_v8.xml \
+        -b prototype/sdp-v5
+repo sync -j8
+cd build
+make toolchains -j$(nproc)
+make SPMC_AT_EL=1 all -j$(nproc)
+make SPMC_AT_EL=1 run-only
+# login and at the prompt:
+xtest --sdp-basic
+
+The SPMC_AT_EL=1 parameter configures the build with FF-A and an SPMC at
+S-EL1 inside OP-TEE. The parameter can be changed into SPMC_AT_EL=n to test
+without FF-A using the original SMC ABI instead. Please remember to do
+%rm -rf ../trusted-firmware-a/build/qemu
+for TF-A to be rebuilt properly using the new configuration.
+
+https://optee.readthedocs.io/en/latest/building/prerequisites.html
+list dependencies needed to build the above.
+
+The tests are pretty basic, mostly checking that a Trusted Application in
+the secure world can access and manipulate the memory. There are also some
+negative tests for out of bounds buffers etc.
+
+Thanks,
+Jens
+
+Changes since V4:
+* Adding the patch "tee: add TEE_IOC_RSTMEM_FD_INFO" needed by the
+  GStreamer demo
+* Removing the dummy CPU access and mmap functions from the dma_buf_ops
+* Fixing a compile error in "optee: FF-A: dynamic restricted memory allocation"
+  reported by kernel test robot <lkp@intel.com>
+
+Changes since V3:
+* Make the use_case and flags field in struct tee_shm u32's instead of
+  u16's
+* Add more description for TEE_IOC_RSTMEM_ALLOC in the header file
+* Import namespace DMA_BUF in module tee, reported by lkp@intel.com
+* Added a note in the commit message for "optee: account for direction
+  while converting parameters" why it's needed
+* Factor out dynamic restricted memory allocation from
+  "optee: support restricted memory allocation" into two new commits
+  "optee: FF-A: dynamic restricted memory allocation" and
+  "optee: smc abi: dynamic restricted memory allocation"
+* Guard CMA usage with #ifdef CONFIG_CMA, effectively disabling dynamic
+  restricted memory allocate if CMA isn't configured
+
+Changes since the V2 RFC:
+* Based on v6.12
+* Replaced the flags for SVP and Trusted UID memory with a u32 field with
+  unique id for each use case
+* Added dynamic allocation of restricted memory pools
+* Added OP-TEE ABI both with and without FF-A for dynamic restricted memory
+* Added support for FF-A with FFA_LEND
+
+Changes since the V1 RFC:
+* Based on v6.11
+* Complete rewrite, replacing the restricted heap with TEE_IOC_RSTMEM_ALLOC
+
+Changes since Olivier's post [2]:
+* Based on Yong Wu's post [1] where much of dma-buf handling is done in
+  the generic restricted heap
+* Simplifications and cleanup
+* New commit message for "dma-buf: heaps: add Linaro restricted dmabuf heap
+  support"
+* Replaced the word "secure" with "restricted" where applicable
+
+Jens Wiklander (7):
+  tee: add restricted memory allocation
+  tee: add TEE_IOC_RSTMEM_FD_INFO
+  optee: account for direction while converting parameters
+  optee: sync secure world ABI headers
+  optee: support restricted memory allocation
+  optee: FF-A: dynamic restricted memory allocation
+  optee: smc abi: dynamic restricted memory allocation
+
+ drivers/tee/Makefile              |   1 +
+ drivers/tee/optee/Makefile        |   1 +
+ drivers/tee/optee/call.c          |  10 +-
+ drivers/tee/optee/core.c          |   1 +
+ drivers/tee/optee/ffa_abi.c       | 179 +++++++++++++-
+ drivers/tee/optee/optee_ffa.h     |  27 ++-
+ drivers/tee/optee/optee_msg.h     |  65 ++++-
+ drivers/tee/optee/optee_private.h |  75 ++++--
+ drivers/tee/optee/optee_smc.h     |  71 +++++-
+ drivers/tee/optee/rpc.c           |  31 ++-
+ drivers/tee/optee/rstmem.c        | 389 ++++++++++++++++++++++++++++++
+ drivers/tee/optee/smc_abi.c       | 215 +++++++++++++++--
+ drivers/tee/tee_core.c            |  69 +++++-
+ drivers/tee/tee_private.h         |   4 +
+ drivers/tee/tee_rstmem.c          | 188 +++++++++++++++
+ drivers/tee/tee_shm.c             |   2 +
+ drivers/tee/tee_shm_pool.c        |  69 +++++-
+ include/linux/tee_core.h          |  15 ++
+ include/linux/tee_drv.h           |   2 +
+ include/uapi/linux/tee.h          |  71 +++++-
+ 20 files changed, 1409 insertions(+), 76 deletions(-)
+ create mode 100644 drivers/tee/optee/rstmem.c
+ create mode 100644 drivers/tee/tee_rstmem.c
+
+
+base-commit: a64dcfb451e254085a7daee5fe51bf22959d52d3
+-- 
+2.43.0
 
 
