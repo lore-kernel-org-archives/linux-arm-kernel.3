@@ -4,89 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA97EC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AA02C021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:55:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fp9kbQyOKTPnkkb66ovZCJuS5wfhcmXlwXbA1qB2SIo=; b=TA0o+3gtmIc0p7TvacYPhs8R54
-	zJK8Y52TzAWCFLZi18mkxlXxAQcN72XAJT3jW9+0bDroZGAGOSrO7/gNAZ/uSQzQJg5i7c+kZoETr
-	qv13QHaT+4bgf6DPxUaf4SzthC4czOGfs9QcglIUv025LP/bFyBJ8JvaKU54MNS5AtWNCFurQX8vo
-	T5sWsyZuWp6r2E6w2si4O6J5HWoQvH6zrpT8oGsmtrhi2zABFo+ENZQRfPcaHtJ5IE6TzuYqqm7PI
-	As6R04fju8igodmcMSegRjQahReEuTr+2mUYwPPkwbVOphcf1T/ZM/4fVKqNkEMuuudNnpewfXb+L
-	ySdpdCPw==;
+	bh=LUByovpRk+ZPzKvUH7cwXnf3mccHjMPsOPK2e1mFlRI=; b=M+OqoGK/4//BjIKYsAUnn5+Gsm
+	N0oG7Y58lxTO8d7LbQ/QiZiXl71tBogbU9I4+pVCR0bZ0MuStqcUwkR6ZctNboy1eleHqUNB+Jirs
+	nCBaJrxdU+/HHN9+mGJ4N9UIw7XjYilquly6yKAdAWvEBvxjhjz8CtldH49tPRdyiTlh9Z2d80g31
+	saPByY2V6YUcgckrKT/wHhYl9Bwyy5zFva2xNmJ228HIyCruyUGyXfyI7nFgxJdi7zuOttB6EVZLV
+	avmaELnHIuOed87g1EaPCLPVtMR2VRZpDC+T54B9SI82raahNvdYh2cNFOQLEcJ2iT2q2Yv9mE4po
+	aid/dp4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkUb1-00000009s2J-2mjK;
-	Tue, 18 Feb 2025 20:53:35 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tkUcT-00000009sZZ-1KSz;
+	Tue, 18 Feb 2025 20:55:05 +0000
+Received: from mail-bn7nam10on20603.outbound.protection.outlook.com ([2a01:111:f403:2009::603] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTz8-00000009iqz-3ztP
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 20:14:28 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-220e989edb6so119117945ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 12:14:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739909666; x=1740514466; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fp9kbQyOKTPnkkb66ovZCJuS5wfhcmXlwXbA1qB2SIo=;
-        b=J2oIHEymaO8QmJ5EjmPBFJc0tQAQflb9NwVM6PIQuf5t+KMDTwmseljXFoE4Fb8RdA
-         YG5m6PVmAK3TqMDXdlKsYHZi53ARMjOd7KeC63hlnuHUwoq36j9PLZ07JqYAeQFM61xC
-         TXx0QX/sV6WjikZJFuvjQrALccFK8ZrZU7QcRgWUU/sQ26UlpN9wjT+1zzI7tV21RJ5Q
-         tx22ANSef6SH2Mf2F5pDzt3HOFLRPmWW0r19ctV6JVDC0Qfl5dpLXcBIzdxwzRHDlG5u
-         n+VsQBF5atkbDt91neNlZfHTpt17veyUyzbJKEcwKyqH92caVgG9nchxagYpntEcB5cZ
-         3UOA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739909666; x=1740514466;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Fp9kbQyOKTPnkkb66ovZCJuS5wfhcmXlwXbA1qB2SIo=;
-        b=p8T7pkIFo4qBS85+WwW0nRS8rH865icLv2pnRbsT2Esj6iJvbykVlExKUTq3p85KfX
-         N05AxqnbvV9+EjVhFeq57hE3n0OUH2jCu1p05vqYiwwlyTjZDcoMzJQhb9PI0K52ts/9
-         dJzGgbSQNXEbMUNI63PmZywTPamFkDtcj3h0Rvc8Qn6cXw037BavbKNAJ2hSOd/ml1fs
-         swOlRAKWQ06extE7B0Z8KqdGkt3D0R1WlHBxPWnp6jqLRAwyVsgr4NOZly5rh0/rrS9S
-         GaitZrGnStCokyF6E+y6IsiaGDW5KBf+H19cqbRscU6wVVX/8VKeaJY3fsuioculMfad
-         rgZw==
-X-Forwarded-Encrypted: i=1; AJvYcCUy/khYTauVbenyBtfpcO04CDOjLRvpXc9jVHLiwyzCJCqFqQ9cFGmKAfZX2o8fmfkt6UvPElPQHHJqh/FW5bph@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvbOHDEbWpNrmWfwUlWp8RHp72jEwoyQmDFyE1Bxra9xrjdkyX
-	r3Du0Qs8d5KJja9Xat5r5b2IPo6eYWJIAOKccuXhUprHtpetuqRU
-X-Gm-Gg: ASbGncusm0VZLO/liHiJm5L7AHAOn6G6cowfgETbYbp8T4Y2OmfwIIWNX+IaY1FD6Q0
-	ghNURYz49VZZAAKINt55kIuyhlvmAP1z0yKhIdk/G2FpZX0j+D0MBj6No2QlmXIcSMJ+9C9mqn8
-	dnDzM9L/AnxKph2thQpgTY5Zc3NSAkUJtwPsaGTQbFeOEnV+p1Jug9fqAoCia1UAfAO5o8Hbacw
-	g8qPzYEF5molz9XS/jiW5L1uDOwRfGtMnqEiqILLcmrpJhhqD6FkUUnqedg1YmYJ2SW2ewlmZgP
-	//49Ss+/NMzilHc=
-X-Google-Smtp-Source: AGHT+IE4y9RZsLl4ZPEhoolF6Dek2f7wBe/IvlnSACVwxT3sFshBI66xUkRrjGVcxO0wEb4QnWLcXw==
-X-Received: by 2002:a05:6a21:4cc7:b0:1ee:b8bc:3d2f with SMTP id adf61e73a8af0-1eeb8bdbd8amr13685875637.4.1739909665586;
-        Tue, 18 Feb 2025 12:14:25 -0800 (PST)
-Received: from localhost ([216.228.125.131])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7324277f388sm10896504b3a.174.2025.02.18.12.14.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 12:14:25 -0800 (PST)
-Date: Tue, 18 Feb 2025 15:14:23 -0500
-From: Yury Norov <yury.norov@gmail.com>
-To: Beata Michalska <beata.michalska@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
-	sfr@canb.auug.org.au, ionela.voinescu@arm.com,
-	linux-next@vger.kernel.org, sumitg@nvidia.com,
-	yang@os.amperecomputing.com, vanshikonda@os.amperecomputing.com,
-	lihuisong@huawei.com, zhanjie9@hisilicon.com,
-	ptsm@linux.microsoft.com
-Subject: Re: [PATCH] arm64: Utilize for_each_cpu_wrap for reference lookup
-Message-ID: <Z7TqFLU0Kwg9cUjO@thinkpad>
-References: <20250218192412.2072619-1-beata.michalska@arm.com>
-MIME-Version: 1.0
+	id 1tkU4c-00000009jXx-0GeA;
+	Tue, 18 Feb 2025 20:20:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iwEbliCd+PvYLfhqiNWkn829QDsJY8Klziaia6J6VRZFkVRnVBrG5RLNFfUiUh0QIIW9tvsSsl3if0shhbjbE+z/kjfd6L6ftDlQxpCVvSlXoPOb6e7g2K4l1BWWmY9qCOm5jzBoT+7iO3GUfoTDi1g8Qz4I+b94YssrY1hNGWupSquNkmx4ES6IZKbIFrqJgrief6DJmypUrqAlWI16Eqv0Hhqzk4QMGvklu7OxLHudYAhL+ButEbw0hQCg2r6EAIhCv7BTQ+enARGA54gtWvfqdOicsGMtIY8HWHD0Hqx0lnnNlSZ0o/xfbQ8ayeSJfGFQNXcU5MvBsWeTfgbI7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LUByovpRk+ZPzKvUH7cwXnf3mccHjMPsOPK2e1mFlRI=;
+ b=O1+vWNUkaaNBXfA7xqPljpFMycqtXuSvF5cuYXUw7geVkT8q7Ez4iAPMfF8EWSexN2ROIfkCYLeVzxYzE5UreGBEJybeOvYliYtlPj7ZbJhw7KLD8ZCN60puIDCec6i5ETHqJA+h7tKFx07Res6MTHzlMzlP6KkeGBRsAg+wcBupAaFmLDimPxcZgJgoqy0O6gtTFOOvqqBpNxn0l0OseCm1VDa5mQWxPPuheN72RpRggMNoZLGVBh9jsGk4Gimykx1sJfDo57ZdK9fD5lFQK41G1+HjxRmooHXIKkFLBoz+ie7/487KVl9Oin6DHjExGbTwrs3aIjUe9W1qADVdUw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LUByovpRk+ZPzKvUH7cwXnf3mccHjMPsOPK2e1mFlRI=;
+ b=JMpfqjZFQsNoU3m8kHcfxgxY7zm7XGGecpPDOlqA+IlD0rRdkjlC9m9SMRWMWGqn3EXVMRx+M8UT0MqedddrChqPe/Iv7U2D9blIUPsMZGYYDAfXoTcft5FLgpQ4lwZ0A8/gq9dx5Cf0hAhtB0hpkt+nJktEReAYSEj9/REpS0s2BkYtEWzM3q8SRjgWta8h0i6ZQddiV0stiMTQTC524XZlSKlE6EcLuYN2fEpZTpWf2nhZgkCqF1yuVcH/LUJWmtmcOL8pQ317j8oX9PM8wJ3iy2pvDHusEqrlbyGLwgTK5JvRO39yG633sugL1DEfYd4Z3jRPLpSwyqOqu9kZug==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CH3PR12MB8330.namprd12.prod.outlook.com (2603:10b6:610:12c::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Tue, 18 Feb
+ 2025 20:19:26 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8445.019; Tue, 18 Feb 2025
+ 20:19:25 +0000
+Date: Tue, 18 Feb 2025 16:19:24 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	David Woodhouse <dwmw2@infradead.org>,
+	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hector Martin <marcan@marcan.st>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
+	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
+	Joerg Roedel <jroedel@suse.de>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	David Rientjes <rientjes@google.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v2 07/23] iommu/pages: De-inline the substantial functions
+Message-ID: <20250218201924.GJ4183890@nvidia.com>
+References: <7-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
+ <84fd4500-a12c-40d6-a532-e2956ed1c35e@linux.intel.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250218192412.2072619-1-beata.michalska@arm.com>
+In-Reply-To: <84fd4500-a12c-40d6-a532-e2956ed1c35e@linux.intel.com>
+X-ClientProxiedBy: BN0PR04CA0092.namprd04.prod.outlook.com
+ (2603:10b6:408:ec::7) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB8330:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0a43b2d1-a06b-41ce-c277-08dd50598a24
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/fVDSu0Qoskr1uloYn1tJun7uVLTptq+lh155XjPVdaGbjQqAOon7HGW6xmb?=
+ =?us-ascii?Q?J0bJq4rDNdlHbMaGdXxnAlMWkRH/LApujlXEZaCTjaJTrP6DExwrgf/5/Laa?=
+ =?us-ascii?Q?pC6k6zrknpba/bf8yat2oTLdSQnL82ICnnUpOMJMj3AEqnHH6cias65Rard1?=
+ =?us-ascii?Q?k3XF5eEz/0mB8oUWWavZIH4Yl/Hq6RTOFmmWbkA8P3mUo+BlLUex7gdDrK/5?=
+ =?us-ascii?Q?Qcu0U1NwijwDYsDCzWy+gSy+OZUGbU0mT42tLXV45m9ttxVJkbb9jo47OaN2?=
+ =?us-ascii?Q?1EiddyZBQwI5HtB59FUvTDCtsSDQhEjEn9Bm00AV/deijPc5UsL4enY6Iyn0?=
+ =?us-ascii?Q?JXjFmX/I4ZUEk+hY5qhB3nnFUbaJPJ/LL1rO7c2hMDJdVOODpvdtpgjfs45x?=
+ =?us-ascii?Q?K4atFPsZqxSnMV32K0kliF+QP2FZNf6+uyKvVAa+PzO0cGZ6Wj/50u5XMErv?=
+ =?us-ascii?Q?+K8qho1YOJYPi3gOKO+R2e8l37MiDNJc8pzlvfKtv3tkYoB+msKFuJHbjMDa?=
+ =?us-ascii?Q?7Zk8qwb0KPqlfKxxjX+dGEc9ThogLyLviL4MM3zA0/oJ8MnyDO52sVRPh+F+?=
+ =?us-ascii?Q?fS5T3ajJvnFheroek/L87erICtJ/XZ0mtcql49v3aZn3tKYoKsp+ZAZEGdqc?=
+ =?us-ascii?Q?MH1eEfAjlveafYUCmIehe3ju9dOm8P9AS6Lgi3Xep6n+U5y24ucxDcKkXiUU?=
+ =?us-ascii?Q?HS+dueSWMCuewXhHKukrr6FAuV3hoMVGT0KCDH/nQ1AjeGC/XAEokIrhkaz0?=
+ =?us-ascii?Q?rRMeqZdyitrwEcz3vkum/YlElVuMyPV+g2eT1fi0elFPQX1E4taQOGSiP08b?=
+ =?us-ascii?Q?Mw1WeuElTZIIAiCjKKKXR9Q5qhZEpDbP0GQP7PBlIuZBL0Pq5rX1k+7FYo1X?=
+ =?us-ascii?Q?ioEjIciRiwOfAEKheJKq2Y1kmuC1I68Oluy+inUAMi8i1NoyoX2WGjBf6uDD?=
+ =?us-ascii?Q?BytA1aijN76CxCqnDRAdgMbrmsZvves+UDgP0gtG0k1GMH8suYDoKMe4GR/f?=
+ =?us-ascii?Q?Y7TSiJbZot/gtc65SAeLY+gMiyQRK/fBE2CTK6nrfbsjcluo3gSM6KoAirjh?=
+ =?us-ascii?Q?NnUZiSxzb8uFpn9lGQjwnzoew8Sb+WL4uwLqvIlM/OyG+geVy+Y2ThsZGH6n?=
+ =?us-ascii?Q?wOt9Xmocx7A4QCyQUaPHaAQ0O6D3Cr4KrVYWetdit42ADMUb0XfHhnfDPrHv?=
+ =?us-ascii?Q?l48RJKw8Y2dxgWd0UEZ3WFREa8EJmlZ90EIFEmj4Hbje6GJwajHuI6qyp9yk?=
+ =?us-ascii?Q?qYGsPhZpUDLNrJJI2dBj3XtnaUKs71YNFutvkHu5O/CRcF9QXvK3DzkkxZlA?=
+ =?us-ascii?Q?w0dbCf6vB0vG+Y8k1bQbFDrisjT73277xByymZvb8ozryMNRm2ExDoxOk3fS?=
+ =?us-ascii?Q?V/lkVDr7EtlhFOXGaa4VcPtMjd3B?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ABkYNvLoiaaDIBnbsa8PjbxD6AWZTJrZlQvUA/KOoOAWmPuGTJLhnOKlxk4n?=
+ =?us-ascii?Q?DuRxBmu+7vnXTbfy7b/fDU+F/jixxGkXl9iCaa2K74ULMjDIzCGBRYUXo51q?=
+ =?us-ascii?Q?BA+bqVL5b9mEsNS31Wg6vVsBuHiQYt3ol/UfuOPVsOGVMEImXlT0LiyMKoda?=
+ =?us-ascii?Q?9CAScS3BxB5Sk7rAaqfEi2hMyoVsz66Au9Ujw8uSr+Vn8etFi5cXOPphOw3A?=
+ =?us-ascii?Q?5KvdW8R/ZA9hkdLFhisScG8hVnZKwKz9ijhW5cXVLcEwmF3nmbpHj3akMGv4?=
+ =?us-ascii?Q?ycq0ib4Hex6W+6aEQ/D5BFfxfeHnbooBAomwMub8GPeorxBKDC54ExboDaIe?=
+ =?us-ascii?Q?/e/ataHdbkX1WbzWHfGfX3T+oGh+IUdZf+NrqAyYYwQ5JWjQ3CpYBqu1hKkU?=
+ =?us-ascii?Q?1DZfui3U66d9xkNzfxMJEc/GWmzE+fr3qUC43pPEmTI2PVmdWS58uw73zz7v?=
+ =?us-ascii?Q?ZaAiy6bGREc8G8DqDn5PFs94y8D+WWofGuw4x11Se0BKsnvL+DH6zhc+BK9W?=
+ =?us-ascii?Q?f5jcuhTmnm/MLgtTT8NAe13NEcQCicGBXehIqan17SqDlATvfELT2PSMVA1s?=
+ =?us-ascii?Q?J6aQgomiXzYP/JDx1hfNQXF8yIjsf9US5GHA5mKPgJH1V5DfpYAJjEnqqD0c?=
+ =?us-ascii?Q?cfBQ6jRkF5cvTw2SDG8Wcbc1qFDCn8ayzh81VYq+xS/Yw73o8lsopatIo07f?=
+ =?us-ascii?Q?xO+5IseBuH/G80K1E5K1SyT4YsM7jpydRz8LU+rlXOE3naKJGdaPpb40QoYr?=
+ =?us-ascii?Q?Qbw23+EIhdmnWSIvjA5l8UgtS4wYQutYmoTQglhSIqy1QXGOzBFbrMHgiYTE?=
+ =?us-ascii?Q?nrPAVA+orcQjseaC1IenHHJoznFKM/HJUQm4xk7d1LtXHeeJn0++JMqsXBtJ?=
+ =?us-ascii?Q?0BEMFd+SL/NnBrzgQySoh1CKy3AsKfpjjNdKOzz8iFUEUZD7DPm3bSoUvAi7?=
+ =?us-ascii?Q?r7yrqK6om0txEsJ1VQvOtMFThp97J5JmWLJ0fo7CmVkl+RYqrJnc8Uz7T0kD?=
+ =?us-ascii?Q?rL8u8sZOAdYMJTiUZOabIFHP9BacX9kxZXuA21nKkzTbNev5VUG56MU85vZz?=
+ =?us-ascii?Q?s6NciHHR4ZUYjjJ2LYloM3FF/WgIDVeEvppRIBKpR6xFPQn5S1739taGLEnX?=
+ =?us-ascii?Q?1GvFCojXH2jEAAG7sOwDnU8O+AeV2bwh6vaOWFs/x9T5YDm9aSrrYVUdUUW0?=
+ =?us-ascii?Q?rY0OVKwDm/SoGsp6qfj8NTg4LO31B5P3vE9vPguISFtve+bZWTNppDlMsqXE?=
+ =?us-ascii?Q?yIGsx/ukmzOl5kVrmmBbxKpcjEop4jNZ+97mpvzdctXQZfozp/577eKukA/d?=
+ =?us-ascii?Q?Wr/JAWg3Oxlcl19zvuw8evzhsiBisJleYn/HYh4PW329JBQv4DIpZB3I78/U?=
+ =?us-ascii?Q?kmw7a1407nhfj64N3KdYunJDgzMJ2Qa1yAN/RY0OFosADismcvHplVIhe3AB?=
+ =?us-ascii?Q?GvOCy48saEwD5Q3mwTtaTnrQsRV7iXLor8UcWkPY+nAh/N893xY4dtv9siy7?=
+ =?us-ascii?Q?MyRrJynijclZ+qQZjB5g54668+iczBH68Mb5evEsQUkEjT15DwHzKyjbi0Fl?=
+ =?us-ascii?Q?0EsJo+dWniJNoyT46VZ9SPTOLFVSn6Y34wMY8tkM?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a43b2d1-a06b-41ce-c277-08dd50598a24
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 20:19:25.8242
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ECWm1PtQstLWDhtw4A4lklwW89vV1aVz7xIZWZYoHWx7SPS1DQ0lpO3P3UWCiWT2
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8330
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_121427_017761_988AE4C2 
-X-CRM114-Status: GOOD (  22.17  )
+X-CRM114-CacheID: sfid-20250218_122006_103571_7710DCDC 
+X-CRM114-Status: GOOD (  17.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,66 +182,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 07:24:12PM +0000, Beata Michalska wrote:
-> While searching for a reference CPU within a given policy,
-> arch_freq_get_on_cpu relies on cpumask_next_wrap to iterate over
-> all available CPUs and to ensure each is verified only once.
-> Recent changes to cpumask_next_wrap will handle the latter no more,
-> so switching to for_each_cpu_wrap, which  preserves expected behavior
-> while ensuring compatibility with the updates.
+On Sat, Feb 15, 2025 at 04:48:04PM +0800, Baolu Lu wrote:
 
-This is technically correct, but I would rather point that for
-iterating over each CPU, it's better to use a dedicated iterator
-instead of opencoded loop.
-
-> Fixes: 16d1e27475f6 ("arm64: Provide an AMU-based version of arch_freq_get_on_cpu")
-> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
-> ---
->  based on arm64 for-next/amuv1-avg-freq
+> > +#include <linux/gfp.h>
+> > +#include <linux/mm.h>
+> > +
+> > +/**
+> > + * iommu_alloc_pages_node - Allocate a zeroed page of a given order from
+> > + *                          specific NUMA node
+> > + * @nid: memory NUMA node id
+> > + * @gfp: buddy allocator flags
+> > + * @order: page order
+> > + *
+> > + * Returns the virtual address of the allocated page. The page must be
+> > + * freed either by calling iommu_free_page() or via iommu_put_pages_list().
 > 
->  arch/arm64/kernel/topology.c | 16 ++++++++++------
->  1 file changed, 10 insertions(+), 6 deletions(-)
+> nit: ... by calling iommu_free_pages() ...
+
+Got it
+
+> and
 > 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index a09b0551ec59..9e3583720668 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -254,7 +254,7 @@ int arch_freq_get_on_cpu(int cpu)
->  		if (!housekeeping_cpu(cpu, HK_TYPE_TICK) ||
->  		    time_is_before_jiffies(last_update + msecs_to_jiffies(AMU_SAMPLE_EXP_MS))) {
->  			struct cpufreq_policy *policy = cpufreq_cpu_get(cpu);
-> -			int ref_cpu = cpu;
-> +			int ref_cpu;
->  
->  			if (!policy)
->  				return -EINVAL;
-> @@ -265,11 +265,15 @@ int arch_freq_get_on_cpu(int cpu)
->  				return -EOPNOTSUPP;
->  			}
->  
-> -			do {
-> -				ref_cpu = cpumask_next_wrap(ref_cpu, policy->cpus,
-> -							    start_cpu, true);
-> -
-> -			} while (ref_cpu < nr_cpu_ids && idle_cpu(ref_cpu));
-> +			for_each_cpu_wrap(ref_cpu, policy->cpus, cpu + 1) {
-> +				if (ref_cpu == start_cpu) {
-> +					/* Prevent verifying same CPU twice */
-> +					ref_cpu = nr_cpu_ids;
-> +					break;
+>  s/page/pages/g in above comments?
 
-If start_cpu == cpu, and you begin with 'cpu + 1', you will never
-check the 'cpu' for idle, right? Maybe like this?
+There is alot of historical confusion here because it was all designed
+around alloc_pages() which allocated a list of contiguous pages that
+could be subdivided. When this moved to GFP_COMP and later to
+folio_alloc() the subdivision is no longer possible. So it is not
+"pages" at all anymore, but a single "[compound] page".
 
-        unsigned int start_cpu = cpu + 1;
+So the module name is called "iommu-pages" but aside from the free
+list functions everything else acts on a single [compound] page only.
 
-> +				}
-> +				if (!idle_cpu(ref_cpu))
-> +					break;
-> +			}
->  
->  			cpufreq_cpu_put(policy);
->  
-> -- 
-> 2.25.1
+If you think about it too much it makes no sense but I didn't want to
+rename every function. I tried to keep it so that "iommu pages" was
+part of othe module name, and function designators, but the comments
+talk about a singular [compound] page
+
+> > +static void __iommu_free_page(struct page *page)
+> 
+> It's more readable if renaming it to __iommu_free_pages()?
+
+Ah.. Well, it captures the module name but nothing it does acts on
+multiple things, since it is internal I used the other name
+
+How about I rename it later on to:
+
+static void __iommu_free_desc(struct ioptdesc *iopt)
+
+?
+
+Thanks,
+Jason
 
