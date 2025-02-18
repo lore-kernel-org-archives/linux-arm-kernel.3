@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DAF2C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FDF3C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:05:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ADU9MgofXIPhcqvkvWZr8lNxhJzvB12FMzG+TJBjMpA=; b=CWk+kVdevwymCSCYUggdFilBS4
-	gt6br6zrr8SY/e9+wMfU/3qTUNN1WUXWiiNkuIs+X7Gb0XL4JRtBanEdcHiwArVPYFuqPrJ++660Z
-	5T9nALV5xs+1wkePgvfir+BEjsrzHHjnnBJr7EDNyXxx/w8ETaPqOJaR3Rcy8Xo83bd5XQ7UrpZ2p
-	ZtXQRbV3vW/v+X+jJIDF0zmZT3ohnjJ9KzK4zSSpC0dVwBQaNKpyOOZr0BZh/1vU7fjVFde4pXIhB
-	BAwtwxqCXUK2gpwCVIagb+/HWLLkTsB9wj7C19UAeTK6sgqyLkUpZkldLlYtNUOWplqjT6HlR500T
-	mpSJMX7g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6PI1ISFHiZBUZu/Ii4bms63AR2LmdJCr+hKni92PDTo=; b=SKBXBlsw9Mlc4q
+	LEAw3Sw6qjHigBQZl6qX2WIRYNgDyPnSm+kiBgBO98oFZ2/HERN3ABYRESNQc6pxjLLExybruF+/U
+	LDN+OJ2mIfOosSuBrf5TUoxrflCCwqPyEpc8w6wkdUtiHQef8tIgtNtXn/rc6amfx5S15yqYnKwSS
+	ZEUsGLy1MRSArYF/8SBnaHx9f5qvTWSXu7mxfkE3KtIdmumbK2yPCuw5IKcRX8yRHSTLOI3d7WkcE
+	9qFeRgWp5yV1v8Cs+K0io3cDvLzy5fWAGPxRrNDs4YMYw1zmzq5i0Rw8JREcJraKv7Ri921tFy81U
+	UOIqmeRnknDTImH/EnkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSsz-00000009UVR-1qND;
-	Tue, 18 Feb 2025 19:04:01 +0000
+	id 1tkSuR-00000009UsN-0qDH;
+	Tue, 18 Feb 2025 19:05:31 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSeI-00000009QTS-0h0t
+	id 1tkSeo-00000009QZc-2tpO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 18:48:51 +0000
+	Tue, 18 Feb 2025 18:49:24 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id EBFB725B65;
-	Tue, 18 Feb 2025 19:48:48 +0100 (CET)
+	by disroot.org (Postfix) with ESMTP id 7431825F75;
+	Tue, 18 Feb 2025 19:49:21 +0100 (CET)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id yMfiAVxI9hRc; Tue, 18 Feb 2025 19:48:48 +0100 (CET)
+ id SBDZ0cCM_kBQ; Tue, 18 Feb 2025 19:49:17 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1739904528; bh=j7oUaNWFmrDO8dUdbcS6fMa4GGS9EIonct0XzqNxOLE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=guMZNDpkphKBYWLP2MXmSIp2Tv2/cHSDz5eMc1BL8qZz0oXulUROrcn6+i4Zje3WY
-	 iNqWVInKHP3olsYpjF9lE0rt59FtzOv5iZ1cApacmMJ/KJprGu0/o+PsHcRbDoVUW7
-	 NRQcIFQeF42Ms+XwEOp5/7QI0g3NLEQ6Rx5alYbgdSclJhzKLY6vLyUl+iudvT/sue
-	 57ynCWCkUSDQIBHbwsTnZ5djwEvgFKb90F4z0Z8sAcGcmlPs9g7i26TDO32/uh9sv8
-	 Yeoe7t6UcQpDWxD9amyO9BMJaN6kCOI2jw1Bg7yoQHsANSGUmJfc9wFRj4Ni/SwjQg
-	 CRfjtOWjewneg==
+	t=1739904557; bh=mu4DL52dax5XNXsfxCOUhTgjTpU2ZBw1b0womh5uByM=;
+	h=From:Subject:Date:To:Cc;
+	b=Hv4RSM013Sz9Np6jahU4+eKmOsRGWTHAO3QNvIoS6wZg+ZwInOpG1cGZCdD+w5jwN
+	 xpL4FyadDiFwJdv6TAOTbr1iKwy5yIJUpS0oYyOXlSvwqV60b24XEF3LYQYypgPVWm
+	 hiv0pWleGiUBbJ74IXh7Lowe2IL1LPZYXHbm3bNRvtYlcumJU7I7eUcZ0QTXvzj3UP
+	 H5SizG2B2nZIokOYOwXtFW6C9gEZim7LmnNOj7YOk8Hos7PT+0OnjR5PaHsVyxtBAM
+	 UTFDEtxo1Fkr/i+CE78VlltbEpYEI2zRw38AFTk7p+UtBLwf9I9XVXYShZuhrNjquz
+	 XAEK/2tj9iOqg==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Wed, 19 Feb 2025 00:17:49 +0530
-Subject: [PATCH v2 3/3] mmc: dw_mmc: add exynos7870 DW MMC support
+Subject: [PATCH v2 0/3] Introduce pin controller support for Exynos7870
+Date: Wed, 19 Feb 2025 00:18:56 +0530
+Message-Id: <20250219-exynos7870-pinctrl-v2-0-1ff9b10bf913@disroot.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250219-exynos7870-mmc-v2-3-b4255a3e39ed@disroot.org>
-References: <20250219-exynos7870-mmc-v2-0-b4255a3e39ed@disroot.org>
-In-Reply-To: <20250219-exynos7870-mmc-v2-0-b4255a3e39ed@disroot.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Jaehoon Chung <jh80.chung@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-mmc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739904507; l=6818;
+X-B4-Tracking: v=1; b=H4sIABjWtGcC/22NQQqDMBBFryKzbsokVUe76j2Ki6pRB0oikyCKe
+ PemQnddvgf//R2CFbYB7tkOYhcO7F0Cc8mgm15utIr7xGDQFGjwpuy6OR+oIlQzuy7KWyGZshh
+ I11hqSMNZ7MDrGX02iScO0ct2fiz6a3+5/F9u0QoVUVtXiJTXLT16DuJ9vHoZoTmO4wNsWGwLt
+ gAAAA==
+X-Change-ID: 20250203-exynos7870-pinctrl-07265f719061
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Tomasz Figa <tomasz.figa@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739904552; l=1290;
  i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=j7oUaNWFmrDO8dUdbcS6fMa4GGS9EIonct0XzqNxOLE=;
- b=2TTsyK3Z3l/yeCZYN8Nl73o2bxRMiPkntR4kH2ng56FgUUIrPLKc5sTSKkX4iPJdXsPpEYWdK
- F59tzqE+sJqB3NbFOuDGenmTSmXK0kNjtE64T4EDgnkWnbuvfe3xdWF
+ bh=mu4DL52dax5XNXsfxCOUhTgjTpU2ZBw1b0womh5uByM=;
+ b=PzYnIM2lWsCoLkGa3R8NJ+kI6BmF8pgCNCKA0dWf36zvs4RCqb0sv2q+AkgsNSQZ0eC6dF+lu
+ OkC9Rpdsl2IDeRsyPVPJuDIV/cA6OEJ9nCsaYptnVqcbNJUXTEEt+cF
 X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
  pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_104850_477400_F2E5773E 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20250218_104922_866545_63D2CD12 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,167 +88,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Exynos7870 DW MMC controllers, for both SMU and non-SMU
-variants. These controllers require a quirk to access 64-bit FIFO in 32-bit
-accesses (DW_MMC_QUIRK_FIFO64_32).
+Add support for exynos7870 in the pinctrl driver. Also, document the
+ALIVE pin controller's wakeup interrupt compatible.
+
+This patch series is a part of Exynos7870 upstreaming.
 
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- drivers/mmc/host/dw_mmc-exynos.c | 41 +++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 40 insertions(+), 1 deletion(-)
+Changes in v2:
+- Take over ownership of patches by the co-author, upon their request.
+- Link to v1: https://lore.kernel.org/r/20250204-exynos7870-pinctrl-v1-0-77b9800749b7@disroot.org
 
-diff --git a/drivers/mmc/host/dw_mmc-exynos.c b/drivers/mmc/host/dw_mmc-exynos.c
-index 53d32d0f2709e0780ec5f31a3b412f33aaa6baa4..e3548408ca392c6b7afbfb05a439435073ab7657 100644
---- a/drivers/mmc/host/dw_mmc-exynos.c
-+++ b/drivers/mmc/host/dw_mmc-exynos.c
-@@ -27,6 +27,8 @@ enum dw_mci_exynos_type {
- 	DW_MCI_TYPE_EXYNOS5420_SMU,
- 	DW_MCI_TYPE_EXYNOS7,
- 	DW_MCI_TYPE_EXYNOS7_SMU,
-+	DW_MCI_TYPE_EXYNOS7870,
-+	DW_MCI_TYPE_EXYNOS7870_SMU,
- 	DW_MCI_TYPE_ARTPEC8,
- };
- 
-@@ -69,6 +71,12 @@ static struct dw_mci_exynos_compatible {
- 	}, {
- 		.compatible	= "samsung,exynos7-dw-mshc-smu",
- 		.ctrl_type	= DW_MCI_TYPE_EXYNOS7_SMU,
-+	}, {
-+		.compatible	= "samsung,exynos7870-dw-mshc",
-+		.ctrl_type	= DW_MCI_TYPE_EXYNOS7870,
-+	}, {
-+		.compatible	= "samsung,exynos7870-dw-mshc-smu",
-+		.ctrl_type	= DW_MCI_TYPE_EXYNOS7870_SMU,
- 	}, {
- 		.compatible	= "axis,artpec8-dw-mshc",
- 		.ctrl_type	= DW_MCI_TYPE_ARTPEC8,
-@@ -85,6 +93,8 @@ static inline u8 dw_mci_exynos_get_ciu_div(struct dw_mci *host)
- 		return EXYNOS4210_FIXED_CIU_CLK_DIV;
- 	else if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 			priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		return SDMMC_CLKSEL_GET_DIV(mci_readl(host, CLKSEL64)) + 1;
- 	else
-@@ -100,7 +110,8 @@ static void dw_mci_exynos_config_smu(struct dw_mci *host)
- 	 * set for non-ecryption mode at this time.
- 	 */
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS5420_SMU ||
--		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU) {
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU) {
- 		mci_writel(host, MPSBEGIN0, 0);
- 		mci_writel(host, MPSEND0, SDMMC_ENDING_SEC_NR_MAX);
- 		mci_writel(host, MPSCTRL0, SDMMC_MPSCTRL_SECURE_WRITE_BIT |
-@@ -126,6 +137,12 @@ static int dw_mci_exynos_priv_init(struct dw_mci *host)
- 				DQS_CTRL_GET_RD_DELAY(priv->saved_strobe_ctrl);
- 	}
- 
-+	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU) {
-+		/* Quirk needed for certain Exynos SoCs */
-+		host->quirks |= DW_MMC_QUIRK_FIFO64_32;
-+	}
-+
- 	if (priv->ctrl_type == DW_MCI_TYPE_ARTPEC8) {
- 		/* Quirk needed for the ARTPEC-8 SoC */
- 		host->quirks |= DW_MMC_QUIRK_EXTENDED_TMOUT;
-@@ -143,6 +160,8 @@ static void dw_mci_exynos_set_clksel_timing(struct dw_mci *host, u32 timing)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		clksel = mci_readl(host, CLKSEL64);
- 	else
-@@ -152,6 +171,8 @@ static void dw_mci_exynos_set_clksel_timing(struct dw_mci *host, u32 timing)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		mci_writel(host, CLKSEL64, clksel);
- 	else
-@@ -222,6 +243,8 @@ static int dw_mci_exynos_resume_noirq(struct device *dev)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		clksel = mci_readl(host, CLKSEL64);
- 	else
-@@ -230,6 +253,8 @@ static int dw_mci_exynos_resume_noirq(struct device *dev)
- 	if (clksel & SDMMC_CLKSEL_WAKEUP_INT) {
- 		if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 			priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 			mci_writel(host, CLKSEL64, clksel);
- 		else
-@@ -409,6 +434,8 @@ static inline u8 dw_mci_exynos_get_clksmpl(struct dw_mci *host)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		return SDMMC_CLKSEL_CCLK_SAMPLE(mci_readl(host, CLKSEL64));
- 	else
-@@ -422,6 +449,8 @@ static inline void dw_mci_exynos_set_clksmpl(struct dw_mci *host, u8 sample)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		clksel = mci_readl(host, CLKSEL64);
- 	else
-@@ -429,6 +458,8 @@ static inline void dw_mci_exynos_set_clksmpl(struct dw_mci *host, u8 sample)
- 	clksel = SDMMC_CLKSEL_UP_SAMPLE(clksel, sample);
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		mci_writel(host, CLKSEL64, clksel);
- 	else
-@@ -443,6 +474,8 @@ static inline u8 dw_mci_exynos_move_next_clksmpl(struct dw_mci *host)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		clksel = mci_readl(host, CLKSEL64);
- 	else
-@@ -453,6 +486,8 @@ static inline u8 dw_mci_exynos_move_next_clksmpl(struct dw_mci *host)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		mci_writel(host, CLKSEL64, clksel);
- 	else
-@@ -632,6 +667,10 @@ static const struct of_device_id dw_mci_exynos_match[] = {
- 			.data = &exynos_drv_data, },
- 	{ .compatible = "samsung,exynos7-dw-mshc-smu",
- 			.data = &exynos_drv_data, },
-+	{ .compatible = "samsung,exynos7870-dw-mshc",
-+			.data = &exynos_drv_data, },
-+	{ .compatible = "samsung,exynos7870-dw-mshc-smu",
-+			.data = &exynos_drv_data, },
- 	{ .compatible = "axis,artpec8-dw-mshc",
- 			.data = &artpec_drv_data, },
- 	{},
+---
+Kaustabh Chakraborty (3):
+      dt-bindings: pinctrl: samsung: add exynos7870-pinctrl compatible
+      dt-bindings: pinctrl: samsung: add exynos7870-wakeup-eint compatible
+      pinctrl: samsung: add support for exynos7870 pinctrl
 
+ .../pinctrl/samsung,pinctrl-wakeup-interrupt.yaml  |   2 +
+ .../bindings/pinctrl/samsung,pinctrl.yaml          |   1 +
+ drivers/pinctrl/samsung/pinctrl-exynos-arm64.c     | 141 +++++++++++++++++++++
+ drivers/pinctrl/samsung/pinctrl-exynos.h           |  29 +++++
+ drivers/pinctrl/samsung/pinctrl-samsung.c          |   2 +
+ drivers/pinctrl/samsung/pinctrl-samsung.h          |   1 +
+ 6 files changed, 176 insertions(+)
+---
+base-commit: e5d3fd687aac5eceb1721fa92b9f49afcf4c3717
+change-id: 20250203-exynos7870-pinctrl-07265f719061
+
+Best regards,
 -- 
-2.48.1
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
 
