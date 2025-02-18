@@ -4,75 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85C11C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:19:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89E7BC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+UEs0On8LdgTczquU0moZNxa98iW4ahd2cBsmI73D/k=; b=hpK8ZIrmRd0zSnJherhS3VKzfl
-	ItgPGXc1S8k/TTu+aCbwy/T6I36avBIcO+4Edjl9zrDLl9paDfzyT7VQIYH9S5SOrEPGsHORW7H+q
-	NKzP74CjR0gkWCMBqsxiS/gx5MJC7X7h3+nd+6SRmsM+iSZ7GdhuT8LHoXTIuUGPnuJH+uS9LyJk+
-	vULGsdSEbiHzqnBM4Zrmw6nPadH/JVx0Aw+Qf1WOM32lR6aqKfnyVXHhVbPVzEbozAT1LUJNYKa9G
-	cgry6CFApE3pqMGG3Vo+g/xWjR51yF2Bz2MyEjz9SQ9LDkivejcYvCFgCCFxJ1Olgz7JmIPNK7ro8
-	YjExd45w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AHSa0V5/YWv6xH3UZHGuIkHDWUE44bOhSk5sUAcJT7M=; b=vu7gU+DM1rCigquacH6a7paXeh
+	no/xi6R5xai/rEDESthfIn2xGvTsWecxSYs0Up25+RUNIqxOU9D3wGLt7XhmHapS4/V+M1FP0d2Ej
+	9vL6RT2o17gXaDG8RrEAJ55j30tSGXcmP5ssprLPDHVFz2gzEIGiag8byBVYDGrlvQzVP4uZzqVRG
+	4J9C4vb45W6jtE7jQC7c2HJ4rkw+6Rb0ijEErgWOxzgFv0IuNeIO7NzE6khw9yivCU0vk89PaWwnS
+	tZE6705NM3jqsaiwOHGflFRug0Skq+TH7wdmz/VpRfxitIb7ypBajj2W0PXqsV4Zs1bFUYBfPUoXr
+	wEwcDylg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkORO-00000008Tm7-193y;
-	Tue, 18 Feb 2025 14:19:14 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tkOSp-00000008U1o-2CP7;
+	Tue, 18 Feb 2025 14:20:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOLu-00000008SVn-0ONO;
-	Tue, 18 Feb 2025 14:13:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1739887995; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GvMQldWV3zNgBH0W1WQvTV8ETdM7NjWiixES/hCNbEbWpo78JVr5nrJbPx/dsf/GWa1ud+2Thg1RhhMQ/X4ZmXNHf0Ct+fItEOeT6sdoJLdhVyqTzmIe188zbK6CDHY6oDlr4UyCb4UfyYtyYfo10bAbkLV9ni3Ezw2jgcwyVyY=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1739887995; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=+UEs0On8LdgTczquU0moZNxa98iW4ahd2cBsmI73D/k=; 
-	b=MdIgTvEw5k8KrW8JpKdP3ijIX1JKsCNbPxl9vRMfI1dvLGuXK6S4aO2zSHTJuWY7PPKKKQWNf7rxddEZeLPBeK32p5v4IpDxy0H6urK+C3Vm9mJn2iVZl9ata9dCyvTHeB13nrLj6JoXTQh2SSdlz+HiVw8/naPGoRNqsHvhb+Q=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1739887995;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=+UEs0On8LdgTczquU0moZNxa98iW4ahd2cBsmI73D/k=;
-	b=PUo5Z3QcF+6AH59D1QNdQe5VkQguLbMqTY9hdzKRFuNNB245eOt/j0+ykI6PrMUn
-	lCjpCiwPNdz6h6QC0mLFDBC0E8lEvLJZEO0jHq2Sllmsjgugn4KxE/t33h9t75sujOi
-	R9nNN51+10++GajS7Ky2DVvKOfl0db9FLfHyX17I=
-Received: by mx.zohomail.com with SMTPS id 173988799275793.35650379360004;
-	Tue, 18 Feb 2025 06:13:12 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 6CA8F1807FB; Tue, 18 Feb 2025 15:13:07 +0100 (CET)
-Date: Tue, 18 Feb 2025 15:13:07 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Jianfeng Liu <liujianfeng1994@gmail.com>
-Cc: heiko@sntech.de, airlied@gmail.com, andy.yan@rock-chips.com, 
-	conor+dt@kernel.org, cristian.ciocaltea@collabora.com, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, hjc@rock-chips.com, kernel@collabora.com, krzk+dt@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, robh@kernel.org, simona@ffwll.ch, 
-	tzimmermann@suse.de
-Subject: Re: [PATCH 3/4] arm64: dts: rockchip: Add HDMI1 PHY PLL clock source
- to VOP2 on RK3588
-Message-ID: <lnuceofdwm6lgibworaghcujp6rrncvn4e2xc2vzltimjw3rqu@jur7x5cxt5ue>
-References: <1919367.CQOukoFCf9@diego>
- <20250218121749.1382322-1-liujianfeng1994@gmail.com>
+	id 1tkOQL-00000008TXy-2DLW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Feb 2025 14:18:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id ABB21A40CA2
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 14:16:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C7D9C4CEE8
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 14:18:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739888288;
+	bh=D8kZnHjA1rXfyapCTwJZXFhgI2zAmDfKIad3GOdpWqA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=pJR2eL0DvjA01+7CE7zYyDceU2Zqyou6TZvX9c/+zyYfoFJHbq2zBTFr6N3ODf6ws
+	 g1GopUwmjiNjDBgXwU9ByvlDuciZMbe8H2/mRccrpL7p9W2r3zXaUj65/RrTtBVUST
+	 1uKHaNW6eFDK1qWVRSep/QtMbtLG5p3AyinM5LIdYlk0/05CVIu3rIpSsqMzNPn85j
+	 zuiFQLeD/fLZOBS3m/JkfVyISZ+Q0yP6g/CcTk73oCczf3+NmLVxUtnQMRx+m2eIsd
+	 1BAzUHMlZoxPLSEryMluCuy1Gvp7vGWr0LTVnXzdjxbPC9T/oY9jjlVU6n7CrqIn/3
+	 /q6m4Mx1FRBDg==
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-abba1b74586so310440966b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 06:18:08 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVJF9HUhzr6v5eynl7e9dAtAH7XVCoIKD86D/qk7ZdN9fEYlruYlvW5uOLQEVthQ4un0IgwB7gwNb+sjyCMPMMp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxef8D7m8BD4yPYq246Db3Ffl6zPh4nDhOTBHKnpiNSdWLmIKy5
+	PjSWfQEhUNRBguNAYafxuWZgNviqZIWOOhzGJ8kPRUKM2k+H8jEecnUPliywVJYe8H1zTb+Fm4p
+	ssb2kXs/bNC+QOV/HwryZ/8L69w==
+X-Google-Smtp-Source: AGHT+IFQE4oOobZPiWrftCcgo9BjOEPo3oua0op7T6iVGDLGZJBO05pjxcR+PzST0w0ODcyv2rXV4Db+HB2amm1Z//Y=
+X-Received: by 2002:a17:906:395b:b0:abb:b12b:e103 with SMTP id
+ a640c23a62f3a-abbb12be1fbmr459701166b.34.1739888286742; Tue, 18 Feb 2025
+ 06:18:06 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="tg65zwayhilbnpfx"
-Content-Disposition: inline
-In-Reply-To: <20250218121749.1382322-1-liujianfeng1994@gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.2/239.824.9
-X-ZohoMailClient: External
+References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
+ <20250202-arm-brbe-v19-v19-10-1c1300802385@kernel.org> <20250213170316.GG235556@e132581.arm.com>
+ <CAL_JsqLG4gu6c6=x_wG6XT0WaCC_ahH5eWHk3K9RcF0ZQrDR=A@mail.gmail.com> <20250214095512.GI235556@e132581.arm.com>
+In-Reply-To: <20250214095512.GI235556@e132581.arm.com>
+From: Rob Herring <robh@kernel.org>
+Date: Tue, 18 Feb 2025 08:17:54 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqK1EThLB3uc+udfOP8cbjMFn_peoW2CBk9D-yRF3sQStg@mail.gmail.com>
+X-Gm-Features: AWEUYZlO5g0ZR9Ma_W5K7w398a_T1PS6uFZonzgnuMJwLsaDJ9E3LMdaxbe1kkA
+Message-ID: <CAL_JsqK1EThLB3uc+udfOP8cbjMFn_peoW2CBk9D-yRF3sQStg@mail.gmail.com>
+Subject: Re: [PATCH v19 10/11] KVM: arm64: nvhe: Disable branch generation in
+ nVHE guests
+To: Leo Yan <leo.yan@arm.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	James Clark <james.clark@linaro.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	kvmarm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_061334_209763_F7529FBA 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20250218_061809_693071_F4A54219 
+X-CRM114-Status: GOOD (  35.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,96 +92,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Feb 14, 2025 at 3:55=E2=80=AFAM Leo Yan <leo.yan@arm.com> wrote:
+>
+> On Thu, Feb 13, 2025 at 05:16:45PM -0600, Rob Herring wrote:
+>
+> [...]
+>
+> > > > +static void __debug_save_brbe(u64 *brbcr_el1)
+> > > > +{
+> > > > +       *brbcr_el1 =3D 0;
+> > > > +
+> > > > +       /* Check if the BRBE is enabled */
+> > > > +       if (!(read_sysreg_el1(SYS_BRBCR) & (BRBCR_ELx_E0BRE | BRBCR=
+_ELx_ExBRE)))
+> > > > +               return;
+> > > > +
+> > > > +       /*
+> > > > +        * Prohibit branch record generation while we are in guest.
+> > > > +        * Since access to BRBCR_EL1 is trapped, the guest can't
+> > > > +        * modify the filtering set by the host.
+> > > > +        */
+> > > > +       *brbcr_el1 =3D read_sysreg_el1(SYS_BRBCR);
+> > > > +       write_sysreg_el1(0, SYS_BRBCR);
+> > > > +}
+> > >
+> > > Should flush branch record and use isb() before exit host kernel?
+> >
+> > I don't think so. The isb()'s in the other cases appear to be related
+> > to ordering WRT memory buffers. BRBE is just registers. I would assume
+> > that there's some barrier before we switch to the guest.
+>
+> Given BRBCR is a system register, my understanding is the followd ISB
+> can ensure the writing BRBCR has finished and take effect.  As a result,
+> it is promised that the branch record has been stopped.
+>
+> However, with isb() it is not necessarily to say the branch records have
+> been flushed to the buffer.  The purpose at here is just to stop record.
+> The BRBE driver will take care the flush issue when it reads records.
+>
+> I agreed that it is likely barriers in the followed switch flow can assur=
+e
+> the writing BRBCR to take effect.  It might be good to add a comment for
+> easier maintenance.
+>
+> > > I see inconsistence between the function above and BRBE's disable
+> > > function. Here it clears E0BRE / ExBRE bits for disabling BRBE, but t=
+he
+> > > BRBE driver sets the PAUSED bit in BRBFCR_EL1 for disabling BRBE.
+> >
+> > Indeed. This works, but the enabled check won't work. I'm going to add
+> > clearing BRBCR to brbe_disable(), and this part will stay the same.
+>
+> Seems to me, a right logic would be:
+>
+> - In BRBE driver, the brbe_disable() function should clear E0BRE and
+>   ExBRE bits in BRBCR.  It can make sure the BRBE is totally disabled
+>   when a perf session is terminated.
+>
+> - For a kvm context switching, it is good to use PAUSED bit.  If a host
+>   is branch record enabled, this is a light way for temporarily pause
+>   branch record for the switched VM.
 
---tg65zwayhilbnpfx
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 3/4] arm64: dts: rockchip: Add HDMI1 PHY PLL clock source
- to VOP2 on RK3588
-MIME-Version: 1.0
+We have to read BRBCR to see if it is enabled as PAUSED is unknown out
+of reset and the driver may not exist to initialize it. Either way, it
+is a register read and write, so same overhead for both.
 
-Hi,
-
-On Tue, Feb 18, 2025 at 08:17:46PM +0800, Jianfeng Liu wrote:
-> On Tue, 18 Feb 2025 11:00:57 +0100, Heiko St=FCbnerwrote:
-> >So I guess step1, check what error is actually returned.
->=20
-> I have checked that the return value is -517:
->=20
-> rockchip-drm display-subsystem: [drm] *ERROR* failed to get pll_hdmiphy1 =
-with -517
->=20
-> >Step2 check if clk_get_optional need to be adapted or alternatively
-> >catch the error in the vop2 and set the clock to NULL ourself in that ca=
-se.
->=20
-> I tried the following patch to set the clock to NULL when clk_get_optional
-> failed with value -517, and hdmi0 is working now. There are also some
-> boards like rock 5 itx which only use hdmi1, I think we should also add
-> this logic to vop2->pll_hdmiphy0.
->=20
-> @@ -3733,6 +3751,15 @@ static int vop2_bind(struct device *dev, struct de=
-vice *master, void *data)
->  		return PTR_ERR(vop2->pll_hdmiphy0);
->  	}
-> =20
-> +	vop2->pll_hdmiphy1 =3D devm_clk_get_optional(vop2->dev, "pll_hdmiphy1");
-> +	if (IS_ERR(vop2->pll_hdmiphy1)) {
-> +		drm_err(vop2->drm, "failed to get pll_hdmiphy1 with %d\n", vop2->pll_h=
-dmiphy1);
-> +		if (vop2->pll_hdmiphy1 =3D=3D -EPROBE_DEFER)
-> +			vop2->pll_hdmiphy1 =3D NULL;
-> +		else
-> +			return PTR_ERR(vop2->pll_hdmiphy1);
-> +	}
-> +
-
-This first of all shows, that we should replace drm_err in this
-place with dev_err_probe(), which hides -EPROBE_DEFER errors by
-default and instead captures the reason for /sys/kernel/debug/devices_defer=
-red.
-
-Second what you are doing in the above suggestion will break kernel
-configurations where VOP is built-in and the HDMI PHY is build as a
-module.
-
-But I also think it would be better to have the clocks defined in the
-SoC level DT. I suppose that means vop2_bind would have to check if
-the HDMI controller <ID> is enabled and only requests pll_hdmiphy<ID>
-based on that. Considering there is the OF graph pointing from VOP
-to the enabled HDMI controllers, it should be able to do that.
-
-Greetings,
-
--- Sebastian
-
->  	vop2->irq =3D platform_get_irq(pdev, 0);
->  	if (vop2->irq < 0) {
->  		drm_err(vop2->drm, "cannot find irq for vop2\n");
->=20
-> Best regards,
-> Jianfeng
-
---tg65zwayhilbnpfx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAme0lWwACgkQ2O7X88g7
-+prO+w//ckt6/RZRkNYrf65IAuN+VTaPRXyXi81rOGKz/OB7Tk8bKiD1vzLkzwJ6
-r0gE1W3oFIcW+mk1nCDf+CdUGqZIi1Fg/j3AmMkeRmrjW6goOpQUfpYtv0kTO696
-/Ft3oL45Bw9IozPVM3rUhVyVjBjjXT2I+Hzh5FdAzv1QV1yju6gHViAIumtc8qoW
-GZIvTy5Yr9w5+p3c7+r3CVwN/BboYDNcHka9L43y6MHN3sZownPoOYWEqrHJs7YU
-jgPKjceBbJQkgy6vaX/TtrZVRP7Z6KLz4/EBSVcjDeR5lpWLEQ2M5UjiYJfbSPPl
-nn0Edm40uNUAvmCe1Z/stz1Uym8IRZbCJetJix7FNWiPjMCyf1a4cQVq9ymOamWN
-xc0DjB/pMg4tdf4v0bJ14HgaGxhJbm8InMNWLDMDCx/BqRptN+8xbuC4V4Oqh8GX
-CVayUBfL2xRVE0M7z0zcvKvWiMD0wvuAEABKrxxlptEAJ4Di/uDnKNkrb0Em8FMk
-0iDe4iIQBoZpPraGzH7vhvpBbQZhHjl6jIdIJiGPsat4H0/Yl2lZI26yXktinw5C
-ae5U9Ez4zN29o51A4cuGeoJDBFRsl5xqALCfzp/LCe+Hf5hua8V6HIx564WsRcpA
-WFzh3h3S0QuRmhRw0kPbRKXE9MdXykY8WkevvyFm4gGDLQ7gDrI=
-=Pg8x
------END PGP SIGNATURE-----
-
---tg65zwayhilbnpfx--
+Rob
 
