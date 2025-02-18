@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E27CC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:55:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A413C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HhvrnTGwObc5Ecn88wdhnhwUIQnwKjV+65PHj9OxylM=; b=vs6OT8EAXeJpx3wRgM1HgVDytw
-	bcV4BGNjJVCmFbDY/0tpJLo559KiOFZpcknAbgdCzBxsPcDlRxnKMsNWCp/OpxVvVzMxn9EdYKBPX
-	rGT5eILk9Q+UmohGmNyX15DIvr1cdcNmnMptSBgaCMgW3jtmI8QzSaa4uenCeydqCSUBXMSc3Lxcd
-	H94GT5cp1jFoEWLmYukjqx6C1losz4riWkM3X8huXl56kkobop1IUNT3ltynIxFrP66e/htwEX0YF
-	WYN6fHe8bMxFTGwIs/yyx+06olt2hFQ2QhsDnWBGhOp5s51iB1EorvKo3+JtPdZHCJE0xmrFLe8I/
-	M1zfEpyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TvgIM02VkB4UL9QMByctN8Vnp/226aej0vn9VyB2FVE=; b=S/qYgcZSKbcm2FUK9dUq4kRtNP
+	ffWYbY/MlcDl/vYo6icsp6u2Wr3Hkml2FtFce7hbAK5a6XL+H7TrEZawGFpGuxf7mOwo2rPFoq6Sk
+	cLJKPudwFUBM0405LkrkKu0neANZXBL2fWygSM7X0oYleZF0qH9agp3IYSUiUhDxUHQ+yPw2RjWKR
+	wQ1ycQYzvsfoqSoWQzFldMJFcaj/l/R7YLDkPINUcSij4GdIC+rW+cUHcUju7H0AnQ9XbMNaL3NiO
+	TXU12TafUcL3E9CPzlsx3Oi9FNuwszagqXp064cJuIJZbEaULBFZScOCPx/8EI7yldZOZlEnzNHIV
+	Y+zw+sMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkKJq-00000007cT3-0Xal;
-	Tue, 18 Feb 2025 09:55:10 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tkKLG-00000007clA-3Qqv;
+	Tue, 18 Feb 2025 09:56:38 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJsW-00000007VXG-3P2o
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 09:26:57 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tkJsU-0001Pv-W7; Tue, 18 Feb 2025 10:26:55 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tkJsU-001Yuf-1d;
-	Tue, 18 Feb 2025 10:26:54 +0100
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tkJsU-0003Kt-1P;
-	Tue, 18 Feb 2025 10:26:54 +0100
-Message-ID: <86ba9d0c48441a5cb725fb31a7d43dc0d97ee7ea.camel@pengutronix.de>
-Subject: Re: [PATCH 2/5] reset: imx8mp-audiomix: Prepare the code for more
- reset bits
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Daniel Baluta <daniel.baluta@nxp.com>, shawnguo@kernel.org, 
-	mathieu.poirier@linaro.org
-Cc: s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, andersson@kernel.org, 
-	linux-remoteproc@vger.kernel.org, iuliana.prodan@nxp.com, 
-	laurentiu.mihalcea@nxp.com, shengjiu.wang@nxp.com, Frank.Li@nxp.com, 
-	krzk@kernel.org
-Date: Tue, 18 Feb 2025 10:26:54 +0100
-In-Reply-To: <20250218085712.66690-3-daniel.baluta@nxp.com>
-References: <20250218085712.66690-1-daniel.baluta@nxp.com>
-	 <20250218085712.66690-3-daniel.baluta@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	id 1tkJsc-00000007VYs-20pT;
+	Tue, 18 Feb 2025 09:27:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739870820;
+	bh=13RAFqO4JxKpY86E13TVG4O698Z/xjNecRvH9AgjNaY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qX5QQxHIowTOTnz9Li60/jzpzEyrmVKngsv1UdK5BflNfVIsKlkYXPG7WDiqBtW0N
+	 wrlwfNZICsMYgYLLCSDCZFgoggqWPGoNAzQNV12S1LSHlQdA7zF+X5A+PMDUAFnfN9
+	 UP6nY/ePSd7y/OWZAQHdvs3CvlriheHERJNRRwawHDev7Ij+DEltRFnDLwEC9HpdbS
+	 W7Gaa/kPKTVIoHDN79HMcjiz9A28S92w9F2kejmJVPjqsVVytQ9iMbpyPkPsR/XaXP
+	 melHDDbYycMbcLfXgf+kh+GIi4/QYUOWSq5WrWX/11u/L8rBITZ6U2NKD3pjt3xCHE
+	 QEyqpJK0Qc49A==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 34DE217E0391;
+	Tue, 18 Feb 2025 10:27:00 +0100 (CET)
+Message-ID: <a286cb5c-40f8-48ec-921d-bcf0b67728ed@collabora.com>
+Date: Tue, 18 Feb 2025 10:26:59 +0100
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/4] usb: mtu3: add support remote wakeup of mt8196
+To: =?UTF-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?= <Chunfeng.Yun@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>
+Cc: "linux-mediatek@lists.infradead.org"
+ <linux-mediatek@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "mathias.nyman@intel.com" <mathias.nyman@intel.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>
+References: <20250121145008.22936-1-chunfeng.yun@mediatek.com>
+ <20250121145008.22936-4-chunfeng.yun@mediatek.com>
+ <e63fdeba-04dd-4b88-a6d6-ca8a64e28e36@collabora.com>
+ <a689f7d25fb05ba83ac2de6ba879998fe2e21bcb.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <a689f7d25fb05ba83ac2de6ba879998fe2e21bcb.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_012656_855437_3D124DC0 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20250218_012702_669105_F64197A8 
+X-CRM114-Status: GOOD (  24.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,137 +88,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+Il 09/02/25 04:31, Chunfeng Yun (云春峰) ha scritto:
+> On Wed, 2025-01-22 at 10:30 +0100, AngeloGioacchino Del Regno wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
+>>
+>>
+>> Il 21/01/25 15:50, Chunfeng Yun ha scritto:
+>>> There are three USB controllers on mt8196, each controller's wakeup
+>>> control is different, add some specific versions for them.
+>>> Here add only for dual-role controllers.
+>>>
+>>> Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
+>>
+>>   From the datasheets, I can read the following:
+>>
+>> IP0: host -> 0x1670_0000  device(mtu3) -> 0x1670_1000
+>> IP1: host -> 0x1671_0000  device(mtu3) -> 0x1671_1000
+>> IP2: host -> 0x1672_0000  device(mtu3) -> 0x1672_1000
+>>
+> I'll check it.
+> 
+>> ...this means that you're missing the IP2 here, which you did not
+>> miss in the
+>> commit adding the wakeup control in mtk-xhci instead.
+>>
+>> So, since I see that all of the USB IPs are behind MTU3, and that
+>> there is no
+>> USB IP that does *not* support gadget mode (so, there's no USB IP
+>> that does NOT
+>> support MTU3), you shall add all three here, and you shall drop the
+>> commit that
+>> adds the wakeup control in mtk-xhci entirely.
+> No, I'll still add them in mtk-xhci driver as before for the cases that
+> only use xhci only, no need use mtu3 driver.
+> 
+> As I said before, event the controller supports dual-role mode, which
+> don't mean that it can use this upstream mtu3 driver, some SoC have
+> limitation and can't support the dual-role mode switch used in upstream
+> driver. but all SoC can use upstream xhci-mtk driver. that why I add
+> some SoC's wakeup control in xhci-mtk, but not in mtu3 driver.
+> 
+>>
+>> This is because there will be no DT node declaring only XHCI.
+>>
+>> Since after the proposed change all controllers will be MTU3 -> XHCI,
+>> there's
+>> no need to add the same in the mtk-xhci driver.
+> I think it's better to leave the selection to the customer, for
+> example, on chromebook, we only use xhci driver and do not enable mtu3.
+> 
 
-On Di, 2025-02-18 at 10:57 +0200, Daniel Baluta wrote:
-> Current code supports EARC PHY Software Reset and EARC 	Software
-> Reset but it is not easily extensible to more reset bits.
->=20
-> So, refactor the code in order to easily allow more reset bits
-> in the future.
->=20
-> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-> ---
->  drivers/reset/reset-imx8mp-audiomix.c | 53 ++++++++++++++++++++++-----
->  1 file changed, 43 insertions(+), 10 deletions(-)
->=20
-> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-=
-imx8mp-audiomix.c
-> index 1fe21980a66c..6b1666c4e069 100644
-> --- a/drivers/reset/reset-imx8mp-audiomix.c
-> +++ b/drivers/reset/reset-imx8mp-audiomix.c
-> @@ -12,7 +12,30 @@
->  #include <linux/reset-controller.h>
-> =20
->  #define IMX8MP_AUDIOMIX_EARC_OFFSET		0x200
-> -#define IMX8MP_AUDIOMIX_EARC_RESET_MASK		0x3
-> +#define IMX8MP_AUDIOMIX_EARC_RESET_MASK		0x1
-> +#define IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK	0x2
+Chromebooks can use MTU3 and lock it in HOST mode only.
 
-Will any of the reset controls manipulate multiple bits at once?
-I'd use BIT(0) and BIT(1) here.
+The MTU3 hardware is there - don't hide it.
 
-> +
-> +#define IMX8MP_AUDIOMIX_EARC		0
-> +#define IMX8MP_AUDIOMIX_EARC_PHY	1
-> +
-> +#define IMX8MP_AUDIOMIX_RESET_NUM	2
-> +
-> +struct imx8mp_reset_map {
-> +	unsigned int offset;
-> +	unsigned int mask;
-> +};
-> +
-> +static const struct imx8mp_reset_map reset_map[IMX8MP_AUDIOMIX_RESET_NUM=
-] =3D {
+Regards,
+Angelo
 
-If you make this reset_map[], drop IMX8MP_AUDIOMIX_RESET_NUM, and use
-.nr_resets =3D ARRAY_SIZE(reset_map) below, followup patches that add new
-bits will be simplified.
+> Thanks
+> 
+>>
+>> Cheers,
+>> Angelo
+>>
+>>> ---
+>>> v2: add wakeup for dual-role controllers
+>>> ---
+>>>    drivers/usb/mtu3/mtu3_host.c | 17 +++++++++++++++++
+>>>    1 file changed, 17 insertions(+)
+>>>
+>>> diff --git a/drivers/usb/mtu3/mtu3_host.c
+>>> b/drivers/usb/mtu3/mtu3_host.c
+>>> index 7c657ea2dabd..d65b0f318436 100644
+>>> --- a/drivers/usb/mtu3/mtu3_host.c
+>>> +++ b/drivers/usb/mtu3/mtu3_host.c
+>>> @@ -46,6 +46,11 @@
+>>>    #define WC1_IS_P_95         BIT(12)
+>>>    #define WC1_IS_EN_P0_95             BIT(6)
+>>>
+>>> +/* mt8196 */
+>>> +#define PERI_WK_CTRL0_8196   0x08
+>>> +#define WC0_IS_EN_P0_96              BIT(0)
+>>> +#define WC0_IS_EN_P1_96              BIT(7)
+>>> +
+>>>    /* mt2712 etc */
+>>>    #define PERI_SSUSB_SPM_CTRL 0x0
+>>>    #define SSC_IP_SLEEP_EN     BIT(4)
+>>> @@ -59,6 +64,8 @@ enum ssusb_uwk_vers {
+>>>        SSUSB_UWK_V1_3,         /* mt8195 IP0 */
+>>>        SSUSB_UWK_V1_5 = 105,   /* mt8195 IP2 */
+>>>        SSUSB_UWK_V1_6,         /* mt8195 IP3 */
+>>> +     SSUSB_UWK_V1_7,         /* mt8196 IP0 */
+>>> +     SSUSB_UWK_V1_8,         /* mt8196 IP1 */
+>>>    };
+>>>
+>>>    /*
+>>> @@ -100,6 +107,16 @@ static void ssusb_wakeup_ip_sleep_set(struct
+>>> ssusb_mtk *ssusb, bool enable)
+>>>                msk = WC0_IS_EN_P3_95 | WC0_IS_C_95(0x7) |
+>>> WC0_IS_P_95;
+>>>                val = enable ? (WC0_IS_EN_P3_95 | WC0_IS_C_95(0x1)) :
+>>> 0;
+>>>                break;
+>>> +     case SSUSB_UWK_V1_7:
+>>> +             reg = ssusb->uwk_reg_base + PERI_WK_CTRL0_8196;
+>>> +             msk = WC0_IS_EN_P0_96;
+>>> +             val = enable ? msk : 0;
+>>> +             break;
+>>> +     case SSUSB_UWK_V1_8:
+>>> +             reg = ssusb->uwk_reg_base + PERI_WK_CTRL0_8196;
+>>> +             msk = WC0_IS_EN_P1_96;
+>>> +             val = enable ? msk : 0;
+>>> +             break;
+>>>        case SSUSB_UWK_V2:
+>>>                reg = ssusb->uwk_reg_base + PERI_SSUSB_SPM_CTRL;
+>>>                msk = SSC_IP_SLEEP_EN | SSC_SPM_INT_EN;
+>>
+>>
+>>
 
-> +	[IMX8MP_AUDIOMIX_EARC] =3D {
-> +		.offset	=3D IMX8MP_AUDIOMIX_EARC_OFFSET,
-> +		.mask	=3D IMX8MP_AUDIOMIX_EARC_RESET_MASK,
-> +	},
-> +	[IMX8MP_AUDIOMIX_EARC_PHY] =3D {
-> +		.offset	=3D IMX8MP_AUDIOMIX_EARC_OFFSET,
-> +		.mask	=3D IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK,
-> +	},
-> +
 
-Please drop this empty line.
-
-> +};
-> =20
->  struct imx8mp_audiomix_reset {
->  	struct reset_controller_dev rcdev;
-> @@ -30,13 +53,18 @@ static int imx8mp_audiomix_reset_assert(struct reset_=
-controller_dev *rcdev,
->  {
->  	struct imx8mp_audiomix_reset *priv =3D to_imx8mp_audiomix_reset(rcdev);
->  	void __iomem *reg_addr =3D priv->base;
-> -	unsigned int mask, reg;
-> +	unsigned int mask, offset, reg;
->  	unsigned long flags;
-> =20
-> -	mask =3D BIT(id);
-> +	if (id >=3D  IMX8MP_AUDIOMIX_RESET_NUM)
-
-Whitespace error. But also, this check is not necessary.
-The reset core will not return reset controls that fail the same check
-in of_reset_simple_xlate(), so we can never get here with the wrong id
-if rcdev.nr_resets correctly is set to ARRAY_SIZE(reset_map).
-
-> +		return -EINVAL;
-> +
-> +	mask =3D reset_map[id].mask;
-> +	offset =3D reset_map[id].offset;
-> +
->  	spin_lock_irqsave(&priv->lock, flags);
-> -	reg =3D readl(reg_addr + IMX8MP_AUDIOMIX_EARC_OFFSET);
-> -	writel(reg & ~mask, reg_addr + IMX8MP_AUDIOMIX_EARC_OFFSET);
-> +	reg =3D readl(reg_addr + offset);
-> +	writel(reg & ~mask, reg_addr + offset);
->  	spin_unlock_irqrestore(&priv->lock, flags);
-> =20
->  	return 0;
-> @@ -47,13 +75,18 @@ static int imx8mp_audiomix_reset_deassert(struct rese=
-t_controller_dev *rcdev,
->  {
->  	struct imx8mp_audiomix_reset *priv =3D to_imx8mp_audiomix_reset(rcdev);
->  	void __iomem *reg_addr =3D priv->base;
-> -	unsigned int mask, reg;
-> +	unsigned int mask, offset, reg;
->  	unsigned long flags;
-> =20
-> -	mask =3D BIT(id);
-> +	if (id >=3D  IMX8MP_AUDIOMIX_RESET_NUM)
-> +		return -EINVAL;
-
-Same as above.
-
-> +
-> +	mask =3D reset_map[id].mask;
-> +	offset =3D reset_map[id].offset;
-> +
->  	spin_lock_irqsave(&priv->lock, flags);
-> -	reg =3D readl(reg_addr + IMX8MP_AUDIOMIX_EARC_OFFSET);
-> -	writel(reg | mask, reg_addr + IMX8MP_AUDIOMIX_EARC_OFFSET);
-> +	reg =3D readl(reg_addr + offset);
-> +	writel(reg | mask, reg_addr + offset);
->  	spin_unlock_irqrestore(&priv->lock, flags);
-> =20
->  	return 0;
-> @@ -78,7 +111,7 @@ static int imx8mp_audiomix_reset_probe(struct auxiliar=
-y_device *adev,
->  	spin_lock_init(&priv->lock);
-> =20
->  	priv->rcdev.owner     =3D THIS_MODULE;
-> -	priv->rcdev.nr_resets =3D fls(IMX8MP_AUDIOMIX_EARC_RESET_MASK);
-> +	priv->rcdev.nr_resets =3D IMX8MP_AUDIOMIX_RESET_NUM;
-
-Could use ARRAY_SIZE(reset_map) here.
-
-regards
-Philipp
 
