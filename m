@@ -4,108 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9438EC021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 18:19:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70473C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 18:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M89M9SRzWTrfxkPQChi6cYghdfRxV0Kb26Fn5pPvW98=; b=wKpuA0R21cYZKwnEM/BjbaqZxk
-	JrR108/E7pqhjlLzPMOtcnMvmCU6JYq2zs9E8sEj/0BSK2IgrezVxGChil3Sco2va6vxCbSTdyFZi
-	yaQC4yGc1q2enmW8u0FfdjdrecpI8MtGWjgBq9dT0ni9oLOTuqWUHDFFt3uO3qgBk7Pptt9rnrNqu
-	MCGEGuGANfI++er5ioECwDnV7aQaTwcqJIk905qyKdCz/frfSmrNNvuttuT4b+HHOvZ5Dz3wp1kPk
-	IGuvFnZRAK/Qg5t4A9IwzSUjp7Rqvzys69hBh9jxeY3jvW22ENgrkgrWZ0bTU80mxASisPjj9yr7i
-	/nzLwBmA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jRrjcZxc+54Ne+xv52EsQ+AaDzL2OFY0UPYTP80MshA=; b=K6U4S3XF6ie4L6Sf4PeuWeuXyy
+	4VeufVEX+5iAKNMYQMSrpKsJQfPwxXf2ZCH2+XFa/qbd4BbIi2uEfxwwH7esGD/Mr5LOpkh443gOO
+	Ap0kggtsrza+OKivo9FI+SmtPiFGZRzuvSLWzKbxAOAHH3fyNrawpRofq93BfMjbw/xc7bZZ0oSwn
+	0bo4urqb4SUw+wb90hAatOQCnRUboTgb5frs4gxSyhbkx/DTd8R5UVqE8j0wVn5ktE4QmYo0TNEog
+	IgNDhB28wUp6W2+sWt11uGFNB1k4reRV5X5ahKEPKnZoiyB90tJr9o/MsiNhFA8hw/5Q8e5fXwoxk
+	ZQ2jUuwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSBj-00000009JRz-3O37;
-	Tue, 18 Feb 2025 18:19:19 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tkSEF-00000009K7v-2get;
+	Tue, 18 Feb 2025 18:21:55 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkS9x-00000009Ird-1Hal
+	id 1tkSCl-00000009Jjm-36tR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 18:17:30 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-220e0575f5bso490445ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 10:17:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739902647; x=1740507447; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=M89M9SRzWTrfxkPQChi6cYghdfRxV0Kb26Fn5pPvW98=;
-        b=kbHl7Q1Ke/uEOefWCN4r3mtw2IYMk/OpvvsDTK7boFwuez5iMITj9Xr/DrPZbAg6jK
-         rLKd0PzUmaToDSZpEgzeh+7Pcw9arYLjeXbkvWmU/v1ETANtzEhBhXXfLxRQtsedjmyv
-         aHX+PtEhP2sF2RP2sxlHD4YbtY7bNosQXPraQ5PtGLYetHOzwvowkgdA8lnyQV+hrryY
-         B+ejPXkUm91Aod7rtvZvBpVNVu4clwEmYMeSkhVkQLmuWm4KOUIwe7x5CAbKe+kXbiEB
-         Dx2E3Kd/ihYML316R0Db9JVveYPl3H5gquCCJKEUEk7yiAlEg17mGC8kMrQepjYJP03i
-         99UQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739902647; x=1740507447;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=M89M9SRzWTrfxkPQChi6cYghdfRxV0Kb26Fn5pPvW98=;
-        b=K5YawO3jrfL4/NawdUu2PWFn9gb7CQ6Zckxiad3vda0zrpz/OR+LUfle2DQNc7WrJE
-         GZp6uz9/DE1eQii7Uki2n2JWpIKqELus6C0C+sovsa/fDqumUJuh/FaNk4gUeJZ8gPcV
-         wCNH3CszT1CalNT/Q9n2vD9XVVceyaOZxM9bEIhPJ6WPNu7KZ1EA+taRid2TZi1b5v9F
-         I4yCcWfUP1Ki8DF5WXm3evl4M/yy+z8MY4buZKV1tdTvxRIx7rmRPKKSqe7qPrGI0Wlf
-         qJwBicb4DotjKg1TqPZtZw02fw0/4Nb3rwMqI49eQIgQGMcLc3upCerkNm9Kkx+2Kgz5
-         SnjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWcUVbiC/9C4Hl2qtpChW4ebNf+dCEj020WJvfn4tkNY/r1VkpqLTdhNzX4uXVAMQEiKWsHZvKxV1aZp92yXriO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3DEF7ORa6HUTPxnFean43ymYVBDjCL2OqtDEe4go6YHfFpQyT
-	yOsZI7pmLNUteTZUZaBXYU/waJyH03GJccBrycMbokmOJx+gOuf4n7DEf3w8NA==
-X-Gm-Gg: ASbGncuHAMF89Cio53Ks9n4S7QTUF7spSruwUJjamNKn6JYHlhRdNBDxFXMO6/c6obG
-	3u2zb3V0UYTLWdqYV6ZKXE4pMZWc2mK3UZ96PBKdbEkLXT+zXeU4ctbI3h4LtkZSUa392P/cMdS
-	AInGPU6y+XzwmclQtNvYefNHxtLdCzDIL7bGJ4rhDHvqB8V6poHqEBaCe9N27+6qAtvZn0u3Tch
-	RIpi3KMg0GAiSgcIfc9Xiz95qrsAitFoNkPPV7oGPIK5MDx4TrPg/OMUAa00AfkblH//K1c0nEh
-	faYqOehH4ipZuGP6tGokvGXEMneGmGvL4vORBw5euXtgL5vncsLm
-X-Google-Smtp-Source: AGHT+IFkiHL5TTpaBclB/MgmM3kcQbDHYVWCGmPRDpeRclWjC4Poa8aWW8CJbN/ySGXple0OccOeRQ==
-X-Received: by 2002:a17:902:fc4e:b0:216:48d4:b3a8 with SMTP id d9443c01a7336-22104c939afmr7012905ad.16.1739902646969;
-        Tue, 18 Feb 2025 10:17:26 -0800 (PST)
-Received: from google.com (169.224.198.35.bc.googleusercontent.com. [35.198.224.169])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d55960ecsm91516115ad.253.2025.02.18.10.17.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 10:17:26 -0800 (PST)
-Date: Tue, 18 Feb 2025 18:17:15 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
-	"corbet@lwn.net" <corbet@lwn.net>,
-	"will@kernel.org" <will@kernel.org>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
-	"robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"dwmw2@infradead.org" <dwmw2@infradead.org>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
-	"shuah@kernel.org" <shuah@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-	"eric.auger@redhat.com" <eric.auger@redhat.com>,
-	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
-	"mdf@kernel.org" <mdf@kernel.org>,
-	"mshavit@google.com" <mshavit@google.com>,
-	"shameerali.kolothum.thodi@huawei.com" <shameerali.kolothum.thodi@huawei.com>,
-	"smostafa@google.com" <smostafa@google.com>,
-	"ddutile@redhat.com" <ddutile@redhat.com>,
-	"Liu, Yi L" <yi.l.liu@intel.com>,
-	"patches@lists.linux.dev" <patches@lists.linux.dev>
-Subject: Re: [PATCH v6 14/14] iommu/arm-smmu-v3: Set MEV bit in nested STE
- for DoS mitigations
-Message-ID: <Z7TOq-gIGPY_ztW7@google.com>
-References: <cover.1737754129.git.nicolinc@nvidia.com>
- <436ac2021bb3d75114ca0e45f25a6a8257489d3b.1737754129.git.nicolinc@nvidia.com>
- <BN9PR11MB5276291C74E2DF0C8821BE718CFA2@BN9PR11MB5276.namprd11.prod.outlook.com>
+	Tue, 18 Feb 2025 18:20:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 13CF0A41493
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 18:18:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D94EC4CEEE
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 18:20:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739902822;
+	bh=i7uUtXNMjRRNoE/sjgLWfCiLhOArRyzd5/y7ZwlSfj4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=KgGuMCdmekrrFynqBUDp1X5Q9NtJeSK02ZZNNDaJdCAbFbHAkoj0sPqbKLttEmOOp
+	 s8XKsQbwT11tCFcQWPMKqvou9HudFfgK7xJR9zufjeiRnt+Xo2QdchF4tIhAD8uICm
+	 0AV36YNFydtvK4lGWt4a0FB9qGc1YatXESm1W/aEbq28paLxFGcy6CKs9WCCiKpqVF
+	 6+HuMeN3wsbpNaQ7RGsxZiDR/caGUnrTsiB95ZDqAF9J2wWbzHD4xXyqMTgKegMBt2
+	 kh+6d5SeCfrgIBjvQlNHtwrvgH2w9jWPqY+mT1L3IPclBt19w1sdOQeX2IJrEPcdYD
+	 y8Y44dkXsRARw==
+Received: by mail-il1-f177.google.com with SMTP id e9e14a558f8ab-3d19e40a891so13013495ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 10:20:22 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX5ChpSCLhAMzvfKa9UVifOvKYTIj9wHJ18f2kx7DcrAcmbe51jwe945gGicvgRQoSNDkLfE16qQtSZm3dIAWDx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpOL7XMAZlvzvCVtQoYx8PYZNLLCXKraWSJO472raPxteAqKUF
+	GAI1KQFls3qFfPqz2Jq5gKYGDod2N6qNSvRpUEf9gTgTjo85GEgrA86SSqWJtQSwug/HIVTmkba
+	YCJQ3oefNvv3/qpl6G3f+Zj1QKnc=
+X-Google-Smtp-Source: AGHT+IG4FlnOX9Ql40omkJN+vWGOP3w/LrBrVI6Sr0U3JqnUmjReG7wWo0B7SUJhaMSh92+XkCiuQ91zPpqQH/rpcXM=
+X-Received: by 2002:a05:6e02:2408:b0:3d0:4e2b:9bbb with SMTP id
+ e9e14a558f8ab-3d2809580eemr158857095ab.21.1739902821943; Tue, 18 Feb 2025
+ 10:20:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <BN9PR11MB5276291C74E2DF0C8821BE718CFA2@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <20250213024507.mvjkalvyqsxihp54@jpoimboe> <CAPhsuW4iDuTBfZowJRhxLFyK=g=s+-pK2Eq4+SNj9uL99eNkmw@mail.gmail.com>
+ <mb61py0yaz3qq.fsf@kernel.org> <CAPhsuW7dV7UR3PsGVx_DLBH5-95DAmLMGTPuY0NfUwWLZMSTrQ@mail.gmail.com>
+ <20250214080848.5xpi2y2omk4vxyoj@jpoimboe> <CAPhsuW6dxPtgqZaHrZEVhQXwm2+sETreZnGybZXVKYKfG9H6tg@mail.gmail.com>
+ <20250214193400.j4hp45jlufihv5eh@jpoimboe> <CAPhsuW6q+yhn0pGQb0K+RhXHYDkjEgomZ2pu3P_MEeX+xNRe0g@mail.gmail.com>
+ <20250214232342.5m3hveygqb2qafpp@jpoimboe> <CAPhsuW48h11yLuU7uHuPgYNCzwaxVKG+TaGOZeT7fR60+brTwA@mail.gmail.com>
+ <20250218063702.e2qrpjk4ylhnk5s7@jpoimboe>
+In-Reply-To: <20250218063702.e2qrpjk4ylhnk5s7@jpoimboe>
+From: Song Liu <song@kernel.org>
+Date: Tue, 18 Feb 2025 10:20:10 -0800
+X-Gmail-Original-Message-ID: <CAPhsuW5ZauBrSz11cvVtG5qQBfNmbcwPgMf=BScHtyZfHvK4FQ@mail.gmail.com>
+X-Gm-Features: AWEUYZnvvDqTb1fovYfGDRE0ySlLJoOtPvngjhwXWpFfc6v9eHqvdMBDZzElWF0
+Message-ID: <CAPhsuW5ZauBrSz11cvVtG5qQBfNmbcwPgMf=BScHtyZfHvK4FQ@mail.gmail.com>
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+To: Josh Poimboeuf <jpoimboe@kernel.org>
+Cc: Puranjay Mohan <puranjay@kernel.org>, Weinan Liu <wnliu@google.com>, 
+	Steven Rostedt <rostedt@goodmis.org>, Indu Bhagat <indu.bhagat@oracle.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev, 
+	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>, linux-toolchains@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, live-patching@vger.kernel.org, 
+	joe.lawrence@redhat.com, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_101729_347219_2D78E935 
-X-CRM114-Status: GOOD (  20.01  )
+X-CRM114-CacheID: sfid-20250218_102023_899796_4A9FBDA0 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,43 +92,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 05:24:08AM +0000, Tian, Kevin wrote:
-> > From: Nicolin Chen <nicolinc@nvidia.com>
-> > Sent: Saturday, January 25, 2025 8:31 AM
-> > 
-> > There is a DoS concern on the shared hardware event queue among devices
-> > passed through to VMs, that too many translation failures that belong to
-> > VMs could overflow the shared hardware event queue if those VMs or their
-> > VMMs don't handle/recover the devices properly.
-> 
-> This statement is not specific to the nested configuration.
-> 
-> > 
-> > The MEV bit in the STE allows to configure the SMMU HW to merge similar
-> > event records, though there is no guarantee. Set it in a nested STE for
-> > DoS mitigations.
-> 
-> Is MEV available only in nested mode? Otherwise it perhaps makes
-> sense to turn it on in all configurations in IOMMUFD paths...
+Hi Josh,
 
-MEV is available at all times (if an implemented by the HW) and doesn't
-depend on the nested mode. As per the Arm SMMUv3 spec (section 3.5.5):
+On Mon, Feb 17, 2025 at 10:37=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel.or=
+g> wrote:
+>
+> On Mon, Feb 17, 2025 at 08:38:22PM -0800, Song Liu wrote:
+> > On Fri, Feb 14, 2025 at 3:23=E2=80=AFPM Josh Poimboeuf <jpoimboe@kernel=
+.org> wrote:
+> > > Poking around the arm64 module code, arch/arm64/kernel/module-plts.c
+> > > is looking at all the relocations in order to set up the PLT.  That a=
+lso
+> > > needs to be done for klp relas, or are your patches already doing tha=
+t?
+> >
+> > I don't think either version (this set and my RFC) added logic for PLT.
+> > There is some rela logic on the kpatch-build side. But I am not sure
+> > whether it is sufficient.
+>
+> The klp relas looked ok.  I didn't see any signs of kpatch-build doing
+> anything wrong.  AFAICT the problem is that module-plts.c creates PLT
+> entries for regular relas but not klp relas.
 
-Events can be merged where all of the following conditions are upheld:
- - The event types and all fields are identical, except fields explicitly
-indicated in section 7.3 Event records.
-
- - If present, the Stall field is 0. Stall fault records are not merged.
-
-I'm not sure to what extent, but I think *trying* to merge similar event
-should reduce some chances of overflowing the hw eventq.
-
-> Is MEV available only in nested mode? Otherwise it perhaps makes
-> sense to turn it on in all configurations in IOMMUFD paths...
-
-I think the arm-smmu-v3's iommufd implementation only supports nested
-which could be the reason.
+In my tests (with printk) module-plts.c processes the .
+klp.rela.vmlinux..text.copy_process section just like any other .rela.*
+sections. Do we need special handling of the klp.rela.* sections?
 
 Thanks,
-Praan
+Song
 
