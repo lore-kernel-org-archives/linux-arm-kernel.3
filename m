@@ -4,59 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26058C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 210EAC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RMkwiryyiL9GSfIPQZSg1jtjObYICl3jtrG7WQyfZMk=; b=GgxQfLk4Em4mun
-	h8aemUbaxqhLXEf8Oubs7KGK2nXfGByHodsqREMNE9ALJvwLCid5nKI3v3dP+x9/wdDzQOly/d24X
-	2YDRwM/NSfzjK+xvNd3gQoK1Quws+OLmnNlTm6LRgOyJevtxhIQ2RfaXOyFh0o9iropDGGs5SQOSx
-	rvOTFL8IBMATPEz1lH2LdnBj+FZFxwSGb2f5igYSvn4AcHmpg/6z5Y0eWxOM6lBnEs/itHjKUM+8h
-	xXcTh4tPbJh5zts789SrxrxrGUi0j/MzsjmxHvJBJaM1BKDmSLnGx3QLzaEi+uswMClOieglyKb7w
-	nsUWnqM+k5WoJuov5WSg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HVf1UsKnK26Pr9ChPCOeDMcOutHzLioAp9TuND66ugQ=; b=VoQk31eBYrlyRYCsZe2RUHZDTk
+	I2FE8QsrYLMO34shEeaQHmEAQxwRJRZPs5u6rEM9Z5D/oEAF65vAXdvD5Vdrz5jGjXlgy46Kb/rJI
+	IjwdbZ/M2n8bKCr1Dgqfk5mo/TPpuUgpVfg1V1z+sLKjEVvTUCSScN8mI6wdQA3HK7n7Cremghgep
+	PiW+5IeGdqv3PQndQgs+Kh9q7o+rYCNiGHZmfiaAaJyaRzjqF7k69Ztt7ftc3nOqH5URRQx60jVqu
+	xcmi3aAR7bxzR+x4NT296+8d6AAr7xVZ+R23MJDt2gPFy681xkq+dtEMr5h/kBN5CldFSezZe8jNn
+	9M5W21vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkP1W-00000008eHX-2X8l;
-	Tue, 18 Feb 2025 14:56:34 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tkP2y-00000008ejM-2K9H;
+	Tue, 18 Feb 2025 14:58:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOlf-00000008afI-3f3q
+	id 1tkOyD-00000008dfU-2NEt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 14:40:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5414CA40FB2;
-	Tue, 18 Feb 2025 14:38:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7521CC4CEE6;
-	Tue, 18 Feb 2025 14:40:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739889610;
-	bh=YR9rSw0eu3MHVUUgxBCbni+Nva8WP3z74sHAVNGJ4uE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=nzbPVeL9NZslDcCM2y1sjYmXPxgSopR14z46QVjjrNzvbEHB5+WPnFQRRTHlKISMp
-	 elixWnJEzcRwytaUb6gea/LyyTRRuwENsCzaHq2/Ekrr9ihJ3+yCEALsOdI9KCzsR2
-	 PWNuVAgF693CQ3VKdYRyO6UftU9PQLPbr7eUMVk35Fv3Hg0uIc4nBL7Y+a1KP3Qxbx
-	 wRFVMhux4nj1DaWDiSBdDylC2chqVu4Rt9cZQKfZ95oj+B177msOHcrtOLpLftHi4N
-	 WOzUo3yt1LKjb5WFnvgnOeLuooMzEyk7JokubFm+R2BYrs6+zhsrcHEr/qzku47Wt9
-	 eo2mH4SwSkZPQ==
-Date: Tue, 18 Feb 2025 06:40:08 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Parvathi Pudi <parvathi@couthit.com>
-Subject: Re: [PATCH net-next v3 00/10] PRU-ICSSM Ethernet Driver
-Message-ID: <20250218064008.762e9b94@kernel.org>
-In-Reply-To: <1348929889.600853.1739873180072.JavaMail.zimbra@couthit.local>
-References: <20250214054702.1073139-1-parvathi@couthit.com>
-	<20250214170219.22730c3b@kernel.org>
-	<1348929889.600853.1739873180072.JavaMail.zimbra@couthit.local>
+	Tue, 18 Feb 2025 14:53:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739890387;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=HVf1UsKnK26Pr9ChPCOeDMcOutHzLioAp9TuND66ugQ=;
+	b=LJT71wgJGYHZU2BRscsLeYc1AgOZ1m9e/ev7aWBCAFg4XN+YW8u7O5aLdf/m8kRBGx4zHE
+	bVFKDxueioJCC3OOUpN1WOgzZxNKR4YdpnjH9h3FyxKWlpoLR/MxPy7RJVWAOq5yteE9Yo
+	72uhpDTyLVtk1DuI9tJ/Wot8TVUC0E0=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-515-WyiKdDZdMXe0wqMxr3fngw-1; Tue,
+ 18 Feb 2025 09:53:05 -0500
+X-MC-Unique: WyiKdDZdMXe0wqMxr3fngw-1
+X-Mimecast-MFC-AGG-ID: WyiKdDZdMXe0wqMxr3fngw_1739890385
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C7D151800994;
+	Tue, 18 Feb 2025 14:53:04 +0000 (UTC)
+Received: from [172.64.13.25] (unknown [10.30.32.164])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2F9921955BCB;
+	Tue, 18 Feb 2025 14:53:04 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc3,
+ upstream-arm-next, 6d206d3a)
+Date: Tue, 18 Feb 2025 14:53:04 -0000
+To: will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Message-Id: <72746.125021809530503709@us-mta-515.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: fBfviw5AvL9mjmnMDSSPqD404UmtyLNPKFMSjckFoJ0_1739890385
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_064011_987553_4FD77320 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20250218_065309_673329_AEE09166 
+X-CRM114-Status: UNSURE (   6.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,32 +81,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm@ti.com, Vignesh Raghavendra <vigneshr@ti.com>, praneeth@ti.com, edumazet@google.com, krishna <krishna@couthit.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh@kernel.org, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, m-karicheri2@ti.com, basharath <basharath@couthit.com>, pabeni@redhat.com, devicetree@vger.kernel.org, conor+dt@kernel.org, schnelle@linux.ibm.com, mohan <mohan@couthit.com>, richardcochran@gmail.com, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, jacob e keller <jacob.e.keller@intel.com>, ssantosh@kernel.org, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, pratheesh <pratheesh@ti.com>, m-malladi@ti.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, danishanwar <danishanwar@ti.com>, afd@ti.com, andrew+netdev@lunn.ch, horms@kernel.org, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Feb 2025 15:36:20 +0530 (IST) Parvathi Pudi wrote:
-> > On Fri, 14 Feb 2025 11:16:52 +0530 parvathi wrote:  
-> >> The Programmable Real-Time Unit Industrial Communication Sub-system (PRU-ICSS)
-> >> is available on the TI SOCs in two flavors: Gigabit ICSS (ICSSG) and the older
-> >> Megabit ICSS (ICSSM).  
-> > 
-> > Every individual patch must build cleanly with W=1.
-> > Otherwise doing git bisections is a miserable experience.
-> > --  
-> 
-> As we mentioned in cover letter we have dependency with SOC patch.
-> 
-> "These patches have a dependency on an SOC patch, which we are including at the
-> end of this series for reference. The SOC patch has been submitted in a separate
-> thread [2] and we are awaiting for it to be merged."
-> 
-> SOC patch need to be applied prior applying the "net" patches. We have changed the 
-> order and appended the SOC patch at the end, because SOC changes need to go into 
-> linux-next but not into net-next. 
-> 
-> We have make sure every individual patch has compiled successfully with W=1 if we 
-> apply SOC patch prior to the "net" patches.
+Hi, we tested your kernel and here are the results:
 
-Please resubmit after the merge window.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+
+Tested-by: CKI Project <cki-project@redhat.com>
+
+Kernel information:
+    Commit message: Merge branches 'for-next/amuv1-avg-freq' and 'for-next/=
+pkey_unrestricted' into for-next/core
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1676633598
+
+One or more kernel builds failed:
+    We also see the following known issues which are not related to your ch=
+anges:
+         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
+t:1676633598-aarch64-kernel
+                   Issue: [upstream] error: initializer-string for array of=
+ 'char' is too long [-Werror=3Dunterminated-string-initialization]
+                          https://gitlab.com/cki-project/infrastructure/-/i=
+ssues/473
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
