@@ -4,115 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE52C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 15:01:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E665AC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 15:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oAIrJ/LjqF3PZx6DSjpQeC5ZYl3v6fqCgyrURh3Pa9A=; b=PrB3wE0IpJaT8UTU6wEdXue2rA
-	9BG4OiFVsgWlSydtv/i6ZGqugBSLYsOAY4u+N8754HKkKG2NyhcuetS4b76yK5DWQxtNQSBdyThXO
-	1zLn21kk9F2AbQuPzeEQzhKu2d3UhJYlkBBb2wMRITv9DKNcDxtrn1sg3YlNxIpjFpdrYc9BjQ9lG
-	wBUSMhO3UnNzTS+ibcGPazXZQB6VN9CeNEmmoeLpFnKSMyHXon5cpbhzuWYi7U2FxgbTCQNupXkyB
-	3T+eSEBPsfOcHs7oiQI7YZvh7Gp5jKGxJMtZrato0TEJV+mEGmoWHbJ0L64/ZVCt4+48y9gdkBZo6
-	f+V/YkCQ==;
+	bh=8G3fJTsPM3PHD9oCrIMRqDVoc+TasoPU4gPsLvhxTFY=; b=p6oh51LVUCPCBMsGlc4xezCjvf
+	p3US7SFjUWBqSSosbLxeDv8tgs8edO7LKq/UM1olVP2vYseVv+6uKl9mt8XJMcKiVYz0zb6VQ/TnJ
+	44d8RBHMDCokx/O5x10U1x8JJfn5/4HoUCTVvovAEz3FO/Qi73PRSjFTIIn25opK2yOU89peoCb4W
+	RBACeveEkCLQ3QZhQD5dZ5xYY33NRE4NUo+uoZZLnGwQzdxDaxL2saMn+Hg+/oW8JD+XOFysUWyr9
+	KpwFZW9XEaZtUlC2LdZmwn/Lxx6VfAmCKSaFC4pu8WziU+l0V4TtZEZsCOH/2VN21lqjHArJCuES2
+	yw1trxQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkP5t-00000008fzI-0Z2O;
-	Tue, 18 Feb 2025 15:01:05 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1tkP7J-00000008gPU-3MD2;
+	Tue, 18 Feb 2025 15:02:33 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkP3z-00000008evX-2utR;
-	Tue, 18 Feb 2025 14:59:09 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-abb892fe379so373960566b.0;
-        Tue, 18 Feb 2025 06:59:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739890745; x=1740495545; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=oAIrJ/LjqF3PZx6DSjpQeC5ZYl3v6fqCgyrURh3Pa9A=;
-        b=mVvh/nUGwtUTm+7Bh0gMlDlHGlY7+5QVswX0+GjoPnWHdDB3nSxHpEtdqp2oj33AOP
-         qnycwIwniV8jFBm601MKSCNAYVxLL/Zby2tmU6VqUfl5yhlG4FIVQ4tcZ7eFNOQxAtFX
-         YuzRPfLfqhgTXamdHcPkG+BpsZpaD8LOruL9Z/JjfCkBjfcvSBWafRq027/KMGWgC7DJ
-         IizFG4/c86blbcRix3Nhc+m/rHG5GKkl+XRMOLg4pnKQ2SNbT8TJCnogEeuxJDUzy9d7
-         DgrcJ8PhCBZr5CvTynOzm3Yo5C0BOikVF7ROQdq2PiHqqvgwsOvUPZ2AgcjAxuRlAVUA
-         UXBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739890745; x=1740495545;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=oAIrJ/LjqF3PZx6DSjpQeC5ZYl3v6fqCgyrURh3Pa9A=;
-        b=UCnHeLbZpuwhUoKZUs0Hd9cy70ZrbTFiVWTlJd/lUAWcwxDxdzwiCqrVpTgx+wW+iT
-         TGDC/dkZ7epKm0oyb0JcDJFbwj1B3+3wJqJau84KLTxRy33l4rJBTYA7QskNWN020aoC
-         ycfsh13lwiDwkHj2a8tL8kSJV6TvQ6GKCEed6OZYbUkui7ITzREhbzg+WN7DWxy6ndj2
-         7H+TRbwhTDA6uq3n9vemIs83NhkBh5v/CtK77x9PlrJlQ4IWAQ7D9JIBCYn9ETUeSAz3
-         6UuGljjgiJwxFr1PtOMjmFlcWmEYdC2LPniqYFCIFtEr+UfsYxmguOXGwyghKE7sc0mb
-         YMLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWXZ7YpjuQiAyy+YFgSwfkNnJf4Jukr7JaNkSJxVj4BiAJP1TOHVjL1rTUZbufpgHgy0F9zGg==@lists.infradead.org, AJvYcCXW+GIKjglHCB6DK9eFo8BNQtYN7Oa81WDbiGpiSZrWNVazXJg2NmqIiWgru/329BF7Nk3bxw4j16wVoMYbledcUw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6QVsye/Kl9qn+lD8sVs/6S+StZCwYAc2OymObLoekMtAREDR0
-	uGKTF37gJbm1BfZTQCSyZbuqkNGibUoJNFaLwWLGsJtMHkGDk98t
-X-Gm-Gg: ASbGncsYJd6hV9YakPnGKV4UDI46PvImSejs64zg1g7nrutpMSDB60YVqswZLubnB44
-	bY/sSGXRWp/NgN59jXLkrKl/+u7GLdu4MG1Rm1E7RJcG8jQZXWAzTIVe3dAyNj4lU+GOfO2JWbs
-	H/E3Hnv31b2dlMVEY6opLX2zIw9n8MNm/EgOV9kzuDAIgaMi6UykEfR2rvYdPqcRQOVB5DYfASD
-	7fmVOH7FeX7eGKzOMAXu2BW9nxm4WbO1kezhcgHtRBdrDSSbORKeSwu8Xalp9rSKDAvih/5qNX3
-	DQFM+3y+HcwJxIw=
-X-Google-Smtp-Source: AGHT+IHfGUb6DAP5PY1vAqYBMMTlEpLIKDLmvPxJw/HfikZVPdieC7mOeVaDwsd2Oi5vIHAKZzcd1g==
-X-Received: by 2002:a05:6402:2386:b0:5dc:6e27:e6e8 with SMTP id 4fb4d7f45d1cf-5e036139cb5mr24069087a12.24.1739890745271;
-        Tue, 18 Feb 2025 06:59:05 -0800 (PST)
-Received: from localhost ([185.92.221.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abbbc841eb0sm121224966b.128.2025.02.18.06.59.04
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 18 Feb 2025 06:59:04 -0800 (PST)
-Date: Tue, 18 Feb 2025 14:59:04 +0000
-From: Wei Yang <richard.weiyang@gmail.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 01/14] mm/mm_init: rename init_reserved_page to
- init_deferred_page
-Message-ID: <20250218145904.x57chhz3whvckzu3@master>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-2-rppt@kernel.org>
+	id 1tkP42-00000008exM-2PfN
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Feb 2025 14:59:11 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51ID86i6001000;
+	Tue, 18 Feb 2025 14:58:42 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=8G3fJTsPM3PHD9oCrIMRqDVoc+Taso
+	PU4gPsLvhxTFY=; b=DQIJfHhO3QD73+jp3tfon/61fA2d/r5I1fep0BoPRgRBrh
+	fgTG7k33O7gqCKVdYSvGhvsPyfxJBhUvfW652t0LZUwumb8W7vcB7aFrWN63bzag
+	6EejdN/Xkyy85PHoZRW+h9YrP2n5iSzFr+iXZr+FjGtmwnlygJ/3xlzQ+e/pLMwF
+	hq/alZxfLV+BBcaCe0ditIsn6EDNOWgnPqvpfYxcBk2bPrsO25OtBWTib2Gr048X
+	wkQvZnBgJcvBsGfXl0XeGf6KH0A30OySYegj9P8XoFSkXXaDRSiZGHxtODNd6+QA
+	9yQcMpnfr8PYX66y7AaEwT8XPDcwxB4VKYs/cKcQ==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44vh203848-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 18 Feb 2025 14:58:41 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 51IEr2qW013259;
+	Tue, 18 Feb 2025 14:58:41 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 44u7fkkgt6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 18 Feb 2025 14:58:41 +0000
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 51IEwbYV39322100
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 18 Feb 2025 14:58:37 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 94FF720040;
+	Tue, 18 Feb 2025 14:58:37 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 3119A20043;
+	Tue, 18 Feb 2025 14:58:37 +0000 (GMT)
+Received: from osiris (unknown [9.152.212.60])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue, 18 Feb 2025 14:58:37 +0000 (GMT)
+Date: Tue, 18 Feb 2025 15:58:36 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+        linux-kbuild@vger.kernel.org, bpf <bpf@vger.kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org,
+        Masami Hiramatsu <mhiramat@kernel.org>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Linus Torvalds <torvalds@linux-foundation.org>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Nathan Chancellor <nathan@kernel.org>,
+        Nicolas Schier <nicolas@fjasle.eu>,
+        Zheng Yejian <zhengyejian1@huawei.com>,
+        Martin Kelly <martin.kelly@crowdstrike.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Josh Poimboeuf <jpoimboe@redhat.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>
+Subject: Re: [PATCH v4 0/6] scripts/sorttable: ftrace: Remove place holders
+ for weak functions in available_filter_functions
+Message-ID: <20250218145836.7740B3b-hca@linux.ibm.com>
+References: <20250217153401.022858448@goodmis.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250206132754.2596694-2-rppt@kernel.org>
-User-Agent: NeoMutt/20170113 (1.7.2)
+In-Reply-To: <20250217153401.022858448@goodmis.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: N6Nd-Kgwrh6LB3tMVi3DOv2CPHs0sU1v
+X-Proofpoint-ORIG-GUID: N6Nd-Kgwrh6LB3tMVi3DOv2CPHs0sU1v
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-18_07,2025-02-18_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 clxscore=1011
+ spamscore=0 impostorscore=0 adultscore=0 bulkscore=0 mlxlogscore=293
+ phishscore=0 mlxscore=0 lowpriorityscore=0 suspectscore=0
+ priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2501170000 definitions=main-2502180109
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_065907_734787_839F1D08 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250218_065910_722632_9616C7DE 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,26 +118,22 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 03:27:41PM +0200, Mike Rapoport wrote:
->From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
->
->When CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled, init_reserved_page()
->function performs initialization of a struct page that would have been
->deferred normally.
->
->Rename it to init_deferred_page() to better reflect what the function does.
+Hi Steven,
 
-Would it be confused with deferred_init_pages()?
+> This series removes the place holder __ftrace_invalid_address___ from
+> the available_filter_functions file.
+> 
+> The rewriting of the sorttable.c code to make it more manageable
+> has already been merged:
+> 
+>   https://git.kernel.org/torvalds/c/c0e75905caf368e19aab585d20151500e750de89
+> 
+> Now this is only for getting rid of the ftrace invalid function place holders.
 
-And it still calls __init_reserved_page_zone(), even we __SetPageReserved()
-after it. Current logic looks not clear.
-
-
--- 
-Wei Yang
-Help you, Help me
+Since you asked me to test this on s390: seems to work with
+HAVE_BUILDTIME_MCOUNT_SORT enabled; the ftrace selftests still
+work as before.
 
