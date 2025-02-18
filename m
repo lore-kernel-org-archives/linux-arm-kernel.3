@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B28A3C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 18:56:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5222CC021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 18:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=uvbtjOUnjjWAIKZo3fLcqxmPStvjKL0DwwWNfs13Bag=; b=xGbCdO0zSbXVfu
-	AA4N41ZjW+FUyrz1I+QVrsbuKjofkyIzKA7JyGAhuAosM9sU8zrB/CRx4zic2PsqTwycVITG52RIE
-	CRkwYrVlwXNiBf5+uzdw2fOW51adayMVMJkqRjdENLDrlSLdbzA1v19cwJaK2aim3YVGolaacbENK
-	wf9D5i8L+5Ct5DQfJ55Vd+RervN2iBDCFFjJlDnbReqImyc7SHRM82OWkozGOQJ57EUVM5g1lukXe
-	WtS+y2pCLOG9IxHajyjXBhJSuZwmnYBE+0e7vq5hFQPQyAlF7JKVmYJQNmpfvORLt3OmwQQxRZyWD
-	Nc2JGYeaHwHp2t+I6geA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=57L6XvENOvnqDaZS5O6btau3+crg8XqEgsqhAVyHDRU=; b=3ENH4IEGqwhywVCNojxjlxhpIv
+	zlmLnbzWTi6jxNptMPd1qN32qLFmgBl7LkjyVt1vcUSoFlQOiB5n3SJieGmTTw8Zf6lR6QxNtu8ny
+	BC83YMfolScUgtGNBMLETMb9Oa0UY7d2QktL2XA7ljAwrkchZCUBNnuO3P49WHfXiClVSXrcuelLD
+	Jd+TdHvN0lx92SUkVDFtSSUUmWEU6q55Q+xKq+NVTFjetz+3LnkdjUdvgGK+gJYPtyxjR1AJQiA3H
+	CqvuM+6GD4Nppj6Rp0ID7DEZkBww9JZtIuyHktJI6fHpjXABfI87Z4y6QsNgakttaWMhca6DkYitv
+	zsMViC0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSm0-00000009SgV-1VxB;
-	Tue, 18 Feb 2025 18:56:48 +0000
+	id 1tkSoe-00000009TK0-0odl;
+	Tue, 18 Feb 2025 18:59:32 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSe5-00000009QPi-3hIG
+	id 1tkSf0-00000009Qd7-2RNs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 18:48:39 +0000
+	Tue, 18 Feb 2025 18:49:35 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 4A15B25B65;
-	Tue, 18 Feb 2025 19:48:33 +0100 (CET)
+	by disroot.org (Postfix) with ESMTP id 51D97234ED;
+	Tue, 18 Feb 2025 19:49:33 +0100 (CET)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id YTEc64bV_CrT; Tue, 18 Feb 2025 19:48:32 +0100 (CET)
+ id LCYEcoZQnwQW; Tue, 18 Feb 2025 19:49:32 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1739904512; bh=YMTJWxXHh330br82br0etxC3kz7eh2nyIwBII22BIRg=;
-	h=From:Subject:Date:To:Cc;
-	b=T0CsyKyQz5J0X18a0h/L2r9JpQBQ9dSb3Buwpn/I2t+BHgx/HbyiIBHNRaC0uyLCW
-	 eLtM7XxUZ+6H0dwkZv1D0VbEM3YWMMdU/lioM7PzaEzPm26nyMrGwbYtvVQD0RBV1Y
-	 j4R7q2jmQ4RqmI+GlKklaj3viHSTzYYmZehubCAwram4QPjAcggyufwv3nQywn3cq0
-	 ma4BQlasjNdpgdwGOYLcpiD2QDpQnYnrRFAhDJ4OGu8u2igCRxNM2JuZjSTbL5T5/d
-	 M7jDvs2rHfzPErekjpqqTDT9Ub9CaF0E2OdA0fOjJluf0IWM91hxXVe7jpp67di0iY
-	 IhbDt5IIhpnmw==
+	t=1739904572; bh=CzffE0iAb+LNe57ihRfjLLgBYfwAr+KOT5fivJbV43k=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=kJfywxO7Nfg6qC2sl2J22Avrkfzj6ARm9M4Cb1/uJBdY4D6l9yOxz1ZABTsGj0U2V
+	 hXuM8cK7ZpepMaM09odm09QcxZB0jibyNZXMHXlSWxaZIYobFiuuE2awv3NgOvLqjz
+	 ZJPZMp38uGisl+YDhTFTd5hOutBII4Uq7lub9kyPOaH3s5MGIeis1aJiNPqTcts3nf
+	 evYXZn4ZpWBbfLnSleBTjmg4WlVph6zMV8i17ToNVVhOY77YsEtxXmPv1RW09zEQCM
+	 SOqLm6oqponRPwUNNqGDYekSCcDxZl4hDgvlRg+7VcCPtt96SIhFkOGOk7uK1CdfMd
+	 c7JCBYypdr8dA==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Subject: [PATCH v2 0/3] Introduce DW MMC support for Exynos7870
-Date: Wed, 19 Feb 2025 00:17:46 +0530
-Message-Id: <20250219-exynos7870-mmc-v2-0-b4255a3e39ed@disroot.org>
+Date: Wed, 19 Feb 2025 00:18:59 +0530
+Subject: [PATCH v2 3/3] pinctrl: samsung: add support for exynos7870
+ pinctrl
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIANPVtGcC/13MQQqDMBCF4avIrJsSY2xCV96juNBx1FmYlESCI
- t69qdBNl/+D9x0QKTBFeBYHBEoc2bsc6lYAzp2bSPCQG5RUtVSyErTtzkdjjRTLgsLUfYe1rdA
- +NOTTO9DI2wW+2twzx9WH/fJT+V1/lP6nUimkQGtwRKN60l0zcAzer3cfJmjP8/wAsEEUxa4AA
- AA=
-X-Change-ID: 20250203-exynos7870-mmc-75bac583c864
-To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Jaehoon Chung <jh80.chung@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-mmc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739904507; l=1253;
+Message-Id: <20250219-exynos7870-pinctrl-v2-3-1ff9b10bf913@disroot.org>
+References: <20250219-exynos7870-pinctrl-v2-0-1ff9b10bf913@disroot.org>
+In-Reply-To: <20250219-exynos7870-pinctrl-v2-0-1ff9b10bf913@disroot.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Tomasz Figa <tomasz.figa@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739904552; l=10044;
  i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=YMTJWxXHh330br82br0etxC3kz7eh2nyIwBII22BIRg=;
- b=LZPho8AvHLw3wEQKSAqT37sfbjzg/HU7eUsKTXf8nEcvsTjTTnCilhT8CRmn1576PNG64Mnco
- jJWN2rpJhc1Aa8CzVfZUXxM57Y7EhyZiteNSLIeS/o74LQuhm3lGYre
+ bh=CzffE0iAb+LNe57ihRfjLLgBYfwAr+KOT5fivJbV43k=;
+ b=tnxGx1qP7tyxNGaIIqYr9Uys+DalH5eDzNQSx8vKsRHziFs7j9Iw7sxZfnolXqBACDjMx2FVO
+ 0bfC4kiSJpEClCWMrrb8/U0fdCVKjpq5MbvhwXDrWNNjAXf6MYBUb/W
 X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
  pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_104838_347001_A4A32B65 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20250218_104934_899088_7913D7F0 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,37 +85,243 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for SMU and non-SMU variants of Exynos7870 DW
-MMC controllers.
-
-Some DW MMC controllers require two 32-bit r/w from a 64-bit FIFO,
-the series implements that feature as well.
-
-This patch series is a part of Exynos7870 upstreaming.
+Add support for the Exynos7870 SoC pin-controller in the pinctrl driver.
+It has 8 GPIO banks, and 3-bit PINCFG_TYPE_DRV width.
 
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
-Changes in v2:
-- Take over ownership of patches by the co-author, upon their request.
-- Link to v1: https://lore.kernel.org/r/20250204-exynos7870-mmc-v1-0-c87cfc72be4a@disroot.org
+ drivers/pinctrl/samsung/pinctrl-exynos-arm64.c | 141 +++++++++++++++++++++++++
+ drivers/pinctrl/samsung/pinctrl-exynos.h       |  29 +++++
+ drivers/pinctrl/samsung/pinctrl-samsung.c      |   2 +
+ drivers/pinctrl/samsung/pinctrl-samsung.h      |   1 +
+ 4 files changed, 173 insertions(+)
 
----
-Kaustabh Chakraborty (3):
-      dt-bindings: mmc: samsung,exynos-dw-mshc: add exynos7870 support
-      mmc: dw_mmc: add a quirk for accessing 64-bit FIFOs in two halves
-      mmc: dw_mmc: add exynos7870 DW MMC support
+diff --git a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
+index 3ea7106ce5eae3c21f11790b5a40037042c1d407..90343cbd8e6a252acedb921662cd2284547a21a7 100644
+--- a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
++++ b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
+@@ -40,6 +40,17 @@ static const struct samsung_pin_bank_type exynos5433_bank_type_alive = {
+ 	.reg_offset = { 0x00, 0x04, 0x08, 0x0c, },
+ };
+ 
++/* Exynos7870 has the 3bit widths for PINCFG_TYPE_DRV bitfields. */
++static const struct samsung_pin_bank_type exynos7870_bank_type_off = {
++	.fld_width = { 4, 1, 2, 3, 2, 2, },
++	.reg_offset = { 0x00, 0x04, 0x08, 0x0c, 0x10, 0x14, },
++};
++
++static const struct samsung_pin_bank_type exynos7870_bank_type_alive = {
++	.fld_width = { 4, 1, 2, 3, },
++	.reg_offset = { 0x00, 0x04, 0x08, 0x0c, },
++};
++
+ /*
+  * Bank type for non-alive type. Bit fields:
+  * CON: 4, DAT: 1, PUD: 4, DRV: 4, CONPDN: 2, PUDPDN: 4
+@@ -450,6 +461,136 @@ const struct samsung_pinctrl_of_match_data exynos7_of_data __initconst = {
+ 	.num_ctrl	= ARRAY_SIZE(exynos7_pin_ctrl),
+ };
+ 
++/* pin banks of exynos7870 pin-controller 0 (ALIVE) */
++static const struct samsung_pin_bank_data exynos7870_pin_banks0[] __initconst = {
++	EXYNOS7870_PIN_BANK_EINTN(6, 0x000, "etc0"),
++	EXYNOS7870_PIN_BANK_EINTN(3, 0x020, "etc1"),
++	EXYNOS7870_PIN_BANK_EINTW(8, 0x040, "gpa0", 0x00),
++	EXYNOS7870_PIN_BANK_EINTW(8, 0x060, "gpa1", 0x04),
++	EXYNOS7870_PIN_BANK_EINTW(8, 0x080, "gpa2", 0x08),
++	EXYNOS7870_PIN_BANK_EINTN(2, 0x0c0, "gpq0"),
++};
++
++/* pin banks of exynos7870 pin-controller 1 (DISPAUD) */
++static const struct samsung_pin_bank_data exynos7870_pin_banks1[] __initconst = {
++	EXYNOS7870_PIN_BANK_EINTG(4, 0x000, "gpz0", 0x00),
++	EXYNOS7870_PIN_BANK_EINTG(6, 0x020, "gpz1", 0x04),
++	EXYNOS7870_PIN_BANK_EINTG(4, 0x040, "gpz2", 0x08),
++};
++
++/* pin banks of exynos7870 pin-controller 2 (ESE) */
++static const struct samsung_pin_bank_data exynos7870_pin_banks2[] __initconst = {
++	EXYNOS7870_PIN_BANK_EINTG(5, 0x000, "gpc7", 0x00),
++};
++
++/* pin banks of exynos7870 pin-controller 3 (FSYS) */
++static const struct samsung_pin_bank_data exynos7870_pin_banks3[] __initconst = {
++	EXYNOS7870_PIN_BANK_EINTG(3, 0x000, "gpr0", 0x00),
++	EXYNOS7870_PIN_BANK_EINTG(8, 0x020, "gpr1", 0x04),
++	EXYNOS7870_PIN_BANK_EINTG(2, 0x040, "gpr2", 0x08),
++	EXYNOS7870_PIN_BANK_EINTG(4, 0x060, "gpr3", 0x0c),
++	EXYNOS7870_PIN_BANK_EINTG(6, 0x080, "gpr4", 0x10),
++};
++
++/* pin banks of exynos7870 pin-controller 4 (MIF) */
++static const struct samsung_pin_bank_data exynos7870_pin_banks4[] __initconst = {
++	EXYNOS7870_PIN_BANK_EINTG(2, 0x000, "gpm0", 0x00),
++};
++
++/* pin banks of exynos7870 pin-controller 5 (NFC) */
++static const struct samsung_pin_bank_data exynos7870_pin_banks5[] __initconst = {
++	EXYNOS7870_PIN_BANK_EINTG(4, 0x000, "gpc2", 0x00),
++};
++
++/* pin banks of exynos7870 pin-controller 6 (TOP) */
++static const struct samsung_pin_bank_data exynos7870_pin_banks6[] __initconst = {
++	EXYNOS7870_PIN_BANK_EINTG(4, 0x000, "gpb0", 0x00),
++	EXYNOS7870_PIN_BANK_EINTG(3, 0x020, "gpc0", 0x04),
++	EXYNOS7870_PIN_BANK_EINTG(4, 0x040, "gpc1", 0x08),
++	EXYNOS7870_PIN_BANK_EINTG(4, 0x060, "gpc4", 0x0c),
++	EXYNOS7870_PIN_BANK_EINTG(2, 0x080, "gpc5", 0x10),
++	EXYNOS7870_PIN_BANK_EINTG(4, 0x0a0, "gpc6", 0x14),
++	EXYNOS7870_PIN_BANK_EINTG(2, 0x0c0, "gpc8", 0x18),
++	EXYNOS7870_PIN_BANK_EINTG(2, 0x0e0, "gpc9", 0x1c),
++	EXYNOS7870_PIN_BANK_EINTG(7, 0x100, "gpd1", 0x20),
++	EXYNOS7870_PIN_BANK_EINTG(6, 0x120, "gpd2", 0x24),
++	EXYNOS7870_PIN_BANK_EINTG(8, 0x140, "gpd3", 0x28),
++	EXYNOS7870_PIN_BANK_EINTG(7, 0x160, "gpd4", 0x2c),
++	EXYNOS7870_PIN_BANK_EINTG(3, 0x1a0, "gpe0", 0x34),
++	EXYNOS7870_PIN_BANK_EINTG(4, 0x1c0, "gpf0", 0x38),
++	EXYNOS7870_PIN_BANK_EINTG(2, 0x1e0, "gpf1", 0x3c),
++	EXYNOS7870_PIN_BANK_EINTG(2, 0x200, "gpf2", 0x40),
++	EXYNOS7870_PIN_BANK_EINTG(4, 0x220, "gpf3", 0x44),
++	EXYNOS7870_PIN_BANK_EINTG(5, 0x240, "gpf4", 0x48),
++};
++
++/* pin banks of exynos7870 pin-controller 7 (TOUCH) */
++static const struct samsung_pin_bank_data exynos7870_pin_banks7[] __initconst = {
++	EXYNOS7870_PIN_BANK_EINTG(3, 0x000, "gpc3", 0x00),
++};
++
++static const struct samsung_pin_ctrl exynos7870_pin_ctrl[] __initconst = {
++	{
++		/* pin-controller instance 0 Alive data */
++		.pin_banks	= exynos7870_pin_banks0,
++		.nr_banks	= ARRAY_SIZE(exynos7870_pin_banks0),
++		.eint_wkup_init = exynos_eint_wkup_init,
++		.suspend	= exynos_pinctrl_suspend,
++		.resume		= exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 1 DISPAUD data */
++		.pin_banks	= exynos7870_pin_banks1,
++		.nr_banks	= ARRAY_SIZE(exynos7870_pin_banks1),
++	}, {
++		/* pin-controller instance 2 ESE data */
++		.pin_banks	= exynos7870_pin_banks2,
++		.nr_banks	= ARRAY_SIZE(exynos7870_pin_banks2),
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend	= exynos_pinctrl_suspend,
++		.resume		= exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 3 FSYS data */
++		.pin_banks	= exynos7870_pin_banks3,
++		.nr_banks	= ARRAY_SIZE(exynos7870_pin_banks3),
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend	= exynos_pinctrl_suspend,
++		.resume		= exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 4 MIF data */
++		.pin_banks	= exynos7870_pin_banks4,
++		.nr_banks	= ARRAY_SIZE(exynos7870_pin_banks4),
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend	= exynos_pinctrl_suspend,
++		.resume		= exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 5 NFC data */
++		.pin_banks	= exynos7870_pin_banks5,
++		.nr_banks	= ARRAY_SIZE(exynos7870_pin_banks5),
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend	= exynos_pinctrl_suspend,
++		.resume		= exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 6 TOP data */
++		.pin_banks	= exynos7870_pin_banks6,
++		.nr_banks	= ARRAY_SIZE(exynos7870_pin_banks6),
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend	= exynos_pinctrl_suspend,
++		.resume		= exynos_pinctrl_resume,
++	}, {
++		/* pin-controller instance 7 TOUCH data */
++		.pin_banks	= exynos7870_pin_banks7,
++		.nr_banks	= ARRAY_SIZE(exynos7870_pin_banks7),
++		.eint_gpio_init = exynos_eint_gpio_init,
++		.suspend	= exynos_pinctrl_suspend,
++		.resume		= exynos_pinctrl_resume,
++	},
++};
++
++const struct samsung_pinctrl_of_match_data exynos7870_of_data __initconst = {
++	.ctrl		= exynos7870_pin_ctrl,
++	.num_ctrl	= ARRAY_SIZE(exynos7870_pin_ctrl),
++};
++
+ /* pin banks of exynos7885 pin-controller 0 (ALIVE) */
+ static const struct samsung_pin_bank_data exynos7885_pin_banks0[] __initconst = {
+ 	EXYNOS_PIN_BANK_EINTN(3, 0x000, "etc0"),
+diff --git a/drivers/pinctrl/samsung/pinctrl-exynos.h b/drivers/pinctrl/samsung/pinctrl-exynos.h
+index 7b7ff7ffeb56bdde2504ec90c8df13bdd1ace70e..81c4b4a1acc20aeefe086ecf1fcf8644c3ca4395 100644
+--- a/drivers/pinctrl/samsung/pinctrl-exynos.h
++++ b/drivers/pinctrl/samsung/pinctrl-exynos.h
+@@ -112,6 +112,35 @@
+ 		.pctl_res_idx   = pctl_idx,			\
+ 	}							\
+ 
++#define EXYNOS7870_PIN_BANK_EINTN(pins, reg, id)		\
++	{							\
++		.type		= &exynos7870_bank_type_alive,	\
++		.pctl_offset	= reg,				\
++		.nr_pins	= pins,				\
++		.eint_type	= EINT_TYPE_NONE,		\
++		.name		= id				\
++	}
++
++#define EXYNOS7870_PIN_BANK_EINTG(pins, reg, id, offs)		\
++	{							\
++		.type		= &exynos7870_bank_type_off,	\
++		.pctl_offset	= reg,				\
++		.nr_pins	= pins,				\
++		.eint_type	= EINT_TYPE_GPIO,		\
++		.eint_offset	= offs,				\
++		.name		= id				\
++	}
++
++#define EXYNOS7870_PIN_BANK_EINTW(pins, reg, id, offs)		\
++	{							\
++		.type		= &exynos7870_bank_type_alive,	\
++		.pctl_offset	= reg,				\
++		.nr_pins	= pins,				\
++		.eint_type	= EINT_TYPE_WKUP,		\
++		.eint_offset	= offs,				\
++		.name		= id				\
++	}
++
+ #define EXYNOS850_PIN_BANK_EINTN(pins, reg, id)			\
+ 	{							\
+ 		.type		= &exynos850_bank_type_alive,	\
+diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.c b/drivers/pinctrl/samsung/pinctrl-samsung.c
+index cfced7afd4ca6e99c7e72a588d780f0542990ed9..e1962b78cef4ff63a7f3a71c1aa55adb84b70bf2 100644
+--- a/drivers/pinctrl/samsung/pinctrl-samsung.c
++++ b/drivers/pinctrl/samsung/pinctrl-samsung.c
+@@ -1473,6 +1473,8 @@ static const struct of_device_id samsung_pinctrl_dt_match[] = {
+ 		.data = &exynos5433_of_data },
+ 	{ .compatible = "samsung,exynos7-pinctrl",
+ 		.data = &exynos7_of_data },
++	{ .compatible = "samsung,exynos7870-pinctrl",
++		.data = &exynos7870_of_data },
+ 	{ .compatible = "samsung,exynos7885-pinctrl",
+ 		.data = &exynos7885_of_data },
+ 	{ .compatible = "samsung,exynos850-pinctrl",
+diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.h b/drivers/pinctrl/samsung/pinctrl-samsung.h
+index bb0689d52ea0b4392714fa9bcdcbae8d253c73a1..3e82aab3eae8accb0586295c2ffd89667ad0c56a 100644
+--- a/drivers/pinctrl/samsung/pinctrl-samsung.h
++++ b/drivers/pinctrl/samsung/pinctrl-samsung.h
+@@ -382,6 +382,7 @@ extern const struct samsung_pinctrl_of_match_data exynos5410_of_data;
+ extern const struct samsung_pinctrl_of_match_data exynos5420_of_data;
+ extern const struct samsung_pinctrl_of_match_data exynos5433_of_data;
+ extern const struct samsung_pinctrl_of_match_data exynos7_of_data;
++extern const struct samsung_pinctrl_of_match_data exynos7870_of_data;
+ extern const struct samsung_pinctrl_of_match_data exynos7885_of_data;
+ extern const struct samsung_pinctrl_of_match_data exynos850_of_data;
+ extern const struct samsung_pinctrl_of_match_data exynos8895_of_data;
 
- .../bindings/mmc/samsung,exynos-dw-mshc.yaml       |  2 +
- drivers/mmc/host/dw_mmc-exynos.c                   | 41 +++++++++-
- drivers/mmc/host/dw_mmc.c                          | 94 +++++++++++++++++++++-
- drivers/mmc/host/dw_mmc.h                          | 27 +++++++
- 4 files changed, 161 insertions(+), 3 deletions(-)
----
-base-commit: e5d3fd687aac5eceb1721fa92b9f49afcf4c3717
-change-id: 20250203-exynos7870-mmc-75bac583c864
-
-Best regards,
 -- 
-Kaustabh Chakraborty <kauschluss@disroot.org>
+2.48.1
 
 
