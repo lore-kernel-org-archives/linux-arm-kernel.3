@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10290C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07B00C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HXvb2h/3Vg7SMSHbmLUrnKSaah5LiLMU3dhDS3qKnOY=; b=knIjPpGMLfPaGN9T+pQtwEY4LI
-	81MZXUCBQ6fVbT1hJD+akP3hBNqirugGolt+NQoNtLOISb+fB8EGtLNuE4mGyZK8Xhislqnq/+kVU
-	cLrLbwXl91FipzCO40Vk10gCnTQYHpSAhHnHFCKeV+AXaU1jsvZZgG6a61+FZ4yCT66/1v2/wdqup
-	2RrUjVw2RqXQca+CnEr6D0dP3lBN8iRZuka3FMCAEmesK//iUh7QLRwfpRl2eqp1NBXHMNmo6Dz2S
-	ezY6HxLEgcNNMzttOvM3aXJGoIv3KmydRW/0PE1h7sbz5P1XNS8yA6WdK6kT8k3owsPiQLN0Ozvdf
-	gMAHJVhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CadJhOiuOL+bA49PAWirsjDCGJLOFaxwmiT2F0EYUzM=; b=LwGly/u5+CXbESOkpk9vHYa7Rw
+	MjVrKb3dIhxzMfRYY8oP4jLuSTI2Smukbr91/MmLWfWtX+SQ6ub4y6F4u0YxOKHoRuHiRWjQMUMuK
+	sPo69eCxdlXNWNLfn7yfh278CJrKTI0y7tQsadzo9HXKkGRteANEsIG7iK/Z52/+FeMhB2Ym4hrBH
+	FZQhqzz0H5YoV38ago8z348+15PxXX3+9kkUd2wnPAtVycFF8uOhtimN5Syr3IuAXklWPQdYVqhUT
+	VmBWR3LFJTTG1loy6T8CSTFnmlC/T6ezgj4a0fTgpgC4JPN9C9myMAidunVsz4PMfolFhBi7BUio8
+	XPzsVv4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNf3-00000008K3z-2hDd;
-	Tue, 18 Feb 2025 13:29:17 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tkNgV-00000008KTh-1CdN;
+	Tue, 18 Feb 2025 13:30:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNdb-00000008Jl5-0P6i
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 13:27:48 +0000
+	id 1tkNds-00000008JqK-1KJC;
+	Tue, 18 Feb 2025 13:28:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 05646A40413;
-	Tue, 18 Feb 2025 13:26:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2AB1C4CEE2;
-	Tue, 18 Feb 2025 13:27:41 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AF724A40C18;
+	Tue, 18 Feb 2025 13:26:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0B20C4CEE2;
+	Tue, 18 Feb 2025 13:27:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739885265;
-	bh=AJKyiXBafQUU2GUK7AJl0waPaVhJd3oQT87yxSvobvE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=p+kxQs1YIab8Jsxu8m5/6WK6C1bPtYDQRySad4qGSEE4/CavI+ZXsPmAYNRZxKDN/
-	 gs+acWA7zva4f052NKytP/Z/jNhM3dc5XBpEZtllL1rSnCWlGSWx/vdkwSh24RDX22
-	 H6E5HQJ6SUEwHVtcBRacnzo6vevnIDt3tHgQ2UraOP6tQddnYmDUolehDZauQp8Neo
-	 oU2TsQCIPqWel4Pe91YXBaYLxRKY/Vmt3CSVO3bg/+7EzSO5//NuoFns0tNLebaylG
-	 sPAqmlyeFDO5niDOcQ70O8iMoJ2qkdBBV3GpdiXvFwz1qihcjaAx+2ivV8QEKZUxWB
-	 GDI2aPis+n8lw==
-From: Philipp Stanner <phasta@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	s=k20201202; t=1739885283;
+	bh=WUKim6I0GIa7OB0lKVP3eWVJgzUnm9e3oqomWqD2WwE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QRkY5wkhLUTZa8Vgk9CcWZJea74bEM97C45lbFLORkAUB5t+VRmdEfU71ySeA/yxW
+	 5NMqAIX9A0mbShZ+R0dswW7gak2vOJLFcxXy6KrkdB5sPzBqsEpf3AzkIGxXnIhi1j
+	 jMtH7ZgyYxe6ZU5hCKKLmDtFA4fD/bK+9C7rBVuEwPMl03ASmv8RMDMtUK75L5AGBj
+	 gSoA+Q3PlsZPfztif70R0TpNPtuuu2NmOTlfjkyJlRXepDS0ZzSBdQ9hWCbfFthAl9
+	 QZaaiqQDwFbj7B/EIHbZFOtv1qiyrmUw8WSerUvHwo6E8JULcreHVOo51tozIV+s6t
+	 eXpiL0Mo+Wqbw==
+Date: Tue, 18 Feb 2025 13:27:56 +0000
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Yanteng Si <si.yanteng@linux.dev>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Yinggang Gu <guyinggang@loongson.cn>,
-	Feiyang Chen <chenfeiyang@loongson.cn>
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Philipp Stanner <pstanner@redhat.com>
-Subject: [PATCH v2] stmmac: Replace deprecated PCI functions
-Date: Tue, 18 Feb 2025 14:21:21 +0100
-Message-ID: <20250218132120.124038-2-phasta@kernel.org>
-X-Mailer: git-send-email 2.47.1
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [PATCH net-next v4 13/16] net: airoha: Introduce Airoha NPU
+ support
+Message-ID: <20250218132756.GU1615191@kernel.org>
+References: <20250213-airoha-en7581-flowtable-offload-v4-0-b69ca16d74db@kernel.org>
+ <20250213-airoha-en7581-flowtable-offload-v4-13-b69ca16d74db@kernel.org>
+ <20250217183854.GP1615191@kernel.org>
+ <Z7OMv-7UBVtKaEFb@lore-desk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z7OMv-7UBVtKaEFb@lore-desk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_052747_266049_BF8FC074 
-X-CRM114-Status: GOOD (  20.95  )
+X-CRM114-CacheID: sfid-20250218_052804_420733_6D957FB6 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,179 +90,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Philipp Stanner <pstanner@redhat.com>
+On Mon, Feb 17, 2025 at 08:23:43PM +0100, Lorenzo Bianconi wrote:
 
-The PCI functions
-  - pcim_iomap_regions()
-  - pcim_iomap_table() and
-  - pcim_iounmap_regions()
-have been deprecated.
+...
 
-The usage of pcim_* cleanup functions in the driver detach path (remove
-callback) is actually not necessary, since they perform that cleanup
-automatically.
+> > > +	err = devm_request_irq(dev, irq, airoha_npu_mbox_handler,
+> > > +			       IRQF_SHARED, "airoha-npu-mbox", npu);
+> > > +	if (err)
+> > > +		return err;
+> > > +
+> > > +	for (i = 0; i < ARRAY_SIZE(npu->cores); i++) {
+> > > +		struct airoha_npu_core *core = &npu->cores[i];
+> > > +
+> > > +		spin_lock_init(&core->lock);
+> > > +		core->npu = npu;
+> > > +
+> > > +		irq = platform_get_irq(pdev, i + 1);
+> > > +		if (irq < 0)
+> > > +			return err;
 
-Furthermore, loongson_dwmac_probe() contains a surplus loop. That loop
-does not use index i in pcim_iomap_regions(), but costantly attempts to
-request and ioremap BAR 0. This would actually fail (since you cannot
-request the same BAR more than once), but presumably never fails because
-the preceding length check detects that all BARs except for 0 do not
-exist.
+...
 
-Replace them with pcim_iomap_region(). Remove the surplus loop.
+> > Should this return irq rather than err?
+> 
+> are you referring to devm_request_irq()?
+> 
+> https://elixir.bootlin.com/linux/v6.13.2/source/include/linux/interrupt.h#L215
+> https://elixir.bootlin.com/linux/v6.13.2/source/kernel/irq/devres.c#L52
+> 
+> I guess it returns 0 on success and a negative value in case of error.
 
-Signed-off-by: Philipp Stanner <pstanner@redhat.com>
----
-Changes in v2:
-  - Fix build errors because of missing ';'
-  - Address in the commit message why the patch removes a loop. (Andrew)
----
- .../ethernet/stmicro/stmmac/dwmac-loongson.c  | 31 ++++++-------------
- .../net/ethernet/stmicro/stmmac/stmmac_pci.c  | 24 ++++----------
- 2 files changed, 15 insertions(+), 40 deletions(-)
+Hi Lorenzo,
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-index bfe6e2d631bd..6f7c479c1a51 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-@@ -11,6 +11,8 @@
- #include "dwmac_dma.h"
- #include "dwmac1000.h"
- 
-+#define DRIVER_NAME "dwmac-loongson-pci"
-+
- /* Normal Loongson Tx Summary */
- #define DMA_INTR_ENA_NIE_TX_LOONGSON	0x00040000
- /* Normal Loongson Rx Summary */
-@@ -520,9 +522,9 @@ static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_device_id
- {
- 	struct plat_stmmacenet_data *plat;
- 	struct stmmac_pci_info *info;
--	struct stmmac_resources res;
-+	struct stmmac_resources res = {};
- 	struct loongson_data *ld;
--	int ret, i;
-+	int ret;
- 
- 	plat = devm_kzalloc(&pdev->dev, sizeof(*plat), GFP_KERNEL);
- 	if (!plat)
-@@ -552,17 +554,10 @@ static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_device_id
- 	pci_set_master(pdev);
- 
- 	/* Get the base address of device */
--	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
--		if (pci_resource_len(pdev, i) == 0)
--			continue;
--		ret = pcim_iomap_regions(pdev, BIT(0), pci_name(pdev));
--		if (ret)
--			goto err_disable_device;
--		break;
--	}
--
--	memset(&res, 0, sizeof(res));
--	res.addr = pcim_iomap_table(pdev)[0];
-+	res.addr = pcim_iomap_region(pdev, 0, DRIVER_NAME);
-+	ret = PTR_ERR_OR_ZERO(res.addr);
-+	if (ret)
-+		goto err_disable_device;
- 
- 	plat->bsp_priv = ld;
- 	plat->setup = loongson_dwmac_setup;
-@@ -606,7 +601,6 @@ static void loongson_dwmac_remove(struct pci_dev *pdev)
- 	struct net_device *ndev = dev_get_drvdata(&pdev->dev);
- 	struct stmmac_priv *priv = netdev_priv(ndev);
- 	struct loongson_data *ld;
--	int i;
- 
- 	ld = priv->plat->bsp_priv;
- 	stmmac_dvr_remove(&pdev->dev);
-@@ -617,13 +611,6 @@ static void loongson_dwmac_remove(struct pci_dev *pdev)
- 	if (ld->loongson_id == DWMAC_CORE_LS_MULTICHAN)
- 		loongson_dwmac_msi_clear(pdev);
- 
--	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
--		if (pci_resource_len(pdev, i) == 0)
--			continue;
--		pcim_iounmap_regions(pdev, BIT(i));
--		break;
--	}
--
- 	pci_disable_device(pdev);
- }
- 
-@@ -673,7 +660,7 @@ static const struct pci_device_id loongson_dwmac_id_table[] = {
- MODULE_DEVICE_TABLE(pci, loongson_dwmac_id_table);
- 
- static struct pci_driver loongson_dwmac_driver = {
--	.name = "dwmac-loongson-pci",
-+	.name = DRIVER_NAME,
- 	.id_table = loongson_dwmac_id_table,
- 	.probe = loongson_dwmac_probe,
- 	.remove = loongson_dwmac_remove,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-index 352b01678c22..9d45af70d8a2 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
-@@ -155,7 +155,7 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
- {
- 	struct stmmac_pci_info *info = (struct stmmac_pci_info *)id->driver_data;
- 	struct plat_stmmacenet_data *plat;
--	struct stmmac_resources res;
-+	struct stmmac_resources res = {};
- 	int i;
- 	int ret;
- 
-@@ -188,13 +188,13 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
- 		return ret;
- 	}
- 
--	/* Get the base address of device */
-+	/* The first BAR > 0 is the base IO addr of our device. */
- 	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
- 		if (pci_resource_len(pdev, i) == 0)
- 			continue;
--		ret = pcim_iomap_regions(pdev, BIT(i), pci_name(pdev));
--		if (ret)
--			return ret;
-+		res.addr = pcim_iomap_region(pdev, i, STMMAC_RESOURCE_NAME);
-+		if (IS_ERR(res.addr))
-+			return PTR_ERR(res.addr);
- 		break;
- 	}
- 
-@@ -204,8 +204,6 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
- 	if (ret)
- 		return ret;
- 
--	memset(&res, 0, sizeof(res));
--	res.addr = pcim_iomap_table(pdev)[i];
- 	res.wol_irq = pdev->irq;
- 	res.irq = pdev->irq;
- 
-@@ -226,21 +224,11 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
-  * stmmac_pci_remove
-  *
-  * @pdev: platform device pointer
-- * Description: this function calls the main to free the net resources
-- * and releases the PCI resources.
-+ * Description: Main driver resource release function
-  */
- static void stmmac_pci_remove(struct pci_dev *pdev)
- {
--	int i;
--
- 	stmmac_dvr_remove(&pdev->dev);
--
--	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
--		if (pci_resource_len(pdev, i) == 0)
--			continue;
--		pcim_iounmap_regions(pdev, BIT(i));
--		break;
--	}
- }
- 
- static int __maybe_unused stmmac_pci_suspend(struct device *dev)
--- 
-2.47.1
+Sorry, somehow I completely messed-up trimming context and managed to make
+things utterly confusing.
+
+I've trimmed things again, and it is the platform_get_irq() call
+not far above this line that I'm referring to. It assigns the
+return value of a function to irq, tests irq, but returns err.
+
+It is one of (at least) two calls to platform_get_irq() in airoha_npu_probe().
 
 
