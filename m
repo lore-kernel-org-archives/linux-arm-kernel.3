@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618DBC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 22:21:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09996C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 22:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NT80czFRlgsRmZLfz5nJf6Qj6rL2POT5kxLPnjKcRDs=; b=o1G0LS5q2mknVBdMFEXAU/+u0S
-	GxZdHuL6n2E38aUbKdY2nJap7ABLRrtXSpZKIouZcoreIatotNAYJzrL51nJxj2pTJgjWwklWFL7p
-	1YqRLRPYQwcYgCtWpUBoLx8Qucq+hfzjgeUgpD8NUHHsYLvIfI2QE3DlKHdSao13127dlhEF9EF1Z
-	Lrsg9SuMfcAhB5GJn0rU4mzvGRDsHnbfZRFDzCIhyguDqlGicewAt3vx+Q2VpMFV+JkFNZILfSO9Y
-	eGBycuPytPD6v9mho9ldg9WQfYRaHOqYWdSlzM+CLcGds8dWgxGN3yHOJzEy3BHFgg0+NOxSqhbO3
-	MuQsBJmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wkHtF8Q1p9OLsyZ01ZxOlGG224lrcQMUsc6UkXJicro=; b=OaIeyPR4COxCV+Oo2KCX/OBeia
+	aRnY1oXZQZ9I2NeyHsUdqa3a59tgFsrDnKOEnSWYWg1KAbPmm5UfjqraRl4MlVqUvbpHaNxUIJQhV
+	/Q+qbxdkRCv8M7YFxwpm7LhKOm78NOln+SFeMH6HSdyDU1Q980idjgiPactu1dKFyLpdvHqT9r7oP
+	f0134BECftwUAld12e6HAutabGRhCpo4O9qYc9dxrEZ4pfI6yjFDjG34Qxz31+Uck553FgnMmW2CJ
+	u8JBfe/KHiGm5iWal+tkHUDyXqeusQXnhuy7NQu9Fm4SscI9hCMvNXuqXqS2UYAHx5oeT4X0Wqpe9
+	BfimcnEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkVy3-0000000A7Ym-0Xsw;
-	Tue, 18 Feb 2025 22:21:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkVwa-0000000A7M8-1X9M
+	id 1tkW9s-0000000A9Gv-2NuG;
+	Tue, 18 Feb 2025 22:33:40 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkW8P-0000000A92b-2QCZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 22:19:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6ED6F5C5FA4;
-	Tue, 18 Feb 2025 22:19:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDAD7C4CEE2;
-	Tue, 18 Feb 2025 22:19:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739917195;
-	bh=dN3387dQRDuWKSMiY3P0CpgGHOeUf6kNncbWDYA/oXU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PpVgBoRRucN9ARBU+yevGINKADw77hy7369xhh5yOd0nB4ECUbic+alWS1gL67rBb
-	 2t2IZSkQ/DfgE9Q5o0R3Vr4EcVTeHmNKOlKQW7dxX6n/iA9tYVy5bH3hWDFCM0/Ztp
-	 nEXa/D97EVpVpKrq6jBctBI9praI3fWhsJ1wwLxA2Sz8ojkC2RS4BMpqNxegvl9FIc
-	 Nzw9//1UXHPnbpgOrJNY1+Sh56gOcyl4ZSRLsEHk5r/lF9XbecYQ9VTW7lxiqSaGio
-	 A1FNUQ76X0nfR7ZodU311vxcxSOrBv1bYEOBwe/YwGMUytP1oruCXi9SVjPxGWviK1
-	 9YVOK0Z2tQmCg==
-Date: Tue, 18 Feb 2025 14:19:53 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: James Clark <james.clark@linaro.org>
-Cc: Ian Rogers <irogers@google.com>, Yangyu Chen <cyy@cyyself.name>,
-	linux-perf-users@vger.kernel.org,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Liang Kan <kan.liang@linux.intel.com>,
-	Yoshihiro Furudera <fj5100bi@fujitsu.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/2] perf vendor events arm64: Add A720/A520
- events/metrics
-Message-ID: <Z7UHieRRnvRb5_oU@google.com>
-References: <tencent_5360DA048EE5B8CF3104213F8D037C698208@qq.com>
- <Z66YjGvjD_yzEHUg@google.com>
- <tencent_45B4E91CA370C563D6420A1A25F992056D09@qq.com>
- <1b8b234f-6435-45cf-83e7-8e86c84f075f@linaro.org>
- <CAP-5=fVAhLLH-a0_wLo8dPoMLOb6rOJiTgGh-OFZJJoaLFE-8Q@mail.gmail.com>
- <fe46069e-c52e-45ee-b4b3-8b929fb83b31@linaro.org>
+	Tue, 18 Feb 2025 22:32:10 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 4E96820376ED;
+	Tue, 18 Feb 2025 14:32:06 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 4E96820376ED
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1739917926;
+	bh=wkHtF8Q1p9OLsyZ01ZxOlGG224lrcQMUsc6UkXJicro=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nbqb+bYNVQ0gup+rvq/dhImqOWkwYohvkh5vvpwNHfMeSwBVbDosoWWE57JaQtoSf
+	 SCCcRwRTFnVYwSEG2WcM2hfuquEeiOufFJUpLjad8c4/n4jB+k1nw8BbzOsEFrced2
+	 0YoLSIqvXbVccqXXco4HoZ+xIZRWRpOZkJdTff94=
+Message-ID: <19435dae-89b5-4c23-af1e-c8917e29c857@linux.microsoft.com>
+Date: Tue, 18 Feb 2025 14:32:06 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <fe46069e-c52e-45ee-b4b3-8b929fb83b31@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next v4 6/6] PCI: hv: Get vPCI MSI IRQ domain from
+ DeviceTree
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
+ catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
+ decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+ krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com, lpieralisi@kernel.org,
+ manivannan.sadhasivam@linaro.org, mingo@redhat.com, robh@kernel.org,
+ ssengar@linux.microsoft.com, tglx@linutronix.de, wei.liu@kernel.org,
+ will@kernel.org, devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
+ benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com
+References: <20250212174203.GA81135@bhelgaas>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <20250212174203.GA81135@bhelgaas>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_141956_505752_EE1873C3 
-X-CRM114-Status: GOOD (  28.30  )
+X-CRM114-CacheID: sfid-20250218_143209_671260_CE323A2B 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,66 +78,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 09:30:23AM +0000, James Clark wrote:
-> 
-> 
-> On 18/02/2025 12:41 am, Ian Rogers wrote:
-> > On Fri, Feb 14, 2025 at 2:02 AM James Clark <james.clark@linaro.org> wrote:
-> > > 
-> > > 
-> > > 
-> > > On 14/02/2025 5:49 am, Yangyu Chen wrote:
-> > > > 
-> > > > 
-> > > > > On 14 Feb 2025, at 09:12, Namhyung Kim <namhyung@kernel.org> wrote:
-> > > > > 
-> > > > > Hello,
-> > > > > 
-> > > > > On Thu, Feb 13, 2025 at 11:11:01PM +0800, Yangyu Chen wrote:
-> > > > > > This patchset adds the perf JSON files for the Cortex-A720 and Cortex-A520
-> > > > > > processors. Some events have been tested on Raxda Orion 6 with Cix P1 SoC
-> > > > > > (8xA720 + 4xA520) running mainline Kernel with ACPI mode.
-> > > > > 
-> > > > > I'm curious how the name of PMUs look like.  It is cortex_a720 (or a520)?
-> > > > 
-> > > > The name of PMUs comes from Arm's documentation. I have included these
-> > > > links in each patch.
-> > > > 
-> > > > > I remember there's a logic to check the length of hex digits at the end.
-> > > > > 
-> > > > 
-> > > > Could you provide more details about this?
-> > > > 
-> > > > > Ian, are you ok with this?
-> > > > > 
-> > > 
-> > > I think they wouldn't be merged because they're core PMUs, so should be
-> > > fine? Even though they would otherwise be merged because they're more
-> > > than 3 hex digits.
-> > 
-> > Do we know the PMU names? If they are cortex_a520 and cortex_a720 then
-> 
-> It will be "armv9_cortex_a720" from this line:
-> 
->   PMUV3_INIT_SIMPLE(armv9_cortex_a720)
 
-I see, thanks!
+
+On 2/12/2025 9:42 AM, Bjorn Helgaas wrote:
+> On Tue, Feb 11, 2025 at 05:43:21PM -0800, Roman Kisel wrote:
+
+[...]
+
+>> +	 * function called later.
+> 
+> The rest of this file fits in 80 columns; please wrap this to match.
+> 
+
+Will fix, thank you for taking the time to review that!
+
+>> +	 */
+>> +	if (!domain)
+>> +		WARN_ONCE(1, "No interrupt-parent found, check the DeviceTree data.\n");
+> 
+> Is there a way to include a hint about what specific part of the
+> devicetree to look at, e.g., the node that lacks a parent?
+
+I'll improve this, will mention the bus, thanks!
+
+[...]
+
+>> +	 * the messy ifdef below.
+> 
+> Add a blank line if you intend a new paragraph here.  Otherwise, wrap
+> to fill 78 columns or so.
+
+Will fix this, appreciate noticing that!
 
 > 
-> > this comment at least reads a little stale:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tree/tools/perf/util/pmus.c?h=perf-tools-next#n76
-> > ```
-> > /*
-> > * There is a '_{num}' suffix. For decimal suffixes any length
-> > * will do, for hexadecimal ensure more than 2 hex digits so
-> > * that S390's cpum_cf PMU doesn't match.
-> > */
-> > ```
-> > James is right that core PMUs aren't put on the same list as uncore/other PMUs.
+>> +	 * There is apparently no such default in the OF subsystem, and
+>> +	 * `hv_pci_of_irq_domain_parent` finds the parent IRQ domain that
+>> +	 * points to the GIC as well.
+> 
+> And here.
 
-Ok, then I guess we're good.
+Will fix, thanks!
 
-Thanks,
-Namhyung
+>> +	 * None of these two cases reaches for the MSI parent domain.
+> 
+> I don't know what "reaches for the MSI parent domain" means.  Neither
+> "searches for"?
+> 
+
+My bad, sorry about the incomprehensible phrasing! Will fix this, thank
+you!
+
+>>   	 */
+>> -	hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
+>> -							  fn, &hv_pci_domain_ops,
+>> -							  chip_data);
+>> +#ifdef CONFIG_ACPI
+>> +	if (!acpi_disabled)
+>> +		hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
+>> +			fn, &hv_pci_domain_ops,
+>> +			chip_data);
+>> +#endif
+>> +#if defined(CONFIG_OF)
+>> +	if (!hv_msi_gic_irq_domain)
+>> +		hv_msi_gic_irq_domain = irq_domain_create_hierarchy(
+>> +			hv_pci_of_irq_domain_parent(), 0, HV_PCI_MSI_SPI_NR,
+>> +			fn, &hv_pci_domain_ops,
+>> +			chip_data);
+>> +#endif
+> 
+> I don't know if acpi_irq_create_hierarchy() is helping or hurting
+> here.  It obscures the fact that the only difference is the first
+> argument to irq_domain_create_hierarchy().  If we could open-code or
+> have a helper to figure out that irq_domain "parent" argument for the
+> ACPI case, then we'd only have one call of
+> irq_domain_create_hierarchy() here and it seems like it might be
+> simpler.
+> 
+
+That looks quite dirty, no dispute over that... The root device was
+static/provate for the ACPI case, and I didn't go for changing the ACPI
+subsystem code to improve this patch, thought the only user wouldn't
+justify tinkering with the whole ACPI subsystem. Maybe I also will
+need to see if that can be used from a module/builti-in, locking,
+bogus usage, i.e. all that normally comes with promoting a private
+interface to public.
+
+Let me work out the details and post the change here to see what
+feedback that receives.
+
+Last but certainly not least: owing a great debt of gratitude to you
+(and all other folks) for helping in bringing this to the best shape
+possible!
+
+-- 
+Thank you,
+Roman
 
 
