@@ -4,81 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31C6C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 17:58:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE386C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 17:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZxZPMPRqc2YVU3nXWwH2+2obTCBbW0fH/0Zd2nYlJcY=; b=ie10z9IKo65vU+lwMJyywvcicH
-	7oALHr3gS7t/wtCw3ANdrEWYMliiIrXUQlaW+5ls+Tq6QIvsx8VLqWMHYWrYD5J2niciQ+Mmf//o+
-	y7e65tDPapWA+R0hhZqRj4T3hb3ee7Ez4BsFxjfdAORV6thpL+qa3r9VB1jXdWNC/px2GAP66cFLl
-	8xcvzob0rKL17+e4K3KA4wGtgdXZXqC93XbcpfzWiX1PZbhyUq4OiRxQJWeccb4DfReUZpYTbhoHx
-	jPLIesB3WFgGHGhIAfHK2TYgrIqAITxTWjWMSGv4fXs8+HiLPg7fPGM3WzMyxZeAT27kx1OXleH4E
-	rhf2qTIQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oFRKePU7thBon8tfL6vskAhYenxo2fl21vHaxPHsJUc=; b=VxEvsNpQDpOki3e/nJi9THG+Lu
+	w3b3gr6HJKjlTHVwiCFoZEQRWFT/OdTJI2hPvVknXT/LyubOhndHs4ZGWytGUeeD1qRReRyQfZicB
+	LbHAaUUxLjOajN1Fvz+RTkaBABxrDRZCDaSD8RrE05G/zrIyHIxQvFw57aNhbqXVeVXCxRJBVO/o9
+	QJbZbIXVlemDT6pgcssAYSVY1XuI73XSVPaOH6ab8XNy3X5ka8rzIDgNdoYrH2KHKLi6pzfOpZCuA
+	k+1QpVDTE4z5k0h2Gz+vhgxlunurK+G8n9CqEfmJAFzZ8BRuM59YveK1Izu7eHBiPvCEfhNxgyfK1
+	ALVDdEAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkRrN-00000009FuD-1i4H;
-	Tue, 18 Feb 2025 17:58:17 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tkRsp-00000009G8R-0bYo;
+	Tue, 18 Feb 2025 17:59:47 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkRpX-00000009FV2-1XXW
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 17:56:24 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51IHtwWL052717
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Tue, 18 Feb 2025 11:55:58 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739901358;
-	bh=ZxZPMPRqc2YVU3nXWwH2+2obTCBbW0fH/0Zd2nYlJcY=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=Vo1/Dqic6aBhdbEUDoG5pV4dOv9AL6C/o6819Wdi9txicvAyU07Afyk9eE2quGkWQ
-	 sIDl04TcV4U+4liBmvLPb5rJUOQAb9CzUmHF3wUjQIu4qyVT+5TaJfhrPXitz6OhAE
-	 6VCXzDUQtTXxl3OGhwHpb9Fd8R87iD1VNYu7ZSNY=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IHtwW1031510;
-	Tue, 18 Feb 2025 11:55:58 -0600
-Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 18
- Feb 2025 11:55:58 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 18 Feb 2025 11:55:57 -0600
-Received: from [10.249.140.156] ([10.249.140.156])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IHtn69060469;
-	Tue, 18 Feb 2025 11:55:50 -0600
-Message-ID: <e1800e66-9043-4add-bbc9-19a8121de2f2@ti.com>
-Date: Tue, 18 Feb 2025 23:25:49 +0530
+	id 1tkRr4-00000009Fpg-0lre;
+	Tue, 18 Feb 2025 17:57:59 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-54622e97753so39363e87.0;
+        Tue, 18 Feb 2025 09:57:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739901476; x=1740506276; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=oFRKePU7thBon8tfL6vskAhYenxo2fl21vHaxPHsJUc=;
+        b=BGNgYY7pP26CWXURMC+Cqj7BXAm1ikH/jwAD/0ALXqLplvAlyReqHJa42l2YPW1XE7
+         patIgcm14LET6kJwvcNBpng0/rVBO4SZ+r9vAEQ/QMjqLlhR6ak9biAsw51XjJT5HzvD
+         bK1+WOVrNe1nwevNlrdoeIrbX4Q89AJimn6Zg5qFzqk5ZKpCKDvOdIDxVLDKzhlxXDXT
+         1gxSqUXJj2mPmabK/CT1qWGLMYiJeUiV2/XC37GYIqod3dO+h1CNGBBTvhqW/kNBClVl
+         eXHkUx9gEcexRTjyKvAwSvu9Mx7dG+5sfZE2jQGVzEg8FOJk5vLiTVVcLjR0T4Kvsv2U
+         bBqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739901476; x=1740506276;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=oFRKePU7thBon8tfL6vskAhYenxo2fl21vHaxPHsJUc=;
+        b=NR/U2mG5T4+/DfGkZvavSYVvN9TidKJm/cnIMDYmkFBvRNXdiXvvSMBHjSBNUQtC8T
+         VCObWfIu+2dVovQUUMMbpWid00cRAelLYhtSoL7WnkiE3zGHRjxke/c/FqksQMKhZNKq
+         j5sWx2z/9Y3C3hTqDTxiXYT53PR94TfdXnfkrRHOGNxsqq/PTxuYVNWUzEcOlYYURthf
+         WReTFChbBSN5tDo5WRFd10dwivgsBJ+/WclCJ9TfyVF0g9s4sykx2FQ5Rv5LPC1Ms7Dm
+         rMkCGgOraHZAlkMxu3x/kuhaz4W5wG8fhNQIUUYheLbI0q0rHNVghOO9FGvIw0PbyH7k
+         dMHA==
+X-Forwarded-Encrypted: i=1; AJvYcCWGaBS8nrjWdOvptYF6I1F7i2RBiqXjZjS1YWLUj3epLETftO/8m2izY5juzSwReCBJCzbexavs/1XSV8E=@lists.infradead.org, AJvYcCWN7GeOzw7Y6xa2ABTVbwwO+ldpD4tWg/hGVfNN5tMKq1VBFbMohFNkwnQiH4Ozfz0fdfLhoBngAjF04cyRtpax@lists.infradead.org, AJvYcCWw7lHIInpl1SdfeVfjmZ8WgsHIsUDrKP9gJV0xloiERn9QNo0RL6wapjAu4fnvDcgr0JCtIaD2K65ykQHS0to=@lists.infradead.org, AJvYcCXMvTTVrk/8xy+ZpeEqvL4o1IefCjGkdLeJZt/MiQbA0XrLvWNsHPc1xsMylFTMcjgg3qWQFqWQuDQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWy+GsXVITHohnnoHI9pjtx27PgI6cZDOW0YF9FQBDuNhy4R5R
+	aBDUaHKURPKlcHiEkdmF9F8A8qHWiOXmb4sQIEkt5OGvMxebFxFV
+X-Gm-Gg: ASbGnctWvf5zVeOblwmODVdyupOGbtXaO7wY3SHYzP9dkUmGfrHsASNlsnMqzzsz8Xm
+	KWeUeo8Lp/1NRYQyjFN3gpNywakmadHqnKDW6wsVgx2MFkLPfUINJyJlA5yTjEa9+PvdoRRLc2I
+	gHiMxzQonQr8LvZnLkhZ0V1oth002HbD3739cE4OXkaXcOgqnpRjoBn/g7WfGuaYq0LkaVb5IwH
+	6PNbI7HRlolEUb9pxhJRtW0eK1x646YtKc/nTLdVMxh/TWxBGcVtWMDZJDVwtXe33JWMfCe0Yjh
+	VPSEc4OucS64kll7wHNvY5uO6A1iAZTtbkDeB9JRshOj+wK4C16few5JJV+2Tg==
+X-Google-Smtp-Source: AGHT+IGfFBi/u9SniGtV33nIqkglJaUtkaaAX/KBzbUXSrhxIdAk38ItpiS7x3PdO+hl8rMx2A+8sQ==
+X-Received: by 2002:a05:6512:3b23:b0:545:550:83e6 with SMTP id 2adb3069b0e04-5462eaa1f1amr241343e87.5.1739901475583;
+        Tue, 18 Feb 2025 09:57:55 -0800 (PST)
+Received: from es40.darklands.se (h-94-254-104-176.A469.priv.bahnhof.se. [94.254.104.176])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-545254f7072sm1709286e87.127.2025.02.18.09.57.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2025 09:57:54 -0800 (PST)
+From: Magnus Lindholm <linmag7@gmail.com>
+To: linmag7@gmail.com,
+	richard.henderson@linaro.org,
+	mattst88@gmail.com,
+	glaubitz@physik.fu-berlin.de,
+	ink@unseen.parts,
+	kees@kernel.org,
+	arnd@arndb.de,
+	linux-kernel@vger.kernel.org,
+	linux-alpha@vger.kernel.org
+Cc: chris@zankel.net,
+	dinguyen@kernel.org,
+	jcmvbkbc@gmail.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-um@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	monstr@monstr.eu,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH v2 0/1] mm: pgtable: fix pte_swp_exclusive
+Date: Tue, 18 Feb 2025 18:55:13 +0100
+Message-ID: <20250218175735.19882-1-linmag7@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/3] Add native mode XDP support
-To: Jesper Dangaard Brouer <hawk@kernel.org>, <rogerq@kernel.org>,
-        <danishanwar@ti.com>, <pabeni@redhat.com>, <kuba@kernel.org>,
-        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <bpf@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <u.kleine-koenig@baylibre.com>, <krzysztof.kozlowski@linaro.org>,
-        <dan.carpenter@linaro.org>, <schnelle@linux.ibm.com>,
-        <glaroque@baylibre.com>, <rdunlap@infradead.org>,
-        <diogo.ivo@siemens.com>, <jan.kiszka@siemens.com>,
-        <john.fastabend@gmail.com>, <daniel@iogearbox.net>, <ast@kernel.org>,
-        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
-References: <20250210103352.541052-1-m-malladi@ti.com>
- <285d1541-6af4-4dc3-bdcd-720bfc1f9aa4@kernel.org>
-Content-Language: en-US
-From: "Malladi, Meghana" <m-malladi@ti.com>
-In-Reply-To: <285d1541-6af4-4dc3-bdcd-720bfc1f9aa4@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_095623_444090_5FEEDEF3 
-X-CRM114-Status: GOOD (  11.51  )
+X-CRM114-CacheID: sfid-20250218_095758_220255_6FFE4153 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,27 +120,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The first version of this patch intended to fix issues with swap memory on
+alpha, when swapoff fails to writeback exclusive swap pages and gets stuck
+in an infinite loop trying to do so. This problem appeared after commit
+a172d5128706028ac07b8db709728379ecc72f6e and as far as I know only
+affected the alpha architecure.
 
+Changes in v2:
+As suggested by Al Viro, rather than doing a bit-shift alpha-only fix this
+version of the patch makes pte_swp_exclusive return bool instead of int.
+As Al pointed out, this will also better reflect how pte_swp_exclusive
+is actually used in the code.
 
-On 2/18/2025 9:32 PM, Jesper Dangaard Brouer wrote:
-> 
-> On 10/02/2025 11.33, Meghana Malladi wrote:
->> This series adds native XDP support using page_pool.
-> 
-> Please also describe *what driver* to adds XDP support for.
-> 
-> This cover letter will (by netdev maintainers) be part of the merge
-> commit text.  Thus, please mention the driver name in the text.
-> 
-> This also applies for the Subject line.  It should either be prefix with
-> "net: ti: icssg-prueth:" like you did for other patches, or be renamed
-> to e.g.: "Add native mode XDP support for driver ti/icssg-prueth".
-> 
+Best regards
+Magnus Lindholm linmag7@gmail.com
 
-Oh ok got it. Will update the subject line accordingly in v3 and follow 
-the same for my upcoming patches. Thanks.
-
-> Thanks,
-> --Jesper
-
+ arch/alpha/include/asm/pgtable.h             | 2 +-
+ arch/arc/include/asm/pgtable-bits-arcv2.h    | 2 +-
+ arch/arm/include/asm/pgtable.h               | 2 +-
+ arch/arm64/include/asm/pgtable.h             | 2 +-
+ arch/csky/include/asm/pgtable.h              | 2 +-
+ arch/hexagon/include/asm/pgtable.h           | 2 +-
+ arch/loongarch/include/asm/pgtable.h         | 2 +-
+ arch/m68k/include/asm/mcf_pgtable.h          | 2 +-
+ arch/m68k/include/asm/motorola_pgtable.h     | 2 +-
+ arch/m68k/include/asm/sun3_pgtable.h         | 2 +-
+ arch/microblaze/include/asm/pgtable.h        | 2 +-
+ arch/mips/include/asm/pgtable.h              | 4 ++--
+ arch/nios2/include/asm/pgtable.h             | 2 +-
+ arch/openrisc/include/asm/pgtable.h          | 2 +-
+ arch/parisc/include/asm/pgtable.h            | 2 +-
+ arch/powerpc/include/asm/book3s/32/pgtable.h | 2 +-
+ arch/powerpc/include/asm/book3s/64/pgtable.h | 2 +-
+ arch/powerpc/include/asm/nohash/pgtable.h    | 2 +-
+ arch/riscv/include/asm/pgtable.h             | 2 +-
+ arch/s390/include/asm/pgtable.h              | 2 +-
+ arch/sh/include/asm/pgtable_32.h             | 2 +-
+ arch/sparc/include/asm/pgtable_32.h          | 2 +-
+ arch/sparc/include/asm/pgtable_64.h          | 2 +-
+ arch/um/include/asm/pgtable.h                | 2 +-
+ arch/x86/include/asm/pgtable.h               | 2 +-
+ arch/xtensa/include/asm/pgtable.h            | 2 +-
+ 26 files changed, 27 insertions(+), 27 deletions(-)
 
