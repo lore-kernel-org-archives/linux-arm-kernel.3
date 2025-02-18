@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F57C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 07:42:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA82C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 07:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NU3The1APhQsLBU7n9+PEhO2idSxzQOTpZ79T4UM9+4=; b=Fit1orIwl6Bn0EyiH3HnJIifgp
-	VyKANeBB34fq5S8I0tTQeh2I/4qBV4gUcWLqimcdKBeoEw0keWp832XT4J3sWNYMvp8IL7qFDKEdE
-	vALpagww/+XbO/iv/VViiN8wIc7h+5ruVZhooAAkxhwzrZIs7Mrp30iLmTiEwE8Jk9oPNCXDA6yW/
-	LlVbJLjfDahSQR2lXEJaZHpMbAcW3X07pB+JG9V5QLsRQna3ms66a2IAKWvxjtkQV9jh49CXwCE3R
-	1I6TK268nteE8xX0mDdGJcxm6C1xurM3tM2qGhJ93ylwhDVzSNEcVL5riarq5CFw5MJDC95Y3knye
-	QWtgQYEA==;
+	bh=yIskrCVvgeo6MB99hL+e+aZvm7O6lSSjP/NM8xSozbE=; b=qgT/vpHPaAZOTvz2B+GgQhfOkL
+	kZjjSsWvhktnLpkKXeS5U5upnAeSlJodjE+WyxPkLHCGXgB8Ia8U70JseZJsPnYEiU6dy+/vgtsU5
+	UPCMwK8Vstjiazfq24f04dWTtZ1KpJriRb1wEoYSkir5Jqpi49HHtITDR7rXZ1Tbn1iexQugs49Wi
+	Oz3fSi6kowuVpRVnuOLlNtxeMWsexL2MjZ4YHYssPOU/WeZ+46cVbHpx0b7tuqTeF4RJ4sgNHfBpv
+	5tb61Vq8WGsKL0ATQMv3QCXEEMjx0qRrsDt6gVcU8IaSp5QE7y/ut7WqtNaJiEwl+TGYJRy5vJBYo
+	VMzXCdMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkIFR-000000076TD-10M3;
-	Tue, 18 Feb 2025 07:42:29 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1tkIGs-000000076qU-3rfr;
+	Tue, 18 Feb 2025 07:43:58 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkIDx-000000076HA-1HB7
+	id 1tkIFA-000000076QW-258X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 07:40:59 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Yxrwj6pG9z6M4Rv;
-	Tue, 18 Feb 2025 15:38:13 +0800 (CST)
-Received: from frapeml100007.china.huawei.com (unknown [7.182.85.133])
-	by mail.maildlp.com (Postfix) with ESMTPS id 45E66140B2F;
-	Tue, 18 Feb 2025 15:40:48 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (7.182.85.71) by
- frapeml100007.china.huawei.com (7.182.85.133) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Tue, 18 Feb 2025 08:40:47 +0100
-Received: from frapeml500008.china.huawei.com ([7.182.85.71]) by
- frapeml500008.china.huawei.com ([7.182.85.71]) with mapi id 15.01.2507.039;
- Tue, 18 Feb 2025 08:40:47 +0100
-From: Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>
-To: Marc Zyngier <maz@kernel.org>, Sebastian Ott <sebott@redhat.com>
-CC: "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>, "cohuck@redhat.com"
-	<cohuck@redhat.com>, "eric.auger@redhat.com" <eric.auger@redhat.com>,
-	yuzenghui <yuzenghui@huawei.com>, "Wangzhou (B)" <wangzhou1@hisilicon.com>,
-	jiangkunkun <jiangkunkun@huawei.com>, Jonathan Cameron
-	<jonathan.cameron@huawei.com>, Anthony Jebson <anthony.jebson@huawei.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Linuxarm <linuxarm@huawei.com>
-Subject: RE: [PATCH v7 4/5] smccc/kvm_guest: Enable errata based on
- implementation CPUs
-Thread-Topic: [PATCH v7 4/5] smccc/kvm_guest: Enable errata based on
- implementation CPUs
-Thread-Index: AQHbfvRxSJOyGnvtKEOdLroufJhHY7NG57AAgAAIvwCABcIT8A==
-Date: Tue, 18 Feb 2025 07:40:47 +0000
-Message-ID: <0557f193756f45daac4349c30d8f2f8f@huawei.com>
-References: <20250214151343.61348-1-shameerali.kolothum.thodi@huawei.com>
-	<20250214151343.61348-5-shameerali.kolothum.thodi@huawei.com>
-	<10831a79-a21f-dc40-a374-81b300d26dac@redhat.com>
- <86mseoscif.wl-maz@kernel.org>
-In-Reply-To: <86mseoscif.wl-maz@kernel.org>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.48.156.112]
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 18 Feb 2025 07:42:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E0E0BA41D2C
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 07:40:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B863C4CEED
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 07:42:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739864531;
+	bh=IvK/YZdxhIzz+WQDui+6ei6dQMpDPKxU2syoofLtyUI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=gthhYI9H3TZNlItYwrKDSFuBdEkiKZrIrU49lRCIALScYrla7kqdufoYgJbGesW/s
+	 ZfqxxSTLbGj+8Qi02jw6wsu7IjVEgz+bO00kvW3TUsL0f4tzjbMOd/9uV2HfiIurGn
+	 9m47eoooc9igVM7Kr/FL6sr3en6A29okd0rLtNhhTWvF/CB0QtRNolG7vflfcsD6xz
+	 5Y/qo9rK8O3PiqfxmhGwBv3+ZcwBzQrmF1rOAzJKp2/QmhVDrqXUJv1jdVM5dlk+on
+	 Cu6aRVRbEFTEck7PdHrsS7uMdIMjjN8PGkfUTeir2LhQ/k8qQ00Esd9LqRLeaDttod
+	 NGahJwRUtODMg==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-54622829175so1596440e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 23:42:11 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVHVxPhpUWqs/BmIzSOC/iEiQ03N+Rm8tCthMNHyVGD4HRQpV8/f3wLE7pZHf5G8u9F/68e552O/qaBqBv8x86N@lists.infradead.org
+X-Gm-Message-State: AOJu0YwLpPwXLq5Jszh9ekDjmP958+97BI1Wu/AyFzj36QqbNg2YZocM
+	mV3KUCXNWdvDISKMwr+IOMmE/3Roph++wpenF4bXVt4nrjey/JnslcYZjGVU64NQQ0XDgzoUHAU
+	qFCf/zyaTShBUImN7dUHKBGwtKds=
+X-Google-Smtp-Source: AGHT+IHcwsPEwQwvSNlp7+txo1ExLwL6bb64NekXlJS4T9EnBQWu9yYoLt2pG9NrnPvUbCr2H8go8Lh60C6VvcSVOhE=
+X-Received: by 2002:a05:6512:2342:b0:545:60b:f394 with SMTP id
+ 2adb3069b0e04-5452fe27255mr4337762e87.4.1739864529480; Mon, 17 Feb 2025
+ 23:42:09 -0800 (PST)
 MIME-Version: 1.0
+References: <20250212154718.44255-1-ebiggers@kernel.org> <Z61yZjslWKmDGE_t@gondor.apana.org.au>
+ <20250213063304.GA11664@sol.localdomain> <20250215090412.46937c11@kernel.org>
+ <Z7FM9rhEA7n476EJ@gondor.apana.org.au> <20250217094032.3cbe64c7@kernel.org> <Z7QBuIvr4Asiezgc@gondor.apana.org.au>
+In-Reply-To: <Z7QBuIvr4Asiezgc@gondor.apana.org.au>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 18 Feb 2025 08:41:57 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXFe2f0cCYznorrO-wJyh-qxJP5z-HdR9rbQiuMKC5u6qw@mail.gmail.com>
+X-Gm-Features: AWEUYZnpo_Rxk-ow416mB2XJK3Qj-eZIWTL3GmEexif4qB9L-kVkI7AOouI7sOg
+Message-ID: <CAMj1kXFe2f0cCYznorrO-wJyh-qxJP5z-HdR9rbQiuMKC5u6qw@mail.gmail.com>
+Subject: Re: [PATCH v8 0/7] Optimize dm-verity and fsverity using multibuffer hashing
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Jakub Kicinski <kuba@kernel.org>, Eric Biggers <ebiggers@kernel.org>, fsverity@lists.linux.dev, 
+	linux-crypto@vger.kernel.org, dm-devel@lists.linux.dev, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Sami Tolvanen <samitolvanen@google.com>, Alasdair Kergon <agk@redhat.com>, 
+	Mike Snitzer <snitzer@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
+	Mikulas Patocka <mpatocka@redhat.com>, David Howells <dhowells@redhat.com>, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_234057_484103_341D27C9 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20250217_234212_608117_6639BD8C 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,50 +88,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-> -----Original Message-----
-> From: Marc Zyngier <maz@kernel.org>
-> Sent: Friday, February 14, 2025 4:43 PM
-> To: Sebastian Ott <sebott@redhat.com>
-> Cc: Shameerali Kolothum Thodi
-> <shameerali.kolothum.thodi@huawei.com>; kvmarm@lists.linux.dev;
-> oliver.upton@linux.dev; catalin.marinas@arm.com; will@kernel.org;
-> mark.rutland@arm.com; cohuck@redhat.com; eric.auger@redhat.com;
-> yuzenghui <yuzenghui@huawei.com>; Wangzhou (B)
-> <wangzhou1@hisilicon.com>; jiangkunkun <jiangkunkun@huawei.com>;
-> Jonathan Cameron <jonathan.cameron@huawei.com>; Anthony Jebson
-> <anthony.jebson@huawei.com>; linux-arm-kernel@lists.infradead.org;
-> Linuxarm <linuxarm@huawei.com>
-> Subject: Re: [PATCH v7 4/5] smccc/kvm_guest: Enable errata based on
-> implementation CPUs
->=20
-> On Fri, 14 Feb 2025 16:12:02 +0000,
-> Sebastian Ott <sebott@redhat.com> wrote:
+On Tue, 18 Feb 2025 at 04:43, Herbert Xu <herbert@gondor.apana.org.au> wrote:
+>
+> On Mon, Feb 17, 2025 at 09:40:32AM -0800, Jakub Kicinski wrote:
 > >
-> > On Fri, 14 Feb 2025, Shameer Kolothum wrote:
-> > > +++ b/arch/arm64/kernel/cpu_errata.c
-> > > @@ -14,6 +14,9 @@
-> > > #include <asm/kvm_asm.h>
-> > > #include <asm/smp_plat.h>
-> > >
-> > > +u32 target_impl_cpu_num;
-> > > +struct target_impl_cpu *target_impl_cpus;
-> >
-> > These should be exported (for configs using
-> > CONFIG_CORESIGHT_SOURCE_ETM4X=3Dm)
+> > Yes, that's true for tunnels and for IPsec.
+> > TLS does crypto in sendmsg/recvmsg, process context.
+>
+> OK that's good to know.  So whether SIMD is always allowed or
+> not won't impact TLS at least.
+>
 
-Thanks Sebastian. I missed that.
+And for IPsec, I'd assume that the cryptd fallback is only needed when
+TX and RX are competing for the same CPU.
 
->=20
-> It might be better to make is_midr_in_range() out of line, and export
-> that. This could allow making the data static (by implementing a
-> couple of additional accessors).
-
-Ok. I will give it a go.
-
-Thanks,
-Shameer
-
-
+So for modern systems, I don't think the SIMD helper does anything
+useful, and we should just remove it, especially if we can relax the
+softirq/preemption rules for kernel SIMD on x86 like I did for arm64.
 
