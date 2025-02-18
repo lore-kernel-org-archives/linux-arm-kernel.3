@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A413C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:56:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECD4C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TvgIM02VkB4UL9QMByctN8Vnp/226aej0vn9VyB2FVE=; b=S/qYgcZSKbcm2FUK9dUq4kRtNP
-	ffWYbY/MlcDl/vYo6icsp6u2Wr3Hkml2FtFce7hbAK5a6XL+H7TrEZawGFpGuxf7mOwo2rPFoq6Sk
-	cLJKPudwFUBM0405LkrkKu0neANZXBL2fWygSM7X0oYleZF0qH9agp3IYSUiUhDxUHQ+yPw2RjWKR
-	wQ1ycQYzvsfoqSoWQzFldMJFcaj/l/R7YLDkPINUcSij4GdIC+rW+cUHcUju7H0AnQ9XbMNaL3NiO
-	TXU12TafUcL3E9CPzlsx3Oi9FNuwszagqXp064cJuIJZbEaULBFZScOCPx/8EI7yldZOZlEnzNHIV
-	Y+zw+sMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3a502L7HNTnGT9TClWImn/BkNQeUM5q9x8kdkxpuCgw=; b=z2RIwfw49RkrTJ1xCPHkSbRq+D
+	y54Y1ptBKiGNvs/e7OyTz/dYM5ordgQ0piUhdBCAjeyoCtOLHR3FQ1pje3r0icDRsTzjqL/JI7CMj
+	2kp/WtUe3re1ZcluTfmHBWIiSbHWBqdP7kk8wCeYT22RZHNAqwASDcAdmAx9FGLPr6MoKVzcCNji9
+	8NpcWpDvWi7u95Z3dok+EeQLWs4yDc6r5akzlngXWu6cSbQIRGlk8C1UWFfRQHKFG144iBTPDwwb2
+	UWwTZ1PhsceLwT7MfQGszjIxyE1rrQF/FNpScopjOZZEnTRB59BQwXnLV39kyqZz/qoclUCKf99/H
+	hsy+eq5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkKLG-00000007clA-3Qqv;
-	Tue, 18 Feb 2025 09:56:38 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tkKMi-00000007dH3-21tU;
+	Tue, 18 Feb 2025 09:58:08 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJsc-00000007VYs-20pT;
-	Tue, 18 Feb 2025 09:27:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739870820;
-	bh=13RAFqO4JxKpY86E13TVG4O698Z/xjNecRvH9AgjNaY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qX5QQxHIowTOTnz9Li60/jzpzEyrmVKngsv1UdK5BflNfVIsKlkYXPG7WDiqBtW0N
-	 wrlwfNZICsMYgYLLCSDCZFgoggqWPGoNAzQNV12S1LSHlQdA7zF+X5A+PMDUAFnfN9
-	 UP6nY/ePSd7y/OWZAQHdvs3CvlriheHERJNRRwawHDev7Ij+DEltRFnDLwEC9HpdbS
-	 W7Gaa/kPKTVIoHDN79HMcjiz9A28S92w9F2kejmJVPjqsVVytQ9iMbpyPkPsR/XaXP
-	 melHDDbYycMbcLfXgf+kh+GIi4/QYUOWSq5WrWX/11u/L8rBITZ6U2NKD3pjt3xCHE
-	 QEyqpJK0Qc49A==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 34DE217E0391;
-	Tue, 18 Feb 2025 10:27:00 +0100 (CET)
-Message-ID: <a286cb5c-40f8-48ec-921d-bcf0b67728ed@collabora.com>
-Date: Tue, 18 Feb 2025 10:26:59 +0100
+	id 1tkJsn-00000007Ve0-19Fs
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Feb 2025 09:27:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7F7995C5C8A;
+	Tue, 18 Feb 2025 09:26:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C550C4CEE2;
+	Tue, 18 Feb 2025 09:27:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739870832;
+	bh=JrYbhojwammNTDB88kS1BUeIuQnP9/YVGBIojkvxi2I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ma/AH0zRhGFf9Ao4DzuLTR+VTa/9xUo0Nve+1JDMxuL9EML4AHklxkuVG39To+fV2
+	 qOvhwMCK+IffyMXbnN0c02EylqqY3jewSaVCmo89zTTs0x7onPC1ECHRrOD1VADyBm
+	 r7xOF5Y6huD6AWm1LXU1d0/qeDMGapXJbpWhplZJxo+rpfGsuGJCb4Hh1T8qWosTYP
+	 v9YtuqgpNo6eh7wRxzwh5pMjz8zvjDsUXA69Dan7I50goAl1Oe588Ucu6+4Kz9jKRk
+	 QPvNTYOjZypRU6WFoBFYbBSP8GQ3nGbh5X6/Vx824Z27OOXvUL7w+2MP8m4oqesmC7
+	 nANU4/nDoi29Q==
+Date: Tue, 18 Feb 2025 09:27:06 +0000
+From: Will Deacon <will@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, oliver.upton@linux.dev, mark.rutland@arm.com,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, broonie@kernel.org, qperret@google.com,
+	vdonnefort@google.com
+Subject: Re: [PATCH v1 3/3] KVM: arm64: Create each pKVM hyp vcpu after its
+ corresponding host vcpu
+Message-ID: <20250218092705.GA17030@willie-the-truck>
+References: <20250214150258.464798-1-tabba@google.com>
+ <20250214150258.464798-4-tabba@google.com>
+ <20250217153031.GA16398@willie-the-truck>
+ <CA+EHjTyOk_VpcTaD-VsH9X7KjpPKWu-HyVE3EEV+rzhnHar84A@mail.gmail.com>
+ <CA+EHjTzLW1HiiPr+=vStMYJcYEHUBFcEy_YMT3uJuLRA3zDzEw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] usb: mtu3: add support remote wakeup of mt8196
-To: =?UTF-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?= <Chunfeng.Yun@mediatek.com>,
- "robh@kernel.org" <robh@kernel.org>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>
-Cc: "linux-mediatek@lists.infradead.org"
- <linux-mediatek@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "mathias.nyman@intel.com" <mathias.nyman@intel.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>
-References: <20250121145008.22936-1-chunfeng.yun@mediatek.com>
- <20250121145008.22936-4-chunfeng.yun@mediatek.com>
- <e63fdeba-04dd-4b88-a6d6-ca8a64e28e36@collabora.com>
- <a689f7d25fb05ba83ac2de6ba879998fe2e21bcb.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <a689f7d25fb05ba83ac2de6ba879998fe2e21bcb.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CA+EHjTzLW1HiiPr+=vStMYJcYEHUBFcEy_YMT3uJuLRA3zDzEw@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_012702_669105_F64197A8 
-X-CRM114-Status: GOOD (  24.98  )
+X-CRM114-CacheID: sfid-20250218_012713_399421_55C75BC7 
+X-CRM114-Status: GOOD (  30.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,125 +80,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 09/02/25 04:31, Chunfeng Yun (云春峰) ha scritto:
-> On Wed, 2025-01-22 at 10:30 +0100, AngeloGioacchino Del Regno wrote:
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> Il 21/01/25 15:50, Chunfeng Yun ha scritto:
->>> There are three USB controllers on mt8196, each controller's wakeup
->>> control is different, add some specific versions for them.
->>> Here add only for dual-role controllers.
->>>
->>> Signed-off-by: Chunfeng Yun <chunfeng.yun@mediatek.com>
->>
->>   From the datasheets, I can read the following:
->>
->> IP0: host -> 0x1670_0000  device(mtu3) -> 0x1670_1000
->> IP1: host -> 0x1671_0000  device(mtu3) -> 0x1671_1000
->> IP2: host -> 0x1672_0000  device(mtu3) -> 0x1672_1000
->>
-> I'll check it.
+On Mon, Feb 17, 2025 at 03:56:53PM +0000, Fuad Tabba wrote:
+> On Mon, 17 Feb 2025 at 15:41, Fuad Tabba <tabba@google.com> wrote:
+> > On Mon, 17 Feb 2025 at 15:30, Will Deacon <will@kernel.org> wrote:
+> > >
+> > > On Fri, Feb 14, 2025 at 03:02:58PM +0000, Fuad Tabba wrote:
+> > > > Instead of creating and initializing _all_ hyp vcpus in pKVM when
+> > > > the first host vcpu runs for the first time, initialize _each_
+> > > > hyp vcpu in conjunction with its corresponding host vcpu.
+> > > >
+> > > > Some of the host vcpu state (e.g., system registers and traps
+> > > > values) are not initialized until the first time the host vcpu is
+> > > > run. Therefore, initializing a hyp vcpu before its corresponding
+> > > > host vcpu has run for the first time might not view the complete
+> > > > host state of these vcpus.
+> > > >
+> > > > Additionally, this behavior is inline with non-protected modes.
+> > > >
+> > > > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > > > ---
+> > > >  arch/arm64/include/asm/kvm_host.h      |  2 +
+> > > >  arch/arm64/include/asm/kvm_pkvm.h      |  1 +
+> > > >  arch/arm64/kvm/arm.c                   |  4 ++
+> > > >  arch/arm64/kvm/hyp/include/nvhe/pkvm.h |  6 ---
+> > > >  arch/arm64/kvm/hyp/nvhe/pkvm.c         | 54 +++++++++++++++-----------
+> > > >  arch/arm64/kvm/pkvm.c                  | 28 ++++++-------
+> > > >  6 files changed, 53 insertions(+), 42 deletions(-)
+> > >
+> > > [...]
+> > >
+> > > >  static int init_pkvm_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu,
+> > > >                             struct pkvm_hyp_vm *hyp_vm,
+> > > > -                           struct kvm_vcpu *host_vcpu,
+> > > > -                           unsigned int vcpu_idx)
+> > > > +                           struct kvm_vcpu *host_vcpu)
+> > > >  {
+> > > >       int ret = 0;
+> > > >
+> > > >       if (hyp_pin_shared_mem(host_vcpu, host_vcpu + 1))
+> > > >               return -EBUSY;
+> > > >
+> > > > -     if (host_vcpu->vcpu_idx != vcpu_idx) {
+> > > > -             ret = -EINVAL;
+> > > > -             goto done;
+> > > > -     }
+> > > > -
+> > > >       hyp_vcpu->host_vcpu = host_vcpu;
+> > > >
+> > > >       hyp_vcpu->vcpu.kvm = &hyp_vm->kvm;
+> > > >       hyp_vcpu->vcpu.vcpu_id = READ_ONCE(host_vcpu->vcpu_id);
+> > > > -     hyp_vcpu->vcpu.vcpu_idx = vcpu_idx;
+> > > > +     hyp_vcpu->vcpu.vcpu_idx = READ_ONCE(host_vcpu->vcpu_idx);
+> > > >
+> > > >       hyp_vcpu->vcpu.arch.hw_mmu = &hyp_vm->kvm.arch.mmu;
+> > > >       hyp_vcpu->vcpu.arch.cflags = READ_ONCE(host_vcpu->arch.cflags);
+> > > > @@ -687,27 +689,28 @@ int __pkvm_init_vcpu(pkvm_handle_t handle, struct kvm_vcpu *host_vcpu,
+> > > >               goto unlock;
+> > > >       }
+> > > >
+> > > > -     idx = hyp_vm->nr_vcpus;
+> > > > +     ret = init_pkvm_hyp_vcpu(hyp_vcpu, hyp_vm, host_vcpu);
+> > > > +     if (ret)
+> > > > +             goto unlock;
+> > > > +
+> > > > +     idx = hyp_vcpu->vcpu.vcpu_idx;
+> > > >       if (idx >= hyp_vm->kvm.created_vcpus) {
+> > > >               ret = -EINVAL;
+> > > >               goto unlock;
+> > > >       }
+> > > >
+> > > > -     ret = init_pkvm_hyp_vcpu(hyp_vcpu, hyp_vm, host_vcpu, idx);
+> > > > -     if (ret)
+> > > > +     if (hyp_vm->vcpus[idx]) {
+> > > > +             ret = -EINVAL;
+> > > >               goto unlock;
+> > > > +     }
+> > >
+> > > I'm not sure how much we care at EL2, but it looks like there's a
+> > > potential spectre gadget here given that 'idx' is now untrusted.
+> > > Perhaps chuck something like:
+> > >
+> > >         idx = array_index_nospec(idx, hyp_vm->kvm.created_vcpus);
+> > >
+> > > before indexing into 'hyp_vm->vcpus[]'?
+> >
+> > I'll add that when I respin.
 > 
->> ...this means that you're missing the IP2 here, which you did not
->> miss in the
->> commit adding the wakeup control in mtk-xhci instead.
->>
->> So, since I see that all of the USB IPs are behind MTU3, and that
->> there is no
->> USB IP that does *not* support gadget mode (so, there's no USB IP
->> that does NOT
->> support MTU3), you shall add all three here, and you shall drop the
->> commit that
->> adds the wakeup control in mtk-xhci entirely.
-> No, I'll still add them in mtk-xhci driver as before for the cases that
-> only use xhci only, no need use mtu3 driver.
-> 
-> As I said before, event the controller supports dual-role mode, which
-> don't mean that it can use this upstream mtu3 driver, some SoC have
-> limitation and can't support the dual-role mode switch used in upstream
-> driver. but all SoC can use upstream xhci-mtk driver. that why I add
-> some SoC's wakeup control in xhci-mtk, but not in mtu3 driver.
-> 
->>
->> This is because there will be no DT node declaring only XHCI.
->>
->> Since after the proposed change all controllers will be MTU3 -> XHCI,
->> there's
->> no need to add the same in the mtk-xhci driver.
-> I think it's better to leave the selection to the customer, for
-> example, on chromebook, we only use xhci driver and do not enable mtu3.
-> 
+> pKVM is riddled with these kinds of accesses (e.g.,
+> get_vm_by_handle(). It might be better if I address this in a separate
+> series.
 
-Chromebooks can use MTU3 and lock it in HOST mode only.
+Yeah, makes sense to me. Like I said, I'm not entirely sure how much we
+care about spectre at EL2, given that it's using a separate translation
+regime, but having a series to fix up some of the potential issues might
+provide a useful basis for discussion.
 
-The MTU3 hardware is there - don't hide it.
-
-Regards,
-Angelo
-
-> Thanks
-> 
->>
->> Cheers,
->> Angelo
->>
->>> ---
->>> v2: add wakeup for dual-role controllers
->>> ---
->>>    drivers/usb/mtu3/mtu3_host.c | 17 +++++++++++++++++
->>>    1 file changed, 17 insertions(+)
->>>
->>> diff --git a/drivers/usb/mtu3/mtu3_host.c
->>> b/drivers/usb/mtu3/mtu3_host.c
->>> index 7c657ea2dabd..d65b0f318436 100644
->>> --- a/drivers/usb/mtu3/mtu3_host.c
->>> +++ b/drivers/usb/mtu3/mtu3_host.c
->>> @@ -46,6 +46,11 @@
->>>    #define WC1_IS_P_95         BIT(12)
->>>    #define WC1_IS_EN_P0_95             BIT(6)
->>>
->>> +/* mt8196 */
->>> +#define PERI_WK_CTRL0_8196   0x08
->>> +#define WC0_IS_EN_P0_96              BIT(0)
->>> +#define WC0_IS_EN_P1_96              BIT(7)
->>> +
->>>    /* mt2712 etc */
->>>    #define PERI_SSUSB_SPM_CTRL 0x0
->>>    #define SSC_IP_SLEEP_EN     BIT(4)
->>> @@ -59,6 +64,8 @@ enum ssusb_uwk_vers {
->>>        SSUSB_UWK_V1_3,         /* mt8195 IP0 */
->>>        SSUSB_UWK_V1_5 = 105,   /* mt8195 IP2 */
->>>        SSUSB_UWK_V1_6,         /* mt8195 IP3 */
->>> +     SSUSB_UWK_V1_7,         /* mt8196 IP0 */
->>> +     SSUSB_UWK_V1_8,         /* mt8196 IP1 */
->>>    };
->>>
->>>    /*
->>> @@ -100,6 +107,16 @@ static void ssusb_wakeup_ip_sleep_set(struct
->>> ssusb_mtk *ssusb, bool enable)
->>>                msk = WC0_IS_EN_P3_95 | WC0_IS_C_95(0x7) |
->>> WC0_IS_P_95;
->>>                val = enable ? (WC0_IS_EN_P3_95 | WC0_IS_C_95(0x1)) :
->>> 0;
->>>                break;
->>> +     case SSUSB_UWK_V1_7:
->>> +             reg = ssusb->uwk_reg_base + PERI_WK_CTRL0_8196;
->>> +             msk = WC0_IS_EN_P0_96;
->>> +             val = enable ? msk : 0;
->>> +             break;
->>> +     case SSUSB_UWK_V1_8:
->>> +             reg = ssusb->uwk_reg_base + PERI_WK_CTRL0_8196;
->>> +             msk = WC0_IS_EN_P1_96;
->>> +             val = enable ? msk : 0;
->>> +             break;
->>>        case SSUSB_UWK_V2:
->>>                reg = ssusb->uwk_reg_base + PERI_SSUSB_SPM_CTRL;
->>>                msk = SSC_IP_SLEEP_EN | SSC_SPM_INT_EN;
->>
->>
->>
-
-
+Will
 
