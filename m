@@ -4,97 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11CEEC021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 21:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FE0C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 21:40:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nWSQQE4q/rb+7PJFeD76TZRQ/0FEDlDVpFPNBTprE7o=; b=2LTCNvhgcWSMpvgSq/vYM3IoPr
-	QOu1Mo+k8hS08sw1/3+yGcGVmJwsQ4LDoIJDvj6QDqthsja4blf5iWDfc5pp57pqxhZi6iLS5AWXL
-	BqVcfXEpD85RkwqTUBcyfULItuE9o36S9b1k1xgu8zKEju4USWe6cA3UHzTixtGFus+6xGxLPOTqT
-	S6+tEjnueVvI86F6FflfqDPztlrE5L1OrzWziAFBNw5b0d5S9MhLTrX/S+STd2IwAGK7AYiliiE5z
-	AOPSJPZkP4MzqtbOcMhbY2FQpM8cbWVsITm2gMQwnXxRPo4zE5xFnp7VN7IpdlMIn8JLN4a8zne8p
-	qvPzxY+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G4hKne9IRQO6EzSNU8aUUBRHAuvSrJt2vOW6NdUcWG4=; b=cz0O/Zn+FEROwmS9B/EvCnVQ0S
+	Pa9sKr1hHFMzSdPFBG/xqJrqgRNwp+HTqZyxpfo5h2vYaTuPm0Q0eR3loi4sjKGFfdDW86TUJGmtx
+	aigbQtC9ENL7AeWRIUa9459/tymDpxwspdQ1rUHlj/RtV4CiDyinedzwl0F5GTMKJP67Yd68G82mI
+	li7dp0LkxrAo4+bD8V1S9MeJ/+v0QLfbker94k4/ZRFbE8Q426YcjdcS4dmyd9uxEerAC5md1uBce
+	uA0/3TVioshvEjQtymo1Fn8dmsu7JWmy7+hrUk33cJz19VNp7IUnHg5l2U532WOEAlVKx/Trz8kof
+	LlhGwy/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkVJA-0000000A2CN-3GW2;
-	Tue, 18 Feb 2025 21:39:12 +0000
+	id 1tkVKd-0000000A2QZ-1pj6;
+	Tue, 18 Feb 2025 21:40:43 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkV4m-00000009yde-08fN
+	id 1tkVAZ-00000009zyk-3jeN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 21:24:21 +0000
+	Tue, 18 Feb 2025 21:30:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 64EE6A41BEE;
-	Tue, 18 Feb 2025 21:22:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEEDEC4CEE2;
-	Tue, 18 Feb 2025 21:24:18 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 57880A41BF3;
+	Tue, 18 Feb 2025 21:28:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D7B3C4CEE2;
+	Tue, 18 Feb 2025 21:30:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739913858;
-	bh=wx7D8VpPf7IjLab4q2shP+SjBbJcxvKfZvq8kyxl2Gk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=cnFH17Lk1g/+oi9wQQ55O48Kl6n5U4RnvyVh0gfxeObrmCk8hy7Y8cD8j/JzfYw69
-	 TrhXY0WJoiglBCHAKTrOXpe5LYABp8smOgtkn4MBWOptkCMw/hGY4IG9yldVqsw3hb
-	 FauCOON+agE5mjDFH8WYBh6fYq1R2HkSnE+Zo6a+4fDnhRHvUvyh91q3wMKaeEb2DQ
-	 1w5QWtfnr7evr2nJJ0JbsgniTQDNPwPT1qMnnAHSWOF5g7qwzm7SytvDH0xMIhXd/G
-	 ev4Z4h9oBSVdIB05hTb+aaVvBPb6K5qHeVX9hQ6o/WGXJq4IGgEIzTAdbf+2axo6+l
-	 4Jh36CISPbzHg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tkV4i-005bzR-Gy;
-	Tue, 18 Feb 2025 21:24:16 +0000
-Date: Tue, 18 Feb 2025 21:24:16 +0000
-Message-ID: <86cyffrlof.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: Eric Auger <eauger@redhat.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	kvmarm <kvmarm@lists.linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	christoffer.dall@arm.com,
-	suzuki.poulose@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	coltonlewis@google.com,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	darren@os.amperecomputing.com,
-	vishnu@os.amperecomputing.com
-Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
-In-Reply-To: <1a19dacc-72ca-4631-bce8-7426b3de0b47@os.amperecomputing.com>
-References: <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
-	<86y10osr19.wl-maz@kernel.org>
-	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
-	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
-	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
-	<86h661wje4.wl-maz@kernel.org>
-	<4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
-	<86cygpwfy0.wl-maz@kernel.org>
-	<b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
-	<86frkptzr6.wl-maz@kernel.org>
-	<Z6ZMdv8jJUvYwQzT@linux.dev>
-	<86bjvdtxb5.wl-maz@kernel.org>
-	<8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
-	<87tt8v14j2.wl-maz@kernel.org>
-	<1a19dacc-72ca-4631-bce8-7426b3de0b47@os.amperecomputing.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, eauger@redhat.com, oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1739914218;
+	bh=iugNd5aqwShQWPWcFsJiWz/STHgr3PfIz7/YAOGm5qc=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Ynb5WF9Hiq1Ft0QF/6eM+Ek0mJRXnUxpfU2cINsFQTfyesCyOxJh652LXYTeFB4u/
+	 f0wwseXMxCStQQWq2pa7HE03YSGIf2REOIJd4NnoNKOlyilv+0d9FOCdvYOpzH9a01
+	 uo9HructJnsihzc2zJ23spLe+DnwP4I5U1K7TuzQ17k3H4Cokw3RZ+2cbfqz5QJzkQ
+	 BViO8R9kbblsN9uShQPcVhrtN+sEGMj5dV9++RpN0euWY0qBEJ9cMP4VIjQq7Ls4Lx
+	 URbgHg+suF0U301Oq0UAEnne4I3y3qGyQaCa60xxnAYerbd8apQk/J3IxS6+UitglQ
+	 IX5jbNM3bihPA==
+From: Mark Brown <broonie@kernel.org>
+To: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
+ Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, 
+ Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
+ Bard Liao <yung-chuan.liao@linux.intel.com>, 
+ Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
+ Daniel Baluta <daniel.baluta@nxp.com>, 
+ Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
+ Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+ sound-open-firmware@alsa-project.org, linux-sound@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <68973636-eab8-4d82-8359-ae2c8f60f261@stanley.mountain>
+References: <cover.1739435600.git.dan.carpenter@linaro.org>
+ <68973636-eab8-4d82-8359-ae2c8f60f261@stanley.mountain>
+Subject: Re: [PATCH 1/2] ASoC: SOF: imx: Fix an IS_ERR() vs NULL bug in
+ imx_parse_ioremap_memory()
+Message-Id: <173991421399.1713371.18034640725263597167.b4-ty@kernel.org>
+Date: Tue, 18 Feb 2025 21:30:13 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-42535
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_132420_206234_06C3FE94 
-X-CRM114-Status: GOOD (  36.19  )
+X-CRM114-CacheID: sfid-20250218_133019_997339_E49B67C7 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,154 +87,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Feb 2025 07:33:11 +0000,
-Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
+On Mon, 17 Feb 2025 10:32:44 +0300, Dan Carpenter wrote:
+> The devm_ioremap() function doesn't return error pointers, it returns
+> NULL on error.  Update the checking to match.
 > 
 > 
-> Hi Marc,
-> 
-> On 15-02-2025 11:20 pm, Marc Zyngier wrote:
-> > On Mon, 10 Feb 2025 18:26:48 +0000,
-> > Eric Auger <eauger@redhat.com> wrote:
-> >> 
-> >> Hi Marc,
-> >> 
-> >> On 2/7/25 7:38 PM, Marc Zyngier wrote:
-> >>> On Fri, 07 Feb 2025 18:09:58 +0000,
-> >>> Oliver Upton <oliver.upton@linux.dev> wrote:
-> >>>> 
-> >>>> Hey,
-> >>>> 
-> >>>> On Fri, Feb 07, 2025 at 05:45:33PM +0000, Marc Zyngier wrote:
-> >>>>> I found at least one issue that could fail the migration. Before the
-> >>>>> VM starts running, we limit the feature set to the subset we actually
-> >>>>> support with NV.
-> >>>>> 
-> >>>>> By doing this, we also change the value of IDreg fields that are not
-> >>>>> writable, because they describe features that we don't support.
-> >>>>> Obviously, that fails on restore.
-> >>>>> 
-> >>>>> I need to have a think...
-> >>>> 
-> >>>> We spoke about this a while ago (and I forgot til now), but I was
-> >>>> wondering if we could use vCPU feature flags to describe NV, including
-> >>>> the selection between FEAT_E2H0 and FEAT_VHE.
-> >>>> 
-> >>>> I think this might match userspace expectations a bit more closely where
-> >>>> the state of the ID registers after init gives the actual feature set
-> >>>> supported by the VM.
-> >>> 
-> >>> I'm not sure that's enough. Let me give you an example:
-> >>> 
-> >>> My host has FEAT_XNX, described in ID_AA64MMFR1_EL1.XNX. For whatever
-> >>> reason, we don't allow this field to be written to, even out of NV
-> >>> context. This is odd, because for an EL1 VM, this field means nothing
-> >>> at all.
-> >> So the curprit fields for me look like
-> >> 
-> >> - ID_AA64MMFR1_EL1.XNX
-> >> - ID_AA64DFR0_EL1.DoubleLock
-> >> - ID_AA64PFR0_EL1.RAS
-> >> 
-> >> This is still based on your nv-next branch from Jan 9
-> >> https://github.com/eauger/linux/tree/nv_next_jan9_2025
-> > 
-> > I have now pushed out a new nv-next branch with the new and improved
-> > UAPI. I expect migration to work a bit better, or at least not to
-> > explode on ID register restore. You will notice that things have
-> > changed a bit (extra flag and cap for FEAT_E2H0), but nothing really
-> > major.
-> > 
-> 
-> Tried nv-next branch and it is breaking(kernel Oops) for normal VM
-> boot itself with qemu. Looks like this is happening since qemu is
-> trying to write to ID_UNALLOCATED mapped registers as part of
-> save-restore of registers.
 
-My take on this problem ends up being more consolidation, and make
-sure that the individual macros only override the default callbacks
-for idregs.
+Applied to
 
-Additionally, ID_UNALLOCATED gets a name matching the architectural
-encoding.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-	M.
+Thanks!
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index e6f4599dca48e..2e14562b5841f 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -2261,24 +2261,26 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
-  * from userspace.
-  */
- 
--#define ID_DESC(name)				\
--	SYS_DESC(SYS_##name),			\
-+#define ID_DESC_DEFAULT_CALLBACKS		\
- 	.access	= access_id_reg,		\
- 	.get_user = get_id_reg,			\
-+	.set_user = set_id_reg,			\
-+	.visibility = id_visibility,		\
- 	.reset = kvm_read_sanitised_id_reg
- 
-+#define ID_DESC(name)				\
-+	SYS_DESC(SYS_##name),			\
-+	ID_DESC_DEFAULT_CALLBACKS
-+
- /* sys_reg_desc initialiser for known cpufeature ID registers */
- #define ID_SANITISED(name) {			\
- 	ID_DESC(name),				\
--	.set_user = set_id_reg,			\
--	.visibility = id_visibility,		\
- 	.val = 0,				\
- }
- 
- /* sys_reg_desc initialiser for known cpufeature ID registers */
- #define AA32_ID_SANITISED(name) {		\
- 	ID_DESC(name),				\
--	.set_user = set_id_reg,			\
- 	.visibility = aa32_id_visibility,	\
- 	.val = 0,				\
- }
-@@ -2286,8 +2288,6 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
- /* sys_reg_desc initialiser for writable ID registers */
- #define ID_WRITABLE(name, mask) {		\
- 	ID_DESC(name),				\
--	.set_user = set_id_reg,			\
--	.visibility = id_visibility,		\
- 	.val = mask,				\
- }
- 
-@@ -2295,7 +2295,6 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
- #define ID_FILTERED(sysreg, name, mask) {	\
- 	ID_DESC(sysreg),				\
- 	.set_user = set_##name,				\
--	.visibility = id_visibility,			\
- 	.val = (mask),					\
- }
- 
-@@ -2305,10 +2304,9 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
-  * (1 <= crm < 8, 0 <= Op2 < 8).
-  */
- #define ID_UNALLOCATED(crm, op2) {			\
-+	.name = "S3_0_0_" #crm "_" #op2,		\
- 	Op0(3), Op1(0), CRn(0), CRm(crm), Op2(op2),	\
--	.access = access_id_reg,			\
--	.get_user = get_id_reg,				\
--	.set_user = set_id_reg,				\
-+	ID_DESC_DEFAULT_CALLBACKS,			\
- 	.visibility = raz_visibility,			\
- 	.val = 0,					\
- }
-@@ -2320,7 +2318,6 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
-  */
- #define ID_HIDDEN(name) {			\
- 	ID_DESC(name),				\
--	.set_user = set_id_reg,			\
- 	.visibility = raz_visibility,		\
- 	.val = 0,				\
- }
+[1/2] ASoC: SOF: imx: Fix an IS_ERR() vs NULL bug in imx_parse_ioremap_memory()
+      commit: b20be2c77ce5341ded1a2d8aec119f6dca8ef1ad
+[2/2] ASoC: SOF: imx: Fix error code in probe()
+      commit: a78f244a9150da0878a37a1b59fb0608b1ccfb9d
 
--- 
-Without deviation from the norm, progress is not possible.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
