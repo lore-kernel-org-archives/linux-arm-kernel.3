@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C97AC021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:52:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA97EC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8gRRVw/AYria41MhrePKHErpkPl6lNG66+LegsVr3z4=; b=V1aPoHvbaj8SV1ByWsZiWjy0b+
-	/2NDz5o7DQfOcC8OrgLjw8Fw7wtI4ku9COwGyycfKsphOXoWohvS8pyHG16grVns4WyPp0DYG4VBA
-	GGeVrc3SDsMGPKqTB3W4yswYiWbRQP+SkMjrWIaI3pJsgn1ebWVe6utpCEcLY8NNeVpcfYqee+UqE
-	5B60QGz53lFdtJyGVePExw9HgFvE2Rm8ARdefSUAMXYhXgCI4cU//b+r83zLq+WvXgFO4jJz3Ip7x
-	OhE0fI9G7G4M3sT2DHNI/tFY0q69vsBryP7ty+7BlWfdm7F/pHeSfVGi9DE0XzTYnlt4AwddhIDo8
-	Rt0jMnZQ==;
+	bh=Fp9kbQyOKTPnkkb66ovZCJuS5wfhcmXlwXbA1qB2SIo=; b=TA0o+3gtmIc0p7TvacYPhs8R54
+	zJK8Y52TzAWCFLZi18mkxlXxAQcN72XAJT3jW9+0bDroZGAGOSrO7/gNAZ/uSQzQJg5i7c+kZoETr
+	qv13QHaT+4bgf6DPxUaf4SzthC4czOGfs9QcglIUv025LP/bFyBJ8JvaKU54MNS5AtWNCFurQX8vo
+	T5sWsyZuWp6r2E6w2si4O6J5HWoQvH6zrpT8oGsmtrhi2zABFo+ENZQRfPcaHtJ5IE6TzuYqqm7PI
+	As6R04fju8igodmcMSegRjQahReEuTr+2mUYwPPkwbVOphcf1T/ZM/4fVKqNkEMuuudNnpewfXb+L
+	ySdpdCPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkUZZ-00000009rcZ-2ozK;
-	Tue, 18 Feb 2025 20:52:05 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tkUb1-00000009s2J-2mjK;
+	Tue, 18 Feb 2025 20:53:35 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTMU-00000009bH3-1yTB
+	id 1tkTz8-00000009iqz-3ztP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 19:34:32 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-38dcac27bcbso86368f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 11:34:30 -0800 (PST)
+	Tue, 18 Feb 2025 20:14:28 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-220e989edb6so119117945ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 12:14:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739907269; x=1740512069; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8gRRVw/AYria41MhrePKHErpkPl6lNG66+LegsVr3z4=;
-        b=PgwfcLNEzSZZNzhHNfQM7c0B39cGuLg6KTfes4Brs7SdsNeQ1Haf23ICMj7k87f6dz
-         PFVjecnJG1y7H2vBMy+NWJapGPHx5QycHLCZxwA1WXyLLrovqGUSuNG1hJ44EHgV+PaZ
-         iSTK/0aQxLTjbzp9+aQaZ50LPDWO+SKYAITedGlaMnd4m+j70mQ2PAIiGnrKy8WTn+Lx
-         LasMy2dH8oJoWE9uHussGZfz3I/fb1vgLnNCCAlPl6IZRs1/ndrE5bobhNKABSkRonQB
-         SvzZkFYFyt8rHOXw7W6pGvZSHlKRXAAaC1Cf3OM6CFo94aGezHwccLx6nhsUDgL+pGcf
-         c6zw==
+        d=gmail.com; s=20230601; t=1739909666; x=1740514466; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Fp9kbQyOKTPnkkb66ovZCJuS5wfhcmXlwXbA1qB2SIo=;
+        b=J2oIHEymaO8QmJ5EjmPBFJc0tQAQflb9NwVM6PIQuf5t+KMDTwmseljXFoE4Fb8RdA
+         YG5m6PVmAK3TqMDXdlKsYHZi53ARMjOd7KeC63hlnuHUwoq36j9PLZ07JqYAeQFM61xC
+         TXx0QX/sV6WjikZJFuvjQrALccFK8ZrZU7QcRgWUU/sQ26UlpN9wjT+1zzI7tV21RJ5Q
+         tx22ANSef6SH2Mf2F5pDzt3HOFLRPmWW0r19ctV6JVDC0Qfl5dpLXcBIzdxwzRHDlG5u
+         n+VsQBF5atkbDt91neNlZfHTpt17veyUyzbJKEcwKyqH92caVgG9nchxagYpntEcB5cZ
+         3UOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739907269; x=1740512069;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8gRRVw/AYria41MhrePKHErpkPl6lNG66+LegsVr3z4=;
-        b=TB6zODZaxxa3fL+ZQx205EYdZ9Qr4vp2s3oanFGFhb0LMGwp5MFrQZ4oyhGlC/dsAK
-         4XtljKnjoRmz/C3kVROqwdRYvtbh/vKQz0gz0Ukrbcb/MFZRYIk0FjODwoHYHQH5zxeL
-         68tkmUJsISxy1ksQWLoyxEmAzs5G1i/SJA3MLs4vvuEZYBrgqfczXO9F6aof8iEk74Nc
-         DZ0m2FoiyQgp0bH5jlftVww8uzOgrQcegTR9ZvOTcKG0PPS9YKO6cV8gKhqaZhDe6UDu
-         lEc105+PJtCC5PtX9Ov5FPaJASwAPPmnV1aJIHSfT4/xxM+8BP+l5mkx7b217GZ+K8rW
-         VE5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUAd+WGdKHJayjMzXcssrec0fb/dTs3ZbRBm+PwPrWyHgZJ6jS+i1+vyg4C+SDEfKorEdKeehTPBw32bpxnAmBS@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZzrNSow2APncRJBqz7OgS1Jp/kc9wDHycKcvljMJNFHgkOFdy
-	HaA3w2hgU1a8DdYLlZRyI/LhiXF3w9hKehrUX1rstJPhnIwyipCM
-X-Gm-Gg: ASbGnctQ5O+lWRGWcFNHziUIOuQWwfb7iSS+lnHmW8Og11bwENECX/FR+f47dV8rIGS
-	V7SBoAVxYkgZlb+uIgp55CZ6z79UtvgC7a32vGUGmQv/Rm1TYBDLmAn+OT9xtoJWpVm4+505m4+
-	LGdhaH8nTiBPXWUt6CuiZRDoTaDW7LghBorEBcIUuWplYmzssEXnI19+SLLPKeOXP+1mcc73ecH
-	mPF4dxkkATpVh9WaOTxGpRKwMRprrnMff9y8NbCacre3NXNbeH/sCNiOIacSFul7L9T+i85wddu
-	IUbQhQK6J7ksDxPFFloQyqJGA7hg6r7U4jhkt68L3dID7AWWYz+9NK31rYpOIG/fVZA=
-X-Google-Smtp-Source: AGHT+IGHKwaqjonh642GsOxeyKxdsH5z+YsnUDWLjShcZ4A8R92dFADuYUyWrKyixAcIuk0C7ZZGNw==
-X-Received: by 2002:a05:6000:1fa7:b0:38f:3ec3:4801 with SMTP id ffacd0b85a97d-38f57d94f86mr1020714f8f.25.1739907268627;
-        Tue, 18 Feb 2025 11:34:28 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259f85c2sm16339601f8f.91.2025.02.18.11.34.27
+        d=1e100.net; s=20230601; t=1739909666; x=1740514466;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Fp9kbQyOKTPnkkb66ovZCJuS5wfhcmXlwXbA1qB2SIo=;
+        b=p8T7pkIFo4qBS85+WwW0nRS8rH865icLv2pnRbsT2Esj6iJvbykVlExKUTq3p85KfX
+         N05AxqnbvV9+EjVhFeq57hE3n0OUH2jCu1p05vqYiwwlyTjZDcoMzJQhb9PI0K52ts/9
+         dJzGgbSQNXEbMUNI63PmZywTPamFkDtcj3h0Rvc8Qn6cXw037BavbKNAJ2hSOd/ml1fs
+         swOlRAKWQ06extE7B0Z8KqdGkt3D0R1WlHBxPWnp6jqLRAwyVsgr4NOZly5rh0/rrS9S
+         GaitZrGnStCokyF6E+y6IsiaGDW5KBf+H19cqbRscU6wVVX/8VKeaJY3fsuioculMfad
+         rgZw==
+X-Forwarded-Encrypted: i=1; AJvYcCUy/khYTauVbenyBtfpcO04CDOjLRvpXc9jVHLiwyzCJCqFqQ9cFGmKAfZX2o8fmfkt6UvPElPQHHJqh/FW5bph@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvbOHDEbWpNrmWfwUlWp8RHp72jEwoyQmDFyE1Bxra9xrjdkyX
+	r3Du0Qs8d5KJja9Xat5r5b2IPo6eYWJIAOKccuXhUprHtpetuqRU
+X-Gm-Gg: ASbGncusm0VZLO/liHiJm5L7AHAOn6G6cowfgETbYbp8T4Y2OmfwIIWNX+IaY1FD6Q0
+	ghNURYz49VZZAAKINt55kIuyhlvmAP1z0yKhIdk/G2FpZX0j+D0MBj6No2QlmXIcSMJ+9C9mqn8
+	dnDzM9L/AnxKph2thQpgTY5Zc3NSAkUJtwPsaGTQbFeOEnV+p1Jug9fqAoCia1UAfAO5o8Hbacw
+	g8qPzYEF5molz9XS/jiW5L1uDOwRfGtMnqEiqILLcmrpJhhqD6FkUUnqedg1YmYJ2SW2ewlmZgP
+	//49Ss+/NMzilHc=
+X-Google-Smtp-Source: AGHT+IE4y9RZsLl4ZPEhoolF6Dek2f7wBe/IvlnSACVwxT3sFshBI66xUkRrjGVcxO0wEb4QnWLcXw==
+X-Received: by 2002:a05:6a21:4cc7:b0:1ee:b8bc:3d2f with SMTP id adf61e73a8af0-1eeb8bdbd8amr13685875637.4.1739909665586;
+        Tue, 18 Feb 2025 12:14:25 -0800 (PST)
+Received: from localhost ([216.228.125.131])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7324277f388sm10896504b3a.174.2025.02.18.12.14.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 11:34:28 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
- Andre Przywara <andre.przywara@arm.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 08/15] clk: sunxi-ng: a523: add system mod clocks
-Date: Tue, 18 Feb 2025 20:34:27 +0100
-Message-ID: <2013031.usQuhbGJ8B@jernej-laptop>
-In-Reply-To: <20250214125359.5204-9-andre.przywara@arm.com>
-References: <20250214125359.5204-1-andre.przywara@arm.com>
- <20250214125359.5204-9-andre.przywara@arm.com>
+        Tue, 18 Feb 2025 12:14:25 -0800 (PST)
+Date: Tue, 18 Feb 2025 15:14:23 -0500
+From: Yury Norov <yury.norov@gmail.com>
+To: Beata Michalska <beata.michalska@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
+	sfr@canb.auug.org.au, ionela.voinescu@arm.com,
+	linux-next@vger.kernel.org, sumitg@nvidia.com,
+	yang@os.amperecomputing.com, vanshikonda@os.amperecomputing.com,
+	lihuisong@huawei.com, zhanjie9@hisilicon.com,
+	ptsm@linux.microsoft.com
+Subject: Re: [PATCH] arm64: Utilize for_each_cpu_wrap for reference lookup
+Message-ID: <Z7TqFLU0Kwg9cUjO@thinkpad>
+References: <20250218192412.2072619-1-beata.michalska@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250218192412.2072619-1-beata.michalska@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_113430_509893_AAE58287 
-X-CRM114-Status: GOOD (  16.91  )
+X-CRM114-CacheID: sfid-20250218_121427_017761_988AE4C2 
+X-CRM114-Status: GOOD (  22.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,203 +101,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 14. februar 2025 ob 13:53:52 Srednjeevropski standardni =C4=8Das=
- je Andre Przywara napisal(a):
-> Add the clocks driving some core system related subsystems of the SoC:
-> the "CE" crypto engine, the high speed timers, the DRAM and the associated
-> MBUS clock, and the PCIe clock.
->=20
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+On Tue, Feb 18, 2025 at 07:24:12PM +0000, Beata Michalska wrote:
+> While searching for a reference CPU within a given policy,
+> arch_freq_get_on_cpu relies on cpumask_next_wrap to iterate over
+> all available CPUs and to ensure each is verified only once.
+> Recent changes to cpumask_next_wrap will handle the latter no more,
+> so switching to for_each_cpu_wrap, which  preserves expected behavior
+> while ensuring compatibility with the updates.
+
+This is technically correct, but I would rather point that for
+iterating over each CPU, it's better to use a dedicated iterator
+instead of opencoded loop.
+
+> Fixes: 16d1e27475f6 ("arm64: Provide an AMU-based version of arch_freq_get_on_cpu")
+> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
 > ---
->  drivers/clk/sunxi-ng/ccu-sun55i-a523.c | 119 +++++++++++++++++++++++++
->  1 file changed, 119 insertions(+)
->=20
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c b/drivers/clk/sunxi-n=
-g/ccu-sun55i-a523.c
-> index 0ef1fd71a1ca5..b68c44bce825f 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-> @@ -423,6 +423,18 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(gpu_clk, "gpu", =
-gpu_parents, 0x670,
->  				    BIT(31),	/* gate */
->  				    0);
-> =20
-> +static const struct clk_parent_data ce_parents[] =3D {
-> +	{ .fw_name =3D "hosc" },
-> +	{ .hw =3D &pll_periph0_480M_clk.common.hw },
-> +	{ .hw =3D &pll_periph0_400M_clk.hw },
-> +	{ .hw =3D &pll_periph0_300M_clk.hw },
-> +};
-> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(ce_clk, "ce", ce_parents, 0x680,
-> +				       0, 5,	/* M */
-> +				       24, 3,	/* mux */
-> +				       BIT(31),	/* gate */
-> +				       0);
-> +
->  static const struct clk_hw *ve_parents[] =3D {
->  	&pll_ve_clk.common.hw,
->  	&pll_periph0_480M_clk.common.hw,
-> @@ -435,6 +447,65 @@ static SUNXI_CCU_M_HW_WITH_MUX_GATE(ve_clk, "ve", ve=
-_parents, 0x690,
->  				    BIT(31),	/* gate */
->  				    CLK_SET_RATE_PARENT);
-> =20
-> +static const struct clk_parent_data hstimer_parents[] =3D {
-> +	{ .fw_name =3D "hosc" },
-> +	{ .fw_name =3D "iosc" },
-> +	{ .fw_name =3D "losc" },
-> +	{ .hw =3D &pll_periph0_200M_clk.hw },
-> +};
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer0_clk, "hstimer0",
-> +				       hstimer_parents, 0x730,
-> +				       0, 0,	/* M */
-> +				       0, 3,	/* P */
-> +				       24, 3,	/* mux */
-> +				       BIT(31),	/* gate */
-> +				       CLK_SET_RATE_PARENT);
+>  based on arm64 for-next/amuv1-avg-freq
+> 
+>  arch/arm64/kernel/topology.c | 16 ++++++++++------
+>  1 file changed, 10 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> index a09b0551ec59..9e3583720668 100644
+> --- a/arch/arm64/kernel/topology.c
+> +++ b/arch/arm64/kernel/topology.c
+> @@ -254,7 +254,7 @@ int arch_freq_get_on_cpu(int cpu)
+>  		if (!housekeeping_cpu(cpu, HK_TYPE_TICK) ||
+>  		    time_is_before_jiffies(last_update + msecs_to_jiffies(AMU_SAMPLE_EXP_MS))) {
+>  			struct cpufreq_policy *policy = cpufreq_cpu_get(cpu);
+> -			int ref_cpu = cpu;
+> +			int ref_cpu;
+>  
+>  			if (!policy)
+>  				return -EINVAL;
+> @@ -265,11 +265,15 @@ int arch_freq_get_on_cpu(int cpu)
+>  				return -EOPNOTSUPP;
+>  			}
+>  
+> -			do {
+> -				ref_cpu = cpumask_next_wrap(ref_cpu, policy->cpus,
+> -							    start_cpu, true);
+> -
+> -			} while (ref_cpu < nr_cpu_ids && idle_cpu(ref_cpu));
+> +			for_each_cpu_wrap(ref_cpu, policy->cpus, cpu + 1) {
+> +				if (ref_cpu == start_cpu) {
+> +					/* Prevent verifying same CPU twice */
+> +					ref_cpu = nr_cpu_ids;
+> +					break;
 
-CLK_SET_RATE_PARENT doesn't make much sense for fixed clocks.
+If start_cpu == cpu, and you begin with 'cpu + 1', you will never
+check the 'cpu' for idle, right? Maybe like this?
 
-> +
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer1_clk, "hstimer1",
-> +				       hstimer_parents,
-> +				       0x734,
-> +				       0, 0,	/* M */
-> +				       0, 3,	/* P */
-> +				       24, 3,	/* mux */
-> +				       BIT(31),	/* gate */
-> +				       CLK_SET_RATE_PARENT);
-> +
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer2_clk, "hstimer2",
-> +				       hstimer_parents,
-> +				       0x738,
-> +				       0, 0,	/* M */
-> +				       0, 3,	/* P */
-> +				       24, 3,	/* mux */
-> +				       BIT(31),	/* gate */
-> +				       CLK_SET_RATE_PARENT);
-> +
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer3_clk, "hstimer3",
-> +				       hstimer_parents,
-> +				       0x73c,
-> +				       0, 0,	/* M */
-> +				       0, 3,	/* P */
-> +				       24, 3,	/* mux */
-> +				       BIT(31),	/* gate */
-> +				       CLK_SET_RATE_PARENT);
-> +
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer4_clk, "hstimer4",
-> +				       hstimer_parents,
-> +				       0x740,
-> +				       0, 0,	/* M */
-> +				       0, 3,	/* P */
-> +				       24, 3,	/* mux */
-> +				       BIT(31),	/* gate */
-> +				       CLK_SET_RATE_PARENT);
-> +
-> +static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(hstimer5_clk, "hstimer5",
-> +				       hstimer_parents,
-> +				       0x744,
-> +				       0, 0,	/* M */
-> +				       0, 3,	/* P */
-> +				       24, 3,	/* mux */
-> +				       BIT(31),	/* gate */
-> +				       CLK_SET_RATE_PARENT);
-> +
->  static const struct clk_parent_data iommu_parents[] =3D {
->  	{ .hw =3D &pll_periph0_600M_clk.hw },
->  	{ .hw =3D &pll_ddr0_clk.common.hw },
-> @@ -450,6 +521,34 @@ static SUNXI_CCU_M_DATA_WITH_MUX_GATE(iommu_clk, "io=
-mmu", iommu_parents, 0x7b0,
->  				      BIT(31),	/* gate */
->  				      CLK_SET_RATE_PARENT);
-> =20
-> +static const struct clk_hw *dram_parents[] =3D {
-> +	&pll_ddr0_clk.common.hw,
-> +	&pll_periph0_600M_clk.hw,
-> +	&pll_periph0_480M_clk.common.hw,
-> +	&pll_periph0_400M_clk.hw,
-> +	&pll_periph0_150M_clk.hw,
-> +};
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(dram_clk, "dram", dram_parents, 0x80=
-0,
-> +				    0, 5,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    CLK_IS_CRITICAL);
+        unsigned int start_cpu = cpu + 1;
 
-Same comment as for IOMMU clock. Update bit is needed to actually apply con=
-figuration.
-
-Best regards,
-Jernej
-
-> +
-> +static CLK_FIXED_FACTOR_HW(mbus_clk, "mbus",
-> +			   &dram_clk.common.hw, 4, 1, 0);
-> +
-> +static const struct clk_parent_data losc_hosc_parents[] =3D {
-> +	{ .fw_name =3D "hosc" },
-> +	{ .fw_name =3D "losc" },
-> +};
-> +
-> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(pcie_aux_clk, "pcie-aux",
-> +				      losc_hosc_parents, 0xaa0,
-> +				      0, 5,	/* M */
-> +				      24, 1,	/* mux */
-> +				      BIT(31),	/* gate */
-> +				      0);
-> +
->  static SUNXI_CCU_GATE_DATA(hdmi_24M_clk, "hdmi-24M", osc24M, 0xb04, BIT(=
-31), 0);
-> =20
->  /* TODO: add mux between 32kOSC and PERIPH0/18750 */
-> @@ -584,8 +683,17 @@ static struct ccu_common *sun55i_a523_ccu_clks[] =3D=
- {
->  	&di_clk.common,
->  	&g2d_clk.common,
->  	&gpu_clk.common,
-> +	&ce_clk.common,
->  	&ve_clk.common,
-> +	&hstimer0_clk.common,
-> +	&hstimer1_clk.common,
-> +	&hstimer2_clk.common,
-> +	&hstimer3_clk.common,
-> +	&hstimer4_clk.common,
-> +	&hstimer5_clk.common,
->  	&iommu_clk.common,
-> +	&dram_clk.common,
-> +	&pcie_aux_clk.common,
->  	&hdmi_24M_clk.common,
->  	&hdmi_cec_32k_clk.common,
->  	&hdmi_cec_clk.common,
-> @@ -644,11 +752,22 @@ static struct clk_hw_onecell_data sun55i_a523_hw_cl=
-ks =3D {
->  		[CLK_AHB]		=3D &ahb_clk.common.hw,
->  		[CLK_APB0]		=3D &apb0_clk.common.hw,
->  		[CLK_APB1]		=3D &apb1_clk.common.hw,
-> +		[CLK_MBUS]		=3D &mbus_clk.hw,
->  		[CLK_DE]		=3D &de_clk.common.hw,
->  		[CLK_DI]		=3D &di_clk.common.hw,
->  		[CLK_G2D]		=3D &g2d_clk.common.hw,
->  		[CLK_GPU]		=3D &gpu_clk.common.hw,
-> +		[CLK_CE]		=3D &ce_clk.common.hw,
->  		[CLK_VE]		=3D &ve_clk.common.hw,
-> +		[CLK_HSTIMER0]		=3D &hstimer0_clk.common.hw,
-> +		[CLK_HSTIMER1]		=3D &hstimer1_clk.common.hw,
-> +		[CLK_HSTIMER2]		=3D &hstimer2_clk.common.hw,
-> +		[CLK_HSTIMER3]		=3D &hstimer3_clk.common.hw,
-> +		[CLK_HSTIMER4]		=3D &hstimer4_clk.common.hw,
-> +		[CLK_HSTIMER5]		=3D &hstimer5_clk.common.hw,
-> +		[CLK_IOMMU]		=3D &iommu_clk.common.hw,
-> +		[CLK_DRAM]		=3D &dram_clk.common.hw,
-> +		[CLK_PCIE_AUX]		=3D &pcie_aux_clk.common.hw,
->  		[CLK_HDMI_24M]		=3D &hdmi_24M_clk.common.hw,
->  		[CLK_HDMI_CEC_32K]	=3D &hdmi_cec_32k_clk.common.hw,
->  		[CLK_HDMI_CEC]		=3D &hdmi_cec_clk.common.hw,
->=20
-
-
-
-
+> +				}
+> +				if (!idle_cpu(ref_cpu))
+> +					break;
+> +			}
+>  
+>  			cpufreq_cpu_put(policy);
+>  
+> -- 
+> 2.25.1
 
