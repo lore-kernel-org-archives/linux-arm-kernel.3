@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECAD7C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:31:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB535C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=/UbQxd2gHuwSazOzBCkfogNyge30ll4F/uTuo1uhry4=; b=GLhqmLCvc6QkDH
-	39pAgeL/XmT8U7kd6f//ZHCyPUqDILIiHtZsbZcuV+EryLuh1UF9HvCllyvJxCf6V3/f6mJluQgfQ
-	GKpmklzGd6ZFO2Estk6nO3TJwpiV5V0EVpvk7tK2tFYDQGem5vEDE3BQKFLv/IzMHeMk4CslRgtEJ
-	j8s9X0z8ipd2mc0w61MOVCOXw+ONaT+uFeqEHUOvdQVuHGYjhzkqgGnwuhtk970QghGNR7AHRJbDS
-	yuyCCd3YUTOT6q5h9OAdnho2jd3323EWNq96xP2McZCSUyv2xKjLqs8VXezdl/zz3H9ekz5zRETvO
-	fxfPAsORigi66XYz/apg==;
+	List-Owner; bh=dor0GCQpDJiIiZLkdo5/Mz1qqle8mYzzA6GzARE0hz8=; b=g7XnyTUlBAWy1l
+	6Ls7VwitRbYdqTcz4ro9wztPG5Y1B25OFoD+lNIKiOQ4UQGZ0uWYJH+8BqOIU9C3dhm+4OscjSjEF
+	qeWivFfVA6V/oEPhSDDSCPTtsYAOn73I0qdi/sYx+JK2DN4BfLW6pU9VNYZCNSnCfsHUGzsBxwQ+z
+	V6h5vAVkWliiJ8eoqNhOsu5JrKBzw0VStOoY/SGrR0xzdPnMih6HYRYnU8sCygg/Pk7+1rhtHz3nS
+	40jAXVnRm8+zjJQo/SKT7dBPsqvKyVPuQGU67AgG09iqVxVo9pe2F+XUu8Dhsmxk9rTmALTQpIVRC
+	Y3exQi7+jQg+wbk+0kKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkUFM-00000009mO0-0UoH;
-	Tue, 18 Feb 2025 20:31:12 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tkUGn-00000009mpo-3bVf;
+	Tue, 18 Feb 2025 20:32:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTlB-00000009fmD-3Qmq
+	id 1tkTlC-00000009fnF-0ewP
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Feb 2025 20:00:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A767FA41A8D;
-	Tue, 18 Feb 2025 19:58:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04986C4CEEE;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 13E0B5C6273;
+	Tue, 18 Feb 2025 19:59:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABA4DC4CEEA;
 	Tue, 18 Feb 2025 20:00:00 +0000 (UTC)
 Received: from rostedt by gandalf with local (Exim 4.98)
 	(envelope-from <rostedt@goodmis.org>)
-	id 1tkTlW-00000004App-2tWh;
-	Tue, 18 Feb 2025 15:00:22 -0500
-Message-ID: <20250218200022.538888594@goodmis.org>
+	id 1tkTlX-00000004Arp-1YRM;
+	Tue, 18 Feb 2025 15:00:23 -0500
+Message-ID: <20250218200023.221100846@goodmis.org>
 User-Agent: quilt/0.68
-Date: Tue, 18 Feb 2025 14:59:20 -0500
+Date: Tue, 18 Feb 2025 14:59:24 -0500
 From: Steven Rostedt <rostedt@goodmis.org>
 To: linux-kernel@vger.kernel.org,
  linux-trace-kernel@vger.kernel.org,
@@ -64,13 +64,13 @@ Cc: Masami Hiramatsu <mhiramat@kernel.org>,
  Will Deacon <will@kernel.org>,
  Vasily Gorbik <gor@linux.ibm.com>,
  Alexander Gordeev <agordeev@linux.ibm.com>
-Subject: [PATCH v5 2/6] scripts/sorttable: Have mcount rela sort use direct values
+Subject: [PATCH v5 6/6] ftrace: Have ftrace pages output reflect freed pages
 References: <20250218195918.255228630@goodmis.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_120002_000303_4E9B2B85 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20250218_120002_287341_ADC757D5 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,74 +87,86 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Steven Rostedt <rostedt@goodmis.org>
 
-The mcount_loc sorting for when the values are stored in the Elf_Rela
-entries uses the compare_extable() function to do the compares in the
-qsort(). That function does handle byte swapping if the machine being
-compiled for is a different endian than the host machine. But the
-sort_relocs() function sorts an array that pulled in the values from the
-Elf_Rela section and has already done the swapping.
+The amount of memory that ftrace uses to save the descriptors to manage
+the functions it can trace is shown at output. But if there are a lot of
+functions that are skipped because they were weak or the architecture
+added holes into the tables, then the extra pages that were allocated are
+freed. But these freed pages are not reflected in the numbers shown, and
+they can even be inconsistent with what is reported:
 
-Create two new compare functions that will sort the direct values. One
-will sort 32 bit values and the other will sort the 64 bit value. One of
-these will be assigned to a compare_values function pointer and that will
-be used for sorting the Elf_Rela mcount values.
+ ftrace: allocating 57482 entries in 225 pages
+ ftrace: allocated 224 pages with 3 groups
+
+The above shows the number of original entries that are in the mcount_loc
+section and the pages needed to save them (225), but the second output
+reflects the number of pages that were actually used. The two should be
+consistent as:
+
+ ftrace: allocating 56739 entries in 224 pages
+ ftrace: allocated 224 pages with 3 groups
+
+The above also shows the accurate number of entires that were actually
+stored and does not include the entries that were removed.
 
 Signed-off-by: Steven Rostedt (Google) <rostedt@goodmis.org>
 ---
- scripts/sorttable.c | 26 +++++++++++++++++++++++++-
- 1 file changed, 25 insertions(+), 1 deletion(-)
+ kernel/trace/ftrace.c | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
 
-diff --git a/scripts/sorttable.c b/scripts/sorttable.c
-index 4a34c275123e..f62a91d8af0a 100644
---- a/scripts/sorttable.c
-+++ b/scripts/sorttable.c
-@@ -552,6 +552,28 @@ static void *sort_orctable(void *arg)
+diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
+index e657013424aa..27c8def2139d 100644
+--- a/kernel/trace/ftrace.c
++++ b/kernel/trace/ftrace.c
+@@ -7006,6 +7006,7 @@ static int ftrace_process_locs(struct module *mod,
+ 	unsigned long addr;
+ 	unsigned long kaslr;
+ 	unsigned long flags = 0; /* Shut up gcc */
++	unsigned long pages;
+ 	int ret = -ENOMEM;
  
- #ifdef MCOUNT_SORT_ENABLED
+ 	count = end - start;
+@@ -7013,6 +7014,8 @@ static int ftrace_process_locs(struct module *mod,
+ 	if (!count)
+ 		return 0;
  
-+static int compare_values_64(const void *a, const void *b)
-+{
-+	uint64_t av = *(uint64_t *)a;
-+	uint64_t bv = *(uint64_t *)b;
++	pages = DIV_ROUND_UP(count, ENTRIES_PER_PAGE);
 +
-+	if (av < bv)
-+		return -1;
-+	return av > bv;
-+}
-+
-+static int compare_values_32(const void *a, const void *b)
-+{
-+	uint32_t av = *(uint32_t *)a;
-+	uint32_t bv = *(uint32_t *)b;
-+
-+	if (av < bv)
-+		return -1;
-+	return av > bv;
-+}
-+
-+static int (*compare_values)(const void *a, const void *b);
-+
- /* Only used for sorting mcount table */
- static void rela_write_addend(Elf_Rela *rela, uint64_t val)
- {
-@@ -583,6 +605,8 @@ static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
- 	void *vals;
- 	void *ptr;
+ 	/*
+ 	 * Sorting mcount in vmlinux at build time depend on
+ 	 * CONFIG_BUILDTIME_MCOUNT_SORT, while mcount loc in
+@@ -7124,6 +7127,8 @@ static int ftrace_process_locs(struct module *mod,
+ 			for (pg = pg_unuse; pg; pg = pg->next)
+ 				remaining += 1 << pg->order;
  
-+	compare_values = long_size == 4 ? compare_values_32 : compare_values_64;
++			pages -= remaining;
 +
- 	shdr_start = (Elf_Shdr *)((char *)ehdr + ehdr_shoff(ehdr));
- 	shentsize = ehdr_shentsize(ehdr);
+ 			skip = DIV_ROUND_UP(skip, ENTRIES_PER_PAGE);
  
-@@ -640,7 +664,7 @@ static void *sort_relocs(Elf_Ehdr *ehdr, uint64_t start_loc, uint64_t size)
- 		}
+ 			/*
+@@ -7137,6 +7142,13 @@ static int ftrace_process_locs(struct module *mod,
+ 		synchronize_rcu();
+ 		ftrace_free_pages(pg_unuse);
  	}
- 	count = ptr - vals;
--	qsort(vals, count / long_size, long_size, compare_extable);
-+	qsort(vals, count / long_size, long_size, compare_values);
++
++	if (!mod) {
++		count -= skipped;
++		pr_info("ftrace: allocating %ld entries in %ld pages\n",
++			count, pages);
++	}
++
+ 	return ret;
+ }
  
- 	ptr = vals;
- 	for (int i = 0; i < shnum; i++) {
+@@ -7782,9 +7794,6 @@ void __init ftrace_init(void)
+ 		goto failed;
+ 	}
+ 
+-	pr_info("ftrace: allocating %ld entries in %ld pages\n",
+-		count, DIV_ROUND_UP(count, ENTRIES_PER_PAGE));
+-
+ 	ret = ftrace_process_locs(NULL,
+ 				  __start_mcount_loc,
+ 				  __stop_mcount_loc);
 -- 
 2.47.2
 
