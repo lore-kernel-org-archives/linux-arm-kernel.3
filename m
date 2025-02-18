@@ -4,92 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DAF0C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 16:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48210C021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 16:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=btU0w+uNVFHY2e6nf/JYninIaoVDv7TVqnoTKzlZWZc=; b=X2u0CJc/NH3iEiQ9jwa0SKYuHq
-	3mFlzRZAgCzvVb1ZeEQe5rHg8slvf7gZCQFd79O6FcKbX3xY6xpVhNQFwXMZRgHsnSMqKxEmq7b8B
-	p2xTZJBxkHFk8RtU5sEz5gMMy/blnrQwGdOddvVDDM1nfU2ItjP69oRVNvT2zQVoI39aK48E3kaH5
-	sPo7VEBT2UlP4WIlaAG1WlwLkyHlWpXoa4sG0TKtXZbLS7OZAPoRnfqo+0YUyToSxGZjvEa7npPAh
-	Nx8646O2ksJIOZm7r/3DOv/kP8SYEfz8rcwgk2MnCgOTEyK6tx2eARDpxWi+vI32KGaHHTuSAnnmB
-	AjP3+AhA==;
+	bh=V1vBRdRyZIpOIudAbKfIUAnkJZKA6xOO1Td2vSp9kUQ=; b=jQTNJUOxpUNunrbwjBXb22EUxW
+	azPpAh1jCLTh2iQXh7KK7S8nAFNfai46AkEH+P7EIGlslAO6WQ+fYPzKo+IYrOdiZSy9S5vmj3zcc
+	uvIotPZT1Q1+VH/ImL3WFyJKEdmpOZrWYanu7SvmK2cUB3NqzLQQ8jDD6aAWt8ExJsbpUGf4cZyTl
+	eSGTMFbua3nCcSzb0+UcXUXM8HaVKWiXb/3AdFgaKrkvrd8sCjikjJhD9mQlhryxl4bknU44lHzTO
+	TxJbXXHtO+e+LZTryjdCxKejK/ZohigW4gfBzD08qWcSo+VjuURn416aOWtEsbkk4K+4DZQgC0/Ig
+	mIOtWJeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQWV-00000008z6M-1Zw8;
-	Tue, 18 Feb 2025 16:32:39 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1tkQYq-00000008zeo-2qL9;
+	Tue, 18 Feb 2025 16:35:04 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQV1-00000008yo1-3cl8
+	id 1tkQXN-00000008zMT-0vfJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 16:31:09 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5439e331cceso6601235e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 08:31:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739896266; x=1740501066; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=btU0w+uNVFHY2e6nf/JYninIaoVDv7TVqnoTKzlZWZc=;
-        b=p4iGtBGu9hILcVd0kJAN9lsn57VJclOvG8QmF7ABeXJAP2wXMKEEA/Wgym/OcoVM6e
-         8ccnyhu1I4lgzXxwKmsdt7AwudJb1r7483U0B3d5E9vp4luTkDRD7LRLvvFcuQVObWRW
-         CzeI1pMCQFAjAm781UHVRpKDW8b1fKf8DkQkAmq63PWyn4lZG3Xq53wTShJQIzPEX8i5
-         wd9+SKD0y3LF0yxmMBf0ujWaTUR/FisqcaXexBLuHJ9aV29H9QPpN4juF7vVE5FBzet3
-         Ih23aq1+yH4T4Mnc1+sTLj9JqspZcKOrjgnFYU8mWP53Wbz+gLgHO9BzMaaFyzfLAwNc
-         6hTw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739896266; x=1740501066;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=btU0w+uNVFHY2e6nf/JYninIaoVDv7TVqnoTKzlZWZc=;
-        b=dWnCiCDvJrIlrdKD3X9C0cZi/5qmbvQVrQhqL9vq2o51/jGpMuY342Q9uSsCL5D11Q
-         sIUiRd1KnD1duBgY1ZsD4bTH9DU+o02OhQKUtGmv6SHtx7ke/sGKRS0y0x/JaenIrQJ6
-         gO6WUpiAlMN61NccN7ulE31JCJAW5ESaB3o3o44E7Vt7VuJMsqd/lPq0fXx2Fm6Vc6OK
-         B93QHHPZOMQrsUwNKiYLCqOGI9r5q5ey12LtgFOC+/+0NH6QbLWv9KcNpvA2qquPCUEV
-         fTW97aeKHs6uHZioaVoCUGKMslYv+5CdVDi0NjyLkGqAR03ZlrmDMDOZeFaRCoZmgT/9
-         2u3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW520or8i2R3VIPdspnZ0tLO4rNfC1SR743dazpB13uY4SzjsfaSZ+qO7EiZc3b9hUcUtsxK0i2sVDGWj0QZoxL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzV3UwZgp51++RoR2Gg63aULfkKdiWLE6XUHkihowUJNxJquh5w
-	vB7Wb4s/SpB5GkuD4/sRGx0tHAJ58CJrN21F3doAPXP9kuwLqfr3gWMTSK4hYXI=
-X-Gm-Gg: ASbGncvxiq3YIgEGh6ER9H0tTVgIBkFPb0CBFyNEYZoqISVnPg79Q+UnQigKAys2ihR
-	d6i/M9ZZCvRoAg26gwfoLY47th9ev9G7nePqDFga1l8rIX2uhU0kkX+CittN9blf4oisL+8d3aX
-	Ozl1oyrcE6vwRhozUWp89T4pumnmyIAf1zEE93MD/zsSMN7zluzurt9JIKp4pjpaOZdgYrYwDi9
-	IaEGHEk55NRNoP0wBckYpEdab31ar+1jdml2lfhva2Tm1sRzygaHKddwrz8v3yJNNHRUpa0g/vZ
-	zAABCkxdnF2NDdWD3q2MR3bSYwS2n+QR95b32ZbXzy2HWsuZYYMCt2F7vvNCbGTLQzgEPXw=
-X-Google-Smtp-Source: AGHT+IEtC0aFiCVfXRyL9SzdaH9Q4MvJkCVZReT3BK5AY1Ni+JC9UVla9+Vl5hHTO/rCaSOKR4FQqA==
-X-Received: by 2002:a05:6512:130b:b0:545:e19:ba12 with SMTP id 2adb3069b0e04-5462ef20f0dmr90751e87.51.1739896265862;
-        Tue, 18 Feb 2025 08:31:05 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5452fa00e6esm1360335e87.162.2025.02.18.08.31.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 08:31:04 -0800 (PST)
-Date: Tue, 18 Feb 2025 18:31:02 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: manivannan.sadhasivam@linaro.org
-Cc: Shuai Xue <xueshuai@linux.alibaba.com>, 
-	Jing Zhang <renyu.zj@linux.alibaba.com>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Jingoo Han <jingoohan1@gmail.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Rob Herring <robh@kernel.org>, 
-	Shradha Todi <shradha.t@samsung.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH 1/4] perf/dwc_pcie: Move common DWC struct definitions to
- 'pcie-dwc.h'
-Message-ID: <4nnikepf7ay4ml3audn34gmq5jttjcfz3syfnxeowmjb4no2cj@lyawl4saa3sa>
-References: <20250218-pcie-qcom-ptm-v1-0-16d7e480d73e@linaro.org>
- <20250218-pcie-qcom-ptm-v1-1-16d7e480d73e@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250218-pcie-qcom-ptm-v1-1-16d7e480d73e@linaro.org>
+	Tue, 18 Feb 2025 16:33:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 926BF5C60B0;
+	Tue, 18 Feb 2025 16:32:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BBCEC4CEE2;
+	Tue, 18 Feb 2025 16:33:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739896411;
+	bh=HG8MXPAywW+QktCxIEk+iQgG7o3B8smG8DbYQu12UIA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ZEMyVO09N9YD0BFOLZYtvQSrLTutXchQdS75COw3/+XOnX4w3Ez1OtNa2BPXHUrMv
+	 PtstLTkTq27FSGZVk4YRBc8JWKAkRvNL6LJzh2fLfzq+geHydXQRHQXDkgXrA0y3B5
+	 YWQVUMrDMnG2MVjCEP08rY4pQc/BP10lY4TvqGHqADYiR5l+Y5sAUX8aFyFiyJFlbF
+	 iAJ/I+MsgR5Mq9GU6HzyL2iyPFLfHgTGdagzAS0exemNxZW7A6TxPMkXQGH4jN1rqH
+	 HUXkJkZ61G6fb2itwxi9zGKLGx6GfhhRy/ifJ2+DrcmCNC5WROcMyXxp2x08ztwYlJ
+	 eaaEe5Gxfj2rQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tkQXH-005Vjg-F7;
+	Tue, 18 Feb 2025 16:33:29 +0000
+Date: Tue, 18 Feb 2025 16:33:26 +0000
+Message-ID: <86eczvrz55.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+Cc: Eric Auger <eauger@redhat.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	kvmarm <kvmarm@lists.linux.dev>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	christoffer.dall@arm.com,
+	suzuki.poulose@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	coltonlewis@google.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com
+Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
+In-Reply-To: <1a19dacc-72ca-4631-bce8-7426b3de0b47@os.amperecomputing.com>
+References: <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
+	<86y10osr19.wl-maz@kernel.org>
+	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
+	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
+	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
+	<86h661wje4.wl-maz@kernel.org>
+	<4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
+	<86cygpwfy0.wl-maz@kernel.org>
+	<b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
+	<86frkptzr6.wl-maz@kernel.org>
+	<Z6ZMdv8jJUvYwQzT@linux.dev>
+	<86bjvdtxb5.wl-maz@kernel.org>
+	<8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
+	<87tt8v14j2.wl-maz@kernel.org>
+	<1a19dacc-72ca-4631-bce8-7426b3de0b47@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, eauger@redhat.com, oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_083107_906204_6559D62A 
-X-CRM114-Status: GOOD (  26.49  )
+X-CRM114-CacheID: sfid-20250218_083333_346714_838FEF1C 
+X-CRM114-Status: GOOD (  32.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,133 +109,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 08:06:40PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
-> From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+On Tue, 18 Feb 2025 07:33:11 +0000,
+Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
 > 
-> Since these are common to all Desginware PCIe IPs, move them to a new
-> header, 'pcie-dwc.h' so that other drivers could make use of them.
+> 
+> Hi Marc,
+> 
+> On 15-02-2025 11:20 pm, Marc Zyngier wrote:
+> > On Mon, 10 Feb 2025 18:26:48 +0000,
+> > Eric Auger <eauger@redhat.com> wrote:
+> >> 
+> >> Hi Marc,
+> >> 
+> >> On 2/7/25 7:38 PM, Marc Zyngier wrote:
+> >>> On Fri, 07 Feb 2025 18:09:58 +0000,
+> >>> Oliver Upton <oliver.upton@linux.dev> wrote:
+> >>>> 
+> >>>> Hey,
+> >>>> 
+> >>>> On Fri, Feb 07, 2025 at 05:45:33PM +0000, Marc Zyngier wrote:
+> >>>>> I found at least one issue that could fail the migration. Before the
+> >>>>> VM starts running, we limit the feature set to the subset we actually
+> >>>>> support with NV.
+> >>>>> 
+> >>>>> By doing this, we also change the value of IDreg fields that are not
+> >>>>> writable, because they describe features that we don't support.
+> >>>>> Obviously, that fails on restore.
+> >>>>> 
+> >>>>> I need to have a think...
+> >>>> 
+> >>>> We spoke about this a while ago (and I forgot til now), but I was
+> >>>> wondering if we could use vCPU feature flags to describe NV, including
+> >>>> the selection between FEAT_E2H0 and FEAT_VHE.
+> >>>> 
+> >>>> I think this might match userspace expectations a bit more closely where
+> >>>> the state of the ID registers after init gives the actual feature set
+> >>>> supported by the VM.
+> >>> 
+> >>> I'm not sure that's enough. Let me give you an example:
+> >>> 
+> >>> My host has FEAT_XNX, described in ID_AA64MMFR1_EL1.XNX. For whatever
+> >>> reason, we don't allow this field to be written to, even out of NV
+> >>> context. This is odd, because for an EL1 VM, this field means nothing
+> >>> at all.
+> >> So the curprit fields for me look like
+> >> 
+> >> - ID_AA64MMFR1_EL1.XNX
+> >> - ID_AA64DFR0_EL1.DoubleLock
+> >> - ID_AA64PFR0_EL1.RAS
+> >> 
+> >> This is still based on your nv-next branch from Jan 9
+> >> https://github.com/eauger/linux/tree/nv_next_jan9_2025
+> > 
+> > I have now pushed out a new nv-next branch with the new and improved
+> > UAPI. I expect migration to work a bit better, or at least not to
+> > explode on ID register restore. You will notice that things have
+> > changed a bit (extra flag and cap for FEAT_E2H0), but nothing really
+> > major.
+> > 
+> 
+> Tried nv-next branch and it is breaking(kernel Oops) for normal VM
+> boot itself with qemu. Looks like this is happening since qemu is
+> trying to write to ID_UNALLOCATED mapped registers as part of
+> save-restore of registers.
 
-Which drivers are going to use it? Please provide an explanation.
+Yeah, ID_UNALLOCATED is in pretty bad shape overall. For start, it
+doesn't even have a name associated to it, and then everything else
+falls apart.
 
-> 
-> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> ---
->  MAINTAINERS                 |  1 +
->  drivers/perf/dwc_pcie_pmu.c | 23 ++---------------------
->  include/linux/pcie-dwc.h    | 34 ++++++++++++++++++++++++++++++++++
->  3 files changed, 37 insertions(+), 21 deletions(-)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 896a307fa065..b4d09d52a750 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -18123,6 +18123,7 @@ S:	Maintained
->  F:	Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
->  F:	Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
->  F:	drivers/pci/controller/dwc/*designware*
-> +F:	include/linux/pcie-dwc.h
->  
->  PCI DRIVER FOR TI DRA7XX/J721E
->  M:	Vignesh Raghavendra <vigneshr@ti.com>
-> diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
-> index cccecae9823f..05b37ea7cf16 100644
-> --- a/drivers/perf/dwc_pcie_pmu.c
-> +++ b/drivers/perf/dwc_pcie_pmu.c
-> @@ -13,6 +13,7 @@
->  #include <linux/errno.h>
->  #include <linux/kernel.h>
->  #include <linux/list.h>
-> +#include <linux/pcie-dwc.h>
->  #include <linux/perf_event.h>
->  #include <linux/pci.h>
->  #include <linux/platform_device.h>
-> @@ -99,26 +100,6 @@ struct dwc_pcie_dev_info {
->  	struct list_head dev_node;
->  };
->  
-> -struct dwc_pcie_pmu_vsec_id {
-> -	u16 vendor_id;
-> -	u16 vsec_id;
-> -	u8 vsec_rev;
-> -};
-> -
-> -/*
-> - * VSEC IDs are allocated by the vendor, so a given ID may mean different
-> - * things to different vendors.  See PCIe r6.0, sec 7.9.5.2.
-> - */
-> -static const struct dwc_pcie_pmu_vsec_id dwc_pcie_pmu_vsec_ids[] = {
-> -	{ .vendor_id = PCI_VENDOR_ID_ALIBABA,
-> -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
-> -	{ .vendor_id = PCI_VENDOR_ID_AMPERE,
-> -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
-> -	{ .vendor_id = PCI_VENDOR_ID_QCOM,
-> -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
-> -	{} /* terminator */
-> -};
-> -
->  static ssize_t cpumask_show(struct device *dev,
->  					 struct device_attribute *attr,
->  					 char *buf)
-> @@ -529,7 +510,7 @@ static void dwc_pcie_unregister_pmu(void *data)
->  
->  static u16 dwc_pcie_des_cap(struct pci_dev *pdev)
->  {
-> -	const struct dwc_pcie_pmu_vsec_id *vid;
-> +	const struct dwc_pcie_vsec_id *vid;
->  	u16 vsec;
->  	u32 val;
->  
-> diff --git a/include/linux/pcie-dwc.h b/include/linux/pcie-dwc.h
-> new file mode 100644
-> index 000000000000..261ae11d75a4
-> --- /dev/null
-> +++ b/include/linux/pcie-dwc.h
-> @@ -0,0 +1,34 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (C) 2021-2023 Alibaba Inc.
-> + *
-> + * Copyright 2025 Linaro Ltd.
-> + * Author: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> + */
-> +
-> +#ifndef LINUX_PCIE_DWC_H
-> +#define LINUX_PCIE_DWC_H
-> +
-> +#include <linux/pci_ids.h>
-> +
-> +struct dwc_pcie_vsec_id {
-> +	u16 vendor_id;
-> +	u16 vsec_id;
-> +	u8 vsec_rev;
-> +};
-> +
-> +/*
-> + * VSEC IDs are allocated by the vendor, so a given ID may mean different
-> + * things to different vendors.  See PCIe r6.0, sec 7.9.5.2.
-> + */
-> +static const struct dwc_pcie_vsec_id dwc_pcie_pmu_vsec_ids[] = {
+I'll rework it shortly, thanks for the heads up.
 
-Having it in the header means that there are going to be several
-copies of this data. Is that expected?
-
-> +	{ .vendor_id = PCI_VENDOR_ID_ALIBABA,
-> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
-> +	{ .vendor_id = PCI_VENDOR_ID_AMPERE,
-> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
-> +	{ .vendor_id = PCI_VENDOR_ID_QCOM,
-> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
-> +	{} /* terminator */
-> +};
-> +
-> +#endif /* LINUX_PCIE_DWC_H */
-> 
-> -- 
-> 2.25.1
-> 
-> 
+	M.
 
 -- 
-With best wishes
-Dmitry
+Without deviation from the norm, progress is not possible.
 
