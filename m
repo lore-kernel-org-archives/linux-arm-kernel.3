@@ -4,78 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFFD6C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 10:01:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F44C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 10:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A9j3FDtCSLrxBBi5ynX/ADgMlPdUEwdI7w+vv6UgkLA=; b=ZSJ7BB9eO9IRB+
-	gUnqwVy4aAwBhaJDLfmtaL85/BrO9Uvn9ePOgwbIF9gch0YfCQy+Ydg1xy+jCJ51ld1DIzRHlkdvO
-	HJNIanM2KGDaPwCg6LuRv2ublD7iph6Trct1dH4x0C5guNdukge8wweXcJctxL5OOiG8trNRjzaBc
-	yWih5pIK4BMWGW1KYTwQQnmMU6DDgyadq+5zSHSBsxOP+nntdiOq0Mbs+PmCCkHFCT0CzKXXeFtTX
-	wWfDBjmIllt3Rppz/G3XFJhk945g6XIjKpxQFBujoEG1MOShqF4h6QcdzZvTVtH/zspMPiMtdFMY0
-	izTZ9jgjn2xSw9BNbIQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q1RdT5eL57c25wsLGjqwv0tswd3r+m/iGHKhWU5vNkU=; b=XBiMZCeECQSRN56FwuCLDNW9tF
+	knfx7TnHWE1tFJ62HMuLSR70Uf7VNpPnZWAH2qvckYokySx/o31dDXla11Vwe5MNlkb6vInJpHgfp
+	8jyOEVXXzc6YT4UZrFYYgWPiuCOR9QJ/hPf5E76p9xYVY+Q1PFrZp7kgYp3j3fS7Dqq7poH/v10Y9
+	lyPKNKaR6TAMxRObyt6uKCvn0hULtPjANf8iBxPoxZF1s1NjXAzUpdjPj502J6NKvnNlOU4hQluFv
+	7l/au5PVjv3nID2SGeqFJSLyMUHWM34Ym6i4UPt4I2NEKgCdI9elvIadRXXYIwGr8MdxGXQhyA8Wz
+	X16CTNEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkKPb-00000007e25-3ISx;
-	Tue, 18 Feb 2025 10:01:07 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1tkKR3-00000007eRs-2Cbi;
+	Tue, 18 Feb 2025 10:02:37 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkK8z-00000007Zny-1loi
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 09:43:58 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5461cb12e39so2120425e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 01:43:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1739871835; x=1740476635; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A9j3FDtCSLrxBBi5ynX/ADgMlPdUEwdI7w+vv6UgkLA=;
-        b=RK8z912b0bm24m+H2DVAMlTQAGVv1kUyaoJfVQ1H9OBhgJa4tJ49HJJ3RjAYTklpHv
-         DkRVw0M5zFgFIb7fjyPyaw3a8lV7EE2jE3Nkpw9K2HjLvM7jxbPoCh0xoaCsaHE0wsjI
-         OtFGUAPwhxs4Bu4VjLnIeaxNqu0OOI/6EjLzI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739871835; x=1740476635;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=A9j3FDtCSLrxBBi5ynX/ADgMlPdUEwdI7w+vv6UgkLA=;
-        b=hHXRRaVk7rCB1X4L5qqFvEIvDIl0CznKfxDYUIrAcN5xPeumr1Iw9Eg/ZwVppzS8fD
-         exuG9DfoFEwt8dsDjxmGZWv7W18/TYjR/W7qwji1y2iQmn2gdhSX+sxWIlOP/qT6lclk
-         kVjW+pGtFyi5upwOQj3pAQ1mqmVgyQG6bwu0q1yed+VjOhOA0zUANTT010ggk/dQjPeU
-         6sjzVrnkP1uS0Ncsw2l3KNgc021oDYYpI2ydkH+FNhcMN4kTsLKPHBs5/sYEwf09trG2
-         zLxMAkXKi6KMEQb+Uy4weBFUuzR7z0ZYDdFulHgE0LprQpuRKk/u1rrFkK4nJtKJC9xd
-         dklg==
-X-Forwarded-Encrypted: i=1; AJvYcCWRu173rXKO8AeBIsJvh1t5RohiDaAnd1/ZVthKqq9GwPIvV34wdPXUuTWqf9jo+3vqXzT4AWgYqS3ron+yFDck@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4IrVi5py9Glq2djYZkSttTs7nynef4utw3ai0zMOnmg9qfoZF
-	KUg9jPcjE4nhOiD66nbBw4fKUAlqCbzzPvdLyruAWYWCKb135rF4DLHte8RcVEaa4b0YdRQSSNL
-	1LdfwFuJ0a1QBbx7MFUdqpNTlkkwelIPSP/1C
-X-Gm-Gg: ASbGncvK/wjE6C1jPKYhDX6hS+izGpVON7r2aBvtsCEqcenX5wlf/D1bmzBAI4nhJ08
-	mInYwkJJUTfJFniiLxPjNda6r8umTCoX5nuKDE0O4b3LUIg5PmSmyfsaPms9xrL6s80B5krdy2A
-	7EuUtlyY2hLBhjx3zhtmjtsZ4N
-X-Google-Smtp-Source: AGHT+IFlFPI5zREPHuDeV35TrewF5xMFDi2pmIizcSEr1MF1Kyd27IzONQ06Tosq2K+bGbditdWvnMiF3nl6toSE7rk=
-X-Received: by 2002:a05:6512:eaa:b0:540:1a40:ab0d with SMTP id
- 2adb3069b0e04-5452fe65367mr4774141e87.28.1739871835497; Tue, 18 Feb 2025
- 01:43:55 -0800 (PST)
+	id 1tkKBO-00000007aA2-1HV7;
+	Tue, 18 Feb 2025 09:46:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1739871969; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=kEMoEGYx4odDVnsn3kMR/Xa8T58NL5/WmIxhiC1QmDbOw2kMQt/nIPfyAIekGWktvDCzSQAYuYhc5Abj436AfzGo5ngAIi5OCQ1jE670om64Fg/MjBH3P0wn0nzYUt5/m5cRmfADwsUCvAChuIJ8LczNcfwphDaeU3ImME8VvG8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1739871969; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Q1RdT5eL57c25wsLGjqwv0tswd3r+m/iGHKhWU5vNkU=; 
+	b=hLzq0fvMYDz4a5xxxexNYBS03rTRyJMvfImGjFHcBZXArSaI4gII1ayNbBOTGf9CaecoStJL/xfhCv2E69KTZGQtfvXuzjrABQJ5DT0E0ywS30UNAKqgSC9priy2c0ORkMYZGg0hpVISv8ZnwJ8TMHDFGsYFWAKuCRsFR/cih4o=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
+	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1739871969;
+	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=Q1RdT5eL57c25wsLGjqwv0tswd3r+m/iGHKhWU5vNkU=;
+	b=g1utORNBtkSzGH4AGRNSLNihyapmNrQnpoMzHP+cBeRE9eEU2ZqtKp7oQcMfGo+Z
+	TrnTvx/ncakBtybvu8lPzOEs+C+Shxev/I0KWei9noHHV1ypPzapSK4ZLfPqC4uFpGI
+	+MAtfsBQlcrdwxeylDkOd7Jtj9TnrOERFBINv/+E=
+Received: by mx.zohomail.com with SMTPS id 1739871967704282.7054777678519;
+	Tue, 18 Feb 2025 01:46:07 -0800 (PST)
+Message-ID: <4a04b12c-8765-47bb-af61-c6b47133f2af@collabora.com>
+Date: Tue, 18 Feb 2025 10:46:02 +0100
 MIME-Version: 1.0
-References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
- <20250206-hotplug-drm-bridge-v6-8-9d6f2c9c3058@bootlin.com> <20250210-amusing-bobcat-of-pluck-0d4c09@houat>
-In-Reply-To: <20250210-amusing-bobcat-of-pluck-0d4c09@houat>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 18 Feb 2025 17:43:43 +0800
-X-Gm-Features: AWEUYZnscch0ATD4RPMuHj0VAYHapvvByEnogTVDzdPu_Io7G9wuKVum6WjojR4
-Message-ID: <CAGXv+5GSF=YSiHTgty1J2suAvVYUtOgPShW2mmvuxYiFwK-yeg@mail.gmail.com>
-Subject: Re: [PATCH v6 08/26] drm/bridge: panel: add a panel_bridge to every panel
-To: Maxime Ripard <mripard@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] media: verisilicon: Fix AV1 decoder clock frequency
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Hans Verkuil <hverkuil@xs4all.nl>
+Cc: linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ kernel@collabora.com, stable@vger.kernel.org
+References: <20250217-b4-hantro-av1-clock-rate-v2-1-e179fad52641@collabora.com>
+Content-Language: en-US
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+In-Reply-To: <20250217-b4-hantro-av1-clock-rate-v2-1-e179fad52641@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_014357_482258_3F4A380E 
-X-CRM114-Status: GOOD (  39.36  )
+X-CRM114-CacheID: sfid-20250218_014626_436229_8E611098 
+X-CRM114-Status: GOOD (  22.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,127 +78,75 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?UTF-8?Q?Herv=C3=A9_Codina?= <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Sam Ravnborg <sam@ravnborg.org>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Will Deacon <will@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Zimmermann <tzimmermann@suse.de>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 2:34=E2=80=AFAM Maxime Ripard <mripard@kernel.org> =
-wrote:
+
+Le 17/02/2025 à 22:46, Nicolas Dufresne a écrit :
+> The desired clock frequency was correctly set to 400MHz in the device tree
+> but was lowered by the driver to 300MHz breaking 4K 60Hz content playback.
+> Fix the issue by removing the driver call to clk_set_rate(), which reduce
+> the amount of board specific code.
 >
-> On Thu, Feb 06, 2025 at 07:14:23PM +0100, Luca Ceresoli wrote:
-> > Adding a panel does currently not add a panel_bridge wrapping it. Usual=
-ly
-> > the panel_bridge creation happens when some other driver (e.g. the prev=
-ious
-> > bridge or the encoder) calls *_of_get_bridge() and the following elemen=
-t in
-> > the pipeline is a panel.
-> >
-> > This has some drawbacks:
-> >
-> >  * the panel_bridge is not created in the context of the driver of the
-> >    underlying physical device (the panel driver), but of some other dri=
-ver
-> >  * that "other driver" is not aware of whether the returned drm_bridge
-> >    pointer is a panel_bridge created on the fly, a pre-existing
-> >    panel_bridge or a non-panel bridge
-> >  * removal of a panel_bridge requires calling drm_panel_bridge_remove()=
-,
-> >    but the "other driver" doesn't know whether this is needed because i=
-t
-> >    doesn't know whether it has created a panel_bridge or not
-> >
-> > So far this approach has been working because devm and drmm ensure the
-> > panel bridge would be dealloacted at some later point. However with the
-> > upcoming implementation of dynamic bridge lifetime this will get more
-> > complicated.
-> >
-> > Correct removal of a panel_bridge might possibly be obtained by adding =
-more
-> > devm/drmm technology to have it freed correctly at all times. However t=
-his
-> > would add more complexity and not help making lifetime more understanda=
-ble.
-> >
-> > Use a different approach instead: always create a panel_bridge with a
-> > drm_panel, thus matching the lifetime of the drm_panel and the panel_br=
-idge
-> > wrapping it. This makes lifetime much more straightforward to understan=
-d
-> > and to further develop on.
-> >
-> > With the panel_bridge always created, the functions to get a bridge
-> > [devm_drm_of_get_bridge() and drmm_of_get_bridge()] become simpler beca=
-use
-> > the bridge they are looking for exists already (if it can exist at all)=
-. In
-> > turn, this is implemented based on a variant of
-> > drm_of_find_panel_or_bridge() that only looks for panels:
-> > of_drm_find_bridge_by_endpoint(). In the future
-> > drm_of_find_panel_or_bridge() can be progressively removed because ther=
-e
-> > will never be a panel not exposing a bridge.
-> >
-> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> >
-> > ---
-> >
-> > This patch was added in v6.
-> > ---
-> >  drivers/gpu/drm/bridge/panel.c | 74 +++++++++++++++++++++++++++++++++-=
---------
-> >  include/drm/drm_panel.h        |  8 +++++
-> >  2 files changed, 66 insertions(+), 16 deletions(-)
-> >
-> > diff --git a/drivers/gpu/drm/bridge/panel.c b/drivers/gpu/drm/bridge/pa=
-nel.c
-> > index 58570ff6952ca313b3def084262c9bb3772272ef..6995de605e7317dd1eb153a=
-fd475746ced764712 100644
-> > --- a/drivers/gpu/drm/bridge/panel.c
-> > +++ b/drivers/gpu/drm/bridge/panel.c
-> > @@ -69,6 +69,9 @@ EXPORT_SYMBOL(drm_panel_init);
-> >   */
-> >  void drm_panel_add(struct drm_panel *panel)
-> >  {
-> > +     panel->bridge =3D drm_panel_bridge_add(panel);
-> > +     WARN_ON(!panel->bridge);
-> > +
-> >       mutex_lock(&panel_lock);
-> >       list_add_tail(&panel->list, &panel_list);
-> >       mutex_unlock(&panel_lock);
-> > @@ -86,6 +89,9 @@ void drm_panel_remove(struct drm_panel *panel)
-> >       mutex_lock(&panel_lock);
-> >       list_del_init(&panel->list);
-> >       mutex_unlock(&panel_lock);
-> > +
-> > +     drm_panel_bridge_remove(panel->bridge);
-> > +     panel->bridge =3D NULL;
-> >  }
-> >  EXPORT_SYMBOL(drm_panel_remove);
+> Fixes: 003afda97c65 ("media: verisilicon: Enable AV1 decoder on rk3588")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+
+Reviewed-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+
+> ---
+> This patch fixes user report of AV1 4K60 decoder not being fast enough
+> on RK3588 based SoC. This is a break from Hantro original authors
+> habbit of coding the frequencies in the driver instead of specifying this
+> frequency in the device tree. The other calls to clk_set_rate() are left
+> since this would require modifying many dtsi files, which would then be
+> unsuitable for backport.
+> ---
+> Changes in v2:
+> - Completely remove the unused init function, the driver is null-safe
+> - Link to v1: https://lore.kernel.org/r/20250217-b4-hantro-av1-clock-rate-v1-1-65b91132c551@collabora.com
+> ---
+>   drivers/media/platform/verisilicon/rockchip_vpu_hw.c | 9 ---------
+>   1 file changed, 9 deletions(-)
 >
-> Given that drm_panel_add and drm_panel_remove are typically called at
-> probe/remove, it's pretty much equivalent to using devm. Both of these
-> solutions aren't safe, and the drm_panel lifetime is still broken.
-
-FWIW I believe this solves the panel vs panel_bridge lifetime
-inconsistencies we previously reported [1]. Of course, as you rightly
-point out, any pointers to the bridge become stale if the panel gets
-removed.
-
-> I'd rather work on a solution that actually fixes those lifetime issues.
-
-I think that can happen once the bridges are ref-counted?
-
-Instead of removing the bridge from the list, it can just clear the
-panel pointer and have all the callbacks skip any operations involving
-the panel.
-
-The other option is to have the panel itself be ref-counted. I don't
-think that's worth pursuing if the idea is to move everything over to
-panel_bridge and things are somewhat ready.
-
-ChenYu
-
-[1] https://lore.kernel.org/dri-devel/20241009052402.411978-1-fshao@chromiu=
-m.org/
+> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
+> index 964122e7c355934cd80eb442219f6ba51bba8b71..842040f713c15e6ff295771bc9fa5a7b66e584b2 100644
+> --- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
+> +++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
+> @@ -17,7 +17,6 @@
+>   
+>   #define RK3066_ACLK_MAX_FREQ (300 * 1000 * 1000)
+>   #define RK3288_ACLK_MAX_FREQ (400 * 1000 * 1000)
+> -#define RK3588_ACLK_MAX_FREQ (300 * 1000 * 1000)
+>   
+>   #define ROCKCHIP_VPU981_MIN_SIZE 64
+>   
+> @@ -440,13 +439,6 @@ static int rk3066_vpu_hw_init(struct hantro_dev *vpu)
+>   	return 0;
+>   }
+>   
+> -static int rk3588_vpu981_hw_init(struct hantro_dev *vpu)
+> -{
+> -	/* Bump ACLKs to max. possible freq. to improve performance. */
+> -	clk_set_rate(vpu->clocks[0].clk, RK3588_ACLK_MAX_FREQ);
+> -	return 0;
+> -}
+> -
+>   static int rockchip_vpu_hw_init(struct hantro_dev *vpu)
+>   {
+>   	/* Bump ACLK to max. possible freq. to improve performance. */
+> @@ -807,7 +799,6 @@ const struct hantro_variant rk3588_vpu981_variant = {
+>   	.codec_ops = rk3588_vpu981_codec_ops,
+>   	.irqs = rk3588_vpu981_irqs,
+>   	.num_irqs = ARRAY_SIZE(rk3588_vpu981_irqs),
+> -	.init = rk3588_vpu981_hw_init,
+>   	.clk_names = rk3588_vpu981_vpu_clk_names,
+>   	.num_clocks = ARRAY_SIZE(rk3588_vpu981_vpu_clk_names)
+>   };
+>
+> ---
+> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+> change-id: 20250217-b4-hantro-av1-clock-rate-e5497f1499df
+>
+> Best regards,
 
