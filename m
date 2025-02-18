@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26FE7C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 508AAC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+T9Sue7bZR1EMGvKUKF+IINF+PeZvvCzymAszpUvyGw=; b=rSfouV4065eE0kS11ReNUGCYXh
-	c3A5rSA1K7G5lcCYU0CUJGQGps+j2OJcam+tUbZLdF8bJ3lor3zA1t97fU9okuLIShtuPcIYGEzlN
-	5PFqzscjI71TbZfGpswSBwMCNtzfzSd1f7+QL6D/eivKFeUcy/3F5gX9XcpKqbXIkQ076lPmU6NZW
-	hJJRZCcaItG8v9mFD27cL15UgaftEV8Vn7KZ3DQ2zNgRna86Ol9mN41FstujkibXc2gGBa1vDpRiO
-	0f/Kyw6IBkTWHl5MVRSGgBoMXfPysGNMZnj5H4u83KPKemXvhZVXQMRG8HM4W+8dL8oheXxndyVUh
-	P3oNFSjA==;
+	bh=CdybSsPkvSWYJRfesz++DC37KlekJmyO0IzskUGhkLk=; b=bFuJ3wDO5BV9NlWRpqFBQCSYhd
+	SGwL2yJz0nouyy0wq85bRWWU8OcTufsDBx5W5ZoTjYzvczCfmh3I6UDAmdXlPTBq4Fat0NBJ6g5r5
+	+p07eNk1vn+6ZvLvtvVpXqRL+AOQrB84DZ4US1zxuBQs7gZQhTWcA5oUYvFd8C+UHHnj+jcs247jC
+	7FbljVpZqcSoo4ANCFvAyeTweZuWRRCh5RSxdw/7uP9IZUgkjWxEp/vaLNhj/6u4cAFOjMH9uWmtC
+	julXThgOC05CFK52YEUdkx2vDZxUcevVuYhbkQlL5ll5OLVOqnyW1xxzZxS8SoicXL4MTNqEbmEti
+	433vwZeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNKs-00000008Fj4-0YUO;
-	Tue, 18 Feb 2025 13:08:26 +0000
+	id 1tkNMI-00000008G64-3X2u;
+	Tue, 18 Feb 2025 13:09:54 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNF7-00000008ESB-0w2v
+	id 1tkNF7-00000008ESH-230F
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Feb 2025 13:02:31 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51ICTJJs018990;
+Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51ICTMUp005880;
 	Tue, 18 Feb 2025 14:02:19 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	+T9Sue7bZR1EMGvKUKF+IINF+PeZvvCzymAszpUvyGw=; b=4qi7Px9fga3N8fzM
-	ZePY5tzjg+o53HoKNUS5fZiDoWWI00SbT0hlOGM1UOw2cYdPzbLe10edyuMw/uI+
-	yJuMY85onqEUVA9NIk13nJ9VrZhxH1jNvMnX7QYQNNIoG1v855wvcGr/RZUSX3Ep
-	kSi8T2KzszkWYXV3/g+IxTQPwGIDzMkTjhATbr4vtYjRINSAtYIdbkjhU9M8R8p3
-	R0JceVBAZYAXYIUuvwwExpKJqHxovSScuCfV78qUTxt+uNMyXAroZSZONlrpbCt9
-	NDX7wDE+C+DOSHj7jCXuRFXK4eHSlrGGIOfCLZrteHJG5J1XAFgRhfxG4sTwUsq8
-	3LSpmg==
+	CdybSsPkvSWYJRfesz++DC37KlekJmyO0IzskUGhkLk=; b=mvsfdy42dL0zmjqV
+	/atRGQS9/j1ktjFZ7Pi82zsnoLfK44pJaRnv/8pq915dhMl9OfxAR2U83+C6KeB3
+	RTm8EQ7VQ/dGjD8g6sduZ4Xr0tC22yl2whFMegzhVpmzVnyxvLvp/4GCfCl92eTZ
+	VTKJcZmmS7Ji1tvm3ubmyWthx2kP6DmnLiS+7a4I6xQAfF+3bU6FM1QjGXRm0GaQ
+	5mh44wNRcQdO3MLeVXDCngCoHS8kHRsbGD0KnpMATRLgMOC41vgzI4vbdiEGaXwf
+	4nF1jopknTrXsVGjhXlEzptLZirGz/zVKPr0KIfB9Ywe34KKUFrbXbPPNQXGfWJN
+	ar4zjw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44tkttvcq8-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44u5c3t95b-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 18 Feb 2025 14:02:18 +0100 (CET)
+	Tue, 18 Feb 2025 14:02:19 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 06CF04004C;
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A0A5B4004F;
 	Tue, 18 Feb 2025 14:01:10 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 32B6332769B;
-	Tue, 18 Feb 2025 14:00:05 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9D7813276AF;
+	Tue, 18 Feb 2025 14:00:06 +0100 (CET)
 Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 18 Feb
- 2025 14:00:04 +0100
+ 2025 14:00:06 +0100
 From: <patrice.chotard@foss.st.com>
 To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
         Krzysztof
@@ -73,9 +73,9 @@ CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <christophe.kerello@foss.st.com>, <patrice.chotard@foss.st.com>
-Subject: [PATCH v4 3/8] dt-bindings: memory-controllers: Add STM32 Octo Memory Manager controller
-Date: Tue, 18 Feb 2025 13:59:55 +0100
-Message-ID: <20250218130000.87889-4-patrice.chotard@foss.st.com>
+Subject: [PATCH v4 5/8] arm64: dts: st: Add OMM node on stm32mp251
+Date: Tue, 18 Feb 2025 13:59:57 +0100
+Message-ID: <20250218130000.87889-6-patrice.chotard@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250218130000.87889-1-patrice.chotard@foss.st.com>
 References: <20250218130000.87889-1-patrice.chotard@foss.st.com>
@@ -89,8 +89,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-18_05,2025-02-18_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_050229_575388_C1E10099 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20250218_050229_860823_2F9AFC6E 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,237 +107,73 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Patrice Chotard <patrice.chotard@foss.st.com>
 
-Add bindings for STM32 Octo Memory Manager (OMM) controller.
-
-OMM manages:
-  - the muxing between 2 OSPI busses and 2 output ports.
-    There are 4 possible muxing configurations:
-      - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
-        output is on port 2
-      - OSPI1 and OSPI2 are multiplexed over the same output port 1
-      - swapped mode (no multiplexing), OSPI1 output is on port 2,
-        OSPI2 output is on port 1
-      - OSPI1 and OSPI2 are multiplexed over the same output port 2
-  - the split of the memory area shared between the 2 OSPI instances.
-  - chip select selection override.
-  - the time between 2 transactions in multiplexed mode.
+Add Octo Memory Manager (OMM) entry on stm32mp251 and its two
+OSPI instance.
 
 Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 ---
- .../memory-controllers/st,stm32mp25-omm.yaml  | 204 ++++++++++++++++++
- 1 file changed, 204 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 48 ++++++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml b/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
-new file mode 100644
-index 000000000000..316e16ce238e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
-@@ -0,0 +1,204 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/memory-controllers/st,stm32mp25-omm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index f3c6cdfd7008..2565236e369f 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -768,6 +768,54 @@ rng: rng@42020000 {
+ 				status = "disabled";
+ 			};
+ 
++			ommanager: ommanager@40500000 {
++				compatible = "st,stm32mp25-omm";
++				reg = <0x40500000 0x400>, <0x60000000 0x10000000>;
++				reg-names = "regs", "memory_map";
++				ranges = <0 0 0x40430000 0x400>,
++					 <1 0 0x40440000 0x400>;
++				clocks = <&rcc CK_BUS_OSPIIOM>;
++				resets = <&rcc OSPIIOM_R>;
++				access-controllers = <&rifsc 111>;
++				power-domains = <&CLUSTER_PD>;
++				#address-cells = <2>;
++				#size-cells = <1>;
++				st,syscfg-amcr = <&syscfg 0x2c00 0x7>;
++				status = "disabled";
 +
-+title: STM32 Octo Memory Manager (OMM)
++				ospi1: spi@40430000 {
++					compatible = "st,stm32mp25-ospi";
++					reg = <0 0 0x400>;
++					interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
++					dmas = <&hpdma 2 0x62 0x00003121>,
++					       <&hpdma 2 0x42 0x00003112>;
++					dma-names = "tx", "rx";
++					clocks = <&scmi_clk CK_SCMI_OSPI1>;
++					resets = <&scmi_reset RST_SCMI_OSPI1>,
++						 <&scmi_reset RST_SCMI_OSPI1DLL>;
++					access-controllers = <&rifsc 74>;
++					power-domains = <&CLUSTER_PD>;
++					st,syscfg-dlyb = <&syscfg 0x1000>;
++					status = "disabled";
++				};
 +
-+maintainers:
-+  - Patrice Chotard <patrice.chotard@foss.st.com>
++				ospi2: spi@40440000 {
++					compatible = "st,stm32mp25-ospi";
++					reg = <1 0 0x400>;
++					interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
++					dmas = <&hpdma 3 0x62 0x00003121>,
++					       <&hpdma 3 0x42 0x00003112>;
++					dma-names = "tx", "rx";
++					clocks = <&scmi_clk CK_SCMI_OSPI2>;
++					resets = <&scmi_reset RST_SCMI_OSPI2>,
++						 <&scmi_reset RST_SCMI_OSPI2DLL>;
++					access-controllers = <&rifsc 75>;
++					power-domains = <&CLUSTER_PD>;
++					st,syscfg-dlyb = <&syscfg 0x1400>;
++					status = "disabled";
++				};
++			};
 +
-+description: |
-+  The STM32 Octo Memory Manager is a low-level interface that enables an
-+  efficient OCTOSPI pin assignment with a full I/O matrix (before alternate
-+  function map) and multiplex of single/dual/quad/octal SPI interfaces over
-+  the same bus. It Supports up to:
-+    - Two single/dual/quad/octal SPI interfaces
-+    - Two ports for pin assignment
-+
-+properties:
-+  compatible:
-+    const: st,stm32mp25-omm
-+
-+  "#address-cells":
-+    const: 2
-+
-+  "#size-cells":
-+    const: 1
-+
-+  ranges:
-+    description: |
-+      Reflects the memory layout with four integer values per OSPI instance.
-+      Format:
-+      <chip-select> 0 <registers base address> <size>
-+    minItems: 2
-+    maxItems: 2
-+
-+  reg:
-+    items:
-+      - description: OMM registers
-+      - description: OMM memory map area
-+
-+  reg-names:
-+    items:
-+      - const: regs
-+      - const: memory_map
-+
-+  memory-region:
-+    description: |
-+      Memory region shared between the 2 OCTOSPI instance.
-+      One or two phandle to a node describing a memory mapped region
-+      depending of child number.
-+    minItems: 1
-+    maxItems: 2
-+
-+  memory-region-names:
-+    description: |
-+      OCTOSPI instance's name to which memory region is associated
-+    items:
-+      enum: [ospi1, ospi2]
-+    minItems: 1
-+    maxItems: 2
-+
-+  clocks:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 1
-+
-+  access-controllers:
-+    maxItems: 1
-+
-+  st,syscfg-amcr:
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    description: |
-+      The Address Mapping Control Register (AMCR) is used to split the 256MB
-+      memory map area shared between the 2 OSPI instance. The Octo Memory
-+      Manager sets the AMCR depending of the memory-region configuration.
-+      The memory split bitmask description is:
-+        - 000: OCTOSPI1 (256 Mbytes), OCTOSPI2 unmapped
-+        - 001: OCTOSPI1 (192 Mbytes), OCTOSPI2 (64 Mbytes)
-+        - 010: OCTOSPI1 (128 Mbytes), OCTOSPI2 (128 Mbytes)
-+        - 011: OCTOSPI1 (64 Mbytes), OCTOSPI2 (192 Mbytes)
-+        - 1xx: OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
-+    items:
-+      - description: phandle to syscfg
-+      - description: register offset within syscfg
-+      - description: register bitmask for memory split
-+
-+  st,omm-req2ack-ns:
-+    description: |
-+      In multiplexed mode (MUXEN = 1), this field defines the time in
-+      nanoseconds between two transactions.
-+    default: 0
-+
-+  st,omm-cssel-ovr:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: |
-+      Configure the chip select selector override for the 2 OCTOSPIs.
-+      - 0: OCTOSPI1 chip select send to NCS1 OCTOSPI2 chip select send to NCS1
-+      - 1: OCTOSPI1 chip select send to NCS2 OCTOSPI2 chip select send to NCS1
-+      - 2: OCTOSPI1 chip select send to NCS1 OCTOSPI2 chip select send to NCS2
-+      - 3: OCTOSPI1 chip select send to NCS2 OCTOSPI2 chip select send to NCS2
-+    minimum: 0
-+    maximum: 3
-+    default: 0
-+
-+  st,omm-mux:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    description: |
-+      Configure the muxing between the 2 OCTOSPIs busses and the 2 output ports.
-+      - 0: direct mode
-+      - 1: mux OCTOSPI1 and OCTOSPI2 to port 1
-+      - 2: swapped mode
-+      - 3: mux OCTOSPI1 and OCTOSPI2 to port 2
-+    minimum: 0
-+    maximum: 3
-+    default: 0
-+
-+  power-domains:
-+    maxItems: 1
-+
-+patternProperties:
-+  ^spi@[a-f0-9]+$:
-+    type: object
-+    $ref: /schemas/spi/st,stm32mp25-ospi.yaml#
-+    description: Required spi child node
-+
-+required:
-+  - compatible
-+  - reg
-+  - "#address-cells"
-+  - "#size-cells"
-+  - clocks
-+  - st,syscfg-amcr
-+  - ranges
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-+    ommanager@40500000 {
-+      compatible = "st,stm32mp25-omm";
-+      reg = <0x40500000 0x400>, <0x60000000 0x10000000>;
-+      reg-names = "regs", "memory_map";
-+      ranges = <0 0 0x40430000 0x400>,
-+               <1 0 0x40440000 0x400>;
-+      memory-region = <&mm_ospi1>, <&mm_ospi2>;
-+      memory-region-names = "ospi1", "ospi2";
-+      pinctrl-0 = <&ospi_port1_clk_pins_a
-+                   &ospi_port1_io03_pins_a
-+                   &ospi_port1_cs0_pins_a>;
-+      pinctrl-1 = <&ospi_port1_clk_sleep_pins_a
-+                   &ospi_port1_io03_sleep_pins_a
-+                   &ospi_port1_cs0_sleep_pins_a>;
-+      pinctrl-names = "default", "sleep";
-+      clocks = <&rcc CK_BUS_OSPIIOM>;
-+      resets = <&rcc OSPIIOM_R>;
-+      access-controllers = <&rifsc 111>;
-+      power-domains = <&CLUSTER_PD>;
-+      #address-cells = <2>;
-+      #size-cells = <1>;
-+      st,syscfg-amcr = <&syscfg 0x2c00 0x7>;
-+      st,omm-req2ack-ns = <0>;
-+      st,omm-mux = <0>;
-+      st,omm-cssel-ovr = <0>;
-+
-+      spi@40430000 {
-+        compatible = "st,stm32mp25-ospi";
-+        reg = <0 0 0x400>;
-+        memory-region = <&mm_ospi1>;
-+        interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
-+        dmas = <&hpdma 2 0x62 0x00003121 0x0>,
-+               <&hpdma 2 0x42 0x00003112 0x0>;
-+        dma-names = "tx", "rx";
-+        clocks = <&scmi_clk CK_SCMI_OSPI1>;
-+        resets = <&scmi_reset RST_SCMI_OSPI1>, <&scmi_reset RST_SCMI_OSPI1DLL>;
-+        access-controllers = <&rifsc 74>;
-+        power-domains = <&CLUSTER_PD>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        st,syscfg-dlyb = <&syscfg 0x1000>;
-+      };
-+
-+      spi@40440000 {
-+        compatible = "st,stm32mp25-ospi";
-+        reg = <1 0 0x400>;
-+        memory-region = <&mm_ospi1>;
-+        interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
-+        dmas = <&hpdma 3 0x62 0x00003121 0x0>,
-+               <&hpdma 3 0x42 0x00003112 0x0>;
-+        dma-names = "tx", "rx";
-+        clocks = <&scmi_clk CK_KER_OSPI2>;
-+        resets = <&scmi_reset RST_SCMI_OSPI2>, <&scmi_reset RST_SCMI_OSPI1DLL>;
-+        access-controllers = <&rifsc 75>;
-+        power-domains = <&CLUSTER_PD>;
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+        st,syscfg-dlyb = <&syscfg 0x1000>;
-+      };
-+    };
+ 			spi8: spi@46020000 {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
 -- 
 2.25.1
 
