@@ -4,64 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07757C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:41:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA14C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hRXLAb46lhWAQwHsLKbY8tI70RtJ9P9Fv7iK0VSxaUE=; b=OpKWIN+sV1MoU5hAfupIU9agEA
-	lYFDAdFp+/7xRBrC8BCUyZIqaP8L8mYYvGOeHrQOFVEO6tT5e2d6GLUpzyehuLOQ6f9wiZLIwTi6o
-	n8oAsJtzpJTCyjScVtPGisB0OGN7fy6NsYnGB+/yAyT4hXpoeEqZfXYQN/VFmUbScyCXIObnBRYG/
-	gsGD5QfktUIoZczHOR2a59PdQFsKw/8uJNuY6O9s/9f7MmdAnmHogodshRSCyP2YbSpBoreUzdnd6
-	lLXTdd0oXzW7VDU6Q+bDCGvqhCISNJP8FSfort9yuewL/WovZ/YS87qg5LAivAfoTn2zkGGQesAGF
-	/FQ4NnEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j9v4SwcQ5vdA9+ouTxbt0WQiG6smmLyKCJzfw85SYFY=; b=e5OoMUO3n0nUBltH46BId21hm/
+	DjC5L1vQNGq8dB62+tgxR+24WgKvbKOqi8NSCWEa0QtJtLRDkx+CffSbEr2KFWoK+KF9PVQ6uWLOW
+	+KnH1Wswo469y1Fbi80U+xGWTr6JxzWKktWACv88VhHICAan98SrO9snyicVaCa6Jgzc0nlDD9+Du
+	p5zH6CPbBBfAB2hzYjfFPKZ7SgDFMAGEBRsceQrKgX7YPMpd1XJXe0/ZLrwinr3/AdI9tm+XKTsdA
+	7lIrr8YJv5KgZdXPKssrF1aPUGJAncvHRWjK+Pqd/rx63A1xTJ60XM5gyqdGmGzQXRH403vmJndIJ
+	omcUzzWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkK6u-00000007ZQl-1bYq;
-	Tue, 18 Feb 2025 09:41:48 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tkK8L-00000007Zih-1TSX;
+	Tue, 18 Feb 2025 09:43:17 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJun-00000007WCA-2G72;
-	Tue, 18 Feb 2025 09:29:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739870955;
-	bh=yQlBwEetNAXy1+J71TlsSNNeiqeKL1aRYliDQ7TohCs=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=fjG+SX4uSZwOGJWlQQAcOjH8oiGU8nmGlgm4SJDaKTO5Pnq1BVy+s/7nTtpBMJGDR
-	 QvlZ98DxAUx5hfByzWyyIJmqa4pYrTN8YBJLdJjvO0wMqm2Gflq5qDqfb7yYp3TPbI
-	 qnj5uUBGrqyfeaAY4cMuJkQzYeCnm1eUJ8KEwrNmvbtzBdYS0JBuWGqKkqAiZ6CDGp
-	 o87Nsu91rkqvdNbJYt1wqdAxmuNDJKy9z9FYCZCjvuCLXNORsOjHUTQIt5ZYDQcZWB
-	 3EpWnb66rGla+/BgFwTGvrjFs0aajrqIrpNfWYtakAuiM0FSEz5C/rupklAsbFx5Ra
-	 VYFmVdC9/+hDA==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5A7F017E0391;
-	Tue, 18 Feb 2025 10:29:15 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Matthias Brugger <matthias.bgg@gmail.com>, 
- Fei Shao <fshao@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-mediatek@lists.infradead.org
-In-Reply-To: <20241219113411.3999355-1-fshao@chromium.org>
-References: <20241219113411.3999355-1-fshao@chromium.org>
-Subject: Re: [PATCH] soc: mediatek: mtk-socinfo: Restructure SoC attribute
- information
-Message-Id: <173987095528.24486.1591525974990532719.b4-ty@collabora.com>
-Date: Tue, 18 Feb 2025 10:29:15 +0100
+	id 1tkJvw-00000007WnD-1P7j
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Feb 2025 09:30:29 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tkJvu-00028g-Id; Tue, 18 Feb 2025 10:30:26 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tkJvu-001Yva-0p;
+	Tue, 18 Feb 2025 10:30:26 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tkJvp-0003Ot-0Y;
+	Tue, 18 Feb 2025 10:30:21 +0100
+Message-ID: <be4e8fe598f8a56210154c40d8a6d973a3fbeee1.camel@pengutronix.de>
+Subject: Re: [PATCH 3/5] reset: imx8mp-audiomix: Introduce active_low
+ configuration option
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Daniel Baluta <daniel.baluta@nxp.com>, shawnguo@kernel.org, 
+	mathieu.poirier@linaro.org
+Cc: s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, andersson@kernel.org, 
+	linux-remoteproc@vger.kernel.org, iuliana.prodan@nxp.com, 
+	laurentiu.mihalcea@nxp.com, shengjiu.wang@nxp.com, Frank.Li@nxp.com, 
+	krzk@kernel.org
+Date: Tue, 18 Feb 2025 10:30:21 +0100
+In-Reply-To: <20250218085712.66690-4-daniel.baluta@nxp.com>
+References: <20250218085712.66690-1-daniel.baluta@nxp.com>
+	 <20250218085712.66690-4-daniel.baluta@nxp.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_012917_750287_85F5EB2E 
-X-CRM114-Status: UNSURE (   5.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250218_013028_376291_986D33D5 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,23 +83,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 19 Dec 2024 19:33:50 +0800, Fei Shao wrote:
-> So far, the MediaTek socinfo driver populates the SoC information as
-> follows:
->   - family:  "MediaTek"
->   - machine: "<marketing_name> (<soc_name>)"
->       e.g.,  "Kompanio 1380 (MT8195)"
->   - soc_id:  <null>
-> 
-> [...]
+On Di, 2025-02-18 at 10:57 +0200, Daniel Baluta wrote:
+> For EARC and EARC PHY the reset happens when clearing the reset bits.
+> Refactor assert/deassert function in order to take into account
+> the active_low configuratin option.
+                            ^
+                            missing 'o'.
 
-Applied to v6.14-next/soc, thanks!
+>=20
+> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> ---
+>  drivers/reset/reset-imx8mp-audiomix.c | 45 ++++++++++++++-------------
+>  1 file changed, 23 insertions(+), 22 deletions(-)
+>=20
+> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-=
+imx8mp-audiomix.c
+> index 6b1666c4e069..8cc0a6b58cbc 100644
+> --- a/drivers/reset/reset-imx8mp-audiomix.c
+> +++ b/drivers/reset/reset-imx8mp-audiomix.c
+> @@ -23,16 +23,19 @@
+>  struct imx8mp_reset_map {
+>  	unsigned int offset;
+>  	unsigned int mask;
+> +	bool active_low;
+>  };
+> =20
+>  static const struct imx8mp_reset_map reset_map[IMX8MP_AUDIOMIX_RESET_NUM=
+] =3D {
+>  	[IMX8MP_AUDIOMIX_EARC] =3D {
+>  		.offset	=3D IMX8MP_AUDIOMIX_EARC_OFFSET,
+>  		.mask	=3D IMX8MP_AUDIOMIX_EARC_RESET_MASK,
+> +		.active_low =3D true,
+>  	},
+>  	[IMX8MP_AUDIOMIX_EARC_PHY] =3D {
+>  		.offset	=3D IMX8MP_AUDIOMIX_EARC_OFFSET,
+>  		.mask	=3D IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK,
+> +		.active_low =3D true,
+>  	},
+> =20
+>  };
+> @@ -48,48 +51,46 @@ static struct imx8mp_audiomix_reset *to_imx8mp_audiom=
+ix_reset(struct reset_contr
+>  	return container_of(rcdev, struct imx8mp_audiomix_reset, rcdev);
+>  }
+> =20
+> -static int imx8mp_audiomix_reset_assert(struct reset_controller_dev *rcd=
+ev,
+> -					unsigned long id)
+> +static int imx8mp_audiomix_update(struct reset_controller_dev *rcdev,
+> +				  unsigned long id, bool assert)
+>  {
+>  	struct imx8mp_audiomix_reset *priv =3D to_imx8mp_audiomix_reset(rcdev);
+>  	void __iomem *reg_addr =3D priv->base;
+> -	unsigned int mask, offset, reg;
+> -	unsigned long flags;
+> +	unsigned int mask, offset, active_low;
+> +	unsigned long reg, flags;
 
-[1/1] soc: mediatek: mtk-socinfo: Restructure SoC attribute information
-      commit: da77c2d3d06c6fa36ed26a5a48490b80e4f94753
+Nitpick, I would make active_low bool, like assert. Otherwise,
 
-Cheers,
-Angelo
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-
+regards
+Philipp
 
