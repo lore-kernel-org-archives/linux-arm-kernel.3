@@ -4,71 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD6C6C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAAE0C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:56:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4FvOmNvXTI1y5cNIJEHJDIZaYnjl0e5T3+nNxyHVq0c=; b=wDFGFtWwX/6wJgguR/dKHwcygR
-	X3FHnU6ok/Cp1gstmXRXmW55XcT8imIbsWQfyU4rL58Xd6AUQR7USmixFBjORjwfa6NfYHpPIYU4r
-	Hbfxpa2AteAElj6bDKqc05PukrHv8OSlpSOYJFYTIKVmuejCp5F2dDd3K1AIEWhsfRkZNfe6PAB3z
-	rUXgwxNWH7GFiHIyWqz15wjWAZzXhv+BJiglsN9UpFF+VCZ57uVzJEleXG9DmX7CxbwsyckmIeQpF
-	hIRiGlil+2b9JspQJ6H7qGAZYQyYJ/dRr1nzDo/eGWjVln0EO54OtTPodU2qIrCvAygcjQz2/lFth
-	/F/+7Cjw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Apmt/MHZfjM69CNGBCus+eU+JQB1nzJgmT7WzA3w2kA=; b=Q/qkm8Z95IqqvkZLgopxeB4xKc
+	EPS/KNCIwBtKPqBzB9eLyW/CRM1aNLz6mwCa9Y1r7k8/nqCdXbDan1D6xaMII3wotDokLlEOSjfJP
+	N2XGxOKHa+AAuRMLXqpLHNcAmGTXMMMJGqUQA+BE7oe9knBdj2FmvbjWUX2nFeGU2EDKuIDKx0WBv
+	nRkTwfz6h2vtozYmLZGNufMRX8s+zb/cChQGRj8yKpvSi1HQzFNz+99zEQXrwOCyyxricPqDhYlnR
+	6JL/5508In62JByHCBNXWqsvmivVt/VEZiVqlr3h2/tp+Bj2NGxyr6nISc7N8DrBwac1PNzjXn7by
+	QgIeHbKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkMBw-000000082Uo-1X6W;
-	Tue, 18 Feb 2025 11:55:08 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLo7-00000007xyh-2Fs9;
-	Tue, 18 Feb 2025 11:30:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=4FvOm
-	NvXTI1y5cNIJEHJDIZaYnjl0e5T3+nNxyHVq0c=; b=OQv4z9WH+tSTkMu9/lOmA
-	x+7K18jmw7bjdYk8/p9fhSOaGQvI51JXsV/kjlqWmleObHG9XmIQNvYcBbwTOZL6
-	gCsFIvSRCWOBaiZll3pzIptyDdkML25aU+iT4m6JDDoPVtVsPdP83RP75SdZcD1N
-	9sgPVPAsAlxPA5zbSH2htU=
-Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD333uybrRnLIPUMQ--.34107S9;
-	Tue, 18 Feb 2025 19:27:57 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: hjc@rock-chips.com,
-	krzk+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	derek.foreman@collabora.com,
-	detlev.casanova@collabora.com,
-	daniel@fooishbar.org,
-	robh@kernel.org,
-	sebastian.reichel@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Michael Riesch <michael.riesch@wolfvision.net>
-Subject: [PATCH v15 07/13] drm/rockchip: vop2: Register the primary plane and overlay plane separately
-Date: Tue, 18 Feb 2025 19:27:34 +0800
-Message-ID: <20250218112744.34433-8-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250218112744.34433-1-andyshrk@163.com>
-References: <20250218112744.34433-1-andyshrk@163.com>
+	id 1tkMDO-0000000832W-1f3I;
+	Tue, 18 Feb 2025 11:56:38 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkLpz-00000007yXN-1TpD
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Feb 2025 11:32:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AC189A40145;
+	Tue, 18 Feb 2025 11:30:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B011C4CEE2;
+	Tue, 18 Feb 2025 11:32:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739878346;
+	bh=ISkMgIu5CG3Hb3jbYuoH8+hOc7SA7NHBdbl+lD64RIw=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=OLIujiFyk8wPhQbHU6EYbxBs+ngzMkdMcdZnAGvWtIi/6F2/Q3b/pTZZsCUo7UvU5
+	 PHoQ1u9YG8wleocvnY2YofHTeEC8SBICrgr7en2XLQsCvSxColjOrb919Xl38EmZj+
+	 sqp4OZ78YG5tNicETUSuwOb5mU/QFAq6+RY6OkA4PQ+k4JCcxd0EcfRKQrXLYAkttN
+	 xNOEtZ1f1V2pxWYLp1H1ARccXjcqsBN3fMEXz7h2HJqSOFL8oO2CaCTSBji2vDJnu4
+	 wBgWnwlPqMh7yEaCg4vvZ+rQ1VyMRfefizVN9SXc9wj6ABqMiJ+TnQ2usyC4PCZX0v
+	 hdYQTdHaR0WqA==
+Message-ID: <a1fb9bdb-6c11-4aeb-b88e-7a65861e20d5@kernel.org>
+Date: Tue, 18 Feb 2025 12:32:19 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD333uybrRnLIPUMQ--.34107S9
-X-Coremail-Antispam: 1Uf129KBjvJXoWxGFWxtw4kKr43tFyrKryxuFg_yoWrZrW3pa
-	13ta98tr47Wr42gry8JF4UAFWYyan2kay7Crn8Jw1a934Sgr93ur4UKF1DAF1ruFnrWFya
-	kFW7K39Y9FWj9r7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jOgAwUUUUU=
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hb3Xme0ZO2u0gAAsL
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v0 1/3] dt-binding: aspeed: Add LPC PCC controller
+To: Kevin Chen <kevin_chen@aspeedtech.com>, "joel@jms.id.au"
+ <joel@jms.id.au>, "andrew@codeconstruct.com.au"
+ <andrew@codeconstruct.com.au>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "elbadrym@google.com" <elbadrym@google.com>
+References: <20250117095217.661070-1-kevin_chen@aspeedtech.com>
+ <20250117095217.661070-2-kevin_chen@aspeedtech.com>
+ <bad78886-2577-476f-a80f-e189a178b26e@kernel.org>
+ <PSAPR06MB4949CB5CE2E08B98B368160589FF2@PSAPR06MB4949.apcprd06.prod.outlook.com>
+ <78dc2cee-2d87-42a9-8e0b-2199c653def4@kernel.org>
+ <PSAPR06MB494959646EC7A8447056777B89FA2@PSAPR06MB4949.apcprd06.prod.outlook.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <PSAPR06MB494959646EC7A8447056777B89FA2@PSAPR06MB4949.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_033032_002934_7982DA4A 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20250218_033227_520987_C3594236 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,166 +126,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+On 18/02/2025 12:05, Kevin Chen wrote:
+>> On 13/02/2025 09:46, Kevin Chen wrote:
+>>>> On 17/01/2025 10:52, Kevin Chen wrote:
+>>>>> Add dt-bindings for Aspeed for Aspeed LPC POST code capture controller.
+>>>>>
+>>>>> Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
+>>>>> ---
+>>>>
+>>>> Patchsets start from 1, not 0.
+>>> Agree, I will resend the patchsets of v1.
+>>>
+>>>>
+>>>> This wasn't tested as it has obvious errors, so no review. Test your
+>>>> patches before you send them.
+>>> Agree, I will run "make dtbs_check W=1" and " make dt_binding_check " to
+>> check result is clean before the next commits.
+>>>
+>>>>
+>>>>
+>>>> <form letter>
+>>>> Please use scripts/get_maintainers.pl to get a list of necessary
+>>>> people and lists to CC. It might happen, that command when run on an
+>>>> older kernel, gives you outdated entries. Therefore please be sure
+>>>> you base your patches on recent Linux kernel.
+>>>>
+>>>> Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+>>>> people, so fix your workflow. Tools might also fail if you work on
+>>>> some ancient tree (don't, instead use mainline) or work on fork of kernel
+>> (don't, instead use mainline).
+>>>> Just use b4 and everything should be fine, although remember about
+>>>> `b4 prep --auto-to-cc` if you added new patches to the patchset.
+>>>>
+>>>> You missed at least devicetree list (maybe more), so this won't be
+>>>> tested by automated tooling. Performing review on untested code might
+>>>> be a waste of time.
+>>>>
+>>>> Please kindly resend and include all necessary To/Cc entries.
+>>>> </form letter>
+>>
+>> How did you implement this feedback?
+> 
+> make dtbs_check W=1
+> # Check the lpc-pcc or pcc message from the log
+> 
+> make dt_binding_check 
+> # No Error
+> 
+> make coccicheck MODE=report
+> # Stop at the following log but no related log.
+> #   OCaml scripting is unsupported.
+> #   coccicheck failed
 
-In the upcoming VOP of rk3576, a Window cannot attach to all Video Ports,
-so make sure all VP find it's suitable primary plane, then register the
-remain windows as overlay plane will make code easier.
+You answered probably to earlier part of email, not to the one I asked
+about.
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
-Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
-
----
-
-(no changes since v3)
-
-Changes in v3:
-- Add comments for why we should treat rk3566 with special care.
-
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 100 +++++++++++--------
- 1 file changed, 61 insertions(+), 39 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index c8c8da63db0f..2c84bac9d88a 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -2247,22 +2247,29 @@ static int vop2_plane_init(struct vop2 *vop2, struct vop2_win *win,
- 	return 0;
- }
- 
--static struct vop2_video_port *find_vp_without_primary(struct vop2 *vop2)
-+/*
-+ * On RK3566 these windows don't have an independent
-+ * framebuffer. They can only share/mirror the framebuffer
-+ * with smart0, esmart0 and cluster0 respectively.
-+ * And RK3566 share the same vop version with Rk3568, so we
-+ * need to use soc_id for identification here.
-+ */
-+static bool vop2_is_mirror_win(struct vop2_win *win)
- {
--	int i;
--
--	for (i = 0; i < vop2->data->nr_vps; i++) {
--		struct vop2_video_port *vp = &vop2->vps[i];
--
--		if (!vp->crtc.port)
--			continue;
--		if (vp->primary_plane)
--			continue;
-+	struct vop2 *vop2 = win->vop2;
- 
--		return vp;
-+	if (vop2->data->soc_id == 3566) {
-+		switch (win->data->phys_id) {
-+		case ROCKCHIP_VOP2_SMART1:
-+		case ROCKCHIP_VOP2_ESMART1:
-+		case ROCKCHIP_VOP2_CLUSTER1:
-+			return true;
-+		default:
-+			return false;
-+		}
-+	} else {
-+		return false;
- 	}
--
--	return NULL;
- }
- 
- static int vop2_create_crtcs(struct vop2 *vop2)
-@@ -2273,7 +2280,9 @@ static int vop2_create_crtcs(struct vop2 *vop2)
- 	struct drm_plane *plane;
- 	struct device_node *port;
- 	struct vop2_video_port *vp;
--	int i, nvp, nvps = 0;
-+	struct vop2_win *win;
-+	u32 possible_crtcs;
-+	int i, j, nvp, nvps = 0;
- 	int ret;
- 
- 	for (i = 0; i < vop2_data->nr_vps; i++) {
-@@ -2312,42 +2321,55 @@ static int vop2_create_crtcs(struct vop2 *vop2)
- 	}
- 
- 	nvp = 0;
--	for (i = 0; i < vop2->registered_num_wins; i++) {
--		struct vop2_win *win = &vop2->win[i];
--		u32 possible_crtcs = 0;
--
--		if (vop2->data->soc_id == 3566) {
--			/*
--			 * On RK3566 these windows don't have an independent
--			 * framebuffer. They share the framebuffer with smart0,
--			 * esmart0 and cluster0 respectively.
--			 */
--			switch (win->data->phys_id) {
--			case ROCKCHIP_VOP2_SMART1:
--			case ROCKCHIP_VOP2_ESMART1:
--			case ROCKCHIP_VOP2_CLUSTER1:
-+	/* Register a primary plane for every crtc */
-+	for (i = 0; i < vop2_data->nr_vps; i++) {
-+		vp = &vop2->vps[i];
-+
-+		if (!vp->crtc.port)
-+			continue;
-+
-+		for (j = 0; j < vop2->registered_num_wins; j++) {
-+			win = &vop2->win[j];
-+
-+			/* Aready registered as primary plane */
-+			if (win->base.type == DRM_PLANE_TYPE_PRIMARY)
- 				continue;
--			}
--		}
- 
--		if (win->type == DRM_PLANE_TYPE_PRIMARY) {
--			vp = find_vp_without_primary(vop2);
--			if (vp) {
-+			if (vop2_is_mirror_win(win))
-+				continue;
-+
-+			if (win->type == DRM_PLANE_TYPE_PRIMARY) {
- 				possible_crtcs = BIT(nvp);
- 				vp->primary_plane = win;
-+				ret = vop2_plane_init(vop2, win, possible_crtcs);
-+				if (ret) {
-+					drm_err(vop2->drm, "failed to init primary plane %s: %d\n",
-+						win->data->name, ret);
-+					return ret;
-+				}
- 				nvp++;
--			} else {
--				/* change the unused primary window to overlay window */
--				win->type = DRM_PLANE_TYPE_OVERLAY;
-+				break;
- 			}
- 		}
-+	}
-+
-+	/* Register all unused window as overlay plane */
-+	for (i = 0; i < vop2->registered_num_wins; i++) {
-+		win = &vop2->win[i];
-+
-+		/* Aready registered as primary plane */
-+		if (win->base.type == DRM_PLANE_TYPE_PRIMARY)
-+			continue;
-+
-+		if (vop2_is_mirror_win(win))
-+			continue;
- 
--		if (win->type == DRM_PLANE_TYPE_OVERLAY)
--			possible_crtcs = (1 << nvps) - 1;
-+		win->type = DRM_PLANE_TYPE_OVERLAY;
- 
-+		possible_crtcs = (1 << nvps) - 1;
- 		ret = vop2_plane_init(vop2, win, possible_crtcs);
- 		if (ret) {
--			drm_err(vop2->drm, "failed to init plane %s: %d\n",
-+			drm_err(vop2->drm, "failed to init overlay plane %s: %d\n",
- 				win->data->name, ret);
- 			return ret;
- 		}
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
