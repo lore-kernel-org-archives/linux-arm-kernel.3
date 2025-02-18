@@ -4,80 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89E7BC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA79C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AHSa0V5/YWv6xH3UZHGuIkHDWUE44bOhSk5sUAcJT7M=; b=vu7gU+DM1rCigquacH6a7paXeh
-	no/xi6R5xai/rEDESthfIn2xGvTsWecxSYs0Up25+RUNIqxOU9D3wGLt7XhmHapS4/V+M1FP0d2Ej
-	9vL6RT2o17gXaDG8RrEAJ55j30tSGXcmP5ssprLPDHVFz2gzEIGiag8byBVYDGrlvQzVP4uZzqVRG
-	4J9C4vb45W6jtE7jQC7c2HJ4rkw+6Rb0ijEErgWOxzgFv0IuNeIO7NzE6khw9yivCU0vk89PaWwnS
-	tZE6705NM3jqsaiwOHGflFRug0Skq+TH7wdmz/VpRfxitIb7ypBajj2W0PXqsV4Zs1bFUYBfPUoXr
-	wEwcDylg==;
+	bh=r1w3SuJ03gvDIe9MXtj8IMQSlg/9NytuFaJY97llj9s=; b=13+dRqwZcCizkFWjlJZ5sDmR7O
+	/TAB3bre3fuexGYjHFS2NP6W87EqXN2ID0jl4VwSqSeYyDycCK6t8mBmu+QV22KimpS23e9mx0cU6
+	G4FjEmu1YdCadFzK7ZUo8KMwhG6fT7S3wZM/gydFNPNSpDtVLIoxbGpF999TRbZLw+3Fk0mlGR5yW
+	oJjAd/LVqg5YXwaEv8dvDVm3FKX6yzcmpC2ytn6Tvi/jANBm6EmTT5KeHlgHFKiB4KbApVgcayR8C
+	IyvkJizaHxeRobxL4V0yNx8m/7aQrkiUdYzXD5HX4KDe57c5EBd9ruO7c6yrtCmcYlMhSYQCReJ5l
+	IerLtmkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOSp-00000008U1o-2CP7;
-	Tue, 18 Feb 2025 14:20:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tkOYU-00000008VVU-2hYG;
+	Tue, 18 Feb 2025 14:26:34 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOQL-00000008TXy-2DLW
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 14:18:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id ABB21A40CA2
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 14:16:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C7D9C4CEE8
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 14:18:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739888288;
-	bh=D8kZnHjA1rXfyapCTwJZXFhgI2zAmDfKIad3GOdpWqA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=pJR2eL0DvjA01+7CE7zYyDceU2Zqyou6TZvX9c/+zyYfoFJHbq2zBTFr6N3ODf6ws
-	 g1GopUwmjiNjDBgXwU9ByvlDuciZMbe8H2/mRccrpL7p9W2r3zXaUj65/RrTtBVUST
-	 1uKHaNW6eFDK1qWVRSep/QtMbtLG5p3AyinM5LIdYlk0/05CVIu3rIpSsqMzNPn85j
-	 zuiFQLeD/fLZOBS3m/JkfVyISZ+Q0yP6g/CcTk73oCczf3+NmLVxUtnQMRx+m2eIsd
-	 1BAzUHMlZoxPLSEryMluCuy1Gvp7vGWr0LTVnXzdjxbPC9T/oY9jjlVU6n7CrqIn/3
-	 /q6m4Mx1FRBDg==
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-abba1b74586so310440966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 06:18:08 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVJF9HUhzr6v5eynl7e9dAtAH7XVCoIKD86D/qk7ZdN9fEYlruYlvW5uOLQEVthQ4un0IgwB7gwNb+sjyCMPMMp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxef8D7m8BD4yPYq246Db3Ffl6zPh4nDhOTBHKnpiNSdWLmIKy5
-	PjSWfQEhUNRBguNAYafxuWZgNviqZIWOOhzGJ8kPRUKM2k+H8jEecnUPliywVJYe8H1zTb+Fm4p
-	ssb2kXs/bNC+QOV/HwryZ/8L69w==
-X-Google-Smtp-Source: AGHT+IFQE4oOobZPiWrftCcgo9BjOEPo3oua0op7T6iVGDLGZJBO05pjxcR+PzST0w0ODcyv2rXV4Db+HB2amm1Z//Y=
-X-Received: by 2002:a17:906:395b:b0:abb:b12b:e103 with SMTP id
- a640c23a62f3a-abbb12be1fbmr459701166b.34.1739888286742; Tue, 18 Feb 2025
- 06:18:06 -0800 (PST)
+	id 1tkOX0-00000008UhJ-0n5k;
+	Tue, 18 Feb 2025 14:25:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739888700;
+	bh=J2eO9J9+mwdPHssF4xChq4+/7PjWA0b/HAjHIFjPlDM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=T0PM7SUXm0tzDEgb3p7/B4sIX18u9xqr1zsMb31gron78SXny/pUQb6dWPugS+zHK
+	 zoRxMEOJH5ELNcNoNXjLsff5yFYH9vXdMnovMKc7AMmN62b2pQNnov79IbV0FQLk3B
+	 PXFsY/eKKaFsJH2puzbVSOdMjnxVVnDaIFcUftyxAvwpHK/X54+h5zn/KiNHU+9j/5
+	 VucuGlCZG1/a1HhI92k+VT46yqGIAsFt0VVpaC6SkCDd4pHOvCciFMzuexi8zTfCIk
+	 2vVJ3A3uIonc1hKstWUjrHX7JeMqNSLFHvAZzL7rTzLm+7LB+UPa04mp/oKg3+4mxU
+	 hhbiJDpHVNpUw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 636C717E0391;
+	Tue, 18 Feb 2025 15:24:59 +0100 (CET)
+Message-ID: <ddd1d62e-b1d2-4271-99a3-74bb0a48fb48@collabora.com>
+Date: Tue, 18 Feb 2025 15:24:58 +0100
 MIME-Version: 1.0
-References: <20250202-arm-brbe-v19-v19-0-1c1300802385@kernel.org>
- <20250202-arm-brbe-v19-v19-10-1c1300802385@kernel.org> <20250213170316.GG235556@e132581.arm.com>
- <CAL_JsqLG4gu6c6=x_wG6XT0WaCC_ahH5eWHk3K9RcF0ZQrDR=A@mail.gmail.com> <20250214095512.GI235556@e132581.arm.com>
-In-Reply-To: <20250214095512.GI235556@e132581.arm.com>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 18 Feb 2025 08:17:54 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqK1EThLB3uc+udfOP8cbjMFn_peoW2CBk9D-yRF3sQStg@mail.gmail.com>
-X-Gm-Features: AWEUYZlO5g0ZR9Ma_W5K7w398a_T1PS6uFZonzgnuMJwLsaDJ9E3LMdaxbe1kkA
-Message-ID: <CAL_JsqK1EThLB3uc+udfOP8cbjMFn_peoW2CBk9D-yRF3sQStg@mail.gmail.com>
-Subject: Re: [PATCH v19 10/11] KVM: arm64: nvhe: Disable branch generation in
- nVHE guests
-To: Leo Yan <leo.yan@arm.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	James Clark <james.clark@linaro.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] dt-bindings: clock: mediatek: Add SMI LARBs reset
+ for MT8188
+To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "mturquette@baylibre.com" <mturquette@baylibre.com>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ =?UTF-8?B?R2FybWluIENoYW5nICjlvLXlrrbpipgp?= <Garmin.Chang@mediatek.com>,
+ "sboyd@kernel.org" <sboyd@kernel.org>, =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?=
+ <Yong.Wu@mediatek.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor@kernel.org" <conor@kernel.org>
+References: <20250121065045.13514-1-friday.yang@mediatek.com>
+ <20250121065045.13514-2-friday.yang@mediatek.com>
+ <20250121-violet-widely-df3567b085a4@spud>
+ <2bfb6c05a3471e54f51c06895709853661e82c9a.camel@mediatek.com>
+ <20250124-aide-feisty-821cf9cf1382@spud>
+ <85c616dd195da26313cab552b24f514b539193c1.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <85c616dd195da26313cab552b24f514b539193c1.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_061809_693071_F4A54219 
-X-CRM114-Status: GOOD (  35.11  )
+X-CRM114-CacheID: sfid-20250218_062502_382612_4EAA21F3 
+X-CRM114-Status: GOOD (  38.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,70 +94,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 3:55=E2=80=AFAM Leo Yan <leo.yan@arm.com> wrote:
->
-> On Thu, Feb 13, 2025 at 05:16:45PM -0600, Rob Herring wrote:
->
-> [...]
->
-> > > > +static void __debug_save_brbe(u64 *brbcr_el1)
-> > > > +{
-> > > > +       *brbcr_el1 =3D 0;
-> > > > +
-> > > > +       /* Check if the BRBE is enabled */
-> > > > +       if (!(read_sysreg_el1(SYS_BRBCR) & (BRBCR_ELx_E0BRE | BRBCR=
-_ELx_ExBRE)))
-> > > > +               return;
-> > > > +
-> > > > +       /*
-> > > > +        * Prohibit branch record generation while we are in guest.
-> > > > +        * Since access to BRBCR_EL1 is trapped, the guest can't
-> > > > +        * modify the filtering set by the host.
-> > > > +        */
-> > > > +       *brbcr_el1 =3D read_sysreg_el1(SYS_BRBCR);
-> > > > +       write_sysreg_el1(0, SYS_BRBCR);
-> > > > +}
-> > >
-> > > Should flush branch record and use isb() before exit host kernel?
-> >
-> > I don't think so. The isb()'s in the other cases appear to be related
-> > to ordering WRT memory buffers. BRBE is just registers. I would assume
-> > that there's some barrier before we switch to the guest.
->
-> Given BRBCR is a system register, my understanding is the followd ISB
-> can ensure the writing BRBCR has finished and take effect.  As a result,
-> it is promised that the branch record has been stopped.
->
-> However, with isb() it is not necessarily to say the branch records have
-> been flushed to the buffer.  The purpose at here is just to stop record.
-> The BRBE driver will take care the flush issue when it reads records.
->
-> I agreed that it is likely barriers in the followed switch flow can assur=
-e
-> the writing BRBCR to take effect.  It might be good to add a comment for
-> easier maintenance.
->
-> > > I see inconsistence between the function above and BRBE's disable
-> > > function. Here it clears E0BRE / ExBRE bits for disabling BRBE, but t=
-he
-> > > BRBE driver sets the PAUSED bit in BRBFCR_EL1 for disabling BRBE.
-> >
-> > Indeed. This works, but the enabled check won't work. I'm going to add
-> > clearing BRBCR to brbe_disable(), and this part will stay the same.
->
-> Seems to me, a right logic would be:
->
-> - In BRBE driver, the brbe_disable() function should clear E0BRE and
->   ExBRE bits in BRBCR.  It can make sure the BRBE is totally disabled
->   when a perf session is terminated.
->
-> - For a kvm context switching, it is good to use PAUSED bit.  If a host
->   is branch record enabled, this is a light way for temporarily pause
->   branch record for the switched VM.
+Il 18/02/25 13:44, Friday Yang (杨阳) ha scritto:
+> On Fri, 2025-01-24 at 17:31 +0000, Conor Dooley wrote:
+>> On Wed, Jan 22, 2025 at 07:40:12AM +0000, Friday Yang (杨阳) wrote:
+>>> On Tue, 2025-01-21 at 17:30 +0000, Conor Dooley wrote:
+>>>> On Tue, Jan 21, 2025 at 02:50:40PM +0800, Friday Yang wrote:
+>>>>> SMI LARBs require reset functions when applying clamp
+>>>>> operations.
+>>>>> Add '#reset-cells' for the clock controller located in image,
+>>>>> camera
+>>>>> and IPE subsystems.
+>>>>
+>>>> A new required property is an abi break, please explain why this
+>>>> is
+>>>> required.
+>>
+>> You never answered this part. From a quick check, looks like the
+>> change
+>> you made will cause probe failures if the resets are not present?
+>> Maybe
+>> I misread the driver code in my quick skim - but that is the
+>> implication
+>> of a new required property, so I didn't dig super far.
+>>
+>> Adding new properties that break a driver is not really acceptable,
+>> so I
+>> hope I made a mistake there.
+>>
+> 
+> Sorry to reply late.
+> This is a known bus glitch issue. It worked because MediaTek has
+> provided patches 1, 2 and 3. In other word, it can not work
+> without patches 1, 2 and 3.
+> 
+> 1.
+> https://lore.kernel.org/all/20240327055732.28198-1-yu-chang.lee@mediatek.com/
+> 2.
+> https://lore.kernel.org/all/20240327055732.28198-2-yu-chang.lee@mediatek.com/
+> 3.
+> https://lore.kernel.org/all/20240327055732.28198-3-yu-chang.lee@mediatek.com/
+> 
+> Patches 1, 2 and 3 have been previously reviewed, and the reviewers
+> provided the following comments:
+> 4.
+> https://lore.kernel.org/all/CAFGrd9qZhObQXvm2_abqaX83xMLqxjQETB2=wXpobDWU1CnvkA@mail.gmail.com/
+> 5.
+> https://lore.kernel.org/all/CAPDyKFpokXV2gJDgowbixTvOH_5VL3B5H8eyhP+KJ5Fasm2rFg@mail.gmail.com/
+> As I mentioned earlier, SMI clamp and reset operations should be
+> implemented in SMI driver rather than the PM driver. Additionally, the
+> reset operations have already been implemented in the clock control
+> driver. There is no need to submit duplicate code.
+> 
+> To address this, I have provided patches 6, 7 to replace patches 1, 2,
+> and 3, as I believe this approach aligns more closely with the
+> reviewers' requirements.
+> 6.
+> https://lore.kernel.org/lkml/20250121065045.13514-1-friday.yang@mediatek.com/
+> 7.
+> https://lore.kernel.org/lkml/20250121064934.13482-1-friday.yang@mediatek.com/
+> 
+> What's more, I have tested the patch 6, 7 in MediaTek MT8188 SoC.
+> It could work well. If you have any questions, please feel free to
+> contact me.
+> 
+>>> What are "SMI LARBs"? Why did things previously work
+>>>> without
+>>>> acting as a reset controller?
+>>>>
+>>>
+>>> The background can refer to the discussion in the following link:
+>>>
+>>>
+> https://lore.kernel.org/all/CAFGrd9qZhObQXvm2_abqaX83xMLqxjQETB2=wXpobDWU1CnvkA@mail.gmail.com/
+>>>
+>>>
+> https://lore.kernel.org/all/CAPDyKFpokXV2gJDgowbixTvOH_5VL3B5H8eyhP+KJ5Fasm2rFg@mail.gmail.com/
+>>> SMI clamp and reset operations should be implemented in SMI driver
+>>> instead of PM driver.
+>>
+>> So the answer to how it worked previously was that nothing actually
+>> used
+>> this multimedia interface?
+>>
+>> Your commit message needs to explain why a new required property is
+>> okay
+>> and why it was not there before.
+>>
 
-We have to read BRBCR to see if it is enabled as PAUSED is unknown out
-of reset and the driver may not exist to initialize it. Either way, it
-is a register read and write, so same overhead for both.
+This conversation slipped through the cracks - wanted to reply to this quite a bit
+of time ago but then for whatever reason .... eh here we are :-)
 
-Rob
+Anyway.
+
+The cleanest option to get the glitching situation to get resolved is probably
+exactly the one that Friday proposed with this series...
+
+I agree that the commit needs a proper description, though, and even though the
+drivers were never actually used (so it's not a huge problem - as in - no device
+gets broken when this is merged), it's still an ABI breakage, and that has to be
+justified with a good reason.
+
+The good reason is that there's a hardware bug that you're trying to resolve here
+and that emerged only after the initial upstreaming of this binding (do *not*
+mention drivers in DT bindings, those describe the hardware, not software!), and
+the only way to resolve this situation is by resetting the Local Arbiter (LARB)
+of the cam/img/ipe macro-blocks.
+
+Failing to do this, the hardware is going to be unstable during high/dynamic load
+conditions.
+
+So, just describe the problem and how you're solving it in the commit description:
+that's going to be okay and justifying everything that you're doing here.
+
+I'm sorry for chiming in that late, btw.
+
+Cheers,
+Angelo
+
+>> Thanks,
+>> Conor.
+>>
+>>>
+>>> I previously added the SMI reset control driver. However, the
+>>> reviewer's comments are correct, these functions have already
+>>> been implemented in the clock control driver. There is no need
+>>> to submit duplicate code.
+>>>
+>>>
+> https://lore.kernel.org/lkml/20241120063305.8135-2-friday.yang@mediatek.com/
+>>>
+>>>
+> https://lore.kernel.org/lkml/20241120063305.8135-3-friday.yang@mediatek.com/
+>>>
+>>>
+>>> On the MediaTek platform, the SMI block diagram like this:
+>>>
+>>>                  DRAM
+>>>                   |
+>>>              EMI(External Memory Interface)
+>>>                   |  |
+>>>            MediaTek IOMMU(Input Output Memory Management Unit)
+>>>                   |  |
+>>>               SMI-Common(Smart Multimedia Interface Common)
+>>>                   |
+>>>           +----------------+------------------+
+>>>           |                |                  |
+>>>           |                |                  |
+>>>           |                |                  |
+>>>           |                |                  |
+>>>           |                |                  |
+>>>         larb0       SMI-Sub-Common0     SMI-Sub-Common1
+>>>                     |      |     |      |             |
+>>>                    larb1  larb2 larb3  larb7       larb9
+>>>
+>>> The SMI-Common connects with SMI LARBs and IOMMU. The maximum LARBs
+>>> number that connects with a SMI-Common is 8. If the engines number
+>>> is
+>>> over 8, sometimes we use a SMI-Sub-Common which is nearly same with
+>>> SMI-Common. It supports up to 8 input and 1 output(SMI-Common has 2
+>>> output).
+>>>
+>>>>>
+>>>>> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
+>>>>> ---
+>>>>>   .../bindings/clock/mediatek,mt8188-clock.yaml | 21
+>>>>> +++++++++++++++++++
+>>>>>   1 file changed, 21 insertions(+)
+>>>>>
+>>>>> diff --git
+>>>>> a/Documentation/devicetree/bindings/clock/mediatek,mt8188-
+>>>>> clock.yaml
+>>>>> b/Documentation/devicetree/bindings/clock/mediatek,mt8188-
+>>>>> clock.yaml
+>>>>> index 860570320545..2985c8c717d7 100644
+>>>>> --- a/Documentation/devicetree/bindings/clock/mediatek,mt8188-
+>>>>> clock.yaml
+>>>>> +++ b/Documentation/devicetree/bindings/clock/mediatek,mt8188-
+>>>>> clock.yaml
+>>>>> @@ -57,6 +57,27 @@ required:
+>>>>>     - reg
+>>>>>     - '#clock-cells'
+>>>>>
+>>>>> +allOf:
+>>>>> +  - if:
+>>>>> +      properties:
+>>>>> +        compatible:
+>>>>> +          contains:
+>>>>> +            enum:
+>>>>> +              - mediatek,mt8188-camsys-rawa
+>>>>> +              - mediatek,mt8188-camsys-rawb
+>>>>> +              - mediatek,mt8188-camsys-yuva
+>>>>> +              - mediatek,mt8188-camsys-yuvb
+>>>>> +              - mediatek,mt8188-imgsys-wpe1
+>>>>> +              - mediatek,mt8188-imgsys-wpe2
+>>>>> +              - mediatek,mt8188-imgsys-wpe3
+>>>>> +              - mediatek,mt8188-imgsys1-dip-nr
+>>>>> +              - mediatek,mt8188-imgsys1-dip-top
+>>>>> +              - mediatek,mt8188-ipesys
+>>>>> +
+>>>>> +    then:
+>>>>> +      required:
+>>>>> +        - '#reset-cells'
+>>>>> +
+>>>>>   additionalProperties: false
+>>>>>
+>>>>>   examples:
+>>>>> --
+>>>>> 2.46.0
+>>>>>
+
+
 
