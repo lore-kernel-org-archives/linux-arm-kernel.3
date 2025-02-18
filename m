@@ -4,100 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C49AC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 10:19:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFDEDC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 10:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0839DbdluWzWpmaiM9EB2MAfOdwxjWy1MJ5estDULzs=; b=BALvACgjd8eJOh7QN5qvJ2ikHJ
-	MNyPFVkW5ruDsmL05wphuXsYcz5//exmLJXKddsVfkx1DEC9/Qac8T0QzFyyFSZzOYgx1J1BgUUaz
-	dgjh6BrtxggCKCv+wVKf3x34g9EAKTWIrM7iekAtYyWXTwe9wuC7d/6pS9Kx8AYEGIqqiATQy7Sm2
-	1ZyZzmxrvnYxjUv1A9W3Pz0IN83ze/NUTwvs479UURO+1L5q87lFy5eC0HmXfDQY77KmE/NbiobIL
-	GBcwhfBH1CAy6Z2VKJCInvkO8sZ5OaViHy7RUmU3oBRjPGL2Pk/qDf71+Yav0L8Qq9YpW4aSgRQuc
-	VppKEsHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NnMwhEnzZlDnNZbKeqVTyqH7UMhTN8QyA0rAjVzJafc=; b=RmQtA6npwkEI6sfK7/BZz9NE60
+	zmUrU/XlS71GZzl+wk3AJQG4R5cB3MlASnU9MMXh4rR8hlt3z7z3f+VLmd/ee2g5g7fCWyon6WEcd
+	1Dm/eDK3vkBHnNvbHKM6rgC2YkhXb1Xc6G2OX+BfXmBpxB2RHJkGT//1SYTrjT5WZGxHXsKBwRoJp
+	xUJFLRVMfraWz6Jcqyh61Xk4byZrDzq6YL07OGNbbXhVKbk9a8fD4av5EBLAjlrzNMAKhGT4sVUse
+	N0IgVOPhZythMBwzQWcEDSZIYClv9PkiLGxq9pGrN7PNw7n9bFcdpgf2gwfLfoClOsoODWEEOvuVz
+	c1JQGOoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkKgu-00000007idV-0ikS;
-	Tue, 18 Feb 2025 10:19:00 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkKRx-00000007ejB-45JQ
+	id 1tkKiK-00000007ixD-3zvl;
+	Tue, 18 Feb 2025 10:20:28 +0000
+Received: from mail-m16.yeah.net ([220.197.32.16])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkKTQ-00000007f34-2SV6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 10:03:35 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-38f378498c9so2564310f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 02:03:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739873012; x=1740477812; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=0839DbdluWzWpmaiM9EB2MAfOdwxjWy1MJ5estDULzs=;
-        b=keGv8nVyJ4emTLjGxolvrtOPeNFfOUZ+DwVsbhV7Icx6KWss5gFK/FAcduvNy+LsQZ
-         cks2wLcBQW0rGP3QhIg749XDUszxYSEVoN2NtEAWEglRZY3LGTi2xAGdiC7lAqc5bcJb
-         sL4FrHJqy0Q0H0RtbWfsdzlZqFS1BKnxDkaZ4+2fmjN5mY0DfOUudqp8B4Nlwad4DnlZ
-         bxMQq25xChZniDJmXGvjKmd2IfzTijVFwuMkUBqnddwz8D9Pp7UOEhwzM7psnK8szokH
-         2eBjZD2/kkBydRI4OfzsJgBPZiA6d5EfZYeTUgyWfeuyQd1k/GzYIqmlIKrBthbss2MM
-         XZ6w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739873012; x=1740477812;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=0839DbdluWzWpmaiM9EB2MAfOdwxjWy1MJ5estDULzs=;
-        b=p4GtPcXbfqNzgxDSsaFImy5F/Rzur9p2DhUMIY1oLjZQACzwCi/CijmyZCA9UFEHtg
-         QsmzibU8tOjGifGSJvNxLY/llI4aRuXoCW2+kpny/vdJCeC2vr7sM4qrgQIxPlO8rNH/
-         zESUO1+WmVvazN3R8GLJw0Vi0vsWM3Mp2ArBXnby0boWHrg2SodakI2FJln2Mdtp4PwL
-         am+ueOD+2Z+4zL4ihxKmlJuK2mDg5szaM6GhsVvrMwdffFo8t0jsz3DAEXyKRvRQQjqX
-         t1a1t6oM48bQPbWDZQWWpe3htJdbq1WxuaduJjv13W8R3FDRDGv15kbB6YD8DtClIfD3
-         Nvcw==
-X-Forwarded-Encrypted: i=1; AJvYcCWfqQ9XEFKuXnsqrEHXaEQUzv4Spx9AYimcPO6wQ+dxjGm0qvX95wEAsAZugGYftvw0DlLo3A7d6tfa+cj0rs7U@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQ6Q4OiKRgkpvuZjpZfMs5qRusyf6pKDrhgY/QSv5ysUrXTEgO
-	znLZa0h6htnVIXRLZPxNnhzVOwRQmdSHAyx2x1EFg/dG19AhmO0o1Tr1P9Ljc9I=
-X-Gm-Gg: ASbGnctehMH02fXU51layCgmEez5oEb1geguQninQ54hmtA0y2ybfczo1VPsQA4Gdz5
-	m9xUloOT7IMbBzeIde62pJqHMq+q47wpv/bn0t14XSgCLaTPSyRua/K5i1b2hcEGSHIdkvsioAk
-	JsR1sxFJUA4G3bpkDOeTGylkXp8OvDzKQM1tn8QPGBnD2Nobl/TLzyrw6DZVDu7lnvuOfNp0tja
-	dJg7SEYVOYG9/vFjGwcgFdBfpbembf0xPaX/QbDpTfymy5DG2b++/ltJmkn7/iusvqcvDVBwjBr
-	vzDhhHrGHou+zFV/Y6AgOqn+hA==
-X-Google-Smtp-Source: AGHT+IGWbXagYwqDWRSF8X9rCootz68CXEnP/Ij/n5wLMpuiaoorUGPClGjqgWRNOLdoR1bU27EBOQ==
-X-Received: by 2002:a5d:64cc:0:b0:38f:4fcf:d295 with SMTP id ffacd0b85a97d-38f4fcfd742mr3216642f8f.29.1739873012294;
-        Tue, 18 Feb 2025 02:03:32 -0800 (PST)
-Received: from [192.168.68.163] ([145.224.90.202])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258ddbe0sm14730522f8f.39.2025.02.18.02.03.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Feb 2025 02:03:31 -0800 (PST)
-Message-ID: <9adf9f13-128d-4ef0-ae31-4db4d295e2fe@linaro.org>
-Date: Tue, 18 Feb 2025 10:03:28 +0000
+	Tue, 18 Feb 2025 10:05:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=NnMwhEnzZlDnNZbKeqVTyqH7UMhTN8QyA0rAjVzJafc=;
+	b=d6aJvRm4llb3gOD6zts96Oakj9u2LBColm3KDmfsYfTOQMe9qeOv3HB5ibEtDh
+	OAYDxeaAM3nSSNL86qafeA39uqxR6SfIy2salA/w5hDcYJriQt/wBtIFNj+0/tt1
+	buHNCmBLC0t1f/Alhyl1HF512pgdN5/P4w60+RUbW8hbk=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgCH28hCW7RnZJAnCQ--.17115S3;
+	Tue, 18 Feb 2025 18:04:52 +0800 (CST)
+Date: Tue, 18 Feb 2025 18:04:50 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
+Cc: Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	NXP S32 Linux <s32@nxp.com>, Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>
+Subject: Re: [PATCH v5 0/3] add I2C DTS support for S32G2/S32G3 SoCs
+Message-ID: <Z7RbQqBfKtM+AtsM@dragon>
+References: <20250113110512.506007-1-ciprianmarian.costea@oss.nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 3/7] Coresight: Use coresight_etm_get_trace_id() in
- traceid_show()
-To: Jie Gan <quic_jiegan@quicinc.com>
-Cc: Tingwei Zhang <quic_tingweiz@quicinc.com>,
- Jinlong Mao <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-References: <20250217093024.1133096-1-quic_jiegan@quicinc.com>
- <20250217093024.1133096-4-quic_jiegan@quicinc.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250217093024.1133096-4-quic_jiegan@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250113110512.506007-1-ciprianmarian.costea@oss.nxp.com>
+X-CM-TRANSID: M88vCgCH28hCW7RnZJAnCQ--.17115S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUVdgAUUUUU
+X-Originating-IP: [114.218.218.231]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCxn3ZWe0TnUxPgAAsn
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_020334_030111_379DC82D 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20250218_020504_941171_BE4FC2EC 
+X-CRM114-Status: UNSURE (   6.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,62 +83,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jan 13, 2025 at 01:05:09PM +0200, Ciprian Costea wrote:
+> Ciprian Marian Costea (3):
+>   arm64: dts: s32g: add I2C[0..2] support for s32g2 and s32g3
+>   arm64: dts: s32g: add common 'S32G-EVB' and 'S32G-RDB' board support
+>   arm64: dts: s32g399a-rdb3: Add INA231 sensor entry over I2C4
 
-
-On 17/02/2025 9:30 am, Jie Gan wrote:
-> From: James Clark <james.clark@linaro.org>
-> 
-> Use the new API, coresight_etm_get_trace_id, to read the traceid of the ETM
-> device when call traceid_show via sysfs node.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
-> ---
->   drivers/hwtracing/coresight/coresight-etm3x-sysfs.c | 3 +--
->   drivers/hwtracing/coresight/coresight-etm4x-sysfs.c | 4 ++--
->   2 files changed, 3 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> index 68c644be9813..b9006451f515 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> @@ -1190,10 +1190,9 @@ static DEVICE_ATTR_RO(cpu);
->   static ssize_t traceid_show(struct device *dev,
->   			    struct device_attribute *attr, char *buf)
->   {
-> -	int trace_id;
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	int trace_id = coresight_etm_get_trace_id(drvdata->csdev, CS_MODE_SYSFS, NULL);
->   
-> -	trace_id = etm_read_alloc_trace_id(drvdata);
->   	if (trace_id < 0)
->   		return trace_id;
->   
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> index c767f8ae4cf1..e5216c0f60da 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-sysfs.c
-> @@ -4,6 +4,7 @@
->    * Author: Mathieu Poirier <mathieu.poirier@linaro.org>
->    */
->   
-> +#include <linux/coresight.h>
->   #include <linux/pid_namespace.h>
->   #include <linux/pm_runtime.h>
->   #include <linux/sysfs.h>
-> @@ -2402,10 +2403,9 @@ static ssize_t trctraceid_show(struct device *dev,
->   			       struct device_attribute *attr,
->   			       char *buf)
->   {
-> -	int trace_id;
->   	struct etmv4_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	int trace_id = coresight_etm_get_trace_id(drvdata->csdev, CS_MODE_SYSFS, NULL);
->   
-> -	trace_id = etm4_read_alloc_trace_id(drvdata);
->   	if (trace_id < 0)
->   		return trace_id;
->   
-
-Reviewed-by: James Clark <james.clark@linaro.org>
+Applied all, thanks!
 
 
