@@ -4,94 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57DCAC021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C03C021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ae5CUAqvFWLqCxBuF5XhzMM5neQb6Ke5yTuZdxcdHBI=; b=tUvbVpjJk4gzK9xVP1obJBC5xr
-	36YDVLaP4G6DjTrJZs0su77CfkHP9ABJUczStjuJn9VoeaHFcoOnjaE3NVmjNb/ck7BHUeAXKhdMe
-	qBKGlcSGWrANrwT7UOKfadJqasD0pbjBQ2j5rBxIpePPApcq8dtHDJM0bzoErCzBL6QlLZwA2LTl7
-	op20whCbmrrigYghmQmaeTjpmQiYd/nP2A9XLHEm+1OjQ0zqqhZFi9kNLOis5Hy/T20sByxqJrhVd
-	T1+36pdjsrHL+G5v/aL8GdYTq5ekA1q21cM2yN8eWqSG7WrMdtR8QPz0QbrBzHMbcz1d3gHHOmOJG
-	6PzfMrqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R81WX5ieBKT/eq/FhZWpa790wf98iO4MC+KwyZIz0eA=; b=F+fh/+Mf7N+6OtWgxd8cjeV8G/
+	NXpQeYj+EekudPqffeuH0o6hHeg/xqi76WDLBuyyrSrYJHy3HMxvbI3e6AT0hqI8O4iLK5Me8OBzy
+	IXyYmlfMAFWTDJPceLqBjuzypSRG8msFXRXaxuZA2FZbCX1fD5Pp1UyNqAFcvKNzas242sDTydGxA
+	+/qPbaAgEI9VBKb+lhU0tM9AwMJ4gG8YkD6HgIjeb4ONFwyqLCsQxbhZUOZbn7cukBaUwelia+jaE
+	DgepTjRpKc4Ac9FyUVXJYZyQXWcDki2nrTE4slN4zFHUe7R+QEJZYBtXjjCIAwh2UHB6YRniH+vj+
+	hUJNfnKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTUY-00000009chb-1M08;
-	Tue, 18 Feb 2025 19:42:50 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1tkTVz-00000009d6H-2Wca;
+	Tue, 18 Feb 2025 19:44:19 +0000
+Received: from mail-bn7nam10on20604.outbound.protection.outlook.com ([2a01:111:f403:2009::604] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSnN-00000009T2S-1BPk;
-	Tue, 18 Feb 2025 18:58:14 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-471eb0e3536so46684431cf.3;
-        Tue, 18 Feb 2025 10:58:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739905092; x=1740509892; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Ae5CUAqvFWLqCxBuF5XhzMM5neQb6Ke5yTuZdxcdHBI=;
-        b=g9bmTcK9o+0aMcRjy8klpobB03KzNgnil87dsQRb9O0bVGnubHdb2/IRkLZJnpJhJJ
-         DoXFZwi+/6nle/VJ2EcZdGbdsxkIhbijcsz2D5yvjwkrdC1QwTiGTtyTZwE4Tiay/zYX
-         ycA/yBMGjoKfy+fQSmp+JjPmJjpvgFgBVpXynNiZwV2cia6l+/Gbb7pEs0UVk+tv2dj2
-         iP6OTEWycnhnKReLaHICGJCUi+FbgJtER85m17VFjRcnxbBOItuF1ipbY/Qs6ey5fslc
-         zRLAIaZctU9nBJGdJpeOokN0hXKcvUialL/jWwW0xPPI22JR3i09LB/LNRZpEdejPnpS
-         cbTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739905092; x=1740509892;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Ae5CUAqvFWLqCxBuF5XhzMM5neQb6Ke5yTuZdxcdHBI=;
-        b=uDzgAx7LUZbwQ83zxc72im2T4dMEiT9+hLbPRTrdf3+qM5nqqDRG/Oah2e2BxovsWN
-         dEAmYISO/2pjNHtQH8wJt60svqeGysOfopEQXfEMdE3nbG5u4/77XgH3V/sy8wYLZL/L
-         4J/S5YshfU9pDp2FsmVdOeKnbasR3ye6uRqSBmWoybTyrXtw24jb/UOsb/UUGbTuOPez
-         Q3WzKdOnEVCTgaSiNmtKz1hN5cg551LxQEsGNXiHWVoRuKmT4FzE/HYEzVr7ZrBn+uWv
-         GIk3c+lNyz1B3kq8HBDZ/+WkDybtyvByYYfZrcHK9MvMzQJHWm5hi98hyRnicx/4Vvym
-         4/YQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUr7ETuSxVC8e8GYgIPEXbyrdsbUedivG97JNx7IgmJAQ5WaAXzEdHXm65uAxCN4+wDuP3yI6eGJT4t+DSpRD7R@lists.infradead.org, AJvYcCXd97OfDi9uLpBJULfoiW3IBKRxELPmBLoGEwFnKIMlypeyLBnkAAUGgtu9zjDQnzChBqWmUgiPLgFaUEarYXQ=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyrfBziIpW6HsNo7lphVYPtd7seOcjoFum//ftHmsHl/jSzFBSp
-	asLUp+XAAHRgjnCgRqJkO3+RDNVnMsMBzyM6UG8ITqjBXcr5dTi8
-X-Gm-Gg: ASbGncvbpQOeCpng60n4yO5lo/t8ntiOZdIsF4dl5l0FKpvLyt2JrFA2yyhPJN3Ft/J
-	WSRIqUp1/xyOYhtsWF9vvkZZJu8HSrXXbUXW0gS9v3ksn2DO+xFV/ViaJwpib1utYaXotvyHEt1
-	4nMek3JOff7EP/U+bO8CZb8zLo6+Q/jEeGhjeSFuffmQ2kT6WUgrMz5JYhyFtgwa6AMgwy4npYF
-	VDa5xvqXr1/+FV7n0MJ+6hfrWVUr/gAILG4Yqxby9w73vmw9Nmmkn5OrGWs5JTk4B4oH3Xy7hK9
-	Qquv4Oar7JHFix5CeBft1ZcM1pkiNP87Cq+xMw==
-X-Google-Smtp-Source: AGHT+IEBUpcPJIeS91rT5iM8/z85eHzjoA42gXRp32LDonh/AwlEudjIz2MzjR25aealFM9CLGUITw==
-X-Received: by 2002:ad4:4eed:0:b0:6d4:e0a:230e with SMTP id 6a1803df08f44-6e66ccc114cmr224422306d6.16.1739905092130;
-        Tue, 18 Feb 2025 10:58:12 -0800 (PST)
-Received: from newman.cs.purdue.edu ([128.10.127.250])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e65d7a40bdsm66803016d6.59.2025.02.18.10.58.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 10:58:11 -0800 (PST)
-From: Jiasheng Jiang <jiashengjiangcool@gmail.com>
-To: sebastian.fricke@collabora.com
-Cc: andrew-ct.chen@mediatek.com,
-	angelogioacchino.delregno@collabora.com,
-	fullwaywang@outlook.com,
-	jiashengjiangcool@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	matthias.bgg@gmail.com,
-	mchehab@kernel.org,
-	tiffany.lin@mediatek.com,
-	yunfei.dong@mediatek.com
-Subject: [PATCH v2] media: mediatek: vcodec: Fix a resource leak related to the scp device in FW initialization
-Date: Tue, 18 Feb 2025 18:58:09 +0000
-Message-Id: <20250218185809.37130-1-jiashengjiangcool@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <195061eaa10.dcfe0edc1589793.425795569509706466@collabora.com>
-References: <195061eaa10.dcfe0edc1589793.425795569509706466@collabora.com>
+	id 1tkSrv-00000009U9p-3RM2
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Feb 2025 19:02:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VRVZ9C0ivcfbPCL3l9ezEDIWvvF7G3F+PKDhCtT9MpbAa7QQc5lZrl+xTpZpFowq1TbZ7CWFzjALSR0odyPgbDevUD93ed2hVf3BXTNZUJH1Z2DUBEnEMzm1iTIjys1HTGj9lY7eZF93dHxLbxWo+tq+nbfRHLuj++DQg7h7KSr84YZkmOA7RBBy3JWDbO+JomGD7gifbPmslVkp1YtvQ3YsdUkIXeofXy1mbyYJsMJRfvvLjQoHCPOBXyNagBnyreNrhg8K7+C7DHVU0oxEpPtJx+eMGQMIIBsAM9ZvK8Dgf6iGHLQ8OdnrYieUVSOU0Io7Pck9cbg48kW5hTzxYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=R81WX5ieBKT/eq/FhZWpa790wf98iO4MC+KwyZIz0eA=;
+ b=fHYPbYysjFDkVi0JStoArtcGe7GWYHMX90OB1XeEFfgbnxFNSTYFXdXl3xrR96xJSJ/5SjUl9kDwPqeLvT9ELCUsbzXTO/z8vDb1n9fKQmaPrMtssl89xGvORgNSmOprGYpcccnGONh7+MH8o/7Z0wdmppONTKHK9LmmsRkT19WajOQjThlMlzCY69flMaZdnnauvW2OgkCJs/a7QNHIl9+RZV3qAhLRPWNa9LQnsqvDMoQ30tm26OsnjYWaWnzz05RUowYw+eHyI69MvUNsGXnGJN6YSmV7RBB4JJy8FG+UYLFQ1OhcoUoR6a7w4fXj0rOx7Ss+/SABNPqZYt4jDg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=R81WX5ieBKT/eq/FhZWpa790wf98iO4MC+KwyZIz0eA=;
+ b=sjme3HO9SwZ0vBKjhoWxYvJgHFfUuBcQzPGx6dqfia+IjtPwtlb0xhqmfg103U0t2QnENo4btZwO0HOjh66wdLnI6akcHQYZ8WBEQq4gBHtOPt5V0u4vZMoRd0xsMXmfCT0FuqcuUq19q9m9BgVawP6aQGNaSuem3ZaYoHt4+3jz31/wjMQLgsuNYhUfvSgwEOEAXmH71YlNhfbOuFjMFuzyS8nzp3ecDK1DK7PMRfKcCHqzTjlgiW23weU4CMzVeVbhfap6W8GmQ8/el+ldU6Fm0t3+FKapxGmVRnl6dBbqFNj2KiNRasxBd/HAsHsHPXyX+MBSi86A5sCINSyQVA==
+Received: from BY5PR17CA0017.namprd17.prod.outlook.com (2603:10b6:a03:1b8::30)
+ by CY8PR12MB7361.namprd12.prod.outlook.com (2603:10b6:930:53::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Tue, 18 Feb
+ 2025 19:02:43 +0000
+Received: from CO1PEPF000042A8.namprd03.prod.outlook.com
+ (2603:10b6:a03:1b8:cafe::a4) by BY5PR17CA0017.outlook.office365.com
+ (2603:10b6:a03:1b8::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.14 via Frontend Transport; Tue,
+ 18 Feb 2025 19:02:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CO1PEPF000042A8.mail.protection.outlook.com (10.167.243.37) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8466.11 via Frontend Transport; Tue, 18 Feb 2025 19:02:43 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 18 Feb
+ 2025 11:02:27 -0800
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Tue, 18 Feb 2025 11:02:26 -0800
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.181)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Tue, 18 Feb 2025 11:02:25 -0800
+Date: Tue, 18 Feb 2025 11:02:23 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
+	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
+	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v6 13/14] iommu/arm-smmu-v3: Report events that belong to
+ devices attached to vIOMMU
+Message-ID: <Z7TZP3jXlRzweFE8@nvidia.com>
+References: <cover.1737754129.git.nicolinc@nvidia.com>
+ <b71a5b132e8ba771998c5b810675f10b100d4ff3.1737754129.git.nicolinc@nvidia.com>
+ <20250218171821.GG4099685@nvidia.com>
+ <Z7TRNL0u0YmN30ax@nvidia.com>
+ <20250218185046.GK4099685@nvidia.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250218185046.GK4099685@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000042A8:EE_|CY8PR12MB7361:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0aaaf8ea-f8bd-449d-bf76-08dd504ed2f2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?emZINW5qdEdYa3U0aFpOYzFKemQyVkI3WU9HVDIvRlNuemwyVXhnMmoxZndX?=
+ =?utf-8?B?SU8zQ2RjR0orQzZwNS9ITmZ2eHcwQ1BERnM4M0xvWm1qK0ExVHk5WG9adS9o?=
+ =?utf-8?B?VWo5aHdsbHR3djJUcHlseDJIck9uMVE2UG1pcXF6ODJtNUtFd0VGS0N4OHVz?=
+ =?utf-8?B?OW9CZjh2em9oZXI0akZzUU82OHkwVGZZc0xSalZScGxlL1A5T0p3TnRrNjBV?=
+ =?utf-8?B?S3JyakEyd2F1L2tBYXdzRFlaYWRudTlkNFpEeU5GZlJ4MVAwcGFGU1I3blpw?=
+ =?utf-8?B?UitLYVZsODNEVUVTYkxBblB3T3ZUdndKMjlEQUdXQUpsWjZmLzlNTUtvMFRS?=
+ =?utf-8?B?U0pZRUF1WlBtTlhoajY0UEs3YUZtWGNaZDFVQ3RMZDVjdzBXRFZHblhRS1B5?=
+ =?utf-8?B?NjFWMlNyTGpoS0F4MkdjRzVZcit2Rld2TFZ4VG53dlRLYU9LRUJ1aVU3Mmgr?=
+ =?utf-8?B?dGk0TjUzUzV2YWtBcW9KQzZXaTU0N1BFcXlKMHdDakFuMzc0QVdHZkdvc21k?=
+ =?utf-8?B?T1FwNzBRT1ZwUGNKbjlTKzByVDVLNkdQUGlWR1BuMmdJNUVkQ0w4MmN0TUN4?=
+ =?utf-8?B?NndkQTdOeEl1ZlNWVHNiVE53L1kvdzhIdGNXWi8veDVhcDduTXNBaE5nbEdU?=
+ =?utf-8?B?YW5uQ25QK0dRejRGTUppdWtxZ3VxRUQ4by8xOExvZW1tL3pTTXFZZHk3ZEpZ?=
+ =?utf-8?B?RDR5d2tVQ0ZQQjJLVSs3eSt4VEhGaTBiWE5jYkR2SWpqcUJkbEwvQ2JFZnRJ?=
+ =?utf-8?B?WHowL2ovSWFNeWlxa29WUzNhMXlsNjJGUTB4YlhvTlM5dzRNS1NPVGk2MEZ6?=
+ =?utf-8?B?WjBHUFpGenFrRDQxcUVrUHdReUdyYVBUa3Azb21OZjJMMGRKYVFBdzlWRCsx?=
+ =?utf-8?B?MFZZYkx6eitxWGhyeEtvbXI4OVpqVlZhZHo2S0g5dGhUandXR1EzeUxiMDg5?=
+ =?utf-8?B?dWZFUlhTeEk3cnNURDVLWm11NHJWZVV3S3pEY0dYT1FlVm9NUGloN3hVNDJF?=
+ =?utf-8?B?WHZyRlpwbU5jaTV1L0hTNWxBbmJPbTM4NzY1eVR1VjVRWHdXMitaVjVOcW1D?=
+ =?utf-8?B?aFJENytRQTNVd0tvNFIwOEJNQSthZ0F6MlA0dEF6RUIzY04vMUJnMGNQUXFh?=
+ =?utf-8?B?ZVArMnhJWWpoZlNsVmxVc1gzRUpQbHJ2cm1xUXR5R1dTdVd4VER1d015M2lu?=
+ =?utf-8?B?bEJNdzdyL2ppZlFCRVpFWEY0N1Zwbk9SZytjSHNwdjlZcEZ4Qld1WktoWjRI?=
+ =?utf-8?B?OFcvTy9EN2VkZU8rZk9nSFM1dld3NnlCbjRONmh1MUlTVlB6T3RRZjMweTZR?=
+ =?utf-8?B?dVNmRW1PbC9iWDN6bkorK3NhZU83ZDFDdzFzeW5paVJEcG10WVlmangxT3pJ?=
+ =?utf-8?B?ZmRCcEJtRUE2Ti9qd3NYbVBteVNBTkY5Q1Y4M1puUjhhQS8zUTZjMjcrWlpD?=
+ =?utf-8?B?RlFPOVhwbXdIVHJBekhQRldmN2dNTUphZkxEVTdPSUVlYVBrVllVMWNXYzBl?=
+ =?utf-8?B?M3VWbU5aQ1VLOTRpamljYzhtbnFBenU2QURCdVYyQXRIV0FqN0NSek5ZTHFO?=
+ =?utf-8?B?MUw3L1IrbHJXR2d2OUtERHl6YlVSL3Zkek10VWhEc1dRVXBSUENqNnkzZEps?=
+ =?utf-8?B?Mi9WZkk2UCtrV0tjUURZTXlFOU0rU0pQQW9TZGczUVZpOHpRTXhlRDduSjRD?=
+ =?utf-8?B?aUE1Z2xBck5Kcjh0M2J6MlhpNlp3VGNvYmt1REZaUXArQlhPM1NDWjlKcUwv?=
+ =?utf-8?B?aFE4UERzb05NakZsT1J0aG00WnFpbVdKM2t0ZENqK2xPWmNudUc2VGxSYnhs?=
+ =?utf-8?B?RjFsWU5QWExJeVRWNTNUeWg1ZnVQdmcrT3phdHQ1bFlPdldxQ3ArclZQQUR5?=
+ =?utf-8?B?eFJ5QzNVaXFMQmtKSmE4Z29CNlhSVWkyb3J1eXUvc214SFdWTHVrR2FtajMz?=
+ =?utf-8?B?WERrcmJ4enkzL2tTc3ZUeTBlZnM4YUxXUzZCVCtZTWRjWEdLM20veDhoNElq?=
+ =?utf-8?Q?KlvKy3c12E9zpU+8dGrUAZ03SjdSPA=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 19:02:43.2179
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0aaaf8ea-f8bd-449d-bf76-08dd504ed2f2
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000042A8.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7361
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_105813_319993_989119B3 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20250218_110255_858916_3B5D8AEC 
+X-CRM114-Status: GOOD (  24.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,41 +170,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mediatek devices with a system companion processor (SCP) the mtk_scp
-structure has to be removed explicitly to avoid a resource leak.
-Free the structure in case the allocation of the firmware structure fails
-during the firmware initialization.
+On Tue, Feb 18, 2025 at 02:50:46PM -0400, Jason Gunthorpe wrote:
+> On Tue, Feb 18, 2025 at 10:28:04AM -0800, Nicolin Chen wrote:
+> > On Tue, Feb 18, 2025 at 01:18:21PM -0400, Jason Gunthorpe wrote:
+> > > On Fri, Jan 24, 2025 at 04:30:42PM -0800, Nicolin Chen wrote:
+> > > 
+> > > > @@ -1831,31 +1831,30 @@ static int arm_smmu_handle_event(struct arm_smmu_device *smmu,
+> > > >  		return -EOPNOTSUPP;
+> > > >  	}
+> > > 
+> > > There is still the filter at the top:
+> > > 
+> > > 	switch (event->id) {
+> > > 	case EVT_ID_TRANSLATION_FAULT:
+> > > 	case EVT_ID_ADDR_SIZE_FAULT:
+> > > 	case EVT_ID_ACCESS_FAULT:
+> > > 	case EVT_ID_PERMISSION_FAULT:
+> > > 		break;
+> > > 	default:
+> > > 		return -EOPNOTSUPP;
+> > > 	}
+> > > 
+> > > Is that right here or should more event types be forwarded to the
+> > > guest?
+> > 
+> > That doesn't seem to be right. Something like EVT_ID_BAD_CD_CONFIG
+> > should be forwarded too. I will go through the list.
+> 
+> I think the above should decode into a 'faultable' path because they
+> all decode to something with an IOVA
+> 
+> The rest should decode to things that include a SID and the SID decode
+> should always be forwarded to the VM. Maybe there are small
+> exclusions, but generally that is how I would see it..
 
-Fixes: 53dbe0850444 ("media: mtk-vcodec: potential null pointer deference in SCP")
-Signed-off-by: Jiasheng Jiang <jiashengjiangcool@gmail.com>
----
-Changelog:
+Ack. SMMU spec defines three type:
+"Three categories of events might be recorded into the Event queue:
+ • Configuration errors.
+ • Faults from the translation process.
+ • Miscellaneous."
 
-v1 -> v2:
+The driver cares the first two only, as you remarked here.
 
-1. Reword the commit message to give more context.
----
- .../platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c      | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+> > > This already holds the streams_mutex across all of this, do you think
+> > > we should get rid of the vmaster_rwsem and hold the streams_mutex on
+> > > write instead?
+> > 
+> > They are per master v.s. per smmu. The latter one would make master
+> > commits/attaches exclusive, which feels unnecessary to me, although
+> > it would make the code here slightly cleaner..
+> 
+> I'd pay the cost on the attach side to have a single lock on the fault
+> side..
 
-diff --git a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
-index ff23b225db70..1b0bc47355c0 100644
---- a/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
-+++ b/drivers/media/platform/mediatek/vcodec/common/mtk_vcodec_fw_scp.c
-@@ -79,8 +79,11 @@ struct mtk_vcodec_fw *mtk_vcodec_fw_scp_init(void *priv, enum mtk_vcodec_fw_use
- 	}
- 
- 	fw = devm_kzalloc(&plat_dev->dev, sizeof(*fw), GFP_KERNEL);
--	if (!fw)
-+	if (!fw) {
-+		scp_put(scp);
- 		return ERR_PTR(-ENOMEM);
-+	}
-+
- 	fw->type = SCP;
- 	fw->ops = &mtk_vcodec_rproc_msg;
- 	fw->scp = scp;
--- 
-2.25.1
+OK. Maybe a small patch to turn the streams_mutex to streams_rwsem?
 
+Thanks
+Nicolin
 
