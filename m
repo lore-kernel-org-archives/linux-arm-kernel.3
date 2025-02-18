@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB64C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 05:54:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6899C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 05:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CmKjnil7lcbxmdcElWmLhqnEMMS7umr+u7D6jla4PQg=; b=xKvNQMK2hG1KiuRB4jrIe6pWr8
-	vWfeuph2vlwT4o+GEJ90u046YoeM3TImsEH23HvCiooXg4jN01hgL2pLSs0brM71HncgrktTJog+D
-	IoAaqJkxCLjyTQi2fvdLQ21A+5I9R9Nk2mUVkTzzIbE/YqSeClS/+iIERmRaJxzqsPSzgdK/pzIj0
-	bv/FMEQavaT4d6B8Mt2whpKTHPCouPMHNNW4F0SncgedAFwr2eNI0Ez3bIBeQhRaeI1uPehIpvnwt
-	84Ko1KqBggaJBSTFD9fsQ9wqpdGtBaUawyMR2f1BpG/CaExp+uZONky76DwKJ3VcvZqCfJZKjtUNu
-	d9rUkp9Q==;
+	bh=sRFPdOj8cHZYdN5t950ZAhhc2lYyTgP014Ju7dShJeQ=; b=4eqxTeMRqWqNQT+RKR3z0jiANn
+	6hkDBxLB9TvI0G6+BdIAxapBTVaLt7rNkGFBjWEG6VduiAXKcnmsguMVwv+Pexgj2KWLoKqoSRzeM
+	7XVyJ4kFk56ijEo/f4+QfcurnM9V+vHeTq+4I0AW3C7U3UTRFA3zg2tPTxmH5s8peMh37XchCZB2x
+	+6pch4qJskMI9VJ+3gpgloZZKs3xSrsqRWQ7NuyQ+L2qjf+K+EhRDQUt3U9nc3toucWZxiDVNYelh
+	Jrsqh37eSwEfBzI0DCzBkn78f6t6loThg2Fuzwmf21sWQUCyAyYIWcgdDoUdwhP64sGQdd6+hL/q4
+	E0xl6WWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkGZ9-00000006vlO-0DVd;
-	Tue, 18 Feb 2025 05:54:43 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tkGaa-00000006vv8-03w1;
+	Tue, 18 Feb 2025 05:56:12 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkGP2-00000006t1Q-2uAW;
-	Tue, 18 Feb 2025 05:44:19 +0000
-X-UUID: 60040a10edbb11ef83f2a1c9db70dae0-20250217
+	id 1tkGP3-00000006t1P-0EZc;
+	Tue, 18 Feb 2025 05:44:20 +0000
+X-UUID: 60c0a5daedbb11efa1e849db4cc18d44-20250217
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=CmKjnil7lcbxmdcElWmLhqnEMMS7umr+u7D6jla4PQg=;
-	b=f5oD9v4R+k+v6eYlbql2YiQF5/rUn96UPqKtP31gs+mu0UNCQJwYt1FbZdFCMn0/zn5DY6JqCWZlWfz34dv1IA7b0mxaoDZ3IlW4oAb66kOxhb3zfmG2zBN6gdRLN19dagpo7LhUWkIQ7+1ePm+HnegQ9JnPt00X4FxJFOVq+4g=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=sRFPdOj8cHZYdN5t950ZAhhc2lYyTgP014Ju7dShJeQ=;
+	b=YtfdL0w4mjNYdugga1SAgqxj+VTY/c32AKtiLCBXawVh+v+fjMFqq4+awTwqSUPGUU9KrUzNVn8cnxRWITM2DNcUkly1Y2F2jVWPXSa+g8uyQBAjfpPrr0z/UFrHoPyy9bK1p7wpB3eF0BAI5b8tTxPdSEdhdo9WpSBLFpkRc9s=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:fd79bf98-d85f-453f-9b7b-a75b30ea47c4,IP:0,U
+X-CID-O-INFO: VERSION:1.1.46,REQID:30e8dce3-53c7-4715-9cbd-c10b94883876,IP:0,U
 	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
 	N:release,TS:-25
-X-CID-META: VersionHash:60aa074,CLOUDID:b482770b-46a1-4805-887b-d6afca075802,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:1,
-	IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
-	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-META: VersionHash:60aa074,CLOUDID:654e7ba3-3e52-4e5b-a515-5e42bbdb1515,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:1|
+	19,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 60040a10edbb11ef83f2a1c9db70dae0-20250217
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
+X-UUID: 60c0a5daedbb11efa1e849db4cc18d44-20250217
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
 	(envelope-from <jason-jh.lin@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2079312044; Mon, 17 Feb 2025 22:44:09 -0700
+	with ESMTP id 1860675639; Mon, 17 Feb 2025 22:44:10 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Tue, 18 Feb 2025 13:44:06 +0800
+ 15.2.1258.28; Tue, 18 Feb 2025 13:44:07 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
  mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Tue, 18 Feb 2025 13:44:06 +0800
+ 15.2.1258.28 via Frontend Transport; Tue, 18 Feb 2025 13:44:07 +0800
 From: Jason-JH Lin <jason-jh.lin@mediatek.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
@@ -69,9 +69,9 @@ CC: Matthias Brugger <matthias.bgg@gmail.com>, Jason-JH Lin
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>
-Subject: [PATCH v4 3/8] mailbox: mtk-cmdq: Add driver data to support for MT8196
-Date: Tue, 18 Feb 2025 13:41:48 +0800
-Message-ID: <20250218054405.2017918-4-jason-jh.lin@mediatek.com>
+Subject: [PATCH v4 8/8] media: mediatek: mdp3: Add programming flow for unsupported subsys ID hardware
+Date: Tue, 18 Feb 2025 13:41:53 +0800
+Message-ID: <20250218054405.2017918-9-jason-jh.lin@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250218054405.2017918-1-jason-jh.lin@mediatek.com>
 References: <20250218054405.2017918-1-jason-jh.lin@mediatek.com>
@@ -80,8 +80,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_214416_737386_0EEBB551 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20250217_214417_100003_A81A1EEF 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,217 +96,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MT8196 has 3 new hardware configuration compared with the previous SoC,
-which correspond to the 3 new driver data:
-
-1. mminfra_offset: For GCE data plane control
-   Since GCE has been moved into mminfra, GCE needs to append the
-   mminfra offset to the DRAM address when accessing the DRAM.
-
-2. gce_vm: For GCE hardware virtualization
-   Currently, the first version of the mt8196 mailbox controller only
-   requires setting the VM-related registers to enable the permissions
-   of a host VM.
-
-3. dma_mask_bit: For dma address bit control
-   In order to avoid the hardware limitations of MT8196 accessing DRAM,
-   GCE needs to configure the DMA address to be less than 35 bits.
+To support hardware without subsys IDs on new SoCs, add a programming
+flow that checks whether the subsys ID is valid. If the subsys ID is
+invalid, the flow will call 2 alternative CMDQ APIs:
+cmdq_pkt_assign() and cmdq_pkt_write_s_mask_value() to achieve the
+same functionality.
 
 Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
 ---
- drivers/mailbox/mtk-cmdq-mailbox.c       | 90 +++++++++++++++++++++---
- include/linux/mailbox/mtk-cmdq-mailbox.h |  2 +
- 2 files changed, 84 insertions(+), 8 deletions(-)
+ .../platform/mediatek/mdp3/mtk-mdp3-cmdq.c    | 18 ++++-
+ .../platform/mediatek/mdp3/mtk-mdp3-comp.h    | 79 ++++++++++++++-----
+ 2 files changed, 77 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c b/drivers/mailbox/mtk-cmdq-mailbox.c
-index d186865b8dce..0abe10a7fef9 100644
---- a/drivers/mailbox/mtk-cmdq-mailbox.c
-+++ b/drivers/mailbox/mtk-cmdq-mailbox.c
-@@ -43,6 +43,17 @@
- #define GCE_CTRL_BY_SW				GENMASK(2, 0)
- #define GCE_DDR_EN				GENMASK(18, 16)
+diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
+index e5ccf673e152..0ee3354963db 100644
+--- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
++++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-cmdq.c
+@@ -321,7 +321,14 @@ static int mdp_path_config_subfrm(struct mdp_cmdq_cmd *cmd,
+ 	/* Enable mux settings */
+ 	for (index = 0; index < ctrl->num_sets; index++) {
+ 		set = &ctrl->sets[index];
+-		cmdq_pkt_write(&cmd->pkt, set->subsys_id, set->reg, set->value);
++		if (set->subsys_id != CMDQ_SUBSYS_INVALID) {
++			cmdq_pkt_write(&cmd->pkt, set->subsys_id, set->reg, set->value);
++		} else {
++			/* only MMIO access, no need to check mminfro_offset */
++			cmdq_pkt_assign(&cmd->pkt, CMDQ_THR_SPR_IDX0, CMDQ_ADDR_HIGH(set->reg));
++			cmdq_pkt_write_s_value(&cmd->pkt, CMDQ_THR_SPR_IDX0,
++					       CMDQ_ADDR_LOW(set->reg), set->value);
++		}
+ 	}
+ 	/* Config sub-frame information */
+ 	for (index = (num_comp - 1); index >= 0; index--) {
+@@ -376,7 +383,14 @@ static int mdp_path_config_subfrm(struct mdp_cmdq_cmd *cmd,
+ 	/* Disable mux settings */
+ 	for (index = 0; index < ctrl->num_sets; index++) {
+ 		set = &ctrl->sets[index];
+-		cmdq_pkt_write(&cmd->pkt, set->subsys_id, set->reg, 0);
++		if (set->subsys_id != CMDQ_SUBSYS_INVALID) {
++			cmdq_pkt_write(&cmd->pkt, set->subsys_id, set->reg, 0);
++		} else {
++			/* only MMIO access, no need to check mminfro_offset */
++			cmdq_pkt_assign(&cmd->pkt, CMDQ_THR_SPR_IDX0, CMDQ_ADDR_HIGH(set->reg));
++			cmdq_pkt_write_s_value(&cmd->pkt, CMDQ_THR_SPR_IDX0,
++					       CMDQ_ADDR_LOW(set->reg), 0);
++		}
+ 	}
  
-+#define GCE_VM_ID_MAP0			0x5018
-+#define GCE_VM_MAP0_ALL_HOST			GENMASK(29, 0)
-+#define GCE_VM_ID_MAP1			0x501c
-+#define GCE_VM_MAP1_ALL_HOST			GENMASK(29, 0)
-+#define GCE_VM_ID_MAP2			0x5020
-+#define GCE_VM_MAP2_ALL_HOST			GENMASK(29, 0)
-+#define GCE_VM_ID_MAP3			0x5024
-+#define GCE_VM_MAP3_ALL_HOST			GENMASK(5, 0)
-+#define GCE_VM_CPR_GSIZE		0x50c4
-+#define GCE_VM_CPR_GSIZE_HSOT			GENMASK(3, 0)
-+
- #define CMDQ_THR_ACTIVE_SLOT_CYCLES	0x3200
- #define CMDQ_THR_ENABLED		0x1
- #define CMDQ_THR_DISABLED		0x0
-@@ -87,11 +98,24 @@ struct cmdq {
- struct gce_plat {
- 	u32 thread_nr;
- 	u8 shift;
-+	dma_addr_t mminfra_offset;
- 	bool control_by_sw;
- 	bool sw_ddr_en;
-+	bool gce_vm;
-+	u32 dma_mask_bit;
- 	u32 gce_num;
- };
+ 	return 0;
+diff --git a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-comp.h b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-comp.h
+index 681906c16419..e20f9d080db9 100644
+--- a/drivers/media/platform/mediatek/mdp3/mtk-mdp3-comp.h
++++ b/drivers/media/platform/mediatek/mdp3/mtk-mdp3-comp.h
+@@ -9,17 +9,44 @@
  
-+static inline u32 cmdq_reg_shift_addr(dma_addr_t addr, const struct gce_plat *pdata)
-+{
-+	return ((addr + pdata->mminfra_offset) >> pdata->shift);
-+}
-+
-+static inline u32 cmdq_reg_revert_addr(dma_addr_t addr, const struct gce_plat *pdata)
-+{
-+	return ((addr << pdata->shift) - pdata->mminfra_offset);
-+}
-+
- static void cmdq_sw_ddr_enable(struct cmdq *cmdq, bool enable)
- {
- 	WARN_ON(clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks));
-@@ -112,6 +136,30 @@ u8 cmdq_get_shift_pa(struct mbox_chan *chan)
- }
- EXPORT_SYMBOL(cmdq_get_shift_pa);
+ #include "mtk-mdp3-cmdq.h"
  
-+dma_addr_t cmdq_get_offset_pa(struct mbox_chan *chan)
-+{
-+	struct cmdq *cmdq = container_of(chan->mbox, struct cmdq, mbox);
-+
-+	return cmdq->pdata->mminfra_offset;
-+}
-+EXPORT_SYMBOL(cmdq_get_offset_pa);
-+
-+bool cmdq_addr_need_offset(struct mbox_chan *chan, dma_addr_t addr)
-+{
-+	struct cmdq *cmdq = container_of(chan->mbox, struct cmdq, mbox);
-+
-+	if (cmdq->pdata->mminfra_offset == 0)
-+		return false;
-+
-+	/*
-+	 * mminfra will recognize the addr that greater than the mminfra_offset
-+	 * as a transaction to DRAM.
-+	 * So the caller needs to append mminfra_offset for the true case.
-+	 */
-+	return (addr >= cmdq->pdata->mminfra_offset);
-+}
-+EXPORT_SYMBOL(cmdq_addr_need_offset);
-+
- static int cmdq_thread_suspend(struct cmdq *cmdq, struct cmdq_thread *thread)
- {
- 	u32 status;
-@@ -143,6 +191,17 @@ static void cmdq_init(struct cmdq *cmdq)
- 	u32 gctl_regval = 0;
+-#define MM_REG_WRITE_MASK(cmd, id, base, ofst, val, mask)	\
+-do {								\
+-	typeof(mask) (m) = (mask);				\
+-	cmdq_pkt_write_mask(&((cmd)->pkt), id, (base) + (ofst),	\
+-			    (val),				\
+-		(((m) & (ofst##_MASK)) == (ofst##_MASK)) ?	\
+-			(0xffffffff) : (m));			\
++#define MM_REG_WRITE_MASK(cmd, id, base, ofst, val, mask)		\
++do {									\
++	typeof(cmd) (_c) = (cmd);					\
++	typeof(id) (_i) = (id);						\
++	typeof(base) (_b) = (base);					\
++	typeof(ofst) (_o) = (ofst);					\
++	typeof(val) (_v) = (val);					\
++	typeof(mask) (_m) = (mask);					\
++	_m = ((_m & (ofst##_MASK)) == (ofst##_MASK)) ? 0xffffffff : _m;	\
++	if (_i != CMDQ_SUBSYS_INVALID) {				\
++		cmdq_pkt_write_mask(&_c->pkt, _i, _b + _o, _v, _m);	\
++	} else {							\
++		/* only MMIO access, no need to check mminfro_offset */	\
++		cmdq_pkt_assign(&_c->pkt, CMDQ_THR_SPR_IDX0,		\
++				CMDQ_ADDR_HIGH(_b));			\
++		cmdq_pkt_write_s_mask_value(&_c->pkt, CMDQ_THR_SPR_IDX0,\
++					    CMDQ_ADDR_LOW(_b + _o),	\
++					    _v, _m);			\
++	}								\
+ } while (0)
  
- 	WARN_ON(clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks));
-+
-+	if (cmdq->pdata->gce_vm) {
-+		/* config cpr size for host vm */
-+		writel(GCE_VM_CPR_GSIZE_HSOT, cmdq->base + GCE_VM_CPR_GSIZE);
-+		/* config CPR_GSIZE before setting VM_ID_MAP to avoid data leakage */
-+		writel(GCE_VM_MAP0_ALL_HOST, cmdq->base + GCE_VM_ID_MAP0);
-+		writel(GCE_VM_MAP1_ALL_HOST, cmdq->base + GCE_VM_ID_MAP1);
-+		writel(GCE_VM_MAP2_ALL_HOST, cmdq->base + GCE_VM_ID_MAP2);
-+		writel(GCE_VM_MAP3_ALL_HOST, cmdq->base + GCE_VM_ID_MAP3);
-+	}
-+
- 	if (cmdq->pdata->control_by_sw)
- 		gctl_regval = GCE_CTRL_BY_SW;
- 	if (cmdq->pdata->sw_ddr_en)
-@@ -199,7 +258,7 @@ static void cmdq_task_insert_into_thread(struct cmdq_task *task)
- 				prev_task->pkt->cmd_buf_size, DMA_TO_DEVICE);
- 	prev_task_base[CMDQ_NUM_CMD(prev_task->pkt) - 1] =
- 		(u64)CMDQ_JUMP_BY_PA << 32 |
--		(task->pa_base >> task->cmdq->pdata->shift);
-+		cmdq_reg_shift_addr(task->pa_base, task->cmdq->pdata);
- 	dma_sync_single_for_device(dev, prev_task->pa_base,
- 				   prev_task->pkt->cmd_buf_size, DMA_TO_DEVICE);
+-#define MM_REG_WRITE(cmd, id, base, ofst, val)			\
+-	cmdq_pkt_write(&((cmd)->pkt), id, (base) + (ofst), (val))
++#define MM_REG_WRITE(cmd, id, base, ofst, val)				\
++do {									\
++	typeof(cmd) (_c) = (cmd);					\
++	typeof(id) (_i) = (id);						\
++	typeof(base) (_b) = (base);					\
++	typeof(ofst) (_o) = (ofst);					\
++	typeof(val) (_v) = (val);					\
++	if (_i != CMDQ_SUBSYS_INVALID) {				\
++		cmdq_pkt_write(&_c->pkt, _i, _b + _o, _v);		\
++	} else {							\
++		/* only MMIO access, no need to check mminfro_offset */	\
++		cmdq_pkt_assign(&_c->pkt, CMDQ_THR_SPR_IDX0,		\
++				CMDQ_ADDR_HIGH(_b));			\
++		cmdq_pkt_write_s_value(&_c->pkt, CMDQ_THR_SPR_IDX0,	\
++				       CMDQ_ADDR_LOW(_b + _o), _v);	\
++	}								\
++} while (0)
  
-@@ -264,7 +323,7 @@ static void cmdq_thread_irq_handler(struct cmdq *cmdq,
- 	else
- 		return;
+ #define MM_REG_WAIT(cmd, evt)					\
+ do {								\
+@@ -49,17 +76,33 @@ do {								\
+ 	cmdq_pkt_set_event(&((c)->pkt), (e));			\
+ } while (0)
  
--	curr_pa = readl(thread->base + CMDQ_THR_CURR_ADDR) << cmdq->pdata->shift;
-+	curr_pa = cmdq_reg_shift_addr(readl(thread->base + CMDQ_THR_CURR_ADDR), cmdq->pdata);
+-#define MM_REG_POLL_MASK(cmd, id, base, ofst, val, _mask)	\
+-do {								\
+-	typeof(_mask) (_m) = (_mask);				\
+-	cmdq_pkt_poll_mask(&((cmd)->pkt), id,			\
+-		(base) + (ofst), (val),				\
+-		(((_m) & (ofst##_MASK)) == (ofst##_MASK)) ?	\
+-			(0xffffffff) : (_m));			\
++#define MM_REG_POLL_MASK(cmd, id, base, ofst, val, mask)		\
++do {									\
++	typeof(cmd) (_c) = (cmd);					\
++	typeof(id) (_i) = (id);						\
++	typeof(base) (_b) = (base);					\
++	typeof(ofst) (_o) = (ofst);					\
++	typeof(val) (_v) = (val);					\
++	typeof(mask) (_m) = (mask);					\
++	_m = ((_m & (ofst##_MASK)) == (ofst##_MASK)) ? 0xffffffff : _m;	\
++	if (_i != CMDQ_SUBSYS_INVALID)					\
++		cmdq_pkt_poll_mask(&_c->pkt, _i, _b + _o, _v, _m);	\
++	else /* POLL not support SPR, so use cmdq_pkt_poll_addr() */	\
++		cmdq_pkt_poll_addr(&_c->pkt, _b + _o, _v, _m);		\
+ } while (0)
  
- 	list_for_each_entry_safe(task, tmp, &thread->task_busy_list,
- 				 list_entry) {
-@@ -416,9 +475,9 @@ static int cmdq_mbox_send_data(struct mbox_chan *chan, void *data)
- 		 */
- 		WARN_ON(cmdq_thread_reset(cmdq, thread) < 0);
+-#define MM_REG_POLL(cmd, id, base, ofst, val)			\
+-	cmdq_pkt_poll(&((cmd)->pkt), id, (base) + (ofst), (val))
++#define MM_REG_POLL(cmd, id, base, ofst, val)				\
++do {									\
++	typeof(cmd) (_c) = (cmd);					\
++	typeof(id) (_i) = (id);						\
++	typeof(base) (_b) = (base);					\
++	typeof(ofst) (_o) = (ofst);					\
++	typeof(val) (_v) = (val);					\
++	if (_i != CMDQ_SUBSYS_INVALID)					\
++		cmdq_pkt_poll(&_c->pkt, _i, _b + _o, _v);		\
++	else /* POLL not support SPR, so use cmdq_pkt_poll_addr() */	\
++		cmdq_pkt_poll_addr(&_c->pkt, _b + _o, _v, 0xffffffff);	\
++} while (0)
  
--		writel(task->pa_base >> cmdq->pdata->shift,
-+		writel(cmdq_reg_shift_addr(task->pa_base, cmdq->pdata),
- 		       thread->base + CMDQ_THR_CURR_ADDR);
--		writel((task->pa_base + pkt->cmd_buf_size) >> cmdq->pdata->shift,
-+		writel(cmdq_reg_shift_addr(task->pa_base + pkt->cmd_buf_size, cmdq->pdata),
- 		       thread->base + CMDQ_THR_END_ADDR);
- 
- 		writel(thread->priority, thread->base + CMDQ_THR_PRIORITY);
-@@ -426,10 +485,10 @@ static int cmdq_mbox_send_data(struct mbox_chan *chan, void *data)
- 		writel(CMDQ_THR_ENABLED, thread->base + CMDQ_THR_ENABLE_TASK);
- 	} else {
- 		WARN_ON(cmdq_thread_suspend(cmdq, thread) < 0);
--		curr_pa = readl(thread->base + CMDQ_THR_CURR_ADDR) <<
--			cmdq->pdata->shift;
--		end_pa = readl(thread->base + CMDQ_THR_END_ADDR) <<
--			cmdq->pdata->shift;
-+		curr_pa = cmdq_reg_revert_addr(readl(thread->base + CMDQ_THR_CURR_ADDR),
-+					       cmdq->pdata);
-+		end_pa = cmdq_reg_revert_addr(readl(thread->base + CMDQ_THR_END_ADDR),
-+					      cmdq->pdata);
- 		/* check boundary */
- 		if (curr_pa == end_pa - CMDQ_INST_SIZE ||
- 		    curr_pa == end_pa) {
-@@ -663,6 +722,9 @@ static int cmdq_probe(struct platform_device *pdev)
- 	if (err)
- 		return err;
- 
-+	if (cmdq->pdata->dma_mask_bit)
-+		dma_set_coherent_mask(dev, DMA_BIT_MASK(cmdq->pdata->dma_mask_bit));
-+
- 	cmdq->mbox.dev = dev;
- 	cmdq->mbox.chans = devm_kcalloc(dev, cmdq->pdata->thread_nr,
- 					sizeof(*cmdq->mbox.chans), GFP_KERNEL);
-@@ -782,6 +844,17 @@ static const struct gce_plat gce_plat_mt8195 = {
- 	.gce_num = 2
- };
- 
-+static const struct gce_plat gce_plat_mt8196 = {
-+	.thread_nr = 32,
-+	.shift = 3,
-+	.mminfra_offset = 0x80000000, /* 2GB */
-+	.control_by_sw = true,
-+	.sw_ddr_en = true,
-+	.gce_vm = true,
-+	.dma_mask_bit = 35,
-+	.gce_num = 2
-+};
-+
- static const struct of_device_id cmdq_of_ids[] = {
- 	{.compatible = "mediatek,mt6779-gce", .data = (void *)&gce_plat_mt6779},
- 	{.compatible = "mediatek,mt8173-gce", .data = (void *)&gce_plat_mt8173},
-@@ -790,6 +863,7 @@ static const struct of_device_id cmdq_of_ids[] = {
- 	{.compatible = "mediatek,mt8188-gce", .data = (void *)&gce_plat_mt8188},
- 	{.compatible = "mediatek,mt8192-gce", .data = (void *)&gce_plat_mt8192},
- 	{.compatible = "mediatek,mt8195-gce", .data = (void *)&gce_plat_mt8195},
-+	{.compatible = "mediatek,mt8196-gce", .data = (void *)&gce_plat_mt8196},
- 	{}
- };
- MODULE_DEVICE_TABLE(of, cmdq_of_ids);
-diff --git a/include/linux/mailbox/mtk-cmdq-mailbox.h b/include/linux/mailbox/mtk-cmdq-mailbox.h
-index a8f0070c7aa9..79398bf95f8d 100644
---- a/include/linux/mailbox/mtk-cmdq-mailbox.h
-+++ b/include/linux/mailbox/mtk-cmdq-mailbox.h
-@@ -79,5 +79,7 @@ struct cmdq_pkt {
- };
- 
- u8 cmdq_get_shift_pa(struct mbox_chan *chan);
-+dma_addr_t cmdq_get_offset_pa(struct mbox_chan *chan);
-+bool cmdq_addr_need_offset(struct mbox_chan *chan, dma_addr_t addr);
- 
- #endif /* __MTK_CMDQ_MAILBOX_H__ */
+ enum mtk_mdp_comp_id {
+ 	MDP_COMP_NONE = -1,	/* Invalid engine */
 -- 
 2.43.0
 
