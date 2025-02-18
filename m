@@ -4,93 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A21DC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 08:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D29E5C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 08:47:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lv/mXKWMKUfLoohDMfoS7J+NTI2dz/TZ4RnHEggjlBE=; b=SzvLR/AKzYNGHWOPRNLNo/exRu
-	y8eKHF3dSzv+ENZ5WT5BIYcbCvBgeesdeJ30Tv4qjy2PhtDHfjFdiLUpI5mf0HAk6YQKorahVUeSe
-	XoNICGcXmvh9/la5TCXvGkNBiZJCDH9pmPsFsAyVQx1hGgtiXPsXiY3tZlEfPYHAj8k6D5wo0ki5w
-	fVXTrA6WG1OtXTCxNW5tPj5K1dZZ+5fFT0mbaTR6YcFt8rN0fANN/PUomQZLCUi5wjxqfsC4JMH/D
-	CGUSPbsToNUBB3CwobA+lE3D5AzLcQIlEs5Z15YzZ8/ggcIO20vqB1doO98L+J9ag9r0I04pi4990
-	g+55Ht/g==;
+	bh=m+3/1tyVa1Qn4CQ2/7kBF87oG9qDd6zKjpbib5cEEhE=; b=h3ow5MQgepRv4BBv8XzCLvrUwv
+	2nQ54U0Mwt7/09mZEB/tq3/l2HSstgn3NQWelGgDZXpZ/b51EJsp3ZLFlPePk0+0BfbZ+zDMQOZut
+	nSF9HjEfhIqIf1p1j98Nw+zBc7zQXJE339ENM+CpnY1RBYs/Wb0s0x5hlLpuzt2ZrXTDrLkab3zKA
+	VYy/SrtzDO4OYZCAlEmjhMoOqdmAqj3EuJ1pM2+cgZAyGmC42GMUhiPFs8/vHLm0C9YcNHdrCm1zx
+	jpzeFC9qXnhJmQBYr9MxnrqSY2/9dgEcCYjabX5V9ZHDPvUj7bhw9Ogibm51x7w1S7CPYPVq2yWKL
+	qgkxikpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJEG-00000007LJi-3GgC;
-	Tue, 18 Feb 2025 08:45:20 +0000
-Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
+	id 1tkJFj-00000007Ld2-0byh;
+	Tue, 18 Feb 2025 08:46:51 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJAB-00000007KNP-430V
+	id 1tkJBJ-00000007KdO-30Ee
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 08:41:11 +0000
-Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-abb8e405640so314127066b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 00:41:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1739868066; x=1740472866; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Lv/mXKWMKUfLoohDMfoS7J+NTI2dz/TZ4RnHEggjlBE=;
-        b=gjWvti8MywrCN7ZofKJI29Fy6XqMYCqi12KFuhkPrX1QmLz32EzsfTnzREXKRsBdWJ
-         w7S5mVsjGFSqXjBHlr6LQPcsjsf8YcBhu2oXjLgoCd1h8FCIXSJUGTBdr6o16ff1zy0A
-         AaspA1l1ZZ9Gw/uUei1beFAVJLsIQ39nfNsejhZCK2E6K2I7DyK89qGIx7FPZ1Iaqs0W
-         rdTbIBOxFTuAhcW4Ui1S3fiY1SpmvxQA6sAq+WBH7gXPIWk/dB0YHFvEbyLW0J8NZr2p
-         GtXD7GgWJPCOtB+TMyBbG30hYcijnUFF0FbgpX9EkUrOm3f8oWSjVr9J1eA/9yn+3yzQ
-         3Sfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739868066; x=1740472866;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Lv/mXKWMKUfLoohDMfoS7J+NTI2dz/TZ4RnHEggjlBE=;
-        b=df6px2NUbOH7iiNqo0mUMAJ4NkmnDto988goILyHW8Zo/zzNIczOb0XjhKL24qgm0m
-         7unvxHLPq9M1gR4ioqXLGt9RS4tpfeeXeSkxuGMsov28E+5604S/AFA4FF+kZRT+v/+d
-         SxFzESnn8CFdgsMBFjd/Q+tWUpihdro13KeC2jXheHFf+6Nk914QQDjIeO2iregDxd3g
-         aALNahLKP7zxY157smNUtYGYguLK4Sqrtz6KMkWUeel207Zd4bJTcPPnxMd+6GJCI2HE
-         U9nfnnmqtY2k1RHFOMwvgoJ0NyM8udp+eQyNtl+oWgt8weUPfZeDUUaYg3Wu8YiO+lSv
-         qobg==
-X-Forwarded-Encrypted: i=1; AJvYcCUUk5h18mcNYRfRBpCrzLZL7CEmpYztkgB950E8CBZ3lt3lbJxJ0j5C9lZ2N5FUwZk28Vk3vCdmMujVvWhZtvlp@lists.infradead.org
-X-Gm-Message-State: AOJu0YyL0eTOJEjuXvQyX+K4DgNfQc++yFuFJ+NmKneobFjLrTAe1qf2
-	kVPUVVhX1xPPbxmz2ME//7Jii3iTmMZNEljqXdF7Qzq4VT+Qxpj+FaWpfkZMSCI=
-X-Gm-Gg: ASbGnctjvqgmiK+tNcpdApFVv4Zl96jhiGFGTgVHL9VmlyH2Xc1QxuFdply/Rj5I1DE
-	DzeoF9ZXPTTFNdTLrGr297Y/zzPiMUoVvrrG9RjYU6PXEILMWs29mqfHfTFG6xCwfj965r4GiMs
-	jpolvSVQ0QUpscDXwjK7BbOTEth8rPPg9JBBU+9iIT2e9LKpgbFow96W3CSiWhF/gOJLTRYYVqj
-	yQVUzCP4kw2eFcI6+ZvN0MtP66cIrBkR4v1OhwVxI78D7EyFKMwg2BWIChBZtJbyeUIRnDJ9/Ze
-	nn8gNigvjwXs5U6uIJpJ/vk=
-X-Google-Smtp-Source: AGHT+IESJYF9ZfQnOU6rdJpLeVFJ0jmKCKyIk4s175nUK6ewa/oKH2Y+cggyLDQb+JelZTRVjqvbag==
-X-Received: by 2002:a17:907:d204:b0:abb:b249:4410 with SMTP id a640c23a62f3a-abbb249464amr346278966b.39.1739868064851;
-        Tue, 18 Feb 2025 00:41:04 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.25])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb961594absm384261766b.111.2025.02.18.00.41.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Feb 2025 00:41:04 -0800 (PST)
-Message-ID: <05f1e875-0068-4b3a-a400-e906605a3cda@tuxon.dev>
-Date: Tue, 18 Feb 2025 10:41:01 +0200
+	Tue, 18 Feb 2025 08:42:19 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51I8ERDf013018;
+	Tue, 18 Feb 2025 09:41:58 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	m+3/1tyVa1Qn4CQ2/7kBF87oG9qDd6zKjpbib5cEEhE=; b=Ibz22OBmZ62P3bGD
+	d9E/xAJHN3cUuLw6amZCi2WWuYjp70NmQobfeWx0UUlMYN3KpuVUe6u1hoM0qaAE
+	9SgLRIBxnVmEiUgdp6UrOsHvA052TQEQhIpkR0zY8M5GdkP8d9XsV+9eShy8yn1A
+	bvBdCsUoezygapIyhY5BxOckyFjaN3SNjKdR9BetHfFXiw27JnOYrA7PRk3WY679
+	yvfANtotS6xK1YwFXOr8PmEW0JQND75PIzBoaw4a3jEoF9i+OTyPWheb5zcHx3Y7
+	wKdFKVykqQ5c6ym7Np1M1SbG1oDYAH7U2leUlpW8tiESvHiI8NHicGX4uF6iRXte
+	nK+SRg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44tkttu4rv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 18 Feb 2025 09:41:58 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D30AE40044;
+	Tue, 18 Feb 2025 09:40:35 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D7E7C2F80C7;
+	Tue, 18 Feb 2025 09:39:32 +0100 (CET)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 18 Feb
+ 2025 09:39:32 +0100
+Message-ID: <ad738b22-7d09-4734-a546-759c23222925@foss.st.com>
+Date: Tue, 18 Feb 2025 09:39:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/8] ARM: dts: microchip: sama7d65: Add DMAs to sama7d65
- SoC
-To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, vkoul@kernel.org, wim@linux-watchdog.org,
- linux@roeck-us.net
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
- linux-watchdog@vger.kernel.org
-References: <cover.1739555984.git.Ryan.Wanner@microchip.com>
- <78da4125a991c6f4081fce78825f1f983091e0f5.1739555984.git.Ryan.Wanner@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Subject: Re: [PATCH v3 1/8] dt-bindings: spi: Add STM32 OSPI controller
+To: Philipp Zabel <p.zabel@pengutronix.de>, Mark Brown <broonie@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Arnd Bergmann
+	<arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>
+CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <christophe.kerello@foss.st.com>
+References: <20250210131826.220318-1-patrice.chotard@foss.st.com>
+ <20250210131826.220318-2-patrice.chotard@foss.st.com>
+ <67fe157ce8ca3c3c4e08451da52f7c94f73439b2.camel@pengutronix.de>
 Content-Language: en-US
-In-Reply-To: <78da4125a991c6f4081fce78825f1f983091e0f5.1739555984.git.Ryan.Wanner@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <67fe157ce8ca3c3c4e08451da52f7c94f73439b2.camel@pengutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-18_03,2025-02-18_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_004108_107445_C1F03905 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20250218_004218_364680_2CC34149 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,77 +107,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Ryan,
 
-On 14.02.2025 20:08, Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+
+On 2/17/25 10:17, Philipp Zabel wrote:
+> On Mo, 2025-02-10 at 14:18 +0100, patrice.chotard@foss.st.com wrote:
+>> From: Patrice Chotard <patrice.chotard@foss.st.com>
+>>
+>> Add device tree bindings for the STM32 OSPI controller.
+>>
+>> Main features of the Octo-SPI controller :
+>>   - support sNOR / sNAND / HyperRAM™ and HyperFlash™ devices.
+>>   - Three functional modes: indirect, automatic-status polling,
+>>     memory-mapped.
+>>   - Up to 4 Gbytes of external memory can be addressed in indirect
+>>     mode (per physical port and per CS), and up to 256 Mbytes in
+>>     memory-mapped mode (combined for both physical ports and per CS).
+>>   - Single-, dual-, quad-, and octal-SPI communication.
+>>   - Dual-quad communication.
+>>   - Single data rate (SDR) and double transfer rate (DTR).
+>>   - Maximum target frequency is 133 MHz for SDR and 133 MHz for DTR.
+>>   - Data strobe support.
+>>   - DMA channel for indirect mode.
+>>   - Double CS mapping that allows two external flash devices to be
+>>     addressed with a single OCTOSPI controller mapped on a single
+>>     OCTOSPI port.
+>>
+>> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+>> ---
+>>  .../bindings/spi/st,stm32mp25-ospi.yaml       | 105 ++++++++++++++++++
+>>  1 file changed, 105 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml b/Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
+>> new file mode 100644
+>> index 000000000000..5f276f27dc4c
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
+>> @@ -0,0 +1,105 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/spi/st,stm32mp25-ospi.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: STMicroelectronics STM32 Octal Serial Peripheral Interface (OSPI)
+>> +
+>> +maintainers:
+>> +  - Patrice Chotard <patrice.chotard@foss.st.com>
+>> +
+>> +allOf:
+>> +  - $ref: spi-controller.yaml#
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: st,stm32mp25-ospi
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  memory-region:
+>> +    description:
+>> +      Memory region to be used for memory-map read access.
+>> +      In memory-mapped mode, read access are performed from the memory
+>> +      device using the direct mapping.
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  resets:
+>> +    items:
+>> +      - description: phandle to OSPI block reset
+>> +      - description: phandle to delay block reset
 > 
-> Add DMAs to the SAMA7D65 SoC device tree.
+> Are you positive that these will only ever have to be reset together?
+> Otherwise I'd add a reset-names property just in case.
+
+Yes i confirm that these both reset are reset together.
+
+Thanks
+Patrice
+
 > 
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> ---
->  arch/arm/boot/dts/microchip/sama7d65.dtsi | 32 +++++++++++++++++++++++
->  1 file changed, 32 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> index d06a51972d363..b472a7d929ee4 100644
-> --- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> +++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> @@ -9,6 +9,7 @@
->   */
->  
->  #include <dt-bindings/clock/at91.h>
-> +#include <dt-bindings/dma/at91.h>
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/interrupt-controller/arm-gic.h>
->  #include <dt-bindings/interrupt-controller/irq.h>
-> @@ -95,6 +96,17 @@ chipid@e0020000 {
->  			reg = <0xe0020000 0x8>;
->  		};
->  
-> +		dma2: dma-controller@e1200000 {
-> +			compatible = "microchip,sama7d65-dma", "microchip,sama7g5-dma";
-> +			reg = <0xe1200000 0x1000>;
-> +			interrupts = <GIC_SPI 111 IRQ_TYPE_LEVEL_HIGH>;
-> +			#dma-cells = <1>;
-> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 23>;
-> +			clock-names = "dma_clk";
-> +			dma-requests = <0>;
-> +			status = "disabled";
-> +		};
-> +
->  		sdmmc1: mmc@e1208000 {
->  			compatible = "microchip,sama7d65-sdhci", "microchip,sam9x60-sdhci";
->  			reg = <0xe1208000 0x400>;
-> @@ -107,6 +119,26 @@ sdmmc1: mmc@e1208000 {
->  			status = "disabled";
->  		};
->  
-> +		dma0: dma-controller@e1610000 {
-> +			compatible = "microchip,sama7d65-dma", "microchip,sama7g5-dma";
-> +			reg = < 0xe1610000 0x1000>;
-
-There is an extra space b/w < and 0x. I can adjust while applying.
-
-> +			interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH>;
-> +			#dma-cells = <1>;
-> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 21>;
-> +			clock-names = "dma_clk";
-> +			status = "disabled";
-> +		};
-> +
-> +		dma1: dma-controller@e1614000 {
-> +			compatible = "microchip,sama7d65-dma", "microchip,sama7g5-dma";
-> +			reg = <0xe1614000 0x1000>;
-> +			interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
-> +			#dma-cells = <1>;
-> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 22>;
-> +			clock-names = "dma_clk";
-> +			status = "disabled";
-> +		};
-> +
->  		pit64b0: timer@e1800000 {
->  			compatible = "microchip,sama7d65-pit64b", "microchip,sam9x60-pit64b";
->  			reg = <0xe1800000 0x100>;
-
+> regards
+> Philipp
 
