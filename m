@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC9DAC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4EF0C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bKGHIbwrgfIoVdKmmj35YqUQ1WX5fO+UqEAUC1C7rcI=; b=AZpf75O4ndqZQXyUj8X8xkSQ75
-	2PaevkdFAQqD8lOWkVrYm71BWcI/r35k5+gYlKJju576nvQIPWARmnatMZuOOfvUEp5zdrbhw3M2y
-	C2zkU7jZoNY/9F85sAtxtirssE40pitPPGly3Dpxb2cWu0VMjlDqeG/LbslJtQXkZrgaAMypn0Mfy
-	4CzBphHmfKdBYChXeu1dsbye+SSl4NsNIMOL2nzRFX6uNmWxublZbq9i4VrUSZf9UnfgWwCzJjFuL
-	5GOk2r97oqds0LPAmumeK9pJT7faTgvc1XHYEqLLbmEXD1xrARVMOzNFSYt5SWipNph5Hu2gDCl7P
-	Yfm8BL7w==;
+	bh=jSNtffm+LIf+Eb/T9iiyvYmgl3akcoOrSRYrlz2G3SY=; b=YMbVuceN+LGHHD5LEIXciqmKXH
+	q0QDmjkIO//siUInmGQEiqoYR+veCGOor59E1zI059qGbfYgCMjUeZwXes3+8p7q9DScTN1NN+HPC
+	42pWeQyjdbQSWWOa1MeLqB7qCDTwXf1OkpoMw3UdZ+y1bvAIdNqb9QJwvvxohBaRQvLmvknhmu9Vt
+	3Ua3JnLF71NL0+pGkVUcF9wFBGfNLQukcnOXjoUq52FyETrcX52+1aqi6mpjdgLaO1ZQsNnclIEsq
+	xO9d9tFkj5u4bBxIQFP/erZsyLs61llWLFIds/cPSEw6HR8opKhGMkqlkfVcVf/aQRR29AjqQK+a8
+	DJLl2/2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJpd-00000007Utc-3RoZ;
-	Tue, 18 Feb 2025 09:23:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tkJr4-00000007V9S-1yNZ;
+	Tue, 18 Feb 2025 09:25:26 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJkH-00000007TQD-1aYo
+	id 1tkJli-00000007Tk6-1H4S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 09:18:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 849B15C597C;
-	Tue, 18 Feb 2025 09:17:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BC84C4CEE4;
-	Tue, 18 Feb 2025 09:18:20 +0000 (UTC)
-Date: Tue, 18 Feb 2025 09:18:18 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Beata Michalska <beata.michalska@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
-	sudeep.holla@arm.com, will@kernel.org, rafael@kernel.org,
-	viresh.kumar@linaro.org, sumitg@nvidia.com,
-	yang@os.amperecomputing.com, vanshikonda@os.amperecomputing.com,
-	lihuisong@huawei.com, zhanjie9@hisilicon.com,
-	ptsm@linux.microsoft.com, Jonathan Corbet <corbet@lwn.net>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
-	x86@kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH v10 0/4] Add support for AArch64 AMUv1-based average freq
-Message-ID: <Z7RQWgLksl4bBksr@arm.com>
-References: <20250131162439.3843071-1-beata.michalska@arm.com>
- <173982791748.4020779.2848639862581042284.b4-ty@arm.com>
- <Z7PNlFv2995pDARQ@arm.com>
+	Tue, 18 Feb 2025 09:19:56 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4Yxv6V440tz22wQJ;
+	Tue, 18 Feb 2025 17:16:50 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id C82411400DD;
+	Tue, 18 Feb 2025 17:19:49 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Tue, 18 Feb 2025 17:19:49 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
+Subject: [PATCH 5/9] drivers/perf: hisi: Add support for HiSilicon SLLC v3 PMU driver
+Date: Tue, 18 Feb 2025 17:19:56 +0800
+Message-ID: <20250218092000.41641-6-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250218092000.41641-1-yangyicong@huawei.com>
+References: <20250218092000.41641-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z7PNlFv2995pDARQ@arm.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_011825_462732_64F92E5E 
-X-CRM114-Status: GOOD (  25.68  )
+X-CRM114-CacheID: sfid-20250218_011954_654133_7640ABD3 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,49 +71,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 01:00:20AM +0100, Beata Michalska wrote:
-> On Mon, Feb 17, 2025 at 09:32:06PM +0000, Catalin Marinas wrote:
-> > On Fri, 31 Jan 2025 16:24:35 +0000, Beata Michalska wrote:
-> > > This series adds support for obtaining an average CPU frequency based on
-> > > a hardware provided feedback. The average frequency is being exposed via
-> > > dedicated yet optional cpufreq sysfs attribute - cpuinfo_avg_freq.
-> > > The architecture specific bits are being provided for AArch64, caching on
-> > > existing implementation for FIE and AMUv1 support: the frequency scale
-> > > factor, updated on each sched tick, serving as a base for retrieving
-> > > the frequency for a given CPU, representing an average frequency
-> > > reported between the ticks.
-> > > 
-> > > [...]
-> >
-> Thank you for that.
-> 
-> There is still a (not so) small issue with patch
-> [3/4] arm64: Provide an AMU-based version of arch_freq_get_on_cpu.
-> It did not come up while testing, sadly.
-> No idea how I could have missed that, nor why I made the mistake
-> in the first place.
-> 
-> The fix is pretty straightforward:
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index 6f0cab8e746b..4bac26d8e29c 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -268,7 +268,7 @@ int arch_freq_get_on_cpu(int cpu)
->  
->                         do {
->                                 ref_cpu = cpumask_next_wrap(ref_cpu, policy->cpus,
-> -                                                           start_cpu, false);
-> +                                                           start_cpu, true);
-> 
-> Please let me know if you want me to send new version with the fix applied.
+From: Junhao He <hejunhao3@huawei.com>
 
-Usually we apply another patch on top with a Fixes tag or just fold it
-in if no-one relies on this branch being stable. I'll do the latter, no
-need to resend.
+SLLC v3 PMU has the following changes compared to previous version:
+a) update the register layout
+b) update the definition of SRCID_CTRL and TGTID_CTRL registers.
+   To be compatible with v2, we use maximum width (11 bits)
+   and mask the extra length for themselves.
+c) remove latency events (driver does not need to be adapted).
 
-Thanks.
+SLLC v3 PMU is identified with HID HISI0264.
 
+Signed-off-by: Junhao He <hejunhao3@huawei.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 40 +++++++++++++++++++
+ 1 file changed, 40 insertions(+)
+
+diff --git a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+index c1fd60d397c3..dce7195320f2 100644
+--- a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
++++ b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+@@ -28,6 +28,18 @@
+ #define SLLC_VERSION			0x1cf0
+ #define SLLC_EVENT_CNT0_L		0x1d00
+ 
++/* SLLC registers definition in v3 */
++#define SLLC_V3_INT_MASK		0x6834
++#define SLLC_V3_INT_STATUS		0x6838
++#define SLLC_V3_INT_CLEAR		0x683c
++#define SLLC_V3_VERSION			0x6c00
++#define SLLC_V3_PERF_CTRL		0x6d00
++#define SLLC_V3_SRCID_CTRL		0x6d04
++#define SLLC_V3_TGTID_CTRL		0x6d08
++#define SLLC_V3_EVENT_CTRL		0x6d14
++#define SLLC_V3_EVENT_TYPE0		0x6d18
++#define SLLC_V3_EVENT_CNT0_L		0x6e00
++
+ #define SLLC_EVTYPE_MASK		0xff
+ #define SLLC_PERF_CTRL_EN		BIT(0)
+ #define SLLC_FILT_EN			BIT(1)
+@@ -40,6 +52,12 @@
+ #define SLLC_TGTID_MAX_MSK		GENMASK(22, 12)
+ #define SLLC_SRCID_CMD_MSK		GENMASK(11, 1)
+ #define SLLC_SRCID_MSK_MSK		GENMASK(22, 12)
++
++#define SLLC_V3_TGTID_MIN_MSK		GENMASK(9, 1)
++#define SLLC_V3_TGTID_MAX_MSK		GENMASK(18, 10)
++#define SLLC_V3_SRCID_CMD_MSK		GENMASK(9, 1)
++#define SLLC_V3_SRCID_MSK_MSK		GENMASK(18, 10)
++
+ #define SLLC_NR_EVENTS			0x80
+ #define SLLC_EVENT_CNTn(cnt0, n)	((cnt0) + (n) * 8)
+ #define SLLC_FIRST_BIT(_mask)		(find_first_bit((const unsigned long *)&(_mask), 32))
+@@ -405,6 +423,27 @@ static const struct hisi_pmu_dev_info hisi_sllc_v2 = {
+ 	.private = &hisi_sllc_v2_pmu_regs,
+ };
+ 
++static struct hisi_sllc_pmu_regs hisi_sllc_v3_pmu_regs = {
++	.int_mask = SLLC_V3_INT_MASK,
++	.int_clear = SLLC_V3_INT_CLEAR,
++	.int_status = SLLC_V3_INT_STATUS,
++	.perf_ctrl = SLLC_V3_PERF_CTRL,
++	.srcid_ctrl = SLLC_V3_SRCID_CTRL,
++	.srcid_mask_msk = SLLC_V3_SRCID_MSK_MSK,
++	.srcid_cmd_msk = SLLC_V3_SRCID_CMD_MSK,
++	.tgtid_ctrl = SLLC_V3_TGTID_CTRL,
++	.tgtid_max_msk = SLLC_V3_TGTID_MAX_MSK,
++	.tgtid_min_msk = SLLC_V3_TGTID_MIN_MSK,
++	.event_ctrl = SLLC_V3_EVENT_CTRL,
++	.event_type0 = SLLC_V3_EVENT_TYPE0,
++	.version = SLLC_V3_VERSION,
++	.event_cnt0 = SLLC_V3_EVENT_CNT0_L,
++};
++
++static const struct hisi_pmu_dev_info hisi_sllc_v3 = {
++	.private = &hisi_sllc_v3_pmu_regs,
++};
++
+ static const struct hisi_uncore_ops hisi_uncore_sllc_ops = {
+ 	.write_evtype		= hisi_sllc_pmu_write_evtype,
+ 	.get_event_idx		= hisi_uncore_pmu_get_event_idx,
+@@ -498,6 +537,7 @@ static void hisi_sllc_pmu_remove(struct platform_device *pdev)
+ 
+ static const struct acpi_device_id hisi_sllc_pmu_acpi_match[] = {
+ 	{ "HISI0263", (kernel_ulong_t)&hisi_sllc_v2 },
++	{ "HISI0264", (kernel_ulong_t)&hisi_sllc_v3 },
+ 	{}
+ };
+ MODULE_DEVICE_TABLE(acpi, hisi_sllc_pmu_acpi_match);
 -- 
-Catalin
+2.24.0
+
 
