@@ -4,57 +4,216 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1F63C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:28:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63CA1C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jZg+wzGOpu9BA1Fsi+6VWTlg9jyErvdhzMO2gSetFms=; b=qxP9agIG/aMY4LhZS1ex2WOM5t
-	brFA37nxs+Sn5RzXg+r1fRfNmZv9ZaSsS5iIfaqqpsgEa/5eiDK5hZcUgjDd53XosAWRqMTnNeoqi
-	+xvLwKigbhYu+4cJ29eHeVj1okDx2Ed9bf+WI0Gb/7nGpPBL/yER2U0ZKHugOhR0f1hLC3D/biwOc
-	kOL/2MHBWGNNoZny2dCvIPdfvzndnMrZHqpg++emcBE+IYmAG64fqoP2RPEsYJ5jTelHHJCryddW+
-	uBxGRFiDvFKbSjU9yXo9h4FqdKRbIAToCm8vxX42N+VVI4SxBMSGWFBncDBui594OsUATPjJKRXrK
-	2zsuRBkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6+2DdJxMvfzICHli/7eT4dw4uuMoakB6TaUQ43EYK7A=; b=ns3VFI7BC2nA3TngFmqA47WXRA
+	reaneeguV17uAF68ls6freGwy6bQFDBQ2/tEII8v3Zulie0S9ielszE+7oivhpqWYr6f9HCnzPZg0
+	MnwIxDy4P4Z0r1/fEHVphtm+QQuq8UEq+aVMSAjLnsv8ipEisC3XQvkyaFIimOdPmxIXh6anHMALF
+	xMasNRyXzDKGMYx2mFiTcHnDzebZEaGyafANOwr2VGsXz28MNC5JltywLiELfyk4De5rqRTeIciOO
+	FbQTTeQULDB/KCoCyqznlmAZrw4e53oePiflBH73YsLvKUT7MpzdSErX9kGJqZagGcnuR/BLRR4u7
+	yYumx0CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLm1-00000007xCp-3Mbc;
-	Tue, 18 Feb 2025 11:28:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLbn-00000007uz7-0DiV
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 11:17:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA5F913D5;
-	Tue, 18 Feb 2025 03:18:02 -0800 (PST)
-Received: from [10.1.27.186] (XHFQ2J9959.cambridge.arm.com [10.1.27.186])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AB5253F6A8;
-	Tue, 18 Feb 2025 03:17:42 -0800 (PST)
-Message-ID: <590573cb-d9c6-4478-bd7c-2a61b39d7e9b@arm.com>
-Date: Tue, 18 Feb 2025 11:17:41 +0000
-MIME-Version: 1.0
+	id 1tkLnT-00000007xkk-0COt;
+	Tue, 18 Feb 2025 11:29:51 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkLcW-00000007vB0-1Jvr;
+	Tue, 18 Feb 2025 11:18:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1739877512; x=1771413512;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=Nv9j/jhlIBYKZvAExZqDu9hD20cq5wfUhm7Z97lJI8Y=;
+  b=GiuQZ7/S9qJndm+Zy0SZ9uaF5ic9PZx17zjfmD3VWkuNT7JP5L1itkSN
+   e7pjdQZwcTp/7b8jVRFmCtc2hoFF+zNSZDjPRIz9UJhLBPh1ui01uoFMQ
+   rhtYYp5yX6hL38uJMZJ1NHmZj6xxsI/N9VQTAspnrQr06I1LFaTbNxDQ1
+   5ruLCXH2ZIR3mQp8K11bNXZn7iab+Cae0fo1moNoFptfNi0O389YDg9e6
+   t/VVLtK2gwGPWFf+d5p/qGsjK+C/iGMwBtDcOFA9OD/NNhsR7ksIn5nTI
+   o2t7pYNHdEwZooTcpvySLUtV6YJf/q66rV+HBG+6aplFYCBTygpVmQ1uE
+   w==;
+X-CSE-ConnectionGUID: qjvLfZF+TqmIaqbQADsERw==
+X-CSE-MsgGUID: Vxa73CxTQE6m1tndQhNuww==
+X-IronPort-AV: E=McAfee;i="6700,10204,11348"; a="40821916"
+X-IronPort-AV: E=Sophos;i="6.13,295,1732608000"; 
+   d="scan'208";a="40821916"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2025 03:18:31 -0800
+X-CSE-ConnectionGUID: MwZmx/osScKWIFwxo46zbw==
+X-CSE-MsgGUID: 5zc0tmB8RDeSuWoSPdd4cA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,295,1732608000"; 
+   d="scan'208";a="119353870"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2025 03:18:31 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Tue, 18 Feb 2025 03:18:29 -0800
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Tue, 18 Feb 2025 03:18:29 -0800
+Received: from NAM12-DM6-obe.outbound.protection.outlook.com (104.47.59.168)
+ by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Tue, 18 Feb 2025 03:18:29 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Gg596YtmIVjqNHJFzBuAIA+zIzUZY3I1cpyRCbBoP2MUgPJll3itf/20A5If1PWjQd0UwoMjWP74nQ9SYPa6LuT7MbXg+tFhi13eczH4Rdl3/NkqDcWqxaDnc78LqRNO3XGMRM7P51DdCCiMwn0NYBxXLbRnpVDJiFgqZZwpLM5rhDg0AVC9s3kyqCeibpJVOIaQnGhXa+e2KAPt3TJaEPwPZM9ldlYpvHPmDlbkZOl/zKPPHprvMdbfYpmF/c3i3XXYbGmOyuzSVLW000OfSIyPeFQ0K2zBwv/GITlWdtqXBLFhwK3V8Cldk71cBdiP1DY/TyU2jOr4yfAAKBJZOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6+2DdJxMvfzICHli/7eT4dw4uuMoakB6TaUQ43EYK7A=;
+ b=oYiSh7a58zWVkb/THnUB7Ay1PzU7DlSs83RHouHRwl0YXWh/WhkbnG9d8IEz/Yya9wgy9QUiyKjeAxr5B3CcfPIr/p+lxJtPzcoDopjfeytgLuSKkaT7yaEQjakM5TeU8hnb46J6Pbg/voVJoU0HMneuxjGoZKaxBVCABNvsIBgCJf8cHD/XBBNVTSeHcNr1NwPljSp+cNsmcPUCjhtwHGb4BC+vFfAjEoXIIBR1oRGH3iKc1LTkJVusoZ+yRnDIJPVz/a090eoAhzLlwQmXh0SHssNjI41WDy8Ql7PJ8UNMjwqnnOCn8I8SjNaR0294/LlRBZFAXVJKPlmUdHgvJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB6682.namprd11.prod.outlook.com (2603:10b6:510:1c5::7)
+ by SA3PR11MB8075.namprd11.prod.outlook.com (2603:10b6:806:303::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Tue, 18 Feb
+ 2025 11:17:47 +0000
+Received: from PH8PR11MB6682.namprd11.prod.outlook.com
+ ([fe80::cfa7:43ed:66:fd51]) by PH8PR11MB6682.namprd11.prod.outlook.com
+ ([fe80::cfa7:43ed:66:fd51%4]) with mapi id 15.20.8422.015; Tue, 18 Feb 2025
+ 11:17:46 +0000
+Message-ID: <ce9f7693-355a-4049-98a8-b8bd25b4d3e1@intel.com>
+Date: Tue, 18 Feb 2025 12:17:35 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [v2 PATCH 1/2] arm64: cpufeature: detect FEAT_BBM level 2
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
- will@kernel.org
-Cc: cl@gentwo.org, scott@os.amperecomputing.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Miko Lenczewski <Miko.Lenczewski@arm.com>
-References: <20250103011822.1257189-1-yang@os.amperecomputing.com>
- <20250103011822.1257189-2-yang@os.amperecomputing.com>
- <eef5fba9-da21-4131-a8a3-ae9a735869b1@arm.com>
- <0c644070-e4be-43c1-acb3-30cd030e20e1@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <0c644070-e4be-43c1-acb3-30cd030e20e1@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 1/3] net: stmmac: clarify priv->pause and pause
+ module parameter
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	<netdev@vger.kernel.org>
+CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@csie.org>, "David S. Miller"
+	<davem@davemloft.net>, Drew Fustini <drew@pdp7.com>, Emil Renner Berthing
+	<kernel@esmil.dk>, Eric Dumazet <edumazet@google.com>, Fabio Estevam
+	<festevam@gmail.com>, Fu Wei <wefu@redhat.com>, Guo Ren <guoren@kernel.org>,
+	<imx@lists.linux.dev>, Jakub Kicinski <kuba@kernel.org>, Jan Petrous
+	<jan.petrous@oss.nxp.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Jerome
+ Brunet" <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
+	<linux-amlogic@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-arm-msm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>, <linux-sunxi@lists.linux.dev>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>, Minda Chen <minda.chen@starfivetech.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, Nobuhiro Iwamatsu
+	<nobuhiro1.iwamatsu@toshiba.co.jp>, NXP S32 Linux Team <s32@nxp.com>, "Paolo
+ Abeni" <pabeni@redhat.com>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Samuel Holland <samuel@sholland.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, Vinod Koul <vkoul@kernel.org>
+References: <Z7Rf2daOaf778TOg@shell.armlinux.org.uk>
+ <E1tkKmD-004ObA-9K@rmk-PC.armlinux.org.uk>
+Content-Language: pl
+From: Mateusz Polchlopek <mateusz.polchlopek@intel.com>
+Organization: Intel
+In-Reply-To: <E1tkKmD-004ObA-9K@rmk-PC.armlinux.org.uk>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: VI1PR0902CA0028.eurprd09.prod.outlook.com
+ (2603:10a6:802:1::17) To PH8PR11MB6682.namprd11.prod.outlook.com
+ (2603:10b6:510:1c5::7)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH8PR11MB6682:EE_|SA3PR11MB8075:EE_
+X-MS-Office365-Filtering-Correlation-Id: fa304af4-58cb-46c9-6357-08dd500ddf16
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?V09GRWlkNkZzMHo5ck5MNWE3Y0VNTzgvcjg3WDlXUUZBMXJuM1EycUxIeHJx?=
+ =?utf-8?B?TU5aQlJPYms1S1BlRWhtUHRZUURkekRXcFVJWFVucVVUZGFXQlp3ZGw3bTlp?=
+ =?utf-8?B?YmU1R2xDc2RmQ3hLT3RhamdBczFDZWVyZVp6aWtta0YwNmZ6ZjRCcGlLQ3VU?=
+ =?utf-8?B?bHdHTXZOSmhuZXY3QWRXQk1Vc2Y2a1h6WnFIWWtCL2dkZHR5QnVIRzRSZTJo?=
+ =?utf-8?B?MEZCU2tpR0tzeXlVRmQzSTViVUxXRS95YmNXMTV5YWdoZytOYW5tNVpjWng4?=
+ =?utf-8?B?eWFBdG13eVA2VDhidmMvREEwcDR5QjU2V2M3bDNmcHV2YlU4WWRLRVZQM0Y0?=
+ =?utf-8?B?eGg1SDBrVGNlUGJ6WU5XNk0raVNNVS9qRHQ0T0I3ZXZwNVdIWkc4KzFyZzd1?=
+ =?utf-8?B?WU5JQlZsZEFGSFlQUHFlNjhBbWFXZlcrL3hVdzY3VW1lSUFXck82WkdDQnJl?=
+ =?utf-8?B?RzlkZTdjMGg4TndrMExpQzZKUGhkSEVKRE5RTjROZ3VkREg1UXh1UmNiUGRt?=
+ =?utf-8?B?R0Y2eUZMKzhNSVN1dHdBczBpbngvTDZTWURrdXhNdWx2NWZUbGsxSVlZcWpa?=
+ =?utf-8?B?d0MxMDZHbnlhV0xLTExvY1pUbGZzUkpFdUJmeHpVM3VXN1F5b1RZaytlZ1lz?=
+ =?utf-8?B?ZWJ5a3RiNk1RbmlmaWhQaWxXWm9wNnpaSTdDa1pzOTlkRnF6VWxoOFl1RHZB?=
+ =?utf-8?B?Ly9ub1pFbWpqMzhhYkdQcTJSZDhpYmJhWTRrWm51Z0U0UnFpVXdxZmRZNHkx?=
+ =?utf-8?B?VFpoSk5nT1ZaaXNaTXo0RjlZT3VOM3d0VExUUE9JTkxwNlZHMXE4V3d0SGpo?=
+ =?utf-8?B?UWUwTUxJNWpLWDVZZkljRXRQZlpRSElvNVRycmdLVmxvTy9iTUxlbWUyYTVm?=
+ =?utf-8?B?ZUdHU28yR3o3dXMweXVWeG1IUC9yaFVYRWc4T2dqclplTm1nVWEzWjhoUzFU?=
+ =?utf-8?B?VVg5TDhxQjRLajBTSWoraXFaYjdLRUkrUXIyOHNMUHArYW95d1lNVWM2M29z?=
+ =?utf-8?B?UE1pYmNiVHdTTGNsZTFJUUFxWktkY0pCeGNYbU40L0RLSVN1bERucHlOYmoy?=
+ =?utf-8?B?UVhpUkR3cmcyR3NRbFZLYVRKV2kzRVF1aTRTeUljN0tMeGtJUFRvZXVDbmVu?=
+ =?utf-8?B?a1k5em5Vdk1LS0Z1Z1NLWUIrV05lKzBZMVZYWGlXMGNZU3BaaEpRVEZFWjNu?=
+ =?utf-8?B?WjV5YW90aHlhSzBZL25DRVRUUGhaSFllb2VKOTgyQldmZmo0VnNjTmRrdW1B?=
+ =?utf-8?B?eWlBRGxTa29YRitvZUtUeTEzV2paSGd4cFQ0RXdlampyMVFJR3dQd1FzRlRB?=
+ =?utf-8?B?N0ZibU1FUk9VRndTeVhBWmJTNHhNVC9wZzFaSE1KQ2lOQklGMXNYUHhmWW9h?=
+ =?utf-8?B?aWw1alMrWm5qV2RhRFBiSXlqNkgrUzFVUGRDWUFKcGtvUk5KaDl3TElZNUlX?=
+ =?utf-8?B?M2lzamRRaUhrNEF0c1F2RHo4cXQ0YXVBVERZVkx3T2dIREFLQytZUC9vMjlq?=
+ =?utf-8?B?QzR4TklETDN0OHdKQ2Mwd21GdkxhcWlJbG5XUFBUTEtxc2JIeUg2Wlp1Q1l0?=
+ =?utf-8?B?bXoyay9QNUFiMlpqeFJKazU1TU5zcUY4ZkVDbTZUTnFiV1VBTng0WFFNWTFa?=
+ =?utf-8?B?TDhGd1JjS0c4SmpHcWUwZnY3aWdjWTI5UkVHSWVtSWYwVnpuSDNxSmNzaDd6?=
+ =?utf-8?B?QnFCdDZnSzZkUm1IcW9zWXYrVjFhYmtIYzZDL2l6VGswZTJyZ0pTL00vVTRL?=
+ =?utf-8?B?Q0d3cVFHMVd0U1AyZGNYbHFpd0Z3RllIZVNvK0p4d3FONGVkSzRES25rSW9R?=
+ =?utf-8?B?cTlaNE9TQkFnVlB1NERlUjQzaWloWGVIcitUeGYvZkxHQlZrUzA3MzgxTkJZ?=
+ =?utf-8?Q?AQOJkkoDHI1dO?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB6682.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VG92NHc3YmpXOERoQU9kblIrWmxvWTVMNlFBRFJXVWFSMmFheFROTVA1TVV1?=
+ =?utf-8?B?TmtabjNQZXFPZ0VtNHJzNVJLU2lGV0g4Z3Nab0dQS1VCSWx2K2xoREFpb2s5?=
+ =?utf-8?B?TEx6dWsvYWx6WjVyWE9neEhQbCt0UkdncHhUbHJoR25hQkxVb21vMHd1TWhO?=
+ =?utf-8?B?OWhJRnlqQXZNN09OdzJJV1JmZkJwa3k0MDh2QzdjbzJLY1NqQzhEOTRpYSsw?=
+ =?utf-8?B?aU5GUVRBVUZ6c1lFUEdlLzFUb0xMVnpxMTFwOGR3NHg4RmFyOFhRU1BDMXB4?=
+ =?utf-8?B?MGI4cnVobThKNDNWUDJVd05nSm1Ic3o0UzRtZllZdm9Va2RCa0JmaTNZMkxV?=
+ =?utf-8?B?MTJCeEMyYUZ5RG5SNE1lMngwV05Yci9NOUFpR3NCZ2lnUlVyTDhUUWc3L1Fx?=
+ =?utf-8?B?ZnBzNCtJNmd5WVp2d3dPNll6Rm9SSTROSjBqSms0VEY3ZmFUUFpvZEROS0k3?=
+ =?utf-8?B?NlVCNzF1dTVha3BSZHd2bEdqdGsvaFpqSStienhQWDJsTEJiZXMzT2tmUXd4?=
+ =?utf-8?B?NUkrVnp1R3VNU1Axa1VlTk9zUnZhbWFCOTIyaUhKL0I1aENnQnRvajhRZmx6?=
+ =?utf-8?B?WlNoQXFXc2E0bDBKLzY3dTlFOStSSXFNRDZ3eW9WTVdIR21oWjFReWQxVjNs?=
+ =?utf-8?B?YS80U3pMcTNvcU9hekw1MnRPaHdsb2hHWWRsVTMySU5YaHdYb0ZGL1Y2c3FE?=
+ =?utf-8?B?MDhra2w5Z0VKZXhWTjhTcVc4bk1RS1ZCSFUxQzBMcTRFWndFaXE0UCsyQ2Zl?=
+ =?utf-8?B?dGk3ck5XUU1Xc2JpSVdwV1c5YklINmw0Wm5xWkw0cnhZOGJuaml1clVTc3ZG?=
+ =?utf-8?B?U1pZcnZGcUg3Z2NaTWxBS1NBTGJVU3Rzc0xDNGJQS2pqRW44cGRFelpZbWVm?=
+ =?utf-8?B?YnBlYmxOUTBmK2ZHTGMzYktUSGlKT2w5M1pBQnF5UGFreVZ6aHJMR3NEc0Yx?=
+ =?utf-8?B?dC9LRTFaVDRQVUhWWVdWdnlrYWFRRGxXKzUwb3lXblNvM2RtKzZ1ejBhWExI?=
+ =?utf-8?B?TzZpY2VtNW00cm5ybExqTDFRN2s4RTFTM3pwSTQ3cjFDL1J6SHo3VU9pZHIx?=
+ =?utf-8?B?SmNmcE10aGROeW1PZ1ZHZ3IyZm1SVnFrdUt2RDhESkpHRnRtK2UzZDJvU3hh?=
+ =?utf-8?B?U3phb0xZWFJyZDM0MVBsc2QwWVMxRm9scHVSeEppRjdrTGtzRXRNTUlyWEhN?=
+ =?utf-8?B?ZUdYYURnYWJWVXhZN21NUFJuWndwRVREeFlNc0o0QXFFQTVFc2tjaVlLUFBr?=
+ =?utf-8?B?TlRsK3JqTlRDdEVyekpvOU9RL0l1dk1ZeHV2NlROL2N1cndLYmU3M2JPR3B2?=
+ =?utf-8?B?bWlFc2NDRzhac3U3d0VHT1ltVkV2Mlg5cDhsbEpKM2MvZ1h5NE9qbGNXVkRv?=
+ =?utf-8?B?c2lpbVlWZEdreEIvZjRxRDZ5RVZkei95aC91Q2k4Y2daTjBTZGQ0MlBuUlJ3?=
+ =?utf-8?B?NHVjTGtoOStVMEMydEVtN2tZZUw4NGp4U2RVSGFscmNBWVY3QS9hZTdWOU0r?=
+ =?utf-8?B?MzJpYXdmSmJ0NDcrUTY2SHJVUDZkN3hJSS9iRGNmaXczeHNwRnE3UXNPc2Ji?=
+ =?utf-8?B?VUtUT0ppaU0wTzRob0FkSUdSbEJXeE1mSUJZYjZWWG5hODlnNkgvQ3Nybkhq?=
+ =?utf-8?B?RVRIVjl1WnJyTTUra0pjMlFUeWEvQzcyRjRsa1NzWXdOMVpiN0xIbjZTM0pk?=
+ =?utf-8?B?S3JnSHB5b3lxb0lYOUx3YlE0TVdYZ1VyM1crbTlZTzFhZGMvYitYRHJ3NDFW?=
+ =?utf-8?B?MWFrWDFKWlhNNG1ENXBxSHY2bjZJRk9GRzFYTWV4cHlsWHdiZDJ3eGEzTnZp?=
+ =?utf-8?B?YmZUeFpwa1BtVE1yNkZncWRtWlZ5dE4zTE92U3dNWVZ2OVlkVnlJcmZ6ZUE5?=
+ =?utf-8?B?TnZCVmRhK1kxVEN6UGFpNWFKNEVjZURZVS9pejE4ZG9qNWw5UG41TFl4NDVh?=
+ =?utf-8?B?Njlxb3dMeDBnNVl0SW1pK0FvYzN1VGhrSmEycm04VXFKeHFZOG90K2M1NFEw?=
+ =?utf-8?B?V2hpeFJUTm9XMklzdTd0bGZXYkVWQ0ZTV0pjMUVUd0M3RmtDSjI3TUpJbGFk?=
+ =?utf-8?B?YWV2ZDM3MkFTTVFuVE82MlpvYWI0V0JNMmRFcGp5M3kzd0NQVlQwbStJN0Nx?=
+ =?utf-8?B?SGE1TDhtZE8vRkZHZ3FZcUl6TEcvNFpJZnpSb3U2YXdDVWNndzR3eUladytJ?=
+ =?utf-8?B?ZFE9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: fa304af4-58cb-46c9-6357-08dd500ddf16
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB6682.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 11:17:46.6788
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gq6xwKwpvDrWuZlfYLRldVaZhn70LXzfcq71jpeJ6xLorAQ9gRuQshcRwwr8CXF8RFhk12r1R0kkH3k6ypca/tbwZ6cHHMdQMUog8CBNg3o=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR11MB8075
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_031747_182666_0171A97D 
-X-CRM114-Status: GOOD (  77.69  )
+X-CRM114-CacheID: sfid-20250218_031832_378555_EECF1F20 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,311 +228,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yang,
 
-On 13/02/2025 21:14, Yang Shi wrote:
+
+On 2/18/2025 11:24 AM, Russell King (Oracle) wrote:
+> priv->pause corresponds with "pause_time" in the 802.3 specification,
+> and is also called "pause_time" in the various MAC backends. For
+> consistency, use the same name in the core stmmac code.
 > 
+> Clarify the units of the "pause" module parameter which sets up this
+> struct member to indicate that it's in units of the pause_quanta
+> defined by 802.3, which is 512 bit times.
 > 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>   drivers/net/ethernet/stmicro/stmmac/stmmac.h      | 2 +-
+>   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
+>   2 files changed, 4 insertions(+), 4 deletions(-)
 > 
-> On 2/11/25 3:55 AM, Ryan Roberts wrote:
-> 
-> Hi Ryan,
-> 
-> Thanks for taking time to review the patches.
-> 
->> On 03/01/2025 01:17, Yang Shi wrote:
->>> FEAT_BBM level 2 allow changing block size of a translation with relaxed
->>> TLB flushing.  But it may incur TLB conflict abort.  We can handle the
->>> abort in kernel, however it is hard to guarantee the recuesive TLB
->> nit: recuesive -> recursive ?
-> 
-> Yes, it is a typo. Will fix in the next version.
-> 
->>> conflct will never happen in the handling itself.
->>>
->>> Some implementations can handle TLB conflict gracefully without fault
->>> handler in kernel so FEAT_BBM level 2 can be enabled on those
->>> implementations safely.
->>>
->>> Look up MIDR to filter out those CPUs.  AmpereOne is one of them.
->>>
->>> Suggested-by: Will Deacon<will@kernel.org>
->>> Signed-off-by: Yang Shi<yang@os.amperecomputing.com>
->>> ---
->>>   arch/arm64/include/asm/cpufeature.h | 19 +++++++++++++++++++
->>>   arch/arm64/kernel/cpufeature.c      | 11 +++++++++++
->>>   arch/arm64/tools/cpucaps            |  1 +
->>>   3 files changed, 31 insertions(+)
->>>
->>> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/
->>> cpufeature.h
->>> index 8b4e5a3cd24c..33ca9db42741 100644
->>> --- a/arch/arm64/include/asm/cpufeature.h
->>> +++ b/arch/arm64/include/asm/cpufeature.h
->>> @@ -866,6 +866,25 @@ static __always_inline bool system_supports_mpam_hcr(void)
->>>       return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
->>>   }
->>>   +static inline bool system_supports_bbmlv2(void)
->> nit: Arm language internally is starting to refer to FEAT_BBML1 / FEAT_BBML2 and
->> I believe this will soon make it's way to the Arm ARM. So probably better to
->> refer to bbml2 rather than bbmlv2 throughout.
-> 
-> Sure.
-> 
->>> +{
->>> +    return cpus_have_final_boot_cap(ARM64_HAS_BBMLV2);
->>> +}
->>> +
->>> +static inline bool bbmlv2_available(void)
->> This function has no need to be in the header. system_supports_bbmlv2() is what
->> users should use. Suggest moving to has_bbmlv2() in cpufeature.c.
-> 
-> bbmlv2_available() will be called by map_mem() in patch 2, but map_mem() is
-> called before CPU feature is finalized. I saw you suggest collapse the page
-> table in the below comment, if it works we don't need this function anymore. But
-> I have more questions about that.
-> 
->>> +{
->>> +    static const struct midr_range support_bbmlv2[] = {
->>> +        MIDR_ALL_VERSIONS(MIDR_AMPERE1),
->>> +        MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
->>> +        {}
->>> +    };
->>> +
->>> +    if (is_midr_in_range_list(read_cpuid_id(), support_bbmlv2))
->>> +        return true;
->>> +
->>> +    return false;
->>> +}
->>> +
->>>   int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
->>>   bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
->>>   diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->>> index 6ce71f444ed8..a60d5fa04828 100644
->>> --- a/arch/arm64/kernel/cpufeature.c
->>> +++ b/arch/arm64/kernel/cpufeature.c
->>> @@ -1889,6 +1889,11 @@ static bool has_lpa2(const struct
->>> arm64_cpu_capabilities *entry, int scope)
->>>   }
->>>   #endif
->>>   +static bool has_bbmlv2(const struct arm64_cpu_capabilities *entry, int scope)
->>> +{
->>> +    return bbmlv2_available();
->>> +}
->>> +
->>>   #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
->>>   #define KPTI_NG_TEMP_VA        (-(1UL << PMD_SHIFT))
->>>   @@ -2990,6 +2995,12 @@ static const struct arm64_cpu_capabilities
->>> arm64_features[] = {
->>>           ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, GCS, IMP)
->>>       },
->>>   #endif
->>> +    {
->>> +        .desc = "BBM Level 2",
->>> +        .capability = ARM64_HAS_BBMLV2,
->>> +        .type = ARM64_CPUCAP_BOOT_CPU_FEATURE,
->> I'm wondering if this will potentially lead to problems for assymetric
->> collections of CPUs (e.g. big.LITTLE)? I can imagine that little CPUs might not
->> support BBML2. In this case if you boot on a big CPU that does have BBML2, you
->> will require the feature and refuse to online the secondary little CPUs.
-> 
-> Yes. This is the behavior of this patch.
-> >> Perhaps this really needs to be a system feature, where it is only enabled if
->> all CPUs in the system support it? I'm guessing that will make painting the
->> linear map harder; I guess you will need to initially set it up with PTE
->> mappings, then repaint as block mappings if BBML2 is determined to be supported
->> if that's not already what you are doing.
-> 
-> Actually I thought about this before I posted the RFC patches to upstream. There
-> are a couple of options, but I can't tell which one is the preferred and whether
-> it is really that important to handle asymmetric systems gracefully or not, so I
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> index f05cae103d83..c602ace572b2 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+> @@ -283,7 +283,7 @@ struct stmmac_priv {
+>   
+>   	int speed;
+>   	unsigned int flow_ctrl;
+> -	unsigned int pause;
+> +	unsigned int pause_time;
+>   	struct mii_bus *mii;
+>   
+>   	struct phylink_config phylink_config;
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index fd8ca1524e43..c3a13bd8c9b3 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -94,7 +94,7 @@ MODULE_PARM_DESC(flow_ctrl, "Flow control ability [on/off]");
+>   
+>   static int pause = PAUSE_TIME;
+>   module_param(pause, int, 0644);
+> -MODULE_PARM_DESC(pause, "Flow Control Pause Time");
+> +MODULE_PARM_DESC(pause, "Flow Control Pause Time (units of 512 bit times)");
+>   
+>   #define TC_DEFAULT 64
+>   static int tc = TC_DEFAULT;
+> @@ -865,7 +865,7 @@ static void stmmac_mac_flow_ctrl(struct stmmac_priv *priv, u32 duplex)
+>   	u32 tx_cnt = priv->plat->tx_queues_to_use;
+>   
+>   	stmmac_flow_ctrl(priv, priv->hw, duplex, priv->flow_ctrl,
+> -			priv->pause, tx_cnt);
+> +			 priv->pause_time, tx_cnt);
+>   }
+>   
+>   static unsigned long stmmac_mac_get_caps(struct phylink_config *config,
+> @@ -7404,7 +7404,7 @@ int stmmac_dvr_probe(struct device *device,
+>   		return -ENOMEM;
+>   
+>   	stmmac_set_ethtool_ops(ndev);
+> -	priv->pause = pause;
+> +	priv->pause_time = pause;
+>   	priv->plat = plat_dat;
+>   	priv->ioaddr = res->addr;
+>   	priv->dev->base_addr = (unsigned long)res->addr;
 
-It is certainly important to handle asymmetric systems gracefully in general;
-Almost all mobile handsets use big.LITTLE. And I think it's entirely possible
-(likely even) that we will see systems where the big cores have BBML2 and the
-little ones don't. There are cases where we don't currently handle asymetric
-systems gracefully (e.g. LPA2), but we try to make those the exception rather
-than the rule. In LPA2's case, the VA size is a compile-time option and I
-suspect it's very unlikely that a 52-bit VA capable kernel would ever be
-deployed on an asymmetric system (i.e. mobile handset). Given BBML2 is runtime
-controlled only, I think we need to make it play nice with asymmetric systems.
-
-> did it in the simplest way: just fail online the conflict cores. I also noticed
-> some features behave similarly, for example, MPAM. And this RFC patch is mainly
-> aimed to get some feedback from the community about whether it is worth it and
-> the direction is right or not. So I tried to make it as simple as possible (for
-> example, I didn't add CONT_PTE support in patch 2 either).
-
-Based on your perf numbers, I defintely think this is something we should aim to
-get upstream.
-
-I think there are 3 options for the approach:
-
- - refuse to online secondary CPUs that don't support BBML2 if the boot CPU does
-   support BBML2.
-    - I don't personally think this is viable for the reasons above.
-
- - initially paint the linear map with ptes, then update it to block mappings if
-   BBML2 is supported system-wide.
-    - I'm guessing the main cost is the pte-mapping, and we already have that
-      today, so it's not going to slow the boot down vs today. Re-painting with
-      (mostly) PUD-sized block mappings will be significantly faster.
-    - I anticipate we can just call the same function to do the mapping over the
-      top of what's already there but with the BLOCK flag set.
-    - It's easy to test on all systems
-
- - Guess at the system supporting BBML2 based only on the boot CPU, then if any
-   secondaries don't support it, stop the machine and repaint linear map as
-   PTEs (we do something similar today for nG)
-    - It means that symmetric systems will boot marginally faster because they
-      never map the linear map with ptes
-    - Asymmetric systems will boot slower because they have to stop the machine
-      to do the pte re-mapping
-    - It's a code path that won't get tested very often
-
-My view is that option 1 is a non-starter. Personally I lean towards option 2,
-but could be persuaded that option 3 is better.
-
-> 
-> If I understand correctly, system feature needs to read the "sanitized" register
-> value per the comment in cpufeature.c, but we read MIDR here. So it actually
-> just uses the current CPU's (likely boot CPU) MIDR if it is s system feature,
-> right? If we really want to handle such asymmetric systems gracefully, we need:
->     - read all cores' MIDR then determine whether BBML2 should be advertised or not
->     - update a flag or bitmap to tell us whether it is asymmetric or not
->     - take actions based on the flag or bitmap (i.e. collapse page table or do
-> nothing)
-
-It's my understanding that we want is ARM64_CPUCAP_SYSTEM_FEATURE. See it's
-comment in cpufeature.h:
-
-/*
- * CPU feature detected at boot time based on system-wide value of a
- * feature. It is safe for a late CPU to have this feature even though
- * the system hasn't enabled it, although the feature will not be used
- * by Linux in this case. If the system has enabled this feature already,
- * then every late CPU must have it.
- */
-
-> 
-> But system feature is not checked on the secondary cores. The
-> check_local_cpu_capabilities() called by secondary_start_kernel() just checks
-> SCOPE_LOCAL_CPU features if I read the code correctly. So local cpu feature may
-> be better? The local cpu feature maintains a cpumask, it can tell us whether
-> BBML2 is asymmetric or not.
-
-I've not read through the details of the implementation but the docs point to
-ARM64_CPUCAP_SYSTEM_FEATURE and there are many other cpu features defined as
-ARM64_CPUCAP_SYSTEM_FEATURE which need these semantics. e.g. ARM64_HAS_TLB_RANGE.
-
-> 
-> In addition I'm also thinking about whether collapse is the best way or not. We
-> should be able to have large block mapping in the first place if the boot CPU
-> has BBML2, then split the page table if it is asymmetric. I'm supposed we need
-> to stop machine anyway even though we do collapse. 
-
-Yes I think you could do it this way as long as you stop the machine first.
-There is already a pattern to follow for this with nG; see
-kpti_install_ng_mappings().
-
-I don't think you need to stop the machine if collapsing, as long as BBML2 is
-supported.
-
-> The split need to be called
-> on the boot CPU. We already have split logic, we can reuse it anyway (maybe need
-> some minor tweak to fit). It sounds simpler than collapse. 
-
-I'm wondering if we can enhance the existing table walker in mmu.c
-(__create_pgd_mapping()) to handle collapse and split gracefully. Then we could
-reuse that logic for all collapse, split and permission change operations so
-that we always have the largest possible blocks mapped.
-
-It looks like it used to be able to do (some of) this prior to commit Commit
-e98216b52176 ("arm64: mm: BUG on unsupported manipulations of live kernel
-mappings"). That approach may turn out to be cleaner and more general than the
-current logic you have to split a range to ptes?
-
-> And the asymmetric
-> systems may be not that many in real world? I know there are a lot of big.LITTLE
-> SoCs in the wild, but those big cores may typically not support BBML2. If so we
-> can save boot up time for the most cases.
-
-Yes, you are beginning to persuade me that stop_machine() for asymmetric systems
-may be the better way to go.
-
-If the boot CPU does not support BBML2, paint with page mappings as before; no
-change.
-
-If the boot CPU does support BBML2, speculatively paint with block mappings. If
-all CPUs later turn out to support BBML2 then no further action is needed, and
-this gives us a reduction in boot time because we never had to paint per-page
-PTEs. It's also a runtime advantage due to the TLB pressure reduciton.
-
-If any secondary CPU later turns out not to support BBML2, stop the machine and
-repaint with page mappings. Assuming the major cost is writing all the PTEs,
-then this is lightly about the same speed as it is today. And as you say, this
-path is lightly to be rare-ish.
-
-OK I'm convinced.
-
-> 
-> The other concern is about cpu hotplug. For example, if all the booting cores
-> have BBML2, but the hot plugged cores don't, shall we split the page table when
-> the cores are hot added, and collapse the page table when the cores are hot
-> removed?
-
-I don't think we need to worry about this case too much. There are lots of
-things today that require that the kernel can see at least 1 of each possible
-CPU during boot (applying errata is a good example). If a new CPU model gets
-hotplugged that it hasn't seen during boot then I think it's completely
-reasonable to refuse to online it if it doesn't meet the configured feature
-requirements. If you define BBML2 as a system feature, you'll get this behaviour
-for free. In reality, hotplugged CPUs are going to be symmetric so I don't think
-we will fall down this path in the real world.
-
-> 
-> I'm not sure whether the extra logic to support asymmetric systems is worth it
-> or not. Maybe we should start from the symmetric systems, then add more graceful
-> handle to asymmetric systems later if it turns out to be a real problem? And
-> unfortunately I don't have the appropriate hardware to test the code. Maybe you
-> or someone else from ARM has the right hardware?
-
-My view is that we need to make BMML2 a system feature. Speculatively paint the
-linear map with block mappings if the primary CPU supports BBML2. Stop machine
-and repaint as page mappings if the system as a whole doesn't support BBML2 at
-system feature finalization. In the unlikely event that the system does support
-BBML2 and a CPU is hotplugged that doesn't support it, refuse to online it (that
-bit is for free as a result of defining it as a system feature).
-
-You can hack the code to always stop machine and remap as page mappings for
-testing purposes.
-
-I'm happy to collaborate on development of these patches and/or do testing as
-required; I think the performance numbers you posted look compelling.
-
-> 
-> Thanks,
-> Yang
-> 
->> Thanks,
->> Ryan
->>
->>> +        .matches = has_bbmlv2,
->>> +    },
->>>       {},
->>>   };
->>>   diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
->>> index eb17f59e543c..287bdede53f5 100644
->>> --- a/arch/arm64/tools/cpucaps
->>> +++ b/arch/arm64/tools/cpucaps
->>> @@ -14,6 +14,7 @@ HAS_ADDRESS_AUTH_ARCH_QARMA5
->>>   HAS_ADDRESS_AUTH_IMP_DEF
->>>   HAS_AMU_EXTN
->>>   HAS_ARMv8_4_TTL
->>> +HAS_BBMLV2
->>>   HAS_CACHE_DIC
->>>   HAS_CACHE_IDC
->>>   HAS_CNP
-> 
+Reviewed-by: Mateusz Polchlopek <mateusz.polchlopek@intel.com>
 
 
