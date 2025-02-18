@@ -4,97 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8549C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB49C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V3uXTrr03eTBp4TQInaTHeB1lyJsdQisBIQEzz1BspM=; b=iGfCkErJLB5hEunRGh//WqYJia
-	syhzKmkUHgjqKxAgpVb6EmcT7f6W6QYwoFB1KD7utXt57Ng+k+8IT4fA4T4CyBzlwUbAJmOgkdCrH
-	rD5ooCqNY4fzxOu2BXRhW5ZOdTL0O11B72FUHPdgwadX+ic9FLchaC6yu9Ql7GBVvd15jzTexsKRx
-	nQvPeYW7Wm9tn3x+FCDmjDVI83cnE5adg4W47MnuBrTk/rn5k/hWCpv6DOA5wiyh48YhovIcUKwUP
-	bM/WFBKaNTm0e8Jr13bZEK+XryBbjifPr0bGtKRCIVNxo+1w+OmLeVAfMjbNCC/D87okr68Uiri5E
-	LYyVNb6A==;
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g9kDn5MVT0WH2OEuB7IRmZF3ef4El5ZimOew9H4YK78=; b=Xn1R5IUGfIECOQzefVE3qLnmZW
+	L4TF7xNIBdpdx68WugWgqKQlLug84kt7diNlixRBbN2Hm3g5QcagNBliKV1Bru72Ila66zJYIvASl
+	y0Q2fHmmCFBhk1W4syxhgojtp6+aYwmbEkUmMXLB6cKmaPmBdMCNuZQ3Ud1JCaYIyaWcki+9CbITX
+	bhm2dPejyA1J7tF+lSw/OA/vKNw2M7jBcRRlXqV7wKb8LRkZgqXB5wBwYkPQFRjxyS5Az7W9/Hewd
+	bXSt5EPK6LzE3LxxoKP1bUvMFdN82fet8FO8rzlPwzeVyvRRUE0rdeOwy44EgHf559xqTYgeM8rXf
+	rTJtuW2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJlJ-00000007TcY-3JD0;
-	Tue, 18 Feb 2025 09:19:29 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1tkJml-00000007U4t-1lG6;
+	Tue, 18 Feb 2025 09:20:59 +0000
+Received: from mail.dealify.pl ([51.195.90.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJe4-00000007RJb-0KJG
+	id 1tkJjC-00000007T3F-2S4K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 09:12:01 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5ded69e6134so7830286a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 01:11:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739869918; x=1740474718; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=V3uXTrr03eTBp4TQInaTHeB1lyJsdQisBIQEzz1BspM=;
-        b=bFdA1lMEkdXbk3pHq/Od+aYrFvcWhUBw5vMhwhlDPsZUj0KlD5Qd5H8Iviq3nUruWe
-         32y+GEz21yR5ngLXjFyHBZmQSOMAZcHAM8POgUnMT/dbaLUC4U0LvfOfax++wp3rNJaY
-         /bjGr32NXMIrr5jJm87y0Wdp9ACJvIknR6LavCrwsEB928LEvMzXZ/n4boEkuKrI90ZG
-         xF5QY93rUTPY2qAeiPIf9W5i18Bs/0D/mktNVvXqX8ayygdsigXeWt9roXty8wBfmh6D
-         Jorw6bXkgG3D+6ZEeIt4CIvsRMkgpJhzzGWSLGX2znJAwthZavkZpmnfLV6KvgquJfTU
-         4TSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739869918; x=1740474718;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=V3uXTrr03eTBp4TQInaTHeB1lyJsdQisBIQEzz1BspM=;
-        b=Lh0SoZJNp77WHAFibWfrwCftSIjcdcgf8ZAUf07ERqhQ+D5RimZJ5ln+vWTJKdXAGU
-         1EKY/03Ks+9nqtOePm1p9aH3WoVgpR1zakV72cSJm1gZZRdCN66gxqKWyg9NQWerzN0+
-         IXZAVDiQO6/EzSE73L4BX4bzSjer2+VOHuDrFbDxlfbWeGVABmFx5N+UVIugJdWhjlUY
-         5Imx+txM99XSFgupukRQ7nB+akq8qvN4u7bifgqim1/PNSi/abyUnPyEO2vQnXyFWcog
-         e1GMzLTjXCdYb7SKGT3UxtGBzDMhhEPnkuUoXyndO3MFf5N8K9h2hN+QGo+ZOQzmLbqh
-         jFIw==
-X-Forwarded-Encrypted: i=1; AJvYcCViRr9aFzNgzWay4PA/35aK3xF5uXB2NXMfbIq3yaorLz/UPSxtMz5Wyo2u3Vgp+5lGANexdOYjxT0EseOEvFLM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfDccaf8hPrrD7PIQ+mz6PAqkEEDy/Kmofncz1i0G7CgjLa3ji
-	sNjMKWSuZuL/8XQzDP+2MAyxrq/h52czqTgKmLAis4KdTsZ0yioufeKCHSZsmu4=
-X-Gm-Gg: ASbGnctAd+g3WQVMMgmstaO7v/cDGp8Ucyv3ESGigOwwaf8/8phtlQpJA3OSAvSdqRY
-	BYawDoO3xFZHhfNzzon64m3x1Yp8J9M94dNbwWuYIY4rB4QzB22yZMArpDq81v+kPBicZAW89me
-	5jEbwUKj/eQ8IykzrH1YuETR6ORCUSTDN+dy1h54NhujpBvtOSYspZQU2hX0dJDqc4gO+IYCHxA
-	n7PpGLMT9XG++pptK73PYjUpxnc65yEaOttQizvqBUC4oPMFqp82hMbk+AiZ4EzepriKta1nwnL
-	SxTt6ujXXltI6u1ZAAbnECU=
-X-Google-Smtp-Source: AGHT+IElObB+wPJH8ll7VWsYIuWeUZ3GQukv025YddeShYC2NXJtKepo4lLlRZ3MwK7mM+8bMe+zXw==
-X-Received: by 2002:a05:6402:5246:b0:5d0:cfdd:2ac1 with SMTP id 4fb4d7f45d1cf-5e036055eb7mr13524262a12.6.1739869918369;
-        Tue, 18 Feb 2025 01:11:58 -0800 (PST)
-Received: from [192.168.0.24] ([82.76.24.202])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e076048c05sm924724a12.35.2025.02.18.01.11.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 18 Feb 2025 01:11:58 -0800 (PST)
-Message-ID: <e925a6d7-aa71-43cf-ab84-bed65b78cbe3@linaro.org>
-Date: Tue, 18 Feb 2025 11:11:56 +0200
+	Tue, 18 Feb 2025 09:17:20 +0000
+Received: by mail.dealify.pl (Postfix, from userid 1002)
+	id 836F8A48C3; Tue, 18 Feb 2025 10:16:03 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=dealify.pl; s=mail;
+	t=1739870165; bh=g9kDn5MVT0WH2OEuB7IRmZF3ef4El5ZimOew9H4YK78=;
+	h=Date:From:To:Subject:From;
+	b=HhI3CQRe8rIDIfIY+g2vjxHwGIV58VCmBOEiNJ11fO3U9JBv8aibmAG/oGll9VL5O
+	 +e08R6HPkh8LJg9YCb/zDpF7hR0gZUq4HqO/5gQnuj96ewz3Pq9QTUaOsb3MRm2080
+	 YuAJtVxkZCKZhav2AMzUgmtgW8xo34uPhgUG2BwXLZxG/+FWjqQX6T2rEFZZpG2pdX
+	 /fulYrRnFhdJ41lIEhb+0cqo3YRge45ubw+aEigzvYlqy5MUGbbUMjXyRwIjE6gatx
+	 +UPGNsirdUsUB8AaUho1Ugwvd1tZUfvcjHUFiiciHGiEFkCCWyeLH6VEZ1ly6NZewq
+	 O7ZFW+9TTB9DA==
+Received: by mail.dealify.pl for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 09:16:02 GMT
+Message-ID: <20250218084500-0.1.jx.24fit.0.9109crn8r2@dealify.pl>
+Date: Tue, 18 Feb 2025 09:16:02 GMT
+From: "Weronika Kubiak" <weronika.kubiak@dealify.pl>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: Pomoc prawnika
+X-Mailer: mail.dealify.pl
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC][PATCH 07/10] printk: export symbols for buffer address and
- length functions
-To: Sergey Senozhatsky <senozhatsky@chromium.org>,
- Christoph Hellwig <hch@infradead.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-hardening@vger.kernel.org,
- kees@kernel.org, linux-kernel@vger.kernel.org, johannes@sipsolutions.net,
- gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org,
- andersson@kernel.org, konradybcio@kernel.org, tony.luck@intel.com,
- gpiccoli@igalia.com, pmladek@suse.com, rostedt@goodmis.org,
- john.ogness@linutronix.de, quic_mojha@quicinc.com,
- linux-arm-kernel@lists.infradead.org, kernel@quicinc.com
-References: <20250217101706.2104498-1-eugen.hristev@linaro.org>
- <20250217101706.2104498-8-eugen.hristev@linaro.org>
- <Z7RELnyWRLietj9b@infradead.org>
- <20250218-175733-neomutt-senozhatsky@chromium.org>
-From: Eugen Hristev <eugen.hristev@linaro.org>
-Content-Language: en-US
-In-Reply-To: <20250218-175733-neomutt-senozhatsky@chromium.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_011200_145179_2FD9A480 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20250218_011719_315121_AE699DCC 
+X-CRM114-Status: UNSURE (   2.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,28 +66,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Szanowni Pa=C5=84stwo,
+
+rozumiej=C4=85c dynamik=C4=99 dzisiejszego rynku i zwi=C4=85zane z ni=C4=85=
+ zagro=C5=BCenia, ochrona maj=C4=85tku firmy sta=C5=82a si=C4=99 kluczowy=
+m elementem strategii zarz=C4=85dzania ryzykiem.=20
+
+Nasza kompleksowa us=C5=82uga zosta=C5=82a zaprojektowana z my=C5=9Bl=C4=85=
+ o przedsi=C4=99biorstwach, kt=C3=B3re ceni=C4=85 sobie wielowarstwowe po=
+dej=C5=9Bcie do zabezpieczenia swoich aktyw=C3=B3w.
+
+Oferujemy rozwi=C4=85zania wykraczaj=C4=85ce poza standardowe metody ochr=
+ony, =C5=82=C4=85cz=C4=85c zaawansowane narz=C4=99dzia analityczne, prawn=
+e i technologiczne.=20
+
+Czy chcieliby Pa=C5=84stwo szczeg=C3=B3=C5=82owo om=C3=B3wi=C4=87 mo=C5=BC=
+liwo=C5=9Bci zabezpieczenia Pa=C5=84stwa maj=C4=85tku?
 
 
-On 2/18/25 10:58, Sergey Senozhatsky wrote:
-> On (25/02/18 00:26), Christoph Hellwig wrote:
->> On Mon, Feb 17, 2025 at 12:17:03PM +0200, Eugen Hristev wrote:
->>> log_buf_addr_get() and log_buf_len_get() can be reused in another module,
->>> export the symbols.
->>
->> Err, no way.
-> 
-> Yeah I think we've been there before [1]
-> 
-> [1] https://lore.kernel.org/all/20230905081902.321778-1-hch@lst.de/
-
-Okay... in the line of the purpose of this patch series, I would like to
-be able to have the dmesg ready to be retrieved out of the kernel in
-case the kernel becomes unusable (due to various reasons as described in
-the cover letter). However to know exactly 'where' is the buffer stored
-I would need some way to point to it.
-Do you have any other suggestion on how to do this ? Using the
-kmsg_dump() API works only if the kernel/CPU can run code.
-
-Thanks for looking into the patches,
-Eugen
+Pozdrawiam
+Weronika Kubiak
 
