@@ -4,55 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 279F8C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 17:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A59E1C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 17:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SAAkrxbNhSnw0VmwOT1mFPOMUAh9jgzv4DOv5jdm4R4=; b=fGxQo6pJoqD+DaaeKvxOd3CRW0
-	OOwm/U4b8bUvCghD3UfHct/V8ZDdGzwoN+p9Oo2y9qNemis8u5KUOjb8G3jUyv5ULagUTnByFDdBu
-	0NWKr2+pD2AXVibaDrmj2yL7cT1BMHjSM45dAfSxlUqcfSB/c39swWzKY4CBnmId+YXKQCLxCTuQk
-	p0HG61s1vaMHQrwbsqpkWrQjPX7Z5SwOZ7zRxvPe+dzQqjvkRapBHNvvYyR1Xsufmx+VlHSQB3uyj
-	v1g3RySO/mPyR7rnuX/PrLln+q0MKV+/a5e1bHiTOgoWcx+Djjx3fb/DHfQd662K3htRz7JuXc7sp
-	b7licOyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6gfLmke0nZtX2GLT8DLjLRR+XW5174lTxRzX6acr0GE=; b=mYxA+Z6felxUEilXM+G9aZotES
+	nlWpzVhYFG5Nq0kDfqrPYaE84Mivimw6KZv9mB/NVW22mUYtpn+GapW89vM4l2Jp2wI0YloslkKk2
+	YLxBkpmtcq/qJoM43CU8PdltNM02EXXyLbr2hHq5RdKulUHfjnM4dV+oH9B/qq+ZV2aJRgDxjQj0i
+	sksGMaw3SjhPTIJbgukIkQdDst9SyhhI3cf1APontDCJZJH1S8a46cAphi7ZNjJLTmDS5DNkFX+Oq
+	hZvAKhzNi/pRa+Q1w3nMVPaN88C+JlLdzgAZ3cCYjkmtbXoFQWULHn9z1WLQWGScqrX4gkMjXoJUA
+	fVVnHkiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkRHm-000000098kf-20Dh;
-	Tue, 18 Feb 2025 17:21:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkRC6-000000097iv-391N
+	id 1tkRJE-000000099Jh-2q5M;
+	Tue, 18 Feb 2025 17:23:00 +0000
+Received: from mail-co1nam11on20624.outbound.protection.outlook.com ([2a01:111:f403:2416::624] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkREp-000000098Bp-2oL4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 17:15:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C113152B;
-	Tue, 18 Feb 2025 09:15:57 -0800 (PST)
-Received: from e126864.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 724893F59E;
-	Tue, 18 Feb 2025 09:15:36 -0800 (PST)
-From: =?UTF-8?q?Kristina=20Mart=C5=A1enko?= <kristina.martsenko@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Tong Tiangen <tongtiangen@huawei.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	James Morse <james.morse@arm.com>
-Subject: [PATCH 3/3] arm64: lib: Use MOPS for usercopy routines
-Date: Tue, 18 Feb 2025 17:14:30 +0000
-Message-Id: <20250218171430.28227-4-kristina.martsenko@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250218171430.28227-1-kristina.martsenko@arm.com>
-References: <20250218171430.28227-1-kristina.martsenko@arm.com>
+	Tue, 18 Feb 2025 17:18:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yfpZEU3Osyo3TAU+iKOuAUx2YNgeUeObYZ88jLa/as3S5HFhbCrj43SJUpZKVgy8kKrG01sjdECl7UPfNwcgbXd56TJWa2leAPfjWGvetCBVS/NkSIVlDI45vtY9mF9xppxr22Pr1otsbnfng76Juw0Y8hC21Zpe7JA0kLqSFInruVz5HCWHy00N5bwSQKkYHwaTtrukvZsrHHC/HzWAv5K7EO+U1DbNIVv9/1UZMutYUkzG3/5NYFudu1VVYX+XA4D2zks1pWMHyUn7Fm0KQOiiq3rj6H8e3TBT7sDo3jKxv6+GQyuSehU2S59UWZrk8hGgHiaRYq2I4/8tqtWpRg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6gfLmke0nZtX2GLT8DLjLRR+XW5174lTxRzX6acr0GE=;
+ b=JVINBn6RNzH7SMx3uKGZ7pBVCFtDrMhJ58KhmQFln6Pbqnl2MelpMm38ENXBRNOfdn/8wD6h5x9tlfm6dkPB96Kofy3zNb0GTQfaVj0kbWvkkU+WJT+Xe9uCTvtxbnH96vL9nOZEXlyjdf1umO6q0iVELi5u3qRz2YjnBeod1il3zr/ErZTGsGyqkOlY6aEhXWJOcyEDdnLW9iCnpeLbFykEgmZ9uYqmasYKfG2YwVSpq+L2a8Ece7CV/dAJE0Re4BZas8k+SggcNFbfWzenX0HYW+rvcyOrMomdJJIJKmczJ1fcCHjUd1FyDPJxEvspzRUyk6PmHaLZEDkXGTehaw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6gfLmke0nZtX2GLT8DLjLRR+XW5174lTxRzX6acr0GE=;
+ b=SyvcYdFSYUpY+lBc3gDet1ZsafbcXWNrs6Q9XxZASC8eifqorbA6EhKiJDAYm4eBvopjVW0RK43B78knR991Bv8/Ec0dMoWyPxSu1Y+xNAQfq+XPulkJImNIpyATJw7yIPlprwPbwpmJt6giq/Cxz16LizaQxM05eIqS4f7vkNc6j2g6duoPr6mDK5Q7M0Vyd3msl56tXUK7AQ8LYWhbyXKvSoRtRRxkbtN4apvapRTU3/YoZD8j86+Wcq+ymTL+gB2yMYiVxmuigOw1zExzk5k7MLK+hP7bBldav7t2xCTgefH2FbqXpVyvPkAiAx9ZzrW9ve3MO7Mh0K1938xmXw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CY8PR12MB8266.namprd12.prod.outlook.com (2603:10b6:930:79::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Tue, 18 Feb
+ 2025 17:18:22 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8445.019; Tue, 18 Feb 2025
+ 17:18:22 +0000
+Date: Tue, 18 Feb 2025 13:18:21 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org, joro@8bytes.org,
+	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v6 13/14] iommu/arm-smmu-v3: Report events that belong to
+ devices attached to vIOMMU
+Message-ID: <20250218171821.GG4099685@nvidia.com>
+References: <cover.1737754129.git.nicolinc@nvidia.com>
+ <b71a5b132e8ba771998c5b810675f10b100d4ff3.1737754129.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b71a5b132e8ba771998c5b810675f10b100d4ff3.1737754129.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BN1PR14CA0006.namprd14.prod.outlook.com
+ (2603:10b6:408:e3::11) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY8PR12MB8266:EE_
+X-MS-Office365-Filtering-Correlation-Id: eb2b05c1-8cce-495f-635e-08dd50403f3a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1Kkw9Tc/NIDm5rMfEIdMgifX1nWLh/WK1lYXPMxYH1n0Ug2Q4fgwAqEqN5tH?=
+ =?us-ascii?Q?XK2U39GOyicPA8aHpLmasSrICrmQ6rOPLQanA9KAfg03KilmT56yTVESM8Fx?=
+ =?us-ascii?Q?7CyoDaw6xC2Km8KD82tJjTkkkVuB9rWjc/MNqwfpvzw8KXRi/Zu+myg/zYwi?=
+ =?us-ascii?Q?f0IT9C0x1diMIJqS9zbutrOqNQVtwbmDW9zz31GVHNqivsWTb8Qb3zbqkZ7H?=
+ =?us-ascii?Q?brnN2qSlhdWo1bxqNLqAHuB37UkpEgKEzRe358JXo8y3d/xGqi2gmsG5wYB8?=
+ =?us-ascii?Q?ZqtaQlTD5dG+Vv1J/qKgsSZBrDIOCnz2v6LQHTpzLLTeTHwV+iC+UIgBfTjy?=
+ =?us-ascii?Q?voTp0eP/MNdJ2KCW1sLt2aqimtMNIpqLazfFQAjkpewFVlxbWYS9DeqEQ4uN?=
+ =?us-ascii?Q?aywT1DTGNAP3NCvahCl919vkYcpGg5nwTllMYk4wJlDCAKBuLRrIGavjtLZM?=
+ =?us-ascii?Q?rgtQOqX/tB8c/EcdQ396HTHs+RZ9Ar2HeDBD6j3fvEio45UL8dWucuSpF/97?=
+ =?us-ascii?Q?lO5SYkD6ggBePBhhvspuJJMljmvuYWwUhPN2BnKDR4vH5wwqZLG5HqQA/o0j?=
+ =?us-ascii?Q?4/lR5oBsJ0kCH/MeXfZr0CcpbSY3prb+c/8nw1RUZzqqaSQEe60YjJ/leU88?=
+ =?us-ascii?Q?h6RBpu8x5yLJXHBUYdgmgpI16ktR2DM0dLL4C1u8Xf7/31ZuNeRO/pLb2wwg?=
+ =?us-ascii?Q?ICfudC5iOlVaALkMiB7/NXguieVVz6b80WLlh/ZTUSTo4smopCuc/LlUWTOs?=
+ =?us-ascii?Q?KrziYj1HizsDRJYgMVt185O4TJ3/x5Fnqm8z1WtYIP/gpYsgaKAlkRNXY25s?=
+ =?us-ascii?Q?58MiWCUfLByf9iPprVcadiF8H58oRcaaidqFczkzZq3k/853avYGbR/qGAUc?=
+ =?us-ascii?Q?XU+W5dcukx7UwvB/ANoqslraRmUfapjQtiKF5LEIhdPFHhizxthSsHVBFZ69?=
+ =?us-ascii?Q?ObQ76UMD9TgPZjpBXHbZ+/AQYEnc0gvSZnPZewbHjbD/GozuP2L+m6h0XnLz?=
+ =?us-ascii?Q?1CC/fM2Tim3N25ek6uGfiqrYgG0p49ynRpBzofrynIfhZ+QSnc4wFCS0RV7j?=
+ =?us-ascii?Q?CkY56WnDpTwGF1GI3RcLmUA6o9rmGs3EXQFXgCOdwG8ckO9Q6ew2YG1OhZjs?=
+ =?us-ascii?Q?0oh9KhDwTPY2Eto+L8q0ATUf0SXkthf+t1y5MV1vuxanwu0pQyOSina9jXdO?=
+ =?us-ascii?Q?mD5q8U0ZvXEdMUwY6H2pKGdhTxW7WHJtvGcjjV/zSDfc0x4LNtQo7wa9fn/h?=
+ =?us-ascii?Q?77Xk3A/gLhQ7D1Cn9h8hC2q2YBoHf4p2lKZbXIhOFnWGmySyN4/tuUevj1lc?=
+ =?us-ascii?Q?kh+BremDEulIrfayqdQHuoiuwJh5M6F3qTL8BF37uC255x4N2EOeWKO3qdvo?=
+ =?us-ascii?Q?UuDtZh+6i91NpcFmhV30BYwWXNqq?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bstbRdZ7q0JdaclaivnedMWTi6Fiyyy/9bNBFO0w7Vgqun+8SE/eRBROPZMr?=
+ =?us-ascii?Q?dTbGDz5p5BDlGpq5+Yy5Sl8Zk8oRJFWb+FCahsDV8Brkm5+2CeKC0Ykn4MZX?=
+ =?us-ascii?Q?WgzZUtHicbOBlfc0qFnqdO4p2+pzBEj9s1H2Aef/s+eA64ln/BQt/Z6K0309?=
+ =?us-ascii?Q?Sv9ALDRi/JZ85uaUPeO+IGKkPGC+ePOjNeosrJdG+c0Ti2domx7wlCcF9BJM?=
+ =?us-ascii?Q?VZgmmWspx2UaXgoYDhCfDjgCLMq0OtnVP+GqIvzNGaD2Mezclo8/4/fVtmcU?=
+ =?us-ascii?Q?zKghQiNyLRewGucmSZGIygS/Y7YXolxv1J5uD6WshsLa8vMgZjOCcrh3ykz0?=
+ =?us-ascii?Q?hVdLb+r4Om1d4kX7gUDC1GoIzYV+Ob1kCodR0Qlrzmw4f7Sx5sjNYkOmMSgR?=
+ =?us-ascii?Q?vfDwLxU4GsYHJfCBCsBp39LJnCmTYS6Qa5LoAVmWxzfCVbR/+IQr5GkYBsi6?=
+ =?us-ascii?Q?XNLZ0b6QhnTBT1VYjjQeIfsWEAvVMjAGz0/laTvqCm3HUwderkLfudMjWsug?=
+ =?us-ascii?Q?8pvYKLSjrUuJD/XE1SExLlj9RoLebrEgpiHPj9e2NjGLjlHFLkIJe52q3XJj?=
+ =?us-ascii?Q?N9q+ghs5E6Je6Sw2X/8eNTn+PT4XttWvFFP891p9muKC8li4A7nTrJ0q25j/?=
+ =?us-ascii?Q?F0/9D5/BnxrqBMXXra+a0334pdTa2Hkc9cXUBORNYIYQrmMafg2MABT7R7CO?=
+ =?us-ascii?Q?dejx0+Xy9G+f8iSQ7VqAcjAoe9NllVpOWsnyQ+N6fAIDLmcFks7NAOLIh9If?=
+ =?us-ascii?Q?fn+hNbfjTNNH6n2qNCUIdBBL9bkp++KMf/EmFWZlF/6CwzJF/3gN3i0w6HyH?=
+ =?us-ascii?Q?BJa58Wqoqjub+shwjGwMeeAdevNpaMNtNetDlYURMIjHUikS2sIwfdPjrxqx?=
+ =?us-ascii?Q?olqGJ2ZbLxu0GyBRvlsvQLXraUKvQNAOnJFwEHUgrgQ+pLnz0Z8zZHkHfZRW?=
+ =?us-ascii?Q?ip+YKRtEGlL9Xp/Pllx3Igj89kkJmbdoG/BCUFnn56j32i327P0z6HGfTfxP?=
+ =?us-ascii?Q?saPfDM78n8mvMmte2md7Xh9u5A+F6ik5fRNYYqyZl4JpTujWee/tt4zyFfR9?=
+ =?us-ascii?Q?ofDjT7vGvJ+/kRMJSUEkqgaO2BYzAmZTUlIp6txsVxkhA7qu3LLnotMIqfUb?=
+ =?us-ascii?Q?pGHe6Ii8SQYOh+H1KboREQURNQUqPxBa/XO0e7Kd1nDvao1IEkSeX5neUC4G?=
+ =?us-ascii?Q?JxnWO9RFn9GQXCFzhEgYN0L4AzVIf6xEQahr53pH3ad7kKaX3XKTs8Ac1V/O?=
+ =?us-ascii?Q?Znra1PolNWoy58vsTvH0PBYkTdldvdezYa20clW2N22RrQAYCRvEclc0z2jP?=
+ =?us-ascii?Q?AyhwZxZaDc+FFMZxtwl1sAktGmoCsgycouX1HqkAn0ffqA53Ks1XzsC49sRD?=
+ =?us-ascii?Q?o2NmrHJ3UYaV50VHaPXoT9ko/YWzM6k55ohbuzYP+UKYLCjWa0KZ4hbZ9GuE?=
+ =?us-ascii?Q?F3zufBB7vnIWxGBbPzLoV+5blrp0MLHslcl9UMA2X1BCI1xXQN6ymOgq68yP?=
+ =?us-ascii?Q?FFNWk0WwguE5QLoiYp1HJsNlFHD1UJ4yUqUhZ/uip0mkPKljzjz/qjtIUnAo?=
+ =?us-ascii?Q?B5ZqGTxb5AH6HqiXT5A=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eb2b05c1-8cce-495f-635e-08dd50403f3a
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 17:18:22.7020
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ozsg+yGT8toa07QtimqYv5Ux2p1HBec7G2E5JYWtANYfmTOcAHKE4Eouozg/iKCc
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8266
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_091538_878542_7A944804 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20250218_091827_710061_DE5E4A93 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,173 +166,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similarly to what was done with the memcpy() routines, make
-copy_to_user(), copy_from_user() and clear_user() also use the Armv8.8
-FEAT_MOPS instructions.
+On Fri, Jan 24, 2025 at 04:30:42PM -0800, Nicolin Chen wrote:
 
-Both MOPS implementation options (A and B) are supported, including
-asymmetric systems. The exception fixup code fixes up the registers
-according to the option used.
+> @@ -1831,31 +1831,30 @@ static int arm_smmu_handle_event(struct arm_smmu_device *smmu,
+>  		return -EOPNOTSUPP;
+>  	}
 
-In case of a fault the routines return precisely how much was not copied
-(as required by the comment in include/linux/uaccess.h), as unprivileged
-versions of CPY/SET are guaranteed not to have written past the
-addresses reported in the GPRs.
+There is still the filter at the top:
 
-The MOPS instructions could possibly be inlined into callers (and
-patched to branch to the generic implementation if not detected;
-similarly to what x86 does), but as a first step this patch just uses
-them in the out-of-line routines.
+	switch (event->id) {
+	case EVT_ID_TRANSLATION_FAULT:
+	case EVT_ID_ADDR_SIZE_FAULT:
+	case EVT_ID_ACCESS_FAULT:
+	case EVT_ID_PERMISSION_FAULT:
+		break;
+	default:
+		return -EOPNOTSUPP;
+	}
 
-Signed-off-by: Kristina Martšenko <kristina.martsenko@arm.com>
----
- arch/arm64/include/asm/asm-uaccess.h |  4 ++++
- arch/arm64/lib/clear_user.S          | 25 +++++++++++++++++++++----
- arch/arm64/lib/copy_from_user.S      | 10 ++++++++++
- arch/arm64/lib/copy_template.S       | 10 ++++++++++
- arch/arm64/lib/copy_to_user.S        | 10 ++++++++++
- 5 files changed, 55 insertions(+), 4 deletions(-)
+Is that right here or should more event types be forwarded to the
+guest?
+  
+>  	mutex_lock(&smmu->streams_mutex);
+[..]
+  
+> -	ret = iommu_report_device_fault(master->dev, &fault_evt);
+> +	if (event->stall) {
+> +		ret = iommu_report_device_fault(master->dev, &fault_evt);
+> +	} else {
+> +		down_read(&master->vmaster_rwsem);
 
-diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/include/asm/asm-uaccess.h
-index 5b6efe8abeeb..9148f5a31968 100644
---- a/arch/arm64/include/asm/asm-uaccess.h
-+++ b/arch/arm64/include/asm/asm-uaccess.h
-@@ -61,6 +61,10 @@ alternative_else_nop_endif
- 9999:	x;					\
- 	_asm_extable_uaccess	9999b, l
- 
-+#define USER_CPY(l, uaccess_is_write, x...)	\
-+9999:	x;					\
-+	_asm_extable_uaccess_cpy 9999b, l, uaccess_is_write
-+
- /*
-  * Generate the assembly for LDTR/STTR with exception table entries.
-  * This is complicated as there is no post-increment or pair versions of the
-diff --git a/arch/arm64/lib/clear_user.S b/arch/arm64/lib/clear_user.S
-index a5a5f5b97b17..de9a303b6ad0 100644
---- a/arch/arm64/lib/clear_user.S
-+++ b/arch/arm64/lib/clear_user.S
-@@ -17,14 +17,27 @@
-  * Alignment fixed up by hardware.
-  */
- 
--	.p2align 4
--	// Alignment is for the loop, but since the prologue (including BTI)
--	// is also 16 bytes we can keep any padding outside the function
- SYM_FUNC_START(__arch_clear_user)
- 	add	x2, x0, x1
-+
-+#ifdef CONFIG_AS_HAS_MOPS
-+	.arch_extension mops
-+alternative_if_not ARM64_HAS_MOPS
-+	b	.Lno_mops
-+alternative_else_nop_endif
-+
-+USER(9f, setpt	[x0]!, x1!, xzr)
-+USER(6f, setmt	[x0]!, x1!, xzr)
-+USER(6f, setet	[x0]!, x1!, xzr)
-+	mov	x0, #0
-+	ret
-+.Lno_mops:
-+#endif
-+
- 	subs	x1, x1, #8
- 	b.mi	2f
--1:
-+
-+1:	.p2align 4
- USER(9f, sttr	xzr, [x0])
- 	add	x0, x0, #8
- 	subs	x1, x1, #8
-@@ -47,6 +60,10 @@ USER(7f, sttrb	wzr, [x2, #-1])
- 	ret
- 
- 	// Exception fixups
-+6:	b.cs	9f
-+	// Registers are in Option A format
-+	add	x0, x0, x1
-+	b	9f
- 7:	sub	x0, x2, #5	// Adjust for faulting on the final byte...
- 8:	add	x0, x0, #4	// ...or the second word of the 4-7 byte case
- 9:	sub	x0, x2, x0
-diff --git a/arch/arm64/lib/copy_from_user.S b/arch/arm64/lib/copy_from_user.S
-index 34e317907524..400057d607ec 100644
---- a/arch/arm64/lib/copy_from_user.S
-+++ b/arch/arm64/lib/copy_from_user.S
-@@ -52,6 +52,13 @@
- 	stp \reg1, \reg2, [\ptr], \val
- 	.endm
- 
-+	.macro cpy1 dst, src, count
-+	.arch_extension mops
-+	USER_CPY(9997f, 0, cpyfprt [\dst]!, [\src]!, \count!)
-+	USER_CPY(9996f, 0, cpyfmrt [\dst]!, [\src]!, \count!)
-+	USER_CPY(9996f, 0, cpyfert [\dst]!, [\src]!, \count!)
-+	.endm
-+
- end	.req	x5
- srcin	.req	x15
- SYM_FUNC_START(__arch_copy_from_user)
-@@ -62,6 +69,9 @@ SYM_FUNC_START(__arch_copy_from_user)
- 	ret
- 
- 	// Exception fixups
-+9996:	b.cs	9997f
-+	// Registers are in Option A format
-+	add	dst, dst, count
- 9997:	cmp	dst, dstin
- 	b.ne	9998f
- 	// Before being absolutely sure we couldn't copy anything, try harder
-diff --git a/arch/arm64/lib/copy_template.S b/arch/arm64/lib/copy_template.S
-index 488df234c49a..7f2f5a0e2fb9 100644
---- a/arch/arm64/lib/copy_template.S
-+++ b/arch/arm64/lib/copy_template.S
-@@ -40,6 +40,16 @@ D_l	.req	x13
- D_h	.req	x14
- 
- 	mov	dst, dstin
-+
-+#ifdef CONFIG_AS_HAS_MOPS
-+alternative_if_not ARM64_HAS_MOPS
-+	b	.Lno_mops
-+alternative_else_nop_endif
-+	cpy1	dst, src, count
-+	b	.Lexitfunc
-+.Lno_mops:
-+#endif
-+
- 	cmp	count, #16
- 	/*When memory length is less than 16, the accessed are not aligned.*/
- 	b.lo	.Ltiny15
-diff --git a/arch/arm64/lib/copy_to_user.S b/arch/arm64/lib/copy_to_user.S
-index 802231772608..819f2e3fc7a9 100644
---- a/arch/arm64/lib/copy_to_user.S
-+++ b/arch/arm64/lib/copy_to_user.S
-@@ -51,6 +51,13 @@
- 	user_stp 9997f, \reg1, \reg2, \ptr, \val
- 	.endm
- 
-+	.macro cpy1 dst, src, count
-+	.arch_extension mops
-+	USER_CPY(9997f, 1, cpyfpwt [\dst]!, [\src]!, \count!)
-+	USER_CPY(9996f, 1, cpyfmwt [\dst]!, [\src]!, \count!)
-+	USER_CPY(9996f, 1, cpyfewt [\dst]!, [\src]!, \count!)
-+	.endm
-+
- end	.req	x5
- srcin	.req	x15
- SYM_FUNC_START(__arch_copy_to_user)
-@@ -61,6 +68,9 @@ SYM_FUNC_START(__arch_copy_to_user)
- 	ret
- 
- 	// Exception fixups
-+9996:	b.cs	9997f
-+	// Registers are in Option A format
-+	add	dst, dst, count
- 9997:	cmp	dst, dstin
- 	b.ne	9998f
- 	// Before being absolutely sure we couldn't copy anything, try harder
--- 
-2.34.1
+This already holds the streams_mutex across all of this, do you think
+we should get rid of the vmaster_rwsem and hold the streams_mutex on
+write instead?
 
+Jason
 
