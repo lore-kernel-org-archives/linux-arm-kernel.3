@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA0ACC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 07:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 959DFC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 07:48:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ih7+S6OX1+3ysGGW9bo0u7aYEgsiHXKM+9Ts2132f4I=; b=NyTHCAX3NdqbYLfdQDkiRkJ7sH
-	e2dn+fNm0sX2MrzYw4KnGYF3jhwvOvJ//Cpx6TPgHUa8U3aclUD8q5tmIOz15BZUuCLEqONzkyRJR
-	z7p+57pwUbHJgvmoS1AK1GWNX2pkrq7bXItScp5SNRrpzlrZycwDh86yFH08u5J3+X1Z2v9/MpqP8
-	pt7UHwqJQAwgpLZ2x+2fFn7dfuHNUSoziW1hkqS472jVeLzHr7GHroD0vaN4Tb0p9K5owmemPq/BM
-	bhuZ2skNEbtkwxQ8+tdDjuDRUEMnbyTDp9uMPaaKCFhYTv9qYLgMdQaAE6GrpE3XmKHFRaHel+vuK
-	HrlsO+Zw==;
+	bh=LY21b1IltK87VhJWIfI/Rny36lwpwc/fE+AUTcuVaG4=; b=CU6OfPYesJWd88tn6nj6CZH8v/
+	lGS5nwjOaSI582s1RfeNOptyKPgdFMhOoVLbWT3rRYSLhiyeuWZXwC5HIa4qcfBH9oPO0XkW2oMey
+	cOyab4vV7aVdVFOxSIJH967oCczXvCrmjc5KkujM/5hJJV5XuVpah1RB1H5CSU93tT0E68azoK8cG
+	U9CgkDm83dpIl/tNVNpgSWH3tkE5CFmKMyiav8qtUAj1G6Wl/nsTYztAzgI+5CR5/fIl4Wl4Mjo6K
+	h0ha6LyWzEws3FS0rYixHsgymEUR/0r8IhGjSuDmkOTd9Ca5Cf7WmRm8tzhF+90cfbFP22fKyPyHO
+	A+wV0Y+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkIJk-000000077Xq-2Ric;
-	Tue, 18 Feb 2025 07:46:56 +0000
+	id 1tkILC-000000077px-0sgL;
+	Tue, 18 Feb 2025 07:48:26 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkIFf-000000076WL-3Nvv
+	id 1tkIFf-000000076WG-3NoC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 07:42:46 +0000
+	Tue, 18 Feb 2025 07:42:47 +0000
 Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:52604 helo=and-HP-Z4..)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <andrej.picej@norik.com>)
-	id 1tkIFd-00G0MD-0b;
+	id 1tkIFd-00G0MD-04;
 	Tue, 18 Feb 2025 08:42:40 +0100
 From: Andrej Picej <andrej.picej@norik.com>
 To: shawnguo@kernel.org,
@@ -46,9 +46,9 @@ Cc: imx@lists.linux.dev,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v3 03/15] arm64: dts: imx8mm-phycore-som: Remove magic-packet property
-Date: Tue, 18 Feb 2025 08:41:44 +0100
-Message-Id: <20250218074156.807214-4-andrej.picej@norik.com>
+Subject: [PATCH v3 01/15] arm64: dts: imx8mm-phycore-som: Keep LDO3 on in suspend
+Date: Tue, 18 Feb 2025 08:41:42 +0100
+Message-Id: <20250218074156.807214-2-andrej.picej@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250218074156.807214-1-andrej.picej@norik.com>
 References: <20250218074156.807214-1-andrej.picej@norik.com>
@@ -65,8 +65,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_234244_008582_66C0CD7E 
-X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-CacheID: sfid-20250217_234244_020979_26480017 
+X-CRM114-Status: UNSURE (   7.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,9 +84,11 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Teresa Remmet <t.remmet@phytec.de>
 
-Remove device tree property "fsl,magic-packet" as WoL is not working
-on the SoM and so not required. This also saves a significant amount of
-power during suspend as the ethernet phy is not powered down otherwise.
+LDO3 is also used as switch for enabling VDD_3V3_S and need to
+be kept on during suspend. Disabling this can lead to an unwanted
+reset during resume.
+
+Set LDO3 to 2,5V as the voltage should be fix.
 
 Signed-off-by: Teresa Remmet <t.remmet@phytec.de>
 Signed-off-by: Andrej Picej <andrej.picej@norik.com>
@@ -94,21 +96,29 @@ Signed-off-by: Andrej Picej <andrej.picej@norik.com>
 Changes in v3:
 - no change
 ---
- arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi | 1 -
- 1 file changed, 1 deletion(-)
+ arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
-index 7761acc5c510..8de5a46512b0 100644
+index 6069678244f3..7761acc5c510 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
-@@ -69,7 +69,6 @@ opp-750000000 {
+@@ -161,11 +161,13 @@ reg_vcc_enet: ldo3 {
+ 				regulator-always-on;
+ 				regulator-boot-on;
+ 				regulator-max-microvolt = <2500000>;
+-				regulator-min-microvolt = <1500000>;
++				regulator-min-microvolt = <2500000>;
+ 				regulator-name = "VCC_ENET_2V5 (LDO3)";
  
- /* Ethernet */
- &fec1 {
--	fsl,magic-packet;
- 	phy-mode = "rgmii-id";
- 	phy-handle = <&ethphy0>;
- 	pinctrl-names = "default";
+ 				regulator-state-mem {
+-					regulator-off-in-suspend;
++					regulator-on-in-suspend;
++					regulator-suspend-max-microvolt = <2500000>;
++					regulator-suspend-min-microvolt = <2500000>;
+ 				};
+ 			};
+ 
 -- 
 2.34.1
 
