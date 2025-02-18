@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F44C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 10:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7DE6C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 10:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q1RdT5eL57c25wsLGjqwv0tswd3r+m/iGHKhWU5vNkU=; b=XBiMZCeECQSRN56FwuCLDNW9tF
-	knfx7TnHWE1tFJ62HMuLSR70Uf7VNpPnZWAH2qvckYokySx/o31dDXla11Vwe5MNlkb6vInJpHgfp
-	8jyOEVXXzc6YT4UZrFYYgWPiuCOR9QJ/hPf5E76p9xYVY+Q1PFrZp7kgYp3j3fS7Dqq7poH/v10Y9
-	lyPKNKaR6TAMxRObyt6uKCvn0hULtPjANf8iBxPoxZF1s1NjXAzUpdjPj502J6NKvnNlOU4hQluFv
-	7l/au5PVjv3nID2SGeqFJSLyMUHWM34Ym6i4UPt4I2NEKgCdI9elvIadRXXYIwGr8MdxGXQhyA8Wz
-	X16CTNEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=onm1rS1mxSV1bJWjghMpBfWA93PUl1xrcbo/qJEavTA=; b=3Q84rVGCKbphRJlZWWzyVBHd4v
+	QQDFomMjAfqr8RM9r7YWuMrdC3mysTiol0M813bbvilqse1sdlJHCxzbEN8cTe6oZznt1i2u0o4ps
+	XkMAy8FguSLCUWNBP/8uo1PWB2qeB/rXAMnvxoXD2nNz6AoMiuFBw80sB+OGtikfOFKVRy1E1XaXw
+	bl8qtUfYik0lGxfGNa61+Wt0ZvkoqR7dlkmpicdfNqRK7sdYAGdZA/VaRMLeVl64HJ7+vBl7oSDCk
+	e2Q/MpcTpXKjloN6JC39CMEC6VCyg0w8znv3VWdjg4wMtOzP61EZQBWcC2yyownTZEbDgnM+kUjh5
+	nJs/WkKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkKR3-00000007eRs-2Cbi;
-	Tue, 18 Feb 2025 10:02:37 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkKBO-00000007aA2-1HV7;
+	id 1tkKSU-00000007eqL-0sf5;
+	Tue, 18 Feb 2025 10:04:06 +0000
+Received: from mail-m16.yeah.net ([220.197.32.16])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkKBO-00000007aA3-1ljt
+	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Feb 2025 09:46:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1739871969; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=kEMoEGYx4odDVnsn3kMR/Xa8T58NL5/WmIxhiC1QmDbOw2kMQt/nIPfyAIekGWktvDCzSQAYuYhc5Abj436AfzGo5ngAIi5OCQ1jE670om64Fg/MjBH3P0wn0nzYUt5/m5cRmfADwsUCvAChuIJ8LczNcfwphDaeU3ImME8VvG8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1739871969; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Q1RdT5eL57c25wsLGjqwv0tswd3r+m/iGHKhWU5vNkU=; 
-	b=hLzq0fvMYDz4a5xxxexNYBS03rTRyJMvfImGjFHcBZXArSaI4gII1ayNbBOTGf9CaecoStJL/xfhCv2E69KTZGQtfvXuzjrABQJ5DT0E0ywS30UNAKqgSC9priy2c0ORkMYZGg0hpVISv8ZnwJ8TMHDFGsYFWAKuCRsFR/cih4o=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1739871969;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=Q1RdT5eL57c25wsLGjqwv0tswd3r+m/iGHKhWU5vNkU=;
-	b=g1utORNBtkSzGH4AGRNSLNihyapmNrQnpoMzHP+cBeRE9eEU2ZqtKp7oQcMfGo+Z
-	TrnTvx/ncakBtybvu8lPzOEs+C+Shxev/I0KWei9noHHV1ypPzapSK4ZLfPqC4uFpGI
-	+MAtfsBQlcrdwxeylDkOd7Jtj9TnrOERFBINv/+E=
-Received: by mx.zohomail.com with SMTPS id 1739871967704282.7054777678519;
-	Tue, 18 Feb 2025 01:46:07 -0800 (PST)
-Message-ID: <4a04b12c-8765-47bb-af61-c6b47133f2af@collabora.com>
-Date: Tue, 18 Feb 2025 10:46:02 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=onm1rS1mxSV1bJWjghMpBfWA93PUl1xrcbo/qJEavTA=;
+	b=JRYbGWXNxNTc3fQD3n1Nod4sZvyt7wZlNtAe/m1AmszDqyjzw8m6DK6d156Y/F
+	oxdLYsPezw+v0qyX429aucWeOhcoQjlkk6JCMRarWykIkIA3lniM00lTYm6xgEHl
+	osLY2DhfEW0At1JLJOwMdP6kKdxaEHW0IYfsKdjLc2Ny0=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgBnKqjhVrRnFZhhCQ--.20238S3;
+	Tue, 18 Feb 2025 17:46:11 +0800 (CST)
+Date: Tue, 18 Feb 2025 17:46:09 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Martyn Welch <martyn.welch@collabora.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, kernel@collabora.com,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 RESEND] arm64: dts: ls1028a-rdb: Add iio-hwmon
+ compatibility table
+Message-ID: <Z7RW4WK0qYs7Vo9l@dragon>
+References: <20250109112457.553169-1-martyn.welch@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] media: verisilicon: Fix AV1 decoder clock frequency
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Hans Verkuil <hverkuil@xs4all.nl>
-Cc: linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- kernel@collabora.com, stable@vger.kernel.org
-References: <20250217-b4-hantro-av1-clock-rate-v2-1-e179fad52641@collabora.com>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <20250217-b4-hantro-av1-clock-rate-v2-1-e179fad52641@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250109112457.553169-1-martyn.welch@collabora.com>
+X-CM-TRANSID: Ms8vCgBnKqjhVrRnFZhhCQ--.20238S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUsco2UUUUU
+X-Originating-IP: [114.218.218.231]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEQ33ZWe0S+AuKwAAsz
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_014626_436229_8E611098 
-X-CRM114-Status: GOOD (  22.04  )
+X-CRM114-CacheID: sfid-20250218_014626_778481_A48D851F 
+X-CRM114-Status: UNSURE (   7.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,72 +75,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Jan 09, 2025 at 11:24:57AM +0000, Martyn Welch wrote:
+> Add an iio-hwmon map to utilise the iio framework and access power
+> information via the hwmon framework at the same time.
+> 
+> Signed-off-by: Martyn Welch <martyn.welch@collabora.com>
 
-Le 17/02/2025 à 22:46, Nicolas Dufresne a écrit :
-> The desired clock frequency was correctly set to 400MHz in the device tree
-> but was lowered by the driver to 300MHz breaking 4K 60Hz content playback.
-> Fix the issue by removing the driver call to clk_set_rate(), which reduce
-> the amount of board specific code.
->
-> Fixes: 003afda97c65 ("media: verisilicon: Enable AV1 decoder on rk3588")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+I do not quite understand "compatibility table" in the subject.  Could
+you elaborate a bit?
 
-Reviewed-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Shawn
 
-> ---
-> This patch fixes user report of AV1 4K60 decoder not being fast enough
-> on RK3588 based SoC. This is a break from Hantro original authors
-> habbit of coding the frequencies in the driver instead of specifying this
-> frequency in the device tree. The other calls to clk_set_rate() are left
-> since this would require modifying many dtsi files, which would then be
-> unsuitable for backport.
-> ---
-> Changes in v2:
-> - Completely remove the unused init function, the driver is null-safe
-> - Link to v1: https://lore.kernel.org/r/20250217-b4-hantro-av1-clock-rate-v1-1-65b91132c551@collabora.com
-> ---
->   drivers/media/platform/verisilicon/rockchip_vpu_hw.c | 9 ---------
->   1 file changed, 9 deletions(-)
->
-> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-> index 964122e7c355934cd80eb442219f6ba51bba8b71..842040f713c15e6ff295771bc9fa5a7b66e584b2 100644
-> --- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-> +++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-> @@ -17,7 +17,6 @@
->   
->   #define RK3066_ACLK_MAX_FREQ (300 * 1000 * 1000)
->   #define RK3288_ACLK_MAX_FREQ (400 * 1000 * 1000)
-> -#define RK3588_ACLK_MAX_FREQ (300 * 1000 * 1000)
->   
->   #define ROCKCHIP_VPU981_MIN_SIZE 64
->   
-> @@ -440,13 +439,6 @@ static int rk3066_vpu_hw_init(struct hantro_dev *vpu)
->   	return 0;
->   }
->   
-> -static int rk3588_vpu981_hw_init(struct hantro_dev *vpu)
-> -{
-> -	/* Bump ACLKs to max. possible freq. to improve performance. */
-> -	clk_set_rate(vpu->clocks[0].clk, RK3588_ACLK_MAX_FREQ);
-> -	return 0;
-> -}
-> -
->   static int rockchip_vpu_hw_init(struct hantro_dev *vpu)
->   {
->   	/* Bump ACLK to max. possible freq. to improve performance. */
-> @@ -807,7 +799,6 @@ const struct hantro_variant rk3588_vpu981_variant = {
->   	.codec_ops = rk3588_vpu981_codec_ops,
->   	.irqs = rk3588_vpu981_irqs,
->   	.num_irqs = ARRAY_SIZE(rk3588_vpu981_irqs),
-> -	.init = rk3588_vpu981_hw_init,
->   	.clk_names = rk3588_vpu981_vpu_clk_names,
->   	.num_clocks = ARRAY_SIZE(rk3588_vpu981_vpu_clk_names)
->   };
->
-> ---
-> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-> change-id: 20250217-b4-hantro-av1-clock-rate-e5497f1499df
->
-> Best regards,
 
