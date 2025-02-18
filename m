@@ -4,92 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DF6C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80570C021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hs/qnoFpXT5mzrFh3FYSbmqblVEDjKUtya7k9IFqpzY=; b=hSS4oBA2RzdXo5Kum372Vgn5wy
-	+Zu0QEFMpc1aeBcbrywR+hAlQFOg4XjNMIFkhOedJKTg6+ohasJRhNHqe9j5f7SYuth1SWDHmskcu
-	vukG5J6DtlcnWG7OUS3SizRYwV83VxwWiX65Fg0UqXroXxH7xjHeqrLq4SlikUx0MCqPusl92WMMX
-	NvQimkK3FM94Umq5iu1RDG/3re1r5/w3HhjSeBindjpiC0iVOhAzL6LKpvl9n8XYkxy1F0pWG/kTJ
-	JkLDCFUwoL3YGI/ggf1i461KuweSu/33M8fZC6/oHzEoclxm1D5Kd8coDvRwixabwwoBAEs99DDfp
-	tPquxKdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fe9G2MZAHcd6fZNYH50IhEjcWk7Zck1M5VKNFAJhbe0=; b=jUjZZ5LqoMMk44bayXG9ogWMEE
+	bHyeNbr7s10gcsyxzOZZOr/DmFa/p5MTJfzk4mQ8cNV/4pRgM1iSPIVIEtp2Xs056tnhkSN3d0W4u
+	dV15gwQQawTFi+nFej4NZe3GODjcNuc43Smw2Sv2A0h8zABUKnSwD2nzyLYN4QTr+tbDsZ4bm75ZR
+	5NZ3Z310yzJ+oYxdVZT3L02OlNiLE463zSPo8289UF/cjjSlXsThEkFdAicSpRx0zLKtgJELW7F/8
+	mNq7ARPmGxvTpQjm2QiRzCbE77k5NNxGawJtVNBWubm79Bn510n5UAML1qihjuUXUe6Ptxs4MFP2B
+	dxC5lfZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTnJ-00000009gO1-3BGb;
-	Tue, 18 Feb 2025 20:02:13 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1tkTol-00000009gdK-1h6e;
+	Tue, 18 Feb 2025 20:03:43 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSvs-00000009VAC-2yhV
+	id 1tkSxJ-00000009VSw-0XQR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 19:07:01 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-38f325dd90eso2454871f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 11:07:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739905619; x=1740510419; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Hs/qnoFpXT5mzrFh3FYSbmqblVEDjKUtya7k9IFqpzY=;
-        b=LQBUn+fvFST1S+hgeQ1iEXJ3pKtlO65z7X+SVRVGJVmXM7q2g4YL4mu9uN4QccI9vX
-         MeaPLsa02JAu6Ulfk/7y73AQuUlzu+xIBkITwVMlIJ9+r4RHaALLkaqPTsBay4wfPXjM
-         slsUpsKUbiZb5acSTaX81on9/82aAs263KCQlQxA1uQwLdZVMc/D9Zdvd0sj1vSF0uNb
-         BU8xMYaovoMojLEOLE9oYXySm6ObORryy5S2DrobH2+D910/EOSbOO0pTmytykBuxpTq
-         41KhesuZBDqHAHr+GYBWWMKiIGZhAmXTdwPLYM9zhdXF0DT8rJ+rPVQqjsr3lQnFYuU9
-         KOMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739905619; x=1740510419;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Hs/qnoFpXT5mzrFh3FYSbmqblVEDjKUtya7k9IFqpzY=;
-        b=YIZnAe+zhHYSC1H9QR8VEI4i5iq2rtpG102WYt2hpA5B1suVlqTUuSA7+T+AsKxISa
-         Sram0BZbNlt1jsur+jCGvJCjuvin8vYfdzNKe6ZEuLT5zrtyx3sFyRS7/lOQ30sRRxY7
-         LuWypUXk7Zup2nTHpY2CembFwaF5m6zYypxi7g7RKj8CTdBv7R45Ftx6pxrdlpyVDG4K
-         QbHF1MbOEZtcQvdG0ldGZjXmvwtXGdmg5m67+JkNbRCrS5gFe434X6rPyRw4b4XpJSk+
-         cKuoR9OyaVRxmK+u2YczEZBKyRsQgtxkuYMaVNERNlpKfEeAdWq1bG+IBhnbf2OTg1YJ
-         Xf/A==
-X-Forwarded-Encrypted: i=1; AJvYcCWWz2N6Hv5IuZa8T8vs30apy7LN3b9JBZ8HvsqgyjVk1X1y1i/WOV5nPJxv5n5UcBIn/9nbbtWmSoblE83FOQeA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5ywXYUgvzoRNiefmNz22z2VYdvL5O/My11h33GNJBqGlL8i1M
-	uDS28fzAkfRs/ufqnQAXM3Uk7IR7Wq9MQmObDbZSS/7TvMwYL6dU
-X-Gm-Gg: ASbGncsUd+/WiuINHARGh7IGlPFlqsHJ89V6Ma5ilKTlU9fcAHVrjgBm2lHurGwkG91
-	3j7QI0AyXPnpEnE/V98F6AO3KuZp4hr7ggiKHOWUjo6tfyGGHd6Bs6pjZoVotLMvTVlOa44rgtN
-	/UmEjV/t2uYaMtK1b0R4tFUbiN/4PsSW+/iFiQu0THKqOus7huGL4Ph1oRnNdfuilWK+7+W9Wiy
-	RA7OPTbWsSGE2c0WFUr6kOUNHgz/aFlXIt4ViSU3/pYGgJcO/v1Q3/vzgL6cNEaY5TBDw6Y+m4Q
-	qfQdBfSjlLGIGha2KnQR4GUYgbnVWuvIG9BFGL9dKLEWU4Ljl9sgOSCq1yTwV5PnRIw=
-X-Google-Smtp-Source: AGHT+IE4Ztj3fqoFCu3fT1sr18ZtU3QldzSJQ2PYy4jRgkP/zHxGfnGiNxC0aElqmtmZKg2tXOMIXA==
-X-Received: by 2002:a5d:6481:0:b0:38f:31fe:6d23 with SMTP id ffacd0b85a97d-38f33f2e91cmr13677516f8f.23.1739905619006;
-        Tue, 18 Feb 2025 11:06:59 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43991c84fa4sm36268225e9.39.2025.02.18.11.06.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 11:06:58 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
- Andre Przywara <andre.przywara@arm.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 06/15] clk: sunxi-ng: a523: Add support for bus clocks
-Date: Tue, 18 Feb 2025 20:06:56 +0100
-Message-ID: <10610758.nUPlyArG6x@jernej-laptop>
-In-Reply-To: <20250214125359.5204-7-andre.przywara@arm.com>
-References: <20250214125359.5204-1-andre.przywara@arm.com>
- <20250214125359.5204-7-andre.przywara@arm.com>
+	Tue, 18 Feb 2025 19:08:30 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51IJ83hA062175
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 18 Feb 2025 13:08:04 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1739905684;
+	bh=fe9G2MZAHcd6fZNYH50IhEjcWk7Zck1M5VKNFAJhbe0=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=IsA/eJ/gKw7Ot15bGtKazVgprX8P7jUClfkkzImaYlfEicqHFZAPZTk5nJDuIFKhf
+	 YeuIiZ9igzbgiz/V+aKBO7ZxolJxTUlQ1XLvCYxYUZllHjMuwVsKHGps2FpjY1ylKW
+	 /XOjMn1L2V0eKD8pAa1xTFoh3hbXc9IHWkoQHb4k=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51IJ83oA010965
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 18 Feb 2025 13:08:03 -0600
+Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 18
+ Feb 2025 13:08:02 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 18 Feb 2025 13:08:02 -0600
+Received: from [10.24.69.142] ([10.24.69.142])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IJ7o1V046671;
+	Tue, 18 Feb 2025 13:07:50 -0600
+Message-ID: <bbf4f6db-cac1-4558-b345-8b4d6b36a8fa@ti.com>
+Date: Wed, 19 Feb 2025 00:37:49 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: dts: ti: k3-am62a7-sk: Add overlay for fusion
+ 2 board
+To: Sebastian LaVine <slavine@d3embedded.com>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <linux-media@vger.kernel.org>
+CC: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+        Abel Vesa <abel.vesa@linaro.org>,
+        AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+        Ard Biesheuvel <ardb@kernel.org>,
+        Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+        Biju Das
+	<biju.das.jz@bp.renesas.com>,
+        Bjorn Andersson <quic_bjorande@quicinc.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+        Elinor
+ Montmasson <elinor.montmasson@savoirfairelinux.com>,
+        Fabio Estevam
+	<festevam@gmail.com>,
+        Geert Uytterhoeven <geert+renesas@glider.be>,
+        Hans
+ Verkuil <hverkuil@xs4all.nl>,
+        Javier Carrasco
+	<javier.carrasco@wolfvision.net>,
+        Jianzhong Xu <xuj@ti.com>,
+        Julien Massot
+	<julien.massot@collabora.com>,
+        Kieran Bingham
+	<kieran.bingham@ideasonboard.com>,
+        Kory Maincent <kory.maincent@bootlin.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+        Laurent Pinchart
+	<laurent.pinchart@ideasonboard.com>,
+        Mauro Carvalho Chehab
+	<mchehab@kernel.org>,
+        Mikhail Rudenko <mike.rudenko@gmail.com>, Nishanth
+ Menon <nm@ti.com>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Rob
+ Herring <robh@kernel.org>,
+        Sakari Ailus <sakari.ailus@linux.intel.com>,
+        Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
+        Stuart Burtner <sburtner@d3embedded.com>,
+        Tero Kristo <kristo@kernel.org>, Thakkar Devarsh <devarsht@ti.com>,
+        Tomi Valkeinen
+	<tomi.valkeinen@ideasonboard.com>,
+        Umang Jain <umang.jain@ideasonboard.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>, Will Deacon <will@kernel.org>,
+        Zhi Mao
+	<zhi.mao@mediatek.com>
+References: <20250212195656.69528-1-slavine@d3embedded.com>
+ <20250212195656.69528-4-slavine@d3embedded.com>
+Content-Language: en-US
+From: Vaishnav Achath <vaishnav.a@ti.com>
+In-Reply-To: <20250212195656.69528-4-slavine@d3embedded.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_110700_749471_6044FE68 
-X-CRM114-Status: UNSURE (   8.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250218_110829_264194_16447475 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,19 +135,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 14. februar 2025 ob 13:53:50 Srednjeevropski standardni =C4=8Das=
- je Andre Przywara napisal(a):
-> Add the basic bus clocks for the Allwinner A523 and T527 SoCs.
-> This covers the AHB, APB0 and APB1 clocks. Linux is not supposed to
-> change those clocks, but they are needed as parents for many other mod
-> clocks.
->=20
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Hi Sebastian,
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+On 13/02/25 01:26, Sebastian LaVine wrote:
+> Adds an overlay for the Fusion 2 (FPD-Link IV) board on SK-AM62A.
+> 
 
-Best regards,
-Jernej
+Were you able to test and get this working without additional patches on 
+linux-next?
 
+The multi-steam support for J721E-CSI2RX and CDNS-CSI2RX drivers are 
+still WIP [1] and as per my understanding you will need those to get 
+this overlay functional.
 
+1 - 
+https://lore.kernel.org/all/20240627-multistream-v2-0-6ae96c54c1c3@ti.com/
+
+Thanks and Regards,
+Vaishnav
+
+> Signed-off-by: Sebastian LaVine <slavine@d3embedded.com>
+> Mentored-by: Stuart Burtner <sburtner@d3embedded.com>
+> ---
+>   MAINTAINERS                                   |   1 +
+>   arch/arm64/boot/dts/ti/Makefile               |   1 +
+>   .../boot/dts/ti/k3-am62a7-sk-fusion-2.dtso    | 115 ++++++++++++++++++
+>   3 files changed, 117 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/ti/k3-am62a7-sk-fusion-2.dtso
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 27fb3c1be732..bf6a48da0887 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -21890,6 +21890,7 @@ M:      Stuart Burtner <sburtner@d3embedded.com>
+>   L:     linux-media@vger.kernel.org
+>   S:     Odd Fixes
+>   F:     Documentation/devicetree/bindings/media/i2c/sony,imx728.yaml
+> +F:     arch/arm64/boot/dts/ti/k3-am62a7-sk-fusion-2.dtso
+>   F:     drivers/media/i2c/imx728.c
+> 
+>   SONY MEMORYSTICK SUBSYSTEM
+> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+> index f71360f14f23..fcd8d11e5678 100644
+> --- a/arch/arm64/boot/dts/ti/Makefile
+> +++ b/arch/arm64/boot/dts/ti/Makefile
+> @@ -31,6 +31,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk-nand.dtbo
+>   # Boards with AM62Ax SoC
+>   dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk.dtb
+>   dtb-$(CONFIG_ARCH_K3) += k3-am62a7-phyboard-lyra-rdk.dtb
+> +dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk-fusion-2.dtbo
+> 
+>   # Boards with AM62Px SoC
+>   dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk-fusion-2.dtso b/arch/arm64/boot/dts/ti/k3-am62a7-sk-fusion-2.dtso
+> new file mode 100644
+> index 000000000000..68e06d643bfd
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk-fusion-2.dtso
+> @@ -0,0 +1,115 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * DT Overlay for Fusion 2 (FPD-Link IV) board on SK-AM62A
+> + * https://www.ti.com/tool/J7EXPAXEVM/
+> + *
+> + * Copyright (C) 2024 D3 Embedded - https://www.d3embedded.com
+> + */
+> +
+> + /dts-v1/;
+> + /plugin/;
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +
+> +&{/} {
+> +       clk_fusion2_25M_fixed: fixed-clock-25M {
+> +               compatible = "fixed-clock";
+> +               #clock-cells = <0>;
+> +               clock-frequency = <25000000>;
+> +       };
+> +};
+> +
+> +&exp2 {
+> +       p9-hog {
+> +               /* P9 - CSI_RSTz */
+> +               gpio-hog;
+> +               gpios = <9 GPIO_ACTIVE_HIGH>;
+> +               output-high;
+> +               line-name = "CSI_RSTz";
+> +       };
+> +
+> +       p19-hog {
+> +               /* P19 -CSI_SEL2 */
+> +               gpio-hog;
+> +               gpios = <19 GPIO_ACTIVE_HIGH>;
+> +               output-low;
+> +               line-name = "CSI_SEL2";
+> +       };
+> +};
+> +
+> +&main_i2c2 {
+> +       #address-cells = <1>;
+> +       #size-cells = <0>;
+> +       status = "okay";
+> +
+> +       i2c-switch@71 {
+> +               compatible = "nxp,pca9543";
+> +               #address-cells = <1>;
+> +               #size-cells = <0>;
+> +               reg = <0x71>;
+> +
+> +               i2c@1 {
+> +                       #address-cells = <1>;
+> +                       #size-cells = <0>;
+> +                       reg = <1>;
+> +
+> +                       deser@3d {
+> +                               compatible = "ti,ds90ub9702-q1";
+> +                               reg = <0x3d>;
+> +
+> +                               clock-names = "refclk";
+> +                               clocks = <&clk_fusion2_25M_fixed>;
+> +
+> +                               i2c-alias-pool = <0x4a 0x4b 0x4c 0x4d 0x4e 0x4f>;
+> +
+> +                               ds90ub9702_0_ports: ports {
+> +                                       #address-cells = <1>;
+> +                                       #size-cells = <0>;
+> +
+> +                                       /* CSI-2 TX */
+> +                                       port@4 {
+> +                                               reg = <4>;
+> +                                               ds90ub9702_0_csi_out: endpoint {
+> +                                                       data-lanes = <1 2 3 4>;
+> +                                                       clock-lanes = <0>;
+> +                                                       link-frequencies = /bits/ 64 <800000000>;
+> +                                                       remote-endpoint = <&csi2_phy0>;
+> +                                               };
+> +                                       };
+> +                               };
+> +
+> +                               ds90ub9702_0_links: links {
+> +                                       #address-cells = <1>;
+> +                                       #size-cells = <0>;
+> +                               };
+> +                       };
+> +               };
+> +       };
+> +};
+> +
+> +&cdns_csi2rx0 {
+> +       ports {
+> +               #address-cells = <1>;
+> +               #size-cells = <0>;
+> +
+> +               csi0_port0: port@0 {
+> +                       reg = <0>;
+> +                       status = "okay";
+> +
+> +                       csi2_phy0: endpoint {
+> +                               remote-endpoint = <&ds90ub9702_0_csi_out>;
+> +                               data-lanes = <1 2 3 4>;
+> +                               clock-lanes = <0>;
+> +                               link-frequencies = /bits/ 64 <800000000>;
+> +                       };
+> +               };
+> +       };
+> +};
+> +
+> +&ti_csi2rx0 {
+> +       status = "okay";
+> +};
+> +
+> +&dphy0 {
+> +       status = "okay";
+> +};
+> --
+> 2.34.1
+> 
+> Please be aware that this email includes email addresses outside of the organization.
 
