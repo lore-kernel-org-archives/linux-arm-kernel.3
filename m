@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A276C021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 17 Feb 2025 23:49:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E992AC021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 00:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8KzBySVtwo2IDazHBvVh86VLnyiAyEXlsWF5joqIm4=; b=yquhJiYsIi9yXHovcJEyUowQrG
-	K3Lx9fl5vfhnc0EBkqzbbByGUBCTPDSSr+4LdB3g+YgUNpBz07RJeMxQLdYITUyW90IoeyUOMlgTt
-	23KbkL7FcLDZGWutX5WIQv3SBP7bLNIe6jSdzAGFTfWDGfBb5OM/f4RDqbsEnWqFQ4sW807/gu0f+
-	oGm8BNcfABLDoILzBLHATjp5BE6qXa2hjBBkV/uPhOAb5gD0RW5uwe1SxWugLDtUWC/uFbCpY6biN
-	l1gJd+cGhr+f5PBiM3HHtAcSheUeMAbKZjK2WhgewNdBUT5rNAnFKBEBFfQ3X3AE3EW0hM9ttg4re
-	2xjtzOwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uHrCOmfykmwhsfpjLoWxVs/ONP9eg9iJQVNEHDvHi1s=; b=qVP9TB0ssm1evGzNuibE/bTC66
+	vNfN3kJz6WoBXqsWEfaYkwPGKeKDKj1QnQnqTqgEVo87+6ha574YZNfipQ/ZXyDTpU1H1vJhlit4v
+	eIyJ1URe/WpipGKwMbOuD+bcfVFjLNdQpvXbn5W8KNkKk+o9UAp649s5MJgMz6UrjLrZMfJfKvPME
+	E2HUcxecaHw+MhO+qF8Nt/ik3uWWrg40rCD1AZXv2btcdvinH3QsWs9xv1suAngqLrTrs2hfX4IDc
+	9rjsxg0h65KdnGLvG2zLKYylA7tulKG0BUHMxrD79F1iIlxEQ81pruxcH+NINlPbthULL3P3iotZc
+	Fma7IB6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkArp-00000006HCp-2J3Z;
-	Mon, 17 Feb 2025 23:49:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkAqK-00000006GzD-48r4;
-	Mon, 17 Feb 2025 23:48:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 700C65C4316;
-	Mon, 17 Feb 2025 23:47:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6DDEC4CED1;
-	Mon, 17 Feb 2025 23:48:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739836083;
-	bh=Ec/oz3AfnETndpRHCs7Z69waq5sKF9/Av7l587y2Qp0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=IyeONvhg7qcvLkCd8JGbNQyO1gcfkNb0fKmCust+WEBSfG+UhbjMyKXwQpCXgheMM
-	 NNkwkm4BIy+V5Y0R8GEW9iugbbDJpsMJRIeF0CtLyr777bTTj8RFDvLy2GHErKvWUn
-	 YURvKZV+QxGLQdntsJ4HjyjBM6sXVTpvTMjP3LW3vbFKBGz/nua8ybRm2v7uLVUKwl
-	 8yWL77sGbH+f+rerYCR7r1eVgv8li0gr+eY4nukCUf5x6yTGOtnBChj+tBfGi5XghB
-	 UWT8Ca92Iqegc0h2uv4F1s9+tVsjRaMBzZxLnN/8bIol6TXALZxvLC7w2e/8TukhOO
-	 e0ALtJOHZZM7g==
-Date: Mon, 17 Feb 2025 15:48:01 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Qingfang Deng <dqfext@gmail.com>
-Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Russell King
- <linux@armlinux.org.uk>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net-next v3] net: ethernet: mediatek: add EEE support
-Message-ID: <20250217154801.338f2de4@kernel.org>
-In-Reply-To: <20250217033954.3698772-1-dqfext@gmail.com>
-References: <20250217033954.3698772-1-dqfext@gmail.com>
+	id 1tkB40-00000006IMl-1Es1;
+	Tue, 18 Feb 2025 00:02:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkB2V-00000006IEB-2UZF
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Feb 2025 00:00:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0ACD41692;
+	Mon, 17 Feb 2025 16:00:55 -0800 (PST)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C34F3F59E;
+	Mon, 17 Feb 2025 16:00:30 -0800 (PST)
+Date: Tue, 18 Feb 2025 01:00:20 +0100
+From: Beata Michalska <beata.michalska@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, ionela.voinescu@arm.com,
+	sudeep.holla@arm.com, will@kernel.org, rafael@kernel.org,
+	viresh.kumar@linaro.org, sumitg@nvidia.com,
+	yang@os.amperecomputing.com, vanshikonda@os.amperecomputing.com,
+	lihuisong@huawei.com, zhanjie9@hisilicon.com,
+	ptsm@linux.microsoft.com, Jonathan Corbet <corbet@lwn.net>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>, Phil Auld <pauld@redhat.com>,
+	x86@kernel.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH v10 0/4] Add support for AArch64 AMUv1-based average freq
+Message-ID: <Z7PNlFv2995pDARQ@arm.com>
+References: <20250131162439.3843071-1-beata.michalska@arm.com>
+ <173982791748.4020779.2848639862581042284.b4-ty@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <173982791748.4020779.2848639862581042284.b4-ty@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_154805_086578_9F26BCE4 
-X-CRM114-Status: UNSURE (   7.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250217_160039_679434_B5352CCF 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,12 +73,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Feb 2025 11:39:53 +0800 Qingfang Deng wrote:
-> Add EEE support to MediaTek SoC Ethernet. The register fields are
-> similar to the ones in MT7531, except that the LPI threshold is in
-> milliseconds.
+On Mon, Feb 17, 2025 at 09:32:06PM +0000, Catalin Marinas wrote:
+> On Fri, 31 Jan 2025 16:24:35 +0000, Beata Michalska wrote:
+> > This series adds support for obtaining an average CPU frequency based on
+> > a hardware provided feedback. The average frequency is being exposed via
+> > dedicated yet optional cpufreq sysfs attribute - cpuinfo_avg_freq.
+> > The architecture specific bits are being provided for AArch64, caching on
+> > existing implementation for FIE and AMUv1 support: the frequency scale
+> > factor, updated on each sched tick, serving as a base for retrieving
+> > the frequency for a given CPU, representing an average frequency
+> > reported between the ticks.
+> > 
+> > [...]
+>
+Thank you for that.
 
-Please wait 24h before reposting next time.
--- 
-pv-bot: 24h
+There is still a (not so) small issue with patch
+[3/4] arm64: Provide an AMU-based version of arch_freq_get_on_cpu.
+It did not come up while testing, sadly.
+No idea how I could have missed that, nor why I made the mistake
+in the first place.
+
+The fix is pretty straightforward:
+
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index 6f0cab8e746b..4bac26d8e29c 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -268,7 +268,7 @@ int arch_freq_get_on_cpu(int cpu)
+ 
+                        do {
+                                ref_cpu = cpumask_next_wrap(ref_cpu, policy->cpus,
+-                                                           start_cpu, false);
++                                                           start_cpu, true);
+
+Please let me know if you want me to send new version with the fix applied.
+
+Apologies for the inconvenience.
+
+---
+BR
+Beata
+
+> Applied to arm64 (for-next/amuv1-avg-freq), thanks!
+> 
+> [1/4] cpufreq: Allow arch_freq_get_on_cpu to return an error
+>       https://git.kernel.org/arm64/c/38e480d4fcac
+> [2/4] cpufreq: Introduce an optional cpuinfo_avg_freq sysfs entry
+>       https://git.kernel.org/arm64/c/fbb4a4759b54
+> [3/4] arm64: Provide an AMU-based version of arch_freq_get_on_cpu
+>       https://git.kernel.org/arm64/c/dd871ac1237f
+> [4/4] arm64: Update AMU-based freq scale factor on entering idle
+>       https://git.kernel.org/arm64/c/96b335620c59
+> 
+> -- 
+> Catalin
+> 
 
