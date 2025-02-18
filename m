@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 508AAC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:10:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72ADEC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CdybSsPkvSWYJRfesz++DC37KlekJmyO0IzskUGhkLk=; b=bFuJ3wDO5BV9NlWRpqFBQCSYhd
-	SGwL2yJz0nouyy0wq85bRWWU8OcTufsDBx5W5ZoTjYzvczCfmh3I6UDAmdXlPTBq4Fat0NBJ6g5r5
-	+p07eNk1vn+6ZvLvtvVpXqRL+AOQrB84DZ4US1zxuBQs7gZQhTWcA5oUYvFd8C+UHHnj+jcs247jC
-	7FbljVpZqcSoo4ANCFvAyeTweZuWRRCh5RSxdw/7uP9IZUgkjWxEp/vaLNhj/6u4cAFOjMH9uWmtC
-	julXThgOC05CFK52YEUdkx2vDZxUcevVuYhbkQlL5ll5OLVOqnyW1xxzZxS8SoicXL4MTNqEbmEti
-	433vwZeg==;
+	bh=L+7sXH1zQ3Bs1zuV6xldCwud87Dn2o2qNqX9CUqAE+w=; b=wcyuH4HIg/Om+loBR66TME1hKv
+	IW4Lgm1racQ58fRYrgdsSB5R+hunC38HReJWYqwGGXiWjqO74Z0UUfL7gYJ13h30qrKkUqa9Z/IMX
+	KyCzVNkui6HcZOMdlxy7rt5G05+xDMmoGvRcqxnuRm263WtkPOuv8JQPLqaN5o355U+WPjV+HMFsL
+	RhgopkkgJP4+Tdx3PGI0NCVfyHPn5eH/OBnFlOSn+RuWa6z2TWBHcRwtVg3GZkZifAnJH8IX0pouv
+	MIQnIYAGVNM0mdhpzm8XMbIeTOCtH+DgVMrIRBAYc5ocppDV0L7sQpdW+XFlnlCRLXtWyZHJN8NUx
+	XiI1ZEAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNMI-00000008G64-3X2u;
-	Tue, 18 Feb 2025 13:09:54 +0000
+	id 1tkNNj-00000008GRA-219x;
+	Tue, 18 Feb 2025 13:11:23 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNF7-00000008ESH-230F
+	id 1tkNF8-00000008ESr-0c5c
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Feb 2025 13:02:31 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51ICTMUp005880;
-	Tue, 18 Feb 2025 14:02:19 +0100
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51ICTR5o017234;
+	Tue, 18 Feb 2025 14:02:20 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	CdybSsPkvSWYJRfesz++DC37KlekJmyO0IzskUGhkLk=; b=mvsfdy42dL0zmjqV
-	/atRGQS9/j1ktjFZ7Pi82zsnoLfK44pJaRnv/8pq915dhMl9OfxAR2U83+C6KeB3
-	RTm8EQ7VQ/dGjD8g6sduZ4Xr0tC22yl2whFMegzhVpmzVnyxvLvp/4GCfCl92eTZ
-	VTKJcZmmS7Ji1tvm3ubmyWthx2kP6DmnLiS+7a4I6xQAfF+3bU6FM1QjGXRm0GaQ
-	5mh44wNRcQdO3MLeVXDCngCoHS8kHRsbGD0KnpMATRLgMOC41vgzI4vbdiEGaXwf
-	4nF1jopknTrXsVGjhXlEzptLZirGz/zVKPr0KIfB9Ywe34KKUFrbXbPPNQXGfWJN
-	ar4zjw==
+	L+7sXH1zQ3Bs1zuV6xldCwud87Dn2o2qNqX9CUqAE+w=; b=gmSr6x/+CHsp6Q9+
+	0KqjY2+mj2qsUHFDQBt/G05UPyMU0P4Ddpy/Eew+aN51eNUgXW6ZT+jKBLauVqrm
+	nHFVUFeTtXj52iQhv92m3tawpSP4E7KWCYCRdgSUxtyl2GxcPmwVTY46SKGW5anV
+	eUjr7zlADEuGdAUrsCchL/8YKwLIYv/jajjq9iI+VEp7UmEmfRe0v7bQqiwy+3ll
+	AqRfJRxmkhk4q65TCEHcCgiJE/xfyf9TEaGqjh3XMklmfmnSp5PPiNPV7mhPDgij
+	mRfTyOmysESL1xSVlVvV8qmCmpWogpyx02ehT7EqlRl0JAi5dthodW+Py24IMr/0
+	Eae64Q==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44u5c3t95b-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44tkvmmcs9-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 18 Feb 2025 14:02:19 +0100 (CET)
+	Tue, 18 Feb 2025 14:02:20 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A0A5B4004F;
-	Tue, 18 Feb 2025 14:01:10 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 3FEAC40051;
+	Tue, 18 Feb 2025 14:01:11 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 9D7813276AF;
-	Tue, 18 Feb 2025 14:00:06 +0100 (CET)
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C8F933C139B;
+	Tue, 18 Feb 2025 14:00:08 +0100 (CET)
 Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 18 Feb
- 2025 14:00:06 +0100
+ 2025 14:00:08 +0100
 From: <patrice.chotard@foss.st.com>
 To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
         Krzysztof
@@ -73,9 +73,9 @@ CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <christophe.kerello@foss.st.com>, <patrice.chotard@foss.st.com>
-Subject: [PATCH v4 5/8] arm64: dts: st: Add OMM node on stm32mp251
-Date: Tue, 18 Feb 2025 13:59:57 +0100
-Message-ID: <20250218130000.87889-6-patrice.chotard@foss.st.com>
+Subject: [PATCH v4 8/8] arm64: defconfig: Enable STM32 Octo Memory Manager and OcstoSPI driver
+Date: Tue, 18 Feb 2025 14:00:00 +0100
+Message-ID: <20250218130000.87889-9-patrice.chotard@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250218130000.87889-1-patrice.chotard@foss.st.com>
 References: <20250218130000.87889-1-patrice.chotard@foss.st.com>
@@ -89,8 +89,9 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-18_05,2025-02-18_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_050229_860823_2F9AFC6E 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20250218_050230_492747_192D24FA 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,73 +108,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Patrice Chotard <patrice.chotard@foss.st.com>
 
-Add Octo Memory Manager (OMM) entry on stm32mp251 and its two
-OSPI instance.
+Enable STM32 OctoSPI driver.
+Enable STM32 Octo Memory Manager (OMM) driver which is needed
+for OSPI usage on STM32MP257F-EV1 board.
 
 Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 ---
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 48 ++++++++++++++++++++++++++
- 1 file changed, 48 insertions(+)
+ arch/arm64/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index f3c6cdfd7008..2565236e369f 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -768,6 +768,54 @@ rng: rng@42020000 {
- 				status = "disabled";
- 			};
- 
-+			ommanager: ommanager@40500000 {
-+				compatible = "st,stm32mp25-omm";
-+				reg = <0x40500000 0x400>, <0x60000000 0x10000000>;
-+				reg-names = "regs", "memory_map";
-+				ranges = <0 0 0x40430000 0x400>,
-+					 <1 0 0x40440000 0x400>;
-+				clocks = <&rcc CK_BUS_OSPIIOM>;
-+				resets = <&rcc OSPIIOM_R>;
-+				access-controllers = <&rifsc 111>;
-+				power-domains = <&CLUSTER_PD>;
-+				#address-cells = <2>;
-+				#size-cells = <1>;
-+				st,syscfg-amcr = <&syscfg 0x2c00 0x7>;
-+				status = "disabled";
-+
-+				ospi1: spi@40430000 {
-+					compatible = "st,stm32mp25-ospi";
-+					reg = <0 0 0x400>;
-+					interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
-+					dmas = <&hpdma 2 0x62 0x00003121>,
-+					       <&hpdma 2 0x42 0x00003112>;
-+					dma-names = "tx", "rx";
-+					clocks = <&scmi_clk CK_SCMI_OSPI1>;
-+					resets = <&scmi_reset RST_SCMI_OSPI1>,
-+						 <&scmi_reset RST_SCMI_OSPI1DLL>;
-+					access-controllers = <&rifsc 74>;
-+					power-domains = <&CLUSTER_PD>;
-+					st,syscfg-dlyb = <&syscfg 0x1000>;
-+					status = "disabled";
-+				};
-+
-+				ospi2: spi@40440000 {
-+					compatible = "st,stm32mp25-ospi";
-+					reg = <1 0 0x400>;
-+					interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
-+					dmas = <&hpdma 3 0x62 0x00003121>,
-+					       <&hpdma 3 0x42 0x00003112>;
-+					dma-names = "tx", "rx";
-+					clocks = <&scmi_clk CK_SCMI_OSPI2>;
-+					resets = <&scmi_reset RST_SCMI_OSPI2>,
-+						 <&scmi_reset RST_SCMI_OSPI2DLL>;
-+					access-controllers = <&rifsc 75>;
-+					power-domains = <&CLUSTER_PD>;
-+					st,syscfg-dlyb = <&syscfg 0x1400>;
-+					status = "disabled";
-+				};
-+			};
-+
- 			spi8: spi@46020000 {
- 				#address-cells = <1>;
- 				#size-cells = <0>;
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 246a13412bf0..b089cf4b90a1 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -577,6 +577,7 @@ CONFIG_SPI_QUP=y
+ CONFIG_SPI_QCOM_GENI=m
+ CONFIG_SPI_S3C64XX=y
+ CONFIG_SPI_SH_MSIOF=m
++CONFIG_SPI_STM32_OSPI=m
+ CONFIG_SPI_SUN6I=y
+ CONFIG_SPI_TEGRA210_QUAD=m
+ CONFIG_SPI_TEGRA114=m
+@@ -1506,6 +1507,7 @@ CONFIG_EXTCON_USB_GPIO=y
+ CONFIG_EXTCON_USBC_CROS_EC=y
+ CONFIG_FSL_IFC=y
+ CONFIG_RENESAS_RPCIF=m
++CONFIG_STM32_OMM=m
+ CONFIG_IIO=y
+ CONFIG_EXYNOS_ADC=y
+ CONFIG_IMX8QXP_ADC=m
 -- 
 2.25.1
 
