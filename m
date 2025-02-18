@@ -4,80 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8F50C021AF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 16:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D312C021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 16:48:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hw+iVjuNQRNJjxBZXs0mx0TPrXxm7dAC+OqYhvCNa3Y=; b=LBKW5Tk70W6CotNEc09VP/V4le
-	s6VKqRrnNHAbVIrClxgY85durgC1iU3TRBX2RdsjzBxhBObaLFYEk4ovj0aC3QWCzWawMSZOqP0cB
-	sVcQtVJB2hyLMhj1WLLxSAdpY6h+gxCbKeYP64ljWu3gU2yfl1r52ZwDgFK7R12r3sgbTcajZl9Fe
-	aSImrj/eJqJWxUqokMTtijvJ291zkr7YYDswlI4+9RxN/7AFti0rZ82N35Dsy3oMca2nu6M/f4/XA
-	9mq2hb2HHCzedtiG6jhF04Q12Z84K6KbPzO94KfKfWIQO/iaFEAJGj/wWLGNy+sOaXb3wulW1HZj9
-	ZxUQ2atQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IOylOGK8+KXVlSKwEjhOkQ9Uo6qP5iYjwH/vqYLvpOc=; b=x7ifIzxXpU4q0Yi5xiiZIbNy4x
+	pc8W73dKLeeVU9eR3U2Jy7k9Xt7ZthsLpU+z/gr3EtJnBPIdOUVMfX3UCjGeNbxd5agI5miZ6XznK
+	X/vfdphP7LYIEyu3OkN1U2UlCH1oRc//ZeLa5GdtKOIUB6sUJGcGMVd2CJ6dRz9Z98jioNMyRr0QC
+	5jpu3k/H8+szyeasGqKwwLYsn9NFJGFpm8JwPgAz8iW1JhwLCUYabKMtF5yoKcbvlZjj/rNqWKIbY
+	45qZZ5TXNzS5fDPqyox6SeOHnhXERwS4jQmgru1vVJZLwngnNlB4Gy7fHk3NBnRzRY7fnsccu4N1/
+	HPyEjspA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQhT-000000091Dn-2p7a;
-	Tue, 18 Feb 2025 16:43:59 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tkQlo-000000091zE-3Nth;
+	Tue, 18 Feb 2025 16:48:28 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQbt-000000090Cv-22EH
+	id 1tkQkK-000000091ju-26vP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 16:38:14 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51IGc83e041546
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 18 Feb 2025 10:38:08 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739896688;
-	bh=Hw+iVjuNQRNJjxBZXs0mx0TPrXxm7dAC+OqYhvCNa3Y=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=KKRfTfOdk3XpLz8T9SlU1aeyDwv9gU74vFPAS8xIvUJ1XYaso0SHSru/taZ/Xz+4r
-	 mckj3Ap/ROIIvbMdt/u8yQSMwh0rSxtuS4oDKH9aJSMBBTYvo8M9g32V22ljb+T5yd
-	 uS349yQadV1phbiKJYGjE5i6wr7okwOgiLQ+8+VU=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51IGc89D061175
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 18 Feb 2025 10:38:08 -0600
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 18
- Feb 2025 10:38:07 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 18 Feb 2025 10:38:07 -0600
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IGc7kv007827;
-	Tue, 18 Feb 2025 10:38:07 -0600
-Message-ID: <04e77daf-e775-44fa-82bf-8b6ebf73bcef@ti.com>
-Date: Tue, 18 Feb 2025 10:38:07 -0600
+	Tue, 18 Feb 2025 16:46:57 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2fc4418c0b9so4408075a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 08:46:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1739897215; x=1740502015; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=IOylOGK8+KXVlSKwEjhOkQ9Uo6qP5iYjwH/vqYLvpOc=;
+        b=H5gHWG9a+OW0MfcUPZnuCQCBntDii+SQXWdxQ35GXXl6Yp3NLlf2vXY4Aho7NqZIAN
+         3keaMMSONjz18nGJRAHpQJdqqsogT3W42vUtRUEclYAhiMN2p/xkcu3/tk4MlDh3h4Hn
+         J03G+6UzXnJoFFBIsTEzmVSdxBLIJ2sD5TuQItm5tYr8VpvOzqcDMwrsgncKxzgeJLTG
+         2melXAxX7yZ8i1nc/OpAT4DZ7CebWvQhZBTZsU9aCYzWjUR36uTcFSE2oEvT/5pIB12E
+         o8kYJdYnc3CQfanlR06WhYVEOm1p1pKZ693YbuGOH9IBySmyz4jJvsL3PW+OZeU73fjS
+         C/mA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739897215; x=1740502015;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IOylOGK8+KXVlSKwEjhOkQ9Uo6qP5iYjwH/vqYLvpOc=;
+        b=NwoAUYSGAKSAm6FwVvgk1Tni7ed17x6kr9gOsclwl8D/3whi2UXRyvtiYIAyoKMbLp
+         NN4z/UasgogUSsXZQBz2v38PIZ3mjVlZgQwO1PP9eNskgg06tzKaQOzthjDBtqulbwd3
+         TxCQ2VcDe81HQE6+VZdTpYBgh9Fy64HSTcT2XKBiAKL2rJfpzOB/kyGrJWk9NsbGCQmD
+         oC0M2L2hAg9mJ6RDveQ6JxE51DehIsOatDE7eDqGHWD4qCXmq0sfXssOyJmKikVeN0Hb
+         5IsmQixj/DI52MN3sChg/wzm53BGSIzTRNFjwp4QDFTkhHSNnaLzxekllHceDh71hxll
+         d5vw==
+X-Forwarded-Encrypted: i=1; AJvYcCXBDRXLStt/1kr6Fr2h6MNvTBCoD0sboKbeyHuu39wkUHw2AKE2txy5w6up1vP8e47/YRweqEmG2w2bIrrca6l0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoZ08o62SbZbtUJCNvdv6SImr2wig/nmBTMwZIfpGChQPUS++U
+	hMRVy/ML1JRHIteuj10RUXyt2heq4jSWNdpPmgdVLir6Hr0etmgYp/CO6rctthvc3xzgojuJ1bL
+	f2IOyjWPogp/VPS/baxp/XtevHxeddlJgRqwqJg==
+X-Gm-Gg: ASbGncsXrClINHAWX10SUf7GhvdOcqtWuKFh63P2xhMcAAEwQKqAea5JK0F74sgR6UC
+	WzYRGKF4hZc2uvuKaVCAVnfNM3dKaJGajQE+bOA/OrL/VUe7tmjrDc4fuCL1XG8oEH5QHHQ==
+X-Google-Smtp-Source: AGHT+IGHwzBsO/GBPkHZczfaNaO/9Fri81n9XYQ1ztlxgGE0CRA4HOyjovvD+vqgo/EOu8/IM5aMJO/ERmz9uK+U4xE=
+X-Received: by 2002:a17:90b:2783:b0:2ee:b875:6d30 with SMTP id
+ 98e67ed59e1d1-2fcb5a17ccfmr165222a91.9.1739897215586; Tue, 18 Feb 2025
+ 08:46:55 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 06/10] arm64: dts: ti: k3-am62p5-sk: Enable IPC with
- remote processors
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Hari Nagalla
-	<hnagalla@ti.com>
-References: <20250210221530.1234009-1-jm@ti.com>
- <20250210221530.1234009-7-jm@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250210221530.1234009-7-jm@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250218143527.1236668-1-jens.wiklander@linaro.org>
+In-Reply-To: <20250218143527.1236668-1-jens.wiklander@linaro.org>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Tue, 18 Feb 2025 16:46:41 +0000
+X-Gm-Features: AWEUYZkKtmN_-KWMeq06D2l9RZUatLIu9Ka5J6k3tL8rcVyNTYGe730GhgI3bME
+Message-ID: <CAPj87rN7QQ2XRa4KnaH9MZrvyRcRWWrihSKousR1j7GD+bEQtg@mail.gmail.com>
+Subject: Re: [PATCH v5 0/7] TEE subsystem for restricted dma-buf allocations
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Sumit Garg <sumit.garg@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_083813_668942_502F6024 
-X-CRM114-Status: GOOD (  21.09  )
+X-CRM114-CacheID: sfid-20250218_084656_553193_4C9C5D3C 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,111 +100,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/10/25 4:15 PM, Judith Mendez wrote:
-> From: Devarsh Thakkar <devarsht@ti.com>
-> 
-> For each remote proc, reserve memory for IPC and bind the mailbox
-> assignments. Two memory regions are reserved for each remote processor.
-> The first region of 1MB of memory is used for Vring shared buffers
-> and the second region is used as external memory to the remote processor
-> for the resource table and for tracebuffer allocations.
-> 
-> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
-> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> ---
-> Changes since v4:
-> - Drop SRAM node for am62px MCU R5fSS0 core0
-> ---
->   arch/arm64/boot/dts/ti/k3-am62p5-sk.dts | 50 ++++++++++++++++++++++---
->   1 file changed, 44 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-> index ad71d2f27f538..9609727d042d3 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-> @@ -48,6 +48,30 @@ reserved-memory {
->   		#size-cells = <2>;
->   		ranges;
->   
-> +		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9b900000 0x00 0xf00000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c800000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9c900000 0x00 0x1e00000>;
+On Tue, 18 Feb 2025 at 14:35, Jens Wiklander <jens.wiklander@linaro.org> wrote:
+> This can be tested on a RockPi 4B+ with the following steps:
+> repo init -u https://github.com/jenswi-linaro/manifest.git -m rockpi4.xml \
+>         -b prototype/sdp-v5
+> repo sync -j8
+> cd build
+> make toolchains -j$(nproc)
+> make all -j$(nproc)
+> # Copy ../out/rockpi4.img to an SD card and boot the RockPi from that
+> # Connect a monitor to the RockPi
+> # login and at the prompt:
+> gst-launch-1.0 videotestsrc ! \
+>         aesenc key=1f9423681beb9a79215820f6bda73d0f \
+>                 iv=e9aa8e834d8d70b7e0d254ff670dd718 serialize-iv=true ! \
+>         aesdec key=1f9423681beb9a79215820f6bda73d0f ! \
+>         kmssink
+>
+> The aesdec module has been hacked to use an OP-TEE TA to decrypt the stream
+> into restricted DMA-bufs which are consumed by the kmssink.
 
-0x1e00000?
+Thanks so very much for putting this together btw. This is the exact
+thing we were just starting on, but you beat us to it by a few weeks
+it seems. It's awesome to have an implementation of 'real' (if
+useless) SVP, so we can actually exercise these codepaths in open
+generic code.
 
-Yes I know you didn't add this and are just coping it from below, but it
-is still an issue. I see the same problem for the next patch, the R5F memory
-size is 0xc00000??
-
-Every remote core gets 15MB (0xf00000), this has been true for all K3, and
-all cores, DSP, R5F, M4, etc.. You even do it correct for the MCU R5F above,
-but the WKUP R5F on AM62P and AM62 are just randomly given 30M and 12MB?
-
-Andrew
-
-> +			no-map;
-> +		};
-> +
->   		secure_tfa_ddr: tfa@9e780000 {
->   			reg = <0x00 0x9e780000 0x00 0x80000>;
->   			no-map;
-> @@ -57,12 +81,6 @@ secure_ddr: optee@9e800000 {
->   			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
->   			no-map;
->   		};
-> -
-> -		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9c900000 0x00 0x01e00000>;
-> -			no-map;
-> -		};
->   	};
->   
->   	vmain_pd: regulator-0 {
-> @@ -638,6 +656,26 @@ mbox_mcu_r5_0: mbox-mcu-r5-0 {
->   	};
->   };
->   
-> +&wkup_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&wkup_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> +			<&wkup_r5fss0_core0_memory_region>;
-> +};
-> +
-> +&mcu_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&mcu_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
-> +	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-> +			<&mcu_r5fss0_core0_memory_region>;
-> +};
-> +
->   &main_uart0 {
->   	pinctrl-names = "default";
->   	pinctrl-0 = <&main_uart0_pins_default>;
+Cheers,
+Daniel
 
