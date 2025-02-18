@@ -4,72 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FC52C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D678C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:08:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6fDsiLwyjpnl6JWNmHm275HpNKLFXRnMNuwpTDF9Avg=; b=d2p4tJbyZZvmWlWEyV3r7z43qg
-	aFKvP0DWXxGF0kAwuxOQI+auyPQzlPdss/4S5Y/CVvPKm52/wAcHx4Hjjrz5O2q1dwpGjpLj4nTz3
-	Ka86b+VfdMP4x79CIDjW1mZ2mumJhJF+ucbfXF+7o5FEyArFpWdiuX4jYsbS1J0+E2ah60W7waNC9
-	Eok/fE2FwWbJel5cLIiJLC+vCWnMsfG5FLtdyV6KQC7lBjWqVXVdqRGP/8iERiikdPxccVHXhpFhE
-	wg4BcTq1jszallCgfBWjWh1Iak0xuadaXyvLXSOtINn8712/fSsGxQ43MGCncJXXvycewB8+YuD4g
-	i1BEVKGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gZ5/DhQkh566/EMv7++F1qfmxIqjW97yewkOSacP61c=; b=RWj30pZmbmWaQl7I7MDrGq7Rqh
+	8atw+dxXkKUDZvZwk/XVdYVRAaUnrDBPh0fnzRDVxMjAhMugzvLFqlgmySsBphG+XXaKCbUYUuPU6
+	JkLCctG7Yplwqw3MZV6+7jQ3J6UiIWSjSsQQMK+IOQSXKPAYM+LAbIImwW2uXBWf0IkXMDlxOyHYS
+	yMy4dJJSKKJjE+i+/oguB2r30HBAsAoGd3uONRIFa48tfIT6Nyiryu+Z2L7t/BgLWr4aVB14BvHe6
+	07YXtX/qrh4rdyY0zE8Ejn4UiQ3p/q7A/ffAuAJm9gLpVWORo61W93f4z/kq1vDEE9uRIKJZXH+ZB
+	7nYNvyyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTrc-00000009h17-3mnR;
-	Tue, 18 Feb 2025 20:06:40 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkT76-00000009Xj0-11DO
+	id 1tkTt5-00000009hLC-2JHF;
+	Tue, 18 Feb 2025 20:08:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkTCz-00000009YkO-3aIk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 19:18:37 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tkT74-0001AE-PV; Tue, 18 Feb 2025 20:18:34 +0100
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tkT74-001dvB-0y;
-	Tue, 18 Feb 2025 20:18:34 +0100
-Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
-	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tkT74-00BCDr-0m;
-	Tue, 18 Feb 2025 20:18:34 +0100
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Tue, 18 Feb 2025 20:18:32 +0100
-Subject: [PATCH] pmdomain: imx: gpcv2: use proper helper for property
- detection
+	Tue, 18 Feb 2025 19:24:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91CC9152B;
+	Tue, 18 Feb 2025 11:24:59 -0800 (PST)
+Received: from e125905.cambridge.arm.com (e125905.cambridge.arm.com [10.1.194.73])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B07CD3F6A8;
+	Tue, 18 Feb 2025 11:24:38 -0800 (PST)
+From: Beata Michalska <beata.michalska@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	sudeep.holla@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	sfr@canb.auug.org.au
+Cc: ionela.voinescu@arm.com,
+	yury.norov@gmail.com,
+	linux-next@vger.kernel.org,
+	sumitg@nvidia.com,
+	yang@os.amperecomputing.com,
+	vanshikonda@os.amperecomputing.com,
+	lihuisong@huawei.com,
+	zhanjie9@hisilicon.com,
+	ptsm@linux.microsoft.com
+Subject: [PATCH] arm64: Utilize for_each_cpu_wrap for reference lookup
+Date: Tue, 18 Feb 2025 19:24:12 +0000
+Message-Id: <20250218192412.2072619-1-beata.michalska@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250218-gpcv2-of-property-present-v1-1-3bb1a9789654@pengutronix.de>
-X-B4-Tracking: v=1; b=H4sIAAfdtGcC/x2MQQqAMAwEvyI5G7ABofgV8aBtqrm0pRVRpH83e
- JsZ2H2hchGuMHUvFL6kSooqpu/AHWvcGcWrAw00DmQs7tldhClgLilzOR8FrhxPNKMN1m+ByTv
- QvfYg9/89L6194i/+OmsAAAA=
-X-Change-ID: 20250218-gpcv2-of-property-present-158f8dbfe2dc
-To: Ulf Hansson <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Ahmad Fatoum <a.fatoum@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_111836_282644_DC850279 
-X-CRM114-Status: GOOD (  12.23  )
+X-CRM114-CacheID: sfid-20250218_112441_935491_9BE46EFD 
+X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +72,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Starting with commit c141ecc3cecd7 ("of: Warn when of_property_read_bool()
-is used on non-boolean properties"), probing the gpcv2 device on i.MX8M
-SoCs leads to warnings when LOCKDEP is enabled.
+While searching for a reference CPU within a given policy,
+arch_freq_get_on_cpu relies on cpumask_next_wrap to iterate over
+all available CPUs and to ensure each is verified only once.
+Recent changes to cpumask_next_wrap will handle the latter no more,
+so switching to for_each_cpu_wrap, which  preserves expected behavior
+while ensuring compatibility with the updates.
 
-Fix this by checking property presence with of_property_present as
-intended.
-
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Fixes: 16d1e27475f6 ("arm64: Provide an AMU-based version of arch_freq_get_on_cpu")
+Signed-off-by: Beata Michalska <beata.michalska@arm.com>
 ---
- drivers/pmdomain/imx/gpcv2.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ based on arm64 for-next/amuv1-avg-freq
 
-diff --git a/drivers/pmdomain/imx/gpcv2.c b/drivers/pmdomain/imx/gpcv2.c
-index 958d34d4821b1be68d730ad345037b8f0a56c45a..105fcaf13a34c787b2d568bc64e7fee9bfc23393 100644
---- a/drivers/pmdomain/imx/gpcv2.c
-+++ b/drivers/pmdomain/imx/gpcv2.c
-@@ -1361,7 +1361,7 @@ static int imx_pgc_domain_probe(struct platform_device *pdev)
- 	}
+ arch/arm64/kernel/topology.c | 16 ++++++++++------
+ 1 file changed, 10 insertions(+), 6 deletions(-)
+
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index a09b0551ec59..9e3583720668 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -254,7 +254,7 @@ int arch_freq_get_on_cpu(int cpu)
+ 		if (!housekeeping_cpu(cpu, HK_TYPE_TICK) ||
+ 		    time_is_before_jiffies(last_update + msecs_to_jiffies(AMU_SAMPLE_EXP_MS))) {
+ 			struct cpufreq_policy *policy = cpufreq_cpu_get(cpu);
+-			int ref_cpu = cpu;
++			int ref_cpu;
  
- 	if (IS_ENABLED(CONFIG_LOCKDEP) &&
--	    of_property_read_bool(domain->dev->of_node, "power-domains"))
-+	    of_property_present(domain->dev->of_node, "power-domains"))
- 		lockdep_set_subclass(&domain->genpd.mlock, 1);
+ 			if (!policy)
+ 				return -EINVAL;
+@@ -265,11 +265,15 @@ int arch_freq_get_on_cpu(int cpu)
+ 				return -EOPNOTSUPP;
+ 			}
  
- 	ret = of_genpd_add_provider_simple(domain->dev->of_node,
-
----
-base-commit: 0ad2507d5d93f39619fc42372c347d6006b64319
-change-id: 20250218-gpcv2-of-property-present-158f8dbfe2dc
-
-Best regards,
+-			do {
+-				ref_cpu = cpumask_next_wrap(ref_cpu, policy->cpus,
+-							    start_cpu, true);
+-
+-			} while (ref_cpu < nr_cpu_ids && idle_cpu(ref_cpu));
++			for_each_cpu_wrap(ref_cpu, policy->cpus, cpu + 1) {
++				if (ref_cpu == start_cpu) {
++					/* Prevent verifying same CPU twice */
++					ref_cpu = nr_cpu_ids;
++					break;
++				}
++				if (!idle_cpu(ref_cpu))
++					break;
++			}
+ 
+ 			cpufreq_cpu_put(policy);
+ 
 -- 
-Ahmad Fatoum <a.fatoum@pengutronix.de>
+2.25.1
 
 
