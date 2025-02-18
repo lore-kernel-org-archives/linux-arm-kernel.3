@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC7FC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 18:50:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24ECC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 18:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4L3LnneSHG6SiNAh3iV5CvFpEvJlh4c6nSlZv7V1jt8=; b=0CrlBqdqNWJWZO68pDK0rh8Jnb
-	iERz2BNT06aGFUg5/H+NFTWjW+8Ll1XTH+MoHxDGK/oESZlr3UNNprn063NOgpOXqDhyV0vBSWM9N
-	w+LVVwiDUTLC3gV/YcNovrTsGqiNdrRq6Yy7rh6fUYnk8BjOJGBPj54I9vSwPp8LK4jRxS7NcEjq1
-	6quRtrPmTyawwRjLUiFHgELW0xv0R7/vtsw1uIK43Ak4hTzSh5MAN19t+ftevWTo/RE5sDfHDWtpF
-	asuEzMTxFZS2fVCa1Nx+5zIACdDf8XfJ4DwK4gV2InREtNjKeTgPO7DCB7NFYvLTCl3Ab9xYrD2Kp
-	2rr7E9BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oxxr8v6dQPdqFFYCSvenNWpV2FIRbTpUVj2QUe9HjOM=; b=YsF/SrgEGsqbnb2RylubWN8xKZ
+	bPwPnyLKX4EkL4fKNdZoMbTdN4KZJPvZDkPkOrn5gR6taGFJz++tHPetrVIPs2zQ6MgKuo8J3Bt3t
+	UfKJNK6PsTZYsZxZoXElh8Et7o4sghib22+q8F6QntZ4Q28eFPhfuUCs+RwsTUg1yhxVySfKxPY8D
+	pYs8qI99MgxJFeVqzyQyzLHrbOUgHvq5VYb7O+f/0sQuk+0Mx3Dy3CyZy3puIHM7F411cLBacrKot
+	F+0A2valRpmqkAtA3CAZoPpysXXLO4HW3fcOMOWd0fAqF+LLWLdawGcmlOoElzrpl0UB0n/gioay6
+	vpeEdglw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSgC-00000009Qta-3XpV;
-	Tue, 18 Feb 2025 18:50:48 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tkShe-00000009RLg-2QSq;
+	Tue, 18 Feb 2025 18:52:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSUK-00000009Nzz-0brc
+	id 1tkSWk-00000009Oic-0BrY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 18:38:33 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tkSU2-0000Gw-OG; Tue, 18 Feb 2025 19:38:14 +0100
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tkSU2-001dal-1J;
-	Tue, 18 Feb 2025 19:38:14 +0100
-Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
-	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tkSU2-00AL9G-13;
-	Tue, 18 Feb 2025 19:38:14 +0100
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Tue, 18 Feb 2025 19:38:15 +0100
-Subject: [PATCH v2 3/6] arm64: dts: imx8mp-skov: move I2C2 pin control
- group into DTSI
+	Tue, 18 Feb 2025 18:41:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 49DF95C61AB;
+	Tue, 18 Feb 2025 18:40:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4D09C4CEE2;
+	Tue, 18 Feb 2025 18:41:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739904061;
+	bh=iSn5qlkSLrvY9fduNUiNVom2UONzE20CK92zMJiRyX0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BsAtfCe3TAKsKWVtlrXywIPoIXoilqgNSNTs7nYiJc7ox+cXZyshjoUv90wT0Osem
+	 gKt4dti+h3LbR+hjEVOSXF7DiCIUmTSBgEf3brOEfXA+gBYKnfp9lAHfcjIqppqwNt
+	 O5iJVnxAaW2giwyDCoTCa9J6qAIjM/78Mf9KEXnbHmNtRjFQJlDkwRmqVWBmvInh9W
+	 gOgfC4YJKTDkZQCamXcn2rQd2ZGzCemGdD3+fRrh1A8cslNK2eJQAq5fYaKg/lVd1P
+	 /An9oyr5gEw/rirR+v1fnVuI/KKCf5++5RsZhyZBnRErWxl5d3wj7xTVZYK0ET9teO
+	 nEMH/LLtJf9gw==
+Date: Tue, 18 Feb 2025 10:40:59 -0800
+From: Josh Poimboeuf <jpoimboe@kernel.org>
+To: Song Liu <song@kernel.org>
+Cc: Puranjay Mohan <puranjay@kernel.org>, Weinan Liu <wnliu@google.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Indu Bhagat <indu.bhagat@oracle.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
+	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
+	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
+	live-patching@vger.kernel.org, joe.lawrence@redhat.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
+Message-ID: <20250218184059.iysrvtaoah6e4bu4@jpoimboe>
+References: <mb61py0yaz3qq.fsf@kernel.org>
+ <CAPhsuW7dV7UR3PsGVx_DLBH5-95DAmLMGTPuY0NfUwWLZMSTrQ@mail.gmail.com>
+ <20250214080848.5xpi2y2omk4vxyoj@jpoimboe>
+ <CAPhsuW6dxPtgqZaHrZEVhQXwm2+sETreZnGybZXVKYKfG9H6tg@mail.gmail.com>
+ <20250214193400.j4hp45jlufihv5eh@jpoimboe>
+ <CAPhsuW6q+yhn0pGQb0K+RhXHYDkjEgomZ2pu3P_MEeX+xNRe0g@mail.gmail.com>
+ <20250214232342.5m3hveygqb2qafpp@jpoimboe>
+ <CAPhsuW48h11yLuU7uHuPgYNCzwaxVKG+TaGOZeT7fR60+brTwA@mail.gmail.com>
+ <20250218063702.e2qrpjk4ylhnk5s7@jpoimboe>
+ <CAPhsuW5ZauBrSz11cvVtG5qQBfNmbcwPgMf=BScHtyZfHvK4FQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250218-skov-imx8mp-new-boards-v2-3-4040379742ea@pengutronix.de>
-References: <20250218-skov-imx8mp-new-boards-v2-0-4040379742ea@pengutronix.de>
-In-Reply-To: <20250218-skov-imx8mp-new-boards-v2-0-4040379742ea@pengutronix.de>
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Ahmad Fatoum <a.fatoum@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAPhsuW5ZauBrSz11cvVtG5qQBfNmbcwPgMf=BScHtyZfHvK4FQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_103832_186975_5F8D0B71 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20250218_104102_126209_72F10B6A 
+X-CRM114-Status: GOOD (  20.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,76 +88,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I2C2 is exposed on a pin header on the base board, so its pinmux is
-always the same if it's enabled.
+On Tue, Feb 18, 2025 at 10:20:10AM -0800, Song Liu wrote:
+> Hi Josh,
+> 
+> On Mon, Feb 17, 2025 at 10:37 PM Josh Poimboeuf <jpoimboe@kernel.org> wrote:
+> >
+> > On Mon, Feb 17, 2025 at 08:38:22PM -0800, Song Liu wrote:
+> > > On Fri, Feb 14, 2025 at 3:23 PM Josh Poimboeuf <jpoimboe@kernel.org> wrote:
+> > > > Poking around the arm64 module code, arch/arm64/kernel/module-plts.c
+> > > > is looking at all the relocations in order to set up the PLT.  That also
+> > > > needs to be done for klp relas, or are your patches already doing that?
+> > >
+> > > I don't think either version (this set and my RFC) added logic for PLT.
+> > > There is some rela logic on the kpatch-build side. But I am not sure
+> > > whether it is sufficient.
+> >
+> > The klp relas looked ok.  I didn't see any signs of kpatch-build doing
+> > anything wrong.  AFAICT the problem is that module-plts.c creates PLT
+> > entries for regular relas but not klp relas.
+> 
+> In my tests (with printk) module-plts.c processes the .
+> klp.rela.vmlinux..text.copy_process section just like any other .rela.*
+> sections. Do we need special handling of the klp.rela.* sections?
 
-Therefore, move the definition to the common DTSI, so board DTs only
-need to override the status to enable it.
+Ok, I see how it works now:
 
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi          | 12 ++++++++++++
- .../boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts   | 11 -----------
- 2 files changed, 12 insertions(+), 11 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-index e39674457b4f92a94e40a1a3700745b038cebfb4..b1dfd8eb7062ae5e736146458833a11c4d37eb7b 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
-@@ -331,6 +331,11 @@ reg_nvcc_sd2: LDO5 {
- 	};
- };
- 
-+&i2c2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+};
-+
- &i2c3 {
- 	clock-frequency = <400000>;
- 	pinctrl-names = "default";
-@@ -562,6 +567,13 @@ MX8MP_IOMUXC_I2C1_SDA__I2C1_SDA				0x400001c2
- 		>;
- 	};
- 
-+	pinctrl_i2c2: i2c2grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL				0x400001c2
-+			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA				0x400001c2
-+		>;
-+	};
-+
- 	pinctrl_i2c3: i2c3grp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_I2C3_SCL__I2C3_SCL				0x400001c2
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
-index 2c75da5f064f2b0cd97f5040febac13c4adc020b..ba581765b52298ea26a5a63079c08f39f10e4e3b 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
-@@ -27,8 +27,6 @@ &backlight {
- 
- &i2c2 {
- 	clock-frequency = <100000>;
--	pinctrl-names = "default";
--	pinctrl-0 = <&pinctrl_i2c2>;
- 	status = "okay";
- 
- 	touchscreen@38 {
-@@ -90,12 +88,3 @@ &reg_tft_vcom {
- 	voltage-table = <3160000 73>;
- 	status = "okay";
- };
--
--&iomuxc {
--	pinctrl_i2c2: i2c2grp {
--		fsl,pins = <
--			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL				0x400001c2
--			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA				0x400001c2
--		>;
--	};
--};
+klp_write_section_relocs()
+	apply_relocate_add()
+		module_emit_plt_entry()
+  
+If that code is working correctly then I'm fresh out of ideas...
 
 -- 
-2.39.5
-
+Josh
 
