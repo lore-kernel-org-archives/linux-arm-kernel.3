@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7F4C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 18:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECC7FC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 18:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AcsMBz0WvMGOleLkk5ZIiMibQ6UUYcWf2fEdUfN37sI=; b=bv0yS2P+kWDpAPx181LFmRfdJJ
-	WEBPnoQfi053E63aU373bDRvgKUlnyd3dsMTax6/gN2M/zPWJrwQmOJe16HzgzwrHunjNU7F4CfG7
-	aL+JLeetzhwtM3p8HoWvqSWayxmOUDty6NrriJLkdF8M/2763mYBcIWc6Gmzscqbi4McCcoVamAgI
-	JXj/C9rDCKBGrXb+2aMCDlxwV3UUqLKU4ZoK8q5Te8mwzyjAJfH164Y8D3DBBbN+JqrhX6hbK7q7X
-	ghEWaGHR5EeurESKGlOALv4lax/TMy0Qu3PcFD0kXSfLNF0OzYCH+jtJF6WKw1eOBUTaAnNWx8GNA
-	s6Oq5f3g==;
+	bh=4L3LnneSHG6SiNAh3iV5CvFpEvJlh4c6nSlZv7V1jt8=; b=0CrlBqdqNWJWZO68pDK0rh8Jnb
+	iERz2BNT06aGFUg5/H+NFTWjW+8Ll1XTH+MoHxDGK/oESZlr3UNNprn063NOgpOXqDhyV0vBSWM9N
+	w+LVVwiDUTLC3gV/YcNovrTsGqiNdrRq6Yy7rh6fUYnk8BjOJGBPj54I9vSwPp8LK4jRxS7NcEjq1
+	6quRtrPmTyawwRjLUiFHgELW0xv0R7/vtsw1uIK43Ak4hTzSh5MAN19t+ftevWTo/RE5sDfHDWtpF
+	asuEzMTxFZS2fVCa1Nx+5zIACdDf8XfJ4DwK4gV2InREtNjKeTgPO7DCB7NFYvLTCl3Ab9xYrD2Kp
+	2rr7E9BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSel-00000009QXs-0v7p;
-	Tue, 18 Feb 2025 18:49:19 +0000
+	id 1tkSgC-00000009Qta-3XpV;
+	Tue, 18 Feb 2025 18:50:48 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSUC-00000009Nyq-17Tl
+	id 1tkSUK-00000009Nzz-0brc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 18:38:25 +0000
+	Tue, 18 Feb 2025 18:38:33 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tkSU2-0000H0-Ol; Tue, 18 Feb 2025 19:38:14 +0100
+	id 1tkSU2-0000Gw-OG; Tue, 18 Feb 2025 19:38:14 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tkSU2-001dao-1T;
+	id 1tkSU2-001dal-1J;
 	Tue, 18 Feb 2025 19:38:14 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tkSU2-00AL9G-16;
+	id 1tkSU2-00AL9G-13;
 	Tue, 18 Feb 2025 19:38:14 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Tue, 18 Feb 2025 19:38:18 +0100
-Subject: [PATCH v2 6/6] arm64: dts: imx8mp-skov: support new 7" panel board
+Date: Tue, 18 Feb 2025 19:38:15 +0100
+Subject: [PATCH v2 3/6] arm64: dts: imx8mp-skov: move I2C2 pin control
+ group into DTSI
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250218-skov-imx8mp-new-boards-v2-6-4040379742ea@pengutronix.de>
+Message-Id: <20250218-skov-imx8mp-new-boards-v2-3-4040379742ea@pengutronix.de>
 References: <20250218-skov-imx8mp-new-boards-v2-0-4040379742ea@pengutronix.de>
 In-Reply-To: <20250218-skov-imx8mp-new-boards-v2-0-4040379742ea@pengutronix.de>
 To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -65,8 +66,8 @@ X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_103824_309835_BA67C234 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250218_103832_186975_5F8D0B71 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,117 +82,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This board is very similar to the already upstream
-imx8mp-skov-revb-mi1010ait-1cp1.dts with the difference that it uses a
-different 7" LVDS panel.
+I2C2 is exposed on a pin header on the base board, so its pinmux is
+always the same if it's enabled.
+
+Therefore, move the definition to the common DTSI, so board DTs only
+need to override the status to enable it.
 
 Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
-Note: The panel's binding is already in linux-next.
----
- arch/arm64/boot/dts/freescale/Makefile             |  1 +
- .../dts/freescale/imx8mp-skov-revc-tian-g07017.dts | 81 ++++++++++++++++++++++
- 2 files changed, 82 insertions(+)
+ arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi          | 12 ++++++++++++
+ .../boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts   | 11 -----------
+ 2 files changed, 12 insertions(+), 11 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 6ee3a7ffe4792106118b8201c1f5f51c8ecd0ff2..986c4f974da51fb8a6fb3bc7be1ec664f7db629e 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -198,6 +198,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-lt6.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-mi1010ait-1cp1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mp-ras314.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-var-som-symphony.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-tian-g07017.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-tian-g07017.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..9a562c011f2c292861c2e57e0e74aa3acd063e0c
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-tian-g07017.dts
-@@ -0,0 +1,81 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+
-+/dts-v1/;
-+
-+#include "imx8mp-skov-reva.dtsi"
-+
-+/ {
-+	model = "SKOV IMX8MP CPU revC - TIAN G07017";
-+	compatible = "skov,imx8mp-skov-revc-tian-g07017", "fsl,imx8mp";
-+
-+	panel {
-+		compatible = "topland,tian-g07017-01";
-+		backlight = <&backlight>;
-+		power-supply = <&reg_tft_vcom>;
-+
-+		port {
-+			in_lvds0: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
-+		};
-+	};
-+};
-+
-+&backlight {
-+	status = "okay";
-+};
-+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+index e39674457b4f92a94e40a1a3700745b038cebfb4..b1dfd8eb7062ae5e736146458833a11c4d37eb7b 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+@@ -331,6 +331,11 @@ reg_nvcc_sd2: LDO5 {
+ 	};
+ };
+ 
 +&i2c2 {
-+	clock-frequency = <100000>;
-+	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i2c2>;
++};
 +
-+	touchscreen@38 {
-+		compatible = "edt,edt-ft5506";
-+		reg = <0x38>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_touchscreen>;
-+		interrupts-extended = <&gpio4 28 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
-+		touchscreen-size-x = <1024>;
-+		touchscreen-size-y = <600>;
-+		vcc-supply = <&reg_vdd_3v3>;
-+		iovcc-supply = <&reg_vdd_3v3>;
-+		wakeup-source;
+ &i2c3 {
+ 	clock-frequency = <400000>;
+ 	pinctrl-names = "default";
+@@ -562,6 +567,13 @@ MX8MP_IOMUXC_I2C1_SDA__I2C1_SDA				0x400001c2
+ 		>;
+ 	};
+ 
++	pinctrl_i2c2: i2c2grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL				0x400001c2
++			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA				0x400001c2
++		>;
 +	};
-+};
 +
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
-+				 <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
-+	assigned-clock-rates = <0>, <358400000>;
-+	status = "okay";
-+
-+	ports {
-+		port@1 {
-+			ldb_lvds_ch0: endpoint {
-+				remote-endpoint = <&in_lvds0>;
-+			};
-+		};
-+	};
-+};
-+
-+&pwm4 {
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	status = "okay";
-+};
-+
-+&reg_tft_vcom {
-+	regulator-min-microvolt = <3160000>;
-+	regulator-max-microvolt = <3160000>;
-+	voltage-table = <3160000 73>;
-+	status = "okay";
-+};
+ 	pinctrl_i2c3: i2c3grp {
+ 		fsl,pins = <
+ 			MX8MP_IOMUXC_I2C3_SCL__I2C3_SCL				0x400001c2
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
+index 2c75da5f064f2b0cd97f5040febac13c4adc020b..ba581765b52298ea26a5a63079c08f39f10e4e3b 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
+@@ -27,8 +27,6 @@ &backlight {
+ 
+ &i2c2 {
+ 	clock-frequency = <100000>;
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&pinctrl_i2c2>;
+ 	status = "okay";
+ 
+ 	touchscreen@38 {
+@@ -90,12 +88,3 @@ &reg_tft_vcom {
+ 	voltage-table = <3160000 73>;
+ 	status = "okay";
+ };
+-
+-&iomuxc {
+-	pinctrl_i2c2: i2c2grp {
+-		fsl,pins = <
+-			MX8MP_IOMUXC_I2C2_SCL__I2C2_SCL				0x400001c2
+-			MX8MP_IOMUXC_I2C2_SDA__I2C2_SDA				0x400001c2
+-		>;
+-	};
+-};
 
 -- 
 2.39.5
