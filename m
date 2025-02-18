@@ -4,97 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48210C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 16:35:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A664AC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 16:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V1vBRdRyZIpOIudAbKfIUAnkJZKA6xOO1Td2vSp9kUQ=; b=jQTNJUOxpUNunrbwjBXb22EUxW
-	azPpAh1jCLTh2iQXh7KK7S8nAFNfai46AkEH+P7EIGlslAO6WQ+fYPzKo+IYrOdiZSy9S5vmj3zcc
-	uvIotPZT1Q1+VH/ImL3WFyJKEdmpOZrWYanu7SvmK2cUB3NqzLQQ8jDD6aAWt8ExJsbpUGf4cZyTl
-	eSGTMFbua3nCcSzb0+UcXUXM8HaVKWiXb/3AdFgaKrkvrd8sCjikjJhD9mQlhryxl4bknU44lHzTO
-	TxJbXXHtO+e+LZTryjdCxKejK/ZohigW4gfBzD08qWcSo+VjuURn416aOWtEsbkk4K+4DZQgC0/Ig
-	mIOtWJeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K6IEI5vquogVwrhJmkiNA7kkUfSBC2YjenMZuFUbeAk=; b=0sIZAKXbX5CMCGoLZeRQZWvNST
+	BHf7qh/D3VlOFN+u4MWyMbQi4KXecnamHmd+S48GjkiZR097kzL0Sox7FCukOafSBszK8YRbZVsmK
+	ATggpbCtJijBA7F1Jcq1FuuPJyfF6ztiW772MhKHsSROaPVNcs9rPqJPtw4fTKbqiV0ULYr9sHiWs
+	OHGlYw6yaQocGnRpGGVBYs00uw5AlHqrop94ljhoCCEm4VGUhEfwH0WNYi/w6AoiamM0CfKTYY6ha
+	GQzt8ViZ6O4BqoX4nzhga6TYepVMOEKxdalAOi9aJ3u3FuXPfwH56hN2t/5aCkhfs2fPesf746u1A
+	5soXGdjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQYq-00000008zeo-2qL9;
-	Tue, 18 Feb 2025 16:35:04 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tkQaI-0000000901k-1V3o;
+	Tue, 18 Feb 2025 16:36:34 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQXN-00000008zMT-0vfJ
+	id 1tkQYc-00000008zbN-3ii4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 16:33:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 926BF5C60B0;
-	Tue, 18 Feb 2025 16:32:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BBCEC4CEE2;
-	Tue, 18 Feb 2025 16:33:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739896411;
-	bh=HG8MXPAywW+QktCxIEk+iQgG7o3B8smG8DbYQu12UIA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ZEMyVO09N9YD0BFOLZYtvQSrLTutXchQdS75COw3/+XOnX4w3Ez1OtNa2BPXHUrMv
-	 PtstLTkTq27FSGZVk4YRBc8JWKAkRvNL6LJzh2fLfzq+geHydXQRHQXDkgXrA0y3B5
-	 YWQVUMrDMnG2MVjCEP08rY4pQc/BP10lY4TvqGHqADYiR5l+Y5sAUX8aFyFiyJFlbF
-	 iAJ/I+MsgR5Mq9GU6HzyL2iyPFLfHgTGdagzAS0exemNxZW7A6TxPMkXQGH4jN1rqH
-	 HUXkJkZ61G6fb2itwxi9zGKLGx6GfhhRy/ifJ2+DrcmCNC5WROcMyXxp2x08ztwYlJ
-	 eaaEe5Gxfj2rQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tkQXH-005Vjg-F7;
-	Tue, 18 Feb 2025 16:33:29 +0000
-Date: Tue, 18 Feb 2025 16:33:26 +0000
-Message-ID: <86eczvrz55.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Cc: Eric Auger <eauger@redhat.com>,
+	Tue, 18 Feb 2025 16:34:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1739896489;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=K6IEI5vquogVwrhJmkiNA7kkUfSBC2YjenMZuFUbeAk=;
+	b=QrsqDEz1aKXLzT450Phj1TLTkqruN6W0QBsweaQkFgapWkQY9GMx/K4wRjkJ5Gv5SJJG6H
+	KEWPbV3b58ostU+JP952jEMNxICJ1CpES7k61IzSeAMZK8sDDgk89QF8L/HJtBvC7qGHWR
+	uoflWHok98PoDFA6TZXPAAQT6nZ78kk=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-654-J-kleC8UO2K_3-xsU3AVTQ-1; Tue, 18 Feb 2025 11:34:46 -0500
+X-MC-Unique: J-kleC8UO2K_3-xsU3AVTQ-1
+X-Mimecast-MFC-AGG-ID: J-kleC8UO2K_3-xsU3AVTQ_1739896485
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-438da39bb69so49665375e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 08:34:46 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739896485; x=1740501285;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=K6IEI5vquogVwrhJmkiNA7kkUfSBC2YjenMZuFUbeAk=;
+        b=mbi3O6jQ9LkFYD+/SMC+8p0renCfDEhKK1YbA9CtSgJCG0RXXptRI9Nm5zAOeusHsO
+         M95YsSK+W8V/j56xwvKAh4loDNEaeNMvxOe/TkM/91jP4Jd4S+Au4wVv/fxfPbrxjSYG
+         FskVXHnMKttWPYSXUrXV2nwUCxm5cRu7A5pVTNP4LO8z6nJYjN1hPUWROaxI1ZEBiW3v
+         ZgFmz2BU1AySSl2CLdr5aI1y5MDAOi8Z9h+Do7RD/UDNf36jgxxA6tWX3JT22mT664UF
+         grKfAQgcbp5qsUwnkVbKelORfMhi1ozNH2C94jwZR5Z5FdsSaz+8FApljl0rfwXNhQ7k
+         mAbQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVw8MS21B8AP+/RmzE7tfwfvoVC0d1YlUFW+eUEDvC5hIp0SY88ejPuw01++tx6QYBxu9etOZEb8RUn5R2YzY5D@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxowi3X5Sj5r97MAuTcgBLuhlGfAVPoirjz3XKH7TX/rHHsFZ6/
+	v0PFVthBoM0uNSbKBcQCHkQ+spMwI1SeBP8hF9p04GCR2AlkWqVxAtaN73y2cyhnLUbFz1cimaf
+	yA8K0i1+HoZGyZ8MHqMwrM/UPhBPbLvhgksMQl9l+fJK3L+9S997FihRWTyM1A4Jclf7aY5X/
+X-Gm-Gg: ASbGncvoFYn6uAvTDmMuX3ZynXl7WguMiDsVgZ7nu8g/VVrejikBLOKfpIfdN5MM/La
+	SPRZywVTwFYXEsIRIbPukS/BCeJaxWKmWPg2KJloEZKjL0WzgQ+bgw12d4jtG0jeTWdBO1ZtSfj
+	uPfiqkiCvg3frdo0D3PlFDW6r5B++F3qhrS6mBhN83JCruLjXMNy2BwTk904A+hP9PKC7oVkM5g
+	w/u+3DwjAZ9X1kacnjrdQwVnoQ+paml1PNzm3KsibJMS3qZfArJRWryT7WQv8OImNMKLQFF96CK
+	L7aCQP3Z7qPl8MMLMwvU6gAbusE20ZIrBu7SoSDM4ad0iuhElrolFo4i4bwrikRLeC8M
+X-Received: by 2002:a05:600c:3b9c:b0:439:967b:46fc with SMTP id 5b1f17b1804b1-43999d8f506mr3283315e9.8.1739896485365;
+        Tue, 18 Feb 2025 08:34:45 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF2rMqgMj306LdPnffqreiahb80iBIENo1q+8mjRXF/AC5FQTrmlj/WNJxrORGdnqPcYDinew==
+X-Received: by 2002:a05:600c:3b9c:b0:439:967b:46fc with SMTP id 5b1f17b1804b1-43999d8f506mr3283035e9.8.1739896484985;
+        Tue, 18 Feb 2025 08:34:44 -0800 (PST)
+Received: from rh.redhat.com (p200300f6af0e4d00dda53016e366575f.dip0.t-ipconnect.de. [2003:f6:af0e:4d00:dda5:3016:e366:575f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4396b5267eesm85091845e9.0.2025.02.18.08.34.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2025 08:34:44 -0800 (PST)
+From: Sebastian Ott <sebott@redhat.com>
+To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oliver.upton@linux.dev>,
-	kvmarm <kvmarm@lists.linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+Cc: Cornelia Huck <cohuck@redhat.com>,
+	Eric Auger <eric.auger@redhat.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	christoffer.dall@arm.com,
-	suzuki.poulose@arm.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	coltonlewis@google.com,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	darren@os.amperecomputing.com,
-	vishnu@os.amperecomputing.com
-Subject: Re: [PATCH] KVM: arm64: nv: Set ISTATUS for emulated timers, If timer expired
-In-Reply-To: <1a19dacc-72ca-4631-bce8-7426b3de0b47@os.amperecomputing.com>
-References: <bcb4289b-507c-4ea1-afc7-6febd34d88db@redhat.com>
-	<86y10osr19.wl-maz@kernel.org>
-	<4d443db1-85b1-4071-acd5-3187deb9cb17@redhat.com>
-	<2f6b2cb1-3d32-480a-9801-9b993ae74e2d@os.amperecomputing.com>
-	<152d262e-641d-4bb1-9656-a13e049d62c4@redhat.com>
-	<86h661wje4.wl-maz@kernel.org>
-	<4a9fbdd9-ad23-44bc-8ba5-399f08068db4@redhat.com>
-	<86cygpwfy0.wl-maz@kernel.org>
-	<b22d5916-8b55-43bc-a256-2136d66ad25f@redhat.com>
-	<86frkptzr6.wl-maz@kernel.org>
-	<Z6ZMdv8jJUvYwQzT@linux.dev>
-	<86bjvdtxb5.wl-maz@kernel.org>
-	<8da22249-eedb-477b-98d8-f50dee56f1f7@redhat.com>
-	<87tt8v14j2.wl-maz@kernel.org>
-	<1a19dacc-72ca-4631-bce8-7426b3de0b47@os.amperecomputing.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: gankulkarni@os.amperecomputing.com, eauger@redhat.com, oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, christoffer.dall@arm.com, suzuki.poulose@arm.com, will@kernel.org, catalin.marinas@arm.com, coltonlewis@google.com, joey.gouly@arm.com, yuzenghui@huawei.com, darren@os.amperecomputing.com, vishnu@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/4] KVM: arm64: writable MIDR/REVIDR
+Date: Tue, 18 Feb 2025 17:34:39 +0100
+Message-ID: <20250218163443.32836-1-sebott@redhat.com>
+X-Mailer: git-send-email 2.48.1
+MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 7IqlmmZTcaq1Z51MLkbWxPD9-AjRpqMERUtzeMUqWlU_1739896485
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_083333_346714_838FEF1C 
-X-CRM114-Status: GOOD (  32.87  )
+X-CRM114-CacheID: sfid-20250218_083450_993865_7DE74FCB 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,78 +116,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Feb 2025 07:33:11 +0000,
-Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com> wrote:
-> 
-> 
-> Hi Marc,
-> 
-> On 15-02-2025 11:20 pm, Marc Zyngier wrote:
-> > On Mon, 10 Feb 2025 18:26:48 +0000,
-> > Eric Auger <eauger@redhat.com> wrote:
-> >> 
-> >> Hi Marc,
-> >> 
-> >> On 2/7/25 7:38 PM, Marc Zyngier wrote:
-> >>> On Fri, 07 Feb 2025 18:09:58 +0000,
-> >>> Oliver Upton <oliver.upton@linux.dev> wrote:
-> >>>> 
-> >>>> Hey,
-> >>>> 
-> >>>> On Fri, Feb 07, 2025 at 05:45:33PM +0000, Marc Zyngier wrote:
-> >>>>> I found at least one issue that could fail the migration. Before the
-> >>>>> VM starts running, we limit the feature set to the subset we actually
-> >>>>> support with NV.
-> >>>>> 
-> >>>>> By doing this, we also change the value of IDreg fields that are not
-> >>>>> writable, because they describe features that we don't support.
-> >>>>> Obviously, that fails on restore.
-> >>>>> 
-> >>>>> I need to have a think...
-> >>>> 
-> >>>> We spoke about this a while ago (and I forgot til now), but I was
-> >>>> wondering if we could use vCPU feature flags to describe NV, including
-> >>>> the selection between FEAT_E2H0 and FEAT_VHE.
-> >>>> 
-> >>>> I think this might match userspace expectations a bit more closely where
-> >>>> the state of the ID registers after init gives the actual feature set
-> >>>> supported by the VM.
-> >>> 
-> >>> I'm not sure that's enough. Let me give you an example:
-> >>> 
-> >>> My host has FEAT_XNX, described in ID_AA64MMFR1_EL1.XNX. For whatever
-> >>> reason, we don't allow this field to be written to, even out of NV
-> >>> context. This is odd, because for an EL1 VM, this field means nothing
-> >>> at all.
-> >> So the curprit fields for me look like
-> >> 
-> >> - ID_AA64MMFR1_EL1.XNX
-> >> - ID_AA64DFR0_EL1.DoubleLock
-> >> - ID_AA64PFR0_EL1.RAS
-> >> 
-> >> This is still based on your nv-next branch from Jan 9
-> >> https://github.com/eauger/linux/tree/nv_next_jan9_2025
-> > 
-> > I have now pushed out a new nv-next branch with the new and improved
-> > UAPI. I expect migration to work a bit better, or at least not to
-> > explode on ID register restore. You will notice that things have
-> > changed a bit (extra flag and cap for FEAT_E2H0), but nothing really
-> > major.
-> > 
-> 
-> Tried nv-next branch and it is breaking(kernel Oops) for normal VM
-> boot itself with qemu. Looks like this is happening since qemu is
-> trying to write to ID_UNALLOCATED mapped registers as part of
-> save-restore of registers.
+Based on prior discussion [1] this series allows VMMs to change
+MIDR/REVIDR to enable migration between machines that differ in
+these registers. Since these are used for errata handling the
+errata management series [2] is a prerequisite for this one.
 
-Yeah, ID_UNALLOCATED is in pretty bad shape overall. For start, it
-doesn't even have a name associated to it, and then everything else
-falls apart.
+changes for V3:
+* handle VPIDR_EL2 as part of vcpu ctxt - thanks Oliver!
 
-I'll rework it shortly, thanks for the heads up.
+changes for V2:
+* let the guest actually observe the changed MIDR_EL1 value
+* extra .set_user function
+* added selftest
 
-	M.
+[1] https://lore.kernel.org/kvmarm/20250124151732.6072-1-shameerali.kolothum.thodi@huawei.com/T/#mb855bc51714095a164a7b26bb8bead1606e4b753
+[2] https://lore.kernel.org/kvmarm/20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com/T/
+
+Sebastian Ott (4):
+  KVM: arm64: Allow userspace to change MIDR_EL1
+  KVM: arm64: Allow userspace to change REVIDR_EL1
+  KVM: arm64: Allow userspace to change AIDR_EL1
+  KVM: selftests: arm64: Test writes to MIDR,REVIDR,AIDR
+
+ arch/arm64/include/asm/kvm_host.h             |   9 ++
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h    |   5 +-
+ arch/arm64/kvm/hyp/nvhe/sysreg-sr.c           |  10 +-
+ arch/arm64/kvm/hyp/vhe/sysreg-sr.c            |  28 ++--
+ arch/arm64/kvm/sys_regs.c                     | 137 +++++++-----------
+ .../testing/selftests/kvm/arm64/set_id_regs.c |  32 +++-
+ 6 files changed, 108 insertions(+), 113 deletions(-)
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.42.0
+
 
