@@ -4,78 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07B00C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F5D4C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CadJhOiuOL+bA49PAWirsjDCGJLOFaxwmiT2F0EYUzM=; b=LwGly/u5+CXbESOkpk9vHYa7Rw
-	MjVrKb3dIhxzMfRYY8oP4jLuSTI2Smukbr91/MmLWfWtX+SQ6ub4y6F4u0YxOKHoRuHiRWjQMUMuK
-	sPo69eCxdlXNWNLfn7yfh278CJrKTI0y7tQsadzo9HXKkGRteANEsIG7iK/Z52/+FeMhB2Ym4hrBH
-	FZQhqzz0H5YoV38ago8z348+15PxXX3+9kkUd2wnPAtVycFF8uOhtimN5Syr3IuAXklWPQdYVqhUT
-	VmBWR3LFJTTG1loy6T8CSTFnmlC/T6ezgj4a0fTgpgC4JPN9C9myMAidunVsz4PMfolFhBi7BUio8
-	XPzsVv4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7s1SBHr9FlQDe6h51n6wnhP2iUt4u+JxDoKO9MqQoVs=; b=xk3+qTnTz0DIkQ11T9712U5Mdi
+	gYV7ESgUyUqGqWldThB3SQhyXLgSSpKClhhfAZh/vkCaLketpqxSNguGJaZIE3hQQcWvv2xXW03cA
+	+CeP3aJz6CFt/2dDtTcBan85OCntkMtf0KnTOo4CgD2smO+UtypoiHGKMJ7v3ZfLwPu6PKeIviNWQ
+	/A2o5T0HjD/7cUDnFXXwcIcS3M6UuBm1OJNucXUb+i+e/xyW3NkGZIjeqOjJCKXGNRe2Qzv+3DolH
+	ZyeZbbpKRCYObcmxXK0yW08inn6SdnpUth0Aserou6tuPEztfPbkSA+F5zopboZyJe9q6+PPlNkhs
+	OYV4+5Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNgV-00000008KTh-1CdN;
-	Tue, 18 Feb 2025 13:30:47 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNds-00000008JqK-1KJC;
-	Tue, 18 Feb 2025 13:28:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AF724A40C18;
-	Tue, 18 Feb 2025 13:26:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0B20C4CEE2;
-	Tue, 18 Feb 2025 13:27:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739885283;
-	bh=WUKim6I0GIa7OB0lKVP3eWVJgzUnm9e3oqomWqD2WwE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QRkY5wkhLUTZa8Vgk9CcWZJea74bEM97C45lbFLORkAUB5t+VRmdEfU71ySeA/yxW
-	 5NMqAIX9A0mbShZ+R0dswW7gak2vOJLFcxXy6KrkdB5sPzBqsEpf3AzkIGxXnIhi1j
-	 jMtH7ZgyYxe6ZU5hCKKLmDtFA4fD/bK+9C7rBVuEwPMl03ASmv8RMDMtUK75L5AGBj
-	 gSoA+Q3PlsZPfztif70R0TpNPtuuu2NmOTlfjkyJlRXepDS0ZzSBdQ9hWCbfFthAl9
-	 QZaaiqQDwFbj7B/EIHbZFOtv1qiyrmUw8WSerUvHwo6E8JULcreHVOo51tozIV+s6t
-	 eXpiL0Mo+Wqbw==
-Date: Tue, 18 Feb 2025 13:27:56 +0000
-From: Simon Horman <horms@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [PATCH net-next v4 13/16] net: airoha: Introduce Airoha NPU
- support
-Message-ID: <20250218132756.GU1615191@kernel.org>
-References: <20250213-airoha-en7581-flowtable-offload-v4-0-b69ca16d74db@kernel.org>
- <20250213-airoha-en7581-flowtable-offload-v4-13-b69ca16d74db@kernel.org>
- <20250217183854.GP1615191@kernel.org>
- <Z7OMv-7UBVtKaEFb@lore-desk>
+	id 1tkNhw-00000008Kqv-17BB;
+	Tue, 18 Feb 2025 13:32:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkNeK-00000008Juo-1aJx
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Feb 2025 13:28:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DD493152B;
+	Tue, 18 Feb 2025 05:28:49 -0800 (PST)
+Received: from [10.1.27.186] (XHFQ2J9959.cambridge.arm.com [10.1.27.186])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B661B3F59E;
+	Tue, 18 Feb 2025 05:28:29 -0800 (PST)
+Message-ID: <48678288-c7a1-48a6-89d0-06e34e3b904a@arm.com>
+Date: Tue, 18 Feb 2025 13:28:28 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z7OMv-7UBVtKaEFb@lore-desk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v2 PATCH 2/2] arm64: mm: support large block mapping when
+ rodata=full
+Content-Language: en-GB
+To: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
+ will@kernel.org
+Cc: cl@gentwo.org, scott@os.amperecomputing.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Miko Lenczewski <Miko.Lenczewski@arm.com>
+References: <20250103011822.1257189-1-yang@os.amperecomputing.com>
+ <20250103011822.1257189-3-yang@os.amperecomputing.com>
+ <caf29133-a24f-47e4-ba38-d1f99e998d27@arm.com>
+ <be09705e-2f85-47e0-b632-f2fdb32e54ba@os.amperecomputing.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <be09705e-2f85-47e0-b632-f2fdb32e54ba@os.amperecomputing.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_052804_420733_6D957FB6 
-X-CRM114-Status: GOOD (  15.83  )
+X-CRM114-CacheID: sfid-20250218_052832_522628_D8777068 
+X-CRM114-Status: GOOD (  52.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,45 +70,575 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 08:23:43PM +0100, Lorenzo Bianconi wrote:
-
-...
-
-> > > +	err = devm_request_irq(dev, irq, airoha_npu_mbox_handler,
-> > > +			       IRQF_SHARED, "airoha-npu-mbox", npu);
-> > > +	if (err)
-> > > +		return err;
-> > > +
-> > > +	for (i = 0; i < ARRAY_SIZE(npu->cores); i++) {
-> > > +		struct airoha_npu_core *core = &npu->cores[i];
-> > > +
-> > > +		spin_lock_init(&core->lock);
-> > > +		core->npu = npu;
-> > > +
-> > > +		irq = platform_get_irq(pdev, i + 1);
-> > > +		if (irq < 0)
-> > > +			return err;
-
-...
-
-> > Should this return irq rather than err?
+On 13/02/2025 21:18, Yang Shi wrote:
 > 
-> are you referring to devm_request_irq()?
 > 
-> https://elixir.bootlin.com/linux/v6.13.2/source/include/linux/interrupt.h#L215
-> https://elixir.bootlin.com/linux/v6.13.2/source/kernel/irq/devres.c#L52
 > 
-> I guess it returns 0 on success and a negative value in case of error.
+> On 2/11/25 4:58 AM, Ryan Roberts wrote:
+>> On 03/01/2025 01:17, Yang Shi wrote:
+>>> When rodata=full is specified, kernel linear mapping has to be mapped at
+>>> PTE level since large page table can't be split due to break-before-make
+>>> rule on ARM64.
+>>>
+>>> This resulted in a couple of problems:
+>>>    - performance degradation
+>>>    - more TLB pressure
+>>>    - memory waste for kernel page table
+>>>
+>>> With FEAT_BBM level 2 support, splitting large block page table to
+>>> smaller ones doesn't need to make the page table entry invalid anymore.
+>>> This allows kernel split large block mapping on the fly.
+>>>
+>>> Add kernel page table split support and use large block mapping by
+>>> default when FEAT_BBM level 2 is supported for rodata=full.  When
+>>> changing permissions for kernel linear mapping, the page table will be
+>>> split to PTE level.
+>>>
+>>> The machine without FEAT_BBM level 2 will fallback to have kernel linear
+>>> mapping PTE-mapped when rodata=full.
+>>>
+>>> With this we saw significant performance boost with some benchmarks and
+>>> much less memory consumption on my AmpereOne machine (192 cores, 1P) with
+>>> 256GB memory.
+>>>
+>>> * Memory use after boot
+>>> Before:
+>>> MemTotal:       258988984 kB
+>>> MemFree:        254821700 kB
+>>>
+>>> After:
+>>> MemTotal:       259505132 kB
+>>> MemFree:        255410264 kB
+>>>
+>>> Around 500MB more memory are free to use.  The larger the machine, the
+>>> more memory saved.
+>>>
+>>> * Memcached
+>>> We saw performance degradation when running Memcached benchmark with
+>>> rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
+>>> With this patchset we saw ops/sec is increased by around 3.5%, P99
+>>> latency is reduced by around 9.6%.
+>>> The gain mainly came from reduced kernel TLB misses.  The kernel TLB
+>>> MPKI is reduced by 28.5%.
+>>>
+>>> The benchmark data is now on par with rodata=on too.
+>>>
+>>> * Disk encryption (dm-crypt) benchmark
+>>> Ran fio benchmark with the below command on a 128G ramdisk (ext4) with disk
+>>> encryption (by dm-crypt).
+>>> fio --directory=/data --random_generator=lfsr --norandommap --randrepeat 1 \
+>>>      --status-interval=999 --rw=write --bs=4k --loops=1 --ioengine=sync \
+>>>      --iodepth=1 --numjobs=1 --fsync_on_close=1 --group_reporting --thread \
+>>>      --name=iops-test-job --eta-newline=1 --size 100G
+>>>
+>>> The IOPS is increased by 90% - 150% (the variance is high, but the worst
+>>> number of good case is around 90% more than the best number of bad case).
+>>> The bandwidth is increased and the avg clat is reduced proportionally.
+>>>
+>>> * Sequential file read
+>>> Read 100G file sequentially on XFS (xfs_io read with page cache populated).
+>>> The bandwidth is increased by 150%.
+>>>
+>>> Keep using PTE mapping when pagealloc debug is enabled.  It is not worth
+>>> the complexity.
+>>>
+>>> Kfence can be converted to use page block mapping later.
+>>>
+>>> Signed-off-by: Yang Shi<yang@os.amperecomputing.com>
+>>> ---
+>>>   arch/arm64/include/asm/pgtable.h |   7 +-
+>>>   arch/arm64/mm/mmu.c              |  32 +++++-
+>>>   arch/arm64/mm/pageattr.c         | 173 +++++++++++++++++++++++++++++--
+>>>   3 files changed, 203 insertions(+), 9 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>>> index 6986345b537a..2927f59ae9e2 100644
+>>> --- a/arch/arm64/include/asm/pgtable.h
+>>> +++ b/arch/arm64/include/asm/pgtable.h
+>>> @@ -749,7 +749,7 @@ static inline bool in_swapper_pgdir(void *addr)
+>>>               ((unsigned long)swapper_pg_dir & PAGE_MASK);
+>>>   }
+>>>   -static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+>>> +static inline void __set_pmd_nosync(pmd_t *pmdp, pmd_t pmd)
+>>>   {
+>>>   #ifdef __PAGETABLE_PMD_FOLDED
+>>>       if (in_swapper_pgdir(pmdp)) {
+>>> @@ -759,6 +759,11 @@ static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+>>>   #endif /* __PAGETABLE_PMD_FOLDED */
+>>>         WRITE_ONCE(*pmdp, pmd);
+>>> +}
+>>> +
+>>> +static inline void set_pmd(pmd_t *pmdp, pmd_t pmd)
+>>> +{
+>>> +    __set_pmd_nosync(pmdp, pmd);
+>> I have a series at [1] which enables batching/deferring these barriers. I reckon
+>> it would be udeful to ultimately apply that same technique for painting the
+>> linear map if/when that series goes upstream. The benefit is that we wouldn't
+>> need to expose the _nosync helpers. But that's something to cleanup later. This
+>> looks fine for now.
+> 
+> Thanks.
+> 
+>>>         if (pmd_valid(pmd)) {
+>>>           dsb(ishst);
+>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>> index e2739b69e11b..65b5b1ba48a7 100644
+>>> --- a/arch/arm64/mm/mmu.c
+>>> +++ b/arch/arm64/mm/mmu.c
+>>> @@ -620,6 +620,19 @@ static inline void arm64_kfence_map_pool(phys_addr_t
+>>> kfence_pool, pgd_t *pgdp) {
+>>>     #endif /* CONFIG_KFENCE */
+>>>   +static inline bool force_pte_mapping(void)
+>>> +{
+>>> +    /*
+>>> +     * Can't use cpufeature API to determine whether BBM level 2
+>>> +     * is supported or not since cpufeature have not been
+>>> +     * finalized yet.
+>>> +     */
+>> I think assuming the system has BMML2 just because the boot CPU has it is going
+>> to be problematic. I think you are going to continue to need to initially paint
+>> the linear map with ptes then later, once the system cap is finalized, repaint
+>> with blocks.
+> 
+> Please see the response for patch 1. We may be able to split it instead of
+> collapse it.
+> 
+>>> +    return (rodata_full && !bbmlv2_available()) ||
+>>> +        debug_pagealloc_enabled() ||
+>>> +        arm64_kfence_can_set_direct_map() ||
+>>> +        is_realm_world();
+>>> +}
+>> Previously the decision was determined by:
+>>
+>> bool can_set_direct_map(void)
+>> {
+>>     /*
+>>      * rodata_full, DEBUG_PAGEALLOC and a Realm guest all require linear
+>>      * map to be mapped at page granularity, so that it is possible to
+>>      * protect/unprotect single pages.
+>>      *
+>>      * KFENCE pool requires page-granular mapping if initialized late.
+>>      *
+>>      * Realms need to make pages shared/protected at page granularity.
+>>      */
+>>     return rodata_full || debug_pagealloc_enabled() ||
+>>         arm64_kfence_can_set_direct_map() || is_realm_world();
+>> }
+>>
+>> But now that you can safely split block mappings to page mappings when needed
+>> doesn't that cover some of these requirements? So perhaps you can do block
+>> mappings even when some (all?) of these things are active?
+> 
+> I did look into some of them. I don't know too much about realm, so I can't tell.
+> 
+> But pagealloc will change kernel direct map to invalid when freeing page so it
+> is called quite often. The pagealloc debug is typically not enabled for production.
+> 
+> Kfence will change it to invalid when allocating kfence object (typically when
+> allocating slab), but kfence typically allocates and maps its pool very early on
+> ARM64 and the pool is separate from direct map and mapped at PTE level. So IMHO
+> I don't see to much value support large block mapping for them for now.
 
-Hi Lorenzo,
+OK perhaps leave as is for now, and we can take a view on whether we want to
+extend later as incremental patches.
 
-Sorry, somehow I completely messed-up trimming context and managed to make
-things utterly confusing.
+> 
+>>> +
+>>>   static void __init map_mem(pgd_t *pgdp)
+>>>   {
+>>>       static const u64 direct_map_end = _PAGE_END(VA_BITS_MIN);
+>>> @@ -645,9 +658,21 @@ static void __init map_mem(pgd_t *pgdp)
+>>>         early_kfence_pool = arm64_kfence_alloc_pool();
+>>>   -    if (can_set_direct_map())
+>>> +    if (force_pte_mapping())
+>>>           flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>>>   +    /*
+>>> +     * With FEAT_BBM level 2 we can split large block mapping without
+>>> +     * making it invalid.  So kernel linear mapping can be mapped with
+>>> +     * large block instead of PTE level.
+>>> +     *
+>>> +     * Need to break cont for CONT_MAPPINGS when changing permission,
+>>> +     * and need to inspect the adjacent page table entries to make
+>>> +     * them cont again later.  It sounds not worth the complexity.
+>> I'm not sure I follow the argument? As far as I can tell, you only ever split
+>> mappings. You never collapse. So I don't think it's too complex to check for
+>> CONT bits and if set, clear the CONT bit from the block? That's a safe operation
+>> with BBML2. It means you need to iterate over the ptes which you don't currently
+>> do, but you only need to check a 1 PTE in every CONT_PTES.
+> 
+> Sorry for the confusion. Yes, I don't collapse. It seems I overthought this
+> case, I thought I need to clear CONT bit for all PTEs in the block (for example,
+> 16 PTEs). But it seems I just need to clear one PTE.
 
-I've trimmed things again, and it is the platform_get_irq() call
-not far above this line that I'm referring to. It assigns the
-return value of a function to irq, tests irq, but returns err.
+No you were right; you need to clear the CONT bit from all 16 PTEs in the block.
+But since all PTEs in the block will either have CONT all set or all clear, you
+only need to check 1 in every 16 PTEs. If that check shows that CONT is set, you
+can clear the bit from the block that contains the PTE you checked. It will slow
+down the split process though, because now you have to descend to the PTE table,
+check 32 of the PTEs (512 / 16) and for any CONT blocks, clear the CONT bit.
 
-It is one of (at least) two calls to platform_get_irq() in airoha_npu_probe().
+Personally I think it's worth checking how much slower that is though, given you
+already have a test case. In general, I've found that there is value in working
+hard to keep the TLB usage as low as possible.
+
+> 
+>>> +     */
+>>> +    if (rodata_full)
+>>> +        flags |= NO_CONT_MAPPINGS;
+>>> +
+>>>       /*
+>>>        * Take care not to create a writable alias for the
+>>>        * read-only text and rodata sections of the kernel image.
+>>> @@ -1342,9 +1367,12 @@ int arch_add_memory(int nid, u64 start, u64 size,
+>>>         VM_BUG_ON(!mhp_range_allowed(start, size, true));
+>>>   -    if (can_set_direct_map())
+>>> +    if (force_pte_mapping())
+>>>           flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+>>>   +    if (rodata_full)
+>>> +        flags |= NO_CONT_MAPPINGS;
+>>> +
+>>>       __create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
+>>>                    size, params->pgprot, __pgd_pgtable_alloc,
+>>>                    flags);
+>>> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+>>> index 39fd1f7ff02a..ba2360ecb030 100644
+>>> --- a/arch/arm64/mm/pageattr.c
+>>> +++ b/arch/arm64/mm/pageattr.c
+>>> @@ -49,6 +49,145 @@ static int change_page_range(pte_t *ptep, unsigned long
+>>> addr, void *data)
+>>>       return 0;
+>>>   }
+>>>   +static int __split_linear_mapping_pmd(pud_t *pudp,
+>>> +                      unsigned long vaddr, unsigned long end)
+>> nit: are the double really underscores needed?
+> 
+> No, not really.
+> 
+>>> +{
+>>> +    pmd_t *pmdp;
+>>> +    unsigned long next;
+>>> +
+>>> +    pmdp = pmd_offset(pudp, vaddr);
+>>> +
+>>> +    do {
+>>> +        next = pmd_addr_end(vaddr, end);
+>>> +
+>>> +        if (pmd_leaf(pmdp_get(pmdp))) {
+>>> +            struct page *pte_page;
+>>> +            unsigned long pfn = pmd_pfn(pmdp_get(pmdp));
+>>> +            pgprot_t prot = pmd_pgprot(pmdp_get(pmdp));
+>>> +            pte_t *ptep_new;
+>>> +            int i;
+>>> +
+>>> +            pte_page = alloc_page(GFP_KERNEL);
+>>> +            if (!pte_page)
+>>> +                return -ENOMEM;
+>>> +
+>>> +            prot = __pgprot(pgprot_val(prot) | PTE_TYPE_PAGE);
+>>> +            ptep_new = (pte_t *)page_address(pte_page);
+>>> +            for (i = 0; i < PTRS_PER_PTE; ++i, ++ptep_new)
+>>> +                __set_pte_nosync(ptep_new,
+>>> +                         pfn_pte(pfn + i, prot));
+>>> +
+>>> +            dsb(ishst);
+>>> +            isb();
+>>> +
+>>> +            set_pmd(pmdp, pfn_pmd(page_to_pfn(pte_page),
+>>> +                __pgprot(PMD_TYPE_TABLE)));
+>> All the same comments that I made below for __split_linear_mapping_pud() apply
+>> here.
+> 
+> Sure
+> 
+>>> +        }
+>>> +    } while (pmdp++, vaddr = next, vaddr != end);
+>>> +
+>>> +    return 0;
+>>> +}
+>>> +
+>>> +static int __split_linear_mapping_pud(p4d_t *p4dp,
+>>> +                      unsigned long vaddr, unsigned long end)
+>>> +{
+>>> +    pud_t *pudp;
+>>> +    unsigned long next;
+>>> +    int ret;
+>>> +
+>>> +    pudp = pud_offset(p4dp, vaddr);
+>>> +
+>>> +    do {
+>>> +        next = pud_addr_end(vaddr, end);
+>>> +
+>>> +        if (pud_leaf(pudp_get(pudp))) {
+>> Just do the pudp_get() once and cache the result. It's implemented by
+>> READ_ONCE() so your 3 invocations are actually doing 3 separate loads.
+> 
+> Sure
+> 
+>>> +            struct page *pmd_page;
+>>> +            unsigned long pfn = pud_pfn(pudp_get(pudp));
+>>> +            pgprot_t prot = pud_pgprot(pudp_get(pudp));
+>>> +            pmd_t *pmdp_new;
+>>> +            int i;
+>>> +            unsigned int step;
+>>> +
+>>> +            pmd_page = alloc_page(GFP_KERNEL);
+>>> +            if (!pmd_page)
+>>> +                return -ENOMEM;
+>> Is this really how we allocate pgtable pages for kernel space? For user space we
+>> have quite a lot of machinery for this.
+> 
+> The userspace page table allocation does something extra, for example,
+>     - initialize ptlock
+>     - set folio type
+>     - update NR_PGTABLE counter
+> 
+> We don't need them for kernel direct map page table, so just took the most
+> straightforward way. However, __get_free_page(GFP_PGTABLE_KERNEL) may be better
+> than alloc_page(GFP_KERNEL). It is used by memory hotplug.
+
+__create_pgd_mapping() takes a callback that it uses to allocate pgtable pages.
+The initial linear map creation passes in early_pgtable_alloc(), which allocates
+from memblock. I'm not sure if it's possible that we would ever need to split so
+early that we need to use memblock too?
+
+For late allocations, we have __pgd_pgtable_alloc() and pgd_pgtable_alloc(). The
+latter constructs the ptdesc, although it's not completely clear to me when each
+should be used. Both of those functions BUG_ON() memory allocation failure which
+seems bad, especially given __pgd_pgtable_alloc() is used for mem hotplug, which
+really should be returning an error. Ouch.
+
+I think ideally we would rework __create_pgd_mapping() to be able to return an
+error (so we can fix the mem hotplug issue), handle collapse, split and
+permissions changes then use it universally. Or failing that,
+__get_free_page(GFP_PGTABLE_KERNEL) is the second best option.
+
+> 
+>>> +
+>>> +            pmdp_new = (pmd_t *)page_address(pmd_page);
+>>> +            for (i = 0; i < PTRS_PER_PMD; ++i, ++pmdp_new) {
+>>> +                step = (i * PMD_SIZE) >> PAGE_SHIFT;
+>> Suggest hoisting this out of the loop, then just increment pfn by step every
+>> iteration.
+> 
+> Yeah, sure
+> 
+>>> +                __set_pmd_nosync(pmdp_new,
+>>> +                         pfn_pmd(pfn + step, prot));
+>>> +            }
+>>> +
+>>> +            dsb(ishst);
+>>> +            isb();
+>> I'm not convinced by the need for this isb(). The dsb ensures that the table is
+>> visible to the table walker; that's needed. The isb() present in set_pmd() and
+>> friends to remove any "cached" speculative invalid translation marker from the
+>> pipeline, if I understand things correctly. I don't think we need to solve that
+>> problem here because you weren't working on a live table. The isb() in set_pud()
+>> is sufficient, I think.
+> 
+> I see, we just need one isb() when the table becomes reachable. Will remove it
+> and the isb() in __split_linear_mapping_pmd().
+> >>> +
+>>> +            set_pud(pudp, pfn_pud(page_to_pfn(pmd_page),
+>>> +                __pgprot(PUD_TYPE_TABLE)));
+>>> +        }
+>>> +
+>>> +        ret = __split_linear_mapping_pmd(pudp, vaddr, next);
+>>> +        if (ret)
+>>> +            return ret;
+>>> +    } while (pudp++, vaddr = next, vaddr != end);
+>>> +
+>>> +    return 0;
+>>> +}
+>>> +
+>>> +static int __split_linear_mapping_p4d(pgd_t *pgdp,
+>>> +                      unsigned long vaddr, unsigned long end)
+>>> +{
+>>> +    p4d_t *p4dp;
+>>> +    unsigned long next;
+>>> +    int ret;
+>>> +
+>>> +    p4dp = p4d_offset(pgdp, vaddr);
+>>> +
+>>> +    do {
+>>> +        next = p4d_addr_end(vaddr, end);
+>>> +
+>>> +        ret = __split_linear_mapping_pud(p4dp, vaddr, next);
+>>> +        if (ret)
+>>> +            return ret;
+>> nit: personally I would make this break. Then have single "return ret", like you
+>> have for __split_linear_mapping_pgd(). Then all levels follow the same template.
+> 
+> Sure
+> 
+>>> +    } while (p4dp++, vaddr = next, vaddr != end);
+>>> +
+>>> +    return 0;
+>>> +}
+>>> +
+>>> +static int __split_linear_mapping_pgd(pgd_t *pgdp,
+>>> +                      unsigned long vaddr,
+>>> +                      unsigned long end)
+>>> +{> +    unsigned long next;
+>>> +    int ret = 0;
+>>> +
+>>> +    mmap_write_lock(&init_mm);
+>> nit: I think the locking would be more natural in split_linear_mapping().
+> 
+> OK
+> 
+>>> +
+>>> +    do {
+>>> +        next = pgd_addr_end(vaddr, end);
+>>> +        ret = __split_linear_mapping_p4d(pgdp, vaddr, next);
+>>> +        if (ret)
+>>> +            break;
+>>> +    } while (pgdp++, vaddr = next, vaddr != end);
+>>> +
+>>> +    mmap_write_unlock(&init_mm);
+>>> +
+>>> +    return ret;
+>>> +}
+>>> +
+>>> +static int split_linear_mapping(unsigned long start, unsigned long end)
+>> As far as I can tell, you only ever split the linear mapping. You never collapse
+>> it. In that case, won't it just degrade to pte-mappings over time? I suspect you
+>> should aim to detect collapse opportunities.
+> 
+> In theory there may be kernel linear mapping fragmentation problem, for example,
+> huge number of modules are loaded, but I've never heard of anyone reported this
+> as a real issue. And AFAICT, no architecture supports this for now.
+
+I'm not really talking about fragmentation. I'm talking about allocating
+different portions of the linear map over time and having to split the mapping
+down to ptes due to changing permissions. Over time this will tend towards the
+entire linear map being pte mapped if you don't proactively collapse too?
+
+I accept this is unlikely to happen due to module loading since you tend to load
+the modules at boot and they stay loaded. But what about other features that
+cause the linear map permissions to be changed? e.g. secret mem, bpf programs
+being loaded, guest_memfd (although I don't think that's upstream yet).
+
+> 
+>>> +{
+>>> +    int ret;
+>>> +
+>>> +    if (!system_supports_bbmlv2())
+>>> +        return 0;
+>>> +
+>>> +    ret = __split_linear_mapping_pgd(pgd_offset_k(start), start, end);
+>> nit: personally I would put pgd_offset_k() into __split_linear_mapping_pgd() so
+>> that it takes the exact same form as the other levels. Or mege
+>> __split_linear_mapping_pgd() into split_linear_mapping().
+> 
+> OK, I will clean it up
+> 
+>>> +    flush_tlb_kernel_range(start, end);
+>>> +
+>>> +    return ret;
+>>> +}
+>>> +
+>>>   /*
+>>>    * This function assumes that the range is mapped with PAGE_SIZE pages.
+>>>    */
+>>> @@ -80,8 +219,9 @@ static int change_memory_common(unsigned long addr, int
+>>> numpages,
+>>>       unsigned long start = addr;
+>>>       unsigned long size = PAGE_SIZE * numpages;
+>>>       unsigned long end = start + size;
+>>> +    unsigned long l_start;
+>>>       struct vm_struct *area;
+>>> -    int i;
+>>> +    int i, ret;
+>>>         if (!PAGE_ALIGNED(addr)) {
+>>>           start &= PAGE_MASK;
+>>> @@ -118,7 +258,12 @@ static int change_memory_common(unsigned long addr, int
+>>> numpages,
+>>>       if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
+>>>                   pgprot_val(clear_mask) == PTE_RDONLY)) {
+>>>           for (i = 0; i < area->nr_pages; i++) {
+>>> -            __change_memory_common((u64)page_address(area->pages[i]),
+>>> +            l_start = (u64)page_address(area->pages[i]);
+>>> +            ret = split_linear_mapping(l_start, l_start + PAGE_SIZE);
+>>> +            if (WARN_ON_ONCE(ret))
+>>> +                return ret;
+>>> +
+>>> +            __change_memory_common(l_start,
+>>>                              PAGE_SIZE, set_mask, clear_mask);
+>>>           }
+>>>       }
+>>> @@ -174,6 +319,9 @@ int set_memory_valid(unsigned long addr, int numpages,
+>>> int enable)
+>> set_memory_valid() actually calls __change_memory_common() directly (so it
+>> bypassed the split logic in change_memory_common()). Is it possible that it gets
+>> called for a non-split region? I guess you'll need to handle that case too?
+> 
+> The set_memopry_valid() is called in the below places:
+>     - kfence: it requires map at PTE level regardless of kfence_early_init or not
+>     - pagealloc debug: it requires map at PTE level too
+>     - execmem ROX cache: it seems like only x86 supports this right now
+> 
+> I don't think we are going to support large block mapping for direct map for
+> pagealloc debug and kfence as I said above. We need make set_memory_valid()
+> split page table when execmem ROX supported is added for arm64. But we don't
+> need do it right now.
+
+Fair enough.
+
+Thanks,
+Ryan
+
+> 
+> Thanks,
+> Yang
+> 
+>> Thanks,
+>> Ryan
+>>
+>>>     int set_direct_map_invalid_noflush(struct page *page)
+>>>   {
+>>> +    unsigned long l_start;
+>>> +    int ret;
+>>> +
+>>>       struct page_change_data data = {
+>>>           .set_mask = __pgprot(0),
+>>>           .clear_mask = __pgprot(PTE_VALID),
+>>> @@ -182,13 +330,21 @@ int set_direct_map_invalid_noflush(struct page *page)
+>>>       if (!can_set_direct_map())
+>>>           return 0;
+>>>   +    l_start = (unsigned long)page_address(page);
+>>> +    ret = split_linear_mapping(l_start, l_start + PAGE_SIZE);
+>>> +    if (WARN_ON_ONCE(ret))
+>>> +        return ret;
+>>> +
+>>>       return apply_to_page_range(&init_mm,
+>>> -                   (unsigned long)page_address(page),
+>>> -                   PAGE_SIZE, change_page_range, &data);
+>>> +                   l_start, PAGE_SIZE, change_page_range,
+>>> +                   &data);
+>>>   }
+>>>     int set_direct_map_default_noflush(struct page *page)
+>>>   {
+>>> +    unsigned long l_start;
+>>> +    int ret;
+>>> +
+>>>       struct page_change_data data = {
+>>>           .set_mask = __pgprot(PTE_VALID | PTE_WRITE),
+>>>           .clear_mask = __pgprot(PTE_RDONLY),
+>>> @@ -197,9 +353,14 @@ int set_direct_map_default_noflush(struct page *page)
+>>>       if (!can_set_direct_map())
+>>>           return 0;
+>>>   +    l_start = (unsigned long)page_address(page);
+>>> +    ret = split_linear_mapping(l_start, l_start + PAGE_SIZE);
+>>> +    if (WARN_ON_ONCE(ret))
+>>> +        return ret;
+>>> +
+>>>       return apply_to_page_range(&init_mm,
+>>> -                   (unsigned long)page_address(page),
+>>> -                   PAGE_SIZE, change_page_range, &data);
+>>> +                   l_start, PAGE_SIZE, change_page_range,
+>>> +                   &data);
+>>>   }
+>>>     static int __set_memory_enc_dec(unsigned long addr,
+> 
 
 
