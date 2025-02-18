@@ -4,123 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80570C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E62AEC021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:05:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fe9G2MZAHcd6fZNYH50IhEjcWk7Zck1M5VKNFAJhbe0=; b=jUjZZ5LqoMMk44bayXG9ogWMEE
-	bHyeNbr7s10gcsyxzOZZOr/DmFa/p5MTJfzk4mQ8cNV/4pRgM1iSPIVIEtp2Xs056tnhkSN3d0W4u
-	dV15gwQQawTFi+nFej4NZe3GODjcNuc43Smw2Sv2A0h8zABUKnSwD2nzyLYN4QTr+tbDsZ4bm75ZR
-	5NZ3Z310yzJ+oYxdVZT3L02OlNiLE463zSPo8289UF/cjjSlXsThEkFdAicSpRx0zLKtgJELW7F/8
-	mNq7ARPmGxvTpQjm2QiRzCbE77k5NNxGawJtVNBWubm79Bn510n5UAML1qihjuUXUe6Ptxs4MFP2B
-	dxC5lfZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vy3ZmTEZc8uPz8RaYZfoySzu8h/56i3D6jUensxZ6SE=; b=CMBsyQZnSXUhYckn5eoB/JXWH+
+	L9hvH4qS9M5HWBkCKGQrCRUg8cPvYTsCF7pxjSoe8iCvA04w1KYQmhxICOfxvritQ1HDd7mk875tY
+	/wQ4YhjVNzzfRxWhep6udD3pLe0UhWxsvhpVf05+/fxyB0ySckZtx2fTuMxu/M3zAgjDL3X5wPdHK
+	hYBWuS/BUiOItz8gYcwIGyuJ2Q7d47uMh9P24P8+coqdavRTOjG7kX/RlqxAdq5UEI1bkJdmXVxjZ
+	Tg6Pt5Y8xfDMj8QcTf41FyXI5QF0N6RBLzsTzYPzW2JNO2OSl/g8jt5rRrvTmEA2MxkeiBaem/x2A
+	uAeM8+hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTol-00000009gdK-1h6e;
-	Tue, 18 Feb 2025 20:03:43 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tkTqC-00000009gmb-10SI;
+	Tue, 18 Feb 2025 20:05:12 +0000
+Received: from mail-bn8nam04on2060a.outbound.protection.outlook.com ([2a01:111:f403:2408::60a] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSxJ-00000009VSw-0XQR
+	id 1tkSxg-00000009VZC-3Tm8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 19:08:30 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51IJ83hA062175
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 18 Feb 2025 13:08:04 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739905684;
-	bh=fe9G2MZAHcd6fZNYH50IhEjcWk7Zck1M5VKNFAJhbe0=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=IsA/eJ/gKw7Ot15bGtKazVgprX8P7jUClfkkzImaYlfEicqHFZAPZTk5nJDuIFKhf
-	 YeuIiZ9igzbgiz/V+aKBO7ZxolJxTUlQ1XLvCYxYUZllHjMuwVsKHGps2FpjY1ylKW
-	 /XOjMn1L2V0eKD8pAa1xTFoh3hbXc9IHWkoQHb4k=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51IJ83oA010965
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 18 Feb 2025 13:08:03 -0600
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 18
- Feb 2025 13:08:02 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 18 Feb 2025 13:08:02 -0600
-Received: from [10.24.69.142] ([10.24.69.142])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IJ7o1V046671;
-	Tue, 18 Feb 2025 13:07:50 -0600
-Message-ID: <bbf4f6db-cac1-4558-b345-8b4d6b36a8fa@ti.com>
-Date: Wed, 19 Feb 2025 00:37:49 +0530
+	Tue, 18 Feb 2025 19:08:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XsMFncUJ4RsbdxSm8T8VVmR3O785ywqOt/fHTspH6mmxVXIkzgues45HwIrzM8BqM0nGYBqRbrMFYdqcDgLZgTAZ26p7yTEqoPymaLZhT9gSE/E3Yj1Nd4WyG7GClhYqpKsyILQ+aflZxZS28mKjxmVv94vYf6gRhQ27z+aHAr8nUjujOvCeZ19uN0dZIo6lieHr4zH9KiVKFU11niuR4G3ZYNXyFX535aYXMcXtpQOM1P5LQ8IpSY8RY9JsVuHTp3cH2FH1BzT6BwVCyQRb36SGHc6ExktxM0S3/mRM0lPPM/kDgW0BGKfDQZ8gGIL4iwNjOHMwlHW0uoF4htXZWw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Vy3ZmTEZc8uPz8RaYZfoySzu8h/56i3D6jUensxZ6SE=;
+ b=LrdjQ2jlJzY+S6iWXRAdmLWxOncWb1MkBSBW+OFSlLhmMJawgUZ1VYmRaOMaJFStVzL/w35VznxrxmCl8wgyVTiABBwkFxDhEUyGuRSC4CYdkuhdmwBd1e349yPcDy45R8ufF4veloljhKUrl9f54pWoD3fh72nVdLJiro0kk7RWgYgcdtkUY5splSykj2GSQ1HPAcmxAh4N2MD5sgGRGJnV/UsLFrMrtRL5uegFOow7Krz5FqKOa3Qfh+eAkGf0lF5t17lUcazpibDUTq35nUNhrqPOkPpKMAUIOxYYDKG4IrOY+UPBxXIJbFTGKXHVk/lAt2MLWgELaoM1mLWdfA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Vy3ZmTEZc8uPz8RaYZfoySzu8h/56i3D6jUensxZ6SE=;
+ b=YDAZAG9Dbr8qpWge71DOXKrsujaKbsUxuQ1Xu7+NCQv1dgFUgthozEhvYAosbXhFRRPTCXXixvQekJ2/g7BqcpCpvbFYKmRRfg+HRfDcWgi0xMR8teiBJfw7tctUIx4POu07xiUayyaYAd/F/qtut/KZgpyqrkR7TqzYTlCvWTmdSuDlppAmj2XjBVBEIKb9MMQjuhlSItKV+syvhIJEm7eGI5lFc8fwNRXdkLA3JqbDNn1WhhQvK36JZXutp8jAfBH6evfOcEA+qkGSskXNY3Yr4TYjxPrwB4YU473EgVbsnO9oZrBetkO4J2/P5tajizSaXqx+BMHar+1SS2JEbg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by SN7PR12MB7370.namprd12.prod.outlook.com (2603:10b6:806:299::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Tue, 18 Feb
+ 2025 19:08:47 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8445.019; Tue, 18 Feb 2025
+ 19:08:47 +0000
+Date: Tue, 18 Feb 2025 15:08:46 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org, joro@8bytes.org,
+	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v6 13/14] iommu/arm-smmu-v3: Report events that belong to
+ devices attached to vIOMMU
+Message-ID: <20250218190846.GA4183890@nvidia.com>
+References: <cover.1737754129.git.nicolinc@nvidia.com>
+ <b71a5b132e8ba771998c5b810675f10b100d4ff3.1737754129.git.nicolinc@nvidia.com>
+ <20250218171821.GG4099685@nvidia.com>
+ <Z7TRNL0u0YmN30ax@nvidia.com>
+ <20250218185046.GK4099685@nvidia.com>
+ <Z7TZP3jXlRzweFE8@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z7TZP3jXlRzweFE8@nvidia.com>
+X-ClientProxiedBy: BL1PR13CA0158.namprd13.prod.outlook.com
+ (2603:10b6:208:2bd::13) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: ti: k3-am62a7-sk: Add overlay for fusion
- 2 board
-To: Sebastian LaVine <slavine@d3embedded.com>, <devicetree@vger.kernel.org>,
-        <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-media@vger.kernel.org>
-CC: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
-        Abel Vesa <abel.vesa@linaro.org>,
-        AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-        Ard Biesheuvel <ardb@kernel.org>,
-        Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-        Biju Das
-	<biju.das.jz@bp.renesas.com>,
-        Bjorn Andersson <quic_bjorande@quicinc.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-        Elinor
- Montmasson <elinor.montmasson@savoirfairelinux.com>,
-        Fabio Estevam
-	<festevam@gmail.com>,
-        Geert Uytterhoeven <geert+renesas@glider.be>,
-        Hans
- Verkuil <hverkuil@xs4all.nl>,
-        Javier Carrasco
-	<javier.carrasco@wolfvision.net>,
-        Jianzhong Xu <xuj@ti.com>,
-        Julien Massot
-	<julien.massot@collabora.com>,
-        Kieran Bingham
-	<kieran.bingham@ideasonboard.com>,
-        Kory Maincent <kory.maincent@bootlin.com>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        Laurent Pinchart
-	<laurent.pinchart@ideasonboard.com>,
-        Mauro Carvalho Chehab
-	<mchehab@kernel.org>,
-        Mikhail Rudenko <mike.rudenko@gmail.com>, Nishanth
- Menon <nm@ti.com>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Rob
- Herring <robh@kernel.org>,
-        Sakari Ailus <sakari.ailus@linux.intel.com>,
-        Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
-        Stuart Burtner <sburtner@d3embedded.com>,
-        Tero Kristo <kristo@kernel.org>, Thakkar Devarsh <devarsht@ti.com>,
-        Tomi Valkeinen
-	<tomi.valkeinen@ideasonboard.com>,
-        Umang Jain <umang.jain@ideasonboard.com>,
-        Vignesh Raghavendra <vigneshr@ti.com>, Will Deacon <will@kernel.org>,
-        Zhi Mao
-	<zhi.mao@mediatek.com>
-References: <20250212195656.69528-1-slavine@d3embedded.com>
- <20250212195656.69528-4-slavine@d3embedded.com>
-Content-Language: en-US
-From: Vaishnav Achath <vaishnav.a@ti.com>
-In-Reply-To: <20250212195656.69528-4-slavine@d3embedded.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SN7PR12MB7370:EE_
+X-MS-Office365-Filtering-Correlation-Id: 51f16f42-b207-4ca1-2548-08dd504fabb9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8DxonPmCCs2mlHzyGp7IWujOdKrmjyUdVbyjELwoSq6ri3ZzUjwumVHkXsB9?=
+ =?us-ascii?Q?lnJM3Fe9ve+oRzSkmYWU9ve+atcTNXE+/UsYmFwPBu7Xo5j7I8KoFLHyOe6E?=
+ =?us-ascii?Q?dBvh4kySf5MQCK1ey3RIXnVdcaxYBXoBgzpnaAk4WZB0+4l9GvtiUnWQnmH0?=
+ =?us-ascii?Q?qp0a9WS4BnjNqGMJvUQDQebhBnsCKnF9swNL45SC0l08UWC7ly/4d+g5Tszs?=
+ =?us-ascii?Q?fweX1paGxCRFldHzk5NC6Ma2YH2lQ+IW84AVgU5QIZFOxIiAcUtvOT7jhmjB?=
+ =?us-ascii?Q?PWxWNOKGeyDwlDIqODkjD+8D2B4swJCe5mIbz/67W0hnSF239wEr0nux38OV?=
+ =?us-ascii?Q?0v9N7kN2wn4lg0h6s7YIg+OVpcumozJ9tZ1kzRRK579ZMWWY5AxSWd83nvhC?=
+ =?us-ascii?Q?5RczQfHNQtK5F6bped+S8pxjz2K5A7TRPGeLS+jXuBtv16Kxfs+j7ih8Brbe?=
+ =?us-ascii?Q?0TmANKT1e1tlR7ihB6PfOG8xNgZeVvw9DAwBXxKmA1uYnUjQeJjbkEZ+PFHP?=
+ =?us-ascii?Q?xtkSQF9YDB5TEsiraolaUil6ucufSsJtkAZdBHOwVxao/XRJZF6877VsjJjW?=
+ =?us-ascii?Q?/LR11BRc2ChL7+jiQajVK76Ww44EzC4v4K+DT115o4rBmawNKvK01gDDf0gO?=
+ =?us-ascii?Q?+UnM9z8g0CLK3CMqfuAu+r6OKnw3LlcmmeLJu+400oVdzVh42LQsvtGRWZfk?=
+ =?us-ascii?Q?6powrEoOz7h9z+ywrxVVdnJCOli40W1qeLRTZ2ao9Ys9UAxiRpQ8kgucyUem?=
+ =?us-ascii?Q?hzDVGeJ982/aRHah9FBPHJem/dML4imJmUChuKXizJLSv65oP6eYfypCQoRg?=
+ =?us-ascii?Q?0WmUW6L8uPP7Aiz7SqfO0i1Ua7w6MxcOVlrkfp69zhB0/o74TyVyWjdTTjF/?=
+ =?us-ascii?Q?XWbbpH0hKuCn7t/WCOdP5khE87zMwSq3FWOKBIfItDqVCebM1EMMNVvB6JcP?=
+ =?us-ascii?Q?LP5eCdAFfoQjm8G+bcrIS2Lj5aUnJmkewVEimYE8p5e8Viwc5seL+MYlrlwu?=
+ =?us-ascii?Q?3MhnK4oW1XY+TU0ljYksC6w3cfGPV6U/GrPpF1I8IiLVMfvmdPbwjBqCPIm+?=
+ =?us-ascii?Q?yha5BNORH6uVeT3tOxmj6nh76QPCyZTPp4rliIwD0w1QTOg9+U6IVIDg62xq?=
+ =?us-ascii?Q?eRuwh+SGefCMddpIMGm6ckAMMfiPsVedAheEiswu6MCGai5LbtZGfyL1lko2?=
+ =?us-ascii?Q?dFYwuUxs+sxa9uFR8X9EqCsHotn4ocGO/tU6eZwTZ5PdAYmJ2fYC9aJthiUt?=
+ =?us-ascii?Q?4ilWofBC5bNj88hBA5e1xDV/RqjUt2jMuEh55EX6BGNPk4KgPdDtUi3/YaZd?=
+ =?us-ascii?Q?vv3qAMtz+jNu+fIjIOa4CxqdWeNaf2AmGtsCKc67I+E3CsSLvvoR8srz5v1s?=
+ =?us-ascii?Q?hHUYkv8vDSKx/QLduZzv82fGPbNs?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?IylQSCWdibOWM3OqQMbI1fjxs2tM20DO7FQaNXRtXlr/yyFtSLjTQqtnqTwP?=
+ =?us-ascii?Q?yFQnZcBf4EVWZxiWieXKm2CJf0FMKLGoah8eqbuk9JkSJO+CxNiGFZzVFcQ4?=
+ =?us-ascii?Q?B5z6mEsI3UC1GartqF3c8m+iSLajnCR+tRLYdhESllVQgHp2JYWKCD7qLCOI?=
+ =?us-ascii?Q?973xiEq7cNIf9izGitdHsypZJe/5mHWk6f11rrRz/2dfVZIXgwhVQygam3pb?=
+ =?us-ascii?Q?5qaZod48gBgS2qASh/b4GuXb3VALyXoVLu5FHVZM7g2UlHibE0Ra+gBK06XR?=
+ =?us-ascii?Q?1vrMgeVnNTJ4Ix7FPTEgKlKHAJPe6JqkNvScjafau0Rv9QQgTQcCAWDwZ5pp?=
+ =?us-ascii?Q?DUqjdzB2ZJV/ZUwCzotsU3AlA+nBJWtSDSZRFRvcmll1E0wy855uZh8y6Cll?=
+ =?us-ascii?Q?+cFMG3CvZCA7wfOxVQOqhLOffGPs0lG/kbGABGoc3OYFG3ZmaHRFUJvLBNik?=
+ =?us-ascii?Q?tEgxvWTlACo+0qiYwAPFNRjp+eWovSWvI/+Oub/+ZhPVqOfdhIQIh24lBHAL?=
+ =?us-ascii?Q?oMpiyhgYjwiIC6n42Cko4o61eEE84juoO1b5cUFBgcBX4Q7z3/VAyLwo32Q0?=
+ =?us-ascii?Q?gubITwxuDU+wTX9m+DiY3DEjQo8awfIe6dfD1ix5IZmeb1WEZ1HuNOz7vZfX?=
+ =?us-ascii?Q?8DmInCaFS5BETeXu6el9YETyKbyqEf2jaNA+prfdeRzNu1SNgUJ2Ruvlga6Y?=
+ =?us-ascii?Q?Cy4xAfhqn6gYq7+Ee55FY47e9RegglaSeAnR3clnj9OPtXM/XQhXoZjBfZeT?=
+ =?us-ascii?Q?3UiJcsSkiagwR3jZtV1EslE8iS4QigwBg3NVjbepRyfxGMdO9fXCgIks2ItU?=
+ =?us-ascii?Q?qaLp9TsgPDQHWPamX8bJslnqx/lHWCfV7IzU3aArKXEc+EI7Tsr+z3rY2i9r?=
+ =?us-ascii?Q?31vkqmciWLY8GjFxmMoaFUa2oNDjOaRVK8NEXkdsVSYPxvBSGvtlalUxf03b?=
+ =?us-ascii?Q?nTG5d6aB6baJQ41jqozjx7/tXeOEG/qLA5vn3cOdIP4TbnnYYxdVDDo0JyiJ?=
+ =?us-ascii?Q?7iqMfAwi5AGAnz4nn4cDQMRLlvek1bqehfcZ5qM/n7GO919CigaNGVdeZBg4?=
+ =?us-ascii?Q?2qEhLw6AtkLAUs19BRpfZOiSU5HoRGiKlGQan/HADjhGQWgceDTSBowYOFmq?=
+ =?us-ascii?Q?83T2TEKeL5lLeMVcYhUuprczv7tzsLqX/iAjmMFkF6wqQrpoFh2NzA8TbaHi?=
+ =?us-ascii?Q?PlmBDjHEtN3hWlUZbiRZ8Dv4+eMBFEu2qd8V67tqLpsbgEJo8KJMP3LRgkns?=
+ =?us-ascii?Q?bHosujathdwmC6AgGC32d5rBevyy3jLFjvHW/fPnZVoZmXHAJhnIXxy721lA?=
+ =?us-ascii?Q?va6qjzOl3nHIR/wCBYmyQVO0IXGT0mYtjhcbCF2veJrvR/G+JxMS2RTmcOl/?=
+ =?us-ascii?Q?xmZYtLbXoDQBZsUIcH8s4xrlXWjerh6afkZOhiQHrs1W6au3JZgQjRs7jJFI?=
+ =?us-ascii?Q?4ZzB2cSLVqI1UvApQPZG5MFjCQtbU0J2rBMcGMBobq+Ixd1EdEfEzFIGJx62?=
+ =?us-ascii?Q?3yiApIF0LsSKO8+e0iCetINOCZi4wJ8ph1QDm91ds6Gcfv+KYoMfqDWA2WYK?=
+ =?us-ascii?Q?01d/AVjuhEplBkgj1vsfkEUe14ULL6vufCntF7wc?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 51f16f42-b207-4ca1-2548-08dd504fabb9
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 19:08:47.1411
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dg1UgpOOV2JLCaNvN95jlZZ7O/u0k0bXiR9Ec6mHyjJEcjHRw76L2ZTi35a7owvo
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7370
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_110829_264194_16447475 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20250218_110852_868457_FE08E2BF 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,181 +169,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
-
-On 13/02/25 01:26, Sebastian LaVine wrote:
-> Adds an overlay for the Fusion 2 (FPD-Link IV) board on SK-AM62A.
+On Tue, Feb 18, 2025 at 11:02:23AM -0800, Nicolin Chen wrote:
+> > > > This already holds the streams_mutex across all of this, do you think
+> > > > we should get rid of the vmaster_rwsem and hold the streams_mutex on
+> > > > write instead?
+> > > 
+> > > They are per master v.s. per smmu. The latter one would make master
+> > > commits/attaches exclusive, which feels unnecessary to me, although
+> > > it would make the code here slightly cleaner..
+> > 
+> > I'd pay the cost on the attach side to have a single lock on the fault
+> > side..
 > 
+> OK. Maybe a small patch to turn the streams_mutex to streams_rwsem?
 
-Were you able to test and get this working without additional patches on 
-linux-next?
+I don't think the interrupt path is multithreaded, is it? So only 1
+reader anyhow?
 
-The multi-steam support for J721E-CSI2RX and CDNS-CSI2RX drivers are 
-still WIP [1] and as per my understanding you will need those to get 
-this overlay functional.
-
-1 - 
-https://lore.kernel.org/all/20240627-multistream-v2-0-6ae96c54c1c3@ti.com/
-
-Thanks and Regards,
-Vaishnav
-
-> Signed-off-by: Sebastian LaVine <slavine@d3embedded.com>
-> Mentored-by: Stuart Burtner <sburtner@d3embedded.com>
-> ---
->   MAINTAINERS                                   |   1 +
->   arch/arm64/boot/dts/ti/Makefile               |   1 +
->   .../boot/dts/ti/k3-am62a7-sk-fusion-2.dtso    | 115 ++++++++++++++++++
->   3 files changed, 117 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/ti/k3-am62a7-sk-fusion-2.dtso
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 27fb3c1be732..bf6a48da0887 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -21890,6 +21890,7 @@ M:      Stuart Burtner <sburtner@d3embedded.com>
->   L:     linux-media@vger.kernel.org
->   S:     Odd Fixes
->   F:     Documentation/devicetree/bindings/media/i2c/sony,imx728.yaml
-> +F:     arch/arm64/boot/dts/ti/k3-am62a7-sk-fusion-2.dtso
->   F:     drivers/media/i2c/imx728.c
-> 
->   SONY MEMORYSTICK SUBSYSTEM
-> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-> index f71360f14f23..fcd8d11e5678 100644
-> --- a/arch/arm64/boot/dts/ti/Makefile
-> +++ b/arch/arm64/boot/dts/ti/Makefile
-> @@ -31,6 +31,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk-nand.dtbo
->   # Boards with AM62Ax SoC
->   dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk.dtb
->   dtb-$(CONFIG_ARCH_K3) += k3-am62a7-phyboard-lyra-rdk.dtb
-> +dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk-fusion-2.dtbo
-> 
->   # Boards with AM62Px SoC
->   dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk-fusion-2.dtso b/arch/arm64/boot/dts/ti/k3-am62a7-sk-fusion-2.dtso
-> new file mode 100644
-> index 000000000000..68e06d643bfd
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk-fusion-2.dtso
-> @@ -0,0 +1,115 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * DT Overlay for Fusion 2 (FPD-Link IV) board on SK-AM62A
-> + * https://www.ti.com/tool/J7EXPAXEVM/
-> + *
-> + * Copyright (C) 2024 D3 Embedded - https://www.d3embedded.com
-> + */
-> +
-> + /dts-v1/;
-> + /plugin/;
-> +
-> +#include <dt-bindings/gpio/gpio.h>
-> +
-> +&{/} {
-> +       clk_fusion2_25M_fixed: fixed-clock-25M {
-> +               compatible = "fixed-clock";
-> +               #clock-cells = <0>;
-> +               clock-frequency = <25000000>;
-> +       };
-> +};
-> +
-> +&exp2 {
-> +       p9-hog {
-> +               /* P9 - CSI_RSTz */
-> +               gpio-hog;
-> +               gpios = <9 GPIO_ACTIVE_HIGH>;
-> +               output-high;
-> +               line-name = "CSI_RSTz";
-> +       };
-> +
-> +       p19-hog {
-> +               /* P19 -CSI_SEL2 */
-> +               gpio-hog;
-> +               gpios = <19 GPIO_ACTIVE_HIGH>;
-> +               output-low;
-> +               line-name = "CSI_SEL2";
-> +       };
-> +};
-> +
-> +&main_i2c2 {
-> +       #address-cells = <1>;
-> +       #size-cells = <0>;
-> +       status = "okay";
-> +
-> +       i2c-switch@71 {
-> +               compatible = "nxp,pca9543";
-> +               #address-cells = <1>;
-> +               #size-cells = <0>;
-> +               reg = <0x71>;
-> +
-> +               i2c@1 {
-> +                       #address-cells = <1>;
-> +                       #size-cells = <0>;
-> +                       reg = <1>;
-> +
-> +                       deser@3d {
-> +                               compatible = "ti,ds90ub9702-q1";
-> +                               reg = <0x3d>;
-> +
-> +                               clock-names = "refclk";
-> +                               clocks = <&clk_fusion2_25M_fixed>;
-> +
-> +                               i2c-alias-pool = <0x4a 0x4b 0x4c 0x4d 0x4e 0x4f>;
-> +
-> +                               ds90ub9702_0_ports: ports {
-> +                                       #address-cells = <1>;
-> +                                       #size-cells = <0>;
-> +
-> +                                       /* CSI-2 TX */
-> +                                       port@4 {
-> +                                               reg = <4>;
-> +                                               ds90ub9702_0_csi_out: endpoint {
-> +                                                       data-lanes = <1 2 3 4>;
-> +                                                       clock-lanes = <0>;
-> +                                                       link-frequencies = /bits/ 64 <800000000>;
-> +                                                       remote-endpoint = <&csi2_phy0>;
-> +                                               };
-> +                                       };
-> +                               };
-> +
-> +                               ds90ub9702_0_links: links {
-> +                                       #address-cells = <1>;
-> +                                       #size-cells = <0>;
-> +                               };
-> +                       };
-> +               };
-> +       };
-> +};
-> +
-> +&cdns_csi2rx0 {
-> +       ports {
-> +               #address-cells = <1>;
-> +               #size-cells = <0>;
-> +
-> +               csi0_port0: port@0 {
-> +                       reg = <0>;
-> +                       status = "okay";
-> +
-> +                       csi2_phy0: endpoint {
-> +                               remote-endpoint = <&ds90ub9702_0_csi_out>;
-> +                               data-lanes = <1 2 3 4>;
-> +                               clock-lanes = <0>;
-> +                               link-frequencies = /bits/ 64 <800000000>;
-> +                       };
-> +               };
-> +       };
-> +};
-> +
-> +&ti_csi2rx0 {
-> +       status = "okay";
-> +};
-> +
-> +&dphy0 {
-> +       status = "okay";
-> +};
-> --
-> 2.34.1
-> 
-> Please be aware that this email includes email addresses outside of the organization.
+Jason
 
