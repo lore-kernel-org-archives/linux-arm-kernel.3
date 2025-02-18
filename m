@@ -4,76 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6A24C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 06:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93498C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 07:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q7KOe4fXvEXQqN8/V+KAdSe8B7B97gn17ICn6JpXGEw=; b=oSqNIGc5XXYsHc+B6WYJpIQUb3
-	RVmYxL0n5NOPHaJsn3h6LvH8wK154IQZhELX7z4fJgyj5uq1G3EWsVz93fi/1yP6j4MlM/2psl7fp
-	0vhG6Ik8BKKjTgUBZGE/TcdT4f0iPf8OTWGcyOAtjINRxCp/neb0HCOH3haemqE5Bt9gfiozn8NQX
-	CvVDB1DFLBq/Rq+kUzrtEip4RDLuCv9RFsTL3WWjkvzHZDChvkMWgBu8UbhCsidpOiZfnOAc6ozNc
-	DpEBNSphg0dxkonL+0S2lUtM6+zy53tthpn61t4YIOF2NlSvQU0a9HBZ/Jgayb5ae7z8D5vCyR/Rb
-	ervdGhsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OIsJBdDsumdGnoA18pyEbApyyciB8YWgkozZODOVRsA=; b=GIZBXG3NQZyoms2JOwhN4skqWj
+	qWh6Qmfo9TfoFgBohJM1ISXJ95YEyKWLR9W1ozoRsC64iHWcUsXGtB8+LKr2WrcqYVzK4Xf0vY+Or
+	TtHi0pGYJqgHtvd3VoTzKx/9ayVawDUcKixm0GXVdqZ1/1dKJi6Sdjmhg7u/LDMiK27XFUuhinQGr
+	9tItFEe2QXDkIa53izmqwVO4WJ8+nZwfdJsfUGHoAloLQEkrDFqS/zgbnhCiMt8Jf5Oaq7t0/Z7sX
+	4BY2Uh8VRW7fS2hcjRkC49bigK48FCxILp389tFCkGOnskyViB17KsIqEvikrqjPYDAlsN5psnft+
+	7MCg3ZPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkHFc-00000006zzV-3rAV;
-	Tue, 18 Feb 2025 06:38:36 +0000
+	id 1tkHvO-000000074GR-3IYC;
+	Tue, 18 Feb 2025 07:21:46 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkHEA-00000006zqV-0r6Q
+	id 1tkHtw-0000000746x-1ivi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 06:37:07 +0000
+	Tue, 18 Feb 2025 07:20:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 79BEBA41D0D;
-	Tue, 18 Feb 2025 06:35:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 798D1C4CEE2;
-	Tue, 18 Feb 2025 06:37:04 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9F570A41D2C;
+	Tue, 18 Feb 2025 07:18:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC3B3C4CEE2;
+	Tue, 18 Feb 2025 07:20:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739860625;
-	bh=2fzRHHC2KgFRx5omBTKDd3nCc7JnwkHdxnqOzs25YKo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jFt5gITJ3Rhhkz5w5yO6yIJbChhiyry2bgre9WlaPoIGDwpQj9qk7bgDVpTA3uhst
-	 Rri//lhNZbhWud7lH0X1D1SsJ2LHpbSLQzscqXcLJKaTsEJQIe3ucD1XJs8jdQiQ84
-	 kcsKJZ8XIK1JXXLz6ZfBVHaCL5yFofD5snq540y79a22Cw9QwGFQOvK0OX4Gc7Nfab
-	 5xBbBjbKfP12JWZx1nU/e1Uu6BKH+A8iAa6ialCLVnUV14tHdkqmuJqaJx0mvoU7vU
-	 pWzBHFEZp1lX32rjMeV7klHMSLWd/7ezMDtcNeua5WFN7xapJ0kqKdp6iuEdUkelGI
-	 a81k4R7aETMIQ==
-Date: Mon, 17 Feb 2025 22:37:02 -0800
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Song Liu <song@kernel.org>
-Cc: Puranjay Mohan <puranjay@kernel.org>, Weinan Liu <wnliu@google.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Indu Bhagat <indu.bhagat@oracle.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
-	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
-	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
-	live-patching@vger.kernel.org, joe.lawrence@redhat.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-Message-ID: <20250218063702.e2qrpjk4ylhnk5s7@jpoimboe>
-References: <20250213024507.mvjkalvyqsxihp54@jpoimboe>
- <CAPhsuW4iDuTBfZowJRhxLFyK=g=s+-pK2Eq4+SNj9uL99eNkmw@mail.gmail.com>
- <mb61py0yaz3qq.fsf@kernel.org>
- <CAPhsuW7dV7UR3PsGVx_DLBH5-95DAmLMGTPuY0NfUwWLZMSTrQ@mail.gmail.com>
- <20250214080848.5xpi2y2omk4vxyoj@jpoimboe>
- <CAPhsuW6dxPtgqZaHrZEVhQXwm2+sETreZnGybZXVKYKfG9H6tg@mail.gmail.com>
- <20250214193400.j4hp45jlufihv5eh@jpoimboe>
- <CAPhsuW6q+yhn0pGQb0K+RhXHYDkjEgomZ2pu3P_MEeX+xNRe0g@mail.gmail.com>
- <20250214232342.5m3hveygqb2qafpp@jpoimboe>
- <CAPhsuW48h11yLuU7uHuPgYNCzwaxVKG+TaGOZeT7fR60+brTwA@mail.gmail.com>
+	s=k20201202; t=1739863215;
+	bh=OIsJBdDsumdGnoA18pyEbApyyciB8YWgkozZODOVRsA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SqbwYxYtTH/yKc2L1pQjJuYOG6qnD7Z9NiDussJ+aqVha8VRLJnIti/xPdfdLLaaP
+	 JzijIOGMhazojp5p1rcExnCZhqD2spLz0cn4QU4sjXuh2WRtdVmCff5i6ol7PC84U7
+	 BazVbiWlaqo/TdCQxVzrPSjf0XCYB2sSDy8+wuq6hghHXOl185wQMzKrgfTt2M0dPw
+	 6gbjT4MW7gDCYiYeXn3lk7pgAykWvU9ew2oYFVMY+InLhBA1yjRRjYVJTc/xo+0TIR
+	 YyQZGo2qFiAaR5OsEoj+ZW+poDia6pQZO4yk98NOuyzOlgMEC4VCb92NXcaBEj7YM0
+	 sLku8PKX/R6eQ==
+Message-ID: <cc2c800f-3e0c-481e-8581-36a5903d3fb2@kernel.org>
+Date: Tue, 18 Feb 2025 08:20:10 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAPhsuW48h11yLuU7uHuPgYNCzwaxVKG+TaGOZeT7fR60+brTwA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 13/13] defconfig: Enable RZ/T2H Soc and RZ_SCI
+To: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>,
+ thierry.bultel@linatsea.fr, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>
+Cc: linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250217105354.551788-1-thierry.bultel.yh@bp.renesas.com>
+ <20250217105354.551788-14-thierry.bultel.yh@bp.renesas.com>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20250217105354.551788-14-thierry.bultel.yh@bp.renesas.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_223706_304103_EB65EB74 
-X-CRM114-Status: GOOD (  14.82  )
+X-CRM114-CacheID: sfid-20250217_232016_583760_1044EAD6 
+X-CRM114-Status: UNSURE (   5.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,20 +120,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 08:38:22PM -0800, Song Liu wrote:
-> On Fri, Feb 14, 2025 at 3:23 PM Josh Poimboeuf <jpoimboe@kernel.org> wrote:
-> > Poking around the arm64 module code, arch/arm64/kernel/module-plts.c
-> > is looking at all the relocations in order to set up the PLT.  That also
-> > needs to be done for klp relas, or are your patches already doing that?
-> 
-> I don't think either version (this set and my RFC) added logic for PLT.
-> There is some rela logic on the kpatch-build side. But I am not sure
-> whether it is sufficient.
+On 17/02/2025 11:52, Thierry Bultel wrote:
+> Signed-off-by: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
 
-The klp relas looked ok.  I didn't see any signs of kpatch-build doing
-anything wrong.  AFAICT the problem is that module-plts.c creates PLT
-entries for regular relas but not klp relas.
 
--- 
-Josh
+Still missing commit msg. Still no explanation why do we want this patch.
+
+
+Best regards,
+Krzysztof
 
