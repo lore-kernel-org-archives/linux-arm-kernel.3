@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00532C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:29:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF02EC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mxgXZggM7Pg2CEvVKuB/y6pGBU0FKd7gcuHTG8f+iMQ=; b=fvkmXTHm1nfz+I60TMazft10Rn
-	yr0QmImaaSP/lCaGHcynrtLHxkgV/ud14Ko4CVjLgevGx+omatzKharLighgtTav2gLINQRmRdi47
-	je359+WK4T3lcZFowImQq+P66ZvcxbAUWR2/+mzoLLMjxhteLBzbEcmSwXYTpVQVHADdVtPxM804/
-	fgcEQB639PY4ZXEJU2IjymI/8JCevUkfk2W/HoZ/nrL9+UoKzQXzDNmDedi0ei7zvap/6CqE3RjH3
-	gv0f+TSHp6gC3q+BJVHz2OJqjyEIN0TEWxP6xYZoZjb8io8IsDfu/LlhX1YtrzUsHv/ycxzXrL/Pj
-	u/zGm9mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8LtV/gRSdkP5dWaapo7+rahHUXjVKidYPiSZ0YBAqj8=; b=CUzvNSzSnlBrHbTWSHqn7tzDIW
+	AFgHcgWmpqoy44mwOypNkw4zqH5eH4FQ8jFJnKHqEFmAEtX8SWPDuSdyMGhMInCwwq2+sO21kfBmT
+	fuivhylC16EAlG0GFf/hNE8AKaKP2TlOPhCUu0pyezvc7H6iwW/UFVoVBxg+ZwHDSGJlNftEHVTiZ
+	vWhol4ND44d2inPk8Cfq78Uj4xvvDiGLvSV/Iz7g9kT3whiy9qdFT5wzlS6uik/+ghwCiYSnmKJSZ
+	xI+wexufRmy1DyLG8iM0qASzDS5C85OIYwLlGBXLFPiqxDl1dp2ygIADKxddR0uN5MYFgFlBw8t3b
+	wkBVNONQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTHX-00000009ZnE-3l7o;
-	Tue, 18 Feb 2025 19:29:23 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tkTIz-00000009aDX-2HHL;
+	Tue, 18 Feb 2025 19:30:53 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSkW-00000009S7g-2Lif
+	id 1tkSkc-00000009SCI-2foA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 18:55:17 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51IItBT51601174
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 18 Feb 2025 12:55:11 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739904911;
-	bh=mxgXZggM7Pg2CEvVKuB/y6pGBU0FKd7gcuHTG8f+iMQ=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=m81HEGrZc+rvN6NeTT8auOhoiV8RCEzLXRNmBdzV3b9FjDS+KiEmXfh7ronMMWWI7
-	 7a5UAIcXYDdvEonLVVtbB9i8W9odG9Jbb3fqrWz7t9Do8OzCigPrCCDH4Zs0lIYEWu
-	 uzsMcYwz5PaVTryJ13A0vmVvGxND/5CXgkBkLzvQ=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51IItBgc001025
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 18 Feb 2025 12:55:11 -0600
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 18
- Feb 2025 12:55:11 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 18 Feb 2025 12:55:11 -0600
-Received: from uda0490681.. ([10.24.69.142])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IIsrxc123821;
-	Tue, 18 Feb 2025 12:55:08 -0600
-From: Vaishnav Achath <vaishnav.a@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, <jai.luthra@linux.dev>,
-        <y-abhilashchandra@ti.com>, <vaishnav.a@ti.com>
-Subject: [PATCH 4/5] arm64: dts: ti: k3-j722s-evm: Add overlay for quad IMX219
-Date: Wed, 19 Feb 2025 00:24:51 +0530
-Message-ID: <20250218185452.600797-5-vaishnav.a@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250218185452.600797-1-vaishnav.a@ti.com>
-References: <20250218185452.600797-1-vaishnav.a@ti.com>
+	Tue, 18 Feb 2025 18:55:23 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 7A68125A2E;
+	Tue, 18 Feb 2025 19:55:21 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id zQguXP7GJjuX; Tue, 18 Feb 2025 19:55:17 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1739904917; bh=WITcutnlYOmj5SGNO+C9ILJDBUpbYgAcvrKAmXZ6d/I=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=YlzYKEkn4K8YIwO7FmntNmsd0swPw5Bo+eAK9WDKhtnSgv5ZN9nFTlA90XPkzFI4B
+	 ZKZqi0PoqfAaYz/zi7oKCBQjZZTqDapFpESiHzR9No1Nr+kU5Kkb3dcuwbLbl2H1vE
+	 zNq7nNxdOIWTZo2pF0dkxYJwWtd/BH/sSATTpokheFVlJkC4E2VCIvyvrRcsWwharY
+	 dPBUZO98JqpYoeUy/8jNFMiFjLttZHhecZNyYVhconaknuXPMzzTIrf0AjTwDgPz/c
+	 ftr8KKdMsFoR4Ce/iYQ9Z4zdg7CeGc/lXPMcQNjTz0MlGVxu6xGp2ILf6sjz9o29uS
+	 9m+grkyZuPwNg==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Date: Wed, 19 Feb 2025 00:24:42 +0530
+Subject: [PATCH v2 1/2] dt-bindings: usb: samsung,exynos-dwc3: add
+ exynos7870 support
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250219-exynos7870-usb-v2-1-1de41a89c9d4@disroot.org>
+References: <20250219-exynos7870-usb-v2-0-1de41a89c9d4@disroot.org>
+In-Reply-To: <20250219-exynos7870-usb-v2-0-1de41a89c9d4@disroot.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-usb@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739904902; l=2650;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=WITcutnlYOmj5SGNO+C9ILJDBUpbYgAcvrKAmXZ6d/I=;
+ b=d8qUFE4iYY6uVdcqi5nmQrJiKVkMuvleIcai/6k9fuz6RDrcDyYSWTbQC2oXNfMf0EDNNHsFd
+ hcBciT8NuJyDaAv9XZ87lY8T5ONpOo5cCG9QjuzMlF13iV3sFgDvk/u
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_105516_696528_27895EBD 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20250218_105522_817416_CA012B02 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,364 +85,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RPi v2 Camera (IMX219) is an 8MP camera that can be used with J722S EVM
-through the 22-pin CSI-RX connector. Add a reference overlay for quad
-IMX219 RPI camera v2 modules on J722S EVM
+Document compatible string for Exynos7870 DWC3-compatible USB 2.0
+driver. The devicetree node requires three clocks, named "bus_early",
+"ctrl", and "ref".
 
-Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
+Unlike other variants, Exynos7870's USB controller requires a single
+3.0V regulator. Assert that the other 1.0V regulator requirement is
+enforced on variants individually other than Exynos7870's.
+
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- arch/arm64/boot/dts/ti/Makefile               |   5 +
- ...k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso | 304 ++++++++++++++++++
- 2 files changed, 309 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso
+ .../bindings/usb/samsung,exynos-dwc3.yaml          | 28 +++++++++++++++++++++-
+ 1 file changed, 27 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 8a4bdf87e2d4..9ae0917e5763 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -119,6 +119,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
- # Boards with J722s SoC
- dtb-$(CONFIG_ARCH_K3) += k3-am67a-beagley-ai.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
+diff --git a/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml b/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
+index 2b3430cebe99106f3b6201ab31d4d9e3fcc55627..b034b5f553491d2ea253c5f7bba18739219c6f61 100644
+--- a/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
++++ b/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
+@@ -16,6 +16,7 @@ properties:
+       - samsung,exynos5250-dwusb3
+       - samsung,exynos5433-dwusb3
+       - samsung,exynos7-dwusb3
++      - samsung,exynos7870-dwusb3
+       - samsung,exynos850-dwusb3
  
- # Boards with J784s4 SoC
- dtb-$(CONFIG_ARCH_K3) += k3-am69-sk.dtb
-@@ -209,6 +210,8 @@ k3-j721e-sk-csi2-dual-imx219-dtbs := k3-j721e-sk.dtb \
- 	k3-j721e-sk-csi2-dual-imx219.dtbo
- k3-j721s2-evm-pcie1-ep-dtbs := k3-j721s2-common-proc-board.dtb \
- 	k3-j721s2-evm-pcie1-ep.dtbo
-+k3-j722s-evm-csi2-quad-rpi-cam-imx219-dtbs := k3-j722s-evm.dtb \
-+	k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
- k3-j784s4-evm-pcie0-pcie1-ep-dtbs := k3-j784s4-evm.dtb \
- 	k3-j784s4-evm-pcie0-pcie1-ep.dtbo
- k3-j784s4-evm-quad-port-eth-exp1-dtbs := k3-j784s4-evm.dtb \
-@@ -243,6 +246,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
- 	k3-j721e-evm-pcie1-ep.dtb \
- 	k3-j721e-sk-csi2-dual-imx219.dtb \
- 	k3-j721s2-evm-pcie1-ep.dtb \
-+	k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtb \
- 	k3-j784s4-evm-pcie0-pcie1-ep.dtb \
- 	k3-j784s4-evm-quad-port-eth-exp1.dtb \
- 	k3-j784s4-evm-usxgmii-exp1-exp2.dtb
-@@ -266,5 +270,6 @@ DTC_FLAGS_k3-j721e-common-proc-board += -@
- DTC_FLAGS_k3-j721e-evm-pcie0-ep += -@
- DTC_FLAGS_k3-j721e-sk += -@
- DTC_FLAGS_k3-j721s2-common-proc-board += -@
-+DTC_FLAGS_k3-j722s-evm += -@
- DTC_FLAGS_k3-j784s4-evm += -@
- DTC_FLAGS_k3-j742s2-evm += -@
-diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso
-new file mode 100644
-index 000000000000..4c5ec2c7826e
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso
-@@ -0,0 +1,304 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * DT Overlay for RPi Camera V2.1 on J722S-EVM board.
-+ *
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ *
-+ * Schematics: https://datasheets.raspberrypi.com/camera/camera-v2-schematics.pdf
-+ */
+   '#address-cells':
+@@ -52,7 +53,6 @@ required:
+   - clock-names
+   - ranges
+   - '#size-cells'
+-  - vdd10-supply
+   - vdd33-supply
+ 
+ allOf:
+@@ -72,6 +72,8 @@ allOf:
+             - const: susp_clk
+             - const: link_aclk
+             - const: link_pclk
++      required:
++        - vdd10-supply
+ 
+   - if:
+       properties:
+@@ -86,6 +88,8 @@ allOf:
+         clock-names:
+           items:
+             - const: usbdrd30
++      required:
++        - vdd10-supply
+ 
+   - if:
+       properties:
+@@ -103,6 +107,8 @@ allOf:
+             - const: susp_clk
+             - const: phyclk
+             - const: pipe_pclk
++      required:
++        - vdd10-supply
+ 
+   - if:
+       properties:
+@@ -119,6 +125,24 @@ allOf:
+             - const: usbdrd30
+             - const: usbdrd30_susp_clk
+             - const: usbdrd30_axius_clk
++      required:
++        - vdd10-supply
 +
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include "k3-pinctrl.h"
-+
-+&main_pmx0 {
-+	cam0_reset_pins_default: cam0-reset-pins-default {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x03c, PIN_OUTPUT, 7)
-+		>;
-+	};
-+
-+	cam1_reset_pins_default: cam1-reset-pins-default {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x044, PIN_OUTPUT, 7)
-+		>;
-+	};
-+
-+	cam2_reset_pins_default: cam2-reset-pins-default {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x04c, PIN_OUTPUT, 7)
-+		>;
-+	};
-+
-+	cam3_reset_pins_default: cam3-reset-pins-default {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x054, PIN_OUTPUT, 7)
-+		>;
-+	};
-+};
-+
-+&{/} {
-+	clk_imx219_fixed: imx219-xclk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+	};
-+};
-+
-+&exp1 {
-+	p06-hog{
-+		/* P06 - CSI01_MUX_SEL_2 */
-+		gpio-hog;
-+		gpios = <6 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "CSI01_MUX_SEL_2";
-+	};
-+
-+	p07-hog{
-+		/* P01 - CSI23_MUX_SEL_2 */
-+		gpio-hog;
-+		gpios = <7 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "CSI23_MUX_SEL_2";
-+	};
-+};
-+
-+&pca9543_0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	i2c-alias-pool = /bits/ 16 <0x10 0x11>;
-+
-+	/* CAM0 I2C */
-+	i2c@0 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <0>;
-+
-+		imx219_0: sensor@10 {
-+			compatible = "sony,imx219";
-+			reg = <0x10>;
-+
-+			clocks = <&clk_imx219_fixed>;
-+			clock-names = "xclk";
-+
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&cam0_reset_pins_default>;
-+
-+			reset-gpios = <&main_gpio0 15 GPIO_ACTIVE_HIGH>;
-+
-+			port {
-+				csi2_cam0: endpoint {
-+					remote-endpoint = <&csi2rx0_in_sensor>;
-+					link-frequencies = /bits/ 64 <456000000>;
-+					clock-lanes = <0>;
-+					data-lanes = <1 2>;
-+				};
-+			};
-+		};
-+	};
-+
-+	/* CAM1 I2C */
-+	i2c@1 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <1>;
-+
-+		imx219_1: sensor@10 {
-+			compatible = "sony,imx219";
-+			reg = <0x10>;
-+
-+			clocks = <&clk_imx219_fixed>;
-+			clock-names = "xclk";
-+
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&cam1_reset_pins_default>;
-+
-+			reset-gpios = <&main_gpio0 17 GPIO_ACTIVE_HIGH>;
-+
-+			port {
-+				csi2_cam1: endpoint {
-+					remote-endpoint = <&csi2rx1_in_sensor>;
-+					link-frequencies = /bits/ 64 <456000000>;
-+					clock-lanes = <0>;
-+					data-lanes = <1 2>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&pca9543_1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	i2c-alias-pool = /bits/ 16 <0x10 0x11>;
-+
-+	/* CAM0 I2C */
-+	i2c@0 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <0>;
-+
-+		imx219_2: sensor@10 {
-+			compatible = "sony,imx219";
-+			reg = <0x10>;
-+
-+			clocks = <&clk_imx219_fixed>;
-+			clock-names = "xclk";
-+
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&cam2_reset_pins_default>;
-+
-+			reset-gpios = <&main_gpio0 19 GPIO_ACTIVE_HIGH>;
-+
-+			port {
-+				csi2_cam2: endpoint {
-+					remote-endpoint = <&csi2rx2_in_sensor>;
-+					link-frequencies = /bits/ 64 <456000000>;
-+					clock-lanes = <0>;
-+					data-lanes = <1 2>;
-+				};
-+			};
-+		};
-+	};
-+
-+	/* CAM1 I2C */
-+	i2c@1 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <1>;
-+
-+		imx219_3: sensor@10 {
-+			compatible = "sony,imx219";
-+			reg = <0x10>;
-+
-+			clocks = <&clk_imx219_fixed>;
-+			clock-names = "xclk";
-+
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&cam3_reset_pins_default>;
-+
-+			reset-gpios = <&main_gpio0 21 GPIO_ACTIVE_HIGH>;
-+
-+			port {
-+				csi2_cam3: endpoint {
-+					remote-endpoint = <&csi2rx3_in_sensor>;
-+					link-frequencies = /bits/ 64 <456000000>;
-+					clock-lanes = <0>;
-+					data-lanes = <1 2>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&cdns_csi2rx0 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		csi0_port0: port@0 {
-+			reg = <0>;
-+			status = "okay";
-+
-+			csi2rx0_in_sensor: endpoint {
-+				remote-endpoint = <&csi2_cam0>;
-+				bus-type = <4>; /* CSI2 DPHY */
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+};
-+
-+&cdns_csi2rx1 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		csi1_port0: port@0 {
-+			reg = <0>;
-+			status = "okay";
-+
-+			csi2rx1_in_sensor: endpoint {
-+				remote-endpoint = <&csi2_cam1>;
-+				bus-type = <4>; /* CSI2 DPHY */
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+};
-+
-+&cdns_csi2rx2 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		csi2_port0: port@0 {
-+			reg = <0>;
-+			status = "okay";
-+
-+			csi2rx2_in_sensor: endpoint {
-+				remote-endpoint = <&csi2_cam2>;
-+				bus-type = <4>; /* CSI2 DPHY */
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+};
-+
-+&cdns_csi2rx3 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		csi3_port0: port@0 {
-+			reg = <0>;
-+			status = "okay";
-+
-+			csi2rx3_in_sensor: endpoint {
-+				remote-endpoint = <&csi2_cam3>;
-+				bus-type = <4>; /* CSI2 DPHY */
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+};
-+
-+&ti_csi2rx0 {
-+	status = "okay";
-+};
-+
-+&dphy0 {
-+	status = "okay";
-+};
-+
-+&ti_csi2rx1 {
-+	status = "okay";
-+};
-+
-+&dphy1 {
-+	status = "okay";
-+};
-+
-+&ti_csi2rx2 {
-+	status = "okay";
-+};
-+
-+&dphy2 {
-+	status = "okay";
-+};
-+
-+&ti_csi2rx3 {
-+	status = "okay";
-+};
-+
-+&dphy3 {
-+	status = "okay";
-+};
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: samsung,exynos7870-dwusb3
++    then:
++      properties:
++        clocks:
++          minItems: 3
++          maxItems: 3
++        clock-names:
++          items:
++            - const: bus_early
++            - const: ctrl
++            - const: ref
+ 
+   - if:
+       properties:
+@@ -134,6 +158,8 @@ allOf:
+           items:
+             - const: bus_early
+             - const: ref
++      required:
++        - vdd10-supply
+ 
+ additionalProperties: false
+ 
+
 -- 
-2.34.1
+2.48.1
 
 
