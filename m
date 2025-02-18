@@ -4,97 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9020AC021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 16:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DAF0C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 16:32:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KjXMgQyDFOilO3Xu47Ib173LdeZX8gmPYDyKndrcKnk=; b=cP0g6rbmubYuFfL7Q77FyQKmu2
-	lUEa36CMX8oH7al1oylfIgfB6629ttX7kfZBKBWo/bGtm8C5inDtnwKjIFou+1vEo7qP58arysl/N
-	uSNfRPqOiUmnSYhmNGWC58P/c1l8YopJVA329518jzBHDmtvimOSI4dGAqD95f7cMUpvdqOvLUyO4
-	rBgvu6Pf+8mtWiLQJa3q4t+uWaaN6gZFggRUZ/shq/Vg2X4k31XN6C4KjWV5NyafSMOGHNPYwCSyY
-	Ymh1SkjmPSdBi1DPknd8loA4cq+l4bTOVLJB1P4wbKeQuYFuXn+Q4XTyFdSwujoIgBMtfswEPDPQn
-	+X4tzqFg==;
+	bh=btU0w+uNVFHY2e6nf/JYninIaoVDv7TVqnoTKzlZWZc=; b=X2u0CJc/NH3iEiQ9jwa0SKYuHq
+	3mFlzRZAgCzvVb1ZeEQe5rHg8slvf7gZCQFd79O6FcKbX3xY6xpVhNQFwXMZRgHsnSMqKxEmq7b8B
+	p2xTZJBxkHFk8RtU5sEz5gMMy/blnrQwGdOddvVDDM1nfU2ItjP69oRVNvT2zQVoI39aK48E3kaH5
+	sPo7VEBT2UlP4WIlaAG1WlwLkyHlWpXoa4sG0TKtXZbLS7OZAPoRnfqo+0YUyToSxGZjvEa7npPAh
+	Nx8646O2ksJIOZm7r/3DOv/kP8SYEfz8rcwgk2MnCgOTEyK6tx2eARDpxWi+vI32KGaHHTuSAnnmB
+	AjP3+AhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQSJ-00000008yDJ-28EC;
-	Tue, 18 Feb 2025 16:28:19 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1tkQWV-00000008z6M-1Zw8;
+	Tue, 18 Feb 2025 16:32:39 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQMc-00000008wYw-0DG2
+	id 1tkQV1-00000008yo1-3cl8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 16:22:28 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7c04df48a5bso484571885a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 08:22:23 -0800 (PST)
+	Tue, 18 Feb 2025 16:31:09 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5439e331cceso6601235e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 08:31:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1739895743; x=1740500543; darn=lists.infradead.org;
-        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=KjXMgQyDFOilO3Xu47Ib173LdeZX8gmPYDyKndrcKnk=;
-        b=fcfGtww5R1e2af8JXqeytHaqWdIMOraIR5Uvk1+j40Z5wcEuFi5eUUsov7eB9V8dqA
-         nPnxIvYp+umROeFc4AdBsI16hjjKPoH0Y/EuYbZj3MJON6n+4LNnJIFOB2dF1rYkz+zt
-         yzpqOU1KZoO1hoTHf5tbsdVjcbMKAlibEee3NpFGdz0RFLdc9u+t2t6fZSMtqAFo/5FY
-         pBil3fL7c4i4PyN1TulKzcw0PFvb6gs3nXpNziro7B8m9tKVl5JUGf/bg2DO9+8mytRd
-         jPRjXvpledQZUHIDHax4xjYfMkt4H/VClLCfK4lkMLTsTOHMyh2gGpg5YiRyCQljYFwc
-         lnxg==
+        d=linaro.org; s=google; t=1739896266; x=1740501066; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=btU0w+uNVFHY2e6nf/JYninIaoVDv7TVqnoTKzlZWZc=;
+        b=p4iGtBGu9hILcVd0kJAN9lsn57VJclOvG8QmF7ABeXJAP2wXMKEEA/Wgym/OcoVM6e
+         8ccnyhu1I4lgzXxwKmsdt7AwudJb1r7483U0B3d5E9vp4luTkDRD7LRLvvFcuQVObWRW
+         CzeI1pMCQFAjAm781UHVRpKDW8b1fKf8DkQkAmq63PWyn4lZG3Xq53wTShJQIzPEX8i5
+         wd9+SKD0y3LF0yxmMBf0ujWaTUR/FisqcaXexBLuHJ9aV29H9QPpN4juF7vVE5FBzet3
+         Ih23aq1+yH4T4Mnc1+sTLj9JqspZcKOrjgnFYU8mWP53Wbz+gLgHO9BzMaaFyzfLAwNc
+         6hTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739895743; x=1740500543;
-        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KjXMgQyDFOilO3Xu47Ib173LdeZX8gmPYDyKndrcKnk=;
-        b=a/riWYB435bavwHUKe9Tt2Kr1zlZvri/bQFvkqPUKvvDOWxGtWmNJwWlxZyYRi9V8K
-         p3bT+1qbhAM1Kh5CUu8aNF42q+GAPTA9Vl/7NDfCHhlZGLVc3eRv/bNFA9J9EKz10QU8
-         FawR1Fg/yZnJvM6zzZ8jQySDlUPD7apfH/HVN4WsyDrDjR9bd0IrWHJW+jldgn3I8hHC
-         0misqVjmlbNDp+NBBSMpctoCbQVg3pV5SJZhKj+4g/D8uM4VASJ/fL+O1qz5bb1p/FdW
-         4xIxdOeddLTC7lOtEKBkB2QQYIX4VGjgBpDhjBHvAyiZzUsVMVY0iRfEa+C8DUM4YUBF
-         kKYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUi+5Bn0UoxUFFhB7d224xmvXJ3QBBo/JTo0qoBDGmfyIymofk2jlMPwpThxEjVj6UmF7B6KXvzWyK9P/fFy2i5@lists.infradead.org
-X-Gm-Message-State: AOJu0YykqJ70bjmMvkL3831lEc2NfEk9GGVCc1ZW+TPaQsJsbcgzBGz/
-	O5iQ09oX0n285pZWb8afIfn/e7RMrY0DEy8AQmIBlkFd7KLP6aT4dtZm440P/zISSk4CwHFagyM
-	Jp0lzvTpmJCSihhFIaqWEXlgYIX9DnPnCKr32lw==
-X-Gm-Gg: ASbGncvYVFmb7Fxt2zwzhdgAB7WgLVRtKlR/2qiYpuF66XXaOmMYT5Lf+sJ2jBuhdjJ
-	pMu4n7jkC7tClKq1E5xRkPK+rWhYuyv0BEaQMyURRuy092HyQznrD7+OnY6JFRj0q/kUVGw==
-X-Google-Smtp-Source: AGHT+IEbV3293ASWpwU6KwIQOOU1vJS5NgcKsmd6eL12KHdOz9KO5J5HKfrJx309aUhi1VkMOaqfdyrVi2QFW0IL94s=
-X-Received: by 2002:a05:620a:1905:b0:7c0:7303:8d78 with SMTP id
- af79cd13be357-7c0b534e90cmr15243285a.44.1739895742877; Tue, 18 Feb 2025
- 08:22:22 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739896266; x=1740501066;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=btU0w+uNVFHY2e6nf/JYninIaoVDv7TVqnoTKzlZWZc=;
+        b=dWnCiCDvJrIlrdKD3X9C0cZi/5qmbvQVrQhqL9vq2o51/jGpMuY342Q9uSsCL5D11Q
+         sIUiRd1KnD1duBgY1ZsD4bTH9DU+o02OhQKUtGmv6SHtx7ke/sGKRS0y0x/JaenIrQJ6
+         gO6WUpiAlMN61NccN7ulE31JCJAW5ESaB3o3o44E7Vt7VuJMsqd/lPq0fXx2Fm6Vc6OK
+         B93QHHPZOMQrsUwNKiYLCqOGI9r5q5ey12LtgFOC+/+0NH6QbLWv9KcNpvA2qquPCUEV
+         fTW97aeKHs6uHZioaVoCUGKMslYv+5CdVDi0NjyLkGqAR03ZlrmDMDOZeFaRCoZmgT/9
+         2u3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW520or8i2R3VIPdspnZ0tLO4rNfC1SR743dazpB13uY4SzjsfaSZ+qO7EiZc3b9hUcUtsxK0i2sVDGWj0QZoxL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzV3UwZgp51++RoR2Gg63aULfkKdiWLE6XUHkihowUJNxJquh5w
+	vB7Wb4s/SpB5GkuD4/sRGx0tHAJ58CJrN21F3doAPXP9kuwLqfr3gWMTSK4hYXI=
+X-Gm-Gg: ASbGncvxiq3YIgEGh6ER9H0tTVgIBkFPb0CBFyNEYZoqISVnPg79Q+UnQigKAys2ihR
+	d6i/M9ZZCvRoAg26gwfoLY47th9ev9G7nePqDFga1l8rIX2uhU0kkX+CittN9blf4oisL+8d3aX
+	Ozl1oyrcE6vwRhozUWp89T4pumnmyIAf1zEE93MD/zsSMN7zluzurt9JIKp4pjpaOZdgYrYwDi9
+	IaEGHEk55NRNoP0wBckYpEdab31ar+1jdml2lfhva2Tm1sRzygaHKddwrz8v3yJNNHRUpa0g/vZ
+	zAABCkxdnF2NDdWD3q2MR3bSYwS2n+QR95b32ZbXzy2HWsuZYYMCt2F7vvNCbGTLQzgEPXw=
+X-Google-Smtp-Source: AGHT+IEtC0aFiCVfXRyL9SzdaH9Q4MvJkCVZReT3BK5AY1Ni+JC9UVla9+Vl5hHTO/rCaSOKR4FQqA==
+X-Received: by 2002:a05:6512:130b:b0:545:e19:ba12 with SMTP id 2adb3069b0e04-5462ef20f0dmr90751e87.51.1739896265862;
+        Tue, 18 Feb 2025 08:31:05 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5452fa00e6esm1360335e87.162.2025.02.18.08.31.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2025 08:31:04 -0800 (PST)
+Date: Tue, 18 Feb 2025 18:31:02 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: manivannan.sadhasivam@linaro.org
+Cc: Shuai Xue <xueshuai@linux.alibaba.com>, 
+	Jing Zhang <renyu.zj@linux.alibaba.com>, Will Deacon <will@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Jingoo Han <jingoohan1@gmail.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Rob Herring <robh@kernel.org>, 
+	Shradha Todi <shradha.t@samsung.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH 1/4] perf/dwc_pcie: Move common DWC struct definitions to
+ 'pcie-dwc.h'
+Message-ID: <4nnikepf7ay4ml3audn34gmq5jttjcfz3syfnxeowmjb4no2cj@lyawl4saa3sa>
+References: <20250218-pcie-qcom-ptm-v1-0-16d7e480d73e@linaro.org>
+ <20250218-pcie-qcom-ptm-v1-1-16d7e480d73e@linaro.org>
 MIME-Version: 1.0
-References: <20241217100809.3962439-1-jens.wiklander@linaro.org>
- <20250212205613.4400a888@collabora.com> <CAFA6WYOaGEPj0xNEDBCoEmjJreEHChjQ2hyXRJ_CYoGhiBonfw@mail.gmail.com>
- <20250213093557.278f5d19@collabora.com> <CAFA6WYOJkSRsH-15QdqXNMd08Q=Dg4NkRd1Cr9LXA+5nozTF6g@mail.gmail.com>
- <20250213134008.4cbef142@collabora.com> <CAPj87rM5Y=-Jgf4mwukicF6Yb-vccn2fpG2X1jNq0upH2+cAEQ@mail.gmail.com>
- <CAHUa44G9hw-z6wzxg=HkVAxPKEW1yES5JTEqRWMvJUJAtcUDkQ@mail.gmail.com>
- <CAPj87rPHnME5Osgnf5-FSAu22mDpLj=dzvhi_NqEcOwr1ThgGw@mail.gmail.com>
- <CAHUa44Gs0D1fBD0=+EDgcQUMeDv4knci9trUkYEc1J98qFV7HQ@mail.gmail.com>
- <CAFA6WYOuTwRPEh3L7+hMyARB_E73xmp+OwhKyS-r4+ryS7=9sw@mail.gmail.com>
- <20250214164856.0d2ead8a@collabora.com> <CAFA6WYPc6EHQwcPuMZRm4C1P6SoDrCzEPUmju_meupB6NXQ1sg@mail.gmail.com>
-In-Reply-To: <CAFA6WYPc6EHQwcPuMZRm4C1P6SoDrCzEPUmju_meupB6NXQ1sg@mail.gmail.com>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Tue, 18 Feb 2025 16:22:10 +0000
-X-Gm-Features: AWEUYZm4DmHXwV4iRPDNo2H2j8DSqPPY_t2q4WxWwnT6ATyeMsQki0rC9akhuRA
-Message-ID: <CAPj87rN-OYTzh5=Gdv619UQD5=x=U6Yt=uV4N1kCs4Zao4RVAg@mail.gmail.com>
-Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
-To: Boris Brezillon <boris.brezillon@collabora.com>, 
-	Jens Wiklander <jens.wiklander@linaro.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	Linux Media Mailing List <linux-media@vger.kernel.org>, dri-devel <dri-devel@lists.freedesktop.org>, 
-	"moderated list:DMA BUFFER SHARING FRAMEWORK" <linaro-mm-sig@lists.linaro.org>, op-tee@lists.trustedfirmware.org, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Florent Tomasin <florent.tomasin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250218-pcie-qcom-ptm-v1-1-16d7e480d73e@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_082226_207834_3101EBCD 
-X-CRM114-Status: GOOD (  42.61  )
+X-CRM114-CacheID: sfid-20250218_083107_906204_6559D62A 
+X-CRM114-Status: GOOD (  26.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,129 +104,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sumit,
+On Tue, Feb 18, 2025 at 08:06:40PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
+> From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> 
+> Since these are common to all Desginware PCIe IPs, move them to a new
+> header, 'pcie-dwc.h' so that other drivers could make use of them.
 
-On Mon, 17 Feb 2025 at 06:13, Sumit Garg <sumit.garg@linaro.org> wrote:
-> On Fri, 14 Feb 2025 at 21:19, Boris Brezillon <boris.brezillon@collabora.com> wrote:
-> > I would say one heap per-profile.
->
-> And then it would have a per vendor multiplication factor as each
-> vendor enforces memory restriction in a platform specific manner which
-> won't scale.
+Which drivers are going to use it? Please provide an explanation.
 
-Yes, they do enforce it in a platform-specific manner, but so does
-TEE. There is no one golden set of semantics which is globally
-applicable between all hardware and all products in a useful manner.
+> 
+> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> ---
+>  MAINTAINERS                 |  1 +
+>  drivers/perf/dwc_pcie_pmu.c | 23 ++---------------------
+>  include/linux/pcie-dwc.h    | 34 ++++++++++++++++++++++++++++++++++
+>  3 files changed, 37 insertions(+), 21 deletions(-)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 896a307fa065..b4d09d52a750 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -18123,6 +18123,7 @@ S:	Maintained
+>  F:	Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
+>  F:	Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
+>  F:	drivers/pci/controller/dwc/*designware*
+> +F:	include/linux/pcie-dwc.h
+>  
+>  PCI DRIVER FOR TI DRA7XX/J721E
+>  M:	Vignesh Raghavendra <vigneshr@ti.com>
+> diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
+> index cccecae9823f..05b37ea7cf16 100644
+> --- a/drivers/perf/dwc_pcie_pmu.c
+> +++ b/drivers/perf/dwc_pcie_pmu.c
+> @@ -13,6 +13,7 @@
+>  #include <linux/errno.h>
+>  #include <linux/kernel.h>
+>  #include <linux/list.h>
+> +#include <linux/pcie-dwc.h>
+>  #include <linux/perf_event.h>
+>  #include <linux/pci.h>
+>  #include <linux/platform_device.h>
+> @@ -99,26 +100,6 @@ struct dwc_pcie_dev_info {
+>  	struct list_head dev_node;
+>  };
+>  
+> -struct dwc_pcie_pmu_vsec_id {
+> -	u16 vendor_id;
+> -	u16 vsec_id;
+> -	u8 vsec_rev;
+> -};
+> -
+> -/*
+> - * VSEC IDs are allocated by the vendor, so a given ID may mean different
+> - * things to different vendors.  See PCIe r6.0, sec 7.9.5.2.
+> - */
+> -static const struct dwc_pcie_pmu_vsec_id dwc_pcie_pmu_vsec_ids[] = {
+> -	{ .vendor_id = PCI_VENDOR_ID_ALIBABA,
+> -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> -	{ .vendor_id = PCI_VENDOR_ID_AMPERE,
+> -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> -	{ .vendor_id = PCI_VENDOR_ID_QCOM,
+> -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> -	{} /* terminator */
+> -};
+> -
+>  static ssize_t cpumask_show(struct device *dev,
+>  					 struct device_attribute *attr,
+>  					 char *buf)
+> @@ -529,7 +510,7 @@ static void dwc_pcie_unregister_pmu(void *data)
+>  
+>  static u16 dwc_pcie_des_cap(struct pci_dev *pdev)
+>  {
+> -	const struct dwc_pcie_pmu_vsec_id *vid;
+> +	const struct dwc_pcie_vsec_id *vid;
+>  	u16 vsec;
+>  	u32 val;
+>  
+> diff --git a/include/linux/pcie-dwc.h b/include/linux/pcie-dwc.h
+> new file mode 100644
+> index 000000000000..261ae11d75a4
+> --- /dev/null
+> +++ b/include/linux/pcie-dwc.h
+> @@ -0,0 +1,34 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2021-2023 Alibaba Inc.
+> + *
+> + * Copyright 2025 Linaro Ltd.
+> + * Author: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> + */
+> +
+> +#ifndef LINUX_PCIE_DWC_H
+> +#define LINUX_PCIE_DWC_H
+> +
+> +#include <linux/pci_ids.h>
+> +
+> +struct dwc_pcie_vsec_id {
+> +	u16 vendor_id;
+> +	u16 vsec_id;
+> +	u8 vsec_rev;
+> +};
+> +
+> +/*
+> + * VSEC IDs are allocated by the vendor, so a given ID may mean different
+> + * things to different vendors.  See PCIe r6.0, sec 7.9.5.2.
+> + */
+> +static const struct dwc_pcie_vsec_id dwc_pcie_pmu_vsec_ids[] = {
 
-So, if we define protected,secure-video +
-protected,secure-video-record + protected,trusted-ui heap names, we
-have exactly the same number of axes. The only change is from uint32_t
-to string.
+Having it in the header means that there are going to be several
+copies of this data. Is that expected?
 
-> > > Christian gave an historical background here [1] as to why that hasn't
-> > > worked in the past with DMA heaps given the scalability issues.
-> > >
-> > > [1] https://lore.kernel.org/dri-devel/e967e382-6cca-4dee-8333-39892d532f71@gmail.com/
-> >
-> > Hm, I fail to see where Christian dismiss the dma-heaps solution in
-> > this email. He even says:
-> >
-> > > If the memory is not physically attached to any device, but rather just
-> > memory attached to the CPU or a system wide memory controller then
-> > expose the memory as DMA-heap with specific requirements (e.g. certain
-> > sized pages, contiguous, restricted, encrypted, ...).
->
-> I am not saying Christian dismissed DMA heaps but rather how
-> scalability is an issue. What we are proposing here is a generic
-> interface via TEE to the firmware/Trusted OS which can perform all the
-> platform specific memory restrictions. This solution will scale across
-> vendors.
+> +	{ .vendor_id = PCI_VENDOR_ID_ALIBABA,
+> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> +	{ .vendor_id = PCI_VENDOR_ID_AMPERE,
+> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> +	{ .vendor_id = PCI_VENDOR_ID_QCOM,
+> +	  .vsec_id = 0x02, .vsec_rev = 0x4 },
+> +	{} /* terminator */
+> +};
+> +
+> +#endif /* LINUX_PCIE_DWC_H */
+> 
+> -- 
+> 2.25.1
+> 
+> 
 
-I read something completely different into Christian's mail.
-
-What Christian is saying is that injecting generic constraint solving
-into the kernel doesn't scale. It's not OK to build out generic
-infrastructure in the kernel which queries a bunch of leaf drivers and
-attempts to somehow come up with something which satisfies
-userspace-provided constraints.
-
-But this isn't the same thing as saying 'dma-heaps is wrong'! Again,
-there is no additional complexity in the kernel between a dma-heap
-which bridges over to TEE, and a TEE userspace interface which also
-bridges over to TEE. Both of them are completely fine according to
-what he's said.
-
-> > Honestly, when I look at dma-heap implementations, they seem
-> > to be trivial shells around existing (more complex) allocators, and the
-> > boiler plate [1] to expose a dma-heap is relatively small. The dma-buf
-> > implementation, you already have, so we're talking about a hundred
-> > lines of code to maintain, which shouldn't be significantly more than
-> > what you have for the new ioctl() to be honest.
->
-> It will rather be redundant vendor specific code under DMA heaps
-> calling into firmware/Trusted OS to enforce memory restrictions as you
-> can look into Mediatek example [1]. With TEE subsystem managing that
-> it won't be the case as we will provide a common abstraction for the
-> communication with underlying firmware/Trusted OS.
-
-Yes, it's common for everyone who uses TEE to implement SVP. It's not
-common for the people who do _not_ use TEE to implement SVP. Which
-means that userspace has to type out both, and what we're asking in
-this thread is: why?
-
-Why should userspace have to support dma-heap allocation for platforms
-supporting SVP via a static DT-defined carveout as well as supporting
-TEE API allocation for platforms supporting SVP via a dynamic
-carveout? What benefit does it bring to have this surfaced as a
-completely separate uAPI?
-
-> > And I'll insist on what
-> > Daniel said, it's a small price to pay to have a standard interface to
-> > expose to userspace. If dma-heaps are not used for this kind things, I
-> > honestly wonder what they will be used for...
->
-> Let's try not to forcefully find a use-case for DMA heaps when there
-> is a better alternative available.
-
-What makes it better? If you could explain very clearly the benefit
-userspace will gain from asking TEE to allocate $n bytes for
-TEE_IOC_UC_SECURE_VIDEO_PLAY, compared to asking dma-heap to allocate
-$n bytes for protected,secure-video, I think that would really help.
-Right now, I don't understand how it would be better in any way
-whatsoever for userspace. And I think your decision to implement it as
-a separate API is based on a misunderstanding of Christian's position.
-
-> I am still failing to see why you
-> don't consider following as a standardised user-space interface:
->
-> "When user-space has to work with restricted memory, ask TEE device to
-> allocate it"
-
-As far as I can tell, having userspace work with the TEE interface
-brings zero benefit (again, please correct me if I'm wrong and explain
-how it's better). The direct cost - call it a disbenefit - it brings
-is that we have to spend a pile of time typing out support for TEE
-allocation in every media/GPU/display driver/application, and when we
-do any kind of negotiation, we have to have one protocol definition
-for TEE and one for non-TEE.
-
-dma-heaps was created to solve the problem of having too many
-'allocate $n bytes from $specialplace' uAPIs. The proliferation was
-painful and making it difficult for userspace to do what it needed to
-do. Userspace doesn't _yet_ make full use of it, but the solution is
-to make userspace make full use of it, not to go create entirely
-separate allocation paths for unclear reasons.
-
-Besides, I'm writing this from a platform that implements SVP not via
-TEE. I've worked on platforms which implement SVP without any TEE,
-where the TEE implementation would be at best a no-op stub, and at
-worst flat-out impossible.
-
-So that's 'why not TEE as the single uAPI for SVP'. So, again, let's
-please turn this around: _why_ TEE? Who benefits from exposing this as
-completely separate to the more generic uAPI that we specifically
-designed to handle things like this?
-
-Cheers,
-Daniel
+-- 
+With best wishes
+Dmitry
 
