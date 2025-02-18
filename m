@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 210EAC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:58:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 761BFC021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HVf1UsKnK26Pr9ChPCOeDMcOutHzLioAp9TuND66ugQ=; b=VoQk31eBYrlyRYCsZe2RUHZDTk
-	I2FE8QsrYLMO34shEeaQHmEAQxwRJRZPs5u6rEM9Z5D/oEAF65vAXdvD5Vdrz5jGjXlgy46Kb/rJI
-	IjwdbZ/M2n8bKCr1Dgqfk5mo/TPpuUgpVfg1V1z+sLKjEVvTUCSScN8mI6wdQA3HK7n7Cremghgep
-	PiW+5IeGdqv3PQndQgs+Kh9q7o+rYCNiGHZmfiaAaJyaRzjqF7k69Ztt7ftc3nOqH5URRQx60jVqu
-	xcmi3aAR7bxzR+x4NT296+8d6AAr7xVZ+R23MJDt2gPFy681xkq+dtEMr5h/kBN5CldFSezZe8jNn
-	9M5W21vA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0vWS+jJLGaUznhkUfulRmF74wnw6+simbpz7/+3zlNU=; b=OqCKhB1mhhWYTN3Whwp8UUNIHk
+	SoYWqTSO2YbX/GuxLHLkdSZ1JGJoXlv06i2eJBmNKNc+Q+waTtS1zGuwrxu5UGtg5ZGnkiz9zwICv
+	hzkagkUE7JN2edkpcpLsvKULPDPG3ZF0RX4PDWdgnV1O8Idm1BefDvmIhP5NeEsSuAbFWU85xcypr
+	3BFCt3sJyrSRwA9c0nlbQ9n36tAr2q7PyOCK6HXUtm5NsBPLJx8IzQWDmDYCHCZRCil6N0Rs0QtC+
+	JrPYFSk52XaNgmjaFAnFWUVgo4wBda04SwRjFdaEwbUdcX4/lQLG/vwJQeGGuQvvmFdafmCjwcoB0
+	/eWl4TDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkP2y-00000008ejM-2K9H;
-	Tue, 18 Feb 2025 14:58:04 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tkP4Q-00000008f5a-13q2;
+	Tue, 18 Feb 2025 14:59:34 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOyD-00000008dfU-2NEt
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 14:53:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739890387;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=HVf1UsKnK26Pr9ChPCOeDMcOutHzLioAp9TuND66ugQ=;
-	b=LJT71wgJGYHZU2BRscsLeYc1AgOZ1m9e/ev7aWBCAFg4XN+YW8u7O5aLdf/m8kRBGx4zHE
-	bVFKDxueioJCC3OOUpN1WOgzZxNKR4YdpnjH9h3FyxKWlpoLR/MxPy7RJVWAOq5yteE9Yo
-	72uhpDTyLVtk1DuI9tJ/Wot8TVUC0E0=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-515-WyiKdDZdMXe0wqMxr3fngw-1; Tue,
- 18 Feb 2025 09:53:05 -0500
-X-MC-Unique: WyiKdDZdMXe0wqMxr3fngw-1
-X-Mimecast-MFC-AGG-ID: WyiKdDZdMXe0wqMxr3fngw_1739890385
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C7D151800994;
-	Tue, 18 Feb 2025 14:53:04 +0000 (UTC)
-Received: from [172.64.13.25] (unknown [10.30.32.164])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2F9921955BCB;
-	Tue, 18 Feb 2025 14:53:04 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc3,
- upstream-arm-next, 6d206d3a)
-Date: Tue, 18 Feb 2025 14:53:04 -0000
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org
+	id 1tkOyL-00000008dgt-19KB;
+	Tue, 18 Feb 2025 14:53:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=0vWS+jJLGaUznhkUfulRmF74wnw6+simbpz7/+3zlNU=; b=yCHNif8/OzKbJ8qOOHLZC7ehTA
+	zdS8Ay0sBcb8JU2WO/UQqqsK68gdfuNU0GOadhvfFzsvvbJjgwWUmCPjoLBXYXVCfWkAClMQ2hCMv
+	PdJk1AYucpPORfkt3caFGB1hO1/Ovl8P1W76OSLXbFRg+M0bSYTBSMcERhZDq2L5JXKU6AM/yoWUU
+	uTEM13NnKraf0E1QhGoPLP8LWNWELxhHs2WsPUkU9IuxgXJeHVDfBeueJ58YMIcabdv8YFa0LEgO0
+	6BUKBEGgN2ODQLuuVe4eto3M4Ba5Xjz4DZ7My9cqydE6khcMBrsiN1XNbTA8LYu8hQEmet7cmoGAW
+	R4NEnpzg==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tkOyB-0005uw-A9; Tue, 18 Feb 2025 15:53:07 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Jianfeng Liu <liujianfeng1994@gmail.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: airlied@gmail.com, andy.yan@rock-chips.com, conor+dt@kernel.org,
+ cristian.ciocaltea@collabora.com, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, hjc@rock-chips.com, kernel@collabora.com,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, robh@kernel.org,
+ simona@ffwll.ch, tzimmermann@suse.de
+Subject: Re: [PATCH 3/4] arm64: dts: rockchip: Add HDMI1 PHY PLL clock source to VOP2
+ on RK3588
+Date: Tue, 18 Feb 2025 15:53:06 +0100
+Message-ID: <2425191.NG923GbCHz@diego>
+In-Reply-To: <lnuceofdwm6lgibworaghcujp6rrncvn4e2xc2vzltimjw3rqu@jur7x5cxt5ue>
+References: <1919367.CQOukoFCf9@diego>
+ <20250218121749.1382322-1-liujianfeng1994@gmail.com>
+ <lnuceofdwm6lgibworaghcujp6rrncvn4e2xc2vzltimjw3rqu@jur7x5cxt5ue>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
-Message-Id: <72746.125021809530503709@us-mta-515.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: fBfviw5AvL9mjmnMDSSPqD404UmtyLNPKFMSjckFoJ0_1739890385
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_065309_673329_AEE09166 
-X-CRM114-Status: UNSURE (   6.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250218_065317_306424_43337B2A 
+X-CRM114-Status: GOOD (  34.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +81,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Am Dienstag, 18. Februar 2025, 15:13:07 MEZ schrieb Sebastian Reichel:
+> Hi,
+>=20
+> On Tue, Feb 18, 2025 at 08:17:46PM +0800, Jianfeng Liu wrote:
+> > On Tue, 18 Feb 2025 11:00:57 +0100, Heiko St=C3=BCbnerwrote:
+> > >So I guess step1, check what error is actually returned.
+> >=20
+> > I have checked that the return value is -517:
+> >=20
+> > rockchip-drm display-subsystem: [drm] *ERROR* failed to get pll_hdmiphy=
+1 with -517
+> >=20
+> > >Step2 check if clk_get_optional need to be adapted or alternatively
+> > >catch the error in the vop2 and set the clock to NULL ourself in that =
+case.
+> >=20
+> > I tried the following patch to set the clock to NULL when clk_get_optio=
+nal
+> > failed with value -517, and hdmi0 is working now. There are also some
+> > boards like rock 5 itx which only use hdmi1, I think we should also add
+> > this logic to vop2->pll_hdmiphy0.
+> >=20
+> > @@ -3733,6 +3751,15 @@ static int vop2_bind(struct device *dev, struct =
+device *master, void *data)
+> >  		return PTR_ERR(vop2->pll_hdmiphy0);
+> >  	}
+> > =20
+> > +	vop2->pll_hdmiphy1 =3D devm_clk_get_optional(vop2->dev, "pll_hdmiphy1=
+");
+> > +	if (IS_ERR(vop2->pll_hdmiphy1)) {
+> > +		drm_err(vop2->drm, "failed to get pll_hdmiphy1 with %d\n", vop2->pll=
+_hdmiphy1);
+> > +		if (vop2->pll_hdmiphy1 =3D=3D -EPROBE_DEFER)
+> > +			vop2->pll_hdmiphy1 =3D NULL;
+> > +		else
+> > +			return PTR_ERR(vop2->pll_hdmiphy1);
+> > +	}
+> > +
+>=20
+> This first of all shows, that we should replace drm_err in this
+> place with dev_err_probe(), which hides -EPROBE_DEFER errors by
+> default and instead captures the reason for /sys/kernel/debug/devices_def=
+erred.
+>=20
+> Second what you are doing in the above suggestion will break kernel
+> configurations where VOP is built-in and the HDMI PHY is build as a
+> module.
+>=20
+> But I also think it would be better to have the clocks defined in the
+> SoC level DT. I suppose that means vop2_bind would have to check if
+> the HDMI controller <ID> is enabled and only requests pll_hdmiphy<ID>
+> based on that. Considering there is the OF graph pointing from VOP
+> to the enabled HDMI controllers, it should be able to do that.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
 
-Tested-by: CKI Project <cki-project@redhat.com>
+I was more thinking about fixing the correct thing, with something like:
 
-Kernel information:
-    Commit message: Merge branches 'for-next/amuv1-avg-freq' and 'for-next/=
-pkey_unrestricted' into for-next/core
+=2D---------- 8< ----------
+diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+index cf7720b9172f..50faafbf5dda 100644
+=2D-- a/drivers/clk/clk.c
++++ b/drivers/clk/clk.c
+@@ -5258,6 +5258,10 @@ of_clk_get_hw_from_clkspec(struct of_phandle_args *c=
+lkspec)
+        if (!clkspec)
+                return ERR_PTR(-EINVAL);
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1676633598
++       /* Check if node in clkspec is in disabled/fail state */
++       if (!of_device_is_available(clkspec->np))
++               return ERR_PTR(-ENOENT);
++
+        mutex_lock(&of_clk_mutex);
+        list_for_each_entry(provider, &of_clk_providers, link) {
+                if (provider->node =3D=3D clkspec->np) {
+=2D---------- 8< ----------
 
-One or more kernel builds failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
-t:1676633598-aarch64-kernel
-                   Issue: [upstream] error: initializer-string for array of=
- 'char' is too long [-Werror=3Dunterminated-string-initialization]
-                          https://gitlab.com/cki-project/infrastructure/-/i=
-ssues/473
+Because right now the clk framework does not handle nodes in
+failed/disabled state and would defer indefinitly.
 
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
 
 
