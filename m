@@ -4,57 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A37C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 12:24:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DAFC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 12:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HY3q21qGHPhZv65VuksanbKEYDSX6CNI9ocW1+BoF2M=; b=ZjzH8XV5AdNsQ+SiYkXw/CGzxH
-	IKDnqvNCicRjDXmIZnTYQeqBSINqecXArKxQlKm+Xp2X1UmZVd+pyCbNHkbPF/e1kKkHIeXn2LLhu
-	Bl+BpsxGQpx2M83KdM+X61c0573ywYIvfOcDUCKyBu/6RNx7vnXxT62HgBGncc3pRVn+jsBsUNyr3
-	ugBsKW0jlCDN25It0SsOX2cM4JkZH/l3dr3/feyt0Njq32xCWXBb89pzNFCV+fbEniXchtwT9R9ft
-	CeV6O07L4Sq0FrZKHDLqWq4lAMD7KkH1hWV5sMkpsS0chG9Wds9h/3CmrznHbvUFUzTu3dfIj/8hV
-	6S6SOMfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mj3PztAnvD9vDz6xP2L4dDXDamq37tJkkDcB9UoW23A=; b=XezhEE0wXlwRkrHnXHVBU8aFDb
+	euNCgovmb2O5Z1VjOLC1jtgBBpIIM6/kJdIgVxVnG9N0oO1dUuUkHQvbFMq4nDVKQ8kYvCdbeI4Wc
+	3AU11urrh69je8et/QfrB6yjpgk+TioaxStC03nXEAOs5ftaVQ9UGeqv08lgNYt0O7a+nbp1BhRxI
+	N4YsjReg8LANT8SQ2+1ZaQPX8PAnZJkqZdfrUtAOr8sWCRieVky0Z7mrS0k5eG78lBvMm5M0LCZAJ
+	6tP0NxqkYd0STxmUKGzSVBXSN+bn6qpc/uDBuPAxcJzaGq4YTbZPPlqORJwofo49WXy30ZitAK02+
+	3fIHjxiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkMeZ-000000088Hj-2wey;
-	Tue, 18 Feb 2025 12:24:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkMEr-000000083IA-2SVS
+	id 1tkMg0-000000088a7-2pak;
+	Tue, 18 Feb 2025 12:26:12 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkMGo-000000083h4-2Pzx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 11:58:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDA5B152B;
-	Tue, 18 Feb 2025 03:58:27 -0800 (PST)
-Received: from [10.1.27.186] (XHFQ2J9959.cambridge.arm.com [10.1.27.186])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 987F23F59E;
-	Tue, 18 Feb 2025 03:58:07 -0800 (PST)
-Message-ID: <43192985-584e-4d6a-86b6-5299638d9fb1@arm.com>
-Date: Tue, 18 Feb 2025 11:58:05 +0000
+	Tue, 18 Feb 2025 12:00:14 +0000
+Received: from francesco-nb (31-10-206-125.static.upc.ch [31.10.206.125])
+	by mail11.truemail.it (Postfix) with ESMTPA id 611F11F8BD;
+	Tue, 18 Feb 2025 13:00:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1739880007;
+	bh=Mj3PztAnvD9vDz6xP2L4dDXDamq37tJkkDcB9UoW23A=; h=From:To:Subject;
+	b=0vIasmSyAYoHCecFVq8qfDEAKDf5y8zcgzKEgmSf4SnjZUhpdWkZy9p3GuieOjyRD
+	 iDV89X9ERnCVMIZRnHABwQQOGCkPs8AG+tpupDCqLnV0qj+xsF9jwzTiZvWafig1SK
+	 usqZmaBUTHQVPknMUVysdLDgSU/PylBZFlYh0GK92wWbJbM9M1qeny8DsiuRRjPtUC
+	 e9+kCupqf02xuhszS1x6QARjQXfmlBwP49yQSoHj4FSJEAr5jXM9rPdu+U+gYbkvXR
+	 oBT7KCh11h9tz2B4YIEmpkgxB0y5mTW6zaxFvbp1eEzJgeWx8NKh8cVVCBreoZ/lMX
+	 Ztyk/MSWmcV2A==
+Date: Tue, 18 Feb 2025 13:00:02 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Stefan Eichenberger <eichest@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, francesco.dolcini@toradex.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: Re: [PATCH v1 1/2] arm64: dts: freescale: imx8mp-verdin-dahlia: add
+ Microphone Jack to sound card
+Message-ID: <20250218120002.GA15270@francesco-nb>
+References: <20250217145744.179213-1-eichest@gmail.com>
+ <20250217145744.179213-2-eichest@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC v2 PATCH 0/2] arm64: support FEAT_BBM level 2 and large
- block mapping when rodata=full
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, catalin.marinas@arm.com,
- will@kernel.org
-Cc: cl@gentwo.org, scott@os.amperecomputing.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250103011822.1257189-1-yang@os.amperecomputing.com>
- <022c4799-bf0e-44d4-b657-d6af29a9a31d@arm.com>
- <7ca5e8a6-9f01-40c6-a46d-c717ae7ab3b1@arm.com>
- <8e3ad39e-de59-48bf-b776-b27dc784a8ef@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <8e3ad39e-de59-48bf-b776-b27dc784a8ef@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250217145744.179213-2-eichest@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_035809_674469_B3502F8F 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20250218_040011_499779_629A651F 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,29 +75,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/02/2025 21:27, Yang Shi wrote:
-
->>> I don't really understand how vmalloc is relevant here? vmalloc can already map
->>> huge pages you use vmalloc_huge() and changing the permissions of vmalloc
->>> mapping will only affect the ptes pertaining to that mapping; I don't see why
->>> that would cause permissions to be changed on the linear map or for huge pages
->>> in the linear map to be split?
+On Mon, Feb 17, 2025 at 03:56:40PM +0100, Stefan Eichenberger wrote:
+> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 > 
-> I just uses vmalloc() API to emulate what modules loading does. Allocate memory
-> via vmalloc() then change permission to, for example, read-only, by calling
-> set_memory_ro(). So I can stress the page split by doing it on the most of
-> memory, for example, 80% of memory. It is more efficient than loading real modules.
-
-Ahh I see. I hadn't previously appreciated that we change the linear map
-permissions at the same time as changing the vmap permissions. Makes sense.
-
+> The simple-audio-card's microphone widget currently connects to the
+> headphone jack. Routing the microphone input to the microphone jack
+> allows for independent operation of the microphone and headphones.
 > 
-> It is implemented by a patch against test_vmalloc. I don't include the patch in
-> this series, if you think it is useful, I can include it in v3 anyway.
+> This resolves the following boot-time kernel log message, which
+> indicated a conflict when the microphone and headphone functions were
+> not separated:
+>   debugfs: File 'Headphone Jack' in directory 'dapm' already present!
+> 
+> Fixes: 874958916844 ("arm64: dts: freescale: verdin-imx8mp: dahlia: add sound card")
+> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 
-I don't think it's necessary to include in this series. Although perhaps useful
-as follow up patch to beef up the vmalloc perf tests.
+Cc:stable@vger.kernel.org
+Reviewed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Thanks,
-Ryan
 
