@@ -4,89 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECE8C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:15:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 096A1C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5qqCVPwdqyK2Ili+2+zXGFMWFYgYIwIsQtKu/VjLpL8=; b=n4AOjQ3Hund3hAxOY8cgcj3dVW
-	K78op8rceEpmRJ+EKwb09hdXBdtsd+ixK2AzjbqPLkgfSRde23GBgzYcK/y9scAIrqlAj5RVFhIBQ
-	2VHZNYc79mv61C1MdcTp/9z2fdFGcy5pzB+yT5ommlaOK3CdfjqvPt8hcsrrmZLYKE+0bdpQ7/M0H
-	e2d28QyZ7jiU4GkKmvC56huch4odJCGgoIrZz5rk39WG86iQKDGyyYH90+WdI/1+jxClYE8zabaBu
-	IHHGPPOoxxCJ6e5hDKqw6mRbSZr5FcunmgBs2nv4Ebq2nozdAtYmBIEGZhJ2qo1ZqX1N+C22UTmat
-	D26nV1qA==;
+	bh=Rb/oEzPquB0AN3zNExVOUPkHhu2SKGcn8YilK2l8ikA=; b=D/QQ2DJKjewodTc4tu3XsZgdV6
+	8KmjZBUlIQhFUbl2jPfkFd7nhUjcUjhM5rYiuhVz7B88jJgpjetuNRY8Pvsy8Wz+kcEVK4hxv2kQ7
+	UgCf+IDvl8S7ePgLcohT1fGr9ZcnC8521/jvXYq2QjMK1IAoNTlOAm9RZvAFfMgknPmKInG9WiFSf
+	pjM1j8fcmw7w1dE/yehqiZ4bZARM2Rd/QEqwzy5c6KtJARksORWYT6GXd8JbfdSG3d+qM+lL08oqf
+	Ee5UxxHxYBqbaAMHdysWaqyHie5+Ub24sIjc3oMMLkf95TtPrH/m5Tg5jOV1c6RZd0Ifp/S/lcAdx
+	HWStUqfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJh0-00000007SSa-3gCr;
-	Tue, 18 Feb 2025 09:15:02 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tkJiR-00000007SrD-46LK;
+	Tue, 18 Feb 2025 09:16:31 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJR5-00000007OPp-2vQY
+	id 1tkJW2-00000007PTO-2kAZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 08:58:37 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-220c665ef4cso76142775ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 00:58:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1739869114; x=1740473914; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5qqCVPwdqyK2Ili+2+zXGFMWFYgYIwIsQtKu/VjLpL8=;
-        b=MuV51nFuQkws6SC1FoHjGatTAQPvCmUG36R4cXnN8zFb1u8+Elkp8TB4cMgn+oKTmW
-         6hzPUFwhUyKt5NOJ6tHiRMCwJN/dJBgygLGzhxkDORSCmw0ob6Wryb3id72uB83Y7VhW
-         eQHtCqbNRgBTseztLYnMMnHP1j2dPDj2POhkc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739869114; x=1740473914;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5qqCVPwdqyK2Ili+2+zXGFMWFYgYIwIsQtKu/VjLpL8=;
-        b=pcC/4mphOkXW78udN80G5XpP+Z91sNLgkKTJBLkYb75HYGfvZQxR1hA4vicr8eCvJN
-         C37BO7CNIbxeXU1vfaXBJh0BagUiLS5wMTefeBFBND8/Y30bi4VaFn+W/9t3l0n9KGIt
-         xRBgkgvEWjdR51ZJS4gXXEFZwjJwPDQ8MeTpsG5ehXIGBagEyTSCJbjIwBxzHK1EggTX
-         rs94NEHnGnqcpOHnxSyqX/dFOHcz22qhgXEgZoGubqmVlUUOAfICdUmG5z3QCkv8jWPv
-         RnN4l6z/E02+NELHiPzlcCzm186N6bfakEIgqVFuSlYownD2qXhVQ1Mxoq8spP19DNTr
-         6tew==
-X-Forwarded-Encrypted: i=1; AJvYcCXTLzsGzYV8YrhCCrJ3exSSsyPw2CoWiAQKFHATRrXm8sGMdzKUCESSp3OsCdfxiux/v06O37rZ/h+RnEfS83u9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0JF8U7CbOcd4xWTANYqh40cFv2gNwjTYbtamN89bnGcu8MaFC
-	Jc/V0lYwHwSOdYw9RVcAabO5NOqE0DSP3knXv4NhR9ttukNseilVa0SBsu1Srw==
-X-Gm-Gg: ASbGncuUCD6mCZgQFDT8XCD2FZkVdOqcCM0ShZ/muIxikRSKIhGsfSV2mfthnvsyoND
-	yaWfoL2g18zLcMsrq/R/80UUL7iaZc2MpnpD6QxIzueA91M4E+CIDu4SjtTn8wf4fJI2CwkjHSo
-	FrduwP6skpmg9w5hDRfp8g/a5sOTaqJBSPPnVnH8lEc1EJlxQM2pcTmcSAC2P+8UxcXdppHt+gT
-	2S0tGZy3ckwuE+iL43mQzPmSFg/VMm1yQNxrMb+mgTPrqrgxONuj/cM6R10CrEAB1aG7SUz/vw0
-	1IKQG2VuRQ9liPqbQ4A=
-X-Google-Smtp-Source: AGHT+IEEOJtMg2r+ExCu5k7nAqe+yfuyqpapvJqV+nJnjxWfgOfZJYnuiAmofVtL8kqiPugF9s2+qg==
-X-Received: by 2002:a05:6a21:790b:b0:1ee:a914:1d64 with SMTP id adf61e73a8af0-1eea9142045mr12447625637.28.1739869114293;
-        Tue, 18 Feb 2025 00:58:34 -0800 (PST)
-Received: from google.com ([2401:fa00:8f:203:e8b0:5a6a:30d2:a33f])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ae1ee4febb2sm828296a12.51.2025.02.18.00.58.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 00:58:33 -0800 (PST)
-Date: Tue, 18 Feb 2025 17:58:26 +0900
-From: Sergey Senozhatsky <senozhatsky@chromium.org>
-To: Christoph Hellwig <hch@infradead.org>
-Cc: Eugen Hristev <eugen.hristev@linaro.org>, 
-	linux-arm-msm@vger.kernel.org, linux-hardening@vger.kernel.org, kees@kernel.org, 
-	linux-kernel@vger.kernel.org, johannes@sipsolutions.net, gregkh@linuxfoundation.org, 
-	rafael@kernel.org, dakr@kernel.org, andersson@kernel.org, konradybcio@kernel.org, 
-	tony.luck@intel.com, gpiccoli@igalia.com, pmladek@suse.com, rostedt@goodmis.org, 
-	john.ogness@linutronix.de, senozhatsky@chromium.org, quic_mojha@quicinc.com, 
-	linux-arm-kernel@lists.infradead.org, kernel@quicinc.com
-Subject: Re: [RFC][PATCH 07/10] printk: export symbols for buffer address and
- length functions
-Message-ID: <20250218-175733-neomutt-senozhatsky@chromium.org>
-References: <20250217101706.2104498-1-eugen.hristev@linaro.org>
- <20250217101706.2104498-8-eugen.hristev@linaro.org>
- <Z7RELnyWRLietj9b@infradead.org>
+	Tue, 18 Feb 2025 09:03:43 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tkJVw-0005iJ-9J; Tue, 18 Feb 2025 10:03:36 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tkJVv-001YXQ-2k;
+	Tue, 18 Feb 2025 10:03:35 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tkJVv-0002g6-2W;
+	Tue, 18 Feb 2025 10:03:35 +0100
+Message-ID: <15bbca6567ff640fdcfbe1a9525989887a94732c.camel@pengutronix.de>
+Subject: Re: [PATCH v2] media: verisilicon: Fix AV1 decoder clock frequency
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>, Benjamin Gaignard
+ <benjamin.gaignard@collabora.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>,  Heiko Stuebner <heiko@sntech.de>, Hans Verkuil
+ <hverkuil@xs4all.nl>
+Cc: linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org,  linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, kernel@collabora.com,  stable@vger.kernel.org
+Date: Tue, 18 Feb 2025 10:03:35 +0100
+In-Reply-To: <20250217-b4-hantro-av1-clock-rate-v2-1-e179fad52641@collabora.com>
+References: <20250217-b4-hantro-av1-clock-rate-v2-1-e179fad52641@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z7RELnyWRLietj9b@infradead.org>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_005835_762273_BED879B5 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250218_010342_684031_5A457BDD 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,14 +80,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On (25/02/18 00:26), Christoph Hellwig wrote:
-> On Mon, Feb 17, 2025 at 12:17:03PM +0200, Eugen Hristev wrote:
-> > log_buf_addr_get() and log_buf_len_get() can be reused in another module,
-> > export the symbols.
-> 
-> Err, no way.
+On Mo, 2025-02-17 at 16:46 -0500, Nicolas Dufresne wrote:
+> The desired clock frequency was correctly set to 400MHz in the device tre=
+e
+> but was lowered by the driver to 300MHz breaking 4K 60Hz content playback=
+.
+> Fix the issue by removing the driver call to clk_set_rate(), which reduce
+> the amount of board specific code.
+>=20
+> Fixes: 003afda97c65 ("media: verisilicon: Enable AV1 decoder on rk3588")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-Yeah I think we've been there before [1]
+I was going to ask whether there might be any device trees without the
+assigned-clock-rates around that this patch could break, but the DT
+node was introduced with 400 MHz clock setting in the initial commit
+dd6dc0c4c126 ("arm64: dts: rockchip: Add AV1 decoder node to rk3588s").
 
-[1] https://lore.kernel.org/all/20230905081902.321778-1-hch@lst.de/
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+
+regards
+Philipp
 
