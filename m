@@ -4,91 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0226CC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD990C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a0O7shOkTYYhzpBdc0RT+E/zz0YqOfNDEdfZfpbbnbE=; b=YlGT/OYaL39C3RFqNhRuQOHmJH
-	wknD5YjAA7++3VqljNTXbPHR/LLqY8s1KCwNxUgQcgOJkIlAyShkTBfZ4XlieUHVB81VAjWx7UJnG
-	qy8aVNmLFQrfc9qRO2rwSb11z7979sbGswcbzepj8Vd049Wq2ieO+4YditDIAy10+XkmVacKJsF9X
-	XSZ2HIK9MZcI31OgD/G9jivK+sl8Z7rpb+nD0X4Lzpbr60mkAaliYPitmo0fNYlC0bqZwUZ6jfiyG
-	N/fl7e3CBetsrNYxHXpco9YHAq6T5XROC/wMuB8Gt4kFxPXF2XTgv0byuEeDO2dYskRxXKIpwhyiR
-	LupRhAag==;
+	bh=M0YgGsK4Gx4fed7RGa75+aNLGFXvtdxE7pqSyT+jtYY=; b=nYDnvf4bHBUAzDbsVD5Tq0Spjb
+	A2ZpPnYgwn5KFZo4f6FNCCXyivihqqDGw8CFRgOqvuTmbvkLzt+GTZzTy2QifH4Uj2EKcLuuYNUox
+	We0tgcE8AKJrFOOtFPkQ0wtAURLbjykXLubtKQE37emzFlqDRbQrnwyw+zlqA1YO/Bh9f/7Z7Tqza
+	xPvfmkK8SoEF3n0Os1il6+QQS636FwLtjcPWaEWKhZNPRHBfYPIYn7PPbyvXMUsV1lMv2ojoC7Cry
+	CB4TxoRWsx01wCV6jwAcyiBNEQvK/bFZGqtaL+Wx0jTJGd6/x8slZssu7cWIAg1cKDGjFhMTI1E1Q
+	2ukCCGGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTuW-00000009hWR-0tAO;
-	Tue, 18 Feb 2025 20:09:40 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tkTvw-00000009hin-420O;
+	Tue, 18 Feb 2025 20:11:08 +0000
+Received: from mail-mw2nam10on20623.outbound.protection.outlook.com ([2a01:111:f403:2412::623] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTEo-00000009ZAi-2MSL
+	id 1tkTFn-00000009ZRf-1AGz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 19:26:35 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4394345e4d5so41036355e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 11:26:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739906793; x=1740511593; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a0O7shOkTYYhzpBdc0RT+E/zz0YqOfNDEdfZfpbbnbE=;
-        b=EgTKGs7PB+Ij9kN6rJc5pBeaHgX9VZi+VuLwYc45wtMsLuymRmy9zDjjDYGWn3gaMi
-         N60rbHGhZ364SNEUZiyOnUyNyrfop9A0WB2EBlTDWWuUd6fsBPTJRa6ey4OBbJ7KKQWH
-         60+t5vHbQ1kPOoYSpd9JkavEzkPI+gc8yFre6aV/9hF01OfLTzkNl8KpLq26mVxsrnsR
-         hPoydz3q5Ukvz2vHq2fspZ0jM/B1nege8+L0HSZLORaE+/ihfV4xt4n6MUg9dfs+zPFu
-         alwFGHpBq8wWIk2Dr+juEnyCm8AsXdcnwZ9XtD9+5r9zAH1tXRG++GY4q3K/aPz5Bg+g
-         DB7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739906793; x=1740511593;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=a0O7shOkTYYhzpBdc0RT+E/zz0YqOfNDEdfZfpbbnbE=;
-        b=eZDZ5oWkAp/nNAZShvEfO0W0NUJYmQEzscFcwDPVZwQe8gRCJ/NiQsixC43ygeWUgM
-         8rK4gxLnJ8foJXjMCp+FkIj0jV2GIbxtJZ4ve+WSR4ap+qpnU5i4Vz5ppUWaDkK0ruJY
-         2jqaUuET0hQObXbqA3FNXOfxNXkvsX+kjuQ+prHNoTSYBxsaM3PdUrPRjFZFsGhDd5C6
-         6wWNTdB1jo907Rzp16lPghTiXTnIU0GHU+8AdUJylkGjFC5H6qdcV3pZ9YdT6j13G6/G
-         MJ7GaBLDd5/ujuf2lEvmWp0PDwexilwzzmIvO9MLyGGWu+1meFPYa3UBgP987eibHVAg
-         BNpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW/Ppa2eCbeDOFbaybVgdX242yIbP0BX/XS1DI/0NlCl9QHMSqc82qhoPeTXnD0z6T691tXaS9wXIMFJKOUDQdh@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxtl8J/G2qKdpJFi5ZGZZr45WCjFra6Kso7bMq1xHIF4F3kkmSe
-	g1nQIG9n5GYroOUXFkhtVlQX2JlI20vUYOkXC92kzJsbMlNSCj23
-X-Gm-Gg: ASbGnctikF8LswfrAA2bGX3zBbHRICxRfI5t9erEVWNVgmPyeZlbyht6H1MU+TQB++r
-	N3cheGnKpbnxHG6ixTAFR9n/8YQbZPbkFK6D/rW2E98vx2xmBZ4LnoVq1PHxqFbIv2EM4Wrrhfg
-	OD5Siu6uVb7/3O0WE9AQGaii/MI+HNAq4UmQlmfvRA7/pbFBs43MonHXi1OPKEE/7VR+le4rlRs
-	vZHdk1ak2BCPw95CIvM3quwIB29UmmPTzRUbGDRgQ3pdAkKp7/5wsAJ4PseCZp3I1GGzTBk+jRS
-	xTHDAp9eIG77OnYPupA5mmcf2vou5ghl5iEO3101cem46RExx1HgVTcLo/fF06etmI8=
-X-Google-Smtp-Source: AGHT+IE8P6Bf5j6JNMDNPPmdiyOQzARFL3KZEbRWk3stCaeMLQwc8p5C2vnHoL6JXmbjGbMJBisPYA==
-X-Received: by 2002:a05:600c:511a:b0:439:643a:c8c4 with SMTP id 5b1f17b1804b1-4396e7527cfmr125859015e9.22.1739906792544;
-        Tue, 18 Feb 2025 11:26:32 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439922141a5sm35844685e9.2.2025.02.18.11.26.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 11:26:32 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
- Andre Przywara <andre.przywara@arm.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 07/15] clk: sunxi-ng: a523: add video mod clocks
-Date: Tue, 18 Feb 2025 20:26:31 +0100
-Message-ID: <9406479.CDJkKcVGEf@jernej-laptop>
-In-Reply-To: <20250214125359.5204-8-andre.przywara@arm.com>
-References: <20250214125359.5204-1-andre.przywara@arm.com>
- <20250214125359.5204-8-andre.przywara@arm.com>
+	Tue, 18 Feb 2025 19:27:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GqUkIkubl1MFL12HHdd8f3mNac7iYWjs7SwnYPTIHuxWJoKZdMrA072ZGSz9GPXR2KOIFC6Jo8R09gOxTjwvvMePi2Uxhic51udqqwMDqExYH1TcfxXi3+GDiGgdw54TXx4mlp3lxuHOy4WwtuJPCQg74IV2DUCm4Pt19BzZYkkL2SZc8p6eDNeTAXCsr2FrZVbvUNchx4jO6sDcbOIriQESO7/rwEL6Luyo53F+0/CYZLSSeI7DTl4wRNMgvzHCyYZSjD84B+TkXOib+cE6sESEw2Uc733Hiy3qv+OxG1riumg0+4JjVtSsIvAk76258w5VS5abVG3KDkYDJ+eUvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=M0YgGsK4Gx4fed7RGa75+aNLGFXvtdxE7pqSyT+jtYY=;
+ b=m9mxPY7XHJFrXt6rAVajWicxZdpbjiHX06TJaA0Uo+ogfNpaNJPAlpiEwksJXhrBTSJ1cRyiksX47yv6tcdxoduXfkFek7qr+jb9fT0Czk6E7FVIcF6EPFPaPCksOYl+J0I3MAzHHhXsx1J7Sy+Z37Ssc8G99qRU74nIEPIBfe6Qigdqgrv6SmrWQwrMMofhnulJ7KkZxjvXna2uyJEkXVoOZjdfex8qaLUEuecHUiGsHQROGm8OBN1U7puOMur8Vk6uokxS2335xrM+Jtilung6esgtbOkyNLx53BdzMoKebzi0F4dvWmsA0o5Cy8upKJ7RMiZi2RrGqwEpu1yZcg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=M0YgGsK4Gx4fed7RGa75+aNLGFXvtdxE7pqSyT+jtYY=;
+ b=DJuQMA/A9bpaAZuJDxn4p2EV/mnzXh8YNUfbSuS8/awwDa8Yi7WHhLzVV+JOc5E/90MM1EUHVAhd4v6oOnPQm3P6NOGl8hUrllUuMYH95PQNiAj+rWcGaFo9CmzHuD4ZAubsFmjRo0kD6Y8S5Jl3v//5r36KrFvkzMtz/n7SyQ9kU+sFtG81A2lgOmNsQcqxb89MifuvGpORNMOk+R4nYLt+f30gIUpQ13lKFRLGkVRBbaYwq/ZGHJ/u3OCtADket6XiWSfID2/3etIMrUSiDdZ8KUWtfTPriY3fYSljCjWh8VMVv3CriU3MexbuGD/xEBX2FeDMqaWPF0Y2aIoZKQ==
+Received: from BN9PR03CA0086.namprd03.prod.outlook.com (2603:10b6:408:fc::31)
+ by PH7PR12MB9151.namprd12.prod.outlook.com (2603:10b6:510:2e9::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Tue, 18 Feb
+ 2025 19:27:27 +0000
+Received: from BL6PEPF0001AB71.namprd02.prod.outlook.com
+ (2603:10b6:408:fc:cafe::1c) by BN9PR03CA0086.outlook.office365.com
+ (2603:10b6:408:fc::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.14 via Frontend Transport; Tue,
+ 18 Feb 2025 19:27:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL6PEPF0001AB71.mail.protection.outlook.com (10.167.242.164) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8466.11 via Frontend Transport; Tue, 18 Feb 2025 19:27:26 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 18 Feb
+ 2025 11:27:11 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 18 Feb
+ 2025 11:27:10 -0800
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Tue, 18 Feb 2025 11:27:09 -0800
+Date: Tue, 18 Feb 2025 11:27:07 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
+	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
+	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
+Subject: Re: [PATCH v6 13/14] iommu/arm-smmu-v3: Report events that belong to
+ devices attached to vIOMMU
+Message-ID: <Z7TfC4fmvm4e6fEb@nvidia.com>
+References: <cover.1737754129.git.nicolinc@nvidia.com>
+ <b71a5b132e8ba771998c5b810675f10b100d4ff3.1737754129.git.nicolinc@nvidia.com>
+ <20250218171821.GG4099685@nvidia.com>
+ <Z7TRNL0u0YmN30ax@nvidia.com>
+ <20250218185046.GK4099685@nvidia.com>
+ <Z7TZP3jXlRzweFE8@nvidia.com>
+ <20250218190846.GA4183890@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250218190846.GA4183890@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB71:EE_|PH7PR12MB9151:EE_
+X-MS-Office365-Filtering-Correlation-Id: e6c27980-5ead-44f2-d10d-08dd50524762
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|82310400026|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YfBiuAD0dANivEV4OF89RsbA+UvDiqqznapHDKLRz13IbhFP8qYFOqEHrASE?=
+ =?us-ascii?Q?MS+W1UQRgKXeGMN2cPMg3PMvwy00LgdScpeiiSisVhNfKV2tszpo+bGDU0W9?=
+ =?us-ascii?Q?5jbGZkFvmrlsHtujGihthNxBK6lVFyEihC+58t8j8OwMaqAteheTFKCZTSjb?=
+ =?us-ascii?Q?C+zJrL2QdfSYiHM9Our4VyRQ5S45ZEn22PegJt3C1BtWwnBBKumD/an1Cnqt?=
+ =?us-ascii?Q?kYb4eWtWL1IQW25EGKyE9qZMwybrsqvN5vRvAZM05oXMQAADCMn7LMph7cOx?=
+ =?us-ascii?Q?VwWM4Ona5SAVpmyYsbZiJSBrcEGxooafg+s5b1Obe5+V4lwzPfZwhOS11TWD?=
+ =?us-ascii?Q?JkM84vI3agps8TLHkB50fM6j6h4gm9V70hc/ir7Qs2lvxv9FgPlKQs6As/IB?=
+ =?us-ascii?Q?0OUw4EDwgMmJUSQ/eNjs8Hc40paQPyNDtIhZZKLJ3RygZEHRETz8KxIi+qjA?=
+ =?us-ascii?Q?PFrXGE8DaAXncj/Qwo0hVwPpJk1h3SBbagKQq5UVp83W3KWT81AABhX6mVSn?=
+ =?us-ascii?Q?tXrCOFGXj9FGJ9r4YF4DEU491y/T4uBcMyuVT9Fih/LmkJiCCTbaeBzaXDEB?=
+ =?us-ascii?Q?EeOYDgYD7k/rBCs4fzGoG4m4U0NWBbDQe7UomxEUlu7af+JhTqUcNd3omp4M?=
+ =?us-ascii?Q?Xnb6TSACn68joKMYsRA6kQVPg45MRdD/LHa9Dvc+NnHuTBEwBDsdlI75QG+A?=
+ =?us-ascii?Q?Q0ZJy9NgjlqHucGILVFD+wH6rKLev32dChmyrdV0txilQDV2r4w+rG5cXV1+?=
+ =?us-ascii?Q?BanGOERlJYNIFEhmTXtVL+ONe9vd7XY/kheRaPk2ynqN+UIgn53m8YSTJYba?=
+ =?us-ascii?Q?AvRHhSUteVqDTVzK4zu8ZXHBbSpuvO2Kt6YlbPeyS+71X0d9asjF1eiNiHxr?=
+ =?us-ascii?Q?iT25CSOgPWlJNoPGgaLm3NzbImmIAUWj9QOoztlqsJ+HjrIYSeugqhFAIKfq?=
+ =?us-ascii?Q?g9Qbc+EC8o/EmBkn22aUz9+SLqrYNMd6vb2Bm4SOc2kJdQyHP1xbe7ex7Qdt?=
+ =?us-ascii?Q?ZL9nZhXPdwj5WXM7enFVnMpqutOoodsDnB1EV672GM2N99I/pCqPj9uaHWOW?=
+ =?us-ascii?Q?fq0V5mzKBjF5+2t1yGXjskW6eDZgXTP8RKmfcOl/TrUJZrL34WYA+NL3clrm?=
+ =?us-ascii?Q?TfhEg8b9fmrwcKXtf4h9PmIdk04PjcDnF2OHj7uPx3/HmcVHZzTS26ZqOgkW?=
+ =?us-ascii?Q?g8u7gmL0SmZ8ONcsIMqhRlTM9hdcuoMW2cvxfsfr7X6sw3k72joCQQZC9Mu3?=
+ =?us-ascii?Q?R+sYO7SmSlpzZo3biCsW3f5g15CJ475/sVLAe/Jr6DCrNvmYb9UIFIcsdH6G?=
+ =?us-ascii?Q?RRjAT5ezQjutaz/UKMuwlQv9E4i4isv5cWpaOBW0tcZKFBiO07Zjhp3LIt3T?=
+ =?us-ascii?Q?7nttab2qdbOGRk8eZbaVxqVi/7aMTJAdFP2LgEJFcO0ueFCSGDR2BuyjXnia?=
+ =?us-ascii?Q?1VuFcrXpfRhBJthL6alrxv3HyjkdPvb4JILBMniXq/3XaRkQ/SjlLfrqYTyT?=
+ =?us-ascii?Q?QJ5AgeGa51zIvoA=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(82310400026)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 19:27:26.9802
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e6c27980-5ead-44f2-d10d-08dd50524762
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB71.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_112634_604506_579B6148 
-X-CRM114-Status: GOOD (  20.51  )
+X-CRM114-CacheID: sfid-20250218_112735_316476_CF9335D2 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,303 +163,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 14. februar 2025 ob 13:53:51 Srednjeevropski standardni =C4=8Das=
- je Andre Przywara napisal(a):
-> Add the clocks driving the various video subsystems of the SoC: the "DE"
-> display engine, the "DI" deinterlacer, the "G2D" 2D graphics system, the
-> Mali "GPU", the "VE" video engine, its associated IOMMU, as well as the
-> clocks for the various video output drivers (HDMI, DP, LCDs).
->=20
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  drivers/clk/sunxi-ng/ccu-sun55i-a523.c | 219 +++++++++++++++++++++++++
->  1 file changed, 219 insertions(+)
->=20
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c b/drivers/clk/sunxi-n=
-g/ccu-sun55i-a523.c
-> index 59f45e7c0904b..0ef1fd71a1ca5 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-> @@ -364,6 +364,192 @@ static SUNXI_CCU_M_DATA_WITH_MUX(apb1_clk, "apb1", =
-apb1_parents, 0x524,
->  				 24, 3,		/* mux */
->  				 0);
-> =20
-> +
-> +/***********************************************************************=
-***
-> + *                          mod clocks                                  =
-  *
-> + ***********************************************************************=
-***/
-> +
-> +static const struct clk_hw *de_parents[] =3D {
-> +	&pll_periph0_300M_clk.hw,
-> +	&pll_periph0_400M_clk.hw,
-> +	&pll_video3_4x_clk.common.hw,
-> +	&pll_video3_3x_clk.hw,
-> +};
-> +
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(de_clk, "de", de_parents, 0x600,
-> +				    0, 5,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    CLK_SET_RATE_PARENT);
-> +
-> +static const struct clk_hw *di_parents[] =3D {
-> +	&pll_periph0_300M_clk.hw,
-> +	&pll_periph0_400M_clk.hw,
-> +	&pll_video0_4x_clk.common.hw,
-> +	&pll_video1_4x_clk.common.hw,
-> +};
-> +
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(di_clk, "di", di_parents, 0x620,
-> +				    0, 5,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    CLK_SET_RATE_PARENT);
-> +
-> +static const struct clk_hw *g2d_parents[] =3D {
-> +	&pll_periph0_400M_clk.hw,
-> +	&pll_periph0_300M_clk.hw,
-> +	&pll_video0_4x_clk.common.hw,
-> +	&pll_video1_4x_clk.common.hw,
-> +};
-> +
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(g2d_clk, "g2d", g2d_parents, 0x630,
-> +				    0, 5,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    0);
-> +
-> +static const struct clk_hw *gpu_parents[] =3D {
-> +	&pll_gpu_clk.common.hw,
-> +	&pll_periph0_800M_clk.common.hw,
-> +	&pll_periph0_600M_clk.hw,
-> +	&pll_periph0_400M_clk.hw,
-> +	&pll_periph0_300M_clk.hw,
-> +	&pll_periph0_200M_clk.hw,
-> +};
-> +
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(gpu_clk, "gpu", gpu_parents, 0x670,
-> +				    0, 4,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    0);
+On Tue, Feb 18, 2025 at 03:08:46PM -0400, Jason Gunthorpe wrote:
+> On Tue, Feb 18, 2025 at 11:02:23AM -0800, Nicolin Chen wrote:
+> > > > > This already holds the streams_mutex across all of this, do you think
+> > > > > we should get rid of the vmaster_rwsem and hold the streams_mutex on
+> > > > > write instead?
+> > > > 
+> > > > They are per master v.s. per smmu. The latter one would make master
+> > > > commits/attaches exclusive, which feels unnecessary to me, although
+> > > > it would make the code here slightly cleaner..
+> > > 
+> > > I'd pay the cost on the attach side to have a single lock on the fault
+> > > side..
+> > 
+> > OK. Maybe a small patch to turn the streams_mutex to streams_rwsem?
+> 
+> I don't think the interrupt path is multithreaded, is it? So only 1
+> reader anyhow?
 
-GPU clock should have CLK_SET_RATE_FLAG.
+Right, it's IRQF_ONESHOT. I will keep that unchanged.
 
-> +
-> +static const struct clk_hw *ve_parents[] =3D {
-> +	&pll_ve_clk.common.hw,
-> +	&pll_periph0_480M_clk.common.hw,
-> +	&pll_periph0_400M_clk.hw,
-> +	&pll_periph0_300M_clk.hw,
-> +};
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(ve_clk, "ve", ve_parents, 0x690,
-> +				    0, 5,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    CLK_SET_RATE_PARENT);
-> +
-> +static const struct clk_parent_data iommu_parents[] =3D {
-> +	{ .hw =3D &pll_periph0_600M_clk.hw },
-> +	{ .hw =3D &pll_ddr0_clk.common.hw },
-> +	{ .hw =3D &pll_periph0_480M_clk.common.hw },
-> +	{ .hw =3D &pll_periph0_400M_clk.hw },
-> +	{ .hw =3D &pll_periph0_150M_clk.hw },
-> +	{ .fw_name =3D "hosc" },
-> +};
-> +
-> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(iommu_clk, "iommu", iommu_parents,=
- 0x7b0,
-> +				      0, 5,	/* M */
-> +				      24, 3,	/* mux */
-> +				      BIT(31),	/* gate */
-> +				      CLK_SET_RATE_PARENT);
-
-This won't work. IOMMU clock has also update bit, which must be set to actu=
-ally
-apply the new value, same as DDR clock.
-
-> +
-> +static SUNXI_CCU_GATE_DATA(hdmi_24M_clk, "hdmi-24M", osc24M, 0xb04, BIT(=
-31), 0);
-> +
-> +/* TODO: add mux between 32kOSC and PERIPH0/18750 */
-
-Not sure what this TODO means.
-
-> +static SUNXI_CCU_GATE_HWS_WITH_PREDIV(hdmi_cec_32k_clk, "hdmi-cec-32k",
-> +				      pll_periph0_2x_hws,
-> +				      0xb10, BIT(30), 36621, 0);
-> +
-> +static const struct clk_parent_data hdmi_cec_parents[] =3D {
-> +	{ .fw_name =3D "losc" },
-> +	{ .hw =3D &hdmi_cec_32k_clk.common.hw },
-> +};
-> +static SUNXI_CCU_MUX_DATA_WITH_GATE(hdmi_cec_clk, "hdmi-cec", hdmi_cec_p=
-arents,
-> +				    0xb10,
-> +				    24, 1,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    0);
-> +
-> +static const struct clk_parent_data mipi_dsi_parents[] =3D {
-> +	{ .fw_name =3D "hosc" },
-> +	{ .hw =3D &pll_periph0_200M_clk.hw },
-> +	{ .hw =3D &pll_periph0_150M_clk.hw },
-> +};
-> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(mipi_dsi0_clk, "mipi-dsi0",
-> +				      mipi_dsi_parents, 0xb24,
-> +				      0, 5,	/* M */
-> +				      24, 3,	/* mux */
-> +				      BIT(31),	/* gate */
-> +				      CLK_SET_RATE_PARENT);
-> +
-> +static SUNXI_CCU_M_DATA_WITH_MUX_GATE(mipi_dsi1_clk, "mipi-dsi1",
-> +				      mipi_dsi_parents, 0xb28,
-> +				      0, 5,	/* M */
-> +				      24, 3,	/* mux */
-> +				      BIT(31),	/* gate */
-> +				      CLK_SET_RATE_PARENT);
-> +
-> +static const struct clk_hw *tcon_parents[] =3D {
-> +	&pll_video0_4x_clk.common.hw,
-> +	&pll_video1_4x_clk.common.hw,
-> +	&pll_video2_4x_clk.common.hw,
-> +	&pll_video3_4x_clk.common.hw,
-> +	&pll_periph0_2x_clk.common.hw,
-> +	&pll_video0_3x_clk.hw,
-> +	&pll_video1_3x_clk.hw,
-> +};
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(tcon_lcd0_clk, "tcon-lcd0", tcon_par=
-ents,
-> +				    0xb60,
-> +				    0,  5,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    CLK_SET_RATE_PARENT);
-> +
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(tcon_lcd1_clk, "tcon-lcd1", tcon_par=
-ents,
-> +				    0xb64,
-> +				    0,  5,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    CLK_SET_RATE_PARENT);
-
-Missing tcon-lcd2 - see T527 manual.
-
-> +
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(combophy_dsi0_clk, "combophy-dsi0",
-> +				    tcon_parents, 0xb6c,
-> +				    0,  5,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    CLK_SET_RATE_PARENT);
-> +
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(combophy_dsi1_clk, "combophy-dsi1",
-> +				    tcon_parents, 0xb70,
-> +				    0,  5,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    CLK_SET_RATE_PARENT);
-> +
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(tcon_tv0_clk, "tcon-tv0", tcon_paren=
-ts,
-> +				    0xb80,
-> +				    0, 4,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    CLK_SET_RATE_PARENT);
-> +
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(tcon_tv1_clk, "tcon-tv1", tcon_paren=
-ts,
-> +				    0xb84,
-> +				    0, 4,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    CLK_SET_RATE_PARENT);
-
-TCON TV0-1 parents are subset of others, according to T527 manual.
-
-> +
-> +static const struct clk_hw *edp_parents[] =3D {
-> +	&pll_video0_4x_clk.common.hw,
-> +	&pll_video1_4x_clk.common.hw,
-> +	&pll_video2_4x_clk.common.hw,
-> +	&pll_video3_4x_clk.common.hw,
-> +	&pll_periph0_2x_clk.common.hw,
-> +};
-> +static SUNXI_CCU_M_HW_WITH_MUX_GATE(edp_clk, "edp", edp_parents, 0xbb0,
-> +				    0, 4,	/* M */
-> +				    24, 3,	/* mux */
-> +				    BIT(31),	/* gate */
-> +				    0);
-> +
-
-Missing CLK_SET_RATE_PARENT flag.
-
-Best regards,
-Jernej
-
->  /*
->   * Contains all clocks that are controlled by a hardware register. They
->   * have a (sunxi) .common member, which needs to be initialised by the c=
-ommon
-> @@ -394,6 +580,22 @@ static struct ccu_common *sun55i_a523_ccu_clks[] =3D=
- {
->  	&ahb_clk.common,
->  	&apb0_clk.common,
->  	&apb1_clk.common,
-> +	&de_clk.common,
-> +	&di_clk.common,
-> +	&g2d_clk.common,
-> +	&gpu_clk.common,
-> +	&ve_clk.common,
-> +	&iommu_clk.common,
-> +	&hdmi_24M_clk.common,
-> +	&hdmi_cec_32k_clk.common,
-> +	&hdmi_cec_clk.common,
-> +	&mipi_dsi0_clk.common,
-> +	&mipi_dsi1_clk.common,
-> +	&tcon_lcd0_clk.common,
-> +	&tcon_lcd1_clk.common,
-> +	&tcon_tv0_clk.common,
-> +	&tcon_tv1_clk.common,
-> +	&edp_clk.common,
->  };
-> =20
->  static struct clk_hw_onecell_data sun55i_a523_hw_clks =3D {
-> @@ -442,6 +644,23 @@ static struct clk_hw_onecell_data sun55i_a523_hw_clk=
-s =3D {
->  		[CLK_AHB]		=3D &ahb_clk.common.hw,
->  		[CLK_APB0]		=3D &apb0_clk.common.hw,
->  		[CLK_APB1]		=3D &apb1_clk.common.hw,
-> +		[CLK_DE]		=3D &de_clk.common.hw,
-> +		[CLK_DI]		=3D &di_clk.common.hw,
-> +		[CLK_G2D]		=3D &g2d_clk.common.hw,
-> +		[CLK_GPU]		=3D &gpu_clk.common.hw,
-> +		[CLK_VE]		=3D &ve_clk.common.hw,
-> +		[CLK_HDMI_24M]		=3D &hdmi_24M_clk.common.hw,
-> +		[CLK_HDMI_CEC_32K]	=3D &hdmi_cec_32k_clk.common.hw,
-> +		[CLK_HDMI_CEC]		=3D &hdmi_cec_clk.common.hw,
-> +		[CLK_MIPI_DSI0]		=3D &mipi_dsi0_clk.common.hw,
-> +		[CLK_MIPI_DSI1]		=3D &mipi_dsi1_clk.common.hw,
-> +		[CLK_TCON_LCD0]		=3D &tcon_lcd0_clk.common.hw,
-> +		[CLK_TCON_LCD1]		=3D &tcon_lcd1_clk.common.hw,
-> +		[CLK_COMBOPHY_DSI0]	=3D &combophy_dsi0_clk.common.hw,
-> +		[CLK_COMBOPHY_DSI1]	=3D &combophy_dsi1_clk.common.hw,
-> +		[CLK_TCON_TV0]		=3D &tcon_tv0_clk.common.hw,
-> +		[CLK_TCON_TV1]		=3D &tcon_tv1_clk.common.hw,
-> +		[CLK_EDP]		=3D &edp_clk.common.hw,
->  	},
->  };
-> =20
->=20
-
-
-
-
+Thanks
+Nicolin
 
