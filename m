@@ -4,54 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C47EC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:13:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECE8C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:15:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nU0fzD5wnLwbt9yoUSBeMInFHzMm7DGirLXtUO2ZpV8=; b=OfSMnBbw5oTcghOcQf64Q5L0fP
-	3lk9qeB5jtB6prXGTRmPJq557tQ8X2MmLeuRN1ws0MttcHC1kSh1ExWeNblKROOlwjwRigRsEI+ZP
-	2ohKeNnGs5uUfpTnjmqOwKaFlpoCVME/FzZaSySGFi70/z3GkxzQbYq1hbeSNWPM3kcIaObTrFbje
-	BUw942/gMulsnBB9rncq+8q9yWfySeohsCdc3STia6x2foQ5D2CkFANvJhU5JBR02Pg903dZJ6etV
-	mRgeIlg/0auotP6Vy3Q8vV7IvjCw5HhdE8xVZ09B7aqRjmEUe5DFXeFJ1whp0D9z8H0ldTXAUNt7m
-	Jzkkuj1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5qqCVPwdqyK2Ili+2+zXGFMWFYgYIwIsQtKu/VjLpL8=; b=n4AOjQ3Hund3hAxOY8cgcj3dVW
+	K78op8rceEpmRJ+EKwb09hdXBdtsd+ixK2AzjbqPLkgfSRde23GBgzYcK/y9scAIrqlAj5RVFhIBQ
+	2VHZNYc79mv61C1MdcTp/9z2fdFGcy5pzB+yT5ommlaOK3CdfjqvPt8hcsrrmZLYKE+0bdpQ7/M0H
+	e2d28QyZ7jiU4GkKmvC56huch4odJCGgoIrZz5rk39WG86iQKDGyyYH90+WdI/1+jxClYE8zabaBu
+	IHHGPPOoxxCJ6e5hDKqw6mRbSZr5FcunmgBs2nv4Ebq2nozdAtYmBIEGZhJ2qo1ZqX1N+C22UTmat
+	D26nV1qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJfa-00000007RxU-0ulh;
-	Tue, 18 Feb 2025 09:13:34 +0000
-Received: from mail.growdeal.pl ([141.95.55.73])
+	id 1tkJh0-00000007SSa-3gCr;
+	Tue, 18 Feb 2025 09:15:02 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJQp-00000007OMe-142a
+	id 1tkJR5-00000007OPp-2vQY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 08:58:21 +0000
-Received: by mail.growdeal.pl (Postfix, from userid 1002)
-	id 483F624069; Tue, 18 Feb 2025 08:56:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=growdeal.pl; s=mail;
-	t=1739868986; bh=nU0fzD5wnLwbt9yoUSBeMInFHzMm7DGirLXtUO2ZpV8=;
-	h=Date:From:To:Subject:From;
-	b=CBWjjreUlY86eam0wIPd22jN5NYIwqoL0j25W/AtJNJ/9y4L/IyTU2jv3c+L3Wriu
-	 EIlOMuWOJx21pYXBJSZP3tks39eNyn6hJSK6CPEMK54tMCaWxjaVu0Q6VjJjxujloF
-	 d0P1ZpL8qBKhhFYzfAKYZlDr2w63L6mV715SEr4NkMjX+O2ABMk4TlNk1cyc+pY9Pl
-	 03g0oahK7jZrm1/6Yw83YVe/xGQkadkuEBMsNlj7jvOOoPW34d6gBM7WfWqsRgZ0kr
-	 HUf/PdITroLWe9bABbTCfHQoZG3bh6GG8wm2jdbhIfc5id1lBxz/g2Ba13BvLyUQQx
-	 uZBBud0ZiuPqQ==
-Received: by mail.growdeal.pl for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 08:56:06 GMT
-Message-ID: <20250218074500-0.1.o.7qxn.0.0rj8papgnb@growdeal.pl>
-Date: Tue, 18 Feb 2025 08:56:06 GMT
-From: =?UTF-8?Q?"Pawe=C5=82_Zajdlicz"?= <pawel.zajdlicz@growdeal.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: Rekrutacja handlowca 
-X-Mailer: mail.growdeal.pl
+	Tue, 18 Feb 2025 08:58:37 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-220c665ef4cso76142775ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 00:58:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1739869114; x=1740473914; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=5qqCVPwdqyK2Ili+2+zXGFMWFYgYIwIsQtKu/VjLpL8=;
+        b=MuV51nFuQkws6SC1FoHjGatTAQPvCmUG36R4cXnN8zFb1u8+Elkp8TB4cMgn+oKTmW
+         6hzPUFwhUyKt5NOJ6tHiRMCwJN/dJBgygLGzhxkDORSCmw0ob6Wryb3id72uB83Y7VhW
+         eQHtCqbNRgBTseztLYnMMnHP1j2dPDj2POhkc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739869114; x=1740473914;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5qqCVPwdqyK2Ili+2+zXGFMWFYgYIwIsQtKu/VjLpL8=;
+        b=pcC/4mphOkXW78udN80G5XpP+Z91sNLgkKTJBLkYb75HYGfvZQxR1hA4vicr8eCvJN
+         C37BO7CNIbxeXU1vfaXBJh0BagUiLS5wMTefeBFBND8/Y30bi4VaFn+W/9t3l0n9KGIt
+         xRBgkgvEWjdR51ZJS4gXXEFZwjJwPDQ8MeTpsG5ehXIGBagEyTSCJbjIwBxzHK1EggTX
+         rs94NEHnGnqcpOHnxSyqX/dFOHcz22qhgXEgZoGubqmVlUUOAfICdUmG5z3QCkv8jWPv
+         RnN4l6z/E02+NELHiPzlcCzm186N6bfakEIgqVFuSlYownD2qXhVQ1Mxoq8spP19DNTr
+         6tew==
+X-Forwarded-Encrypted: i=1; AJvYcCXTLzsGzYV8YrhCCrJ3exSSsyPw2CoWiAQKFHATRrXm8sGMdzKUCESSp3OsCdfxiux/v06O37rZ/h+RnEfS83u9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0JF8U7CbOcd4xWTANYqh40cFv2gNwjTYbtamN89bnGcu8MaFC
+	Jc/V0lYwHwSOdYw9RVcAabO5NOqE0DSP3knXv4NhR9ttukNseilVa0SBsu1Srw==
+X-Gm-Gg: ASbGncuUCD6mCZgQFDT8XCD2FZkVdOqcCM0ShZ/muIxikRSKIhGsfSV2mfthnvsyoND
+	yaWfoL2g18zLcMsrq/R/80UUL7iaZc2MpnpD6QxIzueA91M4E+CIDu4SjtTn8wf4fJI2CwkjHSo
+	FrduwP6skpmg9w5hDRfp8g/a5sOTaqJBSPPnVnH8lEc1EJlxQM2pcTmcSAC2P+8UxcXdppHt+gT
+	2S0tGZy3ckwuE+iL43mQzPmSFg/VMm1yQNxrMb+mgTPrqrgxONuj/cM6R10CrEAB1aG7SUz/vw0
+	1IKQG2VuRQ9liPqbQ4A=
+X-Google-Smtp-Source: AGHT+IEEOJtMg2r+ExCu5k7nAqe+yfuyqpapvJqV+nJnjxWfgOfZJYnuiAmofVtL8kqiPugF9s2+qg==
+X-Received: by 2002:a05:6a21:790b:b0:1ee:a914:1d64 with SMTP id adf61e73a8af0-1eea9142045mr12447625637.28.1739869114293;
+        Tue, 18 Feb 2025 00:58:34 -0800 (PST)
+Received: from google.com ([2401:fa00:8f:203:e8b0:5a6a:30d2:a33f])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-ae1ee4febb2sm828296a12.51.2025.02.18.00.58.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2025 00:58:33 -0800 (PST)
+Date: Tue, 18 Feb 2025 17:58:26 +0900
+From: Sergey Senozhatsky <senozhatsky@chromium.org>
+To: Christoph Hellwig <hch@infradead.org>
+Cc: Eugen Hristev <eugen.hristev@linaro.org>, 
+	linux-arm-msm@vger.kernel.org, linux-hardening@vger.kernel.org, kees@kernel.org, 
+	linux-kernel@vger.kernel.org, johannes@sipsolutions.net, gregkh@linuxfoundation.org, 
+	rafael@kernel.org, dakr@kernel.org, andersson@kernel.org, konradybcio@kernel.org, 
+	tony.luck@intel.com, gpiccoli@igalia.com, pmladek@suse.com, rostedt@goodmis.org, 
+	john.ogness@linutronix.de, senozhatsky@chromium.org, quic_mojha@quicinc.com, 
+	linux-arm-kernel@lists.infradead.org, kernel@quicinc.com
+Subject: Re: [RFC][PATCH 07/10] printk: export symbols for buffer address and
+ length functions
+Message-ID: <20250218-175733-neomutt-senozhatsky@chromium.org>
+References: <20250217101706.2104498-1-eugen.hristev@linaro.org>
+ <20250217101706.2104498-8-eugen.hristev@linaro.org>
+ <Z7RELnyWRLietj9b@infradead.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z7RELnyWRLietj9b@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_005819_994851_3EC8AE3F 
-X-CRM114-Status: UNSURE (   2.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250218_005835_762273_BED879B5 
+X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,18 +101,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Witam,
+On (25/02/18 00:26), Christoph Hellwig wrote:
+> On Mon, Feb 17, 2025 at 12:17:03PM +0200, Eugen Hristev wrote:
+> > log_buf_addr_get() and log_buf_len_get() can be reused in another module,
+> > export the symbols.
+> 
+> Err, no way.
 
-Czy maj=C4=85 Pa=C5=84stwa aktualnie potrzeby z zakresu rekrutacji os=C3=B3=
-b do dzia=C5=82u handlowego?=20
+Yeah I think we've been there before [1]
 
-Pomagamy skutecznie rekrutowa=C4=87 osoby na stanowiska Przedstawiciela H=
-andlowego, Sales Managera, a tak=C5=BCe Kadry Managerskiej w obszarze spr=
-zeda=C5=BCy.
-
-Czy mo=C5=BCemy porozmawia=C4=87?
-
-
-Pozdrawiam
-Pawe=C5=82 Zajdlicz
+[1] https://lore.kernel.org/all/20230905081902.321778-1-hch@lst.de/
 
