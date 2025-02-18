@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD7EC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 06:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F5F8C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 06:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xv4n+LUwamiLE41T0SAH0qvuQvjUID2QnZlS05VRF3A=; b=JB+9unqiM9cFxsMqreRVlnZdJr
-	5931yGDqzBlL8sIbfB+Qyiai6KUjf8gEc3zcM6AsZknELeqF0iwgj1tlQdbbhV2Q3MNBa4Fl4hLYy
-	MgxHNWpFmZzv3vP7BLzKXbnBN2ICQ8ecHLrT/DZ0oIgHubCsh3CNaW47hWXJkeFIqtfkIHaFW/Eal
-	sRYA8gRwBZPQ8ugHl7z/t2Ok7aXh+aiclWue5YyqoT1UFfPHlWMVChlaF6JARlwXwNkbVIQ6QYhEP
-	p9jVOkr7D2iHqq48/t7ynTkt5HFvoPOAkkDGyxhGCH1BgaT2miKlh4IjPo2pp+aigr+r3Bm+pfgl1
-	5U8IC2bA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r51NZJyM932DUUX3KUZoKs91XCO6S2lEq75YZIvO/ug=; b=Cx14KwToSLLpr4dwgRVGsKELnw
+	gVi9as36tcKsDzCXiPRc2NeflcjunftZIp28Rtdt2ItpUAGl8rbgE2ot3oS94mB54kED7Chz6Tu3o
+	F2EXwU7NbCGO2tbZLjRr+snSeHGOK28wFk70QjjGXX375tpWPqTd7vUc2LoWiKcFegxNU7SUt3nB8
+	YYZjWCwYV4qB1AaSRzEiMZ1gMmvWh8+8l3/1HgkSC56dNx7SXvJq/CzAmm/8wZpqBCBFIDv1WyaDh
+	6HB9orDD1XF5qVEIz2ubIYZHjps7Ct9YO10jL+FsprFG9S3tHbd5u5ujrrx6SrIH318tTpwblYdHX
+	CfB1EQwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkGz7-00000006y6Y-0slY;
-	Tue, 18 Feb 2025 06:21:33 +0000
-Received: from mail-vs1-xe34.google.com ([2607:f8b0:4864:20::e34])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkGxf-00000006xyv-07Us
+	id 1tkH0Y-00000006yJA-0bp3;
+	Tue, 18 Feb 2025 06:23:02 +0000
+Received: from mail-m16.yeah.net ([220.197.32.19])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkGyv-00000006y5x-0MAj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 06:20:04 +0000
-Received: by mail-vs1-xe34.google.com with SMTP id ada2fe7eead31-4be55c93be1so344512137.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 22:20:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1739859601; x=1740464401; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Xv4n+LUwamiLE41T0SAH0qvuQvjUID2QnZlS05VRF3A=;
-        b=YS/iNhE7l5FrFojZ2Y5OWXlXaMfoPdIazgDxsRBfJ1dqpWnE9ZvcrKxnKmejmRD8X0
-         W0BDI7BMBUms6Mt6nYL8Y6AFPxhSkRlz8Y4233b04QCfHcJbHTHqcSkMEyHeSb5YUSL4
-         zgrwnkxpNZ+MBda5pLkVdFWt1teok9aNlrNiA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739859601; x=1740464401;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Xv4n+LUwamiLE41T0SAH0qvuQvjUID2QnZlS05VRF3A=;
-        b=HBmKAYBI3xgBRyiLIPBB4Id2aHi0go7/ivAtrdgqbifYmfdOzZqplXulbhoHj5Ll9/
-         XIRs59lE/LnHTL4dLn+UMYWzVQwJiMFj+lnmgdx82FtDY5uEaSTPlNgQzr6ukgYLdQfT
-         6QbmnNUZnadgUrULbDo/ElFdC8kEFKaUXMoVAC04CgXAk+6ePCzOWfd4p4UkoaCfYayR
-         lddLXZfknR6bSitMOUMGxVl/5ax6NjwjbhajBkRIP81f17T/koRiozGyCaLHgDP0Lbom
-         gRkglblTl3JI8xqNJ64QYhQblCo6UTLk4QadtJMfnmVi1ydb+MzOc1AghxdvG8KAwimC
-         of1Q==
-X-Gm-Message-State: AOJu0YzVSfAjgVxIMP/QHfC16fewy/ovYvMzPnHrcKxeSyLyPm1kbuHY
-	BrCMX6y8VAuQox4WYq8yI7+QiIw4lhExVYQJrtSILIAd6O2XsrJOyAEC34yS7mSCID/qypd0C/Y
-	=
-X-Gm-Gg: ASbGncv3qZ+qbgB0LpenkTP5WKkHFmkPaMs3MjPC664irLnublYTwsaTNjaZDmh7yOM
-	5lA2+qqSBhjGA9o9lSJcGHpeMjApCBMAbfnwFy+IPwLKBjLUNvHeBL2Fty2RHs/illY2SgbQMyJ
-	O762aId1zz9Sr8/ROyyGwOrvgHYUdCsYBEWxYk+gdhzxKTTAN1L3QYBFZtHn/+DutLWj6YG1F/R
-	0DJ2jHU0WT+lTM7iI6CSgWzt8HUZuuuP2Io9s1FnrEA1dw/A3Mt6tcEjXlrc1DghLi9HAi3e8Wp
-	5qF8KZZ5u+Z8tCLk/R24U8RvC9Pd3qpDucwm6y86Ri2l3iqeKHQ=
-X-Google-Smtp-Source: AGHT+IETTkXJ5NnhOtgAPUpImqXttgfgUpPuI3MX3qOAw0+N7+51OE/mDZOGAQKA5kxACgkpHXzwTw==
-X-Received: by 2002:a05:6102:d93:b0:4bb:d31b:7ae4 with SMTP id ada2fe7eead31-4bd3fea03e5mr5715688137.19.1739859600931;
-        Mon, 17 Feb 2025 22:20:00 -0800 (PST)
-Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com. [209.85.217.45])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-868e8547ffasm2287267241.4.2025.02.17.22.19.59
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Feb 2025 22:19:59 -0800 (PST)
-Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-4bd3763900aso858271137.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 22:19:59 -0800 (PST)
-X-Received: by 2002:a05:6102:151d:b0:4bb:5d61:1288 with SMTP id
- ada2fe7eead31-4bd3ff163famr7472440137.23.1739859598960; Mon, 17 Feb 2025
- 22:19:58 -0800 (PST)
+	Tue, 18 Feb 2025 06:21:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=r51NZJyM932DUUX3KUZoKs91XCO6S2lEq75YZIvO/ug=;
+	b=XrHC4xvq1nhQsM6JiwiQ6eiZVYe6wh9M1+/GhpkdU705ElP6eQIApCwPG09TBT
+	lUsDAd4R4DLFgC+HUSIfNaarwEXmuks5cNgnXMQ5+rLQ9fpJaaP6EbeBRkoz/45+
+	u5W0lCGFQC0bu/lK/jVlMYcF3Au5OIox4BP4G3w5fHFdg=
+Received: from dragon (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgDXOVXEJrRnVhA3CQ--.18612S3;
+	Tue, 18 Feb 2025 14:20:53 +0800 (CST)
+Date: Tue, 18 Feb 2025 14:20:51 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux@ew.tq-group.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/1] arm64: dts: freescale: tqma8mpql: Fix vqmmc-supply
+Message-ID: <Z7Qmw51J0Dc3a88d@dragon>
+References: <20250107150310.996683-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-References: <20241219113411.3999355-1-fshao@chromium.org>
-In-Reply-To: <20241219113411.3999355-1-fshao@chromium.org>
-From: Fei Shao <fshao@chromium.org>
-Date: Tue, 18 Feb 2025 14:19:22 +0800
-X-Gmail-Original-Message-ID: <CAC=S1nib8o+4gbVSRXx40_jcCRne4KD5xwEFEHZiaokjask5RA@mail.gmail.com>
-X-Gm-Features: AWEUYZmvvAhIhLZdIE8ZnGqrNusNM3AKRBNLuy20n7CpoEBss__hOTAJAkQGCeU
-Message-ID: <CAC=S1nib8o+4gbVSRXx40_jcCRne4KD5xwEFEHZiaokjask5RA@mail.gmail.com>
-Subject: Re: [PATCH] soc: mediatek: mtk-socinfo: Restructure SoC attribute information
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250107150310.996683-1-alexander.stein@ew.tq-group.com>
+X-CM-TRANSID: Mc8vCgDXOVXEJrRnVhA3CQ--.18612S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU3oGQUUUUU
+X-Originating-IP: [114.218.218.231]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEhj3ZWe0E1YVmgADsC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_222003_097560_C0D3209C 
-X-CRM114-Status: GOOD (  27.38  )
+X-CRM114-CacheID: sfid-20250217_222121_439763_80D2A4FE 
+X-CRM114-Status: UNSURE (   7.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,106 +76,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 19, 2024 at 7:34=E2=80=AFPM Fei Shao <fshao@chromium.org> wrote=
-:
->
-> So far, the MediaTek socinfo driver populates the SoC information as
-> follows:
->   - family:  "MediaTek"
->   - machine: "<marketing_name> (<soc_name>)"
->       e.g.,  "Kompanio 1380 (MT8195)"
->   - soc_id:  <null>
->
-> This approach has some drawbacks:
-> 1.  "soc_id" can be used for showing the SoC name (e.g. "MT8195"), while
->     it's currently unused.
-> 2.  The newer socinfo API automatically populates the "machine"
->     attribute with the model name from board DTS if unspecified, which
->     we may want to preserve if possible.
-> 3.  "machine" combines the marketing name and SoC name, making it
->     trickier to parse. Ideally, the marketing name and SoC name should
->     be in separate attributes so userspace to utilize them as needed.
-> 4.  There's no guarantee that the marketing name will be announced along
->     with the SoC name. If either is undetermined, the current design
->     will result in a malformed "machine" output. This is observed on
->     some newer MediaTek platforms, where the marketing name is still
->     undetermined but the SoC information needs to be settled for device
->     registration and validation before launch.
->
-> To address these points, this commit proposes a new theme to display the
-> SoC information:
->   - family:  "MediaTek <marketing_name>"
->       e.g.,  "MediaTek Kompanio 1380"
->   - machine: "<dt_model_name>" (auto-populated)
->       e.g.,  "Acer Tomato (rev1) board"
->   - soc_id:  "<soc_name>"
->       e.g.,  "MT8195"
->
-> Moreover, if the marketing name is not provided, the driver displays
-> "MediaTek" in the "family" attribute instead, consistent with the
-> previous behavior.
->
-> Restructure the way driver populates the SoC information as described
-> above.
->
-> Note that Mediatek-based Chromebooks are the primary consumers of this
-> socinfo driver, and Google has prepared corresponding userspace changes
-> to comply with this update, so the impact to userspace is controlled.
->
-> Signed-off-by: Fei Shao <fshao@chromium.org>
+On Tue, Jan 07, 2025 at 04:03:09PM +0100, Alexander Stein wrote:
+> eMMC is supplied by BUCK5 rail. Use the actual regulator instead of
+> a virtual fixed regulator.
+> 
+> Fixes: 418d1d840e421 ("arm64: dts: freescale: add initial device tree for TQMa8MPQL with i.MX8MP")
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-Just want to resurface this patch. Should I resend?
+Applied, thanks!
 
-Regards,
-Fei
-
-> ---
->
->  drivers/soc/mediatek/mtk-socinfo.c | 17 ++++++++++++-----
->  1 file changed, 12 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/soc/mediatek/mtk-socinfo.c b/drivers/soc/mediatek/mt=
-k-socinfo.c
-> index 123b12cd2543..b9dbc90d7814 100644
-> --- a/drivers/soc/mediatek/mtk-socinfo.c
-> +++ b/drivers/soc/mediatek/mtk-socinfo.c
-> @@ -62,17 +62,24 @@ static struct socinfo_data socinfo_data_table[] =3D {
->  static int mtk_socinfo_create_socinfo_node(struct mtk_socinfo *mtk_socin=
-fop)
->  {
->         struct soc_device_attribute *attrs;
-> -       static char machine[30] =3D {0};
-> +       struct socinfo_data *data =3D mtk_socinfop->socinfo_data;
->         static const char *soc_manufacturer =3D "MediaTek";
->
->         attrs =3D devm_kzalloc(mtk_socinfop->dev, sizeof(*attrs), GFP_KER=
-NEL);
->         if (!attrs)
->                 return -ENOMEM;
->
-> -       snprintf(machine, sizeof(machine), "%s (%s)", mtk_socinfop->socin=
-fo_data->marketing_name,
-> -               mtk_socinfop->socinfo_data->soc_name);
-> -       attrs->family =3D soc_manufacturer;
-> -       attrs->machine =3D machine;
-> +       if (data->marketing_name !=3D NULL && data->marketing_name[0] !=
-=3D '\0')
-> +               attrs->family =3D devm_kasprintf(mtk_socinfop->dev, GFP_K=
-ERNEL, "MediaTek %s",
-> +                                              data->marketing_name);
-> +       else
-> +               attrs->family =3D soc_manufacturer;
-> +
-> +       attrs->soc_id =3D data->soc_name;
-> +       /*
-> +        * The "machine" field will be populated automatically with the m=
-odel
-> +        * name from board DTS (if available).
-> +        **/
->
->         mtk_socinfop->soc_dev =3D soc_device_register(attrs);
->         if (IS_ERR(mtk_socinfop->soc_dev))
-> --
-> 2.47.1.613.gc27f4b7a9f-goog
->
 
