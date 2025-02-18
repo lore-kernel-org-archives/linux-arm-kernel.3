@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE079C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7CFC021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:43:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0T8F81F4dclX+rJ/ZeU1mJZ2+c2tosLP5JZ1w46AvKI=; b=SCQ5AF1t6KTTkPXXXMQR4Ejfft
-	RntyIJVIGOJCESsJ/WMiKuuVStNDsAXy65XudooBxdLO7lzddW8qPgUoHlYwlH6VaoDNK1LiGfUGz
-	m+euG55ownfiL8LwXqQ8dSbUUKrS8wX0rKtYu71tEkbwHfOVFz/3S7m82cElc4GiIqzqTZIoje1TR
-	7gg1l5SVh1bv7DtpIb7+HJr5H73eEeMzVLMUraSi8HZwlMU11P9rJ+J1IrEdlOShqRpYW676NsOp5
-	PFwEGndOQwN9pqP0/0iw47CgHy1n9Dp1FZmJbvqPF8JSKnFdH5YxaLpaTyeA/O74smkf0f9JhgZHq
-	+GiLG/wg==;
+	bh=jIVOEcwBRHvFCUubXKAVFbf42uXe9rpQsZU+xYDLrc4=; b=Z4Rh5A59uhkeYyAAJPF69ZOusI
+	Vr/EfJ+OiJNmJ3ctrNLjzKeX3ufRHkLzvNlr/UYS7lw90lOJf+k1rFPPiOvp92UljfihPgKaHxr+U
+	O2RXaFGNBbsPqL/TY5VGgXY6jJKtRU2l3HrczRinMSzor2KQ/WMbvTXRYVoICIs7pDVDZOvX6GfZl
+	xt6EMZFrpQp8sfNg5m7U4s3hwglZ6C5xyrEIZuU8Dp2M/jLmND6XhHSPzOHWNNCfu9Qcx423WdXr+
+	ONXlRthO7J/u+ZZn3hreWgEvlgLci3XBx//poRBnK6LUGbRWHcnI0KPJQV42qqi0ejY7E9FDmKfu6
+	b2CeQzJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkUPS-00000009ox9-39yU;
-	Tue, 18 Feb 2025 20:41:38 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1tkUQu-00000009pNr-250O;
+	Tue, 18 Feb 2025 20:43:08 +0000
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTIm-00000009a2v-273e
+	id 1tkTIp-00000009a4b-2KAJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 19:30:41 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5e04cb346eeso5574012a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 11:30:40 -0800 (PST)
+	Tue, 18 Feb 2025 19:30:44 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5dee07e51aaso9062702a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 11:30:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739907039; x=1740511839; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739907042; x=1740511842; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0T8F81F4dclX+rJ/ZeU1mJZ2+c2tosLP5JZ1w46AvKI=;
-        b=1Xq8JAhuKw6FKZNs8NK52regejxrwrj7ytwGrxS2QSLKMTkqR3CEdILeezUswl+k8q
-         RiVAFg1rvAaZlXQuQXLZj7prHgTHDwMDrYhVBIZ4A20o3mjkWHyek0Qzi/BemZKWQqJC
-         2kyJuK6h5aKnwbP3Q4odgG3KzaF5bPLPj8yu9SeBIaj+igUjhkhPbjmMn12IJkDsFpB5
-         Ib29KDyI62GpAKu0RD2g/SUbAPBTXoXt6QED4NnpV1L9NqfWsZAXFhXkkLDOK++vkvc3
-         Atz5txQCxktgPtWBgfs6ZMiiLMhz+mR5TMNPFmxHMW9d0LDxK1UVwwXJYWdubte9fdOG
-         /Yig==
+        bh=jIVOEcwBRHvFCUubXKAVFbf42uXe9rpQsZU+xYDLrc4=;
+        b=TbX5n3BEWXbn4Mr95wwKc1ffyosBARFHlYYkuMcfK4X2PDp3R/uBnYLuk5GzBntCzY
+         MGxFGpqR/auwLhTYH1yZn/KlLKhBdYdiTXJjIjGm/V/7LlnUdD0UfbLfzcfHQKN43end
+         qvhy20EcN5Z4ixPR87KBjCiw/kGrBgZtf7m4trGzraQCa906jKXaxOHiJcK06MMmjbz/
+         PRTvJ87oxoyubKoN281K47tMLobPzEtFxltdlUNLWJ/0ZicnTUk4n+bOOce+lHIIr6yw
+         hFKPc/tDv7bH0FsoQUkBo7yso8u12/O2DXAfk9A8+z2fLrnqU0SdfGp9pqbHk11FHCHh
+         10xg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739907039; x=1740511839;
+        d=1e100.net; s=20230601; t=1739907042; x=1740511842;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0T8F81F4dclX+rJ/ZeU1mJZ2+c2tosLP5JZ1w46AvKI=;
-        b=NSu6OoBm4km0W2wTmwLpSvNU/4MGWw2rlhU6s726cASpKdtpzJ7sW6hJNLMZsrMLQd
-         ujnsC/KG0/STIqvYAxbf9KgODAtcQf7gj52EScvNBot2c9T8a0dQiOpgyLPkX75h1T/z
-         24e6RR8BqJvjI5SeV2EYjvQLiBJ/O4F5+wTdfjECwdjNXA33WZEZuMP1D5nOiqB3l15Q
-         s6F/ixnx4WRN0KTJA0BqfUsVtSxcBUYoK99+vMkHe8M5xDzdyJOWR1vjjp/YpPGTfsgi
-         hyVLVT4l6dcb/q+Jod9Z02FXAjvzX/PcsKGSy96TDndXu5Jeh8dcPHOJuGiMnlStCXeO
-         Xr1A==
-X-Forwarded-Encrypted: i=1; AJvYcCWiN54KYYdvaeHb+OWWRBspWFCge99ZEaQhtj65IYvyD7Nmm+DiGwPVrPMIb+uVeBFfmtsQIFVjYrOCo3CC6dTS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxudnl1HDPWr3MepXmQB9qYX5XwTycjkLDdJQicvxyzueEAOqdM
-	MO7bdUzNWnIXnnVWp9JetX4F5bGE7qh4dfJcyrq1pvhOglj16CfbN/RKfQRxOyY=
-X-Gm-Gg: ASbGncuBF0ItwEO42OypsE7jLXoe9w37Ek1ZTPQnKWIR84wkFIhVHpGFt91eRxkBjkG
-	wo/Rg+s8d9qPkfqmwBjEOboc7pvDUrGiTVQXzcIo9u4ztkjB2FX4HINXBBeZ06G/oXvT6g4CygX
-	EMZE61/hff1Z9urwwUVFuTdTaaTGyVUr6BToBxrXVuJUUNRnE3SuOpeX3q7tYIq/IV5WzoDuVKc
-	ehcC/Qj9pP3RU9s5BfiyMtNTsVrde81AvIE2OVRHsn6z3XfF6rv4bLg37RzRSLPxkfuQWwh1y2M
-	wYQdvhrim704fdHkWoBq6A9SkFaD
-X-Google-Smtp-Source: AGHT+IE38d9H2TgXTyTup8jkjPe2nCO1VlNwQJGJqEx5dpp48IZsz14VskWGHfiixxpwINWmEkNfGA==
-X-Received: by 2002:a05:6402:13ce:b0:5e0:4a92:6b45 with SMTP id 4fb4d7f45d1cf-5e04a926cd7mr12713674a12.24.1739907038738;
-        Tue, 18 Feb 2025 11:30:38 -0800 (PST)
+        bh=jIVOEcwBRHvFCUubXKAVFbf42uXe9rpQsZU+xYDLrc4=;
+        b=gtf7wIhPVttT6gKhpFffFqVZP/mCymtmwsD3X4YC5niW3oHOdLdQs7FxYLEw0gyDdN
+         bmpPGs+RYvYRXAN4baOpIKuS3A5iPRtrHiKGyuDmkq8Z76H7sEqlxPOgP28FtPj3aVII
+         MLztHr2DTXUtRxG7+kD9SkaGgGPOLNSO5tSYgWKUtfrGEL2wV7DHID0zsY2NWrB5MjEQ
+         iy3UlaCiBZwbV5Dec5Ff5J/i/kNYgMvmIgAudsr8nvQLYjOurWfBrejWdnvXiL1m5C76
+         blraeAq5Cd0FtyF+nXMJuEbWBBwJMaQ9kHGi8b3gEnArgGYwtkS/K0lGv6OYd9g04i04
+         GrSg==
+X-Forwarded-Encrypted: i=1; AJvYcCVgUu98Z4NWW0enQLUAwmx9L7Lf8TPkiSIBPko7OoOho1J3SVcmqiucfrytS33BahJOKNkanrgWsjEhkra2Vda/@lists.infradead.org
+X-Gm-Message-State: AOJu0YyguMZriiZa/QRK7SN7j6Enn/vxN9i4Sm3dWccRHb9VOpRWLzMr
+	OtNwPV6ngiDW7vtnSzYCqFJry9CWL3UPmJH0hlmJUzzeCkfuCURu7PLKHiJ09d4=
+X-Gm-Gg: ASbGncsSsG6CH8XU/UTTHa3LnhCPLKP4NDs3s5vup5rInSwpNoVxipaYZ90vFWjha0m
+	0LOKvduBfIryAu4fWJC4/uT/AXSAGcbg2EdHMaFJFeXHV7dHL1rOps8r+816VZOYMP906SLth5o
+	QhknceWXRguIfbPK1lMdWK498Y/7srh6DgKdz/FHjQkeUVXLTYqwFMC9EWQ4E8f3kWCdm34JrdX
+	gii024Fmc7IUxLNYs/29MzXFeI1ramSvN96eGVUy5tWMD++bwCVLNgDw2L0xpwErewZ2Tu4a8dI
+	UbYd2AjIoFcjLAqK6GIg2puHYO98
+X-Google-Smtp-Source: AGHT+IEaDlkCpMhhf2+mkMM5/OKTB8EFYwX98r88Q56bEpDWJea+Vb3RIYNYnlJJ1n7KeB3rfmfZsA==
+X-Received: by 2002:a05:6402:13ce:b0:5e0:4a92:6b45 with SMTP id 4fb4d7f45d1cf-5e04a926cd7mr12713802a12.24.1739907042130;
+        Tue, 18 Feb 2025 11:30:42 -0800 (PST)
 Received: from toaster.baylibre.com ([2a01:e0a:3c5:5fb1:cbaf:af0:839d:fb4a])
-        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1c3ce5sm9338985a12.17.2025.02.18.11.30.35
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1c3ce5sm9338985a12.17.2025.02.18.11.30.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 11:30:37 -0800 (PST)
+        Tue, 18 Feb 2025 11:30:41 -0800 (PST)
 From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Tue, 18 Feb 2025 20:29:47 +0100
-Subject: [PATCH v4 2/8] reset: mpfs: use the auxiliary device creation
+Date: Tue, 18 Feb 2025 20:29:48 +0100
+Subject: [PATCH v4 3/8] drm/bridge: ti-sn65dsi86: use the auxiliary device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250218-aux-device-create-helper-v4-2-c3d7dfdea2e6@baylibre.com>
+Message-Id: <20250218-aux-device-create-helper-v4-3-c3d7dfdea2e6@baylibre.com>
 References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
 In-Reply-To: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -110,25 +110,25 @@ Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  Jerome Brunet <jbrunet@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2301; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=lC4JGAW79Gffs1TQMyzi5K8iGZRUrc3LT4D+fKp54fk=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBntN/QcUQEhOWVZzyl8Bk6xzmnH//yZHJXSRo9/
- qRN2pMyjUyJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCZ7Tf0AAKCRDm/A8cN/La
- hWnTD/9N7uDw2MgUMxhgsAUT5/+278puGBABcsLjbLLras1TheSQNvuJ2k6CxLv1JzCY2D66v4g
- 1IZyaW6xKXiWnXsDJvRMfcjRdcEROcGnF3UC4ySSisSHu/ZQztXxFB+ZWe/fkAj0Yr8I5rv9jdi
- CVlbgdypg0F/xyy31QioTBrNDzru3kX+AZPogf8//n1HoaxOA5nRQAU+AMJDDJE4Tu3ZuwXujs8
- eHY+xCL7EVf2v0LnCxVtOkWdzWc1WD/1f83AvRqQh8zo/ADR5A8bcX432Ca2efhXfpTiJtTGV3C
- nkRAlV3jUon29+Atl1cui8KDavDFHk/+0IIwCMvrCreR+4YHxT4f+w2ay7hyiJ93zHmOpeBNwlD
- nsa+oMRZdeU6vHD2y2GJHX7m9CSFp1E8zmd2evt/+ZCvVMPhdfGJInOpC0HIWUKb46a8NeJxWly
- 0eI7MOS4MfFJow59r73kkCyYHBPv3mfqUg+oCigQGJHFaP5irNw8C9yO4xX7Rabili/pwsYyI7G
- JTcCo+pvGbCJ2MnXqS0x6JpyZ/ZFrneZmwpN5fi3gPKSYljCbeXbCHd8pjuzg/Gu0I9u//RPWWo
- ufdtuzliUyzrzCu0/+O2KjwjCQuyA3XbhhDaA6uUq+TsSZbwdcJ6nKs4JMfwO9I4wruQJBQ8Dxc
- 0NFwBr/IpdOtN0g==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2486; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=KuxNBMyQg1p3DhiqEXTbWghcfYRAG9Z13aki2rWrd7s=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBntN/R9RdbIU/LlFZOD+5ye18+mV/JIVvHg59Fc
+ N2QSzq7j3+JAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCZ7Tf0QAKCRDm/A8cN/La
+ hRT2D/9/+3m2izVFqHA9JNo66E9ppsPmq0HJSfSk8sVMTrgr6uyqpbKEpE6M6rPkiSX8366n+TD
+ eCRkzB1L3/KYyK0Hb6qwNlKpqho+iKWAdXZV44t38LU4jLxy5upDUo9DvKN6ShNzojjGOTQLiUX
+ 0dP3xRvTlmnWLLr7cA75tOMTQzeMB4gX7ih7W7tsoc/5NyUZdYD1S6cQQMgskakyzZ4OSljy+1B
+ urNGbxB+IGwSOEFGYqdRSUOC/bnk/G0Z8X05CINtg4TtcsyIBYA+vhcXrq8X7AXN+iukU8H7SLE
+ XHUZl1EYgw1vcvyHPr0WaDPa6aP95wEZ8wLfGy/5xrWMdj9GFyWxILnDhvTipioT9+dSCjiwmRt
+ w+sfi529OC67DfLep6PkVbY/1YyDl0NnfnGQjgIywgZ5lzCsOgmUtp3Yk5akbxJGwpC4qMyVH4Z
+ VVqymYHalMIVWz01kgnbtplKww8u2ruISe4cz3VZDGxFEGf4oLHk+Ea9NwfdHyVGrOmjzKg2IPg
+ ADyUwJ+eeALG/5zj8sK1Eo/GJ/P0kNStexXzQl5ui9MPUg8W4MvzbanzCj9sa8P7Hr/MZGIJ8iS
+ ZKQjcj23BRTg2WVCsVgQlo7jSvCh8UYIz+56p2VIel0C3mW7uiq28FLbIqplEtAykScvdKcavs+
+ l59DWERCtvYZUPg==
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_113040_542735_AF31B911 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20250218_113043_617419_81851529 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,84 +148,81 @@ use the available auxiliary device creation helper.
 
 Use it and remove some boilerplate code.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- drivers/reset/reset-mpfs.c | 56 +++++-----------------------------------------
- 1 file changed, 5 insertions(+), 51 deletions(-)
+ drivers/gpu/drm/bridge/ti-sn65dsi86.c | 49 +++++------------------------------
+ 1 file changed, 7 insertions(+), 42 deletions(-)
 
-diff --git a/drivers/reset/reset-mpfs.c b/drivers/reset/reset-mpfs.c
-index 574e59db83a4fcf30b60cb5f638607a2ec7b0580..f6fa10e03ea889e5434110156f7bece808a6ae92 100644
---- a/drivers/reset/reset-mpfs.c
-+++ b/drivers/reset/reset-mpfs.c
-@@ -155,62 +155,16 @@ static int mpfs_reset_probe(struct auxiliary_device *adev,
- 	return devm_reset_controller_register(dev, rcdev);
- }
+diff --git a/drivers/gpu/drm/bridge/ti-sn65dsi86.c b/drivers/gpu/drm/bridge/ti-sn65dsi86.c
+index 205bd0fde4f8b3400caa8507092308e50eb172b7..38bd18b14887a27a716c8798f6284649c77a761b 100644
+--- a/drivers/gpu/drm/bridge/ti-sn65dsi86.c
++++ b/drivers/gpu/drm/bridge/ti-sn65dsi86.c
+@@ -457,23 +457,6 @@ static void ti_sn65dsi86_debugfs_init(struct ti_sn65dsi86 *pdata)
+  * Auxiliary Devices (*not* AUX)
+  */
  
--static void mpfs_reset_unregister_adev(void *_adev)
+-static void ti_sn65dsi86_uninit_aux(void *data)
 -{
--	struct auxiliary_device *adev = _adev;
--
--	auxiliary_device_delete(adev);
--	auxiliary_device_uninit(adev);
+-	auxiliary_device_uninit(data);
 -}
 -
--static void mpfs_reset_adev_release(struct device *dev)
+-static void ti_sn65dsi86_delete_aux(void *data)
 -{
--	struct auxiliary_device *adev = to_auxiliary_dev(dev);
--
--	kfree(adev);
+-	auxiliary_device_delete(data);
 -}
 -
--static struct auxiliary_device *mpfs_reset_adev_alloc(struct device *clk_dev)
+-static void ti_sn65dsi86_aux_device_release(struct device *dev)
 -{
--	struct auxiliary_device *adev;
+-	struct auxiliary_device *aux = container_of(dev, struct auxiliary_device, dev);
+-
+-	kfree(aux);
+-}
+-
+ static int ti_sn65dsi86_add_aux_device(struct ti_sn65dsi86 *pdata,
+ 				       struct auxiliary_device **aux_out,
+ 				       const char *name)
+@@ -481,34 +464,16 @@ static int ti_sn65dsi86_add_aux_device(struct ti_sn65dsi86 *pdata,
+ 	struct device *dev = pdata->dev;
+ 	const struct i2c_client *client = to_i2c_client(dev);
+ 	struct auxiliary_device *aux;
 -	int ret;
--
--	adev = kzalloc(sizeof(*adev), GFP_KERNEL);
--	if (!adev)
--		return ERR_PTR(-ENOMEM);
--
--	adev->name = "reset-mpfs";
--	adev->dev.parent = clk_dev;
--	adev->dev.release = mpfs_reset_adev_release;
--	adev->id = 666u;
--
--	ret = auxiliary_device_init(adev);
--	if (ret) {
--		kfree(adev);
--		return ERR_PTR(ret);
--	}
--
--	return adev;
--}
--
- int mpfs_reset_controller_register(struct device *clk_dev, void __iomem *base)
- {
- 	struct auxiliary_device *adev;
--	int ret;
++	int id;
  
--	adev = mpfs_reset_adev_alloc(clk_dev);
--	if (IS_ERR(adev))
--		return PTR_ERR(adev);
+-	aux = kzalloc(sizeof(*aux), GFP_KERNEL);
++	id = (client->adapter->nr << 10) | client->addr;
++	aux = __devm_auxiliary_device_create(dev, KBUILD_MODNAME, name,
++					     NULL, id);
+ 	if (!aux)
+-		return -ENOMEM;
 -
--	ret = auxiliary_device_add(adev);
+-	aux->name = name;
+-	aux->id = (client->adapter->nr << 10) | client->addr;
+-	aux->dev.parent = dev;
+-	aux->dev.release = ti_sn65dsi86_aux_device_release;
+-	device_set_of_node_from_dev(&aux->dev, dev);
+-	ret = auxiliary_device_init(aux);
 -	if (ret) {
--		auxiliary_device_uninit(adev);
+-		kfree(aux);
 -		return ret;
 -	}
+-	ret = devm_add_action_or_reset(dev, ti_sn65dsi86_uninit_aux, aux);
+-	if (ret)
+-		return ret;
 -
--	adev->dev.platform_data = (__force void *)base;
-+	adev = devm_auxiliary_device_create(clk_dev, "reset-mpfs",
-+					    (__force void *)base);
-+	if (!adev)
+-	ret = auxiliary_device_add(aux);
+-	if (ret)
+-		return ret;
+-	ret = devm_add_action_or_reset(dev, ti_sn65dsi86_delete_aux, aux);
+-	if (!ret)
+-		*aux_out = aux;
 +		return -ENODEV;
  
--	return devm_add_action_or_reset(clk_dev, mpfs_reset_unregister_adev, adev);
+-	return ret;
++	*aux_out = aux;
 +	return 0;
  }
- EXPORT_SYMBOL_NS_GPL(mpfs_reset_controller_register, "MCHP_CLK_MPFS");
  
+ /* -----------------------------------------------------------------------------
 
 -- 
 2.47.2
