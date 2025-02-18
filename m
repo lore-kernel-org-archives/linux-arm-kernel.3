@@ -4,82 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57C86C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 21:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0890FC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 21:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8jNMU8ip6rBeSpqlISiaPJWQQi8raU32gK6jMCIpWKM=; b=IH4YnDJ0HOAkoojgwzhkAqhdye
-	0nWAJefExpikeivqRPNtdwySu4IoFIAVls5qhr8MCEtDm4OYEEAhHdUMk6oepIcEAXeIY1vcCp+28
-	T15muqXfJ6WZrR8OA6RRJqTBSCtqM9CokTdh+81+jLLkiHVRMaR6XPq1B+He9G4Tfeg/eHm2JFDcO
-	Q7v4iIFP6hZRs8CunzZqxY6RIe9Xsdp5TXgaMjWvpWT/VxxJzIFMTKLawJBHn8vQzzH4NzHbdAZB2
-	QZNfUlD17BXyqDlxvs77W8Eb2NYO7IMhmsWXZTYXGHzEUwQsh46sfO3LG9E3p6h0MoRFzA+WUmQaU
-	Fub3dghg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pyeX1fCE1r0zvV9wwJ1gCpuCvVhlIzctRjDyzHOqBC0=; b=3HoTMtTLWVTpqB
+	7JO/pMnLX481GTrYPlBP33VksZT5XBdAKoeZeRHWJkU41CE20N4cNjUs82xfycFmSt1Ii+VH2wkYE
+	lOJTIdgWk5ozMGuYMMuX3CGUR8mfI9jhgd2nGupNapECDMbSpCtCPR67DTSTZH8Ne3o39bxtF9Tp9
+	68NGvotCI6Z6fElHxBBF1kvpcV28XY5Zeeq42KEV1+wS0FGQ9gL7waa6s6G7CT9aN0470SV0YTjeA
+	A6kfr2kJ+Y4jchTB6ZGIQR1zIvw4nKsmXfK2r3YPxuyR/seh3OyLhvxkLxkmb/juThT7zUoIoC0r/
+	esyM6HzI+DGCFERIyPSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkUxS-00000009xFy-3gbC;
-	Tue, 18 Feb 2025 21:16:46 +0000
-Received: from ms.lwn.net ([45.79.88.28])
+	id 1tkUyu-00000009xTh-29XU;
+	Tue, 18 Feb 2025 21:18:16 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkUaC-00000009rmi-2f0X
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 20:52:45 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 41147411AF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1739911962; bh=8jNMU8ip6rBeSpqlISiaPJWQQi8raU32gK6jMCIpWKM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=RGZ+lDdax8qjIOiB5ZacnAgWnZTgsFpylEbMW51u+P/MIZ4iyhn77FaRGI2dDgZ/7
-	 PSdVV5Ab40gE18mE/GC17G4zDapRXyDnjvtMyLX/X1z8KjuhPso6bXPWo8AreECp1G
-	 98znlH/rTluOQYNBlOJ3zgZgHPpYqLWuZudgxDv3yJkDcFhOdWhqo1YhFEhOHIeY4A
-	 VAIzOxV+UDEcDyE8DFXCRzajUWTxsxZbIOIWZNKLrJ8usY8w0570cRguzaHptPlgAX
-	 T0ovBK0bp9qEs6SV4ZG5qi7exbun4747718D6XGCFauEWi9SsploIuqSqI6XFFY4zS
-	 3PACaipur3xJQ==
-Received: from localhost (unknown [IPv6:2601:280:4600:2d7f::1fe])
+	id 1tkUcC-00000009sSk-3RQM;
+	Tue, 18 Feb 2025 20:54:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739912086;
+	bh=vBUNOnqBjWLVeVhdw5eyFkY+aGATqfPN9HO6x7rP1xQ=;
+	h=From:Subject:Date:To:Cc:From;
+	b=Oov72omcTiL2NCLqUyV3GmRpH9qXVL5qb++fQxd+V3RpbhP0471n2V89tvSsscYL3
+	 JwXtOrBPi+olWxGGKsp/A7yiWdZN0Gm5OTb1Pmp96imUQjMSQzEL9Q9ISZikWrg3Hz
+	 p9sbhufnM4vN4o8rAJ6l77rF2Ma4w0uSYGG4hu7FF41BmXA50wzYzSK8ir9+UYQxF2
+	 2XXLJNdJFNrqvQiN5DwO/N7AcFFbWQ1b96GAVCoZKjyj9eVMeZg030/4LnYmY4dQ9Z
+	 XVigbWNBCMKABwx3jTsgUiekHp5FTit9Q4YTYdsnT57pPxuLP7AvXwdcIX/CeUptQ0
+	 I3kXwAFhGMsWw==
+Received: from [192.168.0.47] (unknown [177.33.139.78])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id 41147411AF;
-	Tue, 18 Feb 2025 20:52:42 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, Bagas Sanjaya
- <bagasdotme@gmail.com>
-Cc: Linux Doc Mailing List <linux-doc@vger.kernel.org>,
- linux-kernel@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
- Andreas Noever <andreas.noever@gmail.com>, Avadhut
- Naik <avadhut.naik@amd.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Eric Dumazet <edumazet@google.com>, Hu Haowen
- <2023002089@link.tyut.edu.cn>, Lars-Peter Clausen <lars@metafoo.de>,
- Michael Jamet <michael.jamet@intel.com>, Mika Westerberg
- <mika.westerberg@linux.intel.com>, Paolo Abeni <pabeni@redhat.com>, Sean
- Young <sean@mess.org>, Yanteng Si <si.yanteng@linux.dev>, Yehezkel Bernat
- <YehezkelShB@gmail.com>, Thomas Gleixner <tglx@linutronix.de>, Michael
- Ellerman <mpe@ellerman.id.au>, Shrikanth Hegde <sshegde@linux.ibm.com>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, Pawan Gupta
- <pawan.kumar.gupta@linux.intel.com>, James Morse <james.morse@arm.com>,
- "Nysal Jan K.A" <nysal@linux.ibm.com>, Tom Lendacky
- <thomas.lendacky@amd.com>, Sourabh Jain <sourabhjain@linux.ibm.com>,
- Stephen Rothwell <sfr@canb.auug.org.au>, Frederic Barrat
- <fbarrat@linux.ibm.com>, Andrew Donnellan <ajd@linux.ibm.com>, Madhavan
- Srinivasan <maddy@linux.ibm.com>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao
- <naveen@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
- linux-usb@vger.kernel.org, netdev@vger.kernel.org,
- workflows@vger.kernel.org, linuxppc-dev@lists.ozlabs.org
-Subject: Re: [PATCH 0/9] Extend automarkup support for ABI symbols
-In-Reply-To: <20250212135808.58d2f032@foz.lan>
-References: <cover.1739254867.git.mchehab+huawei@kernel.org>
- <Z6yFG_NntQfkwYli@archie.me> <20250212135808.58d2f032@foz.lan>
-Date: Tue, 18 Feb 2025 13:52:41 -0700
-Message-ID: <871pvvnffq.fsf@trenco.lwn.net>
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 809A717E154A;
+	Tue, 18 Feb 2025 21:54:42 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Subject: [PATCH 0/6] Enable DMIC for Genio 700/510 EVK
+Date: Tue, 18 Feb 2025 17:52:13 -0300
+Message-Id: <20250218-genio700-dmic-v1-0-6bc653da60f7@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAP3ytGcC/x3MQQqAIBBA0avIrBNGI7OuEi1CJ5tFGgoRSHdPW
+ r7F/xUKZaYCs6iQ6ebCKTaoToA7thhIsm8GjXpArawMFDmNiNKf7KR3hmjyDk1voTVXpp2f/7e
+ s7/sBChFmqF8AAAA=
+X-Change-ID: 20250218-genio700-dmic-dc6ee9dc0638
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ parkeryang <Parker.Yang@mediatek.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_125244_676394_0001CBF2 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250218_125449_036902_7DD814FF 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,19 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mauro Carvalho Chehab <mchehab+huawei@kernel.org> writes:
+This series enables the dual digital microphones present on the Genio
+700 and 510 EVK boards.
 
->> WARNING: Documentation/ABI/testing/sysfs-class-cxl not found
->
-> I need to double-check verify this one, as it didn't appear on
-> my tests. Are you getting it against docs-next or linux-next?
+Patches 1 and 2 add some required clocks, patch 3 adds the DMIC DAI
+driver for MT8188, patch 4 adds the DMIC routes for the MT8188 platform,
+patch 5 adds the DMIC backend and widget to the mt8188-6359 machine
+sound driver and patch 6 adds the audio routes for the DMIC to the
+Devicetree.
 
-I get this one too, FWIW.
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+Nícolas F. R. A. Prado (4):
+      ASoC: mediatek: mt8188: Add audsys hires clocks
+      ASoC: mediatek: mt8188: Add reference for dmic clocks
+      ASoC: mediatek: mt8188-mt6359: Add DMIC
+      arm64: dts: mediatek: mt8390-genio-common: Add routes for DMIC
 
-I've gone ahead and applied the series, but this would be nice to get
-cleaned up.
+parkeryang (2):
+      ASoC: mediatek: mt8188: Add DMIC DAI driver
+      ASoC: mediatek: mt8188: Support DMIC in AFE
 
-Thanks,
+ .../boot/dts/mediatek/mt8390-genio-common.dtsi     |   6 +-
+ sound/soc/mediatek/mt8188/Makefile                 |   1 +
+ sound/soc/mediatek/mt8188/mt8188-afe-clk.c         |   8 +
+ sound/soc/mediatek/mt8188/mt8188-afe-clk.h         |   8 +
+ sound/soc/mediatek/mt8188/mt8188-afe-common.h      |   1 +
+ sound/soc/mediatek/mt8188/mt8188-afe-pcm.c         |  28 +-
+ sound/soc/mediatek/mt8188/mt8188-audsys-clk.c      |   4 +
+ sound/soc/mediatek/mt8188/mt8188-audsys-clkid.h    |   4 +
+ sound/soc/mediatek/mt8188/mt8188-dai-dmic.c        | 754 +++++++++++++++++++++
+ sound/soc/mediatek/mt8188/mt8188-mt6359.c          |  14 +
+ sound/soc/mediatek/mt8188/mt8188-reg.h             |  18 +-
+ 11 files changed, 839 insertions(+), 7 deletions(-)
+---
+base-commit: 253c82b3a2cec22bf9db65645f934fbe095899a3
+change-id: 20250218-genio700-dmic-dc6ee9dc0638
 
-jon
+Best regards,
+-- 
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
+
 
