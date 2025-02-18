@@ -4,147 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC12C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 17:50:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB13BC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 17:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EPtkH+9tRj0bGHNqJZLPBv/Q2rSN8i7fVPL1WNVmhEY=; b=ubL6IUeSmkE9KEnL0EjLFmdKgF
-	Mb9KNrjMLk7xq/dW1AadQfGG20OS6od7fTMAUU44Vsq19IM+RxMNG5PT89JzEe8ySbAzIkaX7//pR
-	Y7/H3UDQWRfhqGLBtFVXM61g0lCrWSBRp0s2LBc218dQj6dHsdYlc6c88/1WGTac2Ri72mlKaEZhs
-	gdO3G2zPdnEAgtWGUlG4iJfrh/YJyDD38PibMVBj12yg4pHFHIaNHm3tcnTcQ7zy+PUCusQApk47D
-	Tpoa0iQbSS0htxKLgOuKdwy3MeM1hEiAB9T3MOoly5wFDQHKq3SUYDIWTjfN16NePxuju0/Qk/lmv
-	OffGeFgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F3jGz9dTOI3zjTp+FWv3GOetS4aavIzrIh1eri2pQa4=; b=jI/NXm3G7ZWvJZLAjXE7hiRQmI
+	yhQFCS2ZVYadRYyhsVavrKJgzLP8x+YbtfYPumaAm1k1pYCYM8XNS1Z/0oC+0u2zkBhpTRp0voiOc
+	B4gaL6XEWEK62ihuOlG0L/2yv7ZqTKjg6SX5bQMT2AyFemFislms1l7LHo0pQQ7fcOuXdvfK2K3KD
+	KQWyLMtKcRvr5npr5dDShV97N7p8C35LSXHwb+8RwFPtMhRxZIDN66NjsDZPr4quXkHKX7CYi60+e
+	6zgYmysOc6yb2CmonvvmKp9VFFZAT0yuhXdGDyeNTcamGE/3IsOQ8i5RpklWeuTDmzz3w4tysIsSe
+	8I1EVh/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkRjA-00000009EYY-3kHn;
-	Tue, 18 Feb 2025 17:49:48 +0000
-Received: from mail-bn8nam12on20609.outbound.protection.outlook.com ([2a01:111:f403:2418::609] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1tkRmf-00000009F3H-2Hah;
+	Tue, 18 Feb 2025 17:53:25 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkRhg-00000009EKe-2pbW
+	id 1tkRlB-00000009EwH-3FBH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 17:48:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hvEZqX6IJvR4OUok4YlhE4gT83lHLqpNtaC30FB9WfJBj6C7eYyKgoiLvgRIW2gVHg7OwJtAd02Ad75wHHCTSk1KljLnXf/ByMm4rmf9U/pisodvOJrd9J9YBeXJR3NRPjD24BrPSk9tvOkn+Jsy6FikjfbhMz8A4CScTRIDZIRLXBOYf6vbw7q/RoqMYk40SJTmEfLo+Nb99re/4ms4OjqvoVSsLNbEr+gNirQN7JzRtTTSCv35b+n2eyMKa96JLal/FrHtj3X/k+BjQP5MxylEVtXVZ0staFzbsdEOl5sweG/GQKqCZ8kAknvI6HZhxCvGnaXZ85KAwC6PX3EUXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EPtkH+9tRj0bGHNqJZLPBv/Q2rSN8i7fVPL1WNVmhEY=;
- b=UmjO0nOGxGYPbCN1sT3Mq5pBeX3M7hWlohyeH3ZCXk/nXGd0tJlTJBszL0H0RLPSMB1Ck2eEksiSm/WfyX+ekOfLr/qAlWb98mjf1Jyu7RwhGxsc/Zmm2Z+BaV44iwOGbbmndTdIbWpShPEEzONrg5L9sZCaSunKff01GYR9GpZFnaSobBYDnsTCpW99qLjrkPnErWqUkh/EcqErTfJBhjsxNGnXTTuw2uB3em821qqbqaLngtJU1gVc6rzzY6P6N9TAxqN0RTgiDNrFk2mM6VruG1iOcS5Tt9DPw9m26eOAD0bVKJsPQ7HXHQcAzQqXRSfMjFEqmcFNHpWdEdDbZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EPtkH+9tRj0bGHNqJZLPBv/Q2rSN8i7fVPL1WNVmhEY=;
- b=DqhElXL1uRBHuiQD/n5wCNWOq8b6JS+3p/pSMpHZAdE7yu7yPSgxIhNgntAXATOTChxk4NRoUhf2fRrRTF16HCZRUnfmwmuY80oD7TJljNRWOi5Vptz33dZ1SgezbpVfg0/wnE/73OTDqRjFkiiQeUN8LVtvSbuGoHtnSyyxf506ULTBEIGm9mChpcoUajKTclg9taPL/JpwsYRfDzwz+whlK9Zl6juUWToKXJyj0g58xN0CFcK4c8qYqX7bhSUkRgYyC19fYrX04FraxJsQenDR/yfgKU35rBPgyzGrp78z99WXlKq18kGBTUlFqxoTjNJbyvhAikk/T2YVRRlUZw==
-Received: from SJ0PR13CA0157.namprd13.prod.outlook.com (2603:10b6:a03:2c7::12)
- by DS7PR12MB6310.namprd12.prod.outlook.com (2603:10b6:8:95::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Tue, 18 Feb
- 2025 17:48:04 +0000
-Received: from SJ1PEPF0000231B.namprd03.prod.outlook.com
- (2603:10b6:a03:2c7:cafe::8c) by SJ0PR13CA0157.outlook.office365.com
- (2603:10b6:a03:2c7::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.13 via Frontend Transport; Tue,
- 18 Feb 2025 17:48:03 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SJ1PEPF0000231B.mail.protection.outlook.com (10.167.242.232) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.11 via Frontend Transport; Tue, 18 Feb 2025 17:48:03 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 18 Feb
- 2025 09:47:53 -0800
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 18 Feb 2025 09:47:53 -0800
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.126.190.182)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 18 Feb 2025 09:47:51 -0800
-Date: Tue, 18 Feb 2025 09:47:50 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
-	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
-Subject: Re: [PATCH v6 05/14] iommufd: Add IOMMUFD_OBJ_VEVENTQ and
- IOMMUFD_CMD_VEVENTQ_ALLOC
-Message-ID: <Z7THxrq/6sYP/AIi@nvidia.com>
-References: <cover.1737754129.git.nicolinc@nvidia.com>
- <2fb8d9c7b01ad36b42849283cd33d931f11092cb.1737754129.git.nicolinc@nvidia.com>
- <20250218152959.GB4099685@nvidia.com>
+	Tue, 18 Feb 2025 17:51:55 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51IHpmv0051957
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 18 Feb 2025 11:51:49 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1739901109;
+	bh=F3jGz9dTOI3zjTp+FWv3GOetS4aavIzrIh1eri2pQa4=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=cx1GEg9MnkBeyrIVntzsS73hLqty3ydz9iZdHuzoq16cpWcIuxF8aPcM4UFgYSsFJ
+	 dGjDgynGhNwMyHfsQwB4IdLQ6FlkiRx3Mz8FLeZXPNtA+5tnbAS9j0Wsao5X+1IaqK
+	 23RV3ohSPkY6EJ4yx5PrG9dFcSrI3LlYi3R44C9E=
+Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51IHpmsY105306
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 18 Feb 2025 11:51:48 -0600
+Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 18
+ Feb 2025 11:51:48 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 18 Feb 2025 11:51:48 -0600
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IHpmBe092458;
+	Tue, 18 Feb 2025 11:51:48 -0600
+Message-ID: <787f9d24-25bc-4171-bd8a-88fe9cef694d@ti.com>
+Date: Tue, 18 Feb 2025 11:51:48 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250218152959.GB4099685@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231B:EE_|DS7PR12MB6310:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5a0f3359-2756-40b0-f4d6-08dd504464ee
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wgTMqKW5hKOMQcpxMRRIiovFtqBSEBPE3lk5W6KvxCZO9wBpCTaKYLLITCoa?=
- =?us-ascii?Q?Aw8obeza1JEKfwDAwxYGiwGaHIx+Y+YpyUReyKtA4jeydSnVz2NM+CA81Eov?=
- =?us-ascii?Q?/DJQxA5nQBcZGffW3xLO1hL809dxPPU2j38aDxMz07fAPogy8BnmJ/9wtxbK?=
- =?us-ascii?Q?6fWScqfZw8kvdUKvHL9kswyCvG3z2I7gcFPUy9JlNU/aNqnbWYgcLGYnxYgJ?=
- =?us-ascii?Q?gSBquYY8nZQMdMEZObYjnmgl8/o2oHicqknQDZejeFB0ZjaaHfEoiTFlUoR2?=
- =?us-ascii?Q?+YLXJoapoLjyyuh2q3oQHBkCjVntvITNny4Su9sLT7T0KAdsLGdF2tbt8Gls?=
- =?us-ascii?Q?b2kU2hc5ayWp0iuXQRNxPYXXzaLsmA3IK543j72kp7fdtLTkBZDMgJ81SmIb?=
- =?us-ascii?Q?5IFGmd38Q852kDcL6KJ7tkTRRiOItWabctBlnDSEwvZniZmbDdqzKsvxrG3G?=
- =?us-ascii?Q?0kCxw0JAk2JIKKiQqjb+DTzn0D5/17XWAWaJEdcWbrL60d/bfrp4UMpA83If?=
- =?us-ascii?Q?a+MnS2agW1E0A/Gy63GZKf/0QTSg+Bx1P5htTcPEP4O/bIna2MwD75WoeWTE?=
- =?us-ascii?Q?7dKRj81dS1psXsyG9zoYIT+qLGRDdECgZMjHTOGHYFfGBToSR80MTeISg2TR?=
- =?us-ascii?Q?LeT62e6ivy6QXbKCH6GUaoE5AmJ1WsZuVuMdijq8r1+GJvCa2hS4txcr/35C?=
- =?us-ascii?Q?JxPadIeFC9Tj6NFBqHeosySI1YtobwV16ZMis3Nv4E7tEX4+s1nxvNrjsK6G?=
- =?us-ascii?Q?RmCjjnD1MXRwX1aZiE1quUEEGiJGOV64UBiNpfoH1hhrMX0078AJlVRsc2oM?=
- =?us-ascii?Q?TN5N95RfFWbuOaZEKLP7Lxl0FS88DYpqSaaisFJDq7rRZFerfB9taS0/fPIL?=
- =?us-ascii?Q?tv0JPWFypFkA6X8cc1yZJyb7kn2Xv+LF30Ts3FaRMKpt/kCw+S5JRQ7U3zME?=
- =?us-ascii?Q?bJ/BE4IT/FH6Wg/eviGvZABxrSs20Xi7541acYfvQuGhtupSw19fvpcu6Xpz?=
- =?us-ascii?Q?3L0HllBMafCO9phtZOsXITvcrxA5Gxi8S5zqKhv/z1cPBOz9tZpXL5jjcFX4?=
- =?us-ascii?Q?byFSCXSRIio1Vpzdf5tNGlxLWrMHSiFNHuADNMoJU+gGubMLcmWnAfJJClCB?=
- =?us-ascii?Q?eJFpG3Zfp9PYJoFbVTxp7vmkeBHiZsVfYvm7sFVQSdvgCdBxeKKjmrpt+gw1?=
- =?us-ascii?Q?T6cJwKRhjwNoHNkZoKE3VZUpf2XZisJg7v8q11rhsqRXsM6Vzi1O+ctRo2tQ?=
- =?us-ascii?Q?m17RiyHEz6PEKIXIQPGI3MKdloVDFdgfvFny66mdxrzfZc+BrAGf6xIfJGFj?=
- =?us-ascii?Q?jNO6fMO9lOAVmNShc0F66pKSYzynSwGpJLuERv3URGUH//o6EMMM09Xl3zZH?=
- =?us-ascii?Q?0xUBxZyTSs3IraxsXoTcawWiomY546gLKe0FqZMZrsjHCpcgBLvfKGj0FLZ1?=
- =?us-ascii?Q?OOvzDYewjaoynVVYtUMkTfDfHzIoGXxMlKFRIskOCpWGEMXUI7XRzfzGLS1g?=
- =?us-ascii?Q?umGJOmbZmHQH8RY=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 17:48:03.7545
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5a0f3359-2756-40b0-f4d6-08dd504464ee
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF0000231B.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6310
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 06/10] arm64: dts: ti: k3-am62p5-sk: Enable IPC with
+ remote processors
+To: Andrew Davis <afd@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Hari Nagalla
+	<hnagalla@ti.com>
+References: <20250210221530.1234009-1-jm@ti.com>
+ <20250210221530.1234009-7-jm@ti.com>
+ <04e77daf-e775-44fa-82bf-8b6ebf73bcef@ti.com>
+Content-Language: en-US
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <04e77daf-e775-44fa-82bf-8b6ebf73bcef@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_094816_730409_C020A9E8 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20250218_095153_944450_11E68EAD 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,106 +93,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 11:29:59AM -0400, Jason Gunthorpe wrote:
-> On Fri, Jan 24, 2025 at 04:30:34PM -0800, Nicolin Chen wrote:
-> > +	list_add_tail(&vevent->node, &eventq->deliver);
-> > +	vevent->on_list = true;
-> > +	vevent->header.sequence = atomic_read(&veventq->sequence);
-> > +	if (atomic_read(&veventq->sequence) == INT_MAX)
-> > +		atomic_set(&veventq->sequence, 0);
-> > +	else
-> > +		atomic_inc(&veventq->sequence);
-> > +	spin_unlock(&eventq->lock);
+Hi Andrew,
+
+
+On 2/18/25 10:38 AM, Andrew Davis wrote:
+> On 2/10/25 4:15 PM, Judith Mendez wrote:
+>> From: Devarsh Thakkar <devarsht@ti.com>
+>>
+>> For each remote proc, reserve memory for IPC and bind the mailbox
+>> assignments. Two memory regions are reserved for each remote processor.
+>> The first region of 1MB of memory is used for Vring shared buffers
+>> and the second region is used as external memory to the remote processor
+>> for the resource table and for tracebuffer allocations.
+>>
+>> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
+>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+>> Signed-off-by: Judith Mendez <jm@ti.com>
+>> ---
+>> Changes since v4:
+>> - Drop SRAM node for am62px MCU R5fSS0 core0
+>> ---
+>>   arch/arm64/boot/dts/ti/k3-am62p5-sk.dts | 50 ++++++++++++++++++++++---
+>>   1 file changed, 44 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts 
+>> b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+>> index ad71d2f27f538..9609727d042d3 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+>> @@ -48,6 +48,30 @@ reserved-memory {
+>>           #size-cells = <2>;
+>>           ranges;
+>> +        mcu_r5fss0_core0_dma_memory_region: 
+>> mcu-r5fss-dma-memory-region@9b800000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x9b800000 0x00 0x100000>;
+>> +            no-map;
+>> +        };
+>> +
+>> +        mcu_r5fss0_core0_memory_region: 
+>> mcu-r5fss-memory-region@9b900000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x9b900000 0x00 0xf00000>;
+>> +            no-map;
+>> +        };
+>> +
+>> +        wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x9c800000 0x00 0x100000>;
+>> +            no-map;
+>> +        };
+>> +
+>> +        wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
+>> +            compatible = "shared-dma-pool";
+>> +            reg = <0x00 0x9c900000 0x00 0x1e00000>;
 > 
-> This is all locked, we don't need veventq->sequence to be an atomic?
+> 0x1e00000?
 > 
-> The bounding can be done with some simple math:
+> Yes I know you didn't add this and are just coping it from below, but it
+> is still an issue. I see the same problem for the next patch, the R5F 
+> memory
+> size is 0xc00000??
 > 
->   veventq->sequence = (veventq->sequence + 1) & INT_MAX;
+> Every remote core gets 15MB (0xf00000), this has been true for all K3, and
+> all cores, DSP, R5F, M4, etc.. You even do it correct for the MCU R5F 
+> above,
+> but the WKUP R5F on AM62P and AM62 are just randomly given 30M and 12MB?
 
-Ack. Perhaps we can reuse eventq->lock to fence @num_events too.
+Not sure why FW requires 30MB here, I have reached out to FW team to
+investigate this, will respond back here soon.
 
-> > +static struct iommufd_vevent *
-> > +iommufd_veventq_deliver_fetch(struct iommufd_veventq *veventq)
-> > +{
-> > +	struct iommufd_eventq *eventq = &veventq->common;
-> > +	struct list_head *list = &eventq->deliver;
-> > +	struct iommufd_vevent *vevent = NULL;
-> > +
-> > +	spin_lock(&eventq->lock);
-> > +	if (!list_empty(list)) {
-> > +		vevent = list_first_entry(list, struct iommufd_vevent, node);
-> > +		list_del(&vevent->node);
-> > +		vevent->on_list = false;
-> > +	}
-> > +	/* Make a copy of the overflow node for copy_to_user */
-> > +	if (vevent == &veventq->overflow) {
-> > +		vevent = kzalloc(sizeof(*vevent), GFP_ATOMIC);
-> > +		if (vevent)
-> > +			memcpy(vevent, &veventq->overflow, sizeof(*vevent));
-> > +	}
+~ Judith
+
 > 
-> This error handling is wonky, if we can't allocate then we shouldn't
-> have done the list_del. Just return NULL which will cause
-> iommufd_veventq_fops_read() to exist and userspace will try again.
-
-OK.
-
-We have two cases to support here:
-1) Normal vevent node -- list_del and return the node.
-2) Overflow node -- list_del and return a copy.
-
-I think we can do:
-	if (!list_empty(list)) {
-		struct iommufd_vevent *next;
-
-		next = list_first_entry(list, struct iommufd_vevent, node);
-		if (next == &veventq->overflow) {
-			/* Make a copy of the overflow node for copy_to_user */
-			vevent = kzalloc(sizeof(*vevent), GFP_ATOMIC);
-			if (!vevent)
-				goto out_unlock;
-		}
-		list_del(&next->node);
-		if (vevent)
-			memcpy(vevent, next, sizeof(*vevent));
-		else
-			vevent = next;
-	}
-
-> > @@ -403,6 +531,10 @@ static int iommufd_eventq_fops_release(struct inode *inode, struct file *filep)
-> >  {
-> >  	struct iommufd_eventq *eventq = filep->private_data;
-> >  
-> > +	if (eventq->obj.type == IOMMUFD_OBJ_VEVENTQ) {
-> > +		atomic_set(&eventq_to_veventq(eventq)->sequence, 0);
-> > +		atomic_set(&eventq_to_veventq(eventq)->num_events, 0);
-> > +	}
+> Andrew
 > 
-> Why? We are about to free the memory?
+>> +            no-map;
+>> +        };
+>> +
+>>           secure_tfa_ddr: tfa@9e780000 {
+>>               reg = <0x00 0x9e780000 0x00 0x80000>;
+>>               no-map;
+>> @@ -57,12 +81,6 @@ secure_ddr: optee@9e800000 {
+>>               reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
+>>               no-map;
+>>           };
+>> -
+>> -        wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+>> -            compatible = "shared-dma-pool";
+>> -            reg = <0x00 0x9c900000 0x00 0x01e00000>;
+>> -            no-map;
+>> -        };
+>>       };
+>>       vmain_pd: regulator-0 {
+>> @@ -638,6 +656,26 @@ mbox_mcu_r5_0: mbox-mcu-r5-0 {
+>>       };
+>>   };
+>> +&wkup_r5fss0 {
+>> +    status = "okay";
+>> +};
+>> +
+>> +&wkup_r5fss0_core0 {
+>> +    mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+>> +    memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+>> +            <&wkup_r5fss0_core0_memory_region>;
+>> +};
+>> +
+>> +&mcu_r5fss0 {
+>> +    status = "okay";
+>> +};
+>> +
+>> +&mcu_r5fss0_core0 {
+>> +    mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
+>> +    memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+>> +            <&mcu_r5fss0_core0_memory_region>;
+>> +};
+>> +
+>>   &main_uart0 {
+>>       pinctrl-names = "default";
+>>       pinctrl-0 = <&main_uart0_pins_default>;
 
-Ack. I thought about a re-entry of an open(). But release() does
-lose the event_fd completely, and user space wouldn't be able to
-open the same fd again.
-
-> > +int iommufd_veventq_alloc(struct iommufd_ucmd *ucmd)
-> > +{
-> > +	struct iommu_veventq_alloc *cmd = ucmd->cmd;
-> > +	struct iommufd_veventq *veventq;
-> > +	struct iommufd_viommu *viommu;
-> > +	int fdno;
-> > +	int rc;
-> > +
-> > +	if (cmd->flags || cmd->type == IOMMU_VEVENTQ_TYPE_DEFAULT)
-> > +		return -EOPNOTSUPP;
-> > +	if (!cmd->veventq_depth)
-> > +		return -EINVAL;
-> 
-> Check __reserved for 0 too
-
-Kevin is suggesting a 32-bit flag field, so I think we can drop
-the __reserved in that case.
-
-Thanks
-Nicolin
 
