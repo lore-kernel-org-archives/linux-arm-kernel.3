@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D739BC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD154C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Snr4aTwPNVubpRPAi57boRzJiWp/9Aa733cQpJ5lAo0=; b=K8wrqMKd2SaXOgWvnWR+lB5S5u
-	u4U8c6n6bj0DJDh42F1JnP3Ue3vCkeIoz78Uw3jmeC9NMlrSlJhdrDGHIReO1lX9hHChRxBaj/qBV
-	Tyvf53zwmcStUswFKzV2xGyPuCuEEbmk6CWSmfLL2nY5Cq5jdNCFEizuMAyLM1ZctdL4mEqGr9ylp
-	NmBHqUmTyD6IHFTyfUw4O1wy2JlYG8jf1kisF7+Ir+vMTxqyPFkVqZ3X095cS9ZiSjTIBRbK8laIl
-	b9GROMnJZdwXwykPpwGCIs9SFFFUJfPwY728oJcU8Pc2EN16WGGuZKB/xBtxTW8p2oGVIhKuLh4OT
-	RjewxAMw==;
+	bh=FGGTxpGEya+y3DCKSasDByHMsQJWfIB0xG5m7Wt2qrk=; b=Y9EjpFvZKvCf7m5cIpVEivBlF9
+	/n2xnAyAF5rz9sUXKHDNeUost9A0FEliyosefvvLAsvEU5dq7Q3RdfSrAGJRaFY+ElhgOR+f+BT/n
+	lkCbz6/dZRdUAAUF6mchWUyCel9R4Gj4fEdF8HGhgKx5Klf+F/ZCV8HXv4Jj7B7k6zVkPpGADdu50
+	p5Kns7ZrViZNHf5ef4+yAfgjcRBpD4bKTnu61VViSlTOaKiw6oSlIywuk2pQChwRDkq7c/SC189yN
+	rpReA+lJA4mIkyeX9uFqMOiQMoag7AF5TzlRRAm6R0jEri/QiYyZXMsBppzKMvJjlZjCqIhfqRmjf
+	3YB1OpZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOHf-00000008RRX-3Tdc;
-	Tue, 18 Feb 2025 14:09:11 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tkOKD-00000008S6d-2liQ;
+	Tue, 18 Feb 2025 14:11:49 +0000
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOEP-00000008Qk7-1udM
+	id 1tkOIi-00000008RiN-40Bh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 14:05:50 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51IE5bAm015825
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Tue, 18 Feb 2025 08:05:37 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739887537;
-	bh=Snr4aTwPNVubpRPAi57boRzJiWp/9Aa733cQpJ5lAo0=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=VnP7CDu5+QIT/IzJNAD7VWwuksmvy3XZP2vbumeuMUkxilk0rCvNswVTv1/H/INKR
-	 0Wj+teBjpedt7EMRr5CO2UskNJnKeq/8zZvhgnE/lsAyc0NpUWXWHaC/u8nFSd0Nlz
-	 z03rfbL1gQJPIu1JSivJt9iq1L272RZN/IwVGzFM=
-Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IE5bSh013691;
-	Tue, 18 Feb 2025 08:05:37 -0600
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE111.ent.ti.com
- (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 18
- Feb 2025 08:05:37 -0600
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 18 Feb 2025 08:05:37 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IE5bZb079588;
-	Tue, 18 Feb 2025 08:05:37 -0600
-Date: Tue, 18 Feb 2025 08:05:37 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Guillaume La Roque <glaroque@baylibre.com>
-CC: Tero Kristo <kristo@kernel.org>, Andrew Davis <afd@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] firmware: config: ti-sci: Default set to ARCH_K3 for the
- ti sci driver
-Message-ID: <20250218140537.wfagt3spwkcmc3uv@cushy>
-References: <20250218-ti-firmware-v1-1-7a23aacfb9d3@baylibre.com>
+	Tue, 18 Feb 2025 14:10:19 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Yy1bB44KszMrc8;
+	Tue, 18 Feb 2025 22:08:38 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4A3491400D6;
+	Tue, 18 Feb 2025 22:10:08 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Tue, 18 Feb 2025 22:10:07 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
+	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
+	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <pierre.gondois@arm.com>,
+	<dietmar.eggemann@arm.com>
+CC: <linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
+	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>, <xuwei5@huawei.com>,
+	<guohanjun@huawei.com>, <sshegde@linux.ibm.com>
+Subject: [PATCH v11 1/4] cpu/SMT: Provide a default topology_is_primary_thread()
+Date: Tue, 18 Feb 2025 22:10:15 +0800
+Message-ID: <20250218141018.18082-2-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250218141018.18082-1-yangyicong@huawei.com>
+References: <20250218141018.18082-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250218-ti-firmware-v1-1-7a23aacfb9d3@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_060549_659060_0E9EC489 
-X-CRM114-Status: GOOD (  20.18  )
+X-CRM114-CacheID: sfid-20250218_061017_428713_68B1A6E2 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,50 +78,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13:57-20250218, Guillaume La Roque wrote:
-> Defaulting the build to ARCH_K3 for the TI SCI driver.
-> 
-> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
-> ---
-> Link to comment done on last serie [1] we come back on first version of
-> series[2] to not use imply but set deps on ARCH_K3 in driver directly.
-> An other patch will be sent to update Kconfig.platform when this patch
-> is merged.
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-It would be good to expand the commit message providing the rationale
-for this.
+Currently if architectures want to support HOTPLUG_SMT they need to
+provide a topology_is_primary_thread() telling the framework which
+thread in the SMT cannot offline. However arm64 doesn't have a
+restriction on which thread in the SMT cannot offline, a simplest
+choice is that just make 1st thread as the "primary" thread. So
+just make this as the default implementation in the framework and
+let architectures like x86 that have special primary thread to
+override this function (which they've already done).
 
-> 
-> [1] https://lore.kernel.org/all/20250123-timodulemailboxsci-v4-1-b1a31b56f162@baylibre.com/
-> [2] https://lore.kernel.org/all/20221122202245.449198-4-nfrayer@baylibre.com/
-> ---
->  drivers/firmware/Kconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-> index 9f35f69e0f9e..109abe063093 100644
-> --- a/drivers/firmware/Kconfig
-> +++ b/drivers/firmware/Kconfig
-> @@ -215,6 +215,7 @@ config SYSFB_SIMPLEFB
->  config TI_SCI_PROTOCOL
->  	tristate "TI System Control Interface (TISCI) Message Protocol"
->  	depends on TI_MESSAGE_MANAGER
-> +	default ARCH_K3
->  	help
->  	  TI System Control Interface (TISCI) Message Protocol is used to manage
->  	  compute systems such as ARM, DSP etc with the system controller in
-> 
-> ---
-> base-commit: 2408a807bfc3f738850ef5ad5e3fd59d66168996
-> change-id: 20250218-ti-firmware-1b7c7f485e5a
-> 
-> Best regards,
-> -- 
-> Guillaume La Roque <glaroque@baylibre.com>
-> 
+There's no need to provide a stub function if !CONFIG_SMP or
+!CONFIG_HOTPLUG_SMT. In such case the testing CPU is already
+the 1st CPU in the SMT so it's always the primary thread.
 
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+Pre questioned in v9 [1] whether this works on architectures not using
+CONFIG_GENERIC_ARCH_TOPOLOGY, See [2] for demonstration hacking on LoongArch
+VM and this also works. Architectures should use this on their own situation.
+[1] https://lore.kernel.org/linux-arm-kernel/427bd639-33c3-47e4-9e83-68c428eb1a7d@arm.com/
+[2] https://lore.kernel.org/linux-arm-kernel/a5690fee-3019-f26c-8bad-1d95e388e877@huawei.com/
+
+ arch/powerpc/include/asm/topology.h |  1 +
+ arch/x86/include/asm/topology.h     |  2 +-
+ include/linux/topology.h            | 22 ++++++++++++++++++++++
+ 3 files changed, 24 insertions(+), 1 deletion(-)
+
+diff --git a/arch/powerpc/include/asm/topology.h b/arch/powerpc/include/asm/topology.h
+index 16bacfe8c7a2..da15b5efe807 100644
+--- a/arch/powerpc/include/asm/topology.h
++++ b/arch/powerpc/include/asm/topology.h
+@@ -152,6 +152,7 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
+ {
+ 	return cpu == cpu_first_thread_sibling(cpu);
+ }
++#define topology_is_primary_thread topology_is_primary_thread
+ 
+ static inline bool topology_smt_thread_allowed(unsigned int cpu)
+ {
+diff --git a/arch/x86/include/asm/topology.h b/arch/x86/include/asm/topology.h
+index ec134b719144..6c79ee7c0957 100644
+--- a/arch/x86/include/asm/topology.h
++++ b/arch/x86/include/asm/topology.h
+@@ -229,11 +229,11 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
+ {
+ 	return cpumask_test_cpu(cpu, cpu_primary_thread_mask);
+ }
++#define topology_is_primary_thread topology_is_primary_thread
+ 
+ #else /* CONFIG_SMP */
+ static inline int topology_phys_to_logical_pkg(unsigned int pkg) { return 0; }
+ static inline int topology_max_smt_threads(void) { return 1; }
+-static inline bool topology_is_primary_thread(unsigned int cpu) { return true; }
+ static inline unsigned int topology_amd_nodes_per_pkg(void) { return 1; }
+ #endif /* !CONFIG_SMP */
+ 
+diff --git a/include/linux/topology.h b/include/linux/topology.h
+index 52f5850730b3..b3aba443c4eb 100644
+--- a/include/linux/topology.h
++++ b/include/linux/topology.h
+@@ -240,6 +240,28 @@ static inline const struct cpumask *cpu_smt_mask(int cpu)
+ }
+ #endif
+ 
++#ifndef topology_is_primary_thread
++
++#define topology_is_primary_thread topology_is_primary_thread
++
++static inline bool topology_is_primary_thread(unsigned int cpu)
++{
++	/*
++	 * On SMT hotplug the primary thread of the SMT won't be disabled.
++	 * Architectures do have a special primary thread (e.g. x86) need
++	 * to override this function. Otherwise just make the first thread
++	 * in the SMT as the primary thread.
++	 *
++	 * The sibling cpumask of an offline CPU contains always the CPU
++	 * itself for architectures using CONFIG_GENERIC_ARCH_TOPOLOGY.
++	 * Other architectures should use this depend on their own
++	 * situation.
++	 */
++	return cpu == cpumask_first(topology_sibling_cpumask(cpu));
++}
++
++#endif
++
+ static inline const struct cpumask *cpu_cpu_mask(int cpu)
+ {
+ 	return cpumask_of_node(cpu_to_node(cpu));
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+2.24.0
+
 
