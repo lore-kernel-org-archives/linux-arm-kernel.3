@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93498C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 07:22:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C51CC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 07:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OIsJBdDsumdGnoA18pyEbApyyciB8YWgkozZODOVRsA=; b=GIZBXG3NQZyoms2JOwhN4skqWj
-	qWh6Qmfo9TfoFgBohJM1ISXJ95YEyKWLR9W1ozoRsC64iHWcUsXGtB8+LKr2WrcqYVzK4Xf0vY+Or
-	TtHi0pGYJqgHtvd3VoTzKx/9ayVawDUcKixm0GXVdqZ1/1dKJi6Sdjmhg7u/LDMiK27XFUuhinQGr
-	9tItFEe2QXDkIa53izmqwVO4WJ8+nZwfdJsfUGHoAloLQEkrDFqS/zgbnhCiMt8Jf5Oaq7t0/Z7sX
-	4BY2Uh8VRW7fS2hcjRkC49bigK48FCxILp389tFCkGOnskyViB17KsIqEvikrqjPYDAlsN5psnft+
-	7MCg3ZPw==;
+	bh=VFAEE37c0j64R7UdaNqXmJkVy1V3Ss9Kzj6Y3vC8UGA=; b=ZAwHg2Ni3PkB3cCDJIttLxXyTS
+	UiyDrMlQsTf6Er9ZTF20K4RVEVLr0fj+72iMu8JlHOyOAdEvhxJoOD2wsCs5pmgEBje72DyZRXIs4
+	JJbCNzDwPSGmiGwdiWpT2nnHD3ypRzi6c63me5lu3azcHWylwp8c1b3gTrV87lPqJb+2E7lLaU1+C
+	dS9EWWn6F+z8R1pQq8MX/j9Rvz96/7Po1fHRfeXiH1TdxwQnRzTdjvjOunpXatNoHtB+GnFYmzXvQ
+	76Jp3rC5v9mfIoZDLWbPlhw0KBLq0T7KQcR7+Rd9FfMEs6++f79TFmYdIC807HJyIzO+97RHoijhz
+	HNzF//qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkHvO-000000074GR-3IYC;
-	Tue, 18 Feb 2025 07:21:46 +0000
+	id 1tkHwp-000000074ON-262X;
+	Tue, 18 Feb 2025 07:23:15 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkHtw-0000000746x-1ivi
+	id 1tkHv3-000000074DD-0kPM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 07:20:17 +0000
+	Tue, 18 Feb 2025 07:21:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9F570A41D2C;
-	Tue, 18 Feb 2025 07:18:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC3B3C4CEE2;
-	Tue, 18 Feb 2025 07:20:12 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 92CF6A41B0D;
+	Tue, 18 Feb 2025 07:19:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD9BBC4CEE2;
+	Tue, 18 Feb 2025 07:21:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739863215;
-	bh=OIsJBdDsumdGnoA18pyEbApyyciB8YWgkozZODOVRsA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SqbwYxYtTH/yKc2L1pQjJuYOG6qnD7Z9NiDussJ+aqVha8VRLJnIti/xPdfdLLaaP
-	 JzijIOGMhazojp5p1rcExnCZhqD2spLz0cn4QU4sjXuh2WRtdVmCff5i6ol7PC84U7
-	 BazVbiWlaqo/TdCQxVzrPSjf0XCYB2sSDy8+wuq6hghHXOl185wQMzKrgfTt2M0dPw
-	 6gbjT4MW7gDCYiYeXn3lk7pgAykWvU9ew2oYFVMY+InLhBA1yjRRjYVJTc/xo+0TIR
-	 YyQZGo2qFiAaR5OsEoj+ZW+poDia6pQZO4yk98NOuyzOlgMEC4VCb92NXcaBEj7YM0
-	 sLku8PKX/R6eQ==
-Message-ID: <cc2c800f-3e0c-481e-8581-36a5903d3fb2@kernel.org>
-Date: Tue, 18 Feb 2025 08:20:10 +0100
+	s=k20201202; t=1739863284;
+	bh=DDTZrhjm4ZYQtQykLqGpp/Aou++GhMTXIC+P7ohV828=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=a1CdiIo5kVTzmngbMw0pVdTLnbwcdkDWOHdZfdFHbJdSdbuUZNf7/REn/CCtYsqeo
+	 NgIvC6JEH4pc4F16WYDlwBJyA6/8AD54YV6JG35fiLF/5BpCRBU6aAQaZuJp5apU++
+	 jhEPgKm8NWoG+Km+jM8+PxF60i66gQxVB7nB7E0vcR2HkC393kCdZ5g9lqLrI96x21
+	 5rxA6ORD60C7txpqqnhjYOA2Eud3Huzv48oXxbqiBrn8pvDin0neTT6FvIkb/T4JIj
+	 XvSDAuGC4oxAPx3/z5ismccc9cdCPC5y8JB+ceUITzc7H7n+NJt5xLJ3aUn2RBhfGI
+	 Tbpci4MhBDdXw==
+Message-ID: <6387a68a-f47b-4d03-9f42-e21d2305a7cb@kernel.org>
+Date: Tue, 18 Feb 2025 08:21:19 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 13/13] defconfig: Enable RZ/T2H Soc and RZ_SCI
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>,
  thierry.bultel@linatsea.fr, Catalin Marinas <catalin.marinas@arm.com>,
  Will Deacon <will@kernel.org>
@@ -54,8 +55,8 @@ Cc: linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <20250217105354.551788-1-thierry.bultel.yh@bp.renesas.com>
  <20250217105354.551788-14-thierry.bultel.yh@bp.renesas.com>
+ <cc2c800f-3e0c-481e-8581-36a5903d3fb2@kernel.org>
 Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -99,12 +100,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250217105354.551788-14-thierry.bultel.yh@bp.renesas.com>
+In-Reply-To: <cc2c800f-3e0c-481e-8581-36a5903d3fb2@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_232016_583760_1044EAD6 
-X-CRM114-Status: UNSURE (   5.19  )
+X-CRM114-CacheID: sfid-20250217_232125_345641_DB4CB3CF 
+X-CRM114-Status: UNSURE (   6.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,12 +121,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/02/2025 11:52, Thierry Bultel wrote:
-> Signed-off-by: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
+On 18/02/2025 08:20, Krzysztof Kozlowski wrote:
+> On 17/02/2025 11:52, Thierry Bultel wrote:
+>> Signed-off-by: Thierry Bultel <thierry.bultel.yh@bp.renesas.com>
+> 
+> 
+> Still missing commit msg. Still no explanation why do we want this patch.
 
 
-Still missing commit msg. Still no explanation why do we want this patch.
-
+And you completely ignored all previous comments.
 
 Best regards,
 Krzysztof
