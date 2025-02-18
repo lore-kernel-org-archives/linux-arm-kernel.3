@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C68C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA52EC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+xX3kq5JvtA7OeDpyDSylJ4c5w3/7hfTbTKchcblIZk=; b=kPKlL1gR4SJDQRzUVAb6cn1OPO
-	D1sIhLEoyAtbKjgxvTD6fGxZNWXpcohT3s7c2CAapksFwq7nplqsakRbwh4RxRP4fwR4uFpNPwYy3
-	orSlyVGTBycTj59up6I1qViimAL2jpbdJ8euWYrU853J2lxQBY7tzZZXQVlX26nAdq7Gbc0qmtDm8
-	Q9vTkxrToQ815fg9nE9HgW17rtqUFlLEZ4r0i8L00DLaTk+baTlDcbFqnrmhCyIZHdPad9iWSgXqS
-	Xf3v4IqpiTLv4YxRQSrCh6VdIEJfItIctqFkG3WPKiEYxuqxyAn0QaycvL9+1UNKfQbRVPolcbXko
-	TLCVAhtw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9vvr543lNdqWeEeVZFDtRvS5PuCDX5cFH7xFDzQelZ8=; b=wl3wPMTDibBOOY
+	o+nzZJxUI1VCKUSQ8Wt37g8CGRf8kGWPAjStizGBXpLUEgvyCZP0cHmwIIiz6BQTWKPwCglAXcmwU
+	rMHISp3WqO/2TNqQw50qv63MNJ4EKFoQa96jt6Ccqm0jYLzLBuFL668lObBIUvVIcL75iFJEM5lYm
+	IixGAK2x9urqklS7FEs0u/tGr+GCtLoGBVd7hfzUm/e8rOKaPEkbnQ8Ztm5LBCitv1xENzR2Ume5f
+	38d95jnVFzS5G4w1v7Mo88/6A/0dZfelCp9Q3q9kBrc9MZXzK7MPM+DfvA1I0cJlRFFmHXjXuQWoC
+	LNCKNfaGNv/3K9fV3wlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTXR-00000009dOT-10MA;
-	Tue, 18 Feb 2025 19:45:49 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1tkTYt-00000009deY-04CR;
+	Tue, 18 Feb 2025 19:47:19 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSsg-00000009UP3-2t2H
+	id 1tkSsr-00000009URf-31tK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 19:03:43 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-38f3ac22948so1619487f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 11:03:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739905421; x=1740510221; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+xX3kq5JvtA7OeDpyDSylJ4c5w3/7hfTbTKchcblIZk=;
-        b=m3Tr0rxM3ogN1rFVRnhox6G8oC575YVJfhLh0uLFzVTcPAjTi7mEsIU+vRfAPXuh/l
-         6vTXiFxun5A4Wrbo8gIDhTSlQDDLdzdA2wdcCfig7e5mmyOp1SmhLS7y5j91aOJcLjQ4
-         PwUdwE5MAW7dcE9F//cjL+PuT2aJslySvh1CFTILFmbGYiOJZ/J5OO3YyHo5PFqL66pq
-         xZSRFYQorjgIf0p5x1736Ow2e24RxUIixnYjfdJP+yqcrFddz89nV8W7HraXvhlQy8K/
-         l84o0fkRgtC3EtRXIlD/e4UMONj32cxhG6Au/8groRhqKnaQs8sWzJvE6KHZTyM9p/Qo
-         bWMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739905421; x=1740510221;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+xX3kq5JvtA7OeDpyDSylJ4c5w3/7hfTbTKchcblIZk=;
-        b=kQXEqnyz9Wv7tgk5RipcwfNYdPWIJTGWOQcBm3B5IyZ1A8p/wZf5dn39CgBxkMzBNQ
-         2U0TEMTps8xIAOfFjk3dUeSAqVpiChu6jWuHumRAqrzYdWE2o8szo92gf+6tpWyqQulp
-         LjfsuK566CNqRV/rosxwUTODrUSSq45i5IYPkOqRIuE8JeRKak6WTGHqGHJX+2S1HX2q
-         r1RuVF1zZUbKWqNTDNXLslCUVIPdTDJKIivTa3XXmo5k+VfRABEsErshcRe+U5wMjVky
-         9D1ckY3eqbRoCCA3BiZ3M8Onz1A7rInttUrN6QCTbPha664RhT7wi63h6/+8WOJEmy1g
-         0SQg==
-X-Forwarded-Encrypted: i=1; AJvYcCV1A/KdPJ8p9g3jWOjK5NFCXPmXUhktfWoo1tO5apSrjLct+CHF0gRYnBirWA3mDca53jBSDrzPCi6CK+Ia3ep0@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEwtd5Z0zD3cwvkpxikEnnjzpLBZH54gGhFw565HIaX1RU7oC/
-	SbxCvewdttchuIGskjNNRUy6/pE26frs1QtmbyyYXuKRS0zXC5vE
-X-Gm-Gg: ASbGnctDTI/EY22YzIx+J7ZZE37AkQ2QtDdAWCl43uy8NNhuNYAeHABmHQs5jQ4Z65W
-	td6+2yGV6nZDJr25WHBZ7MIemPWI0PS3a2c7XZ7us0B1M8KjCjg6cPRrWw77+mBeBrAqWEk/8aG
-	G4Oc2XmFwjXPtYkL+bpnf1iwyHVM8V5hbDreZMLx36IxCIIvrj2qz0yhvhLWMGFH3MUDsVTfyvC
-	GP4agh3T/a2m1QBp5QmrfDPfnuWhTdiV54OjH4/LGG2ZHCE4k+mKRZk6wBkpNHpT/CPcmHmlRNe
-	I9BfyuWKpqM/Ncm0P02byIxKLyWe4g9Bleq4aVLrj1oj8CYQA7V5qFcC0x0y16IKe5g=
-X-Google-Smtp-Source: AGHT+IF3HT55ekDkhr32GRf+62rUW7oCIzdAfVXnR6+5oIboF7j4xk2JD2Jn2rS7V1hPPEm1Kdvy5w==
-X-Received: by 2002:a5d:64e8:0:b0:38f:4308:e552 with SMTP id ffacd0b85a97d-38f4308ea65mr9293257f8f.14.1739905420661;
-        Tue, 18 Feb 2025 11:03:40 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259d65dfsm16008425f8f.64.2025.02.18.11.03.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 11:03:40 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
- Andre Przywara <andre.przywara@arm.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 05/15] clk: sunxi-ng: Add support for the A523/T527 CCU PLLs
-Date: Tue, 18 Feb 2025 20:03:38 +0100
-Message-ID: <3341127.44csPzL39Z@jernej-laptop>
-In-Reply-To: <20250214125359.5204-6-andre.przywara@arm.com>
-References: <20250214125359.5204-1-andre.przywara@arm.com>
- <20250214125359.5204-6-andre.przywara@arm.com>
+	Tue, 18 Feb 2025 19:03:55 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 201A725F6B;
+	Tue, 18 Feb 2025 20:03:52 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id bCOxpRDHNYGU; Tue, 18 Feb 2025 20:03:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1739905423; bh=JTd1l3l1TUPJLaW1itWZ16kwRJWkduYtTgS2cfEjA+k=;
+	h=From:Subject:Date:To:Cc;
+	b=Za0AaPL2U9L8yMJcz0uDqbndexvG3yPP67NXzhVQcHxW9bb2jUNVHhSEwHXg1JKGV
+	 tnZez/Z/zhjnLnhCl94uzzM/PZGQZKW3TAPxsXLzppYqZ7DHJGZmxWhQkTG/nq2aQp
+	 Zte+QSuAnA22xKT4GdgOm15zo6+l7LFMAM03c06Y3UMYJc9oSVwU9xFfZF5VnoFYwP
+	 qDM71GHd7E6eBb7JfRzW9s5kxCFAU9cpU3vdjMyIAU7Tdpl5CdGcTT/eBAMXBierBT
+	 iq8AQtMiqe2bXXoJbpqqkq5SPh0emclmCT1RCHrQqJcszPU7X4cWtbQ+39z30kRN84
+	 xwYUg4FosNv7Q==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH v3 0/7] Add support for the Exynos7870 SoC, along with
+ three devices
+Date: Wed, 19 Feb 2025 00:33:10 +0530
+Message-Id: <20250219-exynos7870-v3-0-e384fb610cad@disroot.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAG7ZtGcC/1XMSwqDMBSF4a1Ixk25eduOuo/SgZobzcSURIIi7
+ r1RKOjwHPi/lSSMHhN5ViuJmH3yYSxD3CrSDc3YI/W2bMKBK+DAKM7LGJKpDVCQD1UblK2xjpT
+ gG9H5+cDen7IHn6YQl8PObH//jDgzmVGgvNXWSaMb4eBlfYohTPcQe7JDmZ9jeYl5iZUWTDCt0
+ EF3jbdt+wFjqvRd4wAAAA==
+X-Change-ID: 20250201-exynos7870-049587e4b7df
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739905418; l=3985;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=JTd1l3l1TUPJLaW1itWZ16kwRJWkduYtTgS2cfEjA+k=;
+ b=Kit8dV9N/JF0doGFtT8JtyemUTutD5Nd9US4sk2RKh4z7iLlxy1gnSlDBUvmQu4MlO7ic74NT
+ OxOgFHVjgqsAAfQzepjG4Kvn35jOlJZ1KjWS+BZwCT3/Py7XVDnz5OR
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_110342_735862_97831A1A 
-X-CRM114-Status: GOOD (  28.74  )
+X-CRM114-CacheID: sfid-20250218_110354_030085_28907D0E 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,648 +89,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 14. februar 2025 ob 13:53:49 Srednjeevropski standardni =C4=8Das=
- je Andre Przywara napisal(a):
-> Add the PLL clocks of the main CCU of the Allwinner A523 and T527 SoCs.
-> The clocks were modelled after the A523 and T527 manual, and double
-> checked by writing all 1's into the respective register, to spot all
-> implemented bits.
->=20
-> The PLL and mod clocks for the two CPU clusters and the DSU are part of
-> a separate CCU, also most audio clocks are collected in a DSP CCU, so
-> both of these clock groups are missing from this driver.
->=20
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  drivers/clk/sunxi-ng/Kconfig           |   5 +
->  drivers/clk/sunxi-ng/Makefile          |   2 +
->  drivers/clk/sunxi-ng/ccu-sun55i-a523.c | 481 +++++++++++++++++++++++++
->  drivers/clk/sunxi-ng/ccu-sun55i-a523.h |  14 +
->  drivers/clk/sunxi-ng/ccu_mp.h          |  14 +-
->  5 files changed, 510 insertions(+), 6 deletions(-)
->  create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523.c
->  create mode 100644 drivers/clk/sunxi-ng/ccu-sun55i-a523.h
->=20
-> diff --git a/drivers/clk/sunxi-ng/Kconfig b/drivers/clk/sunxi-ng/Kconfig
-> index b547198a2c654..04efbda847cf9 100644
-> --- a/drivers/clk/sunxi-ng/Kconfig
-> +++ b/drivers/clk/sunxi-ng/Kconfig
-> @@ -52,6 +52,11 @@ config SUN50I_H6_R_CCU
->  	default y
->  	depends on ARM64 || COMPILE_TEST
-> =20
-> +config SUN55I_A523_CCU
-> +	tristate "Support for the Allwinner A523/T527 CCU"
-> +	default y
-> +	depends on ARM64 || COMPILE_TEST
-> +
->  config SUN4I_A10_CCU
->  	tristate "Support for the Allwinner A10/A20 CCU"
->  	default y
-> diff --git a/drivers/clk/sunxi-ng/Makefile b/drivers/clk/sunxi-ng/Makefile
-> index 6b3ae2b620db6..01a887f7824bb 100644
-> --- a/drivers/clk/sunxi-ng/Makefile
-> +++ b/drivers/clk/sunxi-ng/Makefile
-> @@ -33,6 +33,7 @@ obj-$(CONFIG_SUN50I_A100_R_CCU)	+=3D sun50i-a100-r-ccu.o
->  obj-$(CONFIG_SUN50I_H6_CCU)	+=3D sun50i-h6-ccu.o
->  obj-$(CONFIG_SUN50I_H6_R_CCU)	+=3D sun50i-h6-r-ccu.o
->  obj-$(CONFIG_SUN50I_H616_CCU)	+=3D sun50i-h616-ccu.o
-> +obj-$(CONFIG_SUN55I_A523_CCU)	+=3D sun55i-a523-ccu.o
->  obj-$(CONFIG_SUN4I_A10_CCU)	+=3D sun4i-a10-ccu.o
->  obj-$(CONFIG_SUN5I_CCU)		+=3D sun5i-ccu.o
->  obj-$(CONFIG_SUN6I_A31_CCU)	+=3D sun6i-a31-ccu.o
-> @@ -58,6 +59,7 @@ sun50i-a100-r-ccu-y		+=3D ccu-sun50i-a100-r.o
->  sun50i-h6-ccu-y			+=3D ccu-sun50i-h6.o
->  sun50i-h6-r-ccu-y		+=3D ccu-sun50i-h6-r.o
->  sun50i-h616-ccu-y		+=3D ccu-sun50i-h616.o
-> +sun55i-a523-ccu-y		+=3D ccu-sun55i-a523.o
->  sun4i-a10-ccu-y			+=3D ccu-sun4i-a10.o
->  sun5i-ccu-y			+=3D ccu-sun5i.o
->  sun6i-a31-ccu-y			+=3D ccu-sun6i-a31.o
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523.c b/drivers/clk/sunxi-n=
-g/ccu-sun55i-a523.c
-> new file mode 100644
-> index 0000000000000..8374e841e9d82
-> --- /dev/null
-> +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523.c
-> @@ -0,0 +1,481 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2023-2024 Arm Ltd.
-> + * Based on the D1 CCU driver:
-> + *   Copyright (c) 2020 huangzhenwei@allwinnertech.com
-> + *   Copyright (C) 2021 Samuel Holland <samuel@sholland.org>
-> + */
-> +
-> +#include <linux/clk-provider.h>
-> +#include <linux/io.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +
-> +#include "../clk.h"
-> +
-> +#include "ccu_common.h"
-> +#include "ccu_reset.h"
-> +
-> +#include "ccu_div.h"
-> +#include "ccu_gate.h"
-> +#include "ccu_mp.h"
-> +#include "ccu_mult.h"
-> +#include "ccu_nk.h"
-> +#include "ccu_nkm.h"
-> +#include "ccu_nkmp.h"
-> +#include "ccu_nm.h"
-> +
-> +#include "ccu-sun55i-a523.h"
-> +
-> +/*
-> + * The 24 MHz oscillator, the root of most of the clock tree.
-> + * .fw_name is the string used in the DT "clock-names" property, used to
-> + * identify the corresponding clock in the "clocks" property.
-> + */
-> +static const struct clk_parent_data osc24M[] =3D {
-> +	{ .fw_name =3D "hosc" }
-> +};
-> +
-> +/***********************************************************************=
-***
-> + *                              PLLs                                    =
-  *
-> + ***********************************************************************=
-***/
-> +
-> +/* Some PLLs are input * N / div1 / P. Model them as NKMP with no K */
-> +#define SUN55I_A523_PLL_DDR0_REG		0x010
-> +static struct ccu_nkmp pll_ddr0_clk =3D {
-> +	.enable		=3D BIT(27),
-> +	.lock		=3D BIT(28),
-> +	.n		=3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
-> +	.m		=3D _SUNXI_CCU_DIV(1, 1), /* input divider */
+Samsung Exynos 7870 (codename: Joshua) is an ARM-v8 system-on-chip that was
+announced in 2016. The chipset was found in several popular mid-range to
+low-end Samsung phones, released within 2016 to 2019.
 
-Newer manuals, for example A523 manual v1.4, don't mention input dividers a=
-nymore.
-Newer BSP driver doesn't have them either. Should we drop them (for all PLL=
-s)?
+This patch series aims to add support for Exynos 7870, starting with the
+most basic yet essential components such as CPU, GPU, clock controllers,
+PMIC, pin controllers, etc.
 
-> +	.p		=3D _SUNXI_CCU_DIV(0, 1), /* output divider */
-> +	.common		=3D {
-> +		.reg		=3D 0x010,
-> +		.hw.init	=3D CLK_HW_INIT_PARENTS_DATA("pll-ddr0", osc24M,
-> +							   &ccu_nkmp_ops,
-> +							   CLK_SET_RATE_GATE |
-> +							   CLK_IS_CRITICAL),
-> +	},
-> +};
-> +
-> +/*
-> + * There is no actual clock output with that frequency (2.4 GHz), instea=
-d it
-> + * has multiple outputs with adjustable dividers from that base frequenc=
-y.
-> + * Model them separately as divider clocks based on that parent here.
-> + */
-> +#define SUN55I_A523_PLL_PERIPH0_REG	0x020
-> +static struct ccu_nm pll_periph0_4x_clk =3D {
-> +	.enable		=3D BIT(27),
-> +	.lock		=3D BIT(28),
-> +	.n		=3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
-> +	.m		=3D _SUNXI_CCU_DIV(1, 1), /* input divider */
-> +	.common		=3D {
-> +		.reg		=3D 0x020,
-> +		.hw.init	=3D CLK_HW_INIT_PARENTS_DATA("pll-periph0-4x",
-> +							   osc24M, &ccu_nm_ops,
-> +							   CLK_SET_RATE_GATE),
-> +	},
-> +};
-> +/*
-> + * Most clock-defining macros expect an *array* of parent clocks, even if
-> + * they do not contain a muxer to select between different parents.
-> + * The macros ending in just _HW take a simple clock pointer, but then c=
-reate
-> + * a single-entry array out of that. The macros using _HWS take such an
-> + * array (even when it is a single entry one), this avoids having those
-> + * helper arrays created inside *every* clock definition.
-> + * This means for every clock that is referenced more than once it is
-> + * useful to create such a dummy array and use _HWS.
-> + */
-> +static const struct clk_hw *pll_periph0_4x_hws[] =3D {
-> +	&pll_periph0_4x_clk.common.hw
-> +};
-> +
-> +static SUNXI_CCU_M_HWS(pll_periph0_2x_clk, "pll-periph0-2x",
-> +		       pll_periph0_4x_hws, 0x020, 16, 3, 0);
-> +static const struct clk_hw *pll_periph0_2x_hws[] =3D {
-> +	&pll_periph0_2x_clk.common.hw
-> +};
-> +static SUNXI_CCU_M_HWS(pll_periph0_800M_clk, "pll-periph0-800M",
-> +		       pll_periph0_4x_hws, 0x020, 20, 3, 0);
-> +static SUNXI_CCU_M_HWS(pll_periph0_480M_clk, "pll-periph0-480M",
-> +		       pll_periph0_4x_hws, 0x020, 2, 3, 0);
-> +static const struct clk_hw *pll_periph0_480M_hws[] =3D {
-> +	&pll_periph0_480M_clk.common.hw
-> +};
-> +static CLK_FIXED_FACTOR_HWS(pll_periph0_600M_clk, "pll-periph0-600M",
-> +			    pll_periph0_2x_hws, 2, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_periph0_400M_clk, "pll-periph0-400M",
-> +			    pll_periph0_2x_hws, 3, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_periph0_300M_clk, "pll-periph0-300M",
-> +			    pll_periph0_2x_hws, 4, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_periph0_200M_clk, "pll-periph0-200M",
-> +			    pll_periph0_2x_hws, 6, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_periph0_150M_clk, "pll-periph0-150M",
-> +			    pll_periph0_2x_hws, 8, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_periph0_160M_clk, "pll-periph0-160M",
-> +			    pll_periph0_480M_hws, 3, 1, 0);
-> +
-> +#define SUN55I_A523_PLL_PERIPH1_REG	0x028
-> +static struct ccu_nm pll_periph1_4x_clk =3D {
-> +	.enable		=3D BIT(27),
-> +	.lock		=3D BIT(28),
-> +	.n		=3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
-> +	.m		=3D _SUNXI_CCU_DIV(1, 1), /* input divider */
-> +	.common		=3D {
-> +		.reg		=3D 0x028,
-> +		.hw.init	=3D CLK_HW_INIT_PARENTS_DATA("pll-periph1-4x",
-> +							   osc24M, &ccu_nm_ops,
-> +							   CLK_SET_RATE_GATE),
-> +	},
-> +};
-> +
-> +static const struct clk_hw *pll_periph1_4x_hws[] =3D {
-> +	&pll_periph1_4x_clk.common.hw
-> +};
-> +static SUNXI_CCU_M_HWS(pll_periph1_2x_clk, "pll-periph1-2x",
-> +		       pll_periph1_4x_hws, 0x028, 16, 3, 0);
-> +static SUNXI_CCU_M_HWS(pll_periph1_800M_clk, "pll-periph1-800M",
-> +		       pll_periph1_4x_hws, 0x028, 20, 3, 0);
-> +static SUNXI_CCU_M_HWS(pll_periph1_480M_clk, "pll-periph1-480M",
-> +		       pll_periph1_4x_hws, 0x028, 2, 3, 0);
-> +
-> +static const struct clk_hw *pll_periph1_2x_hws[] =3D {
-> +	&pll_periph1_2x_clk.common.hw
-> +};
-> +static CLK_FIXED_FACTOR_HWS(pll_periph1_600M_clk, "pll-periph1-600M",
-> +			    pll_periph1_2x_hws, 2, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_periph1_400M_clk, "pll-periph1-400M",
-> +			    pll_periph1_2x_hws, 3, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_periph1_300M_clk, "pll-periph1-300M",
-> +			    pll_periph1_2x_hws, 4, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_periph1_200M_clk, "pll-periph1-200M",
-> +			    pll_periph1_2x_hws, 6, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_periph1_150M_clk, "pll-periph1-150M",
-> +			    pll_periph1_2x_hws, 8, 1, 0);
-> +static const struct clk_hw *pll_periph1_480M_hws[] =3D {
-> +	&pll_periph1_480M_clk.common.hw
-> +};
-> +static CLK_FIXED_FACTOR_HWS(pll_periph1_160M_clk, "pll-periph1-160M",
-> +			    pll_periph1_480M_hws, 3, 1, 0);
-> +
-> +#define SUN55I_A523_PLL_GPU_REG		0x030
-> +static struct ccu_nkmp pll_gpu_clk =3D {
-> +	.enable		=3D BIT(27),
-> +	.lock		=3D BIT(28),
-> +	.n		=3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
-> +	.m		=3D _SUNXI_CCU_DIV(1, 1), /* input divider */
-> +	.p		=3D _SUNXI_CCU_DIV(0, 1), /* output divider */
-> +	.common		=3D {
-> +		.reg		=3D 0x030,
-> +		.hw.init	=3D CLK_HW_INIT_PARENTS_DATA("pll-gpu", osc24M,
-> +							   &ccu_nkmp_ops,
-> +							   CLK_SET_RATE_GATE),
-> +	},
-> +};
-> +
-> +#define SUN55I_A523_PLL_VIDEO0_REG	0x040
-> +static struct ccu_nm pll_video0_8x_clk =3D {
-> +	.enable		=3D BIT(27),
-> +	.lock		=3D BIT(28),
-> +	.n		=3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
-> +	.m		=3D _SUNXI_CCU_DIV(1, 1), /* input divider */
-> +	.common		=3D {
-> +		.reg		=3D 0x040,
-> +		.hw.init	=3D CLK_HW_INIT_PARENTS_DATA("pll-video0-8x",
-> +							   osc24M, &ccu_nm_ops,
-> +							   CLK_SET_RATE_GATE),
-> +	},
-> +};
-> +
-> +static const struct clk_hw *pll_video0_8x_hws[] =3D {
-> +	&pll_video0_8x_clk.common.hw
-> +};
-> +static SUNXI_CCU_M_HWS(pll_video0_4x_clk, "pll-video0-4x",
-> +		       pll_video0_8x_hws, 0x040, 0, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_video0_3x_clk, "pll-video0-3x",
-> +			    pll_video0_8x_hws, 3, 1, CLK_SET_RATE_PARENT);
-> +
-> +#define SUN55I_A523_PLL_VIDEO1_REG	0x048
-> +static struct ccu_nm pll_video1_8x_clk =3D {
-> +	.enable		=3D BIT(27),
-> +	.lock		=3D BIT(28),
-> +	.n		=3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
-> +	.m		=3D _SUNXI_CCU_DIV(1, 1), /* input divider */
-> +	.common		=3D {
-> +		.reg		=3D 0x048,
-> +		.hw.init	=3D CLK_HW_INIT_PARENTS_DATA("pll-video1-8x",
-> +							   osc24M, &ccu_nm_ops,
-> +							   CLK_SET_RATE_GATE),
-> +	},
-> +};
-> +
-> +static const struct clk_hw *pll_video1_8x_hws[] =3D {
-> +	&pll_video1_8x_clk.common.hw
-> +};
-> +static SUNXI_CCU_M_HWS(pll_video1_4x_clk, "pll-video1-4x",
-> +		       pll_video1_8x_hws, 0x048, 0, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_video1_3x_clk, "pll-video1-3x",
-> +			    pll_video1_8x_hws, 3, 1, CLK_SET_RATE_PARENT);
-> +
-> +#define SUN55I_A523_PLL_VIDEO2_REG	0x050
-> +static struct ccu_nm pll_video2_8x_clk =3D {
-> +	.enable		=3D BIT(27),
-> +	.lock		=3D BIT(28),
-> +	.n		=3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
-> +	.m		=3D _SUNXI_CCU_DIV(1, 1), /* input divider */
-> +	.common		=3D {
-> +		.reg		=3D 0x050,
-> +		.hw.init	=3D CLK_HW_INIT_PARENTS_DATA("pll-video2-8x",
-> +							   osc24M, &ccu_nm_ops,
-> +							   CLK_SET_RATE_GATE),
-> +	},
-> +};
-> +
-> +static const struct clk_hw *pll_video2_8x_hws[] =3D {
-> +	&pll_video2_8x_clk.common.hw
-> +};
-> +static SUNXI_CCU_M_HWS(pll_video2_4x_clk, "pll-video2-4x",
-> +		       pll_video2_8x_hws, 0x050, 0, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_video2_3x_clk, "pll-video2-3x",
-> +			    pll_video2_8x_hws, 3, 1, CLK_SET_RATE_PARENT);
-> +
-> +#define SUN55I_A523_PLL_VE_REG		0x058
-> +static struct ccu_nkmp pll_ve_clk =3D {
-> +	.enable		=3D BIT(27),
-> +	.lock		=3D BIT(28),
-> +	.n		=3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
-> +	.m		=3D _SUNXI_CCU_DIV(1, 1), /* input divider */
-> +	.p		=3D _SUNXI_CCU_DIV(0, 1), /* output divider */
-> +	.common		=3D {
-> +		.reg		=3D 0x058,
-> +		.hw.init	=3D CLK_HW_INIT_PARENTS_DATA("pll-ve", osc24M,
-> +							   &ccu_nkmp_ops,
-> +							   CLK_SET_RATE_GATE),
-> +	},
-> +};
-> +
-> +#define SUN55I_A523_PLL_VIDEO3_REG	0x068
-> +static struct ccu_nm pll_video3_8x_clk =3D {
-> +	.enable		=3D BIT(27),
-> +	.lock		=3D BIT(28),
-> +	.n		=3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
-> +	.m		=3D _SUNXI_CCU_DIV(1, 1), /* input divider */
-> +	.common		=3D {
-> +		.reg		=3D 0x068,
-> +		.hw.init	=3D CLK_HW_INIT_PARENTS_DATA("pll-video3-8x",
-> +							   osc24M, &ccu_nm_ops,
-> +							   CLK_SET_RATE_GATE),
-> +	},
-> +};
-> +
-> +static const struct clk_hw *pll_video3_8x_hws[] =3D {
-> +	&pll_video3_8x_clk.common.hw
-> +};
-> +static SUNXI_CCU_M_HWS(pll_video3_4x_clk, "pll-video3-4x",
-> +		       pll_video3_8x_hws, 0x068, 0, 1, 0);
-> +static CLK_FIXED_FACTOR_HWS(pll_video3_3x_clk, "pll-video3-3x",
-> +			    pll_video3_8x_hws, 3, 1, CLK_SET_RATE_PARENT);
-> +
-> +/*
-> + * PLL_AUDIO0 has m0, m1 dividers in addition to the usual N, M factors.
-> + * Since we only need some fixed frequency from this PLL (22.5792MHz x 4=
- and
-> + * 24.576MHz x 4), ignore those dividers and force both of them to 1 (en=
-coded
-> + * as 0), in the probe function below.
-> + * The M factor must be an even number to produce a 50% duty cycle outpu=
-t.
-> + */
-> +#define SUN55I_A523_PLL_AUDIO0_REG		0x078
-> +static struct ccu_sdm_setting pll_audio0_sdm_table[] =3D {
-> +	{ .rate =3D 90316800, .pattern =3D 0xc000872b, .m =3D 20, .n =3D 75 },
-> +	{ .rate =3D 98304000, .pattern =3D 0xc0004dd3, .m =3D 12, .n =3D 49 },
-> +
-> +};
-> +
-> +static struct ccu_nm pll_audio0_4x_clk =3D {
-> +	.enable		=3D BIT(27),
-> +	.lock		=3D BIT(28),
-> +	.n		=3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
-> +	.m		=3D _SUNXI_CCU_DIV(16, 6),
-> +	.sdm		=3D _SUNXI_CCU_SDM(pll_audio0_sdm_table, BIT(24),
-> +					 0x178, BIT(31)),
-> +	.min_rate	=3D 180000000U,
-> +	.max_rate	=3D 3000000000U,
-> +	.common		=3D {
-> +		.reg		=3D 0x078,
-> +		.features	=3D CCU_FEATURE_SIGMA_DELTA_MOD,
-> +		.hw.init	=3D CLK_HW_INIT_PARENTS_DATA("pll-audio0-4x",
-> +							   osc24M, &ccu_nm_ops,
-> +							   CLK_SET_RATE_GATE),
-> +	},
-> +};
-> +
-> +static CLK_FIXED_FACTOR_HW(pll_audio0_2x_clk, "pll-audio0-2x",
-> +			   &pll_audio0_4x_clk.common.hw, 2, 1, 0);
-> +static CLK_FIXED_FACTOR_HW(pll_audio0_clk, "pll-audio0",
-> +			   &pll_audio0_4x_clk.common.hw, 4, 1, 0);
-> +
-> +#define SUN55I_A523_PLL_NPU_REG			0x080
-> +static struct ccu_nm pll_npu_4x_clk =3D {
-> +	.enable		=3D BIT(27),
-> +	.lock		=3D BIT(28),
-> +	.n		=3D _SUNXI_CCU_MULT_MIN(8, 8, 11),
-> +	.m		=3D _SUNXI_CCU_DIV(1, 1),	/* input divider */
-> +	.common		=3D {
-> +		.reg		=3D 0x0080,
-> +		.hw.init	=3D CLK_HW_INIT_PARENTS_DATA("pll-npu-4x",
-> +							   osc24M, &ccu_nm_ops,
-> +							   CLK_SET_RATE_GATE),
-> +	},
-> +};
-> +static CLK_FIXED_FACTOR_HW(pll_npu_2x_clk, "pll-npu-2x",
-> +			   &pll_npu_4x_clk.common.hw, 2, 1, CLK_SET_RATE_PARENT);
-> +
-> +static CLK_FIXED_FACTOR_HW(pll_npu_1x_clk, "pll-npu-1x",
-> +			   &pll_npu_4x_clk.common.hw, 4, 1, 0);
-> +
-> +/*
-> + * Contains all clocks that are controlled by a hardware register. They
-> + * have a (sunxi) .common member, which needs to be initialised by the c=
-ommon
-> + * sunxi CCU code, to be filled with the MMIO base address and the share=
-d lock.
-> + */
-> +static struct ccu_common *sun55i_a523_ccu_clks[] =3D {
-> +	&pll_ddr0_clk.common,
-> +	&pll_periph0_4x_clk.common,
-> +	&pll_periph0_2x_clk.common,
-> +	&pll_periph0_800M_clk.common,
-> +	&pll_periph0_480M_clk.common,
-> +	&pll_periph1_4x_clk.common,
-> +	&pll_periph1_2x_clk.common,
-> +	&pll_periph1_800M_clk.common,
-> +	&pll_periph1_480M_clk.common,
-> +	&pll_gpu_clk.common,
-> +	&pll_video0_8x_clk.common,
-> +	&pll_video0_4x_clk.common,
-> +	&pll_video1_8x_clk.common,
-> +	&pll_video1_4x_clk.common,
-> +	&pll_video2_8x_clk.common,
-> +	&pll_video2_4x_clk.common,
-> +	&pll_video3_8x_clk.common,
-> +	&pll_video3_4x_clk.common,
-> +	&pll_ve_clk.common,
-> +	&pll_audio0_4x_clk.common,
-> +	&pll_npu_4x_clk.common,
-> +};
-> +
-> +static struct clk_hw_onecell_data sun55i_a523_hw_clks =3D {
-> +	.num	=3D CLK_NUMBER,
-> +	.hws	=3D {
-> +		[CLK_PLL_DDR0]		=3D &pll_ddr0_clk.common.hw,
-> +		[CLK_PLL_PERIPH0_4X]	=3D &pll_periph0_4x_clk.common.hw,
-> +		[CLK_PLL_PERIPH0_2X]	=3D &pll_periph0_2x_clk.common.hw,
-> +		[CLK_PLL_PERIPH0_800M]	=3D &pll_periph0_800M_clk.common.hw,
-> +		[CLK_PLL_PERIPH0_480M]	=3D &pll_periph0_480M_clk.common.hw,
-> +		[CLK_PLL_PERIPH0_600M]	=3D &pll_periph0_600M_clk.hw,
-> +		[CLK_PLL_PERIPH0_400M]	=3D &pll_periph0_400M_clk.hw,
-> +		[CLK_PLL_PERIPH0_300M]	=3D &pll_periph0_300M_clk.hw,
-> +		[CLK_PLL_PERIPH0_200M]	=3D &pll_periph0_200M_clk.hw,
-> +		[CLK_PLL_PERIPH0_160M]	=3D &pll_periph0_160M_clk.hw,
-> +		[CLK_PLL_PERIPH0_150M]	=3D &pll_periph0_150M_clk.hw,
-> +		[CLK_PLL_PERIPH1_4X]	=3D &pll_periph1_4x_clk.common.hw,
-> +		[CLK_PLL_PERIPH1_2X]	=3D &pll_periph1_2x_clk.common.hw,
-> +		[CLK_PLL_PERIPH1_800M]	=3D &pll_periph1_800M_clk.common.hw,
-> +		[CLK_PLL_PERIPH1_480M]	=3D &pll_periph1_480M_clk.common.hw,
-> +		[CLK_PLL_PERIPH1_600M]	=3D &pll_periph1_600M_clk.hw,
-> +		[CLK_PLL_PERIPH1_400M]	=3D &pll_periph1_400M_clk.hw,
-> +		[CLK_PLL_PERIPH1_300M]	=3D &pll_periph1_300M_clk.hw,
-> +		[CLK_PLL_PERIPH1_200M]	=3D &pll_periph1_200M_clk.hw,
-> +		[CLK_PLL_PERIPH1_160M]	=3D &pll_periph1_160M_clk.hw,
-> +		[CLK_PLL_PERIPH1_150M]	=3D &pll_periph1_150M_clk.hw,
-> +		[CLK_PLL_VIDEO0_8X]	=3D &pll_video0_8x_clk.common.hw,
-> +		[CLK_PLL_VIDEO0_4X]	=3D &pll_video0_4x_clk.common.hw,
-> +		[CLK_PLL_VIDEO0_3X]	=3D &pll_video0_3x_clk.hw,
-> +		[CLK_PLL_VIDEO1_8X]	=3D &pll_video1_8x_clk.common.hw,
-> +		[CLK_PLL_VIDEO1_4X]	=3D &pll_video1_4x_clk.common.hw,
-> +		[CLK_PLL_VIDEO1_3X]	=3D &pll_video1_3x_clk.hw,
-> +		[CLK_PLL_VIDEO2_8X]	=3D &pll_video2_8x_clk.common.hw,
-> +		[CLK_PLL_VIDEO2_4X]	=3D &pll_video2_4x_clk.common.hw,
-> +		[CLK_PLL_VIDEO2_3X]	=3D &pll_video2_3x_clk.hw,
-> +		[CLK_PLL_VIDEO3_8X]	=3D &pll_video3_8x_clk.common.hw,
-> +		[CLK_PLL_VIDEO3_4X]	=3D &pll_video3_4x_clk.common.hw,
-> +		[CLK_PLL_VIDEO3_3X]	=3D &pll_video3_3x_clk.hw,
-> +		[CLK_PLL_VE]		=3D &pll_ve_clk.common.hw,
-> +		[CLK_PLL_AUDIO0_4X]	=3D &pll_audio0_4x_clk.common.hw,
-> +		[CLK_PLL_AUDIO0_2X]	=3D &pll_audio0_2x_clk.hw,
-> +		[CLK_PLL_AUDIO0]	=3D &pll_audio0_clk.hw,
-> +		[CLK_PLL_NPU_4X]	=3D &pll_npu_4x_clk.common.hw,
-> +		[CLK_PLL_NPU_2X]	=3D &pll_npu_2x_clk.hw,
-> +		[CLK_PLL_NPU]		=3D &pll_npu_1x_clk.hw,
-> +	},
-> +};
-> +
-> +static const struct sunxi_ccu_desc sun55i_a523_ccu_desc =3D {
-> +	.ccu_clks	=3D sun55i_a523_ccu_clks,
-> +	.num_ccu_clks	=3D ARRAY_SIZE(sun55i_a523_ccu_clks),
-> +
-> +	.hw_clks	=3D &sun55i_a523_hw_clks,
-> +};
-> +
-> +static const u32 pll_regs[] =3D {
-> +	SUN55I_A523_PLL_DDR0_REG,
-> +	SUN55I_A523_PLL_PERIPH0_REG,
-> +	SUN55I_A523_PLL_PERIPH1_REG,
-> +	SUN55I_A523_PLL_GPU_REG,
-> +	SUN55I_A523_PLL_VIDEO0_REG,
-> +	SUN55I_A523_PLL_VIDEO1_REG,
-> +	SUN55I_A523_PLL_VIDEO2_REG,
-> +	SUN55I_A523_PLL_VE_REG,
-> +	SUN55I_A523_PLL_VIDEO3_REG,
-> +	SUN55I_A523_PLL_AUDIO0_REG,
-> +	SUN55I_A523_PLL_NPU_REG,
-> +};
-> +
-> +static int sun55i_a523_ccu_probe(struct platform_device *pdev)
-> +{
-> +	void __iomem *reg;
-> +	u32 val;
-> +	int i, ret;
-> +
-> +	reg =3D devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(reg))
-> +		return PTR_ERR(reg);
-> +
-> +	/*
-> +	 * The PLL clock code does not model all bits, for instance it does
-> +	 * not support a separate enable and gate bit. We present the
-> +	 * gate bit(27) as the enable bit, but then have to set the
-> +	 * PLL Enable, LDO Enable, and Lock Enable bits on all PLLs here.
-> +	 */
-> +	for (i =3D 0; i < ARRAY_SIZE(pll_regs); i++) {
-> +		val =3D readl(reg + pll_regs[i]);
-> +		val |=3D BIT(31) | BIT(30) | BIT(29);
-> +		writel(val, reg + pll_regs[i]);
-> +	}
-> +
-> +	/* Enforce m1 =3D 0, m0 =3D 0 for PLL_AUDIO0 */
-> +	val =3D readl(reg + SUN55I_A523_PLL_AUDIO0_REG);
-> +	val &=3D ~(BIT(1) | BIT(0));
-> +	writel(val, reg + SUN55I_A523_PLL_AUDIO0_REG);
-> +
-> +	ret =3D devm_sunxi_ccu_probe(&pdev->dev, reg, &sun55i_a523_ccu_desc);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id sun55i_a523_ccu_ids[] =3D {
-> +	{ .compatible =3D "allwinner,sun55i-a523-ccu" },
-> +	{ }
-> +};
-> +
-> +static struct platform_driver sun55i_a523_ccu_driver =3D {
-> +	.probe	=3D sun55i_a523_ccu_probe,
-> +	.driver	=3D {
-> +		.name			=3D "sun55i-a523-ccu",
-> +		.suppress_bind_attrs	=3D true,
-> +		.of_match_table		=3D sun55i_a523_ccu_ids,
-> +	},
-> +};
-> +module_platform_driver(sun55i_a523_ccu_driver);
-> +
-> +MODULE_IMPORT_NS("SUNXI_CCU");
-> +MODULE_DESCRIPTION("Support for the Allwinner A523 CCU");
-> +MODULE_LICENSE("GPL");
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun55i-a523.h b/drivers/clk/sunxi-n=
-g/ccu-sun55i-a523.h
-> new file mode 100644
-> index 0000000000000..fc8dd42f1b47b
-> --- /dev/null
-> +++ b/drivers/clk/sunxi-ng/ccu-sun55i-a523.h
-> @@ -0,0 +1,14 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright 2024 Arm Ltd.
-> + */
-> +
-> +#ifndef _CCU_SUN55I_A523_H
-> +#define _CCU_SUN55I_A523_H
-> +
-> +#include <dt-bindings/clock/sun55i-a523-ccu.h>
-> +#include <dt-bindings/reset/sun55i-a523-ccu.h>
-> +
-> +#define CLK_NUMBER	(CLK_FANOUT2 + 1)
-> +
-> +#endif /* _CCU_SUN55I_A523_H */
-> diff --git a/drivers/clk/sunxi-ng/ccu_mp.h b/drivers/clk/sunxi-ng/ccu_mp.h
-> index 687bd2ec798e2..5311835a4db60 100644
-> --- a/drivers/clk/sunxi-ng/ccu_mp.h
-> +++ b/drivers/clk/sunxi-ng/ccu_mp.h
-> @@ -100,20 +100,22 @@ struct ccu_mp {
+Moreover, the series also adds support for three Exynos 7870 devices via
+devicetree. The devices are:
+ * Samsung Galaxy J7 Prime	- released 2016, codename on7xelte
+ * Samsung Galaxy J6		- released 2018, codename j6lte
+ * Samsung Galaxy A2 Core	- released 2019, codename a2corelte
 
-These changes doesn't belong in this commit.
+Additional features implemented in this series include:
+ * I2C	- touchscreen, IIO sensors, etc.
+ * UART	- bluetooth and serial debugging
+ * MMC	- eMMC, Wi-Fi SDIO, SDCard
+ * USB	- micro-USB 2.0 interface
 
-Other than that, this looks like a good start. Thanks!
+Here is a list of all sub-series:
+ * bootmode	  	- https://lore.kernel.org/all/20250204-exynos7870-bootmode-v1-1-0f17b3033c2d@disroot.org/
+ * gpu			R https://lore.kernel.org/all/20250204-exynos7870-gpu-v1-1-0db4c163a030@disroot.org/
+ * i2c	      		A https://lore.kernel.org/all/20250204-exynos7870-i2c-v1-0-63d67871ab7e@disroot.org/
+ * mmc			- https://lore.kernel.org/all/20250219-exynos7870-mmc-v2-0-b4255a3e39ed@disroot.org/
+ * pinctrl	  	- https://lore.kernel.org/all/20250219-exynos7870-pinctrl-v2-0-1ff9b10bf913@disroot.org/
+ * pmic-regulators	- https://lore.kernel.org/all/20250219-exynos7870-pmic-regulators-v2-0-1ea86fb332f7@disroot.org/
+ * pmu-clocks		- https://lore.kernel.org/all/20250219-exynos7870-pmu-clocks-v3-0-0d1e415e9e3a@disroot.org/
+ * uart			- https://lore.kernel.org/all/20250219-exynos7870-uart-v2-1-c8c67f3a936c@disroot.org/
+ * usb			- https://lore.kernel.org/all/20250219-exynos7870-usb-v2-0-1de41a89c9d4@disroot.org/
+ * usbphy		- https://lore.kernel.org/all/20250219-exynos7870-usbphy-v2-0-b8ba4e7a72e9@disroot.org/
+(Legend: [R]eviewed, [A]pplied)
+
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Changes in v3:
+- Added patches from https://lore.kernel.org/all/20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org/
+- Fix devicetree formatting according to the devicetree style guide.
+- Take over ownership of patches by the co-author, upon their request.
+- Link to v2: https://lore.kernel.org/r/20250204-exynos7870-v2-0-56313165ef0c@disroot.org
+
+Changes in v2:
+- Redo a few commit descriptions.
+- Split patchsets into multiple sub-series, subsystem-wise.
+- Link to v1: https://lore.kernel.org/r/20250203-exynos7870-v1-0-2b6df476a3f0@disroot.org
+
+---
+Kaustabh Chakraborty (7):
+      dt-bindings: hwinfo: samsung,exynos-chipid: add exynos7870-chipid compatible
+      dt-bindings: arm: samsung: add compatibles for exynos7870 devices
+      soc: samsung: exynos-chipid: add support for exynos7870
+      arm64: dts: exynos: add initial devicetree support for exynos7870
+      arm64: dts: exynos: add initial support for Samsung Galaxy J7 Prime
+      arm64: dts: exynos: add initial support for Samsung Galaxy A2 Core
+      arm64: dts: exynos: add initial support for Samsung Galaxy J6
+
+ .../bindings/arm/samsung/samsung-boards.yaml       |    8 +
+ .../bindings/hwinfo/samsung,exynos-chipid.yaml     |    1 +
+ arch/arm64/boot/dts/exynos/Makefile                |    3 +
+ .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts |  629 ++++++++++++
+ arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |  617 ++++++++++++
+ arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts |  665 +++++++++++++
+ arch/arm64/boot/dts/exynos/exynos7870-pinctrl.dtsi | 1022 ++++++++++++++++++++
+ arch/arm64/boot/dts/exynos/exynos7870.dtsi         |  720 ++++++++++++++
+ drivers/soc/samsung/exynos-chipid.c                |    1 +
+ 9 files changed, 3666 insertions(+)
+---
+base-commit: e5d3fd687aac5eceb1721fa92b9f49afcf4c3717
+change-id: 20250201-exynos7870-049587e4b7df
 
 Best regards,
-Jernej
-
->  				   _muxshift, _muxwidth,		\
->  				   0, _flags)
-> =20
-> -#define SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(_struct, _name, _parents, _=
-reg, \
-> +#define SUNXI_CCU_MP_MUX_GATE_POSTDIV_FEAT(_struct, _name, _parents, _re=
-g, \
->  					_mshift, _mwidth,		\
->  					_pshift, _pwidth,		\
->  					_muxshift, _muxwidth,		\
-> -					_gate, _flags,			\
-> -					_features)			\
-> +					_gate, _postdiv,		\
-> +					_flags, _features)		\
->  	struct ccu_mp _struct =3D {					\
->  		.enable	=3D _gate,					\
->  		.m	=3D _SUNXI_CCU_DIV(_mshift, _mwidth),		\
->  		.p	=3D _SUNXI_CCU_DIV(_pshift, _pwidth),		\
->  		.mux	=3D _SUNXI_CCU_MUX(_muxshift, _muxwidth),		\
-> +		.fixed_post_div =3D _postdiv,				\
->  		.common	=3D {						\
->  			.reg		=3D _reg,				\
-> -			.features	=3D _features,			\
-> +			.features	=3D CCU_FEATURE_FIXED_POSTDIV |	\
-> +						_features,		\
->  			.hw.init	=3D CLK_HW_INIT_PARENTS_DATA(_name, \
->  								   _parents, \
->  								   &ccu_mp_ops,\
-> @@ -126,11 +128,11 @@ struct ccu_mp {
->  					_pshift, _pwidth,		\
->  					_muxshift, _muxwidth,		\
->  					_gate, _flags)			\
-> -	SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT(_struct, _name, _parents,	\
-> +	SUNXI_CCU_MP_MUX_GATE_POSTDIV_FEAT(_struct, _name, _parents,	\
->  					     _reg, _mshift, _mwidth,	\
->  					     _pshift, _pwidth,		\
->  					     _muxshift, _muxwidth,	\
-> -					     _gate, _flags, 0)
-> +					     _gate, 1, _flags, 0)
-> =20
->  #define SUNXI_CCU_MP_DATA_WITH_MUX(_struct, _name, _parents, _reg,	\
->  				   _mshift, _mwidth,			\
->=20
-
-
-
+-- 
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
 
