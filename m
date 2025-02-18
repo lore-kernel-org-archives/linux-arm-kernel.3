@@ -4,53 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE407C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D539EC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GOMdBZHXmT6tOq4jZ3nXBaHcgelQQuneQe5MrBX2DNQ=; b=YejPsZdA8KqnvBUGmNfQZ/Bled
-	FxEW+2PK8QC9Kwd1ASP1YgjeWM6SNW/o1Q4nRHgtA4DY3Nv/eH15aHAbxYLQtMziOXCKnNyAoBl6f
-	AgYMFWiBHDwHKkpatOMKlpWuPUc71hJSHhU5DP1WZVilw3RO2FgN5gJgnw2jAybrUD8PTKXxgCkPi
-	2LrTaft/ew1Iw2TP7p4NOXNutz93XBzyX0fmKSfJi+mApMvyJsxznsQuvjskNCWPXxVwnaSZjAAG9
-	2JiYa5OFfdZOdJ4Kmrbj0HIRkJk+QvMrZHtOCGGKyv8GpVuMiKAKReD0XX875uA2yZmqvcvunRnRz
-	NG0Sv49g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IP4BJQpa8cQMOgDk2kLNoVkFiq95UsayiMUHPOGpZdg=; b=KzzvsObiOYqcPLq3cR0bSwr+/U
+	s5mnEQCxjFmQy75rEXkPumoyXCMXaHTFiCkqn/i65x/+GDBfSb6PYpqSK4VbZLiRZuAzh5lh0HFwH
+	X36rC/cyzLU4XGvvTrb5Su0b0WE5z5nHsofRFQJgpPcp2vwG7mE+esaflIZLWnppF8gn4jwTrVnhu
+	ZpPkkRuANp81q5G3EJm55CHhvroS6p5Zfgf5f8Ka/mg60jGubFZUxK+fEAAcrAdwZdVtkP22LaBQq
+	AjWuSHeFNfJTb7nW6p9TmGamrPb7IDSZurNy9+etu/g3c3gOt2vxAaUXCCiqOA1jWZ+3gxciXFxhR
+	WAngVDYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkODL-00000008QSp-3Z2c;
-	Tue, 18 Feb 2025 14:04:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOAj-00000008PzP-3Wvw
+	id 1tkOEn-00000008QoV-2KSF;
+	Tue, 18 Feb 2025 14:06:13 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkOD6-00000008QPV-1AQM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 14:02:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 05D16152B;
-	Tue, 18 Feb 2025 06:02:20 -0800 (PST)
-Received: from [10.1.27.186] (XHFQ2J9959.cambridge.arm.com [10.1.27.186])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 623173F6A8;
-	Tue, 18 Feb 2025 06:02:00 -0800 (PST)
-Message-ID: <0ad8b31e-f1f1-426d-89e8-a21cf72814d1@arm.com>
-Date: Tue, 18 Feb 2025 14:01:58 +0000
+	Tue, 18 Feb 2025 14:04:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UoANLI6xoX6Xica1fCnJqwYQp07deN259i0rAcglSLDnafJP+Ho/nXetuv4E3qTU7fjFpgVI/03oMtRGy1ix3+/iZCx//67j/YDfz6LI5rAN33k7bStL4dlDxMSFMQ3+Lol/f9gmZvElb3m1Ogic3zuWF1Yio93gzoe696jMD/n460JALH/LJMK1sphzYzFTfkWiEd+BAZIQEs+dNCYXSsWcEHtt5mTwZEuFUgJzoXZxIFByaqVFd8nJDcg8yyrvOfcnyT5LofdsefjGDk15CZWgxfr2pqUsllqWBLXdn6kk3PSEzobobcCtGa0ytuZXG3rKC1ydk+nrEoO5ZEefEg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IP4BJQpa8cQMOgDk2kLNoVkFiq95UsayiMUHPOGpZdg=;
+ b=MwAHos7V6nl2XBJOh2hm6dE6XLn3WiXoY/jIGVadlGPXyFvkN8A5TX0Nf6pc20BgxkMJIQh9d1XSkRCOqmF20FgUQkT4EQRDZVQyy+/q0if/WAFI/BCvNqARj6XNz32ddDLOXU1I9lT05UI+fuZK0en83olPssvwajAYN4Pe2rV6hHguun5i0cszHRXagL26hjcFC28xAZK1D/WcDkFdjqnOMn5lGRuh9vHEqHtaEQdA7sttcamLaeHSfEjxb8u1ii1oRfM/6hKIh+reL8HhUGwpGywu7b/6+qqf346I4KRSe3BRJuWEBuQQ/YXrneyKPVkRuAQX49/Gdno5v8T+Gw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IP4BJQpa8cQMOgDk2kLNoVkFiq95UsayiMUHPOGpZdg=;
+ b=lJPPMAg8WfEQfSJYYBW9nbBk4SFeOz7rRg3+b+mud8SKNBZIbQabPSlIW9SEzbKitf7bpyAH6vn4jJaMAMDBtLJFXgquFFcy7IXuPABlxrUpsa+hKxhOAaEm4a83vz4trhKgThmQSzEXED1zOjFQOXByQoEArbAQLK5nNMe74bLWGTaNPjUdyGg3B5R032xYYq/AJWVSeVbQ6RUVASNGIEVzHd6JidwkyjgLPtTlJOuH9fxRtCAXngt9+uqq2lchTHLt+Rmr6QIZUjtWh9uIoaO2NrZDpX3UfOm0h9nciSTFz0TScB6s/j677vibEVOR+UkYmdkaGmI4jXHjOkvFqg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
+ by PAXPR04MB8078.eurprd04.prod.outlook.com (2603:10a6:102:1c1::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Tue, 18 Feb
+ 2025 14:04:24 +0000
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::b1b9:faa9:901b:c197%4]) with mapi id 15.20.8445.017; Tue, 18 Feb 2025
+ 14:04:24 +0000
+Date: Tue, 18 Feb 2025 23:11:27 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Daniel Baluta <daniel.baluta@nxp.com>
+Cc: p.zabel@pengutronix.de, shawnguo@kernel.org, mathieu.poirier@linaro.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, andersson@kernel.org,
+	linux-remoteproc@vger.kernel.org, iuliana.prodan@nxp.com,
+	laurentiu.mihalcea@nxp.com, shengjiu.wang@nxp.com, Frank.Li@nxp.com,
+	krzk@kernel.org
+Subject: Re: [PATCH 3/5] reset: imx8mp-audiomix: Introduce active_low
+ configuration option
+Message-ID: <20250218151127.GB6537@nxa18884-linux>
+References: <20250218085712.66690-1-daniel.baluta@nxp.com>
+ <20250218085712.66690-4-daniel.baluta@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250218085712.66690-4-daniel.baluta@nxp.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG3P274CA0005.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:be::17)
+ To DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2] arm64/hugetlb: Consistently use pud_sect_supported()
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-kernel@vger.kernel.org
-References: <20250218113639.475947-1-anshuman.khandual@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250218113639.475947-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|PAXPR04MB8078:EE_
+X-MS-Office365-Filtering-Correlation-Id: ab2aac95-ef76-4518-8886-08dd5025265d
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qs7Iv42QLzb3t1KVjka1CLzkThSfrG8SaH8DAuGgbhaxjkXT9tqWub8Xj3lx?=
+ =?us-ascii?Q?zRxuyVNlygORhbdXt5tuQ9zaeIHUMz/IdCjiEHyBys7W1IPKChH3BwVbrnl8?=
+ =?us-ascii?Q?1HrfWlFmREzY+hh1UsDBLjEpvMbhX9ecMuIPxeZpy4Gy5Mmq4z5DbJRkSrDm?=
+ =?us-ascii?Q?nWeywdOSxafdtYbq6bcAecz9iggeSm2sLSz+ydfuq9iFAGkozCf5ExbJLMD+?=
+ =?us-ascii?Q?KLF2oB5+uZ2PCjK5NHuasE3ZG/nqKRDbTJZHMsTNTsExJW4ygLPtv67zD4Mr?=
+ =?us-ascii?Q?e2QK5YQ8WUEtyljmWvInLhKhEDo3QeMopswIy5+5ZqevME0Qr+lCkAMOXDr/?=
+ =?us-ascii?Q?J4lkWCDl/qnUtCC76GiHFfEhwK3zNgKjLrS+qqNvNIqIgXjRimNngPIOf+cF?=
+ =?us-ascii?Q?HG4pip7pK3ZZCspgQlkzpDynXcQx14oh4v9Sbm3ezBeVIFStiyWhzuxTm/1y?=
+ =?us-ascii?Q?BJIILmq+DC7P8gUAvQySv41JsUdj+oMAEWD5y7dRZ3g6p8pfPSmiEkh8kSGE?=
+ =?us-ascii?Q?bmgtlTT0GqFhx0ZLV+TKPqMEdksFrltSYkitfPV2gBdhX4+ARSalHbMgw2Ht?=
+ =?us-ascii?Q?BTdYWatH4wAUsPiLRw8BxFwTbwpnU1kXCgb2LkPhk5CqvZbMEmEvgkU/DflW?=
+ =?us-ascii?Q?kVhpWKxp3RNuLdn5d6gJOm9q2L8wXoQawoZisNca5oKf6Z6+lGNoeQ7OF4Ti?=
+ =?us-ascii?Q?+dTuEgKY/LfjL6jCfRP1CESQ1GgVgIFBNpoJXKH2lcLDDbWlHJR7r4ikbiky?=
+ =?us-ascii?Q?5fGeBJxvkCzR3dpB9gMBwrCFD42uRz3BCJNMZCSTU4l2JlaCtMiMKAe3YJSc?=
+ =?us-ascii?Q?mKWeX+3sjM0l4KRSAOZL0tTFeVcrFhF/hGGr5fmsJwfLxVYoop/78jcPWx86?=
+ =?us-ascii?Q?P3w6w7sSq6Sk8+DNI2QY5NxOQ918Vv+c7mbVSHNKlxlphxHJS2vsJI1T4OkE?=
+ =?us-ascii?Q?3kZG0st5loIit19DNNQ4CPZXePWqfR93oKmttLWUR2qOHfF9jrDkoCLylcF+?=
+ =?us-ascii?Q?C4PAMQOmg2wZlQuEdNjevwuqClaTqAHWOxppe8ZCZrA5AVY1DZlPo8+3OoRY?=
+ =?us-ascii?Q?hHf8ySBnjaag8Td6OsbK6N22aQPNQIyM8sZd2cnkGtGl8aa/n+bPQfzyOkEA?=
+ =?us-ascii?Q?uDNDG6tLqdSfeN0Mv6jiznjeFh9MiBqm+NZiWbvU+YLGpD/g3MEXgBhMkTVG?=
+ =?us-ascii?Q?iC8ZCGA2A2QWVUitHKSsXsMyyx51FfAq2Zsm3cJsYDcoiBOuhgTPFBjCbynC?=
+ =?us-ascii?Q?Hegcs2P7+p57kHpBKsoGXDKqAB/nX3Y04jgw5sfwx+VB1cX4rVVSJq4NWCJE?=
+ =?us-ascii?Q?fI4o9K9z/avN9HlrU+l5+7/JQUjhHYmrh8yKInF4eZ0zdW/l8ysqeTzNq8Xt?=
+ =?us-ascii?Q?Yq8Mhr7SRQ4sqHXYjedKneOQeU+3fjscJPfmY7FfZvpOO3cLnXF0E4mn39PX?=
+ =?us-ascii?Q?pLXGWObMQxYLOw4yzByRRMEEfMvsgaDB?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eqozCNmn6hWccnb/Lg0bpYmufP0UfSyNkYiPr0rLgTTnpmMTMSuZ81izz2ZZ?=
+ =?us-ascii?Q?x+7OWRap6J0yWdyhrhoNUc/ipWZF0kodjpXGloFpGizQXmDGiu+4uvzT3dU0?=
+ =?us-ascii?Q?RVJYrMuh9kEKRkYKs19g7uQSdKizGFrH27yt/JwLbIMDgPiHXtV7tvuAgj4E?=
+ =?us-ascii?Q?G5ZqeGUGy3Xoxq1tsRZxjT1GuzaEEKHySEYkgvyim+sGooOEx8+1mPPksuIv?=
+ =?us-ascii?Q?JMGl6pNCbfVX6Sclk+N4boie/nibiCDDgvGv1tIs8MxmF4zdkdoC92eoxxCk?=
+ =?us-ascii?Q?JYp11MNUdX/anwKeq5MrNRPBJjJ+pBgAgNCHa8C8SGSTg4MQ3yXR4TS+fXz1?=
+ =?us-ascii?Q?dWdqIzrRyWjwR05OeKmg4vX1LDuTYGoAfgnmWiDJxVRZjuFnTRPEZa+aUpwT?=
+ =?us-ascii?Q?jlKh8h5HnPKd6/NH1HUmFsO5s+MZk4amK/Ec/9QZkUo0pusmSKkaQUSWSixs?=
+ =?us-ascii?Q?0iN2J2rQXGg/Fj4R1d9oylS5SnrmCB2xou9bsc3kAg3QvlZReQPpM2dQl2nd?=
+ =?us-ascii?Q?6Q24d/H+I9q2P1hiyJW3RTE1N5crkCVS3Ms1yVe0sF+O3PdbhM9lyZDS7PHw?=
+ =?us-ascii?Q?VyMEtVBq+lwMWUsrn911Qyxc5YG1ZnG0/wzFd2V4ilvk6yq8iTuYYvkDmrgg?=
+ =?us-ascii?Q?sdrW8F71J9jFlibJlVm5BfHhO3nsZU6J46ZDfSZJeGj/PKR/B1vdXYD7Ixe9?=
+ =?us-ascii?Q?ohf0hSsz6152/V0TYABcRhu9nAK4NGjsnXJlmsAkZkuNqxZzNuBBikE+rLF4?=
+ =?us-ascii?Q?lWe70WYEH0PhwRr525agE24+RZRdTId7IEzmMiodOWO2yw4en9YXTavir1Pe?=
+ =?us-ascii?Q?44xowTsehVk8h1iE7kJWJWdggVzrXTVjHMDRO01htORv6tj7Oj6y0xF8m/M9?=
+ =?us-ascii?Q?OnLKPLYY+jAxRha7J5JGEkjl/J3uDK+YbsTlKzvF09MH5l6+hYZgkXSwVFe0?=
+ =?us-ascii?Q?NpL/FNxmi4BZbrnpApMo+XvN4okjKRZVyFUKqB0uScD16NX7vzV81FfUaOS3?=
+ =?us-ascii?Q?geHuwOzs1V+jvMJpNHizdp6e4xo9Tn24Vb4B6tMZoPvnsclbPrdWsr1dh0ja?=
+ =?us-ascii?Q?WgwBsN4xAGLyQZEZO/JEfVta3jHOu1XK2wnnWWVTFNPSNUpvODiNE+9hq/km?=
+ =?us-ascii?Q?yXCyagvzRJTq/RUyF4vciKl7WR007luDh+O7CzqOaNqtSJSi7aG8T5XnI5/9?=
+ =?us-ascii?Q?SoGZkMKpcJA0lHHkO9f9hy2+UiKANVhg5v9GZ4ek3O6kvbi5Ylor2d+7Qxgw?=
+ =?us-ascii?Q?TX+q/4lasoImzzw88NnS7sDIqO3ct7d/p6FsZcypAeO5qanFeRHjJgCGj2MN?=
+ =?us-ascii?Q?mAPk3z/oMPd1ahDzLZmMiucWJIO2FLqDexs01FFPA3CHFezlc+hpAx7GC3b9?=
+ =?us-ascii?Q?gHq83GYE3V8RGJX7M6HYG18NagvFwLfPnGXaLOIlaRoktnDvs4ABFjMCq5Zr?=
+ =?us-ascii?Q?0hGd/SDeL/ho31EM6zsY6H8MVzQMu6Hp6rqYroBNENW2/X6Ko72LWehSrC2s?=
+ =?us-ascii?Q?73viYU6uChvrwjGdrRL4T5P4aAfEGXwjII/ZTxZD0y0qUd//pLMdIRMbEyIV?=
+ =?us-ascii?Q?IXMY+ULcBg5uJfN47nl0sfGzaaPoclmM+jPtGl9o?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab2aac95-ef76-4518-8886-08dd5025265d
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 14:04:24.6540
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: c9LlZk7mPhTX7ko9lGDdnGH8ROPAtEL4PbOJsqdhtHcTLa3SC07w48AO5nMXE59NGy8z4ZkSbuePL6VKyD4kCA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_060201_926878_7DA45B2E 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20250218_060428_315666_1B759286 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,86 +166,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/02/2025 11:36, Anshuman Khandual wrote:
-> Let's be consistent in using pud_sect_supported() for PUD_SIZE sized pages.
-> Hence change hugetlb_mask_last_page() and arch_make_huge_pte() as required.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> This patch applies on v6.14-rc3
-> 
-> Changes in V2:
-> 
-> - Added an warning when PUD_SIZE is requested but not supported per Ryan
-> 
-> Changes in V1:
-> 
-> https://lore.kernel.org/all/20250217065414.49489-1-anshuman.khandual@arm.com/
-> 
->  arch/arm64/mm/hugetlbpage.c | 9 +++++++--
->  1 file changed, 7 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index 98a2a0e64e25..1d89599a20d7 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -342,7 +342,9 @@ unsigned long hugetlb_mask_last_page(struct hstate *h)
->  	switch (hp_size) {
->  #ifndef __PAGETABLE_PMD_FOLDED
->  	case PUD_SIZE:
-> -		return PGDIR_SIZE - PUD_SIZE;
-> +		if (pud_sect_supported())
-> +			return PGDIR_SIZE - PUD_SIZE;
-> +		break;
->  #endif
->  	case CONT_PMD_SIZE:
->  		return PUD_SIZE - CONT_PMD_SIZE;
-> @@ -364,7 +366,10 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
->  	switch (pagesize) {
->  #ifndef __PAGETABLE_PMD_FOLDED
->  	case PUD_SIZE:
-> -		entry = pud_pte(pud_mkhuge(pte_pud(entry)));
-> +		if (pud_sect_supported())
-> +			entry = pud_pte(pud_mkhuge(pte_pud(entry)));
-> +		else
-> +			pr_warn("%s: pud huge page not supported\n", __func__);
->  		break;
->  #endif
->  	case CONT_PMD_SIZE:
+On Tue, Feb 18, 2025 at 10:57:10AM +0200, Daniel Baluta wrote:
+>For EARC and EARC PHY the reset happens when clearing the reset bits.
+>Refactor assert/deassert function in order to take into account
+>the active_low configuratin option.
+>
+>Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+>---
+> drivers/reset/reset-imx8mp-audiomix.c | 45 ++++++++++++++-------------
+> 1 file changed, 23 insertions(+), 22 deletions(-)
+>
+>diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
+>index 6b1666c4e069..8cc0a6b58cbc 100644
+>--- a/drivers/reset/reset-imx8mp-audiomix.c
+>+++ b/drivers/reset/reset-imx8mp-audiomix.c
+>@@ -23,16 +23,19 @@
+> struct imx8mp_reset_map {
+> 	unsigned int offset;
+> 	unsigned int mask;
+>+	bool active_low;
 
-Personally, I think something like this is cleaner than having 2 warnings:
+How about using u32 flags?
+Then it will be easy to extend to add new FLAG in future in case.
 
-pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
-{
-	size_t pagesize = 1UL << shift;
+If you tend to use bool, also ok to me:
 
-	switch (pagesize) {
-#ifndef __PAGETABLE_PMD_FOLDED
-	case PUD_SIZE:
-		if (pud_sect_supported())
-			return pud_pte(pud_mkhuge(pte_pud(entry)));
-		break;
-#endif
-	case CONT_PMD_SIZE:
-		return pmd_pte(pmd_mkhuge(pmd_mkcont(pte_pmd(entry))));
-	case PMD_SIZE:
-		return pmd_pte(pmd_mkhuge(pte_pmd(entry)));
-	case CONT_PTE_SIZE:
-		return pte_mkcont(entry);
-	}
-
-	pr_warn("%s: unrecognized huge page size 0x%lx\n",
-		__func__, pagesize);
-	return entry;
-}
-
-Thanks,
-Ryan
-
-
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
 
