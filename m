@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8333FC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 18:34:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7597C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 18:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=juF5x9hpHgGG9B0Te+S/QPiCyl/zL0Ok+kBQxdBUeBU=; b=QDMEPhS0ja5dxD
-	KF7Af8O+MFBYDRGSdgy8YDJFgHGkpEwKXq7GeGotQitzMoWTV4yZM6XfA4dbs1yT60DFD0qI0/i+8
-	YnS3tKSptHmSb8lkxMgEBJIiVFTfWanCT1PVE4D2/bSmq5EUf3g51syNR6dS+u57oCodUKdGASERc
-	VxM4MY1Gi2xRrlfcWu3c1FnbysLMLJHFLuBQQz1STFJ/1PbKDU25WPLsbOseP2eY7KvuiyTA3HhRP
-	FabAlhVRzdX3BgxHpT2jr0+zru9yifdmvXZX6spC8rEOsNGhFG5uibplgifhta85KP/WSf/8lC1qH
-	iIJSTrqmxirUJ1rXwumw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gcTSgSAB7C9SWjlp6l7gbwqdoXiAk8UvKKZ3UIQ30co=; b=Pqmu/03KB+T/L5QTB6imEC+vU4
+	Kuq5B61BnCUd0Nb4cpZXvQfDcTopApqpYwY97/gLk+HqtUY+t8scrILaXxtwo24kBVSuOENaPPbdN
+	Hd0CMG/UhTtl9kP18XqSxNc8WlO976l9IFhw2WJHcVCdlqcCULcueIaV1MqSEn7AVHgSZZhcHhtil
+	oAoty69Ivq8+G8BW4IO1E1QkZaS2BX54BuN6iwiZZBC/zX9HbEUXWxW0KEIbMZvYC1K7ezrvagF7h
+	xzjoQu73e2+9csFENFcsPrkYVAUZiwJFyGSxPpenHTxJmZrKbSCyUz2tlttkoEyPmDj9ov9DKr6yp
+	sx9f+hbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSQM-00000009NAi-12H0;
-	Tue, 18 Feb 2025 18:34:26 +0000
+	id 1tkSRm-00000009NPS-3e6I;
+	Tue, 18 Feb 2025 18:35:54 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSJH-00000009LVR-42Cb
+	id 1tkSJO-00000009LYk-2uaq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 18:27:09 +0000
+	Tue, 18 Feb 2025 18:27:15 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tkSIy-0006Be-0w; Tue, 18 Feb 2025 19:26:48 +0100
+	id 1tkSIy-0006Bj-0z; Tue, 18 Feb 2025 19:26:48 +0100
 Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tkSIx-001dV9-1T;
+	id 1tkSIx-001dVD-1g;
 	Tue, 18 Feb 2025 19:26:47 +0100
 Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
 	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
 	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tkSIx-00A9Hm-1A;
+	id 1tkSIx-00A9Hm-1E;
 	Tue, 18 Feb 2025 19:26:47 +0100
 From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: [PATCH v4 0/6] arm64: dts: freescale: imx8mp-skov: switch to
- nominal drive mode
-Date: Tue, 18 Feb 2025 19:26:40 +0100
-Message-Id: <20250218-imx8m-clk-v4-0-b7697dc2dcd0@pengutronix.de>
+Date: Tue, 18 Feb 2025 19:26:44 +0100
+Subject: [PATCH v4 4/6] arm64: dts: freescale: imx8mp-skov: configure LDB
+ clock automatically
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAODQtGcC/23MTQqDMBCG4atI1k1JokbtqvcoXUyTiYbWH6INF
- vHujYIQaJffMM+7kBGdxZFckoU49Ha0fRdGdkqIaqCrkVodNhFMZFzwgtp2LluqXk9aZbIoZKq
- N0iUJ/4NDY+e9dbuH3dhx6t1nT3u+XY9KFVU8p4wqA8YAKwsN8jpgV78n13d2PmskW8qLg+eMM
- xlzEbgEQNCgZG7wL08jztOYp4EzLbF6aATIfvm6rl///j44JQEAAA==
-X-Change-ID: 20241217-imx8m-clk-9467763dfcd8
+Message-Id: <20250218-imx8m-clk-v4-4-b7697dc2dcd0@pengutronix.de>
+References: <20250218-imx8m-clk-v4-0-b7697dc2dcd0@pengutronix.de>
+In-Reply-To: <20250218-imx8m-clk-v4-0-b7697dc2dcd0@pengutronix.de>
 To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
  Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -67,17 +64,15 @@ To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
  Marek Vasut <marex@denx.de>
 Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Ahmad Fatoum <a.fatoum@pengutronix.de>
+ linux-kernel@vger.kernel.org, Ahmad Fatoum <a.fatoum@pengutronix.de>
 X-Mailer: b4 0.14.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
 X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_102708_023085_92030866 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20250218_102714_737365_D9108CD3 
+X-CRM114-Status: GOOD (  12.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,70 +87,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unlike the i.MX8MM and i.MX8MN SoCs added earlier, the imx8mp.dtsi
-configures some clocks at frequencies that are only validated for
-overdrive mode, i.e., when VDD_SOC is 950 mV.
+The comment in the DT mentions that "currently it is not possible to let
+display clocks configure automatically, so we need to set them manually".
 
-For the Skov i.MX8MP board, we want to run the SoC at the lower voltage of
-850 mV though to reduce heat generation and power usage. For this to work,
-clock rates need to adhere to the limits of the nominal drive mode.
+Since commit ff06ea04e4cf ("clk: imx: clk-imx8mp: Allow media_disp pixel
+clock reconfigure parent rate"), this is no longer the case.
 
-This is done by this series: A new imx8mp-nominal.dtsi reconfigures
-the imx8mp.dtsi clock tree to be compatible with nominal mode, an adaptation
-to the Linux clock driver makes it sanity check the actual clock rates against
-the SoC operating mode's constraints and finally the Skov DT makes use
-of it.
+Make use of this new functionality by dropping the now unneeded
+assigned-clock-rates in &media_blk_ctrl.
 
-Actual configuration of the VDD_SOC rail continues to happen prior to Linux
-as well as PLL configuration that needs to happen earlier than the kernel
-running. See the corresponding barebox patch series[1] for details.
-Note that the barebox series didn't yet include VDD_SOC reconfiguration
-to 850mV, that would follow once the kernel changes have been merged.
-
-[1]: https://lore.kernel.org/barebox/20240503103717.1370636-1-a.fatoum@pengutronix.de/
-
+Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 ---
-Changes in v4:
-- remove unnecessary oneOf in dt-bindings schema (Frank)
-- rebase on top of DT clock rate change v6.14-rc3
-- Link to v3: https://lore.kernel.org/r/20250113-imx8m-clk-v3-0-0d6e9bdeaa4e@pengutronix.de
+ .../dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts | 19 +++++--------------
+ 1 file changed, 5 insertions(+), 14 deletions(-)
 
-Changes in v3:
-- change boolean mode properties to string property, so it's possible to
-  override in overlays (Frank).
-- Dropped Conor's Ack again due to aforementioned binding change.
-- make struct imx8mp_clock_constraints::clkid unsigned (Stephen)
-- Remove comma after sentinel member (Stephen)
-- Link to v2: https://lore.kernel.org/r/20250106-imx8m-clk-v2-0-6aaeadac65fe@pengutronix.de
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
+index 2c75da5f064f2b0cd97f5040febac13c4adc020b..a13f6d76a495936575ead53e4ea69ed39f80d61c 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts
+@@ -51,8 +51,11 @@ &lcdif2 {
+ };
+ 
+ &lvds_bridge {
+-	/* IMX8MP_CLK_MEDIA_LDB = IMX8MP_CLK_MEDIA_DISP2_PIX * 7 */
+-	assigned-clock-rates = <490000000>;
++	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
++				 <&clk IMX8MP_VIDEO_PLL1>;
++	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
++	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
++	assigned-clock-rates = <0>, <980000000>;
+ 	status = "okay";
+ 
+ 	ports {
+@@ -64,18 +67,6 @@ ldb_lvds_ch0: endpoint {
+ 	};
+ };
+ 
+-&media_blk_ctrl {
+-	/* currently it is not possible to let display clocks confugure
+-	 * automatically, so we need to set them manually
+-	 */
+-	assigned-clock-rates = <500000000>, <200000000>, <0>,
+-		/* IMX8MP_CLK_MEDIA_DISP2_PIX = pixelclk of lvds panel */
+-		<70000000>,
+-		<500000000>,
+-		/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_LDB */
+-		<490000000>;
+-};
+-
+ &pwm4 {
+ 	status = "okay";
+ };
 
-Changes in v2:
-- Explain in Patch 1/6 why two properties are added instead of one
-  (Conor)
-- Collect Conor's Acked-by
-- Collect Peng's Reviewed-by
-- Link to v1: https://lore.kernel.org/r/20241219-imx8m-clk-v1-0-cfaffa087da6@pengutronix.de
-
----
-Ahmad Fatoum (6):
-      dt-bindings: clock: imx8m: document nominal/overdrive properties
-      arm64: dts: imx8mp: Add optional nominal drive mode DTSI
-      arm64: dts: imx8mp: add fsl,nominal-mode property into nominal.dtsi
-      arm64: dts: freescale: imx8mp-skov: configure LDB clock automatically
-      arm64: dts: freescale: imx8mp-skov: operate SoC in nominal mode
-      clk: imx8mp: inform CCF of maximum frequency of clocks
-
- .../devicetree/bindings/clock/imx8m-clock.yaml     |   8 ++
- arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi  |  64 +++++++++
- .../arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi |   5 +-
- .../freescale/imx8mp-skov-revb-mi1010ait-1cp1.dts  |  19 +--
- drivers/clk/imx/clk-imx8mp.c                       | 151 +++++++++++++++++++++
- 5 files changed, 231 insertions(+), 16 deletions(-)
----
-base-commit: 0ad2507d5d93f39619fc42372c347d6006b64319
-change-id: 20241217-imx8m-clk-9467763dfcd8
-
-Best regards,
 -- 
-Ahmad Fatoum <a.fatoum@pengutronix.de>
+2.39.5
 
 
