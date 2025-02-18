@@ -4,98 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55EEAC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B92C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5OfFu0RkbbUZXKY+wlw4vZE7RYzdrPOYjbu2BnT5c6Y=; b=Ml61/0UnQ1iUxSNPFMo5GZGM4x
-	En/qOGnEHFGweU8IwiFSWfZZ7UaoHZ2qVcBdP4T3q3i4yqx7kA8viAHRqi2R8hJaW8lP1b1xrLpw7
-	yhuBqm4sS0mwaA80u8f8gb5RjaSAvX1hXudLd8txLvDVvDRjqvAVRlWG3EwtOvOzFcBd7rrQlClx/
-	yoX39uua04mcklTXLzMAO2HUa6ljY1zamCs52PGrfsCBCA0ey0mDgOxoU05FDOeecD6LOPM5C+gy6
-	qGBhpsPFJwmRZTjdTsbslYVBV/vrfeBZY6jh5JfexjA+2aFantWvzVmbx+y1F6tcN/tev9D2fUpsg
-	6J2j9Ofg==;
+	bh=rgwQwaW4CJVO+djgR5oP+BuVMz8oTfdlefD5MBuPc3c=; b=CR2fUA9WO0BxshFc54HIJgvU4g
+	LZ6QnMgusZRDbhXtUoTTrw/0w2YU1qclVbtEDQ9U7GrGR2GAFPZ4mR/1jOWnWaqAEmxzOmJ1h+DRm
+	V1SedNBCtljIzLCbWe+QKpNXj6e5Fg6xCjmfw+Oo6NVIjE2Z2oCy1BJooFYVAseQVO1YJRyn6IUuH
+	ybl7rYkCPO/J6bI7hsZPy3upSJ31zNE7Y4WvRzJG4nPiEzTsHbH17EPHGrwQOC2N5p7OEm408Lh6b
+	ZjmAPzzDqUsn74w5EE00+qawp/yhIqFQKW1T6EGzSBAr1LfEgPDu+KRVX3ot6AAdDXc74pIbK7PaR
+	CuXeSyyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLrm-00000007ys2-3KoJ;
-	Tue, 18 Feb 2025 11:34:18 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLlh-00000007x8H-1Frq
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 11:28:02 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51HNmHMn004131;
-	Tue, 18 Feb 2025 11:27:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	5OfFu0RkbbUZXKY+wlw4vZE7RYzdrPOYjbu2BnT5c6Y=; b=PvtAQfNWI3yUvGM2
-	Dd0P6GTjmPE1mlYQa5mhDKT+hFVhmIVHJCznIxxQ7RyKA82HCT46KJhK1KBadAzj
-	goXnUWyyCxFQ1FaR/Yjq+TMwcg0ijMH3jsqCaGj1mM9e79AXbYyw4hpv76fQbc7F
-	l/szK2KjM/PamX7SCCC6FEx5uFTYjyeTxLt4x+CuyGK0MgjJx7reZjx7uS5FxcOg
-	/Xq4W/bTIA65Lrrs7qbZMUesPjnjEw2ahRApkv849l9eesvkmHh5wN3cpR0x6ITE
-	lx2wXDiw6ZAwBFvhPifKxTlZjOf2k48gENOhEMEMm2PEHiA3WXzvldYoqy94dvt/
-	EUNuvQ==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44ut7uvmq9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 18 Feb 2025 11:27:44 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51IBRPD8031473
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 18 Feb 2025 11:27:25 GMT
-Received: from [10.152.195.140] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 18 Feb
- 2025 03:27:15 -0800
-Message-ID: <25e5840d-a9c3-45fa-ae06-e18c387f1efc@quicinc.com>
-Date: Tue, 18 Feb 2025 16:57:12 +0530
+	id 1tkLtD-00000007z3G-1r7x;
+	Tue, 18 Feb 2025 11:35:47 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkLly-00000007xAB-2Prq;
+	Tue, 18 Feb 2025 11:28:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=rgwQw
+	aW4CJVO+djgR5oP+BuVMz8oTfdlefD5MBuPc3c=; b=hhLpsffquMWDF9Q51nhhE
+	+AEBWdOEncdlEf8d5bjOEvQwKE5eamuHd1tnKn0lU59IhfJ3U8sQgqEfiT3i+/+Y
+	MS2eSQTg4m6Iks69dECVkCWEiBoWRXr2Nc/04dkSURcnuQmvG5fjHcP3YvRv+D03
+	B1mKy2M0VVrAu4qzAgDL5s=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD333uybrRnLIPUMQ--.34107S4;
+	Tue, 18 Feb 2025 19:27:52 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
+	krzk+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	derek.foreman@collabora.com,
+	detlev.casanova@collabora.com,
+	daniel@fooishbar.org,
+	robh@kernel.org,
+	sebastian.reichel@collabora.com,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v15 02/13] drm/rockchip: vop2: Remove AFBC from TRANSFORM_OFFSET register macro
+Date: Tue, 18 Feb 2025 19:27:29 +0800
+Message-ID: <20250218112744.34433-3-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250218112744.34433-1-andyshrk@163.com>
+References: <20250218112744.34433-1-andyshrk@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 5/6] arm64: dts: qcom: ipq9574: Add nsscc node
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, <andersson@kernel.org>,
-        <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <konradybcio@kernel.org>,
-        <catalin.marinas@arm.com>, <will@kernel.org>, <p.zabel@pengutronix.de>,
-        <richardcochran@gmail.com>, <geert+renesas@glider.be>,
-        <dmitry.baryshkov@linaro.org>, <arnd@arndb.de>,
-        <nfraprado@collabora.com>, <biju.das.jz@bp.renesas.com>,
-        <quic_tdas@quicinc.com>, <ebiggers@google.com>, <ardb@kernel.org>,
-        <ross.burton@arm.com>, <quic_anusha@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
-CC: <quic_srichara@quicinc.com>, <quic_varada@quicinc.com>
-References: <20250207073926.2735129-1-quic_mmanikan@quicinc.com>
- <20250207073926.2735129-6-quic_mmanikan@quicinc.com>
- <ee166cf3-4486-4172-a510-bafa1624ab79@oss.qualcomm.com>
-Content-Language: en-US
-From: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
-In-Reply-To: <ee166cf3-4486-4172-a510-bafa1624ab79@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 8uUAcfAcj6CylrdPtUO1K7NHTHtu96ta
-X-Proofpoint-ORIG-GUID: 8uUAcfAcj6CylrdPtUO1K7NHTHtu96ta
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-18_04,2025-02-18_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- mlxlogscore=999 spamscore=0 clxscore=1015 malwarescore=0 bulkscore=0
- mlxscore=0 impostorscore=0 lowpriorityscore=0 phishscore=0 adultscore=0
- priorityscore=1501 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2501170000 definitions=main-2502180090
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD333uybrRnLIPUMQ--.34107S4
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCrWxKr4rurWrCFyxArykuFg_yoWrZrWDpr
+	W3JayDWF4UKFs2gF48Ar15AF4rJan7K3yfGanxJrnIqFyagryDG342kFyDJr47tas29FZ2
+	q3saqrW7urWftr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jUTmhUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkBT3Xme0bEsvuAACsM
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_032801_459388_35A4E780 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20250218_032818_998864_5F3DDF32 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,55 +82,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Andy Yan <andy.yan@rock-chips.com>
 
+This TRANSFORM_OFFSET register needs to be configured not only in
+AFBC mode, but also in tile mode, so remove the AFBC/AFBCD prefix.
 
-On 2/10/2025 11:47 PM, Konrad Dybcio wrote:
-> On 7.02.2025 8:39 AM, Manikanta Mylavarapu wrote:
->> From: Devi Priya <quic_devipriy@quicinc.com>
->>
->> Add a node for the nss clock controller found on ipq9574 based devices.
->>
->> Signed-off-by: Devi Priya <quic_devipriy@quicinc.com>
->> Signed-off-by: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
->> ---
->> Changes in V9:
->> 	- Rebased on linux-next tip.
->>
->>  arch/arm64/boot/dts/qcom/ipq9574.dtsi | 19 +++++++++++++++++++
->>  1 file changed, 19 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/ipq9574.dtsi b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
->> index 942290028972..29008b156a7e 100644
->> --- a/arch/arm64/boot/dts/qcom/ipq9574.dtsi
->> +++ b/arch/arm64/boot/dts/qcom/ipq9574.dtsi
->> @@ -1193,6 +1193,25 @@ pcie0: pci@28000000 {
->>  			status = "disabled";
->>  		};
->>  
->> +		nsscc: clock-controller@39b00000 {
->> +			compatible = "qcom,ipq9574-nsscc";
->> +			reg = <0x39b00000 0x80000>;
->> +			clocks = <&xo_board_clk>,
->> +				 <&cmn_pll NSS_1200MHZ_CLK>,
->> +				 <&cmn_pll PPE_353MHZ_CLK>,
->> +				 <&gcc GPLL0_OUT_AUX>,
->> +				 <0>,
->> +				 <0>,
->> +				 <0>,
->> +				 <0>,
->> +				 <0>,
->> +				 <0>,
->> +				 <&gcc GCC_NSSCC_CLK>;
-> 
-> This last clock doesn't seem to be used in the driver - is that by design?
+This also help avoid "exceeds 100 columns" warning from checkpatch.
 
-Hi Konrad,
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 
-Initially, was under the impression that the GCC_NSSCC_CLK will be enabled by the Ethernet driver.
-However, that is incorrect and this clock is needed for accessing the NSSCC block itself. Hence restoring this.
+---
 
-I will enable this clock by using the PM APIs (pm_clk_add()) in next version.
+Changes in v15:
+- Remove AFBC/AFBCD prefix of TRANSFORM_OFFSET register
 
-Thanks & Regards,
-Manikanta.
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 8 ++++----
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h | 4 ++--
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index ebc9cb93073c..19125ab6f3f3 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1524,7 +1524,7 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+ 		transform_offset = vop2_afbc_transform_offset(pstate, half_block_en);
+ 		vop2_win_write(win, VOP2_WIN_AFBC_HDR_PTR, yrgb_mst);
+ 		vop2_win_write(win, VOP2_WIN_AFBC_PIC_SIZE, act_info);
+-		vop2_win_write(win, VOP2_WIN_AFBC_TRANSFORM_OFFSET, transform_offset);
++		vop2_win_write(win, VOP2_WIN_TRANSFORM_OFFSET, transform_offset);
+ 		vop2_win_write(win, VOP2_WIN_AFBC_PIC_OFFSET, ((src->x1 >> 16) | src->y1));
+ 		vop2_win_write(win, VOP2_WIN_AFBC_DSP_OFFSET, (dest->x1 | (dest->y1 << 16)));
+ 		vop2_win_write(win, VOP2_WIN_AFBC_PIC_VIR_WIDTH, stride);
+@@ -1535,7 +1535,7 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+ 	} else {
+ 		if (vop2_cluster_window(win)) {
+ 			vop2_win_write(win, VOP2_WIN_AFBC_ENABLE, 0);
+-			vop2_win_write(win, VOP2_WIN_AFBC_TRANSFORM_OFFSET, 0);
++			vop2_win_write(win, VOP2_WIN_TRANSFORM_OFFSET, 0);
+ 		}
+ 
+ 		vop2_win_write(win, VOP2_WIN_YRGB_VIR, DIV_ROUND_UP(fb->pitches[0], 4));
+@@ -3448,7 +3448,7 @@ static const struct reg_field vop2_cluster_regs[VOP2_WIN_MAX_REG] = {
+ 	[VOP2_WIN_AFBC_TILE_NUM] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_VIR_WIDTH, 16, 31),
+ 	[VOP2_WIN_AFBC_PIC_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_PIC_OFFSET, 0, 31),
+ 	[VOP2_WIN_AFBC_DSP_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_DSP_OFFSET, 0, 31),
+-	[VOP2_WIN_AFBC_TRANSFORM_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_TRANSFORM_OFFSET, 0, 31),
++	[VOP2_WIN_TRANSFORM_OFFSET] = REG_FIELD(RK3568_CLUSTER_WIN_TRANSFORM_OFFSET, 0, 31),
+ 	[VOP2_WIN_AFBC_ROTATE_90] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_ROTATE_MODE, 0, 0),
+ 	[VOP2_WIN_AFBC_ROTATE_270] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_ROTATE_MODE, 1, 1),
+ 	[VOP2_WIN_XMIRROR] = REG_FIELD(RK3568_CLUSTER_WIN_AFBCD_ROTATE_MODE, 2, 2),
+@@ -3547,7 +3547,7 @@ static const struct reg_field vop2_esmart_regs[VOP2_WIN_MAX_REG] = {
+ 	[VOP2_WIN_AFBC_PIC_OFFSET] = { .reg = 0xffffffff },
+ 	[VOP2_WIN_AFBC_PIC_SIZE] = { .reg = 0xffffffff },
+ 	[VOP2_WIN_AFBC_DSP_OFFSET] = { .reg = 0xffffffff },
+-	[VOP2_WIN_AFBC_TRANSFORM_OFFSET] = { .reg = 0xffffffff },
++	[VOP2_WIN_TRANSFORM_OFFSET] = { .reg = 0xffffffff },
+ 	[VOP2_WIN_AFBC_HDR_PTR] = { .reg = 0xffffffff },
+ 	[VOP2_WIN_AFBC_HALF_BLOCK_EN] = { .reg = 0xffffffff },
+ 	[VOP2_WIN_AFBC_ROTATE_270] = { .reg = 0xffffffff },
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+index 29cc7fb8f6d8..156a272480f3 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+@@ -118,7 +118,7 @@ enum vop2_win_regs {
+ 	VOP2_WIN_AFBC_PIC_OFFSET,
+ 	VOP2_WIN_AFBC_PIC_SIZE,
+ 	VOP2_WIN_AFBC_DSP_OFFSET,
+-	VOP2_WIN_AFBC_TRANSFORM_OFFSET,
++	VOP2_WIN_TRANSFORM_OFFSET,
+ 	VOP2_WIN_AFBC_HDR_PTR,
+ 	VOP2_WIN_AFBC_HALF_BLOCK_EN,
+ 	VOP2_WIN_AFBC_ROTATE_270,
+@@ -335,7 +335,7 @@ enum dst_factor_mode {
+ #define RK3568_CLUSTER_WIN_DSP_INFO		0x24
+ #define RK3568_CLUSTER_WIN_DSP_ST		0x28
+ #define RK3568_CLUSTER_WIN_SCL_FACTOR_YRGB	0x30
+-#define RK3568_CLUSTER_WIN_AFBCD_TRANSFORM_OFFSET	0x3C
++#define RK3568_CLUSTER_WIN_TRANSFORM_OFFSET	0x3C
+ #define RK3568_CLUSTER_WIN_AFBCD_OUTPUT_CTRL	0x50
+ #define RK3568_CLUSTER_WIN_AFBCD_ROTATE_MODE	0x54
+ #define RK3568_CLUSTER_WIN_AFBCD_HDR_PTR	0x58
+-- 
+2.34.1
+
 
