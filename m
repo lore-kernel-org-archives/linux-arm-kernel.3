@@ -4,156 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAAAC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 23:32:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018C7C021AF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 23:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/XyJ/5W8cVygXYbZ0B/91iqdi7aL/7aKRbIbKxcsbM=; b=ykwpcMhDqUDPKK4TrNvx+MP8s9
-	QHbPuowj2+G7RLiGe0LmJwSFDbAbm+Kxl7u1Aa2/nvJ5gWcBlhHj5T6PhVtZFxxVy7+5EjNokG+B/
-	thcAhjvaapnHuDEUNbcO5lLVCOIfKmM3CRPhqY4eb7ZHlq2ncS1vQ+NsSyaFc576sLvwwjefZ4Qvh
-	NlDA7QMqUh+pBQdcsL4UK2i8IesmghbiLDViy9cwj4TziyvbsmODgoHcVDc9KYr+tSGbfgY7TUutt
-	LviKzpXDTIGwYpdlVm4286sZedSWrS9g9yXfmb+K6K+BfBpkPiV0Q6fTMp/Lj6e17HcDHBMUrbVdk
-	t4vqeNYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xTIgIfjXftTaGPBnTVA/URR4YojqwNH/5CR347EldVE=; b=U3jtpH7wAtmFt5tV1j6BvbDgZQ
+	8O4NhzKTi51czZBljUHecFtPvcHR8DF4qDtuwnjWByYTrW3ffJeQYWdO9VpmJTmwMD+a/kq13ew+2
+	CdfFa0SqKwuWx6Op/vsxZpaGDDj2/+z1+iADC2pVL0UvOXeKCrMqDttV5Y+rA4moSGuPv8Vg0Y3e8
+	3sImO/BpFbNSVWIP/tnbg5iazORNdjSXPPLCcrYa/XA0AwPp6gJYMWghZCWxqEzNh9YgDawUlGpXT
+	SH1tWOse7qhsfZJERUz7wguLwyWbmIkyedQDh42CdVWhNgH96gQ5C2WJpnZAH0g6dyZ8RzThYigIJ
+	kjPORkXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkX4X-0000000AGfX-404P;
-	Tue, 18 Feb 2025 23:32:13 +0000
-Received: from mail-dm6nam11on2060f.outbound.protection.outlook.com ([2a01:111:f403:2415::60f] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1tkXDo-0000000AHVU-0jI8;
+	Tue, 18 Feb 2025 23:41:48 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkX33-0000000AGFK-22NF
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 23:30:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Sdalyx0fOmu3Y7bqHq1me5Y9l4Gn8ZvxkPybia+7Gn80peSCktX8XyeGO90cGG7dkJ7IH5N/9onehhWqv/w0RexbERtj8VJZNRtMFsbOw0YEHfJ7faI9uiChVJwj2p0euG1qb/Hi1ei/fCO0Qt7UOfzb6VbTdY8eL2kuEosB7QNLYkI6bRr7eD9o2CHGS2WZLLFxDWTLmWqSKPmVzUFOW1+vvQFWqZ1LKrEWV6a4IkwW+Ms/ZJTHQW4TLclMwb7oFfSj2Qn4X8sz/b8C8DGgob0qnaKyhRONsUCzngNHmNpTeevDFSpVVfLG0HLjc2e7xk4ntt4dUUmqINHzSW5L7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2/XyJ/5W8cVygXYbZ0B/91iqdi7aL/7aKRbIbKxcsbM=;
- b=P6XdkBAHFmMf2InrZ5MMovAnPniTpvmJWPvJihFXmcgPnGPAsKNzDiIHiHPmnzxQV3wjr+MtHE47J8n87BAnzYPRTzWCfc7T0ljhCcb8P0Ch6LOBKOV3eASApCjDdGphUeibYnKHDq/9fILOXF2cS6G6/+24rEX+RmTk+2J9aRhhCw8QofhplewuCzZdKJzdDnychNhLht9v5Iptfy5Mnb3F4PuXgazjI2Ret+Qw8vLuS0iit78jLSS89R0+pKcV2u96dnF5Xjj2wMFkkoD4xWH+Fs48jGqUt0C2RemUtUuBOtmrt5mrQt/AfaU8qXOzUbvRDLRtC/SefS4GeM47Mw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2/XyJ/5W8cVygXYbZ0B/91iqdi7aL/7aKRbIbKxcsbM=;
- b=YxJNsa54cUwCQuJiCsZxElCE59BV99j6elyXtO2ATFQwTBwWZ+r68+Epm/Aeca3a1yz4B9KGlxjIkzTzLeMaSVwrqEmO9LpkNUUDsYnV+yJ32PzETNJEi55l7hNBp1RDKTcEAOHB/ovN9Hls0NwX43zHbwScTQ8Zak7CvJmakZnoDL4YA2+ec4LGKZZ2+H5ok6bxEvd5jOeGm6GGLn0I9MD3986TsXbs4VZ6OHo11ahRWD1qRaHX4BfnKFJwzbtYVWaVjuPjEdKLuySnXy3vi7E7KrunpUEwzMglIFA4nOXRlVO6BuUqWtyHC9PR4HTS+XMb/JFMxC7Fog1GPnXJMg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com (2603:10b6:8:130::6) by
- PH8PR12MB7232.namprd12.prod.outlook.com (2603:10b6:510:224::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.14; Tue, 18 Feb
- 2025 23:30:36 +0000
-Received: from DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe]) by DS0PR12MB7726.namprd12.prod.outlook.com
- ([fe80::953f:2f80:90c5:67fe%7]) with mapi id 15.20.8445.017; Tue, 18 Feb 2025
- 23:30:36 +0000
-Date: Wed, 19 Feb 2025 10:30:29 +1100
-From: Alistair Popple <apopple@nvidia.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: akpm@linux-foundation.org, dan.j.williams@intel.com, 
-	linux-mm@kvack.org, Alison Schofield <alison.schofield@intel.com>, 
-	lina@asahilina.net, zhang.lyra@gmail.com, gerald.schaefer@linux.ibm.com, 
-	vishal.l.verma@intel.com, dave.jiang@intel.com, logang@deltatee.com, bhelgaas@google.com, 
-	jack@suse.cz, jgg@ziepe.ca, catalin.marinas@arm.com, will@kernel.org, 
-	mpe@ellerman.id.au, npiggin@gmail.com, dave.hansen@linux.intel.com, 
-	ira.weiny@intel.com, willy@infradead.org, djwong@kernel.org, tytso@mit.edu, 
-	linmiaohe@huawei.com, peterx@redhat.com, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linuxppc-dev@lists.ozlabs.org, nvdimm@lists.linux.dev, linux-cxl@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org, 
-	jhubbard@nvidia.com, hch@lst.de, david@fromorbit.com, chenhuacai@kernel.org, 
-	kernel@xen0n.name, loongarch@lists.linux.dev
-Subject: Re: [PATCH v8 19/20] fs/dax: Properly refcount fs dax pages
-Message-ID: <jf6hr2uzyz76axd62v6czy3wzcuu4eb7ydow5mznehfuiwhqq3@2q7easkxhdp4>
-References: <cover.a782e309b1328f961da88abddbbc48e5b4579021.1739850794.git-series.apopple@nvidia.com>
- <b33a5b2e03ffb6dbcfade84788acdd91d10fbc51.1739850794.git-series.apopple@nvidia.com>
- <cb29f96f-f222-4c94-9c67-c2d4bffeb654@redhat.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cb29f96f-f222-4c94-9c67-c2d4bffeb654@redhat.com>
-X-ClientProxiedBy: SY5PR01CA0067.ausprd01.prod.outlook.com
- (2603:10c6:10:1f4::14) To DS0PR12MB7726.namprd12.prod.outlook.com
- (2603:10b6:8:130::6)
+	id 1tkXCL-0000000AHM3-0pIz;
+	Tue, 18 Feb 2025 23:40:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739922015;
+	bh=vtJYJScwIgD7t/Kjv9WAvIrpkcvjsYEil5lQtdhNnDE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=gtaqD/GWX2crjMIVsm9VhPgIp6ynjZ09aQZr76a03msFBEu3FN4S2lLI3hKVIXR6g
+	 2LOCyx9ZvSLA2TOXcjTszgbUuSNTbm1pbAWf0hAavTRc+y2+rR8S5pcR5E2wOcF8tR
+	 LRplrtXfSFculPVtvURaCiLm3OcJ5reQycDBmNKAfUAstLCB74ZnIj1JtUDQNODQ4a
+	 PsSfM1eMYJZBW7KBtqIiKNy3XmfNDycBWITJZVKFPkmnkjVddJqR+8RPSF3Sjl54be
+	 1+K0vAO/qvlBsPPMzC1rIMLXxt4k7mfTjUcjcl7YqwJxTtAnEeoQmXZqMMltmntcOq
+	 eKv7Rd4oXgWSg==
+Received: from [192.168.1.143] (144.232.221.87.dynamic.jazztel.es [87.221.232.144])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 881CB17E1411;
+	Wed, 19 Feb 2025 00:40:13 +0100 (CET)
+Message-ID: <0dd48599-448f-4472-9a8a-54b7f0379c13@collabora.com>
+Date: Wed, 19 Feb 2025 01:40:12 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR12MB7726:EE_|PH8PR12MB7232:EE_
-X-MS-Office365-Filtering-Correlation-Id: f144e0c2-c18e-42a0-a963-08dd50743ee5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?B8Bg1YJLTPRDgKHtsLsN1NEeXyhR0EsIArOhprAvM+b9ZKTkLgW10lmcysoj?=
- =?us-ascii?Q?MPZCaFMAY6TXGzhQn0vWFYx4QNa/wMKYP9c4FzqnymiZOzKJKO0mpWDBe3X/?=
- =?us-ascii?Q?LGFjDwCVKgiwpgTy3CsZIRmQGWdiSzwtORcwTyOmSrxgyBQdgTkEPBBWUhpt?=
- =?us-ascii?Q?YHw1o3qBPiMKn89CMNz9EPUfgv31EG8CKQBw/7QyexnYzEz5rGGumFg+eaNo?=
- =?us-ascii?Q?AnltLP8JfzMtC4BPyqQivZ+qGHj/NRsML+2env1B1+Vpz3CaePaeeRuE837a?=
- =?us-ascii?Q?CarHI7xKHHFHq3hXd509yj9QebQkL5E3JfOXYQM2HoZgS/Vqm7FgF0sFyp5A?=
- =?us-ascii?Q?yjdn0jm2GBFTPi0MMBtvL9FsCQnA91TCbP9yjXQ5Sf7DBYuZsMAyJpCV9+Ab?=
- =?us-ascii?Q?uSKyr/wK6BVFK/fNYTm1LEDLD6Pus6gnff/418vq+VY1RSPRdos6CDs8d8KB?=
- =?us-ascii?Q?Gg+6PlzmkS499Xo5bwCMRpzFFInKU/CFuFmTVWX+tE5U7/r9hYxXgpPpuHy4?=
- =?us-ascii?Q?Ua/U6FQgzREoTqgdPmwJ0GLFTzBaxHERXg8DCgX3WRK/W/ZpaWLPpMSrLqLn?=
- =?us-ascii?Q?b8kl6vu2A8ntejzHEHUe094cwJalEskcL5QYvaPpE91EyOUuGc3pWWXwEuxD?=
- =?us-ascii?Q?6BxgZBpdB/tAoTkmjzgDh/+xoHyLpKIcx1Fz+5VdkJEPi7g9qrmtxmkHa8TV?=
- =?us-ascii?Q?1i11/27p8T6J1pbzgsVd9jZJiJ7n7ZQYfmuE5blTbPn6eaR5Y5lcB+ZJB9R3?=
- =?us-ascii?Q?//+Sad2L9+dgYEm2wjHXaGnQygwDlLu28tN8fMiXalUy06dWvKTveS/Thxwa?=
- =?us-ascii?Q?2VdK/sTcs89aBiZuRv2VvLzl269ng/ZIr+HCxkIrmRpbjCxn8jKQF/PZkhpp?=
- =?us-ascii?Q?VOtes5AC4dARSRoWtW6Aye/QUigsnnWzd4w7AztkrUmoFCkMO5eWQiZmLtzU?=
- =?us-ascii?Q?bGTUgOKStWzjXsnYgolohzpCIw3Ed2pDlEovoQAnWWm864REZ0q5vyeBuEZX?=
- =?us-ascii?Q?iNcEVW62stsZyL7s/k+KIW1QeBE75ddefnYERigL6biloUHYJ/w19W+YkjiL?=
- =?us-ascii?Q?YgJjU7Jp5W5+FRBaVwpr/cvdk5RnQrbL1w8YvAKuE3idSVY/x6/8gnQ8dNdL?=
- =?us-ascii?Q?Pa8o/UGaI2CMFbTg97f4BRiSa6vzlwxDWHuB75XyHOhkDA1bnA0ESCQuF5ie?=
- =?us-ascii?Q?TBK+6m4wMc43y5iKHK2o1HUNuwZguTIuMRSgXtDJhy5iFkuzbsaWOgjqoGtL?=
- =?us-ascii?Q?hDtwVs8zpYN64923KIHQGEgQuHewDZ5JE9VpDUDRKr3y9GNTnLLTv7oqDwJ7?=
- =?us-ascii?Q?V0ucPe34vpNvKj/GINMm/w19Qxz71tbj6/Y+M/BgyQEuMdho1asttv291g4V?=
- =?us-ascii?Q?2Dc9lgfc0D7/+3ICp5nppC+3xkRo?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7726.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?AFZ1WnU71rH2mPJwtoKq7rs7IsJILwQ5zuEDAA9BESk6eJzy08JyrAFY2l3J?=
- =?us-ascii?Q?dTUZ60x5biq1VUU53HbajjnanCevOB1HrGfzyNkJ4NCO4q59WF4c8X0ltrZt?=
- =?us-ascii?Q?Lel78JG8eRK+4q9myh/GjvdVy31ws7euchMkLIqptqG2FGjT3OmGGfwhJGpu?=
- =?us-ascii?Q?SRYK2BkBq2paK8Xe+/7eJpdWmKdnRP9dWdCTrDf1gGqbvtaXf6tWvAYS3BJ3?=
- =?us-ascii?Q?mPNRV4yE46Lr2b1E8J3fRQ1Jhvqsr1gfRDMR4TMXqNPSuUgzA7mea0xy3lFK?=
- =?us-ascii?Q?GRyPxYs24y5fnW7X/YRJkk0LiCNC3usd1dhnKzPSyTxx3PzZ6odU7YulOuMz?=
- =?us-ascii?Q?kAkNplXOB7rhBKYat/vm9/T2UmZzmpTfucMe4zh8oaMxexRRQi/2VxZJjFwt?=
- =?us-ascii?Q?4MENi8s3qhO8j31qeb3leSmFK2jQkbau18iuD//6Xq8368WQf40IUD8N+xPE?=
- =?us-ascii?Q?SIETt7KfIM8IwABYVpVq+1JjHGt8WBGWyX+yhHJN4rhLtFjHJmHbPyWkE+ll?=
- =?us-ascii?Q?h2YAv8vbs/IEjPagCItp0PCo9QRXeTnGsW1Dz6aY9dFr473+mKENJCyLmMms?=
- =?us-ascii?Q?DsYWm1pYFjFbCz5ElH+Y6rgqwF/e4EppkfaxFjVYcDMqnf++sZMwlVnJRo7z?=
- =?us-ascii?Q?K9361uGgZPdh7lVlbPB6d+61ELBm/yH2RPjF8X2T7DotKWcxmVAIFOmc7KME?=
- =?us-ascii?Q?PxN2gWB5qqRj5Qxv6YX7ZdMsh3Oz7NZEeoDC6nXTCQiUly++AvSrtDKktJbf?=
- =?us-ascii?Q?KItmja2RrIL7LrROy7v2PC2andQns6P4iDORQcgdxgACS63oMuyccmzQYa4E?=
- =?us-ascii?Q?xfkgq+Ee8VjUjmaQt3MDbSeCUKjglMzANR4hybvtVCJJl5x+uBGQdBprrmO8?=
- =?us-ascii?Q?OLeBPmMe7A9KAsTqTy7nFxYOLimcgWCcgSKzR9pF34PbaYSbK0LzeAHV8pXd?=
- =?us-ascii?Q?UgZVitiFy0rpdAnnp/qX/jxehsh4PJ4k1XJyrfq0emmD2e4HTJ7tRYCfXFWD?=
- =?us-ascii?Q?0xZF2fYqScVuWJcW3+gWYTt+np1d1jOHEN6FFiqwYol1HgVdZep9rV22wPxk?=
- =?us-ascii?Q?OVl3+ebrHPcbPoeXGMETiUsMuV94QlQX86MF78VnB7ltNXV00EAVmGvvuF91?=
- =?us-ascii?Q?W5tH111L9pWimpPrssS9yxOXsvaC8NEZjz65YAjqx38zwKGyU6AbnnHTHPTO?=
- =?us-ascii?Q?aszRF94U4NHABfKtNGHJ6CrU/A3FxirSy8ox9qXHfnAaA1Y/IWwzFy7pyLu/?=
- =?us-ascii?Q?aUOECZmjefYgrDtmjEVIIvaahbOShCG5ZkazHOMGwW35XeDGZ3hmRUssoetp?=
- =?us-ascii?Q?LmQPx5ebK570yr0fhETc68omSjvJw6mUEwW4KAH/Q8B8zFx//d+0fmhX6e72?=
- =?us-ascii?Q?NCTWmhkul+9t6IuQZ6nTS6eMEIEpQGaj59fPXK3+2Q5KW9dtd0lTVb8RX6Pn?=
- =?us-ascii?Q?LJntTm7g4egElGaZgV2KMTkKVLkLh29QBDq49/jziYS5nGvbqSQijP7nTJoa?=
- =?us-ascii?Q?CHfzU9lBhpnVb49dbH42LMVAUkKG+60cTXbNuNEWJ5aBGvZPWV2pGSRQAs0k?=
- =?us-ascii?Q?ptPdoRhDpJDKGaFojvO9mNTIGb3byAdMX9KUZKyU?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f144e0c2-c18e-42a0-a963-08dd50743ee5
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7726.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 23:30:36.1511
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SAopfzQAHOOceK1PA9oRQjU3aGEjspGPSTQSEvuns34urOdrhYOOxmOaHKnMl+UicCxF7QVcKSbvjxdYCyp8gQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7232
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: dts: rockchip: Add HDMI1 PHY PLL clock source
+ to VOP2 on RK3588
+To: Sebastian Reichel <sebastian.reichel@collabora.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: Jianfeng Liu <liujianfeng1994@gmail.com>, airlied@gmail.com,
+ andy.yan@rock-chips.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, hjc@rock-chips.com, kernel@collabora.com,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, robh@kernel.org,
+ simona@ffwll.ch, tzimmermann@suse.de
+References: <1919367.CQOukoFCf9@diego>
+ <20250218121749.1382322-1-liujianfeng1994@gmail.com>
+ <lnuceofdwm6lgibworaghcujp6rrncvn4e2xc2vzltimjw3rqu@jur7x5cxt5ue>
+ <2425191.NG923GbCHz@diego>
+ <ldgdrytto5y2xf3ois23j4ymtajtwmqlxjr2zyqhwbbxcx6f6y@gzb37fntx2x6>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <ldgdrytto5y2xf3ois23j4ymtajtwmqlxjr2zyqhwbbxcx6f6y@gzb37fntx2x6>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_153041_586962_99DE3890 
-X-CRM114-Status: GOOD (  39.81  )
+X-CRM114-CacheID: sfid-20250218_154017_390190_2C6C6B2E 
+X-CRM114-Status: GOOD (  27.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,234 +85,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 12:37:28PM +0100, David Hildenbrand wrote:
-> On 18.02.25 04:55, Alistair Popple wrote:
-> > Currently fs dax pages are considered free when the refcount drops to
-> > one and their refcounts are not increased when mapped via PTEs or
-> > decreased when unmapped. This requires special logic in mm paths to
-> > detect that these pages should not be properly refcounted, and to
-> > detect when the refcount drops to one instead of zero.
-> > 
-> > On the other hand get_user_pages(), etc. will properly refcount fs dax
-> > pages by taking a reference and dropping it when the page is
-> > unpinned.
-> > 
-> > Tracking this special behaviour requires extra PTE bits
-> > (eg. pte_devmap) and introduces rules that are potentially confusing
-> > and specific to FS DAX pages. To fix this, and to possibly allow
-> > removal of the special PTE bits in future, convert the fs dax page
-> > refcounts to be zero based and instead take a reference on the page
-> > each time it is mapped as is currently the case for normal pages.
-> > 
-> > This may also allow a future clean-up to remove the pgmap refcounting
-> > that is currently done in mm/gup.c.
-> > 
-> > Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> > Reviewed-by: Dan Williams <dan.j.williams@intel.com>
-> 
-> A couple of nits (sorry that I didn't manage to review the whole thing the
-> last time, I am a slow reviewer ...).
+Hi,
 
-No problem. I appreciate your indepth review comments.
+On 2/18/25 6:05 PM, Sebastian Reichel wrote:
+> Hi,
+> 
+> On Tue, Feb 18, 2025 at 03:53:06PM +0100, Heiko Stübner wrote:
+>> Am Dienstag, 18. Februar 2025, 15:13:07 MEZ schrieb Sebastian Reichel:
+>>> On Tue, Feb 18, 2025 at 08:17:46PM +0800, Jianfeng Liu wrote:
+>>>> On Tue, 18 Feb 2025 11:00:57 +0100, Heiko Stübnerwrote:
+>>>>> So I guess step1, check what error is actually returned.
+>>>>
+>>>> I have checked that the return value is -517:
+>>>>
+>>>> rockchip-drm display-subsystem: [drm] *ERROR* failed to get pll_hdmiphy1 with -517
+>>>>
+>>>>> Step2 check if clk_get_optional need to be adapted or alternatively
+>>>>> catch the error in the vop2 and set the clock to NULL ourself in that case.
+>>>>
+>>>> I tried the following patch to set the clock to NULL when clk_get_optional
+>>>> failed with value -517, and hdmi0 is working now. There are also some
+>>>> boards like rock 5 itx which only use hdmi1, I think we should also add
+>>>> this logic to vop2->pll_hdmiphy0.
+>>>>
+>>>> @@ -3733,6 +3751,15 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
+>>>>  		return PTR_ERR(vop2->pll_hdmiphy0);
+>>>>  	}
+>>>>  
+>>>> +	vop2->pll_hdmiphy1 = devm_clk_get_optional(vop2->dev, "pll_hdmiphy1");
+>>>> +	if (IS_ERR(vop2->pll_hdmiphy1)) {
+>>>> +		drm_err(vop2->drm, "failed to get pll_hdmiphy1 with %d\n", vop2->pll_hdmiphy1);
+>>>> +		if (vop2->pll_hdmiphy1 == -EPROBE_DEFER)
+>>>> +			vop2->pll_hdmiphy1 = NULL;
+>>>> +		else
+>>>> +			return PTR_ERR(vop2->pll_hdmiphy1);
+>>>> +	}
+>>>> +
+>>>
+>>> This first of all shows, that we should replace drm_err in this
+>>> place with dev_err_probe(), which hides -EPROBE_DEFER errors by
+>>> default and instead captures the reason for /sys/kernel/debug/devices_deferred.
+>>>
+>>> Second what you are doing in the above suggestion will break kernel
+>>> configurations where VOP is built-in and the HDMI PHY is build as a
+>>> module.
+>>>
+>>> But I also think it would be better to have the clocks defined in the
+>>> SoC level DT. I suppose that means vop2_bind would have to check if
+>>> the HDMI controller <ID> is enabled and only requests pll_hdmiphy<ID>
+>>> based on that. Considering there is the OF graph pointing from VOP
+>>> to the enabled HDMI controllers, it should be able to do that.
+>>
+>>
+>> I was more thinking about fixing the correct thing, with something like:
+>>
+>> ----------- 8< ----------
+>> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+>> index cf7720b9172f..50faafbf5dda 100644
+>> --- a/drivers/clk/clk.c
+>> +++ b/drivers/clk/clk.c
+>> @@ -5258,6 +5258,10 @@ of_clk_get_hw_from_clkspec(struct of_phandle_args *clkspec)
+>>         if (!clkspec)
+>>                 return ERR_PTR(-EINVAL);
+>>
+>> +       /* Check if node in clkspec is in disabled/fail state */
+>> +       if (!of_device_is_available(clkspec->np))
+>> +               return ERR_PTR(-ENOENT);
+>> +
+>>         mutex_lock(&of_clk_mutex);
+>>         list_for_each_entry(provider, &of_clk_providers, link) {
+>>                 if (provider->node == clkspec->np) {
+>> ----------- 8< ----------
+>>
+>> Because right now the clk framework does not handle nodes in
+>> failed/disabled state and would defer indefinitly.
+> 
+> Also LGTM.
 
-> Likely that can all be adjsuted on
-> top, no need for a full resend IMHO.
-> 
-> > index 6674540..cf96f3d 100644
-> > --- a/fs/dax.c
-> > +++ b/fs/dax.c
-> > @@ -71,6 +71,11 @@ static unsigned long dax_to_pfn(void *entry)
-> >   	return xa_to_value(entry) >> DAX_SHIFT;
-> >   }
-> > +static struct folio *dax_to_folio(void *entry)
-> > +{
-> > +	return page_folio(pfn_to_page(dax_to_pfn(entry)));
-> 
-> Nit: return pfn_folio(dax_to_pfn(entry));
-> 
-> > +}
-> > +
-> 
-> [...]
-> 
-> > -static inline unsigned long dax_folio_share_put(struct folio *folio)
-> > +static inline unsigned long dax_folio_put(struct folio *folio)
-> >   {
-> > -	return --folio->page.share;
-> > +	unsigned long ref;
-> > +	int order, i;
-> > +
-> > +	if (!dax_folio_is_shared(folio))
-> > +		ref = 0;
-> > +	else
-> > +		ref = --folio->share;
-> > +
-> 
-> out of interest, what synchronizes access to folio->share?
+Thank you all for the feedback and proposed solutions!
 
-Actually that's an excellent question as I hadn't looked too closely at this
-given I wasn't changing the overall flow with regards to synchronization, merely
-representation of the "shared" state. So I don't have a good answer for you off
-the top of my head - Dan maybe you can shed some light here?
+I'm currently on leave and without access to any testing hw, but I'll be
+back in a couple of days.
 
-> > +	if (ref)
-> > +		return ref;
-> > +
-> > +	folio->mapping = NULL;
-> > +	order = folio_order(folio);
-> > +	if (!order)
-> > +		return 0;
-> > +
-> > +	for (i = 0; i < (1UL << order); i++) {
-> > +		struct dev_pagemap *pgmap = page_pgmap(&folio->page);
-> > +		struct page *page = folio_page(folio, i);
-> > +		struct folio *new_folio = (struct folio *)page;
-> > +
-> > +		ClearPageHead(page);
-> > +		clear_compound_head(page);
-> > +
-> > +		new_folio->mapping = NULL;
-> > +		/*
-> > +		 * Reset pgmap which was over-written by
-> > +		 * prep_compound_page().
-> > +		 */
-> > +		new_folio->pgmap = pgmap;
-> > +		new_folio->share = 0;
-> > +		WARN_ON_ONCE(folio_ref_count(new_folio));
-> > +	}
-> > +
-> > +	return ref;
-> > +}
-> > +
-> > +static void dax_folio_init(void *entry)
-> > +{
-> > +	struct folio *folio = dax_to_folio(entry);
-> > +	int order = dax_entry_order(entry);
-> > +
-> > +	/*
-> > +	 * Folio should have been split back to order-0 pages in
-> > +	 * dax_folio_put() when they were removed from their
-> > +	 * final mapping.
-> > +	 */
-> > +	WARN_ON_ONCE(folio_order(folio));
-> > +
-> > +	if (order > 0) {
-> > +		prep_compound_page(&folio->page, order);
-> > +		if (order > 1)
-> > +			INIT_LIST_HEAD(&folio->_deferred_list);
-> 
-> Nit: prep_compound_page() -> prep_compound_head() should be taking care of
-> initializing all folio fields already, so this very likely can be dropped.
-
-Thanks. That's only the case for >= v6.10, so I guess I started this patch
-series before then.
-
-> > +		WARN_ON_ONCE(folio_ref_count(folio));
-> > +	}
-> >   }
-> 
-> 
-> [...]
-> 
-> 
-> >   }
-> > @@ -1808,7 +1843,8 @@ static vm_fault_t dax_fault_iter(struct vm_fault *vmf,
-> >   	loff_t pos = (loff_t)xas->xa_index << PAGE_SHIFT;
-> >   	bool write = iter->flags & IOMAP_WRITE;
-> >   	unsigned long entry_flags = pmd ? DAX_PMD : 0;
-> > -	int err = 0;
-> > +	struct folio *folio;
-> > +	int ret, err = 0;
-> >   	pfn_t pfn;
-> >   	void *kaddr;
-> > @@ -1840,17 +1876,19 @@ static vm_fault_t dax_fault_iter(struct vm_fault *vmf,
-> >   			return dax_fault_return(err);
-> >   	}
-> > +	folio = dax_to_folio(*entry);
-> >   	if (dax_fault_is_synchronous(iter, vmf->vma))
-> >   		return dax_fault_synchronous_pfnp(pfnp, pfn);
-> > -	/* insert PMD pfn */
-> > +	folio_ref_inc(folio);
-> 
-> Why is that not a folio_get() ? Could the refcount be 0? Might deserve a
-> comment then.
-
-Right, refcount is most likely 0 as this is when the folio is allocated for uses
-other than by the owning driver of the page.
-
-> >   	if (pmd)
-> > -		return vmf_insert_pfn_pmd(vmf, pfn, write);
-> > +		ret = vmf_insert_folio_pmd(vmf, pfn_folio(pfn_t_to_pfn(pfn)),
-> > +					write);
-> > +	else
-> > +		ret = vmf_insert_page_mkwrite(vmf, pfn_t_to_page(pfn), write);
-> > +	folio_put(folio);
-> > -	/* insert PTE pfn */
-> > -	if (write)
-> > -		return vmf_insert_mixed_mkwrite(vmf->vma, vmf->address, pfn);
-> > -	return vmf_insert_mixed(vmf->vma, vmf->address, pfn);
-> > +	return ret;
-> >   }
-> >   static vm_fault_t dax_iomap_pte_fault(struct vm_fault *vmf, pfn_t *pfnp,
-> > @@ -2089,6 +2127,7 @@ dax_insert_pfn_mkwrite(struct vm_fault *vmf, pfn_t pfn, unsigned int order)
-> >   {
-> >   	struct address_space *mapping = vmf->vma->vm_file->f_mapping;
-> >   	XA_STATE_ORDER(xas, &mapping->i_pages, vmf->pgoff, order);
-> > +	struct folio *folio;
-> >   	void *entry;
-> >   	vm_fault_t ret;
-> > @@ -2106,14 +2145,17 @@ dax_insert_pfn_mkwrite(struct vm_fault *vmf, pfn_t pfn, unsigned int order)
-> >   	xas_set_mark(&xas, PAGECACHE_TAG_DIRTY);
-> >   	dax_lock_entry(&xas, entry);
-> >   	xas_unlock_irq(&xas);
-> > +	folio = pfn_folio(pfn_t_to_pfn(pfn));
-> > +	folio_ref_inc(folio);
-> 
-> Same thought.
-
-Yes, will add a comment, either as a respin or a fixup depending what Andrew prefers.
-
-> > diff --git a/include/linux/dax.h b/include/linux/dax.h
-> > index 2333c30..dcc9fcd 100644
-> > --- a/include/linux/dax.h
-> > +++ b/include/linux/dax.h
-> > @@ -209,7 +209,7 @@ int dax_truncate_page(struct inode *inode, loff_t pos, bool *did_zero,
-> 
-> [...]
-> 
-> > diff --git a/mm/huge_memory.c b/mm/huge_memory.c
-> > index d189826..1a0d6a8 100644
-> > --- a/mm/huge_memory.c
-> > +++ b/mm/huge_memory.c
-> > @@ -2225,7 +2225,7 @@ int zap_huge_pmd(struct mmu_gather *tlb, struct vm_area_struct *vma,
-> >   						tlb->fullmm);
-> >   	arch_check_zapped_pmd(vma, orig_pmd);
-> >   	tlb_remove_pmd_tlb_entry(tlb, pmd, addr);
-> > -	if (vma_is_special_huge(vma)) {
-> > +	if (!vma_is_dax(vma) && vma_is_special_huge(vma)) {
-> 
-> I wonder if we actually want to remove the vma_is_dax() check from
-> vma_is_special_huge(), and instead add it to the remaining callers of
-> vma_is_special_huge() that still need it -- if any need it.
-> 
-> Did we sanity-check which callers of vma_is_special_huge() still need it? Is
-> there still reason to have that DAX check in vma_is_special_huge()?
-
-If by "we" you mean "me" then yes :) There are still a few callers of it, mainly
-for page splitting.
-
-> But vma_is_special_huge() is rather confusing from me ... the whole
-> vma_is_special_huge() thing should probably be removed. That's a cleanup for
-> another day, though.
-
-But after double checking I have come to the same conclusion as you - it should
-be removed. I will add that to my ever growing clean-up series that can go on
-top of this one.
-
-> 
-> -- 
-> Cheers,
-> 
-> David / dhildenb
-> 
+Regards,
+Cristian
 
