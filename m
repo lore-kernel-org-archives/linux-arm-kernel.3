@@ -4,55 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20DF7C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A445AC021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:05:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pmDZr8RzS+flLxV3A4zL7q/WNhMN3Hm30taNoOceehA=; b=jDZFkp2WjezyQaLmAAAnRHIhey
-	y05066PbFPcX+wfpRtmitO90MSdTBNhwUTvX35c4clOwUMZfmiIo6fWqIr7v4qbcVjU+wrqkyxqPo
-	ffQ78ccMyrtdBgW3Sq/nUGu66I7GtfJUgyL6vxQQq3dJBJk8adnCJ3u8fYNEFU8qQOudyz7RzlVdK
-	afdI7h4+UBkESLSOu6ogCcvv+KeMJhiguFZr97WG5tBup4CGJDJN1wKwaFjvykvEVKh9md8M3m+LO
-	G5KPirxBdeV4uH3eUQQeVsE/NZnCbEwGXFnyTuAM89xVVHvkQlzrLxIRD2bqkj5Do9gifdgEcpjoT
-	dPOQmyBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qyTcTEUnGKyQngTlUV0MXoDMby/SMbNx+2RpMmu1C/I=; b=AEao3WMhcPplAPb2ecTPJY4aWY
+	VNEKJOjlp8bu7xiH5PqeDp1a21Fvlw4D6mLypAudauvudJAeJWmasie9DR2Cj4VgtjQJQudqib6XE
+	ZztsJrmOXb/jyIC9D/l84DbmF7lnx+aZ7DeugY4NjtQnCNwlagVfaICZS0z2Z60nkWoe/+G5KwofS
+	0R024pvKDae55b8fSOdAo3RLJ4ykF0NULUrPIJT+cUL38pt4Rnzm/JCMtu6U2SOd54QtvY6j39ClN
+	Cls/gMWNGkwDLuV2Obp9smS0+iP6paGmDNS0+Jpq76buro6671JV/whtmxRbdAYWlMgHjVt8RvIn6
+	OOlql5jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLKn-00000007r90-0xFG;
-	Tue, 18 Feb 2025 11:00:13 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1tkLPT-00000007s3x-3TEn;
+	Tue, 18 Feb 2025 11:05:03 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLJI-00000007qwk-3kkY
+	id 1tkLO0-00000007roi-3Qnh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 10:58:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1739876316; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=pmDZr8RzS+flLxV3A4zL7q/WNhMN3Hm30taNoOceehA=;
-	b=jgQtIp4xwWu0qU8lErXjeIxV9wS0//97X+SHQ5ty5usCJtfuoqNYt3ij8rluMndhYqJWtykaIvnWYOGoVKPScQQJE693dGwyrt0GaMZ6GcoEYLmwWbFlWQWJOuH76rkRuIlEB2xwCBPEtYXWkMeEwPMcfCdZw03VPcvcKV0Q0z8=
-Received: from U-V2QX163P-2032.local(mailfrom:fengwei_yin@linux.alibaba.com fp:SMTPD_---0WPlh.8b_1739876313 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 18 Feb 2025 18:58:34 +0800
-Date: Tue, 18 Feb 2025 18:58:32 +0800
-From: YinFengwei <fengwei_yin@linux.alibaba.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: will@kernel.org, mark.rutland@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	jie.li.linux@linux.alibaba.com
-Subject: Re: [PATCH] perf/arm-cmn: don't claim resource during ioremap() for
- CMN700 with ACPI
-Message-ID: <hfip42i45jkumuvgdthxm2bk6qylqyqh6erzaq43yiqygvn6uu@dcui675lwtkm>
-References: <20250218012111.30068-1-fengwei_yin@linux.alibaba.com_quarantine>
- <d5040b5c-564d-4abf-be22-d2aa1183b633@arm.com>
+	Tue, 18 Feb 2025 11:03:34 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51IB31mk1531611
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 18 Feb 2025 05:03:01 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1739876581;
+	bh=qyTcTEUnGKyQngTlUV0MXoDMby/SMbNx+2RpMmu1C/I=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=lPLC6ZiTwe+OgnYDES+63neYzF9ysENH3S25p3HuZaZEk2KHeDBeZ+3T3yIiaivLk
+	 RSA7wh5a9KkXnAxe5uDsi2+KDdeC5mjhMflRY68yHfvOcYZlTTd6mciUMscRt81PSc
+	 X36qjGVZH2y9Uz/m9YhEsDSroHDQE3JUEdDnk1QU=
+Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51IB31s9007881
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 18 Feb 2025 05:03:01 -0600
+Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 18
+ Feb 2025 05:03:00 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 18 Feb 2025 05:03:00 -0600
+Received: from [172.24.20.199] (lt9560gk3.dhcp.ti.com [172.24.20.199])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IB2qkZ015071;
+	Tue, 18 Feb 2025 05:02:53 -0600
+Message-ID: <17b2b44d-0228-47f9-aef9-d7eccdc5d7e5@ti.com>
+Date: Tue, 18 Feb 2025 16:32:51 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d5040b5c-564d-4abf-be22-d2aa1183b633@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 2/3] net: ti: icssg-prueth: introduce and use
+ prueth_swdata struct for SWDATA
+To: Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>,
+        <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
+        <davem@davemloft.net>, <andrew+netdev@lunn.ch>
+CC: <bpf@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <u.kleine-koenig@baylibre.com>, <krzysztof.kozlowski@linaro.org>,
+        <dan.carpenter@linaro.org>, <schnelle@linux.ibm.com>,
+        <glaroque@baylibre.com>, <rdunlap@infradead.org>,
+        <diogo.ivo@siemens.com>, <jan.kiszka@siemens.com>,
+        <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
+        <ast@kernel.org>, <srk@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>
+References: <20250210103352.541052-1-m-malladi@ti.com>
+ <20250210103352.541052-3-m-malladi@ti.com>
+ <b807f2ae-b92b-433f-af4c-f0fd9a83bc1f@kernel.org>
+Content-Language: en-US
+From: "Malladi, Meghana" <m-malladi@ti.com>
+In-Reply-To: <b807f2ae-b92b-433f-af4c-f0fd9a83bc1f@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_025841_466988_06A044F1 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20250218_030332_947629_BD6FFC5B 
+X-CRM114-Status: GOOD (  29.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,40 +97,329 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 10:31:42AM +0800, Robin Murphy wrote:
-> On 2025-02-18 1:21 am, Yin Fengwei wrote:
-> > Currently, arm-cmn PMU driver assumes ACPI claim resource
-> > for CMN600 + ACPI. But with CMN700 + ACPI, the device probe
-> > failed because of resource claim failes when ioremap() is
-> > called:
-> > [   10.837300] arm-cmn ARMHC700:00: error -EBUSY: can't request region for resource [mem 0x40000000-0x4fffffff]
-> > [   10.847310] arm-cmn ARMHC700:00: probe with driver arm-cmn failed with error -16
-> > [   10.854726] arm-cmn ARMHC700:02: error -EBUSY: can't request region for resource [mem 0x40040000000-0x4004fffffff]
-> > [   10.865085] arm-cmn ARMHC700:02: probe with driver arm-cmn failed with error -16
-> > 
-> > Let CMN700 + ACPI do same as CMN600 + ACPI to allow CMN700
-> > work in ACPI env.
+
+
+On 2/12/2025 7:42 PM, Roger Quadros wrote:
+> Hi Meghana,
 > 
-> No, the CMN-600 routine is a special case for CMN-600 having two nested
-> memory resources of its own. CMN-700 and everything else only have one
-> memory resource, so that is not appropriate. What else is claiming the
-> region to cause a conflict?
-Sorry. Forgot the link for the new proposed fix:
-https://lore.kernel.org/all/Z7QYlUP6nfBNMXsv@U-V2QX163P-2032.local/
+> On 10/02/2025 12:33, Meghana Malladi wrote:
+>> From: Roger Quadros <rogerq@kernel.org>
+>>
+>> We have different cases for SWDATA (skb, page, cmd, etc)
+>> so it is better to have a dedicated data structure for that.
+>> We can embed the type field inside the struct and use it
+>> to interpret the data in completion handlers.
+>>
+>> Increase SWDATA size to 48 so we have some room to add
+>> more data if required.
+>>
+>> Signed-off-by: Roger Quadros <rogerq@kernel.org>
+>> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
+>> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+>> ---
+>> v1: https://lore.kernel.org/all/20250122124951.3072410-1-m-malladi@ti.com/
+>>
+>> Changes since v1 (v2-v1): None
+>>
+>>   drivers/net/ethernet/ti/icssg/icssg_common.c  | 47 ++++++++++++-------
+>>   drivers/net/ethernet/ti/icssg/icssg_config.h  |  2 +-
+>>   drivers/net/ethernet/ti/icssg/icssg_prueth.c  |  6 +++
+>>   drivers/net/ethernet/ti/icssg/icssg_prueth.h  | 18 +++++++
+>>   .../net/ethernet/ti/icssg/icssg_prueth_sr1.c  |  4 +-
+>>   5 files changed, 58 insertions(+), 19 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+>> index c3c1e2bf461e..a124c5773551 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_common.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
+>> @@ -136,12 +136,12 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
+>>   	struct net_device *ndev = emac->ndev;
+>>   	struct cppi5_host_desc_t *desc_tx;
+>>   	struct netdev_queue *netif_txq;
+>> +	struct prueth_swdata *swdata;
+>>   	struct prueth_tx_chn *tx_chn;
+>>   	unsigned int total_bytes = 0;
+>>   	struct sk_buff *skb;
+>>   	dma_addr_t desc_dma;
+>>   	int res, num_tx = 0;
+>> -	void **swdata;
+>>   
+>>   	tx_chn = &emac->tx_chns[chn];
+>>   
+>> @@ -163,12 +163,18 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
+>>   		swdata = cppi5_hdesc_get_swdata(desc_tx);
+>>   
+>>   		/* was this command's TX complete? */
+>> -		if (emac->is_sr1 && *(swdata) == emac->cmd_data) {
+>> +		if (emac->is_sr1 && (void *)(swdata) == emac->cmd_data) {
+>>   			prueth_xmit_free(tx_chn, desc_tx);
+>>   			continue;
+>>   		}
+>>   
+>> -		skb = *(swdata);
+>> +		if (swdata->type != PRUETH_SWDATA_SKB) {
+>> +			netdev_err(ndev, "tx_complete: invalid swdata type %d\n", swdata->type);
+>> +			budget++;
+>> +			continue;
+> 
+> We are leaking the tx descriptor here. need to call prueth_xmit_free(tx_chn, desc_tx)?
+> 
 
-My understanding is that there are two problems here:
-1. ACPI claim the memory range and that's why we see this -EBUSY error
-   with correct code path for CMN700 + ACPI table.
+Yes agreed, I will add prueth_xmit_free() here.
 
-2. It's not correct to apply CMN600 probe method to CMN700 because
-   CMN600 has two nested memory resouces while CMN700 should only have
-   one memory resource. And you don't want to introduce trick to handle
-   incorect ACPI DSDT.
+>> +		}
+>> +
+>> +		skb = swdata->data.skb;
+>>   		prueth_xmit_free(tx_chn, desc_tx);
+>>   
+>>   		ndev = skb->dev;
+>> @@ -472,9 +478,9 @@ int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
+>>   {
+>>   	struct net_device *ndev = emac->ndev;
+>>   	struct cppi5_host_desc_t *desc_rx;
+>> +	struct prueth_swdata *swdata;
+>>   	dma_addr_t desc_dma;
+>>   	dma_addr_t buf_dma;
+>> -	void **swdata;
+>>   
+>>   	buf_dma = page_pool_get_dma_addr(page) + PRUETH_HEADROOM;
+>>   	desc_rx = k3_cppi_desc_pool_alloc(rx_chn->desc_pool);
+>> @@ -490,7 +496,8 @@ int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
+>>   	cppi5_hdesc_attach_buf(desc_rx, buf_dma, buf_len, buf_dma, buf_len);
+>>   
+>>   	swdata = cppi5_hdesc_get_swdata(desc_rx);
+>> -	*swdata = page;
+>> +	swdata->type = PRUETH_SWDATA_PAGE;
+>> +	swdata->data.page = page;
+>>   
+>>   	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, PRUETH_RX_FLOW_DATA,
+>>   					desc_rx, desc_dma);
+>> @@ -539,11 +546,11 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
+>>   	u32 buf_dma_len, pkt_len, port_id = 0;
+>>   	struct net_device *ndev = emac->ndev;
+>>   	struct cppi5_host_desc_t *desc_rx;
+>> +	struct prueth_swdata *swdata;
+>>   	dma_addr_t desc_dma, buf_dma;
+>>   	struct page *page, *new_page;
+>>   	struct page_pool *pool;
+>>   	struct sk_buff *skb;
+>> -	void **swdata;
+>>   	u32 *psdata;
+>>   	void *pa;
+>>   	int ret;
+>> @@ -561,7 +568,11 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
+>>   
+>>   	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
+>>   	swdata = cppi5_hdesc_get_swdata(desc_rx);
+>> -	page = *swdata;
+>> +	if (swdata->type != PRUETH_SWDATA_PAGE) {
+>> +		netdev_err(ndev, "rx_pkt: invalid swdata->type %d\n", swdata->type);
+> 
+> what about freeing the rx descriptor?
+> 
 
-Regards
-Yin, Fengwei
+Yes, will do that.
+
+>> +		return 0;
+>> +	}
+> 
+> need new line.
+> 
+>> +	page = swdata->data.page;
+>>   
+> drop new line.
+> 
+>>   	page_pool_dma_sync_for_cpu(pool, page, 0, PAGE_SIZE);
+>>   	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
+>> @@ -627,16 +638,18 @@ static void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
+>>   {
+>>   	struct prueth_rx_chn *rx_chn = data;
+>>   	struct cppi5_host_desc_t *desc_rx;
+>> +	struct prueth_swdata *swdata;
+>>   	struct page_pool *pool;
+>>   	struct page *page;
+>> -	void **swdata;
+>>   
+>>   	pool = rx_chn->pg_pool;
+>>   
+>>   	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
+>>   	swdata = cppi5_hdesc_get_swdata(desc_rx);
+>> -	page = *swdata;
+>> -	page_pool_recycle_direct(pool, page);
+>> +	if (swdata->type == PRUETH_SWDATA_PAGE) {
+>> +		page = swdata->data.page;
+>> +		page_pool_recycle_direct(pool, page);
+>> +	}
+> 
+> need new line.
+> 
+>>   	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
+>>   }
+>>   
+>> @@ -673,13 +686,13 @@ enum netdev_tx icssg_ndo_start_xmit(struct sk_buff *skb, struct net_device *ndev
+>>   	struct prueth_emac *emac = netdev_priv(ndev);
+>>   	struct prueth *prueth = emac->prueth;
+>>   	struct netdev_queue *netif_txq;
+>> +	struct prueth_swdata *swdata;
+>>   	struct prueth_tx_chn *tx_chn;
+>>   	dma_addr_t desc_dma, buf_dma;
+>>   	u32 pkt_len, dst_tag_id;
+>>   	int i, ret = 0, q_idx;
+>>   	bool in_tx_ts = 0;
+>>   	int tx_ts_cookie;
+>> -	void **swdata;
+>>   	u32 *epib;
+>>   
+>>   	pkt_len = skb_headlen(skb);
+>> @@ -741,7 +754,8 @@ enum netdev_tx icssg_ndo_start_xmit(struct sk_buff *skb, struct net_device *ndev
+>>   	k3_udma_glue_tx_dma_to_cppi5_addr(tx_chn->tx_chn, &buf_dma);
+>>   	cppi5_hdesc_attach_buf(first_desc, buf_dma, pkt_len, buf_dma, pkt_len);
+>>   	swdata = cppi5_hdesc_get_swdata(first_desc);
+>> -	*swdata = skb;
+>> +	swdata->type = PRUETH_SWDATA_SKB;
+>> +	swdata->data.skb = skb;
+>>   
+>>   	/* Handle the case where skb is fragmented in pages */
+>>   	cur_desc = first_desc;
+>> @@ -844,15 +858,16 @@ static void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
+>>   {
+>>   	struct prueth_tx_chn *tx_chn = data;
+>>   	struct cppi5_host_desc_t *desc_tx;
+>> +	struct prueth_swdata *swdata;
+>>   	struct sk_buff *skb;
+>> -	void **swdata;
+>>   
+>>   	desc_tx = k3_cppi_desc_pool_dma2virt(tx_chn->desc_pool, desc_dma);
+>>   	swdata = cppi5_hdesc_get_swdata(desc_tx);
+>> -	skb = *(swdata);
+>> +	if (swdata->type == PRUETH_SWDATA_SKB) {
+>> +		skb = swdata->data.skb;
+>> +		dev_kfree_skb_any(skb);
+>> +	}
+> 
+> need new line.
+> 
+>>   	prueth_xmit_free(tx_chn, desc_tx);
+>> -
+>> -	dev_kfree_skb_any(skb);
+>>   }
+>>   
+>>   irqreturn_t prueth_rx_irq(int irq, void *dev_id)
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_config.h b/drivers/net/ethernet/ti/icssg/icssg_config.h
+>> index c884e9fa099e..eab84e11d80e 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_config.h
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_config.h
+>> @@ -20,7 +20,7 @@ struct icssg_flow_cfg {
+>>   
+>>   #define PRUETH_PKT_TYPE_CMD	0x10
+>>   #define PRUETH_NAV_PS_DATA_SIZE	16	/* Protocol specific data size */
+>> -#define PRUETH_NAV_SW_DATA_SIZE	16	/* SW related data size */
+>> +#define PRUETH_NAV_SW_DATA_SIZE	48	/* SW related data size */
+> 
+> Why do you need 48? I think it should fit in 16.
+> 
+
+Yes, I overlooked the fact that swdata will be a union, will update 
+this. But if we are adding rx_chn in prueth_swdata for the next patch, 
+we will need to increase this to 24.
+
+>>   #define PRUETH_MAX_TX_DESC	512
+>>   #define PRUETH_MAX_RX_DESC	512
+>>   #define PRUETH_MAX_RX_FLOWS	1	/* excluding default flow */
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> index 00ed97860547..e5e4efe485f6 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+>> @@ -1522,6 +1522,12 @@ static int prueth_probe(struct platform_device *pdev)
+>>   
+>>   	np = dev->of_node;
+>>   
+>> +	if (sizeof(struct prueth_swdata) > PRUETH_NAV_SW_DATA_SIZE) {
+>> +		dev_err(dev, "insufficient SW_DATA size: %d vs %ld\n",
+>> +			PRUETH_NAV_SW_DATA_SIZE, sizeof(struct prueth_swdata));
+>> +		return -ENOMEM;
+>> +	}
+>> +
+> 
+> Can this be made a build time check instead of runtime?
+> 
+
+Sure, I beleive BUILD_BUG_ON_MSG macro can be used as a build time 
+check. Will use that.
+
+>>   	prueth = devm_kzalloc(dev, sizeof(*prueth), GFP_KERNEL);
+>>   	if (!prueth)
+>>   		return -ENOMEM;
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>> index c7b906de18af..2c8585255b7c 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+>> @@ -136,6 +136,24 @@ struct prueth_rx_chn {
+>>   	struct page_pool *pg_pool;
+>>   };
+>>   
+>> +enum prueth_swdata_type {
+>> +	PRUETH_SWDATA_INVALID = 0,
+>> +	PRUETH_SWDATA_SKB,
+>> +	PRUETH_SWDATA_PAGE,
+>> +	PRUETH_SWDATA_CMD,
+>> +};
+>> +
+>> +union prueth_data {
+>> +	struct sk_buff *skb;
+>> +	struct page *page;
+>> +	u32 cmd;
+>> +};
+>> +
+>> +struct prueth_swdata {
+>> +	union prueth_data data;
+>> +	enum prueth_swdata_type type;
+>> +};
+> 
+> Can we re-write this like so with type first and union embedded inside?
+> 
+> struct prueth_swdata {
+> 	enum prueth_swdata_type type;
+> 	union prueth_data {
+> 		struct sk_buff *skb;
+> 		struct page *page;
+> 		u32 cmd;
+> 	};
+> };
+> 
+
+Yeah ok, I will make the changes for this.
 
 > 
-> Thanks,
-> Robin.
+>> +
+>>   /* There are 4 Tx DMA channels, but the highest priority is CH3 (thread 3)
+>>    * and lower three are lower priority channels or threads.
+>>    */
+>> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+>> index aeeb8a50376b..7bbe0808b3ec 100644
+>> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+>> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
+>> @@ -275,10 +275,10 @@ static struct sk_buff *prueth_process_rx_mgm(struct prueth_emac *emac,
+>>   	struct net_device *ndev = emac->ndev;
+>>   	struct cppi5_host_desc_t *desc_rx;
+>>   	struct page *page, *new_page;
+>> +	struct prueth_swdata *swdata;
+>>   	dma_addr_t desc_dma, buf_dma;
+>>   	u32 buf_dma_len, pkt_len;
+>>   	struct sk_buff *skb;
+>> -	void **swdata;
+>>   	void *pa;
+>>   	int ret;
+>>   
+>> @@ -301,7 +301,7 @@ static struct sk_buff *prueth_process_rx_mgm(struct prueth_emac *emac,
+>>   	}
+>>   
+>>   	swdata = cppi5_hdesc_get_swdata(desc_rx);
+>> -	page = *swdata;
+>> +	page = swdata->data.page;
+>>   	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
+>>   	pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
+>>   
+> 
+
 
