@@ -4,114 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAAE0C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC654C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Apmt/MHZfjM69CNGBCus+eU+JQB1nzJgmT7WzA3w2kA=; b=Q/qkm8Z95IqqvkZLgopxeB4xKc
-	EPS/KNCIwBtKPqBzB9eLyW/CRM1aNLz6mwCa9Y1r7k8/nqCdXbDan1D6xaMII3wotDokLlEOSjfJP
-	N2XGxOKHa+AAuRMLXqpLHNcAmGTXMMMJGqUQA+BE7oe9knBdj2FmvbjWUX2nFeGU2EDKuIDKx0WBv
-	nRkTwfz6h2vtozYmLZGNufMRX8s+zb/cChQGRj8yKpvSi1HQzFNz+99zEQXrwOCyyxricPqDhYlnR
-	6JL/5508In62JByHCBNXWqsvmivVt/VEZiVqlr3h2/tp+Bj2NGxyr6nISc7N8DrBwac1PNzjXn7by
-	QgIeHbKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=afaSq1n/9Zx2C/a6yp1UZpzU8FTiNXOckROl9W+xe1U=; b=LVO8ThYBTdXHlRbOrF3KI3YDgP
+	86AhDDFNmwK9Khk1DcQH40prpLOgBoptinY4r8hooCulVq+bKcfuS2osMkpiAh6roaLv+H0Fx/BDJ
+	i9pc83hhLH5FltqiFS6NMUHvwcnDjek2g38moawMgUcypkMvCTSl8VbS6gi+48eDOidwITxU2JdRE
+	ZiGGFgEFESEehDxM4RquLE8Dmk9/trXmtYC7cBa2wFz0cgE3rZTwMT9COvBNUqIH58PsQkg4G6Vmj
+	0NwYHMlV/c2+8I0JWwhlibUaEAa5341jc/aTXDQiLR1k4uBQDJsHaA1c5apWvybiNGc/N4GLrWzof
+	3w2W7w4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkMDO-0000000832W-1f3I;
-	Tue, 18 Feb 2025 11:56:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tkMEp-000000083HG-0WBB;
+	Tue, 18 Feb 2025 11:58:07 +0000
+Received: from mail-qt1-x830.google.com ([2607:f8b0:4864:20::830])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLpz-00000007yXN-1TpD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 11:32:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AC189A40145;
-	Tue, 18 Feb 2025 11:30:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B011C4CEE2;
-	Tue, 18 Feb 2025 11:32:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739878346;
-	bh=ISkMgIu5CG3Hb3jbYuoH8+hOc7SA7NHBdbl+lD64RIw=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=OLIujiFyk8wPhQbHU6EYbxBs+ngzMkdMcdZnAGvWtIi/6F2/Q3b/pTZZsCUo7UvU5
-	 PHoQ1u9YG8wleocvnY2YofHTeEC8SBICrgr7en2XLQsCvSxColjOrb919Xl38EmZj+
-	 sqp4OZ78YG5tNicETUSuwOb5mU/QFAq6+RY6OkA4PQ+k4JCcxd0EcfRKQrXLYAkttN
-	 xNOEtZ1f1V2pxWYLp1H1ARccXjcqsBN3fMEXz7h2HJqSOFL8oO2CaCTSBji2vDJnu4
-	 wBgWnwlPqMh7yEaCg4vvZ+rQ1VyMRfefizVN9SXc9wj6ABqMiJ+TnQ2usyC4PCZX0v
-	 hdYQTdHaR0WqA==
-Message-ID: <a1fb9bdb-6c11-4aeb-b88e-7a65861e20d5@kernel.org>
-Date: Tue, 18 Feb 2025 12:32:19 +0100
+	id 1tkLsV-00000007yym-3Tno;
+	Tue, 18 Feb 2025 11:35:04 +0000
+Received: by mail-qt1-x830.google.com with SMTP id d75a77b69052e-471fe5e0a80so7361101cf.1;
+        Tue, 18 Feb 2025 03:35:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739878502; x=1740483302; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=afaSq1n/9Zx2C/a6yp1UZpzU8FTiNXOckROl9W+xe1U=;
+        b=AC5Xl92Om0lN7q9LYSCul+vHUi4kflQdYszcvZvPHcEkJE++TCy5FywB9Agz5PYzsE
+         VCnRqUk19bQrCezxOyxtQpgst+8yTE+Vu+p89QXI2vfNt5cZwdEfzR1scd7N+4g8Io01
+         Y3WTykzCQd0/FkYog/eGzuwjxw7ZotzEwpHBCxM+EaUAnnpS6QXcELK/ATRRYzehTLm7
+         uNk00TaIvBZxI0GA717gJfpG727W0MHBQj4ubhMP49EflL2wONnF0Uw6GQzO8I8UoLrF
+         ZfY864Fn4pCxxPmI/WnpxQZOcRMyxTGtrARNf+Th/IIPr5Hc7iNK3uQSM9sLcvNszjrn
+         cFZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739878502; x=1740483302;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=afaSq1n/9Zx2C/a6yp1UZpzU8FTiNXOckROl9W+xe1U=;
+        b=tKk9E/E3yv2qFmpZdiG8jeUzXyUaknV9GJuBOf1G1V6HRVZmoZMuys6OF0/rwpOiJF
+         Y9mncw4vb8iVMNDi/TdpRejZLIeLDBT76uVJ2RkZm0NOMRrjrqsu3ux/DkbVxXNtFYKh
+         cxov2G6sVR9FaRNChVka48HzMSdF92SxJmbvl2jctnj9nFu7PNmF7ar4XZQo32IgiBwi
+         IZrWKBNOe+VC/Xao/fXzCnYCY3nI/JqgILGgteb12LTNyy0RyTKhbuw7++UjjzPRLTwy
+         Jv7GiyyrLiHgwHj4XBRu55LaIju+AJRP49A+0i7oNRKlUEXTjL5oRKKlf2ssnsffoX/2
+         Cv0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVK1tjS4I5OnctKyjJNhHF4XYtUfRjf9J3YR1M+kj0JwrDGCPmyJwu74bPF5qFGa73ZSREg6AhUtwpQyUY=@lists.infradead.org, AJvYcCW4+opeLOr9s5RLAORl8wAcbTl/GvXFB4hkiK8pl8gBhZc51Wax8n8mOtJKzL5C3Kzio/2h/OhuXUGVKgLJuZyb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbVGMbK+bWXnSVsXIwQVm0f0kMPAoOI2yoTAQzf7N7sZXTSxHb
+	eBzfUt6xPBWILZOUde34oJd5QNDm+vrRFJdIgaxJYI7gu+mPw7a+
+X-Gm-Gg: ASbGnctvwSBdzwSnbDQ4X8b0e9zYvkTaSowlHO8oecV/5dvAlyj7yHUBiAe54Ja7hNW
+	wgBj7z+E0tsgj3AUwzmHLzbVHlyIwZOTrDB71f3rCqU/2zEqzrLa7dIiOBRkwXUBiSyRNkAkuKr
+	8bUUHdSlTjCO+U1LyvdDe+HapR2LjmqTYNnpq5VaWTgXzKtTXVv8jxBaZ10hZ2ovD8p7Tn9i8wp
+	zwDO0vQOxjV7FhuyBZ4+64C0DQnNf/0vxhfiLS2PCIEam8DaBFR0W0zuw8pcHESbzE=
+X-Google-Smtp-Source: AGHT+IFe6C/gSNnzxL8kV6UCXZr3P6tf9lX30/uxdZgxSpgJktrmUiTn4Zw2m+FrVeltIJ8PDsdvvQ==
+X-Received: by 2002:a05:622a:1803:b0:471:9cba:ad2c with SMTP id d75a77b69052e-471dbcc2e05mr196823821cf.11.1739878502351;
+        Tue, 18 Feb 2025 03:35:02 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-471f2b0476dsm19857671cf.28.2025.02.18.03.35.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2025 03:35:01 -0800 (PST)
+Date: Tue, 18 Feb 2025 19:34:47 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
+	Hariprasad Kelam <hkelam@marvell.com>, =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, 
+	Jisheng Zhang <jszhang@kernel.org>, Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
+	Drew Fustini <dfustini@tenstorrent.com>, Furong Xu <0x1207@gmail.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
+	Serge Semin <fancer.lancer@gmail.com>, Lothar Rubusch <l.rubusch@gmail.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v5 3/3] net: stmmac: Add glue layer for Sophgo
+ SG2044 SoC
+Message-ID: <thc5oknaqaw54wghyxpx6nr4kbykxvpgkgvpqsnsp2osjlxgwv@dekgtkxoywrm>
+References: <20250216123953.1252523-4-inochiama@gmail.com>
+ <Z7IIht2Q-iXEFw7x@shell.armlinux.org.uk>
+ <5e481b95-3cf8-4f71-a76b-939d96e1c4f3@lunn.ch>
+ <js3z3ra7fyg4qwxbly24xqpnvsv76jyikbhk7aturqigewllbx@gvus6ub46vow>
+ <24eecc48-9061-4575-9e3b-6ef35226407a@lunn.ch>
+ <Z7NDakd7zpQ_345D@shell.armlinux.org.uk>
+ <rsysy3p5ium5umzz34rtinppcu2b36klgjdtq5j4lm3mylbqbz@z44yeje5wgat>
+ <Z7PEeGmNvlYD33rZ@shell.armlinux.org.uk>
+ <6obom7jyciq2kqw5iuqlugbzbsebgd7ymnq2crlm565ybbz7de@n7o3tcqn5idi>
+ <Z7Rjjo5nZ0gnCbzq@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v0 1/3] dt-binding: aspeed: Add LPC PCC controller
-To: Kevin Chen <kevin_chen@aspeedtech.com>, "joel@jms.id.au"
- <joel@jms.id.au>, "andrew@codeconstruct.com.au"
- <andrew@codeconstruct.com.au>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "elbadrym@google.com" <elbadrym@google.com>
-References: <20250117095217.661070-1-kevin_chen@aspeedtech.com>
- <20250117095217.661070-2-kevin_chen@aspeedtech.com>
- <bad78886-2577-476f-a80f-e189a178b26e@kernel.org>
- <PSAPR06MB4949CB5CE2E08B98B368160589FF2@PSAPR06MB4949.apcprd06.prod.outlook.com>
- <78dc2cee-2d87-42a9-8e0b-2199c653def4@kernel.org>
- <PSAPR06MB494959646EC7A8447056777B89FA2@PSAPR06MB4949.apcprd06.prod.outlook.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <PSAPR06MB494959646EC7A8447056777B89FA2@PSAPR06MB4949.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z7Rjjo5nZ0gnCbzq@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_033227_520987_C3594236 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20250218_033503_871724_1B27819F 
+X-CRM114-Status: GOOD (  46.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,61 +120,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/02/2025 12:05, Kevin Chen wrote:
->> On 13/02/2025 09:46, Kevin Chen wrote:
->>>> On 17/01/2025 10:52, Kevin Chen wrote:
->>>>> Add dt-bindings for Aspeed for Aspeed LPC POST code capture controller.
->>>>>
->>>>> Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
->>>>> ---
->>>>
->>>> Patchsets start from 1, not 0.
->>> Agree, I will resend the patchsets of v1.
->>>
->>>>
->>>> This wasn't tested as it has obvious errors, so no review. Test your
->>>> patches before you send them.
->>> Agree, I will run "make dtbs_check W=1" and " make dt_binding_check " to
->> check result is clean before the next commits.
->>>
->>>>
->>>>
->>>> <form letter>
->>>> Please use scripts/get_maintainers.pl to get a list of necessary
->>>> people and lists to CC. It might happen, that command when run on an
->>>> older kernel, gives you outdated entries. Therefore please be sure
->>>> you base your patches on recent Linux kernel.
->>>>
->>>> Tools like b4 or scripts/get_maintainer.pl provide you proper list of
->>>> people, so fix your workflow. Tools might also fail if you work on
->>>> some ancient tree (don't, instead use mainline) or work on fork of kernel
->> (don't, instead use mainline).
->>>> Just use b4 and everything should be fine, although remember about
->>>> `b4 prep --auto-to-cc` if you added new patches to the patchset.
->>>>
->>>> You missed at least devicetree list (maybe more), so this won't be
->>>> tested by automated tooling. Performing review on untested code might
->>>> be a waste of time.
->>>>
->>>> Please kindly resend and include all necessary To/Cc entries.
->>>> </form letter>
->>
->> How did you implement this feedback?
+On Tue, Feb 18, 2025 at 10:40:14AM +0000, Russell King (Oracle) wrote:
+> On Tue, Feb 18, 2025 at 09:01:59AM +0800, Inochi Amaoto wrote:
+> > On Mon, Feb 17, 2025 at 11:21:28PM +0000, Russell King (Oracle) wrote:
+> > > On Tue, Feb 18, 2025 at 06:50:24AM +0800, Inochi Amaoto wrote:
+> > > > On Mon, Feb 17, 2025 at 02:10:50PM +0000, Russell King (Oracle) wrote:
+> > > > > On Mon, Feb 17, 2025 at 02:25:33PM +0100, Andrew Lunn wrote:
+> > > > > > > I am not sure all whether devices has this clock, but it appears in
+> > > > > > > the databook. So I think it is possible to move this in the core so
+> > > > > > > any platform with these clock can reuse it.
+> > > > > > 
+> > > > > > Great
+> > > > > > 
+> > > > > > The next problem will be, has everybody called it the same thing in
+> > > > > > DT. Since there has been a lot of cut/paste, maybe they have, by
+> > > > > > accident.
+> > > > > 
+> > > > > Tegra186: "tx"
+> > > > > imx: "tx"
+> > > > > intel: "tx_clk"
+> > > > > rk: "clk_mac_speed"
+> > > > > s32: "tx"
+> > > > > starfive: "tx"
+> > > > > sti: "sti-ethclk"
+> > > > > 
+> > > > 
+> > > > The dwc-qos-eth also use clock name "tx", but set the clock with
+> > > > extra calibration logic.
+> > > 
+> > > Yep, that's what I meant by "Tegra186" above.
+> > > 
+> > > > > so 50% have settled on "tx" and the rest are doing their own thing, and
+> > > > > that horse has already bolted.
+> > > > > 
+> > > > 
+> > > > The "rx" clock in s32 also uses the same logic. I think the core also
+> > > > needs to take it, as this rx clock is also mentioned in the databook.
+> > > 
+> > > The "rx" clock on s32 seems to only be set to 125MHz, and the driver
+> > > seems to be limited to RGMII.
+> > > 
+> > > This seems weird as the receive clock is supposed to be supplied by the
+> > > PHY, and is recovered from the media (and thus will be 2.5, 25 or
+> > > 125MHz as determined by the PHY.) So, I'm not sure that the s32 "rx"
+> > > clock is really the clk_rx_i clock supplied to the DWMAC core.
+> > > 
+> > > Certainly on stm32mp151, it states that ETH_RX_CLK in RGMII mode will
+> > > be 2.5, 25 or 125MHz provided by the PHY, and the clock tree indicates
+> > > that ETH_RX_CLK in RGMII mode will be routed directly to the clk_rx_i
+> > > input on the DWMAC(4) core.
+> > > 
+> > 
+> > RGMII is not the problem. The databook says the RGMII clock (rx/tx)
+> > follows this set rate logic. 
 > 
-> make dtbs_check W=1
-> # Check the lpc-pcc or pcc message from the log
+> Sorry, I find this ambiguous. "This" doesn't tell me whether you are
+> referring to either what s32 does (setting the "rx" clock to 125MHz
+> only) or what RGMII spec says about RX_CLK (which is that it comes from
+> the PHY and is 2.5/25/125MHz) which stm32mp151 agrees with and feeds
+> the PHY's RX_CLK to the clk_rx_i inputs on the DWMAC in RGMII, GMII
+> and MII modes.
 > 
-> make dt_binding_check 
-> # No Error
-> 
-> make coccicheck MODE=report
-> # Stop at the following log but no related log.
-> #   OCaml scripting is unsupported.
-> #   coccicheck failed
 
-You answered probably to earlier part of email, not to the one I asked
-about.
+What I said follows the second, the clock is set at 2.5/25/125MHz
+with speed at 10/100/1000Mbps. The only thing I can refer to is the
+ip databook.
 
-Best regards,
-Krzysztof
+> clk_rx_i comes through a bunch of muxes on stm32mp151. When the clock
+> tree is configured for RMII mode, the rate on clk_rx_i depends on the
+> MAC speed (10/100Mbps).
+> 
+
+OK, I have no problem and find some descriptions related to this in
+the databook.
+
+> This suggests as far as the core is concerned, the clock supplied as
+> clk_rx_i isn't a fixed rate clock but depends on the speed just like
+> the transmit clock.
+> 
+
+This is what I want to say. clk_rx_i is not fixed but the
+s32 uses it as a fixed one (This is the thing I felt weird).
+
+In fact, Non-fixed clk_rx_i is why I suggested adding the rx
+clock to the core at first. Since the drive may not use rx
+clock as the databook says, it is good to leave it alone.
+
+At last, it seems like that I need to improve my statement.
+I am sorry for it.
+
+> > For other things, I agree with you. A fixed "rx" clock does reach the
+> > limit of what I know. And the databook told nothing about it. As we
+> > can not determine the rx clock of s32 and it may be set for the phy,
+> > it will be better to not move it into the core.
+> 
+> I'm intending to leave s32's rx clock alone for this reason as it does
+> not match what I expect. Maybe on s32 there is a bunch of dividers
+> which are selected by the mac_speed_o signals from the core to divide
+> the 125MHz clock down to 25 or 2.5MHz for 100 and 10Mbps respectively.
+> As I don't know, it's safer that I leave it alone as that means the
+> "rx" clock used there is not clk_rx_i.
+> 
+
+Thanks for your explanation. This is OK for me.
+
+Regards,
+Inochi
 
