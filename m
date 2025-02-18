@@ -4,85 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F1BC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 08:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70167C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 08:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pgMKlsrMP1eBCbeaAVjxhZXck6mumn4aUs8hwiTVomI=; b=w7/xJDFIgmJ5m5JvnVhW8cK9eV
-	AD/oRFunqB+aYbxD3G5yk9a1/euT3aLHP6n4zQVZcPUgsNrQKnrg4EIOQ1FaBKYDC5wViceM2gmFv
-	6a5xCyuDWu6HL3rJ3M8PUeQDu+flbMAvGgo17vIz8+1tLJYe1Q25wJZZ7/gFaom8CM5Fv9qOvY+fr
-	jhFpiYalZh0OwG2aaws51Y0OwraSA6clPKHQQeEf6WxnmPHqpOJYV5Ffp1x+zIFV5dP6W2hnN9WN6
-	ffPzz7wqRjcCrHaKYjCuMZNSsp6ktCfgH9eP/U/Ifo7HwC7/bAa+MrSDFxcn7d3SYjoQYiNXY5xol
-	j3rBRY2g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D/UqMJMSAhvrPSLkcAN2tNGm4QReSxJ4zyS/t/eFDaw=; b=lQceRLcZOvTz9iQFgRuhy2AApU
+	gFWZTttRe+GgIe/6kdqJOqk4Z7NuIruXk59snFbCVWPv6eBdvIIJ02Ww6rfwTHSdyBlXuAAnNyc54
+	W63i7Ya6EjbOHIBR6BpGduv+n/OtpZtv2egj3g9yp8FNvSTVcST9rwEWzT1RamcfwF+Fo6nZmhOvl
+	PLI+TH7K1s6sOXLGQo1Z2ZAAWDjMRwNk+8G2PUBG3v+EdpbBCNu9lJUItbaNgylrmDCv682MfraPm
+	rHjrgn1Gj4fosN4x/TbJt3DzOo4WiQjDFBZgV7zdz3HMI62dUQKzcIh13wI/mmku/MQUK9WL9hm6p
+	AfL1g1pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJ2u-00000007Ikl-2vyb;
-	Tue, 18 Feb 2025 08:33:36 +0000
-Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
+	id 1tkJ9x-00000007KL6-3Rck;
+	Tue, 18 Feb 2025 08:40:53 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJ1J-00000007IUj-07OX
+	id 1tkJ8V-00000007K2n-0vZH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 08:31:58 +0000
-Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-5fc01d3faefso1543153eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 00:31:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1739867511; x=1740472311; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pgMKlsrMP1eBCbeaAVjxhZXck6mumn4aUs8hwiTVomI=;
-        b=g6d4Y4lRanh2Snb4tiLVSA5zU3qVlveBb6S7CIhE5moIZ/IKL7Qjul5EcNjQuBA3HM
-         Jn+q8hCsktyzJ6Zo6vBu/s6FsHHTPfVGwYwdnxX2AVpWtM9tanaqySnjIbKYxtEuJHKJ
-         r91wwrnliq0qnl/Whd6tdcvK5Dkaw10LvUkQpB/NkFoGFlznt0RhVdGkXGZKErbnt2TD
-         TPblhjza6wPoxvsylb5LMXPzi4ecy8vA6lrbY8rgd6mo8xwuAHhmfWXLaO8mcj/U/Zi7
-         NJTZFESkXNaRo5JEO1djcSzKcnYcX6cFztSMkuYPzXErz5DNOJin75MLvTk1c+j8ECHp
-         cZQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739867511; x=1740472311;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pgMKlsrMP1eBCbeaAVjxhZXck6mumn4aUs8hwiTVomI=;
-        b=HmCwwBPMStaFfrJp76u7n6QBdpV6PIv6HFWuOqIzDnkpXSGDZVaeX33U0iyl57fWL0
-         pUfSKYxxXpmdkd0NsBXlN8VbexicRxNJm0cur+1CKmvsHZ6Nt5gm5HmiU8bL2U6cC2Aa
-         AQlWP5KIb3/vS+8DTSRg6xvU6il06Gw4NxfOVoQY33NTd/3YU+eoqUsRVPb7aE8NCNEQ
-         k2snne82Iwgy/kjz+gwY+TQYAZuR/vsvKfkgVlAt9DRNFMuU6k7TGsAF2ZA7khRcy0XZ
-         YhSt1Fd48lYt2ThjJbtEfl8altaBCeRx2JQ35WUAztX//2rSTNmoNWWl0Ao9b9I7EUAV
-         nUAA==
-X-Forwarded-Encrypted: i=1; AJvYcCW8QQl14/bToeF09envec/Py3duGROUcObYCxylPBxx6NqnQFIeBanMjZHR1wsceYgBvkbR2DSKxbzrkONlYWs+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIyTt9swK5yX7iVyIOuGNLdpdMJbiwDFNHHZDdS9C342mJ+qMv
-	Orf+qZv42yzNGxzvg2GslZfra3t99j9zeRA53aW7XSLeHQusn7fA51H5V1XFaS+dOSpbwHABVio
-	sInUdb0YxsmcC/BYFZh4y+5qihyhTRO1HyBUgcA==
-X-Gm-Gg: ASbGncvgTxv2+8kGo/eLP50nMqJtaM5Vmy0r/2D0IFUxaRJLv4zwGg5Z8Yr29k5OPDT
-	DWO1aJTiOvcSDE7PaqX+hE4vEArN7NF0jS/57baYCfm6w0wzkG4P8c78OTijHB0YUhpTz1n9hUl
-	c=
-X-Google-Smtp-Source: AGHT+IGHJuM9IfNPGlGcPH7aa44uhxOWYRwrS2rEKmNkeW+giAvfsVbkjj5RarhaVn+9MIgY3oxSFWNSlHJgrM3c2SI=
-X-Received: by 2002:a05:6870:be8b:b0:29e:3531:29da with SMTP id
- 586e51a60fabf-2bc99a937bdmr9235473fac.9.1739867511250; Tue, 18 Feb 2025
- 00:31:51 -0800 (PST)
+	Tue, 18 Feb 2025 08:39:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id F04E6A41DB0;
+	Tue, 18 Feb 2025 08:37:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6DA3EC4CEE2;
+	Tue, 18 Feb 2025 08:39:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739867961;
+	bh=SPcl/UOhW/cy7ZS6G7DShHFIAuQPHxxo6CaqutmigeY=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=eshHsXGDvwxrSHeRVtLo5ST1o2VIA+LPzeg+O23XxmbRPQaCqxz+dECGnfzd10GoT
+	 VrGLz6yhKsbKKDyUO1toIM6l0sAMP2BuNkSRjXs1chd8KHT3OV1tj+Yd2ltVeX1vJk
+	 agB8ZtSlxSseQLdPtOjWI+/V63wBOAFiu78ezmFP+AtEtRtFSC1hjlKMXptdzUZvYZ
+	 fjXcdY9keTg2m6neiFESrVSGChyx6yBnsfBRLLJ4fbchv87RN//LvLLNej1AWaUnmb
+	 9CzAGitAygkWr9qqHaA2U2dGtJz1o3XjtvS/1pErLvatCZ/zO+0qqmIFizhB2tFexn
+	 ihbTCIOqHnhzw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 62117C021AA;
+	Tue, 18 Feb 2025 08:39:21 +0000 (UTC)
+From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
+Subject: [PATCH v2 0/2] arm64: dts: imx8m: Add pinctrl config definitions
+Date: Tue, 18 Feb 2025 09:39:15 +0100
+Message-Id: <20250218-pinctrl_defines-v2-0-c554cad0e1d2@gocontroll.com>
 MIME-Version: 1.0
-References: <20250208104002.60332-1-cuiyunhui@bytedance.com>
- <20250208104002.60332-2-cuiyunhui@bytedance.com> <d1db3047-f478-4d8f-b9f6-e7a5820d5a29@linux.alibaba.com>
-In-Reply-To: <d1db3047-f478-4d8f-b9f6-e7a5820d5a29@linux.alibaba.com>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Tue, 18 Feb 2025 16:31:40 +0800
-X-Gm-Features: AWEUYZkcD7V4dyG01R1nkwYjrYmf-ApvAaWIkuajdXDd_s9zqaV_RoEhFC_HhyY
-Message-ID: <CAEEQ3wmaD61DMV0nXrQeVEk6r-J3JYxFceXZmH=t0aQrESqJew@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v3 1/2] perf/dwc_pcie: fix some unreleased resources
-To: Shuai Xue <xueshuai@linux.alibaba.com>
-Cc: renyu.zj@linux.alibaba.com, will@kernel.org, mark.rutland@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>, 
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>, linux-pci@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADNHtGcC/3WNwQqDMBBEf0X23BQTbSw99T+KlLhudMEmkgRpk
+ fx7U+89vhnmzQ6RAlOEW7VDoI0je1dAnSrA2biJBI+FQdXqUivZipUdprA8R7LsKArVdNSNg5a
+ oDZTVGkrxPoyPvvDMMfnwOQ42+Uv/uzYpamEHvGrTKrIN3ieP3qXgl+WM/gV9zvkLPCtAqLMAA
+ AA=
+X-Change-ID: 20250214-pinctrl_defines-237e7db61c6a
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Maud Spierings <maudspierings@gocontroll.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739867960; l=1173;
+ i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
+ bh=SPcl/UOhW/cy7ZS6G7DShHFIAuQPHxxo6CaqutmigeY=;
+ b=WjUzSixqXZo3HZ5py+rVjBFU2osjMWLtfUUHAw7i8UoIHjvmiDZBG7dchTMK6tDDJuAFt7mBp
+ bdZCkawsCreCnrG+Jeq20itLp9IenEbjYO9c1fOUCt/qGdErcDKwJjs
+X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
+ pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
+X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
+ with auth_id=341
+X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_003157_367008_8B6E8C42 
-X-CRM114-Status: GOOD (  21.36  )
+X-CRM114-CacheID: sfid-20250218_003923_332057_8B370A76 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,76 +91,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shuai,
+Up untill now the extra function mux (pull resistor, etc) has been
+defined as a raw hex value, this is difficult to interpret. Add
+definitions for these parts of the pinctrl registers to allow for more
+readable pinctrl definitions in devictree files.
 
-On Tue, Feb 11, 2025 at 4:05=E2=80=AFPM Shuai Xue <xueshuai@linux.alibaba.c=
-om> wrote:
->
->
->
-> =E5=9C=A8 2025/2/8 18:40, Yunhui Cui =E5=86=99=E9=81=93:
-> > Release leaked resources, such as plat_dev and dev_info.
-> >
-> > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> > ---
-> >   drivers/perf/dwc_pcie_pmu.c | 33 ++++++++++++++++++++++-----------
-> >   1 file changed, 22 insertions(+), 11 deletions(-)
-> >
-> > diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
-> > index cccecae9823f..19fa2ba8dd67 100644
-> > --- a/drivers/perf/dwc_pcie_pmu.c
-> > +++ b/drivers/perf/dwc_pcie_pmu.c
-> > @@ -572,8 +572,10 @@ static int dwc_pcie_register_dev(struct pci_dev *p=
-dev)
-> >               return PTR_ERR(plat_dev);
-> >
-> >       dev_info =3D kzalloc(sizeof(*dev_info), GFP_KERNEL);
-> > -     if (!dev_info)
-> > +     if (!dev_info) {
-> > +             platform_device_unregister(plat_dev);
-> >               return -ENOMEM;
-> > +     }
-> >
-> >       /* Cache platform device to handle pci device hotplug */
-> >       dev_info->plat_dev =3D plat_dev;
-> > @@ -730,6 +732,15 @@ static struct platform_driver dwc_pcie_pmu_driver =
-=3D {
-> >       .driver =3D {.name =3D "dwc_pcie_pmu",},
-> >   };
-> >
-> > +static void dwc_pcie_cleanup_devices(void)
-> > +{
-> > +     struct dwc_pcie_dev_info *dev_info, *tmp;
-> > +
-> > +     list_for_each_entry_safe(dev_info, tmp, &dwc_pcie_dev_info_head, =
-dev_node) {
-> > +             dwc_pcie_unregister_dev(dev_info);
-> > +     }
-> > +}
-> > +
-> >   static int __init dwc_pcie_pmu_init(void)
-> >   {
-> >       struct pci_dev *pdev =3D NULL;
-> > @@ -742,7 +753,7 @@ static int __init dwc_pcie_pmu_init(void)
-> >               ret =3D dwc_pcie_register_dev(pdev);
-> >               if (ret) {
-> >                       pci_dev_put(pdev);
->
-> Should we get a reference count of pdev in dwc_pcie_register_dev and put =
-it in
-> dwc_pcie_unregister_dev?
+It should also be done for the mn/mq but I currently do not have the
+reference manuals for these to verify these fields, though I can only
+assume that they would be the same.
 
-Personally, it's not an issue because RP devices are generally not unloaded=
-.
+Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+---
+Changes in v2:
+- Changed mystery bit to SION
+- Link to v1: https://lore.kernel.org/r/20250214-pinctrl_defines-v1-0-fbc86a42ef3c@gocontroll.com
 
->
-> Thanks.
-> Shuai
->
+---
+Maud Spierings (2):
+      arm64: dts: imx8mm: Add pinctrl config definitions
+      arm64: dts: imx8mp: Add pinctrl config definitions
 
-Thanks,
-Yunhui
+ arch/arm64/boot/dts/freescale/imx8mm-pinfunc.h | 27 ++++++++++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8mp-pinfunc.h | 27 ++++++++++++++++++++++++++
+ 2 files changed, 54 insertions(+)
+---
+base-commit: 0ae0fa3bf0b44c8611d114a9f69985bf451010c3
+change-id: 20250214-pinctrl_defines-237e7db61c6a
+
+Best regards,
+-- 
+Maud Spierings <maudspierings@gocontroll.com>
+
+
 
