@@ -4,61 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8E7C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 18:09:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B5DC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 18:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zVFXRSmqx5BnoRM4CNN1giPCorlAq7ffHKtbHAgrzbk=; b=cxqoyZqvwYHeFT1jiQVcf7VhGg
-	BmYHyQRb36Jw+qI/CzfB49IEiVSMF1w6FXKAZVoz4Cguqd4ZsyBTgRuA1Hf+ctyX9cLMpXP+/SKyq
-	uhawqsMbheNKWvNrzcwf51e0hcz/q6kbliC3NZRJXCcnJN1tiuOptnQF2KVQl+xM2twlIoH5hl3AC
-	H/971OtBWJu+UdLBAb74JkuZIrCrCA6lIy3AAqvjEhctqQ7xRFbqR46hiG9JaX3RUdfh/qVLYdVr3
-	aGGoilb8fzHRvyPQxd0VlV2/ZKN8mRiCwhwFWkUlF8Ur9ZlPHA6vdp43LT3qPEGV4Yjbf7XmNGznM
-	7Js3Nz7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TS/shLrBFmY6HBcWUeE/akb7T2DeYuPzRXyV636ihZc=; b=4HDpmAUqHep1LR4iKshBZJaal/
+	5L2v+clo6Jl+dI7E118hcmdgyy+iAnch4KrGivwA7s+PYUMiW9WHUi+CCi3w7sA+Xh43W6wkbCRUF
+	SfQvoj0Iu7+7X6j+7Lo2knp4LwziN/HjdUW7gzn6HCKvwszj/v2jreLxlHoQvra/sSSyLB15qd8Gu
+	MqlJEDg4V4jDWo+tUprhgGNVlZz/iX3zzOhwCBpSf5J8BotNkU6jLqlHGTG+NCdYK9AX2/WZLYOb7
+	3J3792BeJUqxd+e8ECxNwekdOViuUMO5CAJn5q9SI54PV18pFYwB1vOJhBTJBDFPGETJSUm9UeBNK
+	DCMIMVXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkS2H-00000009HkP-3QyF;
-	Tue, 18 Feb 2025 18:09:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkS0n-00000009HVn-10AE
+	id 1tkS3i-00000009Hwy-1vZA;
+	Tue, 18 Feb 2025 18:11:02 +0000
+Received: from mail-mw2nam10on2060c.outbound.protection.outlook.com ([2a01:111:f403:2412::60c] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkS0z-00000009HWs-0Ldu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 18:08:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73DCD152B;
-	Tue, 18 Feb 2025 10:08:16 -0800 (PST)
-Received: from [10.1.196.72] (e119884-lin.cambridge.arm.com [10.1.196.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C54FC3F6A8;
-	Tue, 18 Feb 2025 10:07:55 -0800 (PST)
-Message-ID: <9570e9bd-0555-4abb-930d-3f393df2b4ca@arm.com>
-Date: Tue, 18 Feb 2025 18:07:54 +0000
+	Tue, 18 Feb 2025 18:08:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m4wmI+TOeq0mErwWcjK4fI43eh535Q22YQK8mWYGMfCCbR3YiPAbe0TyfljKxSruDAzNkmosP4C3EXEn5Tl2hxpRFJ3hRxnVrlkSYaiIb6f3eqS//vYGcGELM5rf7LN7zxZTn2pe3fVXGL3rbjN5S+sFj+VOrDg1fyVJ0oUgitn6H1I0hEzbW5kSpC/FbzS5RokiAvjB1EFLPtZoEOcPzG6XOO5/K0PAguHColp5IQkr4u7vHRNVYp/K86mhe+hT88ZQLijzUdfWR4+u+XFtXORMtoj63Ks1QE66nR7GBEF7TAGP8BA0XCyp/A3AMivz0AmWLPA2XSlKHdGpSNRSBw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TS/shLrBFmY6HBcWUeE/akb7T2DeYuPzRXyV636ihZc=;
+ b=tlxdpWUcPFJ0sKg41TUzF5GLXcOqOWSG14LhtMwrMQDqy9VQ2DVIVWrt4C4kMUGf41Ld4NK8l5fbUIGDEr9HODKnP0C5XOXWSS1ilj+sDqHAEx53tDDWg86nOfBtbyrwmxsblX2jusd/KjGcqcROrUJBHqn+hqfOIdzjF1N//90apz+WHz7ZQxY1IDhCmycQqZhg37/AreiF/YyiavT/hvVTYNtGFbvYpX8xWarlVPyzwxIHEe2eZG0waw1lQ2XKbgw/bIxNEFg9B5mDfpSUMU5ylFzgHVAcR2013mL1F6CW002dqW3EaEe5Lf8u/ocEThPw+KAuGu7sF0A5S1j3Iw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TS/shLrBFmY6HBcWUeE/akb7T2DeYuPzRXyV636ihZc=;
+ b=qp/cfPpetZk8r25LncXUQ8OkkUqcce9Ma53TA9oT40wQfAnzOYeDmqDxCUzGx5x9kabLQ0a3Equ+qFCa69/fOnKZP9ERgUAhsxZLmlZMugaptLC0Zs2516o+O2HdfHpgOW0AYtE/HzaYphaERQEDczOcV6+awbwAmRXrQHhfxfI5lHmgBs5ugPfEb9cGv8BDBc5q3CAg9nirSWRzqKk5UBVBh+OcdoDLMxPSdWHx3FzS5VvaeH0PjjNtVeDcpE9qPZvSwa01kkrXSRRS8aZWAhnMQqbrOa+PUYq1XFvlUtaEogx/zeciPOTxWo2P5bB5For39Nonqztz7BBqZI2kxQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by PH0PR12MB7905.namprd12.prod.outlook.com (2603:10b6:510:28b::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.14; Tue, 18 Feb
+ 2025 18:08:06 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8445.019; Tue, 18 Feb 2025
+ 18:08:06 +0000
+Date: Tue, 18 Feb 2025 14:08:05 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org, joro@8bytes.org,
+	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
+	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
+	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
+	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
+	patches@lists.linux.dev
+Subject: Re: [PATCH v6 05/14] iommufd: Add IOMMUFD_OBJ_VEVENTQ and
+ IOMMUFD_CMD_VEVENTQ_ALLOC
+Message-ID: <20250218180805.GI4099685@nvidia.com>
+References: <cover.1737754129.git.nicolinc@nvidia.com>
+ <2fb8d9c7b01ad36b42849283cd33d931f11092cb.1737754129.git.nicolinc@nvidia.com>
+ <20250218152959.GB4099685@nvidia.com>
+ <Z7THxrq/6sYP/AIi@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z7THxrq/6sYP/AIi@nvidia.com>
+X-ClientProxiedBy: MN2PR10CA0024.namprd10.prod.outlook.com
+ (2603:10b6:208:120::37) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/8] dt-bindings: arm: Add Morello fvp compatibility
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Liviu Dudau <liviu.dudau@arm.com>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Russell King <linux@armlinux.org.uk>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>
-References: <20250213180309.485528-1-vincenzo.frascino@arm.com>
- <20250213180309.485528-3-vincenzo.frascino@arm.com>
- <20250214-utopian-griffin-of-innovation-fabc40@krzk-bin>
-Content-Language: en-US
-From: Vincenzo Frascino <vincenzo.frascino@arm.com>
-In-Reply-To: <20250214-utopian-griffin-of-innovation-fabc40@krzk-bin>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|PH0PR12MB7905:EE_
+X-MS-Office365-Filtering-Correlation-Id: a4685c7b-0105-4b6f-abc3-08dd504731cd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4K06gbJz8Kxys/e+n5wqCTe2FxLiPjbHS0YDgMLdpHTH63ngEgoPRDSTi5VV?=
+ =?us-ascii?Q?7Qw7HrtgFgItjndqWkAv/tanWxqKSyvSPP3FXwNMxgWCONMvy6OO4a+RkxLc?=
+ =?us-ascii?Q?dic4mv/CuFp5DLeyfN8YDVIgF4LFXnJ9F7u+VEvnMHhUTJkbLsMZngltoIY0?=
+ =?us-ascii?Q?7tGUpbStzGUpXLEHB9FRW1AqGCPs05MKfcZNm/omXh4ADuAB1XN7XBLcsWSM?=
+ =?us-ascii?Q?P4MLo3h2heaXerFN0MLHGbqbtIrLORKbGw8TjLNt1fTJwTvR42F1mUKw16kb?=
+ =?us-ascii?Q?iOryzylrNmey3LZSpH1aOrsVpeVQcvRR5sD3OFpwJju40iFjR+/yFKhuRBW3?=
+ =?us-ascii?Q?M8KLQk/fa+2Vy3Zn+1oJM02xTYaOfEmo4p2vfutgF4VZSvEcB3CVW4IZnMXv?=
+ =?us-ascii?Q?XxJFnMfcILrMLWY+vUJ0uZP+59w5d1xdXMHoZ5oxHw+remesoyywlOa74kOh?=
+ =?us-ascii?Q?umwS60p4td+iAtykSx2nnknPZ6bb+eIXXp3Pg3hWiQdScz1Re9eKmDflVNTV?=
+ =?us-ascii?Q?nkFPuJour+T1RZ01SBFq+lgwUSWer/oJhWV03gQ+g2qOiZ2JXJrB+EIguYWy?=
+ =?us-ascii?Q?L5ngoqMcZ80VeYcBt+pRAkok51OxY0feKL1od+VWb5hXJFFfvkoD9u2GBPuT?=
+ =?us-ascii?Q?xdFg8QKJW06op7/MoUuIBfUqxASdbxwio3GeWUg5dLZ8eBK4dcB+I3r7YEZL?=
+ =?us-ascii?Q?LWXaoCepJ9ez8qktdk+MNL10tVaeqszaZFvLAU+qNC+pzevr1cdfkaRkckeT?=
+ =?us-ascii?Q?BALBTU7/HGOInu6lju4p1aFE8npp/v68yBZDZU2X0NWHtJ2ZlfIpo0iiihMx?=
+ =?us-ascii?Q?EKvX3auXeOl8T39CTmcz/RmOPUPmSxL38XCN/WHoWIgpLk0iJ0biqUtDyPRB?=
+ =?us-ascii?Q?uVk64FvwTCqcPXDMa3owqOom/7Y3yE9+qYovLI42A1YhNaNi5PBxDfcE8pdm?=
+ =?us-ascii?Q?bMX1N+MT9J9RjXggXz+qnYTacWgcgiFg8IBar2AgvFP1dQ5j873B9NkB6wbU?=
+ =?us-ascii?Q?uHIjX19qrcfbcV59FGGxuP4pXVNdnJ7P1oD/OAZq4U+N3Sc10/amwCwXuCfV?=
+ =?us-ascii?Q?a259kqpQKYrYw+J5/1zyUx9QmIRqWkACLu0OgV1jwDMe/tLOBHc3C8jGZInO?=
+ =?us-ascii?Q?ecB0YVXmzJnF4GvXM/Y11p8qoa4dc/ku1QKER4AWkj1qucOmifYPeZeP+mtO?=
+ =?us-ascii?Q?6PfbdA5dI0B6t7x9syqvRnaVdhX4ls1hq2LCvhDxookzBK8oQ2BRpVIkb8+h?=
+ =?us-ascii?Q?PsPacxuujRJ8h81aM8S9pIMPF61GDkSqPLQNERLqIhM8WlCceneVk2aCotqQ?=
+ =?us-ascii?Q?uH0CXtBmUvXDjDEsLIkBWIL6MYN6qdqfT+ByhnqIaKxfv2/DASXlLPNqTRlK?=
+ =?us-ascii?Q?pfl1QAgi4JTC3am/x8Md8/oKLD8Y?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PcEnHd7qPMYdRB1iyAjw7GXf0hLu+JmgzTZ4EDJ5nh7wp9l+tt1be5PHsuMn?=
+ =?us-ascii?Q?rNo65NlY8g2CKaS042rNIhm87prLD7Yl9mAktcEs0b/+Io6UWlm0iuR6m4yR?=
+ =?us-ascii?Q?hBgYnACpBkA+isn9AVKyWy/h8yR6k+4yFeq6ya0p3llaK3OfVKRIYxiIFgah?=
+ =?us-ascii?Q?fc8j+djg0GXSIyGywYjJQiwUUoB1wrgKf0SrKlBhrX2kEGhG9r8eoOgfq/bk?=
+ =?us-ascii?Q?33DsvjcvhH4tqi1/4QlbkMnq4wU8H9nMAl4nRocHWrqQwDPYMWubLyGg1O99?=
+ =?us-ascii?Q?4RNiICLgtY1zNEkY847rXaB+nE23HMKZEsW9k+nPi10I49fGh71dvMKbY4LH?=
+ =?us-ascii?Q?rw3/9RILD7Ow+HMVIbjBIduHgG1pYCnpfO7BP7zEstS5mS4tV7ZFxTx837Lv?=
+ =?us-ascii?Q?a/rPHcwAuP11OEQqCzR9JV6pNHJZDgGMOp92cSPp1RUuM0xguTcko9YTr+UE?=
+ =?us-ascii?Q?SMqgpXXHhfzJbsFSGfDR6AHuGpIstCkCPDw96taCoPUqxhoNG9+Ll+5u3vuB?=
+ =?us-ascii?Q?QFMSvYe99Ftu1SxZCACeF2NFmNXIyh7HMj6EXou7afyWksLgP0ptpK3uDO4K?=
+ =?us-ascii?Q?sqZEQpW+pQWq/P0F+W2EDOJW2Hop6L1AtIpL495KvrG2LD16OGb6jAxaugfC?=
+ =?us-ascii?Q?//Tx92tU2NJPImQmQEJlrDqo7gmZItoLKfKSobUdlVSfKW2vOtQZAoi/5ouO?=
+ =?us-ascii?Q?XfahvNkvvNr2RWgcCu1XaltyOWVENZTUb/9AFKQEwLNYSZtFimN0nBkkoiva?=
+ =?us-ascii?Q?Lh2ZjDnQcPhvnVuEi0l1WAyihkvbmbz9R78+qIrf4pRyqzN8K0NJ09ePayIF?=
+ =?us-ascii?Q?KxDS2BpZaRHG1YMEAAn0RnyS75ys89KiTHS6TX1nLSSn3FQclzeaQ9SorsoQ?=
+ =?us-ascii?Q?XAZchMD0DUCecfxs57Lz0B/OSmnlwY0fZv89+pd2+4o1iYP0/5ByYj9mcEUv?=
+ =?us-ascii?Q?6qGbf+wRMrboZ1nMi0XO2qpMmOtyUlEyYIEfuQbK7xV3P7+VBQ7/NZwQBFFM?=
+ =?us-ascii?Q?4yWvQllBN0+EMSv/61NjQ8su0t5QiVLkIEC0bl1vhQWzB4q2iV0+gizWHijA?=
+ =?us-ascii?Q?Vkm2ltTYzrDnHd2GmgV5sda9NuMdtd2GSJ2Y9ZSEcUZuca4XF24IU5/6Bvwq?=
+ =?us-ascii?Q?nvcPrv68rNuoOu/nvAx6fcWcV4vamTg4N69evULTyvuCsKBSZKf0j5m2WlEc?=
+ =?us-ascii?Q?PM5jt7pje38ETCtLK/FaRScA6lusWjzFPM8fSqqMgXAjNXdQ1eBaYM0bM3Ty?=
+ =?us-ascii?Q?nAHyzvqfyoX3zbs5RuA7/KlIvCRjGupfSafOtqX5Z30teBkVX259JngbbDTx?=
+ =?us-ascii?Q?KSqIdUt2uxcCejxzmXkA9fGnwgp3yFhz4IIG9HAAU4/djg6zy/FbH4FnsIh6?=
+ =?us-ascii?Q?AjD3GrB7Plu3s0LiQblCoRJ8TpGXc8fZiaNQbqvUDZ/niVbr/lY+UKmdwqz2?=
+ =?us-ascii?Q?WF5e+5o6+T8DPFeEPgzY9f5PpB+Kf8cEhBoCof73rICtJPcm4pswzJw4l+0S?=
+ =?us-ascii?Q?tgkiU6NuB85y0Gvvm8SvCjb0oVwxxqJQMPdUxsbPuO35jiZUmhUo6hOR3QD8?=
+ =?us-ascii?Q?BcpocbewWzp60WORS96bPEcXFXL98Pm+A38nZORT?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a4685c7b-0105-4b6f-abc3-08dd504731cd
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 18:08:06.6998
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: h51Z5c39L0o1h7VeY9PVFAXJf4HiEvLlpisUrmKukM6IriAEPOHzoEaJKmFkU1gz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7905
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_100801_344091_945EBF06 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20250218_100813_122778_460ED142 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,69 +167,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 14/02/2025 08:12, Krzysztof Kozlowski wrote:
-> On Thu, Feb 13, 2025 at 06:03:03PM +0000, Vincenzo Frascino wrote:
->> Add compatibility to Arm Morello Fixed Virtual Platform.
->>
->> Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
->> ---
->>  Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml | 4 ++++
->>  1 file changed, 4 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml b/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
->> index 40e7910756c8..e71e3e33c4be 100644
->> --- a/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
->> +++ b/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
->> @@ -122,6 +122,10 @@ properties:
->>          items:
->>            - const: arm,morello-sdp
+On Tue, Feb 18, 2025 at 09:47:50AM -0800, Nicolin Chen wrote:
+> I think we can do:
+> 	if (!list_empty(list)) {
+> 		struct iommufd_vevent *next;
 > 
-> That's just part of the enum here.
->
+> 		next = list_first_entry(list, struct iommufd_vevent, node);
+> 		if (next == &veventq->overflow) {
+> 			/* Make a copy of the overflow node for copy_to_user */
+> 			vevent = kzalloc(sizeof(*vevent), GFP_ATOMIC);
+> 			if (!vevent)
+> 				goto out_unlock;
+> 		}
+> 		list_del(&next->node);
+> 		if (vevent)
+> 			memcpy(vevent, next, sizeof(*vevent));
+> 		else
+> 			vevent = next;
+> 	}
 
-I am not sure on what you want me to do :)
+That looks right
 
---->8---
-
-diff --git a/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
-b/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
-index 40e7910756c8..8de508b977b0 100644
---- a/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
-+++ b/Documentation/devicetree/bindings/arm/arm,vexpress-juno.yaml
-@@ -118,9 +118,11 @@ description: |+
-         items:
-           - const: arm,foundation-aarch64
-           - const: arm,vexpress
--      - description: Arm Morello System Development Platform
-+      - description: Arm Morello System Development/Fixed Virtual Platform
-         items:
--          - const: arm,morello-sdp
-+          - enum:
-+	      - arm,morello-sdp
-+	      - arm,morello-fvp
-           - const: arm,morello
-
-   arm,vexpress,position:
--- 
-2.34.1
-
---->8---
-
-Something like this?
-
->>            - const: arm,morello
->> +      - description: Arm Morello Fixed Virtual Platform
->> +        items:
->> +          - const: arm,morello-fvp
+> > > +int iommufd_veventq_alloc(struct iommufd_ucmd *ucmd)
+> > > +{
+> > > +	struct iommu_veventq_alloc *cmd = ucmd->cmd;
+> > > +	struct iommufd_veventq *veventq;
+> > > +	struct iommufd_viommu *viommu;
+> > > +	int fdno;
+> > > +	int rc;
+> > > +
+> > > +	if (cmd->flags || cmd->type == IOMMU_VEVENTQ_TYPE_DEFAULT)
+> > > +		return -EOPNOTSUPP;
+> > > +	if (!cmd->veventq_depth)
+> > > +		return -EINVAL;
+> > 
+> > Check __reserved for 0 too
 > 
-> Best regards,
-> Krzysztof
-> 
+> Kevin is suggesting a 32-bit flag field, so I think we can drop
+> the __reserved in that case.
 
--- 
-Regards,
-Vincenzo
+Those are different structs?
 
+Jason
 
