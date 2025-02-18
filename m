@@ -4,114 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A81AEC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 15:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89377C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 15:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mReLmHdUalr80UPhI614ZZFtZiFvIOnOjgDKsfY1PQg=; b=X/+BQpQqeOHeSX6a6S0nAqGuZT
-	4qiLf2H4szfSobGBTSYf742V9lnNtkw7Kxm20Y38HsWGSA8ZX755dWwEofQGu7zRQImWIJrcxSWMw
-	9XGsBi5JslUJmWcquKEhf0jj+GWpz6zlB5OXsoSHczMnRD+iBzP7xh8GNRb71oFRbWNAn/tT5k8kL
-	CjrG5Q2/t1sIT3LPyghmfniZqn9CIpuoZWun35ANbBO8LhuK5EarzzmAuHWck+6lJlB/t25gOseDH
-	XtQVEv6aCN1cSyzDR8snVvLyTR+kYpJnvI7tZ/H+K6XWwITo1dstefbjRppFCoVpH44ULKLQrazFW
-	jqWUBmzg==;
+	bh=bzzC2IDTc4ZdWjb35NrsWZ5bIpkDlbDmqIDWmIrp1Ic=; b=FVGqgnHcyiLT6Fd6UnxzJ/uW+/
+	3Q4eKc2KOLwvJskiLL7FXqshGto3DKrzEnSfYCUsclb3CUEujq9CyCrxLF2XgOSfcQ+q8nLWUFNfJ
+	7zzdlrCRd9aZAgJ4g/+L8ChIbFPz8jpk+GLWCpsc8wdYbiqg4/PlaSI3H+D+2OdCH0pi92Qa70KSj
+	yNxO/TAcNLedAX+v6CfC3BxGnH+JLHzXbxpOzcN3yzaVoEwXn9YSIwdoLaF5liMAoRd1fkv31zGh1
+	k+NwjEysQiB+tqDpHx7Rj+9kdCcfd3p0BA7WR2essuZny2IE8dhblj/UNHq8Ia0JCBsSlAqOfqBaT
+	+7F5jnZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkPsp-00000008pse-08tV;
-	Tue, 18 Feb 2025 15:51:39 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tkPuZ-00000008qBN-2qUr;
+	Tue, 18 Feb 2025 15:53:27 +0000
+Received: from mail-db5eur02on2061a.outbound.protection.outlook.com ([2a01:111:f403:2608::61a] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkPrL-00000008pcM-1Tsw;
-	Tue, 18 Feb 2025 15:50:08 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aaf3c3c104fso939849766b.1;
-        Tue, 18 Feb 2025 07:50:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739893805; x=1740498605; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mReLmHdUalr80UPhI614ZZFtZiFvIOnOjgDKsfY1PQg=;
-        b=CfNqQSlBNY7iB9gHvS11zpHD+D/n1SlfhVQNyLE5Qv25B8j/2t2COAMAHiTweaOQRt
-         H7CTFqWlvX8/QYuALvVZqVHXHUw6aUBBvcc0m8M5lCE9L7/T0SkhAcCMU2IVx1NvmPpC
-         l1HfF0QUh5AXAsH0Qd70JUxgJh325J4jDuGLB9fxnsfMiGJS9kO1PnvjpcH70k26q35H
-         qBh70VM4by3QVFQgsVIx+sXsjN8+VJ/JvYOEUGhTLBhgCMALxdhqfsEyIpIF2k1iHUc/
-         TVmY4iMwzor6I19quMtcdQbv5m2AeDmguLZq06ibAK0GuAJXIjz4dzRN5PHK3Azl4sfs
-         WpRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739893805; x=1740498605;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=mReLmHdUalr80UPhI614ZZFtZiFvIOnOjgDKsfY1PQg=;
-        b=kfFUkH19mowBKJc4QgRGiNnuqkHrxoLTLG7lrYzykVK5uGIP+IZdb1yWVBX2oVUHFS
-         LmdwN7vW0bgUEaiZkvQUZtqi5fNiDvW8ZAgk5HKq7cEml1iBSrAj9AUtMBH51HNQiME0
-         ygsJX7Pd7jpEJsPeo5jBH2HArFwsisvTyobEeXpmfsz7hT8p/YqfxLf7ZrlxlDYDhr2D
-         Hv57v3ZUo26/BsgHLYrMv/nddL5FWHDGy7AT2KqaY0uLW8Kl0nZgOLNEtkHFZGnkc8SG
-         MYcWmfy49a8BwfKRAvSUIjLnTfWo9tqbNsCvisLfhL4GJQWS+cg+X7B9QtScgGtj+1jM
-         V2VQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWf1DP2ywvk19Dy/J1yarqWel+sZefdylD1otUslav2zaTCufh9vitxX9NYmxYGlpx570cy39QYQrhxtictwDrM7g==@lists.infradead.org, AJvYcCXGfRlLX8a0F1+ldpGicMpfPyCoNJ69lrcSD2aV2tYc5SbMU9EeNbhIJZrlGh6oeP6PiDH9fg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywj91xTC6a8ClLQ2gwLyDYFyShuniLtKmoutzwI+j6ZdPZ4b6nC
-	9P/SiLOpLkKQduGac0tuqq4VVnfUWpxtgmdUBmWBFdScWhkdsgii
-X-Gm-Gg: ASbGnct/2aC7zSoYuO0I++LHxUr8TPHSl7eyg6//TrVLJUoojhn2OFNL4JvbuhVSdKu
-	2tSOFcntDQ4jDiA+cdwNgciFtdjWDb5rteco9qx6KqrdRSeHmQP9BJKBxrla6ySevp7i47AsAbi
-	fimbHOiBJErvpZH+vEgi9lSHoPbwpzllrJHJUwM5MbHkUlYgUh6dAxgr7iNzIVa+5xn/so1LsNV
-	Jh3gp/s6WUGkSd2Ntmo+UVb2A4MQwCtlGyxyMyG3vKsEUgLHYIezEFBAKVPr9D9CqAQnqbUUxSk
-	9NTHThf4dK+hPYE=
-X-Google-Smtp-Source: AGHT+IHtAyydbfoXbx9zeo04VNjwSnQ27Knmz0ItYzncGEjZUASU18pITXXeMFFJlPuU/Bj7x5gW4g==
-X-Received: by 2002:a17:907:3d8e:b0:ab7:462f:647f with SMTP id a640c23a62f3a-abb70b35f1amr1476203766b.25.1739893805155;
-        Tue, 18 Feb 2025 07:50:05 -0800 (PST)
-Received: from localhost ([185.92.221.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abba002f790sm351966766b.164.2025.02.18.07.50.04
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 18 Feb 2025 07:50:04 -0800 (PST)
-Date: Tue, 18 Feb 2025 15:50:04 +0000
-From: Wei Yang <richard.weiyang@gmail.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
-Message-ID: <20250218155004.n53fcuj2lrl5rxll@master>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-3-rppt@kernel.org>
-MIME-Version: 1.0
+	id 1tkPt6-00000008pua-0hBF
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Feb 2025 15:51:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zNpHuDQylhxsrYljHMRIspNNwVgE571b9YR+3ky6W+FXt9TrRdmAmnOIamdxv1d+IFgAD0cOP3mQ5wlm4PO9YCNHRdNNZoksceBUHbJEcJK0JQVWfCcDlVBpJEZQ/79Vt9mjghyOawRffX+9TTv6rQL10Pm+vrXYQSBv0CDRyBn1IvcfsfH1b3a+6Ker2S8PdSS117LloJ4CyOn3dDuKTTUUsvhBXpt5vWO5YLf8d/86ZyzcN7XxDnfsTZuNLiQr79AM546TjqXcXrTj6JjfRwA8yFFk89wGqLoFdqSUzWiKDvmq3W2bXtsC3UPNAt4bEgdNZqcIqeKy3f2xOCyHCQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bzzC2IDTc4ZdWjb35NrsWZ5bIpkDlbDmqIDWmIrp1Ic=;
+ b=jN4VVYZpeUZbQOblngvaGEeqoHUG6useX9LYV2ePvvBDNiTC/LDSRMzKz5/A+ZsJh8VVXeGZk1BkUDRwckr1A5LmCHVmKxdy/3jx+j9QhJvCCtkXdZjqP52rZhwxoWrJHh5I5BgJfPzNy/zBvfRpIkK4lpOihpgdCLakIoWFuNBOHWJyvC0q7DMZ+s7nxXTmxar/6W+ncFc98f9xLsHw1wQXK18jfEJK06O+K0HljM49ziDe66Pd6l1QOdnp10CpAESMVb1dh0yaThIC4FTN29ds0whF9zP0OQP8IaYfhipfn5TVBWB1zeSuOyjYu14Ma53QeQncfzAemL/xSGRQOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bzzC2IDTc4ZdWjb35NrsWZ5bIpkDlbDmqIDWmIrp1Ic=;
+ b=IvkAXLt1uvWdOlDjhMllzf6Y8ZW38yZ+/Qx1rwP2/6eiH0bdauxNaUovLkPP9wxAZ6EplMF90OghoqPS43Tb0zO/BTJ7Z73yyYwUIXkJgxRKZcdbvzPBjvp4/rD6A+jRS1bn77Z0HcJPA1f+W6B2ls4fSn1bLqJj/I9ucf8QuSRsNDOGJ5Vx93PEEjcVYQxYMOHmaeFxruyhW966Qsc5gGQh/NDMCySSngR4JybnNku4ObfLfFKjRgPNk/fOHnl8R7DhnFlQ2rWxGEL9ot2Tz8yMdC4lYwPu7j39iI3fsecrXERLco/OHagf9GzoupG275jPz5yNd+1vXjAZRuP+3A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB8809.eurprd04.prod.outlook.com (2603:10a6:20b:408::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.17; Tue, 18 Feb
+ 2025 15:51:48 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8445.017; Tue, 18 Feb 2025
+ 15:51:48 +0000
+Date: Tue, 18 Feb 2025 10:51:38 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Daniel Baluta <daniel.baluta@nxp.com>
+Cc: p.zabel@pengutronix.de, shawnguo@kernel.org, mathieu.poirier@linaro.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, andersson@kernel.org,
+	linux-remoteproc@vger.kernel.org, iuliana.prodan@nxp.com,
+	laurentiu.mihalcea@nxp.com, shengjiu.wang@nxp.com, krzk@kernel.org
+Subject: Re: [PATCH 1/5] reset: imx8mp-audiomix: Add prefix for internal macro
+Message-ID: <Z7Ssik/uGKz0nmXz@lizhi-Precision-Tower-5810>
+References: <20250218085712.66690-1-daniel.baluta@nxp.com>
+ <20250218085712.66690-2-daniel.baluta@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250206132754.2596694-3-rppt@kernel.org>
-User-Agent: NeoMutt/20170113 (1.7.2)
+In-Reply-To: <20250218085712.66690-2-daniel.baluta@nxp.com>
+X-ClientProxiedBy: BYAPR08CA0026.namprd08.prod.outlook.com
+ (2603:10b6:a03:100::39) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8809:EE_
+X-MS-Office365-Filtering-Correlation-Id: 90e6bdc8-b1a6-4e91-c364-08dd50342727
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vb5HkmAUwBVzo83ffPgrGmOJFoAnI8lEwWKJblzzaXrsHqmQtczwgjwmA6ZR?=
+ =?us-ascii?Q?pQ9SCBSj0iptBIg0+PZzC4fGAfUG7OoVRLYGzVeWNmWGqsDsSQiFJ7guU0tO?=
+ =?us-ascii?Q?K2ekz3rBILsLcOBpSXkubPdUBfifWEWBFofqnqP/aStPBv064ko7yMt+181w?=
+ =?us-ascii?Q?KlNa3cYVAfDtLe17KkRx9zrAzi0Cc2ztmWYv/UQ9yF51+gLrIu5gO/otXBUc?=
+ =?us-ascii?Q?87cYD795aBsgNEPQsdhRq1FfExVgqmlBRaLIXZQgK4HdMIfVlS+EwGTjZR7q?=
+ =?us-ascii?Q?MF6oRRdl42kVk0kiznx7M2ieAt0YFfxgrzo6vW5rRUdgNHyctnxgJGI4Vxgx?=
+ =?us-ascii?Q?tsN3Amg22y4PrfcwnSOX//sAyHr3P392NTsoQyt3pnzOScveMCpfSgvl6coK?=
+ =?us-ascii?Q?ohfCw76YPJgIrSTVXW+zpcFcyVzCu/6CE43E6hsekVNW1g/Fo1gppXB3HRws?=
+ =?us-ascii?Q?2/1SGAa2LCLnoJCfYVrNbQ0bvwon2bQ699he281D9NjIMSCt/OJNIcKe6pXW?=
+ =?us-ascii?Q?ACQrcqqaHAwUv5QvF2RX/PfdI8kr1VpGkt5tNZO3+PjR6iB6Z6AX8qfcb3bP?=
+ =?us-ascii?Q?dMPvsgSvAoFey45SbBzl86zqUOhsKryvfLcYmXot82ehPrvGTdilo+Gds6Pa?=
+ =?us-ascii?Q?5raSaAJMej/OFtKMLRmO7YxYK/OeTlg2xIScmWkZPRNNiGPZ3X1tgOhLH0Ht?=
+ =?us-ascii?Q?Gu07JcNrQbdFB80Cxo/ZpDuKMQYSfDGrZv10ii8IWypaYlF1G+DqsefxSI1B?=
+ =?us-ascii?Q?g2inAFB9tQLPR2uiwJjfoMVwRvkhN9mHf7bzX3i59vqd9eZpC5wyXiMOKn8P?=
+ =?us-ascii?Q?csDGEVzTMdIGSI7eyre9D74X1GBY8NtQ7hGbo2/pV7cQU19Ao3R1p9wlcZqv?=
+ =?us-ascii?Q?b52CqwvAQMKG7dRf3BzFLm4lNpA847F6baXW3JOtqqlOTiBmQ+n8c4HCYwy7?=
+ =?us-ascii?Q?xklfeI0frRPML062pRDM89Scgaq93DWIFPSPECfNZv5FMaqy3HBqTckblTyA?=
+ =?us-ascii?Q?8lXOVq8AGAWycudeWQXfHImY4JnTTV+5T+eXQPt/dzQuM3F9K4UfuKgXewqh?=
+ =?us-ascii?Q?H4VHiLezTuX106ajyjwvk/CET0zxLuLwxzZk6Auyd1z39mOz3NqCafWHyyiS?=
+ =?us-ascii?Q?7OZLV51lT2+ifcrxDc4XcBrcdVP6KZCOkaVFVrbJvQNJ/81/m++i1jDH68nm?=
+ =?us-ascii?Q?k0SjHZGFpoPw/ycXKJnO4NbnW1LdrReL5h3Kf02SKIl3xaY+C3yMBK0KWeYn?=
+ =?us-ascii?Q?Wk1JzRMoP9mVA8CeRL33QA4UdvlAPnPenZjcf/3L6KNPA6NJOa96Of0vSgM+?=
+ =?us-ascii?Q?+JatbHudeJpniGcIFgXb+RPd0C9IicNlONmiPDQZLGyPVAupIS5P35kgk6UZ?=
+ =?us-ascii?Q?BpAU5DT7ZqR8KTh4N7XcNCVOhr39c1e5ygLw3pQbrv7ifF4P2Mp35jZQiBMq?=
+ =?us-ascii?Q?27j2wybJazrTzuDy0UytJcT3jeMOv9vu?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZWiD94k8twGz3lvp8T4rCR+OSqxD2s3LssJcg8LUqEc83bFxem5l0aIIJerR?=
+ =?us-ascii?Q?feI4MR57nYNFHK67gyt+yeCxcx40J5aYRLN6ZOOtLatpyNFybZ3xDNngRhwt?=
+ =?us-ascii?Q?6a6qyBn5Y6TblE8k5eAf933GDSgh0QdJv4WQIE8Irn4/l5qgGlCJeKTphpYM?=
+ =?us-ascii?Q?8G+Zso4kLUYL667feZfxqoN/aC0ZaXMkIQRrevc5Ss6150lVm0nmll8lq0ZO?=
+ =?us-ascii?Q?RbYfIiC9YOfPAdNeQaUxOnaCazxnL79uIy6xg14hBGN1zQhXpu0y+qfEkfyQ?=
+ =?us-ascii?Q?V7P6ZyAQafAYUE9ymBLZ7hAJM5uFlkyTSNqu6dzlrjUuLxLLlfD2L3gov0i9?=
+ =?us-ascii?Q?1ykHBZS6oFhAE60f2fJ581es3jQKmD1dskaZ2om96vWDuUswTn/TOKywAxkv?=
+ =?us-ascii?Q?ePj3rrSTridqfeCiRnvKAeTKQFKlqcijAAwgo+qK9+9DB8NBxXbUVTutvuHi?=
+ =?us-ascii?Q?CxEbywsrpcXFy5rRKb/lhwdhO8Wy4yn5bLDmH+Y27+C5TpWAb9wz00rh7mN5?=
+ =?us-ascii?Q?uRfVAkXGdYslz4Ql5tdKZuIfBy5QzDkZbRz6QwQSde9exKzI2t5yTLTffXYl?=
+ =?us-ascii?Q?1OzbqxrTrtNaVIDPWJafUFbnd2BAWXhaREcVQjXOSTMTZEc/xOeD4Kimdkns?=
+ =?us-ascii?Q?9/S2P3sNGZXrbmbwheEzWry3PUEr1QS7NHo0IqeOc5bBEIJVliEeQc8S6xAP?=
+ =?us-ascii?Q?KKZb6fY8K6PGctbwbZZCLUFk6/MEcL0OgPMmWKyYvso8JuBWNXi6DFI45sOr?=
+ =?us-ascii?Q?hlLBZumLB+1tkN4unxDXrXBwLV7h6AMnWjPEqZK3N/xXiie3G/jeoi8Xythb?=
+ =?us-ascii?Q?jRL+PdBT5N67kF3QqP8S0C84B6o3jyNTtd1BcJZbxAn/CbDpNumQDCjDImds?=
+ =?us-ascii?Q?AmksI65SuSgFEq3O0c7qHPL0t1FNswcbq8DePvU6m4rCMf3AVeONnUZHjit1?=
+ =?us-ascii?Q?eu1aKP/tP5Gx3dgKXjvAT9QuiNTejDsyEQQVULguqe2t26UZJBHECyKaEyEQ?=
+ =?us-ascii?Q?tpET4oSr26yzSIG0oeILxdjCc1hNUc7+OfLHYCkTyX8D13jut2oAIowQcmCX?=
+ =?us-ascii?Q?1GZJMLnJ0p1cEuGLtDLvoCE32CnWJGJ+IWhzCfJIsOVSRas3lvzay7Mebb38?=
+ =?us-ascii?Q?JTcryaszsSY7WzNWQocCIXkJ3ODM2IVd98/oIUfyAa72FTRTJYCDR+blqMD8?=
+ =?us-ascii?Q?Ki/7NflkRBll/WLZJ9mvghk19Rw3ZK4Qk+iN4vWSuqqT/xbR0oLTJu03Ptb1?=
+ =?us-ascii?Q?4t7lEZlSpH2Wz3rloX5KvGCiD3n3tbRpGuGAVMQNSFZxtz+ZoWoxi/211pci?=
+ =?us-ascii?Q?v8yiUY/wKkP4vApCVCzrvWwd1mPfiIqOFjGoQcxq+x9PJSCZaWJp1Hqz8Vu2?=
+ =?us-ascii?Q?zmvtfPklneLUFgyts/kxHqK0u73U4PF7MtyS5m8oRIwdQ5Gn6dGYx0NaDIrd?=
+ =?us-ascii?Q?ZQ8gb9ae1J59xSgCsYztHYmHl2NondNslc8V6pzNFITnnr9TlDn8PdgNUsvX?=
+ =?us-ascii?Q?4S/QKo7im9iXK8Ic2SwPyIU5oCG5G8Rymoys2BSa4q1ZEQkOl7yybr7nOUOB?=
+ =?us-ascii?Q?KjoE6UTuLs9Hr5vb5+4=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 90e6bdc8-b1a6-4e91-c364-08dd50342727
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 15:51:48.3735
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: o4WFj+iI8qUOUCKYUgUlkZlsFuqVHvOEwNMZtuDnU+gV8vKgzV3TczYXtAKgjD2ppFs0nsSd4I576WzHras2rA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8809
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_075007_386840_31D122AE 
-X-CRM114-Status: GOOD (  23.43  )
+X-CRM114-CacheID: sfid-20250218_075156_223956_0CA56A3A 
+X-CRM114-Status: GOOD (  16.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,171 +157,70 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 06, 2025 at 03:27:42PM +0200, Mike Rapoport wrote:
->From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+On Tue, Feb 18, 2025 at 10:57:08AM +0200, Daniel Baluta wrote:
+> This adds IMX8MP_AUDIOMIX_ prefix to internal macros
+> in order to show that specific macros are related to
+> audiomix.
+
+nit: warp at 75 chars
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 >
->to denote areas that were reserved for kernel use either directly with
->memblock_reserve_kern() or via memblock allocations.
+> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> ---
+>  drivers/reset/reset-imx8mp-audiomix.c | 14 +++++++-------
+>  1 file changed, 7 insertions(+), 7 deletions(-)
 >
->Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
->---
-> include/linux/memblock.h | 16 +++++++++++++++-
-> mm/memblock.c            | 32 ++++++++++++++++++++++++--------
-> 2 files changed, 39 insertions(+), 9 deletions(-)
+> diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
+> index 6e3f3069f727..1fe21980a66c 100644
+> --- a/drivers/reset/reset-imx8mp-audiomix.c
+> +++ b/drivers/reset/reset-imx8mp-audiomix.c
+> @@ -11,8 +11,8 @@
+>  #include <linux/of_address.h>
+>  #include <linux/reset-controller.h>
 >
->diff --git a/include/linux/memblock.h b/include/linux/memblock.h
->index e79eb6ac516f..65e274550f5d 100644
->--- a/include/linux/memblock.h
->+++ b/include/linux/memblock.h
->@@ -50,6 +50,7 @@ enum memblock_flags {
-> 	MEMBLOCK_NOMAP		= 0x4,	/* don't add to kernel direct mapping */
-> 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
-> 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
->+	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
-
-Above memblock_flags, there are comments on explaining those flags.
-
-Seems we miss it for MEMBLOCK_RSRV_KERN.
-
-> };
-> 
-> /**
->@@ -116,7 +117,19 @@ int memblock_add_node(phys_addr_t base, phys_addr_t size, int nid,
-> int memblock_add(phys_addr_t base, phys_addr_t size);
-> int memblock_remove(phys_addr_t base, phys_addr_t size);
-> int memblock_phys_free(phys_addr_t base, phys_addr_t size);
->-int memblock_reserve(phys_addr_t base, phys_addr_t size);
->+int __memblock_reserve(phys_addr_t base, phys_addr_t size, int nid,
->+		       enum memblock_flags flags);
->+
->+static __always_inline int memblock_reserve(phys_addr_t base, phys_addr_t size)
->+{
->+	return __memblock_reserve(base, size, NUMA_NO_NODE, 0);
-                                                            ^ MEMBLOCK_NONE ?
-
->+}
->+
->+static __always_inline int memblock_reserve_kern(phys_addr_t base, phys_addr_t size)
->+{
->+	return __memblock_reserve(base, size, NUMA_NO_NODE, MEMBLOCK_RSRV_KERN);
->+}
->+
-> #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
-> int memblock_physmem_add(phys_addr_t base, phys_addr_t size);
-> #endif
->@@ -477,6 +490,7 @@ static inline __init_memblock bool memblock_bottom_up(void)
-> 
-> phys_addr_t memblock_phys_mem_size(void);
-> phys_addr_t memblock_reserved_size(void);
->+phys_addr_t memblock_reserved_kern_size(int nid);
-> unsigned long memblock_estimated_nr_free_pages(void);
-> phys_addr_t memblock_start_of_DRAM(void);
-> phys_addr_t memblock_end_of_DRAM(void);
->diff --git a/mm/memblock.c b/mm/memblock.c
->index 95af35fd1389..4c33baf4d97c 100644
->--- a/mm/memblock.c
->+++ b/mm/memblock.c
->@@ -491,7 +491,7 @@ static int __init_memblock memblock_double_array(struct memblock_type *type,
-> 	 * needn't do it
-> 	 */
-> 	if (!use_slab)
->-		BUG_ON(memblock_reserve(addr, new_alloc_size));
->+		BUG_ON(memblock_reserve_kern(addr, new_alloc_size));
-> 
-> 	/* Update slab flag */
-> 	*in_slab = use_slab;
->@@ -641,7 +641,7 @@ static int __init_memblock memblock_add_range(struct memblock_type *type,
-> #ifdef CONFIG_NUMA
-> 			WARN_ON(nid != memblock_get_region_node(rgn));
-> #endif
->-			WARN_ON(flags != rgn->flags);
->+			WARN_ON(flags != MEMBLOCK_NONE && flags != rgn->flags);
-> 			nr_new++;
-> 			if (insert) {
-> 				if (start_rgn == -1)
->@@ -901,14 +901,15 @@ int __init_memblock memblock_phys_free(phys_addr_t base, phys_addr_t size)
-> 	return memblock_remove_range(&memblock.reserved, base, size);
-> }
-> 
->-int __init_memblock memblock_reserve(phys_addr_t base, phys_addr_t size)
->+int __init_memblock __memblock_reserve(phys_addr_t base, phys_addr_t size,
->+				       int nid, enum memblock_flags flags)
-> {
-> 	phys_addr_t end = base + size - 1;
-> 
->-	memblock_dbg("%s: [%pa-%pa] %pS\n", __func__,
->-		     &base, &end, (void *)_RET_IP_);
->+	memblock_dbg("%s: [%pa-%pa] nid=%d flags=%x %pS\n", __func__,
->+		     &base, &end, nid, flags, (void *)_RET_IP_);
-> 
->-	return memblock_add_range(&memblock.reserved, base, size, MAX_NUMNODES, 0);
->+	return memblock_add_range(&memblock.reserved, base, size, nid, flags);
-> }
-> 
-> #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
->@@ -1459,14 +1460,14 @@ phys_addr_t __init memblock_alloc_range_nid(phys_addr_t size,
-> again:
-> 	found = memblock_find_in_range_node(size, align, start, end, nid,
-> 					    flags);
->-	if (found && !memblock_reserve(found, size))
->+	if (found && !__memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN))
-
-Maybe we could use memblock_reserve_kern() directly. If my understanding is
-correct, the reserved region's nid is not used.
-
-BTW, one question here. How we handle concurrent memblock allocation? If two
-threads find the same available range and do the reservation, it seems to be a
-problem to me. Or I missed something?
-
-> 		goto done;
-> 
-> 	if (numa_valid_node(nid) && !exact_nid) {
-> 		found = memblock_find_in_range_node(size, align, start,
-> 						    end, NUMA_NO_NODE,
-> 						    flags);
->-		if (found && !memblock_reserve(found, size))
->+		if (found && !memblock_reserve_kern(found, size))
-> 			goto done;
-> 	}
-> 
->@@ -1751,6 +1752,20 @@ phys_addr_t __init_memblock memblock_reserved_size(void)
-> 	return memblock.reserved.total_size;
-> }
-> 
->+phys_addr_t __init_memblock memblock_reserved_kern_size(int nid)
->+{
->+	struct memblock_region *r;
->+	phys_addr_t total = 0;
->+
->+	for_each_reserved_mem_region(r) {
->+		if (nid == memblock_get_region_node(r) || !numa_valid_node(nid))
->+			if (r->flags & MEMBLOCK_RSRV_KERN)
->+				total += r->size;
->+	}
->+
->+	return total;
->+}
->+
-> /**
->  * memblock_estimated_nr_free_pages - return estimated number of free pages
->  * from memblock point of view
->@@ -2397,6 +2412,7 @@ static const char * const flagname[] = {
-> 	[ilog2(MEMBLOCK_NOMAP)] = "NOMAP",
-> 	[ilog2(MEMBLOCK_DRIVER_MANAGED)] = "DRV_MNG",
-> 	[ilog2(MEMBLOCK_RSRV_NOINIT)] = "RSV_NIT",
->+	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
-> };
-> 
-> static int memblock_debug_show(struct seq_file *m, void *private)
->-- 
->2.47.2
+> -#define EARC			0x200
+> -#define EARC_RESET_MASK		0x3
+> +#define IMX8MP_AUDIOMIX_EARC_OFFSET		0x200
+> +#define IMX8MP_AUDIOMIX_EARC_RESET_MASK		0x3
 >
-
--- 
-Wei Yang
-Help you, Help me
+>  struct imx8mp_audiomix_reset {
+>  	struct reset_controller_dev rcdev;
+> @@ -35,8 +35,8 @@ static int imx8mp_audiomix_reset_assert(struct reset_controller_dev *rcdev,
+>
+>  	mask = BIT(id);
+>  	spin_lock_irqsave(&priv->lock, flags);
+> -	reg = readl(reg_addr + EARC);
+> -	writel(reg & ~mask, reg_addr + EARC);
+> +	reg = readl(reg_addr + IMX8MP_AUDIOMIX_EARC_OFFSET);
+> +	writel(reg & ~mask, reg_addr + IMX8MP_AUDIOMIX_EARC_OFFSET);
+>  	spin_unlock_irqrestore(&priv->lock, flags);
+>
+>  	return 0;
+> @@ -52,8 +52,8 @@ static int imx8mp_audiomix_reset_deassert(struct reset_controller_dev *rcdev,
+>
+>  	mask = BIT(id);
+>  	spin_lock_irqsave(&priv->lock, flags);
+> -	reg = readl(reg_addr + EARC);
+> -	writel(reg | mask, reg_addr + EARC);
+> +	reg = readl(reg_addr + IMX8MP_AUDIOMIX_EARC_OFFSET);
+> +	writel(reg | mask, reg_addr + IMX8MP_AUDIOMIX_EARC_OFFSET);
+>  	spin_unlock_irqrestore(&priv->lock, flags);
+>
+>  	return 0;
+> @@ -78,7 +78,7 @@ static int imx8mp_audiomix_reset_probe(struct auxiliary_device *adev,
+>  	spin_lock_init(&priv->lock);
+>
+>  	priv->rcdev.owner     = THIS_MODULE;
+> -	priv->rcdev.nr_resets = fls(EARC_RESET_MASK);
+> +	priv->rcdev.nr_resets = fls(IMX8MP_AUDIOMIX_EARC_RESET_MASK);
+>  	priv->rcdev.ops       = &imx8mp_audiomix_reset_ops;
+>  	priv->rcdev.of_node   = dev->parent->of_node;
+>  	priv->rcdev.dev	      = dev;
+> --
+> 2.25.1
+>
 
