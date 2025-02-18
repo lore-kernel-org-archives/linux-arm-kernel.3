@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0679CC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A001C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1EYmoCYPdwrIiDvkXBVlYW7h5hQR6wXJyMHWL+Q5bWQ=; b=hQQ9eODJntQUTXqUBkJpBGmfPo
-	QSlYR5Ykij8TRTlXeKYoKckNaErZE2daCI/51tS3jseDUhK2aqCIVlpUSlO0whHXvlor4rFoM9pim
-	JzVNx4ydNiqzguSBEvy2L2QDlGN/LE1dC5a40mrUD74nAS6AYBjrpickp/27xv2757CkQSPg4iWN7
-	USQ0mMrPBDFZSErOmey5c0Us1la9id7xUPrkahh4ac1x7MAB2dot599ZSAh8NW8ss0OMds5al6mDz
-	JbwpquG5FOhuuk6taTV8eHPW53IRLRIT5Kbsnmse5EI53um8IPh1F0D7qlLZfsIFCsxvWxCVQwtWp
-	szzvLQ+w==;
+	bh=yvto0JJZPgTYBlf+D9ZijX+skHY5ekmlXWbOdJ/XB2g=; b=AotOAulBK8aYHvs91TAJuA7PTM
+	536L1q//IxtdDdOIH3dnsQLdQ8cWJuDlBd+pFFJfzm0VswDQi4ud4u9t4TPpyeN4FCDcjdsroeZj8
+	3ytV3DRusIVr+UEn3k0OavoT5RZh6a9QoizE1XBjJAUY0vUZR5+aOj97vQLV/MMm8slsgNlehqEwS
+	6t/LDphvjwATpU37duHF77LLCzWT+tBunV4KEoOHCdB8a/LVNs0ilEoG7YnFCvIpyslw/HBYxDMB1
+	Q23/R9oLzfE+VTX3d/Ofwz6+3FFT8255itVbahmwO0SP0smeXsB6U1kcqTSojrWXfaXomAtp32ojJ
+	WsDW2F5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTdC-00000009eH3-2Cne;
-	Tue, 18 Feb 2025 19:51:46 +0000
+	id 1tkTee-00000009eZ6-1IIr;
+	Tue, 18 Feb 2025 19:53:16 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSsx-00000009UUK-1Pqd
+	id 1tkSsz-00000009UV6-1xsR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 19:04:00 +0000
+	Tue, 18 Feb 2025 19:04:02 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 3151725F0C;
-	Tue, 18 Feb 2025 20:03:58 +0100 (CET)
+	by disroot.org (Postfix) with ESMTP id 42CFE25D64;
+	Tue, 18 Feb 2025 20:04:00 +0100 (CET)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id FH0AztNAEVIX; Tue, 18 Feb 2025 20:03:57 +0100 (CET)
+ id 6gTCgDbQS4Qo; Tue, 18 Feb 2025 20:03:59 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1739905432; bh=cKeb4Q3zjzoX1lV2p6fkcHZ42nUiiWSUSr5T6FY95yI=;
+	t=1739905436; bh=gRa4BGEIswwEsGXvPWhdz3Z3M6ubWO9JJBcgXyWQLWc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=k01g4yoQ4hYZVvxqE/vfYpcVpJ+Plk1iKI7hHz/gD3wbUlU43AfQXlOT5LXPzqUck
-	 faYhsAEWj0YitGoa3cT8UFQ34IZ2Y/BbNMLdslktxA3mw7kNH1qHg7IFa/VxR1sMG7
-	 NtZAmChqrHLqIRYM4UMjB02fD3EwsAhd/jvrUgFV0cKcGr5xryJ77OGS/hiA/kmpaw
-	 kHFvG485BR3oPajS0dmjIaBbYLtOp2/uYAUmFNdwja2sKumdqxhX8xV40cXce8ps9c
-	 ifihKIIEacg1Yd172NE9179/3uZLXDBOIh9n3TtwGs5hduRLHTlFeFVLhe7jyX6+iX
-	 9WAAQjzAwtADg==
+	b=WLxBCxAoQV0OPtz8bw0dySYBDsiEFQ0WFUH0qS27DDO5BIkXWqAujA5/5X9c7ZeG3
+	 1OIrnDKegMKOENWI9eCRsI4XW8cujyHqg2L/GLYvrzMCioS/NSicil2XG79tQbrBEo
+	 aFhGa6vxUPsU32A503ejQfOVQlCnSVdv0m2X8ox4BlwJHJ92G7JuHgM/Vjiq91YIgt
+	 j0+aBwEcuxQKyxzR+I4GJE2piTxs7U4+rkcdu4Zv1KVO+14lUXFOb7E+vW1d5t31br
+	 BLNO7u+Iv91l0hzsQqn6tRBEdI70oGOSmarO4ABEVfVtWivQhgchZZmz9M0it7FB7i
+	 eaHq1ssxViOBQ==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Wed, 19 Feb 2025 00:33:12 +0530
-Subject: [PATCH v3 2/7] dt-bindings: arm: samsung: add compatibles for
- exynos7870 devices
+Date: Wed, 19 Feb 2025 00:33:13 +0530
+Subject: [PATCH v3 3/7] soc: samsung: exynos-chipid: add support for
+ exynos7870
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250219-exynos7870-v3-2-e384fb610cad@disroot.org>
+Message-Id: <20250219-exynos7870-v3-3-e384fb610cad@disroot.org>
 References: <20250219-exynos7870-v3-0-e384fb610cad@disroot.org>
 In-Reply-To: <20250219-exynos7870-v3-0-e384fb610cad@disroot.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,16 +62,16 @@ Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
  Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739905418; l=1423;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739905418; l=803;
  i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=cKeb4Q3zjzoX1lV2p6fkcHZ42nUiiWSUSr5T6FY95yI=;
- b=ZomranXZKYALnG6J/QaNVuGlIwaT3myYXLshEsI3IljEC082ErbTPZTuB4633rSeGNKgL/Bih
- Pi9Gqu0lvLqD03KpgC0/cZZ462rJJC9VliU6JTT3hvVpkm60491PtDK
+ bh=gRa4BGEIswwEsGXvPWhdz3Z3M6ubWO9JJBcgXyWQLWc=;
+ b=XOHjxr0b49Dt1Rd3h/NsPWA1sn23LwExP5oocNbm6XcjieQeR4TSs1j6oB6UBEHgUR21emrRq
+ DRXJsBt0t0kDhQLrAUy1CnOfpcOWHhNNj99NpcDeKR27KQWMzPjp/XK
 X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
  pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_110359_513633_80C5EBFB 
-X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-CacheID: sfid-20250218_110401_644786_5CBAA77C 
+X-CRM114-Status: UNSURE (   9.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,37 +87,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the compatible string for Exynos7870 - "samsung,exynos7870".
-
-The following devices are also added:
- - Galaxy A2 Core       ("samsung,a2corelte")
- - Galaxy J6            ("samsung,j6lte")
- - Galaxy J7 Prime      ("samsung,on7xelte")
+Add the product ID of Exynos7870 (S5E7870) to the existing list.
 
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ drivers/soc/samsung/exynos-chipid.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
-index fab29f95d8e62f5ea75bb0819a9d514e54f88d3c..b3be184c7e563478aa37eb16a69c08ff7f70af29 100644
---- a/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
-+++ b/Documentation/devicetree/bindings/arm/samsung/samsung-boards.yaml
-@@ -212,6 +212,14 @@ properties:
-               - samsung,exynos7-espresso        # Samsung Exynos7 Espresso
-           - const: samsung,exynos7
- 
-+      - description: Exynos7870 based boards
-+        items:
-+          - enum:
-+              - samsung,a2corelte               # Samsung Galaxy A2 Core
-+              - samsung,j6lte                   # Samsung Galaxy J6
-+              - samsung,on7xelte                # Samsung Galaxy J7 Prime
-+          - const: samsung,exynos7870
-+
-       - description: Exynos7885 based boards
-         items:
-           - enum:
+diff --git a/drivers/soc/samsung/exynos-chipid.c b/drivers/soc/samsung/exynos-chipid.c
+index 95294462ff21130951bd3c940d979af182423789..fd9aeacd01a8ad016156729659178ea1b9b0c56a 100644
+--- a/drivers/soc/samsung/exynos-chipid.c
++++ b/drivers/soc/samsung/exynos-chipid.c
+@@ -55,6 +55,7 @@ static const struct exynos_soc_id {
+ 	{ "EXYNOS5440", 0xE5440000 },
+ 	{ "EXYNOS5800", 0xE5422000 },
+ 	{ "EXYNOS7420", 0xE7420000 },
++	{ "EXYNOS7870", 0xE7870000 },
+ 	/* Compatible with: samsung,exynos850-chipid */
+ 	{ "EXYNOS7885", 0xE7885000 },
+ 	{ "EXYNOS850", 0xE3830000 },
 
 -- 
 2.48.1
