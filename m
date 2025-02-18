@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58B6FC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5054AC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z6JrrogbArX3EwFwjiBuFp6vVepOdYswoCOinStaIO8=; b=0JwBTJkUmJsLzi5IKUSpQrOwpO
-	ICOC13u3ywrDV/bPiVJ4BYQRww6zPVp/5A6zkc3SRmC1+5ttGFAhVWw36jUs+D8zBj3Evipx/UpJV
-	PIxZJFzvdS6V4IrmwH8mf0OCROlcmZfGvEWnoS9dkpIhBRm+X91CoOxAwMPd+y5yJxvuc4z5CVS9T
-	uueEPnd7dyPbXT0leqEqaB5zb1wXGj3Bj38ebcQuf9oL+LqoZ4Sn/CA9wFlIoV4PHg0GT4W+Gvztq
-	UzyfTiGkLhGVR5qg92VqDX02ikMuNslUgC0L5GynBT890DbWjNBEOA26zRs5uQkyFQISeUA9o/snN
-	CEqfmffw==;
+	bh=KSe0c69jHaZowf9s+caWtXk4sDZG6Bn7YtQiiu7h0+0=; b=ax9QNJk0Bb+EzRNV4Tt/kmvTeU
+	IFIghPsxJ0RotjzX/X/z6eAGjZ9HHy/SrlKTTLW6lHaB3q0ebae0yTM4oAJcgt/Fl+4VZjbDAgc31
+	vhUKYztHMHFJN3AtbaRVzHj2s1VilEaa2XRxUQBGF4qf8JvLeJ6HXTujPiGBj0oZQRB0fmc5d2Fru
+	0yttecziOfJf26oxq5K5w/TrqXcwxvPj+m+SMtXaxpOa/6EsJBHCTId1JBOjq/Xvbv6/V1RbSapjG
+	o8ZN0HxM2Ye46HsADhc2m4amRA6u6aWeVicSiP6bbzA2potSzlF8qQNZqg4io99WrbYFJBh3CklVW
+	C6h9njMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLgI-00000007wGD-4AE0;
-	Tue, 18 Feb 2025 11:22:26 +0000
+	id 1tkLhh-00000007wXW-2k3d;
+	Tue, 18 Feb 2025 11:23:53 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLZZ-00000007uF2-1pPA
+	id 1tkLZd-00000007uFu-0bNO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 11:15:30 +0000
+	Tue, 18 Feb 2025 11:15:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=z6JrrogbArX3EwFwjiBuFp6vVepOdYswoCOinStaIO8=; b=tgNGnRszu7KRQVhPsRSiPbUQnN
-	2jqrw/fF1aEgjDY6+hiFyt5hv9Pea+7JKyP9erfYrpn95M2bx2tHzI/zmKJkZpPXvBt+V9ZENGXdy
-	jDO9jdH9KiblQ54w5p3mCP6FjT4TEhMDDRWD2hNjTW7UF+p3RDGiEfHt7rzGzkyzoZeDxmtOemDZZ
-	MVdl/XSiGYzjO4be4wgFNuF/lEoc3Drx7X+aKLKJr4EmbYdBOrMNpE+FsMaDa9MDSPjQ5gC+aUZJR
-	Jjw5XxKKJxs0Bk/MZv7SuIwVo3Tze5qVq4/OowF7HnslVfOTw42rCNUebXHQOR3bC4NUJydKUzxHc
-	P8gMRr0g==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:51248 helo=rmk-PC.armlinux.org.uk)
+	bh=KSe0c69jHaZowf9s+caWtXk4sDZG6Bn7YtQiiu7h0+0=; b=pv4grxLOfAy1HTamSWjhCAJhnd
+	vDFC0rhwnWlZcDfja5x8XaQsRi/2wTZYbHddAcMYqYvgT0GTl8g5vdyX3PASsLLan5wpnyrbLJ9Zj
+	qtTcQzKGb4+nMCB5j8uC+3V3Jp+8u5bgJ2PvnykzggWLcbnzSX/d2xW3pSQ26APCp+buv83oT2w3g
+	ZbZuLTNK0ZyUz4Cm5LLbzCassiQLRKhlmDifBsCyLTxCFd0PNz5F1qDSoFWFVhPgZ3dV83psZFDMm
+	ltndkBeMLWG5DqDZpKJE0l59sUtvQjLEAQtJmVPRqCLKkflVWDFqYe/cHSSUIa/h1fnwvTN7hT33O
+	O++gP5yg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:51256 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tkLZL-0001j4-1N;
-	Tue, 18 Feb 2025 11:15:15 +0000
+	id 1tkLZQ-0001jR-2t;
+	Tue, 18 Feb 2025 11:15:21 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tkLZ0-004RZH-SL; Tue, 18 Feb 2025 11:14:54 +0000
+	id 1tkLZ6-004RZO-0H; Tue, 18 Feb 2025 11:15:00 +0000
 In-Reply-To: <Z7RrnyER5ewy0f3T@shell.armlinux.org.uk>
 References: <Z7RrnyER5ewy0f3T@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -75,17 +75,17 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
 	Thierry Reding <treding@nvidia.com>
-Subject: [PATCH RFC net-next 4/7] net: stmmac: starfive: use generic
+Subject: [PATCH RFC net-next 5/7] net: stmmac: s32: use generic
  stmmac_set_clk_tx_rate()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tkLZ0-004RZH-SL@rmk-PC.armlinux.org.uk>
-Date: Tue, 18 Feb 2025 11:14:54 +0000
+Message-Id: <E1tkLZ6-004RZO-0H@rmk-PC.armlinux.org.uk>
+Date: Tue, 18 Feb 2025 11:15:00 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_031529_474939_2D1BE77C 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20250218_031533_182097_CC91A958 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,63 +105,49 @@ clock.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../ethernet/stmicro/stmmac/dwmac-starfive.c  | 26 +++----------------
- 1 file changed, 4 insertions(+), 22 deletions(-)
+ .../net/ethernet/stmicro/stmmac/dwmac-s32.c   | 22 +++----------------
+ 1 file changed, 3 insertions(+), 19 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-index 282c846dad0b..5e31cb3bb4b8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
-@@ -27,27 +27,9 @@ struct starfive_dwmac_data {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+index 6a498833b8ed..b76bfa41af82 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+@@ -100,24 +100,6 @@ static void s32_gmac_exit(struct platform_device *pdev, void *priv)
+ 	clk_disable_unprepare(gmac->rx_clk);
+ }
  
- struct starfive_dwmac {
- 	struct device *dev;
--	struct clk *clk_tx;
- 	const struct starfive_dwmac_data *data;
- };
- 
--static void starfive_dwmac_fix_mac_speed(void *priv, int speed, unsigned int mode)
+-static void s32_fix_mac_speed(void *priv, int speed, unsigned int mode)
 -{
--	struct starfive_dwmac *dwmac = priv;
--	long rate;
--	int err;
+-	struct s32_priv_data *gmac = priv;
+-	long tx_clk_rate;
+-	int ret;
 -
--	rate = rgmii_clock(speed);
--	if (rate < 0) {
--		dev_err(dwmac->dev, "invalid speed %d\n", speed);
+-	tx_clk_rate = rgmii_clock(speed);
+-	if (tx_clk_rate < 0) {
+-		dev_err(gmac->dev, "Unsupported/Invalid speed: %d\n", speed);
 -		return;
 -	}
 -
--	err = clk_set_rate(dwmac->clk_tx, rate);
--	if (err)
--		dev_err(dwmac->dev, "failed to set tx rate %lu\n", rate);
+-	dev_dbg(gmac->dev, "Set tx clock to %ld Hz\n", tx_clk_rate);
+-	ret = clk_set_rate(gmac->tx_clk, tx_clk_rate);
+-	if (ret)
+-		dev_err(gmac->dev, "Can't set tx clock\n");
 -}
 -
- static int starfive_dwmac_set_mode(struct plat_stmmacenet_data *plat_dat)
+ static int s32_dwmac_probe(struct platform_device *pdev)
  {
- 	struct starfive_dwmac *dwmac = plat_dat->bsp_priv;
-@@ -122,9 +104,9 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
+ 	struct plat_stmmacenet_data *plat;
+@@ -172,7 +154,9 @@ static int s32_dwmac_probe(struct platform_device *pdev)
  
- 	dwmac->data = device_get_match_data(&pdev->dev);
+ 	plat->init = s32_gmac_init;
+ 	plat->exit = s32_gmac_exit;
+-	plat->fix_mac_speed = s32_fix_mac_speed;
++
++	plat->clk_tx_i = dmac->tx_clk;
++	plat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
  
--	dwmac->clk_tx = devm_clk_get_enabled(&pdev->dev, "tx");
--	if (IS_ERR(dwmac->clk_tx))
--		return dev_err_probe(&pdev->dev, PTR_ERR(dwmac->clk_tx),
-+	plat_dat->clk_tx_i = devm_clk_get_enabled(&pdev->dev, "tx");
-+	if (IS_ERR(plat_dat->clk_tx_i))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(plat_dat->clk_tx_i),
- 				     "error getting tx clock\n");
+ 	plat->bsp_priv = gmac;
  
- 	clk_gtx = devm_clk_get_enabled(&pdev->dev, "gtx");
-@@ -139,7 +121,7 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
- 	 * internally, because rgmii_rxin will be adaptively adjusted.
- 	 */
- 	if (!device_property_read_bool(&pdev->dev, "starfive,tx-use-rgmii-clk"))
--		plat_dat->fix_mac_speed = starfive_dwmac_fix_mac_speed;
-+		plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
- 
- 	dwmac->dev = &pdev->dev;
- 	plat_dat->bsp_priv = dwmac;
 -- 
 2.30.2
 
