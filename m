@@ -4,53 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB49C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CE4FC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g9kDn5MVT0WH2OEuB7IRmZF3ef4El5ZimOew9H4YK78=; b=Xn1R5IUGfIECOQzefVE3qLnmZW
-	L4TF7xNIBdpdx68WugWgqKQlLug84kt7diNlixRBbN2Hm3g5QcagNBliKV1Bru72Ila66zJYIvASl
-	y0Q2fHmmCFBhk1W4syxhgojtp6+aYwmbEkUmMXLB6cKmaPmBdMCNuZQ3Ud1JCaYIyaWcki+9CbITX
-	bhm2dPejyA1J7tF+lSw/OA/vKNw2M7jBcRRlXqV7wKb8LRkZgqXB5wBwYkPQFRjxyS5Az7W9/Hewd
-	bXSt5EPK6LzE3LxxoKP1bUvMFdN82fet8FO8rzlPwzeVyvRRUE0rdeOwy44EgHf559xqTYgeM8rXf
-	rTJtuW2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e9eawh0CQTC6B4XkVXKnBZTw+De/FpP0oA2+UhyUCeA=; b=Ika6jjqIjihCRFPH9Xnz7hdAPZ
+	xPwXSNu4E3KLomz84eFmxYJZ1JyynYC4pwpM4We6KIoAhGLT9CFiO/xAZckvArvZbP9ChotrmBr37
+	J8An8modxrE8IQ8LakAXmUtgK+AOWoAUL+JnhClLFddIkDplwSMfg7jOLgYWalNjpnE4Q4WsjtNyZ
+	h2L/sPt99epccLSpc8PfbCkl+JtjoDM28EemofbkuDDpb+uPZsnj8jxDGBmCl88HuYFZCpN2Qc8Xb
+	1UpD+VQBk7/G0emNAo/+zChNLmNWQKRUuGOwMY+k+0kpFFLL8gzTjQVJdXdrTP0kenIE0355Ple1W
+	UE47Ml6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJml-00000007U4t-1lG6;
-	Tue, 18 Feb 2025 09:20:59 +0000
-Received: from mail.dealify.pl ([51.195.90.172])
+	id 1tkJoD-00000007UXW-0pdP;
+	Tue, 18 Feb 2025 09:22:29 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJjC-00000007T3F-2S4K
+	id 1tkJjF-00000007T4z-2QRu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 09:17:20 +0000
-Received: by mail.dealify.pl (Postfix, from userid 1002)
-	id 836F8A48C3; Tue, 18 Feb 2025 10:16:03 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=dealify.pl; s=mail;
-	t=1739870165; bh=g9kDn5MVT0WH2OEuB7IRmZF3ef4El5ZimOew9H4YK78=;
-	h=Date:From:To:Subject:From;
-	b=HhI3CQRe8rIDIfIY+g2vjxHwGIV58VCmBOEiNJ11fO3U9JBv8aibmAG/oGll9VL5O
-	 +e08R6HPkh8LJg9YCb/zDpF7hR0gZUq4HqO/5gQnuj96ewz3Pq9QTUaOsb3MRm2080
-	 YuAJtVxkZCKZhav2AMzUgmtgW8xo34uPhgUG2BwXLZxG/+FWjqQX6T2rEFZZpG2pdX
-	 /fulYrRnFhdJ41lIEhb+0cqo3YRge45ubw+aEigzvYlqy5MUGbbUMjXyRwIjE6gatx
-	 +UPGNsirdUsUB8AaUho1Ugwvd1tZUfvcjHUFiiciHGiEFkCCWyeLH6VEZ1ly6NZewq
-	 O7ZFW+9TTB9DA==
-Received: by mail.dealify.pl for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 09:16:02 GMT
-Message-ID: <20250218084500-0.1.jx.24fit.0.9109crn8r2@dealify.pl>
-Date: Tue, 18 Feb 2025 09:16:02 GMT
-From: "Weronika Kubiak" <weronika.kubiak@dealify.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: Pomoc prawnika
-X-Mailer: mail.dealify.pl
-MIME-Version: 1.0
+	Tue, 18 Feb 2025 09:17:22 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2fc1e7efe00so9293174a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 01:17:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1739870240; x=1740475040; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=e9eawh0CQTC6B4XkVXKnBZTw+De/FpP0oA2+UhyUCeA=;
+        b=P/LSKq5oh7161q4m5cF0pPUQXgHLa4Na7C6vuCRChPHs2mWMnNQ8bnaFa4r17gW+oY
+         UisuP379eVtgefoJLrrDY4vk3op3CmHfWk3PqsZksqnqvwPo6Th5wcPPW4Vo/PF7PUjq
+         7xK81sowtEk880WQEa5TK1qmG2GheTZVZpJPhih+WTdSut34aqPVopfHiAaPdDti4yiX
+         fFKupGahfQ2YS3r82yHfQ+q7xaFVLYJYz0mHerlMHuTnR/vCoqHdGAtmFCywI87BM/Jj
+         LPVH2A/V+Pn0mOcxkxCAt/ABKylx872pOkha+xWaqXY7l2YRTzapLGvlJfJsKOgbo3dI
+         sz1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739870240; x=1740475040;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=e9eawh0CQTC6B4XkVXKnBZTw+De/FpP0oA2+UhyUCeA=;
+        b=BIU3p5gxq6JJrwhhC93+0PjHRjonUl8vdfXfvexK9T3HnCmmXRRtBCKqL7qLkghFmY
+         kemvw4jIiCX2OLIo2IVW0xurb10+dDcgEw7fSXFwZNIeKZ0uFGk5Sk34+cemWolAXU14
+         AjH+/VYPCkVkLM/lXMgHfvy9M2XLf9jAcgW3WTF0GNlypAI7tKSAKbZ+ZJJpS0CiL56x
+         mPaYTTTRQ1PbxO3s65pzcl4rDFQ40nY8xuz897da2BLH5De3czyukB7gRkVsrJBe1DqJ
+         qwHenYlARhdt0rB0VjnI9Y8ZKcAw6KIHA4s6zoBpS+C+8GfHdaRpu+KW272FYd8wXc5w
+         uJ+g==
+X-Forwarded-Encrypted: i=1; AJvYcCVFptydtw4c2F7PHggcwiZinTH9tCmQaF+wb+tFKBngPCxfk3MmIX/MXrLHeS3VQTGCRBpq5tJ1GNE3p1HrdhGL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrITg2BN2cMIS+NZ/ERaELCO+FJIK6TkCOFZfrIDpE5HcRRr4G
+	uiv/UAnOBZgMAB48qGkKVNNTlYcvdIh5rKqb3TgN3YroBSjq6HV6BwT5Zp2a/9Jvg3yhhA==
+X-Google-Smtp-Source: AGHT+IGEUf1IAWU1YfH4BCxWMw3DbzclxHXWfJ0bKoh4oebNPcKR4H3sJDIdZaS1HGUEr9wC1aKrwoRL
+X-Received: from pfbdn12.prod.google.com ([2002:a05:6a00:498c:b0:730:92d9:52e3])
+ (user=keyz job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:124e:b0:732:23ed:9470
+ with SMTP id d2e1a72fcca58-73261901144mr18452340b3a.23.1739870240161; Tue, 18
+ Feb 2025 01:17:20 -0800 (PST)
+Date: Tue, 18 Feb 2025 17:17:16 +0800
+In-Reply-To: <CAPDyKFor_kP1hcNC1YwLBjH=eaLG9qSyvOYvj+FQrNu8Piu2Dg@mail.gmail.com>
+Mime-Version: 1.0
+References: <CAPDyKFor_kP1hcNC1YwLBjH=eaLG9qSyvOYvj+FQrNu8Piu2Dg@mail.gmail.com>
+X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
+Message-ID: <20250218091716.1450623-1-keyz@google.com>
+Subject: Re: [PATCH v5 RESEND] cpuidle: psci: Add trace for PSCI domain idle
+From: Keita Morisaki <keyz@google.com>
+To: ulf.hansson@linaro.org
+Cc: aarontian@google.com, d-gole@ti.com, daniel.lezcano@linaro.org, 
+	keyz@google.com, khilman@baylibre.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org, lpieralisi@kernel.org, 
+	mathieu.desnoyers@efficios.com, mhiramat@kernel.org, rafael@kernel.org, 
+	rostedt@goodmis.org, sudeep.holla@arm.com, yimingtseng@google.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_011719_315121_AE699DCC 
-X-CRM114-Status: UNSURE (   2.72  )
+X-CRM114-CacheID: sfid-20250218_011721_613369_BA7BCF7D 
+X-CRM114-Status: UNSURE (   7.95  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -66,24 +93,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Szanowni Pa=C5=84stwo,
+> Looks good to me. I left it to Ulf, FWIW:
+>
+> Acked-by: Sudeep Holla <sudeep.holla@arm.com>
 
-rozumiej=C4=85c dynamik=C4=99 dzisiejszego rynku i zwi=C4=85zane z ni=C4=85=
- zagro=C5=BCenia, ochrona maj=C4=85tku firmy sta=C5=82a si=C4=99 kluczowy=
-m elementem strategii zarz=C4=85dzania ryzykiem.=20
+> Applied for next, thanks!
+>
+> Kind regards
+> Uffe
 
-Nasza kompleksowa us=C5=82uga zosta=C5=82a zaprojektowana z my=C5=9Bl=C4=85=
- o przedsi=C4=99biorstwach, kt=C3=B3re ceni=C4=85 sobie wielowarstwowe po=
-dej=C5=9Bcie do zabezpieczenia swoich aktyw=C3=B3w.
+Thank you for all the review! Excited to see it in the next.
 
-Oferujemy rozwi=C4=85zania wykraczaj=C4=85ce poza standardowe metody ochr=
-ony, =C5=82=C4=85cz=C4=85c zaawansowane narz=C4=99dzia analityczne, prawn=
-e i technologiczne.=20
-
-Czy chcieliby Pa=C5=84stwo szczeg=C3=B3=C5=82owo om=C3=B3wi=C4=87 mo=C5=BC=
-liwo=C5=9Bci zabezpieczenia Pa=C5=84stwa maj=C4=85tku?
-
-
-Pozdrawiam
-Weronika Kubiak
+Best regards,
+Keita
 
