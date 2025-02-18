@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 912E8C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B4BC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:28:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=l5l755ruyNtPADHoOrFA6bFojSmArHIdny0GJW4lNQI=; b=CUypn89/qugj9NuoOabPk6JNlg
-	IjZPwmswLMLrw+zy2KPivvseUEdWPMkn2EvhpSLcHZB5PHpkQnHhIoCihy0AM8i/+4TLvvvKwQg7D
-	nAh2CVce4GIM+D0SeaEZuvDERqgRI+GA9Y3oWf7CXSnDWD7aXRwNP+UW1eob4cpXrtadoFMu3Ula2
-	RFFok6n/BWDDgKCD9yLVFu/kMW3APWLPlVP3f2e07TiG27YQ6BsNZ+hgU920+D1fRgQFQJ+e2VShi
-	+wZ5DcBxDS06p5/e3UXL8pq6ouuF4oywfCiIV/S7Cn6F82X/Lla5tmPwo2CEWPTWE2p11+GoyUhbh
-	wUbrIaYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0dclyfXIKRocSAia33SCGleDbbuwVJcVUZF3S+mKXRI=; b=LH3spE0SMjN8dt
+	KPfAqwZci0nzD6214wXyZMMKM6B4tFUGvUCNLGLX7RjcV1d38h9u8tkazYlIW1H0l6Z1Mtp02Y3Iu
+	w44YCU/a/c5jSa84kLfDMIDxml1c194s5NPz5kgSK8YGj7je0jURE72jx60KF/VUySvYrW7Bd0J4R
+	IVKQHWSwx5KYzQGicgVeVZFDAVDp8fh8VYXaYcKg66G7iu/DomlHpDad53Hh9o7+4e8VuBirQYZ94
+	lTjwlWCSJu1donaBfC0biD+Q+hWbqNzcHEl01Xhegm7bxIwZI7eFy0T4wUt96VTeyGVRWCLjPUn5f
+	rFAh3XBeKbF+VI9C2evA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTEe-00000009Z8C-2BvU;
-	Tue, 18 Feb 2025 19:26:24 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tkTG6-00000009ZXQ-0iSv;
+	Tue, 18 Feb 2025 19:27:54 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSkS-00000009S61-12bq
+	id 1tkSkV-00000009S7K-3x3K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 18:55:14 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51IIsv1L1601132
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 18 Feb 2025 12:54:57 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739904897;
-	bh=l5l755ruyNtPADHoOrFA6bFojSmArHIdny0GJW4lNQI=;
-	h=From:To:CC:Subject:Date;
-	b=m4o2vYKwiqUJ+OYW+cGctshgQ4uJb3sxGP/VCh337zZgspeJwnlEaJccwJXW0dz/2
-	 fOiI7vDR2Oo7Pw1bHXaegEDNvGzPOJyQOtIVlyYEnC4jim2sseIR3EvOnuyMhyBnUZ
-	 h63lRG1YKXzsuqEPTyPqm+PS4oPuGpBK6nlejSGc=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51IIsvBM000686
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 18 Feb 2025 12:54:57 -0600
-Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 18
- Feb 2025 12:54:56 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE106.ent.ti.com
- (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 18 Feb 2025 12:54:56 -0600
-Received: from uda0490681.. ([10.24.69.142])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IIsrxY123821;
-	Tue, 18 Feb 2025 12:54:53 -0600
-From: Vaishnav Achath <vaishnav.a@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, <jai.luthra@linux.dev>,
-        <y-abhilashchandra@ti.com>, <vaishnav.a@ti.com>
-Subject: [PATCH 0/5] Add J722S CSI support
-Date: Wed, 19 Feb 2025 00:24:47 +0530
-Message-ID: <20250218185452.600797-1-vaishnav.a@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 18 Feb 2025 18:55:17 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id A11C925F3D;
+	Tue, 18 Feb 2025 19:55:14 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id d5LHm9JJqCpk; Tue, 18 Feb 2025 19:55:10 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1739904910; bh=BxR9jFPEiAwMiqt5QfVjfx6zF42bwqi4ug6psMIP9Ls=;
+	h=From:Subject:Date:To:Cc;
+	b=d93Dyk8Wa+n8vyZdIO1QSVsiuODg9kHdqbXykEq9cs9EgWmlIqp38Mgt2/I7a5kvC
+	 pX6ehS9RyqbhpRjQNiZHBuYIlLazXWRrw7hGIScZOvtIEq6TYIdm18KrDr6DaguPK2
+	 /ekKn0XDLWxqgSJc8TALoz8RVJNFYPeVDSk6g8d0xGYjBb8bLwgYpg3ZgxKYJI4wqg
+	 Xte9vPq2Fkb/wtA61EbkJARftGqzD6PvXMAVhN5C+O7/t0+3MeiK9BqWZBQw7hL+4h
+	 WM0imfqFQeuZKTOjOdftdmeS9Tu8YT5nvA4/bJWycCvXrvLtP3A4m2/SGwyorV/8CB
+	 4ecjGV8PLA9OQ==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH v2 0/2] Introduce DWC3 support for Exynos7870
+Date: Wed, 19 Feb 2025 00:24:41 +0530
+Message-Id: <20250219-exynos7870-usb-v2-0-1de41a89c9d4@disroot.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHHXtGcC/13MQQ6DIBCF4auYWZcGQQJ25T0aF7QOOhtpGEs0x
+ ruXmnTT5f+S9+3AmAgZbtUOCTMxxbmEulTwnPw8oqChNCipjFRSC1y3ObJ1Voo3P0QbtDc4WMT
+ WQDm9EgZaT/Del56Il5i208/1d/1RzT+VayGFt9bo4GqnfdMNxCnG5RrTCP1xHB/ptOaYrgAAA
+ A==
+X-Change-ID: 20250203-exynos7870-usb-9f3a5ed7ee95
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, linux-usb@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739904902; l=905;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=BxR9jFPEiAwMiqt5QfVjfx6zF42bwqi4ug6psMIP9Ls=;
+ b=DD2ZhpEVbRcVE/PLP/ud3pf1ys+uU6rHRIfm3V2I8G99ZjAnCM7Lrmvc4KxOJ7/oFGSipmE/c
+ tkZAAuXzt0XC3LZhemTjcrp0tf1oP7xnZUknXdr4igOhwNjiSUDVb0D
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_105512_340337_06AFFC36 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20250218_105516_114071_B8EBE418 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,32 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for CSI2RX capture on J722S EVM
-and enables IMX219 and OV5640 overlays to enables
-4 sensors on EVM, this provides a reference for a user to
-enable a different sensor on any of the ports.
+This patch series is a part of Exynos7870 upstreaming.
 
-Test logs:
-IMX219: https://gist.github.com/vaishnavachath/60cc2ef257601f27f28a315f8cf669c4
-OV5640: https://gist.github.com/vaishnavachath/648202286d4d34d4d25f7c8c9db8b8bd
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Changes in v2:
+- Change compatible string (s/dwusb2/dwusb3).
+- Rename clocks to "bus_early", "ctrl", and "ref".
+- Set 3.0V regulator as mandatory.
+- Link to v1: https://lore.kernel.org/r/20250204-exynos7870-usb-v1-0-a7753f8183a4@disroot.org
 
-Vaishnav Achath (5):
-  arm64: dts: ti: k3-j722s-main: Add BCDMA CSI overrides
-  arm64: dts: ti: k3-j722s-main: Add CSI2RX nodes
-  arm64: dts: ti: k3-j722s-evm: Add camera peripherals
-  arm64: dts: ti: k3-j722s-evm: Add overlay for quad IMX219
-  arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI OV5640
+---
+Kaustabh Chakraborty (2):
+      dt-bindings: usb: samsung,exynos-dwc3: add exynos7870 support
+      usb: dwc3: exynos: add support for exynos7870
 
- arch/arm64/boot/dts/ti/Makefile               |   9 +
- ...k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso | 304 +++++++++++++++++
- .../k3-j722s-evm-csi2-quad-tevi-ov5640.dtso   | 319 ++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-j722s-evm.dts       |  28 ++
- arch/arm64/boot/dts/ti/k3-j722s-main.dtsi     | 193 +++++++++++
- 5 files changed, 853 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso
- create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
+ .../bindings/usb/samsung,exynos-dwc3.yaml          | 28 +++++++++++++++++++++-
+ drivers/usb/dwc3/dwc3-exynos.c                     |  9 +++++++
+ 2 files changed, 36 insertions(+), 1 deletion(-)
+---
+base-commit: e5d3fd687aac5eceb1721fa92b9f49afcf4c3717
+change-id: 20250203-exynos7870-usb-9f3a5ed7ee95
 
+Best regards,
 -- 
-2.34.1
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
 
