@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03298C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 07:57:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68DC7C021A9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 07:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IRLwAY7hLVH/LBsGjac/Xshr5y+AejxY8yfE4VoS8eE=; b=iWjaEci+cuBPok49MKybNQu2yx
-	9qjoL6L36kjYijTXISSuN2pf9Anz6fHLUtFz/MYbH4u+p1P9rnPZqTkT9znQTy6Q7XA/QGPMy8cxJ
-	zAMWYE/wT8lui4FvVN/rlhlEsoMky7vrrlDfLxjMIaCWKapKVzGWRPyZHviPZw4rBk5s8EhA7miwh
-	etOt67hbFBLP+PcgK+8cvma95IVuj77jLMJxYMZIad/xoMDTO/SRgaSYrq7JCJv9kRfRZyQafdUUE
-	0+v60TFKsLUV2a5QJkoIXwDvTrGV0BwbaEWlqhI+xvOKz7YwnhsC4tnTmt2uNLcyevCbRk//JRQjE
-	CCvgNiCA==;
+	bh=z454s4SATc22F08WjDr2MombRmOAt2kXRJT07mIGToE=; b=e136w7USBxEXge7nOINDhJIKBP
+	OQmq8D9777PqB2qZbyC2zBURneuSbUgE7ZyS3TdkkdNObelOFFFLZKkcVoJl+/OUYAbiLPOxodJh3
+	E6UB6+G6ySly1nmzr11h5kWaP1CXB/FYETDJ0ChtQnsy81CefHiZF6lYJPedlj442O3lxBtmfpTxW
+	X146WtUIvYNfV6a4sFzPpeChmQH9NACnGRC1Yu8dTcQ675w57xT1lZf1xI2ABsUKskSwQCFJHKcHg
+	EeS81zNuFRGVMim7xuYut/NEmXWNYXBgFspnUjcUpe2RNdGyBP/hlGO6Ovjbi3Wz6KJcErXS3qbHt
+	wHdsZCuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkITm-000000079mZ-145L;
-	Tue, 18 Feb 2025 07:57:18 +0000
+	id 1tkIVE-00000007A1J-08qg;
+	Tue, 18 Feb 2025 07:58:48 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkIFo-000000076a3-2LmW
+	id 1tkIFo-000000076a4-2p18
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 07:42:53 +0000
+	Tue, 18 Feb 2025 07:42:54 +0000
 Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:52604 helo=and-HP-Z4..)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <andrej.picej@norik.com>)
-	id 1tkIFi-00G0MD-2S;
-	Tue, 18 Feb 2025 08:42:46 +0100
+	id 1tkIFn-00G0MD-2w;
+	Tue, 18 Feb 2025 08:42:51 +0100
 From: Andrej Picej <andrej.picej@norik.com>
 To: shawnguo@kernel.org,
 	s.hauer@pengutronix.de,
@@ -46,9 +46,9 @@ Cc: imx@lists.linux.dev,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v3 08/15] arm64: dts: imx8mm-phygate-tauri-l: Set RTC as wakeup-source
-Date: Tue, 18 Feb 2025 08:41:49 +0100
-Message-Id: <20250218074156.807214-9-andrej.picej@norik.com>
+Subject: [PATCH v3 09/15] arm64: dts: imx8mm: move bulk of rtc properties to carrierboards
+Date: Tue, 18 Feb 2025 08:41:50 +0100
+Message-Id: <20250218074156.807214-10-andrej.picej@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250218074156.807214-1-andrej.picej@norik.com>
 References: <20250218074156.807214-1-andrej.picej@norik.com>
@@ -65,8 +65,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_234252_751657_145346C2 
-X-CRM114-Status: UNSURE (   5.67  )
+X-CRM114-CacheID: sfid-20250217_234252_870918_9759BD74 
+X-CRM114-Status: UNSURE (   6.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,30 +82,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RV-3028 RTC can be used to wakeup the system on phyGATE-Tauri-L-i.MX8MM,
-mark the device as wakeup source.
+From: Yannic Moog <y.moog@phytec.de>
 
+Move properties from SoM's dtsi to carrierboard's dts as they are
+actually defined by the carrier board design.
+
+Signed-off-by: Yannic Moog <y.moog@phytec.de>
 Signed-off-by: Andrej Picej <andrej.picej@norik.com>
-Reviewed-by: Teresa Remmet <t.remmet@phytec.de>
 ---
 Changes in v3:
 - no change
 ---
- arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts | 1 +
- 1 file changed, 1 insertion(+)
+ .../boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts   | 10 ++++++++++
+ arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi  | 10 ----------
+ .../boot/dts/freescale/imx8mm-phygate-tauri-l.dts      | 10 ++++++++++
+ 3 files changed, 20 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts b/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
-index c3835b2d860a..c9bf4ac254bb 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
-@@ -217,6 +217,7 @@ &pwm4 {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
+index 7aaf705c7e47..17e5dd40b5d7 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
+@@ -221,6 +221,10 @@ &pcie_phy {
+ 
+ /* RTC */
  &rv3028 {
++	interrupt-parent = <&gpio1>;
++	interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
++	pinctrl-0 = <&pinctrl_rtc>;
++	pinctrl-names = "default";
  	aux-voltage-chargeable = <1>;
  	trickle-resistor-ohms = <3000>;
-+	wakeup-source;
- };
+ 	wakeup-source;
+@@ -410,6 +414,12 @@ MX8MM_IOMUXC_SD2_RESET_B_GPIO2_IO19	0x40
+ 		>;
+ 	};
  
- &uart1 {
++	pinctrl_rtc: rtcgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_GPIO1_IO03_GPIO1_IO3		0x1c0
++		>;
++	};
++
+ 	pinctrl_tpm: tpmgrp {
+ 		fsl,pins = <
+ 			MX8MM_IOMUXC_SD1_STROBE_GPIO2_IO11      0x140
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
+index cced82226c6d..672baba4c8d0 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
+@@ -301,10 +301,6 @@ eeprom@51 {
+ 	/* RTC */
+ 	rv3028: rtc@52 {
+ 		compatible = "microcrystal,rv3028";
+-		interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
+-		interrupt-parent = <&gpio1>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&pinctrl_rtc>;
+ 		reg = <0x52>;
+ 	};
+ };
+@@ -377,12 +373,6 @@ MX8MM_IOMUXC_I2C1_SCL_GPIO5_IO14		0x1e0
+ 		>;
+ 	};
+ 
+-	pinctrl_rtc: rtcgrp {
+-		fsl,pins = <
+-			MX8MM_IOMUXC_GPIO1_IO03_GPIO1_IO3		0x1c0
+-		>;
+-	};
+-
+ 	pinctrl_sn65dsi83: sn65dsi83grp {
+ 		fsl,pins = <
+ 			MX8MM_IOMUXC_GPIO1_IO10_GPIO1_IO10		0x0
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts b/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
+index c9bf4ac254bb..755cf9cacd22 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mm-phygate-tauri-l.dts
+@@ -215,6 +215,10 @@ &pwm4 {
+ 
+ /* RTC */
+ &rv3028 {
++	interrupt-parent = <&gpio1>;
++	interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
++	pinctrl-0 = <&pinctrl_rtc>;
++	pinctrl-names = "default";
+ 	aux-voltage-chargeable = <1>;
+ 	trickle-resistor-ohms = <3000>;
+ 	wakeup-source;
+@@ -395,6 +399,12 @@ MX8MM_IOMUXC_SD2_RESET_B_GPIO2_IO19     0x40
+ 		>;
+ 	};
+ 
++	pinctrl_rtc: rtcgrp {
++		fsl,pins = <
++			MX8MM_IOMUXC_GPIO1_IO03_GPIO1_IO3		0x1c0
++		>;
++	};
++
+ 	pinctrl_tempsense: tempsensegrp {
+ 		fsl,pins = <
+ 			MX8MM_IOMUXC_SAI3_TXFS_GPIO4_IO31	0x00
 -- 
 2.34.1
 
