@@ -4,155 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14DDDC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:03:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE407C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 14:04:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OQXrCGgIax72fV7iP2OBRMDakN1CxP0zpi3RKjbn7Bc=; b=N/Ug8VjmDGXBQKHS+489Fh78wA
-	b3ZSB4ZOb5UpvvT+A1aBN0nioYZ6iXX1XEpXmrhT1czAEyUmZ4yUORz8/xSG6pmd73bnS1wKP04VG
-	KI/RbygFZF7sheMf98kAiXVHVSr/ySxsJStA/mczN09ygvomtw+ULxZqs+dBYoKYwpwWua5gNoUn1
-	mE7MItK1nvT02fXwHJKqR9sK6xpYn0nE+FFGB/q97LpI6WLHpH0Tkn6Ccd3POFShQZdpBCyOEE60z
-	2DQckmIao+jfx/7g8gIdvgZOBJcFc+TcEUJ0guau73zWnGVGi3CMouzO8WetmyAZalYE1x87EiPWw
-	iOgkOy0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GOMdBZHXmT6tOq4jZ3nXBaHcgelQQuneQe5MrBX2DNQ=; b=YejPsZdA8KqnvBUGmNfQZ/Bled
+	FxEW+2PK8QC9Kwd1ASP1YgjeWM6SNW/o1Q4nRHgtA4DY3Nv/eH15aHAbxYLQtMziOXCKnNyAoBl6f
+	AgYMFWiBHDwHKkpatOMKlpWuPUc71hJSHhU5DP1WZVilw3RO2FgN5gJgnw2jAybrUD8PTKXxgCkPi
+	2LrTaft/ew1Iw2TP7p4NOXNutz93XBzyX0fmKSfJi+mApMvyJsxznsQuvjskNCWPXxVwnaSZjAAG9
+	2JiYa5OFfdZOdJ4Kmrbj0HIRkJk+QvMrZHtOCGGKyv8GpVuMiKAKReD0XX875uA2yZmqvcvunRnRz
+	NG0Sv49g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOBv-00000008QDJ-0Xix;
-	Tue, 18 Feb 2025 14:03:15 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkOAR-00000008Pva-1q5z
+	id 1tkODL-00000008QSp-3Z2c;
+	Tue, 18 Feb 2025 14:04:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkOAj-00000008PzP-3Wvw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 14:01:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QJmXbLb97Ul8fis8rQiXvU+P4Vsv294YQ2dg/KrBdieOVGJW6PQUvL4idiJk96u5neismMopbm/mdxR8ynlE6KqhnsTxVRC8wSjr1pVhPBSfbDX+vthQ1eA/CfKzs5e8RVkQI+bHfOHiwnqbKMeHeURG29DIuganAKQD03jHlhVZIyQAVEQSGZtt0Hjyzo97XYk7jrYVEYst448HMZSUkHjq5QudBxP7SoTwjctnVdt+/aDuPxRDKD2eyc3X+gLXZZ70rTPHHRA1CwMn8gcYKXNL8dA9v8bmnt9oUGGb5UhANyiWnv0INl8qOW2IMn7cl39eRCJVKRXWEvtKqg/spA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OQXrCGgIax72fV7iP2OBRMDakN1CxP0zpi3RKjbn7Bc=;
- b=HcgT/QBTI4gT9jW3Lk07C6u3x1fJypDfDCusdMw6C5AjFQn7f2MSLWxhnXu+daAZjQi5XSdcV7+u3d2i1bk/YRnVVN3xJ/8l5sX0DDbIcBVpYs+A2hJPUuG3AHa3JNt+JQ4AwEhpgjdqekQB/0+m/dxUohsmgistNX/XtTv6oWThOelFvt4AIeW+iI1WGI5qkRpXatVRG3+nWtIQ1yiqxX/NFD+aeenOjz9MmKcvNdh8HxsAEqlpwdNBJSY76zFzqX3Wrta7+S1xQasL9cDdXl/CZkuDX9PmhgV17F5ejAVuzFooH7u+DkYKGSwIga4Z2gYpLe0RmCF2Ki3tv0aLiA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OQXrCGgIax72fV7iP2OBRMDakN1CxP0zpi3RKjbn7Bc=;
- b=YASki/u4emeX6QN5hLTX6IxJIR0CzxbyzmobYomypWrp7lgG0KG2hPBTB61dbXBruHMJqBIXfN2AgZRU8E7xCqgZNDdEJMd5hNgcqNqikrF9iMXUq+CXRN2rAa1VrdsiaHE4YSyaLggnqA3vbyhA7BrdX84cukoXeLAawMrUCiCNC1A9y6dAHz61h282fO0T1cIhkyjtJCpDN1lw92qMQ+XmAIGAqCWf7Xl+OrGs12hKGcpRr5XdUtlGvy8Y3gjnWD6W803sUyM/pgRp1z2JEt7A3z58+rtPlEq+WY2k1kGAMenrtF4iEBw+UVj/xTjn+pJ43pCGyGZdEW7t8koFIQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
- by PAXPR04MB8078.eurprd04.prod.outlook.com (2603:10a6:102:1c1::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Tue, 18 Feb
- 2025 14:01:39 +0000
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197%4]) with mapi id 15.20.8445.017; Tue, 18 Feb 2025
- 14:01:39 +0000
-Date: Tue, 18 Feb 2025 23:08:38 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Daniel Baluta <daniel.baluta@nxp.com>
-Cc: p.zabel@pengutronix.de, shawnguo@kernel.org, mathieu.poirier@linaro.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, andersson@kernel.org,
-	linux-remoteproc@vger.kernel.org, iuliana.prodan@nxp.com,
-	laurentiu.mihalcea@nxp.com, shengjiu.wang@nxp.com, Frank.Li@nxp.com,
-	krzk@kernel.org
-Subject: Re: [PATCH 2/5] reset: imx8mp-audiomix: Prepare the code for more
- reset bits
-Message-ID: <20250218150838.GA6537@nxa18884-linux>
-References: <20250218085712.66690-1-daniel.baluta@nxp.com>
- <20250218085712.66690-3-daniel.baluta@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250218085712.66690-3-daniel.baluta@nxp.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI1PR02CA0006.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::11) To DB9PR04MB8461.eurprd04.prod.outlook.com
- (2603:10a6:10:2cf::20)
+	Tue, 18 Feb 2025 14:02:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 05D16152B;
+	Tue, 18 Feb 2025 06:02:20 -0800 (PST)
+Received: from [10.1.27.186] (XHFQ2J9959.cambridge.arm.com [10.1.27.186])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 623173F6A8;
+	Tue, 18 Feb 2025 06:02:00 -0800 (PST)
+Message-ID: <0ad8b31e-f1f1-426d-89e8-a21cf72814d1@arm.com>
+Date: Tue, 18 Feb 2025 14:01:58 +0000
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|PAXPR04MB8078:EE_
-X-MS-Office365-Filtering-Correlation-Id: 959e6554-1d56-456e-f5dd-08dd5024c3e6
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Oa1xVDzFRyUkKxdxltD/vTrCJsCxuN6ku/gxAYffjPMKWTLl5o6AzSJbYgdh?=
- =?us-ascii?Q?o3DxSjH3dbPHKDWElVGAhXEG0uyemkZTvMRDieuI1EMjhKcRW5JlWJQGjQq7?=
- =?us-ascii?Q?qo+qn+fGX5qjmO8O06nuqLlL8waCn08F1mnL3VTk0Nm1MtG7b/VnWuIj+Vnl?=
- =?us-ascii?Q?D3yDRjI6PMuIfkPcvln/G8UghLu/Br10/mln2F2aKWEVshlkSe7BS2evG5dO?=
- =?us-ascii?Q?Nv1AzFDKT82B8dIMEIXfansbKkBNXyZoqePKBGOWy3KiDdR4B9jAnK/M4evp?=
- =?us-ascii?Q?NYBSU8/5MUTtvpUoKxCIXr2/V7JS8dWnPwUMI1wo09sg+4FsvtntXiPsewOt?=
- =?us-ascii?Q?BT4a7TSQkmVZ6Ncg8q/gjiMGX3XVa+ek4TiD2qT7VsKO/fWpHGLFhWNQm8Ad?=
- =?us-ascii?Q?nQ8HCS0CTDFOJDh3WAxG1a3I/tOZxbXsfAVEKe0jzWcnu77RmtL+oUc/8vG8?=
- =?us-ascii?Q?igJ/iYCTqUGzKO1JhKph1KYQF6rfU30cChopZVi+GCV5kih+t/ZDH2FUw8vX?=
- =?us-ascii?Q?zmcnX3WBVSLMoJ0D4e2O+yHXa4CahmjIGKrXhFW0pUE8iM7FpNVmM7cYV9hF?=
- =?us-ascii?Q?phq0uZZ0UP9wVCtDcP/Qw0ximDFKjbX62Wmut4XyBNBqc0gk2cCXmH0Ak4mA?=
- =?us-ascii?Q?hqrEzXdOc/f+Cjotv1HvZtwIlN+JFmkhokw/rUltdEPqdTwAwkYFWt+JzU1U?=
- =?us-ascii?Q?WLf/Zi2unm2RzkrarCdUsB8SC6nC6M0wOIwxL/OhoJpsEo0XVHShTF3nnBUA?=
- =?us-ascii?Q?zQYC+I0mdW2T1g+J1ruMeZuNwgK2p224w45VNHQ4EL3AlCXtJZKYwQoWxzZC?=
- =?us-ascii?Q?D0NTyVwb9JW1b7Y0YAtvZBt97JIG3Tei1weX0oSBkhz9IO0tRuSROBq50q2C?=
- =?us-ascii?Q?uHlqu4rn2uASktmhH5F0xYpE19G+G86mQqkqbMMbazI951R3t472ZDB0RePR?=
- =?us-ascii?Q?4NkyGFPVwe+/ZgiExxoDmOTObadMIZSJ+ZTyYbEmi3CWr3PwIM/VbEFoF/Bp?=
- =?us-ascii?Q?w8J3NOz04MsIKP9of8tqzTodSXyuu2qZ8Li5yoPGQ5ZmissvgMxWxwiVkC2A?=
- =?us-ascii?Q?K1CX97AXXULZv4hpPxFVajZBtJ/RfGn48eIkiSzj3QaoAu7xu1FwAAWDEVaR?=
- =?us-ascii?Q?3kDxS/yD1kcTUop2o1hYM3D5L7Pyh1e1LjL2t5nmGg+7WDQYwAqqqjakTZb9?=
- =?us-ascii?Q?AvApb9MPFr4qM6qXnb3Vi9fBPHZNyAHE6Agp6TiA5++I1yejap/pRFQm7puj?=
- =?us-ascii?Q?Vr+i4s6sQb+ZCcCzIIcGIUsebaPHW5DtV49j4Pq8OXmqRuyV/G03ltO/WcLO?=
- =?us-ascii?Q?qdSkhmSFfb9AbRp6bqp8Hg1/fdb6EHLdvzU7nDu6Y0vu/iJxSERfkFjF0oX3?=
- =?us-ascii?Q?QIt6dHYw9n8Fy9YlTTNiASOzFuDlkT67Is0rV4m3hJLOJkwX5hhurCdPtCd9?=
- =?us-ascii?Q?f+8UGMaMd6AZ0uJxM5mG8nGk01+X7/8D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Kt0uqph98a4/iexGcIoimN64lSzja4mkN3NvL35+EzjM+xSEe/Zvt/BJd8QM?=
- =?us-ascii?Q?xmGNa5xiAqTeVSyKUCSJyBUX5romjNgE2DY7F57bESbFR1pAgL8lw8uxE9He?=
- =?us-ascii?Q?WrsFSSmtvy3ASM8+t9bZqjaeMBis4MFU2Jwe4uzJMWgX795uqkdl9SvZNejp?=
- =?us-ascii?Q?zjKpGOvUjH/65RMS+Qtg2FHNumEBxndBzj1GIpZo3KF+t3aR1TTd0gAValmE?=
- =?us-ascii?Q?WnXVIR2Ez7F+cAgAAsgxztz0HG0ijJqy/BpFRdK6lLp5D4mnFuXDTYj4w+CR?=
- =?us-ascii?Q?InAf9UAZLyeVjzlaOERTMsPI62BsD3jKJljxovh01EG4yFZw0PjuBEYY29I9?=
- =?us-ascii?Q?qV6NB+OflnqzJhZl1NlE+TM928+3o6+60M5+le2qx5Sed1IVb/kG1rep8tc0?=
- =?us-ascii?Q?roZz+X7i5GrTED6yNxNRvygkIpvyqpKihW4WWfQMLc6/Nmloj4ax/EwXT8ei?=
- =?us-ascii?Q?Dn+Yvpch3HMtkGOyc7yfsZOfs78GcolVcMrh7cJWfo5/sx1TC7eHapy9nEZ1?=
- =?us-ascii?Q?oDFRKCY7FCZL6LlqY8mKdlBZI72VReH+9JynVqyCErDDSDLYz9tkPf1l1dBa?=
- =?us-ascii?Q?uDu+w9rm+ioELyeDOzOmRlhb4v3y3tMOE2nPr06NpAdCmkMvFLWMY36FRytX?=
- =?us-ascii?Q?hOF61SA0yb/yKrMbUcmOAq7XdQioDfG66CaJHMmXiET1uB2HzwlAuByIu5ya?=
- =?us-ascii?Q?+p6Ggl0vZpYRQtp8LfzQgewTwGku33mn/6HGsVyyqnQh4kdiipEtCTf96+xb?=
- =?us-ascii?Q?/FWQfee6aAgH5QNVeQ8brpfUMrI79PgbAKD6yCEkGFERMeV2z0+63MG3FTRP?=
- =?us-ascii?Q?QTRAAM+JEybg+aBSQl3TbdgJbtBXn9gWYDgL2hXmtA5cJWMlwwBOvNPiVYiL?=
- =?us-ascii?Q?fgOppfkRd/dPkkoM/TVYEOYaTxZqD5R4Hosc5eMjHTojrCqc0kz91jc7gGyt?=
- =?us-ascii?Q?bEZZ7W2YwodVnW6FBL3p3nXPwbc2wpdDMUSaPxb0EtNlZvnKkNnLVxvm9Fqn?=
- =?us-ascii?Q?Xxg+9so/D7/ZXZ9LQDnxbrblAwcWw2qvkiykeyf+sPm5ZFUD1n09y3MsLyZm?=
- =?us-ascii?Q?t+Iwsi7Cvzx17NmMiznEp30FZlSsv/0pW/YQGPKCzaXA6j0ktk49cpivMr8y?=
- =?us-ascii?Q?8GSytZqfrflNtHm1dSYioigfA/r3va/6x99FMZaHMDOOsLc32cA9hZBmEA7g?=
- =?us-ascii?Q?lYJlfbVroU2EdJXLp2HA+F0/6ErKihJPLVwk6Xv/wN7HuOF4DuqqA0Wptdcc?=
- =?us-ascii?Q?U7JFHna5LrBHpSfNApNTnNSaWCifULz0T0/W4E8DrW1+r7eNBB4OpsVm/plb?=
- =?us-ascii?Q?pLMdfL2wmlbjttFXMF4wWxoZ6rKvw3XNDiv9rp0fN6+un1R9bKYm31xgd+pw?=
- =?us-ascii?Q?xmPO//3wTBFeCthTGrKUv7RJKgCWolz8XjRfKlEEAsfpq3Cf+oGZrcp1VkW7?=
- =?us-ascii?Q?ZNx7c67D888DM0vdA9J8a5FDPIKyYwGap79ZlBHF3JlsG8I0dvGqdqV7rIi5?=
- =?us-ascii?Q?DWANNaKLd1ZuomQDgXZhynqFAlSnmLIX7oBibVKMfLXHKd0iboypI5WuNCMx?=
- =?us-ascii?Q?5fzjlwpid7P2BDCTsvJNG056KFjuDFyz0CjFZRSc?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 959e6554-1d56-456e-f5dd-08dd5024c3e6
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 14:01:39.5274
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bxXjSELM9le5KwwRDB7847Gqe8VazwVZbTKOc9qk7NjMot+G3xjGgnP8D+RKq1RQ7oEReDcGSLVRgNWz4yNHpQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8078
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2] arm64/hugetlb: Consistently use pud_sect_supported()
+Content-Language: en-GB
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-kernel@vger.kernel.org
+References: <20250218113639.475947-1-anshuman.khandual@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250218113639.475947-1-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_060143_480494_E9A628BD 
-X-CRM114-Status: UNSURE (   9.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250218_060201_926878_7DA45B2E 
+X-CRM114-Status: GOOD (  16.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,59 +65,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 10:57:09AM +0200, Daniel Baluta wrote:
->Current code supports EARC PHY Software Reset and EARC 	Software
->Reset but it is not easily extensible to more reset bits.
->
->So, refactor the code in order to easily allow more reset bits
->in the future.
->
->Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
->---
-> drivers/reset/reset-imx8mp-audiomix.c | 53 ++++++++++++++++++++++-----
-> 1 file changed, 43 insertions(+), 10 deletions(-)
->
->diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
->index 1fe21980a66c..6b1666c4e069 100644
->--- a/drivers/reset/reset-imx8mp-audiomix.c
->+++ b/drivers/reset/reset-imx8mp-audiomix.c
->@@ -12,7 +12,30 @@
-> #include <linux/reset-controller.h>
+On 18/02/2025 11:36, Anshuman Khandual wrote:
+> Let's be consistent in using pud_sect_supported() for PUD_SIZE sized pages.
+> Hence change hugetlb_mask_last_page() and arch_make_huge_pte() as required.
 > 
-> #define IMX8MP_AUDIOMIX_EARC_OFFSET		0x200
->-#define IMX8MP_AUDIOMIX_EARC_RESET_MASK		0x3
->+#define IMX8MP_AUDIOMIX_EARC_RESET_MASK		0x1
->+#define IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK	0x2
->+
->+#define IMX8MP_AUDIOMIX_EARC		0
->+#define IMX8MP_AUDIOMIX_EARC_PHY	1
-
-Should this two lines be put in dt-bindings?
-
->+
->+#define IMX8MP_AUDIOMIX_RESET_NUM	2
->+
->+struct imx8mp_reset_map {
->+	unsigned int offset;
->+	unsigned int mask;
->+};
->+
->+static const struct imx8mp_reset_map reset_map[IMX8MP_AUDIOMIX_RESET_NUM] = {
->+	[IMX8MP_AUDIOMIX_EARC] = {
->+		.offset	= IMX8MP_AUDIOMIX_EARC_OFFSET,
->+		.mask	= IMX8MP_AUDIOMIX_EARC_RESET_MASK,
->+	},
->+	[IMX8MP_AUDIOMIX_EARC_PHY] = {
->+		.offset	= IMX8MP_AUDIOMIX_EARC_OFFSET,
->+		.mask	= IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK,
->+	},
->+
-
-blank line
-
->+};
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+> This patch applies on v6.14-rc3
 > 
+> Changes in V2:
+> 
+> - Added an warning when PUD_SIZE is requested but not supported per Ryan
+> 
+> Changes in V1:
+> 
+> https://lore.kernel.org/all/20250217065414.49489-1-anshuman.khandual@arm.com/
+> 
+>  arch/arm64/mm/hugetlbpage.c | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> index 98a2a0e64e25..1d89599a20d7 100644
+> --- a/arch/arm64/mm/hugetlbpage.c
+> +++ b/arch/arm64/mm/hugetlbpage.c
+> @@ -342,7 +342,9 @@ unsigned long hugetlb_mask_last_page(struct hstate *h)
+>  	switch (hp_size) {
+>  #ifndef __PAGETABLE_PMD_FOLDED
+>  	case PUD_SIZE:
+> -		return PGDIR_SIZE - PUD_SIZE;
+> +		if (pud_sect_supported())
+> +			return PGDIR_SIZE - PUD_SIZE;
+> +		break;
+>  #endif
+>  	case CONT_PMD_SIZE:
+>  		return PUD_SIZE - CONT_PMD_SIZE;
+> @@ -364,7 +366,10 @@ pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
+>  	switch (pagesize) {
+>  #ifndef __PAGETABLE_PMD_FOLDED
+>  	case PUD_SIZE:
+> -		entry = pud_pte(pud_mkhuge(pte_pud(entry)));
+> +		if (pud_sect_supported())
+> +			entry = pud_pte(pud_mkhuge(pte_pud(entry)));
+> +		else
+> +			pr_warn("%s: pud huge page not supported\n", __func__);
+>  		break;
+>  #endif
+>  	case CONT_PMD_SIZE:
 
-Regards,
-Peng
+Personally, I think something like this is cleaner than having 2 warnings:
+
+pte_t arch_make_huge_pte(pte_t entry, unsigned int shift, vm_flags_t flags)
+{
+	size_t pagesize = 1UL << shift;
+
+	switch (pagesize) {
+#ifndef __PAGETABLE_PMD_FOLDED
+	case PUD_SIZE:
+		if (pud_sect_supported())
+			return pud_pte(pud_mkhuge(pte_pud(entry)));
+		break;
+#endif
+	case CONT_PMD_SIZE:
+		return pmd_pte(pmd_mkhuge(pmd_mkcont(pte_pmd(entry))));
+	case PMD_SIZE:
+		return pmd_pte(pmd_mkhuge(pte_pmd(entry)));
+	case CONT_PTE_SIZE:
+		return pte_mkcont(entry);
+	}
+
+	pr_warn("%s: unrecognized huge page size 0x%lx\n",
+		__func__, pagesize);
+	return entry;
+}
+
+Thanks,
+Ryan
+
+
+
 
