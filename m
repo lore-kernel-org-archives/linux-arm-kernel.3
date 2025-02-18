@@ -4,94 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13866C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:24:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7EB5C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pXw/VUZk2/2TbrEzlxvJbX2hPbKCJ0toaMiiUQlOMPE=; b=UqhmrHrKRRBxa7ZIxpNxvRKdd4
-	AcpEM6iPFr81+pHmAaj5bFwHlRO3y99yoTtNqk+BnKM6lh4x3yB39hc1OuaKQIsRTFfzazD8WEMq0
-	kX/Ds0HJxoAovB8+CAS3Sxj6gtRzHj2FaqdVESRVdw/MJv49s9AzajWcgYEGlYI06lfmN227pTTX2
-	oPBWBrMUr/So4h1DW80tCKR2NHfrWRzc0wEAJQzAag6ZHJ5Ps0APkq+YKGklI1vFzjinQkEd7JDp2
-	XJ370z6wPmDY6fqU40kIOIWycs4R9O+Xp/Pe6TY8XefjLq6Z4lTpYyazfrY3UslMGckDs7qSjHRNn
-	F0oMHLFg==;
+	bh=bI8pLujwINb2xEn9T5kFhu/KxJQ/eT0deywxw8O6Vgw=; b=H+uuZxN/vxfsaCBOvsg81L5ODg
+	gHs1NIvdO/6IbW4ExcgL61SDSJYUXw2OyAWK8SacQHeThna8kFBgZ1dS2dbrtYInyEKPdp1sTOK0s
+	jTqcd11l4/wirCiLxWw0oEfOiz1I3e6si7QhgAmkhNEKDOKynoBgwUe/Wcljy4yfmoiCLo921ItbF
+	TtJsGihNNQ6qU0ebdwCLbotpCbXrLSnSaAC/B4ffE1NgAyV+52gjX9qmOXHJ3YiQe5i3TVoAeMlA7
+	HbG/CuXK9WMGGgbD+KsQ5i9ew72FdcWY57isJJnADpgcD4raRtKx8n1w9LRzCtfm6kz6MaA8Go2XK
+	366/sC3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNaf-00000008J0s-03cc;
-	Tue, 18 Feb 2025 13:24:45 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1tkNc5-00000008JM7-1zv3;
+	Tue, 18 Feb 2025 13:26:13 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNX4-00000008IRN-2sn2;
-	Tue, 18 Feb 2025 13:21:04 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5e08064b4ddso485772a12.1;
-        Tue, 18 Feb 2025 05:21:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739884861; x=1740489661; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pXw/VUZk2/2TbrEzlxvJbX2hPbKCJ0toaMiiUQlOMPE=;
-        b=YQ75ar+XUvemZK2DsANZjFa1q00GUk1zko2LVgRKJjUAZq5Fjp71/fFqmfvf1+pIcK
-         M6S1TLKEWIlH8Dn/9hrC96FuSRBBEZLHPvesEOud1bfqD0LL5+xae+F6n1m4NZfPD+15
-         Y4e+Gpe1WXiTi9U1CTWa5I4rwc0eNnX5A1ZvCJ00HV6EExRAVdeIrNXKVwmu4Q+bwK15
-         LMZRnuU/dFwXLj5MB9Lj1AlysERxQUSr7oBiLfFMJljp6MD4RKTA8nVHu7+9XbVMtywA
-         t2dxf34iypIMgirIZTuJZMnPYJvxWQuLIaY/W3t183wtCnS8VBUwFp+kqDoIKjl6jULw
-         0tRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739884861; x=1740489661;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pXw/VUZk2/2TbrEzlxvJbX2hPbKCJ0toaMiiUQlOMPE=;
-        b=DzV/cu6c+xZnANfr2xHBMGAuyF4T4uXtBhkPHPoH8WCFmDFlJCcI8EgXjQxBkxZXpn
-         GnllWuqrTA/4EgwRiftGSA+6smy9w9/43NbUuIosYp3j4KvRJv4UGvhLQ6r0NAfWz5nt
-         979oIy8clUVoNYs2+fXX6TFW7v7ECMiyg2bCf5bEcahIlr12CY6P4HxCJZwZrnnxwCdW
-         Ljs3O4lXa+MKTZNTMu+/HTcyEXCEbKDOr2A6yn6zOfs5DQMjCLFAONYBsrPpjGEihsP/
-         BSJXjpD1atbnglKTpWNDnSi8D4vzT00muibTKPs9+YNGQTnp98CfBqeqVzOYkp/NPZL/
-         mVjg==
-X-Forwarded-Encrypted: i=1; AJvYcCUIeUq7UP6TQryJCSUyxWA+CcIYNmZZTFwdhtoCPI/cgrFI1Hr2nnCU31H79sb4uiXDqIwoaVmVn1P7lPQZMfA=@lists.infradead.org, AJvYcCXBK/NgOfbZORzsWJd+m2M9XfDqaJ+XN2Vldn2zPBHAsv6su0wNHSZn1nIoRBnH8QN0vQcHZkM7C8lfsE+sDP86@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUA29P8HEQIVkcuD1dB/v2EBoGcjaDfrqNIGX0VHWgkdPe1C+Y
-	IyKk+rvmuqbCg/Hevc2JIm23elYMTRiSPHX50n0pCMmCrz0fl9yG
-X-Gm-Gg: ASbGnctdH1IhsNy13ReowWO+53zCcaVygD3WEmXjZfzu6XQBDU1uUAIbqsQND3GeCi4
-	KtzS923UxwexpYZNSRflKWKhdjnJ+gNogPgFc8XaFlsAfgN6+Owvlu5HEidX6yOjqRh38VRgy6x
-	vHcK+vwpYHTwMpZPTgFYQX8ScyHbJa7GTY1Ug/T+z6RoOzaZ5KWszObC43TwYY39NkuW829+So8
-	vhR/i5omkkzMopTcIR4IZ02TarPiXNMXtwMCqOCDRfq4sc+9q8yyaahhQOD4CtimYWOFHX0HTHC
-	p1/nU0GbApzw6M83R81rmS6GQCRqHpXSPr5LROsF4mZQ6qjdlpKRgGl+xqEtFz63kLdcGzeH
-X-Google-Smtp-Source: AGHT+IGfAz1/Ln9aF9MylRqFz1gstkfkLiDTO4oAQvkajZW5cUBk1t7bUxgvzU80gmDZNx8cT63axw==
-X-Received: by 2002:a17:906:1757:b0:abb:b136:a402 with SMTP id a640c23a62f3a-abbb136a75amr388377666b.18.1739884860519;
-        Tue, 18 Feb 2025 05:21:00 -0800 (PST)
-Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb4d3ef3c0sm714890366b.41.2025.02.18.05.20.58
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 18 Feb 2025 05:21:00 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
-Subject: Re: [PATCH] arm64: dts: rockchip: add hdmi1 support to ROCK 5 ITX
-From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-In-Reply-To: <20250217132146.604090-1-liujianfeng1994@gmail.com>
-Date: Tue, 18 Feb 2025 14:20:48 +0100
-Cc: conor+dt@kernel.org,
- devicetree@vger.kernel.org,
- heiko@sntech.de,
- krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org,
- robh@kernel.org,
- sfr@canb.auug.org.au
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <AEAB639A-1EA6-4FA1-AAC6-C382FB280487@gmail.com>
-References: <975CFBEF-4E37-41E4-BE3F-7294FE7E4D3F@gmail.com>
- <20250217132146.604090-1-liujianfeng1994@gmail.com>
-To: Jianfeng Liu <liujianfeng1994@gmail.com>
-X-Mailer: Apple Mail (2.3826.400.131.1.6)
+	id 1tkNYS-00000008Ihq-28SC;
+	Tue, 18 Feb 2025 13:22:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739884947;
+	bh=ZDfqbmocK+423Jahwe7zgbMnj1LWV19yQk0w9+HSXIk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=abA8pKcguLXGqpD8h2qV0xFL5ZHPK3oa0OpuBiAN60c5jK7mDFobcGInl23OnZ0TX
+	 bro4OW8UmLxEovUcqpsoeART8iEfUp5lLDe9rZrXGOz0fhPWyVDFoh506x0SIcBtMc
+	 vrVQ3/4b5VDXniuBluN/mt1BvKR65Ow+sTpa/fxe2aVG/q/F7p6P8uTmEq77MEF+IF
+	 h0eX5pBjALlYhUtp7PHhNfwo/OK2Sh/DG1N7CX5o5Uort0b06Kaf0NwDv06okPIR9C
+	 OzubKP1dIXeMcBR5KOCYfZt0ffLMjpwvi2fLo251wpAEUzPqZNJ+Q3y0vAAYy3BdOg
+	 t/+vbzQ8mXfRQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 176C317E0657;
+	Tue, 18 Feb 2025 14:22:26 +0100 (CET)
+Message-ID: <906ed1df-3c63-4028-ae7d-97e086acca32@collabora.com>
+Date: Tue, 18 Feb 2025 14:22:25 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: clock: mediatek,mt8188: Add
+ VDO1_DPI1_HDMI clock
+To: Conor Dooley <conor@kernel.org>
+Cc: sboyd@kernel.org, mturquette@baylibre.com, matthias.bgg@gmail.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ geert+renesas@glider.be, u.kleine-koenig@baylibre.com,
+ amergnat@baylibre.com, linux-clk@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ kernel@collabora.com, macpaul.lin@mediatek.com, pablo.sun@mediatek.com
+References: <20250212100342.33618-1-angelogioacchino.delregno@collabora.com>
+ <20250212-arming-gyration-103e42b94ed6@spud>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250212-arming-gyration-103e42b94ed6@spud>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_052102_722675_696CA9C7 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20250218_052228_695546_110D2F80 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,39 +81,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il 12/02/25 20:17, Conor Dooley ha scritto:
+> On Wed, Feb 12, 2025 at 11:03:41AM +0100, AngeloGioacchino Del Regno wrote:
+>> Add binding for the HDMI TX clock found in the VDO1 controller.
+>> While at it, also remove the unused CLK_VDO1_NR_CLK.
+>>
+>> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>> ---
+>>   include/dt-bindings/clock/mediatek,mt8188-clk.h | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/include/dt-bindings/clock/mediatek,mt8188-clk.h b/include/dt-bindings/clock/mediatek,mt8188-clk.h
+>> index bd5cd100b796..0e87f61c90f4 100644
+>> --- a/include/dt-bindings/clock/mediatek,mt8188-clk.h
+>> +++ b/include/dt-bindings/clock/mediatek,mt8188-clk.h
+>> @@ -721,6 +721,6 @@
+>>   #define CLK_VDO1_DPINTF				58
+>>   #define CLK_VDO1_DISP_MONITOR_DPINTF		59
+>>   #define CLK_VDO1_26M_SLOW			60
+>> -#define CLK_VDO1_NR_CLK				61
+>> +#define CLK_VDO1_DPI1_HDMI			61
+> 
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> 
+> btw, I see the mt8195 has this same CLK_VDO1_NR_CLK define in it, if you
+> fancy getting rid of that too.
 
+Thanks Conor, yeah I'll do that asap... one commit for each NR_CLK is a bit
+too much... I should just clean them all up :-)
 
-> Wiadomo=C5=9B=C4=87 napisana przez Jianfeng Liu =
-<liujianfeng1994@gmail.com> w dniu 17 lut 2025, o godz. 14:21:
->=20
-> Hi,
->=20
-> On Mon, 17 Feb 2025 10:48:00 +0100, Piotr Oniszczuk wrote:
->> I manually installed it on my sd card and sill getting:
->=20
-> I have built a armbian bookworm minimal image, you can test it in case
-> there are hardware related issues:
-> =
-http://cdn.haguro.top/share/Armbian-unofficial_25.02.0-trunk_Rock-5-itx_bo=
-okworm_edge_6.14.0-rc2_minimal.img.xz
->=20
-> Best regards,
-> Jianfeng
+That requires a bit of work though, so it's not something that I can do in
+a few minutes; let's see if I can make it for this cycle, but no promises.
 
-Many thx!
-This is very kind!
-
-I flashed, booted =E2=80=A6. and have exactly the same symptoms & logs =
-like on my previous email :-(
-
-Being desperate I reflowed hdmi ports board area and - believe or not - =
-this seems to help (albeit don=E2=80=99t know for how long :-)
-Now hdmi1 works nicely.
-
-Jianfeng, many thx for your persistence with my hw mess=E2=80=A6. =20
-
-
-
-
-
+Cheers,
+Angelo
 
