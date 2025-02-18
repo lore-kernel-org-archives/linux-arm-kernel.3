@@ -4,95 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D29E5C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 08:47:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CADDC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 08:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m+3/1tyVa1Qn4CQ2/7kBF87oG9qDd6zKjpbib5cEEhE=; b=h3ow5MQgepRv4BBv8XzCLvrUwv
-	2nQ54U0Mwt7/09mZEB/tq3/l2HSstgn3NQWelGgDZXpZ/b51EJsp3ZLFlPePk0+0BfbZ+zDMQOZut
-	nSF9HjEfhIqIf1p1j98Nw+zBc7zQXJE339ENM+CpnY1RBYs/Wb0s0x5hlLpuzt2ZrXTDrLkab3zKA
-	VYy/SrtzDO4OYZCAlEmjhMoOqdmAqj3EuJ1pM2+cgZAyGmC42GMUhiPFs8/vHLm0C9YcNHdrCm1zx
-	jpzeFC9qXnhJmQBYr9MxnrqSY2/9dgEcCYjabX5V9ZHDPvUj7bhw9Ogibm51x7w1S7CPYPVq2yWKL
-	qgkxikpQ==;
+	bh=+ch9WkK3xb+NyXSKj+cn4pbQshkuRqJJ8wERBuOfV3A=; b=r6Idr+aoixn6dS4JejX9HcnXlC
+	sXagYStdbnvZ3azKzshChFtBR257f8b9HhbRMbAFqO19GEJcseUs/CDoRmJZcyZ+Uj8vfCtomArS8
+	L80d00qSFoPeHBOBa3YcnPIm9Y22RV1XXWIS/JfdW8+8z3BT8zqKMXI5XyTG3etPJ9hg8t+de1odq
+	hSwFNL6SCs13i5RDrFJRzw1cLFRbSOesVPGpnvSnFFw0T1q+mbsCeTL482sR6TDs+nOVhVllhN+Zo
+	378yFsBxEFlKGYqU3y0LqCwp4W14mWV5agQDjGK2NxGbW33TFw03nlXCnAR0OinVdDGYi1OgTNztS
+	3+0blZxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJFj-00000007Ld2-0byh;
-	Tue, 18 Feb 2025 08:46:51 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1tkJHD-00000007M9l-1jjJ;
+	Tue, 18 Feb 2025 08:48:23 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJBJ-00000007KdO-30Ee
+	id 1tkJBi-00000007KlU-0u8H
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 08:42:19 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51I8ERDf013018;
-	Tue, 18 Feb 2025 09:41:58 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	m+3/1tyVa1Qn4CQ2/7kBF87oG9qDd6zKjpbib5cEEhE=; b=Ibz22OBmZ62P3bGD
-	d9E/xAJHN3cUuLw6amZCi2WWuYjp70NmQobfeWx0UUlMYN3KpuVUe6u1hoM0qaAE
-	9SgLRIBxnVmEiUgdp6UrOsHvA052TQEQhIpkR0zY8M5GdkP8d9XsV+9eShy8yn1A
-	bvBdCsUoezygapIyhY5BxOckyFjaN3SNjKdR9BetHfFXiw27JnOYrA7PRk3WY679
-	yvfANtotS6xK1YwFXOr8PmEW0JQND75PIzBoaw4a3jEoF9i+OTyPWheb5zcHx3Y7
-	wKdFKVykqQ5c6ym7Np1M1SbG1oDYAH7U2leUlpW8tiESvHiI8NHicGX4uF6iRXte
-	nK+SRg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44tkttu4rv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 18 Feb 2025 09:41:58 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id D30AE40044;
-	Tue, 18 Feb 2025 09:40:35 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id D7E7C2F80C7;
-	Tue, 18 Feb 2025 09:39:32 +0100 (CET)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 18 Feb
- 2025 09:39:32 +0100
-Message-ID: <ad738b22-7d09-4734-a546-759c23222925@foss.st.com>
-Date: Tue, 18 Feb 2025 09:39:31 +0100
+	Tue, 18 Feb 2025 08:42:43 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-ab744d5e567so962560666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 00:42:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1739868160; x=1740472960; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+ch9WkK3xb+NyXSKj+cn4pbQshkuRqJJ8wERBuOfV3A=;
+        b=f/PNkQv62SOO79nJQzYS+/xg/oNOjBc7LjPIBkEvSZ2CIi+m9zkZzTiTylAk74nyZN
+         XORLQzEo1/XjlXu3EjmxHojgj4AcDLji08Lqr1a3ZaQQvpSEQdkpk86e4+Wk1vwk6sfr
+         Bvmj28O3hNcBOyjNvHb3F5WuxlvW9M7GQmAVx/nth60v746SB/MEYn5YFSCzEnh2963K
+         sy7/EgKNw8PWkc3W5+dBB+dE1gYoMnld7dAGYOBP/Z3tecW1BCal83Qjwq/df6a4HVgb
+         wGB+LRUx9eXQPp3d+UM91IE6zo2q7gg+6yAfkpheE5jMbasSNlzyiPyMcd8MA8lN51Jm
+         Ee4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739868160; x=1740472960;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+ch9WkK3xb+NyXSKj+cn4pbQshkuRqJJ8wERBuOfV3A=;
+        b=IOm7K01QLpyznkWUcnu4jMahdx0zjOQrUTSZm0izrBowMt8LiRylnjvx6L8vd+DQ77
+         lphyS+KwuXP2VODpFl2NoKbuzTDbdDRuNI5E11J2WZ2qr79WLkGgVEVzCs223h7Zn5pD
+         l/Skzrxm9BVy+aj7uZzUywL1zdFPz0lgmykDV5cYP/ZxJmU1fJYJW28CJ4yPS7eMKBsk
+         z9CSbMnNW/Xu5T2CFs17/umN18TUJRyTjp6LC9sr5NQiP2Iq6yU106TyScHboIPLRgcg
+         oq5LG2SNo5oEefP7WKwwAjb1++bhkm9dVgsPq0xaGV9gfOqoTWovTDyloP1ZBOR3p+9z
+         fAoA==
+X-Forwarded-Encrypted: i=1; AJvYcCW3hgeUxXro+KeOY2N5aYVM/kXq77G9tKW80boD6SpbguV0Lni+UhmH2VbpPkUFVWUzwCkcV0mey/2Ds56+1+AQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPDPKu5W+oQRI6hcxDyAoRxM02GEQlv/gxdxckdr9r6F1YDiAO
+	NpzJjhfn6Q0bZs0+A3SWsWNjh00zM0pLLG+K5eeu8+UU+9Xyra+O/eNxmE7WWS4=
+X-Gm-Gg: ASbGncuPGzADggCi5F5cCF6YWqHwiWHqjjpZY4jNfngJOQiMssr5wFmfBbenJVzpGWi
+	eQIWOe4+1Nz3hkinWenSDeWnFIikITkD5hm9L+2iqEiViLyvNMRDQx0UEIs+4jQatW4ETEbmrYC
+	4zUKhcIpIMfDQlkAiX/NrXAHQ+uzzL8uDJjDsxKEhnpO/aJjNRftq3lGcZG7Y2/nFk/Z5+G/xsS
+	G0kA5GZg1WmjrmSMHw63PLzdrj+2ScK23R3bVGnq+xuLLPtSLO3gUmEjmBk59JY+i0Ab5Io7oaB
+	GIrd6bReRHQ2IumD88Rs5gw=
+X-Google-Smtp-Source: AGHT+IGhI03tdLg5oc0plVNCSO2LiVnGx57Sn+cYCVSUBsfb7XkEiF5iSWvlCx7bfmCKQKm3J+y6hw==
+X-Received: by 2002:a17:906:308f:b0:ab6:504a:4c03 with SMTP id a640c23a62f3a-abb70c7a410mr933973166b.24.1739868159537;
+        Tue, 18 Feb 2025 00:42:39 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.25])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-aba5337673dsm1007937966b.89.2025.02.18.00.42.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Feb 2025 00:42:39 -0800 (PST)
+Message-ID: <a1ebb518-ff69-4dff-a8b4-7c3b716450a5@tuxon.dev>
+Date: Tue, 18 Feb 2025 10:42:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/8] dt-bindings: spi: Add STM32 OSPI controller
-To: Philipp Zabel <p.zabel@pengutronix.de>, Mark Brown <broonie@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Arnd Bergmann
-	<arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon
-	<will@kernel.org>
-CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <christophe.kerello@foss.st.com>
-References: <20250210131826.220318-1-patrice.chotard@foss.st.com>
- <20250210131826.220318-2-patrice.chotard@foss.st.com>
- <67fe157ce8ca3c3c4e08451da52f7c94f73439b2.camel@pengutronix.de>
+Subject: Re: [PATCH 2/8] dt-bindings: watchdog: sama5d4-wdt: Add sama7d65-wdt
+To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, vkoul@kernel.org, wim@linux-watchdog.org,
+ linux@roeck-us.net
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, dmaengine@vger.kernel.org,
+ linux-watchdog@vger.kernel.org
+References: <cover.1739555984.git.Ryan.Wanner@microchip.com>
+ <3c55e634f2993ac5a49e1b8bfceb2333e175d376.1739555984.git.Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <67fe157ce8ca3c3c4e08451da52f7c94f73439b2.camel@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-18_03,2025-02-18_01,2024-11-22_01
+In-Reply-To: <3c55e634f2993ac5a49e1b8bfceb2333e175d376.1739555984.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_004218_364680_2CC34149 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20250218_004242_258197_C57FE369 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,89 +106,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2/17/25 10:17, Philipp Zabel wrote:
-> On Mo, 2025-02-10 at 14:18 +0100, patrice.chotard@foss.st.com wrote:
->> From: Patrice Chotard <patrice.chotard@foss.st.com>
->>
->> Add device tree bindings for the STM32 OSPI controller.
->>
->> Main features of the Octo-SPI controller :
->>   - support sNOR / sNAND / HyperRAM™ and HyperFlash™ devices.
->>   - Three functional modes: indirect, automatic-status polling,
->>     memory-mapped.
->>   - Up to 4 Gbytes of external memory can be addressed in indirect
->>     mode (per physical port and per CS), and up to 256 Mbytes in
->>     memory-mapped mode (combined for both physical ports and per CS).
->>   - Single-, dual-, quad-, and octal-SPI communication.
->>   - Dual-quad communication.
->>   - Single data rate (SDR) and double transfer rate (DTR).
->>   - Maximum target frequency is 133 MHz for SDR and 133 MHz for DTR.
->>   - Data strobe support.
->>   - DMA channel for indirect mode.
->>   - Double CS mapping that allows two external flash devices to be
->>     addressed with a single OCTOSPI controller mapped on a single
->>     OCTOSPI port.
->>
->> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
->> ---
->>  .../bindings/spi/st,stm32mp25-ospi.yaml       | 105 ++++++++++++++++++
->>  1 file changed, 105 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml b/Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
->> new file mode 100644
->> index 000000000000..5f276f27dc4c
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
->> @@ -0,0 +1,105 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/spi/st,stm32mp25-ospi.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: STMicroelectronics STM32 Octal Serial Peripheral Interface (OSPI)
->> +
->> +maintainers:
->> +  - Patrice Chotard <patrice.chotard@foss.st.com>
->> +
->> +allOf:
->> +  - $ref: spi-controller.yaml#
->> +
->> +properties:
->> +  compatible:
->> +    const: st,stm32mp25-ospi
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  memory-region:
->> +    description:
->> +      Memory region to be used for memory-map read access.
->> +      In memory-mapped mode, read access are performed from the memory
->> +      device using the direct mapping.
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  resets:
->> +    items:
->> +      - description: phandle to OSPI block reset
->> +      - description: phandle to delay block reset
+On 14.02.2025 20:08, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
 > 
-> Are you positive that these will only ever have to be reset together?
-> Otherwise I'd add a reset-names property just in case.
-
-Yes i confirm that these both reset are reset together.
-
-Thanks
-Patrice
-
+> Add microchip,sama7d65-wdt compatible string to the dt-binding documentation.
 > 
-> regards
-> Philipp
+> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+> ---
+>  .../devicetree/bindings/watchdog/atmel,sama5d4-wdt.yaml        | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/watchdog/atmel,sama5d4-wdt.yaml b/Documentation/devicetree/bindings/watchdog/atmel,sama5d4-wdt.yaml
+> index cdf87db361837..e9c026194d403 100644
+> --- a/Documentation/devicetree/bindings/watchdog/atmel,sama5d4-wdt.yaml
+> +++ b/Documentation/devicetree/bindings/watchdog/atmel,sama5d4-wdt.yaml
+> @@ -23,6 +23,9 @@ properties:
+>            - const: microchip,sam9x7-wdt
+>            - const: microchip,sam9x60-wdt
+>
+
+You could have keep this new line after the items section that you've added.
+
+> +      - items:
+> +          - const: microchip,sama7d65-wdt
+> +          - const: microchip,sama7g5-wdt
+
+here.
+
+>    reg:
+>      maxItems: 1
+>  
+
 
