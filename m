@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA82C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 07:44:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF7CC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 07:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yIskrCVvgeo6MB99hL+e+aZvm7O6lSSjP/NM8xSozbE=; b=qgT/vpHPaAZOTvz2B+GgQhfOkL
-	kZjjSsWvhktnLpkKXeS5U5upnAeSlJodjE+WyxPkLHCGXgB8Ia8U70JseZJsPnYEiU6dy+/vgtsU5
-	UPCMwK8Vstjiazfq24f04dWTtZ1KpJriRb1wEoYSkir5Jqpi49HHtITDR7rXZ1Tbn1iexQugs49Wi
-	Oz3fSi6kowuVpRVnuOLlNtxeMWsexL2MjZ4YHYssPOU/WeZ+46cVbHpx0b7tuqTeF4RJ4sgNHfBpv
-	5tb61Vq8WGsKL0ATQMv3QCXEEMjx0qRrsDt6gVcU8IaSp5QE7y/ut7WqtNaJiEwl+TGYJRy5vJBYo
-	VMzXCdMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zFh36SsrVpV+XSA7VdptZUy1EfzZTnzsw701EQubbl0=; b=mpjCKignEyTRxwtmO9KkFN7AMR
+	IG6382u26BkPU9mKSFAB6ZoDFexIPD1l+9ZVHT4KIm4qJNMplIwI0MO4Snm5D14GlcVTE18v/98wo
+	iz8Laf27VbbfQq3R9yS9ZGkt0TD/79WU9SzJvciKkMrsmZFj+X1MOyJLNT2bT2W0EWcd8VJzT8I+v
+	HmjasJzS2qTZn8/8m6/L6w8LGTHet/+p0gQZzwexqDjuwXWaFoqJ06n1XWGz75mZOWccFJ4ePEiqN
+	0sdUa66sOWGlWPDdR3xtVrOZ/6Jh/675pScnI30qRJT/HuaLBlPC7+QI3Dr4ffud1K8kO9P8b/gHZ
+	fzzBZ7QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkIGs-000000076qU-3rfr;
-	Tue, 18 Feb 2025 07:43:58 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tkIIK-000000077CX-2UyC;
+	Tue, 18 Feb 2025 07:45:28 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkIFA-000000076QW-258X
+	id 1tkIFf-000000076WF-3OBW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 07:42:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E0E0BA41D2C
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 07:40:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B863C4CEED
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 07:42:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739864531;
-	bh=IvK/YZdxhIzz+WQDui+6ei6dQMpDPKxU2syoofLtyUI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=gthhYI9H3TZNlItYwrKDSFuBdEkiKZrIrU49lRCIALScYrla7kqdufoYgJbGesW/s
-	 ZfqxxSTLbGj+8Qi02jw6wsu7IjVEgz+bO00kvW3TUsL0f4tzjbMOd/9uV2HfiIurGn
-	 9m47eoooc9igVM7Kr/FL6sr3en6A29okd0rLtNhhTWvF/CB0QtRNolG7vflfcsD6xz
-	 5Y/qo9rK8O3PiqfxmhGwBv3+ZcwBzQrmF1rOAzJKp2/QmhVDrqXUJv1jdVM5dlk+on
-	 Cu6aRVRbEFTEck7PdHrsS7uMdIMjjN8PGkfUTeir2LhQ/k8qQ00Esd9LqRLeaDttod
-	 NGahJwRUtODMg==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-54622829175so1596440e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 17 Feb 2025 23:42:11 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVHVxPhpUWqs/BmIzSOC/iEiQ03N+Rm8tCthMNHyVGD4HRQpV8/f3wLE7pZHf5G8u9F/68e552O/qaBqBv8x86N@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLpPwXLq5Jszh9ekDjmP958+97BI1Wu/AyFzj36QqbNg2YZocM
-	mV3KUCXNWdvDISKMwr+IOMmE/3Roph++wpenF4bXVt4nrjey/JnslcYZjGVU64NQQ0XDgzoUHAU
-	qFCf/zyaTShBUImN7dUHKBGwtKds=
-X-Google-Smtp-Source: AGHT+IHcwsPEwQwvSNlp7+txo1ExLwL6bb64NekXlJS4T9EnBQWu9yYoLt2pG9NrnPvUbCr2H8go8Lh60C6VvcSVOhE=
-X-Received: by 2002:a05:6512:2342:b0:545:60b:f394 with SMTP id
- 2adb3069b0e04-5452fe27255mr4337762e87.4.1739864529480; Mon, 17 Feb 2025
- 23:42:09 -0800 (PST)
+	Tue, 18 Feb 2025 07:42:46 +0000
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:52604 helo=and-HP-Z4..)
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <andrej.picej@norik.com>)
+	id 1tkIFc-00G0MD-30;
+	Tue, 18 Feb 2025 08:42:40 +0100
+From: Andrej Picej <andrej.picej@norik.com>
+To: shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH v3 00/15] Update PHYTEC's i.MX8MM DTSs
+Date: Tue, 18 Feb 2025 08:41:41 +0100
+Message-Id: <20250218074156.807214-1-andrej.picej@norik.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-References: <20250212154718.44255-1-ebiggers@kernel.org> <Z61yZjslWKmDGE_t@gondor.apana.org.au>
- <20250213063304.GA11664@sol.localdomain> <20250215090412.46937c11@kernel.org>
- <Z7FM9rhEA7n476EJ@gondor.apana.org.au> <20250217094032.3cbe64c7@kernel.org> <Z7QBuIvr4Asiezgc@gondor.apana.org.au>
-In-Reply-To: <Z7QBuIvr4Asiezgc@gondor.apana.org.au>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 18 Feb 2025 08:41:57 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXFe2f0cCYznorrO-wJyh-qxJP5z-HdR9rbQiuMKC5u6qw@mail.gmail.com>
-X-Gm-Features: AWEUYZnpo_Rxk-ow416mB2XJK3Qj-eZIWTL3GmEexif4qB9L-kVkI7AOouI7sOg
-Message-ID: <CAMj1kXFe2f0cCYznorrO-wJyh-qxJP5z-HdR9rbQiuMKC5u6qw@mail.gmail.com>
-Subject: Re: [PATCH v8 0/7] Optimize dm-verity and fsverity using multibuffer hashing
-To: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Jakub Kicinski <kuba@kernel.org>, Eric Biggers <ebiggers@kernel.org>, fsverity@lists.linux.dev, 
-	linux-crypto@vger.kernel.org, dm-devel@lists.linux.dev, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Sami Tolvanen <samitolvanen@google.com>, Alasdair Kergon <agk@redhat.com>, 
-	Mike Snitzer <snitzer@kernel.org>, Linus Torvalds <torvalds@linux-foundation.org>, 
-	Mikulas Patocka <mpatocka@redhat.com>, David Howells <dhowells@redhat.com>, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
+X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_234212_608117_6639BD8C 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250217_234244_011616_0F389E62 
+X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,21 +80,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Feb 2025 at 04:43, Herbert Xu <herbert@gondor.apana.org.au> wrote:
->
-> On Mon, Feb 17, 2025 at 09:40:32AM -0800, Jakub Kicinski wrote:
-> >
-> > Yes, that's true for tunnels and for IPsec.
-> > TLS does crypto in sendmsg/recvmsg, process context.
->
-> OK that's good to know.  So whether SIMD is always allowed or
-> not won't impact TLS at least.
->
+Hi all,
 
-And for IPsec, I'd assume that the cryptd fallback is only needed when
-TX and RX are competing for the same CPU.
+these patches aim to get PHYTEC downstream kernel device-tree changes
+into the mainline for the phyCORE-i.MX8MM SoM and boards (phyBOARD-Polis
+and phyGATE-Tauri-L).
 
-So for modern systems, I don't think the SIMD helper does anything
-useful, and we should just remove it, especially if we can relax the
-softirq/preemption rules for kernel SIMD on x86 like I did for arm64.
+Changes mainly fix suspending/resuming with different wakeup-sources and
+add missing regulators. Last 4 patches add additional overlays. Some are
+meant to be used with PHYTEC's "option tree" to add/disable optional SoM
+components (idea behind it is outlined in [1]).
+
+[1] https://lore.kernel.org/all/4e7dd467-20be-43ce-936d-200ede6d511b@phytec.de/
+
+v1 at: https://lore.kernel.org/all/20241125081814.397352-1-andrej.picej@norik.com/
+v2 at: https://lore.kernel.org/all/20241202072052.2195283-1-andrej.picej@norik.com/
+
+Change log in corresponding patches (the only notable v3 change is in
+- [PATCH 13/15] arm64: dts: imx8mm-phycore-som: Add overlay for rproc 
+where we fixed DTS check warning. Other changes just updated overlays copyright
+year to 2025.
+
+Best regards,
+Andrej
+
+Andrej Picej (3):
+  arm64: dts: imx8mm-phycore-som: Fix bluetooth wakeup source
+  arm64: dts: imx8mm-phyboard-polis: Set RTC as wakeup-source
+  arm64: dts: imx8mm-phygate-tauri-l: Set RTC as wakeup-source
+
+Dominik Haller (1):
+  arm64: dts: imx8mm-phycore-som: Add overlay for rproc
+
+Janine Hagemann (1):
+  arm64: dts: imx8mm-phyboard-polis: Add overlay for PEB-EVAL-01
+
+Teresa Remmet (5):
+  arm64: dts: imx8mm-phycore-som: Keep LDO3 on in suspend
+  arm64: dts: imx8mm-phycore-som: Remove magic-packet property
+  arm64: dts: imx8mm-phyboard-polis: Add support for PEB-AV-10
+  arm64: dts: imx8mm-phycore-som: Add no-eth phy overlay
+  arm64: dts: imx8mm-phycore-som: Add overlay to disable SPI NOR flash
+
+Yannic Moog (3):
+  arm64: dts: imx8mm-phycore-som: add descriptions to nodes
+  arm64: dts: imx8mm-phyboard-polis: add RTC description
+  arm64: dts: imx8mm: move bulk of rtc properties to carrierboards
+
+Yashwanth Varakala (2):
+  arm64: dts: imx8mm-phycore-som: Assign regulator for dsi to lvds
+    bridge
+  arm64: dts: imx8mm-phyboard-polis: Assign missing regulator for
+    bluetooth
+
+ arch/arm64/boot/dts/freescale/Makefile        |  13 +
+ .../imx8mm-phyboard-polis-peb-av-10.dtso      | 237 ++++++++++++++++++
+ .../imx8mm-phyboard-polis-peb-eval-01.dtso    |  72 ++++++
+ .../freescale/imx8mm-phyboard-polis-rdk.dts   |  17 +-
+ .../dts/freescale/imx8mm-phycore-no-eth.dtso  |  12 +
+ .../freescale/imx8mm-phycore-no-spiflash.dtso |  16 ++
+ .../dts/freescale/imx8mm-phycore-rpmsg.dtso   |  58 +++++
+ .../dts/freescale/imx8mm-phycore-som.dtsi     |  22 +-
+ .../dts/freescale/imx8mm-phygate-tauri-l.dts  |  11 +
+ 9 files changed, 442 insertions(+), 16 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-eval-01.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phycore-no-eth.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phycore-no-spiflash.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phycore-rpmsg.dtso
+
+-- 
+2.34.1
+
 
