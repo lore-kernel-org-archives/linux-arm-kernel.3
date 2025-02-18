@@ -4,63 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F34C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 12:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E2D8C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 12:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTqky00lPhU7/+8sytiPJwGu7aJRpm3Cr8JwLkeqWdI=; b=r4Use2FSDLSALJ4Qbr67si08in
-	xMGNunHWiU4s7f0ctZBodS7n6lYLI7sDIwXHs8zDi01EhN/7ActIl988AQI4wPam+9sm3c0SOrpRq
-	Q+vVQg8CAkY9QfhlBIrTjRgfZomhecv+GuDFbhzrbogVuQN2UcNU6l1PXfjUMZW8H7DbPOpKtLSuI
-	KIAsJx3hhD6xX2+DN617NNk0PbY/nhyEweyJEbr6WDAQE1XNC9AdOXjrof9yYdVckclKTGbTqv1c2
-	0+jLvq//LpWORpqxso9OAcaPvPVVFNQd8IIdO4tfBMRETqINK3Fcbt17AS6SMdSLpo8Y/QUlpnuAX
-	a1zqxxZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rcOf/+mAe7HjVKdjr7yO9VSKEbj6DVv1uV/KGTc/++g=; b=eUeL9tuvQIXu4nY9gggpyVi4H1
+	ZRMpM7B+TS9oEWrvgvbzR1rUWoF+rcivThCStS9yV7JEMPR6xuT0tIV3lbOpzw0YBw+y9nLC6Pkg3
+	OgSItXod3iPVJt/PE/PKftJ5GK8icQz1KgETh5cchJFYlMmZ1Ex1E8CbHhFIZ8tBBePbNae6Je1f8
+	FBseZZtL19qsLO/5UHu60T6NkaNiFXiBQZDrgbTHS7Ms80PGiNgFCHxSfZTK/lc4ihWVNvPKeFx7M
+	4AWHnv+5FrGbUBK67yhWQlXw2a9nXlfBa1n7MJoOClsBQDnHH8ySRARWgnv44XHauUTDCH6T6gfqn
+	Ill5zv9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkMhS-000000088lV-1RVd;
-	Tue, 18 Feb 2025 12:27:42 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1tkMit-000000089Bj-3SWg;
+	Tue, 18 Feb 2025 12:29:11 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkMH7-000000083nQ-0A0e
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 12:00:30 +0000
-Received: from francesco-nb (31-10-206-125.static.upc.ch [31.10.206.125])
-	by mail11.truemail.it (Postfix) with ESMTPA id 2892D1F901;
-	Tue, 18 Feb 2025 13:00:27 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1739880027;
-	bh=QTqky00lPhU7/+8sytiPJwGu7aJRpm3Cr8JwLkeqWdI=; h=From:To:Subject;
-	b=sD/l5cBPRWfS/lFSKRexV/kShRYmknnmIHfAD12vejA3w9eA81xHuH7/dxgtJq+nd
-	 GGOo6teBN3s+wyeCepfRbhjOsBHgb02PDGSSSwpy5njsgZG7mUpwakJvnZvQGb3io2
-	 +7jzjiqSrrvj35LTBK/Sec0kX2EcWQoiTO9XqeCPBWhI/ZvVuxhf1DfbqcCw9ELEnM
-	 HfR3/kDmuFVTspEytIqRK9rYtaBUan5D4olpx+qoAc7LUrU1BK9i/Sji/NqTO1rrr5
-	 EvooKZ5eP5+8rExMnU7NvDUFpmZ8Lmw8rYDVVTBhW0menJd+OsGwqwNBcOikZxGSkk
-	 Js5NvzhvAUaqA==
-Date: Tue, 18 Feb 2025 13:00:25 +0100
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Stefan Eichenberger <eichest@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, francesco.dolcini@toradex.com,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Subject: Re: [PATCH v1 2/2] arm64: dts: freescale: imx8mm-verdin-dahlia: add
- Microphone Jack to sound card
-Message-ID: <20250218120025.GB15270@francesco-nb>
-References: <20250217145744.179213-1-eichest@gmail.com>
- <20250217145744.179213-3-eichest@gmail.com>
+	id 1tkMYh-000000087LY-2G7J;
+	Tue, 18 Feb 2025 12:18:40 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2fc8482c62dso392886a91.3;
+        Tue, 18 Feb 2025 04:18:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739881119; x=1740485919; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rcOf/+mAe7HjVKdjr7yO9VSKEbj6DVv1uV/KGTc/++g=;
+        b=kvootxZ214JhbdRwCeq6w1pAB1ECyQBDD6kJgosuSsDettGWueZJGl+F1WbMrvV0cR
+         zGrDmeq6fJ3P4t2CBmjo539p0yR1bCGdJIk21heJevYGGhLfL7wpJbKcvQK4Fb9T7fVa
+         YPUHwMXqVrBJy3eWtuUYuI1iHjKaGfiyO0ZHDk/51uqk7r7cGNZ3KXfDPgxNQn1YPXPQ
+         PpWdDGk1N/dnM70OdcoMff5u+xMdR7Z8DHxf6v72fsqvNP6XgTdeaQdvJQyGHH0I+8rH
+         dW0+NnjpMp2QuZv660lVLNnG8clYVzCso4Zwig0wO5wz0bvi6hZvqL+Uu/eaqKt+SMlG
+         eKOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739881119; x=1740485919;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rcOf/+mAe7HjVKdjr7yO9VSKEbj6DVv1uV/KGTc/++g=;
+        b=AaWsSdjIGCzOR7BP/DLD6415VUNDHGYkL8bBVdK+yyzDvKVQ4WAGn50OvPYnE+xP2t
+         cl5VqnhH0L5iSJP3PKLrlFAFC4vdsNDBDYIIGeUI3QnaYnhY5UcwaXfMeMZR5WpPax+P
+         XsscIoOrlTzI3BhV99BSZ5MlQPMTpa0TvLXfZ90nG3TKeuhsevNUnbCxEzYNpZAQxRMt
+         Sj4fzq5l7ulOqZ5Ny3H9oJ7wmwSuRDJYoOZlKy6pThlWLOULVtn1H5sRecorQ7wUoAwS
+         6x35gETN/Zu72bDRmR2qvnMu5H0kTLqGJ6L1xc9adtviiQZWZwd30/CpzFrEZ84jX2Ya
+         Xy/A==
+X-Forwarded-Encrypted: i=1; AJvYcCUGKuxUlcwHnwL1EkueZkUx0xrlUf0fdH+56Y9o2TlgLq/AcODC3VFKU9fJ5C6mVTlFLxY48WfyFZo79o1gX/k=@lists.infradead.org, AJvYcCVB3bCkE1Ul/eIN8CxCB5F8Qg0kNNpgSG6tMQGSxQfYao8GckrDW+f+jYSVBCJ5JE+HvlusJ7Jsc6NjW+RgHdXe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yztv56wMfiruqzRltRjPQA6p6k8upkCOXafKjm8FxuL9TPoU+HU
+	hMaoTJQd+cnXAaodWmf8aSZC1vB3jMP6dGal5WCLtF8f2zyVV65o
+X-Gm-Gg: ASbGncuPXe24qcTZBpPoqYlP7z3F9hm5SnioEJOprbq+lo8InTXubVncTpetrpdyfnu
+	66/ijsncGaeACmaoBjVXPlBDjGUwukFKrgu6Kpl4c5az1zwrsthumZqr0G6ouysT8aw5/i2AROx
+	o2Gr0Bosm47utRt6GdpMx9v0gyHe4z84JSAlUmn7nIhd9qemJr1p60loU7z9WQ08ceacM/a1xMN
+	LS+r3y+XvF6vdLn0YQIP5gIvZ3UadylqDOkR/M4Qi+DqTHvaXfvI6fW17FIeR1t9ecMTZkyS0CZ
+	Pj5pJxUmyl4eOM+KJziZ
+X-Google-Smtp-Source: AGHT+IHPsPfeZPNuDFA8wzs+mlVOqsQ83YHZnd3qlJa4+vQqXKKzygw1wD0+aOsxjfqbOZCURGWEyg==
+X-Received: by 2002:a17:90b:2250:b0:2fc:1370:9c2f with SMTP id 98e67ed59e1d1-2fc4103cd0dmr8326098a91.4.1739881118858;
+        Tue, 18 Feb 2025 04:18:38 -0800 (PST)
+Received: from rock-5b.. ([221.220.131.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fc13ac19aesm9896535a91.17.2025.02.18.04.18.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2025 04:18:38 -0800 (PST)
+From: Jianfeng Liu <liujianfeng1994@gmail.com>
+To: heiko@sntech.de
+Cc: airlied@gmail.com,
+	andy.yan@rock-chips.com,
+	conor+dt@kernel.org,
+	cristian.ciocaltea@collabora.com,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	hjc@rock-chips.com,
+	kernel@collabora.com,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	liujianfeng1994@gmail.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	robh@kernel.org,
+	simona@ffwll.ch,
+	tzimmermann@suse.de
+Subject: Re: [PATCH 3/4] arm64: dts: rockchip: Add HDMI1 PHY PLL clock source to VOP2 on RK3588
+Date: Tue, 18 Feb 2025 20:17:46 +0800
+Message-ID: <20250218121749.1382322-1-liujianfeng1994@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <1919367.CQOukoFCf9@diego>
+References: <1919367.CQOukoFCf9@diego>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250217145744.179213-3-eichest@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_040029_232059_93B85F51 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250218_041839_574088_BF0A1C17 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,22 +113,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 03:56:41PM +0100, Stefan Eichenberger wrote:
-> From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
-> 
-> The simple-audio-card's microphone widget currently connects to the
-> headphone jack. Routing the microphone input to the microphone jack
-> allows for independent operation of the microphone and headphones.
-> 
-> This resolves the following boot-time kernel log message, which
-> indicated a conflict when the microphone and headphone functions were
-> not separated:
->   debugfs: File 'Headphone Jack' in directory 'dapm' already present!
-> 
-> Fixes: 6a57f224f734 ("arm64: dts: freescale: add initial support for verdin imx8m mini")
-> Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Hi Heiko,
 
-Cc:stable@vger.kernel.org
-Reviewed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Tue, 18 Feb 2025 11:00:57 +0100, Heiko Stübnerwrote:
+>So I guess step1, check what error is actually returned.
 
+I have checked that the return value is -517:
+
+rockchip-drm display-subsystem: [drm] *ERROR* failed to get pll_hdmiphy1 with -517
+
+>Step2 check if clk_get_optional need to be adapted or alternatively
+>catch the error in the vop2 and set the clock to NULL ourself in that case.
+
+I tried the following patch to set the clock to NULL when clk_get_optional
+failed with value -517, and hdmi0 is working now. There are also some
+boards like rock 5 itx which only use hdmi1, I think we should also add
+this logic to vop2->pll_hdmiphy0.
+
+@@ -3733,6 +3751,15 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
+ 		return PTR_ERR(vop2->pll_hdmiphy0);
+ 	}
+ 
++	vop2->pll_hdmiphy1 = devm_clk_get_optional(vop2->dev, "pll_hdmiphy1");
++	if (IS_ERR(vop2->pll_hdmiphy1)) {
++		drm_err(vop2->drm, "failed to get pll_hdmiphy1 with %d\n", vop2->pll_hdmiphy1);
++		if (vop2->pll_hdmiphy1 == -EPROBE_DEFER)
++			vop2->pll_hdmiphy1 = NULL;
++		else
++			return PTR_ERR(vop2->pll_hdmiphy1);
++	}
++
+ 	vop2->irq = platform_get_irq(pdev, 0);
+ 	if (vop2->irq < 0) {
+ 		drm_err(vop2->drm, "cannot find irq for vop2\n");
+
+Best regards,
+Jianfeng
 
