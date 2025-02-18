@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 738B0C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:08:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64AB1C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BYTcezqqMHGsQW1T0r9W+x/nF9+RNpHl4Ek11Ef7Zd8=; b=1p48Md76SZMB5j/PpIA2zsP4zE
-	Y0EWRFAzQ9pqzBbhpSUklIuBSc0PSObiZimM8t8DndfATLDRy02Cx2xdgJu9FSq9OCJ1OKflSMjTZ
-	iDKQ6ngH2rbme82ztT/PhcsG77vAjkD6yd/CMfGoG5gdKCujyvNg1va9/A/dd6K/RlOe6Jv2iaDds
-	pEEb5xYFYz5PcPTdIze3UaKSJclP1LSpIRjOGKnm07v9M+iW/ru6hnntjo4C07CpcgWSlOCKJ5CLk
-	B6bR1HBASP6VHIhZtgEMy+CRekAO+QKKemhz/FBGmPyDTLJmlga9HWIe8PERuWD5IOxZoeeOxPaf9
-	bPviLG4g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=epNZNJmaa2R26IKCzTP9dZcBTM0skQ+Sc7vmDCNKLq4=; b=tuQpk0AIP7Jigf
+	Plp0Fp7eBkHmYhLSYmSlt/k4AAOOhOgtd5h1597FexwRsMJCVSMZK6de4W4DLxbbbRsTEW97IahcX
+	sfAg59Q2TvhD35P7+xdtvNYDUKDMehpLXVAkpmp/wBTg0CUSnurjaQixz++HBq4t3AksXzHLG4WwB
+	HDi7dFWzO2DrZCdAPyl0RO85wCDBwCl39rapeWUf4TOln3/NxDef0Fphm4T8mlK/SgECRm0p2apBK
+	u+6AHSLZbCTJYzBWkQe2A8qhnbjiGI6dn46uhZeiiAYkszvg6ju0oCI7JPheI1z6g+9Qu4A0mhS8X
+	K1fBk/RRHXEEHhljvOaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSxK-00000009VUE-2E49;
-	Tue, 18 Feb 2025 19:08:30 +0000
+	id 1tkSym-00000009Vsm-0xwy;
+	Tue, 18 Feb 2025 19:10:00 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSev-00000009Qc1-14Br
+	id 1tkSgM-00000009Qwo-2Ynv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 18:49:30 +0000
+	Tue, 18 Feb 2025 18:51:01 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 113E225F6A;
-	Tue, 18 Feb 2025 19:49:28 +0100 (CET)
+	by disroot.org (Postfix) with ESMTP id 7CA7525FB4;
+	Tue, 18 Feb 2025 19:50:55 +0100 (CET)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id fdB9-krv0OKQ; Tue, 18 Feb 2025 19:49:27 +0100 (CET)
+ id D7HvUdC65Vq9; Tue, 18 Feb 2025 19:50:54 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1739904567; bh=pTia+u3Qvys/ex4MXczIOi+zNSqm6TYCEnBUzRrxlgI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=NNezTCii/tCr4fzDbucVG6Fizowk/9xj7ZsOygjp77N9wxe758V5015wvJM9GQkaI
-	 Kvi6sC/BP4VhR6RUUeqjh7P450VN8eyF0b20XHZBsIG0V73/7ek0B/KBJwrW3+xyur
-	 FB/0m6odC5KNFkDvyoz+lEkMlqb/u4fjdLNYmlcOUJvaMy3N8V7rFnyuZlpKwOp2au
-	 fOG2f6vMxhC47s0+HO5B4t3mZfLGW8osD2LqarcwbFsI1WAscBAyMETJZLQlOx2rYF
-	 SJzef+35a6U2fWWyS1e6S+ktvH9cejhKZ9Avf9H6h8X0pcYkASG8NvX5DyWN9WUmfQ
-	 fa9Z7XymyHiqQ==
+	t=1739904654; bh=BXcSZpx+Le2bntwbZDzn7we6IloI2TDAfbSfncDltOE=;
+	h=From:Subject:Date:To:Cc;
+	b=fXFaJ5OqeuwDC+WuzjXOs8vW1foiisKEEffYVOfdFCplENol26rGMgwcgm9iWa8QK
+	 M54UNyaCsDfiOpAuWDGFqXfmTeW717GEh9NGS3dk4uoYoMue19ZM8R9ezgywsMeZTh
+	 q8cqsAUXZp4JQrQuhnUXc2ZsZlEfJxFQw/N999cw0g+NDNGP8KRl+JSnuLYT04WaSl
+	 Nrc0Hpdzp43xmUH3n/Yd2olo4aCeAckLJ/hVBukDyJy2ECW0o740F6S9nDfJ37XCTc
+	 Dg2u3SVa3uoNcK8sXwzq68SuPo2sTNulczv4uhfQ6X9n0FuIXmD/EUwM6RqDyIPn8z
+	 4ebmQBV1Aqzmg==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Wed, 19 Feb 2025 00:18:58 +0530
-Subject: [PATCH v2 2/3] dt-bindings: pinctrl: samsung: add
- exynos7870-wakeup-eint compatible
+Subject: [PATCH v3 0/5] Introduce support for Exynos7870 clocks and PMU
+Date: Wed, 19 Feb 2025 00:20:27 +0530
+Message-Id: <20250219-exynos7870-pmu-clocks-v3-0-0d1e415e9e3a@disroot.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250219-exynos7870-pinctrl-v2-2-1ff9b10bf913@disroot.org>
-References: <20250219-exynos7870-pinctrl-v2-0-1ff9b10bf913@disroot.org>
-In-Reply-To: <20250219-exynos7870-pinctrl-v2-0-1ff9b10bf913@disroot.org>
+X-B4-Tracking: v=1; b=H4sIAHPWtGcC/3WNQQ6CQAxFr0K6dkyhklFX3MOwGKBCozJkigRCu
+ LsjiUuX7yX//RWUg7DCNVkh8CQqvo9AhwTqzvUtG2kiQ4ZZjhmS4XnpvdqzRTO83qZ++vqhpsG
+ KCC8W2VmI2yHwXea9eysjd6KjD8t+M6Vf+yue/hSn1KBxhISO86rKqWhEg/fj0YcWym3bPpfOA
+ Fe8AAAA
+X-Change-ID: 20250203-exynos7870-pmu-clocks-d0b330970ea7
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
  Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Tomasz Figa <tomasz.figa@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739904552; l=1398;
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739904648; l=2379;
  i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=pTia+u3Qvys/ex4MXczIOi+zNSqm6TYCEnBUzRrxlgI=;
- b=PiYEnBJKqw3NKqJJThgBYRA4dMnnXZcSOLjR1fuN4tkAiDfhlBZtk/WDEq5YkzpWmYQmOzsj1
- SAB7f3gU7LFCyev6QgGy6K5pMxj8bhnstAvL1o/y2OuuDTDuUJNa6cS
+ bh=BXcSZpx+Le2bntwbZDzn7we6IloI2TDAfbSfncDltOE=;
+ b=y+09pcC11CL24RvdlKFlTZ5Vaa3GKfmOCyi0Gb2s4Z00xUVnohX3SmWiXy06QZHlM5mdsvlPd
+ yKsXXXEXbBZDiAi4h7BK0P6N12/Z3juZq93EBiWLWQIs28Fyy4TzBwk
 X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
  pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_104929_433901_8B2EBF25 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250218_105058_795953_F20733B6 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,36 +90,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exynos7870's wakeup pin controller is entirely register-compatible with
-Exynos7, thus document the node for Exynos7870 appropriately.
+Add a CMU driver for Exynos7870 devices. It handles the following
+clock banks:
+ * CMU_MIF
+ * CMU_DISPAUD
+ * CMU_FSYS
+ * CMU_G3D
+ * CMU_ISP
+ * CMU_MFCMSCL
+ * CMU_PERI
+
+It also documents Exynos7870 PMU's compatible, and adds a CLKOUT driver
+which depends on the compatible. The CLKOUT driver manages clocks from
+PMU_DEBUG.
+
+This patch series is a part of Exynos7870 upstreaming.
 
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- .../devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml   | 2 ++
- 1 file changed, 2 insertions(+)
+Changes in v3:
+- Fix incorrect versioning (Link to v2: is labelled as v1).
+- Fix formatting issues in clk-exynos7870 DT docs (from v1).
+- Add myself as maintainer for clk-exynos7870.
+- Change clock name definitions in clk-exynos7870 DT docs.
+- Fix line wrapping in commit message of exynos7870-pmu DT docs.
+- Change a few ordinals of PERI* clocks in the clk-exynos7870 driver.
+- Take over ownership of patches by the co-author, upon their request.
+- Link to v2: https://lore.kernel.org/r/20250204-exynos7870-pmu-clocks-v1-0-a3030ae5bb53@disroot.org
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml
-index 68ed714eb0a178c46228bac142d69bbd6baa6277..bdea42a19a1d32e5e08086032c58e7a1fd9999fb 100644
---- a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml
-@@ -40,6 +40,7 @@ properties:
-       - items:
-           - enum:
-               - samsung,exynos5433-wakeup-eint
-+              - samsung,exynos7870-wakeup-eint
-               - samsung,exynos7885-wakeup-eint
-               - samsung,exynos850-wakeup-eint
-               - samsung,exynos8895-wakeup-eint
-@@ -104,6 +105,7 @@ allOf:
-             - contains:
-                 enum:
-                   - samsung,exynos5433-wakeup-eint
-+                  - samsung,exynos7870-wakeup-eint
-                   - samsung,exynos7885-wakeup-eint
-                   - samsung,exynos8895-wakeup-eint
-     then:
+Changes in v2:
+- Drop all patches from v1 except:
+  - dt-bindings: clock: add clock definitions for exynos7870 CMU
+  - dt-bindings: clock: document exynos7870 clock driver CMU bindings
+- Add patch for adding appropriate PMU compatible.
+- Add patches for CMU and CLKOUT drivers.
+- Link to v1: https://lore.kernel.org/all/20250203-exynos7870-v1-0-2b6df476a3f0@disroot.org/
 
+---
+Kaustabh Chakraborty (5):
+      dt-bindings: clock: add clock definitions for exynos7870 CMU
+      dt-bindings: clock: document exynos7870 clock driver CMU bindings
+      dt-bindings: soc: samsung: exynos-pmu: add exynos7870-pmu compatible
+      clk: samsung: add initial exynos7870 clock driver
+      clk: samsung: add exynos7870 CLKOUT support
+
+ .../bindings/clock/samsung,exynos7870-clock.yaml   |  227 +++
+ .../bindings/soc/samsung/exynos-pmu.yaml           |    1 +
+ drivers/clk/samsung/Makefile                       |    1 +
+ drivers/clk/samsung/clk-exynos-clkout.c            |    3 +
+ drivers/clk/samsung/clk-exynos7870.c               | 1830 ++++++++++++++++++++
+ include/dt-bindings/clock/exynos7870.h             |  324 ++++
+ 6 files changed, 2386 insertions(+)
+---
+base-commit: e5d3fd687aac5eceb1721fa92b9f49afcf4c3717
+change-id: 20250203-exynos7870-pmu-clocks-d0b330970ea7
+
+Best regards,
 -- 
-2.48.1
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
 
