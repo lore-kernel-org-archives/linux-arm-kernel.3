@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 353B1C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04453C021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:37:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IK6z3Ci1qusIgI4R2i0RypC0roG8nXLJttUEzNVDJi4=; b=rPxM1ITWweRXG1beQuhYyjA3Uu
-	BF+9BngOqEFIlRZUxyzMc3niShCVdjw7ifVWLrR6cG2uj5kOMOzL+BFy5U9Crr4CLwRM0GpLWhFts
-	dAghSRiXLa6B/EJzcJSO1dMGBo4wv5ZSpbFK9sXRSnBQUTMhonxVm32WhYFNCW6Oxe/b6rHBH5gOd
-	F3zAOmKMBGjMAtIeloYBS6m3nworEPsgu525HmaZKKJXxALChhE0AUCuvzLyVStHQ1FeuCqSCulJ3
-	2h48IkMIeWy3K+/+D0YwGKrRV7FxPS3BgL1AvUrQzK+e45eBZbxhvMKn5e+CRmjcPj/cY5WjFkmg7
-	qGA4m5ZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wPAOC+w3Lk3IO27buD8tzQ7nFxGTpb44iIOvoPy+Uiw=; b=nhKDEnHAUz+XjY
+	2ZVOoltQFeRJ80KZmgUuHkGi2ZlEn8eEP6sesVVhX9kAP6V+8zeDl8gCVFyK46vpo/KwlDsQyjb+7
+	z8gl4t3ADQ6IfLqVyJU1/G6TiPuUcgL7q4XFkpWeR8NZ98YhjcscKBnKKp2ZbNiDzsO0rgGcZAGx8
+	EtyuGxReb52drsVAke64FWMssqmB2vjQTqwQNz1FCJC0IlHyONfknxCeYXs0QMsbysS7vHr462wMJ
+	b1gF726u0U+AZTLNAFKr+PUqlDK7GybH8OA7h9VQSmzi/QU66rVqLl5ac4QQvsuwodvpQpQ67Ltd3
+	O4tNrBBK5gDTZ0lHIQag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTNK-00000009bQl-2xrP;
-	Tue, 18 Feb 2025 19:35:22 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tkTOm-00000009bf3-1VB7;
+	Tue, 18 Feb 2025 19:36:52 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSkj-00000009SIY-1NEi
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 18:55:30 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51IItFwD061510
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 18 Feb 2025 12:55:15 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739904915;
-	bh=IK6z3Ci1qusIgI4R2i0RypC0roG8nXLJttUEzNVDJi4=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=n821mRkz5F1LxxPTHshr2bBlmmk326IwMwGsmfVEMbleMOvqxjXHEQ71V6M0QCGvM
-	 iZ3Sl2+ZeM4KU/pROQSSojYAL7SLLh0yOr/Yme7FkedHKwIw4iHdrxrTTxtygHvr+G
-	 VwMeKgthlMtlReGPqJRWesguwMySrjR4Fv2gzGgM=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51IItF0l021310
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 18 Feb 2025 12:55:15 -0600
-Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 18
- Feb 2025 12:55:14 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE113.ent.ti.com
- (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 18 Feb 2025 12:55:14 -0600
-Received: from uda0490681.. ([10.24.69.142])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IIsrxd123821;
-	Tue, 18 Feb 2025 12:55:11 -0600
-From: Vaishnav Achath <vaishnav.a@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: <linux-kernel@vger.kernel.org>, <jai.luthra@linux.dev>,
-        <y-abhilashchandra@ti.com>, <vaishnav.a@ti.com>
-Subject: [PATCH 5/5] arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI OV5640
-Date: Wed, 19 Feb 2025 00:24:52 +0530
-Message-ID: <20250218185452.600797-6-vaishnav.a@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250218185452.600797-1-vaishnav.a@ti.com>
-References: <20250218185452.600797-1-vaishnav.a@ti.com>
+	id 1tkSlU-00000009SYr-47P3;
+	Tue, 18 Feb 2025 18:56:18 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id BB76A234ED;
+	Tue, 18 Feb 2025 19:56:15 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id nUP-Q1szeK_g; Tue, 18 Feb 2025 19:56:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1739904974; bh=lGmY4p1VRzYFACIa5FUQnatEVrtfwJ9hMuMP3qnvkpg=;
+	h=From:Subject:Date:To:Cc;
+	b=KcIEgY2o6kVj0oRQMDdMVgVROrZfc5cJSJem5YEK0AxUL2LKe89E5eOr9WCcrbTnK
+	 vxcqvLNIBe0f9ZbuOBCD40JzebjSRbm+78IQOZYerficCbC/L6X74OZhbnbCdT9LWm
+	 7al+YW1SGDX/PWSibNguJ07qST8oIez1Q9sE3fFrj3bdjVpEjYvSePiVXT4N0TqI2/
+	 Gebwv3u5HpaDumDw6QwIZ4nggPGfaoO6fkmsnpxXqU6gasFVcGXnJYpItqa/zkl26F
+	 fnrsna4I/BKobedyfcGsCe/6DpW8lPrkbt2VOaMSWAstqw6eczk1byrVKI7vYhYrgO
+	 b7wdEyqHJdKAA==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH v2 0/3] Introduce USBDRD-PHY support for Exynos7870 SoC
+Date: Wed, 19 Feb 2025 00:25:37 +0530
+Message-Id: <20250219-exynos7870-usbphy-v2-0-b8ba4e7a72e9@disroot.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKnXtGcC/22NOw6DMBAFr4K2jiNjPgaq3COigLDG29jISxAI+
+ e5xkNKlnJHevBMYAyFDl50QcCMm7xKoWwYvO7gZBU2JQUlVSSULgfvhPOtGS/HmcbGHqMe2aYv
+ alGU+QdotAQ3tV/PZJ7bEqw/HdbHlX/urlX9qWy6kMIUc2qbSaHB8TMTB+/Xuwwx9jPEDYDxWh
+ 7QAAAA=
+X-Change-ID: 20250203-exynos7870-usbphy-6b98936f441d
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Marek Szyprowski <m.szyprowski@samsung.com>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>
+Cc: linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739904968; l=1208;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=lGmY4p1VRzYFACIa5FUQnatEVrtfwJ9hMuMP3qnvkpg=;
+ b=Vg1OPg3CQFyh2tZdL14b9baf4IKxguTJiHMkoT4ZXtxC7l3bb51GqXJ5CfNfyMa9dv+wUDzpl
+ YN17CKw6wW1Cp+Olk4fxqseV/zB9Lqag56L3ssU9oLWREBCZHnLmwNI
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_105529_474646_81659AC2 
-X-CRM114-Status: GOOD (  14.96  )
+X-CRM114-CacheID: sfid-20250218_105617_170068_917C79C2 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,372 +91,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TechNexion TEVI OV5640 camera is a 5MP camera that can be used with
-J722S EVM through the 22-pin CSI-RX connector. Add a reference overlay
-for quad TEVI OV5640 modules on J722S EVM.
+Apart from introducing driver support and documentation, this patch series
+also introduces a masking fix and non-functional changes.
 
-Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
+This patch series is a part of Exynos7870 upstreaming.
+
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- arch/arm64/boot/dts/ti/Makefile               |   4 +
- .../k3-j722s-evm-csi2-quad-tevi-ov5640.dtso   | 319 ++++++++++++++++++
- 2 files changed, 323 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
+Changes in v2:
+- Do away with [PATCH 1/4] from v1 as it was sent separately.
+- Take over ownership of patches by the co-author, upon their request.
+- Link to v1: https://lore.kernel.org/r/20250204-exynos7870-usbphy-v1-0-f30a9857efeb@disroot.org
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 9ae0917e5763..0370392abda8 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -120,6 +120,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am67a-beagley-ai.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
-+dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
- 
- # Boards with J784s4 SoC
- dtb-$(CONFIG_ARCH_K3) += k3-am69-sk.dtb
-@@ -212,6 +213,8 @@ k3-j721s2-evm-pcie1-ep-dtbs := k3-j721s2-common-proc-board.dtb \
- 	k3-j721s2-evm-pcie1-ep.dtbo
- k3-j722s-evm-csi2-quad-rpi-cam-imx219-dtbs := k3-j722s-evm.dtb \
- 	k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
-+k3-j722s-evm-csi2-quad-tevi-ov5640-dtbs := k3-j722s-evm.dtb \
-+	k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
- k3-j784s4-evm-pcie0-pcie1-ep-dtbs := k3-j784s4-evm.dtb \
- 	k3-j784s4-evm-pcie0-pcie1-ep.dtbo
- k3-j784s4-evm-quad-port-eth-exp1-dtbs := k3-j784s4-evm.dtb \
-@@ -247,6 +250,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
- 	k3-j721e-sk-csi2-dual-imx219.dtb \
- 	k3-j721s2-evm-pcie1-ep.dtb \
- 	k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtb \
-+	k3-j722s-evm-csi2-quad-tevi-ov5640.dtb \
- 	k3-j784s4-evm-pcie0-pcie1-ep.dtb \
- 	k3-j784s4-evm-quad-port-eth-exp1.dtb \
- 	k3-j784s4-evm-usxgmii-exp1-exp2.dtb
-diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
-new file mode 100644
-index 000000000000..f33f50465a07
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
-@@ -0,0 +1,319 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * 4 x TEVI OV5640 MIPI Camera module on RPI camera connector.
-+ *
-+ * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.com/
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include "k3-pinctrl.h"
-+
-+&{/} {
-+	clk_ov5640_fixed: ov5640-xclk {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+		clock-frequency = <24000000>;
-+	};
-+};
-+
-+
-+&main_pmx0 {
-+	cam0_reset_pins_default: cam0-reset-pins-default {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x03c, PIN_OUTPUT, 7)
-+		>;
-+	};
-+
-+	cam1_reset_pins_default: cam1-reset-pins-default {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x044, PIN_OUTPUT, 7)
-+		>;
-+	};
-+
-+	cam2_reset_pins_default: cam2-reset-pins-default {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x04c, PIN_OUTPUT, 7)
-+		>;
-+	};
-+
-+	cam3_reset_pins_default: cam3-reset-pins-default {
-+		pinctrl-single,pins = <
-+			J722S_IOPAD(0x054, PIN_OUTPUT, 7)
-+		>;
-+	};
-+};
-+
-+&exp1 {
-+	p06-hog{
-+		/* P06 - CSI01_MUX_SEL_2 */
-+		gpio-hog;
-+		gpios = <6 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "CSI01_MUX_SEL_2";
-+	};
-+
-+	p07-hog{
-+		/* P01 - CSI23_MUX_SEL_2 */
-+		gpio-hog;
-+		gpios = <7 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "CSI23_MUX_SEL_2";
-+	};
-+};
-+
-+&main_gpio0 {
-+	p15-hog {
-+		/* P15 - CSI2_CAMERA_GPIO1 */
-+		gpio-hog;
-+		gpios = <15 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "CSI2_CAMERA_GPIO1";
-+	};
-+
-+	p17-hog {
-+		/* P17 - CSI2_CAMERA_GPIO2 */
-+		gpio-hog;
-+		gpios = <17 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "CSI2_CAMERA_GPIO2";
-+	};
-+
-+	p19-hog {
-+		/* P19 - CSI2_CAMERA_GPIO3 */
-+		gpio-hog;
-+		gpios = <19 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "CSI2_CAMERA_GPIO3";
-+	};
-+
-+	p21-hog {
-+		/* P21 - CSI2_CAMERA_GPIO4 */
-+		gpio-hog;
-+		gpios = <21 GPIO_ACTIVE_HIGH>;
-+		output-high;
-+		line-name = "CSI2_CAMERA_GPIO4";
-+	};
-+};
-+
-+&pca9543_0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	i2c-alias-pool = /bits/ 16 <0x3c 0x3d>;
-+
-+	i2c@0 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <0>;
-+
-+		ov5640_0: camera@3c {
-+			compatible = "ovti,ov5640";
-+			reg = <0x3c>;
-+			clocks = <&clk_ov5640_fixed>;
-+			clock-names = "xclk";
-+
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&cam0_reset_pins_default>;
-+
-+			port {
-+				csi2_cam0: endpoint {
-+					remote-endpoint = <&csi2rx0_in_sensor>;
-+					clock-lanes = <0>;
-+					data-lanes = <1 2>;
-+				};
-+			};
-+		};
-+	};
-+
-+	i2c@1 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <1>;
-+
-+		ov5640_1: camera@3c {
-+			compatible = "ovti,ov5640";
-+			reg = <0x3c>;
-+			clocks = <&clk_ov5640_fixed>;
-+			clock-names = "xclk";
-+
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&cam1_reset_pins_default>;
-+
-+			port {
-+				csi2_cam1: endpoint {
-+					remote-endpoint = <&csi2rx1_in_sensor>;
-+					clock-lanes = <0>;
-+					data-lanes = <1 2>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&pca9543_1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	i2c-alias-pool = /bits/ 16 <0x3c 0x3d>;
-+
-+	i2c@0 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <0>;
-+
-+		ov5640_2: camera@3c {
-+			compatible = "ovti,ov5640";
-+			reg = <0x3c>;
-+			clocks = <&clk_ov5640_fixed>;
-+			clock-names = "xclk";
-+
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&cam2_reset_pins_default>;
-+
-+			port {
-+				csi2_cam2: endpoint {
-+					remote-endpoint = <&csi2rx2_in_sensor>;
-+					clock-lanes = <0>;
-+					data-lanes = <1 2>;
-+				};
-+			};
-+		};
-+	};
-+
-+	i2c@1 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		reg = <1>;
-+
-+		ov5640_3: camera@3c {
-+			compatible = "ovti,ov5640";
-+			reg = <0x3c>;
-+			clocks = <&clk_ov5640_fixed>;
-+			clock-names = "xclk";
-+
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&cam3_reset_pins_default>;
-+
-+			port {
-+				csi2_cam3: endpoint {
-+					remote-endpoint = <&csi2rx3_in_sensor>;
-+					clock-lanes = <0>;
-+					data-lanes = <1 2>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&cdns_csi2rx0 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		csi0_port0: port@0 {
-+			reg = <0>;
-+			status = "okay";
-+
-+			csi2rx0_in_sensor: endpoint {
-+				remote-endpoint = <&csi2_cam0>;
-+				bus-type = <4>; /* CSI2 DPHY */
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+};
-+
-+&cdns_csi2rx1 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		csi1_port0: port@0 {
-+			reg = <0>;
-+			status = "okay";
-+
-+			csi2rx1_in_sensor: endpoint {
-+				remote-endpoint = <&csi2_cam1>;
-+				bus-type = <4>; /* CSI2 DPHY */
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+};
-+
-+&cdns_csi2rx2 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		csi2_port0: port@0 {
-+			reg = <0>;
-+			status = "okay";
-+
-+			csi2rx2_in_sensor: endpoint {
-+				remote-endpoint = <&csi2_cam2>;
-+				bus-type = <4>; /* CSI2 DPHY */
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+};
-+
-+&cdns_csi2rx3 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		csi3_port0: port@0 {
-+			reg = <0>;
-+			status = "okay";
-+
-+			csi2rx3_in_sensor: endpoint {
-+				remote-endpoint = <&csi2_cam3>;
-+				bus-type = <4>; /* CSI2 DPHY */
-+				clock-lanes = <0>;
-+				data-lanes = <1 2>;
-+			};
-+		};
-+	};
-+};
-+
-+&ti_csi2rx0 {
-+	status = "okay";
-+};
-+
-+&dphy0 {
-+	status = "okay";
-+};
-+
-+&ti_csi2rx1 {
-+	status = "okay";
-+};
-+
-+&dphy1 {
-+	status = "okay";
-+};
-+
-+
-+&ti_csi2rx2 {
-+	status = "okay";
-+};
-+
-+&dphy2 {
-+	status = "okay";
-+};
-+
-+
-+&ti_csi2rx3 {
-+	status = "okay";
-+};
-+
-+&dphy3 {
-+	status = "okay";
-+};
+---
+Kaustabh Chakraborty (3):
+      phy: exynos5-usbdrd: use GENMASK and FIELD_PREP for Exynos5 PHY registers
+      dt-bindings: phy: samsung,usb3-drd-phy: add exynos7870-usbdrd-phy compatible
+      phy: exynos5-usbdrd: add exynos7870 USBDRD support
+
+ .../bindings/phy/samsung,usb3-drd-phy.yaml         |   2 +
+ drivers/phy/samsung/phy-exynos5-usbdrd.c           | 407 +++++++++++++++++----
+ include/linux/soc/samsung/exynos-regs-pmu.h        |   2 +
+ 3 files changed, 339 insertions(+), 72 deletions(-)
+---
+base-commit: e5d3fd687aac5eceb1721fa92b9f49afcf4c3717
+change-id: 20250203-exynos7870-usbphy-6b98936f441d
+
+Best regards,
 -- 
-2.34.1
+Kaustabh Chakraborty <kauschluss@disroot.org>
 
 
