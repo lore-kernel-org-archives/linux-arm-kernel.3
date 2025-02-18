@@ -4,75 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 641DBC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:18:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8549C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mTG9ySL5bXbfM/ZILqB1ODcUmfTC/s+Or9ohha4u3oY=; b=uzVL/LarSFYcdQV437W1fgT8g3
-	C8g6/Tqfk5r46/kbpBPaMqSfXtxpvXmCxwXqhTluubyK6ZpqN8n0iMROUzQU9MJSOFNCN68878h0K
-	7VF75hXW96wjaRukBhdHvlIeRyM3UNKOm/enWoQc7P/ArV/ftgAl3MO1x9ruWXSZtbwbziTCVGXw9
-	/cEmZbxE0pnjypwzrpkldHoUWs4j7dYCM9piOJAbtfuBOVT/RnVj2RWXCrB6wgTt+4SkpI+WjX+TM
-	DKq2JDJXQOLIw7ZOB+wzz7h89q/20dp8VHfec06ed5HyX7mj0E6TtcAzVn21vBylKpyoX7oUfMfcm
-	fwRq18DA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V3uXTrr03eTBp4TQInaTHeB1lyJsdQisBIQEzz1BspM=; b=iGfCkErJLB5hEunRGh//WqYJia
+	syhzKmkUHgjqKxAgpVb6EmcT7f6W6QYwoFB1KD7utXt57Ng+k+8IT4fA4T4CyBzlwUbAJmOgkdCrH
+	rD5ooCqNY4fzxOu2BXRhW5ZOdTL0O11B72FUHPdgwadX+ic9FLchaC6yu9Ql7GBVvd15jzTexsKRx
+	nQvPeYW7Wm9tn3x+FCDmjDVI83cnE5adg4W47MnuBrTk/rn5k/hWCpv6DOA5wiyh48YhovIcUKwUP
+	bM/WFBKaNTm0e8Jr13bZEK+XryBbjifPr0bGtKRCIVNxo+1w+OmLeVAfMjbNCC/D87okr68Uiri5E
+	LYyVNb6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJjt-00000007TGZ-2fwJ;
-	Tue, 18 Feb 2025 09:18:01 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tkJlJ-00000007TcY-3JD0;
+	Tue, 18 Feb 2025 09:19:29 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJWr-00000007Phh-0N2w;
-	Tue, 18 Feb 2025 09:04:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739869471;
-	bh=IoSrMv71ID9ekjkacGKInTn1Qnx2Ah1BUMPVIHvGazY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=WijSGcACUlEnBBBHl8nT/4Mfk4xzfBSRXR9zDgaGaZAuN+hz5zIunMgnkpZxb6KzL
-	 2hsGGvmV9bxvViftYTpmr1oaVMM2GEhSn+0Hd1BuK+Hn6KwmhjjICZMwp9qQbkq/Ez
-	 4IaGG6UYhQcfcuxWOgL+fxElV6KG/pDFZEsVwlrpaTFfFdoliFJWGAdPuSxIPTo+xC
-	 EiNpnrIdrdjKgbUoKTiCaEPuOc9RKl8+LR5mQCvh7gB2mG1zDydpBrdxhCGf100yVv
-	 pp6clctCSE9HALXCRLZ7/H3cjLILN+m3VVgNMoSti06dTFSZ+CD0nRHPITe8/+AIuM
-	 qc2Qkrlwgc1Zw==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 90FDC17E154A;
-	Tue, 18 Feb 2025 10:04:30 +0100 (CET)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com,
-	pablo.sun@mediatek.com
-Subject: [PATCH] dt-bindings: display: mediatek: dsc: Add MT8188 compatible
-Date: Tue, 18 Feb 2025 10:04:27 +0100
-Message-ID: <20250218090427.20318-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.48.1
+	id 1tkJe4-00000007RJb-0KJG
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 18 Feb 2025 09:12:01 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5ded69e6134so7830286a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 01:11:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739869918; x=1740474718; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=V3uXTrr03eTBp4TQInaTHeB1lyJsdQisBIQEzz1BspM=;
+        b=bFdA1lMEkdXbk3pHq/Od+aYrFvcWhUBw5vMhwhlDPsZUj0KlD5Qd5H8Iviq3nUruWe
+         32y+GEz21yR5ngLXjFyHBZmQSOMAZcHAM8POgUnMT/dbaLUC4U0LvfOfax++wp3rNJaY
+         /bjGr32NXMIrr5jJm87y0Wdp9ACJvIknR6LavCrwsEB928LEvMzXZ/n4boEkuKrI90ZG
+         xF5QY93rUTPY2qAeiPIf9W5i18Bs/0D/mktNVvXqX8ayygdsigXeWt9roXty8wBfmh6D
+         Jorw6bXkgG3D+6ZEeIt4CIvsRMkgpJhzzGWSLGX2znJAwthZavkZpmnfLV6KvgquJfTU
+         4TSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739869918; x=1740474718;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=V3uXTrr03eTBp4TQInaTHeB1lyJsdQisBIQEzz1BspM=;
+        b=Lh0SoZJNp77WHAFibWfrwCftSIjcdcgf8ZAUf07ERqhQ+D5RimZJ5ln+vWTJKdXAGU
+         1EKY/03Ks+9nqtOePm1p9aH3WoVgpR1zakV72cSJm1gZZRdCN66gxqKWyg9NQWerzN0+
+         IXZAVDiQO6/EzSE73L4BX4bzSjer2+VOHuDrFbDxlfbWeGVABmFx5N+UVIugJdWhjlUY
+         5Imx+txM99XSFgupukRQ7nB+akq8qvN4u7bifgqim1/PNSi/abyUnPyEO2vQnXyFWcog
+         e1GMzLTjXCdYb7SKGT3UxtGBzDMhhEPnkuUoXyndO3MFf5N8K9h2hN+QGo+ZOQzmLbqh
+         jFIw==
+X-Forwarded-Encrypted: i=1; AJvYcCViRr9aFzNgzWay4PA/35aK3xF5uXB2NXMfbIq3yaorLz/UPSxtMz5Wyo2u3Vgp+5lGANexdOYjxT0EseOEvFLM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyfDccaf8hPrrD7PIQ+mz6PAqkEEDy/Kmofncz1i0G7CgjLa3ji
+	sNjMKWSuZuL/8XQzDP+2MAyxrq/h52czqTgKmLAis4KdTsZ0yioufeKCHSZsmu4=
+X-Gm-Gg: ASbGnctAd+g3WQVMMgmstaO7v/cDGp8Ucyv3ESGigOwwaf8/8phtlQpJA3OSAvSdqRY
+	BYawDoO3xFZHhfNzzon64m3x1Yp8J9M94dNbwWuYIY4rB4QzB22yZMArpDq81v+kPBicZAW89me
+	5jEbwUKj/eQ8IykzrH1YuETR6ORCUSTDN+dy1h54NhujpBvtOSYspZQU2hX0dJDqc4gO+IYCHxA
+	n7PpGLMT9XG++pptK73PYjUpxnc65yEaOttQizvqBUC4oPMFqp82hMbk+AiZ4EzepriKta1nwnL
+	SxTt6ujXXltI6u1ZAAbnECU=
+X-Google-Smtp-Source: AGHT+IElObB+wPJH8ll7VWsYIuWeUZ3GQukv025YddeShYC2NXJtKepo4lLlRZ3MwK7mM+8bMe+zXw==
+X-Received: by 2002:a05:6402:5246:b0:5d0:cfdd:2ac1 with SMTP id 4fb4d7f45d1cf-5e036055eb7mr13524262a12.6.1739869918369;
+        Tue, 18 Feb 2025 01:11:58 -0800 (PST)
+Received: from [192.168.0.24] ([82.76.24.202])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e076048c05sm924724a12.35.2025.02.18.01.11.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Feb 2025 01:11:58 -0800 (PST)
+Message-ID: <e925a6d7-aa71-43cf-ab84-bed65b78cbe3@linaro.org>
+Date: Tue, 18 Feb 2025 11:11:56 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC][PATCH 07/10] printk: export symbols for buffer address and
+ length functions
+To: Sergey Senozhatsky <senozhatsky@chromium.org>,
+ Christoph Hellwig <hch@infradead.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-hardening@vger.kernel.org,
+ kees@kernel.org, linux-kernel@vger.kernel.org, johannes@sipsolutions.net,
+ gregkh@linuxfoundation.org, rafael@kernel.org, dakr@kernel.org,
+ andersson@kernel.org, konradybcio@kernel.org, tony.luck@intel.com,
+ gpiccoli@igalia.com, pmladek@suse.com, rostedt@goodmis.org,
+ john.ogness@linutronix.de, quic_mojha@quicinc.com,
+ linux-arm-kernel@lists.infradead.org, kernel@quicinc.com
+References: <20250217101706.2104498-1-eugen.hristev@linaro.org>
+ <20250217101706.2104498-8-eugen.hristev@linaro.org>
+ <Z7RELnyWRLietj9b@infradead.org>
+ <20250218-175733-neomutt-senozhatsky@chromium.org>
+From: Eugen Hristev <eugen.hristev@linaro.org>
+Content-Language: en-US
+In-Reply-To: <20250218-175733-neomutt-senozhatsky@chromium.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_010433_268107_F6F97642 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250218_011200_145179_2FD9A480 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +109,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible for Display Stream Compression (DSC) IP found in
-the display controller of the MT8188 SoC.
 
-This IP is fully compatible with the one found on MT8195.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- .../devicetree/bindings/display/mediatek/mediatek,dsc.yaml     | 3 +++
- 1 file changed, 3 insertions(+)
+On 2/18/25 10:58, Sergey Senozhatsky wrote:
+> On (25/02/18 00:26), Christoph Hellwig wrote:
+>> On Mon, Feb 17, 2025 at 12:17:03PM +0200, Eugen Hristev wrote:
+>>> log_buf_addr_get() and log_buf_len_get() can be reused in another module,
+>>> export the symbols.
+>>
+>> Err, no way.
+> 
+> Yeah I think we've been there before [1]
+> 
+> [1] https://lore.kernel.org/all/20230905081902.321778-1-hch@lst.de/
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
-index 846de6c17d93..a5b88eb97e3b 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
-@@ -22,6 +22,9 @@ properties:
-     oneOf:
-       - enum:
-           - mediatek,mt8195-disp-dsc
-+      - items:
-+          - const: mediatek,mt8188-disp-dsc
-+          - const: mediatek,mt8195-disp-dsc
- 
-   reg:
-     maxItems: 1
--- 
-2.48.1
+Okay... in the line of the purpose of this patch series, I would like to
+be able to have the dmesg ready to be retrieved out of the kernel in
+case the kernel becomes unusable (due to various reasons as described in
+the cover letter). However to know exactly 'where' is the buffer stored
+I would need some way to point to it.
+Do you have any other suggestion on how to do this ? Using the
+kmsg_dump() API works only if the kernel/CPU can run code.
 
+Thanks for looking into the patches,
+Eugen
 
