@@ -4,41 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8658FC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 12:18:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68334C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 12:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fL9rLjdGWzxinKft3YC/Oz604GLR1yXfh7MYptbag7M=; b=zmcU09gPykc+h0NbQ1ms8NcUVq
-	W7xPPT+bnsWzQJmoMu1HLo3y90N7eE/0YFi+An85HVkKTHTrfBnvG3M19Ug5GxgpsKeg2LPF2m5Nr
-	rTRI5bcqdeZeuKrPI0lURGK+wmqTtu9dH3qVRTdV9IMvclpXwxRWyanaVFqNn+126DjX1TywswB3D
-	pP+vs9mqKrCbm1SoEejNBp4kWxTiE62eoAggMdZ43nM6+gguwJN3es0KGLEqkXraB0JVegPsiZfuz
-	0OCsOiQVRC1chmpG43AEvmuEMJaKzfKGnx09ctADVPZhaECTgkMuH+NBoFiTAgCLcX3eZfF+3LmDE
-	XWXizk9w==;
+	bh=OaJtOCAOORqipZht8pmbU4dwjzLIRD29IGP3K+i6Hh4=; b=1PZCbYnFrHVvAs/xoGTimghgdm
+	e3feSygo7V9iyzleh3+JreOvvUvm3t62FaN8ZPnU1vIZKSqwu7f0Ho/b4wGOnniisgWBFihBpcbLj
+	7NwBO7VEc5GdCqCENoM6dCsQq0TkTGzh+6nd6rxrus0nwgYLmdrlA4JP0WyQ3xEo8o2pYnq2aNqgS
+	PvhWjcuzbNoV+kRuAGIA8WWG6mMYS3wVCIaslBaxZsRBbJwP+OxsDf85BJvMHQ9Ppd1Pgdzq7hk6e
+	6VgP4dCqSVzJz2wj9uM91fVI0BwbuWWNxbw7HaMJKJZ0n5m/sDu/ssbkX28x/q3gmxGvLK54UGTlb
+	gDujAx7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkMYq-000000087N6-05wd;
-	Tue, 18 Feb 2025 12:18:48 +0000
-Received: from smtp-bc0c.mail.infomaniak.ch ([45.157.188.12])
+	id 1tkMaH-000000087bF-2kc1;
+	Tue, 18 Feb 2025 12:20:17 +0000
+Received: from smtp-42ac.mail.infomaniak.ch ([84.16.66.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkM6X-000000081WD-2goT
+	id 1tkM6X-000000081Vl-3Ofg
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Feb 2025 11:49:37 +0000
 Received: from smtp-3-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:4:17::246b])
-	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YxyVg2sRSz6J3;
-	Tue, 18 Feb 2025 12:49:31 +0100 (CET)
-Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YxyVf6L2mzkNs;
-	Tue, 18 Feb 2025 12:49:30 +0100 (CET)
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YxyVd6cw2z3GT;
+	Tue, 18 Feb 2025 12:49:29 +0100 (CET)
+Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YxyVd2XrpzkJJ;
+	Tue, 18 Feb 2025 12:49:29 +0100 (CET)
 From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Tue, 18 Feb 2025 12:49:15 +0100
-Subject: [PATCH 4/9] arm64: dts: rockchip: disable I2C6 on Puma DTSI
+Date: Tue, 18 Feb 2025 12:49:12 +0100
+Subject: [PATCH 1/9] arm64: dts: rockchip: enable UART5 on RK3588 Tiger
+ Haikou
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250218-tsd-align-haikou-v1-4-5c44d1dd8658@cherry.de>
+Message-Id: <20250218-tsd-align-haikou-v1-1-5c44d1dd8658@cherry.de>
 References: <20250218-tsd-align-haikou-v1-0-5c44d1dd8658@cherry.de>
 In-Reply-To: <20250218-tsd-align-haikou-v1-0-5c44d1dd8658@cherry.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -49,8 +50,8 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 X-Mailer: b4 0.14.2
 X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_034933_871265_D18B47D4 
-X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-CacheID: sfid-20250218_034933_980099_1B0D8A96 
+X-CRM114-Status: UNSURE (   9.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,29 +69,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Quentin Schulz <quentin.schulz@cherry.de>
 
-The bus is only exposed on Q7 Camera FFC connector which accepts
-external adapters such as Q7 Camera Demo.
+In its default configuration (SW2 on "UART1"), UART5 is exposed on the
+DB9 RS232/RS485 connector. While the same signals are also exposed on
+Q7_GPIO5 and Q7_GPIO6, a GPIO header, and thus could be used for other
+purposes, RK3399 Puma Haikou and PX30 Ringneck Haikou do enable the UART
+controller exposed on the DB9 connector, so let's keep consistency
+across our modules and enable it on RK3588 Tiger Haikou by default too.
 
-The enabling of I2C6 should therefore be done in the adapter Device Tree
-Overlay and not in the SoM DTSI, so let's disable it by default.
+Add a comment while at it to explicit where this controller is routed
+to.
 
 Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
- arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi | 1 -
- 1 file changed, 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-index f398a55408ee2c8259085cf2325da97cdce3e4de..548bd7b486c185c80be87d433f149c3fac65ae8a 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
-@@ -395,7 +395,6 @@ &hdmi {
- 
- &i2c6 {
- 	clock-frequency = <400000>;
--	status = "okay";
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
+index 3187b4918a300dae49fe05d760fb7e1fd55f14d5..7bd07e5026ed914063965c9f1ec6a29357b0c05d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
+@@ -310,8 +310,10 @@ &uart2 {
+ 	status = "okay";
  };
  
- &i2c7 {
++/* DB9 RS232/RS485 when SW2 in "UART1" mode */
+ &uart5 {
+ 	rts-gpios = <&gpio3 RK_PB3 GPIO_ACTIVE_HIGH>;
++	status = "okay";
+ };
+ 
+ &usbdp_phy0 {
 
 -- 
 2.48.1
