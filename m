@@ -4,90 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25963C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 17:12:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97C40C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 17:17:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r3Cn8T3WHhu7Zt4TdPmxIPWpu+uYE3xrjh5sU/rQN8s=; b=EJjNNsoWyyVXm8P8aaxPwqgK/V
-	GZ2xy7doHlhuRge1q3Sk2I5GW70B4qB3qAeC+46GUmdeTLUahRjrLNaRz7oQQvWXXFhSHKoTNMoIA
-	prVOawbrIoseH07Q98tG7JZMXn537yfBvuO7mbbVFF8t9t1Lf0WTgEpda3K3zP2biD3BMlumhEOpV
-	jo+b/r0/zloqgtUHEQ1F0K5qvmjMhGcr4ewTVhcb5NMDRXO1ZrO3iUF+zhf4ISR/8+YJWcawo0GnN
-	owq4s57KoZzNlZw6vi8srIlsDbCLMYlW6ByI3lnAF/lh7TLCXwEwzWkpmHquoHVGT06s3HY40zNJi
-	t1tak2rQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ec+invD4pmWybvpqHuAJa8iilHdNXezPA/9XfsZxQE0=; b=kI6iWkHADIQ5TE5W8usVzQXBZp
+	tvojSyDQ8+r1lD67w8ppgA0JHIwLCQYY91XBno48TUIYDhlXMSzqTSwpqxyMryjQgIHgMgBi9oARB
+	098HIxZdbDI8WYZWfTRKVzyFgllVOwxQG9mqFNMPatCD1kmkv0QD9kjDTzWKGzjA9ziz50/w4gVkO
+	tNU/SvUqotY6DOLiToiHVY8zdB3PBd6cu+ZMohEdB6Brup4Umd1zdVrgOfVENzkgiIOi8qds9I+Ee
+	D6pmG/X9UDDHgLawXkblkRCfxMxAIw3OV96Z51/Ni6gxDHFJ/iLrBhoXcr+6DRrcaHjhk7VkvEDb6
+	/JF/3Itg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkR8P-000000096z4-1m9S;
-	Tue, 18 Feb 2025 17:11:49 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkR5t-000000096EH-1A0J
+	id 1tkRDT-000000097wP-25Jr;
+	Tue, 18 Feb 2025 17:17:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkRBz-000000097fm-0FWC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 17:09:14 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-439846bc7eeso15682455e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 09:09:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739898551; x=1740503351; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=r3Cn8T3WHhu7Zt4TdPmxIPWpu+uYE3xrjh5sU/rQN8s=;
-        b=G7smKqoALnR64gLteTUmbAvStEPcmRdgh0V6wcnjMRMXcMjkKG/8E8pOfYzBk/yf8D
-         +3O2KRPKbWrP9+TRZFnw5EY+oWjwVNdxQnu55eQJncUoi3XSpUf20M8i9hWJHk6tlpcE
-         EJEQZoT9rGSt+9cm1Wf+xME647pGShnPemVVXILiRgrRrVEMqiramGHI/nATeZ/YCIW+
-         RdB12Pm3sDxikoURYcU8zAax4babrMbZmXNJDjCP+6rHRWHKfo19OJ7q+kQPcXA1GE+c
-         ad8LOc4h5vWtoHNfQOmHwiDYrmMPn2Msk5jBbs0uNOhAYFrc/fZtwLrk7a989QLLMYpk
-         pspA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739898551; x=1740503351;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=r3Cn8T3WHhu7Zt4TdPmxIPWpu+uYE3xrjh5sU/rQN8s=;
-        b=d4W+l+vNhzooTPMFS4YAimXxUbW4WK6VTrRS2zL4yaj3APLv8O1SxYmAJWJUDE1es4
-         kVR38yFuf1FsEIY+wYYzra+B0QHWvGQLcrnDf/2p3+ie/uwwOV7V87e9+TJk+yusQy9k
-         jMwx+i6a4fRj62cGc31fyjkRhIc03sgzO3h64thZdjXOLV+qmkkxWlD1oLC0dnXZ/+OF
-         MjxL/mIx92oMAYY4mnHzAj1AdNQqRsEG8+pmHwiMkN5kLGFi8+V9MTKbBNm/K6Pt8nmw
-         4QLKZsKotnboiW+IMvih59e4f68LX8LBs/BnF3oXUkhtWXVr/ecI5HykwSX1RYxwxBby
-         DJ2A==
-X-Forwarded-Encrypted: i=1; AJvYcCU9dL2ICVkANo29E+e+40XV0395tlK6GVI6LQ81wbrITv0qu4NXAjwMVavq4YgIshJXIbFtfvBEoJrYHIUs70Ej@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx307ZtjYIj9u2EA29VWV9051IhHcCWMTlhqbHTEN1xcNv1fPFX
-	czxZ6hMulwGLb8vNJ1PCmcXaLD54Ig1OPlSeOt8w2c8XE7PIVMKZ
-X-Gm-Gg: ASbGncudkP0pMd88VmC4UD3h2LkXOs2TdRbwoBR5+/T8PBMg1yNL7nTtGJnpTSuRxPX
-	UlP3Zg/pysQR2GYNskAGosZ5q6TIPdHbgXJCat3ONFXCkin8oJ2v9oh6U50hGxJxzTqgDM1ghV/
-	ZrvlwQLRkaYN+pLe4tcKL8F0PRKhCPS7A9m9OKL5+S6B+vFug/jsPgJToUAFoV6SlXp8ONeT2eD
-	rBnt814XTIh0630O0ycfeY6L6jzCWbBTObtVSCELjozwdJCQ/btJMYc2W1Y3J2w02B6W+j+n+La
-	uAn7zyhJe5F6qOhQAGMTehKWBctbGsrSibSPEI1/E9ctSfqvjIPsKY1lKd7WSLG8UbA=
-X-Google-Smtp-Source: AGHT+IFlGMv2miQ0Z9W2VdMNMeh3ECaEZiiURYqLj/so8NoPpJnlEqidY8yQFjrhffXPtAAVjvhFEA==
-X-Received: by 2002:a05:600c:3501:b0:439:955d:7ad9 with SMTP id 5b1f17b1804b1-43999da89c7mr5439285e9.14.1739898550848;
-        Tue, 18 Feb 2025 09:09:10 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4398148f4fcsm72046035e9.7.2025.02.18.09.09.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 09:09:10 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
- Andre Przywara <andre.przywara@arm.com>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 5/8] pinctrl: sunxi: allow reading mux values from DT
-Date: Tue, 18 Feb 2025 18:09:09 +0100
-Message-ID: <12609538.O9o76ZdvQC@jernej-laptop>
-In-Reply-To: <20250214003734.14944-6-andre.przywara@arm.com>
-References: <20250214003734.14944-1-andre.przywara@arm.com>
- <20250214003734.14944-6-andre.przywara@arm.com>
+	Tue, 18 Feb 2025 17:15:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 939FA152B;
+	Tue, 18 Feb 2025 09:15:46 -0800 (PST)
+Received: from e126864.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 05A073F59E;
+	Tue, 18 Feb 2025 09:15:25 -0800 (PST)
+From: =?UTF-8?q?Kristina=20Mart=C5=A1enko?= <kristina.martsenko@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Tong Tiangen <tongtiangen@huawei.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	James Morse <james.morse@arm.com>
+Subject: [PATCH 0/3] arm64: Use memory copy instructions in usercopy routines
+Date: Tue, 18 Feb 2025 17:14:27 +0000
+Message-Id: <20250218171430.28227-1-kristina.martsenko@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_090913_316507_D3735CEE 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20250218_091531_136143_7BAF5204 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,44 +66,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 14. februar 2025 ob 01:37:31 Srednjeevropski standardni =C4=8Das=
- je Andre Przywara napisal(a):
-> So far every Allwinner SoC needs a large table in the kernel code, to
-> describe the mapping between the pinctrl function names ("uart") and
-> the actual pincontroller mux value to be written into the registers.
-> This adds a lot of data into a single image kernel, and also looks
-> somewhat weird, as the DT can easily store the mux value.
->=20
-> Add some code that allows to avoid that table: the struct that describes
-> the existing pins will be build at *runtime*, based on very basic
-> information provided by the respective SoC's pinctrl driver. This
-> consists of the number of pins per bank, plus information which bank
-> provides IRQ support, along with the mux value to use for that.
-> The code will then iterate over all children of the pincontroller DT
-> node (which describe each pin group), and populate that struct with the
-> mapping between function names and mux values. The only thing that needs
-> adding in the DT is a property with that value, per pin group.
->=20
-> When this table is built, it will be handed over to the existing sunxi
-> pinctrl driver, which cannot tell a difference between a hardcoded
-> struct and this new one built at runtime. It will take care of
-> registering the pinctrl device with the pinctrl subsystem.
->=20
-> All a new SoC driver would need to do is to provide two arrays, and then
-> call the sunxi_pinctrl_dt_table_init() function.
->=20
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Hi,
 
-I went through the code and it makes sense. I wonder if we really need to
-build whole table instead of having on demand lookups into DT. However,
-for now, this will do. So:
+This is a follow-up to the series using CPY/SET instructions in the kernel's
+memory copy routines [1]. This series extends that to the usercopy routines.
+This required some additions to exception fixups since a CPY instruction
+accesses both user and kernel memory.
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Note that this conflicts with Tong's series [2].
 
-Thanks!
+Thanks,
+Kristina
 
-Best regards,
-Jernej
+[1] https://lore.kernel.org/all/20240930161051.3777828-1-kristina.martsenko@arm.com/
+[2] https://lore.kernel.org/all/20241209024257.3618492-1-tongtiangen@huawei.com/
 
+
+Kristina Martšenko (3):
+  arm64: extable: Add fixup handling for uaccess CPY* instructions
+  arm64: mm: Handle PAN faults on uaccess CPY* instructions
+  arm64: lib: Use MOPS for usercopy routines
+
+ arch/arm64/include/asm/asm-extable.h | 10 +++++++-
+ arch/arm64/include/asm/asm-uaccess.h |  4 ++++
+ arch/arm64/include/asm/extable.h     |  5 +++-
+ arch/arm64/lib/clear_user.S          | 25 +++++++++++++++----
+ arch/arm64/lib/copy_from_user.S      | 10 ++++++++
+ arch/arm64/lib/copy_template.S       | 10 ++++++++
+ arch/arm64/lib/copy_to_user.S        | 10 ++++++++
+ arch/arm64/mm/extable.c              | 36 +++++++++++++++++++++++++++-
+ arch/arm64/mm/fault.c                |  6 +++--
+ 9 files changed, 107 insertions(+), 9 deletions(-)
+
+
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+-- 
+2.34.1
 
 
