@@ -4,57 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB76EC021A9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:38:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07757C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 09:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1PaVJMxP9cocI0z0SLgtXVvR6e5RHlLHbQCsJPF4j98=; b=ksqgR8VncvUvJoBIfGSigo07NW
-	KpuFQ1RtVHJ4o43rGDnTTDi7fXOlte/kZNU85v948RwIG4Ic0qHhZi2FKJ1CUSqYt+1O2l8Dq5d2+
-	nFLKS7IX14H8kTXUYUiId6ukWH+NnBBOQi5djuyvLRjYQ4KtXS666SovvL/4yrJNjcJnTL71d28FK
-	l4HPDsV2+sxsz/HxjSIm109L+91Pi+vyqVuXr2RtwxKz5uEC6KgumEHb5gFnoakM54dBQ6dfayvKH
-	2VM2yQa4qwd0rAaMJtwERkFm8o8TgUYKpI2Lq721M/fZjdbhAJhSCA3saQis/TkWdlDCDCipqKfap
-	eUOi2+1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hRXLAb46lhWAQwHsLKbY8tI70RtJ9P9Fv7iK0VSxaUE=; b=OpKWIN+sV1MoU5hAfupIU9agEA
+	lYFDAdFp+/7xRBrC8BCUyZIqaP8L8mYYvGOeHrQOFVEO6tT5e2d6GLUpzyehuLOQ6f9wiZLIwTi6o
+	n8oAsJtzpJTCyjScVtPGisB0OGN7fy6NsYnGB+/yAyT4hXpoeEqZfXYQN/VFmUbScyCXIObnBRYG/
+	gsGD5QfktUIoZczHOR2a59PdQFsKw/8uJNuY6O9s/9f7MmdAnmHogodshRSCyP2YbSpBoreUzdnd6
+	lLXTdd0oXzW7VDU6Q+bDCGvqhCISNJP8FSfort9yuewL/WovZ/YS87qg5LAivAfoTn2zkGGQesAGF
+	/FQ4NnEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkK40-00000007YRH-0mGE;
-	Tue, 18 Feb 2025 09:38:48 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1tkK6u-00000007ZQl-1bYq;
+	Tue, 18 Feb 2025 09:41:48 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkJlj-00000007Tjr-3GKo
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 09:19:59 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4YxvBV1QbSzpk8m;
-	Tue, 18 Feb 2025 17:20:18 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 87F84140259;
-	Tue, 18 Feb 2025 17:19:47 +0800 (CST)
-Received: from localhost.localdomain (10.50.165.33) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Tue, 18 Feb 2025 17:19:46 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <will@kernel.org>, <mark.rutland@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: <jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
-	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
-Subject: [PATCH 0/9] General updates and two new drivers for HiSilicon Uncore PMU
-Date: Tue, 18 Feb 2025 17:19:51 +0800
-Message-ID: <20250218092000.41641-1-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
+	id 1tkJun-00000007WCA-2G72;
+	Tue, 18 Feb 2025 09:29:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739870955;
+	bh=yQlBwEetNAXy1+J71TlsSNNeiqeKL1aRYliDQ7TohCs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=fjG+SX4uSZwOGJWlQQAcOjH8oiGU8nmGlgm4SJDaKTO5Pnq1BVy+s/7nTtpBMJGDR
+	 QvlZ98DxAUx5hfByzWyyIJmqa4pYrTN8YBJLdJjvO0wMqm2Gflq5qDqfb7yYp3TPbI
+	 qnj5uUBGrqyfeaAY4cMuJkQzYeCnm1eUJ8KEwrNmvbtzBdYS0JBuWGqKkqAiZ6CDGp
+	 o87Nsu91rkqvdNbJYt1wqdAxmuNDJKy9z9FYCZCjvuCLXNORsOjHUTQIt5ZYDQcZWB
+	 3EpWnb66rGla+/BgFwTGvrjFs0aajrqIrpNfWYtakAuiM0FSEz5C/rupklAsbFx5Ra
+	 VYFmVdC9/+hDA==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5A7F017E0391;
+	Tue, 18 Feb 2025 10:29:15 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ Fei Shao <fshao@chromium.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <20241219113411.3999355-1-fshao@chromium.org>
+References: <20241219113411.3999355-1-fshao@chromium.org>
+Subject: Re: [PATCH] soc: mediatek: mtk-socinfo: Restructure SoC attribute
+ information
+Message-Id: <173987095528.24486.1591525974990532719.b4-ty@collabora.com>
+Date: Tue, 18 Feb 2025 10:29:15 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_011955_990711_65157A38 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20250218_012917_750287_85F5EB2E 
+X-CRM114-Status: UNSURE (   5.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,48 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+On Thu, 19 Dec 2024 19:33:50 +0800, Fei Shao wrote:
+> So far, the MediaTek socinfo driver populates the SoC information as
+> follows:
+>   - family:  "MediaTek"
+>   - machine: "<marketing_name> (<soc_name>)"
+>       e.g.,  "Kompanio 1380 (MT8195)"
+>   - soc_id:  <null>
+> 
+> [...]
 
-Support new version of DDRC/SLLC PMU identified with updated ACPI HID and
-register definition. In order to support this, we do a preliminary refactor
-to initialize device of each version by using driver data of each HID
-rather than checking the version. This will also make the driver easier to
-maintain and extend, since only the HID specific information along
-with the new HID will be added to support the new version without touching
-the common logic.
+Applied to v6.14-next/soc, thanks!
 
-Two new Uncore PMU drivers is also added to support the monitoring the
-events of the system bus (by NoC PMU) and the DVM opertaions (by MN PMU).
+[1/1] soc: mediatek: mtk-socinfo: Restructure SoC attribute information
+      commit: da77c2d3d06c6fa36ed26a5a48490b80e4f94753
 
-Junhao He (7):
-  drivers/perf: hisi: Extend struct hisi_pmu_dev_info
-  drivers/perf: hisi: Simplify the probe process for each DDRC version
-  drivers/perf: hisi: Add support for HiSilicon DDRC v3 PMU driver
-  drivers/perf: hisi: Use ACPI driver_data to retrieve SLLC PMU
-    information
-  drivers/perf: hisi: Add support for HiSilicon SLLC v3 PMU driver
-  drivers/perf: hisi: Relax the event number check of v2 PMUs
-  drivers/perf: hisi: Add support for HiSilicon MN PMU driver
+Cheers,
+Angelo
 
-Yicong Yang (2):
-  drivers/perf: hisi: Support PMUs with no interrupt
-  drivers/perf: hisi: Add support for HiSilicon NoC PMU
-
- Documentation/admin-guide/perf/hisi-pmu.rst   |  11 +
- drivers/perf/hisilicon/Makefile               |   3 +-
- drivers/perf/hisilicon/hisi_uncore_ddrc_pmu.c | 354 ++++++++--------
- drivers/perf/hisilicon/hisi_uncore_hha_pmu.c  |   7 +-
- drivers/perf/hisilicon/hisi_uncore_mn_pmu.c   | 355 ++++++++++++++++
- drivers/perf/hisilicon/hisi_uncore_noc_pmu.c  | 391 ++++++++++++++++++
- drivers/perf/hisilicon/hisi_uncore_pa_pmu.c   |   2 +-
- drivers/perf/hisilicon/hisi_uncore_pmu.c      |  11 +-
- drivers/perf/hisilicon/hisi_uncore_pmu.h      |   2 +
- drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 234 ++++++++---
- 10 files changed, 1104 insertions(+), 266 deletions(-)
- create mode 100644 drivers/perf/hisilicon/hisi_uncore_mn_pmu.c
- create mode 100644 drivers/perf/hisilicon/hisi_uncore_noc_pmu.c
-
--- 
-2.24.0
 
 
