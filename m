@@ -4,172 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60201C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:18:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39742C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W4EHT70QvnguHtLNkEFqJ6klgp+RFJca8isYxzQWiVA=; b=NTLyAc5/iZoOgKWyK7hu0LMR5R
-	/SxzFW18Han20TbuhBjmCIBEDDoonEjTp0ITepZhNYVmNX0VeMuYk+h8584mEv0+1erW6XTScFU8F
-	H7lTFYSddaSfR2QGLa4eSgj6XbxwwveGnfZ0/2Z9NX//bzMZFF1SggHDXERUexgVCQOztejyy8O3Y
-	UlwQw2Xb1L/m4qjL9n3RKt3x/dVHFUnzWGdFTx6dkdJl9fDePdhe/T8L2qh6QbthHoPsT4E8T5fhp
-	gWGJOj79+HfLP/4taLVMLbPrAsPBWYIDSJEkwqnK7yWxGBtyhL9j7L5dmiF87asOyxQ6qjdu/4ihz
-	UszKdlRw==;
+	bh=seJOt702BxciOrZQGfbCE9NbiygJD+aaFMVx5CIWE5E=; b=Nv1mEfNYLUuiNI1P5OuhZco/W1
+	oNg+lTNt/NB16Hl0G7yjlKjNzddRye781aqmUJUh0Az5k5Qvru1GBZgLv308fqfne+nF8W1QNPWS1
+	BvcLOSE3lb7T1kEOti9INhMgk+iAg/AMPCsWQQC/DIlxXNnM1x7iHc07tzFQvpG0x/Z+Wxvw/KuzB
+	0t4yqDbsdeP0pbqZQDlaciTcqPeVRD+GGZ3hoso2tjzInWQRLrILm+3eMZfxjYVBhttB4b6GZnvU8
+	iw/XB98HxCx8+8k6LQ9d56YJc9wgktBmM/o/uO/SKvIraep7RODj4vMOgUbm4RgGL9wDjzTf9ds+U
+	XfU3LvBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNUu-00000008HwY-298I;
-	Tue, 18 Feb 2025 13:18:48 +0000
-Received: from mail-bn8nam11on20624.outbound.protection.outlook.com ([2a01:111:f403:2414::624] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1tkNWL-00000008II9-3H4H;
+	Tue, 18 Feb 2025 13:20:17 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNGF-00000008Eix-3Te1
+	id 1tkNRv-00000008HJN-0ewa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 13:03:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OPSBIWjVoZnetdBrKg86dH3UcydConk8IZw50y3ERfBFcMuFASPZV/ziMYGjd++bbOX14vj++ZKCXzf0s5t3D+/dpRIIHPVSHDniyxrVlw+9wlTxPyBDXKjgr4cDVQeOxjoBVJdLVTJQ4a2bltKclCKyaaJzXfuvEXLd6ah9o53QnByyLgGwlTF+MYR5rsiKwP3ZhM5sm1XhxxEdT49Fqj9yqs/t9dF3k9SP7A6aH5FMj5u0mfAH/83StL0I8RxNcfia7ycCMm1oIYfyNugtH2t/5U4/kt5P8Ft3tKcsIYfyBctpDQ76dvXdxSeBILLuPe+oegm6B2wA4PdVcyyVZw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W4EHT70QvnguHtLNkEFqJ6klgp+RFJca8isYxzQWiVA=;
- b=Hi+WYB43NIjtW45L2OrBu9GEFy3dWUo7TEx/AKXPCSC4m7MqMSTXSs+CKvIdwdvEDjHAb1ccoD8OECVf2CEhyFt4f+IZareuAp8S/7HZBXmHKwtjB0ZSYqzUsO2rDS/FUGjOaRkLZ/oOBpCM0OxenzRQ4kcYSK3Sc1Z2cNb7+OngFrHZe4NVEIJMc/Fk4w8as2PnY4cNRhiSOP5PV8vQmTi5UVHJGfgJL8S+RWoE6ifETPuUABQPJw7WJJlq+FgQadKo7i0xwLZWNHiwKy6b2RnfOJwNlsoEXr0+lnWucgQEbAoDjmVnpZMiMKD6ND99A8D9Ip3cttcYje/5FhyDNA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W4EHT70QvnguHtLNkEFqJ6klgp+RFJca8isYxzQWiVA=;
- b=uSlvq+iLv/W+h31sdGSzK8vXEbibu+ya75M6Su5IozRaXxECZI4yoVYZEvgPLBPR0yaQupDy5HesrKpdBPnOof0Iclfc7Loa9uWwDbKWYGHOZeDF37iYeiKhKgSj41UJvAi+TEZ/vre9cl7I2pc3iRF4eUB1mzARjS0ACvifYmM5TuyYgyq+mjZ99GSBzfTnn+ijqphDO2U3GgHLZOOfARCDJ23N8Ly0aQ40mK5K3yxCutfnZqk/F10SDY+SCEnfXHiybLskaMFYR41bBlM8fiEBBc9qdx10TE7E/e8DLcZUYlMZS0CuYTAzKkwP9T2AkU8zT5fSXsYB2Otahx6UMg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by DM6PR12MB4122.namprd12.prod.outlook.com (2603:10b6:5:214::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Tue, 18 Feb
- 2025 13:03:34 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8445.019; Tue, 18 Feb 2025
- 13:03:34 +0000
-Date: Tue, 18 Feb 2025 09:03:33 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Baolu Lu <baolu.lu@linux.intel.com>
-Cc: Zhangfei Gao <zhangfei.gao@linaro.org>, acpica-devel@lists.linux.dev,
-	iommu@lists.linux.dev, Joerg Roedel <joro@8bytes.org>,
-	Kevin Tian <kevin.tian@intel.com>, kvm@vger.kernel.org,
-	Len Brown <lenb@kernel.org>, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Will Deacon <will@kernel.org>,
-	Alex Williamson <alex.williamson@redhat.com>,
-	Donald Dutile <ddutile@redhat.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jerry Snitselaar <jsnitsel@redhat.com>,
-	Moritz Fischer <mdf@kernel.org>,
-	Michael Shavit <mshavit@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>, patches@lists.linux.dev,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	Mostafa Saleh <smostafa@google.com>
-Subject: Re: [PATCH v4 00/12] Initial support for SMMUv3 nested translation
-Message-ID: <20250218130333.GA4099685@nvidia.com>
-References: <20241113164316.GL35230@nvidia.com>
- <6ed97a10-853f-429e-8506-94b218050ad3@linux.intel.com>
- <20241115175522.GA35230@nvidia.com>
- <20250122192622.GA965540@nvidia.com>
- <284dd081-8d53-45ef-ae18-78b0388c98ca@linux.intel.com>
- <f7b6c833-b6c1-4154-9b77-13553e501f2b@linux.intel.com>
- <20250213184317.GB3886819@nvidia.com>
- <bc9f4477-7976-4955-85dc-3e05ebe95ead@linux.intel.com>
- <20250214124150.GF3886819@nvidia.com>
- <58e7fbee-6688-4a49-8b7a-f0e81e6562db@linux.intel.com>
+	Tue, 18 Feb 2025 13:15:44 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-abb7a6ee2deso453059166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 05:15:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1739884541; x=1740489341; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=seJOt702BxciOrZQGfbCE9NbiygJD+aaFMVx5CIWE5E=;
+        b=lyiaWJ34uNJnEyEC/vqZ8KgbnfoFjbdLD3uEoT5Adt/UZJvy9Rh2nrSVLPe6R2JEXh
+         SMOR6X3/jPFbXWdol5dJBgLT3JZ2zhvR3N5eABAqk+ntiVbtdr6MbxAZYT3hAHSOEfgB
+         70foo3tJDMyR85DKG+VxMO3BxOjzRzvev8RSZOQyZEL+s2y7uJAnaEMd79+kFWsR39Rt
+         zbUBljFD0ep3gxxJ/vzACVmgNQ+QwI0K/kjaIb4IMBer7fKWaRvZ4P5sJ5nts8YPIN8h
+         eqEQgLWyXCM5BylocUxxzSW1wzFXynY2CXFpPEHN9vMMRvWmFOU+xBO4E4X8v5Leaqjd
+         PKcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739884541; x=1740489341;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=seJOt702BxciOrZQGfbCE9NbiygJD+aaFMVx5CIWE5E=;
+        b=vyiy7LOVPmGesjd4/mDru1Ch6IUtlzfVgwMZN/F9yIjU0cYTPPAQic2NIddLhYn11L
+         wVqxoM7feISxae5U94YKli3LeMG+8PuxeSZLlHjXGvWZ/W3twoQICQVbMSjba+kf1bLI
+         K02xo0a1xNJ4EHp5eNWm0Ot7tXi/yRYT4/1xWXZ3hx5px4Csw+tIq33ODF7skYWr9oaG
+         Ra6r/74kSO/S+jF0xVNFyGei/UHi/1X6j1UFG0njNgSeplKfASP6IXAul/ztu2QOrhT8
+         Wzep7ra0cwnmGpTSdMLekIhe6pyjpExApqQ4rvCs6bzlmoUAbzsfB8Q0L3yQ8lHw9S58
+         7zDw==
+X-Forwarded-Encrypted: i=1; AJvYcCVCBaiD30Mt2eVPq89APRA47lj4zmGclxRPEMGcJ746IED9W4xaTztQTw/FLYjs1T4Oo/jsjn/AWwyYPRhKCnK5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yynnud7H5kGkuCi9pKM/q2judtjM0uCAqrK/0HOr+K204ClTHwF
+	QpjHONA/ygx/ufE+WRf6fbHz43eYYgrcgIHqiS2kohnVVDs2qLpVq0unfz3fYFc=
+X-Gm-Gg: ASbGnctUMwg9SR2T5kukyR3NFmSz9wVZxxAOA0d9a7vrfq2kt0jNTrbQgFOv7wabr6O
+	vB8WrxPGDvphYB5TbdVtL63zGScScMBJ7PMuGLcB2D+mLTtdvStwLQBg66vnWefUxYLxY2kFQrq
+	Uwurkbu4byYglAgdak/wv+eo06ACZ40xKo4P/LC21e+WxW5Hw+izd1lvxuouljsCs64UL3NMHbO
+	pMtrcho1LAufP0iPr5nnRK9zX226tF8Ck33WVm5clPteY6Zl+CmhfkH0iKPQcXpQnDiQ3lzKQCa
+	HJC8Z/j2AfeMpPGjanWx
+X-Google-Smtp-Source: AGHT+IHnl+jBmdJsRUXRwBR/mH52YC23EuGVS0vmhx7dq14tgwuSG89//4yrt5azsXLFxS0+HMeVxw==
+X-Received: by 2002:a17:906:e0c5:b0:abb:ac56:fcf8 with SMTP id a640c23a62f3a-abbac570080mr510173266b.57.1739884540816;
+        Tue, 18 Feb 2025 05:15:40 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-5dece288e38sm8604786a12.79.2025.02.18.05.15.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2025 05:15:40 -0800 (PST)
+Date: Tue, 18 Feb 2025 16:15:37 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Ming Yen Hsieh <mingyen.hsieh@mediatek.com>
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>, Kalle Valo <kvalo@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Deren Wu <deren.wu@mediatek.com>, linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH next] wifi: mt76: mt7925: fix error checking in
+ mt7925_mcu_uni_rx/tx_ba()
+Message-ID: <5e7bc52b-332d-475e-94ca-571864cb1a6a@stanley.mountain>
+References: <063aafdf-3234-42ac-a4ea-3ff98e2835b6@stanley.mountain>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <58e7fbee-6688-4a49-8b7a-f0e81e6562db@linux.intel.com>
-X-ClientProxiedBy: BL1PR13CA0357.namprd13.prod.outlook.com
- (2603:10b6:208:2c6::32) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DM6PR12MB4122:EE_
-X-MS-Office365-Filtering-Correlation-Id: d2a4646b-72d5-4df4-aea8-08dd501ca68e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4j5BOeIE14S4WP9mgUR9jqPLjDXr/U+p4xpcptE0ar36Qd9CIxRS+m7lo3V2?=
- =?us-ascii?Q?j3m5rzXNROFOAV+0tTse3LPRgJjrPrsC1RiNvDUbUTKIyE+h99L5Gz2j/rsM?=
- =?us-ascii?Q?iEYaTLUVzVZx6xktY7u8DdRaNg9ymySwVrzP4/Uv839Z/g8q8ri52mRZF3WL?=
- =?us-ascii?Q?qOtVETvzcPe1+EEfBE9OrDxy3UHHiffNBJxLG6hEaFJc5GlLotDP88ilOwYJ?=
- =?us-ascii?Q?R6dG6PK7SDQSLsrzt5/tdeO7qWMVEKQmdmhlUcVMrjH0EBrw0C3NHUEeD+DM?=
- =?us-ascii?Q?FbPGxjMUxX4SQsHBuDoR/Pk9QiJjfeWmwogvUGyOxygmAKlnJrsKu2/3fKXL?=
- =?us-ascii?Q?qRWgQ0JqliFhrdwd/OmgyYtZuBHvNlnO7hwvxIpckkUl23EFtiB/RhQZViPB?=
- =?us-ascii?Q?XTT5uAfyCVaAfmbVMEx9yI0MMH8uR0HC5L9v/q8bp0U7j8k6JP2d4ZtruLFp?=
- =?us-ascii?Q?fD/FB5+T+zPFtQHige7DU7jrxJPVV6PsgErbt7j0ZXwSSupGJBePdUk1XSEF?=
- =?us-ascii?Q?8vyhHDzP1DFz2uFwkj//d7dJFV2FZXMURG/grvWKioCBU9UcVQLfl1xgGsBh?=
- =?us-ascii?Q?xK1/GW1ILCi5GPKUfkx5mPay+ajPbEEtns7gSmbgVAOZFJTdsECbeyMnMl8l?=
- =?us-ascii?Q?H5/5Q5IFYs0uhd4pKDC3iO92AngnFQAxLewr6dzQ2uDiouRx5NJxN/xGtLxH?=
- =?us-ascii?Q?lt1SRJ9qdQDFvS5hrL4fdIEiebRjDVfCdr8ytiDQQIMuuFbwgouMe7q63z1r?=
- =?us-ascii?Q?ckHNvdwgl7n+CY7e9+m0GY1e5+x5e9w00DTpva6p3ahTjMOUAI4R70NonTlT?=
- =?us-ascii?Q?WFBq4K9SGUnh3FPSt7T9WUquNs73F/RYzPTJgC8MasQRF2BUC8H2oY8JMEN7?=
- =?us-ascii?Q?FeWkFcdqTVzawqPSavSvfyYmLxQooFDiXGrPKaJZOxJYxu1dA6Ebo6XrJaN1?=
- =?us-ascii?Q?EPgV+LYDp+l1Oac2NfSwjVmEnk719Zx8weD6Y/ZrRzY+v8GI0gmHDrlubU/z?=
- =?us-ascii?Q?dn4ErSh1CqPVjzXyhgT99Jeyy9E15L6NdoWXYs0csjr7xL6aiKqTbukmzIK3?=
- =?us-ascii?Q?DLqKX8gzs3GrhK3zQhGunokPx0wIy92ywkYhv3f2MzrcJIhC0h/yzgXkllM7?=
- =?us-ascii?Q?W9bw2frWrGRGOQfi6s0cVqKsmRhf5ScWUDmv4bmbYwV4hlh8IOOGqFiZFi94?=
- =?us-ascii?Q?oQnDXmBIN4KFYoPPdKvBsmTHydFnjlIFl9lyQC0kGSXaE4chH8bux4XJFGGQ?=
- =?us-ascii?Q?hF2Vt1uiDKF0TY/6NJIJX29TasI4xBoTLTXG9C+4NiVI98PBaRdHNiljLeq1?=
- =?us-ascii?Q?qEYakWTscQqXcOv+2chgSVKsFbl4iav1fYQM2ShI0dCvmuqbq3EpD0E/ZtTr?=
- =?us-ascii?Q?UXNt5GXHqEhuhvFbOaLgN+Seryee?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8YD3FT7FGdkmRmgANsh6ws3V2XUEUjdzkESm1aMCRm9AWk1NCRCqbLkrDLgX?=
- =?us-ascii?Q?7Sut7LcE7RnK0GRRAw/1B/j8yAzq2hLbiWggdUl1zY2XdLNj+7XzbxOwZE3S?=
- =?us-ascii?Q?9E0QaLKvSTeHQS3CaQsllmudJH0r6VRCTiqBW/p4+dpXmnUmbBh7K1ah8Bgi?=
- =?us-ascii?Q?epdH1oNibhr8Nx2nNxuH4qKZPwdaYtjEvHUgtFtU1RYGqWxE54hWdEYwN1qE?=
- =?us-ascii?Q?Ulu1URqYPuut4gt1pkXk21xu+tlan3ExX1xycd6Dp6pVrPanO9eZEPaszD8H?=
- =?us-ascii?Q?JGCL2wWuaC/pxPl0UWxzJpzyiNWRanohdRMAv85586DwEMCF7991/PFmubqZ?=
- =?us-ascii?Q?XiTjH88B/6RJu3f8/3il4IR5so7xr3LDN4keKPPwQ/ogJ0Qxzv+IF10zlwhU?=
- =?us-ascii?Q?5sdejL2nS0LTso+y/oM1YNigpQwwi/OGqPItG4+v3gP04SxlCCNi938u5c9i?=
- =?us-ascii?Q?k7Brg9DqebvMfalyH7r/shTYbMSpozUwto6catXowGy+qS/jlmNUCVoLlpPA?=
- =?us-ascii?Q?93/qf+Y3WcvJuEdVJ6kRA7rCy5/aI8Nc6uTAd03hw7ZVq8CqwQ8pKL43mpSv?=
- =?us-ascii?Q?K67KThE3c1Ps7xxDWuOmLlYrkbFBULMuOdxD6LYjeoxGxAGRPJ2SQGrBia2U?=
- =?us-ascii?Q?TX/YpFingnO///9l4IJbyvSLqdy9LJVtSlJu6+Z58ZIUna27z/zma4j2ENdc?=
- =?us-ascii?Q?ewd3bF8SOV9iuP1JPw4NhNBuGhCykU1jUBSri5RmHMuyTVwsSk5zyqxPSvts?=
- =?us-ascii?Q?+fxSaq/isYM5oWi1i6Q3JqfGGWBNnyKjCkGuFrLdM0p0wVLSgf9fWGH2vj1s?=
- =?us-ascii?Q?5WItdnAMGPVz+cGdabUz+/eYX2wp639md4S1hNiJ7OnOn8MHFWQsuOhvra+A?=
- =?us-ascii?Q?NBslBWfy3clwHnFWEfayPd7mAzThuEKQenS/ODI1G+OS1Noenz95P4Ue8vFR?=
- =?us-ascii?Q?4sqQbaHVKmG4ew/ikXxmr5yIF7KgSh2qqqhV2Pfhg35jQM8Hy6MPiCsbkNP2?=
- =?us-ascii?Q?ZrTTld/YkfWQKLcV/Q3jfaghY0JSHaU06twT4QCJ0EmZm6E3HtfMLRWCPPxi?=
- =?us-ascii?Q?v3JxtJNbPPB5rDZpWkNf2Ln3tGKC6WoprE4ouqjQdE236K9lKE4QK7Spoqam?=
- =?us-ascii?Q?38TT0txQYNpV1PGp86Tgi1d81jfjRW8uJ/x5rbMKiaPYjOfkZj/FT7d9sE94?=
- =?us-ascii?Q?taMlrnte4q0TgoCnzlPnnN/FFUsnW9WRjKKWqXGN/gT7RBu4fOzTgqQNy7Zq?=
- =?us-ascii?Q?f+y13AclZtu7bK4bbmjqpaK5bufSMLgUKjitrhCGb/rmqbB9e4/v1hcst/PC?=
- =?us-ascii?Q?nWFvMVrrxFeJxFYiLzsyUIkWGAo/ICggxGAgIBUsK+zaPqdezz2PNsagW8Yn?=
- =?us-ascii?Q?45rO4PGpYxW8ZCYRnjO3iD2HWD9DYRTVweThs0BYy0MGcpszeLNbmyRh1WfM?=
- =?us-ascii?Q?Gi0CLDArDbJtVO4WuG8hqIobXWs4kY/eluZzFipkuQcSMtEJNpwDAnR877mQ?=
- =?us-ascii?Q?DwgmzJokKxSW1mdeO4WSXlhi0ulo6zL840iOqHp3xliyE9JEKjZyNQwL39Gx?=
- =?us-ascii?Q?3gFhJG/z9JHlDSo3has=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d2a4646b-72d5-4df4-aea8-08dd501ca68e
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 13:03:34.2538
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7bvn67RUXSln3UYkiiOZt7WhaAbnDtxzIcv5XqHzwiZsUDsnGAkt3Ca9o3cHR4Fm
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4122
+In-Reply-To: <063aafdf-3234-42ac-a4ea-3ff98e2835b6@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_050339_881156_BBEB91B8 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20250218_051543_201463_F3597C2E 
+X-CRM114-Status: GOOD (  22.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,31 +104,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 15, 2025 at 05:53:13PM +0800, Baolu Lu wrote:
-> On 2/14/25 20:41, Jason Gunthorpe wrote:
-> > On Fri, Feb 14, 2025 at 01:39:52PM +0800, Baolu Lu wrote:
-> > 
-> > > When the IOMMU is working in scalable mode, PASID and PRI are supported.
-> > > ATS will always be enabled, even if the identity domain is attached to
-> > > the device, because the PASID might use PRI, which depends on ATS
-> > > functionality. This might not be the best choice, but it is the
-> > > simplest and functional.
-> > The arm driver keeps track of things and enables ATS when PASIDs are
-> > present
+Ping.
+
+regards,
+dan carpenter
+
+On Mon, Jan 20, 2025 at 12:46:58PM +0300, Dan Carpenter wrote:
+> The "ret" variable in mt7925_mcu_uni_[rx/tx]_ba() needs to be signed for
+> the if (ret < 0) condition to be true.
 > 
-> I am not aware of any VT-d hardware implementation that supports
-> scalable mode but not PASID. If there were one, it would be worthwhile
-> to add an optimization to avoid enabling ATS during probe if PASID is
-> not supported.
-
-I mean domains attached to PASIDs that need PRI/ATS/etc
-
-> > Although, I'm wondering now, that check should be on the SVA paths as
-> > well as the iommufd path..
+> Also the mt7925_mcu_sta_ba() function returns positive values on success.
+> The code currently returns whatever non-negative value was returned on
+> the last iteration.  It would be better to return zero on success.  This
+> function is called from mt7925_ampdu_action() which does not check the
+> return value so the return value doesn't affect runtime.  However, it
+> still makes sense to return zero even though nothing is affected in the
+> current code.
 > 
-> That appears to be a fix.
-
-Does SVA have the same issue?
-
-Jason
+> Fixes: eb2a9a12c609 ("wifi: mt76: mt7925: Update mt7925_mcu_uni_[tx,rx]_ba for MLO")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> ---
+>  drivers/net/wireless/mediatek/mt76/mt7925/mcu.c | 14 ++++++++------
+>  1 file changed, 8 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
+> index 15815ad84713..b3a00964e802 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
+> @@ -617,7 +617,8 @@ int mt7925_mcu_uni_tx_ba(struct mt792x_dev *dev,
+>  	struct mt792x_bss_conf *mconf;
+>  	unsigned long usable_links = ieee80211_vif_usable_links(vif);
+>  	struct mt76_wcid *wcid;
+> -	u8 link_id, ret;
+> +	u8 link_id;
+> +	int ret;
+>  
+>  	for_each_set_bit(link_id, &usable_links, IEEE80211_MLD_MAX_NUM_LINKS) {
+>  		mconf = mt792x_vif_to_link(mvif, link_id);
+> @@ -630,10 +631,10 @@ int mt7925_mcu_uni_tx_ba(struct mt792x_dev *dev,
+>  		ret = mt7925_mcu_sta_ba(&dev->mt76, &mconf->mt76, wcid, params,
+>  					enable, true);
+>  		if (ret < 0)
+> -			break;
+> +			return ret;
+>  	}
+>  
+> -	return ret;
+> +	return 0;
+>  }
+>  
+>  int mt7925_mcu_uni_rx_ba(struct mt792x_dev *dev,
+> @@ -647,7 +648,8 @@ int mt7925_mcu_uni_rx_ba(struct mt792x_dev *dev,
+>  	struct mt792x_bss_conf *mconf;
+>  	unsigned long usable_links = ieee80211_vif_usable_links(vif);
+>  	struct mt76_wcid *wcid;
+> -	u8 link_id, ret;
+> +	u8 link_id;
+> +	int ret;
+>  
+>  	for_each_set_bit(link_id, &usable_links, IEEE80211_MLD_MAX_NUM_LINKS) {
+>  		mconf = mt792x_vif_to_link(mvif, link_id);
+> @@ -657,10 +659,10 @@ int mt7925_mcu_uni_rx_ba(struct mt792x_dev *dev,
+>  		ret = mt7925_mcu_sta_ba(&dev->mt76, &mconf->mt76, wcid, params,
+>  					enable, false);
+>  		if (ret < 0)
+> -			break;
+> +			return ret;
+>  	}
+>  
+> -	return ret;
+> +	return 0;
+>  }
+>  
+>  static int mt7925_load_clc(struct mt792x_dev *dev, const char *fw_name)
+> -- 
+> 2.45.2
+> 
 
