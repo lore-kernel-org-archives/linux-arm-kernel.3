@@ -4,151 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD990C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:11:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7530C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 20:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M0YgGsK4Gx4fed7RGa75+aNLGFXvtdxE7pqSyT+jtYY=; b=nYDnvf4bHBUAzDbsVD5Tq0Spjb
-	A2ZpPnYgwn5KFZo4f6FNCCXyivihqqDGw8CFRgOqvuTmbvkLzt+GTZzTy2QifH4Uj2EKcLuuYNUox
-	We0tgcE8AKJrFOOtFPkQ0wtAURLbjykXLubtKQE37emzFlqDRbQrnwyw+zlqA1YO/Bh9f/7Z7Tqza
-	xPvfmkK8SoEF3n0Os1il6+QQS636FwLtjcPWaEWKhZNPRHBfYPIYn7PPbyvXMUsV1lMv2ojoC7Cry
-	CB4TxoRWsx01wCV6jwAcyiBNEQvK/bFZGqtaL+Wx0jTJGd6/x8slZssu7cWIAg1cKDGjFhMTI1E1Q
-	2ukCCGGQ==;
+	bh=l0OefYp6gIJsoBkqWu85YVPRb1yh3g60mRPL0+SvOSs=; b=VzXLSEKe7rBdwaMpt6SXnJUZtz
+	7tb3d90rIWzPY2o7Xk88YHzhAxN2l/wOX118pUytG0Na2wNCbLg6ILvfcwrzsOJWdthvUXqYC6dJV
+	bI3+g0ZPUNwrumaaB3ZdK0g4cx6cwzJPun8XHNWTBBlgHqh3GZJLPJFSDFMvI8rL2CcdBqmZTkaOu
+	KHTcDEVbdfwQW9KXUcrB5pevQXwgKkZMb+daANEjC6fepbjFXt6STtMuawhbDnbsPUDYkCwk11dUs
+	1f/uXMtBQiZGeG8ayyl8/843et/5EAKODZQQSgP+dcVFpAC4WB5gnWBjJWJ2ui0K2zTYycgZ5vAAW
+	zpy7PZoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTvw-00000009hin-420O;
-	Tue, 18 Feb 2025 20:11:08 +0000
-Received: from mail-mw2nam10on20623.outbound.protection.outlook.com ([2a01:111:f403:2412::623] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1tkU0t-00000009j2z-3yZn;
+	Tue, 18 Feb 2025 20:16:15 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkTFn-00000009ZRf-1AGz
+	id 1tkTUY-00000009chY-2RLI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 19:27:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GqUkIkubl1MFL12HHdd8f3mNac7iYWjs7SwnYPTIHuxWJoKZdMrA072ZGSz9GPXR2KOIFC6Jo8R09gOxTjwvvMePi2Uxhic51udqqwMDqExYH1TcfxXi3+GDiGgdw54TXx4mlp3lxuHOy4WwtuJPCQg74IV2DUCm4Pt19BzZYkkL2SZc8p6eDNeTAXCsr2FrZVbvUNchx4jO6sDcbOIriQESO7/rwEL6Luyo53F+0/CYZLSSeI7DTl4wRNMgvzHCyYZSjD84B+TkXOib+cE6sESEw2Uc733Hiy3qv+OxG1riumg0+4JjVtSsIvAk76258w5VS5abVG3KDkYDJ+eUvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=M0YgGsK4Gx4fed7RGa75+aNLGFXvtdxE7pqSyT+jtYY=;
- b=m9mxPY7XHJFrXt6rAVajWicxZdpbjiHX06TJaA0Uo+ogfNpaNJPAlpiEwksJXhrBTSJ1cRyiksX47yv6tcdxoduXfkFek7qr+jb9fT0Czk6E7FVIcF6EPFPaPCksOYl+J0I3MAzHHhXsx1J7Sy+Z37Ssc8G99qRU74nIEPIBfe6Qigdqgrv6SmrWQwrMMofhnulJ7KkZxjvXna2uyJEkXVoOZjdfex8qaLUEuecHUiGsHQROGm8OBN1U7puOMur8Vk6uokxS2335xrM+Jtilung6esgtbOkyNLx53BdzMoKebzi0F4dvWmsA0o5Cy8upKJ7RMiZi2RrGqwEpu1yZcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=M0YgGsK4Gx4fed7RGa75+aNLGFXvtdxE7pqSyT+jtYY=;
- b=DJuQMA/A9bpaAZuJDxn4p2EV/mnzXh8YNUfbSuS8/awwDa8Yi7WHhLzVV+JOc5E/90MM1EUHVAhd4v6oOnPQm3P6NOGl8hUrllUuMYH95PQNiAj+rWcGaFo9CmzHuD4ZAubsFmjRo0kD6Y8S5Jl3v//5r36KrFvkzMtz/n7SyQ9kU+sFtG81A2lgOmNsQcqxb89MifuvGpORNMOk+R4nYLt+f30gIUpQ13lKFRLGkVRBbaYwq/ZGHJ/u3OCtADket6XiWSfID2/3etIMrUSiDdZ8KUWtfTPriY3fYSljCjWh8VMVv3CriU3MexbuGD/xEBX2FeDMqaWPF0Y2aIoZKQ==
-Received: from BN9PR03CA0086.namprd03.prod.outlook.com (2603:10b6:408:fc::31)
- by PH7PR12MB9151.namprd12.prod.outlook.com (2603:10b6:510:2e9::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Tue, 18 Feb
- 2025 19:27:27 +0000
-Received: from BL6PEPF0001AB71.namprd02.prod.outlook.com
- (2603:10b6:408:fc:cafe::1c) by BN9PR03CA0086.outlook.office365.com
- (2603:10b6:408:fc::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.14 via Frontend Transport; Tue,
- 18 Feb 2025 19:27:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF0001AB71.mail.protection.outlook.com (10.167.242.164) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.11 via Frontend Transport; Tue, 18 Feb 2025 19:27:26 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 18 Feb
- 2025 11:27:11 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 18 Feb
- 2025 11:27:10 -0800
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 18 Feb 2025 11:27:09 -0800
-Date: Tue, 18 Feb 2025 11:27:07 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <kevin.tian@intel.com>, <corbet@lwn.net>, <will@kernel.org>,
-	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
-	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>, <shuah@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <patches@lists.linux.dev>
-Subject: Re: [PATCH v6 13/14] iommu/arm-smmu-v3: Report events that belong to
- devices attached to vIOMMU
-Message-ID: <Z7TfC4fmvm4e6fEb@nvidia.com>
-References: <cover.1737754129.git.nicolinc@nvidia.com>
- <b71a5b132e8ba771998c5b810675f10b100d4ff3.1737754129.git.nicolinc@nvidia.com>
- <20250218171821.GG4099685@nvidia.com>
- <Z7TRNL0u0YmN30ax@nvidia.com>
- <20250218185046.GK4099685@nvidia.com>
- <Z7TZP3jXlRzweFE8@nvidia.com>
- <20250218190846.GA4183890@nvidia.com>
+	Tue, 18 Feb 2025 19:42:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E0790A414A0;
+	Tue, 18 Feb 2025 19:41:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 637C7C4CEE2;
+	Tue, 18 Feb 2025 19:42:44 +0000 (UTC)
+Date: Tue, 18 Feb 2025 19:42:42 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Tong Tiangen <tongtiangen@huawei.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	James Morse <james.morse@arm.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	"Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	"Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com, wangkefeng.wang@huawei.com,
+	Guohanjun <guohanjun@huawei.com>
+Subject: Re: [PATCH v13 4/5] arm64: support copy_mc_[user]_highpage()
+Message-ID: <Z7TisqB5qCIF5nYI@arm.com>
+References: <20241209024257.3618492-1-tongtiangen@huawei.com>
+ <20241209024257.3618492-5-tongtiangen@huawei.com>
+ <Z6zWSXzKctkpyH7-@arm.com>
+ <69955002-c3b1-459d-9b42-8d07475c3fd3@huawei.com>
+ <Z698SFVqHjpGeGC0@arm.com>
+ <e1d2affb-5c6b-00b5-8209-34bbca36f96b@huawei.com>
+ <Z7NN5Pa-c5PtIbcF@arm.com>
+ <3b181285-2ff3-b77a-867b-725f38ea86d3@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250218190846.GA4183890@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB71:EE_|PH7PR12MB9151:EE_
-X-MS-Office365-Filtering-Correlation-Id: e6c27980-5ead-44f2-d10d-08dd50524762
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|82310400026|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YfBiuAD0dANivEV4OF89RsbA+UvDiqqznapHDKLRz13IbhFP8qYFOqEHrASE?=
- =?us-ascii?Q?MS+W1UQRgKXeGMN2cPMg3PMvwy00LgdScpeiiSisVhNfKV2tszpo+bGDU0W9?=
- =?us-ascii?Q?5jbGZkFvmrlsHtujGihthNxBK6lVFyEihC+58t8j8OwMaqAteheTFKCZTSjb?=
- =?us-ascii?Q?C+zJrL2QdfSYiHM9Our4VyRQ5S45ZEn22PegJt3C1BtWwnBBKumD/an1Cnqt?=
- =?us-ascii?Q?kYb4eWtWL1IQW25EGKyE9qZMwybrsqvN5vRvAZM05oXMQAADCMn7LMph7cOx?=
- =?us-ascii?Q?VwWM4Ona5SAVpmyYsbZiJSBrcEGxooafg+s5b1Obe5+V4lwzPfZwhOS11TWD?=
- =?us-ascii?Q?JkM84vI3agps8TLHkB50fM6j6h4gm9V70hc/ir7Qs2lvxv9FgPlKQs6As/IB?=
- =?us-ascii?Q?0OUw4EDwgMmJUSQ/eNjs8Hc40paQPyNDtIhZZKLJ3RygZEHRETz8KxIi+qjA?=
- =?us-ascii?Q?PFrXGE8DaAXncj/Qwo0hVwPpJk1h3SBbagKQq5UVp83W3KWT81AABhX6mVSn?=
- =?us-ascii?Q?tXrCOFGXj9FGJ9r4YF4DEU491y/T4uBcMyuVT9Fih/LmkJiCCTbaeBzaXDEB?=
- =?us-ascii?Q?EeOYDgYD7k/rBCs4fzGoG4m4U0NWBbDQe7UomxEUlu7af+JhTqUcNd3omp4M?=
- =?us-ascii?Q?Xnb6TSACn68joKMYsRA6kQVPg45MRdD/LHa9Dvc+NnHuTBEwBDsdlI75QG+A?=
- =?us-ascii?Q?Q0ZJy9NgjlqHucGILVFD+wH6rKLev32dChmyrdV0txilQDV2r4w+rG5cXV1+?=
- =?us-ascii?Q?BanGOERlJYNIFEhmTXtVL+ONe9vd7XY/kheRaPk2ynqN+UIgn53m8YSTJYba?=
- =?us-ascii?Q?AvRHhSUteVqDTVzK4zu8ZXHBbSpuvO2Kt6YlbPeyS+71X0d9asjF1eiNiHxr?=
- =?us-ascii?Q?iT25CSOgPWlJNoPGgaLm3NzbImmIAUWj9QOoztlqsJ+HjrIYSeugqhFAIKfq?=
- =?us-ascii?Q?g9Qbc+EC8o/EmBkn22aUz9+SLqrYNMd6vb2Bm4SOc2kJdQyHP1xbe7ex7Qdt?=
- =?us-ascii?Q?ZL9nZhXPdwj5WXM7enFVnMpqutOoodsDnB1EV672GM2N99I/pCqPj9uaHWOW?=
- =?us-ascii?Q?fq0V5mzKBjF5+2t1yGXjskW6eDZgXTP8RKmfcOl/TrUJZrL34WYA+NL3clrm?=
- =?us-ascii?Q?TfhEg8b9fmrwcKXtf4h9PmIdk04PjcDnF2OHj7uPx3/HmcVHZzTS26ZqOgkW?=
- =?us-ascii?Q?g8u7gmL0SmZ8ONcsIMqhRlTM9hdcuoMW2cvxfsfr7X6sw3k72joCQQZC9Mu3?=
- =?us-ascii?Q?R+sYO7SmSlpzZo3biCsW3f5g15CJ475/sVLAe/Jr6DCrNvmYb9UIFIcsdH6G?=
- =?us-ascii?Q?RRjAT5ezQjutaz/UKMuwlQv9E4i4isv5cWpaOBW0tcZKFBiO07Zjhp3LIt3T?=
- =?us-ascii?Q?7nttab2qdbOGRk8eZbaVxqVi/7aMTJAdFP2LgEJFcO0ueFCSGDR2BuyjXnia?=
- =?us-ascii?Q?1VuFcrXpfRhBJthL6alrxv3HyjkdPvb4JILBMniXq/3XaRkQ/SjlLfrqYTyT?=
- =?us-ascii?Q?QJ5AgeGa51zIvoA=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(82310400026)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 19:27:26.9802
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e6c27980-5ead-44f2-d10d-08dd50524762
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB71.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB9151
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3b181285-2ff3-b77a-867b-725f38ea86d3@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_112735_316476_CF9335D2 
-X-CRM114-Status: GOOD (  16.65  )
+X-CRM114-CacheID: sfid-20250218_114250_744218_E504A3D0 
+X-CRM114-Status: GOOD (  27.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,26 +93,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 03:08:46PM -0400, Jason Gunthorpe wrote:
-> On Tue, Feb 18, 2025 at 11:02:23AM -0800, Nicolin Chen wrote:
-> > > > > This already holds the streams_mutex across all of this, do you think
-> > > > > we should get rid of the vmaster_rwsem and hold the streams_mutex on
-> > > > > write instead?
-> > > > 
-> > > > They are per master v.s. per smmu. The latter one would make master
-> > > > commits/attaches exclusive, which feels unnecessary to me, although
-> > > > it would make the code here slightly cleaner..
-> > > 
-> > > I'd pay the cost on the attach side to have a single lock on the fault
-> > > side..
-> > 
-> > OK. Maybe a small patch to turn the streams_mutex to streams_rwsem?
-> 
-> I don't think the interrupt path is multithreaded, is it? So only 1
-> reader anyhow?
+On Tue, Feb 18, 2025 at 07:51:10PM +0800, Tong Tiangen wrote:
+> > > > > 在 2025/2/13 1:11, Catalin Marinas 写道:
+> > > > > > On Mon, Dec 09, 2024 at 10:42:56AM +0800, Tong Tiangen wrote:
+> > > > > > > Currently, many scenarios that can tolerate memory errors when copying page
+> > > > > > > have been supported in the kernel[1~5], all of which are implemented by
+> > > > > > > copy_mc_[user]_highpage(). arm64 should also support this mechanism.
+> > > > > > > 
+> > > > > > > Due to mte, arm64 needs to have its own copy_mc_[user]_highpage()
+> > > > > > > architecture implementation, macros __HAVE_ARCH_COPY_MC_HIGHPAGE and
+> > > > > > > __HAVE_ARCH_COPY_MC_USER_HIGHPAGE have been added to control it.
+> > > > > > > 
+> > > > > > > Add new helper copy_mc_page() which provide a page copy implementation with
+> > > > > > > hardware memory error safe. The code logic of copy_mc_page() is the same as
+> > > > > > > copy_page(), the main difference is that the ldp insn of copy_mc_page()
+> > > > > > > contains the fixup type EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR, therefore, the
+> > > > > > > main logic is extracted to copy_page_template.S. In addition, the fixup of
+> > > > > > > MOPS insn is not considered at present.
+> > > > > > 
+> > > > > > Could we not add the exception table entry permanently but ignore the
+> > > > > > exception table entry if it's not on the do_sea() path? That would save
+> > > > > > some code duplication.
+[...]
+> So we need another way to distinguish the different processing of the
+> same exception type on SEA and non-SEA path.
 
-Right, it's IRQF_ONESHOT. I will keep that unchanged.
+Distinguishing whether the fault is SEA or non-SEA is already done by
+the exception handling you are adding. What we don't have though is
+information about whether the caller invoked copy_highpage() or
+copy_mc_highpage(). That's where the code duplication comes in handy.
 
-Thanks
-Nicolin
+It's a shame we need to duplicate identical functions just to have
+different addresses to look up in the exception table. We are also short
+of caller saved registers to track this information (e.g. an extra
+argument to those functions that the exception handler interprets).
+
+I need to think a bit more, we could in theory get the arm64 memcpy_mc()
+to return an error code depending on what type of fault it got (e.g.
+-EHWPOISON for SEA, -EFAULT for non-SEA). copy_mc_highpage() would
+interpret this one and panic if -EFAULT. But we lose some fault details
+we normally get on a faulty access like some of the registers.
+
+Well, maybe the simples is still to keep the function duplication. I'll
+have another look at the series tomorrow.
+
+-- 
+Catalin
 
