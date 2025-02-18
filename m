@@ -4,75 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD82FC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4ADFC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 19:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aUJcd7I38heggXEJkasSpkVFtCQp8NrCY3kgSxyMWNM=; b=TDRbm/wd4CI48pxknWsH36Od1V
-	j/UYWWf3GHLDvlrBYwRHEvP8p5jL6gr6ZITdWDw5eY73fe5IeptMQKxd1appGl0/hCemVJYn5hXTi
-	tuN/GN9t0Gfkkk2SkdhR9dLYrbUrczXbvo47QPv1ScJdkhIRkniG1M1diJHR9cBU8UoQI1JaT0Hl4
-	1bf3lZ9Sv8Lspw8rGe0OLK0iiRi+aKTFWHGnVy/zxnRvk6sWr6IGa+wAZKUEFFi06VOyEG6QLYvW7
-	DMfuaDwIHIBI36semKpzYLUNT7afGw/PkJUVMiDWN/8s+xgiMWxacfcn5Dg6/01KD52Bbcp8PuloH
-	qdSlio1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TX0XYlk3ppR5X1QG4gJKujjUF8YDas1XWY94eKkegsQ=; b=4c2Bj1gwSBqt9uikg7A/R++cLp
+	ZslXIqmZOjP8sDsf//PU1D1/AupKO4lUg1V9fz3qhmIZjfWue069J68byy3jBIN0e3aoonB6r6VBp
+	2eiR9r0OOX5sUl6NSPkz+AiOaYZD+l5Jz0iD9mwJ7zTG8OOkFAedoUldS7C68fzHwQsugb7cNlEWW
+	c182lRz4Mza66ePalwHmRX7olewuC+55f6AXepuruQd6SNM8iuBjydb1nRK993DdLgdyNtIrq+bpV
+	GlVXrmVz0wAWrxyt9s4BYIhOObfsgeDQS87KVuO7rsGhgba5aSV4hoEnHOIYwSVFK93xTRZyqr1hh
+	EFvmITsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkT7R-00000009XlE-2fCR;
-	Tue, 18 Feb 2025 19:18:57 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1tkT8s-00000009XwB-1S9h;
+	Tue, 18 Feb 2025 19:20:26 +0000
+Received: from mail-dm6nam10on2060b.outbound.protection.outlook.com ([2a01:111:f403:2413::60b] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkSgv-00000009RAi-1exC
+	id 1tkShv-00000009RRI-1V4R
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 18:51:34 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 2C17725238;
-	Tue, 18 Feb 2025 19:51:32 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id Nf0up5s3SQFp; Tue, 18 Feb 2025 19:51:27 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1739904687; bh=lAxk04RlD+P8Ozzai5gybNotO8RPm2IxU0A+S7knrzg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=UplHpz/lNdkdG5iWDlvvSkHfsOV8boPdkiMoa02+tFheflLeVZcdKur+A3BJT8P4x
-	 lz7K3hqiM5t5J9gQ5Mj0kijSLPIJL6CGqbBCsOmc+Md4xv6fkGDYr9QLzJ5f+Oehix
-	 T37umopUao2Je3IIve3keko17YjI26YotemfExmzHX5/sCZ/UQFngB3dik8la5+5p1
-	 vIt2awlFC5RZ+0dH90jCUUFTpqfwSg+bPv/AImCn6oCEiL8h17WPyqTUdCJrR1FX5/
-	 cSI4rV29+m1IOwcXTKA6RpPXF8kgB6iw+m42wE0wCg+ODraxrME4i22nhlGJBr2JGq
-	 ozRo6jfKCYoEw==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Wed, 19 Feb 2025 00:20:32 +0530
-Subject: [PATCH v3 5/5] clk: samsung: add exynos7870 CLKOUT support
+	Tue, 18 Feb 2025 18:52:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yQoydJQHfvNJb+zVHr4Z9urrk/mZWddtUK2cgOtKS7uF5XtXFIdAB6BCgCUgUuQrdUl8kjNxut10tmi4EIySxHP3VosqIM3Cco2xLQlwTi4LgnLZWC3DokQQAv4SlxFfSoNT7HH9jY9ZY5eGeb+4IeGG5m2F+5BpgcbywiwvcONYCO7YiYa/MBwsXbiqUhcfEw0oVLJew7CVt9T7wzWM/AZnQHnDwAOLA/2L1fBHInNoNJT/3w3aCPS3ND+QGzAHRtolzED9LbTfp6B/96j7yBtByDldyjvGNxGgLrqvO50ipr/2U6/MX61KfXy6WnYPnivl4p4szfJ5iqr0ZQg9Mw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TX0XYlk3ppR5X1QG4gJKujjUF8YDas1XWY94eKkegsQ=;
+ b=cleMAblxaKLRgcXFGLuqLY6xcvdKxB7OPVL4QZLMSymJGEoN3Yl7Vyykrzqshq+O2eeJVTAFnPWrpcPZZQaaSMVduk4do0pQ7bevr0x/yDNcNV9JaSlgiNPJSqF6wMvF7loXi8ihI4dhDBb9buJ5D6Lp+AWYWifB6nsG7s5Mji2dSCYPNgjd5XB3PDOZyShu10X+Qsm/cH16Upl2lKwdHe1Ip/ZK7Mb8UBDdg8X5mhKaiZaT+3llevlg3w9AX2Lpke6ezyDugS+NRVZLcfBA0dzIoTGOJE5bQKX6zPLzmXL3qcqg1K3poZMBoCV+dAWQMmZhvJ+NDPxGBWwlfVPSAQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TX0XYlk3ppR5X1QG4gJKujjUF8YDas1XWY94eKkegsQ=;
+ b=E00uKsO5Xq/9ZcePtRa7i2KanPlxyjGJynI81/3gKOAeQWz+sQ4YLe56lChLj77B/PCUIXUFAzj6PmoqA3q4DuIV8LvUWQ5dkp+RuCxSfhEejLT702i9ihc7wDvMwhncuPjNpxS7zXPnEpIjE6lGN0QqCMdr9gzo4MOQPx77Z5i2Yxzua37txASp4Xz514WSIS4LxT8TVU5JvLC7GdiXJHtVgha12hVLSrd+A4G8EUzH3uEh1YXx2s+L0e4MZiaLuLAVIb65AoYmDiQ0hz8E69ZgB2+KqHi4NvSj92bEz7FF7WW9xDmG9hW5gspzYzbgZ1z/cj0mMUhaWJDYMUk3ZQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DS0PR12MB8020.namprd12.prod.outlook.com (2603:10b6:8:14f::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Tue, 18 Feb
+ 2025 18:52:31 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8445.019; Tue, 18 Feb 2025
+ 18:52:30 +0000
+Date: Tue, 18 Feb 2025 14:52:29 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+Cc: "Tian, Kevin" <kevin.tian@intel.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	"corbet@lwn.net" <corbet@lwn.net>,
+	"will@kernel.org" <will@kernel.org>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"dwmw2@infradead.org" <dwmw2@infradead.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"eric.auger@redhat.com" <eric.auger@redhat.com>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"mdf@kernel.org" <mdf@kernel.org>,
+	"mshavit@google.com" <mshavit@google.com>,
+	"shameerali.kolothum.thodi@huawei.com" <shameerali.kolothum.thodi@huawei.com>,
+	"smostafa@google.com" <smostafa@google.com>,
+	"ddutile@redhat.com" <ddutile@redhat.com>,
+	"Liu, Yi L" <yi.l.liu@intel.com>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>
+Subject: Re: [PATCH v6 14/14] iommu/arm-smmu-v3: Set MEV bit in nested STE
+ for DoS mitigations
+Message-ID: <20250218185229.GL4099685@nvidia.com>
+References: <cover.1737754129.git.nicolinc@nvidia.com>
+ <436ac2021bb3d75114ca0e45f25a6a8257489d3b.1737754129.git.nicolinc@nvidia.com>
+ <BN9PR11MB5276291C74E2DF0C8821BE718CFA2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <Z7TOq-gIGPY_ztW7@google.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z7TOq-gIGPY_ztW7@google.com>
+X-ClientProxiedBy: BL1PR13CA0183.namprd13.prod.outlook.com
+ (2603:10b6:208:2be::8) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250219-exynos7870-pmu-clocks-v3-5-0d1e415e9e3a@disroot.org>
-References: <20250219-exynos7870-pmu-clocks-v3-0-0d1e415e9e3a@disroot.org>
-In-Reply-To: <20250219-exynos7870-pmu-clocks-v3-0-0d1e415e9e3a@disroot.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739904648; l=841;
- i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=lAxk04RlD+P8Ozzai5gybNotO8RPm2IxU0A+S7knrzg=;
- b=R4UsGuQHOnJi5OrVwA2SQghzy7AexOBZ3mXaQzIBNSBHoCSV/gvsQ1xdHkXcPqYIhPvXHgpYX
- sy1SONeTq0uAcWDivRJCVJD/DmZn75uo024qiNmA9ncVjMfZN1Ot1wD
-X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
- pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS0PR12MB8020:EE_
+X-MS-Office365-Filtering-Correlation-Id: cd89a9e5-8ea9-4e62-1875-08dd504d65bc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?psMSQLg9tcn8zUW8HmamRqt8/AEt2fIqS0fuWn6Ncy1dWNawu3n11iovee7W?=
+ =?us-ascii?Q?hADR1HtWgaPJYCD95g6RZoHRSa29/z0cEIl6G7mgptBKh8YNyXhW6gDjouWo?=
+ =?us-ascii?Q?jyZi//IRCqRgqhC9q1/KRwvUAx7pAwcfK+dtxVBrWuyTvStVJkt6/HF7tUrs?=
+ =?us-ascii?Q?2DS06NBOzJjw0akcZNA8KC04G1457akq78ennCDr0z+t5NKmezKHls+lHM2L?=
+ =?us-ascii?Q?PAAYX0Bq8xER/IafeLUPa/YZdxF0C41Q2AZRxcdCvHLTNSGa8vXrHzESpIs8?=
+ =?us-ascii?Q?vxJlF6cNy12haQmakn1p182AluXViWiwb7Had/b/1xAh1vYYYBGOwtemGoT/?=
+ =?us-ascii?Q?y6RDM4sOpSRsuyJ76H/0EicdY098DlxXrVJMTBn9a2Fbg9ImBHDO87YU8QYi?=
+ =?us-ascii?Q?ZqjGmv+5PrJ7wyCpLZ6M/7ccWYINhf9dFKDUPUTKXk3nuHLy81+0cXTUWWry?=
+ =?us-ascii?Q?v8/KKYNB80zsi3T4mQlobNjFyCM1tu4kA467uM+1ioJjlUFXOpYyqja0Q4j8?=
+ =?us-ascii?Q?MJN8oed8H6aAMaz9A5ll6Ded2XmOq5axZs0N0DP28/3P8PHdDbxKWA4O5g67?=
+ =?us-ascii?Q?FzQKLqnfFiQCIQRn+AwM9vlo1rFxtio+9m6mgUC36ZhR4KnzWGp0anmM7PVb?=
+ =?us-ascii?Q?A3H3lUFSgFmeXTdVGCXyISUEZNP570L6DsfcalGY7JlzOlNUCCW24Vt2MQAF?=
+ =?us-ascii?Q?5ttrjzUSg9PC7UaN9yUhNT0+geODbK/aYstE/SnErp2/yoCg0+J4/nIATgeR?=
+ =?us-ascii?Q?tjGoGDxifXLRphLtFqhbutiBHI0p7igiW7tYnGEFbHZMNRI8HxT3fnysWvvk?=
+ =?us-ascii?Q?A4BQRWlqbSzn3scdHu2nbGnuZOZ8fqLugOYMGzq52lquOWDZJsyT+90fCEVh?=
+ =?us-ascii?Q?K8tcEqTbDCUjcv71eWBWIaXK+Jqv8J1pkrp3VNzQbqRiqoncYrXntN5cZcw/?=
+ =?us-ascii?Q?on9gCifa5DOEvhJIpCKLVJF4NrUYg4nFhclgTPpz/AlpE4hzmGHz8OjcXZRJ?=
+ =?us-ascii?Q?BUYozqh9qXZrOwKmttTmXLJBBsPbf2DDM8n4TE2m+gSkSRdvGP1bfKaEPRZ+?=
+ =?us-ascii?Q?mfZ8tAQBZgSw/hfxjengfPa+D132d7MGL7OB+Jwvz89Z5m1h7i3gHqho+M65?=
+ =?us-ascii?Q?bKFSMkz6q71HpqpwsEL3kqi0/ja8Qp4lo5MMx3UADB9M4BdjU7Tg5+bBI5rC?=
+ =?us-ascii?Q?4y5I9wIRdOQV4nuKNVrDEsE5ER2To6TOvdRygfUcSMLiJcTCEuSVoY93XQL7?=
+ =?us-ascii?Q?7bNKQPLAeeZcJxwjeisYvyYybguz/WoBWn7WdYZXbibP7Dcpu1fZBhCsKTX8?=
+ =?us-ascii?Q?uhtlnRczB25618+c6GC2Jf+yavNKNrGr3xEfoSssXujLPagc402pg1VdKkz+?=
+ =?us-ascii?Q?SlrZoRQ0ebMCaXDbV+XZ6tWBzZne?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?F5XqSKiOrvMIwj0DnwgLxVT0aGohDY4uNNoekFoLFjNld55ANZBkNxGTP23k?=
+ =?us-ascii?Q?JGtTjjlejrlmlcWEB4iW+qNFFrEC0Mpwf3qkb6XF9lwx3syFF31OI9+tOAsc?=
+ =?us-ascii?Q?fNHYgAy7hipuXcSt6Cfko3fvK0n+1yObayWPN/kOf66DjdRExbQoi/ySOBQk?=
+ =?us-ascii?Q?wwCVJ3s2yiwIG/5pUS9v5vusALOo2nz79oC3Vq+Xwb3snas+NLCeM3ifBFx0?=
+ =?us-ascii?Q?C8Q2wiAAShu67Fkt0ftMbJ0EeScyzsou7tygICBgSeZAo+ir7vcM/KebZ+rR?=
+ =?us-ascii?Q?zmjiTsUigmYX9ULcnC1KLqYokltQKD5gU9NAUYQ4evmYMZxAsh50l/iz15uH?=
+ =?us-ascii?Q?IgQAQpajb+SD8sV3jg++IXlWPCL/2KK1xF5apou5tJ2mN9A2OQmOt2xl+QGo?=
+ =?us-ascii?Q?XVNaXpnCQPp8MFKCOG0CvButZqFQUW3GOr0d7r8qCIHOpK3z005mwZ5FBeYV?=
+ =?us-ascii?Q?ofTPDyVvosSqUglEaDT+2WPHGsn2yf/EaNEegmu+J1qxOrkWe6pFr8Nj72bF?=
+ =?us-ascii?Q?NoLWAIm2w2f6XlUhNTatMMjmENhOAG9eO0sznMtTZGYMwd2ukRKuyM6hOt9R?=
+ =?us-ascii?Q?0zochX6nLRs4OixkkMAPh3Wh9oLDoovn6LgP7tBur/Nf/kbUd9T530e9wc3x?=
+ =?us-ascii?Q?G/nzwBmVtKYrBv0Kh1jFfg0vmc4eiz1vxov7S4RAKsljrtJku3moCPjj20lh?=
+ =?us-ascii?Q?xvxkNIUlHF13S5L/e38/mImv/VrJG+WBiYi9vp4w4XSMUkjI8L9WYESnomIP?=
+ =?us-ascii?Q?yi1ENlyG4uryU4aVfOx1BMr67BlWfVE4tcWzaPYEyk1feq/JbA67+go7ywDl?=
+ =?us-ascii?Q?2sxd5l9l6J6w5Vdk5VZT6/KF4s2drPPKXr0Ahz8OvddmDfNfnggmLIuVOtJ8?=
+ =?us-ascii?Q?n2soaS4E78GSDly4GtOmsUIabWM1Tlbxn79pghIxmuK/y5V8iCEOER78CFvr?=
+ =?us-ascii?Q?hUWpK/EFeFSxkFOYJKZIC8iTmzzwcvxtp4LzogYsQMo44Nn5PfNY+X+OP7xe?=
+ =?us-ascii?Q?b37HslJHipM4+MpuXMzUO08IBvPWr7dCyNl5nda6Gv7tr0/8ZmHtBX/9JcYD?=
+ =?us-ascii?Q?A5AC9cES6YWHSKQREXzKYAkTgwy91h7KTmWhsmwuJUwt5khZrbsesKR6fHIv?=
+ =?us-ascii?Q?RZDDJuZrdMaLFbmwjqscJLh6D45Z+mFWMZIdUeeebvNX+c9Tmo9VqdXTxMRD?=
+ =?us-ascii?Q?5tbU3syZTLdLA7/1hJXWMTXZAGOZoIyi6niZrdX0+ML7dFlSaPAbzaP277wm?=
+ =?us-ascii?Q?MclDxW7I0X7WfcWp8MJcHSFyq4Hfa7fjUW/qt1HqjcXveSwPO/ztakPs5N4C?=
+ =?us-ascii?Q?N1ZUPW1H0/YMF6fAiznxo01LRzcJB2dZqbKRpwhTUGR6v05I0ia+GMLh1A5p?=
+ =?us-ascii?Q?4yCk4VxiXdSnBloHkIcAKiGR2Kowajwot8HqPu2pw0xuzNPK/8POMqwAUQ8P?=
+ =?us-ascii?Q?OTvYe4neSstxiJuIRuh1A1FTRKaiwOCgybe9qTSSRzOP8XCVq1W4S4nLPKAS?=
+ =?us-ascii?Q?05+Hr+sRMAL14g7PdTDvaU/k5tOg0nCZWGj7dB4uqnJHdo8Vc1JBtkjaF+Fv?=
+ =?us-ascii?Q?xdkjVcvlnRocV92DpStMC/BJ5xwbw0eUcHzfpmjb?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cd89a9e5-8ea9-4e62-1875-08dd504d65bc
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 18:52:30.8019
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qfRIWuCrSdpZ4cyaFUvIjgEROdu3Qvw5OIcBeQVwXl/6E60sQErb13yYIkhLXlNU
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB8020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_105133_571058_25F5D4BD 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20250218_105235_394890_720B8D9A 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,30 +182,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exynos7870's CLKOUT registers are the same as Exynos5's. Add the PMU
-compatible to the existing CLKOUT ID list.
+On Tue, Feb 18, 2025 at 06:17:15PM +0000, Pranjal Shrivastava wrote:
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
- drivers/clk/samsung/clk-exynos-clkout.c | 3 +++
- 1 file changed, 3 insertions(+)
+> > Is MEV available only in nested mode? Otherwise it perhaps makes
+> > sense to turn it on in all configurations in IOMMUFD paths...
+> 
+> I think the arm-smmu-v3's iommufd implementation only supports nested
+> which could be the reason.
 
-diff --git a/drivers/clk/samsung/clk-exynos-clkout.c b/drivers/clk/samsung/clk-exynos-clkout.c
-index 2ef5748c139b37ca5429b9071ee0e06f44fcf28e..9a31b1c311b45096f1d680b6724571854c08725c 100644
---- a/drivers/clk/samsung/clk-exynos-clkout.c
-+++ b/drivers/clk/samsung/clk-exynos-clkout.c
-@@ -75,6 +75,9 @@ static const struct of_device_id exynos_clkout_ids[] = {
- 	}, {
- 		.compatible = "samsung,exynos5433-pmu",
- 		.data = &exynos_clkout_exynos5,
-+	}, {
-+		.compatible = "samsung,exynos7870-pmu",
-+		.data = &exynos_clkout_exynos5,
- 	}, { }
- };
- 
+I think starting with MEV in this limited case is reasonable.
 
--- 
-2.48.1
+I agree it makes sense to always turn it on from a production
+perspective..
 
+Jason
 
