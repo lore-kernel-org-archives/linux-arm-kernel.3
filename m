@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F81C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 08:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C48C1C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 08:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4lg7jNH04e/c1DnWWvgC+N2z4rDI1PX/4h7apnGWl1A=; b=dxkY21W8KwshT1Ptz/FkC2ggc2
-	6jzdT7EriC8AX6sbyZw5XB2hk6fghIX2w5GGiReZS4sRhBrQnU3xaj5RTxlYBi84FQCbFNHmAWv07
-	uVWGy0Q9A2Z/T1IyitAQHaSMl4MJJT2U6d+/IgFng7kqZ2bhPSymviPZPBxXG//hHUcolOB3NXQSx
-	6M1EkyZ0vYSGKHypRh0p4NU20Tv6uILRk+8oOjO9tsb8UIByXvd8kPvzJO5exTEuvL93ttp1EQItE
-	3W26cgaYdMuuYM8G8de6uQRIGuE1nZhjU70OUlWOTVTFjJmvSTAhBmPrCDrXgF9ADLkO/LR99AUnw
-	Wn/ctcwA==;
+	bh=Vif5Dwxq5XiKlk5h8YCkyWmrhh0JOhR2i8Qy5YEjmgc=; b=lJkEBv310P9P9YqWJXbmQa8qHN
+	IBuH3vLeN2uo48zdaslXlBC9rE7jhdWiRilFJfDGRHaZKh9/Vljqzagcj3TRESOrnvSRL59YwtP64
+	UQD3xdexAa6P2SLvUwuy4abEAUmj+spYm0zXlhMHrXFHfjx2IZIvnQqYfIJQ0IFcVSBV/M2dSAxyL
+	LQ82U7ehWVwZ4UabE03AaKC4p80G6UnBFvGJud8eb4I1iXI0W8kgaxCRvxLc68/UDmMEJaobYhujQ
+	aBajHA1aJ2SLh/rPJSFMyhfoSybaJi0CrNVwwYQ4Vhig664H7wrglKYc1LCHFQQSoLFbWApzjEVpt
+	7HrP848Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkIcN-00000007BBZ-1UBY;
-	Tue, 18 Feb 2025 08:06:11 +0000
+	id 1tkIdo-00000007BNx-00So;
+	Tue, 18 Feb 2025 08:07:40 +0000
 Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkIFu-000000076cl-0bwm
+	id 1tkIFu-000000076cn-0r9J
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Feb 2025 07:42:59 +0000
 Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:52604 helo=and-HP-Z4..)
 	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <andrej.picej@norik.com>)
-	id 1tkIFt-00G0MD-19;
+	id 1tkIFt-00G0MD-1R;
 	Tue, 18 Feb 2025 08:42:56 +0100
 From: Andrej Picej <andrej.picej@norik.com>
 To: shawnguo@kernel.org,
@@ -46,9 +46,9 @@ Cc: imx@lists.linux.dev,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	upstream@lists.phytec.de
-Subject: [PATCH v3 14/15] arm64: dts: imx8mm-phycore-som: Add no-eth phy overlay
-Date: Tue, 18 Feb 2025 08:41:55 +0100
-Message-Id: <20250218074156.807214-15-andrej.picej@norik.com>
+Subject: [PATCH v3 15/15] arm64: dts: imx8mm-phycore-som: Add overlay to disable SPI NOR flash
+Date: Tue, 18 Feb 2025 08:41:56 +0100
+Message-Id: <20250218074156.807214-16-andrej.picej@norik.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250218074156.807214-1-andrej.picej@norik.com>
 References: <20250218074156.807214-1-andrej.picej@norik.com>
@@ -65,8 +65,8 @@ X-Source:
 X-Source-Args: 
 X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250217_234258_342175_EDD9181D 
-X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-CacheID: sfid-20250217_234258_414060_1BCAFF0C 
+X-CRM114-Status: UNSURE (   9.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,7 +84,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Teresa Remmet <t.remmet@phytec.de>
 
-There are SoM variants with no eth phy populated. Add overlay to be
+There are SoM variants with no SPI NOR flash populated. Add overlay to be
 able to support this.
 
 Signed-off-by: Teresa Remmet <t.remmet@phytec.de>
@@ -93,34 +93,35 @@ Signed-off-by: Andrej Picej <andrej.picej@norik.com>
 Changes in v3:
 - updated copyright year.
 ---
- arch/arm64/boot/dts/freescale/Makefile               |  2 ++
- .../boot/dts/freescale/imx8mm-phycore-no-eth.dtso    | 12 ++++++++++++
- 2 files changed, 14 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phycore-no-eth.dtso
+ arch/arm64/boot/dts/freescale/Makefile           |  2 ++
+ .../freescale/imx8mm-phycore-no-spiflash.dtso    | 16 ++++++++++++++++
+ 2 files changed, 18 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8mm-phycore-no-spiflash.dtso
 
 diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index a10c8b5c2c4a..7f3d8fb8123b 100644
+index 7f3d8fb8123b..664438aa2e26 100644
 --- a/arch/arm64/boot/dts/freescale/Makefile
 +++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -125,10 +125,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-phyboard-polis-rdk.dtb
- 
+@@ -126,11 +126,13 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mm-phyboard-polis-rdk.dtb
  imx8mm-phyboard-polis-peb-av-10-dtbs += imx8mm-phyboard-polis-rdk.dtb imx8mm-phyboard-polis-peb-av-10.dtbo
  imx8mm-phyboard-polis-peb-eval-01-dtbs += imx8mm-phyboard-polis-rdk.dtb imx8mm-phyboard-polis-peb-eval-01.dtbo
-+imx8mm-phycore-no-eth-dtbs += imx8mm-phyboard-polis-rdk.dtb imx8mm-phycore-no-eth.dtbo
+ imx8mm-phycore-no-eth-dtbs += imx8mm-phyboard-polis-rdk.dtb imx8mm-phycore-no-eth.dtbo
++imx8mm-phycore-no-spiflash-dtbs += imx8mm-phyboard-polis-rdk.dtb imx8mm-phycore-no-spiflash.dtbo
  imx8mm-phycore-rpmsg-dtbs += imx8mm-phyboard-polis-rdk.dtb imx8mm-phycore-rpmsg.dtbo
  
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-phyboard-polis-peb-av-10.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-phyboard-polis-peb-eval-01.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mm-phycore-no-eth.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx8mm-phycore-no-eth.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx8mm-phycore-no-spiflash.dtb
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-phycore-rpmsg.dtb
  
  dtb-$(CONFIG_ARCH_MXC) += imx8mm-phygate-tauri-l.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phycore-no-eth.dtso b/arch/arm64/boot/dts/freescale/imx8mm-phycore-no-eth.dtso
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phycore-no-spiflash.dtso b/arch/arm64/boot/dts/freescale/imx8mm-phycore-no-spiflash.dtso
 new file mode 100644
-index 000000000000..0fb4b6da6c10
+index 000000000000..7bfc366c1689
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-phycore-no-eth.dtso
-@@ -0,0 +1,12 @@
++++ b/arch/arm64/boot/dts/freescale/imx8mm-phycore-no-spiflash.dtso
+@@ -0,0 +1,16 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
@@ -130,7 +131,11 @@ index 000000000000..0fb4b6da6c10
 +/dts-v1/;
 +/plugin/;
 +
-+&ethphy0 {
++&flexspi {
++	status = "disabled";
++};
++
++&som_flash {
 +	status = "disabled";
 +};
 -- 
