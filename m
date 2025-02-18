@@ -4,85 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A826DC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 10:25:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EAAAC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 10:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tcY2UWBGi1BjAJqxDU4NEYz8kUU0Ee3B8oAspQMCO/E=; b=UWXEv7dmG339E1+l4mlhhbPuM5
-	IV+9tecCnhWUgG7bDreWxwKtc2qoznEQbyqv+OuFKwHcz14BRG/bClpw0EgcqqKmc5ASsbnsGtgoY
-	OX7d+JMF3HhRnhAiUrY591NuTX7BGWaDBea8iL2mjrvWMS0X2STgqH7j6DLudMUXrLdnyX/E+4KoY
-	WiJuW5/xK1FMWUAMDZ4VKThNrBd6X48vHSbfYi/TejrqrZurIhbXFuQbmqU2JIEQumkiLjp/nuJ2K
-	c4x9shNIaALv9rzcBpuYhiOfNMZPSyL2tQx6FYrG4sjS19xyto7pvqYFZSYX7FdeT+P3p0Pbw5AQy
-	pO/yfbFA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iUi6aUgh5dzXiRu0mqXyDuYn3tA23TuwPXfZOIvC2MQ=; b=MY/qpo7GguuhgyksxgqmR+ftwX
+	tu5htlTgbi+5ZuHKechhdBy4PurzZ7593DpBxAEPAR0R2dJKfheoV/ZXHVyi7O4wZFEVB+2KgKZ5p
+	goQpcTVsf019k5geDJhgRY/yCoCfvNCBZiXkHYyKrIimwmURi2PTlwzbnWAx5sLVa7umpyDv1cwQL
+	Ss1hX8t2DHJCVrJ5yqH7rbFbonQbf8KzR9d+9faDdd/T93h2HrWyxwMKEFzMJIPldkrPBqrzKUP/O
+	yPslwJHvgQUUShInjpXARdCBI95nw6imYDsfqUqmEa9lYa+5v0rF8f9FdKSStpp+cpkJ2HZSaula8
+	ypGzbFLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkKmd-00000007jjs-3yqc;
-	Tue, 18 Feb 2025 10:24:55 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tkKo5-00000007jzX-2x5L;
+	Tue, 18 Feb 2025 10:26:25 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkKZd-00000007gkV-1P9L
+	id 1tkKfh-00000007iJH-1NG6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 10:11:30 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51IAAtIc1652803
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 18 Feb 2025 04:10:55 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739873455;
-	bh=tcY2UWBGi1BjAJqxDU4NEYz8kUU0Ee3B8oAspQMCO/E=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=FKLJ4zT/h38g7n1RispnuLnajYM8bq2WNDTUhVCIwjaL382D+vTgZKlLEmuQEy9WN
-	 L+jcORLHJaJ6OK8u4Fl3cHnf4zmFss8UTp9mcOUZaNgoKWG5Pys1cu1W4xcq2Hk/Wq
-	 meH/k18BWA706jdEVAq+Ls629B8bwd5vEmSYRpWI=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51IAAtVZ006111
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 18 Feb 2025 04:10:55 -0600
-Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 18
- Feb 2025 04:10:54 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 18 Feb 2025 04:10:54 -0600
-Received: from [172.24.20.199] (lt9560gk3.dhcp.ti.com [172.24.20.199])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51IAAlhV052204;
-	Tue, 18 Feb 2025 04:10:47 -0600
-Message-ID: <615a2e1f-5ee5-4d80-a499-8ff06596a2fc@ti.com>
-Date: Tue, 18 Feb 2025 15:40:46 +0530
+	Tue, 18 Feb 2025 10:17:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 182C6A41E6D;
+	Tue, 18 Feb 2025 10:15:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23E01C4CEE4;
+	Tue, 18 Feb 2025 10:17:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739873863;
+	bh=NLD8opqn3YtLQC0AnIIaIIsuFrJzaowTdytwyVGeif4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=m13Jm2OvSnrjPlWwHqdK2nog9N7C/6Y+OHw9jJ/aM2EDUTgeusD6HiPtlU3lcfrlj
+	 ffwIZJYOD10g3wodvRUlb/fJ53xUE5yenPv5TKHTMGo5G1R6MHW184sb+xs6IwY9GX
+	 iygExOym+TUpWMEvqE8K/kbfjdo4I2GIhVnWdSxhDUvVfBDmLQtgzjUtmaO6T5/iSB
+	 /S0wIWXmk6sU9pkaPa+LSeTNMNtZBm8kQSJGGi6seIvSIxf/JrcehN/jl1iXG+xHgT
+	 64YDPejgo5mPAWGe/7Sh1YGAS+umsTtiQ2dedgr9Ga5Ve9IouzZDESIEDP/taorC8g
+	 MiRPy/K1igTKQ==
+Date: Tue, 18 Feb 2025 11:17:41 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Subject: Re: [PATCH v6 08/26] drm/bridge: panel: add a panel_bridge to every
+ panel
+Message-ID: <20250218-faithful-white-magpie-da9ac9@houat>
+References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
+ <20250206-hotplug-drm-bridge-v6-8-9d6f2c9c3058@bootlin.com>
+ <20250210-amusing-bobcat-of-pluck-0d4c09@houat>
+ <CAGXv+5GSF=YSiHTgty1J2suAvVYUtOgPShW2mmvuxYiFwK-yeg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 1/3] net: ti: icssg-prueth: Use page_pool API
- for RX buffer allocation
-To: Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>,
-        <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
-        <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <bpf@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <u.kleine-koenig@baylibre.com>, <krzysztof.kozlowski@linaro.org>,
-        <dan.carpenter@linaro.org>, <schnelle@linux.ibm.com>,
-        <glaroque@baylibre.com>, <rdunlap@infradead.org>,
-        <diogo.ivo@siemens.com>, <jan.kiszka@siemens.com>,
-        <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
-        <ast@kernel.org>, <srk@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>
-References: <20250210103352.541052-1-m-malladi@ti.com>
- <20250210103352.541052-2-m-malladi@ti.com>
- <152b032e-fcd9-4d49-8154-92a475c0670c@kernel.org>
-Content-Language: en-US
-From: "Malladi, Meghana" <m-malladi@ti.com>
-In-Reply-To: <152b032e-fcd9-4d49-8154-92a475c0670c@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="5h2a6fgfbfdj4ehp"
+Content-Disposition: inline
+In-Reply-To: <CAGXv+5GSF=YSiHTgty1J2suAvVYUtOgPShW2mmvuxYiFwK-yeg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_021129_465090_CF0911EF 
-X-CRM114-Status: GOOD (  32.33  )
+X-CRM114-CacheID: sfid-20250218_021745_496580_AD5F5AF9 
+X-CRM114-Status: GOOD (  49.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,504 +71,167 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, =?utf-8?B?SGVydsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Sam Ravnborg <sam@ravnborg.org>, linux-doc@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, Paul Kocialkowski <contact@paulk.fr>, dri-devel@lists.freedesktop.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Andrzej Hajda <andrzej.hajda@intel.com>, David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>, Marek Szyprowski <m.szyprowski@samsung.com>, Simona Vetter <simona@ffwll.ch>, Robert Foss <rfoss@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Will Deacon <will@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Daniel Thompson <danielt@kernel.org>, Jagan Teki <jagan@amarulasolutions.com>, Jessica Zhang <quic_jesszhan@quicinc.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Zimmermann <tzimmermann@suse.de>, Jonas Karlman <jonas@kwiboo.se>, Sascha Hauer <s.hauer@pengutronix.de>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Inki Dae <inki.dae@samsung.com>, linux-arm-kernel@lists.infradead.org, Neil Armstrong <neil.armstrong@linaro.org>, Boris Brezillon <bbrezillon@kernel.org>, linux-kernel@vger.kernel.org, Paul Kocialkowski <paul.kocialkowski@bootlin.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Shawn Guo <shawnguo@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Roger,
-Thanks for reviewing this patch series.
 
-On 2/12/2025 7:26 PM, Roger Quadros wrote:
-> 
-> 
-> On 10/02/2025 12:33, Meghana Malladi wrote:
->> From: Roger Quadros <rogerq@kernel.org>
->>
->> This is to prepare for native XDP support.
->>
->> The page pool API is more faster in allocating pages than
->> __alloc_skb(). Drawback is that it works at PAGE_SIZE granularity
->> so we are not efficient in memory usage.
->> i.e. we are using PAGE_SIZE (4KB) memory for 1.5KB max packet size.
->>
->> Signed-off-by: Roger Quadros <rogerq@kernel.org>
->> Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
->> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
->> ---
->> v1: https://lore.kernel.org/all/20250122124951.3072410-1-m-malladi@ti.com/
->>
->> Changes since v1 (v2-v1):
->> - Recycle pages wherever necessary using skb_mark_for_recycle()
->> - Use napi_build_skb() instead of build_skb()
->> - Update with correct frag_size argument in napi_build_skb()
->> - Use napi_gro_receive() instead of netif_receive_skb()
->> - Use PP_FLAG_DMA_SYNC_DEV to enable DMA sync with device
->> - Use page_pool_dma_sync_for_cpu() to sync Rx page pool for CPU
->>
->> All the above changes have been suggested by Ido Schimmel <idosch@idosch.org>
->>
->>   drivers/net/ethernet/ti/Kconfig               |   1 +
->>   drivers/net/ethernet/ti/icssg/icssg_common.c  | 174 ++++++++++++------
->>   drivers/net/ethernet/ti/icssg/icssg_prueth.h  |  14 +-
->>   .../net/ethernet/ti/icssg/icssg_prueth_sr1.c  |  21 ++-
->>   4 files changed, 140 insertions(+), 70 deletions(-)
->>
->> diff --git a/drivers/net/ethernet/ti/Kconfig b/drivers/net/ethernet/ti/Kconfig
->> index 0d5a862cd78a..b461281d31b6 100644
->> --- a/drivers/net/ethernet/ti/Kconfig
->> +++ b/drivers/net/ethernet/ti/Kconfig
->> @@ -204,6 +204,7 @@ config TI_ICSSG_PRUETH_SR1
->>   	select PHYLIB
->>   	select TI_ICSS_IEP
->>   	select TI_K3_CPPI_DESC_POOL
->> +	select PAGE_POOL
->>   	depends on PRU_REMOTEPROC
->>   	depends on NET_SWITCHDEV
->>   	depends on ARCH_K3 && OF && TI_K3_UDMA_GLUE_LAYER
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
->> index 74f0f200a89d..c3c1e2bf461e 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_common.c
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
->> @@ -45,6 +45,11 @@ void prueth_cleanup_rx_chns(struct prueth_emac *emac,
->>   			    struct prueth_rx_chn *rx_chn,
->>   			    int max_rflows)
->>   {
->> +	if (rx_chn->pg_pool) {
->> +		page_pool_destroy(rx_chn->pg_pool);
->> +		rx_chn->pg_pool = NULL;
->> +	}
->> +
->>   	if (rx_chn->desc_pool)
->>   		k3_cppi_desc_pool_destroy(rx_chn->desc_pool);
->>   
->> @@ -461,17 +466,17 @@ int prueth_init_rx_chns(struct prueth_emac *emac,
->>   }
->>   EXPORT_SYMBOL_GPL(prueth_init_rx_chns);
->>   
->> -int prueth_dma_rx_push(struct prueth_emac *emac,
->> -		       struct sk_buff *skb,
->> -		       struct prueth_rx_chn *rx_chn)
->> +int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
->> +			      struct prueth_rx_chn *rx_chn,
->> +			      struct page *page, u32 buf_len)
->>   {
->>   	struct net_device *ndev = emac->ndev;
->>   	struct cppi5_host_desc_t *desc_rx;
->> -	u32 pkt_len = skb_tailroom(skb);
->>   	dma_addr_t desc_dma;
->>   	dma_addr_t buf_dma;
->>   	void **swdata;
->>   
->> +	buf_dma = page_pool_get_dma_addr(page) + PRUETH_HEADROOM;
->>   	desc_rx = k3_cppi_desc_pool_alloc(rx_chn->desc_pool);
->>   	if (!desc_rx) {
->>   		netdev_err(ndev, "rx push: failed to allocate descriptor\n");
->> @@ -479,25 +484,18 @@ int prueth_dma_rx_push(struct prueth_emac *emac,
->>   	}
->>   	desc_dma = k3_cppi_desc_pool_virt2dma(rx_chn->desc_pool, desc_rx);
->>   
->> -	buf_dma = dma_map_single(rx_chn->dma_dev, skb->data, pkt_len, DMA_FROM_DEVICE);
->> -	if (unlikely(dma_mapping_error(rx_chn->dma_dev, buf_dma))) {
->> -		k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
->> -		netdev_err(ndev, "rx push: failed to map rx pkt buffer\n");
->> -		return -EINVAL;
->> -	}
->> -
->>   	cppi5_hdesc_init(desc_rx, CPPI5_INFO0_HDESC_EPIB_PRESENT,
->>   			 PRUETH_NAV_PS_DATA_SIZE);
->>   	k3_udma_glue_rx_dma_to_cppi5_addr(rx_chn->rx_chn, &buf_dma);
->> -	cppi5_hdesc_attach_buf(desc_rx, buf_dma, skb_tailroom(skb), buf_dma, skb_tailroom(skb));
->> +	cppi5_hdesc_attach_buf(desc_rx, buf_dma, buf_len, buf_dma, buf_len);
->>   
->>   	swdata = cppi5_hdesc_get_swdata(desc_rx);
->> -	*swdata = skb;
->> +	*swdata = page;
->>   
->> -	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, 0,
->> +	return k3_udma_glue_push_rx_chn(rx_chn->rx_chn, PRUETH_RX_FLOW_DATA,
->>   					desc_rx, desc_dma);
->>   }
->> -EXPORT_SYMBOL_GPL(prueth_dma_rx_push);
->> +EXPORT_SYMBOL_GPL(prueth_dma_rx_push_mapped);
->>   
->>   u64 icssg_ts_to_ns(u32 hi_sw, u32 hi, u32 lo, u32 cycle_time_ns)
->>   {
->> @@ -541,12 +539,16 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
->>   	u32 buf_dma_len, pkt_len, port_id = 0;
->>   	struct net_device *ndev = emac->ndev;
->>   	struct cppi5_host_desc_t *desc_rx;
->> -	struct sk_buff *skb, *new_skb;
->>   	dma_addr_t desc_dma, buf_dma;
->> +	struct page *page, *new_page;
->> +	struct page_pool *pool;
->> +	struct sk_buff *skb;
->>   	void **swdata;
->>   	u32 *psdata;
->> +	void *pa;
->>   	int ret;
->>   
->> +	pool = rx_chn->pg_pool;
->>   	ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
->>   	if (ret) {
->>   		if (ret != -ENODATA)
->> @@ -558,15 +560,10 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
->>   		return 0;
->>   
->>   	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
->> -
->>   	swdata = cppi5_hdesc_get_swdata(desc_rx);
->> -	skb = *swdata;
->> -
->> -	psdata = cppi5_hdesc_get_psdata(desc_rx);
->> -	/* RX HW timestamp */
->> -	if (emac->rx_ts_enabled)
->> -		emac_rx_timestamp(emac, skb, psdata);
->> +	page = *swdata;
->>   
-> Unnecessary blank line.
-> 
+--5h2a6fgfbfdj4ehp
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v6 08/26] drm/bridge: panel: add a panel_bridge to every
+ panel
+MIME-Version: 1.0
 
-Ok noted. I will address all the cosmetic changes suggested by you in v3.
+On Tue, Feb 18, 2025 at 05:43:43PM +0800, Chen-Yu Tsai wrote:
+> On Tue, Feb 11, 2025 at 2:34=E2=80=AFAM Maxime Ripard <mripard@kernel.org=
+> wrote:
+> >
+> > On Thu, Feb 06, 2025 at 07:14:23PM +0100, Luca Ceresoli wrote:
+> > > Adding a panel does currently not add a panel_bridge wrapping it. Usu=
+ally
+> > > the panel_bridge creation happens when some other driver (e.g. the pr=
+evious
+> > > bridge or the encoder) calls *_of_get_bridge() and the following elem=
+ent in
+> > > the pipeline is a panel.
+> > >
+> > > This has some drawbacks:
+> > >
+> > >  * the panel_bridge is not created in the context of the driver of the
+> > >    underlying physical device (the panel driver), but of some other d=
+river
+> > >  * that "other driver" is not aware of whether the returned drm_bridge
+> > >    pointer is a panel_bridge created on the fly, a pre-existing
+> > >    panel_bridge or a non-panel bridge
+> > >  * removal of a panel_bridge requires calling drm_panel_bridge_remove=
+(),
+> > >    but the "other driver" doesn't know whether this is needed because=
+ it
+> > >    doesn't know whether it has created a panel_bridge or not
+> > >
+> > > So far this approach has been working because devm and drmm ensure the
+> > > panel bridge would be dealloacted at some later point. However with t=
+he
+> > > upcoming implementation of dynamic bridge lifetime this will get more
+> > > complicated.
+> > >
+> > > Correct removal of a panel_bridge might possibly be obtained by addin=
+g more
+> > > devm/drmm technology to have it freed correctly at all times. However=
+ this
+> > > would add more complexity and not help making lifetime more understan=
+dable.
+> > >
+> > > Use a different approach instead: always create a panel_bridge with a
+> > > drm_panel, thus matching the lifetime of the drm_panel and the panel_=
+bridge
+> > > wrapping it. This makes lifetime much more straightforward to underst=
+and
+> > > and to further develop on.
+> > >
+> > > With the panel_bridge always created, the functions to get a bridge
+> > > [devm_drm_of_get_bridge() and drmm_of_get_bridge()] become simpler be=
+cause
+> > > the bridge they are looking for exists already (if it can exist at al=
+l). In
+> > > turn, this is implemented based on a variant of
+> > > drm_of_find_panel_or_bridge() that only looks for panels:
+> > > of_drm_find_bridge_by_endpoint(). In the future
+> > > drm_of_find_panel_or_bridge() can be progressively removed because th=
+ere
+> > > will never be a panel not exposing a bridge.
+> > >
+> > > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> > >
+> > > ---
+> > >
+> > > This patch was added in v6.
+> > > ---
+> > >  drivers/gpu/drm/bridge/panel.c | 74 ++++++++++++++++++++++++++++++++=
++---------
+> > >  include/drm/drm_panel.h        |  8 +++++
+> > >  2 files changed, 66 insertions(+), 16 deletions(-)
+> > >
+> > > diff --git a/drivers/gpu/drm/bridge/panel.c b/drivers/gpu/drm/bridge/=
+panel.c
+> > > index 58570ff6952ca313b3def084262c9bb3772272ef..6995de605e7317dd1eb15=
+3afd475746ced764712 100644
+> > > --- a/drivers/gpu/drm/bridge/panel.c
+> > > +++ b/drivers/gpu/drm/bridge/panel.c
+> > > @@ -69,6 +69,9 @@ EXPORT_SYMBOL(drm_panel_init);
+> > >   */
+> > >  void drm_panel_add(struct drm_panel *panel)
+> > >  {
+> > > +     panel->bridge =3D drm_panel_bridge_add(panel);
+> > > +     WARN_ON(!panel->bridge);
+> > > +
+> > >       mutex_lock(&panel_lock);
+> > >       list_add_tail(&panel->list, &panel_list);
+> > >       mutex_unlock(&panel_lock);
+> > > @@ -86,6 +89,9 @@ void drm_panel_remove(struct drm_panel *panel)
+> > >       mutex_lock(&panel_lock);
+> > >       list_del_init(&panel->list);
+> > >       mutex_unlock(&panel_lock);
+> > > +
+> > > +     drm_panel_bridge_remove(panel->bridge);
+> > > +     panel->bridge =3D NULL;
+> > >  }
+> > >  EXPORT_SYMBOL(drm_panel_remove);
+> >
+> > Given that drm_panel_add and drm_panel_remove are typically called at
+> > probe/remove, it's pretty much equivalent to using devm. Both of these
+> > solutions aren't safe, and the drm_panel lifetime is still broken.
+>=20
+> FWIW I believe this solves the panel vs panel_bridge lifetime
+> inconsistencies we previously reported [1]. Of course, as you rightly
+> point out, any pointers to the bridge become stale if the panel gets
+> removed.
+>=20
+> > I'd rather work on a solution that actually fixes those lifetime issues.
+>=20
+> I think that can happen once the bridges are ref-counted?
 
->> +	page_pool_dma_sync_for_cpu(pool, page, 0, PAGE_SIZE);
->>   	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
->>   	k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
->>   	pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
->> @@ -574,32 +571,51 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
->>   	pkt_len -= 4;
->>   	cppi5_desc_get_tags_ids(&desc_rx->hdr, &port_id, NULL);
->>   
->> -	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_FROM_DEVICE);
->>   	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
->>   
->> -	skb->dev = ndev;
->> -	new_skb = netdev_alloc_skb_ip_align(ndev, PRUETH_MAX_PKT_SIZE);
->>   	/* if allocation fails we drop the packet but push the
->> -	 * descriptor back to the ring with old skb to prevent a stall
->> +	 * descriptor back to the ring with old page to prevent a stall
->>   	 */
->> -	if (!new_skb) {
->> +	new_page = page_pool_dev_alloc_pages(pool);
->> +	if (unlikely(!new_page)) {
->> +		new_page = page;
->>   		ndev->stats.rx_dropped++;
->> -		new_skb = skb;
->> -	} else {
->> -		/* send the filled skb up the n/w stack */
->> -		skb_put(skb, pkt_len);
->> -		if (emac->prueth->is_switch_mode)
->> -			skb->offload_fwd_mark = emac->offload_fwd_mark;
->> -		skb->protocol = eth_type_trans(skb, ndev);
->> -		napi_gro_receive(&emac->napi_rx, skb);
->> -		ndev->stats.rx_bytes += pkt_len;
->> -		ndev->stats.rx_packets++;
->> +		goto requeue;
->> +	}
->> +
->> +	/* prepare skb and send to n/w stack */
->> +	pa = page_address(page);
->> +	skb = napi_build_skb(pa, PAGE_SIZE);
->> +	if (!skb) {
->> +		ndev->stats.rx_dropped++;
->> +		page_pool_recycle_direct(pool, page);
->> +		goto requeue;
->>   	}
->>   
->> +	skb_reserve(skb, PRUETH_HEADROOM);
->> +	skb_put(skb, pkt_len);
->> +	skb->dev = ndev;
->> +
->> +	psdata = cppi5_hdesc_get_psdata(desc_rx);
->> +	/* RX HW timestamp */
->> +	if (emac->rx_ts_enabled)
->> +		emac_rx_timestamp(emac, skb, psdata);
->> +
->> +	if (emac->prueth->is_switch_mode)
->> +		skb->offload_fwd_mark = emac->offload_fwd_mark;
->> +	skb->protocol = eth_type_trans(skb, ndev);
->> +
->> +	skb_mark_for_recycle(skb);
->> +	napi_gro_receive(&emac->napi_rx, skb);
->> +	ndev->stats.rx_bytes += pkt_len;
->> +	ndev->stats.rx_packets++;
->> +
->> +requeue:
->>   	/* queue another RX DMA */
->> -	ret = prueth_dma_rx_push(emac, new_skb, &emac->rx_chns);
->> +	ret = prueth_dma_rx_push_mapped(emac, &emac->rx_chns, new_page,
->> +					PRUETH_MAX_PKT_SIZE);
->>   	if (WARN_ON(ret < 0)) {
->> -		dev_kfree_skb_any(new_skb);
->> +		page_pool_recycle_direct(pool, new_page);
->>   		ndev->stats.rx_errors++;
->>   		ndev->stats.rx_dropped++;
->>   	}
->> @@ -611,22 +627,17 @@ static void prueth_rx_cleanup(void *data, dma_addr_t desc_dma)
->>   {
->>   	struct prueth_rx_chn *rx_chn = data;
->>   	struct cppi5_host_desc_t *desc_rx;
->> -	struct sk_buff *skb;
->> -	dma_addr_t buf_dma;
->> -	u32 buf_dma_len;
->> +	struct page_pool *pool;
->> +	struct page *page;
->>   	void **swdata;
->>   
->> +	pool = rx_chn->pg_pool;
->> +
-> here too.
-> 
->>   	desc_rx = k3_cppi_desc_pool_dma2virt(rx_chn->desc_pool, desc_dma);
->>   	swdata = cppi5_hdesc_get_swdata(desc_rx);
->> -	skb = *swdata;
->> -	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
->> -	k3_udma_glue_rx_cppi5_to_dma_addr(rx_chn->rx_chn, &buf_dma);
->> -
->> -	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len,
->> -			 DMA_FROM_DEVICE);
->> +	page = *swdata;
->> +	page_pool_recycle_direct(pool, page);
->>   	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
->> -
->> -	dev_kfree_skb_any(skb);
->>   }
->>   
->>   static int prueth_tx_ts_cookie_get(struct prueth_emac *emac)
->> @@ -907,29 +918,71 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
->>   }
->>   EXPORT_SYMBOL_GPL(icssg_napi_rx_poll);
->>   
->> +static struct page_pool *prueth_create_page_pool(struct prueth_emac *emac,
->> +						 struct device *dma_dev,
->> +						 int size)
->> +{
->> +	struct page_pool_params pp_params = { 0 };
->> +	struct page_pool *pool;
->> +
->> +	pp_params.order = 0;
->> +	pp_params.flags = PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
->> +	pp_params.pool_size = size;
->> +	pp_params.nid = dev_to_node(emac->prueth->dev);
->> +	pp_params.dma_dir = DMA_BIDIRECTIONAL;
->> +	pp_params.dev = dma_dev;
->> +	pp_params.napi = &emac->napi_rx;
->> +	pp_params.max_len = PAGE_SIZE;
->> +
->> +	pool = page_pool_create(&pp_params);
->> +	if (IS_ERR(pool))
->> +		netdev_err(emac->ndev, "cannot create rx page pool\n");
->> +
->> +	return pool;
->> +}
->> +
->>   int prueth_prepare_rx_chan(struct prueth_emac *emac,
->>   			   struct prueth_rx_chn *chn,
->>   			   int buf_size)
->>   {
->> -	struct sk_buff *skb;
->> +	struct page_pool *pool;
->> +	struct page *page;
->>   	int i, ret;
->>   
->> +	pool = prueth_create_page_pool(emac, chn->dma_dev, chn->descs_num);
->> +	if (IS_ERR(pool))
->> +		return PTR_ERR(pool);
->> +
->> +	chn->pg_pool = pool;
->> +
->>   	for (i = 0; i < chn->descs_num; i++) {
->> -		skb = __netdev_alloc_skb_ip_align(NULL, buf_size, GFP_KERNEL);
->> -		if (!skb)
->> -			return -ENOMEM;
->> +		/* NOTE: we're not using memory efficiently here.
->> +		 * 1 full page (4KB?) used here instead of
->> +		 * PRUETH_MAX_PKT_SIZE (~1.5KB?)
->> +		 */
->> +		page = page_pool_dev_alloc_pages(pool);
-> 
-> Did you evaluate Ido's suggestion to use page_pool_alloc_frag()?
-> 
+Not all panel users use a bridge, some are using the panel API directly.
 
-Yes I have done some research on this. IMO, page_pool_alloc_frag() does 
-fit our use case to reduce the memory footprint, downside of this would 
-be overhead caused by atomic operations for page->pp_ref_count, also the 
-page cannot be recycled till the page->pp_ref_count becomes 1, i.e., if 
-the page fragments are not freed properly it will cause continuous page 
-allocation, eventually leading to leaky page pool.
+> Instead of removing the bridge from the list, it can just clear the
+> panel pointer and have all the callbacks skip any operations involving
+> the panel.
+>=20
+> The other option is to have the panel itself be ref-counted. I don't
+> think that's worth pursuing if the idea is to move everything over to
+> panel_bridge and things are somewhat ready.
 
-Based on this presentation: 
-https://archive.fosdem.org/2020/schedule/event/xdp_and_page_pool_api/attachments/paper/3625/export/events/attachments/xdp_and_page_pool_api/paper/3625/XDP_and_page_pool.pdf
-Under the XDP memory model section: it is quoted that -
-- "Cannot allocate page fragments to support it (e.g. through 
-napi_alloc_skb())"
-- "Rx buffers must be recycled to get high speed"
-- "Optimized for one packet per page"
-- "Supports split-page model (usually driver is in charge of recycling)"
+Yeah, maybe. I'm kind of skeptical it would be easier than just doing
+the work we're doing here though. Most of the "easy" users have been
+converted already, and only the problematic ones remain, which will be
+difficult to move over. sun4i_rgb and sun6i_dsi, for example, won't be
+trivial to switch to panel_bridge. And given that sun4i_rgb is mostly
+obsolete, and sun6i_dsi unmaintainable, I don't think it's likely to
+happen.
 
-FWIW, to ensure simplicity and avoid leaky page pools it is better to 
-use entire page instead of fragments, atleast for XDP. Please do correct 
-me if my understanding is wrong.
+So I don't think it's fair to expect that work from such a series, or to
+rely on it eventually being fixed.
 
->> +		if (!page) {
->> +			netdev_err(emac->ndev, "couldn't allocate rx page\n");
->> +			ret = -ENOMEM;
->> +			goto recycle_alloc_pg;
->> +		}
->>   
->> -		ret = prueth_dma_rx_push(emac, skb, chn);
->> +		ret = prueth_dma_rx_push_mapped(emac, chn, page, buf_size);
->>   		if (ret < 0) {
->>   			netdev_err(emac->ndev,
->> -				   "cannot submit skb for rx chan %s ret %d\n",
->> +				   "cannot submit page for rx chan %s ret %d\n",
->>   				   chn->name, ret);
->> -			kfree_skb(skb);
->> -			return ret;
->> +			page_pool_recycle_direct(pool, page);
->> +			goto recycle_alloc_pg;
->>   		}
->>   	}
->>   
->>   	return 0;
->> +
->> +recycle_alloc_pg:
->> +	prueth_reset_rx_chan(&emac->rx_chns, PRUETH_MAX_RX_FLOWS, false);
->> +
->> +	return ret;
->>   }
->>   EXPORT_SYMBOL_GPL(prueth_prepare_rx_chan);
->>   
->> @@ -958,6 +1011,9 @@ void prueth_reset_rx_chan(struct prueth_rx_chn *chn,
->>   					  prueth_rx_cleanup, !!i);
->>   	if (disable)
->>   		k3_udma_glue_disable_rx_chn(chn->rx_chn);
->> +
->> +	page_pool_destroy(chn->pg_pool);
->> +	chn->pg_pool = NULL;
->>   }
->>   EXPORT_SYMBOL_GPL(prueth_reset_rx_chan);
->>   
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> index 329b46e9ee53..c7b906de18af 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
->> @@ -33,6 +33,8 @@
->>   #include <linux/dma/k3-udma-glue.h>
->>   
->>   #include <net/devlink.h>
->> +#include <net/xdp.h>
->> +#include <net/page_pool/helpers.h>
->>   
->>   #include "icssg_config.h"
->>   #include "icss_iep.h"
->> @@ -131,6 +133,7 @@ struct prueth_rx_chn {
->>   	u32 descs_num;
->>   	unsigned int irq[ICSSG_MAX_RFLOWS];	/* separate irq per flow */
->>   	char name[32];
->> +	struct page_pool *pg_pool;
->>   };
->>   
->>   /* There are 4 Tx DMA channels, but the highest priority is CH3 (thread 3)
->> @@ -210,6 +213,10 @@ struct prueth_emac {
->>   	struct netdev_hw_addr_list vlan_mcast_list[MAX_VLAN_ID];
->>   };
->>   
->> +/* The buf includes headroom compatible with both skb and xdpf */
->> +#define PRUETH_HEADROOM_NA (max(XDP_PACKET_HEADROOM, NET_SKB_PAD) + NET_IP_ALIGN)
->> +#define PRUETH_HEADROOM  ALIGN(PRUETH_HEADROOM_NA, sizeof(long))
->> +
->>   /**
->>    * struct prueth_pdata - PRUeth platform data
->>    * @fdqring_mode: Free desc queue mode
->> @@ -410,9 +417,10 @@ int prueth_init_rx_chns(struct prueth_emac *emac,
->>   			struct prueth_rx_chn *rx_chn,
->>   			char *name, u32 max_rflows,
->>   			u32 max_desc_num);
->> -int prueth_dma_rx_push(struct prueth_emac *emac,
->> -		       struct sk_buff *skb,
->> -		       struct prueth_rx_chn *rx_chn);
->> +int prueth_dma_rx_push_mapped(struct prueth_emac *emac,
->> +			      struct prueth_rx_chn *rx_chn,
->> +			      struct page *page, u32 buf_len);
->> +unsigned int prueth_rxbuf_total_len(unsigned int len);
->>   void emac_rx_timestamp(struct prueth_emac *emac,
->>   		       struct sk_buff *skb, u32 *psdata);
->>   enum netdev_tx icssg_ndo_start_xmit(struct sk_buff *skb, struct net_device *ndev);
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
->> index 64a19ff39562..aeeb8a50376b 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth_sr1.c
->> @@ -274,10 +274,12 @@ static struct sk_buff *prueth_process_rx_mgm(struct prueth_emac *emac,
->>   	struct prueth_rx_chn *rx_chn = &emac->rx_mgm_chn;
->>   	struct net_device *ndev = emac->ndev;
->>   	struct cppi5_host_desc_t *desc_rx;
->> -	struct sk_buff *skb, *new_skb;
->> +	struct page *page, *new_page;
->>   	dma_addr_t desc_dma, buf_dma;
->>   	u32 buf_dma_len, pkt_len;
->> +	struct sk_buff *skb;
-> 
-> Can we get rid of SKB entirely from the management channel code?
-> The packet received on this channel is never passed to user space so
-> I don't see why SKB is required.
-> 
+I think a solution where we have a bridge in drm_panel is a better
+solution (and easier to convert to), but that requires a new panel
+allocation API too. We've started to work on it as well, so everything
+might just click.
 
-Yes I do agree with you on the fact the SKB here is not passed to the 
-network stack, hence this is redundant. But honestly I am not sure how 
-that can be done, because the callers of this function access skb->data
-from the skb which is returned and the same can't be done with page (how 
-to pass the same data using page?)
-Also as you are aware we are not currently supporting SR1 devices 
-anymore, hence I don't have any SR1 devices handy to test these changes 
-and ensure nothing is broken if I remove SKB entirely.
+Maxime
 
->>   	void **swdata;
->> +	void *pa;
->>   	int ret;
->>   
->>   	ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
->> @@ -299,32 +301,35 @@ static struct sk_buff *prueth_process_rx_mgm(struct prueth_emac *emac,
->>   	}
->>   
->>   	swdata = cppi5_hdesc_get_swdata(desc_rx);
->> -	skb = *swdata;
->> +	page = *swdata;
->>   	cppi5_hdesc_get_obuf(desc_rx, &buf_dma, &buf_dma_len);
->>   	pkt_len = cppi5_hdesc_get_pktlen(desc_rx);
->>   
->>   	dma_unmap_single(rx_chn->dma_dev, buf_dma, buf_dma_len, DMA_FROM_DEVICE);
->>   	k3_cppi_desc_pool_free(rx_chn->desc_pool, desc_rx);
->>   
->> -	new_skb = netdev_alloc_skb_ip_align(ndev, PRUETH_MAX_PKT_SIZE);
->> +	new_page = page_pool_dev_alloc_pages(rx_chn->pg_pool);
->>   	/* if allocation fails we drop the packet but push the
->>   	 * descriptor back to the ring with old skb to prevent a stall
->>   	 */
->> -	if (!new_skb) {
->> +	if (!new_page) {
->>   		netdev_err(ndev,
->> -			   "skb alloc failed, dropped mgm pkt from flow %d\n",
->> +			   "page alloc failed, dropped mgm pkt from flow %d\n",
->>   			   flow_id);
->> -		new_skb = skb;
->> +		new_page = page;
->>   		skb = NULL;	/* return NULL */
->>   	} else {
->>   		/* return the filled skb */
->> +		pa = page_address(page);
->> +		skb = napi_build_skb(pa, PAGE_SIZE);
->>   		skb_put(skb, pkt_len);
->>   	}
->>   
->>   	/* queue another DMA */
->> -	ret = prueth_dma_rx_push(emac, new_skb, &emac->rx_mgm_chn);
->> +	ret = prueth_dma_rx_push_mapped(emac, &emac->rx_chns, new_page,
->> +					PRUETH_MAX_PKT_SIZE);
->>   	if (WARN_ON(ret < 0))
->> -		dev_kfree_skb_any(new_skb);
->> +		page_pool_recycle_direct(rx_chn->pg_pool, new_page);
->>   
->>   	return skb;
->>   }
-> 
+--5h2a6fgfbfdj4ehp
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ7ReRAAKCRAnX84Zoj2+
+dk60AYCcZBzfluhLprG5SA6HA5XjK+12gVtI9ZdvrJlY2TWQT3Lu0BAIdYcdKdV6
+rF/QLKEBgP6HIH1uD51d7M6znAEXnWnTH+jB+R6tdXJc5Bajy8qkrNPoWEOQQnYg
+1yfhz+rwPQ==
+=c3vr
+-----END PGP SIGNATURE-----
+
+--5h2a6fgfbfdj4ehp--
 
