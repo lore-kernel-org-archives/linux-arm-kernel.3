@@ -4,51 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F0CC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 21:07:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ED67C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 21:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l88+5q+33qFk4HLdNqrUXKk2qjE7gv6lw1At72Z1bRg=; b=ec1wDkoXs7DhwqnJd8k1k2EGko
-	mQjOp5VfYVz6Qixh7c3xyzRTG6Ndr4TThkVFkiL6AnTDImGWF3FCVsySgiHjhsTQvkwCNHZ2ScbxA
-	kQ57xQ5VIweWE9Hjbujgx3oqFO89014WxOMjQuFN32PHvkcVDY0atVeOEEGkE+voDFlcnGuShI04l
-	AwK/Es6Nh7YHweLiJF/8YzPaSzvvdPVAN0/xoeOevQT2QZLalnL6DuGqoShpCxPr5/iYBq38oEk16
-	wUsKF4hJvHB+kqpf1sIEhQVEHnLp0Vj592orOSjDC7Zxq0dOA51Cc6ZLphjRrenAsZUoYu1SS7+kA
-	Mo+ICxsg==;
+	bh=XHGMqiLEKFpxkw/wbaVPb2pvawfvYFpflUUBlPWnr/A=; b=zER+Mr7fPXZlCGEnO+QFyTmkRb
+	uDu+LVfnH4d2njhYJzJZSrAt1NIATrOlyFqhss9+XBGoD2Gbg+G3gKL7EKTix1wNL2pC0df2zKeGT
+	4ISGNvz9N1+0I7jfrrlZQC6aPSudpg+MZPHj382T/RVrehMiEgdFr3jP4NvsvabzoXtKr75kA1yvW
+	sZlSicrunL5MKOrwiY0qeXSKCjuImzUFq5KJQcY+3fR3/iPynj7ewYQKAZ4+ldlGB9tTMZN2mFKpN
+	MAVHL+kahkXQhyoJ1utjUhDP9SK8yahHgfU++7llaWttkvs5n6dRjw5ymbAiaooCzm0sliOo335yd
+	YWUAZd1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkUon-00000009vtz-3TbH;
-	Tue, 18 Feb 2025 21:07:49 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tkUqE-00000009w5Y-23Oc;
+	Tue, 18 Feb 2025 21:09:18 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkUOc-00000009ohI-0OTH
+	id 1tkUOe-00000009oj7-3J4j
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 18 Feb 2025 20:40:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=XHGMqiLEKFpxkw/wbaVPb2pvawfvYFpflUUBlPWnr/A=; b=NvNsYHO61laDQslQ7LxEvhFr0h
+	BRgV4ncG3SQEwhcsAHHDyheN0DHB/PyqOOHr2e/i4MR/Pbcqu5PJnGebNVfYZ5Gt1XQ9AidN+rzAN
+	cX3DqOYFHgxNRgMiviRSuIWK3LtXQ+yvDGkkd+ceTbnNDp4uhDHOoAMOm9Tt//gU6ed3gplUXupzL
+	6pNqark05b5BHx/5CTF5FmWANeyK1Gij+SL1p7q+CZsckSvxaPdS9dJC+j5R9HgHbaIXaKSjavNmA
+	BNAPtGU+O4LK0iC0fHXsDmXyVsR3kOq04VSJ2I6eoZ0X/77x9ALZSq6a2/nv7CRefG6iKSdTdbiJo
+	b+Sy1WMA==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkUOa-0000000233t-3zor
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Feb 2025 20:40:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 04C36A41B8B;
-	Tue, 18 Feb 2025 20:39:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68635C4CEE2;
-	Tue, 18 Feb 2025 20:40:45 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D268DA41327;
+	Tue, 18 Feb 2025 20:38:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D650C4CEE2;
+	Tue, 18 Feb 2025 20:40:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739911245;
-	bh=+eH9rsynFkntKI7DtruwlDr1EMI0HQFdTTEaCUEvAbg=;
+	s=k20201202; t=1739911244;
+	bh=l6TTrVAgzqUCeVudDTOcJhYY3xkL2GqGc4nae9UBVn8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=C4GUjODy+HojaNZdlj4A+JLKPltHVk1QIbbd9160pOJa1OHBegCIZxcP7jGJXNS0O
-	 DRRvzxNpF0uvmyqts1Xo7W5hSUX8vI9PEmh6EVHpZTyHVWK5Y5dRiKHhmVeMSm9vEm
-	 hr6WJIoUC4bHVpY09bVf+4cCAmp+My6ocUZdZHDIksnMcf8xVfW3aBu/rX0vLpVg48
-	 RvEGVMpFstv1PYp3TcoPM6PJLcDRLSsbXsrCVD+NFWHk00uDC7XwhM0AufZRvg4ti8
-	 f+CAcQ/D9Vf9tamq1x4RRbP104woVta5D9EO9xLEp6NwLvR1wFYBJxc8IZX+OmfQts
-	 jEsaTCZWzL81Q==
+	b=Qf7iMy0vDS+qxidBsKJcljNyFXb88kz5QMvFqbsqT1WD/RiGeUuOZa5Ove2PuESRK
+	 mlcYsYog+JhpZXH49tQqxM2++Qsb4s0BU0bLne4Iw7R3mxoinuG0DUvA7CckFaDqu/
+	 6MqMARhiOhKpVlED2vF5kJoraRV+KZTdjpIOH70AzJid/MOQNkSIALRoFY8p1PpZLA
+	 bJJnnEoTxXO3e27OJv3NtsywrktuZ5M5z/JyvuqKkNmEM3I6aHsOF7oOPQBqlKDtnF
+	 YxP+c3fL+6Yy9AWV+rLLTUbBaoFqAVTvRSDAvgzASCW785vtG3qIW4Xpf3p1iTX3Gx
+	 CCJ3kjaiPz3Ig==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Date: Tue, 18 Feb 2025 14:40:03 -0600
-Subject: [PATCH v20 08/11] arm64/sysreg: Add BRBE registers and fields
+Date: Tue, 18 Feb 2025 14:40:02 -0600
+Subject: [PATCH v20 07/11] perf: arm_pmu: Move PMUv3-specific data
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250218-arm-brbe-v19-v20-8-4e9922fc2e8e@kernel.org>
+Message-Id: <20250218-arm-brbe-v19-v20-7-4e9922fc2e8e@kernel.org>
 References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
 In-Reply-To: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
 To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
@@ -59,11 +74,11 @@ To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
  Anshuman Khandual <anshuman.khandual@arm.com>, Leo Yan <leo.yan@arm.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- kvmarm@lists.linux.dev, Mark Brown <broonie@kernel.org>
+ kvmarm@lists.linux.dev
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_124046_275696_19BDF16F 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250218_204046_248792_C515582F 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,222 +93,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Anshuman Khandual <anshuman.khandual@arm.com>
+From: Mark Rutland <mark.rutland@arm.com>
 
-This patch adds definitions related to the Branch Record Buffer Extension
-(BRBE) as per ARM DDI 0487K.a. These will be used by KVM and a BRBE driver
-in subsequent patches.
+A few fields in struct arm_pmu are only used with PMUv3, and soon we
+will need to add more for BRBE. Group the fields together so that we
+have a logical place to add more data in future.
 
-Some existing BRBE definitions in asm/sysreg.h are replaced with equivalent
-generated definitions.
+At the same time, remove the comment for reg_pmmir as it doesn't convey
+anything useful.
 
-Cc: Marc Zyngier <maz@kernel.org>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+There should be no functional change as a result of this patch.
+
 Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: "Rob Herring (Arm)" <robh@kernel.org>
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 ---
-v19:
-- split BRBINF.CC field into mantissa and exponent
----
- arch/arm64/include/asm/sysreg.h |  17 ++----
- arch/arm64/tools/sysreg         | 132 ++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 138 insertions(+), 11 deletions(-)
+ include/linux/perf/arm_pmu.h | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 05ea5223d2d5..a8257e13f8f1 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -198,16 +198,8 @@
- #define SYS_DBGVCR32_EL2		sys_reg(2, 4, 0, 7, 0)
+diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
+index 4b5b83677e3f..c70d528594f2 100644
+--- a/include/linux/perf/arm_pmu.h
++++ b/include/linux/perf/arm_pmu.h
+@@ -84,7 +84,6 @@ struct arm_pmu {
+ 	struct pmu	pmu;
+ 	cpumask_t	supported_cpus;
+ 	char		*name;
+-	int		pmuver;
+ 	irqreturn_t	(*handle_irq)(struct arm_pmu *pmu);
+ 	void		(*enable)(struct perf_event *event);
+ 	void		(*disable)(struct perf_event *event);
+@@ -102,18 +101,20 @@ struct arm_pmu {
+ 	int		(*map_event)(struct perf_event *event);
+ 	DECLARE_BITMAP(cntr_mask, ARMPMU_MAX_HWEVENTS);
+ 	bool		secure_access; /* 32-bit ARM only */
+-#define ARMV8_PMUV3_MAX_COMMON_EVENTS		0x40
+-	DECLARE_BITMAP(pmceid_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
+-#define ARMV8_PMUV3_EXT_COMMON_EVENT_BASE	0x4000
+-	DECLARE_BITMAP(pmceid_ext_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
+ 	struct platform_device	*plat_device;
+ 	struct pmu_hw_events	__percpu *hw_events;
+ 	struct hlist_node	node;
+ 	struct notifier_block	cpu_pm_nb;
+ 	/* the attr_groups array must be NULL-terminated */
+ 	const struct attribute_group *attr_groups[ARMPMU_NR_ATTR_GROUPS + 1];
+-	/* store the PMMIR_EL1 to expose slots */
++
++	/* PMUv3 only */
++	int		pmuver;
+ 	u64		reg_pmmir;
++#define ARMV8_PMUV3_MAX_COMMON_EVENTS		0x40
++	DECLARE_BITMAP(pmceid_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
++#define ARMV8_PMUV3_EXT_COMMON_EVENT_BASE	0x4000
++	DECLARE_BITMAP(pmceid_ext_bitmap, ARMV8_PMUV3_MAX_COMMON_EVENTS);
  
- #define SYS_BRBINF_EL1(n)		sys_reg(2, 1, 8, (n & 15), (((n & 16) >> 2) | 0))
--#define SYS_BRBINFINJ_EL1		sys_reg(2, 1, 9, 1, 0)
- #define SYS_BRBSRC_EL1(n)		sys_reg(2, 1, 8, (n & 15), (((n & 16) >> 2) | 1))
--#define SYS_BRBSRCINJ_EL1		sys_reg(2, 1, 9, 1, 1)
- #define SYS_BRBTGT_EL1(n)		sys_reg(2, 1, 8, (n & 15), (((n & 16) >> 2) | 2))
--#define SYS_BRBTGTINJ_EL1		sys_reg(2, 1, 9, 1, 2)
--#define SYS_BRBTS_EL1			sys_reg(2, 1, 9, 0, 2)
--
--#define SYS_BRBCR_EL1			sys_reg(2, 1, 9, 0, 0)
--#define SYS_BRBFCR_EL1			sys_reg(2, 1, 9, 0, 1)
--#define SYS_BRBIDR0_EL1			sys_reg(2, 1, 9, 2, 0)
- 
- #define SYS_TRCITECR_EL1		sys_reg(3, 0, 1, 2, 3)
- #define SYS_TRCACATR(m)			sys_reg(2, 1, 2, ((m & 7) << 1), (2 | (m >> 3)))
-@@ -273,8 +265,6 @@
- /* ETM */
- #define SYS_TRCOSLAR			sys_reg(2, 1, 1, 0, 4)
- 
--#define SYS_BRBCR_EL2			sys_reg(2, 4, 9, 0, 0)
--
- #define SYS_MIDR_EL1			sys_reg(3, 0, 0, 0, 0)
- #define SYS_MPIDR_EL1			sys_reg(3, 0, 0, 0, 5)
- #define SYS_REVIDR_EL1			sys_reg(3, 0, 0, 0, 6)
-@@ -610,7 +600,6 @@
- #define SYS_CNTHV_CVAL_EL2		sys_reg(3, 4, 14, 3, 2)
- 
- /* VHE encodings for architectural EL0/1 system registers */
--#define SYS_BRBCR_EL12			sys_reg(2, 5, 9, 0, 0)
- #define SYS_SCTLR_EL12			sys_reg(3, 5, 1, 0, 0)
- #define SYS_CPACR_EL12			sys_reg(3, 5, 1, 0, 2)
- #define SYS_SCTLR2_EL12			sys_reg(3, 5, 1, 0, 3)
-@@ -821,6 +810,12 @@
- #define OP_COSP_RCTX			sys_insn(1, 3, 7, 3, 6)
- #define OP_CPP_RCTX			sys_insn(1, 3, 7, 3, 7)
- 
-+/*
-+ * BRBE Instructions
-+ */
-+#define BRB_IALL_INSN	__emit_inst(0xd5000000 | OP_BRB_IALL | (0x1f))
-+#define BRB_INJ_INSN	__emit_inst(0xd5000000 | OP_BRB_INJ  | (0x1f))
-+
- /* Common SCTLR_ELx flags. */
- #define SCTLR_ELx_ENTP2	(BIT(60))
- #define SCTLR_ELx_DSSBS	(BIT(44))
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 762ee084b37c..c0943579977a 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -1038,6 +1038,138 @@ UnsignedEnum	3:0	MTEPERM
- EndEnum
- EndSysreg
- 
-+
-+SysregFields BRBINFx_EL1
-+Res0	63:47
-+Field	46	CCU
-+Field	45:40	CC_EXP
-+Field	39:32	CC_MANT
-+Res0	31:18
-+Field	17	LASTFAILED
-+Field	16	T
-+Res0	15:14
-+Enum	13:8		TYPE
-+	0b000000	DIRECT_UNCOND
-+	0b000001	INDIRECT
-+	0b000010	DIRECT_LINK
-+	0b000011	INDIRECT_LINK
-+	0b000101	RET
-+	0b000111	ERET
-+	0b001000	DIRECT_COND
-+	0b100001	DEBUG_HALT
-+	0b100010	CALL
-+	0b100011	TRAP
-+	0b100100	SERROR
-+	0b100110	INSN_DEBUG
-+	0b100111	DATA_DEBUG
-+	0b101010	ALIGN_FAULT
-+	0b101011	INSN_FAULT
-+	0b101100	DATA_FAULT
-+	0b101110	IRQ
-+	0b101111	FIQ
-+	0b110000	IMPDEF_TRAP_EL3
-+	0b111001	DEBUG_EXIT
-+EndEnum
-+Enum	7:6	EL
-+	0b00	EL0
-+	0b01	EL1
-+	0b10	EL2
-+	0b11	EL3
-+EndEnum
-+Field	5	MPRED
-+Res0	4:2
-+Enum	1:0	VALID
-+	0b00	NONE
-+	0b01	TARGET
-+	0b10	SOURCE
-+	0b11	FULL
-+EndEnum
-+EndSysregFields
-+
-+SysregFields	BRBCR_ELx
-+Res0	63:24
-+Field	23 	EXCEPTION
-+Field	22 	ERTN
-+Res0	21:10
-+Field	9	FZPSS
-+Field	8 	FZP
-+Res0	7
-+Enum	6:5	TS
-+	0b01	VIRTUAL
-+	0b10	GUEST_PHYSICAL
-+	0b11	PHYSICAL
-+EndEnum
-+Field	4	MPRED
-+Field	3	CC
-+Res0	2
-+Field	1	ExBRE
-+Field	0	E0BRE
-+EndSysregFields
-+
-+Sysreg	BRBCR_EL1	2	1	9	0	0
-+Fields	BRBCR_ELx
-+EndSysreg
-+
-+Sysreg	BRBFCR_EL1	2	1	9	0	1
-+Res0	63:30
-+Enum	29:28	BANK
-+	0b00	BANK_0
-+	0b01	BANK_1
-+EndEnum
-+Res0	27:23
-+Field	22	CONDDIR
-+Field	21	DIRCALL
-+Field	20	INDCALL
-+Field	19	RTN
-+Field	18	INDIRECT
-+Field	17	DIRECT
-+Field	16	EnI
-+Res0	15:8
-+Field	7	PAUSED
-+Field	6	LASTFAILED
-+Res0	5:0
-+EndSysreg
-+
-+Sysreg	BRBTS_EL1	2	1	9	0	2
-+Field	63:0	TS
-+EndSysreg
-+
-+Sysreg	BRBINFINJ_EL1	2	1	9	1	0
-+Fields BRBINFx_EL1
-+EndSysreg
-+
-+Sysreg	BRBSRCINJ_EL1	2	1	9	1	1
-+Field	63:0 ADDRESS
-+EndSysreg
-+
-+Sysreg	BRBTGTINJ_EL1	2	1	9	1	2
-+Field	63:0 ADDRESS
-+EndSysreg
-+
-+Sysreg	BRBIDR0_EL1	2	1	9	2	0
-+Res0	63:16
-+Enum	15:12	CC
-+	0b0101	20_BIT
-+EndEnum
-+Enum	11:8	FORMAT
-+	0b0000	FORMAT_0
-+EndEnum
-+Enum	7:0		NUMREC
-+	0b00001000	8
-+	0b00010000	16
-+	0b00100000	32
-+	0b01000000	64
-+EndEnum
-+EndSysreg
-+
-+Sysreg	BRBCR_EL2	2	4	9	0	0
-+Fields	BRBCR_ELx
-+EndSysreg
-+
-+Sysreg	BRBCR_EL12	2	5	9	0	0
-+Fields	BRBCR_ELx
-+EndSysreg
-+
- Sysreg	ID_AA64ZFR0_EL1	3	0	0	4	4
- Res0	63:60
- UnsignedEnum	59:56	F64MM
+ 	/* Only to be used by ACPI probing code */
+ 	unsigned long acpi_cpuid;
 
 -- 
 2.47.2
