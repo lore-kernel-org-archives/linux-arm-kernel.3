@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 835DEC02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206F0C02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 13:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zi9sWfS4AcvcvOsYJDRFzll/+wt+aEfG/kF8n5iSU4w=; b=Cm/vFTSIsijUQUnPljcwtP9qWL
-	SnULr3TAAlZqWtzUv+Cg4wZ0vd7PCWBzoQ6SA165p8Se1L5U9C1QY/FMbwcxsOejNyuUkvbZ3gNB4
-	ipEmwZrewe5BMMH8VwfZeBp6JJ+jQCO4iSwKkr8pAbeHamWCMGrAs3Xy+wP11xDFlJIysXOP08O0x
-	o3xzSPVG4fyoubCbYmD7AsTwCq+eRkn5333H9GjML64yHVynFJV0kirMTYMxisu2Em+vmK8F+rEj9
-	bDci3zUfILwmmrignumUaoVevj+OC/BpNT3dOawgusRd8ZMfXrYKBd2WuCxtWdqUQlbWqXkQyiNpO
-	aY/d7vKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+em1inQNrRqOlMWnK47j76Xsx89tO6jQVhAJigvgbyE=; b=cCh+wQccVafImEWsqRpEX3IssR
+	OZe2hJvsNST9SuhpSNz8M4EX0NZH8qQ63SoApK53AlSLC4wskA0n3/Uf9AibtyzAiG0AV2oWTpZUD
+	S6X9oevEBovJV2lpxheBCcF3vAgt5kYMpiHM/KPkA2lAbRi2NvwOcaY5S0udh2GhXC/4fVndGMudb
+	exJ4AKvn/AugJDBmvRdQeySw6igoQ8UTEGN5Ked9g4+et6m2/lmctmXY9orG0nd4thLUFU2g8/MXT
+	lScxVb6b2OXZEgpvk5KKNX5nH9yU49enlvC6RXbhDIi41ontc/zk15C/1+9XT4WOP9Q+P/Ae+SP+n
+	JCrvkbmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNPA-00000008Gks-0hn2;
-	Tue, 18 Feb 2025 13:12:52 +0000
+	id 1tkNQb-00000008H3B-3TL7;
+	Tue, 18 Feb 2025 13:14:21 +0000
 Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkNF8-00000008ESw-13Za
+	id 1tkNF8-00000008ESx-2C5X
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 18 Feb 2025 13:02:32 +0000
 Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51ICTPPZ005901;
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51ICTPPa005901;
 	Tue, 18 Feb 2025 14:02:20 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	zi9sWfS4AcvcvOsYJDRFzll/+wt+aEfG/kF8n5iSU4w=; b=Z2P8946Z84ttpeId
-	dDg8F7SaSx2BZFL7AYXb6FEwIRITKxLspZTEH+W8sS1sL+lHQK8EP/T/pHuTVG+4
-	TzzFNbnxa3t4U5rzVgT0+esxnhev8xgBPryBIZRfEa2nhqQmdjjJbVv5AFYcUYPS
-	llCrcbR1lf3786G5iW4ychDWYgj0ZZ0Fio6PCnsOvWD9knnYoTgoDnWOlToefbAC
-	tp9YKyjlqoKefPPBZeOdQgqVnYOZJwD578Jj7Lcc9F2F+6HDfaMqfcXcTQnhXXv6
-	a5Y7m5x4i8xOCDd7hDvhW/nZ2icAphVPuz2cb3BPmwgH6DTsUlptCs1Bz4SIEJVu
-	3kxxcA==
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=+em1inQNrRqOlMWnK47j76
+	Xsx89tO6jQVhAJigvgbyE=; b=I05K1oL5Uu/xc0zwJKgm/xbZN0WNhLmJT3HyKq
+	OkNs6FIVid9zko+BlmeP0g0fpGDjG2RTbKwXWQwlhaZwsVD8gzej2vsUFMO/iH3b
+	HMY+34IrRREP8SvuW9SM7MjapBLF1cna9XnlJnblU3YrNRhi8hcdeqDoZTZv1wp0
+	7XrjQkc6cRsACYtfo8Q9cZiP042wdWrZy+BEzfSxDx0IS/wH4XPmaq00xI03sEac
+	/w16g17eTzcCUhlhBpC9rPcZO5IAfQytdphmciTlZERcYE6YTPj0V7M6qd+mcy6N
+	XLEUZ/j1NVTvXCZZjjJiJrHJMXRtEpkphECUrMLYd3T1dw/Q==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44u5c3t959-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44u5c3t958-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Tue, 18 Feb 2025 14:02:19 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 11E4D40046;
-	Tue, 18 Feb 2025 14:01:03 +0100 (CET)
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id ECFB540045;
+	Tue, 18 Feb 2025 14:00:58 +0100 (CET)
 Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id AC532327694;
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 2A6103CB70E;
 	Tue, 18 Feb 2025 14:00:03 +0100 (CET)
 Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 18 Feb
- 2025 14:00:03 +0100
+ 2025 14:00:02 +0100
 From: <patrice.chotard@foss.st.com>
 To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
         Krzysztof
@@ -73,15 +72,13 @@ CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <christophe.kerello@foss.st.com>, <patrice.chotard@foss.st.com>
-Subject: [PATCH v4 1/8] dt-bindings: spi: Add STM32 OSPI controller
-Date: Tue, 18 Feb 2025 13:59:53 +0100
-Message-ID: <20250218130000.87889-2-patrice.chotard@foss.st.com>
+Subject: [PATCH v4 0/8] Add STM32MP25 SPI NOR support
+Date: Tue, 18 Feb 2025 13:59:52 +0100
+Message-ID: <20250218130000.87889-1-patrice.chotard@foss.st.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250218130000.87889-1-patrice.chotard@foss.st.com>
-References: <20250218130000.87889-1-patrice.chotard@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-Originating-IP: [10.48.87.62]
 X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To SHFDAG1NODE1.st.com
  (10.75.129.69)
@@ -89,8 +86,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-18_05,2025-02-18_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_050230_607105_708FFC1B 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20250218_050230_889835_27CD63F3 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,142 +104,90 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Patrice Chotard <patrice.chotard@foss.st.com>
 
-Add device tree bindings for the STM32 OSPI controller.
+This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics.
 
-Main features of the Octo-SPI controller :
-  - support sNOR / sNAND / HyperRAM™ and HyperFlash™ devices.
-  - Three functional modes: indirect, automatic-status polling,
-    memory-mapped.
-  - Up to 4 Gbytes of external memory can be addressed in indirect
-    mode (per physical port and per CS), and up to 256 Mbytes in
-    memory-mapped mode (combined for both physical ports and per CS).
-  - Single-, dual-, quad-, and octal-SPI communication.
-  - Dual-quad communication.
-  - Single data rate (SDR) and double transfer rate (DTR).
-  - Maximum target frequency is 133 MHz for SDR and 133 MHz for DTR.
-  - Data strobe support.
-  - DMA channel for indirect mode.
-  - Double CS mapping that allows two external flash devices to be
-    addressed with a single OCTOSPI controller mapped on a single
-    OCTOSPI port.
+On STM32MP25 SoCs family, an Octo Memory Manager block manages the muxing,
+the memory area split, the chip select override and the time constraint 
+between its 2 Octo SPI children.
+
+Due to these depedencies, this series adds support for: 
+  - Octo Memory Manager driver.
+  - Octo SPI driver.
+  - yaml schema for Octo Memory Manager and Octo SPI drivers.
+
+The device tree files adds Octo Memory Manager and its 2 associated Octo 
+SPI chidren in stm32mp251.dtsi and adds SPI NOR support in stm32mp257f-ev1
+board.
 
 Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
----
- .../bindings/spi/st,stm32mp25-ospi.yaml       | 105 ++++++++++++++++++
- 1 file changed, 105 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
 
-diff --git a/Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml b/Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
-new file mode 100644
-index 000000000000..5f276f27dc4c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
-@@ -0,0 +1,105 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/spi/st,stm32mp25-ospi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: STMicroelectronics STM32 Octal Serial Peripheral Interface (OSPI)
-+
-+maintainers:
-+  - Patrice Chotard <patrice.chotard@foss.st.com>
-+
-+allOf:
-+  - $ref: spi-controller.yaml#
-+
-+properties:
-+  compatible:
-+    const: st,stm32mp25-ospi
-+
-+  reg:
-+    maxItems: 1
-+
-+  memory-region:
-+    description:
-+      Memory region to be used for memory-map read access.
-+      In memory-mapped mode, read access are performed from the memory
-+      device using the direct mapping.
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  resets:
-+    items:
-+      - description: phandle to OSPI block reset
-+      - description: phandle to delay block reset
-+
-+  dmas:
-+    maxItems: 2
-+
-+  dma-names:
-+    items:
-+      - const: tx
-+      - const: rx
-+
-+  st,syscfg-dlyb:
-+    description: configure OCTOSPI delay block.
-+    $ref: /schemas/types.yaml#/definitions/phandle-array
-+    items:
-+      - description: phandle to syscfg
-+      - description: register offset within syscfg
-+
-+  access-controllers:
-+    description: phandle to the rifsc device to check access right
-+      and in some cases, an additional phandle to the rcc device for
-+      secure clock control.
-+    items:
-+      - description: phandle to bus controller
-+      - description: phandle to clock controller
-+    minItems: 1
-+
-+  power-domains:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - interrupts
-+  - st,syscfg-dlyb
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
-+
-+    spi@40430000 {
-+      compatible = "st,stm32mp25-ospi";
-+      reg = <0x40430000 0x400>;
-+      memory-region = <&mm_ospi1>;
-+      interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
-+      dmas = <&hpdma 2 0x62 0x00003121 0x0>,
-+             <&hpdma 2 0x42 0x00003112 0x0>;
-+      dma-names = "tx", "rx";
-+      clocks = <&scmi_clk CK_SCMI_OSPI1>;
-+      resets = <&scmi_reset RST_SCMI_OSPI1>, <&scmi_reset RST_SCMI_OSPI1DLL>;
-+      access-controllers = <&rifsc 74>;
-+      power-domains = <&CLUSTER_PD>;
-+      st,syscfg-dlyb = <&syscfg 0x1000>;
-+
-+      #address-cells = <1>;
-+      #size-cells = <0>;
-+
-+      flash@0 {
-+        compatible = "jedec,spi-nor";
-+        reg = <0>;
-+        spi-rx-bus-width = <4>;
-+        spi-max-frequency = <108000000>;
-+      };
-+    };
+Changes in v4:
+  - Add default value requested by Krzysztof for st,omm-req2ack-ns, 
+    st,omm-cssel-ovr and st,omm-mux properties in st,stm32mp25-omm.yaml
+  - Remove constraint in free form test for st,omm-mux property.
+  - Fix drivers/memory/Kconfig by replacing TEST_COMPILE_ by COMPILE_TEST.
+  - Fix SPDX-License-Identifier for stm32-omm.c.
+  - Fix Kernel test robot by fixing dev_err() format in stm32-omm.c.
+  - Add missing pm_runtime_disable() in the error handling path in
+    stm32-omm.c.
+  - Replace an int by an unsigned int in stm32-omm.c
+  - Remove uneeded "," after terminator in stm32-omm.c.
+  - Update cover letter description to explain dependecies between 
+    Octo Memory Manager and its 2 Octo SPI children.
+  - Add Reviewed-by Krzysztof Kozlowski for patch 1 and 3.
+
+Changes in v3:
+  - Squash defconfig patches 8 and 9.
+  - Update STM32 Octo Memory Manager controller bindings.
+  - Rename st,stm32-omm.yaml to st,stm32mp25-omm.yaml.
+  - Update STM32 OSPI controller bindings.
+  - Reorder DT properties in .dtsi and .dts files.
+  - Replace devm_reset_control_get_optional() by 
+    devm_reset_control_get_optional_exclusive() in stm32_omm.c.
+  - Reintroduce region-memory-names management in stm32_omm.c.
+  - Rename stm32_ospi_tx_poll() and stm32_ospi_tx() to respectively to 
+    stm32_ospi_poll() and stm32_ospi_xfer() in spi-stm32-ospi.c.
+  - Set SPI_CONTROLLER_HALF_DUPLEX in controller flags in spi-stm32-ospi.c.
+
+Changes in v2:
+  - Move STM32 Octo Memory Manager controller driver and bindings from
+    misc to memory-controllers.
+  - Update STM32 OSPI controller bindings.
+  - Update STM32 Octo Memory Manager controller bindings.
+  - Update STM32 Octo Memory Manager driver to match bindings update.
+  - Update DT to match bindings update.
+
+
+Patrice Chotard (8):
+  dt-bindings: spi: Add STM32 OSPI controller
+  spi: stm32: Add OSPI driver
+  dt-bindings: memory-controllers: Add STM32 Octo Memory Manager
+    controller
+  memory: Add STM32 Octo Memory Manager driver
+  arm64: dts: st: Add OMM node on stm32mp251
+  arm64: dts: st: Add ospi port1 pinctrl entries in
+    stm32mp25-pinctrl.dtsi
+  arm64: dts: st: Add SPI NOR flash support on stm32mp257f-ev1 board
+  arm64: defconfig: Enable STM32 Octo Memory Manager and OcstoSPI driver
+
+ .../memory-controllers/st,stm32mp25-omm.yaml  |  204 ++++
+ .../bindings/spi/st,stm32mp25-ospi.yaml       |  105 ++
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi |   51 +
+ arch/arm64/boot/dts/st/stm32mp251.dtsi        |   48 +
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |   32 +
+ arch/arm64/configs/defconfig                  |    2 +
+ drivers/memory/Kconfig                        |   17 +
+ drivers/memory/Makefile                       |    1 +
+ drivers/memory/stm32_omm.c                    |  522 ++++++++
+ drivers/spi/Kconfig                           |   10 +
+ drivers/spi/Makefile                          |    1 +
+ drivers/spi/spi-stm32-ospi.c                  | 1065 +++++++++++++++++
+ 12 files changed, 2058 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
+ create mode 100644 Documentation/devicetree/bindings/spi/st,stm32mp25-ospi.yaml
+ create mode 100644 drivers/memory/stm32_omm.c
+ create mode 100644 drivers/spi/spi-stm32-ospi.c
+
 -- 
 2.25.1
 
