@@ -4,55 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C90C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 10:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97F4DC02198
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 10:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5NAxMiATQ8LZrAb8v9xhHjtPlZqc6/HzlLdhP76SDgU=; b=xJpMt83j4oQzmQdwzvVJLG22fe
-	GqbbR8YTiNI/lLRru+G1OcXMVlR6y4VDQmrrXGQr9wt4iSoSDM9262/OlZRakHVJNVt0B74IotI6d
-	N1yQQDAape/4+QTPUjHxk1bJmAd6Edq9Iy+s4H1H/tRbzAmJ+8ZyAo1RVc96yXuTmWHwtMH0YUv0b
-	y4ynUKWz//Toa+2dtYXEN2UFxOXic3CyUJAsk7ji6rMTDFrdKyfRwkzZoktHKDxxwixuv1EnxDIKw
-	cG6nXFu4TId3YBNSXx5f6GjYSCp3hvVxY4e8JaokZKv5LwIWdnwVz4HotnskEd6z/PboFE3ri3tUC
-	8ogfsq8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V4eYCNtATnwN1ZIKmyX0+Wk2XGtLI3NIn3i0ikesTwU=; b=YA0UYd6teWNX2w2ixsMfOhqGE0
+	PpZD4pjA0bPOa9t1CYx3LiiOrB8JSTkA+DQtHr7Mx7dhTmJrqJrmT3dddP8oYbmXE7ALzSJNTnhNt
+	NCMLylXLTcHhKN0oE/RJxC+jofo5gxcPIhuY5oZUT4DQoU3lGvMYZmxIKUTpi+NlkVs0KNrZa0SKV
+	/FBIyzGJEVdmYZGlHUpePaZ+YRVqLinwIw9p4AjSyL8YahCGBJ9e9cZ/8TZMLRd1qvyguaQTn9BRN
+	JvCEp5hxAcixcJFz+mkAlVBLoU8mu/eW7nh9MFDD0fD7FdjwbfhOeWlsKpKHYL6tlAyef+ae34ykz
+	FTfirRaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkL12-00000007nxy-2LXx;
-	Tue, 18 Feb 2025 10:39:48 +0000
-Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
+	id 1tkL4u-00000007os1-2HsF;
+	Tue, 18 Feb 2025 10:43:48 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkKwx-00000007myO-0FMp
+	id 1tkL2q-00000007oR2-1NF9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 10:35:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1739874931; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=5NAxMiATQ8LZrAb8v9xhHjtPlZqc6/HzlLdhP76SDgU=;
-	b=IctaxFc7U28wlFifSGELnvwMI/YkbppROenPu6Sq4NhSZgX6INFCkykbAXM0Uj4Bh+mJwzplGRWuIhNPY7DpyUkGC/mDF6C9iejCobBoApZXwSnOzlvtA1f/XSpYPsxCnMOF66sn9KvsPjuP2CHNKro7x4MAsqwe0VU2kU+Lv2M=
-Received: from U-V2QX163P-2032.local(mailfrom:fengwei_yin@linux.alibaba.com fp:SMTPD_---0WPldaSl_1739874930 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 18 Feb 2025 18:35:30 +0800
-Date: Tue, 18 Feb 2025 18:35:29 +0800
-From: YinFengwei <fengwei_yin@linux.alibaba.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: will@kernel.org, mark.rutland@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	jie.li.linux@linux.alibaba.com
-Subject: Re: [PATCH] perf/arm-cmn: don't claim resource during ioremap() for
- CMN700 with ACPI
-Message-ID: <cji4nqc6etzggg7hannvdg5jos4dr4mhujetviuhs3sl36bh6g@xde5izlywsei>
-References: <20250218012111.30068-1-fengwei_yin@linux.alibaba.com_quarantine>
- <d5040b5c-564d-4abf-be22-d2aa1183b633@arm.com>
+	Tue, 18 Feb 2025 10:41:41 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51IAdTCW012257;
+	Tue, 18 Feb 2025 11:41:28 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	V4eYCNtATnwN1ZIKmyX0+Wk2XGtLI3NIn3i0ikesTwU=; b=APp4fQxusozWDrY6
+	juXOk6kxHRZCNbdFr2OT91Sr8enp6bZGWGhFyTEGIAte+D8JGCKboLnN71ZQb639
+	dohF5cO7IsMWw+dIWHuixxSkC/C0ZEFj+TeQdt13h1rw+kdQFv8iLnfCd7rbm8R8
+	gqvNoOand5i3pxQFGHFlpwZMmuzJE0tEQSz0QgYdxjbQDDj0W1JHZ58xrgz45lCb
+	o+FPDATKCjr2lRFJhxKeaUdWYIf/1PpGMxt2sdHEEHCtLYRGHQ3sqE5QVtwgN49B
+	3J+xOkyEjxOmpXh/uUoRFVdcpjTbHyNIl504sjtgZcQSetZo79h9BJ0k3rovVpdn
+	9it76w==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44tm1uba39-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 18 Feb 2025 11:41:28 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1EA4340047;
+	Tue, 18 Feb 2025 11:40:09 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 4E91E3BE6A5;
+	Tue, 18 Feb 2025 11:39:04 +0100 (CET)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 18 Feb
+ 2025 11:39:02 +0100
+Message-ID: <d2a2feed-a2f0-430d-a872-23d22afd937a@foss.st.com>
+Date: Tue, 18 Feb 2025 11:39:01 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d5040b5c-564d-4abf-be22-d2aa1183b633@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/8] Add STM32MP25 SPI NOR support
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <linux-spi@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <christophe.kerello@foss.st.com>
+References: <20250210131826.220318-1-patrice.chotard@foss.st.com>
+ <20250213-lush-rainbow-moth-0f5e18@krzk-bin>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20250213-lush-rainbow-moth-0f5e18@krzk-bin>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-18_04,2025-02-18_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_023535_631572_24BF9FC3 
-X-CRM114-Status: GOOD (  23.53  )
+X-CRM114-CacheID: sfid-20250218_024140_659722_E1AF623F 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,65 +108,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 10:31:42AM +0800, Robin Murphy wrote:
-> On 2025-02-18 1:21 am, Yin Fengwei wrote:
-> > Currently, arm-cmn PMU driver assumes ACPI claim resource
-> > for CMN600 + ACPI. But with CMN700 + ACPI, the device probe
-> > failed because of resource claim failes when ioremap() is
-> > called:
-> > [   10.837300] arm-cmn ARMHC700:00: error -EBUSY: can't request region for resource [mem 0x40000000-0x4fffffff]
-> > [   10.847310] arm-cmn ARMHC700:00: probe with driver arm-cmn failed with error -16
-> > [   10.854726] arm-cmn ARMHC700:02: error -EBUSY: can't request region for resource [mem 0x40040000000-0x4004fffffff]
-> > [   10.865085] arm-cmn ARMHC700:02: probe with driver arm-cmn failed with error -16
-> > 
-> > Let CMN700 + ACPI do same as CMN600 + ACPI to allow CMN700
-> > work in ACPI env.
+
+
+On 2/13/25 08:56, Krzysztof Kozlowski wrote:
+> On Mon, Feb 10, 2025 at 02:18:18PM +0100, patrice.chotard@foss.st.com wrote:
+>> From: Patrice Chotard <patrice.chotard@foss.st.com>
+>>
+>> This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics,
+>> for that it adds support for:
+>>   - Octo Memory Manager driver.
+>>   - Octo SPI driver.
+>>   - yaml schema for Octo Memory Manager and Octo SPI drivers.
+>>
 > 
-> No, the CMN-600 routine is a special case for CMN-600 having two nested
-> memory resources of its own. CMN-700 and everything else only have one
-> memory resource, so that is not appropriate. What else is claiming the
-> region to cause a conflict?
-You are right. I just saw the discussion after I sent this patch. :(.
-I proposed new fix in that thread which align with the spec.
+> You combined three different subsystems in one patchset and nothing here
+> explains why and what is the merging intention. Either split your work
+> or explain dependencies/merging.
 
-Could you please take a look? Thanks.
+Ok i will add an explaination about OMM and OSPI relationship.
 
-
-Regards
-Yin, Fengwei
+Thanks
+Patrice
 
 > 
-> Thanks,
-> Robin.
+> Best regards,
+> Krzysztof
 > 
-> > Signed-off-by: Yin Fengwei <fengwei_yin@linux.alibaba.com>
-> > ---
-> > I am also wondering whether we could just drop the CMN600 part id
-> > check here if ACPI companion device claimed the resource?
-> > 
-> >   drivers/perf/arm-cmn.c | 5 +++--
-> >   1 file changed, 3 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-> > index ef959e66db7c..8b5322a2aa6e 100644
-> > --- a/drivers/perf/arm-cmn.c
-> > +++ b/drivers/perf/arm-cmn.c
-> > @@ -2559,7 +2559,8 @@ static int arm_cmn_probe(struct platform_device *pdev)
-> >   	cmn->part = (unsigned long)device_get_match_data(cmn->dev);
-> >   	platform_set_drvdata(pdev, cmn);
-> > -	if (cmn->part == PART_CMN600 && has_acpi_companion(cmn->dev)) {
-> > +	if (((cmn->part == PART_CMN600) || (cmn->part == PART_CMN700)) &&
-> > +			has_acpi_companion(cmn->dev)) {
-> >   		rootnode = arm_cmn600_acpi_probe(pdev, cmn);
-> >   	} else {
-> >   		rootnode = 0;
-> > @@ -2649,7 +2650,7 @@ MODULE_DEVICE_TABLE(of, arm_cmn_of_match);
-> >   static const struct acpi_device_id arm_cmn_acpi_match[] = {
-> >   	{ "ARMHC600", PART_CMN600 },
-> >   	{ "ARMHC650" },
-> > -	{ "ARMHC700" },
-> > +	{ "ARMHC700", PART_CMN700 },
-> >   	{}
-> >   };
-> >   MODULE_DEVICE_TABLE(acpi, arm_cmn_acpi_match);
 
