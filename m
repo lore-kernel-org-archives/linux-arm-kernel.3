@@ -4,67 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42491C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 16:25:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F359C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 16:26:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gwx1IfTKh1rDEZJZPwub8nyeYTYzilJEqxSN8ou+0bA=; b=XXXtu69uz7hrcH7vu8EKPcLgXJ
-	Xvg9liIxax0OQhSrosOC66uOgciH0jVlqUXK/4wdC2CBaoOOq8mZzePT35iRAHlBWCl4zZJRbFugk
-	Iqs1/HtUZryUEnaF8rXV3BlWIlzs5GC7jgwCb0v0vkM+X48AhvYJR2qCtR9vwU0U4kiod5B080YQp
-	v6TbBOO+Fj5soYFXhKLuyzRQOgm/eCmTH1VjVNc2DO5+GMAhoTB5YV1FHcfQdSfVGG/2Bax+Wk+sQ
-	HwPtGsRIv4mflL76/yukWFKnoqSAUGjANA6r/1bttoHc2m84hdhnrCnetTwROi/qVPM6sdQ09Tif+
-	v1WrS06Q==;
+	bh=omBAmhhC137AZmIbep4GVQID5KGL5caL+CaVGpd9kgI=; b=TUXjV7vvV2EDn8aQD+/yjSbG/3
+	vC0bEABA/Pbwxmp5beXVwQWqun9Dt2XHhOmzT4ZbygPzTmEbQpR+6DcUf1CGTvP7TJJGiz+uT/3jj
+	FXonaGO7+IYhmiTreDZYDMhSqBzRmLKp4B+fZKemr/zJM+YfUAOy22Rra42YIYfWKE3gVgMRht5zh
+	HMeCalajPUIV17n62EOnmyqSh/rGX1Xy0A0/drO8tWisuy0K+7VGlgqN8plFktqRf5apS2ggfZ8xy
+	F67bZZDhTlrJg1dqJCb9edzwWnnZ75YCINEshImEqR9U5dO/j+Nc2N/tIiO7ABQZZFP+VKSv/N5rZ
+	UB+yDGOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQPP-00000008xEX-3vcz;
-	Tue, 18 Feb 2025 16:25:19 +0000
-Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	id 1tkQQr-00000008xfK-2Ey0;
+	Tue, 18 Feb 2025 16:26:49 +0000
+Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkQId-00000008vdj-0wHo
+	id 1tkQMK-00000008wU8-1nb4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 16:18:20 +0000
-Message-ID: <7446c987-3286-4b8a-a105-96443275d4d4@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1739895496;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gwx1IfTKh1rDEZJZPwub8nyeYTYzilJEqxSN8ou+0bA=;
-	b=E/1xu/wM2vYeLhBelvWB1ep+Erfy5NmqLoD18c34a+RTGqEMMLuJWDWww4FNlWeRqTnMvU
-	FBrQAhQ35VNhqWo0A23fqx9r3saaVlbNJW68Y2I2ltIg0PFt4FQd1IhHYebD1qpHbXo9FX
-	I/qF3/bQpYDcElBYNYFJpRqvhtYWFmc=
-Date: Tue, 18 Feb 2025 11:18:12 -0500
+	Tue, 18 Feb 2025 16:22:09 +0000
+Received: from phl-compute-13.internal (phl-compute-13.phl.internal [10.202.2.53])
+	by mailfout.stl.internal (Postfix) with ESMTP id D3DD7114017D;
+	Tue, 18 Feb 2025 11:22:06 -0500 (EST)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-13.internal (MEProxy); Tue, 18 Feb 2025 11:22:07 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
+	 t=1739895726; x=1739982126; bh=omBAmhhC137AZmIbep4GVQID5KGL5caL
+	+CaVGpd9kgI=; b=FUVqeMJB8ChlxsR+VUv9GAmH6Q/cL3bz3g0BU6L7uMYtZO9s
+	ok/goazpzqbGhrvekllmd2iqOjzYve3O7zyHb6//j1anQ1Zp+/37q8aPHhhFnqBn
+	1wOkN6lenbziWm2Z6A9PvR9JZvy3j7K2sJ0QnY9dsI3WE5AO8zhd4br6qsmlYqXO
+	M8HKP92iDbpNpt7hirt/MxclF2qTRevBiXgY3Pj4wsgqtOpOj7KWjdwtCSNRpcsx
+	T1M6MuIxIwCK7MgAWWpEbItIUZa2Ku7oZr+vBKVDn5QTpSiGVvphCqilhSP8IdBy
+	1T7NeBCJViPzmp7cIena1tj519wv/tCsmdFITA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739895726; x=
+	1739982126; bh=omBAmhhC137AZmIbep4GVQID5KGL5caL+CaVGpd9kgI=; b=t
+	vubKYaCZvno9YYA7RZg/eW6r9GDBKJAc0dPYQqIEcgTvMkGT/XaWhwDYE5KzRc5Z
+	eoMS4Fk0crFD4RXvokGxSlfq/e1QrCpijbEkDEeWV5Y8UMDbjc/6JPyMPWW9LNY8
+	R0bP91c01yXaJ2Buml0GjPT8UY+tznvu5OEFAg6PA73lpNCmgN8+atKm7m3Yp62s
+	WA1+OAnU5MjK95CU9DPTMa6X5lxsF803rVqccax5lZXLwyC3EKVGuy+3Jibl29iQ
+	AjvQU/2XGEAujjXQoopVtrEblKrhXxcUNGjwsBwD6riom9CtwWrLerCbjSLjt7iy
+	6TfZ4ilxU/taVHaqCOfeQ==
+X-ME-Sender: <xms:rrO0Z0uj6d7YquOQbnm2CtIKuZSPy2j8kHVq0anzX0kAx71R4r8YMQ>
+    <xme:rrO0ZxcFSq0Boj1GpMVnF5kTbqBbJvDyhERtyBmVBcOBoIe-nhH7weSuCUtDUPdj0
+    4hvKxnC5gAkz7b2Kj4>
+X-ME-Received: <xmr:rrO0Z_wsq-MjfWdsQe8PpJkr7jkcJanLoNvwGTmxNFGWaEyn3YBnqGlmIXNJOjBgM3jLq4qxK7gfIhLPeU_XjfxMUwN20_ivBHGZLDJM8MXoMcxHjQYQwoq-vDY5HzU>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeiudejkecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfgggtgfesthekredtredt
+    jeenucfhrhhomhepufhvvghnucfrvghtvghruceoshhvvghnsehsvhgvnhhpvghtvghrrd
+    guvghvqeenucggtffrrghtthgvrhhnpeegieehffethffhffefhfehkeevleevieetfeeg
+    keehhfeifffgheehieejheeihfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdpnhgspghrtghp
+    thhtohepiedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprghlhihsshgrsehroh
+    hsvghniiifvghighdrihhopdhrtghpthhtohepshhvvghnsehsvhgvnhhpvghtvghrrdgu
+    vghvpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgtph
+    htthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggr
+    ugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnh
+    gvlhdrohhrghdprhgtphhtthhopehlihhnrgesrghsrghhihhlihhnrgdrnhgvth
+X-ME-Proxy: <xmx:rrO0Z3P7f_9ftdfTbDKZ07pUJhU2BRRsyEvywxiR-UlOefDZjdzOjw>
+    <xmx:rrO0Z08mr4m-n2fXt7xKGj_Q-x3ye6x9u61waJ0p7Ff8UtOPf06jjw>
+    <xmx:rrO0Z_XluE_J3LhlePFn3hpX0DslxVD87qOP1pa0sNUwXXIDkbvGuQ>
+    <xmx:rrO0Z9eYzfYKuIqaGXhlldOyXwKc1E9Xw2apNneoqfKtiCI4LeRQQQ>
+    <xmx:rrO0Z0xxAjaL_sI9A8NG5J3J3LMxKNzzHQxd0xqfwCdFydFGmWTWyA-b>
+Feedback-ID: i51094778:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 18 Feb 2025 11:22:04 -0500 (EST)
+From: Sven Peter <sven@svenpeter.dev>
+To: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Cc: Sven Peter <sven@svenpeter.dev>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Asahi Lina <lina@asahilina.net>
+Subject: Re: [PATCH] soc: apple: rtkit: Check & log more failures
+Date: Tue, 18 Feb 2025 17:21:55 +0100
+Message-Id: <173989559064.48099.256452329848917938.b4-ty@svenpeter.dev>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20250211-rtkit-more-logging-v1-1-93334e9c1c77@rosenzweig.io>
+References: <20250211-rtkit-more-logging-v1-1-93334e9c1c77@rosenzweig.io>
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next] net: xilinx: axienet: Implement BQL
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: "Gupta, Suraj" <Suraj.Gupta2@amd.com>,
- "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, "David S . Miller" <davem@davemloft.net>,
- Jakub Kicinski <kuba@kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, Eric Dumazet <edumazet@google.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>
-References: <20250214211252.2615573-1-sean.anderson@linux.dev>
- <BL3PR12MB6571A18DA9E284A301FF70FAC9F92@BL3PR12MB6571.namprd12.prod.outlook.com>
- <aa58373c-a4ac-4994-821b-40574e19be3d@linux.dev>
- <da67b82c-1068-41c8-93d6-df0e7b009e4a@lunn.ch>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-In-Reply-To: <da67b82c-1068-41c8-93d6-df0e7b009e4a@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_081819_472000_D16F6A2B 
-X-CRM114-Status: UNSURE (   8.69  )
+X-CRM114-CacheID: sfid-20250218_082208_538168_44FAD8A6 
+X-CRM114-Status: UNSURE (   6.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,17 +116,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/18/25 11:16, Andrew Lunn wrote:
->> > Could you please check if BQL can be implemented for DMAengine flow?
->> 
->> I can have a look, but TBH I do not test the dma engine configuration since it is
->> so much slower.
+
+On Tue, 11 Feb 2025 12:59:44 -0500, Alyssa Rosenzweig wrote:
+> Check and log the following failures:
 > 
-> It might actually benefit more from BQL if it is slower?
+> * regular messages
+> * management messages
+> * failed buffer requests
+> 
+> This helps debugging.
+> 
+> [...]
 
-Actually, it will benefit less. The hardware is the same, so the
-slowdown is entirely due to extra CPU overhead. From the CPU's
-perspective, the queues actually drain faster than normal.
+Applied, thanks!
 
---Sean
+[1/1] soc: apple: rtkit: Check & log more failures
+      commit: ca0272d8638a4c50ecc2c63719f81e022d3450f1
+
+Best regards,
+-- 
+Sven Peter <sven@svenpeter.dev>
 
