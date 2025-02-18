@@ -4,75 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FE0C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 21:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50106C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 21:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G4hKne9IRQO6EzSNU8aUUBRHAuvSrJt2vOW6NdUcWG4=; b=cz0O/Zn+FEROwmS9B/EvCnVQ0S
-	Pa9sKr1hHFMzSdPFBG/xqJrqgRNwp+HTqZyxpfo5h2vYaTuPm0Q0eR3loi4sjKGFfdDW86TUJGmtx
-	aigbQtC9ENL7AeWRIUa9459/tymDpxwspdQ1rUHlj/RtV4CiDyinedzwl0F5GTMKJP67Yd68G82mI
-	li7dp0LkxrAo4+bD8V1S9MeJ/+v0QLfbker94k4/ZRFbE8Q426YcjdcS4dmyd9uxEerAC5md1uBce
-	uA0/3TVioshvEjQtymo1Fn8dmsu7JWmy7+hrUk33cJz19VNp7IUnHg5l2U532WOEAlVKx/Trz8kof
-	LlhGwy/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mIW3Tj0XdfJSfKxjiYcsy2cS5srx8ZXffTdS0QjWZns=; b=DHUK+17jCnx0M0
+	zw4i01uYa6vFurtynWzctEuVYRaf4SAib/EuYgY2lfidHyEw52uu7fGHSuPjJ3PfX7BWzadhw1ZE1
+	swNjF/EPCORZDOM/qCtTZdAJw7dZ41+OfiUMYIcUFIOd6MYE3TrBYLCXm6VstqF/L6RxFF7cEWLDQ
+	V0qYQRepnSgkSE+3YjWu0JKdKOougQwH0/dBoih8A9IQMkJW4gMWsSMJ+Kvb6GBwqJNPEeImbJrXA
+	mFb9an4e6mdaEVgrzbEjnIPqw1XsP/YcobVsED/XSk+4ZXPRnVGyuoT3IG0Kzke8zy5ennyjbk6ZZ
+	xk9Nbr+JWE4Cp3k6I7Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkVKd-0000000A2QZ-1pj6;
-	Tue, 18 Feb 2025 21:40:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tkVL1-0000000A2Vy-05wz;
+	Tue, 18 Feb 2025 21:41:07 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkVAZ-00000009zyk-3jeN
+	id 1tkTIg-00000009a08-44Zm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 18 Feb 2025 21:30:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 57880A41BF3;
-	Tue, 18 Feb 2025 21:28:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D7B3C4CEE2;
-	Tue, 18 Feb 2025 21:30:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739914218;
-	bh=iugNd5aqwShQWPWcFsJiWz/STHgr3PfIz7/YAOGm5qc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Ynb5WF9Hiq1Ft0QF/6eM+Ek0mJRXnUxpfU2cINsFQTfyesCyOxJh652LXYTeFB4u/
-	 f0wwseXMxCStQQWq2pa7HE03YSGIf2REOIJd4NnoNKOlyilv+0d9FOCdvYOpzH9a01
-	 uo9HructJnsihzc2zJ23spLe+DnwP4I5U1K7TuzQ17k3H4Cokw3RZ+2cbfqz5QJzkQ
-	 BViO8R9kbblsN9uShQPcVhrtN+sEGMj5dV9++RpN0euWY0qBEJ9cMP4VIjQq7Ls4Lx
-	 URbgHg+suF0U301Oq0UAEnne4I3y3qGyQaCa60xxnAYerbd8apQk/J3IxS6+UitglQ
-	 IX5jbNM3bihPA==
-From: Mark Brown <broonie@kernel.org>
-To: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>, 
- Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, 
- Peter Ujfalusi <peter.ujfalusi@linux.intel.com>, 
- Bard Liao <yung-chuan.liao@linux.intel.com>, 
- Ranjani Sridharan <ranjani.sridharan@linux.intel.com>, 
- Daniel Baluta <daniel.baluta@nxp.com>, 
- Kai Vehmanen <kai.vehmanen@linux.intel.com>, 
- Pierre-Louis Bossart <pierre-louis.bossart@linux.dev>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
- sound-open-firmware@alsa-project.org, linux-sound@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <68973636-eab8-4d82-8359-ae2c8f60f261@stanley.mountain>
-References: <cover.1739435600.git.dan.carpenter@linaro.org>
- <68973636-eab8-4d82-8359-ae2c8f60f261@stanley.mountain>
-Subject: Re: [PATCH 1/2] ASoC: SOF: imx: Fix an IS_ERR() vs NULL bug in
- imx_parse_ioremap_memory()
-Message-Id: <173991421399.1713371.18034640725263597167.b4-ty@kernel.org>
-Date: Tue, 18 Feb 2025 21:30:13 +0000
+	Tue, 18 Feb 2025 19:30:38 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5dedd4782c6so8514051a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 11:30:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1739907033; x=1740511833; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=mIW3Tj0XdfJSfKxjiYcsy2cS5srx8ZXffTdS0QjWZns=;
+        b=gMBk2uU98Mhyk4MYJXQvDTlgO431bhH99LvAoXG4tnDKLou7jw7GA2sRLmdkL16KF9
+         kz1y691wjtm1lRbFzsXqeii5h4onOxhv65shSoG9dfO+PvAvqrpJqWOF+uwk92cFPkiy
+         t80Byj/A8/USxUot5+QHba3H/jmPIegQ9DqP/QM2GMkP7hcKSy3KNn/HSbIzIrPKvllj
+         1EnK/1kWIaqVMi4K3zqUfqO6/KJE64NxPCnxC4SQYIuPaRh26+0EIM9G0eJx0dbCebe4
+         uD7mGasylRTJsOsk+R2SqnpRRzs4EGcC+80KcxA8BjR0lZ8JLHz5NVtS9cfpwO7PlsMG
+         cXpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739907033; x=1740511833;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mIW3Tj0XdfJSfKxjiYcsy2cS5srx8ZXffTdS0QjWZns=;
+        b=LFjR1qMfZwMrA+MoLrr3A75Bj3P6yNIQLhC72sKqkKdNHS/u54BXfHxx64zaEy5VeV
+         dj6vGz0fK+umos+lbACSr6F8QB8ONpRtCnMx3+2f6rdYiZuHxjDOhTx3xZNzDr9fulse
+         nFAsnTaLiDtVIpx7r3jfmpKBvwoA7LqxXx5PnKzHsT35VjmUr6G0/8SZ/5ROxI8vY0HU
+         TElOVqQFSOa/0yQ+7eMW7Oer9s20yAXQc0rJHuYsndkxdRag994XAlT8t6/z/fNCUThk
+         1cpke7MBE+NHEiaXv1D1lG4ZnikgUxujvIVyE8QSOSBGgAJcH3dLN3h6xMQo5sa1E0m6
+         Wiqg==
+X-Forwarded-Encrypted: i=1; AJvYcCWffRBM2GJy9ImMx8OU3oM0/cWISbLXOpNp0AQXy+IIqvJqdwmbxvYeVKwoOgOf2lbMztIvQhd9nXAlhE1uUO7D@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFUlBppA/LboYG0FmAZC/y4llJxV1wHI/6kkKJhy0jk0UDQtH3
+	kX8I/Vpc2dpRqRXLa+f6TLGICwT73w1fSDEupij3XW/Nk9HlVCjy38szE3AaxNI=
+X-Gm-Gg: ASbGnct4nc8a8+o2R65UCOjczbtxNh4c7/ue+oR5KOzGHW+K83kfNjK2gAHimcB7ME/
+	kJjI9fn88i+m7HIkkL4EsoiZjJNjNktcmQRfYbKzF5d2TqyTPy3Xg7eR90pIPmjQWz34DWtVbgL
+	PkaINDzhlIDvms1Ro86J7SG7SxhevX/hzdUXhlfzlt0xCFx5iPzFjbgkIWFssJKh0kjkxhBhxGu
+	IQ8DfUtIXa06rs5bwyc9D5FVnjok1uHKUuR+XKVZ5ZUyiTNNfx7r0YU3YwyUSoVXPMHwoeUxjHa
+	idMPDmugAn6yLK8/9zlhUbmwY9gD
+X-Google-Smtp-Source: AGHT+IEsUkQkmLnMxncHVAOTmPsKmvVPSTaQR78ji9vJrVN7d833EMl3VWJfxC45bU7tBdks7OZrJg==
+X-Received: by 2002:a05:6402:51d4:b0:5e0:51a9:d410 with SMTP id 4fb4d7f45d1cf-5e051a9d59cmr11065896a12.25.1739907032830;
+        Tue, 18 Feb 2025 11:30:32 -0800 (PST)
+Received: from toaster.baylibre.com ([2a01:e0a:3c5:5fb1:cbaf:af0:839d:fb4a])
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1c3ce5sm9338985a12.17.2025.02.18.11.30.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Feb 2025 11:30:32 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+Subject: [PATCH v4 0/8] driver core: auxiliary bus: add device creation
+ helper
+Date: Tue, 18 Feb 2025 20:29:45 +0100
+Message-Id: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-42535
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAKnftGcC/42NQQ6CMBBFr0Jm7RimLbG48h6GRSmDNEEgUyQQw
+ t2tnMDl+/n//R0iS+AI92wH4SXEMA4JzCUD37nhxRiaxKByZUhRju6zYpOKntELu5mx435iwVK
+ ToUIZLpSGNJ+E27Ce6meVuAtxHmU7nxb6pX9IF0LCwtpbaxpb6tw+arf1oRa++vEN1XEcXzgI+
+ /LDAAAA
+X-Change-ID: 20241210-aux-device-create-helper-93141524e523
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Dave Ertman <david.m.ertman@intel.com>, Ira Weiny <ira.weiny@intel.com>, 
+ "Rafael J. Wysocki" <rafael@kernel.org>, Stephen Boyd <sboyd@kernel.org>, 
+ Arnd Bergmann <arnd@arndb.de>, Danilo Krummrich <dakr@kernel.org>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Daire McNamara <daire.mcnamara@microchip.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Douglas Anderson <dianders@chromium.org>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Hans de Goede <hdegoede@redhat.com>, 
+ =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ dri-devel@lists.freedesktop.org, platform-driver-x86@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3639; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=5jr0njrsEqh+gx0/hryuSdGRgOG6j3FS8QheXHGTwG0=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBntN/OWNreQDN/vUjV7hrjtf9acN+LfunziKrQQ
+ 0+55m0edLGJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCZ7TfzgAKCRDm/A8cN/La
+ hRMsD/9ziamapLyta7b2bnUpuc3WwKbKpFZ9GL/J7nw2y3cw/h5jQBYbDSF9JrRSKgzBbfv6Sey
+ QRNn8YHjpUuiMQoo8wdF8JQAlfzz2s0Us6Or+rdpDD/QESOXyHDqj4MUG6FTXYd6FP3XToJ42vi
+ o298p/RQJt7nZk755yQCNu+oz2gqK2ZaQnsfxtwRPjODRR7EFCDtt6GzOIQ6gMys62o6Mk/PRs+
+ l1rKan/fK30ltLDStso25MaxLWBWV+npLFI35BMTlhMEwG+JTun3VMmjlWz9kiBjMqGBx2qiste
+ CCASomjcV/H2nDkNLAKwD/UefscVOHz9VIb3RNV4bBZIaCNqPYvjtZw8poWesaxupOoNpkApV1I
+ iuOjXT0pkOdE3AtkaBQ/6cVd15in+oW9zqTzplE86661VuagqxrOQ+l8pbmbmk0R89TtIXS6KLO
+ hLZG6xJCG94i6UMTAU0hCmZlQU/CW22okUfGUHjgTYK6ptzPX+PDffsa4fBWg7IHfxtdZ2bKtln
+ RgJlvATKPKlyz7ds7JlS5NJM9MAPT8rPBlDL08q9TxYGO1jW1mxv3I14XfLQ7XXv+yTGVoSNwA0
+ XUgHQc8fDO8z2hMMyQDJqxbCfvG5BaZ42qT2FGwEEHgMmmQe7i0RN0x7Le1Ppt/hMQ35Cpsysif
+ vfaUCrYJTwsPKFQ==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_133019_997339_E49B67C7 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250218_113035_122193_E4AFF723 
+X-CRM114-Status: GOOD (  17.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,40 +146,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Feb 2025 10:32:44 +0300, Dan Carpenter wrote:
-> The devm_ioremap() function doesn't return error pointers, it returns
-> NULL on error.  Update the checking to match.
-> 
-> 
+The suggestion for this change was initially discussed here: [1]
 
-Applied to
+This patchset adds and use a helper to create a simple auxiliary device.
+The goal is to remove boilerplate code that tends to get repeated for
+simple cases.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+Only the last change was tested on actual HW. The other usage of the helper
+have only been compile tested with x64_64 allmodconfig. There are many other
+simple cases of auxiliary device creation but those tend to use the
+'container_of' trick to allocate the auxiliary device. It is possible to
+convert these drivers to use the provided helper but the conversion is
+slightly more complex.
 
-Thanks!
+NOTE: This series is based on -rc1. Only the first change is meant to
+applied. The reset will likely wait for the helper to land in mainline.
+Rebase on the corresponding subsystem will be done when/if necessary.
 
-[1/2] ASoC: SOF: imx: Fix an IS_ERR() vs NULL bug in imx_parse_ioremap_memory()
-      commit: b20be2c77ce5341ded1a2d8aec119f6dca8ef1ad
-[2/2] ASoC: SOF: imx: Fix error code in probe()
-      commit: a78f244a9150da0878a37a1b59fb0608b1ccfb9d
+[1]: https://lore.kernel.org/linux-clk/df0a53ee859e450d84e81547099f5f36.sboyd@kernel.org
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+Changes in v4:
+- Added eyeq reset patch from Theo (Thanks)
+- Changed returned value to 'valid or NULL'. Consumers should return
+  -ENODEV if translation to int is necessary.
+- Export the non-managed function helpers
+- Default id to 0 for the simpler devm_auxiliary_device_create() as
+  suggested by Conor
+- Fix clk-imx8mp-audiomix config problem reported by Ira
+- Rebased on drm-next for ti-sn65dsi86
+- Link to v3: https://lore.kernel.org/r/20250211-aux-device-create-helper-v3-0-7edb50524909@baylibre.com
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+Changes in v3:
+- Implement Ira's suggestion to use KBUILD_MODNAME by default, same as
+  auxiliary_driver_register()
+- Link to v2: https://lore.kernel.org/r/20250206-aux-device-create-helper-v2-0-fa6a0f326527@baylibre.com
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+Changes in v2:
+- Add usage examples, as requested.
+- Add 'id' as function parameter:  Adding the example usage showed that
+  handling IDA allocation was not appropriate and making the usage more
+  complex for simple use case.
+- Also add 'modname' as parameter: Most driver have been using
+  KBUILD_MODNAME and this actually rarely align with the driver name.
+- Link to v1: https://lore.kernel.org/r/20241210-aux-device-create-helper-v1-1-5887f4d89308@baylibre.com
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+Jerome Brunet (7):
+      driver core: auxiliary bus: add device creation helpers
+      reset: mpfs: use the auxiliary device creation
+      drm/bridge: ti-sn65dsi86: use the auxiliary device
+      platform: arm64: lenovo-yoga-c630: use the auxiliary device creation helper
+      clk: eyeq: use the auxiliary device creation helper
+      clk: clk-imx8mp-audiomix: use the auxiliary device creation helper
+      clk: amlogic: axg-audio: use the auxiliary reset driver - take 2
 
-Thanks,
-Mark
+Théo Lebrun (1):
+      reset: eyeq: drop device_set_of_node_from_dev() done by parent
+
+ drivers/base/auxiliary.c                  | 108 ++++++++++++++++++++++++++++
+ drivers/clk/clk-eyeq.c                    |  57 ++++-----------
+ drivers/clk/imx/clk-imx8mp-audiomix.c     |  49 +++----------
+ drivers/clk/meson/Kconfig                 |   2 +-
+ drivers/clk/meson/axg-audio.c             | 114 ++++--------------------------
+ drivers/gpu/drm/bridge/ti-sn65dsi86.c     |  49 ++-----------
+ drivers/platform/arm64/lenovo-yoga-c630.c |  40 +----------
+ drivers/reset/reset-eyeq.c                |  13 +---
+ drivers/reset/reset-mpfs.c                |  56 ++-------------
+ include/linux/auxiliary_bus.h             |  17 +++++
+ 10 files changed, 176 insertions(+), 329 deletions(-)
+---
+base-commit: 0ed1356af8f629ae807963b7db4e501e3b580bc2
+change-id: 20241210-aux-device-create-helper-93141524e523
+
+Best regards,
+-- 
+Jerome
 
 
