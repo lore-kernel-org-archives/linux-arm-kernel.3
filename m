@@ -4,216 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63CA1C02198
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:30:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38818C021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 11:31:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
 	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6+2DdJxMvfzICHli/7eT4dw4uuMoakB6TaUQ43EYK7A=; b=ns3VFI7BC2nA3TngFmqA47WXRA
-	reaneeguV17uAF68ls6freGwy6bQFDBQ2/tEII8v3Zulie0S9ielszE+7oivhpqWYr6f9HCnzPZg0
-	MnwIxDy4P4Z0r1/fEHVphtm+QQuq8UEq+aVMSAjLnsv8ipEisC3XQvkyaFIimOdPmxIXh6anHMALF
-	xMasNRyXzDKGMYx2mFiTcHnDzebZEaGyafANOwr2VGsXz28MNC5JltywLiELfyk4De5rqRTeIciOO
-	FbQTTeQULDB/KCoCyqznlmAZrw4e53oePiflBH73YsLvKUT7MpzdSErX9kGJqZagGcnuR/BLRR4u7
-	yYumx0CQ==;
+	bh=GTDk8bCKNwh3ddNA4q5rvPFoDnOSbLGiIfQ+3VuSKEM=; b=GJyVH3ccmcR0S/08Pm7RtFLobI
+	EiVN1G0wFfng7+YWyIsLlibEzMUcllMNIgzt4ua1hQUjM77zP9wwI9vE4uJFVewNKZyMJBSM3EEmM
+	TDMAnabIaXy6zt7lKK40Aodr1SFg01M2dGJBMtcURhfnxkqEfcew5BV1jzGgdpYTzeyTlcIRQqPjb
+	9XjxuVOxra7rb9B9f466fvg4eg7TzLoPPnenMiBGp9TOyPg/KbHRa7Fxeg/rZ70C5nsUtgxxMjTuM
+	ZOwOduWY1ILSSC2Bo507HnZ457G9Q5ljt/CUrYB1fIE09XWTvzpwy40gIptxW06wJexvic1MShDli
+	BV1EZO6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLnT-00000007xkk-0COt;
-	Tue, 18 Feb 2025 11:29:51 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1tkLov-00000007yCc-0YDH;
+	Tue, 18 Feb 2025 11:31:21 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkLcW-00000007vB0-1Jvr;
-	Tue, 18 Feb 2025 11:18:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1739877512; x=1771413512;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=Nv9j/jhlIBYKZvAExZqDu9hD20cq5wfUhm7Z97lJI8Y=;
-  b=GiuQZ7/S9qJndm+Zy0SZ9uaF5ic9PZx17zjfmD3VWkuNT7JP5L1itkSN
-   e7pjdQZwcTp/7b8jVRFmCtc2hoFF+zNSZDjPRIz9UJhLBPh1ui01uoFMQ
-   rhtYYp5yX6hL38uJMZJ1NHmZj6xxsI/N9VQTAspnrQr06I1LFaTbNxDQ1
-   5ruLCXH2ZIR3mQp8K11bNXZn7iab+Cae0fo1moNoFptfNi0O389YDg9e6
-   t/VVLtK2gwGPWFf+d5p/qGsjK+C/iGMwBtDcOFA9OD/NNhsR7ksIn5nTI
-   o2t7pYNHdEwZooTcpvySLUtV6YJf/q66rV+HBG+6aplFYCBTygpVmQ1uE
-   w==;
-X-CSE-ConnectionGUID: qjvLfZF+TqmIaqbQADsERw==
-X-CSE-MsgGUID: Vxa73CxTQE6m1tndQhNuww==
-X-IronPort-AV: E=McAfee;i="6700,10204,11348"; a="40821916"
-X-IronPort-AV: E=Sophos;i="6.13,295,1732608000"; 
-   d="scan'208";a="40821916"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2025 03:18:31 -0800
-X-CSE-ConnectionGUID: MwZmx/osScKWIFwxo46zbw==
-X-CSE-MsgGUID: 5zc0tmB8RDeSuWoSPdd4cA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,295,1732608000"; 
-   d="scan'208";a="119353870"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Feb 2025 03:18:31 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 18 Feb 2025 03:18:29 -0800
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Tue, 18 Feb 2025 03:18:29 -0800
-Received: from NAM12-DM6-obe.outbound.protection.outlook.com (104.47.59.168)
- by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Tue, 18 Feb 2025 03:18:29 -0800
+	id 1tkLiZ-00000007wg9-2rXh;
+	Tue, 18 Feb 2025 11:24:49 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Gg596YtmIVjqNHJFzBuAIA+zIzUZY3I1cpyRCbBoP2MUgPJll3itf/20A5If1PWjQd0UwoMjWP74nQ9SYPa6LuT7MbXg+tFhi13eczH4Rdl3/NkqDcWqxaDnc78LqRNO3XGMRM7P51DdCCiMwn0NYBxXLbRnpVDJiFgqZZwpLM5rhDg0AVC9s3kyqCeibpJVOIaQnGhXa+e2KAPt3TJaEPwPZM9ldlYpvHPmDlbkZOl/zKPPHprvMdbfYpmF/c3i3XXYbGmOyuzSVLW000OfSIyPeFQ0K2zBwv/GITlWdtqXBLFhwK3V8Cldk71cBdiP1DY/TyU2jOr4yfAAKBJZOw==
+ b=fdOfiDm9IkyfihSYQ3O9+mNHaoAV7ID4lcj6TGNNYevVLAVY9hi+5eW2qrLOE4LFYyFtjxYMlXd40ATXhxwv4C/Fi8+FoBrEKvfsz3WCwRauUBzIDwaMvuaq7SHW/NkdvmtCJ3Xmi5LtsDPBd3CkY7PST1gm1/oWL/uP6rA2vkBqojffHGljafw4w40NwrqGFygQA3Q8Jd0/0M95sOKpjB4IbMcbWO9DQUqkIKgMmFSP5Sr3t8L6UWVjqBCxFtq1Z8ASkIfHcQf1s0fWjuRyBjPFibJ4g18DAjoyHc6XyGxWrxkcnn1hr437PlNdlSOVMMRnhq2NsqYYDv/Of9wdmw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6+2DdJxMvfzICHli/7eT4dw4uuMoakB6TaUQ43EYK7A=;
- b=oYiSh7a58zWVkb/THnUB7Ay1PzU7DlSs83RHouHRwl0YXWh/WhkbnG9d8IEz/Yya9wgy9QUiyKjeAxr5B3CcfPIr/p+lxJtPzcoDopjfeytgLuSKkaT7yaEQjakM5TeU8hnb46J6Pbg/voVJoU0HMneuxjGoZKaxBVCABNvsIBgCJf8cHD/XBBNVTSeHcNr1NwPljSp+cNsmcPUCjhtwHGb4BC+vFfAjEoXIIBR1oRGH3iKc1LTkJVusoZ+yRnDIJPVz/a090eoAhzLlwQmXh0SHssNjI41WDy8Ql7PJ8UNMjwqnnOCn8I8SjNaR0294/LlRBZFAXVJKPlmUdHgvJw==
+ bh=GTDk8bCKNwh3ddNA4q5rvPFoDnOSbLGiIfQ+3VuSKEM=;
+ b=rfHh27qfhAv6d4OBzDAKA/jIXAMXlhvDIulrOEB+GG+QyFPAvWoLWljIJS0SYg90/e0yd9IrJvbTKE9xigmMQ7luQe1Kw9ZWErM8VrYPhcCfUZZRCIx9hCHOvmvBa3Q+cQEHArld8tSaMUBsqJ4ZJsBAcdieM3iDY/VqTxNsxu2aQzmb1uSaRhA06+/xoZh2HuVBnSBotyi4b40GK7i7EqRQl8OEghhHKz911lw324wC3PcAaKHi+xyDVmDku0gkq6MTiSX9+pDwZxua0792p53W6k5T4HDj8u2/RQCFV76cYWU+FkXLarE2PyLKkTXIpbfjSFE8hfDUn4Vh3mUFyw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GTDk8bCKNwh3ddNA4q5rvPFoDnOSbLGiIfQ+3VuSKEM=;
+ b=RGKyiD8iw29a5W0f/pcCqpzqHQVnX3CC3Rpe2RXFcuMCjNN+oR3OAo9DEmgTVO1qWols52BPb6g9ydAvbQSypJmlOxH4o1ZsBX/Z+BpqtnfeqWL+RA+syAm6NE0oAybB9u6FkJIb7XBo+yVFb5dq1SfOvs9f3Bhv6khnz8SSPWI=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from PH8PR11MB6682.namprd11.prod.outlook.com (2603:10b6:510:1c5::7)
- by SA3PR11MB8075.namprd11.prod.outlook.com (2603:10b6:806:303::19) with
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
+ by DB8PR04MB7115.eurprd04.prod.outlook.com (2603:10a6:10:128::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Tue, 18 Feb
- 2025 11:17:47 +0000
-Received: from PH8PR11MB6682.namprd11.prod.outlook.com
- ([fe80::cfa7:43ed:66:fd51]) by PH8PR11MB6682.namprd11.prod.outlook.com
- ([fe80::cfa7:43ed:66:fd51%4]) with mapi id 15.20.8422.015; Tue, 18 Feb 2025
- 11:17:46 +0000
-Message-ID: <ce9f7693-355a-4049-98a8-b8bd25b4d3e1@intel.com>
-Date: Tue, 18 Feb 2025 12:17:35 +0100
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Tue, 18 Feb
+ 2025 11:24:39 +0000
+Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
+ ([fe80::35f6:bc7d:633:369a%6]) with mapi id 15.20.8445.016; Tue, 18 Feb 2025
+ 11:24:39 +0000
+Message-ID: <6cac5ab1-0b76-4f28-b8e1-72760464b3d1@cherry.de>
+Date: Tue, 18 Feb 2025 12:24:38 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/3] net: stmmac: clarify priv->pause and pause
- module parameter
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	<netdev@vger.kernel.org>
-CC: Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@csie.org>, "David S. Miller"
-	<davem@davemloft.net>, Drew Fustini <drew@pdp7.com>, Emil Renner Berthing
-	<kernel@esmil.dk>, Eric Dumazet <edumazet@google.com>, Fabio Estevam
-	<festevam@gmail.com>, Fu Wei <wefu@redhat.com>, Guo Ren <guoren@kernel.org>,
-	<imx@lists.linux.dev>, Jakub Kicinski <kuba@kernel.org>, Jan Petrous
-	<jan.petrous@oss.nxp.com>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Jerome
- Brunet" <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
-	<linux-amlogic@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-arm-msm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>, <linux-sunxi@lists.linux.dev>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Minda Chen <minda.chen@starfivetech.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, Nobuhiro Iwamatsu
-	<nobuhiro1.iwamatsu@toshiba.co.jp>, NXP S32 Linux Team <s32@nxp.com>, "Paolo
- Abeni" <pabeni@redhat.com>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Samuel Holland <samuel@sholland.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, Vinod Koul <vkoul@kernel.org>
-References: <Z7Rf2daOaf778TOg@shell.armlinux.org.uk>
- <E1tkKmD-004ObA-9K@rmk-PC.armlinux.org.uk>
-Content-Language: pl
-From: Mateusz Polchlopek <mateusz.polchlopek@intel.com>
-Organization: Intel
-In-Reply-To: <E1tkKmD-004ObA-9K@rmk-PC.armlinux.org.uk>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH] arm64: dts: rockchip: add usb typec host support to
+ rk3588-jaguar
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20250213163013.1616467-1-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20250213163013.1616467-1-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VI1PR0902CA0028.eurprd09.prod.outlook.com
- (2603:10a6:802:1::17) To PH8PR11MB6682.namprd11.prod.outlook.com
- (2603:10b6:510:1c5::7)
+X-ClientProxiedBy: FR0P281CA0148.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:96::9) To AS8PR04MB8897.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42c::20)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH8PR11MB6682:EE_|SA3PR11MB8075:EE_
-X-MS-Office365-Filtering-Correlation-Id: fa304af4-58cb-46c9-6357-08dd500ddf16
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|DB8PR04MB7115:EE_
+X-MS-Office365-Filtering-Correlation-Id: f240a84e-b818-41e8-c911-08dd500ed531
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V09GRWlkNkZzMHo5ck5MNWE3Y0VNTzgvcjg3WDlXUUZBMXJuM1EycUxIeHJx?=
- =?utf-8?B?TU5aQlJPYms1S1BlRWhtUHRZUURkekRXcFVJWFVucVVUZGFXQlp3ZGw3bTlp?=
- =?utf-8?B?YmU1R2xDc2RmQ3hLT3RhamdBczFDZWVyZVp6aWtta0YwNmZ6ZjRCcGlLQ3VU?=
- =?utf-8?B?bHdHTXZOSmhuZXY3QWRXQk1Vc2Y2a1h6WnFIWWtCL2dkZHR5QnVIRzRSZTJo?=
- =?utf-8?B?MEZCU2tpR0tzeXlVRmQzSTViVUxXRS95YmNXMTV5YWdoZytOYW5tNVpjWng4?=
- =?utf-8?B?eWFBdG13eVA2VDhidmMvREEwcDR5QjU2V2M3bDNmcHV2YlU4WWRLRVZQM0Y0?=
- =?utf-8?B?eGg1SDBrVGNlUGJ6WU5XNk0raVNNVS9qRHQ0T0I3ZXZwNVdIWkc4KzFyZzd1?=
- =?utf-8?B?WU5JQlZsZEFGSFlQUHFlNjhBbWFXZlcrL3hVdzY3VW1lSUFXck82WkdDQnJl?=
- =?utf-8?B?RzlkZTdjMGg4TndrMExpQzZKUGhkSEVKRE5RTjROZ3VkREg1UXh1UmNiUGRt?=
- =?utf-8?B?R0Y2eUZMKzhNSVN1dHdBczBpbngvTDZTWURrdXhNdWx2NWZUbGsxSVlZcWpa?=
- =?utf-8?B?d0MxMDZHbnlhV0xLTExvY1pUbGZzUkpFdUJmeHpVM3VXN1F5b1RZaytlZ1lz?=
- =?utf-8?B?ZWJ5a3RiNk1RbmlmaWhQaWxXWm9wNnpaSTdDa1pzOTlkRnF6VWxoOFl1RHZB?=
- =?utf-8?B?Ly9ub1pFbWpqMzhhYkdQcTJSZDhpYmJhWTRrWm51Z0U0UnFpVXdxZmRZNHkx?=
- =?utf-8?B?VFpoSk5nT1ZaaXNaTXo0RjlZT3VOM3d0VExUUE9JTkxwNlZHMXE4V3d0SGpo?=
- =?utf-8?B?UWUwTUxJNWpLWDVZZkljRXRQZlpRSElvNVRycmdLVmxvTy9iTUxlbWUyYTVm?=
- =?utf-8?B?ZUdHU28yR3o3dXMweXVWeG1IUC9yaFVYRWc4T2dqclplTm1nVWEzWjhoUzFU?=
- =?utf-8?B?VVg5TDhxQjRLajBTSWoraXFaYjdLRUkrUXIyOHNMUHArYW95d1lNVWM2M29z?=
- =?utf-8?B?UE1pYmNiVHdTTGNsZTFJUUFxWktkY0pCeGNYbU40L0RLSVN1bERucHlOYmoy?=
- =?utf-8?B?UVhpUkR3cmcyR3NRbFZLYVRKV2kzRVF1aTRTeUljN0tMeGtJUFRvZXVDbmVu?=
- =?utf-8?B?a1k5em5Vdk1LS0Z1Z1NLWUIrV05lKzBZMVZYWGlXMGNZU3BaaEpRVEZFWjNu?=
- =?utf-8?B?WjV5YW90aHlhSzBZL25DRVRUUGhaSFllb2VKOTgyQldmZmo0VnNjTmRrdW1B?=
- =?utf-8?B?eWlBRGxTa29YRitvZUtUeTEzV2paSGd4cFQ0RXdlampyMVFJR3dQd1FzRlRB?=
- =?utf-8?B?N0ZibU1FUk9VRndTeVhBWmJTNHhNVC9wZzFaSE1KQ2lOQklGMXNYUHhmWW9h?=
- =?utf-8?B?aWw1alMrWm5qV2RhRFBiSXlqNkgrUzFVUGRDWUFKcGtvUk5KaDl3TElZNUlX?=
- =?utf-8?B?M2lzamRRaUhrNEF0c1F2RHo4cXQ0YXVBVERZVkx3T2dIREFLQytZUC9vMjlq?=
- =?utf-8?B?QzR4TklETDN0OHdKQ2Mwd21GdkxhcWlJbG5XUFBUTEtxc2JIeUg2Wlp1Q1l0?=
- =?utf-8?B?bXoyay9QNUFiMlpqeFJKazU1TU5zcUY4ZkVDbTZUTnFiV1VBTng0WFFNWTFa?=
- =?utf-8?B?TDhGd1JjS0c4SmpHcWUwZnY3aWdjWTI5UkVHSWVtSWYwVnpuSDNxSmNzaDd6?=
- =?utf-8?B?QnFCdDZnSzZkUm1IcW9zWXYrVjFhYmtIYzZDL2l6VGswZTJyZ0pTL00vVTRL?=
- =?utf-8?B?Q0d3cVFHMVd0U1AyZGNYbHFpd0Z3RllIZVNvK0p4d3FONGVkSzRES25rSW9R?=
- =?utf-8?B?cTlaNE9TQkFnVlB1NERlUjQzaWloWGVIcitUeGYvZkxHQlZrUzA3MzgxTkJZ?=
- =?utf-8?Q?AQOJkkoDHI1dO?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB6682.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MUhZbUxyTjhMbEl4SkI4Zm5IYkRxQThYeHhzQjY1ZkIrWnpnVXBMVytCM0Vw?=
+ =?utf-8?B?Y0lCcmNId0FUaE9MZWh5YXNMWUJYMTRtOU9RVmd2TnhFd1REZTgrVWtYcEYr?=
+ =?utf-8?B?Zzkyem1SY0RBWHJSOU9GaTY0VDc5N0RtSUc0OWplVDJqRHVoVEpHeUdKUUZi?=
+ =?utf-8?B?elJwbTEwOWpiUGJXQ2xWMjNqZE9jMmdlaWdlV3p2ak40bVAzMkk5MnhHWVlp?=
+ =?utf-8?B?bVBSb1BLNmpEYVJaRVM1RUxtK0tDRDN6VXhiUXpkYVFDNEJZdkRma09Kc0NJ?=
+ =?utf-8?B?Wk9iNks4SjhWQ0VPSTVuRXQ0M3dWR3ZraW93Slg1MjhURGMxT1ZiZHdpYjN2?=
+ =?utf-8?B?VjZTV0xWY1VCTjVRbzJqYnhraWV4dWxWb21TeUpRSjZ0cXJURGhHQWRUQjVj?=
+ =?utf-8?B?dFF1VmRwNHFKOUlFQzhvVnZucEQ2ZzZ3MVpiYWYxV2QwSFBWWDNTUThXbkRk?=
+ =?utf-8?B?RzRxQU5tdXN0KzV1VXZyV2RXT3BCTlhFSVplV1hNam5xNlpQTEFGNE1uQVBH?=
+ =?utf-8?B?SG9LZ1IvUzk2Q3NVOFI0Q2d5RFg0TFlkcFUxcnBvRHVKcmZpQWdmZEkyVlJj?=
+ =?utf-8?B?RHo5RU5DVzU4dG13cFhKN2daZHJKRU9SNTJPSWVlUWw3cEtaQVNHY2FZQ0Nq?=
+ =?utf-8?B?cGQ4anhNTlJSd0VmbURYdGU1OURYWHFEd1hwRzJDazJSaHRWbk0vNk85a29q?=
+ =?utf-8?B?Qmd4aFVrdzBzWHRwM09SOGVzZ1BzTDdEVGhWSzV5dE8rYlFKYlkwZnpQUFZq?=
+ =?utf-8?B?Q0RyZVRYQm1WaW55bnpIUWxyMUJ6a1VIZlhjeTVDdEZHZXhxcmZsTldqK28x?=
+ =?utf-8?B?aThXUHl0TmdqZ2g4VHZva01oVHNxMHI2M3ZBQlBXZFhqZ3B2RXJwWEJlUHps?=
+ =?utf-8?B?eXlsMXRpalRRS3NTSXBRWmxQTmRlUFBoRUZzYkVkYzRGM1BzY3hmWUxoY1ZF?=
+ =?utf-8?B?djFaUUc0SUxzUUs2d0JUaTJOWlJwQmcxdTR6b3dsNU5ZNkVCQ0MrQWthdnFO?=
+ =?utf-8?B?QUtXa1FLeDJ1TTlGeFNYcVg3V21MdWpuOE02MDkvYUhNR2l5cGgwMXVIMUkr?=
+ =?utf-8?B?ZmNxNkJhTXY1K3Q5YWRnZjJtS1RENG9IMzNWNUYvVWVYQlk0ZzVaZmNySEZF?=
+ =?utf-8?B?RFRISXRpZTN6cStwYjVQblFxMkt6czhwUlpDR1VBeis0U2xOdDRXdTlEWjJP?=
+ =?utf-8?B?YndyaSt4alhXcENucTJPSFUzNXJ6NzhlK1kxblZzNUF4bmZ5ampRNERjeGM1?=
+ =?utf-8?B?dlF0bzFQMFBRWU5yVWdNQ1l2WElGQVZRbGZlSDZ6Sll3ZXU0UTlObVNMR2lL?=
+ =?utf-8?B?WFd5WUdUWW5WR0EzdEU4ZTVpclNhNXhndVJCcDNMaGpHVGE2d3V2ZE1Xcm45?=
+ =?utf-8?B?M09xZ3JOWTh5VjgvUVRuVnhybHJiNzVReUhZSFNUUWJnWEJ5QXd6SzJVSmpW?=
+ =?utf-8?B?OHl1bEtKVGRXUU13WnFJVG4rNXE5K20yQ29yaitvVGYwbkxXSHZKVnZQNDc0?=
+ =?utf-8?B?Qmw4bzFtVXFiY2c5L29saDVicWc0UXhYaW12ZHI2U0NmTnhuTjRTb1YvUUFz?=
+ =?utf-8?B?a0tGN1NGTjIwNkJMTHh5Y2R4SE9QSkpMWTdYaWswOEVCSEdaR211czdybE13?=
+ =?utf-8?B?L2pTa0RwSHZYQTFDVzNBc0JqN2c5NUI2NG9PcjRwN0VZVmN3c2xPSFBlaHJI?=
+ =?utf-8?B?N0R4R0tWNGliNXJkdGp1cXY2bHoyR1R2L3FlRFplTDJ1MFNqajZWRVJZWHdS?=
+ =?utf-8?B?R2R2Vzl3VGttTjhLdytUbld1d1BybXJrRWF3LzMzczVnQTZPa1h0alhZV3NB?=
+ =?utf-8?B?T0ZUUi9jbUhhTGl5cFd2Z1RGTHlWL2tVbllXZ0NrSWlTdmV4a0Z4K0VJTWpP?=
+ =?utf-8?Q?8Xkq1Q/eBIvlS?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VG92NHc3YmpXOERoQU9kblIrWmxvWTVMNlFBRFJXVWFSMmFheFROTVA1TVV1?=
- =?utf-8?B?TmtabjNQZXFPZ0VtNHJzNVJLU2lGV0g4Z3Nab0dQS1VCSWx2K2xoREFpb2s5?=
- =?utf-8?B?TEx6dWsvYWx6WjVyWE9neEhQbCt0UkdncHhUbHJoR25hQkxVb21vMHd1TWhO?=
- =?utf-8?B?OWhJRnlqQXZNN09OdzJJV1JmZkJwa3k0MDh2QzdjbzJLY1NqQzhEOTRpYSsw?=
- =?utf-8?B?aU5GUVRBVUZ6c1lFUEdlLzFUb0xMVnpxMTFwOGR3NHg4RmFyOFhRU1BDMXB4?=
- =?utf-8?B?MGI4cnVobThKNDNWUDJVd05nSm1Ic3o0UzRtZllZdm9Va2RCa0JmaTNZMkxV?=
- =?utf-8?B?MTJCeEMyYUZ5RG5SNE1lMngwV05Yci9NOUFpR3NCZ2lnUlVyTDhUUWc3L1Fx?=
- =?utf-8?B?ZnBzNCtJNmd5WVp2d3dPNll6Rm9SSTROSjBqSms0VEY3ZmFUUFpvZEROS0k3?=
- =?utf-8?B?NlVCNzF1dTVha3BSZHd2bEdqdGsvaFpqSStienhQWDJsTEJiZXMzT2tmUXd4?=
- =?utf-8?B?NUkrVnp1R3VNU1Axa1VlTk9zUnZhbWFCOTIyaUhKL0I1aENnQnRvajhRZmx6?=
- =?utf-8?B?WlNoQXFXc2E0bDBKLzY3dTlFOStSSXFNRDZ3eW9WTVdIR21oWjFReWQxVjNs?=
- =?utf-8?B?YS80U3pMcTNvcU9hekw1MnRPaHdsb2hHWWRsVTMySU5YaHdYb0ZGL1Y2c3FE?=
- =?utf-8?B?MDhra2w5Z0VKZXhWTjhTcVc4bk1RS1ZCSFUxQzBMcTRFWndFaXE0UCsyQ2Zl?=
- =?utf-8?B?dGk3ck5XUU1Xc2JpSVdwV1c5YklINmw0Wm5xWkw0cnhZOGJuaml1clVTc3ZG?=
- =?utf-8?B?U1pZcnZGcUg3Z2NaTWxBS1NBTGJVU3Rzc0xDNGJQS2pqRW44cGRFelpZbWVm?=
- =?utf-8?B?YnBlYmxOUTBmK2ZHTGMzYktUSGlKT2w5M1pBQnF5UGFreVZ6aHJMR3NEc0Yx?=
- =?utf-8?B?dC9LRTFaVDRQVUhWWVdWdnlrYWFRRGxXKzUwb3lXblNvM2RtKzZ1ejBhWExI?=
- =?utf-8?B?TzZpY2VtNW00cm5ybExqTDFRN2s4RTFTM3pwSTQ3cjFDL1J6SHo3VU9pZHIx?=
- =?utf-8?B?SmNmcE10aGROeW1PZ1ZHZ3IyZm1SVnFrdUt2RDhESkpHRnRtK2UzZDJvU3hh?=
- =?utf-8?B?U3phb0xZWFJyZDM0MVBsc2QwWVMxRm9scHVSeEppRjdrTGtzRXRNTUlyWEhN?=
- =?utf-8?B?ZUdYYURnYWJWVXhZN21NUFJuWndwRVREeFlNc0o0QXFFQTVFc2tjaVlLUFBr?=
- =?utf-8?B?TlRsK3JqTlRDdEVyekpvOU9RL0l1dk1ZeHV2NlROL2N1cndLYmU3M2JPR3B2?=
- =?utf-8?B?bWlFc2NDRzhac3U3d0VHT1ltVkV2Mlg5cDhsbEpKM2MvZ1h5NE9qbGNXVkRv?=
- =?utf-8?B?c2lpbVlWZEdreEIvZjRxRDZ5RVZkei95aC91Q2k4Y2daTjBTZGQ0MlBuUlJ3?=
- =?utf-8?B?NHVjTGtoOStVMEMydEVtN2tZZUw4NGp4U2RVSGFscmNBWVY3QS9hZTdWOU0r?=
- =?utf-8?B?MzJpYXdmSmJ0NDcrUTY2SHJVUDZkN3hJSS9iRGNmaXczeHNwRnE3UXNPc2Ji?=
- =?utf-8?B?VUtUT0ppaU0wTzRob0FkSUdSbEJXeE1mSUJZYjZWWG5hODlnNkgvQ3Nybkhq?=
- =?utf-8?B?RVRIVjl1WnJyTTUra0pjMlFUeWEvQzcyRjRsa1NzWXdOMVpiN0xIbjZTM0pk?=
- =?utf-8?B?S3JnSHB5b3lxb0lYOUx3YlE0TVdYZ1VyM1crbTlZTzFhZGMvYitYRHJ3NDFW?=
- =?utf-8?B?MWFrWDFKWlhNNG1ENXBxSHY2bjZJRk9GRzFYTWV4cHlsWHdiZDJ3eGEzTnZp?=
- =?utf-8?B?YmZUeFpwa1BtVE1yNkZncWRtWlZ5dE4zTE92U3dNWVZ2OVlkVnlJcmZ6ZUE5?=
- =?utf-8?B?TnZCVmRhK1kxVEN6UGFpNWFKNEVjZURZVS9pejE4ZG9qNWw5UG41TFl4NDVh?=
- =?utf-8?B?Njlxb3dMeDBnNVl0SW1pK0FvYzN1VGhrSmEycm04VXFKeHFZOG90K2M1NFEw?=
- =?utf-8?B?V2hpeFJUTm9XMklzdTd0bGZXYkVWQ0ZTV0pjMUVUd0M3RmtDSjI3TUpJbGFk?=
- =?utf-8?B?YWV2ZDM3MkFTTVFuVE82MlpvYWI0V0JNMmRFcGp5M3kzd0NQVlQwbStJN0Nx?=
- =?utf-8?B?SGE1TDhtZE8vRkZHZ3FZcUl6TEcvNFpJZnpSb3U2YXdDVWNndzR3eUladytJ?=
- =?utf-8?B?ZFE9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: fa304af4-58cb-46c9-6357-08dd500ddf16
-X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB6682.namprd11.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RVQ3bndhSktnSHFGMG53WDJtQnFFSjBJK2ZuZVhLQy90MXJpaXQ1UlJ5QXM3?=
+ =?utf-8?B?Z1dzakRXa2YwSVRDNE9LUlAxRG1PK0xoZDhPODRyZEVyNTF6bkJhU3d2b21Q?=
+ =?utf-8?B?Z0pCNVB5R2l3YXJsZmhtQ2tqb3ZIUk8yd1FBZDJSMFRzeVNzRUtIQ0ZReFVM?=
+ =?utf-8?B?M0cyRnpUN2pqZUhJU0hVck13ZFk4Y2VHUENQaUpmcU51anlqQ0ZDcE5HSG02?=
+ =?utf-8?B?TDEvZlprWUNobGhzV2czaGM5a2l4UTR2ZCsyVkJPWkkrUnZNWTdSeUQ3dUR5?=
+ =?utf-8?B?RmMyYTlKeDh5QVV3OFl0b0Y3OE9wTG5rUU44aXlWVkd2ZW01ZGgySFpYMzQx?=
+ =?utf-8?B?TjVocG1JY2lkVVkyVkpUeVVULzFFa3R3WDRJbXpETmllL3RDRDd2VllzUXBR?=
+ =?utf-8?B?dkp3VWYya1Jtd0xPaHZZQlpwb1BxWG12VmxSMllsVDkwZFFGdFdVVUhzMlRB?=
+ =?utf-8?B?QUtzcHdYb0JnQVdyaG9CRmZNWmNqM01heGtTa0NSaS9pc2FJV3F1MGcvM1Ns?=
+ =?utf-8?B?RWw4cnFIRGRhTm1xUmM3aFJpbU9kTVJDaEJxOHlMeFowU0IwaXU4ZHJvNWVn?=
+ =?utf-8?B?L1kzbXJvdThscDNLR1ltTFhmOHRDNGdKclU0UmEyTGQ5QW5HUVRKZkdXdTF5?=
+ =?utf-8?B?blgzSTJoWnNnTFV5bGFDR1dJcG5YTmwvNXdEdGRWYitFdjY1VFB0YzJYd1py?=
+ =?utf-8?B?ZU93Vno0RzR3Uk5MMlpHeGtnTHNRZEdYOUYyc2lVT2M1Z1BGUExmMjBmZ3hH?=
+ =?utf-8?B?WUpsWjBhRmYzQSs5UWdubVQ5VEhCYm9tYjloVkFXRTJVOXBVbFNOdUhLYU80?=
+ =?utf-8?B?REJ0NXZ2UkdReS9qMW04Sk95R3o2UDJqNVllaGtoRTU0S3dDYUpaM1VNa0kz?=
+ =?utf-8?B?K05uR3BUNEdyNU1SSUNSb05WOTQxdnplRzYxRVBGNG1aU1hUSVRxT0l4aDlI?=
+ =?utf-8?B?Y0hiV2RlOFlmT3BGUC9UbGZaeVdqS1BhUU0wSGxIdVZvSzNvQkJFVjFJR091?=
+ =?utf-8?B?SnBKRkdhTlplWFJFUld2ZEFZTFExUU12KytUWThUTFdZdm16YWwrSEtib3lm?=
+ =?utf-8?B?RFF0Szd5ZnVaUGw0WjNRU2oxeTBEUEpRVnAwcmQ3RmhScjBXbmhpZHI0ZTdM?=
+ =?utf-8?B?VFdxaUlmck9tVTBYd1I2UWt5elk1Y2JPR053MUJldlRKS2FCUTRVTndiTGI3?=
+ =?utf-8?B?STBqR3lBamFFeW5oTjkrd2FpdkZ3Z0NISGtCYndHUnJ6SHJOVVFaR0o2K21Q?=
+ =?utf-8?B?emE3Z1FFVW45dU5BRGFOUnFOdEZjdkZGRzRDcW83OUhmd2JMaitiajJMQlVt?=
+ =?utf-8?B?YmlyTEVZaWxNLzd1bzBXSFlaTkZ2ZXRDdG1SdDRxVzJqYWpCREw3bUlQZk83?=
+ =?utf-8?B?VjNrZkJKRGd5UWpCdzMvZDM5aGFJRlU4ZUhTSnpoaDQzVm1JNFdPa1ZPc0Fi?=
+ =?utf-8?B?OHAxWDQyTGlYVXM0TmdvWENQMGtWa3hQTDNXdXU3aWpqbWR2bTh3NjN4SlBG?=
+ =?utf-8?B?d0s5QUJqL1ZzSFZER3BtM0p4YkxRWm5FcjBaM3YxWnVaY0Vyd3F2ZHNjUm1v?=
+ =?utf-8?B?T0JIeU5xWlRFRUtDM2xpMEdtUVh0dkRUOXZwUEUvOWV3VWxQTjhsaXJsNDZx?=
+ =?utf-8?B?c1RoNHN2aWVOelJJRmgyc0tveEROOWVNWVd3a3NXOVl1Ym80bEVkWTdlcEwv?=
+ =?utf-8?B?NkJYaXpVeHArSHp2V2dZVmw5NitkRzNUVEp4aVJDOFNLemJxZHE5Q1RSMElH?=
+ =?utf-8?B?WHpNbmNWR0RkN3ZlaWcvOTlYUWZDRFVHY1dKMDBIcUFyM2VFd0xEMndMR3pE?=
+ =?utf-8?B?WDJpZHJnVFUyY1N3eGxhNGFXeXk0MEtDb1FSclNSUlhPek1YMlBvM0tvMlor?=
+ =?utf-8?B?bzJHWndUZGl2VkxiUXRnaFBuVkFXU0syd2VnVm9CR1RJS0VWWW1xdWlxV3hV?=
+ =?utf-8?B?Sk9pMFVkRisrYXlrekZTcnJERzZXN0RjNk5ITy9MQUdIK3o3L0cwOTFOSEJa?=
+ =?utf-8?B?czZvWksrNkdFT3BEQlBNOUJtUHR3MUpKSGV4Qnp6Q0tZVS9LaUpqdnhtQjh2?=
+ =?utf-8?B?Z2kySWxWN3FDSUViQ05sMWhnL1Jldi9yL25wZkE1bkltOWN5d0JzWWhOSE5B?=
+ =?utf-8?B?THdlak9hWTBUOUwxbkVkVVdDSFZENFkvKzlEV3RGUXNVVlBYWGxxVVR5YWll?=
+ =?utf-8?B?TUE9PQ==?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: f240a84e-b818-41e8-c911-08dd500ed531
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 11:17:46.6788
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Feb 2025 11:24:39.6785
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gq6xwKwpvDrWuZlfYLRldVaZhn70LXzfcq71jpeJ6xLorAQ9gRuQshcRwwr8CXF8RFhk12r1R0kkH3k6ypca/tbwZ6cHHMdQMUog8CBNg3o=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR11MB8075
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-UserPrincipalName: VlV58xiMoq6dMkTJ9nI7Sw+7FQiyfWSqAPDgfLcnKSKj45DqVMJTjzNZoG9hszL6DTRKDDmAbQOyAGFT8gI/pQk1lFcHTzT5aZqkmc1FSwQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7115
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_031832_378555_EECF1F20 
-X-CRM114-Status: GOOD (  17.23  )
+X-CRM114-CacheID: sfid-20250218_032447_891974_9D5D9CC4 
+X-CRM114-Status: GOOD (  28.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -228,68 +175,318 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Heiko,
 
-
-On 2/18/2025 11:24 AM, Russell King (Oracle) wrote:
-> priv->pause corresponds with "pause_time" in the 802.3 specification,
-> and is also called "pause_time" in the various MAC backends. For
-> consistency, use the same name in the core stmmac code.
+On 2/13/25 5:30 PM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
 > 
-> Clarify the units of the "pause" module parameter which sets up this
-> struct member to indicate that it's in units of the pause_quanta
-> defined by 802.3, which is 512 bit times.
+> Jaguar has two type-c ports connected to fusb302 controllers that can
+> work both in host and device mode and can also run in display-port
+> altmode.
 > 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> While these ports can work in dual-role data mode, they do not support
+> powering the device itself as power-sink. This causes issues because
+> the current infrastructure does not cope well with dual-role data
+> without dual-role power.
+> 
+> So add the necessary nodes for the type-c controllers as well
+> as enable the relevant core usb nodes, but limit the mode to host-mode
+> for now until we figure out device mode.
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 > ---
->   drivers/net/ethernet/stmicro/stmmac/stmmac.h      | 2 +-
->   drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
->   2 files changed, 4 insertions(+), 4 deletions(-)
+>   .../arm64/boot/dts/rockchip/rk3588-jaguar.dts | 178 ++++++++++++++++++
+>   1 file changed, 178 insertions(+)
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> index f05cae103d83..c602ace572b2 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> @@ -283,7 +283,7 @@ struct stmmac_priv {
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+> index 90f823b2c219..329d98011c60 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts
+> @@ -333,6 +333,52 @@ rtc_twi: rtc@6f {
+>   		};
+>   	};
 >   
->   	int speed;
->   	unsigned int flow_ctrl;
-> -	unsigned int pause;
-> +	unsigned int pause_time;
->   	struct mii_bus *mii;
->   
->   	struct phylink_config phylink_config;
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index fd8ca1524e43..c3a13bd8c9b3 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -94,7 +94,7 @@ MODULE_PARM_DESC(flow_ctrl, "Flow control ability [on/off]");
->   
->   static int pause = PAUSE_TIME;
->   module_param(pause, int, 0644);
-> -MODULE_PARM_DESC(pause, "Flow Control Pause Time");
-> +MODULE_PARM_DESC(pause, "Flow Control Pause Time (units of 512 bit times)");
->   
->   #define TC_DEFAULT 64
->   static int tc = TC_DEFAULT;
-> @@ -865,7 +865,7 @@ static void stmmac_mac_flow_ctrl(struct stmmac_priv *priv, u32 duplex)
->   	u32 tx_cnt = priv->plat->tx_queues_to_use;
->   
->   	stmmac_flow_ctrl(priv, priv->hw, duplex, priv->flow_ctrl,
-> -			priv->pause, tx_cnt);
-> +			 priv->pause_time, tx_cnt);
->   }
->   
->   static unsigned long stmmac_mac_get_caps(struct phylink_config *config,
-> @@ -7404,7 +7404,7 @@ int stmmac_dvr_probe(struct device *device,
->   		return -ENOMEM;
->   
->   	stmmac_set_ethtool_ops(ndev);
-> -	priv->pause = pause;
-> +	priv->pause_time = pause;
->   	priv->plat = plat_dat;
->   	priv->ioaddr = res->addr;
->   	priv->dev->base_addr = (unsigned long)res->addr;
+> +	usb-typec@22 {
 
-Reviewed-by: Mateusz Polchlopek <mateusz.polchlopek@intel.com>
+We have a mix of node names in the Rockchip tree, some call it usb-typec 
+some call it typec-portc, including the device tree binding.
 
+> +		compatible = "fcs,fusb302";
+> +		reg = <0x22>;
+> +		interrupt-parent = <&gpio4>;
+> +		interrupts = <RK_PA3 IRQ_TYPE_LEVEL_LOW>;
+
+Should we have a pinmux for the interrupt line in GPIO mode maybe?
+
+> +		vbus-supply = <&vcc_5v0_usb_c1>;
+> +
+> +		connector {
+> +			compatible = "usb-c-connector";
+
+Reading the binding, I'm wondering if we shouldn't set self-powered 
+property in there as well? Jaguar cannot be powered (or at least wasn't 
+designed for being powered) via USB-C and I think self-powered means 
+that? Not sure to be honest.
+
+> +			data-role = "dual";
+> +			label = "USBC-1 P11";
+> +			power-role = "source";
+> +			source-pdos =
+> +				<PDO_FIXED(5000, 1500, PDO_FIXED_DATA_SWAP | PDO_FIXED_USB_COMM)>;
+> +
+
+Should we have vbus-supply = <&vcc_5v0_usb_c1>; here too?
+
+> +			ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +
+> +					usbc0_hs: endpoint {
+> +						remote-endpoint = <&usb_host0_xhci_drd_sw>;
+> +					};
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +
+> +					usbc0_ss: endpoint {
+> +						remote-endpoint = <&usbdp_phy0_typec_ss>;
+> +					};
+> +				};
+> +
+> +				port@2 {
+> +					reg = <2>;
+> +
+> +					usbc0_sbu: endpoint {
+> +						remote-endpoint = <&usbdp_phy0_typec_sbu>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+>   	vdd_npu_s0: regulator@42 {
+>   		compatible = "rockchip,rk8602";
+>   		reg = <0x42>;
+> @@ -394,6 +440,52 @@ &i2c8 {
+>   	pinctrl-0 = <&i2c8m2_xfer>;
+>   	status = "okay";
+>   
+> +	usb-typec@22 {
+
+All the same remarks as for P11 above.
+
+> +		compatible = "fcs,fusb302";
+> +		reg = <0x22>;
+> +		interrupt-parent = <&gpio4>;
+> +		interrupts = <RK_PA4 IRQ_TYPE_LEVEL_LOW>;
+> +		vbus-supply = <&vcc_5v0_usb_c2>;
+> +
+> +		connector {
+> +			compatible = "usb-c-connector";
+> +			data-role = "dual";
+> +			label = "USBC-2 P12";
+> +			power-role = "source";
+> +			source-pdos =
+> +				<PDO_FIXED(5000, 1500, PDO_FIXED_DATA_SWAP | PDO_FIXED_USB_COMM)>;
+> +
+> +			ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +
+> +					usbc1_hs: endpoint {
+> +						remote-endpoint = <&usb_host1_xhci_drd_sw>;
+> +					};
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +
+> +					usbc1_ss: endpoint {
+> +						remote-endpoint = <&usbdp_phy1_typec_ss>;
+> +					};
+> +				};
+> +
+> +				port@2 {
+> +					reg = <2>;
+> +
+> +					usbc1_sbu: endpoint {
+> +						remote-endpoint = <&usbdp_phy1_typec_sbu>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+>   	vdd_cpu_big0_s0: regulator@42 {
+>   		compatible = "rockchip,rk8602";
+>   		reg = <0x42>;
+> @@ -851,6 +943,24 @@ &tsadc {
+>   	status = "okay";
+>   };
+>   
+
+Please add a comment here that this is for USB-C P11 connector so it 
+gets easier to figure out what's for what.
+
+> +&u2phy0 {
+> +	status = "okay";
+> +};
+> +
+> +&u2phy0_otg {
+> +	phy-supply = <&vcc_5v0_usb_c1>;
+
+This is a bit confusing at we have the OTG port needing to specify the 
+VBUS supply on the port, while the FUSB also specifies it and the 
+usb-c-connector node can as well.
+
+> +	status = "okay";
+> +};
+> +
+
+Comment for USB-C P12 connector.
+
+> +&u2phy1 {
+> +	status = "okay";
+> +};
+> +
+> +&u2phy1_otg {
+> +	phy-supply = <&vcc_5v0_usb_c2>;
+> +	status = "okay";
+> +};
+> +
+>   &u2phy2 {
+>   	status = "okay";
+>   };
+> @@ -893,6 +1003,46 @@ &uart7 {
+>   	status = "okay";
+>   };
+>   
+
+Comment for USB-C P11 connector.
+
+> +&usbdp_phy0 {
+> +	orientation-switch;
+
+It seems like we have SBU1 and SBU2 GPIOs as well. So I guess we want 
+something like:
+
+sbu1-dc-gpios = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>; /* Q7_USB_C0_SBU1_DC */
+sbu2-dc-gpios = <&gpio1 RK_PC3 GPIO_ACTIVE_HIGH>; /* Q7_USB_C0_SBU2_DC */
+
+> +	status = "okay";
+> +
+> +	port {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		usbdp_phy0_typec_ss: endpoint@0 {
+> +			reg = <0>;
+> +			remote-endpoint = <&usbc0_ss>;
+> +		};
+> +
+> +		usbdp_phy0_typec_sbu: endpoint@1 {
+> +			reg = <1>;
+> +			remote-endpoint = <&usbc0_sbu>;
+> +		};
+
+Something's wrong with the dt-binding here as it only lists one possible 
+port, for the orientation.
+
+> +	};
+> +};
+> +
+> +&usbdp_phy1 {
+> +	orientation-switch;
+
+It seems like we have SBU1 and SBU2 GPIOs as well. So I guess we want 
+something like:
+
+sbu1-dc-gpios = <&gpio0 RK_PD4 GPIO_ACTIVE_HIGH>; /* Q7_USB_C1_SBU1_DC */
+sbu2-dc-gpios = <&gpio1 RK_PB5 GPIO_ACTIVE_HIGH>; /* Q7_USB_C1_SBU2_DC */
+
+> +	status = "okay";
+> +
+> +	port {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		usbdp_phy1_typec_ss: endpoint@0 {
+> +			reg = <0>;
+> +			remote-endpoint = <&usbc1_ss>;
+> +		};
+> +
+> +		usbdp_phy1_typec_sbu: endpoint@1 {
+> +			reg = <1>;
+> +			remote-endpoint = <&usbc1_sbu>;
+> +		};
+
+Something's wrong with the dt-binding here as it only lists one possible 
+port, for the orientation.
+
+> +	};
+> +};
+> +
+>   /* host0 on P10 USB-A */
+>   &usb_host0_ehci {
+>   	status = "okay";
+> @@ -903,6 +1053,34 @@ &usb_host0_ohci {
+>   	status = "okay";
+>   };
+>   
+
+Comment for USB-C P11 connector.
+
+> +&usb_host0_xhci {
+
+Add a comment for highlighting it supports DRD, just that we aren't 
+ready to support it just yet.
+
+> +	dr_mode = "host";
+> +	status = "okay";
+> +
+> +	port {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		usb_host0_xhci_drd_sw: endpoint {
+> +			remote-endpoint = <&usbc0_hs>;
+> +		};
+
+Does this actually make sense without usb-role-switch; set? The binding 
+seems to indicate port is only useful when that is set.
+
+> +	};
+> +};
+> +
+
+Comment for USB-C P12 connector.
+
+> +&usb_host1_xhci {
+
+Add a comment for highlighting it supports DRD, just that we aren't 
+ready to support it just yet.
+
+> +	dr_mode = "host";
+> +	status = "okay";
+> +
+> +	port {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		usb_host1_xhci_drd_sw: endpoint {
+> +			remote-endpoint = <&usbc1_hs>;
+> +		};
+
+Does this actually make sense without usb-role-switch; set? The binding 
+seems to indicate port is only useful when that is set.
+
+Cheers,
+Quentin
 
