@@ -4,71 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7843BC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 22:17:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ACCDC021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 22:24:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zOres0ehnZAsK3fceV+yF/DaChLI/9SaBHpoi6QvURE=; b=TDdTtw1s1iwE12weJ0vRkNXYWK
-	9076xdS/FjrP5D3Bdi3mbBLC7y0neMpdDNUnxG1tjGE+ZESebE0TUguJf4ruJbbDHLKwe+LcZj/hZ
-	dkdoNYXgfTGpp3tLvohNisb10sgFlJzaJZNI7el5mGVqpxpXwrtIhSLnE2+3U6v43HxePMjBQpR8V
-	C1Nn3LB7s96lMNVaByQHjUQM19H6BYws2ojnFUXZ154cqAMb4+9dsLLiGJ3+cY9EpQUT43/REpvJx
-	8T/QD8ovn1SKBQQTYGa31u0foMTQie5gFAiY+DecdEcms0zPHGKSAEzh6byaN/OPHBCKe+DwGrY80
-	L4GQfrwQ==;
+	bh=Y0Ut+HC9eKHgdin8LIIS2Fjeny6qwex+kr1lgIMYN8w=; b=oCw92QRf6UZXyHCaeqkyCohIGv
+	dnRYdOnJ1ScCeHwRACTA3Z0JjlrNcxYkI1B1pZQJIBke8f+W7FdPoekVGu+Ony//7pXd9Igppqt35
+	Ooe8qmY82KhVanv67eYTHUkg184TUgQ3jZ0eOPW6FPv8iCkeg6WQjGgk6acifW/zs3CEreMTrB3tu
+	/NjrDkpW1TmJeVj8iSejulfLVfRx611xUvqvGg5HM3/omLUH4rQpBz6HwOht6feabe2rsPWQ1JbqN
+	NL/GOb1Ek7w50wF+i+26zLk1uCWOXRosBpX+XV62RLKeevXMFIDSHkbk8bJSXveTLkCdQvS8/LTmK
+	qSzmx9pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tksNR-0000000FOlO-0FFz;
-	Wed, 19 Feb 2025 22:17:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tksUM-0000000FQKm-0bxd;
+	Wed, 19 Feb 2025 22:24:18 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tksIE-0000000FNK0-44Qx
+	id 1tksSs-0000000FPvQ-3Ax3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 22:11:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 424095C0782;
-	Wed, 19 Feb 2025 22:11:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C9EFC4CED1;
-	Wed, 19 Feb 2025 22:11:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740003106;
-	bh=dZyIn3+mJ3vnANHwYSZe/NwWp//PvNFWn3w/6m5Atxg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GWdUaRWWkN7u/XVvl76z7LF+/W9dJl32hpLYgoRV03/xud0VwajoKJhKmEAfxue8A
-	 8U/i8V82GDdusExHr2lFgiQAH3qZgZyQuL6+tcAEMENBo9xn5gunplxyEF1TtVMGTe
-	 g4nTmRBpkwQOfWe1bNhR7uxMdvpa+NEMSsZV8Tyh99wVdInTKnWNIrV3K8dBcyhhG/
-	 FrPQK+qEz590c2POkLp1YOFPzFcKnLhNHq1S8eczJEXhYuKgbhlPKUyHO6lpHs8vNo
-	 ErLbrZJ859VcxuqEz/sgoRnLSx3SGDI000CsrANPJdFQQORlWE9OnJ9X1dADj/ZBxu
-	 Ps0BxWJmXA45w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tksIB-005zA8-Qj;
-	Wed, 19 Feb 2025 22:11:43 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Oliver Upton <oliver.upton@linux.dev>
-Subject: Re: [PATCH] KVM: arm64: Fix tcr_el2 initialisation in hVHE mode
-Date: Wed, 19 Feb 2025 22:11:38 +0000
-Message-Id: <174000308842.546972.9338900665339093067.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250214133724.13179-1-will@kernel.org>
-References: <20250214133724.13179-1-will@kernel.org>
+	Wed, 19 Feb 2025 22:22:47 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e050b1491eso2515659a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 14:22:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740003765; x=1740608565; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Y0Ut+HC9eKHgdin8LIIS2Fjeny6qwex+kr1lgIMYN8w=;
+        b=b+/dOGe0d5vb14bKF6bLucJZIeSSSIQSDzfgTSFc8ffPVNwvEvijFaMz1q9x2ExjBU
+         FjA+c7yDNHAInvN5JHg1hIwV/LTxby2+DwqwMxNeDpROcWe1UbDXw5N65IEw/PpjFFVO
+         +mQH5gqIuHm24lJoKXo7JuUYwTSE2FvC0NjFLv3Q+t5q/w81UdEfOcKnRpdNQO0bkRHn
+         wKyXTjuUd/QDTKfe1aFx6eQ9Ke2HZtoN1xEEonro0IEhOxJI3D7j3isYIvx/o2Og92qY
+         hBDmV44OTWCD3KNvj6MT02KlhPnJLoz2P6HDYDj3c58crfHlJgK5NkWyM+QsLJi44eSN
+         oWaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740003765; x=1740608565;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Y0Ut+HC9eKHgdin8LIIS2Fjeny6qwex+kr1lgIMYN8w=;
+        b=BoX4389R8iu084vur9h5WATzRdGZt6hPHXTWSRiMRUHnN2kEAI+SQ+0eoylulh6ZK4
+         A32+2jja3GAl2vb7+0+D5GMTzRFbERyxYV6r0wphQDuVh6ONwq7q0ggZU4toYZ8J32HF
+         N8RUF+Pe/JOkL5HmS8Gw0eF8n5AD1FkmcHK8klduBt/nyvCAgsDod+zjucWHgBueNYE/
+         sixY3sryvCttlnskHOORykjtYC59OAlqpfwVNnbjOehYwWYWKYYA2EFU5MK8WROTTCPt
+         SX6mgNqh4S5vJ4h8jBz5ygjW5grjYeXnc6vk8kWAUbdPlD+o7A0vbi1CIMz4KnXCpfDs
+         ON5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU1oCZo1xxhdx8NwTshjqLLce1LaCJEKCwU0CD62scPeTb6EkP4OCpgRKnU+3zNjPIBAwJlUuCuO7P+jkAeBAO4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHhizdHnFm9cOQjSjYBlskdbQrnVnQanP8XgXfNl3PijNcwZhR
+	/o3Gn4+938B8cIsIxMH1S6MRpYn4EKSZBa7sTSiUDabRHU55WR7x
+X-Gm-Gg: ASbGnctuv7TUWDeCypbg4SVH/VV4dm3wraQ8/BmCk1jXprwogzjW4KVRR+kt2pp/Tsb
+	zv/BqaISMQf4o6ID8VW9alAATLGaeMKukku2qGQk9krdLcfDIVj9iaO/T+cKHjQZcVQ/HceOTWq
+	Q62jclWlEu93NP48HliINByXe77zDIBk4Un2Xk/Kdd1oxgvSnG0d4GJTjiVZRKqjnnuxZKYLO0Q
+	sBAGA7LlbzFnLbwnZa0YfW1iSpdgx6brBTeXKn8tqvOEWAxBm1iezdFCJT357z+bXKPTq7sDROx
+	PqrcigPWUERUZUWlFvoOQGeir74wll1peH/4bOS0RaX1
+X-Google-Smtp-Source: AGHT+IHgZ/9o+/TaQRZkw3ZCR/vfHz3eRXJzfUy3azBJWNM0TELKM477HK5xLn7uBryQfbFCimYo+g==
+X-Received: by 2002:a17:907:890a:b0:ab9:76d7:574c with SMTP id a640c23a62f3a-abbeda27f98mr82689866b.1.1740003764658;
+        Wed, 19 Feb 2025 14:22:44 -0800 (PST)
+Received: from [192.168.1.130] ([82.79.237.175])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abbdf076360sm165470566b.110.2025.02.19.14.22.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Feb 2025 14:22:44 -0800 (PST)
+Message-ID: <c52e6c5c-f49e-4727-b669-086ae7cb0e1e@gmail.com>
+Date: Thu, 20 Feb 2025 00:22:41 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, will@kernel.org, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 8/8] imx_dsp_rproc: Use reset controller API to control
+ the DSP
+Content-Language: en-US
+To: Daniel Baluta <daniel.baluta@nxp.com>, p.zabel@pengutronix.de,
+ robh@kernel.org, shawnguo@kernel.org
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, mathieu.poirier@linaro.org,
+ shengjiu.wang@nxp.com, Frank.Li@nxp.com, peng.fan@nxp.com,
+ laurentiu.mihalcea@nxp.com, iuliana.prodan@nxp.com
+References: <20250219192102.423850-1-daniel.baluta@nxp.com>
+ <20250219192102.423850-9-daniel.baluta@nxp.com>
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <20250219192102.423850-9-daniel.baluta@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_141147_054817_1BA2FFE2 
-X-CRM114-Status: GOOD (  15.48  )
+X-CRM114-CacheID: sfid-20250219_142246_799275_EE6D994F 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,35 +106,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Feb 2025 13:37:24 +0000, Will Deacon wrote:
-> When not running in VHE mode, cpu_prepare_hyp_mode() computes the value
-> of TCR_EL2 using the host's TCR_EL1 settings as a starting point. For
-> nVHE, this amounts to masking out everything apart from the TG0, SH0,
-> ORGN0, IRGN0 and T0SZ fields before setting the RES1 bits, shifting the
-> IPS field down to the PS field and setting DS if LPA2 is enabled.
-> 
-> Unfortunately, for hVHE, things go slightly wonky: EPD1 is correctly set
-> to disable walks via TTBR1_EL2 but then the T1SZ and IPS fields are
-> corrupted when we mistakenly attempt to initialise the PS and DS fields
-> in their E2H=0 positions. Furthermore, many fields are retained from
-> TCR_EL1 which should not be propagated to TCR_EL2. Notably, this means
-> we can end up with A1 set despite not initialising TTBR1_EL2 at all.
-> This has been shown to cause unexpected translation faults at EL2 with
-> pKVM due to TLB invalidation not taking effect when running with a
-> non-zero ASID.
-> 
-> [...]
-
-Applied to fixes, thanks!
-
-[1/1] KVM: arm64: Fix tcr_el2 initialisation in hVHE mode
-      commit: 102c51c50db88aedd00a318b7708ad60dbec2e95
-
-Cheers,
-
-	M.
--- 
-Without deviation from the norm, progress is not possible.
 
 
+On 2/19/2025 9:21 PM, Daniel Baluta wrote:
+> Use the reset controller API to control the DSP on i.MX8MP. This way
+> we can have a better control of the resources and avoid using a syscon
+> to access the audiomix bits.
+>
+> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/remoteproc/imx_dsp_rproc.c | 25 +++++++++++++++++--------
+>  drivers/remoteproc/imx_rproc.h     |  2 ++
+>  2 files changed, 19 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+> index ea5024919c2f..631563e4f86d 100644
+> --- a/drivers/remoteproc/imx_dsp_rproc.c
+> +++ b/drivers/remoteproc/imx_dsp_rproc.c
+> @@ -19,6 +19,7 @@
+>  #include <linux/pm_runtime.h>
+>  #include <linux/regmap.h>
+>  #include <linux/remoteproc.h>
+> +#include <linux/reset.h>
+>  #include <linux/slab.h>
+>  
+>  #include "imx_rproc.h"
+> @@ -111,6 +112,7 @@ enum imx_dsp_rp_mbox_messages {
+>   */
+>  struct imx_dsp_rproc {
+>  	struct regmap				*regmap;
+> +	struct reset_control			*reset;
+
+Maybe rename this to "stall"? There's also the DAP stuff that's actually used
+to reset the core so this might be a bit confusing?
 
