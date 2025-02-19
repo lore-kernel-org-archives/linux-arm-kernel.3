@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C55C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 00:44:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62735C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 00:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XuKbasbmLO+vlsVS4iWMUf121DkLZLFAM447m/RAZ38=; b=LNbnhq30frv7ZhYvKT8Xqdy68L
-	zuGQYs/Timeh+hB51VKghAFZ5HaX1oMT0VSNdvh/HzxJpK3PD8SmktnBRoKBePNWwtNdrfRrJ0q4Z
-	Ob5TF0wk+FJgpxRCgx0fMMtZHWUg1g99fX+656o2voxlo6L6pcVykmKxLeJW1YvijdQRNFFRDV0sq
-	NZTTLORg1XnfXx1e6tz5+C4vsLY4s60RuFOHF+hRmDood7G4oPHdRVp+y7vlLwkFFVK9aNr0xO4Y4
-	UrdjNNCiJ+0/+epdFNJx2Gx0FvNgsp6R5oQeYYtiO4U82iYzjIwUTt2l6QKs823lOsx/Rksdffo01
-	tRZrKBDw==;
+	bh=pICHfxgYHccXfhYVWjlKU+dYEkkD3yjTz6FSX4iS01A=; b=Z1lTamQyKhgZLJJ7qqQVmkVJHd
+	PqM7WtytQbow6bIpPwAxVX8SQpXxWR9TYsd0Ebn++VrRnzSPrvzJZNYDk6zes6aVEh5+F9hDEVmEW
+	0K0h/ZXnpf8/1jNhZtMttxsC1DSulSKP3gAQpyhI1K/lD2ls9276JYrqkEgJhFgAEfLW4dzW2/3KJ
+	TaCl/47/a1O8gRBu+M93IoKEfP1lgZ4LDFL7onAy0Tc3XYGUxZdgE+hm4EFgmhLmEQt/IJ+SXfPJv
+	6YIbpi4rbqlTFjGliVfoMc9r0u/l5qwA3g/RVvU5M0zgoAL0xzOLvkQ1K8q0h8Nz2OnSL3DwYH/Eu
+	GkM1xCJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYBq-0000000AO4s-05RV;
-	Wed, 19 Feb 2025 00:43:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tkYDH-0000000AOUl-0TEO;
+	Wed, 19 Feb 2025 00:45:19 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYAL-0000000ANkQ-1yIO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 00:42:19 +0000
+	id 1tkYAM-0000000ANl0-34w7;
+	Wed, 19 Feb 2025 00:42:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AFF935C5850;
-	Wed, 19 Feb 2025 00:41:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48261C4CEE2;
-	Wed, 19 Feb 2025 00:42:16 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 12E24A41E68;
+	Wed, 19 Feb 2025 00:40:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E737C4CEEA;
+	Wed, 19 Feb 2025 00:42:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739925736;
-	bh=5ATz3qoZO0uyhjafPNvrVGduTAInvw9k8D3BQjGQMP0=;
+	s=k20201202; t=1739925737;
+	bh=khIFgwQ769ZHyT5CdIGu1HrTamF79U/Lvixfrt97yy4=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=rUE7ym6cpVcQEMakXZOfcKvSri/zFYTON7R14QqaiGdHeREJV3kluIb5L0feThZQt
-	 WSV5HqbJVVH/+R4AUcM71jPqcyfNg/1tA/hNwAr19YdJz4GOnFkq4AcF2q9NdkBN+0
-	 5X2EZBB0+hpd5oQjlM48XTt8bKNs1iZX79Sirk5PalU1nOV4cMdo/wO6dXCARqmlz6
-	 q8JsnDDjxhyPL7aTO6VeJsinXBz+ytQBxCjXOHPhWYd6lmtab6pEZd27hqc8d5Molm
-	 YUE9d/34f9TPO7c4rYgPDyLQr2b74D31VL04ZfYzpQoUg7P3PCfzFStghTkVYD5OAt
-	 qlnVLf4ilKHkg==
-Date: Tue, 18 Feb 2025 18:42:15 -0600
+	b=tYMECnuhBbykHVm1RU15MSPfwodg3z1htxAN/KBLJjEfTm6ZjKKZzvM4LQNkkEvqR
+	 ClaezR+1hPyqLCLF9vcsJwyS3LhntD+NWvyEi5YBIFSW0FufMXlY1v2Y3LqPPUDAVR
+	 xk+l2T+xh4m0oCPjiQ6a6pP+ZQSZLa2lgZFSJkOQe1mAAOjV497vgDKm+pNJJooPld
+	 hebKKloMzj0TIyTVuWJP9YJgRpgmVHlc7LehcPCefynw7SIqVXZockj4d/PfPp8T8+
+	 mDTXJSCkCKGNNLetz1B3T4purqsau+/G7TLHts/6T/lZbHqDxHtSBH5R8JQkvnWwJT
+	 sCoYAzENbIfkw==
+Date: Tue, 18 Feb 2025 18:42:16 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: gakula@marvell.com, sebastian.hesselbarth@gmail.com, andrew@lunn.ch, 
- linux-arm-kernel@lists.infradead.org, gregory.clement@bootlin.com, 
- salee@marvell.com, devicetree@vger.kernel.org, krzk+dt@kernel.org, 
- linux-kernel@vger.kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de
-To: Wilson Ding <dingwei@marvell.com>
-In-Reply-To: <20250214065833.530276-1-dingwei@marvell.com>
-References: <20250214065833.530276-1-dingwei@marvell.com>
-Message-Id: <173992515450.2064904.7377620309703204862.robh@kernel.org>
-Subject: Re: [PATCH 0/4] Add Armada8K reset controller support
+Cc: linux-arm-kernel@lists.infradead.org, 
+ Kevin Hilman <khilman@baylibre.com>, Takashi Iwai <tiwai@suse.com>, 
+ linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
+ shuai.li@amlogic.com, Stephen Boyd <sboyd@kernel.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, devicetree@vger.kernel.org, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jaroslav Kysela <perex@perex.cz>, zhe.wang@amlogic.com, 
+ linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, jian.xu@amlogic.com, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Mark Brown <broonie@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+To: jiebing chen <jiebing.chen@amlogic.com>
+In-Reply-To: <20250214-audio_drvier-v2-0-37881fa37c9e@amlogic.com>
+References: <20250214-audio_drvier-v2-0-37881fa37c9e@amlogic.com>
+Message-Id: <173992515659.2064996.1911122760174546370.robh@kernel.org>
+Subject: Re: [PATCH v2 0/5] Add support for S4 audio
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_164217_592748_B93FEC73 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20250218_164218_897597_ABE80B3D 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,27 +82,42 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 13 Feb 2025 22:58:28 -0800, Wilson Ding wrote:
-> Armada8K has one simple register for unit soft reset, which is part of
-> the system controller register area. The simple reset code doesn't
-> support register access via regmap for the syscon devices. This patch
-> series added new ops for reset line operation to make the simple reset
-> code compatible for syscon device. And add Armada8K support then.
+On Fri, 14 Feb 2025 10:13:39 +0800, jiebing chen wrote:
+> Add s4 audio base driver.
 > 
-> Wilson Ding (4):
->   reset: simple: Add syscon device compatible
->   reset: simple: Add support for Armada8K reset controller
->   dt-bindings: cp110: Document the reset controller
->   arm64: dts: marvell: cp11x: Add reset controller node
+> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
+> ---
+> Changes in v2:
+> - remove tdm pad control and change tocodec base on g12a
+> - change hifipll rate to support 24bit
+> - add s4 audio clock
+> - Link to v1: https://lore.kernel.org/r/20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com
 > 
->  .../arm/marvell/cp110-system-controller.txt   |  32 +++++
->  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi |   6 +
->  drivers/reset/reset-simple.c                  | 126 +++++++++++++++---
->  include/linux/reset/reset-simple.h            |  11 ++
->  4 files changed, 154 insertions(+), 21 deletions(-)
+> ---
+> jiebing chen (5):
+>       dt-bindings: clock: axg-audio: Add mclk and sclk pad for s4
+>       dt-bindings: Asoc: axg-audio: Add s4 audio tocodec
+>       ASoC: meson: s4:support the audio clk
+>       ASoC: meson: s4:support audio tocodec
+>       arm64: dts: amlogic: Add Amlogic S4 Audio
 > 
+>  .../bindings/clock/amlogic,axg-audio-clkc.yaml     |  18 +
+>  .../bindings/sound/amlogic,g12a-toacodec.yaml      |   1 +
+>  .../boot/dts/amlogic/meson-s4-s805x2-aq222.dts     | 219 +++++++++++
+>  arch/arm64/boot/dts/amlogic/meson-s4.dtsi          | 370 ++++++++++++++++++-
+>  drivers/clk/meson/axg-audio.c                      | 410 ++++++++++++++++++++-
+>  drivers/clk/meson/axg-audio.h                      |   4 +
+>  include/dt-bindings/clock/axg-audio-clkc.h         |  11 +
+>  sound/soc/meson/axg-card.c                         |   3 +-
+>  sound/soc/meson/g12a-toacodec.c                    |  64 ++++
+>  9 files changed, 1095 insertions(+), 5 deletions(-)
+> ---
+> base-commit: 6ecd20965bdc21b265a0671ccf36d9ad8043f5ab
+> change-id: 20250110-audio_drvier-07a5381c494b
+> 
+> Best regards,
 > --
-> 2.43.0
+> jiebing chen <jiebing.chen@amlogic.com>
 > 
 > 
 > 
@@ -114,44 +137,40 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/marvell/' for 20250214065833.530276-1-dingwei@marvell.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20250214-audio_drvier-v2-0-37881fa37c9e@amlogic.com:
 
-arch/arm64/boot/dts/marvell/cn9131-db.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9130-db.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-7040-db.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9130-cf-pro.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9130-db-B.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9130-cf-base.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9131-db-B.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-7040-mochabin.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9131-db.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9132-clearfog.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9131-db-B.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9132-clearfog.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-8040-mcbin-singleshot.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9132-clearfog.dtb: /cp2/config-space@f6000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-8040-mcbin-singleshot.dtb: /cp0/config-space@f2000000/spi@700680: failed to match any schema with compatible: ['marvell,armada-380-spi']
-arch/arm64/boot/dts/marvell/cn9132-db-B.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9130-crb-B.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/ac5x-rd-carrier-cn9131.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-8040-mcbin-singleshot.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9132-db.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9130-crb-A.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9132-db-B.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/ac5x-rd-carrier-cn9131.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9132-db.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9132-db-B.dtb: /cp2/config-space@f6000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/cn9132-db.dtb: /cp2/config-space@f6000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-8040-db.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
-arch/arm64/boot/dts/marvell/armada-8040-db.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-0: clock-names:0: 'sclk' was expected
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-0: clock-names:1: 'lrclk' was expected
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-0: clock-names:2: 'mclk' was expected
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-0: Unevaluated properties are not allowed ('clock-names' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-1: clock-names:0: 'sclk' was expected
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-1: clock-names:1: 'lrclk' was expected
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-1: clock-names:2: 'mclk' was expected
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-1: Unevaluated properties are not allowed ('clock-names' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-2: clock-names:0: 'sclk' was expected
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-2: clock-names:1: 'lrclk' was expected
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-2: clock-names:2: 'mclk' was expected
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-2: Unevaluated properties are not allowed ('clock-names' was unexpected)
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller@740: compatible: 'oneOf' conditional failed, one must be fixed:
+	['amlogic,s4-toacodec'] is too short
+	'amlogic,g12a-toacodec' was expected
+	from schema $id: http://devicetree.org/schemas/sound/amlogic,g12a-toacodec.yaml#
+arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: sound: 'anyOf' conditional failed, one must be fixed:
+	'clocks' is a required property
+	'#clock-cells' is a required property
+	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
 
 
 
