@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E57FC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:36:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 233A6C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PRDH7JUOK4Qt3XrdNtvjAwI3P3XDa0EtyA9y0a/Ff1Y=; b=BkiYNGcYWmB+SodhCXrAzuWKwo
-	PEOi0iYGM8PMM784Q8NFv4WonYAaX+WaxNiF5KWOS6GKf7tkV4BYpC6BWKOpdhklH/Vqer+/Js3ZV
-	jAAWJGFXV2ZMBpXSR8HScecFMpkZc+NHodXTSTNhs8W+i/eNjLMpSZoH380Os7iIwr7anFFfrjKXb
-	NKbd3YpYFzDyJhvYeVCiqqnz79sjo67gAHFMtQKbAAUqVeD86x1IQNQDuJ0Y7vOsC9c6uul0N8dbe
-	GuYMs7+h75fCIl6wVSHGeLDqPEhQcy84pxDRVUN5GPHUUC/S3ozRzLspt3AjoXWl7szbna+WosteA
-	dthWZipA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mmpBa7eMuH+mFF2ncMukFi4gUmii0gteNirg9Prls7g=; b=pebHaP8P9FfQ2E0BT7kybidKwa
+	DUP5B7n05BmmpoA6f3UKC8gkpfrzNXAErrJYt1w2NEourFQnoRUUGQ7XY41qBGRDDUe1aBn8DqCic
+	6/eXggvAgW0wByvTsvOQmXcK4FUaW+fEJokuSvUzIDw6fZ3giBHj3uLIrjj1CAamQ0YXR9eEy1VJr
+	DxPiaSvCEWEMrwl6J6aHDMYjacXTQu+IJoXANUbgx5LNX9DYUsd1FQy9kICOdZ4fNzXm1P6nc1iog
+	TNP8RYY0IXi3CTNt7QRlPXKGMt7kfRgeloSkR85SOfRLWAHVng2Ub/BnMJQOAJqtC+9V5v06XHLh3
+	Ek4qVvcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkgUh-0000000BuLD-2NOK;
-	Wed, 19 Feb 2025 09:35:51 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1tkgW9-0000000Bui9-1EqW;
+	Wed, 19 Feb 2025 09:37:21 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkftb-0000000BgkL-1iEC
+	id 1tkftd-0000000Bglo-46HV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 08:57:32 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43987d046caso3842345e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 00:57:30 -0800 (PST)
+	Wed, 19 Feb 2025 08:57:35 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-38f29a2c6a2so612620f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 00:57:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739955450; x=1740560250; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PRDH7JUOK4Qt3XrdNtvjAwI3P3XDa0EtyA9y0a/Ff1Y=;
-        b=zqZLtzm7FiYv20ZNJgvozrmKpTDlVwoUBUKtsBWzOy7sw2oXOaNIqzS3H70/sKxik3
-         gW//0I15H4/uyPlAnAHIRBMc3wmoYMmdATo3gbOpPKdxvGdsKf5sRqeJ9sJm+WYtS/yD
-         odh/OHvfsFJwRTIji1G+OyMleKnGHZZoyTz3lQotxy1Uh3wXZmFNIvk5EhqSQdzgCsZV
-         BySCI+5T4+ybjqhp2teGweBO6ciXbTLmPlmcOlkv+v2VA1VyDgIGPuuiwDWiC0+TlL5y
-         QKXfmaaze+XGf2ayfyTGIb+ymzSIkW35wQhOmqikleiIQYmdULFgPeydn824mEg+2H+v
-         I8ZA==
+        d=linaro.org; s=google; t=1739955452; x=1740560252; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mmpBa7eMuH+mFF2ncMukFi4gUmii0gteNirg9Prls7g=;
+        b=FUwCNIbJKuEXoH5i8snjb2bUZRtlG/t9+N/qja6OwzYfK3+1ORiSEKpnS3QmlNUacq
+         PCA0ZQ+NZrqKpZ1MnoPwU/RhVd8Xmv7FX7TJCLq3VQ+/ZSIW9vbCswezelRZmAGIKtET
+         CtTTcULhhCLQT4oq1x2vnDP6E1QqraviBWL1f5vwxBnNtozXOH1TJpshe6aUF4cGBneD
+         uJXawIbYtShYwP59ZFC3GjXBU8SvxgeUbQ323Gw3o3BGaDSxdxrR35/MKp/vUyW8by94
+         BuAvM7DxScIGbT5ZAo8DsjUhkTFxjpLt37Ddq4osyqAxMwPlXBdYkwxH456lexictRKz
+         s/gQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739955450; x=1740560250;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PRDH7JUOK4Qt3XrdNtvjAwI3P3XDa0EtyA9y0a/Ff1Y=;
-        b=mqwI1ZSUDDrCG63hieRp//xGna7g1UnCxEUoWoOMxUIUkglKq0cHDeiEUwFzM8IygS
-         oHRSHPTaoh/2O/SS/pY4vzz5773j5dot8ws3N3fNg6j7kZAIjNBgs1XOW+auwCmeKWoM
-         8TsbH9tRuJWWBxT7j4pEG+P2YZHgv3rwGZuNqo+qL0sbImp7S4QosbG8i5eN+lBPsfq0
-         Umboq0mHyQxzpTcaq86cOXaciQ/KHOktmeF5DT2p/cDOKcSROuyk0zkMciJk25JoSnxl
-         MXfJyXxOV7JdAgos3KTSHFGTD0yKxnZ1CO3/xCJm50wokt4G88AEHeeLljLijK3ZSQUI
-         XnvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWFqIwrlnIWkcQf/KDsP8M4wJmxzIbn8zhYxs+d1NkVmF2b2Hd3eHCmB0KAndJzG8gfbDtNAVu0VOA1fGmyyMqy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlRpOsqohy7XbhNVSkYN0blwt4QBaAArjcLk+lHaobPh7I8bH0
-	cBuEZxOPEw1HDs04wZpHjDVXDscnIr+nDNQUR334BmxMvW53azT8n8WCEe1Z52A=
-X-Gm-Gg: ASbGncui7dk5E5yx2QFlMBc6CKWGSkizi0QtcXOiFMUyGZ1A3cDrakEZec25/E9jXa1
-	Y0JMac+Wg/fhUnHALBkkwnqJum3pIwKEKYGQuJxbglyYlkY6JDkL2Pkh5fVxSlNJWAX4yxzVhCo
-	SmfZAerKNsZxdgHcZMM4dnq5UaTA7Djb12QfhICiyVdgpJgKXbn4lUXJQKvLbyvhd5iOXpH/6fV
-	DFv6v93I13mgjdF1WgmMfkejFItLH6r2Ee7kOUwCmg+I9lrDsw3T/6u+TjAvUf2XcZZpZdaMDwE
-	SWNbrEVxY4TMcYFTnlbFLS1B0kPW1A==
-X-Google-Smtp-Source: AGHT+IGb1jEC7y+Y7Rl+PioMxXoJSfQnw0OF7LzA+zc795fUjhCn+RhDum3IRhMvx+QUGzwJ/XfnIA==
-X-Received: by 2002:a05:600c:2d04:b0:439:84d3:f7fd with SMTP id 5b1f17b1804b1-43984d3fb0bmr37040725e9.4.1739955449623;
-        Wed, 19 Feb 2025 00:57:29 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739955452; x=1740560252;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mmpBa7eMuH+mFF2ncMukFi4gUmii0gteNirg9Prls7g=;
+        b=Olbl+JozEjZE5x47R1YSxGvGPPj1ySC/dSeNem9kuNZ0LLTKVp0+H3n347nqDqndik
+         RKHG4V0SCeCIwlhzWqqELONbmkCDG1H4TgL9uX+yZYbeIDxQCOTHPOqrZGNnss8BzUQe
+         N17xYTMR2IVvQf5WO/NUhXbvQX3bNuDcZvAZOz4mRDezW7GEWUoK0bA/tVwfhbgTv3TC
+         CVWfcPNuyPP+8kh4ldWAQKEGGPRWvUVY4uwdqss3uODbjkE9HANDpMPrPGi0E84CLV8q
+         JsneRY6zkTbDG9UXqdpirhRsEqJhoTwyTFMuMQqliyETO4SI2ulXrm2PXmEyYw871vln
+         iCaA==
+X-Forwarded-Encrypted: i=1; AJvYcCWeUmkKYp4vY/ZKtEkGD0EPq/8k9Hx2KxXoFiW5Fs2wCpcXlL9JXPmLCet9pJvfKWo1RsEKiZ5kzphaB4plP4TP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpVQDYYCFqlloAy6jBjWh7VelXBQTlRP1kiAuaNy9bB21nKafM
+	XndB738M+IjPrfA4u4uoHdhAENMeJd/+mGaRYCtfRiA5ETNWEFDmRl7kMwPMBVo=
+X-Gm-Gg: ASbGncuMjdYMIA8jb3PBdiO5sbz/TPQ5xc1nrA+/6ggkBdQ7wxgp9EQWl8UhtEg+zBl
+	UdeO9zd/PWrRaOFRon+p6XYuImw/jNDhUwMxQoH2RwbD6XAXo9fMe6/m4oQueFwP5s8aq4CoQKT
+	juXUJ+aOp29j2MjbKUb5YIVsBbTFHcPOdXvsuaPKhJlGs3CwKlW8nizEvvZJuu38ri16PDyN3pm
+	cw4XyGCQEhLaRyvLjpGB6z62GiKf+aS6rwX++CosRCMikXv2lci+aZIWmJpZ0j7/X5yspK94hZ9
+	bDnmlIr6evX74XhdbePNxnm9UiQPLw==
+X-Google-Smtp-Source: AGHT+IHMgGpLmNZh2KOBXIVt5Xtg6SHJM16bLaqEQLg+J9+rGOfQPsKNJHHPFxgxlEla7/c81KlrTA==
+X-Received: by 2002:a5d:5850:0:b0:385:edd4:1242 with SMTP id ffacd0b85a97d-38f33f50c0fmr6700963f8f.10.1739955452455;
+        Wed, 19 Feb 2025 00:57:32 -0800 (PST)
 Received: from krzk-bin.. ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4399beadf31sm10007375e9.0.2025.02.19.00.57.28
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4399beadf31sm10007375e9.0.2025.02.19.00.57.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2025 00:57:29 -0800 (PST)
+        Wed, 19 Feb 2025 00:57:31 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Peter Griffin <peter.griffin@linaro.org>,
 	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
@@ -81,15 +82,17 @@ To: Peter Griffin <peter.griffin@linaro.org>,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 1/2] arm64: dts: exynos: gs101: Change labels to lower-case
-Date: Wed, 19 Feb 2025 09:57:25 +0100
-Message-ID: <20250219085726.70824-1-krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 2/2] arm64: dts: tesla: Change labels to lower-case
+Date: Wed, 19 Feb 2025 09:57:26 +0100
+Message-ID: <20250219085726.70824-2-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250219085726.70824-1-krzysztof.kozlowski@linaro.org>
+References: <20250219085726.70824-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_005731_466452_096417AB 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20250219_005734_018692_E56615F1 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,112 +112,130 @@ Verified with comparing decompiled DTB (dtx_diff and fdtdump+diff).
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 22 ++++++++++----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
+ arch/arm64/boot/dts/tesla/fsd.dtsi | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index 813f96089578..80c1af3a8836 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -73,7 +73,7 @@ cpu0: cpu@0 {
- 			compatible = "arm,cortex-a55";
- 			reg = <0x0000>;
- 			enable-method = "psci";
--			cpu-idle-states = <&ANANKE_CPU_SLEEP>;
-+			cpu-idle-states = <&ananke_cpu_sleep>;
- 			capacity-dmips-mhz = <250>;
- 			dynamic-power-coefficient = <70>;
- 		};
-@@ -83,7 +83,7 @@ cpu1: cpu@100 {
- 			compatible = "arm,cortex-a55";
- 			reg = <0x0100>;
- 			enable-method = "psci";
--			cpu-idle-states = <&ANANKE_CPU_SLEEP>;
-+			cpu-idle-states = <&ananke_cpu_sleep>;
- 			capacity-dmips-mhz = <250>;
- 			dynamic-power-coefficient = <70>;
- 		};
-@@ -93,7 +93,7 @@ cpu2: cpu@200 {
- 			compatible = "arm,cortex-a55";
- 			reg = <0x0200>;
- 			enable-method = "psci";
--			cpu-idle-states = <&ANANKE_CPU_SLEEP>;
-+			cpu-idle-states = <&ananke_cpu_sleep>;
- 			capacity-dmips-mhz = <250>;
- 			dynamic-power-coefficient = <70>;
- 		};
-@@ -103,7 +103,7 @@ cpu3: cpu@300 {
- 			compatible = "arm,cortex-a55";
- 			reg = <0x0300>;
- 			enable-method = "psci";
--			cpu-idle-states = <&ANANKE_CPU_SLEEP>;
-+			cpu-idle-states = <&ananke_cpu_sleep>;
- 			capacity-dmips-mhz = <250>;
- 			dynamic-power-coefficient = <70>;
- 		};
-@@ -113,7 +113,7 @@ cpu4: cpu@400 {
- 			compatible = "arm,cortex-a76";
- 			reg = <0x0400>;
- 			enable-method = "psci";
--			cpu-idle-states = <&ENYO_CPU_SLEEP>;
-+			cpu-idle-states = <&enyo_cpu_sleep>;
- 			capacity-dmips-mhz = <620>;
- 			dynamic-power-coefficient = <284>;
- 		};
-@@ -123,7 +123,7 @@ cpu5: cpu@500 {
- 			compatible = "arm,cortex-a76";
- 			reg = <0x0500>;
- 			enable-method = "psci";
--			cpu-idle-states = <&ENYO_CPU_SLEEP>;
-+			cpu-idle-states = <&enyo_cpu_sleep>;
- 			capacity-dmips-mhz = <620>;
- 			dynamic-power-coefficient = <284>;
- 		};
-@@ -133,7 +133,7 @@ cpu6: cpu@600 {
- 			compatible = "arm,cortex-x1";
- 			reg = <0x0600>;
- 			enable-method = "psci";
--			cpu-idle-states = <&HERA_CPU_SLEEP>;
-+			cpu-idle-states = <&hera_cpu_sleep>;
- 			capacity-dmips-mhz = <1024>;
- 			dynamic-power-coefficient = <650>;
- 		};
-@@ -143,7 +143,7 @@ cpu7: cpu@700 {
- 			compatible = "arm,cortex-x1";
- 			reg = <0x0700>;
- 			enable-method = "psci";
--			cpu-idle-states = <&HERA_CPU_SLEEP>;
-+			cpu-idle-states = <&hera_cpu_sleep>;
- 			capacity-dmips-mhz = <1024>;
- 			dynamic-power-coefficient = <650>;
- 		};
-@@ -151,7 +151,7 @@ cpu7: cpu@700 {
+diff --git a/arch/arm64/boot/dts/tesla/fsd.dtsi b/arch/arm64/boot/dts/tesla/fsd.dtsi
+index 690b4ed9c29b..9951eef9507c 100644
+--- a/arch/arm64/boot/dts/tesla/fsd.dtsi
++++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
+@@ -92,7 +92,7 @@ cpucl0_0: cpu@0 {
+ 				reg = <0x0 0x000>;
+ 				enable-method = "psci";
+ 				clock-frequency = <2400000000>;
+-				cpu-idle-states = <&CPU_SLEEP>;
++				cpu-idle-states = <&cpu_sleep>;
+ 				i-cache-size = <0xc000>;
+ 				i-cache-line-size = <64>;
+ 				i-cache-sets = <256>;
+@@ -108,7 +108,7 @@ cpucl0_1: cpu@1 {
+ 				reg = <0x0 0x001>;
+ 				enable-method = "psci";
+ 				clock-frequency = <2400000000>;
+-				cpu-idle-states = <&CPU_SLEEP>;
++				cpu-idle-states = <&cpu_sleep>;
+ 				i-cache-size = <0xc000>;
+ 				i-cache-line-size = <64>;
+ 				i-cache-sets = <256>;
+@@ -124,7 +124,7 @@ cpucl0_2: cpu@2 {
+ 				reg = <0x0 0x002>;
+ 				enable-method = "psci";
+ 				clock-frequency = <2400000000>;
+-				cpu-idle-states = <&CPU_SLEEP>;
++				cpu-idle-states = <&cpu_sleep>;
+ 				i-cache-size = <0xc000>;
+ 				i-cache-line-size = <64>;
+ 				i-cache-sets = <256>;
+@@ -139,7 +139,7 @@ cpucl0_3: cpu@3 {
+ 				compatible = "arm,cortex-a72";
+ 				reg = <0x0 0x003>;
+ 				enable-method = "psci";
+-				cpu-idle-states = <&CPU_SLEEP>;
++				cpu-idle-states = <&cpu_sleep>;
+ 				i-cache-size = <0xc000>;
+ 				i-cache-line-size = <64>;
+ 				i-cache-sets = <256>;
+@@ -156,7 +156,7 @@ cpucl1_0: cpu@100 {
+ 				reg = <0x0 0x100>;
+ 				enable-method = "psci";
+ 				clock-frequency = <2400000000>;
+-				cpu-idle-states = <&CPU_SLEEP>;
++				cpu-idle-states = <&cpu_sleep>;
+ 				i-cache-size = <0xc000>;
+ 				i-cache-line-size = <64>;
+ 				i-cache-sets = <256>;
+@@ -172,7 +172,7 @@ cpucl1_1: cpu@101 {
+ 				reg = <0x0 0x101>;
+ 				enable-method = "psci";
+ 				clock-frequency = <2400000000>;
+-				cpu-idle-states = <&CPU_SLEEP>;
++				cpu-idle-states = <&cpu_sleep>;
+ 				i-cache-size = <0xc000>;
+ 				i-cache-line-size = <64>;
+ 				i-cache-sets = <256>;
+@@ -188,7 +188,7 @@ cpucl1_2: cpu@102 {
+ 				reg = <0x0 0x102>;
+ 				enable-method = "psci";
+ 				clock-frequency = <2400000000>;
+-				cpu-idle-states = <&CPU_SLEEP>;
++				cpu-idle-states = <&cpu_sleep>;
+ 				i-cache-size = <0xc000>;
+ 				i-cache-line-size = <64>;
+ 				i-cache-sets = <256>;
+@@ -204,7 +204,7 @@ cpucl1_3: cpu@103 {
+ 				reg = <0x0 0x103>;
+ 				enable-method = "psci";
+ 				clock-frequency = <2400000000>;
+-				cpu-idle-states = <&CPU_SLEEP>;
++				cpu-idle-states = <&cpu_sleep>;
+ 				i-cache-size = <0xc000>;
+ 				i-cache-line-size = <64>;
+ 				i-cache-sets = <256>;
+@@ -221,7 +221,7 @@ cpucl2_0: cpu@200 {
+ 				reg = <0x0 0x200>;
+ 				enable-method = "psci";
+ 				clock-frequency = <2400000000>;
+-				cpu-idle-states = <&CPU_SLEEP>;
++				cpu-idle-states = <&cpu_sleep>;
+ 				i-cache-size = <0xc000>;
+ 				i-cache-line-size = <64>;
+ 				i-cache-sets = <256>;
+@@ -237,7 +237,7 @@ cpucl2_1: cpu@201 {
+ 				reg = <0x0 0x201>;
+ 				enable-method = "psci";
+ 				clock-frequency = <2400000000>;
+-				cpu-idle-states = <&CPU_SLEEP>;
++				cpu-idle-states = <&cpu_sleep>;
+ 				i-cache-size = <0xc000>;
+ 				i-cache-line-size = <64>;
+ 				i-cache-sets = <256>;
+@@ -253,7 +253,7 @@ cpucl2_2: cpu@202 {
+ 				reg = <0x0 0x202>;
+ 				enable-method = "psci";
+ 				clock-frequency = <2400000000>;
+-				cpu-idle-states = <&CPU_SLEEP>;
++				cpu-idle-states = <&cpu_sleep>;
+ 				i-cache-size = <0xc000>;
+ 				i-cache-line-size = <64>;
+ 				i-cache-sets = <256>;
+@@ -269,7 +269,7 @@ cpucl2_3: cpu@203 {
+ 				reg = <0x0 0x203>;
+ 				enable-method = "psci";
+ 				clock-frequency = <2400000000>;
+-				cpu-idle-states = <&CPU_SLEEP>;
++				cpu-idle-states = <&cpu_sleep>;
+ 				i-cache-size = <0xc000>;
+ 				i-cache-line-size = <64>;
+ 				i-cache-sets = <256>;
+@@ -291,7 +291,7 @@ cpucl_l2: l2-cache0 {
  		idle-states {
  			entry-method = "psci";
  
--			ANANKE_CPU_SLEEP: cpu-ananke-sleep {
-+			ananke_cpu_sleep: cpu-ananke-sleep {
+-			CPU_SLEEP: cpu-sleep {
++			cpu_sleep: cpu-sleep {
  				idle-state-name = "c2";
  				compatible = "arm,idle-state";
- 				arm,psci-suspend-param = <0x0010000>;
-@@ -160,7 +160,7 @@ ANANKE_CPU_SLEEP: cpu-ananke-sleep {
- 				min-residency-us = <2000>;
- 			};
- 
--			ENYO_CPU_SLEEP: cpu-enyo-sleep {
-+			enyo_cpu_sleep: cpu-enyo-sleep {
- 				idle-state-name = "c2";
- 				compatible = "arm,idle-state";
- 				arm,psci-suspend-param = <0x0010000>;
-@@ -169,7 +169,7 @@ ENYO_CPU_SLEEP: cpu-enyo-sleep {
- 				min-residency-us = <2500>;
- 			};
- 
--			HERA_CPU_SLEEP: cpu-hera-sleep {
-+			hera_cpu_sleep: cpu-hera-sleep {
- 				idle-state-name = "c2";
- 				compatible = "arm,idle-state";
- 				arm,psci-suspend-param = <0x0010000>;
+ 				local-timer-stop;
 -- 
 2.43.0
 
