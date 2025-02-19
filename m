@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D54CC021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 11:51:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1923BC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 11:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DmE/AqNS2uy0QlORQ3XZZ++nuTd4ykAVXTbN7NVTIZw=; b=Q3xMYlfy9waUIO+AWksEYhZXmL
-	9K3MescWwPGG/UVfZeiu2sQ+KLX4UHlxXzJTOtpMiYZlDyvk8x3pXdo5/7tKZ9ETEEKLGxAwUkxEK
-	mXeucRm80wkeRljwdp171IwEry8u+y6Wd3+0tGQ9X00GXKKbRUk/KE6TXp6RwWubB94QlFHTFRRnS
-	XKBp6BpUF4pLEH6vOrBrRLCW1wKKYsoat3OkSWCft4tvlq8FGjd+ZEyqoL0szPm2S0sjnNmHrKzIW
-	WyettaWm4WggSgb7VcmG8mzfgxiXHrOd/JLNbOsFMx04NRsZlNxyCkXzDazKxVKhhQovAOo/kUF3s
-	PEvgMmXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=teFEEY27X3Zb4o9qYoLcaC3DWikKd25qT1PCi5W3oTM=; b=sT4tN0K+G4iBm+QwlUMgqZR2HY
+	pkx89N4tolizxv7qxrtVDj7fa6qUewRODX/e4raTDWSegB+y9/TGCPU6Jfz+cFPoZxIcpEgKDU9BM
+	gZAPufyUsUq50ZXiYgwnPuKWFpbKNkFTOFMtCDymNFRN3Rkmyz6vyyDfcJVd7nNBxZkFBh/gvZy76
+	TpCsfbR47dv0LInpwe0qybij5jdADJc4bCl5Ik+E5BZE73plPDxqmL+uujVcwmwDzmN5Pyq2UkViZ
+	gcw+9oVqi+8kMemgTe2SQMpnNmQ14osK1FNCTQTGpDxSpgs3FiaWm2MLhhu7nMQXuPQUWTSMTTkRL
+	7hz+4LwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkic3-0000000CWMh-0pg6;
-	Wed, 19 Feb 2025 11:51:35 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tkie3-0000000CWyo-28OV;
+	Wed, 19 Feb 2025 11:53:39 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkiaZ-0000000CW0Z-0dAn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 11:50:04 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 62E6F10382F0F;
-	Wed, 19 Feb 2025 12:49:56 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1739965798;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=DmE/AqNS2uy0QlORQ3XZZ++nuTd4ykAVXTbN7NVTIZw=;
-	b=fzeE/D709YCLzOyof5x37NCe3HjjsvRoAPnhyqoAq6puzHn6jaKnAI/7HCLN2Adv+KWYIb
-	qhykKL6tAFpc1IMieFJdTjtC0JW2IilHAuMXh9xLswuoiy6upsgIEKi//pwtr4LiM+jPdH
-	iPjOuUmvVCIspveJlusVDxzmPRpz6Pqp0MltAil+j8Xfsp2kcNHa/cgIocHKK0Geo8lZoq
-	o77vXhzqOARwQ4cLIKUiKOyPMJYYdF9C0i9At/CpKxwUj83S+gjiOORwvdSN1v8d9lv57b
-	axXiLkxQ20q0vu5pV/MFlZw61ns9tLefp/zAqzuxxm6M69h6hd0/GpmcJnZmPA==
-From: Lukasz Majewski <lukma@denx.de>
-To: Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
+	id 1tkicZ-0000000CWa5-39wm;
+	Wed, 19 Feb 2025 11:52:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3E51DA41E00;
+	Wed, 19 Feb 2025 11:50:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C01EC4CED1;
+	Wed, 19 Feb 2025 11:52:03 +0000 (UTC)
+Date: Wed, 19 Feb 2025 11:52:01 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-mm@kvack.org, Ryan Roberts <ryan.roberts@arm.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Lukasz Majewski <lukma@denx.de>
-Subject: [PATCH] arm: clk: Add ETH switch clock description for vf610 SoC
-Date: Wed, 19 Feb 2025 12:49:36 +0100
-Message-Id: <20250219114936.3546530-1-lukma@denx.de>
-X-Mailer: git-send-email 2.39.5
+	linux-snps-arc@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-parisc@vger.kernel.org,
+	linux-csky@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
+	loongarch@lists.linux.dev, linux-sh@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mm/ioremap: Pass pgprot_t to ioremap_prot() instead of
+ unsigned long
+Message-ID: <Z7XF4Y3FIbSrSP9u@arm.com>
+References: <20250218101954.415331-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250218101954.415331-1-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_035003_340115_AF15C7B9 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20250219_035207_855034_CD177DD6 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,43 +68,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NXP's vf610 soc is equipped with L2 switch IP block from More
-Than IP (MTIP) vendor.
+On Tue, Feb 18, 2025 at 03:49:54PM +0530, Anshuman Khandual wrote:
+> From: Ryan Roberts <ryan.roberts@arm.com>
+> 
+> ioremap_prot() currently accepts pgprot_val parameter as an unsigned long,
+> thus implicitly assuming that pgprot_val and pgprot_t could never be bigger
+> than unsigned long. But this assumption soon will not be true on arm64 when
+> using D128 pgtables. In 128 bit page table configuration, unsigned long is
+> 64 bit, but pgprot_t is 128 bit.
+> 
+> Passing platform abstracted pgprot_t argument is better as compared to size
+> based data types. Let's change the parameter to directly pass pgprot_t like
+> another similar helper generic_ioremap_prot().
+> 
+> Without this change in place, D128 configuration does not work on arm64 as
+> the top 64 bits gets silently stripped when passing the protection value to
+> this function.
+> 
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-snps-arc@lists.infradead.org
+> Cc: linux-riscv@lists.infradead.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: linux-parisc@vger.kernel.org
+> Cc: linux-csky@vger.kernel.org
+> Cc: linux-mips@vger.kernel.org
+> Cc: linux-s390@vger.kernel.org
+> Cc: linux-arch@vger.kernel.org
+> Cc: loongarch@lists.linux.dev
+> Cc: linux-sh@vger.kernel.org
+> Cc: linux-mm@kvack.org
+> Cc: linux-kernel@vger.kernel.org
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+> Co-developed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
-It requires special clock (VF610_CLK_ESW) to be operational.
+For arm64:
 
-Signed-off-by: Lukasz Majewski <lukma@denx.de>
----
- drivers/clk/imx/clk-vf610.c             | 1 +
- include/dt-bindings/clock/vf610-clock.h | 3 ++-
- 2 files changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/clk/imx/clk-vf610.c b/drivers/clk/imx/clk-vf610.c
-index 9e11f1c7c397..405bf48a1d28 100644
---- a/drivers/clk/imx/clk-vf610.c
-+++ b/drivers/clk/imx/clk-vf610.c
-@@ -309,6 +309,7 @@ static void __init vf610_clocks_init(struct device_node *ccm_node)
- 	clk[VF610_CLK_ENET_TS] = imx_clk_gate("enet_ts", "enet_ts_sel", CCM_CSCDR1, 23);
- 	clk[VF610_CLK_ENET0] = imx_clk_gate2("enet0", "ipg_bus", CCM_CCGR9, CCM_CCGRx_CGn(0));
- 	clk[VF610_CLK_ENET1] = imx_clk_gate2("enet1", "ipg_bus", CCM_CCGR9, CCM_CCGRx_CGn(1));
-+	clk[VF610_CLK_ESW] = imx_clk_gate2("esw", "ipg_bus", CCM_CCGR10, CCM_CCGRx_CGn(8));
- 
- 	clk[VF610_CLK_PIT] = imx_clk_gate2("pit", "ipg_bus", CCM_CCGR1, CCM_CCGRx_CGn(7));
- 
-diff --git a/include/dt-bindings/clock/vf610-clock.h b/include/dt-bindings/clock/vf610-clock.h
-index 373644e46747..95446f1bee16 100644
---- a/include/dt-bindings/clock/vf610-clock.h
-+++ b/include/dt-bindings/clock/vf610-clock.h
-@@ -197,6 +197,7 @@
- #define VF610_CLK_TCON1			188
- #define VF610_CLK_CAAM			189
- #define VF610_CLK_CRC			190
--#define VF610_CLK_END			191
-+#define VF610_CLK_ESW			191
-+#define VF610_CLK_END			192
- 
- #endif /* __DT_BINDINGS_CLOCK_VF610_H */
--- 
-2.40.1
-
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
