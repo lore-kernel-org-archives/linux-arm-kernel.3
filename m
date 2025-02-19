@@ -4,133 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B959FC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 13:23:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83AC6C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 13:26:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ItERCttD4ZqCJ2HvXTOXVmKnbOGbB9MYcRuiAClfxiU=; b=U9qiMeE9jJBCfM1hh/FWIfo4ZM
-	PSa9Hq0+Ev/P2yYOCac0SzNoLxsqjX6cxkVN8l2hbgrhejoHfeRb3uZy9Z8E/x2G2oOm1bsl486Cx
-	mTou28NLWRQjevdLL1dLN+LO0OwNDBpsEtc/cVvopOSrl8SJwwUbbQeGTCcfd6bsA4zBHEZYSidX4
-	XJWGBVy+kC4360fXHszwBcQCGgWDTtsLwukmP0MlMgUh+9LVvAKzDPyRq4PN9a96TsJcvMjx6yHeL
-	Ki8XpcrCnFFSnvVrVL6/CiudINNLqqJ1Ebu/6A3cxnKgepRvmMLpSmFrTjQlj50g4cBkyIkw16xCY
-	jzEdlFEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SgoIhb7v2nUvVGSyYkSzqTYVeqIkDV616VOQwAYGtNo=; b=a8D8x5XzyirXd0M7riEImo16Yx
+	o+cfhGlaGN06xdvUaW9oiUxYfpqS4lUoVsU/4PGlJ8wGwvjEpckkqhysF6IHwThj5YX+r9PjM1nyp
+	+20jnEBtXehT4Ltksrv/ZHYtrlVUh8Qn0xTdrMMspCbyLnHkwNZXE4rOZPkdrKfUq88MwNb4lJil6
+	NZqDK6XPSlgef53zVCreSqaidCBu1FiqGihS+0A2F//QWI8dk2QM+ximG9VcAmjhrcGDB9Qhauyi2
+	Pr8DjVFcOtEb4jgo9t4Vqf+7eE2SuIr1Ru1Zd19NByLjOQdTmqmArRAnofADfi4jcxQ+CUBNkFR1r
+	H9a4E3xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkk38-0000000Cvh4-0DJk;
-	Wed, 19 Feb 2025 13:23:38 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1tkk63-0000000CwSq-3MId;
+	Wed, 19 Feb 2025 13:26:39 +0000
+Received: from mail-db8eur05on20609.outbound.protection.outlook.com ([2a01:111:f403:2614::609] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkk1d-0000000CvFx-1zib
+	id 1tkk4Z-0000000Cw1y-0KQD
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 13:22:06 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4398ec2abc2so24338535e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 05:22:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ffwll.ch; s=google; t=1739971323; x=1740576123; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ItERCttD4ZqCJ2HvXTOXVmKnbOGbB9MYcRuiAClfxiU=;
-        b=BkFXb/kIdY+3NqRTwdCsuLX6QSpGUx4NrGbL67y9P3ltBzIDycEYWGavJtFwoICWJe
-         hpFV0hVviVrYZfFy3lCGM3zKgN/C7dlltEVDZj1U/Bl23I/likyZlqO0PqNXwo/S3/Po
-         eabZHk71HssiENE53cnhjxhJiLCa7c1eXNUGo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739971323; x=1740576123;
-        h=in-reply-to:content-disposition:mime-version:references
-         :mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ItERCttD4ZqCJ2HvXTOXVmKnbOGbB9MYcRuiAClfxiU=;
-        b=s3mKBXpSYQLEb7XU1vqcgSejJ8eFzeA09rvGd0pKDQfAo8HgzsxlixnCyy0Ehl1S/F
-         yXkFJbVfYomu3zLHtGsXlNQoiM7gRfQL4s23/y2xpXXULTIsIbtDI36rem4mYs4nh5jk
-         /OPIEXV2kWnIOv31JSRSD+gJWxnul0ag33ZJlr6KLuk4Hoosl0rej7suX2SHjMvy27tT
-         QJVdEYuwJPLnAB3CRVDCk6UdsYpHj8OqOe2XcB7QiyITfMWBQyx1MncXHAFoSFWJcQTD
-         XOCGtdpy3fWz1m5GK9e+0nCL4UgKCvuvCNcIetpqm/J+Eyonp8yRb3tWw6daF+BsBzQH
-         SiaA==
-X-Forwarded-Encrypted: i=1; AJvYcCWtSUopNNge9T9NaSfRabtfq6gIUwtT8mU/NaSknpp1Q4AarHPX4uawR2jGRMNy+lkqPPJgsnR60FEcevj8DtAQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKZd1ZYmn2t/182FGvum9fYi1fs9Ers4yyQMlcO1CWX2Ektnd6
-	Vqa1F2+Crc/LvPMKptd7F29KFHj8bdCP1AMW/qOdW9PUBp500oJuLwKg4LaoEhc=
-X-Gm-Gg: ASbGncvlsHFQ4LbOEjEKl5uI5aSc0oolbtKwMgU74f9X2T9TLS/xIPAr+a9k46KNxsl
-	MLeT4HH8D/8mxoyB6PD6bdOrJ9ndKUpdI0RanwMvEL7XNyj0uMS2XVwx0z7dIzs/uO8d/d7npj8
-	m3ZFqFdWCuYtj3mNFuZU8PM1+u4EzI0Gy71FxG65xIIf6LZJDPInx9qdvT2k71Jev45WbHybU4q
-	Y/5Jih9gE4VOZMT24BT+1Js8tKo7I3cwjOAKOli/NrKBKOnobSSX9sTR5zDHeNwUzsTXuDevBfQ
-	LzXJk57aMIFexczaeW3gOMqZZCk=
-X-Google-Smtp-Source: AGHT+IFOilwBJ5aoh97zcLA4mj4xU/YMSCmbCjCXU9wojxNHTeliFqqcujswwLdduRHkO4EdT9IN9A==
-X-Received: by 2002:a05:600c:1c18:b0:439:6e12:fdb4 with SMTP id 5b1f17b1804b1-43999da3ac7mr40722565e9.14.1739971323224;
-        Wed, 19 Feb 2025 05:22:03 -0800 (PST)
-Received: from phenom.ffwll.local ([2a02:168:57f4:0:5485:d4b2:c087:b497])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259d5ef9sm17846401f8f.76.2025.02.19.05.22.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2025 05:22:02 -0800 (PST)
-Date: Wed, 19 Feb 2025 14:22:00 +0100
-From: Simona Vetter <simona.vetter@ffwll.ch>
-To: Daniel Stone <daniel@fooishbar.org>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Media Mailing List <linux-media@vger.kernel.org>,
-	dri-devel <dri-devel@lists.freedesktop.org>,
-	"moderated list:DMA BUFFER SHARING FRAMEWORK" <linaro-mm-sig@lists.linaro.org>,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com,
-	Florent Tomasin <florent.tomasin@arm.com>
-Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
-Message-ID: <Z7Xa-K0aOqcndICH@phenom.ffwll.local>
-Mail-Followup-To: Daniel Stone <daniel@fooishbar.org>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Media Mailing List <linux-media@vger.kernel.org>,
-	dri-devel <dri-devel@lists.freedesktop.org>,
-	"moderated list:DMA BUFFER SHARING FRAMEWORK" <linaro-mm-sig@lists.linaro.org>,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com,
-	Florent Tomasin <florent.tomasin@arm.com>
-References: <CAFA6WYOJkSRsH-15QdqXNMd08Q=Dg4NkRd1Cr9LXA+5nozTF6g@mail.gmail.com>
- <20250213134008.4cbef142@collabora.com>
- <CAPj87rM5Y=-Jgf4mwukicF6Yb-vccn2fpG2X1jNq0upH2+cAEQ@mail.gmail.com>
- <CAHUa44G9hw-z6wzxg=HkVAxPKEW1yES5JTEqRWMvJUJAtcUDkQ@mail.gmail.com>
- <CAPj87rPHnME5Osgnf5-FSAu22mDpLj=dzvhi_NqEcOwr1ThgGw@mail.gmail.com>
- <CAHUa44Gs0D1fBD0=+EDgcQUMeDv4knci9trUkYEc1J98qFV7HQ@mail.gmail.com>
- <CAFA6WYOuTwRPEh3L7+hMyARB_E73xmp+OwhKyS-r4+ryS7=9sw@mail.gmail.com>
- <20250214164856.0d2ead8a@collabora.com>
- <CAFA6WYPc6EHQwcPuMZRm4C1P6SoDrCzEPUmju_meupB6NXQ1sg@mail.gmail.com>
- <CAPj87rN-OYTzh5=Gdv619UQD5=x=U6Yt=uV4N1kCs4Zao4RVAg@mail.gmail.com>
+	Wed, 19 Feb 2025 13:25:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Z4x+pz+10aQqbPJB+qaF+Iv4U/3gmMNiT32SeGtDOxhXDEaNmxl85k/vcpCG3M2Pth8OjuHQ/n0ZY2ppqAT3KAPstsoOd0YJUdtgLZJjxZWy4z77d+8aig6VZGcKNBN74bqelw+QlQ87QfADi5yf5Nt0jAWBGM6RpHlje1E157vEplCBrNgZPQPHlaMVcingL9t6unq/8V5EDOvD4Q2AlFBqvVCagTW2L/JCXoggj4NHb/rsX0+OPquwIOiWq16PhwaNMZh5XqzmMcMsIl0NpuuJYR8lcwI3MooYM2HoZl1TkyU9wx5lh15zImBOG3WbHUbBZEOoJrruFCb4FJaoNw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SgoIhb7v2nUvVGSyYkSzqTYVeqIkDV616VOQwAYGtNo=;
+ b=MkGIXCG4Imi2saglYP85L/RTFGWX1jzUzY4OT8X7WvBi2odUdcRrZDZIkevQ7qx5JJfGd5J10cPImni/PQ3nRmYzjybqNEQRq6nIG/AZglazsjXyH7XcH/Gl/l1vaAFLiONcrLBGoMc+dSDJ3GWZMqQevLLWRnHcS8j5SoDkQ5QFSh/A3/9igUzpWchrJQ9zcWD1keC30GyXdr0P8+m9f+QMB9xNW0huFK/AU10DtIaMM4gmX44e/cN46Ge8qPLl24GAbmHIfzHPPnknKo8jurEfIpBbTsz0kt2g4KY5jXv7cw/Jir17wxtJNypN8toQoFj7D4ECS4i8B9DkdjpPNw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SgoIhb7v2nUvVGSyYkSzqTYVeqIkDV616VOQwAYGtNo=;
+ b=H4Tfm4y+4B/UKjAYHe+PhT19+lpDaLVMrQqGh3DYFw/0GuooU2EQu+na63eWDT/0ik8AHXSf6e5M6i82FRYzNL1nwTK6JcqDItwYvR4ENTZQFQTJTG8mfLjbmA3Li1ztIgvXlOu4puNqonKNiXXqWOA33+WIKfs+5tD5kT0CMVi05A7xYR0/2XYVBGBxXZOEWCfP4fiprdh1D2IEr9ZEEeds6MU/26w7YimAhtz0jfcRCvh2AQ611pvEUNHGD7lSj6Lk3F59ynAfWQPr4+tkJ6BZ+GsKkwoJw9O8kOSMAl21k6w0nJ9v5FBsluZDzUz/XvdmEKSeLCOLiPEWZUmWng==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
+ by PA1PR04MB10841.eurprd04.prod.outlook.com (2603:10a6:102:487::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8422.19; Wed, 19 Feb
+ 2025 13:24:57 +0000
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::3a74:80e4:4144:62db]) by DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::3a74:80e4:4144:62db%2]) with mapi id 15.20.8398.021; Wed, 19 Feb 2025
+ 13:24:57 +0000
+From: florin.leotescu@oss.nxp.com
+To: Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Shych <michaelsh@nvidia.com>,
+	linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: viorel.suman@nxp.com,
+	carlos.song@nxp.com,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	Florin Leotescu <florin.leotescu@nxp.com>
+Subject: [PATCH v2 0/3] emc2305 driver updates
+Date: Wed, 19 Feb 2025 15:32:18 +0200
+Message-Id: <20250219133221.2641041-1-florin.leotescu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AM0PR02CA0159.eurprd02.prod.outlook.com
+ (2603:10a6:20b:28d::26) To DU7PR04MB11163.eurprd04.prod.outlook.com
+ (2603:10a6:10:5b3::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAPj87rN-OYTzh5=Gdv619UQD5=x=U6Yt=uV4N1kCs4Zao4RVAg@mail.gmail.com>
-X-Operating-System: Linux phenom 6.12.11-amd64 
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|PA1PR04MB10841:EE_
+X-MS-Office365-Filtering-Correlation-Id: 787fee03-33cc-4f42-a1e2-08dd50e8cdce
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?zTjDZmhpiKflf9/4HgyLh3ncPB62YBX4EdTBDHq2FXLINpkiDy35wahUC8?=
+ =?iso-8859-1?Q?Hzgh6nSs4rewichbpBOP55le98Fhw89YAhKBAyciBWe/ENeJGgQ1HVcxiK?=
+ =?iso-8859-1?Q?lO+qgMvxccfzLT/NGGYvp6oryh8neLXQFiSV2BhEcbWNvBPIfzoNd2CBYV?=
+ =?iso-8859-1?Q?EwS/+4rShJ2tOzjz6oEThCdaydqAw5I2CL80uuC2m97TRJ9P/2yGJR5Qfi?=
+ =?iso-8859-1?Q?5oOLqoXQ97kvk/nwePkbw642699tfr8s4VcDRsonwMMlo8HK0D2XVyi5FO?=
+ =?iso-8859-1?Q?YVXWi99pfB+bDHwVtCuY5KCuc5vxH4VXI0miWxWGzZATmcwjcL6sbrN0Nc?=
+ =?iso-8859-1?Q?3/P9jiTv6yVipoRzRipa7mn0kalNj7UIyVWQgbZFGYIhTRckmKh7x/OV0L?=
+ =?iso-8859-1?Q?8IoSDcCkPOJPWKhwa/lcmanmPmq3EkAD2xHSpEtUNyB/F3/Esu4cJMGdzt?=
+ =?iso-8859-1?Q?I1IhHSBeeEFzJR1mFKlJtt9GcoLKzFPVwFmc3F4SDKI8b3dYlclaoioddZ?=
+ =?iso-8859-1?Q?A+f7QjDqsCeEwTvR4wT2QxVcJ0n3dFw0iieXMXoW6dwKOkJ71VXBDThWeL?=
+ =?iso-8859-1?Q?lDgKDCutTILEFVjf2pvU3Q4ti++uJ5/2g8zMwSZtbDBpq9s7gzHlUrC5OJ?=
+ =?iso-8859-1?Q?FnGuLBK52rCGS1h8mg1Z/C1d8VwESA0KbBKZY0ue3CYKxLrYM8ZuUd/Is/?=
+ =?iso-8859-1?Q?9ua7JYsC0Aeskn2i7Xao4dx9G3nb01wWB/jHXH4dP7/rFaZ2V4v61CNQOn?=
+ =?iso-8859-1?Q?/Xu2Rkb+3kT0MT/rqIoy/H6glj0y+SgSNVhQaFD+2289zRGt5SSMi2+WnI?=
+ =?iso-8859-1?Q?DoVTmOPazX0hNKUW/MLcIXmxGzglBKIkNKwARa5Fzy+QsYadFCuq7WT51q?=
+ =?iso-8859-1?Q?GugcltZdAEdFtS1q8oUJLTTRvpMh98c5YqvmY8ODw+FxTv+Mk/43Te4233?=
+ =?iso-8859-1?Q?blXv0dbmOfaE6GPYnwG0ywO7jENM5JgzciJ8nW2VawmM9plhOw1zJabS8r?=
+ =?iso-8859-1?Q?4lZ+R2ihy905T61B9UKMAQJyJ21UgW673wOGO6SX5CamBJlWatrfLYweis?=
+ =?iso-8859-1?Q?/+uHE2eUbIaz5EujdSKbzadqROVuKCfFmwVzlFAvRt5g4D1OXKi9QlsS0T?=
+ =?iso-8859-1?Q?yE5A8byFWqdTSMEDPyrqAwwH2lMdIDC6YcHieGHYxgNbwsJKiYBpqINBgL?=
+ =?iso-8859-1?Q?x54+y9PPz7iYDMxwjvUp6hvmm9z1OK3ZLveYx76LxsEXAv2rxdPxXauczx?=
+ =?iso-8859-1?Q?lOTz9ztEKFEvCjmkUMPSfTAHLm4RQkCK6Mv+8mF2dqrlt/L4xHI2U9lrCk?=
+ =?iso-8859-1?Q?WP+gCtMVU4BFqOyg8dTOZoMtKQ5797hqZRpvMN/VB40cZrD20PLC7TX6Wx?=
+ =?iso-8859-1?Q?UVkoyovYmgWglzNo7CT5tOZuvDlY+i0/KJ/86SUShRxCf3iUKCVQqhZKua?=
+ =?iso-8859-1?Q?VQZ/3J4ST/zOJHOB?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?z3XUH0ifkPdQRT1Y/nxO/aOCHJo5JJ0A+9ScAHmCTJxIs1PX6m6YDCu9ZE?=
+ =?iso-8859-1?Q?MiYicN0kq40U4DqbN3hFRLF5jppGmQ6c7o4IY+1f+QbT9Bmlnvg1ADcZYb?=
+ =?iso-8859-1?Q?j+bX6OXe2jdmaWDWpDwDUNAUCHrSODLg81Kd4P4GCNgujjidkmO6jbcWtH?=
+ =?iso-8859-1?Q?haK28uHbk8JndViVE9TB4y8lHqEnhE8Gqb9NljqEsbvVH4rG/RhWKk51Yq?=
+ =?iso-8859-1?Q?+HVUCmMHckZAbPRLmNhizhBIDGLbaXDnaG9mPUUkIah4sDExzoxrYMg4Zx?=
+ =?iso-8859-1?Q?q9MS2Vw+GBZOv8y0a5+UAyrYA1HL+BjC5DJSs0m4UIet1KpKcsBsGQ/Ki6?=
+ =?iso-8859-1?Q?efrn1jgOk4K8UB9aFB5/DGgG7pLyMBmM/dyOwJcrOCAU4hIYqnUWJo4W1X?=
+ =?iso-8859-1?Q?UoLx5y16XBHNDOfLKn8B8xI5wkkfn51igbv5W3y2k6MtRQh5NiCYhIjyQQ?=
+ =?iso-8859-1?Q?aILdrRSL4rcmRLFjdsYqg80abuvioaPXF7U8tzoaKMQK92RL7Nec1MPkpW?=
+ =?iso-8859-1?Q?J55H50mu/88C5nQ6SzjcRaeQFuYkiAAhFO4S5l5WRt5bBisGEn2YPP9LDj?=
+ =?iso-8859-1?Q?Mgj3DtZQLsftO0Mkew4aTti30nPs7ZMNZvleemb2v6Z0AMXHgPPDRWf/hB?=
+ =?iso-8859-1?Q?mYisI7YGvTZHqAeY0K11oRy6bnhzb3OvCkfhsguI/PI8HlxxeasJMGESQy?=
+ =?iso-8859-1?Q?09/btULQrRl34SOPS0wu2vH5eDCmy//uap1viSWbRyR5mneV5kpG978qZ3?=
+ =?iso-8859-1?Q?cikZvtvUECOQb3eN9I2SSrYpPog4OabzEy+3QY/Zr5v7Bg8ZeZGgSiVFDv?=
+ =?iso-8859-1?Q?1Az1ac9nKO7GwoDMffaYaycSOWLufip6yxrrxqBavBa/FWkopXcagSzr3A?=
+ =?iso-8859-1?Q?5vqGeD8hfkjM/Et7I9LxCo2nIxQWaUOCaEhF+Cix2b3u9RImyE7TZz+XdG?=
+ =?iso-8859-1?Q?/vSpDNW9mUYQjt5CSixA0HPdCF8R3FIdnwzLL35mdC6vHkkyYEUHI0AGWx?=
+ =?iso-8859-1?Q?Db3X0kt2100BMJDRtqxqDxYY3DogDXTl3np36uDH7IgjxSWjNlt4pl2JAO?=
+ =?iso-8859-1?Q?RaI8nsbM5w0xNx3FnXed/JVCODPMRDPJEs6Xz6l78XbgkEdYgpJ2vYSSAb?=
+ =?iso-8859-1?Q?4hB6Ox0A79bSpJ9F5lteCubUohaD3iboJtld13KEDJ+pNbP9CHFO4x9fzo?=
+ =?iso-8859-1?Q?/f6XRzadXHiWjUVvLaeHZLRqU3JlIWsB5z9WhaS8xXZicvRh8yfkapHpHm?=
+ =?iso-8859-1?Q?VMSBqwGwLdZ4fl0VU8APNHzEJEVjn7+5W9SSXbiQrJTSFoF3JESyvUWXkp?=
+ =?iso-8859-1?Q?oQ1jwdf4gagpuASYksGdMR4hd1rHNns5qXk/ea2YVguSPDQz0SBZatYhDs?=
+ =?iso-8859-1?Q?uAeyKAW6jzqcPmvskGqG0Zz8fo++4dfkXsGTEmbm0ClqG01nUvng5NrkRS?=
+ =?iso-8859-1?Q?1r+6Q2z9t1Hq3z0wu3uJ/8ydkIc5B3cNhwLXRhnEZ1V8mwS7PLOHne7llG?=
+ =?iso-8859-1?Q?XaacecMNHo2Gyeds4y/wDnYiQzUoZrRPCq/dsq59JksiwJb5g3ZDDpPX3W?=
+ =?iso-8859-1?Q?ERy5Fyb6LyilLa6/OSzG/EgpDl2owglIKVn65CSEHxPOakVRtnbvmBfprg?=
+ =?iso-8859-1?Q?dAK4yGOH8zE1P/K9aH4U5Hazqu132OmVsf?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 787fee03-33cc-4f42-a1e2-08dd50e8cdce
+X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 13:24:57.4855
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: LvB+Csie4fYGwlScDbji/1UuZ4pu3AiqS2jvy/zlLEQ7Qb3KSaOOfNdNB5gMDcs+zMBX9173FPloHjlehq9vLQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10841
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_052205_519207_936286D1 
-X-CRM114-Status: GOOD (  60.86  )
+X-CRM114-CacheID: sfid-20250219_052507_126961_A4D6137B 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,151 +170,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 04:22:10PM +0000, Daniel Stone wrote:
-> Hi Sumit,
-> 
-> On Mon, 17 Feb 2025 at 06:13, Sumit Garg <sumit.garg@linaro.org> wrote:
-> > On Fri, 14 Feb 2025 at 21:19, Boris Brezillon <boris.brezillon@collabora.com> wrote:
-> > > I would say one heap per-profile.
-> >
-> > And then it would have a per vendor multiplication factor as each
-> > vendor enforces memory restriction in a platform specific manner which
-> > won't scale.
-> 
-> Yes, they do enforce it in a platform-specific manner, but so does
-> TEE. There is no one golden set of semantics which is globally
-> applicable between all hardware and all products in a useful manner.
-> 
-> So, if we define protected,secure-video +
-> protected,secure-video-record + protected,trusted-ui heap names, we
-> have exactly the same number of axes. The only change is from uint32_t
-> to string.
-> 
-> > > > Christian gave an historical background here [1] as to why that hasn't
-> > > > worked in the past with DMA heaps given the scalability issues.
-> > > >
-> > > > [1] https://lore.kernel.org/dri-devel/e967e382-6cca-4dee-8333-39892d532f71@gmail.com/
-> > >
-> > > Hm, I fail to see where Christian dismiss the dma-heaps solution in
-> > > this email. He even says:
-> > >
-> > > > If the memory is not physically attached to any device, but rather just
-> > > memory attached to the CPU or a system wide memory controller then
-> > > expose the memory as DMA-heap with specific requirements (e.g. certain
-> > > sized pages, contiguous, restricted, encrypted, ...).
-> >
-> > I am not saying Christian dismissed DMA heaps but rather how
-> > scalability is an issue. What we are proposing here is a generic
-> > interface via TEE to the firmware/Trusted OS which can perform all the
-> > platform specific memory restrictions. This solution will scale across
-> > vendors.
-> 
-> I read something completely different into Christian's mail.
-> 
-> What Christian is saying is that injecting generic constraint solving
-> into the kernel doesn't scale. It's not OK to build out generic
-> infrastructure in the kernel which queries a bunch of leaf drivers and
-> attempts to somehow come up with something which satisfies
-> userspace-provided constraints.
+From: Florin Leotescu <florin.leotescu@nxp.com>
 
-Fully agreeing. The one thing we discussed, but haven't implemented yet,
-is that we'd add sysfs links from devices to the dma-heaps they support.
-Including allowing for priorities and different use-cases on the same
-device. We just haven't gotten there yet.
+This patch series enhance the emc2305 driver by introducing
+device tree support for configuring PWM output config (open drain /
+push pull) and PWM polarity config (default/inverted).
+Also updates the thermal management, to be configured based on 
+device tree definition.
 
-But even with that it's up to userspace to do the constraint solving, not
-the kernel.
+Changes since v1:
+- Add dt-binding documentation, as recommended by Guenter Roeck.
+- Remove emc2305_unset_tz due to 
+  devm_thermal_of_cooling_device_register use.
 
-> But this isn't the same thing as saying 'dma-heaps is wrong'! Again,
-> there is no additional complexity in the kernel between a dma-heap
-> which bridges over to TEE, and a TEE userspace interface which also
-> bridges over to TEE. Both of them are completely fine according to
-> what he's said.
->
-> > > Honestly, when I look at dma-heap implementations, they seem
-> > > to be trivial shells around existing (more complex) allocators, and the
-> > > boiler plate [1] to expose a dma-heap is relatively small. The dma-buf
-> > > implementation, you already have, so we're talking about a hundred
-> > > lines of code to maintain, which shouldn't be significantly more than
-> > > what you have for the new ioctl() to be honest.
-> >
-> > It will rather be redundant vendor specific code under DMA heaps
-> > calling into firmware/Trusted OS to enforce memory restrictions as you
-> > can look into Mediatek example [1]. With TEE subsystem managing that
-> > it won't be the case as we will provide a common abstraction for the
-> > communication with underlying firmware/Trusted OS.
-> 
-> Yes, it's common for everyone who uses TEE to implement SVP. It's not
-> common for the people who do _not_ use TEE to implement SVP. Which
-> means that userspace has to type out both, and what we're asking in
-> this thread is: why?
-> 
-> Why should userspace have to support dma-heap allocation for platforms
-> supporting SVP via a static DT-defined carveout as well as supporting
-> TEE API allocation for platforms supporting SVP via a dynamic
-> carveout? What benefit does it bring to have this surfaced as a
-> completely separate uAPI?
-> 
-> > > And I'll insist on what
-> > > Daniel said, it's a small price to pay to have a standard interface to
-> > > expose to userspace. If dma-heaps are not used for this kind things, I
-> > > honestly wonder what they will be used for...
-> >
-> > Let's try not to forcefully find a use-case for DMA heaps when there
-> > is a better alternative available.
-> 
-> What makes it better? If you could explain very clearly the benefit
-> userspace will gain from asking TEE to allocate $n bytes for
-> TEE_IOC_UC_SECURE_VIDEO_PLAY, compared to asking dma-heap to allocate
-> $n bytes for protected,secure-video, I think that would really help.
-> Right now, I don't understand how it would be better in any way
-> whatsoever for userspace. And I think your decision to implement it as
-> a separate API is based on a misunderstanding of Christian's position.
-> 
-> > I am still failing to see why you
-> > don't consider following as a standardised user-space interface:
-> >
-> > "When user-space has to work with restricted memory, ask TEE device to
-> > allocate it"
-> 
-> As far as I can tell, having userspace work with the TEE interface
-> brings zero benefit (again, please correct me if I'm wrong and explain
-> how it's better). The direct cost - call it a disbenefit - it brings
-> is that we have to spend a pile of time typing out support for TEE
-> allocation in every media/GPU/display driver/application, and when we
-> do any kind of negotiation, we have to have one protocol definition
-> for TEE and one for non-TEE.
-> 
-> dma-heaps was created to solve the problem of having too many
-> 'allocate $n bytes from $specialplace' uAPIs. The proliferation was
-> painful and making it difficult for userspace to do what it needed to
-> do. Userspace doesn't _yet_ make full use of it, but the solution is
-> to make userspace make full use of it, not to go create entirely
-> separate allocation paths for unclear reasons.
-> 
-> Besides, I'm writing this from a platform that implements SVP not via
-> TEE. I've worked on platforms which implement SVP without any TEE,
-> where the TEE implementation would be at best a no-op stub, and at
-> worst flat-out impossible.
-> 
-> So that's 'why not TEE as the single uAPI for SVP'. So, again, let's
-> please turn this around: _why_ TEE? Who benefits from exposing this as
-> completely separate to the more generic uAPI that we specifically
-> designed to handle things like this?
+Florin Leotescu (3):
+  hwmon: emc2305: Update cooling device registration to include device
+    node
+  hwmon: emc2305: Add device tree support for polarity and pwm output
+  dt-bindings: hwmon: emc2305: Add YAML binding documentation for
+    emc2305 driver
 
-Completely concurring on everything said above. TEE exposed through a
-dma-buf heap (or maybe special v4l allocation flag for secure video
-playback) and then we prime import that on the display side. Maybe also
-through drm render drivers for the EGL/VK protected content extensions.
-Same for any other hw means to allocate content protected buffers, TEE is
-not special here at all.
+ .../devicetree/bindings/hwmon/emc2305.yaml    | 95 +++++++++++++++++++
+ drivers/hwmon/emc2305.c                       | 55 ++++++-----
+ 2 files changed, 125 insertions(+), 25 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/hwmon/emc2305.yaml
 
-Anything else needs seriously good justifications why the entire dma-buf
-heap design is busted.
-
-Cheers, Sima
 -- 
-Simona Vetter
-Software Engineer, Intel Corporation
-http://blog.ffwll.ch
+2.34.1
+
 
