@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB192C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE92C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:43:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uRjryn1Z9973YvyrRwHv9/fVTyITLe6PZEvLBbf4Eeo=; b=m8CPYtWIwCJmx0piG0OP4aP+LI
-	DKHLROk5zFiboG1nGg1uCGAjDQc0034bZpjl2OY0YwLEm0jN62XnlD32SteXOmlALiW/Niq9cbgZl
-	yCbhb48mJVQoXvLwzW9R0CEE1rjfbT7cWTucPqWJ/5KXY1WcoW9CXpfKBFRtbCynD8m6S+MIsmpWx
-	GIT6317wXAPB3sALCoCLSvOMDIhD11gRrguUCs8nm76a1lkjRXYlZyqHH4weobEfCzZIMKQBNqFGg
-	a4ICA81cVjMn/00uBWJV/2yeZI8/5gvbR7mWNIR07iYJw+pcFFXpq/o6KbtUSVrsH8Czm2KCmAXEN
-	wvj8a2NA==;
+	bh=z81jqvb/W/+wNwrIKo097z+5wGBkPNPBIQ67TL4/32Q=; b=iezDwnztuV5tccL7fWdBm1hhcB
+	90q67uLhhNlwQIA2KEzMWl/qrJ+o6GbK/2xg1BOXxmeQSaQlan42UWPaCSSCDHHj8Frr2XeqN+UvT
+	F+LAKuubtSFhztZClyaOsycqMgatj+HicFqXxxKpHwjjB2uFKDAvF0nPL9lPT5B77WdQxkoUeWR00
+	xhc1tBazYzZ6J1jNzphB4HTdZ2uv10Gf9nHICcoYMcH7u37cEMkvp2peJ0N6EE0xFSdHFLN4pX0Dy
+	CCvU4d58GB7T8Drrw9D8w54n7Ueqib204lYeKpvonwkGLNQUAOVcwNswWndpATyp42cR9OR8ubGx4
+	MVBPfr3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkgaU-0000000Bw8U-2HRi;
-	Wed, 19 Feb 2025 09:41:50 +0000
+	id 1tkgbw-0000000BwaK-2Lqh;
+	Wed, 19 Feb 2025 09:43:20 +0000
 Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkgGU-0000000Bod2-1bFM;
-	Wed, 19 Feb 2025 09:21:11 +0000
-X-UUID: d7eedd2eeea211ef83f2a1c9db70dae0-20250219
+	id 1tkgGW-0000000BoeH-17Y7;
+	Wed, 19 Feb 2025 09:21:13 +0000
+X-UUID: da933ebceea211ef83f2a1c9db70dae0-20250219
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=uRjryn1Z9973YvyrRwHv9/fVTyITLe6PZEvLBbf4Eeo=;
-	b=ZRihoo8M4GiETNNqkMr4cGp3TdhNZLq38mZ1LaOFXpIIo84guH4URjPaR0ONi3pLXs9tLbEpPTGWneaKc65TF1tA1fl4mEKhq0M3SygkfVYh6D5PTAKN3ZB6f+9bTzuxE4fYUORjDecirXt09VgDcBUN2qD28MZYodxeRrbviuM=;
+	h=Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=z81jqvb/W/+wNwrIKo097z+5wGBkPNPBIQ67TL4/32Q=;
+	b=SeYEZdEU5pn1txmvK60D2Y0KdY/0uw0esrFu4oRJnSezDF9DGnmw8HB2TZTcR8eiX/2DMsTgDhWJgLNnWGA2MHKOjjIjiTjCw+7j/+FiGj3RaaE20k6kkrG1C+mbzqbgHSvBVTx+HxkGaYz2ZAClDApyKqW5hAanG9s6jcmIi8E=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:8bada8a4-805a-4900-83f1-a91fac1751af,IP:0,U
+X-CID-O-INFO: VERSION:1.1.46,REQID:68bc4cba-5704-42e7-a213-8ee1edf22ffc,IP:0,U
 	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
 	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:e7f8fe28-e0f8-414e-b8c3-b75c08217be8,B
+X-CID-META: VersionHash:60aa074,CLOUDID:f82e13dc-d480-4873-806f-0f365159227b,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0,NGT
 X-CID-BAS: 0,NGT,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: d7eedd2eeea211ef83f2a1c9db70dae0-20250219
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
+X-UUID: da933ebceea211ef83f2a1c9db70dae0-20250219
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
 	(envelope-from <jay.liu@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2114131921; Wed, 19 Feb 2025 02:21:04 -0700
+	with ESMTP id 1291787232; Wed, 19 Feb 2025 02:21:09 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Wed, 19 Feb 2025 17:21:01 +0800
+ 15.2.1258.28; Wed, 19 Feb 2025 17:21:06 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Wed, 19 Feb 2025 17:21:00 +0800
+ 15.2.1258.28 via Frontend Transport; Wed, 19 Feb 2025 17:21:05 +0800
 From: Jay Liu <jay.liu@mediatek.com>
 To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel
 	<p.zabel@pengutronix.de>, Maarten Lankhorst
@@ -69,17 +69,18 @@ CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jay Liu
 	<jay.liu@mediatek.com>
-Subject: [PATCH 2/7] drm/mediatek: fix CCORR mtk_ctm_s31_32_to_s1_n function issue
-Date: Wed, 19 Feb 2025 17:20:35 +0800
-Message-ID: <20250219092040.11227-3-jay.liu@mediatek.com>
+Subject: [PATCH 4/7] dt-bindings: display: mediatek: ccorr: Add support for MT8196
+Date: Wed, 19 Feb 2025 17:20:37 +0800
+Message-ID: <20250219092040.11227-5-jay.liu@mediatek.com>
 X-Mailer: git-send-email 2.18.0
 In-Reply-To: <20250219092040.11227-1-jay.liu@mediatek.com>
 References: <20250219092040.11227-1-jay.liu@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_012110_419244_67CF45E4 
-X-CRM114-Status: GOOD (  11.71  )
+X-CRM114-CacheID: sfid-20250219_012112_305351_F5B52F39 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,39 +95,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-if matrixbit is 11,
-The range of color matrix is from 0 to (BIT(11) - 1).
-Values from 0 to (BIT(11) - 1) represent positive numbers,
-values from BIT(11) to (BIT(12) - 1) represent negative numbers.
-For example, -1 need converted to 8191.
-
-Fixes: 738ed4156fba ("drm/mediatek: Add matrix_bits private data for ccorr")
+Add a compatible string for MediaTek MT8196 SoC
 
 Signed-off-by: Jay Liu <jay.liu@mediatek.com>
 ---
- drivers/gpu/drm/mediatek/mtk_disp_ccorr.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ .../devicetree/bindings/display/mediatek/mediatek,ccorr.yaml     | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ccorr.c b/drivers/gpu/drm/mediatek/mtk_disp_ccorr.c
-index 94e82b3fa2d8..a9f91b71534b 100644
---- a/drivers/gpu/drm/mediatek/mtk_disp_ccorr.c
-+++ b/drivers/gpu/drm/mediatek/mtk_disp_ccorr.c
-@@ -100,6 +100,15 @@ static u16 mtk_ctm_s31_32_to_s1_n(u64 in, u32 n)
- 		r |= (in >> (32 - n)) & GENMASK(n, 0);
- 	}
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
+index fca8e7bb0cbc..581003aa9b9c 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
+@@ -32,6 +32,7 @@ properties:
+               - mediatek,mt8186-disp-ccorr
+               - mediatek,mt8188-disp-ccorr
+               - mediatek,mt8195-disp-ccorr
++              - mediatek,mt8196-disp-ccorr
+           - const: mediatek,mt8192-disp-ccorr
  
-+	/*
-+	 *The range of r is from 0 to (BIT(n + 1) - 1),
-+	 *where values from 0 to (BIT(n) - 1) represent positive numbers,
-+	 *and values from BIT(n) to (BIT(n + 1) - 1) represent negative numbers.
-+	 *For example, if n is 11, -1 will be converted to 8191.
-+	 */
-+	if (r & BIT(n + 1))
-+		r = (~(r & GENMASK(n, 0)) + 1) & GENMASK(n + 1, 0);
-+
- 	return r;
- }
- 
+   reg:
 -- 
 2.18.0
 
