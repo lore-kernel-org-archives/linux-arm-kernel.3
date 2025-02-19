@@ -4,82 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5C5C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BA6EC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:16:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9N8uhomNrvqZSlje3nDu3cVu6aGtjAz3Suivv3MB7Dg=; b=tklUkNRsiIZnX6kD7JyT0Byzb1
-	KPTt/Ct638KgGaqi3bdUaoUBu7jBvGjAl5ucceST4jpjxJmnWpCGvuf2ZbJJoW52SkK0NGf2rvv2H
-	moK66onaSc7v1bxUtZLAx6ira7O0d1Ra+oCNsNXP8aaWMbk9iGB5MGcQNncxTp1+PFyQrWmtF6T8V
-	MkVvYkOci6gS+Sw+1g16AR9NPs7PsZaenvp98BK2bdcuwMXMv/qw35QmIhD5jCqOYaUy5kfkSO6Vu
-	WjvNULr9xJZi7NJ8iOOuSf6chPPnajhkTNxd2liM7sBScd7bt5IwKeCfZY4kFgrMioInFQXZ0gX5j
-	l0LDsBOA==;
+	bh=W6zk47/4FkBLywYJQuQtMPLTYPI0Mlf+FNTdse3N6ZY=; b=FPbyJ+kTz/04nl2iDySi28PWk3
+	h+7S+AG+n84HsrDYVcIgOIbSGEpLI85swNg0gZ1M7jtfSlI6OmkxbcBnpMa0r0shEpW+n9JRyCnir
+	Z0LcX5uMWKuPQE46XQERopNjuTI3G96vxpxGtsuOQz1tX97uD/Wi2uRtskrbcjjNzKxh5awt6BJ2O
+	Sg/e81uP2K9Fz7QKq81VK+/RIt1a1e1/InIw2MXG0ssp+B349lh+W/a2S1hQwcsekyZBN0XD/ebru
+	xrfiE/c2Vvd1T9Pb/jna8fEZ703jUP4o+Guio4IJVVv8aQgtEWH3A2hefGNGkKuNMDJUV8Z834DLB
+	IxoJeaUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpVy-0000000EYxh-3XHv;
-	Wed, 19 Feb 2025 19:13:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tkpYs-0000000EZat-2aOQ;
+	Wed, 19 Feb 2025 19:16:46 +0000
+Received: from out-184.mta1.migadu.com ([95.215.58.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpMN-0000000EWDL-2X1A
+	id 1tkpN1-0000000EWNJ-1UqK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 19:03:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 022446114B;
-	Wed, 19 Feb 2025 19:03:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13436C4CED1;
-	Wed, 19 Feb 2025 19:03:43 +0000 (UTC)
-Date: Wed, 19 Feb 2025 19:03:41 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Dev Jain <dev.jain@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] arm64: hugetlb: Fix huge_ptep_get_and_clear() for
- non-present ptes
-Message-ID: <Z7YrDQry8zo2jS53@arm.com>
-References: <20250217140419.1702389-1-ryan.roberts@arm.com>
- <20250217140419.1702389-3-ryan.roberts@arm.com>
+	Wed, 19 Feb 2025 19:04:33 +0000
+Date: Wed, 19 Feb 2025 11:04:12 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1739991866;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W6zk47/4FkBLywYJQuQtMPLTYPI0Mlf+FNTdse3N6ZY=;
+	b=qfSVRKIyz0N96eyb2/fchCXV9IZQuTERYuYiqdmTT1Q16j2DTYZRmsaOLroYfNU/jy7Zwr
+	GFaYNBUMLghClhBGonIAxfzRrV6mJTtT4FdnpDecu2+U/4s6ggEOH3UT/1L+jM6clbVN1C
+	RjZ9bDP6vKDCkhlYeJk1gCICWTcRULQ=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 1/2] KVM: arm64: Fix MDCR_EL2.HPMN reset value
+Message-ID: <Z7YrLMz49_f14MRs@linux.dev>
+References: <20250217112412.3963324-1-maz@kernel.org>
+ <20250217112412.3963324-2-maz@kernel.org>
+ <Z7OFvp7LMcOvWziA@linux.dev>
+ <86a5airpyy.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250217140419.1702389-3-ryan.roberts@arm.com>
+In-Reply-To: <86a5airpyy.wl-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_110351_691718_567ADBC6 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20250219_110431_799603_F84F5538 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,40 +72,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 02:04:15PM +0000, Ryan Roberts wrote:
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index 06db4649af91..614b2feddba2 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -163,24 +163,23 @@ static pte_t get_clear_contig(struct mm_struct *mm,
->  			     unsigned long pgsize,
->  			     unsigned long ncontig)
->  {
-> -	pte_t orig_pte = __ptep_get(ptep);
-> -	unsigned long i;
-> -
-> -	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++) {
-> -		pte_t pte = __ptep_get_and_clear(mm, addr, ptep);
-> -
-> -		/*
-> -		 * If HW_AFDBM is enabled, then the HW could turn on
-> -		 * the dirty or accessed bit for any page in the set,
-> -		 * so check them all.
-> -		 */
-> -		if (pte_dirty(pte))
-> -			orig_pte = pte_mkdirty(orig_pte);
-> -
-> -		if (pte_young(pte))
-> -			orig_pte = pte_mkyoung(orig_pte);
-> +	pte_t pte, tmp_pte;
-> +	bool present;
-> +
-> +	pte = __ptep_get_and_clear(mm, addr, ptep);
-> +	present = pte_present(pte);
-> +	while (--ncontig) {
+On Wed, Feb 19, 2025 at 02:03:49PM +0000, Marc Zyngier wrote:
+> On Mon, 17 Feb 2025 18:53:50 +0000, Oliver Upton <oliver.upton@linux.dev> wrote:
+> > What do you think about adding a new vCPU attribute for selecting the
+> > number of counters for a VM? We can allow non-nested VMs to use the
+> > 'old' method of writing PMCR_EL0.N and force nested VMs to use the
+> > attribute.
+> 
+> VCPU attribute? or PMU attribute? I'm really not keen on the former,
+> but the latter is probably workable, as it is VM-wide, similar to the
+> way we keep track of pmcr_n.
 
-A 'for' loop may be more consistent with the rest of the file but I
-really don't mind the 'while' loop.
+Well the _existing_ PMU attributes are actually vCPU attributes. I do
+agree that accessing them as a VM attribute makes more sense, but that's
+the UAPI we already have...
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> > We can then enforce ordering on the attribute and prevent it from being
+> > used after vCPU reset.
+> 
+> How would that work? Do you really want to mandate the PMU selection
+> (with its counter capping) to strictly occur between vcpu creation and
+> init?
+> 
+> This would, for example, break kvmtool which has these two operations
+> back-to-back, and sneaking new device-specific actions in the middle
+> is a bit unpalatable (there is a split between VM-wide and per-vcpu
+> actions).
+> 
+> Any idea?
+
+If we want to do this the 'right' way, we should provide VM attributes
+for selecting the PMU implementation / configuring the event filter
+to complement an attribute for setting the number of event counters.
+
+I don't want to have a mix-and-match approach where vPMU attributes are
+scattered between the vCPU and the VM since it requires a similar amount
+of gymnastics in userspace to set crap up.
+
+Thanks,
+Oliver
 
