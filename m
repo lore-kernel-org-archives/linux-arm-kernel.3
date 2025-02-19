@@ -4,57 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F64C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 00:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEB6C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 01:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zPwUAaQ8wiZqx+eHaCXe0PobJIC4GzAQFCfn4ErrfIw=; b=BmFFyk+dSCdMR3r/Pkl5UlzCHL
-	bB7R7ED5z/bfB2g2jxcg7gs9vjd/3eUhkpzMuZHkSpzlNRdPAJcZDk1foW8quJQBuruUj1G9bS2+i
-	vmfN/deB/NTpZLbXRQkjGdmgS2HaDcYELU2bOM2qe1t9DAe8uHnCfjqLnDTEyPAzR0dcdKcdMzT84
-	0Q7D435hpL305t9gEom4yTAIc4od8CL8RoqJZvDvh1ZQk5xXKEPh0wLB3FACMWY5aVpZ03KZ7csiW
-	3gkdAAN6sPpgJKZ5wYm4mikahhthsC6NA85wE5Qug8Ate45pB4+mwX/UaHTRij98U/hugztCw1GsU
-	Q4DNOwdQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xKoQ4N3icAjL6uyR4WjIfq+9vwxL6ATc8yoGXz9I+cs=; b=eQtZIlunogOsQ3KMr6WaPwoZaz
+	6gBvMqItiEz+4wXSgOfparQWFp9nZIMMEzi+h+ba0QE0QhpRUy4s8YXAnuPLYxOz74DTGAqbX8ULI
+	0iHn1ElpIdHfY5THmkzxEgfScnTunVWLK3fss/Er7TQEfjoxV7tU7YomKnTAF/s0ZSjZjpMIYxNK2
+	gnKBzyP5e8OCNsb9ykxDaujfzxyJzMl5qtlfBOaCa1WxYT84Bk2Dov5k31cFrjNE0aEeaIWeds4SP
+	Vekq2XAmYaoX066gcdTlFyiwVeI6TNWziBTs+xyI7EP9iemj7COSy8DIrBqZUuQX/3RUC/1rpcjNI
+	x71iG0PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYNN-0000000AQvW-1PK2;
-	Wed, 19 Feb 2025 00:55:45 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tkYSp-0000000ASEl-30tT;
+	Wed, 19 Feb 2025 01:01:23 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYAW-0000000ANqO-1WnH
+	id 1tkYRK-0000000ARo5-1Zli
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 00:42:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9EAD15C5CAB;
-	Wed, 19 Feb 2025 00:41:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41AD0C4CEE2;
-	Wed, 19 Feb 2025 00:42:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739925747;
-	bh=MCUZvMnjI+St/xxB98n3RdGdbJTQ9UD808hd20KqjPs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=g7DXt187wHzs6lpJOBkSrmxvJy6EAno2kUlthlhPsgMhUKij1NDLsEfj8cya5mDQY
-	 xfC1EOHc+knjSm5CH8o6khCn3rDz2NHfnSE1uk2Qhc0hgf/ydW3G8jOlCJqaoDh/DE
-	 bc0jKanWKe7hYDToKMjh65tWXzRmnzM8mDRiG4lFQSpbSLOYX3R3wmn9HaeIzD+mTg
-	 oyMiTZcjyshGu2hKWv44TdS1ze0xfKxFxZ9MmE1s4ru/Cbm6PDzEmVvzm0XHx3eEP2
-	 O+Ti7sW763NoQQ1FeaEFJD+QH9Cae6SX5W/BN13rUrJaVeSUbodBzH2kJ1IjtMwMj8
-	 Hni1nopfxMlfg==
-Date: Tue, 18 Feb 2025 18:42:26 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Wed, 19 Feb 2025 00:59:52 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51IIwUcD015154;
+	Wed, 19 Feb 2025 00:59:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	xKoQ4N3icAjL6uyR4WjIfq+9vwxL6ATc8yoGXz9I+cs=; b=dcUnoPartB5KrVk6
+	hjKzOHxLlsHqI5w3MwACCr42zgVmLPkBsaqWBo/ZsS2UyI20mykwynmh+M6tlhXe
+	Ku8gbZFzXGO2WNNYAqca7XnPGFXctVxRJ1/KbI1t0LceQH0u5uRenitS7Uiw5I4r
+	wfgKks0twgQ3GycH+a1npjxs3BAkn1kOzRunvRpbtDo/PKQQ9fuvXI28ph06WK+d
+	I9NXk0YvuR5QQrS8fxKpY7qx2vjFoatn5u+HxxGCqJCmfqhfma/CnGN1tBV4pvab
+	TXGjdu40WBDoht2hU2SmxDOD1etHmBTsyxq9QOdqnf4+1vbfha6tonoY7jA6N7XR
+	J2V0Vg==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44vyy48rae-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 19 Feb 2025 00:59:38 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51J0xa9p011640
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 19 Feb 2025 00:59:36 GMT
+Received: from [10.133.33.23] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 18 Feb
+ 2025 16:59:32 -0800
+Message-ID: <d7680489-db7c-49d5-88ff-29e99a49f624@quicinc.com>
+Date: Wed, 19 Feb 2025 08:59:29 +0800
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Ryan.Wanner@microchip.com
-In-Reply-To: <cover.1739555984.git.Ryan.Wanner@microchip.com>
-References: <cover.1739555984.git.Ryan.Wanner@microchip.com>
-Message-Id: <173992516786.2065578.832520865805552342.robh@kernel.org>
-Subject: Re: [PATCH 0/8]  Add System Components for Microchip SAMA7D65 SoC
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 0/7] Coresight: Add Coresight TMC Control Unit driver
+To: James Clark <james.clark@linaro.org>,
+        Suzuki K Poulose
+	<suzuki.poulose@arm.com>
+CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao
+	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+References: <20250217093024.1133096-1-quic_jiegan@quicinc.com>
+ <0f6369fd-3236-40eb-bf8f-3c3d675137c9@linaro.org>
+Content-Language: en-US
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <0f6369fd-3236-40eb-bf8f-3c3d675137c9@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: 8DUg291zjXHPjDjqUv3-rA86fz8rv0r6
+X-Proofpoint-ORIG-GUID: 8DUg291zjXHPjDjqUv3-rA86fz8rv0r6
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-18_11,2025-02-18_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
+ priorityscore=1501 malwarescore=0 bulkscore=0 suspectscore=0 clxscore=1015
+ lowpriorityscore=0 mlxlogscore=999 spamscore=0 adultscore=0 phishscore=0
+ mlxscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502100000 definitions=main-2502190004
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_164228_444325_C12C04C6 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20250218_165950_540115_EB0360BD 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,68 +114,128 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, conor+dt@kernel.org, linux-watchdog@vger.kernel.org, alexandre.belloni@bootlin.com, linux-kernel@vger.kernel.org, vkoul@kernel.org, linux-arm-kernel@lists.infradead.org, claudiu.beznea@tuxon.dev, dmaengine@vger.kernel.org, krzk+dt@kernel.org, wim@linux-watchdog.org, linux@roeck-us.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 14 Feb 2025 11:08:13 -0700, Ryan.Wanner@microchip.com wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
-> 
-> This patch set adds support for the following systems in the SAMA7D65
-> SoC:
-> - DMAs
-> - Chip ID
-> - Dual watchdog timer.
-> 
-> Ryan Wanner (8):
->   dt-bindings: atmel-sysreg: Add SAMA7D65 Chip ID
->   dt-bindings: watchdog: sama5d4-wdt: Add sama7d65-wdt
->   dt-bindings: dma: atmel: add microchip,sama7d65-dma
->   ARM: at91: Add Support in SoC driver for SAMA7D65
->   ARM: dts: microchip: sama7d65: Add chipID for sama7d65
->   ARM: dts: microchip: sama7d65: Add watchdog for sama7d65
->   ARM: dts: microchip: sama7d65: Add DMAs to sama7d65 SoC
->   ARM: dts: microchip: sama7d65: Enable DMAs
-> 
->  .../devicetree/bindings/arm/atmel-sysregs.txt |  1 +
->  .../bindings/dma/atmel,sama5d4-dma.yaml       |  3 ++
->  .../bindings/watchdog/atmel,sama5d4-wdt.yaml  |  3 ++
->  .../dts/microchip/at91-sama7d65_curiosity.dts | 12 +++++
->  arch/arm/boot/dts/microchip/sama7d65.dtsi     | 44 +++++++++++++++++++
->  drivers/soc/atmel/soc.c                       |  5 +++
->  drivers/soc/atmel/soc.h                       |  3 ++
->  7 files changed, 71 insertions(+)
-> 
-> --
-> 2.43.0
+
+On 2/18/2025 6:05 PM, James Clark wrote:
 > 
 > 
+> On 17/02/2025 9:30 am, Jie Gan wrote:
+>> From: Jie Gan <jie.gan@oss.qualcomm.com>
+>>
+>> The Coresight TMC Control Unit(CTCU) device hosts miscellaneous 
+>> configuration
+>> registers to control various features related to TMC ETR device.
+>>
+>> The CTCU device works as a helper device physically connected to the 
+>> TMC ETR device.
+>> ---------------------------------------------------------
+>>               |ETR0|             |ETR1|
+>>                . \                 / .
+>>                .  \               /  .
+>>                .   \             /   .
+>>                .    \           /    .
+>> ---------------------------------------------------
+>> ETR0ATID0-ETR0ATID3     CTCU    ETR1ATID0-ETR1ATID3
+>> ---------------------------------------------------
+>> Each ETR has four ATID registers with 128 bits long in total.
+>> e.g. ETR0ATID0-ETR0ATID3 registers are used by ETR0 device.
+>>
+>> Based on the trace id which is programed in CTCU ATID register of
+>> specific ETR, trace data with that trace id can get into ETR's buffer
+>> while other trace data gets ignored. The number of CTCU ATID registers
+>> depends on the number of defined TMC ETR devices. For example, two TMC
+>> ETR devices need eight ATID registers. ETR0 with ETR0ATID0-ETR0ATID3
+>> and ETR1 with ETR1ATID0-ETRATID3.
+>>
+>> The significant challenge in enabling the data filter function is how
+>> to collect the trace ID of the source device. The introduction of
+>> trace_id callback function addresses this challenge. The callback 
+>> function
+>> collects trace ID of the device and return it back. The trace ID will be
+>> stored in the structure called coresight_path and transmitted to helper
+>> and sink devices.
+>>
+>> The coresight_path structure is created to address how to transmit
+>> parameters needs by coresight_enable_path/coresight_disbale_path
+>> functions.
+>>
+>> Here is the definition of the struct coresight_path:
+>> /**
+>>   * struct coresight_path - data needed by enable/disable path
+>>   * @path:               path from source to sink.
+>>   * @trace_id:           trace_id of the whole path.
+>>   */
+>> struct coresight_path {
+>>          struct list_head                *path;
+>>          u8                              trace_id;
+>> };
+>>
+>> The atid_offset mentioned before is the offset to ATID register in CTCU
+>> device.
+>>
+>> Enabling the source device will configure one bit in the ATID register 
+>> based
+>> on its trace ID.
+>> Disabling the source devices will reset the bit in the AITD register
+>> based on its trace ID.
+>>
+>> Useage:
+>> Enable:
+>> STM device with trace ID 5 and ETR0 is activated.
+>> Bitmap before the enablement:
+>> ETR0ATID0:
+>> 31..................543210
+>> ==========================
+>> 0000000000000000000000...0
+>> ==========================
+>>
+>> Bitmap after the enablement:
+>> 31..................543210
+>> ==========================
+>> 0000000000000...0000100000
+>> ==========================
+>>
+>> The bit 5 of the ETR0ATID0 register is configured to 1 when enabling the
+>> STM device.
+>>
+>> Disable:
+>> STM device with trace ID 5 and ETR0 is activated.
+>> Bitmap before the disablement:
+>> ETR0ATID0:
+>> 31................6543210
+>> =========================
+>> 000000000010111...0100000
+>> =========================
+>>
+>> Bitmap after the disablement
+>> ETR0ATID0:
+>> 31................6543210
+>> =========================
+>> 000000000010111...0000000
+>> =========================
+>>
+>> The bit 5 of the ETR0ATID0 register is reset to 0 when disabling the STM
+>> device.
+>>
+>> Sincere thanks to James Clark for providing an excellent idea to handle
+>> the trace_id of the path.
+>>
+>> Changes in V12:
+>> 1. Update the method for allocating trace_id for perf mode.
+>> Link to V11 - https://lore.kernel.org/linux-arm- 
+>> msm/20250214024021.249655-1-quic_jiegan@quicinc.com/
+>>
 > 
+> I tested the latest change, looks good to me.
+> 
+Hi James,
 
+Thanks for testing.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/microchip/' for cover.1739555984.git.Ryan.Wanner@microchip.com:
-
-arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: watchdog@e001d180: Unevaluated properties are not allowed ('clocks' was unexpected)
-	from schema $id: http://devicetree.org/schemas/watchdog/atmel,sama5d4-wdt.yaml#
-arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: /soc/chipid@e0020000: failed to match any schema with compatible: ['microchip,sama7d65-chipid']
-
-
-
+Jie
 
 
 
