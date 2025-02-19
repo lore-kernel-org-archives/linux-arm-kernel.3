@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C0FC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 07:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80109C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 07:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IKKYFgo0Am7j2pQj3mDQlSleU5eMjNIZOEEsoRnc2vs=; b=DMDO25e7u7n+W8Shrv30YWO6jt
-	qUhowcDI8XP+mFnPYmmW06gyLTraM73TCJx1qaP9P5lQuwCPjPZeHqlJnCWl46l10ngdN/kfUGpbH
-	whRcjPYzuYyxP76fuHbpcvt89u5y0t2D93V9TmSSLegxHKwmtO5IU0iawfiYfHIrygUVgMGV5u93d
-	sKvoMUlVae8Ho+ltFZy87UXijWqoGiiLkFmFVDZnaZNqNtYUMUnVSJqEXXnFsE65mx0k69s9aovZg
-	CiO0bfx0wsn59YS0ymAAHp5f9JgjlYlu3hjebC89dbs0WXYfPlY9oFgMliwV0A99cc23GRwfgKnGO
-	+7imu5yg==;
+	bh=AvSL1pT2hadk7Dq/qF0GDc/oRDCFF6M65sNcYE8Mxww=; b=Q5L6t1aSsO//yFQPOoosWrizbq
+	ak423TaYV6Z5LA22doQaqD0u9WKftoH3MRIVqV1plcmZut8vWI/mQ7TsKQ7GnhjdazQKhWOxTGsWC
+	uNdQN6JcTkGuZtM4iMJlnezufEhPgRX/QegrnN3BOIkWDpgiuZKUij5Q8DRaVs+hk/GNLhXzqthAT
+	qR52q19SBybDZ76VKksvv+ji8OOt/DDkriFvHDUsucRZKy1o5QrTRYxjXUaBGx9ByVwfZwnOWDrSa
+	21gaOBmrBMtwBGW4f2L0sLzY8HGT1XDY03ZUYyWhU5kLPWS+bT8nthQKtdauFtGiS6gSIEBv11tZu
+	K6OZiyuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkefu-0000000BIPN-1d8o;
-	Wed, 19 Feb 2025 07:39:18 +0000
+	id 1tkehM-0000000BIoz-1MUX;
+	Wed, 19 Feb 2025 07:40:48 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkeWG-0000000BFW7-2ClH;
-	Wed, 19 Feb 2025 07:29:21 +0000
+	id 1tkeYe-0000000BGDk-3Mbv;
+	Wed, 19 Feb 2025 07:31:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B78C95C561A;
-	Wed, 19 Feb 2025 07:28:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81639C4CED1;
-	Wed, 19 Feb 2025 07:29:14 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 033985C564F;
+	Wed, 19 Feb 2025 07:31:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15317C4CED1;
+	Wed, 19 Feb 2025 07:31:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739950159;
-	bh=CUX3qWyu+kCwpSNNjXJ2UuvoY+B0uVOZpFYPU9CcQe0=;
+	s=k20201202; t=1739950307;
+	bh=cxAT0ceE2wLTrNYv8eY/CEz1rQUPy7iHSg5zXmpc9n8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TECpRYMUDKz/0g5Mm9MvUBtApM3IYl7z4qfZfAngkFaVAiorMnTM70z3RJgmmAOZA
-	 NZ7Ex4K7LZd9sOFVy9N20uUs63H7O5RYbq8SywSwLj3rofzrPa76swRGrfHx/mxY+w
-	 S5JbZeCZdnkwj0KocafqIlOmhu/3ZEw888kS0GSY1LiQktFKivpfbkvpqSrpSPJJ4w
-	 4kyfh1ZhaQfxKFiX4tAGuFumQfMB+SSazyulELo2jeUsdsIxYfU//OYNP3EKTsLCBO
-	 SVdaPnMBgSmaXn5Wm0vNdJqbCJLTrMVTkme3aerN9MWlNIouGbT2Uv/cvRDVcEt+9B
-	 ihJb9NkCl6pAQ==
-Message-ID: <7b92c6be-5812-4887-8e97-4d2102f0bab9@kernel.org>
-Date: Wed, 19 Feb 2025 08:29:12 +0100
+	b=Uaxkr/R9E8VISGogaXUl3S39rxJYlScQTItOVGAGXOm82J+uw/6b8O0xNkBskHLfj
+	 BaopC4Kkdbt19FXX9DGC+0VR1o9LKXUle/V3+ZhwFRYs50DGUWH9WTvXF0cqEE5C3j
+	 dsSkOiARUplDbDxJV4u6CmABulSrYYBYdIoteyHI/OdJr2KSAusM9jq3f1bZFKWcSi
+	 N04viYHJHD+jrNmHH3f77vQ0aH4v37hhJY3gqRHFp3aEL7lzJHR1xsnN7WujVROr2D
+	 HowKXKxkdGrcO2lFLG44n1t67zqMxST8/mE+5zd9L1NpwjT9wy0E/BPVKr/kabx+7e
+	 nL7yN5GiLJruw==
+Message-ID: <61b658bd-be0f-4f1d-a1ee-56660dd2810d@kernel.org>
+Date: Wed, 19 Feb 2025 08:31:40 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: phy: samsung,usb3-drd-phy: Add exynos990
- compatible
+Subject: Re: [PATCH 2/2] phy: exynos5-usbdrd: Add support for the Exynos990
+ usbdrd phy
 To: Igor Belwon <igor.belwon@mentallysanemainliners.org>,
  Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,7 +58,7 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-samsung-soc@vger.kernel.org
 References: <20250214-exynos990-dwusb-v1-0-d68282c51ba8@mentallysanemainliners.org>
- <20250214-exynos990-dwusb-v1-1-d68282c51ba8@mentallysanemainliners.org>
+ <20250214-exynos990-dwusb-v1-2-d68282c51ba8@mentallysanemainliners.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250214-exynos990-dwusb-v1-1-d68282c51ba8@mentallysanemainliners.org>
+In-Reply-To: <20250214-exynos990-dwusb-v1-2-d68282c51ba8@mentallysanemainliners.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_232920_656842_307E72F5 
-X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-CacheID: sfid-20250218_233148_933198_91AEA739 
+X-CRM114-Status: UNSURE (   8.58  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,14 +126,14 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 14/02/2025 18:21, Igor Belwon wrote:
-> Add a compatible for the exynos990-usbdrd-phy. The PHY is compatible
-> with the older exynos5420 design (two clocks) when running in highspeed mode.
+> The Exynos990 usbdrd PHY is a combo PHY which supports USB SS, HS and
+> DisplayPort outputs. This commit adds support only for UTMI+ (USB HS).
 > 
 > Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
 > ---
->  Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml | 2 ++
->  1 file changed, 2 insertions(+)
-
+>  drivers/phy/samsung/phy-exynos5-usbdrd.c    | 32 +++++++++++++++++++++++++++++
+>  include/linux/soc/samsung/exynos-regs-pmu.h |  3 +++
+>  2 files changed, 35 insertions(+)
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
