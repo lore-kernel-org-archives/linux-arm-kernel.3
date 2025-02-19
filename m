@@ -4,122 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B140C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 16:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4D9C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 16:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yM8i5FvIFIlmOfv14Kb5YSEjxQ5hZ6nkxPnVmlMU1Wg=; b=iEmxJCbGbkOY8OhdKbctenLgxs
-	/nYipJxHof2ohSVwkYCqcycAz7Ojkbldgf1NRNjJOYqS8NTm5jtHbZnJvwRXZKHW2FvGXTp7xT6jm
-	/0M7ljytM5cMfW6kB8uORI0gwWdBkGpyzu31LKBVxFbOkR1oBt9Lb1lQ9bsTwbDzhhLjCNhbRIUiz
-	w3cNYWsdiTLteHFGt2tYa71JMwDwDZFYZYClxDeBW+Vg5y3yzPcp64Z4j2vgZXsujpS1HxGjSioQz
-	LmLXcJefpBFGHEQThq92U41kyQ6LKXlqnf596uegZQzpXgS/CQN2WpDVUgxLqlO0l8tHsCu+VSDa8
-	NJ9f/uqQ==;
+	bh=ILKPl0SNay3a32+/RRSyxh1SJEExDN/cTqsidRAj8PU=; b=BKT40u1zc6kVMpGhXPLMT7RuGm
+	qdIy2PKbRIWv5NvVIgA1NZk4GI/93LuWs1/HrVAzklcBQEEvY+0cMZXabhPxjVwsVyHRAkRlxN7IO
+	OKKFos5HmNcf8SYmT3rUWxEiIMhWNQfoxgx9IeXY7vbt72Vhhvf6q+4785aq/9AdKT34yzibjTQGa
+	T2qv7U/sSunRxOtIhO/HF5/9BW4vlOmzBBSwhia/o8qlEE9ClBdhp/FkzUqbZtH1og/8weBlYtoBn
+	1zcGzaKpJgEfpoWhJrKkSnFAht0UkK/QsY5FUG3w33gqG94vVPe89wkHnkCEe6SuXwaVgamksBYGY
+	xK2E01QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tknMr-0000000Dxgq-0tEL;
-	Wed, 19 Feb 2025 16:56:13 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tknMs-0000000DxhU-2sPx;
+	Wed, 19 Feb 2025 16:56:14 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkmBB-0000000Db1k-12BW
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 19 Feb 2025 15:40:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=yM8i5FvIFIlmOfv14Kb5YSEjxQ5hZ6nkxPnVmlMU1Wg=; b=mA2ADUPYSa5WW0zC1z55tmLEGL
-	CfIpSpglb8yESLtY2Pa+4slEZcKIBdcxCKgQQrqYCg2V+IiHazw8th4fs8/BxJjV5iYtqViQYSXS1
-	zxC/IwpChFUIuSAMdPz9HnENDypT5I2qWh3paw1KoJtfNwUihBgRwkrSY1nbCuQpCf0yLc8AcRsTp
-	0eU1Rd4lIM3a/GN2ksUK1dOBFcZS6EZ5K4G2TjAFme/lJUcUtoL0GbJ9IWGnZSux2RKFqAO7TbEcx
-	EijnDFXoQ7+DbcZ6CsKHZWtwEb2a1h4rS9ztOH6SoHm2BqMzNUxhLt88ZuZCDa91nH6khBunub1qU
-	fWhqeYiA==;
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkmB7-00000002Ft0-1hCr
+	id 1tkmMn-0000000DeN2-3JMW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 15:40:04 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfout.phl.internal (Postfix) with ESMTP id AE183138099A;
-	Wed, 19 Feb 2025 10:39:55 -0500 (EST)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-10.internal (MEProxy); Wed, 19 Feb 2025 10:39:55 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1739979595; x=1740065995; bh=yM8i5FvIFIlmOfv14Kb5YSEjxQ5hZ6nk
-	xPnVmlMU1Wg=; b=TQvtLg8DSzJSEQUXeOqOIDlcnH9qkH0bSZyu7i7UdvzbIlgl
-	TL1f1XqGWUSPD2B0OMJczkCLj7yObX5qlym/C1qDOcPaLUaJJdisU6DWyd3qQiCW
-	WbyWd0Kwlzzx1LRcktUvztHOKd3kwgDqzZzGLnSEBtmPybEsOyxLuSzheJla1fc6
-	P3iG06UelS0uvjlkUSZc+NRqrWN1d4QgzHzxJnzu3xAu+Co3djHoC0JLlvptszAv
-	3pccvsVNf0ND4iveqrHnRklhO16/DST+HuGBAkmRHMjCg6AWTU0N5NkOiSd+c+bo
-	CvNQOJ583gEJthBuY4+aPk8Ga+OvE0rZIDruiQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1739979595; x=
-	1740065995; bh=yM8i5FvIFIlmOfv14Kb5YSEjxQ5hZ6nkxPnVmlMU1Wg=; b=P
-	LBxrmDmWKXdq5Q95t82qxGvq8dPQ3F3xQorIhnQnh9UqPEVwj0sugo8gRNsFvXdl
-	WAONl11zXFmuQUXscbMNkplIQ4/EvB3ljbf7A16XzGruCykLkoYqcS6QnYDZCX1V
-	w+is2BVlaAhz93L+/0wgtYoKEb8va7xmmFt5TmcvwbhjnnbMG3szJo0lzUL45/yy
-	IpziIiSplzjJXdmOVIuFT0hG4JeD1ucpqCGFYJ8+seK0WyOkcTgQnrRTmc3JDfuT
-	zPFQ/EoKuZHZIywOu58o7yR5diVXk2Trm625bXwDiX/36mP4JTbBmmmUcqedR3Mr
-	3I7X/u+idOjPVKHCNURtw==
-X-ME-Sender: <xms:Svu1ZzJLfe0cVjoF9LdBJtgfXAKqp7C2poRQx-1g-TUCJq8U0PhVig>
-    <xme:Svu1Z3IM9qVJkCNDiYPD2Kmf7JtRJX2ObB_-yX4mfDmmNFsujTaK1c2PM6bI8FbZP
-    xQ0ucokGzKykZmzMKA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeigeeifecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthejredtredt
-    tdenucfhrhhomhepfdfuvhgvnhcurfgvthgvrhdfuceoshhvvghnsehsvhgvnhhpvghtvg
-    hrrdguvghvqeenucggtffrrghtthgvrhhnpeelfeetueegudduueduuefhfeehgeevkeeu
-    feffvdffkedtffffleevffdvvdeuffenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdpnhgspghr
-    tghpthhtohepudegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehjohhroheske
-    gshihtvghsrdhorhhgpdhrtghpthhtoheprhhosghinhdrmhhurhhphhihsegrrhhmrdgt
-    ohhmpdhrtghpthhtoheplhhinhgrsegrshgrhhhilhhinhgrrdhnvghtpdhrtghpthhtoh
-    epfhhnkhhlrdhkvghrnhgvlhesghhmrghilhdrtghomhdprhgtphhtthhopehjsehjrghn
-    nhgruhdrnhgvthdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpth
-    htohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhm
-    qdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhope
-    grshgrhhhisehlihhsthhsrdhlihhnuhigrdguvghv
-X-ME-Proxy: <xmx:Svu1Z7sQagXCXImMH_hnqANaHEBR4ZfrQ8jM-MuSFz8jvG0d3O-FKA>
-    <xmx:Svu1Z8aNeHRscB1mqVgv9NvRU6e-SbuLDDsnCSbI9hA2Ya7aJkpRhA>
-    <xmx:Svu1Z6YFgIm3EL2_H3oH3SuUGc3w7h1aW9ioyyFo-9bX98s6o1Yh_A>
-    <xmx:Svu1ZwAohDpAkzRn2IiemR9ieb6u7ER4JTQvIdSeawV6yy5_PijJmQ>
-    <xmx:S_u1Zyp5COJntRW17ipM7Ayu_QstX7Z7hBh8yjM7wZAlsRgHUv_hhhHU>
-Feedback-ID: i51094778:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 9B8C6BA0070; Wed, 19 Feb 2025 10:39:54 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 19 Feb 2025 15:52:06 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-221050f3f00so87753605ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 07:52:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739980325; x=1740585125; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=ILKPl0SNay3a32+/RRSyxh1SJEExDN/cTqsidRAj8PU=;
+        b=cq4TF6uASBLgVej6GM0RqrODox1+RXrpyFua45T5c2Qi+sMzt5CmTyQmRe9y8SszJU
+         fBCXfaug3rprFE81RoX9Ws+jmQ/wsjtH9bv4fAo4cqH9hSfnuV/Utxd1XYBNJjC/O6kF
+         s/CuGhkBouTWl1vhVYEjgC3Cp/mrUrl+1z1r2o/hDmCB1XyGY6JIT1qjWFtWTVZXjDQw
+         JQEGRZuw9WzxWaz5HURShK5QY+T9TYPEqRqFsCacgZibRMviAYeNXSrH65CNVFs7DMNL
+         /UNM/eEkIWtl1dPd/i1klXG4ZWr6kHcnoqPlURMjAwI81nJFOzCtHrYsYdxquNbAooyM
+         Q8hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739980325; x=1740585125;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ILKPl0SNay3a32+/RRSyxh1SJEExDN/cTqsidRAj8PU=;
+        b=kZfgisu8S9ptcOoQIZyDcgj9JeSEeLu9p0Goldee/9VppKw4Ux+2H+/gV+5sY7+lG9
+         P88twZxJRcT8SUiIXGfAcYJhjvPFmExnkZZiH0pUh2BDeDnbU4XQswRZU89a0HFLaYa1
+         d/jU8LzbYxH2vVymvUd7Lg2/4TvuzoJOP9Fotc7k+yuQbKZ5s8U0FCda1K+Xhi1PjcC+
+         Qd4OwCGMXmoOEj+ICluFDJdU1c2oKcNyflulQjPtQjLPHSNZ20tMEpI1y+hGPlF2g+Kr
+         IlLYTuirSfGaPkkp6sywwbQVK0zWHfBB2wleqc/siZr8GBqXWZ1Oh5GCowwAi5hcfdYC
+         tQxA==
+X-Forwarded-Encrypted: i=1; AJvYcCU0tZaky0HQ5x3pLrpvv54U3cZp9zZPnnq2YT3Sq/wDux5agYBk3YYZullFK74eRpTZwA73b+gX83jgIgdkwOXq@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuOpH2v4KME+Q2rO3bkFf80+hnh9O8j928HgBqfJkSDnX/97CJ
+	+FAOiLMwvwKlzPSXowewr9DIp8Mh/DqkJI91le7IFrqs8q1tqd54
+X-Gm-Gg: ASbGnctIHFBIlteRFzy8UFZHZN3y3yhwwpPbmfclP8Tk80XQbQTRCYQQH5F3rYS/xAX
+	QsW6o7cViNXvgtnsHQTef93gG8j1ByXhd11ElWhFx4+j2Qpxx655/2mF87KK59AB7Yj/X4jaJiR
+	BGPjMh17qmTw4r5lxNth+Ii2B7yMHCwSybhlJaEod5lLUYq9Y70N3QxAp8TbKp4rtDIDonY8fi6
+	8E3OOSooTeuKEsrGUHwJ4XOMhDJ4e+Tl9v3IGEn+Z/itkffDMC5NQab5sltUVsRnurCUtRKBT+c
+	7i7GN9MCbJwdgNkZZQ3dbZ7qz8d8PWADs87TDYQRiSomA+BEI9vEXmkxeyCQ3Knf
+X-Google-Smtp-Source: AGHT+IGW8+CBVhv4LqCaNkiqyMeXKPeQs7b+MCMYUpO6R3KWdsi8G6YGkHjrQBMgwy6+AQ9im63ntQ==
+X-Received: by 2002:a05:6a21:789b:b0:1ee:d2d9:351f with SMTP id adf61e73a8af0-1eed2d93688mr7526340637.42.1739980324740;
+        Wed, 19 Feb 2025 07:52:04 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-adb57c5dee4sm11119348a12.14.2025.02.19.07.52.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Feb 2025 07:52:04 -0800 (PST)
+Message-ID: <ae40d143-a5ca-4a38-844f-ca58a06834a5@roeck-us.net>
+Date: Wed, 19 Feb 2025 07:52:01 -0800
 MIME-Version: 1.0
-Date: Wed, 19 Feb 2025 16:39:34 +0100
-From: "Sven Peter" <sven@svenpeter.dev>
-To: "Sasha Finkelstein" <fnkl.kernel@gmail.com>,
- "Alyssa Rosenzweig" <alyssa@rosenzweig.io>, "Joerg Roedel" <joro@8bytes.org>,
- "Will Deacon" <will@kernel.org>, "Robin Murphy" <robin.murphy@arm.com>,
- "Hector Martin" <marcan@marcan.st>, "Rob Herring" <robh@kernel.org>,
- "Janne Grunau" <j@jannau.net>
-Cc: "Joerg Roedel" <jroedel@suse.de>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- linux-kernel@vger.kernel.org, "Asahi Lina" <lina@asahilina.net>
-Message-Id: <d6f24197-7f2b-4c12-9014-94e31a9aa6aa@app.fastmail.com>
-In-Reply-To: <20250219-dart2-no-sp-disable-v1-1-9f324cfa4e70@gmail.com>
-References: <20250219-dart2-no-sp-disable-v1-1-9f324cfa4e70@gmail.com>
-Subject: Re: [PATCH] iommu/io-pgtable-dart: Only set subpage protection disable for
- DART 1
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] dt-bindings: hwmon: emc2305: Add YAML binding
+ documentation for emc2305 driver
+To: Krzysztof Kozlowski <krzk@kernel.org>, florin.leotescu@oss.nxp.com,
+ Jean Delvare <jdelvare@suse.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Michael Shych <michaelsh@nvidia.com>,
+ linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Cc: viorel.suman@nxp.com, carlos.song@nxp.com,
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+ Florin Leotescu <florin.leotescu@nxp.com>
+References: <20250219133221.2641041-1-florin.leotescu@oss.nxp.com>
+ <20250219133221.2641041-4-florin.leotescu@oss.nxp.com>
+ <fd70f78c-68a5-43ec-9eb2-3f06c5d7a20d@kernel.org>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <fd70f78c-68a5-43ec-9eb2-3f06c5d7a20d@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_154002_318946_9705E5BF 
-X-CRM114-Status: UNSURE (   6.72  )
+X-CRM114-CacheID: sfid-20250219_075205_833607_7F0BB15D 
+X-CRM114-Status: UNSURE (   9.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -135,25 +153,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2/19/25 06:01, Krzysztof Kozlowski wrote:
+[ ... ]
 
+>> +properties:
+>> +  compatible:
+>> +    enum:
+>> +      - hwmon,emc2301
+>> +      - hwmon,emc2302
+>> +      - hwmon,emc2303
+>> +      - hwmon,emc2305
+> 
+> Nope.
+> 
+> Was it ever internally reviewed?
+> 
+No. I intentionally do not review bindings because I notoriously get it wrong,
+and instead rely on DT maintainers.
 
-On Wed, Feb 19, 2025, at 10:13, Sasha Finkelstein via B4 Relay wrote:
-> From: Asahi Lina <lina@asahilina.net>
->
-> Subpage protection can't be disabled on t6000-style darts,
-> as such the disable flag no longer applies, and probably
-> even affects something else.
->
-> Fixes: dc09fe1c5edd ("iommu/io-pgtable-dart: Add DART PTE support for t6000")
-> Signed-off-by: Asahi Lina <lina@asahilina.net>
-> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> ---
+I agree though that this one is really bad :-(.
 
-Reviewed-by: Sven Peter <sven@svenpeter.dev>
+Guenter
 
-
-Thanks,
-
-
-Sven
 
