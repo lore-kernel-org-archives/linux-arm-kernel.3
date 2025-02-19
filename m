@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E41C021AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 03:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A167C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 03:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Kl7u8bFLHAjtaElzFILg5UyTJziKGgGFb4LO1YSKTug=; b=PQln2XJdXh192nr1eDzZOMgfPc
-	+PQku5GfZZINC0rMiDWdHGbRMfaFpK8EeOXnMbmr+c313/czlqQjvp5FO5jRCdxzSjkSoXaeJAt4Z
-	Rc7eP48O03V6SAGJwzGqyyYQpENNBdh6Ljks5de+iH8ecDPGgJ6WDH/K3hMsIDXsrTFc5X9V6w4zz
-	vPatqzkMyYupQpoGrljcGpuCygqUXDJ1SlIydUAxPJxSjZxkUdpJOXWoYuzsf7P/zhGW5+VCcq0Jx
-	ahultBIK5BtEqt5z9RX92zJC0CtFVvu66TfgLJb3qIkvfMXVNCSQfPpRus4UQb/LMYJgBsjLZ+oy9
-	NNRw2XNw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hIaBkE8+UmoWwYLNXAVzpAMzNdqrJST2j8vQ4BHyKd0=; b=Gktevw29zQwqsPb3BslEVigKMW
+	MYxDDFU1chFzwqWnhmWf3YlOkTRAeYDI230ssz9D0JYCjx9o0+YHv9gHeFkSnbVY9fV+QutZckYrA
+	7CbPadT5q2RHeRe8NJNpZ57T891WsWDvObIBRajUV2axQoFsYCu24/FGJNxlKeHkyoWu68Oj8LSnz
+	tWzqtMycWK/BM9GaEUfI+Euew52kY1GMWdrTd1EHVGLtoUZosWGefS1N6ymGicLjdeBKvaQU1gvYZ
+	shbUA3vfhcbdNCXDrkiMhOiYxwOPlcXqQylJZ1sJdAeIGu/a84EpcnU4uf/5kFZ5tC7ppeS0vH8GO
+	DzxxVH2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkav1-0000000AlYb-0hGW;
-	Wed, 19 Feb 2025 03:38:39 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkatW-0000000AlPd-2n1r;
-	Wed, 19 Feb 2025 03:37:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=Kl7u8
-	bFLHAjtaElzFILg5UyTJziKGgGFb4LO1YSKTug=; b=BzC9sW61lpYTYF70UeYs9
-	3pgGYPYcyNd+RXZb8SFZXSlWn62tp14ZoF4276oyxRjo2W+I+4D9lztbuUmIfwPb
-	RvskGq2T5hB18evYkfulaO0P0ep5Xmu23lqP8Dg8NlVatDlPCAn3CeawzhBYOwZ7
-	qP1ZyhP2IssKpgsKsjmobA=
-Received: from icess-ProLiant-DL380-Gen10.. (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wCH0CvPUbVnWpNgNA--.30420S4;
-	Wed, 19 Feb 2025 11:36:49 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: nbd@nbd.name,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	johannes@sipsolutions.net,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Haoxiang Li <haoxiang_li2024@163.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] wifi: mt76: Add check for devm_kstrdup()
-Date: Wed, 19 Feb 2025 11:36:45 +0800
-Message-Id: <20250219033645.2594753-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	id 1tkazI-0000000AmBO-1TqN;
+	Wed, 19 Feb 2025 03:43:04 +0000
+Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkaxn-0000000Am2M-2wqy
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Feb 2025 03:41:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1739936486; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=hIaBkE8+UmoWwYLNXAVzpAMzNdqrJST2j8vQ4BHyKd0=;
+	b=j3dkGUXo7CT6LjGxLhhCRy4Ynzk94hlBOyqH5ZI2mYI9VydV9krV9Rlo0wMOtG0ppujhTvXuLsFBL5BN3mSTUqrGcks115sheG4WoQHGjoz27bvbHX4dALVCKdw0aBD1R5/rgLEJ8hExglEmpzFtBlb5xFB/3O75jQqy9Q/4LtY=
+Received: from 30.221.144.226(mailfrom:guoheyi@linux.alibaba.com fp:SMTPD_---0WPnjerv_1739936484 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 19 Feb 2025 11:41:24 +0800
+Message-ID: <5a33f86d-d82c-4685-8da7-5e623487a40c@linux.alibaba.com>
+Date: Wed, 19 Feb 2025 11:41:23 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] driver/aspeed-wdt: fix pretimeout for counting down
+ logic
+To: Guenter Roeck <linux@roeck-us.net>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, linux-watchdog@vger.kernel.org
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Eddie James <eajames@linux.ibm.com>
+References: <20250218031709.103823-1-guoheyi@linux.alibaba.com>
+ <50ab5a0a-b807-4bd7-bda8-7c6f4bfc76fc@roeck-us.net>
+Content-Language: en-US
+From: Heyi Guo <guoheyi@linux.alibaba.com>
+In-Reply-To: <50ab5a0a-b807-4bd7-bda8-7c6f4bfc76fc@roeck-us.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wCH0CvPUbVnWpNgNA--.30420S4
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Wr4DCr48uF45Cw18ZFyUGFg_yoWDGrc_uF
-	s7Zrn3Xry7Gr1Ykr4jyFsIv34Yk3y8JF1kZrySqrySqrZIgrWkGr9xZrn5XrWDuwnxZr9r
-	ua1DJ3WrZ39IvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRNtxhDUUUUU==
-X-Originating-IP: [183.174.60.14]
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/1tbiqAv4bme1R0DC6QABsK
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_193707_064403_0EEAA594 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250218_194132_546194_778F0BDD 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,32 +71,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add check for the return value of devm_kstrdup() in
-mt76_get_of_data_from_mtd() to catch potential exception.
+Hi Guenter,
 
-Fixes: e7a6a044f9b9 ("mt76: testmode: move mtd part to mt76_dev")
-Cc: stable@vger.kernel.org
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
----
- drivers/net/wireless/mediatek/mt76/eeprom.c | 4 ++++
- 1 file changed, 4 insertions(+)
+Thanks for your comments.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/eeprom.c b/drivers/net/wireless/mediatek/mt76/eeprom.c
-index 0bc66cc19acd..443517d06c9f 100644
---- a/drivers/net/wireless/mediatek/mt76/eeprom.c
-+++ b/drivers/net/wireless/mediatek/mt76/eeprom.c
-@@ -95,6 +95,10 @@ int mt76_get_of_data_from_mtd(struct mt76_dev *dev, void *eep, int offset, int l
- 
- #ifdef CONFIG_NL80211_TESTMODE
- 	dev->test_mtd.name = devm_kstrdup(dev->dev, part, GFP_KERNEL);
-+	if (!dev->test_mtd.name) {
-+		ret = -ENOMEM;
-+		goto out_put_node;
-+	}
- 	dev->test_mtd.offset = offset;
- #endif
- 
--- 
-2.25.1
+On 2025/2/18 13:33, Guenter Roeck wrote:
+> On 2/17/25 19:16, Heyi Guo wrote:
+>> Aspeed watchdog uses counting down logic, so the value set to register
+>> should be the value of subtracting pretimeout from total timeout.
+>>
+>> Fixes: 9ec0b7e06835 ("watchdog: aspeed: Enable pre-timeout interrupt")
+>>
+>> Signed-off-by: Heyi Guo <guoheyi@linux.alibaba.com>
+>>
+>> Cc: Wim Van Sebroeck <wim@linux-watchdog.org>
+>> Cc: Guenter Roeck <linux@roeck-us.net>
+>> Cc: Joel Stanley <joel@jms.id.au>
+>> Cc: Andrew Jeffery <andrew@codeconstruct.com.au>
+>> Cc: Eddie James <eajames@linux.ibm.com>
+>> ---
+>>   drivers/watchdog/aspeed_wdt.c | 7 +++++++
+>>   1 file changed, 7 insertions(+)
+>>
+>> diff --git a/drivers/watchdog/aspeed_wdt.c 
+>> b/drivers/watchdog/aspeed_wdt.c
+>> index b4773a6aaf8c..520d8aba12a5 100644
+>> --- a/drivers/watchdog/aspeed_wdt.c
+>> +++ b/drivers/watchdog/aspeed_wdt.c
+>> @@ -187,6 +187,13 @@ static int aspeed_wdt_set_pretimeout(struct 
+>> watchdog_device *wdd,
+>>       u32 actual = pretimeout * WDT_RATE_1MHZ;
+>>       u32 s = wdt->cfg->irq_shift;
+>>       u32 m = wdt->cfg->irq_mask;
+>> +    u32 reload = readl(wdt->base + WDT_RELOAD_VALUE);
+>> +
+>
+> It is unusual to use a register value here and not the configured timeout
+> value. I would have assumed that pretimeout is compared against 
+> wdt->timout,
+> not against the register value, and that the multiplication with 
+> WDT_RATE_1MHZ
+> is done after validation. This needs an explanation.
+It was supposed to be a straight-forward way to check if the pretimeout 
+value is supported by the hardware. I can change to wdt->timeout if it 
+is better.
 
+Further, in the case of wdt->timeout > max_hw_heartbeat_ms, shall we 
+restrict the pretimeout to be larger than wdt->timeout - 
+max_hw_heartbeat_ms  / 2? For the watchdog_kworker works in 
+max_hw_heartbeat_ms  / 2 interval, pretimeout event may be triggered 
+unexpected when watchdog is not pinged in (max_hw_heartbeat_ms - 
+(timeout - pretimeout)).
+
+>
+>> +    if (actual >= reload)
+>> +        return -EINVAL;
+>> +
+>
+> On top of that, you'll also need to explain why 
+> watchdog_pretimeout_invalid()
+> and with it the validation in watchdog_set_pretimeout() does not work 
+> for this
+> watchdog and why this extra validation is necessary.
+
+watchdog_pretimeout_invalid() will return false if wdt->timeout == 0, 
+but we can't determine the hardware pretimeout value if timeout == 0 here.
+
+Thanks,
+
+Heyi
+
+>
+> Guenter
+>
+>> +    /* watchdog timer is counting down */
+>> +    actual = reload - actual;
+>>         wdd->pretimeout = pretimeout;
+>>       wdt->ctrl &= ~m;
 
