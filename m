@@ -4,90 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B76CC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:10:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5C5C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Cc:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XIzMGizCa0TqJAjUgJqlPFZGjy2pOOpFJSWoUD2uhWM=; b=RFdCLUs9QU1RnpXrfKNbH/fcGI
-	FCARO/0uy3p6H1HY3K6UZRlSu11yeqG81bG+4v4aLcvUkzhHtVnhEZoyVfox80Ux9Ts4SkEOU/0Pc
-	G0X5ykj6qCuriVgXKsezNHVhoDjJsbnoGv4nXcSm0wdAgcQHd2IYz0USue4qO8Q3ALS55J0hkVb9i
-	HFYGAGMoJYqCQ0x3uGdjPwbbOqqxoNgaUuGOJhwRqqaleabWFsxhC6tMcy11ik/dqWdwDR5HCXW6U
-	vnhk2/rxrflTEXBvcsS8lDGAHbTcmUqqCpfwlG0+erlZ9klbTnvcyTfXQrJeMgojEesV68fEdmPr0
-	EwlpUgeg==;
+	bh=9N8uhomNrvqZSlje3nDu3cVu6aGtjAz3Suivv3MB7Dg=; b=tklUkNRsiIZnX6kD7JyT0Byzb1
+	KPTt/Ct638KgGaqi3bdUaoUBu7jBvGjAl5ucceST4jpjxJmnWpCGvuf2ZbJJoW52SkK0NGf2rvv2H
+	moK66onaSc7v1bxUtZLAx6ira7O0d1Ra+oCNsNXP8aaWMbk9iGB5MGcQNncxTp1+PFyQrWmtF6T8V
+	MkVvYkOci6gS+Sw+1g16AR9NPs7PsZaenvp98BK2bdcuwMXMv/qw35QmIhD5jCqOYaUy5kfkSO6Vu
+	WjvNULr9xJZi7NJ8iOOuSf6chPPnajhkTNxd2liM7sBScd7bt5IwKeCfZY4kFgrMioInFQXZ0gX5j
+	l0LDsBOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpT4-0000000EYAd-3u9M;
-	Wed, 19 Feb 2025 19:10:46 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1tkpVy-0000000EYxh-3XHv;
+	Wed, 19 Feb 2025 19:13:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpGD-0000000EU79-0XrM
+	id 1tkpMN-0000000EWDL-2X1A
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 18:57:30 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6fb73601cd0so859227b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 10:57:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739991447; x=1740596247; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=XIzMGizCa0TqJAjUgJqlPFZGjy2pOOpFJSWoUD2uhWM=;
-        b=uPRtwckz3nQOiHlsHQ1oO1GM2k38Jnk6R93lks2kN6gWWTyxuTlL4AaQlsyUZLi8mC
-         EIvMWKMGMs1azBL5HVRTgRFFyEIE+3akzT8EKcQvqh+j30xN21fm4xPu/+qdPaLQ9k3N
-         UaNIF3WC+grtbXQoU7QWPKIVM7xh2SztLSStuvMuFxOXoBS8gSbjxQ2TV84yytkl7dlV
-         8fPPdDVrqhxtrsvo48XqOJXtQ7okaG5pyze7lgasVIMn13EpbaxwUZs0yWdxUM24oRfR
-         2RX2EfH0Qvyhh5Ufp9ffCx8VwIWF0SQvzNqB5XrFj+QQ/Ujc/1hRcr1qVdMZ8Ae57Qjd
-         jfew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739991447; x=1740596247;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XIzMGizCa0TqJAjUgJqlPFZGjy2pOOpFJSWoUD2uhWM=;
-        b=JauFP6w8fpk6OECuIhx5p8YN7NDlUz0Frb114/prtiINpbhTu4AqPeXmIL3KkNxPzt
-         KrC5p2zAXiTxcmsxv9b2nWp6lqPcZR3A/YIinQP+5sOk0wrKh51lvSS39jDGnfwSvB/2
-         Zu3aFvIZVTRaRL2LY4hYO37+IPTaHhOb+is4VnngfEA6KaSvmjMso7Y1Ow7gGjpML5my
-         kvUOuSD4poJNao2odMs1l2krfM52FwkqHN58fBMVNnFvkTJ8Bu5/RnepF9mNPdVPPcSB
-         jB6G/s0z8qkgrygEF9Ce79BOubDl6kMBg2eeyPvKRa933ZOXJZC/u7n5f93PAX2uP03W
-         l4qQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUlJeL5/b7UyfkjfvFk8nnLbEKkQuZVcd5Sctb0QuW/82WGnRSH+pcO42V3XX1evUfPG+lbEC+3TcfHwz8zWxS3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx69GswvzPO8AX4v1Pgw9Dj/l+nAvLbc5YVM6p8qHQ0kno/SG6s
-	xR7pTwzy/9VHB7kspAWY/ZfmxIymKLj5oJXsO5NcsEphqPCKj8rNqk7WMe85KkBeoc+zqapqY8U
-	xbzKD3g==
-X-Google-Smtp-Source: AGHT+IHBIqCbWM4vcI984nDuEzZSczl9Bby3fcXaZ7gK0bV5Lnp/HxnIbC0vqnoo+ZtzSlf5EYQ7UBrYNZ0b
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:c57b:86f0:c166:3061])
- (user=irogers job=sendgmr) by 2002:a05:690c:2f81:b0:6ea:ecc3:ec61 with SMTP
- id 00721157ae682-6fb582571c3mr2102467b3.1.1739991447284; Wed, 19 Feb 2025
- 10:57:27 -0800 (PST)
-Date: Wed, 19 Feb 2025 10:56:57 -0800
-In-Reply-To: <20250219185657.280286-1-irogers@google.com>
-Message-Id: <20250219185657.280286-9-irogers@google.com>
-Mime-Version: 1.0
-References: <20250219185657.280286-1-irogers@google.com>
-X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
-Subject: [PATCH v3 8/8] perf syscalltbl: Mask off ABI type for MIPS system calls
-From: Ian Rogers <irogers@google.com>
-To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, guoren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	"=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=" <bjorn@rivosinc.com>, Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-mips@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 19 Feb 2025 19:03:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 022446114B;
+	Wed, 19 Feb 2025 19:03:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13436C4CED1;
+	Wed, 19 Feb 2025 19:03:43 +0000 (UTC)
+Date: Wed, 19 Feb 2025 19:03:41 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Dev Jain <dev.jain@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 2/4] arm64: hugetlb: Fix huge_ptep_get_and_clear() for
+ non-present ptes
+Message-ID: <Z7YrDQry8zo2jS53@arm.com>
+References: <20250217140419.1702389-1-ryan.roberts@arm.com>
+ <20250217140419.1702389-3-ryan.roberts@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250217140419.1702389-3-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_105729_160953_17B00769 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20250219_110351_691718_567ADBC6 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,37 +94,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Arnd Bergmann described that MIPS system calls don't necessarily start
-from 0 as an ABI prefix is applied:
-https://lore.kernel.org/lkml/8ed7dfb2-1e4d-4aa4-a04b-0397a89365d1@app.fastmail.com/
-When decoding the "id" (aka system call number) for MIPS ignore values
-greater-than 1000.
+On Mon, Feb 17, 2025 at 02:04:15PM +0000, Ryan Roberts wrote:
+> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> index 06db4649af91..614b2feddba2 100644
+> --- a/arch/arm64/mm/hugetlbpage.c
+> +++ b/arch/arm64/mm/hugetlbpage.c
+> @@ -163,24 +163,23 @@ static pte_t get_clear_contig(struct mm_struct *mm,
+>  			     unsigned long pgsize,
+>  			     unsigned long ncontig)
+>  {
+> -	pte_t orig_pte = __ptep_get(ptep);
+> -	unsigned long i;
+> -
+> -	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++) {
+> -		pte_t pte = __ptep_get_and_clear(mm, addr, ptep);
+> -
+> -		/*
+> -		 * If HW_AFDBM is enabled, then the HW could turn on
+> -		 * the dirty or accessed bit for any page in the set,
+> -		 * so check them all.
+> -		 */
+> -		if (pte_dirty(pte))
+> -			orig_pte = pte_mkdirty(orig_pte);
+> -
+> -		if (pte_young(pte))
+> -			orig_pte = pte_mkyoung(orig_pte);
+> +	pte_t pte, tmp_pte;
+> +	bool present;
+> +
+> +	pte = __ptep_get_and_clear(mm, addr, ptep);
+> +	present = pte_present(pte);
+> +	while (--ncontig) {
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/util/syscalltbl.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+A 'for' loop may be more consistent with the rest of the file but I
+really don't mind the 'while' loop.
 
-diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
-index db0d2b81aed1..ace66e69c1bc 100644
---- a/tools/perf/util/syscalltbl.c
-+++ b/tools/perf/util/syscalltbl.c
-@@ -46,6 +46,14 @@ const char *syscalltbl__name(int e_machine, int id)
- {
- 	const struct syscalltbl *table = find_table(e_machine);
- 
-+	if (e_machine == EM_MIPS && id > 1000) {
-+		/*
-+		 * MIPS may encode the N32/64/O32 type in the high part of
-+		 * syscall number. Mask this off if present. See the values of
-+		 * __NR_N32_Linux, __NR_64_Linux, __NR_O32_Linux and __NR_Linux.
-+		 */
-+		id = id % 1000;
-+	}
- 	if (table && id >= 0 && id < table->num_to_name_len)
- 		return table->num_to_name[id];
- 	return NULL;
--- 
-2.48.1.601.g30ceb7b040-goog
-
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
