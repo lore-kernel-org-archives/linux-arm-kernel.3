@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6D86C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 00:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7334C021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 00:52:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l5nVBNyMvoi0KxIJeCFo+hLIKx4it6WBKHj67ikmQpA=; b=y3f2LfSl66i6vF0pEcUWLigojd
-	/C1SvXUVH4Vs66c7HVDeFSoNBLyECHwivqU4M3F5sBFF9KuPTOuwYDc/7HcIxZsXc4+N2fqo5tUxW
-	aTX5Px6cPxn2NZ/CYoGinzmDRm+BbiP5KYx1HPiv0v5ICkUHJMRQAjEIAFMlhhWH8umhXyVxMnymN
-	MrXLv+gh43D0Z3oVy41jjV6RSVuDQy3s5pLo7dYZD7mS0Lzk/4yLCTAq86xKkk5iHVuBsRlK9QJtq
-	6p2yO2J/OJrO4L8iLsqw37upm/iDHuMNOEwzxBAdzUcQjrguXLXuZsij+ux33hcgxvC7cbAqyUf/e
-	PJ1HjQ3A==;
+	bh=VFwmDv5rtIpq4doJVM3pQVXJ8CnZ6EnDY9JTLGFwHHs=; b=ML+9YyGuzUwtNfBRH24vNUQY1P
+	5yeBjBhRTD95yupf0zwjnoLmFfTIk6jz/79yvp+l2Y3xD+q4nZKfGY8d/soqhHYUN5UZEsoAfctOg
+	DngMrAMdhli/9cs/yMtuQ3pzzrfsBXR0XIpNH3giDtIH6OQUjz44ot1pdYve6UQ5Y1COjdhu8SWGo
+	9RK9njecCzZX4iRoJ6rmYY1l35+9eOXBS/JYFyG/OhOFVlXBJDc8o5LNLs77wcKJwv0kXZvjgtA95
+	8XCEdkIhUHBCLqWL5G4U61fMoea2gcUYr7WgM64cBPXvNGxA6MJapxW4OAhLNWlf6ebWsUSgdIKQ+
+	siMygnVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYJ3-0000000APk2-1XVE;
-	Wed, 19 Feb 2025 00:51:17 +0000
+	id 1tkYKU-0000000AQ8x-05ij;
+	Wed, 19 Feb 2025 00:52:46 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYAR-0000000ANnT-1RKb
+	id 1tkYAS-0000000ANn3-1AG6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 00:42:24 +0000
+	Wed, 19 Feb 2025 00:42:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 86DA55C5CAB;
-	Wed, 19 Feb 2025 00:41:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CFAFC4CEEC;
-	Wed, 19 Feb 2025 00:42:22 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B19EC5C5E93;
+	Wed, 19 Feb 2025 00:41:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9352BC4CEE6;
+	Wed, 19 Feb 2025 00:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739925742;
-	bh=9unwMkTo5UzoNGzJpdWJnYAWLU/BdNqcqKXaLoMLxPY=;
+	s=k20201202; t=1739925743;
+	bh=BwGnr0m0xhmBvURW6iahNgzC2tdJQtDHH3iqzOTLvFI=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=QDtpfjec+UbdsvZgwOPX2TIRpWCkD+eEOCskMLvCj+QA1av3cxtOrpadPyroDfI7p
-	 WeHeEZH5r/cE0RT9cdDGYQdf4y0Q5s/tUDiaHMFx+Yu0goDplFJ8n7b7o2bccsj+3K
-	 1fxadS+JuqKQHGVDTZ1an60l4xDF/yDme1b6x8h6YifQR6NLAjk90eM78sL1OoJb7F
-	 gAAI7zGkZTFNZaY4+Kdb2OY8t7UKB+X4VVbF0jFeejPcPd76720kYUNOjN2cZGNTfi
-	 9R0uMZcUFiS3a5nCEp42AHG1s5mBV8qOotxILzU8TB59bjYonQjEpM/uiow0IkGsZl
-	 d99CrK7nS5UPw==
-Date: Tue, 18 Feb 2025 18:42:21 -0600
+	b=Ilbw/hEDJPwc1Sh+JkMlQA5h+OID6m/Osf++dMsXsuSDlpKfnk/r28dj1vugS7fBp
+	 dDtlMtOciF380qWvnfEDLW0fjc2wqFx86/wlSOUAkpNkoTH0hSa9/jS9rT1QnFYxFq
+	 1nmIrnKUda3u8qXJCcixgyrDY3w5AtOBds1/1XS3EH6mjmIBo8WfszmAnJWKg/oA4b
+	 77mB4vBkxGzHtPo5pUv7S/RCP7e65yokhXWy22pBk4lb5XNEsvCN+ecBn62Mvb1DjT
+	 k6VYLbGR2vbsFvGQ8pvJCrG0e2gEIr2dAFItnO0j88+jtPhaujY/8l7yX821F+XO5l
+	 8xOIQ5Y5OiTcA==
+Date: Tue, 18 Feb 2025 18:42:22 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org
-To: Igor Belwon <igor.belwon@mentallysanemainliners.org>
-In-Reply-To: <20250217-exynos990-dt-changes-febuary-v1-0-99935218cbf4@mentallysanemainliners.org>
-References: <20250217-exynos990-dt-changes-febuary-v1-0-99935218cbf4@mentallysanemainliners.org>
-Message-Id: <173992516472.2065416.7202033506643575073.robh@kernel.org>
-Subject: Re: [PATCH 0/5] Add watchdog and USB nodes for the Exynos990 SoC
+Cc: Joel Stanley <joel@jms.id.au>, linux-aspeed@lists.ozlabs.org, 
+ linux-kernel@vger.kernel.org, linux-watchdog@vger.kernel.org, 
+ Eddie James <eajames@linux.ibm.com>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Guenter Roeck <linux@roeck-us.net>, linux-arm-kernel@lists.infradead.org, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, devicetree@vger.kernel.org
+To: Heyi Guo <guoheyi@linux.alibaba.com>
+In-Reply-To: <20250218031709.103823-1-guoheyi@linux.alibaba.com>
+References: <20250218031709.103823-1-guoheyi@linux.alibaba.com>
+Message-Id: <173992516523.2065435.15405371370616212583.robh@kernel.org>
+Subject: Re: [PATCH 1/2] driver/aspeed-wdt: fix pretimeout for counting
+ down logic
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_164223_494751_73E3C25C 
-X-CRM114-Status: GOOD (  21.28  )
+X-CRM114-CacheID: sfid-20250218_164224_437455_6A5770DA 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,52 +77,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 17 Feb 2025 22:32:02 +0100, Igor Belwon wrote:
-> Hi all!
+On Tue, 18 Feb 2025 11:16:58 +0800, Heyi Guo wrote:
+> Aspeed watchdog uses counting down logic, so the value set to register
+> should be the value of subtracting pretimeout from total timeout.
 > 
-> This series adds the nodes to enable the watchdog and USB support for
-> the Exynos990 SoC.
+> Fixes: 9ec0b7e06835 ("watchdog: aspeed: Enable pre-timeout interrupt")
 > 
-> The watchdog consists of two clusters (cl0 and cl2). Unsure why Samsung has
-> skipped cl1 on this SoC. Both are enabled and working - tested on a
-> device from the -x1s family.
+> Signed-off-by: Heyi Guo <guoheyi@linux.alibaba.com>
 > 
-> The USB controller of this SoC supports full-speed, high-speed and
-> super-speed operation modes. Due to my inability to get any of my
-> Exynos990 devices to enumerate as super-speed (even under the vendor
-> kernels) only the UTMI+ setup is done - as such, only the high-speed
-> mode is enabled. Dummy regulators are used in place of PMIC provided
-> ones until we implement PMIC.
-> 
-> This series depends on the following series:
-> - Watchdog commit: https://lore.kernel.org/all/20250217-exynos990-wdt-v2-0-3eb4fbc113f4@mentallysanemainliners.org
-> - USB commits:
-> 	- https://lore.kernel.org/all/20250217-exynos990-bindings-usb3-v2-1-3b3f0809f4fb@mentallysanemainliners.org/
-> 	- https://lore.kernel.org/all/20250214-exynos990-dwusb-v1-0-d68282c51ba8@mentallysanemainliners.org/
-> 
-> Signed-off-by: Igor Belwon <igor.belwon@mentallysanemainliners.org>
+> Cc: Wim Van Sebroeck <wim@linux-watchdog.org>
+> Cc: Guenter Roeck <linux@roeck-us.net>
+> Cc: Joel Stanley <joel@jms.id.au>
+> Cc: Andrew Jeffery <andrew@codeconstruct.com.au>
+> Cc: Eddie James <eajames@linux.ibm.com>
 > ---
-> Igor Belwon (5):
->       arm64: dts: exynos990: Enable watchdog timer
->       arm64: dts: exynos990: Add USB nodes
->       arm64: dts: exynos990-x1s-common: Enable USB
->       arm64: dts: exynos990-c1s: Enable USB
->       arm64: dts: exynos990-r8s: Enable USB
-> 
->  arch/arm64/boot/dts/exynos/exynos990-c1s.dts       | 16 +++++++
->  arch/arm64/boot/dts/exynos/exynos990-r8s.dts       | 16 +++++++
->  .../boot/dts/exynos/exynos990-x1s-common.dtsi      | 16 +++++++
->  arch/arm64/boot/dts/exynos/exynos990.dtsi          | 55 ++++++++++++++++++++++
->  4 files changed, 103 insertions(+)
-> ---
-> base-commit: 783ef70f458b28640a63dda599ae8628c3c7aa2e
-> change-id: 20250217-exynos990-dt-changes-febuary-fbc184e8049d
-> 
-> Best regards,
-> --
-> Igor Belwon <igor.belwon@mentallysanemainliners.org>
-> 
-> 
+>  drivers/watchdog/aspeed_wdt.c | 7 +++++++
+>  1 file changed, 7 insertions(+)
 > 
 
 
@@ -137,40 +110,240 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250217-exynos990-dt-changes-febuary-v1-0-99935218cbf4@mentallysanemainliners.org:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250218031709.103823-1-guoheyi@linux.alibaba.com:
 
-arch/arm64/boot/dts/exynos/exynos990-c1s.dtb: /soc@0/watchdog@10050000: failed to match any schema with compatible: ['samsung,exynos990-wdt']
-arch/arm64/boot/dts/exynos/exynos990-r8s.dtb: /soc@0/watchdog@10050000: failed to match any schema with compatible: ['samsung,exynos990-wdt']
-arch/arm64/boot/dts/exynos/exynos990-c1s.dtb: /soc@0/watchdog@10060000: failed to match any schema with compatible: ['samsung,exynos990-wdt']
-arch/arm64/boot/dts/exynos/exynos990-r8s.dtb: /soc@0/watchdog@10060000: failed to match any schema with compatible: ['samsung,exynos990-wdt']
-arch/arm64/boot/dts/exynos/exynos990-x1slte.dtb: /soc@0/watchdog@10050000: failed to match any schema with compatible: ['samsung,exynos990-wdt']
-arch/arm64/boot/dts/exynos/exynos990-x1s.dtb: /soc@0/watchdog@10050000: failed to match any schema with compatible: ['samsung,exynos990-wdt']
-arch/arm64/boot/dts/exynos/exynos990-x1slte.dtb: /soc@0/watchdog@10060000: failed to match any schema with compatible: ['samsung,exynos990-wdt']
-arch/arm64/boot/dts/exynos/exynos990-x1s.dtb: /soc@0/watchdog@10060000: failed to match any schema with compatible: ['samsung,exynos990-wdt']
-arch/arm64/boot/dts/exynos/exynos990-c1s.dtb: usb@10e00000: compatible:0: 'samsung,exynos990-dwusb3' is not one of ['google,gs101-dwusb3', 'samsung,exynos5250-dwusb3', 'samsung,exynos5433-dwusb3', 'samsung,exynos7-dwusb3', 'samsung,exynos850-dwusb3']
-	from schema $id: http://devicetree.org/schemas/usb/samsung,exynos-dwc3.yaml#
-arch/arm64/boot/dts/exynos/exynos990-c1s.dtb: usb@10e00000: compatible: ['samsung,exynos990-dwusb3', 'samsung,exynos850-dwusb3'] is too long
-	from schema $id: http://devicetree.org/schemas/usb/samsung,exynos-dwc3.yaml#
-arch/arm64/boot/dts/exynos/exynos990-c1s.dtb: /soc@0/usb@10e00000: failed to match any schema with compatible: ['samsung,exynos990-dwusb3', 'samsung,exynos850-dwusb3']
-arch/arm64/boot/dts/exynos/exynos990-c1s.dtb: /soc@0/phy@10c00000: failed to match any schema with compatible: ['samsung,exynos990-usbdrd-phy']
-arch/arm64/boot/dts/exynos/exynos990-r8s.dtb: usb@10e00000: compatible:0: 'samsung,exynos990-dwusb3' is not one of ['google,gs101-dwusb3', 'samsung,exynos5250-dwusb3', 'samsung,exynos5433-dwusb3', 'samsung,exynos7-dwusb3', 'samsung,exynos850-dwusb3']
-	from schema $id: http://devicetree.org/schemas/usb/samsung,exynos-dwc3.yaml#
-arch/arm64/boot/dts/exynos/exynos990-r8s.dtb: usb@10e00000: compatible: ['samsung,exynos990-dwusb3', 'samsung,exynos850-dwusb3'] is too long
-	from schema $id: http://devicetree.org/schemas/usb/samsung,exynos-dwc3.yaml#
-arch/arm64/boot/dts/exynos/exynos990-r8s.dtb: /soc@0/usb@10e00000: failed to match any schema with compatible: ['samsung,exynos990-dwusb3', 'samsung,exynos850-dwusb3']
-arch/arm64/boot/dts/exynos/exynos990-x1slte.dtb: usb@10e00000: compatible:0: 'samsung,exynos990-dwusb3' is not one of ['google,gs101-dwusb3', 'samsung,exynos5250-dwusb3', 'samsung,exynos5433-dwusb3', 'samsung,exynos7-dwusb3', 'samsung,exynos850-dwusb3']
-	from schema $id: http://devicetree.org/schemas/usb/samsung,exynos-dwc3.yaml#
-arch/arm64/boot/dts/exynos/exynos990-x1slte.dtb: usb@10e00000: compatible: ['samsung,exynos990-dwusb3', 'samsung,exynos850-dwusb3'] is too long
-	from schema $id: http://devicetree.org/schemas/usb/samsung,exynos-dwc3.yaml#
-arch/arm64/boot/dts/exynos/exynos990-r8s.dtb: /soc@0/phy@10c00000: failed to match any schema with compatible: ['samsung,exynos990-usbdrd-phy']
-arch/arm64/boot/dts/exynos/exynos990-x1s.dtb: usb@10e00000: compatible:0: 'samsung,exynos990-dwusb3' is not one of ['google,gs101-dwusb3', 'samsung,exynos5250-dwusb3', 'samsung,exynos5433-dwusb3', 'samsung,exynos7-dwusb3', 'samsung,exynos850-dwusb3']
-	from schema $id: http://devicetree.org/schemas/usb/samsung,exynos-dwc3.yaml#
-arch/arm64/boot/dts/exynos/exynos990-x1s.dtb: usb@10e00000: compatible: ['samsung,exynos990-dwusb3', 'samsung,exynos850-dwusb3'] is too long
-	from schema $id: http://devicetree.org/schemas/usb/samsung,exynos-dwc3.yaml#
-arch/arm64/boot/dts/exynos/exynos990-x1slte.dtb: /soc@0/usb@10e00000: failed to match any schema with compatible: ['samsung,exynos990-dwusb3', 'samsung,exynos850-dwusb3']
-arch/arm64/boot/dts/exynos/exynos990-x1s.dtb: /soc@0/usb@10e00000: failed to match any schema with compatible: ['samsung,exynos990-dwusb3', 'samsung,exynos850-dwusb3']
-arch/arm64/boot/dts/exynos/exynos990-x1slte.dtb: /soc@0/phy@10c00000: failed to match any schema with compatible: ['samsung,exynos990-usbdrd-phy']
-arch/arm64/boot/dts/exynos/exynos990-x1s.dtb: /soc@0/phy@10c00000: failed to match any schema with compatible: ['samsung,exynos990-usbdrd-phy']
+arch/arm/boot/dts/aspeed/aspeed-bmc-opp-tacoma.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-opp-tacoma.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-opp-tacoma.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-opp-tacoma.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-quanta-s6q.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-quanta-s6q.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-quanta-s6q.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-quanta-s6q.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-blueridge-4u.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-blueridge-4u.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-blueridge-4u.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-blueridge-4u.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-ast2600-evb-a1.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-ast2600-evb-a1.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-ast2600-evb-a1.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-fuji.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-ast2600-evb-a1.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-fuji.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-fuji.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-fuji.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-sbp1.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-inventec-transformers.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-inventec-transformers.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-inventec-transformers.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-inventec-transformers.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-inventec-starscream.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-inventec-starscream.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-inventec-starscream.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-inventec-starscream.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-1s4u.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-1s4u.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-1s4u.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-1s4u.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-catalina.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-blueridge.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-blueridge.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-blueridge.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-blueridge.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-bonnell.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-bonnell.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-bonnell.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-bonnell.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-4u.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-4u.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-4u.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-rainier-4u.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjefferson.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjefferson.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjefferson.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtjefferson.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-asus-x4tf.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-asus-x4tf.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-asus-x4tf.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-asus-x4tf.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-elbert.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-elbert.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-elbert.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-elbert.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ufispace-ncplite.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ufispace-ncplite.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ufispace-ncplite.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ufispace-ncplite.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-fuji.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtmitchell.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtmitchell.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtmitchell.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ampere-mtmitchell.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-minerva.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-qcom-dc-scm-v1.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-qcom-dc-scm-v1.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-qcom-dc-scm-v1.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-qcom-dc-scm-v1.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-system1.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-greatlakes.dtb: watchdog@1e785000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-greatlakes.dtb: watchdog@1e785040: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-greatlakes.dtb: watchdog@1e785080: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-greatlakes.dtb: watchdog@1e7850c0: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/watchdog/aspeed,ast2400-wdt.yaml#
 
 
 
