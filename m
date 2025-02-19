@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B9FC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 16:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9983C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 16:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DWxLyhgTyl/DhJ72aDVVAmJ5czNKKPxS788lHnLdM1E=; b=ZES41tZAXnYQYSltsRTm2XtlvM
-	+aA1LOSokoR4Ez0/E2j+DexZpvcId9N2qKbby4qbzXj6VA7BXGplKJLvASalJIvNfh2Gdp47HvsSW
-	TYTI0Q/kzoYUVRXTr2sTciFm9Yn+oiscFHUM+ivw9SgcE3Nte7hKS4+eI4pXIsTLDvHyp3769mVIC
-	6E1YLZYeP2LZ9vrJWFO5RdtnbyL3KKfbEXdff/hFK1aJzC7iU81tKpduWbQKk11YG0GT6hxe/HzBb
-	2VDW9WdozM4CM8HlybexCPVw6eMTaMfJ4JCuJMuPuLzBDhLlX9b5kGTJ/zd+3gMkzuTwvu+E9z0DD
-	VMyrcFwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nTxM4Kzm9kVOWrt/r7V27hJ5G++9kfp5omUyb5LUP7w=; b=QMPIstoLVEO0Viqoi7piyZt7n3
+	ExFy3fvsGsWINGzvz4jCWrkZGZHTIw0cRJy9e6jghBuLyz3Ge+kwh5eZv6KnoYLPX9R5AAQBOO7eB
+	Oukh/ZzihEDvW4hJzlfSBJCQ5dJL2AmrUAXOrxhonccldeDwO62keEjGacX6dQjNxZzMLjTrorQgB
+	3RcQe73TzeAvzUvDRETvBuB07vNufUHReGRAEX4hT5sfvP63Vk2cIV1fYu66cGBEWqEOvjRjmC5DJ
+	ZZ05Mwvxu5zR2qH1rC46rBoEVx9jZSHJ/5Oe40fB5hxDFO+C9ZziWHv4OX0sJa1i4Xzi15lLU45jd
+	B2t5BF3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tknEM-0000000DuiN-0a7p;
-	Wed, 19 Feb 2025 16:47:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tknFm-0000000DvRa-45k3;
+	Wed, 19 Feb 2025 16:48:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkn8U-0000000DsXN-2Qtj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 19 Feb 2025 16:41:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=DWxLyhgTyl/DhJ72aDVVAmJ5czNKKPxS788lHnLdM1E=; b=hVUrOQ8rucnc7fXLEi0XgX5TVs
-	YWF8KL+MEcJNiSLjbdWZntbtqilboni6e5kJSiUL1HLdd+xPco7gdWN6aDpPdJ+l3RUIUQMtrpP8b
-	Kpggm9NXbX2MVvS1oNBabFC3XSYdKqThPAN8fKZS2pIEBh7tOze6sRLi1FO521G4ZJvAm3iboCuoN
-	k9OA8kxbCG5qI9oWEilxK7NQd84+SXEzvVUrVtZ3kYEKmh/6WkiU8a4Zc4cpttMQHws71OMcrs3a+
-	mxRxjiUWqF1PADsjq4bdSn3g8QwhPuH6wxgxTcp87EXLhOMyy4/yIUcjFoMrVuBP80H/2Xv8pze5E
-	fPT93PSQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkn8R-00000002HIH-1jfu
+	id 1tknCV-0000000DuD4-39CV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 16:41:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 820B51688;
-	Wed, 19 Feb 2025 08:41:35 -0800 (PST)
-Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1BEA23F6A8;
-	Wed, 19 Feb 2025 08:41:15 -0800 (PST)
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+	Wed, 19 Feb 2025 16:45:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 229D6A40101;
+	Wed, 19 Feb 2025 16:43:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86362C4CED1;
+	Wed, 19 Feb 2025 16:45:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739983530;
+	bh=+JgQZSjlHn43fT0aJrhX77TBzq2ON9qyrE/4WoHeu4U=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=c+6eNfzdSJ4yJPpLz5SUOFA739EkUhL9Df4NxICvfFimB4y2P64upX6qpWCETxDDq
+	 TCDV6luFeDum45HXGIFo509sW6lficYtmtY+CHr47WmDIShZIhcEnuiesPEyzIPvW9
+	 0X9W0b3hKwv9hQqByPBjwhSY9qQ7/A9RUtYKT+Sh6SdWT4P6K/WBkrX6SXdeuIx3fP
+	 uOmgfaq0OdHvBbMsllxbw4J7VvEZUpcgN6JESbrJsji/S7w2yWX0jAtwIvOnTVJ+He
+	 Y5dYLvuPsRkdcPWiTJSBsxw5in09dn3WhmOcNv/wYpee5wDs9sOL2X8QQk0mZNskI7
+	 oBksCAT056+PQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tknCS-005tup-Fp;
+	Wed, 19 Feb 2025 16:45:28 +0000
+Date: Wed, 19 Feb 2025 16:45:27 +0000
+Message-ID: <865xl5sx20.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
 	Joey Gouly <joey.gouly@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH 1/3] arm64/sysreg: Improve PIR/POR helpers
-Date: Wed, 19 Feb 2025 16:40:27 +0000
-Message-ID: <20250219164029.2309119-2-kevin.brodsky@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250219164029.2309119-1-kevin.brodsky@arm.com>
-References: <20250219164029.2309119-1-kevin.brodsky@arm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH v2 06/14] KVM: arm64: Remap PMUv3 events onto hardware
+In-Reply-To: <20250203183111.191519-7-oliver.upton@linux.dev>
+References: <20250203183111.191519-1-oliver.upton@linux.dev>
+	<20250203183111.191519-7-oliver.upton@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mizhang@google.com, coltonlewis@google.com, rananta@google.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, j@jannau.net
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_164119_857220_FB6CD53D 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20250219_084531_930678_9EFA5DF0 
+X-CRM114-Status: GOOD (  24.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,192 +95,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently have one helper to set a PIRx_ELx's permission field to
-a given value, PIRx_ELx_PERM(), and another helper to extract a
-permission field from POR_ELx, POR_ELx_IDX(). The naming is pretty
-confusing - it isn't clear at all that "_PERM" corresponds to a
-setter and "_IDX" to a getter.
+On Mon, 03 Feb 2025 18:31:03 +0000,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> Use the provided helper to map PMUv3 event IDs onto hardware, if the
+> driver exposes such a helper. This is expected to be quite rare, and
+> only useful for non-PMUv3 hardware.
+> 
+> Tested-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> ---
+>  arch/arm64/kvm/pmu-emul.c | 14 +++++++++++++-
+>  1 file changed, 13 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+> index 62349b670cf9..60cf973e2af9 100644
+> --- a/arch/arm64/kvm/pmu-emul.c
+> +++ b/arch/arm64/kvm/pmu-emul.c
+> @@ -673,6 +673,18 @@ static bool kvm_pmc_counts_at_el2(struct kvm_pmc *pmc)
+>  	return kvm_pmc_read_evtreg(pmc) & ARMV8_PMU_INCLUDE_EL2;
+>  }
+>  
+> +static u64 kvm_map_pmu_event(struct kvm *kvm, u64 eventsel)
+> +{
+> +	struct arm_pmu *pmu = kvm->arch.arm_pmu;
+> +	int hw_event;
+> +
+> +	if (!pmu->map_pmuv3_event)
+> +		return eventsel;
+> +
+> +	hw_event = pmu->map_pmuv3_event(eventsel);
+> +	return (hw_event < 0) ? eventsel : hw_event;
 
-This patch aims at improving the situation by using the same
-suffixes as FIELD_PREP()/FIELD_GET(), which we have already adopted
-for SYS_FIELD_{PREP,GET}():
+I find this a bit odd. If we can translate events, but failed to do
+so, we still install the originally requested event, and we have no
+idea what this maps to on the HW.
 
-* PIRx_ELx_PERM_PREP(), POR_ELx_PERM_PREP() create a register value
-  where the permission field for a given index is set to a given value.
+I'd rather we just don't install that event at all rather than
+counting something random.
 
-* POR_ELx_PERM_GET() extracts the permission field from a given
-  register value for a given index.
+Thanks,
 
-These helpers are not implemented using FIELD_PREP()/FIELD_GET()
-because the mask may not be constant, and they need to be usable in
-assembly. They are all defined in asm/sysreg.h, as one would expect
-for basic sysreg-related helpers.
+	M.
 
-Finally the new POR_ELx_PERM_* macros are used for existing
-calculations in signal.c and mmu.c.
-
-Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
----
- arch/arm64/include/asm/pgtable-prot.h | 36 +++++++++++++--------------
- arch/arm64/include/asm/por.h          |  9 +++----
- arch/arm64/include/asm/sysreg.h       | 10 +++++++-
- arch/arm64/kernel/signal.c            |  2 +-
- arch/arm64/mm/mmu.c                   |  6 ++---
- 5 files changed, 34 insertions(+), 29 deletions(-)
-
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index a95f1f77bb39..7830d031742e 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -169,25 +169,25 @@ static inline bool __pure lpa2_is_enabled(void)
- #define PAGE_GCS_RO	__pgprot(_PAGE_GCS_RO)
- 
- #define PIE_E0	( \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS),           PIE_GCS)  | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS_RO),        PIE_R)   | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_EXECONLY),      PIE_X_O) | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_READONLY_EXEC), PIE_RX_O)  | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RWX_O) | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_READONLY),      PIE_R_O)   | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED),        PIE_RW_O))
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS),           PIE_GCS)  | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS_RO),        PIE_R)   | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_EXECONLY),      PIE_X_O) | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY_EXEC), PIE_RX_O)  | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RWX_O) | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY),      PIE_R_O)   | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED),        PIE_RW_O))
- 
- #define PIE_E1	( \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS),           PIE_NONE_O) | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_GCS_RO),        PIE_NONE_O) | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_EXECONLY),      PIE_NONE_O) | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_READONLY_EXEC), PIE_R)      | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RW)     | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_READONLY),      PIE_R)      | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_SHARED),        PIE_RW)     | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_KERNEL_ROX),    PIE_RX)     | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_KERNEL_EXEC),   PIE_RWX)    | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_KERNEL_RO),     PIE_R)      | \
--	PIRx_ELx_PERM(pte_pi_index(_PAGE_KERNEL),        PIE_RW))
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS),           PIE_NONE_O) | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_GCS_RO),        PIE_NONE_O) | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_EXECONLY),      PIE_NONE_O) | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY_EXEC), PIE_R)      | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED_EXEC),   PIE_RW)     | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_READONLY),      PIE_R)      | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_SHARED),        PIE_RW)     | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_ROX),    PIE_RX)     | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_EXEC),   PIE_RWX)    | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL_RO),     PIE_R)      | \
-+	PIRx_ELx_PERM_PREP(pte_pi_index(_PAGE_KERNEL),        PIE_RW))
- 
- #endif /* __ASM_PGTABLE_PROT_H */
-diff --git a/arch/arm64/include/asm/por.h b/arch/arm64/include/asm/por.h
-index e06e9f473675..e6bf00bd0500 100644
---- a/arch/arm64/include/asm/por.h
-+++ b/arch/arm64/include/asm/por.h
-@@ -6,26 +6,25 @@
- #ifndef _ASM_ARM64_POR_H
- #define _ASM_ARM64_POR_H
- 
--#define POR_BITS_PER_PKEY		4
--#define POR_ELx_IDX(por_elx, idx)	(((por_elx) >> ((idx) * POR_BITS_PER_PKEY)) & 0xf)
-+#include <asm/sysreg.h>
- 
- static inline bool por_elx_allows_read(u64 por, u8 pkey)
- {
--	u8 perm = POR_ELx_IDX(por, pkey);
-+	u8 perm = POR_ELx_PERM_GET(pkey, por);
- 
- 	return perm & POE_R;
- }
- 
- static inline bool por_elx_allows_write(u64 por, u8 pkey)
- {
--	u8 perm = POR_ELx_IDX(por, pkey);
-+	u8 perm = POR_ELx_PERM_GET(pkey, por);
- 
- 	return perm & POE_W;
- }
- 
- static inline bool por_elx_allows_exec(u64 por, u8 pkey)
- {
--	u8 perm = POR_ELx_IDX(por, pkey);
-+	u8 perm = POR_ELx_PERM_GET(pkey, por);
- 
- 	return perm & POE_X;
- }
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 05ea5223d2d5..c9ce4ce5131c 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -1062,8 +1062,11 @@
- #define PIE_RX		UL(0xa)
- #define PIE_RW		UL(0xc)
- #define PIE_RWX		UL(0xe)
-+#define PIE_MASK	UL(0xf)
- 
--#define PIRx_ELx_PERM(idx, perm)	((perm) << ((idx) * 4))
-+#define PIRx_ELx_BITS_PER_IDX		4
-+#define PIRx_ELx_PERM_SHIFT(idx)	((idx) * PIRx_ELx_BITS_PER_IDX)
-+#define PIRx_ELx_PERM_PREP(idx, perm)	(((perm) & PIE_MASK) << PIRx_ELx_PERM_SHIFT(idx))
- 
- /*
-  * Permission Overlay Extension (POE) permission encodings.
-@@ -1078,6 +1081,11 @@
- #define POE_RXW		UL(0x7)
- #define POE_MASK	UL(0xf)
- 
-+#define POR_ELx_BITS_PER_IDX		4
-+#define POR_ELx_PERM_SHIFT(idx)		((idx) * POR_ELx_BITS_PER_IDX)
-+#define POR_ELx_PERM_GET(idx, reg)	(((reg) >> POR_ELx_PERM_SHIFT(idx)) & POE_MASK)
-+#define POR_ELx_PERM_PREP(idx, perm)	(((perm) & POE_MASK) << POR_ELx_PERM_SHIFT(idx))
-+
- /* Initial value for Permission Overlay Extension for EL0 */
- #define POR_EL0_INIT	POE_RXW
- 
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index 99ea26d400ff..bf6226256549 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -91,7 +91,7 @@ static void save_reset_user_access_state(struct user_access_state *ua_state)
- 		u64 por_enable_all = 0;
- 
- 		for (int pkey = 0; pkey < arch_max_pkey(); pkey++)
--			por_enable_all |= POE_RXW << (pkey * POR_BITS_PER_PKEY);
-+			por_enable_all |= POR_ELx_PERM_PREP(pkey, POE_RXW);
- 
- 		ua_state->por_el0 = read_sysreg_s(SYS_POR_EL0);
- 		write_sysreg_s(por_enable_all, SYS_POR_EL0);
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index b4df5bc5b1b8..69a83a77ccce 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -1557,7 +1557,6 @@ int arch_set_user_pkey_access(struct task_struct *tsk, int pkey, unsigned long i
- {
- 	u64 new_por = POE_RXW;
- 	u64 old_por;
--	u64 pkey_shift;
- 
- 	if (!system_supports_poe())
- 		return -ENOSPC;
-@@ -1582,12 +1581,11 @@ int arch_set_user_pkey_access(struct task_struct *tsk, int pkey, unsigned long i
- 		new_por &= ~POE_X;
- 
- 	/* Shift the bits in to the correct place in POR for pkey: */
--	pkey_shift = pkey * POR_BITS_PER_PKEY;
--	new_por <<= pkey_shift;
-+	new_por = POR_ELx_PERM_PREP(pkey, new_por);
- 
- 	/* Get old POR and mask off any old bits in place: */
- 	old_por = read_sysreg_s(SYS_POR_EL0);
--	old_por &= ~(POE_MASK << pkey_shift);
-+	old_por &= ~(POE_MASK << POR_ELx_PERM_SHIFT(pkey));
- 
- 	/* Write old part along with new part: */
- 	write_sysreg_s(old_por | new_por, SYS_POR_EL0);
 -- 
-2.47.0
-
+Without deviation from the norm, progress is not possible.
 
