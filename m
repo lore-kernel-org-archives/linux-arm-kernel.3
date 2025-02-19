@@ -4,60 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AC65C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 03:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288ECC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 03:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gLDIcoH8g0PVChUT3kwRLObvHSuon6W2GBImNuIMuVc=; b=MTczNkQbgF/5de1MFGiG8xy2r1
-	TwGBZYInJYebxQ7OOk1kellNgpx4lKulvXs6/7q8ouE+Cr9DarUfMVNB0P+K9DKNh453OhOxVUH0T
-	awuChD2NfoufqP+Hga8kXOYU+rdFpQXpfwPiTHdB66nvStvoK1gkFkIY65UkiooM2ueG5omHtUjeh
-	QOWd/Bf37SUnKbTfRbImkTHgq62g8JAd0+G8fr3ixdJJap6tfDV72yUcQF1XQkM3IcrIi9ncqJCCT
-	bxzkYjwh7lJTTI8GoKO3xAM58GI0YeEiysgQMLFN55CQdL1UpOv86TYpznoErt66KHL+TLfblcna+
-	FTjeLnPw==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sBQVhg7w4XL7qp/thUmN+IIR0d6uTx9zG04xquOGLqU=; b=yUkBE2P9wvb4Dnxpa3QjIrhaQf
+	rdqY7LZqz/GANYAUYG2mFNXsT/U1/m6QB3Ct+p70P5KSzzArucxPVzPqXnXfaTgmVxExg9XytCKOk
+	WN9wIv4JW38fFS+bLCbvjxW7jolTnDkzGslcLgYCjTG/q6UmALsuqb/w0j7g7NtLypvAuvf8jQ3aV
+	RVFt2eXQF8BiO7JLv8pVsUE8oiWHjMWhvbvCLS88daite/80qbRtyGIfy3UvGZwvlU87vTr+t6ESa
+	iZ7dBsD698MEUf5VBFw58ktpShpT7Ikr3+MFBfkQg0U4atVANKjEDEu5j6QrRt92Q9J5+Z7bTHnsS
+	AZN8RRPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkb8v-0000000AmvQ-2cT4;
-	Wed, 19 Feb 2025 03:53:01 +0000
-Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkb7R-0000000Amnc-45O6
+	id 1tkbEC-0000000AnKc-2Sx8;
+	Wed, 19 Feb 2025 03:58:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkbCh-0000000AnCc-3v0d
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 03:51:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1739937087; h=Message-ID:Date:MIME-Version:Subject:From:To:Content-Type;
-	bh=gLDIcoH8g0PVChUT3kwRLObvHSuon6W2GBImNuIMuVc=;
-	b=GqcsPhBSSDhJQdN37tB2BekOnyEW56Vwp5EuPim620fSWkro7twyyN8T0T3ImUhf2zHJtUQD/xhUezvt+tNhNwd7Dw2OQJM6jB11EFMHZ4Qdvqj1IZYdJF3/P0+RSjN1xQ+h+POY23iUyOfFhBuIgA1V9pNceTdXzgjGr4aT1XM=
-Received: from 30.221.144.226(mailfrom:guoheyi@linux.alibaba.com fp:SMTPD_---0WPnn0O9_1739937085 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 19 Feb 2025 11:51:26 +0800
-Message-ID: <5de1e473-9d90-458b-b739-9e912c71febd@linux.alibaba.com>
-Date: Wed, 19 Feb 2025 11:51:24 +0800
+	Wed, 19 Feb 2025 03:56:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D42E1682;
+	Tue, 18 Feb 2025 19:57:13 -0800 (PST)
+Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.16.56])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B2FDE3F5A1;
+	Tue, 18 Feb 2025 19:56:52 -0800 (PST)
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>
+Subject: [PATCH] arm64/mm: Explicit cast conversions to correct data type
+Date: Wed, 19 Feb 2025 09:26:46 +0530
+Message-Id: <20250219035646.536707-1-anshuman.khandual@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] driver/aspeed-wdt: fix pretimeout for counting down
- logic
-From: Heyi Guo <guoheyi@linux.alibaba.com>
-To: Guenter Roeck <linux@roeck-us.net>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, linux-watchdog@vger.kernel.org
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Eddie James <eajames@linux.ibm.com>
-References: <20250218031709.103823-1-guoheyi@linux.alibaba.com>
- <50ab5a0a-b807-4bd7-bda8-7c6f4bfc76fc@roeck-us.net>
- <7e2c5f2c-d07a-472c-aae5-6b639a144d88@linux.alibaba.com>
-Content-Language: en-US
-In-Reply-To: <7e2c5f2c-d07a-472c-aae5-6b639a144d88@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_195130_465870_18F19CDC 
-X-CRM114-Status: GOOD (  26.68  )
+X-CRM114-CacheID: sfid-20250218_195656_014389_77BE66A7 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,75 +64,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Really sorry for this mail and previous noisy mails; my thunderbird 
-client must be misconfigured to send out mail for command + s shortcut 
-when I wanted to save draft...
+From: Ryan Roberts <ryan.roberts@arm.com>
 
-Heyi
+When CONFIG_ARM64_PA_BITS_52 is enabled, page table helpers __pte_to_phys()
+and __phys_to_pte_val() are functions which return phys_addr_t and pteval_t
+respectively as expected. But otherwise without this config being enabled,
+they are defined as macros and their return types are implicit.
 
-On 2025/2/19 11:40, Heyi Guo wrote:
-> Hi Guenter,
->
-> Thanks for your comments.
->
-> On 2025/2/18 13:33, Guenter Roeck wrote:
-> > On 2/17/25 19:16, Heyi Guo wrote:
-> >> Aspeed watchdog uses counting down logic, so the value set to register
-> >> should be the value of subtracting pretimeout from total timeout.
-> >>
-> >> Fixes: 9ec0b7e06835 ("watchdog: aspeed: Enable pre-timeout interrupt")
-> >>
-> >> Signed-off-by: Heyi Guo <guoheyi@linux.alibaba.com>
-> >>
-> >> Cc: Wim Van Sebroeck <wim@linux-watchdog.org>
-> >> Cc: Guenter Roeck <linux@roeck-us.net>
-> >> Cc: Joel Stanley <joel@jms.id.au>
-> >> Cc: Andrew Jeffery <andrew@codeconstruct.com.au>
-> >> Cc: Eddie James <eajames@linux.ibm.com>
-> >> ---
-> >>   drivers/watchdog/aspeed_wdt.c | 7 +++++++
-> >>   1 file changed, 7 insertions(+)
-> >>
-> >> diff --git a/drivers/watchdog/aspeed_wdt.c b/drivers/watchdog/aspeed_wdt.c
-> >> index b4773a6aaf8c..520d8aba12a5 100644
-> >> --- a/drivers/watchdog/aspeed_wdt.c
-> >> +++ b/drivers/watchdog/aspeed_wdt.c
-> >> @@ -187,6 +187,13 @@ static int aspeed_wdt_set_pretimeout(struct 
-> >> watchdog_device *wdd,
-> >>       u32 actual = pretimeout * WDT_RATE_1MHZ;
-> >>       u32 s = wdt->cfg->irq_shift;
-> >>       u32 m = wdt->cfg->irq_mask;
-> >> +    u32 reload = readl(wdt->base + WDT_RELOAD_VALUE);
-> >> +
-> >
-> > It is unusual to use a register value here and not the configured timeout
-> > value. I would have assumed that pretimeout is compared against wdt->timout,
-> > not against the register value, and that the multiplication with WDT_RATE_1MHZ
-> > is done after validation. This needs an explanation.
-> It was supposed to be a straight-forward way to check if the pretimeout value is
-> supported by the hardware. I can change to wdt->timeout if it is better.
->
-> Further, in the case of wdt->timeout > max_hw_heartbeat_ms, shall we restrict
-> the pretimeout to be larger than wdt->timeout - max_hw_heartbeat_ms  / 2? For
-> the watchdog_kworker works in max_hw_heartbeat_ms  / 2 interval, pretimeout
-> event may be triggered unexpected when watchdog is not pinged in
-> (max_hw_heartbeat_ms - (timeout - pretimeout)).
->
-> >
-> >> +    if (actual >= reload)
-> >> +        return -EINVAL;
-> >> +
-> >
-> > On top of that, you'll also need to explain why watchdog_pretimeout_invalid()
-> > and with it the validation in watchdog_set_pretimeout() does not work for this
-> > watchdog and why this extra validation is necessary.
-> watchdog_pretimeout_invalid() will return false if wdt->timeout == 0, but we
-> can't determine the hardware pretimeout value if timeout == 0 here.
-> >
-> > Guenter
-> >
-> >> +    /* watchdog timer is counting down */
-> >> +    actual = reload - actual;
-> >>         wdd->pretimeout = pretimeout;
-> >>       wdt->ctrl &= ~m;
+Until now this has worked out correctly as both pte_t and phys_addr_t data
+types have been 64 bits. But with the introduction of 128 bit page tables,
+pte_t becomes 128 bits. Hence this ends up with incorrect widths after the
+conversions, which leads to compiler warnings.
+
+Fix the warnings by explicitly casting to the correct type after doing the
+conversion.
+
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+---
+This patch applies on v6.14-rc3
+
+ arch/arm64/include/asm/pgtable.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 0b2a2ad1b9e8..1da2421c9a15 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -84,8 +84,8 @@ static inline pteval_t __phys_to_pte_val(phys_addr_t phys)
+ 	return (phys | (phys >> PTE_ADDR_HIGH_SHIFT)) & PHYS_TO_PTE_ADDR_MASK;
+ }
+ #else
+-#define __pte_to_phys(pte)	(pte_val(pte) & PTE_ADDR_LOW)
+-#define __phys_to_pte_val(phys)	(phys)
++#define __pte_to_phys(pte)	((phys_addr_t)(pte_val(pte) & PTE_ADDR_LOW))
++#define __phys_to_pte_val(phys)	((pteval_t)(phys))
+ #endif
+ 
+ #define pte_pfn(pte)		(__pte_to_phys(pte) >> PAGE_SHIFT)
+-- 
+2.25.1
+
 
