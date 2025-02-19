@@ -4,57 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12EA4C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 01:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC9C2C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 02:03:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YA89qf4ISGMYbsVhcaULCxJhr4eNuObggSJrT8RDrw8=; b=2ZfDy2+7FbJ0iF/UYaQVOOOiI8
-	arLpMgUf2IWL9++mGOERbE2gJd2c31pgAdKfjZ81osAIpH3k19dqEBRJwjlLLsjdPqrBPzi/BF7G8
-	AuGALWEzvVVWgdmrVqZOnJdsUGl5CHU83mpPluVS/jWs+Y9whV28WOVErQ60Gimr9tTZLmiDxbj6c
-	as0g4Rsxwqni2B0JIMaGjoXEQzO9FuusARp42xo7+ub6Jt1KQs1xYyZIGnGTAzz1StEr1nyeFla2C
-	oHMIcVClPINU421PGM1AG0dCYFndIKPe4FlcyEK0Iy6JHz2e8WGJhctQmHSdU5Kui6FgpVntMivA4
-	m1S+Xfiw==;
+	bh=EL7g50UOcnfkkE8ClILrbdTdq+Gjd+tEtppvxpyzgco=; b=gzUIobFuOfRakuw63aaHx5RxDD
+	ud5X/0ZxOW8ifi8JPX9wPN1p9kPTDilwBZZz7yarx7grEyZsTr4bm/X3P2BMiahoa0c18itjaaNAx
+	UZum4hCfNXvqduLKXlvwX8QRFvX0+5rb6YExbNmb0R5JWswyJMPVbuAhrzfWiTbKayFzEoMA3p/bW
+	VRPwmT/BSP+K4lawshjoQmwL8onmz1jBlqrKxpmaH1CmPlEPnUcuD/vAmF9EbG2EQogUXJMrzVpmn
+	Tx5FhKz69wLssd7+2lXLRiy6eYE7oBkOrjzw6lHsSnKt5mkIowxlY5M/brW8CKlYLAt1+I0pyXyVh
+	FDj5Y69Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkZFo-0000000Aa5u-22HU;
-	Wed, 19 Feb 2025 01:52:00 +0000
-Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
+	id 1tkZQP-0000000AbVu-3gJ4;
+	Wed, 19 Feb 2025 02:02:57 +0000
+Received: from mail-am0eur02on20602.outbound.protection.outlook.com ([2a01:111:f403:2606::602] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkZEG-0000000AZtF-139o
+	id 1tkZOw-0000000AbFT-1cne
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 01:50:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1739929818; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=YA89qf4ISGMYbsVhcaULCxJhr4eNuObggSJrT8RDrw8=;
-	b=l7pkaMHhKkGUPM2vlaOcOpX6ncbP8mY0gROC0IuJjGR2PUS8PMgIDigqmSMbTrPy3zVsdKEPYQrAZmYpB7Gryrd4yb10ZLvVdssIPkpr5fd5Hmlc1U8Y29xKi2A/FU6XcKLOO7atR2oI7dVnrDvDGEBYeBwUFhH2ApOFwIpqloQ=
-Received: from U-V2QX163P-2032.local(mailfrom:fengwei_yin@linux.alibaba.com fp:SMTPD_---0WPnKkM2_1739929817 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 19 Feb 2025 09:50:17 +0800
-Date: Wed, 19 Feb 2025 09:50:15 +0800
-From: YinFengwei <fengwei_yin@linux.alibaba.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: will@kernel.org, mark.rutland@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	jie.li.linux@linux.alibaba.com, renyu.zj@linux.alibaba.com
-Subject: Re: [PATCH] perf/arm-cmn: don't claim resource during ioremap() for
- CMN700 with ACPI
-Message-ID: <gfgtxwe3fmh4unleypyrp2qxchrqcz7wqzyoy7om2zjqev6ggf@gnnqnmusecc3>
-References: <20250218012111.30068-1-fengwei_yin@linux.alibaba.com_quarantine>
- <d5040b5c-564d-4abf-be22-d2aa1183b633@arm.com>
- <hfip42i45jkumuvgdthxm2bk6qylqyqh6erzaq43yiqygvn6uu@dcui675lwtkm>
- <73af368a-52a9-4922-876b-7a6e2d32a94e@arm.com>
-MIME-Version: 1.0
+	Wed, 19 Feb 2025 02:01:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RfFK7gPOCZByltNJX248A8RM3l86Xf7aUQumCRpb0d+S9tR6C31b/sKu/30JFY6hxSs+ZtIklYfhX0uEiM+xTKUTgYZ2a58hpzNh01COrZ2MhpJbTXc4v5cjZAKIilK8Xm29gDdLNpfvBV+1p1bHh20DNhi79AFUk6e7X6NzdRVfmWDiJLMWqW78raYcSS7JzsmuyQpOhZZ6FCfroyHBD3iYcO9Zso8n+QdALN3/ZWAvE+ZDJn7K/Njmf3xrqGpJCm34Lafv0eJP8GQHiEQioJfA8Xy447OPkEInbMMZzKabkNUPbO55tTI9B/zq+rmS7v2KEW17FY3N9sxUyRNzow==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EL7g50UOcnfkkE8ClILrbdTdq+Gjd+tEtppvxpyzgco=;
+ b=Vh3beiQFMAUs4vlcvhz7TAi+rdIdOnFppO5v9c9jaWAkaKBfXjgB28pElWWnuR7hiBNPAX7Kx1WF6taCQ9RsR5SusP/t9uIOoEY1ObteeiLaOxT6I0P60HiaY1QRhqMGsofELeq5kBinhVYVMv8UoKOWtHjJcB9hxYdghhqhGngapIl3SfUQs4DWv+Lbsl8+4L+W7k3s+1CG7gMmpOYgZE9lMZrC+QqfnJtIH6P+lcwxT7siTe13bqf358qKVYoqdSpeN/3ha2ytCikaY+z/ZABk6X52HlmwMd5LBUU/QBHyGwwA2MhqvnpcjLIODUD0Fw8DegIJtAepW6Z3kN4cmw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EL7g50UOcnfkkE8ClILrbdTdq+Gjd+tEtppvxpyzgco=;
+ b=FBe8xNLM7yDV2gcIvYa96k6h8fcSHwOAjbcTCair0d3zWI82iBLQ06rdcW8RjXUIqZ1XW/ttNRgiCwufsvGgjRosAnV9ujAnn+w59RXs2qLpDhYq52KhEMSXyA74NXQg740680VKukvQMOxFcVRWJ9xsVc/vvslyKhYyz6mFCDp3RYqHnpPOA4xb6PYOT9dgvjleV54kP3aPWHss7PrYPKUHvzSXezsU9wk9TNqFOEJ23Mzp2kXEPmBA/G8I6/YPIsewE1zJ+81gnbc2QrW/Gn5qNsk4PS8jIsR8/9y+n2kyjIK549Rx7u4Ln2sy1t5v25fWvIubbW+HvSJWlVWNgw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
+ by PR3PR04MB7227.eurprd04.prod.outlook.com (2603:10a6:102:82::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.14; Wed, 19 Feb
+ 2025 02:01:10 +0000
+Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
+ ([fe80::b1b9:faa9:901b:c197%4]) with mapi id 15.20.8445.017; Wed, 19 Feb 2025
+ 02:01:09 +0000
+Date: Wed, 19 Feb 2025 11:08:09 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Daniel Baluta <daniel.baluta@nxp.com>
+Cc: p.zabel@pengutronix.de, shawnguo@kernel.org, mathieu.poirier@linaro.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, andersson@kernel.org,
+	linux-remoteproc@vger.kernel.org, iuliana.prodan@nxp.com,
+	laurentiu.mihalcea@nxp.com, shengjiu.wang@nxp.com, Frank.Li@nxp.com,
+	krzk@kernel.org
+Subject: Re: [PATCH 5/5] imx_dsp_rproc: Use reset controller API to control
+ the DSP
+Message-ID: <20250219030809.GD6537@nxa18884-linux>
+References: <20250218085712.66690-1-daniel.baluta@nxp.com>
+ <20250218085712.66690-6-daniel.baluta@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <73af368a-52a9-4922-876b-7a6e2d32a94e@arm.com>
+In-Reply-To: <20250218085712.66690-6-daniel.baluta@nxp.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI2PR01CA0049.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::13) To DB9PR04MB8461.eurprd04.prod.outlook.com
+ (2603:10a6:10:2cf::20)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|PR3PR04MB7227:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1a27d2ed-4d63-4c1a-cbe8-08dd50894523
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?w6PiAkM0NVpZbmRa8A1izrZg+ARjax+V9KCierCCkZyAVB8jglTQwTdP3bpG?=
+ =?us-ascii?Q?fwpU9otBWMK0IW9BcLD7Zk9NBdrkG7lUvDS33wryohbpNTKQirHI4eUh40w7?=
+ =?us-ascii?Q?iSvE5XOQ73lMzFdD07VGYkdgCcDPcMzjUOR9sz5E+e+945XrmBe/buovvDUY?=
+ =?us-ascii?Q?enIUmyw1fzFXTpUTdxVSE333xDH1TtKND4fF0mMsfQBfyXV3jx4VxWKFYWdb?=
+ =?us-ascii?Q?2v2oLT21Uh32HnBsZo5xX80HeNJVfij4vUvoiOLTtVmk5DKeJjs/evcnffF1?=
+ =?us-ascii?Q?KQNECeiZUiHC5uP+pxDlvYCdlQ39ziG+8zH7dfRJRThKNrukG4O4WHU1c6EJ?=
+ =?us-ascii?Q?xummJGAS/Ti12/SDan/lz3OhaAP8vByFfFddLvjoijx3O9KztwTryLaEZy7l?=
+ =?us-ascii?Q?bV1sY6i7QRdgkFH1Gf2TX1yjvYRfxCheI/diGn0n1mWgXM6QDKD6boykxCEz?=
+ =?us-ascii?Q?ePEXLVec+eYOEhDnqYSkitLbzrDJU8YigZ9Q7XIqM/mjkTUwxawMESGssDw+?=
+ =?us-ascii?Q?a3piTYRvYPEUUvWOgsYT7UM71eIV/2koEcbFzBEsMsLQhfEMPRkB3S5InJWR?=
+ =?us-ascii?Q?U4GEqUdskspaq7ejuTJinyfV/rzywOd5EsDiEDeJu0uzD5DsCqIHVnkQ8DYm?=
+ =?us-ascii?Q?YDuwzTkjieUGms6FlJeYnBsBe3UYJEb352D/SDXkME+z2GtdCLRfn7ZSY4zf?=
+ =?us-ascii?Q?KJR5m8N1NJjTvCcEGrZ//q5ZdkOqefqbmjT+E+6fxxEL2X9+GINS8wjwyWuJ?=
+ =?us-ascii?Q?FfV5Ho9GHCKhiHGtnkGYuT4Jiulci3EyEE++Td13kJLBFLvDsv37AYKrxEsm?=
+ =?us-ascii?Q?uRwnNpu0T5Sgsl1ouxwzXNM9DixUzV7iV4PjKYTxKIwwHKS48v/VSEKMpzKs?=
+ =?us-ascii?Q?YyvPw5P5c11C5RX5tPxyJahPWzJhmcQMtYQsyaNM01RI9ymmn38LjoxUWTTm?=
+ =?us-ascii?Q?ZKibATB8IkraA8cixC8pakx2YFCHsGmLLw7tNZYZq9sGrvgNPi9X5rlrmjGw?=
+ =?us-ascii?Q?TkYR9QC2eTcol/Bp8AuBw8wyFaOjMqFMxG3p2LuV/87y754uzYpCJuMVnT7Q?=
+ =?us-ascii?Q?mRiIg+otDDysnnw6DHNk+cK7+63mWTADmSh8vr8O2nkETJCRDkt6D4qKDAA/?=
+ =?us-ascii?Q?Zeqo0bD/9lDlYUnXo6VLh2SCYB3Qx2gGLPlN96JoNA0+yeVKbmXYTW0u+Le/?=
+ =?us-ascii?Q?bIeFCSEp9625J5NivWSANZgjR49lI01Ga65iuhEWAfE8C6bZyJGG8wgx3heA?=
+ =?us-ascii?Q?WvUpm/qKqwO4SMl0bJNuvtm0KMtWSZ3FxHQbu/jSJlSfwit5Jy7/IGZIfjpK?=
+ =?us-ascii?Q?k4um8pRiDV1jbQGE9i3N4BKFLcTFzfeYkq0hClhP6vgWz/tL5YgFofw/Woa9?=
+ =?us-ascii?Q?3u9iYLGgUrya/kjZb3dO0LJsZ3bYIlQrGmVMTVmkqga0UN5sFtV9alzAG5yU?=
+ =?us-ascii?Q?Uq4rIH5oY2JYPwgZW0Roir0MnkMEJIDD?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?M4XIb1O5QXN/OEjfo4eTxd5roN43L4YORhECb9mbuYdExiv/p2Qq84ddZBEn?=
+ =?us-ascii?Q?/QY2KKVTodWbRg/kYF2PeZ5qCQp4riQYxCNP2SSNyTnSG09ZqOqJcYblotSh?=
+ =?us-ascii?Q?uNLQgTGXdSB7GrvhAQHXbVsYA0wnz5wtx/Jj2LEtFPIwvwGwYaRd39upXkji?=
+ =?us-ascii?Q?ctllk5MxKxC0g0xnN1U+Pm90xeGaFdIR7XBcssUWA+qnIJ5gvqhzSoY8pFWI?=
+ =?us-ascii?Q?YzYyMo+cDBXlpBiDk4SAPgamZbU555IYI+CH/a9uynSVgzBlGvgTsRYTl/5G?=
+ =?us-ascii?Q?Ys0bbKCauYpLaYOsWxaxSDaj8Ld23SKJ+TMYHCXq6+Qp3DK5D1lQMxHqt3zx?=
+ =?us-ascii?Q?ltRZ6r27JFGssK8ZU5qv6AAa8X0Ejzq7SWxY7pRL1x2T+ewfgqVrNm+E0pvL?=
+ =?us-ascii?Q?8G5vq3bmdMuDeh4aaTkYYEDl0aTeSLYmzWm/JYlRDzfFGtB+N/gSJpGJmO3J?=
+ =?us-ascii?Q?fc1mRseEfO7+3V1lNux4maBIthRqtxjkrww1ksiLhjrdOur0LN+Ma14kM7ha?=
+ =?us-ascii?Q?HOGg6w3W3mKfm4ilMDVM4AwV0Z7+qYi5/j/AfAPXkydltad6XjFbexpKjHUn?=
+ =?us-ascii?Q?pYlQmJFf5B/estiKCs85kOOj2BBZ8hw36jRi5jvtUeXSCE15oIwe8QVkgS2a?=
+ =?us-ascii?Q?+iwEPwJfVUdR6pKXA+keJORAmn/en5LEIiiMo2het2GlKwH/s8ZsVFexMsOf?=
+ =?us-ascii?Q?427e71hyz2MMrFn/914jX2HP6VE+/nLvTvCieHUPwPZbSk5adntRjtiXPE4f?=
+ =?us-ascii?Q?lnOj9/BAT4fmD7+5VSfe4KdT64HrZ4PDnqwjepX517duwNHaxUI97hzDwLP7?=
+ =?us-ascii?Q?uJ/sqkLTICTkoCGSNMnOl3Ugw2Q4+Z0bBFJYPfIuggiab4QzddHMCmV306Br?=
+ =?us-ascii?Q?HTA266yDxV2cDbn/D5uYliyjMchbG3gR8ek2Pi88Pvr+Uw0LuolV7FM38ZkJ?=
+ =?us-ascii?Q?CwJ1seFYSTIQT9swHjKqU0nqlWfNxyZM2kqzlsJLHGUwisYVHd8axVzD32iA?=
+ =?us-ascii?Q?7hZ1tFsFoIdq00Yo3hwD74ZPNN8RTu30zX2nljLTbvEp0NAQPY4mbzTjaZaV?=
+ =?us-ascii?Q?/1WwzWnSHpygRA4tZKKh331UQ9bYNf6q+0YXmWD4s1PraMk+VqDEVkuLGxZ6?=
+ =?us-ascii?Q?rkhkRpkH0DUgfUtSY2KIFyNN6bJCNZhmUgaWJmz1OjT5osDAAgt1BMq3Gg2B?=
+ =?us-ascii?Q?60MkpfR8hfrh8oEHiv399IAy0LL6FS8HQj7aCiceUQ+NbdjGspOurRAwh7vZ?=
+ =?us-ascii?Q?Mkr3L8Do6DWM10V1E7z7PHregc3dOkg5dPxi3xixha1ZvOKCdj2eMSbnLFZi?=
+ =?us-ascii?Q?0Gwbq8CyPumFa7WXYIQSddP4WfcMwfQuVnKIr35Kp8y8WE90tLqWAd4KV7Dp?=
+ =?us-ascii?Q?Re9EOEBuIixcSMFZ9EMQnkJ0vKZDIYvPF4mV6uR4PnxRyJOKCivGsEuib0Zu?=
+ =?us-ascii?Q?/PMOgeHlGogpOmbjI1SnKtoGwnSFPPgb4dnKZaeIlVybVNu7GMtJmaCnpFp1?=
+ =?us-ascii?Q?0HfZjT1CGMA8McKh8h+t+0+r547Z5CduZnjZhnCTCU8E5d+Z075kAuEyimN6?=
+ =?us-ascii?Q?Ww2kUGeUidY6DOsqtJWrMfCWMS/JPS4umCAAKFm3?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1a27d2ed-4d63-4c1a-cbe8-08dd50894523
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 02:01:08.9111
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bBN1jvc+N0taHXM7kC+omtyIo3Dv9cVRRYkMiyrSRC6UCnBdd6ieIekHbMgZAac1gO4lnrhimRF0MCa3JUhjAw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7227
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_175025_121916_35773AC2 
-X-CRM114-Status: GOOD (  40.60  )
+X-CRM114-CacheID: sfid-20250218_180126_433952_F9B3900B 
+X-CRM114-Status: UNSURE (   7.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,169 +167,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Jing Zhang as we will continue discussion in this thread.
+On Tue, Feb 18, 2025 at 10:57:12AM +0200, Daniel Baluta wrote:
+>Use the reset controller API to control the DSP on i.MX8MP. This way
+>we can have a better control of the resources and avoid using a syscon
+>to access the audiomix bits.
+>
+>Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
 
-On Tue, Feb 18, 2025 at 12:31:10PM +0800, Robin Murphy wrote:
-> On 2025-02-18 10:58 am, YinFengwei wrote:
-> > On Tue, Feb 18, 2025 at 10:31:42AM +0800, Robin Murphy wrote:
-> > > On 2025-02-18 1:21 am, Yin Fengwei wrote:
-> > > > Currently, arm-cmn PMU driver assumes ACPI claim resource
-> > > > for CMN600 + ACPI. But with CMN700 + ACPI, the device probe
-> > > > failed because of resource claim failes when ioremap() is
-> > > > called:
-> > > > [   10.837300] arm-cmn ARMHC700:00: error -EBUSY: can't request region for resource [mem 0x40000000-0x4fffffff]
-> > > > [   10.847310] arm-cmn ARMHC700:00: probe with driver arm-cmn failed with error -16
-> > > > [   10.854726] arm-cmn ARMHC700:02: error -EBUSY: can't request region for resource [mem 0x40040000000-0x4004fffffff]
-> > > > [   10.865085] arm-cmn ARMHC700:02: probe with driver arm-cmn failed with error -16
-> > > > 
-> > > > Let CMN700 + ACPI do same as CMN600 + ACPI to allow CMN700
-> > > > work in ACPI env.
-> > > 
-> > > No, the CMN-600 routine is a special case for CMN-600 having two nested
-> > > memory resources of its own. CMN-700 and everything else only have one
-> > > memory resource, so that is not appropriate. What else is claiming the
-> > > region to cause a conflict?
-> > Sorry. Forgot the link for the new proposed fix:
-> > https://lore.kernel.org/all/Z7QYlUP6nfBNMXsv@U-V2QX163P-2032.local/
-> 
-> Yes, I saw that. It's a broken diff that won't even compile, with no
-> explanation of what it's supposed to be trying to achieve or why. I'm not
-> sure what you're asking me to comment on.
-My bad. I will attatch the full patch at the end of this mail.
-
-> 
-> > My understanding is that there are two problems here:
-> > 1. ACPI claim the memory range and that's why we see this -EBUSY error
-> >     with correct code path for CMN700 + ACPI table.
-> 
-> No, it's fine to claim the exact *same* range that the ACPI companion owns;
-> the identical requests just nest inside each other. I don't have a CMN-700
-> to hand but here's a selection of other drivers doing just that from
-> /proc/iomem on my system:
-> 
-> 12600000-12600fff : ARMH0011:00
->   12600000-12600fff : ARMH0011:00 ARMH0011:00
-> 12610000-12610fff : ARMH0011:01
->   12610000-12610fff : ARMH0011:01 ARMH0011:01
-> 126b0000-126b0fff : APMC0D0F:00
->   126b0000-126b0fff : APMC0D0F:00 APMC0D0F:00
-> 126f0000-126f0fff : APMC0D81:00
->   126f0000-126f0fff : APMC0D81:00 APMC0D81:00
-I believe this works only for parents/children resource node. Otherwise,
-there will be conflict.
-
-> 
-> And I know people are using the CMN-700 PMU on other ACPI systems without
-> issue, so there's nothing wrong with the binding or the driver in general.
-> 
-> The resource conflict only arises when a request overlaps an existing region
-> inexactly. Either your firmware is describing the CMN incorrectly, or some
-> other driver is claiming conflicting iomem regions for some reason.
-No. It's not ACPI table problem. The problem is mentioned in comments of
-function arm_cmn600_acpi_probe():
-        /*
-         * Note that devm_ioremap_resource() is dumb and won't let the platform
-         * device claim cfg when the ACPI companion device has already claimed
-         * root within it. But since they *are* already both claimed in the
-         * appropriate name, we don't really need to do it again here anyway.
-         */
-
-So I suppose for ACPI env, we should use devm_ioremap() as cmn600 does.
-And make CMN700 handling follow spec exactly.
-> 
-> Thanks,
-> Robin.
-
-Regards
-Yin, Fengwei
-
-Full patch here (base commit is: 2408a807bfc3f738850ef5ad5e3fd59d66168996):
-
-From a542d42626ec1c92cbe546b3012b1a913df35360 Mon Sep 17 00:00:00 2001
-From: Yin Fengwei <fengwei_yin@linux.alibaba.com>
-Date: Mon, 17 Feb 2025 15:48:24 +0800
-Subject: [PATCH 1/2] perf/arm-cmn: don't claim resource during ioremap() for
- CMN700 with ACPI
-
-Currently, arm-cmn PMU driver assumes ACPI claim resource
-for CMN600 + ACPI. But with CMN700 + ACPI, the device probe
-failed because of resource claim failes when function
-devm_platform_ioremap_resource(pdev, 0) is called:
-
-[   10.837300] arm-cmn ARMHC700:00: error -EBUSY: can't request region for resource [mem 0x40000000-0x4fffffff]
-[   10.847310] arm-cmn ARMHC700:00: probe with driver arm-cmn failed with error -16
-[   10.854726] arm-cmn ARMHC700:02: error -EBUSY: can't request region for resource [mem 0x40040000000-0x4004fffffff]
-[   10.865085] arm-cmn ARMHC700:02: probe with driver arm-cmn failed with error -16
-
-Let all ACPI cases call devm_ioremap(cmn->dev, cfg) just
-like current CMN600 does.
-
-Signed-off-by: Yin Fengwei <fengwei_yin@linux.alibaba.com>
----
- drivers/perf/arm-cmn.c | 28 +++++++++++++++++-----------
- 1 file changed, 17 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-index ef959e66db7c..5993a46c5560 100644
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -2510,20 +2510,26 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 	return 0;
- }
- 
--static int arm_cmn600_acpi_probe(struct platform_device *pdev, struct arm_cmn *cmn)
-+static int arm_acpi_probe(struct platform_device *pdev, struct arm_cmn *cmn)
- {
--	struct resource *cfg, *root;
-+	struct resource *cfg, *root = NULL;
- 
- 	cfg = platform_get_resource(pdev, IORESOURCE_MEM, 0);
- 	if (!cfg)
- 		return -EINVAL;
- 
--	root = platform_get_resource(pdev, IORESOURCE_MEM, 1);
--	if (!root)
--		return -EINVAL;
-+	if (cmn->part == PART_CMN600) {
-+		/* Per "ACPI for Arm Components" Table 16, CMN600 has
-+		 * nested root node memory range.
-+		 */
-+		root = platform_get_resource(pdev, IORESOURCE_MEM, 1);
-+		if (!root)
-+			return -EINVAL;
-+
-+		if (!resource_contains(cfg, root))
-+			swap(cfg, root);
-+	}
- 
--	if (!resource_contains(cfg, root))
--		swap(cfg, root);
- 	/*
- 	 * Note that devm_ioremap_resource() is dumb and won't let the platform
- 	 * device claim cfg when the ACPI companion device has already claimed
-@@ -2534,7 +2540,7 @@ static int arm_cmn600_acpi_probe(struct platform_device *pdev, struct arm_cmn *c
- 	if (!cmn->base)
- 		return -ENOMEM;
- 
--	return root->start - cfg->start;
-+	return root ? (root->start - cfg->start) : 0;
- }
- 
- static int arm_cmn600_of_probe(struct device_node *np)
-@@ -2559,9 +2565,9 @@ static int arm_cmn_probe(struct platform_device *pdev)
- 	cmn->part = (unsigned long)device_get_match_data(cmn->dev);
- 	platform_set_drvdata(pdev, cmn);
- 
--	if (cmn->part == PART_CMN600 && has_acpi_companion(cmn->dev)) {
--		rootnode = arm_cmn600_acpi_probe(pdev, cmn);
--	} else {
-+	if (has_acpi_companion(cmn->dev))
-+		rootnode = arm_acpi_probe(pdev, cmn);
-+	else {
- 		rootnode = 0;
- 		cmn->base = devm_platform_ioremap_resource(pdev, 0);
- 		if (IS_ERR(cmn->base))
--- 
-2.43.5
-
+LGTM: Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
