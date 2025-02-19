@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 204EFC021B6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 10:45:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9A4C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 10:45:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tj6BxCl9fpw5Pry04iUoEkwcUhf418Q3mJRPppiteaU=; b=ceX0wlWSBac9+fFwnUTv9oywRz
-	IPpjOIXH/2SfdCHUyJdOwselka428EK0tDdqkJ4JfQ/5NPiCkodECd3O3W/c5D7rhs4o3wRAxmQmS
-	iTMJVWNDsmTir8QRe18mIoxtuLv7t67VkjYoq8OG4B8+A5MBfEW6xaWCZ+GgVVqJZlOl1JQguoc2M
-	i79NGIv+kDRkwSuiwtDbRsKXfJE/jd37YuO4vtHUK9AMW+3z7H9cQqQLNiXeXH7NJKw5DOlDFrIuA
-	qIHYSgszPwwDXZhKxtsmVltjuPtIDF7wusF/KPddpUjjAOHQAYQQUglr34bQQdqpkBXbT8nRWggU3
-	pqyq117A==;
+	bh=sMVS5NeYk87UXR8+hPDeUJLtc1kE/NMvWLHUJ11raok=; b=rVU8x7jQ/FE6M8FF8LO8wt1eeQ
+	vELpbodvDFEZtvZAECKCgeb48DpK8QHQXbOTK3OxqgH2LTG12ZvGi9yM1gG79YjxJruYfcVaKSlVf
+	nc6xxArUW0uc34MupGahSM0ZyYTSEX9XPsAb4IBCmr98GY3sk+pA9AuHJSLa4SRBSZR3dU/dG28Hs
+	kskrAdzIV67zOhhQavSWO3ku2Rg7dU6N4ocROtasEgOT0IjO4bBTSqFoqubohR5GnNQWpeKEhgNh3
+	QAT3wGGxAkIgxMtRXKN5ek4cNMRsOxye1cQe18Stmx6zTb4a5qEkDbpXzQYrIX04H+FLn5Xs1b+2A
+	mInMNpIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkhZe-0000000CCnO-3azn;
-	Wed, 19 Feb 2025 10:45:02 +0000
-Received: from mail-db8eur05on20721.outbound.protection.outlook.com ([2a01:111:f403:2614::721] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tkhZh-0000000CCrj-1yk0;
+	Wed, 19 Feb 2025 10:45:05 +0000
+Received: from mail-am6eur05on20703.outbound.protection.outlook.com ([2a01:111:f403:2612::703] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkh8Q-0000000C5yY-17hC;
-	Wed, 19 Feb 2025 10:16:55 +0000
+	id 1tkh8S-0000000C5uU-3xIj;
+	Wed, 19 Feb 2025 10:16:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mWQD5bO2EnSloBtvW7a5K+V4bkk2XJdyfS8o4SoDW5st5IT+uTAqyLmyT1/Tb6MhJdqAf4eRPW31+94geD0ceuASV821who2ipWBfIHasSfuHClLo+ngvaebdAeejONGj6zxE98ftP7pClW4CV494e2ND1CJdWDuELyuACOQD5S+y/vdz43noyI+Kl1DGAf17/W5itFk2Yj1uuC7l4DUApDxNoUg+446YSVUxvdll5mcVgDdYo5D0SY/Oi/86utXtPyCotsuKG1OsjKNcNbvxwje69sxLtai9YmG6WeIAGGgtMXVq1uJoXGRyJ9Tdr2WZyEI/ttCie+hW4dfVoV55g==
+ b=SmdPpf2fWKSmybH+mFfZPkNEk7Cz9M3vyTHfP2EI8SWt1x2Grfc9ohd8D/8ZlNl17718im2ejC8rhlJ3p7684RiTuEIQrf3GIG/Bu36jH7gYCfNVNq2IfLigeIzc1Mchy9jP3JuWtSCTUCRh6FwxlEc2Chf7WXGeQHuW9gJJwvB5wsSgab3mYmx07X1z/vHyPuIqlS4nODe6PekRUraG1nbIz50QbVziN38z47G0PCuS8/CikP1cPgqL6NWY3DY8HJ+sn7lmuEr0w1NtE+va9+ywqmVnfun/+i5v2lWj/mX03UmSsyh2AI708c5nSl3UY7vMyOZrxtLzFX/lMLubxQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tj6BxCl9fpw5Pry04iUoEkwcUhf418Q3mJRPppiteaU=;
- b=Vx9cfGeSfI845iFnjzqi+dCixmrdlYhT8OPay1q6iYiWjawpnUmjMOTZlmCfAJXgvPFxs46vixs/aFrCzcjQe/t+/DypTSCe6n7xwGVBv6TciFLv5UudKW3g3DMMzV8hjngA2E31YdPD2pHuVhV5ijKvYe7LneRBB8F46tXrRKEd9MCckAH0b49607fccRL8Ey67ZPnaGYxczCuXKx9ZT7oH6RvlBOl255E11UL+MtpTN/mJE6VV3C+v4L5TIDad0U8RGwctEf1SeDsDjCrmPLMF2pjDYI6IRNYyK9hJxJvGgVnXlFO1onXb7AtlbNs9zZelXQqqMItJebx7AA+wVw==
+ bh=sMVS5NeYk87UXR8+hPDeUJLtc1kE/NMvWLHUJ11raok=;
+ b=rvsWKrWi63ShRgBWy2lzz1edA5HDzlnSAFvmiVc3N5DZS8zbFkmqVjIZYOSM3yqd2LT/vO09pOptS5rOqzWj/cUqfwdYFfuBBHgzvE62uCCZDcCKVOMEk/NaSH7r4/iJ+8a0L0LN+cG/6B+NgapVFf1DcT2t+ipE7nDCg1jp2i0HIS7RzQk6C72PunvUnN/7BZ0qeXqJe6gXY2dI5FxbtBlZgzuoiQWYkV4Luu7kc0H2lLOE4ewQKd75e76tbzPF7UjPqjeUvffaRe2u1A64veWQ8quzKf/NFK1/x/E5EDptGmd8oQN/b+uyvp+xVaZYSgyA0l7RixGKcz4AzlpCSw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=wolfvision.net; dmarc=pass action=none
  header.from=wolfvision.net; dkim=pass header.d=wolfvision.net; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wolfvision.net;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tj6BxCl9fpw5Pry04iUoEkwcUhf418Q3mJRPppiteaU=;
- b=JiXN2kMHesBs1WQDKr8sh8G9JWU6f1UQI1VSeESMK0AwsAOVJiQd7DO5ueJ9gB09jwp2RHdx0srwym3I5/Hb6t6JDXwvQp8C0eJJQ23PJQ4rHerejJdADyiGHchEk2mvnd+NOHxQCpxzXq8wKv4VOVv06L3JzoA/xIVHR1zOvU4=
+ bh=sMVS5NeYk87UXR8+hPDeUJLtc1kE/NMvWLHUJ11raok=;
+ b=DciZSGN8vvWeKS72jgHuy4Y8Mjgl6kZEzgxigbOpmFpW8HgkLzT6AWqhlp6YxsKbmxpzbiXPLmFvWfyxTbcYRxjOxf4/peI4I/NEAH8DUutRSl0ElUEyW3/0wX2XuiAnrZ9NDiwoRP9tOJ/nP7LvpwNQK9K04YqIadYobXY4Pr0=
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=wolfvision.net;
 Received: from DU0PR08MB9155.eurprd08.prod.outlook.com (2603:10a6:10:416::5)
  by DU0PR08MB8138.eurprd08.prod.outlook.com (2603:10a6:10:3ed::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Wed, 19 Feb
- 2025 10:16:41 +0000
+ 2025 10:16:49 +0000
 Received: from DU0PR08MB9155.eurprd08.prod.outlook.com
  ([fe80::4e72:c5d4:488e:f16d]) by DU0PR08MB9155.eurprd08.prod.outlook.com
  ([fe80::4e72:c5d4:488e:f16d%5]) with mapi id 15.20.8466.015; Wed, 19 Feb 2025
- 10:16:41 +0000
+ 10:16:49 +0000
 From: Michael Riesch <michael.riesch@wolfvision.net>
-Date: Wed, 19 Feb 2025 11:16:32 +0100
-Subject: [PATCH v4 01/11] media: dt-bindings: media: video-interfaces: add
- defines for sampling modes
+Date: Wed, 19 Feb 2025 11:16:37 +0100
+Subject: [PATCH v4 06/11] media: rockchip: rkcif: add driver for mipi csi-2
+ host
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250219-v6-8-topic-rk3568-vicap-v4-1-e906600ae3b0@wolfvision.net>
+Message-Id: <20250219-v6-8-topic-rk3568-vicap-v4-6-e906600ae3b0@wolfvision.net>
 References: <20250219-v6-8-topic-rk3568-vicap-v4-0-e906600ae3b0@wolfvision.net>
 In-Reply-To: <20250219-v6-8-topic-rk3568-vicap-v4-0-e906600ae3b0@wolfvision.net>
 To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
@@ -84,11 +84,11 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-rockchip@lists.infradead.org, 
  Michael Riesch <michael.riesch@wolfvision.net>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739960197; l=948;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739960197; l=20358;
  i=michael.riesch@wolfvision.net; s=20240405; h=from:subject:message-id;
- bh=Jwfb9ka7Co1QU4YFQj1bP68YHW3VZLAiB9reUK6eW8Q=;
- b=OKhYHz4+QCzaXpSdhkorEkpRvpMtP7MzvcayswcXTbosjQAFqmTdmVSfnZh39E6A7SLSS54HX
- wGMIQoRGVvpDjepRQWBQNRU59+9+h1B4jpLr6wDZGwXxqwd3NoDapEq
+ bh=A6bK2fTdCdlrmNVUtFenZWtcU6bEcA5ZZ1M2I6EnNfI=;
+ b=qz2LbOGOYDtTiMKp8EXqUs+S359XzpaxxisKIejmoyBumFO4+QsR8MU8WxZqSeHZNGX/wRsj0
+ EZQVsoPtv4+Bl4gwKggpgTZ5y0yOirtkP+pvW6MKqYx04kKQTtrz4Jk
 X-Developer-Key: i=michael.riesch@wolfvision.net; a=ed25519;
  pk=cSJmgKSH3B6kdCIDCl+IYDW1Pw/Ybc6g9rmnUd/G7Ck=
 X-ClientProxiedBy: VI1P190CA0041.EURP190.PROD.OUTLOOK.COM
@@ -97,98 +97,97 @@ X-ClientProxiedBy: VI1P190CA0041.EURP190.PROD.OUTLOOK.COM
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DU0PR08MB9155:EE_|DU0PR08MB8138:EE_
-X-MS-Office365-Filtering-Correlation-Id: cd10669d-50a8-45fb-0666-08dd50ce80b1
+X-MS-Office365-Filtering-Correlation-Id: 7aec646f-23fe-4b89-2b44-08dd50ce85db
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cTEvUThXaS9ycGMwTXUrdUk2UG9DK0tGUkxBemEyRzg0T1hGWW9QS1d4Mm5S?=
- =?utf-8?B?bWIwdEppM3pwNHQrMDVKSEY2Y0tlT3d1eHBFYkF2SHc1S3dzVmgvYS82YUlt?=
- =?utf-8?B?azBtOWRCS2pLR0M2Znpxc0E5NHA5aHYxeVFXd1VmQlRCTE1vcmRqMEhPbGJa?=
- =?utf-8?B?ZGFyNUVhWCtLWlR3aXNJaU1QcnREN2JzOUl4aTB6dVRqRDJjdlZRRWtzakRB?=
- =?utf-8?B?RHNhZzhlN2k2aENlQVN3aDZLZUJZKzQ5Ti9aR1ZUbTJ0aFI4TTdaU0duZExO?=
- =?utf-8?B?Z3dKQ0x5V2puVEF4S0tpVW8yYVM4bW16TzZxMUdUbUlYbWU1cXlMUlhvbkt0?=
- =?utf-8?B?cmg5NVVCTE9kSzl4cXFTbGZEQ0RKckRuYTVzeGVJdjAyVWhpZEQ3TkRITVZT?=
- =?utf-8?B?WURmUHd0NEpNRW11dmFsMi9xUGQ5djlhV3FrWVdCOUZXT04rNENIemRrOGxy?=
- =?utf-8?B?Y0doU3ArVHlzaUlnSG9CbVhicC85UWxsTi92MnJWdXRYaTJzYU00Ukk4NDBI?=
- =?utf-8?B?REFldzVIenB0dnh3dTlRYjlXbXVxRk82dkU0UUhOeHRqRjQvUmtKdDNNY0tt?=
- =?utf-8?B?ZWk1RUNtVE1ITjJha0wwUlRTMHFpbWxoWFZnbEhqYzQ1Yk00Y0hPZHFFQlgr?=
- =?utf-8?B?R3ZiVUxMZlBSbVNyUC93SDNtbFVnd08vcEQvZXZvb1Fld1dzMk5HcU5iREpk?=
- =?utf-8?B?RmRwY1ExZnV0S2Q4ZHVLbDZXYzFCdHJ4U3l3aTFRK2w5K2RnVm9rWkRhVkRP?=
- =?utf-8?B?RUZOV1REblgreEtnR0c3MEo5d2pmNElvdDZYVXdlamFET2xuSExLZVVEcjdy?=
- =?utf-8?B?RnIrcWlQSXFTbXN3QVhWYVRheG5JWmo5NjRkS2trK05QZG5laWZoYmFMUFoy?=
- =?utf-8?B?UnZrUUkvaHdCVFBUOW1yemZPazFnZmVUZ1V0dExaR1hhNnRwS3VpNTVpc3Fa?=
- =?utf-8?B?YkRod0tLUksrcWJFMnJoVVFScTQxTUFKUGxadnIweFlCUldyM1J0NjR3b3Fv?=
- =?utf-8?B?L0JHcGQyOVRWR1FNMUtGeTdqN1h3UTNYMzVIdHFmVkFrWUpUclpNa2hoVCs2?=
- =?utf-8?B?N0RIT3QvaDc1Qmova0x4QVVIcXhzaHhTa0VNbU53L3lqeWo0NUo2SEptWVB0?=
- =?utf-8?B?dU9pY3B2TmFETTBUSE9EKzZDUGFDbWpGdy9BUy94emlUUVNva0xVc0pCR1BJ?=
- =?utf-8?B?clBzbk5oVjlmUlI3bCtmcG1uc3BuZXh3ZW1RcVB5SFJ0aGJBSEFHWW0vWERO?=
- =?utf-8?B?dlhqM29mVkU5dG0rTHd1ZDA0UWg2ejlyZkVkQWNqb0FvL3ovSGpVckdidXBi?=
- =?utf-8?B?QXEwZXc1VWVoTEpqajZiVk5Hc1BNcGVWamZzWXBVU1FrVFRhQUd3djBpV3NX?=
- =?utf-8?B?QTdUVXNpSGJ5Q0dXd3hyOXorUmJyQW8yVGJWNEVNSnZUZWdyUzJLVDd0bG5Q?=
- =?utf-8?B?RUpTZnRnMkgvTWsrTUJpa1h3Q2RDbjFJNmFsS0NtZ1U2WFdpK3FXTFRiN1ZS?=
- =?utf-8?B?S2ZKaDlPTnpqeExwQ3lOOVhwTGhCSEdCbFJqUnk4UXNrWnd4Q2VMYlhHck9O?=
- =?utf-8?B?NmdvY0pJb2NQVTlnblcwVkhIUkdQRFpuakVMdGpWMy9TVnBNeDhNOGJVaTdl?=
- =?utf-8?B?Vzc1SHBmTW5FYnRodkdiWi9rbGM3bURsRWZINUlyTWJsQjEyWFBuQlhqekFu?=
- =?utf-8?B?N0RMbVlQcFFabTJaTEdZZ1ltdG42QjliNGtvWWpEUEg2NTdqZjI5WEpyTXA1?=
- =?utf-8?B?K3hGaFEzdkdQOXJEV29pdTJqUGdJRE9pZGE0UXZNN1dNcitNRHd6MHNlMHhM?=
- =?utf-8?B?cHdHVUxLdGc4VUV0aGFhRDh0RFBEbnRxbjNsbUFYelNnS0Y0L00yNk5UMzV1?=
- =?utf-8?B?Y0hsa0pTajU3bTdHNnBYQ1lJdW15ZFR5R1NlcTNyT0M5WWhLc2xDaXdRQVgr?=
- =?utf-8?B?VTNxY2s2UjI1OHpQNmRjcEkxSUVPSTlRNTRzeU5NeUduME5ZTVpLTEhxOGVT?=
- =?utf-8?B?T0piWFZSeW13PT0=?=
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dkVpKytsNXhvaTUyemZ2b3FCT29Bb3FJemdKSHdpYmZSUVRhczRJaEg1bnpE?=
+ =?utf-8?B?VzRaTDNKSGhWUGsyaFNDNzFkVFl0VGEyRXBZRGR2ODJEYlhSdVk1bGg0YThG?=
+ =?utf-8?B?STViT0N0bWZ3dDNFR0JtZnpTS0RjNHJFLzhMUlBYYjVpOGFNbDJaNzJXTEUy?=
+ =?utf-8?B?blEvUWFFaVVBTDFiNEJDR1VlUHhTUnI4RVYzN2hBc3RXb1hPcFErNGRiT1d5?=
+ =?utf-8?B?RHpRa0V6OFFvQlMyZXBOUEx3dFBzbFNuSG1pUFhia1psaGJFSEE3WEtlMUNv?=
+ =?utf-8?B?dWJQS0p1UE8zaWI3N3ZsYUs4bEk2aXFPM0dNbGRxNVdGNlZVM0VxN3MxbEFP?=
+ =?utf-8?B?U1JlbGJLbC9pVUpudnltYi9NSkwzY1BReC9oUXRDUVFrSWtpNTNsOXNLZHB5?=
+ =?utf-8?B?MERobFFVTVBsRXpEU3lxdU40d3pXVXN5aEF1Ri9RUmMzV2VrcDJiYjhzZmZX?=
+ =?utf-8?B?YURtRFJCSEdPdDlEZGwxTm5ESGNWdVF4VmlYSFZvU1dmWnBoWHZVRXczcHRM?=
+ =?utf-8?B?ZmlPaTgvY0h3emdEWVZweURZZ05tUjNLQmExR21zMG5zUXIzVUZjRGVKL1BB?=
+ =?utf-8?B?Q3VOa1VZQmhIakNzSkZsM2FrSXluZG1GWVc4b2FVd2hqY3psb2JRNFZhMmc4?=
+ =?utf-8?B?NTNmMFNsNXk4eHdkUlpmd1pQZENaaWJxLzlVNDRna0txVWhMaEwwYmZDRUpX?=
+ =?utf-8?B?YmY2SFM3UVVrSklWdG1pTWRQTlZMc2Q1ZmxObDhwdDhjMU43aFh5M09wQzNy?=
+ =?utf-8?B?MzVZUnh2MDhtTzM0M3B6SFd4ZXN4NldIS05NUVJUTEJOVUFIRFVrTER3djhu?=
+ =?utf-8?B?TmE3S2lNY1ZncXFqNGdBdVR0aDhMbFplaWFFVlpZSk9qcUkrZU5neUg0UzJu?=
+ =?utf-8?B?WHdqcFlnM2JMMmh4YnhqWERqZ0dvQTl6SDRwT216dU16R3o0bm90eDhEdlJx?=
+ =?utf-8?B?TERjREppQkp3YVQ0MXp2NmRYZWxoTWNrM1hkTVBsYUpIK2lxT3VweG04V1Rh?=
+ =?utf-8?B?WWx1aFp4ZDY2YjhaSkpSUjVyWldQZTJURXU4MTErS3c3RHIzMnRqQXdyU1NF?=
+ =?utf-8?B?ai9FZXF6Qks3ZXY0dzJQUGptOWJpYi80czVLcTF6SWFEblJDL1NTMzRzNFR4?=
+ =?utf-8?B?N0NhOGlzYnI0azFGZmJKbUNPTDRiN2M5dWxWZjJBanN2Tjh6QzRkd0JTRDZl?=
+ =?utf-8?B?NS9wOXk4eXFuZ0o4REltY3BYWWplOEFjeUYvblB0c1NHbjJvQVJOa29UNm5S?=
+ =?utf-8?B?Y1hsbTh2NzhOTlQ4aXloSUE2L0ZlZU9TL1dJaWkrMUYvd05yVVd5V29Ub3JZ?=
+ =?utf-8?B?UWxGRVFlZTFhRzRocUV4bmNYalpkTXh2dDlIR0czV3QrMlN6eDNZTUFHQ1U1?=
+ =?utf-8?B?aHFtVlNZTEwxZVUwT1B4NG1GcmNxcW1CZVV5emZ3TUc3cWtWamhKQzFqZVlz?=
+ =?utf-8?B?SEJJRy93MUNQVnVER2dLU2lXZWxWckpKV3FvV3pVU2w0OGhzemNZcThNU29k?=
+ =?utf-8?B?ZWlKL0pMcnZhblA4aWZpVTBoOTVYK2k5MU9mQjRtdUt0UHFBSnRWY0xwSmtX?=
+ =?utf-8?B?dmFhVVhnd0E2bUZTY0p1dGpNOXFaRWhoQzdtWkhoWTB0Tlg1VDlXcjZvb2s5?=
+ =?utf-8?B?NjB6cWRJNnZ1NG1GY01uaG1URnFpUjhiWjFnTzhLZ3RTU2dwS3R3aVU3alI5?=
+ =?utf-8?B?SGhhYXVaVFQ5NW55OGpwaDg4anBMTjNuK3dHRlRzUUV4RklVRXA0WTlvZTlk?=
+ =?utf-8?B?VEFiT2Z0TVEvbFFyN3EvMTNiOE10b045VlhWTWZ5ekl6T0JFbURLNys4eXFu?=
+ =?utf-8?B?VlA3UzFDaWxBbFlmOWs4M2ZuYnlLanVJMDhDWXRNM3JFekJ0dmtVRW4rQkZM?=
+ =?utf-8?B?dUprY2UvU0RjSnI4K0NPaFVVbDJFa0VjTlROM3dyODBjdVE5djRjNDFsci9i?=
+ =?utf-8?B?R1hsVlJNdGpKQURTYW1Gblk1TEk5SDZ0RzRTdDkyeUNvb3NmaXVPdU5PL2Fv?=
+ =?utf-8?B?Q0IwaG5mdEN3PT0=?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB9155.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZG56SDRvdGVlejAzMVB2UU10cmhlcHBRcGNSdXltZHB6MXIrd3g5TmdQSkgy?=
- =?utf-8?B?YkJreFQ0RjZYRk1ib0pTTzVqMm90ZUYxMVluVnVQWU1jeXpTSmltYmIzRjhX?=
- =?utf-8?B?SWxHMXMzeFhmczh6QWdnNFVPaWJaT1ZKRlJpc1doWmN6ZnNKT1BjcWxLeWZR?=
- =?utf-8?B?MlpoRHRKbjRFQ2JMK3NJMGZseVE4MVlkclJkU0FKb2YwNVlOWjV5MlNxLzhy?=
- =?utf-8?B?TVB2cjBJZW51Yzg0L0hxR09uSEdoU2FEMFphQllzRVNnd24yUXhaUXI5S3RQ?=
- =?utf-8?B?bXFyV3lZdy9IeUlDWlMvZjNUY0VlQzRCclJodnR2OStrbFUzQ2NHdldYWTBw?=
- =?utf-8?B?ekhzL0tzSU5YR3o3dUpZSVE1b1pEQUl1OTBRN3ZiZW0xbENwb21JU1piZ0hC?=
- =?utf-8?B?L0VrQjNoRVBlTGt4ZWN0cGdrK05wa2gycXdSakdXekZBUnBncUc1TFlGbnN5?=
- =?utf-8?B?b1pYZzdNMTFmdjZ3YlgyT2FucXVMUG5wZWR1Y25pLy9HRFNuV0hySllvSHNp?=
- =?utf-8?B?MExkeGFpKy9iT09CcFVCd3JkL3VnZW1sTUMvNVF0QSttRTlINDNGeEx5VnJS?=
- =?utf-8?B?OEdYLzdGQlNuY3JlNnFOWE5QR212TFh5L0RWTFVOU0luN1VGWlpuKzBiWk1K?=
- =?utf-8?B?Z0psd3dNb2RRZkxsZTBkQXpqeERZcElraDFBcS9MNkd5M0pIT213S25ZaFFV?=
- =?utf-8?B?VDhoNUpsUTFIRGcyZ2tvWVpNcVFySGNlZzRnZWx1RHFuditmaHVMblhqQjFt?=
- =?utf-8?B?aU9sMEljWmh6THF0d0w0eFhpZlkzbys3R29jMXpLeWsyKzhQOGYzejI1WUdX?=
- =?utf-8?B?ZXF1aW1sMWt0Q3YzdDlEVU54V0xhWnVGSUliV2ROMGd1M0tDalZ3KzBmU1gw?=
- =?utf-8?B?T05TYVlaQVdCNUJtVUVtWE90TjlXTVpwbW9iNWkxa3pJNjdoSVplMmM3cEZG?=
- =?utf-8?B?aDBITzlGS21CZm5GeVQzQTNOZnp0VGVnSU1NalUvaUtwUXQzQ2FtM0dNdG1Z?=
- =?utf-8?B?dno0YVZKa3dCZUQrdmkxb1h0RHdjdTAzZFhuaTgzK2VzOElrSkNqcXNIZ2pk?=
- =?utf-8?B?UDdJdjFYVmhhTUJEeUhqSWJKK0hRRWc0MW1XRzA2MHpOMWIvZ0ZMZVA5Z0gv?=
- =?utf-8?B?b21TVUEyUVdab0tISXJnQTRrVll6Ni8ra2hLL3prbXhIZzJFd1p2bVhMZmJR?=
- =?utf-8?B?RXRBMWdyNDZqZWFzdS90VTBQeHFCa0lzcEIvSFRrTnY2SlFuTXh2YWxxcDQ3?=
- =?utf-8?B?WHZXaG1FMTN4UlhUVGRieVV6SWlmS0duU2VVR2xSRVdTTVY5QXhxZzc5WkpP?=
- =?utf-8?B?ZERHWE5GRHdDZHVvSzZPL1JUUFFuUjdjNHlteUpudTRtZHY5RTMrSXJRUVJQ?=
- =?utf-8?B?ZXBkM3BmWk56b0RGYUZNdVFGaWdzRzI1dC9wYjRMMjhNUG84c1BpcDBoTWxP?=
- =?utf-8?B?VnhCZG5HYVU4Z2kzdUljZzlFalNmMHRvRm9HTXViTFIwNS9na3Z6bExBZXpD?=
- =?utf-8?B?cUNtazR3dU5NeUNwNWk2ZzVxRlBMTVh6TU1UTXVaRlIrNGpwaHUrMk5OL2dz?=
- =?utf-8?B?RVBKVStYM05sSzJoVk16M1Rud2l6L3hJOWZsS3NmMmlURzNpSEo4TjdxcG5h?=
- =?utf-8?B?QzVNb1hwOVN2NkRoWTU2amExNUlIV3lIWEpnMEhMaytkSEVGQ0FadDBsZzhu?=
- =?utf-8?B?Vk9VeXJoM3pwcGU3RmRNNWpGM0MvbUJQSjRBNkE0WVBpR3duTkt6RU1talRv?=
- =?utf-8?B?N1FSemxsdmhVbUxUNEQvbVF2V0FwYm9tR1Y3Sy8xUmowejJQNHkyRlNRMjdR?=
- =?utf-8?B?R3lFcFltZDhSQi85Y2dScFVwbWZNYjVYemo3RCtkZ0NYSmlMaDhVTW5QRVBN?=
- =?utf-8?B?ZTFXeDc0SWNKeFdBMVdLaVpjWGpSV0F0d3ZqSGNKVnJHdzhveWVicUVLaHg2?=
- =?utf-8?B?V2hLUWpNSmFSQVo4NnhWT2hpSmdKaUpXcFdOamN6OHBrTlVXN0hFQjlMVmUv?=
- =?utf-8?B?OWtZSGhQc1hnM29hRkQxS1JCOCtvMlZsTXR6YzZpWjc0a3JSa2tvTVJzbHlV?=
- =?utf-8?B?YU96TC9zMzNjYWtBYm1LY2lwOXQ4WVpyOWEwVkgwOTl2T0diSnFVUEpmRzRQ?=
- =?utf-8?B?ZHZXajl5d28yQ05tbVVXK25oSTFZU1JTUU5Eb2N6Vi9vUDdUWTVJL1hROEh3?=
- =?utf-8?B?dFE9PQ==?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UG1qcjZhNnlBNGFxS1ZUMSt2ZjF0Q3owNEg0Y0dVSGUxdDBRVW1HSmk2SzBV?=
+ =?utf-8?B?WGV0OWJrVmU1bWU3WHJndXlRZGxLMk80UXlmSTRlendxMUs0TkV3d0dJbjhL?=
+ =?utf-8?B?ekJoMmM2UDB5MmJxMit3VlFGQlU2UlZKTkVwTDNxeGZRZU1XS1RDODg0SnRK?=
+ =?utf-8?B?UVN3Yi9aY1ZEaDZEalFCOERaU2hRZEpFVzUrOHhsOWh0cXVqZGhwSnM3VndX?=
+ =?utf-8?B?R1NMWFNRTlcwK2tWVmFreWhCcjdHS2lXcTgxZi90SlVhTHVrNlEyK3VXQTZD?=
+ =?utf-8?B?MHRCaTk1QW5wRmtRNk9WNkUxNXFNRDVYdXhoTWMvVHAwekY5c0RCWG9Tdm11?=
+ =?utf-8?B?c3NnMmhubDl2eDRvR0dBTlAwMW42a3l2TExJdkx6YnVnMGRlSGkzQ0J0b2dj?=
+ =?utf-8?B?czBxSnNENUtxZ29ReEdLaDVCN1ZDU3UwTlVuRGRtaGdmVXhBSlZPQVdvZzNN?=
+ =?utf-8?B?ZWtXa2daYkliY1p3TGptenhjb1Y1TWZFdTZOL0JWOVdiMXdld0Z0andtN3pm?=
+ =?utf-8?B?L2E3ZkFQWXgzTmxTTHlJbTMrejcwTDNwVXd5RU9XUVd2L25yMTVjNzNwSkVH?=
+ =?utf-8?B?V2x3ZXVRYzVhUkNlTmYyQkhqU3BpOFpBL1BSS3hjSU9sSUF1QVYxc09JVVMx?=
+ =?utf-8?B?VHFvb1NVNUp0TmZTaTNXUFFnQy8yK0dSdXBiaUhPZ3U5TjR4UEtBU1k1b3Bu?=
+ =?utf-8?B?UE9kbzFVeWw2bnNkcjZGK2ZmQVo3d1QxRTJDaitkbkt4alRyZ3BqejU3UHNE?=
+ =?utf-8?B?eU1HeitPR2N0RDgyd2laZm5EMldNWUdCMndsdjFTU0pOTVRnMHNrNyswMWlq?=
+ =?utf-8?B?ZmVFeEZwTHl2MkN1bU9ubUd3WEJlaXcyYWdXdEtLcjhOSU4rZXpFMnVsQ2lZ?=
+ =?utf-8?B?Wkd5UVVOY1F2V25sSks1WTQwNk5YSG1vRnZSdHVUUi9wZlZhQnFMSlAyeWZu?=
+ =?utf-8?B?SnpLR3R6S0N4MDZWaTBnVTlBQ2ZUZFM2WUZ1cjRwcFFMb3lLa1lRRTRLUkx2?=
+ =?utf-8?B?cHBwZWRXalVKVm4ycWlZRlM1VDRUSWJNMG1DT0JjUE9TMW5YVW9sb0Y1RjVp?=
+ =?utf-8?B?czYwSTdURzQxNEYzSGFYRGxKRUxSRERYOVZZWkJhUjdTbmZpeUFsa0FIQmhC?=
+ =?utf-8?B?YnNiVjhCYUNJd09BV2tDK2xrS21Od2xzN0o3RTdyTnMxQVp2TnVGMGRIUjRs?=
+ =?utf-8?B?MnEzYVVyR3NyTnEvTjVXcUoxMWVYWGkwTG0yUzNKMHhtRWhPeTJ6cWtiRUdV?=
+ =?utf-8?B?c0RkZWNEakYrVU5OR3pMWFJvcWRvUWpnejVvWUNNbEJUTElLdWw0bUhIMlpx?=
+ =?utf-8?B?R3duMlJlYTZzUlF2WkNHZmM5TEthUUxIL1VlU3N5ZGc4M2hZa0VxanQwSEFs?=
+ =?utf-8?B?YmtqT0xVZ0V2TWNlYVVkZ1B4aC9ILzc3WkpaUjMrd2pZaFlib1hpa2pwVTY1?=
+ =?utf-8?B?QjZDczZKM05CWFhDZkJVTTg1WHl4V3RjaCswNG9vOTQ2L1pCdG5tRGZkdVBB?=
+ =?utf-8?B?cjV0L1NQQnc5N1NYcWp6ZzJqeHducTRZQkRTSy9RK0p1aU9FUExlaWt2eU5r?=
+ =?utf-8?B?ME1PWis4cG5CdkpuQ24xSjlpTGthTDRpLzBMU3hSMi9jUk9CenQ3Nm50V2dm?=
+ =?utf-8?B?VGZFalZOdlIwaTZBOEtGdmpKN3NzSGdHMG9tMWgvMkhxM3dycm1JWGRxMlh5?=
+ =?utf-8?B?dFFrYmZ2eUY5dmRoVzNsWGlWd1kvRXRNd2N0YlFiSUY4WndpVzk2dWl1TERN?=
+ =?utf-8?B?RGNMMXRYbE9SOWp3c1BsdW41VkFPZUx1MXRNUnYrRHVpQVpVdktOVnNoWWxl?=
+ =?utf-8?B?dGtOWDU3UC9ZcVVKd3VMTHhMU2dNMFMzRFhGb2MrRkl5eGpzYXNDZ0lLKzMr?=
+ =?utf-8?B?TXRTNHYvNDF5ZmRWSjFVempTUEpsbW5qQWxkK1U2eWRKQUI0RUQ5b2tBSzFi?=
+ =?utf-8?B?VzlNbVZZa2gzaXduNXhwNW80amFuV080VE94LzJuUUdZU0c2cnhPeVI2cVZ1?=
+ =?utf-8?B?WVlncjZlQ3gycXcrZHdxSmRYVDBaTEVKUXhWbm1ySDk1NytwRzY1ajRIUnpT?=
+ =?utf-8?B?KzJQdlJvbVVweWtrOW5tM09IOXo2Mm91OEcrQ1dTMzdZTXdJcGpqYXFBKzJM?=
+ =?utf-8?B?R3lZQW1mc3F5bE1KenA1R2QzQ3U4VVdXRnpFVEh5bll0ZVNIT0xaKy9SZytD?=
+ =?utf-8?B?NGc9PQ==?=
 X-OriginatorOrg: wolfvision.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: cd10669d-50a8-45fb-0666-08dd50ce80b1
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7aec646f-23fe-4b89-2b44-08dd50ce85db
 X-MS-Exchange-CrossTenant-AuthSource: DU0PR08MB9155.eurprd08.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 10:16:41.0825
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 10:16:49.7350
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: e94ec9da-9183-471e-83b3-51baa8eb804f
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AFsZOZPSfaXxjVVrDer6Y/FQewzXkbNmLQOy38ATNHHAd/xDoX9rzRO/aI39GK/bXOYyixb096Eq0b5V83Giib8Ua/0QNEUu2EKpsK3NLgM=
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZZjxohED9ge9PQYIQFdSoM6lQvvqIjLJm4eM8jWxiwElRmHYZW/ZQyo8trBjalKaLP+4J+qogGARQ2fbchzd8OsSvyRFgwzKoIBY+9+x2yA=
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8138
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_021654_310046_835D0E73 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250219_021657_001658_8614F647 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,29 +202,764 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add defines for the pixel clock sampling modes (rising edge, falling edge,
-dual edge) for parallel video interfaces.
-This avoids hardcoded constants in device tree sources.
+The Rockchip RK3568 MIPI CSI-2 Host is a CSI-2 bridge with one input port
+and one output port. It receives the data with the help of an external
+MIPI PHY (C-PHY or D-PHY) and passes it to the Rockchip RK3568 Video
+Capture (VICAP) block. Add a V4L2 subdevice driver for this unit.
 
-Acked-by: Rob Herring <robh@kernel.org>
 Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
 ---
- include/dt-bindings/media/video-interfaces.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/media/platform/rockchip/rkcif/Makefile     |   1 +
+ .../platform/rockchip/rkcif/rkcif-mipi-csi-host.c  | 731 +++++++++++++++++++++
+ 2 files changed, 732 insertions(+)
 
-diff --git a/include/dt-bindings/media/video-interfaces.h b/include/dt-bindings/media/video-interfaces.h
-index 88b9d05d8075..0b19c9b2e627 100644
---- a/include/dt-bindings/media/video-interfaces.h
-+++ b/include/dt-bindings/media/video-interfaces.h
-@@ -20,4 +20,8 @@
- #define MEDIA_BUS_CSI2_CPHY_LINE_ORDER_CAB	4
- #define MEDIA_BUS_CSI2_CPHY_LINE_ORDER_CBA	5
- 
-+#define MEDIA_PCLK_SAMPLE_FALLING_EDGE		0
-+#define MEDIA_PCLK_SAMPLE_RISING_EDGE		1
-+#define MEDIA_PCLK_SAMPLE_DUAL_EDGE		2
+diff --git a/drivers/media/platform/rockchip/rkcif/Makefile b/drivers/media/platform/rockchip/rkcif/Makefile
+index 818424972c7b..0c18efd1f1b4 100644
+--- a/drivers/media/platform/rockchip/rkcif/Makefile
++++ b/drivers/media/platform/rockchip/rkcif/Makefile
+@@ -4,4 +4,5 @@ rockchip-cif-objs += rkcif-dev.o \
+ 	rkcif-capture-dvp.o \
+ 	rkcif-capture-mipi.o \
+ 	rkcif-interface.o \
++	rkcif-mipi-csi-host.o \
+ 	rkcif-stream.o
+diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-mipi-csi-host.c b/drivers/media/platform/rockchip/rkcif/rkcif-mipi-csi-host.c
+new file mode 100644
+index 000000000000..fa3f42b2dc55
+--- /dev/null
++++ b/drivers/media/platform/rockchip/rkcif/rkcif-mipi-csi-host.c
+@@ -0,0 +1,731 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Rockchip MIPI CSI-2 Host Driver
++ *
++ * Copyright (C) 2019 Rockchip Electronics Co., Ltd.
++ * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
++ */
 +
- #endif /* __DT_BINDINGS_MEDIA_VIDEO_INTERFACES_H__ */
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_graph.h>
++#include <linux/of_platform.h>
++#include <linux/phy/phy.h>
++#include <linux/platform_device.h>
++#include <linux/pm_runtime.h>
++#include <linux/reset.h>
++
++#include <media/mipi-csi2.h>
++#include <media/v4l2-ctrls.h>
++#include <media/v4l2-fwnode.h>
++#include <media/v4l2-subdev.h>
++
++#define CSI2HOST_N_LANES     0x04
++#define CSI2HOST_CSI2_RESETN 0x10
++#define CSI2HOST_PHY_STATE   0x14
++#define CSI2HOST_ERR1	     0x20
++#define CSI2HOST_ERR2	     0x24
++#define CSI2HOST_MSK1	     0x28
++#define CSI2HOST_MSK2	     0x2c
++#define CSI2HOST_CONTROL     0x40
++
++#define SW_CPHY_EN(x)	     ((x) << 0)
++#define SW_DSI_EN(x)	     ((x) << 4)
++#define SW_DATATYPE_FS(x)    ((x) << 8)
++#define SW_DATATYPE_FE(x)    ((x) << 14)
++#define SW_DATATYPE_LS(x)    ((x) << 20)
++#define SW_DATATYPE_LE(x)    ((x) << 26)
++
++#define RKCIF_CSI_CLKS_MAX   1
++
++enum {
++	RKCIF_CSI_PAD_SINK,
++	RKCIF_CSI_PAD_SRC,
++	RKCIF_CSI_PAD_MAX,
++};
++
++struct rkcif_csi_format {
++	u32 code;
++	u8 depth;
++	u8 csi_dt;
++};
++
++struct rkcif_csi_device {
++	struct device *dev;
++
++	void __iomem *base_addr;
++	struct clk_bulk_data *clks;
++	unsigned int clks_num;
++	struct phy *phy;
++	struct reset_control *reset;
++
++	const struct rkcif_csi_format *formats;
++	unsigned int formats_num;
++
++	struct media_pad pads[RKCIF_CSI_PAD_MAX];
++	struct v4l2_async_notifier notifier;
++	struct v4l2_fwnode_endpoint vep;
++	struct v4l2_subdev sd;
++
++	struct v4l2_subdev *source_sd;
++	u32 source_pad;
++};
++
++const struct v4l2_mbus_framefmt default_format = {
++	.width = 3840,
++	.height = 2160,
++	.code = MEDIA_BUS_FMT_SRGGB10_1X10,
++	.field = V4L2_FIELD_NONE,
++	.colorspace = V4L2_COLORSPACE_RAW,
++	.ycbcr_enc = V4L2_YCBCR_ENC_601,
++	.quantization = V4L2_QUANTIZATION_FULL_RANGE,
++	.xfer_func = V4L2_XFER_FUNC_NONE,
++};
++
++static const struct rkcif_csi_format formats[] = {
++	/* YUV formats */
++	{
++		.code = MEDIA_BUS_FMT_YUYV8_1X16,
++		.depth = 16,
++		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
++	},
++	{
++		.code = MEDIA_BUS_FMT_UYVY8_1X16,
++		.depth = 16,
++		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
++	},
++	{
++		.code = MEDIA_BUS_FMT_YVYU8_1X16,
++		.depth = 16,
++		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
++	},
++	{
++		.code = MEDIA_BUS_FMT_VYUY8_1X16,
++		.depth = 16,
++		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
++	},
++	/* RGB formats */
++	{
++		.code = MEDIA_BUS_FMT_RGB888_1X24,
++		.depth = 24,
++		.csi_dt = MIPI_CSI2_DT_RGB888,
++	},
++	{
++		.code = MEDIA_BUS_FMT_BGR888_1X24,
++		.depth = 24,
++		.csi_dt = MIPI_CSI2_DT_RGB888,
++	},
++	/* Bayer formats */
++	{
++		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
++		.depth = 8,
++		.csi_dt = MIPI_CSI2_DT_RAW8,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SGBRG8_1X8,
++		.depth = 8,
++		.csi_dt = MIPI_CSI2_DT_RAW8,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SGRBG8_1X8,
++		.depth = 8,
++		.csi_dt = MIPI_CSI2_DT_RAW8,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SRGGB8_1X8,
++		.depth = 8,
++		.csi_dt = MIPI_CSI2_DT_RAW8,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SBGGR10_1X10,
++		.depth = 10,
++		.csi_dt = MIPI_CSI2_DT_RAW10,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SGBRG10_1X10,
++		.depth = 10,
++		.csi_dt = MIPI_CSI2_DT_RAW10,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SGRBG10_1X10,
++		.depth = 10,
++		.csi_dt = MIPI_CSI2_DT_RAW10,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SRGGB10_1X10,
++		.depth = 10,
++		.csi_dt = MIPI_CSI2_DT_RAW10,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SBGGR12_1X12,
++		.depth = 12,
++		.csi_dt = MIPI_CSI2_DT_RAW12,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SGBRG12_1X12,
++		.depth = 12,
++		.csi_dt = MIPI_CSI2_DT_RAW12,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SGRBG12_1X12,
++		.depth = 12,
++		.csi_dt = MIPI_CSI2_DT_RAW12,
++	},
++	{
++		.code = MEDIA_BUS_FMT_SRGGB12_1X12,
++		.depth = 12,
++		.csi_dt = MIPI_CSI2_DT_RAW12,
++	},
++};
++
++static inline struct rkcif_csi_device *to_rkcif_csi(struct v4l2_subdev *sd)
++{
++	return container_of(sd, struct rkcif_csi_device, sd);
++}
++
++static inline __maybe_unused void
++rkcif_csi_write(struct rkcif_csi_device *csi_dev, unsigned int addr, u32 val)
++{
++	writel(val, csi_dev->base_addr + addr);
++}
++
++static inline __maybe_unused u32
++rkcif_csi_read(struct rkcif_csi_device *csi_dev, unsigned int addr)
++{
++	return readl(csi_dev->base_addr + addr);
++}
++
++static const struct rkcif_csi_format *
++rkcif_csi_find_format(struct rkcif_csi_device *csi_dev, u32 mbus_code)
++{
++	const struct rkcif_csi_format *format;
++
++	WARN_ON(csi_dev->formats_num == 0);
++
++	for (int i = 0; i < csi_dev->formats_num; i++) {
++		format = &csi_dev->formats[i];
++		if (format->code == mbus_code)
++			return format;
++	}
++
++	return NULL;
++}
++
++static int rkcif_csi_start(struct rkcif_csi_device *csi_dev)
++{
++	enum v4l2_mbus_type bus_type = csi_dev->vep.bus_type;
++	union phy_configure_opts opts;
++	s64 link_freq;
++	u32 lanes = csi_dev->vep.bus.mipi_csi2.num_data_lanes;
++	u32 control = 0;
++
++	if (lanes < 1 || lanes > 4)
++		return -EINVAL;
++
++	/* set mult and div to 0, thus completely rely on V4L2_CID_LINK_FREQ */
++	link_freq = v4l2_get_link_freq(csi_dev->source_sd->ctrl_handler, 0, 0);
++	if (link_freq <= 0)
++		return -EINVAL;
++
++	if (bus_type == V4L2_MBUS_CSI2_DPHY) {
++		struct phy_configure_opts_mipi_dphy *cfg = &opts.mipi_dphy;
++
++		phy_mipi_dphy_get_default_config_for_hsclk(link_freq * 2, lanes,
++							   cfg);
++		phy_set_mode(csi_dev->phy, PHY_MODE_MIPI_DPHY);
++		phy_configure(csi_dev->phy, &opts);
++
++		control |= SW_CPHY_EN(0);
++
++	} else if (bus_type == V4L2_MBUS_CSI2_CPHY) {
++		control |= SW_CPHY_EN(1);
++
++		/* TODO: implement CPHY configuration */
++	} else {
++		return -EINVAL;
++	}
++
++	control |= SW_DATATYPE_FS(0x00) | SW_DATATYPE_FE(0x01) |
++		   SW_DATATYPE_LS(0x02) | SW_DATATYPE_LE(0x03);
++
++	rkcif_csi_write(csi_dev, CSI2HOST_N_LANES, lanes - 1);
++	rkcif_csi_write(csi_dev, CSI2HOST_CONTROL, control);
++	rkcif_csi_write(csi_dev, CSI2HOST_CSI2_RESETN, 1);
++
++	phy_power_on(csi_dev->phy);
++
++	return 0;
++}
++
++static void rkcif_csi_stop(struct rkcif_csi_device *csi_dev)
++{
++	phy_power_off(csi_dev->phy);
++
++	rkcif_csi_write(csi_dev, CSI2HOST_CSI2_RESETN, 0);
++	rkcif_csi_write(csi_dev, CSI2HOST_MSK1, ~0);
++	rkcif_csi_write(csi_dev, CSI2HOST_MSK2, ~0);
++}
++
++static const struct media_entity_operations rkcif_csi_media_ops = {
++	.link_validate = v4l2_subdev_link_validate,
++};
++
++static int rkcif_csi_enum_mbus_code(struct v4l2_subdev *sd,
++				    struct v4l2_subdev_state *sd_state,
++				    struct v4l2_subdev_mbus_code_enum *code)
++{
++	struct rkcif_csi_device *csi_dev = to_rkcif_csi(sd);
++
++	if (code->pad == RKCIF_CSI_PAD_SRC) {
++		const struct v4l2_mbus_framefmt *sink_fmt;
++
++		if (code->index)
++			return -EINVAL;
++
++		sink_fmt = v4l2_subdev_state_get_format(sd_state,
++							RKCIF_CSI_PAD_SINK);
++		code->code = sink_fmt->code;
++
++		return 0;
++	} else if (code->pad == RKCIF_CSI_PAD_SINK) {
++		if (code->index > csi_dev->formats_num)
++			return -EINVAL;
++
++		code->code = csi_dev->formats[code->index].code;
++		return 0;
++	}
++
++	return -EINVAL;
++}
++
++static int rkcif_csi_set_fmt(struct v4l2_subdev *sd,
++			     struct v4l2_subdev_state *state,
++			     struct v4l2_subdev_format *format)
++{
++	struct rkcif_csi_device *csi_dev = to_rkcif_csi(sd);
++	const struct rkcif_csi_format *fmt;
++	struct v4l2_mbus_framefmt *sink, *src;
++
++	/* the format on the source pad always matches the sink pad */
++	if (format->pad == RKCIF_CSI_PAD_SRC)
++		return v4l2_subdev_get_fmt(sd, state, format);
++
++	sink = v4l2_subdev_state_get_format(state, format->pad, format->stream);
++	if (!sink)
++		return -EINVAL;
++
++	fmt = rkcif_csi_find_format(csi_dev, format->format.code);
++	if (fmt)
++		*sink = format->format;
++	else
++		*sink = default_format;
++
++	/* propagate the format to the source pad */
++	src = v4l2_subdev_state_get_opposite_stream_format(state, format->pad,
++							   format->stream);
++	if (!src)
++		return -EINVAL;
++
++	*src = *sink;
++
++	return 0;
++}
++
++static int rkcif_csi_set_routing(struct v4l2_subdev *sd,
++				 struct v4l2_subdev_state *state,
++				 enum v4l2_subdev_format_whence which,
++				 struct v4l2_subdev_krouting *routing)
++{
++	int ret;
++
++	ret = v4l2_subdev_routing_validate(sd, routing,
++					   V4L2_SUBDEV_ROUTING_ONLY_1_TO_1);
++	if (ret)
++		return ret;
++
++	ret = v4l2_subdev_set_routing_with_fmt(sd, state, routing,
++					       &default_format);
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
++static int rkcif_csi_enable_streams(struct v4l2_subdev *sd,
++				    struct v4l2_subdev_state *state, u32 pad,
++				    u64 streams_mask)
++{
++	struct rkcif_csi_device *csi_dev = to_rkcif_csi(sd);
++	struct v4l2_subdev *remote_sd;
++	struct media_pad *sink_pad, *remote_pad;
++	struct device *dev = csi_dev->dev;
++	u64 mask;
++	int ret;
++
++	sink_pad = &sd->entity.pads[RKCIF_CSI_PAD_SINK];
++	remote_pad = media_pad_remote_pad_first(sink_pad);
++	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
++
++	mask = v4l2_subdev_state_xlate_streams(state, RKCIF_CSI_PAD_SINK,
++					       RKCIF_CSI_PAD_SRC,
++					       &streams_mask);
++
++	ret = pm_runtime_resume_and_get(dev);
++	if (ret)
++		goto err;
++
++	ret = rkcif_csi_start(csi_dev);
++	if (ret) {
++		dev_err(dev, "failed to enable CSI hardware\n");
++		goto err_pm_runtime_put;
++	}
++
++	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad->index, mask);
++	if (ret)
++		goto err_csi_stop;
++
++	return 0;
++
++err_csi_stop:
++	rkcif_csi_stop(csi_dev);
++err_pm_runtime_put:
++	pm_runtime_put_sync(dev);
++err:
++	return ret;
++}
++
++static int rkcif_csi_disable_streams(struct v4l2_subdev *sd,
++				     struct v4l2_subdev_state *state, u32 pad,
++				     u64 streams_mask)
++{
++	struct rkcif_csi_device *csi_dev = to_rkcif_csi(sd);
++	struct v4l2_subdev *remote_sd;
++	struct media_pad *sink_pad, *remote_pad;
++	struct device *dev = csi_dev->dev;
++	u64 mask;
++	int ret;
++
++	sink_pad = &sd->entity.pads[RKCIF_CSI_PAD_SINK];
++	remote_pad = media_pad_remote_pad_first(sink_pad);
++	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
++
++	mask = v4l2_subdev_state_xlate_streams(state, RKCIF_CSI_PAD_SINK,
++					       RKCIF_CSI_PAD_SRC,
++					       &streams_mask);
++
++	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad->index, mask);
++
++	rkcif_csi_stop(csi_dev);
++
++	pm_runtime_mark_last_busy(dev);
++	pm_runtime_put_autosuspend(dev);
++
++	return ret;
++}
++
++static const struct v4l2_subdev_pad_ops rkcif_csi_pad_ops = {
++	.enum_mbus_code = rkcif_csi_enum_mbus_code,
++	.get_fmt = v4l2_subdev_get_fmt,
++	.set_fmt = rkcif_csi_set_fmt,
++	.set_routing = rkcif_csi_set_routing,
++	.enable_streams = rkcif_csi_enable_streams,
++	.disable_streams = rkcif_csi_disable_streams,
++};
++
++static const struct v4l2_subdev_ops rkcif_csi_ops = {
++	.pad = &rkcif_csi_pad_ops,
++};
++
++static int rkcif_csi_init_state(struct v4l2_subdev *sd,
++				struct v4l2_subdev_state *state)
++{
++	struct v4l2_subdev_route routes[] = {
++		{
++			.sink_pad = RKCIF_CSI_PAD_SINK,
++			.sink_stream = 0,
++			.source_pad = RKCIF_CSI_PAD_SRC,
++			.source_stream = 0,
++			.flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE,
++		},
++	};
++	struct v4l2_subdev_krouting routing = {
++		.len_routes = ARRAY_SIZE(routes),
++		.num_routes = ARRAY_SIZE(routes),
++		.routes = routes,
++	};
++	int ret;
++
++	ret = v4l2_subdev_set_routing_with_fmt(sd, state, &routing,
++					       &default_format);
++
++	return ret;
++}
++
++static const struct v4l2_subdev_internal_ops rkcif_csi_internal_ops = {
++	.init_state = rkcif_csi_init_state,
++};
++
++static int rkcif_csi_notifier_bound(struct v4l2_async_notifier *notifier,
++				    struct v4l2_subdev *sd,
++				    struct v4l2_async_connection *asd)
++{
++	struct rkcif_csi_device *csi_dev =
++		container_of(notifier, struct rkcif_csi_device, notifier);
++	int source_pad;
++
++	source_pad = media_entity_get_fwnode_pad(&sd->entity, sd->fwnode,
++						 MEDIA_PAD_FL_SOURCE);
++	if (source_pad < 0) {
++		dev_err(csi_dev->dev, "failed to find source pad for %s\n",
++			sd->name);
++		return source_pad;
++	}
++
++	csi_dev->source_sd = sd;
++	csi_dev->source_pad = source_pad;
++
++	return media_create_pad_link(&sd->entity, source_pad,
++				     &csi_dev->sd.entity, RKCIF_CSI_PAD_SINK,
++				     MEDIA_LNK_FL_ENABLED);
++}
++
++static const struct v4l2_async_notifier_operations rkcif_csi_notifier_ops = {
++	.bound = rkcif_csi_notifier_bound,
++};
++
++static int rkcif_register_notifier(struct rkcif_csi_device *csi_dev)
++{
++	struct v4l2_async_connection *asd;
++	struct v4l2_async_notifier *ntf = &csi_dev->notifier;
++	struct v4l2_fwnode_endpoint *vep = &csi_dev->vep;
++	struct v4l2_subdev *sd = &csi_dev->sd;
++	struct device *dev = csi_dev->dev;
++	struct fwnode_handle *ep;
++	int ret;
++
++	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0,
++					     FWNODE_GRAPH_ENDPOINT_NEXT);
++	if (!ep)
++		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
++
++	vep->bus_type = V4L2_MBUS_UNKNOWN;
++	ret = v4l2_fwnode_endpoint_parse(ep, vep);
++	if (ret) {
++		ret = dev_err_probe(dev, ret, "failed to parse endpoint\n");
++		goto out;
++	}
++
++	if (vep->bus_type != V4L2_MBUS_CSI2_DPHY &&
++	    vep->bus_type != V4L2_MBUS_CSI2_CPHY) {
++		ret = dev_err_probe(dev, -EINVAL,
++				    "invalid bus type of endpoint\n");
++		goto out;
++	}
++
++	v4l2_async_subdev_nf_init(ntf, sd);
++	ntf->ops = &rkcif_csi_notifier_ops;
++
++	asd = v4l2_async_nf_add_fwnode_remote(ntf, ep,
++					      struct v4l2_async_connection);
++	if (IS_ERR(asd)) {
++		ret = PTR_ERR(asd);
++		goto out;
++	}
++
++	ret = v4l2_async_nf_register(ntf);
++	if (ret) {
++		ret = dev_err_probe(dev, ret, "failed to register notifier\n");
++		v4l2_async_nf_cleanup(ntf);
++		goto out;
++	}
++
++	ret = 0;
++
++out:
++	fwnode_handle_put(ep);
++	return ret;
++}
++
++static int rkcif_csi_register(struct rkcif_csi_device *csi_dev)
++{
++	struct media_pad *pads = csi_dev->pads;
++	struct v4l2_subdev *sd = &csi_dev->sd;
++	int ret;
++
++	ret = rkcif_register_notifier(csi_dev);
++	if (ret)
++		goto err;
++
++	v4l2_subdev_init(sd, &rkcif_csi_ops);
++	sd->dev = csi_dev->dev;
++	sd->entity.ops = &rkcif_csi_media_ops;
++	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
++	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
++	sd->internal_ops = &rkcif_csi_internal_ops;
++	sd->owner = THIS_MODULE;
++	snprintf(sd->name, sizeof(sd->name), "rockchip-mipi-csi %s",
++		 dev_name(csi_dev->dev));
++
++	pads[RKCIF_CSI_PAD_SINK].flags = MEDIA_PAD_FL_SINK |
++					 MEDIA_PAD_FL_MUST_CONNECT;
++	pads[RKCIF_CSI_PAD_SRC].flags = MEDIA_PAD_FL_SOURCE |
++					MEDIA_PAD_FL_MUST_CONNECT;
++	ret = media_entity_pads_init(&sd->entity, RKCIF_CSI_PAD_MAX, pads);
++	if (ret)
++		goto err_notifier_unregister;
++
++	ret = v4l2_subdev_init_finalize(sd);
++	if (ret)
++		goto err_entity_cleanup;
++
++	ret = v4l2_async_register_subdev(sd);
++	if (ret) {
++		dev_err(sd->dev, "failed to register CSI subdev\n");
++		goto err_subdev_cleanup;
++	}
++
++	return 0;
++
++err_subdev_cleanup:
++	v4l2_subdev_cleanup(sd);
++err_entity_cleanup:
++	media_entity_cleanup(&sd->entity);
++err_notifier_unregister:
++	v4l2_async_nf_unregister(&csi_dev->notifier);
++	v4l2_async_nf_cleanup(&csi_dev->notifier);
++err:
++	return ret;
++}
++
++static void rkcif_csi_unregister(struct rkcif_csi_device *csi_dev)
++{
++	struct v4l2_subdev *sd = &csi_dev->sd;
++
++	v4l2_async_unregister_subdev(sd);
++	v4l2_subdev_cleanup(sd);
++	media_entity_cleanup(&sd->entity);
++	v4l2_async_nf_unregister(&csi_dev->notifier);
++	v4l2_async_nf_cleanup(&csi_dev->notifier);
++}
++
++static const struct of_device_id rkcif_csi_of_match[] = {
++	{
++		.compatible = "rockchip,rk3568-mipi-csi",
++	},
++	{}
++};
++
++static int rkcif_csi_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct rkcif_csi_device *csi_dev;
++	int ret;
++
++	csi_dev = devm_kzalloc(dev, sizeof(*csi_dev), GFP_KERNEL);
++	if (!csi_dev)
++		return -ENOMEM;
++	csi_dev->dev = dev;
++	dev_set_drvdata(dev, csi_dev);
++
++	csi_dev->base_addr = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(csi_dev->base_addr))
++		return PTR_ERR(csi_dev->base_addr);
++
++	ret = devm_clk_bulk_get_all(dev, &csi_dev->clks);
++	if (ret != RKCIF_CSI_CLKS_MAX)
++		return dev_err_probe(dev, ret, "failed to get clocks\n");
++	csi_dev->clks_num = ret;
++
++	csi_dev->phy = devm_phy_get(dev, "csiphy");
++	if (IS_ERR(csi_dev->phy))
++		return dev_err_probe(dev, PTR_ERR(csi_dev->phy),
++				     "failed to get MIPI CSI PHY\n");
++
++	csi_dev->reset = devm_reset_control_array_get_exclusive(dev);
++	if (IS_ERR(csi_dev->reset))
++		return dev_err_probe(dev, PTR_ERR(csi_dev->reset),
++				     "failed to get reset\n");
++
++	csi_dev->formats = formats;
++	csi_dev->formats_num = ARRAY_SIZE(formats);
++
++	pm_runtime_enable(dev);
++
++	ret = phy_init(csi_dev->phy);
++	if (ret) {
++		ret = dev_err_probe(dev, ret,
++				    "failed to initialize MIPI CSI PHY\n");
++		goto err_pm_runtime_disable;
++	}
++
++	ret = rkcif_csi_register(csi_dev);
++	if (ret)
++		goto err_phy_exit;
++
++	return 0;
++
++err_phy_exit:
++	phy_exit(csi_dev->phy);
++err_pm_runtime_disable:
++	pm_runtime_disable(dev);
++	return ret;
++}
++
++static void rkcif_csi_remove(struct platform_device *pdev)
++{
++	struct rkcif_csi_device *csi_dev = platform_get_drvdata(pdev);
++	struct device *dev = &pdev->dev;
++
++	rkcif_csi_unregister(csi_dev);
++	phy_exit(csi_dev->phy);
++	pm_runtime_disable(dev);
++}
++
++static int rkcif_csi_runtime_suspend(struct device *dev)
++{
++	struct rkcif_csi_device *csi_dev = dev_get_drvdata(dev);
++
++	clk_bulk_disable_unprepare(csi_dev->clks_num, csi_dev->clks);
++
++	return 0;
++}
++
++static int rkcif_csi_runtime_resume(struct device *dev)
++{
++	struct rkcif_csi_device *csi_dev = dev_get_drvdata(dev);
++	int ret;
++
++	reset_control_assert(csi_dev->reset);
++	udelay(5);
++	reset_control_deassert(csi_dev->reset);
++
++	ret = clk_bulk_prepare_enable(csi_dev->clks_num, csi_dev->clks);
++	if (ret) {
++		dev_err(dev, "failed to enable clocks\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static const struct dev_pm_ops rkcif_csi_pm_ops = {
++	.runtime_suspend = rkcif_csi_runtime_suspend,
++	.runtime_resume = rkcif_csi_runtime_resume,
++};
++
++static struct platform_driver rkcif_csi_drv = {
++	.driver = {
++		   .name = "rockchip-mipi-csi",
++		   .of_match_table = rkcif_csi_of_match,
++		   .pm = &rkcif_csi_pm_ops,
++	},
++	.probe = rkcif_csi_probe,
++	.remove = rkcif_csi_remove,
++};
++module_platform_driver(rkcif_csi_drv);
++
++MODULE_DESCRIPTION("Rockchip MIPI CSI-2 Host platform driver");
++MODULE_LICENSE("GPL");
 
 -- 
 2.34.1
