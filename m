@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE83EC021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:52:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E3B2C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:54:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YhYVhJFyUQYcroil7prEDBRqCCm4sFrb0M3BiFATJmQ=; b=OCKdZsDo2dPsC1N+CwSprdsC9O
-	rjs3E8aULpWx94uuZpbbLqqU7vb8BwA1xD5YBc93FvpSu07rtoVhiV+5mE1Kqo82phisMeajqHpJT
-	/7LKLScjfV8D/tO86AFiiYKCBfrnJn7R1QKfFo5Ch3KQWH+YDaLDh8xXLJvFambAWURXGLHP/bY/X
-	ndMSus+IDRNarbvNNvs+2gTQEx6jJE6Gc19o07K0H8syA92UCIQx5xL8sDBJ+Tu4muQ3yYerUhArZ
-	VCsNJ6vxdWSFfy1rqqBSrrGdt/vCABG3e3RLz/i/URzMNmxIQD7SLRVEoAKZBx4aOcjHJmhUvd+q1
-	Pv0gwyQA==;
+	bh=QJvyVg+lai0P6EVUyNo8m4lwUFwhDOfQVlzWA21muQk=; b=TUo2XyhlKM6KoB0UxXGCN5ja+5
+	yXEGMa71QASwVP2Is2y+h6O2O6ZsDzNqX5vH/m6aFkC4gtswO8378vmMprfDR+UZmY8HYqBhf+MA5
+	42UBPsvC6QPDZRMMyZWhnF5Irs0EmCrPtXZ/zJmXMMoKXrR20ImpdYiRSe9lv8B6KygElDixWY/r8
+	gc+zK7a/i40ZwJLvDqSx3ujlv5Nr38B+4RzySe7aSKisHc1ioBxvOf3nZiXNUYH77VIGW8jzq+4km
+	8RVnZUqxv0ZrhgEGyz6oLwwZqfT57c5sUGvzCHrZRD6vnT9XG4wSoxTsZjBWiCBCIr2V1EM+kA0z5
+	AQjxRNWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkgke-0000000BzLn-40NU;
-	Wed, 19 Feb 2025 09:52:20 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tkgm5-0000000BziL-3kw8;
+	Wed, 19 Feb 2025 09:53:49 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkgIh-0000000BpFD-1gbj;
-	Wed, 19 Feb 2025 09:23:28 +0000
+	id 1tkgKN-0000000Bpsy-2g9u;
+	Wed, 19 Feb 2025 09:25:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8FBAF5C57D5;
-	Wed, 19 Feb 2025 09:22:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BB66C4CEE7;
-	Wed, 19 Feb 2025 09:23:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1137EA41FFF;
+	Wed, 19 Feb 2025 09:23:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8808C4CEE8;
+	Wed, 19 Feb 2025 09:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739957006;
-	bh=YhYVhJFyUQYcroil7prEDBRqCCm4sFrb0M3BiFATJmQ=;
+	s=k20201202; t=1739957110;
+	bh=MmDCocIFSUXV+xZa3WIpR+8qm3Y5VnuEZAGr13l/yPg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fAcSnX3EF5Q+IrlrEyrnqGo2Un8ajJzh6xKpblEgnfstRR4eRks2hb9DnEQ+muGxO
-	 Ag1hM80kkg44gIMSZAfmM8BvdQReN2ciCsUEXWF7EMAYw64JB2ooQ3UD27sYwZ1ZEy
-	 CpW24qZagRG6+Zno8B0KryXnXCHgFfKRPLjH+dw7xX4FJhG0tDnY6XE4QxPz9OCImm
-	 ICMOY21O0jh/1JBjo6brcbRuUmA0Wv4EpdEYLQNU2PWSftE/I3fSYKxVR3QkJUnqkf
-	 aVfyFMpjYEZLChLQxXyHfrDV+PdDX7tXK6ECJ3hpIbTUnGnaT80M0czDb4l0pCL/T+
-	 H3uI8VAzuZarQ==
-Message-ID: <23f1971f-117a-4515-a7e8-116f03abccc7@kernel.org>
-Date: Wed, 19 Feb 2025 10:23:17 +0100
+	b=WinqEIH0TfrYIQFc6AgV6RXuBC+tFpt8fVcrq7875pzx0HcIZtcVnkKss8OBc3TSJ
+	 yVvEc++JS7N9elGpBqf0tXjA8Il05yAnzgsqRTHc8IBv6fof1f6wPpPuVA/Z/fUeke
+	 Ct0yltxMSHn1TFx+usR2dYRU0TuhRhymsGtbEBU4vfcXgUaZQUw6yHGfP0BrhYSVeG
+	 ip8+EHJTVd7e/mPv4qLWDe6MoC/EZ2GUOZVEpikbjvK03qx8fGpsE8nLXyJNuzh5/S
+	 rdPCrmbkWZtvtU9UTdZ5CyM2e9TMVcuUcDRCmtNzLlunaQtCBB/dLOY0iAunwnRKTn
+	 gd6RkZE+GIKSg==
+Message-ID: <4d8abd3f-c39b-49ea-8a43-b6ad0cf6fb15@kernel.org>
+Date: Wed, 19 Feb 2025 10:25:01 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] dt-bindings: display: mediatek: ccorr: Add support
+Subject: Re: [PATCH 7/7] dt-bindings: display: mediatek: tdshp: Add support
  for MT8196
 To: Jay Liu <jay.liu@mediatek.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
  Philipp Zabel <p.zabel@pengutronix.de>,
@@ -63,7 +63,7 @@ Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org,
  Project_Global_Chrome_Upstream_Group@mediatek.com
 References: <20250219092040.11227-1-jay.liu@mediatek.com>
- <20250219092040.11227-5-jay.liu@mediatek.com>
+ <20250219092040.11227-8-jay.liu@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,13 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250219092040.11227-5-jay.liu@mediatek.com>
+In-Reply-To: <20250219092040.11227-8-jay.liu@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_012327_557025_400228BC 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250219_012511_810556_BD876871 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,9 +132,80 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 19/02/2025 10:20, Jay Liu wrote:
 > Add a compatible string for MediaTek MT8196 SoC
 
-You do not add compatible for soc but its component. But even if this
-was correct commit msg, you still repeat what is in the diff. Say
-something useful, is it compatible with 8195 maybe? Or with something else?
+No, this is just bogus commit msg.
+
+You did not try enough, just pasted same useless and incorrect message
+to every patch.
+
+> 
+> Signed-off-by: Jay Liu <jay.liu@mediatek.com>
+> ---
+>  .../display/mediatek/mediatek,tdshp.yaml      | 51 +++++++++++++++++++
+>  1 file changed, 51 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,tdshp.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,tdshp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,tdshp.yaml
+> new file mode 100644
+> index 000000000000..5ed7bdd53d0e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,tdshp.yaml
+
+Filename matching exactly compatible.
+
+> @@ -0,0 +1,51 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/display/mediatek/mediatek,tdshp.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek display clarity correction
+> +
+> +maintainers:
+> +  - Chun-Kuang Hu <chunkuang.hu@kernel.org>
+> +  - Philipp Zabel <p.zabel@pengutronix.de>
+> +
+> +description: |
+
+Do not need '|' unless you need to preserve formatting.
+
+> +  MediaTek display clarity correction, namely TDSHP, provides a
+> +  operation used to adjust sharpness in display system.
+> +  TDSHP device node must be siblings to the central MMSYS_CONFIG node.
+> +  For a description of the MMSYS_CONFIG binding, see
+> +  Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml
+> +  for details.
+
+Missing blank line. Do not introduce own style.
+
+> +properties:
+> +  compatible:
+> +    oneOf:
+
+Drop, unless this is already going to grow?
+
+
+> +      - enum:
+> +          - mediatek,mt8196-disp-tdshp
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +
+
+Drop
 
 
 Best regards,
