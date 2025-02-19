@@ -4,67 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B317C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 00:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F64C021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 00:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XwOh5udEfzIPRdrvgmrA7NUOtDjMH0McOmxZe4GckKU=; b=v8dsqniFtFj6/R0OzuYHHQEZWO
-	9cNJH4kbC9vmYY6gBCzhIMqK2/37tTd7B/6EAMize5txgNt2tV4f+AW9wYLUkX22+S2t0VRcxkmVX
-	ISaTawU3G/pgWkAVjl62oaf9N1tOBG2lH2MSmykdVOdxNipTgsQJK13aGog0vakcHyJXq0ywTu1FB
-	VT4ZCnbY8r10ce31ltwAryxqQ6kyxycx8aQVPi14dXdILgx66NFmgqKNsBu0nGBviLmEmbcjmQOxX
-	7IUpB7Vk9l7Ok6KUK5NVK3CFRwcQM7MaCbeaTuF4rsf2l5AqzzcIpGkBNQUdkehahkAfH4OKB2U4D
-	QZSscTkA==;
+	bh=zPwUAaQ8wiZqx+eHaCXe0PobJIC4GzAQFCfn4ErrfIw=; b=BmFFyk+dSCdMR3r/Pkl5UlzCHL
+	bB7R7ED5z/bfB2g2jxcg7gs9vjd/3eUhkpzMuZHkSpzlNRdPAJcZDk1foW8quJQBuruUj1G9bS2+i
+	vmfN/deB/NTpZLbXRQkjGdmgS2HaDcYELU2bOM2qe1t9DAe8uHnCfjqLnDTEyPAzR0dcdKcdMzT84
+	0Q7D435hpL305t9gEom4yTAIc4od8CL8RoqJZvDvh1ZQk5xXKEPh0wLB3FACMWY5aVpZ03KZ7csiW
+	3gkdAAN6sPpgJKZ5wYm4mikahhthsC6NA85wE5Qug8Ate45pB4+mwX/UaHTRij98U/hugztCw1GsU
+	Q4DNOwdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYLv-0000000AQVj-2ooX;
-	Wed, 19 Feb 2025 00:54:15 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tkYNN-0000000AQvW-1PK2;
+	Wed, 19 Feb 2025 00:55:45 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYAV-0000000ANpY-0RgM
+	id 1tkYAW-0000000ANqO-1WnH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 00:42:28 +0000
+	Wed, 19 Feb 2025 00:42:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 94EBEA41E0E;
-	Wed, 19 Feb 2025 00:40:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE4C8C4CEE6;
-	Wed, 19 Feb 2025 00:42:25 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9EAD15C5CAB;
+	Wed, 19 Feb 2025 00:41:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41AD0C4CEE2;
+	Wed, 19 Feb 2025 00:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739925746;
-	bh=SFGHEtqDf6Y8YwEr7u4RWjuqbwl3vR2r58glzMk/aKA=;
+	s=k20201202; t=1739925747;
+	bh=MCUZvMnjI+St/xxB98n3RdGdbJTQ9UD808hd20KqjPs=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=dkjSE2SlN6UY5t8f3DhnqLz3VLRWaWqki1iTcuLpI/8zz/8y9S3sbpwryWSd4Sndb
-	 Tu4x4D0FCfoi0ADQsixNVDSggUwySyeSartF4VpqywqfTjn+0qO5eS1VKIoHHtkNeP
-	 enR5EZT2BBDSQrz6cIx689BXFctPMxvLaJv+Ss2oKoLJ3PPh6xhzY4Hj7jfzPRwz2B
-	 QXnvIU41DQ+hXPERFVQCZbNboOoUTtZw3NqHHVutKOx556LfMjwprQ7H/IqVFtiIyC
-	 Q7q7yQr0VWYXErMwfz5E9NZbPgGaVqFJrnpfMMBas0NAGP9p1SFF/dQWmJviFpm7Jp
-	 1/jEyHUQ+Zibg==
-Date: Tue, 18 Feb 2025 18:42:25 -0600
+	b=g7DXt187wHzs6lpJOBkSrmxvJy6EAno2kUlthlhPsgMhUKij1NDLsEfj8cya5mDQY
+	 xfC1EOHc+knjSm5CH8o6khCn3rDz2NHfnSE1uk2Qhc0hgf/ydW3G8jOlCJqaoDh/DE
+	 bc0jKanWKe7hYDToKMjh65tWXzRmnzM8mDRiG4lFQSpbSLOYX3R3wmn9HaeIzD+mTg
+	 oyMiTZcjyshGu2hKWv44TdS1ze0xfKxFxZ9MmE1s4ru/Cbm6PDzEmVvzm0XHx3eEP2
+	 O+Ti7sW763NoQQ1FeaEFJD+QH9Cae6SX5W/BN13rUrJaVeSUbodBzH2kJ1IjtMwMj8
+	 Hni1nopfxMlfg==
+Date: Tue, 18 Feb 2025 18:42:26 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Tony Luck <tony.luck@intel.com>, 
- "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
- linux-hardening@vger.kernel.org, Kees Cook <kees@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-To: Kaustabh Chakraborty <kauschluss@disroot.org>
-In-Reply-To: <20250219-exynos7870-v3-0-e384fb610cad@disroot.org>
-References: <20250219-exynos7870-v3-0-e384fb610cad@disroot.org>
-Message-Id: <173992516637.2065489.12540018634541283812.robh@kernel.org>
-Subject: Re: [PATCH v3 0/7] Add support for the Exynos7870 SoC, along with
- three devices
+To: Ryan.Wanner@microchip.com
+In-Reply-To: <cover.1739555984.git.Ryan.Wanner@microchip.com>
+References: <cover.1739555984.git.Ryan.Wanner@microchip.com>
+Message-Id: <173992516786.2065578.832520865805552342.robh@kernel.org>
+Subject: Re: [PATCH 0/8]  Add System Components for Microchip SAMA7D65 SoC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_164227_272868_BDB1057B 
-X-CRM114-Status: GOOD (  23.77  )
+X-CRM114-CacheID: sfid-20250218_164228_444325_C12C04C6 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,84 +66,41 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, conor+dt@kernel.org, linux-watchdog@vger.kernel.org, alexandre.belloni@bootlin.com, linux-kernel@vger.kernel.org, vkoul@kernel.org, linux-arm-kernel@lists.infradead.org, claudiu.beznea@tuxon.dev, dmaengine@vger.kernel.org, krzk+dt@kernel.org, wim@linux-watchdog.org, linux@roeck-us.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 19 Feb 2025 00:33:10 +0530, Kaustabh Chakraborty wrote:
-> Samsung Exynos 7870 (codename: Joshua) is an ARM-v8 system-on-chip that was
-> announced in 2016. The chipset was found in several popular mid-range to
-> low-end Samsung phones, released within 2016 to 2019.
+On Fri, 14 Feb 2025 11:08:13 -0700, Ryan.Wanner@microchip.com wrote:
+> From: Ryan Wanner <Ryan.Wanner@microchip.com>
 > 
-> This patch series aims to add support for Exynos 7870, starting with the
-> most basic yet essential components such as CPU, GPU, clock controllers,
-> PMIC, pin controllers, etc.
+> This patch set adds support for the following systems in the SAMA7D65
+> SoC:
+> - DMAs
+> - Chip ID
+> - Dual watchdog timer.
 > 
-> Moreover, the series also adds support for three Exynos 7870 devices via
-> devicetree. The devices are:
->  * Samsung Galaxy J7 Prime	- released 2016, codename on7xelte
->  * Samsung Galaxy J6		- released 2018, codename j6lte
->  * Samsung Galaxy A2 Core	- released 2019, codename a2corelte
+> Ryan Wanner (8):
+>   dt-bindings: atmel-sysreg: Add SAMA7D65 Chip ID
+>   dt-bindings: watchdog: sama5d4-wdt: Add sama7d65-wdt
+>   dt-bindings: dma: atmel: add microchip,sama7d65-dma
+>   ARM: at91: Add Support in SoC driver for SAMA7D65
+>   ARM: dts: microchip: sama7d65: Add chipID for sama7d65
+>   ARM: dts: microchip: sama7d65: Add watchdog for sama7d65
+>   ARM: dts: microchip: sama7d65: Add DMAs to sama7d65 SoC
+>   ARM: dts: microchip: sama7d65: Enable DMAs
 > 
-> Additional features implemented in this series include:
->  * I2C	- touchscreen, IIO sensors, etc.
->  * UART	- bluetooth and serial debugging
->  * MMC	- eMMC, Wi-Fi SDIO, SDCard
->  * USB	- micro-USB 2.0 interface
+>  .../devicetree/bindings/arm/atmel-sysregs.txt |  1 +
+>  .../bindings/dma/atmel,sama5d4-dma.yaml       |  3 ++
+>  .../bindings/watchdog/atmel,sama5d4-wdt.yaml  |  3 ++
+>  .../dts/microchip/at91-sama7d65_curiosity.dts | 12 +++++
+>  arch/arm/boot/dts/microchip/sama7d65.dtsi     | 44 +++++++++++++++++++
+>  drivers/soc/atmel/soc.c                       |  5 +++
+>  drivers/soc/atmel/soc.h                       |  3 ++
+>  7 files changed, 71 insertions(+)
 > 
-> Here is a list of all sub-series:
->  * bootmode	  	- https://lore.kernel.org/all/20250204-exynos7870-bootmode-v1-1-0f17b3033c2d@disroot.org/
->  * gpu			R https://lore.kernel.org/all/20250204-exynos7870-gpu-v1-1-0db4c163a030@disroot.org/
->  * i2c	      		A https://lore.kernel.org/all/20250204-exynos7870-i2c-v1-0-63d67871ab7e@disroot.org/
->  * mmc			- https://lore.kernel.org/all/20250219-exynos7870-mmc-v2-0-b4255a3e39ed@disroot.org/
->  * pinctrl	  	- https://lore.kernel.org/all/20250219-exynos7870-pinctrl-v2-0-1ff9b10bf913@disroot.org/
->  * pmic-regulators	- https://lore.kernel.org/all/20250219-exynos7870-pmic-regulators-v2-0-1ea86fb332f7@disroot.org/
->  * pmu-clocks		- https://lore.kernel.org/all/20250219-exynos7870-pmu-clocks-v3-0-0d1e415e9e3a@disroot.org/
->  * uart			- https://lore.kernel.org/all/20250219-exynos7870-uart-v2-1-c8c67f3a936c@disroot.org/
->  * usb			- https://lore.kernel.org/all/20250219-exynos7870-usb-v2-0-1de41a89c9d4@disroot.org/
->  * usbphy		- https://lore.kernel.org/all/20250219-exynos7870-usbphy-v2-0-b8ba4e7a72e9@disroot.org/
-> (Legend: [R]eviewed, [A]pplied)
-> 
-> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-> ---
-> Changes in v3:
-> - Added patches from https://lore.kernel.org/all/20250204-exynos7870-chipid-v1-0-0bf2db08e621@disroot.org/
-> - Fix devicetree formatting according to the devicetree style guide.
-> - Take over ownership of patches by the co-author, upon their request.
-> - Link to v2: https://lore.kernel.org/r/20250204-exynos7870-v2-0-56313165ef0c@disroot.org
-> 
-> Changes in v2:
-> - Redo a few commit descriptions.
-> - Split patchsets into multiple sub-series, subsystem-wise.
-> - Link to v1: https://lore.kernel.org/r/20250203-exynos7870-v1-0-2b6df476a3f0@disroot.org
-> 
-> ---
-> Kaustabh Chakraborty (7):
->       dt-bindings: hwinfo: samsung,exynos-chipid: add exynos7870-chipid compatible
->       dt-bindings: arm: samsung: add compatibles for exynos7870 devices
->       soc: samsung: exynos-chipid: add support for exynos7870
->       arm64: dts: exynos: add initial devicetree support for exynos7870
->       arm64: dts: exynos: add initial support for Samsung Galaxy J7 Prime
->       arm64: dts: exynos: add initial support for Samsung Galaxy A2 Core
->       arm64: dts: exynos: add initial support for Samsung Galaxy J6
-> 
->  .../bindings/arm/samsung/samsung-boards.yaml       |    8 +
->  .../bindings/hwinfo/samsung,exynos-chipid.yaml     |    1 +
->  arch/arm64/boot/dts/exynos/Makefile                |    3 +
->  .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts |  629 ++++++++++++
->  arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    |  617 ++++++++++++
->  arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts |  665 +++++++++++++
->  arch/arm64/boot/dts/exynos/exynos7870-pinctrl.dtsi | 1022 ++++++++++++++++++++
->  arch/arm64/boot/dts/exynos/exynos7870.dtsi         |  720 ++++++++++++++
->  drivers/soc/samsung/exynos-chipid.c                |    1 +
->  9 files changed, 3666 insertions(+)
-> ---
-> base-commit: e5d3fd687aac5eceb1721fa92b9f49afcf4c3717
-> change-id: 20250201-exynos7870-049587e4b7df
-> 
-> Best regards,
 > --
-> Kaustabh Chakraborty <kauschluss@disroot.org>
+> 2.43.0
 > 
 > 
 > 
@@ -173,54 +120,11 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250219-exynos7870-v3-0-e384fb610cad@disroot.org:
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/microchip/' for cover.1739555984.git.Ryan.Wanner@microchip.com:
 
-In file included from arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts:10:
-arch/arm64/boot/dts/exynos/exynos7870.dtsi:9:10: fatal error: dt-bindings/clock/exynos7870.h: No such file or directory
-    9 | #include <dt-bindings/clock/exynos7870.h>
-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/exynos] Error 2
-make[2]: Target 'arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1459: exynos/exynos7870-on7xelte.dtb] Error 2
-In file included from arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts:10:
-arch/arm64/boot/dts/exynos/exynos7870.dtsi:9:10: fatal error: dt-bindings/clock/exynos7870.h: No such file or directory
-    9 | #include <dt-bindings/clock/exynos7870.h>
-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/exynos] Error 2
-make[2]: Target 'arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1459: exynos/exynos7870-a2corelte.dtb] Error 2
-In file included from arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts:10:
-arch/arm64/boot/dts/exynos/exynos7870.dtsi:9:10: fatal error: dt-bindings/clock/exynos7870.h: No such file or directory
-    9 | #include <dt-bindings/clock/exynos7870.h>
-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:461: arch/arm64/boot/dts/exynos] Error 2
-make[2]: Target 'arch/arm64/boot/dts/exynos/exynos7870-j6lte.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1459: exynos/exynos7870-j6lte.dtb] Error 2
-make: *** [Makefile:251: __sub-make] Error 2
-make: Target 'exynos/exynos8895-dreamlte.dtb' not remade because of errors.
-make: Target 'exynos/exynos850-e850-96.dtb' not remade because of errors.
-make: Target 'exynos/exynos7870-on7xelte.dtb' not remade because of errors.
-make: Target 'exynos/exynos7885-jackpotlte.dtb' not remade because of errors.
-make: Target 'exynos/exynos990-x1slte.dtb' not remade because of errors.
-make: Target 'exynos/exynos5433-tm2.dtb' not remade because of errors.
-make: Target 'exynos/exynos990-r8s.dtb' not remade because of errors.
-make: Target 'exynos/exynos7-espresso.dtb' not remade because of errors.
-make: Target 'exynos/google/gs101-oriole.dtb' not remade because of errors.
-make: Target 'exynos/google/gs101-raven.dtb' not remade because of errors.
-make: Target 'exynos/exynosautov920-sadk.dtb' not remade because of errors.
-make: Target 'exynos/exynosautov9-sadk.dtb' not remade because of errors.
-make: Target 'exynos/exynos990-c1s.dtb' not remade because of errors.
-make: Target 'exynos/exynos9810-starlte.dtb' not remade because of errors.
-make: Target 'exynos/exynos990-x1s.dtb' not remade because of errors.
-make: Target 'exynos/exynos7870-a2corelte.dtb' not remade because of errors.
-make: Target 'exynos/exynos5433-tm2e.dtb' not remade because of errors.
-make: Target 'exynos/exynos7870-j6lte.dtb' not remade because of errors.
+arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: watchdog@e001d180: Unevaluated properties are not allowed ('clocks' was unexpected)
+	from schema $id: http://devicetree.org/schemas/watchdog/atmel,sama5d4-wdt.yaml#
+arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dtb: /soc/chipid@e0020000: failed to match any schema with compatible: ['microchip,sama7d65-chipid']
 
 
 
