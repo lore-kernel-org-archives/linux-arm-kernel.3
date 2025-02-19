@@ -4,83 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6122CC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 16:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0698C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 16:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oqjWYKnR2nUB621UJd3tfEAeu2NXNcr8hywqVsOY5L4=; b=13Pv6kFKwD8U7lC/MEW0ET0Gfy
-	q7JSROFFZVFuKjw7DEa0jxE4UTPvLPltr4+fHswN6iD2/viTjUdl5zQoIXZGr1KvPjzAgYvXXbjfM
-	1eD/l0tenUAfzNRYc8b2nFKxeYOPL14MNxHvsa3sVxCkuadHio9jE7k4RGEjw64yXi2mw92+JuNlZ
-	wi5hIOOFoBBL9q73MJAhUhQneEdeAjvqgAqBICtpj36o/uKoZcbpLuzcb84HVku/5dAaAWFyEYkvL
-	hUmjAsWohDqVus8rt/M9HeEG8VsmDYSB58bY1YyIACYr9LXNGsel9G2PNdpjAK63TV3aMgNERc/Rd
-	hP1iNZLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ATP4p4UlgNOvnzmUO8LGNDojzAprJLUFGASv+dUIMf4=; b=hVdiz2pcm97m7c5J1rTLDohv4+
+	BO6aTYSphZJzNgMTS1Qyrn9DE9hb0jytqRTcuqenNdVZVRhuqGko5GxNn/+tHJcYWdKMSe0cK06Rg
+	FA5Dv0khitVlIxpo0GelGI3YMdTbtGmSydHCATRnrn+XdYcVLr1PLfBXY3vMs8PV2ajmjPyeIAjN7
+	IVcpoGsrW+2WdJRnEgE41E5+QoivSH7nKD8Xs5GU3OcIsC/d/lSURXgr8Dy0FFiTHoV3O1CSMHRKS
+	kRF0wix4mRjUHBZWa2bv8I0Vyl9RSAUmTYl7ZZx7W62yvRoZ6zRXigkd++LbxV/kDHFd3VrnrgezB
+	5quqqLKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkmrq-0000000DnT4-3Wi9;
-	Wed, 19 Feb 2025 16:24:10 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tkmto-0000000Do41-3Csg;
+	Wed, 19 Feb 2025 16:26:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkmqM-0000000Dn2V-3eJR
+	id 1tkltj-0000000DWFu-3rlx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 19 Feb 2025 15:22:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=ATP4p4UlgNOvnzmUO8LGNDojzAprJLUFGASv+dUIMf4=; b=THR+UetLlqUlKCBPmhWBaUUioY
+	yXJ7ZDABVNhz9H4b4QNUdWakN8swVdHXVq2vIn8W+bdBB2Qtw4Zt/POWluMXFbei4AqxUNhE737u6
+	CdldGAsy1lXn7PMdrF1FGngzX9rOndJ5yLbDNz/98VhfjtzZspwOuiSB+JFh8TXNuLgCRr0cSbQRe
+	HYAwiO5eSYkEEy0zsOhSMFPjrPdAwF9XJrUxB3Uzb9xilEioj6YCYpQOI18KFwzMwjOO6oEHXMhWy
+	3RF8p4uSwJ7rLrbBhuaHA1wxYFXuc6cNIiuCNamWhlyuQv3LAknoqJZ5piPF1FwS0DG0KQX3rVA61
+	urWHvgKA==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkltg-00000002FFJ-1vBz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 16:22:40 +0000
+	Wed, 19 Feb 2025 15:22:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 147DD5C4A07;
-	Wed, 19 Feb 2025 16:21:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7411C4CED1;
-	Wed, 19 Feb 2025 16:22:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739982158;
-	bh=+BlKhVXGeiezjeGrHAuLK/twb425aHVJCEUYJtYaH1s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=r8qISNljlZ8kPTwo5/KE82yeb93xT17PEwdHDCI7JBTq26CuAIf5w7/q79L0LnJVa
-	 uJMF+us3dA+7TS8Wngrj4QokXtoZ7FWzrsp+IRDwfKHgqX8m3PFKGRxysiA3cYK3NG
-	 608HgQokUzdL3XkJNGLilgsE7TY1qFsamiPNS7pHPL8c5kAXgBd3Px/G0FeXcfMWlY
-	 fBmRYsN9j+GabDk6GnAXaPF2h4SZbT/b/yMnpEyCz7KxDt1vGhg7g0FaZB4PuRPZGd
-	 PA3vJfxua05bAvpG95UCcx+hh+q2uvyLvtIckZhEZdDOsXxeDrILWclQLx/NBh7hoH
-	 hCikICrII0vqA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tkmqH-005tUr-BB;
-	Wed, 19 Feb 2025 16:22:33 +0000
-Date: Wed, 19 Feb 2025 16:22:32 +0000
-Message-ID: <868qq1sy47.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: kvmarm@lists.linux.dev,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mingwei Zhang <mizhang@google.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Janne Grunau <j@jannau.net>
-Subject: Re: [PATCH v2 01/14] drivers/perf: apple_m1: Refactor event select/filter configuration
-In-Reply-To: <20250203183111.191519-2-oliver.upton@linux.dev>
-References: <20250203183111.191519-1-oliver.upton@linux.dev>
-	<20250203183111.191519-2-oliver.upton@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7EBA0A42A25;
+	Wed, 19 Feb 2025 15:20:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 871CBC4CED1;
+	Wed, 19 Feb 2025 15:21:56 +0000 (UTC)
+Date: Wed, 19 Feb 2025 10:22:20 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Heiko Carstens <hca@linux.ibm.com>
+Cc: linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-kbuild@vger.kernel.org, bpf <bpf@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-s390@vger.kernel.org, Masami
+ Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Andrew Morton
+ <akpm@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, Linus
+ Torvalds <torvalds@linux-foundation.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nicolas
+ Schier <nicolas@fjasle.eu>, Zheng Yejian <zhengyejian1@huawei.com>, Martin
+ Kelly <martin.kelly@crowdstrike.com>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Josh Poimboeuf <jpoimboe@redhat.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev
+ <agordeev@linux.ibm.com>
+Subject: Re: [PATCH v4 0/6] scripts/sorttable: ftrace: Remove place holders
+ for weak functions in available_filter_functions
+Message-ID: <20250219102220.3b79ec5e@gandalf.local.home>
+In-Reply-To: <20250218145836.7740B3b-hca@linux.ibm.com>
+References: <20250217153401.022858448@goodmis.org>
+	<20250218145836.7740B3b-hca@linux.ibm.com>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mizhang@google.com, coltonlewis@google.com, rananta@google.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, j@jannau.net
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_082239_016178_49DF2A99 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20250219_152200_883773_B9543A29 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,41 +91,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 03 Feb 2025 18:30:58 +0000,
-Oliver Upton <oliver.upton@linux.dev> wrote:
+On Tue, 18 Feb 2025 15:58:36 +0100
+Heiko Carstens <hca@linux.ibm.com> wrote:
+
+> Hi Steven,
 > 
-> Supporting guest mode events will necessitate programming two event
-> filters. Prepare by splitting up the programming of the event selector +
-> event filter into separate headers.
-
-s/headers/helpers/ ?
-
+> > This series removes the place holder __ftrace_invalid_address___ from
+> > the available_filter_functions file.
+> > 
+> > The rewriting of the sorttable.c code to make it more manageable
+> > has already been merged:
+> > 
+> >   https://git.kernel.org/torvalds/c/c0e75905caf368e19aab585d20151500e750de89
+> > 
+> > Now this is only for getting rid of the ftrace invalid function place holders.  
 > 
-> Opportunistically replace RMW patterns with sysreg_clear_set_s().
-> 
-> Tested-by: Janne Grunau <j@jannau.net>
-> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
-> ---
->  arch/arm64/include/asm/apple_m1_pmu.h |  1 +
->  drivers/perf/apple_m1_cpu_pmu.c       | 52 ++++++++++++++++-----------
->  2 files changed, 33 insertions(+), 20 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/apple_m1_pmu.h b/arch/arm64/include/asm/apple_m1_pmu.h
-> index 99483b19b99f..02e05d05851f 100644
-> --- a/arch/arm64/include/asm/apple_m1_pmu.h
-> +++ b/arch/arm64/include/asm/apple_m1_pmu.h
-> @@ -37,6 +37,7 @@
->  #define PMCR0_PMI_ENABLE_8_9	GENMASK(45, 44)
->  
->  #define SYS_IMP_APL_PMCR1_EL1	sys_reg(3, 1, 15, 1, 0)
-> +#define SYS_IMP_APL_PMCR1_EL12	sys_reg(3, 1, 15, 7, 2)
+> Since you asked me to test this on s390: seems to work with
+> HAVE_BUILDTIME_MCOUNT_SORT enabled; the ftrace selftests still
+> work as before.
 
-nit: this should be moved to the following patch.
+Great!
 
-Otherwise looks good to me.
+I'm guessing by just adding the support in s390 with what is upstream as
+well as what is in my for-next would work? You can just add that for the
+next merge window then.
 
-	M.
+Expect this code to be in linux-next later this week.
 
--- 
-Without deviation from the norm, progress is not possible.
+-- Steve
 
