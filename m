@@ -4,56 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1923BC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 11:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B13D1C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 11:59:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=teFEEY27X3Zb4o9qYoLcaC3DWikKd25qT1PCi5W3oTM=; b=sT4tN0K+G4iBm+QwlUMgqZR2HY
-	pkx89N4tolizxv7qxrtVDj7fa6qUewRODX/e4raTDWSegB+y9/TGCPU6Jfz+cFPoZxIcpEgKDU9BM
-	gZAPufyUsUq50ZXiYgwnPuKWFpbKNkFTOFMtCDymNFRN3Rkmyz6vyyDfcJVd7nNBxZkFBh/gvZy76
-	TpCsfbR47dv0LInpwe0qybij5jdADJc4bCl5Ik+E5BZE73plPDxqmL+uujVcwmwDzmN5Pyq2UkViZ
-	gcw+9oVqi+8kMemgTe2SQMpnNmQ14osK1FNCTQTGpDxSpgs3FiaWm2MLhhu7nMQXuPQUWTSMTTkRL
-	7hz+4LwA==;
+	bh=I0Vr7zjYe+LzROidf2KdAM0FeJYDrHAhTGLGwi7YtgU=; b=341ZzEIcuamZQQXE+dDkH1wAaL
+	6akw/91pxRlaVCsTjM1Od5v9GLYWgCbDEShX+8n6s0cOkfQbldZNH9IFcWy5pmU2kx7MNdLOg87cd
+	xZEMcSF5JxW5zEF1hJL41GQ7+3b6inD3sRiHeDCC+LIdZLHrwLeSOlu2q6WtMiAHrtOM8QAnNG/eb
+	JPXL60Vi2J7LV+46gPcF62PmAUJw9wyc2Pr2qH18j8nft0jTZcrajZrYCf0+rucz4+TBZTGy0fobG
+	D/XLUNrtXwT7PZ+RuD1FbgQV21h0MUkfhpuGCs+LUrXLnPRxTfcHxPzBPFmbt4KP8HLsxvLNYjHdJ
+	R/uDY4hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkie3-0000000CWyo-28OV;
-	Wed, 19 Feb 2025 11:53:39 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tkijQ-0000000CYGu-2RAc;
+	Wed, 19 Feb 2025 11:59:12 +0000
+Received: from flow-a5-smtp.messagingengine.com ([103.168.172.140])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkicZ-0000000CWa5-39wm;
-	Wed, 19 Feb 2025 11:52:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3E51DA41E00;
-	Wed, 19 Feb 2025 11:50:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C01EC4CED1;
-	Wed, 19 Feb 2025 11:52:03 +0000 (UTC)
-Date: Wed, 19 Feb 2025 11:52:01 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-mm@kvack.org, Ryan Roberts <ryan.roberts@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-snps-arc@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org, linux-parisc@vger.kernel.org,
-	linux-csky@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-sh@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] mm/ioremap: Pass pgprot_t to ioremap_prot() instead of
- unsigned long
-Message-ID: <Z7XF4Y3FIbSrSP9u@arm.com>
-References: <20250218101954.415331-1-anshuman.khandual@arm.com>
+	id 1tkihw-0000000CXq4-45pw
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Feb 2025 11:57:42 +0000
+Received: from phl-compute-02.internal (phl-compute-02.phl.internal [10.202.2.42])
+	by mailflow.phl.internal (Postfix) with ESMTP id 16F85201789;
+	Wed, 19 Feb 2025 06:57:40 -0500 (EST)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Wed, 19 Feb 2025 06:57:40 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm2; t=1739966260; x=1739973460; bh=I0Vr7zjYe+
+	LzROidf2KdAM0FeJYDrHAhTGLGwi7YtgU=; b=ZnGEtjMO7AINmHlgXsViick38g
+	sED8BBGIc4vzI41aYcZkvTv7tMmAl2CYypqi/XpBgIOnw4FeODoyNg6k/Nwozko6
+	FG1C9nOXlX0m7D/o+o+W5E7qYe8GZUiThYWscNV56K5BEsjhrgg4vLd1bafjQacS
+	HyFLGOCBOnCPUVRs/3YHXR1CmSfZCNHiSswIzMN+kl9ksfrq6QVL3nRi5UUztm4N
+	vf4nTRNkGlb4c46UEZShn+nUkeTKRR1ZL3bagN91houWTDWm6pF5AVBvqYV2BvYA
+	EH+B2ru4qHb9l1SjjB8fPHes6nJdDEp5P6v/uLHQdQKMiCshRC6JA4MIR2NA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1739966260; x=1739973460; bh=I0Vr7zjYe+LzROidf2KdAM0FeJYDrHAhTGL
+	Gwi7YtgU=; b=IzobVLZJfukFykt4i6eVYyGagYUSdLzrJ+kKgK1Myd6dRmFXfUE
+	YA+IeAxWbmpKjDFOihiqLar4F+Be478YgB9W8Wn9sGt3nSNpuQXAiDk35OuntrbP
+	WJqmHKBbx2YNN96srbSNwih0n02nvIs8oho4ZOOFwfh5/ot4ZVEc6BPygetHlkfV
+	5UaKeDhUeaSkXBKcs2mpXUynscIBmhwnCmXy6LlECjHYN9qoPd+VzeQTRy1FG4JO
+	0jSeggenWwrBLkldkYL5Hg+9Gu31FG4kMOAFrMhw/d3y+x36QV+2UO6ckEGf4PmW
+	N8m1RdbNcjl95Tp0/FTxBXNQemWNZYwMYGA==
+X-ME-Sender: <xms:M8e1Zxc4nEkIU6aRDFmOLJEnMwle1yw3vBQokwHqBww3xJX-FLtoiQ>
+    <xme:M8e1Z_OnEqGXRTGc7gJV2j_IKi5pFbtScK2_pHqmtWbprCq_rz9LYJndYi1PWTQPl
+    sMlBM-8LXj90ANfRqc>
+X-ME-Received: <xmr:M8e1Z6gsOt17SienMM3DX3KO-YnyORDYQlR6NaUsKnVEWjNAKA6aAjvroxOA-vLR6Bap90M129j1yS7EvkdVM61jb56rNs71--0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeigedujecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfhfgggtuggjsehttdertddttdej
+    necuhfhrohhmpeflrghnnhgvucfirhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqne
+    cuggftrfgrthhtvghrnhepgfdvffevleegudejfeefheehkeehleehfefgjefffeetudeg
+    tefhuedufeehfeetnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilh
+    hfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopedvvddpmhhouggv
+    pehsmhhtphhouhhtpdhrtghpthhtoheplhgruhhrvghnthdrphhinhgthhgrrhhtsehiug
+    gvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehfnhhklhdrkhgvrhhnvghlsehg
+    mhgrihhlrdgtohhmpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtph
+    htthhopehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdprhgtphhtthhopegrlhihshhs
+    rgesrhhoshgvnhiifigvihhgrdhiohdprhgtphhtthhopehrohgshheskhgvrhhnvghlrd
+    horhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthht
+    oheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrtggrnh
+    esmhgrrhgtrghnrdhsth
+X-ME-Proxy: <xmx:M8e1Z69fp5UtCDSgtdHbRJOaO6ofWHA2pUkPtu7-mXVd_uPZq9m01g>
+    <xmx:M8e1Z9u70kv0LcFER15ThwwD-6Leqc-OUjgUeztpCvcFeRjPRXN89A>
+    <xmx:M8e1Z5FaSzYMQq6TOOLDR414dl66AOYDTbo4t-79vgvVpzp10ilNBw>
+    <xmx:M8e1Z0NnvX9Z8_L15P1RSf9-_AVkLw7jf1ETZNCsoqK7vgkwZhbNvw>
+    <xmx:NMe1ZxSGnD2ua2i_owXFtXWucBE25DO8kebyhgs0H0RDLv74zlzz5HC2>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 19 Feb 2025 06:57:38 -0500 (EST)
+Date: Wed, 19 Feb 2025 12:57:37 +0100
+From: Janne Grunau <j@jannau.net>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Sasha Finkelstein <fnkl.kernel@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hector Martin <marcan@marcan.st>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-media@vger.kernel.org, imx@lists.linux.dev
+Subject: Re: [PATCH 3/5] media: dt-bindings: Add Apple ISP
+Message-ID: <20250219115737.GB26386@robin.jannau.net>
+References: <20250219-isp-v1-0-6d3e89b67c31@gmail.com>
+ <20250219-isp-v1-3-6d3e89b67c31@gmail.com>
+ <16f6d4a2-2102-48b9-a0ae-b8c6595975b8@kernel.org>
+ <CAMT+MTR7dhtt3SOMg0K3UakJQftqnc2S-rV41HdHtA+o9aSPug@mail.gmail.com>
+ <20250219105326.GA31383@pendragon.ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250218101954.415331-1-anshuman.khandual@arm.com>
+In-Reply-To: <20250219105326.GA31383@pendragon.ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_035207_855034_CD177DD6 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20250219_035741_084507_D4406BA7 
+X-CRM114-Status: GOOD (  27.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,42 +130,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 03:49:54PM +0530, Anshuman Khandual wrote:
-> From: Ryan Roberts <ryan.roberts@arm.com>
+On Wed, Feb 19, 2025 at 12:53:26PM +0200, Laurent Pinchart wrote:
+> On Wed, Feb 19, 2025 at 10:54:31AM +0100, Sasha Finkelstein wrote:
+> > On Wed, 19 Feb 2025 at 10:37, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> > > > +
+> > > > +  apple,platform-id:
+> > > > +    description: Platform id for firmware
+> > > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > >
+> > >
+> > > No, use firmware-name.
+> > 
+> > Not sure how is firmware-name an appropriate field, fw-name is a string
+> > that references a firmware file, while this field is an id that is sent to the
+> > coprocessor firmware in order to identify the platform.
+> > 
+> > > > +  apple,temporal-filter:
+> > > > +    description: Whether temporal filter should be enabled in firmware
+> > > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > >
+> > > And why is this not enabled always? Why this is board specific?
+> > 
+> > Not every board has support for this feature.
+> > 
+> > > You miss here ports or port. ISP usually gets signal from some camera or
+> > > other block.
+> > 
+> > For complex cameras - yes, but this is closer to a UVC camera connected
+> > via a bespoke protocol. We do not need to deal with the sensor access,
+> > all of it is managed by the coprocessor firmware.
+> > 
+> > > > +        properties:
+> > > > +          apple,config-index:
+> > > > +            description: Firmware config index
+> > > > +            $ref: /schemas/types.yaml#/definitions/uint32
+> > >
+> > >
+> > > No duplicated indices. You have reg for this, assuming this is index.
+> > 
+> > There are duplicated indices, see isp-imx248.dtsi in patch 5 for an example.
+> > 
+> > > All these do not look like hardware properties but rather configuration
+> > > of sensor which should be done runtime by OS, not by DT.
+> > 
+> > Those are board-specific and not discoverable via the ISP protocol.
 > 
-> ioremap_prot() currently accepts pgprot_val parameter as an unsigned long,
-> thus implicitly assuming that pgprot_val and pgprot_t could never be bigger
-> than unsigned long. But this assumption soon will not be true on arm64 when
-> using D128 pgtables. In 128 bit page table configuration, unsigned long is
-> 64 bit, but pgprot_t is 128 bit.
+> But they are settable through the ISP protocol, aren't they ? For
+> instance, looking at isp-imx248.dtsi, the first four entries are
 > 
-> Passing platform abstracted pgprot_t argument is better as compared to size
-> based data types. Let's change the parameter to directly pass pgprot_t like
-> another similar helper generic_ioremap_prot().
+> 	/* 1280x720 */
+> 	preset0 {
+> 		apple,config-index = <0>;
+> 		apple,input-size = <1296 736>;
+> 		apple,output-size = <1280 720>;
+> 		apple,crop = <8 8 1280 720>;
+> 	};
 > 
-> Without this change in place, D128 configuration does not work on arm64 as
-> the top 64 bits gets silently stripped when passing the protection value to
-> this function.
+> 	/* 960x720 (4:3) */
+> 	preset1 {
+> 		apple,config-index = <0>;
+> 		apple,input-size = <1296 736>;
+> 		apple,output-size = <960 720>;
+> 		apple,crop = <168 8 960 720>;
+> 	};
 > 
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-snps-arc@lists.infradead.org
-> Cc: linux-riscv@lists.infradead.org
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: linux-parisc@vger.kernel.org
-> Cc: linux-csky@vger.kernel.org
-> Cc: linux-mips@vger.kernel.org
-> Cc: linux-s390@vger.kernel.org
-> Cc: linux-arch@vger.kernel.org
-> Cc: loongarch@lists.linux.dev
-> Cc: linux-sh@vger.kernel.org
-> Cc: linux-mm@kvack.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> Co-developed-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> 	/* 960x540 (16:9) */
+> 	preset2 {
+> 		apple,config-index = <0>;
+> 		apple,input-size = <1296 736>;
+> 		apple,output-size = <960 540>;
+> 		apple,crop = <8 8 1280 720>;
+> 	};
+> 
+> 	/* 640x480 (4:3) */
+> 	preset3 {
+> 		apple,config-index = <0>;
+> 		apple,input-size = <1296 736>;
+> 		apple,output-size = <640 480>;
+> 		apple,crop = <168 8 960 720>;
+> 	};
+> 
+> But I may be interested in capturing a 640x480 frame with cropping only
+> and without scaling, with
+> 
+> input-size = 1296x736
+> output-size = 640x480
+> crop = (328,128)/640x480
+> 
+> Or I may want my cropped frame to be located in the upper-left corner:
+> 
+> input-size = 1296x736
+> output-size = 640x480
+> crop = (8,8)/640x480
+> 
+> If I set those parameters through the ISP protocol, won't it work ?
 
-For arm64:
+If my memory serves me right the presets wre added as workaround for
+userspace not handling V4L2_FRMSIZE_TYPE_STEPWISE well (or at all) and
+the added complexity of handling the qadratic sensor with partially
+occluded or outside of the usable lens diameter corners.
 
-Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+It is a simplified description of the hardware to make it useable for
+most software which is expected simple uvc cameras.
+
+There are still two common issues in user space software related to this
+driver:
+- software expects width == linesize
+- resolution selection is based frame height, i.e. it prefers 1080x1920
+  over 1920x1080 on devices with quadratic sensor.
+
+ciao Janne
 
