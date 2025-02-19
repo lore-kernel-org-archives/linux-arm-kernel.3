@@ -4,83 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C03C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A07A9C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pteMG+M6wTAKqJ6jAFs58cOr+2KXKlDkcyP289UuoU8=; b=IC1pVHNjiv0bG46KQhRrkolD9G
-	Ku4heuHUMG6pxt+bY8O3/CzuaAJfpcwMWQqQfUQ+YUcVLkJWZOEacyZiHE74Mmh5sD51g5cG56omF
-	ZDd8Mk5A8Dd97JG4AqRlW9fVqJLrKlF8SHCAdstGR+cAN10Eh0SYmBwOGbX9Bw7fVtWOQ/S6IT1CZ
-	+PNOqX5n9fXdzpLOvfIKtcXoWy96RfnixHQOIvOXtWSYzKtmcI0UF7Gar5bW4jRVOHO1xQmEl6pwZ
-	BgodBKtNiWxj20Vn0jwoi8DLYHFsw0UwI6UHxKtw5LAJoLMPEH7hzWaAw5+KQ2AC1k2B23pEBJIi3
-	jcHlg2Pw==;
+	bh=bnXcNHwkW6X9U4jS6BaBVAavk+9DXCgFqxwyfpT0+Y0=; b=a/YFFSdi41E7XPRmmi3Y5YeUtz
+	WDoZqtI7miYXvJA3ndqp2JVHWPoC3NGuzNqoMhygIIQQ1mWefzCu+1LlY9eGFBvziA+RnkNslU3RJ
+	VUBojl/VbAzYYUYOKWtY/HoxgMO7A5pC1HGeLrcdBe8sb2C1vFlSHcwW2JqBx9BSwyhk4+jua9Ts3
+	cYOGLJQ+FtYFGfh/z1NlCt9H1dJAsZq+6hZUqEoqglFgy+cX/F+dkKK2YhqahBgUkj+98KUw4jIxg
+	tUt60USb/PQdrlAXmb4w4XJgcUo4eSsauZfWTj2dX+FnMV3l4ZGFQpnA/Cc4FC5ZlGrKEDgRG38ZI
+	WyDSpPgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkghk-0000000ByX8-0nTf;
-	Wed, 19 Feb 2025 09:49:20 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tkgjC-0000000ByxK-3V4O;
+	Wed, 19 Feb 2025 09:50:50 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkgGj-0000000Bohx-0YZZ;
-	Wed, 19 Feb 2025 09:21:26 +0000
-X-UUID: e0508c88eea211efa1e849db4cc18d44-20250219
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=pteMG+M6wTAKqJ6jAFs58cOr+2KXKlDkcyP289UuoU8=;
-	b=CQv6I+/54GWfPGlp6Bk7rIWV3c4xkl97jLZNEZHOSnnJNzs7/BRFIDyW8gJaTpz7Av1cqiEqKK7+uG6jRRnBy3Ld9sd0mK/Sva/QvGcU+BRpXIHD8kj2QwD74y1xW/JupWw4Bw3Y6aPxDraW7x0260Insa4jcDeQ46FykCL/eYo=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:6765f5a4-4574-49ed-9162-e8ac4ec3e24b,IP:0,U
-	RL:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:25
-X-CID-META: VersionHash:60aa074,CLOUDID:e2304ca4-5c06-4e72-8298-91cabc9efadf,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: e0508c88eea211efa1e849db4cc18d44-20250219
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <jay.liu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2007885743; Wed, 19 Feb 2025 02:21:18 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Wed, 19 Feb 2025 17:21:15 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Wed, 19 Feb 2025 17:21:14 +0800
-From: Jay Liu <jay.liu@mediatek.com>
-To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel
-	<p.zabel@pengutronix.de>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Yongqiang Niu
-	<yongqiang.niu@mediatek.com>, CK Hu <ck.hu@mediatek.com>, Hsin-Yi Wang
-	<hsinyi@chromium.org>
-CC: <dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jay Liu
-	<jay.liu@mediatek.com>
-Subject: [PATCH 7/7] dt-bindings: display: mediatek: tdshp: Add support for MT8196
-Date: Wed, 19 Feb 2025 17:20:40 +0800
-Message-ID: <20250219092040.11227-8-jay.liu@mediatek.com>
-X-Mailer: git-send-email 2.18.0
-In-Reply-To: <20250219092040.11227-1-jay.liu@mediatek.com>
-References: <20250219092040.11227-1-jay.liu@mediatek.com>
+	id 1tkgHI-0000000BosB-0aTn;
+	Wed, 19 Feb 2025 09:22:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9ACBFA41FF3;
+	Wed, 19 Feb 2025 09:20:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5516C4CED1;
+	Wed, 19 Feb 2025 09:21:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1739956919;
+	bh=XLFseLySva84RkMFdyMGkSuLizl3GQr59DgJw1I0Qck=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RhBToIy3n18eifjQ8iTc7aAq6XW/YJYnEMbp3QI0AdWfLk6QjVxTbkj07QxS4sGty
+	 sBPzAkQyK9fPFkRpSfRT8BQm4gmcMgNiR4fwYNm01v6IFpjYV9iuC9JT4znWM3YLSj
+	 vgPNH/6yEPfJo2PdnZ/Ti6kfsVbm8q3+HyPaTDYY=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Chris Zhong <zyw@rock-chips.com>,
+	Guenter Roeck <groeck@chromium.org>,
+	Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH 6.1 344/578] drm/rockchip: cdn-dp: Use drm_connector_helper_hpd_irq_event()
+Date: Wed, 19 Feb 2025 09:25:48 +0100
+Message-ID: <20250219082706.550790662@linuxfoundation.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250219082652.891560343@linuxfoundation.org>
+References: <20250219082652.891560343@linuxfoundation.org>
+User-Agent: quilt/0.68
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-Content-Type: text/plain; charset="y"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_012125_175113_32262987 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20250219_012200_311274_F464DD77 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,72 +80,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a compatible string for MediaTek MT8196 SoC
+6.1-stable review patch.  If anyone has any objections, please let me know.
 
-Signed-off-by: Jay Liu <jay.liu@mediatek.com>
+------------------
+
+From: Thomas Zimmermann <tzimmermann@suse.de>
+
+commit 666e1960464140cc4bc9203c203097e70b54c95a upstream.
+
+The code for detecting and updating the connector status in
+cdn_dp_pd_event_work() has a number of problems.
+
+- It does not aquire the locks to call the detect helper and update
+the connector status. These are struct drm_mode_config.connection_mutex
+and struct drm_mode_config.mutex.
+
+- It does not use drm_helper_probe_detect(), which helps with the
+details of locking and detection.
+
+- It uses the connector's status field to determine a change to
+the connector status. The epoch_counter field is the correct one. The
+field signals a change even if the connector status' value did not
+change.
+
+Replace the code with a call to drm_connector_helper_hpd_irq_event(),
+which fixes all these problems.
+
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Fixes: 81632df69772 ("drm/rockchip: cdn-dp: do not use drm_helper_hpd_irq_event")
+Cc: Chris Zhong <zyw@rock-chips.com>
+Cc: Guenter Roeck <groeck@chromium.org>
+Cc: Sandy Huang <hjc@rock-chips.com>
+Cc: "Heiko Stübner" <heiko@sntech.de>
+Cc: Andy Yan <andy.yan@rock-chips.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: <stable@vger.kernel.org> # v4.11+
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://patchwork.freedesktop.org/patch/msgid/20241105133848.480407-1-tzimmermann@suse.de
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
- .../display/mediatek/mediatek,tdshp.yaml      | 51 +++++++++++++++++++
- 1 file changed, 51 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,tdshp.yaml
+ drivers/gpu/drm/rockchip/cdn-dp-core.c |    9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,tdshp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,tdshp.yaml
-new file mode 100644
-index 000000000000..5ed7bdd53d0e
---- /dev/null
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,tdshp.yaml
-@@ -0,0 +1,51 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/display/mediatek/mediatek,tdshp.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek display clarity correction
-+
-+maintainers:
-+  - Chun-Kuang Hu <chunkuang.hu@kernel.org>
-+  - Philipp Zabel <p.zabel@pengutronix.de>
-+
-+description: |
-+  MediaTek display clarity correction, namely TDSHP, provides a
-+  operation used to adjust sharpness in display system.
-+  TDSHP device node must be siblings to the central MMSYS_CONFIG node.
-+  For a description of the MMSYS_CONFIG binding, see
-+  Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml
-+  for details.
-+properties:
-+  compatible:
-+    oneOf:
-+      - enum:
-+          - mediatek,mt8196-disp-tdshp
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+
-+        tdshp@321e0000 {
-+            compatible = "mediatek,mt8196-disp-tdshp";
-+            reg = <0 0x321e0000 0 0x1000>;
-+            clocks = <&dispsys_config_clk 107>;
-+        };
-+    };
--- 
-2.18.0
+--- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
++++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+@@ -948,9 +948,6 @@ static void cdn_dp_pd_event_work(struct
+ {
+ 	struct cdn_dp_device *dp = container_of(work, struct cdn_dp_device,
+ 						event_work);
+-	struct drm_connector *connector = &dp->connector;
+-	enum drm_connector_status old_status;
+-
+ 	int ret;
+ 
+ 	mutex_lock(&dp->lock);
+@@ -1012,11 +1009,7 @@ static void cdn_dp_pd_event_work(struct
+ 
+ out:
+ 	mutex_unlock(&dp->lock);
+-
+-	old_status = connector->status;
+-	connector->status = connector->funcs->detect(connector, false);
+-	if (old_status != connector->status)
+-		drm_kms_helper_hotplug_event(dp->drm_dev);
++	drm_connector_helper_hpd_irq_event(&dp->connector);
+ }
+ 
+ static int cdn_dp_pd_event(struct notifier_block *nb,
+
 
 
