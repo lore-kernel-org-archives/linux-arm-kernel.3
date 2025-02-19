@@ -4,106 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B577DC021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF864C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:54:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SMHHlCMcxXYtVaRR1wTwHJJB8CwWA0AX/SUXLDYSpC4=; b=3c1QcrxU1qz53ciSh4NPQdLRfk
-	FqDIqb8UAhGCP3AfP0B3ADSCykOeo0j7BIPFgVfD/qmotRLIDdkNmn3nOWftydxAF3xpESRdlKUqC
-	C/auxRuqNxI8fbruMys0G/e7onOlQFjG0i/TuxyoiuP9i3Dg1yKGnfb+vVkWNlhH3lCmlU/z/laIr
-	dI/qw89TuU7TzEDkIY0yR2lGFZYwkYtjeh1zPi7b4uLjt3MT+pVyHuxEkxeK/pojAKPw28mUPLiud
-	OTHrVHYH/kNLxdesEVWzLQJm9EhMJUM/oJd8XoGq+72xiwJsIRs/yuR0lQqNrXBQkKTVEk8Mq/Apu
-	ylL9q2tQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FM6ZbbuUKgG4fLMGRjhpxU0s57w4l14yW/CL0eWJhz8=; b=MX9Wf/1Iy9Z5A49NGWjso+FTu+
+	eW4tgohr2rlwpaoKmSZgVSjX1p/ZYoGXtWuCmybqQZYv6KPKz0+xJUyXm9k39Ehdi3Vwv9zPpblj+
+	rd74Ktbs09IwoadBZPVgLFf48ITrkHnC8xbPlhtj55jnjzqgk6YEZAzU9AM2sYCQTWNKOuVSBrN3c
+	wQNWYUTQ0DJv4fIhDxeMsTTb2zVwcvx2fiZdZRPrc1KAURfDOVemP7n4nE8b2mY6g/qYTpkFcsQlR
+	PtwLr+fnVT0zi/UlszygBiP6+2lqG8Najiw7iah/RXMbVlT88jaMxdlFFAQe08JFIm14fSENM9fWm
+	X0o9Vq6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjZ9-0000000Cmay-2rx4;
-	Wed, 19 Feb 2025 12:52:39 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tkjab-0000000Cn5U-1JGh;
+	Wed, 19 Feb 2025 12:54:09 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjVc-0000000Cl7M-1XDx
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 12:49:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1739969338;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SMHHlCMcxXYtVaRR1wTwHJJB8CwWA0AX/SUXLDYSpC4=;
-	b=cj8fGW3r/87s7KQtC4JOfRk/0Sxp0LwdoIEJM2B5r6qX6mC0giFQgLTdyBsimx29Sy33MB
-	oHDLPpTsyhjYgogiB4Qe/rlDtA/5F9m4wjSqzHvSo1mx87/B16sDNhvgYB6vsx5j8d+WyR
-	IV4TZE7C5HKHX2xFVJ84i9PBwv2WRV8=
-Received: from mail-il1-f199.google.com (mail-il1-f199.google.com
- [209.85.166.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-610-mfzln7a3PgCyoW--xpVDow-1; Wed, 19 Feb 2025 07:48:55 -0500
-X-MC-Unique: mfzln7a3PgCyoW--xpVDow-1
-X-Mimecast-MFC-AGG-ID: mfzln7a3PgCyoW--xpVDow_1739969334
-Received: by mail-il1-f199.google.com with SMTP id e9e14a558f8ab-3d2a379bbf0so44197515ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 04:48:55 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739969334; x=1740574134;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SMHHlCMcxXYtVaRR1wTwHJJB8CwWA0AX/SUXLDYSpC4=;
-        b=mv6HMqGBLRLuRy7o74fHf3N6PuFZWqBt8lLvil0tEEOQHDkM2I/ohAD0Lwr32Wy6PN
-         pMlnFGQNZvZYUqb+SndocMqIDvBmMPOorPonC1Qod8h0hn/HA/IjOi8iSt/NfEYwWKnX
-         QPo+Zt8iEuk8vEYOhYXwK1w77jURsypK8Ci+YTtX8pJz2OHc2s99k5LAwIqkmKFX2cGh
-         I68i3sSxccDD0fmUJWNu+8R8ovr3GiZCJn28mxURQj4eQBxtLTCQHy4aYoRrsDHDzCdy
-         9l81B/uAUgRZy5Sq16S3zum7xAjgYCI6rTI+QSOJRi9IJfTAK7zXZZuv2fKhJWl9a3hw
-         +HAw==
-X-Forwarded-Encrypted: i=1; AJvYcCUAKU2d2mdcLL7v/UU9JmrqETtAI3b4SB1RvbeOiXuVTepnKxbF/tPnVeR+y8Fm0cYSVBJJxe1K7BCwPmQYgreu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyYMO3BCitDcpcp9WO88+759h/rTEy2UXqPeNGtG8jZSuMjAji
-	D5qskjz/vgI01LX+4YmUkSaDwysrosOu/tWbI+97VuX+lh6q5Ys0WzWzjehIfGNEjdKkgZdqx+U
-	wqWIKo66o4orjnKE6FGD2geuEwsdU83iJ7YJ4ISFWVD2Wty1pica4+pYf/KSNtopZt4gCA9pyWv
-	JEc24C6HjsAwcTMREQPpdQMlUOZyyg9koHi8Jf11tYuZry9UE=
-X-Gm-Gg: ASbGnctt+xV5Pa5crebsuvfFys/VUAWh9pKRBrG0lYYXBgt5Ik1vDEKJls8Sbi9DzU4
-	amuXXjxNc5Wr1bY4vMbs1tw07a/1K2gQy3T4t8900OQwpJcqaDDbyvmHXwUGL0e4=
-X-Received: by 2002:a05:6e02:184d:b0:3cf:bb3e:884c with SMTP id e9e14a558f8ab-3d280940c90mr162913885ab.16.1739969334510;
-        Wed, 19 Feb 2025 04:48:54 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEQzXwQKpyH3rywpGs7BzP6mbj6/B897FEVbfIit3jAtaZt2ga8Vr+6/m/vSCYkDIbGIHSmC6KPV/ULHybcxNs=
-X-Received: by 2002:a05:6e02:184d:b0:3cf:bb3e:884c with SMTP id
- e9e14a558f8ab-3d280940c90mr162913745ab.16.1739969334259; Wed, 19 Feb 2025
- 04:48:54 -0800 (PST)
+	id 1tkjVq-0000000ClDQ-22MW;
+	Wed, 19 Feb 2025 12:49:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739969352;
+	bh=ZRkBJqfwNxsy4NNpzr6JGnP5yZqlVEWFWw7cYvuNgiw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HCLC3kZRyknIKRy4X4tvHCuM73kSn2JvXMr5HWCdfodgZMf5ZskztPuQhJnC/o/8l
+	 8y/TqOf0WiTDwN6dkwSyoNzE85TdLcn9ThMii2ol/CbLK7BdU21egioKu4yGj5UPh/
+	 H7y9bde6V2EDGDIAzCR3gyPCmSYGugYImPZN1knxFb0kYTS+qZkn26zRL9fUOW+dya
+	 7BhQwkYfgc4LRStI1jzfKwHfJhC122UFk5Pcz9B/JVTPHX2bGJwm+jGGKvaWpMJQOA
+	 viyqoQgJYNoH6mjFR1KuMOdlyJpB0P/S4AC4tLrpcNYEpWsG5M/zG84j9DgfZZkZG7
+	 ZA4sEm145csZg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BD53817E14D5;
+	Wed, 19 Feb 2025 13:49:11 +0100 (CET)
+Message-ID: <ce224b2e-a3c2-4543-9926-c524944ef1b6@collabora.com>
+Date: Wed, 19 Feb 2025 13:49:11 +0100
 MIME-Version: 1.0
-References: <20250206132754.2596694-1-rppt@kernel.org> <CALu+AoRMQyRDFS_4L0KQkmrFT_S+yk=uZ-Mqt86JQYKKnj-5Ug@mail.gmail.com>
- <Z7WJD6eBLuIRnLwk@kernel.org>
-In-Reply-To: <Z7WJD6eBLuIRnLwk@kernel.org>
-From: Dave Young <dyoung@redhat.com>
-Date: Wed, 19 Feb 2025 20:49:07 +0800
-X-Gm-Features: AWEUYZlzn2-E8ZdtRbfhtM_eLch7RFvZ-yzSIrzOWYzAtm2oUJ9ngWc6Obau8Nc
-Message-ID: <CALu+AoSaEthfed1NOYPiQgm_g-dhibVMRAp0+=_+9qTT4_x=tg@mail.gmail.com>
-Subject: Re: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>, 
-	Anthony Yznaga <anthony.yznaga@oracle.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Ashish Kalra <ashish.kalra@amd.com>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
-	Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, David Woodhouse <dwmw2@infradead.org>, 
-	Eric Biederman <ebiederm@xmission.com>, Ingo Molnar <mingo@redhat.com>, 
-	James Gowans <jgowans@amazon.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, Pratyush Yadav <ptyadav@amazon.de>, 
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, 
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>, Steven Rostedt <rostedt@goodmis.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Tom Lendacky <thomas.lendacky@amd.com>, 
-	Usama Arif <usama.arif@bytedance.com>, Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, 
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 8lE0_97vhxIV-3X_ieu7Eb7gb4mFBGC7JS8CXgZRW_Y_1739969334
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 7/7] dt-bindings: display: mediatek: tdshp: Add support
+ for MT8196
+To: Krzysztof Kozlowski <krzk@kernel.org>, Jay Liu <jay.liu@mediatek.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, Yongqiang Niu <yongqiang.niu@mediatek.com>,
+ CK Hu <ck.hu@mediatek.com>, Hsin-Yi Wang <hsinyi@chromium.org>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250219092040.11227-1-jay.liu@mediatek.com>
+ <20250219092040.11227-8-jay.liu@mediatek.com>
+ <4d8abd3f-c39b-49ea-8a43-b6ad0cf6fb15@kernel.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <4d8abd3f-c39b-49ea-8a43-b6ad0cf6fb15@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_044900_466427_84FE6C5A 
-X-CRM114-Status: GOOD (  26.58  )
+X-CRM114-CacheID: sfid-20250219_044914_669716_20827E47 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,40 +88,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Feb 2025 at 15:32, Mike Rapoport <rppt@kernel.org> wrote:
->
-> On Mon, Feb 17, 2025 at 11:19:45AM +0800, RuiRui Yang wrote:
-> > On Thu, 6 Feb 2025 at 21:34, Mike Rapoport <rppt@kernel.org> wrote:
-> > > == Limitations ==
-> > >
-> > > Currently KHO is only implemented for file based kexec. The kernel
-> > > interfaces in the patch set are already in place to support user space
-> > > kexec as well, but it is still not implemented it yet inside kexec tools.
-> > >
-> >
-> > What architecture exactly does this KHO work fine?   Device Tree
-> > should be ok on arm*, x86 and power*, but how about s390?
->
-> KHO does not use device tree as the boot protocol, it uses FDT as a data
-> structure and adds architecture specific bits to the boot structures to
-> point to that data, very similar to how IMA_KEXEC works.
->
-> Currently KHO is implemented on arm64 and x86, but there is no fundamental
-> reason why it wouldn't work on any architecture that supports kexec.
+Il 19/02/25 10:25, Krzysztof Kozlowski ha scritto:
+> On 19/02/2025 10:20, Jay Liu wrote:
+>> Add a compatible string for MediaTek MT8196 SoC
+> 
+> No, this is just bogus commit msg.
+> 
+> You did not try enough, just pasted same useless and incorrect message
+> to every patch.
+> 
+>>
+>> Signed-off-by: Jay Liu <jay.liu@mediatek.com>
+>> ---
+>>   .../display/mediatek/mediatek,tdshp.yaml      | 51 +++++++++++++++++++
+>>   1 file changed, 51 insertions(+)
+>>   create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,tdshp.yaml
+>>
+>> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,tdshp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,tdshp.yaml
+>> new file mode 100644
+>> index 000000000000..5ed7bdd53d0e
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,tdshp.yaml
+> 
+> Filename matching exactly compatible.
+> 
+>> @@ -0,0 +1,51 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/display/mediatek/mediatek,tdshp.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: MediaTek display clarity correction
 
-Well,  the problem is whether there is a way to  add dtb in the early
-boot path,  for X86 it is added via setup_data,  if there is no such
-way I'm not sure if it is doable especially for passing some info for
-early boot use.  Then the KHO will be only for limited use cases.
 
->
-> > Thanks
-> > Dae
-> >
->
-> --
-> Sincerely yours,
-> Mike.
->
+Adding more comments to Krzysztof's review....
+
+What does "TDSHP" stand for? "Display Clarity Correction" rolls up as "DCC" which
+is not "TDSHP".
+
+Please clarify the title by unrolling "TDSHP"
+
+title: MediaTek T.. Display... S... H... P
+
+>> +
+>> +maintainers:
+>> +  - Chun-Kuang Hu <chunkuang.hu@kernel.org>
+>> +  - Philipp Zabel <p.zabel@pengutronix.de>
+>> +
+>> +description: |
+> 
+> Do not need '|' unless you need to preserve formatting.
+> 
+>> +  MediaTek display clarity correction, namely TDSHP, provides a
+
+Again, TDSHP does not stand for "display clarity correction" - that's what it is
+for, and it is ok to say what it is for, but say what TDSHP stands for.
+
+MediaTek T... Display Sharpness? (TDSHP) provides means to adjust
+the image sharpness displayed on a physical screen, therefore this
+IP is meant to perform display clarity correction.
+
+...rest of the blurb, etc.
+
+>> +  operation used to adjust sharpness in display system.
+>> +  TDSHP device node must be siblings to the central MMSYS_CONFIG node.
+>> +  For a description of the MMSYS_CONFIG binding, see
+>> +  Documentation/devicetree/bindings/arm/mediatek/mediatek,mmsys.yaml
+>> +  for details.
+> 
+> Missing blank line. Do not introduce own style.
+> 
+>> +properties:
+>> +  compatible:
+>> +    oneOf:
+> 
+> Drop, unless this is already going to grow?
+> 
+> 
+
+krzk: oh, it is, guaranteed!! but ... not exactly right now (not very soon),
+so dropping the oneOf is a sane recommendation, I agree.
+
+
+Cheers,
+Angelo
+
+>> +      - enum:
+>> +          - mediatek,mt8196-disp-tdshp
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  clocks:
+>> +    maxItems: 1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +
+> 
+> Drop
+> 
+> 
+> Best regards,
+> Krzysztof
+
+
 
 
