@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEC3C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 16:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C4DC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 16:39:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2egRYoPiMWdseZC/79NM1RVQlrpuaV4udcoVD6JgBok=; b=blWG3zHEP/SWUZVA+co2V2RKAf
-	Xd8hBjYKgxB1L+17/J2y5GzrMXK9l8LXd7ERhNBI1ggr3qnIR781v+Glroq9QzzQquxJm1hEpf15F
-	71Zb2/tF4GIH7kaDZyUPdNGkDyL79Lh2aLML5fEBHU4ew4bzd4Y0eo6tYvJCClXgj73NU06ckB1Ru
-	RvGoUu5GYLnXhpeMkXAbjz4xTEP2t2n5YWeubdZGkA/rl5rCiiX79Vi5rr/npmEum1tTBGP0IXzNd
-	+jMMKtRBRVoqUK8lIi8WujR/igZLEFn6cj1YINtGDFuQ5h1ik2qd37NIUSfnqV1Mi3vpnu3cfxvPm
-	GIurrtuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6133/76gB3gWETfShX/iMSttG5argnfv9QscC0l3ym4=; b=xodIBtfjieNR8g0jpQ5MMLeCPy
+	aSuoR8AHDMYzTzXlZDjQZyXIjJtNaTjV9D+KcdLrE4UPSZmDGW13ZjhDh5P7SIntoYkrQnro2zKrW
+	0gj72G9ok8ujtiQw+LE65cucJeUs6gd3ZnRxKgkleQBlwT/NdneGhK3wwN+vYwXS/bZ/t8YHVceWh
+	80bQ5OJbnDsNgrLajpU8rF4m1guSK/wLLxLfHKjtiQw95UyKXNP0HHWPwHEnSGdsnHZrRCpK6G1AW
+	hep5ApQNPku+k7SIZQBkDyWV4vonSwrP5+aF7zxFeuAun0VCyGZk2jyaH2B2tFXm3rLF/8Vant5BA
+	m7D5GHRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkmzl-0000000Dpo1-1nKy;
-	Wed, 19 Feb 2025 16:32:21 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tkn6j-0000000DroL-0u22;
+	Wed, 19 Feb 2025 16:39:33 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkmyG-0000000DpRm-1cW3
+	id 1tkn5E-0000000DrPX-27Zp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 16:30:49 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51JGUfWb1867086
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Wed, 19 Feb 2025 10:30:41 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739982641;
-	bh=2egRYoPiMWdseZC/79NM1RVQlrpuaV4udcoVD6JgBok=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=J/qcVos0abyVyF//MGI0x0i72YiUfOINqzCCL1BAxTHss8zWQNIw0vcml99p2yT5K
-	 7j2Eo871/norErExgvjGnnWc1vXK/2PHB1pKitnzeXsi3oct3gZOF4QPvv1zjkiXp+
-	 6EsOrKNVRoRTt0p0wDsTUeSkD5lQnXQJnnBbcNF0=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51JGUf8d094252;
-	Wed, 19 Feb 2025 10:30:41 -0600
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 19
- Feb 2025 10:30:41 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 19 Feb 2025 10:30:40 -0600
-Received: from [172.24.227.151] (uda0510294.dhcp.ti.com [172.24.227.151])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51JGUbN9123245;
-	Wed, 19 Feb 2025 10:30:38 -0600
-Message-ID: <4740c3f8-5051-4e25-af91-b45735ffef31@ti.com>
-Date: Wed, 19 Feb 2025 22:00:36 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 01/10] arm64: dts: ti: k3-am62-wakeup: Add wakeup R5F
- node
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Andrew Davis
-	<afd@ti.com>,
-        Hari Nagalla <hnagalla@ti.com>
-References: <20250210221530.1234009-1-jm@ti.com>
- <20250210221530.1234009-2-jm@ti.com>
-Content-Language: en-US
-From: Beleswar Prasad Padhi <b-padhi@ti.com>
-In-Reply-To: <20250210221530.1234009-2-jm@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	Wed, 19 Feb 2025 16:38:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6E158A42C2B;
+	Wed, 19 Feb 2025 16:36:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6D65C4CED1;
+	Wed, 19 Feb 2025 16:37:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739983078;
+	bh=zioUkanDxHPR6vNqtgV7v27+nHpYpX9hIMY9zLaK/MI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OmDZpBqVgqaYGBWTpeZEO5oDQmEUIVp2gaY6mlfXoWLnDflb+ktH9/VCXBJaGmsfc
+	 RQxoU00FJMJClVDHf9myP3G0WVUyvON7PSKU7vPjAzS8GD4HBQN03BmcWPTh+jeUvE
+	 KvrNpLdZG642xBHru+0MTGOxASROKt4E+flniykp/SZi6yE+1pcA1VwSdqru5cJ0yz
+	 Xb2TQLKdRPZWUTF/V/2sLsElDFzLNcMMZKplK+54lTdKTv5998AIVCqOLI+QBtuWzG
+	 65TRFAxTvASMlrdC049rkQFQY0q5LE6d/9mSDNgDL54qajKLXHe4tnCrMDgUqDjh2a
+	 3xzBK/yujG7IA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tkn5A-005tju-Dm;
+	Wed, 19 Feb 2025 16:37:56 +0000
+Date: Wed, 19 Feb 2025 16:37:56 +0000
+Message-ID: <867c5lsxej.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH v2 03/14] drivers/perf: apple_m1: Provide helper for mapping PMUv3 events
+In-Reply-To: <20250203183111.191519-4-oliver.upton@linux.dev>
+References: <20250203183111.191519-1-oliver.upton@linux.dev>
+	<20250203183111.191519-4-oliver.upton@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mizhang@google.com, coltonlewis@google.com, rananta@google.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, j@jannau.net
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_083048_567282_9D7CDCF6 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20250219_083800_678193_BA543797 
+X-CRM114-Status: GOOD (  27.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,69 +95,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Judith,
-
-On 11/02/25 03:45, Judith Mendez wrote:
-> From: Hari Nagalla <hnagalla@ti.com>
->
-> AM62 SoC devices have a single core R5F processor in wakeup domain.
-> The R5F processor in wakeup domain is used as a device manager
-> for the SoC.
->
-> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
-> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-> Signed-off-by: Judith Mendez <jm@ti.com>
+On Mon, 03 Feb 2025 18:31:00 +0000,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> Apple M* parts carry some IMP DEF traps for guest accesses to PMUv3
+> registers, even though the underlying hardware doesn't implement PMUv3.
+> This means it is possible to virtualize PMUv3 for KVM guests.
+> 
+> Add a helper for mapping common PMUv3 event IDs onto hardware event IDs,
+> keeping the implementation-specific crud in the PMU driver rather than
+> KVM proper.
+> 
+> Tested-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 > ---
-> Changes since v4:
-> - No change
-> ---
->   arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi | 25 ++++++++++++++++++++++
->   1 file changed, 25 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> index 9b8a1f85aa15c..061819a64300f 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
-> @@ -106,6 +106,31 @@ wkup_rti0: watchdog@2b000000 {
->   		status = "reserved";
->   	};
->   
-> +	wkup_r5fss0: r5fss@78000000 {
-> +		compatible = "ti,am62-r5fss";
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +		ranges = <0x78000000 0x00 0x78000000 0x8000>,
-> +			 <0x78100000 0x00 0x78100000 0x8000>;
-> +		power-domains = <&k3_pds 119 TI_SCI_PD_EXCLUSIVE>;
-> +		status = "disabled";
+>  drivers/perf/apple_m1_cpu_pmu.c | 35 +++++++++++++++++++++++++++++++++
+>  include/linux/perf/arm_pmu.h    |  1 +
+>  2 files changed, 36 insertions(+)
+> 
+> diff --git a/drivers/perf/apple_m1_cpu_pmu.c b/drivers/perf/apple_m1_cpu_pmu.c
+> index d6d4ff6da862..0e54d3f900a7 100644
+> --- a/drivers/perf/apple_m1_cpu_pmu.c
+> +++ b/drivers/perf/apple_m1_cpu_pmu.c
+> @@ -12,6 +12,7 @@
+>  
+>  #include <linux/of.h>
+>  #include <linux/perf/arm_pmu.h>
+> +#include <linux/perf/arm_pmuv3.h>
+>  #include <linux/platform_device.h>
+>  
+>  #include <asm/apple_m1_pmu.h>
+> @@ -174,6 +175,17 @@ static const unsigned m1_pmu_perf_map[PERF_COUNT_HW_MAX] = {
+>  	[PERF_COUNT_HW_BRANCH_MISSES]		= M1_PMU_PERFCTR_BRANCH_MISPRED_NONSPEC,
+>  };
+>  
+> +#define M1_PMUV3_EVENT_MAP(pmuv3_event, m1_event)							\
+> +	[ARMV8_PMUV3_PERFCTR_##pmuv3_event]			= M1_PMU_PERFCTR_##m1_event
 > +
-> +		wkup_r5fss0_core0: r5f@78000000 {
-> +			compatible = "ti,am62-r5f";
-> +			reg = <0x78000000 0x00008000>,
-> +			      <0x78100000 0x00008000>;
-> +			reg-names = "atcm", "btcm";
-> +			ti,sci = <&dmsc>;
-> +			ti,sci-dev-id = <121>;
-> +			ti,sci-proc-ids = <0x01 0xff>;
-> +			resets = <&k3_reset 121 1>;
-> +			firmware-name = "am62-wkup-r5f0_0-fw";
+> +static const unsigned int m1_pmu_pmceid_map[ARMV8_PMUV3_MAX_COMMON_EVENTS] = {
 
+nit: M1_PMU_PERFCTR* are limited to 8bit quantities, and
+HW_OP_UNSUPPORTED is a 16bit constant. Probably worth changing the
+type to u16 and save a whole 128 bytes! ;-)
 
-Here and everywhere else, 'resets' and 'firmware-name' are standard DT 
-properties and should come before vendor specific properties.
-
-https://docs.kernel.org/devicetree/bindings/dts-coding-style.html#order-of-properties-in-device-node
-
-Thanks,
-Beleswar
-
-> +			ti,atcm-enable = <1>;
-> +			ti,btcm-enable = <1>;
-> +			ti,loczrama = <1>;
-> +		};
-> +	};
+> +	[0 ... ARMV8_PMUV3_MAX_COMMON_EVENTS - 1]	= HW_OP_UNSUPPORTED,
+> +	M1_PMUV3_EVENT_MAP(INST_RETIRED,	INST_ALL),
+> +	M1_PMUV3_EVENT_MAP(CPU_CYCLES,		CORE_ACTIVE_CYCLE),
+> +	M1_PMUV3_EVENT_MAP(BR_RETIRED,		INST_BRANCH),
+> +	M1_PMUV3_EVENT_MAP(BR_MIS_PRED_RETIRED,	BRANCH_MISPRED_NONSPEC),
+> +};
 > +
->   	wkup_vtm0: temperature-sensor@b00000 {
->   		compatible = "ti,j7200-vtm";
->   		reg = <0x00 0xb00000 0x00 0x400>,
+>  /* sysfs definitions */
+>  static ssize_t m1_pmu_events_sysfs_show(struct device *dev,
+>  					struct device_attribute *attr,
+> @@ -558,6 +570,26 @@ static int m2_pmu_map_event(struct perf_event *event)
+>  	return armpmu_map_event(event, &m1_pmu_perf_map, NULL, M1_PMU_CFG_EVENT);
+>  }
+>  
+> +static int m1_pmu_map_pmuv3_event(unsigned int eventsel)
+> +{
+> +	int m1_event = HW_OP_UNSUPPORTED;
+
+unsigned?
+
+> +
+> +	if (eventsel < ARMV8_PMUV3_MAX_COMMON_EVENTS)
+> +		m1_event = m1_pmu_pmceid_map[eventsel];
+> +
+> +	return m1_event == HW_OP_UNSUPPORTED ? -EOPNOTSUPP : m1_event;
+> +}
+> +
+> +static void m1_pmu_init_pmceid(struct arm_pmu *pmu)
+> +{
+> +	unsigned int event;
+> +
+> +	for (event = 0; event < ARMV8_PMUV3_MAX_COMMON_EVENTS; event++) {
+> +		if (m1_pmu_map_pmuv3_event(event) >= 0)
+> +			set_bit(event, pmu->pmceid_bitmap);
+> +	}
+> +}
+> +
+>  static void m1_pmu_reset(void *info)
+>  {
+>  	int i;
+> @@ -618,6 +650,9 @@ static int m1_pmu_init(struct arm_pmu *cpu_pmu, u32 flags)
+>  	cpu_pmu->reset		  = m1_pmu_reset;
+>  	cpu_pmu->set_event_filter = m1_pmu_set_event_filter;
+>  
+> +	cpu_pmu->map_pmuv3_event  = m1_pmu_map_pmuv3_event;
+> +	m1_pmu_init_pmceid(cpu_pmu);
+> +
+>  	bitmap_set(cpu_pmu->cntr_mask, 0, M1_PMU_NR_COUNTERS);
+>  	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_EVENTS] = &m1_pmu_events_attr_group;
+>  	cpu_pmu->attr_groups[ARMPMU_ATTR_GROUP_FORMATS] = &m1_pmu_format_attr_group;
+> diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
+> index 4b5b83677e3f..35f3778ae20e 100644
+> --- a/include/linux/perf/arm_pmu.h
+> +++ b/include/linux/perf/arm_pmu.h
+> @@ -100,6 +100,7 @@ struct arm_pmu {
+>  	void		(*stop)(struct arm_pmu *);
+>  	void		(*reset)(void *);
+>  	int		(*map_event)(struct perf_event *event);
+> +	int		(*map_pmuv3_event)(unsigned int eventsel);
+>  	DECLARE_BITMAP(cntr_mask, ARMPMU_MAX_HWEVENTS);
+>  	bool		secure_access; /* 32-bit ARM only */
+>  #define ARMV8_PMUV3_MAX_COMMON_EVENTS		0x40
+
+I think it may be more logical to introduce this new callback first,
+with its usage in KVM, and only then plug it in the PMU driver. Not a
+big deal though.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
