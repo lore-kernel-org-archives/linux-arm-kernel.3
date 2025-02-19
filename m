@@ -4,102 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5073C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5DA9C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EwHvox6WJGQYQEIxf5WT1th5ef4Nf6RAE7x7WQqDiYU=; b=Mj7Jm6aGBUFiV2c8KCeZM0y1tL
-	PWgBKXaDEA+aEuJ62VwWsKBzGes1x27o/ZGhFba9FWIwBJvRSYUMlSU+8RE+6kDb8liC0ooBkNYNr
-	dGM1J8ui0KyithOsligBJKdcksVLZfFnO4oFXPM4uspsigWPnFLKuEHD+Cfx7MKeaPJD0W4Bru97E
-	04V1REbCjByqn/gAJJHWLL7DwsYgMnNKx+XbIGbJoHZ/vHkztTSjqeVf1qj1sLHKFGDw2V0ogTV6Q
-	GtZRM2CWecIKTeCX/o1iFMlOmZkuxSopCFdJUOrhseOAi9aV3eID6Y6HhOoGXXvtcRwReILsAht4O
-	kuBh2DzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AXdrK0FW7YBCiiP1kX6NoL+0DT8yWctwGO9dXqbApP0=; b=TL7hdYRLeDeMDr3BwSWxjSMGpO
+	RZRR8LZmK6xYiI9l/5aAelYEJBsYnvJOuLPXFySS9peNrSuaiib6co0JmFW/ctz7Pkhdferderpco
+	1PBOQdXkMOB04z+ZSQZVowl0H3H/T80qADH2XFaW15BERJdWXoIKtXo9ucINyAa2Ggm16oCF2TKdx
+	WsmshRTl+KwuXOY3vZ3aa6QNptphI2vKcYNHL0PBQhTveJ5kBF7TS0NSPyHfvJvGVJ5eOpv78+0v2
+	f9qMvnktlyDRhRdvAmIPJFsB0CBibFekISH5M3V5faTOQwFirn4aaZutjeW4eFjVz30O3vpXl7MIR
+	2XtU0vqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkphd-0000000Ec5m-1WjA;
-	Wed, 19 Feb 2025 19:25:49 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1tkpj5-0000000EcYK-4ALN;
+	Wed, 19 Feb 2025 19:27:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpUD-0000000EYW4-2EeU
+	id 1tkpW1-0000000EYy7-2W1q
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 19 Feb 2025 19:13:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=AXdrK0FW7YBCiiP1kX6NoL+0DT8yWctwGO9dXqbApP0=; b=pI/yoAdIWO7darympVUoLUG74A
+	X27b9iTuhLhQOEVTrotsNVgW40SbVjeoai3rZ5IhjKv2Gz+VfhTnYYoSvYatDYA1/WFhrmHfFaMpA
+	d7iFfxvxlGCZyJT6GY+1TaBZPQDUwasiPeOQsd35lKFMPKwcx/b7NdptcinXgBM3b7VoYC73t+JpZ
+	y83+WeHBuBCL18ATu9aUSERYFCfjoUMTO97e+R91gtd5aubKVBYPyDVygJp4cT64DFI/o9wDYLibU
+	yoT5k+Hkw1mErUy0jjIjbziC4iadiUBGxielL2aqEcrixmRdn2G2K0ehqGMp0t+IWE1yxyLf2XySP
+	vCZMBKQQ==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkpVy-00000002JK5-1f9D
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 19:11:58 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ab78e6edb99so23859066b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 11:11:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739992316; x=1740597116; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EwHvox6WJGQYQEIxf5WT1th5ef4Nf6RAE7x7WQqDiYU=;
-        b=Lq3GCjb8TBNNg8ChVwUpNcaCl5Fq0ogKiqo9O308zwSLR7ach25nB7n0FMehrLJpOb
-         XpkXJnrS0VJ3jdk2b1PFFCQaA/CynSMulomVuM4cUrNooJLGIsjmYZ433lkwQ+YPWJLh
-         V26wOZjJ0rzpuVc9Ict5nkRusD6Htd9dYFkfuziwoEdedgmScjaRl9+SxzGMeSKX+K4F
-         s46pV6N/1yMv/jYH9fcyweJwgn+b1onfvWHluAhyA+A/iIKbufq4MGFTkcqDeUcx8ULf
-         t2RXDY/UpdXlK6Vb1xJWj9yvcONjRXCcORuPufWQ+pQr0tXIBBDmRuneR4NEKhqOKq7Z
-         B8iQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739992316; x=1740597116;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EwHvox6WJGQYQEIxf5WT1th5ef4Nf6RAE7x7WQqDiYU=;
-        b=f7ueYeIoLf8vpuM7ZTV5UwT/4Ot34+uLtpoLcNQk+6qNIXkNAQKRFUVJm2XbE3/viC
-         J2gIg12ywHyxx2SXLGqO2iA3RDQsHFwql2GQqlFuFLtH0zZL2IRYDls69ynA02pAycFs
-         5zcs9lLu8yuNsCb6neIsfLLuHqy33VT1h0oMXht4EjLq4Rl355VlZm0hH211yTFciBha
-         RmeP7JwCKcpW8Bs6O94TOGjUTUvanEn25FxYHZAx5Smbck0GYw3ucniAdbvDnO5ikwbQ
-         QkNQZXWb9S+lkXBgHyku21skoTqWbjScoWHTutLTKy0oFPeNZzsQ4nUExtEhN/dCsZJB
-         kKxg==
-X-Forwarded-Encrypted: i=1; AJvYcCU3Pyt2qSCPy/JofESjetiDmn+mqqhxZBWPdLlK/eP4cmSL/cN3Y1jjBU8yfottXXDs8IjelAUJaLqgt5e++Az4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFgObFwlWSWOlvY/1Yya1pmQzZpNLIZn17fmVozBjm++aRC2P3
-	jrzcdbqukSm8ZZbQqGQfsAV2Gz+N0+NqMf5HkU+fa/BOmPVafPkn
-X-Gm-Gg: ASbGnct5dDCClpZzirr4pWlFfmzafPExTC/dllhbvXLmc16N+NhPKl8j899NmXq8hVe
-	8OgaVd2xSO25ajA7BcQHqaQyWu+8m6MMvlCmixxMyNt5HGGStGaik0VHT5x20cVTg09w0W5pL9I
-	YzgQhDqrg0iIPkDJjdQEBeq9I4FOf01V/DS3FXZh7Cc0EhMUIURTZuQah60mubOLEk7WNp6JOTk
-	ltwJ1pXrtQaEng6UGauNoKpx/W/YyqMR/e4PwXZTaIFrVgYKnJX/6wPp0a8+ozKJOSiy7gyusms
-	79PKY8HPVwafZDtfhAfngcIIEM1Q
-X-Google-Smtp-Source: AGHT+IFyOBwXGTpSYagOOpkWDMhkVuORfStvj5grnxd98RQN2N6gtL61zwIr20Bcm+RaMlN8QO+yKQ==
-X-Received: by 2002:a17:907:7815:b0:ab7:d06d:b4bf with SMTP id a640c23a62f3a-abbcd059bf2mr461138366b.39.1739992315757;
-        Wed, 19 Feb 2025 11:11:55 -0800 (PST)
-Received: from demon-pc.localdomain ([188.27.130.21])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abbe0d39f9csm127767866b.69.2025.02.19.11.11.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2025 11:11:55 -0800 (PST)
-From: Cosmin Tanislav <demonsingur@gmail.com>
-To: 
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Julien Massot <julien.massot@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Bingbu Cao <bingbu.cao@intel.com>,
-	Tianshu Qiu <tian.shu.qiu@intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Umang Jain <umang.jain@ideasonboard.com>,
-	Cosmin Tanislav <demonsingur@gmail.com>,
-	=?UTF-8?q?Pawe=C5=82=20Anikiel?= <panikiel@google.com>,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 3/3] media: v4l: subdev: remove v4l2_subdev_state_xlate_streams()
-Date: Wed, 19 Feb 2025 21:11:32 +0200
-Message-ID: <20250219191136.215151-4-demonsingur@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250219191136.215151-1-demonsingur@gmail.com>
-References: <20250219191136.215151-1-demonsingur@gmail.com>
+	Wed, 19 Feb 2025 19:13:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=AXdrK0FW7YBCiiP1kX6NoL+0DT8yWctwGO9dXqbApP0=; b=LBPbPLYVfyUVGqIt7OCUrlXrd5
+	lIHTDU6Mx3DQRND5VLydjwu3aBm/affJCwLVJn++b0RWN6vGZj3IpBtIg7uRC++gz4TL4PwiVkYkU
+	qiNkxSwrxIuWvOYHRkMit1/pf0mLV59aCtp7JQuSzNpGnsvy1jRMD434rxyMNWR3+/0TDBzcV0Uzp
+	44/uqEJ46rBpP2qpKbwzunVcpM/Gyj6XWyJtPtkiqViAPKFHLk4on4POUr+EOJJ4nVb69TLcRs98K
+	E5wtWMGa+mt4q7QuHVklVtwfJUeaG8K+iKE67srxZPrMY1Bk6DkswRG6fUrKnmz5vOu+xgTtk1RhZ
+	M8GtZjXA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36382)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tkpVm-0006ih-21;
+	Wed, 19 Feb 2025 19:13:36 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tkpVi-00009w-2O;
+	Wed, 19 Feb 2025 19:13:30 +0000
+Date: Wed, 19 Feb 2025 19:13:30 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jon Hunter <jonathanh@nvidia.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Bryan Whitehead <bryan.whitehead@microchip.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Marcin Wojtas <marcin.s.wojtas@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, UNGLinuxDriver@microchip.com,
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH net-next 9/9] net: stmmac: convert to phylink managed EEE
+ support
+Message-ID: <Z7YtWmkVl0rWFvQO@shell.armlinux.org.uk>
+References: <Z4gdtOaGsBhQCZXn@shell.armlinux.org.uk>
+ <E1tYAEG-0014QH-9O@rmk-PC.armlinux.org.uk>
+ <6ab08068-7d70-4616-8e88-b6915cbf7b1d@nvidia.com>
+ <Z63Zbaf_4Rt57sox@shell.armlinux.org.uk>
+ <Z63e-aFlvKMfqNBj@shell.armlinux.org.uk>
+ <05987b45-94b9-4744-a90d-9812cf3566d9@nvidia.com>
+ <Z68nSJqVxcnCc1YB@shell.armlinux.org.uk>
+ <86fae995-1700-420b-8d84-33ab1e1f6353@nvidia.com>
+ <Z7X6Z8yLMsQ1wa2D@shell.armlinux.org.uk>
+ <203871c2-c673-4a98-a0a3-299d1cf71cf0@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <203871c2-c673-4a98-a0a3-299d1cf71cf0@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_111157_567826_9A34B6D1 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20250219_191346_525541_7F1E9E89 
+X-CRM114-Status: GOOD (  22.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,59 +114,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All usages of v4l2_subdev_state_xlate_streams() have been replaced with
-v4l2_subdev_routing_xlate_streams(), remove it.
+On Wed, Feb 19, 2025 at 05:52:34PM +0000, Jon Hunter wrote:
+> On 19/02/2025 15:36, Russell King (Oracle) wrote:
+> > So clearly the phylink resolver is racing with the rest of the stmmac
+> > resume path - which doesn't surprise me in the least. I believe I raised
+> > the fact that calling phylink_resume() before the hardware was ready to
+> > handle link-up is a bad idea precisely because of races like this.
+> > 
+> > The reason stmmac does this is because of it's quirk that it needs the
+> > receive clock from the PHY in order for stmmac_reset() to work.
+> 
+> I do see the reset fail infrequently on previous kernels with this device
+> and when it does I see these messages ...
+> 
+>  dwc-eth-dwmac 2490000.ethernet: Failed to reset the dma
+>  dwc-eth-dwmac 2490000.ethernet eth0: stmmac_hw_setup: DMA engine
+>   initialization failed
 
-Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
----
- drivers/media/v4l2-core/v4l2-subdev.c |  7 -------
- include/media/v4l2-subdev.h           | 14 --------------
- 2 files changed, 21 deletions(-)
+I wonder whether it's also racing with phylib, but phylink_resume()
+calling phylink_start() going in to call phy_start() is all synchronous.
+That causes __phy_resume() to be called.
 
-diff --git a/drivers/media/v4l2-core/v4l2-subdev.c b/drivers/media/v4l2-core/v4l2-subdev.c
-index d1581f1036487..1fb413bb337a3 100644
---- a/drivers/media/v4l2-core/v4l2-subdev.c
-+++ b/drivers/media/v4l2-core/v4l2-subdev.c
-@@ -2067,13 +2067,6 @@ u64 v4l2_subdev_routing_xlate_streams(const struct v4l2_subdev_krouting *routing
- }
- EXPORT_SYMBOL_GPL(v4l2_subdev_routing_xlate_streams);
- 
--u64 v4l2_subdev_state_xlate_streams(const struct v4l2_subdev_state *state,
--				    u32 pad0, u32 pad1, u64 *streams)
--{
--	return v4l2_subdev_routing_xlate_streams(&state->routing, pad0, pad1, streams);
--}
--EXPORT_SYMBOL_GPL(v4l2_subdev_state_xlate_streams);
--
- int v4l2_subdev_routing_validate(struct v4l2_subdev *sd,
- 				 const struct v4l2_subdev_krouting *routing,
- 				 enum v4l2_subdev_routing_restriction disallow)
-diff --git a/include/media/v4l2-subdev.h b/include/media/v4l2-subdev.h
-index 90d08e13e016b..3781d6d8465bd 100644
---- a/include/media/v4l2-subdev.h
-+++ b/include/media/v4l2-subdev.h
-@@ -1604,20 +1604,6 @@ v4l2_subdev_state_get_opposite_stream_format(struct v4l2_subdev_state *state,
- u64 v4l2_subdev_routing_xlate_streams(const struct v4l2_subdev_krouting *routing,
- 				      u32 pad0, u32 pad1, u64 *streams);
- 
--/**
-- * v4l2_subdev_state_xlate_streams() - Translate streams from one pad to another
-- *
-- * @state: Subdevice state
-- * @pad0: The first pad
-- * @pad1: The second pad
-- * @streams: Streams bitmask on the first pad
-- *
-- * This is the same as v4l2_subdev_routing_xlate_streams, but takes subdevice
-- * state as parameter
-- */
--u64 v4l2_subdev_state_xlate_streams(const struct v4l2_subdev_state *state,
--				    u32 pad0, u32 pad1, u64 *streams);
--
- /**
-  * enum v4l2_subdev_routing_restriction - Subdevice internal routing restrictions
-  *
+Which PHY device/driver is being used?
+
+> > So, my preference would be to move phylink_resume() later, removing
+> > the race condition. If there's any regressions, then we need to
+> > _properly_ solve them by ensuring that the PHY keeps the RX clock
+> > running by honouring PHY_F_RXC_ALWAYS_ON. That's going to need
+> > everyone to test their stmmac platforms to find all the cases that
+> > need fixing...
+> 
+> Thanks for the in-depth analysis and feedback. We have 3 SoCs that use this
+> driver and so I will do some testing with this change on all of them.
+
+Thanks!
+
 -- 
-2.48.1
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
