@@ -4,68 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 062EBC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 21:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E168C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 21:53:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGI1Xkfu1FjZTJanC956zK5h4HLU7Fgz+30vcL4T6+g=; b=p3IORiHLr1HSnaPgE0rwauvtbE
-	S5UC10JGDq/iLNjlgpnGHoqBjS/sk/jwb0txGpsjc4NdfwsvlNho5DP2JpGSm+XyEUQM1sG3Ia1TJ
-	GoFtdSAR7d7XWHW6/KB5GszEksAocjaD6/1OKvTNVeGrrzgZTdN7PdcsF68K6kUsXFzQ5vsXk4QLi
-	HfajZlOXy+ZIg+FFwHfeGhuSent+Rc5KuSCxx2vKRNDR8m0ip64ZKe6ypjRdUwYkqYRQlydVTX8cM
-	b0+qEHUt5gIwrIJ6dvyjnENC1jsuYCz4FfKAxn58+wNeTgI5krylp7LRI7Q4n0DdVFeNN8q2deKeA
-	8aqwm1Lg==;
+	bh=Z5Cy6i8OccZrUOGzsLJzRsfqnyK7yMP4tsvQNLKyJq8=; b=hQOQYAXclwpVpn/korC1l0x+K8
+	hhZaR57W8mZR7WmR9P03jvVtf9A4wiIKLzgZQbGgqSpxbwsQ+ILCMCSJNoGDKgy+hwDolh3HdeZ3p
+	D4Ugk4ZmkC2zDxy55+mXEkE9+7vM+AWr88DsmH7YQ5ihllHDKDlCpPRc8uEsz3Kky9dYnvp/V37jx
+	bjAsCN1jPa1kJLmDfxj/ShjVqbTyZn3EFKVyd8xmYsmHZYZLtQTDh9NLN0jdm7CzFwEtjrcQKEdku
+	6MwJoDVR2OynvdPDZ6rLQzdmubeJqxbQ6y9HQVhMKo+N/Vi6WZclATbPvzUiEkESGjwtk0lj5ooIh
+	DJ72w8QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkryc-0000000FIJl-1fcr;
-	Wed, 19 Feb 2025 21:51:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tks0E-0000000FIoK-0bQ1;
+	Wed, 19 Feb 2025 21:53:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkrx7-0000000FHxU-1Yr6;
-	Wed, 19 Feb 2025 21:49:58 +0000
+	id 1tkryg-0000000FILn-0Zmf
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Feb 2025 21:51:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3FA99611D4;
-	Wed, 19 Feb 2025 21:49:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A79EC4CEE6;
-	Wed, 19 Feb 2025 21:49:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4719A5C5C71;
+	Wed, 19 Feb 2025 21:50:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0780AC4CED1;
+	Wed, 19 Feb 2025 21:51:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740001796;
-	bh=V1p1tT7UNLn3zJwu+41I707JUQAwN9RLXALKhZOBi0Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SSwWSClUsLcb50H6wcw8uNxRz4rkMZZ7OBldjZF6ML75IG6C4tywp6GErrMbtAl46
-	 yzRrDVY0v2WqoYCpEpicEw6QkYa7Lu7gbSIX0Is6cqSJSAkfEGvdEc1g4So+PjNm+b
-	 pTADXkCwNmoRm7Y1qGn2AxsxIKxD4V9pv9Y6uDZmTq6WulZMyKUrDj0VDjYo0zGwA4
-	 P8KLsiBrGvobF2g4LZP8mjqO5JhzeQVm3RTid+v+xbTgjaM2+6ek2UCfJHpfK/i/55
-	 zKPVWsQ7+8W9GeXj9Zr2I3xG2d7DNmASWyAkIFH9wenBhfe47IqR02i0uLT2sTmMSo
-	 qrw2tmgYHvCAQ==
-Date: Wed, 19 Feb 2025 15:49:55 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Dharma Balasubiramani <dharma.b@microchip.com>
-Cc: Kevin Hilman <khilman@baylibre.com>, linux-amlogic@lists.infradead.org,
-	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>
-Subject: Re: [PATCH v3 1/2] dt-bindings: mmc: mmc-slot: Make compatible
- property optional
-Message-ID: <174000172538.3013190.16324788737757814573.robh@kernel.org>
-References: <20250212-mmc-slot-v3-0-2bf288207040@microchip.com>
- <20250212-mmc-slot-v3-1-2bf288207040@microchip.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250212-mmc-slot-v3-1-2bf288207040@microchip.com>
+	s=k20201202; t=1740001893;
+	bh=BwuZlVH7hL1B2MxeFHe9i1MfYEloGvyYsfT0M9Gz7hM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=NJ8I7/yMNkBb228KpwFbVRmub7d/CCVHwva/+6La5kzlnid30X3a1PeIXCLqVeouQ
+	 8/+zYgRlwUIjCKVrzAE+7JKeyx9IxL2SCeruGI5n/UftcIXLhB6l1JXl291Np2nGwj
+	 iHpicNBhRxfTbV981YzJquQdUE2izhfHoXy/8inMLw0DQ+cwH4zQ3QvfUz2M6mw4Ax
+	 j6OhbuuNoQmmKCvunKX8UROBPcIU1h5hXNL7nCoU4laAO2vfRnOqYjIb4A7CskVbbH
+	 Tzn+vm/jh1nQUzL6cdm6yVd/g2Z0QXsoQ/j047yAzyPFMXom49TfYJ03KYdGy80XsA
+	 DPPMNL1TIL/Cg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tkryc-005yq7-Va;
+	Wed, 19 Feb 2025 21:51:31 +0000
+Date: Wed, 19 Feb 2025 21:51:30 +0000
+Message-ID: <86wmdlr4bh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jing Zhang <jingzhangos@google.com>
+Cc: KVMARM <kvmarm@lists.linux.dev>,
+	ARMLinux <linux-arm-kernel@lists.infradead.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>
+Subject: Re: [PATCH v1] KVM: arm64: vgic-its: Add debugfs interface to expose ITS tables
+In-Reply-To: <20250214020258.2436469-1-jingzhangos@google.com>
+References: <20250214020258.2436469-1-jingzhangos@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: jingzhangos@google.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com, suzuki.poulose@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_134957_471667_A98B0F83 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20250219_135134_276925_60360381 
+X-CRM114-Status: GOOD (  46.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,27 +87,317 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 12 Feb 2025 14:52:10 +0530, Dharma Balasubiramani wrote:
-> The compatible property is required for some vendor-specific device trees, such
-> as Amlogic's meson-mx-sdio, but is unnecessary for others, like Microchip's
-> DTS. To resolve unintended warnings for configurations that do not require it,
-> remove compatible from the required properties in mmc-slot.yaml.
-
-Please rewrap your commit message at the right length. checkpatch.pl 
-will tell you this so I don't have to.
-
+On Fri, 14 Feb 2025 02:02:58 +0000,
+Jing Zhang <jingzhangos@google.com> wrote:
 > 
-> Since meson-mx-sdio still requires compatible, explicitly add it to its
-> required list in amlogic,meson-mx-sdio.yaml.
+> This commit introduces a debugfs interface to display the contents of the
+> VGIC Interrupt Translation Service (ITS) tables.
 > 
-> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+> The ITS tables map Device/Event IDs to Interrupt IDs and target processors.
+> Exposing this information through debugfs allows for easier inspection and
+> debugging of the interrupt routing configuration.
+> 
+> The debugfs interface presents the ITS table data in a tabular format:
+> 
+>   Device ID: 0, Event ID Range: [0 - 65535]
+>   EVENT_ID    INTID  HWINTID   TARGET   COL_ID HW
+>   -----------------------------------------------
+>          0       32        0        0        0  0
+>          1       33        0        0        0  0
+>          2       34        0        0        0  0
+
+Is this an actual output? INTID 32 as the LPI number is pretty creative.
+
+>        ...      ...      ...      ...      ... ..
+> 
+> The output is generated using the seq_file interface, allowing for efficient
+> handling of potentially large ITS tables.
+> 
+> This interface is read-only and does not allow modification of the ITS
+> tables. It is intended for debugging and informational purposes only.
+> 
+> Signed-off-by: Jing Zhang <jingzhangos@google.com>
 > ---
->  Documentation/devicetree/bindings/mmc/amlogic,meson-mx-sdio.yaml | 3 +++
->  Documentation/devicetree/bindings/mmc/mmc-slot.yaml              | 1 -
->  2 files changed, 3 insertions(+), 1 deletion(-)
+> rfc -> v1:
+>  - Rebase on to v6.14-rc2.
+>  - Retained only the debugfs interface patch from the original RFC [1].
 > 
+> [1] https://lore.kernel.org/all/20250113193128.1533449-1-jingzhangos@google.com
+> ---
+>  arch/arm64/kvm/Makefile              |   2 +-
+>  arch/arm64/kvm/vgic/vgic-its-debug.c | 234 +++++++++++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic-its.c       |  39 +----
+>  arch/arm64/kvm/vgic/vgic.h           |  33 ++++
+>  4 files changed, 276 insertions(+), 32 deletions(-)
+>  create mode 100644 arch/arm64/kvm/vgic/vgic-its-debug.c
+> 
+> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+> index 3cf7adb2b5038..b1e7b9c29589c 100644
+> --- a/arch/arm64/kvm/Makefile
+> +++ b/arch/arm64/kvm/Makefile
+> @@ -23,7 +23,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
+>  	 vgic/vgic-v3.o vgic/vgic-v4.o \
+>  	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
+>  	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
+> -	 vgic/vgic-its.o vgic/vgic-debug.o
+> +	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-its-debug.o
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+I'd rather you keep the vgic debugging stuff in vgic-debug.c. This is
+positively tiny, and we don't need to spread the debugging around.
 
+>  
+>  kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+>  kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
+> diff --git a/arch/arm64/kvm/vgic/vgic-its-debug.c b/arch/arm64/kvm/vgic/vgic-its-debug.c
+> new file mode 100644
+> index 0000000000000..1ff0dd0137939
+> --- /dev/null
+> +++ b/arch/arm64/kvm/vgic/vgic-its-debug.c
+> @@ -0,0 +1,234 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * vgic-its-debug.c - Debugfs interface for exposing VGIC ITS tables.
+> + *
+> + * Copyright (C) 2025 Google
+> + *
+> + * This file provides a debugfs interface to display the contents of the
+> + * VGIC Interrupt Translation Service (ITS) tables. This allows for
+> + * inspection of the mapping between Event IDs, Interrupt IDs, and target
+> + * processors. The information is presented in a tabular format through a
+> + * seq_file interface.
+> + */
+> +
+> +#include <linux/debugfs.h>
+> +#include <linux/kvm_host.h>
+> +#include <linux/seq_file.h>
+> +#include <kvm/arm_vgic.h>
+> +#include "vgic.h"
+> +
+> +/**
+> + * struct vgic_its_iter - Iterator for traversing VGIC ITS tables.
+> + * @dev: Pointer to the current its_device being processed.
+> + * @ite: Pointer to the current its_ite within the device being processed.
+> + *
+> + * This structure is used to maintain the current position during iteration
+> + * over the ITS tables. It holds pointers to both the current device and the
+> + * current ITE within that device.
+
+Which tables? You only seem to consider the device table. If that's
+all you need to consider, then call it out in the comment.
+
+> + */
+> +struct vgic_its_iter {
+> +	struct its_device *dev;
+> +	struct its_ite *ite;
+> +};
+> +
+> +/**
+> + * end_of_iter - Checks if the iterator has reached the end of the ITS tables.
+> + * @iter: The iterator to check.
+> + *
+> + * Return: True if the iterator is at the end, false otherwise.
+
+The end of what?
+
+> + */
+> +static inline bool end_of_iter(struct vgic_its_iter *iter)
+> +{
+> +	return !iter->dev && !iter->ite;
+> +}
+> +
+> +/**
+> + * iter_next - Advances the iterator to the next entry in the ITS tables.
+> + * @its: The VGIC ITS structure.
+> + * @iter: The iterator to advance.
+> + *
+> + * This function moves the iterator to the next ITE within the current device,
+> + * or to the first ITE of the next device if the current ITE is the last in
+> + * the device. If the current device is the last device, the iterator is set
+> + * to indicate the end of iteration.
+> + */
+> +static void iter_next(struct vgic_its *its, struct vgic_its_iter *iter)
+> +{
+> +	struct its_device *dev = iter->dev;
+> +	struct its_ite *ite = iter->ite;
+> +
+> +	if (!ite || list_is_last(&ite->ite_list, &dev->itt_head)) {
+> +		if (list_is_last(&dev->dev_list, &its->device_list)) {
+> +			dev = NULL;
+> +			ite = NULL;
+> +		} else {
+> +			dev = list_next_entry(dev, dev_list);
+> +			ite = list_first_entry_or_null(&dev->itt_head,
+> +						       struct its_ite,
+> +						       ite_list);
+> +		}
+> +	} else {
+> +		ite = list_next_entry(ite, ite_list);
+> +	}
+> +
+> +	iter->dev = dev;
+> +	iter->ite = ite;
+> +}
+> +
+> +/**
+> + * vgic_its_debug_start - Start function for the seq_file interface.
+> + * @s: The seq_file structure.
+> + * @pos: The starting position (offset).
+> + *
+> + * This function initializes the iterator to the beginning of the ITS tables
+> + * and advances it to the specified position. It acquires the its_lock mutex
+> + * to protect shared data.
+> + *
+> + * Return: An iterator pointer on success, NULL if no devices are found or
+> + *         the end of the list is reached, or ERR_PTR(-ENOMEM) on memory
+> + *         allocation failure.
+> + */
+> +static void *vgic_its_debug_start(struct seq_file *s, loff_t *pos)
+> +{
+> +	struct vgic_its *its = s->private;
+> +	struct vgic_its_iter *iter;
+> +	struct its_device *dev;
+> +	loff_t offset = *pos;
+> +
+> +	mutex_lock(&its->its_lock);
+> +
+> +	dev = list_first_entry_or_null(&its->device_list,
+> +				       struct its_device, dev_list);
+> +	if (!dev)
+> +		return NULL;
+> +
+> +	iter = kmalloc(sizeof(*iter), GFP_KERNEL);
+> +	if (!iter)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	iter->dev = dev;
+> +	iter->ite = list_first_entry_or_null(&dev->itt_head,
+> +					     struct its_ite, ite_list);
+> +
+> +	while (!end_of_iter(iter) && offset--)
+> +		iter_next(its, iter);
+> +
+> +	if (end_of_iter(iter)) {
+> +		kfree(iter);
+> +		return NULL;
+> +	}
+> +
+> +	return iter;
+> +}
+> +
+> +/**
+> + * vgic_its_debug_next - Next function for the seq_file interface.
+> + * @s: The seq_file structure.
+> + * @v: The current iterator.
+> + * @pos: The current position (offset).
+> + *
+> + * This function advances the iterator to the next entry and increments the
+> + * position.
+> + *
+> + * Return: An iterator pointer on success, or NULL if the end of the list is
+> + *         reached.
+> + */
+> +static void *vgic_its_debug_next(struct seq_file *s, void *v, loff_t *pos)
+> +{
+> +	struct vgic_its *its = s->private;
+> +	struct vgic_its_iter *iter = v;
+> +
+> +	++*pos;
+> +	iter_next(its, iter);
+> +
+> +	if (end_of_iter(iter)) {
+> +		kfree(iter);
+> +		return NULL;
+> +	}
+> +	return iter;
+> +}
+> +
+> +/**
+> + * vgic_its_debug_stop - Stop function for the seq_file interface.
+> + * @s: The seq_file structure.
+> + * @v: The current iterator.
+> + *
+> + * This function frees the iterator and releases the its_lock mutex.
+> + */
+> +static void vgic_its_debug_stop(struct seq_file *s, void *v)
+> +{
+> +	struct vgic_its *its = s->private;
+> +	struct vgic_its_iter *iter = v;
+> +
+> +	if (!IS_ERR_OR_NULL(iter))
+> +		kfree(iter);
+> +	mutex_unlock(&its->its_lock);
+> +}
+> +
+> +/**
+> + * vgic_its_debug_show - Show function for the seq_file interface.
+> + * @s: The seq_file structure.
+> + * @v: The current iterator.
+> + *
+> + * This function formats and prints the ITS table entry information to the
+> + * seq_file output.
+> + *
+> + * Return: 0 on success.
+> + */
+> +static int vgic_its_debug_show(struct seq_file *s, void *v)
+> +{
+> +	struct vgic_its_iter *iter = v;
+> +	struct its_device *dev = iter->dev;
+> +	struct its_ite *ite = iter->ite;
+> +
+> +	if (list_is_first(&ite->ite_list, &dev->itt_head)) {
+> +		seq_printf(s, "\n");
+> +		seq_printf(s, "Device ID: %u, Event ID Range: [0 - %llu]\n",
+> +			   dev->device_id, BIT_ULL(dev->num_eventid_bits) - 1);
+
+nit: DevIDs are usually expressed in hex, because they tend to encode
+the bus topology.
+
+> +		seq_printf(s, "EVENT_ID    INTID  HWINTID   TARGET   COL_ID HW\n");
+> +		seq_printf(s, "-----------------------------------------------\n");
+> +	}
+> +
+> +	if (ite && ite->irq && ite->collection) {
+> +		seq_printf(s, "%8u %8u %8u %8u %8u %2d\n",
+> +			   ite->event_id, ite->irq->intid, ite->irq->hwintid,
+> +			   ite->collection->target_addr,
+> +			   ite->collection->collection_id, ite->irq->hw);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct seq_operations vgic_its_debug_sops = {
+> +	.start = vgic_its_debug_start,
+> +	.next  = vgic_its_debug_next,
+> +	.stop  = vgic_its_debug_stop,
+> +	.show  = vgic_its_debug_show
+> +};
+> +
+> +DEFINE_SEQ_ATTRIBUTE(vgic_its_debug);
+> +
+> +/**
+> + * vgic_its_debug_init - Initializes the debugfs interface for VGIC ITS.
+> + * @dev: The KVM device structure.
+> + *
+> + * This function creates a debugfs file named "vgic-its-state@%its_base"
+> + * to expose the ITS table information.
+> + *
+> + * Return: 0 on success.
+> + */
+> +int vgic_its_debug_init(struct kvm_device *dev)
+> +{
+> +	struct vgic_its *its = dev->private;
+> +	char name[32];
+> +
+> +	snprintf(name, sizeof(name), "vgic-its-state@%llx", (u64)its->vgic_its_base);
+
+This is very fragile. How about using kasprintf() instead, even if it
+is a short lived allocation?
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
