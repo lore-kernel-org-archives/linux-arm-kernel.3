@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62735C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 00:45:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F213C021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 00:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pICHfxgYHccXfhYVWjlKU+dYEkkD3yjTz6FSX4iS01A=; b=Z1lTamQyKhgZLJJ7qqQVmkVJHd
-	PqM7WtytQbow6bIpPwAxVX8SQpXxWR9TYsd0Ebn++VrRnzSPrvzJZNYDk6zes6aVEh5+F9hDEVmEW
-	0K0h/ZXnpf8/1jNhZtMttxsC1DSulSKP3gAQpyhI1K/lD2ls9276JYrqkEgJhFgAEfLW4dzW2/3KJ
-	TaCl/47/a1O8gRBu+M93IoKEfP1lgZ4LDFL7onAy0Tc3XYGUxZdgE+hm4EFgmhLmEQt/IJ+SXfPJv
-	6YIbpi4rbqlTFjGliVfoMc9r0u/l5qwA3g/RVvU5M0zgoAL0xzOLvkQ1K8q0h8Nz2OnSL3DwYH/Eu
-	GkM1xCJg==;
+	bh=/3p+bZ/M4JJHtXC/TSg1Xxy4DBKjfgL5pRL8Yf7X8z0=; b=gv9Xp8NDou+59pi1e7TEy9Xz1a
+	xnjaJ58g0+BzlSY+aBG6RlOy4Fu5A6r/ciAsL74kueHWvABGowPB51XSdIBQmJHetfpz2H5YC/pZ9
+	4q98ajn5lSoWl8zXbIsa6dImDICyFEc9lKnRUFz483nYHJ8LMSvR+GrBSWmw1VfAYBNNQP0kllzip
+	0IbL4/rHDpbRNhzr5s7jzb4imyuuCENYNsO0Rp+/p0iG3FMudbIM/amAh0bquaw9P5+TO1Wg3hoCf
+	4c/Gg6xI6qXxcVpOR0OQmLmM8gHwZmvb1sQqFnyQ2DZaipYS8aukf9xa1B/TzZ7P/+MsbyRK9ifON
+	LpRWw+4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYDH-0000000AOUl-0TEO;
-	Wed, 19 Feb 2025 00:45:19 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tkYEi-0000000AOk7-3AJp;
+	Wed, 19 Feb 2025 00:46:48 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYAM-0000000ANl0-34w7;
-	Wed, 19 Feb 2025 00:42:20 +0000
+	id 1tkYAN-0000000ANlc-2zXU
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Feb 2025 00:42:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 12E24A41E68;
-	Wed, 19 Feb 2025 00:40:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E737C4CEEA;
-	Wed, 19 Feb 2025 00:42:17 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CDB795C62C3;
+	Wed, 19 Feb 2025 00:41:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0F67C4CEE6;
+	Wed, 19 Feb 2025 00:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739925737;
-	bh=khIFgwQ769ZHyT5CdIGu1HrTamF79U/Lvixfrt97yy4=;
+	s=k20201202; t=1739925738;
+	bh=zG+3d+jK2sUhaf8drQjlMDVNhtlQCiLoKQFWapDKXGA=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=tYMECnuhBbykHVm1RU15MSPfwodg3z1htxAN/KBLJjEfTm6ZjKKZzvM4LQNkkEvqR
-	 ClaezR+1hPyqLCLF9vcsJwyS3LhntD+NWvyEi5YBIFSW0FufMXlY1v2Y3LqPPUDAVR
-	 xk+l2T+xh4m0oCPjiQ6a6pP+ZQSZLa2lgZFSJkOQe1mAAOjV497vgDKm+pNJJooPld
-	 hebKKloMzj0TIyTVuWJP9YJgRpgmVHlc7LehcPCefynw7SIqVXZockj4d/PfPp8T8+
-	 mDTXJSCkCKGNNLetz1B3T4purqsau+/G7TLHts/6T/lZbHqDxHtSBH5R8JQkvnWwJT
-	 sCoYAzENbIfkw==
-Date: Tue, 18 Feb 2025 18:42:16 -0600
+	b=kg5wj8at0QfyxVSxM5v0s37Toag4HrP7YhdZGI4jyeTWCytxNB+gLfkwGHou8Iu/7
+	 /1nkDrJ3uMvZXZDHubtlZS6VxK1SGBALtfzmA3cJIMx7xsBMmbQHrVX+kwI4wS6Nkz
+	 jwm2qsTyPdnhFQyjFJCUCHWKk7xcsjk3itb9fz0cTkPGKKj54faHYW8RjTZRZkMLUz
+	 xZweDRxsQ74XODQUx1EQulOdLuGy/hUPlXlomXX4Q0QrhQSPbEGSmhfX8dMlCabEWv
+	 zOYJF0WyprOtCZ6DScEOvg0owrlwsm3DinhDAtKZaLDxaQjYF1ZQzeDsFwOLRJpJJB
+	 AqF0cWswNDBRg==
+Date: Tue, 18 Feb 2025 18:42:17 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- Kevin Hilman <khilman@baylibre.com>, Takashi Iwai <tiwai@suse.com>, 
- linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
- shuai.li@amlogic.com, Stephen Boyd <sboyd@kernel.org>, 
- Liam Girdwood <lgirdwood@gmail.com>, devicetree@vger.kernel.org, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Jaroslav Kysela <perex@perex.cz>, zhe.wang@amlogic.com, 
- linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
- Michael Turquette <mturquette@baylibre.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, jian.xu@amlogic.com, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Mark Brown <broonie@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-To: jiebing chen <jiebing.chen@amlogic.com>
-In-Reply-To: <20250214-audio_drvier-v2-0-37881fa37c9e@amlogic.com>
-References: <20250214-audio_drvier-v2-0-37881fa37c9e@amlogic.com>
-Message-Id: <173992515659.2064996.1911122760174546370.robh@kernel.org>
-Subject: Re: [PATCH v2 0/5] Add support for S4 audio
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+ devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250215130500.170738-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20250215130500.170738-1-ivo.ivanov.ivanov1@gmail.com>
+Message-Id: <173992515772.2065079.17786828935224873560.robh@kernel.org>
+Subject: Re: [PATCH v1 0/3] arm64: dts: exynos: add initial support for
+ Samsung Galaxy S22+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_164218_897597_ABE80B3D 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20250218_164219_876351_62917947 
+X-CRM114-Status: GOOD (  25.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,42 +75,64 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 14 Feb 2025 10:13:39 +0800, jiebing chen wrote:
-> Add s4 audio base driver.
+On Sat, 15 Feb 2025 15:04:57 +0200, Ivaylo Ivanov wrote:
+> Hey folks,
 > 
-> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
-> ---
-> Changes in v2:
-> - remove tdm pad control and change tocodec base on g12a
-> - change hifipll rate to support 24bit
-> - add s4 audio clock
-> - Link to v1: https://lore.kernel.org/r/20250113-audio_drvier-v1-0-8c14770f38a0@amlogic.com
+> This patchset adds device tree files for Exynos 2200 and Samsung
+> Galaxy S22+.
 > 
-> ---
-> jiebing chen (5):
->       dt-bindings: clock: axg-audio: Add mclk and sclk pad for s4
->       dt-bindings: Asoc: axg-audio: Add s4 audio tocodec
->       ASoC: meson: s4:support the audio clk
->       ASoC: meson: s4:support audio tocodec
->       arm64: dts: amlogic: Add Amlogic S4 Audio
+> Exynos 2200 SoC is an ARMv8 mobile SoC found in the Samsung Galaxy S22
+> (r0s), S22+ (g0s), S22 Ultra (b0s) Add minimal support for that SoC,
+> including psci, pmu, chipid, architecture timer and mct, pinctrl,
+> clocks and usb.
 > 
->  .../bindings/clock/amlogic,axg-audio-clkc.yaml     |  18 +
->  .../bindings/sound/amlogic,g12a-toacodec.yaml      |   1 +
->  .../boot/dts/amlogic/meson-s4-s805x2-aq222.dts     | 219 +++++++++++
->  arch/arm64/boot/dts/amlogic/meson-s4.dtsi          | 370 ++++++++++++++++++-
->  drivers/clk/meson/axg-audio.c                      | 410 ++++++++++++++++++++-
->  drivers/clk/meson/axg-audio.h                      |   4 +
->  include/dt-bindings/clock/axg-audio-clkc.h         |  11 +
->  sound/soc/meson/axg-card.c                         |   3 +-
->  sound/soc/meson/g12a-toacodec.c                    |  64 ++++
->  9 files changed, 1095 insertions(+), 5 deletions(-)
-> ---
-> base-commit: 6ecd20965bdc21b265a0671ccf36d9ad8043f5ab
-> change-id: 20250110-audio_drvier-07a5381c494b
+> The devices using this SoC suffer from an issue caused by the stock
+> Samsung bootloader, as it doesn't configure CNTFRQ_EL0. Hence it's
+> needed to hardcode the adequate frequency in the timer node,
+> otherwise the kernel panics.
+> 
+> Another issue is that cpu2 and cpu3 fail to come up consistently, which
+> leads to a hang later in the boot process. As A510 cores are clustered
+> by two, it makes sense for both of these cpus to fail if there is a
+> power issue. Disable them until the problem is figured out.
+> 
+> Samsung Galaxy S22+ (SM-S906B), codenamed g0s, is a mobile phone from
+> 2022. It features 8GB RAM, 128/256GB UFS 3.1, Exynos 2200 SoC and a
+> 1080x2340 Dynamic AMOLED display.
+> 
+> Further platform support will be added over time.
+> 
+> I expect [1], [2], [3], [4], [5], [6] to be merged before this patchset
+> because it relies on the aforementioned series for drivers and device
+> tree bindings.
+> 
+> [1] https://lore.kernel.org/all/20250215112716.159110-1-ivo.ivanov.ivanov1@gmail.com/
+> [2] https://lore.kernel.org/all/20250215113248.159386-1-ivo.ivanov.ivanov1@gmail.com/
+> [3] https://lore.kernel.org/all/20250215115433.161091-1-ivo.ivanov.ivanov1@gmail.com/
+> [4] https://lore.kernel.org/all/20250215122409.162810-1-ivo.ivanov.ivanov1@gmail.com/
+> [5] https://lore.kernel.org/all/20250215123453.163434-1-ivo.ivanov.ivanov1@gmail.com/
+> [6] https://lore.kernel.org/all/20250215123922.163630-1-ivo.ivanov.ivanov1@gmail.com/
 > 
 > Best regards,
+> Ivaylo
+> 
+> Ivaylo Ivanov (3):
+>   dt-bindings: arm: samsung: document g0s board binding
+>   arm64: dts: exynos: add initial support for exynos2200 SoC
+>   arm64: dts: exynos: add initial support for Samsung Galaxy S22+
+> 
+>  .../bindings/arm/samsung/samsung-boards.yaml  |    6 +
+>  arch/arm64/boot/dts/exynos/Makefile           |    1 +
+>  arch/arm64/boot/dts/exynos/exynos2200-g0s.dts |  178 ++
+>  .../boot/dts/exynos/exynos2200-pinctrl.dtsi   | 1765 +++++++++++++++++
+>  arch/arm64/boot/dts/exynos/exynos2200.dtsi    |  560 ++++++
+>  5 files changed, 2510 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/exynos/exynos2200-g0s.dts
+>  create mode 100644 arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
+>  create mode 100644 arch/arm64/boot/dts/exynos/exynos2200.dtsi
+> 
 > --
-> jiebing chen <jiebing.chen@amlogic.com>
+> 2.43.0
 > 
 > 
 > 
@@ -137,40 +152,34 @@ make sure dt-schema is up to date:
   pip3 install dtschema --upgrade
 
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20250214-audio_drvier-v2-0-37881fa37c9e@amlogic.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250215130500.170738-1-ivo.ivanov.ivanov1@gmail.com:
 
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-0: clock-names:0: 'sclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-0: clock-names:1: 'lrclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-0: clock-names:2: 'mclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-0: Unevaluated properties are not allowed ('clock-names' was unexpected)
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-1: clock-names:0: 'sclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-1: clock-names:1: 'lrclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-1: clock-names:2: 'mclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-1: Unevaluated properties are not allowed ('clock-names' was unexpected)
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-2: clock-names:0: 'sclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-2: clock-names:1: 'lrclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-2: clock-names:2: 'mclk' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller-2: Unevaluated properties are not allowed ('clock-names' was unexpected)
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,axg-tdm-iface.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: audio-controller@740: compatible: 'oneOf' conditional failed, one must be fixed:
-	['amlogic,s4-toacodec'] is too short
-	'amlogic,g12a-toacodec' was expected
-	from schema $id: http://devicetree.org/schemas/sound/amlogic,g12a-toacodec.yaml#
-arch/arm64/boot/dts/amlogic/meson-s4-s805x2-aq222.dtb: sound: 'anyOf' conditional failed, one must be fixed:
-	'clocks' is a required property
-	'#clock-cells' is a required property
-	from schema $id: http://devicetree.org/schemas/clock/clock.yaml#
+In file included from arch/arm64/boot/dts/exynos/exynos2200-g0s.dts:9:
+arch/arm64/boot/dts/exynos/exynos2200.dtsi:8:10: fatal error: dt-bindings/clock/samsung,exynos2200.h: No such file or directory
+    8 | #include <dt-bindings/clock/samsung,exynos2200.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/exynos/exynos2200-g0s.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:465: arch/arm64/boot/dts/exynos] Error 2
+make[2]: Target 'arch/arm64/boot/dts/exynos/exynos2200-g0s.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1464: exynos/exynos2200-g0s.dtb] Error 2
+make: *** [Makefile:251: __sub-make] Error 2
+make: Target 'exynos/exynos8895-dreamlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos2200-g0s.dtb' not remade because of errors.
+make: Target 'exynos/exynos850-e850-96.dtb' not remade because of errors.
+make: Target 'exynos/exynos7885-jackpotlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-x1slte.dtb' not remade because of errors.
+make: Target 'exynos/exynos5433-tm2.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-r8s.dtb' not remade because of errors.
+make: Target 'exynos/exynos7-espresso.dtb' not remade because of errors.
+make: Target 'exynos/google/gs101-oriole.dtb' not remade because of errors.
+make: Target 'exynos/google/gs101-raven.dtb' not remade because of errors.
+make: Target 'exynos/exynosautov920-sadk.dtb' not remade because of errors.
+make: Target 'exynos/exynosautov9-sadk.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-c1s.dtb' not remade because of errors.
+make: Target 'exynos/exynos9810-starlte.dtb' not remade because of errors.
+make: Target 'exynos/exynos990-x1s.dtb' not remade because of errors.
+make: Target 'exynos/exynos5433-tm2e.dtb' not remade because of errors.
 
 
 
