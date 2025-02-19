@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F28C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 13:47:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68CA5C021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 13:50:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iSNiaBnfqMzHUHPCb0oCyrcPlRR+tTuiC77CRYQrNqU=; b=aoo0Xg3AHI59h9zFfjm1wTuhii
-	yh+7Tn7GZKMZNgzJtJDxOg0l/AR862xFqRCgmzS02axplBbxNS79dj5kSGlcPHDsqHLJ2n8qjN+Go
-	y86dL7CkgBlxsw2zX+7KuCwCXtM8G5+EHR7HxTcngaFdbiEXBka8eT2xraUIl1sJs54HVgNOXKn7f
-	+E2dmKC180K4ZYN0xpCvv9of2+5ZLbWa9L3j7ePAd0RB7hqEn9qi2jbWP92X2mHZc+f1ol1pxPw9+
-	78nkCWuQ9aCCLoXP+BIsJX6Sr6aqpOdiWwbz4LGkKDiPoesySM9kPN5K3eC1VCsRFeL4EFREf1JXL
-	Kt0H2EsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zF47/8EC2KHEsU4F8AzdjZS60vO+erdRnvGPlyuH6mU=; b=4HpKIyDcUJ5a7mJwLqkhpfPHcU
+	2R/RX3Nt9rjr3jV+ytwzgkV9PZ04iB6pJNIyGs6jWHGtuCo2r5YpBlVdHG54N4X92R2eMersx4fpg
+	0x0c4i10vXZssEfsTdMP2kzoMKJqbLtaY6x291reg6pkxumEd4Ezb38iKU5LO20fDFkyMIW/XpuWe
+	tZ+ADgeyimirrPtiM/93MzqUOtknNs+dxDWOrf5xslsYrCq8LaGj2v9dNvnbnbyEQhdw01tKuGNRU
+	wAQpTnKPNx6npVuwH1mm+DcYnluPh+3sXsFLNI8eLepjhJUW5PqRc3vXYzgYgwb2ID7TjEi1zMKJd
+	BnHLwEDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkkPl-0000000D3IH-03Ex;
-	Wed, 19 Feb 2025 13:47:01 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tkkTJ-0000000D4gi-1uRI;
+	Wed, 19 Feb 2025 13:50:41 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkkN8-0000000D2BU-0bdp
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 13:44:19 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0413D169;
-	Wed, 19 Feb 2025 14:42:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1739972573;
-	bh=f9Zc5VG8pt57R7Xvh+xsVJ/ay+lEmys3EP79pZtRUO4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bwaGPcOm7pnNqi+CQD8qLP4ToxnVHXV10hly/kI1aDNTwG60yEFhQhehRuyOIlQ9F
-	 jBMwh0bfCjSJPotc9w+hrrMebIT0m2aRkPzhI6Ltu8PBo7Kz2IvmLFWV+DEBHT8IGS
-	 zayOXFdn5BasZk2mMIjOQ/MMSFzZxut1XfJGEmjU=
-Date: Wed, 19 Feb 2025 15:44:00 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Janne Grunau <j@jannau.net>
-Cc: Sasha Finkelstein <fnkl.kernel@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Sven Peter <sven@svenpeter.dev>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Hector Martin <marcan@marcan.st>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-media@vger.kernel.org, imx@lists.linux.dev
-Subject: Re: [PATCH 3/5] media: dt-bindings: Add Apple ISP
-Message-ID: <20250219134400.GC15114@pendragon.ideasonboard.com>
-References: <20250219-isp-v1-0-6d3e89b67c31@gmail.com>
- <20250219-isp-v1-3-6d3e89b67c31@gmail.com>
- <16f6d4a2-2102-48b9-a0ae-b8c6595975b8@kernel.org>
- <CAMT+MTR7dhtt3SOMg0K3UakJQftqnc2S-rV41HdHtA+o9aSPug@mail.gmail.com>
- <20250219105326.GA31383@pendragon.ideasonboard.com>
- <20250219115737.GB26386@robin.jannau.net>
+	id 1tkkRp-0000000D3xN-0FUA;
+	Wed, 19 Feb 2025 13:49:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id DAE9E5C597C;
+	Wed, 19 Feb 2025 13:48:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCDF7C4CEE0;
+	Wed, 19 Feb 2025 13:49:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739972947;
+	bh=A1jQdtZvRbIjirpi/QpXD1jZ8tpStZUExtEIfK1U5Cc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=IFIwFIYx0ARMx+0zY1HAfpnbVgkm//Wuvx46GSLkxcqt8pyR8cUWXdqQX9Ej8EiXY
+	 lOcuGfIVJCls3eng4yKpq6pAOUAIFyjgJeOMXv/uc14jU0fNAWka+TYNrkG31Zby4A
+	 q5VS+9iwtZOHE40aGcTDcdLU23EEaiFCpiIqVrn1HUceDqzWSED6ATPKac07FqWy18
+	 xGWm3cfbewXnj16OJw5uP5S/dxWwk8fUQBiuNCzCP4YyUOTi2SA4nzyCv46RrN8pxN
+	 geAc5o/X9/8YtXZmLfPdQPqnu0SC7k0Hm5aYQkVlcEXfFH68vkhwsmQAihN3TDx49u
+	 +73uOfTOqinSg==
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-2fc0026eb79so12733446a91.0;
+        Wed, 19 Feb 2025 05:49:07 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCW7NFLDK+bqr7TaQgOCs8EfojYDin5I+p1OD8mZ5kzkZ9KZW/CpythNUHWcOc3HyGCAsQz+2vpnzTKSS3eY6G71@lists.infradead.org, AJvYcCXBZtDtYMSCpD26gy8H2YyRKW0mJEZI5QSOvjL4KAx3jhEEU6Ousiac2BVBCbycM/EptT5HnclpZFCo9K3PbsY=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJe9WYNLOE1NjXk69LexK7KzR415NUfaQVc/Z2xZSjB3/N7LIf
+	MSi74XF2AQDDPX3vgihFTFfG4B4PZLyT3PpwpOF0VKqeFbUIkFod148WvFJpm128cE++ouxUte0
+	GRSc6/Ic6OONzmVmHmBxEpJ7prA==
+X-Google-Smtp-Source: AGHT+IHzQqtYsvHwADMmf9VWFRyvbp1G6Xfgzoq4kaeRwD/sC1OC2iDXSHRlVSxq3fcQCkZrXfrGdEMDnJjaCDjhs5g=
+X-Received: by 2002:a17:90b:17c4:b0:2ef:2f49:7d7f with SMTP id
+ 98e67ed59e1d1-2fcb5a39f93mr6272302a91.18.1739972947332; Wed, 19 Feb 2025
+ 05:49:07 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250219115737.GB26386@robin.jannau.net>
+References: <20241218105320.38980-1-angelogioacchino.delregno@collabora.com> <20241218105320.38980-2-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20241218105320.38980-2-angelogioacchino.delregno@collabora.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Wed, 19 Feb 2025 21:49:51 +0800
+X-Gmail-Original-Message-ID: <CAAOTY_9J4TE=qo+00N7T6-daMET+eTt8psp+eV1DXdgrz+avEQ@mail.gmail.com>
+X-Gm-Features: AWEUYZkyNYkPz9DDQbj1WmcsisPQynG6ha2xkIpk0KuCjDPQnw0UB2_LYJk3Qtw
+Message-ID: <CAAOTY_9J4TE=qo+00N7T6-daMET+eTt8psp+eV1DXdgrz+avEQ@mail.gmail.com>
+Subject: Re: [PATCH v1 1/3] dt-bindings: display: mediatek: Add compatibles
+ for MT8188 MDP3
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	mchehab@kernel.org, matthias.bgg@gmail.com, moudy.ho@mediatek.com, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kernel@collabora.com, sebastian.fricke@collabora.com, 
+	macpaul.lin@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_054418_506374_7210974C 
-X-CRM114-Status: GOOD (  35.23  )
+X-CRM114-CacheID: sfid-20250219_054909_185727_B3F02277 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,128 +90,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 12:57:37PM +0100, Janne Grunau wrote:
-> On Wed, Feb 19, 2025 at 12:53:26PM +0200, Laurent Pinchart wrote:
-> > On Wed, Feb 19, 2025 at 10:54:31AM +0100, Sasha Finkelstein wrote:
-> > > On Wed, 19 Feb 2025 at 10:37, Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> > > > > +
-> > > > > +  apple,platform-id:
-> > > > > +    description: Platform id for firmware
-> > > > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > >
-> > > >
-> > > > No, use firmware-name.
-> > > 
-> > > Not sure how is firmware-name an appropriate field, fw-name is a string
-> > > that references a firmware file, while this field is an id that is sent to the
-> > > coprocessor firmware in order to identify the platform.
-> > > 
-> > > > > +  apple,temporal-filter:
-> > > > > +    description: Whether temporal filter should be enabled in firmware
-> > > > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > >
-> > > > And why is this not enabled always? Why this is board specific?
-> > > 
-> > > Not every board has support for this feature.
-> > > 
-> > > > You miss here ports or port. ISP usually gets signal from some camera or
-> > > > other block.
-> > > 
-> > > For complex cameras - yes, but this is closer to a UVC camera connected
-> > > via a bespoke protocol. We do not need to deal with the sensor access,
-> > > all of it is managed by the coprocessor firmware.
-> > > 
-> > > > > +        properties:
-> > > > > +          apple,config-index:
-> > > > > +            description: Firmware config index
-> > > > > +            $ref: /schemas/types.yaml#/definitions/uint32
-> > > >
-> > > >
-> > > > No duplicated indices. You have reg for this, assuming this is index.
-> > > 
-> > > There are duplicated indices, see isp-imx248.dtsi in patch 5 for an example.
-> > > 
-> > > > All these do not look like hardware properties but rather configuration
-> > > > of sensor which should be done runtime by OS, not by DT.
-> > > 
-> > > Those are board-specific and not discoverable via the ISP protocol.
-> > 
-> > But they are settable through the ISP protocol, aren't they ? For
-> > instance, looking at isp-imx248.dtsi, the first four entries are
-> > 
-> > 	/* 1280x720 */
-> > 	preset0 {
-> > 		apple,config-index = <0>;
-> > 		apple,input-size = <1296 736>;
-> > 		apple,output-size = <1280 720>;
-> > 		apple,crop = <8 8 1280 720>;
-> > 	};
-> > 
-> > 	/* 960x720 (4:3) */
-> > 	preset1 {
-> > 		apple,config-index = <0>;
-> > 		apple,input-size = <1296 736>;
-> > 		apple,output-size = <960 720>;
-> > 		apple,crop = <168 8 960 720>;
-> > 	};
-> > 
-> > 	/* 960x540 (16:9) */
-> > 	preset2 {
-> > 		apple,config-index = <0>;
-> > 		apple,input-size = <1296 736>;
-> > 		apple,output-size = <960 540>;
-> > 		apple,crop = <8 8 1280 720>;
-> > 	};
-> > 
-> > 	/* 640x480 (4:3) */
-> > 	preset3 {
-> > 		apple,config-index = <0>;
-> > 		apple,input-size = <1296 736>;
-> > 		apple,output-size = <640 480>;
-> > 		apple,crop = <168 8 960 720>;
-> > 	};
-> > 
-> > But I may be interested in capturing a 640x480 frame with cropping only
-> > and without scaling, with
-> > 
-> > input-size = 1296x736
-> > output-size = 640x480
-> > crop = (328,128)/640x480
-> > 
-> > Or I may want my cropped frame to be located in the upper-left corner:
-> > 
-> > input-size = 1296x736
-> > output-size = 640x480
-> > crop = (8,8)/640x480
-> > 
-> > If I set those parameters through the ISP protocol, won't it work ?
-> 
-> If my memory serves me right the presets wre added as workaround for
-> userspace not handling V4L2_FRMSIZE_TYPE_STEPWISE well (or at all) and
-> the added complexity of handling the qadratic sensor with partially
-> occluded or outside of the usable lens diameter corners.
-> 
-> It is a simplified description of the hardware to make it useable for
-> most software which is expected simple uvc cameras.
+AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
+=BC
+2024=E5=B9=B412=E6=9C=8818=E6=97=A5 =E9=80=B1=E4=B8=89 =E4=B8=8B=E5=8D=886:=
+53=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> Add compatible strings for the AAL, COLOR, MERGE and PADDING
+> hardware components found in MediaTek's MT8188 SoC.
+>
+> This hardware is compatible with MT8195.
 
-I understand that. Ideally userspace should be fixed, but in the
-meantime, I'm fine with the driver exposing a set of presets. They
-should however not be listed in DT, but computed by the driver based on
-properties that describe the device (such as, for instance, the full
-sensor resolution, or the visible area). Those properties could come
-from DT, or be hardcoded in the driver on a per-compatible basis.
+Acked-by: Chun-Kuang Hu <chunkuang.hu@mediatek.com>
 
-> There are still two common issues in user space software related to this
-> driver:
-> - software expects width == linesize
-> - resolution selection is based frame height, i.e. it prefers 1080x1920
->   over 1920x1080 on devices with quadratic sensor.
-
-I share your pain, having to fix userspace when doing kernel work isn't
-always fun :-)
-
--- 
-Regards,
-
-Laurent Pinchart
+>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> ---
+>  .../bindings/display/mediatek/mediatek,aal.yaml        |  4 ++++
+>  .../bindings/display/mediatek/mediatek,color.yaml      |  4 ++++
+>  .../bindings/display/mediatek/mediatek,merge.yaml      |  4 ++++
+>  .../bindings/display/mediatek/mediatek,padding.yaml    | 10 +++++++---
+>  4 files changed, 19 insertions(+), 3 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,=
+aal.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.=
+yaml
+> index cf24434854ff..1479035da409 100644
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yam=
+l
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yam=
+l
+> @@ -25,6 +25,10 @@ properties:
+>            - mediatek,mt8173-disp-aal
+>            - mediatek,mt8183-disp-aal
+>            - mediatek,mt8195-mdp3-aal
+> +      - items:
+> +          - enum:
+> +              - mediatek,mt8188-mdp3-aal
+> +          - const: mediatek,mt8195-mdp3-aal
+>        - items:
+>            - enum:
+>                - mediatek,mt2712-disp-aal
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,=
+color.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,co=
+lor.yaml
+> index 7df786bbad20..799c0b8fc1f9 100644
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,color.y=
+aml
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,color.y=
+aml
+> @@ -27,6 +27,10 @@ properties:
+>            - mediatek,mt8167-disp-color
+>            - mediatek,mt8173-disp-color
+>            - mediatek,mt8195-mdp3-color
+> +      - items:
+> +          - enum:
+> +              - mediatek,mt8188-mdp3-color
+> +          - const: mediatek,mt8195-mdp3-color
+>        - items:
+>            - enum:
+>                - mediatek,mt7623-disp-color
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,=
+merge.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,me=
+rge.yaml
+> index dae839279950..415a25bc18fa 100644
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.y=
+aml
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.y=
+aml
+> @@ -25,6 +25,10 @@ properties:
+>            - mediatek,mt8173-disp-merge
+>            - mediatek,mt8195-disp-merge
+>            - mediatek,mt8195-mdp3-merge
+> +      - items:
+> +          - enum:
+> +              - mediatek,mt8188-mdp3-merge
+> +          - const: mediatek,mt8195-mdp3-merge
+>        - items:
+>            - const: mediatek,mt6795-disp-merge
+>            - const: mediatek,mt8173-disp-merge
+> diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,=
+padding.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,=
+padding.yaml
+> index be07bbdc54e3..86787866ced0 100644
+> --- a/Documentation/devicetree/bindings/display/mediatek/mediatek,padding=
+.yaml
+> +++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,padding=
+.yaml
+> @@ -20,9 +20,13 @@ description:
+>
+>  properties:
+>    compatible:
+> -    enum:
+> -      - mediatek,mt8188-disp-padding
+> -      - mediatek,mt8195-mdp3-padding
+> +    oneOf:
+> +      - enum:
+> +          - mediatek,mt8188-disp-padding
+> +          - mediatek,mt8195-mdp3-padding
+> +      - items:
+> +          - const: mediatek,mt8188-mdp3-padding
+> +          - const: mediatek,mt8195-mdp3-padding
+>
+>    reg:
+>      maxItems: 1
+> --
+> 2.46.1
+>
 
