@@ -4,96 +4,191 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC9AAC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 10:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 204EFC021B6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 10:45:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mx+p5cOMeUrk0AengmjdTcUQOlwgp3ZzEnEnb5dPDrE=; b=Lzebgg5nkmVPHPbqx2OjqvAk4T
-	fqojZyJlJrbmM8Gvbq6Nl+1gg0PJ6zLwcmdfg47hKuZOdkYXuR6TG26gSr1i9RYflM3sF+BMylL/3
-	r5XAmYd2cwYajbH02yi5yjJoufjlnN5Tkg0AnxVD6yCPh+MUU9QajyMuWmV1CJToU0ny6q0ofWfpJ
-	lhqyC8k/OdnDwwLikPriBApDv/AnPKGJEgYKAbd67GihKQMVYoOLO3dZokY2zwdNLbosIb0qhdHHf
-	FYl/8QDKuCrBDwFPK8wRI/uk1twhztKvce4d0c8z7uYcKImV0qrod3DEWfz7ZwEZOqB2kL00ma8RR
-	n7aZv0CQ==;
+	bh=tj6BxCl9fpw5Pry04iUoEkwcUhf418Q3mJRPppiteaU=; b=ceX0wlWSBac9+fFwnUTv9oywRz
+	IPpjOIXH/2SfdCHUyJdOwselka428EK0tDdqkJ4JfQ/5NPiCkodECd3O3W/c5D7rhs4o3wRAxmQmS
+	iTMJVWNDsmTir8QRe18mIoxtuLv7t67VkjYoq8OG4B8+A5MBfEW6xaWCZ+GgVVqJZlOl1JQguoc2M
+	i79NGIv+kDRkwSuiwtDbRsKXfJE/jd37YuO4vtHUK9AMW+3z7H9cQqQLNiXeXH7NJKw5DOlDFrIuA
+	qIHYSgszPwwDXZhKxtsmVltjuPtIDF7wusF/KPddpUjjAOHQAYQQUglr34bQQdqpkBXbT8nRWggU3
+	pqyq117A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkhZZ-0000000CChB-2uOE;
-	Wed, 19 Feb 2025 10:44:57 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tkhZe-0000000CCnO-3azn;
+	Wed, 19 Feb 2025 10:45:02 +0000
+Received: from mail-db8eur05on20721.outbound.protection.outlook.com ([2a01:111:f403:2614::721] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkh4x-0000000C4ws-11fx;
-	Wed, 19 Feb 2025 10:13:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9B9E25C4D90;
-	Wed, 19 Feb 2025 10:12:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F40B3C4CED1;
-	Wed, 19 Feb 2025 10:13:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1739959997;
-	bh=fMTgCZ4pkvP3/QIoF7iwpCmqEdcG6A1koNbMDvsj2dk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LHj7SUL6hr9dnxeuMouAoZl+TqgPJkJnt6OxeGZBVnwjG1an8QfGZTZhAz67SUNMi
-	 V5LaRH/n8f0+cZvr3kZbgPWLsV3MQceZE5n+wYuzRWmC4ZHELcec25299VKUrxRVkD
-	 lwg+grq7xKKnKHBmMBQEKZrZR5rJUGwcEwJFWwx8=
-Date: Wed, 19 Feb 2025 11:13:14 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Jerome Brunet <jbrunet@baylibre.com>,
-	Dave Ertman <david.m.ertman@intel.com>,
-	Ira Weiny <ira.weiny@intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Douglas Anderson <dianders@chromium.org>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Hans de Goede <hdegoede@redhat.com>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org,
-	linux-clk@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v4 1/8] driver core: auxiliary bus: add device creation
- helpers
-Message-ID: <2025021922-spongy-swirl-0746@gregkh>
-References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
- <20250218-aux-device-create-helper-v4-1-c3d7dfdea2e6@baylibre.com>
- <crtrciitrlqkxh5mxvnbdjy6zoxny5onse7xgbw7biozg6myux@grp3ketgl2uh>
+	id 1tkh8Q-0000000C5yY-17hC;
+	Wed, 19 Feb 2025 10:16:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mWQD5bO2EnSloBtvW7a5K+V4bkk2XJdyfS8o4SoDW5st5IT+uTAqyLmyT1/Tb6MhJdqAf4eRPW31+94geD0ceuASV821who2ipWBfIHasSfuHClLo+ngvaebdAeejONGj6zxE98ftP7pClW4CV494e2ND1CJdWDuELyuACOQD5S+y/vdz43noyI+Kl1DGAf17/W5itFk2Yj1uuC7l4DUApDxNoUg+446YSVUxvdll5mcVgDdYo5D0SY/Oi/86utXtPyCotsuKG1OsjKNcNbvxwje69sxLtai9YmG6WeIAGGgtMXVq1uJoXGRyJ9Tdr2WZyEI/ttCie+hW4dfVoV55g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tj6BxCl9fpw5Pry04iUoEkwcUhf418Q3mJRPppiteaU=;
+ b=Vx9cfGeSfI845iFnjzqi+dCixmrdlYhT8OPay1q6iYiWjawpnUmjMOTZlmCfAJXgvPFxs46vixs/aFrCzcjQe/t+/DypTSCe6n7xwGVBv6TciFLv5UudKW3g3DMMzV8hjngA2E31YdPD2pHuVhV5ijKvYe7LneRBB8F46tXrRKEd9MCckAH0b49607fccRL8Ey67ZPnaGYxczCuXKx9ZT7oH6RvlBOl255E11UL+MtpTN/mJE6VV3C+v4L5TIDad0U8RGwctEf1SeDsDjCrmPLMF2pjDYI6IRNYyK9hJxJvGgVnXlFO1onXb7AtlbNs9zZelXQqqMItJebx7AA+wVw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wolfvision.net; dmarc=pass action=none
+ header.from=wolfvision.net; dkim=pass header.d=wolfvision.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wolfvision.net;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tj6BxCl9fpw5Pry04iUoEkwcUhf418Q3mJRPppiteaU=;
+ b=JiXN2kMHesBs1WQDKr8sh8G9JWU6f1UQI1VSeESMK0AwsAOVJiQd7DO5ueJ9gB09jwp2RHdx0srwym3I5/Hb6t6JDXwvQp8C0eJJQ23PJQ4rHerejJdADyiGHchEk2mvnd+NOHxQCpxzXq8wKv4VOVv06L3JzoA/xIVHR1zOvU4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=wolfvision.net;
+Received: from DU0PR08MB9155.eurprd08.prod.outlook.com (2603:10a6:10:416::5)
+ by DU0PR08MB8138.eurprd08.prod.outlook.com (2603:10a6:10:3ed::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Wed, 19 Feb
+ 2025 10:16:41 +0000
+Received: from DU0PR08MB9155.eurprd08.prod.outlook.com
+ ([fe80::4e72:c5d4:488e:f16d]) by DU0PR08MB9155.eurprd08.prod.outlook.com
+ ([fe80::4e72:c5d4:488e:f16d%5]) with mapi id 15.20.8466.015; Wed, 19 Feb 2025
+ 10:16:41 +0000
+From: Michael Riesch <michael.riesch@wolfvision.net>
+Date: Wed, 19 Feb 2025 11:16:32 +0100
+Subject: [PATCH v4 01/11] media: dt-bindings: media: video-interfaces: add
+ defines for sampling modes
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250219-v6-8-topic-rk3568-vicap-v4-1-e906600ae3b0@wolfvision.net>
+References: <20250219-v6-8-topic-rk3568-vicap-v4-0-e906600ae3b0@wolfvision.net>
+In-Reply-To: <20250219-v6-8-topic-rk3568-vicap-v4-0-e906600ae3b0@wolfvision.net>
+To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Gerald Loacker <gerald.loacker@wolfvision.net>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Sebastian Fricke <sebastian.fricke@collabora.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, 
+ Alexander Shiyan <eagle.alexander923@gmail.com>, 
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Michael Riesch <michael.riesch@wolfvision.net>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1739960197; l=948;
+ i=michael.riesch@wolfvision.net; s=20240405; h=from:subject:message-id;
+ bh=Jwfb9ka7Co1QU4YFQj1bP68YHW3VZLAiB9reUK6eW8Q=;
+ b=OKhYHz4+QCzaXpSdhkorEkpRvpMtP7MzvcayswcXTbosjQAFqmTdmVSfnZh39E6A7SLSS54HX
+ wGMIQoRGVvpDjepRQWBQNRU59+9+h1B4jpLr6wDZGwXxqwd3NoDapEq
+X-Developer-Key: i=michael.riesch@wolfvision.net; a=ed25519;
+ pk=cSJmgKSH3B6kdCIDCl+IYDW1Pw/Ybc6g9rmnUd/G7Ck=
+X-ClientProxiedBy: VI1P190CA0041.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:800:1bb::8) To DU0PR08MB9155.eurprd08.prod.outlook.com
+ (2603:10a6:10:416::5)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <crtrciitrlqkxh5mxvnbdjy6zoxny5onse7xgbw7biozg6myux@grp3ketgl2uh>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR08MB9155:EE_|DU0PR08MB8138:EE_
+X-MS-Office365-Filtering-Correlation-Id: cd10669d-50a8-45fb-0666-08dd50ce80b1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cTEvUThXaS9ycGMwTXUrdUk2UG9DK0tGUkxBemEyRzg0T1hGWW9QS1d4Mm5S?=
+ =?utf-8?B?bWIwdEppM3pwNHQrMDVKSEY2Y0tlT3d1eHBFYkF2SHc1S3dzVmgvYS82YUlt?=
+ =?utf-8?B?azBtOWRCS2pLR0M2Znpxc0E5NHA5aHYxeVFXd1VmQlRCTE1vcmRqMEhPbGJa?=
+ =?utf-8?B?ZGFyNUVhWCtLWlR3aXNJaU1QcnREN2JzOUl4aTB6dVRqRDJjdlZRRWtzakRB?=
+ =?utf-8?B?RHNhZzhlN2k2aENlQVN3aDZLZUJZKzQ5Ti9aR1ZUbTJ0aFI4TTdaU0duZExO?=
+ =?utf-8?B?Z3dKQ0x5V2puVEF4S0tpVW8yYVM4bW16TzZxMUdUbUlYbWU1cXlMUlhvbkt0?=
+ =?utf-8?B?cmg5NVVCTE9kSzl4cXFTbGZEQ0RKckRuYTVzeGVJdjAyVWhpZEQ3TkRITVZT?=
+ =?utf-8?B?WURmUHd0NEpNRW11dmFsMi9xUGQ5djlhV3FrWVdCOUZXT04rNENIemRrOGxy?=
+ =?utf-8?B?Y0doU3ArVHlzaUlnSG9CbVhicC85UWxsTi92MnJWdXRYaTJzYU00Ukk4NDBI?=
+ =?utf-8?B?REFldzVIenB0dnh3dTlRYjlXbXVxRk82dkU0UUhOeHRqRjQvUmtKdDNNY0tt?=
+ =?utf-8?B?ZWk1RUNtVE1ITjJha0wwUlRTMHFpbWxoWFZnbEhqYzQ1Yk00Y0hPZHFFQlgr?=
+ =?utf-8?B?R3ZiVUxMZlBSbVNyUC93SDNtbFVnd08vcEQvZXZvb1Fld1dzMk5HcU5iREpk?=
+ =?utf-8?B?RmRwY1ExZnV0S2Q4ZHVLbDZXYzFCdHJ4U3l3aTFRK2w5K2RnVm9rWkRhVkRP?=
+ =?utf-8?B?RUZOV1REblgreEtnR0c3MEo5d2pmNElvdDZYVXdlamFET2xuSExLZVVEcjdy?=
+ =?utf-8?B?RnIrcWlQSXFTbXN3QVhWYVRheG5JWmo5NjRkS2trK05QZG5laWZoYmFMUFoy?=
+ =?utf-8?B?UnZrUUkvaHdCVFBUOW1yemZPazFnZmVUZ1V0dExaR1hhNnRwS3VpNTVpc3Fa?=
+ =?utf-8?B?YkRod0tLUksrcWJFMnJoVVFScTQxTUFKUGxadnIweFlCUldyM1J0NjR3b3Fv?=
+ =?utf-8?B?L0JHcGQyOVRWR1FNMUtGeTdqN1h3UTNYMzVIdHFmVkFrWUpUclpNa2hoVCs2?=
+ =?utf-8?B?N0RIT3QvaDc1Qmova0x4QVVIcXhzaHhTa0VNbU53L3lqeWo0NUo2SEptWVB0?=
+ =?utf-8?B?dU9pY3B2TmFETTBUSE9EKzZDUGFDbWpGdy9BUy94emlUUVNva0xVc0pCR1BJ?=
+ =?utf-8?B?clBzbk5oVjlmUlI3bCtmcG1uc3BuZXh3ZW1RcVB5SFJ0aGJBSEFHWW0vWERO?=
+ =?utf-8?B?dlhqM29mVkU5dG0rTHd1ZDA0UWg2ejlyZkVkQWNqb0FvL3ovSGpVckdidXBi?=
+ =?utf-8?B?QXEwZXc1VWVoTEpqajZiVk5Hc1BNcGVWamZzWXBVU1FrVFRhQUd3djBpV3NX?=
+ =?utf-8?B?QTdUVXNpSGJ5Q0dXd3hyOXorUmJyQW8yVGJWNEVNSnZUZWdyUzJLVDd0bG5Q?=
+ =?utf-8?B?RUpTZnRnMkgvTWsrTUJpa1h3Q2RDbjFJNmFsS0NtZ1U2WFdpK3FXTFRiN1ZS?=
+ =?utf-8?B?S2ZKaDlPTnpqeExwQ3lOOVhwTGhCSEdCbFJqUnk4UXNrWnd4Q2VMYlhHck9O?=
+ =?utf-8?B?NmdvY0pJb2NQVTlnblcwVkhIUkdQRFpuakVMdGpWMy9TVnBNeDhNOGJVaTdl?=
+ =?utf-8?B?Vzc1SHBmTW5FYnRodkdiWi9rbGM3bURsRWZINUlyTWJsQjEyWFBuQlhqekFu?=
+ =?utf-8?B?N0RMbVlQcFFabTJaTEdZZ1ltdG42QjliNGtvWWpEUEg2NTdqZjI5WEpyTXA1?=
+ =?utf-8?B?K3hGaFEzdkdQOXJEV29pdTJqUGdJRE9pZGE0UXZNN1dNcitNRHd6MHNlMHhM?=
+ =?utf-8?B?cHdHVUxLdGc4VUV0aGFhRDh0RFBEbnRxbjNsbUFYelNnS0Y0L00yNk5UMzV1?=
+ =?utf-8?B?Y0hsa0pTajU3bTdHNnBYQ1lJdW15ZFR5R1NlcTNyT0M5WWhLc2xDaXdRQVgr?=
+ =?utf-8?B?VTNxY2s2UjI1OHpQNmRjcEkxSUVPSTlRNTRzeU5NeUduME5ZTVpLTEhxOGVT?=
+ =?utf-8?B?T0piWFZSeW13PT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB9155.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZG56SDRvdGVlejAzMVB2UU10cmhlcHBRcGNSdXltZHB6MXIrd3g5TmdQSkgy?=
+ =?utf-8?B?YkJreFQ0RjZYRk1ib0pTTzVqMm90ZUYxMVluVnVQWU1jeXpTSmltYmIzRjhX?=
+ =?utf-8?B?SWxHMXMzeFhmczh6QWdnNFVPaWJaT1ZKRlJpc1doWmN6ZnNKT1BjcWxLeWZR?=
+ =?utf-8?B?MlpoRHRKbjRFQ2JMK3NJMGZseVE4MVlkclJkU0FKb2YwNVlOWjV5MlNxLzhy?=
+ =?utf-8?B?TVB2cjBJZW51Yzg0L0hxR09uSEdoU2FEMFphQllzRVNnd24yUXhaUXI5S3RQ?=
+ =?utf-8?B?bXFyV3lZdy9IeUlDWlMvZjNUY0VlQzRCclJodnR2OStrbFUzQ2NHdldYWTBw?=
+ =?utf-8?B?ekhzL0tzSU5YR3o3dUpZSVE1b1pEQUl1OTBRN3ZiZW0xbENwb21JU1piZ0hC?=
+ =?utf-8?B?L0VrQjNoRVBlTGt4ZWN0cGdrK05wa2gycXdSakdXekZBUnBncUc1TFlGbnN5?=
+ =?utf-8?B?b1pYZzdNMTFmdjZ3YlgyT2FucXVMUG5wZWR1Y25pLy9HRFNuV0hySllvSHNp?=
+ =?utf-8?B?MExkeGFpKy9iT09CcFVCd3JkL3VnZW1sTUMvNVF0QSttRTlINDNGeEx5VnJS?=
+ =?utf-8?B?OEdYLzdGQlNuY3JlNnFOWE5QR212TFh5L0RWTFVOU0luN1VGWlpuKzBiWk1K?=
+ =?utf-8?B?Z0psd3dNb2RRZkxsZTBkQXpqeERZcElraDFBcS9MNkd5M0pIT213S25ZaFFV?=
+ =?utf-8?B?VDhoNUpsUTFIRGcyZ2tvWVpNcVFySGNlZzRnZWx1RHFuditmaHVMblhqQjFt?=
+ =?utf-8?B?aU9sMEljWmh6THF0d0w0eFhpZlkzbys3R29jMXpLeWsyKzhQOGYzejI1WUdX?=
+ =?utf-8?B?ZXF1aW1sMWt0Q3YzdDlEVU54V0xhWnVGSUliV2ROMGd1M0tDalZ3KzBmU1gw?=
+ =?utf-8?B?T05TYVlaQVdCNUJtVUVtWE90TjlXTVpwbW9iNWkxa3pJNjdoSVplMmM3cEZG?=
+ =?utf-8?B?aDBITzlGS21CZm5GeVQzQTNOZnp0VGVnSU1NalUvaUtwUXQzQ2FtM0dNdG1Z?=
+ =?utf-8?B?dno0YVZKa3dCZUQrdmkxb1h0RHdjdTAzZFhuaTgzK2VzOElrSkNqcXNIZ2pk?=
+ =?utf-8?B?UDdJdjFYVmhhTUJEeUhqSWJKK0hRRWc0MW1XRzA2MHpOMWIvZ0ZMZVA5Z0gv?=
+ =?utf-8?B?b21TVUEyUVdab0tISXJnQTRrVll6Ni8ra2hLL3prbXhIZzJFd1p2bVhMZmJR?=
+ =?utf-8?B?RXRBMWdyNDZqZWFzdS90VTBQeHFCa0lzcEIvSFRrTnY2SlFuTXh2YWxxcDQ3?=
+ =?utf-8?B?WHZXaG1FMTN4UlhUVGRieVV6SWlmS0duU2VVR2xSRVdTTVY5QXhxZzc5WkpP?=
+ =?utf-8?B?ZERHWE5GRHdDZHVvSzZPL1JUUFFuUjdjNHlteUpudTRtZHY5RTMrSXJRUVJQ?=
+ =?utf-8?B?ZXBkM3BmWk56b0RGYUZNdVFGaWdzRzI1dC9wYjRMMjhNUG84c1BpcDBoTWxP?=
+ =?utf-8?B?VnhCZG5HYVU4Z2kzdUljZzlFalNmMHRvRm9HTXViTFIwNS9na3Z6bExBZXpD?=
+ =?utf-8?B?cUNtazR3dU5NeUNwNWk2ZzVxRlBMTVh6TU1UTXVaRlIrNGpwaHUrMk5OL2dz?=
+ =?utf-8?B?RVBKVStYM05sSzJoVk16M1Rud2l6L3hJOWZsS3NmMmlURzNpSEo4TjdxcG5h?=
+ =?utf-8?B?QzVNb1hwOVN2NkRoWTU2amExNUlIV3lIWEpnMEhMaytkSEVGQ0FadDBsZzhu?=
+ =?utf-8?B?Vk9VeXJoM3pwcGU3RmRNNWpGM0MvbUJQSjRBNkE0WVBpR3duTkt6RU1talRv?=
+ =?utf-8?B?N1FSemxsdmhVbUxUNEQvbVF2V0FwYm9tR1Y3Sy8xUmowejJQNHkyRlNRMjdR?=
+ =?utf-8?B?R3lFcFltZDhSQi85Y2dScFVwbWZNYjVYemo3RCtkZ0NYSmlMaDhVTW5QRVBN?=
+ =?utf-8?B?ZTFXeDc0SWNKeFdBMVdLaVpjWGpSV0F0d3ZqSGNKVnJHdzhveWVicUVLaHg2?=
+ =?utf-8?B?V2hLUWpNSmFSQVo4NnhWT2hpSmdKaUpXcFdOamN6OHBrTlVXN0hFQjlMVmUv?=
+ =?utf-8?B?OWtZSGhQc1hnM29hRkQxS1JCOCtvMlZsTXR6YzZpWjc0a3JSa2tvTVJzbHlV?=
+ =?utf-8?B?YU96TC9zMzNjYWtBYm1LY2lwOXQ4WVpyOWEwVkgwOTl2T0diSnFVUEpmRzRQ?=
+ =?utf-8?B?ZHZXajl5d28yQ05tbVVXK25oSTFZU1JTUU5Eb2N6Vi9vUDdUWTVJL1hROEh3?=
+ =?utf-8?B?dFE9PQ==?=
+X-OriginatorOrg: wolfvision.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: cd10669d-50a8-45fb-0666-08dd50ce80b1
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR08MB9155.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 10:16:41.0825
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e94ec9da-9183-471e-83b3-51baa8eb804f
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AFsZOZPSfaXxjVVrDer6Y/FQewzXkbNmLQOy38ATNHHAd/xDoX9rzRO/aI39GK/bXOYyixb096Eq0b5V83Giib8Ua/0QNEUu2EKpsK3NLgM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8138
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_021319_395745_0A3EB2C0 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20250219_021654_310046_835D0E73 
+X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,89 +203,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 11:06:02AM +0200, Dmitry Baryshkov wrote:
-> On Tue, Feb 18, 2025 at 08:29:46PM +0100, Jerome Brunet wrote:
-> > Add helper functions to create a device on the auxiliary bus.
-> > 
-> > This is meant for fairly simple usage of the auxiliary bus, to avoid having
-> > the same code repeated in the different drivers.
-> > 
-> > Suggested-by: Stephen Boyd <sboyd@kernel.org>
-> > Cc: Arnd Bergmann <arnd@arndb.de>
-> > Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
-> > ---
-> >  drivers/base/auxiliary.c      | 108 ++++++++++++++++++++++++++++++++++++++++++
-> >  include/linux/auxiliary_bus.h |  17 +++++++
-> >  2 files changed, 125 insertions(+)
-> > 
-> > diff --git a/drivers/base/auxiliary.c b/drivers/base/auxiliary.c
-> > index afa4df4c5a3f371b91d8dd8c4325495d32ad1291..a6d46c2759be81a0739f07528d5959c2a76eb8a8 100644
-> > --- a/drivers/base/auxiliary.c
-> > +++ b/drivers/base/auxiliary.c
-> > @@ -385,6 +385,114 @@ void auxiliary_driver_unregister(struct auxiliary_driver *auxdrv)
-> >  }
-> >  EXPORT_SYMBOL_GPL(auxiliary_driver_unregister);
-> >  
-> > +static void auxiliary_device_release(struct device *dev)
-> > +{
-> > +	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
-> > +
-> > +	kfree(auxdev);
-> > +}
-> > +
-> > +/**
-> > + * auxiliary_device_create - create a device on the auxiliary bus
-> > + * @dev: parent device
-> > + * @modname: module name used to create the auxiliary driver name.
-> > + * @devname: auxiliary bus device name
-> > + * @platform_data: auxiliary bus device platform data
-> > + * @id: auxiliary bus device id
-> > + *
-> > + * Helper to create an auxiliary bus device.
-> > + * The device created matches driver 'modname.devname' on the auxiliary bus.
-> > + */
-> > +struct auxiliary_device *auxiliary_device_create(struct device *dev,
-> > +						 const char *modname,
-> > +						 const char *devname,
-> > +						 void *platform_data,
-> > +						 int id)
-> > +{
-> > +	struct auxiliary_device *auxdev;
-> > +	int ret;
-> > +
-> > +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
-> > +	if (!auxdev)
-> > +		return NULL;
-> > +
-> > +	auxdev->id = id;
-> > +	auxdev->name = devname;
-> > +	auxdev->dev.parent = dev;
-> > +	auxdev->dev.platform_data = platform_data;
-> > +	auxdev->dev.release = auxiliary_device_release;
-> > +	device_set_of_node_from_dev(&auxdev->dev, dev);
-> > +
-> > +	ret = auxiliary_device_init(auxdev);
-> > +	if (ret) {
-> > +		kfree(auxdev);
-> > +		return NULL;
-> > +	}
-> > +
-> > +	ret = __auxiliary_device_add(auxdev, modname);
-> > +	if (ret) {
-> 
-> This loses possible error return values from __auxiliary_device_add().
+Add defines for the pixel clock sampling modes (rising edge, falling edge,
+dual edge) for parallel video interfaces.
+This avoids hardcoded constants in device tree sources.
 
-Why does that really matter?
+Acked-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+---
+ include/dt-bindings/media/video-interfaces.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> I'd suggest to return ERR_PTR(ret) here and in the
-> auxiliary_device_init() chunks and ERR_PTR(-ENOMEM) in case of kzalloc()
-> failure.
+diff --git a/include/dt-bindings/media/video-interfaces.h b/include/dt-bindings/media/video-interfaces.h
+index 88b9d05d8075..0b19c9b2e627 100644
+--- a/include/dt-bindings/media/video-interfaces.h
++++ b/include/dt-bindings/media/video-interfaces.h
+@@ -20,4 +20,8 @@
+ #define MEDIA_BUS_CSI2_CPHY_LINE_ORDER_CAB	4
+ #define MEDIA_BUS_CSI2_CPHY_LINE_ORDER_CBA	5
+ 
++#define MEDIA_PCLK_SAMPLE_FALLING_EDGE		0
++#define MEDIA_PCLK_SAMPLE_RISING_EDGE		1
++#define MEDIA_PCLK_SAMPLE_DUAL_EDGE		2
++
+ #endif /* __DT_BINDINGS_MEDIA_VIDEO_INTERFACES_H__ */
 
-Will the caller do something different based on the error value here?
-All we care is that this worked or not, the specific error isn't going
-to matter for device creation like this.
+-- 
+2.34.1
 
-thanks,
-
-greg k-h
 
