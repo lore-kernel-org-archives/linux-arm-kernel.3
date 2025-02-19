@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6639DC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 22:15:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7843BC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 22:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QI029+WDO/xAkXHC8GLNwppyd21ngB4Kt1M32/siHM4=; b=vdj49GlQ6QiefUDDa36eSdEqHh
-	l8um0sgRNErEMqAdQjEq+8fh8b6DwpZPupPheH9chWjnrULNSZ+YYE6X2RtPxnEImpSm1tLmNVwfz
-	GwYHNeagg9EYVGO8siJLpqsGs+upHwxU6L6nfy1yrPWCfP4iIBWyvmN9wMv4HqI/kS72dIV58YZPh
-	GAZSChNqfRSWYu01SY+NHCG/Hc5Yz547I9BQM8DuctfJrKD+hMqiF1pDDEQ9efmKLlV+xvlqqoDFp
-	+UE17xos1KWWq9NzUha9DllcYWmnhxj5xGsy4lIlSv08JjHwXVllfpjvQFbwlXPdHRsB6Sh4w5bCK
-	LFyKgVYA==;
+	bh=zOres0ehnZAsK3fceV+yF/DaChLI/9SaBHpoi6QvURE=; b=TDdTtw1s1iwE12weJ0vRkNXYWK
+	9076xdS/FjrP5D3Bdi3mbBLC7y0neMpdDNUnxG1tjGE+ZESebE0TUguJf4ruJbbDHLKwe+LcZj/hZ
+	dkdoNYXgfTGpp3tLvohNisb10sgFlJzaJZNI7el5mGVqpxpXwrtIhSLnE2+3U6v43HxePMjBQpR8V
+	C1Nn3LB7s96lMNVaByQHjUQM19H6BYws2ojnFUXZ154cqAMb4+9dsLLiGJ3+cY9EpQUT43/REpvJx
+	8T/QD8ovn1SKBQQTYGa31u0foMTQie5gFAiY+DecdEcms0zPHGKSAEzh6byaN/OPHBCKe+DwGrY80
+	L4GQfrwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tksLy-0000000FOMg-1b8y;
-	Wed, 19 Feb 2025 22:15:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tksNR-0000000FOlO-0FFz;
+	Wed, 19 Feb 2025 22:17:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tksGP-0000000FMen-1XaG
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 19 Feb 2025 22:09:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=QI029+WDO/xAkXHC8GLNwppyd21ngB4Kt1M32/siHM4=; b=FSPSuuuodjpg7NuYRIxx/TGhXW
-	pjcPO1Grt7IBP6Jn2/u4QLvemRR1v/6K6fYaLADhsuc+hmrguFdIdbJ9bJcYiXXgJm/SSa4ciOo1Y
-	WsX97FGj8sGbdUDLF8JsyKWcna5IebZZJgLrftxVM1FXkKo/h0F+mo3wL9Xkb0vh/XDX17AA2c+qb
-	yUszfMNHGXblEkoQqwaDOcrNEmfsjkAEH/VXLoSGBeWK8cqwGt2hlbGQxRdS41Uv5fCOEfb28Y1E6
-	oWMB/pyqwUp7G6H8RSyAQIFRKbxE8pYQ5Cv0Hv+SEcJbvpGLKXcG1t6C1F1dAwPRCb7EubpnZtDYv
-	HKeIH5kg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tksGE-00000002L0U-3zIH
+	id 1tksIE-0000000FNK0-44Qx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 22:09:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA64B1595;
-	Wed, 19 Feb 2025 14:09:57 -0800 (PST)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D106D3F6A8;
-	Wed, 19 Feb 2025 14:09:37 -0800 (PST)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: will@kernel.org,
-	robin.murphy@arm.com,
-	catalin.marinas@arm.com
-Cc: maz@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	gregkh@linuxfoundation.org,
-	aneesh.kumar@kernel.org,
-	steven.price@arm.com,
-	suzuki.poulose@arm.com,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Christoph Hellwig <hch@lst.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>
-Subject: [PATCH v2 2/3] dma: Introduce generic dma_decrypted/dma_encrypted helpers
-Date: Wed, 19 Feb 2025 22:07:50 +0000
-Message-ID: <20250219220751.1276854-3-suzuki.poulose@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250219220751.1276854-1-suzuki.poulose@arm.com>
-References: <20250219220751.1276854-1-suzuki.poulose@arm.com>
+	Wed, 19 Feb 2025 22:11:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 424095C0782;
+	Wed, 19 Feb 2025 22:11:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C9EFC4CED1;
+	Wed, 19 Feb 2025 22:11:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740003106;
+	bh=dZyIn3+mJ3vnANHwYSZe/NwWp//PvNFWn3w/6m5Atxg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=GWdUaRWWkN7u/XVvl76z7LF+/W9dJl32hpLYgoRV03/xud0VwajoKJhKmEAfxue8A
+	 8U/i8V82GDdusExHr2lFgiQAH3qZgZyQuL6+tcAEMENBo9xn5gunplxyEF1TtVMGTe
+	 g4nTmRBpkwQOfWe1bNhR7uxMdvpa+NEMSsZV8Tyh99wVdInTKnWNIrV3K8dBcyhhG/
+	 FrPQK+qEz590c2POkLp1YOFPzFcKnLhNHq1S8eczJEXhYuKgbhlPKUyHO6lpHs8vNo
+	 ErLbrZJ859VcxuqEz/sgoRnLSx3SGDI000CsrANPJdFQQORlWE9OnJ9X1dADj/ZBxu
+	 Ps0BxWJmXA45w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tksIB-005zA8-Qj;
+	Wed, 19 Feb 2025 22:11:43 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oliver.upton@linux.dev>
+Subject: Re: [PATCH] KVM: arm64: Fix tcr_el2 initialisation in hVHE mode
+Date: Wed, 19 Feb 2025 22:11:38 +0000
+Message-Id: <174000308842.546972.9338900665339093067.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250214133724.13179-1-will@kernel.org>
+References: <20250214133724.13179-1-will@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, will@kernel.org, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_220949_661556_2310D3EE 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20250219_141147_054817_1BA2FFE2 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,127 +83,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AMD SME added __sme_set/__sme_clr primitives to modify the DMA address for
-encrypted/decrypted traffic. However this doesn't fit in with other models,
-e.g., Arm CCA where the meanings are the opposite. i.e., "decrypted" traffic
-has a bit set and "encrypted" traffic has the top bit cleared.
+On Fri, 14 Feb 2025 13:37:24 +0000, Will Deacon wrote:
+> When not running in VHE mode, cpu_prepare_hyp_mode() computes the value
+> of TCR_EL2 using the host's TCR_EL1 settings as a starting point. For
+> nVHE, this amounts to masking out everything apart from the TG0, SH0,
+> ORGN0, IRGN0 and T0SZ fields before setting the RES1 bits, shifting the
+> IPS field down to the PS field and setting DS if LPA2 is enabled.
+> 
+> Unfortunately, for hVHE, things go slightly wonky: EPD1 is correctly set
+> to disable walks via TTBR1_EL2 but then the T1SZ and IPS fields are
+> corrupted when we mistakenly attempt to initialise the PS and DS fields
+> in their E2H=0 positions. Furthermore, many fields are retained from
+> TCR_EL1 which should not be propagated to TCR_EL2. Notably, this means
+> we can end up with A1 set despite not initialising TTBR1_EL2 at all.
+> This has been shown to cause unexpected translation faults at EL2 with
+> pKVM due to TLB invalidation not taking effect when running with a
+> non-zero ASID.
+> 
+> [...]
 
-In preparation for adding the support for Arm CCA DMA conversions, convert the
-existing primitives to more generic ones that can be provided by the backends.
-i.e., add helpers to
- 1. dma_encrypted - Convert a DMA address to "encrypted" [ == __sme_set() ]
- 2. dma_decrypted - Convert a DMA address to "decrypted" [ None exists today ]
- 3. dma_clear_encryption - Clear any "encryption"/"decryption" bits from DMA
-    address [ SME uses __sme_clr() ]
+Applied to fixes, thanks!
 
-Since the original __sme_xxx helpers come from linux/mem_encrypt.h, use that
-as the home for the new definitions and provide dummy ones when none is provided
-by the architectures.
+[1/1] KVM: arm64: Fix tcr_el2 initialisation in hVHE mode
+      commit: 102c51c50db88aedd00a318b7708ad60dbec2e95
 
-With the above, phys_to_dma_unencrypted() uses the newly added dma_decrypted()
-helper and to make it a bit more easier to read and avoid double conversion,
-provide __phys_to_dma().
+Cheers,
 
-No functional changes intended. Compile tested on x86 defconfig with
-CONFIG_AMD_MEM_ENCRYPT.
-
-Suggested-by: Robin Murphy <robin.murphy@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Robin Murphy <robin.murphy@arm.com>
-Cc: Steven Price <steven.price@arm.com>
-Cc: Christoph Hellwig <hch@lst.de>
-Cc: Tom Lendacky <thomas.lendacky@amd.com>
-Cc: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
----
- include/linux/dma-direct.h  | 12 ++++++++----
- include/linux/mem_encrypt.h | 23 +++++++++++++++++++++++
- 2 files changed, 31 insertions(+), 4 deletions(-)
-
-diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
-index d20ecc24cb0f..9b5cc0ee86d5 100644
---- a/include/linux/dma-direct.h
-+++ b/include/linux/dma-direct.h
-@@ -78,14 +78,18 @@ static inline dma_addr_t dma_range_map_max(const struct bus_dma_region *map)
- #define phys_to_dma_unencrypted		phys_to_dma
- #endif
- #else
--static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
--		phys_addr_t paddr)
-+static inline dma_addr_t __phys_to_dma(struct device *dev, phys_addr_t paddr)
- {
- 	if (dev->dma_range_map)
- 		return translate_phys_to_dma(dev, paddr);
- 	return paddr;
- }
- 
-+static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
-+						phys_addr_t paddr)
-+{
-+	return dma_decrypted(__phys_to_dma(dev, paddr));
-+}
- /*
-  * If memory encryption is supported, phys_to_dma will set the memory encryption
-  * bit in the DMA address, and dma_to_phys will clear it.
-@@ -94,14 +98,14 @@ static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
-  */
- static inline dma_addr_t phys_to_dma(struct device *dev, phys_addr_t paddr)
- {
--	return __sme_set(phys_to_dma_unencrypted(dev, paddr));
-+	return dma_encrypted(__phys_to_dma(dev, paddr));
- }
- 
- static inline phys_addr_t dma_to_phys(struct device *dev, dma_addr_t dma_addr)
- {
- 	phys_addr_t paddr;
- 
--	dma_addr = __sme_clr(dma_addr);
-+	dma_addr = dma_clear_encryption(dma_addr);
- 	if (dev->dma_range_map)
- 		paddr = translate_dma_to_phys(dev, dma_addr);
- 	else
-diff --git a/include/linux/mem_encrypt.h b/include/linux/mem_encrypt.h
-index ae4526389261..c8dcc1be695a 100644
---- a/include/linux/mem_encrypt.h
-+++ b/include/linux/mem_encrypt.h
-@@ -26,11 +26,34 @@
-  */
- #define __sme_set(x)		((x) | sme_me_mask)
- #define __sme_clr(x)		((x) & ~sme_me_mask)
-+
-+#define dma_encrypted(x)	__sme_set(x)
-+#define dma_clear_encryption(x)	__sme_clr(x)
-+
- #else
- #define __sme_set(x)		(x)
- #define __sme_clr(x)		(x)
- #endif
- 
-+/*
-+ * dma_encrypted() and dma_decrypted() are for converting a given DMA
-+ * address to the respective type of addressing.
-+ *
-+ * dma_clear_encryption() is used to reverse the conversion back to "normal"
-+ * DMA address.
-+ */
-+#ifndef dma_encrypted
-+#define dma_encrypted(x)	(x)
-+#endif
-+
-+#ifndef dma_decrypted
-+#define dma_decrypted(x)	(x)
-+#endif
-+
-+#ifndef dma_clear_encryption
-+#define dma_clear_encryption(x)	(x)
-+#endif
-+
- #endif	/* __ASSEMBLY__ */
- 
- #endif	/* __MEM_ENCRYPT_H__ */
+	M.
 -- 
-2.43.0
+Without deviation from the norm, progress is not possible.
+
 
 
