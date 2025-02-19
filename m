@@ -4,149 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF47FC021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 01:03:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D83C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 01:06:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Ty6oC2k6wKQl3LqSwtT2xtA7tpqUjjzDioIZ+CBLDM=; b=rl7G0uztYvozuKilrrWeDVC/C7
-	73XmRChllQXfDp1PqRXeThV2inTMY9NKyev2UXt/t2RooHmGfqyyu7dYiSQwS0iCocnimEm1vbPpx
-	X3LHA8SrNvSteDXGN/fRl0i0T9hUzuHLgpfTBdc7aVUGuJZGVRMlRnbxz7i47CLuix2noKUMNb8LU
-	TOM/8/bGjyfyVQ/aQ4+v+Zrkk21tfLq6pEnRIbKCZzKQL2zKagTlPlPVzfAJN9KiTKUX8ctALtuW1
-	1/JQQh+VD4VMJ3Ucejg63nFLBXRvSWia0CPt5E4DZTJcAuflEjvQpPhsiX5KuDyAnFEWpewLyFOQn
-	rHmgqf9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=exNED4G2Car6wsxXN9whsq4jxw9tN1sQJRhqHQV+x+4=; b=GFrugDlaRKDvCm4wSHq9AfSnzY
+	BpQ0X7tI4XzPRyoE93/GjDdMqMSk5Lfw9CAIoyTl8YX1JFDJ77xBibK5HyZPTRQHxzGvn1AEgTouk
+	AL4/6MQx9wXcyrFKwAgdBBSOKyivjCRUDEhKtptl+SUzdJFDDa/mEqCORvWNsKoRYvddukadSYzbX
+	WFRuU8y6YuCst5S27dFWAmQEz6UnMJB0rVug749+mVqLtlWIxcRESYsiTwzWrL501ljA7LCJO1wVj
+	JLPYl5ZD9x6hHN2EFkXFW7KZfh3VoquLm7fZ/YJSidZvsgyLTQhdDQe2B1P5XsfTirn5P4sc9ZgT0
+	vs24gCTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYUH-0000000ASf5-1Rnx;
-	Wed, 19 Feb 2025 01:02:53 +0000
-Received: from mail-bn8nam12on20704.outbound.protection.outlook.com ([2a01:111:f403:2418::704] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1tkYXX-0000000ATcO-2WkZ;
+	Wed, 19 Feb 2025 01:06:15 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYRb-0000000ARvw-3Ui4
+	id 1tkYW3-0000000ATGB-1CG8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 01:00:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f3LozX8H986yJwSMR/NBzioFGgbaF9SkOY+FXf8Xubb8Nzzt/t2i22uggKCD0wU+leF1svBQIxmuPQMZWvi0Jyoy7psEliR0EXMB6hj3Ab3MOMoiugdnw/X5e4D9W/nmzhpbm0TkWY8zymWyCqMek0Ud/JyuQFCdkFz9AFCWzwsRmO2VuPgfn4jVYN7d3xcld5F6T6MLit87obHcc9krGBI8fRzNuh56PggRZBVgcHHEsQt1CBXXCj2V8rp09KfrTAy3Wv+U3MWGuVdeuFirwBlPwzW2lkeZPVPoB8mAQ/IwLQt2RGWydq/CqXibP/rcx3CkExsLqTygtFkTsz7j+g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3Ty6oC2k6wKQl3LqSwtT2xtA7tpqUjjzDioIZ+CBLDM=;
- b=AwSE8Ddv47Nd31MZnTlZcrkVCA9f37tIaBE9C7BcmnffZn5EsncO8jx0GVcFU4ORLIniBt3Lz83VRj1Y7BoSYbfzA9/U50p8u3qDw81pb3foScpj//mczwWaUNPVkM3YAdnvqUIDSA353jEjyNFYR1SK9BSlknlbfEvcEuidLi5+Idxf3yVCchTMUZprOTfHaxLZf5PEo3qRGwt17Qzb+3DyX4oL54xz/qCK2uJAKB7jYEckskGDI7X0kmuvYI0FNWGLkoZ2eE1JQppIQsr+ewvgDCyf7q8gg3RplNsKm625djx+ZsMlSaqYqyRfGs4sMG3QhnYFtTLqwvzOSjsRog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
+	Wed, 19 Feb 2025 01:04:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3Ty6oC2k6wKQl3LqSwtT2xtA7tpqUjjzDioIZ+CBLDM=;
- b=T/LJtm1uW+D8d0PeORuFF3d6m5JfBuo8+iraa7lZbwcyujEelg2fRxmhZcDKEmHleKDlKbNOnA4B8bEgBNNl7Ro13mOBIHNeTX6rrJ6CuJu0EO7YZWq7RSq9Ev5J428xwWE9BWSpWe5jjzKqyjql5TdrBve3uWj5iDskgSHx3Yk=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from SA3PR01MB8501.prod.exchangelabs.com (2603:10b6:806:39e::18) by
- LV8PR01MB8552.prod.exchangelabs.com (2603:10b6:408:185::5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.12; Wed, 19 Feb 2025 00:59:59 +0000
-Received: from SA3PR01MB8501.prod.exchangelabs.com
- ([fe80::f7ae:9cc3:b435:c49d]) by SA3PR01MB8501.prod.exchangelabs.com
- ([fe80::f7ae:9cc3:b435:c49d%3]) with mapi id 15.20.8466.009; Wed, 19 Feb 2025
- 00:59:59 +0000
-From: Paul Benoit <paul@os.amperecomputing.com>
-To: linux-kernel@vger.kernel.org
-Cc: Paul Benoit <paul@os.amperecomputing.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4] firmware: smccc: Support optional Arm SMC SOC_ID name
-Date: Tue, 18 Feb 2025 16:59:32 -0800
-Message-ID: <20250219005932.3466-1-paul@os.amperecomputing.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20241114030452.10149-1-paul@os.amperecomputing.com>
-References: <20241114030452.10149-1-paul@os.amperecomputing.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: CY5P221CA0003.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:930:b::21) To SA3PR01MB8501.prod.exchangelabs.com
- (2603:10b6:806:39e::18)
+	d=codeconstruct.com.au; s=2022a; t=1739927074;
+	bh=exNED4G2Car6wsxXN9whsq4jxw9tN1sQJRhqHQV+x+4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ck4KNK93oNFOKpL0t5ECzFTFAm6r2CgNMF/Tb2zwmGPh+HR2xnErZiTYVLNQdKXgL
+	 b9boyAHmUkwvivRGZstj7UDqgmciRPlIeOtoimn3N5XRZQ6R9oBC/M0ly8Sc4ufX5l
+	 iiiJ5a4lHOH+MruCaCiyuLeZVijM6HV5+Pg33m1vdW4PDBYkBQrD/Wo08jABrGmPCY
+	 PWJg87ONt1ShjPxtzyysKYv9nhK5UScccXz6DNKMPRPZhquFavdn9I6NnhsNA3ixmE
+	 1abdUpm6UGviduDtzScA7R5JClHHRENS8TC1ThX8eHK0db+PRcKwQ7Naofn8YS3cQ8
+	 KFDL8tsJqlCCA==
+Received: from [192.168.68.112] (203-173-1-6.dyn.iinet.net.au [203.173.1.6])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id CF2B976191;
+	Wed, 19 Feb 2025 09:04:31 +0800 (AWST)
+Message-ID: <d4945482509cad0bf3e8cd93c1fb21bac2e0c7f2.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v1 3/3] soc: aspeed: lpc-pcc: Add PCC controller support
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Kevin Chen <kevin_chen@aspeedtech.com>, "joel@jms.id.au"
+ <joel@jms.id.au>,  Z-ChiaWei Wang <chiawei_wang@aspeedtech.com>,
+ "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, 
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>, Mo Elbadry <elbadrym@google.com>
+Cc: "tomer.maimon" <tomer.maimon@nuvoton.com>, Krzysztof Kozlowski
+	 <krzk@kernel.org>, "lee@kernel.org" <lee@kernel.org>, "robh@kernel.org"
+	 <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
+	"conor+dt@kernel.org"
+	 <conor+dt@kernel.org>
+Date: Wed, 19 Feb 2025 11:34:31 +1030
+In-Reply-To: <PSAPR06MB4949C65DF5C034BD6B40C9B589FA2@PSAPR06MB4949.apcprd06.prod.outlook.com>
+References: <20250217114831.3225970-1-kevin_chen@aspeedtech.com>
+	 <20250217114831.3225970-4-kevin_chen@aspeedtech.com>
+	 <e43b5f8f-37e4-4468-b3ca-5059a5e6f3c3@kernel.org>
+	 <6fd7cd57261ddf9831f57dc4c637b24e9f8982d9.camel@codeconstruct.com.au>
+	 <PSAPR06MB4949C65DF5C034BD6B40C9B589FA2@PSAPR06MB4949.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA3PR01MB8501:EE_|LV8PR01MB8552:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5c40f9e4-79f1-4655-a0cd-08dd5080bbb5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|366016|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FRJp60nn/hp/nYuAgVu95CMd562I2aQgADqJjwCOQrdecANmr9xfR1QjN+9z?=
- =?us-ascii?Q?U0RGgDSmh7WienvS2B1k456rHBl2BQ8pKcQwtAjmpS1M1vlC7C2h+ZdXJjgA?=
- =?us-ascii?Q?kK8SB5Rrlkzecjy72ltV+k27bljivNBtdvJWsgrlbX1I2iIT/Ke+PTWIyLVZ?=
- =?us-ascii?Q?A7u6j4vsW9f3vtPigArr3QCd/YB+8FLN5rKo8dJnCbQeWOwUkPiyjVMeW7X/?=
- =?us-ascii?Q?95qrPFwm5v5darC7emPDFnzX2JIRKVzQtiYoDT+qhJLicP3a5EmU0vQi8lWS?=
- =?us-ascii?Q?krcWbMlxwHJufwu4l1iyct56WrK9Drfy9ybi5zgIifm/vBolqzgBFusMBUH2?=
- =?us-ascii?Q?F/N71IBWIOOPbgWrTQQt0OQCtoPi1vD/WcQUy2CGxprHebuJFacbF+JN7KCa?=
- =?us-ascii?Q?IGM1YaSIXtcOxs9Ctm0hqLkKHAAaPpm9DEpAF51RtI984pCGp8K2qnuDZnPV?=
- =?us-ascii?Q?W2eNYiQIVhe8Ngg5kzAwXzsxpk23vY2y1WPygs+9h7ybFt1MjyV/gKVHG3OY?=
- =?us-ascii?Q?Y7bEafxIC52sE/0hCQZ1M2MTP5NGQa1vxCifAQzw96AXE8cp3Q/zWyRsLKJq?=
- =?us-ascii?Q?QHepbz6zjhCoCp0nvFbUJaWWi7klrRcbKmDLnnO0k4d77tjsthi+W6wI7jHp?=
- =?us-ascii?Q?WdySlHNBk4li8/58R9qk0xXrcMAaHcFm+RGdyHjD4qOx0cjc2p6vGIsOgpvD?=
- =?us-ascii?Q?qxiG0FGOUQI9Q36MsF4ZdrT8puHMspVs6XHDPDc2KWeGEtulSah5PhauQVKD?=
- =?us-ascii?Q?coTUN86k6aOYWOQyOd6y3zHqSu2lcjagolC+JpxmSftFUzLQqyJlSgDOdVgu?=
- =?us-ascii?Q?GCmOi/PctUm9bnZJdmDRFZTZDJXrtqiXgOGk8piZ/2S0SN/U6L9Ehn/faiw5?=
- =?us-ascii?Q?UQyCaQlZBo47JJAzswlQsv2J4UkZMaoKXPAgK6ff4zoisohaiO81UR/z3Pdk?=
- =?us-ascii?Q?zearZQh77CHDeZm6k3NOibqOXPWBYogXu50hfhVRmDBMuLltevlEKsXkE2eH?=
- =?us-ascii?Q?U+3YB2uNiySTgIsH3asVdzni7Py1KpG92HNLqyUWqty1BoPg6pLJVT1g1zaU?=
- =?us-ascii?Q?fEKy9w7jBqRrQ9mR0uzM3x41fOMlbLK+4KmHvO+V6ccjA0n/EggNfHsBCjVT?=
- =?us-ascii?Q?g0z9UkhL26AlQ7Qyhun8JnB7rx52beqi/sdhBLTMLhYaIi+hLPxGoYS+mRfM?=
- =?us-ascii?Q?21RxQ/jvG7fxAvJVJZ+3V4wnN6HtB3Y2r3TwAzQQ0PCfNEo9YNblezy01rgx?=
- =?us-ascii?Q?Fj+b85afwOMXakkxAwLHFBMHs9FL9X9UcDNbxv7lfLY5Tkj9XUvDmBpAD7jF?=
- =?us-ascii?Q?L7Nzg+fOjTPgknLSlnBw5u4ojQLqZKklXZU/2FfGQsGlJGy+MQQDwbn9SKZd?=
- =?us-ascii?Q?qplC0efdTvM7vKQxVIl9nB/6crxmtgpxV8Xg4elKF1E18yrhy+wZOSTI9d0/?=
- =?us-ascii?Q?U5dAAYGvwz/ZhdC5wX1n6zEgWskG38/v?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA3PR01MB8501.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(366016)(376014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?5TRFnowarhyvmMubRBMFuGC+MCdB8st1BtCjIGizKn7A/A+XmuMTpPtier0S?=
- =?us-ascii?Q?7vwXFMnIpQydsqyybQyaQUJWQJMTNPyIctNa2FWeP+TVgWK2GENgpoAJJ2q0?=
- =?us-ascii?Q?QB/isEupx+WFVD87bdSSypWuJwlIOIN2h0y7fOUbICW3Wl8r6J3cOpt9L91Z?=
- =?us-ascii?Q?Ak5oElN0qaFhamo/tCZ9x3g20miX4IJQPsiC0/iHxBB6K5lamQZlh0dHtKXk?=
- =?us-ascii?Q?2VUEl34531o6zb0413hHg8re1mxS+BctjyRXlnjM3BhC9xWb82SMOTQ2C6Bp?=
- =?us-ascii?Q?L7S+pJ/vJfvJh/rQrk3x1XDdUQi482R4sA2CwYEa4WvevoKgG1jSUT+CADUM?=
- =?us-ascii?Q?x2Y1TATBvltEpQQBrhrzOMDepe4EW7H+Tdzmw157hAu2lBgd44PligPsYXka?=
- =?us-ascii?Q?vYHHtrEw1orcfnbmL9ZhCMiRgjns0pI60BC0KSbOum4exrqvZhF09SfKUlAV?=
- =?us-ascii?Q?JEhHPCjBAy5oDjPhufjUB8TRTJxkCUW6pZadBEG4SvLAQEZxWM3TBi8RSQru?=
- =?us-ascii?Q?rZXBI6X97AorxssQ4JAK+WeIHrFxreMxlNKC+3zSrpLh8ts7v0DFwuYsg/nf?=
- =?us-ascii?Q?FwyhLXVbHnj4zwK639E4enpn1zEkICglFPLcfoMbGfeo0rJoVu7HV5Hr3kjE?=
- =?us-ascii?Q?fiR9eHyOQxsWulakV/nmOunSrxUV2n1SbWeuA5jJMzim5JJTXGVKg5iMzK92?=
- =?us-ascii?Q?iBvOWExKZeUek3JVfG+/WtlT/5ggn4HbfSTopUaAulzyjPAQPRwfnWPsIMt5?=
- =?us-ascii?Q?o69k8bXbWMF8V1VZ1730ceiJ2A400MHLkV0DYIcFlDXr8BLwxFRwsv7G6Q04?=
- =?us-ascii?Q?CsZ6+lAyq7yoTTCnBLgHz8gaSyZZgTetUqtBZSr8yDjC7H19QaCgkdZvEzR9?=
- =?us-ascii?Q?U7gbtZqjDspru2AAPoz1xcOTC0JYwOcbs+PS80/kbX2QJaQ0Iz+YbaVycK4H?=
- =?us-ascii?Q?gR6dPv833BhT77b587wBPcQDrLHK+jbNHYnJNmTBf55iGUwih5wUrDxdQREJ?=
- =?us-ascii?Q?OTECVOkzHrIT0VtAY4eUtql+Kq4Jm3ykq2Cuw7YixwfUbs4XlG5uRFVYgLmO?=
- =?us-ascii?Q?pdyo0iIKNHJigNv6rQ2mjkprp3Bwm7n0L/+hntcxAQXA7FITOonX8dzUbtbA?=
- =?us-ascii?Q?tU6jb1dRgm/LcRV4WWx63t9dejb2qrHs0RVzsOI+CFIhMH6/deQAVYO+mBwb?=
- =?us-ascii?Q?29dTjxQwQ4aRfn3eirfMJZZTlxu+ajam9zjgV0xliKIIvHJAgyRbISM3f6bk?=
- =?us-ascii?Q?Z/CMC494RHMA9l+9NbeOyQlrW6qMZSDanjbWoneaGbR35U/TVaR726YXnz1G?=
- =?us-ascii?Q?gUki4bin+/VbSniuO/tJLFHyLfC6L+GPxKsj8G3MUYX6yc+/MDHjOxhDDx6T?=
- =?us-ascii?Q?cTPWUZRgbcZRocRzxDbaytjwHoynn8py3QPdSig2RgcYqE0/ljJlQbSUc4ND?=
- =?us-ascii?Q?pEBiu/GIq2bw6HW2Q7ee6Qnh/YNw5VvjicEt4r1AHTOXuJBLCSR0lTkFkqqj?=
- =?us-ascii?Q?bKGCmqibXNDbOT47kj+U5zN5K1zJKS3J6bNeTXD028CSdnLxgfhn3VPLkYts?=
- =?us-ascii?Q?6uY72AQNU0VwjpA8SKgeunUZvwRcVLtHVNiyLFyUrulXf8XaUnCbE/ljQrtc?=
- =?us-ascii?Q?H1yATjIMTM15VMpYX4yyvQ8=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c40f9e4-79f1-4655-a0cd-08dd5080bbb5
-X-MS-Exchange-CrossTenant-AuthSource: SA3PR01MB8501.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 00:59:59.3839
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: StOEd4pGt8LFbXs59zv1sbz3pjmo8M+UQJF9+085QWl8HJGpldShsCfrIMJqch93wlrYs/L7Fm+5Z7NAQXiKcK7HBIQKTpJwr4948SIlmW8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR01MB8552
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_170007_888196_187D3461 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20250218_170443_529173_74C84681 
+X-CRM114-Status: GOOD (  17.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,181 +82,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Issue Number 1.6 of the Arm SMC Calling Convention introduces an optional
-SOC_ID name string.  If implemented, point the 'machine' field of the SoC
-Device Attributes at this string so that it will appear under
-/sys/bus/soc/devices/soc0/machine.
+On Tue, 2025-02-18 at 11:11 +0000, Kevin Chen wrote:
+> > On Mon, 2025-02-17 at 13:00 +0100, Krzysztof Kozlowski wrote:
+> > > On 17/02/2025 12:48, Kevin Chen wrote:
+> > > > +
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pcc->mdev.parent =3D dev=
+;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pcc->mdev.minor =3D MISC=
+_DYNAMIC_MINOR;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pcc->mdev.name =3D devm_=
+kasprintf(dev, GFP_KERNEL,
+> > > > "%s%d",
+> > > > DEVICE_NAME,
+> > > >=20
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0pcc->mdev_id);
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pcc->mdev.fops =3D &pcc_=
+fops;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0rc =3D misc_register(&pc=
+c->mdev);
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (rc) {
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0dev_err(dev, "Couldn't register misc
+> > > > device\n");
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0goto err_free_kfifo;
+> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0}
+> > >=20
+> > > You cannot expose user-space interfaces from SoC drivers. Use
+> > > appropriate subsystem for this with proper ABI documentation.
+> > >=20
+> > > See:
+> > > https://lore.kernel.org/all/bc5118f2-8982-46ff-bc75-d0c71475e909@app.=
+f
+> > > astmail.com/
+> > > and more discussions on LKML
+> >=20
+> > Further, drivers/misc/aspeed-lpc-snoop.c already exists:
+> >=20
+> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/comm=
+it/?id=3D
+> > 9f4f9ae81d0affc182f54dd00285ddb90e0b3ae1
+> >=20
+> > Kevin: Did you consider reworking it?
+> Andrew: No, I do not rework it but add the post code capture driver
+> using the SNOOP registers. As a result, I add some code in
+> aspeed_a2600_15 to check the SNOOP enable bit. PCC driver probe abort
+> if snoop is enabled.
 
-On Arm SMC compliant SoCs, this will allow things like 'lscpu' to
-eventually get a SoC provider model name from there rather than each
-tool/utility needing to get a possibly inconsistent, obsolete, or incorrect
-model/machine name from its own hardcoded model/machine name table.
+Hmm, I think OpenBMC's history regarding POST code support caused some
+confusion on my part. For whatever reason, the snoop device was used as
+a source of POST codes despite the existence of the dedicated POST code
+hardware since at least the AST2400, but...
 
-Signed-off-by: Paul Benoit <paul@os.amperecomputing.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
----
+> PCC is used for port I/O byte snooping over eSPI.
 
-v3->v4: Address code review identified issues of v3.
-v2->v3: Add conditionalization to exclude SOC_ID Name from 32-bit builds.
-v1->v2: Address code review identified issues.
+... it seems that they're largely interchangeable, just with different
+hardware features (PCC has DMA)? My impression is that the snoop device
+could also be used over eSPI?
 
- drivers/firmware/smccc/soc_id.c | 81 +++++++++++++++++++++++++++++++++
- include/linux/arm-smccc.h       | 40 ++++++++++++++++
- 2 files changed, 121 insertions(+)
+>=20
+>=20
+> >=20
+> > Nuvoton have a similar capability in their NPCM BMC SoC(s) with the
+> > "BPC"
+> > ("BIOS POST Code" controller). There should be some consensus on
+> > the binding
+> > and userspace interface.
 
-diff --git a/drivers/firmware/smccc/soc_id.c b/drivers/firmware/smccc/soc_id.c
-index 1990263fbba0..7b0688d78dab 100644
---- a/drivers/firmware/smccc/soc_id.c
-+++ b/drivers/firmware/smccc/soc_id.c
-@@ -32,6 +32,86 @@
- static struct soc_device *soc_dev;
- static struct soc_device_attribute *soc_dev_attr;
- 
-+#ifdef CONFIG_ARM64
-+
-+static char __ro_after_init smccc_soc_id_name[136] = "";
-+
-+static inline void str_fragment_from_reg(char *dst, unsigned long reg)
-+{
-+	dst[0] = (reg >> 0)  & 0xff;
-+	dst[1] = (reg >> 8)  & 0xff;
-+	dst[2] = (reg >> 16) & 0xff;
-+	dst[3] = (reg >> 24) & 0xff;
-+	dst[4] = (reg >> 32) & 0xff;
-+	dst[5] = (reg >> 40) & 0xff;
-+	dst[6] = (reg >> 48) & 0xff;
-+	dst[7] = (reg >> 56) & 0xff;
-+}
-+
-+static char __init *smccc_soc_name_init(void)
-+{
-+	struct arm_smccc_1_2_regs args;
-+	struct arm_smccc_1_2_regs res;
-+	size_t len;
-+
-+	/*
-+	 * Issue Number 1.6 of the Arm SMC Calling Convention
-+	 * specification introduces an optional "name" string
-+	 * to the ARM_SMCCC_ARCH_SOC_ID function.  Fetch it if
-+	 * available.
-+	 */
-+	args.a0 = ARM_SMCCC_ARCH_SOC_ID;
-+	args.a1 = 2;    /* SOC_ID name */
-+	arm_smccc_1_2_invoke(&args, &res);
-+	if ((u32)res.a0 == 0) {
-+		const unsigned int regsize = sizeof(res.a1);
-+
-+		/*
-+		 * Copy res.a1..res.a17 to the smccc_soc_id_name string
-+		 * 8 bytes at a time.  As per Issue 1.6 of the Arm SMC
-+		 * Calling Convention, the string will be NUL terminated
-+		 * and padded, from the end of the string to the end of the
-+		 * 136 byte buffer, with NULs.
-+		 */
-+		str_fragment_from_reg(smccc_soc_id_name + 0*regsize, res.a1);
-+		str_fragment_from_reg(smccc_soc_id_name + 1*regsize, res.a2);
-+		str_fragment_from_reg(smccc_soc_id_name + 2*regsize, res.a3);
-+		str_fragment_from_reg(smccc_soc_id_name + 3*regsize, res.a4);
-+		str_fragment_from_reg(smccc_soc_id_name + 4*regsize, res.a5);
-+		str_fragment_from_reg(smccc_soc_id_name + 5*regsize, res.a6);
-+		str_fragment_from_reg(smccc_soc_id_name + 6*regsize, res.a7);
-+		str_fragment_from_reg(smccc_soc_id_name + 7*regsize, res.a8);
-+		str_fragment_from_reg(smccc_soc_id_name + 8*regsize, res.a9);
-+		str_fragment_from_reg(smccc_soc_id_name + 9*regsize, res.a10);
-+		str_fragment_from_reg(smccc_soc_id_name + 10*regsize, res.a11);
-+		str_fragment_from_reg(smccc_soc_id_name + 11*regsize, res.a12);
-+		str_fragment_from_reg(smccc_soc_id_name + 12*regsize, res.a13);
-+		str_fragment_from_reg(smccc_soc_id_name + 13*regsize, res.a14);
-+		str_fragment_from_reg(smccc_soc_id_name + 14*regsize, res.a15);
-+		str_fragment_from_reg(smccc_soc_id_name + 15*regsize, res.a16);
-+		str_fragment_from_reg(smccc_soc_id_name + 16*regsize, res.a17);
-+
-+		len = strnlen(smccc_soc_id_name, sizeof(smccc_soc_id_name));
-+		if (len) {
-+			if (len == sizeof(smccc_soc_id_name))
-+				pr_warn(FW_BUG "Ignoring improperly formatted Name\n");
-+			else
-+				return smccc_soc_id_name;
-+		}
-+	}
-+
-+	return NULL;
-+}
-+
-+#else
-+
-+static char __init *smccc_soc_name_init(void)
-+{
-+	return NULL;
-+}
-+
-+#endif
-+
- static int __init smccc_soc_init(void)
- {
- 	int soc_id_rev, soc_id_version;
-@@ -72,6 +152,7 @@ static int __init smccc_soc_init(void)
- 	soc_dev_attr->soc_id = soc_id_str;
- 	soc_dev_attr->revision = soc_id_rev_str;
- 	soc_dev_attr->family = soc_id_jep106_id_str;
-+	soc_dev_attr->machine = smccc_soc_name_init();
- 
- 	soc_dev = soc_device_register(soc_dev_attr);
- 	if (IS_ERR(soc_dev)) {
-diff --git a/include/linux/arm-smccc.h b/include/linux/arm-smccc.h
-index 67f6fdf2e7cd..eb7eab04755a 100644
---- a/include/linux/arm-smccc.h
-+++ b/include/linux/arm-smccc.h
-@@ -639,5 +639,45 @@ asmlinkage void __arm_smccc_hvc(unsigned long a0, unsigned long a1,
- 		method;							\
- 	})
- 
-+#ifdef CONFIG_ARM64
-+
-+#define __fail_smccc_1_2(___res)					\
-+	do {								\
-+		if (___res)						\
-+			___res->a0 = SMCCC_RET_NOT_SUPPORTED;		\
-+	} while (0)
-+
-+/*
-+ * arm_smccc_1_2_invoke() - make an SMCCC v1.2 compliant call
-+ *
-+ * @args: SMC args are in the a0..a17 fields of the arm_smcc_1_2_regs structure
-+ * @res: result values from registers 0 to 17
-+ *
-+ * This macro will make either an HVC call or an SMC call depending on the
-+ * current SMCCC conduit. If no valid conduit is available then -1
-+ * (SMCCC_RET_NOT_SUPPORTED) is returned in @res.a0 (if supplied).
-+ *
-+ * The return value also provides the conduit that was used.
-+ */
-+#define arm_smccc_1_2_invoke(args, res) ({				\
-+		struct arm_smccc_1_2_regs *__args = args;		\
-+		struct arm_smccc_1_2_regs *__res = res;			\
-+		int method = arm_smccc_1_1_get_conduit();		\
-+		switch (method) {					\
-+		case SMCCC_CONDUIT_HVC:					\
-+			arm_smccc_1_2_hvc(__args, __res);		\
-+			break;						\
-+		case SMCCC_CONDUIT_SMC:					\
-+			arm_smccc_1_2_smc(__args, __res);		\
-+			break;						\
-+		default:						\
-+			__fail_smccc_1_2(__res);			\
-+			method = SMCCC_CONDUIT_NONE;			\
-+			break;						\
-+		}							\
-+		method;							\
-+	})
-+#endif /*CONFIG_ARM64*/
-+
- #endif /*__ASSEMBLY__*/
- #endif /*__LINUX_ARM_SMCCC_H*/
--- 
-2.48.1
+This is still the case.
 
+Andrew
 
