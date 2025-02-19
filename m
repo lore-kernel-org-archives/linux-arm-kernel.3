@@ -4,153 +4,203 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49C12C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 23:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA37DC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 23:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8TExdE2TXQs1iahrYLiN1k6wNuzEb4P5o4VuDvDl5c=; b=RqzZ31N0fR76IQSJ+DtDsxxMFe
-	gYRqWFxHi/qr1NVaG4deL3ExL2CDVS+h1YD4vn+oUIsNfutkuwvxm66vgzIz1dTHk2iXku/He9Cnt
-	asIlUIvIUMcBv6Pqc3tmydnxt94xmsxZj9Lq2K05kww3dfEbOr0lCNkhfIjG+7DW9ZwzDNhMHnKZB
-	mRM4IM6CZtLruiIUpCBGFGBKLrTaA7y2fn9/9O8SuQfmtKdTWeXL5cbTwWRTqu/Sp8qR6aVBoAi4q
-	AyS5tLixBqzHi/G3dZlZcKQEQUMcjjBGngqFRm7Rp/tpgB+XAW5ZkMt86TVgfhXclpXRFQagtxYKz
-	hpbXM0Xw==;
+	bh=CYwraooxORnTPQaXdcLQUWBaR8U8eEnaD5QZs0yfwDs=; b=b1DYtAssY6RG7WSYpO008xAGTA
+	Ybcgj14VOobGng/R/3Tg4hMwZGtyCFJlLd+Ct9cnXvRJKR1JfKnJYP9id+6kgHPGk6RcVsDCQxJer
+	gqG4IYP6495VSn2AFBZruPjDkUivar0fmRGdTtGjTm5z2AdpnA4WgGqCTkJcM4C23b5MIiklSAwi5
+	5u/Wf/lxLlPLPEgqhWpXwmvbAe/nbCOWjtCp/zuXBaUfSPO1aJ5NSMbptyKbJOffvVMWDZGXl3GH4
+	/0f0DQxfpexG/L6gIPuWgKxbxtA9b1jNJ4x63NvoRxL4HM53QGv1GigsAvbD0b2ZvaaaNs356Q4Ks
+	hoJRqzmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tktXi-0000000Fidh-0YSo;
-	Wed, 19 Feb 2025 23:31:50 +0000
-Received: from mail-northcentralusazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d111::] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1tktZA-0000000Fj9e-01j6;
+	Wed, 19 Feb 2025 23:33:20 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tktVN-0000000FhbJ-2UJx
+	id 1tktVt-0000000FhqA-432h
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 23:29:26 +0000
+	Wed, 19 Feb 2025 23:29:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740007798; x=1771543798;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=+fa0Itj0648kXPNBHP4kWzwvw+wxGEJ5UhnYVlw7hEo=;
+  b=YCxgrSTPDaJ1Pwn2bDP2nQSi6WNGhfy/29i9q/QshanWbPWkiKwu5Wfb
+   YmhnlJRMa0IvZsQAMdCKqyHf6QGoTJ4TfzF4WhNvOy0/oWu6/gsPw2gTt
+   M56CCd3UuhsvBfY5aMa6FkiLeqcbKYOOFoDXatHjIibTSTn1abryz2Ehw
+   PHVEv3a0QgxPz29sZwLYJIhrt4J8REQANDjRDImrAWG0vXyBGk981tc2Q
+   1yrTQBO6HliFOkbvtPM1OCaFGst4Ey4NxwsHkbYoZsYbuJ3BrIDgjN3sg
+   Rw0RyT9rEfbFIlbb+iqKRc01jFJgitrrbFt6ds/TVf67BxurKAhPC+u2u
+   g==;
+X-CSE-ConnectionGUID: nhdQ2vyNQsCJ1MI27+C6Fg==
+X-CSE-MsgGUID: pWs26nQkTT2u7+LEZcEwcg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11350"; a="58311843"
+X-IronPort-AV: E=Sophos;i="6.13,299,1732608000"; 
+   d="scan'208";a="58311843"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 15:29:57 -0800
+X-CSE-ConnectionGUID: BU//EWmiSV+8b+fy4r0ThA==
+X-CSE-MsgGUID: V0z3dILkROave8fA4BwdGA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,299,1732608000"; 
+   d="scan'208";a="115404344"
+Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 15:29:56 -0800
+Received: from orsmsx603.amr.corp.intel.com (10.22.229.16) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.1544.14; Wed, 19 Feb 2025 15:29:55 -0800
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ orsmsx603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44 via Frontend Transport; Wed, 19 Feb 2025 15:29:55 -0800
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (104.47.57.175)
+ by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Wed, 19 Feb 2025 15:29:55 -0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P+coIBeMdOKXCi2jOo+Db9zwHQMl1RQKrc93GtZNZNpU5T1i40ojFuYWTJ/fdjvkQYbrT+EbMZ1xlqpSI4sfc5niCp1gHriS1XLgmnNvBRKBoHJfo6xgw5VclQ4Gd24gNT0vVLv2KCL/QfK+EjODg9W04s9FLpDyzScJhvnFu4YAvVdE/fAgZAdiUgs/vw5eCR13zAoY92vkdNFdELltqp/mMJG+pdQLV78dQmcnaRykRHHqaOPXtaK64CemcRCSdO6LcrGgC1NqW1avlRRXwSI0s50jiUIBRQdKBFCL+wiSkMtMv79n4NX8IWIC91pJYfEhoMx3pHw8h4WYhpdquw==
+ b=HFkcF0ynF9Lbv+o1bQgEIeFD/g4YaZ8aSxT/DkXijoLCQST4dwwkv2VSLv71N2bDn03ZLRCLWtAaH0e4WkApN2+KkEbX895dYgPBg780g+LEYkLAShBvBjHKcDeAEMeovb3/or95LqRhztyZwsTMrnlx+yZlsZLErRlJx0S4D00X9WydWsBX29oboSM0Ugjdl/1HztgrY9pWWTXp35fYdU3mHr/2DLgYmhR0CCBq+HUNFZ+ZSdOVTS0Ztg7o06pjkz1IhiZnPU1R8Hm3HiDUUK9e1svOek6NWyn1wbSty9wQWd7hF7m32LJ22hHX1rXFv4YUjunLpSIuuXuV78GVWQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q8TExdE2TXQs1iahrYLiN1k6wNuzEb4P5o4VuDvDl5c=;
- b=OOxGIMdbdYIq0rQ+VoFQQn0yABfUxyvQE0o0Jt9ItZWZ0mNBQj0HfdxjNUlSkh5l7PZiRpIRC9gUnCYcb2SsV4+zJQhap9bFX1Pvs8pfz/PIKl/l7B/9JRq4a2f44JKQ7cMZ3lKrRKvynhX8diZ2h1oNNmN2+BfPUFedTmyJipou3UN0lThbqLWp7kw/aoCOc1JkoNuSjL04gx5Obn6QOknAxH+6OT7tmyV5UoRnO0SR/21uroe3Td3fBBk586o1U4O7mqeqOJleieexMQgS/OWn/WPqOvgUZcyLgv3Ielk5uAPTzispHufUMFpI94hGnPGlTFFNoxyt38X7yy7DPA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q8TExdE2TXQs1iahrYLiN1k6wNuzEb4P5o4VuDvDl5c=;
- b=nWJytGphavBX8QCJP5k/ls4eU9I3FtnBbZv+PEv5j/q9T5zmMWur/5CeL0Vtdh7cOsQMzoemnzIZAXo2pTfCa5Ro1zslddEbgnTmUB0dJ/avZzMGuZ3LuO+pZYP3mU9guKmBvxieFHkC22gFwof8eOH9P24tPJ5bWUkt/IsDTtLUdBvX4XpHGC8GUV49iURwq3tPj9F3Um0m/8BbljVDfJqsx9i/6VmSQ9Or2Tq3dmu4JCOP/mgFdjXvlsTyWYYHbW5IhsX0KtY4+W1W9uor6KYnvdlOxjZKapSTvICnAbqn0vGVqHfkbOgtB/P2sCSqSqPEB95qtWHRHrpd5Qqnsg==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by CY8PR02MB9623.namprd02.prod.outlook.com (2603:10b6:930:7c::7) with
+ bh=CYwraooxORnTPQaXdcLQUWBaR8U8eEnaD5QZs0yfwDs=;
+ b=Qr+DjYNQXLc+3n3zPeGpkz6PN9uZGYRLTpoCPBiKyGB9GUpgGyNToxxrFYUZscpUfbt6EXqN53LBETnsTld7liHVsNbbQnbrv5vN0l/BDxerCQMvQ0fKZgT+2ob3mKmY7AbA0imlHIiJz18ejQqxmLVM/GEtBmnjupupoiud5t9fA/3VScpxldOlD1WILkFWu0afaMmF8u+SN/w+3blrbjbBjzEfOxyrRktGLn3cRjDK19nHMvQMl9sB/u+p5sE3GrPDzAb/lpr13J3pWtaWwkNVvxRCB25iskWi+iZF9nYQL95CBsUerqxzxS3L4zh8A903wJaKykiJk7aSWhBU+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
+ by LV3PR11MB8577.namprd11.prod.outlook.com (2603:10b6:408:1b8::21) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Wed, 19 Feb
- 2025 23:29:18 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df%4]) with mapi id 15.20.8466.013; Wed, 19 Feb 2025
- 23:29:18 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Roman Kisel <romank@linux.microsoft.com>, "arnd@arndb.de" <arnd@arndb.de>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "bp@alien8.de" <bp@alien8.de>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "dave.hansen@linux.intel.com"
-	<dave.hansen@linux.intel.com>, "decui@microsoft.com" <decui@microsoft.com>,
-	"haiyangz@microsoft.com" <haiyangz@microsoft.com>, "hpa@zytor.com"
-	<hpa@zytor.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "kw@linux.com"
-	<kw@linux.com>, "kys@microsoft.com" <kys@microsoft.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
-	"mingo@redhat.com" <mingo@redhat.com>, "robh@kernel.org" <robh@kernel.org>,
-	"ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
-	"tglx@linutronix.de" <tglx@linutronix.de>, "wei.liu@kernel.org"
-	<wei.liu@kernel.org>, "will@kernel.org" <will@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-hyperv@vger.kernel.org"
-	<linux-hyperv@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>
-CC: "benhill@microsoft.com" <benhill@microsoft.com>, "bperkins@microsoft.com"
-	<bperkins@microsoft.com>, "sunilmut@microsoft.com" <sunilmut@microsoft.com>
-Subject: RE: [PATCH hyperv-next v4 6/6] PCI: hv: Get vPCI MSI IRQ domain from
- DeviceTree
-Thread-Topic: [PATCH hyperv-next v4 6/6] PCI: hv: Get vPCI MSI IRQ domain from
- DeviceTree
-Thread-Index: AQHbfO/DM9VUz2f6/UWlLb6SJ31p+7NPT/7w
-Date: Wed, 19 Feb 2025 23:29:18 +0000
-Message-ID: <SN6PR02MB4157911BEF8664EDE2B62835D4C52@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20250212014321.1108840-1-romank@linux.microsoft.com>
- <20250212014321.1108840-7-romank@linux.microsoft.com>
-In-Reply-To: <20250212014321.1108840-7-romank@linux.microsoft.com>
-Accept-Language: en-US
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.14; Wed, 19 Feb
+ 2025 23:29:53 +0000
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::7de8:e1b1:a3b:b8a8]) by CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::7de8:e1b1:a3b:b8a8%3]) with mapi id 15.20.8445.017; Wed, 19 Feb 2025
+ 23:29:53 +0000
+Message-ID: <889918c4-51ae-4216-9374-510e4cbdc3f1@intel.com>
+Date: Wed, 19 Feb 2025 15:29:52 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] net: axienet: Set mac_managed_pm
+To: Nick Hu <nick.hu@sifive.com>, Radhey Shyam Pandey
+	<radhey.shyam.pandey@amd.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Michal Simek
+	<michal.simek@amd.com>, Russell King <linux@armlinux.org.uk>, "Francesco
+ Dolcini" <francesco.dolcini@toradex.com>, Praneeth Bajjuri <praneeth@ti.com>
+CC: Andrew Lunn <andrew@lunn.ch>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250217055843.19799-1-nick.hu@sifive.com>
 Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|CY8PR02MB9623:EE_
-x-ms-office365-filtering-correlation-id: de3826f9-6aab-488c-58e7-08dd513d3b39
-x-microsoft-antispam: BCL:0;ARA:14566002|8062599003|8060799006|19110799003|15080799006|461199028|3412199025|440099028|12091999003|41001999003|102099032|56899033;
-x-microsoft-antispam-message-info: =?us-ascii?Q?cKSHMMOMSWIYQ03eqjJ4i7GbftbxxwKnmOenx69aHy1T32Yo/JxaY2kWBbsO?=
- =?us-ascii?Q?Vw5P46gx6m1I9Wthzn82BFLeJsi2j072OW4xcZUzu6VOdrG2bUn4VkOme5St?=
- =?us-ascii?Q?hw3jT6/roRgVMZ4YBPY3OdXYcxt5nfFV4/SC0luc8Ftr9F8KjeCJRwFHAwyu?=
- =?us-ascii?Q?ewrd2jkJ6r9zqYFh9n6oq6x0X0GrsJ/78oxGPuSvwnpOM7scpf1tuXnigStV?=
- =?us-ascii?Q?2h0XWEWYwywd8mNRABvCzUmldU3YOYYNIaEo4wfeO7hM+ON7IGR2TWeid6BA?=
- =?us-ascii?Q?0i3z+UcAgmF4uwdJ6zvlljr6lvuphNNAeNaJ7C7iTjfpgywiU0/Onfyn1Xxi?=
- =?us-ascii?Q?iXAHOMQ0uv9FBXysPnPfHmxjjglA/NwaWfzaqesGsbBxaithyGYWX/JW8V3f?=
- =?us-ascii?Q?rGwa1pN3tWZBiaIxsZ6pL+S7WKWblj4Og1M9ezXlTYd94M9qOTzYz4hsV26m?=
- =?us-ascii?Q?Pg8JZ1yClJHz9W/Y8cZUwG7cpJUnc/k88Cdm5s7bhtxPNiCul7Luld39l6Ui?=
- =?us-ascii?Q?rthOU0fBhpe8IAMJ9aWhfIe/zFygEUykpms+H035rL898tUiFe/KHRyQFjp9?=
- =?us-ascii?Q?fH418H6hmrQMuS6PQ+JzuQKOWNxhnLlLmTRgWhGkEAVfIrDsfiTDhAvNGz/T?=
- =?us-ascii?Q?YxsTTEd0usCMAVN34ToKlD/DH5x/6H6WIFw+j0ZHkRvrjjK/iHYz0dJuM/Tz?=
- =?us-ascii?Q?rN3+UstwzN+uotNL1CgslvmHXFQg4m31XeLDa00gco6ftncP7rHD4AlULPx1?=
- =?us-ascii?Q?Ymdjt+Wran5b9MsFvwqCXXnl6kuROk071u4617maFb4JtBQ2RvjLKX9ehmRQ?=
- =?us-ascii?Q?5Il07JBav2RG8NEk3LHC5T8ms2j19dIDawCfQlSt0Tbns8Lve4N8FPNuASnh?=
- =?us-ascii?Q?Y5EFD+ls9exfWlDdeDERNEe2qdA9E9SfM+iQ5kkUzHnwO4vZg+yYaAVDm6Kx?=
- =?us-ascii?Q?Ga9SENVsP7K2x592L0KWY76cACYB7zwEAbOOXsJehbECTkZ/E1O1Lizvjmfq?=
- =?us-ascii?Q?4LonrvfXJ5MC6x0BCr8NmxTUT/J/5qGIOwksz0pYyg8iOdzu/yJVbUaC+o3v?=
- =?us-ascii?Q?E49P5vkX/TCARVsNAa4MUiLd4VE60SVZwKDEqymtPzk1ciL3EQQ=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?qj8PSUCkt4Cjb0rTyG7anWdqXbPdSleFHc5OFbX57SX40Kq7Kn9t0Bu+JqsL?=
- =?us-ascii?Q?ooUkE/KJ6Ig4oV6XCbtgDMiMh1hjtpUgG8xnYy6eimX0K01dwhjeppjyqR8f?=
- =?us-ascii?Q?cVc9MarRLYBOvl3zMjv3uT+5b/OU6rfmbOoXAwQjkkA0Rr66eGKHGemtnS4i?=
- =?us-ascii?Q?jR+FB3r0DN+vuD0jdCSJ73C/dVLHuoF9ohoY7Nd579Ux16UxVmNXuaZmccA+?=
- =?us-ascii?Q?Js1wLXbrpoBmL0Uvz9BlCdnsGcl2lOgG85tPzmKl3tiKMvxHZscW2Wa5pIVO?=
- =?us-ascii?Q?cjDUNBSxh7D/RC4whhsaNNgYu78RZDb42zS8UvlQYJxIlHYNjOEcF/NsV3qw?=
- =?us-ascii?Q?ozFhoVsDwxFUr9zay4ebtjQ6Ba4b76QvHkuTMwMS3QA6k6jy3jVCZsLv9J7m?=
- =?us-ascii?Q?ZlkB5QhtcdTn6FJv/JdlJuOWAs9B0WIDsjHc86/QjBvXJ10Ac5/IJi7GxS0q?=
- =?us-ascii?Q?Herr+OK/f9NrgbBUXlKrgqAt4Cqdx3eilz9LQASLXmoSGftOtRl8GMXn34Ne?=
- =?us-ascii?Q?3DlJa8rPPq5QVDZmqfWEV/TBqrKUT4yT/X49ZFqCKvFmIu/kb5HZSxLLMbni?=
- =?us-ascii?Q?zomTRRI+VxVHICr0WSJBcArtz1R2gbLYHlqHaHWXLbeR3YB3tN5a4ZBKZrQc?=
- =?us-ascii?Q?a6njxyyVw8UT08HvZXX/jSLP76nc18wT1VTHiwDkWc1C4x9bLdW07rufbmfE?=
- =?us-ascii?Q?bwxPteGpzfboh6ibXeD+f1xVKnp19exqrLrxBU0hqFFKzyzhqS8G3qTckMA0?=
- =?us-ascii?Q?viFcGSgoFWduoHLj/lxDxzWEJEJ4B2xt7M/E1CnvJ/NZPyntzvbHz1y4vJ+h?=
- =?us-ascii?Q?xfr8nhnoFnZlY/TzxZCMhd47FiafJ/sj9oT0KdEbY/QzTi3fggLnwumLpkbJ?=
- =?us-ascii?Q?3lrwvDKhwZ7BHRq02nHvpfjTZOLTiM1dUGwqKshlioYI5MchmowO6ZJRvmkK?=
- =?us-ascii?Q?RYJ4p/8RqO9SJZf5GBaKHIlKQf/AtW2IU3BKPnZADO/4t1NY1aBl7l7PQHcV?=
- =?us-ascii?Q?7bv6/trZsb+K9lQyNR9Hz/qhVhF6t0STK9yUxws2CUq0944rFm1/B/gbgXRW?=
- =?us-ascii?Q?cUB2IB1j8aCqwSYhtghisBYbI3IeYjZlMEGA8R4awEVYx96kw7eZKf3tMGUV?=
- =?us-ascii?Q?EXHtkEPaeXDpjNFcL4QPNwLtb9HQHOWsk4m6M6vv4IWJ5OPKy6CrZXR3Er+U?=
- =?us-ascii?Q?yGWuqsK/unkX1GvxisQwW+gFKl/fpnMEJ08ZTRQjLOwKg3DnSlZUF6ZKkI0?=
- =?us-ascii?Q?=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+From: Jacob Keller <jacob.e.keller@intel.com>
+In-Reply-To: <20250217055843.19799-1-nick.hu@sifive.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MW4PR03CA0242.namprd03.prod.outlook.com
+ (2603:10b6:303:b4::7) To CO1PR11MB5089.namprd11.prod.outlook.com
+ (2603:10b6:303:9b::16)
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|LV3PR11MB8577:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6dafc638-1cca-4881-9185-08dd513d4ff2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RHd6L2huaDZnU0ZONGJLM3VoQ1Z3RXdEOTFEMXZNR2Q2eklmMjliRmxsWDNS?=
+ =?utf-8?B?YXgyaHhpazBNQlBTTEtDWWY2T0JaWDFDTmYzeEc0RTFhVTVrQXU2SjlsNlpP?=
+ =?utf-8?B?VUtLc2lDU202ZU1pdlZvVE0wVGFZWlB4Z01jWjhMNVJCUHJZb2xvTHJCN1ZN?=
+ =?utf-8?B?TGZpUkNtNXh3YkZyWDlUQS96bXpKY3BHakk1RjRrMEh1WG1CL0ozb0p2bm8w?=
+ =?utf-8?B?bm9BZG9kZDEzd0JNNXhzU01uMFZPNElhVVR2Y2JxS2o2Tjc5a21JdC9aaFpC?=
+ =?utf-8?B?ZDMzRGdURHN3Y2dvS0NkNDBVK1hObisrZWpQNHZhS2k0R3dqa3graWtlTkxM?=
+ =?utf-8?B?QkdLMHpzUnVTWno5dHNhUDQ5bFZDWFNxcG5tSDN0V0lneXNoV0IrUlBnb0RJ?=
+ =?utf-8?B?TXNqendIR2ZOQnRGeDlVd3VZKzM2bDZnTkRUMVpYYmFGZXQvMlJaamJkc0NZ?=
+ =?utf-8?B?a1V0aURKL0xaT25GSm0wV2VuTHhTODJPYWpnaXVPOVk0eVIya096c21Xc3hR?=
+ =?utf-8?B?QnJGWDhQU2d1elhvSytUb1hKeml6WnA4aFJRUnF4YThCMjN4ODYydDEzNk5o?=
+ =?utf-8?B?dGNXZkNMMU9vUzhWcThvZTZqV1pucXM1QUpVS29Ob0h1U0lsa01MUkRuY0ZZ?=
+ =?utf-8?B?MzhLRGZTRlJnSElkblJhWlFvellJb1NDRWJMaWRMTXg1Vmg0VkhrZjlSMDVJ?=
+ =?utf-8?B?NEhtaENVOWFuQ2huNVJyMjdMajZ1VEVKZnRPeDJDcGhndkNzWFhubGtmdHVM?=
+ =?utf-8?B?VkVEWEtrakdiZU1CaUlzZEUyelJ1YndpbnRaU3pmTVMxZzRrelEwQm5tSHJy?=
+ =?utf-8?B?NTlPNjI5eWZnS01NQ0dTUmtHb3VNMHZzdzNpU0RaSGtrYzN4eWR4YWx3K1lY?=
+ =?utf-8?B?RjJ4RlFvRDFXL25MN0hDWFNXVVFMSHErdy93Yk9sTGl4Z0FESWVLTENPVmcx?=
+ =?utf-8?B?Q2ZCK1BSTlZ3QmVIR0RWSjdqdHIxNlNUQTdMbERGSW93Wks1TGxzdzVaemsz?=
+ =?utf-8?B?cjdxU2VkaVJuNTNpa0t0NStUOGE3L1BKSW42TlhPMlpGQ09rUHBDQ3hzS3Nt?=
+ =?utf-8?B?UDFhYWdIM25yMlV3TmNNYy9jTjBqR1ljR2pWRnQvRlVHWTYrOHNPMTdyQVZ6?=
+ =?utf-8?B?d2VQclliaHFHRk5naEUvNHlJMWJTRDZEN3FyZUZwcGNaQmR0UjlvV01naTd3?=
+ =?utf-8?B?bTRMLzlwQUdET2k4bjFXUEhGUFNHc2tibXVQbXpXR09xSVE5UHJaeW9JSUhi?=
+ =?utf-8?B?cWtlWGlURGt1cUNIZ3RKOG1WZURLMm42SkhadzAydFpPTll0Y1BtTm96Q1pj?=
+ =?utf-8?B?MFRrRmxlcHpGSngwL1dWSVZOUnJWaFQ5YTBiQ1VweVhqMlF6ZUpBaTNlL2V2?=
+ =?utf-8?B?REdsc3FkQmFqYmdCVmZqbWZDbDgzZjVTMThqeGZBb1dZSGlPdEZiVFlxUzhh?=
+ =?utf-8?B?K0duNUtwSnZXTzRFczZRVHN6SGd5ZVYrbHFEZHZZK2ZGN1I2U2NrbHVNRDcy?=
+ =?utf-8?B?SEJxNjlIV25ieUgxQ09JWGJNSUsxYjlPZ1kxRGFCTGZPbjE4YUVvMFZmRzFW?=
+ =?utf-8?B?cnUzd0xHNHJPV0JleTk5WE11WGxBK0wzWVZHTm5WL2duSndYc0NuVEpVMVMz?=
+ =?utf-8?B?WFBkS3kvUlpaVXN3bDVickdqNUdXaUpEamhVZVlGczRkZVdiSGJsUi9pV0xx?=
+ =?utf-8?B?TzdLVkdFbGdWekxOL2xnZmdKL2lRaEc2Nm9PQnFNVkYxQjdnTm1HOE9rRHdl?=
+ =?utf-8?B?cm5vbXR5d1R6VUl6L2NuU29LczQ4UDNyMHI5WWpaaVdtWStRWFFUdmRUb1VR?=
+ =?utf-8?B?cG5CK2FlTU5USlFLdDFCN3BsKy9OYlB0eElMYnlUTDFISTBsakhjd3AxVGVm?=
+ =?utf-8?B?ZTJiWkx2Tk9IZnRnZTlhSENWRGpPS3FCTUV0cHlGSGI5Sk0yWEFqOEM0VjJs?=
+ =?utf-8?Q?QKtnCFE074w=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N0F4V3l0UzF6cGhINFBtc1lUSUtnQTJBM2dhL2t6OEhERW5nNldYS0V2ZkpU?=
+ =?utf-8?B?SFlVYnFKVHJnM25wamgxejI3Q3BnN2NVWXd2K2NNZkMzbWdodVVwTmYvUkhx?=
+ =?utf-8?B?d3djRXVQTEN3b1FpMW1uUm91RFJHRUZLSHJ3b0ptRHMvNm1EVGVMMUFoR1Rr?=
+ =?utf-8?B?bnpSTGZSU3FaS2Q5cWdSWFdBNkpWU1FNMjNySjZrWWhHZTZYYUwvUjA1Mk9w?=
+ =?utf-8?B?cEIrQ2czZ0FsMDJvMnZyR3pPUVBnRzdpRXRhRkRFSUZaeks2dnBNMWZDWXpV?=
+ =?utf-8?B?M0pDeWJTUHNKVVY5TEkyaE5GK0w0eStUOENSbXp4UXhtajF3VytSNHB4VElm?=
+ =?utf-8?B?VGpWTXZDeWp5b1lYa0RHQU5LRjBRTHQwZjBqRkdob0J4K1VmMkxVbTQzMU1l?=
+ =?utf-8?B?TmRRVDBKMW5PR2R0Z0sxUTlFRzl1VHptNG1uZ2tENkkyNFlRZ1BUcjY5Sy9l?=
+ =?utf-8?B?TXhwSFBkVjVFT01Lc0h0RDJGRWlMNlUvK0kxY0o2aHZkSEI0OGdLUmhoQlRi?=
+ =?utf-8?B?ZFYyNEJSQmhXYWtsdmtVQldBU0FPRVBESmhqUUdsWkFiTGhJRmVLd1BPZjdJ?=
+ =?utf-8?B?QjBkYXNmR01JRTlDcEptQTNNOVNaendOZm1aaW9sTmJiMmdGY0tCS1VEeitv?=
+ =?utf-8?B?RVNIenVYY0xBcVlUcjBsT0VoS2srMWZjb0hMeTBOTHJEU3VJMnNHMHNHa2FK?=
+ =?utf-8?B?TC9mYzYxVE5hL2RhT2F1ZEU3R3kvYW9EY3pTNFlzUHVqd0xRRW9XUlhRK2RK?=
+ =?utf-8?B?M2RmU3RuRHJXUDh2cjFrR3cvdmc5MmJNM3Z1TjJBNWN1akFOMk9mQWZYaFZP?=
+ =?utf-8?B?SFZncG1aUVk0RmxvRTlvK05UYmIya3VtaDZlL2VUdnVFNUFZclhHTkt6NmRM?=
+ =?utf-8?B?NGlWMHVlOHo1d01hWm82SjNnSlpGUmRQVTZxQ2hkZHY2OWRLb04vdFVkOUJP?=
+ =?utf-8?B?cGhXUTRZMHZLcnRLeGVGY000YlVNRnlrWExXdmxYVGNFVzRZSmZSVjBHbUh4?=
+ =?utf-8?B?UCsxLzl0R2ZBOUtRSEhEVEVjeHpremxBU2pqZE4yNXk5WmxiTHIxeDBSWDRm?=
+ =?utf-8?B?WXdnM0RrM3p1d2RLSjFhZHVwWmU3eTA1OUpoTXBjZGxvcUF2RTZwYnJDVmtS?=
+ =?utf-8?B?Vm9SdnZISDk5ZFBHVm9PZFc5MFMzZHpIaDJWT0tWclFVMTVCYkg3MGowMHBO?=
+ =?utf-8?B?a3k4MXNJdDVER0FYRy9Yd3FDYUNSdUsyMDYwQ2JiYVFwSG5hY0NUZUtaa1Az?=
+ =?utf-8?B?RHJhcGVPVGUzNkM3UlAweEg3UGdsekpyUkpFOS9aS3J0bE9wUmthVkhubGVk?=
+ =?utf-8?B?Tkx1OU9QcDRKZVlHaGlOVlBXOFdKL0xzRW1lYTlpdnNzbXVSOEpKYmlybDRp?=
+ =?utf-8?B?SVNZSDl0dFh3YXQvQlBTdGVqUHFqWE83S0JiNTd6alFUWUd1d3djcmd5b2ov?=
+ =?utf-8?B?aTd3cHk1OEdnejFOR3QxM2xKcGVyOEsxakVkckxBWUIyaklzcWpNVms5RkY3?=
+ =?utf-8?B?TFNNMW5RTDI4U1NuZXAwV3FKbnV1WmpncWtxODVjTlZ4MWJsTXNRNTJDcnpP?=
+ =?utf-8?B?TzliTzhUSzEzL09JdXpTdDFzRFMzOGNYdE9WOTlGeGQxcUxyT1l4WWI1cmhh?=
+ =?utf-8?B?SHNBWThOU0N5bzdibnNQNTBoMHdFWkhGY1BLOG9VZTg1VUs4a0s0NHVqUTNy?=
+ =?utf-8?B?UjI3dlAwYkE0M1piWGg2YUhOR3hJOG9mRGxScGZvQ1owZlBNRHdvcFBmd3hz?=
+ =?utf-8?B?YzArd0pIN1prSG4zQlMwWVpSWEpVRVh6czVYSStZTzlTWTNjeU54QS9rYzJB?=
+ =?utf-8?B?RTJ6MGMwM2FOZXBzUnZFWGExMW1UV1pmTG9FellXTWZWWW5ZN2tFbTMvREtP?=
+ =?utf-8?B?eVlCYnRHSytZQ3ZobXV1ek8xa05wWmh5b0k0aUNGemU2dE9zZzJJQVcxTk5Q?=
+ =?utf-8?B?L2k0OXFjdlhrbXRUU01WL1FLZkNYU1NPODZMMDdGTXFvMXArTmpBTExvTnVV?=
+ =?utf-8?B?TE82S00zSFBCQTJRcEQ4RTdqVmtPMEZHQkl3Y1RPMmJrQkQ2NkMwMDZQYUF2?=
+ =?utf-8?B?enBmS1BMTENZbkRkWUJjcjhsWjZaMDdaNzBqaFdYS2JXVEhPRHpoeGRuUWcx?=
+ =?utf-8?B?ZGs3SFpmTzNzVHdyZWs1MlRWME9rMUl5RUlEaUM4bUd2Q1oyRjVqL0lmUmt1?=
+ =?utf-8?B?QlE9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6dafc638-1cca-4881-9185-08dd513d4ff2
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: de3826f9-6aab-488c-58e7-08dd513d3b39
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Feb 2025 23:29:18.4538
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 23:29:53.3810
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR02MB9623
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Myx09c5eQJA05vT88C0lmeATefhzU8kSJSzIs/0b0vP+Qhve3yto+4PoYUc3ikCfEol7EQg4dBt1/hQuzunYwfRzVjQbVFtItkU9+ApMOVw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR11MB8577
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_152925_702076_EBD57968 
-X-CRM114-Status: GOOD (  35.24  )
+X-CRM114-CacheID: sfid-20250219_152958_395486_5AA4A452 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,248 +215,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Kisel <romank@linux.microsoft.com> Sent: Tuesday, February 11, =
-2025 5:43 PM
->=20
-> The hyperv-pci driver uses ACPI for MSI IRQ domain configuration on
-> arm64. It won't be able to do that in the VTL mode where only DeviceTree
-> can be used.
->=20
-> Update the hyperv-pci driver to get vPCI MSI IRQ domain in the DeviceTree
-> case, too.
->=20
-> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+
+
+On 2/16/2025 9:58 PM, Nick Hu wrote:
+Nit: subject should include the "net" prefix since this is clearly a bug
+fix.
+
+> The external PHY will undergo a soft reset twice during the resume process
+> when it wake up from suspend. The first reset occurs when the axienet
+> driver calls phylink_of_phy_connect(), and the second occurs when
+> mdio_bus_phy_resume() invokes phy_init_hw(). The second soft reset of the
+> external PHY does not reinitialize the internal PHY, which causes issues
+> with the internal PHY, resulting in the PHY link being down. To prevent
+> this, setting the mac_managed_pm flag skips the mdio_bus_phy_resume()
+> function.
+> 
+> Fixes: a129b41fe0a8 ("Revert "net: phy: dp83867: perform soft reset and retain established link"")
+> Signed-off-by: Nick Hu <nick.hu@sifive.com>
 > ---
->  drivers/hv/vmbus_drv.c              | 23 ++++++----
->  drivers/pci/controller/pci-hyperv.c | 69 ++++++++++++++++++++++++++---
->  include/linux/hyperv.h              |  2 +
->  3 files changed, 80 insertions(+), 14 deletions(-)
->=20
-> diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-> index 9d0c2dbd2a69..3f0f9f01b520 100644
-> --- a/drivers/hv/vmbus_drv.c
-> +++ b/drivers/hv/vmbus_drv.c
-> @@ -45,7 +45,8 @@ struct vmbus_dynid {
->  	struct hv_vmbus_device_id id;
->  };
->=20
-> -static struct device  *hv_dev;
-> +/* VMBus Root Device */
-> +static struct device  *vmbus_root_device;
->=20
->  static int hyperv_cpuhp_online;
->=20
-> @@ -80,9 +81,15 @@ static struct resource *fb_mmio;
->  static struct resource *hyperv_mmio;
->  static DEFINE_MUTEX(hyperv_mmio_lock);
->=20
-> +struct device *hv_get_vmbus_root_device(void)
-> +{
-> +	return vmbus_root_device;
-> +}
-> +EXPORT_SYMBOL_GPL(hv_get_vmbus_root_device);
-> +
->  static int vmbus_exists(void)
->  {
-> -	if (hv_dev =3D=3D NULL)
-> +	if (vmbus_root_device =3D=3D NULL)
->  		return -ENODEV;
->=20
->  	return 0;
-> @@ -861,7 +868,7 @@ static int vmbus_dma_configure(struct device *child_d=
-evice)
->  	 * On x86/x64 coherence is assumed and these calls have no effect.
->  	 */
->  	hv_setup_dma_ops(child_device,
-> -		device_get_dma_attr(hv_dev) =3D=3D DEV_DMA_COHERENT);
-> +		device_get_dma_attr(vmbus_root_device) =3D=3D DEV_DMA_COHERENT);
->  	return 0;
->  }
->=20
-> @@ -1920,7 +1927,7 @@ int vmbus_device_register(struct hv_device *child_d=
-evice_obj)
->  		     &child_device_obj->channel->offermsg.offer.if_instance);
->=20
->  	child_device_obj->device.bus =3D &hv_bus;
-> -	child_device_obj->device.parent =3D hv_dev;
-> +	child_device_obj->device.parent =3D vmbus_root_device;
->  	child_device_obj->device.release =3D vmbus_device_release;
->=20
->  	child_device_obj->device.dma_parms =3D &child_device_obj->dma_parms;
-> @@ -2282,7 +2289,7 @@ static int vmbus_acpi_add(struct platform_device *p=
-dev)
->  	struct acpi_device *ancestor;
->  	struct acpi_device *device =3D ACPI_COMPANION(&pdev->dev);
->=20
-> -	hv_dev =3D &device->dev;
-> +	vmbus_root_device =3D &device->dev;
->=20
->  	/*
->  	 * Older versions of Hyper-V for ARM64 fail to include the _CCA
-> @@ -2373,7 +2380,7 @@ static int vmbus_device_add(struct platform_device =
-*pdev)
->  	struct device_node *np =3D pdev->dev.of_node;
->  	int ret;
->=20
-> -	hv_dev =3D &pdev->dev;
-> +	vmbus_root_device =3D &pdev->dev;
->=20
->  	ret =3D of_range_parser_init(&parser, np);
->  	if (ret)
-> @@ -2692,7 +2699,7 @@ static int __init hv_acpi_init(void)
->  	if (ret)
->  		return ret;
->=20
-> -	if (!hv_dev) {
-> +	if (!vmbus_root_device) {
->  		ret =3D -ENODEV;
->  		goto cleanup;
->  	}
-> @@ -2723,7 +2730,7 @@ static int __init hv_acpi_init(void)
->=20
->  cleanup:
->  	platform_driver_unregister(&vmbus_platform_driver);
-> -	hv_dev =3D NULL;
-> +	vmbus_root_device =3D NULL;
->  	return ret;
->  }
 
-These changes to rename hv_dev to vmbus_root_device, along with the
-introduction of hv_get_vmbus_root_device(), seem like a separate
-patch from the vPCI changes. The rename is definitely needed because
-"hv_dev" as a symbol is very overloaded. But the rename is "no functional
-change", and it doesn't touch the pci-hyperv.c file. You don't have a
-consumer for hv_get_vmbus_root_device() until the vPCI changes, but
-that seems OK to me to be in the subsequent patch.
+Otherwise, the fix seems correct to me.
 
->=20
-> diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller=
-/pci-hyperv.c
-> index cdd5be16021d..24725bea9ef1 100644
-> --- a/drivers/pci/controller/pci-hyperv.c
-> +++ b/drivers/pci/controller/pci-hyperv.c
-> @@ -50,6 +50,7 @@
->  #include <linux/irqdomain.h>
->  #include <linux/acpi.h>
->  #include <linux/sizes.h>
-> +#include <linux/of_irq.h>
->  #include <asm/mshyperv.h>
->=20
->  /*
-> @@ -817,9 +818,17 @@ static int hv_pci_vec_irq_gic_domain_alloc(struct ir=
-q_domain *domain,
->  	int ret;
->=20
->  	fwspec.fwnode =3D domain->parent->fwnode;
-> -	fwspec.param_count =3D 2;
-> -	fwspec.param[0] =3D hwirq;
-> -	fwspec.param[1] =3D IRQ_TYPE_EDGE_RISING;
-> +	if (is_of_node(fwspec.fwnode)) {
-> +		/* SPI lines for OF translations start at offset 32 */
-> +		fwspec.param_count =3D 3;
-> +		fwspec.param[0] =3D 0;
-> +		fwspec.param[1] =3D hwirq - 32;
-> +		fwspec.param[2] =3D IRQ_TYPE_EDGE_RISING;
-> +	} else {
-> +		fwspec.param_count =3D 2;
-> +		fwspec.param[0] =3D hwirq;
-> +		fwspec.param[1] =3D IRQ_TYPE_EDGE_RISING;
-> +	}
->=20
->  	ret =3D irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
->  	if (ret)
-> @@ -887,6 +896,35 @@ static const struct irq_domain_ops hv_pci_domain_ops=
- =3D {
->  	.activate =3D hv_pci_vec_irq_domain_activate,
->  };
->=20
-> +#ifdef CONFIG_OF
-> +
-> +static struct irq_domain *hv_pci_of_irq_domain_parent(void)
-> +{
-> +	struct device_node *parent;
-> +	struct irq_domain *domain;
-> +
-> +	parent =3D of_irq_find_parent(hv_get_vmbus_root_device()->of_node);
-> +	domain =3D NULL;
-> +	if (parent) {
-> +		domain =3D irq_find_host(parent);
-> +		of_node_put(parent);
-> +	}
-> +
-> +	/*
-> +	 * `domain =3D=3D NULL` shouldn't happen.
-> +	 *
-> +	 * If somehow the code does end up in that state, treat this as a confi=
-guration
-> +	 * issue rather than a hard error, emit a warning, and let the code pro=
-ceed.
-> +	 * The NULL parent domain is an acceptable option for the `irq_domain_c=
-reate_hierarchy`
-> +	 * function called later.
-> +	 */
-> +	if (!domain)
-> +		WARN_ONCE(1, "No interrupt-parent found, check the DeviceTree data.\n"=
-);
-> +	return domain;
-> +}
-> +
-> +#endif
-> +
->  static int hv_pci_irqchip_init(void)
->  {
->  	static struct hv_pci_chip_data *chip_data;
-> @@ -906,10 +944,29 @@ static int hv_pci_irqchip_init(void)
->  	 * IRQ domain once enabled, should not be removed since there is no
->  	 * way to ensure that all the corresponding devices are also gone and
->  	 * no interrupts will be generated.
-> +	 *
-> +	 * In the ACPI case, the parent IRQ domain is supplied by the ACPI
-> +	 * subsystem, and it is the default GSI domain pointing to the GIC.
-> +	 * Neither is available outside of the ACPI subsystem, cannot avoid
-> +	 * the messy ifdef below.
-> +	 * There is apparently no such default in the OF subsystem, and
-> +	 * `hv_pci_of_irq_domain_parent` finds the parent IRQ domain that
-> +	 * points to the GIC as well.
-> +	 * None of these two cases reaches for the MSI parent domain.
->  	 */
-> -	hv_msi_gic_irq_domain =3D acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_N=
-R,
-> -							  fn, &hv_pci_domain_ops,
-> -							  chip_data);
-> +#ifdef CONFIG_ACPI
-> +	if (!acpi_disabled)
-> +		hv_msi_gic_irq_domain =3D acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_=
-NR,
-> +			fn, &hv_pci_domain_ops,
-> +			chip_data);
-> +#endif
-> +#if defined(CONFIG_OF)
-> +	if (!hv_msi_gic_irq_domain)
-> +		hv_msi_gic_irq_domain =3D irq_domain_create_hierarchy(
-> +			hv_pci_of_irq_domain_parent(), 0, HV_PCI_MSI_SPI_NR,
-> +			fn, &hv_pci_domain_ops,
-> +			chip_data);
-> +#endif
->=20
->  	if (!hv_msi_gic_irq_domain) {
->  		pr_err("Failed to create Hyper-V arm64 vPCI MSI IRQ domain\n");
-> diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
-> index 4179add2864b..2be4dd83b0e1 100644
-> --- a/include/linux/hyperv.h
-> +++ b/include/linux/hyperv.h
-> @@ -1333,6 +1333,8 @@ static inline void *hv_get_drvdata(struct hv_device=
- *dev)
->  	return dev_get_drvdata(&dev->device);
->  }
->=20
-> +struct device *hv_get_vmbus_root_device(void);
-> +
->  struct hv_ring_buffer_debug_info {
->  	u32 current_interrupt_mask;
->  	u32 current_read_index;
-> --
-> 2.43.0
->=20
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+
+>  drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index 2ffaad0b0477..2deeb982bf6b 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> @@ -3078,6 +3078,7 @@ static int axienet_probe(struct platform_device *pdev)
+>  
+>  	lp->phylink_config.dev = &ndev->dev;
+>  	lp->phylink_config.type = PHYLINK_NETDEV;
+> +	lp->phylink_config.mac_managed_pm = true;
+>  	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE |
+>  		MAC_10FD | MAC_100FD | MAC_1000FD;
+>  
 
 
