@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9CE4C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 14:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42B58C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 14:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7YOpjUc3VqYqRM5TMUt3Hh4ijQEBYZXWNYalJVGOCaU=; b=YZZ2ZRvBFed5QOFkjHXZKzGAip
-	h+VumB6s7NjkI/IYNB83GnJ7XJmGF+ucrJIMLb8pLI8D/6K/z4Y+R1KwMIlzMmQR1R5j4xBzkO9nD
-	SGOKPb2m740rgWze0xM9S/dzWMU4jDhVfrniVYIyDOyex6IWcAgvnwLa8mxCCHSvWQvEiw2wenjbQ
-	aKukYyZ6OuAfEOnQ9j0R5WOe+0TVvQ/YznnNux1gyBz6qeyJXw5I/iPG4AXXxwLznHWi+ZgZP/+fS
-	nX+/xnis+GX9RsZhoJWo28KGMbsy5JLV/m6y3pFH8h/MHUwdC58Y93eEQa9tmdEcDA5SOz9uWvIsc
-	o0nQ6vGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sdUWmSWcdR08rSfalNQicz8sjd5EjemzSvDZvZqf90E=; b=yK3peH5hBJ/zNJUtwAxfdlr83o
+	36UyvETMXTPFV/cBcnsPprgnkXNenu3Y22yzqGyKXQGoLngVAfUxYw7B4OK7WFLpW2oL5Ly7NwOfZ
+	L7T+1uWv26QO7XqFudPyOKMiDc5gnsKZjARzD+fBNQjPAyycdfmLoO2/UwqSHE27oxMBpa7ebSPpW
+	2WGVFF9bVBCmtDAN6Gnd4I9GaSicCiGfiQKrHxi5u7zZ1QoOHL96dEAVoyE7jvdT7zr8UT2aqmYOf
+	r7seEK7OfITHvplzES+uaOROtVJpPE/Hx7eofHJsw0eM9nORH9u4/Gh0xEHdAPHAdzgrlDcVDjs22
+	Q5v25erw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkl8X-0000000DJ2Q-0hux;
-	Wed, 19 Feb 2025 14:33:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkl5c-0000000DIL8-1e2y
+	id 1tkl9z-0000000DJOi-46bG;
+	Wed, 19 Feb 2025 14:34:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkl5x-0000000DIQz-03Dh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 14:30:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 23D685C58AB;
-	Wed, 19 Feb 2025 14:29:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0E47C4CEDD;
-	Wed, 19 Feb 2025 14:30:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739975415;
-	bh=k4kfLM6UULYbT+Hl+/0hs1RZVm2znRy0PpE0Nf0I2eM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Gutt2v/UySArgzAiJKzZJu4KjpWJFaPBR9mE2R1u+cZ6pY1gWcPFS1tqzDqCuRITU
-	 zk7n0N/SQBQCiHy7zo8cld8pardfpUrU1WOGKZQJBU/7x5C27T0N6MuMiYdhaSxzFr
-	 9Se9ynf1zT7C9Tg+tSNrJa0zw6yW0lotDRiqII14amvsH4tpQnxLBfDUi+NmY69CCx
-	 qmYHizwXdokMEEshV2e250pQpd6zGfv6UKPbmjVtTfb7RtsB5u4g0JShNPiLKhLB4b
-	 kjeEVgaGvgRYd9GEY1QTn1B4zdpGxqVKfRWmv5l75Vn5y38TrXjWZhgCUKwc32dPCD
-	 7C9yn8Fx63VTw==
-Date: Wed, 19 Feb 2025 08:30:13 -0600
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: 8bit
+	Wed, 19 Feb 2025 14:30:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C040312FC;
+	Wed, 19 Feb 2025 06:30:53 -0800 (PST)
+Received: from [10.57.84.90] (unknown [10.57.84.90])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 523213F59E;
+	Wed, 19 Feb 2025 06:30:31 -0800 (PST)
+Message-ID: <5aeb6f47-12be-40d5-be6f-847bb8ddc605@arm.com>
+Date: Wed, 19 Feb 2025 14:30:28 +0000
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-hwmon@vger.kernel.org, Jean Delvare <jdelvare@suse.com>, 
- linux-kernel@vger.kernel.org, imx@lists.linux.dev, viorel.suman@nxp.com, 
- Guenter Roeck <linux@roeck-us.net>, devicetree@vger.kernel.org, 
- Florin Leotescu <florin.leotescu@nxp.com>, 
- Michael Shych <michaelsh@nvidia.com>, carlos.song@nxp.com, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>
-To: florin.leotescu@oss.nxp.com
-In-Reply-To: <20250219133221.2641041-4-florin.leotescu@oss.nxp.com>
-References: <20250219133221.2641041-1-florin.leotescu@oss.nxp.com>
- <20250219133221.2641041-4-florin.leotescu@oss.nxp.com>
-Message-Id: <173997541394.2537392.7597733714820078670.robh@kernel.org>
-Subject: Re: [PATCH v2 3/3] dt-bindings: hwmon: emc2305: Add YAML binding
- documentation for emc2305 driver
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 09/11] arm64: Enable memory encrypt for Realms
+To: "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+ Will Deacon <will@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, kvmarm@lists.linux.dev, kvm@vger.kernel.org
+References: <20241017131434.40935-1-steven.price@arm.com>
+ <20241017131434.40935-10-steven.price@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20241017131434.40935-10-steven.price@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_063016_516271_B18E7EE1 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250219_063037_146462_F3B58270 
+X-CRM114-Status: GOOD (  22.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,52 +74,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 19 Feb 2025 15:32:21 +0200, florin.leotescu@oss.nxp.com wrote:
-> From: Florin Leotescu <florin.leotescu@nxp.com>
+On 17/10/2024 14:14, Steven Price wrote:
+> From: Suzuki K Poulose <suzuki.poulose@arm.com>
 > 
-> Add yaml-based Device Tree bindings documentation for emc2305 driver
-> The file provides the necessary structure, configuration
-> and other parameters for Device Tree definition.
+> Use the memory encryption APIs to trigger a RSI call to request a
+> transition between protected memory and shared memory (or vice versa)
+> and updating the kernel's linear map of modified pages to flip the top
+> bit of the IPA. This requires that block mappings are not used in the
+> direct map for realm guests.
 > 
-> Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Co-developed-by: Steven Price <steven.price@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
 > ---
->  .../devicetree/bindings/hwmon/emc2305.yaml    | 95 +++++++++++++++++++
->  1 file changed, 95 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/hwmon/emc2305.yaml
-> 
+[...]
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index 547a9e0b46c2..6ae6ae806454 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -5,10 +5,12 @@
+>  #include <linux/kernel.h>
+>  #include <linux/mm.h>
+>  #include <linux/module.h>
+> +#include <linux/mem_encrypt.h>
+>  #include <linux/sched.h>
+>  #include <linux/vmalloc.h>
+>  
+>  #include <asm/cacheflush.h>
+> +#include <asm/pgtable-prot.h>
+>  #include <asm/set_memory.h>
+>  #include <asm/tlbflush.h>
+>  #include <asm/kfence.h>
+> @@ -23,14 +25,16 @@ bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED
+>  bool can_set_direct_map(void)
+>  {
+>  	/*
+> -	 * rodata_full and DEBUG_PAGEALLOC require linear map to be
+> -	 * mapped at page granularity, so that it is possible to
+> +	 * rodata_full, DEBUG_PAGEALLOC and a Realm guest all require linear
+> +	 * map to be mapped at page granularity, so that it is possible to
+>  	 * protect/unprotect single pages.
+>  	 *
+>  	 * KFENCE pool requires page-granular mapping if initialized late.
+> +	 *
+> +	 * Realms need to make pages shared/protected at page granularity.
+>  	 */
+>  	return rodata_full || debug_pagealloc_enabled() ||
+> -	       arm64_kfence_can_set_direct_map();
+> +		arm64_kfence_can_set_direct_map() || is_realm_world();
+>  }
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Aneesh pointed out that this call to is_realm_world() is now too early 
+since the decision to delay the RSI detection. The upshot is that a 
+realm guest which doesn't have page granularity forced for other reasons 
+will fail to share pages with the host.
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/hwmon/emc2305.yaml:30:18: [error] string value is redundantly quoted with any quotes (quoted-strings)
-./Documentation/devicetree/bindings/hwmon/emc2305.yaml:34:18: [error] string value is redundantly quoted with any quotes (quoted-strings)
-./Documentation/devicetree/bindings/hwmon/emc2305.yaml:38:18: [error] string value is redundantly quoted with any quotes (quoted-strings)
+At the moment I can think of a couple of options:
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/hwmon/emc2305.yaml: pwm_output: missing type definition
-Error: Documentation/devicetree/bindings/hwmon/emc2305.example.dts:59.9-17 syntax error
-FATAL ERROR: Unable to parse input tree
-make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/hwmon/emc2305.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1511: dt_binding_check] Error 2
-make: *** [Makefile:251: __sub-make] Error 2
+(1) Make rodata_full a requirement for realm guests. 
+    CONFIG_RODATA_FULL_DEFAULT_ENABLED is already "default y" so this 
+    isn't a big ask.
 
-doc reference errors (make refcheckdocs):
+(2) Revisit the idea of detecting when running as a realm guest early. 
+    This has the advantage of also "fixing" earlycon (no need to 
+    manually specify the shared-alias of an unprotected UART).
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250219133221.2641041-4-florin.leotescu@oss.nxp.com
+I'm currently leaning towards (1) because it's the default anyway. But 
+if we're going to need to fix earlycon (or indeed find other similar 
+issues) then (2) would obviously make sense.
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+Any thoughts on the best option here.
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+Untested patch for (1) below. Although updating the docs would be
+probably be a good idea too ;)
 
-pip3 install dtschema --upgrade
+Thanks,
+Steve
 
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+----8<---
+diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
+index ce4778141ec7..48a6ef0f401c 100644
+--- a/arch/arm64/kernel/rsi.c
++++ b/arch/arm64/kernel/rsi.c
+@@ -126,6 +126,10 @@ void __init arm64_rsi_init(void)
+ 		return;
+ 	if (!rsi_version_matches())
+ 		return;
++	if (!can_set_direct_map()) {
++		pr_err("rodata_full disabled, unable to run as a realm guest. Please enable CONFIG_RODATA_FULL_DEFAULT_ENABLED\n");
++		return;
++	}
+ 	if (WARN_ON(rsi_get_realm_config(&config)))
+ 		return;
+ 	prot_ns_shared = BIT(config.ipa_bits - 1);
+diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+index 39fd1f7ff02a..f8fd8a3816fb 100644
+--- a/arch/arm64/mm/pageattr.c
++++ b/arch/arm64/mm/pageattr.c
+@@ -25,16 +25,14 @@ bool rodata_full __ro_after_init = IS_ENABLED(CONFIG_RODATA_FULL_DEFAULT_ENABLED
+ bool can_set_direct_map(void)
+ {
+ 	/*
+-	 * rodata_full, DEBUG_PAGEALLOC and a Realm guest all require linear
+-	 * map to be mapped at page granularity, so that it is possible to
++	 * rodata_full, DEBUG_PAGEALLOC require linear map to be
++	 * mapped at page granularity, so that it is possible to
+ 	 * protect/unprotect single pages.
+ 	 *
+ 	 * KFENCE pool requires page-granular mapping if initialized late.
+-	 *
+-	 * Realms need to make pages shared/protected at page granularity.
+ 	 */
+ 	return rodata_full || debug_pagealloc_enabled() ||
+-		arm64_kfence_can_set_direct_map() || is_realm_world();
++		arm64_kfence_can_set_direct_map();
+ }
+ 
+ static int change_page_range(pte_t *ptep, unsigned long addr, void *data)
 
 
