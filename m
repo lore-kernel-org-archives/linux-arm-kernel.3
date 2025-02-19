@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 018C7C021AF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 18 Feb 2025 23:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1C55C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 00:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xTIgIfjXftTaGPBnTVA/URR4YojqwNH/5CR347EldVE=; b=U3jtpH7wAtmFt5tV1j6BvbDgZQ
-	8O4NhzKTi51czZBljUHecFtPvcHR8DF4qDtuwnjWByYTrW3ffJeQYWdO9VpmJTmwMD+a/kq13ew+2
-	CdfFa0SqKwuWx6Op/vsxZpaGDDj2/+z1+iADC2pVL0UvOXeKCrMqDttV5Y+rA4moSGuPv8Vg0Y3e8
-	3sImO/BpFbNSVWIP/tnbg5iazORNdjSXPPLCcrYa/XA0AwPp6gJYMWghZCWxqEzNh9YgDawUlGpXT
-	SH1tWOse7qhsfZJERUz7wguLwyWbmIkyedQDh42CdVWhNgH96gQ5C2WJpnZAH0g6dyZ8RzThYigIJ
-	kjPORkXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XuKbasbmLO+vlsVS4iWMUf121DkLZLFAM447m/RAZ38=; b=LNbnhq30frv7ZhYvKT8Xqdy68L
+	zuGQYs/Timeh+hB51VKghAFZ5HaX1oMT0VSNdvh/HzxJpK3PD8SmktnBRoKBePNWwtNdrfRrJ0q4Z
+	Ob5TF0wk+FJgpxRCgx0fMMtZHWUg1g99fX+656o2voxlo6L6pcVykmKxLeJW1YvijdQRNFFRDV0sq
+	NZTTLORg1XnfXx1e6tz5+C4vsLY4s60RuFOHF+hRmDood7G4oPHdRVp+y7vlLwkFFVK9aNr0xO4Y4
+	UrdjNNCiJ+0/+epdFNJx2Gx0FvNgsp6R5oQeYYtiO4U82iYzjIwUTt2l6QKs823lOsx/Rksdffo01
+	tRZrKBDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkXDo-0000000AHVU-0jI8;
-	Tue, 18 Feb 2025 23:41:48 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tkYBq-0000000AO4s-05RV;
+	Wed, 19 Feb 2025 00:43:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkXCL-0000000AHM3-0pIz;
-	Tue, 18 Feb 2025 23:40:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739922015;
-	bh=vtJYJScwIgD7t/Kjv9WAvIrpkcvjsYEil5lQtdhNnDE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gtaqD/GWX2crjMIVsm9VhPgIp6ynjZ09aQZr76a03msFBEu3FN4S2lLI3hKVIXR6g
-	 2LOCyx9ZvSLA2TOXcjTszgbUuSNTbm1pbAWf0hAavTRc+y2+rR8S5pcR5E2wOcF8tR
-	 LRplrtXfSFculPVtvURaCiLm3OcJ5reQycDBmNKAfUAstLCB74ZnIj1JtUDQNODQ4a
-	 PsSfM1eMYJZBW7KBtqIiKNy3XmfNDycBWITJZVKFPkmnkjVddJqR+8RPSF3Sjl54be
-	 1+K0vAO/qvlBsPPMzC1rIMLXxt4k7mfTjUcjcl7YqwJxTtAnEeoQmXZqMMltmntcOq
-	 eKv7Rd4oXgWSg==
-Received: from [192.168.1.143] (144.232.221.87.dynamic.jazztel.es [87.221.232.144])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 881CB17E1411;
-	Wed, 19 Feb 2025 00:40:13 +0100 (CET)
-Message-ID: <0dd48599-448f-4472-9a8a-54b7f0379c13@collabora.com>
-Date: Wed, 19 Feb 2025 01:40:12 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: rockchip: Add HDMI1 PHY PLL clock source
- to VOP2 on RK3588
-To: Sebastian Reichel <sebastian.reichel@collabora.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Jianfeng Liu <liujianfeng1994@gmail.com>, airlied@gmail.com,
- andy.yan@rock-chips.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
- dri-devel@lists.freedesktop.org, hjc@rock-chips.com, kernel@collabora.com,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- maarten.lankhorst@linux.intel.com, mripard@kernel.org, robh@kernel.org,
- simona@ffwll.ch, tzimmermann@suse.de
-References: <1919367.CQOukoFCf9@diego>
- <20250218121749.1382322-1-liujianfeng1994@gmail.com>
- <lnuceofdwm6lgibworaghcujp6rrncvn4e2xc2vzltimjw3rqu@jur7x5cxt5ue>
- <2425191.NG923GbCHz@diego>
- <ldgdrytto5y2xf3ois23j4ymtajtwmqlxjr2zyqhwbbxcx6f6y@gzb37fntx2x6>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <ldgdrytto5y2xf3ois23j4ymtajtwmqlxjr2zyqhwbbxcx6f6y@gzb37fntx2x6>
-Content-Type: text/plain; charset=UTF-8
+	id 1tkYAL-0000000ANkQ-1yIO
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Feb 2025 00:42:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AFF935C5850;
+	Wed, 19 Feb 2025 00:41:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48261C4CEE2;
+	Wed, 19 Feb 2025 00:42:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739925736;
+	bh=5ATz3qoZO0uyhjafPNvrVGduTAInvw9k8D3BQjGQMP0=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=rUE7ym6cpVcQEMakXZOfcKvSri/zFYTON7R14QqaiGdHeREJV3kluIb5L0feThZQt
+	 WSV5HqbJVVH/+R4AUcM71jPqcyfNg/1tA/hNwAr19YdJz4GOnFkq4AcF2q9NdkBN+0
+	 5X2EZBB0+hpd5oQjlM48XTt8bKNs1iZX79Sirk5PalU1nOV4cMdo/wO6dXCARqmlz6
+	 q8JsnDDjxhyPL7aTO6VeJsinXBz+ytQBxCjXOHPhWYd6lmtab6pEZd27hqc8d5Molm
+	 YUE9d/34f9TPO7c4rYgPDyLQr2b74D31VL04ZfYzpQoUg7P3PCfzFStghTkVYD5OAt
+	 qlnVLf4ilKHkg==
+Date: Tue, 18 Feb 2025 18:42:15 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: gakula@marvell.com, sebastian.hesselbarth@gmail.com, andrew@lunn.ch, 
+ linux-arm-kernel@lists.infradead.org, gregory.clement@bootlin.com, 
+ salee@marvell.com, devicetree@vger.kernel.org, krzk+dt@kernel.org, 
+ linux-kernel@vger.kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de
+To: Wilson Ding <dingwei@marvell.com>
+In-Reply-To: <20250214065833.530276-1-dingwei@marvell.com>
+References: <20250214065833.530276-1-dingwei@marvell.com>
+Message-Id: <173992515450.2064904.7377620309703204862.robh@kernel.org>
+Subject: Re: [PATCH 0/4] Add Armada8K reset controller support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_154017_390190_2C6C6B2E 
-X-CRM114-Status: GOOD (  27.28  )
+X-CRM114-CacheID: sfid-20250218_164217_592748_B93FEC73 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,88 +73,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 2/18/25 6:05 PM, Sebastian Reichel wrote:
-> Hi,
+On Thu, 13 Feb 2025 22:58:28 -0800, Wilson Ding wrote:
+> Armada8K has one simple register for unit soft reset, which is part of
+> the system controller register area. The simple reset code doesn't
+> support register access via regmap for the syscon devices. This patch
+> series added new ops for reset line operation to make the simple reset
+> code compatible for syscon device. And add Armada8K support then.
 > 
-> On Tue, Feb 18, 2025 at 03:53:06PM +0100, Heiko Stübner wrote:
->> Am Dienstag, 18. Februar 2025, 15:13:07 MEZ schrieb Sebastian Reichel:
->>> On Tue, Feb 18, 2025 at 08:17:46PM +0800, Jianfeng Liu wrote:
->>>> On Tue, 18 Feb 2025 11:00:57 +0100, Heiko Stübnerwrote:
->>>>> So I guess step1, check what error is actually returned.
->>>>
->>>> I have checked that the return value is -517:
->>>>
->>>> rockchip-drm display-subsystem: [drm] *ERROR* failed to get pll_hdmiphy1 with -517
->>>>
->>>>> Step2 check if clk_get_optional need to be adapted or alternatively
->>>>> catch the error in the vop2 and set the clock to NULL ourself in that case.
->>>>
->>>> I tried the following patch to set the clock to NULL when clk_get_optional
->>>> failed with value -517, and hdmi0 is working now. There are also some
->>>> boards like rock 5 itx which only use hdmi1, I think we should also add
->>>> this logic to vop2->pll_hdmiphy0.
->>>>
->>>> @@ -3733,6 +3751,15 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
->>>>  		return PTR_ERR(vop2->pll_hdmiphy0);
->>>>  	}
->>>>  
->>>> +	vop2->pll_hdmiphy1 = devm_clk_get_optional(vop2->dev, "pll_hdmiphy1");
->>>> +	if (IS_ERR(vop2->pll_hdmiphy1)) {
->>>> +		drm_err(vop2->drm, "failed to get pll_hdmiphy1 with %d\n", vop2->pll_hdmiphy1);
->>>> +		if (vop2->pll_hdmiphy1 == -EPROBE_DEFER)
->>>> +			vop2->pll_hdmiphy1 = NULL;
->>>> +		else
->>>> +			return PTR_ERR(vop2->pll_hdmiphy1);
->>>> +	}
->>>> +
->>>
->>> This first of all shows, that we should replace drm_err in this
->>> place with dev_err_probe(), which hides -EPROBE_DEFER errors by
->>> default and instead captures the reason for /sys/kernel/debug/devices_deferred.
->>>
->>> Second what you are doing in the above suggestion will break kernel
->>> configurations where VOP is built-in and the HDMI PHY is build as a
->>> module.
->>>
->>> But I also think it would be better to have the clocks defined in the
->>> SoC level DT. I suppose that means vop2_bind would have to check if
->>> the HDMI controller <ID> is enabled and only requests pll_hdmiphy<ID>
->>> based on that. Considering there is the OF graph pointing from VOP
->>> to the enabled HDMI controllers, it should be able to do that.
->>
->>
->> I was more thinking about fixing the correct thing, with something like:
->>
->> ----------- 8< ----------
->> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
->> index cf7720b9172f..50faafbf5dda 100644
->> --- a/drivers/clk/clk.c
->> +++ b/drivers/clk/clk.c
->> @@ -5258,6 +5258,10 @@ of_clk_get_hw_from_clkspec(struct of_phandle_args *clkspec)
->>         if (!clkspec)
->>                 return ERR_PTR(-EINVAL);
->>
->> +       /* Check if node in clkspec is in disabled/fail state */
->> +       if (!of_device_is_available(clkspec->np))
->> +               return ERR_PTR(-ENOENT);
->> +
->>         mutex_lock(&of_clk_mutex);
->>         list_for_each_entry(provider, &of_clk_providers, link) {
->>                 if (provider->node == clkspec->np) {
->> ----------- 8< ----------
->>
->> Because right now the clk framework does not handle nodes in
->> failed/disabled state and would defer indefinitly.
+> Wilson Ding (4):
+>   reset: simple: Add syscon device compatible
+>   reset: simple: Add support for Armada8K reset controller
+>   dt-bindings: cp110: Document the reset controller
+>   arm64: dts: marvell: cp11x: Add reset controller node
 > 
-> Also LGTM.
+>  .../arm/marvell/cp110-system-controller.txt   |  32 +++++
+>  arch/arm64/boot/dts/marvell/armada-cp11x.dtsi |   6 +
+>  drivers/reset/reset-simple.c                  | 126 +++++++++++++++---
+>  include/linux/reset/reset-simple.h            |  11 ++
+>  4 files changed, 154 insertions(+), 21 deletions(-)
+> 
+> --
+> 2.43.0
+> 
+> 
+> 
 
-Thank you all for the feedback and proposed solutions!
 
-I'm currently on leave and without access to any testing hw, but I'll be
-back in a couple of days.
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-Regards,
-Cristian
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/marvell/' for 20250214065833.530276-1-dingwei@marvell.com:
+
+arch/arm64/boot/dts/marvell/cn9131-db.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9130-db.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-7040-db.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9130-cf-pro.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9130-db-B.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9130-cf-base.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9131-db-B.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-7040-mochabin.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-8040-puzzle-m801.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9131-db.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9132-clearfog.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9131-db-B.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9132-clearfog.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-8040-mcbin-singleshot.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9132-clearfog.dtb: /cp2/config-space@f6000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-8040-mcbin-singleshot.dtb: /cp0/config-space@f2000000/spi@700680: failed to match any schema with compatible: ['marvell,armada-380-spi']
+arch/arm64/boot/dts/marvell/cn9132-db-B.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9130-crb-B.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/ac5x-rd-carrier-cn9131.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-8040-mcbin.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-8040-mcbin-singleshot.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9132-db.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9130-crb-A.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9132-db-B.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/ac5x-rd-carrier-cn9131.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9132-db.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9132-db-B.dtb: /cp2/config-space@f6000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/cn9132-db.dtb: /cp2/config-space@f6000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-8040-clearfog-gt-8k.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-8040-db.dtb: /cp0/config-space@f2000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+arch/arm64/boot/dts/marvell/armada-8040-db.dtb: /cp1/config-space@f4000000/system-controller@440000/soft-reset@268: failed to match any schema with compatible: ['marvell,armada8k-reset']
+
+
+
+
+
 
