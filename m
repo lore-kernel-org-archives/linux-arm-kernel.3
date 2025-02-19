@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0EECC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:42:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64AF6C021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=py62NjgHyqePD/1xxiF47Ojj/UAYgJgEPILXJQHYeUw=; b=2nQ2XRvI7wN5gi5+zaRxSfVfN2
-	2cR05rmFQfoAPVmYmXUYDjUa7QfGKPYlmhI8dFqVRCmgEs9QL0dePHx+S1cZGcVeuHwnaAVCAOZ46
-	rRQfGiU36swZK1jiUtgHg4TGI9igB5jQTA6b8DfNqpTShaR54cEsIOFeUhFEUqWEaVetA51UNN8Y+
-	U/8plEZVS4hTzU80i9j4mDx+DYE2twLoBZdb6EL6RXsFKxSAKbnFoH7gpXdDWBCX2rpgG/gZo43Mk
-	bEFL7IpfqwDzD5q59w8n5NQ21PHf1ZDJ1VCRYol3wUkiqHuMBjse+vZVvEb/1LifDEv1don2Y9aA6
-	1PE9+rmw==;
+	bh=YWbTsmkFNVzUKGQASgjUS1od0uhjMSBLNuVdbUo2uHQ=; b=g5M9xso3JBVSCG2cDfkrfOY12z
+	SfcQNF+WrHIK9nXSTKoDb0RYpGxRkM3FEzS6YCUv0R5XnsvAPv/v8Q2Rs6WieeKlPS8UcyxbRj8Sr
+	RypQ/RbxMN85jQUHvUwhubp8cRq1FdDAVwaSjb6lySlN68g4+943s27jw1sM0Rqw9rRwyp4/z53sf
+	6jhUvoAYk6u84VZ/4Xt0zjgbOJ0XKJwfkAXMTUHIFTZFhUZ7ssiMdvdXtz2KdYJKMX5yHJuBKPxe0
+	X4yP5qrAxLgbaghLBZEx3yEYsqdwvnI5t9o4BeZGVczMj+k7+mdKOf/mMx17ip96O64B2CkWjOV/W
+	jWpyxsGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpxe-0000000EheC-0BOO;
-	Wed, 19 Feb 2025 19:42:22 +0000
-Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	id 1tkpz6-0000000Ei7d-41SX;
+	Wed, 19 Feb 2025 19:43:52 +0000
+Received: from out-174.mta1.migadu.com ([2001:41d0:203:375::ae])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpf1-0000000EbGA-3R44
+	id 1tkph5-0000000EbvA-2ElP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 19:23:10 +0000
-Date: Wed, 19 Feb 2025 11:22:56 -0800
+	Wed, 19 Feb 2025 19:25:16 +0000
+Date: Wed, 19 Feb 2025 11:25:06 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1739992982;
+	t=1739993112;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=py62NjgHyqePD/1xxiF47Ojj/UAYgJgEPILXJQHYeUw=;
-	b=wpbGXpA9K426wUIeTQaneUGsyJ2aLTd7V1pWeTS2jiBxCc8g047ll176UouBJ5WeCFvdv3
-	koB6l5gRLjQaWG28qTOndotTu4GRwC/XZDb5Oy5fGRzjhBSsE0AMirgk9sMV4KrHwnJQns
-	j3sPE519Ckg/6+GNw5nq70IOFWFCTL8=
+	bh=YWbTsmkFNVzUKGQASgjUS1od0uhjMSBLNuVdbUo2uHQ=;
+	b=HAo43khA9DU1uLsdSMUg9nTVrQVQR5iWPGhSRHK2Wp8bg/ugmPa8asiQlOuuhyqh54C2El
+	P0Ec3ptzNRyg2MaUQjrQu3nWUclL3MWyd0WopanhROR742V2qiKu4g9fHcKmpvzW/7fYJq
+	QFG4ENuIdGD3oxElJek7m3LHNJSXlG0=
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Oliver Upton <oliver.upton@linux.dev>
 To: Marc Zyngier <maz@kernel.org>
@@ -50,20 +50,19 @@ Cc: kvmarm@lists.linux.dev, Joey Gouly <joey.gouly@arm.com>,
 	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Janne Grunau <j@jannau.net>
-Subject: Re: [PATCH v2 07/14] KVM: arm64: Use a cpucap to determine if system
- supports FEAT_PMUv3
-Message-ID: <Z7YvkHpm3w__HnkO@linux.dev>
+Subject: Re: [PATCH v2 06/14] KVM: arm64: Remap PMUv3 events onto hardware
+Message-ID: <Z7YwEptbRnX5s9Fw@linux.dev>
 References: <20250203183111.191519-1-oliver.upton@linux.dev>
- <20250203183111.191519-8-oliver.upton@linux.dev>
- <864j0psuas.wl-maz@kernel.org>
+ <20250203183111.191519-7-oliver.upton@linux.dev>
+ <865xl5sx20.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <864j0psuas.wl-maz@kernel.org>
+In-Reply-To: <865xl5sx20.wl-maz@kernel.org>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_112307_994398_0960F89D 
-X-CRM114-Status: GOOD (  20.36  )
+X-CRM114-CacheID: sfid-20250219_112515_715473_6E12166C 
+X-CRM114-Status: GOOD (  24.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,66 +77,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 05:44:59PM +0000, Marc Zyngier wrote:
-> > +static bool has_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
+On Wed, Feb 19, 2025 at 04:45:27PM +0000, Marc Zyngier wrote:
+> On Mon, 03 Feb 2025 18:31:03 +0000,
+> Oliver Upton <oliver.upton@linux.dev> wrote:
+> > 
+> > Use the provided helper to map PMUv3 event IDs onto hardware, if the
+> > driver exposes such a helper. This is expected to be quite rare, and
+> > only useful for non-PMUv3 hardware.
+> > 
+> > Tested-by: Janne Grunau <j@jannau.net>
+> > Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> > ---
+> >  arch/arm64/kvm/pmu-emul.c | 14 +++++++++++++-
+> >  1 file changed, 13 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+> > index 62349b670cf9..60cf973e2af9 100644
+> > --- a/arch/arm64/kvm/pmu-emul.c
+> > +++ b/arch/arm64/kvm/pmu-emul.c
+> > @@ -673,6 +673,18 @@ static bool kvm_pmc_counts_at_el2(struct kvm_pmc *pmc)
+> >  	return kvm_pmc_read_evtreg(pmc) & ARMV8_PMU_INCLUDE_EL2;
+> >  }
+> >  
+> > +static u64 kvm_map_pmu_event(struct kvm *kvm, u64 eventsel)
 > > +{
-> > +	u64 dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
-> > +	unsigned int pmuver;
+> > +	struct arm_pmu *pmu = kvm->arch.arm_pmu;
+> > +	int hw_event;
 > > +
-> > +	pmuver = cpuid_feature_extract_unsigned_field(dfr0,
-> > +						      ID_AA64DFR0_EL1_PMUVer_SHIFT);
-> > +	if (pmuver == ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
-> > +		return false;
+> > +	if (!pmu->map_pmuv3_event)
+> > +		return eventsel;
 > > +
-> > +	return pmuver >= ID_AA64DFR0_EL1_PMUVer_IMP;
+> > +	hw_event = pmu->map_pmuv3_event(eventsel);
+> > +	return (hw_event < 0) ? eventsel : hw_event;
 > 
-> Given that PMUVer is a signed field, how about using
-> cpuid_feature_extract_signed_field() and do a signed comparison instead?
-
-I'm happy to include a comment, but the PMUVer field is not signed. Any value
-other than 0xF is meant to be treated as an unsigned quantity.
-
-DDI047L.a D24.1.3.2 is where this is coming from.
-
-> > +}
-> > +
-> >  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
-> >  #define KPTI_NG_TEMP_VA		(-(1UL << PMD_SHIFT))
-> >  
-> > @@ -2999,6 +3012,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
-> >  		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, GCS, IMP)
-> >  	},
-> >  #endif
-> > +	{
-> > +		.desc = "PMUv3",
-> > +		.capability = ARM64_HAS_PMUV3,
-> > +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> > +		.matches = has_pmuv3,
-> > +	},
+> I find this a bit odd. If we can translate events, but failed to do
+> so, we still install the originally requested event, and we have no
+> idea what this maps to on the HW.
 > 
-> This cap is probed unconditionally (without any configuration
-> dependency)...
-> 
-> >  	{},
-> >  };
-> >  
-> > diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > index f838a45665f2..0edc7882bedb 100644
-> > --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> > @@ -244,7 +244,7 @@ static inline void __activate_traps_common(struct kvm_vcpu *vcpu)
-> >  	 * counter, which could make a PMXEVCNTR_EL0 access UNDEF at
-> >  	 * EL1 instead of being trapped to EL2.
-> >  	 */
-> > -	if (kvm_arm_support_pmu_v3()) {
-> > +	if (system_supports_pmuv3()) {
-> 
-> ... but kvm_arm_support_pmu_v3() is conditional on
-> CONFIG_HW_PERF_EVENTS.  Doesn't this create some sort of new code path
-> that we didn't expect?
+> I'd rather we just don't install that event at all rather than
+> counting something random.
 
-Yep. It ought to be benign, but pointless. I'll condition this correctly
-next time around.
+Heh, this was a leftover party trick that I was using to try "raw"
+events from inside a VM. Happy to limit things to the PMUv3 event space
+though.
 
 Thanks,
 Oliver
