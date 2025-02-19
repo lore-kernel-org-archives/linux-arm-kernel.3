@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD790C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 14:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BBAEC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 14:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZKvcBQEXtzYLwxzULGxcQBN8+Iap7g5XTvz9tz2xXL4=; b=jABtRx9Jz4w4aL77fD2ponLKin
-	1uCGGLhel2T03hjzJyOHEgvp+RmiNcxJS6pceOkSegCZ6m1HQamSmWim+XOFKMn2w/beeoTcYj4r4
-	800Rn0sgcaPpQ21+iUB0yDoClV3+9U2fcEz+VveBoQFRctOJDc404MJRfiLQgqZgiD7GVqEYyA3hV
-	TPowngz3vmRvgfS8d/ohNlN7ifjjv65uRLFRDc6peTqh7qHYdG/zkWrqqy1SP86i4tyq15WXLqmT1
-	RE1uxeGXkVoz//ijeGvqd46HzqPo7GuIJPdEXcZQiVNDzf+vqXNPpCOPUoghpG+4AT15EcfZiAKhj
-	7Q5+HpHw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1AP7vHCbm8vPBGji58pQ9MLO42f5GV5g/mANesyvEKI=; b=H3QcA7QYVURrGe3uQ9Mum67iL0
+	MRDE9vPwF1KaSoUVKUiO8lPqWqKPRFA4ZD8ZqW7Maf9PhNzcISwUBnGb24+SMBTkD6K99tU7/GT01
+	kG0HnLYdsTmnQ0phS9LyJJ52Vapigj1tZCUCjKhnJYcw/uUp9bCxMnax8RrBWBiTqCgqoMJ0msaFp
+	GZFlANeq2k3wnr0GXiFxP2XCt7xjbrgs/b5XtRUdKSeFv4mj5LoaeDFAVFGDs4UK4cYfe3GIR/ovh
+	PgRZhNrzoQAFTlXDH2rZKIIiG0q0fHiIfVoCEnWZLEOZMR9OKZdTpjODZKgxVlGdp+A8EZ8lVxqDq
+	+q+ww9+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tklLQ-0000000DMMi-3dwy;
-	Wed, 19 Feb 2025 14:46:36 +0000
+	id 1tklMs-0000000DMqA-1yC8;
+	Wed, 19 Feb 2025 14:48:06 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tklJw-0000000DLt5-14jx
+	id 1tklL7-0000000DMHB-22QG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 14:45:05 +0000
+	Wed, 19 Feb 2025 14:46:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B28513D5;
-	Wed, 19 Feb 2025 06:45:19 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDE1C13D5;
+	Wed, 19 Feb 2025 06:46:34 -0800 (PST)
 Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.18])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 15FE53F59E;
-	Wed, 19 Feb 2025 06:44:57 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8A3DF3F59E;
+	Wed, 19 Feb 2025 06:46:13 -0800 (PST)
 From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
 To: ryan.roberts@arm.com,
 	yang@os.amperecomputing.com,
@@ -55,16 +55,18 @@ To: ryan.roberts@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-Subject: [PATCH v1 0/3] Initial BBML2 support for contpte_convert()
-Date: Wed, 19 Feb 2025 14:38:36 +0000
-Message-ID: <20250219143837.44277-3-miko.lenczewski@arm.com>
+Subject: [PATCH v1 1/3] arm64: Add BBM Level 2 cpu feature
+Date: Wed, 19 Feb 2025 14:38:38 +0000
+Message-ID: <20250219143837.44277-5-miko.lenczewski@arm.com>
 X-Mailer: git-send-email 2.45.3
+In-Reply-To: <20250219143837.44277-3-miko.lenczewski@arm.com>
+References: <20250219143837.44277-3-miko.lenczewski@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_064504_354554_9C673480 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20250219_064617_614606_8B7320EF 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,54 +81,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
+and this commit adds a dedicated BBML2 cpufeature to test against
+support for.
 
-This patch series adds adding initial support for eliding
-break-before-make requirements on systems that support BBML2 and
-additionally guarantee to never raise a conflict abort.
+This is a system feature as we might have a big.LITTLE architecture
+where some cores support BBML2 and some don't, but we want all cores to
+be available and BBM to default to level 0 (as opposed to having cores
+without BBML2 not coming online).
 
-This support reorders and optionally elides a TLB invalidation in
-contpte_convert(). The elision of said invalidation leads to a 12%
-improvement when executing a microbenchmark designed to force the
-pathological path where contpte_convert() gets called. This
-represents an 80% reduction in the cost of calling contpte_convert().
+To support BBML2 in as wide a range of contexts as we can, we want not
+only the architectural guarantees that BBML2 makes, but additionally
+want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
+us having to prove that no recursive faults can be induced in any path
+that uses BBML2, allowing its use for arbitrary kernel mappings.
+Support detection of such CPUs.
 
-However, even without the elision, the reodering represents a
-performance improvement due to reducing thread contention, as there is
-a smaller time window for racing threads to see an invalid pagetable
-entry (especially if they already have a cached entry in their TLB
-that they are working off of).
-
-This series is based on v6.14-rc3 (0ad2507d5d93).
-
-Patch 1 implements an allow-list of cpus that support BBML2, but with
-the additional constraint of never causing TLB conflict aborts. We
-settled on this constraint because we will use the feature for kernel
-mappings in the future, for which we cannot handle conflict aborts
-safely.
-
-Yang Shi has a series at [1] that aims to use BBML2 to enable splitting
-the linear map at runtime. This series partially overlaps with it to add
-the cpu feature. We beleive this series is fully compatible with Yang's
-requirements and could go first, given there is still a lot of discussion
-around the best way to manage the mechanics of splitting/collapsing the
-linear map.
-
-[1]:
-  https://lore.kernel.org/linux-arm-kernel/20250103011822.1257189-1-yang@os.amperecomputing.com/
-
-Mikołaj Lenczewski (3):
-  arm64: Add BBM Level 2 cpu feature
-  arm64/mm: Delay tlbi in contpte_convert() under BBML2
-  arm64/mm: Elide tlbi in contpte_convert() under BBML2
-
+Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+---
  arch/arm64/Kconfig                  |  9 ++++++++
  arch/arm64/include/asm/cpufeature.h |  5 +++++
  arch/arm64/kernel/cpufeature.c      | 32 +++++++++++++++++++++++++++++
- arch/arm64/mm/contpte.c             |  3 ++-
  arch/arm64/tools/cpucaps            |  1 +
- 5 files changed, 49 insertions(+), 1 deletion(-)
+ 4 files changed, 47 insertions(+)
 
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 940343beb3d4..84be2c5976f0 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2057,6 +2057,15 @@ config ARM64_TLB_RANGE
+ 	  The feature introduces new assembly instructions, and they were
+ 	  support when binutils >= 2.30.
+ 
++config ARM64_ENABLE_BBML2
++	bool "Enable support for Break-Before-Make Level 2 detection and usage"
++	default y
++	help
++	  FEAT_BBM provides detection of support levels for break-before-make
++	  sequences. If BBM level 2 is supported, some TLB maintenance requirements
++	  can be relaxed to improve performance. Selecting N causes the kernel to
++	  fallback to BBM level 0 behaviour even if the system supports BBM level 2.
++
+ endmenu # "ARMv8.4 architectural features"
+ 
+ menu "ARMv8.5 architectural features"
+diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+index e0e4478f5fb5..2da872035f2e 100644
+--- a/arch/arm64/include/asm/cpufeature.h
++++ b/arch/arm64/include/asm/cpufeature.h
+@@ -866,6 +866,11 @@ static __always_inline bool system_supports_mpam_hcr(void)
+ 	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
+ }
+ 
++static inline bool system_supports_bbml2_noconflict(void)
++{
++	return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOCONFLICT);
++}
++
+ int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
+ bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
+ 
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index d561cf3b8ac7..8c337bd95ef7 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2176,6 +2176,31 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+ 	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+ }
+ 
++static bool has_bbml2_noconflict(const struct arm64_cpu_capabilities *entry,
++				 int scope)
++{
++	if (!IS_ENABLED(CONFIG_ARM64_ENABLE_BBML2))
++		return false;
++
++	/* We want to allow usage of bbml2 in as wide a range of kernel contexts
++	 * as possible. This list is therefore an allow-list of known-good
++	 * implementations that both support bbml2 and additionally, fulfil the
++	 * extra constraint of never generating TLB conflict aborts when using
++	 * the relaxed bbml2 semantics (such aborts make use of bbml2 in certain
++	 * kernel contexts difficult to prove safe against recursive aborts).
++	 */
++	static const struct midr_range supports_bbml2_without_abort_list[] = {
++		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
++		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
++		{}
++	};
++
++	if (!is_midr_in_range_list(read_cpuid_id(), supports_bbml2_without_abort_list))
++		return false;
++
++	return true;
++}
++
+ #ifdef CONFIG_ARM64_PAN
+ static void cpu_enable_pan(const struct arm64_cpu_capabilities *__unused)
+ {
+@@ -2926,6 +2951,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, EVT, IMP)
+ 	},
++	{
++		.desc = "BBM Level 2 without conflict abort",
++		.capability = ARM64_HAS_BBML2_NOCONFLICT,
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.matches = has_bbml2_noconflict,
++		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, BBM, 2)
++	},
+ 	{
+ 		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
+ 		.capability = ARM64_HAS_LPA2,
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 1e65f2fb45bd..8d67bb4448c5 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -26,6 +26,7 @@ HAS_ECV
+ HAS_ECV_CNTPOFF
+ HAS_EPAN
+ HAS_EVT
++HAS_BBML2_NOCONFLICT
+ HAS_FPMR
+ HAS_FGT
+ HAS_FPSIMD
 -- 
 2.45.3
 
