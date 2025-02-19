@@ -4,153 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 224DDC021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 23:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9C41C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 23:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U1Ty9bO4kNZqQoF45hc3T5YXnh5usLNhP9qMKfVRUYs=; b=P9hJO569WsNPffGlDoClsO+S+r
-	97TQw5J1fnE/QSuwHlNEheINjGUbtgSJu1tDwYeT1ihfIf/HrLgysWDImnFYKwR6YdUEHu1rx3Tjt
-	ZsyMPxc1qs7dqW91rexvLnXdtYkFJobN0k5e6O6K6Rxg0PVfVw5UZ2amp9m675s0IUmWQmj1v5uDB
-	QLx0Vj8M/umEYgwsBkWmC1mSkjfxNGsSkCofXOhGEglrwFk3jnL/gIFPCTIhn3b4DrQe/RB2yLUYU
-	PBIyPIevhzi9zHQ97IEku/4xOzRB2NjAm2TZB6EGNXCbpQjyl5m19gv5vKvKFqWpBLwF+xGAsXOXF
-	yrDEmc8w==;
+	bh=2HYNXCOG+wz0Fdaw+JzO32UazAyTjP8oMfGb/KMbtPQ=; b=I8llgVkZQBDFGhFzOVh7N4vt/R
+	uet1iC2flMVyttoMjlUdIIBgfF8QwD032o1VLJMIzCULDr3HupLLxHXD77kltkXJJTPtKFm+F0Car
+	Jt/xA2RQlYapzXxavEOhv75r9vR6G/sQHUWhXR8kaKA8gnBpd3XyRFN7vDeTcLo2OAzARc8GoBS1E
+	I8BVoxfC6pu0dgxMF0/ozMTmMuOhtmzMC5glmDxB8nFvpq7XvddakQ2HOtiHXjiXt3VeZc6R3+LXO
+	t1LhLTu/MfgQom1qjA/h93ovqhMldZlNwTGfhIAoo18AUWUUS2nB2NafCXRkMKvd6bYtXpEAFrHXC
+	vQUZFWug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tktQQ-0000000FgRo-30sR;
-	Wed, 19 Feb 2025 23:24:18 +0000
-Received: from mail-westusazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d000::] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1tktRt-0000000FgpH-1U0s;
+	Wed, 19 Feb 2025 23:25:49 +0000
+Received: from out-173.mta0.migadu.com ([91.218.175.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tktJs-0000000FeWg-2IS0
+	id 1tktK4-0000000Feai-2qVo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 23:17:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MNQVGvOskhCJ6mOg3wr8lQ4tEK4t5uXqA5gqPdkmrD0pFbsCsf1HGsQZGoc6FsUSzrO2iuy69ePCUnjauVviDo2Io5nCz+I7sjfuRZ0yelUNkj/YEMPQ63nv/17Fs3+8upOgE+Nz7vUrMTM4fJndQAykoXr215Xp5Vz2bhMEEMkxxQ6wwI0vS5AazPKSZJogYGAZJHxW+1YQBlSpUlpxSRj1B3t3AMwxwdNbU19cRx7pa3QkXEcruiNQLn56WCP/+87FVwDDWcD1PIpg/PZW15tVsphI4t3v46WFlqvP9YKtznVkHOaRx4zxF3Whbl4yZvdI/aiNlrzS6OhB/Lo84w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=U1Ty9bO4kNZqQoF45hc3T5YXnh5usLNhP9qMKfVRUYs=;
- b=HS3nSSIk9FVPr1+lZmDQlp08nKxIjYOXPkxK/dt72qxfEqKksS0lsms99FFzq1y5FGY7FEUtgLjITSn0Og138KDiqN/onr9QWinE0d2RDJ5phY/gRa0ZGcRbNDOY6ijNuzuaKCd4Fuhx6HFQAOrZHIwSenDC5zl34oF0MJd4BkiU3tYuv9juYAx1SNnNqmdyZOgdBV/UG+BEf+0PIDLPv6fOGA0Foq7k/KbtBdyplIRyITdrL20LRx6Me51fKXrMfIc+UXH7ZS6v00f7njwwsYHvEN1orPdoZ+5oqBgn9dQLpc1SO3Ipp3jSAj2LdhvIIyU75WdT893uoSHpbUZ3uw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=U1Ty9bO4kNZqQoF45hc3T5YXnh5usLNhP9qMKfVRUYs=;
- b=mUs3XIesnyShDYIDgOEnLiCbIt7R9NZLp0X1Q+mVNy7Vc3PgfzijS2b0JC1eF3h6AlovBTGcoquv7AERKjag5yvrm7AkHwDmHZ28E6lPO6x8F7ThDjwbjXDBxl8kTaK3YUW59vrMfeJIf8bDb0UQo/xSvt9aknRR8T0atw5fUFfJTeP/sOHlge6xYpEJLCcTSNWMKZA4QBLJUGheRU9YtIWPEgjubVPZCpwNRhfQFjaxYuyxqGvSeCGiDtEljmXgN/F1xp6/YxdRVhafdAiWw64pwTfyHi1aK+D6MT8abMizfK8sDyrf2hRTZRl7QFvA52r/e1FGu4+x03r4SblKow==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by DM4PR02MB9192.namprd02.prod.outlook.com (2603:10b6:8:108::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Wed, 19 Feb
- 2025 23:17:28 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df%4]) with mapi id 15.20.8466.013; Wed, 19 Feb 2025
- 23:17:28 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Roman Kisel <romank@linux.microsoft.com>, "arnd@arndb.de" <arnd@arndb.de>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "bp@alien8.de" <bp@alien8.de>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "dave.hansen@linux.intel.com"
-	<dave.hansen@linux.intel.com>, "decui@microsoft.com" <decui@microsoft.com>,
-	"haiyangz@microsoft.com" <haiyangz@microsoft.com>, "hpa@zytor.com"
-	<hpa@zytor.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "kw@linux.com"
-	<kw@linux.com>, "kys@microsoft.com" <kys@microsoft.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
-	"mingo@redhat.com" <mingo@redhat.com>, "robh@kernel.org" <robh@kernel.org>,
-	"ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
-	"tglx@linutronix.de" <tglx@linutronix.de>, "wei.liu@kernel.org"
-	<wei.liu@kernel.org>, "will@kernel.org" <will@kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-hyperv@vger.kernel.org"
-	<linux-hyperv@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>
-CC: "benhill@microsoft.com" <benhill@microsoft.com>, "bperkins@microsoft.com"
-	<bperkins@microsoft.com>, "sunilmut@microsoft.com" <sunilmut@microsoft.com>
-Subject: RE: [PATCH hyperv-next v4 3/6] Drivers: hv: Provide arch-neutral
- implementation of get_vtl()
-Thread-Topic: [PATCH hyperv-next v4 3/6] Drivers: hv: Provide arch-neutral
- implementation of get_vtl()
-Thread-Index: AQHbfO+sIeS3ah0DEkWXeltDBl+Ad7NPTrrA
-Date: Wed, 19 Feb 2025 23:17:28 +0000
-Message-ID: <SN6PR02MB4157164CE9A332EF62C6C037D4C52@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <20250212014321.1108840-1-romank@linux.microsoft.com>
- <20250212014321.1108840-4-romank@linux.microsoft.com>
-In-Reply-To: <20250212014321.1108840-4-romank@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|DM4PR02MB9192:EE_
-x-ms-office365-filtering-correlation-id: 6235255e-c217-4304-52f5-08dd513b93c9
-x-microsoft-antispam: BCL:0;ARA:14566002|8062599003|19110799003|461199028|8060799006|15080799006|3412199025|440099028|12091999003|41001999003|102099032;
-x-microsoft-antispam-message-info: =?us-ascii?Q?UdKbV8bZEt0nYSS1mlHl35Ary+jWje9hhQ3Ru7m6nrUMuhOX1Ti6tTomi9G8?=
- =?us-ascii?Q?r1oYwlqDcqHeY8oFqjcAA+2ZwBHfMuiWnaG+yPfZ5ZPzCfQBN5259uSbLQhb?=
- =?us-ascii?Q?gEqJLy6Ghv2PdgP2FD2EAxeD/yHuKhP2lWTar7zVo93k9/knebO47uYETthr?=
- =?us-ascii?Q?miBp7nzSYgQCyTcEYCTtHZl2Y8QbycQvvaA5TJ8mARrEbCMUdp66zov9XUB+?=
- =?us-ascii?Q?7z5B6M6GzM37FpS+Po7Nd5Fw5Af1QasT5HXfc9JdEcqDUxO69W685IwA11Pz?=
- =?us-ascii?Q?ngaHfto0WWY7zFRN1C9jw0KM9ynorYuQQpTnydKXVA7sRVMwE0ote6Z0g5Fj?=
- =?us-ascii?Q?uGkN+NcE8AbRiepRPVqizlfjFgX7kHSCFOiXc074fCYipqEF4jliKOPs0hme?=
- =?us-ascii?Q?2Q76pY+hruVOTq8In2Lnh2joTjeDezsPDBF/BUVt132+yeA3+juSsYLlEZD9?=
- =?us-ascii?Q?sTT7R7QsR04o33ogX/joo69uah3Oa534NRtsWP6tZse8Lq16zfgd/nD6Ydto?=
- =?us-ascii?Q?1m9GV0jLRyQ3A+MdktVsBJ2gJ0Qt5hr8Ong+MATeDw6sGCo5D6exdJCuA/xJ?=
- =?us-ascii?Q?MtyQOvxM4LIMu3AkC3Ma97R3d7kSBKwwErEXAFW7zgr0Cl7BKDhmT7/ptHdJ?=
- =?us-ascii?Q?CsO3iNi4TTieaCe6Fe3Or9+6dcekF2I2f1Zru2k+zSXF1/9MKTBWuDCtMm5j?=
- =?us-ascii?Q?XSEcJfal+R6TKSmSXptAPNvFcG6KlDlCXj102B/7yxRjxPnQ4nV5Qy1WPy9n?=
- =?us-ascii?Q?mIVYj+WcOT+FblOVJgS3kmdv1b+t7eIAJiRA7fe9dUZ1Y9PfNQxqmeMKGb8i?=
- =?us-ascii?Q?RfgsNAmEyDcwg66aMd59n/rbVmj8combkhTS4RtahLBRJl0AOybXB1IcLpfT?=
- =?us-ascii?Q?l82mHLZBYkZ38PpuooAM9KGSLz68xmpQ7nvtzttPpOpMlrmm+2xYe9TbcrAV?=
- =?us-ascii?Q?HOV9ndGX1DngRqT5zzGCm9Q2vKKWg+6DbfKZLYW/B74XksOCK9V7H0zx5pkL?=
- =?us-ascii?Q?2RkzRkyj+6ZNJEuQb+6X+3nGre6t9z83s7aPQKkcxvfuUxIwhwKKm8kuk3rG?=
- =?us-ascii?Q?9Q/yfdRmqC27UKhsrm+2yWltniVNoUyOgDOhBfIqkhzsWJi5erU=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?3R0DfessYq5QArI41JXwnGahd0FuxJn1AKKlYMUl/OQn6lcu9N/y1SkcPoJZ?=
- =?us-ascii?Q?JgbBfPJEbQNFDYieauYxNdoVREcxraiuUsPw9e4Q8zYTXRPhx2vfsOX1IlUJ?=
- =?us-ascii?Q?sWt3/RwHdl67yiWfb3zrYdThYC0icZOYJYqgDTMo1KDX+GuxB0FrW2s2bacj?=
- =?us-ascii?Q?IyfCYGDVWQRWycfI6WK/sWwKFMm+KqPSKhkpFK+N3tPO9cp0NSLqqbwaEUgK?=
- =?us-ascii?Q?ytMdqHoL0RxnytAsrEsug2Ay4H9T2vdwWlMfBrV3Yy0gTq+iPG4mv393qCgv?=
- =?us-ascii?Q?XIJYxlHvONbh6oPtJrufzwhVKNtcALwWyuJFAsacb4vOA84Y+5OlDeX3a1Qa?=
- =?us-ascii?Q?y/vHfmdaShj0Ysvgd1HQ+HAI/rnZlzXaX/RqC7yfKQp/rkkcQR8I6pl3EDbf?=
- =?us-ascii?Q?A9z8tDQ0ngIoO0H+vQ2F1v3/vRm1KL8jg2BTXDBQV07a6mLZy/7RKG6qSXdS?=
- =?us-ascii?Q?YcKXVE/Wn4XMO/ycRqxQv4I15KVHBxal5D9vUX5G/zwEUDpyg72hKnlRvTv2?=
- =?us-ascii?Q?Sc+OvYRSgaYFG9u3hxJBgvUv/XLO9gvQwvHSiBtoy1QJZPhYj03hyrdqoYwx?=
- =?us-ascii?Q?3rEPRr0k1XQt4LEwhnGFszDm75oksHBcfa9ydbXc37zqQhgjabQexhtil8S5?=
- =?us-ascii?Q?3n89VdWZj4p/Mrb20khdDEWMPEViODoxUDvSVZ39+LS4uPl9U3/pz5KRuEI7?=
- =?us-ascii?Q?cBp1t5eRhyaDHCSPkkhVAN6gqAdcogBk8RBNOa3kDCkTwmRN3IdVnOoF3jc5?=
- =?us-ascii?Q?rNO3tFDhQLOV98tpbducAn++pTIyLSTNCHzyZprQLsp/wJJV0IsSRdc5hcKN?=
- =?us-ascii?Q?XMCmyqQAAQTdanKKv3ZJSmOtJOHt335UDt1W6LudYT1gtu4bXEJDnu2KGPOQ?=
- =?us-ascii?Q?BKD9wViS1y+GRR8UuHJ2e8mfSgN3Ux3aKrLWdeTWZ5pKmiMTn+o0rFNCeNcO?=
- =?us-ascii?Q?FiTVxQLdrDiQz69Oor21SSCikG0CiyvAwGeIzjFl5QXwjC7Xfpz//es6vT0R?=
- =?us-ascii?Q?DTdvaR9X+SNeX0Ymr6OXlrtmZuUrjJVmpytvBSHuSe2P9kbWmi9joWcHtPA3?=
- =?us-ascii?Q?5h57lySDsFf/PI63olETtrFUhGsqyJll6w+FKR+r2zp+xve00QbaSBeJEI8d?=
- =?us-ascii?Q?zBkrJZWh4ZGJ/j0Bp+VuamVF3UWN1fJfP5+eJUgiK7FXhjnvgr4/VKdnqIh1?=
- =?us-ascii?Q?feL8ZqCCVkDo5HPJhRHNBHSpnpLj/XmP3xG66yVX9f2pUAuAXN/jHJATiM4?=
- =?us-ascii?Q?=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 19 Feb 2025 23:17:46 +0000
+Date: Wed, 19 Feb 2025 15:17:31 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1740007060;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2HYNXCOG+wz0Fdaw+JzO32UazAyTjP8oMfGb/KMbtPQ=;
+	b=rWjIol6+9So8K9A93M3qdYQy57XhJ6qTjdt3sJPKEgVbKEBQ6+SFT8I5y3AI88ntH3Y7AN
+	S1MvjMiuGAuZovKk/UGMRVbTxEJMYFvuoXKaypfdQX3MlIhdZxluwsIVrJQ/7uSzsFQyuF
+	Hobudgns7BwfXvj1wNR9P6T7YBKmfMM=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH 00/14] KVM: arm64: NV userspace ABI
+Message-ID: <Z7Zmi0WAkudX5h0h@linux.dev>
+References: <20250215173816.3767330-1-maz@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6235255e-c217-4304-52f5-08dd513b93c9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Feb 2025 23:17:28.0626
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR02MB9192
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250215173816.3767330-1-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_151732_595549_096BA764 
-X-CRM114-Status: GOOD (  26.35  )
+X-CRM114-CacheID: sfid-20250219_151745_308833_611259F8 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,148 +71,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Kisel <romank@linux.microsoft.com> Sent: Tuesday, February 11, =
-2025 5:43 PM
->=20
-> To run in the VTL mode, Hyper-V drivers have to know what
-> VTL the system boots in, and the arm64/hyperv code does not
-> have the means to compute that.
->=20
-> Refactor the code to hoist the function that detects VTL,
-> make it arch-neutral to be able to employ it to get the VTL
-> on arm64.
->=20
-> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-> ---
->  arch/x86/hyperv/hv_init.c      | 34 ----------------------------------
->  drivers/hv/hv_common.c         | 32 ++++++++++++++++++++++++++++++++
->  include/asm-generic/mshyperv.h |  6 ++++++
->  include/hyperv/hvgdk_mini.h    |  2 +-
->  4 files changed, 39 insertions(+), 35 deletions(-)
->=20
-> diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
-> index 173005e6a95d..383bca1a3ae2 100644
-> --- a/arch/x86/hyperv/hv_init.c
-> +++ b/arch/x86/hyperv/hv_init.c
-> @@ -411,40 +411,6 @@ static void __init hv_get_partition_id(void)
->  	local_irq_restore(flags);
->  }
->=20
-> -#if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
-> -static u8 __init get_vtl(void)
-> -{
-> -	u64 control =3D HV_HYPERCALL_REP_COMP_1 | HVCALL_GET_VP_REGISTERS;
-> -	struct hv_input_get_vp_registers *input;
-> -	struct hv_output_get_vp_registers *output;
-> -	unsigned long flags;
-> -	u64 ret;
-> -
-> -	local_irq_save(flags);
-> -	input =3D *this_cpu_ptr(hyperv_pcpu_input_arg);
-> -	output =3D *this_cpu_ptr(hyperv_pcpu_output_arg);
-> -
-> -	memset(input, 0, struct_size(input, names, 1));
-> -	input->partition_id =3D HV_PARTITION_ID_SELF;
-> -	input->vp_index =3D HV_VP_INDEX_SELF;
-> -	input->input_vtl.as_uint8 =3D 0;
-> -	input->names[0] =3D HV_REGISTER_VSM_VP_STATUS;
-> -
-> -	ret =3D hv_do_hypercall(control, input, output);
-> -	if (hv_result_success(ret)) {
-> -		ret =3D output->values[0].reg8 & HV_X64_VTL_MASK;
-> -	} else {
-> -		pr_err("Failed to get VTL(error: %lld) exiting...\n", ret);
-> -		BUG();
-> -	}
-> -
-> -	local_irq_restore(flags);
-> -	return ret;
-> -}
-> -#else
-> -static inline u8 get_vtl(void) { return 0; }
-> -#endif
-> -
->  /*
->   * This function is to be invoked early in the boot sequence after the
->   * hypervisor has been detected.
-> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-> index af5d1dc451f6..70f754710170 100644
-> --- a/drivers/hv/hv_common.c
-> +++ b/drivers/hv/hv_common.c
-> @@ -283,6 +283,38 @@ static inline bool hv_output_page_exists(void)
->  	return hv_root_partition || IS_ENABLED(CONFIG_HYPERV_VTL_MODE);
->  }
->=20
-> +#if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
-> +u8 __init get_vtl(void)
-> +{
-> +	u64 control =3D HV_HYPERCALL_REP_COMP_1 | HVCALL_GET_VP_REGISTERS;
-> +	struct hv_input_get_vp_registers *input;
-> +	struct hv_output_get_vp_registers *output;
-> +	unsigned long flags;
-> +	u64 ret;
-> +
-> +	local_irq_save(flags);
-> +	input =3D *this_cpu_ptr(hyperv_pcpu_input_arg);
-> +	output =3D *this_cpu_ptr(hyperv_pcpu_output_arg);
-> +
-> +	memset(input, 0, struct_size(input, names, 1));
-> +	input->partition_id =3D HV_PARTITION_ID_SELF;
-> +	input->vp_index =3D HV_VP_INDEX_SELF;
-> +	input->input_vtl.as_uint8 =3D 0;
-> +	input->names[0] =3D HV_REGISTER_VSM_VP_STATUS;
-> +
-> +	ret =3D hv_do_hypercall(control, input, output);
-> +	if (hv_result_success(ret)) {
-> +		ret =3D output->values[0].reg8 & HV_VTL_MASK;
-> +	} else {
-> +		pr_err("Failed to get VTL(error: %lld) exiting...\n", ret);
-> +		BUG();
-> +	}
-> +
-> +	local_irq_restore(flags);
-> +	return ret;
-> +}
-> +#endif
-> +
->  int __init hv_common_init(void)
->  {
->  	int i;
-> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyper=
-v.h
-> index a7bbe504e4f3..bb36856c3467 100644
-> --- a/include/asm-generic/mshyperv.h
-> +++ b/include/asm-generic/mshyperv.h
-> @@ -314,4 +314,10 @@ static inline enum hv_isolation_type
-> hv_get_isolation_type(void)
->  }
->  #endif /* CONFIG_HYPERV */
->=20
-> +#if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
-> +u8 __init get_vtl(void);
-> +#else
-> +static inline u8 get_vtl(void) { return 0; }
-> +#endif
-> +
->  #endif
-> diff --git a/include/hyperv/hvgdk_mini.h b/include/hyperv/hvgdk_mini.h
-> index 155615175965..0f8443595732 100644
-> --- a/include/hyperv/hvgdk_mini.h
-> +++ b/include/hyperv/hvgdk_mini.h
-> @@ -1202,7 +1202,7 @@ struct hv_send_ipi {	 /*
-> HV_INPUT_SEND_SYNTHETIC_CLUSTER_IPI */
->  	u64 cpu_mask;
->  } __packed;
->=20
-> -#define	HV_X64_VTL_MASK			GENMASK(3, 0)
-> +#define	HV_VTL_MASK			GENMASK(3, 0)
->=20
->  /* Hyper-V memory host visibility */
->  enum hv_mem_host_visibility {
-> --
-> 2.43.0
->=20
+On Sat, Feb 15, 2025 at 05:38:02PM +0000, Marc Zyngier wrote:
+> Since the previous incarnation of the ABI was proved to be subtly
+> wrong, I have reworked it to be more in line with the current way KVM
+> operates.
+> 
+> No more late NV-specific adjustment nor writable ID_AA64MMFR0_EL1.VH.
+> The NV configuration is now entirely selected from the vcpu flags.
+> I've preserved the KVM_ARM_VCPU_EL2 flag which enables NV with VHE,
+> and added KVM_ARM_VCPU_EL2_E2H0 which alters the NV behaviour to only
+> allow nVHE guests without recursive NV support.
+> 
+> This series is actually very little new code. The bulk of it is
+> converting the feature downgrade to be per-idreg, essentially going
+> back to the state before 44241f34fac96 ("KVM: arm64: nv: Use accessors
+> for modifying ID registers"), only slightly modernised. This then
+> becomes part of the reset value computing.
+> 
+> The rest is simply what you'd expect in terms of being able to write
+> the ID_AA64MMFR4_EL1.NV_frac field, making the correct bits RES0 when
+> needed, probing for capabilities and handling the init flags.
+> 
+> Patches on top of -rc2, with the integration branch at the usual
+> location.
 
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+This all looks reasonable to me. NV won't be ready for the limelight
+this time around so unless someone shouts I plan on taking the first 12
+patches of this series in 6.15.
 
+Thanks,
+Oliver
 
