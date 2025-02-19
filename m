@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14C77C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 10:45:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA5AC021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 10:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fvFx40Wkz1+EUgvvJu1sZ6LkhHVZr+FyaICn1UZ2ZFQ=; b=kPOk8kExH1p9Rjfy0j3s2i7cZI
-	dMg7vsoGNVcf2H7g7/qBDUMQ9LwrHPIutKX2m2JnBf3W/JfcP93TYL0vk0RRvYhzrKFfDHMDuQTOT
-	nLHYIMGD3Y7nxFfPj/lpa3nnPQCZ/t5ZVsyh/I/3GoFVOsbM4AA1mxKOMRXx0REwm+wCSltsFWdAt
-	Iv9bPrg0SuVEXXk9jHjQrP9q/oSlh2EMrqAWYp4AiIRW5GEvcxxfGyDtL4AcNIViOUVeVE7yu7szo
-	RaeKPNlySc8mWymMsh9neWtYR9d+/8BzaPWgH47clYy2XL5xRGL+VOVYda67himz7B/h5kFokSDcS
-	NULsNJUQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8vW3Mq6FmuxLxhnil1RMWEPl2NZrnvIFyftaR5qP/us=; b=CGaMwYVPz25NDcvINTU/sOP4bw
+	chYCeZ3iWCnzOCx0IrdY5DVGRPV/keoxmjDR0uWuBN8RchYVUA031ytJTrK08bY+b1TrAzvkbVrfi
+	E2S0B0cOg12b9lmsQPpark1LvRY4go9g4R9uXljfNsIeXhqxtVqZ+ibcUAs10IXm3U8CQ1hMpU6Sr
+	WZ1vZ71unAAJYGKgLXz0g+d6nidnz3cFtHXRH61K8CYQx+GNavw1nhIQbT3jA26TSDrrE3qpdmx0Q
+	55Ge8XcOeXVKUxgY7UO/5a6912H8unxLta3N0XiqpMpgJsKnPwmgdKVP2n9gLt4/x18Tl1ZaCl+R2
+	44Kbk8Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkhZw-0000000CDP9-15eI;
-	Wed, 19 Feb 2025 10:45:20 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tkhZy-0000000CDUp-3JjH;
+	Wed, 19 Feb 2025 10:45:22 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkhJ8-0000000C9AY-3JtO
+	id 1tkhPn-0000000CAcY-2yJt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 10:28:00 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43984e9cc90so3825145e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 02:27:57 -0800 (PST)
+	Wed, 19 Feb 2025 10:34:52 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-439950a45daso10626535e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 02:34:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1739960876; x=1740565676; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fvFx40Wkz1+EUgvvJu1sZ6LkhHVZr+FyaICn1UZ2ZFQ=;
-        b=zhyr5wAV/DsUl4x3rWrjv04qq9qhbSiDurLtWkrfFpr1XnQtrBoIEPvmuS68rAaPrk
-         TpdyOjW+l6H/m5b87qn1+7cdvpyWsb4EZGFa8lMp2DpIeJWkEtr3Q0D9SLwPcrJn+0yh
-         Q/uRElzIbs2skdXMoGlBuwYjLFaOi7Sk4tSJTy3lMZ8FOGQgGMHbf1eGCBLEseOWNphA
-         la/8InqDRypUPiBDSiam7KMheV66aNAjpg8eeBNPvv+Unv5d9KFo1GOPtweJFTvgcLDm
-         Jxm14IUv2ncf2WFbcsxAL3G3iDsZMWniEfO2NNwFVoL5ARRqAJdZ3Y43vwfL3KCxAtjB
-         WHpg==
+        d=gmail.com; s=20230601; t=1739961290; x=1740566090; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8vW3Mq6FmuxLxhnil1RMWEPl2NZrnvIFyftaR5qP/us=;
+        b=kv3ZEmnZO+v2fqoB1DDoVw1exxbaHQqyBy+mCIi2DT62zHlea0nGK4KQX2wQXQ5RjT
+         wSHJCXG0IrUI86Jw5TWPRJxc+7o4moiUy2tQ+YjhE3tgK6OTBDZAwkLIU29llNIIASlD
+         SwCaB7RAg006rQWlf0lLJykHuSL3EwxKTdUUeRFwyVKgpboFxDF3aaeZ/TKMTkIp7+XE
+         vDnf25RoCpeJlGFJK2dRZPZvR07/Zoh0RWn8CM9/LGsY7qmR2ukJAKFQOV8QpfSl2W0h
+         l0FysEBvGiWq8xHGCGhJXu3ovWBNWq2KTppu6qCqQhzzhQ6LjyXJKlBkln+CA3VoCldw
+         K9TA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739960876; x=1740565676;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fvFx40Wkz1+EUgvvJu1sZ6LkhHVZr+FyaICn1UZ2ZFQ=;
-        b=tIDYqlZ1cVM7uhJE1uYNaDWtRNPUs6UJeWmmlg1isMQAyFJACpROE+aIP5qnXD0+dk
-         e0WgJ7nd9ykVw49LCx18Pt71wTPKQ0I4KkPjPJ5OO6HxxXiB+C+tRxtUiiOsdN0PE5TX
-         1umaVo69BaQqoyepxm5Cy69vDVvvQqJm+6Qg7LfglCXm7xWyXxRSS1iRy88gZ504dWYV
-         3O6V8gEi63tMnUv9S0GvB78qJRbC0w30skBo/sUS0n15sAictkw+n84e775xmngAE5N5
-         fPJggvtpEeajCOwpHuDofSkOf7J5DPFMO7bUv7akHp3zI6/iKNfJwohE5w7XhDJXRfpV
-         EEaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVkqJZn5Ez+vBplPMPiYI/1jGnxAb8N2yjK3Xf3E7FnBe4eBvWj4f4111dofzw6k27XYfu0OMbGhhEMXyZa2adR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTxGFQ9BqntQdCj+UQDFdzE9nxrpXNOKHikwgcGIvxin33K+pD
-	DMN4niB4eVwH70ol7/Fa7NnvP4jrHE1ohwqWyTAfZAQXqnDLtqhoQ37D2rx0gAg=
-X-Gm-Gg: ASbGncs3Aw6wbr2plktAorI3zZYW+lK4cHq/AN9GnxybHCDdqLt5zZB8WfjFMajOfdO
-	otvhNI4vQMdl5EdNTxoeCZ0vl9XFN44jkACH+V2L+272e6awm4gJewjqaiLaGRAKvFvWdTeiBqM
-	QHBU7n033HepxsHy/v+fsxF2m0l1pdUAbb7VamPkvPnAzA+EhbyF8KFYDf73XOtDa99JOXH/dL3
-	aR0V/SC+5XNZRGRks+MO6ZeCxFGrTGtuAR33ysv11Wwf4K+sQ+SmgeSwKm0KUCcw7p+sE/n1b4i
-	0lVqIbpzv89E0g==
-X-Google-Smtp-Source: AGHT+IFlkOBpfCVx9q6F8niujWCdyL0EtEeWnSdwbrl7CVR7yKaGyBHih66p6S5yCje9Vgk4wUHg3A==
-X-Received: by 2002:a05:6000:1fa7:b0:38d:d222:ee70 with SMTP id ffacd0b85a97d-38f57d93168mr2442618f8f.20.1739960874730;
-        Wed, 19 Feb 2025 02:27:54 -0800 (PST)
-Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:f0ed:3532:fe6:315c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259d5f4fsm17492626f8f.78.2025.02.19.02.27.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2025 02:27:54 -0800 (PST)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Liao Chen <liaochen4@huawei.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Mark Brown <broonie@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: linux-gpio@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: [RFC/RFT PATCH] pinctrl: bcm2835: don't -EINVAL on alternate funcs from get_direction()
-Date: Wed, 19 Feb 2025 11:27:50 +0100
-Message-ID: <20250219102750.38519-1-brgl@bgdev.pl>
-X-Mailer: git-send-email 2.45.2
+        d=1e100.net; s=20230601; t=1739961290; x=1740566090;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8vW3Mq6FmuxLxhnil1RMWEPl2NZrnvIFyftaR5qP/us=;
+        b=Sz1tIrLxICto5fC4RElQSP1VQUd5O/mJwo2VWQ1uym41Mzql9i/uYjq1+6G9ATB0uH
+         YEkiSZ+sH2y7AnQV6goc83ZE5nGtmKZr43r/JPMeY3TYNVtvz1hF/QpesIvD2Rs9JWm7
+         5lr16GSZ8Jgq0M5+XqT5jHnkIecVpRTnN+UjuriS7nwadHkwi2dkdSsC3x+JiX3CPE70
+         buX9X/BMixmo8j/zOl5qT4R8OBMKsrH0U37SW/4FdNBXEib6NMyoSdBPIUJhhqc7iYZR
+         2+RAR0QyV8ZqmuqAftD8GfTPqMxdVWNVeAf1wyko7Plt4d6P/TDNFJkIJ72b7ZFoN5+e
+         XlEg==
+X-Forwarded-Encrypted: i=1; AJvYcCWZYKGctEt2aIrb7H9EOv0IWHO15J+vJZ/Hy/Bd2W9N9dMgz0jpEJXbsSdAdVlt50Ayp/VXswTrPRlsOzY2Y9h7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqO5BFo8mzBJt1NH1zEe/7DZD/4vpXbWSDMNL4mWjqudV84hGN
+	SDbGpcibd7mEhQIt7CN3edmZHRwMJf15ujkVr1r4P8xfLbaEJFYT
+X-Gm-Gg: ASbGnct8dIgydN36IAadRJoNlYixjY3z8PU674lOjEd11YhD4Y2tr1yhIJ86+OzDYcG
+	nSWP3UCHlj+nHPqbNON3gDkQMVPxAZ4/IXP4801AmXrnSFj59y/ZmbVYmK4RTqn7hzwCqeBBenF
+	dhPh8Js2sH6fySlFgkBley4F+0zvBRTNUtvm8L/KZBjMbjaih1yXuUi5ZqQZFNI50RopBtmyxxW
+	JbcmNC04/JuYAdbTo8SSDeMlb+T6Xd9dk8X6XX0AmbAHb74DkNP5paH8YdKCltGKdxtm8LkzxQ2
+	ZsxboKDpL9YQK6tjj6Qqwn56I6whLLMdplCYmics42RaPTNtqL67xmdp
+X-Google-Smtp-Source: AGHT+IH8omL6HrDnxAeU3OszfLwGA6mXMUbGoGbtQrSkt2R2L/0PJO2LLFU+a6jkdDY0idhFewAIbQ==
+X-Received: by 2002:a05:600c:1d27:b0:439:9e8b:228d with SMTP id 5b1f17b1804b1-4399e8b2474mr7936925e9.19.1739961289921;
+        Wed, 19 Feb 2025 02:34:49 -0800 (PST)
+Received: from [172.16.20.186] (62-73-104-42.ip.btc-net.bg. [62.73.104.42])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439872b59e9sm76783555e9.31.2025.02.19.02.34.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Feb 2025 02:34:49 -0800 (PST)
+Message-ID: <451d52cc-ccb7-44ae-b6c1-cd3ab65465c1@gmail.com>
+Date: Wed, 19 Feb 2025 12:34:43 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/3] arm64: dts: exynos: add initial support for
+ exynos2200 SoC
+Content-Language: en-US
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250215130500.170738-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250215130500.170738-3-ivo.ivanov.ivanov1@gmail.com>
+ <675ddbf4-dfeb-48dd-b48a-466bf2888ce5@kernel.org>
+From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <675ddbf4-dfeb-48dd-b48a-466bf2888ce5@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_022759_093531_4B598AF3 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20250219_023451_762202_1BD1B8AE 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,52 +104,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On 2/19/25 10:41, Krzysztof Kozlowski wrote:
+> On 15/02/2025 14:04, Ivaylo Ivanov wrote:
+>> diff --git a/arch/arm64/boot/dts/exynos/exynos2200.dtsi b/arch/arm64/boot/dts/exynos/exynos2200.dtsi
+>> new file mode 100644
+>> index 000000000..645a31d46
+>> --- /dev/null
+>> +++ b/arch/arm64/boot/dts/exynos/exynos2200.dtsi
+>> @@ -0,0 +1,560 @@
+...
+>> +
+>> +	ext_26m: clock-2 {
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +		clock-output-names = "ext-26m";
+>> +	};
+>> +
+>> +	ext_200m: clock-3 {
+>> +		compatible = "fixed-clock";
+>> +		#clock-cells = <0>;
+>> +		clock-output-names = "ext-200m";
+> What do these two last clocks represent? Where are they?
 
-Since commit 9d846b1aebbe ("gpiolib: check the return value of
-gpio_chip::get_direction()") we check the return value of the
-get_direction() callback as per its API contract. This driver returns
--EINVAL if the pin in question is set to one of the alternative
-(non-GPIO) functions. This isn't really an error that should be
-communicated to GPIOLIB so default to returning the "safe" value of
-INPUT in this case. The GPIO subsystem does not have the notion of
-"unknown" direction.
+External crystals, apparently. They aren't passed as phandles to any
+other node in the vendor DT, so I'm not really sure what samsung
+would use them for. But they're described, so I assume they exist.
 
-Fixes: 9d846b1aebbe ("gpiolib: check the return value of gpio_chip::get_direction()")
-Reported-by: Mark Brown <broonie@kernel.org>
-Closes: https://lore.kernel.org/all/Z7VFB1nST6lbmBIo@finisterre.sirena.org.uk/
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- drivers/pinctrl/bcm/pinctrl-bcm2835.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+>
+> I see we have them also on Google GS101, so same question there :/
+>
+>
+>> +	};
+>> +
+>> +	cpus {
+>> +		#address-cells = <1>;
+>> +		#size-cells = <0>;
+>> +
+>> +		cpu-map {
+>> +			cluster0 {
+>> +				core0 {
+>> +					cpu = <&cpu0>;
+>> +				};
+>> +
+>> +				core1 {
+>> +					cpu = <&cpu1>;
+>> +				};
+>> +
+>> +				core2 {
+>> +					cpu = <&cpu2>;
+>> +				};
+>> +
+>> +				core3 {
+>> +					cpu = <&cpu3>;
+>> +				};
+>> +			};
+>> +
+>> +			cluster1 {
+>> +				core0 {
+>> +					cpu = <&cpu4>;
+>> +				};
+>> +
+>> +				core1 {
+>> +					cpu = <&cpu5>;
+>> +				};
+>> +
+>> +				core2 {
+>> +					cpu = <&cpu6>;
+>> +				};
+>> +			};
+>> +
+>> +			cluster2 {
+>> +				core0 {
+>> +					cpu = <&cpu7>;
+>> +				};
+>> +			};
+>> +		};
+>> +
+>> +		cpu0: cpu@0 {
+>> +			device_type = "cpu";
+>> +			compatible = "arm,cortex-a510";
+>> +			reg = <0>;
+>> +			capacity-dmips-mhz = <260>;
+>> +			dynamic-power-coefficient = <189>;
+>> +			enable-method = "psci";
+>> +			cpu-idle-states = <&little_cpu_sleep>;
+>> +		};
+>> +
+>> +		cpu1: cpu@100 {
+>> +			device_type = "cpu";
+>> +			compatible = "arm,cortex-a510";
+>> +			reg = <0x100>;
+>> +			capacity-dmips-mhz = <260>;
+>> +			dynamic-power-coefficient = <189>;
+>> +			enable-method = "psci";
+>> +			cpu-idle-states = <&little_cpu_sleep>;
+>> +		};
+>> +
+>> +		cpu2: cpu@200 {
+>> +			device_type = "cpu";
+>> +			compatible = "arm,cortex-a510";
+>> +			reg = <0x200>;
+>> +			capacity-dmips-mhz = <260>;
+>> +			dynamic-power-coefficient = <189>;
+>> +			enable-method = "psci";
+>> +			cpu-idle-states = <&little_cpu_sleep>;
+>> +		};
+>> +
+>> +		cpu3: cpu@300 {
+>> +			device_type = "cpu";
+>> +			compatible = "arm,cortex-a510";
+>> +			reg = <0x300>;
+>> +			capacity-dmips-mhz = <260>;
+>> +			dynamic-power-coefficient = <189>;
+>> +			enable-method = "psci";
+>> +			cpu-idle-states = <&little_cpu_sleep>;
+>> +		};
+>> +
+>> +		cpu4: cpu@400 {
+>> +			device_type = "cpu";
+>> +			compatible = "arm,cortex-a710";
+>> +			reg = <0x400>;
+>> +			capacity-dmips-mhz = <380>;
+>> +			dynamic-power-coefficient = <560>;
+>> +			enable-method = "psci";
+>> +			cpu-idle-states = <&big_cpu_sleep>;
+>> +		};
+>> +
+>> +		cpu5: cpu@500 {
+>> +			device_type = "cpu";
+>> +			compatible = "arm,cortex-a710";
+>> +			reg = <0x500>;
+>> +			capacity-dmips-mhz = <380>;
+>> +			dynamic-power-coefficient = <560>;
+>> +			enable-method = "psci";
+>> +			cpu-idle-states = <&big_cpu_sleep>;
+>> +		};
+>> +
+>> +		cpu6: cpu@600 {
+>> +			device_type = "cpu";
+>> +			compatible = "arm,cortex-a710";
+>> +			reg = <0x600>;
+>> +			capacity-dmips-mhz = <380>;
+>> +			dynamic-power-coefficient = <560>;
+>> +			enable-method = "psci";
+>> +			cpu-idle-states = <&big_cpu_sleep>;
+>> +		};
+>> +
+>> +		cpu7: cpu@700 {
+>> +			device_type = "cpu";
+>> +			compatible = "arm,cortex-x2";
+>> +			reg = <0x700>;
+>> +			capacity-dmips-mhz = <488>;
+>> +			dynamic-power-coefficient = <765>;
+>> +			enable-method = "psci";
+>> +			cpu-idle-states = <&prime_cpu_sleep>;
+>> +		};
+>> +
+>> +		idle-states {
+>> +			entry-method = "psci";
+>> +
+>> +			little_cpu_sleep: cpu-sleep-0 {
+>> +				compatible = "arm,idle-state";
+>> +				idle-state-name = "c2";
+>> +				entry-latency-us = <70>;
+>> +				exit-latency-us = <170>;
+>> +				min-residency-us = <2000>;
+>> +				arm,psci-suspend-param = <0x10000>;
+>> +			};
+>> +
+>> +			big_cpu_sleep: cpu-sleep-1 {
+>> +				compatible = "arm,idle-state";
+>> +				idle-state-name = "c2";
+>> +				entry-latency-us = <235>;
+>> +				exit-latency-us = <220>;
+>> +				min-residency-us = <3500>;
+>> +				arm,psci-suspend-param = <0x10000>;
+>> +			};
+>> +
+>> +			prime_cpu_sleep: cpu-sleep-2 {
+>> +				compatible = "arm,idle-state";
+>> +				idle-state-name = "c2";
+>> +				entry-latency-us = <150>;
+>> +				exit-latency-us = <190>;
+>> +				min-residency-us = <2500>;
+>> +				arm,psci-suspend-param = <0x10000>;
+>> +			};
+>> +		};
+>> +	};
+>> +
+>> +	pmu-a510 {
+>> +		compatible = "arm,cortex-a510-pmu";
+>> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH &ppi_cluster0>;
+>> +	};
+>> +
+>> +	pmu-a710 {
+>> +		compatible = "arm,cortex-a710-pmu";
+>> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH &ppi_cluster1>;
+>> +	};
+>> +
+>> +	pmu-x2 {
+>> +		compatible = "arm,cortex-x2-pmu";
+>> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH &ppi_cluster2>;
+>> +	};
+>> +
+>> +	psci {
+>> +		compatible = "arm,psci-1.0";
+>> +		method = "smc";
+>> +	};
+>> +
+>> +	soc {
+>> +		compatible = "simple-bus";
+>> +		ranges;
+>> +
+>> +		#address-cells = <2>;
+>> +		#size-cells = <2>;
+>> +
+>> +		chipid@10000000 {
+>> +			compatible = "samsung,exynos2200-chipid",
+>> +				     "samsung,exynos850-chipid";
+>> +			reg = <0 0x10000000 0 0x24>;
+> All numbers in hex please:
+> s/0/0x0/
 
-diff --git a/drivers/pinctrl/bcm/pinctrl-bcm2835.c b/drivers/pinctrl/bcm/pinctrl-bcm2835.c
-index cc1fe0555e19..eaeec096bc9a 100644
---- a/drivers/pinctrl/bcm/pinctrl-bcm2835.c
-+++ b/drivers/pinctrl/bcm/pinctrl-bcm2835.c
-@@ -346,14 +346,14 @@ static int bcm2835_gpio_get_direction(struct gpio_chip *chip, unsigned int offse
- 	struct bcm2835_pinctrl *pc = gpiochip_get_data(chip);
- 	enum bcm2835_fsel fsel = bcm2835_pinctrl_fsel_get(pc, offset);
- 
--	/* Alternative function doesn't clearly provide a direction */
--	if (fsel > BCM2835_FSEL_GPIO_OUT)
--		return -EINVAL;
-+	if (fsel == BCM2835_FSEL_GPIO_OUT)
-+		return GPIO_LINE_DIRECTION_OUT;
- 
--	if (fsel == BCM2835_FSEL_GPIO_IN)
--		return GPIO_LINE_DIRECTION_IN;
--
--	return GPIO_LINE_DIRECTION_OUT;
-+	/*
-+	 * Alternative function doesn't clearly provide a direction. Default
-+	 * to INPUT.
-+	 */
-+	return GPIO_LINE_DIRECTION_IN;
- }
- 
- static void bcm2835_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
--- 
-2.45.2
+Alright. Will fix, thanks for the reviews!
+
+Best regards,
+Ivaylo
+
+>
+>> +		};
+>> +
+> Rest looks good.
+>
+>
+> Best regards,
+> Krzysztof
 
 
