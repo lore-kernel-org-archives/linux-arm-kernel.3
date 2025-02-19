@@ -4,62 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 868A4C021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 10:13:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC05C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 10:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JTw76i4BbtQyQih5Zo0i9+iSWSO7S3QZcD6OOv8jjac=; b=MtaMxlKHIjhtkPvm1lemN+h+fn
-	ZjZc4WOOLgduyMJrauX3KamGZy7Fr3M86UwNHOWdlIoIoI5zKpIhF4htNwHgWluTKNSxmSqVftc5q
-	eEp2qiFEuxZLpXSxVpWG9gk9RxwDtfbybZBsHefQRz8v05EOLdqEsy/SxCeIYWsKBumC+wvhhTWUj
-	2/ihOqEjnxGBAcSARZSVNGbxSqVxOJEzOG0z+6IAct9tHp8QNAD1wxlXYdVqiSoU7J4Xc5QYDkIYZ
-	xzXj+aJtiQLVo2c1EkM72N7c3LuMR4djJdBEbt1mTdCorJNtdCHqRV51/tOCfkHL8knS9s0EVDQTt
-	XIMpY2Xg==;
+	bh=BCav4SHfE7EQJCkWf7DvjjeXn6VgMu12EYuLJnvgv48=; b=YCjG7tUrUb11/MrJz7MS8zywEq
+	l+wo/9YbT4/391lFf/Nk6LVG8QaZ+kyiLGSgCPu17jc22r2VnjrkCIc48lHTpjVsgOKce+L3pw9C3
+	5oWSZKbAnETzIXs9jColO1OOYGk+E02AM/MogaplX/DC2P6vbmzkw+nvxnQZi+yjW5ea+qoLGNVNv
+	uqUt3LBEvfEhA+vF5KsFuK1SPxx4QdVfjjeS/XJYC6OgiWq/xcSQPWM4Do5+om06sXTHt57qir1vS
+	mSb+LQvKSV3RS/M5C95zwIZ8r0LC4SgaSGqCKupKcrJtbYrm6jXZXDo0Hin6ewiy1SCpHTOyLyPsU
+	FHs8BVFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkh4x-0000000C4xK-3uSv;
-	Wed, 19 Feb 2025 10:13:19 +0000
-Received: from mail-m16.yeah.net ([220.197.32.19])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkgek-0000000BxWQ-2wKl
+	id 1tkh6P-0000000C5Ll-2LTL;
+	Wed, 19 Feb 2025 10:14:49 +0000
+Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkgmx-0000000BzyK-2Zpo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 09:46:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=JTw76i4BbtQyQih5Zo0i9+iSWSO7S3QZcD6OOv8jjac=;
-	b=CCsAnE4oKb7Sp6POYvhvLDSp2ItTrN1MPTzYHaSuV4u89vhRSxu/w1L3VmrzYK
-	NAIQbSFZ0fGBL+Gv+A6Og301Ph35ZVPKfbggrbhn/E/t1keW1Lg90qTkqNgKPz3D
-	O6DCodh+JvbscRvJJoN+yEQTSEGjSXoTYLDqxKzyowD2s=
-Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgA3e85RqLVnYuNOCQ--.19638S3;
-	Wed, 19 Feb 2025 17:45:55 +0800 (CST)
-Date: Wed, 19 Feb 2025 17:45:53 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] MAINTAINERS: match mxc in file names by IMX / MXC entry
-Message-ID: <Z7WoUSBvNZLAEm0K@dragon>
-References: <20250113-b4-mxc-imx-maintainers-v1-1-7605d3d8e35f@pengutronix.de>
+	Wed, 19 Feb 2025 09:54:45 +0000
+Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e573136107bso5245346276.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 01:54:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739958882; x=1740563682; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=BCav4SHfE7EQJCkWf7DvjjeXn6VgMu12EYuLJnvgv48=;
+        b=PFd/0DjoJF66jVZUtdqHwn5OYbgdoiG+Yxq5mkDHH+U9hZYXkdgFJOoP0vkbS0Q2fQ
+         e//c1Ww1JPt8sReIn4Kup1neUpVKCC5FH6xOgvWlODmWM4XpZ1mMaEyz9SyMRBgQZM3K
+         RC3NKxU/rjYM6MjjF2lrug6FigSwqwwNItcKTIbVCjH0eseyJmRG+KshBQN2UapNWBW8
+         Xy6pHn0sMkTwAWMUtS315qagUO1V18/3ONwDiOM+1Kwxor3Ic3E6uUNzW+6VIl4U5f3P
+         vv6Btqb2zqZD0PnnGbbmAc+x8YfKgNUIChlqWCjYerBVu2GnuQinxGRxx8j1B3tpL5Yl
+         WIhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739958882; x=1740563682;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BCav4SHfE7EQJCkWf7DvjjeXn6VgMu12EYuLJnvgv48=;
+        b=JSAJBKTVckZw1hiYosH/GSuPrLRxxmJLTCJLhpxbI+n0HcL/KZj9plWFPV/h24UV9i
+         sXbbzpK3BoyMZNoAREIv8b9BTxM+nzuB4pEE5I20/EJdt+veeqZa8fZB1CVSzPhFO1Ov
+         2nOrLGgOt0C6swubyBHO/ViA6G0VE8gOnJwxMbSbp2yn4fuS29E1K68XnUmaOSUTeJgt
+         e4kV4gznDBwFCUDLXvY5qiTj0D3yuvxZLraaWLrOcKfuxGrCh276yZteZq+mMxxGNo/C
+         lPYQhYi1GtUcL3f1Zpk9XwSFo4wEbeoL8XfTs8LiS9vBcXvcAVCmfXNVdEpKISi/Tyrq
+         YEUg==
+X-Forwarded-Encrypted: i=1; AJvYcCU2gj4KuHwNQxhy2S5Y15F7E71ZSkgKX/iPn0BZ7GJcYWjO5BxLmSoLgaa/uai+6BvIDSvh/+KjC8YeNrLr8uoE@lists.infradead.org
+X-Gm-Message-State: AOJu0YybIUO5t3Kqom0tPoEnP++0Iw4dG5bCYi8RteWBIYmlLgGGrkTx
+	O7rGB/cJExAgb5Lr2xo1PtSlOFYIgQkHESJhyCBFXVdYllU37kqPfD/kBwtQ6m/J6wb+tLPP6zC
+	pZTT7YqSrUOVB0scfBZ0YV4v1RdA=
+X-Gm-Gg: ASbGncuiW4j0J9RQipMkr/NjP+z+4ReftPUEqdRqK8WXSs5gfTsB+oIujoiqaGtZpzy
+	OF+nRjhIgnNOlh1ijjDy/s9R5hqyx7X+gLmqOjxPo8gHJG7AI1kx30WBbjXltv0twx5JHquoFfA
+	==
+X-Google-Smtp-Source: AGHT+IFAsRovKqEPyfeA7p4gUvXbV4eJrMlwT7pqKN/+12P/FiSevR15M7Mr7rEzXhQloaQvHIzmg0pHyi/KhmeP6Fs=
+X-Received: by 2002:a05:6902:108e:b0:e5d:d6b8:2317 with SMTP id
+ 3f1490d57ef6-e5e0a1400admr2490172276.44.1739958882412; Wed, 19 Feb 2025
+ 01:54:42 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250113-b4-mxc-imx-maintainers-v1-1-7605d3d8e35f@pengutronix.de>
-X-CM-TRANSID: Mc8vCgA3e85RqLVnYuNOCQ--.19638S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW5tw43WryfKrWDZryDZryrWFg_yoWxWrc_uF
-	Wqq3s3GrZrK3W7JFs3tr1jvryaka1UArn2qryYgwsIgayfZrZYyFyv9r1DJa40grnI939r
-	uFZ0qwn3try7ZjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUUppB3UUUUU==
-X-Originating-IP: [117.82.86.124]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCR-4ZWe1nVcu1AAAsp
+References: <20250219-isp-v1-0-6d3e89b67c31@gmail.com> <20250219-isp-v1-3-6d3e89b67c31@gmail.com>
+ <16f6d4a2-2102-48b9-a0ae-b8c6595975b8@kernel.org>
+In-Reply-To: <16f6d4a2-2102-48b9-a0ae-b8c6595975b8@kernel.org>
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Date: Wed, 19 Feb 2025 10:54:31 +0100
+X-Gm-Features: AWEUYZmesv9PAJrRnsNQHdoWoBNxlIk4Jp5agMR2Ng1Yo83bsxbQ8IUxBouljGI
+Message-ID: <CAMT+MTR7dhtt3SOMg0K3UakJQftqnc2S-rV41HdHtA+o9aSPug@mail.gmail.com>
+Subject: Re: [PATCH 3/5] media: dt-bindings: Add Apple ISP
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sven Peter <sven@svenpeter.dev>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Hector Martin <marcan@marcan.st>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-media@vger.kernel.org, imx@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_014615_097160_9CD92B73 
-X-CRM114-Status: GOOD (  10.25  )
+X-CRM114-CacheID: sfid-20250219_015443_655214_D6FCD53E 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,22 +100,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 13, 2025 at 11:13:01PM +0100, Ahmad Fatoum wrote:
-> There is a number of i.MX-related drivers that have mxc in their name,
-> but are not matched by the i.MX MAINTAINERS entry, most notably the GPIO
-> driver, which is still being used on current SoCs.
-> 
-> Looking at current files containing mxc in their name, all of them are
-> related to i.MX, except for:
-> 
->   drivers/iio/accel/mxc4005.c
->   drivers/iio/accel/mxc6255.c
->   tools/testing/selftests/powerpc/tm/tm-vmxcopy.c
-> 
-> Therefore adapt the regex to match all mxc files, except those above.
-> 
-> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+On Wed, 19 Feb 2025 at 10:37, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> > +
+> > +  apple,platform-id:
+> > +    description: Platform id for firmware
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+>
+>
+> No, use firmware-name.
 
-Applied, thanks!
+Not sure how is firmware-name an appropriate field, fw-name is a string
+that references a firmware file, while this field is an id that is sent to the
+coprocessor firmware in order to identify the platform.
 
+> > +  apple,temporal-filter:
+> > +    description: Whether temporal filter should be enabled in firmware
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+>
+> And why is this not enabled always? Why this is board specific?
+
+Not every board has support for this feature.
+
+> You miss here ports or port. ISP usually gets signal from some camera or
+> other block.
+
+For complex cameras - yes, but this is closer to a UVC camera connected
+via a bespoke protocol. We do not need to deal with the sensor access,
+all of it is managed by the coprocessor firmware.
+
+> > +        properties:
+> > +          apple,config-index:
+> > +            description: Firmware config index
+> > +            $ref: /schemas/types.yaml#/definitions/uint32
+>
+>
+> No duplicated indices. You have reg for this, assuming this is index.
+
+There are duplicated indices, see isp-imx248.dtsi in patch 5 for an example.
+
+> All these do not look like hardware properties but rather configuration
+> of sensor which should be done runtime by OS, not by DT.
+
+Those are board-specific and not discoverable via the ISP protocol.
 
