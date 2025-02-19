@@ -4,89 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E55C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 15:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F566C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 15:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lrnqLVDBWW+mF9ezkN3CjkgFYa7vo/xRQjq0L2epDyA=; b=dW2nnZJLPgqmgjiPKFrvknXROO
-	FTjoETzIfKXssaju5fqVTaluiD1/2Lx6fXc1JJlg+W7Dhwz61MvacWOTXWkC7oApI3wbxOJ46SmaC
-	TK25eSjZWyl9TvZyREWXWR2hFEXJs+CaKdnN2DOiExGnL4np9gDvXLtIsGhXPD/vNjBIFapAvMRDf
-	SHk8GT3SUNj9n4c/RGjiDlk+hJvGw7QIviRbnPWtL+SmJcse1ERUMDXM4L00asIR8Gpcok1CQZeDl
-	EoNzFyQBNTKXAN02jL7XDdcG3XQi1IWDAdrXexapAVKU2JFa0uQ6+SYYgMgLYIajdpeg/07YjexVt
-	QGEkgIyw==;
+	bh=2TVboDbTS95QyZTgZm/sSOHGaAKi+IOHygPp3tuwMR8=; b=TTU/DOQKWLgiDqozI1zh8/G7xT
+	Cu873FtdtF52yi3uSIK68YPp5kzJ12LTzNRp11irA22tOUydHg6aS3YGeY54GV6vAAkx7eo9IfdP9
+	tByYluivh85eyVChe+1U8g2olsTyPniYvQCOIW1Sl+w8OQe3Bw470LVjJ3Fiw/7srxoxIRfibDlxH
+	1HoTrFu4IEe3YRUC+4u/uRyqpwVGFaf1eP6F183+E1/fqbQu4xtgIqpUJBKhAb6NO/ku3iPnUJBUF
+	UM3+X6iX7jPP+DJcAbR7OkfgjkgnmzPSTSpprZy2YTeioELKMxrwl01XC8/O1coWOFAOMCjSQjQIU
+	tlbbRTeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tklxK-0000000DXGG-3oWp;
-	Wed, 19 Feb 2025 15:25:46 +0000
-Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
+	id 1tklyn-0000000DXug-2EH5;
+	Wed, 19 Feb 2025 15:27:17 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tklvq-0000000DWrc-05xj
+	id 1tklxH-0000000DXEs-24RU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 15:24:15 +0000
-Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-307d1ab59c6so71452911fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 07:24:13 -0800 (PST)
+	Wed, 19 Feb 2025 15:25:45 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43984e9cc90so6174395e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 07:25:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739978652; x=1740583452; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
+        d=linaro.org; s=google; t=1739978742; x=1740583542; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=lrnqLVDBWW+mF9ezkN3CjkgFYa7vo/xRQjq0L2epDyA=;
-        b=ieiWN5zcG3+w7frgw2xq36CQvjGe3vVw8EYGm9kxtw8ovDUYrv7FMDOBsUCJk50Cdj
-         TbZr67EjEEhVHWlvwrdxEXfqklHl2k8/lwmpThJysFo8Q7N9PXEWZU6zVNSwpa7E8xcZ
-         UM+RTNR9z56TEYWjvpWmwm1fAwzwpkgDNlWp6FmExxBd/kvzLcJ5vp9HmvOF6kKv2oHL
-         Ldc3uTP6XwioRTOZlHSMYUX9HEvtWvsK+aY+M7rtO0Graq2ewNFoQhsWg2YAdDlsY6yY
-         yBYNtvYylcCNLqDY97JbKR5Zi7oDlGtCu1R6ISJ25Yvzu1EVNecZ/qcmEKdwdND8S+Z6
-         Xhzg==
+        bh=2TVboDbTS95QyZTgZm/sSOHGaAKi+IOHygPp3tuwMR8=;
+        b=Hf9328gM/N46UECBLWACbWhyHLzcOvzrqJ9bvc7FJuhNbewfYElfOL0z63pdObz5rF
+         9vxfC5jBWBT30D6FckEpDZQatFAdceJ0WUOLlxS6irgNmX6rCsLjZZNyT64pwwBEs3sH
+         QyGWw7CCGcZnstasaFrlLpYSEgO/Fnp/8kowR19NJNOfJ4DMxFRe/XMJY4CEbHtx05/6
+         rm9JZM+I8BBN/Yht9He4hQK5YCzbe2dg73qMUyXglRGjAjTEYQoM3IQW5NncUCGzLPls
+         9jC6eoOngs8i6KDegEwh7pmWfLxeUhPyp+fb03ahVyNH8wsV96aBMgGUeHsGpgRcEEFU
+         CvLw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739978652; x=1740583452;
-        h=content-transfer-encoding:in-reply-to:content-language:from
+        d=1e100.net; s=20230601; t=1739978742; x=1740583542;
+        h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lrnqLVDBWW+mF9ezkN3CjkgFYa7vo/xRQjq0L2epDyA=;
-        b=jqmR/LC8/uGXx5Zu+cDzOK7pOu/Q1bHqt6NaVqtsgRwaZ6M56dMW64drHW/MmfLs5F
-         a7xw8/RUlI5qZ4/B7fsORFNYewr0s8lX3UXjS4A5ed4UWRoEoWSFZIIaKzICrYyT3PzM
-         Rm9xtOOT7MHiMYYXNeR3z4/uq79E/bAPRYPLwYNfSTW1UF/VNYMZlS7mPpJ/SD+zZSc9
-         DFQL1row0irQsA9kDUP8W3FUEprOtCvlzz/Yoy3Vuu1NCna00G5C/tLBCM5onG0erTlO
-         kO5cpu1oUBey0+VGbGDW8p41L/v839voxeNk4vrF2riZ5F6DrMr1hLXmX2wSYrp2cvOs
-         6agQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUIJncFc0SRpMIOkWmplHZWWHFWSiXlzGaePl99vnPc1af5ttJ8E3HmkIttPUxPHiY9aI9SHPKZFhMj4STQ8mPE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1Xtfofbuw4Ipuh5+8bL8rEe8jK0wy+fkFO1H4FboUXTx3Akn7
-	yXSQAB63j+78lDD24/zzhGUJr5XKUKDaHd0RhnkxVLZ9X6FvM7u4
-X-Gm-Gg: ASbGncu3c73KtRFGCExm6xGrQ+mDEaju+otRPa8aNPrh9U2F60T3NMzXJAqPcw5/hvQ
-	K95I1BYsmUrZd7eQJ5A/fXpmLRpMZnaGLNZoLq7kEADe84YM18MW5OngrvvOLhicY+RKYz7LLmI
-	6HlIQF38NAHYMY8iJ9VAM4xSkpCzloRgJELWgrG3A6zz1+CtkONAwUaoKDwt2LiuVrhvmCxX/Dn
-	cKQkSHcf77r5G/rU+TVUvsjTdwnsP7LffHB/RfOZt7WqzUCgkU4k49jZvRC8zQVejXufq8iVyi3
-	xamJ0ESt5bUTn7KzWpEnnllP1+oXjCQ7jKLTsQqoFfN4x6FKG37RkQHFy5PXUVNAlWtFMctsiCI
-	iyb3A+npjVIFlQhOVOy1NvuMEbR2rLDpvMJV4
-X-Google-Smtp-Source: AGHT+IH58UK3s7ffFDj3Gx60vr62hzm6v5h4jV30DbH78mNEHe20BtyvIiamX1TulZDRBvnCevPTXg==
-X-Received: by 2002:a2e:b6c7:0:b0:308:e9ae:b5b3 with SMTP id 38308e7fff4ca-30a44dac868mr11254411fa.1.1739978651498;
-        Wed, 19 Feb 2025 07:24:11 -0800 (PST)
-Received: from ?IPV6:2001:999:400:2a04:e774:ddfe:347f:bb68? (n4bkk9yqra8wbkrzgx4-1.v6.elisa-mobile.fi. [2001:999:400:2a04:e774:ddfe:347f:bb68])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3092fb236cbsm15172441fa.69.2025.02.19.07.24.09
+        bh=2TVboDbTS95QyZTgZm/sSOHGaAKi+IOHygPp3tuwMR8=;
+        b=P7Ge4dUctCOKPYVsImMdj8tgrjY+97Z+uvRfK/Mj1zQUgJzcd63ButwgDAjvutGTF7
+         1U20PEvHSn3bWAI2DaaRUWjPkexjyOM146es+ksRzj2RqQew4zApm4E3sVB+ZU1d5zBh
+         DHpGhERU6uE7RiNxtl0+Oip2VkfTUSxzYf1YKKcaBEYdk1ldBdRbkBWN4l8Q9lzgr7JI
+         mCiFG921oe6DaNSabGnUdUqKWIB9aSO9uVSy0HxGj1GhoawWfTxlhHLxY9Uyl5xhc7N5
+         UNhTcTQ6n2pVsPjGMi0K91Tk7+UMwIP1ZBUagsgQILt341LJWZG2oXn5Gro5iYM6iMqn
+         D0KA==
+X-Forwarded-Encrypted: i=1; AJvYcCWBMeepIoAxezA0QJN4sIbjjuQWvZlAnmC1UptiU83ZqxUoNUj7mGbsJn/8fgZ+M6tjLnwLrL/WFIdxa8GYDzjj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7LtoOAM4zZyx9vmXOcfQzH154VYpgoOGUj9NcrYa66zfxP/F4
+	d6Q3urHXqLfAf2M0dS+57qS/a4nWxhKNyWSzg6HU2z2IJFM8o+9Gfv8iQaYjoEg=
+X-Gm-Gg: ASbGnctNFWZbp5tx+xAIjLVcMc12lBvd39Sk8g2cQVe16WOXsCiJ+cKcDQ23UUN97QI
+	P771DSdGgFhIy2cVHHfAvFAL+uMpYlfT3SWAgUTYiGNWDpAegTZA0DId4+3sDspg7OclvbPC4om
+	m+qVKWZBZ0IA7rKQpQmQrieoxD5xwJo76aj0gBLAUUyIgKlATm+6S2U0G5+OikxrTJOOxeFq6ug
+	WndO8qof2XNZH8/To4hkZ78Cq2uX+D8QE7nrjJsXNK4o5+/ECvYziv77ePFM/hfazTR4GcjRToP
+	RQMAr3A0vS2P3wKGVwF/Vsx15g==
+X-Google-Smtp-Source: AGHT+IHUdFK1lvkIKfQXed2a/KYhYlsDONXCYFg5p0+CqyAxqO1bS9PwbNrEGNiXbD3YDFKA1AvLhw==
+X-Received: by 2002:a5d:5f49:0:b0:38f:2b52:f059 with SMTP id ffacd0b85a97d-38f57d95940mr3673454f8f.27.1739978741585;
+        Wed, 19 Feb 2025 07:25:41 -0800 (PST)
+Received: from [192.168.68.163] ([145.224.90.202])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258ccd51sm18138198f8f.29.2025.02.19.07.25.40
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Feb 2025 07:24:10 -0800 (PST)
-Message-ID: <bab71a0a-bc4c-4ec1-9db8-0d9153da505c@gmail.com>
-Date: Wed, 19 Feb 2025 17:24:10 +0200
+        Wed, 19 Feb 2025 07:25:41 -0800 (PST)
+Message-ID: <2834c9d7-f401-4b29-8f92-22193eb9ce31@linaro.org>
+Date: Wed, 19 Feb 2025 15:25:39 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dmaengine: ti: k3-udma: Enable second resource range for
- BCDMA and PKTDMA
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, vkoul@kernel.org
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, vigneshr@ti.com, srk@ti.com
-References: <20250205121805.316792-1-s-vadapalli@ti.com>
-From: =?UTF-8?Q?P=C3=A9ter_Ujfalusi?= <peter.ujfalusi@gmail.com>
+Subject: Re: [PATCH 0/2] perf vendor events arm64: Add A720/A520
+ events/metrics
+To: Ian Rogers <irogers@google.com>, Namhyung Kim <namhyung@kernel.org>
+Cc: Yangyu Chen <cyy@cyyself.name>, linux-perf-users@vger.kernel.org,
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Liang Kan <kan.liang@linux.intel.com>,
+ Yoshihiro Furudera <fj5100bi@fujitsu.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <tencent_5360DA048EE5B8CF3104213F8D037C698208@qq.com>
+ <Z66YjGvjD_yzEHUg@google.com>
+ <tencent_45B4E91CA370C563D6420A1A25F992056D09@qq.com>
+ <1b8b234f-6435-45cf-83e7-8e86c84f075f@linaro.org>
+ <CAP-5=fVAhLLH-a0_wLo8dPoMLOb6rOJiTgGh-OFZJJoaLFE-8Q@mail.gmail.com>
+ <fe46069e-c52e-45ee-b4b3-8b929fb83b31@linaro.org>
+ <Z7UHieRRnvRb5_oU@google.com>
+ <CAP-5=fWXmNoFLyWv+vo7hhLSqTDy7hf+-huKRD9OUWnO-GESRw@mail.gmail.com>
 Content-Language: en-US
-In-Reply-To: <20250205121805.316792-1-s-vadapalli@ti.com>
-Content-Type: text/plain; charset=UTF-8
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CAP-5=fWXmNoFLyWv+vo7hhLSqTDy7hf+-huKRD9OUWnO-GESRw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_072414_060467_72B0DF31 
-X-CRM114-Status: GOOD (  17.84  )
+X-CRM114-CacheID: sfid-20250219_072543_536482_698AA2CB 
+X-CRM114-Status: GOOD (  34.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,103 +118,112 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 05/02/2025 14:18, Siddharth Vadapalli wrote:
-> The SoC DMA resources for UDMA, BCDMA and PKTDMA can be described via a
-> combination of up to two resource ranges. The first resource range handles
-> the default partitioning wherein all resources belonging to that range are
-> allocated to a single entity and form a continuous range. For use-cases
-> where the resources are shared across multiple entities and require to be
-> described via discontinuous ranges, a second resource range is required.
+On 18/02/2025 10:33 pm, Ian Rogers wrote:
+> On Tue, Feb 18, 2025 at 2:19 PM Namhyung Kim <namhyung@kernel.org> wrote:
+>>
+>> On Tue, Feb 18, 2025 at 09:30:23AM +0000, James Clark wrote:
+>>>
+>>>
+>>> On 18/02/2025 12:41 am, Ian Rogers wrote:
+>>>> On Fri, Feb 14, 2025 at 2:02 AM James Clark <james.clark@linaro.org> wrote:
+>>>>>
+>>>>>
+>>>>>
+>>>>> On 14/02/2025 5:49 am, Yangyu Chen wrote:
+>>>>>>
+>>>>>>
+>>>>>>> On 14 Feb 2025, at 09:12, Namhyung Kim <namhyung@kernel.org> wrote:
+>>>>>>>
+>>>>>>> Hello,
+>>>>>>>
+>>>>>>> On Thu, Feb 13, 2025 at 11:11:01PM +0800, Yangyu Chen wrote:
+>>>>>>>> This patchset adds the perf JSON files for the Cortex-A720 and Cortex-A520
+>>>>>>>> processors. Some events have been tested on Raxda Orion 6 with Cix P1 SoC
+>>>>>>>> (8xA720 + 4xA520) running mainline Kernel with ACPI mode.
+>>>>>>>
+>>>>>>> I'm curious how the name of PMUs look like.  It is cortex_a720 (or a520)?
+>>>>>>
+>>>>>> The name of PMUs comes from Arm's documentation. I have included these
+>>>>>> links in each patch.
+>>>>>>
+>>>>>>> I remember there's a logic to check the length of hex digits at the end.
+>>>>>>>
+>>>>>>
+>>>>>> Could you provide more details about this?
+>>>>>>
+>>>>>>> Ian, are you ok with this?
+>>>>>>>
+>>>>>
+>>>>> I think they wouldn't be merged because they're core PMUs, so should be
+>>>>> fine? Even though they would otherwise be merged because they're more
+>>>>> than 3 hex digits.
+>>>>
+>>>> Do we know the PMU names? If they are cortex_a520 and cortex_a720 then
+>>>
+>>> It will be "armv9_cortex_a720" from this line:
+>>>
+>>>    PMUV3_INIT_SIMPLE(armv9_cortex_a720)
+>>
+>> I see, thanks!
+>>
+>>>
+>>>> this comment at least reads a little stale:
+>>>> https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tree/tools/perf/util/pmus.c?h=perf-tools-next#n76
+>>>> ```
+>>>> /*
+>>>> * There is a '_{num}' suffix. For decimal suffixes any length
+>>>> * will do, for hexadecimal ensure more than 2 hex digits so
+>>>> * that S390's cpum_cf PMU doesn't match.
+>>>> */
+>>>> ```
+>>>> James is right that core PMUs aren't put on the same list as uncore/other PMUs.
+>>
+>> Ok, then I guess we're good.
 > 
-> Currently, udma_setup_resources() supports handling resources that belong
-> to the second range. Extend bcdma_setup_resources() and
-> pktdma_setup_resources() to support the same.
+> I think you may be able to do things that look odd, like today the
+> "i915" PMU can be called just "i", I think the a520/a720 naming will
+> allow "armv9_cortex/cycles/" as an event name, then open it on two
+> PMUs if they are present. 
 
-Acked-by: Peter Ujfalusi <peter.ujfalusi@gmail.com>
+I assumed that was the intended behavior. It seems fairly useful to be 
+able to open on ones with common prefixes.
+
+> We may only show one PMU in perf list as
+> that code I think assumes they're the same PMU as they only differ by
+> suffix:
+> https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tree/tools/perf/util/pmus.c?h=perf-tools-next#n384
+
+Yeah that is the case. I didn't realise it when looking at the previous 
+fixes to keep the suffixes in perf stat output.
+
+> I can imagine aggregation possibly being broken, but I think that
+> works off the number of PMUs not the names of the PMUs, so it should
+> be okay. Probably the only thing broken that matter is perf list when
+> you have a BIG.little system with a520 and a720, this may be broken
+> with say a a53 and a72 today as both of those suffix lengths are >2,
+> but maybe they use the "armv8._pmuv3_0", "armv8._pmuv3_1", etc. naming
+> convention. I suspect the >2 here:
+
+Also the case for a53 and a72 right now. Even "perf list --unit 
+armv8_cortex_a57" doesn't work because we deduplicate before filtering. 
+Adding -v fixes it though because that disables deduplication. Perhaps 
+we can change it to disable it with the --unit argument?
+
+> https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tree/tools/perf/util/pmus.c?h=perf-tools-next#n80
+> would still work and be correct if it were >4. If that changes then
+> this will also need to change:
+> https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tree/Documentation/ABI/testing/sysfs-bus-event_source-devices?h=perf-tools-next#n12
+
+That could be an easy fix. If >4 is enough to still get rid of all the 
+uncore duplicates I can make the change?
 
 > 
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
->  drivers/dma/ti/k3-udma.c | 36 ++++++++++++++++++++++++++++++++++++
->  1 file changed, 36 insertions(+)
+> Thanks,
+> Ian
 > 
-> diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
-> index 7ed1956b4642..b223a7aacb0c 100644
-> --- a/drivers/dma/ti/k3-udma.c
-> +++ b/drivers/dma/ti/k3-udma.c
-> @@ -4886,6 +4886,12 @@ static int bcdma_setup_resources(struct udma_dev *ud)
->  				irq_res.desc[i].start = rm_res->desc[i].start +
->  							oes->bcdma_bchan_ring;
->  				irq_res.desc[i].num = rm_res->desc[i].num;
-> +
-> +				if (rm_res->desc[i].num_sec) {
-> +					irq_res.desc[i].start_sec = rm_res->desc[i].start_sec +
-> +									oes->bcdma_bchan_ring;
-> +					irq_res.desc[i].num_sec = rm_res->desc[i].num_sec;
-> +				}
->  			}
->  		}
->  	} else {
-> @@ -4909,6 +4915,15 @@ static int bcdma_setup_resources(struct udma_dev *ud)
->  				irq_res.desc[i + 1].start = rm_res->desc[j].start +
->  							oes->bcdma_tchan_ring;
->  				irq_res.desc[i + 1].num = rm_res->desc[j].num;
-> +
-> +				if (rm_res->desc[j].num_sec) {
-> +					irq_res.desc[i].start_sec = rm_res->desc[j].start_sec +
-> +									oes->bcdma_tchan_data;
-> +					irq_res.desc[i].num_sec = rm_res->desc[j].num_sec;
-> +					irq_res.desc[i + 1].start_sec = rm_res->desc[j].start_sec +
-> +									oes->bcdma_tchan_ring;
-> +					irq_res.desc[i + 1].num_sec = rm_res->desc[j].num_sec;
-> +				}
->  			}
->  		}
->  	}
-> @@ -4929,6 +4944,15 @@ static int bcdma_setup_resources(struct udma_dev *ud)
->  				irq_res.desc[i + 1].start = rm_res->desc[j].start +
->  							oes->bcdma_rchan_ring;
->  				irq_res.desc[i + 1].num = rm_res->desc[j].num;
-> +
-> +				if (rm_res->desc[j].num_sec) {
-> +					irq_res.desc[i].start_sec = rm_res->desc[j].start_sec +
-> +									oes->bcdma_rchan_data;
-> +					irq_res.desc[i].num_sec = rm_res->desc[j].num_sec;
-> +					irq_res.desc[i + 1].start_sec = rm_res->desc[j].start_sec +
-> +									oes->bcdma_rchan_ring;
-> +					irq_res.desc[i + 1].num_sec = rm_res->desc[j].num_sec;
-> +				}
->  			}
->  		}
->  	}
-> @@ -5063,6 +5087,12 @@ static int pktdma_setup_resources(struct udma_dev *ud)
->  			irq_res.desc[i].start = rm_res->desc[i].start +
->  						oes->pktdma_tchan_flow;
->  			irq_res.desc[i].num = rm_res->desc[i].num;
-> +
-> +			if (rm_res->desc[i].num_sec) {
-> +				irq_res.desc[i].start_sec = rm_res->desc[i].start_sec +
-> +								oes->pktdma_tchan_flow;
-> +				irq_res.desc[i].num_sec = rm_res->desc[i].num_sec;
-> +			}
->  		}
->  	}
->  	rm_res = tisci_rm->rm_ranges[RM_RANGE_RFLOW];
-> @@ -5074,6 +5104,12 @@ static int pktdma_setup_resources(struct udma_dev *ud)
->  			irq_res.desc[i].start = rm_res->desc[j].start +
->  						oes->pktdma_rchan_flow;
->  			irq_res.desc[i].num = rm_res->desc[j].num;
-> +
-> +			if (rm_res->desc[j].num_sec) {
-> +				irq_res.desc[i].start_sec = rm_res->desc[j].start_sec +
-> +								oes->pktdma_rchan_flow;
-> +				irq_res.desc[i].num_sec = rm_res->desc[j].num_sec;
-> +			}
->  		}
->  	}
->  	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, &irq_res);
-
--- 
-Péter
+>>
+>> Thanks,
+>> Namhyung
+>>
 
 
