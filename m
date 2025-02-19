@@ -4,98 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E944EC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 07:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B4CC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 08:00:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KQ8YbWKKN0JUEDEyejcT43K2AZBg1IVNzkk5e0M7RQ0=; b=yQhqG96RUMgZ2OFCxizuS2b96e
-	93yOl3LebGGeQnO+NtsgXVsqeNnIpO5nbsHIr325RefVEQ1Lwx4KNPDcJQPv5snsR38jgRecKIFwH
-	oRBBj4xX8MQcRciNWSPCKJaUjp36STMCAvGaoskE0jhFArYbaoQ7G6DANhHLtek02gm1deEFTaVYX
-	ZWso65kRMubobpRsQ0aesMgCxkEL1OU02HyU1hJiamA70E0VAH/q1xyRfDsuUariVirJM4iN1gqeO
-	GWRXM2DuLcWC2CvR1etZJMaTAzu2u1CvuNyVBSmnzMzpZhuHyk4OKVQlu+lyUdfbAjiWq/ixNEZaH
-	ETqtUWRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3bBJS43pvAXXysK32UqQ0DdYgo9OZo0TPX7SlCS/zbM=; b=Cxz5FCsKzcPbwDoankIjb27Dnh
+	jVXCtvkT3Yw60M7Pv0DrCS8MKEyRP7A4PqftbEutTzFMO3NmZs1HUThSitEAUugP+1+3Q9hAfAAzc
+	z0PLLzikteNA0v3UUYQ7tUiEDOURIf4tpgc4x0+9f5XWNnKN2lVtKkz0rnPzWbKmjkIMBw2QBnZ+c
+	p7oLa/m0w1IoEV8TvI1pu8/VVEM5w/s2iJtjF+rkE/j3paWlqL7bgco2kSMIhKXpRbWDD+XTMqBjq
+	PaFGt5IjDAM8KeIZDp7lQ1qmsOOTkHldPQ6IXiJu7Jm6Tb61Hw9XQFyd0x9eUz5R7OAKHhG6fOUth
+	VWS4tXRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkexE-0000000BMu5-3BKZ;
-	Wed, 19 Feb 2025 07:57:12 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tkezt-0000000BNzO-2Cu3;
+	Wed, 19 Feb 2025 07:59:57 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkevk-0000000BMO9-0ZhW
+	id 1tkeyP-0000000BNTx-0D50
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 07:55:41 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-221050f3f00so75586085ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 23:55:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739951739; x=1740556539; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=KQ8YbWKKN0JUEDEyejcT43K2AZBg1IVNzkk5e0M7RQ0=;
-        b=a0weQ48gBy4USJIGZ0eWOlOF8r/w66Uff04DErXD8qqR3DFpBVyrxDNKIg9JObXeQI
-         BY5hRkSSolGXmv0+6xnybvnqyTgLK2ReMvyzT1IpcjkGvHlEZVhJ9G2n10VQxExPh+78
-         HxUSt0y/qdlwfrBeHMRrMvhEqxAVCw3nHOdh9W96jyNloIHCXTk5KzSBpDDoL8H6Ny7O
-         8ribvZci3VYZ1ODyPxJYS8rZAVQHvfOX+URa+doCrANBfE777LZ+oKAtl3Lh2rIhX9va
-         DXXVdcTLaKs7Hh4pJ50aNjGFmWuJ0mgpPSNAmkY/SvBhKKmOgpogGFmaQvPAksrowOos
-         t/RQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739951739; x=1740556539;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KQ8YbWKKN0JUEDEyejcT43K2AZBg1IVNzkk5e0M7RQ0=;
-        b=lTjCLomAWcxjQ6AW31pRMvNGgJphXbbK5lRvyKvNUT5WpQi43mN3Gbg3QylEcU5zcG
-         gGkgQlACEMUtx1NvLYQx+rSVZeG5XbOECHCq93bd1mjcg2pgAWtuWpFvi8HzX9gdVj/x
-         ZvgIR80rUmigTMcXnQdKIK0Pkf1xMPv+AjF9I9TK7BraKRqiBLB1nyGBXiqxj1HBTMba
-         N0Zkt/adqLm2c1EilevyJZfn6HbTKZiwickltwL2jIAik7K65cDfTlFrP3YryO2egIIM
-         DyOyFEwDujS5kRiu7OPhaLeet8W2EBvlF7kYgSR3We50sX+2zY7GozD0F3U76ONj0ekM
-         3kaA==
-X-Forwarded-Encrypted: i=1; AJvYcCWp/83Qt6/jRlQp6cIINw56YxnXEMWBqdrd+YUpuTDNoai0BMD46zIE84wOSO0ZbgP2ATX/vVCM1oPfVJfj2AT6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSsliJKhvYb8Ch2cm0WBae4/ySWOFzFg0JtLv3TG+rUGK8BCGH
-	wZLULMLfQgjyOYc/fmCVDc6SNlh3nZnS7Q4KWRKxJ6wMIdzg1hxI87i3qKnGEA==
-X-Gm-Gg: ASbGncudcDLPXIEt328fujj79xG3eQHrt7frgfhFQnfzlfCO6RqNIF4dgdw/IOlNPoD
-	2jBkx9HgyBBmxncMmEpz8UgcnA6vGEa2ZAWEtaczCTCgQkNxauoxX5Wv/Q1IMLVucZINvZ51Ndi
-	kE4/z1gVfKIwLSdUEcrvp+rsjoMr55Vpoybq2OVG9S54d4HI2BlGVq5L6oHvxdPs0uZOoWRoAea
-	y1p8ju9KDBkv54ABmHXJhiHwMTKVqxertDdhQlnmwIPnrR6S/BEv3QMhkdmatjRwBM6UnsOg0u8
-	Lq7o9hk51z81UGEpFbHpP9fcGmU=
-X-Google-Smtp-Source: AGHT+IG4njE0mVfhwsbo461mQskQTrTqKLJp04nKx1lPyB6/OYKMHkjA+8znL3Lf5HXh3/3N1AgKoQ==
-X-Received: by 2002:a17:903:283:b0:215:ae3d:1dd7 with SMTP id d9443c01a7336-221040269bbmr278400085ad.19.1739951739441;
-        Tue, 18 Feb 2025 23:55:39 -0800 (PST)
-Received: from thinkpad ([120.56.197.245])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d53491ecsm99383825ad.9.2025.02.18.23.55.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 23:55:39 -0800 (PST)
-Date: Wed, 19 Feb 2025 13:25:33 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Shuai Xue <xueshuai@linux.alibaba.com>,
-	Jing Zhang <renyu.zj@linux.alibaba.com>,
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Shradha Todi <shradha.t@samsung.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH 1/4] perf/dwc_pcie: Move common DWC struct definitions to
- 'pcie-dwc.h'
-Message-ID: <20250219075533.dqj4rqeskilg76lj@thinkpad>
-References: <20250218-pcie-qcom-ptm-v1-0-16d7e480d73e@linaro.org>
- <20250218-pcie-qcom-ptm-v1-1-16d7e480d73e@linaro.org>
- <4nnikepf7ay4ml3audn34gmq5jttjcfz3syfnxeowmjb4no2cj@lyawl4saa3sa>
+	Wed, 19 Feb 2025 07:58:26 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51J4sKAc024666;
+	Wed, 19 Feb 2025 08:58:07 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	3bBJS43pvAXXysK32UqQ0DdYgo9OZo0TPX7SlCS/zbM=; b=qrofjjdIBjqjCtpb
+	eXbj5Hjt98R97RAEso4phh094s2/DGVfjhBk9wOuOFTSjnzyQ5GMt39Hca+VHeI6
+	+6F0WqQwbljBlbKo6DUQxa/d/zVrSybRz6RwlkD5sEiYRUcSqf2+q0IpeANXZe5f
+	5hY7cOmdN5AmovgJE1ctS/U1beNebFZVyMVEBLJlkbcBdN1b1j6Kr1HwCqdLNL3G
+	tkHAg7150dqPbTeV4UPFl9zR2pqPNubn7WuB4ZDo12AdH8eiT26dfvvsUeSbKdYG
+	jW57vPUdO4wnQQmlNx1vp4EzwNmWoNEjqdGVx+p5yoLyseOiK4Xw06QG7HfllL7G
+	jptJmA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44vyyn25qe-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 19 Feb 2025 08:58:07 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id BB48C40053;
+	Wed, 19 Feb 2025 08:56:46 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 0D4984026F8;
+	Wed, 19 Feb 2025 08:52:52 +0100 (CET)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 19 Feb
+ 2025 08:52:51 +0100
+Message-ID: <df73976e-12a5-4af9-b312-503ae68edcfc@foss.st.com>
+Date: Wed, 19 Feb 2025 08:52:50 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <4nnikepf7ay4ml3audn34gmq5jttjcfz3syfnxeowmjb4no2cj@lyawl4saa3sa>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/8] Add STM32MP25 SPI NOR support
+To: Rob Herring <robh@kernel.org>
+CC: Mark Brown <broonie@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, <linux-spi@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <christophe.kerello@foss.st.com>
+References: <20250218130000.87889-1-patrice.chotard@foss.st.com>
+ <20250218212138.GA1092771-robh@kernel.org>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20250218212138.GA1092771-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-19_03,2025-02-18_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_235540_179023_DAEB0A67 
-X-CRM114-Status: GOOD (  30.45  )
+X-CRM114-CacheID: sfid-20250218_235825_599083_12F8DBD1 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,127 +106,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 18, 2025 at 06:31:02PM +0200, Dmitry Baryshkov wrote:
-> On Tue, Feb 18, 2025 at 08:06:40PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
-> > From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> > 
-> > Since these are common to all Desginware PCIe IPs, move them to a new
-> > header, 'pcie-dwc.h' so that other drivers could make use of them.
+
+
+On 2/18/25 22:21, Rob Herring wrote:
+> On Tue, Feb 18, 2025 at 01:59:52PM +0100, patrice.chotard@foss.st.com wrote:
+>> From: Patrice Chotard <patrice.chotard@foss.st.com>
+>>
+>> This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics.
+>>
+>> On STM32MP25 SoCs family, an Octo Memory Manager block manages the muxing,
+>> the memory area split, the chip select override and the time constraint 
+>> between its 2 Octo SPI children.
+>>
+>> Due to these depedencies, this series adds support for: 
+>>   - Octo Memory Manager driver.
+>>   - Octo SPI driver.
+>>   - yaml schema for Octo Memory Manager and Octo SPI drivers.
+>>
+>> The device tree files adds Octo Memory Manager and its 2 associated Octo 
+>> SPI chidren in stm32mp251.dtsi and adds SPI NOR support in stm32mp257f-ev1
+>> board.
+>>
+>> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+>>
+>> Changes in v4:
+>>   - Add default value requested by Krzysztof for st,omm-req2ack-ns, 
+>>     st,omm-cssel-ovr and st,omm-mux properties in st,stm32mp25-omm.yaml
+>>   - Remove constraint in free form test for st,omm-mux property.
+>>   - Fix drivers/memory/Kconfig by replacing TEST_COMPILE_ by COMPILE_TEST.
+>>   - Fix SPDX-License-Identifier for stm32-omm.c.
+>>   - Fix Kernel test robot by fixing dev_err() format in stm32-omm.c.
+>>   - Add missing pm_runtime_disable() in the error handling path in
+>>     stm32-omm.c.
+>>   - Replace an int by an unsigned int in stm32-omm.c
+>>   - Remove uneeded "," after terminator in stm32-omm.c.
+>>   - Update cover letter description to explain dependecies between 
+>>     Octo Memory Manager and its 2 Octo SPI children.
+>>   - Add Reviewed-by Krzysztof Kozlowski for patch 1 and 3.
 > 
-> Which drivers are going to use it? Please provide an explanation.
-> 
+> No, you didn't.
 
-I can certainly add reference as 'upcoming pcie-designware-sysfs' driver.
+Argh, sorry, i will send a v5
 
-> > 
-> > Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> > ---
-> >  MAINTAINERS                 |  1 +
-> >  drivers/perf/dwc_pcie_pmu.c | 23 ++---------------------
-> >  include/linux/pcie-dwc.h    | 34 ++++++++++++++++++++++++++++++++++
-> >  3 files changed, 37 insertions(+), 21 deletions(-)
-> > 
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index 896a307fa065..b4d09d52a750 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -18123,6 +18123,7 @@ S:	Maintained
-> >  F:	Documentation/devicetree/bindings/pci/snps,dw-pcie-ep.yaml
-> >  F:	Documentation/devicetree/bindings/pci/snps,dw-pcie.yaml
-> >  F:	drivers/pci/controller/dwc/*designware*
-> > +F:	include/linux/pcie-dwc.h
-> >  
-> >  PCI DRIVER FOR TI DRA7XX/J721E
-> >  M:	Vignesh Raghavendra <vigneshr@ti.com>
-> > diff --git a/drivers/perf/dwc_pcie_pmu.c b/drivers/perf/dwc_pcie_pmu.c
-> > index cccecae9823f..05b37ea7cf16 100644
-> > --- a/drivers/perf/dwc_pcie_pmu.c
-> > +++ b/drivers/perf/dwc_pcie_pmu.c
-> > @@ -13,6 +13,7 @@
-> >  #include <linux/errno.h>
-> >  #include <linux/kernel.h>
-> >  #include <linux/list.h>
-> > +#include <linux/pcie-dwc.h>
-> >  #include <linux/perf_event.h>
-> >  #include <linux/pci.h>
-> >  #include <linux/platform_device.h>
-> > @@ -99,26 +100,6 @@ struct dwc_pcie_dev_info {
-> >  	struct list_head dev_node;
-> >  };
-> >  
-> > -struct dwc_pcie_pmu_vsec_id {
-> > -	u16 vendor_id;
-> > -	u16 vsec_id;
-> > -	u8 vsec_rev;
-> > -};
-> > -
-> > -/*
-> > - * VSEC IDs are allocated by the vendor, so a given ID may mean different
-> > - * things to different vendors.  See PCIe r6.0, sec 7.9.5.2.
-> > - */
-> > -static const struct dwc_pcie_pmu_vsec_id dwc_pcie_pmu_vsec_ids[] = {
-> > -	{ .vendor_id = PCI_VENDOR_ID_ALIBABA,
-> > -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
-> > -	{ .vendor_id = PCI_VENDOR_ID_AMPERE,
-> > -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
-> > -	{ .vendor_id = PCI_VENDOR_ID_QCOM,
-> > -	  .vsec_id = 0x02, .vsec_rev = 0x4 },
-> > -	{} /* terminator */
-> > -};
-> > -
-> >  static ssize_t cpumask_show(struct device *dev,
-> >  					 struct device_attribute *attr,
-> >  					 char *buf)
-> > @@ -529,7 +510,7 @@ static void dwc_pcie_unregister_pmu(void *data)
-> >  
-> >  static u16 dwc_pcie_des_cap(struct pci_dev *pdev)
-> >  {
-> > -	const struct dwc_pcie_pmu_vsec_id *vid;
-> > +	const struct dwc_pcie_vsec_id *vid;
-> >  	u16 vsec;
-> >  	u32 val;
-> >  
-> > diff --git a/include/linux/pcie-dwc.h b/include/linux/pcie-dwc.h
-> > new file mode 100644
-> > index 000000000000..261ae11d75a4
-> > --- /dev/null
-> > +++ b/include/linux/pcie-dwc.h
-> > @@ -0,0 +1,34 @@
-> > +/* SPDX-License-Identifier: GPL-2.0 */
-> > +/*
-> > + * Copyright (C) 2021-2023 Alibaba Inc.
-> > + *
-> > + * Copyright 2025 Linaro Ltd.
-> > + * Author: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> > + */
-> > +
-> > +#ifndef LINUX_PCIE_DWC_H
-> > +#define LINUX_PCIE_DWC_H
-> > +
-> > +#include <linux/pci_ids.h>
-> > +
-> > +struct dwc_pcie_vsec_id {
-> > +	u16 vendor_id;
-> > +	u16 vsec_id;
-> > +	u8 vsec_rev;
-> > +};
-> > +
-> > +/*
-> > + * VSEC IDs are allocated by the vendor, so a given ID may mean different
-> > + * things to different vendors.  See PCIe r6.0, sec 7.9.5.2.
-> > + */
-> > +static const struct dwc_pcie_vsec_id dwc_pcie_pmu_vsec_ids[] = {
-> 
-> Having it in the header means that there are going to be several
-> copies of this data. Is that expected?
-> 
-
-Yes. I wanted to consolidate these ids in a single file to make it easy to track
-them. Otherwise, these are spread across different subsystems, making it harder
-to maintain.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Patrice
 
