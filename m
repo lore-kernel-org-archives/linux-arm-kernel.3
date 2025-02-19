@@ -4,73 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DD85C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 13:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3C97C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 13:38:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wzJ7CaXPWnaD0j4NZCCbi9ZiYtRZoPl8IlmG9ATr+Wo=; b=yg20ITZGZhkVIlgfpWbgVNFl0F
-	QtrEz27yNvpFZFHIiTFaqN9wNDEE9HAJtYkG2gwrXJIp40HwV6mljeUZnAZ5Uv+R+4M7XPkhn1COx
-	dwvQT/swZwkvakoXuDcTQjBXYtMvmDdrCCmt24phu40Awl6uK60Mi4W31eFxStIjhqB68vcAhJZDv
-	sGX8WxFLFJ87E0tVPPP51BHo3wgxXbxZMYLaFkiOxvPZuYNJVfWy4/wF5F6vZkp7QR4pgw/93kOiw
-	ZnlDM3fIksJHlu/HZBXMuvTJxrbctguCFDEVIHoibJaENbykphrGUS+tEP1kXTjt7UWaAIwuLXZx7
-	j1Gda4PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HSsnV19R3euCe7A+mmLLwP9bRWysONanwRs/f83625E=; b=3WAWkeIOVhikcu2bW4FrA+Qyvg
+	GNHmKTiKEO/XxCkfOimYrlBsVHTqipu4arA0v4e2fmodQxC3UIXo8bDk/hZhLEQ26gJnH25XOtJTs
+	Lq8d9yecpukDlw4cwCoBk6vC1Ekn5Cnz02e5492ey+mIR0DiSi7/HqShOzPgdNNb6tfHs9xZEjGuU
+	l/4TSk8Ua7gVjE1q9QrECIekKMUuKM/nMKZle1YvQUEiGw1pQSnHiWNBKqEKCz71TReszL+eKrJOI
+	XQUrdU2yh+kUDAKfq90M/WyvjV/vuhg96OTx9Ep2U2xInhPIDLLmWF5RuWH58xQY/ZUBosld6Elcq
+	k/fqGMfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkkDK-0000000CyvK-1sPF;
-	Wed, 19 Feb 2025 13:34:10 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tkkGv-0000000D02J-1JD8;
+	Wed, 19 Feb 2025 13:37:53 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkk9j-0000000CxlK-41yI;
-	Wed, 19 Feb 2025 13:30:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739971826;
-	bh=O6x7SNy89g82HPWJGUfqA0X9THHPpDCJB2dBOG1XwF0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=L+wa9Ip+3fVnUNZolzRaAGSL2sX+SgtItJw7JvBgQDuSf8T+1JlHglR7p0r/ZkpmC
-	 tJ6AfyICKKTVWd1I+tcnoDj1r7vGdpBq9C1Ho38SxrC21H4WYTHQJrOpoT0MDkJhqB
-	 tGOukiQF4+w0Eop1Qdg4pbhIN8dlOXpyEGrdXtW6gXh6h8mQzH7uZt70ZC60eJV7aj
-	 9q0wuWAPXe962QypjHmLp0Rfy06a5ZJRJtQu0hZBEgCt5WUDmazZhedy44TGutYHsZ
-	 PjLg9xNBmjbKvKDaSTU2ZFCFqQJx/7vO5VQZ8rhi+isQMRdgIcERR4c3R1lUtlb4s5
-	 yk1PE4ZQ29y5A==
-Received: from notapiano (unknown [IPv6:2804:14c:1a9:53ee::1000])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3DEBE17E1566;
-	Wed, 19 Feb 2025 14:30:22 +0100 (CET)
-Date: Wed, 19 Feb 2025 10:30:19 -0300
-From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, kernel@collabora.com,
-	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
-	parkeryang <Parker.Yang@mediatek.com>
-Subject: Re: [PATCH 6/6] arm64: dts: mediatek: mt8390-genio-common: Add
- routes for DMIC
-Message-ID: <5e7d7461-1af4-4e16-b808-072fe7c34e36@notapiano>
-References: <20250218-genio700-dmic-v1-0-6bc653da60f7@collabora.com>
- <20250218-genio700-dmic-v1-6-6bc653da60f7@collabora.com>
- <CAGXv+5H1pfJMQPBTF_K72D3-JFsZDvZ277erZ449sc6FTkNFSA@mail.gmail.com>
+	id 1tkkFQ-0000000CzbW-2cPj
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Feb 2025 13:36:21 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-30797730cbdso70356421fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 05:36:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1739972179; x=1740576979; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HSsnV19R3euCe7A+mmLLwP9bRWysONanwRs/f83625E=;
+        b=a77Bk3CAwNMxQIquGsG/o5a40aoLxpuLUK5ZG3hGba2MVCGXV18rACup6N/RZRADNX
+         zD+ME+0f4qPuXsyVvRRFgc6c8wdL3ZlqZh1JKlxjwSBmYmOR13/yxJ5mQi2NZ/3uDWrw
+         1cqa/Yfh5b0uL0URKTNbV37QOdyFu+nwdwrIfNMq07hg8t99YLi4QLaDRujOur3YA3Cl
+         gaNzqBAOuSQ7vFPo/sjbJ1j+6CbaN38tQjYhKjRF20aOEts701cWiOqTdljSTBeJGlJy
+         HhrsLeFSoLCRKGwVbD20ZDXmcJJHb0hlqdrRTgOe0Se2Bfh2V7O4v14uqQtdGsp0geh0
+         O1ug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739972179; x=1740576979;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HSsnV19R3euCe7A+mmLLwP9bRWysONanwRs/f83625E=;
+        b=FRb2F2OXKrTdtc9kSjRQljyTMnfZBLY/UW4TOEJaOMksvOIVuO0h9eXBCjBBNONfj5
+         zr2EOOQwrEAHI7LDFtdbpphx3GcnCgxDd/Xh/97lEbzuNBtugPQq0OrYbV1wHYn4ZpLW
+         Z7cZkynuPIZA968n3d9kS4c06FsPJ9Gm3mLxexl+J0pcL/1B8IrRz5Di+jOJ6PaP++mh
+         qs4td3179NnC4D/coTkYFaCn0aG77SdSxDCdSbxr9zzTO7N3LC1TnEPA3Pg1DoJJmnaF
+         mT2BUpUzhTFQDGWqEjHLdmilLKW/HbBvppOg/4ZvwrxgVQ9naYOou16RP54oXUlDRtox
+         FwRw==
+X-Forwarded-Encrypted: i=1; AJvYcCUZS//xV4/aQHI+lkHDxaYw7QSJX0OEGV06vlblyCY/LKjO9/xIaKyj52OQ2769udlD72TytDSph7xv+L/NTTLl@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzklMBGdA9uk/H8yBE0eDbi3kQzglATkOkdfqrmVl6eTOCSMAD
+	HiuZTZO5qz48oNYMt3FVG7GNT0VHwY7ihw23rSv+5xtkj4+VnTJv
+X-Gm-Gg: ASbGncu4r651l8+Gi8C1la1s+TUHaqbsX7gS5i3oAzWy6+0yUrZwVOaRs8Ys0qF0W7N
+	oNLNSu33PdD9X19gBh1M5q23fPlsGrgfxTOd5RX3k6ky89eIWKueKZtCe03imCLglATNvD3aULj
+	R3X7tr90CHAGCKMeUWmgXvMfQywtZP47F38SK7JNi9pR2b8VQpUGaTj8azUMEbrMaeLMG8+4Gd0
+	3K4ZaCKkjrCK7B0oyycMwK49bWuC02azXespeZgG78e1SyW0ODV3BJpnWxTo7BYw/uoxo3qpSJz
+	ti7tUO9xgNKR6hY+21Ho3a/bxF2jKYxN3C3/o1rZWl/hPkUXhsGFXEGHyebHBONRjIGfCjDI
+X-Google-Smtp-Source: AGHT+IECONOuwKIydK//bT3AGqnTWMmCdF2rv/KJJHD8I1175BIY8l67zp+r+qNFr42gMLhOkEmBmA==
+X-Received: by 2002:a05:651c:2222:b0:308:f4cc:951b with SMTP id 38308e7fff4ca-30a45035a2fmr14037951fa.23.1739972178597;
+        Wed, 19 Feb 2025 05:36:18 -0800 (PST)
+Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30a258703c9sm13795701fa.7.2025.02.19.05.36.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 19 Feb 2025 05:36:16 -0800 (PST)
+Message-ID: <f1c6078e-39bf-499f-b7ab-17526b3e60a9@gmail.com>
+Date: Wed, 19 Feb 2025 15:36:14 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGXv+5H1pfJMQPBTF_K72D3-JFsZDvZ277erZ449sc6FTkNFSA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 6/9] iio: adc: rzg2l_adc: Use adc-helpers
+To: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
+Cc: Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen
+ <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
+ David Lechner <dlechner@baylibre.com>,
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+References: <cover.1739967040.git.mazziesaccount@gmail.com>
+ <25c5d22f6f0cbd1355eee2e9d9103c3ee71cebdc.1739967040.git.mazziesaccount@gmail.com>
+Content-Language: en-US, en-AU, en-GB, en-BW
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+In-Reply-To: <25c5d22f6f0cbd1355eee2e9d9103c3ee71cebdc.1739967040.git.mazziesaccount@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_053028_154372_9D368DE7 
-X-CRM114-Status: GOOD (  21.88  )
+X-CRM114-CacheID: sfid-20250219_053620_670596_4F557EC4 
+X-CRM114-Status: GOOD (  24.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,49 +112,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 12:29:15PM +0800, Chen-Yu Tsai wrote:
-> On Wed, Feb 19, 2025 at 5:27 AM Nícolas F. R. A. Prado
-> <nfraprado@collabora.com> wrote:
-> >
-> > Add necessary routes for the onboard dual DMIC present on the Genio
-> > 700/510 EVK. The dmic is supplied by micbias0 and micbias2, and inputs
-> > into the MT8188 DMIC DAI.
-> >
-> > Co-developed-by: parkeryang <Parker.Yang@mediatek.com>
-> > Signed-off-by: parkeryang <Parker.Yang@mediatek.com>
-> > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> > ---
-> >  arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi | 6 +++++-
-> >  1 file changed, 5 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-> > index a37cf102a6e928440cc88e7e8fe0225fc28ec962..efdeca88b8c4e58f0c17825156276babf19af145 100644
-> > --- a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-> > +++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-> > @@ -959,7 +959,11 @@ &sound {
-> >         pinctrl-0 = <&audio_default_pins>;
-> >         audio-routing =
-> >                 "Headphone", "Headphone L",
-> > -               "Headphone", "Headphone R";
-> > +               "Headphone", "Headphone R",
-> > +               "DMIC_INPUT", "AP DMIC",
-> > +               "AP DMIC", "AUDGLB",
-> > +               "AP DMIC", "MIC_BIAS_0",
-> > +               "AP DMIC", "MIC_BIAS_2";
-> >         mediatek,adsp = <&adsp>;
-> >         status = "okay";
+On 19/02/2025 14:31, Matti Vaittinen wrote:
+> The new devm_iio_adc_device_alloc_chaninfo() -helper is intended to help
+> drivers avoid open-coding the for_each_node -loop for getting the
+> channel IDs. The helper provides standard way to detect the ADC channel
+> nodes (by the node name), and a standard way to convert the "reg",
+> "diff-channels", "single-channel" and the "common-mode-channel" to
+> channel identification numbers used in the struct iio_chan_spec.
+> Furthermore, the helper checks the ID is in range of 0 ... num-channels.
 > 
-> Shouldn't there also be one or two new dmic-codecs, and a dai-link here?
+> The original driver treated all found child nodes as channel nodes. The
+> new helper requires channel nodes to be named channel[@N]. This should
+> help avoid problems with devices which may contain also other but ADC
+> child nodes. Quick grep from arch/* with the rzg2l_adc's compatible
+> string didn't reveal any in-tree .dts with channel nodes named
+> othervice. Also, same grep shows all the .dts seem to have channel IDs
+> between 0..num of channels.
+> 
+> Use the new helper.
+> 
+> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
+> 
+> ---
+> Revision history:
+> v2 => v3:
+>   - New patch
+> 
+> I picked the rzg2l_adc in this series because it has a straightforward
+> approach for populating the struct iio_chan_spec. Only other member
+> in the stuct besides the .channel, which can't use a 'template' -data,
+> is the .datasheet_name. This makes the rzg2l_adc well suited for example
+> user of this new helper. I hope this patch helps to evaluate whether these
+> helpers are worth the hassle.
+> 
+> The change is compile tested only!! Testing before applying is highly
+> appreciated (as always!).
+> ---
+>   drivers/iio/adc/rzg2l_adc.c | 41 ++++++++++++++++++-------------------
+>   1 file changed, 20 insertions(+), 21 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/rzg2l_adc.c b/drivers/iio/adc/rzg2l_adc.c
+> index cd3a7e46ea53..3e1c74019785 100644
+> --- a/drivers/iio/adc/rzg2l_adc.c
+> +++ b/drivers/iio/adc/rzg2l_adc.c
+> @@ -11,6 +11,7 @@
 
-The DMIC codec is only needed to get a wakeup delay and avoid an initial "pop"
-noise. Same as for the analog mic, for which I've recently sent a patch [1].
+...
 
-Depending on the order that things get picked up, I can either add the patch for
-it to this series, or the series in [1]. (Well, looks like I'll be sending a v2
-for this series anyway, so I can add that patch here).
+>   
+> +static const struct iio_chan_spec rzg2l_adc_chan_template = {
+> +	.type = IIO_VOLTAGE,
 
-Thanks,
-Nícolas
+I just rebased this to v6.14-rc3 and noticed the channel type can no 
+longer come from the template. There are also some other minor changes. 
+I'll fix this in v4 if this same approach is kept.
 
-[1] https://lore.kernel.org/all/20250214-genio700-amic-wakeup-delay-200ms-v1-1-0094837c62b7@collabora.com
+> +	.indexed = 1,
+> +	.info_mask_separate = BIT(IIO_CHAN_INFO_RAW),
+> +};
+> +
+
+Yours,
+	-- Matti
 
