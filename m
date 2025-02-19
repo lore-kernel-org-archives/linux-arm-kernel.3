@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B04BC021AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:06:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24867C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FVJ0YfMjuQ9alFH08H65bFLwY2+V9A5YYAoHd+ZX4Iw=; b=G0tGQZSjrSiovgFQrPdcXtmB4F
-	M0hcQ6vF5bTT9qFY/bwGJ2xyEzvJ3CdzJTmsrsCiy3do0J645yoXrEBspj90ncDJDlwKsjmyT0FUg
-	atWJ4Mh/fxnkE823P+lMuy0UdinsfxvRVzDYZkUzjxrFcbHQkbE2jOZMdt1i6AX6kc0pUy0Vc7QL5
-	9IvTRdil6gRm8crRBtt9wzKVEYFmfslVubZ9LO8+a7LQiDjJJw/PzPfqS58oAJHs9VudTRKYPG3bQ
-	e+sHOP8LKhewlJbzQAIBnkRdRbsLRu2L64d5f7jHDG/dkFYg59aNgtioqi0rNCA9AKx5mruH0EIlg
-	nWb6KqYw==;
+	bh=RYe9Y9MiFE9Jj6Il6fsDHOvNOREvMKIKJKQL5zuI+vg=; b=ay3fu69S2FuQ51Rsj4hTMnr/yl
+	LC7eJX9MfZeencwXLArirWXip98MlNDN5pTBydsD0MxjRPneqo+QDLXP5jW+n+YvMo3sesRtA+qUJ
+	2m5axVJRXhWE2jb43YObcJyNe36mdeaiEU0X540RnF5S6jAKwyiNlrzXybDwkPqtahxdNeEO7DmZg
+	KOiFCCNZu1Q0Ug6y8UNZETxHP4QA7jinfcV1CEXAUcGmZZLFN1Jhi095C5Vkc3NFXhvs6a4yOA4ZN
+	3hZS3hfknW5EFc+/vK+eXS8pwsbmRxVxA750+SfFMbNJ/r/mhRnKRh8W5PUaf8yaZcu5pPkSzBLJb
+	AK8uLpHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkg1k-0000000BjL0-0QtS;
-	Wed, 19 Feb 2025 09:05:56 +0000
+	id 1tkg3B-0000000Bjn1-36C5;
+	Wed, 19 Feb 2025 09:07:25 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkfTH-0000000BXBe-0z2n
+	id 1tkfVb-0000000BXud-0u1e
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 08:30:20 +0000
+	Wed, 19 Feb 2025 08:32:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7202F5C26F3;
-	Wed, 19 Feb 2025 08:29:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 665A3C4CEE8;
-	Wed, 19 Feb 2025 08:30:14 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 684785C0F75;
+	Wed, 19 Feb 2025 08:32:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27668C4CED1;
+	Wed, 19 Feb 2025 08:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739953818;
-	bh=UPEcUF5nWIwZr1K9GEVQsdnCBbMhxxNum9Jz6sNxbcU=;
+	s=k20201202; t=1739953962;
+	bh=z78wXEu0dnMxkuwGK9YFfh50sNKEOQozqViG3qUs2Xo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZnlTMdCTpsq4GxBqCzvvO6RfyRw3myDk0HxgO+cS9aLs2++tsSU3Y1JHk41bz+8ko
-	 3cBQyqtfaruPWBPTAXLa0ZCDwHHi4okQNOYbvu9327UH/RG+4PQ2GbLJPIdNKmBqhQ
-	 XR14ym9BMleos5T0iuLmTOuaT4KDfz5D3S6L6YDqVxTtwLlrRIGHiqCf/nXptDoWKU
-	 jPLZHvhtU4UHcRZ+msch1lriMEzdYAR5oqHcSIHHk85vR/Bnkfe2bNQTCfRtU/xVCb
-	 bSXR+LDkELZ24Yn6tvZoeTLTJnY/Fn+OU0f1gOOgrb/gkDCRhskRbFEL613N7v3aqH
-	 6r8iRq2Eh84PA==
-Message-ID: <7ccc6df7-40c2-4fd6-8085-c34c2d8ff2cb@kernel.org>
-Date: Wed, 19 Feb 2025 09:30:12 +0100
+	b=KIacP2Q/tO8oGZQ/4ZztmV4J1P6Z4ovg4vU14dcLLLdIQli4Aidi2u1LMFBtjgYYt
+	 6aRhay0M3l92+42ieS8+WtjhvkrKNXE6X+T7yStS8tYEaBuCiebE0pG+lk94YwQsag
+	 eghISNHkPzS29ysTrdVQD6NsFbA3gaKSxtJ76AO1emsZ+8VXfXX6/VKY/VqS3UibgA
+	 HDZxj0PQ77taCh+aJMTM/IF0E2FdBNbfclDhn2xVxdbOcyPSKhTwyAWfv8iodeyrsk
+	 fctFoyETXHxQbEjYldULLge/rb/adp8ijOxyLjGBXiXvPRQMeLSAa/0/k0B3A++tmF
+	 mFOdvNF9HYVhg==
+Message-ID: <bd929680-bfa9-4be4-a4eb-52aaacb4fb2b@kernel.org>
+Date: Wed, 19 Feb 2025 09:32:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/3] dt-bindings: pinctrl: samsung: add exynos2200
- compatible
+Subject: Re: [PATCH v1 1/2] dt-bindings: usb: samsung,exynos-dwc3: add
+ exynos2200 compatible
 To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org
-References: <20250215113248.159386-1-ivo.ivanov.ivanov1@gmail.com>
- <20250215113248.159386-3-ivo.ivanov.ivanov1@gmail.com>
+References: <20250215123453.163434-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250215123453.163434-2-ivo.ivanov.ivanov1@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,13 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250215113248.159386-3-ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250215123453.163434-2-ivo.ivanov.ivanov1@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_003019_387243_8C870F55 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250219_003243_367874_5589897C 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,16 +123,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/02/2025 12:32, Ivaylo Ivanov wrote:
-> Document the compatible for Exynos2200 SoC.
+On 15/02/2025 13:34, Ivaylo Ivanov wrote:
+> The Exynos2200 SoC has a DWC3 compatible USB controller and can reuse
+> the existing Exynos glue. Update the dt schema to include the
+> samsung,exynos2200-dwusb3 compatible for it.
 > 
 > Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 > ---
->  Documentation/devicetree/bindings/pinctrl/samsung,pinctrl.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  .../bindings/usb/samsung,exynos-dwc3.yaml         | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
 > 
+> diff --git a/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml b/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
+> index 2b3430ceb..beea8e78f 100644
+> --- a/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
+> +++ b/Documentation/devicetree/bindings/usb/samsung,exynos-dwc3.yaml
+> @@ -13,6 +13,7 @@ properties:
+>    compatible:
+>      enum:
+>        - google,gs101-dwusb3
+> +      - samsung,exynos2200-dwusb3
+>        - samsung,exynos5250-dwusb3
+>        - samsung,exynos5433-dwusb3
+>        - samsung,exynos7-dwusb3
+> @@ -73,6 +74,20 @@ allOf:
+>              - const: link_aclk
+>              - const: link_pclk
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: samsung,exynos2200-dwusb3
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 1
+
+Drop minItems
+
+With this
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
 
 Best regards,
 Krzysztof
