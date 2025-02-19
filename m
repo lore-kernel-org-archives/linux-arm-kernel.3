@@ -4,91 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CDCBC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 05:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E172AC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 05:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zfk/XizRuq+amnzwh+c94ADuRH5dLJfB81y/ZMr4Q7I=; b=ciQREHtjGY6t4SqzkAAxC89UVX
-	3cr0dPYDGX+QTUpj1wRbx1QYibI0FmSi/veP9l0xj2SHICI8rv8WQj50SHhpN7A3BTSzQ9hD/eiSo
-	nOicJUydCoqO8EtCfeB21w2xmMVAICs7w1+Xfv4QXIqGBn/iq69UoPj9cSJGBT8ee+jz+t/cxbbgv
-	tc/M2zGnbOSpmE51kRjkpOAZrdyn0U1RPK2erCkmxEVx6WoKs3OHytuVMRcW7ubdyExfr+7tQrmju
-	dGuqgTS5QkLs6ue1LmqavWmFVxKcf+IYxoafodAwdVFgPKLU2zuPbcm1xcZCUq3BYbcGuIon+F5qO
-	nNFXMXog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bZ2RFPjB4ajWkTJpErk1EyClZTX828KyPjk3OaAcFqQ=; b=0RC0SOEMj+pF5BordX6Z8a2j2v
+	6t9HD0s1bLP2Ndzqh6AMwDsoqcVVhOSo0BkFFqCs+iQPAElfCSWm5VaV0iyPC1GeM5SOEHtuoOjPi
+	7pwgV2tXuyA93y+/ps31Zcv7wKblbfWJLjclDtgKio4aMg+qZlcHwbMWcFVAzRDJRu4y2HKjKyhzU
+	BS6petz+GLwp+5Bs4S31nWdc9acH9dGjdtl9qnc2+Sw4Hzs3sNAuLdPHppHRoFlOAlPwBO8y5zS/I
+	1NGXjvikgKlrXniamCB/ctKfIvN+Grtt2ZjHEjk8f2ZnHGWQoC5HXc/Qq534OSuOIyfvcMVCPJn7E
+	phC8BHxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkd1c-0000000AxZW-2Svw;
-	Wed, 19 Feb 2025 05:53:36 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tkd7B-0000000AyIT-2Nx4;
+	Wed, 19 Feb 2025 05:59:21 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkd08-0000000AxQv-2pL3
+	id 1tkd5i-0000000Ay5m-0qOV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 05:52:05 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2211acda7f6so69721165ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 18 Feb 2025 21:52:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739944324; x=1740549124; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=zfk/XizRuq+amnzwh+c94ADuRH5dLJfB81y/ZMr4Q7I=;
-        b=ZAEjQ6ifshuE1fMFpdT6WEqVjSoNDFp4Ur4aUUV/TYDwrn6r/AxdNU4FmU5TccOREX
-         aj2jRTaZnygJlKUPfY0+3Fa27H1wMYY4lQltWSIrnw36K8kjIx3RJoHZVTE+jE3MjoHR
-         2BadMsb+JEM0AymRpQG6NukqXzC0s3jJItB76wDg4CzT/ZGdxZH8JpWCl7f7HkMHp9b8
-         +fS+mGcilwsWhOeb3v5AghyaknE9opAc5wCmMrYRDaGYpAb0ja1txhrnsS2o3lOw4zWd
-         bz72YCY7oNljAKStUFoIHTmTZxpDZDe2YX12xMLc2MeCuC9F2SyR3xHEqRUiQgFqs1Q7
-         XIYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739944324; x=1740549124;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zfk/XizRuq+amnzwh+c94ADuRH5dLJfB81y/ZMr4Q7I=;
-        b=Q21umsFQ1o8KoRFf+16nwPfN38p8TZ1iw3daeoL/Ur9SoK3Gc/GfnNz0a30khqkFlP
-         4H1exvWAEqAxe1Zugj1rUVVTi8eZjPUFqaWxOyLysa+4ZImitmOFmeOBud+hlBc6Pu01
-         BT7WYLNAtWkJ2p0ieIXGzBxD4vh8Y7/LxJVrGCzE0ib5VmjjJqaeuZzTfDWuHRyB6w+Z
-         om8CpRr7q4lTCCH54yFVu14gEdQYCVONCMaXfYN/HtLacScrSXcilCJBA/IYW6gPA0AY
-         mGp73/IzZgdNXAuBGH/X37dtaqyu78xUEq+A+VwnYQFE8/rUrYpigWPeCBePsKK0/SIL
-         vj0w==
-X-Forwarded-Encrypted: i=1; AJvYcCXyhgQtwjF8Avf9lo8f6u7WCVNx+xde30Iy/LSHycUHTye3SiJg7E2mBRGWrZIDVqz8rIQkfq1Zvsd3wKiTqag2@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywxd+m2H2efUVyvITsom1ni2PCNwEG7XSdiyE4JLROabmjBgQNP
-	h+3BrKurYOOvBQmfbSvaGezC9gutGl5cA4qVokzaF9Rj2KebLfh7WxYNhMeSuaU=
-X-Gm-Gg: ASbGncspEBMJmW5oqzsTrh8ZfuqIFIvWrt+8EIqRMskejMDhgdSPBAJ3oHe9ODSnjNy
-	QWqVi0zk4PgEJBhMjeOnZJL8Ob3bmGrjG4C49A2654uw7hIhaKug+V9bD5kX5nmowvSoztzn3WZ
-	0Kdp/suqgagvFOqqdDbXRr+kcKaQCOCGRtH3J5akNQ6HsQ8wYkYm02UdsDLZ+TkARIBArUIvWgA
-	4p9v6PgY5WwtIr966tyNg1qmlQKce8ePOSfimmbSKrxduptE4xD2Cs+52511Z+qM6RnhbNSyYUT
-	TLCHoO8znEkQ2lQBbw==
-X-Google-Smtp-Source: AGHT+IEmzrI9J1teC1xw2bZD6oIzjvalj4grBPjeXzr9SebtpOPohSw5PBj/tF//qK/NL4kw/gkJIg==
-X-Received: by 2002:a05:6a00:2382:b0:732:1840:8389 with SMTP id d2e1a72fcca58-7329dcab9d5mr3854964b3a.0.1739944323727;
-        Tue, 18 Feb 2025 21:52:03 -0800 (PST)
-Received: from localhost ([122.172.84.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73265678abasm7341166b3a.27.2025.02.18.21.52.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Feb 2025 21:52:03 -0800 (PST)
-Date: Wed, 19 Feb 2025 11:22:01 +0530
-From: Viresh Kumar <viresh.kumar@linaro.org>
-To: bschnei@gmail.com
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Benjamin Schneider <ben@bens.haus>,
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>
-Subject: Re: [PATCH] cpufreq: enable 1200Mhz clock speed for armada-37xx
-Message-ID: <20250219055201.noi6hxe6sjox6evo@vireshk-i7>
-References: <20241125211452.14987-1-ben@bens.haus>
+	Wed, 19 Feb 2025 05:57:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1739944670; x=1771480670;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:to:cc;
+  bh=pfHqlSLud+JXl9D7n5BlEkHhIeYAhbebredddS+EqlM=;
+  b=rBsELHd3O8u2BDLTWlqnTm737daUqi7VfMQXjB6sj3o6Eyf1oxMiDv6B
+   N84QtODxV/hDlCMxwVcrF6geKPGFfv0xq7BkSOWYaE/dGhZOAPTcAvpWC
+   5R7Xe9Vg/DBA7sLdnVHIehkLeuNjWh3LgQ6QbmgrXeb30x1IJnKL+N5rW
+   vafH36nabrms9QvbJp4Z0CMmTM2/3DXn76MXpZV/uIGD791/+tV5mzCHi
+   lTVcVnmSDYhbYyg1XmddzV7Be+GHojG/JgznSOUtcGc/PUSqPR64/UqgY
+   EFm71BVCPOdlJ1W92xS2uhSy0ILo1wLAOGUzGyyIGwu1fMLaCeH3zTUkQ
+   w==;
+X-CSE-ConnectionGUID: H/CF0+SBQUK7yXSaxQ9BXA==
+X-CSE-MsgGUID: tuIP3dstSBa4Jp38XcbJ+Q==
+X-IronPort-AV: E=Sophos;i="6.13,298,1732604400"; 
+   d="scan'208";a="37849285"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Feb 2025 22:57:49 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Tue, 18 Feb 2025 22:57:21 -0700
+Received: from [10.40.56.22] (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Tue, 18 Feb 2025 22:57:17 -0700
+From: Balakrishnan Sambath <balakrishnan.s@microchip.com>
+Date: Wed, 19 Feb 2025 11:22:27 +0530
+Subject: [PATCH v3] ASoC: dt-bindings: atmel-at91sam9g20ek: convert to
+ json-schema
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20241125211452.14987-1-ben@bens.haus>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250219-sound-atmel-at91sam9g20ek-v3-1-d7c082af4e14@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAJpxtWcC/32NywrCMBREf6XctZE8ajGu+h/SRUxum4umKUktS
+ um/Gwtu3QycgTmzQsZEmOFSrZBwoUxxLKAOFVhvxgEZucIguayFFJzl+BwdM3PAR0ktsgl6kBz
+ v7MZRO8T6pJSFsp8S9vTa3deusKc8x/Terxb5bX9W8ce6SCbYuTEclcDG9LoNZFO0nqajjQG6b
+ ds+vyWJRMYAAAA=
+X-Change-ID: 20241210-sound-atmel-at91sam9g20ek-b0e9dee4533c
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrei Simion
+	<andrei.simion@microchip.com>, Liam Girdwood <lgirdwood@gmail.com>, "Mark
+ Brown" <broonie@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Nicolas
+ Ferre" <nicolas.ferre@microchip.com>, Alexandre Belloni
+	<alexandre.belloni@bootlin.com>
+CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Balakrishnan Sambath <balakrishnan.s@microchip.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_215204_715233_3281A9B1 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20250218_215750_427242_921B66C5 
+X-CRM114-Status: GOOD (  14.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,30 +94,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-11-24, 13:14, bschnei@gmail.com wrote:
-> From: Benjamin Schneider <ben@bens.haus>
-> 
-> This frequency was disabled because of stability problems whose source could
-> not be accurately identified[1]. After seven months of testing, the evidence
-> points to an incorrectly configured bootloader as the source of the historical
-> instability. Testing was performed on two A3720 devices with this frequency
-> enabled and the ondemand policy in use. Marvell merged[2] changes to their
-> bootloader source needed to address the stability issue. This driver should
-> expose this frequency option to users.
-> 
-> [1] https://github.com/torvalds/linux/commit/484f2b7c61b9ae58cc00c5127bcbcd9177af8dfe
-> [2] https://github.com/MarvellEmbeddedProcessors/mv-ddr-marvell/pull/44
-> 
-> Signed-off-by: Benjamin Schneider <ben@bens.haus>
-> Reviewed-by: Pali Rohár <pali@kernel.org>
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Acked-by: Gregory CLEMENT <gregory.clement@bootlin.com>
-> ---
->  drivers/cpufreq/armada-37xx-cpufreq.c | 6 +-----
->  1 file changed, 1 insertion(+), 5 deletions(-)
+Convert atmel-at91sam9g20ek-wm8731-audio DT binding to yaml
+based json-schema.Change file name to match json-scheme naming.
 
-Applied. Thanks.
+Signed-off-by: Balakrishnan Sambath <balakrishnan.s@microchip.com>
+---
+Changes in v3:
+- Add recommended minItems and maxItems.
+- Fix commit subject and a typo in example.
+- Link to v2: https://lore.kernel.org/r/20241211-sound-atmel-at91sam9g20ek-v2-1-86a0e31e6af9@microchip.com
 
+Changes in v2:
+- Add missing CODEC pin options to 'atmel,audio-routing' items.
+- Drop 'minItems' from 'atmel,audio-routing' since enum defines valid connections.
+- Add subsystem tag to subject.
+- Add blank line between properties and fix typo.
+- Add audio complex description.
+- Link to v1: https://lore.kernel.org/lkml/20240214-at91sam9g20ek-wm8731-yaml-v1-1-33333e17383b@microchip.com
+---
+ .../bindings/sound/atmel,at91sam9g20ek-wm8731.yaml | 72 ++++++++++++++++++++++
+ .../sound/atmel-at91sam9g20ek-wm8731-audio.txt     | 26 --------
+ 2 files changed, 72 insertions(+), 26 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/sound/atmel,at91sam9g20ek-wm8731.yaml b/Documentation/devicetree/bindings/sound/atmel,at91sam9g20ek-wm8731.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..627da2d890b24a14e595d1752276c94b158451a8
+--- /dev/null
++++ b/Documentation/devicetree/bindings/sound/atmel,at91sam9g20ek-wm8731.yaml
+@@ -0,0 +1,72 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/sound/atmel,at91sam9g20ek-wm8731.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Atmel at91sam9g20ek wm8731 audio complex
++
++maintainers:
++  - Balakrishnan Sambath <balakrishnan.s@microchip.com>
++
++description:
++  The audio complex configuration for Atmel at91sam9g20ek with WM8731 audio codec.
++
++properties:
++  compatible:
++    const: atmel,at91sam9g20ek-wm8731-audio
++
++  atmel,model:
++    $ref: /schemas/types.yaml#/definitions/string
++    description: The user-visible name of this sound complex.
++
++  atmel,audio-routing:
++    $ref: /schemas/types.yaml#/definitions/non-unique-string-array
++    description: A list of the connections between audio components.
++    minItems: 2
++    maxItems: 4
++    items:
++      enum:
++        # Board Connectors
++        - Ext Spk
++        - Int Mic
++
++        # CODEC Pins
++        - LOUT
++        - ROUT
++        - LHPOUT
++        - RHPOUT
++        - LLINEIN
++        - RLINEIN
++        - MICIN
++
++  atmel,ssc-controller:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: The phandle of the SSC controller.
++
++  atmel,audio-codec:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: The phandle of WM8731 audio codec.
++
++required:
++  - compatible
++  - atmel,model
++  - atmel,audio-routing
++  - atmel,ssc-controller
++  - atmel,audio-codec
++
++additionalProperties: false
++
++examples:
++  - |
++    sound {
++        compatible = "atmel,at91sam9g20ek-wm8731-audio";
++        pinctrl-names = "default";
++        pinctrl-0 = <&pinctrl_pck0_as_mck>;
++        atmel,model = "wm8731 @ AT91SAMG20EK";
++        atmel,audio-routing =
++            "Ext Spk", "LHPOUT",
++            "Int Mic", "MICIN";
++        atmel,ssc-controller = <&ssc0>;
++        atmel,audio-codec = <&wm8731>;
++    };
+diff --git a/Documentation/devicetree/bindings/sound/atmel-at91sam9g20ek-wm8731-audio.txt b/Documentation/devicetree/bindings/sound/atmel-at91sam9g20ek-wm8731-audio.txt
+deleted file mode 100644
+index 9c5a9947b64d454a892e1e4148ff06be7c33d6cd..0000000000000000000000000000000000000000
+--- a/Documentation/devicetree/bindings/sound/atmel-at91sam9g20ek-wm8731-audio.txt
++++ /dev/null
+@@ -1,26 +0,0 @@
+-* Atmel at91sam9g20ek wm8731 audio complex
+-
+-Required properties:
+-  - compatible: "atmel,at91sam9g20ek-wm8731-audio"
+-  - atmel,model: The user-visible name of this sound complex.
+-  - atmel,audio-routing: A list of the connections between audio components.
+-  - atmel,ssc-controller: The phandle of the SSC controller
+-  - atmel,audio-codec: The phandle of the WM8731 audio codec
+-Optional properties:
+-  - pinctrl-names, pinctrl-0: Please refer to pinctrl-bindings.txt
+-
+-Example:
+-sound {
+-	compatible = "atmel,at91sam9g20ek-wm8731-audio";
+-	pinctrl-names = "default";
+-	pinctrl-0 = <&pinctrl_pck0_as_mck>;
+-
+-	atmel,model = "wm8731 @ AT91SAMG20EK";
+-
+-	atmel,audio-routing =
+-		"Ext Spk", "LHPOUT",
+-		"Int MIC", "MICIN";
+-
+-	atmel,ssc-controller = <&ssc0>;
+-	atmel,audio-codec = <&wm8731>;
+-};
+
+---
+base-commit: 0ad2507d5d93f39619fc42372c347d6006b64319
+change-id: 20241210-sound-atmel-at91sam9g20ek-b0e9dee4533c
+
+Best regards,
 -- 
-viresh
+Balakrishnan Sambath <balakrishnan.s@microchip.com>
+
 
