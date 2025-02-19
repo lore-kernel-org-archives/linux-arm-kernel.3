@@ -4,67 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA64C021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 18:58:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD00FC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Mime-Version:Message-Id:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EXw58HqPBaiRnglriOhbvm+UYcMbbold2y+H8kTZDlk=; b=YtQuu8+JipHyUNUZlFzwVIl6s4
-	xl9FoXYJ9znN4oCvyPwAzepEvSrOOfo6TeaOA8L9goSxSrqo7QfY1+10IuUyCDJDtupulSqeibPn/
-	I/rDWR4+eMuG94tY02xJGvcIPh8zrASpY3affPS91HoEL0ZcVYxHlXKqwvwX9YpoPygf8QNDvs7l+
-	noTXNVD1/Ht3BMxtGNTDahJSEBxdwwaf43g2w/i8yqufRRAVn5/9PRA9gIarZx8WMFrMJY789mw+6
-	pkPobHzDo+YrmdiPiYd3ja0HR9QIk1qI1OKJsmtVV7/aLWY6ZCHLHqxNU5cXBbNdcaGmWCXIv3rQ/
-	TyI82pOA==;
+	:References:Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s0bsoJDMKnAUZGWEn4OupAOH97fr8b6W+Og+QQZpJxU=; b=WJ/mNQHxoicU8CNISFtwVAJLQn
+	D1mjINwchfJoy4DSt243DH7tearRSdIeNqualWJLfY5twZWavwpdV0h+HDdiB8YC7PMFxaVd27SgC
+	3s8gkQYKZE3I3zYHtFTan/+Ioq2OOwHYM5K3rn2+2C5w/jMQGdPg97XETAqn3oBkvuUbebYiH4pE8
+	irvW7/ZjaPQv2prFjOXTFJKY4eYBmztyj6OqM7+43u9c1pdhYHy6OVlBxMxsA0DCruJCGC+eFnIH4
+	rdnm9DR9OJV0UzaLwJLlQDb9KZCYowBn+j414MWE1X+preEKmBAPDtVrFAqekLP9AUpGsTM04SMFZ
+	HpXR88XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpHQ-0000000EUTB-2UgD;
-	Wed, 19 Feb 2025 18:58:44 +0000
+	id 1tkpIs-0000000EV46-1w6f;
+	Wed, 19 Feb 2025 19:00:14 +0000
 Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpFv-0000000ETt7-2v9o
+	id 1tkpFy-0000000ETu2-0L4T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 18:57:13 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e3a1bc0c875so221614276.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 10:57:10 -0800 (PST)
+	Wed, 19 Feb 2025 18:57:15 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e5dc2822ae6so244788276.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 10:57:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1739991430; x=1740596230; darn=lists.infradead.org;
-        h=to:from:subject:mime-version:message-id:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=EXw58HqPBaiRnglriOhbvm+UYcMbbold2y+H8kTZDlk=;
-        b=uKzrYJckjJM9ZgFDYAVn4T3w5/CoPZgK4a04x4LOPh3bhOnoUg+slOPQxkoLW6L3Qi
-         LqIpBn8qkgkejN+DukBq8XoCdJXfeEpf20lUPtPWyKDu49zsyQcIL4Tw7hl5JnmHYv1l
-         TPhLcEJ9YErr9eYSuyeoLpAjcVqTz3bGonfH0YKJPVM4C8FbZKEFnCu5f18covqzEmgU
-         ygs38vnLfnknbRXCZSAmp2Gbspnibb3i3yg6ZSHDIi7aqED5rNVkIt8Kqnzdb2a7QF+N
-         4YMMESW2FqSPcivmZGTssa39EkyVSWjS9SoOnvBorpcMO9XKxuiHa9suVFjxJAzOq/oL
-         aGQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739991430; x=1740596230;
-        h=to:from:subject:mime-version:message-id:date:x-gm-message-state
+        d=google.com; s=20230601; t=1739991432; x=1740596232; darn=lists.infradead.org;
+        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=EXw58HqPBaiRnglriOhbvm+UYcMbbold2y+H8kTZDlk=;
-        b=ZtqO+KMUWmapr+vIWH8Pbkw0xxSAriehBIPzHYTG4O1IeAQNqYfBUEwtdg8m8hi1nS
-         trj8GA0J22U1k0DpgGu+ECjMsVNzTJeAAcVgY1JZs5ld7XTeiQUmiJG0xm1SsbWAWkQp
-         H5MBJ1s2XK8zVUqu/YfhHOKLRUR4QMuM9lt8v1yXcIi7DA39+mPJlvhR4lfmhCeTyw3f
-         /7GPf/gAIG1UI9ENhXKFAgToaUt8QcB2xoOvdKXDRR0XRRrICe7e4j421Uoyp9BNB+4B
-         vUR4tLgbtNP0S4YqfSFNbo2uWk4ZFVi1SUa/38LjFLHrSMlIpv6MKKMJAUj0Ou9xgMPW
-         7BSA==
-X-Forwarded-Encrypted: i=1; AJvYcCWJ9247JAYOf16lvSs5H7gbQIizRhJw3xfEnfhzSuyrfv6FzLa1X7+FpVGmT5GA/a7Jk3wLskrWbq0XT/oS01si@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBUqMb/BP5atDPBvTKNPpR+5Lt1BccGlJvnMfc21OA8i0pzIdo
-	Jx7PR0SfybtPv/M87MJbuYOn3wiAtqY5QgdfHpC5C9VvnOwzHSQLJwTJ9PGULmErC9i88nwEgps
-	pNlwtQQ==
-X-Google-Smtp-Source: AGHT+IGPMbTasl19lEsUyLjUBa94fVbMRWecTemZAnOiwhvnSubmTuBnVXcV7haTvztOLL4qQ5ayFxZCzw56
+        bh=s0bsoJDMKnAUZGWEn4OupAOH97fr8b6W+Og+QQZpJxU=;
+        b=JNfzgDt9JidncFWzEWKFYTcy8h9scbP0tRCnhwUzS5Y9fbvV0B1dDOgpTdCpIZS4/N
+         bi8NLgjqT70H2qBmmrthbYXxS1W7wvxvESOYbw3R2wKyKpAc5EWzCp6iU+9dqumVk6vp
+         QaQdbummmgXzqjiNW1KyUU79Q/3p+WBvZxxXzfvuNutZkWb4Cvm9hnaqdobc0oTiNzSE
+         JYIb9hcsavmwyIP2fGCunQ5GGZBoYtMc8CWdd/pKHvcHk03B4p3WTxL1HoW0XZrDEXJw
+         SO5gK/KyGlY+aob7ZCMvRlDXrefBgfbEEuNnwSWwmdTB0utnuglh46/uj/UnA5osC4TP
+         my8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739991432; x=1740596232;
+        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=s0bsoJDMKnAUZGWEn4OupAOH97fr8b6W+Og+QQZpJxU=;
+        b=L/xc3UxzGSbdNBmgkBMxN61eBecEENpy7Elh9drNzZmACfwWy6rwq8hIW0FGkir4Jz
+         RRmlNPxN/bpzmdCducMKAGcpJusKz7P3/F/qf8bALf34SY5XYP6Scxk3RfqLnEW2FtEe
+         mbn0VlgcMXCfYQ1efLQ7MpjKrL3wSdnzBMoxtpyDpuUrYs1QCflpwLb5h1L92hKkxcrn
+         epjAoZXg9mGqmWxp2A1cW1b34DeM/ZEQfj5sIh9ist3FQ1aNDz9HyxkZqBxav+R9GVHo
+         9/0UMdhR4tiZ/wTOiEjg2FS7p29Qe5icUT1kLpRAr24fmHnux1tqHrkhGy7FRqqIl1rp
+         /JfA==
+X-Forwarded-Encrypted: i=1; AJvYcCVqwtkkaNoRBP2q7VnnHBiAo//pVWQFEdnWyYqvnZo88sZ+7IfC3tf60fSizuQ76UZzxeZUgVjlNAAF3WCn/KGB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw917au0LbDBXD6HsaLoSj6tQ/0NehRRADpvlF1wUiiimIFzy4c
+	iltOtmF84xFg9lU4L/bkw9pvliVT9kSG32KTBhJzxuEifz+y2qdcRr3p8+4uHWbyAOZ/AuW4KdM
+	Q4rFI3g==
+X-Google-Smtp-Source: AGHT+IGF51usFsQ9FNTzFoNRGh8XS+OYeljEd0FsqywFcj/FC4LqivZ9CcaSZ05HEZ2iLxCAbI37MGEuie6a
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:c57b:86f0:c166:3061])
- (user=irogers job=sendgmr) by 2002:a25:ab6f:0:b0:e5b:1238:a7c3 with SMTP id
- 3f1490d57ef6-e5dc90398e5mr199232276.3.1739991430005; Wed, 19 Feb 2025
- 10:57:10 -0800 (PST)
-Date: Wed, 19 Feb 2025 10:56:49 -0800
-Message-Id: <20250219185657.280286-1-irogers@google.com>
+ (user=irogers job=sendgmr) by 2002:a25:aa45:0:b0:e5d:bc8e:cc92 with SMTP id
+ 3f1490d57ef6-e5dc91e9bafmr201196276.4.1739991432389; Wed, 19 Feb 2025
+ 10:57:12 -0800 (PST)
+Date: Wed, 19 Feb 2025 10:56:50 -0800
+In-Reply-To: <20250219185657.280286-1-irogers@google.com>
+Message-Id: <20250219185657.280286-2-irogers@google.com>
 Mime-Version: 1.0
+References: <20250219185657.280286-1-irogers@google.com>
 X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
-Subject: [PATCH v3 0/8] perf: Support multiple system call tables in the build
+Subject: [PATCH v3 1/8] perf syscalltble: Remove syscall_table.h
 From: Ian Rogers <irogers@google.com>
 To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
 	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -84,8 +86,8 @@ To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
 	linux-mips@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_105711_759403_C46C5EF8 
-X-CRM114-Status: GOOD (  19.02  )
+X-CRM114-CacheID: sfid-20250219_105714_124311_E282DF03 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,152 +102,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This work builds on the clean up of system call tables and removal of
-libaudit by Charlie Jenkins <charlie@rivosinc.com>.
+The definition of "static const char *const syscalltbl[] = {" is done
+in a generated syscalls_32.h or syscalls_64.h that is architecture
+dependent. In order to include the appropriate file a syscall_table.h
+is found via the perf include path and it includes the syscalls_32.h
+or syscalls_64.h as appropriate.
 
-The system call table in perf trace is used to map system call numbers
-to names and vice versa. Prior to these changes, a single table
-matching the perf binary's build was present. The table would be
-incorrect if tracing say a 32-bit binary from a 64-bit version of
-perf, the names and numbers wouldn't match.
+To support having multiple syscall tables, one for 32-bit and one for
+64-bit, or for different architectures, an include path cannot be
+used. Remove syscall_table.h because of this and inline what it does
+into syscalltbl.c.
 
-Change the build so that a single system call file is built and the
-potentially multiple tables are identifiable from the ELF machine type
-of the process being examined. To determine the ELF machine type, the
-executable's header is read from /proc/pid/exe with fallbacks to using
-the perf's binary type when unknown.
+For architectures without a syscall_table.h this will cause a failure
+to include either syscalls_32.h or syscalls_64.h rather than a failure
+to include syscall_table.h. For architectures that only included one
+or other, the behavior matches BITS_PER_LONG as previously done on
+architectures supporting both syscalls_32.h and syscalls_64.h.
 
-Remove some runtime types used by the system call tables and make
-equivalents generated at build time.
-
-v3: Add Charlie's reviewed-by tags. Incorporate feedback from Arnd
-    Bergmann <arnd@arndb.de> on additional optional column and MIPS
-    system call numbering. Rebase past Namhyung's global system call
-    statistics and add comments that they don't yet support an
-    e_machine other than EM_HOST.
-
-v2: Change the 1 element cache for the last table as suggested by
-    Howard Chu, add Howard's reviewed-by tags.
-    Add a comment and apology to Charlie for not doing better in
-    guiding:
-    https://lore.kernel.org/all/20250114-perf_syscall_arch_runtime-v1-1-5b304e408e11@rivosinc.com/
-    After discussion on v1 and he agreed this patch series would be
-    the better direction.
-
-Ian Rogers (8):
-  perf syscalltble: Remove syscall_table.h
-  perf trace: Reorganize syscalls
-  perf syscalltbl: Remove struct syscalltbl
-  perf thread: Add support for reading the e_machine type for a thread
-  perf trace beauty: Add syscalltbl.sh generating all system call tables
-  perf syscalltbl: Use lookup table containing multiple architectures
-  perf build: Remove Makefile.syscalls
-  perf syscalltbl: Mask off ABI type for MIPS system calls
-
- tools/perf/Makefile.perf                      |  10 +-
- tools/perf/arch/alpha/entry/syscalls/Kbuild   |   2 -
- .../alpha/entry/syscalls/Makefile.syscalls    |   5 -
- tools/perf/arch/alpha/include/syscall_table.h |   2 -
- tools/perf/arch/arc/entry/syscalls/Kbuild     |   2 -
- .../arch/arc/entry/syscalls/Makefile.syscalls |   3 -
- tools/perf/arch/arc/include/syscall_table.h   |   2 -
- tools/perf/arch/arm/entry/syscalls/Kbuild     |   4 -
- .../arch/arm/entry/syscalls/Makefile.syscalls |   2 -
- tools/perf/arch/arm/include/syscall_table.h   |   2 -
- tools/perf/arch/arm64/entry/syscalls/Kbuild   |   3 -
- .../arm64/entry/syscalls/Makefile.syscalls    |   6 -
- tools/perf/arch/arm64/include/syscall_table.h |   8 -
- tools/perf/arch/csky/entry/syscalls/Kbuild    |   2 -
- .../csky/entry/syscalls/Makefile.syscalls     |   3 -
- tools/perf/arch/csky/include/syscall_table.h  |   2 -
- .../perf/arch/loongarch/entry/syscalls/Kbuild |   2 -
- .../entry/syscalls/Makefile.syscalls          |   3 -
- .../arch/loongarch/include/syscall_table.h    |   2 -
- tools/perf/arch/mips/entry/syscalls/Kbuild    |   2 -
- .../mips/entry/syscalls/Makefile.syscalls     |   5 -
- tools/perf/arch/mips/include/syscall_table.h  |   2 -
- tools/perf/arch/parisc/entry/syscalls/Kbuild  |   3 -
- .../parisc/entry/syscalls/Makefile.syscalls   |   6 -
- .../perf/arch/parisc/include/syscall_table.h  |   8 -
- tools/perf/arch/powerpc/entry/syscalls/Kbuild |   3 -
- .../powerpc/entry/syscalls/Makefile.syscalls  |   6 -
- .../perf/arch/powerpc/include/syscall_table.h |   8 -
- tools/perf/arch/riscv/entry/syscalls/Kbuild   |   2 -
- .../riscv/entry/syscalls/Makefile.syscalls    |   4 -
- tools/perf/arch/riscv/include/syscall_table.h |   8 -
- tools/perf/arch/s390/entry/syscalls/Kbuild    |   2 -
- .../s390/entry/syscalls/Makefile.syscalls     |   5 -
- tools/perf/arch/s390/include/syscall_table.h  |   2 -
- tools/perf/arch/sh/entry/syscalls/Kbuild      |   2 -
- .../arch/sh/entry/syscalls/Makefile.syscalls  |   4 -
- tools/perf/arch/sh/include/syscall_table.h    |   2 -
- tools/perf/arch/sparc/entry/syscalls/Kbuild   |   3 -
- .../sparc/entry/syscalls/Makefile.syscalls    |   5 -
- tools/perf/arch/sparc/include/syscall_table.h |   8 -
- tools/perf/arch/x86/entry/syscalls/Kbuild     |   3 -
- .../arch/x86/entry/syscalls/Makefile.syscalls |   6 -
- tools/perf/arch/x86/include/syscall_table.h   |   8 -
- tools/perf/arch/xtensa/entry/syscalls/Kbuild  |   2 -
- .../xtensa/entry/syscalls/Makefile.syscalls   |   4 -
- .../perf/arch/xtensa/include/syscall_table.h  |   2 -
- tools/perf/builtin-trace.c                    | 290 +++++++++++-------
- tools/perf/scripts/Makefile.syscalls          |  61 ----
- tools/perf/scripts/syscalltbl.sh              |  86 ------
- tools/perf/trace/beauty/syscalltbl.sh         | 274 +++++++++++++++++
- tools/perf/util/syscalltbl.c                  | 148 ++++-----
- tools/perf/util/syscalltbl.h                  |  22 +-
- tools/perf/util/thread.c                      |  50 +++
- tools/perf/util/thread.h                      |  14 +-
- 54 files changed, 616 insertions(+), 509 deletions(-)
- delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
+Signed-off-by: Ian Rogers <irogers@google.com>
+Reviewed-by: Howard Chu <howardchu95@gmail.com>
+Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+---
+ tools/perf/arch/alpha/include/syscall_table.h     | 2 --
+ tools/perf/arch/arc/include/syscall_table.h       | 2 --
+ tools/perf/arch/arm/include/syscall_table.h       | 2 --
+ tools/perf/arch/arm64/include/syscall_table.h     | 8 --------
+ tools/perf/arch/csky/include/syscall_table.h      | 2 --
+ tools/perf/arch/loongarch/include/syscall_table.h | 2 --
+ tools/perf/arch/mips/include/syscall_table.h      | 2 --
+ tools/perf/arch/parisc/include/syscall_table.h    | 8 --------
+ tools/perf/arch/powerpc/include/syscall_table.h   | 8 --------
+ tools/perf/arch/riscv/include/syscall_table.h     | 8 --------
+ tools/perf/arch/s390/include/syscall_table.h      | 2 --
+ tools/perf/arch/sh/include/syscall_table.h        | 2 --
+ tools/perf/arch/sparc/include/syscall_table.h     | 8 --------
+ tools/perf/arch/x86/include/syscall_table.h       | 8 --------
+ tools/perf/arch/xtensa/include/syscall_table.h    | 2 --
+ tools/perf/util/syscalltbl.c                      | 8 +++++++-
+ 16 files changed, 7 insertions(+), 67 deletions(-)
  delete mode 100644 tools/perf/arch/alpha/include/syscall_table.h
- delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/arc/include/syscall_table.h
- delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/arm/include/syscall_table.h
- delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/arm64/include/syscall_table.h
- delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/csky/include/syscall_table.h
- delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/loongarch/include/syscall_table.h
- delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/mips/include/syscall_table.h
- delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/parisc/include/syscall_table.h
- delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/powerpc/include/syscall_table.h
- delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/riscv/include/syscall_table.h
- delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/s390/include/syscall_table.h
- delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/sh/include/syscall_table.h
- delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/sparc/include/syscall_table.h
- delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/x86/include/syscall_table.h
- delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuild
- delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
  delete mode 100644 tools/perf/arch/xtensa/include/syscall_table.h
- delete mode 100644 tools/perf/scripts/Makefile.syscalls
- delete mode 100755 tools/perf/scripts/syscalltbl.sh
- create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
 
+diff --git a/tools/perf/arch/alpha/include/syscall_table.h b/tools/perf/arch/alpha/include/syscall_table.h
+deleted file mode 100644
+index b53e31c15805..000000000000
+--- a/tools/perf/arch/alpha/include/syscall_table.h
++++ /dev/null
+@@ -1,2 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/syscalls_64.h>
+diff --git a/tools/perf/arch/arc/include/syscall_table.h b/tools/perf/arch/arc/include/syscall_table.h
+deleted file mode 100644
+index 4c942821662d..000000000000
+--- a/tools/perf/arch/arc/include/syscall_table.h
++++ /dev/null
+@@ -1,2 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/syscalls_32.h>
+diff --git a/tools/perf/arch/arm/include/syscall_table.h b/tools/perf/arch/arm/include/syscall_table.h
+deleted file mode 100644
+index 4c942821662d..000000000000
+--- a/tools/perf/arch/arm/include/syscall_table.h
++++ /dev/null
+@@ -1,2 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/syscalls_32.h>
+diff --git a/tools/perf/arch/arm64/include/syscall_table.h b/tools/perf/arch/arm64/include/syscall_table.h
+deleted file mode 100644
+index 7ff51b783000..000000000000
+--- a/tools/perf/arch/arm64/include/syscall_table.h
++++ /dev/null
+@@ -1,8 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/bitsperlong.h>
+-
+-#if __BITS_PER_LONG == 64
+-#include <asm/syscalls_64.h>
+-#else
+-#include <asm/syscalls_32.h>
+-#endif
+diff --git a/tools/perf/arch/csky/include/syscall_table.h b/tools/perf/arch/csky/include/syscall_table.h
+deleted file mode 100644
+index 4c942821662d..000000000000
+--- a/tools/perf/arch/csky/include/syscall_table.h
++++ /dev/null
+@@ -1,2 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/syscalls_32.h>
+diff --git a/tools/perf/arch/loongarch/include/syscall_table.h b/tools/perf/arch/loongarch/include/syscall_table.h
+deleted file mode 100644
+index 9d0646d3455c..000000000000
+--- a/tools/perf/arch/loongarch/include/syscall_table.h
++++ /dev/null
+@@ -1,2 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/syscall_table_64.h>
+diff --git a/tools/perf/arch/mips/include/syscall_table.h b/tools/perf/arch/mips/include/syscall_table.h
+deleted file mode 100644
+index b53e31c15805..000000000000
+--- a/tools/perf/arch/mips/include/syscall_table.h
++++ /dev/null
+@@ -1,2 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/syscalls_64.h>
+diff --git a/tools/perf/arch/parisc/include/syscall_table.h b/tools/perf/arch/parisc/include/syscall_table.h
+deleted file mode 100644
+index 7ff51b783000..000000000000
+--- a/tools/perf/arch/parisc/include/syscall_table.h
++++ /dev/null
+@@ -1,8 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/bitsperlong.h>
+-
+-#if __BITS_PER_LONG == 64
+-#include <asm/syscalls_64.h>
+-#else
+-#include <asm/syscalls_32.h>
+-#endif
+diff --git a/tools/perf/arch/powerpc/include/syscall_table.h b/tools/perf/arch/powerpc/include/syscall_table.h
+deleted file mode 100644
+index 7ff51b783000..000000000000
+--- a/tools/perf/arch/powerpc/include/syscall_table.h
++++ /dev/null
+@@ -1,8 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/bitsperlong.h>
+-
+-#if __BITS_PER_LONG == 64
+-#include <asm/syscalls_64.h>
+-#else
+-#include <asm/syscalls_32.h>
+-#endif
+diff --git a/tools/perf/arch/riscv/include/syscall_table.h b/tools/perf/arch/riscv/include/syscall_table.h
+deleted file mode 100644
+index 7ff51b783000..000000000000
+--- a/tools/perf/arch/riscv/include/syscall_table.h
++++ /dev/null
+@@ -1,8 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/bitsperlong.h>
+-
+-#if __BITS_PER_LONG == 64
+-#include <asm/syscalls_64.h>
+-#else
+-#include <asm/syscalls_32.h>
+-#endif
+diff --git a/tools/perf/arch/s390/include/syscall_table.h b/tools/perf/arch/s390/include/syscall_table.h
+deleted file mode 100644
+index b53e31c15805..000000000000
+--- a/tools/perf/arch/s390/include/syscall_table.h
++++ /dev/null
+@@ -1,2 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/syscalls_64.h>
+diff --git a/tools/perf/arch/sh/include/syscall_table.h b/tools/perf/arch/sh/include/syscall_table.h
+deleted file mode 100644
+index 4c942821662d..000000000000
+--- a/tools/perf/arch/sh/include/syscall_table.h
++++ /dev/null
+@@ -1,2 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/syscalls_32.h>
+diff --git a/tools/perf/arch/sparc/include/syscall_table.h b/tools/perf/arch/sparc/include/syscall_table.h
+deleted file mode 100644
+index 7ff51b783000..000000000000
+--- a/tools/perf/arch/sparc/include/syscall_table.h
++++ /dev/null
+@@ -1,8 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/bitsperlong.h>
+-
+-#if __BITS_PER_LONG == 64
+-#include <asm/syscalls_64.h>
+-#else
+-#include <asm/syscalls_32.h>
+-#endif
+diff --git a/tools/perf/arch/x86/include/syscall_table.h b/tools/perf/arch/x86/include/syscall_table.h
+deleted file mode 100644
+index 7ff51b783000..000000000000
+--- a/tools/perf/arch/x86/include/syscall_table.h
++++ /dev/null
+@@ -1,8 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/bitsperlong.h>
+-
+-#if __BITS_PER_LONG == 64
+-#include <asm/syscalls_64.h>
+-#else
+-#include <asm/syscalls_32.h>
+-#endif
+diff --git a/tools/perf/arch/xtensa/include/syscall_table.h b/tools/perf/arch/xtensa/include/syscall_table.h
+deleted file mode 100644
+index 4c942821662d..000000000000
+--- a/tools/perf/arch/xtensa/include/syscall_table.h
++++ /dev/null
+@@ -1,2 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/syscalls_32.h>
+diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
+index 928aca4cd6e9..2f76241494c8 100644
+--- a/tools/perf/util/syscalltbl.c
++++ b/tools/perf/util/syscalltbl.c
+@@ -7,13 +7,19 @@
+ 
+ #include "syscalltbl.h"
+ #include <stdlib.h>
++#include <asm/bitsperlong.h>
+ #include <linux/compiler.h>
+ #include <linux/zalloc.h>
+ 
+ #include <string.h>
+ #include "string2.h"
+ 
+-#include <syscall_table.h>
++#if __BITS_PER_LONG == 64
++  #include <asm/syscalls_64.h>
++#else
++  #include <asm/syscalls_32.h>
++#endif
++
+ const int syscalltbl_native_max_id = SYSCALLTBL_MAX_ID;
+ static const char *const *syscalltbl_native = syscalltbl;
+ 
 -- 
 2.48.1.601.g30ceb7b040-goog
 
