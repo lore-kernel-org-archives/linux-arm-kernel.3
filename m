@@ -4,201 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE73AC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 23:39:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A8ECC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 23:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z52vl5jPkk2Tfe+gbL5W/nChkstvNH2wS+Ipfz/1qKQ=; b=ZcrOxsrMFB+8490SPmdljKBDXk
-	wWfc9XBYEsecwxfnqr5+UT9S2O/2i3nOFARQi9CII5NFA5YLxAXoCITwuP3uCThyEUutA4IlxC+wm
-	kYisg7SnchudYLm1CUTnADsGNP6t5lyTUR8DNFqrzz4jPIKsGDAW+agxTL8BQwYUwB88OyXPqz216
-	Jtzub48HgPMdBJ2M5F22FphOuy4r+TYXh3gtPhtCoDrOUaZrogxmTcD3DR1YrLxfIS7DuNbinWqTY
-	rOQIEvptpPkj8Qb+AjPyKx29eClGvxlUvIorUuUQXei/2rpnT3DzZrh1e7AcZutQ286X8vZcHbMJ/
-	tFakA/Ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AxsI5hx1U00SsNRDv901DQtcJhDoy9q2VCbcg6I8Ypc=; b=DOXHB7GEtr6zteHxPnK4tm6hKP
+	I1Gg9R68NFf58f1QolQEkHzdXyIxp6fUAYZzDCZJmrUuRp/bNX+jDji+4LJWcs+8Ywtkoa7qq74JH
+	5gMbFZXhzyNKQHICCbWSdywVUHww00rNUopntDv91S+itPMG9jC2qrwGCQSJY5/2v0ORrnrEN8XXz
+	M0KV26u58OL+NNjorUszGKSQpS97Q27/HeNX4odLwWxvj0BI0+Q+oh3/ExmB/ybYW4L9Nz9lvyx64
+	lrte/gzI8/oKcuVfAP/xKb01mkp39+hUfAWbxQw+LY5zQm5rByh78DIK19nLdhqi88BtHCtrgIPJN
+	1503r/uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkteb-0000000Fkb6-2csk;
-	Wed, 19 Feb 2025 23:38:57 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tktd6-0000000FkHX-20OX
+	id 1tktsl-0000000FneU-0kn9;
+	Wed, 19 Feb 2025 23:53:35 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tktrG-0000000FnF4-2EAc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 23:37:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740008244; x=1771544244;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=hZNycg+/HRLMviM7mcDWY1t2ES0VbqXdi/ARD0xx374=;
-  b=NdHx77e3198uiF+F1F0Z00wzTHXrlXEZJnd9O+1zUzXL1vGMWFcZfFfB
-   aWZezo8Nioh1EW6B0i14Er9SX8rB2zHTx3Xfa+jjb9eLbxbwGDXA98Rcz
-   ORL2p9joYVgiHhR8WZCdKOqxzv37RtTyk38uai+8b/e4CNQqDvbuwMddt
-   EcHX2KuNUYFqQt11MpwFEPu+q9Lt9eIU/4iHJvvVOXxU7QCS8HnhW7ff5
-   mF5Zmo0gMgVWCUn2bsPmMUe6IpRVvZJWYeyndhWxvRTkdt9gy5TyzePwL
-   P1wOBdpHvi47Qk9ug/lOa/K+KXZ69HUFk4qH8Mj/cwPzVBABucJc3EkBe
-   g==;
-X-CSE-ConnectionGUID: /q6P7v+dT5CUg+EN8vhfgQ==
-X-CSE-MsgGUID: WrLtx95gQdKikeQ2R8GiKw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11350"; a="43598903"
-X-IronPort-AV: E=Sophos;i="6.13,300,1732608000"; 
-   d="scan'208";a="43598903"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 15:37:22 -0800
-X-CSE-ConnectionGUID: n1plrf+IRIuSx0zUbKlGZg==
-X-CSE-MsgGUID: T9CW0IxSS8Krbb4jpHpR8A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="115345019"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 15:37:22 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Wed, 19 Feb 2025 15:37:21 -0800
-Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Wed, 19 Feb 2025 15:37:21 -0800
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com (104.47.58.171)
- by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Wed, 19 Feb 2025 15:37:19 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T2s/IfHBUJS+XyDZbxh5AXqGPe/HdcUezZOqf1JZMwt6lz7zp4Dqfa+G0jvhwEj2Zy+JRbC5H/Kvzzm8WFMz37dlMrOG+Uy7LX/XktleWhc1+oRX1q5uvMl+L6LnoR+WiW20HuOVZyROozkRp9tp2RZd/9S7BQz/qZdVN3pZljfANwBhWT4LLFXWqSRk9Er6QPGOLLQXEOX+c/vg78O1IrBn8rwezkVku0n1CQIljvcp0uJTkmOzC4tufrxqFULzKHQmtp1U1Chj9DbswceVsg9PM04eKafIdbH7SkfWjMyBaBAw9ij1xpuVxnJ2gMsJnbTJstvE1xFM7lbz1tolyQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=z52vl5jPkk2Tfe+gbL5W/nChkstvNH2wS+Ipfz/1qKQ=;
- b=Kd5DzY1EvhO0bo37Xf2DfqRlfNy8oZmrzzZWfxI4NKGatoLj7cX42S2f0OcMPm/957zHtplXA3/LvxJ5B2zY8wvzD413vOmDu9kzdSIklddYXqbEPDEfvs3zzSylrSqCcEQ4eTjtyiN6X0AhzbgsLhXeEhjS9/0HuxTXlnVCAEttvUeFTQu4WcmTW9RjShrZY3EaV8NqHTCRCP2RlMMA5/TcUlkQyc8OqvA2UqfftwJHYu7sXdAkWnt4xz4wUiV6QfhkjcL1MBhjrbJ6PTpm7v+qJuxeI7xvBnJ0ewOlt+2JDCU4O29r22l7N6ix94uXjO9QAQCK21vBZP4IayZ+fQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
- by DS0PR11MB7735.namprd11.prod.outlook.com (2603:10b6:8:dd::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.15; Wed, 19 Feb 2025 23:37:18 +0000
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8]) by CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8%3]) with mapi id 15.20.8445.017; Wed, 19 Feb 2025
- 23:37:17 +0000
-Message-ID: <415f755d-18a6-4c81-a1a7-b75d54a5886a@intel.com>
-Date: Wed, 19 Feb 2025 15:37:16 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 0/2] Fixes for perout configuration in IEP driver
-To: Meghana Malladi <m-malladi@ti.com>, <lokeshvutla@ti.com>,
-	<vigneshr@ti.com>, <javier.carrasco.cruz@gmail.com>, <diogo.ivo@siemens.com>,
-	<horms@kernel.org>, <pabeni@redhat.com>, <kuba@kernel.org>,
-	<edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-References: <20250219062701.995955-1-m-malladi@ti.com>
-Content-Language: en-US
-From: Jacob Keller <jacob.e.keller@intel.com>
-In-Reply-To: <20250219062701.995955-1-m-malladi@ti.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR03CA0303.namprd03.prod.outlook.com
- (2603:10b6:303:dd::8) To CO1PR11MB5089.namprd11.prod.outlook.com
- (2603:10b6:303:9b::16)
+	Wed, 19 Feb 2025 23:52:03 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 01FA32043DEB;
+	Wed, 19 Feb 2025 15:51:59 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 01FA32043DEB
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1740009120;
+	bh=AxsI5hx1U00SsNRDv901DQtcJhDoy9q2VCbcg6I8Ypc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ktnrQxzhg8EhdAYLRHWi59CTjsWdX+RZHt9AeHw4gX2wcmvSMV36JUDiq5apyQzps
+	 6sT7qtZaFzbfDnZh04pSaKBIoNSKDClg0OLz32kbUmBdY/90wSeu82XjEpHj7XUYtG
+	 SvfhXDK92ktiXTtrhL56mLp6jAldejO118ML+HFU=
+Message-ID: <5cd71475-b107-4269-829f-2c492f625aae@linux.microsoft.com>
+Date: Wed, 19 Feb 2025 15:51:59 -0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|DS0PR11MB7735:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5f7c4326-e555-4cfe-7c97-08dd513e58e9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dFZKK3FrNHhoaXJmS2tBdmpnZmJYUHNBa3NsNERmSUFtTnNwekJBNmx3c3FJ?=
- =?utf-8?B?WTNDRnVMMllCV3cvZEx0M2lyL0ZkbndPaS9GbjFQK3ltVDc5YkNaWk9PREF6?=
- =?utf-8?B?MFVLNEZNdUN6ZUw0ekYwRkw3Q2R2Z1gwNlpQWkZGWU5JVVNyeFI3OFFsYzh5?=
- =?utf-8?B?SXE1dUFpR1VNOG1uVHNna0VGWE1IZUZXdmd5OS9kZVRRL3piMDlHZTVXa25t?=
- =?utf-8?B?RitqZ1ArcXJralZlUlVHcDJNTFBSM2xNY0Z1aDBkNGNiTVFvaENhUjdnMmRE?=
- =?utf-8?B?Y280ZHB0eXFOeHpxckNOVkpPMXhnZm9FUDRNdkFyTG1RbEVLdm4rcVNWTkZw?=
- =?utf-8?B?bHd4clVuMUUrN2pheVcvbzlVY1ZLLzFzTFZWTi9IQ0NFa2pGK0lpc3lUOHVv?=
- =?utf-8?B?R2szNVdodWorT1JJM2QvY05DcnprUjBSZkhDZVFVcnhGYnRaaUc4VEE0bENZ?=
- =?utf-8?B?Wm9LaFFoYjZyS050THdFc01DdWpGZ1JtdHBwUlJ1VVhNTGMvN2Y0VGtuQ0Iz?=
- =?utf-8?B?bHVKMFk2Wm1tU3JsRkl3OTU2QUoxV25HS212YzFMZm0veTBRd2lJV2xsSExy?=
- =?utf-8?B?VXRnLzdQRjU3Zk02UU1GQ1dXUW5XSHNROUdDV3JwWnhyeUVjeENuMGFJZndD?=
- =?utf-8?B?a1ptWWV0TzdmSzBlbDZYSS9xQzFhejhJRWpCNWYyL2R0M1JQdHBQQ1FpS0Yr?=
- =?utf-8?B?VXJuOEd5U3ByTlg3RXNndURxNEZxQ25KbXNGek8xQ0xEZTJ1L2k2dStJNDEv?=
- =?utf-8?B?R1M2OFo2bTljRUpxb1hTcURLT1VKRXJTMnQrU1VjRk1Db0dMMUNyV3VlcmVx?=
- =?utf-8?B?cE9mMEMza3k3cFN0d1pGcCthVUFuUVl0WGF4OG5INlpPTVNRV25NcXJrZzlj?=
- =?utf-8?B?VWpOb0dSSzhIOWV0N2phR1FqNGxOY292bDB5U1JuMi93Y0NyQjJUMnJ3Tk9C?=
- =?utf-8?B?ZzNLbndMZ2tIcmdoOXZEQXVwWW5jVFE0OHllbVcwWmt1OTJLcEFVMnd5eDln?=
- =?utf-8?B?cVhKZ2N1ditUb2ZadG9mRS9rak1RZ2RXck90OG0zc0lQU0tqb3ArUk5aVkVw?=
- =?utf-8?B?WnFTQUlncy9sRzZ3T1VjTlhDY3lmcTRYQnd5cEVCN0F6RWVGWStXeVhxR2t0?=
- =?utf-8?B?ckFBYlNsY29IVDZvaldpQWpRTFdRRHkzNFpEeHM1ZE9xVlN5aWxnMXowQkV3?=
- =?utf-8?B?WTBkZWZiYmo1WEkzb21QaUQ1VEhQbjlwcmNCeWxVZFB2NkVZSUptNnhMWGdt?=
- =?utf-8?B?WXFWTXBJZ2pnbzZSQmJRL3JwTzNOdGpod1JmV2I2aDZjVFVKbHRaRmJwdmow?=
- =?utf-8?B?VHF6d2tlR1pEOUN2MXA3aFFWWWN0T3c5b01VNXY4aGc1QnFyQ3VlZWhJUjRw?=
- =?utf-8?B?aHlkTHpuQlljQmd4NzNUM0hHcm9GR2hndkZwUTNkRG5mNlFBMkdkRVd6Y1JL?=
- =?utf-8?B?NzNEU3U1Zk9ORnhVK2RDVlVBUzVSNnhpUU95dm9McEdFRmh3V05pdzFMS241?=
- =?utf-8?B?ZlYxWkt1bkdYOVBiMlpCRDkvdUVOeEp0Y3JUdi85U3I3WldYbXJVdU9Cd0U4?=
- =?utf-8?B?cytzK3pzVit6TXNWcHc4QkFmNi8xcnJhTkxlRWI5TDJqTnQxMXZzbDA3NjdT?=
- =?utf-8?B?dDM3N3FRNC85by8wM0JLMGs2eGZQWDhuN2Zhd04yNDFHblM5aU1sYncrc0hi?=
- =?utf-8?B?RFVFU0lBbXhOd3lDTURZUmFFREJaZVUxWWhjV1NRa2NTbEh3NmtRVjR4VGli?=
- =?utf-8?B?Smwxd01KSlNHTTRqN05tSEd0dVJzNTFrci9kTXBmajNyb01NSmVQMTBRVDIw?=
- =?utf-8?B?RTRwekVhRHQxZEdhNmpxYUxZTlZDWkFsKzJwQ2tabDhZYTRsQTFIR01WSUt0?=
- =?utf-8?B?Q0xRczZ3dEIxRmloNzM2Q1pIWlptU1RxQTBSL0YzMGFVQlNHMzNDUmE2SnlW?=
- =?utf-8?Q?e2QpkYY8Dbo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bi9QVjlxOE8yMUMxQkpNQU1XOHVxTFlaT21xVmRPSXp3VUxCQjdHc2UvbFI1?=
- =?utf-8?B?ZXVsYXp4ZS8xWmVKUjhhMllLcjB1ZDZPZTl5TlhXQkZ5WDBuK3Z0ZHVXa3Jy?=
- =?utf-8?B?S3dvSE9kTXhVR1JvVVdraFBOaFlzREJEckt5bld2aFNoYU5ZN0J4S3VpUHdh?=
- =?utf-8?B?VmRKRkpWdzExeXI5cDFJQ2tQeVI1QVpYNzhvSlpIWWswbEl0Z1N1MjlkV05K?=
- =?utf-8?B?NGVpRGNPeThTS29vd3RURjBvU1o5YjB0SXc2TjhpSFE1MkxORitlR3BQMzI5?=
- =?utf-8?B?TURqVTBGbFJwak9UNUZxRlNOSUM3cWxBOVV6TDFzVlNMSkd4SlZRSVFJb3ZH?=
- =?utf-8?B?b1c3WmdsbmFlbUJNVmxhV3JpWkE5cnQ5Q2FZMFBxM1g4RGVCRmlEdlZtOXds?=
- =?utf-8?B?M1hDdm92eUdxVFFjZ01hZ0hvczByUFV5REovemhvMkNwREdwcmRMcTB5ZmI5?=
- =?utf-8?B?SjNSUW1ORnp0N1VWUXBKWkg1bUJCQ1diT1pwNGF2bWpYS2pGYUZNZVg2b3Qz?=
- =?utf-8?B?cXUrMzdvUy9VbXg3YUVvT0dEZXdwMU05eldPcU8vaFZmY0p5L3hzRVNUaEhD?=
- =?utf-8?B?Z0EwSG5vNFJTTGI0WGhQZTFveHpnV3NzN3N0cTVISHYyVVlyV2xzZ3dqYTN5?=
- =?utf-8?B?LzdNU25WMWprNVpMdHp2NFJjNHRzelpqOGVRc3d0K1MwUmE3THhycGtpTllh?=
- =?utf-8?B?akhoREViVDZKcDh3dE9JeGRlbCtzYzZSR3pabUt0RFUvOVN0SnVzWjFPSUlx?=
- =?utf-8?B?SFZ5dTN2aGNkNTBtUDBHQUsrb1ZET2JXc3k1b0thaHZ3R1JFOUYzcVZxcis3?=
- =?utf-8?B?SHBmQ0xFazREb09DR1JRQ25yZXZ6NmpLOE93cUVIVldqVmd2bXhLdlVQOU4v?=
- =?utf-8?B?bGVSQkNhS2lBN2JFKzV2VGxldWMzWTNXbW14cExBUDlGR0RLZE80cmU1Q0di?=
- =?utf-8?B?d05CaVlDaFA3RnBRUmNhYzJhUDRtZVZjekZUWC9TUFI2Yy9ldEFYYmIyQ09Y?=
- =?utf-8?B?SjRvUlZsbnUzZGJBQS9KdnJDLzVEd2w4Q2dBdjlMcm5LVFd0ejg3NFBzRjhY?=
- =?utf-8?B?UFhiUFB6VmtzOTlodjlabGpJbG50dVRuYTVnWXcvaWZwdFB1YUJocERYMjky?=
- =?utf-8?B?MVFqRWxZeisrOTV1elZScElBRGVXRTVlMkZGQ1doWVNBbFRxQ3FCQTVNUUFz?=
- =?utf-8?B?N0tJd1JuNmF0TG5hbUNMWDkxaDhWQnRjZ0gyUHdnN0tCUWw1dlM1TlkzNFA0?=
- =?utf-8?B?aCtITVZGenlBUXdqTkNoTFZJUGYrWXhIdThqU3dCTytiUGNYRmIzaDl5SlR1?=
- =?utf-8?B?anpGcm9HZ3RBUkR1TGFBa2o3ZzF6Y0xmcktpa000bWxEcHRlWXF5RFVyNFB6?=
- =?utf-8?B?M2FiSGwvcU16eGlyblVjd29ZZ0pEZ0tRdGFnQzduaTVPTGtTcU51OWFtL0lH?=
- =?utf-8?B?R2RpaHNaMlFZOGw5ZFB2cjIva1ZLUjJoWVZNcW9UZWVpTE90djA2RlExZVM0?=
- =?utf-8?B?SWgrTjVlNlo1K09OdUN1dlZoZGZFZllmdUxsc04rK1QyMnhwVDFLaWlEU1lh?=
- =?utf-8?B?amtBNVdVRDlwbVVYLzlhc2pVdDc3RlJKY1lDREwvVkJLaHB5dXU2dG1QQWxp?=
- =?utf-8?B?MXBuN2d3dWtBV1g0VDZvSFJURXVpaVo3M2hhTGdXWW5QUEw5and3YWJrOXRN?=
- =?utf-8?B?MDNtaXRMUG1NaXRUQmUydVRRck0xVnpCV3ZWTVpFWDI4SitCekZaMFlXYnRR?=
- =?utf-8?B?MkZwOTA0bEh1T0hWdUxibGhKT2hHaTk1ZXVPWldPZ0lRUzNPS1E4djRWTmh3?=
- =?utf-8?B?WHQvcS9OdC9NUEZTZnU2azZhV3ozUkx4d2UzUHBkWW14VzZDTnphWEUwSGRW?=
- =?utf-8?B?ODFnZmUrRjlWcS8xc0F0a1BOY05nc055dkhRcjd3aEk2OFZ6cXdZYTc0akZs?=
- =?utf-8?B?cTF4d2tuZzVuWFFidlVMT0JjbE5uNEd1RURxdnNNOEhGSDNoelhaMmNKWnQ1?=
- =?utf-8?B?R1d0eXpVU0hSTXhuTnhoTXBrUHNDUWNoZk0zVGxOL2ZjemE5dHJRUGFFZDFn?=
- =?utf-8?B?ckFOTVd6SGxaZnNYWUYvRVFzZlFwN2E5dGIrbVBIR01RN3VrUWkyY1ZrcWpt?=
- =?utf-8?B?ek0vVUVWWDUxSzN4OFdSaGtyZ0NReWxmakw1a01vWDhnTnpIT0RYM1grTHJx?=
- =?utf-8?B?Vnc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f7c4326-e555-4cfe-7c97-08dd513e58e9
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 23:37:17.8944
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MxAtrxtid2jCIH9a4x0FjzjVsmII7Pv/2ue9WTW/Zrcw0IT2CeaRUlafEvzKXuzIzk0rzRmBESVFpeqNGbWmVQTJh1o+SFQ96PHoVALM/iA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB7735
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next v4 6/6] PCI: hv: Get vPCI MSI IRQ domain from
+ DeviceTree
+To: Bjorn Helgaas <helgaas@kernel.org>, rafael@kernel.org, lenb@kernel.org,
+ linux-acpi@vger.kernel.org
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
+ catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
+ decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+ krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com, lpieralisi@kernel.org,
+ manivannan.sadhasivam@linaro.org, mingo@redhat.com, robh@kernel.org,
+ ssengar@linux.microsoft.com, tglx@linutronix.de, wei.liu@kernel.org,
+ will@kernel.org, devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
+ benhill@microsoft.com, bperkins@microsoft.com, sunilmut@microsoft.com
+References: <20250212174203.GA81135@bhelgaas>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <20250212174203.GA81135@bhelgaas>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_153724_537217_10660A93 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20250219_155202_629531_85C9BBF9 
+X-CRM114-Status: GOOD (  32.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -215,28 +81,223 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2/18/2025 10:26 PM, Meghana Malladi wrote:
-> IEP driver supports both pps and perout signal generation using testptp
-> application. Currently the driver is missing to incorporate the perout
-> signal configuration. This series introduces fixes in the driver to
-> configure perout signal based on the arguments passed by the perout
-> request.
+On 2/12/2025 9:42 AM, Bjorn Helgaas wrote:
+> On Tue, Feb 11, 2025 at 05:43:21PM -0800, Roman Kisel wrote:
+
+[...]
+
+>>   	 */
+>> -	hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
+>> -							  fn, &hv_pci_domain_ops,
+>> -							  chip_data);
+>> +#ifdef CONFIG_ACPI
+>> +	if (!acpi_disabled)
+>> +		hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
+>> +			fn, &hv_pci_domain_ops,
+>> +			chip_data);
+>> +#endif
+>> +#if defined(CONFIG_OF)
+>> +	if (!hv_msi_gic_irq_domain)
+>> +		hv_msi_gic_irq_domain = irq_domain_create_hierarchy(
+>> +			hv_pci_of_irq_domain_parent(), 0, HV_PCI_MSI_SPI_NR,
+>> +			fn, &hv_pci_domain_ops,
+>> +			chip_data);
+>> +#endif
+> 
+> I don't know if acpi_irq_create_hierarchy() is helping or hurting
+> here.  It obscures the fact that the only difference is the first
+> argument to irq_domain_create_hierarchy().  If we could open-code or
+> have a helper to figure out that irq_domain "parent" argument for the
+> ACPI case, then we'd only have one call of
+> irq_domain_create_hierarchy() here and it seems like it might be
+> simpler.
 > 
 
-This could be interpreted as a feature implementation rather than a fix.
+Hey Bjorn, folks,
 
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+I've added few ACPI maintainers and the ACPI list as we're discussing
+making a small change to the ACPI subsystem to make one static variable
+available to make the code above less messy.
 
-> v1: https://lore.kernel.org/all/20250211103527.923849-1-m-malladi@ti.com/
-> 
-> Meghana Malladi (2):
->   net: ti: icss-iep: Fix pwidth configuration for perout signal
->   net: ti: icss-iep: Fix phase offset configuration for perout signal
-> 
->  drivers/net/ethernet/ti/icssg/icss_iep.c | 44 ++++++++++++++++++++++--
->  1 file changed, 41 insertions(+), 3 deletions(-)
-> 
-> 
-> base-commit: 071ed42cff4fcdd89025d966d48eabef59913bf2
+Change [1] makes the GSI dispatcher function available to
+the outside world. Would you suggest going in that direction or there
+is a better approach to converge the code above that deals with IRQ
+domains both in the ACPI and DT cases?
+
+[1]
+
+ From c6fb8bda21d6c00a308b1febc201a3a7e704c5a9 Mon Sep 17 00:00:00 2001
+From: Roman Kisel <romank@linux.microsoft.com>
+Date: Wed, 19 Feb 2025 15:04:06 -0800
+Subject: [PATCH] Refactor the ACPI GIC case
+
+---
+  drivers/acpi/irq.c                  | 14 ++++++-
+  drivers/pci/controller/pci-hyperv.c | 62 +++++++++++++++++------------
+  include/linux/acpi.h                |  5 ++-
+  3 files changed, 52 insertions(+), 29 deletions(-)
+
+diff --git a/drivers/acpi/irq.c b/drivers/acpi/irq.c
+index 1687483ff319..6243db610137 100644
+--- a/drivers/acpi/irq.c
++++ b/drivers/acpi/irq.c
+@@ -12,7 +12,7 @@
+
+  enum acpi_irq_model_id acpi_irq_model;
+
+-static struct fwnode_handle *(*acpi_get_gsi_domain_id)(u32 gsi);
++static acpi_gsi_domain_disp_fn acpi_get_gsi_domain_id;
+  static u32 (*acpi_gsi_to_irq_fallback)(u32 gsi);
+
+  /**
+@@ -307,12 +307,22 @@ EXPORT_SYMBOL_GPL(acpi_irq_get);
+   *	for a given GSI
+   */
+  void __init acpi_set_irq_model(enum acpi_irq_model_id model,
+-			       struct fwnode_handle *(*fn)(u32))
++	acpi_gsi_domain_disp_fn fn)
+  {
+  	acpi_irq_model = model;
+  	acpi_get_gsi_domain_id = fn;
+  }
+
++/**
++ * acpi_get_gsi_dispatcher - Returns dispatcher function that
++ *                           computes the domain fwnode for a
++ *                           given GSI.
++ */
++acpi_gsi_domain_disp_fn acpi_get_gsi_dispatcher(void)
++{
++	return acpi_get_gsi_domain_id;
++}
++
+  /**
+   * acpi_set_gsi_to_irq_fallback - Register a GSI transfer
+   * callback to fallback to arch specified implementation.
+diff --git a/drivers/pci/controller/pci-hyperv.c 
+b/drivers/pci/controller/pci-hyperv.c
+index 24725bea9ef1..59e670e1cb6e 100644
+--- a/drivers/pci/controller/pci-hyperv.c
++++ b/drivers/pci/controller/pci-hyperv.c
+@@ -910,16 +910,29 @@ static struct irq_domain 
+*hv_pci_of_irq_domain_parent(void)
+  		of_node_put(parent);
+  	}
+
+-	/*
+-	 * `domain == NULL` shouldn't happen.
+-	 *
+-	 * If somehow the code does end up in that state, treat this as a 
+configuration
+-	 * issue rather than a hard error, emit a warning, and let the code 
+proceed.
+-	 * The NULL parent domain is an acceptable option for the 
+`irq_domain_create_hierarchy`
+-	 * function called later.
+-	 */
++	return domain;
++}
++
++#endif
++
++#ifdef CONFIG_ACPI
++
++static struct irq_domain *hv_pci_acpi_irq_domain_parent(void)
++{
++	struct irq_domain *domain;
++	acpi_gsi_domain_disp_fn gsi_domain_disp_fn;
++
++	if (acpi_irq_model != ACPI_IRQ_MODEL_GIC)
++		return NULL;
++	gsi_domain_disp_fn = acpi_get_gsi_dispatcher();
++	if (!gsi_domain_disp_fn)
++		return NULL;
++	domain = irq_find_matching_fwnode(gsi_domain_disp_fn(0),
++				     DOMAIN_BUS_ANY);
++
+  	if (!domain)
+-		WARN_ONCE(1, "No interrupt-parent found, check the DeviceTree data.\n");
++		return NULL;
++
+  	return domain;
+  }
+
+@@ -929,6 +942,7 @@ static int hv_pci_irqchip_init(void)
+  {
+  	static struct hv_pci_chip_data *chip_data;
+  	struct fwnode_handle *fn = NULL;
++	struct irq_domain *irq_domain_parent = NULL;
+  	int ret = -ENOMEM;
+
+  	chip_data = kzalloc(sizeof(*chip_data), GFP_KERNEL);
+@@ -944,29 +958,25 @@ static int hv_pci_irqchip_init(void)
+  	 * IRQ domain once enabled, should not be removed since there is no
+  	 * way to ensure that all the corresponding devices are also gone and
+  	 * no interrupts will be generated.
+-	 *
+-	 * In the ACPI case, the parent IRQ domain is supplied by the ACPI
+-	 * subsystem, and it is the default GSI domain pointing to the GIC.
+-	 * Neither is available outside of the ACPI subsystem, cannot avoid
+-	 * the messy ifdef below.
+-	 * There is apparently no such default in the OF subsystem, and
+-	 * `hv_pci_of_irq_domain_parent` finds the parent IRQ domain that
+-	 * points to the GIC as well.
+-	 * None of these two cases reaches for the MSI parent domain.
+  	 */
+  #ifdef CONFIG_ACPI
+  	if (!acpi_disabled)
+-		hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
+-			fn, &hv_pci_domain_ops,
+-			chip_data);
++		irq_domain_parent = hv_pci_acpi_irq_domain_parent();
+  #endif
+  #if defined(CONFIG_OF)
+-	if (!hv_msi_gic_irq_domain)
+-		hv_msi_gic_irq_domain = irq_domain_create_hierarchy(
+-			hv_pci_of_irq_domain_parent(), 0, HV_PCI_MSI_SPI_NR,
+-			fn, &hv_pci_domain_ops,
+-			chip_data);
++	if (!irq_domain_parent)
++		irq_domain_parent = hv_pci_of_irq_domain_parent();
+  #endif
++	if (!irq_domain_parent) {
++		WARN_ONCE(1, "Invalid firmware configuration for VMBus interrupts\n");
++		ret = -EINVAL;
++		goto free_chip;
++	}
++
++	hv_msi_gic_irq_domain = irq_domain_create_hierarchy(
++		irq_domain_parent, 0, HV_PCI_MSI_SPI_NR,
++		fn, &hv_pci_domain_ops,
++		chip_data);
+
+  	if (!hv_msi_gic_irq_domain) {
+  		pr_err("Failed to create Hyper-V arm64 vPCI MSI IRQ domain\n");
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index 6adcd1b92b20..cd70a72c7073 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -336,8 +336,11 @@ int acpi_register_gsi (struct device *dev, u32 gsi, 
+int triggering, int polarity
+  int acpi_gsi_to_irq (u32 gsi, unsigned int *irq);
+  int acpi_isa_irq_to_gsi (unsigned isa_irq, u32 *gsi);
+
++typedef struct fwnode_handle *(*acpi_gsi_domain_disp_fn)(u32);
++
+  void acpi_set_irq_model(enum acpi_irq_model_id model,
+-			struct fwnode_handle *(*)(u32));
++	acpi_gsi_domain_disp_fn fn);
++acpi_gsi_domain_disp_fn acpi_get_gsi_dispatcher(void);
+  void acpi_set_gsi_to_irq_fallback(u32 (*)(u32));
+
+  struct irq_domain *acpi_irq_create_hierarchy(unsigned int flags,
+-- 
+2.43.0
+
+
+
+-- 
+Thank you,
+Roman
 
 
