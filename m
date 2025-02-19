@@ -4,58 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39EEBC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 13:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D9FCC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 13:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZuGFwvRuRE8tROLRYOd98WU9vM1uPTV6mc8tqcLzdZA=; b=cjpJrCDCNVAhpCW/8tDcdBO32n
-	GHnnZHMJZXXZKrVA/MXvq/og0vlY022/4vTZdEPv6BMIom4p3eJxrMhNHbLfSFI8A/WQVUhGE/eKe
-	SZ2hrhQmGQzSZcQXzUbVsdIXs2DMyeD/ItxuV/BwL/GKnmN2MJFOKWIeLawNJr7GZCJkrjHfesfgY
-	J1mORXG9h95Yy0UvayA3rRbkH0IVUbscvqeSvRZEWcUyqmxzZpMtyG8pAG/1Co0schvSjhmeOP6A8
-	wjo6bJRk/VZN4p3+2UJSk0pQBcZ7gkgvWIOl659zsbHqTMtgxD1E9sgczpX5VwtSr8E/a7yhS5eUZ
-	3lhSNBTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Idpx6sjct0DDTZdoqT5ZdFwAJLz5Gc2V5caoYkF+hWM=; b=O97YDm8O+Dz8/TmQiahdWSSwQv
+	BqIxYDdHf6IJDDS2XcLJfi+4LskLO6jxcrQw7lRbCzA/qtifc/+JTtOW3wFndtKuP1L7F7yqakMRI
+	8JElS0PkJ0BQoK0fsc7gGW97jt6VQt2ay9Z/ZJzj6bjvKch3kTVtpwXXaGWGdr7l4XCtIRGTefliH
+	Sn8W2MjofmJ2mt/dszxQwc2QAjKyWW1CA2mNjndgGjQLKEhEaQ6ZaWe6//AKStQPP3IupOXuKJaYq
+	FFHSm4KyqE1QZMi4M7hykyj67FG5wxYAh6wSkGYFoJdFXSfwcMTJfhZKtTyp2zA3Bz4Uj8rnFWcgQ
+	N+/14giA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjxo-0000000CuDr-2JHc;
-	Wed, 19 Feb 2025 13:18:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjwJ-0000000Cts6-2BeY
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 13:16:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAFC51682;
-	Wed, 19 Feb 2025 05:16:35 -0800 (PST)
-Received: from [10.57.36.80] (unknown [10.57.36.80])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 038E53F59E;
-	Wed, 19 Feb 2025 05:16:15 -0800 (PST)
-Message-ID: <a94c0622-ae31-46f1-b51e-a344b86aa47c@arm.com>
-Date: Wed, 19 Feb 2025 13:16:13 +0000
+	id 1tkk0a-0000000Cuvp-2iXa;
+	Wed, 19 Feb 2025 13:21:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkjz6-0000000CuXt-2hCm;
+	Wed, 19 Feb 2025 13:19:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 39EF6A426F9;
+	Wed, 19 Feb 2025 13:17:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26083C4CED1;
+	Wed, 19 Feb 2025 13:19:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1739971166;
+	bh=RcuQPWBAOebggXpc49oXCroXSGfFXw0R3wUoVFgSYw0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TZH/bQk4qL6+2tnUJqqWBkPPTthw5gu9C17UymFAIupjP536vP5/A2uuLTBTsi5EM
+	 G6Cwv45NY3dyN2GbwkOU/ec7M/aKurvYZOZohZZHB3xEdjNwkIGxGcUW3qgOJrXUR0
+	 jXyHDhQTIbUsWIurk+PCF0wp5cC3JQAlgnZOUB20=
+Date: Wed, 19 Feb 2025 14:19:23 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+	Dave Ertman <david.m.ertman@intel.com>,
+	Ira Weiny <ira.weiny@intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Douglas Anderson <dianders@chromium.org>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
+	platform-driver-x86@vger.kernel.org, linux-mips@vger.kernel.org,
+	linux-clk@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH v4 1/8] driver core: auxiliary bus: add device creation
+ helpers
+Message-ID: <2025021937-trodden-snowdrop-99be@gregkh>
+References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
+ <20250218-aux-device-create-helper-v4-1-c3d7dfdea2e6@baylibre.com>
+ <crtrciitrlqkxh5mxvnbdjy6zoxny5onse7xgbw7biozg6myux@grp3ketgl2uh>
+ <2025021922-spongy-swirl-0746@gregkh>
+ <eskvhtljnrkhm6vmqy52gkweexj3tcethejeywcoib4la72jcl@ojuqcazpvht4>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] perf/arm-cmn: don't claim resource during ioremap() for
- CMN700 with ACPI
-To: YinFengwei <fengwei_yin@linux.alibaba.com>
-Cc: will@kernel.org, mark.rutland@arm.com,
- linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, jie.li.linux@linux.alibaba.com,
- renyu.zj@linux.alibaba.com
-References: <20250218012111.30068-1-fengwei_yin@linux.alibaba.com_quarantine>
- <d5040b5c-564d-4abf-be22-d2aa1183b633@arm.com>
- <hfip42i45jkumuvgdthxm2bk6qylqyqh6erzaq43yiqygvn6uu@dcui675lwtkm>
- <73af368a-52a9-4922-876b-7a6e2d32a94e@arm.com>
- <gfgtxwe3fmh4unleypyrp2qxchrqcz7wqzyoy7om2zjqev6ggf@gnnqnmusecc3>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <gfgtxwe3fmh4unleypyrp2qxchrqcz7wqzyoy7om2zjqev6ggf@gnnqnmusecc3>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <eskvhtljnrkhm6vmqy52gkweexj3tcethejeywcoib4la72jcl@ojuqcazpvht4>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_051635_644750_B97FE2AB 
+X-CRM114-CacheID: sfid-20250219_051928_831487_97F18C9B 
 X-CRM114-Status: GOOD (  31.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,121 +110,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-19 1:50 am, YinFengwei wrote:
-> Add Jing Zhang as we will continue discussion in this thread.
+On Wed, Feb 19, 2025 at 02:08:22PM +0200, Dmitry Baryshkov wrote:
+> On Wed, Feb 19, 2025 at 11:13:14AM +0100, Greg Kroah-Hartman wrote:
+> > On Wed, Feb 19, 2025 at 11:06:02AM +0200, Dmitry Baryshkov wrote:
+> > > On Tue, Feb 18, 2025 at 08:29:46PM +0100, Jerome Brunet wrote:
+> > > > Add helper functions to create a device on the auxiliary bus.
+> > > > 
+> > > > This is meant for fairly simple usage of the auxiliary bus, to avoid having
+> > > > the same code repeated in the different drivers.
+> > > > 
+> > > > Suggested-by: Stephen Boyd <sboyd@kernel.org>
+> > > > Cc: Arnd Bergmann <arnd@arndb.de>
+> > > > Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+> > > > ---
+> > > >  drivers/base/auxiliary.c      | 108 ++++++++++++++++++++++++++++++++++++++++++
+> > > >  include/linux/auxiliary_bus.h |  17 +++++++
+> > > >  2 files changed, 125 insertions(+)
+> > > > 
+> > > > diff --git a/drivers/base/auxiliary.c b/drivers/base/auxiliary.c
+> > > > index afa4df4c5a3f371b91d8dd8c4325495d32ad1291..a6d46c2759be81a0739f07528d5959c2a76eb8a8 100644
+> > > > --- a/drivers/base/auxiliary.c
+> > > > +++ b/drivers/base/auxiliary.c
+> > > > @@ -385,6 +385,114 @@ void auxiliary_driver_unregister(struct auxiliary_driver *auxdrv)
+> > > >  }
+> > > >  EXPORT_SYMBOL_GPL(auxiliary_driver_unregister);
+> > > >  
+> > > > +static void auxiliary_device_release(struct device *dev)
+> > > > +{
+> > > > +	struct auxiliary_device *auxdev = to_auxiliary_dev(dev);
+> > > > +
+> > > > +	kfree(auxdev);
+> > > > +}
+> > > > +
+> > > > +/**
+> > > > + * auxiliary_device_create - create a device on the auxiliary bus
+> > > > + * @dev: parent device
+> > > > + * @modname: module name used to create the auxiliary driver name.
+> > > > + * @devname: auxiliary bus device name
+> > > > + * @platform_data: auxiliary bus device platform data
+> > > > + * @id: auxiliary bus device id
+> > > > + *
+> > > > + * Helper to create an auxiliary bus device.
+> > > > + * The device created matches driver 'modname.devname' on the auxiliary bus.
+> > > > + */
+> > > > +struct auxiliary_device *auxiliary_device_create(struct device *dev,
+> > > > +						 const char *modname,
+> > > > +						 const char *devname,
+> > > > +						 void *platform_data,
+> > > > +						 int id)
+> > > > +{
+> > > > +	struct auxiliary_device *auxdev;
+> > > > +	int ret;
+> > > > +
+> > > > +	auxdev = kzalloc(sizeof(*auxdev), GFP_KERNEL);
+> > > > +	if (!auxdev)
+> > > > +		return NULL;
+> > > > +
+> > > > +	auxdev->id = id;
+> > > > +	auxdev->name = devname;
+> > > > +	auxdev->dev.parent = dev;
+> > > > +	auxdev->dev.platform_data = platform_data;
+> > > > +	auxdev->dev.release = auxiliary_device_release;
+> > > > +	device_set_of_node_from_dev(&auxdev->dev, dev);
+> > > > +
+> > > > +	ret = auxiliary_device_init(auxdev);
+> > > > +	if (ret) {
+> > > > +		kfree(auxdev);
+> > > > +		return NULL;
+> > > > +	}
+> > > > +
+> > > > +	ret = __auxiliary_device_add(auxdev, modname);
+> > > > +	if (ret) {
+> > > 
+> > > This loses possible error return values from __auxiliary_device_add().
+> > 
+> > Why does that really matter?
 > 
-> On Tue, Feb 18, 2025 at 12:31:10PM +0800, Robin Murphy wrote:
->> On 2025-02-18 10:58 am, YinFengwei wrote:
->>> On Tue, Feb 18, 2025 at 10:31:42AM +0800, Robin Murphy wrote:
->>>> On 2025-02-18 1:21 am, Yin Fengwei wrote:
->>>>> Currently, arm-cmn PMU driver assumes ACPI claim resource
->>>>> for CMN600 + ACPI. But with CMN700 + ACPI, the device probe
->>>>> failed because of resource claim failes when ioremap() is
->>>>> called:
->>>>> [   10.837300] arm-cmn ARMHC700:00: error -EBUSY: can't request region for resource [mem 0x40000000-0x4fffffff]
->>>>> [   10.847310] arm-cmn ARMHC700:00: probe with driver arm-cmn failed with error -16
->>>>> [   10.854726] arm-cmn ARMHC700:02: error -EBUSY: can't request region for resource [mem 0x40040000000-0x4004fffffff]
->>>>> [   10.865085] arm-cmn ARMHC700:02: probe with driver arm-cmn failed with error -16
->>>>>
->>>>> Let CMN700 + ACPI do same as CMN600 + ACPI to allow CMN700
->>>>> work in ACPI env.
->>>>
->>>> No, the CMN-600 routine is a special case for CMN-600 having two nested
->>>> memory resources of its own. CMN-700 and everything else only have one
->>>> memory resource, so that is not appropriate. What else is claiming the
->>>> region to cause a conflict?
->>> Sorry. Forgot the link for the new proposed fix:
->>> https://lore.kernel.org/all/Z7QYlUP6nfBNMXsv@U-V2QX163P-2032.local/
->>
->> Yes, I saw that. It's a broken diff that won't even compile, with no
->> explanation of what it's supposed to be trying to achieve or why. I'm not
->> sure what you're asking me to comment on.
-> My bad. I will attatch the full patch at the end of this mail.
+> At the very least the caller (or caller of a caller) can call
+> dev_err_probe() or dev_err("%pe"). With the current implementation as
+> everybody maps NULL to -ENOMEM the error message will be cryptic.
 > 
->>
->>> My understanding is that there are two problems here:
->>> 1. ACPI claim the memory range and that's why we see this -EBUSY error
->>>      with correct code path for CMN700 + ACPI table.
->>
->> No, it's fine to claim the exact *same* range that the ACPI companion owns;
->> the identical requests just nest inside each other. I don't have a CMN-700
->> to hand but here's a selection of other drivers doing just that from
->> /proc/iomem on my system:
->>
->> 12600000-12600fff : ARMH0011:00
->>    12600000-12600fff : ARMH0011:00 ARMH0011:00
->> 12610000-12610fff : ARMH0011:01
->>    12610000-12610fff : ARMH0011:01 ARMH0011:01
->> 126b0000-126b0fff : APMC0D0F:00
->>    126b0000-126b0fff : APMC0D0F:00 APMC0D0F:00
->> 126f0000-126f0fff : APMC0D81:00
->>    126f0000-126f0fff : APMC0D81:00 APMC0D81:00
-> I believe this works only for parents/children resource node. Otherwise,
-> there will be conflict.
+> Or just having a cryptic value in the logs.
 
-I don't understand what you mean by that. The point here is that these
-are simple devices with a single memory resource (just like CMN-700),
-where in each case, a driver using devm_{platform_}ioremap_resource()
-(just like arm-cmn) has happily claimed (2nd line) the same resource
-already defined by the ACPI layer (1st line). Admittedly it's a little
-unclear since they both use the same name, but still.
+So all you can get here could be:
+	-ENOMEM - memory couldn't be allocated somewhere
+	-EINVAL - wrong parameters sent to auxiliary_device_init() or __auxiliary_device_add()
+	-EEXIST - duplicate name
 
->>
->> And I know people are using the CMN-700 PMU on other ACPI systems without
->> issue, so there's nothing wrong with the binding or the driver in general.
->>
->> The resource conflict only arises when a request overlaps an existing region
->> inexactly. Either your firmware is describing the CMN incorrectly, or some
->> other driver is claiming conflicting iomem regions for some reason.
-> No. It's not ACPI table problem. The problem is mentioned in comments of
-> function arm_cmn600_acpi_probe():
->          /*
->           * Note that devm_ioremap_resource() is dumb and won't let the platform
->           * device claim cfg when the ACPI companion device has already claimed
->           * root within it. But since they *are* already both claimed in the
->           * appropriate name, we don't really need to do it again here anyway.
->           */
+And if -EEXIST happens, you will get a kernel log splat from sysfs
+showing you that something went wrong.
 
-Sigh... No, this is unique to CMN-600, because only the CMN-600 ACPI
-binding depends on nested resources, such that the resource tree
-starts off looking like this:
+So while I understand the need to be specific here in reporting the
+exact error, I fail to understand how it really matters at all.  A
+driver writer really only wants to know "did it work?" and have a simple
+way to test it.
 
-50000000-5fffffff : ARMHC600:00
-   50d00000-50d03fff : ARMHC600:00
+IS_ERR_OR_NULL() and then getting the error using PTR_ERR() is rough and
+feels like boilerplate code that everyone gets wrong (how many times do
+people accidentally only check for NULL?).
 
-If we wanted to, we can still quite happily claim the root node
-resource:
+Anyway, I'm for simple apis, and NULL or valid pointer seems simple to
+me.
 
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -2410,6 +2410,8 @@ static int arm_cmn600_acpi_probe(struct platform_device *pdev, struct arm_cmn *c
+thanks,
 
-         if (!resource_contains(cfg, root))
-                 swap(cfg, root);
-+
-+       devm_request_mem_region(cmn->dev, root->start, resource_size(root), "arm-cmn!");
-         /*
-          * Note that devm_ioremap_resource() is dumb and won't let the platform
-          * device claim cfg when the ACPI companion device has already claimed
-
-
-...which then nests like so:
-
-50000000-5fffffff : ARMHC600:00
-   50d00000-50d03fff : ARMHC600:00
-     50d00000-50d03fff : arm-cmn!
-
-but what we cannot do is claim the whole 50000000-5fffffff region again
-because that cannot nest within the existing 50d00000-50d03fff region.
-
-> So I suppose for ACPI env, we should use devm_ioremap() as cmn600 does.
-> And make CMN700 handling follow spec exactly.
-
-As I said, the driver already supports the CMN-700 APCI binding
-perfectly well. If your CMN is described correctly then you need to
-answer my question of what *other* driver is claiming conflicting
-resources and why (and if so, also why that should be specific to ACPI).
-
-Thanks,
-Robin.
+greg k-h
 
