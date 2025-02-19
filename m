@@ -4,87 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B92DC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F2F1C021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VTPWbSgjrTLpPmlX3MdNrwi/24I03HDG8gfadoLFfKo=; b=5C3zp1xD8zSEUUBHBiynzRCrLp
-	XnSHtaY7D0H1xlbrLarQS8az+Xz/AOwbRt3THrr49NJLrKyCnWGFtSGyECLLOYzRGyew/LgXGVR3l
-	1I2idukr11k8tqubS/SU724ANjnb8GwgAlrXx/VWcEj/kUsl1gV/mbMuiN6TDA/Avoi0u3aaWVBEF
-	OSx1Jddkx5tiH5FPi5NSbYjra8H+amjcRrsn6Q7Pz6T5ZtjgHNSD0oRRuPTRKIGGKshAlUMLnSw8Y
-	JQT2/syk1dAxAzwc4/ZetKORIfSGZ9GJEq+XU0QXWuCOo2NUtWZ3PGngJvAZRLpvWmhMpFIVcDRhg
-	Nk9etI3Q==;
+	bh=aGfF8AHRk6Nu4HoQ1thEzEAz7nJUi2U8p3oLM4OZYZM=; b=XdadTjq+I+pZvaIyvDW2NNZSoP
+	ihZnzPEd2VXL+a5IZqGnw85/Y9zBzgCZkLwycCTP2pPtx5nefHtrGZfokbjlpO9fyX7QK0EanBv1H
+	ZgjkVuOjOEL2rrhaMHI7KclFh1StLypUGh0PV73lpiVv4qgC+HT1LEkp6TE/7GpKm4bh/i0vJkx9m
+	RStasIcCRJLIqYKZnXiEbgC385TU+qOzWR5YmK2uC7kcfCxpPrGvm9xXoayzdC+YmYe1j4rgIeNjO
+	0OYE9BTbiUC8jOWbM2MUFmFtDylk1xcxMk1UAVDIOSyGBGUN7jS/kknWOhqNtvUAFNGJVjR0pPbH0
+	49KbFJBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkj3K-0000000CcxV-1xCM;
-	Wed, 19 Feb 2025 12:19:46 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1tkjBu-0000000CeuL-2a3z;
+	Wed, 19 Feb 2025 12:28:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkj1p-0000000CcdJ-2gZc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 12:18:14 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-30613802a59so69289491fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 04:18:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739967492; x=1740572292; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VTPWbSgjrTLpPmlX3MdNrwi/24I03HDG8gfadoLFfKo=;
-        b=jkI91kP2E+Npl9D6A0Zpf0Fxk97pEuM+Beeq23R6UmSig9vkgc8cg0veUDiU5fPTMd
-         NYcMteaM9NjwoYQOl3aHnB0JW7M7htQhLA/LvOb1Pyn/KIrnDFr/NmY8smpD6CzwMgYx
-         +H52ptZJRAe/sQDBz5EHjdEMj2BRsH75T+pbA52q7IEuxUgAYHXaoNi9PoYBjXZIowBd
-         KSRBI1y7iwVMgZLZJliCbezPPHX1LmCMq1YFOJ6AQDL4wAmShWNCCZhE/PAzt+RiP/uj
-         OCWtcOh+fkErl7QLXO36pZqAA7XQhH4ibiAIL6ZaUiv6LX2KSD4MKEeMp5gl3iL1INM0
-         PLgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739967492; x=1740572292;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VTPWbSgjrTLpPmlX3MdNrwi/24I03HDG8gfadoLFfKo=;
-        b=XV6rCKSCTTpPB6/C+QWnmwGcGhKmdXQ/wpWBfp0l8WUM5OOCqgOfFk2CyMTUkw0Kto
-         eHo2C3gsEvsiA0i+PvUKQIDbNiIGeE2M2pTUaTes0cXWMPoa3RAyepo+Hf1+cuyZfJNr
-         aKqGA/y9+vNW0atTcOrRpdC7LLIOjdA7e27nmEACbXGuSv2F4Z3GvJapVLOG2VpkIe0N
-         JNIoxTlVIYiaIzl7GRPqDePVCJmgmq4pw7v+IdsocvRF6FZyiR5Fc/e74dEtwMINlahP
-         +VJNOXwo/35+gpNmUiUGioMEKDLON+WnqpO8Dk9W0migLazANQJJKfV7BObPZx928GqD
-         EWGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW3pJn8lqV+cRc7TdWqOUsKGu1bomHWT+7W7FNtqpfQIUyE/0SWz62OYJiBRtgoATKZ+G78xkPJ4mDn1QbyeTyV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLabKfggEodZl5AwaKbYojfVAQtlbWkvO/305TqCCQS3h1D0Eh
-	Oy9Z3b+TOoN5G/8HycvqPpRfwOUwksvXOBG+Nlbq8Rjef4YRIB//nr9MLukViOTXZxWuTyflIYV
-	bOC1WeOIIieNJWuMhbThXT+keY6Y=
-X-Gm-Gg: ASbGncvWdYhGwOOncBQvE20LuT3P6s48HQlMsv7jkHjkiA+orJWmRvObPi6V0k0RyjX
-	L2oquJcxR35IBpRax/ngYqas1uCetMb7S3b40E2kAUbSq8HGyxLe4Le/6R60wT26/9In8HiudUm
-	+HcthycsDk6/eBjUziA0RIY8HLts8=
-X-Google-Smtp-Source: AGHT+IGjNIoen8ULKXTmUUOdA8vnMJhMrh0uHRpn94zwbfBEqhRrLoruJpWGVHqyNRMVU7htjBuXJmu/uj1ajZZO9rM=
-X-Received: by 2002:a05:6512:3d28:b0:545:2eca:856 with SMTP id
- 2adb3069b0e04-5462eed85c8mr1170113e87.9.1739967491394; Wed, 19 Feb 2025
- 04:18:11 -0800 (PST)
+	id 1tkjAP-0000000Ceah-2bYd;
+	Wed, 19 Feb 2025 12:27:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B80275C5847;
+	Wed, 19 Feb 2025 12:26:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1710C4CEDD;
+	Wed, 19 Feb 2025 12:27:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739968024;
+	bh=TYCGDez3pcD8qU831Qfzul3cfHRwJuc0keDc4AylRkA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=c7WikjaoQrpPnZisY5dzS6ElGXsulTd73ELB01ocwIP46YkIrQ1qllb1M+HoJRnbG
+	 LVzosMkhk90u7LfcUnt9IZeFfq48G8Pj/G0HFlC8xP6pTkaAfOGbjj6KxRCfj65PTj
+	 0i340AQbKXsRmqkQVoyaLMKKhayNwV2Wjk4X/D9rYvn8g8Gr8LDyHnIzEpKoovkzUe
+	 P5EQrxS+mBoIhSq5yEzfKvBE0GW4KiubEfscgwCEt7aTE3WXSWW70mTYN8BbChl8EE
+	 6T/xIoMzokT57kZPHRlQTg/klRLyjMsZfG/rHIDGtZGbwXX8Y4zQ5pB9hG7x0ZIigc
+	 EflQXecNz4jSw==
+Message-ID: <5cd11aac-52ea-4440-8a07-9b5b2fd8216b@kernel.org>
+Date: Wed, 19 Feb 2025 13:26:58 +0100
 MIME-Version: 1.0
-References: <20250219114936.3546530-1-lukma@denx.de> <56e56623-9cef-48b9-8a57-ef7840f0a8f3@kernel.org>
-In-Reply-To: <56e56623-9cef-48b9-8a57-ef7840f0a8f3@kernel.org>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Wed, 19 Feb 2025 09:18:00 -0300
-X-Gm-Features: AWEUYZl9H3BRYlwGymanzXLFA6lr62seClEuWhg-mC8ltYhyVYgZA4_v-XW8gpM
-Message-ID: <CAOMZO5Cf3JpKBjQXdjWNeSgOCOLmcNuSvQpR_ewiFtH-p3KwfQ@mail.gmail.com>
-Subject: Re: [PATCH] arm: clk: Add ETH switch clock description for vf610 SoC
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Lukasz Majewski <lukma@denx.de>, Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 1/3] net: phy: mediatek: Add 2.5Gphy firmware
+ dt-bindings and dts node
+To: Sky Huang <SkyLake.Huang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Daniel Golle <daniel@makrotopia.org>,
+ Qingfang Deng <dqfext@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Cc: Steven Liu <Steven.Liu@mediatek.com>
+References: <20250219083910.2255981-1-SkyLake.Huang@mediatek.com>
+ <20250219083910.2255981-2-SkyLake.Huang@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250219083910.2255981-2-SkyLake.Huang@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_041813_675740_5E1AE39E 
-X-CRM114-Status: GOOD (  13.26  )
+X-CRM114-CacheID: sfid-20250219_042705_778775_D923032E 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,55 +125,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lukasz,
+On 19/02/2025 09:39, Sky Huang wrote:
+> From: Sky Huang <skylake.huang@mediatek.com>
+> 
+> Add 2.5Gphy firmware dt-bindings and dts node since mtk-2p5ge
+> driver requires firmware to run. Also, update MAINTAINERS for
+> MediaTek's built-in 2.5Gphy dt-bindings and change MAINTAINER's name.
+> 
+> Signed-off-by: Sky Huang <skylake.huang@mediatek.com>
 
-On Wed, Feb 19, 2025 at 9:06=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
+Please use subject prefixes matching the subsystem. You can get them for
+example with `git log --oneline -- DIRECTORY_OR_FILE` on the directory
+your patch is touching. For bindings, the preferred subjects are
+explained here:
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
 
-> This defiine should not change. If you need to change it, means it is
-> not an ABI. Just like for other cases, I suggest to drop the define in
-> preparatory patch.
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
-You can follow the same approach that was done for i.MX93.
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
 
-Please check the two commits below:
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
 
-commit c0813ce2e5b0d1174782aff30d366509377abc7b
-Author: Pengfei Li <pengfei.li_1@nxp.com>
-Date:   Wed Oct 23 11:46:48 2024 -0700
-
-    dt-bindings: clock: imx93: Drop IMX93_CLK_END macro definition
-
-    IMX93_CLK_END should be dropped as it is not part of the ABI.
-
-    Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
-    Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-    Acked-by: Peng Fan <peng.fan@nxp.com>
-    Acked-by: Conor Dooley <conor.dooley@microchip.com>
-    Link: https://lore.kernel.org/r/20241023184651.381265-3-pengfei.li_1@nx=
-p.com
-    Signed-off-by: Abel Vesa <abel.vesa@linaro.org>
+Please kindly resend and include all necessary To/Cc entries.
+</form letter>
 
 
-commit 0af18ba60752e8a4ba34404c1d9a4a799da690f5
-Author: Pengfei Li <pengfei.li_1@nxp.com>
-Date:   Wed Oct 23 11:46:47 2024 -0700
+> ---
+>  .../bindings/net/mediatek,2p5gphy-fw.yaml     | 37 +++++++++++++++++++
+>  MAINTAINERS                                   |  3 +-
+>  2 files changed, 39 insertions(+), 1 deletion(-)
+>  create mode 100644 Documentation/devicetree/bindings/net/mediatek,2p5gphy-fw.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/net/mediatek,2p5gphy-fw.yaml b/Documentation/devicetree/bindings/net/mediatek,2p5gphy-fw.yaml
+> new file mode 100644
+> index 000000000000..56ebe88b8921
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/mediatek,2p5gphy-fw.yaml
+> @@ -0,0 +1,37 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/mediatek,2p5gphy-fw.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek Built-in 2.5G Ethernet PHY
+> +
+> +maintainers:
+> +  - Sky Huang <SkyLake.Huang@mediatek.com>
+> +
+> +description: |
+> +  MediaTek Built-in 2.5G Ethernet PHY needs to load firmware so it can
+> +  run correctly.
+> +
+> +properties:
+> +  compatible:
+> +    const: "mediatek,2p5gphy-fw"
 
-    clk: imx93: Move IMX93_CLK_END macro to clk driver
 
-    IMX93_CLK_END was previously defined in imx93-clock.h to indicate
-    the number of clocks. However, it is not part of the ABI. For starters
-    it does no really appear in DTS. But what's more important - new clocks
-    are described later, which contradicts this define in binding header.
-    So move this macro to clock driver.
+Not tested.
 
-    Signed-off-by: Pengfei Li <pengfei.li_1@nxp.com>
-    Reviewed-by: Abel Vesa <abel.vesa@linaro.org>
-    Link: https://lore.kernel.org/r/20241023184651.381265-2-pengfei.li_1@nx=
-p.com
-    Signed-off-by: Abel Vesa <abel.vesa@linaro.org>
+I have doubts that's a real device... Model name looks exactly like 2.5G
+phy. "FW" suggests you do it for driver.
 
-Also, the Subject should not contain 'arm'. You could use:
+Read writing and submitting bindings documents.
 
-clk: vf610: Add support for the Ethernet switch clock
+Best regards,
+Krzysztof
 
