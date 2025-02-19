@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 323CBC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C622C021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XNzXBsdWjpLDVsAJfw/fASRvRFeX+ndkn8tRpPOZpL4=; b=o5Y2AfnIZU5+HTnrUwek8XEaZL
-	mBC92RO+H+bAd+xQ3uVUX8zGCrLMp+mXMKWr/vc0VGUPJXuN2jEs2mogFZs45wWbkICebBlQNCcja
-	PSDBNuCXif08WEHuczlwTZcNSlg9WnLke8/C8i81PVrxCmbBsisnj0zcI3eivs5+FNKBEQ+blgPbj
-	qbdA6zuwTOdz1vodXHEfzcUdfpe+gqG47EPehsQhOzp6spZu1iX+bUR9FUBXMyXiDBcdaVY+RY+5A
-	Roqg7A7ayHSpQsZj3/lCuNjdOMk8ubPvOkWYsRjudYUAzD9we7m1k0TL1bjct8xZLBRxBSrNPpYvF
-	omOogp3w==;
+	bh=B9YlWf0udibHi5PYSeWM2mVi7/K2aWeL2dI07eP9SBw=; b=Z2uhiCLBO/oYg4XT9yAOxEy5zr
+	i2dRTEsp1g+UwbqtwdgX+s5TnBlquluzNorwEmVyDi9izsalcvjrPomszAvmSomUFRCUkHzFB5NRr
+	gfOYXWnkyCpnkLdLI7oPoDse/pzvnaATzrTcph788fP7iGP7lKtMdeh2dbnsQa6nUXCayGwU+ArcZ
+	s0Vp7Lj0pPmVUM7Ns+bnj9JkOrr3JYaFtdBDIjaLNJ8n0UEQsWTypgGusBCmIOhnHgGwTWlJdnPna
+	DkpPtO0YLati8MrFRv/ZfF4nmu2RjeOVl+lez7qBjmGxs9J4XK46UC6ZVrC3owwsvBFxGR9HRKIi8
+	pbgDyv4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjKd-0000000Ci4l-37Ub;
-	Wed, 19 Feb 2025 12:37:39 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1tkjM5-0000000CiVw-1fiY;
+	Wed, 19 Feb 2025 12:39:09 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjEK-0000000CftO-24MI
+	id 1tkjEd-0000000Cg0x-3Cek
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 12:31:09 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54626a71b40so2570552e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 04:31:08 -0800 (PST)
+	Wed, 19 Feb 2025 12:31:28 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5462ea9691cso1111584e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 04:31:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739968266; x=1740573066; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739968286; x=1740573086; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XNzXBsdWjpLDVsAJfw/fASRvRFeX+ndkn8tRpPOZpL4=;
-        b=IQxGpoogsTc64J9My3CR2FpcvduivZXn7PSvWdw+uQFB3kioBzfRFV3dVRSSe8Dd4x
-         1aAQFP1pCjE0C2EVcMQF4udv4hRLruBDFRypQURxZ0N5aoY1GU/gc7ToeAIgpRg/panI
-         VZeD0shciMYp0c/bm/S0sOq984Sb/ifRJkbVI2jaWZQOZPIg60adKpASyCQizeSVDXL+
-         RMsXhPX0eP1Spz1Jv2Bgr1VU3ibo34KIY3RE3p5wdnl99MP8UTmTvgplHnQo37DYLNT4
-         cBDdvtDSW0LdLu+rWPKwZZ24buWw+vfhqAeUAoDDeNYpMPL66Ca+s9lNw+mCiWpC8Wod
-         Md7A==
+        bh=B9YlWf0udibHi5PYSeWM2mVi7/K2aWeL2dI07eP9SBw=;
+        b=UT1EkYgh1TUHpT0VQFQPx9gbbhPuG+YttfWfR+d42HQIKOOntBgZZz6mDOEuRwFzKO
+         4yX7ee5jpOVVCCwSsylM9P0d1/ycF28D/C/dCzxJdHJVuIy+1ClczyDZaUf5eLWnI0yW
+         HqMPekAFYqkGIoYObj+4HD4o4AtX1OlUqJoTu+b8ErLcKRweC9OaoxEnhcWGj7SPBMJa
+         y3Bw19DmKN2jsh7FNZW6TlJGB8qUflyw8WNAAleGbA3dypfToMEmCM+L0SErTaoYZA/x
+         riCVSIQChUIM0aLTkL7dlKKd14QyLgLq+AiAavSutYQpd/dlxT6OQ4eUCVT8Yu1uPMAj
+         pdEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739968266; x=1740573066;
+        d=1e100.net; s=20230601; t=1739968286; x=1740573086;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XNzXBsdWjpLDVsAJfw/fASRvRFeX+ndkn8tRpPOZpL4=;
-        b=Dr3ufBLDj+SGpJgxm93xG5iFr3kwG3LatkN9MQBHXh4cqo1Uh8NOYFQk8lVVYUaI7G
-         HpLA5ZEntTsECBsh6ivZN2qxpyGnPKh9CplGYYy2LjL8tQ907ZmN5nizuohJkyHVZb+8
-         V0J0UyOGm9Dx+deINlaU3Zm8FjkPqiG9bBAPVskmKhigYxlgo+SZM9DhPjlAIwknAAxl
-         NwlmXqfIlyI/J/YxfAbMOaKkvcG3MkoP1N5zjzF1llMIcjF0gzAtXHMpPS44H2KZPOEs
-         BS1bGbMBOT/EJIjS2H9QNHxdwRcbCgcDL/uSa3GPYY9sM/bgkZDPsPQ5aZQ8ST48e2fG
-         NEXg==
-X-Forwarded-Encrypted: i=1; AJvYcCU0rmEQhj+hQMiV1wqLbd5WdB76QQEghjBoegfDMMe//z0N4fPt4Rb0InDLpJlbo/S0BxOU2AHAVlsacR2HYhDC@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKBH3U5861ixfmMVKE9OKci0sE84jJepPH6o7X8FH3HIdhLJSK
-	PKS5vjzVgCvTFjSL4kpaSxGrRm9FpRAeUE750K+Lf8dlZciy/kYE
-X-Gm-Gg: ASbGncvBuvYHrYIiv3+x0V/3G45v86FnBkiqiN9b+eHZemvHAmd76wCa1jbMbpKJJzC
-	BCEOp3YMNGxRtlWEo8tgwiwdIq+VcOhP+H+OFn9D3qDL6mBpNNHXGi1kLIbC2FBb+PPoYtKoZyU
-	OI5kQEXdl/xyrYgIwfLkpqVx0DZwrYCagFNbpjPiastrAKW16XYsST2h8TSnH+gKEFiaiWbXJ8G
-	jhDHYx3HHWOGMDPWxErzVjheZFZV/zE61L6Fdff6nU5rqYwyHSaMTHqlGjdGjMFSfthF2pnKh3D
-	Gr6ASRlWX9K3zViCWU/3IQ==
-X-Google-Smtp-Source: AGHT+IGbVYVIJzf3Ky5RtSpHDBC96A6gAGmLe92KwdhKJGUa87dA9Nei6u7W+ae65z5/SkdH7rRhrA==
-X-Received: by 2002:a05:6512:114e:b0:545:b9a:b4b4 with SMTP id 2adb3069b0e04-5452fe8fd01mr6567349e87.52.1739968266349;
-        Wed, 19 Feb 2025 04:31:06 -0800 (PST)
+        bh=B9YlWf0udibHi5PYSeWM2mVi7/K2aWeL2dI07eP9SBw=;
+        b=kcd68sqGXyc6NR5J/vFCmBKbXVvM4CYJ7Gn5xkOxScTdh7vhLFKysccw0uq+4ufHX2
+         qnh6320v1aLZd2eeVpZHvY5z4rec50LnVUkcY4XNcWoERmmMoOwP3/3MvqCx4TQba1jK
+         OlDRSjj8XNGxEM/nWVZ7b7R/PqeRiAzf1rSSFyW/PaBXn8LN6+gf7hgVekdd5xPh2nz7
+         wB3kckvoS5/2R6x5hRdL4e7vYPy44vIeXN2RV4WM05nZ41MAxgCbvafcWZqAymP1ssib
+         LQp/QHcadjhcabL5niArJPf2M/GCqPmnPQUnInF8esZUlHDi4ONBkZy6HNVEjNBsAij8
+         4Bdw==
+X-Forwarded-Encrypted: i=1; AJvYcCV8+fblI73FGad5+P0BaAd0uzq1saKEIGnrad10D7lMwKpZohL1/1Jr3lY9S6J9BYW9mBJTWpDogCDGamuOw5zw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIFrDf/GtOj4aOrI9LyvodRKvFmane5J3/iaEBLf+3oeSIA2Mf
+	MJ4L4/NHBlaN1vOcFX2uhOdlim8CyTcNs5LYtYT8BeG6fW7FrRAs
+X-Gm-Gg: ASbGnctAzGtQY2ZSc3nCyCDc/J2txZDcN4fdVN3qvUgHZeaOn6/aJXKfSHTMrMDBLGU
+	O9JzZ5q4LS39KVl/Vogl5ALJzwl6AWgDUZ8nGlup7SFU8KNBt/jAR5tPPGvYcfbOIG42qWxcdbz
+	38W/qYpHgiRLoDWqTWTBoyZVrq9QM9tPWRuvk5OqPMmzNOgnvN/qabd8gwPRmxtG/+fYyj1NmSu
+	0OSefIpbyQMuyza21vu38vbncAZLirOk83iTeXZhP/XH5flQq7vo/D5r9a7sUqDihhVO70SHubq
+	B9GzhtYULGgkCQ/K2Fykww==
+X-Google-Smtp-Source: AGHT+IECGLbBg8/Gfg56YN71xZxnO3b9XbM0HqSAvG6g7x6DJxq2h38ifv+YIKS+tWOSHyQD921kRg==
+X-Received: by 2002:a05:6512:131a:b0:545:cc2:accd with SMTP id 2adb3069b0e04-5462eee4789mr1463016e87.20.1739968285827;
+        Wed, 19 Feb 2025 04:31:25 -0800 (PST)
 Received: from mva-rohm ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5461cfe3a7fsm1193290e87.34.2025.02.19.04.31.01
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5451f08332bsm2121536e87.48.2025.02.19.04.31.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2025 04:31:03 -0800 (PST)
-Date: Wed, 19 Feb 2025 14:30:58 +0200
+        Wed, 19 Feb 2025 04:31:24 -0800 (PST)
+Date: Wed, 19 Feb 2025 14:31:20 +0200
 From: Matti Vaittinen <mazziesaccount@gmail.com>
 To: Matti Vaittinen <mazziesaccount@gmail.com>,
 	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
@@ -87,17 +87,17 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: [PATCH v3 4/9] MAINTAINERS: Add IIO ADC helpers
-Message-ID: <65fa17207c7c716d66efb95733e6a37512465605.1739967040.git.mazziesaccount@gmail.com>
+Subject: [PATCH v3 5/9] MAINTAINERS: Add ROHM BD79124 ADC/GPO
+Message-ID: <33dd64a9f43ded7809e9d96de81c975cf9d68a5c.1739967040.git.mazziesaccount@gmail.com>
 References: <cover.1739967040.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="x07A89EJB3DmszZV"
+	protocol="application/pgp-signature"; boundary="cgogUbgcoimvAkuI"
 Content-Disposition: inline
 In-Reply-To: <cover.1739967040.git.mazziesaccount@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_043108_534218_0208CAEE 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20250219_043127_834953_DBDB1F0E 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,58 +113,56 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---x07A89EJB3DmszZV
+--cgogUbgcoimvAkuI
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Add undersigned as a maintainer for the IIO ADC helpers.
+Add undersigned as a maintainer for the ROHM BD79124 ADC/GPO driver.
 
 Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
 ---
 Revision history:
 RFC v1 =3D> v2:
- - New patch
+ - Drop MFD and pinmux drivers
 ---
- MAINTAINERS | 7 +++++++
- 1 file changed, 7 insertions(+)
+ MAINTAINERS | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/MAINTAINERS b/MAINTAINERS
-index a87ddad78e26..bfe2f53fa74d 100644
+index bfe2f53fa74d..2021327e665e 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -11099,6 +11099,13 @@ L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	drivers/media/rc/iguanair.c
+@@ -20299,6 +20299,11 @@ S:	Supported
+ F:	drivers/power/supply/bd99954-charger.c
+ F:	drivers/power/supply/bd99954-charger.h
 =20
-+IIO ADC HELPERS
++ROHM BD79124 ADC / GPO IC
 +M:	Matti Vaittinen <mazziesaccount@gmail.com>
-+L:	linux-iio@vger.kernel.org
-+S:	Maintained
-+F:	drivers/iio/adc/industrialio-adc.c
-+F:	include/linux/iio/adc-helpers.h
++S:	Supported
++F:	drivers/iio/adc/rohm-bd79124.c
 +
- IIO BACKEND FRAMEWORK
- M:	Nuno Sa <nuno.sa@analog.com>
- R:	Olivier Moysan <olivier.moysan@foss.st.com>
+ ROHM BH1745 COLOUR SENSOR
+ M:	Mudit Sharma <muditsharma.info@gmail.com>
+ L:	linux-iio@vger.kernel.org
 --=20
 2.48.1
 
 
---x07A89EJB3DmszZV
+--cgogUbgcoimvAkuI
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAme1zwIACgkQeFA3/03a
-ocU7HwgA0cGcPRNsovTvGC4vVEpqkMwltUbKNh1IXuvWu9i//o8vPhyV16w0TJ1q
-qXjZOjCBIzR/Gh0OORKYMUYpGOlunAk49/h1mv5EeKEbg9H5buLgthjE7aBj1O48
-fhz+HOVKIUJY9y7IkFjtVLqR6pHJfAjpqZ8HuubNkEKHegztdPvE8VjhB/4HDrxO
-GAgNaEuUevO9/7tBnDLyr1qpo6PkVkIZqAziP0ApIdf7l8hlmabuc4XYpvu4U6xZ
-pOpexx7LK7PCUUoaTXZX2sWrIxoEEQiM75Q5PPZvPvzftLgrCeDWy0u3syV9AO/J
-p3ZuHFMAMr3oTFvth9KbobVJNmSfPA==
-=TOaW
+iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAme1zxgACgkQeFA3/03a
+ocULuAgAjZavIzHTPjKXGVeBG0YHgO77wmABK9DsiC/qVjVCqjKymrPlKSOoz6De
+5KuSLf6blVfl4g3VNLi+25yKc4rOctFr5iyTV5pWFzIhidkV55fw3PMIYnYL/foR
++iRaRpl8okONUYuxsiSQLZe2IRTrforggRQXW5JGu+PLTzlEgcZ4Gw5t1bDijmFC
+3jNohUynNb8Iw/5w2Hnj0mqL+Z18jb1hZoJF9M2Ns/mPwQonGf0yi6Q+4kNzp86y
+YE4yqyf/e+fzMC7Q7hUzGvRonL2iulD5a5D7XR630YImkpeMwLEM0DZGqYAO7qTT
+252ljGVsQsIiefcFr0UagxfopFPVuQ==
+=V7e1
 -----END PGP SIGNATURE-----
 
---x07A89EJB3DmszZV--
+--cgogUbgcoimvAkuI--
 
