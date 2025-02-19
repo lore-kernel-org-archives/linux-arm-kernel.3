@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA93C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 21:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C73C2C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 21:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LHhXaOeuNaFoWFuNEhQPNBF8XEbb0PcRZxEeLQG1tT8=; b=U1b2MG8m9KSG03r9UsxjWjuNFx
-	LLIEMEOuOkbNIGpVrLCDJdOqTOxbNQdLsKTSpKtoAZ0Lh7VEU7eEDT3lLv900Gz4Cqt42A9zNz0XX
-	WeL2lIPMRT5kmuAD0rz9bPYPMiJt/XVP1Bf3U9N9CJmbrE0JKIEVmDmx73wvBc37vw/iu+sV7Bq1Y
-	3jq+s+CiuGrXe6j8qskgdzq0eXTcq7fSjIMS+OJEp9duc7egafjsz8zDlqjMATTE45iddGlrcMiev
-	jUZXq4V3hSPyTxt+AtEdAFJaX18gyQtB72Dr1wyEUJGzJUwSCqBTxc9F3Vmvg6kfFS/7wEczjsQ90
-	ivyeeaaA==;
+	bh=cJbX6Z7uQIorWyI39nmVld0ANFB2kx/i9TjyVVVqz3Y=; b=ek69CrjrKqayPxRo40i2ZuTzbd
+	40fViziIdQuHUzpD2UxtgDzU7d1repV2tyJNuWShIjftB4Mur7IsMmUs6aEoR6NStPWgYA5zH3Ste
+	BR9aO33CROgeVNufogEPF0rs8YkG7vRTynEKxOS7ShhnvR+idDr6QK2ylnYbKuvXidT7VuTN77sv2
+	u+9d5r35ZvD8e73v19ih3XDeyr6E9wLR33hpvnLJQozANU+L0+mlffqiDOgINIYIBdkSKVW3qAx7i
+	JHSLtwzRjRRXnKksLriApL2CESFr5je1RuEAt53ZghHEGyybKqnqjLQ3DeunSFZHkz4xPxNSs1+ju
+	NATvbynA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkrXG-0000000FAkv-1R1m;
-	Wed, 19 Feb 2025 21:23:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tkrYh-0000000FB4M-42Zm;
+	Wed, 19 Feb 2025 21:24:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkrLA-0000000F6WN-41Xo
+	id 1tkrLW-0000000F6fy-3Fas
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 21:10:46 +0000
+	Wed, 19 Feb 2025 21:11:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C321E611B4;
-	Wed, 19 Feb 2025 21:10:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE431C4CED1;
-	Wed, 19 Feb 2025 21:10:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AA6BA611BA;
+	Wed, 19 Feb 2025 21:11:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A187EC4CED1;
+	Wed, 19 Feb 2025 21:11:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739999444;
-	bh=Bl/XmhLLo3M0VopZhsvdhY/jPR1HVnDC4/gumowxn+A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=qx+cJgnQ0cx4K5BelrN75HVBn65UwNhUNcdYgrDYnAPs103pLXQx1kLB4tZ4TtUr3
-	 7B8eEDnsnFHdDqmwVD/SJWd9ACERZlI9Sd8Vig8Ykbyr1ANVzaWHc/S0xC4a8OnD5N
-	 4xFwBtmfdujf6wcpWdWADPKceqds5CL9zbr6HHecUW9LEcrKwnuS/qcWhyDichDHdH
-	 o4TKMzD1RXKHZCcTo69aVq8FAVFRaVUz1wVkjOozl2wlqXK+nbn7WxvaVez8fs95sq
-	 iIoRb5jP+pLQ3muycu1pYx6tj6CVcz/IU2bkNRTCuzACA6Zvw54DZDKEOZOBFznBxG
-	 q3ILsfiA/1O+A==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tkrL7-005yDS-Os;
-	Wed, 19 Feb 2025 21:10:41 +0000
-Date: Wed, 19 Feb 2025 21:10:41 +0000
-Message-ID: <86y0y1r67i.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: kvmarm@lists.linux.dev,
+	s=k20201202; t=1739999465;
+	bh=Pmh6rAEMacy/e/5HPBume8GH8tnPNRsNtj0pphZEwDw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gmfpLdYYq+id4TUJRlfAgvMSVQ8iHCPMw99Cf5DU8MidCN+n7n9TAtAIgydd1rx1w
+	 NauNcXWJZDsfAzQYlK7jVE4rJBpVtpHUrjoStYUqsdpgcwUSxRS/RKCkLJ+3Eb+oio
+	 gsI8WSLOadOSdKdJT54ylvhyfhZhss7t/knHDqkk0FJR8/nCDBz8o8kly3WDn6zpl1
+	 sMif8Yktg2FuQC3CMnq01dCDq61uqKEr7GV1s8DUyiLx2HvJR3U3gI+QSuUcX5/lZk
+	 YVqRwBUZ9JN0WXrhFQp79VmlPfKWN2yK/3RgiXpkeOdDXhFfcIQNSzCq2LroCrHa4F
+	 npkObABfEoxlA==
+Date: Wed, 19 Feb 2025 15:11:04 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	"Guoniu.zhou" <guoniu.zhou@nxp.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Robert Chiras <robert.chiras@nxp.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Purism Kernel Team <kernel@puri.sm>, linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH 1/2] KVM: arm64: Fix MDCR_EL2.HPMN reset value
-In-Reply-To: <Z7YrLMz49_f14MRs@linux.dev>
-References: <20250217112412.3963324-1-maz@kernel.org>
-	<20250217112412.3963324-2-maz@kernel.org>
-	<Z7OFvp7LMcOvWziA@linux.dev>
-	<86a5airpyy.wl-maz@kernel.org>
-	<Z7YrLMz49_f14MRs@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Martin Kepplinger <martink@posteo.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: Re: [PATCH v3 03/12] media: dt-bindings: Add binding doc for
+ i.MX8QXP and i.MX8QM ISI
+Message-ID: <173999946401.2961008.13720471519384232924.robh@kernel.org>
+References: <20250210-8qxp_camera-v3-0-324f5105accc@nxp.com>
+ <20250210-8qxp_camera-v3-3-324f5105accc@nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250210-8qxp_camera-v3-3-324f5105accc@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_131045_114272_B78E3941 
-X-CRM114-Status: GOOD (  33.40  )
+X-CRM114-CacheID: sfid-20250219_131106_881122_BA964181 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,62 +88,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Feb 2025 19:04:12 +0000,
-Oliver Upton <oliver.upton@linux.dev> wrote:
+
+On Mon, 10 Feb 2025 15:59:22 -0500, Frank Li wrote:
+> Add binding documentation for i.MX8QXP and i.MX8QM ISI. The clock-names,
+> power-domains, and ports differ significantly from the existing
+> nxp,imx8-isi.yaml. Create a new file to avoid complex if-else branches.
 > 
-> On Wed, Feb 19, 2025 at 02:03:49PM +0000, Marc Zyngier wrote:
-> > On Mon, 17 Feb 2025 18:53:50 +0000, Oliver Upton <oliver.upton@linux.dev> wrote:
-> > > What do you think about adding a new vCPU attribute for selecting the
-> > > number of counters for a VM? We can allow non-nested VMs to use the
-> > > 'old' method of writing PMCR_EL0.N and force nested VMs to use the
-> > > attribute.
-> > 
-> > VCPU attribute? or PMU attribute? I'm really not keen on the former,
-> > but the latter is probably workable, as it is VM-wide, similar to the
-> > way we keep track of pmcr_n.
+> Add new file to MAINTAINERS.
 > 
-> Well the _existing_ PMU attributes are actually vCPU attributes. I do
-> agree that accessing them as a VM attribute makes more sense, but that's
-> the UAPI we already have...
-
-Gah, I remember now. Someone please take the API to the backyard...
-
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> change from v2 to v3
+> - none
+> change from v1 to v2
+> - create new file for 8qm and 8qxp accroding rob's suggestion.
+> ---
+>  .../devicetree/bindings/media/fsl,imx8qm-isi.yaml  | 117 +++++++++++++++++++++
+>  .../devicetree/bindings/media/fsl,imx8qxp-isi.yaml | 103 ++++++++++++++++++
+>  MAINTAINERS                                        |   1 +
+>  3 files changed, 221 insertions(+)
 > 
-> > > We can then enforce ordering on the attribute and prevent it from being
-> > > used after vCPU reset.
-> > 
-> > How would that work? Do you really want to mandate the PMU selection
-> > (with its counter capping) to strictly occur between vcpu creation and
-> > init?
-> > 
-> > This would, for example, break kvmtool which has these two operations
-> > back-to-back, and sneaking new device-specific actions in the middle
-> > is a bit unpalatable (there is a split between VM-wide and per-vcpu
-> > actions).
-> > 
-> > Any idea?
-> 
-> If we want to do this the 'right' way, we should provide VM attributes
-> for selecting the PMU implementation / configuring the event filter
-> to complement an attribute for setting the number of event counters.
-> 
-> I don't want to have a mix-and-match approach where vPMU attributes are
-> scattered between the vCPU and the VM since it requires a similar amount
-> of gymnastics in userspace to set crap up.
 
-I agree on not mixing vCPU and VM scoped attributes, even if that
-amounts to the same thing in the back-end. But freezing the number of
-counters on vcpu reset is something that should be considered very
-carefully, and I fear it breaks existing models -- specially given
-that this is yet another one-off.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-I wonder if we should instead make use of the KVM_ARM_VCPU_FINALIZE
-ioctl just like we do for SVE, passing KVM_ARM_VCPU_PMU_V3 instead.
-This would make use of an existing mechanism and lock the PMU for good
-(implementation, IRQ, number of counters...).
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
