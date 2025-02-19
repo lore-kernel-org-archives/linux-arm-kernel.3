@@ -4,108 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48B9CC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 18:31:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90027C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 18:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tKMJ3X6Jzp+wNnNxZ3cTu3f1diCv42/eMEvkIcSBFc4=; b=VeekTc5kf7Vy0fDMQBpvqCDfhG
-	Okqj6VG2GgXLYX3LAkiYDSrPFDSGoZFQ0fjWpJWgjdtoZhS9sEXKwBs/WZLnnusqlCUs1TNcK/J7L
-	LM0LzgPsqtqrqRHWNFZ0t0UF+zhT53Q9MRtMoFRjMiGiYApD8tpAD/zSVjg08l4xZB6Xj3798BqbB
-	bWLBNvSbpflj9m8amz8LHlQWRIC8iS8q6cGdUQ2nZ5uqMzGACmDor+dBaPza04t9XK/dsgs4Adepm
-	e/NrM02RclADcHSqUVM1D4vqzeg4SA2L8BCs/rG9wZO2U5XGIrk5565h9dN56OV7+OTtyBD3xWHWp
-	r7f6OW4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SH6gCwcBfooV/1R4mxoSj5XvySZqaE4EBHJnx789OnA=; b=f0uorvpMKvdD77e2m5hsj8YDHh
+	+D74vCXkPVSuU+iGhw44w27efvmughh2M8AY4hF6oWACHLk5Noavy14/kmk/DrcT3i2Chk1rA0sSl
+	M+YIyZxrPs5an+xob+f9gZukRnRZF89C1CCdkcVY5Ira5LVIVGBEuH8X2vUE70A+XbJnnoNk4zGjC
+	uqhYu0i7W+SewcK4emCJaUr801dpoXwe5yKp/k+d2ul/NwDKvYoPNZ5xApHgo/Dl6P/tkA1IZfMZs
+	S+ZVsHZJ+5+OZ7/SnhiMkEw/+W37ktlrmVRQ2ECU4EyuuFMPyK6JuI5j/sfP8kC4+EcOhhC9DWY6q
+	A0DNlW1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkoqg-0000000ENGY-1xr0;
-	Wed, 19 Feb 2025 18:31:06 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1tkoyy-0000000EPnB-4Bqr;
+	Wed, 19 Feb 2025 18:39:41 +0000
+Received: from mail-il1-x131.google.com ([2607:f8b0:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkopB-0000000EMpF-2yYm
+	id 1tkoxU-0000000EPNn-2nar
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 18:29:35 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7c0a1677aebso7681885a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 10:29:33 -0800 (PST)
+	Wed, 19 Feb 2025 18:38:10 +0000
+Received: by mail-il1-x131.google.com with SMTP id e9e14a558f8ab-3d19702f977so10605ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 10:38:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1739989772; x=1740594572; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tKMJ3X6Jzp+wNnNxZ3cTu3f1diCv42/eMEvkIcSBFc4=;
-        b=Ulnn1sLXaiF9DiebfPcf529FHT4cqqqBkvPcHN3sq/o/Zpk0t7s9p9eTOmddYoXbdQ
-         rBj1dsbHPN+CB0dXBX/tB2oZEmocqPEzQVczccMFTTgv/vN3Yk/79siNPOIEh9T9CLVe
-         CAhyrIEQstLTFgY3JJa2RlHFqQ1zJ5cKqtnHSCwmf4lvvIVFYQx3WuD1ae0vBLvFlMmh
-         QsEI1tUcdOQAxLqJr0zzAX0qEUDMUX45M+DXzLU3pZs3ZLRQEiq7kNhum49NkdnuP9bo
-         sG2cAJNvt/SV8jQmUhj2rcX2qTj8QLjKOddEGkDhmrLekp9MBqOOrALsdK+pw8OmYl0L
-         MV6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739989772; x=1740594572;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=google.com; s=20230601; t=1739990287; x=1740595087; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tKMJ3X6Jzp+wNnNxZ3cTu3f1diCv42/eMEvkIcSBFc4=;
-        b=jacicYCOnjC2i+oOd4P9MepuCtwys9yHJ1m/4RBda+EgqHtG4m+RXy79aAljuE3oie
-         bU+x7Jfk+AFkfNUc9TUHCIhFn2iwVz6ciMO7L5/wWo1RyGL8R0xy1/CnCkrIJ+EvUhgq
-         h4QkcMO9ixArqrU1EmFXMrAsvWo4lbjs9vMinZnw5yvU0Ovp4i+kFWpRb2ElFe7+yZW1
-         eJan5pC349w2vaUS33FkcMGXnuBksXdfnHDuUNW2Tx3amH3FZVrk/cAh+i2fLU6YvT+/
-         NcMrFLTwGTs1A99AibE6vFlsOT9PRV0fJmgRUPRRlw1lcfyqtQlBB1hiN5zNQSzw/rzk
-         wF8w==
-X-Forwarded-Encrypted: i=1; AJvYcCXpuaeq3fnug7TAMtAKTHidRueU1F0H/FUH4OcWTsA+XOV/Fsaz3Zc7WPDo+GAeZmkeYUfxV93Etqk3+zefRvAP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXxolD+VJKty+X1sJa90MUPngt9Xgn0WFrWxICRFjdevR33r+G
-	B9bIZ6SRFFz/N9YzGStGSbFbEeIzeseaMe8X2851SduSNuaNJ2PnBlTIWnbDA5w=
-X-Gm-Gg: ASbGncteQFy9700WZ92wGmZS1R4GTT+wFMY0QPyJjeMRzD615Q89U9nrIXtV8XaqXHX
-	BLht3aHBijlD2wKFt+82VRaGROBarr5moXriEiFuhBefhSZAd9DrWbTUd52qvlwrtTVVRGh7HSO
-	5xwexzBrshgavXnO4zfKIsO9uvNN2J2SK2jQmTKGm/98/PAoiBklJAQEYUkm16BoJAQ+R87/Y0q
-	nq25zuefB7Ne/Ie/m1dmxXVdK6bbmjANeQKmzXZHIjI+VFEgKAMfRQQ2yTfcKkKccdBsIhcnVmF
-	P9vyWZuwrn5j3+9RsTvxAI0mfZ2Nyxa82XlExpDRGFh1mD7B7J6maifzgP/cqB8G
-X-Google-Smtp-Source: AGHT+IG6vD9GMzJFRgKV5tkVvAkzSXjZzf3sKuYbia/+L+uYcxerEW/IEbYH+D0NjcMpo2cEEaQ1ow==
-X-Received: by 2002:a05:620a:1787:b0:7be:5bc1:9460 with SMTP id af79cd13be357-7c08aa9ab2dmr2845829285a.35.1739989765100;
-        Wed, 19 Feb 2025 10:29:25 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c0a609cb1bsm303023085a.111.2025.02.19.10.29.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2025 10:29:24 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1tkop2-000000009V2-07PN;
-	Wed, 19 Feb 2025 14:29:24 -0400
-Date: Wed, 19 Feb 2025 14:29:24 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>, Russell King <linux@armlinux.org.uk>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Stuart Yoder <stuyoder@gmail.com>,
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
-	Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	Charan Teja Kalla <quic_charante@quicinc.com>
-Subject: Re: [PATCH 2/2] iommu: Get DT/ACPI parsing into the proper probe path
-Message-ID: <20250219182924.GN3696814@ziepe.ca>
-References: <cover.1739486121.git.robin.murphy@arm.com>
- <c2f0ae276fd5a18e1653bae8bb0c51670e35b283.1739486121.git.robin.murphy@arm.com>
- <20250214201435.GF3696814@ziepe.ca>
- <4a7823b2-2634-4148-8446-ad01a09b6880@arm.com>
+        bh=SH6gCwcBfooV/1R4mxoSj5XvySZqaE4EBHJnx789OnA=;
+        b=Y2pOdUDQ6dYt+iXMuxPjuuxHDwMcPqkiGcXq6K9RdTWkF7fxvJyw5j3m8IC2ZL97Dj
+         iK+HU09Dxkp7Lbznr8HzSRQus93fkfmsWliWoKeDlLcDjM7E1GG8A5lA9e1wbVOINEAu
+         bRkRgQGMdJlG1+Nf8RaN7NeFMAigZREwvPBx1gBshiojGsuXp7PmiVI82DaZlOV7GIRf
+         IbhMxQsTgGiaPmyjNCYMUhiQJVb4T8KG+xtPL5xTJrbbx0X0ZQy5+bXY7r+ssegiFtsY
+         67pI3EcmxSvI2nMjeG52IKmRTuV5WVSepOkUp2wASt7FOUE2AKR064wYPmDrhAguAIoh
+         /Kdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1739990287; x=1740595087;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=SH6gCwcBfooV/1R4mxoSj5XvySZqaE4EBHJnx789OnA=;
+        b=HaO/CUWuCmB9X5BiZphCA4xffk+CWqSVuLDkh4lYFYXY6RFKWJO4ESBOCiQOXsW2gM
+         RNT5F7vOxag97dkumTraZ3MA87vg/6SmK882vPs6SqCDa3YZv2P6LvD7/C4tYzd7Djc/
+         1PPzkqzc0lwh4kqSpRkS+6jsejsdnA0eCSQz/BuzyBGMWcBKxnmhbvpkArDFJm3N0Zsn
+         8qMmvM2spUFcNlE1n0A7UAY+l0FkHNz/hj/4g8CjHA8wDkOtNWSRy4aDEHvtLgNOxRE9
+         VoFtTQK8xrP8Qcr8wZu7a89b/UxECcv0lkIQF0kEyxHwK0Cjc4p0PfjD1ETPQzjaDCkM
+         Cocg==
+X-Forwarded-Encrypted: i=1; AJvYcCWs+l9p99rtHgdHBYmdSvU8ijHOJD6SBLKhc1wuSng2dEXWtZgg41zzULpPOgXCgrMKCgiDN2yVbRUslSxpJqJn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzh2Ip56UUeYkyfV3+mEt9RfoZXVEeM1zUstNVmdvOeuUNYVz67
+	RfMpw4zQke7O1GbMZglmKi+hWFjaxNe47G/mCjgsQz9XeN2UQDMG3+sDKEFraWXZ/aoGbiMFZuf
+	iT7n4IvfXiq3Lng06SoMSZuS+BupRj0ILGrmD
+X-Gm-Gg: ASbGncumVpZCxSFMTT9dXw4cVe+G7+Y4PkXfWnvEt6CSsNJL+TKaYV72DE8QW2qC+Ll
+	TIoIzg12TmdHTVcbh6WTV9edhUCKs8QfEls7HOZZnSmpFJ2wLzrtUmVXzlwfY5pXbgeBV7v3XFE
+	Oi5tVpVfY/zUdFJiJfsQpQp841ow==
+X-Google-Smtp-Source: AGHT+IEkPdMwZ8WcM0NCVDBRKNBfRF3H5QjAYRWB9xGokTDyk0HbI2IP6QgSQCQIroSqKz5jQL30tQKsNIXmV5emA5M=
+X-Received: by 2002:a05:6e02:170f:b0:3ce:7852:1e9 with SMTP id
+ e9e14a558f8ab-3d2b7622218mr3867015ab.17.1739990286725; Wed, 19 Feb 2025
+ 10:38:06 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4a7823b2-2634-4148-8446-ad01a09b6880@arm.com>
+References: <tencent_5360DA048EE5B8CF3104213F8D037C698208@qq.com>
+ <Z66YjGvjD_yzEHUg@google.com> <tencent_45B4E91CA370C563D6420A1A25F992056D09@qq.com>
+ <1b8b234f-6435-45cf-83e7-8e86c84f075f@linaro.org> <CAP-5=fVAhLLH-a0_wLo8dPoMLOb6rOJiTgGh-OFZJJoaLFE-8Q@mail.gmail.com>
+ <fe46069e-c52e-45ee-b4b3-8b929fb83b31@linaro.org> <Z7UHieRRnvRb5_oU@google.com>
+ <CAP-5=fWXmNoFLyWv+vo7hhLSqTDy7hf+-huKRD9OUWnO-GESRw@mail.gmail.com> <2834c9d7-f401-4b29-8f92-22193eb9ce31@linaro.org>
+In-Reply-To: <2834c9d7-f401-4b29-8f92-22193eb9ce31@linaro.org>
+From: Ian Rogers <irogers@google.com>
+Date: Wed, 19 Feb 2025 10:37:54 -0800
+X-Gm-Features: AWEUYZmb7ZDC7Xg-vuEYcAR-MFR4dQhVVLJv_XLUmWBSLQWG90K_v4rSjZP5nUo
+Message-ID: <CAP-5=fW_Sq4iFxoWPWuixz9fMLBPyPUO0RG0KPbYa-5T0DZbTA@mail.gmail.com>
+Subject: Re: [PATCH 0/2] perf vendor events arm64: Add A720/A520 events/metrics
+To: James Clark <james.clark@linaro.org>
+Cc: Namhyung Kim <namhyung@kernel.org>, Yangyu Chen <cyy@cyyself.name>, 
+	linux-perf-users@vger.kernel.org, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
+	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Liang Kan <kan.liang@linux.intel.com>, 
+	Yoshihiro Furudera <fj5100bi@fujitsu.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_102933_893622_AA4035B1 
-X-CRM114-Status: GOOD (  32.90  )
+X-CRM114-CacheID: sfid-20250219_103808_707141_9F9B1857 
+X-CRM114-Status: GOOD (  49.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,62 +105,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 03:00:46PM +0000, Robin Murphy wrote:
-> On 14/02/2025 8:14 pm, Jason Gunthorpe wrote:
-> > On Thu, Feb 13, 2025 at 11:49:00PM +0000, Robin Murphy wrote:
-> > 
-> > > much just calling the same path twice. At client driver probe time,
-> > > dev->driver is obviously set; conversely at device_add(), or a
-> > > subsequent bus_iommu_probe(), any device waiting for an IOMMU really
-> > 
-> > Could you put the dev->driver test into iommu_device_use_default_domain()?
-> > 
-> > It looks like many of the cases are just guarding that call.
-> > 
-> > > should *not* have a driver already, so we can use that as a condition to
-> > > disambiguate the two cases, and avoid recursing back into the IOMMU core
-> > > at the wrong times.
-> > 
-> > Which sounds like this:
-> > 
-> > > +		mutex_unlock(&iommu_probe_device_lock);
-> > > +		dev->bus->dma_configure(dev);
-> > > +		mutex_lock(&iommu_probe_device_lock);
-> > > +	}
-> > 
-> > Shouldn't call iommu_device_use_default_domain() ?
-> 
-> Semantically it shouldn't really be called at this stage, but it won't be
-> anyway since "to_<x>_driver(NULL)->driver_managed_dma" is not false -
-> trouble is it's also not true ;)
+On Wed, Feb 19, 2025 at 7:25=E2=80=AFAM James Clark <james.clark@linaro.org=
+> wrote:
+>
+>
+>
+> On 18/02/2025 10:33 pm, Ian Rogers wrote:
+> > On Tue, Feb 18, 2025 at 2:19=E2=80=AFPM Namhyung Kim <namhyung@kernel.o=
+rg> wrote:
+> >>
+> >> On Tue, Feb 18, 2025 at 09:30:23AM +0000, James Clark wrote:
+> >>>
+> >>>
+> >>> On 18/02/2025 12:41 am, Ian Rogers wrote:
+> >>>> On Fri, Feb 14, 2025 at 2:02=E2=80=AFAM James Clark <james.clark@lin=
+aro.org> wrote:
+> >>>>>
+> >>>>>
+> >>>>>
+> >>>>> On 14/02/2025 5:49 am, Yangyu Chen wrote:
+> >>>>>>
+> >>>>>>
+> >>>>>>> On 14 Feb 2025, at 09:12, Namhyung Kim <namhyung@kernel.org> wrot=
+e:
+> >>>>>>>
+> >>>>>>> Hello,
+> >>>>>>>
+> >>>>>>> On Thu, Feb 13, 2025 at 11:11:01PM +0800, Yangyu Chen wrote:
+> >>>>>>>> This patchset adds the perf JSON files for the Cortex-A720 and C=
+ortex-A520
+> >>>>>>>> processors. Some events have been tested on Raxda Orion 6 with C=
+ix P1 SoC
+> >>>>>>>> (8xA720 + 4xA520) running mainline Kernel with ACPI mode.
+> >>>>>>>
+> >>>>>>> I'm curious how the name of PMUs look like.  It is cortex_a720 (o=
+r a520)?
+> >>>>>>
+> >>>>>> The name of PMUs comes from Arm's documentation. I have included t=
+hese
+> >>>>>> links in each patch.
+> >>>>>>
+> >>>>>>> I remember there's a logic to check the length of hex digits at t=
+he end.
+> >>>>>>>
+> >>>>>>
+> >>>>>> Could you provide more details about this?
+> >>>>>>
+> >>>>>>> Ian, are you ok with this?
+> >>>>>>>
+> >>>>>
+> >>>>> I think they wouldn't be merged because they're core PMUs, so shoul=
+d be
+> >>>>> fine? Even though they would otherwise be merged because they're mo=
+re
+> >>>>> than 3 hex digits.
+> >>>>
+> >>>> Do we know the PMU names? If they are cortex_a520 and cortex_a720 th=
+en
+> >>>
+> >>> It will be "armv9_cortex_a720" from this line:
+> >>>
+> >>>    PMUV3_INIT_SIMPLE(armv9_cortex_a720)
+> >>
+> >> I see, thanks!
+> >>
+> >>>
+> >>>> this comment at least reads a little stale:
+> >>>> https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next=
+.git/tree/tools/perf/util/pmus.c?h=3Dperf-tools-next#n76
+> >>>> ```
+> >>>> /*
+> >>>> * There is a '_{num}' suffix. For decimal suffixes any length
+> >>>> * will do, for hexadecimal ensure more than 2 hex digits so
+> >>>> * that S390's cpum_cf PMU doesn't match.
+> >>>> */
+> >>>> ```
+> >>>> James is right that core PMUs aren't put on the same list as uncore/=
+other PMUs.
+> >>
+> >> Ok, then I guess we're good.
+> >
+> > I think you may be able to do things that look odd, like today the
+> > "i915" PMU can be called just "i", I think the a520/a720 naming will
+> > allow "armv9_cortex/cycles/" as an event name, then open it on two
+> > PMUs if they are present.
+>
+> I assumed that was the intended behavior. It seems fairly useful to be
+> able to open on ones with common prefixes.
+>
+> > We may only show one PMU in perf list as
+> > that code I think assumes they're the same PMU as they only differ by
+> > suffix:
+> > https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
+t/tree/tools/perf/util/pmus.c?h=3Dperf-tools-next#n384
+>
+> Yeah that is the case. I didn't realise it when looking at the previous
+> fixes to keep the suffixes in perf stat output.
+>
+> > I can imagine aggregation possibly being broken, but I think that
+> > works off the number of PMUs not the names of the PMUs, so it should
+> > be okay. Probably the only thing broken that matter is perf list when
+> > you have a BIG.little system with a520 and a720, this may be broken
+> > with say a a53 and a72 today as both of those suffix lengths are >2,
+> > but maybe they use the "armv8._pmuv3_0", "armv8._pmuv3_1", etc. naming
+> > convention. I suspect the >2 here:
+>
+> Also the case for a53 and a72 right now. Even "perf list --unit
+> armv8_cortex_a57" doesn't work because we deduplicate before filtering.
+> Adding -v fixes it though because that disables deduplication. Perhaps
+> we can change it to disable it with the --unit argument?
+>
+> > https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
+t/tree/tools/perf/util/pmus.c?h=3Dperf-tools-next#n80
+> > would still work and be correct if it were >4. If that changes then
+> > this will also need to change:
+> > https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.gi=
+t/tree/Documentation/ABI/testing/sysfs-bus-event_source-devices?h=3Dperf-to=
+ols-next#n12
+>
+> That could be an easy fix. If >4 is enough to still get rid of all the
+> uncore duplicates I can make the change?
 
-That case in PCI I understood, but the other cases seemed like they
-would be OK, especially if group is NULL
+The change would be great. I think it is sufficient and doesn't break
+the suffix:
+https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tr=
+ee/drivers/perf/arm_dmc620_pmu.c?h=3Dperf-tools-next#n710
+https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tr=
+ee/drivers/perf/arm_smmuv3_pmu.c?h=3Dperf-tools-next#n921
+https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/tr=
+ee/drivers/perf/marvell_cn10k_ddr_pmu.c?h=3Dperf-tools-next#n1062
+it is hard to tell as it is going to depend on the memory addresses
+placed in the PMU names. Perhaps you can clear this up and add zero
+padding in the drivers if the suffix is <=3D4 ?
 
-> > This is the test I mean, if iommu_group is set then
-> > dev->iommu->iommu_dev->ops is supposed to be valid too. It seems like
-> > it should be done earlier..
-> 
-> Yeah, looking at it now I'm really not sure why this ended up in this order
-> - I guess I was effectively adding the dma_configure() call to the front of
-> the existing iommu_fwspec_ops() check, and then I moved the lockdep_assert()
-> up to make more sense. But then the ops check probably should have been
-> after the group check to begin with, for much the same reasoning as above.
-> I'll sort that out for v2.
+No documentation here:
+https://www.kernel.org/doc/Documentation/admin-guide/perf/mrvl-odyssey-ddr-=
+pmu.rst
 
-I guess check it at the top and then check it again after re-locking.
+On a test machine I see in /sys/devices :
+..
+arm_dmc620_10008c400
+..
+on a different one I see:
+..
+smmuv3_pmcg_20528a2
+..
 
-> > > +	 * And if we do now see any replay calls, they would indicate someone
-> > > +	 * misusing the dma_configure path outside bus code.
-> > > +	 */
-> > > +	if (dev_iommu_fwspec_get(dev) && dev->driver)
-> > > +		dev_WARN(dev, "late IOMMU probe at driver bind, something fishy here!\n");
-> > 
-> > WARN_ON_ONCE or dump_stack() to get the stack trace out?
-> 
-> Indeed, hence dev_WARN() (!= dev_warn())
+so >4 but this is an ARM specific issue as far as I can tell, so you'd
+be better placed to judge correctness than me.
 
-Oh, I've never seen that variation before!
+Thanks,
+Ian
 
-Jason
+> >
+> > Thanks,
+> > Ian
+> >
+> >>
+> >> Thanks,
+> >> Namhyung
+> >>
+>
 
