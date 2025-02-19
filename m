@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7B23C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:33:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E03EAC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+HiuBwCPG8eF3vVymEHx4c4pQkwu9jM+eJMUI0AyIw=; b=Yhy1PfMYmgtSeP0bI3tDhafvHG
-	ewkliXMMS3mXOgxQ4aXihsvBve41xCCHnt9Giq+HXYUv9eKEeP2UA0jjaqn2duphwn1z54elcojaW
-	KALdRwgakVG4uT4x+pn7xLcmic7EWO0p8YtYHovWaRPNV98MT+OyW68uT22fbH2+s5+O8ypZ+RXwx
-	BaG8d4WW/6BwkjCfr6eVsgE+Kvk7lEM/OatYoeM/2WcD7NeJ45vnf0tnpLEBZsckSa0EyqlSj3rD6
-	oIi6Qw2s/eKsHVTzcqMfHKT5hJ0x380llt8hvOZqm80kfH0l1iteqA/YNHaV4m7V7ob4BN5lBUe/a
-	UpVLl6iw==;
+	bh=GgWjzKl8pOIbbfF7ognkhTAU1FOv85XsHUlTnOyLHVQ=; b=GqImEVUxvwrAJ09I+pgVXIEAXW
+	JGWX7Kp2b8mcsoPDrpu0A+7PBNW7ld8BHlGNbLIvy3ZmhXrFkAigzzGhnxHXd8kfkb18AJyAhrO7m
+	7+MIq0t0vwSoFE1lSORKwO5PA4tcKMt4ff0JAubDu3OexJAMwMwU0JnYm6A6OYaWw+gtkKPYSy7aP
+	kBFMAI+8kudZMtVjDLVXiFmgAF0Ht3vapKLZYuElREnj7gtzcI8+ch4GyW2Lx6mQrCJs1lpuIl6PU
+	kTpS9jI7clRnquouTxgpCDK5xxlIyKQttLXHb2bZN2I+YCLSVUbSFDCpvu7RzNJsr5XSduvz4OopM
+	fdja4WwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkgRo-0000000Bt6H-2Wfx;
-	Wed, 19 Feb 2025 09:32:52 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkgDq-0000000BnPx-412L
+	id 1tkgTF-0000000Btra-3l5B;
+	Wed, 19 Feb 2025 09:34:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkfsh-0000000BgT7-0XLq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 09:18:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 67879A41FE6;
-	Wed, 19 Feb 2025 09:16:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53D20C4CED1;
-	Wed, 19 Feb 2025 09:18:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1739956705;
-	bh=38vDO+tQW+vJPjzY1vQL/x1M+x6dLGAqeunEOPdoOko=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=swhshR/pf+AK+/ugJUsqWOmvLE/C1OYE1d3vHsXh73YO74agF+VCs86vIskqTXEwf
-	 VuL8Uf/TlGVnJpl4U2O/pU3FqXVx4hiZQGgOb3K5jQixlSXLG/eLeNs/E67tYTNXsU
-	 0DD/eauX7nAelWFQ9RfmogFhtYS2ZidIPVErIdQc=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.1 271/578] arm64/mm: Ensure adequate HUGE_MAX_HSTATE
-Date: Wed, 19 Feb 2025 09:24:35 +0100
-Message-ID: <20250219082703.682506057@linuxfoundation.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250219082652.891560343@linuxfoundation.org>
-References: <20250219082652.891560343@linuxfoundation.org>
-User-Agent: quilt/0.68
-X-stable: review
-X-Patchwork-Hint: ignore
+	Wed, 19 Feb 2025 08:56:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 003F11682;
+	Wed, 19 Feb 2025 00:56:53 -0800 (PST)
+Received: from [10.162.42.6] (unknown [10.162.42.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4EF9A3F5A1;
+	Wed, 19 Feb 2025 00:56:21 -0800 (PST)
+Message-ID: <5fbfd74e-7f87-4f4f-86a7-7d4c38e0b4ba@arm.com>
+Date: Wed, 19 Feb 2025 14:26:19 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] arm64: hugetlb: Fix flush_hugetlb_tlb_range()
+ invalidation level
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+ Helge Deller <deller@gmx.de>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Naveen N Rao <naveen@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Andreas Larsson <andreas@gaisler.com>, Arnd Bergmann <arnd@arndb.de>,
+ Muchun Song <muchun.song@linux.dev>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
+ David Hildenbrand <david@redhat.com>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Mark Rutland <mark.rutland@arm.com>, Dev Jain <dev.jain@arm.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <20250217140419.1702389-1-ryan.roberts@arm.com>
+ <20250217140419.1702389-4-ryan.roberts@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250217140419.1702389-4-ryan.roberts@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_011827_064611_E605299D 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20250219_005635_287160_A26354CA 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,61 +90,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-6.1-stable review patch.  If anyone has any objections, please let me know.
+On 2/17/25 19:34, Ryan Roberts wrote:
+> commit c910f2b65518 ("arm64/mm: Update tlb invalidation routines for
+> FEAT_LPA2") changed the "invalidation level unknown" hint from 0 to
+> TLBI_TTL_UNKNOWN (INT_MAX). But the fallback "unknown level" path in
+> flush_hugetlb_tlb_range() was not updated. So as it stands, when trying
+> to invalidate CONT_PMD_SIZE or CONT_PTE_SIZE hugetlb mappings, we will
+> spuriously try to invalidate at level 0 on LPA2-enabled systems.
+> 
+> Fix this so that the fallback passes TLBI_TTL_UNKNOWN, and while we are
+> at it, explicitly use the correct stride and level for CONT_PMD_SIZE and
+> CONT_PTE_SIZE, which should provide a minor optimization.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: c910f2b65518 ("arm64/mm: Update tlb invalidation routines for FEAT_LPA2")
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
-------------------
+LGTM
 
-From: Anshuman Khandual <anshuman.khandual@arm.com>
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
-[ Upstream commit 1e5823c8e86de83a43d59a522b4de29066d3b306 ]
-
-This asserts that HUGE_MAX_HSTATE is sufficient enough preventing potential
-hugetlb_max_hstate runtime overflow in hugetlb_add_hstate() thus triggering
-a BUG_ON() there after.
-
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Link: https://lore.kernel.org/r/20241202064407.53807-1-anshuman.khandual@arm.com
-Signed-off-by: Will Deacon <will@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- arch/arm64/mm/hugetlbpage.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
-
-diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-index 134dcf6bc650c..99810310efdda 100644
---- a/arch/arm64/mm/hugetlbpage.c
-+++ b/arch/arm64/mm/hugetlbpage.c
-@@ -544,6 +544,18 @@ pte_t huge_ptep_clear_flush(struct vm_area_struct *vma,
- 
- static int __init hugetlbpage_init(void)
- {
-+	/*
-+	 * HugeTLB pages are supported on maximum four page table
-+	 * levels (PUD, CONT PMD, PMD, CONT PTE) for a given base
-+	 * page size, corresponding to hugetlb_add_hstate() calls
-+	 * here.
-+	 *
-+	 * HUGE_MAX_HSTATE should at least match maximum supported
-+	 * HugeTLB page sizes on the platform. Any new addition to
-+	 * supported HugeTLB page sizes will also require changing
-+	 * HUGE_MAX_HSTATE as well.
-+	 */
-+	BUILD_BUG_ON(HUGE_MAX_HSTATE < 4);
- 	if (pud_sect_supported())
- 		hugetlb_add_hstate(PUD_SHIFT - PAGE_SHIFT);
- 
--- 
-2.39.5
-
-
-
+> ---
+>  arch/arm64/include/asm/hugetlb.h | 22 ++++++++++++++++------
+>  1 file changed, 16 insertions(+), 6 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/hugetlb.h b/arch/arm64/include/asm/hugetlb.h
+> index 03db9cb21ace..07fbf5bf85a7 100644
+> --- a/arch/arm64/include/asm/hugetlb.h
+> +++ b/arch/arm64/include/asm/hugetlb.h
+> @@ -76,12 +76,22 @@ static inline void flush_hugetlb_tlb_range(struct vm_area_struct *vma,
+>  {
+>  	unsigned long stride = huge_page_size(hstate_vma(vma));
+>  
+> -	if (stride == PMD_SIZE)
+> -		__flush_tlb_range(vma, start, end, stride, false, 2);
+> -	else if (stride == PUD_SIZE)
+> -		__flush_tlb_range(vma, start, end, stride, false, 1);
+> -	else
+> -		__flush_tlb_range(vma, start, end, PAGE_SIZE, false, 0);
+> +	switch (stride) {
+> +#ifndef __PAGETABLE_PMD_FOLDED
+> +	case PUD_SIZE:
+> +		__flush_tlb_range(vma, start, end, PUD_SIZE, false, 1);
+> +		break;
+> +#endif
+> +	case CONT_PMD_SIZE:
+> +	case PMD_SIZE:
+> +		__flush_tlb_range(vma, start, end, PMD_SIZE, false, 2);
+> +		break;
+> +	case CONT_PTE_SIZE:
+> +		__flush_tlb_range(vma, start, end, PAGE_SIZE, false, 3);
+> +		break;
+> +	default:
+> +		__flush_tlb_range(vma, start, end, PAGE_SIZE, false, TLBI_TTL_UNKNOWN);
+> +	}
+>  }
+>  
+>  #endif /* __ASM_HUGETLB_H */
 
