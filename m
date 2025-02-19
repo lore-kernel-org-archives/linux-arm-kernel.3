@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E52FAC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 20:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2532C021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 20:26:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vm03RGeRuGpmRXgI+OezaiNu4LYtVZ2+Q1or+FmDUnM=; b=iBERCajFaRnJso5RmcBF3anm7f
-	XEwaz3n2d5ZXmN3/75LuonzFAYGwJ5QtB0xWRPS6BG8+vI3kFUqqzYhW+P0yLyX0z7eMroj/iFR0l
-	x4dOTUxK71gS0i9KQ+Sy//1P4pE0MMGACpS87qxm7JKqwmYehbxv8+3in6JiidHhFDgfGDQa9MkM1
-	ioBfnahhOuMHf62YXqZYWJNOk9XQ+U5XrXYy1W9VP2g6cK6q67Lx2+qEo1AnB7SUcF2DzrqeBXIVd
-	lnhoz2HOjOPIUv+Y9z4zX5prs9n4wvYMVobdWmMk49jFqKowPLvLFGPKh2MArc4inmRXT4MnzAYZe
-	yirg5DuQ==;
+	bh=w5oOzMK2JlDQqDWdY37veBc8sIrd6Hyk8XP3lPFCDLs=; b=JAaAYxBWGR6SVQ7zqUD/6dfr7F
+	nQldc5ABuuNf6kAlwzmzLccbJHiT13KxlAqZbUQ+/rbwdDf7Ypnu06+L7uG6FWzODk5nUYu/fYWwY
+	A3EqPTTtnDCYmB/eSA3mfIJVd2LUA77qdtVEXalX7rAPAQLJ9AnXVHHm2qejmWCzydHqwJcVZYyDI
+	VggW02mL18/Y5e4ztHI1JWqZ7adwRrzLlhdBIukmVKKuAVwVcuyDo5EHDog+cJnSV4Vf0CQq+XTbj
+	IliHcqC5uvPgernrsdsaprxI09xCGvfjMI3JXRNHjS9ORhCvytDYZivjbPey//cAus/r38O5BtQA1
+	F+cpjOSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkqe7-0000000EsY4-1ojp;
-	Wed, 19 Feb 2025 20:26:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tkqe8-0000000EsYW-0BCZ;
+	Wed, 19 Feb 2025 20:26:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpMm-0000000EWJD-1aRy
+	id 1tkpPu-0000000EXEu-2KrY
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 19 Feb 2025 19:07:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=w5oOzMK2JlDQqDWdY37veBc8sIrd6Hyk8XP3lPFCDLs=; b=YZNeE9d2Pm6y7vgY7yWe8ThNQ/
+	Z6Dwcnv4UIV8N548xNhbwlb/gIZME5H7Ybc2vKkWY+QmJ2Z0wzSko63k+S6tSZF1FclJcKmBA74FJ
+	7kuRG8aES/9AUliUTci5VVK7hn1YSL0I2oyzN36BtneF1i6+3zQPhpZoQIrf/qU4fIPjVPk7IfW8Q
+	tEF6IRL8nMgCmpq2MMiZDQdUKwf7uyPSMITWdrzyllDdWMtEFqyDryo0c8piGSbi5ZjzXJIxor2Rq
+	I2VJEHRmpdVqfRArp59sTQV0GwQ91GbUs1WBCPipn8DoQGnZdX19K+VTZfqtPKSFU2xZPwux1qOs4
+	oIUmGJ9A==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkpPp-00000002JD3-3pXK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 19:04:17 +0000
+	Wed, 19 Feb 2025 19:07:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D28DD61131;
-	Wed, 19 Feb 2025 19:04:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB9C8C4CED1;
-	Wed, 19 Feb 2025 19:04:08 +0000 (UTC)
-Date: Wed, 19 Feb 2025 19:04:06 +0000
+	by dfw.source.kernel.org (Postfix) with ESMTP id B48D85C5C06;
+	Wed, 19 Feb 2025 19:06:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CAF3C4CED1;
+	Wed, 19 Feb 2025 19:07:15 +0000 (UTC)
+Date: Wed, 19 Feb 2025 19:07:12 +0000
 From: Catalin Marinas <catalin.marinas@arm.com>
 To: Ryan Roberts <ryan.roberts@arm.com>
 Cc: Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
@@ -68,18 +83,18 @@ Cc: Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
 	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
 	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 3/4] arm64: hugetlb: Fix flush_hugetlb_tlb_range()
- invalidation level
-Message-ID: <Z7YrJqRPaqcd2au7@arm.com>
+Subject: Re: [PATCH v2 4/4] mm: Don't skip arch_sync_kernel_mappings() in
+ error paths
+Message-ID: <Z7Yr4HKUZ5AdLP2C@arm.com>
 References: <20250217140419.1702389-1-ryan.roberts@arm.com>
- <20250217140419.1702389-4-ryan.roberts@arm.com>
+ <20250217140419.1702389-5-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250217140419.1702389-4-ryan.roberts@arm.com>
+In-Reply-To: <20250217140419.1702389-5-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_110416_473848_E4ECF9A3 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20250219_190726_137170_6463D648 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,20 +109,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 02:04:16PM +0000, Ryan Roberts wrote:
-> commit c910f2b65518 ("arm64/mm: Update tlb invalidation routines for
-> FEAT_LPA2") changed the "invalidation level unknown" hint from 0 to
-> TLBI_TTL_UNKNOWN (INT_MAX). But the fallback "unknown level" path in
-> flush_hugetlb_tlb_range() was not updated. So as it stands, when trying
-> to invalidate CONT_PMD_SIZE or CONT_PTE_SIZE hugetlb mappings, we will
-> spuriously try to invalidate at level 0 on LPA2-enabled systems.
+On Mon, Feb 17, 2025 at 02:04:17PM +0000, Ryan Roberts wrote:
+> Fix callers that previously skipped calling arch_sync_kernel_mappings()
+> if an error occurred during a pgtable update. The call is still required
+> to sync any pgtable updates that may have occurred prior to hitting the
+> error condition.
 > 
-> Fix this so that the fallback passes TLBI_TTL_UNKNOWN, and while we are
-> at it, explicitly use the correct stride and level for CONT_PMD_SIZE and
-> CONT_PTE_SIZE, which should provide a minor optimization.
+> These are theoretical bugs discovered during code review.
 > 
 > Cc: stable@vger.kernel.org
-> Fixes: c910f2b65518 ("arm64/mm: Update tlb invalidation routines for FEAT_LPA2")
+> Fixes: 2ba3e6947aed ("mm/vmalloc: track which page-table levels were modified")
+> Fixes: 0c95cba49255 ("mm: apply_to_pte_range warn and fail if a large pte is encountered")
+> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
 Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
