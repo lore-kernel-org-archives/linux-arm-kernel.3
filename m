@@ -4,80 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9980C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 06:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4A7C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 06:33:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CwC0+pvP8i5Znhnwf7v/1fgvzA/Zx30Ryv+wCWvFehw=; b=2WovUFniQymSofIW58PEHXNfCR
-	Zfzef0bZQoXmwygBDm+2LiI2RipGmbIS5HxXgZorqsg+0RX8KSKLtYbvRsOSDjr0DM21P9Ez2wnbH
-	0NcHC1yrJxw1Fp6XLhAEGIXXvl3Q2M2on40gNwcwJnCYQSab4XVerEgAj5HQZrGbolx4AobYQojdd
-	98kMzd6MWhBDYSGxS4U4mSZNWIBNUZgkLFZ3zz0A5WDvcdcmGcoPUNtwYGLWH7POwcw8jZ8dnC4Kn
-	8M/9BVY8T0ORvjintGf2SAHpVDHIim1CD/vAa4ay7UylS6cGVWAWTXUAx7sgKhy3kp20JiID2ArjI
-	slSliPTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c5uY6jQqkeSl7uiVV27dk2e2ndRObWC4Qz6fFQdPqYA=; b=rXyGaGzSh2wo0hxpzP4S9FX850
+	8+YRWCYgZb/jc1tklqWmlTdElqk5IsXyg4pFQIYzTVuR89k1wWh+f1uzsAid9r72USBTeqYb/nYL/
+	tWY9p1obGHywWJ5/ILvTiz0pyIlrZP3QfWxItMKptJQ7wkLMFvlWZuVGsXW0YyDg9s24Yvb4GM+BC
+	QD7UfJsWZqGARd4ghcyPWNyse21KeTCpyL+O2Kv/r00DSXX0qaJW/qsjTyuMl0tfhlDOjIoaEyxTe
+	RfaFi4id9c154L5W4r5EfZyFuiNPV9UMol93sbvhQErXyE92hjecLdxUwgLP49lbNjFzt+h6Injev
+	5Dfpjipg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkdcb-0000000B3Pn-46g9;
-	Wed, 19 Feb 2025 06:31:49 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tkde3-0000000B3f2-2aJi;
+	Wed, 19 Feb 2025 06:33:19 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkdYH-0000000B2Zm-0xCI
+	id 1tkdZY-0000000B2kL-33tR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 06:27:22 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51J6RFCE186669
+	Wed, 19 Feb 2025 06:28:42 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51J6SZ4Z212251
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 19 Feb 2025 00:27:15 -0600
+	Wed, 19 Feb 2025 00:28:35 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1739946435;
-	bh=CwC0+pvP8i5Znhnwf7v/1fgvzA/Zx30Ryv+wCWvFehw=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=PiWrcOJr0lrQzMngtNn21D3OmRxbTAmVM3ugsC3jpPs8MgMA+qPy0RDQJ7Bb9opuF
-	 TYwp59UlRDTEzpMxJrYWJ99cgIWkiAKlC6WEkbNEPAxV6kK+LrN5c/+gNL3jRcXKCO
-	 cRgIWwZhUsDsF06TEFArDTEyONRnLl9/jq0kDqRU=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51J6RFBU103430
+	s=ti-com-17Q1; t=1739946515;
+	bh=c5uY6jQqkeSl7uiVV27dk2e2ndRObWC4Qz6fFQdPqYA=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=wIw3KPRASNCXDogScJjdjJicLQXwLY1p9c6FSca/g2JoLV6dcfOTPC4ly5vOI9rSy
+	 1gp3ekA0gcWHpGXxWYjisSmGLIQoSCYNCjAkMQf61qlT/czEovbNoQLyPGax3rxV2r
+	 l3YI7HzoQ5HmrfHunL4iT79IoByDBv/wQlLhLnQg=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51J6SZdH003119
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 19 Feb 2025 00:27:15 -0600
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 19 Feb 2025 00:28:35 -0600
+Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 19
- Feb 2025 00:27:15 -0600
-Received: from fllvsmtp8.itg.ti.com (10.64.41.158) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ Feb 2025 00:28:35 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 19 Feb 2025 00:27:14 -0600
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by fllvsmtp8.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51J6REM6033484;
-	Wed, 19 Feb 2025 00:27:14 -0600
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 51J6RErV009538;
-	Wed, 19 Feb 2025 00:27:14 -0600
-From: Meghana Malladi <m-malladi@ti.com>
-To: <lokeshvutla@ti.com>, <vigneshr@ti.com>, <javier.carrasco.cruz@gmail.com>,
-        <diogo.ivo@siemens.com>, <m-malladi@ti.com>, <horms@kernel.org>,
-        <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
-        <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net v2 2/2] net: ti: icss-iep: Fix phase offset configuration for perout signal
-Date: Wed, 19 Feb 2025 11:57:01 +0530
-Message-ID: <20250219062701.995955-3-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250219062701.995955-1-m-malladi@ti.com>
-References: <20250219062701.995955-1-m-malladi@ti.com>
+ Frontend Transport; Wed, 19 Feb 2025 00:28:35 -0600
+Received: from [172.24.20.199] (lt9560gk3.dhcp.ti.com [172.24.20.199])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51J6SUMb081700;
+	Wed, 19 Feb 2025 00:28:31 -0600
+Message-ID: <09b55ba7-d7a2-46dd-a64c-56f2c02c8552@ti.com>
+Date: Wed, 19 Feb 2025 11:58:29 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [EXTERNAL] Re: [PATCH net 1/2] net: ti: icss-iep: Fix pwidth
+ configuration for perout signal
+To: Simon Horman <horms@kernel.org>
+CC: Paolo Abeni <pabeni@redhat.com>, <javier.carrasco.cruz@gmail.com>,
+        <diogo.ivo@siemens.com>, <kuba@kernel.org>, <edumazet@google.com>,
+        <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+References: <20250211103527.923849-1-m-malladi@ti.com>
+ <20250211103527.923849-2-m-malladi@ti.com>
+ <3a979b56-e9d6-41c9-910b-63b5371b9631@redhat.com>
+ <66f30c0f-dec8-4ad5-9578-a9dcc422355a@ti.com>
+ <20250216161158.GH1615191@kernel.org>
+Content-Language: en-US
+From: "Malladi, Meghana" <m-malladi@ti.com>
+In-Reply-To: <20250216161158.GH1615191@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_222721_354627_494CAE67 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20250218_222840_857332_5D8F64D0 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,91 +96,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-icss_iep_perout_enable_hw() is a common function for generating
-both pps and perout signals. When enabling pps, the application needs
-to only pass enable/disable argument, whereas for perout it supports
-different flags to configure the signal.
+Hi Simon
 
-In case the app passes a valid phase offset value, the signal should
-start toggling after that phase offset, else start immediately or
-as soon as possible. ICSS_IEP_SYNC_START_REG register take number of
-clock cycles to wait before starting the signal after activation time.
-Set appropriate value to this register to support phase offset.
+On 2/16/2025 9:41 PM, Simon Horman wrote:
+> On Fri, Feb 14, 2025 at 11:35:07AM +0530, Malladi, Meghana wrote:
+>>
+>>
+>> On 2/13/2025 4:53 PM, Paolo Abeni wrote:
+>>> On 2/11/25 11: 35 AM, Meghana Malladi wrote: > @@ -419,8 +426,9 @@
+>>> static int icss_iep_perout_enable_hw(struct icss_iep *iep, >
+>>> regmap_write(iep->map, ICSS_IEP_CMP1_REG0, lower_32_bits(cmp)); > if
+>>> (iep->plat_data->flags &
+>>> ZjQcmQRYFpfptBannerStart
+>>> This message was sent from outside of Texas Instruments.
+>>> Do not click links or open attachments unless you recognize the source
+>>> of this email and know the content is safe.
+>>> Report Suspicious
+>>> <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK! updqdzavl0dbisXOnfkDHxHqGlQUHEro3tgnljLa7x4DRPBIRKu8Nqm3bW1LeMtXFyqz6yM7_tLlrvUmslKj9m_IL0hUlNU$>
+>>> ZjQcmQRYFpfptBannerEnd
+>>>
+>>> On 2/11/25 11:35 AM, Meghana Malladi wrote:
+>>>> @@ -419,8 +426,9 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
+>>>>   			regmap_write(iep->map, ICSS_IEP_CMP1_REG0, lower_32_bits(cmp));
+>>>>   			if (iep->plat_data->flags & ICSS_IEP_64BIT_COUNTER_SUPPORT)
+>>>>   				regmap_write(iep->map, ICSS_IEP_CMP1_REG1, upper_32_bits(cmp));
+>>>> -			/* Configure SYNC, 1ms pulse width */
+>>>> -			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG, 1000000);
+>>>> +			/* Configure SYNC, based on req on width */
+>>>> +			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
+>>>> +				     (u32)(ns_width / iep->def_inc));
+>>>
+>>> This causes build errors on 32bits:
+>>>
+>>> ERROR: modpost: "__udivdi3" [drivers/net/ethernet/ti/icssg/icss_iep.ko]
+>>> undefined!
+>>> make[3]: *** [../scripts/Makefile.modpost:147: Module.symvers] Error 1
+>>> make[2]: *** [/home/nipa/net/wt-0/Makefile:1944: modpost] Error 2
+>>> make[1]: *** [/home/nipa/net/wt-0/Makefile:251: __sub-make] Error 2
+>>> make: *** [Makefile:251: __sub-make] Error 2
+>>> ERROR: modpost: "__udivdi3" [drivers/net/ethernet/ti/icssg/icss_iep.ko]
+>>>
+>>> You should use div_u64()
+>>>
+>>
+>> I see, thanks.
+>> Can you tell me how can I reproduce this on my end for 32 bits.
+>> Will fix this in v2.
+> 
+> Hi Meghana,
+> 
+> FWIIW, I was able to reproduce this problem running the following
+> on an x86_64 system:
+> 
+> ARCH=i386 make tinyconfig
+> 
+> echo CONFIG_COMPILE_TEST=y >> .config
+> echo CONFIG_PCI=y >> .config
+> echo CONFIG_SOC_TI=y >> .config
+> echo CONFIG_TI_PRUSS=y >> .config
+> echo CONFIG_NET=y >> .config
+> echo CONFIG_NETDEVICES=y >> .config
+> 
+> yes "" | ARCH=i386 make oldconfig
+> 
+> ARCH=i386 make -j$(nproc)
 
-Fixes: c1e0230eeaab2 ("net: ti: icss-iep: Add IEP driver")
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
----
-Changes from v1 (v2-v1):
-- replace u32 typecast with div_u64()
-
- drivers/net/ethernet/ti/icssg/icss_iep.c | 18 ++++++++++++++++--
- 1 file changed, 16 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/icssg/icss_iep.c b/drivers/net/ethernet/ti/icssg/icss_iep.c
-index 0411438a3b5d..598dfb963db6 100644
---- a/drivers/net/ethernet/ti/icssg/icss_iep.c
-+++ b/drivers/net/ethernet/ti/icssg/icss_iep.c
-@@ -407,6 +407,7 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
- 				     struct ptp_perout_request *req, int on)
- {
- 	struct timespec64 ts;
-+	u64 ns_start;
- 	u64 ns_width;
- 	int ret;
- 	u64 cmp;
-@@ -416,6 +417,14 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
- 	ts.tv_nsec = req->on.nsec;
- 	ns_width = timespec64_to_ns(&ts);
- 
-+	if (req->flags & PTP_PEROUT_PHASE) {
-+		ts.tv_sec = req->phase.sec;
-+		ts.tv_nsec = req->phase.nsec;
-+		ns_start = timespec64_to_ns(&ts);
-+	} else {
-+		ns_start = 0;
-+	}
-+
- 	if (iep->ops && iep->ops->perout_enable) {
- 		ret = iep->ops->perout_enable(iep->clockops_data, req, on, &cmp);
- 		if (ret)
-@@ -430,7 +439,8 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
- 			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
- 				     div_u64(ns_width, iep->def_inc));
- 			regmap_write(iep->map, ICSS_IEP_SYNC0_PERIOD_REG, 0);
--			regmap_write(iep->map, ICSS_IEP_SYNC_START_REG, 0);
-+			regmap_write(iep->map, ICSS_IEP_SYNC_START_REG,
-+				     div_u64(ns_start, iep->def_inc));
- 			regmap_write(iep->map, ICSS_IEP_SYNC_CTRL_REG, 0); /* one-shot mode */
- 			/* Enable CMP 1 */
- 			regmap_update_bits(iep->map, ICSS_IEP_CMP_CFG_REG,
-@@ -457,6 +467,8 @@ static int icss_iep_perout_enable_hw(struct icss_iep *iep,
- 
- 			regmap_write(iep->map, ICSS_IEP_SYNC_PWIDTH_REG,
- 				     div_u64(ns_width, iep->def_inc));
-+			regmap_write(iep->map, ICSS_IEP_SYNC_START_REG,
-+				     div_u64(ns_start, iep->def_inc));
- 			/* Enable Sync in single shot mode  */
- 			regmap_write(iep->map, ICSS_IEP_SYNC_CTRL_REG,
- 				     IEP_SYNC_CTRL_SYNC_N_EN(0) | IEP_SYNC_CTRL_SYNC_EN);
-@@ -489,7 +501,8 @@ static int icss_iep_perout_enable(struct icss_iep *iep,
- 	mutex_lock(&iep->ptp_clk_mutex);
- 
- 	/* Reject requests with unsupported flags */
--	if (req->flags & ~PTP_PEROUT_DUTY_CYCLE) {
-+	if (req->flags & ~(PTP_PEROUT_DUTY_CYCLE |
-+			  PTP_PEROUT_PHASE)) {
- 		ret = -EOPNOTSUPP;
- 		goto exit;
- 	}
-@@ -590,6 +603,7 @@ static int icss_iep_pps_enable(struct icss_iep *iep, int on)
- 	if (on) {
- 		ns = icss_iep_gettime(iep, NULL);
- 		ts = ns_to_timespec64(ns);
-+		rq.perout.flags = 0;
- 		rq.perout.period.sec = 1;
- 		rq.perout.period.nsec = 0;
- 		rq.perout.start.sec = ts.tv_sec + 2;
--- 
-2.43.0
+Thanks for sharing this, I was able to reproduce and fix this locally.
 
 
