@@ -4,59 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7CFCC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 08:06:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD772C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 08:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+HmpXKPAD9ALBIJIuYji9/wPjq2kkxzldwrjVPCxR28=; b=tr8XZdE5GOj/8LuUZZNVgqVuwt
-	CfMsE6GoH7CG2m+6bhAzPhNnKlfDGgCvE/FlBwoxbNK3mX+RUX3JFXfddfqWbVo+rrUeYVOeCEcRS
-	5rz5BMXxOuDLferv5AOAypaVhRqUUAmHrB5YdSHqwsevQkZtkD+AI1N7frKtV30mloIGYaSEurlow
-	GmbCtQ/RHFNd6XQJyhGFAxKxsSCcU1PHvWiLWl+2b8IeETPVRp3IiLbRZ6SX65tOroocEUI2isXxO
-	QxqkjQS3dHh8u99EiP42UyFCkyZxeEAX6AVQWMboQaPjvfhvgQLMk99DDpWfyaWcO/aFW7nX7NYK0
-	uy1KNIbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CdybSsPkvSWYJRfesz++DC37KlekJmyO0IzskUGhkLk=; b=ki+lqeAick/20duCemyiL7EWU+
+	ZFj5CTtxvraG30eJhADGhxnxUTZeTK5mmAcdoCwTJcMNT3lTX9D/CCclh342w2uMJ6jIikjMR/hpc
+	Xuz1MmBXPwlzSdzwRow3hPwKL38Vf01zUODTWAniIwQDzSntxB3ew3L7n41VSBzxW/SnwjdxP2WoH
+	bhxbuc3+jSklFdmuhKAEZAuIKYNSWhHepo2bf6J2TyKqUnG+O9FTZQtBdsTUPd0s2GdQeI8SdknPg
+	LWQvI4O5NBh2rUtZ6Geo7MeRGi/0kgwanAN74/ca5/52NaXUREum8hJoinv6chgz2ITr5hF56cq3m
+	+8HW6JWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkf5a-0000000BPkZ-1umA;
-	Wed, 19 Feb 2025 08:05:50 +0000
-Received: from mail.fris.de ([2a01:4f8:c2c:390b::1])
+	id 1tkf72-0000000BQBW-0VKR;
+	Wed, 19 Feb 2025 08:07:20 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkf2l-0000000BOrJ-0uHr
+	id 1tkf2u-0000000BOu3-2Mhm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 08:02:57 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A0A4CBFB4D;
-	Wed, 19 Feb 2025 09:02:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=dkim;
-	t=1739952165; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=+HmpXKPAD9ALBIJIuYji9/wPjq2kkxzldwrjVPCxR28=;
-	b=jldIeh9Bo4Rrq9MdnBTo0xAocBcj2Iin0Xgk0Y0oHrMk0TxEMuIpMUqEx5KveF57Mu2dDd
-	BhShyOY9RRWjZfADJlz2q1hy0nD47pzrIY6UP0iCUOv+IZpOeyzHYIsSVbxYluytO5bOWx
-	Pv7BVrvgptD7w7/IzMQQrIn7VfOd1AeM4CJttcJAlksoLmQ8tMZ0btBS5LHt7izgguMDqG
-	DLYVr+niyfO1W6xsXon/otZCHG5V4OtMHkbHO7bk5aNz1JNJbUNPIudRTGuF0KONxkXf3L
-	QNkLKT7gqTsKe46eAr0Uo6YAxoRMcvxbFRwiKcHCMe6xx93BnTnwV1PCEF6RIg==
-From: Frieder Schrempf <frieder@fris.de>
-To: linux-arm-kernel@lists.infradead.org,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Mark Brown <broonie@kernel.org>
-Cc: Frieder Schrempf <frieder.schrempf@kontron.de>,
-	Bo Liu <liubo03@inspur.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Joy Zou <joy.zou@nxp.com>,
-	Marek Vasut <marex@denx.de>,
-	Robin Gong <yibin.gong@nxp.com>
-Subject: [PATCH] regulator: pca9450: Remove duplicate code in probe
-Date: Wed, 19 Feb 2025 09:01:48 +0100
-Message-ID: <20250219080152.11883-1-frieder@fris.de>
+	Wed, 19 Feb 2025 08:03:05 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51J4sJMV004743;
+	Wed, 19 Feb 2025 09:02:51 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	CdybSsPkvSWYJRfesz++DC37KlekJmyO0IzskUGhkLk=; b=EfIFORFxMxyN43/2
+	Aj4awAbUK4oMUKyCpBUAouFdVciIDn7N3UhTpWcEmc3p41g3DOzZpqsz7ab0Vu5r
+	Re+ENMhEJd1SecCLyaHxESB40XJg5RVuLTMUVxsEAgs0SR0XgF4H77HSiXgEvRgG
+	jxsld9FuZqeMiywhnC5YgapDFh+8x763Bn/R5yhpQGkdkoPj7m6xWQcINEbqqCYr
+	Llpn/9ekwoE7RPYtQBeQu5Yy5Xa+nPMHc3w0q3HT92/4FPcsavQzNpyaNdG16cJk
+	Qf1vMnSYQU+m5ZLsbpVYxO9mvg4nDoXUuJ2U2XlaYapN0GHXz6UecfZJIvVxTNSU
+	LMStOw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 44vyym26sg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 19 Feb 2025 09:02:50 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id ABB4640044;
+	Wed, 19 Feb 2025 09:01:36 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 56C2543E460;
+	Wed, 19 Feb 2025 09:01:16 +0100 (CET)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 19 Feb
+ 2025 09:01:16 +0100
+From: <patrice.chotard@foss.st.com>
+To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <christophe.kerello@foss.st.com>, <patrice.chotard@foss.st.com>
+Subject: [PATCH v5 5/8] arm64: dts: st: Add OMM node on stm32mp251
+Date: Wed, 19 Feb 2025 09:00:56 +0100
+Message-ID: <20250219080059.367045-6-patrice.chotard@foss.st.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250219080059.367045-1-patrice.chotard@foss.st.com>
+References: <20250219080059.367045-1-patrice.chotard@foss.st.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SAFCAS1NODE2.st.com (10.75.90.13) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-19_03,2025-02-18_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_000255_695072_59A0543F 
-X-CRM114-Status: GOOD (  12.64  )
+X-CRM114-CacheID: sfid-20250219_000304_886491_E9898A20 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,43 +105,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
+From: Patrice Chotard <patrice.chotard@foss.st.com>
 
-The SD_VSEL GPIO is fetched twice for no reason. Remove the
-duplicate code.
+Add Octo Memory Manager (OMM) entry on stm32mp251 and its two
+OSPI instance.
 
-Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 ---
-Apparently something went wrong when preparing the v3 patch
-that got applied to regulator/for-next and is now in linux-next.
----
- drivers/regulator/pca9450-regulator.c | 12 ------------
- 1 file changed, 12 deletions(-)
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 48 ++++++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
 
-diff --git a/drivers/regulator/pca9450-regulator.c b/drivers/regulator/pca9450-regulator.c
-index 4519e725706cd..8f81d813640d9 100644
---- a/drivers/regulator/pca9450-regulator.c
-+++ b/drivers/regulator/pca9450-regulator.c
-@@ -1100,18 +1100,6 @@ static int pca9450_i2c_probe(struct i2c_client *i2c)
- 		return ret;
- 	}
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index f3c6cdfd7008..2565236e369f 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -768,6 +768,54 @@ rng: rng@42020000 {
+ 				status = "disabled";
+ 			};
  
--	/*
--	 * For LDO5 we need to be able to check the status of the SD_VSEL input in
--	 * order to know which control register is used. Most boards connect SD_VSEL
--	 * to the VSELECT signal, so we can use the GPIO that is internally routed
--	 * to this signal (if SION bit is set in IOMUX).
--	 */
--	pca9450->sd_vsel_gpio = gpiod_get_optional(&ldo5->dev, "sd-vsel", GPIOD_IN);
--	if (IS_ERR(pca9450->sd_vsel_gpio)) {
--		dev_err(&i2c->dev, "Failed to get SD_VSEL GPIO\n");
--		return ret;
--	}
--
- 	dev_info(&i2c->dev, "%s probed.\n",
- 		type == PCA9450_TYPE_PCA9450A ? "pca9450a" :
- 		(type == PCA9450_TYPE_PCA9451A ? "pca9451a" : "pca9450bc"));
++			ommanager: ommanager@40500000 {
++				compatible = "st,stm32mp25-omm";
++				reg = <0x40500000 0x400>, <0x60000000 0x10000000>;
++				reg-names = "regs", "memory_map";
++				ranges = <0 0 0x40430000 0x400>,
++					 <1 0 0x40440000 0x400>;
++				clocks = <&rcc CK_BUS_OSPIIOM>;
++				resets = <&rcc OSPIIOM_R>;
++				access-controllers = <&rifsc 111>;
++				power-domains = <&CLUSTER_PD>;
++				#address-cells = <2>;
++				#size-cells = <1>;
++				st,syscfg-amcr = <&syscfg 0x2c00 0x7>;
++				status = "disabled";
++
++				ospi1: spi@40430000 {
++					compatible = "st,stm32mp25-ospi";
++					reg = <0 0 0x400>;
++					interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
++					dmas = <&hpdma 2 0x62 0x00003121>,
++					       <&hpdma 2 0x42 0x00003112>;
++					dma-names = "tx", "rx";
++					clocks = <&scmi_clk CK_SCMI_OSPI1>;
++					resets = <&scmi_reset RST_SCMI_OSPI1>,
++						 <&scmi_reset RST_SCMI_OSPI1DLL>;
++					access-controllers = <&rifsc 74>;
++					power-domains = <&CLUSTER_PD>;
++					st,syscfg-dlyb = <&syscfg 0x1000>;
++					status = "disabled";
++				};
++
++				ospi2: spi@40440000 {
++					compatible = "st,stm32mp25-ospi";
++					reg = <1 0 0x400>;
++					interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
++					dmas = <&hpdma 3 0x62 0x00003121>,
++					       <&hpdma 3 0x42 0x00003112>;
++					dma-names = "tx", "rx";
++					clocks = <&scmi_clk CK_SCMI_OSPI2>;
++					resets = <&scmi_reset RST_SCMI_OSPI2>,
++						 <&scmi_reset RST_SCMI_OSPI2DLL>;
++					access-controllers = <&rifsc 75>;
++					power-domains = <&CLUSTER_PD>;
++					st,syscfg-dlyb = <&syscfg 0x1400>;
++					status = "disabled";
++				};
++			};
++
+ 			spi8: spi@46020000 {
+ 				#address-cells = <1>;
+ 				#size-cells = <0>;
 -- 
-2.48.1
+2.25.1
 
 
