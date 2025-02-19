@@ -4,97 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7207C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 18:13:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF06C021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 18:18:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EX7iW7aQk19gr4mr35uOFeWPZKaps87azPiJHXGQMpU=; b=Fj0bpgZeeLH3USCTWB3B8VI3cd
-	mZbeq4ao2I8Il6sVMHvcLUgBS/syd9Sl4hrivOMHTSvz0TL0ImCMrro3pX7iu4D4ZDXWpPc6L2we1
-	+hWhH2HAG8hB7Ot/T6GeJfK1vJ1JryeG34s9OGestaX9aMQv0a6b5Vsp9JZyNPL2vjA7lDBrayNG8
-	Gz40T0BVjYPc8TRmDvmevdGGoPIbMCueY22VgagGPCUz+EkLgtwAmV2X5QuS0GmNjuo2CjZDMCXhy
-	LOVBtabEIgGieJk7X0p9GS7fH33CRLLAWLeefqHVzzI6gOVcytN8C0f6izJ7PsHwmchaO3KPiUWQP
-	KZtS8mnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8C9W46l3FPaFoN0sWtC7LB1yKPLIdRTD9liokW949Dc=; b=MjtlD51kK4HQpz466mPSNOeO+q
+	1hCWdys8Ly+oHH6ZHTdzYd9OZJScjndIZOKyYhXg6lx0bxJ/pQQBFtgTP4apton6py5ymKIGXhpQP
+	cp0urM1Vv4di3y8uCmIl0G9DIBwF1nhSP2PqpUaTfM+o/tep50Y/YOoALEDi2dv37JCug7vFkxq24
+	xHd6TgAM1Nij0i1qh/QO3I1Fgyyk8Ct6BmCy3v+lG5x9JyG3u9zOoAIE/TQzZEs3/544NmeINcVAK
+	35i7Q16Ff4u4SnHVs4QUB1SDYghswkQlzLuT98CEwiyj0TnFQXkAY3vutBdapL6cigHr0QFjgz54d
+	9BwEJvdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkoZP-0000000EHri-3uCy;
-	Wed, 19 Feb 2025 18:13:15 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1tkoeb-0000000EJAX-2UqR;
+	Wed, 19 Feb 2025 18:18:37 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkoXv-0000000EHV5-0h36
+	id 1tkod7-0000000EInM-0Ouw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 18:11:44 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-abbb12bea54so26580766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 10:11:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739988701; x=1740593501; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=EX7iW7aQk19gr4mr35uOFeWPZKaps87azPiJHXGQMpU=;
-        b=A7Mn6eYt2VVez4cm1ffenLUlONFZArvZ2icIZYRRLF9wocpi8KM0U4M3fcu5YkPGuG
-         pMD0sy3XF0tZFbDp4tR1gheGPmxWIJGvcCxQP8OBJdwoXg86X5oRaMuoPjfEkzS3o8eH
-         Nm8tgj4hYJAVqFEXjCBHbKRyuom2L2oHCFyieCsx39ZSR8i/Q2iU6vBqU5Jnx9Sx/Z/r
-         OV1VsYkA+KmQcp4xpHpO421V1Y+s/c5I8JrtjMQJHTmKFQNW89j64L1RTvDiJEp81Fc+
-         xhspp1O4PQhqLgNk+IiLCGUNj/qVppAFlK66qpIO0x8B992WmfL/QJ/q9VhdaPD58RhQ
-         aa/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739988701; x=1740593501;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EX7iW7aQk19gr4mr35uOFeWPZKaps87azPiJHXGQMpU=;
-        b=pa4v/xWoWTC5nlBdnuktBE0Z117UmEZK7iwYiSR+MupT2V+U01194YbnZRmeawNXs6
-         dUIAqAY9ZTGm1x3ZlYzOLAaIM3grF8zthrC/uvxW1HN5iv0SOipewo3BB8CRPvdi8C7a
-         +GmbwSrc1igwWJSD0qefSuPIAXA8TWnElWcJH9/Lf95xzUAnJlJY86UMFnHSuh22mNgP
-         SPKM4z7d8tHkgyi22hheWsdRKscWtX594KZoOFxG0yixHUTnMRCOJ3vrAOc8DEiqEAzA
-         7/7HOIY8n9VaA+RiDz/xqrmnsfyXcpnL53JDtOYzZRYjonVVPDZqHs0qZ71mz014sPn8
-         McJw==
-X-Forwarded-Encrypted: i=1; AJvYcCWjq2MX/Brt1REbKDlm1keSpwycRUuRTKBWEh6sjwruOReHcECvCs9gs1PeeY76IkM4BObRskkw9AgUWuygvxXX@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywf3EIBzm4eo5IknRQZ4A5JSb4JeqQA5Z81KUr2vp0cPzT/5qed
-	1wBFxsW+bRHTN3695PjteOI5ZWZdT0D19eYfNtNlSKNdR0Qspiz+
-X-Gm-Gg: ASbGncsYdHiLv7rngJS1BmWbLgjY+bqj9R7XcFXyZVC8fa7HbYWCZ1q8/ATQvwghe3n
-	WODrbT1E+sOSo+Jdo4zZY1f/1nVfQHUKDSO7FwK3JT75Q8BVzEGPY5F1zA377XLzMIDU9JOGpsY
-	2pasJ8mPqUp2MzsuGNgH4zsPl3hSe6FBFDfkbPoxuAUFbQ9Zvw+w22ur/rn2dJC6uqDBVDCY/+Y
-	nEr923XIyFoPkSB9d2MjwnIJIzaWjxuGdL889Au8s9DJaDCzL+G5vp7LSBAJPRjYVOk1ehmCYfn
-	JpGJmRxgoZBKiZ4hrh9KGF379eau7uW5Ah39rqZRLKkNXyo=
-X-Google-Smtp-Source: AGHT+IEJpTPW7wSmUpDukWtijT9eGXBjCmFlUxZGRjvR2GsGxyDjjg4XrIW4SthKGdN7ujvQTG+O+w==
-X-Received: by 2002:a17:907:934a:b0:aa6:9461:a186 with SMTP id a640c23a62f3a-abb70dd663amr1847442766b.46.1739988701033;
-        Wed, 19 Feb 2025 10:11:41 -0800 (PST)
-Received: from [192.168.125.132] ([82.79.237.175])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abba7c63162sm524674566b.182.2025.02.19.10.11.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Feb 2025 10:11:40 -0800 (PST)
-Message-ID: <ceca2d24-78a4-48bf-872d-71866ad97b92@gmail.com>
-Date: Wed, 19 Feb 2025 13:10:41 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] clk: imx8mp: fix parents of AUDIOMIX DSP/OCRAM_A
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Abel Vesa <abelvesa@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Marek Vasut <marex@denx.de>,
- Stephen Boyd <sboyd@kernel.org>, "S.J. Wang" <shengjiu.wang@nxp.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
- "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20250217165718.74619-1-laurentiumihalcea111@gmail.com>
- <DB9PR04MB8461866A0B6A068E49D53FBE88FA2@DB9PR04MB8461.eurprd04.prod.outlook.com>
-Content-Language: en-US
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <DB9PR04MB8461866A0B6A068E49D53FBE88FA2@DB9PR04MB8461.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Wed, 19 Feb 2025 18:17:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 38F6E5C5BD2;
+	Wed, 19 Feb 2025 18:16:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33978C4CED1;
+	Wed, 19 Feb 2025 18:17:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739989024;
+	bh=DsGGofnDzKUQbDmEHUxv9uMf75t8hgC8FbDUK8smE60=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=SIaHwZEieT201WAL6Zk7NSYy7kj/ZnVkCqLA7vWQgDoXC/fx7GtDC6ohFzJatO4uj
+	 pz6eAx9/QPSV+jB+l87OzEnnG3nvlT8nR+spUptocIrUtqbcp0y431D3/KLkXWPn8c
+	 haE3dICihF53YjJ74YnU69bbFa+6jMRABfNzFGhcGblC/k2rAAw5jmYANWTVCK5e05
+	 YVm1c7TCBkAp4tFCIPYDTm6kX4l0JWP45o1CbUAwcIBLJVFyjxbus61QMONd+Q9Rlm
+	 HkEkpc34O1/Od1PWYzI2knIwJVAnxxKXDQspcziUX7+4JLUI/iyRRbBboeY61fBQ8r
+	 u6Fn453tm7DxA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tkod4-005v6y-0h;
+	Wed, 19 Feb 2025 18:17:02 +0000
+Date: Wed, 19 Feb 2025 18:17:00 +0000
+Message-ID: <861pvtsstf.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH v2 10/14] KVM: arm64: Move PMUVer filtering into KVM code
+In-Reply-To: <20250203183111.191519-11-oliver.upton@linux.dev>
+References: <20250203183111.191519-1-oliver.upton@linux.dev>
+	<20250203183111.191519-11-oliver.upton@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mizhang@google.com, coltonlewis@google.com, rananta@google.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, j@jannau.net
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_101143_206433_B1C395D6 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250219_101705_220907_DFCC20A2 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,24 +95,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 03 Feb 2025 18:31:07 +0000,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> The supported guest PMU version on a particular platform is ultimately a
+> KVM decision. Move PMUVer filtering into KVM code.
+> 
+> Tested-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> ---
+>  arch/arm64/include/asm/cpufeature.h | 23 -----------------------
+>  arch/arm64/kvm/pmu-emul.c           | 15 +++++++++------
+>  2 files changed, 9 insertions(+), 29 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index 0eff048848b8..c4326f1cb917 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -525,29 +525,6 @@ cpuid_feature_extract_unsigned_field(u64 features, int field)
+>  	return cpuid_feature_extract_unsigned_field_width(features, field, 4);
+>  }
+>  
+> -/*
+> - * Fields that identify the version of the Performance Monitors Extension do
+> - * not follow the standard ID scheme. See ARM DDI 0487E.a page D13-2825,
+> - * "Alternative ID scheme used for the Performance Monitors Extension version".
+> - */
+> -static inline u64 __attribute_const__
+> -cpuid_feature_cap_perfmon_field(u64 features, int field, u64 cap)
+> -{
+> -	u64 val = cpuid_feature_extract_unsigned_field(features, field);
 
-On 2/18/25 08:43, Peng Fan (OSS) wrote:
-> Hi Laurentiu,
->
->> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
->> Subject: [PATCH 0/4] clk: imx8mp: fix parents of AUDIOMIX
->> DSP/OCRAM_A
->>
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->>
->> Correct the parent of the AUDIOMIX DSP and OCRAM_A clock gates by
->> setting it to AUDIO_AXI_CLK_ROOT, instead of AUDIO_AHB_CLK_ROOT.
->> Additionally, set the frequency of AUDIO_AXI_CLK_ROOT to 800MHz
->> instead of the current 400MHz.
-> The patchset looks good to me, just one nit, 
-> Should fixes tag be added for the patchset?
+I guess this is where this idiom is coming from. I think it'd be worth
+revisiting it here as well as in the last patch.
 
+Thanks,
 
-sure, will send a V2 with that
+	M.
 
+-- 
+Without deviation from the norm, progress is not possible.
 
