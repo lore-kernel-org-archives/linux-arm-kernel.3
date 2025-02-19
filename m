@@ -4,65 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3F80C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 21:26:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC3EDC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 21:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5K/GviXxBbz04FRu5qx/Rj90c1ML6GlWoShYPAJk73A=; b=mVltW9M/loR8Thox2TXvFLmAR0
-	9gfqrpPn3ThaCZUgL7KuPqwIS/q+/dicx7cNyRi6ylOfBYgrVk5NdChKSOuEg40+r0kuJFxZDHPLv
-	Msu2Wcc1JALuEUAxwr3fxcJNs3imeu+klC+22oEDJHsn00TjB4yqNmDj+0l0bb/xmbA9OwG19fP4Q
-	wzQBkBf8Y0q+Ltd0uxmO7BXEKpLRHDq6g3LBvk4kPI7rEo0KgoJEocCkDH8YHjF+uwpwRSc/rpJA0
-	BeLlCkhaCue6hEpy5EQGTtpg6Qz2nsDsPbBV0QO2M3r4eBfAjcZdzx/A/Lzcm1lMP//Z7g9smO5RO
-	BkjupwjQ==;
+	bh=/rDyxiOunpG8RZdFESpT3ouUfxWTugOAneKlopBL7rY=; b=Gw7AL6NwQoGRJsvzII3ej48heB
+	iz1hRa0GmSuvFevl5spzysVYX0Xo1Huovxlp1BO4NQ4AS/J3f+E5E2kWyAU3A8ll/A4QYqZOQJxOA
+	8gUjCC3wYVLaK/xBAc+Fvd57gH+ZnklS2LrJylxRRr6tkWKAi+CPfioZvvnzyG1dmAhyNNVEnr/Qf
+	X16TNMgaGy9ZoDUjDiQW3SA8Cl306fNx95yUUFp5IM37fNeR17P+dqMedoIfCIHsrINQFHbPHebsZ
+	oCyLBDrfPNHNlaGtkDsSvFGI/edsuHmvT08ApIoQUirqIW79BC6gNPtOVymUt/ozrtag5eam/AE1e
+	uPB8hn/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkraA-0000000FBOj-2Xhk;
-	Wed, 19 Feb 2025 21:26:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tkrbc-0000000FBnV-1JVQ;
+	Wed, 19 Feb 2025 21:27:44 +0000
+Received: from mail-db8eur05on2060c.outbound.protection.outlook.com ([2a01:111:f403:2614::60c] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkrSd-0000000F9O7-2lJF
+	id 1tkrTc-0000000F9gw-1eJl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 21:18:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 85C8F611D4;
-	Wed, 19 Feb 2025 21:18:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C8BEC4CED1;
-	Wed, 19 Feb 2025 21:18:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739999906;
-	bh=zgChJNf/jNRQQ4Q+zy63+Z2ebjGkQIejxO8cpu9ja64=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Ytk9ZN4Nfwb5KfE2wIsscLA2w9BYrtqzRHgMJ7YrVBMdg601+cXGaRNDkSMNiZif/
-	 oLzBHncVEM/pt8X9yon0xPE3uAehMpIHrdoED3dL7z83FhwwIThYLQkwWclQcMbF7/
-	 8LaFWH/dpMIZgKCOcN1pXi5LTFGHZE8M4OF8O6ghfuGQQEKmSfc/BYEiN8Cr2A8sYB
-	 u01BAtD/dQXwvityHrENihfWdCUNeVEuvXp5wRqL/Bzk026J+J6E7b5g2rSyMv4cGu
-	 2VRSRFWYVs9PrIRUpVvxGkD4WAAZ7sk6xRBVMLZxE/o0/xkw9V/4vzSABDGoIpPuvt
-	 jYMBGdY6sIv3g==
-Date: Wed, 19 Feb 2025 15:18:25 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Frank.Li@nxp.com, s.hauer@pengutronix.de, p.zabel@pengutronix.de, 
- mathieu.poirier@linaro.org, krzk+dt@kernel.org, peng.fan@nxp.com, 
- laurentiu.mihalcea@nxp.com, iuliana.prodan@nxp.com, conor+dt@kernel.org, 
- festevam@gmail.com, imx@lists.linux.dev, kernel@pengutronix.de, 
- shengjiu.wang@nxp.com, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, shawnguo@kernel.org, 
- linux-kernel@vger.kernel.org
+	Wed, 19 Feb 2025 21:19:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s0hR+SDncxRPnghTDmRfVfBkNHg3QeBU6S6cNfR8VCDDTC5PWrm26YjunQ1z6ISchU8VKr6yr8BRAPMRr9Foz7Jbd7dPbdJHHkiwbc88fy2q/i2YtS9Znot26kdOy+5SgLeyiI7LQGWQd0NVQry+6aHT91GFHZyb4HNq4CFXsoi7Ik44L5YOs5YVMZThbAxbsJvUtTNCnT/pZekOzVbdwYKWX56/L2RSpILc2cQOpDvgAb7ydjwuWu8H/u5IHWAK22Ga6tjv5lqdGNuZGI7T0EvO/pMzEFl1ORZtrb6e6I2Wc67xaT+HmN+52+gxhYGkwRo1cSaq76mSiM2euy+0TQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/rDyxiOunpG8RZdFESpT3ouUfxWTugOAneKlopBL7rY=;
+ b=Ilx3lUP5iag1YX46sqbxASNEJZfFLy2sv4qyG4txfgRuC9Fyd5Lq9AXRFaUQyYMKk1Csh0QxAHSpXBPzwtTrhvuSJC0mQ6Bgz0rePI7BJWhuCHE/vaEegqPv78a/XbtMLMTjvlH3Cer4oXbfuEu12OgwMUxLa8V3ougtGrh/0nX08RHdLtv4SdjTl06KdOE/3YYp8qwPMIRL8tL1h02NkxMCjMEz+3+MGoJrSsrk/YIHvY7tiPVVE5vXmJQVa2uaUN/3YDeBNEHMXuIc36RmTHjYDiwotFR0p+tabBwveKRAIoHZbw4k7N2dEbL3MUzSZ9U3lrjyfK+Jq1NdL2mR3g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/rDyxiOunpG8RZdFESpT3ouUfxWTugOAneKlopBL7rY=;
+ b=Md6NnNQD1MMK80iTqGUXj79P+A3CFUhjLoCOXPMQKSe+hKsLiLdgUItBxMXP0kxLmsbacL1gsOaYvV0VPIz6xBVfmRq0Vl0vsSoHA8/G2m1BDhIElYoGJw3B3nXGsWeQlelcy/5DNXUGEvzqAoDUutq5wzCmQuyOs/EpFaNZHx1N6Vq8d/X+0b1q7yvpcNM5Tvbdsj13zS59aYSuP2Or9Nh22O7kuOzebogeU0h0Fvq709S2oQgozJJ8j+yUQlFxLa05Zu/1sKUyAVZnwnWblY9m3OF4vMo/8UFrBAR7NRcN/lDJvKOOBeAhYqe0MzaK7z0ZiLJQhv8jKUXTmK0YSA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS8PR04MB8215.eurprd04.prod.outlook.com (2603:10a6:20b:3b3::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.20; Wed, 19 Feb
+ 2025 21:19:25 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8445.017; Wed, 19 Feb 2025
+ 21:19:24 +0000
+Date: Wed, 19 Feb 2025 16:19:15 -0500
+From: Frank Li <Frank.li@nxp.com>
 To: Daniel Baluta <daniel.baluta@nxp.com>
-In-Reply-To: <20250219192102.423850-3-daniel.baluta@nxp.com>
+Cc: p.zabel@pengutronix.de, robh@kernel.org, shawnguo@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	mathieu.poirier@linaro.org, shengjiu.wang@nxp.com, peng.fan@nxp.com,
+	laurentiu.mihalcea@nxp.com, iuliana.prodan@nxp.com
+Subject: Re: [PATCH v2 1/8] dt-bindings: reset: audiomix: Add reset ids for
+ EARC and DSP
+Message-ID: <Z7ZK0/Nk/ANBPIkd@lizhi-Precision-Tower-5810>
 References: <20250219192102.423850-1-daniel.baluta@nxp.com>
- <20250219192102.423850-3-daniel.baluta@nxp.com>
-Message-Id: <173999990554.2971484.2354660652098932942.robh@kernel.org>
-Subject: Re: [PATCH v2 2/8] dt-bindings: dsp: fsl,dsp: Add resets property
+ <20250219192102.423850-2-daniel.baluta@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250219192102.423850-2-daniel.baluta@nxp.com>
+X-ClientProxiedBy: SJ0PR03CA0145.namprd03.prod.outlook.com
+ (2603:10b6:a03:33c::30) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB8215:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed1a9e8d-fc9e-4712-60b6-08dd512b15d5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|366016|1800799024|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1HB+Rl+TH5pNS0sAx5uhWburdic6Cg8I3OoKdJsxIR8njna3cNaqzRvi1rM/?=
+ =?us-ascii?Q?bf1aTpY4ZrRLnvGFbMpMYopE8Pir0Fu3bqMCu2ATpE2HXOVbp5XT6szfW4u7?=
+ =?us-ascii?Q?DFDG7C8r5Ansv9partKQ+GQ6X/+LYYc4lZOJzn5txoI4IlYpAhbmqtxBMmOk?=
+ =?us-ascii?Q?R27K7j2coj5ZWnxLXvqkwMH4OBggM4Gws2K0Enpmcp+mtnYJxRceRo45hjpk?=
+ =?us-ascii?Q?k/HUQw0V/tfrJuVqejHZuC8hJrqg9CWkEZLWRMujN6yifxqTxF95NbwnUTXO?=
+ =?us-ascii?Q?kFu/rHO6nRis3XQobxK4cUN+wsxfprq/Y9hb73UxDe+jYqtDCfk95rkzX529?=
+ =?us-ascii?Q?X3C6ont51tpvK9R34woNb7ABU+XegYdwnaDobLs07JtojG5imGLIYgNdhQdI?=
+ =?us-ascii?Q?RBqpfyS+jN9RFsnqEvTeYMi5QPvzFgj6KoIPI5vMsVfrxGIFpnWu9e/35kRt?=
+ =?us-ascii?Q?wRuYtn6B7iYMEYUg9JUaCGbwszEgd/5Z2mmh4mLBha94IHRED9e8skoUsagw?=
+ =?us-ascii?Q?vPg/6GjuA9+9JuditEoYBuuEiSHHWpDB/Px/c4Gej5CCC6FvZ6V8G8s5sfA3?=
+ =?us-ascii?Q?hwYn5g6kwe8LjXpW4HorO4FZrriTH2Y1cqt5qStaYO4eiUTqJKdtXr74vFOq?=
+ =?us-ascii?Q?1WDae5mlmvQD7JPhRfDJ9UJgGMHo81a81zbIg9FaalVZtGC0zeOi/obq1G8m?=
+ =?us-ascii?Q?RlWk5RQ/L3wlM1RyLg5I3kU6D7HLb/utiwwLUc08w10rcBL7B/u/yF3X4WHu?=
+ =?us-ascii?Q?3Odu8dEC3mbif9XIhHRtaLP4JadP0BMrOr6TXwYpJ98o8Sr5WixTxFwl2Pog?=
+ =?us-ascii?Q?CudMp7XfbFiGz+9PVZfd7Ju/qZlinG0cxmO2uWtRYXd1thLHzK1wKrXDIQdG?=
+ =?us-ascii?Q?OUSQeUji6vBPiZtB3BkH7iejwAB4Hu7+pw6VnfYndwpmTG6FoT4bgU8sQjIV?=
+ =?us-ascii?Q?0KNF8HDFdJpKNJw2tns7qnq79OLcYXNlPAIAGwFCHNiomIEqCSMFAkmJ4u2K?=
+ =?us-ascii?Q?vwFi5vjc86aq0lga0j4Qa8k/WwmxItXCKMT9QF/X+8mfrrtKGX11OR/BDyO9?=
+ =?us-ascii?Q?la4Y0b1oiuEpDDuXCgcmwMbMholdZL06qlo2VUEX+gC8o5twIiDtOI0rQyWg?=
+ =?us-ascii?Q?dBphGM/eQoJDCWP8sX1QOueinQXbY0nsgwdkwaFcDNS2+mGEFAiBWgeWuir5?=
+ =?us-ascii?Q?bBd9cqFEDpRywhSoy/IXTrIhwVXIiq83AKhQU7OkNqo/yhb5xmLKfhLoirsu?=
+ =?us-ascii?Q?892m8aE/Y394OZm99HQnyijpIAVQ6WXraAPZztbM1JtK98OakxAQVj/cRDiR?=
+ =?us-ascii?Q?65rcVF7f7whEELTvq9rfPwvqxb3xrcE+wFyNT29EBLqeYKpGmFYZ98GoT0PJ?=
+ =?us-ascii?Q?5MIDw0LjQMLR9rjGqtOQK83Ya87xiENUBmt/4443Gay9KY4VYj5V/fNzsQDB?=
+ =?us-ascii?Q?bG0b2w9ksAJh7kD9L2VZvKaX8xvUDyaJ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(366016)(1800799024)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2UH7i52/BVmQyMC9FeDdXEXNZX8K4vIYhlQGGY6Acm88L3uP0dW0+M8Xrh9U?=
+ =?us-ascii?Q?gYxSPU1MkRXi7Qn2BmLDI11t3sYfwLQS2rvT/LFjTY135oZAgA56O4uySrrr?=
+ =?us-ascii?Q?yOHwLDzDUl0U0J1XRrEVRZY3eks1hoJ3OLSTt87xTLx+0Xz80Loc6vQTWpZw?=
+ =?us-ascii?Q?+dR2FzyyH+KSU4uBMji9ZC1nRuGgMvy1HI/crPQGG+Lbvads9pSvfM47UTd3?=
+ =?us-ascii?Q?bI8mIL10a8g3I+rL0bWQRP3c84M0YlRmCX6qfGbPP2E77DguIw3EcRGTn3sa?=
+ =?us-ascii?Q?omHyJYAmu0ywEoNIIaW39F1kP8q/tZOXUyRHbNtpR5OKhjLHUWxItp3719KJ?=
+ =?us-ascii?Q?ZsOQEku04EqOtP3xHctzfgSYZ6pdjeaDjY4KWMVWvTldGPo7fAHWrOh3mASO?=
+ =?us-ascii?Q?DW97XintbRQQCYhhrwvw8+TH6E+ilqxQenhk6BvMIkYjL5yqmDlW5BZUG2te?=
+ =?us-ascii?Q?T8nAsaC4oaf3QKUiLHlrGUndGIJ8qbmlnh9aR9A9ki9+slhRMuS7MhjbO/n6?=
+ =?us-ascii?Q?oBwcHN3DnHbdcmSKI4Wv8qTiaDYZJLSMUdA3l9p3G4x1d5aKI/Ji4IQXPE+1?=
+ =?us-ascii?Q?qlgy7os5a84xZeurtzU9k7rkHZ6QqpiX3gsRPxTyDMvsAa76boTPDv4aRlGi?=
+ =?us-ascii?Q?0iDZjQ7LdWmlAhqGGJs2WKEqixHZFu8gKxu49fbKMhLs8q6wHbyPUDIDTlNM?=
+ =?us-ascii?Q?gch0QOu6D9j3AsnWrVPGJN+oMmFqcPyl12/CXIvvbZE0dC08/zV7kYcJw0oQ?=
+ =?us-ascii?Q?V4+N7cacavl3ssLE1dFO3f2MKN5gxRrdX8h/5rvvxerjJwSrJMnEzF1HQ/4H?=
+ =?us-ascii?Q?zfhAk8ISdfa+KXQztawwn27YCRCXVNwukmQw45bj8r8POLIEnWUNz1Vzj8SF?=
+ =?us-ascii?Q?JRFTQDOhZwk7ZmPyxSAuyN5uYuUZ3xLs8V6YJvmyQ0UndtZvMMdcm5aFtEe1?=
+ =?us-ascii?Q?fwfiWbmzaybSi7iy+EWvyMia7rGF4BKUOz0Pc73y1b7ARyrb1LsuBqiRUkzg?=
+ =?us-ascii?Q?8p0th9SH9MbUJqebc0a0GWAtFPHrhZ3hWedq2BXMDfGfWm/X1fLG6p2/3KYb?=
+ =?us-ascii?Q?+/bvJO6oTlj1vdsj4fFDUtvQihP07Vs7UXLeDsDlY1VcH4Rmi3OmrpzP01SR?=
+ =?us-ascii?Q?QFlCgRSBxg7jPCytFiKDK4tGekGRiKZPIbgoMjb0Gdqdy8jSQ4L/a32Ziapt?=
+ =?us-ascii?Q?PBUm4kUJ4xfJTN7jB1zPnlAoWbWAUg140ADR7X0TAAfJ0An4klDewPmqla/W?=
+ =?us-ascii?Q?B83OrTN6BRETzHOrBMocyrwsmNP1b1STLryy2vr75VUQI3nsMES8wy4+nvze?=
+ =?us-ascii?Q?W/UAR0RehT6A5tOLBx3E2uNt1A4g1jM3ohotqO81cmEWjXNvlVzAJtfmRUOF?=
+ =?us-ascii?Q?crDw/F3HQbL1Q+7fS9021Vvfa07jGywPpbVxAGR+e+kWZEZBbcWAiGO1E94f?=
+ =?us-ascii?Q?yT6OMv5FjyhpnMXIF6W9ohFsSFjVVfHo1Z7GiFxlXakwuAsE9EQ49c+UrJ2/?=
+ =?us-ascii?Q?GPCIxEcv/yQto9m4JI2RNofsHdDqPo9JrZVeMxsYflVuc6jamXX1GJ5k9YWp?=
+ =?us-ascii?Q?DZZH58GqN9C3KTOvcrYkoqmvrrCilDH4FZwMS8Bg?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed1a9e8d-fc9e-4712-60b6-08dd512b15d5
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 21:19:24.9208
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gAbjymHF7MfL4FjEpGt6bOTNd3aqyNoUPkwxvdflJn5Vjtut7yd6fqdHKsLkK9QJrHviB5NBwVq0Wv+MzTerBA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8215
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_131827_755186_452E3B9E 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20250219_131928_453719_0BBD830B 
+X-CRM114-Status: GOOD (  16.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +162,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 19 Feb 2025 21:20:56 +0200, Daniel Baluta wrote:
-> On i.MX8MP we introduced support for using a reset controller
-> to control DSP operation.
-> 
-> This patch adds reset property which is required for i.MX8MP.
-> 
+On Wed, Feb 19, 2025 at 09:20:55PM +0200, Daniel Baluta wrote:
+> Add reset ids used for EARC and DSP on i.MX8MP platform.
+>
 > Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+
 > ---
->  .../devicetree/bindings/dsp/fsl,dsp.yaml      | 19 ++++++++++++++++++-
->  1 file changed, 18 insertions(+), 1 deletion(-)
-> 
-
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/dsp/fsl,dsp.yaml:183:11: [error] string value is redundantly quoted with any quotes (quoted-strings)
-
-dtschema/dtc warnings/errors:
-Error: Documentation/devicetree/bindings/dsp/fsl,dsp.example.dts:85.37-38 syntax error
-FATAL ERROR: Unable to parse input tree
-make[2]: *** [scripts/Makefile.dtbs:131: Documentation/devicetree/bindings/dsp/fsl,dsp.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1511: dt_binding_check] Error 2
-make: *** [Makefile:251: __sub-make] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250219192102.423850-3-daniel.baluta@nxp.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+>  include/dt-bindings/reset/imx8mp-reset-audiomix.h | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+>  create mode 100644 include/dt-bindings/reset/imx8mp-reset-audiomix.h
+>
+> diff --git a/include/dt-bindings/reset/imx8mp-reset-audiomix.h b/include/dt-bindings/reset/imx8mp-reset-audiomix.h
+> new file mode 100644
+> index 000000000000..3349bf311764
+> --- /dev/null
+> +++ b/include/dt-bindings/reset/imx8mp-reset-audiomix.h
+> @@ -0,0 +1,13 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
+> +/*
+> + * Copyright 2025 NXP
+> + */
+> +
+> +#ifndef DT_BINDING_RESET_IMX8MP_AUDIOMIX_H
+> +#define DT_BINDING_RESET_IMX8MP_AUDIOMIX_H
+> +
+> +#define IMX8MP_AUDIOMIX_EARC		0
+> +#define IMX8MP_AUDIOMIX_EARC_PHY	1
+> +#define IMX8MP_AUDIOMIX_DSP		2
+> +
+> +#endif /* DT_BINDING_RESET_IMX8MP_AUDIOMIX_H */
+> --
+> 2.25.1
+>
 
