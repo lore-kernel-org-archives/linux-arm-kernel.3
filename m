@@ -4,73 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAEAFC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E7CBC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 13:00:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Jdvct6r77PKN9vgY343Ulkos+bhV9Qzzfs97r9bi4I=; b=47Ucd9e5EmfQPvcPG79bwnKhTu
-	62TAi6VgzpYM4dDayG2LHIgNk5jvyktHG43k4cCKLrop4ueVLbUkIDikf6Jy11kDnY4HR2kAsA4vJ
-	Dd9m75GYlZ/lEhzlUwOTUdx9r0N6HEPYzF2eU1PMMcLGV0tCTFfVWRMecpRh+USe13Yi6H5BMVg/8
-	K8sgFNUQ4vS/SET4+tVaAtxiAKdEkwcQZgbdL9AE4NZiEt4NzjinObuHu5oqy8nGZGltmSOXAZGAI
-	ZkpQzmLfq6HFEnm3pKRWMOLf6ElaPKgBdoJL3LSyx1MyuztMMoNqavMfcQnySqx/yXYDNQZWZBomg
-	hP0hifqA==;
+	bh=NX2wgBTb57YNhQ0Dx2z58i0VYdMln4e5I4vq7Id/u/8=; b=qa1GVDnOikuKti51RyuC7TtcmT
+	FUhWa6XEUJGTK89TaRJP3rqHOMgQnQUeqXOPscaK+pjWe9WoSzhr1L7YFljWuyJmFseqZLbpchtbo
+	FZMS2SIb0+0Abi1tzGqe8Z+NAomWlludNFucC6KEMC+T/zkkhKEMsbCL+RxDUpoLsBxJYAx5OXz4Y
+	rUm20F0Ms5Urx3lCLevqlKgtmVu2lYDqbfhBPn0K1cCutyS1TXtkHjT086+oCs1s5u0PqsJ1derGB
+	JipYmgeF1Nhtb9Z5yB9Vxh261dsHtSsgVE9uZBUI654bWvwVLbUEeNHQNSjZoEJbIE9C0fd+86jLO
+	7p/D33Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjey-0000000CoYs-17cf;
-	Wed, 19 Feb 2025 12:58:40 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tkjgP-0000000Cp7E-3rjD;
+	Wed, 19 Feb 2025 13:00:09 +0000
+Received: from mout.web.de ([212.227.15.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjVz-0000000ClIh-3Iuh;
-	Wed, 19 Feb 2025 12:49:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739969362;
-	bh=JtCFmUUtrIS/1k4JkzCecit2Kb9gJDSyTekDFBqRn5s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=BoFJwlehHzLHswimyS6738I+f/x3tTiFvGkMWVEz+qn3QCdBvMUw+81CaryIEvLGa
-	 M1zQylEbDaQIkxPTakQ4n+OPp0Rk5Ss4JGZeJqsnhWdBvdtI21bfZ6qTVASRPSYaz6
-	 Z8wNjy+dXT5Jdamjzr9lCe4+oUqyOsubYjhpMYM/4gBbv3CYP1zUe5rp6CAJNeOKHx
-	 pGkTrTJvDynLRbfxmoWaMmAcuC2yGealIojDe+dbmtZgSRfgyjp2c6bklFVUa3D0H0
-	 hDWyInVFE5P2ne3wzPE8KoPJTojnhFPaqzlIkEfyx04Z4U/cNJHaywWnmkhn8ddfwE
-	 at8RWKN5fHTsg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 51BF917E14E7;
-	Wed, 19 Feb 2025 13:49:21 +0100 (CET)
-Message-ID: <779b0915-f0fa-46b6-8c5b-57745114252f@collabora.com>
-Date: Wed, 19 Feb 2025 13:49:21 +0100
+	id 1tkjb0-0000000CnDD-1qVC;
+	Wed, 19 Feb 2025 12:54:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1739969668; x=1740574468; i=markus.elfring@web.de;
+	bh=NX2wgBTb57YNhQ0Dx2z58i0VYdMln4e5I4vq7Id/u/8=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Ojhv1gYnRx2oJvMCOW/7S5ogYi96h1eNZmBVjkDZE6HIgfn2bII237fhxN/7KZsD
+	 TbJx6YTDA0wj+xQ01ee78LN1sBK+MH13PGLGB/C2RrJh/biFIvTeFPRkrML/4qQfw
+	 13mbxKPnYqG1ZEAAxz45Af1J+rnwzpyRElAJ5GGPXFlyUjrngYViYaCA2uzkrzaBe
+	 u7F1I8C/D0N2pLh3o5zqFrKhTyf1zdui4pGYEY//aVIcyQyfTzj7y/RylJsBhEhm5
+	 OY6nKHp6dqx0f94VeuS+NaVOSVPC1/zKK2qHQQ4yS5cIyEasMyvXo9g9vArg3PRx8
+	 yEDdFZZg0UFaQfEtOg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.70.10]) by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MZjEJ-1toFzn27IF-00OMPN; Wed, 19
+ Feb 2025 13:54:28 +0100
+Message-ID: <218b109e-a05f-42f2-b0bf-1b15d1a28b50@web.de>
+Date: Wed, 19 Feb 2025 13:54:22 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/7] drm/mediatek: Add CCORR component support for MT8196
-To: Jay Liu <jay.liu@mediatek.com>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Yongqiang Niu <yongqiang.niu@mediatek.com>,
- CK Hu <ck.hu@mediatek.com>, Hsin-Yi Wang <hsinyi@chromium.org>
-Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+To: Gerald Loacker <gerald.loacker@wolfvision.net>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Mehdi Djait <mehdi.djait@bootlin.com>,
+ Michael Riesch <michael.riesch@wolfvision.net>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20250219092040.11227-1-jay.liu@mediatek.com>
- <20250219092040.11227-2-jay.liu@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250219092040.11227-2-jay.liu@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+ Alexander Shiyan <eagle.alexander923@gmail.com>,
+ Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Kever Yang <kever.yang@rock-chips.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Paul Kocialkowski <paulk@sys-base.io>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Sebastian Fricke <sebastian.fricke@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Val Packett <val@packett.cool>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Mehdi Djait <mehdi.djait@linux.intel.com>
+References: <20250219-v6-8-topic-rk3568-vicap-v4-5-e906600ae3b0@wolfvision.net>
+Subject: Re: [PATCH v4 05/11] media: rockchip: add a driver for the rockchip
+ camera interface
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250219-v6-8-topic-rk3568-vicap-v4-5-e906600ae3b0@wolfvision.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:QIH6bMsC4SL6tM5FXvxmKgSOSHYCPU+Qy2oNfHkFEGuXlyilvv/
+ IFsq49vVgAZ/Pz+LhRUXX39v0QsqT4VJ0lzMuThOjmq2AA6jbH631PmDEgT1rfrLNEJUcyz
+ fVzOl/gOx3F9fxs0UJNOZNUdE4T49CZVR/EQoWROi04wkD8GyzY3YidoSpCPlyoa8a/6rNh
+ ZlaRJ7Sc+nD/ATpgRsMUw==
+UI-OutboundReport: notjunk:1;M01:P0:irdIEICfqUI=;IsbIQ2vMNaB35dqJ5SZn3/+Sp3+
+ mXwNV2aM8hxp6dDAjuGUyS+Y0n0nQfiuRYj7EjV5dbJJPQ1qgTA/aoOsbdgHzr4anJUz1urak
+ 1Fy4Ld/li3SbQBe+1bTlAnjy45NtgK6c32v9JDO15iuqxJH/8sBokEUieuUTpvpqmTWGqHrGK
+ LMhCNWRZ4fMI4B/hcCNE9611FTaENHqw0wZt2QxPmiIHc0dEw42A3IGY9A/eEP35n2QyTML9P
+ TPMoN+DzXd5uFBST/7zzYvoG74g0tgseOgdVpdCoLMpSOyD0mw2kLzIM59mPaj/FA2tRif03b
+ 4jeH+E2Ox5p7mJ6ZPxVdBGY8QrqoJH+/TjcT3OgP+JtNSeHzc9rlnjJ6I2svyQhCJ3CfJjsYb
+ VnKSQs3Sfa8gJUEkrlcJ/ZIiPEX7UCvqDWO2xJmwBeAZbpzZ4CsKXlG6nuhNUK2Q7YTODUogH
+ RSaVLVg3S3X4dY5dV4s73smx3kDb92+vxtH1rJaUkchMdy+XiRpJaeKk1/smFaHtEdou/4iov
+ Ouv0TiV2K51V5KrGuB6kBsUw9cnqsSZQ2HnMvYJ57Q99QYx62BjMGj0hHh8m+87+QfP1p2EFK
+ Vo7oh4O1UO7pD/IRenTP0pWWqG+mIMSNe78luOBp5MW7CPBqharvXE4pfuNjCRS+rDoHsrfSy
+ m4OGd8g9l9eSJDAr7q/tunzX5ksrBN2N0ao4evDDKf4MopkrUavi3wrJEfL5Kd0vwp8NDtHze
+ gmbelQPmuIwtKsHfIQwa3tsLfhZPN9w+leySKkJr541BKuGe77AL5SHeqMrix/GoWZPA25pgX
+ aBAtiVUz0l67QHVN3xoTZWA53me/9XxuLwA3uyO0q8lRXKn3kHfFqWQFRXNNDOJqmE12CvkuW
+ alJmeRxP6SumTbWDk0NE2AnNTMCRBVeVRF/rUVbT7tL05ILNmU7T/0Uu8xTDW546L2dl/JxT9
+ DFMOejqdbzQIeTDxXRePaLbcU/K8nrZLFPlyd/7SFu7ea/RrO4OXChCQS9jQZn/JN+irxc1fY
+ gMboO6kG+hEvwl8jERbxhjBsSAEyow55ijMMdRhw95xogj6GOXRzrJnaTsm2Dztd7PVGSyigj
+ wc0NLwrTQBoyyi7649VfhzDAXWIpM3twStyRwnpnGuBT2fq+fDjqVYZjygyKf7XZXtf6r/9cB
+ BIS5BDKPY6DZ936Q7thnh//IRKWVRex5o7810MS3lZSXHj95gH/V5fi/YiFjKl/AP6u1NgM3T
+ vOkzaJ75n2J2bhfyPcRZKe9dKlnwPDYX/8V2vCOnW+vU3YrLbMkuoEzXU2FWgTHiJwrPZ/RTj
+ R8uij/kRfK+pF5NIn3HrXTvpiwjcG9qSnZqDrHjhd6sZKd6/PoUFsVg59irRrleUNQBlSru64
+ Odc/rgs2jkQRD3fDWxGBjl116fQCxh3SHnRa5aJ8Wb9/66RHlNepWfOmVn6FCCAkL/tCEzuad
+ Ok5fKh33orINRYSUGyKpM0Vp7u50=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_044923_979576_7C8C63CC 
-X-CRM114-Status: GOOD (  26.50  )
+X-CRM114-CacheID: sfid-20250219_045434_845374_A49F39CC 
+X-CRM114-Status: UNSURE (   6.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,111 +122,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 19/02/25 10:20, Jay Liu ha scritto:
-> Add CCORR component support for MT8196.
-> 
-> CCORR is a hardware module that optimizes the visual effects of
-> images by adjusting the color matrix, enabling features such as
-> night light.
-> 
-> The 8196 hardware platform includes two CCORR (Color Correction) units.
-> However, the `mtk_ccorr_ctm_set` API only utilizes one of these units.
-> To prevent the unused CCORR unit from inadvertently taking effect,
-> we need to block it by adding mandatory_ccorr flag in the driver_data.
-> 
-> Signed-off-by: Jay Liu <jay.liu@mediatek.com>
+=E2=80=A6
+> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+> @@ -0,0 +1,622 @@
+=E2=80=A6
+> +static void rkcif_stream_push_buffer(struct rkcif_stream *stream,
+> +				     struct rkcif_buffer *buffer)
+> +{
+> +	unsigned long lock_flags;
+> +
+> +	spin_lock_irqsave(&stream->driver_queue_lock, lock_flags);
+> +	list_add_tail(&buffer->queue, &stream->driver_queue);
+> +	spin_unlock_irqrestore(&stream->driver_queue_lock, lock_flags);
+> +}
+=E2=80=A6
 
-This is yet another thing that can be resolved by using OF Graph for defining the
-display pipeline: by using that, I don't see how can CCORR1 be used instead of
-CCORR0, if the latter is in the pipeline, but not the former.
-
-NACK.
+Under which circumstances would you become interested to apply a statement
+like =E2=80=9Cguard(spinlock_irqsave)(&stream->driver_queue_lock);=E2=80=
+=9D?
+https://elixir.bootlin.com/linux/v6.14-rc3/source/include/linux/spinlock.h=
+#L572
 
 Regards,
-Angelo
-
-> ---
->   drivers/gpu/drm/mediatek/mtk_ddp_comp.c   |  3 ++-
->   drivers/gpu/drm/mediatek/mtk_disp_ccorr.c | 16 ++++++++++++++++
->   2 files changed, 18 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-> index edc6417639e6..d7e230bac53e 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-> @@ -457,7 +457,8 @@ static const struct mtk_ddp_comp_match mtk_ddp_matches[DDP_COMPONENT_DRM_ID_MAX]
->   	[DDP_COMPONENT_AAL0]		= { MTK_DISP_AAL,		0, &ddp_aal },
->   	[DDP_COMPONENT_AAL1]		= { MTK_DISP_AAL,		1, &ddp_aal },
->   	[DDP_COMPONENT_BLS]		= { MTK_DISP_BLS,		0, NULL },
-> -	[DDP_COMPONENT_CCORR]		= { MTK_DISP_CCORR,		0, &ddp_ccorr },
-> +	[DDP_COMPONENT_CCORR0]		= { MTK_DISP_CCORR,		0, &ddp_ccorr },
-> +	[DDP_COMPONENT_CCORR1]		= { MTK_DISP_CCORR,		1, &ddp_ccorr },
->   	[DDP_COMPONENT_COLOR0]		= { MTK_DISP_COLOR,		0, &ddp_color },
->   	[DDP_COMPONENT_COLOR1]		= { MTK_DISP_COLOR,		1, &ddp_color },
->   	[DDP_COMPONENT_DITHER0]		= { MTK_DISP_DITHER,		0, &ddp_dither },
-> diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ccorr.c b/drivers/gpu/drm/mediatek/mtk_disp_ccorr.c
-> index 10d60d2c2a56..94e82b3fa2d8 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_disp_ccorr.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_disp_ccorr.c
-> @@ -31,11 +31,13 @@
->   
->   struct mtk_disp_ccorr_data {
->   	u32 matrix_bits;
-> +	enum mtk_ddp_comp_id mandatory_ccorr;
->   };
->   
->   struct mtk_disp_ccorr {
->   	struct clk *clk;
->   	void __iomem *regs;
-> +	enum mtk_ddp_comp_id comp_id;
->   	struct cmdq_client_reg cmdq_reg;
->   	const struct mtk_disp_ccorr_data	*data;
->   };
-> @@ -115,6 +117,9 @@ void mtk_ccorr_ctm_set(struct device *dev, struct drm_crtc_state *state)
->   	if (!blob)
->   		return;
->   
-> +	if (ccorr->comp_id != ccorr->data->mandatory_ccorr)
-> +		return;
-> +
->   	ctm = (struct drm_color_ctm *)blob->data;
->   	input = ctm->matrix;
->   
-> @@ -154,6 +159,7 @@ static int mtk_disp_ccorr_probe(struct platform_device *pdev)
->   	struct device *dev = &pdev->dev;
->   	struct mtk_disp_ccorr *priv;
->   	int ret;
-> +	enum mtk_ddp_comp_id comp_id;
->   
->   	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
->   	if (!priv)
-> @@ -169,6 +175,14 @@ static int mtk_disp_ccorr_probe(struct platform_device *pdev)
->   		return dev_err_probe(dev, PTR_ERR(priv->regs),
->   				     "failed to ioremap ccorr\n");
->   
-> +	comp_id = mtk_ddp_comp_get_id(dev->of_node, MTK_DISP_CCORR);
-> +	if (comp_id < 0) {
-> +		dev_err(dev, "Failed to identify by alias: %d\n", comp_id);
-> +		return comp_id;
-> +	}
-> +
-> +	priv->comp_id = comp_id;
-> +
->   #if IS_REACHABLE(CONFIG_MTK_CMDQ)
->   	ret = cmdq_dev_get_client_reg(dev, &priv->cmdq_reg, 0);
->   	if (ret)
-> @@ -192,10 +206,12 @@ static void mtk_disp_ccorr_remove(struct platform_device *pdev)
->   
->   static const struct mtk_disp_ccorr_data mt8183_ccorr_driver_data = {
->   	.matrix_bits = 10,
-> +	.mandatory_ccorr = DDP_COMPONENT_CCORR0,
->   };
->   
->   static const struct mtk_disp_ccorr_data mt8192_ccorr_driver_data = {
->   	.matrix_bits = 11,
-> +	.mandatory_ccorr = DDP_COMPONENT_CCORR0,
->   };
->   
->   static const struct of_device_id mtk_disp_ccorr_driver_dt_match[] = {
-
+Markus
 
