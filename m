@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC334C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:45:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A28C2C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:46:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=872sDDSaszSL1+yhyVainkn552F70TCEUEKtazE+wZs=; b=Ek+dk8eu8TtNHihN5vHHCqVgeH
-	gehuLQf5ib0D0GHskU/TBT5V0CTN/sVSVdgmBP5QbAGho7/dxSqCp5SftDg+AwyTxC960Pv+UYf9A
-	pvzu0wKc/afjT47gANl+kmLSOsbIVisPdHghyNGsD+QO7SmsczI0zkMpvU6qVezOqECNSfDTXTOjO
-	gtWWMuO6n0rBpqTpNXftNso38dcajF7Pqx6WvKxZHlxIY2JXlCn/JsbYQa6mEYB3/0sWFuOeYbBfI
-	3o/fUlYzi2E4h6nSdvfPpd/6Vp0WLN8EBWlS9C+Z1XbRQiV9olxJTcGrfRLiGVOre5T+LVyKcTeN5
-	crQw3LUg==;
+	bh=0DYvjW5f0VauVHlYQoEoi+1LNEnpUSDiH5KvYpk6CeA=; b=s+/qOknFCUkwb9FoXj/yAAg3rg
+	toRiHoVZQjXxdbS+Sf/aRPzCp6dA+ZN0j8a8vCm2QHt5cUOcI5twxwmB9mA6iJ05UkegnZ9LNBDvX
+	NFt8MlyUKo8QKPptF8RdGKyfRWTV24MZux6vOnd5SoCVeXj0a9gTPyn+Kw11mCrt6Llfr7MeanW07
+	fuN2qZBaVebE5VS6noR4tnVMcLCLXBZSpzIL6d6m0aeoxdZWkhpyoicgjuoBZTQMWcIkbYj2CRu7P
+	o0CF5pQOldUooOc4ldJTocReUWzW6043r0PfqEZVoink2AtO3ey0hIg+86c+Mc+azeh842bKk2oBX
+	J669hbLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjRt-0000000CjvZ-1lSm;
-	Wed, 19 Feb 2025 12:45:09 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1tkjTM-0000000CkOr-0epc;
+	Wed, 19 Feb 2025 12:46:40 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjFO-0000000CgQN-3gut
+	id 1tkjFe-0000000CgYK-1FXx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 12:32:16 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5462ea9691cso1112462e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 04:32:14 -0800 (PST)
+	Wed, 19 Feb 2025 12:32:31 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-30227c56b11so71230941fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 04:32:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739968333; x=1740573133; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739968348; x=1740573148; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=872sDDSaszSL1+yhyVainkn552F70TCEUEKtazE+wZs=;
-        b=kS+Oo/O/wuS4IM7AjerkxJTDroNEYUC4FS5qcoGEw2crviBHhdY3+jjaE3jL3V1Co6
-         xhoWC0iPJupu4Jg+kmVmEbCEWvLnfXd3Ug/H5Ir4wfAyDntUifmCA2P5BgoCsE9t1K4e
-         HJ1QbuROG+jHIJSWYN3lRPlag/HebXNPi4wdg4GGnnPrR+9SHIltILVehWRCGH3PKWhs
-         KeBdgcgeCxX9vtMQ7GQTgwc2dxILRPC1i+PE9yu8OhyHo4+4dJbhAyX0VUdnMW2CGRA+
-         zfE8EAARMlztzyWkCNEFQyvobzoPaEk7apF71w3rbIvGAnAhUTujldvf/EI03qepgbvK
-         cy0Q==
+        bh=0DYvjW5f0VauVHlYQoEoi+1LNEnpUSDiH5KvYpk6CeA=;
+        b=Bx98tzod09Yf19YdrYd0I+oTP9x3YhEYef3ikWgYQrn2+sSQQlBCbpq62jgdyCVZws
+         whKYLHY2BvltmvrBQN6Hwi+gOpBBUMau1xBRUi83wqRS/msRkx75GWCbMDg+pMtlT1N/
+         Am3PXogoN+TZ6Ok+F8LDCIDe9w45gYejDRvH6eKuwGncCz5CXJ0FWbREJ0fro6hDPViW
+         KgYpnPXLA96fVizOeaJHOZ1qdWvllGPrrXn8GzLysHv3Q9AiXdR+0gtrgQSnNfTiy6Wq
+         ZTceH0//gZijxoYo5T+a+Z56H4wvpl8uzt+GVg6Xxru4ohW+mBTc1cEbH2Rb/WTlVEta
+         p2qQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739968333; x=1740573133;
+        d=1e100.net; s=20230601; t=1739968348; x=1740573148;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=872sDDSaszSL1+yhyVainkn552F70TCEUEKtazE+wZs=;
-        b=r307O7jIybe91sc8ALTCaTTFL6IIZD5ipCE38/SXzbqGPb7hNYSyqUAOPbBqZA2+KN
-         arIkwi5JILmW2G79kwllfW930td4CTzs51nIk5Tn1k/hr7vgP1zu+XUqMZ+7MgLc3U3Y
-         xulWEzh6b8XHzhTAMyASZsE1l7uoyrBG8Igcsxl6KVN+p58xLiPVH3nNNXxur7v3kjG9
-         GPG2BjGlxpVAsBriWvviTEJERW1FoRpFhIb9cc47XB5b9SOvyvHuMfZbtlX7UbI6JNwi
-         57OnnrkHOo+OEGrSMiCsNnvqizka9YypsMZP/GEXP3nRvAoWUD2GZ62SzDpT21HInJFA
-         LoDA==
-X-Forwarded-Encrypted: i=1; AJvYcCV/BJQKceTyvlsq1TpVXLbGCKjEJI2NPCogQ9CgWkxymSPUbIFzGDTIJJrw28mL2d3+5q8R6ZNfDDjdXuq5Mjdj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1+qRrcqGW80/T17nCmCkAmdAFnNMfiKBmVCJW3N9ZT2vviS8U
-	I8LjE2x+rUMZQy1XcPdEMHCGASm9bq05eo5xVc7KLUTPCdy0MK4n
-X-Gm-Gg: ASbGncvEH3efT7VDT4xmUQ4NtYew40QxoBZPXe00DkoL4ZxYGqx8kATy2gjKO3PQNsV
-	kyLsgSbzq9jA6PzQXO2ooYTeXXM49c9HrWaimQvtnFNKUYiprqaIjGRDt70gXuzrdVO7rqAwm4O
-	tqa6V+dxt3gkrjKXuw7Lc2NsAK6VtRYW0WoYKwvdc5Oni1KKcXzmHcWRNUu50hNqEGC/f7Uskyh
-	egH5OzdHMV6qNrRmFVq2oRKDELZb0zp7IqcWs6OU4zvNhfFvgyn/VYb+GwKG9b+aoqAHDtRu+YF
-	pzIn/t2Z9biiznPHD0vZ7g==
-X-Google-Smtp-Source: AGHT+IET+JJuBMU3Y/6jzse1ZgT54+aygXA9AXNLRXFpXqkVIx7/7mkYzYqgDRV3tj+3kjGQpH/r/A==
-X-Received: by 2002:a05:6512:2249:b0:545:c08:e17b with SMTP id 2adb3069b0e04-5462eef2242mr1448277e87.23.1739968332998;
-        Wed, 19 Feb 2025 04:32:12 -0800 (PST)
+        bh=0DYvjW5f0VauVHlYQoEoi+1LNEnpUSDiH5KvYpk6CeA=;
+        b=ND7RnZ0EOdIMmvHQl7/AYxhyan05mCz8uR2CdszhWhqVcwiQuxWit6FOwJxePc8BCz
+         pU1rphPo+bPx/lqPgIvBTvDOUCKoHExfxEIXD/Z2J1j9iOMP5Y5MPxzvo8l3F+Qe/Z0O
+         KrKLFoAl5/LyH0ItUiSFijxOlkmzGtIuOniKyK7ekRKVCvclZm+u2WZw4R+lbmOQ+Ljx
+         fuMMSndKNnNctfuibP828ACqZMJVYGVdBr29XePcrj/MAMpv/01HfDM1vI6RXdfKP6GD
+         JzkrRdckjSUCxtzILbPfNI+pxZQS2GldqZz+MoSBb5e8rWVBC8ZuDR72mVzrkpIKshK5
+         rPlw==
+X-Forwarded-Encrypted: i=1; AJvYcCX6UgZ8x7wqJ4hDdt4BiRCyTxhofsMe925OHZtlL00JQ0s/UkDOf45DqsQ/PZjFcGYDLXLikIwmJHJgqzkOx3Qd@lists.infradead.org
+X-Gm-Message-State: AOJu0YyN1jUjAodjLn4FV8yKanLNcHvF1ZujQ8Gxjk5HNKf9kn2cOCEh
+	960AgXlSSJCWFtmNbykKCW/UkmmNK7umFudp53S8cqbjUwbM/k+Q
+X-Gm-Gg: ASbGncsJrd2PjS9yZFwU8X+YYIJV7f/OWQqHAnf53pcMlXYWnP/M6r5zQZ4CkyrE0Gi
+	k7YNT6Bp5uqB8OwlDrQ7tvK9esq1E/i21FdP9xYl8/TQ0SkOSMOH7fT6/IMp0H6c7NDoNSOVyp8
+	FUmncQOR/OBK7MJGEMaRA5dPm1ZhI9CnM+MHoahWOgBv0rH3gJnfkqXugoVAgPk+6ckdVa58Q3v
+	yaQnJb88P7cx8jeBvd8zddfQC1E0IZGUbT2Hx308M9NdAUHxaNuMAU0oRDZFQrxhLHpR0ZM6uel
+	I5zIZLSaoFm4GJpnnLRLWQ==
+X-Google-Smtp-Source: AGHT+IGpj+sXTk9ydInkrFSzD/8u3Ea569jfA3qPAyfTIDaLYJDMfGIteoPF8DQijF1k+5z6DuXOPg==
+X-Received: by 2002:a2e:9905:0:b0:308:f01f:181f with SMTP id 38308e7fff4ca-30927aff022mr48385981fa.31.1739968348109;
+        Wed, 19 Feb 2025 04:32:28 -0800 (PST)
 Received: from mva-rohm ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5452f6efbf5sm1596646e87.18.2025.02.19.04.32.09
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30a344c8900sm9350131fa.22.2025.02.19.04.32.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2025 04:32:11 -0800 (PST)
-Date: Wed, 19 Feb 2025 14:32:06 +0200
+        Wed, 19 Feb 2025 04:32:27 -0800 (PST)
+Date: Wed, 19 Feb 2025 14:32:23 +0200
 From: Matti Vaittinen <mazziesaccount@gmail.com>
 To: Matti Vaittinen <mazziesaccount@gmail.com>,
 	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
@@ -87,18 +87,17 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: [PATCH v3 8/9] iio: adc: ti-ads7924 Drop unnecessary function
- parameters
-Message-ID: <3155f491753944d6511d058a09f6f6c505d551f9.1739967040.git.mazziesaccount@gmail.com>
+Subject: [PATCH v3 9/9] iio: adc: ti-ads7924: Respect device tree config
+Message-ID: <3279aa9348e7149bfbd433daaa201f2eb5873e1f.1739967040.git.mazziesaccount@gmail.com>
 References: <cover.1739967040.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="LHcdoEmAz0cVNgKv"
+	protocol="application/pgp-signature"; boundary="vg9phHNLX0RbBtPD"
 Content-Disposition: inline
 In-Reply-To: <cover.1739967040.git.mazziesaccount@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_043214_918996_95420237 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20250219_043230_342590_17965E01 
+X-CRM114-Status: GOOD (  25.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,72 +113,193 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---LHcdoEmAz0cVNgKv
+--vg9phHNLX0RbBtPD
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Device pointer is the only variable which is used by the
-ads7924_get_channels_config() and which is declared outside this
-function. Still, the function gets the iio_device and i2c_client as
-parameters. The sole caller of this function (probe) already has the
-device pointer which it can directly pass to the function.
+The ti-ads7924 driver ignores the device-tree ADC channel specification
+and always exposes all 4 channels to users whether they are present in
+the device-tree or not. Additionally, the "reg" values in the channel
+nodes are ignored, although an error is printed if they are out of range.
 
-Simplify code by passing the device pointer directly as a parameter
-instead of digging it from the iio_device's private data.
+Register only the channels described in the device-tree, and use the reg
+property as a channel ID.
 
 Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
 
 ---
-This commit is compile-tested only! All further testing is appreciated.
+Revision history:
+v2 =3D> v3: New patch
+
+Please note that this is potentially breaking existing users if they
+have wrong values in the device-tree. I believe the device-tree should
+ideally be respected, and if it says device X has only one channel, then
+we should believe it and not register 4. Well, we don't live in the
+ideal world, so even though I believe this is TheRightThingToDo - it may
+cause havoc because correct device-tree has not been required from the
+day 1. So, please review and test and apply at your own risk :)
+
+As a side note, this might warrant a fixes tag but the adc-helper -stuff
+is hardly worth to be backported... (And I've already exceeded my time
+budget with this series - hence I'll leave crafting backportable fix to
+TI people ;) )
+
+This has only been compile tested! All testing is highly appreciated.
 ---
- drivers/iio/adc/ti-ads7924.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+ drivers/iio/adc/ti-ads7924.c | 80 +++++++++++++++++-------------------
+ 1 file changed, 37 insertions(+), 43 deletions(-)
 
 diff --git a/drivers/iio/adc/ti-ads7924.c b/drivers/iio/adc/ti-ads7924.c
-index 66b54c0d75aa..b1f745f75dbe 100644
+index b1f745f75dbe..a5b8f7c81b8a 100644
 --- a/drivers/iio/adc/ti-ads7924.c
 +++ b/drivers/iio/adc/ti-ads7924.c
-@@ -251,11 +251,8 @@ static const struct iio_info ads7924_info =3D {
+@@ -22,6 +22,7 @@
+ #include <linux/regmap.h>
+ #include <linux/regulator/consumer.h>
+=20
++#include <linux/iio/adc-helpers.h>
+ #include <linux/iio/iio.h>
+ #include <linux/iio/types.h>
+=20
+@@ -119,15 +120,12 @@
+ #define ADS7924_TOTAL_CONVTIME_US (ADS7924_PWRUPTIME_US + ADS7924_ACQTIME_=
+US + \
+ 				   ADS7924_CONVTIME_US)
+=20
+-#define ADS7924_V_CHAN(_chan, _addr) {				\
+-	.type =3D IIO_VOLTAGE,					\
+-	.indexed =3D 1,						\
+-	.channel =3D _chan,					\
+-	.address =3D _addr,					\
+-	.info_mask_separate =3D BIT(IIO_CHAN_INFO_RAW), 		\
+-	.info_mask_shared_by_type =3D BIT(IIO_CHAN_INFO_SCALE),	\
+-	.datasheet_name =3D "AIN"#_chan,				\
+-}
++static const struct iio_chan_spec ads7924_chan_template =3D {
++	.type =3D IIO_VOLTAGE,
++	.indexed =3D 1,
++	.info_mask_separate =3D BIT(IIO_CHAN_INFO_RAW),
++	.info_mask_shared_by_type =3D BIT(IIO_CHAN_INFO_SCALE),
++};
+=20
+ struct ads7924_data {
+ 	struct device *dev;
+@@ -182,13 +180,6 @@ static const struct regmap_config ads7924_regmap_confi=
+g =3D {
+ 	.writeable_reg =3D ads7924_is_writeable_reg,
+ };
+=20
+-static const struct iio_chan_spec ads7924_channels[] =3D {
+-	ADS7924_V_CHAN(0, ADS7924_DATA0_U_REG),
+-	ADS7924_V_CHAN(1, ADS7924_DATA1_U_REG),
+-	ADS7924_V_CHAN(2, ADS7924_DATA2_U_REG),
+-	ADS7924_V_CHAN(3, ADS7924_DATA3_U_REG),
+-};
+-
+ static int ads7924_get_adc_result(struct ads7924_data *data,
+ 				  struct iio_chan_spec const *chan, int *val)
+ {
+@@ -251,32 +242,38 @@ static const struct iio_info ads7924_info =3D {
  	.read_raw =3D ads7924_read_raw,
  };
 =20
--static int ads7924_get_channels_config(struct i2c_client *client,
--				       struct iio_dev *indio_dev)
-+static int ads7924_get_channels_config(struct device *dev)
+-static int ads7924_get_channels_config(struct device *dev)
++static const struct iio_adc_props ads7924_chan_props =3D {
++	.required =3D IIO_ADC_CHAN_PROP_TYPE_REG,
++};
++
++static int ads7924_get_channels_config(struct iio_dev *indio_dev,
++				       struct device *dev)
  {
--	struct ads7924_data *priv =3D iio_priv(indio_dev);
--	struct device *dev =3D priv->dev;
- 	struct fwnode_handle *node;
- 	int num_channels =3D 0;
+-	struct fwnode_handle *node;
+-	int num_channels =3D 0;
++	struct iio_chan_spec *chan_array;
++	int num_channels =3D 0, i;
 =20
-@@ -380,7 +377,7 @@ static int ads7924_probe(struct i2c_client *client)
- 	indio_dev->num_channels =3D ARRAY_SIZE(ads7924_channels);
- 	indio_dev->info =3D &ads7924_info;
+-	device_for_each_child_node(dev, node) {
+-		u32 pval;
+-		unsigned int channel;
++	num_channels =3D devm_iio_adc_device_alloc_chaninfo(dev,
++					&ads7924_chan_template, &chan_array,
++					&ads7924_chan_props);
 =20
--	ret =3D ads7924_get_channels_config(client, indio_dev);
-+	ret =3D ads7924_get_channels_config(dev);
+-		if (fwnode_property_read_u32(node, "reg", &pval)) {
+-			dev_err(dev, "invalid reg on %pfw\n", node);
+-			continue;
+-		}
++	if (num_channels < 0)
++		return num_channels;
+=20
+-		channel =3D pval;
+-		if (channel >=3D ADS7924_CHANNELS) {
+-			dev_err(dev, "invalid channel index %d on %pfw\n",
+-				channel, node);
+-			continue;
+-		}
++	if (!num_channels)
++		return -EINVAL;
++
++	for (i =3D 0; i < num_channels; i++) {
++		static const char * const datasheet_names[] =3D {
++			"AIN0", "AIN1", "AIN2", "AIN3"
++		};
++		int ch_id =3D chan_array[i].channel;
+=20
+-		num_channels++;
++		chan_array[i].address =3D ADS7924_DATA0_U_REG + ch_id;
++		chan_array[i].datasheet_name =3D datasheet_names[ch_id];
+ 	}
+=20
+-	if (!num_channels)
+-		return -EINVAL;
++	indio_dev->channels =3D chan_array;
++	indio_dev->num_channels =3D num_channels;
+=20
+ 	return 0;
+ }
+@@ -370,18 +367,15 @@ static int ads7924_probe(struct i2c_client *client)
+=20
+ 	mutex_init(&data->lock);
+=20
+-	indio_dev->name =3D "ads7924";
+-	indio_dev->modes =3D INDIO_DIRECT_MODE;
+-
+-	indio_dev->channels =3D ads7924_channels;
+-	indio_dev->num_channels =3D ARRAY_SIZE(ads7924_channels);
+-	indio_dev->info =3D &ads7924_info;
+-
+-	ret =3D ads7924_get_channels_config(dev);
++	ret =3D ads7924_get_channels_config(indio_dev, dev);
  	if (ret < 0)
  		return dev_err_probe(dev, ret,
  				     "failed to get channels configuration\n");
+=20
++	indio_dev->name =3D "ads7924";
++	indio_dev->modes =3D INDIO_DIRECT_MODE;
++	indio_dev->info =3D &ads7924_info;
++
+ 	data->regmap =3D devm_regmap_init_i2c(client, &ads7924_regmap_config);
+ 	if (IS_ERR(data->regmap))
+ 		return dev_err_probe(dev, PTR_ERR(data->regmap),
 --=20
 2.48.1
 
 
---LHcdoEmAz0cVNgKv
+--vg9phHNLX0RbBtPD
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAme1z0YACgkQeFA3/03a
-ocUemwf9HQbiR77d1KNj4kGgWfMEpDY2y5qIlebPXJe94y1jkU+LPoFK/3yoptzd
-1zmwZZHfvEO8pbuI5ZEkCVEtMIm8oD5KrC63b2fO3tB9AbXnHv/PIa7bGXmp4GRA
-8qgD9c6WVzM0+j2WwUFzFq72g76QBdy+Ge46vYTR3FBmL4sNzrXOBlMYZ2SH/XcA
-xbiF+7BSaInu5Xjlyg3hte9M1kZ99s+LzUDgNbE0Jv73W2vzK0bxqPbVZ+Jv/H30
-hQ0EnHDjiZp1Jxmtcq6tkD4lzqD1OkLpToE3swDtstzlGyp5SXtx2npiiOKIebCO
-XtHxNfk7lMQqw8ZSQdOZ/dCKUPnxWw==
-=p/2t
+iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAme1z1cACgkQeFA3/03a
+ocVfdAf/dJeRANmjD6kr3+nUZ8APPdoSBvKQHSWTTYvnKXYCZEJYrZk9e+UN3UAo
+82YkKYpUqhArK45Dzjx9OS42+5NLtA2ejvZnApSvg6Zl6Qzth/UNCa0EKgJwLS5F
+E1XAjDOuGlow3lkWtpGalu54LEEKLUMwlq0I18J/MKhrZAlp3yF63+GC5Bt0AwpE
+9wUmQ1L13Hb/zSD+ub50UVmcPDAG3QCPzF5XFqCIJZX4UzDX7m0hh+cMYICn/92q
+fb/f5L9zxO72WukfiX49W81NQ9bfBmyJyYTE3nnoPr2fvMxtq8PAQPqvklzBkF+9
+ZzSYdwAyy4wq0CNST3K+ZG81JWsZoQ==
+=/Rhj
 -----END PGP SIGNATURE-----
 
---LHcdoEmAz0cVNgKv--
+--vg9phHNLX0RbBtPD--
 
