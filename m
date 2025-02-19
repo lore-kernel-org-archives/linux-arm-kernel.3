@@ -4,82 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 836D5C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 224B7C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 09:30:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=U05ncXsN1onl5xdKCVp80Wu6ijHw18Nj9ZjDBEcmvGQ=; b=cFbvFlFdR/2EYRfz5RZK0AzPXl
-	Hmely2/IeTDf+aQzemFbhtKynP6YmZ7s89XTe379LO+Md/Onp1WygFPQjVP6OebYH52DppbZy67aV
-	zdQlgAeoOXU+YTcNWX/qb6iAoTVJN2sr/1gF6dbfbA1n/G8oNL74gHYCMb6l2GnnF3dKSpSPl+Mrf
-	KVeh/9B6rR0NgDjtmqyR0kTyTkwxBfb7tVSqR6HkDpnnXhlufF3njKuOZUocIk+l1tuzMdd4xj05D
-	UiZ3bVgWllriDDh2vsbsd3rkDbOCqNGYr6iGhtgUX2IR1uOJFnhwxO/Qp1kf5HPksZcjvSHtPdQwL
-	Qj3QyqPw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g+hHu/neo5dCx6YmXBv+3rQbaKxKA+nFgq/ML60O6fQ=; b=JoEphyHrHeJQOHyvBCyACvdDbM
+	8Mf4385fmLwBlpeV9J9VKgkhBeflqSAnzohrmB/z6NVvrsWbS4Ev7b32m65R/57nUlwclDOR4RESK
+	tTmFsoO6gpDC8eCB0VJRECBVfkQx09KVNOLeX9BFFJUm4BIbnQUqGAljiWyL/fz/4gMWAUUpyVNh+
+	jWiL8uTfUQwWKYc0ox5fa4yrH/OMQyEvdgMx59mCUZUK3wik362QgsmwFkD0CLvhCzGqH4iSZwiuH
+	HMeH450QdDOUEKBupMd5zKrVN0p23XUN8GEyXcodMYXWrbYQPPtWstZo9XsivmIrswyA5i8LGmBIU
+	0Z0RPCNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkgNR-0000000Br9E-3bmt;
-	Wed, 19 Feb 2025 09:28:21 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tkgOu-0000000Brm4-1DSQ;
+	Wed, 19 Feb 2025 09:29:52 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkg9X-0000000BliD-1Uzs
+	id 1tkgCh-0000000BmxW-1WU0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 09:14:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4FF15A41FE6;
-	Wed, 19 Feb 2025 09:12:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C268BC4CEE7;
-	Wed, 19 Feb 2025 09:13:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739956437;
-	bh=XTPomKjOfo5fAZ/BQxA/LrGkWT2afQunCwLoYv6XiKI=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=dsBx5LtyRMxy0v6pW1s1GfSsluBHyxc2OhwGoiOeYJ5GMVOWsFGDUDEWPExjzfIYR
-	 xIgHJptMDAW6LzBGhbcirhXVghCFTE7KcJZ4etQWjUTb/z6UDSC5STNPlrB8ek4ghC
-	 kBGWacCy7oeRkMnEHyky7BrxPtNzINqNqKKlS8GCUhQbPwKSZa7ONZT7b19d8WW1zf
-	 o2gpGMDo8DR3+L/S1k9m6C6AFzgj4cxpSilGtWzk9OiuScB7WYCsOTD5etBtZKze+Z
-	 JUhtXX3Pk7RqOkYCI4dhyEvId6lF2lz1Jl+FKCdLx54m5x9p833O0NnR0dF0gg7qMe
-	 0FgLjyAlfQbmg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id AE1BAC021AA;
-	Wed, 19 Feb 2025 09:13:57 +0000 (UTC)
-From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Wed, 19 Feb 2025 10:13:53 +0100
-Subject: [PATCH] iommu/io-pgtable-dart: Only set subpage protection disable
- for DART 1
+	Wed, 19 Feb 2025 09:17:16 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tkgBq-00054h-Ak; Wed, 19 Feb 2025 10:16:22 +0100
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tkgBp-001jq7-2H;
+	Wed, 19 Feb 2025 10:16:21 +0100
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1tkgBp-0002qA-1n;
+	Wed, 19 Feb 2025 10:16:21 +0100
+Message-ID: <89d52c01503e2dbd2e23cce1ff9eb037e59eec5a.camel@pengutronix.de>
+Subject: Re: [PATCH v4 6/8] reset: eyeq: drop device_set_of_node_from_dev()
+ done by parent
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Jerome Brunet <jbrunet@baylibre.com>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>, Dave Ertman <david.m.ertman@intel.com>, Ira
+ Weiny <ira.weiny@intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>,
+ Stephen Boyd <sboyd@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Danilo
+ Krummrich <dakr@kernel.org>, Conor Dooley <conor.dooley@microchip.com>,
+ Daire McNamara <daire.mcnamara@microchip.com>, Douglas Anderson
+ <dianders@chromium.org>,  Andrzej Hajda <andrzej.hajda@intel.com>, Neil
+ Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,  Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
+ Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>,  Thomas Zimmermann <tzimmermann@suse.de>, David
+ Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Hans de Goede
+ <hdegoede@redhat.com>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>,  Bryan O'Donoghue
+ <bryan.odonoghue@linaro.org>, Vladimir Kondratiev
+ <vladimir.kondratiev@mobileye.com>, Gregory CLEMENT
+ <gregory.clement@bootlin.com>, =?ISO-8859-1?Q?Th=E9o?= Lebrun
+ <theo.lebrun@bootlin.com>,  Michael Turquette <mturquette@baylibre.com>,
+ Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Shawn Guo
+ <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ Kevin Hilman <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ dri-devel@lists.freedesktop.org, platform-driver-x86@vger.kernel.org, 
+ linux-mips@vger.kernel.org, linux-clk@vger.kernel.org, imx@lists.linux.dev,
+  linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+Date: Wed, 19 Feb 2025 10:16:21 +0100
+In-Reply-To: <20250218-aux-device-create-helper-v4-6-c3d7dfdea2e6@baylibre.com>
+References: <20250218-aux-device-create-helper-v4-0-c3d7dfdea2e6@baylibre.com>
+	 <20250218-aux-device-create-helper-v4-6-c3d7dfdea2e6@baylibre.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250219-dart2-no-sp-disable-v1-1-9f324cfa4e70@gmail.com>
-X-B4-Tracking: v=1; b=H4sIANCgtWcC/x3MMQqAMAxA0atIZgM1oqJXEYfWRg1IlUZEkN7d4
- viG/19QjsIKQ/FC5FtUjpBRlQXMmw0ro/hsIEONoapHb+NFGA7UE72odTvjUjemo9k537eQyzP
- yIs9/HaeUPitxVDtlAAAA
-X-Change-ID: 20250219-dart2-no-sp-disable-f35072cbbd96
-To: Sven Peter <sven@svenpeter.dev>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Joerg Roedel <joro@8bytes.org>, 
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
- Hector Martin <marcan@marcan.st>, Rob Herring <robh@kernel.org>, 
- Janne Grunau <j@jannau.net>
-Cc: Joerg Roedel <jroedel@suse.de>, asahi@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Asahi Lina <lina@asahilina.net>, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1739956436; l=1398;
- i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=4vIOKtPg+OtkD6k1fuo7D/3yWj1rRgyOMiGeGabXJoQ=;
- b=2XvYZiLPQ55QTshLqUD4aTt/pUSerHvszW6QhuxyTNjK/hq2NYquR+5dssye/dFu6aJEtq/su
- c/ZlgVVyC4ICgNDsQpVVlQtMaUH4ApO55G9hM21HQQvekVzMzpLohQw
-X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
-X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
- auth_id=283
-X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_011359_540017_91A27A4A 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20250219_011715_425282_2CC5CA8E 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +100,25 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Asahi Lina <lina@asahilina.net>
+On Di, 2025-02-18 at 20:29 +0100, Jerome Brunet wrote:
+> From: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
+>=20
+> Our parent driver (clk-eyeq) now does the
+> 	device_set_of_node_from_dev(dev, dev->parent)
+> call through the newly introduced devm_auxiliary_device_create() helper.
+>=20
+> Doing it again in the reset-eyeq probe would be redundant.
+> Drop both the WARN_ON() and the device_set_of_node_from_dev() call.
+> Also fix the following comment that talks about "our newfound OF node".
+>=20
+> Signed-off-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 
-Subpage protection can't be disabled on t6000-style darts,
-as such the disable flag no longer applies, and probably
-even affects something else.
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-Fixes: dc09fe1c5edd ("iommu/io-pgtable-dart: Add DART PTE support for t6000")
-Signed-off-by: Asahi Lina <lina@asahilina.net>
-Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
----
- drivers/iommu/io-pgtable-dart.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
-index c004640640ee50d01dd54c38e89162c0fcb1988f..06aca9ab52f9a811a2608ae75155a36919799c74 100644
---- a/drivers/iommu/io-pgtable-dart.c
-+++ b/drivers/iommu/io-pgtable-dart.c
-@@ -135,7 +135,6 @@ static int dart_init_pte(struct dart_io_pgtable *data,
- 	pte |= FIELD_PREP(APPLE_DART_PTE_SUBPAGE_START, 0);
- 	pte |= FIELD_PREP(APPLE_DART_PTE_SUBPAGE_END, 0xfff);
- 
--	pte |= APPLE_DART1_PTE_PROT_SP_DIS;
- 	pte |= APPLE_DART_PTE_VALID;
- 
- 	for (i = 0; i < num_entries; i++)
-@@ -211,6 +210,7 @@ static dart_iopte dart_prot_to_pte(struct dart_io_pgtable *data,
- 	dart_iopte pte = 0;
- 
- 	if (data->iop.fmt == APPLE_DART) {
-+		pte |= APPLE_DART1_PTE_PROT_SP_DIS;
- 		if (!(prot & IOMMU_WRITE))
- 			pte |= APPLE_DART1_PTE_PROT_NO_WRITE;
- 		if (!(prot & IOMMU_READ))
-
----
-base-commit: 2408a807bfc3f738850ef5ad5e3fd59d66168996
-change-id: 20250219-dart2-no-sp-disable-f35072cbbd96
-
-
+regards
+Philipp
 
