@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA5AC021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 10:45:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED5DBC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 10:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8vW3Mq6FmuxLxhnil1RMWEPl2NZrnvIFyftaR5qP/us=; b=CGaMwYVPz25NDcvINTU/sOP4bw
-	chYCeZ3iWCnzOCx0IrdY5DVGRPV/keoxmjDR0uWuBN8RchYVUA031ytJTrK08bY+b1TrAzvkbVrfi
-	E2S0B0cOg12b9lmsQPpark1LvRY4go9g4R9uXljfNsIeXhqxtVqZ+ibcUAs10IXm3U8CQ1hMpU6Sr
-	WZ1vZ71unAAJYGKgLXz0g+d6nidnz3cFtHXRH61K8CYQx+GNavw1nhIQbT3jA26TSDrrE3qpdmx0Q
-	55Ge8XcOeXVKUxgY7UO/5a6912H8unxLta3N0XiqpMpgJsKnPwmgdKVP2n9gLt4/x18Tl1ZaCl+R2
-	44Kbk8Ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J0DHElIe/WTFtKTZTiw+WVkTFRZcj7hb2VqsvfdRzq8=; b=ZnW5x8dnhdtykbqLyMxeuQw3rl
+	9bqUlwW8klCc1z6c28I0k9fJf0PBchGI2RwZLRQva76+ZmDZwUoV/0+DZwjGPwZAokPHof307RyYL
+	XNkI+nyqYltRs77s72Of6pP/m4iwHgd9J5oE8xrInA21s7jSAljkzR8iwGOMII+lur2ZQ64aJxNSG
+	aXsazl9j5BRhXmy/qIxpmec6o2PYz74duj4OX94ZMQz2TjsVHq7wsP/9P2YB5HLPKtQr0N30cDzG9
+	7o35bi2dRGM0oFtgaYOi+r4ARyEOVfLI5k4Yj++QfMxiImwnH2Ocv3dRDy4wy87Ki94ti6o1go/ni
+	w1+qt2wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkhZy-0000000CDUp-3JjH;
-	Wed, 19 Feb 2025 10:45:22 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1tkhjZ-0000000CGdR-1Kth;
+	Wed, 19 Feb 2025 10:55:17 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkhPn-0000000CAcY-2yJt
+	id 1tkhi4-0000000CGAK-3XEv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 10:34:52 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-439950a45daso10626535e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 02:34:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739961290; x=1740566090; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8vW3Mq6FmuxLxhnil1RMWEPl2NZrnvIFyftaR5qP/us=;
-        b=kv3ZEmnZO+v2fqoB1DDoVw1exxbaHQqyBy+mCIi2DT62zHlea0nGK4KQX2wQXQ5RjT
-         wSHJCXG0IrUI86Jw5TWPRJxc+7o4moiUy2tQ+YjhE3tgK6OTBDZAwkLIU29llNIIASlD
-         SwCaB7RAg006rQWlf0lLJykHuSL3EwxKTdUUeRFwyVKgpboFxDF3aaeZ/TKMTkIp7+XE
-         vDnf25RoCpeJlGFJK2dRZPZvR07/Zoh0RWn8CM9/LGsY7qmR2ukJAKFQOV8QpfSl2W0h
-         l0FysEBvGiWq8xHGCGhJXu3ovWBNWq2KTppu6qCqQhzzhQ6LjyXJKlBkln+CA3VoCldw
-         K9TA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739961290; x=1740566090;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8vW3Mq6FmuxLxhnil1RMWEPl2NZrnvIFyftaR5qP/us=;
-        b=Sz1tIrLxICto5fC4RElQSP1VQUd5O/mJwo2VWQ1uym41Mzql9i/uYjq1+6G9ATB0uH
-         YEkiSZ+sH2y7AnQV6goc83ZE5nGtmKZr43r/JPMeY3TYNVtvz1hF/QpesIvD2Rs9JWm7
-         5lr16GSZ8Jgq0M5+XqT5jHnkIecVpRTnN+UjuriS7nwadHkwi2dkdSsC3x+JiX3CPE70
-         buX9X/BMixmo8j/zOl5qT4R8OBMKsrH0U37SW/4FdNBXEib6NMyoSdBPIUJhhqc7iYZR
-         2+RAR0QyV8ZqmuqAftD8GfTPqMxdVWNVeAf1wyko7Plt4d6P/TDNFJkIJ72b7ZFoN5+e
-         XlEg==
-X-Forwarded-Encrypted: i=1; AJvYcCWZYKGctEt2aIrb7H9EOv0IWHO15J+vJZ/Hy/Bd2W9N9dMgz0jpEJXbsSdAdVlt50Ayp/VXswTrPRlsOzY2Y9h7@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqO5BFo8mzBJt1NH1zEe/7DZD/4vpXbWSDMNL4mWjqudV84hGN
-	SDbGpcibd7mEhQIt7CN3edmZHRwMJf15ujkVr1r4P8xfLbaEJFYT
-X-Gm-Gg: ASbGnct8dIgydN36IAadRJoNlYixjY3z8PU674lOjEd11YhD4Y2tr1yhIJ86+OzDYcG
-	nSWP3UCHlj+nHPqbNON3gDkQMVPxAZ4/IXP4801AmXrnSFj59y/ZmbVYmK4RTqn7hzwCqeBBenF
-	dhPh8Js2sH6fySlFgkBley4F+0zvBRTNUtvm8L/KZBjMbjaih1yXuUi5ZqQZFNI50RopBtmyxxW
-	JbcmNC04/JuYAdbTo8SSDeMlb+T6Xd9dk8X6XX0AmbAHb74DkNP5paH8YdKCltGKdxtm8LkzxQ2
-	ZsxboKDpL9YQK6tjj6Qqwn56I6whLLMdplCYmics42RaPTNtqL67xmdp
-X-Google-Smtp-Source: AGHT+IH8omL6HrDnxAeU3OszfLwGA6mXMUbGoGbtQrSkt2R2L/0PJO2LLFU+a6jkdDY0idhFewAIbQ==
-X-Received: by 2002:a05:600c:1d27:b0:439:9e8b:228d with SMTP id 5b1f17b1804b1-4399e8b2474mr7936925e9.19.1739961289921;
-        Wed, 19 Feb 2025 02:34:49 -0800 (PST)
-Received: from [172.16.20.186] (62-73-104-42.ip.btc-net.bg. [62.73.104.42])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439872b59e9sm76783555e9.31.2025.02.19.02.34.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Feb 2025 02:34:49 -0800 (PST)
-Message-ID: <451d52cc-ccb7-44ae-b6c1-cd3ab65465c1@gmail.com>
-Date: Wed, 19 Feb 2025 12:34:43 +0200
+	Wed, 19 Feb 2025 10:53:46 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id D52E6514;
+	Wed, 19 Feb 2025 11:52:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1739962339;
+	bh=qkBui9Y/YZZlWr0k6NIZHQ0EzjwMCEqSGitfOdkZ31c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FsDMIXgVIj+M99QzzVl0kcdX9WO7NxyJ/LheWbkb6fESOgcDOgdar+TdAi4ZrY4Wt
+	 MALRsIZcOITBQ5LteJsKTEJaa9dfdhMDVJLgN98BJ5m7m3vL9vfOVdHRtQ2I4Vb3R1
+	 Qv57Rv/BaGPcLqkqd4A31YvD/CCXcn6hB0XB9yJU=
+Date: Wed, 19 Feb 2025 12:53:26 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Sven Peter <sven@svenpeter.dev>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Hector Martin <marcan@marcan.st>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-media@vger.kernel.org, imx@lists.linux.dev
+Subject: Re: [PATCH 3/5] media: dt-bindings: Add Apple ISP
+Message-ID: <20250219105326.GA31383@pendragon.ideasonboard.com>
+References: <20250219-isp-v1-0-6d3e89b67c31@gmail.com>
+ <20250219-isp-v1-3-6d3e89b67c31@gmail.com>
+ <16f6d4a2-2102-48b9-a0ae-b8c6595975b8@kernel.org>
+ <CAMT+MTR7dhtt3SOMg0K3UakJQftqnc2S-rV41HdHtA+o9aSPug@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/3] arm64: dts: exynos: add initial support for
- exynos2200 SoC
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250215130500.170738-1-ivo.ivanov.ivanov1@gmail.com>
- <20250215130500.170738-3-ivo.ivanov.ivanov1@gmail.com>
- <675ddbf4-dfeb-48dd-b48a-466bf2888ce5@kernel.org>
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <675ddbf4-dfeb-48dd-b48a-466bf2888ce5@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <CAMT+MTR7dhtt3SOMg0K3UakJQftqnc2S-rV41HdHtA+o9aSPug@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_023451_762202_1BD1B8AE 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20250219_025345_016999_225481BC 
+X-CRM114-Status: GOOD (  21.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,240 +82,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/19/25 10:41, Krzysztof Kozlowski wrote:
-> On 15/02/2025 14:04, Ivaylo Ivanov wrote:
->> diff --git a/arch/arm64/boot/dts/exynos/exynos2200.dtsi b/arch/arm64/boot/dts/exynos/exynos2200.dtsi
->> new file mode 100644
->> index 000000000..645a31d46
->> --- /dev/null
->> +++ b/arch/arm64/boot/dts/exynos/exynos2200.dtsi
->> @@ -0,0 +1,560 @@
-...
->> +
->> +	ext_26m: clock-2 {
->> +		compatible = "fixed-clock";
->> +		#clock-cells = <0>;
->> +		clock-output-names = "ext-26m";
->> +	};
->> +
->> +	ext_200m: clock-3 {
->> +		compatible = "fixed-clock";
->> +		#clock-cells = <0>;
->> +		clock-output-names = "ext-200m";
-> What do these two last clocks represent? Where are they?
+On Wed, Feb 19, 2025 at 10:54:31AM +0100, Sasha Finkelstein wrote:
+> On Wed, 19 Feb 2025 at 10:37, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> > > +
+> > > +  apple,platform-id:
+> > > +    description: Platform id for firmware
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> >
+> >
+> > No, use firmware-name.
+> 
+> Not sure how is firmware-name an appropriate field, fw-name is a string
+> that references a firmware file, while this field is an id that is sent to the
+> coprocessor firmware in order to identify the platform.
+> 
+> > > +  apple,temporal-filter:
+> > > +    description: Whether temporal filter should be enabled in firmware
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> >
+> > And why is this not enabled always? Why this is board specific?
+> 
+> Not every board has support for this feature.
+> 
+> > You miss here ports or port. ISP usually gets signal from some camera or
+> > other block.
+> 
+> For complex cameras - yes, but this is closer to a UVC camera connected
+> via a bespoke protocol. We do not need to deal with the sensor access,
+> all of it is managed by the coprocessor firmware.
+> 
+> > > +        properties:
+> > > +          apple,config-index:
+> > > +            description: Firmware config index
+> > > +            $ref: /schemas/types.yaml#/definitions/uint32
+> >
+> >
+> > No duplicated indices. You have reg for this, assuming this is index.
+> 
+> There are duplicated indices, see isp-imx248.dtsi in patch 5 for an example.
+> 
+> > All these do not look like hardware properties but rather configuration
+> > of sensor which should be done runtime by OS, not by DT.
+> 
+> Those are board-specific and not discoverable via the ISP protocol.
 
-External crystals, apparently. They aren't passed as phandles to any
-other node in the vendor DT, so I'm not really sure what samsung
-would use them for. But they're described, so I assume they exist.
+But they are settable through the ISP protocol, aren't they ? For
+instance, looking at isp-imx248.dtsi, the first four entries are
 
->
-> I see we have them also on Google GS101, so same question there :/
->
->
->> +	};
->> +
->> +	cpus {
->> +		#address-cells = <1>;
->> +		#size-cells = <0>;
->> +
->> +		cpu-map {
->> +			cluster0 {
->> +				core0 {
->> +					cpu = <&cpu0>;
->> +				};
->> +
->> +				core1 {
->> +					cpu = <&cpu1>;
->> +				};
->> +
->> +				core2 {
->> +					cpu = <&cpu2>;
->> +				};
->> +
->> +				core3 {
->> +					cpu = <&cpu3>;
->> +				};
->> +			};
->> +
->> +			cluster1 {
->> +				core0 {
->> +					cpu = <&cpu4>;
->> +				};
->> +
->> +				core1 {
->> +					cpu = <&cpu5>;
->> +				};
->> +
->> +				core2 {
->> +					cpu = <&cpu6>;
->> +				};
->> +			};
->> +
->> +			cluster2 {
->> +				core0 {
->> +					cpu = <&cpu7>;
->> +				};
->> +			};
->> +		};
->> +
->> +		cpu0: cpu@0 {
->> +			device_type = "cpu";
->> +			compatible = "arm,cortex-a510";
->> +			reg = <0>;
->> +			capacity-dmips-mhz = <260>;
->> +			dynamic-power-coefficient = <189>;
->> +			enable-method = "psci";
->> +			cpu-idle-states = <&little_cpu_sleep>;
->> +		};
->> +
->> +		cpu1: cpu@100 {
->> +			device_type = "cpu";
->> +			compatible = "arm,cortex-a510";
->> +			reg = <0x100>;
->> +			capacity-dmips-mhz = <260>;
->> +			dynamic-power-coefficient = <189>;
->> +			enable-method = "psci";
->> +			cpu-idle-states = <&little_cpu_sleep>;
->> +		};
->> +
->> +		cpu2: cpu@200 {
->> +			device_type = "cpu";
->> +			compatible = "arm,cortex-a510";
->> +			reg = <0x200>;
->> +			capacity-dmips-mhz = <260>;
->> +			dynamic-power-coefficient = <189>;
->> +			enable-method = "psci";
->> +			cpu-idle-states = <&little_cpu_sleep>;
->> +		};
->> +
->> +		cpu3: cpu@300 {
->> +			device_type = "cpu";
->> +			compatible = "arm,cortex-a510";
->> +			reg = <0x300>;
->> +			capacity-dmips-mhz = <260>;
->> +			dynamic-power-coefficient = <189>;
->> +			enable-method = "psci";
->> +			cpu-idle-states = <&little_cpu_sleep>;
->> +		};
->> +
->> +		cpu4: cpu@400 {
->> +			device_type = "cpu";
->> +			compatible = "arm,cortex-a710";
->> +			reg = <0x400>;
->> +			capacity-dmips-mhz = <380>;
->> +			dynamic-power-coefficient = <560>;
->> +			enable-method = "psci";
->> +			cpu-idle-states = <&big_cpu_sleep>;
->> +		};
->> +
->> +		cpu5: cpu@500 {
->> +			device_type = "cpu";
->> +			compatible = "arm,cortex-a710";
->> +			reg = <0x500>;
->> +			capacity-dmips-mhz = <380>;
->> +			dynamic-power-coefficient = <560>;
->> +			enable-method = "psci";
->> +			cpu-idle-states = <&big_cpu_sleep>;
->> +		};
->> +
->> +		cpu6: cpu@600 {
->> +			device_type = "cpu";
->> +			compatible = "arm,cortex-a710";
->> +			reg = <0x600>;
->> +			capacity-dmips-mhz = <380>;
->> +			dynamic-power-coefficient = <560>;
->> +			enable-method = "psci";
->> +			cpu-idle-states = <&big_cpu_sleep>;
->> +		};
->> +
->> +		cpu7: cpu@700 {
->> +			device_type = "cpu";
->> +			compatible = "arm,cortex-x2";
->> +			reg = <0x700>;
->> +			capacity-dmips-mhz = <488>;
->> +			dynamic-power-coefficient = <765>;
->> +			enable-method = "psci";
->> +			cpu-idle-states = <&prime_cpu_sleep>;
->> +		};
->> +
->> +		idle-states {
->> +			entry-method = "psci";
->> +
->> +			little_cpu_sleep: cpu-sleep-0 {
->> +				compatible = "arm,idle-state";
->> +				idle-state-name = "c2";
->> +				entry-latency-us = <70>;
->> +				exit-latency-us = <170>;
->> +				min-residency-us = <2000>;
->> +				arm,psci-suspend-param = <0x10000>;
->> +			};
->> +
->> +			big_cpu_sleep: cpu-sleep-1 {
->> +				compatible = "arm,idle-state";
->> +				idle-state-name = "c2";
->> +				entry-latency-us = <235>;
->> +				exit-latency-us = <220>;
->> +				min-residency-us = <3500>;
->> +				arm,psci-suspend-param = <0x10000>;
->> +			};
->> +
->> +			prime_cpu_sleep: cpu-sleep-2 {
->> +				compatible = "arm,idle-state";
->> +				idle-state-name = "c2";
->> +				entry-latency-us = <150>;
->> +				exit-latency-us = <190>;
->> +				min-residency-us = <2500>;
->> +				arm,psci-suspend-param = <0x10000>;
->> +			};
->> +		};
->> +	};
->> +
->> +	pmu-a510 {
->> +		compatible = "arm,cortex-a510-pmu";
->> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH &ppi_cluster0>;
->> +	};
->> +
->> +	pmu-a710 {
->> +		compatible = "arm,cortex-a710-pmu";
->> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH &ppi_cluster1>;
->> +	};
->> +
->> +	pmu-x2 {
->> +		compatible = "arm,cortex-x2-pmu";
->> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_HIGH &ppi_cluster2>;
->> +	};
->> +
->> +	psci {
->> +		compatible = "arm,psci-1.0";
->> +		method = "smc";
->> +	};
->> +
->> +	soc {
->> +		compatible = "simple-bus";
->> +		ranges;
->> +
->> +		#address-cells = <2>;
->> +		#size-cells = <2>;
->> +
->> +		chipid@10000000 {
->> +			compatible = "samsung,exynos2200-chipid",
->> +				     "samsung,exynos850-chipid";
->> +			reg = <0 0x10000000 0 0x24>;
-> All numbers in hex please:
-> s/0/0x0/
+	/* 1280x720 */
+	preset0 {
+		apple,config-index = <0>;
+		apple,input-size = <1296 736>;
+		apple,output-size = <1280 720>;
+		apple,crop = <8 8 1280 720>;
+	};
 
-Alright. Will fix, thanks for the reviews!
+	/* 960x720 (4:3) */
+	preset1 {
+		apple,config-index = <0>;
+		apple,input-size = <1296 736>;
+		apple,output-size = <960 720>;
+		apple,crop = <168 8 960 720>;
+	};
 
-Best regards,
-Ivaylo
+	/* 960x540 (16:9) */
+	preset2 {
+		apple,config-index = <0>;
+		apple,input-size = <1296 736>;
+		apple,output-size = <960 540>;
+		apple,crop = <8 8 1280 720>;
+	};
 
->
->> +		};
->> +
-> Rest looks good.
->
->
-> Best regards,
-> Krzysztof
+	/* 640x480 (4:3) */
+	preset3 {
+		apple,config-index = <0>;
+		apple,input-size = <1296 736>;
+		apple,output-size = <640 480>;
+		apple,crop = <168 8 960 720>;
+	};
 
+But I may be interested in capturing a 640x480 frame with cropping only
+and without scaling, with
+
+input-size = 1296x736
+output-size = 640x480
+crop = (328,128)/640x480
+
+Or I may want my cropped frame to be located in the upper-left corner:
+
+input-size = 1296x736
+output-size = 640x480
+crop = (8,8)/640x480
+
+If I set those parameters through the ISP protocol, won't it work ?
+
+-- 
+Regards,
+
+Laurent Pinchart
 
