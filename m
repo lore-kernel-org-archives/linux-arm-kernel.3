@@ -4,65 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04827C021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 22:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30DF7C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 22:57:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CBLCEogiLTx2PTS7BtILZh9Og4OzIj+0Y+joFEKIYq4=; b=hn+o42X3XPQ3vrt0Uz9Hciq94H
-	C4udT78H2CvSQRK7Yl7Zgoty4yXf3DjYhq9AD3ipXTRqOyiF2JelnlEvleTGETCB8CzyZthbpR6oN
-	ucBK0X6ObclyfFEuK1fcUS4mQ+YwFU+7Fk/FJU0C7am9/uKHcuEa+OHGleHP1xelijPrvwRuqAp3L
-	CEzMtIbWdOJdlbKkexXFCjwYpsgzHrSsj6EDrGp7valas/DOsdcUy1euINhpLVoujxnw/ZoRq+cDM
-	XZ/EkGBS3UmAfvy2ozGe6GAKaCr1lW0OMwvJG9VES2YMuSAkYW6AYfterPfuQ2tUHeKR5Sg9lWdnG
-	YwywAA1A==;
+	bh=O1tUyiRXoZsGtaHn5V7OFDYuiYBIS5L3TTZMj8sxNMc=; b=l/Muh7E4UjpRrMVhQ+h90JG+mz
+	OobVNaxFX9KJyKQHh+LF+IA8u2dSTcHS4YNlGinfUH7YKVT9zh8lpsDoTBbWYWsUkMJ4PUK3Yt7jK
+	wFA0LpSnNJaUU7GQhcHhtaXBzuIyTxoanO6L/f8TG8yJC0Rxvzv8Y4d2Ii3FH3KM++RgX5+7B41zG
+	RQMwWLoTqz8eclY60/Yvr1EAuos+R+l/h+aBDGlkqpaxOYC1JOX+dMXioojMJcKF6oP9FPBeSaHft
+	Nl1QlTF18uaNp7AFczdxfqqGO1Hd/Q4XU77CLIGN+ODP2ptN4u/Mlf8YpdeovkIWy4NgTCqQsg+BG
+	HbTyVdaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tksw1-0000000FXds-3Tb1;
-	Wed, 19 Feb 2025 22:52:53 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tkt01-0000000FYpN-02Nw;
+	Wed, 19 Feb 2025 22:57:01 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tksuW-0000000FXE3-3UgN;
-	Wed, 19 Feb 2025 22:51:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=CBLCEogiLTx2PTS7BtILZh9Og4OzIj+0Y+joFEKIYq4=; b=m+dF/oRwCmIwDs9a3/gn0ZWjaG
-	by0scE3rRECPq7eEcr+YBVFEDrA6UEl/oC/bfhGt3CleKhMf1SN/UlUKD2Fuc2ghd2CnLGJfe1Z5E
-	ydDkHobvR4LfVUO/hIewM6/8tDwVk1XR6Rk2WmJ55DqxF7Q6faylgVknyfq8JgNnW8CqO6G4Ffo4Q
-	K1MeesZWZHWGPV7eCQalek8p3TZ63+pWYhU+sN6t0TP9Q70VI44BXsMWyDGGVdni6IoJt4AIJ/hDe
-	6Qj5pp+AQ0mY0aqckgZdFIUlP+7p89Bbpc2QuUz4l+l/SJYwjxzL5OOFFLAYyTo3psioRsukZNbBh
-	o1dI0G5g==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tksuR-00067C-PW; Wed, 19 Feb 2025 23:51:15 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, quentin.schulz@cherry.de,
- sebastian.reichel@collabora.com, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- dse@thaumatec.com, Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH v6 2/2] phy: rockchip: Add Samsung MIPI D-/C-PHY driver
-Date: Wed, 19 Feb 2025 23:51:14 +0100
-Message-ID: <2030933.8hb0ThOEGa@diego>
-In-Reply-To: <Z68zdiIl75k2Vv9i@vaman>
-References: <20250213210554.1645755-1-heiko@sntech.de>
- <20250213210554.1645755-3-heiko@sntech.de> <Z68zdiIl75k2Vv9i@vaman>
+	id 1tksyW-0000000FYOQ-0XfO;
+	Wed, 19 Feb 2025 22:55:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5C10E5C5A22;
+	Wed, 19 Feb 2025 22:54:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F05BBC4CED1;
+	Wed, 19 Feb 2025 22:55:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740005726;
+	bh=yPOGyniujTU3i3EYp1mV5Ro0Ed1aoGTxmIBahrWVhCA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=m5yHDyHfKflXsCv0KJrRUoPY2Qu7zHAmEi0xb0kyFMVA9rHPPQa0uOJZlUm/NNe8p
+	 zRYzB71H5qGooCPgnngDsHEdJJZJ08HdEbTdlohCXYoMpsaHkAsULAmUgUD2Py71S8
+	 zTvERcwWEZfBX6ZqHuXel7JF65LjKx5Yxqhsbg1rwffkiZCtLakUnKz7zyG2yMcwrT
+	 nJ+aMWJbM65I+tUPhpoWEvHpLz4kfqySFJU0/mp1adrKUHXyG+MffU641dvoM98Flr
+	 1ncI1iDXIB9qTXFZMmCfBbwDQgs3nz3SxQKJUMWtnI/C1T6AJY4vuk4e/fQzlSmK+2
+	 wCRkYSqliAxYw==
+Date: Wed, 19 Feb 2025 16:55:25 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: =?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>
+Cc: Trevor Wu <trevor.wu@mediatek.com>, Takashi Iwai <tiwai@suse.com>,
+	kernel@collabora.com, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	linux-arm-kernel@lists.infradead.org,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-sound@vger.kernel.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 1/3] ASoC: dt-bindings: mediatek,mt8188-mt6359: Add
+ mediatek,accdet
+Message-ID: <174000572376.3122081.10881553608590420273.robh@kernel.org>
+References: <20250214-mt8188-accdet-v1-0-6bbd5483855b@collabora.com>
+ <20250214-mt8188-accdet-v1-1-6bbd5483855b@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250214-mt8188-accdet-v1-1-6bbd5483855b@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_145120_893584_9E33E9F8 
-X-CRM114-Status: GOOD (  21.14  )
+X-CRM114-CacheID: sfid-20250219_145528_218798_52D78A45 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,109 +81,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vinod,
 
-thanks for the review.
-I've dropped all the parts that would've just gotten a "ok, changed" ;-)
-
-Am Freitag, 14. Februar 2025, 13:13:42 MEZ schrieb Vinod Koul:
-> On 13-02-25, 22:05, Heiko Stuebner wrote:
-
-> > +	{ 200,  7,   1,  0, 33,  9,  0, 26,  5,  0, 11},
-> > +	{ 190,  7,   1,  0, 32,  9,  0, 25,  5,  0, 11},
-> > +	{ 180,  6,   1,  0, 32,  8,  0, 25,  5,  0, 10},
-> > +	{ 170,  6,   0,  0, 32,  8,  0, 25,  5,  0, 10},
-> > +	{ 160,  5,   0,  0, 31,  8,  0, 24,  4,  0,  9},
-> > +	{ 150,  5,   0,  0, 31,  8,  0, 24,  5,  0,  9},
-> > +	{ 140,  5,   0,  0, 31,  8,  0, 24,  5,  0,  8},
-> > +	{ 130,  4,   0,  0, 30,  6,  0, 23,  3,  0,  8},
-> > +	{ 120,  4,   0,  0, 30,  6,  0, 23,  3,  0,  7},
-> > +	{ 110,  3,   0,  0, 30,  6,  0, 23,  3,  0,  7},
-> > +	{ 100,  3,   0,  0, 29,  5,  0, 22,  2,  0,  6},
-> > +	{  90,  3,   0,  0, 29,  5,  0, 22,  2,  0,  6},
-> > +	{  80,  2,   0,  0, 28,  5,  0, 22,  2,  0,  5},
-> > +};
+On Fri, 14 Feb 2025 12:14:29 -0300, Nícolas F. R. A. Prado wrote:
+> Add a mediatek,accdet phandle property to allow getting a reference to
+> the MT6359 ACCDET block, which is responsible for detecting jack
+> insertion/removal.
 > 
-> any word on where this table came from, maybe worth documenting that
-> part
-
-sadly not.
-
-The table itself came from the vendor-kernel, and I would assume there
-it came from some super-secret additional documentation Rockchip
-got with the IP documentation.
-
-It is sadly not part of the RK3588 manual.
-
-
-> > +
-> > +static void samsung_mipi_dcphy_bias_block_enable(struct samsung_mipi_dcphy *samsung)
-> > +{
-> > +	u32 bias_con2 = 0x3223;
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> ---
+>  Documentation/devicetree/bindings/sound/mediatek,mt8188-mt6359.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
-> magic value?
 
-Converted over to some more meaningful constants.
-Did the same to bias_con0+1 below that one too.
-
-
-> > +static void samsung_mipi_dphy_lane_disable(struct samsung_mipi_dcphy *samsung)
-> > +{
-> > +	regmap_update_bits(samsung->regmap, DPHY_MC_GNR_CON0, PHY_ENABLE, 0);
-> > +	regmap_update_bits(samsung->regmap, COMBO_MD0_GNR_CON0, PHY_ENABLE, 0);
-> > +	regmap_update_bits(samsung->regmap, COMBO_MD1_GNR_CON0, PHY_ENABLE, 0);
-> > +	regmap_update_bits(samsung->regmap, COMBO_MD2_GNR_CON0, PHY_ENABLE, 0);
-> > +	regmap_update_bits(samsung->regmap, DPHY_MD3_GNR_CON0, PHY_ENABLE, 0);
-> 
-> Is writing to a register (mmio) faster than a switch case for checking
-> lane count and disabling specific lanes?
-
-It might make sense to mimic the lane_enable way of doing things, even if
-just for things looking the same in both functions.
-
-I guess disabling lanes does not really care about minimal speed differences
-a switch/case would cause :-)
-
-> 
-> > +static void samsung_mipi_dcphy_pll_configure(struct samsung_mipi_dcphy *samsung)
-> > +{
-> > +	regmap_update_bits(samsung->regmap, PLL_CON0, S_MASK | P_MASK,
-> > +			   S(samsung->pll.scaler) | P(samsung->pll.prediv));
-> > +
-> > +	if (samsung->pll.dsm < 0) {
-> > +		u16 dsm_tmp;
-> > +
-> > +		/* Using opposite number subtraction to find complement */
-> > +		dsm_tmp = abs(samsung->pll.dsm);
-> > +		dsm_tmp = dsm_tmp - 1;
-> > +		dsm_tmp ^= 0xffff;
-> > +		regmap_write(samsung->regmap, PLL_CON1, dsm_tmp);
-> > +	} else {
-> > +		regmap_write(samsung->regmap, PLL_CON1, samsung->pll.dsm);
-> > +	}
-> > +
-> > +	regmap_update_bits(samsung->regmap, PLL_CON2,
-> > +			   M_MASK, M(samsung->pll.fbdiv));
-> > +
-> > +	if (samsung->pll.ssc_en) {
-> > +		regmap_write(samsung->regmap, PLL_CON3,
-> > +			     MRR(samsung->pll.mrr) | MFR(samsung->pll.mfr));
-> > +		regmap_update_bits(samsung->regmap, PLL_CON4, SSCG_EN, SSCG_EN);
-> > +	}
-> > +
-> > +	regmap_write(samsung->regmap, PLL_CON5, RESET_N_SEL | PLL_ENABLE_SEL);
-> > +	regmap_write(samsung->regmap, PLL_CON7, PLL_LOCK_CNT(0xf000));
-> > +	regmap_write(samsung->regmap, PLL_CON8, PLL_STB_CNT(0xf000));
-> 
-> I guess you are writing to upper nibble, maybe define that, if we can
-
-Nope ... the value is defined as bits [15:0] and both being pll lock and
-stabilization timing control registers. Sadly yet again, their usage detail
-is not documented, the manual even does not supply a unit for the 
-register value :-(
-
-
-Heiko
-
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
