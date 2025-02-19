@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D837C021AB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 08:47:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED8BC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 08:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G6yvQqQyuU69FORd2aAgJeFKBFQbI2OMWER8azk8GDg=; b=Bc7bAOTas4aFJTVKb3eiEWM9/p
-	uJ3+QT37YHV8JUMfrKcq57JbOiIxlIx6FY6xJDFBg14h5SdGWo2+lM6w+v6//bkHQOgqLr2B8PDJe
-	jb+aCyd6rQgM/twaVn3cTj1g6xJ3aNs7S7Rkjuv+FZY/x+pzZ//wIYNxT9ie/bS5bUiUaAmDsBa82
-	OLIsMJryv7n0qYsTRITYqrGiUxLkkNXPBeOUrRvvDPl1DjBaS5rxgsG5D1wGo98xhBS4mn+SO5w/L
-	/xa0B4rlTXPsyH0pIje/EIQU4v8Uv2l6Eu9tZaopxkwAqVV/9Y8nEJ0xg8RyuZSMbov99FEOqz9YZ
-	ro017vWw==;
+	bh=BAPgLggpFEZphjKvVnI11zaBevshixxEoFKjgSsFVdo=; b=Fx9cDQWIWagaIdSETOxVeXkQvL
+	wbsSvEc8Dq3JOPn+/2p/cKt2LBsIiEwXVgNPhtLPHOvLmWgpdBumHLplCwVWSzXbAa+uqrnLF6oK4
+	RQfixilzP9lvGzgg4IcI/6pHkpUC6Plw33IpG/3QlZdkobGSiqXB2Cd6iVdBtQMsWJhSrgid2g2TO
+	eLvJ8acd6FSS5HFrBFT1zL+7mk6AjAcU0K0Cg8MkrGxiy9/cs/2SwZ+FhHcDL/wvu6xG8wi0RIUH+
+	kUdEEZnHs6o0I+xk3Uy6Juzvemy8PLpBOxNB9OnL/5tW+XfxaW0Q6WGS7PO/aAdJ71cQAQ2HJmT2F
+	Rc8NYXPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkfk7-0000000Bd4T-0yrv;
-	Wed, 19 Feb 2025 08:47:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkfJL-0000000BTXq-3HpP
+	id 1tkflY-0000000BdT1-3g8x;
+	Wed, 19 Feb 2025 08:49:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkfJQ-0000000BTYc-012s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 08:20:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 48AA0A41F3A;
-	Wed, 19 Feb 2025 08:18:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B645C4CED1;
-	Wed, 19 Feb 2025 08:20:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739953202;
-	bh=f9iAeR1IOQP8kmg5+b4WgQh9Utss7fF0baQU25zQRh4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WvrZMDgjSl0CSSQCGL3t0GjL5zUupEtWr9dK6c23NVo/rvVZCUVL30qNdCqASRZa7
-	 aE1WBn3Y4r9MWNRoufWG+X/u9Sh/F7jhuLG7B2jCFwAUoWTB99hXiHJWxAasKgIjef
-	 ka30iRBL9WlsjV0NjiuA1sZQCrJvTZU5K3Y9YOX4Fk2aQbP69eBAy3wJpcmCdoo61B
-	 xtGds4u6BQ5A5cvTVXkvQ4UwDTGxgv20yilzkbOUAnMWg5h3SRBiPoe1f1JGZA7W+W
-	 CtMf7LPQNKV309/0Ifr7hzZGx2atLRAuilBn/VNVER91PRi+FvAeNZpQjgC0c7GI8F
-	 ZeDx+f09/wUdw==
-Date: Wed, 19 Feb 2025 09:19:59 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Balakrishnan Sambath <balakrishnan.s@microchip.com>
-Subject: Re: [PATCH v3] ASoC: dt-bindings: atmel-at91sam9g20ek: convert to
- json-schema
-Message-ID: <20250219-strange-quizzical-peacock-eb077b@krzk-bin>
-References: <20250219-sound-atmel-at91sam9g20ek-v3-1-d7c082af4e14@microchip.com>
+	Wed, 19 Feb 2025 08:20:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 234B21682;
+	Wed, 19 Feb 2025 00:20:23 -0800 (PST)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C8C523F5A1;
+	Wed, 19 Feb 2025 00:20:00 -0800 (PST)
+Date: Wed, 19 Feb 2025 09:19:56 +0100
+From: Beata Michalska <beata.michalska@arm.com>
+To: Yury Norov <yury.norov@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
+	sfr@canb.auug.org.au, ionela.voinescu@arm.com,
+	linux-next@vger.kernel.org, sumitg@nvidia.com,
+	yang@os.amperecomputing.com, vanshikonda@os.amperecomputing.com,
+	lihuisong@huawei.com, zhanjie9@hisilicon.com,
+	ptsm@linux.microsoft.com
+Subject: Re: [PATCH] arm64: Utilize for_each_cpu_wrap for reference lookup
+Message-ID: <Z7WULBZPsh8QK3DV@arm.com>
+References: <20250218192412.2072619-1-beata.michalska@arm.com>
+ <Z7TqFLU0Kwg9cUjO@thinkpad>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250219-sound-atmel-at91sam9g20ek-v3-1-d7c082af4e14@microchip.com>
+In-Reply-To: <Z7TqFLU0Kwg9cUjO@thinkpad>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_002003_884523_BD3DC486 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20250219_002008_096615_100CEEF6 
+X-CRM114-Status: GOOD (  26.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,24 +65,82 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-sound@vger.kernel.org, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Andrei Simion <andrei.simion@microchip.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 11:22:27AM +0530, Balakrishnan Sambath wrote:
-> Convert atmel-at91sam9g20ek-wm8731-audio DT binding to yaml
-> based json-schema.Change file name to match json-scheme naming.
+On Tue, Feb 18, 2025 at 03:14:23PM -0500, Yury Norov wrote:
+> On Tue, Feb 18, 2025 at 07:24:12PM +0000, Beata Michalska wrote:
+> > While searching for a reference CPU within a given policy,
+> > arch_freq_get_on_cpu relies on cpumask_next_wrap to iterate over
+> > all available CPUs and to ensure each is verified only once.
+> > Recent changes to cpumask_next_wrap will handle the latter no more,
+> > so switching to for_each_cpu_wrap, which  preserves expected behavior
+> > while ensuring compatibility with the updates.
 > 
-> Signed-off-by: Balakrishnan Sambath <balakrishnan.s@microchip.com>
-> ---
-> Changes in v3:
-> - Add recommended minItems and maxItems.
-> - Fix commit subject and a typo in example.
-> - Link to v2: https://lore.kernel.org/r/20241211-sound-atmel-at91sam9g20ek-v2-1-86a0e31e6af9@microchip.com
+> This is technically correct, but I would rather point that for
+> iterating over each CPU, it's better to use a dedicated iterator
+> instead of opencoded loop.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+I can certainly add that.
+> 
+> > Fixes: 16d1e27475f6 ("arm64: Provide an AMU-based version of arch_freq_get_on_cpu")
+> > Signed-off-by: Beata Michalska <beata.michalska@arm.com>
+> > ---
+> >  based on arm64 for-next/amuv1-avg-freq
+> > 
+> >  arch/arm64/kernel/topology.c | 16 ++++++++++------
+> >  1 file changed, 10 insertions(+), 6 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+> > index a09b0551ec59..9e3583720668 100644
+> > --- a/arch/arm64/kernel/topology.c
+> > +++ b/arch/arm64/kernel/topology.c
+> > @@ -254,7 +254,7 @@ int arch_freq_get_on_cpu(int cpu)
+> >  		if (!housekeeping_cpu(cpu, HK_TYPE_TICK) ||
+> >  		    time_is_before_jiffies(last_update + msecs_to_jiffies(AMU_SAMPLE_EXP_MS))) {
+> >  			struct cpufreq_policy *policy = cpufreq_cpu_get(cpu);
+> > -			int ref_cpu = cpu;
+> > +			int ref_cpu;
+> >  
+> >  			if (!policy)
+> >  				return -EINVAL;
+> > @@ -265,11 +265,15 @@ int arch_freq_get_on_cpu(int cpu)
+> >  				return -EOPNOTSUPP;
+> >  			}
+> >  
+> > -			do {
+> > -				ref_cpu = cpumask_next_wrap(ref_cpu, policy->cpus,
+> > -							    start_cpu, true);
+> > -
+> > -			} while (ref_cpu < nr_cpu_ids && idle_cpu(ref_cpu));
+> > +			for_each_cpu_wrap(ref_cpu, policy->cpus, cpu + 1) {
+> > +				if (ref_cpu == start_cpu) {
+> > +					/* Prevent verifying same CPU twice */
+> > +					ref_cpu = nr_cpu_ids;
+> > +					break;
+> 
+> If start_cpu == cpu, and you begin with 'cpu + 1', you will never
+> check the 'cpu' for idle, right? Maybe like this?
+> 
+>         unsigned int start_cpu = cpu + 1;
+> 
+This is not entirely a pure for-each case here.
+If this loop is reached, it means the start_cpu did not meet the criteria, and
+we are trying to find another CPU within the policy that might. Which is why we
+pick up the next in line and check whether it is suitable or not.
+Testing for idle is just a shortcut, as an idle CPU will most probably not be
+considered a good reference either way.
 
-Best regards,
-Krzysztof
-
+---
+BR
+Beata
+> > +				}
+> > +				if (!idle_cpu(ref_cpu))
+> > +					break;
+> > +			}
+> >  
+> >  			cpufreq_cpu_put(policy);
+> >  
+> > -- 
+> > 2.25.1
 
