@@ -4,95 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AB58C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 13:57:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D64C021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 14:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=57nPLxtLibpkK5qPp8QpRrsWkbDlQlqDET5gkkKYRG8=; b=rLiKdKNU/Q+gdDit+854gWRRno
-	mFtVRJ5uYiA/Y6B+mA9BXf3UJ7teJwbbylMXT04nTnpRCTl9AC2t5z4GtPisAOS1r68JalRpi/VJg
-	BGr+IvJVIW1oI3eQzC+EyuZ3FxKWFN0im3EZCzmNoBSQ/n6oZ9qeo3j4xzAsTvmCjHUVIg/Tflc7J
-	QbLLtgVuEJn36jWEPV+4vv0DcEpIJ5u4xzXw9XeachFk4z9IZHpJ0tcr6zI2it8BVgEEReV2PAzqn
-	yWvEyvjuEWODXLcJ9d8ruVXVaWEQKy538AfNRA+tdibzv469jIgfWF1AEEgYAI+OcllMEPj7QQwT8
-	PTOywd2w==;
+	bh=SMq2eFU6Ljg+Zxne9quqU1lbGCJjE+HBi81N+5bjRks=; b=Ul1SFPVjGoeWXb21Aw+asepfUc
+	6s13DwJgEhDRLXM5tGmi9GqPzjrHKVlQWQ0mg0wX+itpeVBL4xWBBqON3LnBzMxGZyQZ9possrA33
+	GH6KDqp7dCtlXMnDeS6rdmu8Vh6pAwJm3kb0Rewe6wjp0UoK1EnaCvHf0aIqxin8i67xmbC1uLNdw
+	YSlEATjqN/KxoGf5Zcqx85te00sJZxg2MCredS/bCbIHjDy+tiuEVlLSFw+QjdqSsBkqsiooOudl+
+	l6CAxTZH2gJvK3XubLGECNliOVG45sHAgpCDVlTXDKX/BlgA3DP/Jb0Ah6/zII+Ye4JtN36ccXV2P
+	ENXCU8tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkkZP-0000000D6md-0AOv;
-	Wed, 19 Feb 2025 13:56:59 +0000
-Received: from smtp-fw-80009.amazon.com ([99.78.197.220])
+	id 1tkkea-0000000D8Sp-09O8;
+	Wed, 19 Feb 2025 14:02:20 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkkXp-0000000D6ES-3D1e;
-	Wed, 19 Feb 2025 13:55:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1739973321; x=1771509321;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=57nPLxtLibpkK5qPp8QpRrsWkbDlQlqDET5gkkKYRG8=;
-  b=dxGHxGJ8nRdcWggCk0UKFW6ggY1nqPPPGm7ICMsfZqAz6xXqGfyZjevJ
-   En/XbivAJzswh+du7sEsoNSufpzQ8LlBnrZJl5u5IkZiUU5U+IJ5bJIpG
-   Rl8YxSAeOKDke3O/XQX/42RcUxgAYp3r5rnZm4a6bbp10w0/5FEX/ojzB
-   M=;
-X-IronPort-AV: E=Sophos;i="6.13,299,1732579200"; 
-   d="scan'208";a="173851478"
-Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.210])
-  by smtp-border-fw-80009.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 13:55:18 +0000
-Received: from EX19MTAUWA002.ant.amazon.com [10.0.38.20:64466]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.12.97:2525] with esmtp (Farcaster)
- id 109703bc-b166-4b29-a69a-d899c4750143; Wed, 19 Feb 2025 13:55:17 +0000 (UTC)
-X-Farcaster-Flow-ID: 109703bc-b166-4b29-a69a-d899c4750143
-Received: from EX19D020UWC004.ant.amazon.com (10.13.138.149) by
- EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1258.39;
- Wed, 19 Feb 2025 13:55:08 +0000
-Received: from [0.0.0.0] (10.253.83.51) by EX19D020UWC004.ant.amazon.com
- (10.13.138.149) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14; Wed, 19 Feb 2025
- 13:55:00 +0000
-Message-ID: <d8c43707-65a2-4176-85e2-acdb4c9d16ad@amazon.com>
-Date: Wed, 19 Feb 2025 14:54:57 +0100
+	id 1tkkd5-0000000D7yo-3JkY;
+	Wed, 19 Feb 2025 14:00:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0C9025C59A6;
+	Wed, 19 Feb 2025 14:00:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97789C4CEEA;
+	Wed, 19 Feb 2025 14:00:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739973646;
+	bh=vEn5X9s0X03RZNsX/FehVn8bFO/GVsoqwmgLAKeThTI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Zi+Bfg1RQd+Lf4yEh810Okdlgu/zmfqteq1iKlGjV9u6OXEOJYhII6NBAn/0gE3Ko
+	 Tp+I7eItZ1itdf1igTj06pEtoiaNFTC9GdT7liBCY4EcBlQqGN86HY55MJ8vC4tN4M
+	 NxB/NzKIgvkECDBDfxMfrRAi7cmnW27+ZG3qRhWiwtBm0W7wcL6HxQg3E+eQQsbbwh
+	 LlFBXQwsdwum316iPRaOS5tvYqQCvlaancOvovw8ETCIOeXpm6CbYF3bo5BhoYcbqk
+	 oLAIJn87TSOQKwLfHisNbXuZYeUDcF9jaWTtPO6iIezEpSh5/+hNrisapP0/MshpnS
+	 bImhpaceohLZg==
+Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-2f9d3d0f55dso9708861a91.1;
+        Wed, 19 Feb 2025 06:00:46 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUiW/Yh0MF2CcNhGHIPRvM5c3tylEbASphy8GP+am5lrTiTom8oTSpnkgYOfJ4Rtw1JraWtW0djkBrYRyOG6Xs=@lists.infradead.org, AJvYcCVvkMUcKVm9SVUX164mlSHdcfiQkswz3y6tBvOn2F82ivl3+CgpordJw6s1xf+6HMP4D3pkJ4JWh+DElJ7k9AW3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmBBreQINR5nKt2UB7aGdn9bfhoiNFUaI6FAX6wli3rw2wIW6l
+	O0rhHaEl41pJxShR3pkUmY6juoEZqhuY8dxZniV3BmchcIYRmOwNQ8EbwIzyzUXk58V8rr/8Rbc
+	DXOJ9z85qKK9M/kQ9tDEsAUMbMQ==
+X-Google-Smtp-Source: AGHT+IHRoKXGmXM1paDFNeCBXkKPPbaMW6fIKItj9hAqnwjEMJdKy4fDjEc43FMEaHHNLq0oBSEC7WyHzl/u9EJNtqg=
+X-Received: by 2002:a17:90b:1a89:b0:2ee:c2b5:97a0 with SMTP id
+ 98e67ed59e1d1-2fcb5a9db51mr5836056a91.25.1739973646106; Wed, 19 Feb 2025
+ 06:00:46 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
-To: Dave Young <dyoung@redhat.com>, Mike Rapoport <rppt@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>, Anthony Yznaga
-	<anthony.yznaga@oracle.com>, Arnd Bergmann <arnd@arndb.de>, Ashish Kalra
-	<ashish.kalra@amd.com>, Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, David Woodhouse
-	<dwmw2@infradead.org>, Eric Biederman <ebiederm@xmission.com>, Ingo Molnar
-	<mingo@redhat.com>, James Gowans <jgowans@amazon.com>, Jonathan Corbet
-	<corbet@lwn.net>, Krzysztof Kozlowski <krzk@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, Pasha Tatashin
-	<pasha.tatashin@soleen.com>, "H. Peter Anvin" <hpa@zytor.com>, Peter Zijlstra
-	<peterz@infradead.org>, Pratyush Yadav <ptyadav@amazon.de>, Rob Herring
-	<robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, Saravana Kannan
-	<saravanak@google.com>, Stanislav Kinsburskii
-	<skinsburskii@linux.microsoft.com>, Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>, Will Deacon <will@kernel.org>,
-	<devicetree@vger.kernel.org>, <kexec@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-mm@kvack.org>, <x86@kernel.org>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <CALu+AoRMQyRDFS_4L0KQkmrFT_S+yk=uZ-Mqt86JQYKKnj-5Ug@mail.gmail.com>
- <Z7WJD6eBLuIRnLwk@kernel.org>
- <CALu+AoSaEthfed1NOYPiQgm_g-dhibVMRAp0+=_+9qTT4_x=tg@mail.gmail.com>
-Content-Language: en-US
-From: Alexander Graf <graf@amazon.com>
-In-Reply-To: <CALu+AoSaEthfed1NOYPiQgm_g-dhibVMRAp0+=_+9qTT4_x=tg@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.253.83.51]
-X-ClientProxiedBy: EX19D041UWA003.ant.amazon.com (10.13.139.105) To
- EX19D020UWC004.ant.amazon.com (10.13.138.149)
+References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com> <20250217154836.108895-18-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250217154836.108895-18-angelogioacchino.delregno@collabora.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Wed, 19 Feb 2025 22:01:30 +0800
+X-Gmail-Original-Message-ID: <CAAOTY__d2A6BiegTqX+eXAk5LYAtRexnwLvkbje94ax05jOMug@mail.gmail.com>
+X-Gm-Features: AWEUYZn3pFp_1IYzIW4DyIvJ63JD27HTlx-6jN1bSkLAtPngd4i98FCr_lIubC4
+Message-ID: <CAAOTY__d2A6BiegTqX+eXAk5LYAtRexnwLvkbje94ax05jOMug@mail.gmail.com>
+Subject: Re: [PATCH v7 17/43] drm/mediatek: mtk_hdmi: Unregister audio
+ platform device on failure
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, 
+	jie.qiu@mediatek.com, junzhi.zhao@mediatek.com, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
+	dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com, 
+	ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com, 
+	jason-jh.lin@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_055521_861479_E8ECE50B 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20250219_060047_913216_3C198AC8 
+X-CRM114-Status: GOOD (  24.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,38 +92,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Angelo:
 
-On 19.02.25 13:49, Dave Young wrote:
-> On Wed, 19 Feb 2025 at 15:32, Mike Rapoport <rppt@kernel.org> wrote:
->> On Mon, Feb 17, 2025 at 11:19:45AM +0800, RuiRui Yang wrote:
->>> On Thu, 6 Feb 2025 at 21:34, Mike Rapoport <rppt@kernel.org> wrote:
->>>> == Limitations ==
->>>>
->>>> Currently KHO is only implemented for file based kexec. The kernel
->>>> interfaces in the patch set are already in place to support user space
->>>> kexec as well, but it is still not implemented it yet inside kexec tools.
->>>>
->>> What architecture exactly does this KHO work fine?   Device Tree
->>> should be ok on arm*, x86 and power*, but how about s390?
->> KHO does not use device tree as the boot protocol, it uses FDT as a data
->> structure and adds architecture specific bits to the boot structures to
->> point to that data, very similar to how IMA_KEXEC works.
->>
->> Currently KHO is implemented on arm64 and x86, but there is no fundamental
->> reason why it wouldn't work on any architecture that supports kexec.
-> Well,  the problem is whether there is a way to  add dtb in the early
-> boot path,  for X86 it is added via setup_data,  if there is no such
-> way I'm not sure if it is doable especially for passing some info for
-> early boot use.  Then the KHO will be only for limited use cases.
+AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
+=BC
+2025=E5=B9=B42=E6=9C=8817=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=8811:=
+49=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> The probe function of this driver may fail after registering the
+> audio platform device: in that case, the state is not getting
+> cleaned up, leaving this device registered.
+>
+> Adding up to the mix, should the probe function of this driver
+> return a probe deferral for N times, we're registering up to N
+> audio platform devices and, again, never freeing them up.
+>
+> To fix this, add a pointer to the audio platform device in the
+> mtk_hdmi structure, and add a devm action to unregister it upon
+> driver removal or probe failure.
 
+Applied to mediatek-drm-next [1], thanks.
 
-Every architecture has a platform specific way of passing data into the 
-kernel so it can find its command line and initrd. S390x for example has 
-struct parmarea. To enable s390x, you would remove some of its padding 
-and replace it with a KHO base addr + size, so that the new kernel can 
-find the KHO state tree.
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-next
 
+Regards,
+Chun-Kuang.
 
-Alex
-
+>
+> Fixes: 8f83f26891e1 ("drm/mediatek: Add HDMI support")
+> Reviewed-by: CK Hu <ck.hu@mediatek.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> ---
+>  drivers/gpu/drm/mediatek/mtk_hdmi.c | 25 +++++++++++++++++++------
+>  1 file changed, 19 insertions(+), 6 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediat=
+ek/mtk_hdmi.c
+> index be71105ba81d..b9f4f06edde6 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+> @@ -172,6 +172,7 @@ struct mtk_hdmi {
+>         unsigned int sys_offset;
+>         void __iomem *regs;
+>         enum hdmi_colorspace csp;
+> +       struct platform_device *audio_pdev;
+>         struct hdmi_audio_param aud_param;
+>         bool audio_enable;
+>         bool powered;
+> @@ -1661,6 +1662,11 @@ static const struct hdmi_codec_ops mtk_hdmi_audio_=
+codec_ops =3D {
+>         .hook_plugged_cb =3D mtk_hdmi_audio_hook_plugged_cb,
+>  };
+>
+> +static void mtk_hdmi_unregister_audio_driver(void *data)
+> +{
+> +       platform_device_unregister(data);
+> +}
+> +
+>  static int mtk_hdmi_register_audio_driver(struct device *dev)
+>  {
+>         struct mtk_hdmi *hdmi =3D dev_get_drvdata(dev);
+> @@ -1671,13 +1677,20 @@ static int mtk_hdmi_register_audio_driver(struct =
+device *dev)
+>                 .data =3D hdmi,
+>                 .no_capture_mute =3D 1,
+>         };
+> -       struct platform_device *pdev;
+> +       int ret;
+>
+> -       pdev =3D platform_device_register_data(dev, HDMI_CODEC_DRV_NAME,
+> -                                            PLATFORM_DEVID_AUTO, &codec_=
+data,
+> -                                            sizeof(codec_data));
+> -       if (IS_ERR(pdev))
+> -               return PTR_ERR(pdev);
+> +       hdmi->audio_pdev =3D platform_device_register_data(dev,
+> +                                                        HDMI_CODEC_DRV_N=
+AME,
+> +                                                        PLATFORM_DEVID_A=
+UTO,
+> +                                                        &codec_data,
+> +                                                        sizeof(codec_dat=
+a));
+> +       if (IS_ERR(hdmi->audio_pdev))
+> +               return PTR_ERR(hdmi->audio_pdev);
+> +
+> +       ret =3D devm_add_action_or_reset(dev, mtk_hdmi_unregister_audio_d=
+river,
+> +                                      hdmi->audio_pdev);
+> +       if (ret)
+> +               return ret;
+>
+>         DRM_INFO("%s driver bound to HDMI\n", HDMI_CODEC_DRV_NAME);
+>         return 0;
+> --
+> 2.48.1
+>
 
