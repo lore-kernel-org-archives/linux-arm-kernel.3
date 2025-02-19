@@ -4,141 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4D9C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 16:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF685C021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 16:58:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ILKPl0SNay3a32+/RRSyxh1SJEExDN/cTqsidRAj8PU=; b=BKT40u1zc6kVMpGhXPLMT7RuGm
-	qdIy2PKbRIWv5NvVIgA1NZk4GI/93LuWs1/HrVAzklcBQEEvY+0cMZXabhPxjVwsVyHRAkRlxN7IO
-	OKKFos5HmNcf8SYmT3rUWxEiIMhWNQfoxgx9IeXY7vbt72Vhhvf6q+4785aq/9AdKT34yzibjTQGa
-	T2qv7U/sSunRxOtIhO/HF5/9BW4vlOmzBBSwhia/o8qlEE9ClBdhp/FkzUqbZtH1og/8weBlYtoBn
-	1zcGzaKpJgEfpoWhJrKkSnFAht0UkK/QsY5FUG3w33gqG94vVPe89wkHnkCEe6SuXwaVgamksBYGY
-	xK2E01QQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mMql8KYiWH+c+lYpthTy/7Bw8ahN0iWeZq/Ll0qDnnA=; b=XGda18EYKrIPngVAjJ+t8ILugs
+	4UrZkh/jZEPuvMYq1MGZrHGyXrS656ZaPeuaI0ZVVPQweDUEjeKlDzk86/nqLOQ/d0oOooUEbYJUE
+	2r5ZzihI9HZZvZUP4o9N4SF9kPS97RaurQUoaWpPR+pYpkAsf+dAQGj8ozwe2aOz/rTHIYTvB7xCR
+	1XwZJmsxL0dgJXaJxVZ3qfcTbmQnOHWLN17OvsqOcAY5EGxKcglM9+f93Bv/4SrO/YjFZXcnvQIvB
+	1YbS7YhmP6dpzGZl6Sar7bArODezzk7itSXYNPPzxmKaBS6Ex00Iii7nXF4MA5tzbWsYdNQLpjmRQ
+	fpJHbHMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tknMs-0000000DxhU-2sPx;
-	Wed, 19 Feb 2025 16:56:14 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tknOT-0000000DyHL-3bBj;
+	Wed, 19 Feb 2025 16:57:53 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkmMn-0000000DeN2-3JMW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 15:52:06 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-221050f3f00so87753605ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 07:52:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739980325; x=1740585125; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=ILKPl0SNay3a32+/RRSyxh1SJEExDN/cTqsidRAj8PU=;
-        b=cq4TF6uASBLgVej6GM0RqrODox1+RXrpyFua45T5c2Qi+sMzt5CmTyQmRe9y8SszJU
-         fBCXfaug3rprFE81RoX9Ws+jmQ/wsjtH9bv4fAo4cqH9hSfnuV/Utxd1XYBNJjC/O6kF
-         s/CuGhkBouTWl1vhVYEjgC3Cp/mrUrl+1z1r2o/hDmCB1XyGY6JIT1qjWFtWTVZXjDQw
-         JQEGRZuw9WzxWaz5HURShK5QY+T9TYPEqRqFsCacgZibRMviAYeNXSrH65CNVFs7DMNL
-         /UNM/eEkIWtl1dPd/i1klXG4ZWr6kHcnoqPlURMjAwI81nJFOzCtHrYsYdxquNbAooyM
-         Q8hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739980325; x=1740585125;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ILKPl0SNay3a32+/RRSyxh1SJEExDN/cTqsidRAj8PU=;
-        b=kZfgisu8S9ptcOoQIZyDcgj9JeSEeLu9p0Goldee/9VppKw4Ux+2H+/gV+5sY7+lG9
-         P88twZxJRcT8SUiIXGfAcYJhjvPFmExnkZZiH0pUh2BDeDnbU4XQswRZU89a0HFLaYa1
-         d/jU8LzbYxH2vVymvUd7Lg2/4TvuzoJOP9Fotc7k+yuQbKZ5s8U0FCda1K+Xhi1PjcC+
-         Qd4OwCGMXmoOEj+ICluFDJdU1c2oKcNyflulQjPtQjLPHSNZ20tMEpI1y+hGPlF2g+Kr
-         IlLYTuirSfGaPkkp6sywwbQVK0zWHfBB2wleqc/siZr8GBqXWZ1Oh5GCowwAi5hcfdYC
-         tQxA==
-X-Forwarded-Encrypted: i=1; AJvYcCU0tZaky0HQ5x3pLrpvv54U3cZp9zZPnnq2YT3Sq/wDux5agYBk3YYZullFK74eRpTZwA73b+gX83jgIgdkwOXq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuOpH2v4KME+Q2rO3bkFf80+hnh9O8j928HgBqfJkSDnX/97CJ
-	+FAOiLMwvwKlzPSXowewr9DIp8Mh/DqkJI91le7IFrqs8q1tqd54
-X-Gm-Gg: ASbGnctIHFBIlteRFzy8UFZHZN3y3yhwwpPbmfclP8Tk80XQbQTRCYQQH5F3rYS/xAX
-	QsW6o7cViNXvgtnsHQTef93gG8j1ByXhd11ElWhFx4+j2Qpxx655/2mF87KK59AB7Yj/X4jaJiR
-	BGPjMh17qmTw4r5lxNth+Ii2B7yMHCwSybhlJaEod5lLUYq9Y70N3QxAp8TbKp4rtDIDonY8fi6
-	8E3OOSooTeuKEsrGUHwJ4XOMhDJ4e+Tl9v3IGEn+Z/itkffDMC5NQab5sltUVsRnurCUtRKBT+c
-	7i7GN9MCbJwdgNkZZQ3dbZ7qz8d8PWADs87TDYQRiSomA+BEI9vEXmkxeyCQ3Knf
-X-Google-Smtp-Source: AGHT+IGW8+CBVhv4LqCaNkiqyMeXKPeQs7b+MCMYUpO6R3KWdsi8G6YGkHjrQBMgwy6+AQ9im63ntQ==
-X-Received: by 2002:a05:6a21:789b:b0:1ee:d2d9:351f with SMTP id adf61e73a8af0-1eed2d93688mr7526340637.42.1739980324740;
-        Wed, 19 Feb 2025 07:52:04 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-adb57c5dee4sm11119348a12.14.2025.02.19.07.52.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Feb 2025 07:52:04 -0800 (PST)
-Message-ID: <ae40d143-a5ca-4a38-844f-ca58a06834a5@roeck-us.net>
-Date: Wed, 19 Feb 2025 07:52:01 -0800
+	id 1tknMz-0000000Dxkh-0ols;
+	Wed, 19 Feb 2025 16:56:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=mMql8KYiWH+c+lYpthTy/7Bw8ahN0iWeZq/Ll0qDnnA=; b=Sl9gdCQPtE9cOUeQU9r7dWbN8o
+	YTHvDfTnCZe/KEl59VvE/dFnVzlajwC7x3Z5g8RIb/ptrYNa5U6l+BpauUQlAypuaqBOkkRGwzjW6
+	jej6ACZoJci1jlZyUzqpCS30dgWQyOX2OoBenOajS2587k/NGvvjAuoJ6s8QIoUmSEC3aG89DBHov
+	s836CjytoPGmyyo09QN9trvwp7Crmo/hpkQC/UqivJO+RSQe0mvN7TAU+AEmSiuijYsT2IvxPbJj2
+	tDl/uNbvqT7E9JY6J77y9PPEdh0L6HdVdtxVFDO5MM7USXbFRYU/Ugr5Lnlu1HkUdHfRcxgsCxkA+
+	SMkJKC0w==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tknMw-00037a-0c; Wed, 19 Feb 2025 17:56:18 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Quentin Schulz <quentin.schulz@cherry.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, lukasz.czechowski@thaumatec.com,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: remove supports-cqe from rk3588 jaguar
+Date: Wed, 19 Feb 2025 17:56:17 +0100
+Message-ID: <17063984.geO5KgaWL5@diego>
+In-Reply-To: <da11da79-11f1-4251-8fb1-3079c3b0da64@cherry.de>
+References: <20250219093303.2320517-1-heiko@sntech.de>
+ <da11da79-11f1-4251-8fb1-3079c3b0da64@cherry.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] dt-bindings: hwmon: emc2305: Add YAML binding
- documentation for emc2305 driver
-To: Krzysztof Kozlowski <krzk@kernel.org>, florin.leotescu@oss.nxp.com,
- Jean Delvare <jdelvare@suse.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Michael Shych <michaelsh@nvidia.com>,
- linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: viorel.suman@nxp.com, carlos.song@nxp.com,
- linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
- Florin Leotescu <florin.leotescu@nxp.com>
-References: <20250219133221.2641041-1-florin.leotescu@oss.nxp.com>
- <20250219133221.2641041-4-florin.leotescu@oss.nxp.com>
- <fd70f78c-68a5-43ec-9eb2-3f06c5d7a20d@kernel.org>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <fd70f78c-68a5-43ec-9eb2-3f06c5d7a20d@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_075205_833607_7F0BB15D 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250219_085621_259122_B1886249 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,26 +74,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/19/25 06:01, Krzysztof Kozlowski wrote:
-[ ... ]
-
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - hwmon,emc2301
->> +      - hwmon,emc2302
->> +      - hwmon,emc2303
->> +      - hwmon,emc2305
+Am Mittwoch, 19. Februar 2025, 17:06:52 MEZ schrieb Quentin Schulz:
+> Hi Heiko,
 > 
-> Nope.
+> On 2/19/25 10:33 AM, Heiko Stuebner wrote:
+> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> > 
+> > The sdhci controller supports cqe it seems and necessary code also is in
+> > place - in theory.
+> > 
+> > At this point Jaguar and Tiger are the only boards enabling cqe support
+> > on the rk3588 and we are seeing reliability issues under load.
+> > 
+> > This can be caused by either a controller-, hw- or driver-issue and
+> > definitly needs more investigation to work properly it seems.
+> > 
+> > So disable cqe support on Jaguar for now.
+> > 
 > 
-> Was it ever internally reviewed?
+> Seems more reasonable to me for the time being.
 > 
-No. I intentionally do not review bindings because I notoriously get it wrong,
-and instead rely on DT maintainers.
+> Aside from the reliability issues, I could also trigger a stack trace with:
+> 
+> $ mmc rpmb read-counter /dev/mmcblk0rpmb
+> [ 1119.647435] mmc0: Timeout waiting for hardware interrupt.
+> [ 1119.653480] mmc0: sdhci: ============ SDHCI REGISTER DUMP ===========
+> [ 1119.660676] mmc0: sdhci: Sys addr:  0x00000001 | Version:  0x00000005
+> [ 1119.667871] mmc0: sdhci: Blk size:  0x00007200 | Blk cnt:  0x00000000
+> [ 1119.675066] mmc0: sdhci: Argument:  0x00000000 | Trn mode: 0x0000002b
+> [ 1119.682261] mmc0: sdhci: Present:   0x03f701f6 | Host ctl: 0x00000035
+> [ 1119.689455] mmc0: sdhci: Power:     0x00000001 | Blk gap:  0x00000000
+> [ 1119.696649] mmc0: sdhci: Wake-up:   0x00000000 | Clock:    0x00000407
+> [ 1119.703845] mmc0: sdhci: Timeout:   0x0000000e | Int stat: 0x00000000
+> [ 1119.711039] mmc0: sdhci: Int enab:  0x03ff000b | Sig enab: 0x03ff000b
+> [ 1119.718235] mmc0: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000000
+> [ 1119.725429] mmc0: sdhci: Caps:      0x226dc881 | Caps_1:   0x08000007
+> [ 1119.732624] mmc0: sdhci: Cmd:       0x0000193a | Max curr: 0x00000000
+> [ 1119.739819] mmc0: sdhci: Resp[0]:   0x00000900 | Resp[1]:  0x00000000
+> [ 1119.747014] mmc0: sdhci: Resp[2]:   0x328f5903 | Resp[3]:  0x000007d9
+> [ 1119.754209] mmc0: sdhci: Host ctl2: 0x0000000f
+> [ 1119.759169] mmc0: sdhci: ADMA Err:  0x00000000 | ADMA Ptr: 0x0057b200
+> [ 1119.766363] mmc0: sdhci: ============================================
+> [ 1119.773595] sdhci-dwcmshc fe2e0000.mmc: __mmc_blk_ioctl_cmd: data 
+> error -110
 
-I agree though that this one is really bad :-(.
+I can reproduce this timeout with CQE enabled.
 
-Guenter
+After disabling CQE, this goes away to the regularly expected response.
+
+
+> FWIW, the changes that Rockchip seems to have done on top of that driver 
+> in their 6.1 vendor fork are the following commits:
+> 
+> https://git.theobroma-systems.com/jaguar-linux.git/commit/drivers/mmc/host/sdhci-of-dwcmshc.c?id=2ef0767967138d333360ec0f399f1d68646741c3&h=linux-6.1-stan-rkr3.2-jaguar
+> https://git.theobroma-systems.com/jaguar-linux.git/commit/drivers/mmc/host/sdhci-of-dwcmshc.c?id=75dfde714bbe81e938190142d07307fa864fda34&h=linux-6.1-stan-rkr3.2-jaguar
+> 
+> Maybe something worth having a look at some time in the future.
+> 
+> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+> 
+> Thanks!
+> Quentin
+> 
+
+
+
 
 
