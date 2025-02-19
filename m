@@ -4,149 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9410C021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 13:39:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC0FC021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 13:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eXag1oJei1Pso4/az2wQbmm8DNu6iBoVs9BdSZ+5ML4=; b=ac5ZMLI00R1hrNSSeUopk0j6U0
-	IkTzfF5kWJyVDlF//prYtzkdzSJ+W6R8ezAVcCfVxBZOn3LHxhCdtuePiP3klQL4uaKhhefd7OHTX
-	xTmX9n7ALeOfjvTCpkEHJF2a1KgmP5icY1hUJRsT++EHChoiNsEuJnzxAJsbHikRKk2Rl7qKSDn/a
-	w+nMhXVh2yfZ95S0rqWqEzjGZY7yxMqxkxY3GRtedSUfUlivFa/8MdAuWbBuCjOm90a2wGi99P58m
-	qsJcUh20v9GyQc6y/i68Rmp6o3HEYwEQ4gR2WZG5UMITKekyufuPEHmLy8Oli7XMAtXKWs9mBYOpv
-	7z6GQuIA==;
+	bh=40NCiaKEOu7DJNX9zchvj4jQWid80X1JbhK4hzOlNPc=; b=dupVTXZse5/DEWp8Uyu5Q7aBIP
+	bwlMKOrUIISWCciJQVUcTaqOg0UYSiDBwfEtEmgGn+ammNby8mW9QaGXEYi/I1NyvYpJSxJnFryGR
+	V6y8VePRJr2haG4nxVfk+BpAK8K0f90QPEyvvftppN8j4so6MoNKJzu0b7kFQHBaNVJeHwp2/XgoP
+	9xDtK0OO3EgZ6OXLj+HoYGTlT5Ngg7hymXafJTWrdHiAzMIfVTe/j+UKawm/kt2UteZCC7OmBIPYa
+	D/xN4Z7rP3dnIQfI05skOT/yhVNL/x9bRvMNP6N28Ay+RqtO52+fZoZ8bFze+fIlvjZbtmvaiG4c2
+	ZIheTLMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkkIN-0000000D0Yk-2FlQ;
-	Wed, 19 Feb 2025 13:39:23 +0000
-Received: from mail-co1nam11on20606.outbound.protection.outlook.com ([2a01:111:f403:2416::606] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1tkkLH-0000000D1Uz-3hjd;
+	Wed, 19 Feb 2025 13:42:23 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkkGY-0000000Czul-1cSG
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 13:37:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pYPW622ysGkyWA3ubhb24DY0rsuDw+L64J5LiRDGntuoGkwZ3TKoTELxVD2hHsiH8c5C6kfq78M9RW40Lk/j+A4bpalX+kIc5lkORD23Gk/aONz0fzFg75rzbyHNYA7cPu7JMd1KDHZQsrfpRt6+jvzrSv5lRO9xX8pcn2iWbxgUkSWhxkAnuEkJ+ltLUzbn6ARmjRx+6gslv6BVC6hX1XpxCrzp5vYmkwJRTJ74MjP/xZOpGecE7E5M34srlqesCXiBxKQeUojncF6UyJE5b4HBCkaskOuBd9zDDh3EApVgL8Gv3ZuiMcbh6U4qcEw8FshnwgKXDeFg01yJpUssMA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eXag1oJei1Pso4/az2wQbmm8DNu6iBoVs9BdSZ+5ML4=;
- b=Ax9TvPXaEAOkPiwGrykt+rKiQC913nDrN45+ryhxiJqZIEkfDBwZNZfsmDVEWpp+DJFus7ZZlJv8letsRwI0/vCvyUqSz+CxzLgT+r+CTF2Mjyb0NcNiz0mtgrQz/HFSl4GV83gc8Z4TdgQ4gYvNM1dZg2KcRPKGIjNoeMDXqBUBYng9xNQ4aiENVctDktDyaRSUVItluvWNBiwG58lAl3yqMWMUXYHmqJw5qrtYINepw7NAUJPkGq+eyO+DEggtYPb9ciryo+A7QB+3NKZj/1PDh3aEyhTtlPStXlkRcZtc5Yh276jETFAlsEEun/uaGpAIiGUBDK5pXFi7SoiFnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eXag1oJei1Pso4/az2wQbmm8DNu6iBoVs9BdSZ+5ML4=;
- b=HxyoMvvscCtMvD2LC9PdwOCHNUIb3jVlBORK04xB59x3IFfI4yS3ZwwWsXfapqZBt6YcdTeUfHGZfJ97bWnlJH8FR9TSYbl4rNcrNq1I9hg2oR1nSfn+qtPbbfRYI1zxzJH3d3M5lCKNtfJPyQh14uoK3zDP+UAXcRmJQRgkwrkJn2FLbHYgHyzOsYqoIJUAzdkQ3dynks5mZ3MMH7/oWrv+5KEyHxmvoDX8e2xoGJRDBJu+v28UCYoY/Ls4O4O8QgJk8KKuLoPW35bQLQmgfoQ2au/KHKzXcP7Xev6Rm511ogdq9lWN3SCTkFRL7d8Ayly9ZSlntspywaQsTqxeVQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by MN2PR12MB4078.namprd12.prod.outlook.com (2603:10b6:208:1de::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.14; Wed, 19 Feb
- 2025 13:37:24 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8445.019; Wed, 19 Feb 2025
- 13:37:24 +0000
-Date: Wed, 19 Feb 2025 09:37:23 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, tglx@linutronix.de, maz@kernel.org,
-	joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
-	shuah@kernel.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
-	baolu.lu@linux.intel.com, yi.l.liu@intel.com, yury.norov@gmail.com,
-	jacob.pan@linux.microsoft.com, patches@lists.linux.dev
-Subject: Re: [PATCH v1 00/13] iommu: Add MSI mapping support with nested SMMU
-Message-ID: <20250219133723.GN4183890@nvidia.com>
-References: <cover.1739005085.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <cover.1739005085.git.nicolinc@nvidia.com>
-X-ClientProxiedBy: MN0P220CA0009.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:208:52e::34) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1tkkJn-0000000D18t-2Ays;
+	Wed, 19 Feb 2025 13:40:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1739972450;
+	bh=q8VAsnW/0ra4NwqP0nteF98m2Puu+tEfH8h+6E5FYtA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CZD+BjSFARhosTN4Cz8MuhSpkYh6oZ90S89HvHqutF0aBde7dPYDykfCOrpOj9ihe
+	 Red0CwOmQ80E+S5lPsRSo60cEId8Q3yOUaqVf/7EI7hAfMBzNA+fGIbQazw0N3nyEk
+	 6s0hNHvozsAdEnLI57habzG4730BFxgvTUM0MOxEVSNWm020w0wkFQPOT/EDobNXbM
+	 np8x7ms0FdX7BvzpdkuA3KI0hjAnnw37A6ha8NnLSJy15YC+L/RZBuLpvg5XTgIPzN
+	 eV+YUHLJx3rTRsaWOQVsMMMMHE1djKhz8dG8ZJvJNfkCu1R3iBZAX68jVtmDAIkGe+
+	 zNb9MKkGZNbMA==
+Received: from notapiano (unknown [IPv6:2804:14c:1a9:53ee::1000])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2EBB417E14D5;
+	Wed, 19 Feb 2025 14:40:45 +0100 (CET)
+Date: Wed, 19 Feb 2025 10:40:43 -0300
+From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, kernel@collabora.com,
+	linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	parkeryang <Parker.Yang@mediatek.com>
+Subject: Re: [PATCH 4/6] ASoC: mediatek: mt8188: Support DMIC in AFE
+Message-ID: <51ac7a72-9113-46c6-98d8-2924a9572966@notapiano>
+References: <20250218-genio700-dmic-v1-0-6bc653da60f7@collabora.com>
+ <20250218-genio700-dmic-v1-4-6bc653da60f7@collabora.com>
+ <6cd2be03-a3e8-4bdc-b91e-51b3e1029782@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MN2PR12MB4078:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e045eaf-c860-4bb7-2f93-08dd50ea8b22
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rAy965a2AJ6ZyldwL+Fy/6muZMrf5qusEZMmS4uT3eShnboyoS3GGkfIOXYR?=
- =?us-ascii?Q?hogsE+1FscrQffX25+zS70v8GJYnf7UHSwNRpKXWP8f8B1CGVRQKl6j2/K5F?=
- =?us-ascii?Q?x6GFzexhGob9/F/cEAw5PhesdT8A422MdRYFEUSOVoGo17MHKoD+ANfJsaD0?=
- =?us-ascii?Q?vFlEU5eHIulwFzd+XaoKHKF0OJAKsGoKgWrMrmbUqxosT5Vznydt5I9gFpvH?=
- =?us-ascii?Q?HlephifKuWHPFxnf+mFVhT2CPwzSt6UQb5NC2vddzL9gzoXBj1cHTpcFQxxM?=
- =?us-ascii?Q?/m4Zsclkm9JJy+0Ey/d/26fJln06SmQ+kkrdLWlPDnzmrTvhBWIfrxI2sseA?=
- =?us-ascii?Q?TsUm318RsaVOsL0Ck1ywN2HH72r6QjU2qvumnSc/E+gdxhgTTkTF3tKNwi7I?=
- =?us-ascii?Q?HECOztF67qKBgqEDjlD4zRWHOxBD71W0X0FlYUJs+0hZqlnAmO1/GQrH8F5Q?=
- =?us-ascii?Q?ZLaUJ416W+qxy7GvRS5imBQ0A9a9rf//5MnTO6K38Tw1i1CgAS7+Xhhx13go?=
- =?us-ascii?Q?BmnB+/1dDvDJOXxxeG4MHqYZoXKYJ1Rqh++ECNTwU04t58Ch5SJE7J+RU0y9?=
- =?us-ascii?Q?/RRiE3fNzXIFC5sBgB9xfVajs7js8oxmJ1L9Z8VB1R2q6X5uEyHY2/tvLmRi?=
- =?us-ascii?Q?zG1XILmPMgM0mAShB9YIhWscxB/Ti8pOt2IJI5+Ms7cuuxGH9mA5/D1bkjkk?=
- =?us-ascii?Q?qv/9k08fvnrDeHbF6e472pJzj7bXpBbdSMlhbmzxIGtUreeyRhtYnP/SYxUt?=
- =?us-ascii?Q?11ZIlAgDg3Pmyk5tB+mckkhzOPZjm90NJkS9XkRpJ0h4EC4hLgkl92gtqYFA?=
- =?us-ascii?Q?e8NV/xhNt50WiDnBnq350YxWTdcJKBInsjZKxcAzx68ztnOcB2IMGTSyTze8?=
- =?us-ascii?Q?OiXQQrhry/4m6IcDkDxyg52SguX4vJ9AO0ykUBC0IoSQ9zaHeki8OcSGvlha?=
- =?us-ascii?Q?DGhVk1y8JIm9NZjdxeocJYor2FgzHQ3hbuDU+WD7Vk1N1d4lHB502qPhTa6q?=
- =?us-ascii?Q?Xm3hiAstOP+gG3xhZiQM0sOtChMHLD9G8juXYypHPfAXYCosLMKZmFG6o4nX?=
- =?us-ascii?Q?PGqelURRnCOVR4Q7qtnAFl5Mu6W6psNywgnmBr/rcah1Lxjo/WTi5twg0W4v?=
- =?us-ascii?Q?9FNEfDNAilrE7V03UUFoJfYxN6aVh8JROLNi5IgScxDA2yrPRRnVfy+Otdy0?=
- =?us-ascii?Q?f6n8iSVs/2vwyjAj10rMdC3tz+hqqncOOlB0Fz6e/kxLHNz8w9utPBSyQf+Z?=
- =?us-ascii?Q?aEgUl3hjslxrlRoqcD16ScZQSnS6YiarvaZtymrEN4xHLDP5xJiud9m7zFji?=
- =?us-ascii?Q?yj4VJ0aPkpmUwW4iDKmIbOvDGHAoacIHjaohVc3kHl1wbey4HDW3FvboxJ/+?=
- =?us-ascii?Q?o4kOirMFpNCIbCwWAImnfNfoavvw?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FnrsSCF2glusFzulZmzEE0PSjyVsSVFI3BT7QCryCqMqV+I65EYmEh4Z0qlh?=
- =?us-ascii?Q?udMkN0DuCE+YmUYP6CRWGZ5ZlB0ZxLmuuXyzSbWq0845eElPKcSpK417QK7h?=
- =?us-ascii?Q?B1rDbkSaLt6/5UXZw5F5noxFDZsAclEPb4A3QO9Zf3eqPwLoMSisydMgcbsW?=
- =?us-ascii?Q?a6I6VCdhe83lmMQgsbReSWYOzsusbnyMa7K+g6WyjGkVuxyy3WInK/5MU6tv?=
- =?us-ascii?Q?5B0ti9IWXkgX5BH+SpSTQUztcS7rTmM1z/N6+AqkpeTZMv5Qf9yMjYz2d3ym?=
- =?us-ascii?Q?8yBOBdjg1h5534GYVOZtazhWR39J4cca8NnFPp7JJqt3Xgdn/Gldz4rc5CMs?=
- =?us-ascii?Q?7IDQIPdvTf5WgHt32M2UUzp21FU82sSoWiZ6GBrcNyAXxy++83udV0ivF+ry?=
- =?us-ascii?Q?N6EA6b79MlWl8w0pi2YHbq2buY2o7ghHVaggE8j1XriJ8xBA/L7TOaX/y5v8?=
- =?us-ascii?Q?oMW/NjFgWIlDl9qdwEeB9hf6uM7arSaExkACXaUsiHpiQ9hg6O6YpYsmNaBE?=
- =?us-ascii?Q?n7w3jNcrYH5HdyPw/pPcshoroUwptiddyyJDuEnU1fBwEzsdCgmkmwPz7B//?=
- =?us-ascii?Q?GOSrlmBouq0GiP6tMB4ka80QNH5hmYmtbU0DCKeiaqt7etruIkxjxRwrDGXJ?=
- =?us-ascii?Q?A4xVLgC+T4+hSsb1A+Am+vlrjVwWe1ktDraKFLtQgf376OJUyUfRVTNDWYtV?=
- =?us-ascii?Q?oFhfnbvxyS9wm0cePh15qM3LBHRb59dLQkE4JGwwtBU3fziZaRjON50B0Gyc?=
- =?us-ascii?Q?HKUokdn1PkL+eFO4J7bCnHUghzWRuzGHRy2/sV4RQ3Y6uR2FNJsfsdwIXRkR?=
- =?us-ascii?Q?le5fDLPgP5Iwoe7fxyOiKvK37t6TBfNwxvoEssPXVWQ4VQmn6/8Y02n8glsd?=
- =?us-ascii?Q?FLoifpBZ+Biz/hoQFSGNwdmu41XkV5Zhs5fe/5jC+WpE/wmynfqGALgvLeoY?=
- =?us-ascii?Q?2PxdLQqxzHD8w9pfXbkFLdWwVhanG3Tav1FTxWLrBJoQXjqi420P5an/VGkM?=
- =?us-ascii?Q?Rgg9rEfWHAeAnvDH0NUyPluMdyVDS2nmL7TH1fGdkytuuLBNdrwmULX/pBq/?=
- =?us-ascii?Q?iz4xtIWKmZijcxCuzgN/Y5VlkKRgw8va4v0Xla0paTfqz94u55FX7j3+gfa7?=
- =?us-ascii?Q?FIUz7tUxse0+DOVtJ+BL7TiJARkaA+0L0K4MKlzQ92Ev8FNhgRqNbrcgUBD6?=
- =?us-ascii?Q?cUqJ4g8uSvOpkxEbuOe1bR3nI5Xx1rSxXmNolv6bV9UMWJ5nwbFg77QLXk8z?=
- =?us-ascii?Q?5AviWQ7CJgiFjg09E+gGlfsSBobfb2eCO3BxfgYwQ/nbZZVTzE++KTFl3oOV?=
- =?us-ascii?Q?PPWqx7qSi0MbtnhRAWufoh0w0Jp8G/HeNbv9zgE0gpBpnBBmsfdFpbDFbyJe?=
- =?us-ascii?Q?9FconzGDIHlKC6OZOxyilHalU+uFGkr4eLW/NjoHFM44m9jtnZa7gHgEdeMW?=
- =?us-ascii?Q?dES8ZSFaTslGCbF9k+gITf+/MTpG9Q2SzW87ZRHjtD4sp7mvP6Bdf2A4gQ/u?=
- =?us-ascii?Q?HFoVw2Kla8Y9MVdWQLsVjPR0T0lmyyGlPde0g6I4Vp2dFylTTJrL0QwH37k5?=
- =?us-ascii?Q?T21W/JuXRKBqs2oKcWJVpHcQA3WVMrId5C2gf3Vz?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e045eaf-c860-4bb7-2f93-08dd50ea8b22
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 13:37:24.5327
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: katB1DWaPdQNH+YPHHhlA47PdjkXrbHXrg+5KtfciRwlDnsgGqZgBdL7wTgdELGD
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4078
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6cd2be03-a3e8-4bdc-b91e-51b3e1029782@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_053730_423514_1C62E6E6 
-X-CRM114-Status: UNSURE (   7.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250219_054051_704600_1FDAFA70 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,13 +83,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 08, 2025 at 01:02:33AM -0800, Nicolin Chen wrote:
->   iommu: Turn iova_cookie to dma-iommu private pointer
+On Wed, Feb 19, 2025 at 12:29:13PM +0100, AngeloGioacchino Del Regno wrote:
+> Il 18/02/25 21:52, Nícolas F. R. A. Prado ha scritto:
+> > From: parkeryang <Parker.Yang@mediatek.com>
+> > 
+> > Add the AFE routes that connect the DMIC (I004-I011) to the UL9 frontend
+> > (O002-O009) and register the mt8188-dmic DAI driver during probe.
+> > 
+> > Signed-off-by: parkeryang <Parker.Yang@mediatek.com>
+> > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> > ---
+> >   sound/soc/mediatek/mt8188/Makefile            |  1 +
+> >   sound/soc/mediatek/mt8188/mt8188-afe-common.h |  1 +
+> >   sound/soc/mediatek/mt8188/mt8188-afe-pcm.c    | 24 ++++++++++++++++++++++++
+> >   3 files changed, 26 insertions(+)
+> > 
+> > diff --git a/sound/soc/mediatek/mt8188/Makefile b/sound/soc/mediatek/mt8188/Makefile
+> > index 1178bce45c50ba252672a32b3877732a5a76c610..b9f3e4ad7b07ba9e21c846706371c53269f894db 100644
+> > --- a/sound/soc/mediatek/mt8188/Makefile
+> > +++ b/sound/soc/mediatek/mt8188/Makefile
+> > @@ -6,6 +6,7 @@ snd-soc-mt8188-afe-y := \
+> >   	mt8188-afe-pcm.o \
+> >   	mt8188-audsys-clk.o \
+> >   	mt8188-dai-adda.o \
+> > +	mt8188-dai-dmic.o \
+> >   	mt8188-dai-etdm.o \
+> >   	mt8188-dai-pcm.o
+> 
+> The Makefile addition doesn't belong to this commit. Please fix.
 
-I suggest you respin this with the updates and stop here at this
-patch, it is enough to get the core infrastructure updated and does
-not bring any uAPI changes. The remainder can be done after we get to
-this merged.
+I was divided between adding it here or in the previous commit that adds the
+dmic driver. Only in this commit is the mt8188_dai_dmic_register() added, so
+this is the first commit in which any of the code from the dmic driver is
+actually used, hence why I added it here. But adding the makefile entry together
+with the driver code, even if it's not used, makes sense too, so I'll move it
+there.
 
-Jason
+Thanks,
+Nícolas
 
