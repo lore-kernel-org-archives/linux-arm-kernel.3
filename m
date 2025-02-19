@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63901C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 11:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D21E1C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 11:36:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d/MUn+p7mU8AeJg8jgr1NeX71t7I0k5FAA4N3NZJfWg=; b=HjoOESBlB7FQaoODkMFe1Wt22R
-	lfbNI3aoZZ5ACJ/57QtxGrhKMzQeyAJzvbboJWBU5dMwak18hkhuW4sJGF1fslSEIOskUxIJ4PDEF
-	yGU9GISXHpzmjj9ftvnZwywsiiaY8I8h3B8niR/i1pI8hxrYw4QgPdUNf6/eG7BnuJHiLD4SIs0sc
-	rd+s/JbWvCq9xpoXvdZksIpvaMohwJZTa2iWKitP+kSMjJFOdSYxDVYsZCThbK4OOkSbxo0Q6p+Mk
-	R1CqlwSHuhAGsBsBHXvSqMKFr/8E85eR2DURjVXwlbOYuajof/BBz57OqhbS78JVCNvjfFk48qgoB
-	tRzSitsw==;
+	bh=UVtRxvxLad9BvG/oOdPx25jo4hBh7IbZUfkALTr+usc=; b=ugjuaPLp7AuBNzAhK7h1NzDGlW
+	UXTH3sF8zJhfXYks5olCmjkxf7ike7v+My16Hd3gYrqsNmQjKvhT41orOQaKM13BXtnmUUIs3AJCP
+	2rF4IymFxWacU1cvlMvmynwXt7pW3z/ShXwFr6mnA6nY7c5RujpgdU/q1B79KLhotq8QOQtkuu/u/
+	bS3DEhZXzZZnZU7hRfupIrzJIFdpLxKj51T9x4xg2K9lciCRzv+qZcsqOyI+EvrEgmwSGHL0/watF
+	g14TDCajQU6a3G1DNfbkhFIvV1EfRZgzvWDEm6fVOZ6dym4H4f8JSba14lY5PsTHrQ6DFC7iwVnyt
+	Es5T1iqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkiMD-0000000CQt0-1ci5;
-	Wed, 19 Feb 2025 11:35:13 +0000
+	id 1tkiNf-0000000CRYa-1tVe;
+	Wed, 19 Feb 2025 11:36:43 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkiGa-0000000CP0t-0B0r;
-	Wed, 19 Feb 2025 11:29:25 +0000
+	id 1tkiGk-0000000CP5W-1utl;
+	Wed, 19 Feb 2025 11:29:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1739964562;
-	bh=tN6WEDR1AiRFyMbMUMu3VS4saSRBZMCNYL/A1DybkbI=;
+	s=mail; t=1739964572;
+	bh=nIunaYmNY6dLMbhvaiWgmcAb/hSE9AiSrnJJ32wEXds=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HBwcvFSAJBqL0cqZaEXuOVDLwC85LkTybMrZkelTOGsFm/2GE5cwAP1wxNpgIC5oB
-	 03D8YMmlDT44THbtloNW03EnzqJeRHjglYQTj/in5ZLYwdtA4WgTKAvNJVBLJ+DoAA
-	 ccS6oJk05pETwYZTtQBcvxgpKnKFsGR9t1NgDx7E/szT1L47y9GI3UFJBpV/cKf4d0
-	 bOR9db3RnHE2GnWL6T3mmqS7tvICsitVxqvmR0FH4tg7vkhclcvbpMWz1dT7ZMgtTb
-	 clhwNcAOXlNpWAKpI1h4jjNNqHd/0vSPS+udXawIXharMCWecWWd8HpAgPvonA2WtL
-	 BC6Qr2w9BtSxg==
+	b=ALgXkMpCetPWAO/3Eta1T7gOHhTLKbz45W0fIZKWkRwKysZBIDvWK/wjUdBbQcY/X
+	 575dE/HvAkMk//ONjd/r0MgehqbacGigq6SNRWTM20tjT97Js4ZWdv8SjzY2UPHml2
+	 ArLIoLTv5TxBshjXm3uHoxLwoQCvi8TvvhVPlpwxhOM3uTxXFSGlG5Q7ENkJh17Ova
+	 tFTyL0hf6hA4brKssoYxBOV4KGmvF/jaH8/CVE7u88lc2GAE9VJD8xwedWdt6yT15e
+	 rDYi3w5BxpJXap5/FvYGXn2aXFvLonKOkFrqWR3aX+awKnfC+pjCinmvh0ZYFzt3sM
+	 mxVZw4zhrPHpQ==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9A7E617E00F0;
-	Wed, 19 Feb 2025 12:29:21 +0100 (CET)
-Message-ID: <1dc0da53-0bc1-41f2-8478-f72bd0f33115@collabora.com>
-Date: Wed, 19 Feb 2025 12:29:21 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 16C0217E00F0;
+	Wed, 19 Feb 2025 12:29:32 +0100 (CET)
+Message-ID: <214560ed-699e-4f1a-a562-8cd1f8e661bc@collabora.com>
+Date: Wed, 19 Feb 2025 12:29:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] ASoC: mediatek: mt8188: Add reference for dmic clocks
+Subject: Re: [PATCH 1/6] ASoC: mediatek: mt8188: Add audsys hires clocks
 To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
  Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
  Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
@@ -57,15 +57,15 @@ Cc: kernel@collabora.com, linux-sound@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
 References: <20250218-genio700-dmic-v1-0-6bc653da60f7@collabora.com>
- <20250218-genio700-dmic-v1-2-6bc653da60f7@collabora.com>
+ <20250218-genio700-dmic-v1-1-6bc653da60f7@collabora.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250218-genio700-dmic-v1-2-6bc653da60f7@collabora.com>
+In-Reply-To: <20250218-genio700-dmic-v1-1-6bc653da60f7@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_032924_255050_4F7B78BF 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20250219_032934_668273_850EF9A8 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,59 +81,57 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 18/02/25 21:52, Nícolas F. R. A. Prado ha scritto:
-> Add the names for the dmic clocks, aud_afe_dmic* and aud_dmic_hires*, so
-> they can be acquired and enabled by the platform driver.
+> Describe and register the aud_dmic_hires audsys clocks, which are needed
+> when recording the DMIC at a sample rate of 96k.
 > 
 > Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 > ---
->   sound/soc/mediatek/mt8188/mt8188-afe-clk.c | 8 ++++++++
->   sound/soc/mediatek/mt8188/mt8188-afe-clk.h | 8 ++++++++
->   2 files changed, 16 insertions(+)
+>   sound/soc/mediatek/mt8188/mt8188-audsys-clk.c   | 4 ++++
+>   sound/soc/mediatek/mt8188/mt8188-audsys-clkid.h | 4 ++++
+>   2 files changed, 8 insertions(+)
 > 
-> diff --git a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
-> index e69c1bb2cb239596dee50b166c20192d5408be10..44c25b6e3d873448163b22e70f5b94cb5070654d 100644
-> --- a/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
-> +++ b/sound/soc/mediatek/mt8188/mt8188-afe-clk.c
-> @@ -58,6 +58,14 @@ static const char *aud_clks[MT8188_CLK_NUM] = {
->   	[MT8188_CLK_AUD_ADC] = "aud_adc",
->   	[MT8188_CLK_AUD_DAC_HIRES] = "aud_dac_hires",
->   	[MT8188_CLK_AUD_A1SYS_HP] = "aud_a1sys_hp",
-> +	[MT8188_CLK_AUD_AFE_DMIC1] = "aud_afe_dmic1",
-> +	[MT8188_CLK_AUD_AFE_DMIC2] = "aud_afe_dmic2",
-> +	[MT8188_CLK_AUD_AFE_DMIC3] = "aud_afe_dmic3",
-> +	[MT8188_CLK_AUD_AFE_DMIC4] = "aud_afe_dmic4",
-> +	[MT8188_CLK_AUD_DMIC_HIRES1] = "aud_dmic_hires1",
-> +	[MT8188_CLK_AUD_DMIC_HIRES2] = "aud_dmic_hires2",
-> +	[MT8188_CLK_AUD_DMIC_HIRES3] = "aud_dmic_hires3",
-> +	[MT8188_CLK_AUD_DMIC_HIRES4] = "aud_dmic_hires4",
->   	[MT8188_CLK_AUD_ADC_HIRES] = "aud_adc_hires",
->   	[MT8188_CLK_AUD_I2SIN] = "aud_i2sin",
->   	[MT8188_CLK_AUD_TDM_IN] = "aud_tdm_in",
-> diff --git a/sound/soc/mediatek/mt8188/mt8188-afe-clk.h b/sound/soc/mediatek/mt8188/mt8188-afe-clk.h
-> index ec53c171c170a8b4b47900e63ef79d53641e9b12..68c46feb72271b950d4e538f63cedf524354147e 100644
-> --- a/sound/soc/mediatek/mt8188/mt8188-afe-clk.h
-> +++ b/sound/soc/mediatek/mt8188/mt8188-afe-clk.h
-> @@ -54,6 +54,14 @@ enum {
->   	MT8188_CLK_AUD_ADC,
->   	MT8188_CLK_AUD_DAC_HIRES,
->   	MT8188_CLK_AUD_A1SYS_HP,
-> +	MT8188_CLK_AUD_AFE_DMIC1,
-> +	MT8188_CLK_AUD_AFE_DMIC2,
-> +	MT8188_CLK_AUD_AFE_DMIC3,
-> +	MT8188_CLK_AUD_AFE_DMIC4,
-> +	MT8188_CLK_AUD_DMIC_HIRES1,
-> +	MT8188_CLK_AUD_DMIC_HIRES2,
-> +	MT8188_CLK_AUD_DMIC_HIRES3,
-> +	MT8188_CLK_AUD_DMIC_HIRES4,
->   	MT8188_CLK_AUD_ADC_HIRES,
+> diff --git a/sound/soc/mediatek/mt8188/mt8188-audsys-clk.c b/sound/soc/mediatek/mt8188/mt8188-audsys-clk.c
+> index c796ad8b62eeaa929f24c09755f428116b105404..e7b2c9da61f6b5dbe9002a294ebbb7f4415fe54c 100644
+> --- a/sound/soc/mediatek/mt8188/mt8188-audsys-clk.c
+> +++ b/sound/soc/mediatek/mt8188/mt8188-audsys-clk.c
+> @@ -81,6 +81,10 @@ static const struct afe_gate aud_clks[CLK_AUD_NR_CLK] = {
+>   	GATE_AUD1(CLK_AUD_AFE_DMIC2, "aud_afe_dmic2", "top_a1sys_hp", 11),
+>   	GATE_AUD1(CLK_AUD_AFE_DMIC3, "aud_afe_dmic3", "top_a1sys_hp", 12),
+>   	GATE_AUD1(CLK_AUD_AFE_DMIC4, "aud_afe_dmic4", "top_a1sys_hp", 13),
+> +	GATE_AUD1(CLK_AUD_DMIC_HIRES1, "aud_dmic_hires1", "top_audio_h", 20),
+> +	GATE_AUD1(CLK_AUD_DMIC_HIRES2, "aud_dmic_hires2", "top_audio_h", 21),
+> +	GATE_AUD1(CLK_AUD_DMIC_HIRES3, "aud_dmic_hires3", "top_audio_h", 22),
+> +	GATE_AUD1(CLK_AUD_DMIC_HIRES4, "aud_dmic_hires4", "top_audio_h", 23),
+>   	GATE_AUD1(CLK_AUD_AFE_26M_DMIC_TM, "aud_afe_26m_dmic_tm", "top_a1sys_hp", 14),
+>   	GATE_AUD1(CLK_AUD_UL_TML_HIRES, "aud_ul_tml_hires", "top_audio_h", 16),
+>   	GATE_AUD1(CLK_AUD_ADC_HIRES, "aud_adc_hires", "top_audio_h", 17),
+> diff --git a/sound/soc/mediatek/mt8188/mt8188-audsys-clkid.h b/sound/soc/mediatek/mt8188/mt8188-audsys-clkid.h
+> index 6f34ffc760e03beddc3001046e554edd7ea2c478..820f2aef17ea40be1a80aece604b4a319934312f 100644
+> --- a/sound/soc/mediatek/mt8188/mt8188-audsys-clkid.h
+> +++ b/sound/soc/mediatek/mt8188/mt8188-audsys-clkid.h
+> @@ -30,6 +30,10 @@ enum{
+>   	CLK_AUD_AFE_DMIC2,
+>   	CLK_AUD_AFE_DMIC3,
+>   	CLK_AUD_AFE_DMIC4,
+> +	CLK_AUD_DMIC_HIRES1,
+> +	CLK_AUD_DMIC_HIRES2,
+> +	CLK_AUD_DMIC_HIRES3,
+> +	CLK_AUD_DMIC_HIRES4,
+>   	CLK_AUD_AFE_26M_DMIC_TM,
+>   	CLK_AUD_UL_TML_HIRES,
+>   	CLK_AUD_ADC_HIRES,
 
-Following the comments from audsys, put those after CLK_AUD_ADC_HIRES.
+Please either put it after CLK_AUD_ADC_HIRES, which corresponds to the end of AUD1
+and also orders that alphabetically.
 
-Cheers,
+Same for the addition in audsys-clk.c, that would order the clocks also per bit.
+
+Thanks,
 Angelo
 
->   	MT8188_CLK_AUD_I2SIN,
->   	MT8188_CLK_AUD_TDM_IN,
-> 
+
+
+
+
 
 
