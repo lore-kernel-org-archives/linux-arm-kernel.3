@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4C20C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C83C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:04:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vYTsDpF0WHouv71tUdRGcb6sg816+d86Mu3TaaGSsBI=; b=aPdog2AIiyX/Jqo/XJY3NRgm6P
-	AsegDQMDpSIEBlGRdqztjbulGvaXBLewTf6bYC66mf74v6Cm9hoZgSGWrkQ1eVCFq8NNBWnHUK9EK
-	vPvYcbokGeq+685TrnxxaqJAx9zV8gDM3QEnTSWVwzlmVms7Vlk2JtFAZlsygS54clVPN49X8oRSS
-	ljJiiRGQmZWQU+NRBpKCqebbrQv+3udJW6ImmgJFtUs8iJB8Ko7XryIHlodZ3j2f2LAOUEXyaETji
-	41hBBjg6gVnU5oz0ak+LlBQDN3Pe5N4PsDvPOuwM6zh9PEBbpho0cyPV6DhxtgafhZahZtnre2aV1
-	tFWGqjsQ==;
+	bh=5xe0n90tbsq5x/xPm1Llh+2RuD6r7msq/tuY+Ym3TsA=; b=iuOmpktm+wBF84qrqEF4dYkvRD
+	j/pwNMbNLLBEm54+sQV2cdpuiAg5jfEX0DOmvE/r7K6DPuO2FJMCImx6ELTLYLU3/zqGR3tKzo/X4
+	PXtuWcTMCXhqSpNRYIY3lr6QprZY3PIWmN3IuWWw19CPXyUwl0cpPX/k5g8DhpEfM62qunlj2OTWl
+	QcM4EwD3I3J/1J0e6O+AdyVapVJvTMbSlDkUZdryPlzfxkFeZCKr8iAAZ7ULw64D/cm78WcFK5l/D
+	NBAjEOjTPZIqkMl+pCF3gtvKc4GtcVS5fdS8/c4u9YqTRo1cLPvDwjONDgA+L6NCPY0TdfO/M3lss
+	fULs3qKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkinC-0000000CZT2-0hiT;
-	Wed, 19 Feb 2025 12:03:06 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1tkiod-0000000CZey-3c1N;
+	Wed, 19 Feb 2025 12:04:35 +0000
+Received: from mail-yb1-xb33.google.com ([2607:f8b0:4864:20::b33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkili-0000000CZ7Q-0bYl
+	id 1tkilo-0000000CZ9e-2ean
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 12:01:35 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-6f679788fd1so46732957b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 04:01:33 -0800 (PST)
+	Wed, 19 Feb 2025 12:01:41 +0000
+Received: by mail-yb1-xb33.google.com with SMTP id 3f1490d57ef6-e5dab9cd918so696912276.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 04:01:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1739966493; x=1740571293; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1739966500; x=1740571300; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=vYTsDpF0WHouv71tUdRGcb6sg816+d86Mu3TaaGSsBI=;
-        b=IdK+dldzkNELVCvPWe5nuYEdZ648Ko/POTV8YO56cf5Igotldywvh8YHlNMXmxy4Tp
-         h6zfkML5UoQnLKK35fFtGqt+vfic9cK16scx6loMn30a/+UXzmL/acUnx8xK7PJu9/dW
-         XGYExn+ex/v2cQbx4wDQRFOw5ywd6hvV7WHk0xeaUsP32rND/fjQ8Ne7Axbf7Q6YY/qX
-         6OPgioUxz5wDm7bgakqyj0kdbep+5v8EM5Zz2BRcDcwXM0u+iRhSa1U2wF0slvhefDhc
-         s+9xFslMbQlwfT4EinHFbtWNaecGAnC/9DH6emiz/ItHm7YIDLu1+hMn25uZQ8LQQLa6
-         yCkQ==
+        bh=5xe0n90tbsq5x/xPm1Llh+2RuD6r7msq/tuY+Ym3TsA=;
+        b=zuhWGnU/YogNKucqBzvYDYB1lQGxUcBDSUh/aLHp181zzD8MlNDEmOKubLReXuT+ZL
+         08KOx9IV+itbkT1OElRI3aw2L/RoLHW6KdZ1FXRuPSLtYO5wfw69cWuC+x+iSMBpS5zp
+         jrHMxhOW4ezpILRRv4uYMvW/Qqg6XHAURT73ySF359kE8Mt/N7tbf5mBXjyfvhTBjgYA
+         4GuGjv9+Wdxv4lsawZXB1pIHJWiBAKX1Gx6zn+cane6LTuy/dBUiPM3nEbB9YQtpeBm4
+         ET0VVIDPnc7cvwt+Kiw3k2tuizsPs6HwQnK1QvlO9Rmub8iPz9R65cCxBq6EvP/a57sa
+         akqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739966493; x=1740571293;
+        d=1e100.net; s=20230601; t=1739966500; x=1740571300;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=vYTsDpF0WHouv71tUdRGcb6sg816+d86Mu3TaaGSsBI=;
-        b=VeawPYXw4mcMxPxPTCSuw5+gxQAf0/vSKt3HBoDK5I4+B3QfKr/bGiW4Pxh8mA6JkP
-         6QGfN370VVRdziA/xkmP1OF9/VTWIFT++JaPYlOfMtJ6QyGqYIEkS6D+WOLLo5K5V+0z
-         6jkBSt5CqyL69eOkWgEDcivBs2UBhmBpidViEj5/9cI5ZUUSnDBt7iKgdLF7yen3/UWF
-         hd8ynkz6gGngoJg5S6/YP4bTy2+MCJMAp8v6ncTP3uO6OuQvVjc+OxA5QBWlO52Sd4/N
-         7XQYRoRojdT2afhFbKBCblrePIcznVloXMOBFilUvcTXpkM10E3Ent5GLZgjFxVryIDR
-         gDmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXRqDw69/FG6gmGoSGIqTmZ8A8440yzRRyOWhbAK5VnmD/f0MHpCgqPBCgi9UQoOv3lkl5NrUgidPH5RCsdYpmw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdQvfSL8RG3du8fIVsNbW16mUnv8sHN6I95ttgL7ffqlz9ixJM
-	sgfdrN6rtfWmxENP8gAF0tnEhsxIYBmaWDiUmcmiToPqAqLdO4z4lshNyX4pgeRtgYhYP9Xp2jx
-	PNJPemxjJKuGegU8FmDJ/0NICVwAi8nqAouUSKw==
-X-Gm-Gg: ASbGnctEsrMDRIHxrOaZJPb8ltLWyTFs2vAmPms/B/iFyY3OgaGW2yglYHCU9EG0250
-	EiXcA08xRWYb/GFbSIV1EL6FT9nfcEUvUz+JVVig2fLxnHEZs5JgdzPGbwfv1RxXOA0sTNGv4Pg
+        bh=5xe0n90tbsq5x/xPm1Llh+2RuD6r7msq/tuY+Ym3TsA=;
+        b=XX8ZHchUTppgCG1OxCvtcG/BcWqwtpdnAIa4a2m6PESICA7XPbDsVCEkcIsxdOYfgv
+         48857WbfS7zsvN+ck2VWAwsk8eKjeZUyveu324PfPcWFFENoYiqhwzpaYZPPCDw23Ak3
+         yFEZHubRbUiko8j9AgKDJNO1HlYQyE1Z5MuVlcMtoouXFIHojGi+nJ7wGI+xppgwCMPD
+         4djk/TlewI1QglT8jD5EhTN11LeoTGSzTQ7JLfZwDl/bd33sEKH0Pz7qC7hHCcW6ua63
+         RL++MX4KjNyp9fmLrJsImZj25DidaxcPEDGbJLZf4zCIKMqwmCGWlq1vNfFvQo/KPOQM
+         tgfA==
+X-Forwarded-Encrypted: i=1; AJvYcCVkngdcyBrCMdnOvbVneMXG6P8ks+HIUYKo/mXB42vDEeDqFi2V5QMdya889q47AcIkGK9Kd7ys7kOeiE/Vn6hY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0/lPy6HnFhP/K+wXp4iUX0nQC9a4Nfw9wbRN1XuhWjCkP6DR2
+	TicxRX7UuRJyZ1qj2nWN14Tz0TKMyJCUcdcpx6G0vA7noljCEQI6wW36JKCS3pRIXqj6sukHkWM
+	lCtVACmmE+qTw62iXc70GrZkAPR0m/mAiEcZtwA==
+X-Gm-Gg: ASbGncv2B1Ka8ejGH98hEIq7WJen7UlszbWgSYOIJDMhkJ7Do3r7BAlU7UOVAzIAxuW
+	GK1t284c19GVqOB4akhSD0sSBvbha+svVh5DK5NwmEqOnpS/QqH8K2sOYLo/s2NwkFI+WrqKbZw
 	==
-X-Google-Smtp-Source: AGHT+IHwtF2lE+o2tf7V8rxyFVuVJraHT+N4by5azk0Xzf2f0imq0Hfnj6hm9T1/3s7AUPcxCy9jdh/GuEmHhudS/Fs=
-X-Received: by 2002:a05:690c:6d10:b0:6fb:a4e6:7d52 with SMTP id
- 00721157ae682-6fba4e682f4mr35370547b3.35.1739966493107; Wed, 19 Feb 2025
- 04:01:33 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGZ/+8xQ6gwL9boFRNAF7KVM22iCnqEax+j9Sk0drg1U/1wYEwbpzOiKk0ZPA6neRnIXD7xoQxd3GTjDpsqxfA=
+X-Received: by 2002:a05:6902:1027:b0:e5d:f98f:6f33 with SMTP id
+ 3f1490d57ef6-e5e09a34021mr2671796276.10.1739966496117; Wed, 19 Feb 2025
+ 04:01:36 -0800 (PST)
 MIME-Version: 1.0
-References: <20250217140145.117086-1-ulf.hansson@linaro.org> <Z7SRpEE0UFHdSEmR@bogus>
-In-Reply-To: <Z7SRpEE0UFHdSEmR@bogus>
+References: <20250218-gpcv2-of-property-present-v1-1-3bb1a9789654@pengutronix.de>
+In-Reply-To: <20250218-gpcv2-of-property-present-v1-1-3bb1a9789654@pengutronix.de>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 19 Feb 2025 13:00:56 +0100
-X-Gm-Features: AWEUYZkRptIu8JuTeXLBSwgNPQUIMYEr8XMgdltcJUsEkVs_mX89-B_EamjzG64
-Message-ID: <CAPDyKFrcBZCYjcrxPMuMrk+3yqa-2N4Q-qCPu-qmmQ-a6DfL_A@mail.gmail.com>
-Subject: Re: [PATCH] MAINTAINERS: Update section for cpuidle-psci
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	linux-arm-kernel@lists.infradead.org
+Date: Wed, 19 Feb 2025 13:01:00 +0100
+X-Gm-Features: AWEUYZkq7YJtxfAEssq6nuztkZ1WzoS_qm-UMarQYj6y8mBUO7XjlBb-t9JXEpQ
+Message-ID: <CAPDyKFrEHXhb42rnpjv0KqaUtRzKhX11w70ZoTM8+u9rYDJyuA@mail.gmail.com>
+Subject: Re: [PATCH] pmdomain: imx: gpcv2: use proper helper for property detection
+To: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-pm@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_040134_190874_B3B8F87A 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20250219_040140_669672_1709D360 
+X-CRM114-Status: GOOD (  19.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,19 +94,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Feb 2025 at 14:56, Sudeep Holla <sudeep.holla@arm.com> wrote:
+On Tue, 18 Feb 2025 at 20:18, Ahmad Fatoum <a.fatoum@pengutronix.de> wrote:
 >
-> On Mon, Feb 17, 2025 at 03:01:45PM +0100, Ulf Hansson wrote:
-> > Add myself as a co-maintainer for the cpuidle-psci driver and the
-> > corresponding git-tree, which I am already using for this.
-> >
-> > Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Cc: Sudeep Holla <sudeep.holla@arm.com>
+> Starting with commit c141ecc3cecd7 ("of: Warn when of_property_read_bool()
+> is used on non-boolean properties"), probing the gpcv2 device on i.MX8M
+> SoCs leads to warnings when LOCKDEP is enabled.
 >
-> Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+> Fix this by checking property presence with of_property_present as
+> intended.
+>
+> Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
 
-Thanks - and queued up for next!
+Applied for next, thanks!
 
 Kind regards
 Uffe
+
+
+> ---
+>  drivers/pmdomain/imx/gpcv2.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/pmdomain/imx/gpcv2.c b/drivers/pmdomain/imx/gpcv2.c
+> index 958d34d4821b1be68d730ad345037b8f0a56c45a..105fcaf13a34c787b2d568bc64e7fee9bfc23393 100644
+> --- a/drivers/pmdomain/imx/gpcv2.c
+> +++ b/drivers/pmdomain/imx/gpcv2.c
+> @@ -1361,7 +1361,7 @@ static int imx_pgc_domain_probe(struct platform_device *pdev)
+>         }
+>
+>         if (IS_ENABLED(CONFIG_LOCKDEP) &&
+> -           of_property_read_bool(domain->dev->of_node, "power-domains"))
+> +           of_property_present(domain->dev->of_node, "power-domains"))
+>                 lockdep_set_subclass(&domain->genpd.mlock, 1);
+>
+>         ret = of_genpd_add_provider_simple(domain->dev->of_node,
+>
+> ---
+> base-commit: 0ad2507d5d93f39619fc42372c347d6006b64319
+> change-id: 20250218-gpcv2-of-property-present-158f8dbfe2dc
+>
+> Best regards,
+> --
+> Ahmad Fatoum <a.fatoum@pengutronix.de>
+>
 
