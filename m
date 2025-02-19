@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C871FC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 08:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5EE9C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 08:28:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=flKMf6yE7BfBBS55mC2wkxK1h5G2JBf9BKK0DTrx3Nw=; b=FbJazlvx0tVQj5A5lkkt8oAdmr
-	pw/auNfNLMxi3WM29nmopb8VWowxtYVt/JDGTu3xEKn/sV/GJiIveiFukx7grcXVzcvF12oALxFnI
-	Pku2n+k9xSwHG7RKNRlZVueVZL3H10gB0Deenb5+drNperz7WG09fiU5/C+14ddWAARW9HQUZA5P0
-	eRHfEu9JEc0UhYx/Bs0AcL1ABloyBvH3g0hv783LxwypRgp0bzKTZiV67Zz1Blqmp94BKNxdRcfWJ
-	loecPytz6EJQmLTv0np1Fh+8Pp20QZgALTZLeKsFQaZa16GpfoT11o6tHtdRJhOZO27/MSsuUUFzg
-	Kn7mZhgQ==;
+	bh=jFWUFXTnz9dex45O8YRMmKqjD10tuvD+dujNT3ZLSXY=; b=Kz9KMzUsddORweSuSy/krDHRAt
+	IZGq7pkjl7hwrQMqL81bqa/FVN2bHylAyRXnIAGCMQsffOICyo9CGt6/PSvH0hhmvTUvbAuo+iU+e
+	+xLYYcQE48LC0vj1pilA6kaCjQtWYzmxx9m1lO4Ms2IY7R6RsYlkZD0BejGO9P0qaCa044XnlWWcG
+	rnMuqQEK8f5fxN9U38Y6AaaOKXil5haN+6bEV64dI/5+0xsX+AS+DWZxwpNyccVUsFyltqxCvbkpG
+	s0KeAsXtf2mcmEYnKtwwNBW5dcVRxIl/FVWmlSVGIthacuDEIDpOi+i/cJeZkHjLuyYrgyrPPVv4q
+	2IdVN/Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkfPp-0000000BVUe-22cM;
-	Wed, 19 Feb 2025 08:26:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tkfRH-0000000BW9p-0ybe;
+	Wed, 19 Feb 2025 08:28:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkfA4-0000000BR3g-1xW3
+	id 1tkfBY-0000000BRSx-09wZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 08:10:29 +0000
+	Wed, 19 Feb 2025 08:12:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AAAEA5C5657;
-	Wed, 19 Feb 2025 08:09:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FFD6C4CED1;
-	Wed, 19 Feb 2025 08:10:26 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3BCEB5C542A;
+	Wed, 19 Feb 2025 08:11:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13EA2C4CED1;
+	Wed, 19 Feb 2025 08:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1739952627;
-	bh=6daNzU34b0ai1+kOC+LbIJcJDSwe4SEgiE/l3fIVfMA=;
+	s=k20201202; t=1739952719;
+	bh=Y5C9D/vFHq4rZfOa6tjHQU7RIYN7P5MhUkxZQyexirU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QNzeSBLUOT97nZH9tDnbnfc6gmflk304SFgxL1unwfFOCyhooaU8RzZqp+WXq8U0k
-	 U6uEsCzPA2VBbZdp/WZoFESjQuI+vC/4h++NjJZ+Xxud10KCyX6kVhWDD+VfNHC02R
-	 aIbSK5QTmM6A91l7hsya6sWdfD9wrtb81eoRfFYcgt/EhQ0ZVhE9otfgn36YqRA1P9
-	 MSTxdZ6MQZRG/H+QWQrwyRz/9J30E011Ws5dUkkKLzZCm8dny/nXrJMEjlfXBWUxh1
-	 3jvnMD9ghZcEmywbwx3vIRm/UaRFbD9DIp2iK2+WGdZAmNHdlFAwYnXsI2MALTJOGP
-	 HcYPpc+DKBtSA==
-Date: Wed, 19 Feb 2025 09:10:24 +0100
+	b=Xxib5cAQRAHBXgg/XZIb5FeRnQ76iLxR+ijhdedzKV62UHDAff2Uxg+sB7ZfMSm41
+	 lieXAdHOB6oaxNk7+MrR5O6UPFaaqvs4qZIYulVMdtAiNnCfNmUK9EGVd6nGEbj3IG
+	 38OI3b01ulJ+OLGmFSu+CRgsL5lMGfcspLdLTxzptWXN0ENocKkOa+G88BWM+qyLAB
+	 Uh69vR9QRo2K/F7SZOB9uIhqWvWP06LZDRt1nKCmlSQrFn8oBBP9KhFkLvwgZOrvu4
+	 xvqs7mBrui87AkpYW71HwO4Qc78agSRRrH/iHCRLQVimTGDCHtTFVvDXyx2ZyoSJmO
+	 v61Tf+FY2u2hg==
+Date: Wed, 19 Feb 2025 09:11:55 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Kaustabh Chakraborty <kauschluss@disroot.org>
 Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
@@ -51,19 +51,17 @@ Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>,
 	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/5] dt-bindings: clock: document exynos7870 clock
- driver CMU bindings
-Message-ID: <20250219-discerning-convivial-flamingo-6d9eb5@krzk-bin>
+Subject: Re: [PATCH v3 5/5] clk: samsung: add exynos7870 CLKOUT support
+Message-ID: <20250219-discerning-affable-chital-1fdff4@krzk-bin>
 References: <20250219-exynos7870-pmu-clocks-v3-0-0d1e415e9e3a@disroot.org>
- <20250219-exynos7870-pmu-clocks-v3-2-0d1e415e9e3a@disroot.org>
- <20250219-competent-bullfinch-of-justice-09cbfb@krzk-bin>
+ <20250219-exynos7870-pmu-clocks-v3-5-0d1e415e9e3a@disroot.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250219-competent-bullfinch-of-justice-09cbfb@krzk-bin>
+In-Reply-To: <20250219-exynos7870-pmu-clocks-v3-5-0d1e415e9e3a@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_001028_561977_33CA5A2C 
-X-CRM114-Status: GOOD (  13.81  )
+X-CRM114-CacheID: sfid-20250219_001200_130110_C7E48FCF 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,23 +76,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 09:05:55AM +0100, Krzysztof Kozlowski wrote:
-> On Wed, Feb 19, 2025 at 12:20:29AM +0530, Kaustabh Chakraborty wrote:
-> > +  Exynos7870 clock controller is comprised of several CMU units, generating
-> > +  clocks for different domains. Those CMU units are modeled as separate device
-> > +  tree nodes, and might depend on each other. The root clock in that root tree
-> > +  is an external clock: OSCCLK (26 MHz). This external clock must be defined
-> > +  as a fixed-rate clock in dts.
-> > +
-> > +  Each clock is assigned an identifier and client nodes can use this identifier
-> > +  to specify the clock which they consume. All clocks available for usage
-> > +  in clock consumer nodes are defined as preprocessor macros in
-> > +  'dt-bindings/clock/exynos7870.h' header.
+On Wed, Feb 19, 2025 at 12:20:32AM +0530, Kaustabh Chakraborty wrote:
+> Exynos7870's CLKOUT registers are the same as Exynos5's. Add the PMU
+> compatible to the existing CLKOUT ID list.
 > 
-> Full path and drop quotes
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
+>  drivers/clk/samsung/clk-exynos-clkout.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/drivers/clk/samsung/clk-exynos-clkout.c b/drivers/clk/samsung/clk-exynos-clkout.c
+> index 2ef5748c139b37ca5429b9071ee0e06f44fcf28e..9a31b1c311b45096f1d680b6724571854c08725c 100644
+> --- a/drivers/clk/samsung/clk-exynos-clkout.c
+> +++ b/drivers/clk/samsung/clk-exynos-clkout.c
+> @@ -75,6 +75,9 @@ static const struct of_device_id exynos_clkout_ids[] = {
+>  	}, {
+>  		.compatible = "samsung,exynos5433-pmu",
+>  		.data = &exynos_clkout_exynos5,
+> +	}, {
+> +		.compatible = "samsung,exynos7870-pmu",
+> +		.data = &exynos_clkout_exynos5,
 
-And this filename becames:
-samsung,exynos7870-cmu.yaml
+I wonder why do we need to keep growing this list? All devices are
+compatible, aren't they?
+
+Do you use clkout, BTW?
 
 Best regards,
 Krzysztof
