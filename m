@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01056C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D39BC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a262ZEBhq3D29Ca0JPQXcyDvoWYFO8pQujf9qH9htLg=; b=M0j+YMfskb3RP66zdKdTis0nIB
-	aNMAmZP4AvPWjmHgJWtTnhVAK1PSxUgZZqM9LMIPa7W0sAXuLHIuNIll0z5P3RzydJPbWf5Kh+cru
-	+bG06xLM6Cc81z2Gdxk3MwX0OTFyhTL9MxLlceTCCpLdeYia00Kg8U9IhMntUub1TDqPdvY+usthe
-	DfT8Z7HcsAJs2ZT09PCEsb8RtJbRgmml7pDaGia+D9VTV50f0yLmUrAVR8Vs93y1JN8u4vaXGcknp
-	PVoxQk1ZwTvMDmH5t5wDThdfNIuvqY7Rcv9l9uhxNfjHQcoI+EUCFU8T2O3V4FxhZHzYaZ4OSJbF8
-	rG+eIzvA==;
+	bh=TeWqo1HnQdE3Xew6TBWIe5frodF2RFwVLBqIU5l9vVU=; b=ZF5REZckB3c2pODMAyyEUQHR3V
+	/ipNQFlvmvMXPD5iDLIdJdIPqJtbI5jeEApSZIWSd+ykZhJcHse6uqipkMVd7Huv7etxRkvmB655w
+	RebIThPp3DLYOPHm0Llxq8Dyi61CFDsqVSRNGEEaFaIQk6/cmZVApUaJtUy6YNklcvCCOHd9u0xD/
+	TJzy3BlPO8iXGJGYgTefks4SeFijbumgMwECbZx1vMdX4GIMGw/ZRKY50lGR3Ea3VNJFBVbTH5nRl
+	QMI0gKPdrAvdWxQbWnodoQxppuOxmtxEqFyma6mitwv/Aednr9u8xwwWwHWJr+Eg0DYc0WkKH/sxJ
+	fXC4nJCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpeh-0000000Eb8f-4A6c;
-	Wed, 19 Feb 2025 19:22:47 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1tkpgA-0000000EbZy-2aDA;
+	Wed, 19 Feb 2025 19:24:18 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpU3-0000000EYSP-2FPx
+	id 1tkpUA-0000000EYV1-2qQk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 19:11:48 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-abbac134a19so32135866b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 11:11:47 -0800 (PST)
+	Wed, 19 Feb 2025 19:11:55 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-abbb12bea54so36977266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 11:11:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739992306; x=1740597106; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1739992313; x=1740597113; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=a262ZEBhq3D29Ca0JPQXcyDvoWYFO8pQujf9qH9htLg=;
-        b=ILOpfreRoMkB0u7MwXTGUgbh0U1AhTtaDbKoSzqpQ03ykpkVA0vDbHMyUEgHynEGhN
-         dAAibmUMglB61OKSWxo/ggTq3uZ79+X5x3Lv2dmK8CsazATws6asK/yCvmgFKdkjI2eN
-         lnmOiK1nDbJB0q+DXw7JxPEGvbs9FxBrrvHJLi8aNMdxSUXW3dtPikMQt6oLCS34PFnX
-         AUfrZ8hk5u+5vI/IItjpuKoAsUSWCzp2XJKt23hvof+w1i+Y18UIk5ZxvvBfmhk56L+c
-         owjgNB+UusH5aAPUU+txRRkEkDHeVbOM2KbayXqrLEAh8C4wP5CnYJZovf4TYgOU6rPP
-         FHsw==
+        bh=TeWqo1HnQdE3Xew6TBWIe5frodF2RFwVLBqIU5l9vVU=;
+        b=aPS2mtINTjo0uFNb9VgXkslyE+qiJ6zy1FXAsud4/p6u4QqWr8A0rRmLOeXf7lcK/8
+         AAjW38G2lgFfSrJfrlWDCjns+gOQfQoqLqG18fMWXXnPB62RxaEXuX0+5D/JKS8hys52
+         tdxKYfHiwicPv3sRJeb+paUBIAV+I3m3kKyb3oHWeMwaWRRlMpsOcWlXLzh9R0Biibpf
+         /O9uQ9Qeqvpp3RDrKJ+XrBpJMjZ7YENmAoV7ZdKuCw9grCYwdCfm5zFUpLlIhNFSPR7r
+         eAgd+55zunBnTFbAJ5FKVS9hmIe1yundZphi6YBRDY5ipOAWQch96OhCnVTpGqIFjxaZ
+         zOiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739992306; x=1740597106;
+        d=1e100.net; s=20230601; t=1739992313; x=1740597113;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=a262ZEBhq3D29Ca0JPQXcyDvoWYFO8pQujf9qH9htLg=;
-        b=vE127q6Q1dZJrvzfMMvZqdLO5aLq37TPGch/JF5XqEEmfhjN24b0GjUt5Yd+o8T1ZA
-         34CAOe6YDy92cXtk3pCez9jt/N7FpxdtFGWqtQYYIkLjefVfmZp/zhoq0HgaAo0UjXeX
-         MhDlrUhZlHUHJuvOoYOOBpCLCQXp2HT7QQHRKvunWLOU6ULLGt/xXPiqmLW2FQQZ2wRt
-         5Jtg6e2gZCnj8KpqKyuMBWU25/eqXshnYJrQz4z+NNeKtx+rROSUuoA2wNR3Y5Ey9LlZ
-         /EjRggf9SJ3ojf1LIJU2OANfu9VhG2kR1Jc+eV52G3wspM+rOHdVNZbWWVyB8XiIVNVW
-         wt8A==
-X-Forwarded-Encrypted: i=1; AJvYcCWk5xQUfF4J3E0hSKWJB/BDAAobMPo0YIGr77UyJHPUQAqxSprIZfhmuxVBr+evxfm/ndkt0d1xTfWAecOe2A+B@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkrOqp0GtygZJZ2nJqYYOK8NrYONKJ3PKVaOuGt7QN93/oYuOz
-	CxoX9UEAn4yKc22OII0rdIgLK6cw0EvoIolbnXOwDcuUhB4+O4To
-X-Gm-Gg: ASbGncthxbhvvOsx7wVlnAioiR6CEG7d801Jt1lEypxl3RCEznDj8zFXHMuH8B/r2jQ
-	oXM7NmDA090GLNKqfzDXvpttD3gUYBOXC2Wrfe5mZYSChM5dfZGUg4cfprjBsFWBJs1qj3fE3l/
-	XyVvPsmyeqzexCMCxr+n4s9rFOCn+eqMsrUcakIDYCM7b0FRd/CazYP/TZKE6ke6aWcYWdxWrSw
-	m0tnjSLJWE4CYYXnbJnSpeTCcCtk/g67wo35T7Pd1O7/DnUHLbZS97rBEmYUGUZyGMPWhuL5ke2
-	DMCfXMW4Pzi3mTujlo/u0DivB7Xk
-X-Google-Smtp-Source: AGHT+IGt33FKjogW2MeCmEg4l06p7Iw7k+Kx5sL28n3odtsZTl47FrANkRpgYS+18doFVosGl8reHA==
-X-Received: by 2002:a17:907:2da0:b0:ab7:e47c:b54a with SMTP id a640c23a62f3a-abb71159ef2mr2192693566b.37.1739992305822;
-        Wed, 19 Feb 2025 11:11:45 -0800 (PST)
+        bh=TeWqo1HnQdE3Xew6TBWIe5frodF2RFwVLBqIU5l9vVU=;
+        b=iy+IFXE2sIbDzf4DQ75eqq+pqRvYH291EQ8Uk9a+a9XTEGmFj7med0rPWxQLOFnmuC
+         u9OiS5rzxARCfFvELmeh+B8DHVeBJFSikKF+QUN7fwvd30v9NE7wHnImbO5Z9Ug891Rs
+         Ok/6Pcu0OkTHoj9NrIsXm6DNYsOZAoWe+00j/5f3TZTSKiqE6H6qG+oaPoze/ViHnQ7u
+         NiiVUi4lx9OudWRXUP/5aurekTcuY3PUw3pXODei1Zz9ljXS0FGEt/54mKs8LiQ0hsnD
+         mCa1J5uXa1NkNepcWXbikeouWBvilAs67rqa1LQ7FE2isJwDS8CuoXg4ygLFPX8ZE4aM
+         M0sQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWE7vIOlYkDbSe0/BWADwer2DrUyQ4E7u1cuJfjpuSxQcQEpxKFxNgGnNB1pHtEdRKvXFqiW4epjv4WF5R6QHFw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXrkLLKMMygWUkwP+tGfHFdyjpFBrDGBqHnpdHh4Oq2KRlFgcq
+	9UhVu3RKRaluvurP0/ZdtILGXQY/hOGVy0Xsrgw+DtnT4dVw9G7p
+X-Gm-Gg: ASbGnctWfnJwCWccHHlE3rgbw6vik8bYaLPI+ZhBeFxbPO7fHL7k3HsZdsFVvapevrV
+	QYjisDeg83APaw7QrSx6XbdiaT3udLGugvAZZrGlE1DitZoJ1rl+bLYNsddCArfEX1Kb70M8CTb
+	/6Kt/bA4eDXxtRuZP5Klgrnlr7CdvW2eEXDuhNLWXWijajjHQs+AlutRgc6F+FawOs0/EqVDavq
+	m4fRtg38D5eLtWnTOiWoALxpiQm+UC3md9eODga/pMxT18s4E4I/FuxPzGsW3vHvgKf/q6AlsHj
+	zYbHCeSA5N4Cyh3QuOyf/211BZo5
+X-Google-Smtp-Source: AGHT+IEIElAhIncM7Zr/Vqckj3vDoXiYUCL9ogHbzv7UIans32TGHh2oeqc5N+BExx1k+LESN0G7ig==
+X-Received: by 2002:a17:906:315b:b0:ab7:d179:249a with SMTP id a640c23a62f3a-abb70b1e782mr1529786166b.15.1739992313056;
+        Wed, 19 Feb 2025 11:11:53 -0800 (PST)
 Received: from demon-pc.localdomain ([188.27.130.21])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abbe0d39f9csm127767866b.69.2025.02.19.11.11.44
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abbe0d39f9csm127767866b.69.2025.02.19.11.11.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2025 11:11:45 -0800 (PST)
+        Wed, 19 Feb 2025 11:11:52 -0800 (PST)
 From: Cosmin Tanislav <demonsingur@gmail.com>
 To: 
 Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
@@ -89,17 +89,17 @@ Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
 	linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 1/3] media: v4l: subdev: add v4l2_subdev_routing_xlate_streams()
-Date: Wed, 19 Feb 2025 21:11:30 +0200
-Message-ID: <20250219191136.215151-2-demonsingur@gmail.com>
+Subject: [PATCH 2/3] media: use v4l2_subdev_routing_xlate_streams()
+Date: Wed, 19 Feb 2025 21:11:31 +0200
+Message-ID: <20250219191136.215151-3-demonsingur@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250219191136.215151-1-demonsingur@gmail.com>
 References: <20250219191136.215151-1-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_111147_575526_5F1A4F3C 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20250219_111154_737947_9147479A 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,89 +114,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, the v4l2_subdev_state_xlate_streams() function is used
-to translate streams from one pad to another.
-This function takes the entire subdev state as argument, but only makes
-use of the routing.
-
-Introduce a v4l2_subdev_routing_xlate_streams() function which can be
-used without the entire subdev state, to avoid passing the entire state
-around when not needed.
+Replace current usages of v4l2_subdev_state_xlate_streams() with
+v4l2_subdev_routing_xlate_streams() in preperations for the removal of
+v4l2_subdev_state_xlate_streams().
 
 Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 ---
- drivers/media/v4l2-core/v4l2-subdev.c | 12 +++++++++---
- include/media/v4l2-subdev.h           | 18 ++++++++++++++++--
- 2 files changed, 25 insertions(+), 5 deletions(-)
+ drivers/media/i2c/ds90ub913.c                 | 14 ++++++-----
+ drivers/media/i2c/ds90ub953.c                 | 14 ++++++-----
+ drivers/media/i2c/max96714.c                  | 16 ++++++-------
+ drivers/media/i2c/max96717.c                  | 23 ++++++++++---------
+ drivers/media/pci/intel/ipu6/ipu6-isys-csi2.c | 14 ++++++-----
+ .../platform/nxp/imx8-isi/imx8-isi-crossbar.c |  2 +-
+ 6 files changed, 45 insertions(+), 38 deletions(-)
 
-diff --git a/drivers/media/v4l2-core/v4l2-subdev.c b/drivers/media/v4l2-core/v4l2-subdev.c
-index cde1774c9098d..d1581f1036487 100644
---- a/drivers/media/v4l2-core/v4l2-subdev.c
-+++ b/drivers/media/v4l2-core/v4l2-subdev.c
-@@ -2042,10 +2042,9 @@ v4l2_subdev_state_get_opposite_stream_format(struct v4l2_subdev_state *state,
+diff --git a/drivers/media/i2c/ds90ub913.c b/drivers/media/i2c/ds90ub913.c
+index fd2d2d5272bfb..b8dfcf730baa2 100644
+--- a/drivers/media/i2c/ds90ub913.c
++++ b/drivers/media/i2c/ds90ub913.c
+@@ -252,9 +252,10 @@ static int ub913_enable_streams(struct v4l2_subdev *sd,
+ 	u64 sink_streams;
+ 	int ret;
+ 
+-	sink_streams = v4l2_subdev_state_xlate_streams(state, UB913_PAD_SOURCE,
+-						       UB913_PAD_SINK,
+-						       &streams_mask);
++	sink_streams = v4l2_subdev_routing_xlate_streams(&state->routing,
++							 UB913_PAD_SOURCE,
++							 UB913_PAD_SINK,
++							 &streams_mask);
+ 
+ 	ret = v4l2_subdev_enable_streams(priv->source_sd, priv->source_sd_pad,
+ 					 sink_streams);
+@@ -274,9 +275,10 @@ static int ub913_disable_streams(struct v4l2_subdev *sd,
+ 	u64 sink_streams;
+ 	int ret;
+ 
+-	sink_streams = v4l2_subdev_state_xlate_streams(state, UB913_PAD_SOURCE,
+-						       UB913_PAD_SINK,
+-						       &streams_mask);
++	sink_streams = v4l2_subdev_routing_xlate_streams(&state->routing,
++							 UB913_PAD_SOURCE,
++							 UB913_PAD_SINK,
++							 &streams_mask);
+ 
+ 	ret = v4l2_subdev_disable_streams(priv->source_sd, priv->source_sd_pad,
+ 					  sink_streams);
+diff --git a/drivers/media/i2c/ds90ub953.c b/drivers/media/i2c/ds90ub953.c
+index 46569381b332d..c239ede968423 100644
+--- a/drivers/media/i2c/ds90ub953.c
++++ b/drivers/media/i2c/ds90ub953.c
+@@ -683,9 +683,10 @@ static int ub953_enable_streams(struct v4l2_subdev *sd,
+ 	u64 sink_streams;
+ 	int ret;
+ 
+-	sink_streams = v4l2_subdev_state_xlate_streams(state, UB953_PAD_SOURCE,
+-						       UB953_PAD_SINK,
+-						       &streams_mask);
++	sink_streams = v4l2_subdev_routing_xlate_streams(&state->routing,
++							 UB953_PAD_SOURCE,
++							 UB953_PAD_SINK,
++							 &streams_mask);
+ 
+ 	ret = v4l2_subdev_enable_streams(priv->source_sd, priv->source_sd_pad,
+ 					 sink_streams);
+@@ -705,9 +706,10 @@ static int ub953_disable_streams(struct v4l2_subdev *sd,
+ 	u64 sink_streams;
+ 	int ret;
+ 
+-	sink_streams = v4l2_subdev_state_xlate_streams(state, UB953_PAD_SOURCE,
+-						       UB953_PAD_SINK,
+-						       &streams_mask);
++	sink_streams = v4l2_subdev_routing_xlate_streams(&state->routing,
++							 UB953_PAD_SOURCE,
++							 UB953_PAD_SINK,
++							 &streams_mask);
+ 
+ 	ret = v4l2_subdev_disable_streams(priv->source_sd, priv->source_sd_pad,
+ 					  sink_streams);
+diff --git a/drivers/media/i2c/max96714.c b/drivers/media/i2c/max96714.c
+index 159753b13777c..c982bca708ff5 100644
+--- a/drivers/media/i2c/max96714.c
++++ b/drivers/media/i2c/max96714.c
+@@ -272,10 +272,10 @@ static int max96714_enable_streams(struct v4l2_subdev *sd,
+ 		}
+ 
+ 		sink_streams =
+-			v4l2_subdev_state_xlate_streams(state,
+-							MAX96714_PAD_SOURCE,
+-							MAX96714_PAD_SINK,
+-							&streams_mask);
++			v4l2_subdev_routing_xlate_streams(&state->routing,
++							  MAX96714_PAD_SOURCE,
++							  MAX96714_PAD_SINK,
++							  &streams_mask);
+ 
+ 		ret = v4l2_subdev_enable_streams(priv->rxport.source.sd,
+ 						 priv->rxport.source.pad,
+@@ -306,10 +306,10 @@ static int max96714_disable_streams(struct v4l2_subdev *sd,
+ 		int ret;
+ 
+ 		sink_streams =
+-			v4l2_subdev_state_xlate_streams(state,
+-							MAX96714_PAD_SOURCE,
+-							MAX96714_PAD_SINK,
+-							&streams_mask);
++			v4l2_subdev_routing_xlate_streams(&state->routing,
++							  MAX96714_PAD_SOURCE,
++							  MAX96714_PAD_SINK,
++							  &streams_mask);
+ 
+ 		ret = v4l2_subdev_disable_streams(priv->rxport.source.sd,
+ 						  priv->rxport.source.pad,
+diff --git a/drivers/media/i2c/max96717.c b/drivers/media/i2c/max96717.c
+index 9259d58ba734e..e18b07b3259c1 100644
+--- a/drivers/media/i2c/max96717.c
++++ b/drivers/media/i2c/max96717.c
+@@ -446,9 +446,10 @@ static int max96717_set_fmt(struct v4l2_subdev *sd,
+ 
+ 	stream_source_mask = BIT(format->stream);
+ 
+-	return v4l2_subdev_state_xlate_streams(state, MAX96717_PAD_SOURCE,
+-					       MAX96717_PAD_SINK,
+-					       &stream_source_mask);
++	return v4l2_subdev_routing_xlate_streams(&state->routing,
++						 MAX96717_PAD_SOURCE,
++						 MAX96717_PAD_SINK,
++						 &stream_source_mask);
  }
- EXPORT_SYMBOL_GPL(v4l2_subdev_state_get_opposite_stream_format);
  
--u64 v4l2_subdev_state_xlate_streams(const struct v4l2_subdev_state *state,
--				    u32 pad0, u32 pad1, u64 *streams)
-+u64 v4l2_subdev_routing_xlate_streams(const struct v4l2_subdev_krouting *routing,
-+				      u32 pad0, u32 pad1, u64 *streams)
- {
--	const struct v4l2_subdev_krouting *routing = &state->routing;
- 	struct v4l2_subdev_route *route;
- 	u64 streams0 = 0;
- 	u64 streams1 = 0;
-@@ -2066,6 +2065,13 @@ u64 v4l2_subdev_state_xlate_streams(const struct v4l2_subdev_state *state,
- 	*streams = streams0;
- 	return streams1;
- }
-+EXPORT_SYMBOL_GPL(v4l2_subdev_routing_xlate_streams);
-+
-+u64 v4l2_subdev_state_xlate_streams(const struct v4l2_subdev_state *state,
-+				    u32 pad0, u32 pad1, u64 *streams)
-+{
-+	return v4l2_subdev_routing_xlate_streams(&state->routing, pad0, pad1, streams);
-+}
- EXPORT_SYMBOL_GPL(v4l2_subdev_state_xlate_streams);
+ static int max96717_init_state(struct v4l2_subdev *sd,
+@@ -508,10 +509,10 @@ static int max96717_enable_streams(struct v4l2_subdev *sd,
  
- int v4l2_subdev_routing_validate(struct v4l2_subdev *sd,
-diff --git a/include/media/v4l2-subdev.h b/include/media/v4l2-subdev.h
-index 2f2200875b038..90d08e13e016b 100644
---- a/include/media/v4l2-subdev.h
-+++ b/include/media/v4l2-subdev.h
-@@ -1582,9 +1582,9 @@ v4l2_subdev_state_get_opposite_stream_format(struct v4l2_subdev_state *state,
- 					     u32 pad, u32 stream);
+ 	if (!priv->pattern) {
+ 		sink_streams =
+-			v4l2_subdev_state_xlate_streams(state,
+-							MAX96717_PAD_SOURCE,
+-							MAX96717_PAD_SINK,
+-							&streams_mask);
++			v4l2_subdev_routing_xlate_streams(&state->routing,
++							  MAX96717_PAD_SOURCE,
++							  MAX96717_PAD_SINK,
++							  &streams_mask);
  
- /**
-- * v4l2_subdev_state_xlate_streams() - Translate streams from one pad to another
-+ * v4l2_subdev_routing_xlate_streams() - Translate streams from one pad to another
-  *
-- * @state: Subdevice state
-+ * @state: Routing used to translate streams from one pad to another
-  * @pad0: The first pad
-  * @pad1: The second pad
-  * @streams: Streams bitmask on the first pad
-@@ -1601,6 +1601,20 @@ v4l2_subdev_state_get_opposite_stream_format(struct v4l2_subdev_state *state,
-  *
-  * Return: The bitmask of streams of @pad1 that are routed to @streams on @pad0.
-  */
-+u64 v4l2_subdev_routing_xlate_streams(const struct v4l2_subdev_krouting *routing,
-+				      u32 pad0, u32 pad1, u64 *streams);
-+
-+/**
-+ * v4l2_subdev_state_xlate_streams() - Translate streams from one pad to another
-+ *
-+ * @state: Subdevice state
-+ * @pad0: The first pad
-+ * @pad1: The second pad
-+ * @streams: Streams bitmask on the first pad
-+ *
-+ * This is the same as v4l2_subdev_routing_xlate_streams, but takes subdevice
-+ * state as parameter
-+ */
- u64 v4l2_subdev_state_xlate_streams(const struct v4l2_subdev_state *state,
- 				    u32 pad0, u32 pad1, u64 *streams);
+ 		ret = v4l2_subdev_enable_streams(priv->source_sd,
+ 						 priv->source_sd_pad,
+@@ -551,10 +552,10 @@ static int max96717_disable_streams(struct v4l2_subdev *sd,
+ 		int ret;
  
+ 		sink_streams =
+-			v4l2_subdev_state_xlate_streams(state,
+-							MAX96717_PAD_SOURCE,
+-							MAX96717_PAD_SINK,
+-							&streams_mask);
++			v4l2_subdev_routing_xlate_streams(&state->routing,
++							  MAX96717_PAD_SOURCE,
++							  MAX96717_PAD_SINK,
++							  &streams_mask);
+ 
+ 		ret = v4l2_subdev_disable_streams(priv->source_sd,
+ 						  priv->source_sd_pad,
+diff --git a/drivers/media/pci/intel/ipu6/ipu6-isys-csi2.c b/drivers/media/pci/intel/ipu6/ipu6-isys-csi2.c
+index 051898ce53f43..c39c15709a170 100644
+--- a/drivers/media/pci/intel/ipu6/ipu6-isys-csi2.c
++++ b/drivers/media/pci/intel/ipu6/ipu6-isys-csi2.c
+@@ -360,9 +360,10 @@ static int ipu6_isys_csi2_enable_streams(struct v4l2_subdev *sd,
+ 	remote_pad = media_pad_remote_pad_first(&sd->entity.pads[CSI2_PAD_SINK]);
+ 	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+ 
+-	sink_streams = v4l2_subdev_state_xlate_streams(state, CSI2_PAD_SRC,
+-						       CSI2_PAD_SINK,
+-						       &streams_mask);
++	sink_streams = v4l2_subdev_routing_xlate_streams(&state->routing,
++							 CSI2_PAD_SRC,
++							 CSI2_PAD_SINK,
++							 &streams_mask);
+ 
+ 	ret = ipu6_isys_csi2_calc_timing(csi2, &timing, CSI2_ACCINV);
+ 	if (ret)
+@@ -390,9 +391,10 @@ static int ipu6_isys_csi2_disable_streams(struct v4l2_subdev *sd,
+ 	struct media_pad *remote_pad;
+ 	u64 sink_streams;
+ 
+-	sink_streams = v4l2_subdev_state_xlate_streams(state, CSI2_PAD_SRC,
+-						       CSI2_PAD_SINK,
+-						       &streams_mask);
++	sink_streams = v4l2_subdev_routing_xlate_streams(&state->routing,
++							 CSI2_PAD_SRC,
++							 CSI2_PAD_SINK,
++							 &streams_mask);
+ 
+ 	remote_pad = media_pad_remote_pad_first(&sd->entity.pads[CSI2_PAD_SINK]);
+ 	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+index 93a55c97cd173..8f61145435e32 100644
+--- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
++++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
+@@ -141,7 +141,7 @@ mxc_isi_crossbar_xlate_streams(struct mxc_isi_crossbar *xbar,
+ 	 * routing table are guaranteed to have the same sink pad.
+ 	 *
+ 	 * TODO: This is likely worth a helper function, it could perhaps be
+-	 * supported by v4l2_subdev_state_xlate_streams() with pad1 set to -1.
++	 * supported by v4l2_subdev_routing_xlate_streams() with pad1 set to -1.
+ 	 */
+ 	for_each_active_route(&state->routing, route) {
+ 		if (route->source_pad != source_pad ||
 -- 
 2.48.1
 
