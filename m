@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3897DC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 08:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB781C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 08:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AENnf3CgBOghgCPCO6AUYPMH/oVpMZNd906YezBjWG8=; b=Dgb065NY8raihdGd2OsFoKYUoM
-	di6GttbX8A61nqmDD2nQCKxYhec2qQ+HRYjpLP9kFkUhviVWtGpPhn7RPav+8Xng0PLaLol+TVyXL
-	Db/+n+WQ1hbgj03CRvuTn9oJsDyc3Ht0VFxPzVv/UFQ+jFGNHJ/JRVe9Wbhvk97rI5sqxtM6PcIWf
-	c4Sc5lhi8X+s5c0mRgF7kPuJNTAds0IassKaEwrx1IP5DJ3loXASeQ5slguxPzMlCyvfNaM17P/dB
-	LKYRhvX9VpiW3n54ElCHpOc+b2DA7gV4MtmNQ81Il9N1edWADZQs17bHJhqJZoTq9pQpjSoe3qxNb
-	g9KPtXrA==;
+	bh=sJCpfFuLYwpfyisJZD4BZNp2s874UbfEw6yfvZepqdE=; b=YGvtfYrhGGPvLfhDwjccVARMdE
+	FLKXEh6LESJfk+KlnhoD8rtj0hvv31NP8GMJOSqjkZJck4iTnDIwfd8dA4aJX3eVMNnReODOCoy0i
+	2lAMa28NF80Q1f25FTy2DWkE1LIhig1mKjM2vUTWHSMUfJPqg7gakpdblxi5kqpd/aKfsmjK76cLP
+	Q9kCqTIiUhG82cgbj7zkJepDh6dBars9nPKG5iwqzv5yvQ7oDnzOxPZB8B7TbVaTVB8bOEq+yNznr
+	xt6U8taIcZo2mLFPoUBR80hRF2JnTaSMp9ecpe+vqNJKKijbZu92SwpHWfoJNxrABS+OtjQfPNrt1
+	ERb1d2wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkfhD-0000000BcAj-3Jht;
-	Wed, 19 Feb 2025 08:44:43 +0000
+	id 1tkfif-0000000Bcbi-2Rxn;
+	Wed, 19 Feb 2025 08:46:13 +0000
 Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkfI1-0000000BSvS-1cCY
+	id 1tkfI6-0000000BSvS-2SN1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 08:18:42 +0000
+	Wed, 19 Feb 2025 08:18:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1739953121; x=1771489121;
+  t=1739953126; x=1771489126;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=AENnf3CgBOghgCPCO6AUYPMH/oVpMZNd906YezBjWG8=;
-  b=gD+Y+40Nl5R7Iu3yxOTuwQITZmWHBbb80qP5YPr3uQDBS/hwnHhD192p
-   IxQUVplIEXg11zjzdLGgICtGaaurYRL7Jmxw1MFjzFLoLTM14PBSVgWcT
-   kiJMSoghN9PD3ti62FpEIzM/Lg3PVEJT2gfb5nB6E+odzmPnAJ9IYAkI+
-   uoy7bg8ViY94RINXYIyFi7lJEW2++7DKdJj5lXzJZqRQqaDab28rkfCHV
-   wrZexqJAyILdVBxIs1fnhot+d5tNvlpCTdmp87KS18WIAdghXQJqwOXaM
-   bY095FC2hdFL1839PLKp2eS5DWH8f+uDYhd17ocHnsDw3mbIcvM6atzFl
-   Q==;
-X-CSE-ConnectionGUID: ePkEWgcZSWmPLQ96I4NdvQ==
-X-CSE-MsgGUID: ifjATzQ3RmyROuGkezU3hg==
+  bh=sJCpfFuLYwpfyisJZD4BZNp2s874UbfEw6yfvZepqdE=;
+  b=anO2nD9gH3MLBEXoGUf3bhBQR9tDBy41lp8wsdqRTJUkSoKKYkFUTMTa
+   nl9NR8I8Sj8QHxZHYGhcxbTvOmr72kseYpSik2G4TkVqzDEU5B34bx+so
+   AkLRFRvuJHYu61pSWvoxi/6/2YKhHglLRXQQqYVbwJ8tIhdeyJXeV4DHJ
+   CQqQjG6FoB8n6idPNuiOxB2WZnyLnhNbrv0ilW29TqH9OvTcBaRkCuc1L
+   +bZZrRFu1ZqgI83eDF6zKuL6rCcMwpVBgdcdva9c9sdI0UZrkcC8mmJ96
+   tQTPvS3At5XulIccNURxP9gVUsP6JeK5uRRpc6qkjE1Lzk+23NKRiLwfE
+   g==;
+X-CSE-ConnectionGUID: PIkwYlt4RYWT1ITq5zOsOA==
+X-CSE-MsgGUID: CtiBKZdITmql8A1axdGK5Q==
 X-IronPort-AV: E=Sophos;i="6.13,298,1732575600"; 
-   d="scan'208";a="41945176"
+   d="scan'208";a="41945182"
 Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 19 Feb 2025 09:18:40 +0100
-X-CheckPoint: {67B593E0-23-EBA888C4-C1AC8B84}
-X-MAIL-CPID: 228EAB8CE74423764938FA9A084C0A86_0
-X-Control-Analysis: str=0001.0A002119.67B593E0.00D2,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B70FF16D460;
-	Wed, 19 Feb 2025 09:18:35 +0100 (CET)
+  by mx1.tq-group.com with ESMTP; 19 Feb 2025 09:18:45 +0100
+X-CheckPoint: {67B593E5-38-6E0A4539-DBC44C3A}
+X-MAIL-CPID: 6D57F2DBFDF88598594366B5F97E1B52_1
+X-Control-Analysis: str=0001.0A002119.67B593E6.0005,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DE5C316D46F;
+	Wed, 19 Feb 2025 09:18:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1739953116;
+	s=dkim; t=1739953121;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=AENnf3CgBOghgCPCO6AUYPMH/oVpMZNd906YezBjWG8=;
-	b=BBMFsjuKVv7H2WEZzDsfIOuutjd2xtCvQWGB29tj625HnZJlmmbEPVw8+UFMPzcA+BFQuA
-	Ra+Nrm9VWi4Ih1C6wbcy5MVtVNVSL1UF3BkROUgVS3tSHhcSxCwWIc2MuCZWy2l/XRfbrM
-	wKP1POTxQNVzZ1yWdVj+rAL8x9H9FgOM7bDDmUz8yz8AcRDESRRKIb/sjXMK8E29sB/Hkm
-	dbG4jl2MYduDehK/AWrVX2r0gJJnHAzvBsdA7gattAT2/HqEE2Bb14szcOH8oi/t7ZJsMi
-	7y6YopzzGXKzU5U+kgr94Hg0ysKF6+XZkzT+lztmMEVZjMpg9pYiEK/6LX4ouA==
+	bh=sJCpfFuLYwpfyisJZD4BZNp2s874UbfEw6yfvZepqdE=;
+	b=GwRoyopzItomM2TruwIv/TMEriySQ/CwUMzGt2NqsfLaBvVzNVKrQBP74VhmnqpCeQmiv7
+	He/wg+RrMR7ig6zAv04r95MmET2/uVarahSHpmj9pmmUgmuTpZkFOhPkdgZgRS6RSaut8L
+	I0h9BztWcpnd05oCdJuuQ2MktdPOBoxztlfLk+ZfUdi6wow2iUEH+vaMFPwhYQnX7k/zq8
+	ql6cLIbmQGezhIrRtZ4sWi9Vl3zDibw52HZ1UHuEIcHgKY1GKEYQPKA25ytfHXR8Mww3cQ
+	ivxQrieoWVtCQlPZRnG+1HniAhan/sulxI7sQ+EuXbZ8bPcGIIsV8PWKb8DlCg==
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -71,15 +71,16 @@ To: Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>,
 	linux@ew.tq-group.com,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 8/9] ARM: dts: imx7-tqma7: Add vcc-supply for spi-nor
-Date: Wed, 19 Feb 2025 09:17:43 +0100
-Message-ID: <20250219081748.1181507-9-alexander.stein@ew.tq-group.com>
+	linux-kernel@vger.kernel.org,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH 9/9] ARM: dts: tqma7: Add partitions subnode to spi-nor
+Date: Wed, 19 Feb 2025 09:17:44 +0100
+Message-ID: <20250219081748.1181507-10-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250219081748.1181507-1-alexander.stein@ew.tq-group.com>
 References: <20250219081748.1181507-1-alexander.stein@ew.tq-group.com>
@@ -87,8 +88,9 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_001841_726296_87E332F9 
-X-CRM114-Status: GOOD (  10.52  )
+X-CRM114-CacheID: sfid-20250219_001846_921654_2A25766C 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,22 +105,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(Q)SPI NOR flash is supplied by 3.3V. Add the corresponding supply.
+From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
 
+The bootloader adds MTD partitions in this subnode if present.
+Add an empty partitions node which the bootloader will fill with
+configured MTD partitions.
+
+Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi b/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi
-index aa8f65cd4adf7..618c3f68fbe25 100644
+index 618c3f68fbe25..2966a33bc528a 100644
 --- a/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi
 +++ b/arch/arm/boot/dts/nxp/imx/imx7-tqma7.dtsi
-@@ -265,6 +265,7 @@ flash0: flash@0 {
- 		spi-max-frequency = <29000000>;
+@@ -266,6 +266,12 @@ flash0: flash@0 {
  		spi-rx-bus-width = <4>;
  		spi-tx-bus-width = <4>;
-+		vcc-supply = <&vgen4_reg>;
+ 		vcc-supply = <&vgen4_reg>;
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++		};
  	};
  };
  
