@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C08F3C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF02BC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 12:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+24dvPWABcFd9MeuF3ZS2A94KuzubvQXMwsC3UbrqGc=; b=NTX9Zplnvh3e7ITh4s0BKqB9j6
-	d6kctHrxZwK3ue2Vsm3z82f02+wGcm7FnWy44so2yMPlSuf1APSNr21/xJGHcsRy5BVR322njXozw
-	aRIKqVQZJzZdFXKOd6UMrzsLTo1/uBSPvDXMyq4QtlorCZIyck1RwPytyAVg4ePCL6CSKDo3Ay/Xy
-	u9qntTU8druTOobFv9LDFKnBFx5mwPN1VBRJC17Dx9us38SCq8sbdGe5nE0Q63UbKNjzIeBT43Z3y
-	kSkPBqqcEACiHYtXdHtQ/wN8qSSjUtYNfaYo/vItZUe1cSRe/6A4pQvtyhL65IBrRLO4/xm2fIgqC
-	gES1OnoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1hUrd+Gyy/ajIhuvrP2MqW/IazkO3sAPZGITYXZm04k=; b=muTI1JCWjGcbhjXl9mwDnkEpKE
+	GEqK6DFu52ICqUf43+WXRCqENJble/JZg5DuYFN3XlcnNGWxpPR+m0rAs8XDCMFHjMyPFNMKlrjz5
+	TypQv6X+vX8QJJ9qkdA8aDzxmC3/sY8Xym4en06ZW+30PGirLLduFnPQjR0kU+gyFqpf96VKDRYwR
+	z4wW28KbTbY/kSCxEjJm/OjwhCk25YItbAVLTWSFVI3Ny4HAfyqapTCQlx39YTnuyfYkfEkJIIjop
+	KoVdyM2VuQXqZEL2FgREn0guv/3Gzi3s1h5dC03oO3YccqveDqAVzhmEqWKQ2XDAAb8hjAK3fwtPj
+	6ubpeKdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjEq-0000000Cg7M-00pW;
-	Wed, 19 Feb 2025 12:31:40 +0000
-Received: from mail-lj1-x22d.google.com ([2a00:1450:4864:20::22d])
+	id 1tkjGH-0000000CglN-2nwC;
+	Wed, 19 Feb 2025 12:33:09 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkjDF-0000000CfGz-3KyJ
+	id 1tkjDX-0000000CfQu-05VN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 12:30:03 +0000
-Received: by mail-lj1-x22d.google.com with SMTP id 38308e7fff4ca-30797730cbdso69556041fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 04:30:01 -0800 (PST)
+	Wed, 19 Feb 2025 12:30:20 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-30737db1aa9so62785061fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 04:30:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1739968199; x=1740572999; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+24dvPWABcFd9MeuF3ZS2A94KuzubvQXMwsC3UbrqGc=;
-        b=PIaQMBZlxrSgX0ord6Jd+Lut+WAj1muAYS0mXQzpMyIdOM9+ZZLXc9od09S6JP8Jos
-         Vy9AJZajP/1EqTPzIIE8CZfvNN7wn+bthkl27E3PBsYdDK5lujmyk4rAWKhmg6dhP3ak
-         nNbPN5DB703WXmfmWYUtYAQK3d8Is9nRwWEMKKz8/3seufxIfB/WyqDVjEAcGfG6/ayG
-         ErD3JtWZGpo43UqsjXncJ/awmGoLUR5o1icb9YEXChA+Cp1oqNzQSYmTUdovoae7dfRn
-         wC07cwJjZtNmR8lBOCINYK3iJrpIUtA34A3f4NbWeRPy24MPh7ryD83r5YWFfD8XpOVA
-         XbYg==
+        d=gmail.com; s=20230601; t=1739968217; x=1740573017; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=1hUrd+Gyy/ajIhuvrP2MqW/IazkO3sAPZGITYXZm04k=;
+        b=cEU9++BEQYQsczZBPpm2+ArHAwSmPMgZ6y3lY3tezX9BSbBuG5kawJuh9/LHrjsfwH
+         Cci1QyLAqcYx1POezumIBhwnQanB9/PRZFEXY2ZmuhiQ2RILn5nNjG0TjpxgEducxNp1
+         U9X3OLG57FimaNNurRoTr1xediYvK8WBBVC/wEoPf47Yc1wH2CHmPI8j/6Sy9RC26zt6
+         AVReqAcSrPzVNfRoKuxGKSONQxIoSDlgGkYEIGrX+a7ulQcrI3DEkV9+oBEEJwYP/efS
+         37fFyOv9lMZQgLZ/MkF6fhMNQWaaS9uPV4lQ/p87ebYK56DZDa3lThcHbrvsUoJZknk7
+         ij4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1739968199; x=1740572999;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+24dvPWABcFd9MeuF3ZS2A94KuzubvQXMwsC3UbrqGc=;
-        b=IIZI2cOglKGJZRLSEYScArOBobwEc2OujrjP8DFEXRApXMs0BJWqNAjPrqt6l7LWd0
-         dM8hF44UqwJRemHpDEsZzAqN4PGie7bh/TRw3GFrf5ZlwlwpzO0t/LZXVS1uIYujk88t
-         k7jWc3eMe1KnqipUgPDhHGlfhS1zfBAhf8OFIqmY9LQ2O4duMGOPWelFhZjcxIGXHC+l
-         7KoLXd0vvsiTgN+2SxQLCv7Gx2vea/zDnEPsCzmvVsDyPiLcUquP4+wmsP5Ej0skVqL3
-         lZ1q77P2kFnV7+VxJBvlUKc65VSsOFQRzLSKgT5fgo1U4pt8wNYaGtvBRRlIrZP9BZMB
-         eSMA==
-X-Forwarded-Encrypted: i=1; AJvYcCVa49KxI9vA6w/h/d+D33knzfhKJZJ+1LnPbgP8U/gyrewoqxe66QuT49o/0HOB81H+7/28wn5QhuGyYJfLaiS/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKs4lYyLhF6GwOSlw3kY/NwhKNBzenFBNH831Mai7h06a5Orgw
-	M1743Zw8NveKiXm9ika85Ke+FS2GYMzaAWtjlDUc3Cuy/YSYqEdE
-X-Gm-Gg: ASbGnctsDCrTAqUgagwX49aY0lt7ZUMRL9a1zj5i3DZuu9WP7Ez3IGxh3y1sBtC8S9d
-	cGaqR4EChY0uXgvnnaDc0RomotVimwZTkEL0SAyRhJR/369hpKdUZQNV6RK0ng30Oz3QwST4Kuk
-	6hY3ZC7EY43T5J172yPCxY4UNAUGSpApMv3gU3CHINUHet/ruSuHCmNqY3Psn+kOOzPFhcitwvU
-	Ibprc0YQuNTcEi0trwT7Db3ZnWQ3Wh2BYopp1fEddUJkNdDKxxNy1fsmDCXfS+uAdte+drgG/43
-	xSKBAA80quLUky7MJM5W4A==
-X-Google-Smtp-Source: AGHT+IFQyrXqy5NpHLF7+Lu4p1h9WASYPxxPIwKuoow2XXCkQtMPyIwZy0Fsi378ablFiyznjOaaqg==
-X-Received: by 2002:a2e:95ca:0:b0:308:da52:5672 with SMTP id 38308e7fff4ca-30a44dbb8eamr9477541fa.6.1739968199067;
-        Wed, 19 Feb 2025 04:29:59 -0800 (PST)
+        d=1e100.net; s=20230601; t=1739968217; x=1740573017;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1hUrd+Gyy/ajIhuvrP2MqW/IazkO3sAPZGITYXZm04k=;
+        b=KPPbTwBypvaG7K/RMMak4PRXShQ2PZUOfgH2bhDeNre9CTxQX5YgyuDw8gWf1mm+l5
+         +mTySc9XEJosTq4/9yfPFCTwRZowfjQo1HXBj6H7zZWH31QoIlKsQ47htDWg2w9f4s43
+         /CwMZTnUbNpFBiF5ymNSjz4oNj/KqRtZMPsPL3T4ira6xJqc0VMZTeesWz+Sj/aYuKWi
+         Y0UjGXXWwK5YgQ7Pvau/340Q/TNkGyszQ8DwEP6bYRBoPLxdTUZQtVUS6CFK8V+7oBCy
+         p/QWZXnp7pvGgddkyUazzkJjjrYq0SQL4BVg4a10fP0IsJff8Hy6v5BoildHk3JKiF4I
+         HmJA==
+X-Forwarded-Encrypted: i=1; AJvYcCUBN0vrupzPffHzraOhENzQd9xX2jCa0RH6Vtdjv+yoGGVX+U7Hs0DKWR21oVcG/RGBDtmcbaPQHWFASntGiGFo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvtV2o4dOiSzhEenvzVdvJIUSMIm7XzSGQ6ZBYtib+/L2Q5hCR
+	9+PAUQo72BHFjAC5O37x/U94RpXK2W0IhYm4VwOkFuSGoeXphvm0
+X-Gm-Gg: ASbGncuUBpxq0VQ7u+GJHlu8uijY+LyRsOWeNYnNCgIh4DPM67Y5EkLXk6algmyhQLs
+	71QGtmg1rJmxm3Rqb/Lu0lJ190KVgpIHsPHQED3oYiQHPyCvl5cbq9MbH9mP/EZJK+Cv/LyRe2r
+	SSfjvPchPAbZhnmACcuigCrTsszo9w0ni/JFJ0GxPKnmlV9TAf2TpkACvAKV4wl1Xv4TmAaAvsj
+	NXd9LQdqYPVWQ38Us17fSjGv3IMNyfX4h8sALdoCI+rWT6W4qPOuWk53FRN8N7p6ADqDYuym43m
+	N6gwhjXjWLcZRk7strzYEg==
+X-Google-Smtp-Source: AGHT+IFF8ZAOezRn1kWhpmBq+gPrOLGIPq15CfW2c+RFEDW/9HuXUxU0qk6Hp+MJg1WFZfej+FArLQ==
+X-Received: by 2002:a2e:b176:0:b0:309:25f6:8dcb with SMTP id 38308e7fff4ca-30a44dbb334mr9639561fa.5.1739968216796;
+        Wed, 19 Feb 2025 04:30:16 -0800 (PST)
 Received: from mva-rohm ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3091029b75esm22556451fa.103.2025.02.19.04.29.56
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-309e57cc68esm13923301fa.114.2025.02.19.04.30.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Feb 2025 04:29:56 -0800 (PST)
-Date: Wed, 19 Feb 2025 14:29:45 +0200
+        Wed, 19 Feb 2025 04:30:14 -0800 (PST)
+Date: Wed, 19 Feb 2025 14:30:09 +0200
 From: Matti Vaittinen <mazziesaccount@gmail.com>
 To: Matti Vaittinen <mazziesaccount@gmail.com>,
 	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
@@ -85,17 +86,18 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
 	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: [PATCH v3 0/9] Support ROHM BD79124 ADC
-Message-ID: <cover.1739967040.git.mazziesaccount@gmail.com>
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: [PATCH v3 1/9] dt-bindings: ROHM BD79124 ADC/GPO
+Message-ID: <52db5ddb99dcd8da847f8fe595efa74c3ab1573c.1739967040.git.mazziesaccount@gmail.com>
+References: <cover.1739967040.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="VPbxCdjMCaKD7rlG"
+	protocol="application/pgp-signature"; boundary="R4M0D4QEb5Wt72s2"
 Content-Disposition: inline
+In-Reply-To: <cover.1739967040.git.mazziesaccount@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_043001_851499_3B428BFE 
-X-CRM114-Status: GOOD (  21.99  )
+X-CRM114-CacheID: sfid-20250219_043019_061493_75D2EC53 
+X-CRM114-Status: GOOD (  15.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,116 +113,170 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---VPbxCdjMCaKD7rlG
+--R4M0D4QEb5Wt72s2
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-Support ROHM BD79124 ADC.
+Add binding document for the ROHM BD79124 ADC / GPO.
 
-This series adds also couple of helper functions for parsing the channel
-information from the device tree. There has been some discussion about
-how useful these are, and whether they should support also differential
-and single ended channel configurations. This version adds support for
-those - with the cost of added complexity and somewhat harder to use
-API. I've babbled more about that in the patch 2/9. (And, I actually
-wonder if I should've returned this to RFC?)
+ROHM BD79124 is a 8-channel, 12-bit ADC. The input pins can also be used
+as general purpose outputs.
 
-The last couple of patches are examples of drivers which could utilize
-these added helpers:
- - 6/9 converts rzg2l_adc to use helpers
- - 7/9 converts sun20i-gpadc to use helpers
- - 9/9 makes the ti-ads7924 to respect the channel specification give in
-   the device-tree using these helpers.
-
-patch 8/9 is small simplification for the ti-ads7924, and it can be
-taken independently from the rest of the series.
-
-NOTE: Patches 6...9 are untested as I lack of relevant HW. They have
-been compile tested only.
-
-The ROHM BD79124 ADC itself is quite usual stuff. 12-bit, 8-channel ADC
-with threshold monitoring.
-
-Except that:
- - each ADC input pin can be configured as a general purpose output.
- - manually starting an ADC conversion and reading the result would
-   require the I2C _master_ to do clock stretching(!) for the duration
-   of the conversion... Let's just say this is not well supported.
- - IC supports 'autonomous measurement mode' and storing latest results
-   to the result registers. This mode is used by the driver due to the
-   "peculiar" I2C when doing manual reads.
-
-Furthermore, the ADC uses this continuous autonomous measuring,
-and the IC keeps producing new 'out of window' IRQs if measurements are
-out of window - the driver disables the event for 1 seconds when sending
-it to user. This prevents generating storm of events
-
+Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+---
 Revision history:
 v2 =3D> v3:
- - Restrict BD79124 channel numbers as suggested by Conor and add
-   Conor's Reviewed-by tag.
- - Support differential and single-ended inputs
- - Convert couple of existing drivers to use the added ADC helpers
- - Minor fixes based on reviews
-Link to v2:
-https://lore.kernel.org/all/cover.1738761899.git.mazziesaccount@gmail.com/
-
+ - Restrict channel numbers to 0-7 as suggested by Conor
 RFC v1 =3D> v2:
- - Drop MFD and pinmux.
- - Automatically re-enable events after 1 second.
- - Export fwnode parsing helpers for finding the ADC channels.
-
+ - drop MFD and represent directly as ADC
+ - drop pinmux and treat all non ADC channel pins as GPOs
 ---
-
-Matti Vaittinen (9):
-  dt-bindings: ROHM BD79124 ADC/GPO
-  iio: adc: add helpers for parsing ADC nodes
-  iio: adc: Support ROHM BD79124 ADC
-  MAINTAINERS: Add IIO ADC helpers
-  MAINTAINERS: Add ROHM BD79124 ADC/GPO
-  iio: adc: rzg2l_adc: Use adc-helpers
-  iio: adc: sun20i-gpadc: Use adc-helpers
-  iio: adc: ti-ads7924 Drop unnecessary function parameters
-  iio: adc: ti-ads7924: Respect device tree config
-
- .../bindings/iio/adc/rohm,bd79124.yaml        |  114 ++
- MAINTAINERS                                   |   12 +
- drivers/iio/adc/Kconfig                       |   15 +
- drivers/iio/adc/Makefile                      |    2 +
- drivers/iio/adc/industrialio-adc.c            |  304 +++++
- drivers/iio/adc/rohm-bd79124.c                | 1162 +++++++++++++++++
- drivers/iio/adc/rzg2l_adc.c                   |   41 +-
- drivers/iio/adc/sun20i-gpadc-iio.c            |   42 +-
- drivers/iio/adc/ti-ads7924.c                  |   85 +-
- include/linux/iio/adc-helpers.h               |   56 +
- 10 files changed, 1742 insertions(+), 91 deletions(-)
+ .../bindings/iio/adc/rohm,bd79124.yaml        | 114 ++++++++++++++++++
+ 1 file changed, 114 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/iio/adc/rohm,bd79124.=
 yaml
- create mode 100644 drivers/iio/adc/industrialio-adc.c
- create mode 100644 drivers/iio/adc/rohm-bd79124.c
- create mode 100644 include/linux/iio/adc-helpers.h
 
-
-base-commit: 5bc55a333a2f7316b58edc7573e8e893f7acb532
+diff --git a/Documentation/devicetree/bindings/iio/adc/rohm,bd79124.yaml b/=
+Documentation/devicetree/bindings/iio/adc/rohm,bd79124.yaml
+new file mode 100644
+index 000000000000..503285823376
+--- /dev/null
++++ b/Documentation/devicetree/bindings/iio/adc/rohm,bd79124.yaml
+@@ -0,0 +1,114 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/iio/adc/rohm,bd79124.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: ROHM BD79124 ADC/GPO
++
++maintainers:
++  - Matti Vaittinen <mazziesaccount@gmail.com>
++
++description: |
++  The ROHM BD79124 is a 12-bit, 8-channel, SAR ADC. The ADC supports
++  an automatic measurement mode, with an alarm interrupt for out-of-window
++  measurements. ADC input pins can be also configured as general purpose
++  outputs.
++
++properties:
++  compatible:
++    const: rohm,bd79124
++
++  reg:
++    description:
++      I2C slave address.
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  gpio-controller: true
++
++  "#gpio-cells":
++    const: 1
++    description:
++      The pin number.
++
++  vdd-supply: true
++
++  iovdd-supply: true
++
++  "#address-cells":
++    const: 1
++
++  "#size-cells":
++    const: 0
++
++patternProperties:
++  "^channel@[0-7]+$":
++    type: object
++    $ref: /schemas/iio/adc/adc.yaml#
++    description: Represents ADC channel.
++
++    properties:
++      reg:
++        description: AIN pin number
++        minimum: 0
++        maximum: 7
++
++    required:
++      - reg
++
++    additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - iovdd-supply
++  - vdd-supply
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/leds/common.h>
++    i2c {
++        #address-cells =3D <1>;
++        #size-cells =3D <0>;
++        adc: adc@10 {
++            compatible =3D "rohm,bd79124";
++            reg =3D <0x10>;
++
++            interrupt-parent =3D <&gpio1>;
++            interrupts =3D <29 8>;
++
++            vdd-supply =3D <&dummyreg>;
++            iovdd-supply =3D <&dummyreg>;
++
++            #address-cells =3D <1>;
++            #size-cells =3D <0>;
++
++            channel@0 {
++                reg =3D <0>;
++            };
++            channel@1 {
++                reg =3D <1>;
++            };
++            channel@2 {
++                reg =3D <2>;
++            };
++            channel@3 {
++                reg =3D <3>;
++            };
++            channel@4 {
++                reg =3D <4>;
++            };
++            channel@5 {
++                reg =3D <5>;
++            };
++            channel@6 {
++                reg =3D <6>;
++            };
++        };
++    };
 --=20
 2.48.1
 
 
---VPbxCdjMCaKD7rlG
+--R4M0D4QEb5Wt72s2
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAme1zrIACgkQeFA3/03a
-ocUsDQf+MzovJEb2dg7/IVoqkcsWktNipBVWqti1q0SzAim/n4IZOlirx8H9AIrL
-fJ2XTMTWXnBwILjIocXuJFYRVnOqvycj24bKxfPxDFf1+FUdmi5fH7DfpLkhdYCS
-2eODnHijf63nwjWWd5b/IlljdDtaD5G3B60dNiZ7lFqGsS1gC/qlSCJhU9L2N4UE
-o6+uv9mTZMDGIS50sFRwLHPQmLTCeERT2BISZEvUx2tja3oRyUcn6mDj78qeiTFy
-5GNg5n2ReMybSVjkK07jlToFJtVy1A+WRU+3BVURyB0vfoaOywcPwj2px8GqUF2Q
-nheY0QtC2h8bZvny4IEeWB6TcsLDuw==
-=T+fL
+iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAme1ztEACgkQeFA3/03a
+ocU2GAgAi1f9EhPjwB6NYTSl71jogLZMg16q4DlOdHT5/QC1eZtxXbrJF0fqBJ9b
+ZYymKkMVy3nlmcL75k/CoKlQFQyDLmJ5QG/bb2TsI8P+WvTTkW/njLa9K84ZC2cB
+rd3U/DxERcFfHZc2mCrJPIWsihlIHDcISg6dN14sjtv9EV1aSj4xufwmOxpqSmLO
+nyIjYvI3wPWsrxUCm78ukA02eDjmyPnXQwI5D7vANv4YSaoZf9PTYZ5l01iWgNw1
+mwKjV9GLgBtz4p1+5TJ/R6+JT01hf6lriq6oiPL4Uf6aWn8hJoUbrceEk6ZXCj9F
+sZJB9KYXRQpvgzQpYoLYwhSzkJ2YGA==
+=A04d
 -----END PGP SIGNATURE-----
 
---VPbxCdjMCaKD7rlG--
+--R4M0D4QEb5Wt72s2--
 
