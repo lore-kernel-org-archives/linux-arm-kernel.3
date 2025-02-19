@@ -4,105 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42959C021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:50:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBF19C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:51:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AspjgZU0NXlHOcDl8+7Gm7WhlKv9jpXd70aQl0fbvEo=; b=fSXAnqE2TFkpU7mNBFLizjjAHG
-	7ubDvTPHfae0tbN8udaOQRZegxgzPKxe2jMjJFUz+jdhPrxo2FPyKHOhVCK9jV0yjfjcAsgHY4C0E
-	0qmySAG4yqWe9YpssgIN6FzZIfwXDol6Y5S9RSgR/taW1ud6u1aOa5fDlYpwYatLoe/AqbfsbLviL
-	NNj1H0iN3ju/c0zJEyHDDGgfJYM6lbMAvJsq60GqfJNKp5N2YC79xG33Wed5UuY+fqXdDEzdwhaH1
-	hlPBsjPkVrphUiqBCKG9CqtqqkXPCC9II8GXK/O08a2VhnRanceW/7+h96PBJvvrj3d1dwWSdHB/W
-	jJ8HkSkQ==;
+	bh=NjYUiQEVRnh+LEW1joDithnJdGu+7HBvyyYwmr3syVc=; b=p/1//BCenxV5HuVG9mQvWBXqLf
+	KgAe5IDnWwvVocmOy+L/KZ4DarVGO2wpieqxXzI+SLVDJYjfyT/4XSlGrA03bcDkL/seX7QzH5Ke/
+	jIVgCIrWry1504yoeqw05rg0cTGP/+e0oKCAidvpjELUA+oGKvFEQWl+WRdm56SJj2Smolln4Qe5T
+	kpTvcoNvw3veuJ7RgKIlksiRF9KtwLV1o8Wr/TExMMCGfWwsTLd6zOxdo2+++3Z5au+/vDD/JzdXT
+	7L3Rzetkl09w8bff7LOBeWzqYY8xgAqMacTtwOmIWCXwZVQHzpbeskIP8J2wci8ZrjcB4YWA807R7
+	SS4oJY9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkq4v-0000000EjXz-0trp;
-	Wed, 19 Feb 2025 19:49:53 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tkq6N-0000000Ek4W-3d1C;
+	Wed, 19 Feb 2025 19:51:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkppe-0000000Ef1r-2aZi
+	id 1tkpqi-0000000EfM9-0Esu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 19:34:07 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51JB9ZZX031423;
-	Wed, 19 Feb 2025 19:33:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	AspjgZU0NXlHOcDl8+7Gm7WhlKv9jpXd70aQl0fbvEo=; b=i/OR+iNNCSj7q64M
-	ZndljuuOIPrB6j/Fpo1LxhYuqlVJMXtojSsDqHyQFtuN0fuTQDX4xpxg8Wg2jT0M
-	Bl+GE/YZS9aW7WMI5GSwRJT2U07Oo+2NV+qLpu6niVdE44vyD3nep8ZKMf4pKUHk
-	JbG/vuCT+o1SdIGGMSVBJe4BN3dsj0QwFwddc30/pgROIOVs7wTw9DmLwnsae677
-	vJ4RJiy/fS7uuQbjn4ZXCEa1179Ku97guBHzQ0rdeR6NJXn+HaV52jabk5M2vjMq
-	q/aYyfwsU0BBg8DaMOYwf6koCVmjnDhJnZNbCcEWxWO9YzA9v7MFZHTv7uyDNP4K
-	mt9CLg==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44we69hete-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 19 Feb 2025 19:33:53 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51JJXr9L023958
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 19 Feb 2025 19:33:53 GMT
-Received: from PHILBER.qualcomm.com (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 19 Feb
- 2025 11:33:47 -0800
-From: Peter Hilber <quic_philber@quicinc.com>
-To: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>
-CC: Trilok Soni <quic_tsoni@quicinc.com>,
-        Srivatsa Vaddagiri
-	<quic_svaddagi@quicinc.com>,
-        Peter Hilber <quic_philber@quicinc.com>,
-        "Xuan
- Zhuo" <xuanzhuo@linux.alibaba.com>,
-        =?UTF-8?q?Eugenio=20P=C3=A9rez?=
-	<eperezma@redhat.com>,
-        <linux-kernel@vger.kernel.org>, <virtualization@lists.linux.dev>,
-        David Woodhouse <dwmw2@infradead.org>,
-        "Ridoux, Julien" <ridouxj@amazon.com>, Marc Zyngier <maz@kernel.org>,
-        "Mark
- Rutland" <mark.rutland@arm.com>,
-        Daniel Lezcano <daniel.lezcano@linaro.org>,
-        Alexandre Belloni <alexandre.belloni@bootlin.com>,
-        Parav Pandit
-	<parav@nvidia.com>,
-        Matias Ezequiel Vara Larsen <mvaralar@redhat.com>,
-        Cornelia Huck <cohuck@redhat.com>, <virtio-dev@lists.linux.dev>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Richard Cochran
-	<richardcochran@gmail.com>, <netdev@vger.kernel.org>
-Subject: [PATCH v5 3/4] virtio_rtc: Add Arm Generic Timer cross-timestamping
-Date: Wed, 19 Feb 2025 20:32:58 +0100
-Message-ID: <20250219193306.1045-4-quic_philber@quicinc.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250219193306.1045-1-quic_philber@quicinc.com>
-References: <20250219193306.1045-1-quic_philber@quicinc.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: _P01MOAEurE50vWQg8Zm_Mj9kSECT_O8
-X-Proofpoint-ORIG-GUID: _P01MOAEurE50vWQg8Zm_Mj9kSECT_O8
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-19_08,2025-02-19_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 bulkscore=0
- phishscore=0 impostorscore=0 clxscore=1015 adultscore=0 mlxscore=0
- priorityscore=1501 lowpriorityscore=0 spamscore=0 malwarescore=0
- suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502100000 definitions=main-2502190151
+	Wed, 19 Feb 2025 19:35:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BCCCD6111F;
+	Wed, 19 Feb 2025 19:35:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD18AC4CED1;
+	Wed, 19 Feb 2025 19:35:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739993710;
+	bh=Fn3wSAWM9ieh5UpaveCtIUFgMyNxAkN0r0CDO0Ag7jA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=IJQiBSs/OxkI/b/fg3rkPfPtMCLTTVv1+aG2xhowPUN9D3oLnDGftbbGSRQhDcK7u
+	 ZcLPs7QbUi6hex3dZHv8ZcTTuYKe43MQKKJEJWI6m0L3rWuOoNs19gDePjWsUlv9IK
+	 4K1LrljQSvq2sWmYBMnJi78pR2ljKq5KuEn276r+zUpVGwHckYGN+eBBfGWyyxB9WW
+	 dy+lPHI0chP9BpNAf8WDxzQvRHBCHdsmYSjLZRRUniZ73Y0JyFgip+ImP0B+4vsZdi
+	 uQnRrAP+xenUMjLuMYizDAacCwiWVMd2z3BWAyMj2XCfTToNKZ76q1Jhu5+GoFRkh/
+	 c0S8kF2n00l1Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tkpqe-005wOm-Se;
+	Wed, 19 Feb 2025 19:35:08 +0000
+Date: Wed, 19 Feb 2025 19:35:08 +0000
+Message-ID: <86zfihramr.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH v2 07/14] KVM: arm64: Use a cpucap to determine if system supports FEAT_PMUv3
+In-Reply-To: <Z7YvkHpm3w__HnkO@linux.dev>
+References: <20250203183111.191519-1-oliver.upton@linux.dev>
+	<20250203183111.191519-8-oliver.upton@linux.dev>
+	<864j0psuas.wl-maz@kernel.org>
+	<Z7YvkHpm3w__HnkO@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mizhang@google.com, coltonlewis@google.com, rananta@google.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, j@jannau.net
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_113406_653435_D80FC1BF 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20250219_113512_156312_CD3139BF 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,101 +97,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add PTP_SYS_OFFSET_PRECISE2 support on platforms using the Arm Generic
-Timer.
+On Wed, 19 Feb 2025 19:22:56 +0000,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> On Wed, Feb 19, 2025 at 05:44:59PM +0000, Marc Zyngier wrote:
+> > > +static bool has_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
+> > > +{
+> > > +	u64 dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
+> > > +	unsigned int pmuver;
+> > > +
+> > > +	pmuver = cpuid_feature_extract_unsigned_field(dfr0,
+> > > +						      ID_AA64DFR0_EL1_PMUVer_SHIFT);
+> > > +	if (pmuver == ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
+> > > +		return false;
+> > > +
+> > > +	return pmuver >= ID_AA64DFR0_EL1_PMUVer_IMP;
+> > 
+> > Given that PMUVer is a signed field, how about using
+> > cpuid_feature_extract_signed_field() and do a signed comparison instead?
+> 
+> I'm happy to include a comment, but the PMUVer field is not signed. Any value
+> other than 0xF is meant to be treated as an unsigned quantity.
+> 
+> DDI047L.a D24.1.3.2 is where this is coming from.
 
-Always report the CP15 virtual counter as the HW counter in use by
-arm_arch_timer, since the Linux kernel's usage of the Arm Generic Timer
-should always be compatible with this.
+Duh, you're of course correct. Ignore me.
 
-Signed-off-by: Peter Hilber <quic_philber@quicinc.com>
----
+	M.
 
-Notes:
-    v4:
-    
-    - Update names and types to spec v6.
-    
-    v2:
-    
-    - Depend on prerequisite patch series "treewide: Use clocksource id for
-      get_device_system_crosststamp()".
-    
-    - Return clocksource id instead of calling dropped arm_arch_timer helpers.
-    
-    - Always report the CP15 virtual counter to be in use by arm_arch_timer,
-      since distinction of Arm physical and virtual counter appears unneeded
-      after discussion with Marc Zyngier.
-
- drivers/virtio/Kconfig          | 13 +++++++++++++
- drivers/virtio/Makefile         |  1 +
- drivers/virtio/virtio_rtc_arm.c | 23 +++++++++++++++++++++++
- 3 files changed, 37 insertions(+)
- create mode 100644 drivers/virtio/virtio_rtc_arm.c
-
-diff --git a/drivers/virtio/Kconfig b/drivers/virtio/Kconfig
-index a14a2b77e142..3d8b366c0625 100644
---- a/drivers/virtio/Kconfig
-+++ b/drivers/virtio/Kconfig
-@@ -221,6 +221,19 @@ config VIRTIO_RTC_PTP
- 
- 	 If unsure, say Y.
- 
-+config VIRTIO_RTC_ARM
-+	bool "Virtio RTC cross-timestamping using Arm Generic Timer"
-+	default y
-+	depends on VIRTIO_RTC_PTP && ARM_ARCH_TIMER
-+	help
-+	 This enables Virtio RTC cross-timestamping using the Arm Generic Timer.
-+	 It only has an effect if the Virtio RTC device also supports this. The
-+	 cross-timestamp is available through the PTP clock driver precise
-+	 cross-timestamp ioctl (PTP_SYS_OFFSET_PRECISE2 aka
-+	 PTP_SYS_OFFSET_PRECISE).
-+
-+	 If unsure, say Y.
-+
- endif # VIRTIO_RTC
- 
- endif # VIRTIO_MENU
-diff --git a/drivers/virtio/Makefile b/drivers/virtio/Makefile
-index 88d6fb8d4731..dbd77f124ba9 100644
---- a/drivers/virtio/Makefile
-+++ b/drivers/virtio/Makefile
-@@ -17,3 +17,4 @@ obj-$(CONFIG_VIRTIO_DEBUG) += virtio_debug.o
- obj-$(CONFIG_VIRTIO_RTC) += virtio_rtc.o
- virtio_rtc-y := virtio_rtc_driver.o
- virtio_rtc-$(CONFIG_VIRTIO_RTC_PTP) += virtio_rtc_ptp.o
-+virtio_rtc-$(CONFIG_VIRTIO_RTC_ARM) += virtio_rtc_arm.o
-diff --git a/drivers/virtio/virtio_rtc_arm.c b/drivers/virtio/virtio_rtc_arm.c
-new file mode 100644
-index 000000000000..211299d72870
---- /dev/null
-+++ b/drivers/virtio/virtio_rtc_arm.c
-@@ -0,0 +1,23 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Provides cross-timestamp params for Arm.
-+ *
-+ * Copyright (C) 2022-2023 OpenSynergy GmbH
-+ * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
-+ */
-+
-+#include <linux/clocksource_ids.h>
-+
-+#include <uapi/linux/virtio_rtc.h>
-+
-+#include "virtio_rtc_internal.h"
-+
-+/* see header for doc */
-+
-+int viortc_hw_xtstamp_params(u8 *hw_counter, enum clocksource_ids *cs_id)
-+{
-+	*hw_counter = VIRTIO_RTC_COUNTER_ARM_VCT;
-+	*cs_id = CSID_ARM_ARCH_COUNTER;
-+
-+	return 0;
-+}
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
