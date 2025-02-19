@@ -4,70 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D83C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 01:06:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B8CC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 01:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=exNED4G2Car6wsxXN9whsq4jxw9tN1sQJRhqHQV+x+4=; b=GFrugDlaRKDvCm4wSHq9AfSnzY
-	BpQ0X7tI4XzPRyoE93/GjDdMqMSk5Lfw9CAIoyTl8YX1JFDJ77xBibK5HyZPTRQHxzGvn1AEgTouk
-	AL4/6MQx9wXcyrFKwAgdBBSOKyivjCRUDEhKtptl+SUzdJFDDa/mEqCORvWNsKoRYvddukadSYzbX
-	WFRuU8y6YuCst5S27dFWAmQEz6UnMJB0rVug749+mVqLtlWIxcRESYsiTwzWrL501ljA7LCJO1wVj
-	JLPYl5ZD9x6hHN2EFkXFW7KZfh3VoquLm7fZ/YJSidZvsgyLTQhdDQe2B1P5XsfTirn5P4sc9ZgT0
-	vs24gCTw==;
+	bh=uDC+tT7XkniApw7Qz4nb7pGCfuxcDQ4E8WCpWA3sh6E=; b=hSj548GaAZdGt7bMVgvPJ69bSh
+	eLPJ77IH0KTHoyMTdMv4Ii3mqPSzV4ZoCh8SC6hHiQkanfuvoTO4DGhr1rGkC8W1RxNVfeYh6p754
+	NMfQwBVU3xAjJPVkHeSljreLF6246hBrAbhej7sJTj7NMe7r8h0dkMiDDeZMJvUPMS/i93xT9hBK4
+	AdGsatHSXS4REw9fbnKkS/vMPAiheP1oFdDW32E8dL7V03M9m++Ok2Z5/J9Mh+nnlAeFpv7arQevv
+	YhKuBdHTgVAI1zceetQCDR5M3j4GgN//RaxK/0deNhHUDmBB785pAr8IcunTxB4wRqw6ClEmEB/bN
+	8dQ/0/3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYXX-0000000ATcO-2WkZ;
-	Wed, 19 Feb 2025 01:06:15 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1tkYcV-0000000AUjR-0jsa;
+	Wed, 19 Feb 2025 01:11:23 +0000
+Received: from mo-csw1121.securemx.jp ([210.130.202.132] helo=mo-csw.securemx.jp)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkYW3-0000000ATGB-1CG8
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 01:04:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1739927074;
-	bh=exNED4G2Car6wsxXN9whsq4jxw9tN1sQJRhqHQV+x+4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ck4KNK93oNFOKpL0t5ECzFTFAm6r2CgNMF/Tb2zwmGPh+HR2xnErZiTYVLNQdKXgL
-	 b9boyAHmUkwvivRGZstj7UDqgmciRPlIeOtoimn3N5XRZQ6R9oBC/M0ly8Sc4ufX5l
-	 iiiJ5a4lHOH+MruCaCiyuLeZVijM6HV5+Pg33m1vdW4PDBYkBQrD/Wo08jABrGmPCY
-	 PWJg87ONt1ShjPxtzyysKYv9nhK5UScccXz6DNKMPRPZhquFavdn9I6NnhsNA3ixmE
-	 1abdUpm6UGviduDtzScA7R5JClHHRENS8TC1ThX8eHK0db+PRcKwQ7Naofn8YS3cQ8
-	 KFDL8tsJqlCCA==
-Received: from [192.168.68.112] (203-173-1-6.dyn.iinet.net.au [203.173.1.6])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id CF2B976191;
-	Wed, 19 Feb 2025 09:04:31 +0800 (AWST)
-Message-ID: <d4945482509cad0bf3e8cd93c1fb21bac2e0c7f2.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v1 3/3] soc: aspeed: lpc-pcc: Add PCC controller support
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Kevin Chen <kevin_chen@aspeedtech.com>, "joel@jms.id.au"
- <joel@jms.id.au>,  Z-ChiaWei Wang <chiawei_wang@aspeedtech.com>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>, 
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, Mo Elbadry <elbadrym@google.com>
-Cc: "tomer.maimon" <tomer.maimon@nuvoton.com>, Krzysztof Kozlowski
-	 <krzk@kernel.org>, "lee@kernel.org" <lee@kernel.org>, "robh@kernel.org"
-	 <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
-	"conor+dt@kernel.org"
-	 <conor+dt@kernel.org>
-Date: Wed, 19 Feb 2025 11:34:31 +1030
-In-Reply-To: <PSAPR06MB4949C65DF5C034BD6B40C9B589FA2@PSAPR06MB4949.apcprd06.prod.outlook.com>
-References: <20250217114831.3225970-1-kevin_chen@aspeedtech.com>
-	 <20250217114831.3225970-4-kevin_chen@aspeedtech.com>
-	 <e43b5f8f-37e4-4468-b3ca-5059a5e6f3c3@kernel.org>
-	 <6fd7cd57261ddf9831f57dc4c637b24e9f8982d9.camel@codeconstruct.com.au>
-	 <PSAPR06MB4949C65DF5C034BD6B40C9B589FA2@PSAPR06MB4949.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1tkYb0-0000000AULo-227q;
+	Wed, 19 Feb 2025 01:09:52 +0000
+DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=toshiba.co.jp;h=From:To:CC
+	:Subject:Date:Message-ID:References:In-Reply-To:Content-Type:
+	Content-Transfer-Encoding:MIME-Version;i=nobuhiro1.iwamatsu@toshiba.co.jp;s=
+	key2.smx;t=1739927306;x=1741136906;bh=/DuUHd+8W6EL3IO5NL4KhN4wsdwUTejoUg0q7J8
+	tIW0=;b=pDI8rxlW9+axpoWDM8XKaC7c55BH8OgGi0mbHn/m+0OQkyEJPr//aNa8tUITRU3KuUXEp
+	4wZD6KFd34ILUdy4i/38J8zWvHoXNwygMQVD7lYKNXrG7127opba/o9p7Rip2sJSSmo+yZVsSu+wl
+	4IlYIVGzhoYlzof/eqCEgvVXsOWdPTmtwxJ4fic49c5HMeVlJaUyi1pxgHxHNVNC9m5osMAvnGPHV
+	UcAOTR5zUcbm109QbQrVcbRwdxZad85mML9jpszuz466SS//INftAoLfO6hpIiDK66q0w0JDnViVI
+	ujf4+ycED2yXlJ0xInvL3LONW1+fwbmW8PAtcrhvmQ==;
+Received: by mo-csw.securemx.jp (mx-mo-csw1121) id 51J18LTr1878164; Wed, 19 Feb 2025 10:08:21 +0900
+X-Iguazu-Qid: 2rWh5b6vEriFFozwnf
+X-Iguazu-QSIG: v=2; s=0; t=1739927300; q=2rWh5b6vEriFFozwnf; m=0OqiI5jTZ9a9Cog/KS94MmzYsoqhjgBOVtmUTlafafY=
+Received: from imx2-a.toshiba.co.jp (imx2-a.toshiba.co.jp [106.186.93.35])
+	by relay.securemx.jp (mx-mr1121) id 51J18CAQ2805251
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 19 Feb 2025 10:08:13 +0900
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RgUcOperGeecuelJrbnfT+a9wNM+yYVeJv1b6mf1mq6tYcVda2dDw5/vmGlksTDPwmbI37vmWfHgCQ/yusCMDj9m0n2TaIIiF8hpd3LqFOHHBde6qLOgNrIXHJciSgr7pp5iwHQjsYIrIXZRifSxd/YSOd/WWUULaKHvlpU+uqPneb88zmCq/EcZVdJDWAgxsVhCRefQnfBJQrgZeo5LjGgwXK/OKx0CoYKPb6rAFadno/IG1aB3OBXm3mi4Mc6ZhwuqACh9ffBM77KzQ8wNt/RD98sf1oXUpHDWH5xv/18HJpC22XE1biODdPD8b6z+QboNi6qrSZ9eQjfZ+HF2aA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uDC+tT7XkniApw7Qz4nb7pGCfuxcDQ4E8WCpWA3sh6E=;
+ b=Riy0/Tva1ebC3HuxdUiNJVBf6TrjiG+F/ErEsNQNdpgvw4Z8Twi0V6FEBxmBIR/2VMyxBYeZLovl3gVdy0W2CCO7gcUDCXuwSxfNj/AwmEUmC1tBnpBr9bX2WEarzd1NfZaPh/TglvCWewQ0I+M95e+z6A6LLHk3994pq6YxtElDjz6YSgeO5bo+8N8tq5B0dGZOW+SjuasIEp2eI7+FYmiThoo1WbG6tvJuNkcUBm/LFCKqAF+ePKMEWLRlGSM8TxHCQo3krE2fOOY/HjeDz1sKye8YrXWZxneWPaEUCkv8X2fPYMwHW6t8Arno2ac4CigzlkNzq76K6QhB+XJ0Xg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=toshiba.co.jp; dmarc=pass action=none
+ header.from=toshiba.co.jp; dkim=pass header.d=toshiba.co.jp; arc=none
+From: <nobuhiro1.iwamatsu@toshiba.co.jp>
+To: <rmk+kernel@armlinux.org.uk>, <netdev@vger.kernel.org>
+CC: <alexandre.torgue@foss.st.com>, <andrew+netdev@lunn.ch>, <wens@csie.org>,
+        <davem@davemloft.net>, <drew@pdp7.com>, <kernel@esmil.dk>,
+        <edumazet@google.com>, <festevam@gmail.com>, <wefu@redhat.com>,
+        <guoren@kernel.org>, <imx@lists.linux.dev>, <kuba@kernel.org>,
+        <jan.petrous@oss.nxp.com>, <jernej.skrabec@gmail.com>,
+        <jbrunet@baylibre.com>, <khilman@baylibre.com>,
+        <linux-amlogic@lists.infradead.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-sunxi@lists.linux.dev>, <martin.blumenstingl@googlemail.com>,
+        <mcoquelin.stm32@gmail.com>, <minda.chen@starfivetech.com>,
+        <neil.armstrong@linaro.org>, <s32@nxp.com>, <pabeni@redhat.com>,
+        <kernel@pengutronix.de>, <samuel@sholland.org>,
+        <s.hauer@pengutronix.de>, <shawnguo@kernel.org>, <vkoul@kernel.org>
+Subject: RE: [PATCH net-next 3/3] net: stmmac: "speed" passed to fix_mac_speed
+ is an int
+Thread-Topic: [PATCH net-next 3/3] net: stmmac: "speed" passed to
+ fix_mac_speed is an int
+Thread-Index: AQHbge+CfUtCStFMKEKPJ5/hgZXK4LNN0PWw
+Date: Wed, 19 Feb 2025 01:08:07 +0000
+X-TSB-HOP2: ON
+Message-ID: <OS7PR01MB14808749371CD77CE68E9081B92C52@OS7PR01MB14808.jpnprd01.prod.outlook.com>
+References: <Z7Rf2daOaf778TOg@shell.armlinux.org.uk>
+ <E1tkKmN-004ObM-Ge@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1tkKmN-004ObM-Ge@rmk-PC.armlinux.org.uk>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=toshiba.co.jp;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OS7PR01MB14808:EE_|TYCPR01MB11899:EE_
+x-ms-office365-filtering-correlation-id: 02ad36e2-fbc3-470c-de11-08dd5081df04
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018|95630200002;
+x-microsoft-antispam-message-info: =?iso-2022-jp?B?cGUrMStTaEJSNXEwRGxPcWxIcWxXWVI3WjdYeGdaTUh5RUpISzBDSFN0?=
+ =?iso-2022-jp?B?V0I0NTRtc2FKZFpqK2x5WE0zNzJqMUlEV3hORGtJcXV3dWFnSzF3KzY3?=
+ =?iso-2022-jp?B?MlVvNC8rVGFlMVF1Z1Y3ZWpPYnVNWkJvbUtSRmVaNHljb2dBcDFoM0Np?=
+ =?iso-2022-jp?B?UTBnbFZmK0FvOC9XRXZUalRVNEhpc3NVbzFFMVlSL1orRkVBTDQyKzhM?=
+ =?iso-2022-jp?B?NEtiYjloTzNLMGhwVlJ4V2llTS9ObEVlTXZ0ZnVpZkZ1U2QxOG9IamdV?=
+ =?iso-2022-jp?B?TjVHNTNnZFIrdmFPTHZQQmZWc0w2ZjR2RDNJQTJQYWovajJUUlNKUE9R?=
+ =?iso-2022-jp?B?RWZwRWd2MXNOaS9kM1k2SmxSWnlOU29wa1BrZXdvc3VtMWpacG1DTkE5?=
+ =?iso-2022-jp?B?ZU5XbUpJT1RmOVBGeDFYTHRNbkh0TkdBRWpybEFjc3hJWWV1d0pkb2Y4?=
+ =?iso-2022-jp?B?RVJQSFprMVgzcEtzVHN5VmhyQkpMRXp1dGFjay85TzgzcUUwa2FmbzE4?=
+ =?iso-2022-jp?B?c3MvSzVwR25lb3FZYTE2bnJUbzdzdFVHYmFsWUd1YkE5T0J6Z1Y5SzQ1?=
+ =?iso-2022-jp?B?R0dQNStpZHR4WU9XUlZ6Nm0waVpsTFJRZm1vN3dMeDhJR0p0VEFoYXpk?=
+ =?iso-2022-jp?B?U3VaOWs1VGxhdysrVFB2ZHEvaW5qaDBQV2krYzlBbys4NHhpU2tKK0g2?=
+ =?iso-2022-jp?B?VWpBZ1Y1TUw3cUxJVkkvZXNqdXpNS2xBaTNzMzRiMk9kWmJYRFhidW5m?=
+ =?iso-2022-jp?B?OXV5aXM4M3oydnF4WUZ6alNFZ0RXKzdkanVBcW5wMkJNbUtsWGwvUG5D?=
+ =?iso-2022-jp?B?M2IyeDNmVlFqTWNMeWp4Q0VYWGdMeVROd2I5ZzhTeWJQV2lKQ3dXVjQy?=
+ =?iso-2022-jp?B?VGNTYkF0aTJoQ1pRQi9RV0JYUXFLOHd2ZlF6RTVLbkdkYmNDWVRnV2JD?=
+ =?iso-2022-jp?B?MllQS0R5SVdQT3o5ZEF3Rnc2ZWR1alN4TWJMa2ZnTlNwNHh6UGVXVVhh?=
+ =?iso-2022-jp?B?aXpaMjVaWEhXaWpKUUd1a0NocW9CN3RRTkN6SmR1OElGQjd2WDhlakh3?=
+ =?iso-2022-jp?B?UEJzLzFhWUUrRTkxdXRrR3Vkc2dNZGxqQkpXUWZVMUJzRy9veEZqZVVy?=
+ =?iso-2022-jp?B?RVo1Sm41Mnk1MUZ2MUdvdFhCSU5Zb0RMMWp1Y0JFUEFKaVZLTmdFN3h3?=
+ =?iso-2022-jp?B?MHBYV1JsdFhYSGFucmpUMlNJY3F4SlUzOFJTalZsOFV3UEZ0cDI3S1Ju?=
+ =?iso-2022-jp?B?ckhkd0s2RlhTY0VkWHlmbnNZTS9oUVNSQXVMaUpuK0xlWkY4aDhRL0ZP?=
+ =?iso-2022-jp?B?dFcxc0RRNE1qaFRJTjhUMjFsc3lMYlE3MytCVnQ4SzVTVW5IdGlUYTJQ?=
+ =?iso-2022-jp?B?MjJraWRMSmtSVmZDSnVuTGNkK3EzWWlNT012Z0pWMUJOdHFDZUF4d1V3?=
+ =?iso-2022-jp?B?bjM5N05kQkhRay9qWlRwbzE5VytoakpRV2ZJWUZmNkF3MVRlK1R4YXVo?=
+ =?iso-2022-jp?B?cW1HRjhvcTd3V0VFU0x4L3AySDNlYWNwd1lBYkNZV2tXcFNSVlgvT1ZQ?=
+ =?iso-2022-jp?B?cDdHUEtiZkhiRjc5eFV6VjhtVmNUVXgxYzdoTk1xZU9wYnJ0dFhLcU01?=
+ =?iso-2022-jp?B?UlhSQ3lqOGNuMklTdmJPUkw5bHdNL0ZRc0phTzQwMStSWWF1L1Q5SGdO?=
+ =?iso-2022-jp?B?VFljcXhQVEVqVEZxV3dFNG1MWmhnU3c5WEFoM0R4RXpzR0JXRk1KMDZj?=
+ =?iso-2022-jp?B?aFp6WndlZW5wRVRyYlIyak9Fdkt5UlljbWpFbzNla0Rub3cza0lIaG9I?=
+ =?iso-2022-jp?B?MHpRTTc5cTR4MkZtYlBIWEVoNlN6U3NUbXBmcDh2ZzJBK0hqS1hXbXlD?=
+ =?iso-2022-jp?B?d2FZaFhMY3hRRjdqclIxanBab3pMd0t2UkE2OG8vWW12QmRCbmZ4WmdV?=
+ =?iso-2022-jp?B?RmU1cHpGempIZmlLS3U2R1JaSEI0SGNXZW94cURKVEExWXR3K0lxUDgx?=
+ =?iso-2022-jp?B?Z2RzRHl4a2NDRUJNblZzaWhaMCtiUGRpY1NMYkV5a3ZCRVNxSUY3ekZS?=
+ =?iso-2022-jp?B?NnBvYmEyTDQ5c29Ca1ppNEdNL2RaMTl0WWtMT2FaeXkrV2NNYVM1NytH?=
+ =?iso-2022-jp?B?a2dzNHFIL3lRck1rY3d4dEdhKzhmUzZBPT0=?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OS7PR01MB14808.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018)(95630200002);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?aVA3bUZRVmVtbUg1SlZiNjFsTXlqVUpQM1RjazQzYUZWR3BCUktBZ1dX?=
+ =?iso-2022-jp?B?L0s2cStRLzNldDlGMk1PUXJHRHVaYzl1cjRVSGx3WGd6VW1XVStrREhu?=
+ =?iso-2022-jp?B?WXpYc05GRm11RkphSG5pTkVRemo0b1NiZTFuZXNOVktrM0xiTWxRUkZa?=
+ =?iso-2022-jp?B?S0U0dm1neXRLRVdKelhUenh2dEVWNEhHem9ENVVwR3duTTI1a3J5cElX?=
+ =?iso-2022-jp?B?NHN4c1lSOFEwcmlKMVhxZ0hPeDJVQVNVZ3ZGTWVIRkZETDlJTTRobS9X?=
+ =?iso-2022-jp?B?RjNBRGhkdVhjUnQzbkJBU2RjdU9EdmtMbGd2ZWdrK1ZUNzk5M3VKeEFD?=
+ =?iso-2022-jp?B?cW5YL243emRlYjc3WDlkREVuWWpIMlBxc1NIS0Y0UHdYTVdNSDRPeTVl?=
+ =?iso-2022-jp?B?V1h0L2hRdFFGdlRJMmVCTGhackVpMWZSTzdyWklkT041MTJsMVRqUFBC?=
+ =?iso-2022-jp?B?Y2RnYjNRYVNhUnl3M1QyVlcrRHlHdk1VdlQ2MnZWWjdMdEYwbkZVc092?=
+ =?iso-2022-jp?B?SE92TlU2cWRzQnl1TEZocCtrd05KTURPaDdPTXI2TkRPM0JwTzlSaUZX?=
+ =?iso-2022-jp?B?NkFYb2U4VWxvTUxFcXBWV3VpbDd6YmRIeXhOaVJ4b1AyMnExZWEwMzBN?=
+ =?iso-2022-jp?B?c3BmUzg5MGkrcDBKamZRQXZNWjdaMDR1enpVUk4xbDM0OUoxSWpxWGlh?=
+ =?iso-2022-jp?B?QWZMYWYrQ0cxOGZnQ0RJcEVPUjJJOFNKcTdtNVNDZ1RZRFI5SjNjMFV2?=
+ =?iso-2022-jp?B?M2FBZ2lIZExWRFlaNzEvZHRrbVVkM2xRaXk4c1FWdzZrR2RGdk5aVFJq?=
+ =?iso-2022-jp?B?UU5VYWlMVXVJVFlWdUtWN2hPbmxHUUR6UjNVcmlYMytsckNPVzVBRllR?=
+ =?iso-2022-jp?B?cTFKb3pveDJQS0FKNmpQdHdyNDZYNzFtSkl1VEsvbFlxSnh2ay9SalFm?=
+ =?iso-2022-jp?B?Z3h1WHBhK05UZUpyL1NqTnRwOTVhcEFZSGkyNlpMdzJGVG1iNTZWcG8v?=
+ =?iso-2022-jp?B?MGhuR3YrVUJzbWpIaUg0OHdjSFlJVmNTOUdJYVNacjBlVWRld05lb3h1?=
+ =?iso-2022-jp?B?OFkwQ0d0cjh6a00yTzVSNnFxSUFRc3FidDVURjd3UEJJQU5NTUFkUkRa?=
+ =?iso-2022-jp?B?R1JaaENLaDg4SXkyeUROcXM4Rm55Y25XcUx4UmxKUEYwSTU2SEhtWjQ5?=
+ =?iso-2022-jp?B?cG1SVUovL21KSmNnNWhwWEpkbWZRM1ptOE1pUVFrdzBCb2MwZkJHVkZn?=
+ =?iso-2022-jp?B?RlNmTFZTM0x0TTk2akw0UnlEUnVZditMTzNsM2QyT0tNbWZZcEcvL3ZU?=
+ =?iso-2022-jp?B?Um4zazZOaWZwTlJUMnVBR2wwMVJseXV2QWdGMndKTVc5aHZyZmd3blV3?=
+ =?iso-2022-jp?B?R08vUks1UXZHbk9iY2cyb0w1MEsrOG91WGgvUGkzQXlUcEc0bmRaNGFT?=
+ =?iso-2022-jp?B?alhyWWtPdDEvU0FYN2dlUEYxczUwNzUreG1mMWVzeElSelJlditLTVFo?=
+ =?iso-2022-jp?B?SEpvYVl6Nk14bkplZzJ3RkZiSHU3ODhMQVRUWk9uaXZMUmVrbit4S1VB?=
+ =?iso-2022-jp?B?WkMrMHlhMVZxTGkzTUpvRjRnSzJ6WVhYV0kxbWU0aHUxZ3dIaHM1QUVy?=
+ =?iso-2022-jp?B?cTlMelVVcXRyLyt3SFNUSnNaa3Rlb1ZXZDZyUGMxY0VlUTNNcjc2K00y?=
+ =?iso-2022-jp?B?SWt1Z3JTSmFCalVnM29VaGRpSjhlWEJ2bVd5K0N3UTdlVUsyM1dnMkdI?=
+ =?iso-2022-jp?B?cnZlTUF1WHhIYWN5MjNzVkVTR2FNdXQ3MW9WUkkzQ0o1YURnaXBibEhw?=
+ =?iso-2022-jp?B?WU81UDhPRFUvdUMzZHRKWTRXSW1TaFhDVGMvWmJ0N1JFRCtRTVRtRHR6?=
+ =?iso-2022-jp?B?aS9jaEI0UEFzZkhSbGExNTRwTVNhMGJVa0dSSkdSN3JWZ0s2RERvMThG?=
+ =?iso-2022-jp?B?MFFXQUlMbi9FaUFPd1dRcHp3SGdyTTViZnVXaGVoS21lWFNaUlFzUXpL?=
+ =?iso-2022-jp?B?QjhHcU5hWHpGb1hKNEF1UTVmR2Rici9RRkh2NERoQ1pTdHcyYmVUZnkx?=
+ =?iso-2022-jp?B?RUlwS0F4RU41UklENEN5MlJKbTVnWWk5enExeVl3ZFFkVENxNm43L1lt?=
+ =?iso-2022-jp?B?dEpiS05mK3pEdXZPenhPK21UeHhjY3FENU0wMmR5VFM4R1hjZUNsY0d4?=
+ =?iso-2022-jp?B?YWRrNU9JcU1VNlNoUFhYOG9vY0czdFhXWDNNazZuMndIeVdZdjdmOVlB?=
+ =?iso-2022-jp?B?czZyU3VYdFFrd1pmL1lieWJiODNWZndNNExmSGJWNXRHQ1pYT2xONjBH?=
+ =?iso-2022-jp?B?aFhmSlFFV1lVVDR5K01wM3N2Tk8ybE0rWU5YY1YvdVc5QXZQQ2o3aFFW?=
+ =?iso-2022-jp?B?Z1JRLzQ9?=
+Content-Type: text/plain; charset="iso-2022-jp"
 Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
+X-OriginatorOrg: toshiba.co.jp
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OS7PR01MB14808.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 02ad36e2-fbc3-470c-de11-08dd5081df04
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Feb 2025 01:08:07.8617
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: f109924e-fb71-4ba0-b2cc-65dcdf6fbe4f
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ODg4BE6ZT0/QrV8V7IY33etRHltntRY4Iw3ujHhPv+a4PM/41d6DpWWeaeHrOzfIgJIlcvplwrFixXalGvVG/iPagxP6xtPHvfR7ctYQA2gHHMA7SYnxurBuR4sjUzws
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB11899
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_170443_529173_74C84681 
-X-CRM114-Status: GOOD (  17.92  )
+X-CRM114-CacheID: sfid-20250218_170951_221037_CB8CCC8C 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,77 +201,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-02-18 at 11:11 +0000, Kevin Chen wrote:
-> > On Mon, 2025-02-17 at 13:00 +0100, Krzysztof Kozlowski wrote:
-> > > On 17/02/2025 12:48, Kevin Chen wrote:
-> > > > +
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pcc->mdev.parent =3D dev=
+Hi Russell,
+
+> -----Original Message-----
+> From: Russell King <rmk@armlinux.org.uk> On Behalf Of Russell King (Oracl=
+e)
+> Sent: Tuesday, February 18, 2025 7:25 PM
+> To: netdev@vger.kernel.org
+> Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>; Andrew Lunn
+> <andrew+netdev@lunn.ch>; Chen-Yu Tsai <wens@csie.org>; David S. Miller
+> <davem@davemloft.net>; Drew Fustini <drew@pdp7.com>; Emil Renner
+> Berthing <kernel@esmil.dk>; Eric Dumazet <edumazet@google.com>; Fabio
+> Estevam <festevam@gmail.com>; Fu Wei <wefu@redhat.com>; Guo Ren
+> <guoren@kernel.org>; imx@lists.linux.dev; Jakub Kicinski
+> <kuba@kernel.org>; Jan Petrous <jan.petrous@oss.nxp.com>; Jernej Skrabec
+> <jernej.skrabec@gmail.com>; Jerome Brunet <jbrunet@baylibre.com>; Kevin
+> Hilman <khilman@baylibre.com>; linux-amlogic@lists.infradead.org;
+> linux-arm-kernel@lists.infradead.org; linux-arm-msm@vger.kernel.org;
+> linux-riscv@lists.infradead.org; linux-stm32@st-md-mailman.stormreply.com=
 ;
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pcc->mdev.minor =3D MISC=
-_DYNAMIC_MINOR;
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pcc->mdev.name =3D devm_=
-kasprintf(dev, GFP_KERNEL,
-> > > > "%s%d",
-> > > > DEVICE_NAME,
-> > > >=20
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0pcc->mdev_id);
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0pcc->mdev.fops =3D &pcc_=
-fops;
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0rc =3D misc_register(&pc=
-c->mdev);
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0if (rc) {
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0dev_err(dev, "Couldn't register misc
-> > > > device\n");
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0goto err_free_kfifo;
-> > > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0}
-> > >=20
-> > > You cannot expose user-space interfaces from SoC drivers. Use
-> > > appropriate subsystem for this with proper ABI documentation.
-> > >=20
-> > > See:
-> > > https://lore.kernel.org/all/bc5118f2-8982-46ff-bc75-d0c71475e909@app.=
-f
-> > > astmail.com/
-> > > and more discussions on LKML
-> >=20
-> > Further, drivers/misc/aspeed-lpc-snoop.c already exists:
-> >=20
-> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/comm=
-it/?id=3D
-> > 9f4f9ae81d0affc182f54dd00285ddb90e0b3ae1
-> >=20
-> > Kevin: Did you consider reworking it?
-> Andrew: No, I do not rework it but add the post code capture driver
-> using the SNOOP registers. As a result, I add some code in
-> aspeed_a2600_15 to check the SNOOP enable bit. PCC driver probe abort
-> if snoop is enabled.
-
-Hmm, I think OpenBMC's history regarding POST code support caused some
-confusion on my part. For whatever reason, the snoop device was used as
-a source of POST codes despite the existence of the dedicated POST code
-hardware since at least the AST2400, but...
-
-> PCC is used for port I/O byte snooping over eSPI.
-
-... it seems that they're largely interchangeable, just with different
-hardware features (PCC has DMA)? My impression is that the snoop device
-could also be used over eSPI?
-
+> linux-sunxi@lists.linux.dev; Martin Blumenstingl
+> <martin.blumenstingl@googlemail.com>; Maxime Coquelin
+> <mcoquelin.stm32@gmail.com>; Minda Chen
+> <minda.chen@starfivetech.com>; Neil Armstrong
+> <neil.armstrong@linaro.org>; iwamatsu nobuhiro(=1B$B4d>>=1B(B =1B$B?.MN=
+=1B(B =1B$B!{#D#I#T#C""#D=1B(B
+> =1B$B#I#T!{#O#S#T=1B(B) <nobuhiro1.iwamatsu@toshiba.co.jp>; NXP S32 Linux=
+ Team
+> <s32@nxp.com>; Paolo Abeni <pabeni@redhat.com>; Pengutronix Kernel
+> Team <kernel@pengutronix.de>; Samuel Holland <samuel@sholland.org>;
+> Sascha Hauer <s.hauer@pengutronix.de>; Shawn Guo
+> <shawnguo@kernel.org>; Vinod Koul <vkoul@kernel.org>
+> Subject: [PATCH net-next 3/3] net: stmmac: "speed" passed to fix_mac_spee=
+d
+> is an int
 >=20
+> priv->plat->fix_mac_speed() is called from stmmac_mac_link_up(), which
+> is passed the speed as an "int". However, fix_mac_speed() implicitly cast=
+s this
+> to an unsigned int. Some platform glue code print this value using %u, ot=
+hers
+> with %d. Some implicitly cast it back to an int, and others to u32.
 >=20
-> >=20
-> > Nuvoton have a similar capability in their NPCM BMC SoC(s) with the
-> > "BPC"
-> > ("BIOS POST Code" controller). There should be some consensus on
-> > the binding
-> > and userspace interface.
+> Good practice is to use one type and only one type to represent a value b=
+eing
+> passed around a driver.
+>=20
+> Switch all of these over to consistently use "int" when dealing with a sp=
+eed
+> passed from stmmac_mac_link_up(), even though the speed will always be
+> positive.
+>=20
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
 
-This is still the case.
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-visconti.c    | 2 +-
 
-Andrew
+Acked-by: Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>
+
+Best regards,
+  Nobuhiro=20
+
+
 
