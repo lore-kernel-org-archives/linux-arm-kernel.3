@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF95DC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 23:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D87C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 23:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dqGmOu/NS7eKBytFNGFBFNPW8aULJSlltgkG1iMsqPY=; b=boL9gbgsWgTdbPCZgmGkjdS5DM
-	t6N5VCrw6qEFEtxWBR9unHRZK8/mfmMSKGHv06b1OKi8Zhm3DEbC0mlFMZNTi9KvqEoRRFWI+QZE0
-	FNpLc3n29c/iDzRlx2k//UWJHfhf77QFF90OQ+HNJKoBFMAQep/TeeeunEp9uRKv9s8vMsQGViYDH
-	kJWEFH8djF7dzmj1KfA2bsnctFsM4TY76OThSKfBgOGCLnxk8SoEQGqtbenAPCdI/17ShO/VSGARV
-	0y+Ao9Qh372SQpsIqCQ07KNB4XHHJTVvXLbt+aznUZnRKkJuhFUicevgvAZ1HvCVIiny/arESzg3I
-	diPMA8Pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OG4idGKQbVwHgpQyz+J8/2wpglVxoP2qx8x2Rw+fukA=; b=F4c0ea7njBeVWuNYJhbAIlSjRf
+	b5cjh8AYEHeXPSCSNw0piBAcshuK3GXSgONC6gRWBZUV+8xP2KcsLO2a57ieuMdPES1ndv2XGJx3o
+	uZR5iGapBjGVDuebhzba0x7FvErOASspEuHeO3z6WdfQmkcCpHxKAu8J1nzu7kRO5aDHOjsdlAFGN
+	d3J0fhgyhLNEuMwt21IUFv2/oX2MA2fO6Bnz28ShMrXqDiMYL0aJPiG2Xs+wVUusrt0FagvSuNW1w
+	hfPKPBWr+k7JH7+euP7QrdrFo5Emai+spfvYRuKaDDEbgESm13kD1dHNMd3uiuadZerWfKjHq1ojh
+	3nssCOGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tktGE-0000000FdMi-10ok;
-	Wed, 19 Feb 2025 23:13:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tktHg-0000000FdnC-3qwu;
+	Wed, 19 Feb 2025 23:15:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tktAv-0000000Fbjw-0Cud
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 23:08:18 +0000
+	id 1tktDC-0000000FcUP-2Fi4;
+	Wed, 19 Feb 2025 23:10:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3A50D5C5CC9;
-	Wed, 19 Feb 2025 23:07:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD660C4CEE8;
-	Wed, 19 Feb 2025 23:08:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6D35161147;
+	Wed, 19 Feb 2025 23:10:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EA85C4CED1;
+	Wed, 19 Feb 2025 23:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740006496;
-	bh=GKZJK7WiIJ2QEvEmtIG14TY2D1FypXvtO6KV8zDv+WU=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=UFYbPFMiFOqSE/8naPeW55DhBbk3IbChLs/MFqInWDVNFwHXnTYgjxHICVUQbfKWq
-	 7en7qZo4SBk70N2dWLI2cRdc7rWoZdAUZmC8q/nO9fL37YMPIirUQ3M/k3tr9ignWL
-	 1TtIz1CUsfiddCJgVudWIygbg1VOa17j6z0+RsQt1cAKReaCD+av3gA3vb+BxBMrKN
-	 CbYMBs/pcpbDvtSFcd6MSpBu1sfHGpkgvnUoOnYRMFMwKxhbHZ93kAOVLD8kBu9Q72
-	 cqBmQ2jIPYjz7mXVKuqZLkkkfHjy2+T9SpQkLPMvh0CD07IWbbZZDKEkKDPQ1mxDUb
-	 YFjRt1lLqZupA==
-From: Mark Brown <broonie@kernel.org>
-To: linux-arm-kernel@lists.infradead.org, 
- Liam Girdwood <lgirdwood@gmail.com>, linux-kernel@vger.kernel.org, 
- Frieder Schrempf <frieder@fris.de>
-Cc: Frieder Schrempf <frieder.schrempf@kontron.de>, 
- Bo Liu <liubo03@inspur.com>, Frank Li <Frank.Li@nxp.com>, 
- Joy Zou <joy.zou@nxp.com>, Marek Vasut <marex@denx.de>, 
- Robin Gong <yibin.gong@nxp.com>
-In-Reply-To: <20250219080152.11883-1-frieder@fris.de>
-References: <20250219080152.11883-1-frieder@fris.de>
-Subject: Re: [PATCH] regulator: pca9450: Remove duplicate code in probe
-Message-Id: <174000649345.2064287.5329691521010417254.b4-ty@kernel.org>
-Date: Wed, 19 Feb 2025 23:08:13 +0000
+	s=k20201202; t=1740006637;
+	bh=CYLczoHD6qvbYSNlRY5igolvyzZvd2e9ewBvJXOSbIw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ssGYmnJ9qxwuROAsGnBlSTwZir7tTkewQhMyWzapIUf0BfmMOI2Ju3oj8Vr49jREA
+	 lUF4QK8E0rZiO07qAKQLe0etXjkWtMS5tNUHq8pqqbknRdEIOnVI8XmdBSfze0riaJ
+	 QmWNOZmUeyzjZtAbiLv7WJLTu+X/breMLqPTt1Z563RcmmbjqUJMTPzpZcTuICsr13
+	 gyJYadZesKuK9+AnT7OrceSijZnMd92ubLhHUpUhSN+5jkVVB0NW1sZeFsyqGDr2Qb
+	 IxULEIJhGfskmfeCtB9KknZYkDsKvA6jpYULrSeRQ3CnTcVFr4P9ETmWiUq39Zt9+b
+	 AU2rl7Sggwogw==
+Date: Wed, 19 Feb 2025 17:10:36 -0600
+From: Rob Herring <robh@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	kernel@collabora.com, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 4/6] dt-bindings: thermal: rockchip: document otp thermal
+ trim
+Message-ID: <20250219231036.GA3137058-robh@kernel.org>
+References: <20250216-rk3576-tsadc-upstream-v1-0-6ec969322a14@collabora.com>
+ <20250216-rk3576-tsadc-upstream-v1-4-6ec969322a14@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-42535
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250216-rk3576-tsadc-upstream-v1-4-6ec969322a14@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_150817_146230_79F803F0 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20250219_151038_687306_7A2846CD 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,38 +80,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 19 Feb 2025 09:01:48 +0100, Frieder Schrempf wrote:
-> The SD_VSEL GPIO is fetched twice for no reason. Remove the
-> duplicate code.
+On Sun, Feb 16, 2025 at 12:34:53AM +0100, Nicolas Frattaroli wrote:
+> Several Rockchip SoCs, such as the RK3576, can store calibration trim
+> data for thermal sensors in OTP cells. This capability should be
+> documented.
+
+Is several most or a minority as this change is enabled for everyone.
+
 > 
+> Such a rockchip thermal sensor may reference cell handles that store
+> both a chip-wide trim for all the sensors, as well as cell handles
+> for each individual sensor channel pointing to that specific sensor's
+> trim value.
 > 
+> Additionally, the thermal sensor may optionally reference cells which
+> store the base in terms of degrees celsius and decicelsius that the trim
+> is relative to.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  .../bindings/thermal/rockchip-thermal.yaml         | 44 ++++++++++++++++++++++
+>  1 file changed, 44 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+> index 49ceed68c92ce5a32ed8d4f39bd88fd052de0e80..8d27ddefcc64e29f0faab059888805802c948b41 100644
+> --- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+> +++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+> @@ -40,6 +40,21 @@ properties:
+>        - const: tsadc
+>        - const: apb_pclk
+>  
+> +  nvmem-cells:
+> +    items:
+> +      - description: cell handle of the low byte of the chip fallback trim value
+> +      - description: cell handle of the high byte of the chip fallback trim value
+> +      - description: cell handle to where the trim's base temperature is stored
+> +      - description:
+> +          cell handle to where the trim's tenths of Celsius base value is stored
+> +
+> +  nvmem-cell-names:
+> +    enum:
+> +      - trim_l
+> +      - trim_h
+> +      - trim_base
+> +      - trim_base_frac
+> +
+>    resets:
+>      minItems: 1
+>      maxItems: 3
+> @@ -51,6 +66,12 @@ properties:
+>        - const: tsadc
+>        - const: tsadc-phy
+>  
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 0
+> +
+>    "#thermal-sensor-cells":
+>      const: 1
+>  
+> @@ -72,6 +93,29 @@ properties:
+>      $ref: /schemas/types.yaml#/definitions/uint32
+>      enum: [0, 1]
+>  
+> +patternProperties:
+> +  "^([a-z]+)@[0-9]+$":
 
-Applied to
+If each node is a sensor or channel, then make that the node name.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
-
-Thanks!
-
-[1/1] regulator: pca9450: Remove duplicate code in probe
-      commit: 66d8e76e8e85a30fbf9809837e07e15a8c5ccb8b
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+> +    type: object
+> +    properties:
+> +      reg:
+> +        maxItems: 1
+> +        description: sensor ID, a.k.a. channel number
+> +
+> +      nvmem-cells:
+> +        items:
+> +          - description: handle of cell containing low byte of calibration data
+> +          - description: handle of cell containing high byte of calibration data
+> +
+> +      nvmem-cell-names:
+> +        items:
+> +          - const: trim_l
+> +          - const: trim_h
+> +
+> +    required:
+> +      - reg
+> +
+> +    unevaluatedProperties: false
+> +
+>  required:
+>    - compatible
+>    - reg
+> 
+> -- 
+> 2.48.1
+> 
 
