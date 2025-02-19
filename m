@@ -4,61 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F229FC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 06:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE5ABC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 06:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6/jQax5rnvlh2BbJC5kEw9SnvVj7TrlZC5/fP2OvErs=; b=BSbfhaozYBAcQDbme87V5v7F05
-	5elNpsDGFHAhDOqT5P6ewMk49+xAfS3d08HF8hba7+B3IEXoQIh2tolLX0O69KrO8qykHJxRZGWS3
-	GUFFDvqCYiMpU4INk8dVXjywsNcyFxkwQF5k8ZGsSTnNK+n/zXdIGsGDn17sLR71lRqpw/bA/NjyU
-	CF7BFvim2P/ol++KIP5rPxQPDf9KHHEIvjJmuj/EGdGqDj6ylhhEskKnaHXPl/gg17IyYNkwu34JQ
-	rupkihBRI7KyZHZWPmiHEZ6BX+ywwX0KHPYi8bnADERfgu0A8vFLe9eOPiJ4aOAXkc5Fu0fRGHLhc
-	i+CEeiUA==;
+	bh=pXFs5Bprr8R/WKCCGojxGpmGlJTjpKf8nN+9w4GbfXM=; b=cK3T/UlkOPmH1AvagCIIPUpJzR
+	kOEzV3yhRUps1WVMMjmjZJECzIuLYBqvTl00dqyi9yj/IuEFsNguDCVXhR5ObBZVHtcP3CaAsxsmM
+	kydwWvOg7tFxJrGtSNA1akEPl5KAfjTJtprL8aVYvi68+mwqfQIv9AC/vrsf1rSobq/a+CRJOlY2d
+	HlcNNpy9wCXLPBbwPDze8sSwGqTE20Pszxup86OjTp9EoZvp9+rxAhYuZJIyZbiwwyhg53jaImQ1r
+	bWEi1qe+rxWyKPPAd8aHcOggarF795lc1IapNW063N7y+ruuZ/ISGRLrNapunVIZX3awcV6RZEsfV
+	DWbzj0YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkduk-0000000B6VT-1aib;
-	Wed, 19 Feb 2025 06:50:34 +0000
-Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	id 1tke1K-0000000B84m-2x0g;
+	Wed, 19 Feb 2025 06:57:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkdtE-0000000B65k-2zVi
+	id 1tkdzq-0000000B7mm-3Jy3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 06:49:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1739947736; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=6/jQax5rnvlh2BbJC5kEw9SnvVj7TrlZC5/fP2OvErs=;
-	b=tquTWW5zM5CvnAsD02xwiTQzb0AermlWICxjaiplMNNSdrkx283k+FbnrIUHKXFve9WQe/vq0R+usYUg5i8mfSrMP5c0qZTT4+/nbj+G3tVXOYrtMuWOZGLiSr5ZMJABC3njS2cFhWnB89rS5ih2KcDOd2vv3sfyi835bvR8We0=
-Received: from 30.221.144.226(mailfrom:guoheyi@linux.alibaba.com fp:SMTPD_---0WPoEUPx_1739947734 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Wed, 19 Feb 2025 14:48:54 +0800
-Message-ID: <0c5e1e72-f1c9-4ffc-853f-f094a6d7799c@linux.alibaba.com>
-Date: Wed, 19 Feb 2025 14:48:53 +0800
+	Wed, 19 Feb 2025 06:55:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4E28D5C55DA;
+	Wed, 19 Feb 2025 06:55:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 365C4C4CED1;
+	Wed, 19 Feb 2025 06:55:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1739948149;
+	bh=lKL07hpkqKPa7EJ1nz83HEESyv1fKohu5Phb0PaVMUU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GdtBxxgvnvlcIiG+4adf/nDn93/DlgtMXPAOEnDSOn6tPJIJgfBCbZx4aBZ/l4PBt
+	 Ryr8LzbnEZ57e1bGfAvnJwVZNXmCZrpqL9izo+u5ppBnk4daAintCAT6Xbe7lq/IBp
+	 QrU3gU8kwna+qm7IVvBQCV6OAvrrJhLjkKWY8fV7D10ozlSJmJmXEQP2pzHRcXePfQ
+	 4G/kn9N8nivBMKjVGvm9OzEGZ2RbmiqSm1V/LvlGxcR4GGzVj0QFhaS7cvvopO+8bz
+	 sPWcXwPunyzigGEQZfTmlaMAwuBOF9tZJTbQ7E3wZIgxvClCMaJum9PkVagvILp7Qu
+	 T3sahQtj2YRcA==
+Message-ID: <1462982d-c3eb-4028-ba87-412cf9922e69@kernel.org>
+Date: Wed, 19 Feb 2025 07:55:40 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] driver/aspeed-wdt: fix pretimeout for counting down
- logic
-To: Guenter Roeck <linux@roeck-us.net>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org, linux-watchdog@vger.kernel.org
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Eddie James <eajames@linux.ibm.com>
-References: <20250218031709.103823-1-guoheyi@linux.alibaba.com>
- <50ab5a0a-b807-4bd7-bda8-7c6f4bfc76fc@roeck-us.net>
- <5a33f86d-d82c-4685-8da7-5e623487a40c@linux.alibaba.com>
- <e692263e-a390-4611-b629-2b9feca1883a@roeck-us.net>
+Subject: Re: [PATCH v4 0/8] Add STM32MP25 SPI NOR support
+To: patrice.chotard@foss.st.com, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ christophe.kerello@foss.st.com
+References: <20250218130000.87889-1-patrice.chotard@foss.st.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Heyi Guo <guoheyi@linux.alibaba.com>
-In-Reply-To: <e692263e-a390-4611-b629-2b9feca1883a@roeck-us.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250218130000.87889-1-patrice.chotard@foss.st.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250218_224901_519039_FA8CC936 
-X-CRM114-Status: GOOD (  23.42  )
+X-CRM114-CacheID: sfid-20250218_225550_925538_61543B63 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,118 +126,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 18/02/2025 13:59, patrice.chotard@foss.st.com wrote:
+> From: Patrice Chotard <patrice.chotard@foss.st.com>
+> 
+> This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics.
+> 
+> On STM32MP25 SoCs family, an Octo Memory Manager block manages the muxing,
+> the memory area split, the chip select override and the time constraint 
+> between its 2 Octo SPI children.
+> 
+> Due to these depedencies, this series adds support for: 
+>   - Octo Memory Manager driver.
+>   - Octo SPI driver.
+>   - yaml schema for Octo Memory Manager and Octo SPI drivers.
+> 
+> The device tree files adds Octo Memory Manager and its 2 associated Octo 
+> SPI chidren in stm32mp251.dtsi and adds SPI NOR support in stm32mp257f-ev1
+> board.
+> 
+> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> 
+> Changes in v4:
+>   - Add default value requested by Krzysztof for st,omm-req2ack-ns, 
+>     st,omm-cssel-ovr and st,omm-mux properties in st,stm32mp25-omm.yaml
+>   - Remove constraint in free form test for st,omm-mux property.
+>   - Fix drivers/memory/Kconfig by replacing TEST_COMPILE_ by COMPILE_TEST.
+>   - Fix SPDX-License-Identifier for stm32-omm.c.
+>   - Fix Kernel test robot by fixing dev_err() format in stm32-omm.c.
+>   - Add missing pm_runtime_disable() in the error handling path in
+>     stm32-omm.c.
+>   - Replace an int by an unsigned int in stm32-omm.c
+>   - Remove uneeded "," after terminator in stm32-omm.c.
+>   - Update cover letter description to explain dependecies between 
+>     Octo Memory Manager and its 2 Octo SPI children.
+>   - Add Reviewed-by Krzysztof Kozlowski for patch 1 and 3.
 
-On 2025/2/19 14:07, Guenter Roeck wrote:
-> On 2/18/25 19:41, Heyi Guo wrote:
->> Hi Guenter,
->>
->> Thanks for your comments.
->>
->> On 2025/2/18 13:33, Guenter Roeck wrote:
->>> On 2/17/25 19:16, Heyi Guo wrote:
->>>> Aspeed watchdog uses counting down logic, so the value set to register
->>>> should be the value of subtracting pretimeout from total timeout.
->>>>
->>>> Fixes: 9ec0b7e06835 ("watchdog: aspeed: Enable pre-timeout interrupt")
->>>>
->>>> Signed-off-by: Heyi Guo <guoheyi@linux.alibaba.com>
->>>>
->>>> Cc: Wim Van Sebroeck <wim@linux-watchdog.org>
->>>> Cc: Guenter Roeck <linux@roeck-us.net>
->>>> Cc: Joel Stanley <joel@jms.id.au>
->>>> Cc: Andrew Jeffery <andrew@codeconstruct.com.au>
->>>> Cc: Eddie James <eajames@linux.ibm.com>
->>>> ---
->>>>   drivers/watchdog/aspeed_wdt.c | 7 +++++++
->>>>   1 file changed, 7 insertions(+)
->>>>
->>>> diff --git a/drivers/watchdog/aspeed_wdt.c 
->>>> b/drivers/watchdog/aspeed_wdt.c
->>>> index b4773a6aaf8c..520d8aba12a5 100644
->>>> --- a/drivers/watchdog/aspeed_wdt.c
->>>> +++ b/drivers/watchdog/aspeed_wdt.c
->>>> @@ -187,6 +187,13 @@ static int aspeed_wdt_set_pretimeout(struct 
->>>> watchdog_device *wdd,
->>>>       u32 actual = pretimeout * WDT_RATE_1MHZ;
->>>>       u32 s = wdt->cfg->irq_shift;
->>>>       u32 m = wdt->cfg->irq_mask;
->>>> +    u32 reload = readl(wdt->base + WDT_RELOAD_VALUE);
->>>> +
->>>
->>> It is unusual to use a register value here and not the configured 
->>> timeout
->>> value. I would have assumed that pretimeout is compared against 
->>> wdt->timout,
->>> not against the register value, and that the multiplication with 
->>> WDT_RATE_1MHZ
->>> is done after validation. This needs an explanation.
->> It was supposed to be a straight-forward way to check if the 
->> pretimeout value is supported by the hardware. I can change to 
->> wdt->timeout if it is better.
->>
->> Further, in the case of wdt->timeout > max_hw_heartbeat_ms, shall we 
->> restrict the pretimeout to be larger than wdt->timeout - 
->> max_hw_heartbeat_ms  / 2? For the watchdog_kworker works in 
->> max_hw_heartbeat_ms  / 2 interval, pretimeout event may be triggered 
->> unexpected when watchdog is not pinged in (max_hw_heartbeat_ms - 
->> (timeout - pretimeout)).
->>
->
-> The kernel internal logic should handle that. If not, it needs to be 
-> modified/fixed.
-Do you mean the watchdog core should also handle the case in which 
-pretimeout < wdt->timeout - max_hw_heartbeat_ms  / 2?
->
->>>
->>>> +    if (actual >= reload)
->>>> +        return -EINVAL;
->>>> +
->>>
->>> On top of that, you'll also need to explain why 
->>> watchdog_pretimeout_invalid()
->>> and with it the validation in watchdog_set_pretimeout() does not 
->>> work for this
->>> watchdog and why this extra validation is necessary.
->>
->> watchdog_pretimeout_invalid() will return false if wdt->timeout == 0, 
->> but we can't determine the hardware pretimeout value if timeout == 0 
->> here.
->>
->
-> Sorry, I don't understand what you mean. If watchdog_pretimeout_invalid()
-> returns false if timeout == 0, aspeed_wdt_set_pretimeout() won't be 
-> called.
-> Why does that preclude depending on it ?
+If only people could start using b4, like we ask them...
 
-if timeout == 0, watchdog_pretimeout_invalid() returns false, so the 
-code will go on to call wdd->ops->set_pretimeout().
-
-static int watchdog_set_pretimeout(struct watchdog_device *wdd,
-                    unsigned int timeout)
-{
-     int err = 0;
-
-     if (!watchdog_have_pretimeout(wdd))
-         return -EOPNOTSUPP;
-
-     if (watchdog_pretimeout_invalid(wdd, timeout))
-         return -EINVAL;
-
-     if (wdd->ops->set_pretimeout && (wdd->info->options & 
-WDIOF_PRETIMEOUT))
-         err = wdd->ops->set_pretimeout(wdd, timeout);
-
->
-> On a side note, I do wonder why the driver accepts a timeout value of 
-> 0 seconds.
-
- From the code, it seems timeout == 0 / pretimeout == 0 will be 
-considered as a turn off switch.
-
-Thanks,
-
-Heyi
-
->
-> Guenter
+Best regards,
+Krzysztof
 
