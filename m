@@ -4,161 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A1E5C021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:41:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0EECC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 19:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lPOKqEJeCmWWLIhcO9XMH0OhhNUpUlopqz2+jjUtYP0=; b=DlikevHVXtHd6fAXSOBTo2Hr82
-	6AkIEFVLiXUW1sO9vzqY6LPDkozPVI9R/HxTs28gXH78LO0Zg02d6FSFNxBBMhoIowc48GADT9Xcl
-	WiA82zFfSAZXUgOj5D5kksRuwUNtlOqAHKvmzjt7vqW+2RmcUYo8riMmhZSP7OAepX5AQ21t/oD8R
-	iqsspwKSciLscAOpmdRGRaUqlfunkSiX/m4XGLlyoPDOhJ2KERylkIun1/ouz61o3bqXrUFyI328C
-	PeIwNqmAVmF/zcaGW8y5cIpMH+qwA1x+cIElL50tfaIouZMzWmaLFZLobuJPojvszJPTzXRfEQhd5
-	K4wGSZfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=py62NjgHyqePD/1xxiF47Ojj/UAYgJgEPILXJQHYeUw=; b=2nQ2XRvI7wN5gi5+zaRxSfVfN2
+	2cR05rmFQfoAPVmYmXUYDjUa7QfGKPYlmhI8dFqVRCmgEs9QL0dePHx+S1cZGcVeuHwnaAVCAOZ46
+	rRQfGiU36swZK1jiUtgHg4TGI9igB5jQTA6b8DfNqpTShaR54cEsIOFeUhFEUqWEaVetA51UNN8Y+
+	U/8plEZVS4hTzU80i9j4mDx+DYE2twLoBZdb6EL6RXsFKxSAKbnFoH7gpXdDWBCX2rpgG/gZo43Mk
+	bEFL7IpfqwDzD5q59w8n5NQ21PHf1ZDJ1VCRYol3wUkiqHuMBjse+vZVvEb/1LifDEv1don2Y9aA6
+	1PE9+rmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpwC-0000000EhFA-089l;
-	Wed, 19 Feb 2025 19:40:52 +0000
-Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1tkpxe-0000000EheC-0BOO;
+	Wed, 19 Feb 2025 19:42:22 +0000
+Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkpdb-0000000Eag6-3zys
+	id 1tkpf1-0000000EbGA-3R44
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 19 Feb 2025 19:21:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r8hF3w10fm59iPVJmSsEbtqyGvRABnjzFSSUAg57BMNk9XApkMuvTMmOT++BG93NH5foKR/ha2isoJvPUGrIDyDcifQjLQ3fvxY4AGvkkSD4WfvYKbfqa9EgVXK5fbwGuFfEteKDx+wu5mk26vOZl5YfnVt9p5FxhzuT5/9t8LnKgXqN2Q1r3Koe/1ydRTM+r5eaVHij3SWpxIA0hfRLxvU0OEGNhjplbhHsG5UHFp0QcEM9Xi/Kn20NQlfb8VcAcRKFQGT/ILulXyed6pe0Inp9abA1jS9dIC1MMMfUV1asXFrL9ucKssnwcYqH6HtMRPCoBK08gL3mcDyY+M7MkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lPOKqEJeCmWWLIhcO9XMH0OhhNUpUlopqz2+jjUtYP0=;
- b=LjTHIkquvp9ArLPjSMHFed2/FcRF4h4rm9lhdZQAC6iwX+kafmQ+nuGUq+5gNz2KmlCTBX6WSjAt5EHQfjETtG00ipKG2TPy86hQZgKvualRCmYcFvQuLwQOrZ+G13wVkyoDhw/yEa9dcZXbnXqRM5J9mkw44Q3pFTgqbBO/tPTMF8lBmHHssL9yU7g4pq6ppUJ9PhVTb8b776bTHY7WU+uYmOl0cN2MAIUBUaSo40QT2Hxz9ZI3qMFVricB+it0vLkI7Iw5ggCVjhSQBaunwVxBEYadTmtoGi9tdZ1OTuCAOg2/1XpPD+Xa0bvC5AmxaTrAUGwis6+43gqtrho6ZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lPOKqEJeCmWWLIhcO9XMH0OhhNUpUlopqz2+jjUtYP0=;
- b=HCKYOaF/HxR+aohAuVhvX01+hcw7ktwWSWpx36gnsw/ntOLdRbNJTu1iW1XdgzSQF0CWs3vyamyj5cucnbg9vVyLHm2sNyQ6g7U6QKuVAJZ0jlC1moD/mbrGnhXd5IorieaYHX9VNIt/x4Rt+u2pWnKvti5/gRBGIL9Eo/KLKZu7lEj694PYeyNEghLRGUeGfGKilnkleRZw3YIXzPXd91ua8KZDZOVJJHR9VJk3CVcACvWwD7nqfVsqUujSCIB/wweV9qlid5b8UpASeqAf2kVdKeAEc3yt+KfOGUOixlct3G0YSvvLnLIRt7KNdg2Cb1/UUnpm0w71giTOOu09lw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
- by VI0PR04MB10951.eurprd04.prod.outlook.com (2603:10a6:800:25c::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Wed, 19 Feb
- 2025 19:21:32 +0000
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::84f7:e2c3:ceed:c0a6]) by AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::84f7:e2c3:ceed:c0a6%5]) with mapi id 15.20.8445.017; Wed, 19 Feb 2025
- 19:21:32 +0000
-From: Daniel Baluta <daniel.baluta@nxp.com>
-To: p.zabel@pengutronix.de,
-	robh@kernel.org,
-	shawnguo@kernel.org
-Cc: krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	mathieu.poirier@linaro.org,
-	shengjiu.wang@nxp.com,
-	Frank.Li@nxp.com,
-	peng.fan@nxp.com,
-	laurentiu.mihalcea@nxp.com,
-	iuliana.prodan@nxp.com,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: [PATCH v2 8/8] imx_dsp_rproc: Use reset controller API to control the DSP
-Date: Wed, 19 Feb 2025 21:21:02 +0200
-Message-Id: <20250219192102.423850-9-daniel.baluta@nxp.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250219192102.423850-1-daniel.baluta@nxp.com>
-References: <20250219192102.423850-1-daniel.baluta@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: VI1PR07CA0267.eurprd07.prod.outlook.com
- (2603:10a6:803:b4::34) To AS8PR04MB8247.eurprd04.prod.outlook.com
- (2603:10a6:20b:3f2::13)
+	Wed, 19 Feb 2025 19:23:10 +0000
+Date: Wed, 19 Feb 2025 11:22:56 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1739992982;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=py62NjgHyqePD/1xxiF47Ojj/UAYgJgEPILXJQHYeUw=;
+	b=wpbGXpA9K426wUIeTQaneUGsyJ2aLTd7V1pWeTS2jiBxCc8g047ll176UouBJ5WeCFvdv3
+	koB6l5gRLjQaWG28qTOndotTu4GRwC/XZDb5Oy5fGRzjhBSsE0AMirgk9sMV4KrHwnJQns
+	j3sPE519Ckg/6+GNw5nq70IOFWFCTL8=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH v2 07/14] KVM: arm64: Use a cpucap to determine if system
+ supports FEAT_PMUv3
+Message-ID: <Z7YvkHpm3w__HnkO@linux.dev>
+References: <20250203183111.191519-1-oliver.upton@linux.dev>
+ <20250203183111.191519-8-oliver.upton@linux.dev>
+ <864j0psuas.wl-maz@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|VI0PR04MB10951:EE_
-X-MS-Office365-Filtering-Correlation-Id: 21e2e6c1-7a02-43d1-062b-08dd511a9e78
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|52116014|366016|10070799003;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8zCx9FCm11beQKkFW9tsHg86YFVvgmnE2a4N0jJZb1vso2vbrNUToAoPnYgj?=
- =?us-ascii?Q?jA/18AdVRvMGsVUqNh/MaWIwA9EnoaJ3Q0hO+CLJZUb6ms5iWnIYSP1swkwJ?=
- =?us-ascii?Q?I+iYdwGZ6ErmWDdqg9TLjeDxaOo1M0ciLSC7I2w7B9RvNSoKuByA7zdQtL4K?=
- =?us-ascii?Q?vlzajrproKq5Tv5PIFYMFbuDB9M5qnTN32PcJVY0OocKxMC2bDzyfap7rft7?=
- =?us-ascii?Q?aIO9KmeE8iqZNWTl1y0duQNI2FDD4QAZXp1EQdh6f1nHCZxFSyelK6vaY9bJ?=
- =?us-ascii?Q?MgTdng9OcxJT5F5CvCSvc2LaEhWED6US0gnuYGT8swCVByMA53XXxna2Kfsd?=
- =?us-ascii?Q?sn/kYBfr10lK/e8WtrkjAj+EX1PNAD8XpiZ/3OT7HXt25TUmovhO/l0NJsLp?=
- =?us-ascii?Q?mFVhTiXal/sIAaFlMuPeYDCyKrxues6WAt/sGbskSa7EK2HrlEg6vKAVDng9?=
- =?us-ascii?Q?lrgVJwIeF7jIm9dvBpZ7Vu71KKee3/przWiXMkoA7wrwKYHT5vOWreAN506n?=
- =?us-ascii?Q?jfJHWPNCP4dwG6IsCCivFfI1MGmuR/FwvHCiFPxA4Xq4r+QdQtfo1m38hJpW?=
- =?us-ascii?Q?ZzOotNywM4CZ1JDn60ywnPEWVMTDu3JeVUk1vjOCmJqNtzKleFxtPEWULV0z?=
- =?us-ascii?Q?Z53/LHRVeL/r9kLUmtkNaiy3F5IAMnDsnr+7sk4bxF9UQfyo7/KWt0f2OdcO?=
- =?us-ascii?Q?JPWfO+yIh8hShi1HX5X3OqSwpLo7HyMbqQ1k+FHAjcoFtGc6rj8M3LMBIDlt?=
- =?us-ascii?Q?nfHRmJTVkKEu575Un9FJMX8wkpu0DgBWk9Tt0jfoLGmarL4V1u8iMaRgX45D?=
- =?us-ascii?Q?MfQiHpTAnsF92jpc1ImXO6sreQiuB+FRk1WiWQP0n6PL0ZKFELH08MN9GG4i?=
- =?us-ascii?Q?//yguYcvVXGvdro1Dyx77disDbPSj7d3JrVkM0aP3Ua0dSnJxZp22E5aKGAL?=
- =?us-ascii?Q?rKhTiHEN0BFYeQ97LhS8mLC2vRve7lNhHqvqnpgE3oQOxSqKG0WN7+51Esv9?=
- =?us-ascii?Q?9/AUu9fS39AajLIvpmC8ESSE+LJo6uaY+LDsuZ1JBgmMcZOt2w4cd7rrFmH2?=
- =?us-ascii?Q?aZZNayD81gkoUCeOXtMc1UHSnHyxwSXhwA/KaYjXjOh14U4qjEsXsoFjkrvG?=
- =?us-ascii?Q?GTzufPnXu//yQY1ljvHYPYPUUR2IWyVoYCmOpIjz9GzHwkSxKG1xU8tDxaX9?=
- =?us-ascii?Q?QFMvk/xARVbsF4B/DMw/71Ce7vMREyUcS9zMNhWenBm64LLTpNf+j3USgNBs?=
- =?us-ascii?Q?4G1HxQS5bRdy9fIx6GhtOTwrzRXKMStrdf1aFIbjkcG2aX21W0Rni7rIlObX?=
- =?us-ascii?Q?xw3TkDSikdT68w1FE5TL1QkGg7QL7CAI5tt2wtPUAZLLZ2UonFkI41NkuiZo?=
- =?us-ascii?Q?xUNqiY+/GP0WQaMbr2KrJgh82KYA?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(52116014)(366016)(10070799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RTWpewEqrPV8D0sINl+Bpg8wWD2llCAzvcjG1GJfv78ghOyMCa+o2m54mmyZ?=
- =?us-ascii?Q?f/il+ByZHcnStfcwhQvLvviUWIj9phd0RFlag5lQkixDgyfk0+nVzX3C/m5j?=
- =?us-ascii?Q?jXF+DbHSQHWb8btSVA3jKYw/16uUhuXZTfMjbXaDj6/g3ssgtQN2KYHGhuhH?=
- =?us-ascii?Q?6K1NYCJalMc3hHLQOK26aPwzkQuIkUr14aJdqHBL/yvcvSNy8SYH0L0uIQad?=
- =?us-ascii?Q?6hbFZOIa4DZiJjb0MNk1mG25F3FuvEsH75ycwStLLhbnDrTfkSqZHMInvFoA?=
- =?us-ascii?Q?0J8r358S2KYfroOBpjtTEwClAC/h51HC22zZ72eUj2b7BwfdfeUiRiaQFQ4E?=
- =?us-ascii?Q?ttv1lILgXPDBQmkhkAtP83xOe7+LfOapGX0Hf0K/jrUmtZtRytU8u3910A5r?=
- =?us-ascii?Q?0sRb+L4UxDCHaAP+U/Pe1ySRLNOFJju2TA64j3aHXEUEmYStyl7nzjsFwW7p?=
- =?us-ascii?Q?6h3dLZIl8OmNuObFUC3L/9xfsnOYHmGhjgk/ZabThc77PixvctnQd4GZiNnb?=
- =?us-ascii?Q?PJrRk/NQUDp+aVKmIHdyWsHj99af2ytKSC4o0lwvkY/8ImOcI9eCVUdDMT+Q?=
- =?us-ascii?Q?DOiCIn2f+If714Aqeal3CqA3hH343oh7S4BU81EqpDaW7jrIstmKWl2DUE1x?=
- =?us-ascii?Q?KcYm7YdIFAoNdciVquDaixs81p/5ZahyxprxWTCrOyogqVxYilQNJ96A+uT3?=
- =?us-ascii?Q?gqeBhHNJEbsOd5M8u2hhYjQsRhM2Jbng9aL6FovNijo1J0DgWmZhtZbtafsq?=
- =?us-ascii?Q?qGiynZZOpNyvKnhImjpvvx0dJ6aZ+zKoscLnA3D6lYsJRBMZPmetSySzvHVG?=
- =?us-ascii?Q?7pOPhtFOl2KVxNqi6ml/Io8uyzw2z0mlngAfaANpCtaBXLR16FtM2CJ0iIWL?=
- =?us-ascii?Q?3X3iEzuuDTT1b6fkTl0oHpX5wt7qUb1iN0SVGCjeCDJy3fOVgSoQtni9ra3k?=
- =?us-ascii?Q?skGQjrTtnBMn3LZv2nTYUhw7emEjuLd01pNnUv/nNN6Sc7kW/RSnVPwsI6Y3?=
- =?us-ascii?Q?fQ+JahalIVeoP+P4kKI6BPardtT4CIV4RpND8G+3ROYM994E0drd7du0hpqq?=
- =?us-ascii?Q?7kXftGiYB3mR4oAlhk7a7hbkWCle+Mw858jrer6UuvAoa7GVhPCU5EjM2xWO?=
- =?us-ascii?Q?fn9VaQuExQFotxHr3Lbl8vv+KoGkYOjjOz0UrKqB7fBuzd0AnztaIVSE1+9H?=
- =?us-ascii?Q?io21UceA3ZSpi4xEA8eXmYrkFQL4U4eTHws2NEs6K0iKBq1C2+6Pswo8kjTs?=
- =?us-ascii?Q?/+3vMQ/+UgqDW4BWEm+vy39lweokSv/WQAuakWJZeLMqHOiH1cHpfV6inbZa?=
- =?us-ascii?Q?HnEqfDuUhUCp+Mh9xcM0qWycQ32QSMFRDn955inkxIOgL50J+1eyEmg6LOVf?=
- =?us-ascii?Q?5WkIwBMwYnLY8c7X1Ndcl0PyaRVTUH5yu8MrnXGqYQJhZTv43yjgWgabzl4y?=
- =?us-ascii?Q?Qty1sc92fbPfVnsEkouNOGkFsoIqiDJlisCM3AZI+7Wxnbe5ViwsPWhGGhWy?=
- =?us-ascii?Q?8cnHZsNVBn6RdPTOu4nEKA/m7Jqkymk8Cu+RHTAJ8tQEnUzoV46pkAHEHfom?=
- =?us-ascii?Q?MPzqChG9ZItF9/vnIaAAMYYWuznYRBOZUJH0ffgs3LDXM7wb13UKPgLEuqqx?=
- =?us-ascii?Q?tKdG70JJXDygIUjVAMju4eVmyIM0bTVq08DtqrFX0cit092kl8XKgBiVR1SA?=
- =?us-ascii?Q?kekmDA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 21e2e6c1-7a02-43d1-062b-08dd511a9e78
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Feb 2025 19:21:32.7662
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XYkx7Z49fZse5+NDde8Olb6ClWVG1+Vl+BTK4jJJ7mFtbPlP4zqBdvItYcj1JrLVvB+oR+mV5YyaajQNpdb7bA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10951
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <864j0psuas.wl-maz@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_112139_994119_D65F8E02 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20250219_112307_994398_0960F89D 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,111 +78,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the reset controller API to control the DSP on i.MX8MP. This way
-we can have a better control of the resources and avoid using a syscon
-to access the audiomix bits.
+On Wed, Feb 19, 2025 at 05:44:59PM +0000, Marc Zyngier wrote:
+> > +static bool has_pmuv3(const struct arm64_cpu_capabilities *entry, int scope)
+> > +{
+> > +	u64 dfr0 = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
+> > +	unsigned int pmuver;
+> > +
+> > +	pmuver = cpuid_feature_extract_unsigned_field(dfr0,
+> > +						      ID_AA64DFR0_EL1_PMUVer_SHIFT);
+> > +	if (pmuver == ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
+> > +		return false;
+> > +
+> > +	return pmuver >= ID_AA64DFR0_EL1_PMUVer_IMP;
+> 
+> Given that PMUVer is a signed field, how about using
+> cpuid_feature_extract_signed_field() and do a signed comparison instead?
 
-Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/remoteproc/imx_dsp_rproc.c | 25 +++++++++++++++++--------
- drivers/remoteproc/imx_rproc.h     |  2 ++
- 2 files changed, 19 insertions(+), 8 deletions(-)
+I'm happy to include a comment, but the PMUVer field is not signed. Any value
+other than 0xF is meant to be treated as an unsigned quantity.
 
-diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-index ea5024919c2f..631563e4f86d 100644
---- a/drivers/remoteproc/imx_dsp_rproc.c
-+++ b/drivers/remoteproc/imx_dsp_rproc.c
-@@ -19,6 +19,7 @@
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <linux/remoteproc.h>
-+#include <linux/reset.h>
- #include <linux/slab.h>
- 
- #include "imx_rproc.h"
-@@ -111,6 +112,7 @@ enum imx_dsp_rp_mbox_messages {
-  */
- struct imx_dsp_rproc {
- 	struct regmap				*regmap;
-+	struct reset_control			*reset;
- 	struct rproc				*rproc;
- 	const struct imx_dsp_rproc_dcfg		*dsp_dcfg;
- 	struct clk_bulk_data			clks[DSP_RPROC_CLK_MAX];
-@@ -192,9 +194,7 @@ static int imx8mp_dsp_reset(struct imx_dsp_rproc *priv)
- 	/* Keep reset asserted for 10 cycles */
- 	usleep_range(1, 2);
- 
--	regmap_update_bits(priv->regmap, IMX8M_AudioDSP_REG2,
--			   IMX8M_AudioDSP_REG2_RUNSTALL,
--			   IMX8M_AudioDSP_REG2_RUNSTALL);
-+	reset_control_assert(priv->reset);
- 
- 	/* Take the DSP out of reset and keep stalled for FW loading */
- 	pwrctl = readl(dap + IMX8M_DAP_PWRCTL);
-@@ -231,13 +231,9 @@ static int imx8ulp_dsp_reset(struct imx_dsp_rproc *priv)
- 
- /* Specific configuration for i.MX8MP */
- static const struct imx_rproc_dcfg dsp_rproc_cfg_imx8mp = {
--	.src_reg	= IMX8M_AudioDSP_REG2,
--	.src_mask	= IMX8M_AudioDSP_REG2_RUNSTALL,
--	.src_start	= 0,
--	.src_stop	= IMX8M_AudioDSP_REG2_RUNSTALL,
- 	.att		= imx_dsp_rproc_att_imx8mp,
- 	.att_size	= ARRAY_SIZE(imx_dsp_rproc_att_imx8mp),
--	.method		= IMX_RPROC_MMIO,
-+	.method		= IMX_RPROC_RESET_CONTROLLER,
- };
- 
- static const struct imx_dsp_rproc_dcfg imx_dsp_rproc_cfg_imx8mp = {
-@@ -329,6 +325,9 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
- 					  true,
- 					  rproc->bootaddr);
- 		break;
-+	case IMX_RPROC_RESET_CONTROLLER:
-+		ret = reset_control_deassert(priv->reset);
-+		break;
- 	default:
- 		return -EOPNOTSUPP;
- 	}
-@@ -369,6 +368,9 @@ static int imx_dsp_rproc_stop(struct rproc *rproc)
- 					  false,
- 					  rproc->bootaddr);
- 		break;
-+	case IMX_RPROC_RESET_CONTROLLER:
-+		ret = reset_control_assert(priv->reset);
-+		break;
- 	default:
- 		return -EOPNOTSUPP;
- 	}
-@@ -995,6 +997,13 @@ static int imx_dsp_rproc_detect_mode(struct imx_dsp_rproc *priv)
- 
- 		priv->regmap = regmap;
- 		break;
-+	case IMX_RPROC_RESET_CONTROLLER:
-+		priv->reset = devm_reset_control_get_exclusive(dev, NULL);
-+		if (IS_ERR(priv->reset)) {
-+			dev_err(dev, "Failed to get DSP reset control\n");
-+			return PTR_ERR(priv->reset);
-+		}
-+		break;
- 	default:
- 		ret = -EOPNOTSUPP;
- 		break;
-diff --git a/drivers/remoteproc/imx_rproc.h b/drivers/remoteproc/imx_rproc.h
-index 17a7d051c531..cfd38d37e146 100644
---- a/drivers/remoteproc/imx_rproc.h
-+++ b/drivers/remoteproc/imx_rproc.h
-@@ -24,6 +24,8 @@ enum imx_rproc_method {
- 	IMX_RPROC_SMC,
- 	/* Through System Control Unit API */
- 	IMX_RPROC_SCU_API,
-+	/* Through Reset Controller API */
-+	IMX_RPROC_RESET_CONTROLLER,
- };
- 
- /* dcfg flags */
--- 
-2.25.1
+DDI047L.a D24.1.3.2 is where this is coming from.
 
+> > +}
+> > +
+> >  #ifdef CONFIG_UNMAP_KERNEL_AT_EL0
+> >  #define KPTI_NG_TEMP_VA		(-(1UL << PMD_SHIFT))
+> >  
+> > @@ -2999,6 +3012,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+> >  		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, GCS, IMP)
+> >  	},
+> >  #endif
+> > +	{
+> > +		.desc = "PMUv3",
+> > +		.capability = ARM64_HAS_PMUV3,
+> > +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+> > +		.matches = has_pmuv3,
+> > +	},
+> 
+> This cap is probed unconditionally (without any configuration
+> dependency)...
+> 
+> >  	{},
+> >  };
+> >  
+> > diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> > index f838a45665f2..0edc7882bedb 100644
+> > --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> > +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> > @@ -244,7 +244,7 @@ static inline void __activate_traps_common(struct kvm_vcpu *vcpu)
+> >  	 * counter, which could make a PMXEVCNTR_EL0 access UNDEF at
+> >  	 * EL1 instead of being trapped to EL2.
+> >  	 */
+> > -	if (kvm_arm_support_pmu_v3()) {
+> > +	if (system_supports_pmuv3()) {
+> 
+> ... but kvm_arm_support_pmu_v3() is conditional on
+> CONFIG_HW_PERF_EVENTS.  Doesn't this create some sort of new code path
+> that we didn't expect?
+
+Yep. It ought to be benign, but pointless. I'll condition this correctly
+next time around.
+
+Thanks,
+Oliver
 
