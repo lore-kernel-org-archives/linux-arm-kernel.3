@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 096C7C021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 15:50:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E9BC021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 19 Feb 2025 15:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gzj0SwPRaTNirTrm9WLzsRKYWUJkOtFVhEJhOoLZ8NU=; b=e28+1covC4DXt8slBU8hfF1knY
-	uCiGyeoXcKB2d1hnh8JJ5eG3MidrBI3HhvT7I3OS0t2XDHWzXGv4WQ4RLhLQ/2MCgBo+L5Yn9U2PN
-	oJNk1O/gYQf7mBv0ATBr+0rp9zCoVxhdBppES9FQmOKIehqTfVa64aZw3g7pLMNHhWvuGMB7ZssUP
-	EnoE2TRVq+NQHUgD+Ejg/hcpe7YGZwhVNf9ulmYitQdnEndotn+HwWficwJkRHJMgjPFx48cEBNV+
-	Yn2oMlxl9TCdFlp9ZjH2ual4O9AUL9Pv5TgaoM0SEA9M3bXsI56f9x4pCdEtJWhVyKm7iJLLG+2YD
-	ZLqmvHJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DHYs+bXhHMkYOOayiZnVHrnpUQ3ySlNoaeTRWdHmJkg=; b=YsViwr0unopTQq4gS50o2sIHm4
+	vqtDQZ8dWYPTT+feNIkbcLOXlgAgVliZ9C2w2IxQUbNxiss3G6vkI1AZhCG4WOqdPLjTQzyruhRUI
+	dIBTFwFcS3TUqB43ofHdwyd/7T4UmNJoKwIUdiPbKKTlNTlhY6wpOhYlaSaXoyQzUwft9Dn1YC16E
+	iy42UzBOOAEIpWIObojGf4yI/LLNSqNKqCVhBRGgwKxPZsi7F5CAgRwlexesNnvhZh3MhOFB0Y/IC
+	VVH8/+ZrboBbgTCUYIwCJtNGkKHob0hErWRhHUkf8uP/iNrbtR+6WMkfqb2XjxHxV3ixL3vZ8JZDC
+	rKF8YHkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkmKi-0000000Ddre-0dIB;
-	Wed, 19 Feb 2025 15:49:56 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkmIx-0000000DdND-2H0B;
-	Wed, 19 Feb 2025 15:48:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Gzj0SwPRaTNirTrm9WLzsRKYWUJkOtFVhEJhOoLZ8NU=; b=wYl0ItI6OysoRYTR2q06G8db9m
-	xrqJ+Qb/eBCyNzxAC5xNTOThx6DwY+l1zz0mkvDE1nW0Ef4+USboaTSwCkHkY62Awu71DRmFK/1lN
-	ZevniaXm6WXfyNWd/Nkl6CoJLI5K/f0jqwUbV2h58AxxTTDnM7bXkibhpQg+41z6r/js=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tkmIh-00Ffmc-UA; Wed, 19 Feb 2025 16:47:51 +0100
-Date: Wed, 19 Feb 2025 16:47:51 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Sky Huang <SkyLake.Huang@mediatek.com>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Qingfang Deng <dqfext@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Steven Liu <Steven.Liu@mediatek.com>
-Subject: Re: [PATCH net-next v2 3/3] net: phy: mediatek: add driver for
- built-in 2.5G ethernet PHY on MT7988
-Message-ID: <724eff11-c6d1-40e1-a99f-205f5426a07d@lunn.ch>
-References: <20250219083910.2255981-1-SkyLake.Huang@mediatek.com>
- <20250219083910.2255981-4-SkyLake.Huang@mediatek.com>
+	id 1tkmND-0000000DeQo-20Y0;
+	Wed, 19 Feb 2025 15:52:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkmLj-0000000DeAX-09HC
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 19 Feb 2025 15:51:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB1161682;
+	Wed, 19 Feb 2025 07:51:16 -0800 (PST)
+Received: from [10.57.36.38] (unknown [10.57.36.38])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AE82F3F6A8;
+	Wed, 19 Feb 2025 07:50:56 -0800 (PST)
+Message-ID: <0bf13f95-6069-4356-b65c-2b6b4312ad07@arm.com>
+Date: Wed, 19 Feb 2025 15:50:55 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250219083910.2255981-4-SkyLake.Huang@mediatek.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] arm64: realm: Use aliased addresses for device DMA to
+ shared buffers
+Content-Language: en-GB
+To: Tom Lendacky <thomas.lendacky@amd.com>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, will@kernel.org,
+ maz@kernel.org, catalin.marinas@arm.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ gregkh@linuxfoundation.org, steven.price@arm.com,
+ Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Robin Murphy <robin.murphy@arm.com>, Christoph Hellwig <hch@lst.de>
+References: <20250212171411.951874-1-suzuki.poulose@arm.com>
+ <20250212171411.951874-2-suzuki.poulose@arm.com>
+ <yq5apljj9tkc.fsf@kernel.org> <yq5amsen9stc.fsf@kernel.org>
+ <3ac6b21a-9c78-4801-ad33-d1d0028ca6b3@arm.com>
+ <12d1df13-0386-14d8-f07e-32e6363ca17d@amd.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <12d1df13-0386-14d8-f07e-32e6363ca17d@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_074807_578330_87DC3491 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20250219_075059_169925_43E404F4 
+X-CRM114-Status: GOOD (  29.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,126 +73,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +config MEDIATEK_2P5GE_PHY
-> +	tristate "MediaTek 2.5Gb Ethernet PHYs"
-> +	depends on (ARM64 && ARCH_MEDIATEK) || COMPILE_TEST
-> +	select MTK_NET_PHYLIB
-> +	help
-> +	  Supports MediaTek SoC built-in 2.5Gb Ethernet PHYs.
-> +
-> +	  This will load necessary firmware and add appropriate time delay.
-> +	  Accelerate this procedure through internal pbus instead of MDIO
-> +	  bus. Certain link-up issues will also be fixed here.
+On 19/02/2025 15:12, Tom Lendacky wrote:
+> On 2/19/25 08:51, Suzuki K Poulose wrote:
+>> On 15/02/2025 14:38, Aneesh Kumar K.V wrote:
+>>> Aneesh Kumar K.V <aneesh.kumar@kernel.org> writes:
+>>>
+>>>> Suzuki K Poulose <suzuki.poulose@arm.com> writes:
+>>>>
+>>>>> When a device performs DMA to a shared buffer using physical addresses,
+>>>>> (without Stage1 translation), the device must use the "{I}PA address"
+>>>>> with the
+>>>>> top bit set in Realm. This is to make sure that a trusted device will
+>>>>> be able
+>>>>> to write to shared buffers as well as the protected buffers. Thus, a
+>>>>> Realm must
+>>>>> always program the full address including the "protection" bit, like
+>>>>> AMD SME
+>>>>> encryption bits.
+>>>>>
+>>>>> Add the support for this by providing arm64 version of the
+>>>>> phys_to_dma(). We
+>>>>> cannot use the __sme_mask as it assumes the "encryption" always "sets
+>>>>> a bit",
+>>>>> which is the opposite for CCA. i.e., "set a bit" for "decrypted"
+>>>>> address. So,
+>>>>> move the common code that can be reused by all - i.e., add
+>>>>> __phys_to_dma() and
+>>>>> __dma_to_phys() - and do the arch specific processing.
+>>>>>
+>>>>> Please note that the VMM needs to similarly make sure that the SMMU
+>>>>> Stage2 in
+>>>>> the Non-secure world is setup accordingly to map IPA at the
+>>>>> unprotected alias.
+>>>>>
+>>>>> Cc: Will Deacon <will@kernel.org>
+>>>>> Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>
+>>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>>>>> Cc: Robin Murphy <robin.murphy@arm.com>
+>>>>> Cc: Steven Price <steven.price@arm.com>
+>>>>> Cc: Christoph Hellwig <hch@lst.de>
+>>>>> Cc: Tom Lendacky <thomas.lendacky@amd.com>
+>>>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>>>> ---
+>>>>>    arch/arm64/Kconfig                  |  1 +
+>>>>>    arch/arm64/include/asm/dma-direct.h | 38 +++++++++++++++++++++++++++++
+>>>>>    include/linux/dma-direct.h          | 35 +++++++++++++++++---------
+>>>>>    3 files changed, 62 insertions(+), 12 deletions(-)
+>>>>>    create mode 100644 arch/arm64/include/asm/dma-direct.h
+>>>>>
+>>>>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>>>>> index fcdd0ed3eca8..7befe04106de 100644
+>>>>> --- a/arch/arm64/Kconfig
+>>>>> +++ b/arch/arm64/Kconfig
+>>>>> @@ -41,6 +41,7 @@ config ARM64
+>>>>>        select ARCH_HAS_NMI_SAFE_THIS_CPU_OPS
+>>>>>        select ARCH_HAS_NON_OVERLAPPING_ADDRESS_SPACE
+>>>>>        select ARCH_HAS_NONLEAF_PMD_YOUNG if ARM64_HAFT
+>>>>> +    select ARCH_HAS_PHYS_TO_DMA
+>>>>>        select ARCH_HAS_PTE_DEVMAP
+>>>>>        select ARCH_HAS_PTE_SPECIAL
+>>>>>        select ARCH_HAS_HW_PTE_YOUNG
+>>>>> diff --git a/arch/arm64/include/asm/dma-direct.h
+>>>>> b/arch/arm64/include/asm/dma-direct.h
+>>>>> new file mode 100644
+>>>>> index 000000000000..37c3270542b8
+>>>>> --- /dev/null
+>>>>> +++ b/arch/arm64/include/asm/dma-direct.h
+>>>>> @@ -0,0 +1,38 @@
+>>>>> +/* SPDX-License-Identifier: GPL-2.0-only */
+>>>>> +#ifndef __ASM_DMA_DIRECT_H
+>>>>> +#define __ASM_DMA_DIRECT_H
+>>>>> +
+>>>>> +#include <asm/pgtable-prot.h>
+>>>>> +
+>>>>> +static inline unsigned long addr_to_shared(unsigned long addr)
+>>>>> +{
+>>>>> +    if (is_realm_world())
+>>>>> +        addr |= prot_ns_shared;
+>>>>> +    return addr;
+>>>>> +}
+>>>>> +
+>>>>> +static inline unsigned long addr_to_private(unsigned long addr)
+>>>>> +{
+>>>>> +    if (is_realm_world())
+>>>>> +        addr &= prot_ns_shared - 1;
+>>>>> +    return addr;
+>>>>> +}
+>>>>> +
+>>>>> +static inline dma_addr_t phys_to_dma(struct device *dev, phys_addr_t
+>>>>> paddr)
+>>>>> +{
+>>>>> +    return __phys_to_dma(dev, paddr);
+>>>>> +}
+>>>>> +
+>>>>> +static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
+>>>>> +                         phys_addr_t paddr)
+>>>>> +{
+>>>>> +    return addr_to_shared(__phys_to_dma(dev, paddr));
+>>>>> +}
+>>>>> +#define phys_to_dma_unencrypted phys_to_dma_unencrypted
+>>>>> +
+>>>>> +static inline phys_addr_t dma_to_phys(struct device *dev, dma_addr_t
+>>>>> dma_addr)
+>>>>> +{
+>>>>> +    return addr_to_private(__dma_to_phys(dev, dma_addr));
+>>>>> +}
+>>>>> +
+>>>>> +#endif    /* __ASM_DMA_DIRECT_H */
+>>>>> diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
+>>>>> index d7e30d4f7503..3e9bf6ca640e 100644
+>>>>> --- a/include/linux/dma-direct.h
+>>>>> +++ b/include/linux/dma-direct.h
+>>>>> @@ -72,18 +72,36 @@ static inline dma_addr_t dma_range_map_max(const
+>>>>> struct bus_dma_region *map)
+>>>>>        return ret;
+>>>>>    }
+>>>>>    +static inline dma_addr_t __phys_to_dma(struct device *dev,
+>>>>> phys_addr_t paddr)
+>>>>> +{
+>>>>> +    if (dev->dma_range_map)
+>>>>> +        return translate_phys_to_dma(dev, paddr);
+>>>>> +    return paddr;
+>>>>> +}
+>>>>> +
+>>>>> +static inline phys_addr_t __dma_to_phys(struct device *dev,
+>>>>> dma_addr_t dma_addr)
+>>>>> +{
+>>>>> +    phys_addr_t paddr;
+>>>>> +
+>>>>> +    if (dev->dma_range_map)
+>>>>> +        paddr = translate_dma_to_phys(dev, dma_addr);
+>>>>> +    else
+>>>>> +        paddr = dma_addr;
+>>>>> +
+>>>>> +    return paddr;
+>>>>> +}
+>>>>> +
+>>>>>    #ifdef CONFIG_ARCH_HAS_PHYS_TO_DMA
+>>>>>    #include <asm/dma-direct.h>
+>>>>>    #ifndef phys_to_dma_unencrypted
+>>>>>    #define phys_to_dma_unencrypted        phys_to_dma
+>>>>>    #endif
+>>>>>    #else
+>>>>> +
+>>>>>    static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
+>>>>>            phys_addr_t paddr)
+>>>>>    {
+>>>>> -    if (dev->dma_range_map)
+>>>>> -        return translate_phys_to_dma(dev, paddr);
+>>>>> -    return paddr;
+>>>>> +    return __phys_to_dma(dev, paddr);
+>>>>>    }
+>>>>>      /*
+>>>>> @@ -94,19 +112,12 @@ static inline dma_addr_t
+>>>>> phys_to_dma_unencrypted(struct device *dev,
+>>>>>     */
+>>>>>    static inline dma_addr_t phys_to_dma(struct device *dev, phys_addr_t
+>>>>> paddr)
+>>>>>    {
+>>>>> -    return __sme_set(phys_to_dma_unencrypted(dev, paddr));
+>>>>> +    return __sme_set(__phys_to_dma(dev, paddr));
+>>>>>    }
+>>>>>      static inline phys_addr_t dma_to_phys(struct device *dev,
+>>>>> dma_addr_t dma_addr)
+>>>>>    {
+>>>>> -    phys_addr_t paddr;
+>>>>> -
+>>>>> -    if (dev->dma_range_map)
+>>>>> -        paddr = translate_dma_to_phys(dev, dma_addr);
+>>>>> -    else
+>>>>> -        paddr = dma_addr;
+>>>>> -
+>>>>> -    return __sme_clr(paddr);
+>>>>> +    return __sme_clr(__dma_to_phys(dev, dma_addr));
+>>>>>    }
+>>>>>    #endif /* !CONFIG_ARCH_HAS_PHYS_TO_DMA */
+>>>>>    --
+>>>>> 2.43.0
+>>>>
+>>>> How about the below?
+>>>>
+>>>> The function name addr_to_shared is too generic to be included in the
+>>>> dma-direct.h header file. Since we don’t expect it to be called
+>>>> directly, we can either inline it or find a more specific name.
+>>>>
+>>>> Additionally, for dma_to_phys conversion, we first retrieve the private
+>>>> address/alias before switching to the physical address. While both
+>>>> approaches yield the correct result, this change more clearly defines the
+>>>> conversion rules?
+>>>>
+>>>
+>>> Also translate_dma_to_phys/translate_phys_to_dma work with private dma
+>>> addr/alias right?
+>>>
+>>
+>> You're right, that needs to be fixed. Luckily (hopefully) DMA ranges
+>> are not used by AMD SME.
+> 
+> I'm not sure what you mean by this, but DMA to an encrypted addresses is
+> allowed under SME and eventually will be allowed with TDISP support in an
+> SEV guest. So the DMA address (assuming no IOMMU) could have the
+> encryption bit set.
+> 
 
-Please keep the file sorted, this should be the first entry.
 
-> diff --git a/drivers/net/phy/mediatek/Makefile b/drivers/net/phy/mediatek/Makefile
-> index 814879d0abe5..c6db8abd2c9c 100644
-> --- a/drivers/net/phy/mediatek/Makefile
-> +++ b/drivers/net/phy/mediatek/Makefile
-> @@ -2,3 +2,4 @@
->  obj-$(CONFIG_MTK_NET_PHYLIB)		+= mtk-phy-lib.o
->  obj-$(CONFIG_MEDIATEK_GE_PHY)		+= mtk-ge.o
->  obj-$(CONFIG_MEDIATEK_GE_SOC_PHY)	+= mtk-ge-soc.o
-> +obj-$(CONFIG_MEDIATEK_2P5GE_PHY)	+= mtk-2p5ge.o
-
-I suppose you could say this file is sorted in reverse order so is
-correct?
-
-> diff --git a/drivers/net/phy/mediatek/mtk-2p5ge.c b/drivers/net/phy/mediatek/mtk-2p5ge.c
-> new file mode 100644
-> index 000000000000..adb03df331ab
-> --- /dev/null
-> +++ b/drivers/net/phy/mediatek/mtk-2p5ge.c
-> @@ -0,0 +1,346 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +#include <linux/bitfield.h>
-> +#include <linux/firmware.h>
-> +#include <linux/module.h>
-> +#include <linux/nvmem-consumer.h>
-
-Is this header needed?
-
-> +#include <linux/of_address.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/pinctrl/consumer.h>
-> +#include <linux/phy.h>
-> +#include <linux/pm_domain.h>
-> +#include <linux/pm_runtime.h>
-
-And these two? Please only use those that are needed.
-
-> +static int mt798x_2p5ge_phy_load_fw(struct phy_device *phydev)
-> +{
-> +
-> +	writew(reg & ~MD32_EN, mcu_csr_base + MD32_EN_CFG);
-> +	writew(reg | MD32_EN, mcu_csr_base + MD32_EN_CFG);
-> +	phy_set_bits(phydev, MII_BMCR, BMCR_RESET);
-> +	/* We need a delay here to stabilize initialization of MCU */
-> +	usleep_range(7000, 8000);
-
-Does the reset bit clear when the MCU is ready? That is what 802.3
-defines. phy_poll_reset() might do what you need.
-
-> +	dev_info(dev, "Firmware loading/trigger ok.\n");
-
-dev_dbg(), if at all. You have already spammed the log with the
-firmware version, so this adds nothing useful.
-
-> +		phydev->duplex = DUPLEX_FULL;
-> +		/* FIXME:
-> +		 * The current firmware always enables rate adaptation mode.
-> +		 */
-> +		phydev->rate_matching = RATE_MATCH_PAUSE;
-
-Can we tell current firmware for future firmware? Is this actually
-fixable?
-
-> +	}
-> +
-> +	return 0;
-> +}
-> +
+We meant, something like this below, which I plan to add in v2.
 
 
-
-> +static int mt798x_2p5ge_phy_probe(struct phy_device *phydev)
-> +{
-> +	struct mtk_i2p5ge_phy_priv *priv;
-> +
-> +	priv = devm_kzalloc(&phydev->mdio.dev,
-> +			    sizeof(struct mtk_i2p5ge_phy_priv), GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
-> +	switch (phydev->drv->phy_id) {
-> +	case MTK_2P5GPHY_ID_MT7988:
-> +		/* The original hardware only sets MDIO_DEVS_PMAPMD */
-
-What do you mean by "original hardware"? 
-
-You use PHY_ID_MATCH_MODEL(MTK_2P5GPHY_ID_MT7988), so do you mean
-revision 0 is broken, but revision 1 fixed it?
+---8>---
 
 
-> +		phydev->c45_ids.mmds_present |= MDIO_DEVS_PCS |
-> +						MDIO_DEVS_AN |
-> +						MDIO_DEVS_VEND1 |
-> +						MDIO_DEVS_VEND2;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
-> +	priv->fw_loaded = false;
-> +	phydev->priv = priv;
-> +
-> +	mtk_phy_leds_state_init(phydev);
+dma: Fix encryption bit clearing for dma_to_phys
 
-The LEDs work without firmware?
+phys_to_dma() sets the encryption bit on the translated DMA address. But
+dma_to_phys() clears the encryption bit after it has been translated back
+to the physical address, which could fail if the device uses DMA ranges.
 
-    Andrew
+Hopefully, AMD SME doesn't use it. Anyways, let us fix it, before cleanup
+the infrastructure for supporting other architectures.
 
+
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
-pw-bot: cr
+  include/linux/dma-direct.h | 3 ++-
+  1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/include/linux/dma-direct.h b/include/linux/dma-direct.h
+index d7e30d4f7503..d20ecc24cb0f 100644
+--- a/include/linux/dma-direct.h
++++ b/include/linux/dma-direct.h
+@@ -101,12 +101,13 @@ static inline phys_addr_t dma_to_phys(struct 
+device *dev, dma_addr_t dma_addr)
+  {
+  	phys_addr_t paddr;
+
++	dma_addr = __sme_clr(dma_addr);
+  	if (dev->dma_range_map)
+  		paddr = translate_dma_to_phys(dev, dma_addr);
+  	else
+  		paddr = dma_addr;
+
+-	return __sme_clr(paddr);
++	return paddr;
+  }
+  #endif /* !CONFIG_ARCH_HAS_PHYS_TO_DMA */
+
+-- 
+2.43.0
+
+
+
+
+
+> Thanks,
+> Tom
+> 
+>>
+>> Suzuki
+>>
+>>
+>>>>
+>>>> modified   arch/arm64/include/asm/dma-direct.h
+>>>> @@ -4,14 +4,14 @@
+>>>>      #include <asm/pgtable-prot.h>
+>>>>    -static inline unsigned long addr_to_shared(unsigned long addr)
+>>>> +static inline unsigned long shared_dma_addr(unsigned long addr)
+>>>>    {
+>>>>        if (is_realm_world())
+>>>>            addr |= prot_ns_shared;
+>>>>        return addr;
+>>>>    }
+>>>>    -static inline unsigned long addr_to_private(unsigned long addr)
+>>>> +static inline unsigned long private_dma_addr(unsigned long addr)
+>>>>    {
+>>>>        if (is_realm_world())
+>>>>            addr &= prot_ns_shared - 1;
+>>>> @@ -26,13 +26,14 @@ static inline dma_addr_t phys_to_dma(struct device
+>>>> *dev, phys_addr_t paddr)
+>>>>    static inline dma_addr_t phys_to_dma_unencrypted(struct device *dev,
+>>>>                             phys_addr_t paddr)
+>>>>    {
+>>>> -    return addr_to_shared(__phys_to_dma(dev, paddr));
+>>>> +    return shared_dma_addr(__phys_to_dma(dev, paddr));
+>>>>    }
+>>>>    #define phys_to_dma_unencrypted phys_to_dma_unencrypted
+>>>>      static inline phys_addr_t dma_to_phys(struct device *dev,
+>>>> dma_addr_t dma_addr)
+>>>>    {
+>>>> -    return addr_to_private(__dma_to_phys(dev, dma_addr));
+>>>> +    /* if it is a shared dma addr convert to private before looking
+>>>> for phys_addr */
+>>>> +    return __dma_to_phys(dev, private_dma_addr(dma_addr));
+>>>>    }
+>>>>      #endif    /* __ASM_DMA_DIRECT_H */
+>>
+
 
