@@ -4,95 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E04FBC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 15:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D22C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 15:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kyIVLkT28r4TU0EMijOb+j2RXpDTj6f3sAkEcVbKSk0=; b=p13LhqwsKgyUSFLtEJ0vrGkOVH
-	gpCnOS/14VIoOQVjJUA8kmASoLFZg1a1n7A9wPq9HsOM+c3Vs+oksBJ8nL54omqLqke5D8c2g9RoV
-	paR3QECZoA24YABXkDoLDetwju/Da9c57Oo9ebGUi4431dU50ZI8IOtS2HeTp9CAHsF77xl55fJss
-	E4fnwqhxchMdaN1KDBWgD8catGFlZ68G3PATEJgpI/9uiAX2kGIEyWbRFrLpU43sPR8+8bqNXDkVv
-	KyD13pNdbfWnPe2BGY7nYbCQVNmvtyNO0ifrdgEJiYOr8vPPGVSATYZP0t43hBc1jNdttVlrGQI5C
-	bkATL/wg==;
+	bh=MfmWVw439cC9tNoofyFTf85q3d/+gHkqKQeUqSgeCPY=; b=WHuh5I9OsBKtvkOQKhauNaJdOO
+	ObQxK3LChyOLl+z3tzaKrScIZGwEBkd/ZWPofeRw5UXrT6iI25Ds8em06PEY+1iI2x2jH3H34iQwm
+	TEn6VQ0yny8mu5acGo7MyUk3Tm9v6qNn4zaiWphIn8mrU5MParRADTrA1bRhhA3mY19qa+60t3E3W
+	eKWAsgCUzFoEZ96oacu8LDsLd/zkUe0pBdvHnmfjavCDRrIbikVPmQNGemMM1mhLRk5l+AyTcGENs
+	lR0f2jGqJRkiUMrhO2kboxJ5+9zEna/68XdkkRSsVDyK2w1q09v4Eb/Z2kA+FK59fsLkLKKPBhbXi
+	aRuVSTfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl8i4-00000001daD-1c1m;
-	Thu, 20 Feb 2025 15:43:32 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tl8kC-00000001eAE-0YZp;
+	Thu, 20 Feb 2025 15:45:44 +0000
+Received: from mail-bn1nam02on20712.outbound.protection.outlook.com ([2a01:111:f403:2407::712] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl8gY-00000001dEd-4Ate
+	id 1tl8ih-00000001dmX-1Q8I
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 15:42:00 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4399d14334aso9701565e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 07:41:58 -0800 (PST)
+	Thu, 20 Feb 2025 15:44:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A5+9YArGIV4xqKLPFQctHbrH2EWmpqM3Nb3Q7g5Dz6zJIsggFzYRC6T18tOet0c98rtv1cU/QZzvm1VcsBvlhi7NbhTe0GiAmVdZzQgyT8deYhAVHuzIB/PKVtgBoakz+XhRn5pdpE1kH9TXIoaXrzST8Hbr0cyHO8gX/M3wTBoRD9VNfp1Gimfqnl/ZKYZPd5qQc04260nig6y8FjzlXeHMzQ3CuiZOPZ15r6UrWBkTh9d15yVSUei6qET4RiegSsurTo2tR2MojdzLvmibx99WP6HoW69uOLI+Xm1VhsI/2LSALlCTOqBJ4WL4mEj5jndBRzvPzXv6lYWXA0TRkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MfmWVw439cC9tNoofyFTf85q3d/+gHkqKQeUqSgeCPY=;
+ b=bBFL2U/RrTjKcs+OJ3NlIgf5i+vntLhuHAYzqPkjU8sVG0sMZYp/WpW6/UL+jjPzr3pqfewaOaywNMWFNNhtvjxEa7yUVkqwU/puR0xbAQFKHyYxO65iHcf7117oFFGbdN6TgBgNz5YVGXJoIVnM54W/Egstdhr0tzI1Rh0HsYTtb3M7fEaPgBZ73iBgUbtmqc8m7rZnYl//oOIDwgO08g/p13GT7IcA2NZ7hV5qNzTSokcCGpPdNkM3rtg8Z4zneDi2NKzfjdNakpnaP21wY9qDxlc3j5Ih+WQILilc7dycZybWgnZ0PB+bfmSdc52HqozaXgnA8Z3RBiyk+nBDIg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740066117; x=1740670917; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kyIVLkT28r4TU0EMijOb+j2RXpDTj6f3sAkEcVbKSk0=;
-        b=bUeXyc1n/vDOWQWHZWa3rk6JIeJLV5TMpBmIFDAa5j/DL6n1TUmSp+JMauYsfQYVSF
-         u2D/IsdjKCSHugWWE4inOAqtS7HntDqZpHLUeaG3cVuisyK199YukAu65YilPBB1zPJB
-         nYJsfb9EHyPq4zc2mT/t+rNAB8jOORhgVzfIdlw8NPTvTbBDiI147V88qLQP0hpqHs5C
-         apwnb/JKvB7mu6IcZg3UzdqMu6jIhJ0zy4RHWLQ9SUhzz2qh8KJ67sdXKdwYnF673DZf
-         Wr5bJJmGsyafbJp03UnquWKNBoXxYHGUefGHLRXQjhUGCvsqRgxQ6X1zOP1lenzNWK58
-         7GBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740066117; x=1740670917;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kyIVLkT28r4TU0EMijOb+j2RXpDTj6f3sAkEcVbKSk0=;
-        b=CBXiYPTn/3NUoOSWRtrTMk0t+qbdoD8DncbdOQcSzHERnQVJO5Is82RHIaXUmfpI1k
-         AmAAb2+q6mRS+AAVG9hQJ0O1axqSP+MmAndOSVJ1ZzIPL9dRQ0dG6VJ6laaA+fgQAzRN
-         Msc64dkNjIxAkzuS2CD+WJFyi5CcIvgEH6W16qqChzXfEZelR5gmTMQx1vUQYt0L/kTe
-         JjRIPoEajEBxEhO0dpBJpL6/20+p8OpIwneE6Kn5PcpCoOTWlFHMK5tanU5C2neggzar
-         jB4/U8zGB7+4hQe2h7s4KYPt7e9b8O+Sm+1SP6fYjPSTTyE94v7dvhoQmLB+c0jPic8e
-         H7XQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV6Q2MwjOGoy9MTO3y3QcLES6+V42aF6fe8vye7clPs7nrAToTzZFDkV4MDSzZCHs9V/ukN/9h7xLXTGarPAN/9@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVisSgsoDM1jg4tC6vwMjM50eF7XNSlBozFBjfukI7b4uXkji+
-	llIrMSI5RXjmwbUVZ7e0MFcUbOJo/2GCewSiJobylHhNDTRziuft
-X-Gm-Gg: ASbGnctPNwHeYDygLuMmpa/23tYSmosQQYtfV0ShPIfqtz2+/mQW3Zo3oXyad2s+By4
-	h69f+DdVSv6Xs0XjF6eN03YY0xFfUXVvRQCYC6BMsJjM2TbO7KTWhbNs4j2ArmO908iweyL9dvb
-	zRwFY+w96YjUxUt2cuw/qd4JulNqGmlmtDUcBHlHCXsVy0IF4ufWuOgEbeIgE5qB3X8peKHZmfX
-	MUNvp3pPSCmg3RoC6lKQwvAtxW38iZ7M5Bs7bcSmr7PWgwNZMzeKxmw0ZEH+7vJctDjfCW6dU3f
-	B6STnqgAC48tuiqKBsg9jLdoxvEqohme7QlEdaT6KcWcDtRBZfxmm47W0a0saFqW5JU=
-X-Google-Smtp-Source: AGHT+IGLMBgWAS8md1eWr3QLcZNc7eKtGIVV3ogJUweYOTxfA509OyXxG3f6PzbwI1nZtFPUxbjlgg==
-X-Received: by 2002:a05:600c:4f48:b0:439:8bb1:14b1 with SMTP id 5b1f17b1804b1-43999d91255mr100404625e9.11.1740066116912;
-        Thu, 20 Feb 2025 07:41:56 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258fc7e0sm20646011f8f.48.2025.02.20.07.41.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 07:41:56 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Samuel Holland <samuel@sholland.org>,
- "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
- "moderated list:ARM/Allwinner sunXi SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
- open list <linux-kernel@vger.kernel.org>,
- Philippe Simons <simons.philippe@gmail.com>
-Cc: Philippe Simons <simons.philippe@gmail.com>,
- Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v3 1/1] clk: sunxi-ng: h616: Reparent GPU clock during frequency
- changes
-Date: Thu, 20 Feb 2025 16:41:54 +0100
-Message-ID: <3297157.aV6nBDHxoP@jernej-laptop>
-In-Reply-To: <20250220113808.1122414-2-simons.philippe@gmail.com>
-References: <20250220113808.1122414-1-simons.philippe@gmail.com>
- <20250220113808.1122414-2-simons.philippe@gmail.com>
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MfmWVw439cC9tNoofyFTf85q3d/+gHkqKQeUqSgeCPY=;
+ b=qpiKUEajCdX2owgURSReak+hr7dCHs3DtIX0wwtghuTlqVwQ5FPCnkG21i1+FVCeRom5XnLphzEIXyjNI+xxrUMfoHOibtWXtvuWy3dxJIukYKdj9Xfc7P7PQYLunBRkbLJqN2Xz4MQI/VTpSB9bxHQ3Cw9MeFCR4TQJnuIycHI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
+ LV2PR01MB7839.prod.exchangelabs.com (2603:10b6:408:14f::13) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8466.14; Thu, 20 Feb 2025 15:44:02 +0000
+Received: from SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9%4]) with mapi id 15.20.8466.009; Thu, 20 Feb 2025
+ 15:44:02 +0000
+Message-ID: <c663be4c-87b3-43e0-9669-1d18f1a2998d@os.amperecomputing.com>
+Date: Thu, 20 Feb 2025 21:13:55 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 06/14] KVM: arm64: Consolidate idreg callbacks
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, Eric Auger <eric.auger@redhat.com>
+References: <20250220134907.554085-1-maz@kernel.org>
+ <20250220134907.554085-7-maz@kernel.org>
+Content-Language: en-US
+From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+In-Reply-To: <20250220134907.554085-7-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA1PR01CA0173.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:d::14) To SJ2PR01MB8101.prod.exchangelabs.com
+ (2603:10b6:a03:4f6::10)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|LV2PR01MB7839:EE_
+X-MS-Office365-Filtering-Correlation-Id: d049eee2-6eaa-479d-285a-08dd51c5662f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VkpSSkVwL08rdlR3UnBGbWptMU0yREdjWmFTQ090eEVONFZ2Z0FjM2NHQVlG?=
+ =?utf-8?B?WktvT2p0OWxOUTcwRUxNMEpvRGk5Z2FwSlp5bDhYenBlWjI4WVc2KytXUEdk?=
+ =?utf-8?B?NGFGRTREZVNJaVBPcWhRUEhSTE1IQjZkNUtRYWdlejZheXN6bTNOVkcyZ21O?=
+ =?utf-8?B?enNLK09LdzNVck5OUEhrSnY5Uko0alM5L2VvKy9RN0EvMGVIRm1PanY2cEJk?=
+ =?utf-8?B?b3FwUG56OW5xUHFFMElwMkU0c2NzWGYzcHIyK1ljTEhGb0tvcEVobnpOU2pq?=
+ =?utf-8?B?NnNxVlVzV2Q2U0QxRUxaelhiUjR2MGZ0bXRlazRxSDFEK0xRbW9NdmRkWVFM?=
+ =?utf-8?B?Zmx5RnhEd2xoRS96ZWRDRVhMQU9jSjN1aEFRdDZMOEtUUkt5aFdPUWZpMnhk?=
+ =?utf-8?B?QllObFRUajJrRzUxbExiODlJbWplZlpObjgwVEFPQlY2MW9MaVFxMG1pZDZN?=
+ =?utf-8?B?TU5iOTZhcW9LM1A2OUFGTWN1QnFqMzE2VWYwOXM5K2VOYkhSLzJwb3pUVWlz?=
+ =?utf-8?B?NjgydjJuNXNuUS9WVitML2lOc0ZDTGNLUzl4TitqUG9hS1NaQ0RudEdqdTN4?=
+ =?utf-8?B?YTk4ZVFDY3V3Z2J5ZGR6WUQwWURWSnFYR1RQcjFOcUwwdUFpUzVXV1RWZkYz?=
+ =?utf-8?B?YllWc0Y5b0RjR0FERTFkUytwdVVTekFqMUJRRklZMUpPaHkwdEhpN1poUTNz?=
+ =?utf-8?B?a2pTZnVFVnNxd3A0RGxQNHYrbFIvdWlQRXZGS3Q2bkRqM0RzRjRTOURHZjg0?=
+ =?utf-8?B?K1JLT1NoR2plQWQ3MVZkV3Jzbm1YV0kvU2RWTFVMMDUzSUQ5emVocERwYU5t?=
+ =?utf-8?B?ZnNTM0VSMjFVUXVQdEw0VVl1Yk1vRk51c1hOV2FZVWRoSXg0VklidTR0T3VO?=
+ =?utf-8?B?Q2w3ZWxzMTN6NUpwM09KWU9CUmZzamE3cHdWQ2RtOVhrbmY0K3M5RUdZL21l?=
+ =?utf-8?B?S0d2Q28yL05vckxZSHhNcGdIeWpsWkRRWUV5cEozODl1MnY4VklTMlduREF4?=
+ =?utf-8?B?U3ZyL2d2ZFBFZHhCMkxmMGhvVFhnN1ZpWHpIN1dYS2FWVjkvWTdRY2d1T2tM?=
+ =?utf-8?B?bW9VWXRUTXliL201cjlxMFQyait3amUwa3M3SXpkY2x6c0pkQ3grY0lCWHQx?=
+ =?utf-8?B?dzVMWHpvNnZ0TVQyQWJHazg4S0x0N0VhS0xoZ2lac1ZjTHlldWNWdnRSUjRx?=
+ =?utf-8?B?S25ZQVRPbGZRajNsV1NOL0J0dmdxamM1dVMyUUMzQWczeGNjdzFxejV0Mlg3?=
+ =?utf-8?B?TkxBR3I4RW1Ia3QrQStVdVJNK2NDL0JaWjRBMFBaTVM1YnB0N0pNMGpzSWRO?=
+ =?utf-8?B?bU5YQjVQQk94UW1QVFdkZXRLTDUxSzJhdE5JelNKa1NlT21HR1B6dVBqemha?=
+ =?utf-8?B?ZTV1dmpMQXdqNTRsdW5QdFJ4ZmtXcXh3eW1ld2Q3Vk81Q25RNFVCeEhFK1Z4?=
+ =?utf-8?B?aHdDRnArMU1SMlhIaGlQTWFvUndxTStsTy82a2RkQSsxc0hlODJXeXgrMWV4?=
+ =?utf-8?B?VVFodk9aQi9zSkdBU2VmTE44N0djNHUxWCtZOEZEOFppbTVPK0hOWGZEWlAy?=
+ =?utf-8?B?T3g1eUdxck85TmRabVNVU0FmV0RpNnlhVDdydEo1WFZBMHhHazRDV0ZoeGlh?=
+ =?utf-8?B?bE90TnkvY29Xc0dsaEd4TFd5K2lJSDUwZ1dqMS8yUHp2MUZlb3d3cDV0dElp?=
+ =?utf-8?B?azdGQnVvOG9HSjBSNDBDNG5BekNOMXFxWWtRNHVCZ214Qis0RzJpUWFMMDdo?=
+ =?utf-8?B?ZWx1MlE3cHEwTDdxQ21pRFVHTmUxaUFwWjNvUHNHaVlRS1kzc3JCMmpYTURr?=
+ =?utf-8?B?U3dRNWhRTmE5QlJid3RwOTFVYlprTjhGckVlUkU5aWEvaWJBT1VuY0FZa3ZO?=
+ =?utf-8?Q?1fGzbetCyOvi1?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z1RzRlBZVzRDT1dxK09RT05RZzhhcGxpcU5UcnpjUE1FRUlraVE3Q25MbUkr?=
+ =?utf-8?B?aEhnSUxxcCtsWHhtUGlKZ092bTRxVGUwbTcvTzArb1VxV2N1N2hwTGhMVjF6?=
+ =?utf-8?B?SVJSTFY5QWliZTJBc0NIRHozQ1FzalNTNS90U1JBKzFQVUFieWh4ZGsrbWhH?=
+ =?utf-8?B?NWJaUWZDNVRqOFpTaWd2NFVZeklGSDhlUXN5NjVpdFgxVmlYM044RFp3VXVn?=
+ =?utf-8?B?eVU4Ny9ySTk0TGxFZ2FaZXdhUW9lRmlyQ04rdHVVMTJiQWQ5VWRwektOZG5U?=
+ =?utf-8?B?Q293Y093OGpwQlN3bkZxWkVrdHllMHRaWTFkeDh4djlKL0hjRkJiUjlibjVO?=
+ =?utf-8?B?NzR5a2h3Z2VsbFd4bi9BY0tWc0VpYTc4RlQ4bkVmWlIveFpONFZqWFYrdDNQ?=
+ =?utf-8?B?S2FNOGlqNTd5Z2l4cFFYampWcFphMENKaXVKaTBaMk1hRnpJVUk5azFSMlVu?=
+ =?utf-8?B?K0J4b3liRGsxRGNUQjhBS2ErRk9XeTV2anJFRHppOFNId1IzUGNuUkc3ZERj?=
+ =?utf-8?B?YjBDRmF1V1U5dVlvSEJvV3lKQmpObjZQQTFLUVB2TkN1Rk9ENTlvblhFZTBN?=
+ =?utf-8?B?cnVXN043UlZFMWdqcE1UemU5RDZaNnA4TmtpUVRXQnRpeEt2MjlackNTalZG?=
+ =?utf-8?B?eXZib1I3TElkRlJmLy9CM0swRW1DVTBOWll1cGpDaU9VUXFEb1p0QzJDc0o2?=
+ =?utf-8?B?WEJkVndPK3U3bnY4SmVJL280enhlZVdMNFJkdWNiOUduaWNFNythSjExQ1Qy?=
+ =?utf-8?B?aEM4QzErM0RFQTlNMTVJbjQ5WThmclNMMEE4M3cydEp3c2JwZXF6WGdWTzNP?=
+ =?utf-8?B?MUx4VzFXWGR3WFRkM3BFMy9tdjNzZ2dOb2FScTZHdGhqQkVPNytHRkRXYThj?=
+ =?utf-8?B?MnBxM3ZpdHNGZGNOczZCM29IdDl5TEo2K1lDMVdCaTJKeGJMdGR2Nkd5Ty9a?=
+ =?utf-8?B?aE5qK3BhSG0vc2piMER2VGxhNno5Sml0OTFHNlN3Nkt0TW9BN1czTFYxQzRs?=
+ =?utf-8?B?U0VzdCs4cXF2ZE00dzR1NE5ITnZ5WFJtZSsvSThVRjBQQkNadU1DeVN2aCtl?=
+ =?utf-8?B?T1RBQlc1aHJMYnZtVlZXR2UzTkZGZ1c1OUIxcEZIaFVNLzdoOXkybjc1Ujhp?=
+ =?utf-8?B?b1dPZWhTVTZPRTcraUo1NURYZkFpSlFvMFhTaTJUOCtOSCtuNDd3Ni9XUW9P?=
+ =?utf-8?B?Mlk4V1U4SGVnMjBxaGczdGtoSm51WkZNWndzZ2MwaFp0TGRUWnRWV2tvUCtY?=
+ =?utf-8?B?YW9JNWRSL3lkWnZMb3NhSXJlQ2daY0R3MmFDc1dFdnpVeVY2aHJxQmFrK3Jk?=
+ =?utf-8?B?K29iUWxNbTJwV01MOTlmcmhsUitrSGpIWXlyWHhOQkFLUFY1dklpbVpxbExs?=
+ =?utf-8?B?Z2FTeTVYUEpFY3RyclUzdjVVN3pxc1RPdnk1VHJXU2U0d0FhQ3lGdFdJYWZZ?=
+ =?utf-8?B?dEx4bXAzR0xQdVVVSE9JKzg2NlpiMEVROUtTbkY2YjhieFR3VUZvZ1VUdXZR?=
+ =?utf-8?B?YnljRlc4N2hPOHd2TGFYTExzLzNXYmg0ZXBHa1p4cUtVTndFMThOYm5jU1Ra?=
+ =?utf-8?B?K2tRZjlGTWhkN1Q1QU93S2pzVS9KUzd5dlFQUGpQVDlnbjBiRzg4RmJCbm5R?=
+ =?utf-8?B?STdvYjlZV0ttQUJRNytaTTNOWXVKenR2cXJsVjgxUkpYeU0rUWRDTkxOejZD?=
+ =?utf-8?B?azZKMlVyWDRTMFFhK3M5VGZQY0d4b1UzUmdySUtxQnd1L2dvRXVSZkNyMXJL?=
+ =?utf-8?B?Vmt0Y0dUUGo4VWI4a0FCL1ZTOFFNbVFtNU9HdGtaRjJ2Zk5MTnVMa1YyZVBo?=
+ =?utf-8?B?L3VFM0ROMXp4anNjZzFWNXBVL1pSQnRKb2pHYS9SR0hJd2RDTzF2SElDMUln?=
+ =?utf-8?B?OFZ6ejlGWGRDZ09oRUlPNkV1bjBmU2xlanpVVGJucCtCcE5JamxhbXlURHN5?=
+ =?utf-8?B?U01xbEJkMk1FWUdQM0xJeUlRTTNHdnZoS3ppWHMrdmNZZ0locTRRZUdINDBP?=
+ =?utf-8?B?ZGJOS3Bxb1NFcURpaVozOGx2L2xpYjlOT0ZOM2M3eDJmd0ZHVlBkbUF1SWYr?=
+ =?utf-8?B?eXR3MDdVajNWQ1hQZm0zME1OSWxQT3dQVk81Zmp2cm1vNjM3aGVQSzc4U2xx?=
+ =?utf-8?B?OVBZUmxxeXFSRFFQQUVoV3NCSDFDcWxpYnlmNzhydFlSbW1hWlJ3RU9qQU5x?=
+ =?utf-8?Q?Bga+IoYXSXMBQ8520FJLTvI=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d049eee2-6eaa-479d-285a-08dd51c5662f
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 15:44:02.2519
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WSLFte/mAn9sUVN2pP0/lNh+720orYvYgut01rvGGQ6JSEzPiGDp2lG9J3vE8URoji/KEQTHLbyIf7zVniNQcvdiJXFQ4fExIE07i1tq8soTHaXyNFoVBZLfJlF9of9+
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR01MB7839
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_074159_033564_DA1A065D 
-X-CRM114-Status: GOOD (  24.62  )
+X-CRM114-CacheID: sfid-20250220_074411_398279_17556F63 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,114 +178,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne =C4=8Detrtek, 20. februar 2025 ob 12:38:08 Srednjeevropski standardni =
-=C4=8Das je Philippe Simons napisal(a):
-> The H616 manual does not state that the GPU PLL supports
-> dynamic frequency configuration, so we must take extra care when changing
-> the frequency. Currently any attempt to do device DVFS on the GPU lead
-> to panfrost various ooops, and GPU hangs.
->=20
-> The manual describes the algorithm for changing the PLL
-> frequency, which the CPU PLL notifier code already support, so we reuse
-> that to reparent the GPU clock to GPU1 clock during frequency
-> changes.
->=20
-> Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
-> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+
+
+On 20-02-2025 07:18 pm, Marc Zyngier wrote:
+> Most of the ID_DESC() users use the same callbacks, with only a few
+> overrides. Consolidate the common callbacks in a macro, and consistently
+> use it everywhere.
+> 
+> Whilst we're at it, give ID_UNALLOCATED() a .name string, so that we can
+> easily decode traces.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 > ---
->  drivers/clk/sunxi-ng/ccu-sun50i-h616.c | 36 +++++++++++++++++++++++++-
->  1 file changed, 35 insertions(+), 1 deletion(-)
-
-Changelog is missing here. What's changed?
-
-In any case, this patch isn't useful on its own. What about PPU and GPU DT =
-node?
-
-Best regards,
-Jernej
-
->=20
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c b/drivers/clk/sunxi-n=
-g/ccu-sun50i-h616.c
-> index 190816c35..6050cbfa9 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> @@ -328,10 +328,16 @@ static SUNXI_CCU_M_WITH_MUX_GATE(gpu0_clk, "gpu0", =
-gpu0_parents, 0x670,
->  				       24, 1,	/* mux */
->  				       BIT(31),	/* gate */
->  				       CLK_SET_RATE_PARENT);
+>   arch/arm64/kvm/sys_regs.c | 28 ++++++++++------------------
+>   1 file changed, 10 insertions(+), 18 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 9f10dbd26e348..678213dc15513 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -2267,35 +2267,33 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+>    * from userspace.
+>    */
+>   
+> +#define ID_DESC_DEFAULT_CALLBACKS		\
+> +	.access	= access_id_reg,		\
+> +	.get_user = get_id_reg,			\
+> +	.set_user = set_id_reg,			\
+> +	.visibility = id_visibility,		\
+> +	.reset = kvm_read_sanitised_id_reg
 > +
-> +/*
-> + * This clk is needed as a temporary fall back during GPU PLL freq chang=
-es.
-> + * Set CLK_IS_CRITICAL flag to prevent from being disabled.
-> + */
-> +#define SUN50I_H616_GPU_CLK1_REG        0x674
->  static SUNXI_CCU_M_WITH_GATE(gpu1_clk, "gpu1", "pll-periph0-2x", 0x674,
->  					0, 2,	/* M */
->  					BIT(31),/* gate */
-> -					0);
-> +					CLK_IS_CRITICAL);
-> =20
->  static SUNXI_CCU_GATE(bus_gpu_clk, "bus-gpu", "psi-ahb1-ahb2",
->  		      0x67c, BIT(0), 0);
-> @@ -1120,6 +1126,19 @@ static struct ccu_pll_nb sun50i_h616_pll_cpu_nb =
-=3D {
->  	.lock		=3D BIT(28),
->  };
-> =20
-> +static struct ccu_mux_nb sun50i_h616_gpu_nb =3D {
-> +	.common		=3D &gpu0_clk.common,
-> +	.cm		=3D &gpu0_clk.mux,
-> +	.delay_us	=3D 1, /* manual doesn't really say */
-> +	.bypass_index	=3D 1, /* GPU_CLK1@400MHz */
-> +};
-> +
-> +static struct ccu_pll_nb sun50i_h616_pll_gpu_nb =3D {
-> +	.common		=3D &pll_gpu_clk.common,
-> +	.enable		=3D BIT(29),	/* LOCK_ENABLE */
-> +	.lock		=3D BIT(28),
-> +};
-> +
->  static int sun50i_h616_ccu_probe(struct platform_device *pdev)
->  {
->  	void __iomem *reg;
-> @@ -1170,6 +1189,14 @@ static int sun50i_h616_ccu_probe(struct platform_d=
-evice *pdev)
->  	val |=3D BIT(0);
->  	writel(val, reg + SUN50I_H616_PLL_AUDIO_REG);
-> =20
-> +	/*
-> +	 * Set the input-divider for the gpu1 clock to 3, to reach a safe 400 M=
-Hz.
-> +	 */
-> +	val =3D readl(reg + SUN50I_H616_GPU_CLK1_REG);
-> +	val &=3D ~GENMASK(1, 0);
-> +	val |=3D 2;
-> +	writel(val, reg + SUN50I_H616_GPU_CLK1_REG);
-> +
->  	/*
->  	 * First clock parent (osc32K) is unusable for CEC. But since there
->  	 * is no good way to force parent switch (both run with same frequency),
-> @@ -1190,6 +1217,13 @@ static int sun50i_h616_ccu_probe(struct platform_d=
-evice *pdev)
->  	/* Re-lock the CPU PLL after any rate changes */
->  	ccu_pll_notifier_register(&sun50i_h616_pll_cpu_nb);
-> =20
-> +	/* Reparent GPU during GPU PLL rate changes */
-> +	ccu_mux_notifier_register(pll_gpu_clk.common.hw.clk,
-> +				  &sun50i_h616_gpu_nb);
-> +
-> +	/* Re-lock the GPU PLL after any rate changes */
-> +	ccu_pll_notifier_register(&sun50i_h616_pll_gpu_nb);
-> +
->  	return 0;
->  }
-> =20
->=20
+>   #define ID_DESC(name)				\
+>   	SYS_DESC(SYS_##name),			\
+> -	.access	= access_id_reg,		\
+> -	.get_user = get_id_reg			\
+> +	ID_DESC_DEFAULT_CALLBACKS
+>   
+>   /* sys_reg_desc initialiser for known cpufeature ID registers */
+>   #define ID_SANITISED(name) {			\
+>   	ID_DESC(name),				\
+> -	.set_user = set_id_reg,			\
+> -	.visibility = id_visibility,		\
+> -	.reset = kvm_read_sanitised_id_reg,	\
+>   	.val = 0,				\
+>   }
+>   
+>   /* sys_reg_desc initialiser for known cpufeature ID registers */
+>   #define AA32_ID_SANITISED(name) {		\
+>   	ID_DESC(name),				\
+> -	.set_user = set_id_reg,			\
+>   	.visibility = aa32_id_visibility,	\
+> -	.reset = kvm_read_sanitised_id_reg,	\
+>   	.val = 0,				\
+>   }
+>   
+>   /* sys_reg_desc initialiser for writable ID registers */
+>   #define ID_WRITABLE(name, mask) {		\
+>   	ID_DESC(name),				\
+> -	.set_user = set_id_reg,			\
+> -	.visibility = id_visibility,		\
+> -	.reset = kvm_read_sanitised_id_reg,	\
+>   	.val = mask,				\
+>   }
+>   
+> @@ -2303,8 +2301,6 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+>   #define ID_FILTERED(sysreg, name, mask) {	\
+>   	ID_DESC(sysreg),				\
+>   	.set_user = set_##name,				\
+> -	.visibility = id_visibility,			\
+> -	.reset = kvm_read_sanitised_id_reg,		\
+>   	.val = (mask),					\
+>   }
+>   
+> @@ -2314,12 +2310,10 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+>    * (1 <= crm < 8, 0 <= Op2 < 8).
+>    */
+>   #define ID_UNALLOCATED(crm, op2) {			\
+> +	.name = "S3_0_0_" #crm "_" #op2,		\
+>   	Op0(3), Op1(0), CRn(0), CRm(crm), Op2(op2),	\
+> -	.access = access_id_reg,			\
+> -	.get_user = get_id_reg,				\
+> -	.set_user = set_id_reg,				\
+> +	ID_DESC_DEFAULT_CALLBACKS,			\
+>   	.visibility = raz_visibility,			\
+> -	.reset = kvm_read_sanitised_id_reg,		\
+>   	.val = 0,					\
+>   }
+>   
+> @@ -2330,9 +2324,7 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+>    */
+>   #define ID_HIDDEN(name) {			\
+>   	ID_DESC(name),				\
+> -	.set_user = set_id_reg,			\
+>   	.visibility = raz_visibility,		\
+> -	.reset = kvm_read_sanitised_id_reg,	\
+>   	.val = 0,				\
+>   }
+>   
 
+Reviewed-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
 
-
+-- 
+Thanks,
+Ganapat/GK
 
 
