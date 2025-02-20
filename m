@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D9B3C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:56:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E86A6C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ihVrinw115rJrSYXwInOqAt0jxw5Rnkv8t8xQTnuTI=; b=bxL3qy6uz++qB6KWDAMF9M450q
-	pRDByKuPhsb3bhg8DPyNwjqnip8VX1LUTiLl42/9tPoNc9awlO/34Qf9x78A87sE4Oc8gLeiIW+iq
-	qmJQCCs4WEdLjUcEigkFbAcL6RMoGvLoFPEfvuB7tm5hG0Hdv5dtEGVm6n+S6ASxnEVS1dSRyJHVq
-	/b3inMqYgZIPD6AetnrvIuv7oEi39+9gJah7vs0FU2phVzcdfsPbh3I0GpwlLvq/T+yRFCVpFngEp
-	zKOyfxdiVtgx7+ueJF8GX7YX+Thv+5ucbMiCvfckMQQKKK1Id2IAuQuQRdkmhLAIoOEfX0VxgRXem
-	td0gySdA==;
+	bh=tP9hm5Wbxf+EjEs2XHZzI1XGFE1GsHQMkf6PW0oJwZ0=; b=tbpPh6vE3ygb21vV1Eh3NR9avn
+	ePWzXwTXyof3SfcsFtjmB37MzXKKat6QuYFIssnH0oxkPIapp4p6MdSrAgXMsm8a1KSZZEXo4tEqb
+	qj+LTT4o7LdeGoCFJkwksgpzXb24+Y6SH29+5K6AynPO4axKc2h++L/bfrQ70LudqG7QrfG6xSSST
+	6586sJzG490o4dxv1QR5jjRpkI8VugApxSaxXhexaKUlAhirYHTVMKTswxk+T3D2Rcen+CF35p4mX
+	QwW0Q9Cq7F8HB77YCmBXPFKEQYk6GuUknZLouypt1Vp69RqaXecxDj1D0Kqu/ot6zGyG4gVDy2u5+
+	+6o+4jIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9qi-00000001zli-3Lkq;
-	Thu, 20 Feb 2025 16:56:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9oS-00000001z6F-28CD
+	id 1tl9uD-000000020xp-0VZ2;
+	Thu, 20 Feb 2025 17:00:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tl9si-000000020Zc-0fub
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 16:54:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B5A0316F3;
-	Thu, 20 Feb 2025 08:54:27 -0800 (PST)
-Received: from [10.57.80.147] (unknown [10.57.80.147])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B7703F5A1;
-	Thu, 20 Feb 2025 08:54:06 -0800 (PST)
-Message-ID: <fc199d7c-ab09-4278-b641-962184bff14d@arm.com>
-Date: Thu, 20 Feb 2025 17:54:04 +0100
+	Thu, 20 Feb 2025 16:58:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7A65A615A4;
+	Thu, 20 Feb 2025 16:58:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C901C4CED1;
+	Thu, 20 Feb 2025 16:58:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740070714;
+	bh=h5khnN9rm493Ud45EVpbRXLTxQI1CXCGiYSILzqJP+Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=MxVln6Aznb5RQsZQWGqyUZKsy62IVbPzUmyFF5Xv0d2oL8d5lsa9g9ESOwJP4tRE4
+	 1YCAM3Z5//VBMBMJevQJbFbtXyQIWcYHBYhDpbupMky7kCtCH1dHZWm+QGNmfamf0D
+	 qiuNQZ0YNSBIn5j72WEFslJa9qqgYVg1wtsQ68yTIkxlw26oSIijgbOBfSrDJ1Y/i4
+	 Nm93nt4OUpvoAtiaivQwKyxvssaGNqubqcYB3RIMG9YLFiSVivTIFfpZ3sElsb1JdP
+	 PGPDmFFFJ9yQblFU7oIgQAdFUgoIT+TGnd1G02N8IcfahwQTNU2uyq1n523rNBPM6m
+	 LsvWlBGvPSE0Q==
+Date: Thu, 20 Feb 2025 08:58:33 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Nick Hu <nick.hu@sifive.com>
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Michal
+ Simek <michal.simek@amd.com>, Russell King <linux@armlinux.org.uk>,
+ Francesco Dolcini <francesco.dolcini@toradex.com>, Praneeth Bajjuri
+ <praneeth@ti.com>, Andrew Lunn <andrew@lunn.ch>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] net: axienet: Set mac_managed_pm
+Message-ID: <20250220085833.476b3f62@kernel.org>
+In-Reply-To: <20250217055843.19799-1-nick.hu@sifive.com>
+References: <20250217055843.19799-1-nick.hu@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/14] arm64/mm: Avoid barriers for invalid or
- userspace mappings
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- David Hildenbrand <david@redhat.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250217140809.1702789-1-ryan.roberts@arm.com>
- <20250217140809.1702789-8-ryan.roberts@arm.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <20250217140809.1702789-8-ryan.roberts@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_085412_635180_D5D999C2 
-X-CRM114-Status: GOOD (  24.26  )
+X-CRM114-CacheID: sfid-20250220_085836_256781_D5A562AF 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,64 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/02/2025 15:07, Ryan Roberts wrote:
-> __set_pte_complete(), set_pmd(), set_pud(), set_p4d() and set_pgd() are
+On Mon, 17 Feb 2025 13:58:42 +0800 Nick Hu wrote:
+> The external PHY will undergo a soft reset twice during the resume process
+> when it wake up from suspend. The first reset occurs when the axienet
+> driver calls phylink_of_phy_connect(), and the second occurs when
+> mdio_bus_phy_resume() invokes phy_init_hw(). The second soft reset of the
+> external PHY does not reinitialize the internal PHY, which causes issues
+> with the internal PHY, resulting in the PHY link being down. To prevent
+> this, setting the mac_managed_pm flag skips the mdio_bus_phy_resume()
+> function.
+> 
+> Fixes: a129b41fe0a8 ("Revert "net: phy: dp83867: perform soft reset and retain established link"")
+> Signed-off-by: Nick Hu <nick.hu@sifive.com>
 
-Nit: it would be more accurate to say __set_pte() instead of
-__set_pte_complete(), as it is the former that actually writes the PTE
-(and then issues barriers).
-
-> used to write entries into pgtables. And they issue barriers (currently
-> dsb and isb) to ensure that the written values are observed by the table
-> walker prior to any program-order-future memory access to the mapped
-> location.
->
-> Over the years some of these functions have received optimizations: In
-> particular, commit 7f0b1bf04511 ("arm64: Fix barriers used for page
-> table modifications") made it so that the barriers were only emitted for
-> valid-kernel mappings for set_pte() (now __set_pte_complete()). And
-> commit 0795edaf3f1f ("arm64: pgtable: Implement p[mu]d_valid() and check
-> in set_p[mu]d()") made it so that set_pmd()/set_pud() only emitted the
-> barriers for valid mappings. set_p4d()/set_pgd() continue to emit the
-> barriers unconditionally.
->
-> This is all very confusing to the casual observer; surely the rules
-> should be invariant to the level? Let's change this so that every level
-> consistently emits the barriers only when setting valid, non-user
-> entries (both table and leaf).
->
-> It seems obvious that if it is ok to elide barriers all but valid kernel
-> mappings at pte level, it must also be ok to do this for leaf entries at
-> other levels: If setting an entry to invalid, a tlb maintenance
-> operation must surely follow to synchronise the TLB and this contains
-> the required barriers. If setting a valid user mapping, the previous
-> mapping must have been invalid and there must have been a TLB
-> maintenance operation (complete with barriers) to honour
-> break-before-make. So the worst that can happen is we take an extra
-> fault (which will imply the DSB + ISB) and conclude that there is
-> nothing to do. These are the arguments for doing this optimization at
-> pte level and they also apply to leaf mappings at other levels.
->
-> For table entries, the same arguments hold: If unsetting a table entry,
-> a TLB is required and this will emit the required barriers. If setting a
-
-s/TLB/TLB maintenance/
-
-> table entry, the previous value must have been invalid and the table
-> walker must already be able to observe that. Additionally the contents
-> of the pgtable being pointed to in the newly set entry must be visible
-> before the entry is written and this is enforced via smp_wmb() (dmb) in
-> the pgtable allocation functions and in __split_huge_pmd_locked(). But
-> this last part could never have been enforced by the barriers in
-> set_pXd() because they occur after updating the entry. So ultimately,
-> the wost that can happen by eliding these barriers for user table
-
-s/wost/worst/
-
-- Kevin
-
-> entries is an extra fault.
->
-> [...]
-
+Applied, thanks!
 
