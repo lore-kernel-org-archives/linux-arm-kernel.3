@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B43C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:42:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC21C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:44:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6XTzpe0dvPkb56/2C4infeIOzW79ECT/46k3G7K0Ygo=; b=rK/vWzIBKzauddtykdSJhSPxp5
-	7jBk2B+ZuR+L0/2/Y9w6JzFlkmGlFFFTEi+/rxVm/Lqvn9Grh5Qmbze8xTUaQWRRtjr2LWBouPSwF
-	S5G/y93lpLAv1XD3s7Y8IASkkg+LQgk6FqYQBCa7XfMIsLlo+IUAhcdf9QwkjfVy1iO5WWXf/d/Lx
-	FMiVtEe9MZ3r/MYx8z0uy+5L1DYPeevo3tjforUvu1k/PjTum9wZSTuSOsfb5fk2fvkbzKC13IwT/
-	+uBNUZA8PR0Yg7J6Ehs0NgKyjtJa80U7N+ryoiIFMe95bq0wqYfyqtarOq+6+T9OE47D6vm/qtQT/
-	HXiNfE/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LDoKuVQJ2EJOVY+wYzqwfD5konrYdOHBBkVXoeUifQw=; b=vFkelFKLBRBEw+wOH0Rfrv7QxU
+	KFkWWZcnn0ASAX4RDc9wJURSuXGlcApGtxBFRX0DKvQ1/cY9RvBSk5NwRCng+TGgZfMra3VaeH4Fc
+	Oy8BsrpIBaSYXDp9WusvFFxMsFnSX7mdhq+26nbLRi1qfgS1kVJuN66aVBHKEPipn0ARVPiu/1ioc
+	RD0+OhTL89bdvR+WE1lSnp1M7nP2yz349EDrlbRLlu+K1zAbhyuyNwgZ1toBXkEuoi4eH7ztBSjDm
+	x5n5n1b1F4ORD+3oQDdXYN5jRJyY+BGQfe/ENuhqR7WZsXtb3varEd37D9iy/2XhpsjaW3dhXwgxz
+	wsgmU8Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7lF-00000001NWs-1pY5;
-	Thu, 20 Feb 2025 14:42:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tl7mh-00000001NvQ-1erE;
+	Thu, 20 Feb 2025 14:44:15 +0000
+Received: from [216.200.240.184] (helo=mailgw01.mediatek.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7at-00000001KOq-46hy;
-	Thu, 20 Feb 2025 14:32:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 97A71614AF;
-	Thu, 20 Feb 2025 14:32:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1277C4CEE3;
-	Thu, 20 Feb 2025 14:32:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740061922;
-	bh=GoGvedSskUunt8JR0ab0OKe1KhMr9oaefFluEv4FAqY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=MRVxiU7o67O3FIKBBl1kglyQ70mhNufEgyvsPm24+MnObiKppxwPDeGetnAbCnP1n
-	 bfInsRGRgTuWHoen6CmytTuo2OvSOwJkMnUVHwEAYef1ogM2pcoPjbZp9qkDolEEE/
-	 u1rCUshyBtkb2WhY4Fprtqm4fqT9yxPdzLw8GQYznAH270ttdYmBHAoMsZs3Cdtl27
-	 mvQalAbMWwa3ZBAgbfU6IFNCoEdpzh9zPOY61wFYG8WgLUxBAVq5vAVFkY04sC2d/X
-	 Rxms8YbodBco+uhh1HvvpwiA1sDRIv+8EGRX7e6oLC1f1kG5xbmMIX5PqelXRlDidB
-	 D+BXbBZHlHsQQ==
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-2fa8ada6662so2072305a91.1;
-        Thu, 20 Feb 2025 06:32:02 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWWV6huQg6MVkR/xb5NtLy6zCJZFFCCNtwnnobxZLINu0P0BrNxl1A3bbZAiQbFgeyJwQRyKGnyvq5M2DHr+Prr@lists.infradead.org, AJvYcCXFwmqvx8m7y1xxBqxk98hGI3IDUXQp6lpZ2004EB4a3up4ymjGe90hkrNyf62v5xPAwOwmiUpa8Ln9OYnaOhc=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzXF72w8+fDi9tkXkpXrctrx3y1gHssHNs3UmdpJkAD0LDKHt6
-	C4Bwv9EWCrmS3yhktSId4QL29iKFRBy09PMM6b4KhnPq3O/TjxiQZzrgCoVizxvjeu3YCsB6ZmE
-	2dgFeSbYIEyFAhoxTgIZLtnC40w==
-X-Google-Smtp-Source: AGHT+IEEvVnA4H81470tv1H4G5h0w0yEGHELm51+9xXj/GLBqX14Y9VHjS4nUzKS5Ntqk6uBqNxa9Lc6bKjwcl3wf1E=
-X-Received: by 2002:a17:90b:3809:b0:2ee:d024:e4fc with SMTP id
- 98e67ed59e1d1-2fc411509b7mr38299734a91.33.1740061922487; Thu, 20 Feb 2025
- 06:32:02 -0800 (PST)
+	id 1tl7cx-00000001L1w-3A2z;
+	Thu, 20 Feb 2025 14:34:12 +0000
+X-UUID: bd0eeb52ef9711ef83f2a1c9db70dae0-20250220
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=LDoKuVQJ2EJOVY+wYzqwfD5konrYdOHBBkVXoeUifQw=;
+	b=f4RAmhu/w6/pM6SmBq+YEJ/jnXtKPu6b3KWxFazEGiJp/wRKHjVHFp7CtT65o6IEXJryzvBl1tGC2nEi0aHqqHOKUNi7eA9u8XSKRK/jLWd179tXUUv2WxWIfF4lAag1pQ1lkJRxrV43FGnNLKJ/P+FQlXcGVULj4RKLV/9XfWk=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:3ffd1e08-397d-4533-82d3-840ba65a96a7,IP:0,U
+	RL:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:60aa074,CLOUDID:6ac85fb5-a2a1-4ef3-9ef9-e116773da0a7,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:1|19,IP:
+	nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,L
+	ES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: bd0eeb52ef9711ef83f2a1c9db70dae0-20250220
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <macpaul.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 37919130; Thu, 20 Feb 2025 07:34:06 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Thu, 20 Feb 2025 22:34:03 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Thu, 20 Feb 2025 22:34:03 +0800
+From: Macpaul Lin <macpaul.lin@mediatek.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, Alexandre Mergnat
+	<amergnat@baylibre.com>
+CC: Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>, Macpaul Lin <macpaul@gmail.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<linux-usb@vger.kernel.org>, Chris-qj chen <chris-qj.chen@mediatek.com>,
+	Fabien Parent <fparent@baylibre.com>, Yow-Shin Liou
+	<yow-shin.liou@mediatek.com>, Simon Sun <simon.sun@yunjingtech.com>
+Subject: [PATCH v4 1/2] arm64: dts: mediatek: mt8395-genio-1200-evk: add support for TCPC port
+Date: Thu, 20 Feb 2025 22:33:53 +0800
+Message-ID: <20250220143354.2532448-1-macpaul.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com> <20250217154836.108895-34-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250217154836.108895-34-angelogioacchino.delregno@collabora.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Thu, 20 Feb 2025 22:32:47 +0800
-X-Gmail-Original-Message-ID: <CAAOTY_8a+oV_XwBACyy09bKdwKVy+iEPxbfZBkkdYm2jYD_k2w@mail.gmail.com>
-X-Gm-Features: AWEUYZnj0eBVMJFGwcqYWEal64YwZLRUffmMdq4xRpXkJqA2A3_JsPYTIk5oAgc
-Message-ID: <CAAOTY_8a+oV_XwBACyy09bKdwKVy+iEPxbfZBkkdYm2jYD_k2w@mail.gmail.com>
-Subject: Re: [PATCH v7 33/43] drm/mediatek: mtk_hdmi: Cleanup function mtk_hdmi_resume()
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, 
-	jie.qiu@mediatek.com, junzhi.zhao@mediatek.com, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
-	dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com, 
-	ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com, 
-	jason-jh.lin@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_063204_126423_0AF89564 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20250220_063411_799075_CCAF3FDD 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,58 +92,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Angelo:
+From: Fabien Parent <fparent@baylibre.com>
 
-AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
-=BC
-2025=E5=B9=B42=E6=9C=8817=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=8811:=
-50=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> Remove the error print in case of mtk_hdmi_clk_enable_audio()
-> failures: since the APIs will already print on their own, having
-> one in there is redundant.
+Enable USB Type-C support on MediaTek MT8395 Genio 1200 EVK by adding
+configuration for TCPC Port, USB-C connector, and related settings.
 
-Applied to mediatek-drm-next [1], thanks.
+Configure dual role switch capability, set up PD (Power Delivery) profiles,
+and establish endpoints for SS (SuperSpeed) and HS (HighSpeed) USB.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-next
+Update pinctrl configurations for U3 P0 VBus default pins and set dr_mode
+to "otg" for OTG (On-The-Go) mode operation.
 
-Regards,
-Chun-Kuang.
+Signed-off-by: Fabien Parent <fparent@baylibre.com>
+Signed-off-by: Yow-Shin Liou <yow-shin.liou@mediatek.com>
+Signed-off-by: Simon Sun <simon.sun@yunjingtech.com>
+Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
+---
+ .../dts/mediatek/mt8395-genio-1200-evk.dts    | 72 +++++++++++++++++++
+ 1 file changed, 72 insertions(+)
 
->
-> Reviewed-by: CK Hu <ck.hu@mediatek.com>
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> ---
->  drivers/gpu/drm/mediatek/mtk_hdmi.c | 9 +--------
->  1 file changed, 1 insertion(+), 8 deletions(-)
->
-> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediat=
-ek/mtk_hdmi.c
-> index 50f9ab48cbf9..2614561e2634 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-> @@ -1704,15 +1704,8 @@ static __maybe_unused int mtk_hdmi_suspend(struct =
-device *dev)
->  static __maybe_unused int mtk_hdmi_resume(struct device *dev)
->  {
->         struct mtk_hdmi *hdmi =3D dev_get_drvdata(dev);
-> -       int ret =3D 0;
->
-> -       ret =3D mtk_hdmi_clk_enable_audio(hdmi);
-> -       if (ret) {
-> -               dev_err(dev, "hdmi resume failed!\n");
-> -               return ret;
-> -       }
-> -
-> -       return 0;
-> +       return mtk_hdmi_clk_enable_audio(hdmi);
->  }
->
->  static SIMPLE_DEV_PM_OPS(mtk_hdmi_pm_ops, mtk_hdmi_suspend, mtk_hdmi_res=
-ume);
-> --
-> 2.48.1
->
+Changes for v2:
+ - Drop the no need '1/2' DT Schema update patch in the 1st version.  
+ - Fix indent for 'ports' node, it should under the 'connector' node.
+ - Correct the index for 'port@0' and 'port@1' node.
+
+Changes for v3:
+ - Correct the order between new added nodes.
+
+Changes for v4:
+ - Reorder for property 'op-sink-microwatt'.
+ - Fix indentation for 'source-pdos' and 'sink-pdos' nodes.
+ - Correct node 'pin-cmd-dat' with 'pins-vbus'.
+ - Add both Highspeed and Superspeed ports to ssusb0 port.
+ - Set 'role-switch-default-mode' = "peripheral" for ssusb0 port.
+ - Rename endpoint of USB data port to 'mtu3_hs0_role_sw' and
+   'mtu3_ss0_role_sw'.
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
+index 1ef6262b65c9..ca039c8e4c71 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts
+@@ -330,6 +330,47 @@ mt6360_ldo7: ldo7 {
+ 				regulator-always-on;
+ 			};
+ 		};
++
++		tcpc {
++			compatible = "mediatek,mt6360-tcpc";
++			interrupts-extended = <&pio 17 IRQ_TYPE_LEVEL_LOW>;
++			interrupt-names = "PD_IRQB";
++
++			connector {
++				compatible = "usb-c-connector";
++				label = "USB-C";
++				data-role = "dual";
++				op-sink-microwatt = <10000000>;
++				power-role = "dual";
++				try-power-role = "sink";
++
++				source-pdos = <PDO_FIXED(5000, 1000,
++							 PDO_FIXED_DUAL_ROLE |
++							 PDO_FIXED_DATA_SWAP)>;
++				sink-pdos = <PDO_FIXED(5000, 2000,
++						       PDO_FIXED_DUAL_ROLE |
++						       PDO_FIXED_DATA_SWAP)>;
++
++				ports {
++					#address-cells = <1>;
++					#size-cells = <0>;
++
++					port@0 {
++						reg = <0>;
++						typec_con_hs: endpoint {
++							remote-endpoint = <&mtu3_hs0_role_sw>;
++						};
++					};
++
++					port@1 {
++						reg = <1>;
++						typec_con_ss: endpoint {
++							remote-endpoint = <&mtu3_ss0_role_sw>;
++						};
++					};
++				};
++			};
++		};
+ 	};
+ };
+ 
+@@ -755,6 +796,13 @@ pins-reset {
+ 		};
+ 	};
+ 
++	u3_p0_vbus: u3-p0-vbus-default-pins {
++		pins-vbus {
++			pinmux = <PINMUX_GPIO63__FUNC_VBUSVALID>;
++			input-enable;
++		};
++	};
++
+ 	uart0_pins: uart0-pins {
+ 		pins {
+ 			pinmux = <PINMUX_GPIO98__FUNC_UTXD0>,
+@@ -885,8 +933,32 @@ &ufsphy {
+ };
+ 
+ &ssusb0 {
++	dr_mode = "otg";
++	pinctrl-names = "default";
++	pinctrl-0 = <&u3_p0_vbus>;
++	role-switch-default-mode = "peripheral";
++	usb-role-switch;
+ 	vusb33-supply = <&mt6359_vusb_ldo_reg>;
+ 	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++			mtu3_hs0_role_sw: endpoint {
++				remote-endpoint = <&typec_con_hs>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++			mtu3_ss0_role_sw: endpoint {
++				remote-endpoint = <&typec_con_ss>;
++			};
++		};
++	};
+ };
+ 
+ &ssusb2 {
+-- 
+2.45.2
+
 
