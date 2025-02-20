@@ -4,71 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77EAC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C7FC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:56:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ldqI1Le+GNbE+uBRLkLvuLrordSQ/bU414re+PDqRgg=; b=IPv1NpDOkKbuHXOvpYYyoKPz6S
-	vCOMn52tXFfbuI7iQ+YkYPa2x27H/AJNkHyGr/GkCsvZ9bLsOuyvCeoC2RW+w+ClZoTUfTHcg5coh
-	A4uCWJqDqhm0Lv0wQBg/7dQ4Y0o9v+ewuGW8bl3/If3zgcwMkJ9vudk+0PERjvoY8TJJw0uTIUJXw
-	Uh0AFHh0lWJ28+1iQL1yxROiWXx8kctwxuGIBTlyFloV+mxL6h94Tqyv2KVYrrNWkwuW+F3/IUYEc
-	ugPCZRxGLgMzhx2t3lZ61tuqEumRiduMv8cnXNu78YQIxe2YQH34JP05vXppSZiM197gU5qRbZ4t8
-	U2qMiXTw==;
+	bh=ywthUrsaZUgbi1jImCfUyZ9XeZtfacq1MlreX2juEEk=; b=i9gkMNYt9PP/l17orIWnKcSGiw
+	wUCdVwZQPms8aRpRyc8XUpBa8BwAv+awM045Spdst5jsnk5rgCn6RD4KbecwKkPNBGa/oC+xERiz1
+	YgMVOaIeXCwFohU3QWNW1i8nCq4MCXxOnqMuvs7D8+u5YsmnIDO3oE6juQ6t1jOVL6RysgwPNqQ8o
+	2hyhL6mRNo5pwUJ3ZaQFT2Ah/LIzziiC8u1e420bpEAAkfgdboOEPJc/CGmKX1ykN7aUD2RBFdwEH
+	YgkqSVmnPf2wCJddhcn/MTkrG8r/cEDKfEHCSwpDQ9OlF7XeyNd1xtP6a/h4icmU5LsVAvzwBE2EB
+	IFvV4oIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7u0-00000001PhS-409Y;
-	Thu, 20 Feb 2025 14:51:48 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1tl7yJ-00000001Qqt-31xd;
+	Thu, 20 Feb 2025 14:56:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7qs-00000001Owx-3r6F
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 14:48:36 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8F81210382D37;
-	Thu, 20 Feb 2025 15:48:27 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1740062910;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ldqI1Le+GNbE+uBRLkLvuLrordSQ/bU414re+PDqRgg=;
-	b=iWtjEsLylFgr2+ddtCwYOKZnorICgZLXMimUifa+okc9WQqYoo6+u6UKCRYO1RI10IL3Di
-	46+qHJXpjf3Z43lYHQM2qvPZ3Ivnu2Kq7LTgrbBFi2ZopTitbRaImYsWZL5dodu7p0JW0N
-	h9BjrlQElNSaPiQLSlfeCMOnzRYNURThGfezcLWolcaueVQzlMQ+ZvAAg2ZGESCmNC92x0
-	mbQIDRlR2lMHYQ4Ary2yPugSaa7wIOsVdwNNhZQ2Nij0WKSk2EaUlB1N6QK5RjCbiUyz6h
-	4UU3C+wlpwa22XeoR9XVKXNwpPsbdIZ4iCt5fP8kV7//a2Zil6r/dxf1LhqsAw==
-Date: Thu, 20 Feb 2025 15:48:26 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Shawn
- Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
- <festevam@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- linux-clk@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-Subject: Re: [PATCH] arm: clk: Add ETH switch clock description for vf610
- SoC
-Message-ID: <20250220154826.3455b15e@wsk>
-In-Reply-To: <5a9d9eef-f2ca-4168-aca4-4419dcfcacb6@lunn.ch>
-References: <20250219114936.3546530-1-lukma@denx.de>
-	<3cebe152-6326-454c-9da6-5cf5a64f71c9@lunn.ch>
-	<20250219233802.20ec53e5@wsk>
-	<5a9d9eef-f2ca-4168-aca4-4419dcfcacb6@lunn.ch>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1tl7wn-00000001QTw-3iGy;
+	Thu, 20 Feb 2025 14:54:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 771B95C5DAF;
+	Thu, 20 Feb 2025 14:54:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63166C4CED1;
+	Thu, 20 Feb 2025 14:54:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740063280;
+	bh=BC0dhBX7Eg81uhggtuEZHVM8dUwnpQ+dA2ufHLGdn4c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=InovFzdwowCfkaS3mdofhqdbNRDT0QPSXwLh3w3Ks3gabjyfLh3ZoKBTtSmNarqnX
+	 NWSycHqGlN7yNd+0eWaOU0+ODeMj6drkyWUBF0F3RDCZrjku80gpxCYmc+kAAFUIhF
+	 cIdOH8Da91vYXQfiFliQAi78+0x05PEFtzKvkt3XktgkdC4Zn64/wMsF41e4w438lb
+	 73um6//H3gzH4CFINfnDIYtLDsWM0e8qrbcvmRP2pP+F9H/e6WTApFpXNGqIxMY23P
+	 l5ycIRreRRuogv2tc/sBZpVOPGfjbPnHoaxZx2Ce/d5jWstSBddCKPXyzlLKyYjqF8
+	 fPv0Kjhu6R8bQ==
+Date: Thu, 20 Feb 2025 16:54:19 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Wei Yang <richard.weiyang@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 01/14] mm/mm_init: rename init_reserved_page to
+ init_deferred_page
+Message-ID: <Z7dCG3ihTnDuJ8_c@kernel.org>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-2-rppt@kernel.org>
+ <20250218145904.x57chhz3whvckzu3@master>
+ <Z7WEktyNoCPylytL@kernel.org>
+ <20250220083601.4p6ehmfhyvs5q5io@master>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/EoF.xD3edO+ut3CeLCKvgE3";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250220083601.4p6ehmfhyvs5q5io@master>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_064835_294621_6F99A853 
-X-CRM114-Status: GOOD (  42.77  )
+X-CRM114-CacheID: sfid-20250220_065442_036945_221AF70A 
+X-CRM114-Status: GOOD (  30.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,119 +103,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/EoF.xD3edO+ut3CeLCKvgE3
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+On Thu, Feb 20, 2025 at 08:36:01AM +0000, Wei Yang wrote:
+> On Wed, Feb 19, 2025 at 09:13:22AM +0200, Mike Rapoport wrote:
+> >Hi,
+> >
+> >On Tue, Feb 18, 2025 at 02:59:04PM +0000, Wei Yang wrote:
+> >> On Thu, Feb 06, 2025 at 03:27:41PM +0200, Mike Rapoport wrote:
+> >> >From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> >> >
+> >> >When CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled, init_reserved_page()
+> >> >function performs initialization of a struct page that would have been
+> >> >deferred normally.
+> >> >
+> >> >Rename it to init_deferred_page() to better reflect what the function does.
+> >> 
+> >> Would it be confused with deferred_init_pages()?
+> >
+> >Why? It initializes a single page, deferred_init_pages() initializes many.
+> >
+> 
+> See below.
+> 
+> >> And it still calls __init_reserved_page_zone(), even we __SetPageReserved()
+> >> after it. Current logic looks not clear.
+> >
+> >There's no __init_reserved_page_zone(). Currently init_reserved_page()
+> >detects the zone of the page and calls __init_single_page(), so essentially
+> >it initializes one struct page.
+> >
+> >And we __SetPageReserved() in reserve_bootmem_region() after call to
+> >init_reseved_page() because pages there are indeed reserved.
+> > 
+> 
+> Hmm... I am not sure we are looking at the same code. I take a look at current
+> mm-unstable, this patch set is not included.
 
-Hi Andrew,
+I was looking at Linus tree, it was not there yet :)
 
-> On Wed, Feb 19, 2025 at 11:38:02PM +0100, Lukasz Majewski wrote:
-> > Hi Andrew,
-> >  =20
-> > > On Wed, Feb 19, 2025 at 12:49:36PM +0100, Lukasz Majewski wrote: =20
-> > > > The NXP's vf610 soc is equipped with L2 switch IP block from
-> > > > More Than IP (MTIP) vendor.
-> > > >=20
-> > > > It requires special clock (VF610_CLK_ESW) to be operational.   =20
-> > >=20
-> > > So you have a driver for this switch? It has been talked about in
-> > > the past, but nobody made any progress with it. Ah, it was you in
-> > > 2020. =20
-> >=20
-> > Yes, I'm going to try another time to upstream it.... :-)
-> >  =20
-> > > It
-> > > will be interesting to see what you came up with in the end, pure
-> > > switchdev or a DSA driver. =20
-> >=20
-> > I think it would be:
-> >=20
-> > 1. Standalone driver, which would configure the L2 switch from the
-> > very beginning to work (this is different from FEC on imx28/vf610
-> > where switch is bypassed)
-> >=20
-> > 2. It will use the in-switch registers to have two network
-> > interfaces separated. As a result - it may be slower than the
-> > fec_main.c in this use case. =20
->=20
-> Seems like a reasonable compromise. You would only load this driver if
-> you intend to make use of the switch...
+> So I am looking at previous version with this last commit:
+> 
+>   8bf30f9d23eb 2025-02-06 Documentation: KHO: add memblock bindings
+> 
+> Here is what I see for init_deferred_page()'s definition:
+> 
+> init_deferred_page()
+>   __init_deferred_page()
+>     __init_reserved_page_zone()   <--- I do see this function, it is removed?
+>       __init_single_page()
+> 
+> What I want to say is __init_deferred_page() calls
+> __init_reserved_page_zone(). This sounds imply a deferred page is always
+> reserved page. But we know it is not.  deferred_init_pages() initialize the
+> pages are not reserved one. Or we want to have this context in
+> __init_deferred_page()?
 
-Yes, the main use case would be the switch (after bridge ... command
-called).
+If the commit that introduced __init_reserved_page_zone goes in before KHO,
+I'll just rename both functions, there is nothing about reserved pages
+there.
+ 
+> >-- 
+> >Sincerely yours,
+> >Mike.
+> 
+> -- 
+> Wei Yang
+> Help you, Help me
 
-However, until then we shall? have port separation.
-
->=20
-> > 3. When somebody call "bridge ..." on it - then the in-switch
-> > separation would be disabled. This is the "normal" state of
-> > operation for L2 switch, which would be a HW accelerator for
-> > bridging.
-> >=20
-> > 4. The switchdev would be used to manage it
-> >=20
-> > 5. This would be just a very simple driver - just bridging and
-> > startup of the L2 switch.
-> >=20
-> > After we would have a consensus (i.e. it would be pulled to
-> > mainline) - I would proceed further.
-> >=20
-> > I will try to not touch fec_main.c driver - just write standalone,
-> > new for MoreThanIP L2 switch driver. =20
->=20
-> It might make sense to refactor the MDIO code into a helper which both
-> can share? No point duplicating that.
-
-This is a latter step (common MDIO library code), IMHO.=20
-
->=20
-> > If somebody would like to use FEC, then he will insert the proper
-> > module. If switch, another one can be inserted, depending o the
-> > target use case. =20
->=20
-> This all seems like a reasonable way forward.
-
-+1
-
->=20
-> MoreThanIP is now part of Synopsys. I wounder if this IP now exists in
-> other SoCs? The press release however suggests Synopsys was
-> interesting in the high speed interfaces, not a two ports Fast
-> Ethernet switch.
-
-I would need some detailed documentation....
-
->=20
-> 	Andrew
-
-
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/EoF.xD3edO+ut3CeLCKvgE3
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAme3QLoACgkQAR8vZIA0
-zr2Zzgf9HtLGK3Ux7Xf80L6yo2vvKfPiWZ/RuxE4tCAf9yjd5vk2Wfg9EizNIaaX
-ILs8pKZkCxVRQxUqQ7Cx2k02jDSZiHJ30GFYlE6EtUFGgk00siH1uUZA5ScSsHPj
-DZfO/gVB4MW+ofwapPvYEGyUdKQmyB2IOt5OfusD4f9p869BqoskJQpsESHDP16m
-qcDpAwgne46YXCHFpfzDFTEDmriOa0/iY04iTFAV/kbxGu+OwW23X7c5CJFE79KP
-AWxzzSzuu9iNAGcKEW1u9rH6H1iEb0GW9dVBDE/dX5VHwAqRct6S+tZonQGQzQab
-eNojXymqBTXSfY5w/1xzbDX5z4WPGw==
-=A4R8
------END PGP SIGNATURE-----
-
---Sig_/EoF.xD3edO+ut3CeLCKvgE3--
+-- 
+Sincerely yours,
+Mike.
 
