@@ -4,75 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F910C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 13:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E71C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 13:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y9gueMMGR1Ohx7g9WsiSevqA6NIph2bjLV1PExbyhAw=; b=abQIqzYABzUILv3HCK5UqvpchQ
-	JsrkIY+yp/Afjj5pbYsxBPceYzDvZSBIfQkCkcTZZ5iwbBK3bIGVmY8l7Bxmy/zSSUc9UujZPV7QI
-	eZcNpN/XfQhmRCdrIX1mbB0liWCvPzWWUFC5tVHePb2PHN/kVz3rQ26BxNe+2oIZAeJR+0iGz9QXb
-	5CvObL2ATv55sIF7oeg/6QcyQJrsgwon45tarlNud/7YtU2R7EptxroQ6cEE1qII31etB4MgaYNkk
-	KatNiYJAzK5MkuTpd5Cx9ms4EecVYvmPqLsuO2/kB7Ngm7Udeb/UHIQT2U4cxyV08qSQW+YkDfV0q
-	DizneSbw==;
+	bh=PafkusVv+VMGTQbr/T/8h83YqjoF56Vu1vpIrib1nms=; b=xKGBTH3g6kZWsvwnq+3vrjAJCH
+	AjcwYql2RmadNN4TrEXXfHKomkEuAH07juLMuzGzjPlglG9B2dD1PEwAUY4FncVo1oGLGXE5iy4nA
+	1PlH9OWemNDdpKGHMo3qVvosEUZXh+jDI+sWkAC1ie9lMvQfAK7ur1y7TQFLdFH5FlP8ID5pPdr1E
+	4AF+B5LV3dHUYE6z9NRy63hs6uf61w6QiKzML7cJEHoV97OBNvIAMJOJTB33d0YKnCz9c5Wirvx44
+	yAzzK6AEThrbcAm2apJpfA8KVnRub3WaC+u7T84qmpOYLeKtOZlW+8simJrlJzwLafSWcYkBt2Yc9
+	kwNpFVUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl69c-00000000vYl-2TGY;
-	Thu, 20 Feb 2025 12:59:48 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tl6B5-00000000w1p-1aKZ;
+	Thu, 20 Feb 2025 13:01:19 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl5qg-00000000qmO-0WVI
+	id 1tl5rt-00000000r7o-1um9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 12:40:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=y9gueMMGR1Ohx7g9WsiSevqA6NIph2bjLV1PExbyhAw=; b=VLfdmlPubYGEmyuLQD9xrcOsdG
-	LBC1dVEo9fai396YCV9fBnTdNlhXscZOvzupjQ4WtM+eBdZjaCOSWA0jPS8PSJM6QfhDJvalzyC7g
-	eAH4+vzsabde8P7LkU3Cl+8WkHwvja9KHqHeXKFGsFM8GnFWAdyxyqYRZqnKQrqjPbHbjL/sXrzOv
-	SIDtH89+FuXAjFONCnftvgIkhK/9uynwDY4g/RQs8PtWDAMVCOvdCkLHPeZwxqIJahuFNpJMRZ6JW
-	DMQSbJ6IeMPPYUT6eFpI/3Ay3uChgY6VV+a5pCgTI4VnHJOQU20wNA8+FBv41oWWfIAeNiX03Ay0/
-	eiaDE+IQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58218)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1tl5qO-0000yE-2a;
-	Thu, 20 Feb 2025 12:39:56 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tl5qK-0000zP-0u;
-	Thu, 20 Feb 2025 12:39:52 +0000
-Date: Thu, 20 Feb 2025 12:39:52 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Swathi K S <swathi.ks@samsung.com>
-Cc: krzk+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	robh@kernel.org, conor+dt@kernel.org, richardcochran@gmail.com,
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	pankaj.dubey@samsung.com, ravi.patel@samsung.com,
-	gost.dev@samsung.com
-Subject: Re: [PATCH v7 2/2] net: stmmac: dwc-qos: Add FSD EQoS support
-Message-ID: <Z7cimPBdZ3W9GKmI@shell.armlinux.org.uk>
-References: <20250220043712.31966-1-swathi.ks@samsung.com>
- <CGME20250220044132epcas5p305e4ed7ed1c84f9800299c2091ea0790@epcas5p3.samsung.com>
- <20250220043712.31966-3-swathi.ks@samsung.com>
+	Thu, 20 Feb 2025 12:41:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740055289; x=1771591289;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=LeIpn0tC1VxcvvTy4WIzSMid7/q9gL2QZySYy1PWKyA=;
+  b=d5sfJztKKUxb9Y7k+WDtauKEsQZegM1ipzUUYfEE9y0sesuxyVDRm76i
+   i+JUs9nPxKsSc7R0RnRUguc+1b6+muzsUOqtNAREU2u9c44gk2vOZyfKR
+   Vh11mLD6FpIsE0dP4u0TQoYry75D/wiJ+ryOAD+RJfj3if0kZl+0ZcwnP
+   WB778BlYHkGDhvsnU70a+rOrT1K4kS85CGC1Fxu69u2Gpd5FJxOGgecEg
+   TaVOFq3HOxAkBP30NSNtJm/caVTypIUvg71Xyn1lYMGoxy5Fq3/5YnqEp
+   /c+OrqbcKAVivwhThwCiDxlw2NLM0LZvpu6GaXxQe+wcva3SopY+MgGZs
+   A==;
+X-CSE-ConnectionGUID: R7ff7VG6SkG5750HAn4V9w==
+X-CSE-MsgGUID: MsMxnwHuToCrh9olgb+sbA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11351"; a="40951636"
+X-IronPort-AV: E=Sophos;i="6.13,301,1732608000"; 
+   d="scan'208";a="40951636"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2025 04:41:27 -0800
+X-CSE-ConnectionGUID: 9dH+52A+TUCTpmU05P8WYg==
+X-CSE-MsgGUID: kRr+uJgAQdC/atds2MA++g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,301,1732608000"; 
+   d="scan'208";a="120136529"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2025 04:41:22 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1tl5ri-0000000DKcf-3Ad8;
+	Thu, 20 Feb 2025 14:41:18 +0200
+Date: Thu, 20 Feb 2025 14:41:18 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 2/9] iio: adc: add helpers for parsing ADC nodes
+Message-ID: <Z7ci7tUlRQqZEZSN@smile.fi.intel.com>
+References: <cover.1739967040.git.mazziesaccount@gmail.com>
+ <6c5b678526e227488592d004c315a967b9809701.1739967040.git.mazziesaccount@gmail.com>
+ <Z7ZB7RQhyI5Dohrq@smile.fi.intel.com>
+ <b1c1ed68-2f4d-447c-9957-5a1bbc63ef6e@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250220043712.31966-3-swathi.ks@samsung.com>
+In-Reply-To: <b1c1ed68-2f4d-447c-9957-5a1bbc63ef6e@gmail.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_044014_174364_17F8C7A5 
-X-CRM114-Status: GOOD (  24.80  )
+X-CRM114-CacheID: sfid-20250220_044129_544210_2ECF7C3C 
+X-CRM114-Status: GOOD (  43.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,151 +104,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025 at 10:07:12AM +0530, Swathi K S wrote:
-> +static int fsd_eqos_probe(struct platform_device *pdev,
-> +			  struct plat_stmmacenet_data *data,
-> +			  struct stmmac_resources *res)
-> +{
-> +	struct clk *clk_rx1 = NULL;
-> +	struct clk *clk_rx2 = NULL;
-> +
-> +	for (int i = 0; i < data->num_clks; i++) {
-> +		if (strcmp(data->clks[i].id, "slave_bus") == 0)
-> +			data->stmmac_clk = data->clks[i].clk;
-> +		else if (strcmp(data->clks[i].id, "eqos_rxclk_mux") == 0)
-> +			clk_rx1 = data->clks[i].clk;
-> +		else if (strcmp(data->clks[i].id, "eqos_phyrxclk") == 0)
-> +			clk_rx2 = data->clks[i].clk;
-> +	}
-> +
-> +	/* Eth0 RX clock doesn't support MUX */
-> +	if (clk_rx1)
-> +		clk_set_parent(clk_rx1, clk_rx2);
+On Thu, Feb 20, 2025 at 09:13:00AM +0200, Matti Vaittinen wrote:
+> On 19/02/2025 22:41, Andy Shevchenko wrote:
+> > On Wed, Feb 19, 2025 at 02:30:27PM +0200, Matti Vaittinen wrote:
 
-Isn't there support in DT for automatically setting the clock tree?
-See
-https://github.com/devicetree-org/dt-schema/blob/main/dtschema/schemas/clock/clock.yaml#L24
+...
 
-Also, I think a cleanup like the below (sorry, it's on top of other
-patches I'm working on at the moment but could be rebased) would
-make sense.
+> > > obj-$(CONFIG_FSL_MX25_ADC) += fsl-imx25-gcq.o
+> > >   obj-$(CONFIG_GEHC_PMC_ADC) += gehc-pmc-adc.o
+> > >   obj-$(CONFIG_HI8435) += hi8435.o
+> > >   obj-$(CONFIG_HX711) += hx711.o
+> > 
+> > > +obj-$(CONFIG_IIO_ADC_HELPER) += industrialio-adc.o
+> > 
+> > Shouldn't this be grouped with other IIO core related objects?
+> 
+> I was unsure where to put this. The 'adc' subfolder contained no other IIO
+> core files, so there really was no group. I did consider putting it on top
+> of the file but then just decided to go with the alphabetical order. Not
+> sure what is the right way though.
 
-With both of these, this should mean that your changes amount to:
+I think it would be nice to have it grouped even if this one becomes
+the first one.
 
-1. making data->probe optional
-2. providing a dwc_eth_dwmac_data structure that has .stmmac_clk_name
-   filled in
-3. adding your compatible to the match data with a pointer to the
-   above structure.
+> > >   obj-$(CONFIG_IMX7D_ADC) += imx7d_adc.o
+> > >   obj-$(CONFIG_IMX8QXP_ADC) += imx8qxp-adc.o
+> > >   obj-$(CONFIG_IMX93_ADC) += imx93_adc.o
 
-In other words, support for your device becomes just a matter of adding
-data structures rather than a chunk of extra code.
+...
 
-Thanks.
+> > > +EXPORT_SYMBOL_GPL(iio_adc_device_num_channels);
+> > 
+> > No namespace?
+> 
+> I was considering also this. The IIO core functions don't belong into a
+> namespace - so I followed the convention to keep these similar to other IIO
+> core stuff.
 
-8<====
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Subject: [PATCH net-next] net: stmmac: clean up clock initialisation
+But it's historically. We have already started using namespaces
+in the parts of IIO, haven't we?
 
-Clean up the clock initialisation by providing a helper to find a
-named clock in the bulk clocks, and provide the name of the stmmac
-clock in match data so we can locate the stmmac clock in generic
-code.
+> (Sometimes I have a feeling that the trend today is to try make things
+> intentionally difficult in the name of the safety. Like, "more difficult I
+> make this, more experience points I gain in the name of the safety".)
+> 
+> Well, I suppose I could add a namespace for these functions - if this
+> approach stays - but I'd really prefer having all IIO core stuff in some
+> global IIO namespace and not to have dozens of fine-grained namespaces for
+> an IIO driver to use...
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../stmicro/stmmac/dwmac-dwc-qos-eth.c        | 32 +++++++++++--------
- 1 file changed, 18 insertions(+), 14 deletions(-)
+...
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-index 581c0b40db57..8e343ab7a7e2 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-@@ -34,6 +34,16 @@ struct tegra_eqos {
- 	struct gpio_desc *reset;
- };
- 
-+static struct clk *dwc_eth_find_clk(struct plat_stmmacenet_data *plat_dat,
-+				    const char *name)
-+{
-+	for (int i = 0; i < plat_dat->num_clks; i++)
-+		if (strcmp(plat_dat->clks[i].id, name) == 0)
-+			return plat_dat->clks[i].clk;
-+
-+	return 0;
-+}
-+
- static int dwc_eth_dwmac_config_dt(struct platform_device *pdev,
- 				   struct plat_stmmacenet_data *plat_dat)
- {
-@@ -120,12 +130,7 @@ static int dwc_qos_probe(struct platform_device *pdev,
- 			 struct plat_stmmacenet_data *plat_dat,
- 			 struct stmmac_resources *stmmac_res)
- {
--	for (int i = 0; i < plat_dat->num_clks; i++) {
--		if (strcmp(plat_dat->clks[i].id, "apb_pclk") == 0)
--			plat_dat->stmmac_clk = plat_dat->clks[i].clk;
--		else if (strcmp(plat_dat->clks[i].id, "phy_ref_clk") == 0)
--			plat_dat->pclk = plat_dat->clks[i].clk;
--	}
-+	plat_dat->pclk = dwc_eth_find_clk(plat_dat, "phy_ref_clk");
- 
- 	return 0;
- }
-@@ -230,18 +235,12 @@ static int tegra_eqos_probe(struct platform_device *pdev,
- 
- 	eqos->dev = &pdev->dev;
- 	eqos->regs = res->addr;
-+	eqos->clk_slave = data->stmmac_clk;
- 
- 	if (!is_of_node(dev->fwnode))
- 		goto bypass_clk_reset_gpio;
- 
--	for (int i = 0; i < data->num_clks; i++) {
--		if (strcmp(data->clks[i].id, "slave_bus") == 0) {
--			eqos->clk_slave = data->clks[i].clk;
--			data->stmmac_clk = eqos->clk_slave;
--		} else if (strcmp(data->clks[i].id, "tx") == 0) {
--			data->clk_tx_i = data->clks[i].clk;
--		}
--	}
-+	data->clk_tx_i = dwc_eth_find_clk(data, "tx");
- 
- 	eqos->reset = devm_gpiod_get(&pdev->dev, "phy-reset", GPIOD_OUT_HIGH);
- 	if (IS_ERR(eqos->reset)) {
-@@ -306,15 +305,18 @@ struct dwc_eth_dwmac_data {
- 		     struct plat_stmmacenet_data *data,
- 		     struct stmmac_resources *res);
- 	void (*remove)(struct platform_device *pdev);
-+	const char *stmmac_clk_name;
- };
- 
- static const struct dwc_eth_dwmac_data dwc_qos_data = {
- 	.probe = dwc_qos_probe,
-+	.stmmac_clk_name = "apb_pclk",
- };
- 
- static const struct dwc_eth_dwmac_data tegra_eqos_data = {
- 	.probe = tegra_eqos_probe,
- 	.remove = tegra_eqos_remove,
-+	.stmmac_clk_name = "slave_bus",
- };
- 
- static int dwc_eth_dwmac_probe(struct platform_device *pdev)
-@@ -354,6 +356,8 @@ static int dwc_eth_dwmac_probe(struct platform_device *pdev)
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret, "Failed to enable clocks\n");
- 
-+	data->stmmac_clk = dwc_eth_find_clk(plat_dat, data->stmmac_clk_name);
-+
- 	ret = data->probe(pdev, plat_dat, &stmmac_res);
- 	if (ret < 0) {
- 		dev_err_probe(&pdev->dev, ret, "failed to probe subdriver\n");
+> > > +	if (!allowed_types || allowed_types & (~IIO_ADC_CHAN_PROP_TYPE_ALL)) {
+> > 
+> > Unneeded parentheses around negated value.
+> > 
+> > > +	if (found_types & (~allowed_types)) {
+> > 
+> > Ditto.
+> > 
+> > > +		long unknown_types = found_types & (~allowed_types);
+> > 
+> > Ditto and so on...
+> > 
+> > Where did you get this style from? I think I see it first time in your
+> > contributions. Is it a new preferences? Why?
+> 
+> Last autumn I found out my house was damaged by water. I had to empty half
+> of the rooms and finally move out for 2.5 months.
+
+Sad to hear that... Hope that your house had been recovered (to some extent?).
+
+> Now I'm finally back, but
+> during the moves I lost my printed list of operator precedences which I used
+> to have on my desk. I've been writing C for 25 years or so, and I still
+> don't remember the precedence rules for all bitwise operations - and I am
+> fairly convinced I am not the only one.
+
+~ (a.k.a. negation) is higher priority in bitops and it's idiomatic
+(at least in LK project).
+
+> What I understood is that I don't really have to have a printed list at
+> home, or go googling when away from home. I can just make it very, very
+> obvious :) Helps me a lot.
+
+Makes code harder to read, especially in the undoubtful cases like
+
+	foo &= (~...);
+
+> > > +		int type;
+> > > +
+> > > +		for_each_set_bit(type, &unknown_types,
+> > > +				 IIO_ADC_CHAN_NUM_PROP_TYPES - 1) {
+> > > +			dev_err(dev, "Unsupported channel property %s\n",
+> > > +				iio_adc_type2prop(type));
+> > > +		}
+> > > +
+> > > +		return -EINVAL;
+> > > +	}
+
+...
+
+> > > +		tmp.required &= (~BIT(IIO_ADC_CHAN_PROP_COMMON));
+> > 
+> > Redundant outer parentheses. What's the point, please?
+> 
+> Zero need to think of precedence.
+
+Huh? See above.
+Everything with equal sign is less precedence than normal ops.
+
+...
+
+> > > +		ret = fwnode_property_read_u32(child, "common-mode-channel",
+> > > +					       &common);
+> > 
+> > I believe this is okay to have on a single line,
+> 
+> I try to keep things under 80 chars. It really truly helps me as I'd like to
+> have 3 parallel terminals open when writing code. Furthermore, I hate to
+> admit it but during the last two years my near vision has deteriorated... :/
+> 40 is getting more distant and 50 is approaching ;)
+
+It's only 86 altogether with better readability.
+We are in the second quarter of 21st century,
+the 80 should be left in 80s...
+
+(and yes, I deliberately put the above too short).
+
+...
+
+> > > +#include <linux/iio/iio.h>
+> > 
+> > I'm failing to see how this is being used in this header.
+> 
+> I suppose it was the struct iio_chan_spec. Yep, forward declaration could
+> do, but I guess there would be no benefit because anyone using this header
+> is more than likely to use the iio.h as well.
+
+Still, it will be a beast to motivate people not thinking about what they are
+doing. I strongly prefer avoiding the use of the "proxy" or dangling headers.
+
+...
+
+> > > +/*
+> > > + * Channel property types to be used with iio_adc_device_get_channels,
+> > > + * devm_iio_adc_device_alloc_chaninfo, ...
+> > 
+> > Looks like unfinished sentence...
+> 
+> Intention was to just give user an example of functions where this gets
+> used, and leave room for more functions to be added. Reason is that lists
+> like this tend to end up being incomplete anyways. Hence the ...
+
+At least you may add ').' (without quotes) to that to make it clear.
+
+> > > + */
+
 -- 
-2.30.2
+With Best Regards,
+Andy Shevchenko
 
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
