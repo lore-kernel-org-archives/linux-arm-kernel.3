@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B818C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9DE2C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:34:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dKf1vcFL6xViBeT7BvtPbIy9sFenGIBAFVayL6IZB0U=; b=KUuxVB5lGIA84v0Gp2+DIF7BDz
-	H7dnpA78M9Rir/aoeza2v5aUuQhiZHRkc4yycLNF7Y6ZTbE+zYOUEubaN5+SRCMy+DmztPZ/CeEHa
-	JnG5mDefrIWKGLmodqE+ZJXSe5ZqWc5OHgePLXmhusL52OxXAG4HReFOoxnigXpDGj2nXBz1zWRTW
-	L4td4hyC3Rfl1g1vLSCGkhF+8LU2PDJOI6BcYV5aMTR181GdlWiHxsgR+JBVb/KueUBPFIvSdcU+G
-	CLmg0Bv4dxa/L/xVnP0sFP5lo3xIANXSpyHu8UY5TRxGvxRwJZ9gstl9MQrOd1Gnc1iHaclkmRmtr
-	i3S9V3fg==;
+	bh=kdikSYRCknu87r4IRD4jNLLC13le+VI+y2JvXDGCpPM=; b=VSkp49grj1kU8EN5Vs8OjfXPsP
+	ZKqBu3JNgP7SMpep5tJMXT0Y3MjBf4Mdk3qMLDZcisNHXARn5egJR8EVnIEY3ExUKpj+EIiffhH1z
+	kqjO69QjtFidpc3937isuiEpqliUIbcKa56w7IgoOg/096S2Qy2V+lriJVAZSueIXFmmC+cXMZF/n
+	KX1/WFwa3BPiMnCiK2QlD3iSz1OzacqhTiMJnVtQil/BNj0IkxqlYyNd/uvKID908BBTRvUb6pBhM
+	58Saiykioq7CUygI/50o/c1EpuwMtTL2IPCIanXgfzLAem6r88rgRnDI8AiUdybxNOAD+/HJjaDGY
+	Sd7EXjZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlAPY-000000029m0-0eUF;
-	Thu, 20 Feb 2025 17:32:32 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+	id 1tlARC-00000002ABt-3zGB;
+	Thu, 20 Feb 2025 17:34:14 +0000
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlAMI-000000028kD-0reH
+	id 1tlAMj-000000028u4-1gSZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 17:29:11 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-5fd0adce179so530587eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 09:29:09 -0800 (PST)
+	Thu, 20 Feb 2025 17:29:38 +0000
+Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-72721c2ec6aso651142a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 09:29:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1740072549; x=1740677349; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1740072576; x=1740677376; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=dKf1vcFL6xViBeT7BvtPbIy9sFenGIBAFVayL6IZB0U=;
-        b=f5ifwwfdZmyId7axsfux53j6HAp2pmLQ9Z5lDopNgv/2Zj/anqQyvahZxltI+pauKb
-         2Wxar68EocA6P6B4jSnVUlswSeGeBhilTlkqE6tlt4PQeLwf/ffHi/EeChAFne5SYfq0
-         CZyZ4ilFkGnQKSj6YmmbqTDK03VLHpG0TDxp8=
+        bh=kdikSYRCknu87r4IRD4jNLLC13le+VI+y2JvXDGCpPM=;
+        b=E/Bhk8aQCP7u3OsniqPGKiex2/N8S6tzQFjSY6zazUaeIyozy4vP+wsz3yrx8nPG3L
+         a+4uCWABuNStSnwVvyxy/sBxilPxLj4TguxcZJto85Wz7RRAYZY/irFSrY8bVN0ShBHe
+         KkWwZbEDcVo8PzXaHTp1VAOH8Ok1z8oZrUJOY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740072549; x=1740677349;
+        d=1e100.net; s=20230601; t=1740072576; x=1740677376;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=dKf1vcFL6xViBeT7BvtPbIy9sFenGIBAFVayL6IZB0U=;
-        b=IjtPJf62b5SQCgcn+hTNqOfEyuwV9YGrDkK0CZEPApg6Z4vgX7fXVaxCDrb6i2YqxI
-         i0delb8ZbGm3fm1pkM/x9iSEpvWA/cnCsUF5eQNdAwkrelbIiGSP37f1r7o8l5U9H784
-         ICJVEAYRlru3kjCZ5gxAjhiB28I2FkUacW5D5jjMDzM55R5tNyCHpEdw42BjwQfOuJUi
-         MhREeH9QObot+dvyepVIz7LsHiT0I53KivFpNC/kyF7vU/PhuqmPtdrv9g0iFY0EtQBj
-         22/Q/iaj3y5lUIkkn323QcoQn+pd9jppOSkmmc10zfs3xjir8MEYofYqKxn/AekO8+8r
-         2xEg==
-X-Forwarded-Encrypted: i=1; AJvYcCVYBQ0zLXtZmuZBYdr03nOJkB5SoQEEpYiWgdyyo5+v4O2vev2LqSHIhjuBkRyxeUodrCjh7hkCQDOZZrzjMAsR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3vXEBBSNY7vRT+tR8ZQpENN/+Ty4At2LVZ3F70HFYzSz3Uc2Z
-	7xknMlGMOeu7/reXy5fo6z1FpV7DLXP5tK0mc01k5/CYX3vyak8zDte7JSGpTA==
-X-Gm-Gg: ASbGnctKb+SLB1rZSaotif2mkPIlnGT2iifBSWu0kNoaHYDiodsn+oMh5Fp8Y+AYkHX
-	oGOkm/Zb/IPNoIc6DnoRjasW60L4CWKQMHvFqczd+NolnqV02t8hm/i/6yeEcYdkS9LzW5WO5bH
-	WfsKfcR6CJ5U575d6esFfgjI8yfpPLES9UsapYzE0it0KoIkkvhnamp5vbY+BuQBaI3+rE7fxVb
-	sDgrxD37SDVUKEdRWEu09FvI7nB3aZOA/TaaUHRA3AioFYQlz4tPRRMACYh4wkvgomQHbFxp3dT
-	snKm7hcBTnTmDRkkWEk87Iq3Hy9Zq5pHNVuXYGtjV5bT3nKEjEHrKQ+of1kH48nzeB132h/PD0M
-	tJ41+
-X-Google-Smtp-Source: AGHT+IGHUYuXkflX6Xl2ci+0XBC0DnCcaMzZUD3gJQT0dFe4tZ5U3wxWcguP1LzcW4V9sDRX10JEUw==
-X-Received: by 2002:a05:6820:270c:b0:5fc:b059:7597 with SMTP id 006d021491bc7-5fd194df6fcmr160232eaf.1.1740072549114;
-        Thu, 20 Feb 2025 09:29:09 -0800 (PST)
+        bh=kdikSYRCknu87r4IRD4jNLLC13le+VI+y2JvXDGCpPM=;
+        b=maZXvKOy7arkIh/KOlov1VMeZRlPBbVso8bBKtnAxyIg95/ZuEWoRfBiC0aLF3hKlI
+         J6FWLl82Yx2MW/TgWh9NZzpZAxLpnCgcMhXNZj2na8/1oByFO8JwZdDjPW7tn0tpW07u
+         l/ZuNK0u4ksVRoDF4dQDIcTgjw/ZcIWj3JlNvRFNmZOVOVJwBTZuz3mIm/BjtYeEbKAp
+         a0GXLjTOrVAhP5rOooUliVxiTKaRJtRpXQ3+jah+ptW416gfmJY8JJcH0Q1F1UW0lPN2
+         Y5U8Phi7Ziw4nI+Ew9HZiqblE5w9NErpUjD3U7b6OLYSi3jeaqwaBjfSptSl89GBO1jV
+         9loQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXlt8d2lkV1X/aMB9I33dMJyT/hoMPdtQvI4e6Pk8ML8wI89P20YlApX+kmwqrVbINRY/8+1s7X+TUByf6tLgnS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3xmdS1t9tawgGcK12hAK5CbPpsy6rWZN32bJtwAAyW1N7Veyk
+	0CjEDRBMN+6FT6eJnqE+NnVzFXITVnZR3p2MmSTmhlf98c18mw78JEXHJsaWTQ==
+X-Gm-Gg: ASbGnctlBAgmulSsYbl27ek65skl14RVk8E+C4BWRbywkoI2iJpodPt2T7E+iD9FVIu
+	9lvIZCS7W5msX6jWQCpVrQ5lqoDvukk6+WfOXvOVzI3gHs9/JgwmMVrcDpjHsnVPQPcsNVwFezE
+	RJBjbWLgsjLCqOLzzdFLVvcR+dUTz8Ch3R8H/BknMQg25kIOhgkti1FZWiKnXBjyLaNlz6YIzYa
+	mNXyLqrPSA8Yy2elAJ6wuS9TRYNqC5rQE0e9bH4dar5Q+aoToI4/rprhxrHuaYuwzYS/+fJjdPf
+	fjxK4QjTAgCrtHcU7/+kxS177u38cUyI2mDiT6sZ7j40V1VjGkWlTBHOdOIirMYjEk4Xx6eqkq+
+	1n8/y
+X-Google-Smtp-Source: AGHT+IGZA+a9XGOETQCq4mTPzcDC3M3BrXfb2U/dru5rUVJw0B01xbMp+b+QPk3A39iTP91d5M6t3w==
+X-Received: by 2002:a05:6830:2aa7:b0:727:2f9d:284c with SMTP id 46e09a7af769-7274399117dmr2635918a34.10.1740072576341;
+        Thu, 20 Feb 2025 09:29:36 -0800 (PST)
 Received: from [10.171.122.29] (wsip-98-189-219-228.oc.oc.cox.net. [98.189.219.228])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5fd0aa506acsm497034eaf.31.2025.02.20.09.29.06
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7272737d70dsm2344358a34.42.2025.02.20.09.29.32
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 20 Feb 2025 09:29:08 -0800 (PST)
-Message-ID: <d18d4b5d-2356-4e2a-a318-14d0c328261a@broadcom.com>
-Date: Thu, 20 Feb 2025 09:29:06 -0800
+        Thu, 20 Feb 2025 09:29:35 -0800 (PST)
+Message-ID: <d1ead47b-4b82-4657-88c3-defb44647b64@broadcom.com>
+Date: Thu, 20 Feb 2025 09:29:32 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/8] PCI: brcmstb: Do not assume that reg field starts
- at LSB
+Subject: Re: [PATCH v2 4/8] PCI: brcmstb: Fix error path upon call of
+ regulator_bulk_get()
 To: Jim Quinlan <james.quinlan@broadcom.com>, linux-pci@vger.kernel.org,
  Nicolas Saenz Julienne <nsaenz@kernel.org>,
  Bjorn Helgaas <bhelgaas@google.com>,
@@ -89,7 +89,7 @@ Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
  <linux-arm-kernel@lists.infradead.org>,
  open list <linux-kernel@vger.kernel.org>
 References: <20250214173944.47506-1-james.quinlan@broadcom.com>
- <20250214173944.47506-4-james.quinlan@broadcom.com>
+ <20250214173944.47506-5-james.quinlan@broadcom.com>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -124,12 +124,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250214173944.47506-4-james.quinlan@broadcom.com>
+In-Reply-To: <20250214173944.47506-5-james.quinlan@broadcom.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_092910_247433_71418FC9 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250220_092937_448592_22FFEE62 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,14 +148,14 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 2/14/2025 9:39 AM, Jim Quinlan wrote:
-> When setting a register field it was assumed that the field started at the
-> lsb of the register.  Although the masks do indeed start at the lsb, and
-> this will probably not change, it is prudent to use a method that makes no
-> assumption about the mask's placement in the register.
+> If regulator_bulk_get() returns an error, no regulators are created and we
+> need to set their number to zero.  If we do not do this and the PCIe
+> link-up fails, regulator_bulk_free() will be invoked and effect a panic.
 > 
-> The uXXp_replace_bits() calls are used since they are already prevalent
-> in this driver.
+> Also print out the error value, as we cannot return an error upwards as
+> Linux will WARN on an error from add_bus().
 > 
+> Fixes: 9e6be018b263 ("PCI: brcmstb: Enable child bus device regulators from DT")
 > Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
 
 Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
