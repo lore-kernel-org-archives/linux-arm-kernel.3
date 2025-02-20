@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA4DEC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD51DC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:30:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=th+517ZC0V4fbqH9CgBsf81RO0nRc/LViRgQwQPk9dM=; b=Tw3RWMj6niyivofY+eIbTVYQKi
-	MrrFX7Kdtkl/UEXfc/Opzn28i5MY7xln1D/9TRUfPfrYuc5MmVa85IK5hE9gU0Igxzdq5r9K0I26k
-	Li0SNcMqVYfrE1iXGOW3kMRbouqHRmN3ZkFgWsMIZjLgGuHp6jNFLZFNi5RdjKG15THCZW1CIcI9u
-	kVnSq+n3PIdWHpemVID7eO2wZaqQOQCB2pnmK5cMEQm2bVmCGWpv1QySjSczQT/sswnp3yydI7rqf
-	CowGWq7XspaZ3B27ErAXTx+Z7jRJ0+PgyNe2yBaR9zYIhdANkG4nL+SHTaDhpjmkw+AREzPXhJ18O
-	At7IHZgw==;
+	bh=YrD6Cu+ma2ey5dVvO2q4VCmeyk9hPbaJ87jyuD084/E=; b=UEEOLNjkf3yubANB6WlU9rtJ6l
+	C0YDMeLGcoNKptwqc1VuoUsSakM5p5hVyVtXRORbXA0argNuNdt8ePRwhfBpgQlTpZcnCQfg4Edcm
+	VOB8jeB2wgtwn9eiQCW/OKFZbtgq4NJ9aCFVvXkVyNtdig2+9HEMCQ/9XNQJj7RGuTRKsfypoBKjC
+	6/TFnVpuQaM1eTCR6T9JM8GL3XWDZKVXA9ZK8Asla8Fy/9ntuN38tyr+8OeEkZgWZYZSW1inmZKGa
+	yqRMcj+Jy5m/ntTw2cLk7MFTbVlPhxo94TRx72D2N6r9RV0kbLyhPeXgVuz7jbc6XyjEjpNXpe9RW
+	JAOdPG0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7Y3-00000001JZl-0I80;
-	Thu, 20 Feb 2025 14:29:07 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tl7ZW-00000001K1f-31j9;
+	Thu, 20 Feb 2025 14:30:38 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7NH-00000001GWA-3Xmf
+	id 1tl7NL-00000001GX3-0jeO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 14:18:00 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5e0573a84fcso1358423a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 06:17:59 -0800 (PST)
+	Thu, 20 Feb 2025 14:18:04 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5e04cb346eeso1551100a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 06:18:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740061078; x=1740665878; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740061081; x=1740665881; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=th+517ZC0V4fbqH9CgBsf81RO0nRc/LViRgQwQPk9dM=;
-        b=D0gCQAVmXVuWWL/M3WfkD1sfHZcScpUwseF/FSiEm0az3T79ABd3iDWyP+uw9OIBDr
-         8wha6zi7zu7eDuhZDa6uM7C0Jiinj01DyMaMEQPOzp63RDlmRCcqbt3fOzp3lCGCXr1z
-         BuPQP8tc7ldYVFVeGBGAxXyUkvq3GfVKaf75KSRVbjedqcHkgH2sap1pO/CXFYcXsXud
-         lanYbcVUEn5P2Hn0nsGWGktdlKKZqnoo9oRU3ZFVi5CoUU6OEO7OW04gPVpUEU6FhdN+
-         hmY3W7tANcPGkvajbNKrZPgjal14qyzUMZE3ICgzT+snSG7cYsjZ1Efl9b2+wiTH6q7w
-         1L7g==
+        bh=YrD6Cu+ma2ey5dVvO2q4VCmeyk9hPbaJ87jyuD084/E=;
+        b=OlGsxHX/lB6gjPNwqb67/RJdmyoWHF2bcNWGCVcWbbZgdHwAqdEYGL+NzYpBi39gUo
+         t4Fl4z1Ntg2t3pEFqN4ttuJptBIygwumEBWPYwe1/OWtR1s+UxSArBToavtX/7T1SfJc
+         0rEMLpY32yWu74I0SYvnmvnrlqmhkFlq24eWXsqZg8bpHhG5+8nrNBeBX6gNuMsbMISQ
+         4xHjKvrfYROJkB6KhfJh2cq4zTJJwWSxHhhwCjYE27TmvjGSBuNvGotI9d4e0Nd/9paC
+         wJP3DKNNI4VdbIzJi5yA4Vj0gKAqAeY3hc3uuZzwDQsmjlrFWKnXXo1Fr2+E6O/p+Hux
+         DISg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740061078; x=1740665878;
+        d=1e100.net; s=20230601; t=1740061081; x=1740665881;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=th+517ZC0V4fbqH9CgBsf81RO0nRc/LViRgQwQPk9dM=;
-        b=gNbPRuwk8w0he09F0H+gPKook5bA/BRRgydI+QEwGeKVoqi7Eb5jTr3qZPu/SDhBao
-         NoXj6MOfppb1FtPr7pTCYWl3oTtmG2jCRGT1GE2TPjzlNNY3tC2Hdc5EA/9/uFCN142Z
-         2XCOv4JJj8x5QrKkqlHZY1ZSNXRnjWqXNLLY7vGbXdIPOPRulbJBI9bM0YYM70b9kOe9
-         PGn/XNn76Qiyh0yNnsHuZ1yjlqcA/E9P+qyJa0VI5vQ9APq6ga97p63fMDvFm5dxYezm
-         WQntHOiOT+38DNQQ6ItECJ4WY8KivBA+dBhOQnc26UOJwJm5hMkxQY6JbeZyFQcz6t+u
-         prbg==
-X-Forwarded-Encrypted: i=1; AJvYcCX2+6dtgU+XjnoNIJXRCNWG1tTaoAIg/sgYbBP4yOh0waviKsxsuIFOxGGtpuJVhgaWyPMWlB84+Ah35u3uOc3p@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjrDcm1xf3Vvc9J8wXpeC5aUJ2Wc/YmoPy89oNd0yCwLbUBedF
-	BvM4d/MkDjq09TG56etFAUSogbpiLRf41WKPhyCjseG/ldJX02Fw+K7QrA==
-X-Gm-Gg: ASbGnctrkSQgDnWDhEoN7hyf1g/0+Xs7uEXdl5cBf+6+4YXbCazHxGYDbMXTdLUSRwQ
-	aIV1xKi7vCAaX4l8FKT46o3LwmwJQibdYbQLKp6lqNch5H9zh43uR1FDPXW5lZE5Au2N2h06jrh
-	f8/EwuasFNiVyFqa4BE2tBrvNCGxD0uvODeHgWY5m+hXg3V3b9XYMh9eC0yBsfIjYua21+ZcU97
-	IHKTb1h2Kh+yf4bax3A7hHZziqybygycBENFJtqOaCHCMGzpGwtTSQRssO2K27W6wxm5sB8cEO7
-	NmapXbDXZkMZjUPmN4YA7hfINgj4
-X-Google-Smtp-Source: AGHT+IG+yJuG5x65qDSW6wpTU4i8GdeI5QaF0F4bU7rg7alr8iRr1hZM5jP7CSW2D5EyG71m2P93dg==
-X-Received: by 2002:a05:6402:2084:b0:5e0:8c55:52b with SMTP id 4fb4d7f45d1cf-5e08c5515cemr6215804a12.15.1740061077904;
-        Thu, 20 Feb 2025 06:17:57 -0800 (PST)
+        bh=YrD6Cu+ma2ey5dVvO2q4VCmeyk9hPbaJ87jyuD084/E=;
+        b=Eq0I4Nk2pac3viJzEhRI6WHjfr01lveuagKeFyaE+IF2NBq0WzbC9ypZ9aUtCVQjEX
+         Ep7WXeJJ7iDs5dENFYpedbz/Ev0uWbSRmY/q93GIxzPl4+K/RZR++UZsJsoSCrocjv3d
+         CcuxYeqONuYt+pAT3r/RdVka3V+UmDqLiq3HnECSkLnpmo22y0tWPtgkLWLTwIVNPm4r
+         SY/bQi+OUa2cg+yq+Gcss0NNp+i06IkF6CqLmoh3LMz9Kh6hwi0zBLxWPv11vonOdXSe
+         lcG6d0HqYtqOfAyGppRKG2gc+dmhd1WK+/p5BsS4WOsFH7YjjNKAjBrmnwaIsfuCUIEJ
+         7Vaw==
+X-Forwarded-Encrypted: i=1; AJvYcCXr/CXf85GxlmDDQMOvvStk6rdWS2vLcQaden+5koCespUtmxrTZSzpNbkE2okNdlLzBK1Lt4M04C5xxocOg1cm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGFNK1UiKxhfIs9BBHU2T1R7ibGW0lIAX/0ktE1JBvg84iyYej
+	T2ZInM8QikgLqgwx7PXK5h/TzOe34T7LtlrzFvEL231+znBfL5pxOYgS0w==
+X-Gm-Gg: ASbGncs+yjCW93y2YPHUWc4vrr+PSdXkp7HtTwTihcdjdw91wUb+HbaFZ6mY0xmwZjt
+	zPvllqdqB6lDjbWTtvidm/efDzYShnJwmv7FoVChkoDURi5BnUZQ9si2LTCjh8Rmtt6fgQHSVu7
+	ZVrrtWDJdSOReSCgOUdcP8rTD+bcGRM57m5Unlv/zqrrPJ2JAwCaSwlvoys2D2Rq2UstZT6liFR
+	0FN8sa8M4INPazgqZOaJiOvGC//3XknEiGeiqguU6xnfx2daU/F8HpX2Y29r1ZbY5mSbdQbcB6Q
+	ulDgezfQZaiwwtTKtX7uYg3wfkFQ
+X-Google-Smtp-Source: AGHT+IEI5BjiSueHGowWB7V0AX0jphOzOkC+hVJDCuWo2okxV45XHcKYucaW0FwCHe0/kc3RlhAM1g==
+X-Received: by 2002:a05:6402:35c1:b0:5e0:3f83:92ab with SMTP id 4fb4d7f45d1cf-5e0a4bcbb50mr2539326a12.30.1740061081463;
+        Thu, 20 Feb 2025 06:18:01 -0800 (PST)
 Received: from demon-pc.localdomain ([188.27.130.21])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1b4f59sm12124224a12.6.2025.02.20.06.17.55
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1b4f59sm12124224a12.6.2025.02.20.06.17.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 06:17:56 -0800 (PST)
+        Thu, 20 Feb 2025 06:18:00 -0800 (PST)
 From: Cosmin Tanislav <demonsingur@gmail.com>
 To: 
 Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>,
@@ -85,18 +85,19 @@ Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 5/6] media: i2c: imx219: Report streams using frame descriptors
-Date: Thu, 20 Feb 2025 16:17:27 +0200
-Message-ID: <20250220141739.228714-6-demonsingur@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Cosmin Tanislav <demonsingur@gmail.com>
+Subject: [PATCH 6/6] media: i2c: imx219: implement configurable VC ID
+Date: Thu, 20 Feb 2025 16:17:28 +0200
+Message-ID: <20250220141739.228714-7-demonsingur@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250220141739.228714-1-demonsingur@gmail.com>
 References: <20250220141739.228714-1-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_061759_889644_4F6D0805 
-X-CRM114-Status: GOOD (  13.46  )
+X-CRM114-CacheID: sfid-20250220_061803_211204_7A702405 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,67 +112,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+IMX219 supports configuring the Virtual Channel ID used for image and
+embedded data streams.
 
-Implement the .get_frame_desc() subdev operation to report information
-about streams to the connected CSI-2 receiver. This is required to let
-the CSI-2 receiver driver know about virtual channels and data types for
-each stream.
-
-Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 ---
- drivers/media/i2c/imx219.c | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+ drivers/media/i2c/imx219.c | 26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/media/i2c/imx219.c b/drivers/media/i2c/imx219.c
-index ad1965a91ae3c..4c4ebe54f191b 100644
+index 4c4ebe54f191b..5790106b35936 100644
 --- a/drivers/media/i2c/imx219.c
 +++ b/drivers/media/i2c/imx219.c
-@@ -23,6 +23,7 @@
- #include <linux/pm_runtime.h>
- #include <linux/regulator/consumer.h>
+@@ -38,6 +38,8 @@
+ #define IMX219_MODE_STANDBY		0x00
+ #define IMX219_MODE_STREAMING		0x01
  
-+#include <media/mipi-csi2.h>
- #include <media/v4l2-cci.h>
- #include <media/v4l2-ctrls.h>
- #include <media/v4l2-device.h>
-@@ -990,6 +991,28 @@ static int imx219_init_state(struct v4l2_subdev *sd,
- 	return 0;
- }
++#define IMX219_REG_CSI_CH_ID		CCI_REG8(0x0110)
++
+ #define IMX219_REG_CSI_LANE_MODE	CCI_REG8(0x0114)
+ #define IMX219_CSI_2_LANE_MODE		0x01
+ #define IMX219_CSI_4_LANE_MODE		0x03
+@@ -363,6 +365,9 @@ struct imx219 {
  
-+static int imx219_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
-+				 struct v4l2_mbus_frame_desc *fd)
+ 	/* Two or Four lanes */
+ 	u8 lanes;
++
++	/* Virtual channel ID */
++	u8 vc_id;
+ };
+ 
+ static inline struct imx219 *to_imx219(struct v4l2_subdev *_sd)
+@@ -724,6 +729,12 @@ static int imx219_configure_lanes(struct imx219 *imx219)
+ 				  ARRAY_SIZE(imx219_4lane_regs), NULL);
+ };
+ 
++static int imx219_configure_vc(struct imx219 *imx219)
 +{
-+	struct v4l2_subdev_state *state;
-+	u32 code;
-+
-+	state = v4l2_subdev_lock_and_get_active_state(sd);
-+	code = v4l2_subdev_state_get_format(state, 0)->code;
-+	v4l2_subdev_unlock_state(state);
-+
-+	fd->type = V4L2_MBUS_FRAME_DESC_TYPE_CSI2;
-+	fd->num_entries = 1;
-+
-+	fd->entry[0].pixelcode = code;
-+	fd->entry[0].stream = 0;
-+	fd->entry[0].bus.csi2.vc = 0;
-+	fd->entry[0].bus.csi2.dt = imx219_get_format_bpp(code) == 8
-+				 ? MIPI_CSI2_DT_RAW8 : MIPI_CSI2_DT_RAW10;
-+
-+	return 0;
++	return cci_write(imx219->regmap, IMX219_REG_CSI_CH_ID,
++			 imx219->vc_id, NULL);
 +}
 +
- static const struct v4l2_subdev_video_ops imx219_video_ops = {
- 	.s_stream = imx219_set_stream,
- };
-@@ -1000,6 +1023,7 @@ static const struct v4l2_subdev_pad_ops imx219_pad_ops = {
- 	.set_fmt = imx219_set_pad_format,
- 	.get_selection = imx219_get_selection,
- 	.enum_frame_size = imx219_enum_frame_size,
-+	.get_frame_desc = imx219_get_frame_desc,
- };
+ static int imx219_start_streaming(struct imx219 *imx219,
+ 				  struct v4l2_subdev_state *state)
+ {
+@@ -749,6 +760,11 @@ static int imx219_start_streaming(struct imx219 *imx219,
+ 		goto err_rpm_put;
+ 	}
  
- static const struct v4l2_subdev_ops imx219_subdev_ops = {
++	/* Configure Virtual Channel ID */
++	ret = imx219_configure_vc(imx219);
++	if (ret)
++		return ret;
++
+ 	/* Apply format and crop settings. */
+ 	ret = imx219_set_framefmt(imx219, state);
+ 	if (ret) {
+@@ -994,6 +1010,7 @@ static int imx219_init_state(struct v4l2_subdev *sd,
+ static int imx219_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
+ 				 struct v4l2_mbus_frame_desc *fd)
+ {
++	struct imx219 *imx219 = to_imx219(sd);
+ 	struct v4l2_subdev_state *state;
+ 	u32 code;
+ 
+@@ -1006,7 +1023,7 @@ static int imx219_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
+ 
+ 	fd->entry[0].pixelcode = code;
+ 	fd->entry[0].stream = 0;
+-	fd->entry[0].bus.csi2.vc = 0;
++	fd->entry[0].bus.csi2.vc = imx219->vc_id;
+ 	fd->entry[0].bus.csi2.dt = imx219_get_format_bpp(code) == 8
+ 				 ? MIPI_CSI2_DT_RAW8 : MIPI_CSI2_DT_RAW10;
+ 
+@@ -1149,6 +1166,13 @@ static int imx219_check_hwcfg(struct device *dev, struct imx219 *imx219)
+ 	}
+ 	imx219->lanes = ep_cfg.bus.mipi_csi2.num_data_lanes;
+ 
++	if (ep_cfg.bus.mipi_csi2.num_vc_ids > 1) {
++		dev_err_probe(dev, -EINVAL,
++			      "only 1 virtual channel id is supported\n");
++		goto error_out;
++	}
++	imx219->vc_id = ep_cfg.bus.mipi_csi2.vc_ids[0];
++
+ 	/* Check the link frequency set in device tree */
+ 	switch (imx219->lanes) {
+ 	case 2:
 -- 
 2.48.1
 
