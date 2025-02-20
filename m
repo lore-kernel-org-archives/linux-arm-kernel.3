@@ -4,82 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD179C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 23:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDDB7C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 23:44:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZY+qAPOicOUq8p2LK8IeikgixBi4lx8HxmpqAWAHnA=; b=pXl7K5blIApjodFlkWuOT3Klr4
-	iwFGUkusfaK3AfL6xX3dBHQu//Ss4S3MnOXIvxAyGrpKMqFzPWd17i0U22ij3dDBIYCqt8eNOqo7A
-	Ik6Y+gthB2g14aZU0ZG63sKaClgASs4q33wauLQnrcexGRzzFYBfBmQGRrj8L6zzH5YAOmwHbw6zs
-	ruYgxRoSaKAPP8GjLiurNtLx0P11tniZ7uuA8FEOUUo3lNuoEY/qPNFG3zMZd74ft5wOApkGXFMoo
-	CGNbw7w2Q00wKDnD4QCy5eBqD/5lKUIjHDpIxM3W0qmUJNH+tvNifoVEOapSPGCV1kOSOhOaci8d6
-	0DYt5rkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eK4Q+gaIL/QDz6EnUoiKhEYDORlBBBWA6cwM5FTMJWU=; b=vXWvD5gti3BBbGkliWrhtgPgF2
+	FuyLa51Hhoy7x+dWaYF1Ubcj22o0K9E4S79BlEAl9AtfHmJ41ip5LFL3T9m8fkSkwPR5J9ALuTff2
+	UxDR5sDl1uLqAqugrvP7ci7n/45UqBEyK39OFYqf6oXt/TWrOLCM4ox8h35fBKztkZd0w9JueocUU
+	kRk6cSkDnYwCnkVutm+hxcND1EgeekLEZJcgKGC30nVdF+qZkDs3ErnuBou+f2Vx7XCoIWXi7DBZE
+	dy2m6d6rXCt9UHAQkHJb3kDrLnYLw6IhzKWKE232tKjdlSK+VYDgFTAnhCG9PS6MfnIw/pukcIE1b
+	0o5UbWDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlG7D-00000003Lzz-0m9a;
-	Thu, 20 Feb 2025 23:37:59 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tlGCm-00000003N6B-3Hxm;
+	Thu, 20 Feb 2025 23:43:44 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlFzd-00000003KEy-11Eo
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 23:30:10 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2f83e54432dso4989128a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 15:30:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740094208; x=1740699008; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tZY+qAPOicOUq8p2LK8IeikgixBi4lx8HxmpqAWAHnA=;
-        b=yWbQzmpesgbb6Gnwt34k898Um36hELbFn33muZfTpQTvgeBscHfAdlzAVmLOmKbjYN
-         C4qisOUiwL2Fd+YXlbIpqwCqPeHjSIKqdrYdTCqpED4HtGhtAXgvDzhyyqh8GdoqBkqa
-         fXZT2OZlUOXbk9bsCrst+g/8yj8iCCAkvHOTyt0BfUfXdQuT1OYCJgNclV9T3YIVATdq
-         d25aX6yHDWCfOM3oyICKmpjYgnEmFrsUPwcgRyK4tU9PViNTK4U4ndl/ENzMGJOmDKRh
-         5IxEz9uN7jwUrdmtjLYSP+YtONLfv4B4JrVIjUsRc5oblF7becG8IQjyG3H2I65WO3iQ
-         IC2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740094208; x=1740699008;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tZY+qAPOicOUq8p2LK8IeikgixBi4lx8HxmpqAWAHnA=;
-        b=hGx9lekPqzIt9LsoXJBgd4ZmFJ5fJoyX149KaC/Yd+vPWQsKBWLdUg86C91uf1zR+i
-         qXC1w2YJP/mewb2Xnp1HDx2jABorcPzMRHffHw2ppviAuc6MSdKVRiVFtDglgT+bsEc+
-         8dMLy7Wn3/10eMGmA+4ZMrK8ESH5Ulmo5WN7Zb1zP1mC8GlKwPgEilWB3k2fMYK1CeIP
-         3wRzOlBHz5LkJBUgBYJ2kc2S9dDZcjr0wMSjP5VVUAcy094MWaEmKwHghxWUFXzVddYW
-         vFcEvoFF/bP/74bNqlsbeLZ5cNykXUgkSgTTD0TbSZs8Dx5J7W+IkDh/wfAkiiTggfdd
-         Ua0g==
-X-Forwarded-Encrypted: i=1; AJvYcCXAgHErxo9rixs5L7thhuDQ5ERP11Vjm0XIru2o9SiAS3CaQ8swPvTb0+hIMfZpwdFto4xDfqOy5CjG+zENHtbU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxiBXvmqKuKhsuhtKwcwCLhFAtIywp+anPKC+P1Fv2ZnJ3M/mvI
-	c/bza4rPxAWg/dNLibHVXTb+jHminIeXAvpAptppOQQThqYve/lFvcXZ+9BXA3EkKnG2BfqEd6A
-	19wK0wc/okA==
-X-Google-Smtp-Source: AGHT+IEBaG/uVrgEVEadJS5uoF6GF3zEvxqFSthLZ+KCQQjV/E6qlAa7wWQxBxQYuGn6ZWD8KVd4x5+IgTERjw==
-X-Received: from pjbpt3.prod.google.com ([2002:a17:90b:3d03:b0:2fc:13d6:b4cb])
- (user=jiaqiyan job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:2e4f:b0:2fc:b40:339a with SMTP id 98e67ed59e1d1-2fce78a95d5mr1872440a91.10.1740094207918;
- Thu, 20 Feb 2025 15:30:07 -0800 (PST)
-Date: Thu, 20 Feb 2025 23:29:59 +0000
-In-Reply-To: <20250220232959.247600-1-jiaqiyan@google.com>
-Mime-Version: 1.0
-References: <20250220232959.247600-1-jiaqiyan@google.com>
-X-Mailer: git-send-email 2.48.1.658.g4767266eb4-goog
-Message-ID: <20250220232959.247600-3-jiaqiyan@google.com>
-Subject: [RFC PATCH v3 3/3] Documentation: kvm: new UAPI when arm64 guest
- consumes UER
-From: Jiaqi Yan <jiaqiyan@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev
-Cc: joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
-	kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, duenwen@google.com, rananta@google.com, 
-	jthoughton@google.com, Jiaqi Yan <jiaqiyan@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1tlGBH-00000003MjO-3gRE;
+	Thu, 20 Feb 2025 23:42:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=eK4Q+gaIL/QDz6EnUoiKhEYDORlBBBWA6cwM5FTMJWU=; b=DHfx1VNRaazraKTN/FWLVGZCpy
+	z1l/UskSBoxSdyWKGdBQIVOxFWCazo8EgM97zvh7yvzc9gXxO1gnzbWer374BOM4qps/DO9rh/eAo
+	tjVLhlHI7+mTC0xa11E6zThVmfY2rFinw600vsJjzVQvd8YgGb1UWT8Ka69GegAuWLkVJ+zSwC8Ug
+	GCFu0SoGzA2cI8yZFJA6rzI1m+NLAWzsJxg+mI1S/jV6jUcTMhjhk5d0+We6BO574D7HqRLjzyvJ0
+	9tI5+05x6oJdn5AI4r538D6/N0gdMCU8dltkviQm0Ogs5H8BFYz3580Fee2CFTJ2V51Pkjk/dQWTe
+	7phMiwFw==;
+Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tlGAz-0004Wc-0R; Fri, 21 Feb 2025 00:41:53 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: gregkh@linuxfoundation.org,
+	heiko@sntech.de
+Cc: rafael@kernel.org,
+	dakr@kernel.org,
+	hjc@rock-chips.com,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	dri-devel@lists.freedesktop.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	quentin.schulz@cherry.de
+Subject: [PATCH 2/2] drm/rockchip: Fix shutdown when no drm-device is set up
+Date: Fri, 21 Feb 2025 00:41:41 +0100
+Message-ID: <20250220234141.2788785-3-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250220234141.2788785-1-heiko@sntech.de>
+References: <20250220234141.2788785-1-heiko@sntech.de>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_153009_283116_1574CF3A 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20250220_154211_913320_79489ECF 
+X-CRM114-Status: GOOD (  16.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,70 +83,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the documentation for new UAPI when guest consumes uncorrectable
-but recoverable memory error (UER). This new UAPI enables userspace
-to inject SEA into the guest.
+When the drm-driver probes, it mainly creates the component device, where
+all the sub-drivers (vops, hdmi, etc) hook into.
 
-Tested: make htmldocs and proofreading
+This will cause the shutdown handler to get called on shutdown, even
+though the drm-device might not have been set up, or the component bind
+might have failed.
 
-Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
+So use the new component helper to check whether the drm-device is up
+and only then call the drm-atomic helper to release all the drm magic.
+
+This prevents failures when the drm-device is never set, or has been
+freed up already for example by a probe-defer during the component bind.
+
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
- Documentation/virt/kvm/api.rst | 38 +++++++++++++++++++++++++++-------
- 1 file changed, 31 insertions(+), 7 deletions(-)
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index 2b52eb77e29cb..20c7049508484 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -1288,16 +1288,40 @@ ARM64:
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
+index 439edc165ff6..285b721ff28a 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
+@@ -484,9 +484,11 @@ static void rockchip_drm_platform_remove(struct platform_device *pdev)
  
- User space may need to inject several types of events to the guest.
+ static void rockchip_drm_platform_shutdown(struct platform_device *pdev)
+ {
+-	struct drm_device *drm = platform_get_drvdata(pdev);
++	if (component_master_is_bound(&pdev->dev, &rockchip_drm_ops)) {
++		struct drm_device *drm = platform_get_drvdata(pdev);
  
-+Inject SError
-+~~~~~~~~~~~~~
-+
- Set the pending SError exception state for this VCPU. It is not possible to
- 'cancel' an Serror that has been made pending.
+-	drm_atomic_helper_shutdown(drm);
++		drm_atomic_helper_shutdown(drm);
++	}
+ }
  
--If the guest performed an access to I/O memory which could not be handled by
--userspace, for example because of missing instruction syndrome decode
--information or because there is no device mapped at the accessed IPA, then
--userspace can ask the kernel to inject an external abort using the address
--from the exiting fault on the VCPU. It is a programming error to set
--ext_dabt_pending after an exit which was not either KVM_EXIT_MMIO or
--KVM_EXIT_ARM_NISV. This feature is only available if the system supports
-+Inject SEA
-+~~~~~~~~~~
-+
-+- If the guest performed an access to I/O memory which could not be handled by
-+  userspace, for example because of missing instruction syndrome decode
-+  information or because there is no device mapped at the accessed IPA, then
-+  userspace can ask the kernel to inject an external abort using the address
-+  from the exiting fault on the VCPU.
-+
-+- If the guest consumed an uncorrectable memory error, and RAS extension in
-+  Trusted Firmware choosed to notify PE with SEA, KVM and core kernel may have
-+  to handle the memory poison consumption when host APEI was unable to claim
-+  the SEA. For the following type of faults, KVM sends SIGBUS to current thread
-+  (i.e. VMM in EL0) with si_code=BUS_OBJERR:
-+
-+  - Synchronous external abort
-+
-+  - Synchronous parity or ECC error on memory access
-+
-+  If the memory error's physical address is available, si_addr will be the
-+  error's host virtual address in VM's memory space; otherwise si_addr is zero.
-+  When userspace vCPU thread is interrupted by such SIGBUS, it can ask KVM to
-+  replay an external abort into guest.
-+
-+It is a programming error to set ext_dabt_pending after an exit which was not
-+KVM_EXIT_MMIO, not KVM_EXIT_ARM_NISV, and not interrupted by BUS_OBJERR SIGBUS.
-+
-+This feature is only available if the system supports
- KVM_CAP_ARM_INJECT_EXT_DABT. This is a helper which provides commonality in
- how userspace reports accesses for the above cases to guests, across different
- userspace implementations. Nevertheless, userspace can still emulate all Arm
+ static const struct of_device_id rockchip_drm_dt_ids[] = {
 -- 
-2.48.1.658.g4767266eb4-goog
+2.47.2
 
 
