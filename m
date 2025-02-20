@@ -4,84 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E09C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 073CFC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pNJT56BxP7UvWA0Xz758yN9Ks+B/eGQRDTpNl6/uydA=; b=xmLeBoH0j0UyUvKuF9TYp5L3TF
-	sultAkvbJQETxqAa8kH6/sUr2sGnHkIBNqUihBudLYfwxJAmeBCn5rJAe50chWhOwYhz2rbCrVNjh
-	PGXkgvAZQbdeb4565V9jy05FjVSGyeFhu07PZ+9WHetSGQcEPfsDeDoSiJCJF0bYM0KAC+pLCaAVK
-	8hQyl1IFtQbrWuMkQppY13JG/XvGCXjbuGke0pPE3oH3uyFiqs/9ZgReHA2FqiZh+8r7UCLitrbm2
-	9Yy6ipHXFqRu6uY9WTR67Gih5P6moUT3RTIXVBUZipFGZmXvmTzdJv4fDukrjZjZu/Y61Elp09Kz6
-	YouPFe+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Spb5DN7Z957auhFhK10W01ysEwluGPWuq85ZNm+0g8Q=; b=3wYtGf2iSNgjPdVr9/7kckA2nt
+	5LWda6YKg70QuG0zrdY1h7zZnpHEInYc7dN9BifeE/gZ1FY0iVY4VxT/mF3eZuVilh4TinQejlmHP
+	mVKcJ1ia/L7LUmAodcyHAOXU3YdDTPAOqTTG8hzjGet6Yce9whjJWVWkhE2ZF4T+1qX0Wwp0Ef3b1
+	acKG3dbWCNuxImyNXtVVqZ29WNQ1udlHWgMOYplBizxRzNKgytw6zicOM4agUejZTFfLBS1xs7Cd6
+	25Amwa8+pyLvs7DsE+qD3yYxSjZJy2QySAyK5jErm1NRMmfBaiEZB4MFFoqoMR5DADD4wKZ1alZus
+	k9QLTLqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9fN-00000001w9s-3VAD;
-	Thu, 20 Feb 2025 16:44:49 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9ca-00000001vHd-22Lr
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 16:41:57 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 7A0F8203D5E9;
-	Thu, 20 Feb 2025 08:41:55 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7A0F8203D5E9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740069715;
-	bh=pNJT56BxP7UvWA0Xz758yN9Ks+B/eGQRDTpNl6/uydA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RfNgWwSKvEiPibsl6QYn1+eHkT30Nn1lw5OPsw1d6PPbcISNOFjUL/xQSqvKSFf8o
-	 yoOIzOPYQSxDpQlLZwzRdyB7IKxJeSJ80SjCCl6Rmtksk16rj7gF1Vbsd9EZG8Perr
-	 ZiNK0h99Ko8rPXUvLfCrhbWuuKMw7GXCc7mIDVdc=
-Message-ID: <13059366-bf72-4e84-ab6c-032b735edaec@linux.microsoft.com>
-Date: Thu, 20 Feb 2025 08:41:55 -0800
+	id 1tl9gq-00000001wXj-22Kq;
+	Thu, 20 Feb 2025 16:46:20 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tl9dK-00000001vX8-0HF9;
+	Thu, 20 Feb 2025 16:42:43 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-38f265c6cb0so634676f8f.2;
+        Thu, 20 Feb 2025 08:42:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740069760; x=1740674560; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Spb5DN7Z957auhFhK10W01ysEwluGPWuq85ZNm+0g8Q=;
+        b=N+Ngk6zP1bCIJRQbQeDz/SgXyDNJbLklng2avqanLjDWAJPsP/bnGVZfV6T1MtEsqN
+         vLP28T2oPHsYLvxQDpaNMd/FD7b+TmjkVy696d4ZLrkGP4RxoZ4hjG1REhc20ZWK0kfX
+         f7cc58YXjwN9o4+XSxC+Cp2TfH/FzNe9BJaji7mDMQO0GZ9pia6xPUHFiE7nWqvEdK0h
+         JsztEDh0VvztYDsDWIOWagJiK3M8396rABChi7+ABEvn36LrAyCV39j/p+rGv6RxIT7v
+         IvL4nUEhmB5LwIjiG0+7VlWdSblLMD+J8I/xDd2b072OvCz4qNdBHo/3R5Pit7P+Cgkx
+         BD4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740069760; x=1740674560;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Spb5DN7Z957auhFhK10W01ysEwluGPWuq85ZNm+0g8Q=;
+        b=T/c1JU7kmnWrXo6FW3Gbttet/vL8unxo+WZ2YmqPUQP1zFqLY7cBSD8A+baFxFVw93
+         UMQs8QofVQgEro7MjKZTbR7O7r7fMT1lCLIzT53uKSE6Nysv7PaTVHwJK3TYpQV8KNcq
+         RGAJ0i2mHZIS9tu0xyuS4WyFfgp2Q3u9ERXfUTTAq+Dd5lBB8LzdPFpuPusghJTpcyzX
+         SZI2SaQ+xhiCnQ9OfBYTW6Rp5oG/2goX8/Aj1SfzT8HE7Ira5rxRlpVLF+vjWa3eyDYJ
+         GiTwpPVL+CJIpk+A7URrzMaD6IeyBB82aHM4kmfZ1maS9LkgaR1F8YFS7XJVksvZe9rF
+         C2HQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVQVdV4CNNif4AcJZ1oboZBQjEYZWXyDOZhE4EBJDZ5lRI4vX+JvkcqT2m7ykM7BFN/k/XvXzQNYFMGy0w=@lists.infradead.org, AJvYcCX8KbsORSgaZ7PNjieBmQ91JhK+bsdpn4vDwklRo0Fxp9UNduxc45WTuwYgrj862JdU9C+MlbAs9x2UVUaJNOIO@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJWv3jLjFH9+lN9rMz3W+Ce6V6byoKDA3Iut6o2gVT/Qr+OenP
+	OwE94yXPus+3X9T+BfOH/qRTz8IXfC2e+j24eLthrxxXd96FVz8F
+X-Gm-Gg: ASbGnctTXpmAPOKFTw2oH+nD4wDUOVLoHNgE5sTnyDdiQZw6mTwMiNNCGCVDhSDBMyN
+	xyFmhemKKSReXMohkPankzl1kHtjMvmCep4nroRB4tZMHzsFV9aYo/CF0EF6yzdkbjOTdz5Balu
+	VpoLa9KB3NZ/AAgnOs8OH2mLxVyFL03NvpJoqOitiaBB25VwH5LtJyVHLa9Txh4n+5r1KizB9j8
+	XNi6Plzj/DAn9R6BW5wLEYcKquhfwW7jubwaezA9B4q9Ojumzy34KhPMtop53q8DavMzQ+9p8tu
+	M/9QqiLc0vggfxQxB9a7H0O3gDSzjVnMiIDCSdhWgi5RNaT0FI79w0YrudQXaIpyQFU=
+X-Google-Smtp-Source: AGHT+IHKAPnHG28kS2PXP8ZMEI3ZDWU7Yq8EPs8z2/DhkZ5Cc4K6VvdHC46lFrkP+dx+zXRT0tV7pg==
+X-Received: by 2002:a05:6000:4025:b0:38f:4176:7c25 with SMTP id ffacd0b85a97d-38f41768063mr14903972f8f.2.1740069760495;
+        Thu, 20 Feb 2025 08:42:40 -0800 (PST)
+Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259d5c29sm21139863f8f.72.2025.02.20.08.42.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Feb 2025 08:42:40 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: linux-kernel@vger.kernel.org, Aleksandr Shubin <privatesub2@gmail.com>
+Cc: Aleksandr Shubin <privatesub2@gmail.com>,
+ Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Cheo Fusi <fusibrandon13@gmail.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v11 3/3] riscv: dts: allwinner: d1: Add pwm node
+Date: Thu, 20 Feb 2025 17:42:38 +0100
+Message-ID: <3688166.hdfAi7Kttb@jernej-laptop>
+In-Reply-To: <20250213094018.134081-4-privatesub2@gmail.com>
+References: <20250213094018.134081-1-privatesub2@gmail.com>
+ <20250213094018.134081-4-privatesub2@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v4 6/6] PCI: hv: Get vPCI MSI IRQ domain from
- DeviceTree
-To: Michael Kelley <mhklinux@outlook.com>, "arnd@arndb.de" <arnd@arndb.de>,
- "bhelgaas@google.com" <bhelgaas@google.com>, "bp@alien8.de" <bp@alien8.de>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "hpa@zytor.com" <hpa@zytor.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "kw@linux.com" <kw@linux.com>, "kys@microsoft.com" <kys@microsoft.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
- "mingo@redhat.com" <mingo@redhat.com>, "robh@kernel.org" <robh@kernel.org>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>, "will@kernel.org"
- <will@kernel.org>, "devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "x86@kernel.org" <x86@kernel.org>
-Cc: "benhill@microsoft.com" <benhill@microsoft.com>,
- "bperkins@microsoft.com" <bperkins@microsoft.com>,
- "sunilmut@microsoft.com" <sunilmut@microsoft.com>
-References: <20250212014321.1108840-1-romank@linux.microsoft.com>
- <20250212014321.1108840-7-romank@linux.microsoft.com>
- <SN6PR02MB4157911BEF8664EDE2B62835D4C52@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB4157911BEF8664EDE2B62835D4C52@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_084156_554006_256F2DA7 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20250220_084242_100407_244B951E 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,30 +107,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Dne =C4=8Detrtek, 13. februar 2025 ob 10:40:14 Srednjeevropski standardni =
+=C4=8Das je Aleksandr Shubin napisal(a):
+> D1 and T113s contain a pwm controller with 8 channels.
+> This controller is supported by the sun20i-pwm driver.
+>=20
+> Add a device tree node for it.
+>=20
+> Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
 
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-On 2/19/2025 3:29 PM, Michael Kelley wrote:
-> From: Roman Kisel <romank@linux.microsoft.com> Sent: Tuesday, February 11, 2025 5:43 PM
+Best regards,
+Jernej
 
-[...]
-
->>   }
-> 
-> These changes to rename hv_dev to vmbus_root_device, along with the
-> introduction of hv_get_vmbus_root_device(), seem like a separate
-> patch from the vPCI changes. The rename is definitely needed because
-> "hv_dev" as a symbol is very overloaded. But the rename is "no functional
-> change", and it doesn't touch the pci-hyperv.c file. You don't have a
-> consumer for hv_get_vmbus_root_device() until the vPCI changes, but
-> that seems OK to me to be in the subsequent patch.
-> 
-
-Thanks, will split the NFC out! I've asked the ACPI maintainers if a
-small change in ACPI would be fine to make the functional part of this
-patch more palatable, too.
-
--- 
-Thank you,
-Roman
 
 
