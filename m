@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF3CFC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 23:14:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B2CC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 23:16:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xrabmWDNnjDbFDGwlYLKTrhkDOrLGupRTNC+Vz/SZV8=; b=YigDtq0HvHVyovIA4InpeqDnj+
-	VbAlyae3BO/13fC94L2mw4Tf7lB+l5JtlnjNbyfxLJEw2cq4J/TaHIVr9gbV6xPVkgP6FBm+Prd9B
-	Jh/whJC9+JqX6iCEJECQgAMf2yhY0md3kc01qnjvzXlB0I52hL1a7EqO8nkNxnGgWt+zoeYr9hIuI
-	os4JjWtOpXUdb/OlWlka5FrQl7DWwaSLRcPXR5ZxKxx+Z01TTLZmFpGpy2J23lbp7oGivwcX4HBi+
-	2tOhFaJRS2epYOt2k7ydt5vyU5Y86Jh4/rO0HDkH/Qjx8uZDucJkvnYYop4N4Yv2Lnu26LntwcPGJ
-	vUtbkvvg==;
+	bh=1V5REDmi/qwmeZmzS61DPGBCJO64NPZWi8x4XF3HxB0=; b=TQJ6OcgwM5QR3te7mcORKEoKEB
+	NCzwkX3bBLLS6b57OlSCefRc8qJYFinaJsMx0WK1tiYWP4vj56It2lnjDH8p5q3K1YwJH7gkvDTLY
+	UXR8mA0puBbZM4e4iTqxPB33wq7dFP9aOvWUFdJQLe6BSG+UVKJF+prC/Jos3LUcbwxWHbRvmuTEC
+	fJFql9IZxL4bbgVkfkqyeKe/PmQhqXeXOzIrMQKCf2UBqZTayXkVAjTlJuC4y0qa47JJmwcvU1VkL
+	3f1oZSnac7bkIvXH7jMG+F+OlOhx1vcM77ayjpZ73hainFwaKADk3VHJZne8Uo/5Bh1aOW4muwfFD
+	gWcALJ3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlFkV-00000003GdE-493r;
-	Thu, 20 Feb 2025 23:14:31 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1tlFly-00000003Gvq-2uos;
+	Thu, 20 Feb 2025 23:16:02 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlFey-00000003FJH-3GSw
+	id 1tlFf0-00000003FJh-2j3c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 23:08:49 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-ab744d5e567so265226766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 15:08:48 -0800 (PST)
+	Thu, 20 Feb 2025 23:08:51 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ab771575040so464176366b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 15:08:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740092927; x=1740697727; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740092929; x=1740697729; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xrabmWDNnjDbFDGwlYLKTrhkDOrLGupRTNC+Vz/SZV8=;
-        b=Py9ZLPh32oslJ/yAwH+E6nOWyAQdy7+aoJG8tv2Tu3EgIh4/kmeGbPocSyl5+V+9sK
-         BrzjTY3rQZpddGTtvkTEBWXOZ+kjcTqdtjubGOWksQYfOA1qmbcoG2HihLWq5Uj1LpJP
-         QlKYuWZ9hwE49nYqtJlt7TmLz4PnZUYWMolu4Pu66ylh+WrQWjwRVGX9rfK4GVdsYMKh
-         mLiWOveQBEoEV68IPob3D15ZiWatrgsjbs5UmqLMzcFcYG9nRrIS6x6AhGHKqCJgnE2l
-         C1FbB22rjoQyyqwgDlUWw/UkurOp5Hnjlca/bZgjsOwaeRX3Zl0pn8VIBKYn1XlL2FO9
-         MP4w==
+        bh=1V5REDmi/qwmeZmzS61DPGBCJO64NPZWi8x4XF3HxB0=;
+        b=Rt3Chlq++uM51vR3rdo9zbAe8Gi/jDw3NVEOSMpluZY4fywKjcHEsPcPHFWAVTWi0v
+         vIso7V7vV7Ik4wK7pdxMccpQ3dFkxCoJEmD7RgdbusISEltYemS69imACskFZz7HR6zh
+         egyetU9wRR8LlarAfOUO0rc9cTvfz1ypz7IOx2SCcufZbqFqQevRZnBrahCLOrt3mMeE
+         dgL+akKsuvr+9VqBBO4fScct4wlF0XXvDKN79jGwYNf1xgTa1r0t4HT4b/ntW0fVX3Sk
+         KISi7oWc6JIxWFHrJwTNPTkUAthav/ANxRGskjNmBapbrwvL+VrLDi1zXMw4a/DvfD9U
+         A5WA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740092927; x=1740697727;
+        d=1e100.net; s=20230601; t=1740092929; x=1740697729;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xrabmWDNnjDbFDGwlYLKTrhkDOrLGupRTNC+Vz/SZV8=;
-        b=aN2p6DSbVUg+p/3EupUEaD5+nrkfMFagbNtqXcnmnonPu4DW52TkghcalTWhL/YcHW
-         mG7g2dO7nrA2v0Lr/5Hm41gsILrzZIV66tk/Xe1cm4U2sE/K1wL5OVC2gsehuIJ/GaUT
-         hp6ir8iQ+00CixQLLP7UQXHGXWyzzQxYjPmsRqhyuH1VqEroS40NRB9DRRcTvNbCo0nl
-         KTQO2O1dJu7lbQhIUw6KJLQm0FaHFlkLSdwPZq6x1UvHhNLUsGlo3/l5a2WU/roiiBZr
-         /vfWx31qKL0ie9mZSVr6Oe78WJ5uH7Tom1Blr+22bWY0hymReQeD5gj+HBAXP8dHJEzb
-         RmUw==
-X-Forwarded-Encrypted: i=1; AJvYcCXgTDR14Fd3FMgDMGtit//GXE3uicilOiZOyVOVkjpduetNPkwdn0qIbm2YZVyKqNaMOO/g6cWBpDZUc0upVrS6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYVQrODQh7nc+dR31bQpp3wR1X655YKRHIRvwdn6gr0ggbq8Ai
-	fM6HerTM0bSFlBlHv01uB5NYB1yv/lLk0RepGqistVpoKQtMnVu4
-X-Gm-Gg: ASbGncsWIf7oCBko0X3UHbsud+oNJVseOrfEkAV8OkqjU3V14888Tvgx1vMRiNPlOQD
-	ufgBvGhsUiqunlcA4cgW6zz8fgCdYKqKkqf2aig3/OpwF/BONLaZOQEMwfygKW39l80sD9A/e29
-	F+zq76LDQWVNyMubtDJx+moOkc3Z3NK/J4u6jg+X6TOU7EVplV1isj1Fpru0I7FqWByeMExK3In
-	EjnvcGcNhp9pINIc9mH1rsWs6MWe6QSusOW1bIe+mdksBMRE4KDXb0axReS+rrSM1pioL7q2vOl
-	6Bb8rC77lQUMCJlvdAV5GEfXr//x
-X-Google-Smtp-Source: AGHT+IHxCyp3AmxX9+y1FumuMZ2w71DFr0p5Hi7cNfrmyJDTIG49fuCS7zq2b1FXlJ53fyeJ7aqZdg==
-X-Received: by 2002:a17:906:3151:b0:ab6:504a:4c03 with SMTP id a640c23a62f3a-abc0b037859mr72192566b.24.1740092926822;
-        Thu, 20 Feb 2025 15:08:46 -0800 (PST)
+        bh=1V5REDmi/qwmeZmzS61DPGBCJO64NPZWi8x4XF3HxB0=;
+        b=HycOVVAeQWscLve+qQagXRe4PFEj4RxON5ctS3GFa7uIfKlpYMu7u3kKd0cN49035d
+         No7xXXCFcXsaRKWSKlgZgcW3dxRAuuXGhP1Mvbqxv+UPrKUHwNJHdDu7I9XcgzSFRRQp
+         tkQK8Od9VEdWHNxhj6AP/juBg3y6tFzcXalyPhTmFDGfFKy8kJYxpaVh1XH8feCkslDz
+         Cg5OQeMxrxs1FucqjIuvGQMWXg+Vej13BYQGB7SCAea5tL1d4Q7udtzVsNOlOPo2fmXC
+         AVM/SE049D4wGsfjo0O0PdSZHF6SsyhXaj4CpYHidrBAs51ZahsBgdZdVc6v3TgTPtJi
+         lmog==
+X-Forwarded-Encrypted: i=1; AJvYcCWnGLo+nTsLMabsZ5KUHS89joL8O0U4b82frLEkmuOTz4J9V95bsIfM0s308VE70hwUagatWs+pXcx81KmEZQMj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTfbBbqgTekNlcoJwfvdtVR+QhCsn7Sptl9pBx2pYFfHk4uwZd
+	uwgtHxipaYw1+cO6TnevzT34zhb68/+haxphnjdetwoXYb+9zaSP
+X-Gm-Gg: ASbGnctN5wPq1KuMmoJuEybCIBHIESi0XLKRzLFqYmKLnNjm4+gUiTHz90uddezjEkA
+	sZguDitfCbNIizGz8Ejug+0/27GqQzzhgPnQfI421B7T69+1qt2iLlHnoE0+Vmq243tO7T3f4sp
+	pYyq4hVnTRy6dFT2k0YwWuWHF8qX20zuffuY6+s1vp+zUYuOIdYrYhqlV6vMMd3X39phY2gp33H
+	S4vESkOCFnluCUdDMLPLBTWJjVW6XYawtac02q9HQ3J3V7WEciA/IksU6e7ZL6dUcygpUGDbzeH
+	E3r0KSc2Qm9H0Zw2WzISIoWCnVbL
+X-Google-Smtp-Source: AGHT+IEydEuTk0agw+AF9f8wYzDAN5oKuTWK4h1DVKaFvIYPrYzGCYHJkQgTkbLioaZGj3jOXXoyBA==
+X-Received: by 2002:a17:906:318b:b0:ab7:b7b5:2a0c with SMTP id a640c23a62f3a-abc0ae1b6e9mr76032266b.6.1740092928857;
+        Thu, 20 Feb 2025 15:08:48 -0800 (PST)
 Received: from demon-pc.localdomain ([188.27.130.21])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb9654a6b2sm909107066b.135.2025.02.20.15.08.44
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb9654a6b2sm909107066b.135.2025.02.20.15.08.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 15:08:45 -0800 (PST)
+        Thu, 20 Feb 2025 15:08:48 -0800 (PST)
 From: Cosmin Tanislav <demonsingur@gmail.com>
 To: 
 Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>,
@@ -87,17 +87,17 @@ Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Cosmin Tanislav <demonsingur@gmail.com>
-Subject: [PATCH v2 3/6] dt-bindings: media: imx219: add support for Virtual Channel IDs
-Date: Fri, 21 Feb 2025 01:08:11 +0200
-Message-ID: <20250220230818.275262-4-demonsingur@gmail.com>
+Subject: [PATCH v2 4/6] media: i2c: imx219: pass format's code to imx219_get_format_bpp()
+Date: Fri, 21 Feb 2025 01:08:12 +0200
+Message-ID: <20250220230818.275262-5-demonsingur@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250220230818.275262-1-demonsingur@gmail.com>
 References: <20250220230818.275262-1-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_150848_809581_4F498110 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20250220_150850_682595_1D4BB6B2 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,27 +112,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-IMX219 supports configuring the Virtual Channel ID used for image and
-embedded data streams.
+imx219_get_format_bpp() only uses the code of the format, pass it
+instead of the whole format to allow usage when the whole format is not
+available.
 
 Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 ---
- Documentation/devicetree/bindings/media/i2c/imx219.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/media/i2c/imx219.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/media/i2c/imx219.yaml b/Documentation/devicetree/bindings/media/i2c/imx219.yaml
-index 07d088cf66e0b..766b0e5fedb05 100644
---- a/Documentation/devicetree/bindings/media/i2c/imx219.yaml
-+++ b/Documentation/devicetree/bindings/media/i2c/imx219.yaml
-@@ -66,6 +66,8 @@ properties:
+diff --git a/drivers/media/i2c/imx219.c b/drivers/media/i2c/imx219.c
+index fcd98ee54768e..ad1965a91ae3c 100644
+--- a/drivers/media/i2c/imx219.c
++++ b/drivers/media/i2c/imx219.c
+@@ -387,9 +387,9 @@ static u32 imx219_get_format_code(struct imx219 *imx219, u32 code)
+ 	return imx219_mbus_formats[i];
+ }
  
-           clock-noncontinuous: true
-           link-frequencies: true
-+          vc-ids:
-+            maxItems: 1
+-static u32 imx219_get_format_bpp(const struct v4l2_mbus_framefmt *format)
++static u32 imx219_get_format_bpp(u32 code)
+ {
+-	switch (format->code) {
++	switch (code) {
+ 	case MEDIA_BUS_FMT_SRGGB8_1X8:
+ 	case MEDIA_BUS_FMT_SGRBG8_1X8:
+ 	case MEDIA_BUS_FMT_SGBRG8_1X8:
+@@ -680,7 +680,7 @@ static int imx219_set_framefmt(struct imx219 *imx219,
  
-         required:
-           - link-frequencies
+ 	format = v4l2_subdev_state_get_format(state, 0);
+ 	crop = v4l2_subdev_state_get_crop(state, 0);
+-	bpp = imx219_get_format_bpp(format);
++	bpp = imx219_get_format_bpp(format->code);
+ 
+ 	cci_write(imx219->regmap, IMX219_REG_X_ADD_STA_A,
+ 		  crop->left - IMX219_PIXEL_ARRAY_LEFT, &ret);
 -- 
 2.48.1
 
