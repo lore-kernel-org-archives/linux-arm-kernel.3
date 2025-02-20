@@ -4,132 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF30C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 18:28:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6723CC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 18:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+zSBLBub+0DV1mL9PQvU0LTUDmWa3nJU7kZAxsIQwuY=; b=Bhsa3MmHq8XtVql8XVdxHUR4JS
-	4/bLyz4oLDvJAgA6/EzM6giWrjbIDAqvx0mvsWZ2HjL3ZOQslb4dAeZLkC/HqBXfaOoHyg0lQehf9
-	Kq/49LPRrGN7Seqm6Dm3ZNURJI+85ZdM9veu0i7y+N0736D7MrGVTlkPVE9Sxl2MSja1wBQY4A2Rz
-	EsVno9gx2vDm3PjknmrdLl5BzfuQKkFI2mIdzXFJEG9xo0kM4w9PdPZFyP6UAeUGyCOC0ANHGu5Y6
-	ZqhKtGv70QKfmP1O5HAQqozAIB+s8MyktelkDZMRRyfSLVbIsujKC5S1aCFpJ8Gx8yAbAySfI6wrb
-	D5d3P7UA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=gzNH8x4NOGW0cud1f8ME8sdfxa05diGDGx+/4XOkv5w=; b=DlKCIU0UN+/ycG
+	b3/tpsSigM2wVmA1Na9Kmj8PF63vRdg24CnkAoQ/VdjwBaEBdCvJvWZwAfgXiZBQcAxtxLnCBR564
+	RPkUTi8eHybpVFmbtiNDTQNEnyA3DXPrNT4HknYfHUXV81B+OBiFjueJLkFPO9/VpNXLgUpHDoodP
+	xG3V1wPhHi+d0qq6Zh1YYpKQEwg15SMtd0F9+7QEMnshYH8Syvq/nlmcTdcsMgfqmEus5aSl5ncA6
+	aEjxgSZ3LTt6OKCDXGJdfI0jJxGqna1+llQn0pOIiJMbZv56ZssWf2OKakJetHaFklUxPGCQA4PW8
+	xsOaVvGxSfVSspTvM2CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlBHc-00000002Mtw-2WXQ;
-	Thu, 20 Feb 2025 18:28:24 +0000
-Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
+	id 1tlBJ6-00000002NMq-1YDj;
+	Thu, 20 Feb 2025 18:29:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlB5A-00000002JkP-0vAj
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 18:15:33 +0000
-Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-3f3fa5699a1so618066b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 10:15:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1740075331; x=1740680131; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=+zSBLBub+0DV1mL9PQvU0LTUDmWa3nJU7kZAxsIQwuY=;
-        b=ESG0MhoOm4mQiTudpw+/xt/cMuARZ0qMJMSInfN3zkmUnNIiLFk6JwtN+JXszKn77Y
-         lc3pfFjHnvwrALY2EdDsS/Lyc1IFDpTxUAQCTc7mf764vlW9/dUUXsdbCn3SBmMw14LK
-         Iubik6wzi8GJBfDmcCJD1BHE+YBFoNhv+pqcE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740075331; x=1740680131;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+zSBLBub+0DV1mL9PQvU0LTUDmWa3nJU7kZAxsIQwuY=;
-        b=KTT5EmfLk1cFcIb+p5/lwRkWBAgdP3y+8vTfzRLQr29YlSO5Rcx7rJnUI4rSuPgxQO
-         J8oivMvwZLKL9k68JREKMRMy4jQn3tO9/LNk6soBjlx32OB1fn/yHmIafSfjI0vlrYYj
-         Kr1MDUtyrjgj0PW16DiUXY9H46YIkkrdLUFFFjL9MYi3VHZUf2rbHx53AKtVylcaAkz1
-         ufSsG8SCUmQ7emvwqXb3UWwg+0DcUjiV97GIDgaE6YQNMP6wNqj4u68A4dvFWYUpoOvd
-         Jb2hMN3/LRuFDBdb/S7F7pZrwg22K0NGifh4T30hxp1U7J/kkUkSYu8VvX9lCj8wQTGB
-         5aYA==
-X-Forwarded-Encrypted: i=1; AJvYcCU5gipbEAbsNh5OgilZBn9EvuCysxSwjBxs3pXgZltWKS4voiqALHVnlrTHyuO6VibznqbFNxOP92eCZ97kaIyA@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywu4VkwXL3hNeyVSHC6nGfZFbUZ+HNwDACSDYhp3+2E2UixSSsn
-	rMovZO+gNei0jKNWco4+b/k04M56pqJexbEckRndUo2WBJnRKkiSe+SAQFLq9A==
-X-Gm-Gg: ASbGncvjBM1D49LPnVGRdwL8HsjtQOV8NkF6cZ4q/xjT0GRgGhGXt46LRUXxYgRCeZ8
-	hfUUQwnTdQRljqQCwbQB59f0HrRevyUX1YFn31MZOPRLfGUpbdlUDmSJHpNnXRVw/XMYIr3g72M
-	uQFt7Qjqj+xTJC1E2rmJcc+3ZtVB9rDbBJp3nBDY83jSLF3rR7i3WEDECk25Ofex4BCOd5GkgT3
-	7sKesDE57SxmIUc1lnPhww0BiGmbYuOLwAFVq2QV0y96eksvXBzecJeBQ4Fu6SKZvdcYjhI2+FZ
-	U9qRQZxpwwitFBSku3ibJ4i2Mj6WNtnsWJqOmd5I9wFAoRvR1FCsfl5kOAo9kQgOdQ==
-X-Google-Smtp-Source: AGHT+IH2l0eRcxY3Eu6vwoauLMOYCdGbNvwLkKWPz3/PunqRtomjjR5eVSyx7rBWij/N2juPg3g7+Q==
-X-Received: by 2002:a05:6808:2e92:b0:3f4:1dc8:f52e with SMTP id 5614622812f47-3f4247b2b7bmr350247b6e.30.1740075331418;
-        Thu, 20 Feb 2025 10:15:31 -0800 (PST)
-Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-3f3f9ce7493sm2600909b6e.45.2025.02.20.10.15.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 20 Feb 2025 10:15:30 -0800 (PST)
-Message-ID: <d5870fbe-0009-4960-9040-99ec35944c92@broadcom.com>
-Date: Thu, 20 Feb 2025 10:15:28 -0800
+	id 1tlBAH-00000002Kuc-13PP;
+	Thu, 20 Feb 2025 18:20:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 658B85C5F26;
+	Thu, 20 Feb 2025 18:20:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BFBDC4CED1;
+	Thu, 20 Feb 2025 18:20:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740075648;
+	bh=goF2sXGlwePNxi5jXjCq7qXTeQ/IBQiDq6ijNZ4pmnQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=PAB7y20XkqjVJWJyMszBT2gK8dHTBRm1WnFEnoSGcwRQboueF7LTqLi97yrR7aW8a
+	 ec9hWNjpBclx1fMFB+5NQ+a0eELhDRFNsVoOF0zaK1R3OyQsEgxNZGg/5SbSs8rTd0
+	 RmYWSE7Ba49iPbYfnws3o7DoaqyDNnlq1Br4qjR3PN2UbS/NXgLbSgV3sPrx+nXZnY
+	 cm415/43Uw8gX5j6UqRyDvfgpTsprHWy/NZh6Wy7WR92oT+cqNi5vmfvZlDEyBDwZj
+	 YCamWFjRj0Cg8MaechwLKmK9Vn9zTe6T7zvW6qEpZo80fwEFD1CWh3xEdZXQWkFwgU
+	 4SXT3GNl6aqJg==
+Date: Thu, 20 Feb 2025 12:20:46 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] PCI: mediatek-gen3: Configure PBUS_CSR registers
+ for EN7581 SoC
+Message-ID: <20250220182046.GA304343@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 8/8] PCI: brcmstb: Clarify conversion of
- irq_domain_set_info() param
-To: Jim Quinlan <james.quinlan@broadcom.com>, linux-pci@vger.kernel.org,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
- Cyril Brulebois <kibi@debian.org>, Stanimir Varbanov <svarbanov@suse.de>,
- bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Rob Herring <robh@kernel.org>,
- "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
- <linux-rpi-kernel@lists.infradead.org>,
- "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20250214173944.47506-1-james.quinlan@broadcom.com>
- <20250214173944.47506-9-james.quinlan@broadcom.com>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250214173944.47506-9-james.quinlan@broadcom.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250202-en7581-pcie-pbus-csr-v2-2-65dcb201c9a9@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_101532_285679_1E5E5E9A 
-X-CRM114-Status: UNSURE (   7.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250220_102049_343469_4590ACC7 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,16 +80,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2/14/2025 9:39 AM, Jim Quinlan wrote:
-> Just make it clear to the reader that there is a conversion happening, in
-> this case from an int type to an irq_hw_number_t, an unsigned long int.
+On Sun, Feb 02, 2025 at 08:34:24PM +0100, Lorenzo Bianconi wrote:
+> Configure PBus base address and address mask to allow the hw
+> to detect if a given address is on PCIE0, PCIE1 or PCIE2.
 > 
-> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  drivers/pci/controller/pcie-mediatek-gen3.c | 30 ++++++++++++++++++++++++++++-
+>  1 file changed, 29 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
+> index aa24ac9aaecc749b53cfc4faf6399913d20cdbf2..9c2a592cae959de8fbe9ca5c5c2253f8eadf2c76 100644
+> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> @@ -15,6 +15,7 @@
+>  #include <linux/irqchip/chained_irq.h>
+>  #include <linux/irqdomain.h>
+>  #include <linux/kernel.h>
+> +#include <linux/mfd/syscon.h>
+>  #include <linux/module.h>
+>  #include <linux/msi.h>
+>  #include <linux/of_device.h>
+> @@ -24,6 +25,7 @@
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_domain.h>
+>  #include <linux/pm_runtime.h>
+> +#include <linux/regmap.h>
+>  #include <linux/reset.h>
+>  
+>  #include "../pci.h"
+> @@ -127,6 +129,13 @@
+>  
+>  #define PCIE_MTK_RESET_TIME_US		10
+>  
+> +#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
+> +#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
+> +#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
+> +	((_n) == 2 ? 0x28000000 :	\
+> +	 (_n) == 1 ? 0x24000000 : 0x20000000)
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
--- 
-Florian
+Are these addresses something that should be expressed in devicetree?
+It seems unusual to encode addresses directly in a driver.
 
+Bjorn
 
