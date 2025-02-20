@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 349F4C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 09:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7D2AC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 09:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V6z79uj0D+hvHkgcPpuUpI1aZTG2v3akXnDlrGc8hqU=; b=Vhlq9IlUQ7AsTFwQYEoTMoWkKA
-	v15FqjyocEIaQ5wzlRh24umQ09hFS8BQO+hBhRtSTyoYFigS3ZgQXIdsZOs2fFP0jtiXShTIF9v8w
-	pxOXAcDAyatYFyfgCrGQWDEd4JPio9h4UQl0X/TbEdeFI5vmUGiQ6fQ/7KrBCPxmVV0UGr5JRDUgE
-	CXi+rjNdF4mKqpKoOLzBZDPK6lTF7bPNvvGoPcDt8PnCI8B58KMGFrwpfObTFs5BtGHsq6yYxWqBm
-	cprvkMnp/bBQZPP0HDgXGWJnxY1/rU8XmgRofleuE+bP5RqAniiw9Q1Qa3gEm1IYDFTtIH1Jy3ic1
-	lHbXY+eQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DVW5J4glcstwL8pO5zARxAOWRima9waQoO3il9sQJ8k=; b=3d4X3O0wau5C3SQfeHn6r282Dq
+	vi5+93c+ScWznzeGByMz0NEUzLCKmNPjsDmP1jIzfSKZIe+WLa1d0iU0idEGcfBuHJmdJjtvlGMZU
+	LSZHgWzIs7Ds6CD1bbJgcyWHIgwf1Rj6Bvj3KkV65mgiJdqjPqs/jCITTGEjonuv+FuD3LAonY5gt
+	0vXQBr9f5t7aFLqurtZiW6pHqGdPQ7Bzq2RjuniYxocZdLLzO5hRvyaDdrSCV1T7uMvLPXqKNkDLw
+	KcRol4ex8PiybjXs5A/epROdj3TSBDvasrxGCG6lrSgUZATw6I+tGZKgyrvWVhlTCwF08qcifYDH0
+	+Yr+SX7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl2qv-000000001GZ-3HuA;
-	Thu, 20 Feb 2025 09:28:17 +0000
-Received: from mx0a-0016f401.pphosted.com ([67.231.148.174] helo=mx0b-0016f401.pphosted.com)
+	id 1tl2sO-000000001dm-2DG4;
+	Thu, 20 Feb 2025 09:29:48 +0000
+Received: from out-176.mta1.migadu.com ([95.215.58.176])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl2kJ-0000000HaOW-0ITU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 09:21:28 +0000
-Received: from pps.filterd (m0045849.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51K7Zctf023149;
-	Thu, 20 Feb 2025 01:19:16 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=V6z79uj0D+hvHkgcPpuUpI1aZ
-	TG2v3akXnDlrGc8hqU=; b=JA1HLaGcYiGl7zln21xvb7uit6enZw6xlti8mDBlR
-	G4SJbwbdO7iO819Aev81Ct6m/q/6A1Kc4n+tXBmtMZehhrJPWZL4LkJCOexaL01n
-	tiQUPOBB9Ho/r3kG8CDGMp5SyIPW5rgylecfEDo7M64xRQgi971JyIQSkDNW2l8H
-	LWGW5gZac97OMItRvqat+JY/TRgM0rwWnCxHupHXGrZhusaDqKyNhO2Hvy+M+lca
-	SQwWFYwWbr0su9QcSS6+vo984zcS3e2kBZ7Mfob/SoXWFI83t6FmQzXWFsgzy7uk
-	gbzH1GqlhrS+2R2j6pCRF1BSHmawI4HEWaIp6vX+CDKMA==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 44x04yg88b-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Feb 2025 01:19:16 -0800 (PST)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.4; Thu, 20 Feb 2025 01:19:15 -0800
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
- Transport; Thu, 20 Feb 2025 01:19:15 -0800
-Received: from maili.marvell.com (unknown [10.28.36.165])
-	by maili.marvell.com (Postfix) with SMTP id BE6253F7058;
-	Thu, 20 Feb 2025 01:19:05 -0800 (PST)
-Date: Thu, 20 Feb 2025 14:49:04 +0530
-From: Ratheesh Kannoth <rkannoth@marvell.com>
-To: parvathi <parvathi@couthit.com>
-Subject: Re: [PATCH net-next v3 02/10] net: ti: prueth: Adds ICSSM Ethernet
- driver
-Message-ID: <20250220091904.GA1230612@maili.marvell.com>
-References: <20250214054702.1073139-1-parvathi@couthit.com>
- <20250214054702.1073139-3-parvathi@couthit.com>
+	id 1tl2oH-000000000VL-2vze;
+	Thu, 20 Feb 2025 09:25:35 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jookia.org; s=key1;
+	t=1740043527;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=DVW5J4glcstwL8pO5zARxAOWRima9waQoO3il9sQJ8k=;
+	b=QjHWmZwR7bQMYAU4Chhs4VFlZcVdo4os87BaSwNf+wmx56BU1r47OELc83vGIAuQ4kMWZh
+	0ulZjI0wgGqYfISlW+ISnTqFTsT4RNR6ICEDZFJP0qyXgC4Ea42GQak93qUZtI55fmD3Jn
+	TiZ+hGNLtNFfekaQTeSOJdwHiaAHu1GkCVmllU4yJ85NqCeZ3AupW9f7DGcn+JQPR/lJsH
+	JtcM8IQhlmDr/b9ulpkR17L74rEZPJo+Qu4tsuWSSmrG/9/vE4mQqNvy0ofXnbFWkibtsk
+	ekYP0A2orN0SjuVPDiRZ6M+UvcpoyMOXNVOgqexukJJ37fVJTAPuCC67qrwNEQ==
+From: John Watts <contact@jookia.org>
+Date: Thu, 20 Feb 2025 20:25:10 +1100
+Subject: [PATCH] riscv: dts: allwinner: d1: Add thermal sensor
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250214054702.1073139-3-parvathi@couthit.com>
-X-Proofpoint-ORIG-GUID: PTTJNwmlFUm2mcEocC2aGHWKxK5J707q
-X-Proofpoint-GUID: PTTJNwmlFUm2mcEocC2aGHWKxK5J707q
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-20_03,2025-02-20_02,2024-11-22_01
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250220-thermal-v1-1-5168ddfc86e8@jookia.org>
+X-B4-Tracking: v=1; b=H4sIAPX0tmcC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDIyMD3ZKM1KLcxBxdCwPjlFTLlESD5FQzJaDqgqLUtMwKsEnRsbW1AKz
+ VjWxZAAAA
+X-Change-ID: 20250220-thermal-803de9da0ce6
+To: Maxim Kiselev <bigunclemax@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>, 
+ John Watts <contact@jookia.org>
+X-Developer-Signature: v=1; a=openssh-sha256; t=1740043512; l=2043;
+ i=contact@jookia.org; h=from:subject:message-id;
+ bh=kcBR7kSu99tIXz9DSLnGY6m94ZbCPKA4Lxb+LGfH64U=;
+ b=U1NIU0lHAAAAAQAAAEoAAAAac2stc3NoLWVkMjU1MTlAb3BlbnNzaC5jb20AAAAgPs7MDd2XR
+ g2uRE9caV1lPPPeu0VzIG9fPrrVmYyAhLcAAAAEc3NoOgAAAAZwYXRhdHQAAAAAAAAABnNoYTUx
+ MgAAAGcAAAAac2stc3NoLWVkMjU1MTlAb3BlbnNzaC5jb20AAABAc8TVZ0UIlxel4wmURqW5qmq
+ 81E7hOouwLxFGMuHDMJGNdKfClHAoXoeh58TiOyTwhFF1SevY3l+ME1EWr8kQBgUAAUcA
+X-Developer-Key: i=contact@jookia.org; a=openssh;
+ fpr=SHA256:/gEvgms/9HpbgpcH+K7O4GYXmqkP7siJx9zHeEWRZTg
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_012127_136193_529E4334 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20250220_012534_461337_8C24E17F 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,193 +85,70 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm@ti.com, vigneshr@ti.com, praneeth@ti.com, edumazet@google.com, krishna@couthit.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, m-karicheri2@ti.com, basharath@couthit.com, kuba@kernel.org, pabeni@redhat.com, devicetree@vger.kernel.org, conor+dt@kernel.org, schnelle@linux.ibm.com, mohan@couthit.com, richardcochran@gmail.com, prajith@ti.com, rogerq@kernel.org, jacob.e.keller@intel.com, ssantosh@kernel.org, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, pratheesh@ti.com, m-malladi@ti.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, horms@kernel.org, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-14 at 11:16:54, parvathi (parvathi@couthit.com) wrote:
-> From: Roger Quadros <rogerq@ti.com>
->
-> +static int icssm_prueth_probe(struct platform_device *pdev)
-> +{
-> +	struct device_node *eth0_node = NULL, *eth1_node = NULL;
-> +	struct device_node *eth_node, *eth_ports_node;
-> +	enum pruss_pru_id pruss_id0, pruss_id1;
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *np;
-> +	struct prueth *prueth;
-> +	int i, ret;
-> +
-> +	np = dev->of_node;
-> +	if (!np)
-> +		return -ENODEV; /* we don't support non DT */
-> +
-> +	prueth = devm_kzalloc(dev, sizeof(*prueth), GFP_KERNEL);
-> +	if (!prueth)
-> +		return -ENOMEM;
-> +
-> +	platform_set_drvdata(pdev, prueth);
-> +	prueth->dev = dev;
-> +	prueth->fw_data = device_get_match_data(dev);
-> +
-> +	eth_ports_node = of_get_child_by_name(np, "ethernet-ports");
-> +	if (!eth_ports_node)
-> +		return -ENOENT;
-> +
-> +	for_each_child_of_node(eth_ports_node, eth_node) {
-> +		u32 reg;
-> +
-> +		if (strcmp(eth_node->name, "ethernet-port"))
-> +			continue;
-> +		ret = of_property_read_u32(eth_node, "reg", &reg);
-> +		if (ret < 0) {
-> +			dev_err(dev, "%pOF error reading port_id %d\n",
-> +				eth_node, ret);
-> +		}
-> +
-> +		of_node_get(eth_node);
-> +
-> +		if (reg == 0) {
-> +			eth0_node = eth_node;
-> +			if (!of_device_is_available(eth0_node)) {
-> +				of_node_put(eth0_node);
-> +				eth0_node = NULL;
-> +			}
-> +		} else if (reg == 1) {
-> +			eth1_node = eth_node;
-> +			if (!of_device_is_available(eth1_node)) {
-> +				of_node_put(eth1_node);
-> +				eth1_node = NULL;
-> +			}
-It depends on your DT, but is there any chance that more than once, we reach here in else case.
- { if (of_device_is_availabke(...) } ?
+From: Maxim Kiselev <bigunclemax@gmail.com>
 
-> +		} else {
-> +			dev_err(dev, "port reg should be 0 or 1\n");
-> +		}
-> +	}
-> +
-> +	of_node_put(eth_ports_node);
-> +
-> +	/* At least one node must be present and available else we fail */
-> +	if (!eth0_node && !eth1_node) {
-> +		dev_err(dev, "neither port0 nor port1 node available\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	if (eth0_node == eth1_node) {
-> +		dev_err(dev, "port0 and port1 can't have same reg\n");
-> +		of_node_put(eth0_node);
-> +		return -ENODEV;
-> +	}
-> +
-> +	prueth->eth_node[PRUETH_MAC0] = eth0_node;
-> +	prueth->eth_node[PRUETH_MAC1] = eth1_node;
-  ...
+This patch adds a thermal sensor controller node for the D1/T113s.
+Also it adds a THS calibration data cell to efuse node.
+
+Signed-off-by: Maxim Kiselev <bigunclemax@gmail.com>
+Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+Signed-off-by: John Watts <contact@jookia.org>
+[John Watts: Remove disabled status]
+---
+This is a quick fixed version of Maxim Kiselev's patch from here:
+
+https://lore.kernel.org/all/20231217210629.131486-4-bigunclemax@gmail.com/
+
+It removes the disabled status as requested. I've tested it by adding thermal
+zones to my board and it works from what I can see.
+---
+ arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+index e4175adb028da2be539e7aa316206fec4810adfc..cc3f9cc9b8ed20121924cc932412a6b6342a2f86 100644
+--- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+@@ -166,6 +166,18 @@ gpadc: adc@2009000 {
+ 			#io-channel-cells = <1>;
+ 		};
+ 
++		ths: thermal-sensor@2009400 {
++			compatible = "allwinner,sun20i-d1-ths";
++			reg = <0x02009400 0x400>;
++			interrupts = <SOC_PERIPHERAL_IRQ(58) IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_THS>;
++			clock-names = "bus";
++			resets = <&ccu RST_BUS_THS>;
++			nvmem-cells = <&ths_calibration>;
++			nvmem-cell-names = "calibration";
++			#thermal-sensor-cells = <0>;
++		};
 +
-> +	if (eth0_node) {
-> +		prueth->pru0 = pru_rproc_get(np, 0, &pruss_id0);
-> +		if (IS_ERR(prueth->pru0)) {
-> +			ret = PTR_ERR(prueth->pru0);
-> +			if (ret != -EPROBE_DEFER)
-> +				dev_err(dev, "unable to get PRU0: %d\n", ret);
-> +			goto put_pru;
-> +		}
-> +	}
-> +
-> +	if (eth1_node) {
-> +		prueth->pru1 = pru_rproc_get(np, 1, &pruss_id1);
-> +		if (IS_ERR(prueth->pru1)) {
-> +			ret = PTR_ERR(prueth->pru1);
-> +			if (ret != -EPROBE_DEFER)
-> +				dev_err(dev, "unable to get PRU1: %d\n", ret);
-> +			goto put_pru;
-> +		}
-> +	}
-> +
-> +	/* setup netdev interfaces */
-> +	if (eth0_node) {
-> +		ret = icssm_prueth_netdev_init(prueth, eth0_node);
-> +		if (ret) {
-> +			if (ret != -EPROBE_DEFER) {
-> +				dev_err(dev, "netdev init %s failed: %d\n",
-> +					eth0_node->name, ret);
-> +			}
-> +			goto put_pru;
-> +		}
-> +	}
-> +
-> +	if (eth1_node) {
-> +		ret = icssm_prueth_netdev_init(prueth, eth1_node);
-> +		if (ret) {
-> +			if (ret != -EPROBE_DEFER) {
-> +				dev_err(dev, "netdev init %s failed: %d\n",
-> +					eth1_node->name, ret);
-> +			}
-> +			goto netdev_exit;
-> +		}
-> +	}
-> +
-> +	/* register the network devices */
-> +	if (eth0_node) {
-> +		ret = register_netdev(prueth->emac[PRUETH_MAC0]->ndev);
-> +		if (ret) {
-> +			dev_err(dev, "can't register netdev for port MII0");
-> +			goto netdev_exit;
-> +		}
-> +
-> +		prueth->registered_netdevs[PRUETH_MAC0] =
-> +			prueth->emac[PRUETH_MAC0]->ndev;
-> +	}
-> +
-> +	if (eth1_node) {
-> +		ret = register_netdev(prueth->emac[PRUETH_MAC1]->ndev);
-> +		if (ret) {
-> +			dev_err(dev, "can't register netdev for port MII1");
-> +			goto netdev_unregister;
-> +		}
-> +
-> +		prueth->registered_netdevs[PRUETH_MAC1] =
-> +			prueth->emac[PRUETH_MAC1]->ndev;
-> +	}
-> +
-> +	if (eth1_node)
-> +		of_node_put(eth1_node);
-> +	if (eth0_node)
-> +		of_node_put(eth0_node);
-nit: A function would be better than code duplication for eth0_node and eth1_node ?
-> +	return 0;
-> +
-> +netdev_unregister:
-> +	for (i = 0; i < PRUETH_NUM_MACS; i++) {
-> +		if (!prueth->registered_netdevs[i])
-> +			continue;
-> +		unregister_netdev(prueth->registered_netdevs[i]);
-> +	}
-> +
-> +netdev_exit:
-> +	for (i = 0; i < PRUETH_NUM_MACS; i++) {
-> +		eth_node = prueth->eth_node[i];
-> +		if (!eth_node)
-> +			continue;
-> +
-> +		icssm_prueth_netdev_exit(prueth, eth_node);
-> +	}
-> +
-> +put_pru:
-> +	if (eth1_node) {
-> +		if (prueth->pru1)
-> +			pru_rproc_put(prueth->pru1);
-> +		of_node_put(eth1_node);
-> +	}
-> +
-> +	if (eth0_node) {
-> +		if (prueth->pru0)
-> +			pru_rproc_put(prueth->pru0);
-> +		of_node_put(eth0_node);
-> +	}
-> +
-> +	return ret;
-> +}
-> +
+ 		dmic: dmic@2031000 {
+ 			compatible = "allwinner,sun20i-d1-dmic",
+ 				     "allwinner,sun50i-h6-dmic";
+@@ -426,6 +438,10 @@ sid: efuse@3006000 {
+ 			reg = <0x3006000 0x1000>;
+ 			#address-cells = <1>;
+ 			#size-cells = <1>;
++
++			ths_calibration: thermal-sensor-calibration@14 {
++				reg = <0x14 0x4>;
++			};
+ 		};
+ 
+ 		crypto: crypto@3040000 {
+
+---
+base-commit: eca631b8fe808748d7585059c4307005ca5c5820
+change-id: 20250220-thermal-803de9da0ce6
+
+Best regards,
+-- 
+John Watts <contact@jookia.org>
+
 
