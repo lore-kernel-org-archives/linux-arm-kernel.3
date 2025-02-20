@@ -4,80 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEDAC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:38:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDB72C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:39:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YlxhZTcybyNtPRIMzFM8i89G6HvYvhD9073mPHkmSyU=; b=Rt5EdzKFAehksHfb1iRR7k91gR
-	uKYx/LJb8SjA3/2P4riMX3Jj5B5QsJqpQsYUiB0uj/G6EexaFo1IC74cQYvmPGhrNHDCiAiVxMCo9
-	21eX7WIXenp3SiKjyWuGQKShpTSjAOLSXHOfIBIoLlAg9gwpBFgMS68NdM4Jpo+WS5dJnstPfGsHr
-	KrYUdedFDxcmIwQU71GdC9hym+NkxMzHDaWkXZj7+fJeKQLYrXUNbntcTAas2i36FPn8L2rK8e2e4
-	t0jU98AnV6hMu7hq1QFi4otV+9XyyFi9k9dJ+B6mZ/ace1ynIkyykWlcFjD9gp0deI41q2EBrEo2J
-	6DZqfO/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gQwuIWaltYp/mz8zKBUY/VeGrYxpDtxHxLNNtrjlSjw=; b=ZOnFJTFXN5dNENXrDgUBT+V+B1
+	ld3nGbA9IG5Zx0JUPZQILWEQXxLP9oPM1hvts+A+eWtMCxJe0j1JBzwB++O7+/hMIOLrummfaYoMQ
+	wSeOhcwKCzmoMCQIyU7OkDQ/YQbGRQASm9VsWwqmuwGAPmpqgwStZKaXs7PtPsOJARyYPItNIwkct
+	fKw4ic9qBm9/G/Yr88oexm0csfe7wLOPnxHT+mYO7TMA6hs2FQ+ee/uhX8Z8IQPaPpIDREW+Frehp
+	29hG+0j46dzO9vh5p5NhJSDZJvw43aSMA/XIyip07tgamScM215sgEa+DboYCk6bWSvPGqoSiJAbv
+	KDyfNahA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7gq-00000001MB5-39Zb;
-	Thu, 20 Feb 2025 14:38:12 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7UQ-00000001IU2-21dA;
-	Thu, 20 Feb 2025 14:25:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 32A535C5E4D;
-	Thu, 20 Feb 2025 14:24:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBB9EC4CEEB;
-	Thu, 20 Feb 2025 14:25:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740061520;
-	bh=iJw0LuLV1NQL5MljcDvcrTafJWx8F0Mgu90Nuo9CPBQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fgYP5nVX6K3cEeC6Xtpa2YYOrXt4jQeXL8JCyvGMF/Wq9c/Dl1/rzYfnGKwkDKuVR
-	 gHb6C+na0d68Og2C7gXIj0iZJM/3qULNH6hQDAa+vTSZk+GFYMOa3A6fCw2mvk5u6/
-	 5uVn7cN2Q4sF+6TSewFuRa6c15BcwOzD6G3+xxYO1TO42azPYmzrGDuN94WZ9MN13A
-	 /zC+sCSTBD90yJpZAjlY+scHgCW6bQaqC1h6OSdy3vVf4GhwPcG90FifloOqbqG+JM
-	 Q3kcjg4+GG8Qe7hehQ2kR6/y1OqdCXRiFqVcwDx9tuwEGi1ReteqysuVMEMzKcrt/F
-	 TSz8OW1ul2wig==
-Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-2fce3b01efcso269570a91.3;
-        Thu, 20 Feb 2025 06:25:20 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWVoPDWVTUNHulNoPg7jywsLaucEExqyvmKpFo3CgrUP5rk4CWx9KiNeq39ks4+pdN+XLnCoeOc+w4ZnS2GyLpX@lists.infradead.org, AJvYcCWfYEmISA81ysScTkkYJXgPJfWXSG22KNSB5VigwjTcnrbQWHqoTKlvA1JvUDRMGrRjWE0AIEGN2Jo0DcAunuE=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCMYUkGBbXWPMN8iizxONI2ahfPw9OVXZhjHAxaVzZaZXZO4H+
-	u0dLO1nTO9ZhktkzKXCAzFRBA98nOyNmD5DpV7WOs9+LD+vjTErISw2WcokQJLg2XQexteRXIqs
-	h7A4tbb3VoVp3d9YYTRoh96L5Gw==
-X-Google-Smtp-Source: AGHT+IG6zBpHgkEKWKPXjExGKcMJ3P8RA+4Pl+cW3k6VsvdLJSFhWdQ6SLc1qU7bLx4Pas4JfqVSRji56XJkJ5sp9FQ=
-X-Received: by 2002:a17:90b:510b:b0:2ee:f076:20f1 with SMTP id
- 98e67ed59e1d1-2fcb56e68dfmr15217411a91.0.1740061520261; Thu, 20 Feb 2025
- 06:25:20 -0800 (PST)
+	id 1tl7iJ-00000001Mdx-0HiZ;
+	Thu, 20 Feb 2025 14:39:43 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tl7Zd-00000001K36-2f3I
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Feb 2025 14:30:48 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id DAF6172C8F5;
+	Thu, 20 Feb 2025 17:30:40 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+	id CD17C7CCB3A; Thu, 20 Feb 2025 16:30:40 +0200 (IST)
+Date: Thu, 20 Feb 2025 16:30:40 +0200
+From: "Dmitry V. Levin" <ldv@strace.io>
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>,
+	Eugene Syromyatnikov <evgsyr@gmail.com>,
+	Russell King <linux@armlinux.org.uk>, Kees Cook <kees@kernel.org>,
+	Andy Lutomirski <luto@amacapital.net>,
+	Will Drewry <wad@chromium.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jinjie Ruan <ruanjinjie@huawei.com>, Arnd Bergmann <arnd@arndb.de>,
+	Ard Biesheuvel <ardb@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 00/31] ARM: Switch to generic entry
+Message-ID: <20250220143040.GA24540@strace.io>
+References: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
+ <20250214010325.GA12626@strace.io>
+ <CACRpkdZJYFUhmPg3EWJeU42fzJMzWm7Sgn3XfELB2-PSCf6Ssw@mail.gmail.com>
+ <20250214110508.GA19194@strace.io>
+ <CACRpkdbmOiapucnzyd9-x4WJsRBs2pRdcgZ2-AoN3bdkNJaW_A@mail.gmail.com>
 MIME-Version: 1.0
-References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com> <20250217154836.108895-33-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250217154836.108895-33-angelogioacchino.delregno@collabora.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Thu, 20 Feb 2025 22:26:05 +0800
-X-Gmail-Original-Message-ID: <CAAOTY_-54w+_nZtoKiOjw0z3+BxoygKR0zUvUevW4ZijrBWA4Q@mail.gmail.com>
-X-Gm-Features: AWEUYZm7oGrflVbB-goWTArAWPiYKFdjfVm86uPsqne31Recqtf46FuqDQvfcSk
-Message-ID: <CAAOTY_-54w+_nZtoKiOjw0z3+BxoygKR0zUvUevW4ZijrBWA4Q@mail.gmail.com>
-Subject: Re: [PATCH v7 32/43] drm/mediatek: mtk_hdmi: Remove driver bound to
- HDMI print
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, 
-	jie.qiu@mediatek.com, junzhi.zhao@mediatek.com, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
-	dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com, 
-	ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com, 
-	jason-jh.lin@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CACRpkdbmOiapucnzyd9-x4WJsRBs2pRdcgZ2-AoN3bdkNJaW_A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_062522_634997_9ABA51C3 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20250220_063045_838693_E66F6D01 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,48 +74,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Angelo:
+On Thu, Feb 20, 2025 at 03:04:22PM +0100, Linus Walleij wrote:
+> On Fri, Feb 14, 2025 at 12:05 PM Dmitry V. Levin <ldv@strace.io> wrote:
+> 
+> > > Sure, where can I find this test suite?
+> >
+> > It's a part of strace, you can find it e.g. at
+> > https://github.com/strace/strace
+> >
+> > To build and run it one can roughly do
+> > ./bootstrap && ./configure && make -j`nproc` && make -j`nproc check
+> 
+> make check produces some test failures on v6.14-rc1 on ARM
+> even before I apply the generic entry:
+> 
+> FAIL: filtering_syscall-syntax.test
+> FAIL: qual_fault-syscall.test
+> FAIL: qual_fault.test
+> FAIL: strace--tips-full.test
+> FAIL: strace-r.test
 
-AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
-=BC
-2025=E5=B9=B42=E6=9C=8817=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=8811:=
-50=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> Remove the "driver bound to HDMI" print to avoid useless spam in
-> the kernel log, as registered and bound drivers can be debugged
-> through debugfs.
+This is surprising, no tests are currently known to fail on arm.
 
-Applied to mediatek-drm-next [1], thanks.
+> Then there is the fact that I had to add the  PTRACE_SYSEMU and
+> PTRACE_SYSEMU_SINGLESTEP as stubs returning -EIO
+> (modeled after UM) to use generic entry. Do you think this affects
+> the results?
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-next
+No, strace doesn't use PTRACE_SYSEMU* and doesn't test it either.
 
-Regards,
-Chun-Kuang.
+> Is there a way to run a single test? I tried to check the docs but
+> nothing obvious to me ... I guess I'm not used to this unit-tester.
 
->
-> Reviewed-by: CK Hu <ck.hu@mediatek.com>
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> ---
->  drivers/gpu/drm/mediatek/mtk_hdmi.c | 1 -
->  1 file changed, 1 deletion(-)
->
-> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediat=
-ek/mtk_hdmi.c
-> index 2e98a8ed6cbe..50f9ab48cbf9 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-> @@ -1632,7 +1632,6 @@ static int mtk_hdmi_register_audio_driver(struct de=
-vice *dev)
->         if (ret)
->                 return ret;
->
-> -       DRM_INFO("%s driver bound to HDMI\n", HDMI_CODEC_DRV_NAME);
->         return 0;
->  }
->
-> --
-> 2.48.1
->
+Sure, it's a regular automake-based test suite, so you can do something like
+$ make -s -k check VERBOSE=1 TESTS='filtering_syscall-syntax.test qual_fault-syscall.test qual_fault.test'
+
+
+-- 
+ldv
 
