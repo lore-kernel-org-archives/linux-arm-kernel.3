@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9483CC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 22:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95898C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 22:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dBoRAtb28Bd8anHFUn061Fp+7Mhx/m8cSwBFf15vNiQ=; b=bAn3qjbJh0MsD5MCDC5sqM5/5C
-	Cq/q809wAYo4Boohj5go0yH0TcJlhSZhUkVtRVwYSUUzmX6K5orLWkNtdXol0TAeSVHviaTBiYZwb
-	fjLRdV0QL+xOPC0LY6HBjdf2yusv/nlUs5kIRDHoCWD2MhuJkVSnjOpLWSbGXSkYwnAX7mrlBKDlu
-	IeYV8Tg0+k7RclPMTucrWczRfOcAoFEPglIqmnbCwoqksS3wCYks30imMqm35f+uGoF9hp6sPIrVj
-	5YprXh9Vwxw2EkM5E9mx+KHii4xWhRNTa8YQ3DgebAB4bw6cT5p47hDbANFXcJyjNv00ECpszYBSp
-	YCWQm/8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RlFxYHeTWbtzaYfo5NDuGQnf2kuowXrbpdRwRy1Od9A=; b=k5eBadpCUUP21y4f283QmKjET4
+	J2IvCAhlBJ7S+LrcrVZ1UQDZu5Sjf2J5qsF9VI58NtnzckdxWEg0ZqblJ91EQUg+cYrQCxEpWLFH2
+	Tfa+dd33nog9MGg/2TM52eyw3RVyJP4rdKiMCxkiloGkdXmOfTnBwEcwi/pzyfpRGjJ5t2wu9pwAr
+	NhcT76vOn0pz9IKE1yRjJz5IUMP0B9NqVUXW2LWkkpaP86ucYZrnWytfr+vnzKqD0wwzd8S+3Al8C
+	W7LTgL5y6egVfIjPkT/nhs+uU9oZVID6WPHPIntM2PX505EJszqPUOqdSb+5tPkOMb/KhEbFbfdkS
+	M3Fe19IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlFDK-00000003AtM-2f7H;
-	Thu, 20 Feb 2025 22:40:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tlFEm-00000003BJz-2Pjb;
+	Thu, 20 Feb 2025 22:41:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlFBp-00000003Abu-44Lk;
-	Thu, 20 Feb 2025 22:38:43 +0000
+	id 1tlFD5-00000003AoU-2xUp;
+	Thu, 20 Feb 2025 22:39:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4C08F5C5E9C;
-	Thu, 20 Feb 2025 22:38:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20999C4CED1;
-	Thu, 20 Feb 2025 22:38:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BAC8C61187;
+	Thu, 20 Feb 2025 22:39:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 916D7C4CED1;
+	Thu, 20 Feb 2025 22:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740091121;
-	bh=Ppb+Pfz3YL9zU3Tv9OOPt/0hADKUh0x5VfaDJ4uMAxE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=S1EHRweYEqCVnw8MdjHn1EbXyRrAQOMZG+ts3WicxTwQyQc98jIF31ONIX/dFppWi
-	 7VDHDOLyraPnqZxLhiI/Qnz1tBoZSMwLvKtsARCL3vWMQbb7uuFU3m/FWkWlaeyvXJ
-	 uaW1AhwLPj6x2ceW7XscmLvJLbQxvI8NgbMr8fBr9J5iSut/JvK4384yQ+vPLjwQxR
-	 CZ2L2X/45evioSs4MGk7cn4Yls8l1lR4sWwz0o6mV5kpsCr1MjM+n8jycZrox5wmoc
-	 SgWZdSMtcJbXGX9eIqRPXofKHapj0ZH60OVTfgx3+8xvrI7UNyXjzQua6/p1049FwC
-	 kAfQ+FbCmTydA==
-Date: Thu, 20 Feb 2025 14:38:39 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, Sean Wang
- <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, "Chester A. Unal" <chester.a.unal@arinc9.com>,
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
- Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
- upstream@airoha.com
-Subject: Re: [PATCH net-next v5 12/15] net: airoha: Introduce Airoha NPU
- support
-Message-ID: <20250220143839.5ea18735@kernel.org>
-In-Reply-To: <20250217-airoha-en7581-flowtable-offload-v5-12-28be901cb735@kernel.org>
-References: <20250217-airoha-en7581-flowtable-offload-v5-0-28be901cb735@kernel.org>
-	<20250217-airoha-en7581-flowtable-offload-v5-12-28be901cb735@kernel.org>
+	s=k20201202; t=1740091197;
+	bh=p1o9tsd4MJKpv+j9LivH9jaM7Ei2Uell1wpGa2aaLFc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gObFMExEl5qdklvlvzVjuB8ZpB4OKMBuTGEWsmjPOLYv00dcOyrDIcIIQAomN34Qd
+	 hKH6JZrkgQq7zEkBbhYapGDtiYyY0lHKVNoXsKP5Tr5Q1oHtQsZMgKHPWTEJDf7ZQv
+	 PeOzR1giqrDEDlanmtoe1Wyj2NjjEpcULYoSTQ7RJQFsxKRw8O9IGhXJ29F2v5vsGc
+	 9KuazZpl6KfofKziuSKIpk9s8eaJ3Oskpq56FyYQZlOpMSRLL9h6gGtBK8GDBHygKu
+	 XfISsSXGB2jIJFzog/sPeYQkcTy1QA7vzji+7JPQwIpTnz1SQo3PdG3BkpSlzRoecy
+	 a+Bnrt0wUYw5g==
+Date: Thu, 20 Feb 2025 23:39:54 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] PCI: mediatek-gen3: Configure PBUS_CSR registers
+ for EN7581 SoC
+Message-ID: <Z7evOgTgCK_IL2i9@lore-desk>
+References: <20250202-en7581-pcie-pbus-csr-v2-0-65dcb201c9a9@kernel.org>
+ <20250202-en7581-pcie-pbus-csr-v2-2-65dcb201c9a9@kernel.org>
+ <20250219182650.gxzlbl6ovgbacmkm@thinkpad>
+ <Z7ePW/Y9vajLjPdr@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_143842_057072_CFEC42D0 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="l8/woIF9RLKv3zSp"
+Content-Disposition: inline
+In-Reply-To: <Z7ePW/Y9vajLjPdr@lizhi-Precision-Tower-5810>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,27 +83,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 17 Feb 2025 14:01:16 +0100 Lorenzo Bianconi wrote:
-> +static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
-> +			       void *p, int size)
-> +{
-> +	u16 core = 0; /* FIXME */
-> +	u32 val, offset = core << 4;
-> +	dma_addr_t dma_addr;
-> +	void *addr;
-> +	int ret;
-> +
-> +	addr = kzalloc(size, GFP_ATOMIC | GFP_DMA);
 
-You need the actual "zone DMA" memory from ISA times?
-I think that's what GFP_DMA is for. Any kmalloc'd memory
-can be DMA'ed to/from.
+--l8/woIF9RLKv3zSp
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> +	if (dma_set_coherent_mask(dev, 0xbfffffff))
+> On Wed, Feb 19, 2025 at 11:56:50PM +0530, Manivannan Sadhasivam wrote:
+> > On Sun, Feb 02, 2025 at 08:34:24PM +0100, Lorenzo Bianconi wrote:
+> > > Configure PBus base address and address mask to allow the hw
+> > > to detect if a given address is on PCIE0, PCIE1 or PCIE2.
+> > >
+> > > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> >
+> > Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> >
+> > - Mani
+> >
+> > > ---
+> > >  drivers/pci/controller/pcie-mediatek-gen3.c | 30 +++++++++++++++++++=
++++++++++-
+> > >  1 file changed, 29 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pc=
+i/controller/pcie-mediatek-gen3.c
+> > > index aa24ac9aaecc749b53cfc4faf6399913d20cdbf2..9c2a592cae959de8fbe9c=
+a5c5c2253f8eadf2c76 100644
+> > > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
+> > > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
+> > > @@ -15,6 +15,7 @@
+> > >  #include <linux/irqchip/chained_irq.h>
+> > >  #include <linux/irqdomain.h>
+> > >  #include <linux/kernel.h>
+> > > +#include <linux/mfd/syscon.h>
+> > >  #include <linux/module.h>
+> > >  #include <linux/msi.h>
+> > >  #include <linux/of_device.h>
+> > > @@ -24,6 +25,7 @@
+> > >  #include <linux/platform_device.h>
+> > >  #include <linux/pm_domain.h>
+> > >  #include <linux/pm_runtime.h>
+> > > +#include <linux/regmap.h>
+> > >  #include <linux/reset.h>
+> > >
+> > >  #include "../pci.h"
+> > > @@ -127,6 +129,13 @@
+> > >
+> > >  #define PCIE_MTK_RESET_TIME_US		10
+> > >
+> > > +#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
+> > > +#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
+> > > +#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
+> > > +	((_n) =3D=3D 2 ? 0x28000000 :	\
+> > > +	 (_n) =3D=3D 1 ? 0x24000000 : 0x20000000)
+>=20
+> look like these data should be in dts ?
+>=20
+> > > +#define PCIE_EN7581_PBUS_BASE_ADDR_MASK	GENMASK(31, 26)
+> > > +
+> > >  /* Time in ms needed to complete PCIe reset on EN7581 SoC */
+> > >  #define PCIE_EN7581_RESET_TIME_MS	100
+> > >
+> > > @@ -931,7 +940,8 @@ static int mtk_pcie_parse_port(struct mtk_gen3_pc=
+ie *pcie)
+> > >  static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
+> > >  {
+> > >  	struct device *dev =3D pcie->dev;
+> > > -	int err;
+> > > +	struct regmap *map;
+> > > +	int err, slot;
+> > >  	u32 val;
+> > >
+> > >  	/*
+> > > @@ -945,6 +955,24 @@ static int mtk_pcie_en7581_power_up(struct mtk_g=
+en3_pcie *pcie)
+> > >  	/* Wait for the time needed to complete the reset lines assert. */
+> > >  	msleep(PCIE_EN7581_RESET_TIME_MS);
+> > >
+> > > +	map =3D syscon_regmap_lookup_by_phandle(dev->of_node,
+> > > +					      "mediatek,pbus-csr");
+> > > +	if (IS_ERR(map))
+> > > +		return PTR_ERR(map);
+> > > +
+> > > +	/*
+> > > +	 * Configure PBus base address and address mask to allow the
+> > > +	 * hw to detect if a given address is on PCIE0, PCIE1 or PCIE2.
+> > > +	 */
+> > > +	slot =3D of_get_pci_domain_nr(dev->of_node);
+>=20
+> I am not sure if too much abuse domain_id here.
+>=20
+> > > +	if (slot < 0)
+> > > +		return slot;
+> > > +
+> > > +	regmap_write(map, PCIE_EN7581_PBUS_ADDR(slot),
+> > > +		     PCIE_EN7581_PBUS_BASE_ADDR(slot));
+> > > +	regmap_write(map, PCIE_EN7581_PBUS_ADDR_MASK(slot),
+> > > +		     PCIE_EN7581_PBUS_BASE_ADDR_MASK);
+>=20
+> look like
+> 	syscon
+> 	{
+> 		csr1 : csr1 =3D
+> 		{
+> 			reg =3D <0x20000000, >; //or other property
+> 		}
+>=20
+> 		csr2: csr2 =3D
+> 		{
+> 			....
+> 		}
+> 	}
+>=20
+> 	pcie1 {
+> 		mediatek,pbus-csr =3D <&csr1>;
+> 	}
+>=20
+> 	pcie2 {
+>                 mediatek,pbus-csr =3D <&csr2>;
+>         }
+>=20
+> 	...
+>=20
+> Or
+> 	pcie1 {
+>                 mediatek,pbus-csr =3D <&csr1 0x20000000>;
+>         }
+> 	...
+>=20
+> 	you can use syscon_regmap_lookup_by_phandle_args() to get address.
+> Frank
 
-Coherent mask is not contiguous on purpose?
-Quick grep reveals no such cases at present, not sure if it works.
-Maybe add a comment, at least ?
--- 
-pw-bot: cr
+ack, thx for the pointer. I will fix in v3.
+
+Regards,
+Lorenzo
+
+>=20
+>=20
+> > > +
+> > >  	/*
+> > >  	 * Unlike the other MediaTek Gen3 controllers, the Airoha EN7581
+> > >  	 * requires PHY initialization and power-on before PHY reset deasse=
+rt.
+> > >
+> > > --
+> > > 2.48.1
+> > >
+> >
+> > --
+> > =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=
+=A9=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=
+=AE=E0=AF=8D
+
+--l8/woIF9RLKv3zSp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ7evOgAKCRA6cBh0uS2t
+rMtVAQDt7OKvwzSWH4diA2tOPVBk9hZhWEwF4ifot/vwEVB59AD8CJkJDxC/ETkp
+7PzGTuXjh57IZJMnuAyy//jgFLBZfgo=
+=lyct
+-----END PGP SIGNATURE-----
+
+--l8/woIF9RLKv3zSp--
 
