@@ -4,68 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6723CC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 18:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34252C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 18:31:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=gzNH8x4NOGW0cud1f8ME8sdfxa05diGDGx+/4XOkv5w=; b=DlKCIU0UN+/ycG
-	b3/tpsSigM2wVmA1Na9Kmj8PF63vRdg24CnkAoQ/VdjwBaEBdCvJvWZwAfgXiZBQcAxtxLnCBR564
-	RPkUTi8eHybpVFmbtiNDTQNEnyA3DXPrNT4HknYfHUXV81B+OBiFjueJLkFPO9/VpNXLgUpHDoodP
-	xG3V1wPhHi+d0qq6Zh1YYpKQEwg15SMtd0F9+7QEMnshYH8Syvq/nlmcTdcsMgfqmEus5aSl5ncA6
-	aEjxgSZ3LTt6OKCDXGJdfI0jJxGqna1+llQn0pOIiJMbZv56ZssWf2OKakJetHaFklUxPGCQA4PW8
-	xsOaVvGxSfVSspTvM2CQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:Cc:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EJZD7/TAKruQu19KQAVwNVg6yYRPuMPWA5kXBs8za7Q=; b=W3NNmUqN7y2n1ITV91J/XusnIh
+	FMslpvCGlyhh5WKOR53JcnRiIyx5V+QeNhb8az/G1nUwnpVrUUFHxYCBD30R/mRn1WCjtrcA09Dka
+	+HMiz2qZb/tZ0AJmt8lLWVQUAzSsgql77ZRnSYWHUrQXN3qxVfC4Iq0P9017rSqrzywy8+m+YAdCg
+	Olh1nKBXjLYffb+jymLwq6R4eVpDUpITzRiY1zjjxnBTFeGC9gsCwHdJb4519pSuM0cMem7mSv6Sj
+	z7njYzy73THY6t3YC8UyVape6l5sQDQfaqOTDlLz/AV6VV5lwRBQbQ3X3A8PuMYuo3h1JjLRkqwO5
+	RVNMkcOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlBJ6-00000002NMq-1YDj;
-	Thu, 20 Feb 2025 18:29:56 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tlBKY-00000002NgX-1zL4;
+	Thu, 20 Feb 2025 18:31:26 +0000
+Received: from mail-tyzapc01on20711.outbound.protection.outlook.com ([2a01:111:f403:2011::711] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlBAH-00000002Kuc-13PP;
-	Thu, 20 Feb 2025 18:20:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 658B85C5F26;
-	Thu, 20 Feb 2025 18:20:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BFBDC4CED1;
-	Thu, 20 Feb 2025 18:20:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740075648;
-	bh=goF2sXGlwePNxi5jXjCq7qXTeQ/IBQiDq6ijNZ4pmnQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=PAB7y20XkqjVJWJyMszBT2gK8dHTBRm1WnFEnoSGcwRQboueF7LTqLi97yrR7aW8a
-	 ec9hWNjpBclx1fMFB+5NQ+a0eELhDRFNsVoOF0zaK1R3OyQsEgxNZGg/5SbSs8rTd0
-	 RmYWSE7Ba49iPbYfnws3o7DoaqyDNnlq1Br4qjR3PN2UbS/NXgLbSgV3sPrx+nXZnY
-	 cm415/43Uw8gX5j6UqRyDvfgpTsprHWy/NZh6Wy7WR92oT+cqNi5vmfvZlDEyBDwZj
-	 YCamWFjRj0Cg8MaechwLKmK9Vn9zTe6T7zvW6qEpZo80fwEFD1CWh3xEdZXQWkFwgU
-	 4SXT3GNl6aqJg==
-Date: Thu, 20 Feb 2025 12:20:46 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] PCI: mediatek-gen3: Configure PBUS_CSR registers
- for EN7581 SoC
-Message-ID: <20250220182046.GA304343@bhelgaas>
+	id 1tlBEt-00000002LyA-47GA;
+	Thu, 20 Feb 2025 18:25:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dPixFXR+Aks0GR/qY5f1sc/hDKeRMVNVapkuHNTP9tp3FBWNWsa7jykOxqEHaI4CxFhSigRpisEm94aQ/xfafDAwRFn/kS/oSEnvMFw+r9GsGTZdhDoDAgoEoexTKxYV3YxlQZvifsJooBjJtaHIF4ohdYfgF+zBDUBHxmhoSiiUyPvu8zQJIKTu4iZCR8+JkB41Ge1niaHjkDhRRd5UcHrfkMUYj1FmZAp2lO6GbWBhj6b1sg+e/qF3EqYc82lQxpPvvJ3Bu8qqUch/qDOlfQwUXIRLatfUqRNNMRIRmZYfYQNVoDDTlEqDjd5oIuZZuIftD2fsmNAZP4QSGYbEGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EJZD7/TAKruQu19KQAVwNVg6yYRPuMPWA5kXBs8za7Q=;
+ b=IzAH/rlTVKoL7OI5JAbhvFa8AvI6ducO+/Dm1f4y83c0IW4+UbGlzY181pfaO0Ps9DGkbXqd6G8dtNxTB5KZwd5iFW0Wdkv9Eiu3hOE0ae0OfuTiUXjidirDOxSDRCbGZjnOo8s5TWSbqPRtncbwjGcehF5H+1/OkmD65aq0H4/ThrUAXinnBZtDv6Y+nPYmLAK037iKkZs8xKB6oXKL0s3XHmHi19qHX0axMSEeMTWDrouSs3KCB2yn5OAgP4OL9rPBr0Xh3wZzhV7phJz+n2IseEfxTZgIUPiCGS9DbeeT2iwm6ubl2cxu8GmpILV0PGvx+NYxbghQ6R6IQ9UWGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=linumiz.com; dmarc=pass action=none header.from=linumiz.com;
+ dkim=pass header.d=linumiz.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=linumiz.com;
+Received: from TYZPR06MB6935.apcprd06.prod.outlook.com (2603:1096:405:3c::9)
+ by KL1PR06MB7012.apcprd06.prod.outlook.com (2603:1096:820:126::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.11; Thu, 20 Feb
+ 2025 18:25:14 +0000
+Received: from TYZPR06MB6935.apcprd06.prod.outlook.com
+ ([fe80::9e42:3253:9a2e:b565]) by TYZPR06MB6935.apcprd06.prod.outlook.com
+ ([fe80::9e42:3253:9a2e:b565%4]) with mapi id 15.20.8466.009; Thu, 20 Feb 2025
+ 18:25:14 +0000
+Message-ID: <c3990108-2963-4de4-98a3-d3aa368ed13a@linumiz.com>
+Date: Thu, 20 Feb 2025 23:55:08 +0530
+User-Agent: Mozilla Thunderbird
+Cc: parthiban@linumiz.com, Brandon Cheo Fusi <fusibrandon13@gmail.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-pwm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v11 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
+ support
+To: Aleksandr Shubin <privatesub2@gmail.com>, linux-kernel@vger.kernel.org
+References: <20250213094018.134081-1-privatesub2@gmail.com>
+ <20250213094018.134081-3-privatesub2@gmail.com>
+Content-Language: en-US
+From: Parthiban <parthiban@linumiz.com>
+Organization: Linumiz
+In-Reply-To: <20250213094018.134081-3-privatesub2@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BM1PR01CA0153.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:b00:68::23) To TYZPR06MB6935.apcprd06.prod.outlook.com
+ (2603:1096:405:3c::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250202-en7581-pcie-pbus-csr-v2-2-65dcb201c9a9@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TYZPR06MB6935:EE_|KL1PR06MB7012:EE_
+X-MS-Office365-Filtering-Correlation-Id: acff987d-d5a4-4f45-2fe9-08dd51dbeaf0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dCt3akJVcnJSNGMrdEN5SHR2TzR3QmltNFZZNDVNaFZEZlVaMUluQzkxcFhV?=
+ =?utf-8?B?bGx0bWVsM3EyYkZPeTlIcnZxUHFjZnU5UXRjQ1EyYkR0NWVjM3JnaFhYSG9L?=
+ =?utf-8?B?ZzRqVldla01TKy9NNzVESmUxV0VRdUgwb203OXR2bTB2WU5LOVNqSHpRWGM0?=
+ =?utf-8?B?ekR5bXdSQi9SdTZmZVA2SXlXUWN4US9TYXlKTW9Ya3V6ODRtTGJNdWprR21h?=
+ =?utf-8?B?bjF4V1RRYTl3YXBPeWZJRjhJOGpzSkNucE5CU1pMbGlyODBJSWZ2UWNSa3V0?=
+ =?utf-8?B?cW9SUFpueFdaNmpTdGViOUdYZHgxUTBFOUNWd0RKSXlTd3ZmdnhjNi9mSzg4?=
+ =?utf-8?B?b083ZE1VOGlEUi9HZlU3OEhmL0F5QmNtOXdDbkhHZFkwR3RsYnhHa2xjaE92?=
+ =?utf-8?B?NDVPSkNyUWtRZWpOeUNiMFcrb1FSRUZ6dXpSN2xtbXluSWVsSFI4ckJnRys1?=
+ =?utf-8?B?blE5dkxyVktDQ0hKZGJrd0hORWtOVWJBUUZPemMxRzNqMFhaT2VoQ3FuUzBS?=
+ =?utf-8?B?ajBIdlA5REZaQ0NreVgwZnZXYVZxNkhyM05Tb1M5empQeWs2NzBHNi8vdGEr?=
+ =?utf-8?B?SFJnOHc5a2xONW1mRW5jTWs2ZmJIR3M2UkJhenZBeHdzWGczamIrVnl1QkVR?=
+ =?utf-8?B?RkNyREFuTm1oS0hFT1FBbDdpSDVTWEVWaHZ6djd3V0p0OG85QVBLaVhacnVI?=
+ =?utf-8?B?SVc0TnVYYVhjN0ZHbUlLa1Z5N09zQ1dxby9CRGplTkFnUVJwWXhpTCtwTXdB?=
+ =?utf-8?B?bExnWEJaRXBGY1o3THAyd2EwMWZjN3ViM01wNXJFUE1TcHFFSXdlRGxVZHRG?=
+ =?utf-8?B?SFJVNFc5QUtKUGJvMDFmQUlnU0NNS2FVQUxPQlRyVEN4a3JMbEhYLzFHazI1?=
+ =?utf-8?B?MlNaNHVQUDMvbzY1aXVHVldYaU1MNDdnQ1NGMm5SZ0UwQ2xiQWwyeWk3aHZD?=
+ =?utf-8?B?dmpaVGI0MjlKbzMxdFVjNGpwbXFsZlFwUUlmdU96dWVYb25GL0kwcXpJaHNm?=
+ =?utf-8?B?UEUvU3o4eEVsZVR3cnV3M1ZZRXQ2MEhPcFNZRVFZMmNhbnBDbTVuMnRYNWZV?=
+ =?utf-8?B?a29meVpkb3JSV2FwMmtva082UE94dTdmeUdPOEw2MTBNMkhxZHJUOGVGKzZ1?=
+ =?utf-8?B?ZGE5RTRlZWtDUkRyTVEzeHF0blZKM0lCdVZVV0o2Qys3eFpaM2h0eUhoRngx?=
+ =?utf-8?B?SFJLdWdNYmRKNHRtTDVPQnJWNjdkaUdOU1RNWGxGNnhPb044M0N6WDFMWUJz?=
+ =?utf-8?B?TG1pZXp4SG9VQnZvbHNDUTRMaU9CL1BjbEc3MVZwaXpaZWwzS05VcndVMW0v?=
+ =?utf-8?B?OUJVMWFyNlU3MUV5bTBVWjI3Vk40a1UrWFhsN25JNm5aeTl0T2lBMkVqMC9i?=
+ =?utf-8?B?RGdPK1BlR2VlQ29vTmlPcXFSRG91SGtPQmR4ZXdQTS95cHNNVngyUWtFYjc5?=
+ =?utf-8?B?NldmbXc3YmFYM0JsKzViaHVESEl2NnNHOGNKOGxVS0tvczJvRkkxaEtoKzY0?=
+ =?utf-8?B?VkV3QmpNNGxNWVZyemVud3NlZDBzaGdOMlhOWm9Ob2xJSDVIMlZtOHBnWmNE?=
+ =?utf-8?B?c0cyTzBta1FEZWRnSUpsSnNmTHVURDVzeGN1ZElxb01PS0FPdE16aFNaaktL?=
+ =?utf-8?B?cThZb2t5ODBqRVczaG5hbHZOS3czZU1Vd05peGNQaXViMWtROTlrTWhkcWdF?=
+ =?utf-8?B?bTJwVXVhb0RzN24vNHNTZU9FTXZnSWpKVnNGQkZEZkd2djZjM05RZjJSeW81?=
+ =?utf-8?B?TzVLZTFON1YyTVRJLzNSSkZCRG12Z2VjQ1BLY09YRUV3cVhKZkR6eGRyZTlW?=
+ =?utf-8?B?ZWRBM0phazcyR2o0SGNsUVlhMXhESlhKaWFFQ25ZRkwxWW8xVERKMm9tRmRi?=
+ =?utf-8?Q?+2wMjeM7Gsvm9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TYZPR06MB6935.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aWpqYjQrMkVBTWc1UWlpZ29qdDdidFVoVm4yamRSRXFRWUkzMit3MTFTL1A4?=
+ =?utf-8?B?d1BLemFhZHpWM2V3elg2SHpaM2tHV0duTVA0cytzQlF1WjBpY1pBS2RHSVFl?=
+ =?utf-8?B?WWM1bkgrT0RvUDhUVDhVTnFxK3YrT0RsYWUwcGNGV1pETXNmMDQ3dnpYdVAx?=
+ =?utf-8?B?Z3AxVy83TFlxN1FoekZZSk5MejY4VkhxZ3VITlFRTTFUWlFJN2sydWE2SnI3?=
+ =?utf-8?B?M3JHUy9yZ1kvNkN5d25HK0EyYmpxL3M1a1ZRcGt3bkZ1YW90d0F4MCtDaUE4?=
+ =?utf-8?B?RURXSURkV2VNZGdPWjZTMGVoUEcxblhZNUtoOXQ2MmdOeGkxeVozSCtrdHpk?=
+ =?utf-8?B?dmd5RmJ1dVVqOWRiOXpQeXk1NVFzMm9vdDBBdy9LNG9uakRlb3VROHJpK0t0?=
+ =?utf-8?B?YU5vRk15Rm1rOEg0VDVYWmNPOVV6bElOcVppMkZhUHFHb3VJUVp0QWp3Uk00?=
+ =?utf-8?B?L1N0ZG5VMmJPUDZuRWNhZWs4MnVnRFBwMy9hVmFFK2NOT3ZvUzZhNjdqREx3?=
+ =?utf-8?B?Ym9XLytXdlVVcXdUeDZFbjkxUGN2Y2k4UmZQZlhVa1ZITURtQ0tlb2tQa0Mz?=
+ =?utf-8?B?b25peGRhYWFuUDdPV24wLzNudWJ1S1dQbWJYaEs0alRnYnJpNVhnTUhpdjgv?=
+ =?utf-8?B?dGtzekVHSmoyTFRyWkJVejRiSER0c0t4L0U2M2szSXlKRzZDcWNodHl4Ulc4?=
+ =?utf-8?B?WDlseVQ4S3BrZDJqUGFPNC9HWU9CcVBWamlLeTFOWW03QjhKUTB6RUx1Mnhz?=
+ =?utf-8?B?YllsMk1vK3pmU3pDYW5NbnZXWml5bzdyb1pkNHc5VUFWR25yTG9tZFduK211?=
+ =?utf-8?B?MEVSektqTEptUUNTc3BaQXhNNHIyVFdxNlhNclVwQ1YxUXVocFA2elZ3RDBh?=
+ =?utf-8?B?Z0ZJbEdFMVFTMFM3bzFhVHIyOWNtYklvM1RITWhYZS9ITkR6VWNabklIK0Y4?=
+ =?utf-8?B?UnJqOHpIU053ZEIxTXVySGJRekZoQUFzeEZldzdEcE82WHhVUjdwYWxhVzJu?=
+ =?utf-8?B?MElMdDI0N3hlR3FMa241Ry9pOGFHcTBLVE9IUUN5bXVIU0V6QmFsTkZrRWcw?=
+ =?utf-8?B?TXd3VzJxREUrbXgxa2hSM0ZLVVlMc2F5SU8yK1hOSm04VENLcnZQWDJZL2Fy?=
+ =?utf-8?B?L0JrbktwYndVdU5iUk9aUzVlVzByUDVvUWtSRVNmK3IwbjltVTd6SkcrcCtF?=
+ =?utf-8?B?YzdJL1RmL010ditLOFh0dG15MmxoNjNrN0FGWlAwQXhCNTZjNXZJNDVHM3hl?=
+ =?utf-8?B?SmRYa1VLdmszeE1jck9Oc2N4WHllajgrS05ORWJvMjRpd0pmbDNmUm1hSnpx?=
+ =?utf-8?B?UkRnZDhGUExJSWY4UENCMUNjRm5ZcjBHUlBoOHNMd0ZHQStsQmRLS2ZCU2sv?=
+ =?utf-8?B?bjgrTE9FazRSalA3UUFUSWd2V21qeDVmNEVGeldFa29xTUFveXo3MksyZVBx?=
+ =?utf-8?B?YUdLTWdGTTRvQ3hsdlNzdncrcy94NDhnMXMyeXl4QlB6VHZ0SjRKK3dwMEhJ?=
+ =?utf-8?B?elpWRS95WWVsblB6SHdxWkdYZ3ZiRG1OT1VLOGN4YXV4NEhVclloUXlDUldq?=
+ =?utf-8?B?MjFoem02WjhHNVcrd21penVlZkVzNTNWYmtuY2tEMTVjLzNXaEI2ckxhM2pX?=
+ =?utf-8?B?UERabHJXVVpDRlZlNlJGclVIWVprMjV6M0Jmc1U5N3k3NlM0eFlFSWIxVzdl?=
+ =?utf-8?B?MklybWcyZGJVZ1B0U2tqVmpkMWFOc0NFOHNnRWd3SDFPcnhQeVVhS0tBYmxv?=
+ =?utf-8?B?Q0t0M251S2lqdDF0RzhHNWtNMXB2emF0ZU1HVFJpRlNMQW1mT3lmZGROdTgy?=
+ =?utf-8?B?UnlwZG8wRWxqak5MVXYrNk5uNUU1akF3UVJsZzQ0eHZJSS9TM3RWemE2ZDhq?=
+ =?utf-8?B?alExbWZQRHpmb1cwdHdlcjc5OWd2dWZMRmFUUEJ1VnlPQnI1WHdLcEtUMkV2?=
+ =?utf-8?B?U1VvRVJ5TjM3Yi9ibzh6ZkxjaGxRNG5HY3JMWnFmVzIzZmlwWjlPYTFRUUxZ?=
+ =?utf-8?B?OGRmMG0rdi9IWE5CWm52VE43QURMUVk0TldqUXR4S053Tk1pbml1Mno1T28r?=
+ =?utf-8?B?V2hMRzM5cjVRdDRCaENMY29heFZrOEo3Q3lQTVlOVVVUK1Q1OVAraVpZUHUx?=
+ =?utf-8?B?WE9JWGd4UmZLMnU2eVpQUFo4N052S2ZWKzhiRjNjYVVXU3oxKzZCbk81YTNB?=
+ =?utf-8?B?Y3c9PQ==?=
+X-OriginatorOrg: linumiz.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: acff987d-d5a4-4f45-2fe9-08dd51dbeaf0
+X-MS-Exchange-CrossTenant-AuthSource: TYZPR06MB6935.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 18:25:14.0245
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 808466aa-232a-41f4-ac23-289e3a6840d4
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DjV8Ewp9BISijm3WBAK/udDqhgRO/HHsKu1Un9iMnxYsmyP0hnZru/tHd30tNleplOyswOUQhtVBn2GXtfrudA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB7012
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_102049_343469_4590ACC7 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20250220_102536_019767_579A844B 
+X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,47 +182,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 02, 2025 at 08:34:24PM +0100, Lorenzo Bianconi wrote:
-> Configure PBus base address and address mask to allow the hw
-> to detect if a given address is on PCIE0, PCIE1 or PCIE2.
+On 2/13/25 3:10 PM, Aleksandr Shubin wrote:
+> Allwinner's D1, T113-S3 and R329 SoCs have a quite different PWM
+> controllers with ones supported by pwm-sun4i driver.
 > 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  drivers/pci/controller/pcie-mediatek-gen3.c | 30 ++++++++++++++++++++++++++++-
->  1 file changed, 29 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-> index aa24ac9aaecc749b53cfc4faf6399913d20cdbf2..9c2a592cae959de8fbe9ca5c5c2253f8eadf2c76 100644
-> --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> @@ -15,6 +15,7 @@
->  #include <linux/irqchip/chained_irq.h>
->  #include <linux/irqdomain.h>
->  #include <linux/kernel.h>
-> +#include <linux/mfd/syscon.h>
->  #include <linux/module.h>
->  #include <linux/msi.h>
->  #include <linux/of_device.h>
-> @@ -24,6 +25,7 @@
->  #include <linux/platform_device.h>
->  #include <linux/pm_domain.h>
->  #include <linux/pm_runtime.h>
-> +#include <linux/regmap.h>
->  #include <linux/reset.h>
->  
->  #include "../pci.h"
-> @@ -127,6 +129,13 @@
->  
->  #define PCIE_MTK_RESET_TIME_US		10
->  
-> +#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
-> +#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
-> +#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
-> +	((_n) == 2 ? 0x28000000 :	\
-> +	 (_n) == 1 ? 0x24000000 : 0x20000000)
+> This patch adds a PWM controller driver for Allwinner's D1,
+> T113-S3 and R329 SoCs. The main difference between these SoCs
+> is the number of channels defined by the DT property.
 
-Are these addresses something that should be expressed in devicetree?
-It seems unusual to encode addresses directly in a driver.
+Thanks for the v11. Not sure you had a chance to look at my
+comments [1] for v10? In short, this patch series fails to
+work for A133 which shares the same IP.
 
-Bjorn
+[1]: https://lore.kernel.org/all/2f7ee626-8416-4a05-9add-26e100b16268@linumiz.com/
+
+Thanks,
+Parthiban
 
