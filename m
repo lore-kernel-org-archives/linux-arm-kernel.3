@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20446C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 15:21:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFF61C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 15:25:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=blR87zOJZSCLfkfi9UWh6XyMqpQ7ACy6oKBvJ9caTrY=; b=CePG9i32p1VetnQ41TZ1oImEfi
-	IpBlFD2Rb9LFd2vynMGhW3A50hwAUrKfPsiQaA2cHtgIURY/qaIZtDbYa7kJhFVeKZ9US0sZX53SE
-	asIl7DnNa0YRk6RQQGHrTZhdzrlGpVL+vaJTN2YDtxFR1fOEOBMghdSpGG3FvMbbVqBThQIKtL6RS
-	VASZq94ZrrTniLDoDaL9Gip3QpCUNKxTP5fMFmerX79d/YqlTR+AeKDWvig7kcaGh9PH2dq2lUuPP
-	kPve/NHfX9ruk2AAGUbuPtb7YezrfeVV5y9ksnrI2XvnYOgoZmoKiuvRGrPZn8NftrITjRx/TVc9e
-	QK8HZdzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QHgJz38bfp6rGW5Vo/Ip3UFCsgToQN+AI1DehaCYgGw=; b=Cjmz4aoMx8VgFDMk1PqaseMxnc
+	H8qswzke90tEHUKThQkWgxDJEUuNjyjc4IYCBuv32V/3KETtIWUQaexT3YNDWvt8OlvECfAOW0kcD
+	DNrzs4Th4x2fmOwuQ4m26jmEqhYcucSEw2t6EQGjq+dju9j51gM8ZTGgWa4pwVRxSZOiu2njllLfE
+	ptgJtR8lXOyNBWaKKJ3GrOGp0bRzQ2GIhmPlDowj43usg5mD+SLWcfFPn1Bc6fYmXqshRfswGGuM8
+	eETVKl/NCnyNfu32MpaqueUjodOo3v9/CsJ4ElDPG/vGEbnxOpZDizqSOm+X7AfGK8mlWME17Us5V
+	qBjapOyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl8Mq-00000001Xhc-4AXv;
-	Thu, 20 Feb 2025 15:21:36 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tl8QC-00000001YUl-0DMY;
+	Thu, 20 Feb 2025 15:25:04 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl8KX-00000001X0s-2oP1;
-	Thu, 20 Feb 2025 15:19:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740064751;
-	bh=q+rI1MFGx1dmzUkCsd87R8AaxLfHoGvv+Cb6RXBBXvo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Fx5+gHuek4r6O15kJIdNiY8QLR8+QYAZewk/yQq9aAnvCyRYpmG/UWaON1i06z2aQ
-	 TLUMvvJUzO6B7s46LFKcheLn4Z/EBXrD2IgUQNzDTMIVIv7DfMoP0uN6KXdHMUQyc9
-	 /ByHxhbKp/hBSgmd+Vb67byCfX7kWU2krqZh9wHLN7p4BCGWIVer7E3tEMg4wB6T7d
-	 If/ujMqhJAkOYxNDNHt1ga7g/am38tK4YmUwuHgSRTqzNjkv/H8ejvqeLQiuSUEGZN
-	 CleBAjd3/4LTvz8zaqduKNZNzsFMSXZTFMXqT2hmMZ3CCnxyiu8EwdTiDb0AVk81b8
-	 uUn3f8PFzlsHQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 60DC717E0E95;
-	Thu, 20 Feb 2025 16:19:11 +0100 (CET)
-Message-ID: <10d4c956-4f46-495e-b91f-adf69a1565ef@collabora.com>
-Date: Thu, 20 Feb 2025 16:19:10 +0100
+	id 1tl8Oh-00000001YDl-2Po7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Feb 2025 15:23:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=QHgJz38bfp6rGW5Vo/Ip3UFCsgToQN+AI1DehaCYgGw=; b=C+pbWdUpusHCcABHrf4mEFpvSl
+	Ct2Eo2ufrgz7aCjTc6iX/r9B/1CG2nwXezYc66eyQB+GOzsc+b3q6Sz9E6XyKRX/cJ3Rge6kYIpFx
+	ORFt+wE+Q6gzwREeHYpuWEY+sT9QexH1wioDE6+SJTuMZCoLlPrgc/xu0X8LpRDcMBUM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tl8OY-00G0Dd-RG; Thu, 20 Feb 2025 16:23:22 +0100
+Date: Thu, 20 Feb 2025 16:23:22 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH] arm: clk: Add ETH switch clock description for vf610 SoC
+Message-ID: <f68ebe15-69ee-428a-8079-8bb05d7aa21b@lunn.ch>
+References: <20250219114936.3546530-1-lukma@denx.de>
+ <3cebe152-6326-454c-9da6-5cf5a64f71c9@lunn.ch>
+ <20250219233802.20ec53e5@wsk>
+ <5a9d9eef-f2ca-4168-aca4-4419dcfcacb6@lunn.ch>
+ <20250220154826.3455b15e@wsk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] soc: mediatek: mtk-socinfo: Add extra entry for
- MT8395AV/ZA Genio 1200
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Matthias Brugger <matthias.bgg@gmail.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250220-mtk-socinfo-genio-1200-evk-v1-1-a683ad028bc5@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250220-mtk-socinfo-genio-1200-evk-v1-1-a683ad028bc5@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250220154826.3455b15e@wsk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_071913_894901_C0C317B7 
-X-CRM114-Status: UNSURE (   6.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250220_072331_611885_4569EC36 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,13 +79,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 20/02/25 16:02, Louis-Alexis Eyraud ha scritto:
-> The Mediatek Genio 1200 EVK P1V2 board has a different socinfo match
-> for MT8395 SoC (commercial name Genio 1200), so add it the driver.
+> > Seems like a reasonable compromise. You would only load this driver if
+> > you intend to make use of the switch...
 > 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> Yes, the main use case would be the switch (after bridge ... command
+> called).
+> 
+> However, until then we shall? have port separation.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Yes. The model Linux uses is that the ports are individual interfaces
+to start with. We should keep to that model.
 
+> > MoreThanIP is now part of Synopsys. I wounder if this IP now exists in
+> > other SoCs? The press release however suggests Synopsys was
+> > interesting in the high speed interfaces, not a two ports Fast
+> > Ethernet switch.
+> 
+> I would need some detailed documentation....
 
+Which is probably not available. You might be able to get some clues
+from the Freescale datasheets, if they have kept the address spaces
+separated. I don't see it as a strong requirement, given how old this
+IP is, and the limited interest in supporting it over the years, My
+guess is, nobody else uses it.
+
+	Andrew
 
