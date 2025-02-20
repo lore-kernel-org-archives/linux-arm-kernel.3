@@ -4,155 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24F45C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:28:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC252C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I77ZRgB8avhZ/BD1zgwCsSVXVSH7s+4m0sJKEpbBRFA=; b=XmcLlDWi0d32v39aSOHre1L8i1
-	X9mTjec1GPHI696Chvds0X8TMDuacI+WuAUYdfPCW6s7ZIHBPqT81Y4lOQAf6DK0DKMaJyy4Cl803
-	hc4uk3AJEUOSSaEYZbm5903aeUjIQ9nO4L4Y9MbEV5WIjTLpkNJpiQZMEPwvwFevYKLMJ7HokgqF4
-	E5ShoyAI9PGppyRvRssuKGfd9Tedc4nKJH3lJLAKuMrIP7dSY0JsIa/XppAz66nbuA2q0Hi1OSDS6
-	ck1v3607ZFw27ALy1w+KZDMzo+wjluqcRTunhXAZbNdHy9Yo3MAncoQEGuE1U8ZbgspnVzxwLwISY
-	4Yz9CuwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o4NVZ4u4g0mYQeqWa/31JJuaJEaKiBQfTCzwM9NxQa8=; b=lQ4pKGUe23QRmQeOVKlfucUEP0
+	TEis6rl4ItAiO6IYb7hOvKRdQQA1ffihzzaVxeJFXzyLPs3cwn/LHg4HnO4xWUzfDqBi/oXtNDKjp
+	oCcssF2CIl0CfYOw4m2PdmdGulXzXnNTZzq1rL2wglt9jkBTVeRetFv/jIKM/1NqKXodUSn1ezURH
+	rqOXnAnBND8wsRkYBIzcmGbvEm2J7AIBjqWATWb0fQ6+F3Wm00FjKQNNoVITwHi4yTaCvcIUUvIg5
+	wTCtb4kRVxyU/B3TyXmiCO957MKpe0JE0/4uuMu0u8af84pTAb0YSX7cfgTovW+0qHCA4qAfa6UUH
+	yje8Jz6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9PP-00000001rkU-3YmG;
-	Thu, 20 Feb 2025 16:28:19 +0000
-Received: from mail-dm6nam04on20619.outbound.protection.outlook.com ([2a01:111:f403:2409::619] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
+	id 1tl9Qs-00000001sE6-2qD4;
+	Thu, 20 Feb 2025 16:29:50 +0000
+Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9HI-00000001pCs-2Bts
+	id 1tl9Mf-00000001qvo-1ye0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 16:19:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bwTe3isWenwY/FLPbvcDdsoPqqNCbfiBTUq2Z829bByXoaz20ho+hHCumwgzurQ92DZLo+gsxOZc8udyDqjExdHrFZMZDQKbsrOdmUOl5tki8tREFoeU3B73mJFlMXWY7jP3yZJ9TXqnnohcrko5WaL7CDW+dm+h2XfNVrLyNfPNphIkocVt103bRENsT+DUiAt4U4ODOBgvWsCc8SDVCfXBFSSWrYDzWS4KXvx7fvvYAmL5Ygu0O57/DT/V1Nj56yVgq2lrGCCt/xxSxT18ZjtnYk1SYH3qTbU7y9d4/4i3Wc99whtYlvkuxE+EMoKe1jQfrt/zevlE1bdLG7Nu4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=I77ZRgB8avhZ/BD1zgwCsSVXVSH7s+4m0sJKEpbBRFA=;
- b=OcoSsfHBLOu/UjUyxTVi2J0yh+unExNiZYjpImETK0ihzyUnyjSup6uSMZTGRAht99GMpGPHcWi4UHizlUcZddZrLaEWHmMMmWUnAlbSvFsIk22yrmw9f1DhukmpX6go4Nty6B6aXGWsp59L+EWiGOJ1q+Mzy/HfjjDU1j6r/wR0BV8zQV/3EIcRBeZfQQEJt47P3v02MaOh41urfEApYYXIPgAqjc6Nb8MN9lPG9PyB1V1o1EKV7suty75wKNKteIQg78v+Lxqas3Pa3/SjaP2rcp9Snm6kms8aCUmjDwIVdONu/1Xacm7wWNTQvihBtkIu1GaDLg5s/ZO4yKDMRg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=I77ZRgB8avhZ/BD1zgwCsSVXVSH7s+4m0sJKEpbBRFA=;
- b=PYFr4gY9ZLvbU+mCot9jJBToQiJ1UZ7WOnMDqnhuVbrkEugnHFfNxioY938KJRuoyA19X8vB2b0TXVBfkcdhGYCxkxCzXiSwrNuDgHGf/hJArkWm+kjt9yaY/wdwTvylCyKdmZdhlat4bIu8rum6/oEgII+JzIvyGHuj9yS+bCJvBRswz2kwjQXqalAun6FJaFHQpxBXvHN0FNQeJBDEm7Te/GATTTeCwHT7ynGWH0GR2bQr+CTLOXqSJRowPla768niZuag1s8A5x0fAZ4Rf9rQsFguBCCJBsyk5peFdP6oOG7WoTXwhjvQtudEaX4hLZZvuUTt7I3/ygozje9ylA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by SJ2PR12MB8134.namprd12.prod.outlook.com (2603:10b6:a03:4fa::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.16; Thu, 20 Feb
- 2025 16:19:50 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8445.019; Thu, 20 Feb 2025
- 16:19:50 +0000
-Date: Thu, 20 Feb 2025 12:19:48 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: kevin.tian@intel.com, corbet@lwn.net, will@kernel.org, joro@8bytes.org,
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com, shuah@kernel.org,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	patches@lists.linux.dev
-Subject: Re: [PATCH v6 06/14] iommufd/viommu: Add iommufd_viommu_get_vdev_id
- helper
-Message-ID: <20250220161948.GD50639@nvidia.com>
-References: <cover.1737754129.git.nicolinc@nvidia.com>
- <313a27d92bd63e9571bf0f053eabfc3bfe4bfbae.1737754129.git.nicolinc@nvidia.com>
- <20250218153154.GC4099685@nvidia.com>
- <Z7a63pqKaIpCC7MW@Asurada-Nvidia>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z7a63pqKaIpCC7MW@Asurada-Nvidia>
-X-ClientProxiedBy: BN9PR03CA0711.namprd03.prod.outlook.com
- (2603:10b6:408:ef::26) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Thu, 20 Feb 2025 16:25:31 +0000
+Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-4ba0eb3b0f9so370970137.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 08:25:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740068728; x=1740673528; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=o4NVZ4u4g0mYQeqWa/31JJuaJEaKiBQfTCzwM9NxQa8=;
+        b=HQT8IGji4PcRM1Ojwxz/D2GMh47gD5J6FQ8lBRFtixOySy1RovMINJxcYvbhnR6/FX
+         SwInFCo9P524Ok9+PUFM4Xy0GwEj1sTvmUH0Mvk+lYIPEWOX4yglD6aeLUBWuhCuwrPv
+         oBWxQZBqCRZcRvjJA1VLaDiSojmkPm0ojK3xAX/C86/iV0/bQvpq520MQmwCWOTDMEIg
+         nyB0VZLQTU6fmDKzZQtwESe5qokVaNVkwOwQQp9xBB+LnBExIX4bWsaoLtFI4/tjyNwC
+         4bLrH+Lkd1bCxtByFdsC5OoAkWmlhxuHXW0Z8usIOJd0LfBXIPuVAcAVaRPUWVNCcLj1
+         rjIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740068728; x=1740673528;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=o4NVZ4u4g0mYQeqWa/31JJuaJEaKiBQfTCzwM9NxQa8=;
+        b=eDgR9uX8oL1ayfDEzRp7Ez29Yg1gPDGraPEKkmPv+tfePYWfUmslvvl/mofsLrjOfQ
+         aCKdQvPKhhPRtMrvs2b9aOe3EH1/Z83XoNxZStwg+lNopffLidQM364n26YTCp1o8w+6
+         kAr/FvTtreSEwbwcEinpsnFOwFDASHXgErj7mezn92cK7JpqO94mAHQ8Oc57UA6VFMxA
+         j2aW3c/HpW+qwqIrZCkcgL+qPOx6AaQzuT3rfXDwsQicOFYIp3h+nMh13gRVh5lqokiB
+         LVoHjXS8nA0jyHbLPoKXV9cnPTWyrf3rXnLefCQA1UcwhtjCo47TsKfSfHNtkbhGN41K
+         Cp9A==
+X-Forwarded-Encrypted: i=1; AJvYcCVweCPg+Su79ThBM4DYNpVMPOk3HayvDw8ZtnahsF78eU5K3oLj6UXYb25VdTVfw+KSCkQTmgEmYbNXCiGBP/Nz@lists.infradead.org
+X-Gm-Message-State: AOJu0YxccScziodPwKhwyjyeeQSwSNLtetS89yxMPdSoqijryzVUG16S
+	ndklbTBkcHtytjI6DXvu0btmy5aEHlKY8YzZp6z65WfWAYxxHSDL1LQNLhySP8vRjp0SmBYDspj
+	2dPp++zy2d0dpd4wQfpMqy39eQGBvIoETz6PSfQ==
+X-Gm-Gg: ASbGncv6niXSvdyMYeDsTDgbJonXyzmtVrtU1ru27C+gxCBul0si2kQFG6/yGZ/0VZm
+	pFI8ihL8hO1hpPO5C9zj50Ymbb36ip9hhkcfdBurh6Zy5pZ6Ft/0rKfnv1FOZSG7ezZMjCS2mtI
+	iRI3NujVgwxsok1hiF9YZPMds2lM+Now==
+X-Google-Smtp-Source: AGHT+IGAPsB8fOGFnMsc5bbDL/20Hc4p5mldlRlSsXETttbyejgn8/EaugsjmRRuL/VRAqS5GhQVa3kdI+AXpngBYvA=
+X-Received: by 2002:a05:6102:2c82:b0:4ba:9689:8725 with SMTP id
+ ada2fe7eead31-4bd3fd51580mr13177418137.14.1740068728182; Thu, 20 Feb 2025
+ 08:25:28 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|SJ2PR12MB8134:EE_
-X-MS-Office365-Filtering-Correlation-Id: e27095d3-3304-4a48-d327-08dd51ca6668
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YjJYKWrqZZ8jgKYI+eTBbwhTZeEgEAvr3I/POztFai5eWJcx6ytOG4rQrinJ?=
- =?us-ascii?Q?RHi6pn97YAdBtuc2F8gVs0PNeY+utaA904txKq/jYHgFXJ3m8IjgejqSw5Mx?=
- =?us-ascii?Q?8Ieeb6wuBboCgYtmoLMAIak+znjIlHpY3oa7nhSw6BvQEA9ldFzAgm2tXqa5?=
- =?us-ascii?Q?gET+hmCBsavpkk6ighLX9djflAbNTXx+LzlNk+QQ8s+zRCSxLiP45DQA2in9?=
- =?us-ascii?Q?n8bOniGdBfQBYiwi8lPviFzm0Cnbbcp9QIvqDKzj9sMfkgnI2bkbnMIw4lfS?=
- =?us-ascii?Q?HPMt84TPlazP/AarCAzcFV4Wq+5PnCzgvROtQu1P2RQ3ZGTgKUTiQtdRGU0p?=
- =?us-ascii?Q?FAoiAmSJhjXDBwAcLM7cWk3SLVQJswoIsRCi93MPr0Vf6NAiM1+mBrWaCqYx?=
- =?us-ascii?Q?Ap7e/2Vzp1qXImO5gZq5896daESOJYy2PYvSLb4aWHLpjB9X+FLJDH307eAD?=
- =?us-ascii?Q?5BcJr4R7Yr2QlwqKYeZSu2Db7jFWJ3xJWhuSWW+jDjaWcPtKXnOKK+/0ZW1G?=
- =?us-ascii?Q?kYSE7e9fkPi1F/b5k8k0vMVY7Wk/0RdwlunCLejfRKypsiWtis2RnaXYqxI7?=
- =?us-ascii?Q?CibxPdvnrGvNB6s1Nfu7TWcLPacYwtJTwbcm9o0ONLe6giBMRFgWHnC9ZbZ6?=
- =?us-ascii?Q?blwPtaqw42qtCWuOJkXEbkOpCAnzi3Zkc/vzNBMan0ubvHAyC0OsdUaXWRR/?=
- =?us-ascii?Q?niNPDX0DI1vfuGwr0AQzzWhF4xW/7MzXzrYFi9OcqU4vxUwDkr7f9BqvMIHi?=
- =?us-ascii?Q?qGQWMnFQD6cbbMJj/PHGKsjpMMYBYKLL9UY43liMnQW6LczAq3dKOslm9evj?=
- =?us-ascii?Q?9ZJ7NCjU/1TlTgZrV7yEAh7WrPeYQmfjjxByPqwd4D4FliWEjhmJejGJs28a?=
- =?us-ascii?Q?3NIMb64tt2c5Kwgw9TyK/e/4Hy5tJ4GMiaM4HilObEPlcsMc9BIjGgMoFVji?=
- =?us-ascii?Q?RZEC7TCYNdqxPZjMI57qNExsT0JYs4nOT9aAkjrrVwNV2mjKtGp+b6z197yJ?=
- =?us-ascii?Q?GY470naNp/nTt9rT6MpZUZsOQ20DLozhhy83Et8X6DevYq5p6WvayIT27ucw?=
- =?us-ascii?Q?favzBZ+AMRFxwvdp8ASuFkmgiL8pJ+O57wCv2kk6PeWAmOdT82R1QpxZd2Ec?=
- =?us-ascii?Q?1We6vgWOzru+18ro4jimR3Cq5cIn25Bn3gDjYjL+qXDlKncEYFGjGvyAxM5e?=
- =?us-ascii?Q?EreMmF9fTetTnkBrjWN3teVnVlQRtZPgLzC/Go80hbSYh7xRSnAKdQ0N5sFC?=
- =?us-ascii?Q?qUmtXzo0J/t1QJ+IcjadLdW+Gd1x3fsP95CKIHLwi/BWandeNdMuPoNS2cOG?=
- =?us-ascii?Q?H19yGgPzDyBu2saLbCK0gps/Epq3oojGRt4558mbPh9GO1Kj95yD5AbJWuZ5?=
- =?us-ascii?Q?8DgocGfzVv5YVnGzFaHfFGTgbq7d?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fyAFY5aYb2qSCgBl6AQjhhxh9xszE1OqLrE92+zrP6qVnr7v8i7GKQbTiKLN?=
- =?us-ascii?Q?PgmdsudZiYWuFq0y/SsGnWLcrdE0hh+5gZ+fG2HSiX0JMgb83qOAaBtxM/EL?=
- =?us-ascii?Q?weORG2nBUcG5dd19CP5oa0j6xtB41g3S9zEVCXHBp1v7xsR0a5lVR4OpRzEA?=
- =?us-ascii?Q?AXSGoIAiKLCuKlxqwip0o6UKZfjHM9IsZ7/UAtVlT6dRfo/U6MIKg+D1jpNJ?=
- =?us-ascii?Q?gmK8A8ue6Uay9fJM2NmilfqzIBl3ov1hU0ZKSe/AUMLjc/ssoyRr26UIaa1d?=
- =?us-ascii?Q?6EXqSBPt2yIH3+n1qc662PGzr91VseydP+umAFI2uQKUMYupMwU9A0bCHrrj?=
- =?us-ascii?Q?Q8I+PoQbv8+SfyoLqy5yicXOQRghLj5v5RbLaf/b3cvuHGyI8/YTu0S9cUOq?=
- =?us-ascii?Q?J/FnqSLHrpWXJF1WFlHMwW9libIkBO8/nBiGc/Gv/fkR3laSCjnJY66PP7Pn?=
- =?us-ascii?Q?1HabldntrBcDAtvPLBePaRBYvyzXHMvJwUuGLTVKul0Q1GASQihi0Vb4LH4u?=
- =?us-ascii?Q?sowFcjjVWg6GyQV6RpZ13cFj27/F+H/Jpe9dhT7dYi/DX3i46oRvQvzFLkA8?=
- =?us-ascii?Q?q7qyxN6Y2be04HOYPnh6HWqcPX2Xw+dFQWQGq5v+ksdpYpkcr27WK+6/cVoG?=
- =?us-ascii?Q?Z9oOE2lY59BTRj+eYJk2CL1Jw/wqBTjBvxnu2ctmlB4bnF8XQqH+UAiMfTAP?=
- =?us-ascii?Q?FmRRvJyHnHEWGOAcDwhsWbYJtURmOOL3czA+5042Ut/EmOqaXZz1yw4KGZkd?=
- =?us-ascii?Q?Tr9y7179Vght52XtOmaOcYwzYQKOQQJQUWiUE707NaENlffbMCoZXdcFCBOw?=
- =?us-ascii?Q?A4c6TdRQ5XVX/9A5YGDFGbcpx1B/KlxR4pTz3iXJjCKKP9ScmWYHVKDr259o?=
- =?us-ascii?Q?2ao6JMLyvKXMjdmEjjKKJsIbCkV8heevwCRXCld75mf3EqSTgqzzuwWAY1zR?=
- =?us-ascii?Q?UapXbHgzu3jOAX0K71iXCQmm58ZbnY0i+omN9K0o+XkbySdtNTBnvyb1O5yC?=
- =?us-ascii?Q?ewsJHHji2uUh0HaL3woqpJW2ZM47BUa78JaRyu3WwCb5KcHVcu95/LP4t4iV?=
- =?us-ascii?Q?WCd0f7Qer9/TjssdDXYPn7bjzd7lPEoNFtxO6HZLimH+wcz/vUvBNCsmhlAD?=
- =?us-ascii?Q?Brxh7R/72tO/nTF96pCLeRk3/R56sN+YFhzEA8jNKYFtTSqpOZ7H6mqHV8fA?=
- =?us-ascii?Q?nOdu42p17JP8mDd03DL4ZkGg20EjoNbHCMTGlLqjAIx6nzfKJrvqSKm/raDs?=
- =?us-ascii?Q?s3wrdfD4vNrs0eG6aYQ84T3A99QKq0Zo9BEc25ewl2OzanSHqAwiB2+htOup?=
- =?us-ascii?Q?WugocC1e9WomjlLY/EEjaBsqOE1aQV2xGMOLjT0B0K5ZNOXUbvgeq3KCPPui?=
- =?us-ascii?Q?bBTI/w9rls/suR1+zAr4tHF6wDFv0A9cy9DCTuvN6Enm5ICQrQPXR4UPl6bk?=
- =?us-ascii?Q?AtXaf1Fy7DISRjC0y44mruyAeup72WWwJZqFgarZiUutLSfe55lLMgyE5OKj?=
- =?us-ascii?Q?BMnDVYRWUa1FXXqfDKqdkLDTrz0jX2EHmFQNFA7M2EcwglOLR6BMSrMPfGx4?=
- =?us-ascii?Q?DrX9kmGfsYn9Uvm/HLh5gS9azSoNhFDeUpW2RkOg?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e27095d3-3304-4a48-d327-08dd51ca6668
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 16:19:50.1767
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ++LZacEZHMXNiHzgFGMX6NAk22APsVciYe+ELlfN1Quh8kRJ+tMW7yPDze5MZnFu
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8134
+References: <CA+G9fYuVngeOP_t063LbiJ+8yf-f+5tRt-A3-Hj=_X9XmZ108w@mail.gmail.com>
+In-Reply-To: <CA+G9fYuVngeOP_t063LbiJ+8yf-f+5tRt-A3-Hj=_X9XmZ108w@mail.gmail.com>
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Thu, 20 Feb 2025 21:55:17 +0530
+X-Gm-Features: AWEUYZn1l7Lv2Zb-WyCLSGTtO5qeqIeMQIdyyZsol69LDhzeihx6MkTJeGQixZg
+Message-ID: <CA+G9fYs-cbuu+o15E9V+AneYT0kp_e2CQWS+4HTxkM+zuz0cMQ@mail.gmail.com>
+Subject: Re: next-20250218: arm64 LTP pids kernel panic loop_free_idle_workers
+To: linux-block <linux-block@vger.kernel.org>, Cgroups <cgroups@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-mm <linux-mm@kvack.org>, 
+	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
+	LTP List <ltp@lists.linux.it>
+Cc: Jens Axboe <axboe@kernel.dk>, Andrew Morton <akpm@linux-foundation.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Arnd Bergmann <arnd@arndb.de>, Dan Carpenter <dan.carpenter@linaro.org>, 
+	Anders Roxell <anders.roxell@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_081956_561821_F4DA43E6 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250220_082529_516446_6BFF26A0 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,38 +99,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 09:17:18PM -0800, Nicolin Chen wrote:
-> On Tue, Feb 18, 2025 at 11:31:54AM -0400, Jason Gunthorpe wrote:
-> > On Fri, Jan 24, 2025 at 04:30:35PM -0800, Nicolin Chen wrote:
-> > > This is a reverse search v.s. iommufd_viommu_find_dev, as drivers may want
-> > > to convert a struct device pointer (physical) to its virtual device ID for
-> > > an event injection to the user space VM.
-> > > 
-> > > Again, this avoids exposing more core structures to the drivers, than the
-> > > iommufd_viommu alone.
-> > > 
-> > > Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
-> > > Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-> > > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> > > ---
-> > >  include/linux/iommufd.h        |  9 +++++++++
-> > >  drivers/iommu/iommufd/driver.c | 24 ++++++++++++++++++++++++
-> > >  2 files changed, 33 insertions(+)
-> > 
-> > Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> > 
-> > > +	xa_lock(&viommu->vdevs);
-> > > +	xa_for_each(&viommu->vdevs, index, vdev) {
-> > > +		if (vdev->dev == dev) {
-> > > +			*vdev_id = (unsigned long)vdev->id;
-> > 
-> > I don't think we need this cast
-> 
-> The left side is ulong for xarray index, while the right side is
-> __aligned_u64 for uAPI. Could there be a gcc warning when somebody
-> builds the kernel having a BITS_PER_LONG=32?
+On Thu, 20 Feb 2025 at 21:43, Naresh Kamboju <naresh.kamboju@linaro.org> wr=
+ote:
+>
+> Regression on qemu-arm64 the kernel panic noticed while running the
+> LTP controllers pids.sh test cases on Linux next 20250218 and started
+> from the next-20250214
+>
+> Test regression: arm64 LTP pids kernel panic loop_free_idle_workers
+>
+> Started noticing from next-20250214.
+> Good: next-20250213
+> Bad: next-20250213..next-20250218
 
-No. The kernel is full of these implicit casts
+[Sorry typo ]
+Bad: next-20250214..next-20250218
 
-Jason
+>
+> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+>
+> Boot log:
+> ---------
+> [    0.000000] Linux version 6.14.0-rc2-next-20250214
+> (tuxmake@tuxmake) (aarch64-linux-gnu-gcc (Debian 13.3.0-12) 13.3.0,
+> GNU ld (GNU Binutils for Debian) 2.43.90.20250127) #1 SMP PREEMPT
+> @1739528119
+> <trim>
+> command: pids.sh 6 50 0
+> <12>[  221.776255] /usr/local/bin/kirk[262]: starting test pids_6_50
+> (pids.sh 6 50 0)
+> pids 1 TINFO: Running: pids.sh 6 50 0
+> pids 1 TINFO: Tested kernel: Linux
+> runner-ykxhnyexq-project-40964107-concurrent-0
+> 6.14.0-rc2-next-20250214 #1 SMP PREEMPT @1739528119 aarch64 GNU/Linux
+> pids 1 TINFO: ceiling LTP_TIMEOUT_MUL to 11
+> pids 1 TINFO: timeout per run is 0h 55m 0s
+> pids 1 TINFO: test starts with cgroup version 2
+> pids 1 TINFO: Running testcase 6 with 50 processes
+> pids 1 TINFO: set a limit that is smaller than current number of pids
+> <1>[  224.406844] Unable to handle kernel paging request at virtual
+> address dead000000000108
+> <1>[  224.407052] Mem abort info:
+> <1>[  224.407100]   ESR =3D 0x0000000096000044
+> <1>[  224.407219]   EC =3D 0x25: DABT (current EL), IL =3D 32 bits
+> <1>[  224.407315]   SET =3D 0, FnV =3D 0
+> <1>[  224.407400]   EA =3D 0, S1PTW =3D 0
+> <1>[  224.407459]   FSC =3D 0x04: level 0 translation fault
+> <1>[  224.407536] Data abort info:
+> <1>[  224.407577]   ISV =3D 0, ISS =3D 0x00000044, ISS2 =3D 0x00000000
+> <1>[  224.407621]   CM =3D 0, WnR =3D 1, TnD =3D 0, TagAccess =3D 0
+> <1>[  224.407697]   GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0, Xs =3D 0
+> <1>[  224.407809] [dead000000000108] address between user and kernel
+> address ranges
+> <0>[  224.408307] Internal error: Oops: 0000000096000044 [#1] PREEMPT SMP
+> <4>[  224.416979] Modules linked in: btrfs blake2b_generic xor
+> xor_neon raid6_pq zstd_compress sm3_ce sm3 sha3_ce sha512_ce
+> sha512_arm64 fuse drm backlight ip_tables x_tables
+> <4>[  224.421352] CPU: 0 UID: 0 PID: 3368 Comm: pids_task2 Not tainted
+> 6.14.0-rc2-next-20250214 #1
+> <4>[  224.422657] Hardware name: linux,dummy-virt (DT)
+> <4>[  224.423946] pstate: 224020c9 (nzCv daIF +PAN -UAO +TCO -DIT
+> -SSBS BTYPE=3D--)
+> <4>[ 224.424677] pc : loop_free_idle_workers (include/linux/list.h:195
+> include/linux/list.h:218 include/linux/list.h:229
+> drivers/block/loop.c:917)
+> <4>[ 224.426548] lr : loop_free_idle_workers (drivers/block/loop.c:911
+> (discriminator 2))
+> <4>[  224.427338] sp : ffff800080003d50
+> <4>[  224.427910] x29: ffff800080003d50 x28: fff238a88301c500 x27:
+> fff238a883084c00
+> <4>[  224.429587] x26: ffffa298bac57000 x25: ffffffffffffc568 x24:
+> dead000000000122
+> <4>[  224.430697] x23: fff238a880370ac8 x22: dead000000000100 x21:
+> 0000000000000000
+> <4>[  224.432004] x20: fff238a880370ab8 x19: dead0000000000b8 x18:
+> ffff800083d9bb90
+> <4>[  224.432538] x17: fff296100496b000 x16: ffff800080000000 x15:
+> 0000ffff8d0a9fff
+> <4>[  224.433866] x14: 0000000000000000 x13: 1ffe47151065cc61 x12:
+> fff238a8832e630c
+> <4>[  224.434769] x11: 003a9cb01550c679 x10: fff238a8bf4b7f70 x9 :
+> ffffa298b8fc3cd0
+> <4>[  224.436209] x8 : ffff800080003c28 x7 : 0000000000000101 x6 :
+> ffff800080003ce0
+> <4>[  224.437070] x5 : fff238a880eba680 x4 : dead000000000100 x3 :
+> dead000000000122
+> <4>[  224.438027] x2 : 0000000000000000 x1 : 00000000ffff50fc x0 :
+> 00000000ffff7b68
+> <4>[  224.439174] Call trace:
+> <4>[ 224.439882] loop_free_idle_workers (include/linux/list.h:195
+> include/linux/list.h:218 include/linux/list.h:229
+> drivers/block/loop.c:917) (P)
+> <4>[ 224.440765] loop_free_idle_workers_timer (drivers/block/loop.c:932)
+> <4>[ 224.441223] call_timer_fn (arch/arm64/include/asm/jump_label.h:36
+> include/trace/events/timer.h:127 kernel/time/timer.c:1790)
+> <4>[ 224.441822] __run_timers (kernel/time/timer.c:1841
+> kernel/time/timer.c:2414)
+> <4>[ 224.442389] run_timer_base (kernel/time/timer.c:2427
+> kernel/time/timer.c:2418 kernel/time/timer.c:2435)
+> <4>[ 224.442855] run_timer_softirq
+> (arch/arm64/include/asm/jump_label.h:36 kernel/time/timer.c:342
+> kernel/time/timer.c:2448)
+> <4>[ 224.443547] handle_softirqs
+> (arch/arm64/include/asm/jump_label.h:36 include/trace/events/irq.h:142
+> kernel/softirq.c:562)
+> <4>[ 224.444121] __do_softirq (kernel/softirq.c:596)
+> <4>[ 224.444755] ____do_softirq (arch/arm64/kernel/irq.c:82)
+> <4>[ 224.445204] call_on_irq_stack (arch/arm64/kernel/entry.S:897)
+> <4>[ 224.445670] do_softirq_own_stack (arch/arm64/kernel/irq.c:87)
+> <4>[ 224.445964] __irq_exit_rcu (kernel/softirq.c:442 kernel/softirq.c:66=
+2)
+> <4>[ 224.446295] irq_exit_rcu (kernel/softirq.c:680)
+> <4>[ 224.446808] el1_interrupt (arch/arm64/include/asm/current.h:19
+> arch/arm64/kernel/entry-common.c:280
+> arch/arm64/kernel/entry-common.c:563
+> arch/arm64/kernel/entry-common.c:575)
+> <4>[ 224.447585] el1h_64_irq_handler (arch/arm64/kernel/entry-common.c:58=
+1)
+> <4>[ 224.448079] el1h_64_irq (arch/arm64/kernel/entry.S:596)
+> <4>[ 224.448796] try_charge_memcg (mm/memcontrol.c:1803
+> mm/memcontrol.c:2222) (P)
+> <4>[ 224.449589] charge_memcg (mm/memcontrol.c:4541)
+> <4>[ 224.450399] __mem_cgroup_charge (include/linux/cgroup_refcnt.h:78
+> mm/memcontrol.c:4558)
+> <4>[ 224.451234] __handle_mm_fault (mm/memory.c:1059 (discriminator 1)
+> mm/memory.c:5462 (discriminator 1) mm/memory.c:5574 (discriminator 1)
+> mm/memory.c:4091 (discriminator 1) mm/memory.c:5935 (discriminator 1)
+> mm/memory.c:6078 (discriminator 1))
+> <4>[ 224.451763] handle_mm_fault (mm/memory.c:6247)
+> <4>[ 224.452307] do_page_fault (arch/arm64/mm/fault.c:647)
+> <4>[ 224.452881] do_translation_fault (arch/arm64/mm/fault.c:787)
+> <4>[ 224.453358] do_mem_abort (arch/arm64/mm/fault.c:919 (discriminator 1=
+))
+> <4>[ 224.453890] el0_da (arch/arm64/include/asm/irqflags.h:82
+> (discriminator 1) arch/arm64/include/asm/irqflags.h:123 (discriminator
+> 1) arch/arm64/include/asm/irqflags.h:136 (discriminator 1)
+> arch/arm64/kernel/entry-common.c:165 (discriminator 1)
+> arch/arm64/kernel/entry-common.c:178 (discriminator 1)
+> arch/arm64/kernel/entry-common.c:605 (discriminator 1))
+> <4>[ 224.454329] el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:7=
+66)
+> <4>[ 224.454897] el0t_64_sync (arch/arm64/kernel/entry.S:600)
+> <0>[ 224.455654] Code: 8b190000 eb01001f 54000684 a9448f84 (f9000483)
+> All code
+> =3D=3D=3D=3D=3D=3D=3D=3D
+>    0: 8b190000 add x0, x0, x25
+>    4: eb01001f cmp x0, x1
+>    8: 54000684 b.mi 0xd8  // b.first
+>    c: a9448f84 ldp x4, x3, [x28, #72]
+>   10:* f9000483 str x3, [x4, #8] <-- trapping instruction
+>
+> Code starting with the faulting instruction
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>    0: f9000483 str x3, [x4, #8]
+> <4>[  224.456945] ---[ end trace 0000000000000000 ]---
+> <0>[  224.458162] Kernel panic - not syncing: Oops: Fatal exception in in=
+terrupt
+> <2>[  224.459437] SMP: stopping secondary CPUs
+> <0>[  224.460808] Kernel Offset: 0x229838400000 from 0xffff800080000000
+> <0>[  224.461525] PHYS_OFFSET: 0xfffdc75880000000
+> <0>[  224.462166] CPU features: 0x000,000000d0,60bef2f8,cb7e7f3f
+> <0>[  224.463148] Memory Limit: none
+> <0>[  224.463861] ---[ end Kernel panic - not syncing: Oops: Fatal
+> exception in interrupt ]---
+>
+> ## Source
+> * Kernel version: 6.14.0-rc2-next-20250214
+> * Git tree: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-ne=
+xt.git
+> * Git sha: 0ae0fa3bf0b44c8611d114a9f69985bf451010c3
+> * Git describe: next-20250214
+> * Project details:
+> https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250214/
+>
+> ## Build
+> * Test log: https://qa-reports.linaro.org/lkft/linux-next-master/build/ne=
+xt-20250214/testrun/27292264/suite/log-parser-test/test/panic-multiline-ker=
+nel-panic-not-syncing-oops-fatal-exception-in-interrupt-89d94046139a63ab8ef=
+657ef456dab84b63ef36eb42dc7c556dfa0f7a59423da/log
+> * Test history:
+> https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250214/=
+testrun/27292264/suite/log-parser-test/test/panic-multiline-kernel-panic-no=
+t-syncing-oops-fatal-exception-in-interrupt-89d94046139a63ab8ef657ef456dab8=
+4b63ef36eb42dc7c556dfa0f7a59423da/history/
+> * Test details:
+> https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250214/=
+testrun/27292264/suite/log-parser-test/test/panic-multiline-kernel-panic-no=
+t-syncing-oops-fatal-exception-in-interrupt-89d94046139a63ab8ef657ef456dab8=
+4b63ef36eb42dc7c556dfa0f7a59423da/
+> * Kernel config:
+> https://storage.tuxsuite.com/public/linaro/lkft/builds/2t1m4RtgCbRZ2vhQrd=
+EIwwj3DIY/config
+> * Architecures: arm64
+> * Toolchain version: gcc-13
+>
+> --
+> Linaro LKFT
+> https://lkft.linaro.org
 
