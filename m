@@ -4,92 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E71C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 13:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C1FFC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 13:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PafkusVv+VMGTQbr/T/8h83YqjoF56Vu1vpIrib1nms=; b=xKGBTH3g6kZWsvwnq+3vrjAJCH
-	AjcwYql2RmadNN4TrEXXfHKomkEuAH07juLMuzGzjPlglG9B2dD1PEwAUY4FncVo1oGLGXE5iy4nA
-	1PlH9OWemNDdpKGHMo3qVvosEUZXh+jDI+sWkAC1ie9lMvQfAK7ur1y7TQFLdFH5FlP8ID5pPdr1E
-	4AF+B5LV3dHUYE6z9NRy63hs6uf61w6QiKzML7cJEHoV97OBNvIAMJOJTB33d0YKnCz9c5Wirvx44
-	yAzzK6AEThrbcAm2apJpfA8KVnRub3WaC+u7T84qmpOYLeKtOZlW+8simJrlJzwLafSWcYkBt2Yc9
-	kwNpFVUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NwzoK57CVivbZFeToWr6rVZ379tMpp+f9WbOWRwIabg=; b=ZEU2OerZnpVydXXL8egYU22o9n
+	VUlkt5+RcYTejlq2wTqlXmF2Yd1F7eZy8RNlpPVz/VQV3X6z8nmD2QfKiZLqJpwZPfPa14F9KnnP4
+	zZ2bz1C8arBhZGNl/99RnFmhb7OFD97wad9oFvEc5hkbBW+MrPzOBlggNyKz1WeiIFeAT1uJdgWPT
+	HNahdzw2brh5Zi6JgRQvcPXifuAInSQ+BA8Wa5BGahwozx2vkpkucoGgARSnlnZM8p45rZ9cU1rn5
+	vQnIeq0J7gF7PfLR1hGO2r/cf4vgVC8a25hhunmMeUBsD5jVeRyquToo+S5BaOF7RlSE65OYl5kHp
+	zf7X8gzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl6B5-00000000w1p-1aKZ;
-	Thu, 20 Feb 2025 13:01:19 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1tl6CY-00000000wTX-0S24;
+	Thu, 20 Feb 2025 13:02:50 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl5rt-00000000r7o-1um9
+	id 1tl5s8-00000000rDE-3Jhc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 12:41:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740055289; x=1771591289;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=LeIpn0tC1VxcvvTy4WIzSMid7/q9gL2QZySYy1PWKyA=;
-  b=d5sfJztKKUxb9Y7k+WDtauKEsQZegM1ipzUUYfEE9y0sesuxyVDRm76i
-   i+JUs9nPxKsSc7R0RnRUguc+1b6+muzsUOqtNAREU2u9c44gk2vOZyfKR
-   Vh11mLD6FpIsE0dP4u0TQoYry75D/wiJ+ryOAD+RJfj3if0kZl+0ZcwnP
-   WB778BlYHkGDhvsnU70a+rOrT1K4kS85CGC1Fxu69u2Gpd5FJxOGgecEg
-   TaVOFq3HOxAkBP30NSNtJm/caVTypIUvg71Xyn1lYMGoxy5Fq3/5YnqEp
-   /c+OrqbcKAVivwhThwCiDxlw2NLM0LZvpu6GaXxQe+wcva3SopY+MgGZs
-   A==;
-X-CSE-ConnectionGUID: R7ff7VG6SkG5750HAn4V9w==
-X-CSE-MsgGUID: MsMxnwHuToCrh9olgb+sbA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11351"; a="40951636"
-X-IronPort-AV: E=Sophos;i="6.13,301,1732608000"; 
-   d="scan'208";a="40951636"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2025 04:41:27 -0800
-X-CSE-ConnectionGUID: 9dH+52A+TUCTpmU05P8WYg==
-X-CSE-MsgGUID: kRr+uJgAQdC/atds2MA++g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,301,1732608000"; 
-   d="scan'208";a="120136529"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2025 04:41:22 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tl5ri-0000000DKcf-3Ad8;
-	Thu, 20 Feb 2025 14:41:18 +0200
-Date: Thu, 20 Feb 2025 14:41:18 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
-	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v3 2/9] iio: adc: add helpers for parsing ADC nodes
-Message-ID: <Z7ci7tUlRQqZEZSN@smile.fi.intel.com>
-References: <cover.1739967040.git.mazziesaccount@gmail.com>
- <6c5b678526e227488592d004c315a967b9809701.1739967040.git.mazziesaccount@gmail.com>
- <Z7ZB7RQhyI5Dohrq@smile.fi.intel.com>
- <b1c1ed68-2f4d-447c-9957-5a1bbc63ef6e@gmail.com>
+	Thu, 20 Feb 2025 12:41:45 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2212a930001so21732355ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 04:41:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740055304; x=1740660104; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NwzoK57CVivbZFeToWr6rVZ379tMpp+f9WbOWRwIabg=;
+        b=DmKikJHpEbSKdCVflGWxvIcAKvh1DzSccFpeZTLdT1ErsagDXwhwNA0cbgKDARhzwI
+         9clDSJ4gvPqT0VdV4RgjRlm8/eueBm+2HlGlDYfvLE/yEcU3GF4TfsUhoq9fQpcHJN9Q
+         Navz2XWlkjV0LDUZ7fiA01Y6ISzZcsWZxiALacBJ09RXqpRjSvwuHuM438hmD2wEdaw+
+         HbWfJXKLKrqDgItVHMASQ967fGGGYHb5ge3Jrr28aCjtfSfbTIuQX5p010kjAG+2pHkq
+         ah070kw/o3RIrZRDws5IXb3rPsfUmVe+QoxRRzL0utWbqlsAUioO9NCaSok2zO3bXJI2
+         hCWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740055304; x=1740660104;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NwzoK57CVivbZFeToWr6rVZ379tMpp+f9WbOWRwIabg=;
+        b=P0RGvS9/KGCPoGm39IO3wONiwTlYhTvgNwR98JeeovqCaCvo3vnq7gd3O/m+D4nVqL
+         V8N/zTOBaGZdWNXVOFxs5H5WbLDbXDfgoUYXiRwrVb5QzDQ7GzhuTSyablCgqNZC+ICP
+         zQbK+O3Fs4VkicbW6esKj6jgGj6QBYSJIll5iQFSa1sL7mQRkILcIUEkBHb5Mn35XTFc
+         3stsRBoFuE5bSTNRq45GVXyZJzN5fwdBMCVfcG4VaCzdBFJ06Yt1MzCcR8ctctHRnk5K
+         tEuPhyblZs0jytl9NWrAvcymGFuyped6AUI0P6R/meJfk0ibmEXCNkhfxWddTCTUo5PY
+         Kqww==
+X-Forwarded-Encrypted: i=1; AJvYcCVoZ0Kr9JJ7vb65JwvZSlU/W8dj0GQDxDfPw81ITXpfysM6LFIRtKr0IVRKspKcD3Tz0XnZtwDKstgNd9nbUhP8@lists.infradead.org
+X-Gm-Message-State: AOJu0YyV+q7Z+8GHBcmj6x+5MadoIvbzL2v+BxBejoveaQlx+VhDnAmi
+	d2eTdllj52mQP7IQEgAPM5uLZ5RF/oo0EyXTSRBmx18wpBGzULkuZLh8NQ==
+X-Gm-Gg: ASbGncsAKpEnDhzz/fnh0VRu9WuXjOXE0y4XvD/nPfbKb7uY40nLfjIcK+OdwZvmWBZ
+	O0a2RtE13Sfw4sj7To2isXBFtiq9swH2I2utmDVEQ/fCGXTd76mnyCzJW0QFYazFP8Zoe9ZdU4S
+	e7m8USmkqT/WIZ2FzZoh/k9ezv6y2wfA5izRshJf45DQUhO68FstwE3wDgk8R4r+ZZohdjYceOj
+	pzvV4OA19XOVMCxS4aWdGHUIsTW7jn0namAobIfSZkqpPYTXoXZMi44RU9vwhMoVxlWoFC60QdS
+	yYxFYkhaROscr9QLhrXcDXgYxQlq4g==
+X-Google-Smtp-Source: AGHT+IEUxOa8RxncMcqI6MDH3KqAHlCb1aHAhAoOyQhIMr1TuOd4evgMkvMesnf1ee6u0+j91BV8fw==
+X-Received: by 2002:a17:903:2351:b0:215:a964:e680 with SMTP id d9443c01a7336-2210404fc53mr346967385ad.25.1740055303658;
+        Thu, 20 Feb 2025 04:41:43 -0800 (PST)
+Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:9a27:2e77:89d4:5724])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d559088esm119418415ad.242.2025.02.20.04.41.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Feb 2025 04:41:43 -0800 (PST)
+From: Fabio Estevam <festevam@gmail.com>
+To: shawnguo@kernel.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Fabio Estevam <festevam@denx.de>
+Subject: [PATCH] vfdma
+Date: Thu, 20 Feb 2025 09:41:38 -0300
+Message-Id: <20250220124138.2355253-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b1c1ed68-2f4d-447c-9957-5a1bbc63ef6e@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_044129_544210_2ECF7C3C 
-X-CRM114-Status: GOOD (  43.66  )
+X-CRM114-CacheID: sfid-20250220_044144_828079_129AD835 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,166 +99,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025 at 09:13:00AM +0200, Matti Vaittinen wrote:
-> On 19/02/2025 22:41, Andy Shevchenko wrote:
-> > On Wed, Feb 19, 2025 at 02:30:27PM +0200, Matti Vaittinen wrote:
+From: Fabio Estevam <festevam@denx.de>
 
-...
+According to fsl,dspi.yaml the expected order for describing the dmas
+and dma-names properties is "tx" first, followed by "rx".
 
-> > > obj-$(CONFIG_FSL_MX25_ADC) += fsl-imx25-gcq.o
-> > >   obj-$(CONFIG_GEHC_PMC_ADC) += gehc-pmc-adc.o
-> > >   obj-$(CONFIG_HI8435) += hi8435.o
-> > >   obj-$(CONFIG_HX711) += hx711.o
-> > 
-> > > +obj-$(CONFIG_IIO_ADC_HELPER) += industrialio-adc.o
-> > 
-> > Shouldn't this be grouped with other IIO core related objects?
-> 
-> I was unsure where to put this. The 'adc' subfolder contained no other IIO
-> core files, so there really was no group. I did consider putting it on top
-> of the file but then just decided to go with the alphabetical order. Not
-> sure what is the right way though.
+Adjust it acordingly to fix the following dt-schema warnings:
 
-I think it would be nice to have it grouped even if this one becomes
-the first one.
+spi@4002c000: dma-names:0: 'tx' was expected
+spi@4002c000: dma-names:1: 'rx' was expected
 
-> > >   obj-$(CONFIG_IMX7D_ADC) += imx7d_adc.o
-> > >   obj-$(CONFIG_IMX8QXP_ADC) += imx8qxp-adc.o
-> > >   obj-$(CONFIG_IMX93_ADC) += imx93_adc.o
+Signed-off-by: Fabio Estevam <festevam@denx.de>
+---
+ arch/arm/boot/dts/nxp/vf/vfxxx.dtsi | 17 ++++++++---------
+ 1 file changed, 8 insertions(+), 9 deletions(-)
 
-...
-
-> > > +EXPORT_SYMBOL_GPL(iio_adc_device_num_channels);
-> > 
-> > No namespace?
-> 
-> I was considering also this. The IIO core functions don't belong into a
-> namespace - so I followed the convention to keep these similar to other IIO
-> core stuff.
-
-But it's historically. We have already started using namespaces
-in the parts of IIO, haven't we?
-
-> (Sometimes I have a feeling that the trend today is to try make things
-> intentionally difficult in the name of the safety. Like, "more difficult I
-> make this, more experience points I gain in the name of the safety".)
-> 
-> Well, I suppose I could add a namespace for these functions - if this
-> approach stays - but I'd really prefer having all IIO core stuff in some
-> global IIO namespace and not to have dozens of fine-grained namespaces for
-> an IIO driver to use...
-
-...
-
-> > > +	if (!allowed_types || allowed_types & (~IIO_ADC_CHAN_PROP_TYPE_ALL)) {
-> > 
-> > Unneeded parentheses around negated value.
-> > 
-> > > +	if (found_types & (~allowed_types)) {
-> > 
-> > Ditto.
-> > 
-> > > +		long unknown_types = found_types & (~allowed_types);
-> > 
-> > Ditto and so on...
-> > 
-> > Where did you get this style from? I think I see it first time in your
-> > contributions. Is it a new preferences? Why?
-> 
-> Last autumn I found out my house was damaged by water. I had to empty half
-> of the rooms and finally move out for 2.5 months.
-
-Sad to hear that... Hope that your house had been recovered (to some extent?).
-
-> Now I'm finally back, but
-> during the moves I lost my printed list of operator precedences which I used
-> to have on my desk. I've been writing C for 25 years or so, and I still
-> don't remember the precedence rules for all bitwise operations - and I am
-> fairly convinced I am not the only one.
-
-~ (a.k.a. negation) is higher priority in bitops and it's idiomatic
-(at least in LK project).
-
-> What I understood is that I don't really have to have a printed list at
-> home, or go googling when away from home. I can just make it very, very
-> obvious :) Helps me a lot.
-
-Makes code harder to read, especially in the undoubtful cases like
-
-	foo &= (~...);
-
-> > > +		int type;
-> > > +
-> > > +		for_each_set_bit(type, &unknown_types,
-> > > +				 IIO_ADC_CHAN_NUM_PROP_TYPES - 1) {
-> > > +			dev_err(dev, "Unsupported channel property %s\n",
-> > > +				iio_adc_type2prop(type));
-> > > +		}
-> > > +
-> > > +		return -EINVAL;
-> > > +	}
-
-...
-
-> > > +		tmp.required &= (~BIT(IIO_ADC_CHAN_PROP_COMMON));
-> > 
-> > Redundant outer parentheses. What's the point, please?
-> 
-> Zero need to think of precedence.
-
-Huh? See above.
-Everything with equal sign is less precedence than normal ops.
-
-...
-
-> > > +		ret = fwnode_property_read_u32(child, "common-mode-channel",
-> > > +					       &common);
-> > 
-> > I believe this is okay to have on a single line,
-> 
-> I try to keep things under 80 chars. It really truly helps me as I'd like to
-> have 3 parallel terminals open when writing code. Furthermore, I hate to
-> admit it but during the last two years my near vision has deteriorated... :/
-> 40 is getting more distant and 50 is approaching ;)
-
-It's only 86 altogether with better readability.
-We are in the second quarter of 21st century,
-the 80 should be left in 80s...
-
-(and yes, I deliberately put the above too short).
-
-...
-
-> > > +#include <linux/iio/iio.h>
-> > 
-> > I'm failing to see how this is being used in this header.
-> 
-> I suppose it was the struct iio_chan_spec. Yep, forward declaration could
-> do, but I guess there would be no benefit because anyone using this header
-> is more than likely to use the iio.h as well.
-
-Still, it will be a beast to motivate people not thinking about what they are
-doing. I strongly prefer avoiding the use of the "proxy" or dangling headers.
-
-...
-
-> > > +/*
-> > > + * Channel property types to be used with iio_adc_device_get_channels,
-> > > + * devm_iio_adc_device_alloc_chaninfo, ...
-> > 
-> > Looks like unfinished sentence...
-> 
-> Intention was to just give user an example of functions where this gets
-> used, and leave room for more functions to be added. Reason is that lists
-> like this tend to end up being incomplete anyways. Hence the ...
-
-At least you may add ').' (without quotes) to that to make it clear.
-
-> > > + */
-
+diff --git a/arch/arm/boot/dts/nxp/vf/vfxxx.dtsi b/arch/arm/boot/dts/nxp/vf/vfxxx.dtsi
+index 6334ad4aec4b..597f20be82f1 100644
+--- a/arch/arm/boot/dts/nxp/vf/vfxxx.dtsi
++++ b/arch/arm/boot/dts/nxp/vf/vfxxx.dtsi
+@@ -158,8 +158,8 @@ dspi0: spi@4002c000 {
+ 				clocks = <&clks VF610_CLK_DSPI0>;
+ 				clock-names = "dspi";
+ 				spi-num-chipselects = <6>;
+-				dmas = <&edma1 1 12>, <&edma1 1 13>;
+-				dma-names = "rx", "tx";
++				dmas = <&edma1 1 13>, <&edma1 1 12>;
++				dma-names = "tx", "rx";
+ 				status = "disabled";
+ 			};
+ 
+@@ -172,8 +172,8 @@ dspi1: spi@4002d000 {
+ 				clocks = <&clks VF610_CLK_DSPI1>;
+ 				clock-names = "dspi";
+ 				spi-num-chipselects = <4>;
+-				dmas = <&edma1 1 14>, <&edma1 1 15>;
+-				dma-names = "rx", "tx";
++				dmas = <&edma1 1 15>, <&edma1 1 14>;
++				dma-names = "tx", "rx";
+ 				status = "disabled";
+ 			};
+ 
+@@ -529,9 +529,8 @@ dspi2: spi@400ac000 {
+ 				clocks = <&clks VF610_CLK_DSPI2>;
+ 				clock-names = "dspi";
+ 				spi-num-chipselects = <2>;
+-				dmas = <&edma1 0 10>,
+-					<&edma1 0 11>;
+-				dma-names = "rx", "tx";
++				dmas = <&edma1 0 11>, <&edma1 0 10>;
++				dma-names = "tx", "rx";
+ 				status = "disabled";
+ 			};
+ 
+@@ -544,8 +543,8 @@ dspi3: spi@400ad000 {
+ 				clocks = <&clks VF610_CLK_DSPI3>;
+ 				clock-names = "dspi";
+ 				spi-num-chipselects = <2>;
+-				dmas = <&edma1 0 12>, <&edma1 0 13>;
+-				dma-names = "rx", "tx";
++				dmas = <&edma1 0 13>, <&edma1 0 12>;
++				dma-names = "tx", "rx";
+ 				status = "disabled";
+ 			};
+ 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.34.1
 
 
