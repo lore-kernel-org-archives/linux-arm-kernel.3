@@ -4,126 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8794AC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 09:18:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC5BC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 09:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KtlAFheXTf0FyYerM+ptw8UEXD/JdHDfFRdfuDQNIG8=; b=3Yu99yMktek4N74/W7m0JtYa6b
-	My/Xi5XhoVbUiA7lBxl2P216Pe1cvYTqM14UkdbEdA0//2gsrmjAbCJdVElkPiIx90h7G8pZYZChR
-	OqQhYxlmrRVyOHdilLnWXtfy8ip94DPg7oa4cmLxhxmM1M9pZeK30tV1+04hrD5mFGt/Tx8kliBze
-	ii8edy933cl81oGbss6wUHCB3+M7T67kqyoh85WTD8Lrnl6vyyg97NvOJ7W0HvMZTfwPxU31XiCb7
-	hKiPWPqj1vb1WksbF/FTeYGx7lLubi0AMM3LTgOKwG36MJaZEimFwyo+bC5HvM4nXYnMMrnjWPe3L
-	yFlCrGBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TJFLBjsE/w48uQWEE/sJf25WWFt47cr8Ziom4yxnO9I=; b=HHCS2n9WI0V7/Mh6P7aYGeaif6
+	TMIUKjkOW4QNYlvpXYSs1YPoDgWYizg44tx81DfOrSyd5yq698wy1FqI3SWFU4SZLdXSA+xtPaDyf
+	lxmsBKXMbAHqieKVnULhDXHH7e1VsrRPLaFZnOjW8dCwVyMBZuYKCwB91RTNY99DdtU5QeTw0T2Cv
+	l2PFsSBhz2DPiTJlaqHJYtN0n9Sz9rtgKrpVJEFWD4U6tAZy6O+Rp846u/NdGiV6eS9vlN7KrPgK0
+	G46VmlFCegK4PuSiPIyXwqpBIO/Vi/q05Y5awlLfJjSQMimT7gP4sLlANkKmoCqCAIRzEGOeSvXIe
+	Dk4xEisg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl2h2-0000000HZLY-3SsN;
-	Thu, 20 Feb 2025 09:18:04 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1tl2l5-0000000HadO-3Ueb;
+	Thu, 20 Feb 2025 09:22:15 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl2cm-0000000HYML-2wYa
+	id 1tl2jb-0000000Ha99-2Xdl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 09:13:42 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250220091335epoutp04284597a29b810295ea5e5442db7cea5a~l37inoE6d2005520055epoutp04P
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 09:13:35 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250220091335epoutp04284597a29b810295ea5e5442db7cea5a~l37inoE6d2005520055epoutp04P
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1740042815;
-	bh=KtlAFheXTf0FyYerM+ptw8UEXD/JdHDfFRdfuDQNIG8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oZodfa6/FYXQXQ2ll3M7ZYSFII4sthaBh90G0+WcygL0YNgmUpydlH2kE3gLAa6M8
-	 ek0fIjcCtp7vMIIuqUWZvn6jjXrWL2xvpk5J0+WmGIowvivlHYWTqjNyHTppf/krJj
-	 zeOz28JQ7X/mWhmVbcBBeXnSH/g0oh6tqjoQtyrs=
-Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
-	20250220091334epcas5p25de5f2a47e2a158203a39f66252b16af~l37h3EAM41861518615epcas5p2J;
-	Thu, 20 Feb 2025 09:13:34 +0000 (GMT)
-Received: from epsmges5p2new.samsung.com (unknown [182.195.38.182]) by
-	epsnrtp2.localdomain (Postfix) with ESMTP id 4Yz6xl5dqXz4x9Q3; Thu, 20 Feb
-	2025 09:13:31 +0000 (GMT)
-Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
-	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	C2.9F.19933.B32F6B76; Thu, 20 Feb 2025 18:13:31 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250220073948epcas5p1d90c5111fda1ccc4395dbe918066caca~l2pp4ifXc1846718467epcas5p1b;
-	Thu, 20 Feb 2025 07:39:48 +0000 (GMT)
-Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250220073948epsmtrp1a4fee4634f8407d3ea5496e38fa5cd16~l2pp3lCzC2536525365epsmtrp1z;
-	Thu, 20 Feb 2025 07:39:48 +0000 (GMT)
-X-AuditID: b6c32a4a-c1fda70000004ddd-05-67b6f23b530f
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	8E.DC.23488.34CD6B76; Thu, 20 Feb 2025 16:39:47 +0900 (KST)
-Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250220073945epsmtip2c91087019405c5a6c934b83eed0b4e48~l2pnwvZ953267832678epsmtip2k;
-	Thu, 20 Feb 2025 07:39:45 +0000 (GMT)
-From: Swathi K S <swathi.ks@samsung.com>
-To: krzk+dt@kernel.org, linux-fsd@tesla.com, robh@kernel.org,
-	conor+dt@kernel.org, richardcochran@gmail.com, alim.akhtar@samsung.com
-Cc: jayati.sahu@samsung.com, swathi.ks@samsung.com,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, pankaj.dubey@samsung.com, ravi.patel@samsung.com,
-	gost.dev@samsung.com
-Subject: [PATCH v7 2/2] arm64: dts: fsd: Add Ethernet support for PERIC
- Block of FSD SoC
-Date: Thu, 20 Feb 2025 13:05:27 +0530
-Message-Id: <20250220073527.22233-3-swathi.ks@samsung.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20250220073527.22233-1-swathi.ks@samsung.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprAJsWRmVeSWpSXmKPExsWy7bCmuq71p23pBgf3aVo8mLeNzWLN3nNM
-	FvOPnGO1uHlgJ5PFkVNLmCxezrrHZrHp8TVWi4evwi0u75rDZjHj/D4mi2MLxCwWbf3CbvHw
-	wx52iyNnXjBb/N+zg93iy8ab7A4CHjtn3WX32LSqk81j85J6j74tqxg9/jXNZff4vEkugC0q
-	2yYjNTEltUghNS85PyUzL91WyTs43jne1MzAUNfQ0sJcSSEvMTfVVsnFJ0DXLTMH6GolhbLE
-	nFKgUEBicbGSvp1NUX5pSapCRn5xia1SakFKToFJgV5xYm5xaV66Xl5qiZWhgYGRKVBhQnbG
-	8w1rWAreqVYc3bmetYFxg3wXIyeHhICJxIYrs5m6GLk4hAR2M0o8WvaZBcL5xCixce4bRgjn
-	G6PEt9997DAtVzo/sUMk9jJK/Fywjw3C+cIosWj6f0aQKjYBDYnrK7aDVYkItDFKHHvaCOYw
-	C8xlklh1cBsbSJWwQJTEhVtPmEBsFgFViUPrvoF18wpYSezp/s8GsU9eYvWGA8wgNqeAtcTp
-	RSeh7ujlkPi4w7iLkQPIdpGY01IAERaWeHV8C1SJlMTL/jYoO15idd9VFgg7Q+Lur4lQ4+0l
-	DlyZwwIyhllAU2L9Ln2IsKzE1FPrwC5jFuCT6P0NcaWEAK/EjnkwtrLE39fXoEZKSmxb+h5q
-	lYfElEUHWCGB0sco8fv1OeYJjHKzEFYsYGRcxSiZWlCcm55abFpglJdaDo+25PzcTYzgpKnl
-	tYPx4YMPeocYmTgYDzFKcDArifC21W9JF+JNSaysSi3Kjy8qzUktPsRoCgy+icxSosn5wLSd
-	VxJvaGJpYGJmZmZiaWxmqCTO27yzJV1IID2xJDU7NbUgtQimj4mDU6qBaY3WxxzB2YZrhGs3
-	aVlY3VnRYSXZE1Rrcbz4R4+24LRQQYt/C4TL3rxo693BumnNMnGb8ubJTtvzL0hecpOYekI5
-	wU9138r2BT91ZqV47Y1ds6rg3b6XmnHxm9feLNqj+PhR/geFo/5q93o1dj+Sd7vc/M71zUzx
-	5GhXQ5kI0TOP/9Tt+h8ZPKNsecn7xsIrJh+9Zb013nW/NGEx5KlK7+opOXon9NTrDrUM18Xf
-	+VLdym0dzTKViuJ/x9TM6nC5sbmhyNB5WVqlsqVttCH/F/FfyW8qHujNPFh05/l285+zJ8W8
-	235EfxvDL4abV7csZ50is+bM0+q87TqXPfWq118QnezeEl3UINX+6qSzEktxRqKhFnNRcSIA
-	h18gsCMEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrBLMWRmVeSWpSXmKPExsWy7bCSvK7znW3pBo1dVhYP5m1js1iz9xyT
-	xfwj51gtbh7YyWRx5NQSJouXs+6xWWx6fI3V4uGrcIvLu+awWcw4v4/J4tgCMYtFW7+wWzz8
-	sIfd4siZF8wW//fsYLf4svEmu4OAx85Zd9k9Nq3qZPPYvKTeo2/LKkaPf01z2T0+b5ILYIvi
-	sklJzcksSy3St0vgyni+YQ1LwTvViqM717M2MG6Q72Lk5JAQMJG40vmJvYuRi0NIYDejRP+M
-	FlaIhKTEp+apULawxMp/z6GKPjFKXP4ymxEkwSagIXF9xXawhIhAH6PEhu2tLCAOs8ByJokF
-	BxrAqoQFIiQ+vLvDAmKzCKhKHFr3DSzOK2Alsaf7PxvECnmJ1RsOMIPYnALWEqcXnWQHsYWA
-	ao6cvsc+gZFvASPDKkbJ1ILi3PTcZMMCw7zUcr3ixNzi0rx0veT83E2M4MDW0tjB+O5bk/4h
-	RiYOxkOMEhzMSiK8bfVb0oV4UxIrq1KL8uOLSnNSiw8xSnOwKInzrjSMSBcSSE8sSc1OTS1I
-	LYLJMnFwSjUwOUaZ84bLyDheslJdr8x8utHYJGSL0aUZZd6rIr3euv2pZGFXsLCK0XV24xJ4
-	tKHpzJdbZw8ed/5b8e2G8rRSw68JC1R939Vb3eC2f3ghvXTh+/i06I6uJSb29XZsM89PXBuc
-	9WQu064NP/Lk+i9tPHRPblv9celjccfSNrYsTRbfWstpsrDK6seEmZE92Tku6m8EzpvHlx78
-	pNyY9HXOTK0f7Ile5YE7d858KqcgsmDV38Pznu5tsjY2/vW4R6ZVfEfHaa8yBYb58p9fvfjL
-	yyKyWm67I/v1gIVSPydN3ui30bz3Qmh2z5OgyN/FgVc22J89aNXuOG03r/MV53cyRg21zGeZ
-	Ly75JxL4JUteiaU4I9FQi7moOBEA6ti4N9sCAAA=
-X-CMS-MailID: 20250220073948epcas5p1d90c5111fda1ccc4395dbe918066caca
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250220073948epcas5p1d90c5111fda1ccc4395dbe918066caca
-References: <20250220073527.22233-1-swathi.ks@samsung.com>
-	<CGME20250220073948epcas5p1d90c5111fda1ccc4395dbe918066caca@epcas5p1.samsung.com>
+	Thu, 20 Feb 2025 09:20:44 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-abbda4349e9so116961366b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 01:20:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740043242; x=1740648042; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=TJFLBjsE/w48uQWEE/sJf25WWFt47cr8Ziom4yxnO9I=;
+        b=lIBI3bVahYaINDhtvAONBVTWb0K838w7VirCBWZeuLRsoN/KvFKvZ1FKYqCTeAQxv5
+         WcLxCv6dAk9OHrGLYuKt/i4HQrqewCf7ErN6SgDupDtlNWPFaf4eB0oNVka173+IfQ2Z
+         LlZ/EQvza07TfWzcWJoNivWPphM4qoeW2a+pJvayPtqg25YW0Xlx2poPHK67dHIuXxDf
+         xo5Cdvsv9hPHsrDsu+ksCv0Xd2ZfcTklbpEYliFMnvwp/3fYlvJzbjL7v2E4t82fFQQX
+         TbvauavKpx6+zeUBoIxA00SQ7MFaSqRKKEFqukEzJGthvSiod6urRTr5zI7iBtfZL3NA
+         zAfA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740043242; x=1740648042;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TJFLBjsE/w48uQWEE/sJf25WWFt47cr8Ziom4yxnO9I=;
+        b=q+zIaWrWFSvUaJIVcYEbDWQQaBVEYgQMmOFUys2lwvZ/kFJopLUWR3+veI1z1hdvRj
+         Aymls5NyQr+ZSN2c6uWGCVyABURR0WI6B8iGxDx2R8llNX8WRQ3RmKxNuLgZew/F/15T
+         +hmupCPhg+dOhuYsBZsX3KnDRI8u+9Ac4Gz80jRTn5omQlSgUtfPIHweZNuSj+dE0U0N
+         8Kd+f/rP2ZCklHg5YdPs5Eft61gVi449E9PYelZ0usf1CNs2bDBs651G10DmbKB1DZJ4
+         VXBWZjBJdOb6M3In7Q2/QWgrgojAi8GzWFSvk9C5+FgRd69GmPOtDIaVY042SQB998j8
+         X8JA==
+X-Forwarded-Encrypted: i=1; AJvYcCW3OVqzush3c5XCIZ3k0nyyD4XhfjpW93LgqgjP0bOR4r6lOaU7XuiVFfkM5E56M+9B2m1BgdRcWEXicUsHTh9a@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy73a+GQmYE7AwSLVJJTp+9M6PsnbDB8V1XlpaSrw6hEqtqW7qJ
+	ZrtoTmLaSK4XEQx+r/uyi6PpPIrsFkUCVTtRuN1H9XUGlVb5hbgm
+X-Gm-Gg: ASbGncv6RuVkAoLz4tf43tzl4IZ4iksRWLoi5i8UeIbtQXLBgHYoEGXNLSjPeGjBBWJ
+	jqsvqpyOMnaSVMUj3zwN4vjyHKSVb7rEMon2XT952rXvbGTpq85Hgd/ova1nrfD3nRT7545XaBm
+	OPESCIfhB+jXlpqCYy3acjHUfBj2WzakaIFR4yhSNXZeucj/gyAuY8BXhZ/6YHASBEMdu/xpZ1N
+	cg2SJ4EzSrP1jwmJ/nEAqBd0+BVYPqqgu8M3wkAJwdnKeJwdtq3xhg0Cp2+WrQ+GXv7ehGGu130
+	WNF7+jFk5lRgD88jIyD52zsiAoBi
+X-Google-Smtp-Source: AGHT+IFH77Toh5BLoa/DoGQILLeWN9qsNu4stk384IN/rlsikDaMIRUYzdJmJUURfmK0ptNDuRXjEA==
+X-Received: by 2002:a17:907:930a:b0:ab7:e7c5:b373 with SMTP id a640c23a62f3a-abb70e3b378mr2010338266b.55.1740043241671;
+        Thu, 20 Feb 2025 01:20:41 -0800 (PST)
+Received: from demon-pc.localdomain ([188.27.130.21])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abba358ec3asm665574866b.35.2025.02.20.01.20.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Feb 2025 01:20:41 -0800 (PST)
+From: Cosmin Tanislav <demonsingur@gmail.com>
+To: 
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Julien Massot <julien.massot@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Bingbu Cao <bingbu.cao@intel.com>,
+	Tianshu Qiu <tian.shu.qiu@intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Umang Jain <umang.jain@ideasonboard.com>,
+	Cosmin Tanislav <demonsingur@gmail.com>,
+	=?UTF-8?q?Pawe=C5=82=20Anikiel?= <panikiel@google.com>,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2 0/3] media: add v4l2_subdev_state_xlate_streams()
+Date: Thu, 20 Feb 2025 11:20:32 +0200
+Message-ID: <20250220092036.6757-1-demonsingur@gmail.com>
+X-Mailer: git-send-email 2.48.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_011341_052235_3B7EC53F 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20250220_012043_691584_2DA640AC 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,150 +111,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The FSD SoC contains two instances of Synopsys DWC QoS Ethernet IP, one in
-FSYS0 block and other in PERIC block.
-The ethernet interface is connected to a switch which is not managed by
-Linux.
+Currently, the v4l2_subdev_state_xlate_streams() function is used
+to translate streams from one pad to another.
+This function takes the entire subdev state as argument, but only makes
+use of the routing.
 
-Adds device tree node for Ethernet in PERIC Block and enables the same for
-FSD platform.
+Introduce a v4l2_subdev_routing_xlate_streams() function which can be
+used without the entire subdev state, to avoid passing the entire state
+around when not needed.
 
-Signed-off-by: Pankaj Dubey <pankaj.dubey@samsung.com>
-Signed-off-by: Jayati Sahu <jayati.sahu@samsung.com>
-Signed-off-by: Swathi K S <swathi.ks@samsung.com>
----
- arch/arm64/boot/dts/tesla/fsd-evb.dts      | 10 ++++
- arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi | 56 ++++++++++++++++++++++
- arch/arm64/boot/dts/tesla/fsd.dtsi         | 27 +++++++++++
- 3 files changed, 93 insertions(+)
+Convert all usages of v4l2_subdev_state_xlate_streams() to
+v4l2_subdev_routing_xlate_streams().
 
-diff --git a/arch/arm64/boot/dts/tesla/fsd-evb.dts b/arch/arm64/boot/dts/tesla/fsd-evb.dts
-index 321270a07651..9ff22e1c8723 100644
---- a/arch/arm64/boot/dts/tesla/fsd-evb.dts
-+++ b/arch/arm64/boot/dts/tesla/fsd-evb.dts
-@@ -74,6 +74,16 @@
- 	};
- };
- 
-+&ethernet1 {
-+	status = "okay";
-+
-+	phy-mode = "rgmii-id";
-+	fixed-link {
-+		speed = <1000>;
-+		full-duplex;
-+	};
-+};
-+
- &fin_pll {
- 	clock-frequency = <24000000>;
- };
-diff --git a/arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi b/arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi
-index cb437483ff6e..6f4658f57453 100644
---- a/arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi
-@@ -437,6 +437,62 @@
- 		samsung,pin-pud = <FSD_PIN_PULL_DOWN>;
- 		samsung,pin-drv = <FSD_PIN_DRV_LV4>;
- 	};
-+
-+	eth1_tx_clk: eth1-tx-clk-pins {
-+		samsung,pins = "gpf2-0";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_DOWN>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
-+	};
-+
-+	eth1_tx_data: eth1-tx-data-pins {
-+		samsung,pins = "gpf2-1", "gpf2-2", "gpf2-3", "gpf2-4";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
-+	};
-+
-+	eth1_tx_ctrl: eth1-tx-ctrl-pins {
-+		samsung,pins = "gpf2-5";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
-+	};
-+
-+	eth1_phy_intr: eth1-phy-intr-pins {
-+		samsung,pins = "gpf2-6";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV4>;
-+	};
-+
-+	eth1_rx_clk: eth1-rx-clk-pins {
-+		samsung,pins = "gpf3-0";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
-+	};
-+
-+	eth1_rx_data: eth1-rx-data-pins {
-+		samsung,pins = "gpf3-1", "gpf3-2", "gpf3-3", "gpf3-4";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
-+	};
-+
-+	eth1_rx_ctrl: eth1-rx-ctrl-pins {
-+		samsung,pins = "gpf3-5";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
-+	};
-+
-+	eth1_mdio: eth1-mdio-pins {
-+		samsung,pins = "gpf3-6", "gpf3-7";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV4>;
-+	};
- };
- 
- &pinctrl_pmu {
-diff --git a/arch/arm64/boot/dts/tesla/fsd.dtsi b/arch/arm64/boot/dts/tesla/fsd.dtsi
-index 01850fbf761f..f96a69e25156 100644
---- a/arch/arm64/boot/dts/tesla/fsd.dtsi
-+++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
-@@ -979,6 +979,33 @@
- 			memory-region = <&mfc_left>;
- 		};
- 
-+		ethernet1: ethernet@14300000 {
-+			compatible = "tesla,fsd-ethqos";
-+			reg = <0x0 0x14300000 0x0 0x10000>;
-+			interrupts = <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			clocks = <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_CLK_PTP_REF_I>,
-+				 <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_ACLK_I>,
-+				 <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_HCLK_I>,
-+				 <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_RGMII_CLK_I>,
-+				 <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_CLK_RX_I>,
-+				 <&clock_peric PERIC_BUS_D_PERIC_IPCLKPORT_EQOSCLK>,
-+				 <&clock_peric PERIC_BUS_P_PERIC_IPCLKPORT_EQOSCLK>,
-+				 <&clock_peric PERIC_EQOS_PHYRXCLK_MUX>,
-+				 <&clock_peric PERIC_EQOS_PHYRXCLK>,
-+				 <&clock_peric PERIC_DOUT_RGMII_CLK>;
-+			clock-names = "ptp_ref", "master_bus", "slave_bus", "tx", "rx",
-+				      "master2_bus", "slave2_bus", "eqos_rxclk_mux",
-+				      "eqos_phyrxclk", "dout_peric_rgmii_clk";
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&eth1_tx_clk>, <&eth1_tx_data>, <&eth1_tx_ctrl>,
-+				    <&eth1_phy_intr>, <&eth1_rx_clk>, <&eth1_rx_data>,
-+				    <&eth1_rx_ctrl>, <&eth1_mdio>;
-+			local-mac-address = [00 00 00 00 00 00];
-+			iommus = <&smmu_peric 0x0 0x1>;
-+			status = "disabled";
-+		};
-+
- 		ufs: ufs@15120000 {
- 			compatible = "tesla,fsd-ufs";
- 			reg = <0x0 0x15120000 0x0 0x200>,  /* 0: HCI standard */
+Remove v4l2_subdev_state_xlate_streams().
+
+V2:
+  * Fix description of parameters
+
+Cosmin Tanislav (3):
+  media: v4l: subdev: add v4l2_subdev_routing_xlate_streams()
+  media: use v4l2_subdev_routing_xlate_streams()
+  media: v4l: subdev: remove v4l2_subdev_state_xlate_streams()
+
+ drivers/media/i2c/ds90ub913.c                 | 14 ++++++-----
+ drivers/media/i2c/ds90ub953.c                 | 14 ++++++-----
+ drivers/media/i2c/max96714.c                  | 16 ++++++-------
+ drivers/media/i2c/max96717.c                  | 23 ++++++++++---------
+ drivers/media/pci/intel/ipu6/ipu6-isys-csi2.c | 14 ++++++-----
+ .../platform/nxp/imx8-isi/imx8-isi-crossbar.c |  2 +-
+ drivers/media/v4l2-core/v4l2-subdev.c         |  7 +++---
+ include/media/v4l2-subdev.h                   | 10 ++++----
+ 8 files changed, 53 insertions(+), 47 deletions(-)
+
 -- 
-2.17.1
+2.48.1
 
 
