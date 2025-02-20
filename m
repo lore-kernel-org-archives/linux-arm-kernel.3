@@ -4,75 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E30CBC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 18:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA358C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 18:27:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6mDFWeFiBnggM0q33dy7QHU1iHnKTw37iAO5Rp5b8ck=; b=sN65Enb1bGEKJ7Pao1Nk9Az52T
-	u2VRsFgEvpXHom7dy/w4QecXTrOrtFlPreau7C1q1W4jWprFSYUL+Up5oKqfEPXOp3mO/l9i6eFn2
-	/4W5W7CZVakgtsFkuvDgvr8vNUDJgS3PbCruSiMHleRWIiBKDbZzvhqKolzsVH6GndhuvBFvXe2ju
-	BveY/feZAVU3ki8ppPazvdqZ/JkvwWPMN47BbvsgUfHlMushfu47ee3oLsP76CLMa+JX+g//wp1tq
-	rWR9IlXXE8WHTUY5QGTGXuWJ2EknMEveZC9K7a9jWUcvjbKdKZgGrwquepGqwbc2NTR5rGSoId4RX
-	dR4yQ/rQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6UFXIL04L3g/FVsQnKVA9y48WlZfw6n4fIx2g65MX/M=; b=N76Qda7BJEy1RcSwNeFz/OBpFR
+	pjmoLxz0ntHA8lA92XSWaWSVmfcQnSJUZXjdz7R/D8tc9/mlQ+J6+GZzaCSZVJakYzRTVt7n3Ugdv
+	auJOwO9YPVnVxd4KsiFNxXg8BfxwYZsYG5wB43p/ciHbu91b5KGPfbMOA9xG48gHwgk/jQvZa83Zs
+	8IwhgVqhhoZq9ngGBrel1fS65+S8FcjlHSvFuLalKWO73sNvSTJgYtAZMIs/eiqMRTu1tAwNRoUHd
+	TVLpVBuB7GdpDTpPhY+4pPx1IKkXhus9j8ZEh+9ldtpVNNtmChg1S8f4QsZV7YYtvzIQnT7gorkfC
+	zXFnrzlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlBEh-00000002Lvc-06OV;
-	Thu, 20 Feb 2025 18:25:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tlBGA-00000002MQs-3uwr;
+	Thu, 20 Feb 2025 18:26:54 +0000
+Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlBBp-00000002LEY-0x3J
+	id 1tlB50-00000002JhT-3rl9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 18:22:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 710455C5DC0;
-	Thu, 20 Feb 2025 18:21:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9B6FC4CEE2;
-	Thu, 20 Feb 2025 18:22:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740075743;
-	bh=qfyPCheNrKkjIY1NJs7HY2hFww1UAkOPsdSQgC6ryyc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ConAiYNJs/H+eqN0mjIKdukO5HQikG3jpBnEA92mtahA1koFY9XlNX1AlO5+0sBQM
-	 iVKA7sqDYVhXNF8keZpoysRAwqUywv55Lh3TmYDw0JrlVrGq+lj38UOVFAd1AWiH2O
-	 rNew6H9Yy4Kb2cigj6gxch7tgilcLPmLMSYtSnZ5k7KfheKEJgq6v//b9KlGON0KJr
-	 wBWmXWpTJd+gsrKJOHOwx7EKHv/ulA+JtRMIH+9U7z0KLEWHigggw4K7rOR4tyRke1
-	 9Ll4WOTKelBT1hzyLcAjW4wXxAQ8KiKXeVeqpHFL1LXs6H9tz0jseV+5eTrdRST/DH
-	 XF302k9wjkfZg==
-Date: Thu, 20 Feb 2025 10:22:21 -0800
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Song Liu <song@kernel.org>
-Cc: Puranjay Mohan <puranjay@kernel.org>, Weinan Liu <wnliu@google.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Indu Bhagat <indu.bhagat@oracle.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>, roman.gushchin@linux.dev,
-	Will Deacon <will@kernel.org>, Ian Rogers <irogers@google.com>,
-	linux-toolchains@vger.kernel.org, linux-kernel@vger.kernel.org,
-	live-patching@vger.kernel.org, joe.lawrence@redhat.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/8] unwind, arm64: add sframe unwinder for kernel
-Message-ID: <20250220182221.vdmmnoyvc2do5mnn@jpoimboe>
-References: <CAPhsuW6dxPtgqZaHrZEVhQXwm2+sETreZnGybZXVKYKfG9H6tg@mail.gmail.com>
- <20250214193400.j4hp45jlufihv5eh@jpoimboe>
- <CAPhsuW6q+yhn0pGQb0K+RhXHYDkjEgomZ2pu3P_MEeX+xNRe0g@mail.gmail.com>
- <20250214232342.5m3hveygqb2qafpp@jpoimboe>
- <CAPhsuW48h11yLuU7uHuPgYNCzwaxVKG+TaGOZeT7fR60+brTwA@mail.gmail.com>
- <20250218063702.e2qrpjk4ylhnk5s7@jpoimboe>
- <CAPhsuW5ZauBrSz11cvVtG5qQBfNmbcwPgMf=BScHtyZfHvK4FQ@mail.gmail.com>
- <20250218184059.iysrvtaoah6e4bu4@jpoimboe>
- <CAPhsuW4pd8gEiRNj920kO8c4JuEWoXT=MhFK-nWvJZ9QseefaQ@mail.gmail.com>
- <CAPhsuW57xpR1YZqENvDr0vNZGVrq4+LUzPRA-wZipurTTy7MmA@mail.gmail.com>
+	Thu, 20 Feb 2025 18:15:24 +0000
+Received: by mail-oi1-x235.google.com with SMTP id 5614622812f47-3f3fa5699a1so617981b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 10:15:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1740075322; x=1740680122; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=6UFXIL04L3g/FVsQnKVA9y48WlZfw6n4fIx2g65MX/M=;
+        b=MN9GacIkbNs0A4/gPphk/0X+LNluxaH2ALmz/9Lg2aCHnYZpzQ5lvh0eRyB2ZaYXMK
+         BGF3Y5Up6N5FpT4/7JIZg+uGv+2Zb2Vf0mLfG9/+3qN+1ukh0E+ely1rfq1brguYm9cQ
+         dFsTbNYNamCpZEagj95EEba6wN3a5jEdBvdFo=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740075322; x=1740680122;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6UFXIL04L3g/FVsQnKVA9y48WlZfw6n4fIx2g65MX/M=;
+        b=N7OoPq1j7UMmMDq0fvambQr0dgvPJg2oNw1THXAF/UWuh4Pb9NHi0fvCBGVqqlTIA6
+         +oXflJOYx/MS0vzHPi5x9W74TQPiHBoUo46oU4x0YlT6PejJUz5ffIEGG7GhM384+xwj
+         8eck5q5QUWvTWJuUyB5I9qjDExxdu01I+PlK1w1exWatorxeZY/Lja+tV1ne7w2SPuPP
+         njWYgB+AEsrtvCULUfnI146aZMhCR1O7YDjDGSiETGSbs8ShKaNJ5VBCitGrCvMO5RDs
+         0K5iQmtg8KqArGC5iwoTApkv2N8RAZDLxJVUt+u90AzF9FAivtWyPaU8PTPjwASUXgDp
+         Xc0g==
+X-Forwarded-Encrypted: i=1; AJvYcCX1f8hXCynIU1ulH+iMuSO/Bn9vi3ukfnyBsUjrLwrvl47PnceRypmnOv+9aAfpF3hVxXJAi2mqTscKj6Dyr6Wk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4qfalgaVvFKxZBEwvtuI4ZvVwhlvJD2ISYH8n9087puD+admf
+	xyrLyGX0dKzXHY91D5q53vnq5z6ttwDnK6A1TpYFCC8y/A2MIn2KdtJdrCzh5w==
+X-Gm-Gg: ASbGncvjXx+J1XkudxBuak/wztWrOUP2kUSlJLkVOWlvCaIFC/ifnlM1hQ2PkREmjfT
+	VHIGKvNFuiXzvXwPHsl2c0v5mgYQJj+fp4rc7VXHYU1cGM8vZMzDtQ/d+HrNZyO9nvGwJjBGiOR
+	mBciB5bQByu/O64HSqUkRrgWyZN44zQnZlAhVK3vaXAvlMbaBxP+eL5Pw3smHu9cozRpRNF681D
+	Y+ajw3POijxFFs8fPAb9VzmsSlHtHGbwGNxFHuQbvxthXKM8YC+tifgNibs6JRUAhqVPK+zOvGs
+	4aewLTOLlAQBIzBmTaXQlnDNMjLzVTyk7um5zOmt0cJE6ItgHcla+35pTxqN4H1mAA==
+X-Google-Smtp-Source: AGHT+IFxuMVGZnR6zXdAwNzj8TJU1uFl8s8BTcJU5O0Y143Y+vhX1OrwKJZmy3+uU21vvgt7J9jEmQ==
+X-Received: by 2002:a05:6808:2181:b0:3f4:2023:f10c with SMTP id 5614622812f47-3f4247d8a9bmr289403b6e.32.1740075321821;
+        Thu, 20 Feb 2025 10:15:21 -0800 (PST)
+Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-3f3f9ce7493sm2600909b6e.45.2025.02.20.10.15.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Feb 2025 10:15:20 -0800 (PST)
+Message-ID: <34e6fa99-71be-4e39-a0da-893cdcf12eca@broadcom.com>
+Date: Thu, 20 Feb 2025 10:15:16 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <CAPhsuW57xpR1YZqENvDr0vNZGVrq4+LUzPRA-wZipurTTy7MmA@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 7/8] PCI: brcmstb: Make two changes in MDIO register
+ fields
+To: Jim Quinlan <james.quinlan@broadcom.com>, linux-pci@vger.kernel.org,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+ Cyril Brulebois <kibi@debian.org>, Stanimir Varbanov <svarbanov@suse.de>,
+ bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Rob Herring <robh@kernel.org>,
+ "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+ <linux-rpi-kernel@lists.infradead.org>,
+ "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20250214173944.47506-1-james.quinlan@broadcom.com>
+ <20250214173944.47506-8-james.quinlan@broadcom.com>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250214173944.47506-8-james.quinlan@broadcom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_102225_309797_64092EFA 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20250220_101522_964560_71E0E125 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,22 +143,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 08:50:09PM -0800, Song Liu wrote:
-> Indu, is this behavior (symbols with same name are not in
-> sorted order from readelf -s) expected? Or is this a bug?
-> I am using this gcc:
+
+
+On 2/14/2025 9:39 AM, Jim Quinlan wrote:
+> The HW team has decided to "tighten" some field definitions in the MDIO
+> packet format.  Fortunately these two changes may be made in a backwards
+> compatible manner.
 > 
-> $ gcc --version
-> gcc (GCC) 14.2.1 20240801 (Red Hat 14.2.1-1)
-> Copyright (C) 2024 Free Software Foundation, Inc.
-> This is free software; see the source for copying conditions.  There is NO
-> warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+> The CMD field used to be 12 bits and now is one.  This change is backwards
+> compatible because the field's starting bit position is unchanged and the
+> only commands we've used have values 0 and 1.
+> 
+> The PORT field's width has been changed from four to five bits.  When
+> written, the new bit is not contiguous with the other four.  Fortunately,
+> this change is backwards compatible because we have never used anything
+> other than 0 for the port field's value.
+> 
+> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
 
-Are you using different binutils versions as well?
-
-It sounds like a linker "issue" to me.  I'm not sure if it qualifies as
-a bug, the linker might be free to layout symbols how it wishes.
-
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
-Josh
+Florian
+
 
