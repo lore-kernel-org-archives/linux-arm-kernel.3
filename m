@@ -4,50 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD500C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 13:58:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 056C2C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ip1WsbEJTMycwVxUxR+L4TiBaWyj1XMo8ATzil3InR4=; b=eqjvTGnikr90LNz3Wta8xVILME
-	31eGNs8aMccxSbYO7GM3pmj+2iwkGiKWTfXsPoAWddUVtfPmWcvszJdS87DDVHUXtD53cH5avQ/KH
-	KSoSNdk1rBX9iIDtuYv7BJOgKbW/4NNmzvf0wvdY8qWNF7TDlxtN7qRnHzjVUVHg1oHLmZId4w/1C
-	77zTdF8YJhCda8C/j3iingQl0sYP+hUdist/f5ZeSU7H5gtzOW107DVKZnaWcQoL3WHY1K70eKj8k
-	KNNdq/dOHBT/NKUvQVN2M8FDlyiJKuCof9ORob+YwMvgaGCdZ2Ae4lEHydGOotLWjpEVdzSNermvx
-	9sFW3Myw==;
+	bh=hGsZ4tHaS7L/mqVU3EtMopiFDm7RELnWlt6gZ0yIYjQ=; b=mYulxA/6QwNE/QPKEW1/FQssVg
+	Fap1kmrSo1r87T2tVVMGNNETan31LfhkNJI8JGNsGDBwwi7B+h9i1etPW4SrxOBAzp/LpYJvXI/Qo
+	2u8/QzWULYarrwBrZZzG0BUrClp7Atdm0bTYVsY3dp9zWByb4mYl5Q6EOkvOvFZ3gFC6DhcrmuEFY
+	2QbVHqA/EhCHFv0uHhe7VtWPNXc0ScZcaU2xQoU8fGax0yk40Fj027uglr0R78dEIL1MysamEEVxe
+	NV2J0a0iPHai4klO39xd3m+zWOEmFxlVrIwKHCrSaXa2ND6tX35Enj75Ci3RckY/17+UlFF+LhNLR
+	qTmq4PDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl74H-00000001B8z-2jLb;
-	Thu, 20 Feb 2025 13:58:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tl75l-00000001BXG-1IFF;
+	Thu, 20 Feb 2025 13:59:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl6vU-000000018io-2hPf
+	id 1tl6vY-000000018kM-3xMI
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 20 Feb 2025 13:49:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=hGsZ4tHaS7L/mqVU3EtMopiFDm7RELnWlt6gZ0yIYjQ=; b=nqx0k3LEdrgdvu4AuKwwj1sqUq
+	yOuGDjUUMGv2KpPCHVvx0Xkz4QMvyhN305KBEzyzWxlNluI/W6ytd1NBENWR7/l4OXVTq2VuaAh1R
+	8dzb7a3+7lSJLPZjUUoZiitnh8WHL+KwIpTEjKeWvdq19iuAzsFYNHe0it7TTdGc5O/g4SqFp9fY5
+	9rC4a6f97sk0TpclzquV0Y5aCVlfXW9SUP68A7MdnPdLIm8r9kTdmj68+n/9YRCV4s97oYOlwv/jG
+	Oie6vznU9HMlnkpHSU9R9mS2sXQa0H882oQpI5jpHmh25g/s9eeh1o3wvHEZ351XUxlQFyvf+PS8o
+	IvD/huww==;
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tl6vV-00000002RnH-3d1J
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 13:49:17 +0000
+	Thu, 20 Feb 2025 13:49:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C0E3D61462;
+	by tor.source.kernel.org (Postfix) with ESMTP id 56B1561456;
 	Thu, 20 Feb 2025 13:49:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC56FC4CEE3;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0A9CC4CEDD;
 	Thu, 20 Feb 2025 13:49:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740059355;
-	bh=56SIWRxmkIc0NGhh9uSDjlX1Hg9JEfvHAZmk7x9h1hQ=;
+	s=k20201202; t=1740059354;
+	bh=hLX78IQJhSjho4blNERHsZLoh+IQBUydLUQRnCHy3Bg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kf8BbQllYPYbt7gRXKiEdUNhhJc6yd7EGVYzJlR3p0iSwCyMyGcKaeR/Dso1gNEiM
-	 KNnuVZxdxNNawXSSe2FKwsZIewHm690uSk39rZWDNP0ZnhbDjbkEn2dUvDYhr2UWfB
-	 ye/R0mYnNX2TswLSbQ5enu8SaQaNIQI5khL0w9nJca2cnNlhfu8hwa13+q+rmxZ2LG
-	 GAtmR0Xj6/TWf6N5TGYDBBGlMW8F0qcnFZ5R0G0PennML2btfTb1eYTbx4LWIybgH3
-	 jD9hkn9OaYK/hLTZkQAfkLHj4+DcSom4WCiU5+WhXIyYupRU1i3BF8OWHkIlD9tze+
-	 0bS7MSHiZEKQg==
+	b=iPYIIRTNVqeMFiMlGsrveziYs/FAPq/tsRf1aGRuKJWBjsBpcqrUq7ZXO0FCA/1dV
+	 4O5p8lUcoyxepZOSqU9fsMZFdMlO8oKymJTf2SPpVQOTCqSsZ+TbmoNwQOH6mBoIeb
+	 pAvs/K/diNS3rID6Wg5OsBKTyy9aGOhTKipYejkwiOWCNp34o9EynI5VaocOY1FxlZ
+	 AsHkHGvw5dHy6jsy7qqIj83v3WPV042D1lIp93SF/AnH/akMfMIVhtBBeemYv/RURK
+	 laWUV9zzz+LcwwtFlTa3QtMKGu6L5N+gEqb2E866P8db9jDbSVTqQD3GXNQU8TcE19
+	 /qfUBc920zGxg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tl6vR-006DXp-6B;
-	Thu, 20 Feb 2025 13:49:13 +0000
+	id 1tl6vQ-006DXp-QN;
+	Thu, 20 Feb 2025 13:49:12 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +73,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>,
 	gankulkarni@os.amperecomputing.com
-Subject: [PATCH v2 08/14] KVM: arm64: Enforce NV limits on a per-idregs basis
-Date: Thu, 20 Feb 2025 13:49:01 +0000
-Message-Id: <20250220134907.554085-9-maz@kernel.org>
+Subject: [PATCH v2 06/14] KVM: arm64: Consolidate idreg callbacks
+Date: Thu, 20 Feb 2025 13:48:59 +0000
+Message-Id: <20250220134907.554085-7-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250220134907.554085-1-maz@kernel.org>
 References: <20250220134907.554085-1-maz@kernel.org>
@@ -71,8 +86,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_054916_784924_98649A0C 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250220_134918_330816_26BE3ACE 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,300 +102,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As we are about to change the way the idreg reset values are computed,
-move all the NV limits into a function that initialises one register
-at a time.
+Most of the ID_DESC() users use the same callbacks, with only a few
+overrides. Consolidate the common callbacks in a macro, and consistently
+use it everywhere.
 
-This will be most useful in the upcoming patches. We take this opportunity
-to remove the NV_FTR() macro and rely on the generated names instead.
+Whilst we're at it, give ID_UNALLOCATED() a .name string, so that we can
+easily decode traces.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/nested.c | 239 +++++++++++++++++++++++-----------------
- 1 file changed, 136 insertions(+), 103 deletions(-)
+ arch/arm64/kvm/sys_regs.c | 28 ++++++++++------------------
+ 1 file changed, 10 insertions(+), 18 deletions(-)
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 9f140560a6f5d..2cc82e69ab523 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -16,9 +16,6 @@
- 
- #include "sys_regs.h"
- 
--/* Protection against the sysreg repainting madness... */
--#define NV_FTR(r, f)		ID_AA64##r##_EL1_##f
--
- /*
-  * Ratio of live shadow S2 MMU per vcpu. This is a trade-off between
-  * memory usage and potential number of different sets of S2 PTs in
-@@ -807,133 +804,169 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
-  * This list should get updated as new features get added to the NV
-  * support, and new extension to the architecture.
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 9f10dbd26e348..678213dc15513 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2267,35 +2267,33 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+  * from userspace.
   */
-+static u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
-+{
-+	switch (reg) {
-+	case SYS_ID_AA64ISAR0_EL1:
-+		/* Support everything but TME */
-+		val &= ~ID_AA64ISAR0_EL1_TME;
-+		break;
-+
-+	case SYS_ID_AA64ISAR1_EL1:
-+		/* Support everything but LS64 and Spec Invalidation */
-+		val &= ~(ID_AA64ISAR1_EL1_LS64	|
-+			 ID_AA64ISAR1_EL1_SPECRES);
-+		break;
-+
-+	case SYS_ID_AA64PFR0_EL1:
-+		/* No RME, AMU, MPAM, S-EL2, or RAS */
-+		val &= ~(ID_AA64PFR0_EL1_RME	|
-+			 ID_AA64PFR0_EL1_AMU	|
-+			 ID_AA64PFR0_EL1_MPAM	|
-+			 ID_AA64PFR0_EL1_SEL2	|
-+			 ID_AA64PFR0_EL1_RAS	|
-+			 ID_AA64PFR0_EL1_EL3	|
-+			 ID_AA64PFR0_EL1_EL2	|
-+			 ID_AA64PFR0_EL1_EL1	|
-+			 ID_AA64PFR0_EL1_EL0);
-+		/* 64bit only at any EL */
-+		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, EL0, IMP);
-+		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, EL1, IMP);
-+		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, EL2, IMP);
-+		val |= SYS_FIELD_PREP_ENUM(ID_AA64PFR0_EL1, EL3, IMP);
-+		break;
-+
-+	case SYS_ID_AA64PFR1_EL1:
-+		/* Only support BTI, SSBS, CSV2_frac */
-+		val &= (ID_AA64PFR1_EL1_BT	|
-+			ID_AA64PFR1_EL1_SSBS	|
-+			ID_AA64PFR1_EL1_CSV2_frac);
-+		break;
-+
-+	case SYS_ID_AA64MMFR0_EL1:
-+		/* Hide ECV, ExS, Secure Memory */
-+		val &= ~(ID_AA64MMFR0_EL1_EVC		|
-+			 ID_AA64MMFR0_EL1_EXS		|
-+			 ID_AA64MMFR0_EL1_TGRAN4_2	|
-+			 ID_AA64MMFR0_EL1_TGRAN16_2	|
-+			 ID_AA64MMFR0_EL1_TGRAN64_2	|
-+			 ID_AA64MMFR0_EL1_SNSMEM);
-+
-+		/* Disallow unsupported S2 page sizes */
-+		switch (PAGE_SIZE) {
-+		case SZ_64K:
-+			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN16_2, NI);
-+			fallthrough;
-+		case SZ_16K:
-+			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN4_2, NI);
-+			fallthrough;
-+		case SZ_4K:
-+			/* Support everything */
-+			break;
-+		}
-+
-+		/*
-+		 * Since we can't support a guest S2 page size smaller
-+		 * than the host's own page size (due to KVM only
-+		 * populating its own S2 using the kernel's page
-+		 * size), advertise the limitation using FEAT_GTG.
-+		 */
-+		switch (PAGE_SIZE) {
-+		case SZ_4K:
-+			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN4_2, IMP);
-+			fallthrough;
-+		case SZ_16K:
-+			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN16_2, IMP);
-+			fallthrough;
-+		case SZ_64K:
-+			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR0_EL1, TGRAN64_2, IMP);
-+			break;
-+		}
-+
-+		/* Cap PARange to 48bits */
-+		val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64MMFR0_EL1, PARANGE, 48);
-+		break;
-+
-+	case SYS_ID_AA64MMFR1_EL1:
-+		val &= (ID_AA64MMFR1_EL1_HCX	|
-+			ID_AA64MMFR1_EL1_PAN	|
-+			ID_AA64MMFR1_EL1_LO	|
-+			ID_AA64MMFR1_EL1_HPDS	|
-+			ID_AA64MMFR1_EL1_VH	|
-+			ID_AA64MMFR1_EL1_VMIDBits);
-+		break;
-+
-+	case SYS_ID_AA64MMFR2_EL1:
-+		val &= ~(ID_AA64MMFR2_EL1_BBM	|
-+			 ID_AA64MMFR2_EL1_TTL	|
-+			 GENMASK_ULL(47, 44)	|
-+			 ID_AA64MMFR2_EL1_ST	|
-+			 ID_AA64MMFR2_EL1_CCIDX	|
-+			 ID_AA64MMFR2_EL1_VARange);
-+
-+		/* Force TTL support */
-+		val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR2_EL1, TTL, IMP);
-+		break;
-+
-+	case SYS_ID_AA64MMFR4_EL1:
-+		val = SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY);
-+		val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, E2H0, NI_NV1);
-+		break;
-+
-+	case SYS_ID_AA64DFR0_EL1:
-+		/* Only limited support for PMU, Debug, BPs, WPs, and HPMN0 */
-+		val &= (ID_AA64DFR0_EL1_PMUVer	|
-+			ID_AA64DFR0_EL1_WRPs	|
-+			ID_AA64DFR0_EL1_BRPs	|
-+			ID_AA64DFR0_EL1_DebugVer|
-+			ID_AA64DFR0_EL1_HPMN0);
-+
-+		/* Cap Debug to ARMv8.1 */
-+		val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64DFR0_EL1, DebugVer, VHE);
-+		break;
-+	}
-+
-+	return val;
-+}
-+
- static void limit_nv_id_regs(struct kvm *kvm)
- {
--	u64 val, tmp;
-+	u64 val;
  
--	/* Support everything but TME */
- 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64ISAR0_EL1);
--	val &= ~NV_FTR(ISAR0, TME);
-+	val = limit_nv_id_reg(kvm, SYS_ID_AA64ISAR0_EL1, val);
- 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64ISAR0_EL1, val);
++#define ID_DESC_DEFAULT_CALLBACKS		\
++	.access	= access_id_reg,		\
++	.get_user = get_id_reg,			\
++	.set_user = set_id_reg,			\
++	.visibility = id_visibility,		\
++	.reset = kvm_read_sanitised_id_reg
++
+ #define ID_DESC(name)				\
+ 	SYS_DESC(SYS_##name),			\
+-	.access	= access_id_reg,		\
+-	.get_user = get_id_reg			\
++	ID_DESC_DEFAULT_CALLBACKS
  
--	/* Support everything but Spec Invalidation and LS64 */
- 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64ISAR1_EL1);
--	val &= ~(NV_FTR(ISAR1, LS64)	|
--		 NV_FTR(ISAR1, SPECRES));
-+	val = limit_nv_id_reg(kvm, SYS_ID_AA64ISAR1_EL1, val);
- 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64ISAR1_EL1, val);
+ /* sys_reg_desc initialiser for known cpufeature ID registers */
+ #define ID_SANITISED(name) {			\
+ 	ID_DESC(name),				\
+-	.set_user = set_id_reg,			\
+-	.visibility = id_visibility,		\
+-	.reset = kvm_read_sanitised_id_reg,	\
+ 	.val = 0,				\
+ }
  
--	/* No AMU, MPAM, S-EL2, or RAS */
- 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1);
--	val &= ~(GENMASK_ULL(55, 52)	|
--		 NV_FTR(PFR0, AMU)	|
--		 NV_FTR(PFR0, MPAM)	|
--		 NV_FTR(PFR0, SEL2)	|
--		 NV_FTR(PFR0, RAS)	|
--		 NV_FTR(PFR0, EL3)	|
--		 NV_FTR(PFR0, EL2)	|
--		 NV_FTR(PFR0, EL1)	|
--		 NV_FTR(PFR0, EL0));
--	/* 64bit only at any EL */
--	val |= FIELD_PREP(NV_FTR(PFR0, EL0), 0b0001);
--	val |= FIELD_PREP(NV_FTR(PFR0, EL1), 0b0001);
--	val |= FIELD_PREP(NV_FTR(PFR0, EL2), 0b0001);
--	val |= FIELD_PREP(NV_FTR(PFR0, EL3), 0b0001);
-+	val = limit_nv_id_reg(kvm, SYS_ID_AA64PFR0_EL1, val);
- 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR0_EL1, val);
+ /* sys_reg_desc initialiser for known cpufeature ID registers */
+ #define AA32_ID_SANITISED(name) {		\
+ 	ID_DESC(name),				\
+-	.set_user = set_id_reg,			\
+ 	.visibility = aa32_id_visibility,	\
+-	.reset = kvm_read_sanitised_id_reg,	\
+ 	.val = 0,				\
+ }
  
--	/* Only support BTI, SSBS, CSV2_frac */
- 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64PFR1_EL1);
--	val &= (NV_FTR(PFR1, BT)	|
--		NV_FTR(PFR1, SSBS)	|
--		NV_FTR(PFR1, CSV2_frac));
-+	val = limit_nv_id_reg(kvm, SYS_ID_AA64PFR1_EL1, val);
- 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64PFR1_EL1, val);
+ /* sys_reg_desc initialiser for writable ID registers */
+ #define ID_WRITABLE(name, mask) {		\
+ 	ID_DESC(name),				\
+-	.set_user = set_id_reg,			\
+-	.visibility = id_visibility,		\
+-	.reset = kvm_read_sanitised_id_reg,	\
+ 	.val = mask,				\
+ }
  
--	/* Hide ECV, ExS, Secure Memory */
- 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64MMFR0_EL1);
--	val &= ~(NV_FTR(MMFR0, ECV)		|
--		 NV_FTR(MMFR0, EXS)		|
--		 NV_FTR(MMFR0, TGRAN4_2)	|
--		 NV_FTR(MMFR0, TGRAN16_2)	|
--		 NV_FTR(MMFR0, TGRAN64_2)	|
--		 NV_FTR(MMFR0, SNSMEM));
--
--	/* Disallow unsupported S2 page sizes */
--	switch (PAGE_SIZE) {
--	case SZ_64K:
--		val |= FIELD_PREP(NV_FTR(MMFR0, TGRAN16_2), 0b0001);
--		fallthrough;
--	case SZ_16K:
--		val |= FIELD_PREP(NV_FTR(MMFR0, TGRAN4_2), 0b0001);
--		fallthrough;
--	case SZ_4K:
--		/* Support everything */
--		break;
--	}
--	/*
--	 * Since we can't support a guest S2 page size smaller than
--	 * the host's own page size (due to KVM only populating its
--	 * own S2 using the kernel's page size), advertise the
--	 * limitation using FEAT_GTG.
--	 */
--	switch (PAGE_SIZE) {
--	case SZ_4K:
--		val |= FIELD_PREP(NV_FTR(MMFR0, TGRAN4_2), 0b0010);
--		fallthrough;
--	case SZ_16K:
--		val |= FIELD_PREP(NV_FTR(MMFR0, TGRAN16_2), 0b0010);
--		fallthrough;
--	case SZ_64K:
--		val |= FIELD_PREP(NV_FTR(MMFR0, TGRAN64_2), 0b0010);
--		break;
--	}
--	/* Cap PARange to 48bits */
--	tmp = FIELD_GET(NV_FTR(MMFR0, PARANGE), val);
--	if (tmp > 0b0101) {
--		val &= ~NV_FTR(MMFR0, PARANGE);
--		val |= FIELD_PREP(NV_FTR(MMFR0, PARANGE), 0b0101);
--	}
-+	val = limit_nv_id_reg(kvm, SYS_ID_AA64MMFR0_EL1, val);
- 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64MMFR0_EL1, val);
+@@ -2303,8 +2301,6 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+ #define ID_FILTERED(sysreg, name, mask) {	\
+ 	ID_DESC(sysreg),				\
+ 	.set_user = set_##name,				\
+-	.visibility = id_visibility,			\
+-	.reset = kvm_read_sanitised_id_reg,		\
+ 	.val = (mask),					\
+ }
  
- 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64MMFR1_EL1);
--	val &= (NV_FTR(MMFR1, HCX)	|
--		NV_FTR(MMFR1, PAN)	|
--		NV_FTR(MMFR1, LO)	|
--		NV_FTR(MMFR1, HPDS)	|
--		NV_FTR(MMFR1, VH)	|
--		NV_FTR(MMFR1, VMIDBits));
-+	val = limit_nv_id_reg(kvm, SYS_ID_AA64MMFR1_EL1, val);
- 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64MMFR1_EL1, val);
+@@ -2314,12 +2310,10 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+  * (1 <= crm < 8, 0 <= Op2 < 8).
+  */
+ #define ID_UNALLOCATED(crm, op2) {			\
++	.name = "S3_0_0_" #crm "_" #op2,		\
+ 	Op0(3), Op1(0), CRn(0), CRm(crm), Op2(op2),	\
+-	.access = access_id_reg,			\
+-	.get_user = get_id_reg,				\
+-	.set_user = set_id_reg,				\
++	ID_DESC_DEFAULT_CALLBACKS,			\
+ 	.visibility = raz_visibility,			\
+-	.reset = kvm_read_sanitised_id_reg,		\
+ 	.val = 0,					\
+ }
  
- 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64MMFR2_EL1);
--	val &= ~(NV_FTR(MMFR2, BBM)	|
--		 NV_FTR(MMFR2, TTL)	|
--		 GENMASK_ULL(47, 44)	|
--		 NV_FTR(MMFR2, ST)	|
--		 NV_FTR(MMFR2, CCIDX)	|
--		 NV_FTR(MMFR2, VARange));
--
--	/* Force TTL support */
--	val |= FIELD_PREP(NV_FTR(MMFR2, TTL), 0b0001);
-+	val = limit_nv_id_reg(kvm, SYS_ID_AA64MMFR2_EL1, val);
- 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64MMFR2_EL1, val);
- 
--	val = 0;
--	if (!cpus_have_final_cap(ARM64_HAS_HCR_NV1))
--		val |= FIELD_PREP(NV_FTR(MMFR4, E2H0),
--				  ID_AA64MMFR4_EL1_E2H0_NI_NV1);
-+	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64MMFR4_EL1);
-+	val = limit_nv_id_reg(kvm, SYS_ID_AA64MMFR4_EL1, val);
- 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64MMFR4_EL1, val);
- 
--	/* Only limited support for PMU, Debug, BPs, WPs, and HPMN0 */
- 	val = kvm_read_vm_id_reg(kvm, SYS_ID_AA64DFR0_EL1);
--	val &= (NV_FTR(DFR0, PMUVer)	|
--		NV_FTR(DFR0, WRPs)	|
--		NV_FTR(DFR0, BRPs)	|
--		NV_FTR(DFR0, DebugVer)	|
--		NV_FTR(DFR0, HPMN0));
--
--	/* Cap Debug to ARMv8.1 */
--	tmp = FIELD_GET(NV_FTR(DFR0, DebugVer), val);
--	if (tmp > 0b0111) {
--		val &= ~NV_FTR(DFR0, DebugVer);
--		val |= FIELD_PREP(NV_FTR(DFR0, DebugVer), 0b0111);
--	}
-+	val = limit_nv_id_reg(kvm, SYS_ID_AA64DFR0_EL1, val);
- 	kvm_set_vm_id_reg(kvm, SYS_ID_AA64DFR0_EL1, val);
+@@ -2330,9 +2324,7 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+  */
+ #define ID_HIDDEN(name) {			\
+ 	ID_DESC(name),				\
+-	.set_user = set_id_reg,			\
+ 	.visibility = raz_visibility,		\
+-	.reset = kvm_read_sanitised_id_reg,	\
+ 	.val = 0,				\
  }
  
 -- 
