@@ -4,132 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53532C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:48:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D8AC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2phGq1PASew3t0QitT+lz7mcsTOMpz4L7ee8QirsuZU=; b=3wrT9TCv4TrMQYa73zghpOxOg2
-	kmBf+o1x4sJW+jethiN+olv7rC8epiTHyCUBDlYz2X/OQe+hhyHt4MKdBEzlpkFFer0JdjIER5H30
-	H/3zwkeoZJIAKwyWM1639ksBvy73RfSqsS00PIunQLtMD1ZTsUcRTHAsdzqvPCsd+Iah4ycf8YSjC
-	eMtA45JE7NNZ+bcAFKPfnQUrraQDNIwrl174PZ7eF0w5Op8rGCiPsdhiSI+2LQgsAIkrDb568Ar4i
-	XW/DSGL98VJmoO6VPe8gg0/YQrupWJ3uS9eeU8mxwoZTItmv/sP0ScCflvrNL5xorYi11eQtTxWf0
-	1O9b0H3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rh4eTXTu+c11RkR0T9DFkG9ZleZyfYRGduufAwusFKE=; b=HTQlAVxi7Ud9EPlUPN3etfWYpI
+	Pmu/c9XI8yM5B1+YD/5JJnQHuPaFbjirnjFpC1uPaqsR6+ytPjO4WTaCz9dCIvWLz8mpq948oI2Zz
+	d68Q1hmDfb0b6NiO0dZTgldmfZtZ4n6AvWo6fL62U8qHHwrFmeMQf4oyg3FJni8er/0ffAcJYfY3J
+	xvvpc4mqH9e10e2vJys5JoWvA5VuZZRHlZ4CdipzIksR4dPD+lon/U4cNHTafxr4kxV5oyIzEhzOv
+	uZJo9f80uXK9ayYSwhS1KRINNzmv8ukeeMc341D8ZCMRouQlfLIEmOvCF2l6wLRBCm40jBOA6YBoK
+	6UHtyAMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9iJ-00000001x3z-0Xpd;
-	Thu, 20 Feb 2025 16:47:51 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1tl9jl-00000001xUm-3ibm;
+	Thu, 20 Feb 2025 16:49:21 +0000
+Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9f7-00000001w6p-3Vvd;
-	Thu, 20 Feb 2025 16:44:34 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51KBld33001689;
-	Thu, 20 Feb 2025 16:43:55 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=2phGq1PASew3t0QitT+lz7mcsTOMpz
-	4L7ee8QirsuZU=; b=Fg2ZdEdZwarsWS57pS+/6IXcUxTrTtCLnhG9CBGZ/7HGWi
-	4zAWb3M539K8KPS0Ajmb/PEzTqkGG38Ai+zL1gYVY4anEms/XTxHY28EJ4xlx/AF
-	IUn+cXfqtcI5hv4hzHC4AL7ugPq0hKMuYbyTtcKHIbdd6lb7tMPr95gbVbiNVJH+
-	yzBsnvN0hGYuWJxvHvbXddPIPPhMLHzGJxo+0NEWCwpR/A6b6JLE7YAgE1qftFmU
-	X8qdol1P5giI4dqT57n6qb3N89dOmr8ZV58kAi7tkbB+YnfIhyNfQnGQOLkoz4M2
-	sXSo3k/o/GFXMpo2IP6vEkxcgwZaMd1wbjpTThkQ==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44wtfa4552-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Feb 2025 16:43:55 +0000 (GMT)
-Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 51KGhsmH028733;
-	Thu, 20 Feb 2025 16:43:54 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 44wtfa454x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Feb 2025 16:43:54 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 51KF7PST027113;
-	Thu, 20 Feb 2025 16:43:53 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 44w025b1sh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Feb 2025 16:43:53 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 51KGhnA118088388
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 20 Feb 2025 16:43:49 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A8F0820043;
-	Thu, 20 Feb 2025 16:43:49 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4888520040;
-	Thu, 20 Feb 2025 16:43:49 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.152.85.9])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu, 20 Feb 2025 16:43:49 +0000 (GMT)
-Date: Thu, 20 Feb 2025 17:43:48 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Dave Young <dyoung@redhat.com>
-Cc: Alexander Graf <graf@amazon.com>, Mike Rapoport <rppt@kernel.org>,
-        linux-kernel@vger.kernel.org,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Andy Lutomirski <luto@kernel.org>,
-        Anthony Yznaga <anthony.yznaga@oracle.com>,
-        Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-        Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-        Borislav Petkov <bp@alien8.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        David Woodhouse <dwmw2@infradead.org>,
-        Eric Biederman <ebiederm@xmission.com>, Ingo Molnar <mingo@redhat.com>,
-        James Gowans <jgowans@amazon.com>, Jonathan Corbet <corbet@lwn.net>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Paolo Bonzini <pbonzini@redhat.com>,
-        Pasha Tatashin <pasha.tatashin@soleen.com>,
-        "H. Peter Anvin" <hpa@zytor.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Pratyush Yadav <ptyadav@amazon.de>, Rob Herring <robh+dt@kernel.org>,
-        Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
-        Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-        Steven Rostedt <rostedt@goodmis.org>,
-        Thomas Gleixner <tglx@linutronix.de>,
-        Tom Lendacky <thomas.lendacky@amd.com>,
-        Usama Arif <usama.arif@bytedance.com>, Will Deacon <will@kernel.org>,
-        devicetree@vger.kernel.org, kexec@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-        linux-mm@kvack.org, x86@kernel.org, Philipp Rudo <prudo@redhat.com>,
-        Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org
-Subject: Re: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
-Message-ID: <Z7dbxJNxlW2EA_aa@tuxmaker.boeblingen.de.ibm.com>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <CALu+AoRMQyRDFS_4L0KQkmrFT_S+yk=uZ-Mqt86JQYKKnj-5Ug@mail.gmail.com>
- <Z7WJD6eBLuIRnLwk@kernel.org>
- <CALu+AoSaEthfed1NOYPiQgm_g-dhibVMRAp0+=_+9qTT4_x=tg@mail.gmail.com>
- <d8c43707-65a2-4176-85e2-acdb4c9d16ad@amazon.com>
- <CALu+AoR0BbmbZeOkLU55OpD8kxGsVnFs+pXgEC9Y_MpB4=GMvQ@mail.gmail.com>
+	id 1tl9gn-00000001wWz-3yvg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Feb 2025 16:46:19 +0000
+Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-5fce5eee2beso718133eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 08:46:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernel-dk.20230601.gappssmtp.com; s=20230601; t=1740069976; x=1740674776; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Rh4eTXTu+c11RkR0T9DFkG9ZleZyfYRGduufAwusFKE=;
+        b=PrY1qjKRK0a2rTaRrnzes69+PTENnLYevU/QfJcYxAD8bSyvwbQ1ZGWyUeJ+9EbCsu
+         /I/B3H2lmN63aGaqUqegjrXLPpRMdBW2OvtpazZQCHSVje6U6dKmnT/NbVmRVh8mWep4
+         MCa//fv4VABdGp2hGRGPmEx8AICmlpMlK3EGFnmyBb9kFSa4XuV8uA5XDEedaogKVTC+
+         Zqawg/C04EePUhIpKlqSRS5F2uDXg6yyC3K4UGpI/NbV5meR01t5iuACCBkfbAaXIpnu
+         Y52mI3F3pf4Ku78Y2jlcDPHpodqbg/l3yiBFew189yMyOAgEG5viz0Gyo/h1C+TzvjhU
+         eoAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740069976; x=1740674776;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Rh4eTXTu+c11RkR0T9DFkG9ZleZyfYRGduufAwusFKE=;
+        b=bNz3fgn7/dANKn3ACRxuhGjd6BsaNtvO1rBaUDu/nXLODWu2blRK3MPfni0PgOF/ow
+         Z2ylnwrANbKudELYhKlFVEY/RQaAlzLNjZOnH6TvtofDPSanMSorafrhLkZJjCEuuBkE
+         2YdUisESKD+bBsX+fcWHl41jdRHU1bSeHaFnft87X/ZjN9cFQSfpZmZx3/bWpdHWSaPq
+         RiwG4jPXLB+ESoQyfFAv/W+pjFt+Kvw93Q1hCjFYD6oS1SZQfH05YKmq22mNCvhpNp4S
+         P3pAawiR/sxerE7agV7Doe/O3C4OM/E4vEquiVNl1U5OD2O0s7YKe82Yvmv0kXEv90H2
+         K3+g==
+X-Forwarded-Encrypted: i=1; AJvYcCXZqUi9sCRreiHJ9YF3VmE4uSFNTc4pRyVQz7wl+L29DWslEV+gw1lOG5bL8+g649DXzaR/AEG5HgM+8Xf/4oKE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKIYuYoSSOrbLIlQI+62vZ/gftylayt8hWRyKEG9GSw85LJhxO
+	sRtr5b8Eu7uiJHMAdkhThafWjBnZ0PpNR/mkLALsEGUipq6HSvrtoIb1FlP6fcDHaUVe9lIImdv
+	S
+X-Gm-Gg: ASbGncta2ligo/biodMtOAt2RYZGWYzi+vaJrtBhX0oKuzcZo6QFVweJ1z3JSGqEjUX
+	yRrE+oONw0aTifPX6kRkKi9IZFoi4u/4vonhcd+R3KW1UT4hcLHLEiW7uroIfAepI2NLUStJwxV
+	pUEpUv2P/Ed/YsuBUUws7iwS76Sc2wra34iz++Kpn66QWJV06ZV0s9A4ANc62OKbAlNLoQyI3Xk
+	2qwVEJ5NPGEmqHYIhhGRl8uVhbpUbPchdpIBxdMHekMnzbfWmRx5rXRYtYk4O+Gdi0kinc3IYAe
+	xl/2yYojsTw=
+X-Google-Smtp-Source: AGHT+IG+EYLLqM6THWYE8hAauMhRAcU2Nk6bktOc2WtjLtNwvqYq1DbYMyEayXYWgyo4XXN/dzNAHg==
+X-Received: by 2002:a05:6e02:12e8:b0:3d0:26a5:b2c with SMTP id e9e14a558f8ab-3d2c01cbd32mr32793245ab.8.1740069966144;
+        Thu, 20 Feb 2025 08:46:06 -0800 (PST)
+Received: from [192.168.1.116] ([96.43.243.2])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4ee9f935135sm1841325173.42.2025.02.20.08.46.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Feb 2025 08:46:04 -0800 (PST)
+Message-ID: <d178e65f-0168-4046-b516-1304db75820d@kernel.dk>
+Date: Thu, 20 Feb 2025 09:46:03 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CALu+AoR0BbmbZeOkLU55OpD8kxGsVnFs+pXgEC9Y_MpB4=GMvQ@mail.gmail.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: 02CmlzRAvH6gUhNjDul_d5grRXN4j5Cf
-X-Proofpoint-GUID: vqtrf0KyRdj5sNl93G5J7u-LcnzQFqNz
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-20_07,2025-02-20_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 suspectscore=0
- impostorscore=0 lowpriorityscore=0 priorityscore=1501 mlxlogscore=660
- bulkscore=0 phishscore=0 malwarescore=0 mlxscore=0 adultscore=0
- spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502100000 definitions=main-2502200116
+User-Agent: Mozilla Thunderbird
+Subject: Re: next-20250218: arm64 LTP pids kernel panic loop_free_idle_workers
+To: Naresh Kamboju <naresh.kamboju@linaro.org>,
+ linux-block <linux-block@vger.kernel.org>, Cgroups
+ <cgroups@vger.kernel.org>, Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-mm <linux-mm@kvack.org>, open list <linux-kernel@vger.kernel.org>,
+ lkft-triage@lists.linaro.org, LTP List <ltp@lists.linux.it>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Roman Gushchin <roman.gushchin@linux.dev>, Arnd Bergmann <arnd@arndb.de>,
+ Dan Carpenter <dan.carpenter@linaro.org>,
+ Anders Roxell <anders.roxell@linaro.org>
+References: <CA+G9fYuVngeOP_t063LbiJ+8yf-f+5tRt-A3-Hj=_X9XmZ108w@mail.gmail.com>
+Content-Language: en-US
+From: Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <CA+G9fYuVngeOP_t063LbiJ+8yf-f+5tRt-A3-Hj=_X9XmZ108w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_084433_876924_660B71FD 
-X-CRM114-Status: GOOD (  33.07  )
+X-CRM114-CacheID: sfid-20250220_084618_247324_2C404E92 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,33 +108,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025 at 09:49:52AM +0800, Dave Young wrote:
-> On Wed, 19 Feb 2025 at 21:55, Alexander Graf <graf@amazon.com> wrote:
-> > >>> What architecture exactly does this KHO work fine?   Device Tree
-> > >>> should be ok on arm*, x86 and power*, but how about s390?
-> > >> KHO does not use device tree as the boot protocol, it uses FDT as a data
-> > >> structure and adds architecture specific bits to the boot structures to
-> > >> point to that data, very similar to how IMA_KEXEC works.
-> > >>
-> > >> Currently KHO is implemented on arm64 and x86, but there is no fundamental
-> > >> reason why it wouldn't work on any architecture that supports kexec.
-> > > Well,  the problem is whether there is a way to  add dtb in the early
-> > > boot path,  for X86 it is added via setup_data,  if there is no such
-> > > way I'm not sure if it is doable especially for passing some info for
-> > > early boot use.  Then the KHO will be only for limited use cases.
-> >
-> >
-> > Every architecture has a platform specific way of passing data into the
-> > kernel so it can find its command line and initrd. S390x for example has
-> > struct parmarea. To enable s390x, you would remove some of its padding
-> > and replace it with a KHO base addr + size, so that the new kernel can
-> > find the KHO state tree.
+On 2/20/25 9:13 AM, Naresh Kamboju wrote:
+> Regression on qemu-arm64 the kernel panic noticed while running the
+> LTP controllers pids.sh test cases on Linux next 20250218 and started
+> from the next-20250214
 > 
-> Ok, thanks for the info,  I cced s390 people maybe they can provide inputs.
+> Test regression: arm64 LTP pids kernel panic loop_free_idle_workers
+> 
+> Started noticing from next-20250214.
+> Good: next-20250213
+> Bad: next-20250213..next-20250218
+> 
+> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
 
-If I understand correctly, the parmarea would be used for passing the
-FDT address - which appears to be fine. However, s390 does not implement
-early_memremap()/early_memunmap(), which KHO needs.
+Should already be fixed in the current tree.
 
-Thanks, Dave!
+-- 
+Jens Axboe
+
 
