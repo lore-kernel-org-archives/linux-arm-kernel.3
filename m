@@ -4,94 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F484C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 11:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF68C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 11:43:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ExfFdnElv6RE+Criap0BQCRCLdiCh0cHD/QHqlYNoyM=; b=Nbid46OZfvRNwZlfcgNVaF1DYZ
-	Ba2r+zhWmsCa0+j4GcWqc3Fy11Wn8+AvW0cM5xEbpCFeZ7phP5mhUZkRKV/jWDEDPQfXJhDGpbzEN
-	p8k9vKNUE2wxc1ryFG+qJmg9VH3tD/BBWoAOWDlYld9euYGkQETwKG2//Hr79kA3vPlZWCkr9rd5A
-	p6whwGkgl5wsKWNaOU0hB9KlASGOjRVy7id+9w/eOvSqeBLT6VgoUxz1M6Fs6vS3nqNQBi1tzCKdY
-	hC4VNxyvp0I9UfkyA9vXPS5Hun+EDA+KjHTNrMbQ7tAtHSvlklRihJwY3DrexjGjtGnIShR99+f/L
-	r/XT/K9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HqzoP0hAJrN0m+NVs3w4FVn+wNMVm0c/WTqwVwDkrWs=; b=qc+e39B9dvumB8NmV3evjvhmFA
+	r2CYKum/2mlJ93B41WaCRuemPn/jhHikBdPSOoxljyiNQjgdSgPNW69uxrhs2Ym9Rp/usvlUolh1f
+	HRWc+rBX6RH5zrrqryHtH2niHAvdG92aG2QwJZ3leh6oKiEEia0fNZj2U4EvOWKbQ0N6rFUuCwPIy
+	2LaX/uOK5clrHyCQrEf2dQvWESVzYaJ2UyioQGpmHPGUeqaqkznWSe39OUjF2uCQGoW0q6xnafzCk
+	EDFxKtVNR2LJKHaBNufdK+jsjZA0vnDtqaHuJZGeAjm9jos4ByEx9OlkmLY4J8q4/9+f0dV52KLGe
+	Yy0m69IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl4vq-00000000bwP-1EJW;
-	Thu, 20 Feb 2025 11:41:30 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1tl4xI-00000000cQb-460h;
+	Thu, 20 Feb 2025 11:43:00 +0000
+Received: from mail-vi1eur05on20625.outbound.protection.outlook.com ([2a01:111:f403:2613::625] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl4sx-00000000b7Y-40QH
+	id 1tl4tY-00000000bJ9-3kbg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 11:38:33 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-abbb12bea54so167892666b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 03:38:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740051510; x=1740656310; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ExfFdnElv6RE+Criap0BQCRCLdiCh0cHD/QHqlYNoyM=;
-        b=PJRWvQrP/TikbXOBWHr6smiZ8Sv0h2SXnrcBLLM5VgmbH6yEtpxr1EAEtaeS4mk+KK
-         ZztLFsniSTrz2cXGf2ObA6H9gaAjT5MpLNc2Uu9BBSGCaY435mRu62/qJjNQ3snFdMf1
-         FFbP12YDnXHq0Nd/nobhKE+i54QM0u0ayurHwl+X56uATLTd6359xI2qlZPgYQ2PDCNb
-         DPV3fgM9sp6Pj6FQgHmkVmfJUexBpa9V+Q/8JIv1jTR91gaQZl2dPZezChKkejFAUUNA
-         jwG9mMr35xA+Vw56taihbmFQAUPeLvmZCDgeB9G2U8pTCePhJJfqC4mch+5uPpIpe9ew
-         rQCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740051510; x=1740656310;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ExfFdnElv6RE+Criap0BQCRCLdiCh0cHD/QHqlYNoyM=;
-        b=eHK8SOLPjV1iFY6hNVvQvCnDbYTUeLVUufwlpRlc95TxPXXcvADlMDFZZCsgwyHHgU
-         TrZtR1rGmf1nICQAi3W7cMAJVCy+Cs4cAdQvL9NhBj8wmOfDWHU+2gX+D8O5TgxEJaW8
-         aNr+kq1H4cX2Ly9g1qi6nJ1HlqjNsARHj6MvyKirU4LJr4w+jzhpVIY/uXMbxZE+AJ9C
-         K/E7PD8YNltyAlH6DO+M+3EBavFoUVga5VHmZKqLO9PysRfQdxZmM8xV5Nm4ZU+8VhWh
-         9omweHXlVxEvg7PGbtH7txeyJp1QhGL6Wqkr5JLoMviTcSN8jQ5IpNS9cY6rFB3puoKg
-         jUxA==
-X-Forwarded-Encrypted: i=1; AJvYcCV7UJl/mHO2wNNJfmMXOh4xUgmzLR5RPQEUQOda+wn1ADnAP8fP9ffEwD4sgMNavTH+sshS2FpkQcGu30jA/K2Y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxm8d0ZQYzH4/AX5yA8oFhAWgyiaX8AjR/jy1H+re6P2TxpSC2B
-	g8Fh70OlFI620dG/rMZSuSHYAgnNVV7lh64C4dK6qbMDbakeTq67
-X-Gm-Gg: ASbGnctKtZLbMmSfdRXkO6f51azTICDd/FQnRY8tJDbdQkbV76iy+0TTDw8/bWs7B7D
-	foIo1ATFmSGxor0OelKG79NPvFR2euwLqnzb9itSJUKTF84EeG3gsaOj6m3M3Lcl3rccUxRcgTE
-	L0BIYcgZYc9LUv1zgU6VZQKwTrF8Qtsr9C+hFwS1q7yFPQ1brqgGetDywtYk48RY1J7dW2EidSi
-	9ZXvBGKWkF7PiHAng97JMXOzw3Kwq3Mlyie+jKDFFZPqEV/hNNc4QZ5g/2cUG0ucRPsdXX1+8gu
-	MNflqxXR77jWvzd9ThsC/ojE5sewyNV9X63n2I5w6nKCAnBDO6oGgZVjgjb/6LoCJEOXXXUJwDk
-	NXw==
-X-Google-Smtp-Source: AGHT+IGjGppdPvcKBaNnCyGcV/by69IhzWTFcP15FubbfmQQ7R/MJ4PUeEtgq7WsyithVWyBUUJNNw==
-X-Received: by 2002:a17:907:c02:b0:ab6:d575:9540 with SMTP id a640c23a62f3a-abb70df619emr2280560566b.50.1740051509436;
-        Thu, 20 Feb 2025 03:38:29 -0800 (PST)
-Received: from localhost.localdomain (146.10-240-81.adsl-dyn.isp.belgacom.be. [81.240.10.146])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb7200144fsm1047675466b.184.2025.02.20.03.38.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 03:38:29 -0800 (PST)
-From: Philippe Simons <simons.philippe@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi SoC support),
-	linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Philippe Simons <simons.philippe@gmail.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH v3 1/1] clk: sunxi-ng: h616: Reparent GPU clock during frequency changes
-Date: Thu, 20 Feb 2025 12:38:08 +0100
-Message-ID: <20250220113808.1122414-2-simons.philippe@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250220113808.1122414-1-simons.philippe@gmail.com>
-References: <20250220113808.1122414-1-simons.philippe@gmail.com>
+	Thu, 20 Feb 2025 11:39:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CBT5w+rR1JchHQFlWzjb3YqSIJ4aykfi1xvqBp4E7y9NGFxW+XlzzqU6k4ChRtHpZ2FpIVMttlU9TKyYwmvXKBbs/gkhHTtvqpT8voqobZ/PzctSjZVBAJNirewsZ6qIWKI5kb3NGNQiPDz8hqF8OFRhoPQMSIVRuInt25J9QvzM9HcXf7mBhiAHS5l/1gNLoJMA4BQ9c22ZKN5FSEngPeR5xKnM+E8xkJMZ3MzPoJUuBBp599Zb6f4fTQd46v4ArZXXp4WNQ919dzyvR50sGRnPWvcYWqZtxm0ayzsF0kND5o5f5m2M4zYQOl0LBPwyiiDfmYdAqoIbR/L2QdjUYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HqzoP0hAJrN0m+NVs3w4FVn+wNMVm0c/WTqwVwDkrWs=;
+ b=vZtCo+riPYxD8wcaBA68r/baYCLcev4zUQQcwnEIx9CXx1N3HBpxJsQB2FgbeQOg9Oa3gH/ixwDNNE92JKyLDiTEEY8ty81gnuYqFr9Bt5JCMurI1B2d8JOQEKqFPnpH0twuLN8/KN6TM002KuV8Wysra6bUKpUbCiezYpXnVjiSlOLyrb2ejOyDMtLc9R3SL5IHxhu9ngKjhpxqFhdLcPCDCoE5BYqF9xvr+JZHQAhkBlkZYhrx1Vllx9lBnka7IgERs6CdGJONeA9SQ6p4TK6etvp/XRRwh/KfaudhWf8ClI7DeQ5XhU1F7Gg4sQUZsmsKLyObebcWQ9BbBBb+pw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HqzoP0hAJrN0m+NVs3w4FVn+wNMVm0c/WTqwVwDkrWs=;
+ b=jMQsxztcyabqcx17IoSmUl1/A78FAL0Q2RRlSjQATiDCzimhklTWndL63mdRkhMPepZsXddSLb3IQnyKdqrmzgiDV225nniIMvcAO6DRlMz7MgU0Qcg8+cxTfKeia6R5qCQJDd0THz2xX4HXjBDJgf5rZWzolxN4rgb6pAc995S8Dzu6Bmmy/iHU2veLHV7NMIWleV0YmQpsYBEH17OOqWBGP4M8Q9+E3zZC1JoCLqfVbKpvzhyuouLrzo7FZ1B321Wa5EhGjv2l3q6UMnr04j8VstBEZSefVtCpMzxd+GvqtWJyTggtfmCfobrDAInvIC5HN+OR/t3tjB6+azgklA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
+ by GV1PR04MB10991.eurprd04.prod.outlook.com (2603:10a6:150:206::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.14; Thu, 20 Feb
+ 2025 11:39:02 +0000
+Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
+ ([fe80::7417:d17f:8d97:44d2%6]) with mapi id 15.20.8466.015; Thu, 20 Feb 2025
+ 11:39:02 +0000
+Date: Thu, 20 Feb 2025 13:38:58 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Simon Horman <horms@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Xiaolei Wang <xiaolei.wang@windriver.com>,
+	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Gal Pressman <gal@nvidia.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH iwl-next v5 1/9] net: ethtool: mm: extract stmmac
+ verification logic into common library
+Message-ID: <20250220113858.m3c4ign7v5dn2kde@skbuf>
+References: <20250220025349.3007793-1-faizal.abdul.rahim@linux.intel.com>
+ <20250220025349.3007793-1-faizal.abdul.rahim@linux.intel.com>
+ <20250220025349.3007793-2-faizal.abdul.rahim@linux.intel.com>
+ <20250220025349.3007793-2-faizal.abdul.rahim@linux.intel.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250220025349.3007793-2-faizal.abdul.rahim@linux.intel.com>
+ <20250220025349.3007793-2-faizal.abdul.rahim@linux.intel.com>
+X-ClientProxiedBy: VI1PR06CA0228.eurprd06.prod.outlook.com
+ (2603:10a6:802:2c::49) To AM8PR04MB7779.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24b::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|GV1PR04MB10991:EE_
+X-MS-Office365-Filtering-Correlation-Id: c4884f6b-eed0-4d6d-ddaf-08dd51a32c60
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gG/S6IgLb2/631Xfc/DPqu690tvlAYnz2kBG2tpYPCQTdaZJ1IgEbg7ihnAj?=
+ =?us-ascii?Q?a+0+b+x/sVqLQqZgbFqg+2w9T+08EdT9jxUZUQctKxnRMuKwO67FbbY3eFxh?=
+ =?us-ascii?Q?ns5XxIYDl87eagJWabYyVos6zwsGu8Wdv+IX2DzvYtEbBbZduiFLnzeG5PJp?=
+ =?us-ascii?Q?RCv91i2iikiRu3z5sx2sXX0mFJvWGoQ3OoZRcJcB/mIx2AxkJJbCrMCRn5s7?=
+ =?us-ascii?Q?abOORthm05Bf0Ac05W/BXuvETn6hkGFQEWBMhUG4VKRJ4WqtWCgj/bXvDH9X?=
+ =?us-ascii?Q?aW328N6UDYe+260YTjhf1PME87LR1cOcsOuVg5QMvkW0vjB8BmbZin90Foyl?=
+ =?us-ascii?Q?6eo5E1NNnrGHH7VnDDnqZpFO/cdQ93/wjL8m30krATKdhCvCHlm6NLayjciv?=
+ =?us-ascii?Q?u69fXXhpUYS+SUVC31PrYmzzE3BW0sL6N4S0cYBrbqBsZU8mQX5nEGOK72hk?=
+ =?us-ascii?Q?BSnfMa+J20UbesYMMRQb6B7YMESzkRD3ha4TImS5DmDmxrJNu6Pn0yjhi9J2?=
+ =?us-ascii?Q?rVQ5RnwKyw0w/va8bMQPaRKDc9WrTWw2lC7sYzpB8WdLPYPYcBmQb50eBk7v?=
+ =?us-ascii?Q?2N/3qMQzUsKUMrG7ysv7cAAezfYQYBoyLlP7UNxewSaivMkKnm8caURX9oV3?=
+ =?us-ascii?Q?2e1gh6zyfj+2Vvo2e4RTADAVRpLDIT/K5RcscIi0wxoDcKt0izE6yad/ayzH?=
+ =?us-ascii?Q?pdV9jnsnvU5D6CLHO4S9qbo058SGK6C/R1y5eUPm591T021QJItpId460Hei?=
+ =?us-ascii?Q?TPNip/XSP/uVwWax2wsJWCFejHXiW9Ek4WaLcg1epl1gp9x3AZ+f81DoH5bh?=
+ =?us-ascii?Q?AkEDR49Tt1RM8FyX+OcmExuv7tPVmrommEtKz7zvF/9ZkPZmuELC2O4RFFr8?=
+ =?us-ascii?Q?gTw3klJQyC5nL3dPNXRxVBkZ/8flRTqjgKDcjk6n8tZbOALCcRhICukFqsdN?=
+ =?us-ascii?Q?gi55pXIdOPcFZNBu8KV0G5w87ZT4HILkhymsLsYIGrlDd8/Dql8bAUiw81Xz?=
+ =?us-ascii?Q?K07C5pkLWmeBcJIV1QqhecUEDX3k7vLEeSqYZ1RuiJgr7IDcA9D4mYx8fBjb?=
+ =?us-ascii?Q?QA9qAqj6nY5NkTRctvHY4La5x36uJUAB89UaPCSR4mPiww3SFg5NFM9SC6cg?=
+ =?us-ascii?Q?EHlUUqHcFZPGIFeaOydRb0szQw7t4xKHyj7H03Fe46EvaF5mdupWVOLacrqC?=
+ =?us-ascii?Q?AprzOGaBGCQFXAuGBR8wfvG9g7BOttcRX3HmV/VRZdxrQ6N15jJ9v6LS2Iin?=
+ =?us-ascii?Q?lYTYmqLHmaV/S3j9QmChHR57JHgcwtov0UajJz34Su3N19VjcmPdB9g6FYx/?=
+ =?us-ascii?Q?r0VraKqJcGuvq/0lfu61JtAAY2fAayw23wHMdD2DAaoj+NvxyX8S3JUV9Kdp?=
+ =?us-ascii?Q?TzDZf96Q0xZvxG2tqWfyD+WDAjRa?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ixsbLvyEpo8qXcgUQQg7sa/osLWt9a8iXU5PLGRd7Ztiq9B6BZmeSryQ3zud?=
+ =?us-ascii?Q?ICfcvwqavxamYWbMKznPFyLR0gfQLr2FgkW6jMSh2hHvI8fCudEllTCye/Yh?=
+ =?us-ascii?Q?Jr6/smiTq+rTlgo0fl+WXssUqKIT3NjQFPBmTs+MRdat93xLIsgxmY2zCRBq?=
+ =?us-ascii?Q?sziEwhUov1ob+QH+eLQLtYIFdFaJ1OeIqu1uwckK9tR9PPB9aQkyZfSQtM+8?=
+ =?us-ascii?Q?yTIODnOGrIRDT06XjTIfq7+X3CR4/+5Ul8fteZZNx6ELLfErbCDF8IyIKPVc?=
+ =?us-ascii?Q?p1KNz6X2Yi03tP0R8htDte+Q/NHIYMiOMVX2vqYBfxLvVPNhMZPzwW9TsxvK?=
+ =?us-ascii?Q?W1i95JNy0xVrrt9YD81qwtTXzltogAAdhmsfmlKfuFf+DDsE7kqQnu8aQbC5?=
+ =?us-ascii?Q?FsyyAMstR/8D1+v4cdOWuk54JK1M7wfmoohmjAX9auzCHCU6qo/nI67tvIps?=
+ =?us-ascii?Q?EiAyVAz3up8Ys/eLvQAjzjk/k6QZSPDHfZ53t8Fc57/oRqCcuCt5NG5ROXWa?=
+ =?us-ascii?Q?Tctv9S2FD7Ud2dbvYQMngNhpTAO7n0ZeQgbdK1rv9ygWuMzhbDkIuIauFxXt?=
+ =?us-ascii?Q?WwBUp4a7NuZ9Ak9WNxNtDXeve2uRt8lWumac/yyNCf7+NzCedg1YnsaW0iCe?=
+ =?us-ascii?Q?HWUxBgnFZ62dCuTrO7wFqsFH/jEdVa2TE7w4A00M386yOSC9BjeP8m2WdaYO?=
+ =?us-ascii?Q?8nqPjbRkeTrpi4oE3B1yw2/ehqdrCDljq9U9G2FGBlwe6Y40wdqJ6im/D1im?=
+ =?us-ascii?Q?lAr46VLGlKXyuZ5RAl/AoszZgFn6QWZpjW8DymsLIlaFFsCegl5SgAe0lJV4?=
+ =?us-ascii?Q?A5dLBwI/gFT3C1UHnkvBl7QNkdk76h/uswAEpn6cSGbfqOlLq3FYq6I7C18A?=
+ =?us-ascii?Q?W3JZO47DQTvvJ1hs8a9DhteVks5jZWLEGyB/AN44w4+paDtGRlALdz5hDDz/?=
+ =?us-ascii?Q?eNSbsuUEXxjjwUJaDOBTS1Kh8fuMop5qMeYEht7qzIoIroTGb9etP8cuInA7?=
+ =?us-ascii?Q?hvM7ftcnOv6o8fvONQ6MJ6Slh/KCOG4SZ+1rWM5EhIBkNCVGfXjB396UnBHB?=
+ =?us-ascii?Q?skY3ImQ+y5WwTcEgtTAaUQ+8BAV6ePh1jNYz87N4TbGcrRttzwhfPeTsqLRh?=
+ =?us-ascii?Q?V7c6WmMk4wCps3krE+lfUvLD1bk+X6OiHiwQB7nMzs0WO+UgJ2oKreNLi7tK?=
+ =?us-ascii?Q?zhy66vYhjuiHOCJye0/DZnev9TEWJ3+DWTcVUKMcWHf2G6Jykjh3D0F5zKPE?=
+ =?us-ascii?Q?tlA1kwyhqpMGpp5+YzDzGrqPrgRZ0y/yHdrq61E/SO0bNaeM/llV8pOAqGgc?=
+ =?us-ascii?Q?dwEX5FV59Tn/I+4JZTbGY8bEzsibC5Y7lXyg6RO+dIikd6dEbfqoSQAkN/8f?=
+ =?us-ascii?Q?xsRJOJ2jaRebUhoFFm0DbIvdGDlsEY9la94HJRLCqGdwQF6Fu9kqmdgMbGIP?=
+ =?us-ascii?Q?dxwdIXIEM7h1RrhCjDbzgsUIkOijuLxLW4DgiCpC51bDyiwzVeLouRwTO+Zv?=
+ =?us-ascii?Q?iHzJBnWuWlWSfnNAK3qac9ET4J7bDLrShg21vlbdmIFYf0nOtT3/Is3MjSx+?=
+ =?us-ascii?Q?RQ8Oz/F7nEbXZJEtVPOoGqNzuR1JfPX2KKB7F/cUfvfCRTAlzSQGPKYi9wkp?=
+ =?us-ascii?Q?rw=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c4884f6b-eed0-4d6d-ddaf-08dd51a32c60
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 11:39:02.4166
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mQ6Kvdfd5IN5L7x9J9AIky9MF5Y3eSt0iS5OfdtmMT+hkn3KrIpIa+3q5kovQsGWTcsHlK3XOO56Pq5M9MU5wQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10991
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_033831_995978_FF7C6901 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20250220_033908_933496_CF468284 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,94 +187,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H616 manual does not state that the GPU PLL supports
-dynamic frequency configuration, so we must take extra care when changing
-the frequency. Currently any attempt to do device DVFS on the GPU lead
-to panfrost various ooops, and GPU hangs.
+On Wed, Feb 19, 2025 at 09:53:41PM -0500, Faizal Rahim wrote:
+> +/**
+> + * ethtool_mmsv_stop() - Stop MAC Merge Software Verification
+> + * @mmsv: MAC Merge Software Verification state
+> + *
+> + * Drivers should call this method in a state where the hardware is
+> + * about to lose state, like ndo_stop() or suspend(), and turning off
+> + * MAC Merge features would be superfluous. Otherwise, prefer
+> + * ethtool_mmsv_link_state_handle() with up=false.
+> + */
+> +void ethtool_mmsv_stop(struct ethtool_mmsv *mmsv);
+> +
+> +/**
+> + * ethtool_mmsv_link_state_handle() - Inform MAC Merge Software Verification
+> + *				      of link state changes
+> + * @mmsv: MAC Merge Software Verification state
+> + * @up: True if device carrier is up and able to pass verification packets
+> + *
+> + * Calling context is expected to be from a thread, interrupts enabled.
 
-The manual describes the algorithm for changing the PLL
-frequency, which the CPU PLL notifier code already support, so we reuse
-that to reparent the GPU clock to GPU1 clock during frequency
-changes.
+s/thread/task/, I think it's a more conventional way of referring to
+process context.
 
-Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
----
- drivers/clk/sunxi-ng/ccu-sun50i-h616.c | 36 +++++++++++++++++++++++++-
- 1 file changed, 35 insertions(+), 1 deletion(-)
+> + */
+> +void ethtool_mmsv_link_state_handle(struct ethtool_mmsv *mmsv, bool up);
+> +
+> +/**
+> + * ethtool_mmsv_event_handle() - Inform MAC Merge Software Verification
+> + *				 of interrupt-based events
+> + * @mmsv: MAC Merge Software Verification state
+> + * @event: Event which took place (packet transmission or reception)
+> + *
+> + * Calling context expects to have interrupts disabled.
+> + */
+> +void ethtool_mmsv_event_handle(struct ethtool_mmsv *mmsv,
+> +			       enum ethtool_mmsv_event event);
+> +
+> +/**
+> + * ethtool_mmsv_get_mm() - get_mm() hook for MAC Merge Software Verification
+> + * @mmsv: MAC Merge Software Verification state
+> + * @state: see struct ethtool_mm_state
+> + *
+> + * Drivers are expected to call this from their ethtool_ops :: get_mm()
+> + * method.
+> + */
+> +void ethtool_mmsv_get_mm(struct ethtool_mmsv *mmsv,
+> +			 struct ethtool_mm_state *state);
+> +
+> +/**
+> + * ethtool_mmsv_set_mm() - set_mm() hook for MAC Merge Software Verification
+> + * @mmsv: MAC Merge Software Verification state
+> + * @cfg: see struct ethtool_mm_cfg
+> + *
+> + * Drivers are expected to call this from their ethtool_ops :: set_mm()
+> + * method.
+> + */
+> +void ethtool_mmsv_set_mm(struct ethtool_mmsv *mmsv, struct ethtool_mm_cfg *cfg);
+> +
+> +/**
+> + * ethtool_mmsv_init() - Initialize MAC Merge Software Verification state
+> + * @mmsv: MAC Merge Software Verification state
+> + * @dev: Pointer to network interface
+> + * @ops: Methods for implementing the generic functionality
+> + *
+> + * The MAC Merge Software Verification is a timer- and event-based state
+> + * machine intended for network interfaces which lack a hardware-based
+> + * TX verification process (as per IEEE 802.3 clause 99.4.3). The timer
+> + * is managed by the core code, whereas events are supplied by the
+> + * driver explicitly calling one of the other API functions.
+> + */
+> +void ethtool_mmsv_init(struct ethtool_mmsv *mmsv, struct net_device *dev,
+> +		       const struct ethtool_mmsv_ops *ops);
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-index 190816c35..6050cbfa9 100644
---- a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-@@ -328,10 +328,16 @@ static SUNXI_CCU_M_WITH_MUX_GATE(gpu0_clk, "gpu0", gpu0_parents, 0x670,
- 				       24, 1,	/* mux */
- 				       BIT(31),	/* gate */
- 				       CLK_SET_RATE_PARENT);
-+
-+/*
-+ * This clk is needed as a temporary fall back during GPU PLL freq changes.
-+ * Set CLK_IS_CRITICAL flag to prevent from being disabled.
-+ */
-+#define SUN50I_H616_GPU_CLK1_REG        0x674
- static SUNXI_CCU_M_WITH_GATE(gpu1_clk, "gpu1", "pll-periph0-2x", 0x674,
- 					0, 2,	/* M */
- 					BIT(31),/* gate */
--					0);
-+					CLK_IS_CRITICAL);
- 
- static SUNXI_CCU_GATE(bus_gpu_clk, "bus-gpu", "psi-ahb1-ahb2",
- 		      0x67c, BIT(0), 0);
-@@ -1120,6 +1126,19 @@ static struct ccu_pll_nb sun50i_h616_pll_cpu_nb = {
- 	.lock		= BIT(28),
- };
- 
-+static struct ccu_mux_nb sun50i_h616_gpu_nb = {
-+	.common		= &gpu0_clk.common,
-+	.cm		= &gpu0_clk.mux,
-+	.delay_us	= 1, /* manual doesn't really say */
-+	.bypass_index	= 1, /* GPU_CLK1@400MHz */
-+};
-+
-+static struct ccu_pll_nb sun50i_h616_pll_gpu_nb = {
-+	.common		= &pll_gpu_clk.common,
-+	.enable		= BIT(29),	/* LOCK_ENABLE */
-+	.lock		= BIT(28),
-+};
-+
- static int sun50i_h616_ccu_probe(struct platform_device *pdev)
- {
- 	void __iomem *reg;
-@@ -1170,6 +1189,14 @@ static int sun50i_h616_ccu_probe(struct platform_device *pdev)
- 	val |= BIT(0);
- 	writel(val, reg + SUN50I_H616_PLL_AUDIO_REG);
- 
-+	/*
-+	 * Set the input-divider for the gpu1 clock to 3, to reach a safe 400 MHz.
-+	 */
-+	val = readl(reg + SUN50I_H616_GPU_CLK1_REG);
-+	val &= ~GENMASK(1, 0);
-+	val |= 2;
-+	writel(val, reg + SUN50I_H616_GPU_CLK1_REG);
-+
- 	/*
- 	 * First clock parent (osc32K) is unusable for CEC. But since there
- 	 * is no good way to force parent switch (both run with same frequency),
-@@ -1190,6 +1217,13 @@ static int sun50i_h616_ccu_probe(struct platform_device *pdev)
- 	/* Re-lock the CPU PLL after any rate changes */
- 	ccu_pll_notifier_register(&sun50i_h616_pll_cpu_nb);
- 
-+	/* Reparent GPU during GPU PLL rate changes */
-+	ccu_mux_notifier_register(pll_gpu_clk.common.hw.clk,
-+				  &sun50i_h616_gpu_nb);
-+
-+	/* Re-lock the GPU PLL after any rate changes */
-+	ccu_pll_notifier_register(&sun50i_h616_pll_gpu_nb);
-+
- 	return 0;
- }
- 
--- 
-2.48.1
-
+The kernel-doc comments are fine, but I think the convention is to
+put them near the function definitions (in net/ethtool/mm.c) rather than
+near the function prototypes, for the very simple reason that in the C
+language, you can have multiple function declarations but a single definition.
+The kernel-doc for the structures is fine where it is.
 
