@@ -4,106 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B73EC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:41:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1B43C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:42:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mtmaTDhFs/98OYFtT68Jftsfk5KH/mhHMViDSJX9+AM=; b=Oew6LNw6n23iJVTI9JugmXGsak
-	nf4e5g5SRlv8XH5Y3mcvL+4VdVZXA7+v0AJ7cEes7qNi+UZoUg4DPazqW7CZDNmOyXgbCOkSnNB/5
-	rCo7IlDFDWREDBD/WgUAT0mK3UzUv/r19ASMrVN2uJJKZVEVMf0GS9uvIeKT+p+TXrbRruUliS6w0
-	g5SEb1FALPQ19LMMui0Tm1SHSC9fUXx5rFciJ4cbyTwMG95r2tSNZVEm9XedW8AmQuVJ3n+I+2lSZ
-	GmsUK34RCibuW0S6ZNQ40OI4Hm/Dzc3V/+Co3EVoLusR9W4CUjbfcoP523/UB8kovWtY4XDatamgp
-	AtNHG+rw==;
+	bh=6XTzpe0dvPkb56/2C4infeIOzW79ECT/46k3G7K0Ygo=; b=rK/vWzIBKzauddtykdSJhSPxp5
+	7jBk2B+ZuR+L0/2/Y9w6JzFlkmGlFFFTEi+/rxVm/Lqvn9Grh5Qmbze8xTUaQWRRtjr2LWBouPSwF
+	S5G/y93lpLAv1XD3s7Y8IASkkg+LQgk6FqYQBCa7XfMIsLlo+IUAhcdf9QwkjfVy1iO5WWXf/d/Lx
+	FMiVtEe9MZ3r/MYx8z0uy+5L1DYPeevo3tjforUvu1k/PjTum9wZSTuSOsfb5fk2fvkbzKC13IwT/
+	+uBNUZA8PR0Yg7J6Ehs0NgKyjtJa80U7N+ryoiIFMe95bq0wqYfyqtarOq+6+T9OE47D6vm/qtQT/
+	HXiNfE/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7jm-00000001N6I-31bk;
-	Thu, 20 Feb 2025 14:41:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tl7lF-00000001NWs-1pY5;
+	Thu, 20 Feb 2025 14:42:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7a5-00000001KCK-0Zjm
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 14:31:14 +0000
+	id 1tl7at-00000001KOq-46hy;
+	Thu, 20 Feb 2025 14:32:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A2E65C1178;
-	Thu, 20 Feb 2025 14:30:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 733BEC4CED1;
-	Thu, 20 Feb 2025 14:31:09 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 97A71614AF;
+	Thu, 20 Feb 2025 14:32:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1277C4CEE3;
+	Thu, 20 Feb 2025 14:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740061872;
-	bh=0f5c3zR7Wzjxxys0mPLOLrwMcTNVI9runvlDFVgT4WY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=N9C/CrOOkDeEEPECDD6HW75/EElEsx9DHgB6xzymh7pdfKZJg8ue7j4eb/+HVnPz5
-	 djQbQw0d8ZPN41BMMj91ZU3jmjA/zFa9j7hbOVs4svf88AT1WkktQvRpqqQyoIN34E
-	 Z+nhk5ksQWr0vdNZ6dBYddoZPU8Qp1OD60FZg+6PBNDwUPrMpzPaLM8pjA/Xrrcsn0
-	 sAPhRJsTU4o2s9eRrPOOYYVK7c674lZouF7Aq/S7+YOfO8HrwyYGzlIyrNCzj2sUj5
-	 9We71I4FfvKHlWOfoWga+Y1nYs9zDhW87rc7JDJLk3FJ7eRAifZjT8A+yDB1S137/b
-	 Ck9s+UUw0EnPA==
-Message-ID: <b0e06953-91b2-43c5-b4e2-a8744673a62b@kernel.org>
-Date: Thu, 20 Feb 2025 15:31:07 +0100
+	s=k20201202; t=1740061922;
+	bh=GoGvedSskUunt8JR0ab0OKe1KhMr9oaefFluEv4FAqY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=MRVxiU7o67O3FIKBBl1kglyQ70mhNufEgyvsPm24+MnObiKppxwPDeGetnAbCnP1n
+	 bfInsRGRgTuWHoen6CmytTuo2OvSOwJkMnUVHwEAYef1ogM2pcoPjbZp9qkDolEEE/
+	 u1rCUshyBtkb2WhY4Fprtqm4fqT9yxPdzLw8GQYznAH270ttdYmBHAoMsZs3Cdtl27
+	 mvQalAbMWwa3ZBAgbfU6IFNCoEdpzh9zPOY61wFYG8WgLUxBAVq5vAVFkY04sC2d/X
+	 Rxms8YbodBco+uhh1HvvpwiA1sDRIv+8EGRX7e6oLC1f1kG5xbmMIX5PqelXRlDidB
+	 D+BXbBZHlHsQQ==
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-2fa8ada6662so2072305a91.1;
+        Thu, 20 Feb 2025 06:32:02 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWWV6huQg6MVkR/xb5NtLy6zCJZFFCCNtwnnobxZLINu0P0BrNxl1A3bbZAiQbFgeyJwQRyKGnyvq5M2DHr+Prr@lists.infradead.org, AJvYcCXFwmqvx8m7y1xxBqxk98hGI3IDUXQp6lpZ2004EB4a3up4ymjGe90hkrNyf62v5xPAwOwmiUpa8Ln9OYnaOhc=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwzXF72w8+fDi9tkXkpXrctrx3y1gHssHNs3UmdpJkAD0LDKHt6
+	C4Bwv9EWCrmS3yhktSId4QL29iKFRBy09PMM6b4KhnPq3O/TjxiQZzrgCoVizxvjeu3YCsB6ZmE
+	2dgFeSbYIEyFAhoxTgIZLtnC40w==
+X-Google-Smtp-Source: AGHT+IEEvVnA4H81470tv1H4G5h0w0yEGHELm51+9xXj/GLBqX14Y9VHjS4nUzKS5Ntqk6uBqNxa9Lc6bKjwcl3wf1E=
+X-Received: by 2002:a17:90b:3809:b0:2ee:d024:e4fc with SMTP id
+ 98e67ed59e1d1-2fc411509b7mr38299734a91.33.1740061922487; Thu, 20 Feb 2025
+ 06:32:02 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: imx53-mba53: Fix the PCA9554 compatible
-To: Fabio Estevam <festevam@gmail.com>, shawnguo@kernel.org
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- Fabio Estevam <festevam@denx.de>
-References: <20250220133153.2380248-1-festevam@gmail.com>
-Content-Language: en-US
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250220133153.2380248-1-festevam@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com> <20250217154836.108895-34-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250217154836.108895-34-angelogioacchino.delregno@collabora.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Thu, 20 Feb 2025 22:32:47 +0800
+X-Gmail-Original-Message-ID: <CAAOTY_8a+oV_XwBACyy09bKdwKVy+iEPxbfZBkkdYm2jYD_k2w@mail.gmail.com>
+X-Gm-Features: AWEUYZnj0eBVMJFGwcqYWEal64YwZLRUffmMdq4xRpXkJqA2A3_JsPYTIk5oAgc
+Message-ID: <CAAOTY_8a+oV_XwBACyy09bKdwKVy+iEPxbfZBkkdYm2jYD_k2w@mail.gmail.com>
+Subject: Re: [PATCH v7 33/43] drm/mediatek: mtk_hdmi: Cleanup function mtk_hdmi_resume()
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
+	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
+	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, 
+	jie.qiu@mediatek.com, junzhi.zhao@mediatek.com, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
+	dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com, 
+	ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com, 
+	jason-jh.lin@mediatek.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_063113_292160_CD1AFBB3 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250220_063204_126423_0AF89564 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,19 +91,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/02/2025 14:31, Fabio Estevam wrote:
-> From: Fabio Estevam <festevam@denx.de>
-> 
-> gpio-pca95xx.yaml documents 'nxp,pca9554', so use this compatible
-> to fix the following dt-schema warning:
-> 
-> failed to match any schema with compatible: ['pca9554']
-> 
-> Signed-off-by: Fabio Estevam <festevam@denx.de>
+Hi, Angelo:
+
+AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
+=BC
+2025=E5=B9=B42=E6=9C=8817=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=8811:=
+50=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> Remove the error print in case of mtk_hdmi_clk_enable_audio()
+> failures: since the APIs will already print on their own, having
+> one in there is redundant.
+
+Applied to mediatek-drm-next [1], thanks.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
+log/?h=3Dmediatek-drm-next
+
+Regards,
+Chun-Kuang.
+
+>
+> Reviewed-by: CK Hu <ck.hu@mediatek.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
 > ---
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Best regards,
-Krzysztof
+>  drivers/gpu/drm/mediatek/mtk_hdmi.c | 9 +--------
+>  1 file changed, 1 insertion(+), 8 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediat=
+ek/mtk_hdmi.c
+> index 50f9ab48cbf9..2614561e2634 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
+> @@ -1704,15 +1704,8 @@ static __maybe_unused int mtk_hdmi_suspend(struct =
+device *dev)
+>  static __maybe_unused int mtk_hdmi_resume(struct device *dev)
+>  {
+>         struct mtk_hdmi *hdmi =3D dev_get_drvdata(dev);
+> -       int ret =3D 0;
+>
+> -       ret =3D mtk_hdmi_clk_enable_audio(hdmi);
+> -       if (ret) {
+> -               dev_err(dev, "hdmi resume failed!\n");
+> -               return ret;
+> -       }
+> -
+> -       return 0;
+> +       return mtk_hdmi_clk_enable_audio(hdmi);
+>  }
+>
+>  static SIMPLE_DEV_PM_OPS(mtk_hdmi_pm_ops, mtk_hdmi_suspend, mtk_hdmi_res=
+ume);
+> --
+> 2.48.1
+>
 
