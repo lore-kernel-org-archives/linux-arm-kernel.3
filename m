@@ -4,165 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0287C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 11:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD662C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 11:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JUtpMqXZmMNjypzX84jIAFde1dRigL9UsVJeIGz+C/w=; b=go8KVJS55YxWNre/zPeYFmEIg9
-	hpZCL1L0qUzT90qPIigNU3dLQns9nu/FzUWh95wqfL2jm32wXnE8bqC/OoLr9MSCxGrfuIFgErM5/
-	UXnUzpZFqq2Qj6deO6szx1h4iU0M1TgYO3M54QtGl6Z1z0Xr/9hGTS3DPnE5QSx0Ef/0u+TYtXsYn
-	l0TAjklCRNOTE/gQz9FN+9/pMXekrKXzlDgmq8nrM55AXpI9ote0gbqLf+nQqViNLrMTK0s81ka5t
-	NN4wuLBBYODXaD/HiM9OtTbJOMYGX2htjHHJ1trg7AMSP2mMc01EQgmpJj8nQqaGiKnuEuQyMOxBI
-	P0OhbXPA==;
+	bh=R3Uh5zOOiwIsld8+v+RjgUqYTcZEPZGI2jscvOAId7s=; b=CL7cu/KTb5cDUVr2npX8wo2MU7
+	dFnhsjs2BzeJz8XVT9IMFi/oMAWKEknDTJfclBFGzgJT0tt8cabZHqDLdySLfyxcZp18Xd57a4WBL
+	SqpsxBFmk71eLt3aIrJepTDnBGklN2Gfc6BGaRGeS5JkTt7QgZljqs6P78EH/fq5HW72ol0xMf0Ka
+	61zfj6PuTjFjHwhu5mEh92fBm5qCMTzJcYFAhCqxCgkeT5n54tW1NuVYNiyh4ZonFUO0t6YtVGw7B
+	HnTc1heIWmX/CocfQ0Gvotu9korXeI6oQtTndQA7WVCTyKR8kMcQrGjy5FxsxmDIKQofs3gLTYbL+
+	/csKpEJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl4nC-00000000ZfB-0ASf;
-	Thu, 20 Feb 2025 11:32:34 +0000
-Received: from mail-dm6nam04on20631.outbound.protection.outlook.com ([2a01:111:f403:2409::631] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
+	id 1tl4uO-00000000bWt-2hlK;
+	Thu, 20 Feb 2025 11:40:00 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl4lh-00000000ZEt-0Fb3
+	id 1tl4st-00000000b4n-1qA4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 11:31:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rYfak4L6l1M/4Tt6vjopG0aL5rCyucNMsfKCIVGLpSI/+SKndKZVTHVkmdk11v6LJdvHpskL1W07RdmQcJz1cdIcVFQTj8KYzsp4ILtIDSlFnKmr7/Ejs/1NxCnHvSwi1JgTzL75+ocero4BE8Lykq5V4gABuoSiIzvX9jbvrUUYA6l0TOYDoHOjB4jzKu+ADfSbSpFpyhEiQPN+HBfJVFEy7JUDmTpes0od2hx00n+ZposCXs64WiM6JTdlVTBOlZXB11nk4a97D445c2/6LYhF9Jb2yUQnJUm/vlX7J3Ahat9qfhPHmUViZ1eAIrTPNUhHdhd3UPH/4RJvdyJZ3w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JUtpMqXZmMNjypzX84jIAFde1dRigL9UsVJeIGz+C/w=;
- b=wVVaCODyC6eO7yNjzD7Gr2gIZvIHEQDbBghJF00HZJL8dMrrDZQngIvEbKrcuTEivsgYDhLgqZFJZJE/7tLAfax7AlYC4RoPqHofFEkVZ7Up/mtW6mbSd7y9YVhc5aoDC4r5SEpzGtyslaezfvoyjgJpnakKX/wXkrmmParRFr7wBE1sy56cIlXw+yY1/mJiVEulnjSUmUO7O2N1CG3ll97Rs25tq0KkKCU5qj8MzC3zNubwQabWvtByA2u+MKw16SeCtZB6YyxBGg37MZWxMnAKH8UvXdvd2a+aSaVuJ3q3PRjQXt6irWuKPtMI3v9huUmKFHBHJbTMxuDyydEh9Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JUtpMqXZmMNjypzX84jIAFde1dRigL9UsVJeIGz+C/w=;
- b=Zyvp+iG2+4NR+5JQV2xEi0aJZF4gkbbFoBPcvG9etIQc2U0KkYocLRD0hJLR49QS5LTBmonNW7TiIkcJTtGP08zVBT1JrQz5mFhcQUEIM58JLddRSCBd0xSDT7q8oCtf6T+mlUDxNnghso9ghM19fa63XQJhNliojCaHSOUPuQ0=
-Received: from BL3PR12MB6571.namprd12.prod.outlook.com (2603:10b6:208:38e::18)
- by SJ2PR12MB8884.namprd12.prod.outlook.com (2603:10b6:a03:547::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.14; Thu, 20 Feb
- 2025 11:30:53 +0000
-Received: from BL3PR12MB6571.namprd12.prod.outlook.com
- ([fe80::4cf2:5ba9:4228:82a6]) by BL3PR12MB6571.namprd12.prod.outlook.com
- ([fe80::4cf2:5ba9:4228:82a6%5]) with mapi id 15.20.8466.015; Thu, 20 Feb 2025
- 11:30:53 +0000
-From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
-To: Russell King <linux@armlinux.org.uk>, Sean Anderson
-	<sean.anderson@linux.dev>
-CC: Andrew Lunn <andrew@lunn.ch>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
-	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>, "Simek, Michal"
-	<michal.simek@amd.com>, "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
-	"horms@kernel.org" <horms@kernel.org>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "git (AMD-Xilinx)" <git@amd.com>, "Katakam,
- Harini" <harini.katakam@amd.com>
-Subject: RE: [PATCH net-next 2/2] net: axienet: Add support for AXI 2.5G MAC
-Thread-Topic: [PATCH net-next 2/2] net: axienet: Add support for AXI 2.5G MAC
-Thread-Index: AQHbOZPrN4QoHKQMl0i3DrWTLLaCrLK9McgAgAABAgCAAKDGAIAA6DIAgAAGTACAkbR4cA==
-Date: Thu, 20 Feb 2025 11:30:52 +0000
-Message-ID: <BL3PR12MB6571FE73FA8D5AAB9FB4BB3CC9C42@BL3PR12MB6571.namprd12.prod.outlook.com>
-References: <20241118081822.19383-1-suraj.gupta2@amd.com>
- <20241118081822.19383-3-suraj.gupta2@amd.com>
- <ZztjvkxbCiLER-PJ@shell.armlinux.org.uk>
- <657764fd-68a1-4826-b832-3bda91a0c13b@linux.dev>
- <9d26a588-d9ac-43c5-bedc-22cb1f0923dd@lunn.ch>
- <72ded972-cd16-4124-84af-8d8ddad049f0@linux.dev>
- <ZzyzhCVBgXtQ_Aop@shell.armlinux.org.uk>
-In-Reply-To: <ZzyzhCVBgXtQ_Aop@shell.armlinux.org.uk>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ActionId=4e2f98a3-0c7f-429e-8121-08a55ce68c64;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=0;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=true;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
- Internal Distribution
- Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-02-20T08:52:59Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Tag=10,
- 3, 0, 1;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BL3PR12MB6571:EE_|SJ2PR12MB8884:EE_
-x-ms-office365-filtering-correlation-id: 8def91e6-e078-408c-0468-08dd51a208bc
-x-ld-processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?A5hQVXPzI1y+CZi19iWsHRDZrVODnZV2D2buqe6g2thhOXdN/L2xN7xVgo+I?=
- =?us-ascii?Q?f1cvmA2O7NWiAgeOO60u+UrvivKeOexZTqoSi5c5JrRI1URZnoWeCQyuuXMk?=
- =?us-ascii?Q?7OQqAngqzCQ13BNOYaxO6CPL1Gb+0AFs1y39Ew+r+q/qQZpb7hlu2W3Rmats?=
- =?us-ascii?Q?Q9cIAT179nX2Ej1Vclqmni0QkMStoFjyWrkza+GVrsJffpKtHY+iNQ1mSwi8?=
- =?us-ascii?Q?UEPRjLD8XbaZMTFzxh0yLZZYeZ75KpyEfrLMP7+3uoZXSiWnV9eM1syu6Fie?=
- =?us-ascii?Q?MgjaPCXBOhTgi8+BzcHatmjxkLi2417l3g/FH9+Mehl/gOdRX98U+oIGqM4y?=
- =?us-ascii?Q?cGNT3uNBOHQKKV0qkZ96ELCbDWqRnst/BBTiMym+/7VuoOnTrtl5V6rnnK0n?=
- =?us-ascii?Q?azLvw999W2avTWBaESZYxhm3ZuIADlD+mvmUU3TT4iUeKoFS33qK45Y4VTMC?=
- =?us-ascii?Q?QyW/54+7Bi88YDbmzCI8jPI8CQn639ShJTRWkO8dUGIVX6kq38XHht7LhcQZ?=
- =?us-ascii?Q?53VEBdqZgKxby2BrqJ22SEtklKc+TeAmIxYbOIR1+WiImIzm6hexDvKeMlCE?=
- =?us-ascii?Q?dxN/XsVcbjQRQO7Sv+v4/ACCmiTYLzFLfQxj5nF+RmtAHOSEqeHq+O2kFol2?=
- =?us-ascii?Q?9XKYRpTcUohFvV1OJpi9MCbRGzp2PLjug9nEBhQm9lQLO0ezxeDTp7S0W2dF?=
- =?us-ascii?Q?c+7y8nDoN0g7ETDr98dy4xgdS2TjDgXUMCzNuT38F8TN0ENGeNH1FDFdAvRJ?=
- =?us-ascii?Q?526gN0Of/aeu6pm3f6OF8Nc5bw2dT1RAiXanGu3xyt5t9PPEcaMgqaVNwA/F?=
- =?us-ascii?Q?IFUi6DRHMISIQUMsJw3Mu76/Hh71fnePQfkFR0FE87RooWB7jaNHUTMQTV+F?=
- =?us-ascii?Q?Nn1L5n6Wkm070o+D93AlFznFU7CfiupdkTpALHEMsBysKukC6a7+yVgkxHf9?=
- =?us-ascii?Q?wTUkZk4o0OQeC9g2HFV7JtYFaQqKw31mhIp/ejFrpaYa3kVLqUMjsek0c/4c?=
- =?us-ascii?Q?jUivBslLa/Luv1I7oWA8NZgxenNbYQFgKbuyhtA14g3hRCrGOCtahtM1eL2a?=
- =?us-ascii?Q?3QbyK2IOqPveua2D6xh80IzKVLtaHvXXlp0n1Xk2YCS2HlWdyXC9P+6L1jLt?=
- =?us-ascii?Q?IW3w2AaEUv0shcBChLSgPa2Idp6NNzxBkU9ufu60Qf/6oZn9r7bHo12EL79c?=
- =?us-ascii?Q?Ji/g7Zgzifie6gb4pl6XL96bCVwNqkNiKOJxYq399LfR/0hb5yQf3HeO6sBW?=
- =?us-ascii?Q?NkZZnOvEVK7yOJ1p7xLhK3vNzSjAkQUCup4N7E/ZHdXJiKrWxLMgKaSYZPvu?=
- =?us-ascii?Q?03IU8pICz/C4Yd7Flr5F1n9Sf5bUtNlEJmSHoNPC+jj12IWSSjFE1n75X4uR?=
- =?us-ascii?Q?NqgnYc4wuDdae2EK5WMkRbpoUcI8?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6571.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?9y5zSfnMiAwkGYEe2d33xsXxwY9h1NnANcv3pwXFJC/EFJd39K4oXJ3Lu92E?=
- =?us-ascii?Q?b1mzXRNGt31/XRo50H87fqvTGyfnRN+hV+hxI2N74gE+9OFAWqm7fJ15yY/4?=
- =?us-ascii?Q?AHbBH9twVxUVDDt6czy6jI10E2I+qU6FK89NB8EhsUNxk8k345Z0VRQtW6Nq?=
- =?us-ascii?Q?UFvUvnX/+ta/UnyjHH96F/BiJcA9SFNOzgOFYLjdXjA2hQod2hq9FoPQI6zD?=
- =?us-ascii?Q?4crxwX4Yea4qQaR6fwF4ZEbuwS8KEE/9MFVjwqm9WXWgLNy9tKUh28/7vVYo?=
- =?us-ascii?Q?aI/ybwO3lLcxJF4O/uoSzmMh8i++Y8rMDZ6LxU5IxwHe1o4fneSj2DtgGWZM?=
- =?us-ascii?Q?9LCkM4YwQDyqe3S8WkDdBnQ+UNR97eAprXhieVSXPRWZgJcGEXvEEN0Od5dB?=
- =?us-ascii?Q?pr8tzO9BAUuO/1dqjK3Q4KcMflwcuNf3K5F7KHaZBK8QjEYSoXginofFBtF7?=
- =?us-ascii?Q?HQIXt0r9OWVv+AoMXU1mH4gzd4rCSB4iKHzIw77PhkUnx4vLR99uS+9WpdGK?=
- =?us-ascii?Q?WYguNSAHIquXh4Eum3WmaKVJKPkBhiykifCGHMJj+TvornuHa2/iSei/hVPK?=
- =?us-ascii?Q?cb5rLsx8lPe8Hz7lEr93dK9qjmDs61tkpKbPsyYMNqKPUcCXyb8QZqISM6r5?=
- =?us-ascii?Q?njcoML/vwNO/cBw/S8rMo91NZ+QsSHeZS+JlSXTfS5g7TvzvCzvmwci2Mbq7?=
- =?us-ascii?Q?jAeZq9PUb474/0y7cZj3yimtw087LRq73efgyD6twx8cDUfflDJJOP9cWa9e?=
- =?us-ascii?Q?h4h3x4yTxLdx4iodfW0+LiUyPU92NlEbZpZbzP0whN5WuafM9kpyEQ5k0QYI?=
- =?us-ascii?Q?mU8DAK3JgS15V5hZUyJAkc5rNMuOTH/0Zme9LM3sB26GsvnTkjkfmiE19DCC?=
- =?us-ascii?Q?7rNdrZSZhk2bWgt27Jqh08yXHZZEWGeTOcAWn3YzA++wgUitexkR6B5FXZfm?=
- =?us-ascii?Q?FRfqSYYXtAwYQDC9Ptyu17/gnlKvF9tSfv7fEkY+UbRKaoX/EDWtkSxwaU0B?=
- =?us-ascii?Q?1JH6G/8RCc/iYIhgAqHRR6jvzB5a89XfbQIo3/5lbI9UYxh6rb+LmBWcQjJq?=
- =?us-ascii?Q?St9QedXgcSs4g/XHoMzFxPAHuMmX81e1bCdCSwPcObjLoYrxbxO0T3n+7s4/?=
- =?us-ascii?Q?7rnxirsVpt+E4xykC3s4ZsYOnZENTVvSIXs7PsUourQLv3PgPEI/UHLZJIA0?=
- =?us-ascii?Q?8LHd0Zs+ndvzkzWifYOKLhyHkfHqJo2TkhlLFN+OTYm9u6diW1AQmUw0zuwj?=
- =?us-ascii?Q?5EvSQmTsJSodtyjzT0UmVrIvBuvBE0Kk91PuYjjH66f1425g/0TuGLJjdT2B?=
- =?us-ascii?Q?qjfsLw9tmjRSiKGNdQQ2pf6dyk2+MRy0t1WtRLwrW1BGfkg7bdcAYJ5h/pfm?=
- =?us-ascii?Q?Ejl/ffOYHC+Gml1bFB5l70lCEbIGjREBbaQOJC30+9XQvBZ/usbQ0B4wmajH?=
- =?us-ascii?Q?YA3rBH14VL818g7cfVJBchWItNGt3sIQnAHGnaYBzoRcEVku5Ar/bYCg2jcf?=
- =?us-ascii?Q?2Ttamk1kRz1kSRKkxpCkaVByR08/B2MoDtq37w0g5UHpJSyv32M2HoLABjvt?=
- =?us-ascii?Q?kzCd6hZZ46IzBtxbEDA=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 20 Feb 2025 11:38:28 +0000
+Received: from ideasonboard.com (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 5799074C;
+	Thu, 20 Feb 2025 12:36:55 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1740051415;
+	bh=xlLl1DJawLisfXNM+nY3LWGqJWif1fFYtqrXN7NQV9k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GKwk5ZKUmbL7p+4UlYHMd9yLoF+qhwDfO0XI15X3Y/17FQw11Lyfn8Kw7Vu8ZJV3D
+	 fL9TUKSCylYI7F86cDZtGiMbY+Rdwp9hz2A2cjAlcVR9dUHs34BbpXuJc7B36waG6K
+	 KP2QE64oFCS07JtT6hLnotuPVhTLCfhOAlktIsy0=
+Date: Thu, 20 Feb 2025 12:38:15 +0100
+From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+To: Cosmin Tanislav <demonsingur@gmail.com>
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Julien Massot <julien.massot@collabora.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Bingbu Cao <bingbu.cao@intel.com>, 
+	Tianshu Qiu <tian.shu.qiu@intel.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Hans Verkuil <hverkuil@xs4all.nl>, Umang Jain <umang.jain@ideasonboard.com>, 
+	=?utf-8?B?UGF3ZcWC?= Anikiel <panikiel@google.com>, linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 0/3] media: add v4l2_subdev_state_xlate_streams()
+Message-ID: <tw6x663t5dmxsdarrxjtopza3mou3lnhwazu3dfv2k27fv47v2@bvftfepqqhss>
+References: <20250220092036.6757-1-demonsingur@gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6571.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8def91e6-e078-408c-0468-08dd51a208bc
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Feb 2025 11:30:52.9401
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 3mv2BWCE9VULMRA67Y+7Z05KqSq505dgEl13IELAhvW5O68W2QZHeXDFP2kgbj0n9sGP7m8Oc/Yx9/Hmo7KRMw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8884
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250220092036.6757-1-demonsingur@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_033101_153522_2E0F089B 
-X-CRM114-Status: GOOD (  39.78  )
+X-CRM114-CacheID: sfid-20250220_033827_606683_504F441D 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,123 +73,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[AMD Official Use Only - AMD Internal Distribution Only]
+Hi Cosmin
 
-> -----Original Message-----
-> From: Russell King <linux@armlinux.org.uk>
-> Sent: Tuesday, November 19, 2024 9:19 PM
-> To: Sean Anderson <sean.anderson@linux.dev>
-> Cc: Andrew Lunn <andrew@lunn.ch>; Gupta, Suraj <Suraj.Gupta2@amd.com>;
-> andrew+netdev@lunn.ch; davem@davemloft.net; edumazet@google.com;
-> kuba@kernel.org; pabeni@redhat.com; Simek, Michal <michal.simek@amd.com>;
-> Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>; horms@kernel.org;
-> netdev@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org; git (AMD-Xilinx) <git@amd.com>; Katakam, Harini
-> <harini.katakam@amd.com>
-> Subject: Re: [PATCH net-next 2/2] net: axienet: Add support for AXI 2.5G =
-MAC
->
-> Caution: This message originated from an External Source. Use proper caut=
-ion
-> when opening attachments, clicking links, or responding.
->
->
-> On Tue, Nov 19, 2024 at 10:26:52AM -0500, Sean Anderson wrote:
-> > On 11/18/24 20:35, Andrew Lunn wrote:
-> > > On Mon, Nov 18, 2024 at 11:00:22AM -0500, Sean Anderson wrote:
-> > >> On 11/18/24 10:56, Russell King (Oracle) wrote:
-> > >> > On Mon, Nov 18, 2024 at 01:48:22PM +0530, Suraj Gupta wrote:
-> > >> >> Add AXI 2.5G MAC support, which is an incremental speed upgrade
-> > >> >> of AXI 1G MAC and supports 2.5G speed only. "max-speed" DT
-> > >> >> property is used in driver to distinguish 1G and 2.5G MACs of AXI=
- 1G/2.5G
-> IP.
-> > >> >> If max-speed property is missing, 1G is assumed to support
-> > >> >> backward compatibility.
-> > >> >>
-> > >> >> Co-developed-by: Harini Katakam <harini.katakam@amd.com>
-> > >> >> Signed-off-by: Harini Katakam <harini.katakam@amd.com>
-> > >> >> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
-> > >> >> ---
-> > >> >
-> > >> > ...
-> > >> >
-> > >> >> -       lp->phylink_config.mac_capabilities =3D MAC_SYM_PAUSE |
-> MAC_ASYM_PAUSE |
-> > >> >> -               MAC_10FD | MAC_100FD | MAC_1000FD;
-> > >> >> +       lp->phylink_config.mac_capabilities =3D MAC_SYM_PAUSE |
-> > >> >> + MAC_ASYM_PAUSE;
-> > >> >> +
-> > >> >> +       /* Set MAC capabilities based on MAC type */
-> > >> >> +       if (lp->max_speed =3D=3D SPEED_1000)
-> > >> >> +               lp->phylink_config.mac_capabilities |=3D MAC_10FD=
- |
-> MAC_100FD | MAC_1000FD;
-> > >> >> +       else
-> > >> >> +               lp->phylink_config.mac_capabilities |=3D
-> > >> >> + MAC_2500FD;
-> > >> >
-> > >> > The MAC can only operate at (10M, 100M, 1G) _or_ 2.5G ?
-> > >>
-> > >> It's a PCS limitation. It either does (1000Base-X and/or SGMII) OR
-> > >> (2500Base-X). The MAC itself doesn't have this limitation AFAIK.
-> > >
-> > >
-> > > And can the PCS change between these modes? It is pretty typical to
-> > > use SGMII for 10/100/1G and then swap to 2500BaseX for 2.5G.
-> >
-> > Not AFAIK. There's only a bit for switching between 1000Base-X and
-> > SGMII. 2500Base-X is selected at synthesis time, and AIUI the serdes
-> > settings are different.
->
-> Okay. First it was a PCS limitation. Then it was a MAC limitation. Now it=
-'s a
-> synthesis limitation.
->
-> I'm coming to the conclusion that those I'm communicating with don't actu=
-ally know,
-> and are just throwing random thoughts out there.
->
-> Please do the research, and come back to me with a real and complete answ=
-er, not
-> some hand-wavey "it's a limitation of X, no it's a limitation of Y, no it=
-'s a limitation of
-> Z" which looks like no one really knows the correct answer.
->
-> Just because the PCS doesn't have a bit that selects 2500base-X is meanin=
-gless.
-> 2500base-X is generally implemented by upclocking 1000base-X by 2.5x. Mar=
-vell
-> does this at their Serdes, there is no configuration at the MAC/PCS for 2=
-.5G speeds.
->
-> The same is true of 10GBASE-R vs 5GBASE-R in Marvell - 5GBASE-R is just t=
-he
-> serdes clocking the MAC/PCS at half the rate that 10GBASE-R would run at.
->
-> I suspect this Xilinx hardware is just the same - clock the transmit path=
- it at
-> 62.5MHz, and you get 1G speeds. Clock it at 156.25MHz, and you get 2.5G s=
-peeds.
->
+On Thu, Feb 20, 2025 at 11:20:32AM +0200, Cosmin Tanislav wrote:
+> Currently, the v4l2_subdev_state_xlate_streams() function is used
+> to translate streams from one pad to another.
+> This function takes the entire subdev state as argument, but only makes
+> use of the routing.
 
-Sorry for picking up this thread after long time, we checked internally wit=
-h AMD IP and hardware experts and it is true that you can use this MAC and =
-PCS to operate at 1G and 2.5G both. It is also possible to switch between t=
-hese two speeds dynamically using external GT and/or if an external RTL log=
-ic is implemented in the FPGA. That will include some GPIO or register base=
-d selections to change the clock and configurations to switch between the s=
-peeds. Our current solution does not support this and is meant for a static=
- speed selection only.
-If some user wants to implement dynamic speed switching solution, that will=
- need to be accompanied by additional software changes later.
+Correct, but is this a problem ?
 
-We'll use MAC ability register to detect if MAC is configured for 2.5G. Wil=
-l it be fine to advertise both 1G and 2.5G in that case?
+Is this the first step for a larger rework or is this a drive-by
+beautification ?
 
-> Thanks.
+I'm asking because (and I know it's hard to strike a balance) this
+kind of changes tend to make back-porting a more painful, and if
+only justified by "it looks better" I would be a bit hesitant in
+taking them.
+
+
+>
+> Introduce a v4l2_subdev_routing_xlate_streams() function which can be
+> used without the entire subdev state, to avoid passing the entire state
+> around when not needed.
+>
+> Convert all usages of v4l2_subdev_state_xlate_streams() to
+> v4l2_subdev_routing_xlate_streams().
+>
+> Remove v4l2_subdev_state_xlate_streams().
+>
+> V2:
+>   * Fix description of parameters
+>
+> Cosmin Tanislav (3):
+>   media: v4l: subdev: add v4l2_subdev_routing_xlate_streams()
+>   media: use v4l2_subdev_routing_xlate_streams()
+>   media: v4l: subdev: remove v4l2_subdev_state_xlate_streams()
+>
+>  drivers/media/i2c/ds90ub913.c                 | 14 ++++++-----
+>  drivers/media/i2c/ds90ub953.c                 | 14 ++++++-----
+>  drivers/media/i2c/max96714.c                  | 16 ++++++-------
+>  drivers/media/i2c/max96717.c                  | 23 ++++++++++---------
+>  drivers/media/pci/intel/ipu6/ipu6-isys-csi2.c | 14 ++++++-----
+>  .../platform/nxp/imx8-isi/imx8-isi-crossbar.c |  2 +-
+>  drivers/media/v4l2-core/v4l2-subdev.c         |  7 +++---
+>  include/media/v4l2-subdev.h                   | 10 ++++----
+>  8 files changed, 53 insertions(+), 47 deletions(-)
 >
 > --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> 2.48.1
+>
+>
 
