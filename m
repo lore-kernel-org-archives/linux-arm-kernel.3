@@ -4,93 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92809C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6502C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:42:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3j5meLBzlPzoYaZHYVuzGBPkwAKe4KxyEluapquIWYM=; b=S75Vv1URwLc5mbsn5tT2g40doZ
-	yLnG+Yksz2K2zBcTdEHgB9+EkfE7HJMnDT+eeTuFAkDkoGcLof6XDDiMccOZplL6KQaHPftIOePZb
-	aUxSt25KvVK1EoS7n1TAUyncd1Xr6+1QT0dBZljsFMjhdcg/1UWc4QGQrmRxuNEHjBewY2v5EIJSx
-	d17MP+Aazzx7H7Uy9EmUHIUH7NJb4XaBXMA0QXpMqexQnyTzrgN/OyAF23wpIalzoqe8aUih67vB/
-	DHh6IIbHVgiwrIf1BzdqQGQYA/DDOCTL8zHt94722qR9M2NJEZdT3VX0z4p5gKkN4DqvYTrOo7+Pz
-	LlITBlUQ==;
+	bh=n15bf8E4w81YIQXcbn52KewH85spv07PWBoufUb1/Zw=; b=TXVeBih2J3ecl3rFsknWzUYfWY
+	xns9thzmIvJM668kb00H7f5ftBQ5sTdxjD1rcCGvYw27sQX9QnADzeRKMkLTR4QOwBw13f2TsH8sf
+	66/Eo/bcnqi8t77iWhoBZ6SvhYIVntR1JLDDSNKrDbjnFN1hnI8/F0CJb/5SnVHVS0yfZrXEBvtnl
+	jpGBwUbCwW+BaNYfrwI8eRylW7PlwuZGGuQuOJs8AIo59o+DmtNhe5m3htYerc/OXsDy4X+f6WbZc
+	sGj+9fQNx7+G3HdpkFDi9umr7Z7Fddwlc1Joz8NOqlbh4D7xHAmkjvpHi0nYY0dPc6Ol+3uVWKoYL
+	aqQAolcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlAXM-00000002Baz-3GKI;
-	Thu, 20 Feb 2025 17:40:36 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tlAYp-00000002Byy-2FBw;
+	Thu, 20 Feb 2025 17:42:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlARs-00000002ALP-1BUp
+	id 1tlATa-00000002Ah0-1DU5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 17:34:57 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4393dc02b78so8766945e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 09:34:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740072894; x=1740677694; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3j5meLBzlPzoYaZHYVuzGBPkwAKe4KxyEluapquIWYM=;
-        b=m0l+c2wd9ETCk/gRoy+91eyZXHWj3AV4kVMdSfyl1pGDqSldhB4s1D3ULVYQVat1eD
-         2+YP1HovHjc582XmwQE1YVwyeL2mllPZIUngGJgI3zOX5ar2O/c3knOItTwah9B8+YJO
-         YTk3VTC08Th/UurHwjyGGGGQ5/sLhYhHxqVfVYHkd8cn+GdmIJLN7oXct6Ffqj1BYXnQ
-         Vu37qvrqdw6Eiq9pX7h12Bu2jnhzRVoa5J7mg52gEuyI1yE/B2RwcacT3Oq7+9QjqNnr
-         dOUMkFlJlTTevMUs+RwhWuMXr2UtJA+hbuSDldb9vRmWq7ZYflfEGqzdB9jBSj5VUDVn
-         kA6Q==
+	Thu, 20 Feb 2025 17:36:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1740073000;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=n15bf8E4w81YIQXcbn52KewH85spv07PWBoufUb1/Zw=;
+	b=MYyvorWmWManwk1iS1Z/eBaLHsRdX/RoNBHai/2bZKkW0n8tNb6pD8WHlN3Hsx+luK6BsC
+	oz42lZA1vzLXayeEFYChp7vg9WkdElbef2cqlJsjZ8PsetMUASfu6nyIRCRtBjA152hfuE
+	MeGkqLOv/ZOkOimLe20PsELQ6uQ8Qs8=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-648-u-pQNiezMm-fbXRvOABG4g-1; Thu, 20 Feb 2025 12:36:38 -0500
+X-MC-Unique: u-pQNiezMm-fbXRvOABG4g-1
+X-Mimecast-MFC-AGG-ID: u-pQNiezMm-fbXRvOABG4g_1740072998
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43935e09897so8880225e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 09:36:38 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740072894; x=1740677694;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3j5meLBzlPzoYaZHYVuzGBPkwAKe4KxyEluapquIWYM=;
-        b=N3nXScE7mLaMRlPLsqFKISa3qc+ROxfFV+O8pd69w6s9CZ3ieiqfvLoUZzKPL7ouMB
-         SKYRxxgvoFuA4anYjE48jTwwLVPHA6zcusm3xdnUk+gM656NkP76U2zRdE1WSa+9K6bX
-         IhtjymAQK4870ltnAasJ9MuWzTSFziviSEmq4rbQETx2sR+qWv1UhfYSNMtnvPiATI30
-         iKM8WblgbY6Fb7hgXbCNH8A7ldXkgCVer6MK398+GzGVBtn/Kn9r+tdbve7n7lwBd+jS
-         vCMsOF+zmo9J92fK56oR9ckWrUjLc8K4vm5fv/fHa0SjSn7iQnXOQCwIH4/8nQRRGJCO
-         SPvw==
-X-Forwarded-Encrypted: i=1; AJvYcCX8IZXQUo0/A09Q4wXHFG1MbYnF6rHDsTwCLOPAx0qWQ18isrm9CoxwlihF4npczmp7ZPh5Y/9QFUe841iuZzTB@lists.infradead.org
-X-Gm-Message-State: AOJu0YypBEqQdO4dJOjm1RvxAofgHQEKDzedSt48arrNQg4+Jp+kBSm7
-	A9T8EXcUVIR5O4Bc6qjkPaMESbl1m+YGdhwig0YeB1xTcfRLX5p3
-X-Gm-Gg: ASbGncsRqe/XRRb2F9JBebhpxP48lcWeUsEKKa5fJloDkWeS99UPgmXpwkC1PU7BvHM
-	HQMH4HcqFL/bBUXChLIM/Z08dx02qU9siLBKY9pCibeLrpPpH5kBZQDhZCxBisDilBTQzdn72QR
-	UyYOYXF6Lt0/I51Y20XbJLfV947rlPqGIgXoD0gcQgmYs5VKXpqRJpzVM70NNjMgqoWNgxAz7tY
-	QrOHOdIW1tP2/At0ExqIFqrjHe/OhS0JeXRjp2IDFPwCFLLE4BAzc309sFnT3pMVZ84hA6spDv9
-	7DY2DEtYvgzYQgQWcdPHzL2WD5uH28hoVNI80PWtil+XhE3yak1X4WZUSUcYg8caN2I=
-X-Google-Smtp-Source: AGHT+IEPmmiKlS/ysPrkAIpR7/izG7EDUAs9G1mfa/hbF+C9JMVOv9VrwAD1oHez+9k3pqPo2/fSbg==
-X-Received: by 2002:a05:600c:5493:b0:439:9e8b:228e with SMTP id 5b1f17b1804b1-439ae21cdddmr609075e9.20.1740072894371;
-        Thu, 20 Feb 2025 09:34:54 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43987088ecbsm117191125e9.31.2025.02.20.09.34.53
+        d=1e100.net; s=20230601; t=1740072997; x=1740677797;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=n15bf8E4w81YIQXcbn52KewH85spv07PWBoufUb1/Zw=;
+        b=kIJpUTz/prClwjxf9PN6v0FPTFlmVprWORZA0UyjFtiY/OXmYdYwH5FXsq3lYkjirU
+         rwNBzpDbdpne2097a70kBusQAvi90raDRBBfGRpC940CmiM3C+otnYBQSJqMW8sJ+CHP
+         1IjU3UM0+QRc8OJkXV5DnUwO1PQ6hqCLZUwgaKMnpxjWwwEph3xXGHiADgKsVpmxhJda
+         TzuQmDitJOmk2CER7T9dsHU0VoJ/qJQPOESmrBVQg8ZBy41l6EShAdEJ+0cFhWieekb0
+         a/ugV9oG60lo8dNxHLgHqO9ypOI+XmxOkRjNyJi1hwUU/sh4e+DnBEebr2Bcm1Sz8E+S
+         dPkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVzo+3rkMziHODBFA7qexWlZlbaCQuL63mLysokWKwJ+EoWmNn0UKcs/juzDYau3cLIMLSmxVpQlRmYwbvoJciu@lists.infradead.org
+X-Gm-Message-State: AOJu0YwE7eOsV+/lIdlxkh4N53k2cjG7sjlA9SXgwZLbCYS+1XaOQjyP
+	lJ04Bh3BvRgG4k3yK7EtMSthR96NAIDRXGF3FaJQ+muAq6vsfYQuVzoAGMv+htvOa2UII31TOKZ
+	U2ZtDejAvMZKyYnN5TILvYgDrx6MaWO+Jq2VkYaOqcDBOcl4IhnhyX9GnbEgGhT8124Ql9zAs
+X-Gm-Gg: ASbGncuIlLpy4PCNVOJMHCik8MpyxvoLcH9wolzYGD54cU1y1yr3xiDYM7M08WPt779
+	r/iaxulwM7d7XmAR/Amg0VFQec0OSn76LVwLItgAq6DEiDfhofe5yE+MX/MAp7iYIhjcR8w3EwW
+	jNeUkTsIRuQ7+sfNKtVd4+Jk5a2afcELnY2tR1wBMHmNgGrJ9ilIG5n1eCkPS6WQgvqbYMczECA
+	//k2zpYDFwfqq2w3tyvJqcq+kJdg9gasG11mJVTSJLFtC3ypUWEYz21nPE3Abr0jURi3ovShjS+
+	FWurhEb76wKt+C813vEq9FhSt+ZM96aitlAG75KrInmgXtK6NirahA==
+X-Received: by 2002:a05:600c:4e8d:b0:439:643a:c8d5 with SMTP id 5b1f17b1804b1-439ae189b90mr2045225e9.0.1740072997619;
+        Thu, 20 Feb 2025 09:36:37 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHy5FnqR/8AjjY8RLPAgdr+NGtk75Kqe0crbyEx5UtstYLGj4EGzUk8OPNUhCk+6xcuGov9Tw==
+X-Received: by 2002:a05:600c:4e8d:b0:439:643a:c8d5 with SMTP id 5b1f17b1804b1-439ae189b90mr2044905e9.0.1740072997264;
+        Thu, 20 Feb 2025 09:36:37 -0800 (PST)
+Received: from rh (p200300f6af0e4d00dda53016e366575f.dip0.t-ipconnect.de. [2003:f6:af0e:4d00:dda5:3016:e366:575f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4398872fa85sm117119635e9.28.2025.02.20.09.36.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 09:34:53 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Emmanuel Gil Peyrot <linkmauve@linkmauve.fr>,
- Dan Carpenter <dan.carpenter@linaro.org>
-Cc: linux-sunxi@lists.linux.dev, Maxime Ripard <mripard@kernel.org>,
- Paul Kocialkowski <paul.kocialkowski@bootlin.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-staging@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/4] media: cedrus: Don't require requests for all codecs
-Date: Thu, 20 Feb 2025 18:34:52 +0100
-Message-ID: <2235304.C4sosBPzcN@jernej-laptop>
-In-Reply-To: <b3ab99a1-2e72-4b7e-8569-f7fe9beb3018@suswa.mountain>
-References: <20240731164422.206503-1-linkmauve@linkmauve.fr>
- <20240731164422.206503-5-linkmauve@linkmauve.fr>
- <b3ab99a1-2e72-4b7e-8569-f7fe9beb3018@suswa.mountain>
+        Thu, 20 Feb 2025 09:36:36 -0800 (PST)
+Date: Thu, 20 Feb 2025 18:36:35 +0100 (CET)
+From: Sebastian Ott <sebott@redhat.com>
+To: Marc Zyngier <maz@kernel.org>
+cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+    Suzuki K Poulose <suzuki.poulose@arm.com>, 
+    Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>, 
+    Eric Auger <eric.auger@redhat.com>, gankulkarni@os.amperecomputing.com
+Subject: Re: [PATCH v2 02/14] KVM: arm64: Hide ID_AA64MMFR2_EL1.NV from guest
+ and userspace
+In-Reply-To: <20250220134907.554085-3-maz@kernel.org>
+Message-ID: <af16f5bc-4300-54d3-b480-c559ec070a44@redhat.com>
+References: <20250220134907.554085-1-maz@kernel.org> <20250220134907.554085-3-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ALhjylGKciPfaxCrw6fwzgrFv_gLq5ZOzk5TbBrsWog_1740072998
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=US-ASCII; format=flowed
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_093456_317610_25EE4D02 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20250220_093642_394530_4BE86802 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,33 +108,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sreda, 31. julij 2024 ob 18:56:15 Srednjeevropski standardni =C4=8Das j=
-e Dan Carpenter napisal(a):
-> On Wed, Jul 31, 2024 at 06:44:14PM +0200, Emmanuel Gil Peyrot wrote:
-> > From: Jernej Skrabec <jernej.skrabec@gmail.com>
-> >=20
-> > JPEG decoding doesn=E2=80=99t need it currently.
-> >=20
-> > Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> > ---
->=20
-> Does this change have an effect on runtime?
+Hi Marc,
 
-Ideally, driver should allow only JPEG format to be used without request ap=
-i.
-Other codecs still require it (decoding doesn't work properly without it).
+On Thu, 20 Feb 2025, Marc Zyngier wrote:
+> Since our take on FEAT_NV is to only support FEAT_NV2, we should
+> never expose ID_AA64MMFR2_EL1.NV to a guest nor userspace.
+>
+> Make sure we mask this field for good.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+> arch/arm64/kvm/sys_regs.c | 1 +
+> 1 file changed, 1 insertion(+)
+>
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 82430c1e1dd02..9f10dbd26e348 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1627,6 +1627,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+> 		break;
+> 	case SYS_ID_AA64MMFR2_EL1:
+> 		val &= ~ID_AA64MMFR2_EL1_CCIDX_MASK;
+> +		val &= ~ID_AA64MMFR2_EL1_NV;
+> 		break;
 
-Best regards,
-Jernej
+This would cause issues when you update the host kernel while keeping the
+guests register state. Could we allow to write (but ignore) the previously
+valid value? Like it was handled in:
+ 	6685f5d572c2 KVM: arm64: Disable MPAM visibility by default and ignore VMM writes
 
->=20
-> regards,
-> dan carpenter
->=20
->=20
->=20
-
-
-
+Sebastian
 
 
