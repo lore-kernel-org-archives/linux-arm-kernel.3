@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B741C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 12:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 337B3C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 12:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vM0rzE+8fltEX9kN3V0aSjtxrQePtogKtfnuFFchkdM=; b=FreBt3i5BvWy1q1OtwlYlSxvZ2
-	Xrf2R7N74pEbitPlJqo4d3Kq8qVILhrLOGcW1kXBa1+jTpdFf3Hgjo5QQyeJmTfs1nP/n9+/509WV
-	lrlp2aRjJFBBduGOcDnlQtED7Jxe+01EcN7bh096hkVXfny2LzUsUFxHSgS4K2Q6jpTVL5fgKIGdw
-	B1iD/eIAQb5cT8Gx9uI+QFb/0FaQHSUjc2NV8piWWyv+PQ+BA4Bg3+aS9/wAo1mCyYJr6R5eCNJ0Q
-	JSeXQODtgaMuWvpFAVQ0hs4cr//S6y9CPZ8zyWb7HGdHm7iDv4Y7M8wMKrzjFJu4ZocIi4Gkyd2CN
-	VL2NqDUQ==;
+	bh=zvUUl4oou86nmMGZD1Zpeq4cd4J8Ua2XimIdNrCT1Wo=; b=4P5RuLFzbphBM4yjVRYJF2+pZf
+	3fuueVJcT/5VHGBpJl4ucmdO8Jpwndbu8Mmre2gqb9Qo+scrZHTj0PfBiPEBrmFdEjvVha+4uUMPD
+	lrv2ZX3FBWBOAmdq0GUyYx1f09IGGsbUlCJIIqQ7dCpvEOlxfdQU1vXRldkLV9PSv/y5V9ORP7riT
+	2iJMHzrdoFYiQByINmG5OycLYOoV5q18jpO4tLELVdCoPohKuGN8KtB4/6e2mQ/aIZXV52bTffint
+	6fe0TH8CvM4UgxpXAL3r6d6qDB7gigN1b2NufDMDP3GGbG/3SsW1MKULJ4Cm67BgUqkafzmqRgTaI
+	Eus4OBGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl5kl-00000000pEH-1AJg;
-	Thu, 20 Feb 2025 12:34:07 +0000
-Received: from smtp-42ac.mail.infomaniak.ch ([84.16.66.172])
+	id 1tl5mC-00000000pai-3qqW;
+	Thu, 20 Feb 2025 12:35:36 +0000
+Received: from smtp-8faa.mail.infomaniak.ch ([2001:1600:4:17::8faa])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl5Xk-00000000koh-0QCD
+	id 1tl5Xk-00000000koC-0aDW
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 20 Feb 2025 12:20:42 +0000
-Received: from smtp-3-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:4:17::246b])
-	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YzC5d0BYnzmGV;
-	Thu, 20 Feb 2025 13:20:37 +0100 (CET)
-Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YzC5c2rkSzGKM;
+Received: from smtp-3-0000.mail.infomaniak.ch (smtp-3-0000.mail.infomaniak.ch [10.4.36.107])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YzC5c2v1qzsY6;
 	Thu, 20 Feb 2025 13:20:36 +0100 (CET)
+Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YzC5b6Cy2zGpB;
+	Thu, 20 Feb 2025 13:20:35 +0100 (CET)
 From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Thu, 20 Feb 2025 13:20:12 +0100
-Subject: [PATCH 3/5] arm64: dts: rockchip: add support for
- HAIKOU-LVDS-9904379 adapter for PX30 Ringneck
+Date: Thu, 20 Feb 2025 13:20:11 +0100
+Subject: [PATCH 2/5] arm64: dts: rockchip: fix pinmux of UART5 for PX30
+ Ringneck on Haikou
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250220-ringneck-dtbos-v1-3-25c97f2385e6@cherry.de>
+Message-Id: <20250220-ringneck-dtbos-v1-2-25c97f2385e6@cherry.de>
 References: <20250220-ringneck-dtbos-v1-0-25c97f2385e6@cherry.de>
 In-Reply-To: <20250220-ringneck-dtbos-v1-0-25c97f2385e6@cherry.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -48,12 +48,13 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Farouk Bouabid <farouk.bouabid@theobroma-systems.com>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>
+ Quentin Schulz <quentin.schulz@cherry.de>, stable@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_042040_304673_DDDB55C1 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20250220_042040_350926_08EFC551 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,181 +71,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Quentin Schulz <quentin.schulz@cherry.de>
 
-The HAIKOU-LVDS-9904379 adapter is an adapter for PX30 Ringneck with the
-Haikou carrierboard. It is to be inserted in the fake PCIe slot labelled
-Video Connector.
+UART5 uses GPIO0_B5 as UART RTS but muxed in its GPIO function,
+therefore UART5 must request this pin to be muxed in that function, so
+let's do that.
 
-This adapter expects an Admatec 9904379 1024x600 LVDS display with
-backlight and touchscreen. An EEPROM is also found on the adapter.
-
-This adds support for this adapter on PX30 Ringneck when inserted in
-Haikou carrierboard.
-
+Fixes: 5963d97aa780 ("arm64: dts: rockchip: add rs485 support on uart5 of px30-ringneck-haikou")
+Cc: stable@vger.kernel.org
 Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
- arch/arm64/boot/dts/rockchip/Makefile              |   5 +
- .../px30-ringneck-haikou-lvds-9904379.dtso         | 130 +++++++++++++++++++++
- 2 files changed, 135 insertions(+)
+ arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index e4d9c48b95bba204f50697480d06e9a4071e56d3..b40b82bd07223f542c17704e7844f002bb31e1c5 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -5,6 +5,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-engicam-px30-core-ctouch2-of10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-engicam-px30-core-edimm2.2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-firefly-jd4-core-mb.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-ringneck-haikou.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-ringneck-haikou-lvds-9904379.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3308-bpi-p2-pro.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3308-evb.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3308-roc-cc.dtb
-@@ -191,6 +192,10 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-rock-5c.dtb
- # result of the application of <overlay-1>.dtbo and other listed overlays on top
- # of <base>.dtb.
+diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
+index 2321536c553fed20bc02d91f40a5d5a6dc20892c..08a11e47584137ed84f31aadc53a1bdd2ca95530 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
++++ b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
+@@ -194,6 +194,13 @@ sd_card_led_pin: sd-card-led-pin {
+ 			  <3 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
++
++	uart {
++		uart5_rts_gpio: uart5-rts-gpio {
++			rockchip,pins =
++			  <0 RK_PB5 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
+ };
  
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-ringneck-haikou-haikou-lvds-9904379.dtb
-+px30-ringneck-haikou-haikou-lvds-9904379-dtbs := px30-ringneck-haikou.dtb \
-+	px30-ringneck-haikou-lvds-9904379.dtbo
-+
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-vz-2-uhd.dtb
- rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
- 	rk3568-wolfvision-pf5-display-vz.dtbo \
-diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-lvds-9904379.dtso b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-lvds-9904379.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..3fc088a5636a24b40a8536b28a210fce79f6d333
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-lvds-9904379.dtso
-@@ -0,0 +1,130 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2025 Cherry Embedded Solutions GmbH
-+ *
-+ * HAIKOU-LVDS-9904379 adapter for PX30 Ringneck and Haikou carrierboard.
-+ *
-+ * This adapter needs to be plugged in the fake PCIe connector called Video
-+ * Connector on Haikou carrierboard.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+
-+&{/} {
-+	backlight_lvds: backlight-lvds {
-+		compatible = "pwm-backlight";
-+		brightness-levels = <0 255>;
-+		default-brightness-level = <255>;
-+		num-interpolated-steps = <255>;
-+		power-supply = <&vcc3v3_baseboard>;
-+		pwms = <&pwm0 0 25000 0>;
-+	};
-+
-+	panel {
-+		compatible = "admatec,9904379", "panel-lvds";
-+		backlight = <&backlight_lvds>;
-+		data-mapping = "vesa-24";
-+		height-mm = <126>;
-+		power-supply = <&vcc3v3_baseboard>;
-+		width-mm = <224>;
-+
-+		panel-timing {
-+			clock-frequency = <49500000>;
-+			hactive = <1024>;
-+			hback-porch = <90>;
-+			hfront-porch = <90>;
-+			hsync-len = <90>;
-+			vactive = <600>;
-+			vback-porch = <10>;
-+			vfront-porch = <10>;
-+			vsync-len = <10>;
-+		};
-+
-+		port {
-+			panel_in_lvds: endpoint {
-+				remote-endpoint = <&lvds_out_panel>;
-+			};
-+		};
-+	};
-+};
-+
-+&display_subsystem {
-+	status = "okay";
-+};
-+
-+&dsi_dphy {
-+	status = "okay";
-+};
-+
-+&i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	/* EEPROM and GT928 are limited to 400KHz */
-+	clock-frequency = <400000>;
-+
-+	touchscreen@14 {
-+		compatible = "goodix,gt928";
-+		reg = <0x14>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PA0 IRQ_TYPE_LEVEL_LOW>;
-+		irq-gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&gpio0 RK_PA2 GPIO_ACTIVE_HIGH>;
-+		pinctrl-0 = <&touch_int &touch_rst>;
-+		pinctrl-names = "default";
-+		touchscreen-inverted-x;
-+		touchscreen-inverted-y;
-+		AVDD28-supply = <&vcc3v3_baseboard>;
-+		VDDIO-supply = <&vcc3v3_baseboard>;
-+	};
-+
-+	eeprom@54 {
-+		reg = <0x54>;
-+		compatible = "st,24c04", "atmel,24c04";
-+		pagesize = <16>;
-+		size = <512>;
-+		vcc-supply = <&vcc3v3_baseboard>;
-+	};
-+};
-+
-+&lvds {
-+	status = "okay";
-+};
-+
-+&lvds_out {
-+	lvds_out_panel: endpoint {
-+		remote-endpoint = <&panel_in_lvds>;
-+	};
-+};
-+
-+&pinctrl {
-+	touch {
-+		touch_int: touch-int {
-+			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		touch_rst: touch-rst {
-+			rockchip,pins = <0 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&vopb {
-+	status = "okay";
-+};
-+
-+&vopb_mmu {
-+	status = "okay";
-+};
-+
-+&vopl {
-+	status = "okay";
-+};
-+
-+&vopl_mmu {
-+	status = "okay";
-+};
+ &pwm0 {
+@@ -227,7 +234,7 @@ &uart0 {
+ };
+ 
+ &uart5 {
+-	pinctrl-0 = <&uart5_xfer>;
++	pinctrl-0 = <&uart5_xfer &uart5_rts_gpio>;
+ 	rts-gpios = <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
+ 	status = "okay";
+ };
 
 -- 
 2.48.1
