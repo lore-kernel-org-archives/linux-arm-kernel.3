@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D153FC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 01:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A0CEC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 01:30:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hei31XB5q84gJBI2emRDlm0CWOqQ1amJYg+XT3qGNfs=; b=VTus6fmp2Y037LxmyEtMSrrG61
-	gp3lyEmp9OXZ1QvzWeBmKfpIBaxkLu1Qbv9gtga8lkSVONVfKPOoJiJHC+++Fue2fUEDP7IK56zAe
-	XR2bKJWRtGp0coBuvxkwVU/qeCDGByN9Xw0ibA8fnDZsGyigsED+F+LvWOCU0MA3YSE5Mg66gx9CG
-	P+Sh2QTfNrajfVzmsW6DfoZE7nFxKL//zoUyFU32mRVjiMn8CmTbMZgkXRJ7h1H/weaxo/mJYuZJS
-	IQw+bs2tYVZvq3P5i0uhD0KiU5BdTfzZc8XiCjTW7gyHG8iejyFpZ06EYoOu0mRO1DX1S+TWX3Da8
-	JHczWnCg==;
+	bh=OkZLa2X4XrqPLAsbeivrvq2/n6STf/0Lx6m+57nkDis=; b=NMrqQUw2NFiwssqQd0QCtZMjZB
+	Bx4+W3eF1rBN9WqgWr//8t+UKHuCBZ3diXFxVZ2ajDEN+Ktd/dkO+lomgcbwB8MBVlFDxRN2aNEyS
+	Kt7VApSCwRAXKnVgGnBPS4mv1Pcm4bxlgMvdqrMFE4EigewhLHQojSOIA/49aEVsNSejb03GDjbZH
+	UQAqFkS+UHHR9M3A/Nt9g4rK5n+agdOe09KXHbM59dX0UQ4Ul4Kf+Crg9EQQcQFtpK724cWPXSubf
+	FQW538ZluNJIhbC/urqx0L5N1GCBza6IsllV5zp5gTzH6G4e7EkzYhYyEciKF+JbD9c/EaZFSf3aw
+	4a4ULLmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkvMq-0000000G7BD-34fE;
-	Thu, 20 Feb 2025 01:28:44 +0000
-Received: from mail-oo1-xc49.google.com ([2607:f8b0:4864:20::c49])
+	id 1tkvOJ-0000000G7dL-1j0s;
+	Thu, 20 Feb 2025 01:30:15 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkvFk-0000000G54Q-2LkF
+	id 1tkvFt-0000000G57l-05cI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 01:21:25 +0000
-Received: by mail-oo1-xc49.google.com with SMTP id 006d021491bc7-5fce3f2d8e4so234870eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 17:21:23 -0800 (PST)
+	Thu, 20 Feb 2025 01:21:34 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2f816a85facso1058569a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 17:21:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740014483; x=1740619283; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1740014492; x=1740619292; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hei31XB5q84gJBI2emRDlm0CWOqQ1amJYg+XT3qGNfs=;
-        b=XyAQ0QGyEgDgjC7hzuSjXq9YzM4nlR6WMLTrbUCBi0AAZQQKui31diBU3918ppZzux
-         Uy36bu+52lHOfqGNuHNZw5Vm+IAhKbesMwF0SHN2YBkW/IPKdHDNh3niCS0mKHNg+Ks1
-         Lzx4m8gIZOOc7k+li6/em59M9T4KmeLFcY6VdjQFeYlLQ5cciBlUCTmQNYMA5TwpFta7
-         du9Vh0HuHfSKyu3nhn2QZzbFFUf7vzIQH4elF8ufmlDpe7MCC6ucqfhL2wQpofkYduZa
-         VND6XyeG6s7WQkDvUdZ1MNPA2QfLskAg2vLJe1kRF5gZei/F0ZfJR3FbLgqql5Oy9VqK
-         3edQ==
+        bh=OkZLa2X4XrqPLAsbeivrvq2/n6STf/0Lx6m+57nkDis=;
+        b=2Jlswi9dQ7vVhokx0CM3G2jf83FbbtrECR05CJUG786Gf5FYlGlbUifuKzGo+RfKzK
+         d9oGahfWLGKMgqTpY6NsdQpeRH9FyWJvaOdUskdJvPF8h/YbbEAnp0WTUII7JuK8fS4p
+         obv0B/1FGQ49CwezJvygOGJ24RvvuHXTnng/ck+LLTnG+O+oNFylsYcOtfRLhYZ2kDU6
+         fca2MlnrQ4UP9GffTGYA7blYxbcfw1TMKY4OKpJGWwX+XX+5OwKwETWr/lVBa2bWSoy5
+         ctiRWDSXLDr7qVGcQg0X/0qpgAs7ZKT5+NWyqJJt/sb/JBlcTDp0zE3Oc9YDRXUOTDWK
+         nvag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740014483; x=1740619283;
+        d=1e100.net; s=20230601; t=1740014492; x=1740619292;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hei31XB5q84gJBI2emRDlm0CWOqQ1amJYg+XT3qGNfs=;
-        b=TOOqipV3Ljdr0hk6/djKLB5poYr616qpOm3f2o2+f5hUk51+26zyAbk3FClMgl8VA2
-         blZrS5+n25T++PlJhx+hV2y6jE7wym89v+2nm7WM3QdKEhXv8ImwcRblkLfTLHVArPmZ
-         DslWGHc2gil05HE9NHB47YblOCNa2Olg9taLg0clonIs0CcPIs4AQJxKTCO8s/4Exqn+
-         1VigoVZ2kFOO6XKchBPGaAQl7Cvw3iIRMA9WTPvw/pD3YouetZ9x3IRpJu+edxzhzgoS
-         L8OqICPYCyYD3do9zKfsgiF6uFGrTmkkODpQGV49VRIbN8YJwJbUTRpy/XHtyLpwnfeV
-         Ej6A==
-X-Forwarded-Encrypted: i=1; AJvYcCWknU+mAJqz5mi/QmewE6lPhZZyYpoEu+Yj1FXw8RTFXfkoKS5ZP6MMyH52toSxk8ma5LvgVtZuwpD2/EXsu76U@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfzBQ8WfQn7MyR1Fn9YY4f6vD3oOy+NOoZ+WXE4yLIT427ecc+
-	EqOErIIbg0VAnbQaji0KTPr0e+XpZq8sXzZWAaiUtbPZhyvWoTA+Rdt4OeQL1GPceE5mcuxQRXg
-	osvhtMRPHdQ==
-X-Google-Smtp-Source: AGHT+IGd2vxuU1amb7+qDvbCnYAoKOoMiZRrGABm5B0rQidw0j6221m951cHdyKwGYS7pdZw4DijvpwPVgm+Og==
-X-Received: from oablm17.prod.google.com ([2002:a05:6870:3d91:b0:2bc:69a2:abd1])
+        bh=OkZLa2X4XrqPLAsbeivrvq2/n6STf/0Lx6m+57nkDis=;
+        b=L7u5UlXSjHWg0nlPi+KM1atkNGuujfJs3WG3+t0Wq1lvBCBlBYig2/ITwNWwW/Dkz1
+         sHBGiUUmm7VDC5QU0HHrNDbcOTggZeP6358AlGkdJxhnlaLzq+AjMvrxAs9ixqgNRI2v
+         NMhcKpUcTbsgcAmcMIdDQ6/X84CksYhBO5kbh9VMAkpvRjKRL3Q/rnwA1Ng7oBHqiDrI
+         olyyg4vQS7yWZrigwW3JNFDTZJPQSGkvLNmpD7rBN2GPq0PkAQSl6eOy4ujkO0ZDTe9u
+         trlZagsrvaKbkJ+esggQlBrVChKdGdnVWB+KinE/gZb+ZfIxQg++vRdfH/ynFzSOyGNd
+         QYYA==
+X-Forwarded-Encrypted: i=1; AJvYcCV3AEeZqWmsjwc/FLqVOHBiHFD3yOcPIjr3+NTnpiIXWR3Npoy/9fyIMywoPhC94dyx6/VXgu8dg+4Dj3PDWuFh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjZ1fJH6pUKPkuCWfl6rZBndEKAt+lbrHY121XN5qKVmwC9Sxw
+	GP5S9EGF/iT2sE5umKykFksWk8QcJo32tGJEVPog33x19oT7A9cqTrACPm0XcKkENmvxNAYpsHY
+	28i9juWSVzw==
+X-Google-Smtp-Source: AGHT+IFBxisbnr8xuVdH6zyqBX5cRFTXzSlnuc/uizTOJqWix9sLLV310uViRu8QUCqCKsN5Tzuuv6azaPxpIg==
+X-Received: from pjbhl4.prod.google.com ([2002:a17:90b:1344:b0:2fa:a101:755])
  (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6870:fbaa:b0:29e:5de2:cffb with SMTP id 586e51a60fabf-2bc99b721admr13444186fac.17.1740014482734;
- Wed, 19 Feb 2025 17:21:22 -0800 (PST)
-Date: Thu, 20 Feb 2025 01:21:19 +0000
+ 2002:a17:90b:2d8d:b0:2ee:f076:20fb with SMTP id 98e67ed59e1d1-2fc40f22db2mr35640374a91.17.1740014492129;
+ Wed, 19 Feb 2025 17:21:32 -0800 (PST)
+Date: Thu, 20 Feb 2025 01:21:28 +0000
 In-Reply-To: <cover.1740009184.git.yepeilin@google.com>
 Mime-Version: 1.0
 References: <cover.1740009184.git.yepeilin@google.com>
 X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
-Message-ID: <6888a87af6ea47ea29d429b91a57cb146d1f69c8.1740009184.git.yepeilin@google.com>
-Subject: [PATCH bpf-next v3 5/9] arm64: insn: Add BIT(23) to {load,store}_ex's mask
+Message-ID: <e2eb5c6912f292ed229aa4fb14e42d7f4c2f8571.1740009184.git.yepeilin@google.com>
+Subject: [PATCH bpf-next v3 6/9] arm64: insn: Add load-acquire and
+ store-release instructions
 From: Peilin Ye <yepeilin@google.com>
 To: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Cc: Peilin Ye <yepeilin@google.com>, bpf@ietf.org, Xu Kuohai <xukuohai@huaweicloud.com>, 
@@ -85,8 +86,8 @@ Cc: Peilin Ye <yepeilin@google.com>, bpf@ietf.org, Xu Kuohai <xukuohai@huaweiclo
 	Benjamin Segall <bsegall@google.com>, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_172124_597695_36970E0E 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20250219_172133_072296_1912968C 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,41 +102,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We are planning to add load-acquire (LDAR{,B,H}) and store-release
-(STLR{,B,H}) instructions to insn.{c,h}; add BIT(23) to mask of load_ex
-and store_ex to prevent aarch64_insn_is_{load,store}_ex() from returning
-false-positives for load-acquire and store-release instructions.
+Add load-acquire ("load_acq", LDAR{,B,H}) and store-release
+("store_rel", STLR{,B,H}) instructions.  Breakdown of encoding:
+
+                                size        L   (Rs)  o0 (Rt2) Rn    Rt
+             mask (0x3fdffc00): 00 111111 1 1 0 11111 1  11111 00000 00000
+  value, load_acq (0x08dffc00): 00 001000 1 1 0 11111 1  11111 00000 00000
+ value, store_rel (0x089ffc00): 00 001000 1 0 0 11111 1  11111 00000 00000
+
+As suggested by Xu [1], include all Should-Be-One (SBO) bits ("Rs" and
+"Rt2" fields) in the "mask" and "value" numbers.
+
+It is worth noting that we are adding the "no offset" variant of STLR
+instead of the "pre-index" variant, which has a different encoding.
 
 Reference: Arm Architecture Reference Manual (ARM DDI 0487K.a,
            ID032224),
 
-  * C6.2.228 LDXR
-  * C6.2.165 LDAXR
   * C6.2.161 LDAR
-  * C6.2.393 STXR
-  * C6.2.360 STLXR
   * C6.2.353 STLR
+
+[1] https://lore.kernel.org/bpf/4e6641ce-3f1e-4251-8daf-4dd4b77d08c4@huaweicloud.com/
 
 Signed-off-by: Peilin Ye <yepeilin@google.com>
 ---
- arch/arm64/include/asm/insn.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/include/asm/insn.h |  8 ++++++++
+ arch/arm64/lib/insn.c         | 29 +++++++++++++++++++++++++++++
+ 2 files changed, 37 insertions(+)
 
 diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-index e390c432f546..2d8316b3abaf 100644
+index 2d8316b3abaf..39577f1d079a 100644
 --- a/arch/arm64/include/asm/insn.h
 +++ b/arch/arm64/include/asm/insn.h
-@@ -351,8 +351,8 @@ __AARCH64_INSN_FUNCS(ldr_imm,	0x3FC00000, 0x39400000)
+@@ -188,8 +188,10 @@ enum aarch64_insn_ldst_type {
+ 	AARCH64_INSN_LDST_STORE_PAIR_PRE_INDEX,
+ 	AARCH64_INSN_LDST_LOAD_PAIR_POST_INDEX,
+ 	AARCH64_INSN_LDST_STORE_PAIR_POST_INDEX,
++	AARCH64_INSN_LDST_LOAD_ACQ,
+ 	AARCH64_INSN_LDST_LOAD_EX,
+ 	AARCH64_INSN_LDST_LOAD_ACQ_EX,
++	AARCH64_INSN_LDST_STORE_REL,
+ 	AARCH64_INSN_LDST_STORE_EX,
+ 	AARCH64_INSN_LDST_STORE_REL_EX,
+ 	AARCH64_INSN_LDST_SIGNED_LOAD_IMM_OFFSET,
+@@ -351,6 +353,8 @@ __AARCH64_INSN_FUNCS(ldr_imm,	0x3FC00000, 0x39400000)
  __AARCH64_INSN_FUNCS(ldr_lit,	0xBF000000, 0x18000000)
  __AARCH64_INSN_FUNCS(ldrsw_lit,	0xFF000000, 0x98000000)
  __AARCH64_INSN_FUNCS(exclusive,	0x3F800000, 0x08000000)
--__AARCH64_INSN_FUNCS(load_ex,	0x3F400000, 0x08400000)
--__AARCH64_INSN_FUNCS(store_ex,	0x3F400000, 0x08000000)
-+__AARCH64_INSN_FUNCS(load_ex,	0x3FC00000, 0x08400000)
-+__AARCH64_INSN_FUNCS(store_ex,	0x3FC00000, 0x08000000)
++__AARCH64_INSN_FUNCS(load_acq,  0x3FDFFC00, 0x08DFFC00)
++__AARCH64_INSN_FUNCS(store_rel, 0x3FDFFC00, 0x089FFC00)
+ __AARCH64_INSN_FUNCS(load_ex,	0x3FC00000, 0x08400000)
+ __AARCH64_INSN_FUNCS(store_ex,	0x3FC00000, 0x08000000)
  __AARCH64_INSN_FUNCS(mops,	0x3B200C00, 0x19000400)
- __AARCH64_INSN_FUNCS(stp,	0x7FC00000, 0x29000000)
- __AARCH64_INSN_FUNCS(ldp,	0x7FC00000, 0x29400000)
+@@ -602,6 +606,10 @@ u32 aarch64_insn_gen_load_store_pair(enum aarch64_insn_register reg1,
+ 				     int offset,
+ 				     enum aarch64_insn_variant variant,
+ 				     enum aarch64_insn_ldst_type type);
++u32 aarch64_insn_gen_load_acq_store_rel(enum aarch64_insn_register reg,
++					enum aarch64_insn_register base,
++					enum aarch64_insn_size_type size,
++					enum aarch64_insn_ldst_type type);
+ u32 aarch64_insn_gen_load_store_ex(enum aarch64_insn_register reg,
+ 				   enum aarch64_insn_register base,
+ 				   enum aarch64_insn_register state,
+diff --git a/arch/arm64/lib/insn.c b/arch/arm64/lib/insn.c
+index b008a9b46a7f..9bef696e2230 100644
+--- a/arch/arm64/lib/insn.c
++++ b/arch/arm64/lib/insn.c
+@@ -540,6 +540,35 @@ u32 aarch64_insn_gen_load_store_pair(enum aarch64_insn_register reg1,
+ 					     offset >> shift);
+ }
+ 
++u32 aarch64_insn_gen_load_acq_store_rel(enum aarch64_insn_register reg,
++					enum aarch64_insn_register base,
++					enum aarch64_insn_size_type size,
++					enum aarch64_insn_ldst_type type)
++{
++	u32 insn;
++
++	switch (type) {
++	case AARCH64_INSN_LDST_LOAD_ACQ:
++		insn = aarch64_insn_get_load_acq_value();
++		break;
++	case AARCH64_INSN_LDST_STORE_REL:
++		insn = aarch64_insn_get_store_rel_value();
++		break;
++	default:
++		pr_err("%s: unknown load-acquire/store-release encoding %d\n",
++		       __func__, type);
++		return AARCH64_BREAK_FAULT;
++	}
++
++	insn = aarch64_insn_encode_ldst_size(size, insn);
++
++	insn = aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RT, insn,
++					    reg);
++
++	return aarch64_insn_encode_register(AARCH64_INSN_REGTYPE_RN, insn,
++					    base);
++}
++
+ u32 aarch64_insn_gen_load_store_ex(enum aarch64_insn_register reg,
+ 				   enum aarch64_insn_register base,
+ 				   enum aarch64_insn_register state,
 -- 
 2.48.1.601.g30ceb7b040-goog
 
