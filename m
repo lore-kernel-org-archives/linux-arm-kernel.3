@@ -4,65 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8470FC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 08:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B715AC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 08:33:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OSfc84xBOEvzCXJrLSuCPFK509D1OkhJn6cR3EB/bZc=; b=zB6kuYqneQo5SkztnvT2mEuKLl
-	xujVZtbDNWShwod16CHJFB7HS90Gc82Sm9KbqD4hZyfOzSp5U1/pwx738U57FI8cM7Q9zyIL7cSa5
-	zaRjabEvxlk3FdayGeax/9BCcCWf/Ds1dqbzL4z+k0n+3fQTO1iI3EoReMYFuFzsIp+7g7JoHl4H6
-	KMAXsfu02SvSsjABpekM6lltdF4MnWf/db8dUFa9UvskST+vIj03HfmDgVD85FO/pCFkzLks9iYYf
-	vmqdxq3XLk/vfBNkDh+4IN85nh1K/seK9FGiHaLGtH+cLvFgFhzbLud0Ixjyglpp3HZkHZNB0BSei
-	+hgfZi+w==;
+	bh=g0ISmnutbRbJCnl3xCQN8y59xMILK3Ip0QaQE0ShVNU=; b=ZyjFwUhzW/TXeM+5nMwYShWMTO
+	++GY7dtnmHqEXYdUpC9przmCg7ZmjuQbzOGsEMr9vTYN/KILeCS7peSGA+56c0n4w2s1aj3p9NWrx
+	RtfJk4XtLKMJJXa4go97EYxdeYngF3ohILW1FV95Fo/WuCNPoXlFHvu5sg8GWHJ96Fg2iuni4ccvJ
+	2AM893Qb5/TV/+UjaMAaFy7JHaXXnzdA/yzS3XcjKdueFN2S6LZNDMmM9DIepLVhApVwq7F4GEqwD
+	zFRvHt7kg5FrPXSiBTVyOPcAj4vjBIrTwAwS+ldolQx85KUpJfUaj/Rct/bcbHbyOKj7z5N99f5Oj
+	fZN/yS3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl1y1-0000000HNLI-1LfK;
-	Thu, 20 Feb 2025 08:31:33 +0000
+	id 1tl1zT-0000000HNkS-46ay;
+	Thu, 20 Feb 2025 08:33:03 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl1wV-0000000HN0S-2DzE
+	id 1tl1wX-0000000HN1D-3Lrt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 08:30:00 +0000
+	Thu, 20 Feb 2025 08:30:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BF3A65C491B;
-	Thu, 20 Feb 2025 08:29:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94E2BC4CED1;
-	Thu, 20 Feb 2025 08:29:58 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 161DD5C5DA8;
+	Thu, 20 Feb 2025 08:29:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C52D3C4CEDD;
+	Thu, 20 Feb 2025 08:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740040198;
-	bh=649fmmAckJtxvn8+vL75y25cRWSc5bs5KxYHmJ1yOpg=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=oA3toarVAuJk2LHZAZKldIRQWCA4CuBaOfPcoagwTAYwYtkP8Ej+10fTiP8YCrSy3
-	 l76beFxXcmlzJs3dybFrxTFaMKASlGAp7UiiKnfOFzuITkPjaPEi+uOxbgw2SKED0A
-	 bHdxFxfJeY3smckD8e86knrPv3dwb1CJ0qxsu4+YeI3b+Cz3Ht9N9QBWcaY3aHppJi
-	 iDEq8caRmQYJ3zUXSqlBUfW4qRb3XEd//Z3pwzCdc6hJsLkzty9lIbADCgEy8LVEZM
-	 XdljJ+0IxEbDlOmtdPKDPv8j7PqAuwDQrHYpRMxMl36SdhClyegKUzDElaHZHagmuR
-	 F1nx0aslHM6bA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 717F4380CEE2;
-	Thu, 20 Feb 2025 08:30:30 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1740040201;
+	bh=1vibqR3G+O71ULLP8sf+4kfTQYZY3krLEakrtCV5AKE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=m2iNwu1SAzIX9cinXD2NyjbLtWzwprhwSSXFAXQrAeHuFQ/WBJBMjdnwxwb1oV9Pi
+	 xIDgDQIoONeBk14NolSe2mLG3Thj66aYZG6CMDiby71psdQHDaImCXqOPVpvnheAoE
+	 W8SsyoPWxa6SXMw7FKCkIZs+6iWyhEnhAjvsb4GDJ9tBsCR93slLIsdEPqTQSXmNmg
+	 EuoCKhHdArkwfP+Vd+IGngVYsd57xibAfH3/B/d3TALBQiAoc90MhcflGPbuMY/zVm
+	 Ou/DTeX9cY5k4bBHoapJl/+XdKnfyNjCPl0VVt8JVSUsGRGMUlFYbLguSDUfP7C1lM
+	 loFu3DylTB3AQ==
+Message-ID: <d7e788c5-0bec-4761-ad4a-1c4f642fe3e5@kernel.org>
+Date: Thu, 20 Feb 2025 09:29:55 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] net: axienet: Set mac_managed_pm
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174004022926.1208713.2604562776709725855.git-patchwork-notify@kernel.org>
-Date: Thu, 20 Feb 2025 08:30:29 +0000
-References: <20250217055843.19799-1-nick.hu@sifive.com>
-In-Reply-To: <20250217055843.19799-1-nick.hu@sifive.com>
-To: Nick Hu <nick.hu@sifive.com>
-Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- michal.simek@amd.com, linux@armlinux.org.uk, francesco.dolcini@toradex.com,
- praneeth@ti.com, andrew@lunn.ch, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dt-bindings: usb: samsung,exynos-dwc3: add
+ exynos7870 support
+To: Kaustabh Chakraborty <kauschluss@disroot.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250219-exynos7870-usb-v2-0-1de41a89c9d4@disroot.org>
+ <20250219-exynos7870-usb-v2-1-1de41a89c9d4@disroot.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <20250219-exynos7870-usb-v2-1-1de41a89c9d4@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_002959_639590_0E66E264 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20250220_003001_954800_D81CEE09 
+X-CRM114-Status: UNSURE (   6.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +124,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On 18/02/2025 19:54, Kaustabh Chakraborty wrote:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: samsung,exynos7870-dwusb3
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 3
+> +          maxItems: 3
+> +        clock-names:
+> +          items:
+> +            - const: bus_early
+> +            - const: ctrl
+> +            - const: ref
 
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+Other device has order bus_early + ref, so use the same here, thus
+bus_early + ref + ctrl.
 
-On Mon, 17 Feb 2025 13:58:42 +0800 you wrote:
-> The external PHY will undergo a soft reset twice during the resume process
-> when it wake up from suspend. The first reset occurs when the axienet
-> driver calls phylink_of_phy_connect(), and the second occurs when
-> mdio_bus_phy_resume() invokes phy_init_hw(). The second soft reset of the
-> external PHY does not reinitialize the internal PHY, which causes issues
-> with the internal PHY, resulting in the PHY link being down. To prevent
-> this, setting the mac_managed_pm flag skips the mdio_bus_phy_resume()
-> function.
+Rest looks fine.
+
 > 
-> [...]
-
-Here is the summary with links:
-  - net: axienet: Set mac_managed_pm
-    https://git.kernel.org/netdev/net/c/a370295367b5
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
+Best regards,
+Krzysztof
 
