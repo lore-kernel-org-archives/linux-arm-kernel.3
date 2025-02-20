@@ -4,84 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91B84C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53A09C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ll4MapV9YYQHwTCOG3xJfA+Sudr/vOAtL9iS2dtf3J0=; b=pt7z9X/VN6G8vQbCkasY3gsh4B
-	kyILpNvA/+k9dFPP86X+Y4PV8GVHFYN9b7shVRhsq2H3kkbo+TcaQOJuELaVzfKsBt8sYfvBAe0hz
-	M81OvxgG8MIFB/rieACve78jgAf2NuTRqX+jftdoMkdqigaXq/pulGnufjHYGafVFMYXBCaJv+Mcd
-	rpgg5H4huZ8sVNAkPcEzQFu2h9OxhtDZQtkroud1z9oZBThXEDIe8Quvdo/yV7j6jGw2SIcwqwFmk
-	LGG45psVo5TQRrMsDfHOQR5W8UIOmX2o3qJGKbBRx3wFTnkUKxR9EGUV9zX0A103Um9n1MZhouwba
-	lARVFgvA==;
+	bh=Erb1j78Tl39CoDzh9ac30D16Llfa3ooTqJ8erhPUCDY=; b=CGKVvE0wNvkxu8MlPGMAkN2iZ4
+	+9H0ppy3uNohU6y8G9+ajI9erizKPGHZr/YfMU6CS/vjewn+bBzmBISlq8rB1J0YyS0ldvo0QeVtK
+	pZMy/B7WFdmawEO/CraGy255+Cugmv9zTg8JomMmLYA79qGXd7/JGQ5UAfpDk1o2MMpffFHi+KdFC
+	8glXBEe2c8AFLc3ZaOvSPy7jggRpnlh9eGEIO0P0p9YFAHoRKG4btm5EB5zi9WGA3wKZgQKvepjKs
+	zBXBV3PptJ/pU0bWz36KGj8xnLSlZI1M12rixMs+dXYAW/QWNnbQDgS7++xFsO4X+tyC8MHyFK0zs
+	JjiRcvLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9XO-00000001tlY-3Szk;
-	Thu, 20 Feb 2025 16:36:34 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9Vt-00000001tTc-3FEe
+	id 1tl9Ys-00000001uC4-0qZK;
+	Thu, 20 Feb 2025 16:38:06 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tl9Vz-00000001tVY-3nlO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 16:35:03 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id F1D8920376F8;
-	Thu, 20 Feb 2025 08:34:59 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com F1D8920376F8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740069300;
-	bh=ll4MapV9YYQHwTCOG3xJfA+Sudr/vOAtL9iS2dtf3J0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=FabHF0Pv9CtkRuEY+LxCxEqw+PX7OOBIDPKEL29N2aeyIMDHzhOQg1gf0RQO2lmoI
-	 CRtE1nDhCVV6idmCw6GqON120UCb0TBOM/r9zx91h9wa8UVVHQqcoz2IlXj6lCCtm7
-	 rQnELxtu7vmnEMRCugYJDyI4Tay8IR8t3zOiFDTo=
-Message-ID: <fa2d9e8d-7897-44eb-87e2-3a9118deb18a@linux.microsoft.com>
-Date: Thu, 20 Feb 2025 08:34:59 -0800
+	Thu, 20 Feb 2025 16:35:09 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 51KGYsQP048123
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 20 Feb 2025 10:34:54 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1740069295;
+	bh=Erb1j78Tl39CoDzh9ac30D16Llfa3ooTqJ8erhPUCDY=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=fQiaFnZZEuGRh4BKYGGwdxs6znPM66osnJsTkoLo35Pzja8pgNJxCffu3LOHPBe8k
+	 s/PbIoOQ//sqerTNjmZ4QgQK+791700Zv4W9mtvYL95ZtDFI6F46aenAcrwL58mi8Q
+	 DNaKpIH/lEGJbfsZ4YTYcrJkfJ1Q09a+ccifLKhQ=
+Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 51KGYsDQ090117
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 20 Feb 2025 10:34:54 -0600
+Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 20
+ Feb 2025 10:34:54 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 20 Feb 2025 10:34:54 -0600
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 51KGYsa2077700;
+	Thu, 20 Feb 2025 10:34:54 -0600
+Message-ID: <f8456f1b-b092-44b2-a916-13c4d88c5f83@ti.com>
+Date: Thu, 20 Feb 2025 10:34:54 -0600
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v4 1/6] arm64: hyperv: Use SMCCC to detect
- hypervisor presence
-To: Michael Kelley <mhklinux@outlook.com>, "arnd@arndb.de" <arnd@arndb.de>,
- "bhelgaas@google.com" <bhelgaas@google.com>, "bp@alien8.de" <bp@alien8.de>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "hpa@zytor.com" <hpa@zytor.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "kw@linux.com" <kw@linux.com>, "kys@microsoft.com" <kys@microsoft.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
- "mingo@redhat.com" <mingo@redhat.com>, "robh@kernel.org" <robh@kernel.org>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>, "will@kernel.org"
- <will@kernel.org>, "devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "x86@kernel.org" <x86@kernel.org>
-Cc: "benhill@microsoft.com" <benhill@microsoft.com>,
- "bperkins@microsoft.com" <bperkins@microsoft.com>,
- "sunilmut@microsoft.com" <sunilmut@microsoft.com>
-References: <20250212014321.1108840-1-romank@linux.microsoft.com>
- <20250212014321.1108840-2-romank@linux.microsoft.com>
- <SN6PR02MB4157DB2F52501309D52D0870D4C52@SN6PR02MB4157.namprd02.prod.outlook.com>
+Subject: Re: [PATCH v5 01/10] arm64: dts: ti: k3-am62-wakeup: Add wakeup R5F
+ node
+To: Beleswar Prasad Padhi <b-padhi@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra <vigneshr@ti.com>
+CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Andrew Davis
+	<afd@ti.com>,
+        Hari Nagalla <hnagalla@ti.com>
+References: <20250210221530.1234009-1-jm@ti.com>
+ <20250210221530.1234009-2-jm@ti.com>
+ <4740c3f8-5051-4e25-af91-b45735ffef31@ti.com>
 Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB4157DB2F52501309D52D0870D4C52@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <4740c3f8-5051-4e25-af91-b45735ffef31@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_083501_863172_0DBA2C91 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20250220_083508_105134_1C2174D3 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,85 +93,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Beleswar,
 
-
-On 2/19/2025 3:13 PM, Michael Kelley wrote:
-> From: Roman Kisel <romank@linux.microsoft.com> Sent: Tuesday, February 11, 2025 5:43 PM
+On 2/19/25 10:30 AM, Beleswar Prasad Padhi wrote:
+> Hi Judith,
+> 
+> On 11/02/25 03:45, Judith Mendez wrote:
+>> From: Hari Nagalla <hnagalla@ti.com>
 >>
-
-[...]
-
->>   }
+>> AM62 SoC devices have a single core R5F processor in wakeup domain.
+>> The R5F processor in wakeup domain is used as a device manager
+>> for the SoC.
 >>
->> +static bool hyperv_detect_via_acpi(void)
->> +{
->> +	if (acpi_disabled)
->> +		return false;
->> +#if IS_ENABLED(CONFIG_ACPI)
->> +	/* Hypervisor ID is only available in ACPI v6+. */
-> 
-> The comment is correct, but to me doesn't tell the full story.
-> I initially wondered why the revision test < 6 was being done,
-> since Hyper-V for ARM64 always provides ACPI 6.x or greater.
-> But the test is needed to catch running in some unknown
-> non-Hyper-V environment that has ACPI 5.x or less. In such a
-> case, it can't be Hyper-V, so just return false instead of testing
-> a bogus hypervisor_id field. Maybe a comment would help
-> explain it to someone like me who was confused. :-)
-> 
-
-Thanks, I'll extend the comment to tell the whole story!
-
-[...]
-
->> +	ms_hyperv.vtl = get_vtl();
-> 
-> The above statement looks like it will fail to compile on
-> arm64 since the get_vtl() function is entirely on the x86
-> side until Patch 3 of this series. As of this Patch 1, there's
-> no declaration of get_vtl() available to arm64.
-> 
-
-I used my working branch for testing
-https://github.com/romank-msft/linux-hyperv/tree/vtl_mode_arm64_v4
-and didn't move that code around when chunking into patches.
-Will fix the workflow, thanks for catching this!
-
->> +	/* Report if non-default VTL */
->> +	if (ms_hyperv.vtl > 0)
->> +		pr_info("Linux runs in Hyper-V Virtual Trust Level\n");
-> 
-> Could this message include the VTL number as well? In the long
-> run, I think there will be code at non-zero VTLs other than VTL 2.
-> 
-
-Absolutely, will add!
-
+>> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
+>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+>> Signed-off-by: Judith Mendez <jm@ti.com>
+>> ---
+>> Changes since v4:
+>> - No change
+>> ---
+>>   arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi | 25 ++++++++++++++++++++++
+>>   1 file changed, 25 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi 
+>> b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
+>> index 9b8a1f85aa15c..061819a64300f 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62-wakeup.dtsi
+>> @@ -106,6 +106,31 @@ wkup_rti0: watchdog@2b000000 {
+>>           status = "reserved";
+>>       };
+>> +    wkup_r5fss0: r5fss@78000000 {
+>> +        compatible = "ti,am62-r5fss";
+>> +        #address-cells = <1>;
+>> +        #size-cells = <1>;
+>> +        ranges = <0x78000000 0x00 0x78000000 0x8000>,
+>> +             <0x78100000 0x00 0x78100000 0x8000>;
+>> +        power-domains = <&k3_pds 119 TI_SCI_PD_EXCLUSIVE>;
+>> +        status = "disabled";
 >> +
->>   	ms_hyperv_late_init();
->>
->>   	hyperv_initialized = true;
->> diff --git a/arch/arm64/include/asm/mshyperv.h
->> b/arch/arm64/include/asm/mshyperv.h
->> index 2e2f83bafcfb..a6d7eb9e167b 100644
->> --- a/arch/arm64/include/asm/mshyperv.h
->> +++ b/arch/arm64/include/asm/mshyperv.h
->> @@ -50,4 +50,9 @@ static inline u64 hv_get_msr(unsigned int reg)
->>
->>   #include <asm-generic/mshyperv.h>
->>
->> +#define ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_0	0x4d32ba58U
->> +#define ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_1	0xcd244764U
->> +#define ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_2	0x8eef6c75U
->> +#define ARM_SMCCC_VENDOR_HYP_UID_HYPERV_REG_3	0x16597024U
->> +
->>   #endif
->> --
->> 2.43.0
->>
+>> +        wkup_r5fss0_core0: r5f@78000000 {
+>> +            compatible = "ti,am62-r5f";
+>> +            reg = <0x78000000 0x00008000>,
+>> +                  <0x78100000 0x00008000>;
+>> +            reg-names = "atcm", "btcm";
+>> +            ti,sci = <&dmsc>;
+>> +            ti,sci-dev-id = <121>;
+>> +            ti,sci-proc-ids = <0x01 0xff>;
+>> +            resets = <&k3_reset 121 1>;
+>> +            firmware-name = "am62-wkup-r5f0_0-fw";
+> 
+> 
+> Here and everywhere else, 'resets' and 'firmware-name' are standard DT 
+> properties and should come before vendor specific properties.
 
--- 
-Thank you,
-Roman
+Right, let me fix that, thanks.
+
+~ Judith
+
+> 
+> https://docs.kernel.org/devicetree/bindings/dts-coding-style.html#order-of-properties-in-device-node
+> 
+> Thanks,
+> Beleswar
+> 
+>> +            ti,atcm-enable = <1>;
+>> +            ti,btcm-enable = <1>;
+>> +            ti,loczrama = <1>;
+>> +        };
+>> +    };
+>> +
+>>       wkup_vtm0: temperature-sensor@b00000 {
+>>           compatible = "ti,j7200-vtm";
+>>           reg = <0x00 0xb00000 0x00 0x400>,
 
 
