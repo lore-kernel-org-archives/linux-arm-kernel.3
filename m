@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D172C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 12:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCB7C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 12:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gn7TEFXG5zMpyyv2brhU/w0iRVaMtHgU1i1/8sh0Hyg=; b=GUYGTH3Hue5bkcDPqcm+QsxkGG
-	38vcyUjbg5+2LAPpsI4Be2oIVfevA5e2NrG01XkyRHeRn5cc2EiaqJvcur4FgQCaoDHs1IVZ2IC6i
-	zv04UJlkCOx1dEx98rHCozEQpFv1//gKfDLoFNVj5DGbw27g93MfS8dPVckEJvIlXarqtGRFccduf
-	zWH4CxzoHrq0uPZbFND9fgCi+3LX1xSAsYnyDsjTAGlYW5gxqxxEdPeUayhqIgPMDI6Bix2GrdQgD
-	N3MBHrlkCPN40zAHxwEU86T0HzfTQdKO7PM6ZB3zOcMRPCnk8XMdnkLW1SKkfC7Otj/gmpTS1pss+
-	keOlHREA==;
+	bh=TXl9g0QRiupRi++GsVmdaOoSc/EcnLsRPfQMighZBYM=; b=5BBP5lBmG72mq+lOsyee/UMBHf
+	ekx0+l0cW7wc6HQVxqdKRnsZ7e9fmPnZwfPdV/MR3baZb2k/OZM/cUNn0lARB1x5B7ySrR8ZXim/r
+	9PXxCGvKt3zwQOmx2437htWjq0wYxmRTJH9SGiw+YN/gu43DMHWwyh9nNxspslWVlI2rVDJxQylS0
+	7tIunBRbv58LpkgGjhIrJ/oDx1q0bX2SWL6uZiEIZiB6lwuEzJZLdWLPaw3VgCJQeVvCFd3iSA6MJ
+	+/P4gW6cnwJO28ap5ZoK4YRMeG5PzdWeElgo5eku4v0maHzyhnCft++e1cKUvf4Mh2cqO4CO3hhql
+	MdODR68Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl5eu-00000000nEA-1D8k;
-	Thu, 20 Feb 2025 12:28:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tl5gM-00000000nmN-3pzX;
+	Thu, 20 Feb 2025 12:29:34 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl5Vs-00000000kIk-2JKZ
+	id 1tl5WS-00000000kQI-01pc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 12:18:45 +0000
+	Thu, 20 Feb 2025 12:19:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C61AF5C5D35;
-	Thu, 20 Feb 2025 12:18:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64FEBC4CED6;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 557725C02AB;
 	Thu, 20 Feb 2025 12:18:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85446C4CED1;
+	Thu, 20 Feb 2025 12:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740053923;
-	bh=ROtfoAxK2xKoTpAY9yzScsPJvBzno5iFrQIaQBKBu3c=;
+	s=k20201202; t=1740053959;
+	bh=iIoWKfGlgEHsajgKFT5jnEn1DVJa1FWjnc925juAW+I=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=pZmAClDqJctUzeBcm/RKv4BNSxNZZonfD1YCbGI2MlLcIIq3J5V1l1BG51LyDIeEK
-	 gvoHb3StaWq7vzu2HnOdcQZUL17Di6AHFz1OuzWU4lWhl1C6LE/05W85cUr4WiTH34
-	 q9o1u+g72dFDHU/stZicAoT9cnbrFP2EwNQrsxsL0QDin2Fm2R+tXWQbpbf1lX3Nrc
-	 Bq3RySLhc/WC+W8im2py53+NP6ifQL/sfH0u21xAj80Q80OYz/3ZP8uDlWYi+5Jdzm
-	 C3mPSJaJb0z1IgsERnPithYKaoA+sYEXo0JfBlpu7XND2Cz4M8thLNL4osHLRzZKkJ
-	 zpgY3N/rzwaJg==
-Message-ID: <22142d49-b6ba-43d3-aefe-ae64fd867e8e@kernel.org>
-Date: Thu, 20 Feb 2025 13:18:38 +0100
+	b=SshpZezdlDGtiM6TiHutcpm/8gi64FjaHnFRk1hcp5QsBJnBUkeVau9CXQg8cPj45
+	 B4IcqdwVrnmrMvAZj5j7ZfR3XDpVoZJZ993XyEcgaW89aZQWRiNVUaZZ7swh6oXE42
+	 zFe++tSHLwuxo+NorFenV3rlxWyN0LQwrR9lii5fWgjMUoPNVuYUaTJY+fyshyYyqF
+	 C8vAr4Gt05I9c3h6oFWiooNQ3x9Fma0vVMk1D+Yf6xZXGZwGg/vb1n7h+MfixWy1pT
+	 bF9M0wKzpvGhcqdJrUTqLW1RSm+IRHXAT/VpJ0ab18QLfZIqya0AwxriipUyHCeQ2B
+	 R77fGt/HNcNqQ==
+Message-ID: <30f92eb0-8483-4699-83b9-387a1fdd4931@kernel.org>
+Date: Thu, 20 Feb 2025 13:19:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/6] arm64: Kconfig: add ARCH_CIX for cix silicons
+Subject: Re: [PATCH 5/6] arm64: defconfig: Enable CIX SoC
 To: Peter Chen <peter.chen@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de
 Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- Fugang Duan <fugang.duan@cixtech.com>
+ "Fugang . duan" <fugang.duan@cixtech.com>
 References: <20250220084020.628704-1-peter.chen@cixtech.com>
- <20250220084020.628704-5-peter.chen@cixtech.com>
+ <20250220084020.628704-6-peter.chen@cixtech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,12 +99,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250220084020.628704-5-peter.chen@cixtech.com>
+In-Reply-To: <20250220084020.628704-6-peter.chen@cixtech.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_041844_702611_BEBDA202 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20250220_041920_134518_B43A5EF7 
+X-CRM114-Status: GOOD (  12.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,26 +120,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 20/02/2025 09:40, Peter Chen wrote:
-> From: Fugang Duan <fugang.duan@cixtech.com>
+> Enable CIX SoC support at ARM64 defconfig
 > 
-> Add ARCH_CIX for CIX SoC series support.
-> 
-> Signed-off-by: Fugang Duan <fugang.duan@cixtech.com>
+> Acked-by: Fugang.duan <fugang.duan@cixtech.com>
+
+You keep using different names in different patches.
+
 > Signed-off-by: Peter Chen <peter.chen@cixtech.com>
 > ---
->  arch/arm64/Kconfig.platforms | 6 ++++++
->  1 file changed, 6 insertions(+)
+>  arch/arm64/configs/defconfig | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-> index 02f9248f7c84..977b61894cbc 100644
-> --- a/arch/arm64/Kconfig.platforms
-> +++ b/arch/arm64/Kconfig.platforms
-> @@ -399,4 +399,10 @@ config ARCH_ZYNQMP
->  	help
->  	  This enables support for Xilinx ZynqMP Family
->  
-> +config ARCH_CIX
-C is not after Z... keep sane order.
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index cb7da4415599..1dd46d200401 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -45,6 +45,7 @@ CONFIG_ARCH_BCMBCA=y
+>  CONFIG_ARCH_BRCMSTB=y
+>  CONFIG_ARCH_BERLIN=y
+>  CONFIG_ARCH_BLAIZE=y
+> +CONFIG_ARCH_CIX=y
+
+
+And this is not in order with savedefconfig...
+
 
 Best regards,
 Krzysztof
