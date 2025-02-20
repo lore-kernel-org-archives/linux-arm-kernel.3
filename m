@@ -4,73 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDBADC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:09:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA0F2C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:11:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DhrEMPazg4VWtR34qnd0rK9L+bUZ2MhCj/KoPwKqizc=; b=VjtZUrGRRtJi0HnML9I83EKNE3
-	3ZVYJD+85tVLP9NfLX9RrD2w+2ST1wlc/+l0+nvwWWDhS9WfaJJn+2R5gPpOl72OiYXIMsDEbTYYZ
-	phMaVF6bpGIs1g/bKsNc5/QZVW6G4+Sc8uENez5tFNVb1YGu87gdz5yBav6y0vXJttXBN2qYfk8fd
-	hBUAsW7gPpGSA7xcGBmvElSHpKAcNFIyURMeZCZ0DyEZUY5hVDr3eoA4nvlGaEdLygScZuRwIC0Y4
-	fYFFB0DGP9Hw8MhXtSG2hD6SGsPB5Ixj31EOFnZf5Th2JAuTxXj7EsMZzorK2YOSrUKCByZXVneHc
-	UHAA54SA==;
+	bh=u8i8NHUpLU1lNymOiuinj3CiGxQRUTvt7Qzv9Ox/cVY=; b=2AhUtasU/cWHaM1zHbigV4+FZp
+	t06xYgrKJE9DySJ3Z6vqfZjNXDum02E3apc5o1x0msRDOvwNbiaVvcW+gVCFueZEUksuA6FwztgYN
+	UiqBDVNsP1dC5pkApRdx0+CFk/Y4io5HOjKfag+77bIAjuDcXno+dZ+EcRevuROKAy4O5QPrTi0vC
+	hg+PjW5X5iesGO4xDN4T0lUABTgc3m1LMXyn+p9CITfwMvXRFj6/dtU8Y3zrl/IDHMpbrkqUS+nOa
+	kZDy6HoYpvg8Z9Ueg6JaYicgODTiGw2U1NiynuES9MUMwWQ4kog3/uCwOx/Vqy39y1sf0NVvXOFr5
+	HUNFycZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl972-00000001lt8-3dsd;
-	Thu, 20 Feb 2025 16:09:20 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1tl98t-00000001mSM-2UFm;
+	Thu, 20 Feb 2025 16:11:15 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl937-00000001kTt-2Rgk
+	id 1tl95z-00000001lbc-0MnF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 16:05:18 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3A1C810382D3C;
-	Thu, 20 Feb 2025 17:05:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1740067515;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DhrEMPazg4VWtR34qnd0rK9L+bUZ2MhCj/KoPwKqizc=;
-	b=A4hGitDbo72QAmhefQeUeZL3T3Rp2wKldnOpn/EQrjnDZScLwr/7Rd/j6nY9MKQ/KQtUiP
-	JG6759wwrIzoRhywmF9uAcVztzoO0PQMKccT4bfjss4i/bzvHo3e4QsMJ2ZFsmfKki2y0s
-	Acm5EEFFlh5RmmRGT0p4iYS3Da9UI9dAV27ZGIPW+JnIDvcDm/vLRZwAnuyp2SY9DGxbBN
-	WSS1HcMuR2u97P2HlCwVn4vftvNDGyHa/BA2d77O1avi3nCO/PcdfsCOuhwI7EudA97zsE
-	hReD8N+WY0jdzLWeauVDM1r5cp17mHQ9kRTZjsormprBNDTwtHdw6UDOts+SIQ==
-Date: Thu, 20 Feb 2025 17:05:11 +0100
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Shawn
- Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
- <festevam@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- linux-clk@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-Subject: Re: [PATCH] arm: clk: Add ETH switch clock description for vf610
- SoC
-Message-ID: <20250220170511.719a1cac@wsk>
-In-Reply-To: <f68ebe15-69ee-428a-8079-8bb05d7aa21b@lunn.ch>
-References: <20250219114936.3546530-1-lukma@denx.de>
-	<3cebe152-6326-454c-9da6-5cf5a64f71c9@lunn.ch>
-	<20250219233802.20ec53e5@wsk>
-	<5a9d9eef-f2ca-4168-aca4-4419dcfcacb6@lunn.ch>
-	<20250220154826.3455b15e@wsk>
-	<f68ebe15-69ee-428a-8079-8bb05d7aa21b@lunn.ch>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Thu, 20 Feb 2025 16:08:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740067695; x=1771603695;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5UKuSJfQdQ3wxkz3CXu365iXRHx0PfplKe3AL6w5Cms=;
+  b=R2H11IkQHZ8OIDz+GePSZq7iLEXJ6p1DsjvTbbwXScEfgpK7WwBURaUM
+   zN1HlFZNsydSU4OHQU6CL4QJ++uv0/bwQGEXa25qLpqWPrtwQ/yHgNdtT
+   E1bQzkskP3I4BH0CKAJXBQhXy0Y7Ee5buEHPvjCgsm2nwO69h67MLUHD2
+   L2Gkt2mGleJZcn0xUXa5I33yIfyYDFiKTWQfwAHrXczAxwMbufYpKc5hq
+   Q7nUB7+xyc/2KtyTfsjCk/5RTECNvnxUAFDeRBfPCOfaF/zryj4HRhsR5
+   GZVFa80k3MBB+aSJp+Wzf/b/qbfOd6TinWg9hHJov/cXMk4KAGMKQ2lwc
+   Q==;
+X-CSE-ConnectionGUID: M8OXxOieSf2+EbsroZLwNg==
+X-CSE-MsgGUID: rSRS4UbPQ8+c1kEpl/mmRw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11351"; a="41111091"
+X-IronPort-AV: E=Sophos;i="6.13,302,1732608000"; 
+   d="scan'208";a="41111091"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2025 08:08:12 -0800
+X-CSE-ConnectionGUID: XpRPYF38T1i0MknHmzmydw==
+X-CSE-MsgGUID: nmfcKGLnQPKtGGWmAwquGA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,302,1732608000"; 
+   d="scan'208";a="145937707"
+Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
+  by orviesa002.jf.intel.com with ESMTP; 20 Feb 2025 08:08:05 -0800
+Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tl95l-0004Tv-20;
+	Thu, 20 Feb 2025 16:08:01 +0000
+Date: Fri, 21 Feb 2025 00:07:17 +0800
+From: kernel test robot <lkp@intel.com>
+To: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 6/9] iio: adc: rzg2l_adc: Use adc-helpers
+Message-ID: <202502202332.jrEGhoBM-lkp@intel.com>
+References: <25c5d22f6f0cbd1355eee2e9d9103c3ee71cebdc.1739967040.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/LvcxCIoyiyxMRzVmv5VeRt=";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <25c5d22f6f0cbd1355eee2e9d9103c3ee71cebdc.1739967040.git.mazziesaccount@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_080517_773129_30A5578C 
-X-CRM114-Status: GOOD (  23.21  )
+X-CRM114-CacheID: sfid-20250220_080815_152451_8AF8B23A 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,72 +102,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/LvcxCIoyiyxMRzVmv5VeRt=
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+Hi Matti,
 
-Hi Andrew,
+kernel test robot noticed the following build errors:
 
-> > > Seems like a reasonable compromise. You would only load this
-> > > driver if you intend to make use of the switch... =20
-> >=20
-> > Yes, the main use case would be the switch (after bridge ... command
-> > called).
-> >=20
-> > However, until then we shall? have port separation. =20
->=20
-> Yes. The model Linux uses is that the ports are individual interfaces
-> to start with. We should keep to that model.
+[auto build test ERROR on 5bc55a333a2f7316b58edc7573e8e893f7acb532]
 
-+1
+url:    https://github.com/intel-lab-lkp/linux/commits/Matti-Vaittinen/dt-bindings-ROHM-BD79124-ADC-GPO/20250219-203748
+base:   5bc55a333a2f7316b58edc7573e8e893f7acb532
+patch link:    https://lore.kernel.org/r/25c5d22f6f0cbd1355eee2e9d9103c3ee71cebdc.1739967040.git.mazziesaccount%40gmail.com
+patch subject: [PATCH v3 6/9] iio: adc: rzg2l_adc: Use adc-helpers
+config: i386-buildonly-randconfig-005-20250220 (https://download.01.org/0day-ci/archive/20250220/202502202332.jrEGhoBM-lkp@intel.com/config)
+compiler: clang version 19.1.3 (https://github.com/llvm/llvm-project ab51eccf88f5321e7c60591c5546b254b6afab99)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250220/202502202332.jrEGhoBM-lkp@intel.com/reproduce)
 
->=20
-> > > MoreThanIP is now part of Synopsys. I wounder if this IP now
-> > > exists in other SoCs? The press release however suggests Synopsys
-> > > was interesting in the high speed interfaces, not a two ports Fast
-> > > Ethernet switch. =20
-> >=20
-> > I would need some detailed documentation.... =20
->=20
-> Which is probably not available. You might be able to get some clues
-> from the Freescale datasheets, if they have kept the address spaces
-> separated. I don't see it as a strong requirement, given how old this
-> IP is, and the limited interest in supporting it over the years, My
-> guess is, nobody else uses it.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202502202332.jrEGhoBM-lkp@intel.com/
 
-:-)
+All errors (new ones prefixed by >>):
 
->=20
-> 	Andrew
+>> ld.lld: error: undefined symbol: devm_iio_adc_device_alloc_chaninfo
+   >>> referenced by rzg2l_adc.c:324 (drivers/iio/adc/rzg2l_adc.c:324)
+   >>>               drivers/iio/adc/rzg2l_adc.o:(rzg2l_adc_probe) in archive vmlinux.a
 
-
-
-
-Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/LvcxCIoyiyxMRzVmv5VeRt=
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAme3UrcACgkQAR8vZIA0
-zr0WCQgAxyZwB9mNdVIeRsd8mJN2KEWBP3zwFWv3w1XX1glLh9Y/MFa9riYX2/XO
-P+so9vOKEXJUCHUxC3GIqJTIoHYB5Rk75zjTDoUs9K851v5SWlXwM2ZtMtbC3DpO
-xzh/XjXEoX63V/zJszTYRQKYpjBnep4z4+Qfyabs0TvNSakVz3qdIbSG5zbjiRUr
-mP3ZwG/37azFpwaqb2dYwt3IFLlpALBbNaJuSH+UlwqW+JPuiv9bjL6h+tSD7KTB
-CPrs16qxPsbOvnilSVURJZOjV9YsgFZBaRquJrlZwoJg9uvo5rUQWjX3x2HlUIX9
-uiqcEHdpcgkZDKIOXsnbvZSuE2d87w==
-=R4zZ
------END PGP SIGNATURE-----
-
---Sig_/LvcxCIoyiyxMRzVmv5VeRt=--
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
