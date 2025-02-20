@@ -4,156 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A6F4C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 21:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525CBC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 21:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vkqVTrjN7uBVQcVWCYTofvUUoNS8+3Nl4/ATU1ESurg=; b=uYPKSlHkhK2gXXkDW7o2a+eh+7
-	sHQz5Lo1AwqB5H95ITXMd3Ehhd70kL5xwsn4aB6SGnSBSy1XXsulYcaePScRU4/j2ORcIIgjv4jjo
-	riwK2ltUhLMmvA4Ov1ubTEtWac89ZLlrQen+ORXhgth+x9UZVi25pxPhkCJ1EOUxM+LjxgshuVdxa
-	I7TEjYCgFl1yEuwahTeT/WLwU6wO0B68ANfRjnoc/MyTjudgFo7bpHX8u2kgqQJoEJ7xHgeAFB4F7
-	hSfc+c5i5Wk0gLqST26HnB1Hd/U3FKcfASdp4sCaNBTYggVPv7Xq9Tu8madSYBXO1hBBpZe/TGyBN
-	7o8Lqb7g==;
+	bh=olguUm5pfYYnePq7vkVQ0ewT1H96dQ6L/3aloZ623YY=; b=QIeXlVxurl9hbNAGGoInzfAjsk
+	QVPT2s4UIju2DvwdvnCaCCOuNczW7e9mHkv/M8NEnRzKepb6OzO8mklKyYQgwE/B2TvzooYhYMGOJ
+	0GuX3vPR6ayXqKUFWgq7363vp0Khtq6NLw1uxhrk+3vfLys1BGdot2RLM5NAwuWRbIrGEoxSCCDd1
+	ETXookabDQ9suPQTsC/xWeUkJZAQYG7z5/lHbKJSd7ozxp/Q0aOeCxnX5QxbYNYUHE0eChjpV3qDl
+	BKjupPCwm4gLadvZZ5sqnXquCpRNFtFFuohpBN2M2IBBoqHvRuypwFX6Q1KxDTOeBmWPXLuOK/v6T
+	7KltfjAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlDwD-00000002vbx-4C2P;
-	Thu, 20 Feb 2025 21:18:30 +0000
-Received: from mail-mw2nam12on20606.outbound.protection.outlook.com ([2a01:111:f403:200a::606] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tlE8A-00000002xcV-1knR;
+	Thu, 20 Feb 2025 21:30:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlDuh-00000002vDx-3gbl
+	id 1tlE6d-00000002x9k-30k6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 21:16:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T1JN86LcWdMLkDqXXcFSE7cDYQ/2S0Y5k8DNtihOuXyBpObQkGkQefLynWf939g+T2B5bN/XWtHnDhcKlGE5TJUcNGsFWGGgEmK7elMO/rJbfhhiFT8R2NFgVnw+BRxn7M/A4gMG+h02qkp+RhQ7SL4T675qLyiuv1McozkkiEFbLUxZftAm6b88tyRYdkVXAZE1LZGCFu6218PpDsdq49LLEPTt/26j2kBDDToe2bBwmn4uO3gIrHxUO8WS1Nwg2FYJZtDmaeNQlx47xsUreLhyI14NgPeWUT5jVUDdWXO9aC0PxBuvrVn0akonM56kD0DV62o9s6j/zQ2WdSERfg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vkqVTrjN7uBVQcVWCYTofvUUoNS8+3Nl4/ATU1ESurg=;
- b=Cxz+556b4MFMxClJ5/qjxYnW0DFbNOYoN455bFFnUg741wAefNOLpBf+H1g7Zw4Fr92PCQ1H2oqt8lE9FF9Xas0XZna556WJV2ezFF8O49YVZ8YQEDIMJx07ySPa0PPQvAV0JJ152GQtrJAt6mGyhGBtlgEh3uPeaktY0sTJ/5IhRofRkSZM2jpe6JShEO2UaR+xosMkjCEVMQO5bcA5a3kYWzT2betoFo0XBtL+4TOfXU3/uj61GtLuLKy5D5bn6lyD7mLJ1A4wJ4bthefZBWezD80kCLUq0aeeJ/AkSpD7GlwuAAKI5MNBCurPzvHgu1mBZ+M2iSTA7LGESvGoOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vkqVTrjN7uBVQcVWCYTofvUUoNS8+3Nl4/ATU1ESurg=;
- b=GbNKrurBr/zzYriMknQPcGT8CEQHhYqSKn7Ica74p8lSJMZdqMpETphEycjlN53SSjPUY+WpN0yu8PJfy53GaZ8lhcqmmM9R+vbqZbjBoMZqi6lPaVphWwUSEHXhNDiBkUfd8zTdouYeudFpZtBzTLq/D/kTfGsyDdMFawnxbijjRryLUHvAn70yHpdLnA+kQrui6oeIiF6377ZiqEtoHk8zB+jAgu12FdWNUnPSyRLoOTALFIvf/a9KQ/Lr4CWuVXB4inpIb4XzQwewou3eOvJm0ISjWl6oqiEEvW0oXEH+X5NbWs5UrDlQ03d/izKflolYi71ntW6Kijt0ACRRJQ==
-Received: from DM6PR17CA0009.namprd17.prod.outlook.com (2603:10b6:5:1b3::22)
- by PH8PR12MB7445.namprd12.prod.outlook.com (2603:10b6:510:217::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.19; Thu, 20 Feb
- 2025 21:16:44 +0000
-Received: from DS1PEPF00017098.namprd05.prod.outlook.com
- (2603:10b6:5:1b3:cafe::9b) by DM6PR17CA0009.outlook.office365.com
- (2603:10b6:5:1b3::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.14 via Frontend Transport; Thu,
- 20 Feb 2025 21:16:43 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- DS1PEPF00017098.mail.protection.outlook.com (10.167.18.102) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.11 via Frontend Transport; Thu, 20 Feb 2025 21:16:43 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 20 Feb
- 2025 13:16:28 -0800
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Thu, 20 Feb 2025 13:16:28 -0800
-Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Thu, 20 Feb 2025 13:16:27 -0800
-Date: Thu, 20 Feb 2025 13:16:26 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>, "Tian, Kevin" <kevin.tian@intel.com>
-CC: "corbet@lwn.net" <corbet@lwn.net>, "will@kernel.org" <will@kernel.org>,
-	"joro@8bytes.org" <joro@8bytes.org>, "suravee.suthikulpanit@amd.com"
-	<suravee.suthikulpanit@amd.com>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "dwmw2@infradead.org" <dwmw2@infradead.org>,
-	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>, "shuah@kernel.org"
-	<shuah@kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "eric.auger@redhat.com" <eric.auger@redhat.com>,
-	"jean-philippe@linaro.org" <jean-philippe@linaro.org>, "mdf@kernel.org"
-	<mdf@kernel.org>, "mshavit@google.com" <mshavit@google.com>,
-	"shameerali.kolothum.thodi@huawei.com"
-	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
-	<smostafa@google.com>, "ddutile@redhat.com" <ddutile@redhat.com>, "Liu, Yi L"
-	<yi.l.liu@intel.com>, "patches@lists.linux.dev" <patches@lists.linux.dev>
-Subject: Re: [PATCH v6 07/14] iommufd/viommu: Add iommufd_viommu_report_event
- helper
-Message-ID: <Z7ebqtJUwzgOIeSC@Asurada-Nvidia>
-References: <cover.1737754129.git.nicolinc@nvidia.com>
- <3d952137a7935608f9cc6b05bd561a58a0c5da16.1737754129.git.nicolinc@nvidia.com>
- <20250218153541.GD4099685@nvidia.com>
- <BN9PR11MB52766CE9C579D3EE1CE1A7058CC52@BN9PR11MB5276.namprd11.prod.outlook.com>
+	Thu, 20 Feb 2025 21:29:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 803875C58CE;
+	Thu, 20 Feb 2025 21:28:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1AACC4CED1;
+	Thu, 20 Feb 2025 21:29:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740086954;
+	bh=1LzKD5qoGe+7J8FFy17/aBvXUPhvRt/+7kn4AUDJuIM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=fCX2WI1i8AW9OzSVUbY5oRDLpRA2Ul+aEzQn5vYT2AOMYD2L+5MctGRlUjLajx0za
+	 dWMpjk2BgFJrLMOoj/x3XaemFUiH7XCyAaIUQkvrk78y7b5bdwlRibGLW+U0mtRCUk
+	 b7KT7uhEGIBcQv6pV7e3pirjhVkv83X8Iz2YDQW0mRyIPP+WujfckGyfDwM3ViOgte
+	 QRZuqW7V0iPtmEnn0JJK5oaG0uQgysCuK0f/9iUyJYj6HBw4Q6UF5ndrz/b1ITVy46
+	 4/ZaJli7EiAZ52K6T0mo+Zw3N0LrOi3GrUexY9DQ/pUa43wfGWVbGGPAL4Zw11M4cw
+	 IFW3Hfoj2rNuA==
+Date: Thu, 20 Feb 2025 15:29:12 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <BN9PR11MB52766CE9C579D3EE1CE1A7058CC52@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00017098:EE_|PH8PR12MB7445:EE_
-X-MS-Office365-Filtering-Correlation-Id: a285de5f-d756-4518-8513-08dd51f3e055
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|7416014|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ez+Ie99B+KPppWu/JMauspeHInXEWCfKaO0BGf8ADSihLCnZntxLLS91KfYS?=
- =?us-ascii?Q?Lc53HopzP10a720FhP6RlclTyBS6/9vwKRl9oqeuAt2sWe0fit+ALEgYZepN?=
- =?us-ascii?Q?5X1EiZFwR5zsukXrkKqEFFAPhubwFGdf95wuCs9E8Z75V+6sY0MVV233m9Ng?=
- =?us-ascii?Q?9MaJ0GymBvSaXou7p+8nYEs2rPyv3vLOUqEvYYCPEDE6WHRCxXl7Ffvu3eYC?=
- =?us-ascii?Q?0+ll645jnA6T/teNQc22Em1H74ZWW/MT8FE3DSM/xnh7Zez7rLHU7/sPiIMc?=
- =?us-ascii?Q?3PSQHEQEEO4UrQN5V2PAV6gcIahyQ0YyNDPAEP2Wf+dSnrabX92TuVw2M5sy?=
- =?us-ascii?Q?UWwxKV+mwEQlHunATvLldve8sQ6/GSPb4sssZnlvqDw8m9/rOCJ2CSZRlf0z?=
- =?us-ascii?Q?XHEzj4ZYmC42IvVCeKG0oZ46sxt5s9wC7PVdd6+RnMQVTaYDLBAVQ3nXMwYA?=
- =?us-ascii?Q?nRH2g3z7tm4AZqgAeEj6nTLpphpBtOhVNnrNqCE3kQq7bfv6vMus+lvH8a7Q?=
- =?us-ascii?Q?B+aIr5miiOLC+2bS1KAo+6GF3u4FywHqsxc+1yXdzJw4M3bJNK5gRj96lhP7?=
- =?us-ascii?Q?Y4JmALjs3+8+y7brQJAb3w59/vVs2ltLQj0P2hfS+8o5pM87mfVIp//ddI6j?=
- =?us-ascii?Q?MQD1aM5wOFChP17geffNQ3F34EXtl8Ev8jrKZ4ZmbzErDAZ4CV+aQR3ZZwRS?=
- =?us-ascii?Q?gQoG/WZx9NUW4aIOf7KVkREBEA/h0eMcAwd/mPgG6uNYYjDliXY8ukdM7I5d?=
- =?us-ascii?Q?k6/Jv5gNEAKnJ2hprMbC2eeQVwvQSHhHL1V0ykhWqrYlNDgH9Aqod6z2IBb2?=
- =?us-ascii?Q?A3JGiUfrASDyHAXXng4SFpNoOn0SN49yS9/Y42JFUedn8znMk4a6n4qfNO+r?=
- =?us-ascii?Q?u6rcoPfd+M5zrNvFr1Ke8ZBOLP6+hkVoEyOlyAMH1iunsoOqlsZB1Q9fzemY?=
- =?us-ascii?Q?HD06N/fPgfpIrf52j8QKFKU8q19YVmeNS0mAWdwBrFdGc7MAu66IpNlZsU43?=
- =?us-ascii?Q?249C8Li6Z8Xnwf/jqQmIoDyT457DOba6ZlbJG/tzana0E8qYJzTscZsuaIq0?=
- =?us-ascii?Q?MZzeUivnekPneL2PN4zT2AVi9lAJ4DOBbhlBlmP3NF4pxZ2ZF8hpveex6Z2+?=
- =?us-ascii?Q?+HwRhE6axvOvgnPgVFrHqqQGUIO2SIukzUy7PjXM/FluysClYkegzWqQ4wE9?=
- =?us-ascii?Q?xNLsXuun9oAuSCN2oNNm+c5Rbpx/NpCnXueKMoB/i3zu0bHPtTW8AULtTV5L?=
- =?us-ascii?Q?HX+2/+xMYoAzqDHkTFFEAAiKNlfu6BVpGaCFimlMWgrZV65F5xudZv22emAE?=
- =?us-ascii?Q?wnOEtG0zTDf8tvkrid5PdJiYUe/PDk29MP9ycgrfkHiolekiRBB1XScVtIIM?=
- =?us-ascii?Q?teLWD3a+jDxESYermvbrXAQVpiTyCUoIA9ddN0nsFgWeE6ecq8oLZHkpqnmh?=
- =?us-ascii?Q?7XdHL1yYPVqqNJnmUsD+8sONYQuibVHjgnLhZfpFz73EycqwZnOOQjRiYzgo?=
- =?us-ascii?Q?V4A0tmQZFoHTbdY=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(7416014)(376014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 21:16:43.7675
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a285de5f-d756-4518-8513-08dd51f3e055
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017098.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7445
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: catalin.marinas@arm.com, devicetree@vger.kernel.org, krzk+dt@kernel.org, 
+ linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com, 
+ conor+dt@kernel.org, will@kernel.org, linux-arm-kernel@lists.infradead.org, 
+ arnd@arndb.de
+To: Peter Chen <peter.chen@cixtech.com>
+In-Reply-To: <20250220084020.628704-1-peter.chen@cixtech.com>
+References: <20250220084020.628704-1-peter.chen@cixtech.com>
+Message-Id: <174008661558.4046640.6970051965598213885.robh@kernel.org>
+Subject: Re: [PATCH 0/6] arm64: Introduce CIX P1 (SKY1) SoC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_131655_917110_8DE7DC54 
-X-CRM114-Status: GOOD (  16.06  )
+X-CRM114-CacheID: sfid-20250220_132915_866458_92139A1B 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,59 +73,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 06:58:16AM +0000, Tian, Kevin wrote:
-> > From: Jason Gunthorpe <jgg@nvidia.com>
-> > Sent: Tuesday, February 18, 2025 11:36 PM
-> > 
-> > On Fri, Jan 24, 2025 at 04:30:36PM -0800, Nicolin Chen wrote:
-> > > +int iommufd_viommu_report_event(struct iommufd_viommu *viommu,
-> > > +				enum iommu_veventq_type type, void
-> > *event_data,
-> > > +				size_t data_len)
-> > > +{
-> > > +	struct iommufd_veventq *veventq;
-> > > +	struct iommufd_vevent *vevent;
-> > > +	int rc = 0;
-> > > +
-> > > +	if (WARN_ON_ONCE(!data_len || !event_data))
-> > > +		return -EINVAL;
-> > > +
-> > > +	down_read(&viommu->veventqs_rwsem);
-> > > +
-> > > +	veventq = iommufd_viommu_find_veventq(viommu, type);
-> > > +	if (!veventq) {
-> > > +		rc = -EOPNOTSUPP;
-> > > +		goto out_unlock_veventqs;
-> > > +	}
-> > > +
-> > > +	if (atomic_read(&veventq->num_events) == veventq->depth) {
-> > > +		vevent = &veventq->overflow;
-> > > +		goto out_set_header;
-> > > +	}
-> > > +
-> > > +	vevent = kmalloc(struct_size(vevent, event_data, data_len),
-> > GFP_KERNEL);
-> > > +	if (!vevent) {
-> > > +		rc = -ENOMEM;
-> > > +		goto out_unlock_veventqs;
-> > 
-> > This should record an overflow too
-> > 
+
+On Thu, 20 Feb 2025 16:40:14 +0800, Peter Chen wrote:
+> Cixtech P1 (internal name sky1) is high performance generic Armv9 SoC.
+> Orion O6 is the world's first open source Arm V9 Motherboard built by
+> Radxa. You could find brief introduction for SoC and related boards at:
+> https://radxa.com/products/orion/o6#overview
 > 
-> In that case probably we want to rename 'overflow' to 'lost_event'
-> which counts lost events for whatever reasons (overflow, oom, etc.)
+> In this series, we add initial SoC and board support for Kernel building.
+> Patch 1-2: Add dt-binding doc for CIX and its sky1 SoC
+> Patch 3: add related maintainter entry
+> Patch 4-5: add Arm64 build support
+> Patch 6: add initial dts support for SoC and Orion O6 board
+> 
+> To run upstream kernel at Orion O6 board, you need to use BIOS
+> released by Radxa:
+> https://docs.radxa.com/en/orion/o6/bios/install-bios
+> 
+> Fugang Duan (1):
+>   arm64: Kconfig: add ARCH_CIX for cix silicons
+> 
+> Peter Chen (5):
+>   dt-bindings: arm: add CIX P1 (SKY1) SoC
+>   dt-bindings: vendor-prefixes: Add CIX Technology Group Co., Ltd.
+>   MAINTAINERS: Add CIX SoC maintainer entry
+>   arm64: defconfig: Enable CIX SoC
+>   arm64: dts: cix: add initial CIX P1(SKY1) dts support
+> 
+>  .../devicetree/bindings/arm/cix.yaml          |  26 ++
+>  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>  MAINTAINERS                                   |   8 +
+>  arch/arm64/Kconfig.platforms                  |   6 +
+>  arch/arm64/boot/dts/Makefile                  |   1 +
+>  arch/arm64/boot/dts/cix/Makefile              |   2 +
+>  arch/arm64/boot/dts/cix/sky1-orion-o6.dts     |  21 ++
+>  arch/arm64/boot/dts/cix/sky1.dtsi             | 264 ++++++++++++++++++
+>  arch/arm64/configs/defconfig                  |   1 +
+>  9 files changed, 331 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/arm/cix.yaml
+>  create mode 100644 arch/arm64/boot/dts/cix/Makefile
+>  create mode 100644 arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+>  create mode 100644 arch/arm64/boot/dts/cix/sky1.dtsi
+> 
+> --
+> 2.25.1
+> 
+> 
+> 
 
-Naming-wise, I think it may sound better to call the overflow node
-just an 'exception' that concludes with lost eventsfor different
-reasons.
 
-A complication is that this 'exception' would give userspace a very
-implicit reason as the node just report the number of lost events
-v.s. providing the reason to each lost event.
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-With this, maybe the IOMMU_VEVENTQ_FLAG_OVERFLOW in the uAPI should
-be just IOMMU_VEVENTQ_FLAG_EXCEPTION? Any better idea?
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-Thanks
-Nicolin
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/cix/' for 20250220084020.628704-1-peter.chen@cixtech.com:
+
+redistributor-stride: size (4) error for type uint64
+arch/arm64/boot/dts/cix/sky1-orion-o6.dtb: /: compatible: ['radxa,orion-o6'] is too short
+	from schema $id: http://devicetree.org/schemas/arm/cix.yaml#
+arch/arm64/boot/dts/cix/sky1-orion-o6.dtb: /: memory@80000000: '#address-cells', '#size-cells' do not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/memory.yaml#
+arch/arm64/boot/dts/cix/sky1-orion-o6.dtb: soc@0: uart@040d0000: 'ranges' is a required property
+	from schema $id: http://devicetree.org/schemas/simple-bus.yaml#
+arch/arm64/boot/dts/cix/sky1-orion-o6.dtb: uart@040d0000: $nodename:0: 'uart@040d0000' does not match '^serial(@.*)?$'
+	from schema $id: http://devicetree.org/schemas/serial/pl011.yaml#
+arch/arm64/boot/dts/cix/sky1-orion-o6.dtb: interrupt-controller@0e001000: redistributor-stride: 262144 is not a 'uint64'
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/arm,gic-v3.yaml#
+arch/arm64/boot/dts/cix/sky1-orion-o6.dtb: interrupt-controller@0e001000: 'its@e050000' does not match any of the regexes: '^(msi-controller|gic-its|interrupt-controller)@[0-9a-f]+$', '^gic-its@', '^interrupt-controller@[0-9a-f]+$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/interrupt-controller/arm,gic-v3.yaml#
+
+
+
+
+
 
