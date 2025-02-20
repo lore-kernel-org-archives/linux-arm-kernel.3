@@ -4,71 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72DE8C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 23:46:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31354C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 23:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ei/G/C+Q2EB4HolW6F+KXHikaTWJisX5oA6+ZThEK8=; b=tZhT6xUTZbChBg78/GfJXJcC55
-	FAXueph3JD2tNmrMWk+1TjYn4jXzF3XoLFf8jBsb687ka2OcBOWk04RzyZ1/tMH8/XIs17N0oMHcn
-	2+kmvuXw9fSJRAOGrmOeO7Lr04XvD2Y8EM4nu0jT02c0WEORN2rJYK/wJoAPY0soCYzqxEpgj36jR
-	cml3PpZbwUW/EwhaAAhD5/8YQnXJMR8/zuCmOzG7mOpAoY5Fs5cE70ouiiLjyLXd4rZTrARvaa8oR
-	WzYPN65faDcBZUzImM5yfMHWkehVj+mh+j811ttwdju+zh1A8rtPOoOwd79kEggXbrfM38ny18nP4
-	pX4zSh3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=WNlacTHLiwWI06w65nVbipAqlE6KzC1iSQdxi30OCKc=; b=pNaZ2aSJcvbnFI
+	+l29u9YIG3LZ/VxKYRhhSUnqxfi/pSDFPZtDcESTRzel1AT458jjbocL5OmAdrKuEJwyTKyXTShtc
+	Ko8k0S2wbBcdjpFu3fLfTNqg57RKbEIqACTQuQqHzcGGuoAy4k1ndEqrV0b6tnD9AFlqdjcXGEIU2
+	amDtVOIkXXryfnYQRTrPXRficzqJltt2gnwHV1JeehP7GQAR2qf0NBLuifgaIC7I76qYjh5kd/1JD
+	YGD51vE/SR5ddaVg/EhAln4kD8S8O40a3WiqA9ZNNKFlMWXe3SjDF1x6ZJAVVTuP/8Dqf2XhVE9Y2
+	Lz7m+iIMc1K1UMNv1R+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlGFi-00000003NrP-37KU;
-	Thu, 20 Feb 2025 23:46:46 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tlGQJ-00000003QHP-2bwE;
+	Thu, 20 Feb 2025 23:57:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlGBI-00000003Mjb-0Jdv;
-	Thu, 20 Feb 2025 23:42:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=8ei/G/C+Q2EB4HolW6F+KXHikaTWJisX5oA6+ZThEK8=; b=lPMEb5bIU9ybnKqWwCujlG8mZ+
-	+nrXybstNXgJrS/gk9FKpnPBrt4LdexLrxAh6ngSYgDYdscNrm6grTGIh8daT0i+/744cO/kTGtXm
-	TrFzZq+Gn+1Yht+okl3AuxMo3ck21UwFeXLBjS+Hsfj+CbOld+kzMEqUp1/y5hU4oWbPpD01ChFC/
-	h1QLCsBnTcXxKx8caaERXETyL5XSBgpMQVJjRrckjGVzDawDcdr45XOa2ly1HqleO1TcY9xMxkSGS
-	EaZpdkB94mynONN90I4JJF+taU3sCB+jOfuxVRkoSeX+BjPUbDP3K2xmv1vjFFV5Q3bJ8TtvfgX0Q
-	Wq1eJi0A==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tlGAy-0004Wc-Dt; Fri, 21 Feb 2025 00:41:52 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: gregkh@linuxfoundation.org,
-	heiko@sntech.de
-Cc: rafael@kernel.org,
-	dakr@kernel.org,
-	hjc@rock-chips.com,
-	andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	quentin.schulz@cherry.de
-Subject: [PATCH 1/2] drivers: base: component: add function to query the bound status
-Date: Fri, 21 Feb 2025 00:41:40 +0100
-Message-ID: <20250220234141.2788785-2-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250220234141.2788785-1-heiko@sntech.de>
-References: <20250220234141.2788785-1-heiko@sntech.de>
+	id 1tlGOp-00000003Q63-1SAm;
+	Thu, 20 Feb 2025 23:56:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EB9BA5C62D5;
+	Thu, 20 Feb 2025 23:55:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83825C4CED1;
+	Thu, 20 Feb 2025 23:56:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740095768;
+	bh=Eb3PNHLV4cPI8K6SDzl4RrupJI0tXhzPnoREbPcni7k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=PTL3U9QPyEq8DsWrE9mRVirVrg4Xpdiov+zckJd5xANuCrKWRinEGmyP1j/e4m/5O
+	 PVBH7axWpFFORCsaWCblKfI5cgAKguHNxxf00l3qzBYjRpYpTjI6gGQ+NrXcIzX3ZX
+	 eGNbByszbdPASr4BwCG3lQbds5rfXGf50Sz/9T8Zc49A0Br56VxZmpRxiQYvXZkg9W
+	 At/a8C9LxJ56/ITaANbMIo9T9TkJvVBd5PxSBIPJmjKK8kZDJP0Zs/Ld39DNPPWnGp
+	 kVZWtAfRV9c5svu8wllde5ohk3JfFANi60LfPU3ssJXYsEUxCFW1MlxPQOrO8j8ri1
+	 9ahbSnETYQjSg==
+Date: Thu, 20 Feb 2025 17:56:07 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Frank Li <Frank.li@nxp.com>
+Subject: Re: [PATCH v2 2/2] PCI: mediatek-gen3: Configure PBUS_CSR registers
+ for EN7581 SoC
+Message-ID: <20250220235607.GA320302@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z7eIXsupArd8xH7_@lore-desk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_154212_108223_BB417A28 
-X-CRM114-Status: GOOD (  18.53  )
+X-CRM114-CacheID: sfid-20250220_155611_427448_31BB1839 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,72 +81,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The component helpers already expose the bound status in debugfs, but at
-times it might be necessary to also check that state in the kernel and
-act differently depending on the result.
+[+cc Frank, who asked the same question about DT]
 
-For example the shutdown handler of a drm-driver might need to stop
-a whole output pipeline if the drm device is up and running, but may
-run into problems if that drm-device has never been set up before,
-for example because the binding deferred.
+On Thu, Feb 20, 2025 at 08:54:06PM +0100, Lorenzo Bianconi wrote:
+> On Feb 20, Bjorn Helgaas wrote:
+> > On Sun, Feb 02, 2025 at 08:34:24PM +0100, Lorenzo Bianconi wrote:
+> > > Configure PBus base address and address mask to allow the hw
+> > > to detect if a given address is on PCIE0, PCIE1 or PCIE2.
 
-So add a little helper that returns the bound status for a componet
-device.
+> > > +#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
+> > > +#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
+> > > +#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
+> > > +	((_n) == 2 ? 0x28000000 :	\
+> > > +	 (_n) == 1 ? 0x24000000 : 0x20000000)
+> > 
+> > Are these addresses something that should be expressed in devicetree?
+> 
+> Do you have any example/pointer for it?
+> 
+> > It seems unusual to encode addresses directly in a driver.
+> 
+> AFAIK they are fixed for EN7581 SoC.
 
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
----
- drivers/base/component.c  | 14 ++++++++++++++
- include/linux/component.h |  4 +++-
- 2 files changed, 17 insertions(+), 1 deletion(-)
+So this is used to detect if a given address is on PCIE0, PCIE1 or
+PCIE2.  What does that mean?  There are no other mentions of PCIE0 etc
+in the driver, but maybe they match up to "pcie0/1/2" in
+arch/arm64/boot/dts/mediatek/mt7988a.dtsi?
 
-diff --git a/drivers/base/component.c b/drivers/base/component.c
-index 741497324d78..d63e01f4851d 100644
---- a/drivers/base/component.c
-+++ b/drivers/base/component.c
-@@ -569,6 +569,20 @@ void component_master_del(struct device *parent,
- }
- EXPORT_SYMBOL_GPL(component_master_del);
- 
-+bool component_master_is_bound(struct device *parent,
-+	const struct component_master_ops *ops)
-+{
-+	struct aggregate_device *adev;
-+
-+	guard(mutex)(&component_mutex);
-+	adev = __aggregate_find(parent, ops);
-+	if (!adev)
-+		return 0;
-+
-+	return adev->bound;
-+}
-+EXPORT_SYMBOL_GPL(component_master_is_bound);
-+
- static void component_unbind(struct component *component,
- 	struct aggregate_device *adev, void *data)
- {
-diff --git a/include/linux/component.h b/include/linux/component.h
-index df4aa75c9e7c..9d6c66401280 100644
---- a/include/linux/component.h
-+++ b/include/linux/component.h
-@@ -3,7 +3,7 @@
- #define COMPONENT_H
- 
- #include <linux/stddef.h>
--
-+#include <linux/types.h>
- 
- struct device;
- 
-@@ -90,6 +90,8 @@ int component_compare_dev_name(struct device *dev, void *data);
- 
- void component_master_del(struct device *,
- 	const struct component_master_ops *);
-+bool component_master_is_bound(struct device *parent,
-+	const struct component_master_ops *ops);
- 
- struct component_match;
- 
--- 
-2.47.2
+It looks like you use PCIE_EN7581_PBUS_ADDR(slot), where "slot" came
+from of_get_pci_domain_nr(), which suggests that these might be three
+separate Root Ports?
 
+Are we talking about an MMIO address that an endpoint driver uses for
+readw() etc, and this code configures the hardware apertures through
+the host bridge?  Seems like that would be related to the "ranges"
+properties in DT.
+
+Bjorn
 
