@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EE2C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 12:55:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF65C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 12:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9DffhNrPcUzIEElQIbfgvQkqEMxys90jw9y7T3DeJtc=; b=Bx4213Mm/iZvQYbxZx5Mw/8tl7
-	VrtsfmnYMOIQ79fa7DQI74rqlIVfMc/FMtQDQvkEhJugtd7F5RmaieaTbvguGqKqHvbEArYtgrNgo
-	sbYZspu5nKDyRN5vrO1Wg+fbhTySpHEcBQPv1yIxfDiFTviDm449hs044v6oZjazqbCucyZM99GuJ
-	XX7HOa3c+RNwVQp0rlMFWc5Erlx6qgvxTCQcBU5OFl4XcjO24NPMbLIWpwBS3ZDuhFk67LH38N+u9
-	D0bQkdpzqyofCIH939Z3JryiYNjDbQ1sF9AKW6Oo33zmlekyfU5MQ2crRJ7XQhGL31+Xv9PcGwjD1
-	3R8aCWIw==;
+	bh=M0+AxJqzqSIgiS1SPrLr6+L7hEE7ua+1qzVz8/OIgGM=; b=fqtX3ArJK0Sy2Bu3PCDvO/YMo5
+	/pHFK3t1Jx1sVx5n6bIcSrPwHcNaQXp6cTtDS2D3eJooSuQMYCpmRbv1cw2GrilHKKZg2RhYLjWey
+	4SqvN/ZTBGWMhTJ5JrTvl47M17SbUsrt20TU2g0cVGN4TuRRt/Bgg2JrDfJ2hDW7i+hPwDOr5SIyD
+	sm0eHfshuhtPdY8Wc2+v4C42u8amBWZ9WwIBLCZVfBrSxkg8sdQm5uoHULQ22v1odC9uQgey+9TZH
+	Vli9uVOnwRU2PXWowYNG8lEWIxF5l29nGnrStfrNuNsF2RY3a09asoHD2kGMQasHYLUgq7cNaAPqi
+	qXahozaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl65E-00000000uIl-0FgE;
-	Thu, 20 Feb 2025 12:55:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tl66g-00000000uiO-3NWj;
+	Thu, 20 Feb 2025 12:56:46 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl5a9-00000000lq9-2Bt5
+	id 1tl5cP-00000000mTf-27Tx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 12:23:10 +0000
+	Thu, 20 Feb 2025 12:25:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3F9626141D;
-	Thu, 20 Feb 2025 12:23:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AE41C4CED6;
-	Thu, 20 Feb 2025 12:23:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id ABF2E5C4BE6;
+	Thu, 20 Feb 2025 12:24:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA2A8C4CED1;
+	Thu, 20 Feb 2025 12:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740054188;
-	bh=zP3WV3mb1xbC31ux1gHd3T9UxMlHrw7icwz6IDkeOXg=;
+	s=k20201202; t=1740054328;
+	bh=bwt4JLJKdZcJ5UhgJheo0zVG9aIWXvxOCWLl4U9L4q8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PXeggeeU6bsLdtRGgrxmMbxGmmyDYMnqSGzqUNew9vJwXnoDC1A6H8d3IGlWhioqu
-	 grtPRQbMrQGu2yUQdwpgTF6ZtWbDxuQ1MxeqdwpjzLAfgEd2m5ehNKdjj1miDq9oKg
-	 v6AIiHYf7sqCBTNzd0X1HSgdMh5wIXa1V7fKrjgwltf9zGCSwbvEc6pq1Kpgy0oA1S
-	 w9nSDXqeRzDqru2Ap0oPUB7X2DkSXWUlGXlHkn1X8IlnOFJVPj55RGWDn3S4vzpLT0
-	 KvFOFjgU7IjFIML97sUKsMeKbprjYUnPuAZelJZZnU7PfgquE/rvj6Jw5XVjgWVuXy
-	 fjuM6/NA/+jZA==
-Message-ID: <f56e9c68-0745-43c1-ae80-e2dc0942ea07@kernel.org>
-Date: Thu, 20 Feb 2025 13:23:03 +0100
+	b=ALEwZhAxCtgHECp5w97Tz9QhBkAlGhyq9CJZWbmwFhYtOpdfG07curFgUlC0vfGDm
+	 v6SZUhM2m4wkjgzHScy5m4yn4Tq7z2kgXa5imUfU2hE5P9C48ffBq2Cly1yPqtzLAT
+	 Ro8Je4WsuaFl/BUOis+46vO1MQ7ty1s/CmwWAJXXGJzcYAmoGWL5iq1485/Lcz7Jsp
+	 j2+p2zbFrdtipKH9p/cpsYrn92nu2uPvVFgaCVyGdBG6xmqkJjttnRLPgSuaiJlP+J
+	 VOFv8QV5EXbMyad39fpyeUuhny+lE3DCK+IpcL5mCmsCAvEctvQmEr/55LP4472dOj
+	 ctaAfj3iB4ucg==
+Message-ID: <1bdf70d0-5011-4faa-88c2-96703d3907e7@kernel.org>
+Date: Thu, 20 Feb 2025 13:25:23 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
-To: Peter Chen <peter.chen@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- "Fugang . duan" <fugang.duan@cixtech.com>
-References: <20250220084020.628704-1-peter.chen@cixtech.com>
- <20250220084020.628704-7-peter.chen@cixtech.com>
+Subject: Re: [PATCH 1/5] dt-bindings: arm: Add Coresight device Trace NOC
+ definition
+To: Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: kernel@quicinc.com, linux-kernel@vger.kernel.org,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20250220-trace-noc-driver-v1-0-15d78bd48e12@quicinc.com>
+ <20250220-trace-noc-driver-v1-1-15d78bd48e12@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,12 +101,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250220084020.628704-7-peter.chen@cixtech.com>
+In-Reply-To: <20250220-trace-noc-driver-v1-1-15d78bd48e12@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_042309_682011_4D75D9B7 
-X-CRM114-Status: GOOD (  20.22  )
+X-CRM114-CacheID: sfid-20250220_042529_641008_549CCBCE 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,406 +121,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/02/2025 09:40, Peter Chen wrote:
-> CIX SKY1 SoC is high performance Armv9 SoC designed by Cixtech,
-> and Orion O6 is open source motherboard launched by Radxa.
-> See below for detail:
-> https://docs.radxa.com/en/orion/o6/getting-started/introduction
+On 20/02/2025 10:41, Yuanfang Zhang wrote:
+> Adds new coresight-tnoc.yaml file describing the bindings required
+> to define Trace NOC in the device trees.
 > 
-> In this commit, it only adds limited components for running initramfs
-> at Orion O6.
-> 
+> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
 
-Test the patches before posting.
+<form letter>
+Please use scripts/get_maintainers.pl to get a list of necessary people
+and lists to CC. It might happen, that command when run on an older
+kernel, gives you outdated entries. Therefore please be sure you base
+your patches on recent Linux kernel.
 
-> Acked-by: Fugang.duan <fugang.duan@cixtech.com>
+Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+people, so fix your workflow. Tools might also fail if you work on some
+ancient tree (don't, instead use mainline) or work on fork of kernel
+(don't, instead use mainline). Just use b4 and everything should be
+fine, although remember about `b4 prep --auto-to-cc` if you added new
+patches to the patchset.
 
-Again, difference in names...
+You missed at least devicetree list (maybe more), so this won't be
+tested by automated tooling. Performing review on untested code might be
+a waste of time.
 
-> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
+Please kindly resend and include all necessary To/Cc entries.
+</form letter>
+
 > ---
->  arch/arm64/boot/dts/Makefile              |   1 +
->  arch/arm64/boot/dts/cix/Makefile          |   2 +
->  arch/arm64/boot/dts/cix/sky1-orion-o6.dts |  21 ++
->  arch/arm64/boot/dts/cix/sky1.dtsi         | 264 ++++++++++++++++++++++
->  4 files changed, 288 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/cix/Makefile
->  create mode 100644 arch/arm64/boot/dts/cix/sky1-orion-o6.dts
->  create mode 100644 arch/arm64/boot/dts/cix/sky1.dtsi
+>  .../bindings/arm/qcom,coresight-tnoc.yaml          | 107 +++++++++++++++++++++
+>  1 file changed, 107 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-> index 79b73a21ddc2..8e7ccd0027bd 100644
-> --- a/arch/arm64/boot/dts/Makefile
-> +++ b/arch/arm64/boot/dts/Makefile
-> @@ -13,6 +13,7 @@ subdir-y += bitmain
->  subdir-y += blaize
->  subdir-y += broadcom
->  subdir-y += cavium
-> +subdir-y += cix
->  subdir-y += exynos
->  subdir-y += freescale
->  subdir-y += hisilicon
-> diff --git a/arch/arm64/boot/dts/cix/Makefile b/arch/arm64/boot/dts/cix/Makefile
+> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
 > new file mode 100644
-> index 000000000000..ed3713982012
+> index 0000000000000000000000000000000000000000..b8c1aaf014fb483fd960ec55d1193fb3f66136d2
 > --- /dev/null
-> +++ b/arch/arm64/boot/dts/cix/Makefile
-> @@ -0,0 +1,2 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +dtb-$(CONFIG_ARCH_CIX) += sky1-orion-o6.dtb
-> diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-> new file mode 100644
-> index 000000000000..dbee1616076d
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-> @@ -0,0 +1,21 @@
-> +// SPDX-License-Identifier: BSD-3-Clause
-> +/*
-> + * Copyright 2025 Cix Technology Group Co., Ltd.
-> + *
-> + */
+> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
+> @@ -0,0 +1,107 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/arm/qcom,coresight-tnoc.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +/dts-v1/;
+> +title: Qualcomm Ttrace NOC(Network On Chip)
 > +
-> +#include "sky1.dtsi"
-> +/ {
-> +	model = "Radxa Orion O6";
-> +	compatible = "radxa,orion-o6";
+> +maintainers:
+> +  - yuanfang Zhang <quic_yuanfang@quicinc.com>
+> +
+> +description:
+> +  The Trace NoC is an integration hierarchy which is a replacement of Dragonlink tile configuration.
+> +  It brings together debug component like TPDA, funnel and interconnect Trace Noc which collects trace
 
-Never tested.
+Wrap according to coding style.
 
-It does not look like you tested the DTS against bindings. Please run
-`make dtbs_check W=1` (see
-Documentation/devicetree/bindings/writing-schema.rst or
-https://www.linaro.org/blog/tips-and-tricks-for-validating-devicetree-sources-with-the-devicetree-schema/
-for instructions).
-Maybe you need to update your dtschema and yamllint. Don't rely on
-distro packages for dtschema and be sure you are using the latest
-released dtschema.
+> +  from subsystems and transfers to QDSS sink.
+> +
+> +  It sits in the different subsystem of SOC and aggregates the trace and transports it to Aggregation TNoC
+> +  or to QDSS trace sink eventually. Trace NoC embeds bridges for all the interfaces(APB, ATB, QPMDA & NTS).
+> +
+> +  Trace NoC can take inputs from different trace sources i.e. ATB, QPMDA.
+> +
+> +# Need a custom select here or 'arm,primecell' will match on lots of nodes
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - qcom,coresight-tnoc
+> +  required:
+> +    - compatible
+> +
+> +properties:
+> +  $nodename:
+> +    pattern: "^tn(@[0-9a-f]+)$"
+> +  compatible:
+> +    items:
+> +      - const: qcom,coresight-tnoc
+> +      - const: arm,primecell
+> +
+> +  reg:
+> +    minItems: 1
+> +    maxItems: 2
 
-> +
-> +	chosen {
-> +		stdout-path = &uart2;
-> +	};
-> +};
-> +
-> +&uart2 {
-> +	status = "okay";
-> +};
-> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-> new file mode 100644
-> index 000000000000..d98735f782e0
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-> @@ -0,0 +1,264 @@
-> +// SPDX-License-Identifier: BSD-3-Clause
-> +/*
-> + * Copyright 2025 Cix Technology Group Co., Ltd.
-> + *
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
-> +/ {
-> +	interrupt-parent = <&gic>;
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	aliases {
-> +		serial2 = &uart2;
-
-This is not part of the SoC, but board.
-
-> +	};
-> +
-> +	cpus {
-> +		#address-cells = <2>;
-> +		#size-cells = <0>;
-> +
-> +		cpu-map {
-> +			cluster0 {
-> +				core0 {
-> +					cpu = <&CPU0>;
-
-Labels are lowercase.
-
-> +				};
-> +				core1 {
-> +					cpu = <&CPU1>;
-> +				};
-> +				core2 {
-> +					cpu = <&CPU2>;
-> +				};
-> +				core3 {
-> +					cpu = <&CPU3>;
-> +				};
-> +				core4 {
-> +					cpu = <&CPU4>;
-> +				};
-> +				core5 {
-> +					cpu = <&CPU5>;
-> +				};
-> +				core6 {
-> +					cpu = <&CPU6>;
-> +				};
-> +				core7 {
-> +					cpu = <&CPU7>;
-> +				};
-> +				core8 {
-> +					cpu = <&CPU8>;
-> +				};
-> +				core9 {
-> +					cpu = <&CPU9>;
-> +				};
-> +				core10 {
-> +					cpu = <&CPU10>;
-> +				};
-> +				core11 {
-> +					cpu = <&CPU11>;
-> +				};
-> +			};
-> +		};
-> +
-> +		CPU0: cpu0@0 {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-
-cpu@
-
-> +			compatible = "arm,armv8";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x0>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <403>;
-> +		};
-> +
-> +		CPU1: cpu1@100 {
-
-cpu@
-
-> +			compatible = "arm,armv8";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x100>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <403>;
-> +		};
-> +
-> +		CPU2: cpu2@200 {
-> +			compatible = "arm,armv8";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x200>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <403>;
-> +		};
-> +
-> +		CPU3: cpu3@300 {
-> +			compatible = "arm,armv8";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x300>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <403>;
-> +		};
-> +
-> +		CPU4: cpu4@400 {
-> +			compatible = "arm,armv8";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x400>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		CPU5: cpu5@500 {
-> +			compatible = "arm,armv8";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x500>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		CPU6: cpu6@600 {
-> +			compatible = "arm,armv8";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x600>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		CPU7: cpu7@700 {
-> +			compatible = "arm,armv8";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x700>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		CPU8: cpu8@800 {
-> +			compatible = "arm,armv8";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x800>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		CPU9: cpu9@900 {
-> +			compatible = "arm,armv8";
-> +			enable-method = "psci";
-> +			reg = <0x0 0x900>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		CPU10: cpu10@a00 {
-> +			compatible = "arm,armv8";
-> +			enable-method = "psci";
-> +			reg = <0x0 0xa00>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +
-> +		CPU11: cpu11@b00 {
-> +			compatible = "arm,armv8";
-> +			enable-method = "psci";
-> +			reg = <0x0 0xb00>;
-> +			device_type = "cpu";
-> +			capacity-dmips-mhz = <1024>;
-> +		};
-> +	};
-> +
-> +	arch_timer: timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-> +		clock-frequency = <1000000000>;
-> +		interrupt-parent = <&gic>;
-> +		arm,no-tick-in-suspend;
-> +	};
-> +
-> +	memory@80000000 {
-
-This does not look like part of SoC.
-
-
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		device_type = "memory";
-> +		reg = <0x00000000 0x80000000 0x1 0x00000000>;
-
-Order properties according to DTS coding style.
-
-> +	};
-> +
-> +	psci {
-> +		compatible = "arm,psci-1.0";
-> +		method = "smc";
-> +	};
-> +
-> +	pmu: pmu {
-
-Keep some sort of order. See DTS coding style.
-
-> +		compatible = "arm,armv8-pmuv3";
-> +		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW>;
-> +		interrupt-parent = <&gic>;
-> +		status = "okay";
-
-Where did you disable it? Why only this has status=okay but other do not?
-
-> +	};
-> +
-> +	pmu_spe: pmu_spe {
-
-DTS coding style. No underscores.
-
-> +		compatible = "arm,statistical-profiling-extension-v1";
-> +		interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_LOW>;
-> +		interrupt-parent = <&gic>;
-> +		status = "okay";
-> +	};
-> +
-> +	reserved-memory {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +
-> +		linux,cma {
-
-This does not look like part of SoC.
-
-> +			compatible = "shared-dma-pool";
-> +			reusable;
-> +			size = <0x0 0x28000000>;
-> +			linux,cma-default;
-> +		};
-> +
-> +	};
-> +
-> +	sky1_fixed_clocks: fixed-clocks {
-> +		uartclk: uartclk {
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <100000000>;
-> +			clock-output-names = "uartclk";
-> +		};
-> +
-> +		uart_apb_pclk: uart_apb_pclk {
-
-This code is not getting better...
-
-Where are these clocks physically?
-
-> +			compatible = "fixed-clock";
-> +			#clock-cells = <0>;
-> +			clock-frequency = <200000000>;
-> +			clock-output-names = "apb_pclk";
-> +		};
-> +	};
-> +
-> +	soc@0 {
-> +		compatible = "simple-bus";
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +		dma-ranges;
-> +
-> +		uart2: uart@040d0000 {
-> +			compatible = "arm,pl011", "arm,primecell";
-> +			reg = <0x0 0x040d0000 0x0 0x1000>;
-> +			interrupts = <GIC_SPI 298 IRQ_TYPE_LEVEL_HIGH>;
-> +			clock-names = "uartclk", "apb_pclk";
-> +			clocks = <&uartclk>, <&uart_apb_pclk>;
-> +			status = "disabled";
-> +		};
-> +
-> +		gic: interrupt-controller@0e001000 {
-> +			compatible = "arm,gic-v3";
-> +			#address-cells = <2>;
-> +			#interrupt-cells = <3>;
-> +			#size-cells = <2>;
-> +			ranges;
-> +			interrupt-controller;
-> +			#redistributor-regions = <1>;
-> +			reg = <0x0 0x0e010000 0 0x10000>,	/* GICD */
-> +			      <0x0 0x0e090000 0 0x300000>;       /* GICR * 12 */
-> +			redistributor-stride = <0x40000>;
-
-DTS coding style.
-
-> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW>;
-> +			interrupt-parent = <&gic>;
-> +
-> +			its_pcie: its@e050000 {
-> +				compatible = "arm,gic-v3-its";
-> +				msi-controller;
-> +				reg = <0x0 0x0e050000 0x0 0x30000>;
-> +			};
-> +		};
-> +	};
-> +};
-
+Look how existing bindings do it. You need to list and describe the items.
 
 Best regards,
 Krzysztof
