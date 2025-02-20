@@ -4,107 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBCB7C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 12:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC359C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 12:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TXl9g0QRiupRi++GsVmdaOoSc/EcnLsRPfQMighZBYM=; b=5BBP5lBmG72mq+lOsyee/UMBHf
-	ekx0+l0cW7wc6HQVxqdKRnsZ7e9fmPnZwfPdV/MR3baZb2k/OZM/cUNn0lARB1x5B7ySrR8ZXim/r
-	9PXxCGvKt3zwQOmx2437htWjq0wYxmRTJH9SGiw+YN/gu43DMHWwyh9nNxspslWVlI2rVDJxQylS0
-	7tIunBRbv58LpkgGjhIrJ/oDx1q0bX2SWL6uZiEIZiB6lwuEzJZLdWLPaw3VgCJQeVvCFd3iSA6MJ
-	+/P4gW6cnwJO28ap5ZoK4YRMeG5PzdWeElgo5eku4v0maHzyhnCft++e1cKUvf4Mh2cqO4CO3hhql
-	MdODR68Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=uhBAtKd3mtHihAWegUiMkhNqfrz7vOZ4WXMh4xp7tZE=; b=x3wCtxoNcEuOJp
+	sfNJ2YXPdGR2T3ahW2otWrpm+bRYTQMKJRz9+Gl0sjyjGGlwi2MTb2wt7yOhEvyoy1BWZcl/lIssU
+	L2sM5H+FQsjjA07Vt5uFWLwW8TorCSlkQJ4Mom859XJ9nzc3sWO4OiYFFVnBB7SboLmNG7iNOgdCu
+	rIOQ+2+eVDqjHdBa7gnXyPrF3nYKn/UYJSmmhUZ+ek41pfFjQpmuDc0ptsyXbayOFkF5jNt5lRksj
+	F7hImvA9qZsp3PEqJlXX7NA/0lOienGrTA09z0mzIIhN1tLJk3+csKXdlzh3eW5USntfZAucq6ehP
+	qCX2g6Xr0PbqK6Dzh59w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl5gM-00000000nmN-3pzX;
-	Thu, 20 Feb 2025 12:29:34 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tl5hp-00000000oJ6-3tbl;
+	Thu, 20 Feb 2025 12:31:05 +0000
+Received: from smtp-bc08.mail.infomaniak.ch ([45.157.188.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl5WS-00000000kQI-01pc
+	id 1tl5Xj-00000000knE-43SK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 12:19:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 557725C02AB;
-	Thu, 20 Feb 2025 12:18:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85446C4CED1;
-	Thu, 20 Feb 2025 12:19:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740053959;
-	bh=iIoWKfGlgEHsajgKFT5jnEn1DVJa1FWjnc925juAW+I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SshpZezdlDGtiM6TiHutcpm/8gi64FjaHnFRk1hcp5QsBJnBUkeVau9CXQg8cPj45
-	 B4IcqdwVrnmrMvAZj5j7ZfR3XDpVoZJZ993XyEcgaW89aZQWRiNVUaZZ7swh6oXE42
-	 zFe++tSHLwuxo+NorFenV3rlxWyN0LQwrR9lii5fWgjMUoPNVuYUaTJY+fyshyYyqF
-	 C8vAr4Gt05I9c3h6oFWiooNQ3x9Fma0vVMk1D+Yf6xZXGZwGg/vb1n7h+MfixWy1pT
-	 bF9M0wKzpvGhcqdJrUTqLW1RSm+IRHXAT/VpJ0ab18QLfZIqya0AwxriipUyHCeQ2B
-	 R77fGt/HNcNqQ==
-Message-ID: <30f92eb0-8483-4699-83b9-387a1fdd4931@kernel.org>
-Date: Thu, 20 Feb 2025 13:19:13 +0100
+	Thu, 20 Feb 2025 12:20:42 +0000
+Received: from smtp-3-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:4:17::246b])
+	by smtp-3-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YzC5b310fzrqS;
+	Thu, 20 Feb 2025 13:20:35 +0100 (CET)
+Received: from unknown by smtp-3-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YzC5Z2rLlzHNm;
+	Thu, 20 Feb 2025 13:20:34 +0100 (CET)
+From: Quentin Schulz <foss+kernel@0leil.net>
+Subject: [PATCH 0/5] arm64: dts: rockchip: pinmux fixes and support for 2
+ adapters for Theobroma boards
+Date: Thu, 20 Feb 2025 13:20:09 +0100
+Message-Id: <20250220-ringneck-dtbos-v1-0-25c97f2385e6@cherry.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/6] arm64: defconfig: Enable CIX SoC
-To: Peter Chen <peter.chen@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- "Fugang . duan" <fugang.duan@cixtech.com>
-References: <20250220084020.628704-1-peter.chen@cixtech.com>
- <20250220084020.628704-6-peter.chen@cixtech.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250220084020.628704-6-peter.chen@cixtech.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPkdt2cC/0XMSwqDMBSF4a1Ixr2Qh4let1Ic5HG1oahtYkUQ9
+ 16rgw7/A+fbWKYUKbOm2FiiJeY4jUeIW8H8w449QQxHM8ml5kLWkOLYj+SfEGY3ZcCam7JWqLQ
+ mdpxeibq4nuC9vTrR+3O48zX+2aY4USkQXt5iZVZIlGmGkOJCCTxai7o2WErTLOKnO5sJ/DQMc
+ W4KQ8Qd2qAQNZHurJTIlfYGuVCuCoEHZVTpWLvvX3Q8Y7DoAAAA
+X-Change-ID: 20250128-ringneck-dtbos-98064839355e
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Quentin Schulz <quentin.schulz@theobroma-systems.com>, 
+ Farouk Bouabid <farouk.bouabid@theobroma-systems.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Quentin Schulz <quentin.schulz@cherry.de>, stable@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_041920_134518_B43A5EF7 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20250220_042040_154710_090B9E50 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,32 +71,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/02/2025 09:40, Peter Chen wrote:
-> Enable CIX SoC support at ARM64 defconfig
-> 
-> Acked-by: Fugang.duan <fugang.duan@cixtech.com>
+This is based on top of
+https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git/log/?h=v6.15-armsoc/dts64
+6ee0b9ad3995 ("arm64: dts: rockchip: Add rng node to RK3588") as it
+depends on the (merged) series from
+https://lore.kernel.org/all/20250211-pre-ict-jaguar-v6-0-4484b0f88cfc@cherry.de/
 
-You keep using different names in different patches.
+Patches for Haikou Video Demo adapter for PX30 Ringneck and RK3399 Puma
+(patches 4 and 5) also depend on the following patch series:
+https://lore.kernel.org/linux-devicetree/20250220-pca976x-reset-driver-v1-0-6abbf043050e@cherry.de/
 
-> Signed-off-by: Peter Chen <peter.chen@cixtech.com>
-> ---
->  arch/arm64/configs/defconfig | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-> index cb7da4415599..1dd46d200401 100644
-> --- a/arch/arm64/configs/defconfig
-> +++ b/arch/arm64/configs/defconfig
-> @@ -45,6 +45,7 @@ CONFIG_ARCH_BCMBCA=y
->  CONFIG_ARCH_BRCMSTB=y
->  CONFIG_ARCH_BERLIN=y
->  CONFIG_ARCH_BLAIZE=y
-> +CONFIG_ARCH_CIX=y
+This fixes incorrect pinmux on UART0 and UART5 for PX30 Ringneck on
+Haikou.
 
+This adds support for the HAIKOU-LVDS-9904379 adapter for PX30 Ringneck
+fitted on a Haikou carrierboard.
 
-And this is not in order with savedefconfig...
+Additionally, this adds support for Haikou Video Demo adapter on PX30
+Ringneck and RK3399 Puma fitted on a Haikou carrierboard. Notably
+missing from the overlay is the OV5675 camera module which expects
+19.2MHz which we cannot exactly feed right now. Modifications to the
+OV5675 drivers will be made so it's more flexible and then support for
+the camera module will be added. This adapter has a 720x1280 DSI display
+with a GT911 touchscreen, a GPIO-controllable LED and an I2C GPIO
+expander. Support for this adapter on RK3588 Tiger is being added in a
+separate patch series[1].
 
+Note that the DSI panel currently is glitchy on both PX30 Ringneck and
+RK3399 Puma but this is being tackled in another series[2]. Since this
+will not be fixed through DT properties for the panel, adding the DT
+nodes for the DSI panel even if not perfect right now seems acceptable
+to me.
+
+[1] https://lore.kernel.org/linux-rockchip/20241127143719.660658-1-heiko@sntech.de/
+[2] https://lore.kernel.org/r/20240626084722.832763-1-heiko@sntech.de
+
+Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
+---
+Quentin Schulz (5):
+      arm64: dts: rockchip: fix pinmux of UART0 for PX30 Ringneck on Haikou
+      arm64: dts: rockchip: fix pinmux of UART5 for PX30 Ringneck on Haikou
+      arm64: dts: rockchip: add support for HAIKOU-LVDS-9904379 adapter for PX30 Ringneck
+      arm64: dts: rockchip: add overlay for PX30 Ringneck Haikou Video Demo adapter
+      arm64: dts: rockchip: add overlay for RK3399 Puma Haikou Video Demo adapter
+
+ arch/arm64/boot/dts/rockchip/Makefile              |  15 ++
+ .../px30-ringneck-haikou-lvds-9904379.dtso         | 130 ++++++++++++++
+ .../rockchip/px30-ringneck-haikou-video-demo.dtso  | 190 +++++++++++++++++++++
+ .../boot/dts/rockchip/px30-ringneck-haikou.dts     |  10 +-
+ .../rockchip/rk3399-puma-haikou-video-demo.dtso    | 166 ++++++++++++++++++
+ 5 files changed, 510 insertions(+), 1 deletion(-)
+---
+base-commit: 6ee0b9ad3995ee5fa229035c69013b7dd0d3634b
+change-id: 20250128-ringneck-dtbos-98064839355e
+prerequisite-change-id: 20250219-pca976x-reset-driver-c9aa95869426:v1
+prerequisite-patch-id: 24af74693654b4a456aca0a1399ec8509e141c01
+prerequisite-patch-id: df17910ec117317f2f456f679a77ed60e9168fa3
 
 Best regards,
-Krzysztof
+-- 
+Quentin Schulz <quentin.schulz@cherry.de>
+
 
