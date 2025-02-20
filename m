@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33773C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 01:24:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04DEDC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 01:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AVw9FAeQI7lCZwFZLEeeKDcfx7NZFxNIup/gnaKUq1Q=; b=j+QMQwt0Mt/34pd1uN1USRgEYp
-	j+c1OuD0WG4ztMhp3W3/qMaQncZEbb4XNnxOBISjTDLeriJqeGwmElUR6erp8RtO2UegDdxv9ZvY7
-	PVBe/GXuBRKUNerlFjs0PiHvJmXWxo9uNJh8FOo6UvOeQYvAMwiLoRb/mKZssLsAdG/DMWyOTEGCh
-	eP4MWPeuz80T/1iI9FzVMEO3UWzGkJpLeY6PaeeKZ/7q1rXK4DGKFqxWTAIyjqxCB615dGZWI1lLZ
-	a2ciH+g0O5OoaoT9CyZHYPCHaGl3JVBdfiEDyZB5aHD3u2aRvrc5n0DWKlxZIHvUl7V59WaWXETQC
-	o/oLsU0Q==;
+	bh=1aLixsgG5yYd8/b4s02+ROe3IhMkQne3dzUxBtDOXqk=; b=dX/WhqmKxqfmd8d0iUweb+3NCw
+	HbjFfIQJXm8i1QTo8+iQiFrmnvO4VEPuixbSTgn883egtNXVviQZpa56ESIea0VU1jBqXrY+M1XyP
+	/aSL78B79CzfpReEnJxwpxS+17DgrY9bKkzLWhqQ4eIPtDX2nBx+/dksFBW/0TerFcqkMJD/l558N
+	7OhX+vW7jamOS3b1xiW1YHAE4AKOImMOs9p0WwSh6D2AmbYUp6QFF1jvHRzeLAXTeInCkxC7uTBaq
+	w6j0k7asjdVHwrnu9MdYuXBDKis8duEsjHm//O8RCRcuj5IrKmljXi8tIyq0V24lCNZWlOZepR9W8
+	Vrh9UTdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkvIU-0000000G5vm-2oOr;
-	Thu, 20 Feb 2025 01:24:14 +0000
+	id 1tkvJx-0000000G6MW-1ENH;
+	Thu, 20 Feb 2025 01:25:45 +0000
 Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkvFE-0000000G4t6-0svj
+	id 1tkvFR-0000000G4vV-2RTp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 01:20:53 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2210121ac27so7301735ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 17:20:51 -0800 (PST)
+	Thu, 20 Feb 2025 01:21:06 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-220fb031245so6605285ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 17:21:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1740014451; x=1740619251; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1740014464; x=1740619264; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=AVw9FAeQI7lCZwFZLEeeKDcfx7NZFxNIup/gnaKUq1Q=;
-        b=nY41MOv1zGfsgkLEsUAfThtQIsHfsa8aVfkNmX+ru0xzOjYGVnM2O+v17C55t4NhTc
-         R/Ie2pB2072MWZCT86TpYhLj80KyXy47AgHr1B9kuZyzpjF4hxjgS2Uo85wELr3XIn+L
-         eslt2ASJj1daLYZc0bJaR0m4OpcGwBEnQ9SzMhuJa28HBblgW7uyvpimML4ibgFUjjga
-         IvbVTeTN/Rt+NTlnkUvRiHnHFTA1AJ4fD1zQYq85R9Ngs+8rw7c544/HaRw8AhMPE7np
-         Fssip4N9tK4tlrEPnv4yRtkxqvwPQRTy+dhdJWn6sySwfMybRt2uqaRp80qvqEUJce/5
-         YvCw==
+        bh=1aLixsgG5yYd8/b4s02+ROe3IhMkQne3dzUxBtDOXqk=;
+        b=aT8QimokO5ZJ+LjPKkUHVuxMkkWRPwRNRb5F5RIYY+4MQ2gY3Fti4Gdva/3A/I0zXx
+         B7HOr+wM4O6kI5Mtyir3W9q6j9va6xBqVhGJf/3YR4NNpFvIQ4VbtCzQ5HH9zrXyaGDV
+         phX2jPRXboJ0vzck356UHGVpbjluQ4xse1fD63hPOZY+hY31AAr/Y0fZg0V+1Y+I7zI3
+         SJqF7Xh9rlx8HjKbH7C10XeY9XsxLgpfr6MLgITUQItPQTxh8oeiq6So6Ss2ODSVYjCs
+         VjqEGMBEC94E5nX2UVlDr8w2crjgkhEgI7v4JH3IUxMcfLVeNJhAgi8c2trEibar7iVH
+         7y/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740014451; x=1740619251;
+        d=1e100.net; s=20230601; t=1740014464; x=1740619264;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=AVw9FAeQI7lCZwFZLEeeKDcfx7NZFxNIup/gnaKUq1Q=;
-        b=kBGZ6GknoQlyfxtS/q0xgmGRpB2h8cBtmDi9aAahqPr/z75ecPDi+rX3D/lnkqERMw
-         6lw5uNOXHWgZyltc0PI3l5xY+Apbe2OjgnIuWqK2qasicGbF7WIkgoCzxTasJE1MSKLz
-         md1bT5D+Rz0DXa8pRD5kkKBHHmKFRI9SZD4gFFV6t6ttHqeogFUOGddioDxCTdRATi+U
-         yNsUEGzXtO/kQVHUBsdzShnIgRYzqCjXeqkglNrKQwLMkJhA7l+3poby8fbXvkG0F2HR
-         5x8bDAlOmzQssQ8ievej5BZK5IOPllK6/gjapMYnSpVK2GvJSGAGSHlUSUZkzZhvTl53
-         VEHw==
-X-Forwarded-Encrypted: i=1; AJvYcCWZvRQHSAF/R08w+SlqpC4Ob5yeGM7jUW1nYbzfi4KeipXuz3r8KIoEA7HdG87hbyPOxNN4pPPFf8BfchSKzzsV@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywu5zxqgOe0Ms7LTYugMfTT6xn/AjM5+8QaVS2yBnMJO9zN4HHW
-	/NWkZ4/7KXsb/pFc5LVlzEHGblSxeL0j7/MdKIL2z0wA0xKEZ5A8JUj4zRlSie9Sw2OyO/GadZg
-	yW/Nkb4Y5Wg==
-X-Google-Smtp-Source: AGHT+IELkZhp3dnu1j1hrZyZSNzylf6/SsN58EX3cCnB9zawb1C1aTd09ns9uhXgPWFn3IcwfNEV46XMOLhkTw==
-X-Received: from plbbj7.prod.google.com ([2002:a17:902:8507:b0:221:7c80:aeff])
+        bh=1aLixsgG5yYd8/b4s02+ROe3IhMkQne3dzUxBtDOXqk=;
+        b=WKNezBfJat0em7lU9KdgyJBRz2W2fefeG3SDEPfIZJnjjpEyOdt//baKeUaqvigCZX
+         c4aAB8uKN3VJsOWqoh3hdhS3pfCK8LjlCHC+wTKxDr+pS3A8UI4RvL2CDeOtHfvGLmbZ
+         otWSZFbVJcAhqc75p4ka/FisHQtRxN4FNFXfQLFP7JYc0ly2Zm4Uy4K3agrIt5odXpOG
+         /IkAiVXWj7Ct8vqH5tO9ADmSpZC0Xw/cERcwsE8ZaVnXs3tC8hsdE0OO6lhv2bQiAHvG
+         cNjRhk/OAPrzZ43eOruqz2l6iPl+XkfIJzKCuwHIn688wWUVkif3ce/pwVaWd/W4rN1I
+         t8wA==
+X-Forwarded-Encrypted: i=1; AJvYcCX079eDsMyflfr0O7i9c5ZgECEQHeOVqV6EDwuWo0kGPpAq89xD3XHZ55uA7oLav1u2P26x7Hb7dd2XNV+mse8Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAqyN4c5IV+Q38GGRfq/C++/L1GYscOY7Zl3QpCFHuBd3TY3Od
+	RAIO/ZTDQqlx60xh7SnPto6mhEnwiIE8s/QknmV6XLqFrEoW6FlCsp5jyVr+sFrUIgDJVYo6/FM
+	RhuRbTg/rYw==
+X-Google-Smtp-Source: AGHT+IHUV95CcKWgBO0qp2SNUvCYSkhL2FrtNC7aRQZUoxAiCMv56jdPPY4vmUXwTTy3kWwJ9QOGDtLY3sIc/w==
+X-Received: from pgbfm14.prod.google.com ([2002:a05:6a02:498e:b0:ad5:4477:da5b])
  (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:41c3:b0:220:ef79:aca9 with SMTP id d9443c01a7336-221711c8dd8mr102260065ad.53.1740014451316;
- Wed, 19 Feb 2025 17:20:51 -0800 (PST)
-Date: Thu, 20 Feb 2025 01:20:41 +0000
+ 2002:a17:902:fc8f:b0:21a:8300:b9ce with SMTP id d9443c01a7336-221906a633cmr7766695ad.49.1740014464427;
+ Wed, 19 Feb 2025 17:21:04 -0800 (PST)
+Date: Thu, 20 Feb 2025 01:20:55 +0000
 In-Reply-To: <cover.1740009184.git.yepeilin@google.com>
 Mime-Version: 1.0
 References: <cover.1740009184.git.yepeilin@google.com>
 X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
-Message-ID: <91e99076cf23e75e4831c75b38f8cfa84d7da34b.1740009184.git.yepeilin@google.com>
-Subject: [PATCH bpf-next v3 2/9] bpf/verifier: Factor out check_atomic_rmw()
+Message-ID: <18f624573f4d5cb42ee877655ea0a96248447d7b.1740009184.git.yepeilin@google.com>
+Subject: [PATCH bpf-next v3 3/9] bpf/verifier: Factor out check_load_mem() and check_store_reg()
 From: Peilin Ye <yepeilin@google.com>
 To: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Cc: Peilin Ye <yepeilin@google.com>, bpf@ietf.org, Xu Kuohai <xukuohai@huaweicloud.com>, 
@@ -85,8 +85,8 @@ Cc: Peilin Ye <yepeilin@google.com>, bpf@ietf.org, Xu Kuohai <xukuohai@huaweiclo
 	Benjamin Segall <bsegall@google.com>, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_172052_252946_96B6FE0C 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20250219_172105_624871_FACBB6FB 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,116 +101,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, check_atomic() only handles atomic read-modify-write (RMW)
-instructions.  Since we are planning to introduce other types of atomic
-instructions (i.e., atomic load/store), extract the existing RMW
-handling logic into its own function named check_atomic_rmw().
+Extract BPF_LDX and most non-ATOMIC BPF_STX instruction handling logic
+in do_check() into helper functions to be used later.  While we are
+here, make that comment about "reserved fields" more specific.
 
-Remove the @insn_idx parameter as it is not really necessary.  Use
-'env->insn_idx' instead, as in other places in verifier.c.
-
+Suggested-by: Eduard Zingerman <eddyz87@gmail.com>
+Acked-by: Eduard Zingerman <eddyz87@gmail.com>
 Signed-off-by: Peilin Ye <yepeilin@google.com>
 ---
- kernel/bpf/verifier.c | 53 +++++++++++++++++++++++--------------------
- 1 file changed, 29 insertions(+), 24 deletions(-)
+ kernel/bpf/verifier.c | 110 +++++++++++++++++++++++++-----------------
+ 1 file changed, 67 insertions(+), 43 deletions(-)
 
 diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index 21658bd5e6d8..63d810bbc26e 100644
+index 63d810bbc26e..3b20bff1c5eb 100644
 --- a/kernel/bpf/verifier.c
 +++ b/kernel/bpf/verifier.c
-@@ -7615,28 +7615,12 @@ static int check_mem_access(struct bpf_verifier_env *env, int insn_idx, u32 regn
+@@ -7615,6 +7615,67 @@ static int check_mem_access(struct bpf_verifier_env *env, int insn_idx, u32 regn
  static int save_aux_ptr_type(struct bpf_verifier_env *env, enum bpf_reg_type type,
  			     bool allow_trust_mismatch);
  
--static int check_atomic(struct bpf_verifier_env *env, int insn_idx, struct bpf_insn *insn)
-+static int check_atomic_rmw(struct bpf_verifier_env *env,
-+			    struct bpf_insn *insn)
- {
- 	int load_reg;
- 	int err;
- 
--	switch (insn->imm) {
--	case BPF_ADD:
--	case BPF_ADD | BPF_FETCH:
--	case BPF_AND:
--	case BPF_AND | BPF_FETCH:
--	case BPF_OR:
--	case BPF_OR | BPF_FETCH:
--	case BPF_XOR:
--	case BPF_XOR | BPF_FETCH:
--	case BPF_XCHG:
--	case BPF_CMPXCHG:
--		break;
--	default:
--		verbose(env, "BPF_ATOMIC uses invalid atomic opcode %02x\n", insn->imm);
--		return -EINVAL;
--	}
--
- 	if (BPF_SIZE(insn->code) != BPF_W && BPF_SIZE(insn->code) != BPF_DW) {
- 		verbose(env, "invalid atomic operand size\n");
- 		return -EINVAL;
-@@ -7698,12 +7682,12 @@ static int check_atomic(struct bpf_verifier_env *env, int insn_idx, struct bpf_i
- 	/* Check whether we can read the memory, with second call for fetch
- 	 * case to simulate the register fill.
- 	 */
--	err = check_mem_access(env, insn_idx, insn->dst_reg, insn->off,
-+	err = check_mem_access(env, env->insn_idx, insn->dst_reg, insn->off,
- 			       BPF_SIZE(insn->code), BPF_READ, -1, true, false);
- 	if (!err && load_reg >= 0)
--		err = check_mem_access(env, insn_idx, insn->dst_reg, insn->off,
--				       BPF_SIZE(insn->code), BPF_READ, load_reg,
--				       true, false);
-+		err = check_mem_access(env, env->insn_idx, insn->dst_reg,
-+				       insn->off, BPF_SIZE(insn->code),
-+				       BPF_READ, load_reg, true, false);
- 	if (err)
- 		return err;
- 
-@@ -7713,13 +7697,34 @@ static int check_atomic(struct bpf_verifier_env *env, int insn_idx, struct bpf_i
- 			return err;
- 	}
- 	/* Check whether we can write into the same memory. */
--	err = check_mem_access(env, insn_idx, insn->dst_reg, insn->off,
-+	err = check_mem_access(env, env->insn_idx, insn->dst_reg, insn->off,
- 			       BPF_SIZE(insn->code), BPF_WRITE, -1, true, false);
- 	if (err)
- 		return err;
- 	return 0;
- }
- 
-+static int check_atomic(struct bpf_verifier_env *env, struct bpf_insn *insn)
++static int check_load_mem(struct bpf_verifier_env *env, struct bpf_insn *insn,
++			  bool strict_alignment_once, bool is_ldsx,
++			  bool allow_trust_mismatch, const char *ctx)
 +{
-+	switch (insn->imm) {
-+	case BPF_ADD:
-+	case BPF_ADD | BPF_FETCH:
-+	case BPF_AND:
-+	case BPF_AND | BPF_FETCH:
-+	case BPF_OR:
-+	case BPF_OR | BPF_FETCH:
-+	case BPF_XOR:
-+	case BPF_XOR | BPF_FETCH:
-+	case BPF_XCHG:
-+	case BPF_CMPXCHG:
-+		return check_atomic_rmw(env, insn);
-+	default:
-+		verbose(env, "BPF_ATOMIC uses invalid atomic opcode %02x\n",
-+			insn->imm);
-+		return -EINVAL;
-+	}
++	struct bpf_reg_state *regs = cur_regs(env);
++	enum bpf_reg_type src_reg_type;
++	int err;
++
++	/* check src operand */
++	err = check_reg_arg(env, insn->src_reg, SRC_OP);
++	if (err)
++		return err;
++
++	/* check dst operand */
++	err = check_reg_arg(env, insn->dst_reg, DST_OP_NO_MARK);
++	if (err)
++		return err;
++
++	src_reg_type = regs[insn->src_reg].type;
++
++	/* Check if (src_reg + off) is readable. The state of dst_reg will be
++	 * updated by this call.
++	 */
++	err = check_mem_access(env, env->insn_idx, insn->src_reg, insn->off,
++			       BPF_SIZE(insn->code), BPF_READ, insn->dst_reg,
++			       strict_alignment_once, is_ldsx);
++	err = err ?: save_aux_ptr_type(env, src_reg_type,
++				       allow_trust_mismatch);
++	err = err ?: reg_bounds_sanity_check(env, &regs[insn->dst_reg], ctx);
++
++	return err;
 +}
 +
- /* When register 'regno' is used to read the stack (either directly or through
-  * a helper function) make sure that it's within stack boundary and, depending
-  * on the access type and privileges, that all elements of the stack are
-@@ -19187,7 +19192,7 @@ static int do_check(struct bpf_verifier_env *env)
- 			enum bpf_reg_type dst_reg_type;
++static int check_store_reg(struct bpf_verifier_env *env, struct bpf_insn *insn,
++			   bool strict_alignment_once)
++{
++	struct bpf_reg_state *regs = cur_regs(env);
++	enum bpf_reg_type dst_reg_type;
++	int err;
++
++	/* check src1 operand */
++	err = check_reg_arg(env, insn->src_reg, SRC_OP);
++	if (err)
++		return err;
++
++	/* check src2 operand */
++	err = check_reg_arg(env, insn->dst_reg, SRC_OP);
++	if (err)
++		return err;
++
++	dst_reg_type = regs[insn->dst_reg].type;
++
++	/* Check if (dst_reg + off) is writeable. */
++	err = check_mem_access(env, env->insn_idx, insn->dst_reg, insn->off,
++			       BPF_SIZE(insn->code), BPF_WRITE, insn->src_reg,
++			       strict_alignment_once, false);
++	err = err ?: save_aux_ptr_type(env, dst_reg_type, false);
++
++	return err;
++}
++
+ static int check_atomic_rmw(struct bpf_verifier_env *env,
+ 			    struct bpf_insn *insn)
+ {
+@@ -19162,35 +19223,16 @@ static int do_check(struct bpf_verifier_env *env)
+ 				return err;
  
+ 		} else if (class == BPF_LDX) {
+-			enum bpf_reg_type src_reg_type;
+-
+-			/* check for reserved fields is already done */
+-
+-			/* check src operand */
+-			err = check_reg_arg(env, insn->src_reg, SRC_OP);
+-			if (err)
+-				return err;
++			bool is_ldsx = BPF_MODE(insn->code) == BPF_MEMSX;
+ 
+-			err = check_reg_arg(env, insn->dst_reg, DST_OP_NO_MARK);
+-			if (err)
+-				return err;
+-
+-			src_reg_type = regs[insn->src_reg].type;
+-
+-			/* check that memory (src_reg + off) is readable,
+-			 * the state of dst_reg will be updated by this func
++			/* Check for reserved fields is already done in
++			 * resolve_pseudo_ldimm64().
+ 			 */
+-			err = check_mem_access(env, env->insn_idx, insn->src_reg,
+-					       insn->off, BPF_SIZE(insn->code),
+-					       BPF_READ, insn->dst_reg, false,
+-					       BPF_MODE(insn->code) == BPF_MEMSX);
+-			err = err ?: save_aux_ptr_type(env, src_reg_type, true);
+-			err = err ?: reg_bounds_sanity_check(env, &regs[insn->dst_reg], "ldx");
++			err = check_load_mem(env, insn, false, is_ldsx, true,
++					     "ldx");
+ 			if (err)
+ 				return err;
+ 		} else if (class == BPF_STX) {
+-			enum bpf_reg_type dst_reg_type;
+-
  			if (BPF_MODE(insn->code) == BPF_ATOMIC) {
--				err = check_atomic(env, env->insn_idx, insn);
-+				err = check_atomic(env, insn);
+ 				err = check_atomic(env, insn);
  				if (err)
- 					return err;
- 				env->insn_idx++;
+@@ -19204,25 +19246,7 @@ static int do_check(struct bpf_verifier_env *env)
+ 				return -EINVAL;
+ 			}
+ 
+-			/* check src1 operand */
+-			err = check_reg_arg(env, insn->src_reg, SRC_OP);
+-			if (err)
+-				return err;
+-			/* check src2 operand */
+-			err = check_reg_arg(env, insn->dst_reg, SRC_OP);
+-			if (err)
+-				return err;
+-
+-			dst_reg_type = regs[insn->dst_reg].type;
+-
+-			/* check that memory (dst_reg + off) is writeable */
+-			err = check_mem_access(env, env->insn_idx, insn->dst_reg,
+-					       insn->off, BPF_SIZE(insn->code),
+-					       BPF_WRITE, insn->src_reg, false, false);
+-			if (err)
+-				return err;
+-
+-			err = save_aux_ptr_type(env, dst_reg_type, false);
++			err = check_store_reg(env, insn, false);
+ 			if (err)
+ 				return err;
+ 		} else if (class == BPF_ST) {
 -- 
 2.48.1.601.g30ceb7b040-goog
 
