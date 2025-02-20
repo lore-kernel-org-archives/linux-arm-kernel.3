@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897B6C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 13:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CE4C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 13:06:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CE4a7LWNgD+6bEHm+If6yI6CBWntgAegdTZ6WlyVgRs=; b=rZp3Y//kmf6nxwBb6FPhcoQBBf
-	5yZ/sXswT/F0J2H31/NPr8boTnv70zagTl9QvumPio+xbQHEGn4ndmvUKpCPVQcmm2EVM1veeNMDC
-	8PRrL448Jnc9ERNcWB/Gp1lCevRBLkyQ3W7+kyzSisAFSUNYNMEDp5TjhkuvZx++/IDrkRm3q3ONm
-	hcg9S8Oh7W2BSZMwcjxvqgteoAJeAxyW1Ni3AMgNUjrqAuDmTyRJ1enaMjDnvYPoFFdEzNqMShx+b
-	4O4NzG96RwGOzWCycZz+MKrdd8+a7/3JwEHe7IlN4DU0q2hjVHE9qyGBLEOx5Lb2PSitk9H4sUC81
-	cStlTqAw==;
+	bh=E5+2puAdJcLcm7GiCQlmphHj1Zhoat9wHQNBgpT3Vbo=; b=1wm8jtHzfPGaTDm3vGIFHUo/zc
+	cvXKdzXVYHbuUKsJXrKx0oyiE1HmN4ucR+uNZVdU2U5d9oNSovAB9px9iP+oBTUmdNTieoliDdWKy
+	1R5HEkARdTb5+rE9CWP6WTe9z8Ds0ubH4ILwWvO8tpGpUmggNM0JxxPiNQV4ncPUG71QNt7LnY5Dh
+	ta1+rrbi+C+Kcwm8nLvha66k1hAriVBOWVsCrVlieTGnFAF8ecDpmjsd4JubExBFFiMBJtTJuiE9k
+	LlEst69vgBgv4DO4qm2ky/yDdKsnJUwCFb6Kh04ROdKN9fNiJwsqYmYoXecN9p1pKGzsSlDp6DGUa
+	MfsvFWiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl6E0-00000000wr7-3GUm;
-	Thu, 20 Feb 2025 13:04:20 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1tl6FT-00000000xLU-00gH;
+	Thu, 20 Feb 2025 13:05:51 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl5yb-00000000sbQ-2XCD
+	id 1tl60P-00000000sYC-1aRP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 12:48:26 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2211cd4463cso16013085ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 04:48:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740055705; x=1740660505; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=CE4a7LWNgD+6bEHm+If6yI6CBWntgAegdTZ6WlyVgRs=;
-        b=M8/nQ9VjH0M2wZeZXAsiXRs/reUMOjRg0q8SbMn/MLQmmEu7FYLldbIaAESkpoYvA+
-         d9u/P4ie3hWDgWVFEDup0In4RoNfQk17j/LMcEBQ2UxUnkHAordIHPh3Tibp2XFz6mOe
-         gJ332/6XzlGyFuUra0Xg2r93JztsS1c7vqfFLl9BavErB4IX8yOONgKrxg2sNDeB9jxJ
-         ogWlJpGFkwR3/ROLQzv6xCaLcDAV+CigZdDZ7OeGOXM4bGtINS8QEMWtKUyZHFTWTqEX
-         T9EVK9F2JdKQeUQMxP+5+KQE453XnnkVfrADkph+U0z8/TIr0SQHh2RH+8ZfEP+ZswJg
-         5d1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740055705; x=1740660505;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CE4a7LWNgD+6bEHm+If6yI6CBWntgAegdTZ6WlyVgRs=;
-        b=Axujise4mnE5g01C439Ir9xVd9bvfTduo/nbrv6y7f2jlU2K5buatn1hOWHZbysbQj
-         ClxWGXwKd17f2F+HsxKBPEYlZrxZVUiFydHsRf9bpyO4Ua9ibO3p/DFUhkotaOkqHm66
-         uxkMtuFXdYvU5RjU+NrWaWew3tV1Zf7xmcAOgrYm9z3k2K4JgFqFC2bFZelvAT225Tlj
-         3EKYd1+B8oDc51JgA4fq+dMHqN/XaLRub7NmlzouqS0ndDgOAil4OPyODH1cy+l1FPBz
-         s4q65T8SS1UD0zEgJ3SauAodzZo9jOQ/0eH7ky7b5w9gVZYY1gRlab66P4GxNSm3QgnO
-         MI3w==
-X-Forwarded-Encrypted: i=1; AJvYcCXdtWNPKfsXeEf0PAFSGJ0xS6ZRQCGkpaeQkQCir9UCmuPRL0pERGQX4IkYVy5ATPHnPZUiqmNdOT81kBXFLcNZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YykeeTftGNGZ5Ht7GNfSck9Qk5w31OfDIZeLtFjEdwhNY9xtjTC
-	DKD5YKk1b3X9qdHgLiT1IlvvIzXgdGJxLXCfXbi1VnNcYoPpJLxN
-X-Gm-Gg: ASbGncuLYc6v1YLsxYbIHxTrsUkv7nXdC1dK9DKCKzm1MQyNK3H0kRIlUNrrFSkaYKd
-	Er3C9Ob6XKxitQp0VdWfycQ8d69x0AuVDlCT1zLjVnlAwDxYmW7QO7fTj2JVmSYIna1Ic5gSGcr
-	BagRRFJew63QoDRHwGbks34PIM4qTwFMG5eEdSURsEsy+pNtx0g7FKA0RPDH8thZgKSXTUwb50j
-	mnBBdXaKLggTXaltGxV+txg38Swhcpf+1IYf0EoGIdi6WKumd6dnK27txZ7lWVwflqAryFr9bgc
-	ELubm1mDDXZFb6Svg7AyubuKcBvd7Q==
-X-Google-Smtp-Source: AGHT+IFjmiPqipTEZkwZ1WqVXZGW1oHgfOJdHBp8emwTtehMMJEryDelpL2Ck2DmoddIgyfmCqbAIg==
-X-Received: by 2002:a05:6a00:1392:b0:730:74f8:25b6 with SMTP id d2e1a72fcca58-7326179e8a0mr35184251b3a.6.1740055704812;
-        Thu, 20 Feb 2025 04:48:24 -0800 (PST)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:9a27:2e77:89d4:5724])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73255f4c0d1sm11963662b3a.62.2025.02.20.04.48.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 04:48:24 -0800 (PST)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
+	Thu, 20 Feb 2025 12:50:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=E5+2puAdJcLcm7GiCQlmphHj1Zhoat9wHQNBgpT3Vbo=; b=yYaw0wopL4OQ7X2EZN1jO6ypLE
+	p5HCBBxPl7aE7LDFuHH0XICq1NJRStUIbQvlvqVe7IrRMGv0BjX5rUpVBOWVTmVmBFPzLzwm01F9q
+	PcRBWmvgBJ6g04OakL0xBgXxW4O7qTY6r4NaQPuzXNbu9cRjzU2wF7unTUT3CaPlv8GPRjmeuL5MQ
+	vh+q7LWxMGUwFkuOhVu5uhH09ZhXekiRslfykjY0b2Gtw1WTJFOdGlpZnLZnpAUrzFkgOnXG3jkvL
+	H71apd62aQzGVmuVJ1RSM0l6vXZ5OuM38iUuywjHyx+CkVp5UXl0eTu1yR8drfckJYeWLVkM4e0cC
+	18nukHeQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:33726 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1tl5yK-00010I-3D;
+	Thu, 20 Feb 2025 12:48:09 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1tl5y1-004UgG-8X; Thu, 20 Feb 2025 12:47:49 +0000
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Fabio Estevam <festevam@denx.de>
-Subject: [PATCH v2] ARM: dts: vfxxx: Fix the order of the DMA entries
-Date: Thu, 20 Feb 2025 09:48:09 -0300
-Message-Id: <20250220124809.2361942-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next] net: stmmac: print stmmac_init_dma_engine() errors
+ using netdev_err()
 MIME-Version: 1.0
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1tl5y1-004UgG-8X@rmk-PC.armlinux.org.uk>
+Date: Thu, 20 Feb 2025 12:47:49 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_044825_642228_34E605CE 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20250220_045017_408262_E3B46D09 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,74 +86,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@denx.de>
+stmmac_init_dma_engine() uses dev_err() which leads to errors being
+reported as e.g:
 
-According to fsl,dspi.yaml the expected order for describing the dmas
-and dma-names properties is "tx" first, followed by "rx".
+dwc-eth-dwmac 2490000.ethernet: Failed to reset the dma
+dwc-eth-dwmac 2490000.ethernet eth0: stmmac_hw_setup: DMA engine initialization failed
 
-Adjust it acordingly to fix the following dt-schema warnings:
+stmmac_init_dma_engine() is only called from stmmac_hw_setup() which
+itself uses netdev_err(), and we will have a net_device setup. So,
+change the dev_err() to netdev_err() to give consistent error
+messages.
 
-spi@4002c000: dma-names:0: 'tx' was expected
-spi@4002c000: dma-names:1: 'rx' was expected
-
-Signed-off-by: Fabio Estevam <festevam@denx.de>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
-Changes since v1:
-- Fixed Subject.
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
- arch/arm/boot/dts/nxp/vf/vfxxx.dtsi | 17 ++++++++---------
- 1 file changed, 8 insertions(+), 9 deletions(-)
-
-diff --git a/arch/arm/boot/dts/nxp/vf/vfxxx.dtsi b/arch/arm/boot/dts/nxp/vf/vfxxx.dtsi
-index 6334ad4aec4b..597f20be82f1 100644
---- a/arch/arm/boot/dts/nxp/vf/vfxxx.dtsi
-+++ b/arch/arm/boot/dts/nxp/vf/vfxxx.dtsi
-@@ -158,8 +158,8 @@ dspi0: spi@4002c000 {
- 				clocks = <&clks VF610_CLK_DSPI0>;
- 				clock-names = "dspi";
- 				spi-num-chipselects = <6>;
--				dmas = <&edma1 1 12>, <&edma1 1 13>;
--				dma-names = "rx", "tx";
-+				dmas = <&edma1 1 13>, <&edma1 1 12>;
-+				dma-names = "tx", "rx";
- 				status = "disabled";
- 			};
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 4d542f482ecb..218ecc945e9e 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3034,7 +3034,7 @@ static int stmmac_init_dma_engine(struct stmmac_priv *priv)
+ 	int ret = 0;
  
-@@ -172,8 +172,8 @@ dspi1: spi@4002d000 {
- 				clocks = <&clks VF610_CLK_DSPI1>;
- 				clock-names = "dspi";
- 				spi-num-chipselects = <4>;
--				dmas = <&edma1 1 14>, <&edma1 1 15>;
--				dma-names = "rx", "tx";
-+				dmas = <&edma1 1 15>, <&edma1 1 14>;
-+				dma-names = "tx", "rx";
- 				status = "disabled";
- 			};
+ 	if (!priv->plat->dma_cfg || !priv->plat->dma_cfg->pbl) {
+-		dev_err(priv->device, "Invalid DMA configuration\n");
++		netdev_err(priv->dev, "Invalid DMA configuration\n");
+ 		return -EINVAL;
+ 	}
  
-@@ -529,9 +529,8 @@ dspi2: spi@400ac000 {
- 				clocks = <&clks VF610_CLK_DSPI2>;
- 				clock-names = "dspi";
- 				spi-num-chipselects = <2>;
--				dmas = <&edma1 0 10>,
--					<&edma1 0 11>;
--				dma-names = "rx", "tx";
-+				dmas = <&edma1 0 11>, <&edma1 0 10>;
-+				dma-names = "tx", "rx";
- 				status = "disabled";
- 			};
+@@ -3043,7 +3043,7 @@ static int stmmac_init_dma_engine(struct stmmac_priv *priv)
  
-@@ -544,8 +543,8 @@ dspi3: spi@400ad000 {
- 				clocks = <&clks VF610_CLK_DSPI3>;
- 				clock-names = "dspi";
- 				spi-num-chipselects = <2>;
--				dmas = <&edma1 0 12>, <&edma1 0 13>;
--				dma-names = "rx", "tx";
-+				dmas = <&edma1 0 13>, <&edma1 0 12>;
-+				dma-names = "tx", "rx";
- 				status = "disabled";
- 			};
+ 	ret = stmmac_reset(priv, priv->ioaddr);
+ 	if (ret) {
+-		dev_err(priv->device, "Failed to reset the dma\n");
++		netdev_err(priv->dev, "Failed to reset the dma\n");
+ 		return ret;
+ 	}
  
 -- 
-2.34.1
+2.30.2
 
 
