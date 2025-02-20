@@ -4,62 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B245C021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 07:09:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B60C021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 07:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=89ai5bYtjuSSmI4eICrLF+zMUIP7t8ECtny6g5+Copk=; b=pLt014dZ/1fb5Hdoch1gdlPlWt
-	p+E06YE6UNW/BcLGUQGMRSaQt9SLSLpOS/t62QkLZa+5lma5NW/+ltpuYmX8fSpfswbiEYPlIsm3A
-	Hvzi2c4Er4/65MQmYOxcdxPCwhwbVs0MawWrgraCMHPgcVE6IndGtC/bNc4O/HFPDI5XBZlDaE7xI
-	CULN5Isd2EH4l9JOZuJnz8ItxqAiY/WKN7PgvHkPd0DNgXxQAysQWjkK3Oz9KJUuh9lEMuTLXZUVv
-	1T7ZHLwbMShVqpAsy66ivLFfvNHfsLxg9iOHGVr3vHvkxeffPVCH40QajPNW9omXkv3ebb2pNe+Vl
-	RZMW4vEQ==;
+	bh=5DqVvsVthq2h4/t7UrH240Bzi+oS8ZW8sparKJnfCVI=; b=1x8g+x6GPgL027gYBc4tm0bL+K
+	C50NvG8ZQ7fLVY7m3ht/R4LlWsnhsH6V+IfLPObh5D7BQORXNHepWussPx3OF/WOQsJDPpZseIEf7
+	6+ozTwS61Ve4yRk+41hjXDax2CKdPIamUWaVwKWLUUExDpCfcVflMu2NYy3xHQYbqH4wthhC/70vW
+	QvxRw0tAuR5QJWVRk3D+20awMy2VKOBHYKQP83hvnqBZomVkZYW89lxfqil9h9oyOwXqO2OGhNQVL
+	WTfRpDK4P263dMcx5CkzDQH/sYMunxXrJdinkGX89czwcZNUdJTv8J0D1jqLVvefmAXdUsOH+60MM
+	kAUBuVVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl0gj-0000000H4cJ-1m6k;
-	Thu, 20 Feb 2025 07:09:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl0aF-0000000H35J-0kD5
+	id 1tl0iB-0000000H51K-3rq1;
+	Thu, 20 Feb 2025 07:11:08 +0000
+Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tl0cI-0000000H3VX-0Hji
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 07:02:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A7BDC2008;
-	Wed, 19 Feb 2025 23:03:12 -0800 (PST)
-Received: from [10.163.38.27] (unknown [10.163.38.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DFBFD3F5A1;
-	Wed, 19 Feb 2025 23:02:46 -0800 (PST)
-Message-ID: <dd60e3d2-62ad-4295-8963-35bb1a94b006@arm.com>
-Date: Thu, 20 Feb 2025 12:32:37 +0530
+	Thu, 20 Feb 2025 07:05:03 +0000
+Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-e5dd697475dso533976276.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 23:05:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1740035101; x=1740639901; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5DqVvsVthq2h4/t7UrH240Bzi+oS8ZW8sparKJnfCVI=;
+        b=HrtzGTQphboxWSF1NC6o8N9jYuszgr3aFLVXoRMioN7w4hs5d+ZsrQaCDcvZbehZSn
+         X9K+VA4PZmiWkyfs+XBhhBaD6/kOFSgdcFe1y6CNo8a6ROBWC3IUAMdbgS0Q051wwFmA
+         /Go3+l2DAk7NVICHuRYp5PhnXL1fDbIoK9o+HcFkiNnRqbUSo505cXT0vlNdmQmjn7SH
+         6//+Jm8SGplWEIo7uaILtMI12r0/MeKwGNKBiueVJv3jqMu7kvoaeTeDzWUwcoVuVP9Z
+         3F/ReCTSFKBPCtnp8uMD8ivWnv6iYrRRmx2DuBgEedKSwbPXqVrLo+40Nc+zaMxGnHky
+         xLJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740035101; x=1740639901;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5DqVvsVthq2h4/t7UrH240Bzi+oS8ZW8sparKJnfCVI=;
+        b=fTXvjHCvjnbXWCvOUGPtaMy1xCMh0ButEM/YNV/1uWql4r7AWbRiWmg1TeLayJ2v+H
+         u9sXGeyTmCD+ScnoN3l/TBkeMchkH5mBO1liK2UlkWV6iDGC2LYI6Yif+MMkyXhg9bHX
+         6CxrbwwA2nP+L4iLx0A57N7IMirpEFcur6YlHuxW6SGn8Tt8wJ/Gjk6IjWQIzSJMG/SQ
+         bCFT2esLHna6j4IQLAhsJvHfrF4ml8FuxaldFU8V/jXi2qOEASOW5Qx3MSvwMGCJCoxm
+         V6213sB2D8ixW1YdG669OOwUF6nmb3gMhiU83xBP55HZetq/wfV26ROho9g60VUeEVWh
+         Snyg==
+X-Forwarded-Encrypted: i=1; AJvYcCU/DHlThRNW3VXzQ24HlpGA4g2hO7u8/wuzOgL7t+/iPyABkYhFAOBPuRIVEnm9AJstCDvC8uCtos2S8zzEsoaE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmkAw4RgEZw1OENHHMr5wpHpTuWNpY/oCR0BeaQkqww5xw6Jwm
+	LMQGU3G4prh15vjE9Mmdi2FT8IagXFVExuLCW+g9DGTq3yZU9flruJSDtHHLmcKgXL8fsr7PgKp
+	H61RRt1g5XQoGUCg/ZZFufc5zEmJUDDUEFFwAFQ==
+X-Gm-Gg: ASbGncsqSQZCsYSf0k3y9jZ6uH9oPupHXOw+WPM2JaJMYqtpzRYU+q0geVKbdppeo3N
+	CC9VNTJMud/PXNq2/t4TFxV+otcgbTzE70UakFhWWCpuvVCjaJ9vi5yM16Cl87W+oDDggXqdur6
+	I=
+X-Google-Smtp-Source: AGHT+IEZKNMBrP2lM6Bm1hvdsTewtlhF0pZu3ss6WiHXL5gZNQY6DZIWU72QwbDGVzIjUzPcFFZ/gZnnd/15t3X4IzU=
+X-Received: by 2002:a05:6902:3486:b0:e58:227:e963 with SMTP id
+ 3f1490d57ef6-e5dc9070168mr14747916276.21.1740035100978; Wed, 19 Feb 2025
+ 23:05:00 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 08/14] mm/vmalloc: Warn on improper use of
- vunmap_range()
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- David Hildenbrand <david@redhat.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>, Alexandre Ghiti
- <alexghiti@rivosinc.com>, Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org
-References: <20250217140809.1702789-1-ryan.roberts@arm.com>
- <20250217140809.1702789-9-ryan.roberts@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250217140809.1702789-9-ryan.roberts@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250217055843.19799-1-nick.hu@sifive.com> <889918c4-51ae-4216-9374-510e4cbdc3f1@intel.com>
+ <CAKddAkBZWZqY+-TERah+Q+WUfkqzcpFMA=ySSuTxxBjfP7tKZg@mail.gmail.com> <Z7bSLq1vkYJUzvGM@mev-dev.igk.intel.com>
+In-Reply-To: <Z7bSLq1vkYJUzvGM@mev-dev.igk.intel.com>
+From: Nick Hu <nick.hu@sifive.com>
+Date: Thu, 20 Feb 2025 15:04:50 +0800
+X-Gm-Features: AWEUYZn2ntlAc-JtJt8X-ZlCzhTS64HhwD2QJ_NWHZfmvIV2rb2qYohzCaDzrzQ
+Message-ID: <CAKddAkBGYqcWQdtFWe1+cnUjxVEiYrd4yw9sxy3GAO+RGkoFBw@mail.gmail.com>
+Subject: Re: [PATCH] net: axienet: Set mac_managed_pm
+To: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
+Cc: Jacob Keller <jacob.e.keller@intel.com>, 
+	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Michal Simek <michal.simek@amd.com>, 
+	Russell King <linux@armlinux.org.uk>, Francesco Dolcini <francesco.dolcini@toradex.com>, 
+	Praneeth Bajjuri <praneeth@ti.com>, Andrew Lunn <andrew@lunn.ch>, netdev@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_230255_283552_D039AAE6 
-X-CRM114-Status: GOOD (  21.80  )
+X-CRM114-CacheID: sfid-20250219_230502_150066_8ECC218D 
+X-CRM114-Status: GOOD (  24.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,54 +100,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/17/25 19:38, Ryan Roberts wrote:
-> A call to vmalloc_huge() may cause memory blocks to be mapped at pmd or
-> pud level. But it is possible to subsequently call vunmap_range() on a
-> sub-range of the mapped memory, which partially overlaps a pmd or pud.
-> In this case, vmalloc unmaps the entire pmd or pud so that the
-> no-overlapping portion is also unmapped. Clearly that would have a bad
-> outcome, but it's not something that any callers do today as far as I
-> can tell. So I guess it's just expected that callers will not do this.
-> 
-> However, it would be useful to know if this happened in future; let's
-> add a warning to cover the eventuality.
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Hi Michal
 
-LGTM and stands on its own independent of the series here.
+Thanks for the information! I'll pay attention next time.
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+On Thu, Feb 20, 2025 at 3:00=E2=80=AFPM Michal Swiatkowski
+<michal.swiatkowski@linux.intel.com> wrote:
+>
+> On Thu, Feb 20, 2025 at 10:47:40AM +0800, Nick Hu wrote:
+> > Hi Jacob
+> >
+> > On Thu, Feb 20, 2025 at 7:29=E2=80=AFAM Jacob Keller <jacob.e.keller@in=
+tel.com> wrote:
+> > >
+> > >
+> > >
+> > > On 2/16/2025 9:58 PM, Nick Hu wrote:
+> > > Nit: subject should include the "net" prefix since this is clearly a =
+bug
+> > > fix.
+> > >
+> > I've added the 'net' prefix to the subject 'net: axienet: Set
+> > mac_managed_pm'. Is there something I'm missing?
+> >
+>
+> It should be [PATCH net] net: axienet: Set mac_managed_pm
+> Like here for example [1]. You can look at netdev FAQ [2]. It is
+> described there how to specify the subject.
+>
+> Probably you don't need to resend it only because of that.
+>
+> [1] https://lore.kernel.org/netdev/CAL+tcoC3TuZPTwnHTDvXC+JPoJbgW2UywZ2=
+=3Dxv=3DE=3Dutokb3pCQ@mail.gmail.com/T/#m2b5603fbf355216ab035aa0f69c10c5f4b=
+a98772
+> [2] https://www.kernel.org/doc/Documentation/networking/netdev-FAQ.txt
+>
+> Thanks,
+> Michal
+>
+> > > > The external PHY will undergo a soft reset twice during the resume =
+process
+> > > > when it wake up from suspend. The first reset occurs when the axien=
+et
+> > > > driver calls phylink_of_phy_connect(), and the second occurs when
+> > > > mdio_bus_phy_resume() invokes phy_init_hw(). The second soft reset =
+of the
+> > > > external PHY does not reinitialize the internal PHY, which causes i=
+ssues
+> > > > with the internal PHY, resulting in the PHY link being down. To pre=
+vent
+> > > > this, setting the mac_managed_pm flag skips the mdio_bus_phy_resume=
+()
+> > > > function.
+> > > >
+> > > > Fixes: a129b41fe0a8 ("Revert "net: phy: dp83867: perform soft reset=
+ and retain established link"")
+> > > > Signed-off-by: Nick Hu <nick.hu@sifive.com>
+> > > > ---
+> > >
+> > > Otherwise, the fix seems correct to me.
+> > >
+> > > Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+> > >
+> > > >  drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 1 +
+> > > >  1 file changed, 1 insertion(+)
+> > > >
+> > > > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/dr=
+ivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> > > > index 2ffaad0b0477..2deeb982bf6b 100644
+> > > > --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> > > > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> > > > @@ -3078,6 +3078,7 @@ static int axienet_probe(struct platform_devi=
+ce *pdev)
+> > > >
+> > > >       lp->phylink_config.dev =3D &ndev->dev;
+> > > >       lp->phylink_config.type =3D PHYLINK_NETDEV;
+> > > > +     lp->phylink_config.mac_managed_pm =3D true;
+> > > >       lp->phylink_config.mac_capabilities =3D MAC_SYM_PAUSE | MAC_A=
+SYM_PAUSE |
+> > > >               MAC_10FD | MAC_100FD | MAC_1000FD;
+> > > >
+> > >
+> >
+> > Regards,
+> > Nick
 
-> ---
->  mm/vmalloc.c | 8 ++++++--
->  1 file changed, 6 insertions(+), 2 deletions(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 61981ee1c9d2..a7e34e6936d2 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -374,8 +374,10 @@ static void vunmap_pmd_range(pud_t *pud, unsigned long addr, unsigned long end,
->  		if (cleared || pmd_bad(*pmd))
->  			*mask |= PGTBL_PMD_MODIFIED;
->  
-> -		if (cleared)
-> +		if (cleared) {
-> +			WARN_ON(next - addr < PMD_SIZE);
->  			continue;
-> +		}
->  		if (pmd_none_or_clear_bad(pmd))
->  			continue;
->  		vunmap_pte_range(pmd, addr, next, mask);
-> @@ -399,8 +401,10 @@ static void vunmap_pud_range(p4d_t *p4d, unsigned long addr, unsigned long end,
->  		if (cleared || pud_bad(*pud))
->  			*mask |= PGTBL_PUD_MODIFIED;
->  
-> -		if (cleared)
-> +		if (cleared) {
-> +			WARN_ON(next - addr < PUD_SIZE);
->  			continue;
-> +		}
->  		if (pud_none_or_clear_bad(pud))
->  			continue;
->  		vunmap_pmd_range(pud, addr, next, mask);
+Regards,
+Nick
 
