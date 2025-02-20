@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5380C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 18:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF384C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 18:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H93iyX4QsIjRvuarMUU+zmaDywtAgxNZUW5MXDIbqH0=; b=PWjkolooU4OiiwqkPDTWxoVCJA
-	PFqcaWNuCBcuHLUDtk3sOcJCu++iBIiAb2URBw64dp9VRkCpoS2ykkxsj10z3W021sV41+g55ZFAl
-	FmP4XiGho8VL54xGf42ukJyYFRf1KO2u/sz8ATjnjno21cRIPQVveUdRCNq4XA3aZaKtL9b2xzajb
-	5BBEWxfEKG/WhEJ9TbeB8lanV4fu5HbPGGlBloab831GSBtOO2PegPIanIGzkfc68cXW0TkBYgE4y
-	1fs4+8ljeAm1aaiap+bsO9w8qSjlpzQuKwzDsBWvpJij/CBqdLBQo+972KFa2lGVg4eWDmWDvJznv
-	MLxfa76Q==;
+	bh=+PVIbNkaQDavQEgjBDli++CwOPMV7IlcwfOvzQNao20=; b=1vDzArekiYCYhUfJIYc8zGhN9B
+	0EwqOFW9dcmUYsbthR/eYSRonASN6QKhGgL+2Oh5FHLiL2TXhfd6CQZWzGITsRTuIMelCMvyoVk6a
+	OTpPJUl08eHYuGH8cCt6q5fut0PmLzTvGy+1IVP8mhl269Q9otjCbn6v0BH7yw0dGSKpx0EAoBTux
+	Jcs7J4LruQi7Xso4MEhmVu6+w5QjBq4jsYCslXo3W++Sp+MZjumsZju6wAdqJF6VjSz9DYlNugHhF
+	57jYvAP4qPKZ3VyXvf+3L+uf8i0wuIimMfYEJsL5NMVQ+VkHZ+qMDSMdw1ZMJrr1w+2MV4qWExUVd
+	DZaHAJAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlAzB-00000002IOD-0med;
-	Thu, 20 Feb 2025 18:09:21 +0000
+	id 1tlB0d-00000002Ik1-3WIY;
+	Thu, 20 Feb 2025 18:10:51 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlAul-00000002H4S-0HGV
+	id 1tlAun-00000002H54-1Ogz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 18:04:48 +0000
+	Thu, 20 Feb 2025 18:04:50 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8D751BB0;
-	Thu, 20 Feb 2025 10:05:04 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1BE5016F3;
+	Thu, 20 Feb 2025 10:05:07 -0800 (PST)
 Received: from e119884-lin.cambridge.arm.com (e119884-lin.cambridge.arm.com [10.1.196.72])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6034B3F59E;
-	Thu, 20 Feb 2025 10:04:44 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E6F773F59E;
+	Thu, 20 Feb 2025 10:04:46 -0800 (PST)
 From: Vincenzo Frascino <vincenzo.frascino@arm.com>
 To: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
@@ -48,19 +48,19 @@ Cc: Vincenzo Frascino <vincenzo.frascino@arm.com>,
 	Russell King <linux@armlinux.org.uk>,
 	Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Jessica Clarke <jrtc27@jrtc27.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v6 02/10] dt-bindings: arm: Add Morello compatibility
-Date: Thu, 20 Feb 2025 18:04:20 +0000
-Message-ID: <20250220180427.3382482-3-vincenzo.frascino@arm.com>
+	Jessica Clarke <jrtc27@jrtc27.com>
+Subject: [PATCH v6 03/10] dt-bindings: arm: Add Morello fvp compatibility
+Date: Thu, 20 Feb 2025 18:04:21 +0000
+Message-ID: <20250220180427.3382482-4-vincenzo.frascino@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250220180427.3382482-1-vincenzo.frascino@arm.com>
 References: <20250220180427.3382482-1-vincenzo.frascino@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_100447_147527_83E33125 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20250220_100449_414648_AD3063BD 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,62 +75,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatibility to Arm Morello System Development Platform.
+Add compatibility to Arm Morello Fixed Virtual Platform.
 
-Note: Morello is at the same time the name of an Architecture [1], an SoC
-[2] and a Board [2].
-To distinguish in between Architecture/SoC and Board we refer to the first
-as arm,morello and to the second as arm,morello-sdp.
-
-[1] https://developer.arm.com/Architectures/Morello
-[2] https://www.morello-project.org/
-
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: Vincenzo Frascino <vincenzo.frascino@arm.com>
 ---
- .../devicetree/bindings/arm/arm,morello.yaml  | 33 +++++++++++++++++++
- 1 file changed, 33 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/arm/arm,morello.yaml
+ Documentation/devicetree/bindings/arm/arm,morello.yaml | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/arm/arm,morello.yaml b/Documentation/devicetree/bindings/arm/arm,morello.yaml
-new file mode 100644
-index 000000000000..b4cfa8d048c4
---- /dev/null
+index b4cfa8d048c4..e843b97fa485 100644
+--- a/Documentation/devicetree/bindings/arm/arm,morello.yaml
 +++ b/Documentation/devicetree/bindings/arm/arm,morello.yaml
-@@ -0,0 +1,33 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/arm/arm,morello.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ARM Morello Platforms
-+
-+maintainers:
-+  - Vincenzo Frascino <vincenzo.frascino@arm.com>
-+
-+description: |+
-+  The Morello architecture is an experimental extension to Armv8.2-A,
-+  which extends the AArch64 state with the principles proposed in
-+  version 7 of the Capability Hardware Enhanced RISC Instructions
-+  (CHERI) ISA.
-+
-+  ARM's Morello Platforms are built as a research project to explore
-+  capability architectures based on arm.
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - description: Arm Morello System Development Platform
-+        items:
-+          - const: arm,morello-sdp
-+          - const: arm,morello
-+
-+additionalProperties: true
-+
-+...
+@@ -23,9 +23,11 @@ properties:
+     const: '/'
+   compatible:
+     oneOf:
+-      - description: Arm Morello System Development Platform
++      - description: Arm Morello System Platforms
+         items:
+-          - const: arm,morello-sdp
++          - enum:
++              - arm,morello-sdp
++              - arm,morello-fvp
+           - const: arm,morello
+ 
+ additionalProperties: true
 -- 
 2.43.0
 
