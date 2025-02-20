@@ -4,96 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6502C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5D2C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n15bf8E4w81YIQXcbn52KewH85spv07PWBoufUb1/Zw=; b=TXVeBih2J3ecl3rFsknWzUYfWY
-	xns9thzmIvJM668kb00H7f5ftBQ5sTdxjD1rcCGvYw27sQX9QnADzeRKMkLTR4QOwBw13f2TsH8sf
-	66/Eo/bcnqi8t77iWhoBZ6SvhYIVntR1JLDDSNKrDbjnFN1hnI8/F0CJb/5SnVHVS0yfZrXEBvtnl
-	jpGBwUbCwW+BaNYfrwI8eRylW7PlwuZGGuQuOJs8AIo59o+DmtNhe5m3htYerc/OXsDy4X+f6WbZc
-	sGj+9fQNx7+G3HdpkFDi9umr7Z7Fddwlc1Joz8NOqlbh4D7xHAmkjvpHi0nYY0dPc6Ol+3uVWKoYL
-	aqQAolcw==;
+	bh=ANYY81S4UUbSzxGp9vX0hw/u/obOtXq2bTCgGH3coGw=; b=Zql2qmYNirSl/38Uid8/LhJSKD
+	zMbwO0is0jilyqXCp1NDRjDuYOdipQXcRaTByV5Z7nfxnJE37zyF3sBkBmD4NUvJmofJGtos0ZqeW
+	a+m1K50oEdy6piL1x+L2ghnipReA0mvRINQHdSEdVUPxqjbWxQi8gsWF8tz++HmrYwv/K7ijkXogR
+	R4hlGwthBzS6mBwxJbpbBOtpHs/oVHBYJ6yUji699gMnScMj0nn20lLG8QplstyfD2O/rnydX2Nf0
+	AYFoKQ57QTDx24RnoBHHYuJJFSkXnuGFODy/xu1ewqUYB/LzlasT/gn7xrr7RnIM+SLfNIga5zNmQ
+	G3zzpBkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlAYp-00000002Byy-2FBw;
-	Thu, 20 Feb 2025 17:42:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tlAaI-00000002CLN-0nTv;
+	Thu, 20 Feb 2025 17:43:38 +0000
+Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlATa-00000002Ah0-1DU5
+	id 1tlAQJ-00000002A1V-0jgW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 17:36:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1740073000;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n15bf8E4w81YIQXcbn52KewH85spv07PWBoufUb1/Zw=;
-	b=MYyvorWmWManwk1iS1Z/eBaLHsRdX/RoNBHai/2bZKkW0n8tNb6pD8WHlN3Hsx+luK6BsC
-	oz42lZA1vzLXayeEFYChp7vg9WkdElbef2cqlJsjZ8PsetMUASfu6nyIRCRtBjA152hfuE
-	MeGkqLOv/ZOkOimLe20PsELQ6uQ8Qs8=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-648-u-pQNiezMm-fbXRvOABG4g-1; Thu, 20 Feb 2025 12:36:38 -0500
-X-MC-Unique: u-pQNiezMm-fbXRvOABG4g-1
-X-Mimecast-MFC-AGG-ID: u-pQNiezMm-fbXRvOABG4g_1740072998
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43935e09897so8880225e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 09:36:38 -0800 (PST)
+	Thu, 20 Feb 2025 17:33:21 +0000
+Received: by mail-ed1-x542.google.com with SMTP id 4fb4d7f45d1cf-5e050b1491eso4081687a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 09:33:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1740072797; x=1740677597; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ANYY81S4UUbSzxGp9vX0hw/u/obOtXq2bTCgGH3coGw=;
+        b=RGdWur0EAYTIgaTOVokXP4knZ8O37fjtAv1i4iuTt05QZcNnJQoxAS9qBkiXhJl9X2
+         Cmnsaj7O8fsDJOmdUd9e4nTm42UaMPrJVkl33+E2tpPtFNXZVZeFwLsdlEm7vZp4Buzt
+         2LR7sOa5lGrPVegW2RRflLsjw8+mq7td2AdQF2a2PJwhfv9DX2Ff2zV+z0DDPHcAvTUm
+         LDaDM5yzIrFFrFVNN8WtMjHQ+uoaj9Vcr1sHwtTh6CTUNTaFL8O/NtDa0GcUQvTk09Wh
+         p33XHbddDuOVzTK28N+vDa60r+oLRoquy9xV11oFRDu/bsmlpGoyzQy7i+b11DrpDzqC
+         8sxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740072997; x=1740677797;
-        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=n15bf8E4w81YIQXcbn52KewH85spv07PWBoufUb1/Zw=;
-        b=kIJpUTz/prClwjxf9PN6v0FPTFlmVprWORZA0UyjFtiY/OXmYdYwH5FXsq3lYkjirU
-         rwNBzpDbdpne2097a70kBusQAvi90raDRBBfGRpC940CmiM3C+otnYBQSJqMW8sJ+CHP
-         1IjU3UM0+QRc8OJkXV5DnUwO1PQ6hqCLZUwgaKMnpxjWwwEph3xXGHiADgKsVpmxhJda
-         TzuQmDitJOmk2CER7T9dsHU0VoJ/qJQPOESmrBVQg8ZBy41l6EShAdEJ+0cFhWieekb0
-         a/ugV9oG60lo8dNxHLgHqO9ypOI+XmxOkRjNyJi1hwUU/sh4e+DnBEebr2Bcm1Sz8E+S
-         dPkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVzo+3rkMziHODBFA7qexWlZlbaCQuL63mLysokWKwJ+EoWmNn0UKcs/juzDYau3cLIMLSmxVpQlRmYwbvoJciu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwE7eOsV+/lIdlxkh4N53k2cjG7sjlA9SXgwZLbCYS+1XaOQjyP
-	lJ04Bh3BvRgG4k3yK7EtMSthR96NAIDRXGF3FaJQ+muAq6vsfYQuVzoAGMv+htvOa2UII31TOKZ
-	U2ZtDejAvMZKyYnN5TILvYgDrx6MaWO+Jq2VkYaOqcDBOcl4IhnhyX9GnbEgGhT8124Ql9zAs
-X-Gm-Gg: ASbGncuIlLpy4PCNVOJMHCik8MpyxvoLcH9wolzYGD54cU1y1yr3xiDYM7M08WPt779
-	r/iaxulwM7d7XmAR/Amg0VFQec0OSn76LVwLItgAq6DEiDfhofe5yE+MX/MAp7iYIhjcR8w3EwW
-	jNeUkTsIRuQ7+sfNKtVd4+Jk5a2afcELnY2tR1wBMHmNgGrJ9ilIG5n1eCkPS6WQgvqbYMczECA
-	//k2zpYDFwfqq2w3tyvJqcq+kJdg9gasG11mJVTSJLFtC3ypUWEYz21nPE3Abr0jURi3ovShjS+
-	FWurhEb76wKt+C813vEq9FhSt+ZM96aitlAG75KrInmgXtK6NirahA==
-X-Received: by 2002:a05:600c:4e8d:b0:439:643a:c8d5 with SMTP id 5b1f17b1804b1-439ae189b90mr2045225e9.0.1740072997619;
-        Thu, 20 Feb 2025 09:36:37 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHy5FnqR/8AjjY8RLPAgdr+NGtk75Kqe0crbyEx5UtstYLGj4EGzUk8OPNUhCk+6xcuGov9Tw==
-X-Received: by 2002:a05:600c:4e8d:b0:439:643a:c8d5 with SMTP id 5b1f17b1804b1-439ae189b90mr2044905e9.0.1740072997264;
-        Thu, 20 Feb 2025 09:36:37 -0800 (PST)
-Received: from rh (p200300f6af0e4d00dda53016e366575f.dip0.t-ipconnect.de. [2003:f6:af0e:4d00:dda5:3016:e366:575f])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4398872fa85sm117119635e9.28.2025.02.20.09.36.36
+        d=1e100.net; s=20230601; t=1740072797; x=1740677597;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ANYY81S4UUbSzxGp9vX0hw/u/obOtXq2bTCgGH3coGw=;
+        b=Azf47X0xm9GAX9qJvxYfzvtUXWWh5EOqtDGJS+T6w0bRzzpFZ5prSTt1/5KiHBQcdz
+         Eu/BqxurMLVN0YsLP+CzGt5Yloer0Mf3CtRxQLbMABbFBwfy7lGeVpj4AHjkdzcSyZzX
+         uYUKkMqBT6V59BAy0Ikz+2fXycyGxIaUdY4ZaS5Sp52v3bIzHtgMyN+yebLeqJfCuv6J
+         s7H7ZbLFz+MjK8naQIANgXyj4pf2SUwU1VPj2te1rUsblbSeCEIuzMmrvSCx6G8cPadQ
+         MD0zqmAEDzQu47oWNkVKcfeKRlYsjTcQf8NDQrRcZbe+W7WnWNW6nQZgtXuJyrANGyZX
+         vT/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUV9onOSsCqol/t8kM8MjtLBzkXQ4wEpiIz0LmHgOsBP+Mive5Lwn0hysUUa0TcuG0ONcGpgen/y8L0cpc8TLgh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAjk3tq5Che/YjLcSsin1/0ivW+YQV3uNSwpg+PKbCIWEsgGfK
+	v9MFk1vg5YM2DdfdSsUKYdWJTx2mBXjD6myUFbTC/zkbkBULxnlwbQJdV5xZc4E=
+X-Gm-Gg: ASbGncscCjKPMCQq+mJCVEQuxBhIkjX8AKBuwYrERKmdf+CXgUfG5g2da2Te8zIo7E4
+	onjr73ZiDIPpJMn1Kh++xQmKNdNOctsKdrneFZp40eDeVjmQk2hlRgvdyPGyCql97/XG5xbbK07
+	/mUGhIBq1VgND8wpZVWNt9z7PbDeQq+vvNyAWyGkyj0pr4ud5TSDlKZUpwjiWMljHXlIl5wkJgB
+	6IDJeMq0quUuXi738CzuICGrH4u3teb7I7T0fHZZC65GVxCGNTH5EP4jJZLoDs3zzEXnpZ3nw48
+	a3JNj6u+wxJFotMkzVM75ZYA0MbIXGmjJvA7hszIXkgXdburfBAKCl82N9I=
+X-Google-Smtp-Source: AGHT+IFcZuFtypbIC0ocwrn0UjtnE5zIzW4WQOLazDAdOMAwrDA8BDnjnnZ6hgx+i5rr6QtaeBrAFg==
+X-Received: by 2002:a05:6402:524b:b0:5de:50b4:b71f with SMTP id 4fb4d7f45d1cf-5e0a12baa86mr3394933a12.12.1740072797358;
+        Thu, 20 Feb 2025 09:33:17 -0800 (PST)
+Received: from localhost (host-79-41-239-37.retail.telecomitalia.it. [79.41.239.37])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e076048c05sm5023923a12.35.2025.02.20.09.33.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 09:36:36 -0800 (PST)
-Date: Thu, 20 Feb 2025 18:36:35 +0100 (CET)
-From: Sebastian Ott <sebott@redhat.com>
-To: Marc Zyngier <maz@kernel.org>
-cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-    Suzuki K Poulose <suzuki.poulose@arm.com>, 
-    Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>, 
-    Eric Auger <eric.auger@redhat.com>, gankulkarni@os.amperecomputing.com
-Subject: Re: [PATCH v2 02/14] KVM: arm64: Hide ID_AA64MMFR2_EL1.NV from guest
- and userspace
-In-Reply-To: <20250220134907.554085-3-maz@kernel.org>
-Message-ID: <af16f5bc-4300-54d3-b480-c559ec070a44@redhat.com>
-References: <20250220134907.554085-1-maz@kernel.org> <20250220134907.554085-3-maz@kernel.org>
+        Thu, 20 Feb 2025 09:33:16 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 20 Feb 2025 18:34:21 +0100
+To: Stefan Wahren <wahrenst@gmx.net>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof Wilczynski <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
+	Derek Kiernan <derek.kiernan@amd.com>,
+	Dragan Cvetic <dragan.cvetic@amd.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH v7 08/11] misc: rp1: RaspberryPi RP1 misc driver
+Message-ID: <Z7dnnW4npJmfOVE0@apocalypse>
+References: <cover.1738963156.git.andrea.porta@suse.com>
+ <d1362766e3e966f78591129de918046a4b892c18.1738963156.git.andrea.porta@suse.com>
+ <87525350-b432-40b3-927c-60cd74228ea4@gmx.net>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ALhjylGKciPfaxCrw6fwzgrFv_gLq5ZOzk5TbBrsWog_1740072998
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=US-ASCII; format=flowed
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87525350-b432-40b3-927c-60cd74228ea4@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_093642_394530_4BE86802 
-X-CRM114-Status: GOOD (  16.50  )
+X-CRM114-CacheID: sfid-20250220_093319_213399_140AA89A 
+X-CRM114-Status: GOOD (  24.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,35 +124,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Hi Stefan,
 
-On Thu, 20 Feb 2025, Marc Zyngier wrote:
-> Since our take on FEAT_NV is to only support FEAT_NV2, we should
-> never expose ID_AA64MMFR2_EL1.NV to a guest nor userspace.
->
-> Make sure we mask this field for good.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
-> arch/arm64/kvm/sys_regs.c | 1 +
-> 1 file changed, 1 insertion(+)
->
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 82430c1e1dd02..9f10dbd26e348 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1627,6 +1627,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
-> 		break;
-> 	case SYS_ID_AA64MMFR2_EL1:
-> 		val &= ~ID_AA64MMFR2_EL1_CCIDX_MASK;
-> +		val &= ~ID_AA64MMFR2_EL1_NV;
-> 		break;
+On 15:21 Sat 08 Feb     , Stefan Wahren wrote:
+> Hi Andrea,
+> 
+> Am 07.02.25 um 22:31 schrieb Andrea della Porta:
+> > The RaspberryPi RP1 is a PCI multi function device containing
+> > peripherals ranging from Ethernet to USB controller, I2C, SPI
+> > and others.
 
-This would cause issues when you update the host kernel while keeping the
-guests register state. Could we allow to write (but ignore) the previously
-valid value? Like it was handled in:
- 	6685f5d572c2 KVM: arm64: Disable MPAM visibility by default and ignore VMM writes
+...
 
-Sebastian
+> > +static int rp1_irq_set_type(struct irq_data *irqd, unsigned int type)
+> > +{
+> > +	struct rp1_dev *rp1 = irqd->domain->host_data;
+> > +	unsigned int hwirq = (unsigned int)irqd->hwirq;
+> > +
+> > +	switch (type) {
+> > +	case IRQ_TYPE_LEVEL_HIGH:
+> > +		dev_dbg(&rp1->pdev->dev, "MSIX IACK EN for irq %d\n", hwirq);
+> This looks a little bit inconsistent. Only this type has a debug
+> message. So either we drop this or add at least a message for
 
+I think that this is indeed asymmetric. That warning says
+that the 'special' IACK management is engaged for level triggered
+interrupt, which is mandatory in order to avoid missing further
+interrupts without the performance loss of busy-polling for 
+active interrupts. This is explained in par. 6.2 of:
+
+https://datasheets.raspberrypi.com/rp1/rp1-peripherals.pdf
+
+The point is that we're not stating the type of the interrupt
+(edge/level triggered), but we warn that we're enabling a mechanism
+useful for one type only (level triggered).
+
+> IRQ_TYPE_EDGE_RISING, too. Btw the format specifier looks wrong
+> (unsigned int vs %d).
+
+Ack.
+
+> > +		msix_cfg_set(rp1, hwirq, MSIX_CFG_IACK_EN);
+> > +		rp1->level_triggered_irq[hwirq] = true;
+> > +	break;
+> > +	case IRQ_TYPE_EDGE_RISING:
+> > +		msix_cfg_clr(rp1, hwirq, MSIX_CFG_IACK_EN);
+> > +		rp1->level_triggered_irq[hwirq] = false;
+> > +		break;
+> > +	default:
+> > +		return -EINVAL;
+> It would be nice to document why only IRQ_TYPE_LEVEL_HIGH and
+> IRQ_TYPE_EDGE_RISING are supported. In case it's a software limitation,
+> this function would be a good place. In case this is a hardware
+> limitation this should be in the binding.
+
+All ints are level-triggered. I guess I should add a short comment in
+the bindings.
+
+> > +	}
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static struct irq_chip rp1_irq_chip = {
+> > +	.name		= "rp1_irq_chip",
+> > +	.irq_mask	= rp1_mask_irq,
+> > +	.irq_unmask	= rp1_unmask_irq,
+> > +	.irq_set_type	= rp1_irq_set_type,
+> > +};
+
+...
+
+> > +		irq_set_chip_and_handler(irq, &rp1_irq_chip, handle_level_irq);
+> > +		irq_set_probe(irq);
+> > +		irq_set_chained_handler_and_data(pci_irq_vector(pdev, i),
+> > +						 rp1_chained_handle_irq, rp1);
+> > +	}
+> > +
+> > +	err = of_overlay_fdt_apply(dtbo_start, dtbo_size, &rp1->ovcs_id, rp1_node);
+> > +	if (err)
+> > +		goto err_unregister_interrupts;
+> > +
+> > +	err = of_platform_default_populate(rp1_node, NULL, dev);
+> > +	if (err)
+> > +		goto err_unload_overlay;
+> I think in this case it's worth to add a suitable dev_err() here.
+
+Ack.
+
+Many thanks,
+Andrea
+
+> 
+> Thanks
 
