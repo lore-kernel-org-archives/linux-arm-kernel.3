@@ -4,170 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D6AC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 01:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166F9C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 01:42:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R0dUrjhbZwBp91fTacUnvbQ69/pNZMspEhRDsuynGrc=; b=oaBjfmjmHV9u7pxnZAZs0VlsQM
-	eAy2x+DJRCh7Z/LC0Wz7O1DSQLLD3FmdfPILeWzoN5MsX+hP/YY6bn5QfW6QGLnIGRiEUm/G0TrSd
-	dFMr95yFzpicr42qomLh89LdNZHtPw/CAF4Huf6akzKtsFqFpnNaIoy6DuBuK9MIdWx7g+UG1azKs
-	BkMP7iVx8sj4BVk7ynmXSKgk/g0HbLUsbyGnKbVedAqK5cxooRV46xAKilTtEr11G+PMStV2C0BCh
-	acHzFqrqoESdRY8mEUDUGQG8UAtw/wACGkL2ptdaisg+t3IhNidaIIS987HOH2w47f3pOPmRUZ5By
-	MpPAnuQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bQstgESk+Qf+43/GmkvZDroq54ErnuRwTUlqr9D7GW0=; b=qfMJNtuxUnE5Kja6SxO91zgfCc
+	5XQpDdYpHVc5NuWm97Tx/Uund0JWFeq1T3xTi2VPrtUPZLTm0a9sAJR1UppvCmKwc2nTaYrKe4SaX
+	r6OrFLGPDHUlfEiq4zsQRoY/6cZJOU1zZMTxeHHAUPjmLqDcfJqjaZgvLCoj9EtqJIososgRbNX+P
+	lYHe2mxwLRv0chdSfz2vn8m8EQpMBXOUYnAwFYK4uQTL+eUDMfzmgBupLqOiUmlp4kCoaXTxnnUDa
+	5GMjUXPgc/CqAspK7yMBatkhuGQPE2k1hKIo1sOQlXIFfIP02YC+lXPysqLzpyLb2bK+tdHwwW241
+	E8If5tlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkvYW-0000000GAR4-2C6Q;
-	Thu, 20 Feb 2025 01:40:48 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1tkvZz-0000000GAoQ-0pTf;
+	Thu, 20 Feb 2025 01:42:19 +0000
+Received: from mail-mw2nam12on2062d.outbound.protection.outlook.com ([2a01:111:f403:200a::62d] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkvJS-0000000G6DY-2rab
+	id 1tkvQk-0000000G8Fv-0SCo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 01:25:16 +0000
+	Thu, 20 Feb 2025 01:32:47 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=evtX0dPtv0zpWRW6ilWKe5RJht0c13gVZ7nL+DQiVNz8SKDdo3n+YpGennJSXTIykfQ71+xTZtGLjK5PNBxChw88awppvK8GsHd9jp+1d52b5PuvJ416agBWpWVtpYdSo54eXEibMMUp5RTcF2JTWgLxozkztvOzgPUNg0/Z2k8XB5nhuXc3V1Q17Zc/XL8bGUyPI57xIca8VVGwS6KI1GMpTVBb2+4xLfV7rND5SDo22m/0Nj9KWHO5CqLStt/45RsCL4Hs2wXH+c6QNVnkU3IszghP7mxY9IyRahg8lOX8zhiKGmQxnGKsxNcpDNYIBBiIt8l7ZsI8XJZ/BVlhgg==
+ b=srbVjzBQOhISl/doZqsvb82Txbc28e5qMqV4cSYSE29+/GbMtoIVjMtrHsTg7jBuJM+EbS4Xen2hYVqMiRizPAlEK1O1p+EUkaMs6M5Wyz0DDGGCdNLnQDo35m8+aTrtYrwOiRSVXuNRztWZkqhZOrfsuM2BLQaBMg6ksxE65NI7vCLLsIWyw1eppsClB1ecraz10aJWf4j9fOOPiaJsHKt83Qq1sPKgjptijX5juyQFa+GcNGiMFzugZZyhhKEeY5n8sq7I9b26GD7kKuARkr+qhvSMTzSmyzoEGO+k50kK1US1CyhhDY9KS/BdWI1AcutyYM+02Y14B7hg70oMgA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=R0dUrjhbZwBp91fTacUnvbQ69/pNZMspEhRDsuynGrc=;
- b=cSoVhNBDFIwBsFVxrFicrE1X6kpjIOt7N9LIyrxoUrk8zVhW2z9kwjGV6FhFGQrUO+jEBUc5xqhKNUNGQ5XCoCrfLsQoy1rsKb2LCqdFSkMfUvz3sfuA8OiYTuOpjqfbrlFiLxpI6g34Gq172whCVfMjfiWd+JIu2Ms4YqI+9uMFb/VptJVjR0oq2zY14uEKwIqOJ0tpHnugI8R/6qF6mVdT/2kRCgX65Y+TnnQrigqUOKiQKUUzU7575SbKGIVAWgxGTfW2I+CJ0E2fKZQbWetA0bByMmSglKqzmk3fxGx/hJ7FU0smkjoNUc1Co8rMweG0z7J3mgQfqP+jriwd0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
+ bh=bQstgESk+Qf+43/GmkvZDroq54ErnuRwTUlqr9D7GW0=;
+ b=W4Cx2x3BBaDU93gw4+MQzdC0D6wFkLajOLRgrEUd/PmpBbRLR81nBAKAizUxrgalSDPktYnFgAAbBzkHSesDG823+aiwf0xWqlElE62JzMoH6CbqYfqT7gwSR1m6TilJ1IDfDApFMBM/HX5QoWznW7xjL5t/ymLs1/aB9IjDcUWHBpkdvVyQH7p1g/csWOljdHLwpvxxENvW28VqG3Lw8KIpEwsIwSBT5aLV+YusB2Tcvspl+r3VXeNUrLw6OLUtsCiXk6MrkCOzcU9Wd+pDPXmna/kYnoxEklpmLDxSCACLzgspDMU8VUuOmro8A5o+6iAZZt0qSiQUTbC8WoDLcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=gmail.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=R0dUrjhbZwBp91fTacUnvbQ69/pNZMspEhRDsuynGrc=;
- b=VUhNr9rV+RCziGMfI5eWadPvupTkFP+9BVCcN+4fuW3nhYXoiNISLHD+qBKMFuDAb+f4GeYBtP7Z2brWnQS1GiodLt6PAfefFaHav6YbDe6YxrGgq32g8lcAYG/Vy6HXSACbiz7uIM1OSuvTHmzcz0j/IgsbpdVO1nTrMKegbWE=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
- MW4PR01MB6114.prod.exchangelabs.com (2603:10b6:303:79::17) with Microsoft
+ bh=bQstgESk+Qf+43/GmkvZDroq54ErnuRwTUlqr9D7GW0=;
+ b=C1Lpw3yQ7NqJGpZUTlBFsAJ1Y5Q6g+ZO27Wg/QHY2V7oal9lM3wg7pl/ZdyZ27VVLvKLRBWEK4DsGQKC8c0h/KvohokMNgoATlegc/Q9EfY2+anWTrSAgF41gMZneDwseKmiPWwaQFSTzUz+CTl8PkEaxZCEcayUUVxIPs+yk9Kt+oF8eLk+NwO6EbrgpvtgZUdjp/dU+i5KzFeJIxbNBFyOonlNz5RYcSOTqoON4M05S+LgwIn3SEW9+NfU2sZqrqdLrQzUiwA7QG5ZCLIm+/t3yj333BwfvutkSOWdsgcxWHSjVAW9aeiwjDZ7lkaeuuixvW5l5VHL2Kpi4uFtOQ==
+Received: from BN9P220CA0010.NAMP220.PROD.OUTLOOK.COM (2603:10b6:408:13e::15)
+ by SA3PR12MB8812.namprd12.prod.outlook.com (2603:10b6:806:312::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.14; Thu, 20 Feb
+ 2025 01:32:36 +0000
+Received: from BL6PEPF00022575.namprd02.prod.outlook.com
+ (2603:10b6:408:13e:cafe::16) by BN9P220CA0010.outlook.office365.com
+ (2603:10b6:408:13e::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.15 via Frontend Transport; Thu,
+ 20 Feb 2025 01:32:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL6PEPF00022575.mail.protection.outlook.com (10.167.249.43) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.12; Thu, 20 Feb 2025 01:25:03 +0000
-Received: from CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
- ([fe80::3850:9112:f3bf:6460%6]) with mapi id 15.20.8466.015; Thu, 20 Feb 2025
- 01:25:03 +0000
-Message-ID: <bfe7fc8e-b22b-4ff6-92c1-7444a0d6c5c2@os.amperecomputing.com>
-Date: Wed, 19 Feb 2025 17:25:00 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/3] arm64: Add BBM Level 2 cpu feature
-To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- ryan.roberts@arm.com, catalin.marinas@arm.com, will@kernel.org,
- joey.gouly@arm.com, broonie@kernel.org, mark.rutland@arm.com,
- james.morse@arm.com, yangyicong@hisilicon.com, robin.murphy@arm.com,
- anshuman.khandual@arm.com, maz@kernel.org, liaochang1@huawei.com,
- akpm@linux-foundation.org, david@redhat.com, baohua@kernel.org,
- ioworker0@gmail.com, oliver.upton@linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250219143837.44277-3-miko.lenczewski@arm.com>
- <20250219143837.44277-5-miko.lenczewski@arm.com>
-Content-Language: en-US
-From: Yang Shi <yang@os.amperecomputing.com>
-In-Reply-To: <20250219143837.44277-5-miko.lenczewski@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: CY5PR15CA0134.namprd15.prod.outlook.com
- (2603:10b6:930:68::23) To CH0PR01MB6873.prod.exchangelabs.com
- (2603:10b6:610:112::22)
+ 15.20.8466.11 via Frontend Transport; Thu, 20 Feb 2025 01:32:36 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 19 Feb
+ 2025 17:32:25 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 19 Feb
+ 2025 17:32:24 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Wed, 19 Feb 2025 17:32:23 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <tglx@linutronix.de>,
+	<maz@kernel.org>
+CC: <joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<shuah@kernel.org>, <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<eric.auger@redhat.com>, <baolu.lu@linux.intel.com>, <yi.l.liu@intel.com>,
+	<yury.norov@gmail.com>, <jacob.pan@linux.microsoft.com>,
+	<patches@lists.linux.dev>
+Subject: [PATCH v2 0/7] iommu: Add MSI mapping support with nested SMMU (Part-1 core)
+Date: Wed, 19 Feb 2025 17:31:35 -0800
+Message-ID: <cover.1740014950.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|MW4PR01MB6114:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ba509d4-c5f2-4fc0-01e0-08dd514d66ea
+X-MS-TrafficTypeDiagnostic: BL6PEPF00022575:EE_|SA3PR12MB8812:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5d9b08ce-0948-497a-518b-08dd514e74ca
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eFpBS1NQS0k5eVZsY1BGa0VXQjRJbHNybzJ3L3hXZUJXSDNQMktuY2k2NEhh?=
- =?utf-8?B?VGdJU3BIdE0vYjBpYnpPYnRaZWRZTkFrTnhlaUk2aW9XdjgwS2J6QjkzRVg1?=
- =?utf-8?B?NGdXU09lNW9IUWN4WHlBU1VNNEl6OERIMW5BN0lrUW8vSy9EQmNrdmZLY011?=
- =?utf-8?B?dG9NUDhkd0lmQyt5UUZFa2M0RC9BRkJsak84TUc0TXFwcWNkVWUxYnUxWURC?=
- =?utf-8?B?YWY2M3UwbWJMWlk2ZzV4QW9BV09xNTl3K2swaW51MHM4WXZUczRzRTFRc2JD?=
- =?utf-8?B?YWx3dG9WazgrUFNSNGxqazdpM1VBbERkckxsQ3IyOGhhQUp0SjY2dUhhb0dH?=
- =?utf-8?B?eTJBWkFBQ2xjQlpNNjNwZjhTMk4vODEzN0xVdlZXbzB0NU9nWHo3Yzg5cTBM?=
- =?utf-8?B?RFdaVGpMbTBGWWZTZjd2Uk9ZUVVXSmpQa2NkWENRR3hsS3ZJam5XK3NpcnNS?=
- =?utf-8?B?S2pKdVF4NnZBL0ZJVXNjYW14V3JMTEd1WWx0QmtJNTdpeGN5aCtGN0ExMmdO?=
- =?utf-8?B?RzVoOUhtelBXMklrM3FPZUJUMG4ycW8yQVBiTU95L1VYUnYvTExMN1k5Nnl6?=
- =?utf-8?B?cU9DSko3UG83VEJFT05zSTJxV3FwWDFvVDBuOS9CcURlNFI5azJtOHJqNlJ5?=
- =?utf-8?B?YWNmcHNzZWxDVExya0MzWUZ3aTRrbmxkNDVmSEYvdFkwUG5mNG5tVzRZM0tH?=
- =?utf-8?B?L2pWMUlDZkJ2NmlQWDZwK0ZRczFZcDBIY0xPQ0g0eitvSkNpQllCbHNIWEZK?=
- =?utf-8?B?WlNpeU55aUtYd0dhMlRwSWZvaUJpWXpOK2tDZ3g4b2NyWW81YnpKL1BYdUNs?=
- =?utf-8?B?aGh3UW13cUEzY1M0WE55MGVPbGkzM0pOZDQ3UktoL0E5eFlCeW16R3VSQ09H?=
- =?utf-8?B?aEtvZTlramZneGtsTGdLbmJWVm5UQ29oQmExSUsyR3VZcHNJNmhxTWlnWmNG?=
- =?utf-8?B?NUYwSnYzWlplVjVPY2J5aExEQUk0MzlmUVpnMWV4aDc2TkZBUitzaklteGxK?=
- =?utf-8?B?WjVDNGh6amJxdDRtTkgxRmF3Q252NmtjUlJ6VU1YR3h2czFkL3pvUmhGQzdI?=
- =?utf-8?B?U0FPdGZQSER4SHRoZDNBVE5DQVlBZHo4SWVFS0ZnWDVkZnpCOUJrKzEwcXc2?=
- =?utf-8?B?QWhVc1MwZnZxN2ZTU1htNDkvalUzajN6a1BIZ3c0ekdzS3V4NUJzMHpSa2FK?=
- =?utf-8?B?TWwwVUVSallJK3YvdDl5MVNDZ0Z6a3NkeHhYQmd4ODBRaFcxU3F4MWZ1QXBD?=
- =?utf-8?B?czY5bDI1YlhjUXRHTDBEQVNSeGFsa1VsRjc4dzg2THl1YkNudmp6U0tHVFN5?=
- =?utf-8?B?amJPeTU4Z0ozUU5pVWhMZG1SQUNmSGxrMFFMYjlDVERBVG9yb2lJMnVWalZG?=
- =?utf-8?B?b3l2aThtNkJ4YU96OVpxb2wrN0ZOdmpteFMzd2JRbWJXVmRJZXBzVmlFZ29p?=
- =?utf-8?B?cWlWZ1lnTHo0Nkk2bzFMbWFMcmtmZmR2Q2Y1S1paQ1d2ZXZLTnpBMVp2TnRC?=
- =?utf-8?B?ZE10NE9ySHRaQTZYeHZmeXlvVmliVVFWNFozdW5TTnRLR0Vxcm1pYzZqVHZr?=
- =?utf-8?B?V2xVOEtEMy9qZzA2ZjJ1bS9pVHdrS2NsSXJLNG9GeGV2OCttb21PeDZvdmM5?=
- =?utf-8?B?T0VGQnFRcWlUV1ZPY0w3V1V3R3ZhRGdwUWhIeVpIaHJiMGhIeVBNaFpwVGVZ?=
- =?utf-8?B?T0diWFJMSWpUNHQvUi92Z1JPcVBaU0RZeFFkV08raU5CWkgxYnNQcngyaXlX?=
- =?utf-8?B?QVdQWHZuRVRaREdTNlR5dHpxK2ZTUUI3YUZLK0hIemp3aFFJVWdrdENwc0xn?=
- =?utf-8?B?NjZ0ZGExZTRhejdQYWlpWGVuMkpzUStwTUpaNnFteGxVY2ZManc0N0JrNUFF?=
- =?utf-8?B?d1lpWERLS1lsNlNseWNaUWZadmNHSFgybC9UZllUeWpLa1VEOUlSUjk1WlZK?=
- =?utf-8?Q?TBu/ZMafZSg=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(7053199007)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cnNOYk9nVDdSUzZkT3pzakVQdjQyYWZHd0h4ZTdmM0YzQmM2K3pUaFNpUHFG?=
- =?utf-8?B?aDFBSWxPclBsYmpvTXRZR1lQZ1RIcnhtOHhqWnZuMkRVVVdGOFgvaTJURnRu?=
- =?utf-8?B?YkNxWFVuKzJ4NnIwZVJuS2NEV1FDZFpwLytjR1NaRVg0NGk4TFhXWkhBUlVq?=
- =?utf-8?B?VjZXVXNwRzl4UkhobVd5OG1zelRxeEpqSGowUHZiVkIwM3JSSEs0TFdpeEJ5?=
- =?utf-8?B?UktZSVpHUmI1emI0WDlEaXJ6V0crRzUxQUpHSWpiMUxsaFYvVzdWUWFFbmRl?=
- =?utf-8?B?R0I3R0I3Z3pJMlc3UExQUkluMWRVTXl2RXF0emhtYWRNSnFsUlY4K0dUNWpq?=
- =?utf-8?B?d3VXV0tMSkdXUzQ4L2kzVTVNbHF2MUIrTVIxY1JtL1AwR2tBMGRvMGtMdGlW?=
- =?utf-8?B?TGQrQW9HbmNHbk9xWWFtWkZETElDbUdmbGpTM1dVYWNGV2ROTVhuWW1NNUhj?=
- =?utf-8?B?MTMyVk1qS3pIRkJmYjJYdVNYVHk4N1NhUWJHMWtzTzQ1YUJFeERvbjlrdTZC?=
- =?utf-8?B?Y0FpTERVUFZ6WmdjN2pJNUN3YXNTN0RCVlRyeHR4QjY5VVpGdGVpdkZEMzRV?=
- =?utf-8?B?c3oyVXkzeHdrYjZGTHJ3VDdUS0pPZHZ1WjNJbi9tL05JY2ZHdFE3RFgrOTcy?=
- =?utf-8?B?V0djbGsxbE5uL09wOTdBK3ZMVHJMb0tBVktpYUVwc0xzRDBZanZBSkJydWY0?=
- =?utf-8?B?NXlYVHRNejFHN0FzOFJKcWMzK1lVYVJUUkxoTlNnTWN6MFhaUld0V0JvVlYy?=
- =?utf-8?B?Z2c4cGFRbDYrS096RGptbWxHR3hUNnV5M08vUTFPeFZoWENkRUNKNGlxZEpR?=
- =?utf-8?B?Sm1hOVJ3L2swRGk4d2JkN24vN0ZBSWpYSTQydTJpa1NqSWoybXFUb0NLVkVi?=
- =?utf-8?B?b3Y3b2hjMnB1c2dTSWt1Wk9sbi9YdHMxSU00bS9zZ1RYNGFzem1uQ2ZRcm92?=
- =?utf-8?B?dGN4MDIyek5JZ1JBdlpKZm1wbjZWaXg3MlQ5NXU1K1ZweXZILzIvNkJ5d01U?=
- =?utf-8?B?QUpuakI3MlJNMGdNV3NIU0VDdjJBVldQSXpDNnRndW1ZMjFTZ3V6UDNIRUFX?=
- =?utf-8?B?SVZEUjYzd1kxbXJMV1M1ZHBqQWlIYzFpYXIvVUlEMU1mQXpuNERNRmp6eVl4?=
- =?utf-8?B?K2FBYjFhc2pDZFVLTTdPSjlRcnRWRzZua0VQeEtrN3l6NWN3em1wd3laUWdX?=
- =?utf-8?B?dXpDRGUrbGxhUElQUTRmWW94NFFsU210R0t0Qlo5VEpQR3lGS3R2NFcxOVZp?=
- =?utf-8?B?akZiakpqV3RHNzJ5TkE1V2pGMkRjcC9XVElJbzlSOVNDSE1Hb0xzU2l0clpl?=
- =?utf-8?B?d3FNOVcrZTloSFRpZTR2dExPS21RWk5HSzRUalNLMnY4QnZEU1FCVDVYSDRR?=
- =?utf-8?B?dFhWUkNITklhaFlzeVZjL05mcmZoVXFoMDVCdmRJdWVFdGhmL0JHVDJ6TTJh?=
- =?utf-8?B?enl3MFg3Zm93SkZaWFhuaEZ5M1FsODh4d2YySjhkTXhmb2NoQjdqbUFKOWx4?=
- =?utf-8?B?V3dVQkc5MlFkMkVRSllvWW5ySEtUZk90cWNtTVQ2MUJVaVB6UzhjMXcyUnEw?=
- =?utf-8?B?enlQWkptN1B4LzltdFdmQ0Roc0s3YUtnUldDeUw3QmtIRGZCTnJjSnlrRUR3?=
- =?utf-8?B?WDVJVWNnRnZGMUdXYXZsdjU0dGUrckNuOWd6bkdLVVdrRFZ6MWltcy9tZlRB?=
- =?utf-8?B?Sm1rOU5iYnhDMTFScVI3VjJ3Q3JZSTd3eDR2QnIrR2RYYjNyaUt5amNWeXpG?=
- =?utf-8?B?T0hESG85Si9wNU0zWFBtVWJuZmQ0MVRZdjBYZUJLSHlxWWlkeCsyR3crTUpI?=
- =?utf-8?B?ME5maWdMNVA1aEJmQytmQytYcnJCeS9rczhMWnpqRTVnQy9XUFdrU0xhdVJL?=
- =?utf-8?B?Ty9XeExVNEkrQkFQc0dvcDJ4Vm1seTNGRlI2TWx0L2Z3Rm9GOVZ5TlpwRFYw?=
- =?utf-8?B?ajdETHA0MjRwUStpaWRERVFXRkhWYzZ1RkhZajRSeC9NWllEVUkxcjRkVmtz?=
- =?utf-8?B?aERvMzFKclEyeU5GZm85bFRpbnI0NE9pcVJPYXFPUDJwbUxkVFRNSkQ5S3Vm?=
- =?utf-8?B?MXdhbXpGdmtETVhIUStORWVLTlNsaG1xbExpVUNvQVBSS2pGdWEzMkdDSFVM?=
- =?utf-8?B?SlI5bFk0b08zVVRuTzRGdTFNYXlKME1DVlZad1BkaGtoUmNlQjRYa3B3L2NV?=
- =?utf-8?Q?J+xp+BwKqk3khXKAIZJrsuA=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ba509d4-c5f2-4fc0-01e0-08dd514d66ea
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 01:25:03.8416
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700013|82310400026|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MO9jGkesP7vCHzfPWknVoShxYsW1y2HmOdolBZv6nl9S4EBqgUbT+jGwOOFG?=
+ =?us-ascii?Q?R1D+gtZOrMm3Mh6v2TR2tHOZgahhk5MyPXxo2PV/fE5OnR59G8+3Me3CH4EB?=
+ =?us-ascii?Q?Fy1rF7st9EJFGWVzL8dUa7NI+1yn/mhPHxKVnKZ5d/urHPqF14YSWhvGPwyX?=
+ =?us-ascii?Q?h4jqH/7bU57QzGVf9IZtKb9MhBI+PECYwhVfwY1b7yr1DjYXu2JOK5QVRP1y?=
+ =?us-ascii?Q?p4SpkGLX9cq0tbcOBkghOca2XPN1n4pM3b53VAeihvb88UTdn52y2Cfd3rwm?=
+ =?us-ascii?Q?ULSVAO8wzNE1dm8awifs2RrIW9wuX0ad5iPcQmhFWHaelPyj6DaKn+ELlEdG?=
+ =?us-ascii?Q?eAH+wgyx9wRGaJk0LHhcpUY/mkAR4k/fbhQNKnme7rP9VRIFltjHKdvrNWxp?=
+ =?us-ascii?Q?lrbSE/aX0vEjN8se6dhrjJdELCUB1vUpXUkVWGijJ2i8D4ZIvF2d8gIDgVlO?=
+ =?us-ascii?Q?SLFiuQ1ovIx3yGC8DxjeDRD6akhpizWaMRsXImC+Reb3UtQP/ctoG1iLxXaz?=
+ =?us-ascii?Q?BtMSDjvrN+VKz7WdzoTQCHq1uKp05opJCQKuv0yl3qY4cpnIi6AGqOdus5Px?=
+ =?us-ascii?Q?pmWYCOeizhdu3Si675LMdJqkhfSosICWvDBeoKQ9MlPzf+tB6zyTkHa9ot39?=
+ =?us-ascii?Q?3HjXpqQqJbtDZF2Y49vBw3F8eDnXu3gIEaM05gtf7Y2hm47x3ZFfdUoQsgmy?=
+ =?us-ascii?Q?UujVF4IhPc0iYsF8m+3aW5jYfODuChIyPx1CNQargKpWgimAkFPIAYK+lqCZ?=
+ =?us-ascii?Q?QBLwuRVUZWzpeh7FsSSnuEKdVQImzHzbKMFEZGzaDY5DYCNtockKigPl9SeB?=
+ =?us-ascii?Q?EHMUD8oYJmDgo0CAOX7oWJ6pWaWzJ1QbED3oLJhj4HavhvHcjw3Jal0IGf3O?=
+ =?us-ascii?Q?nTI1ccHJjsuSoh41VLSPEan7tXIRz3qnNyxLe16KC9mJx0FFm+quyY4rorZm?=
+ =?us-ascii?Q?ngj8hosI8IBkDg4Si5KFZ1EQZvpm5cyT1rFQaEe+/f9vYxBb/s2a6Qw0AXqB?=
+ =?us-ascii?Q?XrmVvGwbROI9SodgdpxgmRw/pqR4/0piczT7wlg8ZCu1yyHB/JchJombiXre?=
+ =?us-ascii?Q?TNaDHI6aBixCfZy/i79Zrnm4U/9tlU11mArarSODCWjorrLH+JrkyURBV9Jz?=
+ =?us-ascii?Q?Lz9a7nPj1uq00BkpcYFdUiK5Kkz3P4CCaRm91mPdmBXNPT/t193G/OHaP/cU?=
+ =?us-ascii?Q?iQOBtZkEcBBBgZ2YWVefla+rzLdPM3Rt2uPygypKBPhgN8LU8ZRvlVU/uvp7?=
+ =?us-ascii?Q?J0KLu7R0TcZoJItN9Gf75j+ZbcaCaDeoYnaa32MdXhTilB45hejF6+XllW+r?=
+ =?us-ascii?Q?3/miuKobWIDMJLZng+4zFaERFTkbAD3N466SKnLFe2FKusSOAYfOd1u4fjLi?=
+ =?us-ascii?Q?dCr4o28sz0X9SqYatwrmCHPDqX0MLUX6VlsAXTeku/5C63HYPORz8PgMCyz6?=
+ =?us-ascii?Q?EiGIZqoE8+gKF6dJT4GM7/JmBChC9N7Sc/TaMw3bBGZHZ6sxX61sH0x5txrj?=
+ =?us-ascii?Q?g70w7HWozYjm5wI=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700013)(82310400026)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 01:32:36.3162
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PgAgh9KAxg3KqdOsvyQDJ7unyoRt+/kCS8bjupY1z2x6Qc0gZ2AbDPXCRrszta3HY5QvnJDiIRtBfx5pbrjX9oj3OyvXem9XpAYUCvBFhEE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR01MB6114
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5d9b08ce-0948-497a-518b-08dd514e74ca
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00022575.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB8812
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_172514_788770_EDB871AF 
-X-CRM114-Status: GOOD (  31.07  )
+X-CRM114-CacheID: sfid-20250219_173246_421229_60EABBB9 
+X-CRM114-Status: GOOD (  23.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,159 +152,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[ Background ]
+On ARM GIC systems and others, the target address of the MSI is translated
+by the IOMMU. For GIC, the MSI address page is called "ITS" page. When the
+IOMMU is disabled, the MSI address is programmed to the physical location
+of the GIC ITS page (e.g. 0x20200000). When the IOMMU is enabled, the ITS
+page is behind the IOMMU, so the MSI address is programmed to an allocated
+IO virtual address (a.k.a IOVA), e.g. 0xFFFF0000, which must be mapped to
+the physical ITS page: IOVA (0xFFFF0000) ===> PA (0x20200000).
+When a 2-stage translation is enabled, IOVA will be still used to program
+the MSI address, though the mappings will be in two stages:
+  IOVA (0xFFFF0000) ===> IPA (e.g. 0x80900000) ===> PA (0x20200000)
+(IPA stands for Intermediate Physical Address).
+
+If the device that generates MSI is attached to an IOMMU_DOMAIN_DMA, the
+IOVA is dynamically allocated from the top of the IOVA space. If attached
+to an IOMMU_DOMAIN_UNMANAGED (e.g. a VFIO passthrough device), the IOVA is
+fixed to an MSI window reported by the IOMMU driver via IOMMU_RESV_SW_MSI,
+which is hardwired to MSI_IOVA_BASE (IOVA==0x8000000) for ARM IOMMUs.
+
+So far, this IOMMU_RESV_SW_MSI works well as kernel is entirely in charge
+of the IOMMU translation (1-stage translation), since the IOVA for the ITS
+page is fixed and known by kernel. However, with virtual machine enabling
+a nested IOMMU translation (2-stage), a guest kernel directly controls the
+stage-1 translation with an IOMMU_DOMAIN_DMA, mapping a vITS page (at an
+IPA 0x80900000) onto its own IOVA space (e.g. 0xEEEE0000). Then, the host
+kernel can't know that guest-level IOVA to program the MSI address.
+
+There have been two approaches to solve this problem:
+1. Create an identity mapping in the stage-1. VMM could insert a few RMRs
+   (Reserved Memory Regions) in guest's IORT. Then the guest kernel would
+   fetch these RMR entries from the IORT and create an IOMMU_RESV_DIRECT
+   region per iommu group for a direct mapping. Eventually, the mappings
+   would look like: IOVA (0x8000000) === IPA (0x8000000) ===> 0x20200000
+   This requires an IOMMUFD ioctl for kernel and VMM to agree on the IPA.
+2. Forward the guest-level MSI IOVA captured by VMM to the host-level GIC
+   driver, to program the correct MSI IOVA. Forward the VMM-defined vITS
+   page location (IPA) to the kernel for the stage-2 mapping. Eventually:
+   IOVA (0xFFFF0000) ===> IPA (0x80900000) ===> PA (0x20200000)
+   This requires a VFIO ioctl (for IOVA) and an IOMMUFD ioctl (for IPA).
+
+Worth mentioning that when Eric Auger was working on the same topic with
+the VFIO iommu uAPI, he had a solution for approach (2) first, and then
+switched to approach (1), suggested by Jean-Philippe for the reduction of
+complexity.
+
+Approach (1) basically feels like the existing VFIO passthrough that has
+a 1-stage mapping for the unmanaged domain, yet only by shifting the MSI
+mapping from stage 1 (no-viommu case) to stage 2 (has-viommu case). So,
+it could reuse the existing IOMMU_RESV_SW_MSI piece, by sharing the same
+idea of "VMM leaving everything to the kernel".
+
+Approach (2) is an ideal solution, yet it requires additional effort for
+kernel to be aware of the stage-1 gIOVAs and the stage-2 IPAs for vITS
+page(s), which demands VMM to closely cooperate.
+ * It also brings some complicated use cases to the table where the host
+   or/and guest system(s) has/have multiple ITS pages.
+
+[ Execution ]
+Though these two approaches feel very different on the surface, they can
+share some underlying common infrastructure. Currently, only one pair of
+sw_msi functions (prepare/compose) are provided by dma-iommu for irqchip
+drivers to directly use. There could be different versions of functions
+from different domain owners: for existing VFIO passthrough cases and in-
+kernel DMA domain cases, reuse the existing dma-iommu's version of sw_msi
+functions; for nested translation use cases, there can be another version
+of sw_msi functions to handle mapping and msi_msg(s) differently.
+
+As a part-1 series, this refactors the core infrastructure:
+ - Get rid of the duplication in the "compose" function
+ - Introduce a function pointer for the previously "prepare" function
+ - Allow different domain owners to set their own "sw_msi" implementations
+ - Implement an iommufd_sw_msi function to additionally support non-nested
+   use cases and also prepare for a nested translation use case using the
+   approach (1)
+
+[ Future Plan ]
+Part-2 will add support of approach (1), i.e. RMR solution:
+ - Add a pair of IOMMUFD options for a SW_MSI window for kernel and VMM to
+   agree on (for approach 1)
+Part-3 and beyond will continue the effort of supporting approach (2) i.e.
+a complete vITS-to-pITS mapping:
+ - Map the phsical ITS page (potentially via IOMMUFD_CMD_IOAS_MAP_MSI)
+ - Convey the IOVAs per-irq (potentially via VFIO_IRQ_SET_ACTION_PREPARE)
+
+---
+
+This is a joint effort that includes Jason's rework in irq/iommu/iommufd
+base level and my additional patches on top of that for new uAPIs.
+
+This series is on github:
+https://github.com/nicolinc/iommufd/commits/iommufd_msi_p1-v2
+
+For testing with nested SMMU (approach 1):
+https://github.com/nicolinc/iommufd/commits/wip/iommufd_msi_p2-v2
+Pairing QEMU branch for testing (approach 1):
+https://github.com/nicolinc/qemu/commits/wip/for_iommufd_msi_p2-v2-rmr
+
+Changelog
+v2
+ * Split the iommufd ioctl for approach (1) out of this part-1
+ * Rebase on Jason's for-next tree (6.14-rc2) for two iommufd patches
+ * Update commit logs in two irqchip patches to make narrative clearer
+ * Keep iommu_dma_compose_msi_msg() in PATCH-1 as a small cleaner step
+ * Improve with some coding style changes: kdoc and 100-char wrapping
+v1
+ https://lore.kernel.org/kvm/cover.1739005085.git.nicolinc@nvidia.com/
+ * Rebase on v6.14-rc1 and iommufd_attach_handle-v1 series
+   https://lore.kernel.org/all/cover.1738645017.git.nicolinc@nvidia.com/
+ * Correct typos
+ * Replace set_bit with __set_bit
+ * Use a common helper to get iommufd_handle
+ * Add kdoc for iommu_msi_iova/iommu_msi_page_shift
+ * Rename msi_msg_set_msi_addr() to msi_msg_set_addr()
+ * Update selftest for a better coverage for the new options
+ * Change IOMMU_OPTION_SW_MSI_START/SIZE to be per-idev and properly
+   check against device's reserved region list
+RFCv2
+ https://lore.kernel.org/kvm/cover.1736550979.git.nicolinc@nvidia.com/
+ * Rebase on v6.13-rc6
+ * Drop all the irq/pci patches and rework the compose function instead
+ * Add a new sw_msi op to iommu_domain for a per type implementation and
+   let iommufd core has its own implementation to support both approaches
+ * Add RMR-solution (approach 1) support since it is straightforward and
+   have been used in some out-of-tree projects widely
+RFCv1
+ https://lore.kernel.org/kvm/cover.1731130093.git.nicolinc@nvidia.com/
+
+Thanks!
+Nicolin
+
+Jason Gunthorpe (5):
+  genirq/msi: Store the IOMMU IOVA directly in msi_desc instead of
+    iommu_cookie
+  genirq/msi: Refactor iommu_dma_compose_msi_msg()
+  iommu: Make iommu_dma_prepare_msi() into a generic operation
+  irqchip: Have CONFIG_IRQ_MSI_IOMMU be selected by irqchips that need
+    it
+  iommufd: Implement sw_msi support natively
+
+Nicolin Chen (2):
+  iommu: Turn fault_data to iommufd private pointer
+  iommu: Turn iova_cookie to dma-iommu private pointer
+
+ drivers/iommu/Kconfig                   |   1 -
+ drivers/irqchip/Kconfig                 |   4 +
+ kernel/irq/Kconfig                      |   1 +
+ drivers/iommu/iommufd/iommufd_private.h |  23 +++-
+ include/linux/iommu.h                   |  58 +++++----
+ include/linux/msi.h                     |  55 +++++---
+ drivers/iommu/dma-iommu.c               |  63 +++-------
+ drivers/iommu/iommu.c                   |  29 +++++
+ drivers/iommu/iommufd/device.c          | 160 ++++++++++++++++++++----
+ drivers/iommu/iommufd/fault.c           |   2 +-
+ drivers/iommu/iommufd/hw_pagetable.c    |   5 +-
+ drivers/iommu/iommufd/main.c            |   9 ++
+ drivers/irqchip/irq-gic-v2m.c           |   5 +-
+ drivers/irqchip/irq-gic-v3-its.c        |  13 +-
+ drivers/irqchip/irq-gic-v3-mbi.c        |  12 +-
+ drivers/irqchip/irq-ls-scfg-msi.c       |   5 +-
+ 16 files changed, 309 insertions(+), 136 deletions(-)
 
 
-
-On 2/19/25 6:38 AM, Mikołaj Lenczewski wrote:
-> The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
-> and this commit adds a dedicated BBML2 cpufeature to test against
-> support for.
->
-> This is a system feature as we might have a big.LITTLE architecture
-> where some cores support BBML2 and some don't, but we want all cores to
-> be available and BBM to default to level 0 (as opposed to having cores
-> without BBML2 not coming online).
->
-> To support BBML2 in as wide a range of contexts as we can, we want not
-> only the architectural guarantees that BBML2 makes, but additionally
-> want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
-> us having to prove that no recursive faults can be induced in any path
-> that uses BBML2, allowing its use for arbitrary kernel mappings.
-> Support detection of such CPUs.
->
-> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
-> ---
->   arch/arm64/Kconfig                  |  9 ++++++++
->   arch/arm64/include/asm/cpufeature.h |  5 +++++
->   arch/arm64/kernel/cpufeature.c      | 32 +++++++++++++++++++++++++++++
->   arch/arm64/tools/cpucaps            |  1 +
->   4 files changed, 47 insertions(+)
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 940343beb3d4..84be2c5976f0 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2057,6 +2057,15 @@ config ARM64_TLB_RANGE
->   	  The feature introduces new assembly instructions, and they were
->   	  support when binutils >= 2.30.
->   
-> +config ARM64_ENABLE_BBML2
-> +	bool "Enable support for Break-Before-Make Level 2 detection and usage"
-> +	default y
-> +	help
-> +	  FEAT_BBM provides detection of support levels for break-before-make
-> +	  sequences. If BBM level 2 is supported, some TLB maintenance requirements
-> +	  can be relaxed to improve performance. Selecting N causes the kernel to
-> +	  fallback to BBM level 0 behaviour even if the system supports BBM level 2.
-> +
->   endmenu # "ARMv8.4 architectural features"
->   
->   menu "ARMv8.5 architectural features"
-> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> index e0e4478f5fb5..2da872035f2e 100644
-> --- a/arch/arm64/include/asm/cpufeature.h
-> +++ b/arch/arm64/include/asm/cpufeature.h
-> @@ -866,6 +866,11 @@ static __always_inline bool system_supports_mpam_hcr(void)
->   	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
->   }
->   
-> +static inline bool system_supports_bbml2_noconflict(void)
-> +{
-> +	return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOCONFLICT);
-> +}
-> +
->   int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
->   bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
->   
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index d561cf3b8ac7..8c337bd95ef7 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -2176,6 +2176,31 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
->   	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
->   }
->   
-> +static bool has_bbml2_noconflict(const struct arm64_cpu_capabilities *entry,
-> +				 int scope)
-> +{
-> +	if (!IS_ENABLED(CONFIG_ARM64_ENABLE_BBML2))
-> +		return false;
-> +
-> +	/* We want to allow usage of bbml2 in as wide a range of kernel contexts
-> +	 * as possible. This list is therefore an allow-list of known-good
-> +	 * implementations that both support bbml2 and additionally, fulfil the
-> +	 * extra constraint of never generating TLB conflict aborts when using
-> +	 * the relaxed bbml2 semantics (such aborts make use of bbml2 in certain
-> +	 * kernel contexts difficult to prove safe against recursive aborts).
-> +	 */
-> +	static const struct midr_range supports_bbml2_without_abort_list[] = {
-> +		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
-> +		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
-> +		{}
-> +	};
-> +
-> +	if (!is_midr_in_range_list(read_cpuid_id(), supports_bbml2_without_abort_list))
-> +		return false;
-> +
-> +	return true;
-> +}
-> +
->   #ifdef CONFIG_ARM64_PAN
->   static void cpu_enable_pan(const struct arm64_cpu_capabilities *__unused)
->   {
-> @@ -2926,6 +2951,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->   		.matches = has_cpuid_feature,
->   		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, EVT, IMP)
->   	},
-> +	{
-> +		.desc = "BBM Level 2 without conflict abort",
-> +		.capability = ARM64_HAS_BBML2_NOCONFLICT,
-> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> +		.matches = has_bbml2_noconflict,
-> +		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, BBM, 2)
-
-Hi Miko,
-
-Thanks for cc'ing me this series. I and Ryan discussed about how to 
-advertise BBML2 properly in my thread 
-(https://lore.kernel.org/linux-arm-kernel/4c44cf6e-98de-47bb-b430-2b1331114904@os.amperecomputing.com/). 
-IIUC, this may not work as expected.
-
-The boot cpu initializes the boot_cpu_data, then the secondary cpus need 
-to update it, the "sanitized" register value will be generated. For 
-example, TLB range capability is determined by ISAR0_EL1. If all the 
-cpus have this feature, the "sanitized" register value will show true 
-otherwise it will show false.
-
-BBML2 can be determined by MMFR2_EL1. If we can rely on it then system 
-feature does work. But the problem is some implementations may have 
-MMFR2_EL1 set, but they may not be able to handle TLB conflict. We can't 
-rely on it solely so we check MIDR in .matches callback instead of 
-MMFR2_EL1. But system feature .matches callback is just called once on 
-boot CPU because it is supposed to read the sanitized register value. So 
-you actually just checked the MIDR on boot CPU in .matches callback if I 
-read the code correctly.
-
-I'm not quite familiar with cpufeature details, if I'm wrong please feel 
-free to correct me.
-
-Yang
-
-> +	},
->   	{
->   		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
->   		.capability = ARM64_HAS_LPA2,
-> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> index 1e65f2fb45bd..8d67bb4448c5 100644
-> --- a/arch/arm64/tools/cpucaps
-> +++ b/arch/arm64/tools/cpucaps
-> @@ -26,6 +26,7 @@ HAS_ECV
->   HAS_ECV_CNTPOFF
->   HAS_EPAN
->   HAS_EVT
-> +HAS_BBML2_NOCONFLICT
->   HAS_FPMR
->   HAS_FGT
->   HAS_FPSIMD
+base-commit: dc10ba25d43f433ad5d9e8e6be4f4d2bb3cd9ddb
+prerequisite-patch-id: 0000000000000000000000000000000000000000
+-- 
+2.43.0
 
 
