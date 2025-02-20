@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18551C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 11:16:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBED9C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 11:17:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hRTzvywCoM+SKDtOtAhP6jEOQLJQN9iekyLDEuugxY0=; b=haYnvKiE1Y6eN9HsWJwUWoy+he
-	kfABxpWxCNN4zJ+0vC1xHs1jtIo/VPQ9jev16BLwIKD1eurkJq2kyncuC56zDpK0Q3lddVVIi3e4e
-	EosAp4UmAwBFLDmsXYnyinViGhRXOgN9jW9s3DEVeDtB1no6AQM+J947A03Gz+O8X37kZKssLP6Ag
-	oVXYFh6OPZVmXalVOmsIjENeytEMW58izglA6FNCNludL25WLtjTVTm6Ddy/7DU2XmcZrXYY+kOmr
-	GA0vyjSFESJjZjCwjqUDwPv5dBXo9UyZUBbsKtd+S3mzgh8VENkU3dPfi5QvEjfaZfSci3lUoEXPb
-	3pTzUwjQ==;
+	bh=qfNfJFHkQvwcnTOv1peV4CTfsjgyzjH0f5EOADofyBY=; b=dgbX+KEFjDYb65E6bh5sw7nfeX
+	5anRdhoAdjmdIkaNKVLo6Hzkwr6h3gvZOYiGS+TkEZu/0hRsMX5UNhMXj4EBVopORmxsuppDypL2R
+	4Cp2L2Jnqacf397ZiIJQdWGv8+pe2tPlvAO1TVENrST3EbPIhw/2bJbUj7ONzmfwFgt2a2l6jzX0M
+	gxVTEkKpAifqIeO1GHZU7XF681gOraBRv3rV2YFj3hOlp4eDuyQuoKHKyj6V833zLRVo+iPTBjGep
+	4RE6iIbP2E9EjoB7VCVE75IG+Q/FX4SU3lMpwqdayoKxyPa44RYPjQh/fT6nk396hSFd7m6WN2vyA
+	RLyCrXmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl4XK-00000000UWM-18ks;
-	Thu, 20 Feb 2025 11:16:10 +0000
+	id 1tl4Ym-00000000Uyd-2POm;
+	Thu, 20 Feb 2025 11:17:40 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl4RO-00000000SxK-2tXX;
-	Thu, 20 Feb 2025 11:10:03 +0000
+	id 1tl4RP-00000000Sxv-1UN1;
+	Thu, 20 Feb 2025 11:10:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740049801;
-	bh=CgnTh2SgXWfWMsbA62uV8poLmBzORUJLbZLqZihFI3I=;
+	s=mail; t=1740049802;
+	bh=XRowMk/5gMfwXHxFEFKhwBi4Aeuclsw7ltcciXwDOXo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YUIefjQKKUvm5ZQ6wRnlU7fYJLC3zcRmYt3Vl+aYKLx6yw5+uy8VskdXG7J/8Qk96
-	 dY1woKR2wsWtDL9ce3urS9YqSdr0QSBwCF7LUQih0XKK6j/xLSA+QBcocB4Nk7ez0E
-	 kMUrTklbsJCgApVPVyKqRw9J+CmA6a7a3a0970SRAogrfeYULhQvQzFkrrlCbhBxkH
-	 jKsX0Dgs/8OHnbKmIfUHTFB7UlN+LI5FoBeYrcMkLJwSz7EoxjhN0cnjK9DIPbq/LB
-	 i86WydurZ2F8O6irQ3gC5UzuFwlKXNjJ/iI6a3HdF0bpm5RITVokmgUDnVnca5hA6L
-	 zLtIOdNxb0BtA==
+	b=VozmHJFMdz01HBmeVnpACKYNJVqljzZw8gpJtSa+NuWSaEUTwUw445E/cfNhzU7Ew
+	 hz58qKam8L5SBy6sqw1LOGUEVs9DWtGSs/wLpjbHtNszuNsPViYQwsqoavzG9SGCH5
+	 1bCJrv/0BJCuK7QkhHn+DO3p0bg4DZQQlTrU3kkNdqN8vfVsJBvfP02OJUx3AS2NU7
+	 9YvJsUD2m3oAFb66OVK2aLYGNA5AS1OAUy/5iCypFqaVMywQwwTfcVcNFkYkBsfl/B
+	 C/cG+YnDi4/0LmB0cyfvuXp3MwmzMKTA3rl7MYJVGDhSm7S7HnFCBjTKHO09rJS7uh
+	 VqHKMLJffikfA==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7499517E156B;
-	Thu, 20 Feb 2025 12:10:00 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5AC2F17E156F;
+	Thu, 20 Feb 2025 12:10:01 +0100 (CET)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
 Cc: robh@kernel.org,
@@ -55,17 +55,18 @@ Cc: robh@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	pablo.sun@mediatek.com
-Subject: [PATCH v1 3/4] arm64: dts: mediatek: mt8188-geralt: Add graph for DSI and DP displays
-Date: Thu, 20 Feb 2025 12:09:47 +0100
-Message-ID: <20250220110948.45596-4-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v1 4/4] arm64: dts: mediatek: mt8390-genio-common: Configure touch vreg pins
+Date: Thu, 20 Feb 2025 12:09:48 +0100
+Message-ID: <20250220110948.45596-5-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250220110948.45596-1-angelogioacchino.delregno@collabora.com>
 References: <20250220110948.45596-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_031002_898363_7D82648F 
-X-CRM114-Status: GOOD (  10.64  )
+X-CRM114-CacheID: sfid-20250220_031003_535471_72E9DC5B 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,232 +81,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The base SoC devicetree now defines a display controller graph:
-connect the board specific outputs (eDP internal display, DP
-external display) to fully migrate Cherry and make it finally
-possible to make Chromebooks and other board types to coexist
-without per-board driver modifications.
+Add a pinctrl configuration for the Touchscreen IC's power line
+to make sure that the pin is configured as GPIO and to stop
+relying on correct pin configuration from bootloader.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../boot/dts/mediatek/mt8188-geralt.dtsi      | 155 +++++++++++++++++-
- 1 file changed, 148 insertions(+), 7 deletions(-)
+ arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-index faed5c8bc721..c5254ae0bb99 100644
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi
-@@ -9,6 +9,7 @@
+diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+index 0191776e037c..55564d91423f 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+@@ -187,6 +187,8 @@ touch0_fixed_3v3: regulator-5 {
+ 		gpio = <&pio 119 GPIO_ACTIVE_HIGH>;
+ 		enable-active-high;
+ 		vin-supply = <&reg_vsys>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&touch_vreg_pins>;
+ 	};
  
- / {
- 	aliases {
-+		dsi0 = &disp_dsi0;
- 		i2c0 = &i2c0;
- 		i2c1 = &i2c1;
- 		i2c2 = &i2c2;
-@@ -273,14 +274,27 @@ dsi_panel: panel@0 {
- 
- 		port {
- 			dsi_panel_in: endpoint {
--				remote-endpoint = <&dsi_out>;
-+				remote-endpoint = <&dsi0_out>;
- 			};
+ 	usb_hub_fixed_3v3: regulator-6 {
+@@ -1021,6 +1023,13 @@ pins-spi {
  		};
  	};
  
--	port {
--		dsi_out: endpoint {
--			remote-endpoint = <&dsi_panel_in>;
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			reg = <0>;
-+			dsi0_in: endpoint {
-+				remote-endpoint = <&dither0_out>;
-+			};
-+		};
-+
-+		port@1 {
-+			reg = <1>;
-+			dsi0_out: endpoint {
-+				remote-endpoint = <&dsi_panel_in>;
-+			};
- 		};
- 	};
- };
-@@ -296,12 +310,74 @@ &disp_pwm1 {
- 	pinctrl-0 = <&disp_pwm1_pins>;
- };
- 
-+&dither0_in {
-+	remote-endpoint = <&postmask0_out>;
-+};
-+
-+&dither0_out {
-+	remote-endpoint = <&dsi0_in>;
-+};
-+
-+&ethdr0 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+
-+			ethdr0_in: endpoint@1 {
-+				reg = <1>;
-+				remote-endpoint = <&vdosys1_ep_ext>;
-+			};
-+		};
-+
-+		port@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+
-+			ethdr0_out: endpoint@1 {
-+				reg = <1>;
-+				remote-endpoint = <&merge5_in>;
-+			};
++	touch_vreg_pins: touch-avdd-pins {
++		pins-power {
++			pinmux = <PINMUX_GPIO120__FUNC_B_GPIO120>;
++			output-high;
 +		};
 +	};
-+};
 +
-+&gamma0_out {
-+	remote-endpoint = <&postmask0_in>;
-+};
-+
- &dp_intf1 {
- 	status = "okay";
- 
--	port {
--		dp_intf1_out: endpoint {
--			remote-endpoint = <&dptx_in>;
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+
-+			dp_intf1_in: endpoint@1 {
-+				reg = <1>;
-+				remote-endpoint = <&merge5_out>;
-+			};
-+		};
-+
-+		port@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+
-+			dp_intf1_out: endpoint@1 {
-+				reg = <1>;
-+				remote-endpoint = <&dptx_in>;
-+			};
- 		};
- 	};
- };
-@@ -394,6 +470,35 @@ &i2c6 {
- 	status = "okay";
- };
- 
-+&merge5 {
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+
-+			merge5_in: endpoint@1 {
-+				reg = <1>;
-+				remote-endpoint = <&ethdr0_out>;
-+			};
-+		};
-+
-+		port@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+
-+			merge5_out: endpoint@1 {
-+				reg = <1>;
-+				remote-endpoint = <&dp_intf1_in>;
-+			};
-+		};
-+	};
-+};
-+
- &mfg0 {
- 	domain-supply = <&mt6359_vproc2_buck_reg>;
- };
-@@ -513,6 +618,10 @@ flash@0 {
- 	};
- };
- 
-+&ovl0_in {
-+	remote-endpoint = <&vdosys0_ep_main>;
-+};
-+
- &pcie {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pcie_pins>;
-@@ -1029,6 +1138,14 @@ &pmic {
- 	interrupts-extended = <&pio 222 IRQ_TYPE_LEVEL_HIGH>;
- };
- 
-+&postmask0_in {
-+	remote-endpoint = <&gamma0_out>;
-+};
-+
-+&postmask0_out {
-+	remote-endpoint = <&dither0_in>;
-+};
-+
- &sound {
- 	pinctrl-names = "aud_etdm_hp_on", "aud_etdm_hp_off",
- 			"aud_etdm_spk_on", "aud_etdm_spk_off",
-@@ -1135,6 +1252,30 @@ &ssusb2 {
- 	status = "okay";
- };
- 
-+&vdosys0 {
-+	port {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		vdosys0_ep_main: endpoint@0 {
-+			reg = <0>;
-+			remote-endpoint = <&ovl0_in>;
-+		};
-+	};
-+};
-+
-+&vdosys1 {
-+	port {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		vdosys1_ep_ext: endpoint@1 {
-+			reg = <1>;
-+			remote-endpoint = <&ethdr0_in>;
-+		};
-+	};
-+};
-+
- &xhci2 {
- 	/* no power supply since MT7921's power is controlled by PCIe */
- 	/* MT7921's USB BT has issues with USB2 LPM */
+ 	touch_pins: touch-pins {
+ 		pins-irq {
+ 			pinmux = <PINMUX_GPIO6__FUNC_B_GPIO6>;
 -- 
 2.48.1
 
