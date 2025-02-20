@@ -4,60 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BAD2C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 09:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 061E1C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 09:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aIsC5st1aUnuMyMsnRRd3Mcw6WZOSNtqmxj27d0O7A4=; b=oel1tTrwVwyMvbVE8K6ZKKLWks
-	5MXMaGhJ4yIOsiHxGvMHaHYPNSXh2p2M+7nDaYaOzEGUxOoctBpZeMjEdXB1UEPlMjQdZ+IqbG8nj
-	0ZOAJza6vYp/vwlpkKC6Za1CoLMZe6X6uuiBkPgXSbPesu6NXkdyQJ9f5jy+C7TDeYojvhefrNPKM
-	ghvKHdNah0JF43WPt3sO2kgNw8Xd1urcI3bWCS5gzCXp0jnQw7KdQkLMzq5ELHfW1yljILFwJ4di0
-	z1gIhjdFgAXyJvTHyNQSSbzU3gb4UhfSMtMjScL4SdsczOFE3EfdMpshAy+z4WHvqEMoIKDPkjx2A
-	OmeiEE/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/cL+CCL0X6aLAARkr+HxhuD5UGrruT/1yZpL7/mWVpg=; b=t6o3o4YK+D7RmpMk3I0C+YOirH
+	Ao2o+2oJbLJ9+NaW5mQHBqRMY+JfGtBFchabzdlTKnREhtiMgodmlsY88kJHwttVtW4HdLbBDlEdL
+	GALoThakNKg6JA2Mi6NrZWUBE9WDJ3jT3U6pyCX/XBaVlwCZHuMI71j4vS1rk81CIcDEKpxD76/xZ
+	iaScg0ttOxEnzOlDYQC/qtnNvX6ZOdRPMO/RNDNXWgU+MS0Rr/OHZ543wOcjB/w8AEZ7M1KaAAVQc
+	+VgerSd7npA75iLwHRKg/CM2AEZ2902XcUPMkmE/gFjkcHXwJwKDmyyZCDgGhItUgCWfV9nMd19vZ
+	ykqLI2aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl30x-000000004Qa-2Tg3;
-	Thu, 20 Feb 2025 09:38:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl2zT-0000000040Z-0Dpu
+	id 1tl35p-000000005sn-2eN1;
+	Thu, 20 Feb 2025 09:43:41 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tl34K-000000005RZ-0AtE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 09:37:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7F93D1BB0;
-	Thu, 20 Feb 2025 01:37:24 -0800 (PST)
-Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.18])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6BA813F6A8;
-	Thu, 20 Feb 2025 01:37:03 -0800 (PST)
-Date: Thu, 20 Feb 2025 09:37:00 +0000
-From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: ryan.roberts@arm.com, yang@os.amperecomputing.com,
-	catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com,
-	broonie@kernel.org, mark.rutland@arm.com, james.morse@arm.com,
-	yangyicong@hisilicon.com, robin.murphy@arm.com,
-	anshuman.khandual@arm.com, maz@kernel.org, liaochang1@huawei.com,
-	akpm@linux-foundation.org, david@redhat.com, baohua@kernel.org,
-	ioworker0@gmail.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/3] arm64: Add BBM Level 2 cpu feature
-Message-ID: <20250220093700.GB11745@mazurka.cambridge.arm.com>
-References: <20250219143837.44277-3-miko.lenczewski@arm.com>
- <20250219143837.44277-5-miko.lenczewski@arm.com>
- <Z7ZqbLdlbmeVX5a0@linux.dev>
- <Z7Zv90i0DyvxFUcv@linux.dev>
+	Thu, 20 Feb 2025 09:42:09 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51K6X42K016354;
+	Thu, 20 Feb 2025 09:42:03 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/cL+CCL0X6aLAARkr+HxhuD5UGrruT/1yZpL7/mWVpg=; b=eEtFgbJQon3LcR7i
+	p1N/eQY5fLN5h8Q7WQphphqa0ds1ni8UnS9z+oN7vgb8/ewjmG6stjcfzjAMAbO0
+	9ozQydMTWNIo70UPsF3Bg4nACZIktrHtKKmzbFrvt0ekjogRl5cQi9uqwIhDWvWP
+	uCZrXU7mUmSDlINwR8dSmByk0Mni9JQgFNyUZzIRmsROXwpKtm2mOoKuZQo37LxC
+	6k/VMfPt9tggZqAcIprw0t0mMYeM+8GluYWzSDjFTR7gWVUztiIfQ3DPkbDx1NwG
+	hP7LNixapAkTyl/sbDElecl0yijkglIvP4lqW2LWjvBPHf+22RNPMbNTu5afDA+E
+	gWKm9w==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44vyy15kt5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 20 Feb 2025 09:42:02 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51K9g1lI030703
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 20 Feb 2025 09:42:01 GMT
+Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Thu, 20 Feb 2025 01:41:57 -0800
+From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+Date: Thu, 20 Feb 2025 17:41:21 +0800
+Subject: [PATCH 1/5] dt-bindings: arm: Add Coresight device Trace NOC
+ definition
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <Z7Zv90i0DyvxFUcv@linux.dev>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250220-trace-noc-driver-v1-1-15d78bd48e12@quicinc.com>
+References: <20250220-trace-noc-driver-v1-0-15d78bd48e12@quicinc.com>
+In-Reply-To: <20250220-trace-noc-driver-v1-0-15d78bd48e12@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>
+CC: <kernel@quicinc.com>, <linux-kernel@vger.kernel.org>,
+        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
+        Yuanfang Zhang <quic_yuanfang@quicinc.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740044514; l=3425;
+ i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
+ bh=ySYv5oAl7rxrIABHsrIW5uaZdj2vv/AflGOAoDAa3zg=;
+ b=kNpXKjVZm3sWvTm6+whK99Vpp1bChLTJJTBc2mWwEZQAqp/NxvC8OGiOeOdbPyP7C/m1v/knE
+ FFifJhSb12/Dchh+hWyQU3+geEPRL4XYJ1ZRItwBpjrpvmX61kHfvff
+X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
+ pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: o-2xbyZZdlH3QH4FqLvNvhGgRSauWbfR
+X-Proofpoint-ORIG-GUID: o-2xbyZZdlH3QH4FqLvNvhGgRSauWbfR
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-20_04,2025-02-20_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
+ priorityscore=1501 lowpriorityscore=0 phishscore=0 clxscore=1015
+ suspectscore=0 spamscore=0 mlxlogscore=999 mlxscore=0 bulkscore=0
+ malwarescore=0 adultscore=3 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2502100000 definitions=main-2502200070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_013707_218425_4C438354 
-X-CRM114-Status: GOOD (  29.21  )
+X-CRM114-CacheID: sfid-20250220_014208_136863_A484436A 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,85 +111,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver,
+Adds new coresight-tnoc.yaml file describing the bindings required
+to define Trace NOC in the device trees.
 
-Thank you for taking the time to review this patch series.
+Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+---
+ .../bindings/arm/qcom,coresight-tnoc.yaml          | 107 +++++++++++++++++++++
+ 1 file changed, 107 insertions(+)
 
-On Wed, Feb 19, 2025 at 03:57:43PM -0800, Oliver Upton wrote:
-> On Wed, Feb 19, 2025 at 03:34:12PM -0800, Oliver Upton wrote:
-> > Hi Miko,
-> > 
-> > On Wed, Feb 19, 2025 at 02:38:38PM +0000, Mikołaj Lenczewski wrote:
-> > > +config ARM64_ENABLE_BBML2
-> > 
-> > nit: consider calling this ARM64_BBML2_NOABORT or similar, since this
-> > assumes behavior that exceeds the BBML2 baseline.
-> > 
-
-That is a better phrasing, will change this.
-
-> > > +	bool "Enable support for Break-Before-Make Level 2 detection and usage"
-> > > +	default y
-> > > +	help
-> > > +	  FEAT_BBM provides detection of support levels for break-before-make
-> > > +	  sequences. If BBM level 2 is supported, some TLB maintenance requirements
-> > > +	  can be relaxed to improve performance. Selecting N causes the kernel to
-> > > +	  fallback to BBM level 0 behaviour even if the system supports BBM level 2.
-> > > +
-> > 
-> > [...]
-> > 
-
-I will assume you mean to add the comment about this technically
-exceeding the BBML2 baseline to the docs here as well? Or am I
-misunderstanding?
-
-> > > +static bool has_bbml2_noconflict(const struct arm64_cpu_capabilities *entry,
-> > > +				 int scope)
-> > > +{
-> > > +	if (!IS_ENABLED(CONFIG_ARM64_ENABLE_BBML2))
-> > > +		return false;
-> > > +
-> > > +	/* We want to allow usage of bbml2 in as wide a range of kernel contexts
-> > > +	 * as possible. This list is therefore an allow-list of known-good
-> > > +	 * implementations that both support bbml2 and additionally, fulfil the
-> > 
-> > typo: fullfill
-> 
-> I can't spell either ;-)
-
-Spelling is hard, will fix :)
-
-> > > +	 * extra constraint of never generating TLB conflict aborts when using
-> > > +	 * the relaxed bbml2 semantics (such aborts make use of bbml2 in certain
-> > > +	 * kernel contexts difficult to prove safe against recursive aborts).
-> > > +	 */
-> > 
-> > We should be *very* specific of what qualifies a 'known-good'
-> > implementation here. Implementations shouldn't be added to this list
-> > based on the observed behavior, only if *the implementer* states their
-> > design will not generate conflict aborts for BBML2 mapping granularity
-> > changes.
-> > 
-
-Understood, will clarify.
-
-> > > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> > > index 1e65f2fb45bd..8d67bb4448c5 100644
-> > > --- a/arch/arm64/tools/cpucaps
-> > > +++ b/arch/arm64/tools/cpucaps
-> > > @@ -26,6 +26,7 @@ HAS_ECV
-> > >  HAS_ECV_CNTPOFF
-> > >  HAS_EPAN
-> > >  HAS_EVT
-> > > +HAS_BBML2_NOCONFLICT
-> > 
-> > Please add this cap to cpucap_is_possible() test for the config option.
-> > 
-
-Sure, will do so.
+diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..b8c1aaf014fb483fd960ec55d1193fb3f66136d2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
+@@ -0,0 +1,107 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/qcom,coresight-tnoc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Qualcomm Ttrace NOC(Network On Chip)
++
++maintainers:
++  - yuanfang Zhang <quic_yuanfang@quicinc.com>
++
++description:
++  The Trace NoC is an integration hierarchy which is a replacement of Dragonlink tile configuration.
++  It brings together debug component like TPDA, funnel and interconnect Trace Noc which collects trace
++  from subsystems and transfers to QDSS sink.
++
++  It sits in the different subsystem of SOC and aggregates the trace and transports it to Aggregation TNoC
++  or to QDSS trace sink eventually. Trace NoC embeds bridges for all the interfaces(APB, ATB, QPMDA & NTS).
++
++  Trace NoC can take inputs from different trace sources i.e. ATB, QPMDA.
++
++# Need a custom select here or 'arm,primecell' will match on lots of nodes
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - qcom,coresight-tnoc
++  required:
++    - compatible
++
++properties:
++  $nodename:
++    pattern: "^tn(@[0-9a-f]+)$"
++  compatible:
++    items:
++      - const: qcom,coresight-tnoc
++      - const: arm,primecell
++
++  reg:
++    minItems: 1
++    maxItems: 2
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    items:
++      - const: apb_pclk
++
++  in-ports:
++    description: |
++      Input connections from subsystem to TNoC
++    $ref: /schemas/graph.yaml#/properties/ports
++
++  out-ports:
++    description: |
++      Output connections from the TNoC to Aggreg TNoC or to legacy CoreSight trace bus.
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port:
++        description: |
++          Output connections from the TNoC to Aggreg TNoC or to legacy CoreSight trace bus.
++        $ref: /schemas/graph.yaml#/properties/port
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - in-ports
++  - out-ports
++
++additionalProperties: false
++
++examples:
++  - |
++    tn@109ab000  {
++      compatible = "qcom,coresight-tnoc", "arm,primecell";
++      reg = <0x0 0x109ab000  0x0 0x4200>;
++
++      clocks = <&aoss_qmp>;
++      clock-names = "apb_pclk";
++
++      in-ports {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        port@0 {
++          reg = <0>;
++
++          tn_ag_in_tpdm_gcc: endpoint {
++            remote-endpoint = <&tpdm_gcc_out_tn_ag>;
++          };
++        };
++      };
++
++      out-ports {
++        port {
++          tn_ag_out_funnel_in1: endpoint {
++            remote-endpoint = <&funnel_in1_in_tn_ag>;
++          };
++        };
++      };
++    };
++...
 
 -- 
-Kind regards,
-Mikołaj Lenczewski
+2.34.1
+
 
