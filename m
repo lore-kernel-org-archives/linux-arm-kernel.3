@@ -4,154 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A64EC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 19:06:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 493A2C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 19:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+fNJMJg4J5lkpuTo3jUM8wnT0SZMmFs7IKldfkXNjhQ=; b=4b7F3tkoV8O0+IdK130HEuNwsr
-	Yh7i4+QpNusFL7MvcYOmudNoE1w5TYUwn78qJMfwmKxhplqq0TldDcS6cmc6eagR30xugSpo2+c/8
-	92e4GavG+rqrd2/mamF7qKbvhG4exLiTOhkh+DiYtqn5gnsAKTLL3SGAHRFRtBdr0vFNv1eCsMzUi
-	5wdrtG0ynUKDuICKixesR0h/5Pl5ZKTbqogABYrqNIQAuYRUT+P3X0wqnlGrgZCRjB+d2KU9MUPBm
-	N0WzozlHd+E7H4YF7YIkm3M343WHH6yZ8gwwnub7Dl/8wSUPHnYZ0w15PNz0gcD7T5nN449w2WUPi
-	jJJGIxsw==;
+	bh=oxXRd6kScNWklP0aI84Uk3jfvKHEaeWScRLyJ37G088=; b=4MNU7C/hx6hp3dqfD2KwVJhJix
+	VKMuWSUavEjqPLp4nuVhk+cLPrcpyu+7sOOWwBsnpIJNkpo1CBhjF6xEFSjeaUmnyn6W9jO9QH8fQ
+	OLBiyzpbqRHnrsAIddIvhr1S5/xVvLGtb9UaCLJyc4tJGslq86E61UXuOzi9egopzj6gsERyjR+WM
+	SeAeb4rC3KrfBEqaJRjkoG/cWu1juT2Y5iErEMna79hEr1lJngkkyxe3jFEMzBKLqeuohnB+3piEy
+	+Cpybi5H4Z8zglfngwll3eXkEaVBtUajGpvIsw302/YT0oXl4BUR+AEe7zlBzlCfX1SFx6MwmwjSL
+	btOeaaUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlBru-00000002WvF-0XY0;
-	Thu, 20 Feb 2025 19:05:54 +0000
-Received: from mail-mw2nam10olkn20817.outbound.protection.outlook.com ([2a01:111:f403:2c12::817] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1tlBtM-00000002XIv-3ia6;
+	Thu, 20 Feb 2025 19:07:24 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlBqO-00000002WVJ-1ObE
+	id 1tlBrj-00000002WsB-12gK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 19:04:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jH9ZkWhlb9ugW7sCDIC7OetTvQqOi7qaVbE8rfLnObQ7DEQIVctjiNxC28RpXzEwQSjfrf0UFmwL1GxHrK6R/gLr3AaFEUCLqLHMF93fiSmbm9kkUPflLDfxXVZhO8TKAnpS9eWI5FP3WfpkKMQyqh3wepS0yU8/bfYXTKIb8BBuD2Rpcd6dmx0XatXDONjeyEdlRC/ggr8I3CgXjhMDc3ESxEr5U8xJy6YUVvPrVjqm5g2DRqZUD/aXwitex2I6NaGwlbeXqhXN13ByKPxfYCs7fazy/bR4H/vth1gBvSv76od1H2ZRrc0i6vIWmYMlFaKXVqSrDY2OQJi032yBYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+fNJMJg4J5lkpuTo3jUM8wnT0SZMmFs7IKldfkXNjhQ=;
- b=QSbdeAe+endbfbRqyod+sR80vqew3rJRS/i2lpSVP7VWtzll/wGgSIYlLJF1yJNop0PhUTvvSoiwF1ru6M1CLKewLYZfKKQE71jDhIIgXp4E5/Ec/jcKf3OZ34CCfD4qRbdhLr4Y8pCUqepUqhPogKgoiCB5GLWgtmGTtJRUNX2JhU13yZottHL6B8ElZrrb0oLFd8ynnPShLM01kkjhKq/IW+mRFz5Lp0EEBsIDnhsN2GMlCCIoBsISQqDLTB2GHngPWoYAh1guddtZATgECDipaB5myoVCSV0e0HMNWxmDDqqBcpdL9srlYOjS4bBU+cqNs4nXcuoZOrMpEPbvEg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+fNJMJg4J5lkpuTo3jUM8wnT0SZMmFs7IKldfkXNjhQ=;
- b=dMC+QE6d+2qpr3bc2BMxHy5FOwvpKGpohiHt/pkiJdbDD/fSKhx1GnEa5WKf70qMltPSMsI/LZR37z5lJKJKUNp2F2IHBh85SBGboqRAjjNVq/5P1nTGJ0UtKZkgjqnzccTRYXMoP1RHVzKD+j3+QLznddbHern1wJ2nGbnZscS+pkDAo20Oc865C41PH0jLmPh8/0ecJ60HvIEmlCH0B5RbEwPj2VLggwHUj1MsYfrdYeFhtRWyQ7g+mfkESASiguIfLiamjwaSLU3D16YXJXa7Uypw4n+Vt+OYTfZPA/1zE7EC2Ep6wS+bKqiY2Arb5aMSZnDVJXoaUErnvmSPaA==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by CY8PR02MB9156.namprd02.prod.outlook.com (2603:10b6:930:98::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.14; Thu, 20 Feb
- 2025 19:03:58 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df%4]) with mapi id 15.20.8466.013; Thu, 20 Feb 2025
- 19:03:58 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "eahariha@linux.microsoft.com"
-	<eahariha@linux.microsoft.com>
-CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
-	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
-	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com"
-	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org"
-	<x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
-	"daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>, "joro@8bytes.org"
-	<joro@8bytes.org>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"arnd@arndb.de" <arnd@arndb.de>, "jinankjain@linux.microsoft.com"
-	<jinankjain@linux.microsoft.com>, "muminulrussell@gmail.com"
-	<muminulrussell@gmail.com>, "skinsburskii@linux.microsoft.com"
-	<skinsburskii@linux.microsoft.com>, "mukeshrathor@microsoft.com"
-	<mukeshrathor@microsoft.com>
-Subject: RE: [PATCH v2 1/3] hyperv: Convert hypercall statuses to linux error
- codes
-Thread-Topic: [PATCH v2 1/3] hyperv: Convert hypercall statuses to linux error
- codes
-Thread-Index: AQHbg8X3ZI5uncEP/Uy5N1IfDzUOmrNQigyA
-Date: Thu, 20 Feb 2025 19:03:58 +0000
-Message-ID: <SN6PR02MB41578283BE9E070349EEB1A3D4C42@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <1740076396-15086-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740076396-15086-2-git-send-email-nunodasneves@linux.microsoft.com>
-In-Reply-To: <1740076396-15086-2-git-send-email-nunodasneves@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|CY8PR02MB9156:EE_
-x-ms-office365-filtering-correlation-id: 07ecff83-a974-4918-e096-08dd51e154a8
-x-microsoft-antispam: BCL:0;ARA:14566002|8060799006|461199028|15080799006|8062599003|12121999004|19110799003|102099032|3412199025|13041999003|440099028|41001999003|12091999003;
-x-microsoft-antispam-message-info: =?us-ascii?Q?Bk1fi6XMBNm+iyFUyHpJrwLnGCzRBN3WuKCLxbLx37qDb3/HYzsjoDzTf1yZ?=
- =?us-ascii?Q?FTVUDUdlBCnGhJ9dsG06VFAEpCDwhyAi6Q0S8fpatfG+viw4YRmcgnWosv5O?=
- =?us-ascii?Q?xz3Ce50nZKeTMVIrzpIJllt2A7mrjeeMjbr9HytBiNtn85y2JE+eDeZfa5si?=
- =?us-ascii?Q?yTeNnB3jPCOQ0VK4Y137s6Fg+AxP8Gr4bN4bJPtMQ7IAEat+8Qa/oV6drhis?=
- =?us-ascii?Q?6LTZ1aBSuXER2Ix83gjbz4u3huByT2dnYZ61pCsfcV2Pb1sc8PngdybN5Kex?=
- =?us-ascii?Q?VbHvHplNDhc9wTFAZkCSWrN2De9tyHC+32Yfg1J2CXBMBKB4xEm0l/rRcdli?=
- =?us-ascii?Q?VgoFcR20xp+IUUg0nt578btMnAst2gLfEU8yhazlhSCnpIEJyUGRYiTNSlRj?=
- =?us-ascii?Q?fQfDjHd07z7B1k9K0zCBvnhqnLH85FnsnFiM3OsGq9BKOn9mFlrVbtsx5hS7?=
- =?us-ascii?Q?sLdT9OTiH9lZZqRqWY72J/MfWC5u+YiD9PNPJjS+827xM3QarNnsvtY0bMbv?=
- =?us-ascii?Q?CBFS+TOYpFmbwoChir8HDlzKZNl6XtUtCQUhm1hgWTJeDVgPy+dBmS0CVHOe?=
- =?us-ascii?Q?gmNmyNQZ8CrzIdxlMW5qrrSkUzMS9nx94R6pkdFYhrirv0aTaILmdIZdTgLO?=
- =?us-ascii?Q?Fus5T73QAQfNeTV41E5rxZqFQCOqNjRQvJuAc+LICfTfG7GJEd+cDmSlfY+3?=
- =?us-ascii?Q?xfUFU6nEj43OGtrLZCbjzg6daIEQQYxeJfNw98n33vjErbaECUcTDt5eCSSl?=
- =?us-ascii?Q?hngclPWE36i+lUhM2501bMZUL8VXRJfYEYwvXX9ZHRsdOgrTx1eHfSvb78s4?=
- =?us-ascii?Q?Qhfqeb3/0A0hBcoboHbRs7M+9mshJohfhN5nGE/PPDhgn5PThjcWQm4Cec5R?=
- =?us-ascii?Q?sUMjCfICC7nYrsQQTj5w8a1aXNSxSc+iB3kHPeRsyX8exfohab17MMBaNX+7?=
- =?us-ascii?Q?kBNGf3TdDF2qaqfr9xLVcE6A3aOL96GeRN6toF5phdUYNxF8BjeT0QBkLOvx?=
- =?us-ascii?Q?Pyw4fmhHNRqU5GfmKJtpkrbkLif/PEb7t+DKGS+Cin/zbWd5RHGncb3hJ/Iy?=
- =?us-ascii?Q?ddm9qJc+hGhdA96ai3ljFks3TqpCA457mlvC/m8vrX3fl4hgYCK0RnUVXqZD?=
- =?us-ascii?Q?xORk0EotcQbIlTKdM3TezN1qndjoYUXsBjpxh8mWRUB4+g8YUxD4l5w=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?XBV6KE5mCZ8r5/iLeYkMry+3gvdjZOMR1RYl8ZYwMj6jv6HONqYBRwv7hOko?=
- =?us-ascii?Q?OkcAnDKIkNz73dHdrQqWe8ujpaVL1H2rMZPMwqdWKn8DxuwywHCDrtbrsPpK?=
- =?us-ascii?Q?9BWc8ZJopd9Oqt39iq12PFvGuxZWTlpceU0BtBS3wx21yHq6ob6U4FmBhZUL?=
- =?us-ascii?Q?Tb8x54npAqYgD28UmlQrrGAcZ0NaugHLGFwyHVlRu1QqF796H4gQ/yGyFJas?=
- =?us-ascii?Q?qoR3sHY5i7b8EHDOQPwUQs0gSpvQPTarLPh3pdzUpT6TSrvniBeBEDJrcyoY?=
- =?us-ascii?Q?HX8rytK0edI6orKD7DfGpk49Adw3BWeAUaXiYjiGja5iXLdmQBYUUguzS9EU?=
- =?us-ascii?Q?2z2aYPIy7lHTom5/mnWUtvhWSODT448mdScAfmXbAcWpGG+GmuguodET0Cky?=
- =?us-ascii?Q?ZyI8HCQ+yNOzf7M/EhnRIDsDrXDr9eiGg2+FKvdUZ2iC4bU0vbtf9p2nkBBT?=
- =?us-ascii?Q?FK+H6ave4RuVP/z13emTxd9tY/ncmwDKo+zpkvgTHn/BF2zx9j5DjmV4CDkY?=
- =?us-ascii?Q?oH9UwyxHL1g7uokeQ3ePUEeDLNftC2nPzBs+fl5MXuFjDnr1yQsqGDWyGEwO?=
- =?us-ascii?Q?2wfQnNnuHhCS5uzuhNIOrbmpLL08zN9HUqhprEO5VevLXG0R1ScvgJfuDohz?=
- =?us-ascii?Q?8VAY+BhHo6P2WG+dWpC5Nr1QhUMcZu0EHRCgT1RAADDsJTMZdqsnw8BMbYgp?=
- =?us-ascii?Q?FMQgz/tN0NPvQpkWoqd88iWCRR8lZOa1QraetvTZcIefsoTADupl2gImNT+t?=
- =?us-ascii?Q?/e5qtYHl/SHQ3/Ht/c96Q90AVQj3uuJuf39CztuChVVtrfk1ppsfchYngcpH?=
- =?us-ascii?Q?7mEhJ0EO4dHy/iqDUa2EUB67hwQC8jRXYgcI6Ya6Ma77F79/ECrGUoHOxcaA?=
- =?us-ascii?Q?WQh/S6qk7QAeHxNYsaftPL7HkFIzTRxFpDwqB1OZ7D9N5rIrB8iiL+/94/Cz?=
- =?us-ascii?Q?roi4KLrLB7dDryvJNa7cAb2/LmX4o8qzOQpbCkn+3DkhN05EimwM6z7VOSiw?=
- =?us-ascii?Q?y5Gx9rPXZTNmR5wqJ8sY83J2V5XECH8+R/0OvnG5ih9AT99GYQkQEh960fP0?=
- =?us-ascii?Q?outpWdceO15d7WWYuRBFyTw3PQRLs1EZW9QvfaDOopyzKAeB0zgatrYK4iuz?=
- =?us-ascii?Q?hK4TOghMsix84tUL232aoy+snzndKnsZAOtx0Jts5/QdQ8hICcLhY6IwcHZN?=
- =?us-ascii?Q?/w+MFSOaqPkC3Kh+mMLpy0EWlOENaX2csZQiVPaIUpkof36dXs5lAV165jU?=
- =?us-ascii?Q?=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 20 Feb 2025 19:05:44 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-38f1e8efef5so789856f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 11:05:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740078341; x=1740683141; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oxXRd6kScNWklP0aI84Uk3jfvKHEaeWScRLyJ37G088=;
+        b=OufYI7tKIyP0Q8+ZP2GJQNIUPSnY6NM6DXN8XfrQzUq20PnXSgNdVo81GcbNrUyqLV
+         Q/bP7Wo3iAmlJ07wZk8/CglNZkMffz1XX/CLWVxWUksTH7v3Nm+D0DLC/Wj/cG1B9VvR
+         Vs9kXcHljSHvRJHlNwxLzqYgTGSVFs79DI6C9O90YLDPngRSF2wxXuqvLXKUpcy0t3Tp
+         jXSG+Pbhajq50QcWlahDViQFUOI/kZceijGsEX24ORxUAkvswe23U2irxKokimNOyHuz
+         KOysOC4lKzB0l5CbVOm/MTvIhVNJHUrQY65hFrmNVjEBxvYdtUdpLZ1MqBT4shosfcLI
+         rCNA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740078341; x=1740683141;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=oxXRd6kScNWklP0aI84Uk3jfvKHEaeWScRLyJ37G088=;
+        b=hh/ZGmDIenL9ZixCHkXPt6WkBGWrF3udph1hGEbAPkUN7RaChg1dgB9ukaj/x5b+kY
+         etdhAbMs3XfRCGBE4dSNGdi38o1uHa7s1UpuWRqgYm8FuZSPJzfrOgxClWNaq67k82R5
+         seQH55CoOPDZDAJHXMAmX7blHNHEttE+yX7qh2iMR2S0MmEjrWWhltWNL3M7wDk3g/AD
+         hHJXXtTuz/1Dgi/Ho3KGrbSQ6TbNHug0bxESbz4348moGAvskdTQQcu4tl/CZh7+qXfS
+         CcFsFd7tzBGH2JJLfPICla9wR6j7jg4TFy/VRiC5A080J8U5D+Zm4Bo54tmw4Toch045
+         vf2w==
+X-Forwarded-Encrypted: i=1; AJvYcCUiSWnJY37chcXTIkxCMCYXFabaj9H54ScElVbI/QTPcNArESOKcuvwHti4g5uKQ38a5jqpayVPhWpEUaPJKK5U@lists.infradead.org
+X-Gm-Message-State: AOJu0YwV8hcybMRlJeeyIfLdDIyJIq4CFjKZShfuahHd48CyurQuA0ez
+	Ojw+6S8kzfmXDssjg64gw5OoDFSTFkbe/SVADf0p6GG3DYr2Zykr
+X-Gm-Gg: ASbGnctYxcIyd7FTkyA8Q91vaDkMg5Hq9I0fc66KIgZJjbwpkLf0svf5Kx0We6v6+e+
+	b0fn6T/5Hm2jKj4TcqjV6bdE6hKTALI9YABk/C1JQCX4tEW5wq+WqOlcw3ox5iPdf6RbhtuBn0d
+	PZRXe4p451SMyFzfxnAhVx3+ktPnZ28ofXeIChLXKNBMZli403BDZpte/mnx6SYu8nb7lSD53Mg
+	QwbwNogirIUfs6muJtveVZXmPLrVP9Vj51wuxWEoNEmAGKq7/FRmXijL3vS27ZDylt3p+RNR79C
+	dCJQnrDC6PdDOINNHuanHVCcUBmgZIiCQxnKuxDJfiiwWsXf95jnDINpYvlw3mgrmX4=
+X-Google-Smtp-Source: AGHT+IHGlrHIltTgTcFWFI4O0gp4KyFom8vkd8k5Kir49mlEGZQwrYgDsE0U7DMZu3givQVd9isJuA==
+X-Received: by 2002:a05:6000:1ac6:b0:38f:6149:9235 with SMTP id ffacd0b85a97d-38f6e95f233mr316305f8f.16.1740078341247;
+        Thu, 20 Feb 2025 11:05:41 -0800 (PST)
+Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259f8121sm21083169f8f.88.2025.02.20.11.05.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Feb 2025 11:05:40 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
+ Ryan Walklin <ryan@testtoast.com>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
+ Chris Morgan <macromorgan@hotmail.com>, Rob Herring <robh@kernel.org>,
+ Philippe Simons <simons.philippe@gmail.com>,
+ Ryan Walklin <ryan@testtoast.com>
+Subject: Re: [PATCH v3 2/5] ASoC: sun4i-codec: correct dapm widgets and controls for
+ h616
+Date: Thu, 20 Feb 2025 20:05:39 +0100
+Message-ID: <2733255.KRxA6XjA2N@jernej-laptop>
+In-Reply-To: <20250214220247.10810-3-ryan@testtoast.com>
+References: <20250214220247.10810-1-ryan@testtoast.com>
+ <20250214220247.10810-3-ryan@testtoast.com>
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 07ecff83-a974-4918-e096-08dd51e154a8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Feb 2025 19:03:58.6118
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR02MB9156
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_110420_369429_C8087FCB 
-X-CRM114-Status: GOOD (  23.25  )
+X-CRM114-CacheID: sfid-20250220_110543_286979_1E1FEE18 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,126 +105,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Thursday, Feb=
-ruary 20, 2025 10:33 AM
+Dne petek, 14. februar 2025 ob 23:02:24 Srednjeevropski standardni =C4=8Das=
+ je Ryan Walklin napisal(a):
+> The previous H616 support patch added a single LINEOUT DAPM pin switch
+> to the card controls. As the codec in this SoC only has a single route,
+> this seemed reasonable at the time, however is redundant given the
+> existing DAPM codec widget definitions controlling the digital and
+> analog sides of the codec.
 >=20
-> Return linux-friendly error codes from hypercall helper functions,
-> which allows them to be used more flexibly.
+> It is also insufficient to describe the scenario where separate
+> components (muxes, jack detection etc) are used to modify the audio
+> route external to the SoC. For example the Anbernic RG(##)XX series of
+> devices uses a headphone jack detection switch, GPIO-controlled speaker
+> amplifier and a passive external mux chip to route audio.
 >=20
-> Introduce hv_result_to_errno() for this purpose, which also handles
-> the special value U64_MAX returned from hv_do_hypercall().
+> Remove the redundant LINEOUT card control, and add a Speaker pin switch
+> control and Headphone DAPM widget to allow control of the above
+> hardware.
 >=20
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+> Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
+> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
 > ---
->  drivers/hv/hv_common.c         | 34 ++++++++++++++++++++++++++++++++++
->  drivers/hv/hv_proc.c           |  6 +++---
->  include/asm-generic/mshyperv.h |  1 +
->  3 files changed, 38 insertions(+), 3 deletions(-)
+>  sound/soc/sunxi/sun4i-codec.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 >=20
-> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-> index ee3083937b4f..2120aead98d9 100644
-> --- a/drivers/hv/hv_common.c
-> +++ b/drivers/hv/hv_common.c
-> @@ -683,3 +683,37 @@ u64 __weak hv_tdx_hypercall(u64 control, u64 param1,=
- u64 param2)
->  	return HV_STATUS_INVALID_PARAMETER;
->  }
->  EXPORT_SYMBOL_GPL(hv_tdx_hypercall);
-> +
-> +/* Convert a hypercall result into a linux-friendly error code. */
-> +int hv_result_to_errno(u64 status)
-> +{
-> +	/* hv_do_hypercall() may return U64_MAX, hypercalls aren't possible */
-> +	if (unlikely(status =3D=3D U64_MAX))
-> +		return -EOPNOTSUPP;
-> +	/*
-> +	 * A failed hypercall is usually only recoverable (or loggable) near
-> +	 * the call site where the HV_STATUS_* code is known. So the errno
-> +	 * it gets converted to is not too useful further up the stack.
-> +	 * Provice a few mappings that could be useful, and revert to -EIO
-> +	 * as a fallback.
-> +	 */
-> +	switch (hv_result(status)) {
-> +	case HV_STATUS_SUCCESS:
-> +		return 0;
-> +	case HV_STATUS_INVALID_HYPERCALL_CODE:
-> +	case HV_STATUS_INVALID_HYPERCALL_INPUT:
-> +	case HV_STATUS_INVALID_PARAMETER:
-> +	case HV_STATUS_INVALID_PARTITION_ID:
-> +	case HV_STATUS_INVALID_VP_INDEX:
-> +	case HV_STATUS_INVALID_PORT_ID:
-> +	case HV_STATUS_INVALID_CONNECTION_ID:
-> +	case HV_STATUS_INVALID_LP_INDEX:
-> +	case HV_STATUS_INVALID_REGISTER_VALUE:
-> +		return -EINVAL;
-> +	case HV_STATUS_INSUFFICIENT_MEMORY:
-> +		return -ENOMEM;
-> +	default:
-> +		break;
-> +	}
-> +	return -EIO;
-> +}
-> diff --git a/drivers/hv/hv_proc.c b/drivers/hv/hv_proc.c
-> index 3e410489f480..72b09f1cfa3e 100644
-> --- a/drivers/hv/hv_proc.c
-> +++ b/drivers/hv/hv_proc.c
-> @@ -88,7 +88,7 @@ int hv_call_deposit_pages(int node, u64 partition_id, u=
-32 num_pages)
->  	local_irq_restore(flags);
->  	if (!hv_result_success(status)) {
->  		pr_err("Failed to deposit pages: %lld\n", status);
-> -		ret =3D hv_result(status);
-> +		ret =3D hv_result_to_errno(status);
->  		goto err_free_allocations;
->  	}
+> diff --git a/sound/soc/sunxi/sun4i-codec.c b/sound/soc/sunxi/sun4i-codec.c
+> index 886b3fa537d26..f24bbefeb3923 100644
+> --- a/sound/soc/sunxi/sun4i-codec.c
+> +++ b/sound/soc/sunxi/sun4i-codec.c
+> @@ -1916,10 +1916,11 @@ static const struct snd_soc_component_driver sun5=
+0i_h616_codec_codec =3D {
+>  };
+> =20
+>  static const struct snd_kcontrol_new sun50i_h616_card_controls[] =3D {
+> -	SOC_DAPM_PIN_SWITCH("LINEOUT"),
+> +	SOC_DAPM_PIN_SWITCH("Speaker"),
+
+Will this break sun50i-h616-x96-mate and sun50i-h616-orangepi-zero based bo=
+ards?
+If so, other solution must be found.
+
+Best regards,
+Jernej
+
+>  };
+> =20
+>  static const struct snd_soc_dapm_widget sun50i_h616_codec_card_dapm_widg=
+ets[] =3D {
+> +	SND_SOC_DAPM_HP("Headphone", NULL),
+>  	SND_SOC_DAPM_LINE("Line Out", NULL),
+>  	SND_SOC_DAPM_SPK("Speaker", sun4i_codec_spk_event),
+>  };
 >=20
-> @@ -139,7 +139,7 @@ int hv_call_add_logical_proc(int node, u32 lp_index, =
-u32 apic_id)
->  			if (!hv_result_success(status)) {
->  				pr_err("%s: cpu %u apic ID %u, %lld\n", __func__,
->  				       lp_index, apic_id, status);
-> -				ret =3D hv_result(status);
-> +				ret =3D hv_result_to_errno(status);
->  			}
->  			break;
->  		}
-> @@ -181,7 +181,7 @@ int hv_call_create_vp(int node, u64 partition_id, u32=
- vp_index, u32 flags)
->  			if (!hv_result_success(status)) {
->  				pr_err("%s: vcpu %u, lp %u, %lld\n", __func__,
->  				       vp_index, flags, status);
-> -				ret =3D hv_result(status);
-> +				ret =3D hv_result_to_errno(status);
->  			}
->  			break;
->  		}
 
-In hv_call_add_logical_proc() and hv_call_create_vp(), local variable "ret"=
- is
-defined and initialized to HV_STATUS_SUCCESS.  Since "ret" now contains an
-errno value instead of a hypercall status, it should be initialized to zero=
-.  (Yes,
-HV_STATUS_SUCCESS is defined as 0, but it's now the wrong abstraction.)
 
-With that fixed,
 
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
-
-> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyper=
-v.h
-> index 7adc10a4fa3e..3f115e2bcdaa 100644
-> --- a/include/asm-generic/mshyperv.h
-> +++ b/include/asm-generic/mshyperv.h
-> @@ -297,6 +297,7 @@ static inline int cpumask_to_vpset_skip(struct hv_vps=
-et *vpset,
->  	return __cpumask_to_vpset(vpset, cpus, func);
->  }
->=20
-> +int hv_result_to_errno(u64 status);
->  void hyperv_report_panic(struct pt_regs *regs, long err, bool in_die);
->  bool hv_is_hyperv_initialized(void);
->  bool hv_is_hibernation_supported(void);
-> --
-> 2.34.1
 
 
