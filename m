@@ -4,113 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEECFC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 19:37:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CD4BC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 19:47:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2bN/NPVn1vKfJddb+/MWowQ/DYT7KXXiFwwxB/L9OIQ=; b=ahdQQE3jcHgE5zlRU/WaIGPsOy
-	29RWLK50P+sSDMFBiqsGGWXXQpzlK1FzqslvBa/ow5wpu5Lgip7yrg6dr3PGOsSbdcgzRXfY7B9KS
-	BWd8rVNtC38io4ByvMBnANuYpIWfRqYglJCI38DNkNyIjX6GdlKcuQvjw5d8CV5/Q/e+8w6YYrlpf
-	rncn9IdXhyy+BELBW88s2VY04woSyJL2PqB1GY6AU/I48KrVTX7mHEyQU8wSG3p7R4PUJk82ACVZG
-	X7ESYZpQyFL2gibz0ggeFRPyoMi7XAVG7BMerYGDTfxZHdv/gbcpzjfQ/qwEFdAqLnqP0NMrh8+DD
-	1qQ0Mo1A==;
+	bh=xpKwCGGelt7n6F1vTzeT/crUMoUcltbnAq0Rs/8+HX8=; b=zvmiH3END+Q9xUI1mT6y+3XsNS
+	DIp3btHwSSN0ebAwmBNHHnFqdGkoyjTFpBcU2lkdpcsrfk5xFutraVXXR9g/D7EJYS4Aqu0ScYe23
+	pj0ZcBF7GGJzADRXWFq+HZN2V6eRikLzjggaFbpAjlhzoMuQlOzhvqikltdcAhzAQ0LeRdgObvs/k
+	hNMCzR4Q53rvj5HIjBHoD0IDApfeDXBrI2VdhEEVBc8Pc65BngsK0XuM2O/mdYSoi/oAxltJ/urKj
+	WOxBkvTREGc3I7pgGYi1wSk/ltX/lMpuKiow3yxGo065lNGkn5sc7SHOS8TYQp2BoKCnZgNASBHbP
+	Cs1XIEbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlCMS-00000002dXa-43N1;
-	Thu, 20 Feb 2025 19:37:28 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tlCWN-00000002fSP-3e0c;
+	Thu, 20 Feb 2025 19:47:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlCKv-00000002czG-2Ukh
+	id 1tlCUt-00000002f0M-2uJ8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 19:35:56 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-220c8eb195aso28181035ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 11:35:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1740080152; x=1740684952; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=2bN/NPVn1vKfJddb+/MWowQ/DYT7KXXiFwwxB/L9OIQ=;
-        b=phkHUGHpmNi6EAti1FZolmPgoOj6+IYkHoWDq6bgm+TVXxhbRmKghUSU0ZN9MgDszc
-         gjaW0PttvvLwb5SU9sZGPoVSydezmxodMoLUnPE+ZF/c08LaueDG/GSwoNm0Ay5GouQQ
-         O+TAu++Gw8+5Ys4t3ILn3X/GwR/CLoqOYgRHQjn5h3r9EsmpkVx5jV1Zm206yxphAOZL
-         jE7KHbrlUHdiOGE+WnbExigwXB/z+Q4/nLkCFCvxnPZ0D8R7+l/5CupWP1NmLaM7UrR+
-         igLHE77ibqCIEvVoAsnZwt127nofKnFA7IZ9NSeIMdL20z84vo9L4fv9TSICzdOWL8YQ
-         0kJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740080152; x=1740684952;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2bN/NPVn1vKfJddb+/MWowQ/DYT7KXXiFwwxB/L9OIQ=;
-        b=ZnpD9hGDtHPhLgBjiN8CX8LAnGhTcp9YRsh5s6f6s01kiThL6pyzb6rVwBOFcdzS20
-         8Tx/WZFhWVYyTfqce1p+Qid+Ocp8AsiXTIGg+0RCQRwWVzREzJzEKCNCDKJdAgNui0cl
-         njyD36U3+lH8Qg3uZo6NDtxrCc02J2k5zpROYu19/XyQbO2h0vwgM+/0B67Te4URqU1H
-         C8gLa3HGQU+fvpNKTHs706LKux+Fqr4GV7fKEtNRqbbb1iuxJ50DKyASGM3wc+Eegrlj
-         ecXn7w1RlIhUFcMQVznfB76GMHMhoCWTVe8Wbx164aKKJgCHdVMC8PizmfgzWKqMbY9/
-         yudA==
-X-Forwarded-Encrypted: i=1; AJvYcCVtJPqV/Jud7evuT32Qa6/KBkzdKABZpSZok+r5OGwkNR4DU+qRZJLZhX9qiW8+rjdhZIr+sKTkKi4L4BUwIBdo@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhB5MH51YTNguR7cL1OFUqcWpkcRDcFZGfCBGsWiMLVo8nnEZq
-	b0sCJ+k0zzeZ2pJe8yeniXbj8BCTJvxpsiueYWMVdGdryVfp2lC4azA3ml58+v4=
-X-Gm-Gg: ASbGncti39v0gw6hEVmiWD/iFfb9j33WYsN/mTnl7U/fxp9vwOsADjtxfSZC1F5yZ3c
-	wkKosn9KOuVwBkMn+pkxqy9ZHiAa53XtOfTJ4CDJkLULJ9V1fYNJiVbnnfCvSPLYswjbRmFvlp1
-	IjO9AAXk0UI/7lTIBjpZXj0tqwMdjiy3Fr2ZtDe3OFdJA0mXOkWIlg6F0pfCjWVASkvEf02qkca
-	nZabaAx46iHCzuaDp3pxrCHHuShvT3HvnBcbXD54kv08fpJOqsWe6bN/hbu8c87FFKAXRyPkC10
-	QgIqjLqDaFlFdDG6HTJDN+9IRjBxUnL6FA==
-X-Google-Smtp-Source: AGHT+IFLUZkJqTzzZT+I/M3yqbHhvCV9FHZfFsSF+/uPg4tVfA/GlpswgR4SI57hCH58PcrddckVtQ==
-X-Received: by 2002:a17:902:db07:b0:216:73f0:ef63 with SMTP id d9443c01a7336-2219fff4377mr5157465ad.49.1740080152564;
-        Thu, 20 Feb 2025 11:35:52 -0800 (PST)
-Received: from tjeznach.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-220d545c9bbsm123012805ad.127.2025.02.20.11.35.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 11:35:52 -0800 (PST)
-Date: Thu, 20 Feb 2025 11:35:49 -0800
-From: Tomasz Jeznach <tjeznach@rivosinc.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+	Thu, 20 Feb 2025 19:46:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 26A07615AB;
+	Thu, 20 Feb 2025 19:46:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70DF6C4CED1;
+	Thu, 20 Feb 2025 19:46:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740080770;
+	bh=c4bZZ2AcjYK50fAJHJC/bRwjqNKu/T2axmCC96Puj4E=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=YYM2NL/EP7KpxSLCuKY4axUMZF43IpWlsn9lP8YqgYJ6sHpPgppAMpjwwM3/gAYQ1
+	 jchb1g+zVysYFn6a5h3rMFbt0OQLR3xnTkjzQyupMn/TvxF/piuekjOu1OFxuAuIc8
+	 4+koXGH1paX4/uOYhHGa5yiwkz5RDOsldlBIE6yocoQnvS+y+FZ7oRJZ7o92bbY8+E
+	 ylPaARRE1NpbX9aXowvtL47zr/wbJtx9Pgeq2/hAAfid9yKhv+RB7upyRk2lhNA/zp
+	 f+1+DUygBHI0aCrH0vNMWe0JyPG3sJe2zp6rJHs/cFKH+pg/gP9/r7w01JA4o5MCMO
+	 U8GkxKWKZu6Kw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tlCUq-006L9u-4S;
+	Thu, 20 Feb 2025 19:46:08 +0000
+Date: Thu, 20 Feb 2025 19:46:07 +0000
+Message-ID: <86r03squ0w.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sebastian Ott <sebott@redhat.com>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v2 19/23] iommu/riscv: Update to use
- iommu_alloc_pages_node_lg2()
-Message-ID: <Z7eEFagK3xugrkKH@tjeznach.ba.rivosinc.com>
-References: <0-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
- <19-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <19-v2-545d29711869+a76b5-iommu_pages_jgg@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_113553_890326_8D8065F5 
-X-CRM114-Status: GOOD (  21.85  )
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Eric Auger <eric.auger@redhat.com>,
+	gankulkarni@os.amperecomputing.com
+Subject: Re: [PATCH v2 02/14] KVM: arm64: Hide ID_AA64MMFR2_EL1.NV from guest and userspace
+In-Reply-To: <af16f5bc-4300-54d3-b480-c559ec070a44@redhat.com>
+References: <20250220134907.554085-1-maz@kernel.org>
+	<20250220134907.554085-3-maz@kernel.org>
+	<af16f5bc-4300-54d3-b480-c559ec070a44@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sebott@redhat.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com, gankulkarni@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,74 +89,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 01:07:52PM -0400, Jason Gunthorpe wrote:
-> One part of RISCV already has a computed size, however the queue
-> allocation must be aligned to 4k. The other objects are 4k by spec.
+On Thu, 20 Feb 2025 17:36:35 +0000,
+Sebastian Ott <sebott@redhat.com> wrote:
 > 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->  drivers/iommu/riscv/iommu.c | 15 ++++++++-------
->  1 file changed, 8 insertions(+), 7 deletions(-)
+> Hi Marc,
 > 
-> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-> index 2750f2e6e01a2b..8835c82f118db4 100644
-> --- a/drivers/iommu/riscv/iommu.c
-> +++ b/drivers/iommu/riscv/iommu.c
-> @@ -65,13 +65,14 @@ static int riscv_iommu_devres_pages_match(struct device *dev, void *res, void *p
->  	return devres->addr == target->addr;
->  }
->  
-> -static void *riscv_iommu_get_pages(struct riscv_iommu_device *iommu, int order)
-> +static void *riscv_iommu_get_pages(struct riscv_iommu_device *iommu,
-> +				   unsigned int size)
->  {
->  	struct riscv_iommu_devres *devres;
->  	void *addr;
->  
-> -	addr = iommu_alloc_pages_node(dev_to_node(iommu->dev),
-> -				      GFP_KERNEL_ACCOUNT, order);
-> +	addr = iommu_alloc_pages_node_sz(dev_to_node(iommu->dev),
-> +					 GFP_KERNEL_ACCOUNT, size);
->  	if (unlikely(!addr))
->  		return NULL;
->  
-> @@ -161,9 +162,9 @@ static int riscv_iommu_queue_alloc(struct riscv_iommu_device *iommu,
->  	} else {
->  		do {
->  			const size_t queue_size = entry_size << (logsz + 1);
-> -			const int order = get_order(queue_size);
->  
-> -			queue->base = riscv_iommu_get_pages(iommu, order);
-> +			queue->base = riscv_iommu_get_pages(
-> +				iommu, max(queue_size, SZ_4K));
->  			queue->phys = __pa(queue->base);
->  		} while (!queue->base && logsz-- > 0);
->  	}
-> @@ -618,7 +619,7 @@ static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iomm
->  				break;
->  			}
->  
-> -			ptr = riscv_iommu_get_pages(iommu, 0);
-> +			ptr = riscv_iommu_get_pages(iommu, SZ_4K);
->  			if (!ptr)
->  				return NULL;
->  
-> @@ -698,7 +699,7 @@ static int riscv_iommu_iodir_alloc(struct riscv_iommu_device *iommu)
->  	}
->  
->  	if (!iommu->ddt_root) {
-> -		iommu->ddt_root = riscv_iommu_get_pages(iommu, 0);
-> +		iommu->ddt_root = riscv_iommu_get_pages(iommu, SZ_4K);
->  		iommu->ddt_phys = __pa(iommu->ddt_root);
->  	}
->  
-> -- 
-> 2.43.0
+> On Thu, 20 Feb 2025, Marc Zyngier wrote:
+> > Since our take on FEAT_NV is to only support FEAT_NV2, we should
+> > never expose ID_AA64MMFR2_EL1.NV to a guest nor userspace.
+> > 
+> > Make sure we mask this field for good.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> > arch/arm64/kvm/sys_regs.c | 1 +
+> > 1 file changed, 1 insertion(+)
+> > 
+> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> > index 82430c1e1dd02..9f10dbd26e348 100644
+> > --- a/arch/arm64/kvm/sys_regs.c
+> > +++ b/arch/arm64/kvm/sys_regs.c
+> > @@ -1627,6 +1627,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+> > 		break;
+> > 	case SYS_ID_AA64MMFR2_EL1:
+> > 		val &= ~ID_AA64MMFR2_EL1_CCIDX_MASK;
+> > +		val &= ~ID_AA64MMFR2_EL1_NV;
+> > 		break;
 > 
+> This would cause issues when you update the host kernel while keeping the
+> guests register state. Could we allow to write (but ignore) the previously
+> valid value? Like it was handled in:
+> 	6685f5d572c2 KVM: arm64: Disable MPAM visibility by default and ignore VMM writes
 
-Reviewed-by: Tomasz Jeznach <tjeznach@rivosinc.com>
+Yeah, this falls into the same "shouldn't have exposed this the first
+place" bucket. Annoying. Something like the diff below?
 
+	M.
 
-Thanks,
-- Tomasz
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 2e14562b5841f..87269de31a642 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1946,6 +1946,22 @@ static int set_id_aa64pfr1_el1(struct kvm_vcpu *vcpu,
+ 	return set_id_reg(vcpu, rd, user_val);
+ }
+ 
++static int set_id_aa64mmfr2_el1(struct kvm_vcpu *vcpu,
++				const struct sys_reg_desc *rd, u64 user_val)
++{
++	u64 hw_val = read_sanitised_ftr_reg(SYS_ID_AA64MMFR2_EL1);
++	u64 nv_mask = ID_AA64MMFR2_EL1_NV_MASK;
++
++	/*
++	 * We made the mistake to expose the now deprecated NV field,
++	 * so allow userspace to write it, but silently ignore it.
++	 */
++	if ((hw_val & nv_mask) == (user_val & nv_mask))
++		user_val &= ~nv_mask;
++
++	return set_id_reg(vcpu, rd, user_val);
++}
++
+ static int set_ctr_el0(struct kvm_vcpu *vcpu,
+ 		       const struct sys_reg_desc *rd, u64 user_val)
+ {
+@@ -2730,7 +2746,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 					ID_AA64MMFR1_EL1_XNX |
+ 					ID_AA64MMFR1_EL1_VH |
+ 					ID_AA64MMFR1_EL1_VMIDBits)),
+-	ID_WRITABLE(ID_AA64MMFR2_EL1, ~(ID_AA64MMFR2_EL1_RES0 |
++	ID_FILTERED(ID_AA64MMFR2_EL1,
++		    id_aa64mmfr2_el1, ~(ID_AA64MMFR2_EL1_RES0 |
+ 					ID_AA64MMFR2_EL1_EVT |
+ 					ID_AA64MMFR2_EL1_FWB |
+ 					ID_AA64MMFR2_EL1_IDS |
+
+-- 
+Without deviation from the norm, progress is not possible.
 
