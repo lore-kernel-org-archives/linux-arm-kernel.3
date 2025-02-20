@@ -4,133 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE072C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 02:34:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C8AC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 02:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/x787lNgNntEc47QXNfeY2l5Pt9oXXCzO9vFsY4d+S0=; b=OUmMekSTN9ibMZ2wxsB/UeiQHR
-	Td0MBwjKhyrm/Cyjcxl9Fe91m/Nj9B3VB0S6fw6Y1AhM/gMIB5MPopRtuHt6Ps+YHfG3HzPrbaFmI
-	xovSjDASz3PUvILe+k7zftHZrSKH+LjR62CY8Btpi9RuL5UsH33ph7mw83A3P2Zr+PkGFCKZZzu2Q
-	v4hA5Hp0rohVuRnKAI31A0NtDIqw5/vUlYRWqd4aPcWMaTao2e5+QcOtgPTt2eE97eD1mAeoa5diB
-	2zDHe8221u4h2Em2SuCrKcc0xLzB/a3UYhLdRw24fHnViNj3GIopPVOxtTvLyoDejLz6CfUxMfq+t
-	XDEOYo9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bxU+8WttbN2F5/Reuw0zhJZjMiM1XS6gufuI6lYqdY8=; b=u8vw2gZra1MZwDDJe1s+kh6Z4A
+	upTpl0r5dRMjkO4f3NvCnD60Q575/zSjN9/e0+Fz0Ngg6PFNEoJQGduh+cA6ulxBNDzzyPN1uHdqv
+	4D9r3h2x1REIFoZCnD08exeJcv479PFTJGLtor+aml3qvUA0HwrKlwUripVH02h9uQAD7xaCsHIJM
+	UcXZ5s/vJeshZUFFMMioRhFP6H8zvg/bjnBFx43o4hhREU/5HfSyRGjC6/DKv/V4WohUk6bSmd28m
+	j7VdrFUTn/9CcFza1d9WiAOcDsICWvX+lJ1pJmOuxULq3/EUxsRoordihPN5phW4hyY4Ttey+t4IG
+	ljOjDLTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkwOm-0000000GMHt-2gh3;
-	Thu, 20 Feb 2025 02:34:48 +0000
-Received: from mail-sg2apc01on20621.outbound.protection.outlook.com ([2a01:111:f403:200f::621] helo=APC01-SG2-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkwNJ-0000000GM1C-0ggY
+	id 1tkwWG-0000000GNlN-1pWB;
+	Thu, 20 Feb 2025 02:42:32 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tkwUm-0000000GNTt-0p9Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 02:33:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=d0lX4NEkim9MWqGDIFx5egKuwtu1yEfKg6UilYKRxWzXEioaNN79CUorvCM3EnI+2scAqnhd0dlMDg2YAfKj59p2Y07X88+9J+M5hjCI8PeGjNMDlURmIIswZe4KUis+kxYbJja2REncrf8FHUtbaBSXclcYjBXvN1y1jngWxvY7ch49sExySTndkty+2OiaR0yIL8Xk6ENRgVB2vuJf0h6dqNyo3RokTjDU2FeZT8ZK6q1MG37Csgx/7PZrU7WzEsVDKILa/ThMOACfrmYDmDYrGB6z7+HDvJuBQv69DGT8A+/FZ/s+fb7+06UmN2997dqNoCL1Gk3C0zYCRy62aA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/x787lNgNntEc47QXNfeY2l5Pt9oXXCzO9vFsY4d+S0=;
- b=YtzZCdywLlKHu0a9UI7pjbxvofPDHAJm5SFSUJD83ERhzqz5BGyMo3tAasERAjuOFdZGN3QXQjsgLdvmdjLulCxAo3rUaSgQXqGXPw7sbBfj7m7ZHPowx1iK/HXOtNQC7Gi8SoeQrm4RrgiPNi998OerA4PyofYs/mX/bqFzUt5BdKD3fD6BTC5qqr0Ovkf+isleiG3Uj+4VZ/4W3bKVZfi84sh+AmNGgMilpzNrE3gjGsj6YtHQDc9XNjqBjmk6oNk6M5NYU5KsOOb7cUT+8ipmjsDVtxw1oVtiypk42J9pNa+lzSvkBUi2me/1idEyPOrDYQ4GRULCxzjEYj7qLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 211.20.1.79) smtp.rcpttodomain=stwcx.xyz smtp.mailfrom=wiwynn.com; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=wiwynn.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/x787lNgNntEc47QXNfeY2l5Pt9oXXCzO9vFsY4d+S0=;
- b=Ij5s/jufpaApD2P6rc0ptkRaG6Tq0aJb3HuGAWNEsFSJ/Fp9n0VtRgdLZysQtcidRF8qY5XZA77uoH8+/UYhgWaCWYO2XLz0xmlbMoM4vsRttOTuHETRYDtHpAkj7+1lDv/g7pLAMaEj7W+Fam4De1nIGx9dz4hjzyYVQf8lHjFuqVQnGfIIeJw4JKhNPWphgdXTeyxktgNhqtFCXSXLOECGYv16GKsx/jBRP1NmlPss6R3lSdvn84VMMYM2RoQpvSmVD3k3Mh46aDDv9J2cwOrq/DFq4zQx/9udVI54UwT3sk7s5vUdqkK0tN0FWoEzx6M5VJ+DkKj8xIMeX40YCA==
-Received: from SG2PR02CA0011.apcprd02.prod.outlook.com (2603:1096:3:17::23) by
- SEYPR04MB7320.apcprd04.prod.outlook.com (2603:1096:101:170::5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.16; Thu, 20 Feb 2025 02:32:50 +0000
-Received: from SG1PEPF000082E4.apcprd02.prod.outlook.com
- (2603:1096:3:17:cafe::4e) by SG2PR02CA0011.outlook.office365.com
- (2603:1096:3:17::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.16 via Frontend Transport; Thu,
- 20 Feb 2025 02:32:50 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 211.20.1.79)
- smtp.mailfrom=wiwynn.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=wiwynn.com;
-Received-SPF: Fail (protection.outlook.com: domain of wiwynn.com does not
- designate 211.20.1.79 as permitted sender) receiver=protection.outlook.com;
- client-ip=211.20.1.79; helo=localhost.localdomain;
-Received: from localhost.localdomain (211.20.1.79) by
- SG1PEPF000082E4.mail.protection.outlook.com (10.167.240.7) with Microsoft
- SMTP Server id 15.20.8466.11 via Frontend Transport; Thu, 20 Feb 2025
- 02:32:49 +0000
-From: Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>
-To: patrick@stwcx.xyz,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: MarshallZhan-wiwynn <marshall_zhan@wiwynn.com>,
-	Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5] ARM: dts: aspeed: yosemite4: add I3C config in DTS
-Date: Thu, 20 Feb 2025 10:32:32 +0800
-Message-Id: <20250220023233.1686419-1-delphine_cc_chiu@wiwynn.com>
-X-Mailer: git-send-email 2.25.1
+	Thu, 20 Feb 2025 02:41:01 +0000
+Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id AB3C92043DEE;
+	Wed, 19 Feb 2025 18:40:58 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com AB3C92043DEE
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1740019259;
+	bh=bxU+8WttbN2F5/Reuw0zhJZjMiM1XS6gufuI6lYqdY8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=d+dtWzGKjvXB4oPn7Lw1Cs2D5Q8eiqlnK/efb7+5clpT/FsGX7mpNMXHpgJLD7gMB
+	 5IGU5pGL0Yugy0cg+ltge8EliDlOXF3tqqi+hiqJsBBm+78QIslB4r+WBKHzdEfdpP
+	 cTr5qd/5uqzYzbpj80UduRcjlVYycEj7E+riOVfM=
+Message-ID: <de06f682-ca11-48da-beca-4dcb49c9fecd@linux.microsoft.com>
+Date: Wed, 19 Feb 2025 18:40:57 -0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG1PEPF000082E4:EE_|SEYPR04MB7320:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 56b282eb-a00b-4b0a-0e46-08dd5156de73
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?t6YA5OyGpVgLGgnTDumtLiUep5upxsCzHruNTTYvBs+EJ2lWRQ+vqtTb3358?=
- =?us-ascii?Q?3m/1hTtWFAe3YArBZwoYNyrh+397qmlT4/B6Si7pssCAXmqSWJryVIQtQRia?=
- =?us-ascii?Q?bshSWTgTAYM073efDGQ+wSRAecpwtXi6AgeplfrD89CB6E4R9mo1TuFkEw3X?=
- =?us-ascii?Q?DO+lg74pG0J27D6MmbSoAl1XryfI2E7ovDxDxh6nDKHYjpHjYvjFpQVtcaVX?=
- =?us-ascii?Q?icXUm+f0jkWyb/0dACuUE8ErgiXB32RURXfk1JQMOhRcNhGihW16p4WAgoLt?=
- =?us-ascii?Q?O0iEn4+jjhOaCWZmdKvjfyhBHIcTkiipak9dbbztK90mxUpg6m5e7d0h72LI?=
- =?us-ascii?Q?ZtvlHS86YuwzDUhiaiTgmHqjVYVw2ZsurgzHhwlP1fL0diskB76ZwIedkOOD?=
- =?us-ascii?Q?ol2PiHWXxtg98DDB/uHVzJK0ES8+g+TwtJhH0q+xz6DwwaiF7YowhyQmSHF3?=
- =?us-ascii?Q?qqgsQZi5MiPXbteVJN2us8ORTmP0sf4keKgWJy3FoP7l7d6nA0bBlP9JqarA?=
- =?us-ascii?Q?l212JVtN4R5Es5tPO11/VagREDWurS+bm5nT/5Xja1LRWflR8olifRHoaY5R?=
- =?us-ascii?Q?hsgprsjJODx6lN38J9jXPZpVtEDXJeguIcSe5laJON3Ugag60qgnTILhHWLv?=
- =?us-ascii?Q?M2I55IhfhOZi25o6lJtAkBel5358nGS1iItOM7XvnsROjuVlZCgxvcmz7q/+?=
- =?us-ascii?Q?gUHFAOlo6cnzxxIYc+Howk4UNg+zOdbHWPx2+mFb4sC2AmcXxdOvuegJG5b8?=
- =?us-ascii?Q?7rWNlQucmlIH1GWTd6zuAoeWDO0IKr0W6y7vMiHtQXF+/6ybMbMsLPkallZs?=
- =?us-ascii?Q?O5gTpNcuggy0SG8zn6yCBQtU6YddPBNsC136mz6Z36zdrz8Q8TsLYX2Rk14/?=
- =?us-ascii?Q?zqRc+N73F/ZGV23PmnYMC6eWVL/Yl9PmMq2zK3Pob4zG/KckgQSC2fNPBINW?=
- =?us-ascii?Q?1VXSSmfYFIBV+AlGFf6VDucsPjcgBZRcR9QPgLJ55A8LDS99sKz5sp24Pipo?=
- =?us-ascii?Q?sz1yY4btapfoDGz7uP6HynPC9NIcbPa0KmEo3FKyyVoG/1X+CNhBit3K/DDf?=
- =?us-ascii?Q?qPxgCwJxMbZIGBMVfwla9wg3pMJt53MjVh+DLrzCkqbEaxy1ZRdUJlNbwPB/?=
- =?us-ascii?Q?DdmUdkZbT0slHo9N1gZ3S+UWR6hbx5bT41IBfVEq9jWf4JT69g2F5S7vht9P?=
- =?us-ascii?Q?60CtWA5VnUNB+OhXeMh4603fLnscZV80GX3auEO1Sh4ipQr+jXfggSm5Ybdt?=
- =?us-ascii?Q?/ypF+Tk1jElihTGdvMU//zp81maRG8Dv57EGTkYdEUHC/BMTjOqNaiiEb6FI?=
- =?us-ascii?Q?Crl+fMNaSITzyElEm2if08hC4Q96yNHyUqMW6lOoc1KUnShw5TF8Z0UtWzgN?=
- =?us-ascii?Q?fq+ISbP+OSfI+j9ERxEV3S8eursHm5GHo5ByldxabyC/+wKmlwJzyUcRef01?=
- =?us-ascii?Q?8/GuWHTQLGVFVvrGca4RJwl4XwaP88J/HgS1Ru/HO0ZF8t43lT5AjEfRLLmd?=
- =?us-ascii?Q?piVpCMu8NJgVo8M=3D?=
-X-Forefront-Antispam-Report: CIP:211.20.1.79;CTRY:TW;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:localhost.localdomain;PTR:211-20-1-79.hinet-ip.hinet.net;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: wiwynn.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 02:32:49.1035
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 56b282eb-a00b-4b0a-0e46-08dd5156de73
-X-MS-Exchange-CrossTenant-Id: da6e0628-fc83-4caf-9dd2-73061cbab167
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=da6e0628-fc83-4caf-9dd2-73061cbab167;Ip=[211.20.1.79];Helo=[localhost.localdomain]
-X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E4.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR04MB7320
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] hyperv: Add CONFIG_MSHV_ROOT to gate hv_root_partition
+ checks
+To: Michael Kelley <mhklinux@outlook.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "iommu@lists.linux.dev" <iommu@lists.linux.dev>
+Cc: "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
+ "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+ "joro@8bytes.org" <joro@8bytes.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>, "arnd@arndb.de"
+ <arnd@arndb.de>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+ "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>
+References: <1739312515-18848-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <SN6PR02MB4157F396B9FECAD555520DDED4C52@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <1defc59b-3e6c-4023-b57b-d81a4358e69e@linux.microsoft.com>
+ <SN6PR02MB4157F735E4B553740CAEE369D4C42@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB4157F735E4B553740CAEE369D4C42@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_183317_194083_4411402C 
-X-CRM114-Status: UNSURE (   7.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250219_184100_360148_E66E3B49 
+X-CRM114-Status: GOOD (  53.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,117 +95,599 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: MarshallZhan-wiwynn <marshall_zhan@wiwynn.com>
+On 2/19/2025 6:07 PM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Wednesday, February 19, 2025 3:53 PM
+>>
+>> On 2/19/2025 11:46 AM, Michael Kelley wrote:
+>>> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Tuesday,
+>> February 11, 2025 2:22 PM
+>>>>
+>>>> Introduce CONFIG_MSHV_ROOT as a tristate to enable root partition
+>>>> booting and future mshv driver functionality.
+>>>
+>>> This statement could use a bit more explanation as to "why".  Something
+>>> like:
+>>>
+>>> Running in the root partition is a unique and specialized case that requires
+>>> additional code. The config option allows kernels built to run as a normal
+>>> Hyper-V guest to exclude this code, which is important since significant
+>>> additional code specific to the root partition is expected to be added over
+>>> time.
+>>>
+>>
+>> This sounds good to me
+>>
+>>> Related, what's the thinking behind making CONFIG_MSHV_ROOT be
+>>> tri-state? Obviously, it would allow most of the root partition code
+>>> to be loaded as a module instead of built-in to the kernel image, but is that
+>>> a useful scenario given the unique nature of running in the root partition?
+>>> Since the root partition environment is very specific and constrained,
+>>> perhaps just always building the root partition code into the kernel
+>>> makes sense. I'm asking purely as a question because I'm not familiar with
+>>> the details of how a root partition kernel is likely to be setup & run. If
+>>> possible, give a short explanation for the "why tri-state" question.
+>>> Remember, that's what commit message are for -- to answer the "why"
+>>> question as much as to summarize the "what" question.
+>>>
+>>
+>> In the past it enabled quicker development: I would iterate on the driver
+>> code and just rebuild and reinsert the module. I'll admit I haven't used that
+>> workflow in a while so I'm not sure how useful it still is.
+>>
+>> Is there a *downside* (from upstream perspective) to keeping it a tristate
+>> that I'm not aware of? e.g. Would it be difficult to change it to a bool in
+>> future if we decide we really don't need it?
+> 
+> OK -- I had not thought about the development workflow, and that's valid.
+> There's no downside to keeping it tri-state that I'm aware of. And I think it
+> would be easy to change to just a Boolean in the future if tri-state
+> isn't really useful. It was just one of those things that surprised me
+> a little bit, and I was wondering "why". :-)
+> 
 
-Set I3C config in yosemite4 DTS.
+Ok great, I will mention it is primarily to aid development.
 
-Test plan:
-Tested PLDM GetTID successfully with the I3C hub driver.
+>>
+>> While we're on this topic, do you know if CONFIG_HYPERV=m is ever used, and
+>> why?
+> 
+> Yes, it is definitely used by the distro vendors. They want to have a single
+> product release that is useable pretty much everywhere. So they don't
+> want to burden the main kernel binary with Hyper-V code that
+> wouldn't be used on bare metal, or a KVM/QEMU VM, etc. Azure images
+> might be a little more specific to Hyper-V, and might have the Hyper-V
+> code built-in -- it depends on the distro vendor. I don't remember having
+> taken a census to know which approach predominates, but my guess is
+> "=m".
+> 
 
-Signed-off-by: MarshallZhan-wiwynn <marshall_zhan@wiwynn.com>
-Signed-off-by: Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>
----
- .../aspeed/aspeed-bmc-facebook-yosemite4.dts  | 86 +++++++++++++++++++
- 1 file changed, 86 insertions(+)
+Good to know!
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-index 29f224bccd63..5dbfe073e536 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
-@@ -1317,6 +1317,92 @@ eeprom@50 {
- 	};
- };
- 
-+&i3c0 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i3c1_default>;
-+	i3c-pp-scl-hi-period-ns = <40>;
-+	i3c-pp-scl-lo-period-ns = <40>;
-+	i3c-od-scl-hi-period-ns = <380>;
-+	i3c-od-scl-lo-period-ns = <620>;
-+	sda-tx-hold-ns = <10>;
-+
-+	mctp-controller;
-+	hub@0x70 {
-+		reg = <0x70 0x3c0 0x00700000>;
-+		cp0-ldo-en = "disabled";
-+		cp1-ldo-en = "disabled";
-+		cp0-ldo-volt = "1.2V";
-+		cp1-ldo-volt = "1.2V";
-+		tp0145-ldo-en = "disabled";
-+		tp2367-ldo-en = "disabled";
-+		tp0145-ldo-volt = "1.2V";
-+		tp2367-ldo-volt = "1.2V";
-+		tp0145-pullup = "2k";
-+		tp2367-pullup = "2k";
-+
-+		target-port@0 {
-+			mode = "i3c";
-+			pullup = "enabled";
-+		};
-+		target-port@1 {
-+			mode = "i3c";
-+			pullup = "enabled";
-+		};
-+		target-port@2 {
-+			mode = "i3c";
-+			pullup = "enabled";
-+		};
-+		target-port@3 {
-+			mode = "i3c";
-+			pullup = "enabled";
-+		};
-+	};
-+};
-+
-+&i3c1 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i3c2_default>;
-+	i3c-pp-scl-hi-period-ns = <40>;
-+	i3c-pp-scl-lo-period-ns = <40>;
-+	i3c-od-scl-hi-period-ns = <380>;
-+	i3c-od-scl-lo-period-ns = <620>;
-+	sda-tx-hold-ns = <10>;
-+
-+	mctp-controller;
-+	hub@0x70 {
-+		reg = <0x70 0x3c0 0x00700000>;
-+		cp0-ldo-en = "disabled";
-+		cp1-ldo-en = "disabled";
-+		cp0-ldo-volt = "1.2V";
-+		cp1-ldo-volt = "1.2V";
-+		tp0145-ldo-en = "disabled";
-+		tp2367-ldo-en = "disabled";
-+		tp0145-ldo-volt = "1.2V";
-+		tp2367-ldo-volt = "1.2V";
-+		tp0145-pullup = "2k";
-+		tp2367-pullup = "2k";
-+
-+		target-port@0 {
-+			mode = "i3c";
-+			pullup = "enabled";
-+		};
-+		target-port@1 {
-+			mode = "i3c";
-+			pullup = "enabled";
-+		};
-+		target-port@2 {
-+			mode = "i3c";
-+			pullup = "enabled";
-+		};
-+		target-port@3 {
-+			mode = "i3c";
-+			pullup = "enabled";
-+		};
-+	};
-+};
-+
- &adc0 {
- 	status = "okay";
- 	pinctrl-0 = <&pinctrl_adc0_default &pinctrl_adc1_default
--- 
-2.25.1
+>>
+>>>>
+>>>> Change hv_root_partition into a function which always returns false
+>>>> if CONFIG_MSHV_ROOT=n.
+>>>
+>>> Again, help answer the "why" question. I think the goal is related to
+>>> the above by allowing the compiler to optimize away any "if (root partition)"
+>>> code when building for a normal Hyper-V guest.
+>>>
+
+Forgot to respond here last email - Yep, I will explain it more clearly as you
+suggest.
+
+>>>>
+>>>> Introduce hv_current_partition_type to store the type of partition
+>>>> (guest, root, or other kinds in future), and hv_identify_partition_type()
+>>>> to it up early in Hyper-V initialization.
+>>>>
+>>>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>>>> ---
+>>>> Depends on
+>>>> https://lore.kernel.org/linux-hyperv/1738955002-20821-3-git-send-email-nunodasneves@linux.microsoft.com/
+>>>>
+>>>>  arch/arm64/hyperv/mshyperv.c       |  2 ++
+>>>>  arch/x86/hyperv/hv_init.c          | 10 ++++----
+>>>>  arch/x86/kernel/cpu/mshyperv.c     | 24 ++----------------
+>>>>  drivers/clocksource/hyperv_timer.c |  4 +--
+>>>>  drivers/hv/Kconfig                 | 12 +++++++++
+>>>>  drivers/hv/Makefile                |  3 ++-
+>>>>  drivers/hv/hv.c                    | 10 ++++----
+>>>>  drivers/hv/hv_common.c             | 32 +++++++++++++++++++-----
+>>>>  drivers/hv/vmbus_drv.c             |  2 +-
+>>>>  drivers/iommu/hyperv-iommu.c       |  4 +--
+>>>>  include/asm-generic/mshyperv.h     | 39 +++++++++++++++++++++++++-----
+>>>>  11 files changed, 92 insertions(+), 50 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+>>>> index 29fcfd595f48..2265ea5ce5ad 100644
+>>>> --- a/arch/arm64/hyperv/mshyperv.c
+>>>> +++ b/arch/arm64/hyperv/mshyperv.c
+>>>> @@ -61,6 +61,8 @@ static int __init hyperv_init(void)
+>>>>  		ms_hyperv.features, ms_hyperv.priv_high, ms_hyperv.hints,
+>>>>  		ms_hyperv.misc_features);
+>>>>
+>>>> +	hv_identify_partition_type();
+>>>> +
+>>>>  	ret = hv_common_init();
+>>>>  	if (ret)
+>>>>  		return ret;
+>>>> diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
+>>>> index 9be1446f5bd3..ddeb40930bc8 100644
+>>>> --- a/arch/x86/hyperv/hv_init.c
+>>>> +++ b/arch/x86/hyperv/hv_init.c
+>>>> @@ -90,7 +90,7 @@ static int hv_cpu_init(unsigned int cpu)
+>>>>  		return 0;
+>>>>
+>>>>  	hvp = &hv_vp_assist_page[cpu];
+>>>> -	if (hv_root_partition) {
+>>>> +	if (hv_root_partition()) {
+>>>>  		/*
+>>>>  		 * For root partition we get the hypervisor provided VP assist
+>>>>  		 * page, instead of allocating a new page.
+>>>> @@ -242,7 +242,7 @@ static int hv_cpu_die(unsigned int cpu)
+>>>>
+>>>>  	if (hv_vp_assist_page && hv_vp_assist_page[cpu]) {
+>>>>  		union hv_vp_assist_msr_contents msr = { 0 };
+>>>> -		if (hv_root_partition) {
+>>>> +		if (hv_root_partition()) {
+>>>>  			/*
+>>>>  			 * For root partition the VP assist page is mapped to
+>>>>  			 * hypervisor provided page, and thus we unmap the
+>>>> @@ -317,7 +317,7 @@ static int hv_suspend(void)
+>>>>  	union hv_x64_msr_hypercall_contents hypercall_msr;
+>>>>  	int ret;
+>>>>
+>>>> -	if (hv_root_partition)
+>>>> +	if (hv_root_partition())
+>>>>  		return -EPERM;
+>>>>
+>>>>  	/*
+>>>> @@ -518,7 +518,7 @@ void __init hyperv_init(void)
+>>>>  	rdmsrl(HV_X64_MSR_HYPERCALL, hypercall_msr.as_uint64);
+>>>>  	hypercall_msr.enable = 1;
+>>>>
+>>>> -	if (hv_root_partition) {
+>>>> +	if (hv_root_partition()) {
+>>>>  		struct page *pg;
+>>>>  		void *src;
+>>>>
+>>>> @@ -592,7 +592,7 @@ void __init hyperv_init(void)
+>>>>  	 * If we're running as root, we want to create our own PCI MSI domain.
+>>>>  	 * We can't set this in hv_pci_init because that would be too late.
+>>>>  	 */
+>>>> -	if (hv_root_partition)
+>>>> +	if (hv_root_partition())
+>>>>  		x86_init.irqs.create_pci_msi_domain = hv_create_pci_msi_domain;
+>>>>  #endif
+>>>>
+>>>> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
+>>>> index f285757618fc..4f01f424ea5b 100644
+>>>> --- a/arch/x86/kernel/cpu/mshyperv.c
+>>>> +++ b/arch/x86/kernel/cpu/mshyperv.c
+>>>> @@ -33,8 +33,6 @@
+>>>>  #include <asm/numa.h>
+>>>>  #include <asm/svm.h>
+>>>>
+>>>> -/* Is Linux running as the root partition? */
+>>>> -bool hv_root_partition;
+>>>>  /* Is Linux running on nested Microsoft Hypervisor */
+>>>>  bool hv_nested;
+>>>>  struct ms_hyperv_info ms_hyperv;
+>>>> @@ -451,25 +449,7 @@ static void __init ms_hyperv_init_platform(void)
+>>>>  	pr_debug("Hyper-V: max %u virtual processors, %u logical processors\n",
+>>>>  		 ms_hyperv.max_vp_index, ms_hyperv.max_lp_index);
+>>>>
+>>>> -	/*
+>>>> -	 * Check CPU management privilege.
+>>>> -	 *
+>>>> -	 * To mirror what Windows does we should extract CPU management
+>>>> -	 * features and use the ReservedIdentityBit to detect if Linux is the
+>>>> -	 * root partition. But that requires negotiating CPU management
+>>>> -	 * interface (a process to be finalized). For now, use the privilege
+>>>> -	 * flag as the indicator for running as root.
+>>>> -	 *
+>>>> -	 * Hyper-V should never specify running as root and as a Confidential
+>>>> -	 * VM. But to protect against a compromised/malicious Hyper-V trying
+>>>> -	 * to exploit root behavior to expose Confidential VM memory, ignore
+>>>> -	 * the root partition setting if also a Confidential VM.
+>>>> -	 */
+>>>> -	if ((ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
+>>>> -	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
+>>>> -		hv_root_partition = true;
+>>>> -		pr_info("Hyper-V: running as root partition\n");
+>>>> -	}
+>>>> +	hv_identify_partition_type();
+>>>>
+>>>>  	if (ms_hyperv.hints & HV_X64_HYPERV_NESTED) {
+>>>>  		hv_nested = true;
+>>>> @@ -618,7 +598,7 @@ static void __init ms_hyperv_init_platform(void)
+>>>>
+>>>>  # ifdef CONFIG_SMP
+>>>>  	smp_ops.smp_prepare_boot_cpu = hv_smp_prepare_boot_cpu;
+>>>> -	if (hv_root_partition ||
+>>>> +	if (hv_root_partition() ||
+>>>>  	    (!ms_hyperv.paravisor_present && hv_isolation_type_snp()))
+>>>>  		smp_ops.smp_prepare_cpus = hv_smp_prepare_cpus;
+>>>>  # endif
+>>>> diff --git a/drivers/clocksource/hyperv_timer.c b/drivers/clocksource/hyperv_timer.c
+>>>> index f00019b078a7..09549451dd51 100644
+>>>> --- a/drivers/clocksource/hyperv_timer.c
+>>>> +++ b/drivers/clocksource/hyperv_timer.c
+>>>> @@ -582,7 +582,7 @@ static void __init hv_init_tsc_clocksource(void)
+>>>>  	 * mapped.
+>>>>  	 */
+>>>>  	tsc_msr.as_uint64 = hv_get_msr(HV_MSR_REFERENCE_TSC);
+>>>> -	if (hv_root_partition)
+>>>> +	if (hv_root_partition())
+>>>>  		tsc_pfn = tsc_msr.pfn;
+>>>>  	else
+>>>>  		tsc_pfn = HVPFN_DOWN(virt_to_phys(tsc_page));
+>>>> @@ -627,7 +627,7 @@ void __init hv_remap_tsc_clocksource(void)
+>>>>  	if (!(ms_hyperv.features & HV_MSR_REFERENCE_TSC_AVAILABLE))
+>>>>  		return;
+>>>>
+>>>> -	if (!hv_root_partition) {
+>>>> +	if (!hv_root_partition()) {
+>>>>  		WARN(1, "%s: attempt to remap TSC page in guest partition\n",
+>>>>  		     __func__);
+>>>>  		return;
+>>>> diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig
+>>>> index 862c47b191af..aac172942f6c 100644
+>>>> --- a/drivers/hv/Kconfig
+>>>> +++ b/drivers/hv/Kconfig
+>>>> @@ -55,4 +55,16 @@ config HYPERV_BALLOON
+>>>>  	help
+>>>>  	  Select this option to enable Hyper-V Balloon driver.
+>>>>
+>>>> +config MSHV_ROOT
+>>>> +	tristate "Microsoft Hyper-V root partition support"
+>>>> +	depends on HYPERV
+>>>> +	depends on !HYPERV_VTL_MODE
+>>>> +	depends on PAGE_SIZE_4KB
+>>>
+>>> Add a comment about why PAGE_SIZE_4KB is a requirement, even on
+>>> arm64 systems that can support guests with larger page sizes. We
+>>> discussed why in an earlier email thread, but somebody looking at
+>>> this in the future might wonder.
+>>>
+>>>> +	default n
+>>>> +	help
+>>>> +	  Select this option to enable support for booting and running as root
+>>>> +	  partition on Microsoft Hyper-V.
+>>>> +
+>>>> +	  If unsure, say N.
+>>>> +
+>>>
+>>> One thing to keep in mind:  Sometimes people build kernels with all
+>>> config options set to "Y".  We want to make sure that if someone does
+>>> that, the kernel will still run in a non-Hyper-V environment.  We had this
+>>> problem with CONFIG_HYPERV_VTL_MODE=y, where a kernel built with
+>>> that wouldn't run elsewhere, and that had to be fixed.  I don't think the
+>>> changes in this patch cause a problem in that regard, but it is something
+>>> to keep in mind for the future.
+>>>
+>>> As I see it, setting CONFIG_MSHV_ROOT=y (or =m) just adds code to
+>>> the kernel image or modules list, and enables runtime detection of
+>>> whether the kernel is actually in the root partition. If not actually in the
+>>> root partition, the behavior is normal guest behavior. I think that is all good.
+>>>
+>> Yes, agreed. The assumption we are working under is that enabling
+>> CONFIG_MSHV_ROOT
+>> doesn't break any normal guest or non-Hyper-V scenarios.
+>>
+>> Of course it's hard to always be certain that our code doesn't break some other
+>> config option at runtime, but we fix that whenever we see it (or exclude the
+>> combination via Kconfig).
+>>
+>>>>  endmenu
+>>>> diff --git a/drivers/hv/Makefile b/drivers/hv/Makefile
+>>>> index 9afcabb3fbd2..2b8dc954b350 100644
+>>>> --- a/drivers/hv/Makefile
+>>>> +++ b/drivers/hv/Makefile
+>>>> @@ -13,4 +13,5 @@ hv_vmbus-$(CONFIG_HYPERV_TESTING)	+= hv_debugfs.o
+>>>>  hv_utils-y := hv_util.o hv_kvp.o hv_snapshot.o hv_utils_transport.o
+>>>>
+>>>>  # Code that must be built-in
+>>>> -obj-$(subst m,y,$(CONFIG_HYPERV)) += hv_common.o hv_proc.o
+>>>> +obj-$(subst m,y,$(CONFIG_HYPERV)) += hv_common.o
+>>>> +obj-$(subst m,y,$(CONFIG_MSHV_ROOT)) += hv_proc.o
+>>>
+>>> OK, so hv_proc.o is always built-in, regardless of whether
+>>> CONFIG_MSHV_ROOT=y or =m. I think that makes sense. The functions in
+>>> hv_proc.c are called somewhere in the middle of the kernel boot process,
+>>> and I'm unsure if the module loading mechanism is fully set up at the point
+>>> the functions are needed. This approach avoids any risk of not being able
+>>> to load the module. Presumably still-to-be-added code for the root partition
+>>> could be built as a module (though see my comment in the commit message).
+>>>
+>>
+>> Yep, that was the idea.
+>>
+>>>> diff --git a/drivers/hv/hv.c b/drivers/hv/hv.c
+>>>> index 36d9ba097ff5..93d82382351c 100644
+>>>> --- a/drivers/hv/hv.c
+>>>> +++ b/drivers/hv/hv.c
+>>>> @@ -144,7 +144,7 @@ int hv_synic_alloc(void)
+>>>>  		 * Synic message and event pages are allocated by paravisor.
+>>>>  		 * Skip these pages allocation here.
+>>>>  		 */
+>>>> -		if (!ms_hyperv.paravisor_present && !hv_root_partition) {
+>>>> +		if (!ms_hyperv.paravisor_present && !hv_root_partition()) {
+>>>>  			hv_cpu->synic_message_page =
+>>>>  				(void *)get_zeroed_page(GFP_ATOMIC);
+>>>>  			if (!hv_cpu->synic_message_page) {
+>>>> @@ -272,7 +272,7 @@ void hv_synic_enable_regs(unsigned int cpu)
+>>>>  	simp.as_uint64 = hv_get_msr(HV_MSR_SIMP);
+>>>>  	simp.simp_enabled = 1;
+>>>>
+>>>> -	if (ms_hyperv.paravisor_present || hv_root_partition) {
+>>>> +	if (ms_hyperv.paravisor_present || hv_root_partition()) {
+>>>>  		/* Mask out vTOM bit. ioremap_cache() maps decrypted */
+>>>>  		u64 base = (simp.base_simp_gpa << HV_HYP_PAGE_SHIFT) &
+>>>>  				~ms_hyperv.shared_gpa_boundary;
+>>>> @@ -291,7 +291,7 @@ void hv_synic_enable_regs(unsigned int cpu)
+>>>>  	siefp.as_uint64 = hv_get_msr(HV_MSR_SIEFP);
+>>>>  	siefp.siefp_enabled = 1;
+>>>>
+>>>> -	if (ms_hyperv.paravisor_present || hv_root_partition) {
+>>>> +	if (ms_hyperv.paravisor_present || hv_root_partition()) {
+>>>>  		/* Mask out vTOM bit. ioremap_cache() maps decrypted */
+>>>>  		u64 base = (siefp.base_siefp_gpa << HV_HYP_PAGE_SHIFT) &
+>>>>  				~ms_hyperv.shared_gpa_boundary;
+>>>> @@ -367,7 +367,7 @@ void hv_synic_disable_regs(unsigned int cpu)
+>>>>  	 * addresses.
+>>>>  	 */
+>>>>  	simp.simp_enabled = 0;
+>>>> -	if (ms_hyperv.paravisor_present || hv_root_partition) {
+>>>> +	if (ms_hyperv.paravisor_present || hv_root_partition()) {
+>>>>  		iounmap(hv_cpu->synic_message_page);
+>>>>  		hv_cpu->synic_message_page = NULL;
+>>>>  	} else {
+>>>> @@ -379,7 +379,7 @@ void hv_synic_disable_regs(unsigned int cpu)
+>>>>  	siefp.as_uint64 = hv_get_msr(HV_MSR_SIEFP);
+>>>>  	siefp.siefp_enabled = 0;
+>>>>
+>>>> -	if (ms_hyperv.paravisor_present || hv_root_partition) {
+>>>> +	if (ms_hyperv.paravisor_present || hv_root_partition()) {
+>>>>  		iounmap(hv_cpu->synic_event_page);
+>>>>  		hv_cpu->synic_event_page = NULL;
+>>>>  	} else {
+>>>> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+>>>> index cb3ea49020ef..d1227e85c5b7 100644
+>>>> --- a/drivers/hv/hv_common.c
+>>>> +++ b/drivers/hv/hv_common.c
+>>>> @@ -34,8 +34,11 @@
+>>>>  u64 hv_current_partition_id = HV_PARTITION_ID_SELF;
+>>>>  EXPORT_SYMBOL_GPL(hv_current_partition_id);
+>>>>
+>>>> +enum hv_partition_type hv_current_partition_type;
+>>>> +EXPORT_SYMBOL_GPL(hv_current_partition_type);
+>>>> +
+>>>>  /*
+>>>> - * hv_root_partition, ms_hyperv and hv_nested are defined here with other
+>>>> + * ms_hyperv and hv_nested are defined here with other
+>>>>   * Hyper-V specific globals so they are shared across all architectures and are
+>>>>   * built only when CONFIG_HYPERV is defined.  But on x86,
+>>>>   * ms_hyperv_init_platform() is built even when CONFIG_HYPERV is not
+>>>> @@ -43,9 +46,6 @@ EXPORT_SYMBOL_GPL(hv_current_partition_id);
+>>>>   * here, allowing for an overriding definition in the module containing
+>>>>   * ms_hyperv_init_platform().
+>>>>   */
+>>>> -bool __weak hv_root_partition;
+>>>> -EXPORT_SYMBOL_GPL(hv_root_partition);
+>>>> -
+>>>>  bool __weak hv_nested;
+>>>>  EXPORT_SYMBOL_GPL(hv_nested);
+>>>>
+>>>> @@ -283,7 +283,7 @@ static void hv_kmsg_dump_register(void)
+>>>>
+>>>>  static inline bool hv_output_page_exists(void)
+>>>>  {
+>>>> -	return hv_root_partition || IS_ENABLED(CONFIG_HYPERV_VTL_MODE);
+>>>> +	return hv_root_partition() || IS_ENABLED(CONFIG_HYPERV_VTL_MODE);
+>>>>  }
+>>>>
+>>>>  void __init hv_get_partition_id(void)
+>>>> @@ -594,7 +594,7 @@ EXPORT_SYMBOL_GPL(hv_setup_dma_ops);
+>>>>
+>>>>  bool hv_is_hibernation_supported(void)
+>>>>  {
+>>>> -	return !hv_root_partition && acpi_sleep_state_supported(ACPI_STATE_S4);
+>>>> +	return !hv_root_partition() && acpi_sleep_state_supported(ACPI_STATE_S4);
+>>>>  }
+>>>>  EXPORT_SYMBOL_GPL(hv_is_hibernation_supported);
+>>>>
+>>>> @@ -683,3 +683,23 @@ u64 __weak hv_tdx_hypercall(u64 control, u64 param1, u64 param2)
+>>>>  	return HV_STATUS_INVALID_PARAMETER;
+>>>>  }
+>>>>  EXPORT_SYMBOL_GPL(hv_tdx_hypercall);
+>>>> +
+>>>> +void hv_identify_partition_type(void)
+>>>> +{
+>>>> +	/*
+>>>> +	 * Check partition creation and cpu management privileges
+>>>> +	 *
+>>>> +	 * Hyper-V should never specify running as root and as a Confidential
+>>>> +	 * VM. But to protect against a compromised/malicious Hyper-V trying
+>>>> +	 * to exploit root behavior to expose Confidential VM memory, ignore
+>>>> +	 * the root partition setting if also a Confidential VM.
+>>>> +	 */
+>>>> +	if ((ms_hyperv.priv_high & HV_CREATE_PARTITIONS) &&
+>>>> +	    (ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
+>>>> +	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
+>>>> +		hv_current_partition_type = HV_PARTITION_TYPE_ROOT;
+>>>> +		pr_info("Hyper-V: running as root partition\n");
+>>>> +	} else {
+>>>> +		hv_current_partition_type = HV_PARTITION_TYPE_GUEST;
+>>>> +	}
+>>>
+>>> If the flags indicate running in the root partition, but CONFIG_MSHV_ROOT=n,
+>>> perhaps that should probably be flagged with an error message. I haven't thought
+>>> through what to do then: Panic, keep running as a normal guest, or something else?
+>>>
+>>
+>> If the kernel is run as root partition with CONFIG_MSHV_ROOT=n, I think it will crash
+>> or hang at some point later in boot.
+>>
+>> How about this:
+>>
+>> 	if ((ms_hyperv.priv_high & HV_CREATE_PARTITIONS) &&
+>> 	    (ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
+>> 	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
+>> 		pr_info("Hyper-V: running as root partition\n");
+>> 		if (IS_ENABLED(CONFIG_MSHV_ROOT))
+>> 			hv_current_partition_type = HV_PARTITION_TYPE_ROOT;
+>> 		else
+>> 			pr_crit("Hyper-V: CONFIG_MSHV_ROOT not enabled!\n");
+>> 	}
+>>
+>> We could also BUG_ON() since it will almost certainly crash anyway, but maybe just
+>> letting it continue is ok.
+> 
+> I'm OK with just continuing, as I don't have any justification for an alternative.
+> It's a strange situation that should not happen, but it's worthwhile to output
+> some indication of why things are about to go badly.
+> 
+
+Ok, thanks for the comments. Planning to post v2 soon.
+
+Nuno
+
+> Michael
+> 
+>>
+>>>> +}
+>>>> diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
+>>>> index 0f6cd44fff29..844eba0429fa 100644
+>>>> --- a/drivers/hv/vmbus_drv.c
+>>>> +++ b/drivers/hv/vmbus_drv.c
+>>>> @@ -2646,7 +2646,7 @@ static int __init hv_acpi_init(void)
+>>>>  	if (!hv_is_hyperv_initialized())
+>>>>  		return -ENODEV;
+>>>>
+>>>> -	if (hv_root_partition && !hv_nested)
+>>>> +	if (hv_root_partition() && !hv_nested)
+>>>>  		return 0;
+>>>>
+>>>>  	/*
+>>>> diff --git a/drivers/iommu/hyperv-iommu.c b/drivers/iommu/hyperv-iommu.c
+>>>> index 2a86aa5d54c6..53e4b37716af 100644
+>>>> --- a/drivers/iommu/hyperv-iommu.c
+>>>> +++ b/drivers/iommu/hyperv-iommu.c
+>>>> @@ -130,7 +130,7 @@ static int __init hyperv_prepare_irq_remapping(void)
+>>>>  	    x86_init.hyper.msi_ext_dest_id())
+>>>>  		return -ENODEV;
+>>>>
+>>>> -	if (hv_root_partition) {
+>>>> +	if (hv_root_partition()) {
+>>>>  		name = "HYPERV-ROOT-IR";
+>>>>  		ops = &hyperv_root_ir_domain_ops;
+>>>>  	} else {
+>>>> @@ -151,7 +151,7 @@ static int __init hyperv_prepare_irq_remapping(void)
+>>>>  		return -ENOMEM;
+>>>>  	}
+>>>>
+>>>> -	if (hv_root_partition)
+>>>> +	if (hv_root_partition())
+>>>>  		return 0; /* The rest is only relevant to guests */
+>>>>
+>>>>  	/*
+>>>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+>>>> index 7adc10a4fa3e..6f898792fb51 100644
+>>>> --- a/include/asm-generic/mshyperv.h
+>>>> +++ b/include/asm-generic/mshyperv.h
+>>>> @@ -28,6 +28,11 @@
+>>>>
+>>>>  #define VTPM_BASE_ADDRESS 0xfed40000
+>>>>
+>>>> +enum hv_partition_type {
+>>>> +	HV_PARTITION_TYPE_GUEST,
+>>>> +	HV_PARTITION_TYPE_ROOT,
+>>>> +};
+>>>> +
+>>>>  struct ms_hyperv_info {
+>>>>  	u32 features;
+>>>>  	u32 priv_high;
+>>>> @@ -59,6 +64,7 @@ struct ms_hyperv_info {
+>>>>  extern struct ms_hyperv_info ms_hyperv;
+>>>>  extern bool hv_nested;
+>>>>  extern u64 hv_current_partition_id;
+>>>> +extern enum hv_partition_type hv_current_partition_type;
+>>>>
+>>>>  extern void * __percpu *hyperv_pcpu_input_arg;
+>>>>  extern void * __percpu *hyperv_pcpu_output_arg;
+>>>> @@ -190,8 +196,6 @@ void hv_remove_crash_handler(void);
+>>>>  extern int vmbus_interrupt;
+>>>>  extern int vmbus_irq;
+>>>>
+>>>> -extern bool hv_root_partition;
+>>>> -
+>>>>  #if IS_ENABLED(CONFIG_HYPERV)
+>>>>  /*
+>>>>   * Hypervisor's notion of virtual processor ID is different from
+>>>> @@ -213,15 +217,12 @@ void __init hv_common_free(void);
+>>>>  void __init ms_hyperv_late_init(void);
+>>>>  int hv_common_cpu_init(unsigned int cpu);
+>>>>  int hv_common_cpu_die(unsigned int cpu);
+>>>> +void hv_identify_partition_type(void);
+>>>>
+>>>>  void *hv_alloc_hyperv_page(void);
+>>>>  void *hv_alloc_hyperv_zeroed_page(void);
+>>>>  void hv_free_hyperv_page(void *addr);
+>>>>
+>>>> -int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages);
+>>>> -int hv_call_add_logical_proc(int node, u32 lp_index, u32 acpi_id);
+>>>> -int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags);
+>>>> -
+>>>>  /**
+>>>>   * hv_cpu_number_to_vp_number() - Map CPU to VP.
+>>>>   * @cpu_number: CPU number in Linux terms
+>>>> @@ -309,6 +310,7 @@ void hyperv_cleanup(void);
+>>>>  bool hv_query_ext_cap(u64 cap_query);
+>>>>  void hv_setup_dma_ops(struct device *dev, bool coherent);
+>>>>  #else /* CONFIG_HYPERV */
+>>>> +static inline void hv_identify_partition_type(void) {}
+>>>>  static inline bool hv_is_hyperv_initialized(void) { return false; }
+>>>>  static inline bool hv_is_hibernation_supported(void) { return false; }
+>>>>  static inline void hyperv_cleanup(void) {}
+>>>> @@ -320,4 +322,29 @@ static inline enum hv_isolation_type hv_get_isolation_type(void)
+>>>>  }
+>>>>  #endif /* CONFIG_HYPERV */
+>>>>
+>>>> +#if IS_ENABLED(CONFIG_MSHV_ROOT)
+>>>> +static inline bool hv_root_partition(void)
+>>>> +{
+>>>> +	return	hv_current_partition_type == HV_PARTITION_TYPE_ROOT;
+>>>
+>>> Nit: There's an extra space character after "return".
+>>>
+>>
+>> Fixed for next version, thanks.
+>>
+>>>> +}
+>>>> +int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages);
+>>>> +int hv_call_add_logical_proc(int node, u32 lp_index, u32 acpi_id);
+>>>> +int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags);
+>>>> +
+>>>> +#else /* CONFIG_MSHV_ROOT */
+>>>> +static inline bool hv_root_partition(void) { return false; }
+>>>> +static inline int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
+>>>> +{
+>>>> +	return hv_result(U64_MAX);
+>>>> +}
+>>>> +static inline int hv_call_add_logical_proc(int node, u32 lp_index, u32 acpi_id)
+>>>> +{
+>>>> +	return hv_result(U64_MAX);
+>>>> +}
+>>>> +static inline int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags)
+>>>> +{
+>>>> +	return hv_result(U64_MAX);
+>>>> +}
+>>>> +#endif /* CONFIG_MSHV_ROOT */
+>>>> +
+>>>>  #endif
+>>>> --
+>>>> 2.34.1
 
 
