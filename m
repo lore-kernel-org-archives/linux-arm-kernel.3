@@ -4,88 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E81AC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 10:39:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E69F9C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 10:46:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wh9A1BD/RTEscUaPrQN3XaSi0R1/Qa7MqH53NBxklI0=; b=yB7NqfNDDCx6M999Q6qGYwDQuX
-	HTjg1qyQcIJvfgAC2+WIjuUyDOA0UPoZejCXSWv6Mx11sztdlSMZgyIv7KIls5RxdZbS1I2ibVc9o
-	5vZ4jLLVtgphNDDk3YSZFGU8o9SjW6CgKdwlOIQe/3MJgEEiMtGNP5oqC5d0wgt/n6LGPc0FshlH3
-	woFceApNCTAb807t0AQGGu/yBxKJ8V9G1VrrZtbxirvlTWJ0LeilrSY8Zs96eU8JXVSbyuP1Vfqei
-	V9r6B5AkGpB7fQv7l07OswEOSdBElyaeh+eTr3zGKitRtjT3EHt7JOxbLt/taf89QwBVDHuYEksaG
-	YFKb5ydw==;
+	bh=aa0nagdj/BekeE52UFxAhdwBwxZ74jtsbiGrMqcOGSc=; b=tOCEeR0bj7ZhnHnJTK2ltNq4Iw
+	5LVNLDpg/jB+pLpdTAy9XEvFGpuFGVz8SroOT6tEmnDN3FKKjmjFZy7/qM4+fJSdGdeqdeCoR4YjH
+	ndRGW8eEX3VrncpEnXuAGqZGy/5WIHHyMWf0YtY81MrCd15JLJmgPJwSYyhsW7/p92fViqfEhLkCf
+	C14BGw5zusHEG3QreWBuLLzeaaWKLGoqAzsswBAIQ1MChqBRyV0najvnOql+qpbEoqgm4+/wmAUwa
+	vYscW4xAuzSh1Sa/BtvV2Spumx1yBlp4Rsqs1m5tdjclH8+FYLDu0r7K6uqYWPvbBhMmyIBzcyB77
+	3TEUC/Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl3xC-00000000Kh5-45FC;
-	Thu, 20 Feb 2025 10:38:50 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl3vh-00000000KGh-10ye
+	id 1tl44L-00000000MXS-1UCz;
+	Thu, 20 Feb 2025 10:46:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tl42p-00000000MAH-3N5l
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 10:37:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1740047837; x=1771583837;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=wh9A1BD/RTEscUaPrQN3XaSi0R1/Qa7MqH53NBxklI0=;
-  b=GZ/zcfb41m/pBcci2fRj7vgnm4IT7J1/FcwPnQFTK377shtOi8Znf4PC
-   tuol/dhJOZkdFfJBO3HbSNyd0hFR8ndbuMT/iWo12jc+e6DLaPTKOuS9M
-   DRH7m/KBf57QqN2df1T42Kv8sJ9nqJVlKA9FBV3cxBh3+DcTLu5538dlz
-   XAVlK/ASyzygB/fnIXbRoRDp7kjMsZe3n+wcb1Epn93SarGdrXKxbgzEd
-   fuMVhwNC/96ARjNfq1KHEZfVj5fOkf01yqqr6of4zvQ6PiwM2VhL/awHA
-   RsvceMmUQ7O0xxK2I0sxDHLiu/g0VPReWzHshqYd/j/issLIGhzcSh2Rb
-   A==;
-X-CSE-ConnectionGUID: CwnbI0K+RpSL3PTir3jFFQ==
-X-CSE-MsgGUID: e3NjdcT0R7yw1SDXUXlCFQ==
-X-IronPort-AV: E=Sophos;i="6.13,301,1732575600"; 
-   d="scan'208";a="41977185"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 20 Feb 2025 11:37:00 +0100
-X-CheckPoint: {67B705CB-2B-B8541F8F-E50F9B0E}
-X-MAIL-CPID: 1B5560109A7002A5CA5F1D2F139B739C_2
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EC4D6165713;
-	Thu, 20 Feb 2025 11:36:53 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1740047815;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wh9A1BD/RTEscUaPrQN3XaSi0R1/Qa7MqH53NBxklI0=;
-	b=e4D0OjDSA2ZA2GlPxzsqw7tkGSZo29ZHbECBq+JdmCuxym+wVv2+TZDkqLfplc5tSpTR0e
-	WtTAKKvnO1SwFM+LEGSmcHVIgFzX2i69wX9Xer2DfxIy8r6H8FLj+WZ7diyyAnEBhd0bTG
-	e9jb0QInU+lPP7dXVF1lC1lhyF7uEN8pn4s9p0+eCPzU1S/cqit1zvMCiHMWGwgvZvXrSU
-	1QXU66t76OvYPgdFNUlps2CUj8/UhrhunsGGXfQSJ5P2ZPAMaxq29eaF1qINsLrsEi7i5x
-	95O1hVVCteRHOEbAhaRi9l/sghRsYJbDlGI1fNDe+sR4sWPgTQ1VN5Z/tBXn+g==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: p.zabel@pengutronix.de, robh@kernel.org, shawnguo@kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: krzk+dt@kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, mathieu.poirier@linaro.org,
- shengjiu.wang@nxp.com, Frank.Li@nxp.com, peng.fan@nxp.com,
- laurentiu.mihalcea@nxp.com, iuliana.prodan@nxp.com,
- Daniel Baluta <daniel.baluta@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>
-Subject: Re: [PATCH v2 2/8] dt-bindings: dsp: fsl,dsp: Add resets property
-Date: Thu, 20 Feb 2025 11:36:53 +0100
-Message-ID: <12614210.O9o76ZdvQC@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20250219192102.423850-3-daniel.baluta@nxp.com>
-References: <20250219192102.423850-1-daniel.baluta@nxp.com>
- <20250219192102.423850-3-daniel.baluta@nxp.com>
+	Thu, 20 Feb 2025 10:44:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA6D916A3;
+	Thu, 20 Feb 2025 02:44:54 -0800 (PST)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 882E73F59E;
+	Thu, 20 Feb 2025 02:44:35 -0800 (PST)
+Date: Thu, 20 Feb 2025 10:44:19 +0000
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 0/2] KVM: arm64: EL2 PMU reset handling fixes
+Message-ID: <20250220104419.GA2511466@e124191.cambridge.arm.com>
+References: <20250217112412.3963324-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250217112412.3963324-1-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_023717_771625_A4052B4F 
-X-CRM114-Status: GOOD (  17.25  )
+X-CRM114-CacheID: sfid-20250220_024439_886631_0F7888AA 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,80 +64,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Mon, Feb 17, 2025 at 11:24:10AM +0000, Marc Zyngier wrote:
+> Joey reports that some of his PMU tests do not behave quite as
+> expected:
+> 
+> - MDCR_EL2.HPMN is set to 0 out of reset
+> 
+> - PMCR_EL0.P should reset all the counters when written from EL2
+> 
+> These couple of patches attempt to remedy the situation. Note that
+> they have only been compile-tested.
+> 
+> Marc Zyngier (2):
+>   KVM: arm64: Fix MDCR_EL2.HPMN reset value
+>   KVM: arm64: Contextualise the handling of PMCR_EL0.P writes
+> 
+>  arch/arm64/kvm/pmu-emul.c | 21 ++++++++++++++++-----
+>  arch/arm64/kvm/sys_regs.c |  7 ++++++-
+>  2 files changed, 22 insertions(+), 6 deletions(-)
 
-Am Mittwoch, 19. Februar 2025, 20:20:56 CET schrieb Daniel Baluta:
-> On i.MX8MP we introduced support for using a reset controller
-> to control DSP operation.
->=20
-> This patch adds reset property which is required for i.MX8MP.
->=20
-> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-> ---
->  .../devicetree/bindings/dsp/fsl,dsp.yaml      | 19 ++++++++++++++++++-
->  1 file changed, 18 insertions(+), 1 deletion(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml b/Documen=
-tation/devicetree/bindings/dsp/fsl,dsp.yaml
-> index ab93ffd3d2e5..923e7f079f1b 100644
-> --- a/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml
-> +++ b/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml
-> @@ -82,6 +82,13 @@ properties:
->      description:
->        Phandle to syscon block which provide access for processor enablem=
-ent
-> =20
-> +  resets:
-> +    description:
-> +      A pair consisting of phandle to audio-blk-control and an index ref=
-erencing
-> +      the DSP Run/Stall bit in audiomix registers.
-> +      See include/dt-bindings/reset/imx8mp-reset-audiomix.h for each ind=
-ex meaning.
-> +    maxItems: 1
-> +
->  required:
->    - compatible
->    - reg
-> @@ -164,6 +171,16 @@ allOf:
->              - const: txdb1
->              - const: rxdb0
->              - const: rxdb1
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - fsl,imx8mp-dsp
-> +              - fsl,imx8mp-hifi4
-> +    then:
-> +      required:
-> +        - "resets"
-> =20
->  additionalProperties: false
-> =20
-> @@ -220,5 +237,5 @@ examples:
->                 <&mu2 3 0>;
->        memory-region =3D <&dsp_vdev0buffer>, <&dsp_vdev0vring0>,
->                        <&dsp_vdev0vring1>, <&dsp_reserved>;
-> -      fsl,dsp-ctrl =3D <&audio_blk_ctrl>;
-> +      resets =3D <&audio_blk_ctrl IMX8MP_AUDIOMIX_DSP>;
+I see you're discussing the API around this, but this does fix the PMU tests, so:
 
-Am I missing something here? fsl,dsp-ctrl is used to get the regmap from sy=
-scon.
-
-Best regards,
-Alexander
-
->      };
->=20
-
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+Tested-by: Joey Gouly <joey.gouly@arm.com>
 
