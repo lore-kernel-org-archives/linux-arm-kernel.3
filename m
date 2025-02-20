@@ -4,55 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 173B9C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:12:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5EEBC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C5iC+q4yJlC4rkQ4io7+7rJD9SjECI38NNjrAqPsBr8=; b=T3v3MLC423ykvGlRXHI/2v3z9H
-	/zPKhwxlLhj23Am+bVasw5d2W9xNDCM0k16MzJM7MoD6viKdnevXDiQSzOKLPHFcOcF+dVRomh/2e
-	ts+pYa5pctBM5EXSbjASddk6YjtdXzsGM7F4TIb/XWBa66xI2cn8C1i6JsVrA7IdZq/4955gya9r1
-	SR8Ll/QqvlEOnEduqDPAarn+6pu/pUKuaOSJ6s1d4hYJjpLL3wbBKvUUSGeEZHpMs79bw453qHMVt
-	FnyHjZm/8hw2rJp5mLnzoa8ca9cBNNefmIPNO7rq9T4GFYduPwJ+vtcJmHPPzVINwbXW5wvzLwTpS
-	VMtkxJqw==;
+	bh=HI0x1V5vmdZylGW+OdW5rydDfy7k4GZBwl1UagyB37A=; b=QUgxNa6/+Uwt5GtutNRI7HjveT
+	3Uv9EA8yAzHG52KGo3U3KUjuyFtZ+DgHw5l7QyZbannogFPJ7eRQPHhgtpMN6BtI3yLYoYFx1+JN7
+	X93yL3ZbH5gcU6+vy8Ged3ZWmN6RJXB+3WsWPdWxz4l9kLbncpRSmmw0az6U6ZJFDjIH5wQwfAVV3
+	nc/tZ9uXicXN1w54ovYDNQVKkx5pTNiDGgsXl8YT6kY0WWjJhgamgLjmevXfW4+BuTMCibf9HZO8c
+	S2I5D3l17R/CdLQO4/UI26PeA2jml/EPRlKdveBGcEPt2+YO5qGUSHh1fLmG3cFNz/py1jJyw25Fz
+	WsqD8tfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7Hw-00000001ErT-2Dro;
-	Thu, 20 Feb 2025 14:12:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7Am-00000001CyN-0SUd
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 14:05:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B1EE16F3;
-	Thu, 20 Feb 2025 06:05:21 -0800 (PST)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD4383F59E;
-	Thu, 20 Feb 2025 06:05:01 -0800 (PST)
-Date: Thu, 20 Feb 2025 14:04:59 +0000
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	id 1tl7JO-00000001FIH-2dTx;
+	Thu, 20 Feb 2025 14:13:58 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tl7CL-00000001DLY-0Loi;
+	Thu, 20 Feb 2025 14:06:42 +0000
+X-CSE-ConnectionGUID: yZ9MDWrZTQ2E9JFMGNFCvA==
+X-CSE-MsgGUID: QGBpKbQ4Q3iiF4KkSWCSgw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11351"; a="44488640"
+X-IronPort-AV: E=Sophos;i="6.13,301,1732608000"; 
+   d="scan'208";a="44488640"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2025 06:06:39 -0800
+X-CSE-ConnectionGUID: 6degz7rJS+W0Ozne9fsEcg==
+X-CSE-MsgGUID: cwOP4iibQH6/Nq+7aviA4g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,301,1732608000"; 
+   d="scan'208";a="115028702"
+Received: from smile.fi.intel.com ([10.237.72.58])
+  by fmviesa007.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2025 06:06:35 -0800
+Received: from andy by smile.fi.intel.com with local (Exim 4.98)
+	(envelope-from <andy@kernel.org>)
+	id 1tl7CC-0000000DM0r-06C1;
+	Thu, 20 Feb 2025 16:06:32 +0200
+Date: Thu, 20 Feb 2025 16:06:31 +0200
+From: Andy Shevchenko <andy@kernel.org>
+To: Hans Verkuil <hverkuil@xs4all.nl>
+Cc: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+	Ricardo Ribalda <ribalda@chromium.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <ndesaulniers@google.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Tiffany Lin <tiffany.lin@mediatek.com>,
+	Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+	Yunfei Dong <yunfei.dong@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, linux-staging@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	gankulkarni@os.amperecomputing.com
-Subject: Re: [PATCH v2 00/14] KVM: arm64: NV userspace ABI
-Message-ID: <20250220140459.GB2562076@e124191.cambridge.arm.com>
-References: <20250220134907.554085-1-maz@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 1/3] media: cx231xx: Convert enum into a define
+Message-ID: <Z7c252IKhXdysjAi@smile.fi.intel.com>
+References: <20241202-fix-llvm9-v1-0-2a50f5acfd0b@chromium.org>
+ <20241202-fix-llvm9-v1-1-2a50f5acfd0b@chromium.org>
+ <20241203093114.0ca49c01@foz.lan>
+ <c896221c-5ff2-4a2b-b431-7c7f805b4f68@xs4all.nl>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250220134907.554085-1-maz@kernel.org>
+In-Reply-To: <c896221c-5ff2-4a2b-b431-7c7f805b4f68@xs4all.nl>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_060504_237604_1CF6450C 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20250220_060641_154956_FE1E12D7 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,70 +95,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025 at 01:48:53PM +0000, Marc Zyngier wrote:
-> Since the previous incarnation of the ABI was proved to be subtly
-> wrong, I have reworked it to be more in line with the current way KVM
-> operates.
-> 
-> No more late NV-specific adjustment nor writable ID_AA64MMFR0_EL1.VH.
-> The NV configuration is now entirely selected from the vcpu flags.
-> I've preserved the KVM_ARM_VCPU_EL2 flag which enables NV with VHE,
-> and added KVM_ARM_VCPU_EL2_E2H0 which alters the NV behaviour to only
-> allow nVHE guests without recursive NV support.
-> 
-> This series is actually very little new code. The bulk of it is
-> converting the feature downgrade to be per-idreg, essentially going
-> back to the state before 44241f34fac96 ("KVM: arm64: nv: Use accessors
-> for modifying ID registers"), only slightly modernised. This then
-> becomes part of the reset value computing.
-> 
-> The rest is simply what you'd expect in terms of being able to write
-> the ID_AA64MMFR4_EL1.NV_frac field, making the correct bits RES0 when
-> needed, probing for capabilities and handling the init flags.
-> 
-> Patches on top of -rc3, with the integration branch at the usual
-> location.
-> 
-> * From v1 [1]
-> 
->   - Fixed mishandling of ID_UNALLOCATED(), resulting in extra
->     consolidation and simplify the macro maze a bit
-> 
->   - Picked up Oliver's RBs (thanks!)
-> 
->   - Rebased on top of -rc3
-> 
-> [1] https://lore.kernel.org/r/20250215173816.3767330-1-maz@kernel.org
-> 
-> Marc Zyngier (14):
->   arm64: cpufeature: Handle NV_frac as a synonym of NV2
->   KVM: arm64: Hide ID_AA64MMFR2_EL1.NV from guest and userspace
->   KVM: arm64: Mark HCR.EL2.E2H RES0 when ID_AA64MMFR1_EL1.VH is zero
->   KVM: arm64: Mark HCR.EL2.{NV*,AT} RES0 when ID_AA64MMFR4_EL1.NV_frac
->     is 0
->   KVM: arm64: Advertise NV2 in the boot messages
->   KVM: arm64: Consolidate idreg callbacks
->   KVM: arm64: Make ID_REG_LIMIT_FIELD_ENUM() more widely available
->   KVM: arm64: Enforce NV limits on a per-idregs basis
->   KVM: arm64: Move NV-specific capping to idreg sanitisation
->   KVM: arm64: Allow userspace to limit NV support to nVHE
->   KVM: arm64: Make ID_AA64MMFR4_EL1.NV_frac writable
->   KVM: arm64: Advertise FEAT_ECV when possible
->   KVM: arm64: Allow userspace to request KVM_ARM_VCPU_EL2*
->   KVM: arm64: Document NV caps and vcpu flags
-> 
->  Documentation/virt/kvm/api.rst      |  14 +-
->  arch/arm64/include/asm/kvm_host.h   |   2 +-
->  arch/arm64/include/asm/kvm_nested.h |   1 +
->  arch/arm64/include/uapi/asm/kvm.h   |   1 +
->  arch/arm64/kernel/cpufeature.c      |  15 +-
->  arch/arm64/kvm/arm.c                |  11 +-
->  arch/arm64/kvm/nested.c             | 285 +++++++++++++++-------------
->  arch/arm64/kvm/sys_regs.c           |  44 ++---
->  arch/arm64/kvm/sys_regs.h           |  10 +
->  include/uapi/linux/kvm.h            |   2 +
->  10 files changed, 217 insertions(+), 168 deletions(-)
-> 
+On Thu, Feb 20, 2025 at 02:55:42PM +0100, Hans Verkuil wrote:
+> On 12/3/24 09:31, Mauro Carvalho Chehab wrote:
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+...
+
+> ORing enums is really not a good idea: you would normally never do that, and
+
+I think you missed a keyword "different", so "ORing different enums ..."
+which I totally agree on, but the same enum values are fine.
+
+> the compiler warning is IMHO appropriate.
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
