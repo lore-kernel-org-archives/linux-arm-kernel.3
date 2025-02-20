@@ -4,142 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 164B3C021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 01:53:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E8CC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 01:54:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lLCYXYtRpKzkJpu6B+1wKidLkHriacc5RI2TkcrDdlo=; b=yyhvX6Lr49ccXlYNfmSJuf16Rg
-	Y3qgQ1A4ZacqfaPS5B03E1JH74FedJGppJ9e4R4hZzBGnOssRc3yXIwFz55veZZG0Q0aE7tPWmnsw
-	qMNyZF/CNYUeNtvvIZje+ALYAjkW7kae7QlSSJQZ5XHDiUb7sqajYvqc/Sb2w4co38vJJHEMI04hF
-	7dyqKWmGuGIoM6/pyJ+ziIKumfD+IJcSMGrdtPNqe0EQeEaqQ3WgytzJQYF38eOcvNleawyKQ33k8
-	id6WYSzXurcp4Zixn1tlr4CrF2GD3OmlY9x6EvQ1E8o8G19SB6RqF5vG2WbPkvBiHvIhHOVXKW366
-	zoEa5x2Q==;
+	bh=mzKDKoVrBDUrsawz8VsqQN0RmxEUxc5SPjjl/Dgx0g8=; b=1SBInVxaPJlJqkI1I8gTe26Co+
+	BLVUBz1JO9OxkrrxFqvma3USeoBQ4qEsVhYZmpLZyIZ8+gabGqQpj1dL07N8BqWKER4ontzW3cJpk
+	lxbnWl/gBtLxY+rfRA2dHRAt9HEPgu6aJCun0Sr+Bj1nClSvKBjLSMiab4QathfyliwXt8/u4bmJh
+	O3zTe3KZecQvzZnHDK1cjMbLvRXcebedslJtm0NIbtOjy6JK37rQAgZDv8XfMusHolknPBnq7c2qW
+	TPTE+3CXkjsvfoIsiD/dtf/gORZop9AMGpZ9NTuGV/UsGsJ3ONSjxRn0zp2dfC+/tCMHgASGUVjRS
+	q5hxxJag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkvkD-0000000GDC2-0psA;
-	Thu, 20 Feb 2025 01:52:53 +0000
-Received: from mail-mw2nam12on2061.outbound.protection.outlook.com ([40.107.244.61] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tkvlg-0000000GDfD-20gI;
+	Thu, 20 Feb 2025 01:54:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkvRB-0000000G8RI-1ogU
+	id 1tkvh9-0000000GCTO-3dgE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 01:33:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q8xGvXkhxinM4NColIwmBhHU/bAcd1yuk8tiiKgQC/3EyHTXxKryEy4yA23Okltv0GA/aK5JNTPMQBQGdeAm0Rxjlk/TzWAV8aHbWzi+4pKzwkjpOHzcg1E3JYYY57HrMGn40DEUcOp0mMXVgvG9UrONSJelnbKwQRNgTTD5gN8oCr0dqhS19WtISMQLBtWMF3+MAHJRbWiNfd2A/mGVwiCXDTaFi9/Ch+Oa1h98w+dN3NEY2bodk3XHdvjZZYymg3rDOm/Q2lIIzBL4LMNT+NdwA24uOYUDN9coIX8IyDaVh+eznYCpLt5FKlWoe1yjTyXjuCaXZscLwAGwMGfovw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lLCYXYtRpKzkJpu6B+1wKidLkHriacc5RI2TkcrDdlo=;
- b=HAZaUR1Xtl7S1ZhDlxGELTJGx5xrBqIc0nZmKH5wk7CbvypFnue87AZOtKkdhBX+Cdv7GylCHKd+pE5mHJtx6j2w+U4t+QBs/Ix9EJcGITsnKp7Y0yRNMfCuaXBxyCdilFvpzszd5U3ur6WB9f0CsuoWEudoT7l1L9MFvATvT+liT2JRDZE+QKV7cCM++xa8t9IZzxoCJhAzk0qvyfd5elAyDWC5Zj/g0+rW3A9RqjAMVITfCbOHPiK37hKwKdWf2zwSsgOJEh+15P61z1eca2y5LjkSMgXXLnE5M9pibrDh1gim+u+Yb5MMYRjglINcLHvm7/6EpE/VDa7RZ/J0zw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=gmail.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lLCYXYtRpKzkJpu6B+1wKidLkHriacc5RI2TkcrDdlo=;
- b=Z2fvnOKXGQq0A6CPle13karERBa26cSjG8GNJV8j87Vk3GNgk2T92eSa963WPdL5Ckjj1MQI51fG5DbX/LQM28yF1p6PFHdsZRAUiXt+23FlTzYjLMKAX031CkMcDHfns01nz1sXY7Sth7stwuMPnbcsYOrpLg7lD5/tG66bJvdnikMqu3yQ40QyMt8szslVJMp2MB5uuD+ubH+2GDzksS9B9w2THis9JAnx/JCSp4RhNtr4muzqrVrc8uyfuntjTHzWUxxtaUkNeJC6qMtVQqh+RcLjZ1NcBP7Zdz5Q7juRR9Kp9LcFEC2vCZ0WLaC3cprkjALM6fWori+Wba7KVQ==
-Received: from BN8PR03CA0025.namprd03.prod.outlook.com (2603:10b6:408:94::38)
- by SN7PR12MB7954.namprd12.prod.outlook.com (2603:10b6:806:344::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.18; Thu, 20 Feb
- 2025 01:32:44 +0000
-Received: from BL6PEPF0002256F.namprd02.prod.outlook.com
- (2603:10b6:408:94:cafe::8f) by BN8PR03CA0025.outlook.office365.com
- (2603:10b6:408:94::38) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.15 via Frontend Transport; Thu,
- 20 Feb 2025 01:32:44 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF0002256F.mail.protection.outlook.com (10.167.249.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.11 via Frontend Transport; Thu, 20 Feb 2025 01:32:43 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 19 Feb
- 2025 17:32:32 -0800
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 19 Feb
- 2025 17:32:31 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
- Transport; Wed, 19 Feb 2025 17:32:30 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <tglx@linutronix.de>,
-	<maz@kernel.org>
-CC: <joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>,
-	<shuah@kernel.org>, <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<eric.auger@redhat.com>, <baolu.lu@linux.intel.com>, <yi.l.liu@intel.com>,
-	<yury.norov@gmail.com>, <jacob.pan@linux.microsoft.com>,
-	<patches@lists.linux.dev>
-Subject: [PATCH v2 5/7] iommu: Turn fault_data to iommufd private pointer
-Date: Wed, 19 Feb 2025 17:31:40 -0800
-Message-ID: <ee5039503f28a16590916e9eef28b917e2d1607a.1740014950.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1740014950.git.nicolinc@nvidia.com>
-References: <cover.1740014950.git.nicolinc@nvidia.com>
+	Thu, 20 Feb 2025 01:49:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1740016183;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mzKDKoVrBDUrsawz8VsqQN0RmxEUxc5SPjjl/Dgx0g8=;
+	b=AP7HDlvddmt+fx98SdQfbdM+RXOO3E6jLcS+IbxCU+4BsANQ7OAhboUmDXYJPmvtzFW2oB
+	/VKjlJjE82+RDmeZMCxOom2QeJRF2wcT2Z6Iwk138aCJrHI+RkOlY6yw3qlwztX5YCyRaL
+	xIsVAejIh4syhcldwTsMy6/2VNa7vZ8=
+Received: from mail-il1-f198.google.com (mail-il1-f198.google.com
+ [209.85.166.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-80-90U7J_-OP_OOOS9cPIcu0w-1; Wed, 19 Feb 2025 20:49:39 -0500
+X-MC-Unique: 90U7J_-OP_OOOS9cPIcu0w-1
+X-Mimecast-MFC-AGG-ID: 90U7J_-OP_OOOS9cPIcu0w_1740016179
+Received: by mail-il1-f198.google.com with SMTP id e9e14a558f8ab-3d2a60faa44so10101825ab.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 17:49:39 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740016179; x=1740620979;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=mzKDKoVrBDUrsawz8VsqQN0RmxEUxc5SPjjl/Dgx0g8=;
+        b=WMcLoXHwTL1gySodrGaDKyf0tCc3EUZeEd3jB896/yrWnu1zl059ivhp3PO45rHTUp
+         yvIgg8jbHAxKoQMsK7AxFCMd+LVCnYUf1CZjHcEgJ4eWGltaZy+8IDEzj/V5f5Rm8XKv
+         j7v3Q/FB/fwNJ1PvJPaaCZgTnIYE2y4BqIaEvalSgKqgIo5rkHdXS13x9+ZY7MMhZdXj
+         R7bMjHhsv6sxlLuHyrTCwlsqRSoJ9jJc7aizMq7mqjqhADHFlyXlad27yoKe5k8814ph
+         M+ka3uk7qXDy9dDVmzCb3tb9a3zhEYN/AQxyBB/hybvbY4yAqiiGpfOEZxJBN7snRYfj
+         UFtg==
+X-Forwarded-Encrypted: i=1; AJvYcCVpTs1fdkzTqcX9Icl5ZgiNvdoqqrj7XdP/5Z2vSsIY2sGva/z517vgLoqJZggGK+xvc1ent2k328HYWc5xZLqa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFE++Bc8j4sausKQ6/ef8i6H+0XRhxrzX3x4x7c8e8OQqkZRgd
+	DOyww2BElhvwb0BJpiW6uHCelatWwO8iGf0eKwivq7VfL0r22ungLQzvNGW/bcGS2Zzs+NmiSeA
+	BFwC+Jrr+g7y//l9riOEaFpfY5ulcpkmQHI/ug/u6Z3INVQ2VZDhJLrl9m0CgW4GCldfzVVEOF/
+	RCjS1jvWmAYK0w+rWbdDh+NgYgUPLsxNuzjPzkHrHySFUeSDA=
+X-Gm-Gg: ASbGncsHPdnwKRMb9aMRz4DvBf5tUwFxT6zvq3yMVgYY3e3yt6RAAQAGOPE+X6uHCzI
+	opPwUFARFUMxuYTQz1yBXu6PRADDxEp5VUqvzRUPt857GRPgAsEc+YlfgMGusycg=
+X-Received: by 2002:a92:cd8b:0:b0:3cf:ceac:37e1 with SMTP id e9e14a558f8ab-3d2807b90afmr166598615ab.11.1740016178799;
+        Wed, 19 Feb 2025 17:49:38 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHua4N3hMkedgyAywjDxkxVa1LR4pC25UZ/n6ciTidS6+LPrXCE4QkVj5KAidqXqI09qUbwPkqRyqNWoJszBts=
+X-Received: by 2002:a92:cd8b:0:b0:3cf:ceac:37e1 with SMTP id
+ e9e14a558f8ab-3d2807b90afmr166598175ab.11.1740016178479; Wed, 19 Feb 2025
+ 17:49:38 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0002256F:EE_|SN7PR12MB7954:EE_
-X-MS-Office365-Filtering-Correlation-Id: 888e6fcd-1e64-4f86-a00b-08dd514e7952
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?65nnL/2MVEFAuerb8IQjn2bi4fxsxNUxYpbvm/7FlaNDu2C0egEQNBvCMt00?=
- =?us-ascii?Q?1Mgrlnxmdy8eoxA3PBeqD4/qS1S0yzi/Ug/SaH18Jhh5P1qqX1c0n8ssx+Au?=
- =?us-ascii?Q?o18iJJMeE+ygnJ5XhP2LIn6EraCQ+gzfP/DaG65bUPUt2+nzLlsY8ovNeecS?=
- =?us-ascii?Q?MfgDEocxsnhfTmOmBnIz0iEuSVfrM0kJ0XlToZUu9iOfm3YjFtXIR2P33O7q?=
- =?us-ascii?Q?jvjhPX29RNnQ38jdSVwq7KdwzIOBFE432sFONYzIZrSqGEnKPMAs54KAa8Qt?=
- =?us-ascii?Q?nk4oCsjOvtLqrCbcoQjSCLe1Yx5Eg26cs9kMbROmxJ3HQSy9korA1AB2InAk?=
- =?us-ascii?Q?LQXyRLqfuzEenut/SpoxUpF6CnJ+qV4S7SCFgD5TuC2lMxWo+joitLXryokx?=
- =?us-ascii?Q?w9DDeZ/4WN5IMYjouBKkZVLPxxKtTDk8+jICX3JeB0ZtgVHze/Je/Py/oW40?=
- =?us-ascii?Q?wpEx962dq916e7PlIWKdJgZtyZ9C33I4l42x3TZ13QSnYeExhghyumT1fKT0?=
- =?us-ascii?Q?tVueC2qtUlDtRb8gmY9ZW1b1hw9P9O5fy7fkgIqT0ZOx9unrg1i25YVEpmI6?=
- =?us-ascii?Q?8ZdcPYPRaPWLz7bxDU007/+89FR/QJdG0K4MOG+tPvqfCaz0ZaYvJj95zAi4?=
- =?us-ascii?Q?K1l4TvzyAKu4z1y5AXxtRcD9w+v6UZpUk5UWJJ1qncCP+Tn1ofWFGFhJgAG3?=
- =?us-ascii?Q?/iuwxItywTtctVHHnR4Ba32lUFXkdVFAec8NjaXqnNObcsuekgQQjhPyw8aV?=
- =?us-ascii?Q?nPiCfsa1YTBkzWoHlJnruIkNTtdqGiQB1OCGssfJdqj9dBkrOIJDAZyn9z/N?=
- =?us-ascii?Q?2tgMGmZArBrCP7EVmSX094VA2owYXjnNGq4Nj2G3l3zGQOGehzRXuv88XSAL?=
- =?us-ascii?Q?k2JdyEYg6Lkjr4Xxuh/3Zy9LpXfPN8hWmEgxxnfYnYV5LYYVlyV6eE0CCMd0?=
- =?us-ascii?Q?mUsuqTENdYvgdVaKeX7TWvRB599sfI7AzRHTbLx89z0ELD9UeDkKSC5HTyUo?=
- =?us-ascii?Q?t6flWArpkzkVLbmXopuX3VS2dHW0P5p22Ynt7djXXRmkxtR1t6oFWbVII2BN?=
- =?us-ascii?Q?bKWliVigbUilhfXdAR9W1fJTjjFZK6NOfCPFiZwppCxR397UFggYJV+CCilv?=
- =?us-ascii?Q?+4Gf77w1tQ+nNS++3/PD2QTPXi8jmcO/svkeqWukJB49s/gM8LudYd1xIHvA?=
- =?us-ascii?Q?oNnxsDaGkteDRO0Zk2q59MPEqdbdgIvUlpLsrMThpVVu1G4NLfLwQV1vyQUt?=
- =?us-ascii?Q?xW58Bnjigm/jB3qN1sda4GgHY+hXAOQZ6DpAJVQnsp7kQAHwIxYqd02BCkRo?=
- =?us-ascii?Q?lZLX4eKC1Q0Pw7N5n7IuapTSf/tNUmm4YbKl4bQ6HJ6nFEydZ2z3jxPfq02p?=
- =?us-ascii?Q?+nT5ryurLSIIKdhjQBUUNyOSRGZ7TfoVm5I/Cp1uVIShHBMVr18gE8Bq//qC?=
- =?us-ascii?Q?sGaHFF+lI2AVE51wUChzPqRMK6Ef3+ew/XTWnDp1ubwF8lfniPS3gL4qbKUV?=
- =?us-ascii?Q?IWW9Aaqpr3i9szk=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 01:32:43.9204
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 888e6fcd-1e64-4f86-a00b-08dd514e7952
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0002256F.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7954
+References: <20250206132754.2596694-1-rppt@kernel.org> <CALu+AoRMQyRDFS_4L0KQkmrFT_S+yk=uZ-Mqt86JQYKKnj-5Ug@mail.gmail.com>
+ <Z7WJD6eBLuIRnLwk@kernel.org> <CALu+AoSaEthfed1NOYPiQgm_g-dhibVMRAp0+=_+9qTT4_x=tg@mail.gmail.com>
+ <d8c43707-65a2-4176-85e2-acdb4c9d16ad@amazon.com>
+In-Reply-To: <d8c43707-65a2-4176-85e2-acdb4c9d16ad@amazon.com>
+From: Dave Young <dyoung@redhat.com>
+Date: Thu, 20 Feb 2025 09:49:52 +0800
+X-Gm-Features: AWEUYZnow-BFw9b6Uwj9RQ5_fBga9ll51qxXSJUam_iT6jbFDfi-PA1-cJgL388
+Message-ID: <CALu+AoR0BbmbZeOkLU55OpD8kxGsVnFs+pXgEC9Y_MpB4=GMvQ@mail.gmail.com>
+Subject: Re: [PATCH v4 00/14] kexec: introduce Kexec HandOver (KHO)
+To: Alexander Graf <graf@amazon.com>
+Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org, 
+	Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>, 
+	Anthony Yznaga <anthony.yznaga@oracle.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Ashish Kalra <ashish.kalra@amd.com>, Benjamin Herrenschmidt <benh@kernel.crashing.org>, 
+	Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, David Woodhouse <dwmw2@infradead.org>, 
+	Eric Biederman <ebiederm@xmission.com>, Ingo Molnar <mingo@redhat.com>, 
+	James Gowans <jgowans@amazon.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Pasha Tatashin <pasha.tatashin@soleen.com>, 
+	"H. Peter Anvin" <hpa@zytor.com>, Peter Zijlstra <peterz@infradead.org>, Pratyush Yadav <ptyadav@amazon.de>, 
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, 
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>, Steven Rostedt <rostedt@goodmis.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Tom Lendacky <thomas.lendacky@amd.com>, 
+	Usama Arif <usama.arif@bytedance.com>, Will Deacon <will@kernel.org>, devicetree@vger.kernel.org, 
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org, 
+	Philipp Rudo <prudo@redhat.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, linux-s390@vger.kernel.org
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 0EodTp7M3w4RYmXzGG2av4HX-niyOn76xxe9R5gJylU_1740016179
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_173313_465569_D63D8158 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250219_174943_969728_1BD076D4 
+X-CRM114-Status: GOOD (  34.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,72 +122,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A "fault_data" was added exclusively for the iommufd_fault_iopf_handler()
-used by IOPF/PRI use cases, along with the attach_handle. Now, the iommufd
-version of the sw_msi function will reuse the attach_handle and fault_data
-for a non-fault case.
+On Wed, 19 Feb 2025 at 21:55, Alexander Graf <graf@amazon.com> wrote:
+>
+>
+> On 19.02.25 13:49, Dave Young wrote:
+> > On Wed, 19 Feb 2025 at 15:32, Mike Rapoport <rppt@kernel.org> wrote:
+> >> On Mon, Feb 17, 2025 at 11:19:45AM +0800, RuiRui Yang wrote:
+> >>> On Thu, 6 Feb 2025 at 21:34, Mike Rapoport <rppt@kernel.org> wrote:
+> >>>> == Limitations ==
+> >>>>
+> >>>> Currently KHO is only implemented for file based kexec. The kernel
+> >>>> interfaces in the patch set are already in place to support user space
+> >>>> kexec as well, but it is still not implemented it yet inside kexec tools.
+> >>>>
+> >>> What architecture exactly does this KHO work fine?   Device Tree
+> >>> should be ok on arm*, x86 and power*, but how about s390?
+> >> KHO does not use device tree as the boot protocol, it uses FDT as a data
+> >> structure and adds architecture specific bits to the boot structures to
+> >> point to that data, very similar to how IMA_KEXEC works.
+> >>
+> >> Currently KHO is implemented on arm64 and x86, but there is no fundamental
+> >> reason why it wouldn't work on any architecture that supports kexec.
+> > Well,  the problem is whether there is a way to  add dtb in the early
+> > boot path,  for X86 it is added via setup_data,  if there is no such
+> > way I'm not sure if it is doable especially for passing some info for
+> > early boot use.  Then the KHO will be only for limited use cases.
+>
+>
+> Every architecture has a platform specific way of passing data into the
+> kernel so it can find its command line and initrd. S390x for example has
+> struct parmarea. To enable s390x, you would remove some of its padding
+> and replace it with a KHO base addr + size, so that the new kernel can
+> find the KHO state tree.
 
-Rename "fault_data" to "iommufd_hwpt" so as not to confine it to a "fault"
-case. Move it into a union to be the iommufd private pointer. A following
-patch will move the iova_cookie to the union for dma-iommu too after the
-iommufd_sw_msi implementation is added.
+Ok, thanks for the info,  I cced s390 people maybe they can provide inputs.
 
-Since we have two unions now, add some simple comments for readability.
+Other than the arch concern,   I'm not so excited about the KHO
+because for kexec reboot there is a fundamental problem which makes us
+(Red Hat kexec/kdump team) can not full support it in RHEL
+distribution, that is the stability due to drivers usually do not
+implement the  device shutdown method or not well tested.   From time
+to time we see weird bugs,  could be malfunctioned devices or memory
+corruption caused by ongoing DMA etc.   Also no way for the time being
+to make some graphic/drm drivers work ok after a kexec reboot, it
+might happen to work by luck but also not stable.
 
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- include/linux/iommu.h                | 6 ++++--
- drivers/iommu/iommufd/fault.c        | 2 +-
- drivers/iommu/iommufd/hw_pagetable.c | 2 +-
- 3 files changed, 6 insertions(+), 4 deletions(-)
+So I personally think that improving the above concern is more
+important than introducing more features to utilize kexec reboot.
 
-diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-index 761c5e186de9..e93d2e918599 100644
---- a/include/linux/iommu.h
-+++ b/include/linux/iommu.h
-@@ -224,8 +224,10 @@ struct iommu_domain {
- 		      phys_addr_t msi_addr);
- #endif
- 
--	void *fault_data;
--	union {
-+	union { /* Pointer usable by owner of the domain */
-+		struct iommufd_hw_pagetable *iommufd_hwpt; /* iommufd */
-+	};
-+	union { /* Fault handler */
- 		struct {
- 			iommu_fault_handler_t handler;
- 			void *handler_token;
-diff --git a/drivers/iommu/iommufd/fault.c b/drivers/iommu/iommufd/fault.c
-index 931a3fbe6e32..c48d72c9668c 100644
---- a/drivers/iommu/iommufd/fault.c
-+++ b/drivers/iommu/iommufd/fault.c
-@@ -329,7 +329,7 @@ int iommufd_fault_iopf_handler(struct iopf_group *group)
- 	struct iommufd_hw_pagetable *hwpt;
- 	struct iommufd_fault *fault;
- 
--	hwpt = group->attach_handle->domain->fault_data;
-+	hwpt = group->attach_handle->domain->iommufd_hwpt;
- 	fault = hwpt->fault;
- 
- 	spin_lock(&fault->lock);
-diff --git a/drivers/iommu/iommufd/hw_pagetable.c b/drivers/iommu/iommufd/hw_pagetable.c
-index 598be26a14e2..2641d50f46cf 100644
---- a/drivers/iommu/iommufd/hw_pagetable.c
-+++ b/drivers/iommu/iommufd/hw_pagetable.c
-@@ -406,10 +406,10 @@ int iommufd_hwpt_alloc(struct iommufd_ucmd *ucmd)
- 		}
- 		hwpt->fault = fault;
- 		hwpt->domain->iopf_handler = iommufd_fault_iopf_handler;
--		hwpt->domain->fault_data = hwpt;
- 		refcount_inc(&fault->obj.users);
- 		iommufd_put_object(ucmd->ictx, &fault->obj);
- 	}
-+	hwpt->domain->iommufd_hwpt = hwpt;
- 
- 	cmd->out_hwpt_id = hwpt->obj.id;
- 	rc = iommufd_ucmd_respond(ucmd, sizeof(*cmd));
--- 
-2.43.0
+>
+>
+> Alex
+>
+>
 
 
