@@ -4,91 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31C7FC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75749C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ywthUrsaZUgbi1jImCfUyZ9XeZtfacq1MlreX2juEEk=; b=i9gkMNYt9PP/l17orIWnKcSGiw
-	wUCdVwZQPms8aRpRyc8XUpBa8BwAv+awM045Spdst5jsnk5rgCn6RD4KbecwKkPNBGa/oC+xERiz1
-	YgMVOaIeXCwFohU3QWNW1i8nCq4MCXxOnqMuvs7D8+u5YsmnIDO3oE6juQ6t1jOVL6RysgwPNqQ8o
-	2hyhL6mRNo5pwUJ3ZaQFT2Ah/LIzziiC8u1e420bpEAAkfgdboOEPJc/CGmKX1ykN7aUD2RBFdwEH
-	YgkqSVmnPf2wCJddhcn/MTkrG8r/cEDKfEHCSwpDQ9OlF7XeyNd1xtP6a/h4icmU5LsVAvzwBE2EB
-	IFvV4oIQ==;
+	bh=p+oE9ycbC0603bsKVd233oRRg0AuABTZ4kzML2kwZR8=; b=kFPTmCCodUbmue6FapRNBObdPr
+	Davio/d74anQylSe5VddUvZho8DypEsk0vzXecm89bf373GLxDDPb3xRJaxZKb8MsE0YFIX8SCCrc
+	8OpkAMmOUDdoPWyqTcBccGLTvtwGFH1AEvGcrHJet+S3THPMu3yOx97PKkasBw+TNPMSvFXdlUuoD
+	0nqbmyHCo2t2XWyomJnn/3SHuF/FlRBnEJ8zDHE6wMvJfRfhYhiaOULmnQByoyzg7VEyirQfNehjC
+	LoB/PiR9n9kDKHij2+ThkZs6TT1CHu/CDVuarNSgwb/9YPixpkdVcKFLbDdPEB/hE6j1xfdKsF+vj
+	PWN9IdQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7yJ-00000001Qqt-31xd;
-	Thu, 20 Feb 2025 14:56:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tl7zz-00000001RKV-1wB0;
+	Thu, 20 Feb 2025 14:57:59 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7wn-00000001QTw-3iGy;
-	Thu, 20 Feb 2025 14:54:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 771B95C5DAF;
-	Thu, 20 Feb 2025 14:54:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63166C4CED1;
-	Thu, 20 Feb 2025 14:54:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740063280;
-	bh=BC0dhBX7Eg81uhggtuEZHVM8dUwnpQ+dA2ufHLGdn4c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=InovFzdwowCfkaS3mdofhqdbNRDT0QPSXwLh3w3Ks3gabjyfLh3ZoKBTtSmNarqnX
-	 NWSycHqGlN7yNd+0eWaOU0+ODeMj6drkyWUBF0F3RDCZrjku80gpxCYmc+kAAFUIhF
-	 cIdOH8Da91vYXQfiFliQAi78+0x05PEFtzKvkt3XktgkdC4Zn64/wMsF41e4w438lb
-	 73um6//H3gzH4CFINfnDIYtLDsWM0e8qrbcvmRP2pP+F9H/e6WTApFpXNGqIxMY23P
-	 l5ycIRreRRuogv2tc/sBZpVOPGfjbPnHoaxZx2Ce/d5jWstSBddCKPXyzlLKyYjqF8
-	 fPv0Kjhu6R8bQ==
-Date: Thu, 20 Feb 2025 16:54:19 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Wei Yang <richard.weiyang@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 01/14] mm/mm_init: rename init_reserved_page to
- init_deferred_page
-Message-ID: <Z7dCG3ihTnDuJ8_c@kernel.org>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-2-rppt@kernel.org>
- <20250218145904.x57chhz3whvckzu3@master>
- <Z7WEktyNoCPylytL@kernel.org>
- <20250220083601.4p6ehmfhyvs5q5io@master>
+	id 1tl7yT-00000001QtT-0LCS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Feb 2025 14:56:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1740063385; x=1771599385;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=p+oE9ycbC0603bsKVd233oRRg0AuABTZ4kzML2kwZR8=;
+  b=chPxyl7WyR4/LyeOS3PJiRwZLK4gUiQk9n6sVOx1SiDgzcNeYU6cGF5k
+   nckZBxXABC0E8RlNgvqzaz+8t6ePf4qZ3JVeShzdpRqsgvJBwiBfUyBGN
+   cjrzOq40kQsTHIu6s8HTrdVXsMLiGehVKZg8RdoJQnNAMSqPOzGZAy1bw
+   TtWYz+v2Ou90O6i5q8fX9B9PY/o8TJOTYjshkwmhFB1sbVkOEi27QFAPq
+   ByyHr5zC57iWOg7Spg6tEe8fz482/q7CPQjYEFnhj1L2bLkGEx7rbD2La
+   8NNRldAw123+WtAnOghGbiiurZt4rGpE99lCPWB5Vn8x1uvxNpFOsI2Wv
+   w==;
+X-CSE-ConnectionGUID: W4HPKULnSKKA4nSjoEUZoA==
+X-CSE-MsgGUID: oTh/8wVLRz2R++zgJdaILA==
+X-IronPort-AV: E=Sophos;i="6.13,301,1732575600"; 
+   d="scan'208";a="41984277"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 20 Feb 2025 15:56:19 +0100
+X-CheckPoint: {67B74293-15-EBA888C4-C1AC8B84}
+X-MAIL-CPID: 7722C96904D91C2DA0956815BF213B70_0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B86101657D9;
+	Thu, 20 Feb 2025 15:56:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1740063375;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=p+oE9ycbC0603bsKVd233oRRg0AuABTZ4kzML2kwZR8=;
+	b=tUX07zcQfsKSY9PuQuU9pNewWK+34vb0xzSyr8Qt4p71UcWvC5mRGH50LmyoTdBaY8/GSu
+	zNgdjzdvVuzHu7t4JkEedcoAukN5ghE02JKporcRii18vzoY/pgExznFOfCS2I5sSFQZpu
+	s6LRHIlR4ClHIV3MYrbr6UMaLcg2X0jrRERyZ3VSoRPAaRqH/cU92QdI1RnhahcSEKs37o
+	oaOqy5Bg6YtRPPSsZyevfhwYr9j5kFa5XSrqf4NIhklNu9RG6e+VxI6AHkVGg5OmRsOGqv
+	WUKn7v43jWkUzxQgiHpCIQV/YyQOru6so0LklqqBBZSmGSTDSc/dXoPELiwQSw==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Daniel Baluta <daniel.baluta@gmail.com>
+Cc: p.zabel@pengutronix.de, robh@kernel.org, shawnguo@kernel.org,
+ linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, mathieu.poirier@linaro.org, shengjiu.wang@nxp.com,
+ Frank.Li@nxp.com, peng.fan@nxp.com, laurentiu.mihalcea@nxp.com,
+ iuliana.prodan@nxp.com, Daniel Baluta <daniel.baluta@nxp.com>
+Subject: Re: [PATCH v2 2/8] dt-bindings: dsp: fsl,dsp: Add resets property
+Date: Thu, 20 Feb 2025 15:56:13 +0100
+Message-ID: <2359786.ElGaqSPkdT@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <CAEnQRZDU9HoiD9uBNi+inrZcn8KCRp3pUZQfRqaq5kauuxOi6Q@mail.gmail.com>
+References: <20250219192102.423850-1-daniel.baluta@nxp.com>
+ <12614210.O9o76ZdvQC@steina-w>
+ <CAEnQRZDU9HoiD9uBNi+inrZcn8KCRp3pUZQfRqaq5kauuxOi6Q@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250220083601.4p6ehmfhyvs5q5io@master>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_065442_036945_221AF70A 
-X-CRM114-Status: GOOD (  30.00  )
+X-CRM114-CacheID: sfid-20250220_065625_619231_89623D3A 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,73 +100,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025 at 08:36:01AM +0000, Wei Yang wrote:
-> On Wed, Feb 19, 2025 at 09:13:22AM +0200, Mike Rapoport wrote:
-> >Hi,
-> >
-> >On Tue, Feb 18, 2025 at 02:59:04PM +0000, Wei Yang wrote:
-> >> On Thu, Feb 06, 2025 at 03:27:41PM +0200, Mike Rapoport wrote:
-> >> >From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> >> >
-> >> >When CONFIG_DEFERRED_STRUCT_PAGE_INIT is enabled, init_reserved_page()
-> >> >function performs initialization of a struct page that would have been
-> >> >deferred normally.
-> >> >
-> >> >Rename it to init_deferred_page() to better reflect what the function does.
-> >> 
-> >> Would it be confused with deferred_init_pages()?
-> >
-> >Why? It initializes a single page, deferred_init_pages() initializes many.
-> >
-> 
-> See below.
-> 
-> >> And it still calls __init_reserved_page_zone(), even we __SetPageReserved()
-> >> after it. Current logic looks not clear.
-> >
-> >There's no __init_reserved_page_zone(). Currently init_reserved_page()
-> >detects the zone of the page and calls __init_single_page(), so essentially
-> >it initializes one struct page.
-> >
-> >And we __SetPageReserved() in reserve_bootmem_region() after call to
-> >init_reseved_page() because pages there are indeed reserved.
-> > 
-> 
-> Hmm... I am not sure we are looking at the same code. I take a look at current
-> mm-unstable, this patch set is not included.
+Hi,
 
-I was looking at Linus tree, it was not there yet :)
+Am Donnerstag, 20. Februar 2025, 14:11:30 CET schrieb Daniel Baluta:
+> On Thu, Feb 20, 2025 at 12:37=E2=80=AFPM Alexander Stein
+> <alexander.stein@ew.tq-group.com> wrote:
+> >
+> > Hi,
+> >
+> > Am Mittwoch, 19. Februar 2025, 20:20:56 CET schrieb Daniel Baluta:
+> > > On i.MX8MP we introduced support for using a reset controller
+> > > to control DSP operation.
+> > >
+> > > This patch adds reset property which is required for i.MX8MP.
+> > >
+> > > Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> > > ---
+> > >  .../devicetree/bindings/dsp/fsl,dsp.yaml      | 19 +++++++++++++++++=
++-
+> > >  1 file changed, 18 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml b/Doc=
+umentation/devicetree/bindings/dsp/fsl,dsp.yaml
+> > > index ab93ffd3d2e5..923e7f079f1b 100644
+> > > --- a/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml
+> > > +++ b/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml
+> > > @@ -82,6 +82,13 @@ properties:
+> > >      description:
+> > >        Phandle to syscon block which provide access for processor ena=
+blement
+> > >
+> > > +  resets:
+> > > +    description:
+> > > +      A pair consisting of phandle to audio-blk-control and an index=
+ referencing
+> > > +      the DSP Run/Stall bit in audiomix registers.
+> > > +      See include/dt-bindings/reset/imx8mp-reset-audiomix.h for each=
+ index meaning.
+> > > +    maxItems: 1
+> > > +
+> > >  required:
+> > >    - compatible
+> > >    - reg
+> > > @@ -164,6 +171,16 @@ allOf:
+> > >              - const: txdb1
+> > >              - const: rxdb0
+> > >              - const: rxdb1
+> > > +  - if:
+> > > +      properties:
+> > > +        compatible:
+> > > +          contains:
+> > > +            enum:
+> > > +              - fsl,imx8mp-dsp
+> > > +              - fsl,imx8mp-hifi4
+> > > +    then:
+> > > +      required:
+> > > +        - "resets"
+> > >
+> > >  additionalProperties: false
+> > >
+> > > @@ -220,5 +237,5 @@ examples:
+> > >                 <&mu2 3 0>;
+> > >        memory-region =3D <&dsp_vdev0buffer>, <&dsp_vdev0vring0>,
+> > >                        <&dsp_vdev0vring1>, <&dsp_reserved>;
+> > > -      fsl,dsp-ctrl =3D <&audio_blk_ctrl>;
+> > > +      resets =3D <&audio_blk_ctrl IMX8MP_AUDIOMIX_DSP>;
+> >
+> > Am I missing something here? fsl,dsp-ctrl is used to get the regmap fro=
+m syscon.
+>=20
+> fsl,dsp-ctrl was used to control the DSP. This functionality for
+> imx8mp have been now replaced by
+> using the reset controller.
+>=20
+> The example where the diff happens is for imx8mp so for this reason I
+> changed it to use the
+> new way of doing the rest.
 
-> So I am looking at previous version with this last commit:
-> 
->   8bf30f9d23eb 2025-02-06 Documentation: KHO: add memblock bindings
-> 
-> Here is what I see for init_deferred_page()'s definition:
-> 
-> init_deferred_page()
->   __init_deferred_page()
->     __init_reserved_page_zone()   <--- I do see this function, it is removed?
->       __init_single_page()
-> 
-> What I want to say is __init_deferred_page() calls
-> __init_reserved_page_zone(). This sounds imply a deferred page is always
-> reserved page. But we know it is not.  deferred_init_pages() initialize the
-> pages are not reserved one. Or we want to have this context in
-> __init_deferred_page()?
+Okay, maybe add another example for 8ulp then.
 
-If the commit that introduced __init_reserved_page_zone goes in before KHO,
-I'll just rename both functions, there is nothing about reserved pages
-there.
- 
-> >-- 
-> >Sincerely yours,
-> >Mike.
-> 
-> -- 
-> Wei Yang
-> Help you, Help me
+Best regards,
+Alexander
+=2D-=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+http://www.tq-group.com/
 
--- 
-Sincerely yours,
-Mike.
+
 
