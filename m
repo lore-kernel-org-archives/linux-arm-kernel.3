@@ -4,84 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AA60C021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 07:02:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAEC5C021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 07:03:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QQrfsYhsYua4DH51G0fhYUy6NE385/Le3rsntLIKy6c=; b=bAfTCkbxNxNcQoZaZkS/cQVJFx
-	xRpGohWOa/rpV9ZTM88OnEfDO3TZrNptJsvQDy9jxkgLM+qol/Ok2oP5uK4JM4cA3oS+ZRRUbxksK
-	6j5fAZuB6sTs/kFjvW+u00z0AmyPPE9UYsXPdw5wbPhfVQB1Ck/4XgSTVsj1nhyUgR7kj5oVqmnsK
-	9/qayu0mHvnx8l5pmrcAexq2S7+YI0udArcuUk6GtUgd0ytLCEfy+3EJJOzydUDi0aCbANvl0FFx4
-	gQnzqGZurzdbabNADM7BCYcn877Wt7RXiQXMLMsd+PP3Z/ld+LkHF/BhfRLxEbUqL2IBLLWJ+Tr4Y
-	fnoEsvuQ==;
+	bh=1XPKhHiWLqiKWl0wXoMic2K+eE+cQPZ4CtM3vUqD8Ok=; b=rgo/Zcj5mHYs/OhHZBNjfMy8Iw
+	zEtQFBSAKd3cXyz9HtFi6GsdhRVQxBObW+OCMN9f7jroRCkCq04TQi7M35oYaPk8+go4K9Nvlh8LU
+	A2m2wImyQI6+aEk90hcRz5ZiLjXUbiUBKh95+6TtcjG5JghRVN9ZLc68VKf3ShdbgxACwgvuw77JX
+	VigMdRRr4ElckPuMoKvM1ngR8QySqS+a1dkSn5A/uBWTZmk5PlZJCH6D7h1MMg/BsRvYOgPvYylEs
+	VEH0ix6iT+z3yfLMUPBhnH9GP7MdeVzQ2/zQwHZr3R5g5QnuVFXRAerHS2ZFeT+slKF5/4Y8q3DAz
+	bK6kTZyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl0ZR-0000000H2rw-2exW;
-	Thu, 20 Feb 2025 07:02:05 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tl0at-0000000H3DT-3wnv;
+	Thu, 20 Feb 2025 07:03:35 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl0Xv-0000000H2Pn-49sC
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 07:00:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740034830; x=1771570830;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=AjVnpHD2v2Yt6Kmq2yAOC5tiCK3gGmXJmt/gK2edgdI=;
-  b=e9HjhRzXlNtRMU0U5PwDvr6ID3LeGov+tncWP0nUqksfwDTiMz3xOZCc
-   0HhgG2SLboVkHr3xhks/boPyaqsRcYfKPEKcF9fdLVv/DKQanXAqwRcEM
-   nossX5Y2ZLBBWaAVqdzi79tVBQBrtelsYbAAFPjtyDync/K4lmK6oIkdp
-   2e+28aLOGtED+T8bxZ4pU8IUjTclXaEvZCHHix8wXaEabZN4xhS6/TYqJ
-   MStmot4GjPxoLbfnpvKA+v3bJBpoz+3RxliYEbST30qHaYshJZZmtEOaA
-   +VSISszjcvz/c1d6dXXdlE27g1v5GuzOEpWGIn9uPzruMii9NxsF/GzD8
-   Q==;
-X-CSE-ConnectionGUID: cdnY5VCiQ56pEoFKusDZsA==
-X-CSE-MsgGUID: vNEvl76UTkivv3xsxxdgMQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11350"; a="44450195"
-X-IronPort-AV: E=Sophos;i="6.13,301,1732608000"; 
-   d="scan'208";a="44450195"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 23:00:29 -0800
-X-CSE-ConnectionGUID: kc2+8xHwQka5NTUIeHSFww==
-X-CSE-MsgGUID: vC2LJc8pRmePBXEk75jnrQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="119041836"
-Received: from mev-dev.igk.intel.com ([10.237.112.144])
-  by fmviesa003-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 23:00:27 -0800
-Date: Thu, 20 Feb 2025 07:56:46 +0100
-From: Michal Swiatkowski <michal.swiatkowski@linux.intel.com>
-To: Nick Hu <nick.hu@sifive.com>
-Cc: Jacob Keller <jacob.e.keller@intel.com>,
-	Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Praneeth Bajjuri <praneeth@ti.com>, Andrew Lunn <andrew@lunn.ch>,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: axienet: Set mac_managed_pm
-Message-ID: <Z7bSLq1vkYJUzvGM@mev-dev.igk.intel.com>
-References: <20250217055843.19799-1-nick.hu@sifive.com>
- <889918c4-51ae-4216-9374-510e4cbdc3f1@intel.com>
- <CAKddAkBZWZqY+-TERah+Q+WUfkqzcpFMA=ySSuTxxBjfP7tKZg@mail.gmail.com>
+	id 1tl0Ym-0000000H2eQ-16fg;
+	Thu, 20 Feb 2025 07:01:25 +0000
+X-UUID: 7c7190c0ef5811efa1e849db4cc18d44-20250220
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=1XPKhHiWLqiKWl0wXoMic2K+eE+cQPZ4CtM3vUqD8Ok=;
+	b=OY79eiFo/A2+hUFcV532eIft6SL5tXaouFM9b4Q7lZKGEL9s5kCVr4EbfmbTv9/oxyTdDtUG6ADCTmhX7lSCMZcQPypn20/nMgvooiTg19hTm4Q8rouPuZBh1D0BUN0C62yvInt2W3yXokzYnmLKehER87JTM/lFHeOoapv4K1o=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:9416eea9-84bb-48a0-841e-979efea74aea,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:60aa074,CLOUDID:0aa65bb5-a2a1-4ef3-9ef9-e116773da0a7,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 7c7190c0ef5811efa1e849db4cc18d44-20250220
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+	(envelope-from <bo.kong@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1140238844; Thu, 20 Feb 2025 00:01:19 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Thu, 20 Feb 2025 15:01:16 +0800
+Received: from mszsdhlt06.gcn.mediatek.inc (10.16.6.206) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Thu, 20 Feb 2025 15:01:16 +0800
+From: bo.kong <bo.kong@mediatek.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Conor
+ Dooley <conor+dt@kernel.org>, mtk29348 <Bo.Kong@mediatek.com>,
+	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<zhaoyuan.chen@mediatek.com>, <teddy.chen@mediatek.com>
+Subject: [PATCH v4 2/4] arm64: dts: mt8188: add aie node
+Date: Thu, 20 Feb 2025 14:59:51 +0800
+Message-ID: <20250220070114.15015-3-bo.kong@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250220070114.15015-1-bo.kong@mediatek.com>
+References: <20250220070114.15015-1-bo.kong@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKddAkBZWZqY+-TERah+Q+WUfkqzcpFMA=ySSuTxxBjfP7tKZg@mail.gmail.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_230032_074417_A7773262 
-X-CRM114-Status: GOOD (  23.56  )
+X-CRM114-CacheID: sfid-20250219_230124_335052_F06BE8FF 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,67 +89,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025 at 10:47:40AM +0800, Nick Hu wrote:
-> Hi Jacob
-> 
-> On Thu, Feb 20, 2025 at 7:29 AM Jacob Keller <jacob.e.keller@intel.com> wrote:
-> >
-> >
-> >
-> > On 2/16/2025 9:58 PM, Nick Hu wrote:
-> > Nit: subject should include the "net" prefix since this is clearly a bug
-> > fix.
-> >
-> I've added the 'net' prefix to the subject 'net: axienet: Set
-> mac_managed_pm'. Is there something I'm missing?
-> 
+From: Bo Kong <Bo.Kong@mediatek.com>
 
-It should be [PATCH net] net: axienet: Set mac_managed_pm
-Like here for example [1]. You can look at netdev FAQ [2]. It is
-described there how to specify the subject.
+Add aie node and related node
 
-Probably you don't need to resend it only because of that.
+Signed-off-by: Bo Kong <Bo.Kong@mediatek.com>
+---
+Changes in v4:
+None
 
-[1] https://lore.kernel.org/netdev/CAL+tcoC3TuZPTwnHTDvXC+JPoJbgW2UywZ2=xv=E=utokb3pCQ@mail.gmail.com/T/#m2b5603fbf355216ab035aa0f69c10c5f4ba98772
-[2] https://www.kernel.org/doc/Documentation/networking/netdev-FAQ.txt
+Changes in v3:
+1. Remove dts non-MMIO nodes
 
-Thanks,
-Michal
+Changes in v2:
+1. Add AIE node and related node
+---
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi | 33 ++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-> > > The external PHY will undergo a soft reset twice during the resume process
-> > > when it wake up from suspend. The first reset occurs when the axienet
-> > > driver calls phylink_of_phy_connect(), and the second occurs when
-> > > mdio_bus_phy_resume() invokes phy_init_hw(). The second soft reset of the
-> > > external PHY does not reinitialize the internal PHY, which causes issues
-> > > with the internal PHY, resulting in the PHY link being down. To prevent
-> > > this, setting the mac_managed_pm flag skips the mdio_bus_phy_resume()
-> > > function.
-> > >
-> > > Fixes: a129b41fe0a8 ("Revert "net: phy: dp83867: perform soft reset and retain established link"")
-> > > Signed-off-by: Nick Hu <nick.hu@sifive.com>
-> > > ---
-> >
-> > Otherwise, the fix seems correct to me.
-> >
-> > Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
-> >
-> > >  drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 1 +
-> > >  1 file changed, 1 insertion(+)
-> > >
-> > > diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> > > index 2ffaad0b0477..2deeb982bf6b 100644
-> > > --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> > > +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-> > > @@ -3078,6 +3078,7 @@ static int axienet_probe(struct platform_device *pdev)
-> > >
-> > >       lp->phylink_config.dev = &ndev->dev;
-> > >       lp->phylink_config.type = PHYLINK_NETDEV;
-> > > +     lp->phylink_config.mac_managed_pm = true;
-> > >       lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE |
-> > >               MAC_10FD | MAC_100FD | MAC_1000FD;
-> > >
-> >
-> 
-> Regards,
-> Nick
+diff --git a/arch/arm64/boot/dts/mediatek/mt8188.dtsi b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+index 9e6a77a63ef9..49611b06923b 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8188.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8188.dtsi
+@@ -2293,12 +2293,45 @@ imgsys_wpe1: clock-controller@15220000 {
+ 			#clock-cells = <1>;
+ 		};
+ 
++		aie: aie@15310000 {
++			compatible = "mediatek,mt8188-aie";
++			reg = <0 0x15310000 0 0x1000>;
++			interrupts = <GIC_SPI 787 IRQ_TYPE_LEVEL_HIGH 0>;
++			mediatek,larb = <&larb12>;
++			iommus = <&vpp_iommu M4U_PORT_L12_FDVT_RDA_0>,
++				 <&vpp_iommu M4U_PORT_L12_FDVT_RDB_0>,
++				 <&vpp_iommu M4U_PORT_L12_FDVT_WRA_0>,
++				 <&vpp_iommu M4U_PORT_L12_FDVT_WRB_0>;
++			power-domains = <&spm MT8188_POWER_DOMAIN_IPE>;
++			clocks = <&imgsys CLK_IMGSYS_MAIN_IPE>,
++				 <&ipesys CLK_IPE_FDVT>,
++				 <&ipesys CLK_IPE_SMI_LARB12>,
++				 <&ipesys CLK_IPESYS_TOP>;
++			clock-names = "img_ipe",
++				      "ipe_fdvt",
++				      "ipe_smi_larb12",
++				      "ipe_top";
++		};
++
+ 		ipesys: clock-controller@15330000 {
+ 			compatible = "mediatek,mt8188-ipesys";
+ 			reg = <0 0x15330000 0 0x1000>;
+ 			#clock-cells = <1>;
+ 		};
+ 
++		larb12: larb@15340000 {
++			compatible = "mediatek,mt8188-smi-larb";
++			reg = <0 0x15340000 0 0x1000>;
++			mediatek,larb-id = <SMI_L12_ID>;
++			mediatek,smi = <&vpp_smi_common>;
++			mediatek,smi-sub-comm = <&smi_img1>;
++			mediatek,smi-sub-comm-inport = <0>;
++			clocks = <&imgsys CLK_IMGSYS_MAIN_IPE>,
++				 <&ipesys CLK_IPE_SMI_LARB12>;
++			clock-names = "apb", "smi";
++			power-domains = <&spm MT8188_POWER_DOMAIN_IPE>;
++		};
++
+ 		imgsys_wpe2: clock-controller@15520000 {
+ 			compatible = "mediatek,mt8188-imgsys-wpe2";
+ 			reg = <0 0x15520000 0 0x1000>;
+-- 
+2.45.2
+
 
