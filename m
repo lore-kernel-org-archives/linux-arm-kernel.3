@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A3C9C021B4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 21:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEB4C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 22:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hXGH9Z+OdViyLyaeNdj+evSOC05tFiOwgQvPxQsepcw=; b=AuOfalztMiBAR0SBuSOx8A8NtC
-	zLS4BGBvY63RtRekacDlZElC0TXPM2VOMmmq5YnHevIj1D1iDsmP3IeSGND/IKZ100Ka69wUpJzmQ
-	Q2ILKiK7fUTgWFLY+9T20rXx58CKeVuggV2oL4PMhaIAzo4wFj4R7kSreF3HfCxkU+P1t/9NrjQh6
-	4lp8zVSliMzr9fCxKgR7d15j2S7u/AnEci2nXU7gFxuQ7s0FnLaNnyHc/jsu0n3ouPOAb0EL75d+w
-	TIXoBB4OJIiVp6CLDU3yXhvXOfjhQCNSVrkmSPgnyCkWzF0ix7OGtF+Cu5BOHHWxW5F7qrE+gernS
-	1pvpKXJg==;
+	bh=8O/BFXNYUlbWqYOn91G8A2mFS2+fXJ+Iw3KR7ydAxqM=; b=eyry6Knt8oNt9SKeJAZoBARXQY
+	wEPdGnnGMZnNVZFpl1LomLDaZiF+lwczfv0DwOiIG7T90HAeS5lESjt4kBRboOBqByay4V7CqhHwy
+	H4CKn2GXCx4IPEbCEOV5GO/ktbBB3MplBTtfVkMR3gR2nipSvudqHOyI/GP7XHI8I+/mekG65oMqZ
+	ZrrbYWvsUfYIUXMyWp+SeWxLHnI4RDIbGWCOpktHle3MMY2g6JnGOorJkt5IWFrTFXuyvswWqaiIa
+	7rkYiY5ASXmg0pFfitrm+Xttym6jAoaMwHl/qrEC3DHdMhIjTq8fTRGry0smwYfFidawB7F6sLLjy
+	fBQmTSCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlEZJ-000000033Rf-3fbd;
-	Thu, 20 Feb 2025 21:58:53 +0000
+	id 1tlEan-000000033ue-22ai;
+	Thu, 20 Feb 2025 22:00:25 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlEXp-0000000339c-0ND6
+	id 1tlEYe-000000033Jb-1qMO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 21:57:22 +0000
+	Thu, 20 Feb 2025 21:58:13 +0000
 Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
-	by linux.microsoft.com (Postfix) with ESMTPSA id A2784203E3BD;
-	Thu, 20 Feb 2025 13:57:19 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A2784203E3BD
+	by linux.microsoft.com (Postfix) with ESMTPSA id B044A203E3BD;
+	Thu, 20 Feb 2025 13:58:07 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B044A203E3BD
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740088640;
-	bh=hXGH9Z+OdViyLyaeNdj+evSOC05tFiOwgQvPxQsepcw=;
+	s=default; t=1740088688;
+	bh=8O/BFXNYUlbWqYOn91G8A2mFS2+fXJ+Iw3KR7ydAxqM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XtGknKWpWoB+evSUfsY6KBr3Lhb1Ju2CCc638EfX+cLZ0/PDofVE7HCnnownVNu6h
-	 4q03qcOPhOmEu8nMMTIoirXxamdOrA8OY90k3D6HNMHI2nfHmrb2v9C7eVGgeTUR9m
-	 kpqR+22342pJd/TO0Iag2Y5Yo5rxJLEmTX8xeSjk=
-Message-ID: <6e7d0116-82b5-4a39-997e-24143d7d3584@linux.microsoft.com>
-Date: Thu, 20 Feb 2025 13:57:19 -0800
+	b=dMqCGFVpL42bwlZlJHMSuTTwuBA/sxgE5feV1M6m3hpmvrJSk5z4htbawHEWqNFb+
+	 pWj/qs0U0ciP09t8y/gqIAQ3YwxGW57AmzxGsELv+wTuzLQ2WQbKBj2YJv6n7+js2g
+	 dguZh9PH/E5NOtUatZSDxcL7fFcRCDo5pdM7ku5M=
+Message-ID: <2b8f135b-8a65-4cee-ba4b-af1cd987c687@linux.microsoft.com>
+Date: Thu, 20 Feb 2025 13:58:07 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] hyperv: Change hv_root_partition into a function
+Subject: Re: [PATCH v2 1/3] hyperv: Convert hypercall statuses to linux error
+ codes
 To: Michael Kelley <mhklinux@outlook.com>,
  "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
  "linux-arm-kernel@lists.infradead.org"
@@ -70,16 +71,16 @@ Cc: "kys@microsoft.com" <kys@microsoft.com>,
  "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
  "mukeshrathor@microsoft.com" <mukeshrathor@microsoft.com>
 References: <1740076396-15086-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740076396-15086-3-git-send-email-nunodasneves@linux.microsoft.com>
- <SN6PR02MB415703DF0CD1EB3523E3C79AD4C42@SN6PR02MB4157.namprd02.prod.outlook.com>
+ <1740076396-15086-2-git-send-email-nunodasneves@linux.microsoft.com>
+ <SN6PR02MB41578283BE9E070349EEB1A3D4C42@SN6PR02MB4157.namprd02.prod.outlook.com>
 Content-Language: en-US
 From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB415703DF0CD1EB3523E3C79AD4C42@SN6PR02MB4157.namprd02.prod.outlook.com>
+In-Reply-To: <SN6PR02MB41578283BE9E070349EEB1A3D4C42@SN6PR02MB4157.namprd02.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_135721_174671_6A8D821F 
-X-CRM114-Status: GOOD (  20.67  )
+X-CRM114-CacheID: sfid-20250220_135812_526840_911CE8CD 
+X-CRM114-Status: GOOD (  19.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,63 +95,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/20/2025 11:17 AM, Michael Kelley wrote:
+On 2/20/2025 11:03 AM, Michael Kelley wrote:
 > From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Thursday, February 20, 2025 10:33 AM
 >>
->> Introduce hv_current_partition_type to store the partition type
->> as an enum.
+>> Return linux-friendly error codes from hypercall helper functions,
+>> which allows them to be used more flexibly.
 >>
->> Right now this is limited to guest or root partition, but there will
->> be other kinds in future and the enum is easily extensible.
+>> Introduce hv_result_to_errno() for this purpose, which also handles
+>> the special value U64_MAX returned from hv_do_hypercall().
 >>
->> Set up hv_current_partition_type early in Hyper-V initialization with
->> hv_identify_partition_type(). hv_root_partition() just queries this
->> value, and shouldn't be called before that.
+>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>> ---
+>>  drivers/hv/hv_common.c         | 34 ++++++++++++++++++++++++++++++++++
+>>  drivers/hv/hv_proc.c           |  6 +++---
+>>  include/asm-generic/mshyperv.h |  1 +
+>>  3 files changed, 38 insertions(+), 3 deletions(-)
 >>
->> Making this check into a function sets the stage for adding a config
->> option to gate the compilation of root partition code. In particular,
->> hv_root_partition() can be stubbed out always be false if root
->> partition support isn't desired.
->>
->>
-> 
-> [snip]
->  
->> +void hv_identify_partition_type(void)
+>> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+>> index ee3083937b4f..2120aead98d9 100644
+>> --- a/drivers/hv/hv_common.c
+>> +++ b/drivers/hv/hv_common.c
+>> @@ -683,3 +683,37 @@ u64 __weak hv_tdx_hypercall(u64 control, u64 param1, u64 param2)
+>>  	return HV_STATUS_INVALID_PARAMETER;
+>>  }
+>>  EXPORT_SYMBOL_GPL(hv_tdx_hypercall);
+>> +
+>> +/* Convert a hypercall result into a linux-friendly error code. */
+>> +int hv_result_to_errno(u64 status)
 >> +{
->> +	/* Assume guest role */
->> +	hv_current_partition_type = HV_PARTITION_TYPE_GUEST;
+>> +	/* hv_do_hypercall() may return U64_MAX, hypercalls aren't possible */
+>> +	if (unlikely(status == U64_MAX))
+>> +		return -EOPNOTSUPP;
 >> +	/*
->> +	 * Check partition creation and cpu management privileges
->> +	 *
->> +	 * Hyper-V should never specify running as root and as a Confidential
->> +	 * VM. But to protect against a compromised/malicious Hyper-V trying
->> +	 * to exploit root behavior to expose Confidential VM memory, ignore
->> +	 * the root partition setting if also a Confidential VM.
+>> +	 * A failed hypercall is usually only recoverable (or loggable) near
+>> +	 * the call site where the HV_STATUS_* code is known. So the errno
+>> +	 * it gets converted to is not too useful further up the stack.
+>> +	 * Provice a few mappings that could be useful, and revert to -EIO
+>> +	 * as a fallback.
 >> +	 */
->> +	if ((ms_hyperv.priv_high & HV_CREATE_PARTITIONS) &&
->> +	    (ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
->> +	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
->> +		pr_info("Hyper-V: running as root partition\n");
->> +		if (IS_ENABLED(CONFIG_MSHV_ROOT))
-> 
-> I'll have to rescind the "Reviewed-by:" that I just gave. There's a patch
-> sequencing problem in that CONFIG_MSHV_ROOT doesn't exist yet.
-> It's added in Patch 3 of the series.  Because it doesn't exist, the
-> IS_ENABLED() will always return 'false', which isn't fatal in the sense
-> of causing a compile error.  But the code won't run in the root partition
-> because hv_current_partition_type isn't set.
-> 
-
-Oops! Thanks for catching that, I'll just move the check from this patch
-to patch 3.
-
-> Michael
-> 
->> +			hv_current_partition_type = HV_PARTITION_TYPE_ROOT;
->> +		else
->> +			pr_crit("Hyper-V: CONFIG_MSHV_ROOT not enabled!\n");
+>> +	switch (hv_result(status)) {
+>> +	case HV_STATUS_SUCCESS:
+>> +		return 0;
+>> +	case HV_STATUS_INVALID_HYPERCALL_CODE:
+>> +	case HV_STATUS_INVALID_HYPERCALL_INPUT:
+>> +	case HV_STATUS_INVALID_PARAMETER:
+>> +	case HV_STATUS_INVALID_PARTITION_ID:
+>> +	case HV_STATUS_INVALID_VP_INDEX:
+>> +	case HV_STATUS_INVALID_PORT_ID:
+>> +	case HV_STATUS_INVALID_CONNECTION_ID:
+>> +	case HV_STATUS_INVALID_LP_INDEX:
+>> +	case HV_STATUS_INVALID_REGISTER_VALUE:
+>> +		return -EINVAL;
+>> +	case HV_STATUS_INSUFFICIENT_MEMORY:
+>> +		return -ENOMEM;
+>> +	default:
+>> +		break;
 >> +	}
+>> +	return -EIO;
 >> +}
+>> diff --git a/drivers/hv/hv_proc.c b/drivers/hv/hv_proc.c
+>> index 3e410489f480..72b09f1cfa3e 100644
+>> --- a/drivers/hv/hv_proc.c
+>> +++ b/drivers/hv/hv_proc.c
+>> @@ -88,7 +88,7 @@ int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
+>>  	local_irq_restore(flags);
+>>  	if (!hv_result_success(status)) {
+>>  		pr_err("Failed to deposit pages: %lld\n", status);
+>> -		ret = hv_result(status);
+>> +		ret = hv_result_to_errno(status);
+>>  		goto err_free_allocations;
+>>  	}
+>>
+>> @@ -139,7 +139,7 @@ int hv_call_add_logical_proc(int node, u32 lp_index, u32 apic_id)
+>>  			if (!hv_result_success(status)) {
+>>  				pr_err("%s: cpu %u apic ID %u, %lld\n", __func__,
+>>  				       lp_index, apic_id, status);
+>> -				ret = hv_result(status);
+>> +				ret = hv_result_to_errno(status);
+>>  			}
+>>  			break;
+>>  		}
+>> @@ -181,7 +181,7 @@ int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags)
+>>  			if (!hv_result_success(status)) {
+>>  				pr_err("%s: vcpu %u, lp %u, %lld\n", __func__,
+>>  				       vp_index, flags, status);
+>> -				ret = hv_result(status);
+>> +				ret = hv_result_to_errno(status);
+>>  			}
+>>  			break;
+>>  		}
+> 
+> In hv_call_add_logical_proc() and hv_call_create_vp(), local variable "ret" is
+> defined and initialized to HV_STATUS_SUCCESS.  Since "ret" now contains an
+> errno value instead of a hypercall status, it should be initialized to zero.  (Yes,
+> HV_STATUS_SUCCESS is defined as 0, but it's now the wrong abstraction.)
+> 
+Great point, I'll post a v3 to fix it.
+
+> With that fixed,
+> 
+> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+> 
+>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+>> index 7adc10a4fa3e..3f115e2bcdaa 100644
+>> --- a/include/asm-generic/mshyperv.h
+>> +++ b/include/asm-generic/mshyperv.h
+>> @@ -297,6 +297,7 @@ static inline int cpumask_to_vpset_skip(struct hv_vpset *vpset,
+>>  	return __cpumask_to_vpset(vpset, cpus, func);
+>>  }
+>>
+>> +int hv_result_to_errno(u64 status);
+>>  void hyperv_report_panic(struct pt_regs *regs, long err, bool in_die);
+>>  bool hv_is_hyperv_initialized(void);
+>>  bool hv_is_hibernation_supported(void);
+>> --
+>> 2.34.1
 
 
