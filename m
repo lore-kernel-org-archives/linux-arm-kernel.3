@@ -4,151 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5674AC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 20:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BA1C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 20:29:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qCtd507hDoBNZgSvuLhknUfVv9YoAFAynQ26aDpHvYA=; b=4WOECrTAuDAYXfS0m3lFqeEOHB
-	clBBzvIOJbahRCloGh0N7qQV430LvWFtwjAbgvempsbt3e6ce9vbdrhF7ZjUoD6dA4fht7reXzxz/
-	oiqzVFgCCgtYSwxnk/jR9XfkEosGjug7PxyENMvUXPMowezx1pCZx5XuvP67Pl5sUqaqJLmS37YXa
-	J+HpwQW581MtkrFhiVojsUS148cqqIhi5CaqUJwjV5CcuzPvJdR01osJBREX2kqgQ/IeICeJcDs1W
-	FK+YfmRJoVej/gRv1JVCubFvUghPEjai1WjzUsbXJxrwUIPpWmFDU0RTlZgVdf+k+hHJfN1lLs+Q4
-	KI1+0h8g==;
+	bh=OtfmfrXV4Fenqpt6KK3zaAtg3JmCzHplb9SYG8vsTp0=; b=G58ymugW915evrodh1X89F+jU4
+	7SW1pnl0I3qGXfmE0eDBdFRsbePbNUI7+uIijywIBW9LK/OC7T1OjvW4B5acdUo30E7X4qhoYGVY0
+	IcmeCGqBoq/ZWq9R9PbMDPepwAsVlmvCdUe90w80Nt4YWgR8cW5yakEccnyORiAaZVp9RwzTuXo4s
+	z3Wj88MPuyILBtVdoBQnPnJOwC8nd4FaIcysGEEyyvmjty+QGyj9NQF4V9f1iB20iKo19Il7e2ibe
+	nW/xJLzPFMZYG+wOcHluBrNQJZuyyzayhXgXSCFJIMQzm2hksvSKG9K/Mfn/F5IelmGT8uZE/3xi8
+	wFJ1+WRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlD7n-00000002mUm-0E83;
-	Thu, 20 Feb 2025 20:26:23 +0000
-Received: from mail-northcentralusazolkn190120002.outbound.protection.outlook.com ([2a01:111:f403:d111::2] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1tlDAO-00000002n1K-3t5o;
+	Thu, 20 Feb 2025 20:29:04 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlC3E-00000002ZRD-3Te5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 19:17:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Lq0xwQHdszb1j7kLcMmlOToLh6Erp0PEFdQAZDPD6zyzmVH6mkctLM2dMoOqZYva1p3vqsoK0wyyuZFzhF1GmiPfCDOfDsjw+c/AzypgfTuHLdLA16d6PU58b3SQVqkF9C0cShmbJzKRKovUZZBVLhtNWhg1TaNk3e16YzsKyfsXsWwLYzkb/Dmi/BS0jP8TzTRrBGTEpjxXqWHCa+oEoxPKRLn0nj+HkLQOutEhJFgnW74sG7chCbOWrRhQJEeSflBnirM+xK0nrGeid6qpSlY2NSGE+fztH9lukIPNCrRCHi3wL9KDgJgWI3gL+DUa4xtdT4Ip3GiO6zH/ZU1Jng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qCtd507hDoBNZgSvuLhknUfVv9YoAFAynQ26aDpHvYA=;
- b=DBOWYfPmWonH15Xve8G0BLe7lg5MTxcfTAaBcMzXYCbwt8OQU2Yvbjm3vKez31iaYXDXzm/VSjHdymwL5IpWH1pZuzsnPfAgo7XFCeIU0lmT5olYkeYINZoSZqYR8M9lQhDChsRYoqDJ10cbM0kePNPFre6ZVzBr43aS7Nio/URpEfV8Yuf1Iu6vfjXCLhIGsOVLLFiVO4NMzBf5k0zvYkMyblMwVNWpLkVhy6XovXqgOpprHWes1smOyO9kw1/g20EZxG7Bmszczhw/pXlG71NTBId5FroxlQzm4LifktxN6IHVb197bF3PqHhgCqcTG96zMcpaEJ0MKNPnCByndQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qCtd507hDoBNZgSvuLhknUfVv9YoAFAynQ26aDpHvYA=;
- b=TBDZQGk0T5CfUyvx8RGNKNVy8cfI0iqom+4UgRFA/RzvTDQfJ4LK3fqfLO3TgsgdL9qtKgLvx2bpV63DGyMIjxPjvj5GLIcQU9Jqgu0I95PoFmgzrXOllLy2hN/Mgkk735F4BfuZdDVjvH31MZOPJZo3ZKaS1dQzOA0AEiEdET7sOMAlQfLyuADkTjwfWx1U7bcV4CkTm66oOJm2+UpqaRXgCKRGORx8qJcbE7RfyPFy2HrKL3/Ch008M+Oas8T8DBnzNgqu6sGcLkd98ylAljoDvMOqDeCznp1qoKcMt5HlAQAIrbsFL40GTDyTrvJaDZbcycuzqlQw4cWrPw8srg==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by SJ2PR02MB10074.namprd02.prod.outlook.com (2603:10b6:a03:556::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.15; Thu, 20 Feb
- 2025 19:17:30 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df%4]) with mapi id 15.20.8466.013; Thu, 20 Feb 2025
- 19:17:30 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "eahariha@linux.microsoft.com"
-	<eahariha@linux.microsoft.com>
-CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
-	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
-	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com"
-	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org"
-	<x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
-	"daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>, "joro@8bytes.org"
-	<joro@8bytes.org>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
-	"arnd@arndb.de" <arnd@arndb.de>, "jinankjain@linux.microsoft.com"
-	<jinankjain@linux.microsoft.com>, "muminulrussell@gmail.com"
-	<muminulrussell@gmail.com>, "skinsburskii@linux.microsoft.com"
-	<skinsburskii@linux.microsoft.com>, "mukeshrathor@microsoft.com"
-	<mukeshrathor@microsoft.com>
-Subject: RE: [PATCH v2 2/3] hyperv: Change hv_root_partition into a function
-Thread-Topic: [PATCH v2 2/3] hyperv: Change hv_root_partition into a function
-Thread-Index: AQHbg8X2g5fV4Yu1ukCIC60YHbLA6bNQjmoQ
-Date: Thu, 20 Feb 2025 19:17:30 +0000
-Message-ID: <SN6PR02MB415703DF0CD1EB3523E3C79AD4C42@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <1740076396-15086-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740076396-15086-3-git-send-email-nunodasneves@linux.microsoft.com>
-In-Reply-To: <1740076396-15086-3-git-send-email-nunodasneves@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|SJ2PR02MB10074:EE_
-x-ms-office365-filtering-correlation-id: e8958fc8-30b3-426b-6813-08dd51e3387e
-x-microsoft-antispam: BCL:0;ARA:14566002|15080799006|461199028|8062599003|19110799003|8060799006|102099032|3412199025|440099028|41001999003;
-x-microsoft-antispam-message-info: =?us-ascii?Q?zNqfils1DyoCfafpuqVJFrje43JoyOWkilVmWYtzkzE7x/zBTF8K7gVGYZ/2?=
- =?us-ascii?Q?8Q95pQ6fbLSuHJO1hYD/Q+Zr+pRYijO316pfxMt3xI0k+RDxnZCkCtOnonG+?=
- =?us-ascii?Q?MyVzM9+9/twkEExAaSyqXXMPxrFpB+I1fN8lxzh5Lh92Zqt/MzjWslfju4KR?=
- =?us-ascii?Q?I1SBUhsG4YnZazeMo+W9T/2Ci7I7PmhALoK6OJVyTGSOxqc/Y0j38Gwvcqnb?=
- =?us-ascii?Q?0dE4mmvYHRcG4N1CRlfAVI8RMnvulTSHVe0YDaueGTkmaYiC29m15Tge8gDD?=
- =?us-ascii?Q?FFfM3fzRe2W7SFOVW9TX0TWBgI0/y9LRmIP6lfM+TztOLf1dfRU81CXo+VP8?=
- =?us-ascii?Q?1VkjKV4zqlUzGTwc4fm2VNhawoM40atLxPhGAV564riKomkEZ7RwI71oGqch?=
- =?us-ascii?Q?SWxHw1mt47s7uYcjwywrNKW+OcFvA3PbEXCAOr1R1BD+99s5q6pA+8VGc/4P?=
- =?us-ascii?Q?MFicvZ2d0/JQ9PX9rAt+ygBO+Uhuu8f6aVd8F8tx2FpbNOEqO3M6qoa4n370?=
- =?us-ascii?Q?jU3RcI9tMYBxb4ipUCZW2+XjyR7REHgJyXsAcvPfl9iz0BqyYDErJQhj6ypZ?=
- =?us-ascii?Q?IwYzmPw38ViHndWI33Q8yNDznCQD5U1Xef4KDk/yXQNXcu6/w513U1Q/j3nD?=
- =?us-ascii?Q?PArvUo2M9kJPxRigrRDxbPOHg7keaasaklm1bN+gxRxXncY9Un+O8w6oPv7R?=
- =?us-ascii?Q?OffajJCRbfaKYh8mTs6MkQmR8fIPOSWAiTnNLiVquWWJBpikYpE61aDPFxii?=
- =?us-ascii?Q?xMhd3WjXT0RaVvaLVQUsYuEqKkHr11lwS1G3hKxFFvS3l+FFUCuaNUNUBJJm?=
- =?us-ascii?Q?F6X5Slilo1QcI0ytdcwzXE0ANdkxss3L4EP6vzeWUSblcrBLVGixtUxWlX01?=
- =?us-ascii?Q?xjYyxhjK8jOzVNW5g6flmUm4GfgECfrMsl/W13uVJyXQmUXxiFeVKvcgSFr9?=
- =?us-ascii?Q?Vwa8t/18Dwg6Bu3p+wt+5KeddSf1DZmffwtWIqZI20+F7TPQ3brte49p8ej5?=
- =?us-ascii?Q?+zzxDysJ5jG78AOJdQtqqg5IQFWoYYf6UvkFYptS82wVz8z+vS/Ox+oywenC?=
- =?us-ascii?Q?HeYsc8uXIlzxQRP4SXEAufEFN1iJOA=3D=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?oeN7jIVc4DYpdqi2JPtfnIPkNClRwovYUIwJyv/e8vGQ7uFiei2hi4B1wY93?=
- =?us-ascii?Q?FxvuogEmlilmNB1klLi6i92tzRCUkYWoppHF/OvcwhO1VjMJ963XCYyo3/Vb?=
- =?us-ascii?Q?1pDO6CYwfEnO9onz65v0pSVt9FIRFghU28eTZMWjpnXzU6hzTxk+7faVlJDW?=
- =?us-ascii?Q?Jke01MzGiYWrPdWrja/yQUkLZkfw1+rAduveAmMhPRKCkJtoVXgT/gK+WFxk?=
- =?us-ascii?Q?ZnzfkuDfTjtQhbLAWmBtmR5eDq/o3IPfj68HsRhU7SKEHzoDG4aKPBTEoyTU?=
- =?us-ascii?Q?htEt2LfeLoj0MrHwwe0KI88atwWvWe82vgQ/Ma5r4cKI6W13gGIlcU5VZhBC?=
- =?us-ascii?Q?0tuWATALeImmgW5Ih4wS1ZbQSNwm0ADpDyw0r81Y184YAk4sQax1MnnQ08+w?=
- =?us-ascii?Q?KZC/0jigSUBvZjrTbGhb0Ri/4j3kd/YOERDsVsfeunl1FsGuu/q9txrk44Y6?=
- =?us-ascii?Q?Iz7IreIh6sWy7zW2S1w8uzQWHC0USDtjnxGDTYH0TlC1+LXdtPCyJ2WjMiLj?=
- =?us-ascii?Q?Ql+CK2OGW7J9IxNnyPnOU2WApdz4X3fH++WHfAoFfkZ1KVMI3+/pw7FYUwH1?=
- =?us-ascii?Q?qNIL8EAbeWwrO8flkm9BKv7Qd4Q5KWvbxqFAJjrkDTtzZAuNIPCxctbmZnZP?=
- =?us-ascii?Q?xS23NlRsCxsYj737e9yBRfW/qtDiY+i0ssNXA8ihaumDJIqgb9B68rIBHIiI?=
- =?us-ascii?Q?g5XdKbVnkL9gIVp2/VXOfMui/5WUNhu0KYrjQWJb/dVT+myhM6sxqVqblp1y?=
- =?us-ascii?Q?fizMosDOeWI64ON33Bz/FWXJT1Wjgn82OcY57eLtU6Nux21792HhB5QMvRW9?=
- =?us-ascii?Q?8BfzPylnJ8CUuZQzPekEYQc62Cz3jwuLXadrZvRjkMVelRzE9kZjwmn8TqnN?=
- =?us-ascii?Q?bln0Zr/aH+6eUGJMHbm/zWMC6DhFUbzv3OxwiSCtwCdFchpsJzGis9DdVwY+?=
- =?us-ascii?Q?cLCfioj6cmVg4S354DdBR6iUznn6Pl+hnPF7R7+76/Kagl+J13it4tBRubbT?=
- =?us-ascii?Q?TH2KYGAuVN3QcrRreZo5B0l8oCcBPhrSDiJy8fAxt2JkMvsqFDP3f2ybBZrZ?=
- =?us-ascii?Q?bWwykKdlfjV6s5++UfqbYhf9cvkToTYm+YWKK/iK43xnWPzMDER2dEB7j168?=
- =?us-ascii?Q?QR0fUR7ttwl7ntr0ZvkypYRV4Da3IeLtbGys/Om9jkBTzCfYbMuTicSXsA+8?=
- =?us-ascii?Q?pL9F4qFShZfjDuyT1iEHaxZ6cyydelpBoxDMKzDP6HoLVEOPDbrsRgldeJE?=
- =?us-ascii?Q?=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1tlD8t-00000002mm9-2puM;
+	Thu, 20 Feb 2025 20:27:32 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-439950a45daso8966905e9.2;
+        Thu, 20 Feb 2025 12:27:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740083249; x=1740688049; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OtfmfrXV4Fenqpt6KK3zaAtg3JmCzHplb9SYG8vsTp0=;
+        b=aCaAZWc7txPepAmaqf+HDZ/d5WWfbS6C8HYd8bKRVrKLJ4HMyMUCHEX0hed/ZXXlZB
+         WHAFZieur+iQORtyucOjHhXrRZXhULykdc13RXcK/R8XQgu3ekln68fwj5P1TozaaJP1
+         l7j7zp8TqDBiEt03j/PPfZyhIuNdVmE4zn1KCF2c+i9CUzJX8ygCnReOpXfv52K51cz3
+         mA2sreunPUcXu/dUO4J2TqMpQBpY+YWmHnz8izp+OEPvDejrjTbiPTbt9foKq8OL+u1B
+         843Ul2fdGQ/yFhLZlpSH1S+mQMfwzrDInz3JkAE0aMAwcsSCCwJIT4mT1bxyng1tNGpx
+         xAJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740083249; x=1740688049;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OtfmfrXV4Fenqpt6KK3zaAtg3JmCzHplb9SYG8vsTp0=;
+        b=iLZZyagDTFGK+SPVlAufghwfwckdlgt+EFGlWgr3nUFkZ/b+I+9JKou+jha1+cDnSX
+         mlO2ovP6+lmQRBHzuheWpMpiQXYY80gxHU3yW6g16WC8bEChP4SIb0VT8unqCoezyIuo
+         ZLEsTbfD/6g7lZfzh2aveyPExrhXSrVZh2ICeniT1Z3hxZ31M8/8h2StG8gTiZLvDQ7i
+         VhD0wnstIPHJjpuO06XyLzW65n8KtbLS7tblsS0NvfxFEhJVmApsLwmJpHlId9xBbOJq
+         VuUoTSin1u8zbVlspZGFOV3gejmzeFayAWJ1Jas3YdniYFnUBo4lg95icWREv8Q+7BIh
+         yrFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVElDgKkfFY6omn0KLWeUNZE6vqO5Udv96fvtwPbPQLAfePoWZTDYmyMeATp6M94mXalrOgUci9wwRzoKjvQ87U@lists.infradead.org, AJvYcCVzh/lRV7DxsQI70PBhQZ7VYIC5Sswzddjx59DO59dToGK5UXK/E0mipNeFctCmcgkM3jqWpziZuWv4@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRtbdanrcC36umCtZJztUw52FzM6Trtk3CCouFC4fybSFMgSv5
+	IwZMTaBQuvxFA1ztFHg6heQp5uy+Y4G9Jt3smM03UbdFPk8Pc0DO
+X-Gm-Gg: ASbGncs1IAzIPC37wluigCzb7+OOH/2GRvpH5qci5t4BttriZd0i0A9IlCaM3BUZOA2
+	BIQy+hbjtwsbWK8Pp28Td2UfKugP7KP3E1/Trz5Hb/0+ldOMS22XggWHrWIpNR6C9Yq2/D/uoQU
+	DjbM1yScDeS2p1Vdp7rI/8cjmKW8SvEmm5vqQk68BZ5LLNt0lv6DCxyxpoxUIoCbGl6THnPBuDR
+	XQMn17RR+SlbVWsw+MiQX2Al2hhgXZnYAz2Uv3sN0EfWVfTRLLoGirsuyRWm0pFEhcE+fOZUTGv
+	CHka1hcgNrPnGxDN7eEbSSHr5Ncj4Rt9vJ+0z8ObHuo2OGiiow/TYTdjx9TdYcfcBGI=
+X-Google-Smtp-Source: AGHT+IECii+tVv+IZA8Kwcb9HLreQ7WkQqdHkR9yh3R3Vri6Dsiv8yRmWFnRoRF5/CwPCmIDOfBbOQ==
+X-Received: by 2002:a05:600c:3b93:b0:439:96b2:e9b with SMTP id 5b1f17b1804b1-439ae1e6a3amr4585785e9.9.1740083249349;
+        Thu, 20 Feb 2025 12:27:29 -0800 (PST)
+Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4395a1b824dsm250156575e9.34.2025.02.20.12.27.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Feb 2025 12:27:28 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
+ Philippe Simons <simons.philippe@gmail.com>,
+ "open list:GENERIC PHY FRAMEWORK" <linux-phy@lists.infradead.org>,
+ "moderated list:ARM/Allwinner sunXi SoC support"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
+ open list <linux-kernel@vger.kernel.org>,
+ Philippe Simons <simons.philippe@gmail.com>
+Subject: Re: [RFC PATCH 1/3] phy: don't let controllers change vbus reg
+Date: Thu, 20 Feb 2025 21:27:27 +0100
+Message-ID: <2261426.ZfL8zNpBrT@jernej-laptop>
+In-Reply-To: <20250118102207.9339-1-simons.philippe@gmail.com>
+References: <20250118102207.9339-1-simons.philippe@gmail.com>
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: e8958fc8-30b3-426b-6813-08dd51e3387e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Feb 2025 19:17:30.3267
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR02MB10074
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_111736_889606_C0AC11C9 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250220_122731_714517_D9B26850 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,58 +102,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Thursday, Feb=
-ruary 20, 2025 10:33 AM
+Dne sobota, 18. januar 2025 ob 11:22:04 Srednjeevropski standardni =C4=8Das=
+ je Philippe Simons napisal(a):
+> Allwinners SoCs share phy0 between the MUSB controller and HCI controller.
+> If we let these controllers independently power on the vbus on that phy,
+> peripheral mode is dangerous because HCI never power down the phy, result=
+ing
+> in 5v being applied against the host 5v.
 >=20
-> Introduce hv_current_partition_type to store the partition type
-> as an enum.
+> Override power_on/off for phy0 in that case, and let regulator be enabled=
+/disabled
+> based on id_det only.
 >=20
-> Right now this is limited to guest or root partition, but there will
-> be other kinds in future and the enum is easily extensible.
->=20
-> Set up hv_current_partition_type early in Hyper-V initialization with
-> hv_identify_partition_type(). hv_root_partition() just queries this
-> value, and shouldn't be called before that.
->=20
-> Making this check into a function sets the stage for adding a config
-> option to gate the compilation of root partition code. In particular,
-> hv_root_partition() can be stubbed out always be false if root
-> partition support isn't desired.
->=20
->
+> Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
 
-[snip]
-=20
-> +void hv_identify_partition_type(void)
-> +{
-> +	/* Assume guest role */
-> +	hv_current_partition_type =3D HV_PARTITION_TYPE_GUEST;
-> +	/*
-> +	 * Check partition creation and cpu management privileges
-> +	 *
-> +	 * Hyper-V should never specify running as root and as a Confidential
-> +	 * VM. But to protect against a compromised/malicious Hyper-V trying
-> +	 * to exploit root behavior to expose Confidential VM memory, ignore
-> +	 * the root partition setting if also a Confidential VM.
-> +	 */
-> +	if ((ms_hyperv.priv_high & HV_CREATE_PARTITIONS) &&
-> +	    (ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
-> +	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
-> +		pr_info("Hyper-V: running as root partition\n");
-> +		if (IS_ENABLED(CONFIG_MSHV_ROOT))
+Is this fix for some observed issue? If so, Fixes tag would be appropriate.
 
-I'll have to rescind the "Reviewed-by:" that I just gave. There's a patch
-sequencing problem in that CONFIG_MSHV_ROOT doesn't exist yet.
-It's added in Patch 3 of the series.  Because it doesn't exist, the
-IS_ENABLED() will always return 'false', which isn't fatal in the sense
-of causing a compile error.  But the code won't run in the root partition
-because hv_current_partition_type isn't set.
+> ---
+>  drivers/phy/allwinner/phy-sun4i-usb.c | 26 ++++++++++++++++++++++++++
+>  1 file changed, 26 insertions(+)
+>=20
+> diff --git a/drivers/phy/allwinner/phy-sun4i-usb.c b/drivers/phy/allwinne=
+r/phy-sun4i-usb.c
+> index b0f19e950..24fbabe7a 100644
+> --- a/drivers/phy/allwinner/phy-sun4i-usb.c
+> +++ b/drivers/phy/allwinner/phy-sun4i-usb.c
+> @@ -465,6 +465,10 @@ static int sun4i_usb_phy_power_on(struct phy *_phy)
+>  	struct sun4i_usb_phy_data *data =3D to_sun4i_usb_phy_data(phy);
+>  	int ret;
+> =20
+> +	/* phy0 power is controlled by sun4i_usb_phy0_reroute and id_det state =
+*/
+> +	if (phy->index =3D=3D 0 && data->cfg->phy0_dual_route)
+> +		return 0;
+> +
+>  	if (!phy->vbus || phy->regulator_on)
+>  		return 0;
+> =20
+> @@ -493,6 +497,10 @@ static int sun4i_usb_phy_power_off(struct phy *_phy)
+>  	struct sun4i_usb_phy *phy =3D phy_get_drvdata(_phy);
+>  	struct sun4i_usb_phy_data *data =3D to_sun4i_usb_phy_data(phy);
+> =20
+> +	/* phy0 power is controlled by sun4i_usb_phy0_reroute and id_det state =
+*/
+> +	if (phy->index =3D=3D 0 && data->cfg->phy0_dual_route)
+> +		return 0;
+> +
+>  	if (!phy->vbus || !phy->regulator_on)
+>  		return 0;
+> =20
+> @@ -573,9 +581,21 @@ static void sun4i_usb_phy0_reroute(struct sun4i_usb_=
+phy_data *data, int id_det)
+>  	if (id_det =3D=3D 0) {
+>  		/* Host mode. Route phy0 to EHCI/OHCI */
+>  		regval &=3D ~OTGCTL_ROUTE_MUSB;
+> +
+> +		/* Enable VBUS reg */
+> +		if (phy->vbus && !phy->regulator_on) {
 
-Michael
+I don't see any "phy" variable in this function. Also, you should add same
+protection as it is implemented in sun4i_usb_phy_power_on(). Skip enabling
+regulator if:
 
-> +			hv_current_partition_type =3D HV_PARTITION_TYPE_ROOT;
-> +		else
-> +			pr_crit("Hyper-V: CONFIG_MSHV_ROOT not enabled!\n");
+sun4i_usb_phy0_have_vbus_det(data) && data->vbus_det
+
+> +			regulator_enable(phy->vbus);
+> +			phy->regulator_on =3D true;
+> +		}
+>  	} else {
+>  		/* Peripheral mode. Route phy0 to MUSB */
+>  		regval |=3D OTGCTL_ROUTE_MUSB;
+> +	=09
+> +		/* Disable VBUS reg */
+> +		if (phy->vbus && phy->regulator_on) {
+> +			regulator_disable(phy->vbus);
+> +			phy->regulator_on =3D false;
+> +		}
+>  	}
+>  	writel(regval, data->base + REG_PHY_OTGCTL);
+>  }
+> @@ -603,6 +623,12 @@ static void sun4i_usb_phy0_id_vbus_det_scan(struct w=
+ork_struct *work)
+>  		return;
+>  	}
+> =20
+> +	/* Disable internal VBUS reg if there is an external VBUS */
+> +	if (vbus_det !=3D 0 && phy->vbus && phy->regulator_on) {
+
+Ideally, this should never happen.
+
+Best regards,
+Jernej
+
+> +		regulator_disable(phy->vbus);
+> +		phy->regulator_on =3D false;
 > +	}
-> +}
+> +
+>  	force_session_end =3D data->force_session_end;
+>  	data->force_session_end =3D false;
+> =20
+>=20
+
+
+
+
 
