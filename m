@@ -4,112 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5D2C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57530C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ANYY81S4UUbSzxGp9vX0hw/u/obOtXq2bTCgGH3coGw=; b=Zql2qmYNirSl/38Uid8/LhJSKD
-	zMbwO0is0jilyqXCp1NDRjDuYOdipQXcRaTByV5Z7nfxnJE37zyF3sBkBmD4NUvJmofJGtos0ZqeW
-	a+m1K50oEdy6piL1x+L2ghnipReA0mvRINQHdSEdVUPxqjbWxQi8gsWF8tz++HmrYwv/K7ijkXogR
-	R4hlGwthBzS6mBwxJbpbBOtpHs/oVHBYJ6yUji699gMnScMj0nn20lLG8QplstyfD2O/rnydX2Nf0
-	AYFoKQ57QTDx24RnoBHHYuJJFSkXnuGFODy/xu1ewqUYB/LzlasT/gn7xrr7RnIM+SLfNIga5zNmQ
-	G3zzpBkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tKXN7MFjdZuUjVHfvfLC/4lobrg8VPSzlvJ5O+cLHwQ=; b=I/c3a1Uee3A18g9XDCHMw1aB8Y
+	T6IzJuwUYri1le6yDnY2/SKoY3Dx0qFwaCMMxKUOFjmgGOoqzI0C4ZBUp1hiaU3X03JainMd4h7V/
+	iOuQzTLVLjBt0hD0Oofo4RdLyQvSeRtZDdyWqaA4iwHM+nBzEqgZfDTlaQm1KnD+CwY4GJvuSkAch
+	FXaBZtNU0julDD3lyce6xzkNUVouPi32o6Oba4y76vmYp3PBDFAt4TdOkOVaBzWM0j5ie4lRnZwNR
+	8KUp9HHyO7kzCqWeVzvRB5hSzydlPzFr7oRWM2ayP9/JuR3CKxycWtro7SqAPczFHJPjS8Wa/IPvH
+	et0jymzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlAaI-00000002CLN-0nTv;
-	Thu, 20 Feb 2025 17:43:38 +0000
-Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
+	id 1tlAcV-00000002DAT-3Czk;
+	Thu, 20 Feb 2025 17:45:55 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlAQJ-00000002A1V-0jgW
+	id 1tlAaz-00000002Cdr-0WGJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 17:33:21 +0000
-Received: by mail-ed1-x542.google.com with SMTP id 4fb4d7f45d1cf-5e050b1491eso4081687a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 09:33:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1740072797; x=1740677597; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ANYY81S4UUbSzxGp9vX0hw/u/obOtXq2bTCgGH3coGw=;
-        b=RGdWur0EAYTIgaTOVokXP4knZ8O37fjtAv1i4iuTt05QZcNnJQoxAS9qBkiXhJl9X2
-         Cmnsaj7O8fsDJOmdUd9e4nTm42UaMPrJVkl33+E2tpPtFNXZVZeFwLsdlEm7vZp4Buzt
-         2LR7sOa5lGrPVegW2RRflLsjw8+mq7td2AdQF2a2PJwhfv9DX2Ff2zV+z0DDPHcAvTUm
-         LDaDM5yzIrFFrFVNN8WtMjHQ+uoaj9Vcr1sHwtTh6CTUNTaFL8O/NtDa0GcUQvTk09Wh
-         p33XHbddDuOVzTK28N+vDa60r+oLRoquy9xV11oFRDu/bsmlpGoyzQy7i+b11DrpDzqC
-         8sxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740072797; x=1740677597;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ANYY81S4UUbSzxGp9vX0hw/u/obOtXq2bTCgGH3coGw=;
-        b=Azf47X0xm9GAX9qJvxYfzvtUXWWh5EOqtDGJS+T6w0bRzzpFZ5prSTt1/5KiHBQcdz
-         Eu/BqxurMLVN0YsLP+CzGt5Yloer0Mf3CtRxQLbMABbFBwfy7lGeVpj4AHjkdzcSyZzX
-         uYUKkMqBT6V59BAy0Ikz+2fXycyGxIaUdY4ZaS5Sp52v3bIzHtgMyN+yebLeqJfCuv6J
-         s7H7ZbLFz+MjK8naQIANgXyj4pf2SUwU1VPj2te1rUsblbSeCEIuzMmrvSCx6G8cPadQ
-         MD0zqmAEDzQu47oWNkVKcfeKRlYsjTcQf8NDQrRcZbe+W7WnWNW6nQZgtXuJyrANGyZX
-         vT/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUV9onOSsCqol/t8kM8MjtLBzkXQ4wEpiIz0LmHgOsBP+Mive5Lwn0hysUUa0TcuG0ONcGpgen/y8L0cpc8TLgh@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAjk3tq5Che/YjLcSsin1/0ivW+YQV3uNSwpg+PKbCIWEsgGfK
-	v9MFk1vg5YM2DdfdSsUKYdWJTx2mBXjD6myUFbTC/zkbkBULxnlwbQJdV5xZc4E=
-X-Gm-Gg: ASbGncscCjKPMCQq+mJCVEQuxBhIkjX8AKBuwYrERKmdf+CXgUfG5g2da2Te8zIo7E4
-	onjr73ZiDIPpJMn1Kh++xQmKNdNOctsKdrneFZp40eDeVjmQk2hlRgvdyPGyCql97/XG5xbbK07
-	/mUGhIBq1VgND8wpZVWNt9z7PbDeQq+vvNyAWyGkyj0pr4ud5TSDlKZUpwjiWMljHXlIl5wkJgB
-	6IDJeMq0quUuXi738CzuICGrH4u3teb7I7T0fHZZC65GVxCGNTH5EP4jJZLoDs3zzEXnpZ3nw48
-	a3JNj6u+wxJFotMkzVM75ZYA0MbIXGmjJvA7hszIXkgXdburfBAKCl82N9I=
-X-Google-Smtp-Source: AGHT+IFcZuFtypbIC0ocwrn0UjtnE5zIzW4WQOLazDAdOMAwrDA8BDnjnnZ6hgx+i5rr6QtaeBrAFg==
-X-Received: by 2002:a05:6402:524b:b0:5de:50b4:b71f with SMTP id 4fb4d7f45d1cf-5e0a12baa86mr3394933a12.12.1740072797358;
-        Thu, 20 Feb 2025 09:33:17 -0800 (PST)
-Received: from localhost (host-79-41-239-37.retail.telecomitalia.it. [79.41.239.37])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e076048c05sm5023923a12.35.2025.02.20.09.33.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 09:33:16 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 20 Feb 2025 18:34:21 +0100
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v7 08/11] misc: rp1: RaspberryPi RP1 misc driver
-Message-ID: <Z7dnnW4npJmfOVE0@apocalypse>
-References: <cover.1738963156.git.andrea.porta@suse.com>
- <d1362766e3e966f78591129de918046a4b892c18.1738963156.git.andrea.porta@suse.com>
- <87525350-b432-40b3-927c-60cd74228ea4@gmx.net>
+	Thu, 20 Feb 2025 17:44:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 17D385C5EE1;
+	Thu, 20 Feb 2025 17:43:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9D8DC4CED1;
+	Thu, 20 Feb 2025 17:44:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740073459;
+	bh=JG9qAobTzeeNJhvrxW9wlpTi2Gx0CaoQMhNmfQShIEA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Uk2jw35ObtTTcxrptF2N88WVGFylhY2GEZlmBKieFMZC8RHGgcmyLDvZ8E05TlDjx
+	 ZEFwUacTcTMXzvoYTkd+xqv2v6mG9o7IVQEjcVJNme+iDErOrMNDrT8EWo3E2UqjGL
+	 ghzzM3LLFHaA02J676iF8uKFoQSk479xKBDiOw1jE3PNsq3pXkdV9pIb99hynzq+V+
+	 pwmTlOszNT4vtYc3PmwxYhZbM1qgn+nkGXW49jGiGEU+m+j3UhTII6c+QJebY1ygB6
+	 aaG5LbXp1O6RMuNLxE+JU4GFIf9Gki5b2XPmqsBvFC/LpnoFlJIuC0E16ySSCeTWgF
+	 HAZJ1ixyiS26Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tlAau-006J9w-EF;
+	Thu, 20 Feb 2025 17:44:17 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Vladimir Murzin <vladimir.murzin@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org
+Subject: [GIT PULL] KVM/arm64 fixes for 6.14, take #3
+Date: Thu, 20 Feb 2025 17:44:06 +0000
+Message-Id: <20250220174406.749490-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87525350-b432-40b3-927c-60cd74228ea4@gmx.net>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pbonzini@redhat.com, oliver.upton@linux.dev, vladimir.murzin@arm.com, will@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_093319_213399_140AA89A 
-X-CRM114-Status: GOOD (  24.64  )
+X-CRM114-CacheID: sfid-20250220_094421_205676_7C44C15B 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,97 +86,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
+Paolo,
 
-On 15:21 Sat 08 Feb     , Stefan Wahren wrote:
-> Hi Andrea,
-> 
-> Am 07.02.25 um 22:31 schrieb Andrea della Porta:
-> > The RaspberryPi RP1 is a PCI multi function device containing
-> > peripherals ranging from Ethernet to USB controller, I2C, SPI
-> > and others.
+Another week, another set of fixes.
 
-...
+This time around, we have a focus on MMU bugs, with one bug affecting
+hVHE EL2 stage-1 and picking the ASID from the wrong register, while
+the other affects VHE and allows it to run with a stale VMID value.
 
-> > +static int rp1_irq_set_type(struct irq_data *irqd, unsigned int type)
-> > +{
-> > +	struct rp1_dev *rp1 = irqd->domain->host_data;
-> > +	unsigned int hwirq = (unsigned int)irqd->hwirq;
-> > +
-> > +	switch (type) {
-> > +	case IRQ_TYPE_LEVEL_HIGH:
-> > +		dev_dbg(&rp1->pdev->dev, "MSIX IACK EN for irq %d\n", hwirq);
-> This looks a little bit inconsistent. Only this type has a debug
-> message. So either we drop this or add at least a message for
+Either way, this is ugly.
 
-I think that this is indeed asymmetric. That warning says
-that the 'special' IACK management is engaged for level triggered
-interrupt, which is mandatory in order to avoid missing further
-interrupts without the performance loss of busy-polling for 
-active interrupts. This is explained in par. 6.2 of:
+Please pull,
 
-https://datasheets.raspberrypi.com/rp1/rp1-peripherals.pdf
+	M.
 
-The point is that we're not stating the type of the interrupt
-(edge/level triggered), but we warn that we're enabling a mechanism
-useful for one type only (level triggered).
+The following changes since commit 0ad2507d5d93f39619fc42372c347d6006b64319:
 
-> IRQ_TYPE_EDGE_RISING, too. Btw the format specifier looks wrong
-> (unsigned int vs %d).
+  Linux 6.14-rc3 (2025-02-16 14:02:44 -0800)
 
-Ack.
+are available in the Git repository at:
 
-> > +		msix_cfg_set(rp1, hwirq, MSIX_CFG_IACK_EN);
-> > +		rp1->level_triggered_irq[hwirq] = true;
-> > +	break;
-> > +	case IRQ_TYPE_EDGE_RISING:
-> > +		msix_cfg_clr(rp1, hwirq, MSIX_CFG_IACK_EN);
-> > +		rp1->level_triggered_irq[hwirq] = false;
-> > +		break;
-> > +	default:
-> > +		return -EINVAL;
-> It would be nice to document why only IRQ_TYPE_LEVEL_HIGH and
-> IRQ_TYPE_EDGE_RISING are supported. In case it's a software limitation,
-> this function would be a good place. In case this is a hardware
-> limitation this should be in the binding.
+  git://git.kernel.org/pub/scm/linux/kernel/git/kvmarm/kvmarm.git tags/kvmarm-fixes-6.14-3
 
-All ints are level-triggered. I guess I should add a short comment in
-the bindings.
+for you to fetch changes up to fa808ed4e199ed17d878eb75b110bda30dd52434:
 
-> > +	}
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static struct irq_chip rp1_irq_chip = {
-> > +	.name		= "rp1_irq_chip",
-> > +	.irq_mask	= rp1_mask_irq,
-> > +	.irq_unmask	= rp1_unmask_irq,
-> > +	.irq_set_type	= rp1_irq_set_type,
-> > +};
+  KVM: arm64: Ensure a VMID is allocated before programming VTTBR_EL2 (2025-02-20 16:29:28 +0000)
 
-...
+----------------------------------------------------------------
+KVM/arm64 fixes for 6.14, take #3
 
-> > +		irq_set_chip_and_handler(irq, &rp1_irq_chip, handle_level_irq);
-> > +		irq_set_probe(irq);
-> > +		irq_set_chained_handler_and_data(pci_irq_vector(pdev, i),
-> > +						 rp1_chained_handle_irq, rp1);
-> > +	}
-> > +
-> > +	err = of_overlay_fdt_apply(dtbo_start, dtbo_size, &rp1->ovcs_id, rp1_node);
-> > +	if (err)
-> > +		goto err_unregister_interrupts;
-> > +
-> > +	err = of_platform_default_populate(rp1_node, NULL, dev);
-> > +	if (err)
-> > +		goto err_unload_overlay;
-> I think in this case it's worth to add a suitable dev_err() here.
+- Fix TCR_EL2 configuration to not use the ASID in TTBR1_EL2
+  and not mess-up T1SZ/PS by using the HCR_EL2.E2H==0 layout.
 
-Ack.
+- Bring back the VMID allocation to the vcpu_load phase, ensuring
+  that we only setup VTTBR_EL2 once on VHE. This cures an ugly
+  race that would lead to running with an unallocated VMID.
 
-Many thanks,
-Andrea
+----------------------------------------------------------------
+Oliver Upton (1):
+      KVM: arm64: Ensure a VMID is allocated before programming VTTBR_EL2
 
-> 
-> Thanks
+Will Deacon (1):
+      KVM: arm64: Fix tcr_el2 initialisation in hVHE mode
+
+ arch/arm64/include/asm/kvm_arm.h  |  2 +-
+ arch/arm64/include/asm/kvm_host.h |  2 +-
+ arch/arm64/kvm/arm.c              | 37 +++++++++++++++++--------------------
+ arch/arm64/kvm/vmid.c             | 11 +++--------
+ 4 files changed, 22 insertions(+), 30 deletions(-)
 
