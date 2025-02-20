@@ -4,112 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A544EC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D69C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MPZerQPnM8TdIpEWmUTlPs508hpImW7bIHM5wPNO+wc=; b=Y9nHBnuNdwngRM92eQ7OTSpbOD
-	SyNE00wHXKmMgYVqmbG6vZ8TcsIjJolDkaOiDeW/LNMliIIYj3dO73W6hy+vzq62ja3NyOrLWtQai
-	HXGutDLJDs+bPpLbfgefprEds/NN1Xh4qZq0cqJEsg6/FRXhl1yEo0NAiiY4pp/8avu2/ab6F7kew
-	lK+gJ86kQLXtBtierAD0cNmlNBi+Mtv67RbeRLXIrchcPJ6R0WCstI5Gse+3R9p3Bv/BVvwWHDWJm
-	I6QkT0JFRD8FthDvUXwGn6pmmpEEQDUSRIrKEGzUGySTxapftdtr38swiaUOin1oYqWxma2Gr4gvT
-	qFMn3Lyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/u13R5KOWq3pv04QD3KJlgVCEhSKv3/X70G4FsiRMMU=; b=lvrDLJP3qGItGU5OrohCKz06WT
+	YV2XQTi6+BVlHgklYr0otnYYqEOjFK3DhwxRsocc0y5z0JbFkXhO2ySyNOAplcVuuDXQ2grVOJnsO
+	PksQQV3h1tHsdldjAiA4agGFVdK+ZaEJw39r02PZcqUjLluph1T3EbIzeOAy9wRFTohrqt+WuGnSk
+	OFrCFl4YyZI5JvxAo+b13Edx53Xu2P/rPFCRZYBGffP0by1I7M6rBsqxEExIKxfB96BHTfPfvstog
+	CdCG3/HIkkrXLwpIVfUaKKiCDrEaDoAyhwOLMFgl/6nKNtUv+61pB81JrQMZVLQm8tkSyJ5VKU75F
+	t9JlYC7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlAFz-00000002703-2GSV;
-	Thu, 20 Feb 2025 17:22:39 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tlAMV-000000028pe-3nfT;
+	Thu, 20 Feb 2025 17:29:23 +0000
+Received: from mail-oa1-x2d.google.com ([2001:4860:4864:20::2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlADI-000000026C2-40wh
+	id 1tlAL0-000000028PM-1rDi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 17:19:54 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5e0373c7f55so1825372a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 09:19:51 -0800 (PST)
+	Thu, 20 Feb 2025 17:27:51 +0000
+Received: by mail-oa1-x2d.google.com with SMTP id 586e51a60fabf-2bcc0c6c149so869750fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 09:27:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1740071991; x=1740676791; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MPZerQPnM8TdIpEWmUTlPs508hpImW7bIHM5wPNO+wc=;
-        b=VZJfVFdobRG83adxCF73T14X0Ux3QzqzgnY1P7HBwk2IQY0BRwJoHViyjL+eeAqneg
-         HWU2AYeEIgM8HP5ao9HawIvP1bx9odYmWuYHvWZv6xgQrbuEAHDsrJnroEAI6KYkhlIT
-         gtfy0wbO4yXJtcDCR/MpsrOlAZFkk/ChZBHSk9T4KDunO8VS7r72EHM/6a0KKi3EqvNO
-         p2a85WvBzVAm+VOrl5nCzLOBWheC2O3981z4WVygQ+zMpwcf/Ii+lDhfsGq1As52EIGT
-         1DPwsfzbqyrO1xC8WHDljMYhFUDl18ddtlpBXptoI8ELY8orXauCzslm3WqExyq5ICsL
-         by/A==
+        d=broadcom.com; s=google; t=1740072469; x=1740677269; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=/u13R5KOWq3pv04QD3KJlgVCEhSKv3/X70G4FsiRMMU=;
+        b=DW8Cz3/vmVo4imC5jYFE+Cf5d6YG3tIRZpey1YKOIzGLGavIHxPn8QHlZgePRr//5a
+         LavuUMvypSce4lZ0p0bgL9pYOEZlG8rsntkoeQzPoq8PyCrLthrIT9F2/p66HMwMKSpW
+         46Ghy9fLOOCglMGn/1K44qjbTNrHz4lKD44DI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740071991; x=1740676791;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1740072469; x=1740677269;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MPZerQPnM8TdIpEWmUTlPs508hpImW7bIHM5wPNO+wc=;
-        b=j3HjGWn7dtaHroJd5w2txxPp1T2bkX7Iw1WFEWF/9b5gqhSo2thBUOF067WZaL5X94
-         2FGq08Sgas439TJq7uTM9oKjWsHQHb9nvlRBwLjmU7iYxDtfxj7IjF2LY3n5kRxHOyEv
-         yzPRajsYTFATj+p1C6X7d+zx+kUlAQmginX/kZnCXfdEUm3oJ3Ph8Aa3UJ7DCWwdekfK
-         STGzRD4HPCfijcru2pwv9UZgFzENngoOu1bMrxwhD7dUNwxysn4Hq0ekHnrYBBf9oGbW
-         484CmxWLFmfNObUvCM2XuNYFgxmJ+VOsU4WzN2e53AGdcVhFRVLBNczUBQhAU0VpnI2Y
-         82bw==
-X-Forwarded-Encrypted: i=1; AJvYcCWpvITcmj7QvZgZqW+A8XEHa5x8Xj/Q1K+YFKBoo+/wnAzyQNQaJk0kOSnsMb1WQt7jtyf69AM3/fChd5rmgU5/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuVLJLmfFxWdoNgKteRUKQSZ0Ody0yrNcenvyz0gOc4a1EHBYh
-	Mfyq/bOFuQTleyrmSVpMFkqljPcPOSmyUZzybZfDd1DJ4JcUmeqLcimOXm71DPo=
-X-Gm-Gg: ASbGnctjRxNBVkuToxwgn/RD54HNkeS+FCcF+ev1owyy3M0uxuIXans9FOvZP1ZEwVC
-	NGEuw07NAt18o4HJjc/3U5uyhrUJIRIy7jOim2AegtUs1lnPUVNbsdzIZwUPhYRjR13XBLZ0JUY
-	eqvISQd6aOC3o0iKLaj2NROxRabhJd8vodQxW+h7KXkAruWzjabRwcfncv03CeK7wEzxboW28eO
-	EZcAq+JyyF2cA10sq4DUofKl85+xEWlRdLD/wU/kMM07FOMYTKAq6JQIVgSmxYlL/qeYGweLFDB
-	W7Kd2dgV4GQwsULcNna6tcJxjUc5t9x620GVSgwhuwUrLQTLH93wYAa7cBg=
-X-Google-Smtp-Source: AGHT+IHWDM5v5Bb9ov4BBEUlzQ3ZQRxMJhj7b+2LTELKPttlDQENJhZRr+MIBUS3293eAO/wNa8PsA==
-X-Received: by 2002:a17:907:6095:b0:ab7:bac4:b321 with SMTP id a640c23a62f3a-abc09aacbb4mr14530366b.29.1740071990587;
-        Thu, 20 Feb 2025 09:19:50 -0800 (PST)
-Received: from localhost (host-79-41-239-37.retail.telecomitalia.it. [79.41.239.37])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb3d276290sm1176404866b.178.2025.02.20.09.19.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 09:19:50 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Thu, 20 Feb 2025 18:20:54 +0100
-To: Stefan Wahren <wahrenst@gmx.net>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof Wilczynski <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v7 05/11] clk: rp1: Add support for clocks provided by RP1
-Message-ID: <Z7dkdu4J7uvug7wP@apocalypse>
-References: <cover.1738963156.git.andrea.porta@suse.com>
- <4da2f1106ea6b239eba9c117bf6c129fbdb3ee87.1738963156.git.andrea.porta@suse.com>
- <0ef80d00-7213-47c8-9876-1d32011d8d3d@gmx.net>
+        bh=/u13R5KOWq3pv04QD3KJlgVCEhSKv3/X70G4FsiRMMU=;
+        b=osjrCLU4DBfOxeSQW+/UotmoqKJIq/CdD1APoi7O0gBNdviVdQfFxU2JBk3wfGAQO9
+         wx5waluujjY+UcFYV/YyNJukzCeFt5ea6Opbaa8UPi1CjIcx3Bbvi3o8JGytLGvnjBAu
+         PpWkwCgJu9aDiXlcZP5ne6GoVG5J4AGcTRBvAH4IqbLSh5oq/bor/LoLc3z09xB7i9v8
+         EB845paSn2WCL9G7OgW4Q4ItudjVlaXF5Hw57Q2GFSjcQ/0lMUKstbjfCmgoSi9ZleZF
+         kYeIEJSuDLtIGjL9bcWUjoonHNeiWcFxYl5IS06TeZ5aYIyLl548seZZibYVhPLMNiZR
+         vRJw==
+X-Forwarded-Encrypted: i=1; AJvYcCVrc5TLPwAm7SxCQ78x21XAvYcdj4LUgG7QPD8K8DUaBEiYGyQ312RAJ/Ncue52moQYkS62KEcLbLrQTv5nOJK+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1hQgrxxMVJRT5HN1VimUzZo54UCEvPg2YM2uI3vl/TasHOFGY
+	yV4ZSd2Htpk3cbhav3WJhQfdLynrVzFjKxQkr68yYfYgoUR/7t7hx5Sanbq8hQ==
+X-Gm-Gg: ASbGncvd8SdPCXf4afY0/7KFEMgnVsJaUF82VJiYGhfrLMnGeAobSA7R7d5458rhuTT
+	QTeVNbJ4594JcdV4rASdX3oUxYpqSau3ZdPUfa4sM6HO/GOXC1Xam/LL63dsgD//WXevlqjoOEa
+	nk8zzwmGVyjRjku7xKxcscVWElCDPbWeOxKu08WwUn3N4HNsMdrWXGRwndI9M9RBzyIuRgxm3OO
+	eg39DBy1hyZytYOVUqSkkTlanvnLRwjcHIbfZo7FW4TDp323QcWzOi+c6VA2gBtLnMtZk/yC/Be
+	rFAnK3vxshfXb/Abp9GA+tVXiTLXohwzoFepNAWmUmtgcQcl2//YHwvucDcttH6kRlvGrchQMWP
+	2kZ/B
+X-Google-Smtp-Source: AGHT+IFpe+7WNEMHf/e1K6RN6XXnxM2f+u9ir5hEJr+L2Qg9sOoP7MoRY9KKhkttJDVKbKrszFf5hA==
+X-Received: by 2002:a05:6870:6129:b0:296:9c08:51a3 with SMTP id 586e51a60fabf-2bd1052586fmr6219961fac.39.1740072469073;
+        Thu, 20 Feb 2025 09:27:49 -0800 (PST)
+Received: from [10.171.122.29] (wsip-98-189-219-228.oc.oc.cox.net. [98.189.219.228])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2b9548b8b8asm6393725fac.21.2025.02.20.09.27.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Feb 2025 09:27:48 -0800 (PST)
+Message-ID: <3e2eef77-2aaa-4140-9e91-59173445c929@broadcom.com>
+Date: Thu, 20 Feb 2025 09:27:43 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0ef80d00-7213-47c8-9876-1d32011d8d3d@gmx.net>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/8] PCI: brcmstb: Set gen limitation before link, not
+ after
+To: Jim Quinlan <james.quinlan@broadcom.com>, linux-pci@vger.kernel.org,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+ Cyril Brulebois <kibi@debian.org>, Stanimir Varbanov <svarbanov@suse.de>,
+ bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Rob Herring <robh@kernel.org>, Andrew Murray <amurray@thegoodpenguin.co.uk>,
+ Jeremy Linton <jeremy.linton@arm.com>,
+ "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+ <linux-rpi-kernel@lists.infradead.org>,
+ "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20250214173944.47506-1-james.quinlan@broadcom.com>
+ <20250214173944.47506-2-james.quinlan@broadcom.com>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250214173944.47506-2-james.quinlan@broadcom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_091952_998509_1754346F 
-X-CRM114-Status: GOOD (  32.20  )
+X-CRM114-CacheID: sfid-20250220_092750_485261_D458404A 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,209 +146,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stefan,
 
-On 15:58 Sat 08 Feb     , Stefan Wahren wrote:
-> Hi Andrea,
+
+On 2/14/2025 9:39 AM, Jim Quinlan wrote:
+> When the user elects to limit the PCIe generation via the appropriate DT
+> property, apply the settings before the PCIe link-up, not after.
 > 
-> Am 07.02.25 um 22:31 schrieb Andrea della Porta:
-> > RaspberryPi RP1 is an MFD providing, among other peripherals, several
-> > clock generators and PLLs that drives the sub-peripherals.
-> > Add the driver to support the clock providers.
-> > 
-> > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> Fixes: c0452137034bda8f686dd9a2e167949bfffd6776 ("PCI: brcmstb: Add Broadcom STB PCIe host controller driver")
 
-...
+Looks like this commit ID should be shortened to 12 digits. Other than that:
 
-> > +
-> > +#define MAX_CLK_PARENTS			16
-> > +
-> > +/*
-> > + * Secondary PLL channel output divider table.
-> > + * Divider values range from 8 to 19.
-> > + * Invalid values default to 19
-> Maybe it's worth to add a short define for this invalid value?
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
 
-Ack.
-
-> > + */
-> > +static const struct clk_div_table pll_sec_div_table[] = {
-> > +	{ 0x00, 19 },
-> > +	{ 0x01, 19 },
-> > +	{ 0x02, 19 },
-> > +
-
-...
-
-> > +	regmap_read(clockman->regmap, reg, &val);
-> > +
-> > +	return val;
-> > +}
-> > +
-> > +static int rp1_pll_core_is_on(struct clk_hw *hw)
-> > +{
-> > +	struct rp1_clk_desc *pll_core = container_of(hw, struct rp1_clk_desc, hw);
-> > +	struct rp1_clockman *clockman = pll_core->clockman;
-> > +	const struct rp1_pll_core_data *data = pll_core->data;
-> > +
-> Please drop this empty line
-
-Ack.
-
-> > +	u32 pwr = clockman_read(clockman, data->pwr_reg);
-> > +
-> > +	return (pwr & PLL_PWR_PD) || (pwr & PLL_PWR_POSTDIVPD);
-> > +}
-> > +
-> > +static int rp1_pll_core_on(struct clk_hw *hw)
-> > +{
-> > +	struct rp1_clk_desc *pll_core = container_of(hw, struct rp1_clk_desc, hw);
-> > +	struct rp1_clockman *clockman = pll_core->clockman;
-> > +	const struct rp1_pll_core_data *data = pll_core->data;
-> > +
-> ditto
-
-Ack.
-
-> > +	u32 fbdiv_frac, val;
-> > +	int ret;
-> > +
-> > +	spin_lock(&clockman->regs_lock);
-
-...
-
-> > +static int rp1_pll_ph_on(struct clk_hw *hw)
-> > +{
-> > +	struct rp1_clk_desc *pll_ph = container_of(hw, struct rp1_clk_desc, hw);
-> > +	struct rp1_clockman *clockman = pll_ph->clockman;
-> > +	const struct rp1_pll_ph_data *data = pll_ph->data;
-> > +	u32 ph_reg;
-> > +
-> > +	/* TODO: ensure pri/sec is enabled! */
-> Please extend this TODO. Primary/secondary of what
-
-I think the orginal comment is misleading. It seems to be related
-to the fact that phase shifted clocks should have their parent enabled
-before setting them up. Pri here shuold be the only phased clock, while
-Sec is not and depends directly on a core clock, so I'll change that
-comment entirely.
-
-> > +	spin_lock(&clockman->regs_lock);
-> > +	ph_reg = clockman_read(clockman, data->ph_reg);
-> > +	ph_reg |= data->phase << PLL_PH_PHASE_SHIFT;
-> > +	ph_reg |= PLL_PH_EN;
-> > +	clockman_write(clockman, data->ph_reg, ph_reg);
-> > +	spin_unlock(&clockman->regs_lock);
-> > +
-> > +	return 0;
-> > +}
-
-...
-
-> > +static unsigned long rp1_clock_recalc_rate(struct clk_hw *hw,
-> > +					   unsigned long parent_rate)
-> > +{
-> > +	struct rp1_clk_desc *clock = container_of(hw, struct rp1_clk_desc, hw);
-> > +	struct rp1_clockman *clockman = clock->clockman;
-> > +	const struct rp1_clock_data *data = clock->data;
-> > +	u64 calc_rate;
-> > +	u64 div;
-> > +
-> Please drop empty line
-
-Ack.
-
-> > +	u32 frac;
-> > +
-> > +	div = clockman_read(clockman, data->div_int_reg);
-> > +	frac = (data->div_frac_reg != 0) ?
-> > +		clockman_read(clockman, data->div_frac_reg) : 0;
-> > +
-> > +	/* If the integer portion of the divider is 0, treat it as 2^16 */
-> > +	if (!div)
-> > +		div = 1 << 16;
-> > +
-> > +	div = (div << CLK_DIV_FRAC_BITS) | (frac >> (32 - CLK_DIV_FRAC_BITS));
-> > +
-> > +	calc_rate = (u64)parent_rate << CLK_DIV_FRAC_BITS;
-> > +	calc_rate = div64_u64(calc_rate, div);
-> > +
-> > +	return calc_rate;
-> > +}
-
-...
-
-> > +		ctrl |= (AUX_SEL << CLK_CTRL_SRC_SHIFT) & data->clk_src_mask;
-> > +	} else {
-> > +		ctrl &= ~data->clk_src_mask;
-> > +		ctrl |= (index << CLK_CTRL_SRC_SHIFT) & data->clk_src_mask;
-> > +	}
-> > +
-> > +	clockman_write(clockman, data->ctrl_reg, ctrl);
-> > +	spin_unlock(&clockman->regs_lock);
-> > +
-> > +	sel = rp1_clock_get_parent(hw);
-> > +	WARN(sel != index, "(%s): Parent index req %u returned back %u\n",
-> > +	     clk_hw_get_name(hw), index, sel);
-> I don't think such an important clock callback should emit WARN(),
-> because this might cause a message flood.
-> 
-> So i think either a WARN_ONCE() or dev_warn_once() might be better.
-
-Ack.
-
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int rp1_clock_set_rate_and_parent(struct clk_hw *hw,
-> > +					 unsigned long rate,
-> > +					 unsigned long parent_rate,
-> > +					 u8 parent)
-> > +{
-> > +	struct rp1_clk_desc *clock = container_of(hw, struct rp1_clk_desc, hw);
-> > +	struct rp1_clockman *clockman = clock->clockman;
-> > +	const struct rp1_clock_data *data = clock->data;
-> > +	u32 div = rp1_clock_choose_div(rate, parent_rate, data);
-> > +
-> > +	WARN(rate > 4000000000ll, "rate is -ve (%d)\n", (int)rate);
-> This looks suspicious. Is this is a limit? Except of this, casting to
-> int is wrong.
-
-I think that's not an hard limit, the original intent was probably
-to filter some clock rates resulting from functions that can return
-a (negative) error code.
-Since clock->data->max_freq contains the maximum frequency achievable,
-I'll turn that WARN into a proper one that check for that limit.
-
-> 
-> In case this is not possible please make it a WARN_ONCE() or dev_warn_once()
-> > +
-> > +	if (WARN(!div,
-> > +		 "clk divider calculated as 0! (%s, rate %ld, parent rate %ld)\n",
-> > +		 clk_hw_get_name(hw), rate, parent_rate))
-> > +		div = 1 << CLK_DIV_FRAC_BITS;
-> Same here
-
-Ack.
-
-Many thanks,
-Andrea
-
-> > +
-> > +	spin_lock(&clockman->regs_lock);
-> > +
-> > +	clockman_write(clockman, data->div_int_reg, div >> CLK_DIV_FRAC_BITS);
-> > +	if (data->div_frac_reg)
-> > +		clockman_write(clockman, data->div_frac_reg, div << (32 - CLK_DIV_FRAC_BITS));
-> > +
-> > +	spin_unlock(&clockman->regs_lock);
-> > +
-> > +	if (parent != 0xff)
-> > +		rp1_clock_set_parent(hw, parent);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > 
 
