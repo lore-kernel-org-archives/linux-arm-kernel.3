@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA73AC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 10:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64692C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 10:36:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ag0nVTCxAggDNo5CYe8f3SMCM5W4gRKpqRncKaCNLoQ=; b=vtBWfMtB+nDGpavxLCG+EZnuNG
-	IPG3u6mWwAdC1rQo6H8VHZ1KNoT1dJG3PR5Nswb8x3sA0F5ogo6biDlSkIsBEij30dzOVNBszOMu9
-	JexX0jIEKayMFfeE9xUzHY50r1amWnwj5H3SK55BP+6JRsaxOqYyTl8yZ9UZ4UxiNeuUswC3ZzOqp
-	fbJsBqPIVgh8Dazc2eRITUTqtlDE8yXIKROudSdTRC1mJDC1UZPL2pzURqIJjxb/Ge/LkP51eCOaW
-	OGZUjtrxWHWFOCTypNXNsOmfIROVtzzF3Oi/9tqFvA1BKnfXv8/x9S8RX3QbOtU5ntpbHa2KSANzS
-	3Zu6x99w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ykXq7G6hvXEWpJHci3d92pucrjIus2xm8t1k78mVGGk=; b=G3JELmGWqTf6A9p9uvvSUD2smA
+	eTShh9eXGlkbwrDaqcCNfyNLmznjNUMfeKreS14JW9/lZ3bGM7W/TbTALLxj0ikA4MlpLEkxU6kVx
+	dhQvtwVV35dCVipHMc+MraOxu1pTzhA7TVsWSArHP+UkTiDX6QZnJo7eCYX+ZO3N3LKtXDLY62Bxe
+	ozelQywG55VMHvxkRX/0Fx4SwGC1yUMt0+l4NynkCFx4nu75v6vmpvMD9dIN6K2uQ7d8qVPAo0VUB
+	7d9oj1eS80y8gcdUCVT9uY/yylcVZdP5xnDFVu8c6zY2Ld6VUEpWhjmvmVdrfTtxYKXaxpnaxzDTg
+	g2CZa65g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl3nm-00000000I4o-3fx8;
-	Thu, 20 Feb 2025 10:29:06 +0000
+	id 1tl3uS-00000000JsN-2ox6;
+	Thu, 20 Feb 2025 10:36:00 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl3mH-00000000HfJ-2r6D
+	id 1tl3sx-00000000JXU-22oC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 10:27:35 +0000
+	Thu, 20 Feb 2025 10:34:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D0F741BB0;
-	Thu, 20 Feb 2025 02:27:48 -0800 (PST)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3F5183F59E;
-	Thu, 20 Feb 2025 02:27:29 -0800 (PST)
-Date: Thu, 20 Feb 2025 10:25:15 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: Philippe Simons <simons.philippe@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
- linux-arm-kernel@lists.infradead.org (moderated list:ARM/Allwinner sunXi
- SoC support), linux-sunxi@lists.linux.dev (open list:ARM/Allwinner sunXi
- SoC support), linux-kernel@vger.kernel.org (open list)
-Subject: Re: [PATCH v2] clk: sunxi-ng: h616: Reparent GPU clock during
- frequency changes
-Message-ID: <20250220102515.05991e9d@minigeek.lan>
-In-Reply-To: <20250212173640.396404-1-simons.philippe@gmail.com>
-References: <20250212173640.396404-1-simons.philippe@gmail.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA1F91688;
+	Thu, 20 Feb 2025 02:34:44 -0800 (PST)
+Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.18])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 988CE3F59E;
+	Thu, 20 Feb 2025 02:34:23 -0800 (PST)
+Date: Thu, 20 Feb 2025 10:34:20 +0000
+From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
+To: Yang Shi <yang@os.amperecomputing.com>
+Cc: ryan.roberts@arm.com, catalin.marinas@arm.com, will@kernel.org,
+	joey.gouly@arm.com, broonie@kernel.org, mark.rutland@arm.com,
+	james.morse@arm.com, yangyicong@hisilicon.com, robin.murphy@arm.com,
+	anshuman.khandual@arm.com, maz@kernel.org, liaochang1@huawei.com,
+	akpm@linux-foundation.org, david@redhat.com, baohua@kernel.org,
+	ioworker0@gmail.com, oliver.upton@linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/3] arm64: Add BBM Level 2 cpu feature
+Message-ID: <20250220103420.GC11745@mazurka.cambridge.arm.com>
+References: <20250219143837.44277-3-miko.lenczewski@arm.com>
+ <20250219143837.44277-5-miko.lenczewski@arm.com>
+ <bfe7fc8e-b22b-4ff6-92c1-7444a0d6c5c2@os.amperecomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <bfe7fc8e-b22b-4ff6-92c1-7444a0d6c5c2@os.amperecomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_022733_820313_9D2EB731 
-X-CRM114-Status: GOOD (  27.99  )
+X-CRM114-CacheID: sfid-20250220_023427_618409_5BF7F5E0 
+X-CRM114-Status: GOOD (  38.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,120 +70,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 12 Feb 2025 18:36:39 +0100
-Philippe Simons <simons.philippe@gmail.com> wrote:
-
-Hi,
-
-> The H616 manual does not state that the GPU PLL supports
-> dynamic frequency configuration, so we must take extra care when changing
-> the frequency. Currently any attempt to do device DVFS on the GPU lead
-> to panfrost various ooops, and GPU hangs.
+On Wed, Feb 19, 2025 at 05:25:00PM -0800, Yang Shi wrote: 
+> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > index d561cf3b8ac7..8c337bd95ef7 100644
+> > --- a/arch/arm64/kernel/cpufeature.c
+> > +++ b/arch/arm64/kernel/cpufeature.c
+> > @@ -2176,6 +2176,31 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+> >   	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+> >   }
+> >   
+> > +static bool has_bbml2_noconflict(const struct arm64_cpu_capabilities *entry,
+> > +				 int scope)
+> > +{
+> > +	if (!IS_ENABLED(CONFIG_ARM64_ENABLE_BBML2))
+> > +		return false;
+> > +
+> > +	/* We want to allow usage of bbml2 in as wide a range of kernel contexts
+> > +	 * as possible. This list is therefore an allow-list of known-good
+> > +	 * implementations that both support bbml2 and additionally, fulfil the
+> > +	 * extra constraint of never generating TLB conflict aborts when using
+> > +	 * the relaxed bbml2 semantics (such aborts make use of bbml2 in certain
+> > +	 * kernel contexts difficult to prove safe against recursive aborts).
+> > +	 */
+> > +	static const struct midr_range supports_bbml2_without_abort_list[] = {
+> > +		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
+> > +		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
+> > +		{}
+> > +	};
+> > +
+> > +	if (!is_midr_in_range_list(read_cpuid_id(), supports_bbml2_without_abort_list))
+> > +		return false;
+> > +
+> > +	return true;
+> > +}
+> Hi Miko,
 > 
-> The manual describes the algorithm for changing the PLL
-> frequency, which the CPU PLL notifier code already support, so we reuse
-> that to reparent the GPU clock to GPU1 clock during frequency
-> changes.
+> Thanks for cc'ing me this series. I and Ryan discussed about how to 
+> advertise BBML2 properly in my thread 
+> (https://lore.kernel.org/linux-arm-kernel/4c44cf6e-98de-47bb-b430-2b1331114904@os.amperecomputing.com/). 
+> IIUC, this may not work as expected.
 > 
-> Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
-> ---
->  drivers/clk/sunxi-ng/ccu-sun50i-h616.c | 38 ++++++++++++++++++++++++--
->  1 file changed, 36 insertions(+), 2 deletions(-)
+> The boot cpu initializes the boot_cpu_data, then the secondary cpus need 
+> to update it, the "sanitized" register value will be generated. For 
+> example, TLB range capability is determined by ISAR0_EL1. If all the 
+> cpus have this feature, the "sanitized" register value will show true 
+> otherwise it will show false.
 > 
-> diff --git a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> index 190816c35..884f9a6b5 100644
-> --- a/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> +++ b/drivers/clk/sunxi-ng/ccu-sun50i-h616.c
-> @@ -328,10 +328,16 @@ static SUNXI_CCU_M_WITH_MUX_GATE(gpu0_clk, "gpu0", gpu0_parents, 0x670,
->  				       24, 1,	/* mux */
->  				       BIT(31),	/* gate */
->  				       CLK_SET_RATE_PARENT);
-> -static SUNXI_CCU_M_WITH_GATE(gpu1_clk, "gpu1", "pll-periph0-2x", 0x674,
-> +
-> +/*
-> + * This clk is needed as a temporary fall back during GPU PLL freq changes.
-> + * Set CLK_IS_CRITICAL flag to prevent from being disabled.
-> + */
-> + #define SUN50I_H616_GPU_CLK1_REG        0x674
-> + static SUNXI_CCU_M_WITH_GATE(gpu1_clk, "gpu1", "pll-periph0-2x", 0x674,
+> BBML2 can be determined by MMFR2_EL1. If we can rely on it then system 
+> feature does work. But the problem is some implementations may have 
+> MMFR2_EL1 set, but they may not be able to handle TLB conflict. We can't 
+> rely on it solely so we check MIDR in .matches callback instead of 
+> MMFR2_EL1. But system feature .matches callback is just called once on 
+> boot CPU because it is supposed to read the sanitized register value. So 
+> you actually just checked the MIDR on boot CPU in .matches callback if I 
+> read the code correctly.
+> 
+> I'm not quite familiar with cpufeature details, if I'm wrong please feel 
+> free to correct me.
+> 
+> Yang
 
-There seems to be a stray space there at the beginning of those two
-lines.
+Hi Yang,
 
->  					0, 2,	/* M */
->  					BIT(31),/* gate */
-> -					0);
-> +					CLK_IS_CRITICAL);
->  
->  static SUNXI_CCU_GATE(bus_gpu_clk, "bus-gpu", "psi-ahb1-ahb2",
->  		      0x67c, BIT(0), 0);
-> @@ -1120,6 +1126,19 @@ static struct ccu_pll_nb sun50i_h616_pll_cpu_nb = {
->  	.lock		= BIT(28),
->  };
->  
-> +static struct ccu_mux_nb sun50i_h616_gpu_nb = {
-> +	.common			= &gpu0_clk.common,
-> +	.cm				= &gpu0_clk.mux,
-> +	.delay_us		= 1, /* manual doesn't really say */
+Thank you for taking the time to review this patch series.
 
-Indentation is off here. Please align to the last line here below.
+Thank you also for the spot. I am very much not an expert on
+cpufeatures, but I think you are correct. IIUC, currently the .matches
+check would go through as long as the the boot CPU executing the
+.matches function has the correct MIDR value, and as long as
+CONFIG_ARM64_ENABLE_BBML2 is set.
 
-> +	.bypass_index	= 1, /* GPU_CLK1@400MHz */
-> +};
-> +
-> +static struct ccu_pll_nb sun50i_h616_pll_gpu_nb = {
-> +	.common		= &pll_gpu_clk.common,
-> +	.enable		= BIT(29),	/* LOCK_ENABLE */
-> +	.lock		= BIT(28),
-> +};
-> +
->  static int sun50i_h616_ccu_probe(struct platform_device *pdev)
->  {
->  	void __iomem *reg;
-> @@ -1170,6 +1189,14 @@ static int sun50i_h616_ccu_probe(struct platform_device *pdev)
->  	val |= BIT(0);
->  	writel(val, reg + SUN50I_H616_PLL_AUDIO_REG);
->  
-> +	/*
-> +	 * Set the input-divider for the gpu1 clock to 3.
+If, as you point out, another CPU has a MIDR that is not on this list
+and which was not checked (because .matches only executes on a single
+boot CPU), then .matches should still go through (and we could run into
+problems when said other CPU executes any BBML2 aware code).
 
-Can you extend the comment, like:
- ... clock to 3, to reach a safe 400 MHz.
+Please let me know if I have understood what you are saying correctly.
 
-> +	 */
-> +	val = readl(reg + SUN50I_H616_GPU_CLK1_REG);
-> +	val &= ~GENMASK(1, 0);
-> +	val |= BIT(1);
+From re-reading `include/asm/cpufeature.h`, making it a SCOPE_LOCAL_CPU
+feature seems to be close to what we want. We want to have each CPU test
+its cpuid against the allowed MIDR list, and the feature overall to
+only be considered present if *all* boot cpus returned true (not as
+SCOPE_LOCAL_CPU puts it "... detect if at least one matches.").
 
-Can you replace the BIT(1) with a "2" here? At the moment it looks like
-it's a single flag to be set, whereas we really just want to write the
-value 2 (3 - 1) into that field.
+I will see if this can be hacked around with the current system, and if
+not, we might have to extend the current cpucaps scopes / machinery like
+you suggest in your patch series comments.
 
-The rest looks alright, so with those smaller things fixed:
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
-> +	writel(val, reg + SUN50I_H616_GPU_CLK1_REG);
-> +
->  	/*
->  	 * First clock parent (osc32K) is unusable for CEC. But since there
->  	 * is no good way to force parent switch (both run with same frequency),
-> @@ -1190,6 +1217,13 @@ static int sun50i_h616_ccu_probe(struct platform_device *pdev)
->  	/* Re-lock the CPU PLL after any rate changes */
->  	ccu_pll_notifier_register(&sun50i_h616_pll_cpu_nb);
->  
-> +	/* Reparent GPU during GPU PLL rate changes */
-> +	ccu_mux_notifier_register(pll_gpu_clk.common.hw.clk,
-> +				  &sun50i_h616_gpu_nb);
-> +
-> +	/* Re-lock the GPU PLL after any rate changes */
-> +	ccu_pll_notifier_register(&sun50i_h616_pll_gpu_nb);
-> +
->  	return 0;
->  }
->  
-
+-- 
+Kind regards,
+Mikołaj Lenczewski
 
