@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8307BC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B818C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:32:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Se84fI0QvJHv7tBsVCkvI8sK3nuKMRhf8fQQM5TGP/Y=; b=3EXW67y6IjVyXWjfNeDGdz7ZvN
-	VjhO8I4HPBqfla46xReHqUbSjCQ5I6YKRw8qmLtNaFTh7Ts6JmDSZEhmPINF0fitUpQM8knqEW0YS
-	jT2ovTgujhCzr1lHvmeddig3oeejsDFpsfIpHhhwqF2Ugb0JeMWPtSPh57sCPIPVhiXkWvE0NFVFp
-	Q883tnam89Z1EK5sik3YFftBU6D6za2MrJIYEt22sLBJnXMzOQbR28/U8Vt+KZ+VckCpL39FnUPEe
-	GxMKln90McDVo24c4KBku6kIupOuKtqMzei0XOFYDFDBxTSvU7hHB9cTXL/HxTxLrpiGT7glwLkwo
-	OGx0Vhag==;
+	bh=dKf1vcFL6xViBeT7BvtPbIy9sFenGIBAFVayL6IZB0U=; b=KUuxVB5lGIA84v0Gp2+DIF7BDz
+	H7dnpA78M9Rir/aoeza2v5aUuQhiZHRkc4yycLNF7Y6ZTbE+zYOUEubaN5+SRCMy+DmztPZ/CeEHa
+	JnG5mDefrIWKGLmodqE+ZJXSe5ZqWc5OHgePLXmhusL52OxXAG4HReFOoxnigXpDGj2nXBz1zWRTW
+	L4td4hyC3Rfl1g1vLSCGkhF+8LU2PDJOI6BcYV5aMTR181GdlWiHxsgR+JBVb/KueUBPFIvSdcU+G
+	CLmg0Bv4dxa/L/xVnP0sFP5lo3xIANXSpyHu8UY5TRxGvxRwJZ9gstl9MQrOd1Gnc1iHaclkmRmtr
+	i3S9V3fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlAO5-000000029KA-02sz;
-	Thu, 20 Feb 2025 17:31:01 +0000
-Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
+	id 1tlAPY-000000029m0-0eUF;
+	Thu, 20 Feb 2025 17:32:32 +0000
+Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlALh-000000028aq-2vIw
+	id 1tlAMI-000000028kD-0reH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 17:28:34 +0000
-Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-2bcca6aae0bso651864fac.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 09:28:33 -0800 (PST)
+	Thu, 20 Feb 2025 17:29:11 +0000
+Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-5fd0adce179so530587eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 09:29:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1740072512; x=1740677312; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1740072549; x=1740677349; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=Se84fI0QvJHv7tBsVCkvI8sK3nuKMRhf8fQQM5TGP/Y=;
-        b=IQfXeLS8l1B4FsCx87EyE0lgvQN742gd43174WfiNWV+069GYGvf7LVDY0BSjmRl18
-         JA+YGGB+8COAcXKtr066uwJD0MvGVOuZG6pM+MuvJL3HzTdoXuvSNr72qwD1a3Q4z2LK
-         8TV3RvQPqb+BjL5XpFioBkzYa3wbfkXTJ8lcM=
+        bh=dKf1vcFL6xViBeT7BvtPbIy9sFenGIBAFVayL6IZB0U=;
+        b=f5ifwwfdZmyId7axsfux53j6HAp2pmLQ9Z5lDopNgv/2Zj/anqQyvahZxltI+pauKb
+         2Wxar68EocA6P6B4jSnVUlswSeGeBhilTlkqE6tlt4PQeLwf/ffHi/EeChAFne5SYfq0
+         CZyZ4ilFkGnQKSj6YmmbqTDK03VLHpG0TDxp8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740072512; x=1740677312;
+        d=1e100.net; s=20230601; t=1740072549; x=1740677349;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Se84fI0QvJHv7tBsVCkvI8sK3nuKMRhf8fQQM5TGP/Y=;
-        b=YfGkFLXg12LHIH0AUZn/q3ueA1K95U//Vg3LoyBrPjwX4CEY3nZo4ZwmpuogXjxUX6
-         cUIkDpn2USafndiOz7h/tgoEiWetkommKUg5gAdzYp8YwrVY22duVVmamLKaILFP6FWf
-         mrmNoupNJXHRofpgZiL/NSu7Boz0ZFjHEsnmI8T/XcGqGDXXy4dl72jpSAwXAlRRlD56
-         F+SKIEB8Kwl+j6eSOrAf8jgJ8nF+3ZKvvN5viAeAB4/G6Ba6Qw+QUJyZRLELSItoWKaD
-         marRarX6lTSVdWKCb4GKg97afhzxOrBgqgxO2yE/fCf3km3JHwslawkReddEpwHX6fB0
-         MlNg==
-X-Forwarded-Encrypted: i=1; AJvYcCXvhx6UjKSsISqifunf0jiVLvB7LNQeMdFCfr4fKf5KdQplww1HyV5dWuMNgLbXtxPuD1w22DlUA0bgAMPP556u@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDr8QxBtG0LQyC9zg+l400kUiDBULou5BT+4HHO002NpzX2pth
-	VARHrnePxhxdm1XsXEqCf+e4NGhMtg+73/fz1jvQoXxAnS3s4/ClntDWLojC+w==
-X-Gm-Gg: ASbGncvb2O27YUvkIX1bsodYrFeY31cK9CtTm8wTB5Ljev/avobcxTiKyx/n1nfgna0
-	RVE375ee1w58XSraTwYpcZ0jA/hCtxZhduW1YfrLS2SzcsO33bB7V7v9V56EFzplri9B50dIO3g
-	Dd77+Y1H5cwgrBvCcLkbWm92AIO+NI8wqFOe8203hOQrO9wIj5iC7Ma68hOJK9f59wXFbNYKPXR
-	yi2uTBPc0WRj1Nb9uRIdxohmR/SwZjTQPOUMuim7huvD535Ss2BH5PQ8NR4trZTLSwoQFEWLoZE
-	g/XeFwv47Zr+wgN8yFjNm+fjqD4XSRuu6Ilyww7iNB+33KcQkpd6fyArPS8Dz2R8nU2BTggguFA
-	p5sq0
-X-Google-Smtp-Source: AGHT+IHx2vbvGJAHIaFv9cg0KxSVcmogH7AF0Pu9XJIHUk15LcaEcO3igriQn9XHQKeAmlP5LjbZFg==
-X-Received: by 2002:a05:6870:5688:b0:2bc:7c3d:1918 with SMTP id 586e51a60fabf-2bd1029003emr6698012fac.21.1740072512624;
-        Thu, 20 Feb 2025 09:28:32 -0800 (PST)
+        bh=dKf1vcFL6xViBeT7BvtPbIy9sFenGIBAFVayL6IZB0U=;
+        b=IjtPJf62b5SQCgcn+hTNqOfEyuwV9YGrDkK0CZEPApg6Z4vgX7fXVaxCDrb6i2YqxI
+         i0delb8ZbGm3fm1pkM/x9iSEpvWA/cnCsUF5eQNdAwkrelbIiGSP37f1r7o8l5U9H784
+         ICJVEAYRlru3kjCZ5gxAjhiB28I2FkUacW5D5jjMDzM55R5tNyCHpEdw42BjwQfOuJUi
+         MhREeH9QObot+dvyepVIz7LsHiT0I53KivFpNC/kyF7vU/PhuqmPtdrv9g0iFY0EtQBj
+         22/Q/iaj3y5lUIkkn323QcoQn+pd9jppOSkmmc10zfs3xjir8MEYofYqKxn/AekO8+8r
+         2xEg==
+X-Forwarded-Encrypted: i=1; AJvYcCVYBQ0zLXtZmuZBYdr03nOJkB5SoQEEpYiWgdyyo5+v4O2vev2LqSHIhjuBkRyxeUodrCjh7hkCQDOZZrzjMAsR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3vXEBBSNY7vRT+tR8ZQpENN/+Ty4At2LVZ3F70HFYzSz3Uc2Z
+	7xknMlGMOeu7/reXy5fo6z1FpV7DLXP5tK0mc01k5/CYX3vyak8zDte7JSGpTA==
+X-Gm-Gg: ASbGnctKb+SLB1rZSaotif2mkPIlnGT2iifBSWu0kNoaHYDiodsn+oMh5Fp8Y+AYkHX
+	oGOkm/Zb/IPNoIc6DnoRjasW60L4CWKQMHvFqczd+NolnqV02t8hm/i/6yeEcYdkS9LzW5WO5bH
+	WfsKfcR6CJ5U575d6esFfgjI8yfpPLES9UsapYzE0it0KoIkkvhnamp5vbY+BuQBaI3+rE7fxVb
+	sDgrxD37SDVUKEdRWEu09FvI7nB3aZOA/TaaUHRA3AioFYQlz4tPRRMACYh4wkvgomQHbFxp3dT
+	snKm7hcBTnTmDRkkWEk87Iq3Hy9Zq5pHNVuXYGtjV5bT3nKEjEHrKQ+of1kH48nzeB132h/PD0M
+	tJ41+
+X-Google-Smtp-Source: AGHT+IGHUYuXkflX6Xl2ci+0XBC0DnCcaMzZUD3gJQT0dFe4tZ5U3wxWcguP1LzcW4V9sDRX10JEUw==
+X-Received: by 2002:a05:6820:270c:b0:5fc:b059:7597 with SMTP id 006d021491bc7-5fd194df6fcmr160232eaf.1.1740072549114;
+        Thu, 20 Feb 2025 09:29:09 -0800 (PST)
 Received: from [10.171.122.29] (wsip-98-189-219-228.oc.oc.cox.net. [98.189.219.228])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2b95486cf40sm6433631fac.16.2025.02.20.09.28.29
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-5fd0aa506acsm497034eaf.31.2025.02.20.09.29.06
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 20 Feb 2025 09:28:32 -0800 (PST)
-Message-ID: <110d6471-d7a5-43bb-b768-dcbfb0f029eb@broadcom.com>
-Date: Thu, 20 Feb 2025 09:28:29 -0800
+        Thu, 20 Feb 2025 09:29:08 -0800 (PST)
+Message-ID: <d18d4b5d-2356-4e2a-a318-14d0c328261a@broadcom.com>
+Date: Thu, 20 Feb 2025 09:29:06 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/8] PCI: brcmstb: Write to internal register to change
- link cap
+Subject: Re: [PATCH v2 3/8] PCI: brcmstb: Do not assume that reg field starts
+ at LSB
 To: Jim Quinlan <james.quinlan@broadcom.com>, linux-pci@vger.kernel.org,
  Nicolas Saenz Julienne <nsaenz@kernel.org>,
  Bjorn Helgaas <bhelgaas@google.com>,
@@ -82,15 +82,14 @@ To: Jim Quinlan <james.quinlan@broadcom.com>, linux-pci@vger.kernel.org,
 Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
  =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
  Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Rob Herring <robh@kernel.org>, Andrew Murray <amurray@thegoodpenguin.co.uk>,
- Jeremy Linton <jeremy.linton@arm.com>,
+ Rob Herring <robh@kernel.org>,
  "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
  <linux-rpi-kernel@lists.infradead.org>,
  "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
  <linux-arm-kernel@lists.infradead.org>,
  open list <linux-kernel@vger.kernel.org>
 References: <20250214173944.47506-1-james.quinlan@broadcom.com>
- <20250214173944.47506-3-james.quinlan@broadcom.com>
+ <20250214173944.47506-4-james.quinlan@broadcom.com>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -125,13 +124,12 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250214173944.47506-3-james.quinlan@broadcom.com>
+In-Reply-To: <20250214173944.47506-4-james.quinlan@broadcom.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_092833_753086_964EF9FD 
-X-CRM114-Status: UNSURE (   7.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250220_092910_247433_71418FC9 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,13 +147,15 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 2/14/2025 9:39 AM, Jim Quinlan wrote:
-> The driver was mistakenly writing to a RO config-space register
-> (PCI_EXP_LNKCAP).  Although harmless in this case, the proper destination
-> is an internal RW register that is reflected by PCI_EXP_LNKCAP.
+> When setting a register field it was assumed that the field started at the
+> lsb of the register.  Although the masks do indeed start at the lsb, and
+> this will probably not change, it is prudent to use a method that makes no
+> assumption about the mask's placement in the register.
 > 
-> Fixes: c0452137034bda8f686dd9a2e167949bfffd6776 ("PCI: brcmstb: Add Broadcom STB PCIe host controller driver")
-
-Likewise this needs to be shortened to 12 digits, with that fixed:
+> The uXXp_replace_bits() calls are used since they are already prevalent
+> in this driver.
+> 
+> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
 
 Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 -- 
