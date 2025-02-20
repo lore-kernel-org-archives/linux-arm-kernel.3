@@ -4,92 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A83FDC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 18:56:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE9A1C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 18:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Oal8utCZ08ILyHyFTz/wIyOgD/RRDeQUzHjyhfMLf8=; b=rX6s0rRg9iPQqq4Jw9U+ZEl8wA
-	gIinSmzXLiFahjCoQwTth6CpJ2ehSBzv3XbWps45Od4ttDzqsJN9TVV8oVmj1woVZyaeaPSd231bV
-	thD8lG2GuhUFkT8Ustlql8O5EXScAshOgggzI6VJ4aFnTkEWOe8EIdUs/FNY4BidpXmKfAdqzShYQ
-	0o4RoZvVYQjw/NtiS/OcV33wgetiQ3iMuTxWq6QKdv9vyBH/QRJfr2zX3ykDz06ntXPm1aaUxzi+N
-	VeSGMheR+kfsIWPv1cs1dJRyAJckMrPpqdmvgD3xuWQk4A4ktnU3vGR3x6U73gr0H1RxU4pCgbKTq
-	4toTZH+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6wS3ijOEe+wcZxa+PDsgJOgIVv3G5e2mYGIC8svRo/I=; b=dbwy2IiFylLQHS2d1Yhysr4O/4
+	S3Jui1HEU1OpTvEciEazyIoSyMamvSOH5RjJdiE6ATSeCBZqWnmo8/BmSJ5JTDA4XI3YkaQ75Lsiv
+	pfZs57Xg7ehLifL3TzAqQgXbcJ/Ei5P5wMHP7zz4eJ9Hevkj84lymRHjXeLy5MTNpXqhcMvGou5Ks
+	SkvzdJSFIp9MnDllEf6bahYTWQ5S+/6Iu/y9xEiiyHiWiuVIKTnDK+szK1M7I4NDLmkiTB2Q8DcVR
+	VnFgeK1ztWmbb0kMoYkeRRmt0qjPcj67lbjy1TiQav45RrJis2KHMYbKI7ZIqzdlz7PdmXfql3rcV
+	Noetd2qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlBib-00000002ToE-2u5x;
-	Thu, 20 Feb 2025 18:56:17 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlBh6-00000002TQn-2TGz
+	id 1tlBk4-00000002ULI-1lCy;
+	Thu, 20 Feb 2025 18:57:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlBhb-00000002TZ0-0Iga
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 18:54:45 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-38f488f3161so638728f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 10:54:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740077683; x=1740682483; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6Oal8utCZ08ILyHyFTz/wIyOgD/RRDeQUzHjyhfMLf8=;
-        b=IcpxCXXVDCQ/XuEOq/N9emwyEJD/SWV3JUuzs49UdiJ1X3ThnUSyOE/Sew4pZ9GJRG
-         MrlvwsOXdj3C838k59+dkRkz6Mb+ZKg3QRgmw2Kc1aBhrXCo4nPv8qQs1cXOLWkinVmX
-         NkrWJsBNDM1A+UVR3vvnB1aC5C3p0MrImxjZ9m12PKF11TlXhS++HDnijmZti208AHe1
-         5HMio+hSZOBF6EC/engNHbPd/mr3qMkqE36WAevmEGKsl1IlGv41RVevGRkZuzLVCwU2
-         uCNLLTW3XrPBVUq/H0xsJl60khsyZ6qIC8XW74BtrV2/QIEmYyf2B3VQylzs+4h7eXCn
-         rCUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740077683; x=1740682483;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6Oal8utCZ08ILyHyFTz/wIyOgD/RRDeQUzHjyhfMLf8=;
-        b=KrTigvLnXRL0LQonj4uGX8g9LK9EjhG0Ut+YcRmmphfmufLreXz6NvxofpvZ9ET30H
-         lyPpXCJnW7VPvZr3QpngCMMA5lM3BjOjuCEJBus5qHU0xOJpE8Pz45NVILICARuLcJor
-         c/ngX8KMsWbmpQC5RCXhAazHcH9zFWQ7qAG51s3giU9q6VbauvgQLcy1R/gfziNyTRwc
-         ClseRNsfaLpPAKv7y0HcR61kbqnNxgzjLzDDBzWkFmNNrxDwD8As02TX8DAmlOgKO9Eb
-         cyMDhxIAC0RkS/tyNCCMJdcCskIOxfaUA1HFaHIpE17ZtiWq0wd/0I7Xqay27fKx+4WO
-         xh7w==
-X-Forwarded-Encrypted: i=1; AJvYcCXN2JTk7+WOzVzRfv/pcIAZnF1nY8IcEP4mDthUkH2a8U0KkFlrtsxWzDn+xK3UxurxXjlm+ZgVRFctC8GXBopR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+Q1aFuYQY0rUlyT4yjMbncy/wFE9y32921Z+tRuxygvy72KnR
-	aj9Gwg3XeVpSrVHBCxI7Tf/rIWw4o0MxnYl6uGchD3v1X+t80+nR
-X-Gm-Gg: ASbGnctYlL2UNTBUEIxAXMzKuY2S8NVLeFCFQM9SNyc06cnoVDnQyCaqGLcRbjxdF5c
-	AkKyUm+1SvpiTqBwwOknRoTKcYCHwidly6tAalv5ahnfYiV/uYYhPtx6JBglM9vWVM2i5qYNZxY
-	iJ6ATXXqRnUjKnjY8SrHvRj7Up9QDgT7YfA4qPY7ewKXLqgnzsBokRtEePZs7/6E+rcIF9kxkkB
-	MgeqZ95dAgMrcfUEk4RZ2rzeX9M2dOjiSfpH6M43jzc1BRs6HLHgK4YffKU7KbFu4CIPS+vQ7Cw
-	1OF1MHb7j38xZpSr62D9417/kT0sl9pXbyerdPv/DYNqR6OTskGyvzOpjW40vX02aYw=
-X-Google-Smtp-Source: AGHT+IEz1kRSBdQaUNaxSf9Ymu++DD9XiW/gWiIlW5Kf9eF4M/t3Ayol4FGnQYUa8AygEQgkEekRPA==
-X-Received: by 2002:a5d:6c68:0:b0:38f:3a89:fdae with SMTP id ffacd0b85a97d-38f6f0d7237mr322996f8f.46.1740077682854;
-        Thu, 20 Feb 2025 10:54:42 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258dab74sm21637846f8f.32.2025.02.20.10.54.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 10:54:42 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Regis Dargent <regis.dargent@gmail.com>
-Cc: Regis Dargent <regis.dargent@gmail.com>,
- Wim Van Sebroeck <wim@linux-watchdog.org>,
- Guenter Roeck <linux@roeck-us.net>, Chen-Yu Tsai <wens@csie.org>,
- Samuel Holland <samuel@sholland.org>, linux-watchdog@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] watchdog: sunxi_wdt: Allow watchdog to remain enabled after
- probe
-Date: Thu, 20 Feb 2025 19:54:41 +0100
-Message-ID: <3278560.vfdyTQepKt@jernej-laptop>
-In-Reply-To: <20250214112255.97099-2-regis.dargent@gmail.com>
-References: <CAGb2v67tmzGfcFPchjzfSima-sT_u7viYd1UDGB9r6ZeJEgdyg@mail.gmail.com>
- <20250214112255.97099-1-regis.dargent@gmail.com>
- <20250214112255.97099-2-regis.dargent@gmail.com>
+	Thu, 20 Feb 2025 18:55:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E1ADB1007;
+	Thu, 20 Feb 2025 10:55:29 -0800 (PST)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E7F443F59E;
+	Thu, 20 Feb 2025 10:55:10 -0800 (PST)
+Message-ID: <e71d053a-d37c-478a-bfb0-23dbc6b6a0b2@arm.com>
+Date: Thu, 20 Feb 2025 18:55:09 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] arm64: extable: Add fixup handling for uaccess CPY*
+ instructions
+To: =?UTF-8?Q?Kristina_Mart=C5=A1enko?= <kristina.martsenko@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Tong Tiangen <tongtiangen@huawei.com>,
+ James Morse <james.morse@arm.com>
+References: <20250218171430.28227-1-kristina.martsenko@arm.com>
+ <20250218171430.28227-2-kristina.martsenko@arm.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250218171430.28227-2-kristina.martsenko@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_105444_628182_E2404482 
-X-CRM114-Status: GOOD (  21.93  )
+X-CRM114-CacheID: sfid-20250220_105515_201820_986A6394 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,133 +68,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-please send new versions as separate e-mail thread.
-
-Dne petek, 14. februar 2025 ob 12:22:54 Srednjeevropski standardni =C4=8Das=
- je Regis Dargent napisal(a):
-> If the watchdog is already running during probe, let it run on, read its
-> configured timeout, and set its status so that it is correctly handled by=
- the
-> kernel.
->=20
-> Signed-off-by: Regis Dargent <regis.dargent@gmail.com>
+On 18/02/2025 5:14 pm, Kristina Martšenko wrote:
+> A subsequent patch will use CPY* instructions to copy between user and
+> kernel memory. Add a new exception fixup type to avoid fixing up faults
+> on kernel memory accesses, in order to make it easier to debug kernel
+> bugs and to keep the same behavior as with regular loads/stores.
+> 
+> Signed-off-by: Kristina Martšenko <kristina.martsenko@arm.com>
 > ---
->  drivers/watchdog/sunxi_wdt.c | 48 +++++++++++++++++++++++++++++++++---
->  1 file changed, 45 insertions(+), 3 deletions(-)
-
-You should add changelog here.
-
->=20
-> diff --git a/drivers/watchdog/sunxi_wdt.c b/drivers/watchdog/sunxi_wdt.c
-> index b85354a99582..0094bcd063c5 100644
-> --- a/drivers/watchdog/sunxi_wdt.c
-> +++ b/drivers/watchdog/sunxi_wdt.c
-> @@ -140,6 +140,7 @@ static int sunxi_wdt_set_timeout(struct watchdog_devi=
-ce *wdt_dev,
->  		timeout++;
-> =20
->  	sunxi_wdt->wdt_dev.timeout =3D timeout;
-> +	sunxi_wdt->wdt_dev.max_hw_heartbeat_ms =3D 0;
-> =20
->  	reg =3D readl(wdt_base + regs->wdt_mode);
->  	reg &=3D ~(WDT_TIMEOUT_MASK << regs->wdt_timeout_shift);
-> @@ -152,6 +153,32 @@ static int sunxi_wdt_set_timeout(struct watchdog_dev=
-ice *wdt_dev,
->  	return 0;
->  }
-> =20
-> +static int sunxi_wdt_read_timeout(struct watchdog_device *wdt_dev)
+>   arch/arm64/include/asm/asm-extable.h | 10 +++++++++-
+>   arch/arm64/include/asm/extable.h     |  2 +-
+>   arch/arm64/mm/extable.c              | 25 ++++++++++++++++++++++++-
+>   arch/arm64/mm/fault.c                |  2 +-
+>   4 files changed, 35 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/asm-extable.h b/arch/arm64/include/asm/asm-extable.h
+> index b8a5861dc7b7..292f2687a12e 100644
+> --- a/arch/arm64/include/asm/asm-extable.h
+> +++ b/arch/arm64/include/asm/asm-extable.h
+> @@ -9,7 +9,8 @@
+>   #define EX_TYPE_BPF			1
+>   #define EX_TYPE_UACCESS_ERR_ZERO	2
+>   #define EX_TYPE_KACCESS_ERR_ZERO	3
+> -#define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	4
+> +#define EX_TYPE_UACCESS_CPY		4
+> +#define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	5
+>   
+>   /* Data fields for EX_TYPE_UACCESS_ERR_ZERO */
+>   #define EX_DATA_REG_ERR_SHIFT	0
+> @@ -23,6 +24,9 @@
+>   #define EX_DATA_REG_ADDR_SHIFT	5
+>   #define EX_DATA_REG_ADDR	GENMASK(9, 5)
+>   
+> +/* Data fields for EX_TYPE_UACCESS_CPY */
+> +#define EX_DATA_UACCESS_WRITE	BIT(0)
+> +
+>   #ifdef __ASSEMBLY__
+>   
+>   #define __ASM_EXTABLE_RAW(insn, fixup, type, data)	\
+> @@ -69,6 +73,10 @@
+>   	.endif
+>   	.endm
+>   
+> +	.macro		_asm_extable_uaccess_cpy, insn, fixup, uaccess_is_write
+> +	__ASM_EXTABLE_RAW(\insn, \fixup, EX_TYPE_UACCESS_CPY, \uaccess_is_write)
+> +	.endm
+> +
+>   #else /* __ASSEMBLY__ */
+>   
+>   #include <linux/stringify.h>
+> diff --git a/arch/arm64/include/asm/extable.h b/arch/arm64/include/asm/extable.h
+> index 72b0e71cc3de..5892b8977710 100644
+> --- a/arch/arm64/include/asm/extable.h
+> +++ b/arch/arm64/include/asm/extable.h
+> @@ -45,5 +45,5 @@ bool ex_handler_bpf(const struct exception_table_entry *ex,
+>   }
+>   #endif /* !CONFIG_BPF_JIT */
+>   
+> -bool fixup_exception(struct pt_regs *regs);
+> +bool fixup_exception(struct pt_regs *regs, unsigned long esr);
+>   #endif
+> diff --git a/arch/arm64/mm/extable.c b/arch/arm64/mm/extable.c
+> index 228d681a8715..723238ec1760 100644
+> --- a/arch/arm64/mm/extable.c
+> +++ b/arch/arm64/mm/extable.c
+> @@ -8,8 +8,18 @@
+>   #include <linux/uaccess.h>
+>   
+>   #include <asm/asm-extable.h>
+> +#include <asm/esr.h>
+>   #include <asm/ptrace.h>
+>   
+> +static bool cpy_faulted_on_uaccess(const struct exception_table_entry *ex,
+> +				   unsigned long esr)
 > +{
-> +	struct sunxi_wdt_dev *sunxi_wdt =3D watchdog_get_drvdata(wdt_dev);
-> +	void __iomem *wdt_base =3D sunxi_wdt->wdt_base;
-> +	const struct sunxi_wdt_reg *regs =3D sunxi_wdt->wdt_regs;
-> +	int i;
-> +	u32 reg;
+> +	bool uaccess_is_write = FIELD_GET(EX_DATA_UACCESS_WRITE, ex->data);
+> +	bool fault_on_write = esr & ESR_ELx_WNR;
 > +
-> +	reg =3D readl(wdt_base + regs->wdt_mode);
-> +	reg >>=3D regs->wdt_timeout_shift;
-> +	reg &=3D WDT_TIMEOUT_MASK;
-> +
-> +	/* Start at 0 which actually means 0.5s */
-> +	for (i =3D 0; ((i < WDT_MAX_TIMEOUT) && (wdt_timeout_map[i] !=3D reg));=
- i++)
+> +	return !(uaccess_is_write ^ fault_on_write);
 
-Drop parenthesis in condition.
+Nit: isn't that simply "uaccess_is_write == fault_on_write"?
 
-> +		;
-> +	if (i =3D=3D 0) {
-> +		wdt_dev->timeout =3D 1;
-> +		wdt_dev->max_hw_heartbeat_ms =3D 500;
-> +	} else {
-> +		wdt_dev->timeout =3D i;
-> +		wdt_dev->max_hw_heartbeat_ms =3D 0;
-> +	}
-> +
-> +	return 0;
+Otherwise, the rest looks OK to me.
+
+Thanks,
+Robin.
+
 > +}
 > +
->  static int sunxi_wdt_stop(struct watchdog_device *wdt_dev)
->  {
->  	struct sunxi_wdt_dev *sunxi_wdt =3D watchdog_get_drvdata(wdt_dev);
-> @@ -192,11 +219,22 @@ static int sunxi_wdt_start(struct watchdog_device *=
-wdt_dev)
->  	return 0;
->  }
-> =20
-> +static bool sunxi_wdt_enabled(struct sunxi_wdt_dev *wdt)
+>   static inline unsigned long
+>   get_ex_fixup(const struct exception_table_entry *ex)
+>   {
+> @@ -29,6 +39,17 @@ static bool ex_handler_uaccess_err_zero(const struct exception_table_entry *ex,
+>   	return true;
+>   }
+>   
+> +static bool ex_handler_uaccess_cpy(const struct exception_table_entry *ex,
+> +				   struct pt_regs *regs, unsigned long esr)
 > +{
-> +	u32 reg;
-> +	void __iomem *wdt_base =3D wdt->wdt_base;
-> +	const struct sunxi_wdt_reg *regs =3D wdt->wdt_regs;
-
-Inverse christmas tree.
-
+> +	/* Do not fix up faults on kernel memory accesses */
+> +	if (!cpy_faulted_on_uaccess(ex, esr))
+> +		return false;
 > +
-> +	reg =3D readl(wdt_base + regs->wdt_mode);
-> +	return !!(reg & WDT_MODE_EN);
+> +	regs->pc = get_ex_fixup(ex);
+> +	return true;
 > +}
 > +
->  static const struct watchdog_info sunxi_wdt_info =3D {
->  	.identity	=3D DRV_NAME,
->  	.options	=3D WDIOF_SETTIMEOUT |
->  			  WDIOF_KEEPALIVEPING |
-> -			  WDIOF_MAGICCLOSE,
-> +			  WDIOF_MAGICCLOSE |
-> +			  WDIOF_SETTIMEOUT,
-
-Drop this change. WDIOF_SETTIMEOUT is already defined.
-
->  };
-> =20
->  static const struct watchdog_ops sunxi_wdt_ops =3D {
-> @@ -275,8 +313,12 @@ static int sunxi_wdt_probe(struct platform_device *p=
-dev)
-> =20
->  	watchdog_set_drvdata(&sunxi_wdt->wdt_dev, sunxi_wdt);
-> =20
-> -	sunxi_wdt_stop(&sunxi_wdt->wdt_dev);
-> -
-> +	if (sunxi_wdt_enabled(sunxi_wdt)) {
-
-Also check for IS_ENABLED(CONFIG_WATCHDOG_HANDLE_BOOT_ENABLED). This will
-allow user to select behaviour via Kconfig.
-
-Best regards,
-Jernej
-
-> +		sunxi_wdt_read_timeout(&sunxi_wdt->wdt_dev);
-> +		set_bit(WDOG_HW_RUNNING, &sunxi_wdt->wdt_dev.status);
-> +	} else {
-> +		sunxi_wdt_stop(&sunxi_wdt->wdt_dev);
-> +	}
->  	watchdog_stop_on_reboot(&sunxi_wdt->wdt_dev);
->  	err =3D devm_watchdog_register_device(dev, &sunxi_wdt->wdt_dev);
->  	if (unlikely(err))
->=20
-
-
-
-
+>   static bool
+>   ex_handler_load_unaligned_zeropad(const struct exception_table_entry *ex,
+>   				  struct pt_regs *regs)
+> @@ -56,7 +77,7 @@ ex_handler_load_unaligned_zeropad(const struct exception_table_entry *ex,
+>   	return true;
+>   }
+>   
+> -bool fixup_exception(struct pt_regs *regs)
+> +bool fixup_exception(struct pt_regs *regs, unsigned long esr)
+>   {
+>   	const struct exception_table_entry *ex;
+>   
+> @@ -70,6 +91,8 @@ bool fixup_exception(struct pt_regs *regs)
+>   	case EX_TYPE_UACCESS_ERR_ZERO:
+>   	case EX_TYPE_KACCESS_ERR_ZERO:
+>   		return ex_handler_uaccess_err_zero(ex, regs);
+> +	case EX_TYPE_UACCESS_CPY:
+> +		return ex_handler_uaccess_cpy(ex, regs, esr);
+>   	case EX_TYPE_LOAD_UNALIGNED_ZEROPAD:
+>   		return ex_handler_load_unaligned_zeropad(ex, regs);
+>   	}
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index ef63651099a9..da4854fc6150 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -375,7 +375,7 @@ static void __do_kernel_fault(unsigned long addr, unsigned long esr,
+>   	 * Are we prepared to handle this kernel fault?
+>   	 * We are almost certainly not prepared to handle instruction faults.
+>   	 */
+> -	if (!is_el1_instruction_abort(esr) && fixup_exception(regs))
+> +	if (!is_el1_instruction_abort(esr) && fixup_exception(regs, esr))
+>   		return;
+>   
+>   	if (WARN_RATELIMIT(is_spurious_el1_translation_fault(addr, esr, regs),
 
