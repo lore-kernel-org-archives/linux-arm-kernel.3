@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 105DBC021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 01:16:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 072C4C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 01:21:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fy3eZlkZDiRooYkfeOXa4T84dJQafoGp21goOeYujS8=; b=Fwr5tnH5AYSnnnQqoTl6VytG1W
-	rn8ZRoWeOuigyDqUftyDLcCeidXySUbXCyjQbJNvVrfEliIY7LxqGBaazDm3hgmNfHdxoV09NW+3d
-	xgBD9vXiGKinHCUK3JpyRQTZ/4Nr2xRvnQfe53NKngWlLvMj7qzmVU6DjO2U0+8ix1cqbPxCJbqWh
-	rxtpBti6d7PCgnu3gVtNaJvnS1Uacajk8+4KSRlWBPF+sFqLxTayZsvwaHFPhCq81fBt+ws7FNsf0
-	rFHARb30ggcmlCqjifglmRRt4EO4WetxQGRX5TrkDxgyJGtBG/IMEIQChOkZOWQbpz3GdKLmBlP+H
-	x9Up0Oyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=90DsHdVzBzjp5RPvlkSTbOgHqDCYIc4EKhmpQ2T52VA=; b=k6IY87683be+Ye+wlUOK/syHUu
+	Q5KCa4ElhqwI6U2+TIDHF1M/Knx17pTp92dZohUtPRcF3VxfGencby2T2SD4hApYaKRqEYY9wxNS6
+	YaY+MWfG8ACOWgFmjxF9eBn08BW1y4+5dtyLXP+IHZv25ufrrvErgJd8TOrl1wo2XTHAYr1GZ+z/r
+	ixN0O22WLfMoexIj6YZ4gcBik/KFtWEsdQ7YTcKFhoKvFBcJmVI3wTOu+iq7popSVRraq7aknXRj7
+	TVVOBLPdjdS10QBMSqAXfYGLdGQNXsevek/aJTid4HA6LxWcgay7dk0BEBoNKZbUD/m0pHDvzk0xr
+	WEMEhnyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkvAX-0000000G3tu-01yt;
-	Thu, 20 Feb 2025 01:16:01 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tkvFZ-0000000G4zW-1Ngb;
+	Thu, 20 Feb 2025 01:21:13 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkv92-0000000G3bs-2tI6;
-	Thu, 20 Feb 2025 01:14:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1740014055; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=FKE4DGPHfK3pSQzOrAVcQPJnHlLrjRyU52MeQX2NJ6KXFkZyf+7vVUyqf3F9A4uiILCGtyVvcr+KIuL5yTKAdGomO81lWjikOr8kh4F1YdJqbOFs7WAoPf9emwpua2KetQZZ9+LuSCqeULTfdAUCSfKS93sZYM3FawTTyuWT3Zk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1740014055; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=fy3eZlkZDiRooYkfeOXa4T84dJQafoGp21goOeYujS8=; 
-	b=I3rZCuLAukzm9+YE2+9Nwon/NUu4uGLAJ5wKfu2nW6afjYD717VqIwMTCYJWks5aoinyguIpmqyowo7aO3GmG5ARHbrgQR9Sx1+NLNOEawI4MJt3aUNorvzF6uiwiWcBhqd/xJTotxX5IeCsKQyyBwEEzxNB0hlHLHNM7Ig2GjI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1740014055;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=fy3eZlkZDiRooYkfeOXa4T84dJQafoGp21goOeYujS8=;
-	b=jINtxwQIQmq3LfzRcCQ34frj++Sy3H73y5Hg5Yfa/3sF59RBGJ+cI+ANG4G/QeD/
-	fJC2Lyyb4+X2JUvXGqZbyY3DCUkF2oEjgBBG2X09X8U1PP2IQJu+f+p8Wz6vq0XBYtH
-	boEN1WNFQHYayKEPTHdrPMQoZxQ5foPJvbqGIEcs=
-Received: by mx.zohomail.com with SMTPS id 1740014052769796.8629411328841;
-	Wed, 19 Feb 2025 17:14:12 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 44A8F180608; Thu, 20 Feb 2025 02:14:08 +0100 (CET)
-Date: Thu, 20 Feb 2025 02:14:08 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, kernel@collabora.com, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 5/6] arm64: dts: rockchip: Add thermal trim OTP and tsadc
- nodes
-Message-ID: <p3pddbmqyairfuqubvbjrsdi3s6m5w6etcfyevyatwlevetra6@5daaqilf7ve5>
-References: <20250216-rk3576-tsadc-upstream-v1-0-6ec969322a14@collabora.com>
- <20250216-rk3576-tsadc-upstream-v1-5-6ec969322a14@collabora.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="f2oqydbedyoledmw"
-Content-Disposition: inline
-In-Reply-To: <20250216-rk3576-tsadc-upstream-v1-5-6ec969322a14@collabora.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.2/239.939.29
-X-ZohoMailClient: External
+	id 1tkvE4-0000000G4bj-1qm9
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Feb 2025 01:19:41 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2fc1c7c8396so1090303a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 17:19:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740014379; x=1740619179; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=90DsHdVzBzjp5RPvlkSTbOgHqDCYIc4EKhmpQ2T52VA=;
+        b=yRCXA8CZUGbtwgjrxpahT87vm5uPry36oy+LoKW9HAsrH1NsMtGRzE/wCsdT7LYgQp
+         oSs/G2hvUwhHQJY70PTsAgou56/k+jccJpqgPdgrRgFu4Q2b2Oegk1s2moSdLz02hR8C
+         G+hcVI6tksQk/q59GP9Gv5ZvZVmy3DX/SAiVgDQHDjEVr36qakHavR+OVtH3kOILOpk8
+         AqzBidmIlOvOSWgasRWbWhoHmNiD049ahHVml89PTl2ZrpC9Zl9P3zZQRFkOqp0IGavS
+         ikKefqP5NnBr9E2LUtmmIOqxa5uahV9Rgo5PBtd2T4XfrYMKIOjzDhp0DqS3JXRjSYg2
+         fdHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740014379; x=1740619179;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=90DsHdVzBzjp5RPvlkSTbOgHqDCYIc4EKhmpQ2T52VA=;
+        b=XmzadwYI/+aqAUUY+/LKQ7XAM48K8WGg7Jg9LAwKXhzAUPvy7mYfwoOSe2n98kcgTt
+         tyt1doD5qgaXrjAPWh0Nt/LsnwEbDQjd7PQ018OvS1sLkYq7uA3wql5OH4c1GGllrKgS
+         gC3oLnpt4j+SS+jGDfXB/aoTyghOBIyUkPDD47wqHB+aLYvrUn9ErgDP0h8bHlg2bwYL
+         rdsghqYvkBaLZtGbHpGlugZN5FqBzAvlv8lryi5GZG1Lv2tETtLmIJEH5QxbuXZM+/Rh
+         /fhZ4Uuz4Nq1HBq9L2m4WFmGcgFAs4hdeZ7h3fB/GoZw4fws2SccEP64eM/lCTIerVNZ
+         QAeA==
+X-Forwarded-Encrypted: i=1; AJvYcCWloTLlu9fxlDfW7G8P1CoB5emH0ShQm2q3c/c62e/xuaQo88CoiwF5XC8Xz67Fi/hiZyQQ0sxET1xgYH/4Gr1i@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRroI3cjOKxUobb63FOPsvS+XmOwCbKrpkl+85HV0yVjNvrgfM
+	Qykll0HzDNbdrFm5EY9Iyg6I4ZmfFxiG+FUUC3LTLvzqM3LxFRnm0OwAl3SKjX8HOW0POlBeTa3
+	UTV4n0U/TnQ==
+X-Google-Smtp-Source: AGHT+IHTZJIfwdAPmaRcC/AMICF8Oev4ATVZBir52JFY3k0h8M5BqldtCyuNDkfc9kCd9Vz6uKu+/MDd0uXK1g==
+X-Received: from pjbpv10.prod.google.com ([2002:a17:90b:3c8a:b0:2d8:8340:8e46])
+ (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:2887:b0:2f9:bcd8:da33 with SMTP id 98e67ed59e1d1-2fc40f23246mr28257178a91.21.1740014378820;
+ Wed, 19 Feb 2025 17:19:38 -0800 (PST)
+Date: Thu, 20 Feb 2025 01:19:27 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.48.1.601.g30ceb7b040-goog
+Message-ID: <cover.1740009184.git.yepeilin@google.com>
+Subject: [PATCH bpf-next v3 0/9] Introduce load-acquire and store-release BPF instructions
+From: Peilin Ye <yepeilin@google.com>
+To: bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Peilin Ye <yepeilin@google.com>, bpf@ietf.org, Xu Kuohai <xukuohai@huaweicloud.com>, 
+	Eduard Zingerman <eddyz87@gmail.com>, David Vernet <void@manifault.com>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Quentin Monnet <qmo@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Ihor Solodrai <ihor.solodrai@linux.dev>, Yingchi Long <longyingchi24s@ict.ac.cn>, 
+	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu <neelnatu@google.com>, 
+	Benjamin Segall <bsegall@google.com>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_171428_803131_41855E2C 
-X-CRM114-Status: GOOD (  21.25  )
+X-CRM114-CacheID: sfid-20250219_171940_485304_FAE3FE41 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,166 +99,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi all!
 
---f2oqydbedyoledmw
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 5/6] arm64: dts: rockchip: Add thermal trim OTP and tsadc
- nodes
-MIME-Version: 1.0
+This patchset adds kernel support for BPF load-acquire and store-release
+instructions (for background, please see [1]), mainly including
+core/verifier, arm64 JIT compiler, and Documentation/ changes.  x86-64
+and riscv64 are also planned to be supported.  The corresponding LLVM
+changes can be found at:
 
-Hi,
+  [2] https://github.com/llvm/llvm-project/pull/108636
 
-On Sun, Feb 16, 2025 at 12:34:54AM +0100, Nicolas Frattaroli wrote:
-> Thanks to Heiko's work getting OTP working on the RK3576, we can specify
-> the thermal sensor trim values which are stored there now, and with my
-> driver addition to rockchip_thermal, we can make use of these.
->=20
-> Add them to the devicetree for the SoC.
->=20
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3576.dtsi | 75 ++++++++++++++++++++++++++=
-++++++
->  1 file changed, 75 insertions(+)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/d=
-ts/rockchip/rk3576.dtsi
-> index 73df515a3937414d89515b4ddccf71f33f6a4fe7..c55d7096a3e985d48240c2cab=
-3de572b9ece2b23 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-> @@ -1441,6 +1441,48 @@ gpu_leakage: gpu-leakage@21 {
->  			log_leakage: log-leakage@22 {
->  				reg =3D <0x22 0x1>;
->  			};
-> +			bigcore_tsadc_trim_l: bigcore-tsadc-trim-l@24 {
-> +				reg =3D <0x24 0x1>;
-> +			};
-> +			bigcore_tsadc_trim_h: bigcore-tsadc-trim-h@25 {
-> +				reg =3D <0x25 0x1>;
-> +				bits =3D <0 2>;
-> +			};
+Tested using PLATFORM=aarch64 CROSS_COMPILE=aarch64-linux-gnu-
+vmtest.sh, with llvm-17, llvm-18 and [2].
 
-Looks like TRIM-L and TRIM-H are always consecutive and even for
-Rockchip it would be weird to change that in the future. So I
-think you can simplify this:
+Please refer to the LLVM PR and individual kernel patches for details.
+Feedback is much appreciated!
 
-bigcore_tsadc_trim: bigcore-tsadc-trim@24 {
-    reg =3D <0x24 0x2>;
-    bits =3D <0 10>;
-};
+v2: https://lore.kernel.org/bpf/cover.1738888641.git.yepeilin@google.com/
+v2..v3 notable changes:
 
-That looks much cleaner IMHO and should also simplify the driver and
-the binding a bit :)
+  o (Alexei) change encoding to BPF_LOAD_ACQ=0x100, BPF_STORE_REL=0x110
+  o add Acked-by: tags from Ilya and Eduard
+  o make new selftests depend on:
+    * __clang_major__ >= 18, and
+    * ENABLE_ATOMICS_TESTS is defined (currently this means -mcpu=v3 or
+      v4), and
+    * JIT supports load_acq/store_rel (currenty only arm64)
+  o work around llvm-17 CI job failure by conditionally define
+    __arena_global variables as 64-bit if __clang_major__ < 18, to make
+    sure .addr_space.1 has no holes
+  o add Google copyright notice in new files
 
-Greetings,
+v1: https://lore.kernel.org/all/cover.1737763916.git.yepeilin@google.com/
+v1..v2 notable changes:
 
--- Sebastian
+  o (Eduard) for x86 and s390, make
+             bpf_jit_supports_insn(..., /*in_arena=*/true) return false
+	     for load_acq/store_rel
+  o add Eduard's Acked-by: tag
+  o (Eduard) extract LDX and non-ATOMIC STX handling into helpers, see
+             PATCH v2 3/9
+  o allow unpriv programs to store-release pointers to stack
+  o (Alexei) make it clearer in the interpreter code (PATCH v2 4/9) that
+             only W and DW are supported for atomic RMW
+  o test misaligned load_acq/store_rel
+  o (Eduard) other selftests/ changes:
+    * test load_acq/store_rel with !atomic_ptr_type_ok() pointers:
+      - PTR_TO_CTX, for is_ctx_reg()
+      - PTR_TO_PACKET, for is_pkt_reg()
+      - PTR_TO_FLOW_KEYS, for is_flow_key_reg()
+      - PTR_TO_SOCKET, for is_sk_reg()
+    * drop atomics/ tests
+    * delete unnecessary 'pid' checks from arena_atomics/ tests
+    * avoid depending on __BPF_FEATURE_LOAD_ACQ_STORE_REL, use
+      __imm_insn() and inline asm macros instead
 
-> +			litcore_tsadc_trim_l: litcore-tsadc-trim-l@26 {
-> +				reg =3D <0x26 0x1>;
-> +			};
-> +			litcore_tsadc_trim_h: litcore-tsadc-trim-h@27 {
-> +				reg =3D <0x27 0x1>;
-> +				bits =3D <0 2>;
-> +			};
-> +			ddr_tsadc_trim_l: ddr-tsadc-trim-l@28 {
-> +				reg =3D <0x28 0x1>;
-> +			};
-> +			ddr_tsadc_trim_h: ddr-tsadc-trim-h@29 {
-> +				reg =3D <0x29 0x1>;
-> +				bits =3D <0 2>;
-> +			};
-> +			npu_tsadc_trim_l: npu-tsadc-trim-l@2a {
-> +				reg =3D <0x2a 0x1>;
-> +			};
-> +			npu_tsadc_trim_h: npu-tsadc-trim-h@2b {
-> +				reg =3D <0x2b 0x1>;
-> +				bits =3D <0 2>;
-> +			};
-> +			gpu_tsadc_trim_l: gpu-tsadc-trim-l@2c {
-> +				reg =3D <0x2c 0x1>;
-> +			};
-> +			gpu_tsadc_trim_h: gpu-tsadc-trim-h@2d {
-> +				reg =3D <0x2d 0x1>;
-> +				bits =3D <0 2>;
-> +			};
-> +			soc_tsadc_trim_l: soc-tsadc-trim-l@64 {
-> +				reg =3D <0x64 0x1>;
-> +			};
-> +			soc_tsadc_trim_h: soc-tsadc-trim-h@65 {
-> +				reg =3D <0x65 0x1>;
-> +				bits =3D <0 2>;
-> +			};
->  		};
-> =20
->  		gic: interrupt-controller@2a701000 {
-> @@ -1852,6 +1894,39 @@ tsadc: tsadc@2ae70000 {
->  			rockchip,hw-tshut-temp =3D <120000>;
->  			rockchip,hw-tshut-mode =3D <0>; /* tshut mode 0:CRU 1:GPIO */
->  			rockchip,hw-tshut-polarity =3D <0>; /* tshut polarity 0:LOW 1:HIGH */
-> +			#address-cells =3D <1>;
-> +			#size-cells =3D <0>;
-> +
-> +			tsadc@0 {
-> +				reg =3D <0>;
-> +				nvmem-cells =3D <&soc_tsadc_trim_l>, <&soc_tsadc_trim_h>;
-> +				nvmem-cell-names =3D "trim_l", "trim_h";
-> +			};
-> +			tsadc@1 {
-> +				reg =3D <1>;
-> +				nvmem-cells =3D <&bigcore_tsadc_trim_l>, <&bigcore_tsadc_trim_h>;
-> +				nvmem-cell-names =3D "trim_l", "trim_h";
-> +			};
-> +			tsadc@2 {
-> +				reg =3D <2>;
-> +				nvmem-cells =3D <&litcore_tsadc_trim_l>, <&litcore_tsadc_trim_h>;
-> +				nvmem-cell-names =3D "trim_l", "trim_h";
-> +			};
-> +			tsadc@3 {
-> +				reg =3D <3>;
-> +				nvmem-cells =3D <&ddr_tsadc_trim_l>, <&ddr_tsadc_trim_h>;
-> +				nvmem-cell-names =3D "trim_l", "trim_h";
-> +			};
-> +			tsadc@4 {
-> +				reg =3D <4>;
-> +				nvmem-cells =3D <&npu_tsadc_trim_l>, <&npu_tsadc_trim_h>;
-> +				nvmem-cell-names =3D "trim_l", "trim_h";
-> +			};
-> +			tsadc@5 {
-> +				reg =3D <5>;
-> +				nvmem-cells =3D <&gpu_tsadc_trim_l>, <&gpu_tsadc_trim_h>;
-> +				nvmem-cell-names =3D "trim_l", "trim_h";
-> +			};
->  		};
-> =20
->  		i2c9: i2c@2ae80000 {
->=20
-> --=20
-> 2.48.1
->=20
+RFC v1: https://lore.kernel.org/all/cover.1734742802.git.yepeilin@google.com
+RFC v1..v1 notable changes:
 
---f2oqydbedyoledmw
-Content-Type: application/pgp-signature; name="signature.asc"
+  o 1-2/8: minor verifier.c refactoring patches
+  o   3/8: core/verifier changes
+         * (Eduard) handle load-acquire properly in backtrack_insn()
+         * (Eduard) avoid skipping checks (e.g.,
+                    bpf_jit_supports_insn()) for load-acquires
+         * track the value stored by store-releases, just like how
+           non-atomic STX instructions are handled
+         * (Eduard) add missing link in commit message
+         * (Eduard) always print 'r' for disasm.c changes
+  o   4/8: arm64/insn: avoid treating load_acq/store_rel as
+           load_ex/store_ex
+  o   5/8: arm64/insn: add load_acq/store_rel
+         * (Xu) include Should-Be-One (SBO) bits in "mask" and "value",
+                to avoid setting fixed bits during runtime (JIT-compile
+                time)
+  o   6/8: arm64 JIT compiler changes
+         * (Xu) use emit_a64_add_i() for "pointer + offset" to optimize
+                code emission
+  o   7/8: selftests
+         * (Eduard) avoid adding new tests to the 'test_verifier' runner
+         * add more tests, e.g., checking mark_precise logic
+  o   8/8: instruction-set.rst changes
 
------BEGIN PGP SIGNATURE-----
+[1] https://lore.kernel.org/all/20240729183246.4110549-1-yepeilin@google.com/
 
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAme2gdwACgkQ2O7X88g7
-+pqOnw/7BJwL3Y6HgC9xGEeFk3FYRXVxo1LmATjJX1xSRdUBgELTq/qwrW4CGzjO
-zJYnXdbr5Ywvsdg1V4TjFEHSLLu5VHZcPXWFn1um2fFFZP6RAZqY7jKNsiMXP5dA
-JUcvuELX2Ns44BkKyoYUX9rOZOcIHOjseh6S15CVOxa/eOuxFlV0Iqs5KcY4HnZ7
-RveVjnwB29MLsGA81zAfJ53RASCMt3jtmojdqG1P2/qk/CI53Hv9oTCl9bF82yiq
-tRoCXHyyWutOOmJvG2ZUfQOZc2KADwzL2MpWaEIQV3WeZmvF35yAzxk3d9JnyKwR
-5w6SisxKXuwMp3PUGCTjAR4YVPucC3UqRBtQx+3gSkpNm4Kc8gON9vIvmJMjQgGN
-ve+nX2Uzu7yaQqOsHzARgyZ5k0Yc4P5XOkQTo0t3hqXX1Tt0Y7jlkI+wG2HoZrLi
-vKtVOBar3wq3TGQA0IVpWPNENbAtURVwB7e3zLQMlwobqmqTwUsg2VrpQKAGNuTq
-sGvCUievEwSEzSdoPVjWBzRCqKFo2hq+zdOOlBH32w+tLNU9NXGuoRmDnwH2icvk
-+3a3T2+jarvpvcA0PkkuTrUVPkp7GAjtlJusEtrKjNnqhQ5GhUMKY4FsA+N5YipZ
-4xafMEzXk43Z+4jbGJlVH0I7uSbk8sEjI5ddTd8BypmMb2dzSgE=
-=gZfm
------END PGP SIGNATURE-----
+Thanks,
+Peilin Ye (9):
+  bpf/verifier: Factor out atomic_ptr_type_ok()
+  bpf/verifier: Factor out check_atomic_rmw()
+  bpf/verifier: Factor out check_load_mem() and check_store_reg()
+  bpf: Introduce load-acquire and store-release instructions
+  arm64: insn: Add BIT(23) to {load,store}_ex's mask
+  arm64: insn: Add load-acquire and store-release instructions
+  bpf, arm64: Support load-acquire and store-release instructions
+  selftests/bpf: Add selftests for load-acquire and store-release
+    instructions
+  bpf, docs: Update instruction-set.rst for load-acquire and
+    store-release instructions
 
---f2oqydbedyoledmw--
+ .../bpf/standardization/instruction-set.rst   |  78 ++++--
+ arch/arm64/include/asm/insn.h                 |  12 +-
+ arch/arm64/lib/insn.c                         |  29 ++
+ arch/arm64/net/bpf_jit.h                      |  20 ++
+ arch/arm64/net/bpf_jit_comp.c                 |  87 +++++-
+ arch/s390/net/bpf_jit_comp.c                  |  14 +-
+ arch/x86/net/bpf_jit_comp.c                   |   4 +
+ include/linux/bpf.h                           |  15 +
+ include/linux/filter.h                        |   2 +
+ include/uapi/linux/bpf.h                      |   3 +
+ kernel/bpf/core.c                             |  63 ++++-
+ kernel/bpf/disasm.c                           |  12 +
+ kernel/bpf/verifier.c                         | 234 +++++++++++-----
+ tools/include/uapi/linux/bpf.h                |   3 +
+ .../selftests/bpf/prog_tests/arena_atomics.c  |  66 ++++-
+ .../selftests/bpf/prog_tests/verifier.c       |   4 +
+ .../selftests/bpf/progs/arena_atomics.c       | 118 +++++++-
+ .../bpf/progs/verifier_load_acquire.c         | 197 +++++++++++++
+ .../selftests/bpf/progs/verifier_precision.c  |  48 ++++
+ .../bpf/progs/verifier_store_release.c        | 264 ++++++++++++++++++
+ 20 files changed, 1165 insertions(+), 108 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/progs/verifier_load_acquire.c
+ create mode 100644 tools/testing/selftests/bpf/progs/verifier_store_release.c
+
+-- 
+2.48.1.601.g30ceb7b040-goog
+
 
