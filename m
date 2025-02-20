@@ -4,95 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B043BC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 02:31:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE072C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 02:34:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v2LR/JimVsSln6OjvLMxASghoMn/729DMpvubUk9y+U=; b=wj9F8zA3fLgPPtUfGhReuLykUg
-	aMhIls+7uGVccfzLwaQwH/TvzdYR/3eR1jnpl+TUEYmLD4YHuq8uyQFhByV7gj2m0UKZuopwiLTJK
-	zoOcp/oQ5myOm3m1mjMu6KGSswDjPNs8Ef/osUX1WRCeWKRqNFRr8BAV7qH3M01gB2FNwM3zDaoPl
-	sOwtT3ITHis3Wq24eYFo4Vswh7acs0gOMxyrEnQ0sK1R/rt3WAM1KOz22dqKIU4joy/0QnClMLWvz
-	eUUe7LMrTbs5Ih1bqnlilDpb/AIUfi9a+l1mWw8ZjTYBj41ZE4ZsO0u9rPwrrXb50HjNOoWdwpYc7
-	bpSXZQJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/x787lNgNntEc47QXNfeY2l5Pt9oXXCzO9vFsY4d+S0=; b=OUmMekSTN9ibMZ2wxsB/UeiQHR
+	Td0MBwjKhyrm/Cyjcxl9Fe91m/Nj9B3VB0S6fw6Y1AhM/gMIB5MPopRtuHt6Ps+YHfG3HzPrbaFmI
+	xovSjDASz3PUvILe+k7zftHZrSKH+LjR62CY8Btpi9RuL5UsH33ph7mw83A3P2Zr+PkGFCKZZzu2Q
+	v4hA5Hp0rohVuRnKAI31A0NtDIqw5/vUlYRWqd4aPcWMaTao2e5+QcOtgPTt2eE97eD1mAeoa5diB
+	2zDHe8221u4h2Em2SuCrKcc0xLzB/a3UYhLdRw24fHnViNj3GIopPVOxtTvLyoDejLz6CfUxMfq+t
+	XDEOYo9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkwLM-0000000GLYg-2ysv;
-	Thu, 20 Feb 2025 02:31:16 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1tkwOm-0000000GMHt-2gh3;
+	Thu, 20 Feb 2025 02:34:48 +0000
+Received: from mail-sg2apc01on20621.outbound.protection.outlook.com ([2a01:111:f403:200f::621] helo=APC01-SG2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkwJs-0000000GLCi-1Gf3
+	id 1tkwNJ-0000000GM1C-0ggY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 02:29:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740018584; x=1771554584;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=qHJy/wVMlxB0RzaDnffLNI7sYULYz+gIzJ4B57XyBGM=;
-  b=DCHDI8cxdnrWV2YHRO9KIKN2eUe1MsHuNaPpO5SG1CkqGEi5k6q/DqYl
-   4N+YnMcLg1hj7s62X7FTuY8lO/AcGJewPBpugio9q53WHXcODwuEubP/R
-   5vgu0hgCTs80QcjwtZcDa+bdLk/CJiF384EBlD35+AM/ZxtEgUEPYZvjF
-   mo0lWTwuzoTesxymloA8hnrQ+iNVj+vAC/ApvXNNFZdO3vquFIxEWKDCy
-   TkJMTFHTPBnj0PmPT1djl+ZjxX1K+1/hQ7lvyWFA3RmQHprjYGzFRamzE
-   EkDoXLNDK/hIAtJvoFupndUeQzbQw+2obxPf4YX+kjiADcoU7JJfsFFTl
-   w==;
-X-CSE-ConnectionGUID: 4TKZDD6hRlSUOtoIEvHM/g==
-X-CSE-MsgGUID: RfYgEAmcTTK8HZ8fGfr/6A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11350"; a="28378267"
-X-IronPort-AV: E=Sophos;i="6.13,300,1732608000"; 
-   d="scan'208";a="28378267"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 18:29:41 -0800
-X-CSE-ConnectionGUID: ZqGHmeIwRl65QQYDBiVAyw==
-X-CSE-MsgGUID: 0W87J4dIQfylMzMyKIP0yw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,300,1732608000"; 
-   d="scan'208";a="115572775"
-Received: from choongyo-mobl.gar.corp.intel.com (HELO [10.247.53.67]) ([10.247.53.67])
-  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 18:29:34 -0800
-Message-ID: <0307750b-dd98-4718-8c3c-928df6a80ef5@linux.intel.com>
-Date: Thu, 20 Feb 2025 10:29:31 +0800
+	Thu, 20 Feb 2025 02:33:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=d0lX4NEkim9MWqGDIFx5egKuwtu1yEfKg6UilYKRxWzXEioaNN79CUorvCM3EnI+2scAqnhd0dlMDg2YAfKj59p2Y07X88+9J+M5hjCI8PeGjNMDlURmIIswZe4KUis+kxYbJja2REncrf8FHUtbaBSXclcYjBXvN1y1jngWxvY7ch49sExySTndkty+2OiaR0yIL8Xk6ENRgVB2vuJf0h6dqNyo3RokTjDU2FeZT8ZK6q1MG37Csgx/7PZrU7WzEsVDKILa/ThMOACfrmYDmDYrGB6z7+HDvJuBQv69DGT8A+/FZ/s+fb7+06UmN2997dqNoCL1Gk3C0zYCRy62aA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/x787lNgNntEc47QXNfeY2l5Pt9oXXCzO9vFsY4d+S0=;
+ b=YtzZCdywLlKHu0a9UI7pjbxvofPDHAJm5SFSUJD83ERhzqz5BGyMo3tAasERAjuOFdZGN3QXQjsgLdvmdjLulCxAo3rUaSgQXqGXPw7sbBfj7m7ZHPowx1iK/HXOtNQC7Gi8SoeQrm4RrgiPNi998OerA4PyofYs/mX/bqFzUt5BdKD3fD6BTC5qqr0Ovkf+isleiG3Uj+4VZ/4W3bKVZfi84sh+AmNGgMilpzNrE3gjGsj6YtHQDc9XNjqBjmk6oNk6M5NYU5KsOOb7cUT+8ipmjsDVtxw1oVtiypk42J9pNa+lzSvkBUi2me/1idEyPOrDYQ4GRULCxzjEYj7qLA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 211.20.1.79) smtp.rcpttodomain=stwcx.xyz smtp.mailfrom=wiwynn.com; dmarc=fail
+ (p=quarantine sp=quarantine pct=100) action=quarantine
+ header.from=wiwynn.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wiwynn.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/x787lNgNntEc47QXNfeY2l5Pt9oXXCzO9vFsY4d+S0=;
+ b=Ij5s/jufpaApD2P6rc0ptkRaG6Tq0aJb3HuGAWNEsFSJ/Fp9n0VtRgdLZysQtcidRF8qY5XZA77uoH8+/UYhgWaCWYO2XLz0xmlbMoM4vsRttOTuHETRYDtHpAkj7+1lDv/g7pLAMaEj7W+Fam4De1nIGx9dz4hjzyYVQf8lHjFuqVQnGfIIeJw4JKhNPWphgdXTeyxktgNhqtFCXSXLOECGYv16GKsx/jBRP1NmlPss6R3lSdvn84VMMYM2RoQpvSmVD3k3Mh46aDDv9J2cwOrq/DFq4zQx/9udVI54UwT3sk7s5vUdqkK0tN0FWoEzx6M5VJ+DkKj8xIMeX40YCA==
+Received: from SG2PR02CA0011.apcprd02.prod.outlook.com (2603:1096:3:17::23) by
+ SEYPR04MB7320.apcprd04.prod.outlook.com (2603:1096:101:170::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8466.16; Thu, 20 Feb 2025 02:32:50 +0000
+Received: from SG1PEPF000082E4.apcprd02.prod.outlook.com
+ (2603:1096:3:17:cafe::4e) by SG2PR02CA0011.outlook.office365.com
+ (2603:1096:3:17::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.16 via Frontend Transport; Thu,
+ 20 Feb 2025 02:32:50 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 211.20.1.79)
+ smtp.mailfrom=wiwynn.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=wiwynn.com;
+Received-SPF: Fail (protection.outlook.com: domain of wiwynn.com does not
+ designate 211.20.1.79 as permitted sender) receiver=protection.outlook.com;
+ client-ip=211.20.1.79; helo=localhost.localdomain;
+Received: from localhost.localdomain (211.20.1.79) by
+ SG1PEPF000082E4.mail.protection.outlook.com (10.167.240.7) with Microsoft
+ SMTP Server id 15.20.8466.11 via Frontend Transport; Thu, 20 Feb 2025
+ 02:32:49 +0000
+From: Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>
+To: patrick@stwcx.xyz,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: MarshallZhan-wiwynn <marshall_zhan@wiwynn.com>,
+	Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5] ARM: dts: aspeed: yosemite4: add I3C config in DTS
+Date: Thu, 20 Feb 2025 10:32:32 +0800
+Message-Id: <20250220023233.1686419-1-delphine_cc_chiu@wiwynn.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v7 3/7] arch: x86: add IPC mailbox accessor
- function and add SoC register access
-To: david.e.box@linux.intel.com, Dave Hansen <dave.hansen@intel.com>,
- Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
- Jose Abreu <Jose.Abreu@synopsys.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, "H . Peter Anvin"
- <hpa@zytor.com>, Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou
- <mengyuanlou@net-swift.com>, Heiner Kallweit <hkallweit1@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Hans de Goede <hdegoede@redhat.com>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Serge Semin <fancer.lancer@gmail.com>
-Cc: x86@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- platform-driver-x86@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250206131859.2960543-1-yong.liang.choong@linux.intel.com>
- <20250206131859.2960543-4-yong.liang.choong@linux.intel.com>
- <063bd012-d377-4d3d-9dcc-57e360d8f462@intel.com>
- <4cf99d5f9b63aec22c24c445dea9a80d71f5f024.camel@linux.intel.com>
-Content-Language: en-US
-From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-In-Reply-To: <4cf99d5f9b63aec22c24c445dea9a80d71f5f024.camel@linux.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SG1PEPF000082E4:EE_|SEYPR04MB7320:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 56b282eb-a00b-4b0a-0e46-08dd5156de73
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?t6YA5OyGpVgLGgnTDumtLiUep5upxsCzHruNTTYvBs+EJ2lWRQ+vqtTb3358?=
+ =?us-ascii?Q?3m/1hTtWFAe3YArBZwoYNyrh+397qmlT4/B6Si7pssCAXmqSWJryVIQtQRia?=
+ =?us-ascii?Q?bshSWTgTAYM073efDGQ+wSRAecpwtXi6AgeplfrD89CB6E4R9mo1TuFkEw3X?=
+ =?us-ascii?Q?DO+lg74pG0J27D6MmbSoAl1XryfI2E7ovDxDxh6nDKHYjpHjYvjFpQVtcaVX?=
+ =?us-ascii?Q?icXUm+f0jkWyb/0dACuUE8ErgiXB32RURXfk1JQMOhRcNhGihW16p4WAgoLt?=
+ =?us-ascii?Q?O0iEn4+jjhOaCWZmdKvjfyhBHIcTkiipak9dbbztK90mxUpg6m5e7d0h72LI?=
+ =?us-ascii?Q?ZtvlHS86YuwzDUhiaiTgmHqjVYVw2ZsurgzHhwlP1fL0diskB76ZwIedkOOD?=
+ =?us-ascii?Q?ol2PiHWXxtg98DDB/uHVzJK0ES8+g+TwtJhH0q+xz6DwwaiF7YowhyQmSHF3?=
+ =?us-ascii?Q?qqgsQZi5MiPXbteVJN2us8ORTmP0sf4keKgWJy3FoP7l7d6nA0bBlP9JqarA?=
+ =?us-ascii?Q?l212JVtN4R5Es5tPO11/VagREDWurS+bm5nT/5Xja1LRWflR8olifRHoaY5R?=
+ =?us-ascii?Q?hsgprsjJODx6lN38J9jXPZpVtEDXJeguIcSe5laJON3Ugag60qgnTILhHWLv?=
+ =?us-ascii?Q?M2I55IhfhOZi25o6lJtAkBel5358nGS1iItOM7XvnsROjuVlZCgxvcmz7q/+?=
+ =?us-ascii?Q?gUHFAOlo6cnzxxIYc+Howk4UNg+zOdbHWPx2+mFb4sC2AmcXxdOvuegJG5b8?=
+ =?us-ascii?Q?7rWNlQucmlIH1GWTd6zuAoeWDO0IKr0W6y7vMiHtQXF+/6ybMbMsLPkallZs?=
+ =?us-ascii?Q?O5gTpNcuggy0SG8zn6yCBQtU6YddPBNsC136mz6Z36zdrz8Q8TsLYX2Rk14/?=
+ =?us-ascii?Q?zqRc+N73F/ZGV23PmnYMC6eWVL/Yl9PmMq2zK3Pob4zG/KckgQSC2fNPBINW?=
+ =?us-ascii?Q?1VXSSmfYFIBV+AlGFf6VDucsPjcgBZRcR9QPgLJ55A8LDS99sKz5sp24Pipo?=
+ =?us-ascii?Q?sz1yY4btapfoDGz7uP6HynPC9NIcbPa0KmEo3FKyyVoG/1X+CNhBit3K/DDf?=
+ =?us-ascii?Q?qPxgCwJxMbZIGBMVfwla9wg3pMJt53MjVh+DLrzCkqbEaxy1ZRdUJlNbwPB/?=
+ =?us-ascii?Q?DdmUdkZbT0slHo9N1gZ3S+UWR6hbx5bT41IBfVEq9jWf4JT69g2F5S7vht9P?=
+ =?us-ascii?Q?60CtWA5VnUNB+OhXeMh4603fLnscZV80GX3auEO1Sh4ipQr+jXfggSm5Ybdt?=
+ =?us-ascii?Q?/ypF+Tk1jElihTGdvMU//zp81maRG8Dv57EGTkYdEUHC/BMTjOqNaiiEb6FI?=
+ =?us-ascii?Q?Crl+fMNaSITzyElEm2if08hC4Q96yNHyUqMW6lOoc1KUnShw5TF8Z0UtWzgN?=
+ =?us-ascii?Q?fq+ISbP+OSfI+j9ERxEV3S8eursHm5GHo5ByldxabyC/+wKmlwJzyUcRef01?=
+ =?us-ascii?Q?8/GuWHTQLGVFVvrGca4RJwl4XwaP88J/HgS1Ru/HO0ZF8t43lT5AjEfRLLmd?=
+ =?us-ascii?Q?piVpCMu8NJgVo8M=3D?=
+X-Forefront-Antispam-Report: CIP:211.20.1.79;CTRY:TW;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:localhost.localdomain;PTR:211-20-1-79.hinet-ip.hinet.net;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: wiwynn.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 02:32:49.1035
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 56b282eb-a00b-4b0a-0e46-08dd5156de73
+X-MS-Exchange-CrossTenant-Id: da6e0628-fc83-4caf-9dd2-73061cbab167
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=da6e0628-fc83-4caf-9dd2-73061cbab167;Ip=[211.20.1.79];Helo=[localhost.localdomain]
+X-MS-Exchange-CrossTenant-AuthSource: SG1PEPF000082E4.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR04MB7320
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_182944_379224_6491AC15 
-X-CRM114-Status: GOOD (  29.68  )
+X-CRM114-CacheID: sfid-20250219_183317_194083_4411402C 
+X-CRM114-Status: UNSURE (   7.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,96 +145,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: MarshallZhan-wiwynn <marshall_zhan@wiwynn.com>
 
+Set I3C config in yosemite4 DTS.
 
-On 20/2/2025 1:01 am, David E. Box wrote:
-> On Thu, 2025-02-06 at 08:46 -0800, Dave Hansen wrote:
->> On 2/6/25 05:18, Choong Yong Liang wrote:
->>>
->>> - Exports intel_pmc_ipc() for host access to the PMC IPC mailbox
->>> - Add support to use IPC command allows host to access SoC registers
->>> through PMC firmware that are otherwise inaccessible to the host due
->>> to security policies.
->> I'm not quite parsing that second bullet as a complete sentence.
->>
->> But that sounds scary! Why is the fact that they are "otherwise
->> inaccessible" relevant here?
-> 
-> The PMC IPC mailbox is a host interface to the PMC. Its purpose is to allow the
-> host to access certain areas of the PMC that are restricted from direct MMIO
-> access due to security policies. Other parts of the PMC are accessible via MMIO
-> (most of what the intel_pmc_core driver touches with is MMIO), so I think the
-> original statement was trying to explain why the mailbox is needed instead of
-> MMIO in this case. However, I agree that the mention of security policies is not
-> relevant to the change itself.
-> 
->> ...
->>> diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
->>> index 87198d957e2f..631c1f10776c 100644
->>> --- a/arch/x86/Kconfig
->>> +++ b/arch/x86/Kconfig
->>> @@ -688,6 +688,15 @@ config X86_AMD_PLATFORM_DEVICE
->>>   	  I2C and UART depend on COMMON_CLK to set clock. GPIO driver is
->>>   	  implemented under PINCTRL subsystem.
->>>   
->>> +config INTEL_PMC_IPC
->>> +	tristate "Intel Core SoC Power Management Controller IPC mailbox"
->>> +	depends on ACPI
->>> +	help
->>> +	  This option enables sideband register access support for Intel
->>> SoC
->>> +	  power management controller IPC mailbox.
->>> +
->>> +	  If you don't require the option or are in doubt, say N.
->>
->> Could we perhaps beef this up a bit to help users figure out if they
->> want to turn this on? Really the only word in the entire help text
->> that's useful is "Intel".
->>
->> I'm not even sure we *want* to expose this to users. Can we just leave
->> it as:
->>
->> 	config INTEL_PMC_IPC
->> 		def_tristate n
->> 		depends on ACPI
->>
->> so that it only gets enabled by the "select" in the other patches?
-> 
-> I agree with this change Choong. This can be selected by the driver that's using
-> it. There's no need to expose it to users.
-> 
->>
->>> + * Authors: Choong Yong Liang <yong.liang.choong@linux.intel.com>
->>> + *          David E. Box <david.e.box@linux.intel.com>
->>
->> I'd probably just leave the authors bit out. It might have been useful
->> in the 90's, but that's what git is for today.
->>
->>> +	obj = buffer.pointer;
->>> +	/* Check if the number of elements in package is 5 */
->>> +	if (obj && obj->type == ACPI_TYPE_PACKAGE && obj->package.count ==
->>> 5) {
->>> +		const union acpi_object *objs = obj->package.elements;
->>> +
->>
->> The comment there is just not super useful. It might be useful to say
->> *why* the number of elements needs to be 5.
->>
->>> +EXPORT_SYMBOL(intel_pmc_ipc);
->>> +
->>> +MODULE_LICENSE("GPL");
->>> +MODULE_DESCRIPTION("Intel PMC IPC Mailbox accessor");
->>
->> Honestly, is this even worth being a module? How much code are we
->> talking about here?
-> 
-> Yeah, this doesn't need to be a module either.
-> 
-> David
-> 
+Test plan:
+Tested PLDM GetTID successfully with the I3C hub driver.
 
-Hi David,
+Signed-off-by: MarshallZhan-wiwynn <marshall_zhan@wiwynn.com>
+Signed-off-by: Delphine CC Chiu <delphine_cc_chiu@wiwynn.com>
+---
+ .../aspeed/aspeed-bmc-facebook-yosemite4.dts  | 86 +++++++++++++++++++
+ 1 file changed, 86 insertions(+)
 
-Thank you for the confirmation.
-Let's work together to address the comments.
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
+index 29f224bccd63..5dbfe073e536 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite4.dts
+@@ -1317,6 +1317,92 @@ eeprom@50 {
+ 	};
+ };
+ 
++&i3c0 {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i3c1_default>;
++	i3c-pp-scl-hi-period-ns = <40>;
++	i3c-pp-scl-lo-period-ns = <40>;
++	i3c-od-scl-hi-period-ns = <380>;
++	i3c-od-scl-lo-period-ns = <620>;
++	sda-tx-hold-ns = <10>;
++
++	mctp-controller;
++	hub@0x70 {
++		reg = <0x70 0x3c0 0x00700000>;
++		cp0-ldo-en = "disabled";
++		cp1-ldo-en = "disabled";
++		cp0-ldo-volt = "1.2V";
++		cp1-ldo-volt = "1.2V";
++		tp0145-ldo-en = "disabled";
++		tp2367-ldo-en = "disabled";
++		tp0145-ldo-volt = "1.2V";
++		tp2367-ldo-volt = "1.2V";
++		tp0145-pullup = "2k";
++		tp2367-pullup = "2k";
++
++		target-port@0 {
++			mode = "i3c";
++			pullup = "enabled";
++		};
++		target-port@1 {
++			mode = "i3c";
++			pullup = "enabled";
++		};
++		target-port@2 {
++			mode = "i3c";
++			pullup = "enabled";
++		};
++		target-port@3 {
++			mode = "i3c";
++			pullup = "enabled";
++		};
++	};
++};
++
++&i3c1 {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i3c2_default>;
++	i3c-pp-scl-hi-period-ns = <40>;
++	i3c-pp-scl-lo-period-ns = <40>;
++	i3c-od-scl-hi-period-ns = <380>;
++	i3c-od-scl-lo-period-ns = <620>;
++	sda-tx-hold-ns = <10>;
++
++	mctp-controller;
++	hub@0x70 {
++		reg = <0x70 0x3c0 0x00700000>;
++		cp0-ldo-en = "disabled";
++		cp1-ldo-en = "disabled";
++		cp0-ldo-volt = "1.2V";
++		cp1-ldo-volt = "1.2V";
++		tp0145-ldo-en = "disabled";
++		tp2367-ldo-en = "disabled";
++		tp0145-ldo-volt = "1.2V";
++		tp2367-ldo-volt = "1.2V";
++		tp0145-pullup = "2k";
++		tp2367-pullup = "2k";
++
++		target-port@0 {
++			mode = "i3c";
++			pullup = "enabled";
++		};
++		target-port@1 {
++			mode = "i3c";
++			pullup = "enabled";
++		};
++		target-port@2 {
++			mode = "i3c";
++			pullup = "enabled";
++		};
++		target-port@3 {
++			mode = "i3c";
++			pullup = "enabled";
++		};
++	};
++};
++
+ &adc0 {
+ 	status = "okay";
+ 	pinctrl-0 = <&pinctrl_adc0_default &pinctrl_adc1_default
+-- 
+2.25.1
+
 
