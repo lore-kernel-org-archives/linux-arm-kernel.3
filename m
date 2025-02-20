@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD57C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 09:33:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 042D0C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 09:35:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lR8ijKB3JqpL8pV5Bk+/2fyVFlUM7QF+r6boQ5Lr92c=; b=uUvdQbx9+rWht1cAVSB98X6MYj
-	4ToRx/6vRiK00CtfoQiSuxj6sk7uLv7GMaabHgpWExAELTHWxCc3XmeKAU7bwLeCANuXKrsPNscRE
-	6r73/cJ4TBv47UaNluh42bOCCWNElN4PBEgIvpivEPCh85s1hL8VJtRgpNo1/18Zpfc5GWdED+OIk
-	mmeByMBwq0MNjEnAKVnRXgrv9OH0LT+MVEj07OCFHnPUxvYFRUsqYqOqNGyqWz2Ywl/ERSyDFUMGV
-	YfXEAa3YWZXistlDVrHLBWQq79bAuNhtTXdA73vgzLE1MEV7v9Li+gLr/IvM8NDj1/JGQehcXNXp7
-	Cm6k6RKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=newvC6mADWn49zOT1Dy4tvOHWxXygG9ftbKAicrathQ=; b=i+PpvwecTFzItRQWsdCixTwlw3
+	T2ztWE99Me3iu/M0R3YS9KJv691ni0bVgSfma9A2RQcMDg8609UIdAyOQaCgHa/BCF3uTzos0cznK
+	msn645DJOaes22EdgFiXrPegXHT5+ZgigJauEubgeZbtrZOOuXnFQBrzbpIY1pb/pIIjVAz9fvCev
+	bXcq/oPTEH42nzPPNC4KbGaJTwNyznWZO7IgXfX0jBxv1GLKMsQWsWl0plL/Sx2vlHD4uZDEaJ21P
+	wLkvRf9bYFgu7m0zAQO0UbFU+x6/XWqY/nShyx6w/8leZtMRbToESboNqN8xeIuXoGEFYPsUspxMb
+	sIEDeIvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl2w1-000000002wd-20Jv;
-	Thu, 20 Feb 2025 09:33:33 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl2ty-000000002KF-2R6k;
-	Thu, 20 Feb 2025 09:31:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=lR8ijKB3JqpL8pV5Bk+/2fyVFlUM7QF+r6boQ5Lr92c=; b=T/PMmnlM7C/f0zTQljvckKyjoy
-	o37J4FXagT+NMydiD6D1ZY83KvKREVopGkgUSs3PqenRjdt1jPttBnqtnIP5itf/xh5Vf0d8ulH34
-	an+a02uWsUPNy8mngBiLFV6i19DvtB54Xs6RawBTeXeGFaAmWakp+Ljbohofqs1efOvCitovAjJza
-	+RAPJNxTviNbaKhIxpRb/9cyllCYzH7FIUWh/fRpKj0PFJqyOvjZfkM4mKfukr0twLPMID6Xmqmbt
-	DviMDaZEVOIhpFPbY5AIEBlz1tcuSjFhwv3LdiGizaJUxce8JT9ahFFZxCCRj2nrFT7K10uqI8S3/
-	opw/nKmQ==;
-Received: from i53875bc0.versanet.de ([83.135.91.192] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tl2tw-0003ew-Bj; Thu, 20 Feb 2025 10:31:24 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: quentin.schulz@cherry.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	lukasz.czechowski@thaumatec.com,
-	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: remove supports-cqe from rk3588 jaguar
-Date: Thu, 20 Feb 2025 10:31:14 +0100
-Message-ID: <174004386808.2551340.16092707795307058059.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250219093303.2320517-1-heiko@sntech.de>
-References: <20250219093303.2320517-1-heiko@sntech.de>
+	id 1tl2xy-000000003Ts-14yw;
+	Thu, 20 Feb 2025 09:35:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tl2wS-0000000034V-0IM3
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Feb 2025 09:34:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A9EFC1BB0;
+	Thu, 20 Feb 2025 01:34:16 -0800 (PST)
+Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.18])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 089D03F6A8;
+	Thu, 20 Feb 2025 01:33:54 -0800 (PST)
+Date: Thu, 20 Feb 2025 09:33:52 +0000
+From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, yang@os.amperecomputing.com,
+	catalin.marinas@arm.com, will@kernel.org, joey.gouly@arm.com,
+	broonie@kernel.org, mark.rutland@arm.com, james.morse@arm.com,
+	yangyicong@hisilicon.com, anshuman.khandual@arm.com, maz@kernel.org,
+	liaochang1@huawei.com, akpm@linux-foundation.org, david@redhat.com,
+	baohua@kernel.org, ioworker0@gmail.com, oliver.upton@linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 1/3] arm64: Add BBM Level 2 cpu feature
+Message-ID: <20250220093352.GA11745@mazurka.cambridge.arm.com>
+References: <20250219143837.44277-3-miko.lenczewski@arm.com>
+ <20250219143837.44277-5-miko.lenczewski@arm.com>
+ <a6846db8-9efa-46f8-9939-7727c83d1601@arm.com>
+ <cbc3f62b-8890-42ca-81ff-66f1e4ea1cf3@arm.com>
+ <e0a6308f-5628-4698-95a7-ec1b918358b0@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <e0a6308f-5628-4698-95a7-ec1b918358b0@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_013126_648485_6EDE1809 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20250220_013400_266771_3F40EFDE 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,27 +72,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 19 Feb 2025 10:33:02 +0100, Heiko Stuebner wrote:
-> The sdhci controller supports cqe it seems and necessary code also is in
-> place - in theory.
+On Wed, Feb 19, 2025 at 04:25:56PM +0000, Robin Murphy wrote:
+> > On 19/02/2025 15:39, Robin Murphy wrote:
+> >> ...
+> >>
+> >> If this may be used for splitting/compacting userspace mappings, then similarly
+> >> to 6e192214c6c8 ("iommu/arm-smmu-v3: Document SVA interaction with new pagetable
+> >> features"), strictly we'll also want a check in arm_smmu_sva_supported() to make
+> >> sure that the SMMU is OK with BBML2 behaviour too, and disallow SVA if not. Note
+> >> that the corresponding SMMUv3.2-BBML2 feature is already strict about TLB
+> >> conflict aborts, so is comparatively nice and straightforward.
 > 
-> At this point Jaguar and Tiger are the only boards enabling cqe support
-> on the rk3588 and we are seeing reliability issues under load.
+> Yup, it's really more just a theoretical correctness concern - certainly 
+> Arm's implementations from MMU-700 onwards do support BBML2, while 
+> MMU-600 is now sufficiently old that nobody is likely to pair it with 
+> new BBML-capable CPUs anyway - so it's just to cover the gap that in 
+> principle there may be 3rd-party implementations which might get confused.
 > 
-> This can be caused by either a controller-, hw- or driver-issue and
-> definitly needs more investigation to work properly it seems.
-> 
-> [...]
+> Cheers,
+> Robin.
 
-Applied, thanks!
+Hi Robin,
 
-[1/2] arm64: dts: rockchip: remove supports-cqe from rk3588 jaguar
-      commit: 304b0a60d38dc24bfbfc9adc7d254d1cf8f98317
-[2/2] arm64: dts: rockchip: remove supports-cqe from rk3588 tiger
-      commit: 3e0711f89e5e7b0c7b2ab4843dc92dcbbdbba777
+Thank you for taking the time to review these patches. I will add the
+check in the next patch series.
 
-Best regards,
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Kind regards,
+Mikołaj Lenczewski
 
