@@ -4,105 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B33CC021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 03:15:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0511BC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 03:17:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PuZQt7G6sgo8CGWDiMdFanq2N8yNV5r0IKaW70I99FI=; b=NXWJnYLiGo1iui9XK20TvkqfXE
-	73zRoMjDnEJsUujS6n0D3V6MB2E5kP7BnpehKlZzXG96X+yksa7mb17fck3S/NISWQjnMPlzAXdgJ
-	TCza69A8KFq1eK+5A+7fnREe849afvIsn0CBh5hDBxJA1Eyp/oZrrpKugLBp6Va8XWPnh+c50ZwEd
-	TapUX/+raEA9+wQizOpgkRh9A4J+/oJ/Si7nvyae+2d3a+w5suy34LuIeuNRCcxixdp1Yz+PTLDJw
-	MDUcNWYJr0N6VnSu7Dn6UMf/1K5oR7IdHTTr4g4eLrDh2bqwGZIkpUWLQvcSnnRSR5Fqebe9VKcbm
-	FsiMRCUA==;
+	bh=Qrj/vl1DHFrXDX+1+DvlplFey0wfCryM34lkbyV4D20=; b=B3gRflSnxJW6fcRiL6/lA/M/pV
+	xJgGsWuv3fml7OS1X/0Na/j+B8wfXQSdTVgzpGcd4qH/edJezvK3W5v8bME3ORql6l1INN5H0KUd5
+	v7//I2/744iSkh357NgXBbA2VQoFNqJbAH4eW7I55Wsd867ug8iDdOWAPKL/JnoxLGX7JSNDk/XLw
+	V91CZkZR+BfN1gvcv47e00kFG0QsEph3z5Q30mOYk+NFw9Wxb/Z4fMYJ+RROqGy0BWMrQgt9AzvqX
+	i9+mQkl7WXi9bpxZE14AaIvYqEz++BA+o42KPHxQBd7DbGKILpe8WiLy8PYUMBCJR759GaDjZV2nw
+	98ttvGiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkx23-0000000GVuB-1fTq;
-	Thu, 20 Feb 2025 03:15:23 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1tkx3W-0000000GWJ1-0HVB;
+	Thu, 20 Feb 2025 03:16:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkwvy-0000000GTze-1A5T
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 03:09:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740020945; x=1771556945;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=6Om/YQ9BDTJoSdcjeVlNE5mx2TxHgQH+HygQWJDZxTI=;
-  b=dSH0fArpdSQjxlPE19DEJPq9UIU2W12dl8Xt39ZBrRY2lI8+OWPWwhpz
-   n4sw0ThFO6Fk9vpf56TeVfoje3oW79K5vv9yLOfYtv1PKPlfePVfxxHRn
-   N6tI40RWJXTyMBZFXM4glbAKZTcqpT+yKKqP3LwfQG+C6oYnYcOnVxZCn
-   WE8kvje45Vi5hv0u8R9NaFX5ZbHCohpxqFfWja/khkCAtsjOMIXSbQN6k
-   1VRH7ASA09tgIA/ChnMQWTR1ZcBCCSH0H7F+UL5PFk+WmLwypLNOOd2hl
-   HuDU6Z06NJKWuEHTXYCxVYYMY9c7ktt3jKS72TF0Tzo11yp8s/FGrDt0w
-   g==;
-X-CSE-ConnectionGUID: n0MaWrYmTLqdjcfBZZN/eQ==
-X-CSE-MsgGUID: ukf2b2OrQRavhstm2g2qmw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11350"; a="44433455"
-X-IronPort-AV: E=Sophos;i="6.13,300,1732608000"; 
-   d="scan'208";a="44433455"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 19:09:03 -0800
-X-CSE-ConnectionGUID: NtSLS7/pTki0JlkmiayN3A==
-X-CSE-MsgGUID: phFnrHBBQ4u+5LiD6T/d6g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,300,1732608000"; 
-   d="scan'208";a="114892383"
-Received: from mohdfai2-mobl.gar.corp.intel.com (HELO [10.247.77.104]) ([10.247.77.104])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 19 Feb 2025 19:08:56 -0800
-Message-ID: <72c1a698-ba1e-44f6-a52f-ef03c7acba06@linux.intel.com>
-Date: Thu, 20 Feb 2025 11:08:53 +0800
+	id 1tkwx5-0000000GUOY-2rgu;
+	Thu, 20 Feb 2025 03:10:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 564595C5D4B;
+	Thu, 20 Feb 2025 03:09:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 298CEC4CED1;
+	Thu, 20 Feb 2025 03:10:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740021014;
+	bh=pD8ROzU5v7v1zdafWRXLtlZbryQ4ts3yYyJZ3srYQyg=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=G2oaMXVKsFb+JmWdJyesdE7HFJck9SKKH6+yl1iffdn7Jn4KoKlMyY5tsuvzOoKfl
+	 OsGvNE+vA6UPc8O9po9+irs/OY7dLy3a2YC1sEwltFWfEwFy9IylUSo+hsyDTe6Bmi
+	 HLsOqePxhNr53LF6jAyzP6+YTdameuuAUsJkDqKhWjSuJmtZvtsSdnp5NVZo7BiCzy
+	 bpPtC4jh3fChd4AXeeA2BTYgwMFz0iyO/oxtKLkEux9FsKW5pJCA9McLZ9gELXtsTD
+	 RWeVMDNzJmuWDYCyhdWyVIUUPKPDe28OJVUyO2WsK3cFb4y2B9QZ/cxj7s8EPlHxS+
+	 ozc6TvNglFVaw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAFAA380AAEC;
+	Thu, 20 Feb 2025 03:10:45 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Intel-wired-lan] [PATCH iwl-next v4 0/9] igc: Add support for
- Frame Preemption feature in IGC
-To: "Loktionov, Aleksandr" <aleksandr.loktionov@intel.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: "Nguyen, Anthony L" <anthony.l.nguyen@intel.com>,
- "Kitszel, Przemyslaw" <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, Furong Xu <0x1207@gmail.com>,
- Russell King <rmk+kernel@armlinux.org.uk>,
- Serge Semin <fancer.lancer@gmail.com>,
- Xiaolei Wang <xiaolei.wang@windriver.com>,
- Suraj Jaiswal <quic_jsuraj@quicinc.com>,
- Kory Maincent <kory.maincent@bootlin.com>, Gal Pressman <gal@nvidia.com>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Andrew Halaney <ahalaney@redhat.com>,
- Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- "Gomes, Vinicius" <vinicius.gomes@intel.com>,
- "intel-wired-lan@lists.osuosl.org" <intel-wired-lan@lists.osuosl.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-stm32@st-md-mailman.stormreply.com"
- <linux-stm32@st-md-mailman.stormreply.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "bpf@vger.kernel.org" <bpf@vger.kernel.org>
-References: <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
- <20250210070207.2615418-1-faizal.abdul.rahim@linux.intel.com>
- <20250212220121.ici3qll66pfoov62@skbuf>
- <SJ0PR11MB586651473E7F571ECD54B13BE5FF2@SJ0PR11MB5866.namprd11.prod.outlook.com>
-Content-Language: en-US
-From: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
-In-Reply-To: <SJ0PR11MB586651473E7F571ECD54B13BE5FF2@SJ0PR11MB5866.namprd11.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 0/3] net: stmmac: further cleanups
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174002104449.825980.800457478148266618.git-patchwork-notify@kernel.org>
+Date: Thu, 20 Feb 2025 03:10:44 +0000
+References: <Z7Rf2daOaf778TOg@shell.armlinux.org.uk>
+In-Reply-To: <Z7Rf2daOaf778TOg@shell.armlinux.org.uk>
+To: Russell King (Oracle) <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, alexandre.torgue@foss.st.com,
+ andrew+netdev@lunn.ch, wens@csie.org, davem@davemloft.net, drew@pdp7.com,
+ kernel@esmil.dk, edumazet@google.com, festevam@gmail.com, wefu@redhat.com,
+ guoren@kernel.org, imx@lists.linux.dev, kuba@kernel.org,
+ jan.petrous@oss.nxp.com, jernej.skrabec@gmail.com, jbrunet@baylibre.com,
+ khilman@baylibre.com, linux-amlogic@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-sunxi@lists.linux.dev, martin.blumenstingl@googlemail.com,
+ mcoquelin.stm32@gmail.com, minda.chen@starfivetech.com,
+ neil.armstrong@linaro.org, nobuhiro1.iwamatsu@toshiba.co.jp, s32@nxp.com,
+ pabeni@redhat.com, kernel@pengutronix.de, samuel@sholland.org,
+ s.hauer@pengutronix.de, shawnguo@kernel.org, vkoul@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_190906_361443_EF257662 
-X-CRM114-Status: UNSURE (   8.07  )
+X-CRM114-CacheID: sfid-20250219_191015_776981_165FD021 
+X-CRM114-Status: UNSURE (   9.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,59 +85,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello:
 
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-On 13/2/2025 4:59 pm, Loktionov, Aleksandr wrote:
+On Tue, 18 Feb 2025 10:24:25 +0000 you wrote:
+> Hi,
 > 
+> This small series does further cleanups to the stmmac driver:
 > 
->> -----Original Message-----
->> From: Intel-wired-lan <intel-wired-lan-bounces@osuosl.org> On Behalf Of
->> Vladimir Oltean
->> Sent: Wednesday, February 12, 2025 11:01 PM
->> To: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
->> Cc: Nguyen, Anthony L <anthony.l.nguyen@intel.com>; Kitszel, Przemyslaw
->> <przemyslaw.kitszel@intel.com>; Andrew Lunn <andrew+netdev@lunn.ch>;
->> David S . Miller <davem@davemloft.net>; Eric Dumazet
->> <edumazet@google.com>; Jakub Kicinski <kuba@kernel.org>; Paolo Abeni
->> <pabeni@redhat.com>; Maxime Coquelin <mcoquelin.stm32@gmail.com>;
->> Alexandre Torgue <alexandre.torgue@foss.st.com>; Simon Horman
->> <horms@kernel.org>; Russell King <linux@armlinux.org.uk>; Alexei
->> Starovoitov <ast@kernel.org>; Daniel Borkmann <daniel@iogearbox.net>;
->> Jesper Dangaard Brouer <hawk@kernel.org>; John Fastabend
->> <john.fastabend@gmail.com>; Furong Xu <0x1207@gmail.com>; Russell King
->> <rmk+kernel@armlinux.org.uk>; Serge Semin <fancer.lancer@gmail.com>;
->> Xiaolei Wang <xiaolei.wang@windriver.com>; Suraj Jaiswal
->> <quic_jsuraj@quicinc.com>; Kory Maincent <kory.maincent@bootlin.com>;
->> Gal Pressman <gal@nvidia.com>; Jesper Nilsson <jesper.nilsson@axis.com>;
->> Andrew Halaney <ahalaney@redhat.com>; Choong Yong Liang
->> <yong.liang.choong@linux.intel.com>; Kunihiko Hayashi
->> <hayashi.kunihiko@socionext.com>; Gomes, Vinicius
->> <vinicius.gomes@intel.com>; intel-wired-lan@lists.osuosl.org;
->> netdev@vger.kernel.org; linux-kernel@vger.kernel.org; linux-stm32@st-md-
->> mailman.stormreply.com; linux-arm-kernel@lists.infradead.org;
->> bpf@vger.kernel.org
->> Subject: Re: [Intel-wired-lan] [PATCH iwl-next v4 0/9] igc: Add support for
->> Frame Preemption feature in IGC
+> 1. Name priv->pause to indicate that it's a timeout and clarify the
+> units of the "pause" module parameter
+> 2. Remove useless priv->flow_ctrl member and deprecate the useless
+> "flow_ctrl" module parameter
+> 3. Fix long-standing signed-ness issue with "speed" passed around the
+> driver from the mac_link_up method.
 > 
-> Please start commit title from slam letters:
-> Igc: add ...
+> [...]
 
-Hi Aleksandr,
+Here is the summary with links:
+  - [net-next,1/3] net: stmmac: clarify priv->pause and pause module parameter
+    https://git.kernel.org/netdev/net-next/c/ff1a9b2e311f
+  - [net-next,2/3] net: stmmac: remove useless priv->flow_ctrl
+    https://git.kernel.org/netdev/net-next/c/bc9d75b0aaed
+  - [net-next,3/3] net: stmmac: "speed" passed to fix_mac_speed is an int
+    https://git.kernel.org/netdev/net-next/c/ac9a8587edc7
 
-I haven't updated this in v5 yet. Could you share any reference or 
-guideline for this?
-
- From what I checked, the recently accepted patches in igc seem to follow a 
-similar commit title format as my patches:
-
-$ git log --oneline | grep igc
-b65969856d4f igc: Link queues to NAPI instances
-1a63399c13fe igc: Link IRQs to NAPI instances
-8b6237e1f4d4 igc: Fix passing 0 to ERR_PTR in igc_xdp_run_prog()
-484d3675f2aa igc: Allow hot-swapping XDP program
-c75889081366 igc: Remove unused igc_read/write_pcie_cap_reg
-121c3c6bc661 igc: Remove unused igc_read/write_pci_cfg wrappers
-b37dba891b17 igc: Remove unused igc_acquire/release_nvm
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
 
 
