@@ -4,57 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E82E0C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:08:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63AD6C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:09:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vjnuJArb3xqoSuqthvGgBPvGOHIW6dTgvj7IA3bdsZY=; b=XiyagBWYMUBxynAk8MEvTij0RF
-	akm2fW5g6odKArrNm+RA1g8OrGDhNos3GFD3pjy4GjFZOhc+5cGeCTB5NwX0QZhSNJvfToDs56jrm
-	xygp2UgEgQF322rHFycc7HOd4w5Vw7u8HjYEifwLHZmQgEs1g1qpnF/u9byMMLZgUijbr5DnEqydv
-	xMKFo6QhCckqzJodoTl/RDoYPxtyYP2lPDlqUonk++iyFZ/5PDbwvhvUQSXS3bh5vey658NcvcDy5
-	F0ZnJ9LjlTU8fSpGPPW4URDz37NJJOAj6gBs1s11mslBmREgCCOKQ0tHe40MrfDMGObpLkaVvgj4L
-	5au12dxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sY+NBIYy2gT0zvxaoVTjE3mqscsqAzDhfABvZ+XFdRg=; b=elmYAaZ/uuAVMqcKWNx+s3pLfl
+	eWUt9GExkHuLiwQMLA7JGCTe28bthka5PAv3hmtNf+wzLSfdanqWZ5GQLbjYX48clGIhxSeq6lSkv
+	sXMVlUIxBiPeT1J/mlO+kFtqMi61gBxZnY9GwURoS8TRUGfyzaoElE/iS/9N2uZZ/dD1FUtQDdWqg
+	+9m96UWEFrCFfCNsLMevcxtCwyga9TiKGH6dPBK7S9gJd9XLqvUCg8wdkbl2PiWev6BfiEpJoJv1T
+	pQn0qowQQdVxruYQ1jI4lJZj0A7hrb4tw7aEeYojwd1HGAVgQQOIEVvDgNLhSQfGx3hPIwjhI9YA8
+	RctFclgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7DY-00000001Dg3-1t4C;
-	Thu, 20 Feb 2025 14:07:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl79H-00000001Cbh-3tsQ
+	id 1tl7F0-00000001E2S-0p9h;
+	Thu, 20 Feb 2025 14:09:26 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tl7AK-00000001CqP-3UQS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 14:03:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9C35C16F3;
-	Thu, 20 Feb 2025 06:03:48 -0800 (PST)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD0A23F59E;
-	Thu, 20 Feb 2025 06:03:28 -0800 (PST)
-Date: Thu, 20 Feb 2025 14:03:23 +0000
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	gankulkarni@os.amperecomputing.com
-Subject: Re: [PATCH v2 01/14] arm64: cpufeature: Handle NV_frac as a synonym
- of NV2
-Message-ID: <20250220140323.GA2562076@e124191.cambridge.arm.com>
-References: <20250220134907.554085-1-maz@kernel.org>
- <20250220134907.554085-2-maz@kernel.org>
+	Thu, 20 Feb 2025 14:04:38 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5462a2b9dedso1084570e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 06:04:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740060274; x=1740665074; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sY+NBIYy2gT0zvxaoVTjE3mqscsqAzDhfABvZ+XFdRg=;
+        b=uwOioSBqhV9FX34juSCEla4V1dM1CMOMI1OKCtXkHXUhK9uW4NoXHnyUdzvl9/hpyy
+         sv1G/79gOmvwnTjlBgQE23mZ3XrxUJnQa9QiDn8uKxxsH7O5/F1GBrWt67Vq69nQAuHK
+         Ng7NddudwM8uCwhcSbxYGKwmfbuF79LuV6nXcV5pRO8HdIc31f+gr0ho+XFXlsulW6aS
+         2RgFJFRr5ZeV6EtIzKNl0U8AeZZ0gQK1iKwxtriaIZVG8KGu3qAsCth+Mz32HEDPJ7eq
+         /y5eXnl7ktZ3D4IQOylS+t3sZHVuj/ms9Ng4GK+DW8nsrKXLaT5vfMYXEaPEwn/p5eMh
+         ztSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740060274; x=1740665074;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sY+NBIYy2gT0zvxaoVTjE3mqscsqAzDhfABvZ+XFdRg=;
+        b=lg/CkV7GwF/kMgJBTH/JfPVL/u0KGGgOMglVCHr6O7OBquvBpm8srS/mZ+IDm8pyE8
+         J8eHu4mMP1hibC8ipo0mSNpLxlcY3dClCRVlZ5k4Wzr6xpS/aFYUOzxtFNo66zsKndNv
+         peSu4mOfkZPNI+V6D93GIUrRTI5BKYwq0Tc9t7dg4w8N+nFLb02uSoo116bf1dQOFnz8
+         sLa+1KUKNPD7ZB7nBgyz1U68XVFDvfvG0ASaE8axy2m8VjrsaQVu4scbMN3Vp87hCM8+
+         cQ9cMFAyTw7Em/MFOy2d9+8hSx1Ywx9LsiUvQ9S04+0qidtK02OLfggSFUlEWR+BxVON
+         nYAA==
+X-Forwarded-Encrypted: i=1; AJvYcCWiVktHxXYmWwBrCy102rg/0Lq7P7otjGjE6SpesS8lV+J9FvleiO7HcENxiMlkJOjpzEyqz52iFhMHNXIE0EfA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXVB+G/R7JLTtihqgMWHy5v+wZm/15/1qes1b0nIsGhDITg7lk
+	CQRYknCLSd6IlRNkymK3/jKuGqBu5eONB7BV6SL6WK+l4JJeDF4gBUn3W+anaAdP/bsYxClcQ30
+	QWTICuA2I4YtApw5FyMn4pSmzTO613/rV+enhkA==
+X-Gm-Gg: ASbGncsog5KCUqNEDPl+XCBnyZCjFbhbMJhmfnO7KXNdoRUy9Nhdx767YMpbz/T1KP5
+	ascuYLfjqRhnj//3ttywNRFMSag7305xuKHbRhW9OyCncx/b+xrWbzJ6CiBAyABUYXPorF7je
+X-Google-Smtp-Source: AGHT+IGJwZJ+HnwUiO5AZPnqLuBn5q7vQJN93vatOpb00wYq/6/uLggOK7k4mc6rL8mIKuVW88nuIEu1nK2DEGYr7YE=
+X-Received: by 2002:a05:6512:688:b0:545:6f1:9494 with SMTP id
+ 2adb3069b0e04-5452fe6fbe0mr7094057e87.35.1740060273484; Thu, 20 Feb 2025
+ 06:04:33 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250220134907.554085-2-maz@kernel.org>
+References: <20250212-arm-generic-entry-v4-0-a457ff0a61d6@linaro.org>
+ <20250214010325.GA12626@strace.io> <CACRpkdZJYFUhmPg3EWJeU42fzJMzWm7Sgn3XfELB2-PSCf6Ssw@mail.gmail.com>
+ <20250214110508.GA19194@strace.io>
+In-Reply-To: <20250214110508.GA19194@strace.io>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 20 Feb 2025 15:04:22 +0100
+X-Gm-Features: AWEUYZmkc4EjePowUwFakXU4c6G7RgBFrQLnwon4iEz2BqS1QCkM5_sbNQssIk8
+Message-ID: <CACRpkdbmOiapucnzyd9-x4WJsRBs2pRdcgZ2-AoN3bdkNJaW_A@mail.gmail.com>
+Subject: Re: [PATCH v4 00/31] ARM: Switch to generic entry
+To: "Dmitry V. Levin" <ldv@strace.io>
+Cc: Dmitry Vyukov <dvyukov@google.com>, Oleg Nesterov <oleg@redhat.com>, 
+	Eugene Syromyatnikov <evgsyr@gmail.com>, Russell King <linux@armlinux.org.uk>, Kees Cook <kees@kernel.org>, 
+	Andy Lutomirski <luto@amacapital.net>, Will Drewry <wad@chromium.org>, 
+	Frederic Weisbecker <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, 
+	Jinjie Ruan <ruanjinjie@huawei.com>, Arnd Bergmann <arnd@arndb.de>, Ard Biesheuvel <ardb@kernel.org>, 
+	Al Viro <viro@zeniv.linux.org.uk>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_060332_010113_87EB32F5 
-X-CRM114-Status: GOOD (  20.92  )
+X-CRM114-CacheID: sfid-20250220_060436_875500_0C082A31 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,67 +100,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025 at 01:48:54PM +0000, Marc Zyngier wrote:
-> With ARMv9.5, an implementation supporting Nested Virtualization
-> is allowed to only support NV2, and to avoid supporting the old
-> (and useless) ARMv8.3 variant.
-> 
-> This is indicated by ID_AA64MMFR2_EL1.NV being 0 (as if NV wasn't
-> implemented) and ID_AA64MMDR4_EL1.NV_frac being 1 (indicating that
+On Fri, Feb 14, 2025 at 12:05=E2=80=AFPM Dmitry V. Levin <ldv@strace.io> wr=
+ote:
 
-typo: ID_AA64MMDR4_EL1 -> ID_AA64MMFR4_EL1
+> > Sure, where can I find this test suite?
+>
+> It's a part of strace, you can find it e.g. at
+> https://github.com/strace/strace
+>
+> To build and run it one can roughly do
+> ./bootstrap && ./configure && make -j`nproc` && make -j`nproc check
 
-> NV2 is actually supported).
-> 
-> Given that KVM only deals with NV2 and refuses to use the old NV,
-> detecting NV2 or NV_frac is what we need to enable it.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kernel/cpufeature.c | 15 +++++++++++++--
->  1 file changed, 13 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index d561cf3b8ac7b..2c198cd4f9405 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -497,6 +497,7 @@ static const struct arm64_ftr_bits ftr_id_aa64mmfr3[] = {
->  
->  static const struct arm64_ftr_bits ftr_id_aa64mmfr4[] = {
->  	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR4_EL1_E2H0_SHIFT, 4, 0),
-> +	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR4_EL1_NV_frac_SHIFT, 4, 0),
->  	ARM64_FTR_END,
->  };
->  
-> @@ -2162,7 +2163,7 @@ static bool has_nested_virt_support(const struct arm64_cpu_capabilities *cap,
->  	if (kvm_get_mode() != KVM_MODE_NV)
->  		return false;
->  
-> -	if (!has_cpuid_feature(cap, scope)) {
-> +	if (!cpucap_multi_entry_cap_matches(cap, scope)) {
->  		pr_warn("unavailable: %s\n", cap->desc);
->  		return false;
->  	}
-> @@ -2519,7 +2520,17 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->  		.capability = ARM64_HAS_NESTED_VIRT,
->  		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
->  		.matches = has_nested_virt_support,
-> -		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, NV, NV2)
-> +		.match_list = (const struct arm64_cpu_capabilities []){
-> +			{
-> +				.matches = has_cpuid_feature,
-> +				ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, NV, NV2)
-> +			},
-> +			{
-> +				.matches = has_cpuid_feature,
-> +				ARM64_CPUID_FIELDS(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY)
-> +			},
-> +			{ /* Sentinel */ }
-> +		},
->  	},
->  	{
->  		.capability = ARM64_HAS_32BIT_EL0_DO_NOT_USE,
-> -- 
-> 2.39.2
-> 
+make check produces some test failures on v6.14-rc1 on ARM
+even before I apply the generic entry:
+
+FAIL: filtering_syscall-syntax.test
+FAIL: qual_fault-syscall.test
+FAIL: qual_fault.test
+FAIL: strace--tips-full.test
+FAIL: strace-r.test
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+Testsuite summary for strace 6.13.0.27.bbda4
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+# TOTAL: 1409
+# PASS:  1106
+# SKIP:  298
+# XFAIL: 0
+# FAIL:  5
+# XPASS: 0
+# ERROR: 0
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+
+But I create more fails after my patch set ...
+Some have to do with fast syscall restart (I need to look into this).
+
+Then there is the fact that I had to add the  PTRACE_SYSEMU and
+PTRACE_SYSEMU_SINGLESTEP as stubs returning -EIO
+(modeled after UM) to use generic entry. Do you think this affects
+the results?
+
+Is there a way to run a single test? I tried to check the docs but
+nothing obvious to me ... I guess I'm not used to this unit-tester.
+
+Yours,
+Linus Walleij
 
