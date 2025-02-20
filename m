@@ -4,174 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99FBFC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 20:26:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5674AC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 20:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZXNTyTBcbJQPeU2y4fFUlMOFBAK7IHmz/0hTWA9D0ys=; b=y0oN8W/JRDL8Z7RY12CG9vJ4dW
-	kgvVS9QH9frz0H2+qMJDENW94Ugp4SuTl/vOxOP52w14kLTVnSyVII5lBnNeu6QhkH7c3V6t0TbrO
-	tWfGJlxlDkYbQKHziYrqKyQ0gR3y+oCNT4jxItU+jTm8QNo9Ury9pZKZEsjonO2GXC2hGJ+tRPYCC
-	C7a9tr1Kf53gEFI+2ZYxYAyb/ozYW1HikCT5o3hueqiQmthmhOodlUct1qjR8IvKjstqyPI7XwmEv
-	MD7dBCDW2Zfm57En4mRNODPpTayIxyUKYXvrkNw/PBjG0UZP7L9v0S9AFaFluBNt/CVv5cT755lTH
-	sUsftS9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qCtd507hDoBNZgSvuLhknUfVv9YoAFAynQ26aDpHvYA=; b=4WOECrTAuDAYXfS0m3lFqeEOHB
+	clBBzvIOJbahRCloGh0N7qQV430LvWFtwjAbgvempsbt3e6ce9vbdrhF7ZjUoD6dA4fht7reXzxz/
+	oiqzVFgCCgtYSwxnk/jR9XfkEosGjug7PxyENMvUXPMowezx1pCZx5XuvP67Pl5sUqaqJLmS37YXa
+	J+HpwQW581MtkrFhiVojsUS148cqqIhi5CaqUJwjV5CcuzPvJdR01osJBREX2kqgQ/IeICeJcDs1W
+	FK+YfmRJoVej/gRv1JVCubFvUghPEjai1WjzUsbXJxrwUIPpWmFDU0RTlZgVdf+k+hHJfN1lLs+Q4
+	KI1+0h8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlD77-00000002mOP-23gp;
-	Thu, 20 Feb 2025 20:25:41 +0000
-Received: from mail-am7eur03on20622.outbound.protection.outlook.com ([2a01:111:f403:260e::622] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1tlD7n-00000002mUm-0E83;
+	Thu, 20 Feb 2025 20:26:23 +0000
+Received: from mail-northcentralusazolkn190120002.outbound.protection.outlook.com ([2a01:111:f403:d111::2] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlD5c-00000002m3P-3x8f;
-	Thu, 20 Feb 2025 20:24:10 +0000
+	id 1tlC3E-00000002ZRD-3Te5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Feb 2025 19:17:38 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VnpnbJSdaZpMS7/WsI98TT6M608QPtsLsJKXKNJQHdRCVgDDPNPNc1AfZRwp3E85g9Oenv9J48CJRj5nX4R6SVpZVevnB/xS2sRvNIuK9C7nDPfbhX+VLDNUwgr9r2Z1ios/oaiiAMahbzPWdJ9QhgNuN2uHPF4Ze0z+ZDcV/MVuCREeTT19zKD09uIsxWEqVE4U4wGP6+YvaurUILt3Tz2Sf2s+XwwRSiE9vOjQfjjuanZvta5rsXtA+yoThePbWxaKBOfAxzWJrvNn1hsv9bOwq8l7Itx42CPMbwgI/E7fvdjeIqSZKL8qsh3DvArpEv4ge2S4cRQ6HlUsyKKV6A==
+ b=Lq0xwQHdszb1j7kLcMmlOToLh6Erp0PEFdQAZDPD6zyzmVH6mkctLM2dMoOqZYva1p3vqsoK0wyyuZFzhF1GmiPfCDOfDsjw+c/AzypgfTuHLdLA16d6PU58b3SQVqkF9C0cShmbJzKRKovUZZBVLhtNWhg1TaNk3e16YzsKyfsXsWwLYzkb/Dmi/BS0jP8TzTRrBGTEpjxXqWHCa+oEoxPKRLn0nj+HkLQOutEhJFgnW74sG7chCbOWrRhQJEeSflBnirM+xK0nrGeid6qpSlY2NSGE+fztH9lukIPNCrRCHi3wL9KDgJgWI3gL+DUa4xtdT4Ip3GiO6zH/ZU1Jng==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZXNTyTBcbJQPeU2y4fFUlMOFBAK7IHmz/0hTWA9D0ys=;
- b=SRnWHf53/Kt4FU0GAiAVVnuOq15yn36dsWWPOVtT/U79XspWvPAdTZj8kfB/YKA+kyFDD1RbLFxYu3lVUs7WgNFrx3A0p/cghRJ5kVUdOEJ8kwayPYRl21UI1seAgpYHXzImp2cks1K48JAZQatbeVYDrTqgAjOR3SmDaD4zne5t5skFNs1ruRVvYMDgaO9ercrrg5twtRopZMtPnKm1MiE3d6OmOpq6zaYDqJS9EZQk9BrqTencg62aYjs0NkpvuUIED3PbFjKFzqCR4XQ32FaoyqNOqN2rAiZ6YcOehOtiL2vxRdBGDM7r2IYAK2dnDk4l5Po2QbVn80HSWTBvkw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=qCtd507hDoBNZgSvuLhknUfVv9YoAFAynQ26aDpHvYA=;
+ b=DBOWYfPmWonH15Xve8G0BLe7lg5MTxcfTAaBcMzXYCbwt8OQU2Yvbjm3vKez31iaYXDXzm/VSjHdymwL5IpWH1pZuzsnPfAgo7XFCeIU0lmT5olYkeYINZoSZqYR8M9lQhDChsRYoqDJ10cbM0kePNPFre6ZVzBr43aS7Nio/URpEfV8Yuf1Iu6vfjXCLhIGsOVLLFiVO4NMzBf5k0zvYkMyblMwVNWpLkVhy6XovXqgOpprHWes1smOyO9kw1/g20EZxG7Bmszczhw/pXlG71NTBId5FroxlQzm4LifktxN6IHVb197bF3PqHhgCqcTG96zMcpaEJ0MKNPnCByndQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZXNTyTBcbJQPeU2y4fFUlMOFBAK7IHmz/0hTWA9D0ys=;
- b=nDOp8B2q73OmQe0q64J1ecLd86tKULVhbPtmBxQAvPJkWlMrEnmw6bF6sQbqhqdnJu9MQUlPUamZYV3F7jtDCpHJSZwnCYQwY9P4AvDdfrwTpSaHiqLU4R3qS8FDGRrhEAUCNq1zJRSWdB0RiOu7AFniAIgqG86ziIOUu9dmRDJafBStEFCX1pGs72jS8mEMH6RgUdnYZQircYyLl3MH/CfzTB/luZ6S/CQAag13D9aPj6TLYwDiDNpajl+dcdY9AVLdOv0YkBWXP8t37caIvW5dqldZFFaAVfGhxuUvEfX2A0n2TeerWxt5IQemeD3OvlT63Hn9xNzegk+Q0l9Slw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by DB8PR04MB6907.eurprd04.prod.outlook.com (2603:10a6:10:119::10) with
+ bh=qCtd507hDoBNZgSvuLhknUfVv9YoAFAynQ26aDpHvYA=;
+ b=TBDZQGk0T5CfUyvx8RGNKNVy8cfI0iqom+4UgRFA/RzvTDQfJ4LK3fqfLO3TgsgdL9qtKgLvx2bpV63DGyMIjxPjvj5GLIcQU9Jqgu0I95PoFmgzrXOllLy2hN/Mgkk735F4BfuZdDVjvH31MZOPJZo3ZKaS1dQzOA0AEiEdET7sOMAlQfLyuADkTjwfWx1U7bcV4CkTm66oOJm2+UpqaRXgCKRGORx8qJcbE7RfyPFy2HrKL3/Ch008M+Oas8T8DBnzNgqu6sGcLkd98ylAljoDvMOqDeCznp1qoKcMt5HlAQAIrbsFL40GTDyTrvJaDZbcycuzqlQw4cWrPw8srg==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by SJ2PR02MB10074.namprd02.prod.outlook.com (2603:10b6:a03:556::16) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.15; Thu, 20 Feb
- 2025 20:24:05 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%6]) with mapi id 15.20.8466.015; Thu, 20 Feb 2025
- 20:24:04 +0000
-Date: Thu, 20 Feb 2025 15:23:55 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] PCI: mediatek-gen3: Configure PBUS_CSR registers
- for EN7581 SoC
-Message-ID: <Z7ePW/Y9vajLjPdr@lizhi-Precision-Tower-5810>
-References: <20250202-en7581-pcie-pbus-csr-v2-0-65dcb201c9a9@kernel.org>
- <20250202-en7581-pcie-pbus-csr-v2-2-65dcb201c9a9@kernel.org>
- <20250219182650.gxzlbl6ovgbacmkm@thinkpad>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250219182650.gxzlbl6ovgbacmkm@thinkpad>
-X-ClientProxiedBy: SJ0PR03CA0374.namprd03.prod.outlook.com
- (2603:10b6:a03:3a1::19) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.15; Thu, 20 Feb
+ 2025 19:17:30 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df%4]) with mapi id 15.20.8466.013; Thu, 20 Feb 2025
+ 19:17:30 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "eahariha@linux.microsoft.com"
+	<eahariha@linux.microsoft.com>
+CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
+	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
+	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com"
+	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "x86@kernel.org"
+	<x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
+	"daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>, "joro@8bytes.org"
+	<joro@8bytes.org>, "robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"arnd@arndb.de" <arnd@arndb.de>, "jinankjain@linux.microsoft.com"
+	<jinankjain@linux.microsoft.com>, "muminulrussell@gmail.com"
+	<muminulrussell@gmail.com>, "skinsburskii@linux.microsoft.com"
+	<skinsburskii@linux.microsoft.com>, "mukeshrathor@microsoft.com"
+	<mukeshrathor@microsoft.com>
+Subject: RE: [PATCH v2 2/3] hyperv: Change hv_root_partition into a function
+Thread-Topic: [PATCH v2 2/3] hyperv: Change hv_root_partition into a function
+Thread-Index: AQHbg8X2g5fV4Yu1ukCIC60YHbLA6bNQjmoQ
+Date: Thu, 20 Feb 2025 19:17:30 +0000
+Message-ID: <SN6PR02MB415703DF0CD1EB3523E3C79AD4C42@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <1740076396-15086-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740076396-15086-3-git-send-email-nunodasneves@linux.microsoft.com>
+In-Reply-To: <1740076396-15086-3-git-send-email-nunodasneves@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|SJ2PR02MB10074:EE_
+x-ms-office365-filtering-correlation-id: e8958fc8-30b3-426b-6813-08dd51e3387e
+x-microsoft-antispam: BCL:0;ARA:14566002|15080799006|461199028|8062599003|19110799003|8060799006|102099032|3412199025|440099028|41001999003;
+x-microsoft-antispam-message-info: =?us-ascii?Q?zNqfils1DyoCfafpuqVJFrje43JoyOWkilVmWYtzkzE7x/zBTF8K7gVGYZ/2?=
+ =?us-ascii?Q?8Q95pQ6fbLSuHJO1hYD/Q+Zr+pRYijO316pfxMt3xI0k+RDxnZCkCtOnonG+?=
+ =?us-ascii?Q?MyVzM9+9/twkEExAaSyqXXMPxrFpB+I1fN8lxzh5Lh92Zqt/MzjWslfju4KR?=
+ =?us-ascii?Q?I1SBUhsG4YnZazeMo+W9T/2Ci7I7PmhALoK6OJVyTGSOxqc/Y0j38Gwvcqnb?=
+ =?us-ascii?Q?0dE4mmvYHRcG4N1CRlfAVI8RMnvulTSHVe0YDaueGTkmaYiC29m15Tge8gDD?=
+ =?us-ascii?Q?FFfM3fzRe2W7SFOVW9TX0TWBgI0/y9LRmIP6lfM+TztOLf1dfRU81CXo+VP8?=
+ =?us-ascii?Q?1VkjKV4zqlUzGTwc4fm2VNhawoM40atLxPhGAV564riKomkEZ7RwI71oGqch?=
+ =?us-ascii?Q?SWxHw1mt47s7uYcjwywrNKW+OcFvA3PbEXCAOr1R1BD+99s5q6pA+8VGc/4P?=
+ =?us-ascii?Q?MFicvZ2d0/JQ9PX9rAt+ygBO+Uhuu8f6aVd8F8tx2FpbNOEqO3M6qoa4n370?=
+ =?us-ascii?Q?jU3RcI9tMYBxb4ipUCZW2+XjyR7REHgJyXsAcvPfl9iz0BqyYDErJQhj6ypZ?=
+ =?us-ascii?Q?IwYzmPw38ViHndWI33Q8yNDznCQD5U1Xef4KDk/yXQNXcu6/w513U1Q/j3nD?=
+ =?us-ascii?Q?PArvUo2M9kJPxRigrRDxbPOHg7keaasaklm1bN+gxRxXncY9Un+O8w6oPv7R?=
+ =?us-ascii?Q?OffajJCRbfaKYh8mTs6MkQmR8fIPOSWAiTnNLiVquWWJBpikYpE61aDPFxii?=
+ =?us-ascii?Q?xMhd3WjXT0RaVvaLVQUsYuEqKkHr11lwS1G3hKxFFvS3l+FFUCuaNUNUBJJm?=
+ =?us-ascii?Q?F6X5Slilo1QcI0ytdcwzXE0ANdkxss3L4EP6vzeWUSblcrBLVGixtUxWlX01?=
+ =?us-ascii?Q?xjYyxhjK8jOzVNW5g6flmUm4GfgECfrMsl/W13uVJyXQmUXxiFeVKvcgSFr9?=
+ =?us-ascii?Q?Vwa8t/18Dwg6Bu3p+wt+5KeddSf1DZmffwtWIqZI20+F7TPQ3brte49p8ej5?=
+ =?us-ascii?Q?+zzxDysJ5jG78AOJdQtqqg5IQFWoYYf6UvkFYptS82wVz8z+vS/Ox+oywenC?=
+ =?us-ascii?Q?HeYsc8uXIlzxQRP4SXEAufEFN1iJOA=3D=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?oeN7jIVc4DYpdqi2JPtfnIPkNClRwovYUIwJyv/e8vGQ7uFiei2hi4B1wY93?=
+ =?us-ascii?Q?FxvuogEmlilmNB1klLi6i92tzRCUkYWoppHF/OvcwhO1VjMJ963XCYyo3/Vb?=
+ =?us-ascii?Q?1pDO6CYwfEnO9onz65v0pSVt9FIRFghU28eTZMWjpnXzU6hzTxk+7faVlJDW?=
+ =?us-ascii?Q?Jke01MzGiYWrPdWrja/yQUkLZkfw1+rAduveAmMhPRKCkJtoVXgT/gK+WFxk?=
+ =?us-ascii?Q?ZnzfkuDfTjtQhbLAWmBtmR5eDq/o3IPfj68HsRhU7SKEHzoDG4aKPBTEoyTU?=
+ =?us-ascii?Q?htEt2LfeLoj0MrHwwe0KI88atwWvWe82vgQ/Ma5r4cKI6W13gGIlcU5VZhBC?=
+ =?us-ascii?Q?0tuWATALeImmgW5Ih4wS1ZbQSNwm0ADpDyw0r81Y184YAk4sQax1MnnQ08+w?=
+ =?us-ascii?Q?KZC/0jigSUBvZjrTbGhb0Ri/4j3kd/YOERDsVsfeunl1FsGuu/q9txrk44Y6?=
+ =?us-ascii?Q?Iz7IreIh6sWy7zW2S1w8uzQWHC0USDtjnxGDTYH0TlC1+LXdtPCyJ2WjMiLj?=
+ =?us-ascii?Q?Ql+CK2OGW7J9IxNnyPnOU2WApdz4X3fH++WHfAoFfkZ1KVMI3+/pw7FYUwH1?=
+ =?us-ascii?Q?qNIL8EAbeWwrO8flkm9BKv7Qd4Q5KWvbxqFAJjrkDTtzZAuNIPCxctbmZnZP?=
+ =?us-ascii?Q?xS23NlRsCxsYj737e9yBRfW/qtDiY+i0ssNXA8ihaumDJIqgb9B68rIBHIiI?=
+ =?us-ascii?Q?g5XdKbVnkL9gIVp2/VXOfMui/5WUNhu0KYrjQWJb/dVT+myhM6sxqVqblp1y?=
+ =?us-ascii?Q?fizMosDOeWI64ON33Bz/FWXJT1Wjgn82OcY57eLtU6Nux21792HhB5QMvRW9?=
+ =?us-ascii?Q?8BfzPylnJ8CUuZQzPekEYQc62Cz3jwuLXadrZvRjkMVelRzE9kZjwmn8TqnN?=
+ =?us-ascii?Q?bln0Zr/aH+6eUGJMHbm/zWMC6DhFUbzv3OxwiSCtwCdFchpsJzGis9DdVwY+?=
+ =?us-ascii?Q?cLCfioj6cmVg4S354DdBR6iUznn6Pl+hnPF7R7+76/Kagl+J13it4tBRubbT?=
+ =?us-ascii?Q?TH2KYGAuVN3QcrRreZo5B0l8oCcBPhrSDiJy8fAxt2JkMvsqFDP3f2ybBZrZ?=
+ =?us-ascii?Q?bWwykKdlfjV6s5++UfqbYhf9cvkToTYm+YWKK/iK43xnWPzMDER2dEB7j168?=
+ =?us-ascii?Q?QR0fUR7ttwl7ntr0ZvkypYRV4Da3IeLtbGys/Om9jkBTzCfYbMuTicSXsA+8?=
+ =?us-ascii?Q?pL9F4qFShZfjDuyT1iEHaxZ6cyydelpBoxDMKzDP6HoLVEOPDbrsRgldeJE?=
+ =?us-ascii?Q?=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DB8PR04MB6907:EE_
-X-MS-Office365-Filtering-Correlation-Id: ee0fb812-dc67-427b-dd3f-08dd51ec855a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SGIydVkvdDNjQ0tqRTFRODh3WjFZeEdRdWdoT1NxRnFiVlhrQXRKZnJMbE9v?=
- =?utf-8?B?L1ZnN2JnNXVmL05naG1wMjlFYmpEUmdMT2FySXpHcm8xN0pVcGs5YlVvUThP?=
- =?utf-8?B?WDZVcDA0d1dTNFE0emZLcllyOFBKRFlBSW9LQnJ4U1E1M2NSTmVlTGs5aUxG?=
- =?utf-8?B?OHNLOUxJbHF5eHA3VnAvVjU1U3M3NFM2aU54bFgvSytVd292TU04a0F4RERo?=
- =?utf-8?B?QXpQVFBTZ01UWC91Z2tXRXlyeXBncEs2K3g5bHpSd3RFRmxJODNHaExvQmhO?=
- =?utf-8?B?cEJHeUo2VzMzVk1aMEU4TnlGdW50c3htbnZMdXpXWGNFZ0FxM0hHTlBnOFhm?=
- =?utf-8?B?bm10SWtOcTRVcEEvVVg1bWdJT3BFNHU3WFBlZ0dUWklyL0NOeEljczZoWkpj?=
- =?utf-8?B?QzV3cElHRDlyNnNFWDB3MVU1dzk1cXdIUGhESzhmblJuZU5iSVNWblRVZE4r?=
- =?utf-8?B?eUxGR3NXOWZ2L0R2aGQ0MzVCaFU4TzJVb3MrRzJtdWJwMHpraDFWemxBaFp5?=
- =?utf-8?B?YWt6dDZOWC9va1k0VWxPM2l4Wk0vVGNCSis3L2FySkZsdUFoM0xWZUpiSE11?=
- =?utf-8?B?dWhhYVVISHRENGJ0cEJ0NDB1cnQwaU1Ca2t5alF1dmVPRTN0MnBLVWM2cm1L?=
- =?utf-8?B?V2JqdDhsSEZUQVNzQWRuNXVUekpiM1JkTGJQa3lpUFA4VHQzUlJDM0l5NVlp?=
- =?utf-8?B?MU14cmFXbk1FTlBvbGQvSDZ5dkNnaVM1S0wxdTlhZlF3cUdDZkd0akJLZk5o?=
- =?utf-8?B?Z0hvZFRoejFLQUNoUC82dlhPd0VmWWJnc3h0OHlYb2ppTU9MQkNnSEVySm4v?=
- =?utf-8?B?eTg5Zkd6OFBOTFFuUnRQQkVnaE5jWC9pdU5QSmN3U2dKOU1hTFZQNkYyNWpJ?=
- =?utf-8?B?UzZVMU85RmRTellVcTV0WnhDTG93MzVqbVk0Wm0vdDRzTUhQYktkTHlraGda?=
- =?utf-8?B?Q3FrbEhVOUR4clJmSzQrR3Q2T2NuOUIwMFAvL28rVWVhdFZ2Ri9NRGk3TmU2?=
- =?utf-8?B?VXlkelFRU3VwRVlWTG1DcUV3ZEUxcFBvK0NZWjZjZG5xdHltaEh0TjUwR2d0?=
- =?utf-8?B?SXMxdDZQYzRRakdLalEyYWg1TllLQThSd0xVZXZCRnFkN1hvck9hM1RkOWxU?=
- =?utf-8?B?V3ZNN2ZzdE16M1JDenFlMUNVZ0Z4Ly9PWGhWN1Nwa3pPejJPaTVzTnYvTVVq?=
- =?utf-8?B?anBIbHcrWkFTV3RlR1ZRR1Raby9QWXcwejJVRlRLL0tqcEN3MlhrME9pVkto?=
- =?utf-8?B?OHFtS0RZTjlrR2VvMDd0djR5QnQ5ZTJ4M281MzVWT3VUWHJlY0k5eFFncTBB?=
- =?utf-8?B?dEhWeVNFOFJkNkdWT0pkdHJyMGM5dTZYMXRteC9jaDc1MkNZQkJEUDNDWEZK?=
- =?utf-8?B?MGdpL0djR2s0MGtrY2kvb2NlSkNvQVFtamFkL0dGb3FTU0dJb2xTcGFyUlUw?=
- =?utf-8?B?WVhiWWdlTDVaTnN6OEpOYlFkaTdLZlRhVjh0RVFhL2Q5TE1CZ3dWQWpTek1m?=
- =?utf-8?B?Rzhjd3VlbUdrckJsa1F1OFJlZGkwdnl4am9ZTy9seXNZUDI0ejFWTktxTy84?=
- =?utf-8?B?MWowU0pNYUpZODdyQjQzQ3FWdDZlaEtEVU5LYmNFNEZPTFQ2ME1rVnpIT255?=
- =?utf-8?B?NmFJR09IMUt0aHVDcUZkMFpDREZhNGFZM05VYkwwemlKcTF1ZUtwWmJSSldY?=
- =?utf-8?B?VDdlQ0ZHYmI0WG4xSkFmOVJENzdXRzFROHZvcXpZTW1zZnNLZXFlekkwUUxM?=
- =?utf-8?B?VzNCd2QxZThuYmIwcStXQVJGcDBtaUJIQ216dTlMZFFzeXNVaVJwandxUWZu?=
- =?utf-8?B?bUFZWWxXYnpNSEY2dEJQL3c4SFRDU0hITWdFNlg4RUduenJHWGlkckFYNUJP?=
- =?utf-8?B?Yk9GN1JnNHY5TldoMEtLSFRXay8wT25Ja09wamwrWnlFVlZnckh2UXdmT3h2?=
- =?utf-8?Q?RhflYX7uyHCTUX5hpoZibANpjM1pg0ng?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dklabDlGSHR0cVlhd0pROERRRHlxdXFOODZrQTNIcXNKSlpERGwyb2FHQXhR?=
- =?utf-8?B?b3czTCtrRVpPMkZMQUZzekZ0MUE2bTUvMmhUK3FzeHlvMUtHRmRFcVNrY1k0?=
- =?utf-8?B?b3ZsWnY0OCs3RTU2OW1CSjdXM3B3RGZTMnFlMjhkLyt2dy9RT0VRRWtPSkEy?=
- =?utf-8?B?bEk4L0UzN2tKdlluVEVOZGJQVkExM3ZIZlIyK3NIVUYremx3Z0cwSE5Tck5o?=
- =?utf-8?B?YnhEVUdIOWo5eGRqV2p6c3I3UUI0OGV2Rk5ORXVNYkFvVDFSazNaU2IvSC9T?=
- =?utf-8?B?NkV2MVhRcGdHZERxMU5XUWp3Lzl2Rm5NaTFyVVQ2TmI1elJFRGFFOUxOcE5G?=
- =?utf-8?B?TDBzcWYvbG1ORy9RRUFtK2tia1AxdUtndXJhbGk3ZytGaEhoVXkwRVgvaUNl?=
- =?utf-8?B?c0VzeVd1RzhuOEdBK0NWNGpNcHhoVWRCSDdKK3RqY3NNL09EdHZIMHBkQWxC?=
- =?utf-8?B?OFN3YVNSWFVkVFdQV1FlclFSRlVkZnlQbGtKU3hzMjZaNWZsRUppajZja0VJ?=
- =?utf-8?B?WEhhbmJNZmlZUitRKzFISndsSjFRSU56OU9odVlOcTQ2RTFRVnd2K2IvemJU?=
- =?utf-8?B?dEdVamF0TEpWbXdqdUxtdkExcFZNT2VTZWs3ZzFQdHJZT1pkWjBOdXNRSkN6?=
- =?utf-8?B?Zk1iT0xyekYralFSWDRTc0Z6Y2hsdTlxNzcxcUZHOVRqMmtCd1hacWlFTk5p?=
- =?utf-8?B?NmNJVUhnTDZMRXU4MzJHVGFFVmlkMmF5ZDl3ajd6S05QdTIyMDJnM3Jsams4?=
- =?utf-8?B?UWNGUlkzNzhield0STd6SUhleDNIRkhLZ0c3ZHE5NXYrbzRsN1hiN0lHNFZy?=
- =?utf-8?B?bFNJK212UGJWS3FOM0RCREpPZ3BjVDRrWDlGZGhLZTVDSHZRSFFTa0xSOHdj?=
- =?utf-8?B?dDJPS3FDUHFKYUJzSW80eXYrQWkzWkgwM3JoWXdUQkFuWk5WQ2RBbzFKbUcy?=
- =?utf-8?B?aUJVSWJBNE1iU1EzOVhWY3d0aHZkQUVzUG5jaXdBSHVjM3RxSUQvanpLS1NQ?=
- =?utf-8?B?bit4MTNtUFhILzcxeUgxNDRuMGVBaHliTHdha0RSR0VDR3RleFlXdm5yMzly?=
- =?utf-8?B?QlpZQlQ2dkNFWmN0QnpPT0E2SU81SHltL0dXT3pERXYvV2c1MzJqcjBOT0tO?=
- =?utf-8?B?dnliSWtXTEphRndWb3FNRFFSd1huS3k2UmJmVXc4dmFJUkkvWVE1eElBRVZ3?=
- =?utf-8?B?TldoK1JrbVV0VS9vM0tUd1AvYmtYbWFyM3Zvc3JnOGlaNk4vK295SGZhQjlE?=
- =?utf-8?B?N3RIWElTb2tQaDJqMGh0anVxZ0hrVU9GT2hTeFBvbVBqVUVodThHOFFRSUkw?=
- =?utf-8?B?UVY4U29nYlp4aFlKZ05hWWpYVVZuL1NWUnBBWDBTWlBHY1pCRTFJVDRZRFhC?=
- =?utf-8?B?VW5aZGJzcllhb2N4MEZWWU9VZ1ZwVnVRNTB1Y3YzZjl2Q0lhZWZKaUNPV0FS?=
- =?utf-8?B?Y3J5UHJLSUN2b0w0OUhMRUhiNTVOUHNGeVBveFpGQmphMTdvcTRjNzdtRzhR?=
- =?utf-8?B?SFM4T0MwZi9SRGNmbVM0dkNKSVVubDc5SHlSWVlnTDlXN0d0blkwRm5xdi8z?=
- =?utf-8?B?WnFKVnJsTzYwd0I1ajNlQWhUQlA3UkoxekJycWZzZFcwZ2hkYTYxK2RPemZV?=
- =?utf-8?B?MDlLYmJZNGNRRHpQQ3NpR25RV3hxdHFLaUJqMTk0V3FWbWJtNjkyNDVPZlFi?=
- =?utf-8?B?Q0llTGxZY1Y2S2ZOTmN3dDNhU0NtMWo5NDUwaWVNM01XOUFQTzVkUEtpVUxl?=
- =?utf-8?B?SW5HYXAzZ3l4c1ZqeTkvYkNnNWpXS1NERHRha2hiU1BvelVmWFdKZlRDbGt4?=
- =?utf-8?B?bGFzTS81cCt2eHIzUGk2Ym1kdDJjNWxVTENzeU9yc0JOeHNGamtLSG1QdVNp?=
- =?utf-8?B?RjhucTVCSHF5NStHazBvZTFqVGZIU2dzYUFUbFpxVUlJdldtSTVuMlFiSnN6?=
- =?utf-8?B?RU53bzh0VlR5dUtnZVE0MkhJaTRRSkl3N2JsWkdMZ09UclJVRXVXRzdVRkht?=
- =?utf-8?B?Vm53SVZBVjBxajFIeHV4OEJRWDc5UnNQTkdBMmluTlpjSlI4Z2NjbVFQQWhT?=
- =?utf-8?B?TjVUOEhQVTJVQ1NQWlhMa1ZvNjh6cVdyZTdMa3ZrYmFEVDF2Q3VmRmIwOWN5?=
- =?utf-8?Q?K5mcbzxwxbzXQd0sL28WZgeDY?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ee0fb812-dc67-427b-dd3f-08dd51ec855a
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-OriginatorOrg: outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 20:24:04.8850
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: e8958fc8-30b3-426b-6813-08dd51e3387e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 20 Feb 2025 19:17:30.3267
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jsGH2WMo5EAQVt9SJlOtGKJDAOeH1771xbQDugaxhGAv4o6uHHfRanhv4SUv1ri12s96wFHv0ZXrlcTYsJMKjA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6907
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR02MB10074
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_122408_981854_13CB3D84 
-X-CRM114-Status: GOOD (  26.09  )
+X-CRM114-CacheID: sfid-20250220_111736_889606_C0AC11C9 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,136 +163,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 11:56:50PM +0530, Manivannan Sadhasivam wrote:
-> On Sun, Feb 02, 2025 at 08:34:24PM +0100, Lorenzo Bianconi wrote:
-> > Configure PBus base address and address mask to allow the hw
-> > to detect if a given address is on PCIE0, PCIE1 or PCIE2.
-> >
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Thursday, Feb=
+ruary 20, 2025 10:33 AM
+>=20
+> Introduce hv_current_partition_type to store the partition type
+> as an enum.
+>=20
+> Right now this is limited to guest or root partition, but there will
+> be other kinds in future and the enum is easily extensible.
+>=20
+> Set up hv_current_partition_type early in Hyper-V initialization with
+> hv_identify_partition_type(). hv_root_partition() just queries this
+> value, and shouldn't be called before that.
+>=20
+> Making this check into a function sets the stage for adding a config
+> option to gate the compilation of root partition code. In particular,
+> hv_root_partition() can be stubbed out always be false if root
+> partition support isn't desired.
+>=20
 >
-> Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
->
-> - Mani
->
-> > ---
-> >  drivers/pci/controller/pcie-mediatek-gen3.c | 30 ++++++++++++++++++++++++++++-
-> >  1 file changed, 29 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-> > index aa24ac9aaecc749b53cfc4faf6399913d20cdbf2..9c2a592cae959de8fbe9ca5c5c2253f8eadf2c76 100644
-> > --- a/drivers/pci/controller/pcie-mediatek-gen3.c
-> > +++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-> > @@ -15,6 +15,7 @@
-> >  #include <linux/irqchip/chained_irq.h>
-> >  #include <linux/irqdomain.h>
-> >  #include <linux/kernel.h>
-> > +#include <linux/mfd/syscon.h>
-> >  #include <linux/module.h>
-> >  #include <linux/msi.h>
-> >  #include <linux/of_device.h>
-> > @@ -24,6 +25,7 @@
-> >  #include <linux/platform_device.h>
-> >  #include <linux/pm_domain.h>
-> >  #include <linux/pm_runtime.h>
-> > +#include <linux/regmap.h>
-> >  #include <linux/reset.h>
-> >
-> >  #include "../pci.h"
-> > @@ -127,6 +129,13 @@
-> >
-> >  #define PCIE_MTK_RESET_TIME_US		10
-> >
-> > +#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
-> > +#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
-> > +#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
-> > +	((_n) == 2 ? 0x28000000 :	\
-> > +	 (_n) == 1 ? 0x24000000 : 0x20000000)
 
-look like these data should be in dts ?
+[snip]
+=20
+> +void hv_identify_partition_type(void)
+> +{
+> +	/* Assume guest role */
+> +	hv_current_partition_type =3D HV_PARTITION_TYPE_GUEST;
+> +	/*
+> +	 * Check partition creation and cpu management privileges
+> +	 *
+> +	 * Hyper-V should never specify running as root and as a Confidential
+> +	 * VM. But to protect against a compromised/malicious Hyper-V trying
+> +	 * to exploit root behavior to expose Confidential VM memory, ignore
+> +	 * the root partition setting if also a Confidential VM.
+> +	 */
+> +	if ((ms_hyperv.priv_high & HV_CREATE_PARTITIONS) &&
+> +	    (ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
+> +	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
+> +		pr_info("Hyper-V: running as root partition\n");
+> +		if (IS_ENABLED(CONFIG_MSHV_ROOT))
 
-> > +#define PCIE_EN7581_PBUS_BASE_ADDR_MASK	GENMASK(31, 26)
-> > +
-> >  /* Time in ms needed to complete PCIe reset on EN7581 SoC */
-> >  #define PCIE_EN7581_RESET_TIME_MS	100
-> >
-> > @@ -931,7 +940,8 @@ static int mtk_pcie_parse_port(struct mtk_gen3_pcie *pcie)
-> >  static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
-> >  {
-> >  	struct device *dev = pcie->dev;
-> > -	int err;
-> > +	struct regmap *map;
-> > +	int err, slot;
-> >  	u32 val;
-> >
-> >  	/*
-> > @@ -945,6 +955,24 @@ static int mtk_pcie_en7581_power_up(struct mtk_gen3_pcie *pcie)
-> >  	/* Wait for the time needed to complete the reset lines assert. */
-> >  	msleep(PCIE_EN7581_RESET_TIME_MS);
-> >
-> > +	map = syscon_regmap_lookup_by_phandle(dev->of_node,
-> > +					      "mediatek,pbus-csr");
-> > +	if (IS_ERR(map))
-> > +		return PTR_ERR(map);
-> > +
-> > +	/*
-> > +	 * Configure PBus base address and address mask to allow the
-> > +	 * hw to detect if a given address is on PCIE0, PCIE1 or PCIE2.
-> > +	 */
-> > +	slot = of_get_pci_domain_nr(dev->of_node);
+I'll have to rescind the "Reviewed-by:" that I just gave. There's a patch
+sequencing problem in that CONFIG_MSHV_ROOT doesn't exist yet.
+It's added in Patch 3 of the series.  Because it doesn't exist, the
+IS_ENABLED() will always return 'false', which isn't fatal in the sense
+of causing a compile error.  But the code won't run in the root partition
+because hv_current_partition_type isn't set.
 
-I am not sure if too much abuse domain_id here.
+Michael
 
-> > +	if (slot < 0)
-> > +		return slot;
-> > +
-> > +	regmap_write(map, PCIE_EN7581_PBUS_ADDR(slot),
-> > +		     PCIE_EN7581_PBUS_BASE_ADDR(slot));
-> > +	regmap_write(map, PCIE_EN7581_PBUS_ADDR_MASK(slot),
-> > +		     PCIE_EN7581_PBUS_BASE_ADDR_MASK);
-
-look like
-	syscon
-	{
-		csr1 : csr1 =
-		{
-			reg = <0x20000000, >; //or other property
-		}
-
-		csr2: csr2 =
-		{
-			....
-		}
-	}
-
-	pcie1 {
-		mediatek,pbus-csr = <&csr1>;
-	}
-
-	pcie2 {
-                mediatek,pbus-csr = <&csr2>;
-        }
-
-	...
-
-Or
-	pcie1 {
-                mediatek,pbus-csr = <&csr1 0x20000000>;
-        }
-	...
-
-	you can use syscon_regmap_lookup_by_phandle_args() to get address.
-Frank
-
-
-> > +
-> >  	/*
-> >  	 * Unlike the other MediaTek Gen3 controllers, the Airoha EN7581
-> >  	 * requires PHY initialization and power-on before PHY reset deassert.
-> >
-> > --
-> > 2.48.1
-> >
->
-> --
-> மணிவண்ணன் சதாசிவம்
+> +			hv_current_partition_type =3D HV_PARTITION_TYPE_ROOT;
+> +		else
+> +			pr_crit("Hyper-V: CONFIG_MSHV_ROOT not enabled!\n");
+> +	}
+> +}
 
