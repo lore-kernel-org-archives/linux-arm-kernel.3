@@ -4,60 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B715AC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 08:33:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8773EC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 08:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g0ISmnutbRbJCnl3xCQN8y59xMILK3Ip0QaQE0ShVNU=; b=ZyjFwUhzW/TXeM+5nMwYShWMTO
-	++GY7dtnmHqEXYdUpC9przmCg7ZmjuQbzOGsEMr9vTYN/KILeCS7peSGA+56c0n4w2s1aj3p9NWrx
-	RtfJk4XtLKMJJXa4go97EYxdeYngF3ohILW1FV95Fo/WuCNPoXlFHvu5sg8GWHJ96Fg2iuni4ccvJ
-	2AM893Qb5/TV/+UjaMAaFy7JHaXXnzdA/yzS3XcjKdueFN2S6LZNDMmM9DIepLVhApVwq7F4GEqwD
-	zFRvHt7kg5FrPXSiBTVyOPcAj4vjBIrTwAwS+ldolQx85KUpJfUaj/Rct/bcbHbyOKj7z5N99f5Oj
-	fZN/yS3w==;
+	bh=Ro845Yvlc6JBSxE8ci6LVxQGdQ0DU/iABMHVIAAjqEA=; b=lr7BQbi2bIgVi1kLVhx0bvjmOz
+	RtIl3RmCS6rOOhSFVlbq2ESnCqsBgWiT0EW/LzyLnLSD1iysfOY3sAKbrV0q2wW+HcVJrrUbrLEQp
+	LOm7irDqXx+gWEBo30TTBew1/ads4iL5XNA6jUbBkTylbcrl7+IvGgpA1YMUNx0pExnz6ew3YhCHB
+	5H/9Yb8G2sMYP8qUMzS4saHYSLHYNUaXIdVkk0kOAYgRhm/i3Vo2UYI6C3lQ+ZJq/n17Byo8YLQdO
+	LSnTmQVHjGuKgHwMeeQBk76YHu0ABuCDBbdj2DDkIKIfj2oSuIP/CvljJCPEJr5YPPeOv5ekefmyV
+	cTd3VOJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl1zT-0000000HNkS-46ay;
-	Thu, 20 Feb 2025 08:33:03 +0000
+	id 1tl20w-0000000HO2d-2oAO;
+	Thu, 20 Feb 2025 08:34:34 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl1wX-0000000HN1D-3Lrt
+	id 1tl1ye-0000000HNZE-0E85
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 08:30:03 +0000
+	Thu, 20 Feb 2025 08:32:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 161DD5C5DA8;
-	Thu, 20 Feb 2025 08:29:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C52D3C4CEDD;
-	Thu, 20 Feb 2025 08:29:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2E2965C5DA2;
+	Thu, 20 Feb 2025 08:31:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26E27C4CED1;
+	Thu, 20 Feb 2025 08:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740040201;
-	bh=1vibqR3G+O71ULLP8sf+4kfTQYZY3krLEakrtCV5AKE=;
+	s=k20201202; t=1740040331;
+	bh=L/LHvO/D+1uYypCe6Rsib5c/g0Q47UeKeXAtGNnGShI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=m2iNwu1SAzIX9cinXD2NyjbLtWzwprhwSSXFAXQrAeHuFQ/WBJBMjdnwxwb1oV9Pi
-	 xIDgDQIoONeBk14NolSe2mLG3Thj66aYZG6CMDiby71psdQHDaImCXqOPVpvnheAoE
-	 W8SsyoPWxa6SXMw7FKCkIZs+6iWyhEnhAjvsb4GDJ9tBsCR93slLIsdEPqTQSXmNmg
-	 EuoCKhHdArkwfP+Vd+IGngVYsd57xibAfH3/B/d3TALBQiAoc90MhcflGPbuMY/zVm
-	 Ou/DTeX9cY5k4bBHoapJl/+XdKnfyNjCPl0VVt8JVSUsGRGMUlFYbLguSDUfP7C1lM
-	 loFu3DylTB3AQ==
-Message-ID: <d7e788c5-0bec-4761-ad4a-1c4f642fe3e5@kernel.org>
-Date: Thu, 20 Feb 2025 09:29:55 +0100
+	b=ruTunRdqISFlJSKFdw9+vOac+S+5tS5GWrwnWl7LsjQYMcubKQIa7vD3T0o9o9kcU
+	 oB8wCEGjke+49Cp9avK9UDFUfr/WNeYTI/CIKxNf3KTDVUX0wU5mt/yGusHDJ3snlV
+	 QWoUK/G9QFAx6GEJrJFTmH/TX67kkY6wsjLfjMjzueS6njyfB1EhPnVOK9sktTloDp
+	 dkVf+L5UCKUTovw05NVgogA8bRpkOrn4wQ5HhwqBhPaV3LQvCAftv8RVGExVmVBttu
+	 X2jpLlkMcnwy83hTRXa0vQ236vyrCegUnGYXCkoE7XgwMx3/2Y0KJiX4Xon9xEB7cC
+	 NNkRDC8rqNkHA==
+Message-ID: <e3403885-ca21-4e67-b117-f40a7a65418b@kernel.org>
+Date: Thu, 20 Feb 2025 09:32:05 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: usb: samsung,exynos-dwc3: add
- exynos7870 support
-To: Kaustabh Chakraborty <kauschluss@disroot.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250219-exynos7870-usb-v2-0-1de41a89c9d4@disroot.org>
- <20250219-exynos7870-usb-v2-1-1de41a89c9d4@disroot.org>
+Subject: Re: [PATCH 3/8] dt-bindings: media: nxp: Add Wave6 video codec device
+To: Nas Chung <nas.chung@chipsnmedia.com>
+Cc: "mchehab@kernel.org" <mchehab@kernel.org>,
+ "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+ "sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-imx@nxp.com" <linux-imx@nxp.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "jackson.lee" <jackson.lee@chipsnmedia.com>,
+ "lafley.kim" <lafley.kim@chipsnmedia.com>
+References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
+ <20250210090725.4580-4-nas.chung@chipsnmedia.com>
+ <cb7937f5-2045-4903-825c-71ed70097efb@kernel.org>
+ <SL2P216MB12460EDF6265459D11E2A5A9FBFF2@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+ <20250213-imaginary-shrimp-of-merriment-6ccb6f@krzk-bin>
+ <SE1P216MB1242EBEEAA36BE73AD466FB6FBFA2@SE1P216MB1242.KORP216.PROD.OUTLOOK.COM>
+ <ec58d467-baa3-4630-bfb0-f09d366a9be9@kernel.org>
+ <SL2P216MB1246F270DDE8CC8E21EA1DDCFBC42@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,13 +114,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250219-exynos7870-usb-v2-1-1de41a89c9d4@disroot.org>
+In-Reply-To: <SL2P216MB1246F270DDE8CC8E21EA1DDCFBC42@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_003001_954800_D81CEE09 
-X-CRM114-Status: UNSURE (   6.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250220_003212_226302_5EDEC02A 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,30 +134,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/02/2025 19:54, Kaustabh Chakraborty wrote:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: samsung,exynos7870-dwusb3
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 3
-> +          maxItems: 3
-> +        clock-names:
-> +          items:
-> +            - const: bus_early
-> +            - const: ctrl
-> +            - const: ref
-
-Other device has order bus_early + ref, so use the same here, thus
-bus_early + ref + ctrl.
-
-Rest looks fine.
-
+On 20/02/2025 08:35, Nas Chung wrote:
+> Hi, Krzysztof.
 > 
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: Wednesday, February 19, 2025 9:32 PM
+>> To: Nas Chung <nas.chung@chipsnmedia.com>
+>> Cc: mchehab@kernel.org; hverkuil@xs4all.nl; sebastian.fricke@collabora.com;
+>> robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org; linux-
+>> media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>> kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>> kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>> lafley.kim <lafley.kim@chipsnmedia.com>
+>> Subject: Re: [PATCH 3/8] dt-bindings: media: nxp: Add Wave6 video codec
+>> device
+>>
+>> On 18/02/2025 10:21, Nas Chung wrote:
+>>> For example:
+>>> vpu: video-codec@4c480000 {
+>>>         compatible = "nxp,imx95-vpu";
+>>>         reg = <0x0 0x4c480000 0x0 0x50000>;
+>>> 	ranges = <0x0 0x0 0x4c480000 0x50000>;
+>>>
+>>>         vpuctrl: vpu-ctrl@40000 {
+>>>           compatible = "nxp,imx95-vpu-ctrl";
+>>> 	  reg = <0x40000 0x10000>;
+>>>         };
+>>>
+>>>         vpucore0: vpu-core@00000 {
+>>>           compatible = "nxp,imx95-vpu-core";
+>>>           reg = <0x00000 0x10000>;
+>>>         };
+>>>
+>>>         vpucore1: vpu-core@10000 {
+>>>           compatible = "nxp,imx95-vpu-core";
+>>>           reg = <0x10000 0x10000>;
+>>>         };
+>>>
+>>>         vpucore2: vpu-core@20000 {
+>>>           compatible = "nxp,imx95-vpu-core";
+>>>           reg = <0x20000 0x10000>;
+>>>         };
+>>>
+>>>         vpucore3: vpu-core@30000 {
+>>>           compatible = "nxp,imx95-vpu-core";
+>>
+>> Why do you need compatible here? Could it be anything else?
+> 
+> I will update the driver based on the final DT.
+> 
+>>
+>>>           reg = <0x30000 0x10000>;
+>>
+>> Where is the rest of resources? You created children only for one
+>> resource - address space?
+> 
+> Sorry for the confusion.
+> I believe the final example looks like the one below.
+> 
+> vpu: video-codec@4c480000 {
+>         compatible = "nxp,imx95-vpu";
+>         reg = <0x0 0x4c480000 0x0 0x50000>;
+>         ranges = <0x0 0x0 0x4c480000 0x50000>;
+> 
+>         vpuctrl: vpu-ctrl@40000 {
+>           compatible = "nxp,imx95-vpu-ctrl";
+>           reg = <0x40000 0x10000>;
+>           clocks = <&scmi_clk 115>,
+>                   <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
+>           clock-names = "vpu", "vpublk_wave";
+>           power-domains = <&scmi_devpd 21>, <&scmi_perf 10>;
+>           power-domain-names = "vpumix", "vpuperf";
+>           memory-region = <&vpu_boot>;
+>           #cooling-cells = <2>;
+>           sram = <&sram1>;
+>         };
+> 
+>         vpucore0: vpu-core@00000 {
+>           compatible = "nxp,imx95-vpu-core";
+>           reg = <0x00000 0x10000>;
+>           interrupts = <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
+>           clocks = <&scmi_clk 115>,
+>                   <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
 
+
+These are the same resources for every block so for entire device. Why
+they are no in top level node?
+
+>           clock-names = "vpu", "vpublk_wave";
+>           power-domains = <&scmi_devpd 21>;
+
+Same here
+
+Everything else also looks duplicated... All my previous comments - from
+first email - stand. Don't design DT to match your Linu driver structure.
 
 Best regards,
 Krzysztof
