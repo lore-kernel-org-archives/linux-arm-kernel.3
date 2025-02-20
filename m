@@ -4,96 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B69C021AD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 03:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C7EC021B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 04:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QrztbhIzhEGt6f3MGaPx3+gUNHg1v0QODEPxhGsrfR4=; b=EjI25o3kdCMe3sYUxfI/EZUZyl
-	wdUamQJ1sRMFZduiuy8vT8uag7GJF+Mqf+Clswu2MvILpH0/TuFOu0H1ozIWigp15vpyRYKqOgViq
-	8J0YpCpiYDg8rX24zaXMj7Ym2eqll/L0eLmDEsd2rwxTsHS3OuZlkgDy0Tfi/rWLxyHVysBP2Jo+Z
-	iHyy02Ktp5UnQDzUAxZdao+0C3Y3WSzLmmWP8tigKYw8vI7GtccD77GytaYpaaYeS8Rq+C2PAnFc5
-	iWkopcC8p9VYbTzj3ezpwk881P8SpUZC4x9oUqeINoBpzry7kUkNYgCb0Deg9HIvXusf8IKx2ymYk
-	KZz4PSuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9SOmEHKtxnt/FjMNuH1uNatxTpKuGKSJFXtnrbflUGQ=; b=3Rcnzrh6CiVlZdfzojWlC4PQWN
+	CzCzbbkNMVdlpHtBPE7yn4rAmSxa72qv4nAtwF/2AQXru11rA+XhpJWmG1JFxBI5kixQOIKjDKkog
+	/Cq6uDhVSJigXxo4dSotd4JVn3xveICyBo/y0FG3Qlt3L/LpRUoZtfqzko2tGtF6y4WcjIgYyTmw3
+	5hMql6CX/Fu7SA3l0DQvH/BQgFdvSJ25EUTMB7Y9PEZHBZQG3x4skF6XLi+4wBaRAObgHetw9UnP4
+	DIYlVP/ZzxRNWb0El00ty1GGMu0GkD3LwXbXTkHPg2XTbp2tj8bj8zMjcSTx1D/WorYbR8IUfZyNn
+	LL1pcVrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkxPO-0000000GbLx-1Gcc;
-	Thu, 20 Feb 2025 03:39:30 +0000
-Received: from out162-62-57-252.mail.qq.com ([162.62.57.252])
+	id 1tkxvJ-0000000Gg3r-21WU;
+	Thu, 20 Feb 2025 04:12:29 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tkxNq-0000000Gb4E-2jry
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 03:37:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1740022663; bh=QrztbhIzhEGt6f3MGaPx3+gUNHg1v0QODEPxhGsrfR4=;
-	h=Subject:From:In-Reply-To:Date:Cc:References:To;
-	b=Jmux3xhHpiWhhxGFY2yykB2gNrlZWrcjz8P2lBKHeTcyN0ExnhtfdD3xnNHGyx+gR
-	 m4gTLaOd/CQh1EDG++xyvGA05uyJqTgTbKMjZqciFR3PoLlXJK/YCwcpDUinWrBko9
-	 LZPJxj3lP2w15VWvahIxGZcuMGzDXEQVosgVRj2g=
-Received: from smtpclient.apple ([2408:8207:18a0:b53f:e516:fb34:5948:11a1])
-	by newxmesmtplogicsvrszc11-0.qq.com (NewEsmtp) with SMTP
-	id 966A72EB; Thu, 20 Feb 2025 11:37:38 +0800
-X-QQ-mid: xmsmtpt1740022658t0dl3oa06
-Message-ID: <tencent_F70BEE494C40C8752302DF97608DF680E306@qq.com>
-X-QQ-XMAILINFO: NY3HYYTs4gYSd8sfm6LPIWrV+Z0MsMT1ELpP2j1ne2+F7AJakzc5o2w+7Ea9/L
-	 r1plFCfFbwppqIwvN68tO2uPPWIqp/qMqXbJANZAvRVJEdPpD70OXwegSNuVJJ/zQjgaaXpu85j0
-	 aS+2JjqONPqm61y5sc/kd90nJ2o7mUg8msNuGfR6DXnRbZ8UWNXo15cs07pmlHKCEKdXaDjE1Bhp
-	 IaQRdSW/jcF68mst7X1gIjAayzETZoOq2nnCTtdXI4Kcejo9wxfkRA0eJhTGYRpp7gUtbtM3kZSE
-	 qFmttZiIp9Aylbb2yLhabRykQsh3Hz1Lf8NXE0NKs+3TRME938r6ttXmMFMw7QtnTlRI0/D4u4au
-	 qbdL8Hfac9nUSU/C/Pw2cju+C/HsjpZZNTLz3cOR3SpuImGUdn87YdAbd/+KzlWR1tRMHywqbLGQ
-	 Dgpg5XO3sWXCTNyiMuDUN6AdRABY77lCIQ3UePEmnDv7GWq+59BJwLQEaG3cqAw2sCbpS3SLScHv
-	 jdjAK/rczEfjRxEyDPNV/Zi9UJPDcfzm4eb/2RskNBpgR8NmJ6mVfTgXMc+LJxupS4szuMtuRVBf
-	 NxKcmGGJz48c3F+nNk2fhXTnSXVfizzOMyFscU5syfcbzGSEfUYNhplX71l6n4/Dg3gqzTg7QIwv
-	 yXAlNdnDrdygvmq0Z9pjUUjXw5rm3VKor1R2IFEbp5AY5c6fGEejLjEcKo+35XOgZnVE9nxRQJYb
-	 +hNuB23jGA8WQcR2Ukwjd8PtdozrCqiDkQ07SYsL3zXDQM95wIm8Uxav1sL1PO18+5c7+yzQig8N
-	 SfGwRXaTQpkwcDI3MF0xPlEwX7eM4saLuAcqahO7A3tKEOTCwDRM9kY0snAePzWStq3b3N1djRpb
-	 /aGn81KIa1YKhw1Gvrjh8tZ8KoUIbRi3MIZjhto66G7Phf6qr5FGg4newHxdX4KCtEh2/ywtMwK3
-	 XyWxGwPJdrto8K43jVl+uYlrnpkfEFXZ8uqt9w1DrIA8clrGaSdQ==
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
-Subject: Re: [PATCH 0/2] perf vendor events arm64: Add A720/A520
- events/metrics
-From: Yangyu Chen <cyy@cyyself.name>
-In-Reply-To: <CAP-5=fWXmNoFLyWv+vo7hhLSqTDy7hf+-huKRD9OUWnO-GESRw@mail.gmail.com>
-Date: Thu, 20 Feb 2025 11:37:28 +0800
-Cc: Namhyung Kim <namhyung@kernel.org>,
- James Clark <james.clark@linaro.org>,
- linux-perf-users@vger.kernel.org,
- John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>,
- Mike Leach <mike.leach@linaro.org>,
- Leo Yan <leo.yan@linux.dev>,
- Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Liang Kan <kan.liang@linux.intel.com>,
- Yoshihiro Furudera <fj5100bi@fujitsu.com>,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-X-OQ-MSGID: <4EC06A50-E35D-42EF-8219-E6CAF007A620@cyyself.name>
-References: <tencent_5360DA048EE5B8CF3104213F8D037C698208@qq.com>
- <Z66YjGvjD_yzEHUg@google.com>
- <tencent_45B4E91CA370C563D6420A1A25F992056D09@qq.com>
- <1b8b234f-6435-45cf-83e7-8e86c84f075f@linaro.org>
- <CAP-5=fVAhLLH-a0_wLo8dPoMLOb6rOJiTgGh-OFZJJoaLFE-8Q@mail.gmail.com>
- <fe46069e-c52e-45ee-b4b3-8b929fb83b31@linaro.org>
- <Z7UHieRRnvRb5_oU@google.com>
- <CAP-5=fWXmNoFLyWv+vo7hhLSqTDy7hf+-huKRD9OUWnO-GESRw@mail.gmail.com>
-To: Ian Rogers <irogers@google.com>
-X-Mailer: Apple Mail (2.3826.400.131.1.6)
+	id 1tkxtn-0000000Gfsd-3hZk;
+	Thu, 20 Feb 2025 04:10:57 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7272f9b4132so359051a34.0;
+        Wed, 19 Feb 2025 20:10:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740024654; x=1740629454; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9SOmEHKtxnt/FjMNuH1uNatxTpKuGKSJFXtnrbflUGQ=;
+        b=efxJtY/IxEbc3uIN/W1LrrX7nTS+6HAD0IJlgZX1oaqciq9aXUH2y6OyFRTrPw6nfJ
+         JFXzpHI5RCcqW+FCVSP+RNL9TfdVWHzUj+gfRfjYoH2gAam8stuYUB71Bs83bKtACL+k
+         WWLwCcUgMvbGKdR1cokTUUckO003yrtC0WP7+j44ofbDjYLA1qozyZZcSpmiMwgjzlJh
+         H26oFZKyYW/8Vghk/5q+8xj3y+fINeNHwufJb6EQGAkrg3DUjrJmInpaZ6AvnY8C//pv
+         Ec4SO1BjdKIKh7fPo265GlAbnCSauUEAlAry65nBsVaCXizS1RXDBPIPr2eEuw+bI54y
+         k7vA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740024654; x=1740629454;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9SOmEHKtxnt/FjMNuH1uNatxTpKuGKSJFXtnrbflUGQ=;
+        b=tFiEIsMU3PuzKLiyIGiUEIza/Ey/A5zjiEultdzhHdnSustpbVIZM+GZVJyiFFPqpC
+         xoGmOOZLSVLHAlLko4TJ3W4ue726tMmf5W9Hzd8Ebpx13I6oQ4145+FhazfsSXO35WNe
+         NNIr6vGU4jjK7lnQNH5Ts0/L9D9XMB4HgkjxuTLXMSXhSgF7inREcBgYMZRac0buEC5C
+         ntR3vR3w9tAHwWhESo9P6Hp8KLYIkMey007Coh2I0QcRjaeG1TpHo9sP/NJF7lclp5Ya
+         IlS5Esp297C/1Dh11/HRHkBctNaEEqRNyi+O7nJQccuBQWBJBatDkRWs841hLl8AhnmX
+         kfVg==
+X-Forwarded-Encrypted: i=1; AJvYcCUgtmDB+mf2D1CaDqsekcMVcSu5bmFh47xHCMQ/e57GmwQ6z76OetApXTEo7ZjRVSfjjcNbvP1QZ5I7I/Md5N0M@lists.infradead.org, AJvYcCWX9uPb5YIcHytesbsSYqzYFNMWjMwgUfaCzQ3uNaB7V1AqzI5fIbtLLUfOb7uF9yygk6qfVb8z1LuAugqp120=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjzcVAwNHOpez6EYy7qJ+Cu9gPn+t7aWFIk0UVc8BBaKSCRQwu
+	N7w+Jp0MGnvzXYS1DvbMR3KK+99D+xeR2HjS+1/PM57wenU10rL8
+X-Gm-Gg: ASbGnctvqabV5aeGCmZjalopWLRtJNC7M8uFl37bawNS7Y5GlZzMvkCjjYocO07mH/f
+	4gaT9GeyqPoZxq5VsbtaTWdn/DJCRfW6xBi/IRoBJO4IMyQMNR2r2wN9+BEzDd7eH6kfQViQdPK
+	T1KQsEgLNQaK99wmbBrb/uWm4aINWZF+0PmqqvaQd6Te7yurkGJFqHbE0WGsN4Xi2Z/Cg9ajQ6Q
+	S1HaEKoX8pIeGZIY27PS0i/ObuPMR8DdXHpzpr8F5bXUO1TfjjLq00M2Ge17/0300B5dGsRIeVK
+	/wLQvXnSy9ovOFFBj4ZxBU3q
+X-Google-Smtp-Source: AGHT+IHCvbgOiUNK4JM990pKQOaGt/m682yZIACl+zliSAkxtTUBeduDoCl/w2cP2mdXDUodQ14SeA==
+X-Received: by 2002:a05:6830:6a8a:b0:727:2c98:4b1c with SMTP id 46e09a7af769-727377694bdmr5641466a34.8.1740024654424;
+        Wed, 19 Feb 2025 20:10:54 -0800 (PST)
+Received: from tower.cjhon.com ([2603:8081:ad00:4a:20f3:777f:5ae9:b018])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-727378237e4sm1025875a34.47.2025.02.19.20.10.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 19 Feb 2025 20:10:53 -0800 (PST)
+From: Jimmy Hon <honyuenkwun@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Jimmy Hon <honyuenkwun@gmail.com>
+Subject: [PATCH UNTESTED v5 0/4] Orange Pi 5 Ultra
+Date: Wed, 19 Feb 2025 22:10:06 -0600
+Message-ID: <20250220041010.3801-1-honyuenkwun@gmail.com>
+X-Mailer: git-send-email 2.48.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_193755_214929_49E462EC 
-X-CRM114-Status: GOOD (  30.21  )
+X-CRM114-CacheID: sfid-20250219_201055_922609_61FDB0F9 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,145 +98,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add device-tree for Orange Pi 5 Ultra
 
+This patchset is looking for testers. I do not have the hardware to test.
 
-> On 19 Feb 2025, at 06:33, Ian Rogers <irogers@google.com> wrote:
->=20
-> On Tue, Feb 18, 2025 at 2:19=E2=80=AFPM Namhyung Kim =
-<namhyung@kernel.org> wrote:
->>=20
->> On Tue, Feb 18, 2025 at 09:30:23AM +0000, James Clark wrote:
->>>=20
->>>=20
->>> On 18/02/2025 12:41 am, Ian Rogers wrote:
->>>> On Fri, Feb 14, 2025 at 2:02=E2=80=AFAM James Clark =
-<james.clark@linaro.org> wrote:
->>>>>=20
->>>>>=20
->>>>>=20
->>>>> On 14/02/2025 5:49 am, Yangyu Chen wrote:
->>>>>>=20
->>>>>>=20
->>>>>>> On 14 Feb 2025, at 09:12, Namhyung Kim <namhyung@kernel.org> =
-wrote:
->>>>>>>=20
->>>>>>> Hello,
->>>>>>>=20
->>>>>>> On Thu, Feb 13, 2025 at 11:11:01PM +0800, Yangyu Chen wrote:
->>>>>>>> This patchset adds the perf JSON files for the Cortex-A720 and =
-Cortex-A520
->>>>>>>> processors. Some events have been tested on Raxda Orion 6 with =
-Cix P1 SoC
->>>>>>>> (8xA720 + 4xA520) running mainline Kernel with ACPI mode.
->>>>>>>=20
->>>>>>> I'm curious how the name of PMUs look like.  It is cortex_a720 =
-(or a520)?
->>>>>>=20
->>>>>> The name of PMUs comes from Arm's documentation. I have included =
-these
->>>>>> links in each patch.
->>>>>>=20
->>>>>>> I remember there's a logic to check the length of hex digits at =
-the end.
->>>>>>>=20
->>>>>>=20
->>>>>> Could you provide more details about this?
->>>>>>=20
->>>>>>> Ian, are you ok with this?
->>>>>>>=20
->>>>>=20
->>>>> I think they wouldn't be merged because they're core PMUs, so =
-should be
->>>>> fine? Even though they would otherwise be merged because they're =
-more
->>>>> than 3 hex digits.
->>>>=20
->>>> Do we know the PMU names? If they are cortex_a520 and cortex_a720 =
-then
->>>=20
->>> It will be "armv9_cortex_a720" from this line:
->>>=20
->>>  PMUV3_INIT_SIMPLE(armv9_cortex_a720)
->>=20
->> I see, thanks!
->>=20
->>>=20
->>>> this comment at least reads a little stale:
->>>> =
-https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/t=
-ree/tools/perf/util/pmus.c?h=3Dperf-tools-next#n76
->>>> ```
->>>> /*
->>>> * There is a '_{num}' suffix. For decimal suffixes any length
->>>> * will do, for hexadecimal ensure more than 2 hex digits so
->>>> * that S390's cpum_cf PMU doesn't match.
->>>> */
->>>> ```
->>>> James is right that core PMUs aren't put on the same list as =
-uncore/other PMUs.
->>=20
->> Ok, then I guess we're good.
->=20
-> I think you may be able to do things that look odd, like today the
-> "i915" PMU can be called just "i", I think the a520/a720 naming will
-> allow "armv9_cortex/cycles/" as an event name, then open it on two
-> PMUs if they are present. We may only show one PMU in perf list as
-> that code I think assumes they're the same PMU as they only differ by
-> suffix:
-> =
-https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/t=
-ree/tools/perf/util/pmus.c?h=3Dperf-tools-next#n384
-> I can imagine aggregation possibly being broken, but I think that
-> works off the number of PMUs not the names of the PMUs, so it should
-> be okay. Probably the only thing broken that matter is perf list when
-> you have a BIG.little system with a520 and a720, this may be broken
-> with say a a53 and a72 today as both of those suffix lengths are >2,
-> but maybe they use the "armv8._pmuv3_0", "armv8._pmuv3_1", etc. naming
-> convention. I suspect the >2 here:
-> =
-https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/t=
-ree/tools/perf/util/pmus.c?h=3Dperf-tools-next#n80
-> would still work and be correct if it were >4. If that changes then
-> this will also need to change:
-> =
-https://git.kernel.org/pub/scm/linux/kernel/git/perf/perf-tools-next.git/t=
-ree/Documentation/ABI/testing/sysfs-bus-event_source-devices?h=3Dperf-tool=
-s-next#n12
->=20
-> Thanks,
-> Ian
->=20
+The schematic has been published for the Orange 5 Ultra. [1]
 
-On my system, the names of PMUs are `armv8_pmuv3_0` and
-`armv8_pmuv3_1`:
+It's a sibling of the Orange Pi 5 Max [2] with the HDMI0 switched out 
+for the HDMI RX. As a side affect the pin for USB_OTG_PWREN [3][4] has 
+changed.
 
-```
-$ ls /sys/bus/event_source/devices/
-armv8_pmuv3_0  armv8_pmuv3_1  breakpoint  kprobe  software  tracepoint  =
-uprobe
-```
+Patch 1 and 2 can be used on 6.14-rc1
+Patch 3 can be used with 6.15-rc1
+Patch 4 is waiting for HDMI audio patchset [5]
 
-I searched for ACPI DSDT on my platform, but there's no mention of
-a720 or a520. I haven't delved into the PMU kernel driver yet.
+My testing branch with dependent patchsets is on github [6].
 
-Additionally, there's a more significant problem for aarch64
-BIG.little platforms when two or more types of cores don't have the
-same PMUs. The perf list can only display the core PMUs on core0
-unless we use the PERF_CPUID env to override it. This is because
-perf will only probe the first MIDR here:
-=
-https://github.com/torvalds/linux/blob/87a132e73910e8689902aed7f2fc229d690=
-8383b/tools/perf/arch/arm64/util/header.c#L60
+[1] http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-5-Ultra.html
+[2] http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-5-Max.html
+[3] https://github.com/orangepi-xunlong/linux-orangepi/blob/orange-pi-6.1-rk35xx/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dts#L306
+[4] https://github.com/orangepi-xunlong/linux-orangepi/blob/orange-pi-6.1-rk35xx/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts#L321
+[5] https://lore.kernel.org/linux-rockchip/20250217215641.372723-1-detlev.casanova@collabora.com/
+[6] https://github.com/jimmyhon/linux/tree/integrate-6.15
 
-However, I think this doesn't block this patch for adding events and =
-metrics?
+Changes in v5:
+- add USB 3.0
+- add HDMI1
+- add HDMI audio
+Link to v4: https://lore.kernel.org/linux-rockchip/20241229184256.1870-10-honyuenkwun@gmail.com/
 
+Jimmy Hon (4):
+  dt-bindings: arm: rockchip: Add Xunlong Orange Pi 5 Ultra
+  arm64: dts: rockchip: Add Orange Pi 5 Ultra board
+  arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Ultra
+  arm64: dts: rockchip: Enable HDMI1 audio output for Orange Pi 5 Ultra
 
-Thanks,
-Yangyu Chen
+ .../devicetree/bindings/arm/rockchip.yaml     |  3 +-
+ arch/arm64/boot/dts/rockchip/Makefile         |  1 +
+ .../dts/rockchip/rk3588-orangepi-5-ultra.dts  | 75 +++++++++++++++++++
+ 3 files changed, 78 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts
 
->>=20
->> Thanks,
->> Namhyung
+base-commit: fa15cc73121279f93757ec76312b0d0b73f7462a
+prerequisite-patch-id: e7cb3b62d173506d38a10a8e71eedd62ba6a1bc0
+-- 
+2.48.1
 
 
