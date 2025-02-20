@@ -4,100 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71F96C021B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 07:14:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E69BC021AD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 07:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+GAX2Ms3C+1iFEiEooYALMC1zyJP6nScc6k91Dyj8T4=; b=B/EuEbO/kve7NaM/TzdNO2Sjev
-	lFH7MFVWD5jA3B5wgwO/4nVCGxud3r+W80/lBKGhs5Ih6lrS89KauYCpljZ9LRJZLqfg0QBGOWQqw
-	YNQj4bleWsjaJ7hZ1ftnlcMBubhmde2Yu2bnCqtaWbsLyv4OTDkCXdGxyfdcgSYakQDJzk6BiK0fc
-	TBKqOcQ3TJoYlfZkS4oyV+iM/5T5LulbFy96MZQv3qC7y9ftSt0yx9zi2ZbcRlI6Up9XbkkwH6YPB
-	CakROZHtNMWmqdop/runOnMhBWGCYCTr6HxGw1HcUYbxM8fzGZ1iE4Vo9dVvLzAooZgLhkM53ZOdl
-	NW+fg1Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7yxK95LnRbROa6bs/D1NakOTn74GT6H8mhuoPMhcoHs=; b=AX7Ps2tarmFowzzPfH2vWtL64o
+	oPhc/gA5+RkpwqBXjHmbnNOmm4huzIZnJpSMSHzBE+9UNmb2F2MPLpBJ8BFoEmLlCm2FBr8aZ/OLK
+	Z+ZRfBdW/MOXk7I7Zpk660heKEVxSWW4+xMR4fQ1MwnDhbHRYJsFmYx6U2rZhoRtd3hp+AucYpdOm
+	ZE70XZbnOXFsVs0sZ+5wRbP7BfCby4lf5z3fFymSi/Df6/24m7T9s2+906rXHdULrnlSTbVhzbpGE
+	QJU910xVEyttIpdzM9xy1JdrOTcXNY6RnpOtH/6H+vDKTI7wV4AaawJbqV9WRO0Mmt/tLHFXOv8Hz
+	UCecD3Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl0lb-0000000H6K8-3f6p;
-	Thu, 20 Feb 2025 07:14:39 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1tl0n8-0000000H6oE-1fy2;
+	Thu, 20 Feb 2025 07:16:14 +0000
+Received: from mail-bn8nam12on20628.outbound.protection.outlook.com ([2a01:111:f403:2418::628] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl0k6-0000000H5sp-1rdc
+	id 1tl0kO-0000000H60d-3l5K
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 07:13:07 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-30a29f4bd43so5520761fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 19 Feb 2025 23:13:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740035584; x=1740640384; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=+GAX2Ms3C+1iFEiEooYALMC1zyJP6nScc6k91Dyj8T4=;
-        b=aZCBSq4r7nBh0GgShc0vkj7xWjLjz1I2lJrSxJ7tQlLc9Imv/MWxJ0noU42mXBC4Nt
-         fd7s/n1ZMp9r9PqxM+7L1sqDaR7VjfRVlUlxFYCsH+obX8NRE8vrV8KqgTEkPocmvlJP
-         5zHle+Hk4yeebCT3sAeWMi9Bjxr4Vqp5YZwr1afQxPuyVipW5Jo2qaB7Cwz/8AQEQCUU
-         Ws8TPtv+0jTn7KwChAx98xq6iVSJLa0GFntUHlXxf3WLkD/MKTG8Liy19t0X7cOdb+Sy
-         gZXo1dJ5uDbWK0lNtL0k/Q3ryXffAb8pmzSyOGjKsL4SXkpK3dAW2TqjEZJxGN5gWxEg
-         Ph+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740035584; x=1740640384;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+GAX2Ms3C+1iFEiEooYALMC1zyJP6nScc6k91Dyj8T4=;
-        b=fR2vZUT7XM+KwtZV/BElVFspBveTQ+BsWzGDbQqRpEmFBocoJo3IB1b2mW7X2YThQz
-         PEKT0DbsnyV0eIGMgA7s0O76E39Wxb1tAmIqPyY75oqrTxSWcZ91zJQElIxr7vYVhFqV
-         EMXlg2rtPuUg939qj14pPUyjtvIev7gQTFxNH1KpomIGd39IlQ/1E5t6xR3Ksaabb1QD
-         OHOk5TjB3LgtdwQMdTs+rRPP6tPTvJpm/GPGWe+oS+ML463w7l6SRxvkzMAcdUfHHJ2e
-         dl355hG3H42wQx/VXt28/Yz6yHSnd6tVFCSs3rFT0nZzJfGUGuYvU1VVZ/Zq5hl6mur5
-         UnSg==
-X-Forwarded-Encrypted: i=1; AJvYcCVzBDdJpxIio2AWG7N4LtBlUQgPypfCGX3Vy7fVHWe4CSI9ELPiJ9rAk+mxyYY6NrK9E4ISA639jUbruO5QYzZm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyF5fFpdTBoJojoLwwGx70KwR6+he1k9LPos3XkHS6x/lzSoNV1
-	qHNqk+ikspQ+freTLVSHxtTSZGccpK+hQmAnWkVSGI8C8vWCMmuA
-X-Gm-Gg: ASbGnctqvvADjUPCPe/iuF+xz5NL+OaHUZQcC6nqYj+9+Dc5cLmF7Inrgu5iyYdjNCm
-	QngBqdtj2Xebiv8hNZBqvFFoK+Ii1tUa4b2fXREFVe93mu1UaY+ragoJlIrMOkC8N7HP6sJcKJl
-	RIwrQl4taz4lAbwYKAqi569uK6+C7lcjYv3gfA1NJr6nOGNvJw6InCyl5B6p8uJyhu1sE5cDR+7
-	PkU1+xJyHnlVRewu0HEi2BjnwLjbZRQOzDQXOzenODYOhI4QYz8iYpQb7xMJ2wqsEVGdGnEui7u
-	dlM8sGFJILZS3KD+L8ti/RY1LqWjVP1TYh5LCFRkyz1h7GO/NgRm8O9j/N6GWAOE3/KSEGRn
-X-Google-Smtp-Source: AGHT+IFKp9trN/cn2Qm66dYQMf1hABQUmyHBmZFJ75NYzdUOuFn45L/HlCdjW3lLCknW0qJmzNb4EQ==
-X-Received: by 2002:a2e:8650:0:b0:308:f479:5696 with SMTP id 38308e7fff4ca-30a44dc4ff1mr17598221fa.15.1740035583979;
-        Wed, 19 Feb 2025 23:13:03 -0800 (PST)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30921447bdcsm21379171fa.35.2025.02.19.23.13.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 19 Feb 2025 23:13:03 -0800 (PST)
-Message-ID: <b1c1ed68-2f4d-447c-9957-5a1bbc63ef6e@gmail.com>
-Date: Thu, 20 Feb 2025 09:13:00 +0200
+	Thu, 20 Feb 2025 07:13:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OupMGrvggHDBQxDH6HE6PQ8tWW3zUyRiTfb5D/GfQBBjE64omFeFjMWHbNTwCr7Sxp0CIc0Ry09JZ2g4yelbDWctUtu2nQYghVFbTZop58NoeX0HegKlMnwX1/4HgmcBumjRfShcR1DPkuv9prQtURqHpxMxs7Dx7u3TkIH61gkcgEyUobdp68ydCA79T9lUITJx3VfE2lNJ8AE2eNZx+gD6aXvdW8FjxRgPmfFmoGkoF8eOoEcSkPTOpN0roiWSKSzTopffxqoiYiI+r+0212PIY5vVyj4KsA5fBjbUH2dPXlGTQ1Ccc51qCTCh/wj1H7lrAm4aVwxyOlTDYYJe0g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7yxK95LnRbROa6bs/D1NakOTn74GT6H8mhuoPMhcoHs=;
+ b=vNQrd3KUmg/bAhv0ZnBG5rATEiyFKnJlwfa4ixvGOgsuiZcp2xUCtBe+mMS22s9pB1OzfVuBGsJExKglxdYJsBlytqY6TKqzGheOwsQnx6fqaoFGy+6bnCesckA8YnhBFgYy0q2Z+vokLFyVYdYYcx2Psceatf+d9uqu1gP7GrNbRoxEy5fYsAV/jaQtZ5O3Ma+HRrkMip2nDG3kYQuIr5y4aJbItCqLmvPTjwqPqJ4Dz3yLSgPzPsHaoMbFSgMlW8uBH+6GmyjHQwx6TWWj5wkeL8WvZGJiCqXysydjh/O5yYu/MLI+bJd085wfUYQZps1qukv5NqEgFL7l/gWi3g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7yxK95LnRbROa6bs/D1NakOTn74GT6H8mhuoPMhcoHs=;
+ b=J3mG4KrV95dXB5pbbZe2ooZzS3Xa/2bjqhk3asyb5QqEI4CHMfjxxJNQBIsoy/td1DmtOSDCuLi8Ln2w8aC4ujdhNl1Ux8NQaSpf0bSvRA4ClMSgXPaRPKYJ8RMfA8xz0aBYdvwFH/AOFatyCHlWPMVUooG3s7R2mdSjkI5/r/Th0bqyrGrvrAxKz3qANcbOlK7qIZlsL6/1bLS7UHQ5z98td7N/5HLRJug6tZNxCv+yAOKMA/kVRQrtqHnl8DV2xMZLgRd2T8HpFFluQqNqY1LrxcZ1is8RRJFKZFps5HISwm5OyqTe/bnjDC1RBmQivTSiPsVhqE2rNGnsgVrc4A==
+Received: from SJ0PR03CA0250.namprd03.prod.outlook.com (2603:10b6:a03:3a0::15)
+ by PH7PR12MB6537.namprd12.prod.outlook.com (2603:10b6:510:1f2::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8445.16; Thu, 20 Feb
+ 2025 07:13:09 +0000
+Received: from MWH0EPF000A6731.namprd04.prod.outlook.com
+ (2603:10b6:a03:3a0:cafe::4a) by SJ0PR03CA0250.outlook.office365.com
+ (2603:10b6:a03:3a0::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.14 via Frontend Transport; Thu,
+ 20 Feb 2025 07:13:09 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ MWH0EPF000A6731.mail.protection.outlook.com (10.167.249.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8466.11 via Frontend Transport; Thu, 20 Feb 2025 07:13:09 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 19 Feb
+ 2025 23:12:53 -0800
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Wed, 19 Feb
+ 2025 23:12:53 -0800
+Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com (10.129.68.7)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Wed, 19 Feb 2025 23:12:51 -0800
+Date: Wed, 19 Feb 2025 23:12:50 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Pranjal Shrivastava <praan@google.com>, "Tian, Kevin"
+	<kevin.tian@intel.com>, "corbet@lwn.net" <corbet@lwn.net>, "will@kernel.org"
+	<will@kernel.org>, "joro@8bytes.org" <joro@8bytes.org>,
+	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>, "dwmw2@infradead.org"
+	<dwmw2@infradead.org>, "baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"shuah@kernel.org" <shuah@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "eric.auger@redhat.com" <eric.auger@redhat.com>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>, "mdf@kernel.org"
+	<mdf@kernel.org>, "mshavit@google.com" <mshavit@google.com>,
+	"shameerali.kolothum.thodi@huawei.com"
+	<shameerali.kolothum.thodi@huawei.com>, "smostafa@google.com"
+	<smostafa@google.com>, "ddutile@redhat.com" <ddutile@redhat.com>, "Liu, Yi L"
+	<yi.l.liu@intel.com>, "patches@lists.linux.dev" <patches@lists.linux.dev>
+Subject: Re: [PATCH v6 14/14] iommu/arm-smmu-v3: Set MEV bit in nested STE
+ for DoS mitigations
+Message-ID: <Z7bV8q8h5ssgiucv@Asurada-Nvidia>
+References: <cover.1737754129.git.nicolinc@nvidia.com>
+ <436ac2021bb3d75114ca0e45f25a6a8257489d3b.1737754129.git.nicolinc@nvidia.com>
+ <BN9PR11MB5276291C74E2DF0C8821BE718CFA2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <Z7TOq-gIGPY_ztW7@google.com>
+ <20250218185229.GL4099685@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/9] iio: adc: add helpers for parsing ADC nodes
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
- David Lechner <dlechner@baylibre.com>,
- Javier Carrasco <javier.carrasco.cruz@gmail.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-References: <cover.1739967040.git.mazziesaccount@gmail.com>
- <6c5b678526e227488592d004c315a967b9809701.1739967040.git.mazziesaccount@gmail.com>
- <Z7ZB7RQhyI5Dohrq@smile.fi.intel.com>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <Z7ZB7RQhyI5Dohrq@smile.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250218185229.GL4099685@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000A6731:EE_|PH7PR12MB6537:EE_
+X-MS-Office365-Filtering-Correlation-Id: d04b840c-62e6-42f8-3303-08dd517e07b6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5758ZJEftm8fwVsfK1Gn2dnNq/fSlRW8zzQSxQ7HOP0txiw23IyaVbYlLit4?=
+ =?us-ascii?Q?g6bH+G3k0r/O+PKiqJFelUx3PH0v1FWOTTsnbLBO1Ulu/YoGQ0L3owozGyBm?=
+ =?us-ascii?Q?JSPiH/ePqSo9FrdGjolvPiOVibXbSwPTA34ZyOtQMtIFBOkTa3+TpchZX6Cq?=
+ =?us-ascii?Q?k0SNqRRGdij8aPjKt1xEAiw/2cdxo38u4NKuFNmPMUVddFFDurIZcuAnMsXN?=
+ =?us-ascii?Q?N2PAKW325NngwrOXlOYoDl6S3x5UYOCxBp1s+3hdGumUxwHconT5IsFmQfdy?=
+ =?us-ascii?Q?N4IT8yJLTzPg/ux+fzR9LFnPlabmC3pgE1xGvkbj/VRxeXVMIJAfFrKX5Yro?=
+ =?us-ascii?Q?upsL0QUXZncgzp/SvyWe80EL++Csd9v/VoHRfNgctZt17YvOKtmAOHJ+pKRG?=
+ =?us-ascii?Q?MuMLMXT7Zv5uf/eQZkwIapbbTyzFJud6duhcqE7cDvMGB3ob1NXPPi5xx+WS?=
+ =?us-ascii?Q?OXKJIo+dEDqbx8wM//cWtQwYf8RjLa2MOXigcOPAScHK26AXYMoJ04wyOJjQ?=
+ =?us-ascii?Q?NctMMMLdkhVm3nDYSnK3Hc5p842EaAkf83B1pGm4B54JiMb9q5FPRc8Kqyqw?=
+ =?us-ascii?Q?jg6RXeLS04cS03R9VSeclKDo+nkh6IUAlvUCaGoARI+AsZ/43oweaBymntLc?=
+ =?us-ascii?Q?D3I1LgCumEI1sJjoNe285DUeolQGWX+xzslUqzU20s/U80ctzflcUV6dHEKm?=
+ =?us-ascii?Q?nB4OaSwrkzl0x34eO9tTF+f8Tia9JE+pNT9a8VG4VUCDC8VtF+8THz/ql8LR?=
+ =?us-ascii?Q?oSKJsGAo7FdxjQSe9CRnyNNQro8r/WkFoOu1/1Tz64vlgGfdAoaN362e7bYi?=
+ =?us-ascii?Q?XHnJthapHvoRsId2VMk3guL/j2t7NESWNARB1wiZBkuCjVHG71CO3rUeYQWW?=
+ =?us-ascii?Q?ER/l1tHykYwDPrEb2RSN68ferelqiKWEJfeKDLtTkTpU3yjVcRDXuKk2TjdI?=
+ =?us-ascii?Q?+SflfPkumaTpRYmhWaod94l7Q3wcHcKRisuf9tS0TxO4+yoC7ps/CAJ+B5TU?=
+ =?us-ascii?Q?dr2dWsBwZNxaw+yeM4M+jX5/MPoIze+3/wMFx1KawwwO4xtPN6ze8hHE0Lq8?=
+ =?us-ascii?Q?PJ8SxDA6jHmqKRBfvSsdqiH528NQ5wdgLiNZY1y7QxSNt5uhYxUu8wgNjsw1?=
+ =?us-ascii?Q?t5GtLpTdKPedI25PjzxvqNitOBzBsdzBBFG4x4RPuSnLrGBpv6jtop08bdNA?=
+ =?us-ascii?Q?1jQQyrO0UrQzCzHuKr/65Necy5vdxBaUU5nbZtq8EXe2Cn1HFfcftxuHCsRg?=
+ =?us-ascii?Q?H5lbQ/wGTnAs3nx0Q5sDFY+Bn+ShX5X12ZzSDrUxpUX4qlZx28/HFWYvHlSS?=
+ =?us-ascii?Q?eZv3uU3aoFZO9Wv76uBat/8Z7q8bEYLx/LyJpASYtEvmgsZzx1w3R/shMbjP?=
+ =?us-ascii?Q?53bMr+e2Br9vrJPPO+scX+OpUzeItOxFnRwG63RsfAbrIDZw8iN8w/7b8Jka?=
+ =?us-ascii?Q?LBmD5fdq0lBsD5dHZjcrzLQXGYyvubJi7yybc7MBMAGTc6kThrVCaEQ6jVig?=
+ =?us-ascii?Q?8P1orpTAJ0ez6QE=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Feb 2025 07:13:09.2182
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d04b840c-62e6-42f8-3303-08dd517e07b6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6731.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6537
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250219_231306_491943_F5F2D725 
-X-CRM114-Status: GOOD (  50.62  )
+X-CRM114-CacheID: sfid-20250219_231324_928342_2EB3A114 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,369 +170,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+On Tue, Feb 18, 2025 at 02:52:29PM -0400, Jason Gunthorpe wrote:
+> On Tue, Feb 18, 2025 at 06:17:15PM +0000, Pranjal Shrivastava wrote:
+> 
+> > > Is MEV available only in nested mode? Otherwise it perhaps makes
+> > > sense to turn it on in all configurations in IOMMUFD paths...
+> > 
+> > I think the arm-smmu-v3's iommufd implementation only supports nested
+> > which could be the reason.
+> 
+> I think starting with MEV in this limited case is reasonable.
+> 
+> I agree it makes sense to always turn it on from a production
+> perspective..
 
-Long time no hear ;) First of all, thanks for the review!
+Then, I will just add a line to the commit log:
+"In the future, we might want to enable the MEV for non-nested cases too
+ such as domain->type == IOMMU_DOMAIN_UNMANAGED or even IOMMU_DOMAIN_DMA."
 
-On 19/02/2025 22:41, Andy Shevchenko wrote:
-> On Wed, Feb 19, 2025 at 02:30:27PM +0200, Matti Vaittinen wrote:
->> There are ADC ICs which may have some of the AIN pins usable for other
->> functions. These ICs may have some of the AIN pins wired so that they
->> should not be used for ADC.
->>
->> (Preferred?) way for marking pins which can be used as ADC inputs is to
->> add corresponding channels@N nodes in the device tree as described in
->> the ADC binding yaml.
->>
->> Add couple of helper functions which can be used to retrieve the channel
->> information from the device node.
-> 
-> ...
-> 
->>   - Rename iio_adc_device_get_channels() as
-> 
-> as?
-
-Oh, looks like I got interrupted :) Thanks!
-
-> 
-> ...
-> 
->> obj-$(CONFIG_FSL_MX25_ADC) += fsl-imx25-gcq.o
->>   obj-$(CONFIG_GEHC_PMC_ADC) += gehc-pmc-adc.o
->>   obj-$(CONFIG_HI8435) += hi8435.o
->>   obj-$(CONFIG_HX711) += hx711.o
-> 
->> +obj-$(CONFIG_IIO_ADC_HELPER) += industrialio-adc.o
-> 
-> Shouldn't this be grouped with other IIO core related objects?
-
-I was unsure where to put this. The 'adc' subfolder contained no other 
-IIO core files, so there really was no group. I did consider putting it 
-on top of the file but then just decided to go with the alphabetical 
-order. Not sure what is the right way though.
-
->>   obj-$(CONFIG_IMX7D_ADC) += imx7d_adc.o
->>   obj-$(CONFIG_IMX8QXP_ADC) += imx8qxp-adc.o
->>   obj-$(CONFIG_IMX93_ADC) += imx93_adc.o
-> 
-> ...
-> 
-> 
-> + bitops.h
-> 
->> +#include <linux/device.h>
->> +#include <linux/errno.h>
-> 
-> + export.h
-> 
-> + module.h
-> 
->> +#include <linux/property.h>
-> 
-> + types.h
-
-Thanks!
-
-> ...
-> 
->> +EXPORT_SYMBOL_GPL(iio_adc_device_num_channels);
-> 
-> No namespace?
-
-I was considering also this. The IIO core functions don't belong into a 
-namespace - so I followed the convention to keep these similar to other 
-IIO core stuff.
-
-(Sometimes I have a feeling that the trend today is to try make things 
-intentionally difficult in the name of the safety. Like, "more difficult 
-I make this, more experience points I gain in the name of the safety".)
-
-Well, I suppose I could add a namespace for these functions - if this 
-approach stays - but I'd really prefer having all IIO core stuff in some 
-global IIO namespace and not to have dozens of fine-grained namespaces 
-for an IIO driver to use...
-
-> ...
-> 
->> +	if (!allowed_types || allowed_types & (~IIO_ADC_CHAN_PROP_TYPE_ALL)) {
-> 
-> Unneeded parentheses around negated value.
-> 
->> +		dev_dbg(dev, "Invalid adc allowed prop types 0x%lx\n",
->> +			allowed_types);
->> +
->> +		return -EINVAL;
->> +	}
->> +	if (found_types & (~allowed_types)) {
-> 
-> Ditto.
-> 
->> +		long unknown_types = found_types & (~allowed_types);
-> 
-> Ditto and so on...
-> 
-> Where did you get this style from? I think I see it first time in your
-> contributions. Is it a new preferences? Why?
-
-Last autumn I found out my house was damaged by water. I had to empty 
-half of the rooms and finally move out for 2.5 months. Now I'm finally 
-back, but during the moves I lost my printed list of operator 
-precedences which I used to have on my desk. I've been writing C for 25 
-years or so, and I still don't remember the precedence rules for all 
-bitwise operations - and I am fairly convinced I am not the only one.
-
-What I understood is that I don't really have to have a printed list at 
-home, or go googling when away from home. I can just make it very, very 
-obvious :) Helps me a lot.
-
-> 
->> +		int type;
->> +
->> +		for_each_set_bit(type, &unknown_types,
->> +				 IIO_ADC_CHAN_NUM_PROP_TYPES - 1) {
->> +			dev_err(dev, "Unsupported channel property %s\n",
->> +				iio_adc_type2prop(type));
->> +		}
->> +
->> +		return -EINVAL;
->> +	}
-> 
-> ...
-> 
->> +int iio_adc_device_channels_by_property(struct device *dev, int *channels,
->> +		int max_channels, const struct iio_adc_props *expected_props)
->> +{
->> +	int num_chan = 0, ret;
->> +
->> +	device_for_each_child_node_scoped(dev, child) {
->> +		u32 ch, diff[2], se;
->> +		struct iio_adc_props tmp;
->> +		int chtypes_found = 0;
->> +
->> +		if (!fwnode_name_eq(child, "channel"))
->> +			continue;
->> +
->> +		if (num_chan == max_channels)
->> +			return -EINVAL;
->> +
->> +		ret = fwnode_property_read_u32(child, "reg", &ch);
->> +		if (ret)
->> +			return ret;
->> +
->> +		ret = fwnode_property_read_u32_array(child, "diff-channels",
->> +						     &diff[0], 2);
-> 
-> 						     diff, ARRAY_SIZE(diff));
-> 
-> (will require array_size.h)
-
-thanks :) And thanks for being helpful with the header - and there is no 
-sarcasm!
-
->> +		if (!ret)
->> +			chtypes_found |= IIO_ADC_CHAN_PROP_TYPE_DIFF;
->> +
->> +		ret = fwnode_property_read_u32(child, "single-channel", &se);
->> +		if (!ret)
->> +			chtypes_found |= IIO_ADC_CHAN_PROP_TYPE_SINGLE_ENDED;
->> +
->> +		tmp = *expected_props;
->> +		/*
->> +		 * We don't bother reading the "common-mode-channel" here as it
->> +		 * doesn't really affect on the primary channel ID. We remove
->> +		 * it from the required properties to allow the sanity check
->> +		 * pass here  also for drivers which require it.
->> +		 */
->> +		tmp.required &= (~BIT(IIO_ADC_CHAN_PROP_COMMON));
-> 
-> Redundant outer parentheses. What's the point, please?
-
-Zero need to think of precedence.
-
->> +		ret = iio_adc_prop_type_check_sanity(dev, &tmp, chtypes_found);
->> +		if (ret)
->> +			return ret;
->> +
->> +		if (chtypes_found & IIO_ADC_CHAN_PROP_TYPE_DIFF)
->> +			ch = diff[0];
->> +		else if (chtypes_found & IIO_ADC_CHAN_PROP_TYPE_SINGLE_ENDED)
->> +			ch = se;
->> +
->> +		/*
->> +		 * We assume the channel IDs start from 0. If it seems this is
->> +		 * not a sane assumption, then we can relax this check or add
->> +		 * 'allowed ID range' parameter.
->> +		 *
->> +		 * Let's just start with this simple assumption.
->> +		 */
->> +		if (ch >= max_channels)
->> +			return -ERANGE;
->> +
->> +		channels[num_chan] = ch;
->> +		num_chan++;
->> +	}
->> +
->> +	return num_chan;
->> +
->> +}
-> 
-> ...
-> 
->> +int devm_iio_adc_device_alloc_chaninfo(struct device *dev,
->> +				const struct iio_chan_spec *template,
->> +				struct iio_chan_spec **cs,
->> +				const struct iio_adc_props *expected_props)
->> +{
->> +	struct iio_chan_spec *chan;
->> +	int num_chan = 0, ret;
->> +
->> +	num_chan = iio_adc_device_num_channels(dev);
->> +	if (num_chan < 1)
->> +		return num_chan;
->> +
->> +	*cs = devm_kcalloc(dev, num_chan, sizeof(**cs), GFP_KERNEL);
->> +	if (!*cs)
->> +		return -ENOMEM;
->> +
->> +	chan = &(*cs)[0];
-> 
-> This and above and below will be easier to read if you introduce a temporary
-> variable which will be used locally and assigned to the output later on.
-> Also the current approach breaks the rule that infiltrates the output even in
-> the error cases.
-
-Agree. Thanks.
-
-> 
->> +	device_for_each_child_node_scoped(dev, child) {
->> +		u32 ch, diff[2], se, common;
->> +		int chtypes_found = 0;
->> +
->> +		if (!fwnode_name_eq(child, "channel"))
->> +			continue;
->> +
->> +		ret = fwnode_property_read_u32(child, "reg", &ch);
->> +		if (ret)
->> +			return ret;
->> +
->> +		ret = fwnode_property_read_u32_array(child, "diff-channels",
->> +						     &diff[0], 2);
-> 
-> As per above.
-> 
->> +		if (!ret)
->> +			chtypes_found |= IIO_ADC_CHAN_PROP_TYPE_DIFF;
->> +
->> +		ret = fwnode_property_read_u32(child, "single-channel", &se);
->> +		if (!ret)
->> +			chtypes_found |= IIO_ADC_CHAN_PROP_TYPE_SINGLE_ENDED;
-> 
->> +		ret = fwnode_property_read_u32(child, "common-mode-channel",
->> +					       &common);
-> 
-> I believe this is okay to have on a single line,
-
-I try to keep things under 80 chars. It really truly helps me as I'd 
-like to have 3 parallel terminals open when writing code. Furthermore, I 
-hate to admit it but during the last two years my near vision has 
-deteriorated... :/ 40 is getting more distant and 50 is approaching ;)
-
-> 
->> +		if (!ret)
->> +			chtypes_found |= BIT(IIO_ADC_CHAN_PROP_COMMON);
->> +
->> +		ret = iio_adc_prop_type_check_sanity(dev, expected_props,
->> +						     chtypes_found);
->> +		if (ret)
->> +			return ret;
->> +
->> +		*chan = *template;
->> +		chan->channel = ch;
->> +
->> +		if (chtypes_found & IIO_ADC_CHAN_PROP_TYPE_DIFF) {
->> +			chan->differential = 1;
->> +			chan->channel = diff[0];
->> +			chan->channel2 = diff[1];
->> +
->> +		} else if (chtypes_found & IIO_ADC_CHAN_PROP_TYPE_SINGLE_ENDED) {
->> +			chan->channel = se;
->> +			if (chtypes_found & BIT(IIO_ADC_CHAN_PROP_COMMON))
->> +				chan->channel2 = common;
->> +		}
->> +
->> +		/*
->> +		 * We assume the channel IDs start from 0. If it seems this is
->> +		 * not a sane assumption, then we have to add 'allowed ID ranges'
->> +		 * to the struct iio_adc_props because some of the callers may
->> +		 * rely on the IDs being in this range - and have arrays indexed
->> +		 * by the ID.
->> +		 */
->> +		if (chan->channel >= num_chan)
->> +			return -ERANGE;
->> +
->> +		chan++;
->> +	}
->> +
->> +	return num_chan;
->> +}
-> 
-> ...
-> 
->> +#ifndef _INDUSTRIAL_IO_ADC_HELPERS_H_
->> +#define _INDUSTRIAL_IO_ADC_HELPERS_H_
-> 
-> + bits.h
-> 
->> +#include <linux/iio/iio.h>
-> 
-> I'm failing to see how this is being used in this header.
-
-I suppose it was the struct iio_chan_spec. Yep, forward declaration 
-could do, but I guess there would be no benefit because anyone using 
-this header is more than likely to use the iio.h as well.
-
-> 
->> +struct device;
->> +struct fwnode_handle;
->> +
->> +enum {
->> +	IIO_ADC_CHAN_PROP_REG,
->> +	IIO_ADC_CHAN_PROP_SINGLE_ENDED,
->> +	IIO_ADC_CHAN_PROP_DIFF,
->> +	IIO_ADC_CHAN_PROP_COMMON,
->> +	IIO_ADC_CHAN_NUM_PROP_TYPES
->> +};
->> +
->> +/*
->> + * Channel property types to be used with iio_adc_device_get_channels,
->> + * devm_iio_adc_device_alloc_chaninfo, ...
-> 
-> Looks like unfinished sentence...
-
-Intention was to just give user an example of functions where this gets 
-used, and leave room for more functions to be added. Reason is that 
-lists like this tend to end up being incomplete anyways. Hence the ...
-
-> 
->> + */
->> +#define IIO_ADC_CHAN_PROP_TYPE_REG BIT(IIO_ADC_CHAN_PROP_REG)
->> +#define IIO_ADC_CHAN_PROP_TYPE_SINGLE_ENDED BIT(IIO_ADC_CHAN_PROP_SINGLE_ENDED)
->> +#define IIO_ADC_CHAN_PROP_TYPE_SINGLE_COMMON					\
->> +	(BIT(IIO_ADC_CHAN_PROP_SINGLE_ENDED) | BIT(IIO_ADC_CHAN_PROP_COMMON))
->> +#define IIO_ADC_CHAN_PROP_TYPE_DIFF BIT(IIO_ADC_CHAN_PROP_DIFF)
->> +#define IIO_ADC_CHAN_PROP_TYPE_ALL GENMASK(IIO_ADC_CHAN_NUM_PROP_TYPES - 1, 0)
-> 
->> +int devm_iio_adc_device_alloc_chaninfo(struct device *dev,
->> +				const struct iio_chan_spec *template,
->> +				struct iio_chan_spec **cs,
->> +				const struct iio_adc_props *expected_props);
->> +
->> +int iio_adc_device_channels_by_property(struct device *dev, int *channels,
->> +				int max_channels,
->> +				const struct iio_adc_props *expected_props);
->> +#endif /* _INDUSTRIAL_IO_ADC_HELPERS_H_ */
-> 
-> 
-
+Thanks
+Nicolin
 
