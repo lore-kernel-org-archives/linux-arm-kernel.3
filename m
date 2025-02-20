@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9315FC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 20:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EF2BC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 20:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TUxRiLX4DyVPlrMacNkPsStsx8cpP9d0LZJXAgp6S6A=; b=By2l8/GlBNiLF5jFLERTlefQLd
-	auDj9lNeGkSHHalbHk2FsqJ5iZjH9c2OpHc5zYmPNDUK6xtFgjtG4zgmelyvfl6vi/J1g7tXwR20d
-	ciwYufQxDjxuCMDw4zTTNeVLD4xOL3vhakqHiycBHYYZ4Ncr5Ufzj825MqXhd3US8IjY680izEnGb
-	y27uw8YmCa5eZ87VSU7loNJPjhlY7/EmfZy8diSwZAt4s6Of5BIn2x0syNjUHWrV4eC794dntlIgT
-	pruaKNa3KHOtn7qVRGazyD3gInak0EZ+MlS25MkFI1WR5uGChPsJtImUhpr0llEId5J21ZOT5CJ+V
-	Uldk5Ggw==;
+	bh=L/oPr+uhiMwVLonfT4r87s8BLvEv5cJUIRCGxgmU+Z4=; b=jVoN5RSxpAtM1ptC/LB2oXy6qz
+	ByxfNbPL2rXGygAY3xt7v1MI4oeoW+60wMeN7k6KC+XlIzjdGCy2zg8gDpHx77ae4hFwhLAXSrzjf
+	GqbeHCmzXZHwpUp9mm3SY7MLKt/Y6DsxkKaozRQURcSSEpf3yG1DZkmRPRwhGcNiAu0gKugNrEopw
+	4GWZ9g+lWPVNQaG3xKhx57xOXg9P98e5UkDtV4w09J9AWxCeEkAYPX9Jw3/SE8yMKVaEYcUC91ePH
+	FpOhoPgdSKCXqBifFI+o41t10bhlsLPCl94iq8iCOzDG9RgsR1+uj+yfgSofBUkSCbNAVPgbDtVQw
+	QQEnWTkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlDG8-00000002oGj-1GVT;
-	Thu, 20 Feb 2025 20:35:00 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tlDLJ-00000002pBw-1Il5;
+	Thu, 20 Feb 2025 20:40:21 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlDEd-00000002nwK-122i;
-	Thu, 20 Feb 2025 20:33:28 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-38f378498b0so1160808f8f.0;
-        Thu, 20 Feb 2025 12:33:26 -0800 (PST)
+	id 1tlDJo-00000002ox8-1BJy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Feb 2025 20:38:49 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4398c8c8b2cso14182535e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 12:38:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740083605; x=1740688405; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740083926; x=1740688726; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TUxRiLX4DyVPlrMacNkPsStsx8cpP9d0LZJXAgp6S6A=;
-        b=d6usahXmLaQfmCaHnj6/cgTVz+9UJaoAavQK+ED/FkdNacrtI7/3dDteF8h0OUHEWP
-         V8vq0ARPfZO8kmk+ukICz+bKQfGeXX3HdiAxHJaL4saJsuzn1tW8Hz7+jwZ/NttYCi54
-         eaNeil679giSPSvzHCi1dbEU9ww1drcwbXtpfIZkNpEKSDzSdwtwiUUlVHz+hzHJNf3h
-         5gSrPUjQXWzH88rh2stIupm9FiIc3S/oeVxPIA/uaN3mrJRMkrE+I+omhnS6s6VcHQeM
-         k1erB7WscGEeItXnG6bPK65iqmTIfdRTIDWhNKgTWsl5eBsQYiy6qM96kf7AP77ALlRN
-         cJqQ==
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L/oPr+uhiMwVLonfT4r87s8BLvEv5cJUIRCGxgmU+Z4=;
+        b=nIUL4YjZHIRYGcKpjIjgAM7oMz99DHZilRn4gLZYjnPCH8ZmWtpv/ImlLC5BppPF0A
+         SUCtq7JeOAgnWrbyYlvisKNMUUKEnk1YH44gtBWye1LXkW/oA28faaNIDR5yfhrJ6do+
+         6JD/JCrkENY+Hm1INr5RJXcSA3lfqqfJRqXuXs1vh2z6QLl0adsbEHnfYz8srPV+2dMD
+         +NP4Ig+dg5L3B6qKWvZcAHoOEfOOtdcH7Pr1Bm4QyFkXh1jVClBxscTb0DAEIrRCamN/
+         yvkTCk4rvvYczrYLFlVe7dHIHE60+6nGbDytPlrGNqd+lEG8P6+roVjFBc0SoqY6ukfo
+         vboQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740083605; x=1740688405;
+        d=1e100.net; s=20230601; t=1740083926; x=1740688726;
         h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=TUxRiLX4DyVPlrMacNkPsStsx8cpP9d0LZJXAgp6S6A=;
-        b=E/THRZpIrSxxURYO53wobXTFaNYztRxCijEKmxPOfRAEW5xszNvYS26IGRR8GmlMre
-         UGJ33skM+y+0JNXsS0tRhxOy2R5cKZyI9F8ECest4ZE7e4qR4OhyMgJEvitAbTl2ZVGt
-         x8j5wkh7HdeN69fRB0G7wrtp9g63AQLy8SpwXDgS0oeG1/cUbvrSdB96EH3ZZC8MsbxN
-         WEHKAJKJnO6xddYQX8c5fguORXzDWxVu5kM/ndmOBwfvCDZAbJEq6JxRLJXbcQV6XV5w
-         Z3e9dNGTyR/qyPYd6jCKF60HwJ/VyHpW3YgkLKefJoWTx1ab6MfXjnFTwGhtn/3Jhd2d
-         d35Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUyRdvAKr4g/D+HffAWb1JdAs+l5gSZowU/T6dtNw8uEgDXiJiRGS1J1D16uxMP+SADV9gonEbTOPjmaMLGVnQ+@lists.infradead.org, AJvYcCXGehipSsQBCpsf1DvQIj9dv57IAjRBofh0AeHh3lgtyu4vczIDPKTBQx2R1n4cSLkaDbUAbUdJPw6Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKXHl0Ez+AuPRz+EpaQA1mP2dXcTVkQaML8TgVldUA1SGXjXkK
-	ISSIJY5OPBQLbwam6v7y5pZbVyOkJ4WFIOuQ0Hm4CSbvWjt0nu2DXJZnrIac0Hg=
-X-Gm-Gg: ASbGncuqwbh6aW27BurlEhwSXafR0S77oiNe+xYsWqzpb8AZYLOI4tSDA2/p/qOXKJW
-	9AQa1uvUCamta2+Nt93Sz4AEoQUx0Ozll/C5LGWcdTAtW7Wfbp3BiPH5rejDhb8Xr8hEuQsLdAn
-	CaIBbAPc6HJikfYWcZLfe1GEHaoo7hRU1ksAd8NNwAG3d1BGzUgfOgE/eCl/aQwn3ZikpoIEeIa
-	aJ6phWpxhM4kZF8D8QE60dqhXSzrnNkgLvEZ+y39JsW6THwk5QcKrqjIOP2XMg02SoL9uyiIF0T
-	tr99xOz9dIxHgbhVHtC+7LqI16oFRF3Z0+ZMyR7TA0nBJsFgIHpW0Qr/QeKjG2I5MqM=
-X-Google-Smtp-Source: AGHT+IG3ll1f11+UZwtw+Jor04/g1jCvuU4qYpcPBlXzdyIiMI+7ByMCtbhip+csjv0HRfpmtu7BRw==
-X-Received: by 2002:a5d:456b:0:b0:38f:4e50:8b0b with SMTP id ffacd0b85a97d-38f6f0630d5mr472733f8f.31.1740083605337;
-        Thu, 20 Feb 2025 12:33:25 -0800 (PST)
+        bh=L/oPr+uhiMwVLonfT4r87s8BLvEv5cJUIRCGxgmU+Z4=;
+        b=A+fTZ7L2PsaJSBEPMljnOrkTmh2f4jaVASzmwH/+q7m0Z2LnksBoUetOP+6DPXi8uE
+         ZV9oH3hVdaonQzkRob0CvuHuU0+XmWp+oK38ezdPhz0F7doI4ALPPzlDo99zSFbuOz1R
+         L2/laXgtDjOYw1dIg96SN4NzYPSU3Zn2T/TV0S0YB/2va5hAfnki56io6+KSkszlfg6d
+         F793UNaNnfvbBXNjTguBeK7duVFgC0sFKrj2F1Pn/Vby1BB8vRAff9o8gDZEaHRyJrLu
+         k88pkE7XwtHg7vq0FBcVxzDJHkxno00vy7wUlCpWvbp/4hpEiHrphnrKTCgBvxM6JHQA
+         UwtA==
+X-Forwarded-Encrypted: i=1; AJvYcCX1+QqohzRM6GgqSOtfuTT+LnJ8ohORd3JRFZGMQnsvS4SFkP1XM0b1ONvOKsCvlOH+BI7fzU9rUBNvRhBij7ip@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdabFFWgzEuHwsMAQzIHjLJkT5AidcV4tfQCAE3DoaBbPxgxpT
+	5MF2YDf4ZnlDb32QvxW3VGohI5gY53eGmqEvdUW/uvW2/t6y2w4s
+X-Gm-Gg: ASbGnctPU35BDsan+Gr4OGYZ1spIWoJbENlXqm2YhQKBAhQNgZ8Q+5wG3rZMUFeOs6l
+	vJNHGMQwxk5zZnEkqk19Yr8JSGNCegI2gIKPEeQKniLaDM32aVufn/bOiaG8Q4OPsWmoRhp0QIe
+	VPco3e8Jyj2mrCHXW9UH/1uOkCEkqcFjtJBuwGiPZUHFa3dBJ63wQL+yF8BadwoLbBb2uJR9aDs
+	qdx8V8gc0SoGEx5LF+D5SNIBe6S8QwmRnFdmcMDPQkO9i5ta1t++RmakjZkgsJZxTopvf9q+2QO
+	7tdSsfi8oJT2iiL164nDYnlrjUocPuVawUZo0ErRh+FltZtPdq5O67lEnRGYXogjnMA=
+X-Google-Smtp-Source: AGHT+IH9AWEvVPP40afiEyTpAqrp+DWpZtEd4U6ccKRCJ9igZQuFw9ymkzn2FjL3McLqq0mzFVmoPw==
+X-Received: by 2002:a05:600c:524a:b0:439:86c4:a8ec with SMTP id 5b1f17b1804b1-439ae1f1147mr6622885e9.15.1740083926326;
+        Thu, 20 Feb 2025 12:38:46 -0800 (PST)
 Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258b4158sm21289979f8f.3.2025.02.20.12.33.24
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439a3cc9551sm31663025e9.39.2025.02.20.12.38.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 12:33:25 -0800 (PST)
+        Thu, 20 Feb 2025 12:38:46 -0800 (PST)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
- Philippe Simons <simons.philippe@gmail.com>,
- "open list:GENERIC PHY FRAMEWORK" <linux-phy@lists.infradead.org>,
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
  "moderated list:ARM/Allwinner sunXi SoC support"
  <linux-arm-kernel@lists.infradead.org>,
  "open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
  open list <linux-kernel@vger.kernel.org>,
  Philippe Simons <simons.philippe@gmail.com>
-Subject: Re: [RFC PATCH 2/3] phy: override dr_mode for phy0
-Date: Thu, 20 Feb 2025 21:33:24 +0100
-Message-ID: <2428472.yKrmzQ4Hd0@jernej-laptop>
-In-Reply-To: <20250118102207.9339-2-simons.philippe@gmail.com>
+Cc: Philippe Simons <simons.philippe@gmail.com>
+Subject: Re: [RFC PATCH 3/3] arm64: dts: allwinner: h700: Enable USB OTG
+Date: Thu, 20 Feb 2025 21:38:44 +0100
+Message-ID: <3229934.fEcJ0Lxnt5@jernej-laptop>
+In-Reply-To: <20250118102207.9339-3-simons.philippe@gmail.com>
 References: <20250118102207.9339-1-simons.philippe@gmail.com>
- <20250118102207.9339-2-simons.philippe@gmail.com>
+ <20250118102207.9339-3-simons.philippe@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_123327_285274_819D12F8 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20250220_123848_317575_37285B00 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,50 +106,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 18. januar 2025 ob 11:22:05 Srednjeevropski standardni =C4=8Das=
+Dne sobota, 18. januar 2025 ob 11:22:06 Srednjeevropski standardni =C4=8Das=
  je Philippe Simons napisal(a):
-> PHY0 mode is fully determined by the selected mux route.
-> Ignore changes requests from controllers.
+> RG35XX have a GPIO controlled regulator for phy0 vbus, add it.
+> Enable HCI0s controllers and otg for dr_mode.
+> Add phy0 properties to descrive id_det, external vbus, and internal vbus
 >=20
 > Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
 
-Some context is missing. Why is this patch needed? Which scenario causes
-issues without this patch?
+This could work without previous two patches, right?
 
-Please also provide cover letter to the series, with "big picture" explanat=
-ion.
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
 Best regards,
 Jernej
 
 > ---
->  drivers/phy/allwinner/phy-sun4i-usb.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
+>  .../sun50i-h700-anbernic-rg35xx-2024.dts      | 25 +++++++++++++++++--
+>  1 file changed, 23 insertions(+), 2 deletions(-)
 >=20
-> diff --git a/drivers/phy/allwinner/phy-sun4i-usb.c b/drivers/phy/allwinne=
-r/phy-sun4i-usb.c
-> index 24fbabe7a..f163b355e 100644
-> --- a/drivers/phy/allwinner/phy-sun4i-usb.c
-> +++ b/drivers/phy/allwinner/phy-sun4i-usb.c
-> @@ -544,6 +544,18 @@ static int sun4i_usb_phy_set_mode(struct phy *_phy,
->  		return -EINVAL;
->  	}
-> =20
-> +	if (data->cfg->phy0_dual_route) {
-> +		/*
-> +		 For SoCs with dual route the PHY mode is fully determined by=20
-> +		 the selected mux route (i.e. USB controller to use).
-> +		 As both host (EHCI/OHCI) and peripheral (MUSB) controllers uses
-> +		 the same PHY, both drivers can try to set PHY mode.
-> +		 We need to ignore this requests, but not report error in case
-> +		 of valid mode values.
-> +		*/
-> +		return 0;
-> +	}
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-20=
+24.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+> index 80ccab7b5..5a6ae42de 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dts
+> @@ -175,6 +175,16 @@ reg_vcc5v: regulator-vcc5v { /* USB-C power input */
+>  		regulator-min-microvolt =3D <5000000>;
+>  		regulator-max-microvolt =3D <5000000>;
+>  	};
 > +
->  	if (new_mode !=3D data->dr_mode) {
->  		dev_info(&_phy->dev, "Changing dr_mode to %d\n", new_mode);
->  		data->dr_mode =3D new_mode;
+> +	reg_usb0_vbus: regulator-usb0-vbus {
+> +		compatible =3D "regulator-fixed";
+> +		enable-active-high;
+> +		gpio =3D <&pio 8 16 GPIO_ACTIVE_HIGH>; /* PI16 */
+> +		regulator-min-microvolt =3D <5000000>;
+> +		regulator-max-microvolt =3D <5000000>;
+> +		regulator-name =3D "usb0-vbus";
+> +		vin-supply =3D <&reg_boost>;
+> +	};
+>  };
+> =20
+>  &cpu0 {
+> @@ -337,12 +347,23 @@ &uart0 {
+>  	status =3D "okay";
+>  };
+> =20
+> -/* the AXP717 has USB type-C role switch functionality, not yet describe=
+d by the binding */
+> +/* the AXP717 has USB type-C role switch functionality */
+>  &usbotg {
+> -	dr_mode =3D "peripheral";   /* USB type-C receptable */
+> +	dr_mode =3D "otg";   /* USB type-C receptable */
+> +	status =3D "okay";
+> +};
+> +
+> +&ehci0 {
+> +	status =3D "okay";
+> +};
+> +
+> +&ohci0 {
+>  	status =3D "okay";
+>  };
+> =20
+>  &usbphy {
+> +	usb0_id_det-gpios =3D <&pio 8 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* P=
+I4 */
+> +	usb0_vbus_power-supply =3D <&usb_power>;
+> +	usb0_vbus-supply =3D <&reg_usb0_vbus>;
+>  	status =3D "okay";
+>  };
 >=20
 
 
