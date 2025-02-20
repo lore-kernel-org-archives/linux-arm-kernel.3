@@ -4,81 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C71C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CF9C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 16:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xjApu7wvR6RLPV6pa18bAu5v7DCmsJtT4U5G+lnbPN4=; b=4r48kuy818eYGEMkv/IfD3ahnR
-	AdkvHxQfaUAd8b6tAkyynjbA54E2PN2t7XD2OTAF1adLUfa+KKBoL79wmK5/qAEMHoHV8blsxECGs
-	jrkTzzcJcyLMFBam7c28Cga8I9MkmobUbahkz4SwgLWgzdNcf7LSKfFtTp8lTOYxNE6JcxrY6EH+C
-	fh6Ht4YNheh4TjMaoTLJK/L/mt1LxRT79miAPS803b1CVawReyRh/rR7BDv1F7J+J0PTkblz3lLWR
-	W+ugr0yNSSlg10cgpEgwS+cZ1T65HvHnv4gugKr4Shl7W8x2lq2eTScT1CbE+gaKeXnHjoqoKa9ed
-	mTDj4eTA==;
+	bh=w9z6CJ8GEmOUY+R90CcF3D8uqozLmZO9LjzSZXbDX8o=; b=0yN716jGlWHfyWZMteIEiNw6DL
+	wEyAVO+s2L/HR3O9h48CYy9yqOxGxYNRA1cCfnbmDpYWEARORnwwSB/8XSexg5mPXDVUwEjLlqET6
+	w9/Qq8UYBc1E2pQNV7/gD2abf1RikOVbvuuRd8rZs+OiecUNGIgYxBlMiPZoNlx6GtprCmiWyUuUl
+	FtvsMdAntCBZ3LAafl6z8sYjVMYeOOO+Tgmtbz7jlNF4RhqzgQB+oeC0iaRNgCuyaOaEHwN+Xn8aZ
+	7lPtrCd19mx0O+5h1cGcFP21ALqNwxYOfmASsJc4EqDPLQb7+HgBsczHzs70R452t8NqsG1x7Ebt5
+	I/TvlAEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9JW-00000001plU-42VK;
-	Thu, 20 Feb 2025 16:22:14 +0000
-Received: from mail-pj1-f44.google.com ([209.85.216.44])
+	id 1tl9L0-00000001qPv-2pxy;
+	Thu, 20 Feb 2025 16:23:46 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9C1-00000001nS8-0lOY;
-	Thu, 20 Feb 2025 16:14:30 +0000
-Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-2fc3027c7aeso2349054a91.0;
-        Thu, 20 Feb 2025 08:14:28 -0800 (PST)
+	id 1tl9DN-00000001nu5-1SHM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Feb 2025 16:15:54 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-22117c396baso172335ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 08:15:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1740068151; x=1740672951; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=w9z6CJ8GEmOUY+R90CcF3D8uqozLmZO9LjzSZXbDX8o=;
+        b=V0IlOa2Ylu+ExNRCrvz4dJeODs6Ft6jB5IcuaP9rv4qP9LEcfMB1cJRDILfcIDquwJ
+         vfs4IFgQij1l+vmvAiBXN6Tc+IpTJ1SQj38HbtlaQaOaY8nkw1utKeBExC3IdMY6NTau
+         SCueJNasmo1Ih8tEpR+TXHeeBHBOqYzlRAGDg57yzQBrqIi5jlptDdljZ1d5thJakdSb
+         hJT4Ve1KQBVfSvvjDDNH00NeXTPbvmqcLOxfV30x5+GsngeWCijluPBYqeeOcmZELEtA
+         +xhSOSQNEMp+YHB+YifV6p7OYOzwCWvnKVMy0cTawJZl52ydVtGkodrTwPIWbMjVz14D
+         8GLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740068068; x=1740672868;
+        d=1e100.net; s=20230601; t=1740068151; x=1740672951;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xjApu7wvR6RLPV6pa18bAu5v7DCmsJtT4U5G+lnbPN4=;
-        b=sOj4TdgH6uVb4TW7DTiUkP7xcKWqSNzvWa9kVCrxHMHQWLc7UxPNbhDhzwBY4CFbj+
-         B7tGAW3mBooRRgl9rdT+OHjkjFui4yTVqQ7/IbgsoAfoQcDbQh2+gPv0e65CTSyoeRCe
-         tKHMtaZ7wyRb3/p8Vties82khcSzErLUSnMUVc7OUY5/tK3VraoyCFhF5cIOdVM+Fquv
-         /MacSUhc561JuVX9dz737oIxxWGDqLww2HZ+vJhNyV9FxhbsyhgjMW12AXiYtZ0wBUjP
-         VdC8cxQ6PKu3xJqCFLrvZv1cLERhqx+JA/VV7JyCAQtqCSnWTa3sCzJWTn+ExHGPur1U
-         omgw==
-X-Forwarded-Encrypted: i=1; AJvYcCUp36oNlMFu31S9o+iBE0C1TZMnMUSXzeQN4yhiNQbbVdtUJLAOsInQW9scYc0oYhtZXmcXk5YYKhODkXXc+xlJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJDoYlMpKzBaugYO0YGXOgIR1gEQQWA37oXDoNAUwri7j2mFxq
-	hJvKexJR56J58FRNozPJPtDLU6d+Tf6+xtQ+63Me/o/kifnwPFEV
-X-Gm-Gg: ASbGncsCYY8eWRl/5hqfJygKUJF11kUOEm9gsBw+1gaSGs7+Lv0hTj7B3Ic0IWyjPzC
-	8+tc4Zk4HnM6kgmTTDW7lbtyWE7WP7M+4DHrloYDdYSMpKZ8YE2JNfdgxMhQrqq9hoN91xxHBm2
-	ncduOSkUsJYA/fsS8oevAUsgu+JFxPWuiJaFz3yvZy+qpD+T9OdoiOKFKM2KK8pQMBsNrDud5xI
-	/xlSQRCtHDt3X0grl8UblF87+FlKg8g1Jvk3tNtUHdpXJnfCjwxqTLY3CEykvQ2P7Vk8JpaqSzT
-	C7N4nL9Bk4xyuLpaurTvZn+S8oyE2KBtWWca/bKKqDOQy2Bm5w==
-X-Google-Smtp-Source: AGHT+IE5g92tymOpqjZljOvL+f+6fyGVJuuKsTsrji+yeU7rzJLwpLIQ+0QHK60yLpl/epYrNk3qgA==
-X-Received: by 2002:a17:90b:1e46:b0:2ee:fdf3:38ea with SMTP id 98e67ed59e1d1-2fc4104051emr28560885a91.23.1740068068277;
-        Thu, 20 Feb 2025 08:14:28 -0800 (PST)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-2fc13aafebesm13935035a91.4.2025.02.20.08.14.27
+        bh=w9z6CJ8GEmOUY+R90CcF3D8uqozLmZO9LjzSZXbDX8o=;
+        b=EegAZPR548TSoAijj8qa8whjAsxDBOPXsbparV7eksXWJlmApLFQB5VsIlZnli+GQj
+         fEF4V/PvgEqiR6/AZyX29LanDaioiuAhpCRlHurDXe1cLaDzVp9Vuu/4PbZP9CM3pCmI
+         gjl+qbL3rlWJqYVwH4I4nCG1qo19U7EZ22QNBy+yYW2Fb7eoieJgZ1lLNgJlQxPMEk8f
+         +iWtsIpuiC2+MEkL6e7xLRMCvQJnoSH2M9XQWl7IrL8AOo7NHJEPJW4ysO4du9M7tI3t
+         cL82m3fZs/7CrH0DeYgRWpMwKQcr+ZxgTCjEzBiPtDMhjVsldqG6pFaHHIdZ/nt1x9qI
+         xVyA==
+X-Forwarded-Encrypted: i=1; AJvYcCVtLCXn0h0D2KEQ8aEHroi6Q+NGwuNFvmL4/e9ZbGIibxyddNb4+QGokWxHA7p/6TjTse9QS3R5CundE+Jhu21Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YxR6OhI2pKX1/5rCTpu7WuH9GoS3IU1xyA6qgQkc6mL2tR2zojf
+	OEbj2jH3nEVc/EMDLYZhkw8Xge/FD5BQQjcZJZMeH6cmlJcd+/Dx8dHJEaZ3ZQ==
+X-Gm-Gg: ASbGncsNl+EUlRIsbA7cJkRea5sIRKVAmcFZdBf657HWEL/KW4ILreuAWKEdkV5iBaB
+	Gu4V/a/OBdd7A6c5+i26wBo3QKhidnHDZZA3e4ac9CZgQvtDDts1iz4RynGSUgMjfa+5P0kakaa
+	dNNy2vTZe1rACUtZqRjMfpYVQ0KuKL2GWAQhzrQcjWKFmwPVmyJMUaZZKKNqHr+zpVz7zUW/VR5
+	JBmGKtUqBApLvStLFtxWex2adGuP3XUogRs2Q+n/Ub0p7P9ILwQz7ZHTr+LbLXMTWgf3lHqZ11e
+	l6arP/va7hhDStE2S2DmGV14be6IpN5F9GnD4UacTcNvAuHw6NIF
+X-Google-Smtp-Source: AGHT+IEeeNO5YXG4GrTFzHJDa5KXpncdRPcsXRbYIZYGBm4w3MV78t3++PWrZwNmDnY5dth9MgRnnA==
+X-Received: by 2002:a17:902:dacf:b0:21f:3e29:9cd4 with SMTP id d9443c01a7336-2218debe8bamr3119545ad.20.1740068151245;
+        Thu, 20 Feb 2025 08:15:51 -0800 (PST)
+Received: from google.com (169.224.198.35.bc.googleusercontent.com. [35.198.224.169])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fc7e9325fesm8522382a91.46.2025.02.20.08.15.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Feb 2025 08:14:27 -0800 (PST)
-Date: Fri, 21 Feb 2025 01:14:25 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Stanimir Varbanov <svarbanov@suse.de>
-Cc: linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jim Quinlan <jim2101024@gmail.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: brcmstb: Fix for missing of_node_put
-Message-ID: <20250220161425.GC2510987@rocinante>
-References: <20250122222955.1752778-1-svarbanov@suse.de>
+        Thu, 20 Feb 2025 08:15:50 -0800 (PST)
+Date: Thu, 20 Feb 2025 16:15:40 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: "Tian, Kevin" <kevin.tian@intel.com>, "jgg@nvidia.com" <jgg@nvidia.com>,
+	"corbet@lwn.net" <corbet@lwn.net>,
+	"will@kernel.org" <will@kernel.org>,
+	"joro@8bytes.org" <joro@8bytes.org>,
+	"suravee.suthikulpanit@amd.com" <suravee.suthikulpanit@amd.com>,
+	"robin.murphy@arm.com" <robin.murphy@arm.com>,
+	"dwmw2@infradead.org" <dwmw2@infradead.org>,
+	"baolu.lu@linux.intel.com" <baolu.lu@linux.intel.com>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
+	"eric.auger@redhat.com" <eric.auger@redhat.com>,
+	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
+	"mdf@kernel.org" <mdf@kernel.org>,
+	"mshavit@google.com" <mshavit@google.com>,
+	"shameerali.kolothum.thodi@huawei.com" <shameerali.kolothum.thodi@huawei.com>,
+	"smostafa@google.com" <smostafa@google.com>,
+	"ddutile@redhat.com" <ddutile@redhat.com>,
+	"Liu, Yi L" <yi.l.liu@intel.com>,
+	"patches@lists.linux.dev" <patches@lists.linux.dev>
+Subject: Re: [PATCH v6 14/14] iommu/arm-smmu-v3: Set MEV bit in nested STE
+ for DoS mitigations
+Message-ID: <Z7dVLNLhP7VfZ-Ph@google.com>
+References: <cover.1737754129.git.nicolinc@nvidia.com>
+ <436ac2021bb3d75114ca0e45f25a6a8257489d3b.1737754129.git.nicolinc@nvidia.com>
+ <BN9PR11MB5276291C74E2DF0C8821BE718CFA2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <Z7TOq-gIGPY_ztW7@google.com>
+ <Z7TXQ9EdyvHp/lmD@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250122222955.1752778-1-svarbanov@suse.de>
+In-Reply-To: <Z7TXQ9EdyvHp/lmD@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_081429_219010_28933663 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250220_081553_384012_71D57D85 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,13 +122,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Tue, Feb 18, 2025 at 10:53:55AM -0800, Nicolin Chen wrote:
+> > > Is MEV available only in nested mode? Otherwise it perhaps makes
+> > > sense to turn it on in all configurations in IOMMUFD paths...
+> > 
+> > I think the arm-smmu-v3's iommufd implementation only supports nested
+> > which could be the reason.
+> 
+> I guess what Kevin says is that non-nested STE should set the MEV
+> as well, e.g. BYPASS and ABORT, and perhaps stage-1-only case too
+> where the attaching domain = UNMANAGED.
+> 
 
-> A call to of_parse_phandle() is incrementing the refcount, of_node_put
-> must be called when done the work on it. Add missing of_node_put() after
-> the check for msi_np == np and MSI initialization.
+Ohh okay, got it. Thanks!
 
-Applied to controller/brcmstb, thank you!
-
-	Krzysztof
+Praan
 
