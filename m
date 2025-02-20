@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 485E9C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 13:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D432C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 13:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0aa8kdBM8aFdPSMFaimfdz2+N+jWU1AAEjrgYX89W6A=; b=svl/bYfbIcgUbvp/0P8GieQIUK
-	mZIgUjh0xLAcfxTmRMkAbWTLtaIShGBkQUzwhvq/PY5yw4yrmxMGTRKc8lViYMb58yTi2ueg/ZO1L
-	Lm1ODU/Gg/mQY/lvoPkb6nI6hIp6j/3Nd6bxot7GHkcc8EX6NNizGLwl5dJNuuWDyI9ka5mDtj+J3
-	kLPK2AfORA9uBEYuf+4xRQpTq5uOL+osZ9e1tlSYWxRAd7Gj4hfIAbHUwOBo51uF6pkFH0D04aWw3
-	mrsyjecc5YAM6YFFprC9959EPNDlV2hMuaF6fO3BSOMzcHtZEpXteXQauQfNGITW4lzC7hrYuC5+S
-	Pdb93Ezg==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=POMR6lOYl5pvMOvsIcE2vST4Ma0WXidQSdydkDaysO0=; b=NHtdnhCIUji6sSCzUvb39CWFIs
+	VJ+zzSSytLi6xGJo8UhDFCnPRuVf1shjk/tKl5gtogJNsKlqXcV4NV4Htb30VmCt0G2xT62GGw0aC
+	15MN9g2e52zLP/SfcNA2QQDqLP7EStNMJBNB6eHcqrw5mVQckd3BPq6OVa15AqAGiZwIQqpQJC5XD
+	hbqJHVcTIVHWHCi39BXKzvT775e6zwQf2J6AwhfigK2EjRQOHBWamWRvZIXrENY7MIC8Upz/tvcqm
+	JUmEzbH3uvgO6d8kQd6r/zgWOPbFUqmV8tOr2Z1gWSMPflWcwdVyDMZjP9r3EBYJjOl14zv7Rj/J5
+	DF98mgqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl6wy-000000019JS-1Ohq;
-	Thu, 20 Feb 2025 13:50:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tl6yQ-000000019i4-3zNP;
+	Thu, 20 Feb 2025 13:52:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl6vS-000000018hH-2WXn
+	id 1tl6vS-000000018hJ-4Bph
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 13:49:15 +0000
+	Thu, 20 Feb 2025 13:49:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D02685C53F0;
-	Thu, 20 Feb 2025 13:48:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6E85C4CED1;
+	by tor.source.kernel.org (Postfix) with ESMTP id 9C55661452;
+	Thu, 20 Feb 2025 13:49:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E586FC4CEE2;
 	Thu, 20 Feb 2025 13:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1740059353;
-	bh=N/EBcfocF2jAgM4+X74I03y0WoHjhT/GxBKRJNbjoSs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=jgxh1cra+QS4uqhA65BA/gGRjhEHqQndwlTa3KAD89C3k8U24BlOlU8cQZU6aJeFR
-	 1HQqN2xn8uXJsn3+RvryeQ7fdtqWzaCZ13y8eWl/RiwRPgWjU6ESSh6dzJWlWT85fP
-	 WuzEZNAWimYZTHTixldeSYw3mOur8kiROa+904F5Qk5kR3PLEH6QtIi1GmMidGLDDm
-	 oE+OP40Fxsx06zrJCCB0BYCaalaaCy4SMuj3r6Y9lP9c/S0kFxJwpXaP2VXrQek8Xs
-	 SoOYygGYhEF27zezsTu9uLGq/49ZSZvlpjUTRqf5rQpqMdBaeQf6/Q+/tYJXjOlbYu
-	 g2yGNZys6ZvJg==
+	bh=rjDmx4d677pB7gUG89fk/kXGjM99BsbpDijy6LWcIC0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=rqca1ZjHJifQeRCdQUfJPKSWSC/EHI+DwZr8d2fZR61uuU6s68jwiXODVuxmaU0Ic
+	 Wo4lxsmveNR/wmwPA0wnirNV4sx9xaatrSlFPpHYWWXR7bZdHUEt76DnRVeJ58avJi
+	 Q/GlDb9GhYjQzUC9OII+dypsmKIdiDjRFQcXJDu+Sa1n6WiZSSeF4qJ0EQvMki9IoH
+	 d6CJqzyD35f3tGYUZoq80Q7DriUX1RSGX34fuaM4VnsTUeAjNk7ghAnl5XMk55K/9y
+	 BVDmtdwxpaqORtN3p5g6jhLaHACVX8IATZNuYUQV1CDE5DadzbvNJpf2lG3gxFuLJq
+	 6FwtFDMd833bQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tl6vP-006DXp-Hp;
-	Thu, 20 Feb 2025 13:49:11 +0000
+	id 1tl6vQ-006DXp-1P;
+	Thu, 20 Feb 2025 13:49:12 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,10 +58,12 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>,
 	gankulkarni@os.amperecomputing.com
-Subject: [PATCH v2 00/14] KVM: arm64: NV userspace ABI
-Date: Thu, 20 Feb 2025 13:48:53 +0000
-Message-Id: <20250220134907.554085-1-maz@kernel.org>
+Subject: [PATCH v2 02/14] KVM: arm64: Hide ID_AA64MMFR2_EL1.NV from guest and userspace
+Date: Thu, 20 Feb 2025 13:48:55 +0000
+Message-Id: <20250220134907.554085-3-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
+In-Reply-To: <20250220134907.554085-1-maz@kernel.org>
+References: <20250220134907.554085-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -69,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_054914_724799_349143EE 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20250220_054915_083946_A13FDD75 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,69 +87,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the previous incarnation of the ABI was proved to be subtly
-wrong, I have reworked it to be more in line with the current way KVM
-operates.
+Since our take on FEAT_NV is to only support FEAT_NV2, we should
+never expose ID_AA64MMFR2_EL1.NV to a guest nor userspace.
 
-No more late NV-specific adjustment nor writable ID_AA64MMFR0_EL1.VH.
-The NV configuration is now entirely selected from the vcpu flags.
-I've preserved the KVM_ARM_VCPU_EL2 flag which enables NV with VHE,
-and added KVM_ARM_VCPU_EL2_E2H0 which alters the NV behaviour to only
-allow nVHE guests without recursive NV support.
+Make sure we mask this field for good.
 
-This series is actually very little new code. The bulk of it is
-converting the feature downgrade to be per-idreg, essentially going
-back to the state before 44241f34fac96 ("KVM: arm64: nv: Use accessors
-for modifying ID registers"), only slightly modernised. This then
-becomes part of the reset value computing.
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/sys_regs.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-The rest is simply what you'd expect in terms of being able to write
-the ID_AA64MMFR4_EL1.NV_frac field, making the correct bits RES0 when
-needed, probing for capabilities and handling the init flags.
-
-Patches on top of -rc3, with the integration branch at the usual
-location.
-
-* From v1 [1]
-
-  - Fixed mishandling of ID_UNALLOCATED(), resulting in extra
-    consolidation and simplify the macro maze a bit
-
-  - Picked up Oliver's RBs (thanks!)
-
-  - Rebased on top of -rc3
-
-[1] https://lore.kernel.org/r/20250215173816.3767330-1-maz@kernel.org
-
-Marc Zyngier (14):
-  arm64: cpufeature: Handle NV_frac as a synonym of NV2
-  KVM: arm64: Hide ID_AA64MMFR2_EL1.NV from guest and userspace
-  KVM: arm64: Mark HCR.EL2.E2H RES0 when ID_AA64MMFR1_EL1.VH is zero
-  KVM: arm64: Mark HCR.EL2.{NV*,AT} RES0 when ID_AA64MMFR4_EL1.NV_frac
-    is 0
-  KVM: arm64: Advertise NV2 in the boot messages
-  KVM: arm64: Consolidate idreg callbacks
-  KVM: arm64: Make ID_REG_LIMIT_FIELD_ENUM() more widely available
-  KVM: arm64: Enforce NV limits on a per-idregs basis
-  KVM: arm64: Move NV-specific capping to idreg sanitisation
-  KVM: arm64: Allow userspace to limit NV support to nVHE
-  KVM: arm64: Make ID_AA64MMFR4_EL1.NV_frac writable
-  KVM: arm64: Advertise FEAT_ECV when possible
-  KVM: arm64: Allow userspace to request KVM_ARM_VCPU_EL2*
-  KVM: arm64: Document NV caps and vcpu flags
-
- Documentation/virt/kvm/api.rst      |  14 +-
- arch/arm64/include/asm/kvm_host.h   |   2 +-
- arch/arm64/include/asm/kvm_nested.h |   1 +
- arch/arm64/include/uapi/asm/kvm.h   |   1 +
- arch/arm64/kernel/cpufeature.c      |  15 +-
- arch/arm64/kvm/arm.c                |  11 +-
- arch/arm64/kvm/nested.c             | 285 +++++++++++++++-------------
- arch/arm64/kvm/sys_regs.c           |  44 ++---
- arch/arm64/kvm/sys_regs.h           |  10 +
- include/uapi/linux/kvm.h            |   2 +
- 10 files changed, 217 insertions(+), 168 deletions(-)
-
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 82430c1e1dd02..9f10dbd26e348 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1627,6 +1627,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+ 		break;
+ 	case SYS_ID_AA64MMFR2_EL1:
+ 		val &= ~ID_AA64MMFR2_EL1_CCIDX_MASK;
++		val &= ~ID_AA64MMFR2_EL1_NV;
+ 		break;
+ 	case SYS_ID_AA64MMFR3_EL1:
+ 		val &= ID_AA64MMFR3_EL1_TCRX | ID_AA64MMFR3_EL1_S1POE |
 -- 
 2.39.2
 
