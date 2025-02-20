@@ -4,66 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08553C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA3C8C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 17:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FSAZDU3AQ1VuBM+5kuWntriYIhfJE92ii0LczQ8TURY=; b=ipp4q0QBz8sEtT3Vt+DQ9crlBU
-	kGoUeKkgpJLrE/WZ5KM+1Z5gd+N1XL7pk5T1TRzyvAyAv5q2twidl9HGvWJ0zyyIAXiT4XOGqbTDq
-	5zCxToQ6kD2wvKBuoRdV75baUaSL4lhqEjJyUY1ydSRz+F4ClFU3WmsuT32/mXaVJZ1ciGP/v/y0r
-	tIkLgMf6x75glUfmYV3ZhRUiwSApzR8+APcRASenf1K7+yY/BPFXea5jM0d+9/Yh+/3l8kaQxCKki
-	vWRrD+RgSjp4ZMFUnvPZ/PKzr++xVLeSTnX4Rcd7H1bvLEr5QbBMbz/vjL5FI5F8AbzQx7bl3tIOU
-	plAcguJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w2pzTobpi9TjSTtQRUPn0hmQfMoOEaBAec03sFh2SIY=; b=O5WrFZV9VTrCKd1omZeNy+bW/8
+	f3PnJCn9+Xk1rZ5ruijtFwC8ytsxWVAZQRHQv02hG5b0YkFUUGIE0krb8B9Cl9VrD1tVvGjYh2Q3c
+	ePJq3ULLzAN7wWAyWjVSBL24TVVB2JqsZj+ekfc1e5HUAfGcRn6LKDbYMD0NGzkYEPb30Df2SlKZ6
+	AxMoyi+0u3Taa+Ft/1VO6eiylDyatdlFUpJA+sEamjbEbjrT5ev7SfOXsI0lkzo4aYXG1HatYPBWH
+	rB1N3fPLjSunl9opez8ADQ10rkHLR65uXcFlGee//MZhcjiG37kEcA2V8SoUA13gkCRHrLdj8E/kF
+	KmmORE9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9vf-000000021Qb-3QgO;
-	Thu, 20 Feb 2025 17:01:39 +0000
-Received: from out-170.mta1.migadu.com ([95.215.58.170])
+	id 1tl9za-000000022Io-0FIs;
+	Thu, 20 Feb 2025 17:05:42 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl9sk-000000020Za-266C
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 16:58:39 +0000
-Message-ID: <3a6e95ea-cdb0-4239-bb47-b29df45f52cc@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1740070714;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FSAZDU3AQ1VuBM+5kuWntriYIhfJE92ii0LczQ8TURY=;
-	b=Pb9PmXpWIMKQJkmpnNqDfCGZgWDI5wwWnFau35gLZoTY+H8QCNvPYANLWGC+16l6mTPgFi
-	orT1GIthN1+y33Gzcvs4n5kP7IVnIbKjiZ8FmvnzWUm2hlW9eOmfFIq+GnIF0SHefEN/o8
-	5VPUYY5vg56awFcSldq+DXTogIDfAig=
-Date: Thu, 20 Feb 2025 11:58:30 -0500
+	id 1tl9y4-000000021wD-2v5f;
+	Thu, 20 Feb 2025 17:04:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1740070995; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=H89tZtPw7hGWA9a6QAt88m0WFcYXkG5Shk09kN07BWC4axWYt9GNDZVOo9cm8gqKdIuyxlp+eTDURTlCIanQuanEpv+yche0oDkjwz5c6eP0IQgbahG4lJxd694XY98EFGKvJchBOPyvsHbveZCZFX5JEsc7jNsldWYVrK/dYyk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1740070995; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=w2pzTobpi9TjSTtQRUPn0hmQfMoOEaBAec03sFh2SIY=; 
+	b=M3OpeGvfafnAuq6NV8y0Hhz6ZUI1aOEGkTngOe0sXIMQ4y7O4i5GresbkUnyO35KEt+eduI3r1HyHjKANSuBnn/8+PeY5v6fes2GuWOk7M1O59qsBIOnZdI6h7/2rssPSLwql77vZ0ao5qMazDEgfTS76c1UCIsRUbRLMiX2ty0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1740070995;
+	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=w2pzTobpi9TjSTtQRUPn0hmQfMoOEaBAec03sFh2SIY=;
+	b=NELb89ZNA/vXF0KU9d+s8iAZUlWP1ItsG7o0stqFKUD5nWiCOsTLt9XovGPpdD/h
+	S+UrbkLBOPJawvm7CbURNWQk5ZNHga+QTdqIjkp7h5Pju5Se+rXy9RG6I0SY7wkyWIi
+	jxGaj47YWQDXlIlaxnKbaa63k5yd81xmDyncUIs4=
+Received: by mx.zohomail.com with SMTPS id 1740070993591486.8817863804003;
+	Thu, 20 Feb 2025 09:03:13 -0800 (PST)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Algea Cao <algea.cao@rock-chips.com>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ dri-devel@lists.freedesktop.org, Niklas Cassel <cassel@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>, kernel@collabora.com,
+ David Airlie <airlied@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>,
+ Robert Foss <rfoss@kernel.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Sugar Zhang <sugar.zhang@rock-chips.com>, linux-rockchip@lists.infradead.org,
+ Chen-Yu Tsai <wens@csie.org>, FUKAUMI Naoki <naoki@radxa.com>,
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Jonas Karlman <jonas@kwiboo.se>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, linux-arm-kernel@lists.infradead.org,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Alexey Charkov <alchark@gmail.com>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+Subject: Re: [PATCH v7 0/3] Add HDMI audio on the rk3588 SoC
+Date: Thu, 20 Feb 2025 12:03:09 -0500
+Message-ID: <2357838.ElGaqSPkdT@earth>
+In-Reply-To: <B8EF5196-55FB-44EC-B93C-E327C791225B@gmail.com>
+References: <20250217215641.372723-1-detlev.casanova@collabora.com>
+ <B8EF5196-55FB-44EC-B93C-E327C791225B@gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH net-next] net: xilinx: axienet: Implement BQL
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Sean Anderson <sean.anderson@linux.dev>
-To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>,
- "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>
-Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, "David S . Miller" <davem@davemloft.net>,
- Jakub Kicinski <kuba@kernel.org>, "Simek, Michal" <michal.simek@amd.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, Eric Dumazet <edumazet@google.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>
-References: <20250214211252.2615573-1-sean.anderson@linux.dev>
- <BL3PR12MB6571A18DA9E284A301FF70FAC9F92@BL3PR12MB6571.namprd12.prod.outlook.com>
- <aa58373c-a4ac-4994-821b-40574e19be3d@linux.dev>
-Content-Language: en-US
-In-Reply-To: <aa58373c-a4ac-4994-821b-40574e19be3d@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_085838_688125_27E2FB6E 
-X-CRM114-Status: UNSURE (   8.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250220_090408_791792_6DE478B8 
+X-CRM114-Status: GOOD (  37.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +97,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/18/25 11:00, Sean Anderson wrote:
-> On 2/15/25 06:32, Gupta, Suraj wrote:
->> 
->> 
->>> -----Original Message-----
->>> From: Sean Anderson <sean.anderson@linux.dev>
->>> Sent: Saturday, February 15, 2025 2:43 AM
->>> To: Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>;
->>> netdev@vger.kernel.org
->>> Cc: linux-kernel@vger.kernel.org; Paolo Abeni <pabeni@redhat.com>; David S .
->>> Miller <davem@davemloft.net>; Jakub Kicinski <kuba@kernel.org>; Simek, Michal
->>> <michal.simek@amd.com>; linux-arm-kernel@lists.infradead.org; Eric Dumazet
->>> <edumazet@google.com>; Andrew Lunn <andrew+netdev@lunn.ch>; Sean
->>> Anderson <sean.anderson@linux.dev>
->>> Subject: [PATCH net-next] net: xilinx: axienet: Implement BQL
->>> 
->>> Caution: This message originated from an External Source. Use proper caution
->>> when opening attachments, clicking links, or responding.
->>> 
->>> 
->>> Implement byte queue limits to allow queueing disciplines to account for packets
->>> enqueued in the ring buffers but not yet transmitted.
->>> 
->> 
->> Could you please check if BQL can be implemented for DMAengine flow?
-> 
-> I can have a look, but TBH I do not test the dma engine configuration since it is
-> so much slower.
+Hi Piotr,
 
-I had a look, and BQL is already implemented for dmaengine.
+On Thursday, 20 February 2025 06:16:20 EST Piotr Oniszczuk wrote:
+> > Wiadomo=C5=9B=C4=87 napisana przez Detlev Casanova <detlev.casanova@col=
+labora.com> w
+> > dniu 17 lut 2025, o godz. 22:47:
+> >=20
+> > To support HDMI audio on the rk3588 based devices, the generic HDMI
+> > Codec framework is used in the dw-hdmi-qp DRM bridge driver.
+> >=20
+> > The implementation is mainly based on the downstream driver, ported to =
+the
+> > generic HDMI Codec framework [1] recently merged in the master branch.
+> > The parameters computation has been kept as is and the data stored in t=
+he
+> > dw_hdmi_qp struct as been cleaned up.
+> >=20
+> > The table for the N values has been edited to reflect N recommended val=
+ues
+> > as well as CTS recommended values.
+> >=20
+> > The downstream kernel also implements a machine driver for HDMI audio b=
+ut
+> > it is doing exactly what the simple-audio-card driver does, so use that
+> > instead in the RK3588 SoC device tree.
+> >=20
+> > This adds HDMI audio support for both HDMI TX ports.
+> >=20
+> > *** Dependencies ***
+> >=20
+> > Based on Linus' master branch, but also needs Cristian's dts patches for
+> > HDMI1 support [2], which depends on Heiko's patchset for
+> > phy-rockchip-samsung-hdptx [3]. Patches will apply without [3], but HDMI
+> > will not work (at all).
+> >=20
+> > [1]:
+> > https://lore.kernel.org/all/20241224-drm-bridge-hdmi-connector-v10-0-dc=
+89
+> > 577cd438@linaro.org [2]:
+> > https://lore.kernel.org/linux-rockchip/20241211-rk3588-hdmi1-v2-0-02cdc=
+a2
+> > 2ff68@collabora.com [3]:
+> > https://lore.kernel.org/lkml/20241206103401.1780416-3-heiko@sntech.de/
+> >=20
+> > Changes since v6:
+> > - Fix arguments alignement (checkpatch --strict warnings)
+> > - Add hdmi1 audio support too
+> > - Move hdmi0_sound node under hdmi0_out_con
+> >=20
+> > Changes since v5:
+> > - Simplify audio math computation for N
+> > - Move hdmi0-sound node up with other address-less nodes
+> >=20
+> > Changes since v4:
+> > - Moved hdmi0_audio node the rk3588-base.dtsi
+> > - Enable hdmi0_audio in rk3588-rock-5b.dts
+> >=20
+> > Changes since v3:
+> > - Renamed function to start with dw_hdmi_qp
+> >=20
+> > Changes since v2:
+> > - Also clear the audio infoframe
+> > - Write AUDI_CONTENTS0 to its default value in case it gets overwritten.
+> > - Store tmds_char_rate in the dw_hdmi_qp struct in atomic_enable
+> > - Clear tmds_char_rate in atomic_disable and only write registers when
+> >=20
+> >   tmds_char_rate is not 0.
+> >=20
+> > - Do not use connector_state duplicates
+> >=20
+> > Changes since v1:
+> > - Remove useless audio_mutex (was used downstream for multiple drivers
+> > access>=20
+> >   to audio functions)
+> >=20
+> > - Let hdmi_codec build and setup audio infoframes
+> > - Only access audio registers when connector is connected
+> > - Rebased on master branch
+> >=20
+> > Detlev Casanova (2):
+> >  arm64: dts: rockchip: Add HDMI audio outputs for rk3588 SoC
+> >  arm64: dts: rockchip: Enable HDMI audio outputs for Rock 5B
+> >=20
+> > Sugar Zhang (1):
+> >  drm/bridge: synopsys: Add audio support for dw-hdmi-qp
+> >=20
+> > arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  17 +
+> > .../arm64/boot/dts/rockchip/rk3588-extra.dtsi |  17 +
+> > .../boot/dts/rockchip/rk3588-rock-5b.dts      |  16 +
+> > drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c  | 489 ++++++++++++++++++
+> > 4 files changed, 539 insertions(+)
+>=20
+> Detelv,
+>=20
+> Just curious of your opinion:
+>=20
+> I=E2=80=99m on 6.14-rc3 and using
+> https://gitlab.collabora.com/cristicc/linux-next/-/commits/rk3588-hdmi-br=
+id
+> ge + this v7 series.
 
---Sean
+Do you have the branch available somewhere ?
+
+> On mine rock5b all works nicely but - at boot time - i=E2=80=99m getting =
+some oops
+> in kernel like this:
+> https://gist.github.com/warpme/e1668acbef7817e5d2a88a6840328722
+
+I did notice that at one point but it disappeard after a rebase on the the=
+=20
+latest master so I didn't look further into that.
+Could it be related to 2518a0e1b878042f9afa45ae063e544a16efc1a3 "ASoC: simp=
+le-
+card: use __free(device_node) for device node" ?
+
+I'm not exactly sure how __free(device_node) works though, but reverting th=
+at=20
+commit could fix the issue.
+
+> I=E2=80=99m not sure where issue is but it looks to me like kind of inter=
+ference
+> between analog audio and hdmi audio as commenting analog audio in dts (
+> https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/tree/arc=
+h/
+> arm64/boot/dts/rockchip/rk3588-rock-5b.dts?h=3Dv6.14-rc3#n24 ) stops kern=
+el
+> from oops=E2=80=99ing=E2=80=A6.
+
+I cannot reproduce anymore, so if you have a branch/config that you use, I=
+=20
+could try, looking into that.
+I don't see any relevant commits that would change this behavior on master=
+=20
+since v6.14-rc3, so I'm not sure what is going on.
+
+>  rock5b dts i=E2=80=99m using is like this:
+> https://gist.github.com/warpme/a8a32afd4a05d4b7f25d2808984b05ac
+
+Regards,
+Detlev.
+
+
 
