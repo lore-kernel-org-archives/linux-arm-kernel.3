@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D432C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 13:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21687C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 13:53:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=POMR6lOYl5pvMOvsIcE2vST4Ma0WXidQSdydkDaysO0=; b=NHtdnhCIUji6sSCzUvb39CWFIs
-	VJ+zzSSytLi6xGJo8UhDFCnPRuVf1shjk/tKl5gtogJNsKlqXcV4NV4Htb30VmCt0G2xT62GGw0aC
-	15MN9g2e52zLP/SfcNA2QQDqLP7EStNMJBNB6eHcqrw5mVQckd3BPq6OVa15AqAGiZwIQqpQJC5XD
-	hbqJHVcTIVHWHCi39BXKzvT775e6zwQf2J6AwhfigK2EjRQOHBWamWRvZIXrENY7MIC8Upz/tvcqm
-	JUmEzbH3uvgO6d8kQd6r/zgWOPbFUqmV8tOr2Z1gWSMPflWcwdVyDMZjP9r3EBYJjOl14zv7Rj/J5
-	DF98mgqA==;
+	bh=abbuRn7ERMELANUQsWKF7tsdkKdp5Mps+aY1v1pDBuU=; b=cUhzEiHlGfhPc8kD+8IJ7kbWKN
+	xVTyV0awXkMC+mpkK6XqDO2WGq5WGlWhNI/8me8ycpEkPrEyIaUhZ8oK/0hHzdVf8gKiVZ4HHYFk7
+	P0DoMKc8vZBiMZwsz17tJ1IOwmfATnz1gxF4uV/v9X2c5cIxfqvgxcXzyAWu9uwrXfbZlS59qqAni
+	EWfhNyW16bDFWrQfwKW944HhG9z6ZoW0yucVh4ZgZ6kAGUYEm4+qAphr4roMF8tAeac7J37suUmH6
+	c2Gj9GofTWzABMfrjN7+vRitVqVujGMLPpE8e7TxKpriVZppqNlGWEea7A9aTmJHWI7ySRc/8gIjH
+	GAExdgNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl6yQ-000000019i4-3zNP;
-	Thu, 20 Feb 2025 13:52:18 +0000
+	id 1tl6zt-00000001A3G-2Zpf;
+	Thu, 20 Feb 2025 13:53:49 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl6vS-000000018hJ-4Bph
+	id 1tl6vS-000000018hI-4B4G
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 20 Feb 2025 13:49:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9C55661452;
+	by tor.source.kernel.org (Postfix) with ESMTP id 979486144C;
 	Thu, 20 Feb 2025 13:49:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E586FC4CEE2;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E18DDC4CEDD;
 	Thu, 20 Feb 2025 13:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1740059353;
-	bh=rjDmx4d677pB7gUG89fk/kXGjM99BsbpDijy6LWcIC0=;
+	bh=3qNcw3CYfOVceSuJucDGYdwSv7d2QqdCWmHzIgDUP9I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rqca1ZjHJifQeRCdQUfJPKSWSC/EHI+DwZr8d2fZR61uuU6s68jwiXODVuxmaU0Ic
-	 Wo4lxsmveNR/wmwPA0wnirNV4sx9xaatrSlFPpHYWWXR7bZdHUEt76DnRVeJ58avJi
-	 Q/GlDb9GhYjQzUC9OII+dypsmKIdiDjRFQcXJDu+Sa1n6WiZSSeF4qJ0EQvMki9IoH
-	 d6CJqzyD35f3tGYUZoq80Q7DriUX1RSGX34fuaM4VnsTUeAjNk7ghAnl5XMk55K/9y
-	 BVDmtdwxpaqORtN3p5g6jhLaHACVX8IATZNuYUQV1CDE5DadzbvNJpf2lG3gxFuLJq
-	 6FwtFDMd833bQ==
+	b=K/6aooAIhiXxTctJONavfFDjCW3rhD6X9uNsmzmW4ou1JqzOnzeG3gwCX4X9ae6kQ
+	 XQIdnayTsbMil2PcKQpj9pfGtsAXbPWLiAQMoE6qy7Cfa5/ViutIM+FL+NBnZ/UOc+
+	 D4l7Cdvztwp99qCh70BOlMOyCbXSzUKrJBINE3rQaMOw92LpAkFcymP5y+h5/k2voW
+	 njHCI9uVPVssJeGkvhEqEDky2Mmce54KVc2JLA08alt3Qivz0VhJ7z23cApEVZlOiy
+	 bpvfarCubn+6IzxUgfj3jGDhqJowHv3v6bOz/j7An9IPOL0EkchqT7Maw6tJAzMXxw
+	 pOFfRBAKdMbcQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1tl6vQ-006DXp-1P;
-	Thu, 20 Feb 2025 13:49:12 +0000
+	id 1tl6vP-006DXp-Ov;
+	Thu, 20 Feb 2025 13:49:11 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Eric Auger <eric.auger@redhat.com>,
 	gankulkarni@os.amperecomputing.com
-Subject: [PATCH v2 02/14] KVM: arm64: Hide ID_AA64MMFR2_EL1.NV from guest and userspace
-Date: Thu, 20 Feb 2025 13:48:55 +0000
-Message-Id: <20250220134907.554085-3-maz@kernel.org>
+Subject: [PATCH v2 01/14] arm64: cpufeature: Handle NV_frac as a synonym of NV2
+Date: Thu, 20 Feb 2025 13:48:54 +0000
+Message-Id: <20250220134907.554085-2-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250220134907.554085-1-maz@kernel.org>
 References: <20250220134907.554085-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_054915_083946_A13FDD75 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20250220_054915_143898_CD20FC20 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,28 +87,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since our take on FEAT_NV is to only support FEAT_NV2, we should
-never expose ID_AA64MMFR2_EL1.NV to a guest nor userspace.
+With ARMv9.5, an implementation supporting Nested Virtualization
+is allowed to only support NV2, and to avoid supporting the old
+(and useless) ARMv8.3 variant.
 
-Make sure we mask this field for good.
+This is indicated by ID_AA64MMFR2_EL1.NV being 0 (as if NV wasn't
+implemented) and ID_AA64MMDR4_EL1.NV_frac being 1 (indicating that
+NV2 is actually supported).
+
+Given that KVM only deals with NV2 and refuses to use the old NV,
+detecting NV2 or NV_frac is what we need to enable it.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/sys_regs.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/kernel/cpufeature.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 82430c1e1dd02..9f10dbd26e348 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -1627,6 +1627,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
- 		break;
- 	case SYS_ID_AA64MMFR2_EL1:
- 		val &= ~ID_AA64MMFR2_EL1_CCIDX_MASK;
-+		val &= ~ID_AA64MMFR2_EL1_NV;
- 		break;
- 	case SYS_ID_AA64MMFR3_EL1:
- 		val &= ID_AA64MMFR3_EL1_TCRX | ID_AA64MMFR3_EL1_S1POE |
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index d561cf3b8ac7b..2c198cd4f9405 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -497,6 +497,7 @@ static const struct arm64_ftr_bits ftr_id_aa64mmfr3[] = {
+ 
+ static const struct arm64_ftr_bits ftr_id_aa64mmfr4[] = {
+ 	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR4_EL1_E2H0_SHIFT, 4, 0),
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64MMFR4_EL1_NV_frac_SHIFT, 4, 0),
+ 	ARM64_FTR_END,
+ };
+ 
+@@ -2162,7 +2163,7 @@ static bool has_nested_virt_support(const struct arm64_cpu_capabilities *cap,
+ 	if (kvm_get_mode() != KVM_MODE_NV)
+ 		return false;
+ 
+-	if (!has_cpuid_feature(cap, scope)) {
++	if (!cpucap_multi_entry_cap_matches(cap, scope)) {
+ 		pr_warn("unavailable: %s\n", cap->desc);
+ 		return false;
+ 	}
+@@ -2519,7 +2520,17 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.capability = ARM64_HAS_NESTED_VIRT,
+ 		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+ 		.matches = has_nested_virt_support,
+-		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, NV, NV2)
++		.match_list = (const struct arm64_cpu_capabilities []){
++			{
++				.matches = has_cpuid_feature,
++				ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, NV, NV2)
++			},
++			{
++				.matches = has_cpuid_feature,
++				ARM64_CPUID_FIELDS(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY)
++			},
++			{ /* Sentinel */ }
++		},
+ 	},
+ 	{
+ 		.capability = ARM64_HAS_32BIT_EL0_DO_NOT_USE,
 -- 
 2.39.2
 
