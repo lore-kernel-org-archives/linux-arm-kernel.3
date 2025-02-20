@@ -4,80 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFF5C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F08CDC021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yTwyAcmmwfP6+HY9ca4ejBuxhsbqDgDNfhSKxTLRk78=; b=qWU2toNR+K+mDOFRMtOGiNNxlg
-	WaRdY1zUdnGssODBVUV/Ks9yRDTtZruJL1mWje9X+Zq7PfbcGHZPO10EOobem8/ZocebcfR5XYrQ9
-	DH4086DJbKV2+ElhDy6SNg7O4ILP3zNcKsKLUx9x27zFkQz6lq7kXYotK2wxfHACtFISkv2ENJ4kr
-	NqSDNNl0Y5U2wIRWuhKAzFPxH42Fh+zKYa9/MNa5CBphIllX8mZGrpLyKBNAux8N1v2qmVYKp0DYM
-	BfRTpQMWaqjkaoR6Zy+/XEVjjkT+Z4uxTNjr+8l9+aaHHaW4vAuD6aX4Axdeou+Gg7yKjV5WLYlhB
-	zJNUkyPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5UJlixiQvWHH//2sWCzg9aPzYNzJOS4BBglNIU7hn6o=; b=cjVP+gbXOIHiq9FbppmNgg92if
+	PxNehmbzDTkOryN8C47JWatbJwXzW21QHrLAv/QD627W9MAxbVauWS31wKWF320fCGoKDDHTfE3Vu
+	6xf7T/dN7NGbCqh1R3jh8w1apsZR/i4iCkldcMudcgwOHWkL3RLs2LqrQCF53ytFiqDkgcW40kMko
+	3NpwNbfRIjkc2LP4eKjg/f4QIB0IcoZ28R4pCF1n24kbVT453/uNS9DuXsxoEfYrh6rz+uaDafYR1
+	t/lqxxy7xbSHFWzVgOPf0oXprwNrXFFmlnr/Mbeh40Jyk3/D8LoisegYMMLmMqg91IIiKsq913u/1
+	h7hhwEAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7Kr-00000001Ffs-2lGL;
-	Thu, 20 Feb 2025 14:15:29 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tl7No-00000001GeN-04Ns;
+	Thu, 20 Feb 2025 14:18:32 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl7FS-00000001EBn-4BIU;
-	Thu, 20 Feb 2025 14:09:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A2CE25C5CD4;
-	Thu, 20 Feb 2025 14:09:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A04AC4CEE3;
-	Thu, 20 Feb 2025 14:09:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740060593;
-	bh=x9CYPp92qt7nrQ8n1R6hogiZ3ztLUyzp5dk9F+0pnAE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=HiWxuCynedPnTLyt9VduRt3IIwD1IfgC1Cnl08Vn2y0UtKvqjmxX7ucBMSN8sRzkA
-	 8XEK6trVBftYiqPjsDxU5Hn3rX7tZ/WsbN0JNuKQY5BGUFikvybXRtAwPvTXNeZthT
-	 jYhAR5N91dXRWNGvY9vysE7EvcsmJGMzS6hY2YMuCJvdbTFarAu4H0Urq2WE/H+pdb
-	 ttRKIzKxjpjfOKtPFZ5DTBfbWISx/puz4crnoNVq+KTT5C3eZnD2ud8w1YZ73edmHz
-	 pLq9FhUZ4cxQfGqaKPph2YRru4cADZYuseTSZf3/ZjDXAh+k39ze+ZqVL0TBXzoMkf
-	 wWS15/BieXUeg==
-Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-2fcce9bb0ecso1726269a91.3;
-        Thu, 20 Feb 2025 06:09:53 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWCNl26ubm7LEqC26ozYc6V3RzCOxHapyMdj0iHWufWWWvqUwxggG8+364fLD3jjhNK6CArzrG1Z1HiqW9qrU8=@lists.infradead.org, AJvYcCXeZCq5TwFEEFXOFeEDV5i0yHBrVaP9dRzl17q02xouz5PJvWzJARK0PeEHeRlzZ8M+3bjNUH98hjc8/lc5QO1P@lists.infradead.org
-X-Gm-Message-State: AOJu0YxD7290IaFDdCueeiUPQbqQCDKwfFLbpuubmoe5e3pwfnp4BLga
-	9FicfLZ/lxUoBOtc9q2z67KTrOIgy4hxpAA6wGd0ZfvzfrRks8c8CrJbX9a3B0Z9U389Qk9Xo9H
-	LK5UmgH6NdmN46LIPuD+vaply4g==
-X-Google-Smtp-Source: AGHT+IE0v84Qb6FC/gDtH8xNJeXoFkB/nAfUjSnTsVJesFFxd/imMIypRaefBomgcHEC0WrtRHoFrNT9UaSnKPKXvqk=
-X-Received: by 2002:a17:90b:4c07:b0:2ee:b8ac:73b0 with SMTP id
- 98e67ed59e1d1-2fc40d1245fmr35061143a91.2.1740060593030; Thu, 20 Feb 2025
- 06:09:53 -0800 (PST)
+	id 1tl7MJ-00000001G9c-0cvx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 20 Feb 2025 14:17:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740061019; x=1771597019;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=90sGWHgBiFWC8WmFaCJEHLODTZgic+HaEiiKAov7w4A=;
+  b=ke62+k5iT3nUABtyLj1Eu2JDOvcH/eVtsvx4+Rz+bC5UvNiWlnzenmU6
+   U0Xi+qxhc7ySX1QJwotH5qSDf0put+lS8XaW/+rCEKXY03F8rx5FiTsFo
+   Yg5U4F9gnJsOG+U2WkKquWhArjxBBChDtCzuxrXTtvjbioo1y+qyQkYg1
+   kQu8NpZggrUxw+4zJQ6thkTOtqu27KTKNnsOW2zQoApTF4s0TvdSaGNDr
+   bCpIdAAD4IxanoXTZ3I6C8fC66CBf7C/sNhX2179l1WBrdQtDUQgi+S7a
+   q367V8AHEA19BgXFXZg7T6RnwXljvVYAZSUKLnJKgE8zlEcQ1Yd3AvfK5
+   A==;
+X-CSE-ConnectionGUID: XALFkpV+RnW9h48b17RcYQ==
+X-CSE-MsgGUID: Swq9aIpXSV6u2cagoA9yiQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11351"; a="28438586"
+X-IronPort-AV: E=Sophos;i="6.13,301,1732608000"; 
+   d="scan'208";a="28438586"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2025 06:16:58 -0800
+X-CSE-ConnectionGUID: hq/WbzC4RBWGAxh3UZBwRw==
+X-CSE-MsgGUID: xVSkBMrZR/qIo+idZR+y5w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,301,1732608000"; 
+   d="scan'208";a="119672464"
+Received: from turnipsi.fi.intel.com (HELO kekkonen.fi.intel.com) ([10.237.72.44])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Feb 2025 06:16:54 -0800
+Received: from kekkonen.localdomain (localhost [127.0.0.1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 649C911F7F2;
+	Thu, 20 Feb 2025 16:16:51 +0200 (EET)
+Date: Thu, 20 Feb 2025 14:16:51 +0000
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Cosmin Tanislav <demonsingur@gmail.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Julien Massot <julien.massot@collabora.com>,
+	Bingbu Cao <bingbu.cao@intel.com>,
+	Tianshu Qiu <tian.shu.qiu@intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Hans Verkuil <hverkuil@xs4all.nl>,
+	Umang Jain <umang.jain@ideasonboard.com>,
+	=?utf-8?B?UGF3ZcWC?= Anikiel <panikiel@google.com>,
+	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 0/3] media: add v4l2_subdev_state_xlate_streams()
+Message-ID: <Z7c5U6u5rr0-X0aK@kekkonen.localdomain>
+References: <20250220092036.6757-1-demonsingur@gmail.com>
+ <tw6x663t5dmxsdarrxjtopza3mou3lnhwazu3dfv2k27fv47v2@bvftfepqqhss>
+ <c94580f0-3ab0-4a19-a996-9bb37e23dd39@gmail.com>
 MIME-Version: 1.0
-References: <20250217154836.108895-1-angelogioacchino.delregno@collabora.com> <20250217154836.108895-30-angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20250217154836.108895-30-angelogioacchino.delregno@collabora.com>
-From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Thu, 20 Feb 2025 22:10:36 +0800
-X-Gmail-Original-Message-ID: <CAAOTY_9U4gNASfdiF=B-5+er0qs+F7V=gO1RwjuXw7FagMiUwA@mail.gmail.com>
-X-Gm-Features: AWEUYZkEgaHMKjmDQHz4a-_W0aseAk_FLY9Y1EUWnfNXr-s5564_MkXpbtF3WgU
-Message-ID: <CAAOTY_9U4gNASfdiF=B-5+er0qs+F7V=gO1RwjuXw7FagMiUwA@mail.gmail.com>
-Subject: Re: [PATCH v7 29/43] drm/mediatek: mtk_hdmi: Use devm managed version
- of drm_bridge_add
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, airlied@gmail.com, 
-	simona@ffwll.ch, maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
-	tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, ck.hu@mediatek.com, jitao.shi@mediatek.com, 
-	jie.qiu@mediatek.com, junzhi.zhao@mediatek.com, 
-	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com, 
-	dmitry.baryshkov@linaro.org, lewis.liao@mediatek.com, 
-	ives.chenjh@mediatek.com, tommyyl.chen@mediatek.com, 
-	jason-jh.lin@mediatek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c94580f0-3ab0-4a19-a996-9bb37e23dd39@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_060955_120023_92F2EFA6 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20250220_061659_199570_A61404C1 
+X-CRM114-Status: GOOD (  32.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,68 +103,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Angelo:
+Hi Cosmin,
 
-AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
-=BC
-2025=E5=B9=B42=E6=9C=8817=E6=97=A5 =E9=80=B1=E4=B8=80 =E4=B8=8B=E5=8D=8811:=
-50=E5=AF=AB=E9=81=93=EF=BC=9A
->
-> Simplify the probe/remove functions by using devm_drm_bridge_add()
-> as now there is no more need to manually remove the bridge.
+On Thu, Feb 20, 2025 at 03:01:41PM +0200, Cosmin Tanislav wrote:
+> 
+> 
+> On 2/20/25 1:38 PM, Jacopo Mondi wrote:
+> > Hi Cosmin
+> > 
+> > On Thu, Feb 20, 2025 at 11:20:32AM +0200, Cosmin Tanislav wrote:
+> > > Currently, the v4l2_subdev_state_xlate_streams() function is used
+> > > to translate streams from one pad to another.
+> > > This function takes the entire subdev state as argument, but only makes
+> > > use of the routing.
+> > 
+> > Correct, but is this a problem ?
+> > 
+> 
+> No, it's not a problem.
 
-Applied to mediatek-drm-next [1], thanks.
+I think I have a slight preference to keep the pattern of referring to the
+state as other functions do.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/chunkuang.hu/linux.git/=
-log/?h=3Dmediatek-drm-next
+I wonder what Laurent and Hans think, too.
 
+> 
+> > Is this the first step for a larger rework or is this a drive-by
+> > beautification ?
+> > 
+> 
+> Mostly a drive-by beautification to avoid passing the whole state around
+> where we only need the routing. I'm planning to submit drivers for more
+> GMSL2/3 chips and we're using this just to not pass the whole state
+> around. I think I can just use v4l2_subdev_state_xlate_streams(),
+> but I had these patches in my tree and it would have been good to get
+> them upstream, in preparations for submitting the GMSL2/3 drivers.
+> 
+> > I'm asking because (and I know it's hard to strike a balance) this
+> > kind of changes tend to make back-porting a more painful, and if
+> > only justified by "it looks better" I would be a bit hesitant in
+> > taking them.
+> > 
+> > 
+> > > 
+> > > Introduce a v4l2_subdev_routing_xlate_streams() function which can be
+> > > used without the entire subdev state, to avoid passing the entire state
+> > > around when not needed.
+> > > 
+> > > Convert all usages of v4l2_subdev_state_xlate_streams() to
+> > > v4l2_subdev_routing_xlate_streams().
+> > > 
+> > > Remove v4l2_subdev_state_xlate_streams().
+> > > 
+> > > V2:
+> > >    * Fix description of parameters
+> > > 
+> > > Cosmin Tanislav (3):
+> > >    media: v4l: subdev: add v4l2_subdev_routing_xlate_streams()
+> > >    media: use v4l2_subdev_routing_xlate_streams()
+> > >    media: v4l: subdev: remove v4l2_subdev_state_xlate_streams()
+> > > 
+> > >   drivers/media/i2c/ds90ub913.c                 | 14 ++++++-----
+> > >   drivers/media/i2c/ds90ub953.c                 | 14 ++++++-----
+> > >   drivers/media/i2c/max96714.c                  | 16 ++++++-------
+> > >   drivers/media/i2c/max96717.c                  | 23 ++++++++++---------
+> > >   drivers/media/pci/intel/ipu6/ipu6-isys-csi2.c | 14 ++++++-----
+> > >   .../platform/nxp/imx8-isi/imx8-isi-crossbar.c |  2 +-
+> > >   drivers/media/v4l2-core/v4l2-subdev.c         |  7 +++---
+> > >   include/media/v4l2-subdev.h                   | 10 ++++----
+> > >   8 files changed, 53 insertions(+), 47 deletions(-)
+> > > 
+> > > --
+> > > 2.48.1
+> > > 
+> > > 
+> 
+
+-- 
 Regards,
-Chun-Kuang.
 
->
-> Reviewed-by: CK Hu <ck.hu@mediatek.com>
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> ---
->  drivers/gpu/drm/mediatek/mtk_hdmi.c | 10 +++++-----
->  1 file changed, 5 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi.c b/drivers/gpu/drm/mediat=
-ek/mtk_hdmi.c
-> index e79ebed21eab..f539472307e2 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_hdmi.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi.c
-> @@ -1674,14 +1674,15 @@ static int mtk_hdmi_probe(struct platform_device =
-*pdev)
->         hdmi->bridge.type =3D DRM_MODE_CONNECTOR_HDMIA;
->         hdmi->bridge.vendor =3D "MediaTek";
->         hdmi->bridge.product =3D "On-Chip HDMI";
-> -       drm_bridge_add(&hdmi->bridge);
-> +
-> +       ret =3D devm_drm_bridge_add(dev, &hdmi->bridge);
-> +       if (ret)
-> +               return dev_err_probe(dev, ret, "Failed to add bridge\n");
->
->         ret =3D mtk_hdmi_clk_enable_audio(hdmi);
-> -       if (ret) {
-> -               drm_bridge_remove(&hdmi->bridge);
-> +       if (ret)
->                 return dev_err_probe(dev, ret,
->                                      "Failed to enable audio clocks\n");
-> -       }
->
->         return 0;
->  }
-> @@ -1690,7 +1691,6 @@ static void mtk_hdmi_remove(struct platform_device =
-*pdev)
->  {
->         struct mtk_hdmi *hdmi =3D platform_get_drvdata(pdev);
->
-> -       drm_bridge_remove(&hdmi->bridge);
->         mtk_hdmi_clk_disable_audio(hdmi);
->  }
->
-> --
-> 2.48.1
->
+Sakari Ailus
 
