@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4942DC021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:01:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7AC0C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 14:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQfw1dQ4BpbkrA0hAQgHowNioCmtW9KgFDiEInCb4zo=; b=Oh78fethKSIFublTDgjjt5OweZ
-	BYnsYvNH5yd7hZd6t8BSHlIPHoxh+rHxEoC5i2RjiLRAdSB6jxa/nLXF8Jz5ajLlylfNnCVmQ6iT/
-	tzTLGhtHuuFoRiRdHAJ/59bA0N/xAnVFFvUD52TuS+zzvlPbObE8bdqQEc45nqkCUy3Olu+AFXXWh
-	4ihWw7254dwZWUgOy7JmtOtU7QkkOAr/6MwR2D6xVJMUbXQ2b571PrNjUA2ukSJj3lUY5OYrsVxnu
-	omdd5Iz9C+sbtn1dMqft9lLm/+sukQ+ZHWXxIL2rSkNfvEl49MmvV37rabtRArWUxC2x8tfpxpXdU
-	8fdDMQWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QD11Ne9DcKnhelWjnLTjIo907OByVtQIcZFYttKj9Mo=; b=lGsfnjQfn2en8R0eD67CCbsQNH
+	OLLj8dQsOioTgQ1GDrzMD68GGa05D0oRYRtxGZX1UeZn+CmesBgpf9GgOWurwrc45Jcy85vS2NbO5
+	lLqbHxQTGcd4vMBoi8nnbSP0MmfoCt9uIM8IYEiG4HoJYS1aRqC0CZ0nK+H5GXAknL7ZihWMm7/qW
+	Oo3/9UDbC8acLwPcOacu8blOe6k0LnzIA/YL7QKqvCtKnUvS7N3IsYywN7L3BsN+RYdPTvj08TUrs
+	Y9+MWAXTrMvzYuBwGAQwoVztmq+IZV+dyGGrEWnt0htdcnyxawHnTR/wXrK2Z5FekbxLhIT4EEoPZ
+	4AbPt3Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl77E-00000001BuJ-40yb;
-	Thu, 20 Feb 2025 14:01:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tl79A-00000001CZK-0y01;
+	Thu, 20 Feb 2025 14:03:24 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl6va-000000018kv-157b
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 20 Feb 2025 13:49:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=pQfw1dQ4BpbkrA0hAQgHowNioCmtW9KgFDiEInCb4zo=; b=qVKXD5wC0v6V9Ef3NvPrgSn/2P
-	Xbc/ta9RJ6d1RD3zufUvzItHii2EFfGvt8wU+LqL74yZ7AVgn6JDl9NsF3o5LoK/9Yw0V1M/F1zuK
-	oy6T/CGYQnYKI4NJkLWz3FTezw83E9typKJu/vNz77Jcl1Qh/HmJaIJEmKC/5bSIiodvTtN0dongC
-	PTDHbUGN+T/KpEDCVGqvx2Y6E0JrRb3184/JSIiMQcxMuVoOlmLLwfZX1YwWaIazrPqG8T4qZ0D2I
-	N0YWTB2RfWQz83/AHNxhvbo1F4daXETCcFcK8I047OPk72jCojRpH3eHvDkr9CHUKwxpS2gxb85Y2
-	ovcBl8VQ==;
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl6vX-00000002RnN-1Qk4
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 13:49:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AEACC6144E;
-	Thu, 20 Feb 2025 13:49:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 261DDC4CED1;
-	Thu, 20 Feb 2025 13:49:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740059356;
-	bh=ckzaA4fe/De/c/C7LV9KPu2PIvf0ztKKIvtA/g3YrnU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=B6V7mlwPR//Kznj54B6u0iavm0DW0OzTlBEdfOLJvsE+XWE5Dbf/FYy755Zsbti5H
-	 RlYbu8gnNeX1otzX/y0LTyHAD4Y2X6ckwPIg3i+ySOLVtOwrJg/DPQZSajf2jGiVxs
-	 2zTIRFzC24SATnblSH/uW1XuMKMcNiXGc5A7Uvsg9J6kWL0G8NfAH+Cs6HUDv/QW6q
-	 dV7ZMGbBxdLXGzFblKzLkJHU6p04TxKEOpI/LZmicNFqfGzQF/Bnf3I/Hk/36avOOp
-	 GE3CjEOAWERxtmJVPJ/e7qMskQ4cZruHSHlq+MiSA/iH0Ugn+3EN7FhoSpK8Ki597w
-	 UyXy99cyvhfZQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tl6vS-006DXp-BF;
-	Thu, 20 Feb 2025 13:49:14 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Eric Auger <eric.auger@redhat.com>,
-	gankulkarni@os.amperecomputing.com
-Subject: [PATCH v2 14/14] KVM: arm64: Document NV caps and vcpu flags
-Date: Thu, 20 Feb 2025 13:49:07 +0000
-Message-Id: <20250220134907.554085-15-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250220134907.554085-1-maz@kernel.org>
-References: <20250220134907.554085-1-maz@kernel.org>
+	id 1tl70s-00000001AGq-30a5;
+	Thu, 20 Feb 2025 13:54:51 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1740059685;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QD11Ne9DcKnhelWjnLTjIo907OByVtQIcZFYttKj9Mo=;
+	b=ZXyZZiu6fQzbxCFJQqDVVgundVzHGnEXcdeIqL8ClGR3W4b1Ey4eB+bTwF/enWU27f8iqb
+	6KyA7/MQ5+4mod88342BBvtXI+vCoBPYpCYRijL9dHXlnwtvDBBjL0UlnDDdTX10nwEXmW
+	jsYAhyvt6xLy9RlDs67Ql11fUBmelfip+FdZsakH1fprNWVgYX6++nHjJaPYloPBm4VA0v
+	IFuty6l3DyATYYOFxtg2zcjAW9Ds2GEw9k7nBYAhVx3ERa6N3DIbq2pGTCTvipVDRjp0gL
+	4kJQa5/yTN+Sfg7lfSZUTM6HSWCZzUaCTAp5bmp5CUkg6T9zSKhyM/B5zR7lhw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1740059685;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=QD11Ne9DcKnhelWjnLTjIo907OByVtQIcZFYttKj9Mo=;
+	b=JOlYIairSeSWXDphePdqMGRdnMIe0izKqy7x+haK/irgiQkE4fPAmmUH2rnIn+wrOo4/nr
+	pM3+j/mvSiuJWVCA==
+To: Mark Brown <broonie@kernel.org>, Anup Patel <apatel@ventanamicro.com>
+Cc: Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave
+ Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, hpa@zytor.com, Marc
+ Zyngier <maz@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement
+ <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+ <sebastian.hesselbarth@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Atish Patra
+ <atishp@atishpatra.org>, Andrew Jones <ajones@ventanamicro.com>, Sunil V L
+ <sunilvl@ventanamicro.com>, Anup Patel <anup@brainfault.org>,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev
+Subject: Re: [PATCH v6 02/10] irqchip/irq-msi-lib: Optionally set default
+ irq_eoi/irq_ack
+In-Reply-To: <Z7Xto0WZ-Crxunik@finisterre.sirena.org.uk>
+References: <20250217085657.789309-1-apatel@ventanamicro.com>
+ <20250217085657.789309-3-apatel@ventanamicro.com>
+ <Z7Xto0WZ-Crxunik@finisterre.sirena.org.uk>
+Date: Thu, 20 Feb 2025 14:54:45 +0100
+Message-ID: <87jz9kiuvu.ffs@tglx>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, eric.auger@redhat.com, gankulkarni@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_134919_726850_E0FFE216 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20250220_055450_894029_C5AEA780 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,48 +86,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe the two new vcpu flags that control NV, together with
-the capabilities that advertise them.
+On Wed, Feb 19 2025 at 14:41, Mark Brown wrote:
+> On Mon, Feb 17, 2025 at 02:26:48PM +0530, Anup Patel wrote:
+> I'm seeing boot regressions with qemu on arm64 in -next which bisect
+> down to this patch.  We hit a NULL pointer dereference:
+>
+> <6>[    0.898900] virtio_blk virtio1: 1/0/0 default/read/poll queues
+> <5>[    0.910197] virtio_blk virtio1: [vda] 3906250 512-byte logical blocks (2.00 GB/1.86 GiB)
+> <1>[    0.924459] Unable to handle kernel NULL pointer dereference at virtual address 0000000000000000
+> <1>[    0.924508] Mem abort info:
+> <1>[    0.924521]   ESR = 0x000000008600002b
+> <1>[    0.924559]   EC = 0x21: IABT (current EL), IL = 32 bits
+> <1>[    0.924580]   SET = 0, FnV = 0
+> <1>[    0.924597]   EA = 0, S1PTW = 0
+> <1>[    0.924616]   FSC = 0x2b: level -1 translation fault
+> <1>[    0.924667] [0000000000000000] user address but active_mm is swapper
+> <0>[    0.924833] Internal error: Oops: 000000008600002b [#1] PREEMPT
+> SMP
 
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+Uuurg. I wish I had double checked that the final submitted patch covers
+_ALL_ incarnations of this. The below delta patch should address it.
+
+Thanks,
+
+        tglx
 ---
- Documentation/virt/kvm/api.rst | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
+diff --git a/drivers/irqchip/irq-gic-v3-its-msi-parent.c b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
+index e150365fbe89..bdb04c808148 100644
+--- a/drivers/irqchip/irq-gic-v3-its-msi-parent.c
++++ b/drivers/irqchip/irq-gic-v3-its-msi-parent.c
+@@ -203,6 +203,7 @@ static bool its_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
+ const struct msi_parent_ops gic_v3_its_msi_parent_ops = {
+ 	.supported_flags	= ITS_MSI_FLAGS_SUPPORTED,
+ 	.required_flags		= ITS_MSI_FLAGS_REQUIRED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_token	= DOMAIN_BUS_NEXUS,
+ 	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
+ 	.prefix			= "ITS-",
+diff --git a/drivers/irqchip/irq-gic-v3-mbi.c b/drivers/irqchip/irq-gic-v3-mbi.c
+index 3fe870f8ee17..3e1d8a1cda5e 100644
+--- a/drivers/irqchip/irq-gic-v3-mbi.c
++++ b/drivers/irqchip/irq-gic-v3-mbi.c
+@@ -201,6 +201,7 @@ static bool mbi_init_dev_msi_info(struct device *dev, struct irq_domain *domain,
+ static const struct msi_parent_ops gic_v3_mbi_msi_parent_ops = {
+ 	.supported_flags	= MBI_MSI_FLAGS_SUPPORTED,
+ 	.required_flags		= MBI_MSI_FLAGS_REQUIRED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_token	= DOMAIN_BUS_NEXUS,
+ 	.bus_select_mask	= MATCH_PCI_MSI | MATCH_PLATFORM_MSI,
+ 	.prefix			= "MBI-",
+diff --git a/drivers/irqchip/irq-loongson-pch-msi.c b/drivers/irqchip/irq-loongson-pch-msi.c
+index bd337ecddb40..9c62108b3ad5 100644
+--- a/drivers/irqchip/irq-loongson-pch-msi.c
++++ b/drivers/irqchip/irq-loongson-pch-msi.c
+@@ -146,6 +146,7 @@ static const struct irq_domain_ops pch_msi_middle_domain_ops = {
+ static struct msi_parent_ops pch_msi_parent_ops = {
+ 	.required_flags		= PCH_MSI_FLAGS_REQUIRED,
+ 	.supported_flags	= PCH_MSI_FLAGS_SUPPORTED,
++	.chip_flags		= MSI_CHIP_FLAG_SET_EOI | MSI_CHIP_FLAG_SET_ACK,
+ 	.bus_select_mask	= MATCH_PCI_MSI,
+ 	.bus_select_token	= DOMAIN_BUS_NEXUS,
+ 	.prefix			= "PCH-",
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index 2b52eb77e29cb..2d7b516ae408d 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -3456,7 +3456,8 @@ The initial values are defined as:
- 	- FPSIMD/NEON registers: set to 0
- 	- SVE registers: set to 0
- 	- System registers: Reset to their architecturally defined
--	  values as for a warm reset to EL1 (resp. SVC)
-+	  values as for a warm reset to EL1 (resp. SVC) or EL2 (in the
-+	  case of EL2 being enabled).
- 
- Note that because some registers reflect machine topology, all vcpus
- should be created before this ioctl is invoked.
-@@ -3523,6 +3524,17 @@ Possible features:
- 	      - the KVM_REG_ARM64_SVE_VLS pseudo-register is immutable, and can
- 	        no longer be written using KVM_SET_ONE_REG.
- 
-+	- KVM_ARM_VCPU_HAS_EL2: Enable Nested Virtualisation support,
-+	  booting the guest from EL2 instead of EL1.
-+	  Depends on KVM_CAP_ARM_EL2.
-+	  The VM is running with HCR_EL2.E2H being RES1 (VHE) unless
-+	  KVM_ARM_VCPU_HAS_EL2_E2H0 is also set.
-+
-+	- KVM_ARM_VCPU_HAS_EL2_E2H0: Restrict Nested Virtualisation
-+	  support to HCR_EL2.E2H being RES0 (non-VHE).
-+	  Depends on KVM_CAP_ARM_EL2_E2H0.
-+	  KVM_ARM_VCPU_HAS_EL2 must also be set.
-+
- 4.83 KVM_ARM_PREFERRED_TARGET
- -----------------------------
- 
--- 
-2.39.2
+
 
 
