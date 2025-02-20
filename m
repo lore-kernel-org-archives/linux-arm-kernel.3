@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D774C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 09:48:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DD20C021B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 09:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wyE9hYqgwJ+fwXKcYbnbNKN+dKoR1uUu7EJFvLAMv7w=; b=eFazhBfmz7k53GdU9v85r5cwL3
-	6RFCwxF80WJODk/yD9GMb6Cp4Zb/3H1WBRxM9Nw6bpZN+i5uvVuTditacuSp7AQTtsyYbRlJ0/0vP
-	kDwf1npz0z+CmJ08J3EY1Rw2wCqwyX2kZG/qhHzgWxM8KByLm5/CbuU4NmJicoqsD7CkyHHbgNC9j
-	gEMXbUbNgTodKUvSfKWSCeZEbgN7XdsZgHquEatAf2xPPoMLbJxbpT+HL7mmglwUAymcZ5rdSIVS6
-	mN0QKIs3stpo5py6pjh8eF9ZUaxeDLwHS6TiyJtRd+cgpy9zT0TTvGnIphXyDJCp5BELrq3LadYUl
-	dH/6Kliw==;
+	bh=ARB5psRXmL5x7dm7O2B78qjvJCsCcFRky0xfe+WKbYI=; b=suaoViyWAQGSIZLGHuQNcN7EKJ
+	2xx6G/dhxHzmKwZORNNY+K7hQxM2xOFl3D1I1/e+ScSt/alWqMkMIDD2XWByhlZ+A59gdplHjFg+B
+	AcDcJhuHVfXUxXWRqqPLAiJONcUtTjIb9wSBDxPiJ32f1DSTx3LsmodOmOLvE64L5GLscXViJljfv
+	QAx2kOKAPGzNt5tffasMRIFF0LLCd/kiBesXRV5u4CQIBaSWQWRHejI93RIOI3OBQsoBz3uy2JJK4
+	1gA912eKO+tJIMkhr7oki6YNAUFRes+c0ri48Do/77TOoBa5mX8nDPImw/m35c5o4F5lzQPJOq1mM
+	R8dFXYYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl3AD-000000007mM-35Gp;
-	Thu, 20 Feb 2025 09:48:13 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tl3Bf-000000008IH-2Air;
+	Thu, 20 Feb 2025 09:49:43 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl34Q-000000005Ta-19BG
+	id 1tl34R-000000005U9-1zpv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 09:42:15 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51K6MkEF022493;
-	Thu, 20 Feb 2025 09:42:07 GMT
+	Thu, 20 Feb 2025 09:42:16 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51K70UB1016821;
+	Thu, 20 Feb 2025 09:42:10 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	wyE9hYqgwJ+fwXKcYbnbNKN+dKoR1uUu7EJFvLAMv7w=; b=ErKZYffj6MYLS5nJ
-	7mMs8ARqeJ5Djt6dtp82viBEo/OFAiwPqh3aUIooNj4wtfGJalIGK4tg3pYyQzxd
-	ZUIGWg1CWhNqZ01cHjn0II044VkY4e+BFuSommZL53SsrA75zEnsls7vJ3GrGCU1
-	eDFjnM0/w+x/2nxPHbSpKlidO6+ljZMGoBqZETf13qY0ScuQ6P0Kxm4Oscu+VjnR
-	dtjvKHhZZpXi0Wka7kIyvTbyVyiSqkWCWvH9xQXzz14DVhn715U+GGTQSmA4u3IO
-	Z7iSxuU8KWYAlVXyZjqzwNUDIZvRhZjLLdiksAvxHb3rauYm90hb0SSdJGGycGfr
-	+Ka0yQ==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44vyy3nqwa-1
+	ARB5psRXmL5x7dm7O2B78qjvJCsCcFRky0xfe+WKbYI=; b=GNsLARMkkwQ6ikwq
+	MRlsngqC/C7iulpf5qLTVJbV7MjLAvPzp3rJaM645tilCQ8nJrXKKkAi1fEsE62D
+	l0mrcxHeJOmVBFxIUFNrtAZTtkCLA1oyfB4fnwTSClFWslecxcj2dLU34V6UiqR9
+	6hAqxOR9Qbvw+qbSp3YYPaLzXDwpAkVFjdewjh58sXVF1f9h2hEfVrCXvBql48iO
+	5JUpu7z1xkAEf4t5/Tjq0hK2CN8OPyc+FCeN8gMs+uxrR2y+vhCbOlM/BWRtjF09
+	UmFlPtIiiYh6J+EvurjtqmqNLUDVeLMdlnbJgcaXx/+ma7pNT3GwXzVGci8rGVf/
+	OuE3ww==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44vyy0dkgq-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Feb 2025 09:42:07 +0000 (GMT)
+	Thu, 20 Feb 2025 09:42:09 +0000 (GMT)
 Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51K9g6a7006128
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51K9g9Mh015743
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 20 Feb 2025 09:42:06 GMT
+	Thu, 20 Feb 2025 09:42:09 GMT
 Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
  nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 20 Feb 2025 01:42:01 -0800
+ 15.2.1544.9; Thu, 20 Feb 2025 01:42:04 -0800
 From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Date: Thu, 20 Feb 2025 17:41:23 +0800
-Subject: [PATCH 3/5] coresight-tnoc: add nodes to configure flush
+Date: Thu, 20 Feb 2025 17:41:24 +0800
+Subject: [PATCH 4/5] coresight-tnoc: add node to configure flag type
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250220-trace-noc-driver-v1-3-15d78bd48e12@quicinc.com>
+Content-Transfer-Encoding: 8bit
+Message-ID: <20250220-trace-noc-driver-v1-4-15d78bd48e12@quicinc.com>
 References: <20250220-trace-noc-driver-v1-0-15d78bd48e12@quicinc.com>
 In-Reply-To: <20250220-trace-noc-driver-v1-0-15d78bd48e12@quicinc.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -71,11 +71,11 @@ CC: <kernel@quicinc.com>, <linux-kernel@vger.kernel.org>,
         <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
         Yuanfang Zhang <quic_yuanfang@quicinc.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740044514; l=3878;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740044514; l=2045;
  i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
- bh=4xpCXsw560jg661+9z67aa65t2gjEDVQA3Nb8Phphnc=;
- b=uOzxLRvex8Zd5KHr2UE9SQGZ/OHJhbBj88bqDb0Hhz2orG6eGlHSPGlO/K1yuxM1ZxnivzLja
- ewe2A07pdMLAR8LgltRYg9OiSdjNB1I6149atv2uo79546lb5F3P7Uj
+ bh=XbTCKvIMDyl2DMpRiyDboA4ABVpbG+2OBuCevF1YKhI=;
+ b=Pqu1/3bbvFLUYjPvJZO5lWaJKO3UxVsRxm5FRBy/v11wJCsNnVjFVEza1AOLl89N6DJFrQ6kR
+ CJSVyYpgEgPD3JGs3zsSfiXUyc/skejDe8T2qZYTCSeXzsjhSLZBsXr
 X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
  pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
 X-Originating-IP: [10.80.80.8]
@@ -83,19 +83,19 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nalasex01b.na.qualcomm.com (10.47.209.197)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: UPNWhsCoj6tvrlSx9TxUtJZZunB1TKYS
-X-Proofpoint-ORIG-GUID: UPNWhsCoj6tvrlSx9TxUtJZZunB1TKYS
+X-Proofpoint-GUID: aZgUy1ru-dBazPNIbWun75JTrcoi3lnP
+X-Proofpoint-ORIG-GUID: aZgUy1ru-dBazPNIbWun75JTrcoi3lnP
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-20_04,2025-02-20_02,2024-11-22_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
- impostorscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
- malwarescore=0 phishscore=0 mlxscore=0 mlxlogscore=999 bulkscore=0
- adultscore=0 clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+ mlxlogscore=889 clxscore=1015 mlxscore=0 lowpriorityscore=0 adultscore=0
+ phishscore=0 suspectscore=0 bulkscore=0 malwarescore=0 impostorscore=0
+ spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2502100000 definitions=main-2502200070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_014214_480858_5DBD1D83 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20250220_014215_517189_E26C97A7 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,124 +110,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two nodes for configure flush are added here:
-1. flush_req: write 1 to initiates a flush sequence.
-
-2. flush_state: read this node to get flush status. 0: sequence in
-progress; 1: sequence has been completed.
+flag_type：used to set the type of issued ATB FLAG packets.
+0: 'FLAG' packets; 1: 'FLAG_TS' packets.
 
 Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
 ---
- drivers/hwtracing/coresight/coresight-tnoc.c | 73 ++++++++++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-tnoc.h |  4 ++
- 2 files changed, 77 insertions(+)
+ drivers/hwtracing/coresight/coresight-tnoc.c | 42 +++++++++++++++++++++++++++-
+ 1 file changed, 41 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-index 11b9a7fd1efdc9fff7c1e9666bda14acb41786cb..25962af3850af106f7a8b7e1738ad93d44b81ee7 100644
+index 25962af3850af106f7a8b7e1738ad93d44b81ee7..3ff3504603f66bd595484374f1cdac90c528b665 100644
 --- a/drivers/hwtracing/coresight/coresight-tnoc.c
 +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-@@ -16,6 +16,78 @@
- #include "coresight-tnoc.h"
- #include "coresight-trace-id.h"
+@@ -26,7 +26,7 @@ static ssize_t flush_req_store(struct device *dev,
+ 	unsigned long val;
+ 	u32 reg;
  
-+static ssize_t flush_req_store(struct device *dev,
+-	if (kstrtoul(buf, 10, &val))
++	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
+ 
+ 	if (val != 1)
+@@ -73,9 +73,49 @@ static ssize_t flush_status_show(struct device *dev,
+ }
+ static DEVICE_ATTR_RO(flush_status);
+ 
++/*
++ * Sets the type of issued ATB FLAG packets:
++ * 0: 'FLAG' packets;
++ * 1: 'FLAG_TS' packets.
++ */
++static ssize_t flag_type_store(struct device *dev,
 +			       struct device_attribute *attr,
 +			       const char *buf,
 +			       size_t size)
 +{
 +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	struct coresight_device	*csdev = drvdata->csdev;
 +	unsigned long val;
-+	u32 reg;
 +
 +	if (kstrtoul(buf, 10, &val))
 +		return -EINVAL;
 +
-+	if (val != 1)
++	if (val != 1 && val != 0)
 +		return -EINVAL;
 +
 +	spin_lock(&drvdata->spinlock);
-+	if (csdev->refcnt == 0) {
-+		spin_unlock(&drvdata->spinlock);
-+		return -EPERM;
-+	}
-+
-+	reg = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
-+	reg = reg | TRACE_NOC_CTRL_FLUSHREQ;
-+	writel_relaxed(reg, drvdata->base + TRACE_NOC_CTRL);
-+
++	if (val)
++		drvdata->flag_type = FLAG_TS;
++	else
++		drvdata->flag_type = FLAG;
 +	spin_unlock(&drvdata->spinlock);
 +
 +	return size;
 +}
-+static DEVICE_ATTR_WO(flush_req);
 +
-+/*
-+ * flush-sequence status:
-+ * value 0: sequence in progress;
-+ * value 1: sequence has been completed.
-+ */
-+static ssize_t flush_status_show(struct device *dev,
-+				 struct device_attribute *attr,
-+				 char *buf)
++static ssize_t flag_type_show(struct device *dev,
++			      struct device_attribute *attr,
++			      char *buf)
 +{
 +	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	struct coresight_device	*csdev = drvdata->csdev;
-+	u32 val;
 +
-+	spin_lock(&drvdata->spinlock);
-+	if (csdev->refcnt == 0) {
-+		spin_unlock(&drvdata->spinlock);
-+		return -EPERM;
-+	}
-+
-+	val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
-+	spin_unlock(&drvdata->spinlock);
-+	return sysfs_emit(buf, "%u\n", BMVAL(val, 2, 2));
++	return sysfs_emit(buf, "%u\n", drvdata->flag_type);
 +}
-+static DEVICE_ATTR_RO(flush_status);
++static DEVICE_ATTR_RW(flag_type);
 +
-+static struct attribute *trace_noc_attrs[] = {
-+	&dev_attr_flush_req.attr,
-+	&dev_attr_flush_status.attr,
-+	NULL,
-+};
-+
-+static struct attribute_group trace_noc_attr_grp = {
-+	.attrs = trace_noc_attrs,
-+};
-+
-+static const struct attribute_group *trace_noc_attr_grps[] = {
-+	&trace_noc_attr_grp,
-+	NULL,
-+};
-+
- static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
- {
- 	u32 val;
-@@ -142,6 +214,7 @@ static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
- 		return ret;
+ static struct attribute *trace_noc_attrs[] = {
+ 	&dev_attr_flush_req.attr,
+ 	&dev_attr_flush_status.attr,
++	&dev_attr_flag_type.attr,
+ 	NULL,
+ };
  
- 	desc.ops = &trace_noc_cs_ops;
-+	desc.groups = trace_noc_attr_grps;
- 	desc.type = CORESIGHT_DEV_TYPE_LINK;
- 	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
- 	desc.pdata = adev->dev.platform_data;
-diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
-index b6bd1ef659897d8e0994c5e8514e8cbdd16eebd8..d0fe8f52709ff4147d66dbf90987595012cfaa4e 100644
---- a/drivers/hwtracing/coresight/coresight-tnoc.h
-+++ b/drivers/hwtracing/coresight/coresight-tnoc.h
-@@ -10,6 +10,10 @@
- 
- /* Enable generation of output ATB traffic.*/
- #define TRACE_NOC_CTRL_PORTEN	BIT(0)
-+/* Writing 1 to initiate a flush sequence.*/
-+#define TRACE_NOC_CTRL_FLUSHREQ	BIT(1)
-+/* 0: sequence in progress; 1: sequence has been completed.*/
-+#define TRACE_NOC_CTRL_FLUSHSTATUS	BIT(2)
- /* Writing 1 to issue a FREQ or FREQ_TS packet*/
- #define TRACE_NOC_CTRL_FREQTSREQ	BIT(5)
- /* Sets the type of issued ATB FLAG packets. 0: 'FLAG' packets; 1: 'FLAG_TS' packets.*/
 
 -- 
 2.34.1
