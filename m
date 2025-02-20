@@ -4,58 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64692C021B1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 10:36:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E81AC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 20 Feb 2025 10:39:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ykXq7G6hvXEWpJHci3d92pucrjIus2xm8t1k78mVGGk=; b=G3JELmGWqTf6A9p9uvvSUD2smA
-	eTShh9eXGlkbwrDaqcCNfyNLmznjNUMfeKreS14JW9/lZ3bGM7W/TbTALLxj0ikA4MlpLEkxU6kVx
-	dhQvtwVV35dCVipHMc+MraOxu1pTzhA7TVsWSArHP+UkTiDX6QZnJo7eCYX+ZO3N3LKtXDLY62Bxe
-	ozelQywG55VMHvxkRX/0Fx4SwGC1yUMt0+l4NynkCFx4nu75v6vmpvMD9dIN6K2uQ7d8qVPAo0VUB
-	7d9oj1eS80y8gcdUCVT9uY/yylcVZdP5xnDFVu8c6zY2Ld6VUEpWhjmvmVdrfTtxYKXaxpnaxzDTg
-	g2CZa65g==;
+	bh=wh9A1BD/RTEscUaPrQN3XaSi0R1/Qa7MqH53NBxklI0=; b=yB7NqfNDDCx6M999Q6qGYwDQuX
+	HTjg1qyQcIJvfgAC2+WIjuUyDOA0UPoZejCXSWv6Mx11sztdlSMZgyIv7KIls5RxdZbS1I2ibVc9o
+	5vZ4jLLVtgphNDDk3YSZFGU8o9SjW6CgKdwlOIQe/3MJgEEiMtGNP5oqC5d0wgt/n6LGPc0FshlH3
+	woFceApNCTAb807t0AQGGu/yBxKJ8V9G1VrrZtbxirvlTWJ0LeilrSY8Zs96eU8JXVSbyuP1Vfqei
+	V9r6B5AkGpB7fQv7l07OswEOSdBElyaeh+eTr3zGKitRtjT3EHt7JOxbLt/taf89QwBVDHuYEksaG
+	YFKb5ydw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl3uS-00000000JsN-2ox6;
-	Thu, 20 Feb 2025 10:36:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tl3sx-00000000JXU-22oC
+	id 1tl3xC-00000000Kh5-45FC;
+	Thu, 20 Feb 2025 10:38:50 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tl3vh-00000000KGh-10ye
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 20 Feb 2025 10:34:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA1F91688;
-	Thu, 20 Feb 2025 02:34:44 -0800 (PST)
-Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.18])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 988CE3F59E;
-	Thu, 20 Feb 2025 02:34:23 -0800 (PST)
-Date: Thu, 20 Feb 2025 10:34:20 +0000
-From: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>
-To: Yang Shi <yang@os.amperecomputing.com>
-Cc: ryan.roberts@arm.com, catalin.marinas@arm.com, will@kernel.org,
-	joey.gouly@arm.com, broonie@kernel.org, mark.rutland@arm.com,
-	james.morse@arm.com, yangyicong@hisilicon.com, robin.murphy@arm.com,
-	anshuman.khandual@arm.com, maz@kernel.org, liaochang1@huawei.com,
-	akpm@linux-foundation.org, david@redhat.com, baohua@kernel.org,
-	ioworker0@gmail.com, oliver.upton@linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/3] arm64: Add BBM Level 2 cpu feature
-Message-ID: <20250220103420.GC11745@mazurka.cambridge.arm.com>
-References: <20250219143837.44277-3-miko.lenczewski@arm.com>
- <20250219143837.44277-5-miko.lenczewski@arm.com>
- <bfe7fc8e-b22b-4ff6-92c1-7444a0d6c5c2@os.amperecomputing.com>
+	Thu, 20 Feb 2025 10:37:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1740047837; x=1771583837;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=wh9A1BD/RTEscUaPrQN3XaSi0R1/Qa7MqH53NBxklI0=;
+  b=GZ/zcfb41m/pBcci2fRj7vgnm4IT7J1/FcwPnQFTK377shtOi8Znf4PC
+   tuol/dhJOZkdFfJBO3HbSNyd0hFR8ndbuMT/iWo12jc+e6DLaPTKOuS9M
+   DRH7m/KBf57QqN2df1T42Kv8sJ9nqJVlKA9FBV3cxBh3+DcTLu5538dlz
+   XAVlK/ASyzygB/fnIXbRoRDp7kjMsZe3n+wcb1Epn93SarGdrXKxbgzEd
+   fuMVhwNC/96ARjNfq1KHEZfVj5fOkf01yqqr6of4zvQ6PiwM2VhL/awHA
+   RsvceMmUQ7O0xxK2I0sxDHLiu/g0VPReWzHshqYd/j/issLIGhzcSh2Rb
+   A==;
+X-CSE-ConnectionGUID: CwnbI0K+RpSL3PTir3jFFQ==
+X-CSE-MsgGUID: e3NjdcT0R7yw1SDXUXlCFQ==
+X-IronPort-AV: E=Sophos;i="6.13,301,1732575600"; 
+   d="scan'208";a="41977185"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 20 Feb 2025 11:37:00 +0100
+X-CheckPoint: {67B705CB-2B-B8541F8F-E50F9B0E}
+X-MAIL-CPID: 1B5560109A7002A5CA5F1D2F139B739C_2
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EC4D6165713;
+	Thu, 20 Feb 2025 11:36:53 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1740047815;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wh9A1BD/RTEscUaPrQN3XaSi0R1/Qa7MqH53NBxklI0=;
+	b=e4D0OjDSA2ZA2GlPxzsqw7tkGSZo29ZHbECBq+JdmCuxym+wVv2+TZDkqLfplc5tSpTR0e
+	WtTAKKvnO1SwFM+LEGSmcHVIgFzX2i69wX9Xer2DfxIy8r6H8FLj+WZ7diyyAnEBhd0bTG
+	e9jb0QInU+lPP7dXVF1lC1lhyF7uEN8pn4s9p0+eCPzU1S/cqit1zvMCiHMWGwgvZvXrSU
+	1QXU66t76OvYPgdFNUlps2CUj8/UhrhunsGGXfQSJ5P2ZPAMaxq29eaF1qINsLrsEi7i5x
+	95O1hVVCteRHOEbAhaRi9l/sghRsYJbDlGI1fNDe+sR4sWPgTQ1VN5Z/tBXn+g==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: p.zabel@pengutronix.de, robh@kernel.org, shawnguo@kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: krzk+dt@kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, mathieu.poirier@linaro.org,
+ shengjiu.wang@nxp.com, Frank.Li@nxp.com, peng.fan@nxp.com,
+ laurentiu.mihalcea@nxp.com, iuliana.prodan@nxp.com,
+ Daniel Baluta <daniel.baluta@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>
+Subject: Re: [PATCH v2 2/8] dt-bindings: dsp: fsl,dsp: Add resets property
+Date: Thu, 20 Feb 2025 11:36:53 +0100
+Message-ID: <12614210.O9o76ZdvQC@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250219192102.423850-3-daniel.baluta@nxp.com>
+References: <20250219192102.423850-1-daniel.baluta@nxp.com>
+ <20250219192102.423850-3-daniel.baluta@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <bfe7fc8e-b22b-4ff6-92c1-7444a0d6c5c2@os.amperecomputing.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_023427_618409_5BF7F5E0 
-X-CRM114-Status: GOOD (  38.07  )
+X-CRM114-CacheID: sfid-20250220_023717_771625_A4052B4F 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,94 +100,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 05:25:00PM -0800, Yang Shi wrote: 
-> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > index d561cf3b8ac7..8c337bd95ef7 100644
-> > --- a/arch/arm64/kernel/cpufeature.c
-> > +++ b/arch/arm64/kernel/cpufeature.c
-> > @@ -2176,6 +2176,31 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
-> >   	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
-> >   }
-> >   
-> > +static bool has_bbml2_noconflict(const struct arm64_cpu_capabilities *entry,
-> > +				 int scope)
-> > +{
-> > +	if (!IS_ENABLED(CONFIG_ARM64_ENABLE_BBML2))
-> > +		return false;
-> > +
-> > +	/* We want to allow usage of bbml2 in as wide a range of kernel contexts
-> > +	 * as possible. This list is therefore an allow-list of known-good
-> > +	 * implementations that both support bbml2 and additionally, fulfil the
-> > +	 * extra constraint of never generating TLB conflict aborts when using
-> > +	 * the relaxed bbml2 semantics (such aborts make use of bbml2 in certain
-> > +	 * kernel contexts difficult to prove safe against recursive aborts).
-> > +	 */
-> > +	static const struct midr_range supports_bbml2_without_abort_list[] = {
-> > +		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
-> > +		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
-> > +		{}
-> > +	};
-> > +
-> > +	if (!is_midr_in_range_list(read_cpuid_id(), supports_bbml2_without_abort_list))
-> > +		return false;
-> > +
-> > +	return true;
-> > +}
-> Hi Miko,
-> 
-> Thanks for cc'ing me this series. I and Ryan discussed about how to 
-> advertise BBML2 properly in my thread 
-> (https://lore.kernel.org/linux-arm-kernel/4c44cf6e-98de-47bb-b430-2b1331114904@os.amperecomputing.com/). 
-> IIUC, this may not work as expected.
-> 
-> The boot cpu initializes the boot_cpu_data, then the secondary cpus need 
-> to update it, the "sanitized" register value will be generated. For 
-> example, TLB range capability is determined by ISAR0_EL1. If all the 
-> cpus have this feature, the "sanitized" register value will show true 
-> otherwise it will show false.
-> 
-> BBML2 can be determined by MMFR2_EL1. If we can rely on it then system 
-> feature does work. But the problem is some implementations may have 
-> MMFR2_EL1 set, but they may not be able to handle TLB conflict. We can't 
-> rely on it solely so we check MIDR in .matches callback instead of 
-> MMFR2_EL1. But system feature .matches callback is just called once on 
-> boot CPU because it is supposed to read the sanitized register value. So 
-> you actually just checked the MIDR on boot CPU in .matches callback if I 
-> read the code correctly.
-> 
-> I'm not quite familiar with cpufeature details, if I'm wrong please feel 
-> free to correct me.
-> 
-> Yang
+Hi,
 
-Hi Yang,
+Am Mittwoch, 19. Februar 2025, 20:20:56 CET schrieb Daniel Baluta:
+> On i.MX8MP we introduced support for using a reset controller
+> to control DSP operation.
+>=20
+> This patch adds reset property which is required for i.MX8MP.
+>=20
+> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> ---
+>  .../devicetree/bindings/dsp/fsl,dsp.yaml      | 19 ++++++++++++++++++-
+>  1 file changed, 18 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml b/Documen=
+tation/devicetree/bindings/dsp/fsl,dsp.yaml
+> index ab93ffd3d2e5..923e7f079f1b 100644
+> --- a/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml
+> +++ b/Documentation/devicetree/bindings/dsp/fsl,dsp.yaml
+> @@ -82,6 +82,13 @@ properties:
+>      description:
+>        Phandle to syscon block which provide access for processor enablem=
+ent
+> =20
+> +  resets:
+> +    description:
+> +      A pair consisting of phandle to audio-blk-control and an index ref=
+erencing
+> +      the DSP Run/Stall bit in audiomix registers.
+> +      See include/dt-bindings/reset/imx8mp-reset-audiomix.h for each ind=
+ex meaning.
+> +    maxItems: 1
+> +
+>  required:
+>    - compatible
+>    - reg
+> @@ -164,6 +171,16 @@ allOf:
+>              - const: txdb1
+>              - const: rxdb0
+>              - const: rxdb1
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - fsl,imx8mp-dsp
+> +              - fsl,imx8mp-hifi4
+> +    then:
+> +      required:
+> +        - "resets"
+> =20
+>  additionalProperties: false
+> =20
+> @@ -220,5 +237,5 @@ examples:
+>                 <&mu2 3 0>;
+>        memory-region =3D <&dsp_vdev0buffer>, <&dsp_vdev0vring0>,
+>                        <&dsp_vdev0vring1>, <&dsp_reserved>;
+> -      fsl,dsp-ctrl =3D <&audio_blk_ctrl>;
+> +      resets =3D <&audio_blk_ctrl IMX8MP_AUDIOMIX_DSP>;
 
-Thank you for taking the time to review this patch series.
+Am I missing something here? fsl,dsp-ctrl is used to get the regmap from sy=
+scon.
 
-Thank you also for the spot. I am very much not an expert on
-cpufeatures, but I think you are correct. IIUC, currently the .matches
-check would go through as long as the the boot CPU executing the
-.matches function has the correct MIDR value, and as long as
-CONFIG_ARM64_ENABLE_BBML2 is set.
+Best regards,
+Alexander
 
-If, as you point out, another CPU has a MIDR that is not on this list
-and which was not checked (because .matches only executes on a single
-boot CPU), then .matches should still go through (and we could run into
-problems when said other CPU executes any BBML2 aware code).
+>      };
+>=20
 
-Please let me know if I have understood what you are saying correctly.
 
-From re-reading `include/asm/cpufeature.h`, making it a SCOPE_LOCAL_CPU
-feature seems to be close to what we want. We want to have each CPU test
-its cpuid against the allowed MIDR list, and the feature overall to
-only be considered present if *all* boot cpus returned true (not as
-SCOPE_LOCAL_CPU puts it "... detect if at least one matches.").
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
 
-I will see if this can be hacked around with the current system, and if
-not, we might have to extend the current cpucaps scopes / machinery like
-you suggest in your patch series comments.
 
--- 
-Kind regards,
-Mikołaj Lenczewski
 
