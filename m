@@ -4,58 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F38C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 15:41:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D664DC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 15:41:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AndRJg1+8PcfJz3sXNjISV1K/rGt2Ok3CKSuhEUVn6Q=; b=zd3GgbsrkJzuVSOQ5enNzTwDWh
-	nmCvv9RC05rs7Xz24HUlK4VwYDICk5onbwR1kk2gL9Xj7TiT0PAw7xao9/F7GRhOzBS/8SX2wWomB
-	nx0LZE+c1BMqJx3T1esGe4C/Whg3bQpmaaMruRDHhwgubcOUfPaWYM9UHuGp+MJqqkLJgbG2gnuBV
-	yVhnUutNjCkg3Zq2PMxAg39e64DvqJdLzk4x4tXqGOGLguaEuzWWEIh84343bCQtj2ONzClMbiNDi
-	HZhSzqDVQw4Qq8fDdIBpI/bzxvkaXv1yehJH3Gj71VbB7nZAXFWV4WtVg3hUba1mx79NKlLjZSwKL
-	KL7T0vhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hY7q6HQ4FQaZazAg7YSbphco7l3aJQzJCtoIpLMsi3M=; b=V4m2j58HfCFM4zicpmL+IuPeZu
+	ZxtLWXX7TR1KyVDZBFCY6BbiWnMPTxT4+R128rvoBPOqBquc2hw1iSlcYV44XrysXSF/GSNyynXYr
+	HrM8Qp5SiC/VTIu0+b47Ry9RNK6OmO+wMZ97I1Wqo4MiYNrBG7Kt5vf+PXDFfjtIzgN8KB+l/A0R3
+	v/Bt4uDqWwZN2LRMahZoqeRqgCJp9yPkpZeg6H3WR+x2CQrnsq4nzlGZXeBLZhPE2aAe7NPMD/56Q
+	rOeaASJTIQbPZQA4j0fvet47o2xOECtaHkWBuDzmhMlzpqb/LUnHEqJpWc741DeTXHZGTZR5e/QZ7
+	5kPSaDSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlV9X-000000060wr-1iAb;
-	Fri, 21 Feb 2025 15:41:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlV83-000000060iP-31VO
+	id 1tlV9d-000000060xy-3xur;
+	Fri, 21 Feb 2025 15:41:29 +0000
+Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlTkK-00000005laD-0ZII
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 15:39:52 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9FD4C168F;
-	Fri, 21 Feb 2025 07:40:08 -0800 (PST)
-Received: from [10.57.36.60] (unknown [10.57.36.60])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 381703F59E;
-	Fri, 21 Feb 2025 07:39:47 -0800 (PST)
-Message-ID: <5b9e15e1-8081-46ef-b9db-3872e98a6f35@arm.com>
-Date: Fri, 21 Feb 2025 15:39:45 +0000
+	Fri, 21 Feb 2025 14:11:17 +0000
+Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-3078fb1fa28so17961681fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 06:11:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740147074; x=1740751874; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hY7q6HQ4FQaZazAg7YSbphco7l3aJQzJCtoIpLMsi3M=;
+        b=Zj0hhlY6ZlJZRqVQ5ILMg9+EBB6om4srvua7S2FHECKzrXc4zjxU0u2jeZB/Xmegca
+         KW+6rcrLOCelPRQPjrqhzSDqWPP+Ra8TeMkGvfshcMcMGG7dPxcqU8X7AIYLJZQHNE8B
+         tHlDT9UoaKA4pGEluXAcGrKNTaV+1nLJo68pQ/wYM4iAMHh9u70UbJ8J2a9VJ11+Indc
+         6CA6ivJ6us3L2oM6VCONdls3R0Cq+CRKNPRXOqXHfIo9+9swzZ/MAKxSM0bQ3fLnyZpg
+         OaFw8bD0EbtCFsKc6OK/+R89dfXJNhphzlcrulQIfFYvEkG+3svVHxJ26bzbf9LTfJOS
+         Gm+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740147074; x=1740751874;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hY7q6HQ4FQaZazAg7YSbphco7l3aJQzJCtoIpLMsi3M=;
+        b=rJFnw3pE4YqjvXEHXvjGiDObnIDugjSCtApHK3LYgA+e/yK2VC2CSsJd8D05+fpRw1
+         6whP3muqlTQcMB/eSLdoL7mxcO84RMe0Bl4A6H1FwQ5WBYFgeIvqFGRQqmf94bXNgIEh
+         C/wzQ2m8Mhwmachuj/1Fm+AhrqpsfaXvQEWYTAplcu4HNbyzlgkXyHaGIjBQIxBG3HbJ
+         zGGHAHHtwKChkx/VDbJZR8PIWi98E+2RuSqNuK9NkQtlrm4DFQx2rfyCWDY+f9MeTDz8
+         xOy26fXakUeKKRbfHET8l+KRrJNPmzwqT4kssmzi3y8SmgWfCC5N5LkVeZnMt2FEHZk/
+         jHTg==
+X-Forwarded-Encrypted: i=1; AJvYcCWmXVdgoK3OI0hkQeTfugytN0njA2FCUmJael188yoNL4ZNsB4EQtP/w7mTf0saU0PQsb/24odGqnw4oBkGCBNB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbUOEdSus6UzGlltop5KKm2g7CThkI7Yf/3iWrO4upog3KfuTM
+	L9HbehVqnJqV2SMch6VrB3xLQBHex03g9+6GzDGbX5Cm+QP7MLEJ0dNiLaPLm5k=
+X-Gm-Gg: ASbGncvdWWU48uPIhTZhC3GEgLRk7SSqatdOjLjiOmP7q7DXJej9c7y9XHLQpIiQoZZ
+	QkyuXZ/9ygIfhBGdUeQD6dm3rVs8AvKnEaOZn0sYHC7Zs4rNh4zhWQmV7O4mHA2UeOmiabtYBdx
+	/6f1eyfTwnYnrLkCyrta4iL/RObc+splMzyM4JGD6hzyVQtEQw8fn3ZHZ3XFJSaCFXn9iidnitq
+	SLZt8WhQNdWh/hVm5TtYEBJbIFGCgEtjrkykPug5xQWbksORBXfJLJ6rYUdBqcTNGldudhZjzPj
+	pOsfC5UXcSHk7hYtmH0e90ZIxRwzhuUq3tOjocgJXggOCeoafRg1xRh1US6ZuNZXNN3utcgVWPK
+	kcjJoKw==
+X-Google-Smtp-Source: AGHT+IF4YOFfa5Kt8R2qRuDLGtHoO3z4a0J1rMxXFbaWLFLtIOV4Chzyik4Qt1FBw4hvpqQhKIqgvA==
+X-Received: by 2002:a2e:8202:0:b0:30a:44ca:7e72 with SMTP id 38308e7fff4ca-30a5b20dc6dmr10079311fa.24.1740147074062;
+        Fri, 21 Feb 2025 06:11:14 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30a3a6d3dcesm13384331fa.67.2025.02.21.06.11.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Feb 2025 06:11:13 -0800 (PST)
+Date: Fri, 21 Feb 2025 16:11:11 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Taniya Das <quic_tdas@quicinc.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Ajit Pandey <quic_ajipan@quicinc.com>, Imran Shaik <quic_imrashai@quicinc.com>, 
+	Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v5 02/10] dt-bindings: clock: Add Qualcomm QCS615 Camera
+ clock controller
+Message-ID: <ljfgljuhlpkjvqwomhvq5l6giihqv6h5nzswncaqgelvjycgew@bcxjrgbj3lts>
+References: <20250221-qcs615-v5-mm-cc-v5-0-b6d9ddf2f28d@quicinc.com>
+ <20250221-qcs615-v5-mm-cc-v5-2-b6d9ddf2f28d@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/7] iommu: Make iommu_dma_prepare_msi() into a generic
- operation
-To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com,
- tglx@linutronix.de, maz@kernel.org
-Cc: joro@8bytes.org, will@kernel.org, shuah@kernel.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
- eric.auger@redhat.com, baolu.lu@linux.intel.com, yi.l.liu@intel.com,
- yury.norov@gmail.com, jacob.pan@linux.microsoft.com, patches@lists.linux.dev
-References: <cover.1740014950.git.nicolinc@nvidia.com>
- <4ca696150d2baee03af27c4ddefdb7b0b0280e7b.1740014950.git.nicolinc@nvidia.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <4ca696150d2baee03af27c4ddefdb7b0b0280e7b.1740014950.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250221-qcs615-v5-mm-cc-v5-2-b6d9ddf2f28d@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_073951_855530_BCB79804 
-X-CRM114-Status: GOOD (  37.40  )
+X-CRM114-CacheID: sfid-20250221_061116_178463_E599DD41 
+X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,267 +105,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-02-20 1:31 am, Nicolin Chen wrote:
-> From: Jason Gunthorpe <jgg@nvidia.com>
+On Fri, Feb 21, 2025 at 02:50:13PM +0530, Taniya Das wrote:
+> Add DT bindings for the Camera clock on QCS615 platforms. Add the
+> relevant DT include definitions as well.
 > 
-> SW_MSI supports IOMMU to translate an MSI message before the MSI message
-> is delivered to the interrupt controller. On such systems, an iommu_domain
-> must have a translation for the MSI message for interrupts to work.
-> 
-> The IRQ subsystem will call into IOMMU to request that a physical page be
-> set up to receive MSI messages, and the IOMMU then sets an IOVA that maps
-> to that physical page. Ultimately the IOVA is programmed into the device
-> via the msi_msg.
-> 
-> Generalize this by allowing iommu_domain owners to provide implementations
-> of this mapping. Add a function pointer in struct iommu_domain to allow a
-> domain owner to provide its own implementation.
-> 
-> Have dma-iommu supply its implementation for IOMMU_DOMAIN_DMA types during
-> the iommu_get_dma_cookie() path. For IOMMU_DOMAIN_UNMANAGED types used by
-> VFIO (and iommufd for now), have the same iommu_dma_sw_msi set as well in
-> the iommu_get_msi_cookie() path.
-> 
-> Hold the group mutex while in iommu_dma_prepare_msi() to ensure the domain
-> doesn't change or become freed while running. Races with IRQ operations
-> from VFIO and domain changes from iommufd are possible here.
-> 
-> Replace the msi_prepare_lock with a lockdep assertion for the group mutex
-> as documentation. For the dmau_iommu.c each iommu_domain is unique to a
-> group.
-> 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+
+Just noticed. I've never replied with this tag. I've provided a comment
+to the v3 of the series, then in v4 this somehow appeared. Could you
+please comment, what has happened?
+
+> Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
 > ---
->   include/linux/iommu.h     | 44 ++++++++++++++++++++++++++-------------
->   drivers/iommu/dma-iommu.c | 33 +++++++++++++----------------
->   drivers/iommu/iommu.c     | 29 ++++++++++++++++++++++++++
->   3 files changed, 73 insertions(+), 33 deletions(-)
-> 
-> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-> index caee952febd4..761c5e186de9 100644
-> --- a/include/linux/iommu.h
-> +++ b/include/linux/iommu.h
-> @@ -44,6 +44,8 @@ struct iommu_dma_cookie;
->   struct iommu_fault_param;
->   struct iommufd_ctx;
->   struct iommufd_viommu;
-> +struct msi_desc;
-> +struct msi_msg;
->   
->   #define IOMMU_FAULT_PERM_READ	(1 << 0) /* read */
->   #define IOMMU_FAULT_PERM_WRITE	(1 << 1) /* write */
-> @@ -216,6 +218,12 @@ struct iommu_domain {
->   	struct iommu_domain_geometry geometry;
->   	struct iommu_dma_cookie *iova_cookie;
->   	int (*iopf_handler)(struct iopf_group *group);
-> +
-> +#if IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
-> +	int (*sw_msi)(struct iommu_domain *domain, struct msi_desc *desc,
-> +		      phys_addr_t msi_addr);
-> +#endif
-> +
->   	void *fault_data;
->   	union {
->   		struct {
-> @@ -234,6 +242,16 @@ struct iommu_domain {
->   	};
->   };
->   
-> +static inline void iommu_domain_set_sw_msi(
-> +	struct iommu_domain *domain,
-> +	int (*sw_msi)(struct iommu_domain *domain, struct msi_desc *desc,
-> +		      phys_addr_t msi_addr))
-> +{
-> +#if IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
-> +	domain->sw_msi = sw_msi;
-> +#endif
-> +}
+>  .../bindings/clock/qcom,qcs615-camcc.yaml          |  54 ++++++++++
+>  include/dt-bindings/clock/qcom,qcs615-camcc.h      | 110 +++++++++++++++++++++
+>  2 files changed, 164 insertions(+)
 
-Yuck. Realistically we are going to have no more than two different 
-implementations of this; a fiddly callback interface seems overkill. All 
-we should need in the domain is a simple indicator of *which* MSI 
-translation scheme is in use (if it can't be squeezed into the domain 
-type itself), then iommu_dma_prepare_msi() can simply dispatch between 
-iommu-dma and IOMMUFD based on that, and then it's easy to solve all the 
-other fragility issues too.
-
-Thanks,
-Robin.
-
-> +
->   static inline bool iommu_is_dma_domain(struct iommu_domain *domain)
->   {
->   	return domain->type & __IOMMU_DOMAIN_DMA_API;
-> @@ -1470,6 +1488,18 @@ static inline ioasid_t iommu_alloc_global_pasid(struct device *dev)
->   static inline void iommu_free_global_pasid(ioasid_t pasid) {}
->   #endif /* CONFIG_IOMMU_API */
->   
-> +#ifdef CONFIG_IRQ_MSI_IOMMU
-> +#ifdef CONFIG_IOMMU_API
-> +int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr);
-> +#else
-> +static inline int iommu_dma_prepare_msi(struct msi_desc *desc,
-> +					phys_addr_t msi_addr)
-> +{
-> +	return 0;
-> +}
-> +#endif /* CONFIG_IOMMU_API */
-> +#endif /* CONFIG_IRQ_MSI_IOMMU */
-> +
->   #if IS_ENABLED(CONFIG_LOCKDEP) && IS_ENABLED(CONFIG_IOMMU_API)
->   void iommu_group_mutex_assert(struct device *dev);
->   #else
-> @@ -1503,26 +1533,12 @@ static inline void iommu_debugfs_setup(void) {}
->   #endif
->   
->   #ifdef CONFIG_IOMMU_DMA
-> -#include <linux/msi.h>
-> -
->   int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base);
-> -
-> -int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr);
-> -
->   #else /* CONFIG_IOMMU_DMA */
-> -
-> -struct msi_desc;
-> -struct msi_msg;
-> -
->   static inline int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base)
->   {
->   	return -ENODEV;
->   }
-> -
-> -static inline int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
-> -{
-> -	return 0;
-> -}
->   #endif	/* CONFIG_IOMMU_DMA */
->   
->   /*
-> diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
-> index bf91e014d179..3b58244e6344 100644
-> --- a/drivers/iommu/dma-iommu.c
-> +++ b/drivers/iommu/dma-iommu.c
-> @@ -24,6 +24,7 @@
->   #include <linux/memremap.h>
->   #include <linux/mm.h>
->   #include <linux/mutex.h>
-> +#include <linux/msi.h>
->   #include <linux/of_iommu.h>
->   #include <linux/pci.h>
->   #include <linux/scatterlist.h>
-> @@ -102,6 +103,9 @@ static int __init iommu_dma_forcedac_setup(char *str)
->   }
->   early_param("iommu.forcedac", iommu_dma_forcedac_setup);
->   
-> +static int iommu_dma_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
-> +			    phys_addr_t msi_addr);
-> +
->   /* Number of entries per flush queue */
->   #define IOVA_DEFAULT_FQ_SIZE	256
->   #define IOVA_SINGLE_FQ_SIZE	32768
-> @@ -398,6 +402,7 @@ int iommu_get_dma_cookie(struct iommu_domain *domain)
->   		return -ENOMEM;
->   
->   	mutex_init(&domain->iova_cookie->mutex);
-> +	iommu_domain_set_sw_msi(domain, iommu_dma_sw_msi);
->   	return 0;
->   }
->   
-> @@ -429,6 +434,7 @@ int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base)
->   
->   	cookie->msi_iova = base;
->   	domain->iova_cookie = cookie;
-> +	iommu_domain_set_sw_msi(domain, iommu_dma_sw_msi);
->   	return 0;
->   }
->   EXPORT_SYMBOL(iommu_get_msi_cookie);
-> @@ -443,6 +449,9 @@ void iommu_put_dma_cookie(struct iommu_domain *domain)
->   	struct iommu_dma_cookie *cookie = domain->iova_cookie;
->   	struct iommu_dma_msi_page *msi, *tmp;
->   
-> +	if (domain->sw_msi != iommu_dma_sw_msi)
-> +		return;
-> +
->   	if (!cookie)
->   		return;
->   
-> @@ -1800,33 +1809,19 @@ static struct iommu_dma_msi_page *iommu_dma_get_msi_page(struct device *dev,
->   	return NULL;
->   }
->   
-> -/**
-> - * iommu_dma_prepare_msi() - Map the MSI page in the IOMMU domain
-> - * @desc: MSI descriptor, will store the MSI page
-> - * @msi_addr: MSI target address to be mapped
-> - *
-> - * Return: 0 on success or negative error code if the mapping failed.
-> - */
-> -int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
-> +static int iommu_dma_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
-> +			    phys_addr_t msi_addr)
->   {
->   	struct device *dev = msi_desc_to_dev(desc);
-> -	struct iommu_domain *domain = iommu_get_domain_for_dev(dev);
-> -	struct iommu_dma_msi_page *msi_page;
-> -	static DEFINE_MUTEX(msi_prepare_lock); /* see below */
-> +	const struct iommu_dma_msi_page *msi_page;
->   
-> -	if (!domain || !domain->iova_cookie) {
-> +	if (!domain->iova_cookie) {
->   		msi_desc_set_iommu_msi_iova(desc, 0, 0);
->   		return 0;
->   	}
->   
-> -	/*
-> -	 * In fact the whole prepare operation should already be serialised by
-> -	 * irq_domain_mutex further up the callchain, but that's pretty subtle
-> -	 * on its own, so consider this locking as failsafe documentation...
-> -	 */
-> -	mutex_lock(&msi_prepare_lock);
-> +	iommu_group_mutex_assert(dev);
->   	msi_page = iommu_dma_get_msi_page(dev, msi_addr, domain);
-> -	mutex_unlock(&msi_prepare_lock);
->   	if (!msi_page)
->   		return -ENOMEM;
->   
-> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-> index 870c3cdbd0f6..022bf96a18c5 100644
-> --- a/drivers/iommu/iommu.c
-> +++ b/drivers/iommu/iommu.c
-> @@ -3596,3 +3596,32 @@ int iommu_replace_group_handle(struct iommu_group *group,
->   	return ret;
->   }
->   EXPORT_SYMBOL_NS_GPL(iommu_replace_group_handle, "IOMMUFD_INTERNAL");
-> +
-> +#if IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
-> +/**
-> + * iommu_dma_prepare_msi() - Map the MSI page in the IOMMU domain
-> + * @desc: MSI descriptor, will store the MSI page
-> + * @msi_addr: MSI target address to be mapped
-> + *
-> + * The implementation of sw_msi() should take msi_addr and map it to
-> + * an IOVA in the domain and call msi_desc_set_iommu_msi_iova() with the
-> + * mapping information.
-> + *
-> + * Return: 0 on success or negative error code if the mapping failed.
-> + */
-> +int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
-> +{
-> +	struct device *dev = msi_desc_to_dev(desc);
-> +	struct iommu_group *group = dev->iommu_group;
-> +	int ret = 0;
-> +
-> +	if (!group)
-> +		return 0;
-> +
-> +	mutex_lock(&group->mutex);
-> +	if (group->domain && group->domain->sw_msi)
-> +		ret = group->domain->sw_msi(group->domain, desc, msi_addr);
-> +	mutex_unlock(&group->mutex);
-> +	return ret;
-> +}
-> +#endif /* CONFIG_IRQ_MSI_IOMMU */
-
+-- 
+With best wishes
+Dmitry
 
