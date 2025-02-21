@@ -4,56 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86492C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 16:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A03DC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 16:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i0OwVQQlP9h/wFIRWZkPHyw5WKxLN+3Z8z88Z+lki38=; b=H26XJOPgpHKHxbMuSOkjL/oeqf
-	jN7cFpagIPsH6MD+gg3gJBevpIUzkMyNceL/NkmGUA0Rj8DuyzCVQ9SvrgLglf6VkIYdeT0CrLLJd
-	ykAud0OvQte9Puitl6rq24WfThoEHSoxx//yC7RWkLmyC0M/UsNzogbXQPgeTNnwy1obK619kLZzI
-	k8pJ3cWp0UWpJW4dJ1ap6cDJKl6e0PPc2zSVKpTlSp92s+bgnoPpygY6DAhVQoAe78fNwN9uZCw0i
-	hXRTfCouFOibZFYgicSJy6k9SpK1ND424AmqtTndCWlESapSWnG/qY10/JPO5+MVGtPPCrbO1laRZ
-	WABFPyxQ==;
+	bh=w2E197Qc+tMzoaRduX1xKII3x7kGR5ATZ73uNFSwZtQ=; b=BaGP5C563FsmVtB+lAMWjYEEYX
+	O8+C6/wX43P9b9CkMaMo9C85LmENigura5OeyVNwJKKJMn62niItrB5sAxlMGqPOuRSl1MR/eUCML
+	nV9MCNuCRIMa+wHgg3kT4tp27TPsAwktZNTdbc3bUzoCY1DqlQ64fNZk0KbE+OsZO1qucxu74ZqvD
+	4v+8l8rjNn/dyjK9kwaXKoAvGcJkCubkFQf5M9IX3q1GOHLzMuiNXuwA56f0iR/nWlowcnMIa5Mq/
+	20FdTbE5auRITlGvgg7a+jDEbJmuA15XAQNrvrExJwh6vTVPxGbROBSQu5LcZoFw3YI3czzVdbAGs
+	ffDRsuGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlVeO-000000067Ig-3NYO;
-	Fri, 21 Feb 2025 16:13:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlVct-000000066nq-2OAR
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 16:11:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 691C9168F;
-	Fri, 21 Feb 2025 08:12:00 -0800 (PST)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 846A43F5A1;
-	Fri, 21 Feb 2025 08:11:41 -0800 (PST)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	James Clark <james.clark@linaro.org>,
-	Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	id 1tlVkr-000000068un-265p;
+	Fri, 21 Feb 2025 16:19:57 +0000
+Received: from s2.avantea.pl ([46.242.128.95])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlVj2-000000068Iz-3F38;
+	Fri, 21 Feb 2025 16:18:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=szczodrzynski.pl; s=x; h=Content-Transfer-Encoding:Content-Type:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=w2E197Qc+tMzoaRduX1xKII3x7kGR5ATZ73uNFSwZtQ=; b=CMNzlDdkHQ6mojLXa6tNiP/3VC
+	RkIZGgKGLCLwEE4kPiGTssFxkaN0xfA7iu5WpmszAXMImsPodll8V0+9AC8TDn4YfEsc7Wp+sVXyP
+	bw5eGzs6xhuk9T8yiqzR2bKgTIf9mcr2aydxbSSuy9e5FQlKv/eQgku1xjrcD+KHsyrXwB0RX8aOF
+	+yPQyPm+M+bXvN+Ih7QHFFDOLh1/NMvVhCBjuWb8/Mr9AHv7Icatpoe8wI8gVs18Vru9xNko2ePe8
+	ezPts3Z/Y0LIeJ7RWEUIpJ9F4dU8HijLXrwRyvvCShp5JHvXij14iwDn5G9u79LBlPQChA6Vp66ID
+	+GldAbUw==;
+Received: from [62.171.184.96] (helo=buildhost.contaboserver.net)
+	by s2.avantea.pl with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96-58-g4e9ed49f8)
+	(envelope-from <kuba@szczodrzynski.pl>)
+	id 1tlVix-00AOLX-1V;
+	Fri, 21 Feb 2025 17:17:59 +0100
+From: =?UTF-8?q?Kuba=20Szczodrzy=C5=84ski?= <kuba@szczodrzynski.pl>
+To: Maxime Ripard <mripard@kernel.org>,
+	Samuel Holland <samuel@sholland.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
 	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	coresight@lists.linaro.org
-Subject: Re: [PATCH] coresight: catu: Fix number of pages while using 64k pages
-Date: Fri, 21 Feb 2025 16:11:34 +0000
-Message-ID: <174015423971.1326003.7421875844813609772.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250109215348.5483-1-ilkka@os.amperecomputing.com>
-References: <20250109215348.5483-1-ilkka@os.amperecomputing.com>
+	linux-riscv@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Subject: [PATCH 5/5] riscv: dts: allwinner: d1s-t113: Add LVDS0 pins
+Date: Fri, 21 Feb 2025 17:17:51 +0100
+Message-Id: <20250221161751.1278049-6-kuba@szczodrzynski.pl>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
+References: <20250221161751.1278049-1-kuba@szczodrzynski.pl>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Authenticated-Id: kuba@szczodrzynski.pl
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_081143_650495_042E7554 
-X-CRM114-Status: UNSURE (   7.63  )
+X-CRM114-CacheID: sfid-20250221_081804_975960_9A478F83 
+X-CRM114-Status: UNSURE (   8.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,23 +91,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add LVDS pins to the PIO since it's now supported on D1s/T113.
 
-On Thu, 9 Jan 2025 21:53:48 +0000, Ilkka Koskinen wrote:
-> Trying to record a trace on kernel with 64k pages resulted in -ENOMEM.
-> This happens due to a bug in calculating the number of table pages, which
-> returns zero. Fix the issue by rounding up.
-> 
-> $ perf record --kcore -e cs_etm/@tmc_etr55,cycacc,branch_broadcast/k --per-thread taskset --cpu-list 1 dd if=/dev/zero of=/dev/null
-> failed to mmap with 12 (Cannot allocate memory)
-> 
-> [...]
+Signed-off-by: Kuba Szczodrzyński <kuba@szczodrzynski.pl>
+---
+ arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Applied, thanks!
-
-[1/1] coresight: catu: Fix number of pages while using 64k pages
-      https://git.kernel.org/coresight/c/0e14e062f5ff
-
-Best regards,
+diff --git a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+index d241ba306..174b6d8f9 100644
+--- a/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
++++ b/arch/riscv/boot/dts/allwinner/sunxi-d1s-t113.dtsi
+@@ -78,6 +78,15 @@ dsi_4lane_pins: dsi-4lane-pins {
+ 				function = "dsi";
+ 			};
+ 
++			/omit-if-no-ref/
++			lvds0_pins: lvds0-pins {
++				pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5",
++				       "PD6", "PD7", "PD8", "PD9";
++				function = "lvds0";
++				drive-strength = <30>;
++				bias-disable;
++			};
++
+ 			/omit-if-no-ref/
+ 			lcd_rgb666_pins: lcd-rgb666-pins {
+ 				pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5",
 -- 
-Suzuki K Poulose <suzuki.poulose@arm.com>
+2.25.1
+
 
