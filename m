@@ -4,95 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C652EC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 10:33:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE5D1C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 10:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JlFtUewgNQ6c5s971L7K4Z8oNh1c5TvFLWRHKTDdIO0=; b=Hrj4NEPJgZFU/IY19SEnHCoaNP
-	nvtqfvMCRvuG7kgqGmgdL2ljg+2YLjpXXMyxLSf3bJI1ZDYN5VuX0rJDOfC+XjY/BJOvks4BPm3Rv
-	kIjYZtHKX1IMao2o4xvr294YQ/THuN8gXpC/atRm1omukHSLBNe4qkOwxHwyLuGKaEp4S8sH9wZXF
-	G5uukjuy+V4snZHQdh5VXMgmUFtcRCdfag9HRIVwBEPid+lHDBLrGHYds8tK6QT/qYU2KrM649jTx
-	7WS1D+YZZgzLqudzqvG38lBNqczsPBQ0QKeLi/LjvVxiVvoZ0PZYmv/L82h+57Sv4/08CfWrpqEG9
-	Hcav/9Aw==;
+	bh=ZNLfBripyGCcRpodlSQDvf0KC5poyX1fpkm5nakZ/Is=; b=Y/5pvMI5fpw/PT1J1sjruIRkkw
+	PayAmFuIfDO8Md4E14hYLBF1sb9fr6fv8dkTsy/IQ3/kbYP4S2QrwtDeGEYmpqitntvNWAUIb6TiF
+	8Evfrdeh2vqLOVvbiNjDMzWgjPDh0GeHj80x5B57NU/H1553Y95CPHi2PjxlLUgQSZqvi/deAv7E4
+	P42rZjvjGi0T+ETrqMnMJnuS2ZPBlxZ9s4svpLSpZ+fWY+WAF29qeqB8fQ1glr62tkVSMnUCv1bK6
+	SamXYD1w8h/jj60d8FD5/6j1oer2n2tC+k6vrRcdnjgynJXYPgUzuOv7TDTQTPGnmEsSQelJl+b1n
+	D9tUiFfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlQL3-00000005C9n-0j4W;
-	Fri, 21 Feb 2025 10:32:57 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tlQMX-00000005CHc-3ehi;
+	Fri, 21 Feb 2025 10:34:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlQ4g-000000058dF-0Hcs
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 10:16:03 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51L5VGk3011673;
-	Fri, 21 Feb 2025 10:15:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	JlFtUewgNQ6c5s971L7K4Z8oNh1c5TvFLWRHKTDdIO0=; b=IfiNzZHXuluH31bj
-	hGxfhA+upmXHLXFQKIMTyRvEMNIgR85Qv6gESoWqJXSp4iSl8jFA5UncOhV2xwvV
-	DhQa95W0DojxSu0phPd3kodriG8ZC117fyvELFAtmFixf4hE9WixnAGCILqYGj/m
-	+iGk8Fti2bmAIjVWZlHWptKt1CIpAxZeRyIugd/RSLl+AQ4aKI1b3pdKVzJ0FzMD
-	tezVx9OQnkg9FaFXaSWpTbVB2G980nNh0KFEUfAc73pT/aW3yvLWOYpoeb1vf+DT
-	La5EAW5Sl9C3Je/pOv8xq2CjEE++Exgvznghlw5/oYzxcTSPFrGuPWfKKiwHOyjB
-	50t8zg==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44vyy3sjmx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 21 Feb 2025 10:15:49 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51LAFmng002513
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 21 Feb 2025 10:15:48 GMT
-Received: from hu-mmanikan-blr.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 21 Feb 2025 02:15:39 -0800
-From: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
-To: <andersson@kernel.org>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <konradybcio@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-        <p.zabel@pengutronix.de>, <richardcochran@gmail.com>,
-        <geert+renesas@glider.be>, <dmitry.baryshkov@linaro.org>,
-        <arnd@arndb.de>, <nfraprado@collabora.com>, <quic_tdas@quicinc.com>,
-        <biju.das.jz@bp.renesas.com>, <elinor.montmasson@savoirfairelinux.com>,
-        <ross.burton@arm.com>, <javier.carrasco@wolfvision.net>,
-        <quic_anusha@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <netdev@vger.kernel.org>
-CC: <quic_srichara@quicinc.com>, <quic_varada@quicinc.com>
-Subject: [PATCH v10 6/6] arm64: defconfig: Build NSS Clock Controller driver for IPQ9574
-Date: Fri, 21 Feb 2025 15:44:26 +0530
-Message-ID: <20250221101426.776377-7-quic_mmanikan@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250221101426.776377-1-quic_mmanikan@quicinc.com>
-References: <20250221101426.776377-1-quic_mmanikan@quicinc.com>
+	id 1tlQ9W-000000059uh-1WWb;
+	Fri, 21 Feb 2025 10:21:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8CFC76119B;
+	Fri, 21 Feb 2025 10:20:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8BFCC4CEE6;
+	Fri, 21 Feb 2025 10:21:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740133261;
+	bh=fUVaLTqcC5c+bm4iIiTWH4PyCaBTZWkrdFfnT7KKx9k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tdaAdtItOplD992wbpZNI3he2hf6xVYugM2PYF5rEGymF/G5YrQns0JZopipOO9MM
+	 BoNF1OqMpjKsgq8VvcxReJithgND9W34P13mPh5P4EwMGhY6+NE1F2lakfBcXct+zx
+	 VenyyKva/dTsHfQ9823wnEpvA+rUYgRZyyT21q3eb5CXVCpGLLCDEiKBu7aX1Hlzvq
+	 bA3jWyMQU0fuqalK/8WChGN9CJ+VQsqQDYySlWlNJBkbe7Jnu0v8cQQGTodqdafr/Q
+	 ef4u4VHGdwvWGcdRx7GFsIolkSZeJQsRok04div7TK/9JCvm+rvcfF5FzbkB0bFWeV
+	 2FOQ9nNoMGgew==
+Date: Fri, 21 Feb 2025 11:20:58 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	upstream@airoha.com
+Subject: Re: [PATCH net-next v5 05/15] net: airoha: Move DSA tag in DMA
+ descriptor
+Message-ID: <Z7hTilouR44BUuHb@lore-desk>
+References: <20250217-airoha-en7581-flowtable-offload-v5-0-28be901cb735@kernel.org>
+ <20250217-airoha-en7581-flowtable-offload-v5-5-28be901cb735@kernel.org>
+ <20250220142535.584b0423@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 4-b4hYEDN2nrxj1PTDqFDcVj-o8uDntD
-X-Proofpoint-GUID: 4-b4hYEDN2nrxj1PTDqFDcVj-o8uDntD
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-21_01,2025-02-20_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0
- impostorscore=0 mlxlogscore=818 bulkscore=0 mlxscore=0 spamscore=0
- lowpriorityscore=0 phishscore=0 priorityscore=1501 clxscore=1015
- malwarescore=0 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2502100000 definitions=main-2502210077
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_021602_227597_79548F46 
-X-CRM114-Status: GOOD (  11.14  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="5YB+kcl4xBIiQadY"
+Content-Disposition: inline
+In-Reply-To: <20250220142535.584b0423@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,34 +86,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Devi Priya <quic_devipriy@quicinc.com>
 
-NSSCC driver is needed to enable the ethernet interfaces present
-in RDP433 based on IPQ9574. Since this is not necessary for bootup
-enabling it as a module.
+--5YB+kcl4xBIiQadY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Devi Priya <quic_devipriy@quicinc.com>
-Signed-off-by: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
----
-Changes in V10:
-	- No change.
+> On Mon, 17 Feb 2025 14:01:09 +0100 Lorenzo Bianconi wrote:
+> > +static u32 airoha_get_dsa_tag(struct sk_buff *skb, struct net_device *=
+dev)
+> > +{
+> > +#if IS_ENABLED(CONFIG_NET_DSA)
+> > +	struct ethhdr *ehdr;
+> > +	struct dsa_port *dp;
+> > +	u8 xmit_tpid;
+> > +	u16 tag;
+> > +
+> > +	if (!netdev_uses_dsa(dev))
+> > +		return 0;
+> > +
+> > +	dp =3D dev->dsa_ptr;
+> > +	if (IS_ERR(dp))
+> > +		return 0;
+> > +
+> > +	if (dp->tag_ops->proto !=3D DSA_TAG_PROTO_MTK)
+> > +		return 0;
+> > +
+> > +	if (skb_ensure_writable(skb, ETH_HLEN))
+> > +		return 0;
+>=20
+> skb_cow_head() is a lot cheaper (for TCP)
 
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+ack, I will fix it in v6
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index a1cc3814b09b..56a1fd81ab6c 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1334,6 +1334,7 @@ CONFIG_IPQ_GCC_5332=y
- CONFIG_IPQ_GCC_6018=y
- CONFIG_IPQ_GCC_8074=y
- CONFIG_IPQ_GCC_9574=y
-+CONFIG_IPQ_NSSCC_9574=m
- CONFIG_MSM_GCC_8916=y
- CONFIG_MSM_MMCC_8994=m
- CONFIG_MSM_GCC_8994=y
--- 
-2.34.1
+>=20
+> > +	ehdr =3D (struct ethhdr *)skb->data;
+> > +	tag =3D be16_to_cpu(ehdr->h_proto);
+> > +	xmit_tpid =3D tag >> 8;
+>=20
+> > @@ -2390,8 +2498,10 @@ static int airoha_probe(struct platform_device *=
+pdev)
+> >  	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
+> >  		struct airoha_gdm_port *port =3D eth->ports[i];
+> > =20
+> > -		if (port && port->dev->reg_state =3D=3D NETREG_REGISTERED)
+> > +		if (port && port->dev->reg_state =3D=3D NETREG_REGISTERED) {
+> > +			airoha_metadata_dst_free(port);
+> >  			unregister_netdev(port->dev);
+>=20
+> Looks a tiny bit reversed, isn't it?
+> First unregister the netdev, then free its metadata.
 
+ack, I will fix it in v6
+
+>=20
+> > +		}
+> >  	}
+> >  	free_netdev(eth->napi_dev);
+> >  	platform_set_drvdata(pdev, NULL);
+> > @@ -2416,6 +2526,7 @@ static void airoha_remove(struct platform_device =
+*pdev)
+> >  			continue;
+> > =20
+> >  		airoha_dev_stop(port->dev);
+> > +		airoha_metadata_dst_free(port);
+> >  		unregister_netdev(port->dev);
+>=20
+> same here
+
+ack, I will fix it in v6
+
+Regards,
+Lorenzo
+
+>=20
+> >  	}
+> >  	free_netdev(eth->napi_dev);
+
+--5YB+kcl4xBIiQadY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ7hTigAKCRA6cBh0uS2t
+rCeUAQCB/2t2Wdyb4IQv5rKQRZKe1GYUM3uFFfEksdbnFdyb0gD/ZY1D+76DwjUj
+DnnmpDydOAQ+1nCYsY5EaOgWAq9p5Qg=
+=cQbl
+-----END PGP SIGNATURE-----
+
+--5YB+kcl4xBIiQadY--
 
