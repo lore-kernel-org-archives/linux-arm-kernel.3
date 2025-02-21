@@ -4,91 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5FB0C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 15:54:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86492C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 16:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=evPi6dQiCO3IoUOpjRp0eIR+zPz18r17WDupYoyNt7I=; b=m668PKrG9uEu1ieXHupYQTDhTD
-	O+djYBjowTW1fIrlq+0lmF3n4bi3KvHt88M5dHFBIjgtCRNtaXoFruB8/iXXAM3EN6q99r1FxF5MR
-	G8hW09VrU0+Ob2R5DmW3Yrwra2nQ6CmYYA+69ccHJmy8b5IIXy3ympyyQD81xEwz/WmcU8DH5xta3
-	uVT4Fr5Hf0RMmJu5L8tNDQTWZvJCUTiVK/svaG++Q08E9qTwG3zNYEJ+WEouAyjLUMDS/TpdP0ztJ
-	pG0dc0lO6EP6HFw/0E5VDSbG5LfLl0OTPM8E+/CsLppRKvZgVn6O7yCTwcNH6gBndEo0uNNl4qP1S
-	cw13KpPg==;
+	bh=i0OwVQQlP9h/wFIRWZkPHyw5WKxLN+3Z8z88Z+lki38=; b=H26XJOPgpHKHxbMuSOkjL/oeqf
+	jN7cFpagIPsH6MD+gg3gJBevpIUzkMyNceL/NkmGUA0Rj8DuyzCVQ9SvrgLglf6VkIYdeT0CrLLJd
+	ykAud0OvQte9Puitl6rq24WfThoEHSoxx//yC7RWkLmyC0M/UsNzogbXQPgeTNnwy1obK619kLZzI
+	k8pJ3cWp0UWpJW4dJ1ap6cDJKl6e0PPc2zSVKpTlSp92s+bgnoPpygY6DAhVQoAe78fNwN9uZCw0i
+	hXRTfCouFOibZFYgicSJy6k9SpK1ND424AmqtTndCWlESapSWnG/qY10/JPO5+MVGtPPCrbO1laRZ
+	WABFPyxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlVMb-000000063Mk-1kB6;
-	Fri, 21 Feb 2025 15:54:53 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlVL8-00000006319-2sSA;
-	Fri, 21 Feb 2025 15:53:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1740153200;
-	bh=DRRk8ySHM7d80jUzaigsI9T4dZ5O56rDrKF/hwqGjjE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=LGll4wxMdtC9VuU1cqAJl3FPPep48bfwtMgKC4WgcM/G8HMuayRO29U0ZUSgfakeq
-	 tBq1E4kJN6BHNSfXtNb6p1qo7xGOi0P5Xm02uplDWaE7YJtYoKI4NJtea35tD54mcE
-	 EQh2uwfFMkJzmfvwlfUKsPkAlf5epvS3tFqakLDOCamE6Sdlq9rP37BFbCfKYyrvp/
-	 fzQyeBkIvQ7724xVu1CEFsY6H0qyIzQ/RksSUeN9WLwDf5UaDOhynR0AnCpviJISut
-	 uHgqKDSgMMJGaYK64TAfB6Y0mYvYLizMcimTLF8DiQzRgNjr/l3w9GOTH644nscv57
-	 R3kv+iVFRl6sg==
-Received: from [IPv6:2606:6d00:11:e976::5ac] (unknown [IPv6:2606:6d00:11:e976::5ac])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1DE1217E0199;
-	Fri, 21 Feb 2025 16:53:19 +0100 (CET)
-Message-ID: <cd8f43a310f771f7db7ae1ab7fb2f8b5d554c2da.camel@collabora.com>
-Subject: Re: [PATCH 0/2] Add support for MT8196 video encoder
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Irui Wang <irui.wang@mediatek.com>, Hans Verkuil
- <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, 
-	angelogioacchino.delregno@collabora.com, Yunfei Dong
- <yunfei.dong@mediatek.com>
-Cc: Project_Global_Chrome_Upstream_Group@mediatek.com, 
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Longfei Wang <longfei.wang@mediatek.com>
-Date: Fri, 21 Feb 2025 10:53:17 -0500
-In-Reply-To: <20250221031004.9050-1-irui.wang@mediatek.com>
-References: <20250221031004.9050-1-irui.wang@mediatek.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mQGiBEUQN0MRBACQYceNSezSdMjx7sx6gwKkMghrrODgl3B0eXBTgNp6c431IfOOEsdvk
- oOh1kwoYcQgbg4MXw6beOltysX4e8fFWsiRkc2nvvRW9ir9kHDm49MkBLqaDjTqOkYKNMiurFW+go
- zpr/lUW15QqT6v68RYe0zRdtwGZqeLzX2LVuukGwCg4AISzswrrYHNV7vQLcbaUhPgIl0D+gILYT9
- TJgAEK4YHW+bFRcY+cgUFoLQqQayECMlctKoLOE69nIYOc/hDr9uih1wxrQ/yL0NJvQCohSPyoyLF
- 9b2EuIGhQVp05XP7FzlTxhYvGO/DtO08ec85+bTfVBMV6eeY4MS3ZU+1z7ObD7Pf29YjyTehN2Dan
- 6w1g2rBk5MoA/9nDocSlk4pbFpsYSFmVHsDiAOFje3+iY4ftVDKunKYWMhwRVBjAREOByBagmRau0
- cLEcElpf4hX5f978GoxSGIsiKoDAlXX+ICDOWC1/EXhEEmBR1gL0QJgiVviNyLfGJlZWnPjw6xhhm
- tHYWTDxBOP5peztyc2PqeKsLsLWzAr7QnTmljb2xhcyBEdWZyZXNuZSA8bmljb2xhc0BuZHVmcmVz
- bmUuY2E+iGIEExECACIFAlXA3CACGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sB
- qgcJngAnRDBTr8bhzuH0KQwFP1nEYtfgpKdAKCrQ/sJfuG/8zsd7J8wVl7y3e8ARbRDTmljb2xhcy
- BEdWZyZXNuZSAoQi4gU2MuIEluZm9ybWF0aXF1ZSkgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29
- tPohgBBMRAgAgBQJFlCyOAhsDBgsJCAcDAgQVAggDBBYCAwECHgECF4AACgkQcVMCLawGqBwhLQCg
- zYlrLBj6KIAZ4gmsfjXD6ZtddT8AoIeGDicVq5WvMHNWign6ApQcZUihtElOaWNvbGFzIER1ZnJlc
- 25lIChCLiBTYy4gSW5mb3JtYXRpcXVlKSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY28udW
- s+iGIEExECACIFAkuzca8CGwMGCwkIBwMCBhUIAgkKCwQWAgMBAh4BAheAAAoJEHFTAi2sBqgcQX8
- An2By6LDEeMxi4B9hUbpvRnzaaeNqAJ9Rox8rfqHZnSErw9bCHiBwvwJZ77QxTmljb2xhcyBEdWZy
- ZXNuZSA8bmljb2xhcy5kdWZyZXNuZUBjb2xsYWJvcmEuY29tPohiBBMRAgAiBQJNzZzPAhsDBgsJC
- AcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRBxUwItrAaoHLlxAKCYAGf4JL7DYDLs/188CPMGuwLypw
- CfWKc9DorA9f5pyYlD5pQo6SgSoiC0R05pY29sYXMgRHVmcmVzbmUgKEIgU2MuIEluZm9ybWF0aXF
- 1ZSkgPG5pY29sYXMuZHVmcmVzbmVAdXNoZXJicm9va2UuY2E+iGAEExECACAFAkUQN0MCGwMGCwkI
- BwMCBBUCCAMEFgIDAQIeAQIXgAAKCRBxUwItrAaoHPTnAJ0WGgJJVspoctAvEcI00mtp5WAFGgCgr
- +E7ItOqZEHAs+xabBgknYZIFPU=
-Organization: Collabora Canada
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
+	id 1tlVeO-000000067Ig-3NYO;
+	Fri, 21 Feb 2025 16:13:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlVct-000000066nq-2OAR
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Feb 2025 16:11:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 691C9168F;
+	Fri, 21 Feb 2025 08:12:00 -0800 (PST)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 846A43F5A1;
+	Fri, 21 Feb 2025 08:11:41 -0800 (PST)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	coresight@lists.linaro.org
+Subject: Re: [PATCH] coresight: catu: Fix number of pages while using 64k pages
+Date: Fri, 21 Feb 2025 16:11:34 +0000
+Message-ID: <174015423971.1326003.7421875844813609772.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250109215348.5483-1-ilkka@os.amperecomputing.com>
+References: <20250109215348.5483-1-ilkka@os.amperecomputing.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_075322_869208_6171AB1B 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20250221_081143_650495_042E7554 
+X-CRM114-Status: UNSURE (   7.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +69,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Le vendredi 21 février 2025 à 11:10 +0800, Irui Wang a écrit :
-> This patch series adds support for MT8196 video encoder. The changes
-> include introducing a new encoder driver interface and add support
-> for the
-> new encoder driver encoding process.
-
-thanks for your contribution. In general, when adding new HW support,
-we would like to see in your cover letter your v4l2-compliance report. 
-
-Since this is a firmware based encoder, we also want to know how the
-process with uploading your firmware in linux-firmware is going. We can
-do reviews ahead of this of course, but merging depends on having
-firmware upstream. We did some favours in the past and it worked for
-many SoC, but things seems to have changed lately with the MT8188
-firmware situation. Hope you understand this concern.
-
-regards,
-Nicolas
-
+On Thu, 9 Jan 2025 21:53:48 +0000, Ilkka Koskinen wrote:
+> Trying to record a trace on kernel with 64k pages resulted in -ENOMEM.
+> This happens due to a bug in calculating the number of table pages, which
+> returns zero. Fix the issue by rounding up.
 > 
-> Irui Wang (2):
->   media: mediatek: encoder: Add a new encoder driver interface
->   media: mediatek: encoder: Add support for common driver encode
-> process
+> $ perf record --kcore -e cs_etm/@tmc_etr55,cycacc,branch_broadcast/k --per-thread taskset --cpu-list 1 dd if=/dev/zero of=/dev/null
+> failed to mmap with 12 (Cannot allocate memory)
 > 
->  .../platform/mediatek/vcodec/encoder/Makefile |   1 +
->  .../mediatek/vcodec/encoder/mtk_vcodec_enc.c  |   2 +
->  .../vcodec/encoder/mtk_vcodec_enc_drv.h       |   3 +
->  .../vcodec/encoder/venc/venc_common_if.c      | 704
-> ++++++++++++++++++
->  .../mediatek/vcodec/encoder/venc_drv_if.c     |   3 +-
->  .../mediatek/vcodec/encoder/venc_drv_if.h     |   3 +
->  .../mediatek/vcodec/encoder/venc_ipi_msg.h    |  26 +
->  .../mediatek/vcodec/encoder/venc_vpu_if.c     |  37 +-
->  8 files changed, 764 insertions(+), 15 deletions(-)
->  create mode 100644
-> drivers/media/platform/mediatek/vcodec/encoder/venc/venc_common_if.c
-> 
+> [...]
+
+Applied, thanks!
+
+[1/1] coresight: catu: Fix number of pages while using 64k pages
+      https://git.kernel.org/coresight/c/0e14e062f5ff
+
+Best regards,
+-- 
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
