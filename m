@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76670C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 09:55:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FB13C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 09:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+AmT91GNyEyQqWqWxg0TBH3JEfJSP0b5YmcyprlUh0w=; b=BiWW2+3Y7d+AdC7H8kxHaLtf6T
-	9pN96IN7B7Uaez1Xr3dUou8nuqGW1frlJ5qJ9MqiocuXJhs5muqicfI1ml5QQwNw5RDamD0mA02kG
-	+1DE5ZDcNJEIE8CUCsBsUAOcrrfsFJJMYKsti7S/vcxYY4HNw2immms4s0H844A1l3BDCrTE0qk8h
-	SGsYMbQVQz8xhZWSp0uPUaOhz5ql8TrydZPMqNnMoSJhX4uKSs82ljvkk1twWv8oP7cDR1u0sam50
-	HWh1JhfwFJCjD0SFpFL9NdPSNOIgsl+cp8jCzEisLRGDm4kOUks80mlvr6L5PFoaJHa5DHyxCBkqU
-	UcQrJkbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ATXQuhcsU1yRD4J9xK/fW6XCIpw54vLXsQ7cbzLGCDQ=; b=FnvqTb8ScyXuYi9rTwS1RFO9uU
+	rvqySoFrbWTkwA+bmPYdlrJRVo8F7s9Pa63VcLbTfYqgpyUdd5CSrMG3qiTCCJpxKcPmOYO8jdGmV
+	Dh0sHAt7qc0ID6FIxEh49/ydmAwGFbZxz6UGm2p2L/2MF999P6xhTgRE6iOgbxxETdohve+OeADJx
+	HvFbwDZY8cHEPDCp4oQWZ/XnSPzFgNU+7YH/OwX7qd7/MTJ6GimmOmTTKPMCGdT6EEXluNVxsIhkO
+	J+s9d38OKkGIA2tZlNdspLFr1rbfOet7TTIkXOcN4rvsCAFlHsqWcgZ7V7ERxczAj4Xk4WsVN95kX
+	w/8fbYSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPkk-000000052Fv-04O0;
-	Fri, 21 Feb 2025 09:55:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tlPmE-000000052ZJ-2vA9;
+	Fri, 21 Feb 2025 09:56:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPWI-00000004yWy-1LOL
+	id 1tlPWT-00000004yZb-3pHj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 09:40:31 +0000
+	Fri, 21 Feb 2025 09:40:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9A9145C57BB;
-	Fri, 21 Feb 2025 09:39:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCD03C4CED6;
-	Fri, 21 Feb 2025 09:40:26 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	sudeep.holla@arm.com,
-	will@kernel.org,
-	sfr@canb.auug.org.au,
-	Beata Michalska <beata.michalska@arm.com>
-Cc: ionela.voinescu@arm.com,
-	yury.norov@gmail.com,
-	linux-next@vger.kernel.org,
-	sumitg@nvidia.com,
-	yang@os.amperecomputing.com,
-	vanshikonda@os.amperecomputing.com,
-	lihuisong@huawei.com,
-	zhanjie9@hisilicon.com,
-	ptsm@linux.microsoft.com
-Subject: Re: [PATCH v2] arm64: Utilize for_each_cpu_wrap for reference lookup
-Date: Fri, 21 Feb 2025 09:40:24 +0000
-Message-Id: <174013080894.2262863.4824734189364820879.b4-ty@arm.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250220091015.2319901-1-beata.michalska@arm.com>
-References: <20250220091015.2319901-1-beata.michalska@arm.com>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4E0D15C56F6;
+	Fri, 21 Feb 2025 09:40:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B503AC4CED6;
+	Fri, 21 Feb 2025 09:40:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740130841;
+	bh=ATXQuhcsU1yRD4J9xK/fW6XCIpw54vLXsQ7cbzLGCDQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gstzdaJDHFaz8EX/LddhLXI1wdgZpBxj5pUIAuDJrI0nej4P6ecZonO1bHnvfEx/2
+	 b4zXWuRN+CVxu01lEH+lI1tMgyYVf9K5Und7+DMtIE68SfpAM0ui9PJWYF2GCidtrn
+	 GWI4sb057Gdejb9Yadk8ENx1uinX/2nn8eLWfQgN3BXYcRtgF4Pz+p+VbrrlEh5Xw2
+	 zoS9ffu28SIlQxOcGUfcTWZl3DHvW+Zwehy5IUlmkqJig0goJMkYvk4lmyA7VsbVE5
+	 7d9aaz8d6NzpToDhANs41odryQmDhsZEoUTrmsXxA+FnQFZUy7uSwxgw6re/kTinjO
+	 KzLGhUAGAdEPw==
+Date: Fri, 21 Feb 2025 10:40:38 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, 
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 1/7] dt-bindings: hwinfo: samsung,exynos-chipid: add
+ exynos7870-chipid compatible
+Message-ID: <20250221-independent-oxpecker-of-piety-4fb305@krzk-bin>
+References: <20250219-exynos7870-v3-0-e384fb610cad@disroot.org>
+ <20250219-exynos7870-v3-1-e384fb610cad@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250219-exynos7870-v3-1-e384fb610cad@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_014030_413800_3C242477 
-X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-CacheID: sfid-20250221_014042_001742_FAF54AA7 
+X-CRM114-Status: UNSURE (   7.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,24 +78,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Feb 2025 09:10:15 +0000, Beata Michalska wrote:
-> While searching for a reference CPU within a given policy,
-> arch_freq_get_on_cpu relies on cpumask_next_wrap to iterate over
-> all available CPUs and to ensure each is verified only once.
-> Recent changes to cpumask_next_wrap will handle the latter no more,
-> so switching to for_each_cpu_wrap, which  preserves expected behavior
-> while ensuring compatibility with the updates.
-> Not to mention that when iterating over each CPU, using a dedicated
-> iterator is preferable to an open-coded loop.
-> 
-> [...]
+On Wed, Feb 19, 2025 at 12:33:11AM +0530, Kaustabh Chakraborty wrote:
+> Document the compatible string "samsung,exynos7870-chipid". The
+> registers are entirely compatible with "samsung,exynos4210-chipid".
 
-Applied to arm64 (for-next/amuv1-avg-freq), thanks!
+A bit odd (exynos7885 is compatible with 850), but I guess you really
+checked that.
 
-[1/1] arm64: Utilize for_each_cpu_wrap for reference lookup
-      https://git.kernel.org/arm64/c/20711efa91e8
-
--- 
-Catalin
+Best regards,
+Krzysztof
 
 
