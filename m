@@ -4,136 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E27DC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 11:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77026C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 11:37:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FC2a7r9b8EaahE6S8ThbScqtlkOLkA61RMYEzBudLJI=; b=4ns9GuSNzJROBqbdotcW6LLTjy
-	v4nex2Qj55MjLPO7V+7kp4TePsfmsGAmWoBlF4006FLqedQ9x/j9boA4YuTdqj5K6p4zHvqdJZ7ot
-	dyyCsguqt7HPThgl4aW1Udqg6tibbmb7+5fMFKQ9aBKMTH7ViuLzzDyfu4vRBe7bBkIGh8qDUkX4B
-	312hpdWEBo5ojfnTfCt2AoONaLl/1xSXEP6oNoWU5Tvn/GO5p1qlptrbTmEax1TEM4+SRosu96TpX
-	QSOIeVCRafEreC8gsyjN3DXq35h7M7jydSlqFHwFxH8Iof6aAG7z70eAmdA/rr7JF0aZ3fX7Ua9Tt
-	PcAm85xA==;
+	bh=JwohrPAvCZ/qg3MA5g5m35rC3ir1Vy9aIxHkgumCgKo=; b=1n3xOYTc4f8KavcwfxCBHCWVYv
+	He0xHo/SP99ntwVXsI72jZh7D2CLtUTletexmVcdEPeQcKACJrUCU9TNbY2Z6/687Pi6xuP6FlyDj
+	WwT0giB8R/gKXpUxhbjAkRKmE0LKZhgQIB7LE3pnmbgma/5jeTuBRFS/0wlRp1JtbnFm68lKNCNgP
+	I6G2PPAv99X1IR2XxUpSiwJNk20w1xEi6oDK6L+U6ur8wcRBrazN9JpGkzRyDDGaWLuhwOHWsyQMa
+	o4Pr6BD90fnBW9FpskaG3mmZ3fU8tZsS8t3z5mHnSLZ/TvTQWFQFPdybbZJ98BbISsskfDgLj7tM7
+	m2kbDxUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlRCh-00000005Kbu-2ShZ;
-	Fri, 21 Feb 2025 11:28:23 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1tlRL5-00000005LaJ-0Me6;
+	Fri, 21 Feb 2025 11:37:03 +0000
+Received: from mail-ua1-x92b.google.com ([2607:f8b0:4864:20::92b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlRBA-00000005KLT-45xe
+	id 1tlRJa-00000005LKR-2Szh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 11:26:52 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250221112641epoutp02fd54a3493af4886aa18a42c27d4a7f7e~mNZCStZ7X1772317723epoutp02j
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 11:26:41 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250221112641epoutp02fd54a3493af4886aa18a42c27d4a7f7e~mNZCStZ7X1772317723epoutp02j
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1740137201;
-	bh=FC2a7r9b8EaahE6S8ThbScqtlkOLkA61RMYEzBudLJI=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=HFyo8V+W0oGfVIpcTeOwk/8/jS7xJYoO3JULX3QBONh3AX2nZ4gSaOEKVZ2pT9kfJ
-	 Tb19EHyWZB2cV363RbDMYC5MHLAFipwFb/pvfXNog5DOl4sIJLWhDkuDanVtS8MVln
-	 WbMQcFMQ6rbvoT+pELm7qY7KmDIeAqiAvlj8KDV4=
-Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
-	20250221112640epcas5p2b59e9083652c09779847fba4ea0ba7b5~mNZByuAuO1579915799epcas5p2L;
-	Fri, 21 Feb 2025 11:26:40 +0000 (GMT)
-Received: from epsmges5p2new.samsung.com (unknown [182.195.38.176]) by
-	epsnrtp2.localdomain (Postfix) with ESMTP id 4Yznrt4zKrz4x9Pv; Fri, 21 Feb
-	2025 11:26:38 +0000 (GMT)
-Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
-	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	85.8A.19933.EE268B76; Fri, 21 Feb 2025 20:26:38 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250221103441epcas5p2c8e62837664debd0d110c4867101b6ee~mMroj_Z6p3072330723epcas5p2h;
-	Fri, 21 Feb 2025 10:34:41 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250221103441epsmtrp1d7e41e6faff723be9bc894665ae37201~mMrojJCUO3243132431epsmtrp1K;
-	Fri, 21 Feb 2025 10:34:41 +0000 (GMT)
-X-AuditID: b6c32a4a-c1fda70000004ddd-ed-67b862eeb0fa
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	D6.65.33707.0C658B76; Fri, 21 Feb 2025 19:34:40 +0900 (KST)
-Received: from FDSFTE596 (unknown [107.122.82.131]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250221103435epsmtip29eb15f0027d30a7bbbce44d7a9e548d3~mMrjithd30551405514epsmtip2G;
-	Fri, 21 Feb 2025 10:34:35 +0000 (GMT)
-From: "Swathi K S" <swathi.ks@samsung.com>
-To: "'Russell King \(Oracle\)'" <linux@armlinux.org.uk>
-Cc: <krzk+dt@kernel.org>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
-	<edumazet@google.com>, <kuba@kernel.org>, <pabeni@redhat.com>,
-	<robh@kernel.org>, <conor+dt@kernel.org>, <richardcochran@gmail.com>,
-	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
-	<netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<pankaj.dubey@samsung.com>, <ravi.patel@samsung.com>, <gost.dev@samsung.com>
-In-Reply-To: <Z7cimPBdZ3W9GKmI@shell.armlinux.org.uk>
-Subject: RE: [PATCH v7 2/2] net: stmmac: dwc-qos: Add FSD EQoS support
-Date: Fri, 21 Feb 2025 16:04:25 +0530
-Message-ID: <02b701db844c$36b7aeb0$a4270c10$@samsung.com>
+	Fri, 21 Feb 2025 11:35:32 +0000
+Received: by mail-ua1-x92b.google.com with SMTP id a1e0cc1a2514c-868f322b8dfso1258763241.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 03:35:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1740137729; x=1740742529; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JwohrPAvCZ/qg3MA5g5m35rC3ir1Vy9aIxHkgumCgKo=;
+        b=ZyATv2ZwNanx3xmQ9CdLdVhJEffqW2Lr8tE+5zbhTt82drzKdmWAP1Nmv7zksWdwsV
+         SfuTEUQAHE3DtwE+Fnw0FREJDksVIEpbnzJoz1n+qfhbFFUKxDHS28vpt4npHEp4pBkU
+         pvnL5hgxkSpbC2qrXQSjC9Nhgvra6ZQh1GGIE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740137729; x=1740742529;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JwohrPAvCZ/qg3MA5g5m35rC3ir1Vy9aIxHkgumCgKo=;
+        b=iW1mZi+rnVt+8yKg53TNNvnOsk064JSJJYYC7lGKXgoUdQHbEi3+Iu2IRLQk/d7Xwb
+         UlDtosQNuIrYWOYCyY/DfJrc/Y9BXo+LSMXBAgZB3lw/lxmiXCLmcZyoDDnFEefOZha8
+         3H1S1sXW38FVnuk114LaIHyXPhgATn1015ZSTYBr/RaMcMdL6uh/Obg/RqK2X9e8tDid
+         BSz6SHMxeh8fbP3/lJos7KM02kp/O5x99Lt25CkE3N7yYLDRUif7u3qIVWhkC1wgIW5o
+         oIAE873Bd+1wayTLY7Z3+AKiC+d2PE8vGumdyBpJntTcXHPwvrrEMRejWEBYt77FXJNd
+         O9Bw==
+X-Forwarded-Encrypted: i=1; AJvYcCWNxzyn7mXn8OroT9+S28PTxUQaRUIw+qY9UqcyoHDoPtv9p3+5y9saGSg9Er49332tKnHmKu8VyLJrDxjPlvbN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOrmfUMUA625Yt3FOaKeielD9yEG56IeQ5Yg7FHjuw+scVxRgM
+	XHKX2WxxyA8bFXMQ4Rod2iQ6+IpoitLSX9tXO5vEN75U3EkRkQNBdQmBW/D2VadJDdU95k8dibI
+	=
+X-Gm-Gg: ASbGncsEKjm4rHm5rfNW6VyfJrlPn1jtHnNghDTUD2RM8fDTC/uzuPaulKG8Xf02lb8
+	laTUTH7AL2h/bU/Q1yMgUyhyVJMYyt3w34MCC5EihVEHd17w5vluZT6KW53dUljXkGpsEOqIAXE
+	n3Nu6HEIY2Nmnis9/UfV3DVGE/CvhMiQM82p5ammA1s9ZJpsij6bD4dzG1IbrgIDVPiJhxCFvFZ
+	dACOupNNR2j2OhM/soWpX9xKx93ylw5cUddTt34emvSGKf0HsQ+Sn9oMvsY9WPAafTlE3HnPBNv
+	pRZQpDBKKhVgXevvfwVYGzA3rM1lrue5ZI7af11GpXHJqGMIxuZ9fKH5x+koaQ==
+X-Google-Smtp-Source: AGHT+IEZKFc/2I4qV+cjBnw0I4CnaTKyC5z4nMxh0Wd+byX0l026eFXS5VFP2mZT2FgDTWg5uqhVmg==
+X-Received: by 2002:a05:6102:304b:b0:4bd:860f:ff2 with SMTP id ada2fe7eead31-4be99122626mr3159650137.4.1740137729007;
+        Fri, 21 Feb 2025 03:35:29 -0800 (PST)
+Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com. [209.85.217.45])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4be54009b3esm2474008137.0.2025.02.21.03.35.28
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Feb 2025 03:35:28 -0800 (PST)
+Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-4b9486a15a0so1859532137.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 03:35:28 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVQLU4zkqDrLMlrzXVm6IjDwQ+kFqe0iOXxRcge0wxC4BaJyiv1pSt8gRMe4yM7xTaq46kTdfZTTH3glENpQhFy@lists.infradead.org
+X-Received: by 2002:a05:6102:2921:b0:4bd:22d9:b117 with SMTP id
+ ada2fe7eead31-4bfc0fdf40bmr1459685137.10.1740137727505; Fri, 21 Feb 2025
+ 03:35:27 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQGZEuZRAcWsCKSMCeR5cs/NRCOZvwH8VK0qAZITr+wCOUn/krOoNIYg
-Content-Language: en-in
-X-Brightmail-Tracker: H4sIAAAAAAAAA02Te0xTVxzHc+6jtxBrLojzwIKy62vgKC1ry8WJbpPhjZsR2CvBbfVC7wqh
-	tF0fG4qmLhAizUAgotARID5YhkOyyqMVC8gKuI2hhNGlWVh4PzYcZIoZEHWUi47/Pr9fvr/f
-	93zPyRGigcuCEGGG1sQZtKyGEvhjzT+Eh0f+nepQSxqvU/TizAVAfzPswOnvXH0IXXk3D6Or
-	3X04PdE9StDeDidCz9j+END3motw2j7mwemBm5UC2uoZx+nOMhegqx7X43R3zQv0o59nAX2p
-	6SFBj8zfImh37zRKP73lIF4PYgY8/SjT+K0XYSbONRGM0zZEMDV2M2OvKxAwN65YGKfjAcLM
-	tQ0KmKLGOsDcbpMyD+xbEzekZO5L51gVZwjjtGk6VYZWHUe9/a7yoFKukEgjpbF0DBWmZbO4
-	OCr+ncTIhAzNSkwq7HNWY15pJbJGIxW1f59BZzZxYek6oymO4vQqjV6mFxvZLKNZqxZrOdNe
-	qUQSLV8RHs9M73PMEvqv5dnV+cPIGXBtjxX4CSEpg/1zVwRW4C8MJFsBnHL343zxD4DfN1Rj
-	z4v6p27UCoSrI1NjJr7vBHChoJ7gi2kAR4YKEN9eARkBLxW1ET4OImNgWYF7dS1KlmKwvGkS
-	8W3yI+XwrAv4NJvIBOiZ7F3VY+ROODzvxnwsImPhbOs0wXMA/LFifLWPkttgy/1KlM8QBhcn
-	anHeKwHW1j3Cec0W2LX4FerzheRlPzju6kf4gXhY0VuI87wJ/tnTSPAcAmfO5a+xEl4rGsR4
-	TodDSyUCng/Ajl8rMd/5UTIcNtyM4tuhsOyn6wjvuxEWLo+vWYmgo+oZb4eP//KsrQyGzVfn
-	iGJA2dZFs62LZlsXwfa/Ww3A6kAwpzdmqTmjXB+t5b54/uBpuiw7WP0FEYcdYGR4XtwJECHo
-	BFCIUkGifEujOlCkYk+c5Aw6pcGs4YydQL5y3yVoyOY03co30pqUUlmsRKZQKGSxryqk1BZR
-	rjNPHUiqWROXyXF6zvBsDhH6hZxBZMm7TtWeh6VbS5Psd9w7Hvb82x0sGevqbVko5dKoE32Y
-	cohi8L0XLKacHUkxTs2u0ZzTztPn7R/lvXb02HZZxVR5WULNJ9jAKZkjSyzusVydV2+cR1sK
-	ygND0WJMnGueaveaDy3e2JmSpCgZ8AZE3M1eOvJZk/zO7d9m38jtuDhAfMAIvYUv92YnZcvb
-	qzIsX+7xSjJ1v9QvPdk8pSrOtV1Wtx77OGHwoNUZyrafTd0/eeD9Ghd2HM353b2sOhmw+/Ar
-	91Lvb9iWFMI1PLH5tSezKersrhdD8z+ti7bEE6N97HvauIvRTov1pQaPK+pQf/nCQq7Vv/vD
-	5uC3RMlvHqUwYzorjUANRvY/ThNrt44EAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA02Se0iTYRTGe7/7JOXzkr5qWC26sHBlWL3liOhiH0F3KRPCln6utWlrUyuz
-	FIyRw1ZRCq2hZst0KeK8zUorWwvJSyXOtNsqLRNNyzAks5oj8r+Hc57fc54/DoP7vCaCGHlS
-	Mq9OkiqFlAdR+1A4J/T+HqtsWetYBBr/nAfQTaeVRGUNbRgytp8hUIGtjUR99vc06r5fj6HP
-	hjcUelqrJ5Hlg4NEHbeNFNI5eknUlNsAUP6vchLZC/3R2JNBgIpqvtPo3chdGtla+nH0+66V
-	XufHdTie4Vx1aTfG9Z2vobl6w2uaK7SkcBZzNsVVmTK4eusoxg03dlKcvtoMuAeNYdyoJWTH
-	zBgPSTyvlKfy6qVrD3gcarMO0qqrK44XaJ1YJri1RAcYBrLh8NOHZB3wYHzYOgDbr5VgOiD4
-	Ow+E37JySbf2haWTn2i36SOA3cMXKNeCYkWwSN9Iu7QfuwrmZttIlwlnSwj4ovEV4SZ6ASzr
-	Kadc5wTsCni2AbgAXzYSOj62TMEEuwA6R2yES3uyq+HgnX7arb1h85VewoXirBhqK6dQnJ0D
-	64aMuLvcXDjeV0y6O0TCYvMY6fYEwEfjOfgF4GuYlmT4n2SYlmSYRhQCwgxm8SpNoiwxThUm
-	1kgTNSlJMnHckUQLmPoA0S4rKK74JW4CGAOaAGRwoZ+nNqNa5uMZLz2RxquPxKpTlLymCQQz
-	hDDAc74yO96HlUmTeQXPq3j1vy3GCIIysXMqTf66SoUjpOJHaHCOZFPCCUVq7Clx1MG92wV5
-	y7vR/rIue0Deev/be7qW/BjYNjyv3DwjPGZ2ZJE+dKR1d+yM/psLIx53TXbEOdeezL3Ya5rZ
-	vM+UL/cv2v713gbyzEaRRCXKejk0+YK6VHxyU8ciZ34431kuOS067Pd2sTxziEpYOtAzYRdK
-	JU8nsKPLn8sEip3VPaYb9RrSuPfeyuCGpCivFu+q9Ah8KDZjy/VrXjBVniM93G6/sSU9oDnN
-	pgv5Yp0cfZTe93OiZjzmJxVVYLRVaQey1ng9SaigXraleitGC8XHQqO/RwcpT6cdi78cadKL
-	Nrdu1QZ2cuRWc6CQ0BySholwtUb6Bw/KCtdwAwAA
-X-CMS-MailID: 20250221103441epcas5p2c8e62837664debd0d110c4867101b6ee
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250220044132epcas5p305e4ed7ed1c84f9800299c2091ea0790
-References: <20250220043712.31966-1-swathi.ks@samsung.com>
-	<CGME20250220044132epcas5p305e4ed7ed1c84f9800299c2091ea0790@epcas5p3.samsung.com>
-	<20250220043712.31966-3-swathi.ks@samsung.com>
-	<Z7cimPBdZ3W9GKmI@shell.armlinux.org.uk>
+References: <20250221-mtk-socinfo-fix-print-v1-1-20500f30ef66@collabora.com>
+In-Reply-To: <20250221-mtk-socinfo-fix-print-v1-1-20500f30ef66@collabora.com>
+From: Fei Shao <fshao@chromium.org>
+Date: Fri, 21 Feb 2025 19:34:51 +0800
+X-Gmail-Original-Message-ID: <CAC=S1njHBs27TtTZXgED4wdLw=FrSDCazbb6ZssZywvSWV2h3A@mail.gmail.com>
+X-Gm-Features: AWEUYZmV51gkv5en-4xAlrGPHtRp_UB_-TGQXQmxc_me0FZsV0tfUBhu-ic9sd8
+Message-ID: <CAC=S1njHBs27TtTZXgED4wdLw=FrSDCazbb6ZssZywvSWV2h3A@mail.gmail.com>
+Subject: Re: [PATCH] soc: mediatek: mtk-socinfo: Avoid using machine attribute
+ in SoC detection log
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, kernel@collabora.com, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_032650_451891_84FC09B5 
-X-CRM114-Status: GOOD (  41.91  )
+X-CRM114-CacheID: sfid-20250221_033530_675224_9F945BF3 
+X-CRM114-Status: GOOD (  20.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,197 +107,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Feb 21, 2025 at 7:04=E2=80=AFPM Louis-Alexis Eyraud
+<louisalexis.eyraud@collabora.com> wrote:
+>
+> The recently introduced SoC attribute info rework avoided modifying the
+> machine attribut but still used it in the log message on successful SoC
+> matching. It leads to print a confusing log about a board-related info
+> (read from devicetree) and not about the matched SoC:
+> ```
+> mtk-socinfo mtk-socinfo.0.auto: MediaTek MediaTek Genio-510 EVK SoC
+>   detected
+> ```
+>
+> So, fix the dev_info format to display SoC family and name attribute
+> instead.
+> ```
+> mtk-socinfo mtk-socinfo.0.auto: MediaTek Genio 510 (MT8370) SoC detected.
+> ```
+>
+> Fixes: da77c2d3d06c ("soc: mediatek: mtk-socinfo: Restructure SoC attribu=
+te information")
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
+Ah... my bad, I forgot to update the log. Thanks for the follow-up fix.
 
-> -----Original Message-----
-> From: Russell King (Oracle) <linux@armlinux.org.uk>
-> Sent: 20 February 2025 18:10
-> To: Swathi K S <swathi.ks@samsung.com>
-> Cc: krzk+dt@kernel.org; andrew+netdev@lunn.ch; davem@davemloft.net;
-> edumazet@google.com; kuba@kernel.org; pabeni@redhat.com;
-> robh@kernel.org; conor+dt@kernel.org; richardcochran@gmail.com;
-> mcoquelin.stm32@gmail.com; alexandre.torgue@foss.st.com;
-> netdev@vger.kernel.org; devicetree@vger.kernel.org; linux-stm32@st-md-
-> mailman.stormreply.com; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org; pankaj.dubey@samsung.com;
-> ravi.patel@samsung.com; gost.dev@samsung.com
-> Subject: Re: [PATCH v7 2/2] net: stmmac: dwc-qos: Add FSD EQoS support
-> 
-> On Thu, Feb 20, 2025 at 10:07:12AM +0530, Swathi K S wrote:
-> > +static int fsd_eqos_probe(struct platform_device *pdev,
-> > +			  struct plat_stmmacenet_data *data,
-> > +			  struct stmmac_resources *res)
-> > +{
-> > +	struct clk *clk_rx1 = NULL;
-> > +	struct clk *clk_rx2 = NULL;
-> > +
-> > +	for (int i = 0; i < data->num_clks; i++) {
-> > +		if (strcmp(data->clks[i].id, "slave_bus") == 0)
-> > +			data->stmmac_clk = data->clks[i].clk;
-> > +		else if (strcmp(data->clks[i].id, "eqos_rxclk_mux") == 0)
-> > +			clk_rx1 = data->clks[i].clk;
-> > +		else if (strcmp(data->clks[i].id, "eqos_phyrxclk") == 0)
-> > +			clk_rx2 = data->clks[i].clk;
-> > +	}
-> > +
-> > +	/* Eth0 RX clock doesn't support MUX */
-> > +	if (clk_rx1)
-> > +		clk_set_parent(clk_rx1, clk_rx2);
-> 
-> Isn't there support in DT for automatically setting the clock tree?
-> See
-> https://protect2.fireeye.com/v1/url?k=f0089f78-90ea0225-f0091437-
-> 000babd9f1ba-cf835b8b94ccd94a&q=1&e=4ae794ec-f443-4d77-aee4-
-> 449f53a3a1a4&u=https%3A%2F%2Fgithub.com%2Fdevicetree-org%2Fdt-
-> schema%2Fblob%2Fmain%2Fdtschema%2Fschemas%2Fclock%2Fclock.yaml
-> %23L24
-> 
-> Also, I think a cleanup like the below (sorry, it's on top of other
-patches I'm
-> working on at the moment but could be rebased) would make sense.
-> 
-> With both of these, this should mean that your changes amount to:
-> 
-> 1. making data->probe optional
-> 2. providing a dwc_eth_dwmac_data structure that has .stmmac_clk_name
->    filled in
-> 3. adding your compatible to the match data with a pointer to the
->    above structure.
+Reviewed-by: Fei Shao <fshao@chromium.org>
+Tested-by: Fei Shao <fshao@chromium.org>
 
-Hi Russell, 
-Thanks for your input.
-Will implement this in v8.
-But I could not find your patch 'net: stmmac: clean up clock initialisation'
-in mailing list
-Could you point me to that?
-Or do you want me to integrate the below changes into my patch series and
-post?
-
-Please let me know
-
-- Swathi
-
-> 
-> In other words, support for your device becomes just a matter of adding
-data
-> structures rather than a chunk of extra code.
-> 
-> Thanks.
-> 
-> 8<====
-> From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-> Subject: [PATCH net-next] net: stmmac: clean up clock initialisation
-> 
-> Clean up the clock initialisation by providing a helper to find a named
-clock in
-> the bulk clocks, and provide the name of the stmmac clock in match data so
-> we can locate the stmmac clock in generic code.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 > ---
->  .../stmicro/stmmac/dwmac-dwc-qos-eth.c        | 32 +++++++++++--------
->  1 file changed, 18 insertions(+), 14 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-> b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-> index 581c0b40db57..8e343ab7a7e2 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
-> @@ -34,6 +34,16 @@ struct tegra_eqos {
->  	struct gpio_desc *reset;
->  };
-> 
-> +static struct clk *dwc_eth_find_clk(struct plat_stmmacenet_data
-*plat_dat,
-> +				    const char *name)
-> +{
-> +	for (int i = 0; i < plat_dat->num_clks; i++)
-> +		if (strcmp(plat_dat->clks[i].id, name) == 0)
-> +			return plat_dat->clks[i].clk;
-> +
-> +	return 0;
-> +}
-> +
->  static int dwc_eth_dwmac_config_dt(struct platform_device *pdev,
->  				   struct plat_stmmacenet_data *plat_dat)  {
-> @@ -120,12 +130,7 @@ static int dwc_qos_probe(struct platform_device
-> *pdev,
->  			 struct plat_stmmacenet_data *plat_dat,
->  			 struct stmmac_resources *stmmac_res)  {
-> -	for (int i = 0; i < plat_dat->num_clks; i++) {
-> -		if (strcmp(plat_dat->clks[i].id, "apb_pclk") == 0)
-> -			plat_dat->stmmac_clk = plat_dat->clks[i].clk;
-> -		else if (strcmp(plat_dat->clks[i].id, "phy_ref_clk") == 0)
-> -			plat_dat->pclk = plat_dat->clks[i].clk;
-> -	}
-> +	plat_dat->pclk = dwc_eth_find_clk(plat_dat, "phy_ref_clk");
-> 
->  	return 0;
+>  drivers/soc/mediatek/mtk-socinfo.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/soc/mediatek/mtk-socinfo.c b/drivers/soc/mediatek/mt=
+k-socinfo.c
+> index a15d8f854cefa90883377b47bbc16a7072ee21cd..ac7bb0cbff2df5e1c4033646c=
+d3b644e67ee7f69 100644
+> --- a/drivers/soc/mediatek/mtk-socinfo.c
+> +++ b/drivers/soc/mediatek/mtk-socinfo.c
+> @@ -87,7 +87,7 @@ static int mtk_socinfo_create_socinfo_node(struct mtk_s=
+ocinfo *mtk_socinfop)
+>         if (IS_ERR(mtk_socinfop->soc_dev))
+>                 return PTR_ERR(mtk_socinfop->soc_dev);
+>
+> -       dev_info(mtk_socinfop->dev, "%s %s SoC detected.\n", soc_manufact=
+urer, attrs->machine);
+> +       dev_info(mtk_socinfop->dev, "%s (%s) SoC detected.\n", attrs->fam=
+ily, attrs->soc_id);
+>         return 0;
 >  }
-> @@ -230,18 +235,12 @@ static int tegra_eqos_probe(struct platform_device
-> *pdev,
-> 
->  	eqos->dev = &pdev->dev;
->  	eqos->regs = res->addr;
-> +	eqos->clk_slave = data->stmmac_clk;
-> 
->  	if (!is_of_node(dev->fwnode))
->  		goto bypass_clk_reset_gpio;
-> 
-> -	for (int i = 0; i < data->num_clks; i++) {
-> -		if (strcmp(data->clks[i].id, "slave_bus") == 0) {
-> -			eqos->clk_slave = data->clks[i].clk;
-> -			data->stmmac_clk = eqos->clk_slave;
-> -		} else if (strcmp(data->clks[i].id, "tx") == 0) {
-> -			data->clk_tx_i = data->clks[i].clk;
-> -		}
-> -	}
-> +	data->clk_tx_i = dwc_eth_find_clk(data, "tx");
-> 
->  	eqos->reset = devm_gpiod_get(&pdev->dev, "phy-reset",
-> GPIOD_OUT_HIGH);
->  	if (IS_ERR(eqos->reset)) {
-> @@ -306,15 +305,18 @@ struct dwc_eth_dwmac_data {
->  		     struct plat_stmmacenet_data *data,
->  		     struct stmmac_resources *res);
->  	void (*remove)(struct platform_device *pdev);
-> +	const char *stmmac_clk_name;
->  };
-> 
->  static const struct dwc_eth_dwmac_data dwc_qos_data = {
->  	.probe = dwc_qos_probe,
-> +	.stmmac_clk_name = "apb_pclk",
->  };
-> 
->  static const struct dwc_eth_dwmac_data tegra_eqos_data = {
->  	.probe = tegra_eqos_probe,
->  	.remove = tegra_eqos_remove,
-> +	.stmmac_clk_name = "slave_bus",
->  };
-> 
->  static int dwc_eth_dwmac_probe(struct platform_device *pdev) @@ -354,6
-> +356,8 @@ static int dwc_eth_dwmac_probe(struct platform_device *pdev)
->  	if (ret)
->  		return dev_err_probe(&pdev->dev, ret, "Failed to enable
-> clocks\n");
-> 
-> +	data->stmmac_clk = dwc_eth_find_clk(plat_dat, data-
-> >stmmac_clk_name);
-> +
->  	ret = data->probe(pdev, plat_dat, &stmmac_res);
->  	if (ret < 0) {
->  		dev_err_probe(&pdev->dev, ret, "failed to probe
-> subdriver\n");
+>
+>
+> ---
+> base-commit: 964b0ceed00032fa0fa841fd61e5f315880a2d36
+> change-id: 20250220-mtk-socinfo-fix-print-e83f3b3e50bb
+>
+> Best regards,
 > --
-> 2.30.2
-> 
-> 
-> --
-> RMK's Patch system: https://protect2.fireeye.com/v1/url?k=bd23955d-
-> ddc10800-bd221e12-000babd9f1ba-890d84739eaced1c&q=1&e=4ae794ec-
-> f443-4d77-aee4-
-> 449f53a3a1a4&u=https%3A%2F%2Fwww.armlinux.org.uk%2Fdeveloper%2F
-> patches%2F
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
-
+> Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+>
 
