@@ -4,102 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5156AC021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 09:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB45DC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 09:41:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+kMUKYPbHm/lsNa6RKG2tjCRLB2lBGvcqqikJRga6kY=; b=DsCpY5NpknoLsC1XtbexhJo0GE
-	Cibjr6ZZcJghyhIzmwS3lb7qwWeyoyCcMc6N7uLNMZoYkDLuBcJnHxHS1nRed4n8/10KIrKHSInWw
-	GbYJjlfcjx8zvMZx7cWYq1itrCazrMwKZxRasfX698HS9pEzOzOeIbv0u7MrgZqkEbhdwOQbETLYE
-	uDbD7elekOSH+nPEVRQhyVUQwkZ1ka4OuO+HNEGMBKJKntdO8hVsJ46WMEb+x9aXP4J4FhcEiVlCX
-	66BfujNX/2FCgcS+7EQOSlGokBa13b525bCovYNYpsxfKee418/u3K4KvzYCKoZqwqiz/XeqWdqJS
-	LKWuuWig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W4RDEkxswbUbhEqdazfb85bOV8IiqvBYeb8Hqd67Gjw=; b=ywfxB+Au9tQxp8LZYYrL32dmjd
+	6VBp1+pz8YiVhSGbjuOiK6sga7QaLVqQW+tj1eroWGOjmXvVkBCpK1QhAqZ1OjXu+8N1/Uuhpazqm
+	XmG+6ye0/IVWdbzvNdo0o0/YyzKg9DLskZeqhhRuxNdbkjifu/1QIt/0NM0QZXeUipCfjl4QLWnVJ
+	THPCjyjfGR/zFTsAAPqaYJTPpaXkoAtKOk2gBW1aFFasl8hoU8atKiYfq7nNa7FOGBjkEntWgKhjy
+	iRbcqnvTglbbgzSTAYtJC8NeCiT9TmT7/DQiB8Kx+PtiKKsd5toCdBxJSgmMmsokpOXnozl//A2HZ
+	09ze9v/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPVj-00000004yJi-35Go;
-	Fri, 21 Feb 2025 09:39:55 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tlPXE-00000004ym5-2mg9;
+	Fri, 21 Feb 2025 09:41:28 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPDx-00000004uEB-0Mdt
+	id 1tlPKY-00000004vYX-245Q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 09:21:34 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51L5Dnhk014898;
-	Fri, 21 Feb 2025 09:21:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	+kMUKYPbHm/lsNa6RKG2tjCRLB2lBGvcqqikJRga6kY=; b=T5oQpoi7gAp6cMIw
-	NWRlLpGaAtXvw0f7Y8Vzq+MpItwiF7JQdzFJi6Wcxnq8ILWakTt5gkcF1scmPZnZ
-	it8RazlGFH4ucv1SfVhTnzSpZscxCd7cLsMGIX1QShTmoaAE44ym1c87WIx5Mt5I
-	ukHuhiLd8+4qOuZ1vinTEPmCuKc3SmXlM5ktr4FLQUCddPhE/byK/7I3MGL/dJ5s
-	B+oiHaQ5D2O+B6bmku888tR/vXAx3/iAX+p/SsUI4Lzp+QYl4suIVoo0OnO+XhlD
-	yh+3jNgp+cS3kvIXzwWhpjs0rrRL6+aSkdHxm28LRjYEjbD572Xo+GbGFUF0KXTu
-	dFj1cQ==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44vyy19dtd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 21 Feb 2025 09:21:26 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51L9LP3D014994
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 21 Feb 2025 09:21:25 GMT
-Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Fri, 21 Feb 2025 01:21:20 -0800
-From: Taniya Das <quic_tdas@quicinc.com>
-Date: Fri, 21 Feb 2025 14:50:21 +0530
-Subject: [PATCH v5 10/10] arm64: defconfig: Enable QCS615 clock controllers
+	Fri, 21 Feb 2025 09:28:23 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1740130101;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W4RDEkxswbUbhEqdazfb85bOV8IiqvBYeb8Hqd67Gjw=;
+	b=DOsbBNx15V3te3uSwQkkoQh8pumg9j1OQwos8Wq6tlZ1fHlK4USHZhrlj2Z+KFK5EV0a5Y
+	yu52Dt06CaklHEPoASJGAtJs3VJF/LhNhSwM9ytDyySMI/slQ6yiW6DQPj06CrpXvFuR0e
+	kCdlOsJm27epmZUSg5TuYitQKxZj4KdK1Z836JaiLvyqRvw28H1JAA11e9rmygxIO9tmdM
+	gNtFCdP+zzJPnOEhkEPCbdVUaFfmiGjwz1cBHfhKJK7VGDp/4uwMnN2hdD3kw8cqyoeIWi
+	KmcpfKqkKzPbqvV2KvP4UZxdXVq7Kv6mOM/7vIGJQ9wfSspsanV+Z/GUNxn8sQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1740130101;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=W4RDEkxswbUbhEqdazfb85bOV8IiqvBYeb8Hqd67Gjw=;
+	b=fkGnpwX7xaB0MJgMVSfZ73m14LAJWC3zzXp0zNdV5PL7QQKnBMpSPX9LZ/UcxHQpfJkKXk
+	HoZaMLJZAc6KE6DA==
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com,
+ kevin.tian@intel.com, maz@kernel.org
+Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
+ shuah@kernel.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
+ eric.auger@redhat.com, baolu.lu@linux.intel.com, yi.l.liu@intel.com,
+ yury.norov@gmail.com, jacob.pan@linux.microsoft.com,
+ patches@lists.linux.dev
+Subject: Re: [PATCH v2 1/7] genirq/msi: Store the IOMMU IOVA directly in
+ msi_desc instead of iommu_cookie
+In-Reply-To: <a4f2cd76b9dc1833ee6c1cf325cba57def22231c.1740014950.git.nicolinc@nvidia.com>
+References: <cover.1740014950.git.nicolinc@nvidia.com>
+ <a4f2cd76b9dc1833ee6c1cf325cba57def22231c.1740014950.git.nicolinc@nvidia.com>
+Date: Fri, 21 Feb 2025 10:28:20 +0100
+Message-ID: <87ldtzhcjv.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250221-qcs615-v5-mm-cc-v5-10-b6d9ddf2f28d@quicinc.com>
-References: <20250221-qcs615-v5-mm-cc-v5-0-b6d9ddf2f28d@quicinc.com>
-In-Reply-To: <20250221-qcs615-v5-mm-cc-v5-0-b6d9ddf2f28d@quicinc.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon
-	<will@kernel.org>
-CC: Ajit Pandey <quic_ajipan@quicinc.com>,
-        Imran Shaik
-	<quic_imrashai@quicinc.com>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Taniya Das <quic_tdas@quicinc.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-X-Mailer: b4 0.15-dev-aa3f6
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: NqdT_gopffnIhv01RZBhebeHlyrhws-2
-X-Proofpoint-ORIG-GUID: NqdT_gopffnIhv01RZBhebeHlyrhws-2
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-21_01,2025-02-20_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- priorityscore=1501 lowpriorityscore=0 phishscore=0 clxscore=1015
- suspectscore=0 spamscore=0 mlxlogscore=731 mlxscore=0 bulkscore=0
- malwarescore=0 adultscore=0 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.19.0-2502100000 definitions=main-2502210071
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_012133_143122_16C4E39A 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20250221_012822_667660_6810E915 
+X-CRM114-Status: UNSURE (   9.97  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -115,38 +82,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the QCS615 display, video, camera and graphics clock controller
-for their respective functionalities on the Qualcomm QCS615 ride
-platform.
+On Wed, Feb 19 2025 at 17:31, Nicolin Chen wrote:
+> Fix the MSI cookie UAF by removing the cookie pointer. The translated IOVA
+> address is already known during iommu_dma_prepare_msi() and cannot change.
+> Thus, it can simply be stored as an integer in the MSI descriptor.
+>
+> A following patch will fix the other UAF in iommu_get_domain_for_dev(), by
+> using the IOMMU group mutex.
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
----
- arch/arm64/configs/defconfig | 4 ++++
- 1 file changed, 4 insertions(+)
+"A following patch" has no meaning once the current one is
+applied. Simply say:
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index a1cc3814b09b31ee659536a64b7db704153d6fe9..14e5ae9f9562b1b2bec2fe2702dbf6647ca1daa1 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1343,11 +1343,15 @@ CONFIG_MSM_GCC_8998=y
- CONFIG_MSM_MMCC_8998=m
- CONFIG_QCM_GCC_2290=y
- CONFIG_QCM_DISPCC_2290=m
-+CONFIG_QCS_DISPCC_615=m
-+CONFIG_QCS_CAMCC_615=m
- CONFIG_QCS_GCC_404=y
- CONFIG_QCS_GCC_615=y
- CONFIG_QCS_GCC_8300=y
- CONFIG_SC_CAMCC_7280=m
- CONFIG_SA_CAMCC_8775P=m
-+CONFIG_QCS_GPUCC_615=m
-+CONFIG_QCS_VIDEOCC_615=m
- CONFIG_QDU_GCC_1000=y
- CONFIG_SC_CAMCC_8280XP=m
- CONFIG_SC_DISPCC_7280=m
+  The other UAF in iommu_get_domain_for_dev() will be addressed
+  seperately, by ....
 
--- 
-2.48.1
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
+With that fixed:
+
+Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
 
