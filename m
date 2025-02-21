@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCFEDC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 17:07:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8503C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 17:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uAEH4WmKvOK8Jh2AGkuNuosJZIbY5mQ4vX4Y+Bpjjjk=; b=0yK0ZtQejb/Rqmjs8C/cc6aQ+L
-	mB8yCxNrYDI+95RXj/pEpA5h46PENskMnTa948u1vyOJLozwyo0ZrV/3N1oC+nur4kJhSczDBaJsa
-	1am/1Xna1A16E0oivQa9/WxPLikijtsQ+YHJnmcN4m65X74rTlMnBWTP9A16x5KMumF44qxMq5LY7
-	TA/v5Eo1LCtKTWih6q6aM4feSJUN4Jvfi/5vwreCJB9fZXiztmJ7jciDX3voqxCjlBKUPTiUHuTjU
-	0aLd1QMbpUycA6qpUaqaIvlxEI0P/QdWwb+Z3QbBcO+mPTDkpuxfXtY1vzRldDVLh2LrXbdLFShjZ
-	TxE6Dl0Q==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E0vFszfjLRPUBsYWT5+eUQORh5cGIC4pgSuTijYp52A=; b=mYyAXiSMxvXPX3lfRYSVBnJ4Np
+	pBp12p7uKOJ9Ryg2+9Eq9N0APuXroYQS713w6ynzqZv2214SlMfqvoV/gyF0/1xQfrtA2fytheAfR
+	sNKe8uillgkHUCnstf6fpByIqgzjgLsEtBlWf569rDa2oQdM3ePTDBGK0cZoXIzD+oVYGrpEOlAAw
+	5c5QRvtpJNshDck5saF3INLO4ML7Zmx54QuFcMtxWl0INgGbGoIGPY3rCJXnQ1vJ3JD88Dt41EZ7s
+	t9GhP9p1wE0LzW5T+rCxSkoZjujoS6kU/N2JvoODBvLQWOjUwPxLonVgk4SEd0f+0sUsfku6ySH+L
+	QciY6Ufg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlWV6-00000006JNf-2OQP;
-	Fri, 21 Feb 2025 17:07:44 +0000
-Received: from riemann.telenet-ops.be ([195.130.137.80])
+	id 1tlWWY-00000006Jo8-0sx7;
+	Fri, 21 Feb 2025 17:09:14 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlWLK-00000006HPD-35mS
+	id 1tlWM8-00000006HVz-07R9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 16:57:42 +0000
-Received: from xavier.telenet-ops.be (xavier.telenet-ops.be [IPv6:2a02:1800:120:4::f00:14])
-	by riemann.telenet-ops.be (Postfix) with ESMTPS id 4YzxBk5XQWz53lb4
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 17:57:34 +0100 (CET)
-Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:ae9a:419e:d123:9695])
-	by xavier.telenet-ops.be with cmsmtp
-	id GGxX2E0030y8aK501GxXRt; Fri, 21 Feb 2025 17:57:31 +0100
-Received: from rox.of.borg ([192.168.97.57])
-	by ramsan.of.borg with esmtp (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tlWKs-0000000BMsb-3jyN;
-	Fri, 21 Feb 2025 17:57:31 +0100
-Received: from geert by rox.of.borg with local (Exim 4.97)
-	(envelope-from <geert@linux-m68k.org>)
-	id 1tlWLD-0000000EOqx-1IZ1;
-	Fri, 21 Feb 2025 17:57:31 +0100
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: soc@lists.linux.dev,
-	soc <soc@kernel.org>
-Cc: Magnus Damm <magnus.damm@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 4/5] Renesas DT binding updates for v6.15
-Date: Fri, 21 Feb 2025 17:57:25 +0100
-Message-ID: <cover.1740156745.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1740156736.git.geert+renesas@glider.be>
-References: <cover.1740156736.git.geert+renesas@glider.be>
+	Fri, 21 Feb 2025 16:58:29 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 0E21244327;
+	Fri, 21 Feb 2025 16:58:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1740157103;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=E0vFszfjLRPUBsYWT5+eUQORh5cGIC4pgSuTijYp52A=;
+	b=TYK6ehXeLbHK0RIEExHccJKgNtcaYsy53jurbwoa4CiaZqXiOv96PkqPPed+4qwAYpjAuO
+	r2uhzLSM4bH6moFmPA2saexW4KimCSKoGMXa9hpqk9Lgf5vynKkwJwe3tADJjZxFz6tw78
+	C4mULaELttNGUC0aQyQMG+PLkRTKcfHJ5svUbmhyVud1is/g4ZRumQwGBlgx/nFDAV4vNj
+	FF95HbqmPoG0cegOhkGupJZXzmmqlu7u2D5MQijyFopXD3na0bVoFWlOXhgGaeD4Qnn4n9
+	Yo27SAheJ0IDMmb/mJk47MKUbAybOUZu16HVxvGmS4ku/9b7Z/Ibw8yYp7Ji1g==
+Message-ID: <b41cb993-3cdf-4cfb-a131-14c1a66c8824@bootlin.com>
+Date: Fri, 21 Feb 2025 17:58:18 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v2] arm64, bpf: Add 12-argument support for bpf
+ trampoline
+To: Puranjay Mohan <puranjay@kernel.org>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
+ Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay12@gmail.com>,
+ Xu Kuohai <xukuohai@huaweicloud.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
+ bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ Florent Revest <revest@chromium.org>, Xu Kuohai <xukuohai@huaweicloud.com>,
+ Bastien Curutchet <bastien.curutchet@bootlin.com>
+References: <20240705125336.46820-1-puranjay@kernel.org>
+From: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20240705125336.46820-1-puranjay@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejtdehiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeduuedugeevveelledtudegleethfffuedtgffhlefgudektdeuheegkeekudehfeenucffohhmrghinhepghhithhhuhgsrdgtohhmpdhkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekheenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehpdhhvghloheplgfkrfggieemvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekhegnpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehpuhhrrghnjhgrhieskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghstheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrnhhivghlsehio
+ hhgvggrrhgsohigrdhnvghtpdhrtghpthhtoheprghnughrihhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrthhinhdrlhgruheslhhinhhugidruggvvhdprhgtphhtthhopegvugguhiiikeejsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhonhhgsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeihohhnghhhohhnghdrshhonhhgsehlihhnuhigrdguvghv
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_085738_909232_7BCC6F32 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250221_085828_544968_CFF8E3B6 
+X-CRM114-Status: GOOD (  18.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,39 +90,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+Hello everyone,
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+On 7/5/24 14:53, Puranjay Mohan wrote:
+> The arm64 bpf JIT currently supports attaching the trampoline to
+> functions with <= 8 arguments. This is because up to 8 arguments can be
+> passed in registers r0-r7. If there are more than 8 arguments then the
+> 9th and later arguments are passed on the stack, with SP pointing to the
+> first stacked argument. See aapcs64[1] for more details.
+> 
+> If the 8th argument is a structure of size > 8B, then it is passed fully
+> on stack and r7 is not used for passing any argument. If there is a 9th
+> argument, it will be passed on the stack, even though r7 is available.
+> 
+> Add the support of storing and restoring arguments passed on the stack
+> to the arm64 bpf trampoline. This will allow attaching the trampoline to
+> functions that take up to 12 arguments.
+> 
+> [1] https://github.com/ARM-software/abi-aa/blob/main/aapcs64/aapcs64.rst#parameter-passing
+> 
+> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 
-are available in the Git repository at:
+[...]
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dt-bindings-for-v6.15-tag1
++cc Xu Kuohai + cc Florent Revest, who are involved in [0]
 
-for you to fetch changes up to 00e3cb0d638ce70391470f894820d8442a155e95:
+We at Bootlin are currently working on improving eBPF selftests coverage and
+aligning ARM64 support with other platforms. For this second topic, one
+remaining point is the support for 12 arguments in bpf trampolines. It looks
+like a big part of the work has been done and submitted through two different
+versions, the first one from Xu ([0]), and this one from Puranjay ([1]). There
+is still some rework needed in both versions to properly handle some alignment
+constraints.
 
-  dt-bindings: soc: renesas: Document MYIR Remi Pi board (2025-02-10 09:42:40 +0100)
+@Puranjay @Xu are you (or anyone else) actively working on those series (I kind
+of understand that you both agreed that Puranjay was continuing this work) ? If
+so, if there a way to assist you on this topic ? If not, can we take and revive
+your work to try to handle the missing points and make this feature integrated ?
 
-----------------------------------------------------------------
-Renesas DT binding updates for v6.15
+Thanks,
 
-  - Document support for the Yuridenki-Shokai Kakip (based on RZ/V2H)
-    and MYIR Remi Pi (based on RZ/G2L) boards,
-  - Document support for the RZ/G3E System Controller.
+Alexis
 
-----------------------------------------------------------------
-John Madieu (1):
-      dt-bindings: soc: renesas: Add RZ/G3E variant SYS binding
+[0] https://lore.kernel.org/bpf/20230917150752.69612-1-xukuohai@huaweicloud.com/
+[1] https://lore.kernel.org/bpf/20240705125336.46820-1-puranjay@kernel.org/
 
-Julien Massot (1):
-      dt-bindings: soc: renesas: Document MYIR Remi Pi board
-
-Nobuhiro Iwamatsu (3):
-      dt-bindings: soc: renesas: Document more Renesas RZ/V2H SoC variants
-      dt-bindings: vendor-prefixes: Add Yuridenki-Shokai Co. Ltd.
-      dt-bindings: soc: renesas: Document Yuridenki-Shokai Kakip board
-
- .../bindings/soc/renesas/renesas,r9a09g057-sys.yaml      |  5 ++++-
- .../devicetree/bindings/soc/renesas/renesas.yaml         | 16 ++++++++++++++++
- Documentation/devicetree/bindings/vendor-prefixes.yaml   |  2 ++
- 3 files changed, 22 insertions(+), 1 deletion(-)
+-- 
+Alexis Lothoré, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
