@@ -4,151 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93827C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E5DC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=64eYMEDrlRIxbcPeG3FvwifDl+9+anJdNxRVXm6iO4g=; b=iOhnNpoDsI14q2YdkXObMOE8f0
-	WubYv1mLxbk0t5owgfvGQR2jwPzswfzapsVoFgDVfQbO0GWIqsmg6odJGyiH7Sth0OflDWAkZsnis
-	SADCUGivEYlxLIfFFOFuo0X0OwQrvMSSnQehRtDV+4FIKNlIrUpPPGze9COf3y/jLEqKv/fPpFKiG
-	qn6aU+7hl7MnGQBCP3gNGgQHV3R1vHmh30c+Cddty6B741/Qk/dHEvqns1yO1NmeI3eUYAjaW3qhI
-	ezT7JQl8jmpJCHIyCb+F814EQATiZ9cu4KFkF856SsAn7DaR8dzNvoGPxf9vQZLbvRKSyHZRdzklF
-	tXMWgPmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=j37I7MHrFNm+dtiKZTCy7cz6VFtBQcBqdVBTdu3q1ic=; b=BrkY+wAXD9WgzJRVo3ZIyB+wTH
+	sbNqM4ng7bfV5Kxmr33Tn+nAB9BfITdIliPYTJQOp4HPCYU9z22W+AMsbTCrtN+ir1uzEeykahV1L
+	v6IEZB2PWrfrfCw961o9tKS3FaaO+kvdj1sKqJcNa4BjDDjL4WH/4WwlHP2cIMjjGkIFbpRMEhdYM
+	rYhHSQ96ak6+w8WVE3HIWuhiiq/2vDwtT1wd1H0t7whHMnruURDuBWsBOe5qG0/PIJFydaEbo4WWF
+	qR+ITMQdE6HYm+arvR1XvibkVpMB2ARdxegdQAbdFh4JLIYDqGZEwRQnNABd1Iq3QsZb7wgFi/OmB
+	hMnDJ5rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlTob-00000005n7q-1e15;
-	Fri, 21 Feb 2025 14:15:41 +0000
-Received: from mail-co1nam11on20609.outbound.protection.outlook.com ([2a01:111:f403:2416::609] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1tlTq3-00000005nSR-0cRG;
+	Fri, 21 Feb 2025 14:17:11 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlTfH-00000005kdt-2Zz6
+	id 1tlTi9-00000005lCK-3M2p
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 14:06:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jOC68uY13AiwLQ1TLrKvPNlP6ZsVDROGRUoM8JKbh5saJDuFdFoQGNMsp87GDBCAGLHDlSdYzmp+9pAupiFRjgzd+jcukwqGGDnvk9f8M1HyRUVzWFea5tbciWux9y2hksFI5bQ8EhhGumH+6GiF9awjYsZCaxPzj1VhLDm6zRod42h368lzeU8ad3u8BITWdMTVqA3Dr3KveBqomcXrUYvcwNRu8HGQFlHApXPgD+8G6h5GhsLs/hWdPffBj231ZZIg6pNQPPJY1k+x0X8phB6hEzYKNnRv42PPLPNqiEFru6zf+SmMYStCE82ZoJNKHK2EwTLuyLTZxxCDFIIMHQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=64eYMEDrlRIxbcPeG3FvwifDl+9+anJdNxRVXm6iO4g=;
- b=GVZZOrCLow23O8nvfnJRdL7lypx/ecKFzCCMu6qCIjoPWiFVJX39H5IccuVbGFJCaqp9HViq099RCnXOfKxikRV3+9LBia/6DQ3s63QVeivYJ5HaB27HvhTHMvSPon/aiPKuJbXLcnlHDldFBtqGjtQf7Yr2kQbwdk+ZAmZ83wQijYjDTmFvBSXXffcwyhpk6DKXz4ukwMTipwr8+v1MNAdLEd5mN2XubvtIDTljYqAQRRuLsY9XcBn/5Y9TN+uhjxjdhx/fXXVnbJ2kEWwNLK/NOGOMowow3hCwKM3Iu04tHvX3aXNtZ81p8Uo4UrKKYj3HmQdBVvxa3c63MUo9DA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=64eYMEDrlRIxbcPeG3FvwifDl+9+anJdNxRVXm6iO4g=;
- b=ONJDXbob5XxZXuS000II7N4H2AgsivXLmY9r2ok4A/Q05PWSxMgOzH/oNSOyUmkzjJ86X8hOtzrbJm+h/TH0Wnl+ZTwiKVbEKc8qZyvBqdhd6a1NCntJ0xiY06gUWxUSIza6v1dset8tDAsV9J2aPsRLestsEc8LeRXVt0AXI6htZHDh4CLcDN7GLRJp0kzYN+sHZ1TIeDzR+eXG5Hg2Qg+R4nttWrmUJ1fpkAkHVSiDov8pKIz40zfPE21j5FvpETh2IVKSH0ndIyUgN0qmpKOtf4ZaCx293iuSXxSvNDevGol/AxAcPESb2XWjoC0P1e/MBoJPgaYkRtnhm5IWAg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CY8PR12MB7707.namprd12.prod.outlook.com (2603:10b6:930:86::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.15; Fri, 21 Feb
- 2025 14:05:58 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8466.015; Fri, 21 Feb 2025
- 14:05:58 +0000
-Date: Fri, 21 Feb 2025 10:05:57 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
-	maz@kernel.org, joro@8bytes.org, will@kernel.org,
-	robin.murphy@arm.com, shuah@kernel.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
-	baolu.lu@linux.intel.com, yi.l.liu@intel.com, yury.norov@gmail.com,
-	jacob.pan@linux.microsoft.com, patches@lists.linux.dev
-Subject: Re: [PATCH v2 1/7] genirq/msi: Store the IOMMU IOVA directly in
- msi_desc instead of iommu_cookie
-Message-ID: <20250221140557.GL50639@nvidia.com>
-References: <cover.1740014950.git.nicolinc@nvidia.com>
- <a4f2cd76b9dc1833ee6c1cf325cba57def22231c.1740014950.git.nicolinc@nvidia.com>
- <87ldtzhcjv.ffs@tglx>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87ldtzhcjv.ffs@tglx>
-X-ClientProxiedBy: MN2PR14CA0008.namprd14.prod.outlook.com
- (2603:10b6:208:23e::13) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Fri, 21 Feb 2025 14:09:03 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YzsP31c4bz6L72m;
+	Fri, 21 Feb 2025 22:06:15 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 614D51400D9;
+	Fri, 21 Feb 2025 22:08:54 +0800 (CST)
+Received: from A2303104131.china.huawei.com (10.203.177.241) by
+ frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Fri, 21 Feb 2025 15:08:46 +0100
+From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
+To: <kvmarm@lists.linux.dev>, <maz@kernel.org>, <oliver.upton@linux.dev>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	<cohuck@redhat.com>, <eric.auger@redhat.com>, <sebott@redhat.com>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <jiangkunkun@huawei.com>,
+	<jonathan.cameron@huawei.com>, <anthony.jebson@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
+Subject: [PATCH v8 0/6] KVM: arm64: Errata management for VM Live migration
+Date: Fri, 21 Feb 2025 14:02:23 +0000
+Message-ID: <20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com>
+X-Mailer: git-send-email 2.12.0.windows.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY8PR12MB7707:EE_
-X-MS-Office365-Filtering-Correlation-Id: 32d618b7-7b1e-4a73-66e5-08dd5280ddb1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BtA2NgFRbNCIyGJb6BiYwwbHpa22zbnKLWNK+JRdFwm5FOspaQ4wXrgpcblT?=
- =?us-ascii?Q?5ML7qIM24HITq3tzNqZLiwqQ77/j5EoTL2+1qzCCeA1mBan9hB3f+/yZcAg7?=
- =?us-ascii?Q?3wWMGJVQWX9SaegEPRwWPp0J7wxulUcOlH7dZ54LjTy1V/ty/+0eamfFW0HB?=
- =?us-ascii?Q?eVV53hRThyj7Y1ByyqLXiFEVyMHhdMSOaFfH4zsXV8EYsk0unfpJh4V2i4O0?=
- =?us-ascii?Q?XQ2MAj3z6uBnRZkDNxAk3QxWPWE/f/B54W+wIFklhqY39m3yTmqZBg4AC603?=
- =?us-ascii?Q?xmPxCksrUNfhmLr7vhwhZA9G7rKydPFPByygDaxFY262CDo3sVqfGCe2uJR1?=
- =?us-ascii?Q?7UFcS3h7MvLk15mYxL4QDTG+y4wGoXTdwuFEf26l83QRAjDJkQgOY3TMgZHE?=
- =?us-ascii?Q?61cEyBKsNRnF2kpMaf+K7QvwKVhzZMsgx7q1qbm/q2XUD4zQ0G015gF3b9dc?=
- =?us-ascii?Q?ex18qfyQKLnMhRe2JZFXdYAAj625y9EYiKHY1QMIJYNQWL7rLdNDylI+5jeN?=
- =?us-ascii?Q?NZVAcqeCSK/dcNtpAgUpFYmhZ+FrkyOZiNjya2r/UiYsY7Ei8+WwG40xG0ry?=
- =?us-ascii?Q?9+Ye30C67s2LbcINqMKi906oP30WEJrdNiubWy3Qusrk07DFTa6F6MY7Pmfh?=
- =?us-ascii?Q?nIvWgv9IWDsIJ2mPhQipx8oZjKdXwCj93ykNidGAJLqTFQ04mal8Twpf42fd?=
- =?us-ascii?Q?IaCwTjJniX7MLbvK9dsWb4U2M9BrbWvpxlakYzaTaruG903xCk50QJ4+9NSH?=
- =?us-ascii?Q?qMIJmFJiDcMQyeE1zNhxx7AWuFcfJ8Fvelmw/aapPOKwHBwgpb1hlLrMAReu?=
- =?us-ascii?Q?1ffUWGADXQ9CNbOWBt/b9LA17hCKQe3gSnSI+FQfqO/2zCSZOTqXoZe7cBsX?=
- =?us-ascii?Q?QEMXpWphBov93qUzU0d0nkU6KmqteJb1rUtXzNtGzMYSjGqkQZ+e6HYg8T9K?=
- =?us-ascii?Q?c0CbRNHmtY13iHX5oBweofx2FHkIksFieOxf4dv7clqQPtgVPOjIQZtuJXQJ?=
- =?us-ascii?Q?Go93WJbx35y6iAH3vcxjl1G4wOWkvrxwXLAfCRz91M3SEjuA3gOhczmy5d+i?=
- =?us-ascii?Q?8VSTsC3s+TjfEzYKwJPVt3B2KkaR/w9N90hexRHiriOvLL6RNdR3Xtf34I5Q?=
- =?us-ascii?Q?ORy0gR0L0yyn1r+7Qz2Ozr4IH+JQZLc41rcFsA58Iak+eT/mPHGfCpywcAAf?=
- =?us-ascii?Q?aHJ2eIzFscQO+kwrzcGuiVq+bW+oULMkTFdhgcnSwGC56u95s/FVm6JIqYjx?=
- =?us-ascii?Q?VlmYF+nUW3pGKYKwjqOWBFqet4rwQtcOXWxW6z/iqDAwvr0/FzYWP7L/Fb8c?=
- =?us-ascii?Q?k2gwhaf7yLn7s6jzqvraRTL3QtCKtfjCGdfZ7k1RJYlNlqEdgRKo4M1JIj8I?=
- =?us-ascii?Q?9UdH8EwQAiizUDUGKELI/aPIVT64?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EUY7MVvw6Uzow8drMA1AtP2x2rjmJz+kBWjbFAzMBekvAHjJlYeeK2eVv5lf?=
- =?us-ascii?Q?F3KFeTYXQnpYMsrH5/EfkP7EgUlzdnEZNds57v0qsK3cbmA7uvI3iQnnuBrk?=
- =?us-ascii?Q?Zj4aa4oSCFEKxnaUx00ONy7brB15OaKlf6su6BKZ/vP6S3qSRTRLQDiHoLMW?=
- =?us-ascii?Q?xAqrGNeBfFat1ylTq2a5Oj9o3yzncJ1EP4WZ2smyLM8P8hM968KxiPlD4x4C?=
- =?us-ascii?Q?m0vy1FlHECe6xBVcyAA1HSzI7wAgbSRT7nwaX+UyMqYVuWRFJjsGYhBAyeNk?=
- =?us-ascii?Q?yGQEVwmaVcSMkDrvuIaCDdm0+WKPwReKjBZrCHbEwGRYCeSTMKEmVii8C2Kk?=
- =?us-ascii?Q?x96DJvSMlan6WV1FO61rqKpc2LyvTi+6I1bQinYF1VPmvfFWd86sUdd2M2dU?=
- =?us-ascii?Q?FnLWliCOk88/nghf5IpOAHFPpwAXA8eDfVmKVDQZS2a6jvlAvr/2wzm6DPwz?=
- =?us-ascii?Q?KRkWdeuUSDUxf6OGZ+3tDchC89mnUwEFODIGCMLgzM1ZwSmYk5X5xmAVV/aa?=
- =?us-ascii?Q?GI6PRDK0LZXBrHvnqyq3lqiBOOjiSdXZmtt2wDQkgKGGFKRwmTwq75vVIQg2?=
- =?us-ascii?Q?NTXkqjhaTo8Gq4fcDNB2PpG5MCQ5xGd8TwpbVJt0uPVcZURh9LG1MsNPFd1+?=
- =?us-ascii?Q?tMtYhYhibrgZ8NVsCadSxcx+nYlcWKpToft0zmiOaUYnhPNUI3VebbeVOHsj?=
- =?us-ascii?Q?Cl4qR3aDr7r5FHA1LcnpcwXHEMlWuQGTnXZDIFM5D0eIJyH7eDgxS8eOlkOg?=
- =?us-ascii?Q?SloCRBY7tYfk8fb0w6sntw2lMD0rkwIy8YJTeTjYVYD/xSmcn4OnWn5tora/?=
- =?us-ascii?Q?1QQYcN2w4NVUkih92/TqtQMod++LiD5qIQDS3XGepc25V/5s0MR0hny5A+10?=
- =?us-ascii?Q?lxhqAijgztzgkGEZq7uDMtiiVZH7pU4OVnfDgrmqvj4JAkhf04hTHv1YBoY1?=
- =?us-ascii?Q?YU2ESSEU7xWwffI/08/k3WNqfTes/pnrPDxrw/pFbDspKxwMMZ3BIJ774Be1?=
- =?us-ascii?Q?euXPY5nibYekJoQboHjaBqwhJQacyTaBhIy5vf3Qp4qGmAzTki/P7+x4EgSD?=
- =?us-ascii?Q?bbA5F5CObXDuwFASlAi2hFPsNgpn4CsKnk6qRcTmseXnJ1g1ZYs47JGE8bZb?=
- =?us-ascii?Q?Ry4mT8D7Rl48rNQAndo8H3fryZ/lK6YQdQ6s99nBkOkIldYhwBRcHmk1Y2fU?=
- =?us-ascii?Q?OMCylY0dBHIyTAWoroY/QQC4D6Ghhr3yuH6goZnF03aJ0BBhqm3k5JtU40zg?=
- =?us-ascii?Q?aQquzQNC3mYN8gBrOlp2QS+yLPlT1Cq1dhNOR956jdgl5MBOgPUUe4ua4H1B?=
- =?us-ascii?Q?CFEMuiPNBcFTKnf5AmnsGu/e/kjARde1kciR9rzmeiv/cBx5gFwJZsNqLkuz?=
- =?us-ascii?Q?aVYVZRWLm5RKu4xfLzUC2OfUWpc7ZKTB5pGnP5lTauViEiTdrdlZkE9M8SVd?=
- =?us-ascii?Q?hE0ZvMt4U+7eNHxi8xno1m81IN8roAUl/5jC0jo7VGKwpxsnYYahXx2vnAg6?=
- =?us-ascii?Q?CwK6DBRhSBPxr1Dlu5X70TgY3+uELIM8s7uK+vurlxjHezhr3vZWLXgtgLWK?=
- =?us-ascii?Q?3MfuKYZk4qB9E2kRpY4=3D?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 32d618b7-7b1e-4a73-66e5-08dd5280ddb1
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Feb 2025 14:05:58.7117
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: azL3ZB6C5+4mmyKS/pHViSrWZs1YaJT8/UGEgFrSQwkQgTCBybcDzpQ9YurtvfLC
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7707
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.203.177.241]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_060603_671796_A94EABCD 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20250221_060902_123434_10722509 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,27 +71,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 21, 2025 at 10:28:20AM +0100, Thomas Gleixner wrote:
-> On Wed, Feb 19 2025 at 17:31, Nicolin Chen wrote:
-> > Fix the MSI cookie UAF by removing the cookie pointer. The translated IOVA
-> > address is already known during iommu_dma_prepare_msi() and cannot change.
-> > Thus, it can simply be stored as an integer in the MSI descriptor.
-> >
-> > A following patch will fix the other UAF in iommu_get_domain_for_dev(), by
-> > using the IOMMU group mutex.
-> 
-> "A following patch" has no meaning once the current one is
-> applied. Simply say:
-> 
->   The other UAF in iommu_get_domain_for_dev() will be addressed
->   seperately, by ....
+Hi,
 
-I used this paragraph: 
+v7-->v8
+https://lore.kernel.org/kvmarm/20250214151343.61348-1-shameerali.kolothum.thodi@huawei.com/
 
-The other UAF related to iommu_get_domain_for_dev() will be addressed in
-patch "iommu: Make iommu_dma_prepare_msi() into a generic operation" by
-using the IOMMU group mutex.
+Changes:
+ -Fixed the compile error issue due to CONFIG_CORESIGHT_SOURCE_ETM4X=m
+  (Thanks to Sebastian for checking that config)- patch #4
+ -Added R-by tags.
+ 
+This can be sanity tested by the Qemu branch here,
+https://github.com/hisilicon/qemu/tree/v9.0-nv-rfcv4-vcpu-model-v2-target-cpu-errata
+(branch based on Eric's/Connie's NV + custom CPU series)
+Eg: to specify target impl CPUs,
+-machine virt,.., x-target-impl-cpus=0xMIDR1:0xREVIDR1-0xMIDR2:REVIDR2
+
+Please take a look and let me know your feedback.
 
 Thanks,
-Jason
+Shameer
+
+v6-->v7
+https://lore.kernel.org/kvmarm/20250205132222.55816-1-shameerali.kolothum.thodi@huawei.com/
+
+Changes:
+ -Introduced KVM_REG_ARM_VENDOR_HYP_BMAP_2 register for new hypercall
+  support(patch #3)
+ -Added selftest for KVM_REG_ARM_VENDOR_HYP_BMAP_2(patch #5).
+
+v5 --> v6
+https://lore.kernel.org/kvmarm/20250124151732.6072-1-shameerali.kolothum.thodi@huawei.com/
+
+-Addressed comments from Oliver,
+ -Changed version to 32 bit to match SMCCC_VERSION
+ -Don't advertise pKVM hypercalls to guests.
+ -Moved hypercall invocation to kvm_guest.c
+v4 --> v5
+https://lore.kernel.org/kvmarm/20241218105345.73472-1-shameerali.kolothum.thodi@huawei.com/
+
+-Addressed comments from Marc,
+ -Added an hypercall to retrieve version and number of supported target
+  impl CPUs.
+ -Added a check for KVM hypercall services availability.
+-Removed R-by tags from Connie & Sebastian as patches 2 & 4 are now
+ changed a bit. Please take another look.
+
+v3 --> v4(Minor updates)
+https://lore.kernel.org/kvmarm/20241209115311.40496-1-shameerali.kolothum.thodi@huawei.com/
+
+ -Changed MIDR/REVIDR to 64 bits based on feedback from Connie
+  and Marc(Patch #3).
+ -Added R-by tags from Sebastian (Thanks!).
+
+RFC v2 --> v3
+https://lore.kernel.org/kvmarm/20241024094012.29452-1-shameerali.kolothum.thodi@huawei.com/
+
+ -Addressed comments from Oliver(Thanks!).
+ -Using implementation CPUs MIDR/REVIDR when it is set for
+  _midr_range() functions(Patch 1 & 3)
+ -New hypercall for retrieving implementation CPUs(Patch #2).
+ -Dropped RFC.
+
+RFC v1 --> RFCv2:
+https://lore.kernel.org/kvmarm/20241011075053.80540-1-shameerali.kolothum.thodi@huawei.com/
+ -Introduced hypercalls to retrieve target CPUs info from user space VMM.
+  see patch #1 for details.
+ -Patch #2 uses the hypercall to retrieve the target CPU info if any.
+ -Use the target CPUs MIDR/REVIDR in errata enablement. See patch #3.
+
+Background from v1:
+
+On ARM64 platforms most of the errata workarounds are based on CPU
+MIDR/REVIDR values and a number of these workarounds need to be
+implemented by the Guest kernel as well. This creates a problem when
+Guest needs to be migrated to a platform that differs in these
+MIDR/REVIDR values even if the VMM can come up with a common minimum
+feature list for the Guest using the recently introduced "Writable
+ID registers" support.
+
+(This is roughly based on a discussion I had with Marc and Oliver
+at KVM forum. Marc outlined his idea for a solution and this is an
+attempt to implement it. Thanks to both and I take all the blame
+if this is nowhere near what is intended/required)
+
+Shameer Kolothum (6):
+  arm64: Modify _midr_range() functions to read MIDR/REVIDR internally
+  KVM: arm64: Introduce hypercall support for retrieving target
+    implementations
+  KVM: arm64: Introduce KVM_REG_ARM_VENDOR_HYP_BMAP_2
+  arm64: Make  _midr_in_range_list() an exported function
+  smccc/kvm_guest: Enable errata based on implementation CPUs
+  KVM: selftests: Add test for KVM_REG_ARM_VENDOR_HYP_BMAP_2
+
+ .../virt/kvm/arm/fw-pseudo-registers.rst      | 15 +++-
+ Documentation/virt/kvm/arm/hypercalls.rst     | 59 +++++++++++++++
+ arch/arm64/include/asm/cputype.h              | 40 +++++-----
+ arch/arm64/include/asm/hypervisor.h           |  1 +
+ arch/arm64/include/asm/kvm_host.h             |  3 +-
+ arch/arm64/include/asm/mmu.h                  |  3 +-
+ arch/arm64/include/uapi/asm/kvm.h             | 12 +++
+ arch/arm64/kernel/cpu_errata.c                | 73 ++++++++++++++++---
+ arch/arm64/kernel/cpufeature.c                |  8 +-
+ arch/arm64/kernel/image-vars.h                |  1 +
+ arch/arm64/kernel/proton-pack.c               | 17 ++---
+ arch/arm64/kvm/hypercalls.c                   | 13 ++++
+ arch/arm64/kvm/vgic/vgic-v3.c                 |  2 +-
+ drivers/clocksource/arm_arch_timer.c          |  2 +-
+ drivers/firmware/smccc/kvm_guest.c            | 64 ++++++++++++++++
+ .../coresight/coresight-etm4x-core.c          |  2 +-
+ include/linux/arm-smccc.h                     | 15 ++++
+ tools/arch/arm64/include/uapi/asm/kvm.h       | 12 +++
+ .../selftests/kvm/arm64/get-reg-list.c        |  1 +
+ .../testing/selftests/kvm/arm64/hypercalls.c  | 46 +++++++++---
+ 20 files changed, 327 insertions(+), 62 deletions(-)
+
+-- 
+2.47.0
+
 
