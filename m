@@ -4,166 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6822FC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 17:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24CB5C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 18:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IV/eaRledv3wz3YnjOQkF7cT8ujId6eN4auig+ZVMkg=; b=Tcq9dBcHFoprhKn0gOQjhhUT+6
-	uTIFSIQubj/jZZ32X2dnDeF0+e/4nahjMJd2jZVS6LR45KlrMsGPRCgbJBXDqRPMODVq4umnd94tI
-	fWlzZqBhy6kVhGeNUatQqMxlQY7G7uz/JQCCufAaOgHN21uwUmE7y9kLSML81p7EpJyYMEKagiQ0Y
-	wZILUiZc/LLXma4sbRtr9sZldlD/zHX+yqefJLWU0owFS0pAhdybl8BltWuQuI2X0a/62UDSnWQ39
-	dIzqHdzASdQoS0E5mvZ6VgVCUlHqfJ05aYy4zD0gZ0hBOH+reCFNx8kSzJz0Th1VvJNiuaeFkXZ3a
-	eFOOkOsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ky5RBBDFo7pwY6fTEoCqumUB417wE2fgV3OwJcGSh9w=; b=kyRyQN6hdYTCyM+6E/MStQO44r
+	Al1FmfKF0pDIs8GAHF0Nuupnexa67i+/5Y7+BqpDtTxCCZWD9J+8Th+Q4v7iOnqHu+H/bgOGQe1wI
+	LGnTVFTokyMaGD7k6XCokGbEIn3QEn2eUWTkOjvE5Qslrvl+7Tv8O3NqAyP+A3fi3WeJ/cG8vG10O
+	j0SBP8Vn/f51d/DdL43qjQRDg9NEsS0w0CwVvIG9vWEEJ2txjOAMsf0vcg3GvHlvPI0r5zcasxDLj
+	nLhO/pzly4TDSvlCUpF3U8d0KRADfHuOyaUUDwFHlEAYerg7WwKiWd0AqedbfEdvx68/Wp9IgigA+
+	k34XZxcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlXGI-00000006RUl-0q4D;
-	Fri, 21 Feb 2025 17:56:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tlXNp-00000006SGy-1Xf1;
+	Fri, 21 Feb 2025 18:04:17 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlW8N-00000006EV4-1MXT
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 21 Feb 2025 16:44:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=IV/eaRledv3wz3YnjOQkF7cT8ujId6eN4auig+ZVMkg=; b=VemeouthwmTq9N6EPv0ILfHGfg
-	opKs8jHMYmHPdHCI0x5//Xtwm/YLFDp0lShq9KksJkV1CgAZs9G2icI4LwkpB93IU4ctOV8gRV88t
-	CaVhyZCgDXuSNT0iBU+79uYnFqbqQgqLBUkyHcIRPIRaDg83GHx3r6M8jteWO+zS+G581Waw5N2Tw
-	zTUWh2lu1+k3eN+0be2Ch6RkUY+UmKiQAAvtcT2L5jfSehrbV6Is4dJBsoQoniCvaCrvkYFxGFBRb
-	sH3nBpZE4hVNDud+JLvdLrsttbfZHNUt/+/7Zh+WVwIgPhBibDUSUfnGPNLUgJO2XB45pfGn9qQun
-	Ej57orHg==;
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlW8K-00000002ger-1RXx
+	id 1tlXML-00000006S6l-0IYO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 16:44:14 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 98B67219E4;
-	Fri, 21 Feb 2025 16:44:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1740156249; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IV/eaRledv3wz3YnjOQkF7cT8ujId6eN4auig+ZVMkg=;
-	b=Tl8Njgj9VedxyjmpS5wrvRpe2LxdraF3IqJPIj+fEIGVMjpisf3KjIg724mLg6ZWEr6tTA
-	Z727h0EmKucabQxdpyhRShQoigobbCkVaQlaZGpntBPP5FdbWBvtGo8Q9TfauA6xHwKZwN
-	MkiXeXRmj9/avRaVhbR0+tAicTxiNCk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1740156249;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IV/eaRledv3wz3YnjOQkF7cT8ujId6eN4auig+ZVMkg=;
-	b=W7gCDsBmHiuybtVuvWnSPueBVYIUISbXmtY5/Pz5NCAk9NjNDi94+DLPBtuPkOvqd9P1Mo
-	CFS7MkJz2I4NQgAg==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=Tl8Njgj9;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=W7gCDsBm
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1740156249; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IV/eaRledv3wz3YnjOQkF7cT8ujId6eN4auig+ZVMkg=;
-	b=Tl8Njgj9VedxyjmpS5wrvRpe2LxdraF3IqJPIj+fEIGVMjpisf3KjIg724mLg6ZWEr6tTA
-	Z727h0EmKucabQxdpyhRShQoigobbCkVaQlaZGpntBPP5FdbWBvtGo8Q9TfauA6xHwKZwN
-	MkiXeXRmj9/avRaVhbR0+tAicTxiNCk=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1740156249;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=IV/eaRledv3wz3YnjOQkF7cT8ujId6eN4auig+ZVMkg=;
-	b=W7gCDsBmHiuybtVuvWnSPueBVYIUISbXmtY5/Pz5NCAk9NjNDi94+DLPBtuPkOvqd9P1Mo
-	CFS7MkJz2I4NQgAg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 04744136AD;
-	Fri, 21 Feb 2025 16:44:07 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Q8rMOVetuGcDNQAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Fri, 21 Feb 2025 16:44:07 +0000
-Message-ID: <a2f6ab00-7b51-483e-ad10-0ea7ef9bfd90@suse.de>
-Date: Fri, 21 Feb 2025 18:44:07 +0200
+	Fri, 21 Feb 2025 18:02:46 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-38f378498c9so2193567f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 10:02:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740160963; x=1740765763; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ky5RBBDFo7pwY6fTEoCqumUB417wE2fgV3OwJcGSh9w=;
+        b=Wntsrh9scGPEcKxT+jwmruEZAg5CQjAI3z7ArkxPljDnEVYf8eqXJf6M5u45LBVMoD
+         IFYFXwI/Cdxxl+8R/Egp2+obtwAeJOztdXi4tIsaPPMckUXwElmw0vsT43FHamBk8Sh4
+         wkE4k0ZHXCcQNcJlkHFWYisLqzrNztY64ufoeggklbbPuE1E36sKP/SqDggRZdAcJL9G
+         Dxgqoojd5bkyM9h0lfMFIS2a9ZXerl8J4h7/ma9gLOHE79cMPsZ+0RNdIuF+ftlWznW2
+         VYcN84z1cts72KmHxEGEv/98mPyo9sa+qP4m4oltKA/lvVqhL3QhjsCGBOE/SXdrA/SV
+         bpaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740160963; x=1740765763;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Ky5RBBDFo7pwY6fTEoCqumUB417wE2fgV3OwJcGSh9w=;
+        b=FJLbnrLhJJUAOdEBmY5Qj+LRtarkFHeIzFpa2oZap9cCac7g82kK1fTgO2ft5B6RV2
+         tbo4UBAcHVVcZqfNS1QEnGr9vWNrZUOierZ8w5PDXlzd6JwueaseZ8O9wbBCYZLy8OBg
+         vcgMxNADPjXxmJxGSqe9GTpGiDqUNCiB6NbpnWzYAycAv+IWtWaOwYnAYrTts3EB5ndy
+         mijiOzuRtlcAOw0Z5i5zjmYreqMqIA5YP/d7dhfz3wq1lbGH5A69ae4/j27JFokohRsv
+         f+KHtXRH+RQC08f/fdiSLPQrZequKmKb+K2XVk/eekrZENENc2VRJoF9A4+y7t1MeiP5
+         s+DQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW7RZ6EIBIhkzMtugITzwnR2IImQ9U2561yLwauLwbjhi/qInM8n+u50Fv0BUmm5YGKfMSeqCa5IHp3EDYyJfaq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQQL2aym7dkXbVy/9gPCYExNh04wH+oEV8Zagrt+msL4LHZG8h
+	foI21DB34Kont03PyJyxA05KrRh+inz5d5g0xI98bxQWSK5lXAu7
+X-Gm-Gg: ASbGnctGifVpNJLqY1lZvZfwUtP3hCpzw8UZJ/2Xv548sQhnJvJwpEuxQ1RnXf8MymG
+	uHOLggbcI2JT3NMSj2EozdCUzqmsywf96Z0s4HXJnph3i4HqaishhAbOEAWpfPsdc4VSbDx8wU9
+	CA28BVUxP2UTCe6PhiouJsN6BHoU48J4wsCfS5YONG4PbBJJP/bRhhvLnf2jjhI+CWw1HRyC2B6
+	7bVY8slmTWpy8xL6kDiLE5ml7DhBhFAyNpTJ3FOIwvvSk/fGmPli5lVX72xMFpskzZV1k/1et8O
+	SMx59NmHc2+k6C6L7wtuV8Qx6v1SVPd1p7nJN0ZbgKpKU7AHrUycqRczOvhJpmZtkLZwQBKWYt7
+	haw==
+X-Google-Smtp-Source: AGHT+IFgNKVxtAYFJ3mL0/vT0PfLzi2dGHGPi8cw65BEVBNksyDVfkcvC+CXso0kdLCw7Bwnk4rR4w==
+X-Received: by 2002:a5d:648b:0:b0:38f:3e1c:211d with SMTP id ffacd0b85a97d-38f6e95bb57mr5545939f8f.14.1740160963035;
+        Fri, 21 Feb 2025 10:02:43 -0800 (PST)
+Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259fdb19sm24586850f8f.95.2025.02.21.10.02.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Feb 2025 10:02:42 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH 3/3] arm64: dts: allwinner: h616: add YuzukiHD Chameleon support
+Date: Fri, 21 Feb 2025 19:02:41 +0100
+Message-ID: <2768158.mvXUDI8C0e@jernej-laptop>
+In-Reply-To: <20250221012038.13706-4-andre.przywara@arm.com>
+References: <20250221012038.13706-1-andre.przywara@arm.com>
+ <20250221012038.13706-4-andre.przywara@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 -next 04/11] PCI: brcmstb: Reuse config structure
-To: Jim Quinlan <jim2101024@gmail.com>, Stanimir Varbanov
- <svarbanov@suse.de>, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org,
- linux-pci@vger.kernel.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Thomas Gleixner
- <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Andrea della Porta <andrea.porta@suse.com>,
- Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
- <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-References: <20250120130119.671119-1-svarbanov@suse.de>
- <20250120130119.671119-5-svarbanov@suse.de>
- <CANCKTBsm6o9yaSenj-wft+n0uX-HNRjpJjkZaQcn4t474fXtow@mail.gmail.com>
- <CANCKTBuMOk9ASfPydcKHQgaQF4p7m7ryYezcLPdBEM2ao3LY3g@mail.gmail.com>
-Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <CANCKTBuMOk9ASfPydcKHQgaQF4p7m7ryYezcLPdBEM2ao3LY3g@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 98B67219E4
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	URIBL_BLOCKED(0.00)[suse.de:email,suse.de:dkim,suse.de:mid];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	FREEMAIL_TO(0.00)[gmail.com,suse.de,linux.com];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[23];
-	ARC_NA(0.00)[];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TAGGED_RCPT(0.00)[dt];
-	DKIM_TRACE(0.00)[suse.de:+];
-	ASN(0.00)[asn:25478, ipnet:::/0, country:RU];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:email,suse.de:dkim,suse.de:mid]
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_164412_645777_DB91B9DD 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20250221_100245_112405_3C22003D 
+X-CRM114-Status: GOOD (  24.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,282 +101,287 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jim,
+Dne petek, 21. februar 2025 ob 02:20:38 Srednjeevropski standardni =C4=8Das=
+ je Andre Przywara napisal(a):
+> The Chameleon board is an OpenHardware devboard made by YuzukiTsuru.
+> The form factor resembles the Raspberry Pi Model A boards, though it
+> differs significantly in its features:
+>=20
+>   - Allwinner H618 SoC (4 * Arm Cortex-A53 cores, 1MB L2 cache, 1.4 GHz)
+>   - between 512MiB and 2GiB DDR3 DRAM
+>   - up to 128 GiB eMMC flash
+>   - AXP313a PMIC
+>   - 100 Mbit/s Ethernet pins on a header
+>   - XR829 WIFI+Bluetooth chip
+>   - 4 * USB 2.0 USB-C ports
+>   - microSD card slot
+>   - 3.5mm A/V port
+>=20
+> Add the devicetree describing the board's peripherals and their
+> connections.
+>=20
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+>  .../sun50i-h618-yuzukihd-chameleon.dts        | 222 ++++++++++++++++++
+>  2 files changed, 223 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-ch=
+ameleon.dts
+>=20
+> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts=
+/allwinner/Makefile
+> index 00bed412ee31c..448698fed5f79 100644
+> --- a/arch/arm64/boot/dts/allwinner/Makefile
+> +++ b/arch/arm64/boot/dts/allwinner/Makefile
+> @@ -48,6 +48,7 @@ dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h618-longanpi-3h.d=
+tb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h618-orangepi-zero2w.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h618-orangepi-zero3.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h618-transpeed-8k618-t.dtb
+> +dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h618-yuzukihd-chameleon.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h700-anbernic-rg35xx-2024.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h700-anbernic-rg35xx-h.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h700-anbernic-rg35xx-plus.dtb
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon=
+=2Edts b/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
+> new file mode 100644
+> index 0000000000000..c60d42130cf79
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
+> @@ -0,0 +1,222 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2024 Arm Ltd.
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "sun50i-h616.dtsi"
+> +#include "sun50i-h616-cpu-opp.dtsi"
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +/ {
+> +	model =3D "Yuzuki Chameleon";
+> +	compatible =3D "yuzukihd,chameleon", "allwinner,sun50i-h618";
+> +
+> +	aliases {
+> +		ethernet1 =3D &sdio_wifi;
+> +		serial0 =3D &uart0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path =3D "serial0:115200n8";
+> +	};
+> +
+> +	reg_vcc5v: vcc5v {
+> +		/* board wide 5V supply directly from the USB-C socket */
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "vcc-5v";
+> +		regulator-min-microvolt =3D <5000000>;
+> +		regulator-max-microvolt =3D <5000000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	wifi_pwrseq: pwrseq {
+> +		compatible =3D "mmc-pwrseq-simple";
+> +		clocks =3D <&rtc CLK_OSC32K_FANOUT>;
+> +		clock-names =3D "ext_clock";
+> +		pinctrl-0 =3D <&x32clk_fanout_pin>;
+> +		pinctrl-names =3D "default";
+> +		reset-gpios =3D <&pio 6 11 GPIO_ACTIVE_LOW>; /* PG11 */
+> +	};
+> +};
+> +
+> +&codec {
+> +	allwinner,audio-routing =3D "Line Out", "LINEOUT";
+> +	status =3D "okay";
+> +};
+> +
+> +&cpu0 {
+> +	cpu-supply =3D <&reg_dcdc2>;
+> +};
+> +
+> +&ehci0 {
+> +	status =3D "okay";
+> +};
+> +
+> +&ehci1 {
+> +	status =3D "okay";
+> +};
+> +
+> +&ehci2 {
+> +	status =3D "okay";
+> +};
+> +
+> +&ehci3 {
+> +	status =3D "okay";
+> +};
+> +
+> +&mmc0 {
+> +	bus-width =3D <4>;
+> +	cd-gpios =3D <&pio 5 6 GPIO_ACTIVE_LOW>;	/* PF6 */
+> +	disable-wp;
+> +	vmmc-supply =3D <&reg_dldo1>;
+> +	status =3D "okay";
+> +};
+> +
+> +&mmc1 {
+> +	bus-width =3D <4>;
+> +	mmc-pwrseq =3D <&wifi_pwrseq>;
+> +	non-removable;
+> +	vmmc-supply =3D <&reg_dldo1>;
+> +	vqmmc-supply =3D <&reg_dldo1>;
+> +	status =3D "okay";
+> +
+> +	sdio_wifi: wifi@1 {
+> +		reg =3D <1>;
+> +		interrupt-parent =3D <&pio>;
+> +		interrupts =3D <6 12 IRQ_TYPE_LEVEL_LOW>;  /* PG12 */
+> +		interrupt-names =3D "host-wake";
+> +	};
+> +};
+> +
+> +&mmc2 {
+> +	bus-width =3D <8>;
+> +	cap-mmc-hw-reset;
+> +	mmc-ddr-3_3v;
+> +	non-removable;
+> +	vmmc-supply =3D <&reg_dldo1>;
+> +	vqmmc-supply =3D <&reg_dldo1>;
+> +	status =3D "okay";
+> +};
+> +
+> +&ohci0 {
+> +	status =3D "okay";
+> +};
+> +
+> +&ohci1 {
+> +	status =3D "okay";
+> +};
+> +
+> +&ohci2 {
+> +	status =3D "okay";
+> +};
+> +
+> +&ohci3 {
+> +	status =3D "okay";
+> +};
+> +
+> +&pio {
+> +	vcc-pc-supply =3D <&reg_dldo1>;
+> +	vcc-pf-supply =3D <&reg_dldo1>;	/* via VCC_IO */
+> +	vcc-pg-supply =3D <&reg_dldo1>;
+> +	vcc-ph-supply =3D <&reg_dldo1>;	/* via VCC_IO */
+> +	vcc-pi-supply =3D <&reg_dldo1>;
+> +};
+> +
+> +&r_i2c {
+> +	status =3D "okay";
+> +
+> +	axp313: pmic@36 {
+> +		compatible =3D "x-powers,axp313a";
+> +		reg =3D <0x36>;
+> +		#interrupt-cells =3D <1>;
+> +		interrupt-controller;
+> +		interrupt-parent =3D <&pio>;
+> +		interrupts =3D <2 2 IRQ_TYPE_LEVEL_LOW>;	/* PC2 */
+> +
+> +		vin1-supply =3D <&reg_vcc5v>;
+> +		vin2-supply =3D <&reg_vcc5v>;
+> +		vin3-supply =3D <&reg_vcc5v>;
+> +
+> +		regulators {
+> +			/* Supplies VCC-PLL, so needs to be always on. */
+> +			reg_aldo1: aldo1 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt =3D <1800000>;
+> +				regulator-max-microvolt =3D <1800000>;
+> +				regulator-name =3D "vcc1v8";
+> +			};
+> +
+> +			/* Supplies VCC-IO, so needs to be always on. */
+> +			reg_dldo1: dldo1 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt =3D <3300000>;
+> +				regulator-max-microvolt =3D <3300000>;
+> +				regulator-name =3D "vcc3v3";
+> +			};
+> +
+> +			reg_dcdc1: dcdc1 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt =3D <810000>;
+> +				regulator-max-microvolt =3D <990000>;
+> +				regulator-name =3D "vdd-gpu-sys";
+> +			};
+> +
+> +			reg_dcdc2: dcdc2 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt =3D <810000>;
+> +				regulator-max-microvolt =3D <1100000>;
+> +				regulator-name =3D "vdd-cpu";
+> +			};
+> +
+> +			reg_dcdc3: dcdc3 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt =3D <1500000>;
+> +				regulator-max-microvolt =3D <1500000>;
+> +				regulator-name =3D "vdd-dram";
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&uart0 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&uart0_ph_pins>;
+> +	status =3D "okay";
+> +};
+> +
+> +/* Connected to the Bluetooth UART pins of the XR829 Wifi/BT chip. */
+> +&uart1 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&uart1_pins>, <&uart1_rts_cts_pins>;
+> +	uart-has-rtscts;
+> +	status =3D "okay";
+> +};
+> +
+> +&usbotg {
+> +	/*
+> +	 * PHY0 pins are connected to a USB-C socket, but a role switch
+> +	 * is not implemented: both CC pins are pulled to GND.
+> +	 * The VBUS pins power the device, so a fixed peripheral mode
+> +	 * is the best choice.
+> +	 * The board can be powered via GPIOs, in this case port0 *can*
+> +	 * act as a host (with a cable/adapter ignoring CC), as VBUS is
+> +	 * then provided by the GPIOs. Any user of this setup would
+> +	 * need to adjust the DT accordingly: dr_mode set to "host",
+> +	 * enabling OHCI0 and EHCI0.
+> +	 */
+> +	dr_mode =3D "otg";
 
-On 2/21/25 5:36 PM, Jim Quinlan wrote:
-> On Fri, Jan 31, 2025 at 11:10 AM Jim Quinlan <jim2101024@gmail.com> wrote:
->>
->> On Mon, Jan 20, 2025 at 8:01 AM Stanimir Varbanov <svarbanov@suse.de> wrote:
->>>
->>> Instead of copying fields from pcie_cfg_data structure to
->>> brcm_pcie reference it directly.
->>>
->>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
->>> Reviewed-by: Florian Fainelil <florian.fainelli@broadcom.com>
->>> ---
->>> v4 -> v5:
->>>  - No changes.
->>>
->>>  drivers/pci/controller/pcie-brcmstb.c | 70 ++++++++++++---------------
->>>  1 file changed, 31 insertions(+), 39 deletions(-)
->>>
->>> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
->>> index e733a27dc8df..48b2747d8c98 100644
->>> --- a/drivers/pci/controller/pcie-brcmstb.c
->>> +++ b/drivers/pci/controller/pcie-brcmstb.c
->>> @@ -191,11 +191,11 @@
->>>  #define SSC_STATUS_PLL_LOCK_MASK       0x800
->>>  #define PCIE_BRCM_MAX_MEMC             3
->>>
->>> -#define IDX_ADDR(pcie)                 ((pcie)->reg_offsets[EXT_CFG_INDEX])
->>> -#define DATA_ADDR(pcie)                        ((pcie)->reg_offsets[EXT_CFG_DATA])
->>> -#define PCIE_RGR1_SW_INIT_1(pcie)      ((pcie)->reg_offsets[RGR1_SW_INIT_1])
->>> -#define HARD_DEBUG(pcie)               ((pcie)->reg_offsets[PCIE_HARD_DEBUG])
->>> -#define INTR2_CPU_BASE(pcie)           ((pcie)->reg_offsets[PCIE_INTR2_CPU_BASE])
->>> +#define IDX_ADDR(pcie)                 ((pcie)->cfg->offsets[EXT_CFG_INDEX])
->>> +#define DATA_ADDR(pcie)                        ((pcie)->cfg->offsets[EXT_CFG_DATA])
->>> +#define PCIE_RGR1_SW_INIT_1(pcie)      ((pcie)->cfg->offsets[RGR1_SW_INIT_1])
->>> +#define HARD_DEBUG(pcie)               ((pcie)->cfg->offsets[PCIE_HARD_DEBUG])
->>> +#define INTR2_CPU_BASE(pcie)           ((pcie)->cfg->offsets[PCIE_INTR2_CPU_BASE])
->>>
->>>  /* Rescal registers */
->>>  #define PCIE_DVT_PMU_PCIE_PHY_CTRL                             0xc700
->>> @@ -276,8 +276,6 @@ struct brcm_pcie {
->>>         int                     gen;
->>>         u64                     msi_target_addr;
->>>         struct brcm_msi         *msi;
->>> -       const int               *reg_offsets;
->>> -       enum pcie_soc_base      soc_base;
->>>         struct reset_control    *rescal;
->>>         struct reset_control    *perst_reset;
->>>         struct reset_control    *bridge_reset;
->>> @@ -285,17 +283,14 @@ struct brcm_pcie {
->>>         int                     num_memc;
->>>         u64                     memc_size[PCIE_BRCM_MAX_MEMC];
->>>         u32                     hw_rev;
->>> -       int                     (*perst_set)(struct brcm_pcie *pcie, u32 val);
->>> -       int                     (*bridge_sw_init_set)(struct brcm_pcie *pcie, u32 val);
->>>         struct subdev_regulators *sr;
->>>         bool                    ep_wakeup_capable;
->>> -       bool                    has_phy;
->>> -       u8                      num_inbound_wins;
->>> +       const struct pcie_cfg_data      *cfg;
->>>  };
->>>
->>>  static inline bool is_bmips(const struct brcm_pcie *pcie)
->>>  {
->>> -       return pcie->soc_base == BCM7435 || pcie->soc_base == BCM7425;
->>> +       return pcie->cfg->soc_base == BCM7435 || pcie->cfg->soc_base == BCM7425;
->>>  }
->>>
->>>  /*
->>> @@ -855,7 +850,7 @@ static int brcm_pcie_get_inbound_wins(struct brcm_pcie *pcie,
->>>          * security considerations, and is not implemented in our modern
->>>          * SoCs.
->>>          */
->>> -       if (pcie->soc_base != BCM7712)
->>> +       if (pcie->cfg->soc_base != BCM7712)
->>>                 add_inbound_win(b++, &n, 0, 0, 0);
->>>
->>>         resource_list_for_each_entry(entry, &bridge->dma_ranges) {
->>> @@ -872,10 +867,10 @@ static int brcm_pcie_get_inbound_wins(struct brcm_pcie *pcie,
->>>                  * That being said, each BARs size must still be a power of
->>>                  * two.
->>>                  */
->>> -               if (pcie->soc_base == BCM7712)
->>> +               if (pcie->cfg->soc_base == BCM7712)
->>>                         add_inbound_win(b++, &n, size, cpu_start, pcie_start);
->>>
->>> -               if (n > pcie->num_inbound_wins)
->>> +               if (n > pcie->cfg->num_inbound_wins)
->>>                         break;
->>>         }
->>>
->>> @@ -889,7 +884,7 @@ static int brcm_pcie_get_inbound_wins(struct brcm_pcie *pcie,
->>>          * that enables multiple memory controllers.  As such, it can return
->>>          * now w/o doing special configuration.
->>>          */
->>> -       if (pcie->soc_base == BCM7712)
->>> +       if (pcie->cfg->soc_base == BCM7712)
->>>                 return n;
->>>
->>>         ret = of_property_read_variable_u64_array(pcie->np, "brcm,scb-sizes", pcie->memc_size, 1,
->>> @@ -1012,7 +1007,7 @@ static void set_inbound_win_registers(struct brcm_pcie *pcie,
->>>                  * 7712:
->>>                  *     All of their BARs need to be set.
->>>                  */
->>> -               if (pcie->soc_base == BCM7712) {
->>> +               if (pcie->cfg->soc_base == BCM7712) {
->>>                         /* BUS remap register settings */
->>>                         reg_offset = brcm_ubus_reg_offset(i);
->>>                         tmp = lower_32_bits(cpu_addr) & ~0xfff;
->>> @@ -1036,15 +1031,15 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
->>>         int memc, ret;
->>>
->>>         /* Reset the bridge */
->>> -       ret = pcie->bridge_sw_init_set(pcie, 1);
->>> +       ret = pcie->cfg->bridge_sw_init_set(pcie, 1);
->>>         if (ret)
->>>                 return ret;
->>>
->>>         /* Ensure that PERST# is asserted; some bootloaders may deassert it. */
->>> -       if (pcie->soc_base == BCM2711) {
->>> -               ret = pcie->perst_set(pcie, 1);
->>> +       if (pcie->cfg->soc_base == BCM2711) {
->>> +               ret = pcie->cfg->perst_set(pcie, 1);
->>>                 if (ret) {
->>> -                       pcie->bridge_sw_init_set(pcie, 0);
->>> +                       pcie->cfg->bridge_sw_init_set(pcie, 0);
->>>                         return ret;
->>>                 }
->>>         }
->>> @@ -1052,7 +1047,7 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
->>>         usleep_range(100, 200);
->>>
->>>         /* Take the bridge out of reset */
->>> -       ret = pcie->bridge_sw_init_set(pcie, 0);
->>> +       ret = pcie->cfg->bridge_sw_init_set(pcie, 0);
->>>         if (ret)
->>>                 return ret;
->>>
->>> @@ -1072,9 +1067,9 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
->>>          */
->>>         if (is_bmips(pcie))
->>>                 burst = 0x1; /* 256 bytes */
->>> -       else if (pcie->soc_base == BCM2711)
->>> +       else if (pcie->cfg->soc_base == BCM2711)
->>>                 burst = 0x0; /* 128 bytes */
->>> -       else if (pcie->soc_base == BCM7278)
->>> +       else if (pcie->cfg->soc_base == BCM7278)
->>>                 burst = 0x3; /* 512 bytes */
->>>         else
->>>                 burst = 0x2; /* 512 bytes */
->>> @@ -1199,7 +1194,7 @@ static void brcm_extend_rbus_timeout(struct brcm_pcie *pcie)
->>>         u32 timeout_us = 4000000; /* 4 seconds, our setting for L1SS */
->>>
->>>         /* 7712 does not have this (RGR1) timer */
->>> -       if (pcie->soc_base == BCM7712)
->>> +       if (pcie->cfg->soc_base == BCM7712)
->>>                 return;
->>>
->>>         /* Each unit in timeout register is 1/216,000,000 seconds */
->>> @@ -1277,7 +1272,7 @@ static int brcm_pcie_start_link(struct brcm_pcie *pcie)
->>>         int ret, i;
->>>
->>>         /* Unassert the fundamental reset */
->>> -       ret = pcie->perst_set(pcie, 0);
->>> +       ret = pcie->cfg->perst_set(pcie, 0);
->>>         if (ret)
->>>                 return ret;
->>>
->>> @@ -1463,12 +1458,12 @@ static int brcm_phy_cntl(struct brcm_pcie *pcie, const int start)
->>>
->>>  static inline int brcm_phy_start(struct brcm_pcie *pcie)
->>>  {
->>> -       return pcie->has_phy ? brcm_phy_cntl(pcie, 1) : 0;
->>> +       return pcie->cfg->has_phy ? brcm_phy_cntl(pcie, 1) : 0;
->>>  }
->>>
->>>  static inline int brcm_phy_stop(struct brcm_pcie *pcie)
->>>  {
->>> -       return pcie->has_phy ? brcm_phy_cntl(pcie, 0) : 0;
->>> +       return pcie->cfg->has_phy ? brcm_phy_cntl(pcie, 0) : 0;
->>>  }
->>>
->>>  static int brcm_pcie_turn_off(struct brcm_pcie *pcie)
->>> @@ -1479,7 +1474,7 @@ static int brcm_pcie_turn_off(struct brcm_pcie *pcie)
->>>         if (brcm_pcie_link_up(pcie))
->>>                 brcm_pcie_enter_l23(pcie);
->>>         /* Assert fundamental reset */
->>> -       ret = pcie->perst_set(pcie, 1);
->>> +       ret = pcie->cfg->perst_set(pcie, 1);
->>>         if (ret)
->>>                 return ret;
->>>
->>> @@ -1582,7 +1577,7 @@ static int brcm_pcie_resume_noirq(struct device *dev)
->>>                 goto err_reset;
->>>
->>>         /* Take bridge out of reset so we can access the SERDES reg */
->>> -       pcie->bridge_sw_init_set(pcie, 0);
->>> +       pcie->cfg->bridge_sw_init_set(pcie, 0);
->>>
->>>         /* SERDES_IDDQ = 0 */
->>>         tmp = readl(base + HARD_DEBUG(pcie));
->>> @@ -1803,12 +1798,7 @@ static int brcm_pcie_probe(struct platform_device *pdev)
->>>         pcie = pci_host_bridge_priv(bridge);
->>>         pcie->dev = &pdev->dev;
->>>         pcie->np = np;
->>> -       pcie->reg_offsets = data->offsets;
->>> -       pcie->soc_base = data->soc_base;
->>> -       pcie->perst_set = data->perst_set;
->>> -       pcie->bridge_sw_init_set = data->bridge_sw_init_set;
->>> -       pcie->has_phy = data->has_phy;
->>> -       pcie->num_inbound_wins = data->num_inbound_wins;
->>> +       pcie->cfg = data;
->>>
->>>         pcie->base = devm_platform_ioremap_resource(pdev, 0);
->>>         if (IS_ERR(pcie->base))
->>> @@ -1843,7 +1833,7 @@ static int brcm_pcie_probe(struct platform_device *pdev)
->>>         if (ret)
->>>                 return dev_err_probe(&pdev->dev, ret, "could not enable clock\n");
->>>
->>> -       pcie->bridge_sw_init_set(pcie, 0);
->>> +       pcie->cfg->bridge_sw_init_set(pcie, 0);
->>>
->>>         if (pcie->swinit_reset) {
->>>                 ret = reset_control_assert(pcie->swinit_reset);
->>> @@ -1882,7 +1872,8 @@ static int brcm_pcie_probe(struct platform_device *pdev)
->>>                 goto fail;
->>>
->>>         pcie->hw_rev = readl(pcie->base + PCIE_MISC_REVISION);
->>> -       if (pcie->soc_base == BCM4908 && pcie->hw_rev >= BRCM_PCIE_HW_REV_3_20) {
->>> +       if (pcie->cfg->soc_base == BCM4908 &&
->>> +           pcie->hw_rev >= BRCM_PCIE_HW_REV_3_20) {
->>>                 dev_err(pcie->dev, "hardware revision with unsupported PERST# setup\n");
->>>                 ret = -ENODEV;
->>>                 goto fail;
->>> @@ -1897,7 +1888,8 @@ static int brcm_pcie_probe(struct platform_device *pdev)
->>>                 }
->>>         }
->>>
->>> -       bridge->ops = pcie->soc_base == BCM7425 ? &brcm7425_pcie_ops : &brcm_pcie_ops;
->>> +       bridge->ops = pcie->cfg->soc_base == BCM7425 ?
->>> +                               &brcm7425_pcie_ops : &brcm_pcie_ops;
->>>         bridge->sysdata = pcie;
->>>
->>>         platform_set_drvdata(pdev, pcie);
->>
->> Reviewed-by: Jim Quinlan <james.quinlan@broadcom.com>
-> 
-> Hi Stan,
-> 
-> Sorry for the late notice but I get a compilation error on this commit:
-> 
-> drivers/pci/controller/pcie-brcmstb.c: In function 'brcm_pcie_turn_off':
-> drivers/pci/controller/pcie-brcmstb.c:1492:14: error: 'struct
-> brcm_pcie' has no member named 'bridge_sw_init_set'; did you mean
-> 'bridge_reset'?
->   ret = pcie->bridge_sw_init_set(pcie, 1);
->               ^~~~~~~~~~~~~~~~~~
->               bridge_reset
-> make[5]: *** [scripts/Makefile.build:194:
-> drivers/pci/controller/pcie-brcmstb.o] Error 1
-> 
-> It appears to be fixed with the subsequent commit "PCI: brcmstb: Add
-> bcm2712 support".
-> 
-> Can you please look into this and see if you get the same results?
+OTG role contradicts text above.
 
-Ah, it is my fault. Thanks for spotting this. This must have happened
-when moving this patch earlier in the series.
+The rest looks good.
 
-Krzystof,
+Best regards,
+Jernej
 
-I could send a new version of the series or the other option could be to
-rework those two patches in controller/brcmstb?
+> +	status =3D "okay";
+> +};
+> +
+> +&usbphy {
+> +	usb0_id_det-gpios =3D <&pio 6 18 GPIO_ACTIVE_HIGH>; /* PG18 */
+> +	usb0_vbus-supply =3D <&reg_vcc5v>;
+> +	usb1_vbus-supply =3D <&reg_vcc5v>;
+> +	usb2_vbus-supply =3D <&reg_vcc5v>;
+> +	usb3_vbus-supply =3D <&reg_vcc5v>;
+> +	status =3D "okay";
+> +};
+>=20
 
-I will post later the fixes here if you choose the second option.
 
-~Stan
+
 
 
