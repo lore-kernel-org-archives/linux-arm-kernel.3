@@ -4,69 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83EB1C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 20:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D58EC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 20:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IMp95WKTa0nhPwMQlM9dPtVVrzlVDhAYRV4Oq+vKVtw=; b=TfKkrznexpVabdSnRSjwo28Fq8
-	aa3NcmwSJfUqOBm7q40uxZ+3q+B9yLCKd7ihGkfiiessEIW+0uj5KQDwm6oQhr87tNdy6x1nqAiGy
-	DsJOAjKFUyFkqwy2Epv3OoEx95BT3t+pIfgQD/OMULPqVENEO72IibA5Uh09vCDeYGtr4OlDST5Yv
-	p/ScWzZV2gdVJCkK6aDuNsSgrbEwIZmePEukiIHy+19+W8D4IpO4zgKC2vcxM2VIqlxo96P7gGFGx
-	eJf4/j2R/+jzvDKFXrPR2ylQzYt3LPLLSrpY75CLZuuPNv+Q9O28/DFAqCLwwo8DeEq890LQfym5f
-	VZK+aBAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=NCzEvvz/4hdaWug5SuXohPUbQgRfC2p1Rd/LU9zrC4Q=; b=oJBkMe10USI/BA
+	8y4AcnKqbqP8C9NzwFKeaMhQ1TFvEwEZvYNCSuneNMA622EB5wxH6rCQVtiMaqtWLeaeQHvBmU15x
+	b7nYm0osoxIPF59GQwG99+sr/PXW9KpP5NlKE8y+ulfR6JWAJsLfcurifiIQIBjAl7ySrA5giH5Tv
+	SlYS0b/VM2Mce1fwvvYRz52VLCPJVh3soiGWTyTathAyFaLB6ljj0wUUOERRgxB4EXKK5Go8ohGMd
+	yYd0Osn3k+2+U7KY73lGaJgbglYdMvINCqYPqywFvT2hrxurSF3Rt+5O+SpKQmvYZTxywROeFtGU8
+	YMugHJaft9m9Er9EHLXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlZhh-00000006ntx-3eeN;
-	Fri, 21 Feb 2025 20:32:57 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tlZj9-00000006oCZ-3UWx;
+	Fri, 21 Feb 2025 20:34:27 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlZby-00000006mk9-3ksN;
-	Fri, 21 Feb 2025 20:27:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9E2DC5C6D9F;
-	Fri, 21 Feb 2025 20:26:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D844EC4CED6;
-	Fri, 21 Feb 2025 20:26:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740169621;
-	bh=omw9Xk2GUaGYZHJp+OWs2mQdBQfQtllVg5cCAlRAdds=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=M5hM/b07D9l80ndsPjYbtELZE2g50mcX+dAdsf/sfl3e0kFXuvm9uC613fwKV4iM/
-	 BnCJrBS869sxmwm8jsClTDKTZPiV28auojHMmQY7LEgrd2v5z5JBbGSnbzgKvoOWEB
-	 OepChQ01pzcRGEASdBlbh/Vt60oEwZqA6ZgGy9kOieIgzzl7jEO2BtNsfqTXvA/SFv
-	 YgSoBNEy8L0lf2gzdvjY3HWM7cCnDURSDIAuWEGOlF9BcVYvdjfHw3ge4nKKqulS6w
-	 vXAUN46JDUWzsKhPW6ldDS4GnUJ3bJ/KEdJJlwB5UNkZuYfilJazrStPKC78sefkfR
-	 yEzRa2nWk021w==
-From: Niklas Cassel <cassel@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Damien Le Moal <dlemoal@kernel.org>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Niklas Cassel <cassel@kernel.org>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH 2/2] PCI: dw-rockchip: hide broken ATS capability
-Date: Fri, 21 Feb 2025 21:26:48 +0100
-Message-ID: <20250221202646.395252-4-cassel@kernel.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250221202646.395252-3-cassel@kernel.org>
-References: <20250221202646.395252-3-cassel@kernel.org>
+	id 1tlZhT-00000006npu-27Gm
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Feb 2025 20:32:44 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5ded51d31f1so4350190a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 12:32:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740169962; x=1740774762; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NCzEvvz/4hdaWug5SuXohPUbQgRfC2p1Rd/LU9zrC4Q=;
+        b=URa2X7KUkFTAoJG3sd4HNvlg/Pt6uTNLLPFO7ta4LVITQyePxB7rQhHo2ZHY6PWNKj
+         4nPVb+t3Wc5QQnM3VJKQrMfiKHHF7wx8jXTbZhcbsE4bdnt+JyaQDzjiOboNcBB62ABm
+         bFSaDbZY07S6x4hLqNQ6/rHemeCaHsvapVXef7Jvn+CUTVZvPZbUCYiBNcotlNmwF3S7
+         mO9bnhnaMBNkxdfBrgmFOH9O//L9bePMNi+ZcWvClGhDlQX+dN+zTmNouQ9O3dSRPy9J
+         XHs0UQLD2pDoGu01u2Be1F9Yu4ao99xEjYU8DlalSLPLPstJVmzRU7PtdaXtmWrfNYbk
+         73gA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740169962; x=1740774762;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NCzEvvz/4hdaWug5SuXohPUbQgRfC2p1Rd/LU9zrC4Q=;
+        b=mYuv5zD5MyVYBpRDoJ2+T6b2dSZaTv9GshPCxRA5YtmJdGjtQSZ1GoyXvBzFOHOGRx
+         e8Hn7v5EnHEMiRvkAsC6AtuyS2lDhuOAtsIvx/0OXliWiHoB35/zlskVKsTMQcUdZ5BS
+         AUsnAMRvShLQCBe95SM5MXHl1RcNbzPz49P8spr8qBQ3ywRKoNq0yXlIm02c9/tQZC4R
+         uw32zs4EZ2LWzIGFO9jOvvCs6YbnewM6MjhvzxOoRE4WXjjGmGi3J2e8S64HH60m9AGf
+         jjr1KLji0iFrI/wXcUY+LwwzbP+2bjqcm9oUg+GQfsRNSBao0nefCCfQMcYvtD7eBXtB
+         znwA==
+X-Forwarded-Encrypted: i=1; AJvYcCUOWRWWnXQNICNKj7fieG+Yrn5vCd/6FnJrlcYLSd7fCmGA/0Pqw0/8ToTEaSYwQvkJOSgoocrfTwpT5hF82729@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrZpJXiVQGt1cjoFnKyQPZ5CanxYL5ZERtXnZQA7ShAzsJd+ON
+	rcHDG8HF5xuVJYfEfZG9KjsA0qYbGqywV0Gp9mu1ePCYwSJqyQzV
+X-Gm-Gg: ASbGncsOLTrSeJ8ZHjoXx36ixBLo50qUabHIdWUFBPL8OWcQTwHU7si+X49f7cD4xtM
+	qUbfwahFG4g0bU3HPCnhBCwFXvPvt9MsvfECTTcqpfjZIHBdi9k/WcgOnc+4sAYpn3ZGvP8PI0a
+	sEeY1lwYfsmqWkutApbpBAippsTg1uKgRChCgoQ0rgo4PDWpZlPMM9cGoTjzqOkfnn+cbGQTuNa
+	+6hpdbeDveFiDq4jNglZVstwP/oIU3MJZSUMXKWelTIg1n7/zP3w7O2t7BaWHuC3gatBtWOc6Bf
+	vRMBimvVUqlzt+goO6MXCHiycJX1JesWkWFiRsVGRbZDZpBZI5jhLjp0UN71P1MIr2pGcjlZ
+X-Google-Smtp-Source: AGHT+IFATILXQaMnADswtyDx+DZCyaSTYDChKpredh1QzWDuzwGO7pyJSkCn34wfYE8hgWfEzbMrGw==
+X-Received: by 2002:a05:6402:3550:b0:5de:44b1:478 with SMTP id 4fb4d7f45d1cf-5e0b6fd559cmr4824146a12.0.1740169961632;
+        Fri, 21 Feb 2025 12:32:41 -0800 (PST)
+Received: from hex.my.domain (83.8.202.192.ipv4.supernova.orange.pl. [83.8.202.192])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1c418bsm14653485a12.24.2025.02.21.12.32.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Feb 2025 12:32:40 -0800 (PST)
+From: Artur Weber <aweber.kernel@gmail.com>
+Subject: [PATCH v2 0/6] pinctrl: bcm281xx: Add support for BCM21664 pinmux
+Date: Fri, 21 Feb 2025 21:32:36 +0100
+Message-Id: <20250221-bcm21664-pinctrl-v2-0-7d1f0279fe16@gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3476; i=cassel@kernel.org; h=from:subject; bh=omw9Xk2GUaGYZHJp+OWs2mQdBQfQtllVg5cCAlRAdds=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGNJ3POyKVZ34w/sUT7mY3k2T0PXW5QGfb+XFipRJexolF 0ZFTjfrKGVhEONikBVTZPH94bK/uNt9ynHFOzYwc1iZQIYwcHEKwET6TzH84bgu1Ni7NPzq2/8z 1uzOEnpYo68jGuUkEBWedmVvQiPHd0aGb2ucr/3+Nc1/wc9nfVv3XnkQe3X39YdaVp3b5s/5Zb9 9HRcA
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOTiuGcC/2WNywrCMBBFf6XM2kgemmhX/od00U6SdqAvkhKUk
+ n83Fly5PAfuuTtEF8hFqKsdgksUaZkLyFMFOLRz7xjZwiC5vHLJNetwkkLrC1tpxi2MTCi0xip
+ vblpDma3BeXodyWdTeKC4LeF9PCTxtb+Y+Y8lwThzBn2L905a1T36qaXxjMsETc75A+j9Z0uwA
+ AAA
+X-Change-ID: 20250206-bcm21664-pinctrl-13cd7d3f7866
+To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Stanislav Jakubek <stano.jakubek@gmail.com>, 
+ ~postmarketos/upstreaming@lists.sr.ht, 
+ Artur Weber <aweber.kernel@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740169959; l=3255;
+ i=aweber.kernel@gmail.com; s=20231030; h=from:subject:message-id;
+ bh=cYMGsql8WUyj71GmqI/5eWDIQK1a45bdPq3S1MYNGcs=;
+ b=eiBcGuyMljX0cyESjl05vFGTg4fcFnhWGAXzMqFTfOlr33th/rpYb6lg3VQJT40IsjbtyREtx
+ UmJ5PVj32lHBaRU+nmlBf3IkANmRIdEwNkSGhasJnrUQEej31h2EFWR
+X-Developer-Key: i=aweber.kernel@gmail.com; a=ed25519;
+ pk=RhDBfWbJEHqDibXbhNEBAnc9FMkyznGxX/hwfhL8bv8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_122703_039429_7C9953C0 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20250221_123243_551000_047DBEB7 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,94 +115,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When running the rk3588 in endpoint mode, with an Intel host with IOMMU
-enabled, the host side prints:
-DMAR: VT-d detected Invalidation Time-out Error: SID 0
+BCM21664 is another chip from the Kona line of Broadcom SoCs, and
+its pinmux shares a lot of similarities with the BCM281xx pinmux.
 
-When running the rk3588 in endpoint mode, with an AMD host with IOMMU
-enabled, the host side prints:
-iommu ivhd0: AMD-Vi: Event logged [IOTLB_INV_TIMEOUT device=63:00.0 address=0x42b5b01a0]
+Add support for the BCM21664 pinmux controller to the BCM281xx driver.
 
-Usually, to handle these issues, we add a quirk for the PCI vendor and
-device ID in drivers/pci/quirks.c with quirk_no_ats(). That is because
-we cannot usually modify the capabilities on the EP side.
+This also enables pinmux support for the BCM23550, which has an
+identical pinmux config to the BCM21664 (hence they can share a
+single compatible, brcm,bcm21664-pinctrl).
 
-In this case, we can modify the capabilties on the EP side. Thus, hide the
-broken ATS capability on rk3588 when running in EP mode. That way,
-we don't need any quirk on the host side, and we see no errors on the host
-side, and we can run pci_endpoint_test successfully, with the IOMMU
-enabled on the host side.
+While we're at it - fix a bug that affected higher registers in the
+BCM281XX driver and replace bare "unsigned" with "unsigned int" to
+comply with checkpatch requirements.
 
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
+Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
 ---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 46 +++++++++++++++++++
- 1 file changed, 46 insertions(+)
+By the way - while working on this patch, I noticed two things that
+are not implemented in mainline, but seem to be present in the pin
+controller regs according to the RDB[1][2]:
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 836ea10eafbb..2be005c1a161 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -242,6 +242,51 @@ static const struct dw_pcie_host_ops rockchip_pcie_host_ops = {
- 	.init = rockchip_pcie_host_init,
- };
- 
-+/*
-+ * ATS does not work on rk3588 when running in EP mode.
-+ * After a host has enabled ATS on the EP side, it will send an IOTLB
-+ * invalidation request to the EP side. The rk3588 will never send a completion
-+ * back and eventually the host will print an IOTLB_INV_TIMEOUT error, and the
-+ * EP will not be operational. If we hide the ATS cap, things work as expected.
-+ */
-+static void rockchip_pcie_ep_hide_broken_ats_cap_rk3588(struct dw_pcie_ep *ep)
-+{
-+	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
-+	struct device *dev = pci->dev;
-+	unsigned int spcie_cap_offset, next_cap_offset;
-+	u32 spcie_cap_header, next_cap_header;
-+
-+	/* only hide the ATS cap for rk3588 running in EP mode */
-+	if (!of_device_is_compatible(dev->of_node, "rockchip,rk3588-pcie-ep"))
-+		return;
-+
-+	spcie_cap_offset = dw_pcie_find_ext_capability(pci, PCI_EXT_CAP_ID_SECPCI);
-+	if (!spcie_cap_offset)
-+		return;
-+
-+	spcie_cap_header = dw_pcie_readl_dbi(pci, spcie_cap_offset);
-+	next_cap_offset = PCI_EXT_CAP_NEXT(spcie_cap_header);
-+
-+	next_cap_header = dw_pcie_readl_dbi(pci, next_cap_offset);
-+	if (PCI_EXT_CAP_ID(next_cap_header) != PCI_EXT_CAP_ID_ATS)
-+		return;
-+
-+	/* clear next ptr */
-+	spcie_cap_header &= ~GENMASK(31, 20);
-+
-+	/* set next ptr to next ptr of ATS_CAP */
-+	spcie_cap_header |= next_cap_header & GENMASK(31, 20);
-+
-+	dw_pcie_dbi_ro_wr_en(pci);
-+	dw_pcie_writel_dbi(pci, spcie_cap_offset, spcie_cap_header);
-+	dw_pcie_dbi_ro_wr_dis(pci);
-+}
-+
-+static void rockchip_pcie_ep_pre_init(struct dw_pcie_ep *ep)
-+{
-+	rockchip_pcie_ep_hide_broken_ats_cap_rk3588(ep);
-+}
-+
- static void rockchip_pcie_ep_init(struct dw_pcie_ep *ep)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
-@@ -314,6 +359,7 @@ rockchip_pcie_get_features(struct dw_pcie_ep *ep)
- 
- static const struct dw_pcie_ep_ops rockchip_pcie_ep_ops = {
- 	.init = rockchip_pcie_ep_init,
-+	.pre_init = rockchip_pcie_ep_pre_init,
- 	.raise_irq = rockchip_pcie_raise_irq,
- 	.get_features = rockchip_pcie_get_features,
- };
+- On both BCM21664 and BCM281XX, TRACE* pins only have two bits for
+  DRV_STR and no HYST bit. That seems like it deserves its own pin
+  type; however, since I don't know how to translate the reduced
+  DRV_STR value to a drive strength in mA, I did not implement it.
+  For now, I kept the same type for BCM21664 as for BCM281XX for these
+  pins (standard).
+
+- On both BCM21664 and BCM281XX, two SIM-related pins (SIM and SIM2
+  on BCM281XX, SIMDAT and SSPDO on BCM21664) have extra PUPM0 and PUPM1
+  offsets (bits 11 and 12 respectively). Vendor kernel does not do
+  anything with these bits, so I don't know what they do.
+
+If any Broadcom engineers could shed some light on these, I'd be
+grateful. Otherwise, neither of these are pressing issues, and this
+patchset is complete without them (they can be fixed in another
+patchset).
+
+[1] https://github.com/knuxdroid/android_kernel_samsung_baffinlite/blob/cm-12.1/arch/arm/mach-hawaii/include/mach/rdb/brcm_rdb_padctrlreg.h
+[2] https://github.com/s2plus/android_kernel_samsung_galaxys2plus/blob/cm-10.1_base-4.2/arch/arm/mach-capri/include/mach/rdb/brcm_rdb_padctrlreg.h
+
+---
+Changes in v2:
+- Rebase on linux-pinctrl.git for-next branch, drop patch 2 ("pinctrl:
+  bcm281xx: Fix incorrect regmap max_registers value") as it has been
+  applied separately
+- Fix "initializer element is not a compile-time constant" warning
+- Fix unused variable warning
+- Simplify DT binding
+- Link to v1: https://lore.kernel.org/r/20250207-bcm21664-pinctrl-v1-0-e7cfac9b2d3b@gmail.com
+
+---
+Artur Weber (6):
+      dt-bindings: pinctrl: Add bindings for BCM21664 pin controller
+      pinctrl: bcm281xx: Use "unsigned int" instead of bare "unsigned"
+      pinctrl: bcm281xx: Provide pinctrl device info as OF platform data
+      pinctrl: bcm281xx: Add support for BCM21664 pinmux
+      ARM: dts: bcm2166x-common: Add pinctrl node
+      ARM: dts: bcm2166x: Add bcm2166x-pinctrl DTSI
+
+ .../bindings/pinctrl/brcm,bcm21664-pinctrl.yaml    | 138 ++++
+ arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi    |   7 +
+ arch/arm/boot/dts/broadcom/bcm2166x-pinctrl.dtsi   | 297 +++++++
+ drivers/pinctrl/bcm/pinctrl-bcm281xx.c             | 849 +++++++++++++++++++--
+ 4 files changed, 1228 insertions(+), 63 deletions(-)
+---
+base-commit: d01895c5b11849113e70f012d9d142f1d88852f0
+change-id: 20250206-bcm21664-pinctrl-13cd7d3f7866
+
+Best regards,
 -- 
-2.48.1
+Artur Weber <aweber.kernel@gmail.com>
 
 
