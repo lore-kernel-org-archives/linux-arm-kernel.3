@@ -4,48 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A9B2C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C55FC021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nEuCpq7FRA8PCzYDi8snD6/sLH+cFVGwIj7hQyQwAj0=; b=rJzor0whwT7LL+
-	IQkRpirIE3quS+yYXNa8tW4qQNKkSpxzrVdHaPElP5O0ZZndrMLWUHv8eMrEt0cxuDc0XhvTQoCTl
-	4U3YO+eUDifKIXN0vF400pwJs4oXJjeTZYJeKcbXNIpnNhRLflQ1l7lwEliyhYNHtG7ebP/2sHP5g
-	8/dRMc2aztmDdAdTkSZd74Qzy1LwHrxvCnrwWdJL+hSQXdUJ7YaPPXRrOlwDg34by1KKTsTrD0Rtt
-	czCKK1tjgRBPrx2uZlY8Y/zsN8OTIwd1OU4msJaQn0cXQrmJJsB7LuIX1I840imrRKU0H/zqSwODB
-	SJD4zMQ3bthR5SVuW6bg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oFxXsNMA8gfTI/DjF7dnN7GiTxHqzYKtTZqTiwLsLm0=; b=vrSHEfmkya9SfZ4z0S08FqL5Dq
+	Aa9pnOCNZcg1o2kXX1F8/q3Fh+uDc50YUwAR/dENdpYV3yRCpuOobyoO7o13QMkI3DsjtbHBVcUSb
+	e/6LhnJH6R0/Dh4TkzCXfFwjGN7P8Ngfv7bdz/jsrrzdDXd3mn1Szusu9bTotGPxwn5Xixs8MYnSQ
+	kO0WiG9xwkOSMfJZaXMg4BuaC3to+pU9kN9Em53xo1EOMtj3CAx6RLKhL36Y2Ik/uxVDtDR/GLlMT
+	GD2voNyqSIDDYwbq/FHEu7wtCkZZDKq9FtjbPSYhGQIsp+25yos69RhhP2+Y05jq/dcukQ2Xt8DMQ
+	z/rdT6Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlThI-00000005l6T-1fS5;
-	Fri, 21 Feb 2025 14:08:08 +0000
-Received: from smtp-190b.mail.infomaniak.ch ([185.125.25.11])
+	id 1tlTik-00000005lIA-01ns;
+	Fri, 21 Feb 2025 14:09:38 +0000
+Received: from smtp-190d.mail.infomaniak.ch ([2001:1600:7:10::190d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlTeK-00000005kMK-2ZTb
+	id 1tlTeL-00000005kMj-0bN3
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 21 Feb 2025 14:05:08 +0000
-Received: from smtp-4-0000.mail.infomaniak.ch (smtp-4-0000.mail.infomaniak.ch [10.7.10.107])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YzsMb73YXzCBl;
-	Fri, 21 Feb 2025 15:04:59 +0100 (CET)
-Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YzsMb1kxCzQ1x;
-	Fri, 21 Feb 2025 15:04:59 +0100 (CET)
+Received: from smtp-4-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:7:10:40ca:feff:fe05:0])
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YzsMd2NfgzTCq;
+	Fri, 21 Feb 2025 15:05:01 +0100 (CET)
+Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YzsMc4HR9zYHX;
+	Fri, 21 Feb 2025 15:05:00 +0100 (CET)
 From: Quentin Schulz <foss+kernel@0leil.net>
-Subject: [PATCH v2 0/5] arm64: dts: rockchip: pinmux fixes and support for
- 2 adapters for Theobroma boards
-Date: Fri, 21 Feb 2025 15:04:32 +0100
-Message-Id: <20250221-ringneck-dtbos-v2-0-310c0b9a3909@cherry.de>
+Date: Fri, 21 Feb 2025 15:04:34 +0100
+Subject: [PATCH v2 2/5] arm64: dts: rockchip: fix pinmux of UART5 for PX30
+ Ringneck on Haikou
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAPCHuGcC/12Py26EMAxFfwVlXVfBIQGz6n9UswiJGaJqYOpQN
- KMR/14ei0pdHks+996XyiyJs2qLlxJeUk7TuAG+FSoMfrwypLixQo1Wl9iApPE6cviCOHdTBmq
- 0qxpDxlpW29NduE+PQ/h5OVn4+2fzzufxT7ul7FIsCe7BU+0eIJx5hihpYYFA3pNtHFXo2gV3e
- +czQ5hutzS3hWPWHfloiCyz7T0iaWODI12aro5RR+NM1am9x5DyPMnz2LmUR5EzHfX/SUsJGtA
- Gqns0jWX3EQYWeb5HVpd1XX8BWRURDTQBAAA=
-X-Change-ID: 20250128-ringneck-dtbos-98064839355e
+Message-Id: <20250221-ringneck-dtbos-v2-2-310c0b9a3909@cherry.de>
+References: <20250221-ringneck-dtbos-v2-0-310c0b9a3909@cherry.de>
+In-Reply-To: <20250221-ringneck-dtbos-v2-0-310c0b9a3909@cherry.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
  Quentin Schulz <quentin.schulz@theobroma-systems.com>, 
@@ -56,8 +52,9 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 X-Mailer: b4 0.14.2
 X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_060504_785731_12ACCF29 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20250221_060505_324996_9E777A60 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,72 +69,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is based on top of
-https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git/log/?h=v6.15-armsoc/dts64
-6ee0b9ad3995 ("arm64: dts: rockchip: Add rng node to RK3588") as it
-depends on the (merged) series from
-https://lore.kernel.org/all/20250211-pre-ict-jaguar-v6-0-4484b0f88cfc@cherry.de/
+From: Quentin Schulz <quentin.schulz@cherry.de>
 
-Patches for Haikou Video Demo adapter for PX30 Ringneck and RK3399 Puma
-(patches 4 and 5) also depend on the following patch series:
-https://lore.kernel.org/linux-devicetree/20250220-pca976x-reset-driver-v1-0-6abbf043050e@cherry.de/
+UART5 uses GPIO0_B5 as UART RTS but muxed in its GPIO function,
+therefore UART5 must request this pin to be muxed in that function, so
+let's do that.
 
-This fixes incorrect pinmux on UART0 and UART5 for PX30 Ringneck on
-Haikou.
-
-This adds support for the HAIKOU-LVDS-9904379 adapter for PX30 Ringneck
-fitted on a Haikou carrierboard.
-
-Additionally, this adds support for Haikou Video Demo adapter on PX30
-Ringneck and RK3399 Puma fitted on a Haikou carrierboard. Notably
-missing from the overlay is the OV5675 camera module which expects
-19.2MHz which we cannot exactly feed right now. Modifications to the
-OV5675 drivers will be made so it's more flexible and then support for
-the camera module will be added. This adapter has a 720x1280 DSI display
-with a GT911 touchscreen, a GPIO-controllable LED and an I2C GPIO
-expander. Support for this adapter on RK3588 Tiger is being added in a
-separate patch series[1].
-
-Note that the DSI panel currently is glitchy on both PX30 Ringneck and
-RK3399 Puma but this is being tackled in another series[2]. Since this
-will not be fixed through DT properties for the panel, adding the DT
-nodes for the DSI panel even if not perfect right now seems acceptable
-to me.
-
-[1] https://lore.kernel.org/linux-rockchip/20241127143719.660658-1-heiko@sntech.de/
-[2] https://lore.kernel.org/r/20240626084722.832763-1-heiko@sntech.de
-
+Fixes: 5963d97aa780 ("arm64: dts: rockchip: add rs485 support on uart5 of px30-ringneck-haikou")
+Cc: stable@vger.kernel.org
 Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
-Changes in v2:
-- rename uart5_rts_gpio to uart5_rts_pin to stop triggering a false
-  positive of the dtschema checker,
-- remove PU from uart5_rts_pin,
-- Link to v1: https://lore.kernel.org/r/20250220-ringneck-dtbos-v1-0-25c97f2385e6@cherry.de
+ arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
----
-Quentin Schulz (5):
-      arm64: dts: rockchip: fix pinmux of UART0 for PX30 Ringneck on Haikou
-      arm64: dts: rockchip: fix pinmux of UART5 for PX30 Ringneck on Haikou
-      arm64: dts: rockchip: add support for HAIKOU-LVDS-9904379 adapter for PX30 Ringneck
-      arm64: dts: rockchip: add overlay for PX30 Ringneck Haikou Video Demo adapter
-      arm64: dts: rockchip: add overlay for RK3399 Puma Haikou Video Demo adapter
+diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
+index 2321536c553fed20bc02d91f40a5d5a6dc20892c..e9ebac0f4984a26ec288083f74c7e193cdbec326 100644
+--- a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
++++ b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
+@@ -194,6 +194,13 @@ sd_card_led_pin: sd-card-led-pin {
+ 			  <3 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
++
++	uart {
++		uart5_rts_pin: uart5-rts-pin {
++			rockchip,pins =
++			  <0 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
+ };
+ 
+ &pwm0 {
+@@ -227,7 +234,7 @@ &uart0 {
+ };
+ 
+ &uart5 {
+-	pinctrl-0 = <&uart5_xfer>;
++	pinctrl-0 = <&uart5_xfer &uart5_rts_pin>;
+ 	rts-gpios = <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
+ 	status = "okay";
+ };
 
- arch/arm64/boot/dts/rockchip/Makefile              |  15 ++
- .../px30-ringneck-haikou-lvds-9904379.dtso         | 130 ++++++++++++++
- .../rockchip/px30-ringneck-haikou-video-demo.dtso  | 190 +++++++++++++++++++++
- .../boot/dts/rockchip/px30-ringneck-haikou.dts     |  10 +-
- .../rockchip/rk3399-puma-haikou-video-demo.dtso    | 166 ++++++++++++++++++
- 5 files changed, 510 insertions(+), 1 deletion(-)
----
-base-commit: 6ee0b9ad3995ee5fa229035c69013b7dd0d3634b
-change-id: 20250128-ringneck-dtbos-98064839355e
-prerequisite-change-id: 20250219-pca976x-reset-driver-c9aa95869426:v2
-prerequisite-patch-id: 25c49bae002eb11bc6fec479f49f5e3b28b8f403
-prerequisite-patch-id: 58e9acffbbd052710bfe672c99ef05f59b1978a6
-
-Best regards,
 -- 
-Quentin Schulz <quentin.schulz@cherry.de>
+2.48.1
 
 
