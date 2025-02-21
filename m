@@ -4,78 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8503C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 17:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12255C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 17:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E0vFszfjLRPUBsYWT5+eUQORh5cGIC4pgSuTijYp52A=; b=mYyAXiSMxvXPX3lfRYSVBnJ4Np
-	pBp12p7uKOJ9Ryg2+9Eq9N0APuXroYQS713w6ynzqZv2214SlMfqvoV/gyF0/1xQfrtA2fytheAfR
-	sNKe8uillgkHUCnstf6fpByIqgzjgLsEtBlWf569rDa2oQdM3ePTDBGK0cZoXIzD+oVYGrpEOlAAw
-	5c5QRvtpJNshDck5saF3INLO4ML7Zmx54QuFcMtxWl0INgGbGoIGPY3rCJXnQ1vJ3JD88Dt41EZ7s
-	t9GhP9p1wE0LzW5T+rCxSkoZjujoS6kU/N2JvoODBvLQWOjUwPxLonVgk4SEd0f+0sUsfku6ySH+L
-	QciY6Ufg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ukdJbDhKo1dMezEJpSBDnVqcBujgHnmMUHPeyWB0hOg=; b=VS4vS+nMIA39vHOW1D+sBiKZXJ
+	f4kX4qagfcraZNjzzdyQK7RzHyWAZn1rPJXGZ3DNsa7c1/EFlPXj1301XK8cz2Do0YaBli+xltNAV
+	sNFRLyfmvP7/WfMIJBnZ4yjDPySgM+qt/3rjgkbnWSDlyNe12IjlRtd+PtTHBW+abk5nfc8zF8aaM
+	PR1szikccXd+9rxeqpMslL1avm44xzLr9s7MSG7E3c/YciEhJOUNUj/Jk+Y+HCIFRUU9i417lKWc/
+	T7Ywaick1+nOByt6UrneMv95GXYPj2012qDkqtHCFnANwxlkEzAPNGWVAXzojZk+ZjxWV0+5OYJL7
+	OKimIzWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlWWY-00000006Jo8-0sx7;
-	Fri, 21 Feb 2025 17:09:14 +0000
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
+	id 1tlWY0-00000006KCt-2KqD;
+	Fri, 21 Feb 2025 17:10:44 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlWM8-00000006HVz-07R9
+	id 1tlWTI-00000006Iuv-3swQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 16:58:29 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0E21244327;
-	Fri, 21 Feb 2025 16:58:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1740157103;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=E0vFszfjLRPUBsYWT5+eUQORh5cGIC4pgSuTijYp52A=;
-	b=TYK6ehXeLbHK0RIEExHccJKgNtcaYsy53jurbwoa4CiaZqXiOv96PkqPPed+4qwAYpjAuO
-	r2uhzLSM4bH6moFmPA2saexW4KimCSKoGMXa9hpqk9Lgf5vynKkwJwe3tADJjZxFz6tw78
-	C4mULaELttNGUC0aQyQMG+PLkRTKcfHJ5svUbmhyVud1is/g4ZRumQwGBlgx/nFDAV4vNj
-	FF95HbqmPoG0cegOhkGupJZXzmmqlu7u2D5MQijyFopXD3na0bVoFWlOXhgGaeD4Qnn4n9
-	Yo27SAheJ0IDMmb/mJk47MKUbAybOUZu16HVxvGmS4ku/9b7Z/Ibw8yYp7Ji1g==
-Message-ID: <b41cb993-3cdf-4cfb-a131-14c1a66c8824@bootlin.com>
-Date: Fri, 21 Feb 2025 17:58:18 +0100
+	Fri, 21 Feb 2025 17:05:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BAF955C6BA4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 17:05:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 809BEC4CEEA
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 17:05:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740157551;
+	bh=jSby6rnqKjliEMlrxy3uDKVy/l12aoQ+Uo0UrPP40Lk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=mH40HEwTHjeM9NIpgOxjL1qMY7pdYQ+4m/N8gfR36FGqUOJSlxHZRUrUFtUNlCHeY
+	 y1q5VTos3TTxyvhmGBd/I6KG/Qw5FsqvLb9aqd/jEaaGUNaiN+v53BLGBziZf41XIY
+	 Jn8yFesjGGQLx301ywkDLAeE/CxpnEi6sCYyPTeCUsiT6NRB4UosQH9tEXwtSYwuSV
+	 qk14DooIeQCm1U10v+SFBxEExW4vM4xEUhgW7mx2RO2nog27cpEi8diecsKpAGtiz7
+	 0pivjoWncSbm9UxIzu2skfabPmQY0v4m4HG/JRpgYGxbUoen0NTwk9c3wMmLtyo4bS
+	 oxN0PJHae2Ydg==
+Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-5e04861e7a6so4428310a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 09:05:51 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVvjOvnsUCJznV1I3+9BYPrRjemCqofBA96/sVQu/1Z52tq2EkUn7rE4SqMCQfcRKPZbnhPp+ucMSJmznzNBDw+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/6u5DUXi3S6P8w0T1acyaixS+K4wOTePKdHYkHq50NFsz4RJc
+	S+cJZcz06FQDkvnd+/Pc4KVzS/31DAgZf2i2EZJS91mAdMMtuY39UQTre8rF0YsmKJWqVU2yQLl
+	H4+AyPQccN2WWN0u5j/8J1dot7w==
+X-Google-Smtp-Source: AGHT+IEHxK5Q0XUfTPtZAuMZkAwRWMw8XfiydzGFLhctNfa4yiIzH0cTCubtuN3R8RmjkWGuvnxxNAal/4l8vQ8oXyY=
+X-Received: by 2002:a05:6402:3513:b0:5de:39fd:b2ff with SMTP id
+ 4fb4d7f45d1cf-5e0b6feec0amr3935821a12.0.1740157549868; Fri, 21 Feb 2025
+ 09:05:49 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2] arm64, bpf: Add 12-argument support for bpf
- trampoline
-To: Puranjay Mohan <puranjay@kernel.org>, Alexei Starovoitov
- <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
- Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
- John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
- Stanislav Fomichev <sdf@google.com>, Hao Luo <haoluo@google.com>,
- Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay12@gmail.com>,
- Xu Kuohai <xukuohai@huaweicloud.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
- bpf@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- Florent Revest <revest@chromium.org>, Xu Kuohai <xukuohai@huaweicloud.com>,
- Bastien Curutchet <bastien.curutchet@bootlin.com>
-References: <20240705125336.46820-1-puranjay@kernel.org>
-From: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20240705125336.46820-1-puranjay@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejtdehiecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeduuedugeevveelledtudegleethfffuedtgffhlefgudektdeuheegkeekudehfeenucffohhmrghinhepghhithhhuhgsrdgtohhmpdhkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekheenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehpdhhvghloheplgfkrfggieemvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekhegnpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvhedprhgtphhtthhopehpuhhrrghnjhgrhieskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghstheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrnhhivghlsehio
- hhgvggrrhgsohigrdhnvghtpdhrtghpthhtoheprghnughrihhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrthhinhdrlhgruheslhhinhhugidruggvvhdprhgtphhtthhopegvugguhiiikeejsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhonhhgsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeihohhnghhhohhnghdrshhonhhgsehlihhnuhigrdguvghv
-X-GND-Sasl: alexis.lothore@bootlin.com
+References: <cover.1704728353.git.michal.simek@amd.com> <18339ffa3d8c3bf284d9c53ce950beea76516408.1704728353.git.michal.simek@amd.com>
+In-Reply-To: <18339ffa3d8c3bf284d9c53ce950beea76516408.1704728353.git.michal.simek@amd.com>
+From: Rob Herring <robh+dt@kernel.org>
+Date: Fri, 21 Feb 2025 11:05:37 -0600
+X-Gmail-Original-Message-ID: <CAL_Jsq+z-q3fJUdXeSz3mO34=nPYJ+Atc0tvpFswZc3j_rZNdg@mail.gmail.com>
+X-Gm-Features: AWEUYZn8Prd84CYTiqgtyxCxmUOA14ATU8QMJIUIGFlCopSWEzeQLWfyxKnLtX4
+Message-ID: <CAL_Jsq+z-q3fJUdXeSz3mO34=nPYJ+Atc0tvpFswZc3j_rZNdg@mail.gmail.com>
+Subject: Re: [PATCH 01/14] arm64: xilinx: Move address/size-cells to proper locations
+To: Michal Simek <michal.simek@amd.com>
+Cc: linux-kernel@vger.kernel.org, monstr@monstr.eu, michal.simek@xilinx.com, 
+	git@xilinx.com, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:ARM/ZYNQ ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_085828_544968_CFF8E3B6 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20250221_090553_051003_A9259976 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,53 +86,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello everyone,
+On Mon, Jan 8, 2024 at 9:39=E2=80=AFAM Michal Simek <michal.simek@amd.com> =
+wrote:
+>
+> Move cells to board dtsi files from generic zynqmp.dtsi. Changes are
+> related to qspi, spi, nand, i2c and ethernet
+> address cells
+>
+>  make -j8 W=3D1 dtbs
 
-On 7/5/24 14:53, Puranjay Mohan wrote:
-> The arm64 bpf JIT currently supports attaching the trampoline to
-> functions with <= 8 arguments. This is because up to 8 arguments can be
-> passed in registers r0-r7. If there are more than 8 arguments then the
-> 9th and later arguments are passed on the stack, with SP pointing to the
-> first stacked argument. See aapcs64[1] for more details.
-> 
-> If the 8th argument is a structure of size > 8B, then it is passed fully
-> on stack and r7 is not used for passing any argument. If there is a 9th
-> argument, it will be passed on the stack, even though r7 is available.
-> 
-> Add the support of storing and restoring arguments passed on the stack
-> to the arm64 bpf trampoline. This will allow attaching the trampoline to
-> functions that take up to 12 arguments.
-> 
-> [1] https://github.com/ARM-software/abi-aa/blob/main/aapcs64/aapcs64.rst#parameter-passing
-> 
-> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+I don't think this is an improvement. The warnings are guidance, not 100% r=
+ule.
 
-[...]
-
-+cc Xu Kuohai + cc Florent Revest, who are involved in [0]
-
-We at Bootlin are currently working on improving eBPF selftests coverage and
-aligning ARM64 support with other platforms. For this second topic, one
-remaining point is the support for 12 arguments in bpf trampolines. It looks
-like a big part of the work has been done and submitted through two different
-versions, the first one from Xu ([0]), and this one from Puranjay ([1]). There
-is still some rework needed in both versions to properly handle some alignment
-constraints.
-
-@Puranjay @Xu are you (or anyone else) actively working on those series (I kind
-of understand that you both agreed that Puranjay was continuing this work) ? If
-so, if there a way to assist you on this topic ? If not, can we take and revive
-your work to try to handle the missing points and make this feature integrated ?
-
-Thanks,
-
-Alexis
-
-[0] https://lore.kernel.org/bpf/20230917150752.69612-1-xukuohai@huaweicloud.com/
-[1] https://lore.kernel.org/bpf/20240705125336.46820-1-puranjay@kernel.org/
-
--- 
-Alexis Lothoré, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+>
+> Signed-off-by: Michal Simek <michal.simek@amd.com>
+> ---
+>
+>  arch/arm64/boot/dts/xilinx/zynqmp-sm-k26-revA.dts  |  6 ++++++
+>  arch/arm64/boot/dts/xilinx/zynqmp-zc1232-revA.dts  |  2 ++
+>  arch/arm64/boot/dts/xilinx/zynqmp-zc1254-revA.dts  |  2 ++
+>  .../boot/dts/xilinx/zynqmp-zc1751-xm015-dc1.dts    |  4 ++++
+>  .../boot/dts/xilinx/zynqmp-zc1751-xm016-dc2.dts    |  8 ++++++++
+>  .../boot/dts/xilinx/zynqmp-zc1751-xm017-dc3.dts    |  2 ++
+>  .../boot/dts/xilinx/zynqmp-zc1751-xm018-dc4.dts    |  2 ++
+>  arch/arm64/boot/dts/xilinx/zynqmp-zcu100-revC.dts  |  2 ++
+>  arch/arm64/boot/dts/xilinx/zynqmp-zcu102-revA.dts  |  6 ++++++
+>  arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revA.dts  |  4 ++++
+>  arch/arm64/boot/dts/xilinx/zynqmp-zcu104-revC.dts  |  4 ++++
+>  arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts  |  6 ++++++
+>  arch/arm64/boot/dts/xilinx/zynqmp-zcu111-revA.dts  |  6 ++++++
+>  arch/arm64/boot/dts/xilinx/zynqmp-zcu1275-revA.dts |  2 ++
+>  arch/arm64/boot/dts/xilinx/zynqmp.dtsi             | 14 --------------
+>  15 files changed, 56 insertions(+), 14 deletions(-)
 
