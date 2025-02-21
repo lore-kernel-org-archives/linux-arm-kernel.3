@@ -4,163 +4,164 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87BBBC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 08:27:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE69AC021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 08:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jj3BFtIdCXh8sF/NFp9G4sqf9ccFvga3/sZLML2tnU0=; b=p2g8eE3/hOpAgBi8qTTrXTTkn0
-	hbAmuMK1E3U5jk3MiP7dqTqqkK22jbEVCjFhvMWx1lI72wQcCfUkI/wlZd5EdBTUavwvfjE3AwUfs
-	/VQHUstG+hoifxKMrwOjLysmxQPaxTeqU2mW24EisoWZNZnpYeGzqV1gexSU9XPiI7FOH4+/k2QcC
-	+wT+XCNxt3knn/xONZ3jwmsAJHW3FOAYVluiK6VMJcG+jBgne9WJJWjSPVIj8qvfH28s5TQqNS2c/
-	GPsRDyJxHaMhfHpd7/SELA6OgN5jlEJQjQQ7voxLsuHY+VrZOlNK3fL3A4Ww2WaiB0YudcDpMSovv
-	zxGQ1vxw==;
+	bh=I0hIdEcCYfO8g0nUNziKahOHGSIZ8jJFkuA3+TmTQZY=; b=jnMfBng+5elH5lDjqAtWC3es6w
+	Yd5eAa89bWSyCAjpEkGsxeM/G4MjtrmbKGwi2+INAIIl9MLFd5WW9JanGDm1pA4KtzCjbn53qsoQe
+	EBW8NbGXSCpvc3LHxhPaxNOfrqr8IGVECS9YgpSZCPPbYSRLCCdomN252cOfpSE8dQ7XV53nAOdTe
+	ow4nmmBBObMd0kztmA7H+LeYEpXJ8rEFZ7pUYRNQuNyIlKO0R0RBuxoRu51cUFYbTF1eE4hHPp/Zt
+	7t7kAs4vMoOVy6naeldrkWjqHadkFfwTCB03pOCXxz64BBoQPqTFSFW9mygT6gFyXHiQJ3JiJZ/dr
+	mNaEuySg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlONm-00000004hXI-1bsU;
-	Fri, 21 Feb 2025 08:27:38 +0000
-Received: from mail-tyzapc01on2072f.outbound.protection.outlook.com ([2a01:111:f403:2011::72f] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
+	id 1tlORA-00000004iBH-1eX6;
+	Fri, 21 Feb 2025 08:31:08 +0000
+Received: from mail-koreasouthazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c410::1] helo=PUWP216CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlOMG-00000004hJe-3XzO
+	id 1tlOPh-00000004hti-0Xzf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 08:26:08 +0000
+	Fri, 21 Feb 2025 08:29:38 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DWgpS0csmm2m4lcb5a6wbE9rTtnUSwH3iFs0/3/NWgSpiKK8aMwEo5LjLTUAoZDyJ+Pn+A8DEr3nHbGsA1sRLBJylj0AJ9jM9gy8YY8N7QYyPJREJg4Q3e1TvX/lXOLbIGoE+xKpefiTxtOCGZzI+8sY+pcJUc77cVTSU0jYrrQ0m+Ivj6alsrQmOoiycpMTtzI143glL0RLZGg1+T0fu0GdDIBTse1d1s7SgbThsiINy0hwIACUhvdbOfeD6Kf8GANPSIilIv7aZcJPGa56NHyIScGh0yvUQLB6hGyIFvqIaMnwa4zDkixcbFpBi4uxTXgyimOzb2EI4+hzbb+qUw==
+ b=CT4BOTbmMOinbyAKd6uLGjWPRe29ToiXFNNieA3+j+AMlwuDs02UwHWhON2JEuZq+gMxYQ0U+66KyqJTvCwwlJAGlx68dCv9HWX6nvpnotP17ue1QEo/p2mwKQu2eHu5wQfvRwFsB8hvbQG97w8mW23Zl1vpaoCFzs9wiFfAe298S5iFbxILKADxa0StwI0PmVmh+V91pVH9wM7cyvjrF7Ma7V6VtU1O9mZke+t0Gai6LwveJrgbaRLffjNq3zrhl7b0oOxbzwoplcbixGWafaegWB3IifTjM+RmBLlt2zyS83kC+bJM0wH5ZTezM/T13/F+aTQTPIPpfS4+K5b9Iw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jj3BFtIdCXh8sF/NFp9G4sqf9ccFvga3/sZLML2tnU0=;
- b=lC2ZiOew6QyrmCo5LgVJNNnnh8XFwp5ntq8E3VT04o0j0V2+Z1twGRSYkLvkJFh+ywOELqQMI6WgqT2YxdwSkJWXaO+T1ACwHXN2bKisriSevYyxvX6OmEi1cAx1XXEEY4lWwe+rXg4RPFiU/Rx/lThiTzcOR2mkOXsDVcIgrCmhcSlhERiZlnU/iWYz0qB6XmEjhf8ai/DsoAHwBZOGLtMG8BQdyoutwSbGPIR39RindAQsdnif/jUXgj8+w1NKNEZQ+ZB0CrSFelIWQ/eC9SMRWC7ifyohrJqfqz5wUMBVWJmOEBTFigpzW6Lxbzlq8Fn6OGbEgVmr2S8o/8AkCA==
+ bh=I0hIdEcCYfO8g0nUNziKahOHGSIZ8jJFkuA3+TmTQZY=;
+ b=cTL3PkZh5Gh7OPs9i4uxp9XNkk6nawDY1uAUtLSIxBeF2m/6tDz2VZJhIXzDcp6z6Xra9lbyyYdEw8lOkRmrXxsXGDzKV1kNtzHKALfpnMwRxZ9ZUDx+yGByJgGT9I21lTL74RGBOb2NqA7IhvX02JzgBFL+nYEzFKopCltO8lmVcM/wf8Ygm8dItu/1s+5tTjI3W5vzP9zkrFVVbYeESt5BXBy0NP+OIZRM1BnE+OGhSNd7kar39J6Zm1chVDFIQCEcjxphA2FtMMCsyzrvZBfZ7OBBUp0KPvMMpFqQ/dcjq+C7CVJuK0vtJyJpLEJ0C8/TOxL9gbZU7vekDAL96w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector2;
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jj3BFtIdCXh8sF/NFp9G4sqf9ccFvga3/sZLML2tnU0=;
- b=aSBpS+B3FJLIHfOXjfS4qgSv8NZsNl5EXJK3v0ela3wggSTzPbwSr3xwIY3ni34S2XQMGKF8EcyaXhkOpBfkJ3kYTAyxrER8i5MtL48/h3tpfNvPZ35mKUijlRG8rAqM8lv68QuswMZSAbyXUCx0wDEqeJOf174YnhGod7KIhAGjlRutHZoYVvHS+HZ0ulZhFpGHuVgbizux4KyZVTat20aHIC4Ivpjy82LvS6kO4wiy13Qp0v6F0eEBtbGS1rfWZlF4if52TX6NbGuL6beYMmVSiTrR0m5FV/IBdnKlprwCziEoXRuLfYcOMbiMSPmE4JQQu0bzrNCTC4U331OZNw==
-Received: from SI6PR06MB7535.apcprd06.prod.outlook.com (2603:1096:4:235::12)
- by TYZPR06MB5227.apcprd06.prod.outlook.com (2603:1096:400:1fc::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.17; Fri, 21 Feb
- 2025 08:25:53 +0000
-Received: from SI6PR06MB7535.apcprd06.prod.outlook.com
- ([fe80::8af2:b731:a5e5:169f]) by SI6PR06MB7535.apcprd06.prod.outlook.com
- ([fe80::8af2:b731:a5e5:169f%5]) with mapi id 15.20.8466.015; Fri, 21 Feb 2025
- 08:25:53 +0000
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-To: Ryan Chen <ryan_chen@aspeedtech.com>, "brendan.higgins@linux.dev"
-	<brendan.higgins@linux.dev>, "benh@kernel.crashing.org"
-	<benh@kernel.crashing.org>, "joel@jms.id.au" <joel@jms.id.au>,
-	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "andrew@codeconstruct.com.au"
-	<andrew@codeconstruct.com.au>, "p.zabel@pengutronix.de"
-	<p.zabel@pengutronix.de>, "andriy.shevchenko@linux.intel.com"
-	<andriy.shevchenko@linux.intel.com>, "linux-i2c@vger.kernel.org"
-	<linux-i2c@vger.kernel.org>, "openbmc@lists.ozlabs.org"
-	<openbmc@lists.ozlabs.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: RE: [PATCH v15 1/3] dt-bindings: i2c: aspeed: support for
- AST2600-i2cv2
-Thread-Topic: [PATCH v15 1/3] dt-bindings: i2c: aspeed: support for
- AST2600-i2cv2
-Thread-Index: AQHbGGxcg35U+p0xVUGbHH/SlZw4qLNSJngg
-Date: Fri, 21 Feb 2025 08:25:53 +0000
-Message-ID: <SI6PR06MB7535BFD3377505F5191AED7FF2C72@SI6PR06MB7535.apcprd06.prod.outlook.com>
-References: <20241007035235.2254138-1-ryan_chen@aspeedtech.com>
- <20241007035235.2254138-2-ryan_chen@aspeedtech.com>
-In-Reply-To: <20241007035235.2254138-2-ryan_chen@aspeedtech.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
+ bh=I0hIdEcCYfO8g0nUNziKahOHGSIZ8jJFkuA3+TmTQZY=;
+ b=LsANHNdyMSkNChEKBU0YTUNn2LS6pqJVjxGhvwchlEj1rW/8HKrxJwi+pfnvoID5gCKfAOKd8vhdGrH3P45Q6SzYVviR5cBz3MteullMLa582taqit3GONRMwGE0FAnAfhar062cS5Kl0vWRFXuvxHXIh+UjYF71CHlI2hqpFsY=
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM (2603:1096:101:a::9) by
+ SL2P216MB2846.KORP216.PROD.OUTLOOK.COM (2603:1096:101:285::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8466.17; Fri, 21 Feb 2025 08:29:20 +0000
+Received: from SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07]) by SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+ ([fe80::9e3d:ee20:8cc7:3c07%5]) with mapi id 15.20.8466.016; Fri, 21 Feb 2025
+ 08:29:20 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: "mchehab@kernel.org" <mchehab@kernel.org>, "hverkuil@xs4all.nl"
+	<hverkuil@xs4all.nl>, "sebastian.fricke@collabora.com"
+	<sebastian.fricke@collabora.com>, "robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "linux-media@vger.kernel.org"
+	<linux-media@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-imx@nxp.com" <linux-imx@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, jackson.lee
+	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>
+Subject: RE: [PATCH 3/8] dt-bindings: media: nxp: Add Wave6 video codec device
+Thread-Topic: [PATCH 3/8] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+Thread-Index: AQHbe5s5kWTieORPDUe+7mHQ8+wHLrNAy9aAgAPWD6CAAE9gAIABLNMwgAh/LgCAAS48QIAAIR+AgAGKFtA=
+Date: Fri, 21 Feb 2025 08:29:20 +0000
+Message-ID: <SL2P216MB1246BDC4807D45DD877D5751FBC72@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+References: <20250210090725.4580-1-nas.chung@chipsnmedia.com>
+ <20250210090725.4580-4-nas.chung@chipsnmedia.com>
+ <cb7937f5-2045-4903-825c-71ed70097efb@kernel.org>
+ <SL2P216MB12460EDF6265459D11E2A5A9FBFF2@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+ <20250213-imaginary-shrimp-of-merriment-6ccb6f@krzk-bin>
+ <SE1P216MB1242EBEEAA36BE73AD466FB6FBFA2@SE1P216MB1242.KORP216.PROD.OUTLOOK.COM>
+ <ec58d467-baa3-4630-bfb0-f09d366a9be9@kernel.org>
+ <SL2P216MB1246F270DDE8CC8E21EA1DDCFBC42@SL2P216MB1246.KORP216.PROD.OUTLOOK.COM>
+ <e3403885-ca21-4e67-b117-f40a7a65418b@kernel.org>
+In-Reply-To: <e3403885-ca21-4e67-b117-f40a7a65418b@kernel.org>
+Accept-Language: ko-KR, en-US
+Content-Language: ko-KR
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
 authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
 x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SI6PR06MB7535:EE_|TYZPR06MB5227:EE_
-x-ms-office365-filtering-correlation-id: fbf73d1a-e819-48fa-df17-08dd52515b45
+x-ms-traffictypediagnostic: SL2P216MB1246:EE_|SL2P216MB2846:EE_
+x-ms-office365-filtering-correlation-id: 599d507e-89fa-4dc3-653d-08dd5251d6e9
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018|7053199007|921020;
-x-microsoft-antispam-message-info: =?us-ascii?Q?8HXg+QfjUAoNKEQknxhR5oxXAhbAKGQCdPWjN6xO+LIYbmVwYyWyy29ElmPV?=
- =?us-ascii?Q?w34fj88zrWUh1y33T5VlQjpnAk/lorsk21m/uoyHwC698RQvhKiKZXl2hHF2?=
- =?us-ascii?Q?8ipKTxtnOoOuWC07Mxh0tXAkqy11TondyFcO2xb6QUgC5QJ8+DcQYNcPNF1d?=
- =?us-ascii?Q?lxjDhZAaE5WPwFbhmDRmRUhK475tuyx09FDon30L5KqhhbB1eRuz/GQrRulp?=
- =?us-ascii?Q?/u5vAJvdnCe6vlW0VV5SdyLyKQRCG2U0K7NIwbcymyn3Rfn2tjC5YJ355grj?=
- =?us-ascii?Q?9OI4IVGjIjKu4NEI33+WweXHMM1GIZD3qXQfj8oS1D6AWQxwuUGoeoh+eEYS?=
- =?us-ascii?Q?WGOZij4r7JBqr+FeXohV1p8njkGyylvoQ9/X4SAojj1kP2Yz2lPZPtQLiM5l?=
- =?us-ascii?Q?Y+ekHDtWsqv+FBnFOr0MV559z8mpE8lhu/191VUJCcmvbERZ3PMUniX07W2h?=
- =?us-ascii?Q?HjIMuH+1Ohkm5/JwxCNqzBWbrYvjYAi7p198lGie2StozD5sIumjDfPcEUTu?=
- =?us-ascii?Q?Vu+goSVSDuGAJVtLVfjTo72qc3kFTRuzWi3V/jH2Z2CU+dyewfo4sZ/9OrYA?=
- =?us-ascii?Q?zhVgJIQT8sQD8sIaseyCANXSpeXQ/tG01FBZeqOP/FYPexmY/GhU1FAjDxFd?=
- =?us-ascii?Q?ASj6tc3xdcAM+saATXLyuwFfzgM3WaqC15O9MY0DAsECo6ZEiDe6xRao1gWd?=
- =?us-ascii?Q?jkAOOKr3iYakSGOktRRwad81/suCJw5c+mBzsdYAVT5MBkjxk4+0/dn11ejO?=
- =?us-ascii?Q?yH3YlSb8DDMel13HVcrx5G96y6HRhDke/l2n8lf8KZSpQ48kgFX9nXwPIqcD?=
- =?us-ascii?Q?05nWrAM5oiNZDs0+4ToJPFdWgRr7QpG3c7WWKBEmLkFdECmPT7fjRzckYOgL?=
- =?us-ascii?Q?n28OzC0iBlcPq1BiFFo/yRgD02Y4hdzIyxOBqMp/ld+NcJGGKGgMxF7waRKK?=
- =?us-ascii?Q?7M64cr6FZs5TC/3PTZgUn5i/tPzL/qMaaQkdweiGLg5nLtgUtJmi3vpwtZNy?=
- =?us-ascii?Q?7GCvntQWV75bvok0rK5ybUbQ59FwnVTNcJ73xxp9qcwMm/IThTXiDd0F8bMk?=
- =?us-ascii?Q?IPflGyF4S5bDXo1dRpqErGS4sCJBOPx/MOdF03MZPkKeAq/qIDwpsbHrltnI?=
- =?us-ascii?Q?GXf1gARLN0yLX8hGIwfZckzDX+sX8388uE1+gUNh2wJIxe+KAWOqXq7AZpOD?=
- =?us-ascii?Q?DzaxQ/kbVV3Dsdt/iAxgK3/nhihQLa8mWC3ShFhYO3Ia36G9SjTHDx46Cdhj?=
- =?us-ascii?Q?BAtZ1cnDJgSL/kC1NUZD0yP+ICtPFaqqM3YJzgoaDWOrtVcZ43PBFQ7xgQiT?=
- =?us-ascii?Q?dr6WgGbAUTGryK8U/t3G3hH1b4Gq5j8Nrj/eq/NLNtZQElOI23KK9XHTYsGz?=
- =?us-ascii?Q?pKvxJbtsmClcuOnf0fRM35vqEywuR3VUnTd1wJwF2TFxelLb3EBujJ8U+Z/U?=
- =?us-ascii?Q?aZMYT2j8nIC6NGMZe0mUPK7T8Pa8G5faLQSGgRjsWomGARqF1/GLAQ=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI6PR06MB7535.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018)(7053199007)(921020);DIR:OUT;SFP:1102;
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?HFlb/Qy+gc746dIqYOvtN+g3mAOqFBCXX9Q1QglZG742RQ66twEVxlbloCyi?=
+ =?us-ascii?Q?k2G/BkXU25zMmkOmZJ7u9FtE0C+MhAa/qYaLqLUsfnAmxdk35UBy9+v7qyaQ?=
+ =?us-ascii?Q?cmW+Kq5wE6KFK45sz53ex1v7usBYepZcxIJ9w3SaDIOVRorVChAEvVO4b6c3?=
+ =?us-ascii?Q?wzdAa2TwEAopGQvtmBKhi4kkw2WKL6y7Hh+R0j/S22Urav9Chfw/+G6vlgBv?=
+ =?us-ascii?Q?DdaBS4SnRbLMUNzXHgtcsLZn71aN/ts4JHdM32qXn8y/MWia9tenbbvnUh0i?=
+ =?us-ascii?Q?Wipr+KzHvU7HUQVLVXRrxgpH7EaLDYqdyshqNjCewo/zLdGKOEUs5o342s5s?=
+ =?us-ascii?Q?ykoy06UNX2P+jQhamu8K2PodLgAs7MZZNtVvUDgULd1tHqj6bB+pSly8mNWi?=
+ =?us-ascii?Q?NogReRJ2zbaJYH8s3QV2OYPayVNpj3tEuEcrqDFahX2ZkgJMQYGCJZQqzTX6?=
+ =?us-ascii?Q?izwxiiZDYNQAuX6lMRKTQJ/uHAZN5Wkt3Jcvm3AtxQZ6g1a3JXRrfqNHbryM?=
+ =?us-ascii?Q?F5fT4R7fa7YF8sqj3TCUTy2Vt7/DgFkgUo4R9IbY3+CVjrhEcX8ok7UEzwkf?=
+ =?us-ascii?Q?RLDBmrpRFOqjVSiPc8tHoltSC0U+K2e4irRIGPIQU6Xu5ZMyj/McKCmswHwp?=
+ =?us-ascii?Q?g1sIvgzr0uaE+wcWK+mU1mxZAbkV4wYh9LRXKt4p1hNMz5LFSkVzrlXqvT2s?=
+ =?us-ascii?Q?voH3AuiwPDiRnHasagHSoeUx+SboI4qmHR6sJH6pBzdi3EyUODA3fqQ31rIc?=
+ =?us-ascii?Q?z1hTcT3nODVJUfgjbs7aMmNmRuhqj/epwd96EL2fguUjZoDtJFylY1NzAFOo?=
+ =?us-ascii?Q?hpRALjLh/1oPpQHha0Ger9FV2hPRpgh7ayGjTYJFGgA28tJw0nkiBeZ6yBgB?=
+ =?us-ascii?Q?tHcmp6XISDJSRLcn/MimBPSUbThnEjSHBpbbptIlXO8ffWx9YzCeoksUfF5M?=
+ =?us-ascii?Q?jy76rvMjvscZnnJpsuA6spjngDXac3gQL+/PKruMXZYTGuf8+uMUf7xt6QPR?=
+ =?us-ascii?Q?dj6MzAAVXFXEOq/A0WNThN2r4r5+YB9XnuV1O3PY8l6Zc82+NCrcfQ2gcX+d?=
+ =?us-ascii?Q?POVTuSSpBsRSHYiOgEd6dn5/BcUAi3kzrnrEkZNp1hrWIhZvVndxQWEvuIy6?=
+ =?us-ascii?Q?RcTeet800HthS08SY07wnPOYLMVCc5sFcBekCqYUhbfOXj+RuAZoOgniEW5D?=
+ =?us-ascii?Q?/S9ijSS8iZhXzppgHtJv9l23LbbsrIb5Q/LmUqLpEMaFrb5s0uhuzTCNwX7/?=
+ =?us-ascii?Q?pVJ8ZGBbctuok6mfu26yb4uNYNEZSN9klbwfan/F4sWZ2Ats2UeqPj51N27z?=
+ =?us-ascii?Q?Grqj9du7Pc0qBZrZgLeJKuJUQJn5NH+UQOGqfbQuVvWSIDB/+YSED3A2/2aC?=
+ =?us-ascii?Q?wWJ5WQylJIr91rR3K1q8Mz8SDxPSYrErR72+tlCi2MJTG3gAgz3WiAbeInkF?=
+ =?us-ascii?Q?dBceVSPPjYd5H10r0oL7rPRspI2mZfuG?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB1246.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1102;
 x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?0T7k6XRbGxxRghJVO9krtBBTOKx4EKdJqPf2hmCIx8IS70zaTkqPiUMXEDhj?=
- =?us-ascii?Q?JtLe4j9JZ1SEAkXGoMcmlAR3CNJ7SMml+cJnTh1X7dzFfVCJjil4PSGeJsNt?=
- =?us-ascii?Q?fTPk8YSa/G4/YUri+/4PCVWMAzxMr9jfE7Z5mqlBmy5dbtwqp6f3JeAq8C0m?=
- =?us-ascii?Q?btw3jj6pkh/JGThcLmARb/JXuRhpTgagGkwjuczv4201MOKHQFN+sIjAmgaY?=
- =?us-ascii?Q?ox36Y5oc6fKpTNa3Ay+FBEKqGis8UodpibL+8eAbpJpNJug21gZVQpSvUNeh?=
- =?us-ascii?Q?p7SWu+xM1fjNVdpsuKJOXi0Mvch+q3oFcN+9P8/TEeqE0iQXR3ikG3MFrOgq?=
- =?us-ascii?Q?QQKF6dFWbYLKqXL8TQ5YlKDlA3LtBAYd8g1/0zXfcUz6Xh4tkXhV2/KLW1Rp?=
- =?us-ascii?Q?8N7i9r+RKjXFlTRzMucGUHjyVaWw9ZZsA4SMKw4QMxCXtI/u/NpxL3OWNXN+?=
- =?us-ascii?Q?2ye2eVLFd3xUhJbt2GEXvano9P/Enj/fKyuA48Ac32hxVlDYGj8bOxHfdLD6?=
- =?us-ascii?Q?xhp6zBy3jW+8lnE1slmIfrn5sBRpZ/v+ytZG78xoWLW9qK+FKsE0VoygxRK9?=
- =?us-ascii?Q?RsaYh7OqFqlmAPK5fxoXlg403rJeydlNHaQIfKku8nalhWDc5t39FhBX5kRt?=
- =?us-ascii?Q?RofrVkb9PkAxeG+FJtQlefl/r1buQklQR7P30b/6pj8mP8PFJ+rO3IOTpz+n?=
- =?us-ascii?Q?0g/FE07kEqxCTdTSugJ3OZaHkGz2np0XP52JpX8HgqbKkrVReQld8Y1fISHD?=
- =?us-ascii?Q?jDJBKffTrzzQV5NyWii0h0qPtwGq2b/POPZ9CfIOSOvAA9ANlHNMRLpOMGxi?=
- =?us-ascii?Q?sm94thQwZ7YsKguB4oy16bpsuSjhrtuE5d/PIzlN1UT6doagxl4q52Bd47WA?=
- =?us-ascii?Q?LOczYNFeDEdYZRnjIO73sqkWy4E7i49rwuV1xIQM5kdIDoNsVXsXjNl87BnL?=
- =?us-ascii?Q?nQe2aF4NeGCxpIpKZ8Z8qmTvco5x5r+uCGtPVqmsC80SUDdsHuTxoMN3RvkI?=
- =?us-ascii?Q?oqOWM6MkYlzzbXE0AFUDCKs9w4xIzFaNfmFDEddvZu7WtVwFkLknuXVDscPq?=
- =?us-ascii?Q?iV477H0ZSlhgwfuiNqL1mA2LMh/TZxam9bJLEmEab7rViTU/nIYT2dYehszF?=
- =?us-ascii?Q?UTFHY+raAHtAWL16ZQUNK7/+A4VcrO2qud/F2E8AYx0TV7BbTwSOF5WpFXpK?=
- =?us-ascii?Q?mCG+ToBTBtIMVilEHE/mwwK0L/gOgWEh/FFwAdxWRgarHBuMaU7x0PqnA464?=
- =?us-ascii?Q?rWy9uY/3EDi9DrNdt3vB9vz44ts0lzkbbi+9JTMyRJcDVXTkM6ksMOJIVplT?=
- =?us-ascii?Q?Daa4w7JzVrAgrND38BUvcgU+lOJ5IiVxAd2VkwBtGIakdt9io/2ZAgpFJVcB?=
- =?us-ascii?Q?7SalwqPwAOhpVfdW2sXSHmDJWWhRL3Gto+TQykYzKloxB+tI/o+vDpBGrv0p?=
- =?us-ascii?Q?S+o3xfK1H5qbtXRg/pyaz3cKqCItWim8b8GPABj6hVZuiYm4Mp+7JSvhmVwJ?=
- =?us-ascii?Q?a9ycO/yBBmfGnnpglVRlyGmCtD3VYa22njB7LKkuB/OLej7EvNAAJAXvPES+?=
- =?us-ascii?Q?cwu8N0cEgyLOpxL/76yXYqkUBwmi7L7ggxkrC9Xt?=
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?5BZbmAQa82m7my4x2jHNAx0hqg/RwBnIW0S3vSKj25lTKCt2mwmFvubw/JGX?=
+ =?us-ascii?Q?OhTcV/2xsbaJriul7EXVh7s6Pkav/E8aeXtAPgwX+G6LkSr4SV/D+fM73PGh?=
+ =?us-ascii?Q?FmNorcwrGEGBk8fMSSTv98XwXrxdlvXW7eJIQkS2WDg1wTWnhU0+tI7yx87K?=
+ =?us-ascii?Q?21OGqqgQT+N1RCXsDT31VaWzGBbKp/S2yJ3i5ox/sjyJOfFy4duMEpu09nkV?=
+ =?us-ascii?Q?ct/fS+h06mUc5oGNajKvHVctHhCIN3hfNYskuUNUxP5s3nY0WPS+0KcmyLhb?=
+ =?us-ascii?Q?jbwekhwBbwQBI40Z3GmPDbOYwB0xcfc3kTfogaDW984bMxO3ycJCZGpCSDzD?=
+ =?us-ascii?Q?Vzbf8Ezu2QNpdkZ+vLlH9vTw1WpEGYCWUL0BQAIfxMblJ1MVSPMNHkDKkTb3?=
+ =?us-ascii?Q?QGwrfrihkyWp42+96gykRokjcU9zgj7yatjgDflUh2BBUNwRVBcVCIRaeaJ1?=
+ =?us-ascii?Q?6KpQCY6GIN9NT9/PZs9RIjutfD0hbOVOegcK0fnzZ9v4DgEB+WKB2534UAd1?=
+ =?us-ascii?Q?gFT/I1A18Swfj34bPN8F56z+zBOARKBreCOlzMGFHJLJWp7n8PgHp8qIhl6o?=
+ =?us-ascii?Q?g9lXPH9ndUskyRngeQBGyqhF3s1ZubGqKG6CSmrdpSzVIKlaTd092eGZySK0?=
+ =?us-ascii?Q?Qe3KSNsL+IiXGQMTAbxpvfSd5iS75Ox55Oe84Fjhf+NBQPIDpTJcF10ryQsx?=
+ =?us-ascii?Q?f92+FRjshFoamUehFiEmK+CEQxWRgsqPqFFzEkOZqEWrQcEGEK27sJYkXAuz?=
+ =?us-ascii?Q?BKDMlSjoJPOcsMWNzR43cpcRloVfKkMBpr8Yppku2nvoVs/2JK24XdDSLbeK?=
+ =?us-ascii?Q?yEoLi28aimBbd6sWkbkvImwbp76pSwd5T8QnaEU1g9vXX0VYKDvJSaWTWKNV?=
+ =?us-ascii?Q?q4LMEX4C0vPRo+qfQpCkxvhVjSx0PUywW+B1sGkD/87+oaLdLw97dmBCT/XP?=
+ =?us-ascii?Q?CiT9q392SZHgR9hDSaqv0mpY17jSRG89vGacHSgzcPdn31kn31h9nhWVJ8VU?=
+ =?us-ascii?Q?s1rsj3yuIlgAWKDDp4vuLoGy7hNeWitFiZj/rTO3wf9tsbgmvZMK3W2mV3zV?=
+ =?us-ascii?Q?cZBwV+aYsY8xibk/D3vO0qbZ77k/0ty9ofP988wuNBs3Ep1m4ctpe01jql6w?=
+ =?us-ascii?Q?L4CXdORP0k+aqIYBVboUCx6Pqwl+pXQpfIf8Bg7g6lr3CASuBz+rNex/Dbpq?=
+ =?us-ascii?Q?n6jzm2JE3biCiZjSkJQbPYP1BrMyke1oGLD1/SrZpgSB91d86zG08PVdmYjk?=
+ =?us-ascii?Q?nzmx52SPMQ28fe8+i0wzJ3XwSLpfnKWCTFNqLPjM88ixIVEmdvg2XLw/kvPG?=
+ =?us-ascii?Q?A2m7G8JYQ+fe6eLVvjpKWf9yp63kz/MK+8NOLW6p+NGrNeKUyR7UJUrsA5Bt?=
+ =?us-ascii?Q?i/0ZFae7TI1d3rPCqviXXCf3wp2tFlsV+t2r11Y7LlV7HcICk0ax1oOyjEr9?=
+ =?us-ascii?Q?3wN25/Yx9RWL4Zogz3RnMfLnzcZHjr3vhsuUEGESB+3mYtM8RzOxoeAvwNQ2?=
+ =?us-ascii?Q?GOZgbavEnPURyUTIDtbYgP9NQSboBpnuMRxFS2C7aWFRyQmAFiHTB/FsnB1M?=
+ =?us-ascii?Q?ka9yHbUjAQ8h84hQIEUz03d+NBE4wEj+Mw/JLtIT?=
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
+X-OriginatorOrg: chipsnmedia.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SI6PR06MB7535.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fbf73d1a-e819-48fa-df17-08dd52515b45
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Feb 2025 08:25:53.3121
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB1246.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 599d507e-89fa-4dc3-653d-08dd5251d6e9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Feb 2025 08:29:20.7613
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: qeex+Lm5yoIlgARvi2uBl8ymH1k+9LRvDKe0EEt8L+8y5ZfxETTZOv7z61dl0pzsskOsoyCXZVjuvAKQgsyeDJI3noS0OamDEY2/Phgp0bA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB5227
+X-MS-Exchange-CrossTenant-userprincipalname: 4HFxjlHvWGpC1yU8FkG0raGQVnU4Xc5z/0I27RC+DgCaK4f/ziSVT/+QiluJ4CW3+OiPKFAvzrKUjDYeLnYuJhspH930I2XH91rydpZ/ZEU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SL2P216MB2846
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_002606_820443_ABA93F78 
-X-CRM114-Status: GOOD (  23.73  )
+X-CRM114-CacheID: sfid-20250221_002937_285128_AB8CCC5B 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,126 +176,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Krzysztof,
-	I am going to submit v16, and will update the yaml file, in my this versio=
-n will add aspeed,enable-byte.
-	So, we should I do about this patch about " Reviewed-by: Krzysztof Kozlows=
-ki <krzysztof.kozlowski@linaro.org>"=20
-	Should I remove it ? or I should keep this Reviewed-by?
+Hi, Krzysztof.
 
+>-----Original Message-----
+>From: Krzysztof Kozlowski <krzk@kernel.org>
+>Sent: Thursday, February 20, 2025 5:32 PM
+>To: Nas Chung <nas.chung@chipsnmedia.com>
+>Cc: mchehab@kernel.org; hverkuil@xs4all.nl; sebastian.fricke@collabora.com=
+;
+>robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org; linux-
+>media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>lafley.kim <lafley.kim@chipsnmedia.com>
+>Subject: Re: [PATCH 3/8] dt-bindings: media: nxp: Add Wave6 video codec
+>device
+>
+>On 20/02/2025 08:35, Nas Chung wrote:
+>> Hi, Krzysztof.
+>>
+>>> -----Original Message-----
+>>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>>> Sent: Wednesday, February 19, 2025 9:32 PM
+>>> To: Nas Chung <nas.chung@chipsnmedia.com>
+>>> Cc: mchehab@kernel.org; hverkuil@xs4all.nl;
+>sebastian.fricke@collabora.com;
+>>> robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org; linux-
+>>> media@vger.kernel.org; devicetree@vger.kernel.org; linux-
+>>> kernel@vger.kernel.org; linux-imx@nxp.com; linux-arm-
+>>> kernel@lists.infradead.org; jackson.lee <jackson.lee@chipsnmedia.com>;
+>>> lafley.kim <lafley.kim@chipsnmedia.com>
+>>> Subject: Re: [PATCH 3/8] dt-bindings: media: nxp: Add Wave6 video codec
+>>> device
+>>>
+>>> On 18/02/2025 10:21, Nas Chung wrote:
+>>>> For example:
+>>>> vpu: video-codec@4c480000 {
+>>>>         compatible =3D "nxp,imx95-vpu";
+>>>>         reg =3D <0x0 0x4c480000 0x0 0x50000>;
+>>>> 	ranges =3D <0x0 0x0 0x4c480000 0x50000>;
+>>>>
+>>>>         vpuctrl: vpu-ctrl@40000 {
+>>>>           compatible =3D "nxp,imx95-vpu-ctrl";
+>>>> 	  reg =3D <0x40000 0x10000>;
+>>>>         };
+>>>>
+>>>>         vpucore0: vpu-core@00000 {
+>>>>           compatible =3D "nxp,imx95-vpu-core";
+>>>>           reg =3D <0x00000 0x10000>;
+>>>>         };
+>>>>
+>>>>         vpucore1: vpu-core@10000 {
+>>>>           compatible =3D "nxp,imx95-vpu-core";
+>>>>           reg =3D <0x10000 0x10000>;
+>>>>         };
+>>>>
+>>>>         vpucore2: vpu-core@20000 {
+>>>>           compatible =3D "nxp,imx95-vpu-core";
+>>>>           reg =3D <0x20000 0x10000>;
+>>>>         };
+>>>>
+>>>>         vpucore3: vpu-core@30000 {
+>>>>           compatible =3D "nxp,imx95-vpu-core";
+>>>
+>>> Why do you need compatible here? Could it be anything else?
+>>
+>> I will update the driver based on the final DT.
+>>
+>>>
+>>>>           reg =3D <0x30000 0x10000>;
+>>>
+>>> Where is the rest of resources? You created children only for one
+>>> resource - address space?
+>>
+>> Sorry for the confusion.
+>> I believe the final example looks like the one below.
+>>
+>> vpu: video-codec@4c480000 {
+>>         compatible =3D "nxp,imx95-vpu";
+>>         reg =3D <0x0 0x4c480000 0x0 0x50000>;
+>>         ranges =3D <0x0 0x0 0x4c480000 0x50000>;
+>>
+>>         vpuctrl: vpu-ctrl@40000 {
+>>           compatible =3D "nxp,imx95-vpu-ctrl";
+>>           reg =3D <0x40000 0x10000>;
+>>           clocks =3D <&scmi_clk 115>,
+>>                   <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
+>>           clock-names =3D "vpu", "vpublk_wave";
+>>           power-domains =3D <&scmi_devpd 21>, <&scmi_perf 10>;
+>>           power-domain-names =3D "vpumix", "vpuperf";
+>>           memory-region =3D <&vpu_boot>;
+>>           #cooling-cells =3D <2>;
+>>           sram =3D <&sram1>;
+>>         };
+>>
+>>         vpucore0: vpu-core@00000 {
+>>           compatible =3D "nxp,imx95-vpu-core";
+>>           reg =3D <0x00000 0x10000>;
+>>           interrupts =3D <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
+>>           clocks =3D <&scmi_clk 115>,
+>>                   <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
+>
+>
+>These are the same resources for every block so for entire device. Why
+>they are no in top level node?
+>
+>>           clock-names =3D "vpu", "vpublk_wave";
+>>           power-domains =3D <&scmi_devpd 21>;
+>
+>Same here
+>
+>Everything else also looks duplicated... All my previous comments - from
+>first email - stand. Don't design DT to match your Linu driver structure.
 
-> -----Original Message-----
-> From: Ryan Chen <ryan_chen@aspeedtech.com>
-> Sent: Monday, October 7, 2024 11:53 AM
-> To: brendan.higgins@linux.dev; benh@kernel.crashing.org; joel@jms.id.au;
-> andi.shyti@kernel.org; robh@kernel.org; krzk+dt@kernel.org;
-> conor+dt@kernel.org; andrew@codeconstruct.com.au;
-> p.zabel@pengutronix.de; andriy.shevchenko@linux.intel.com;
-> linux-i2c@vger.kernel.org; openbmc@lists.ozlabs.org;
-> devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> linux-aspeed@lists.ozlabs.org; linux-kernel@vger.kernel.org; Ryan Chen
-> <ryan_chen@aspeedtech.com>
-> Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Subject: [PATCH v15 1/3] dt-bindings: i2c: aspeed: support for AST2600-i2=
-cv2
->=20
-> Add ast2600-i2cv2 compatible and aspeed,global-regs, aspeed,enable-dma
-> and description for ast2600-i2cv2.
->=20
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
->  .../devicetree/bindings/i2c/aspeed,i2c.yaml   | 51 +++++++++++++++++--
->  1 file changed, 48 insertions(+), 3 deletions(-)
->=20
-> diff --git a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> index 6df27b47b922..6c16fc76c978 100644
-> --- a/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> +++ b/Documentation/devicetree/bindings/i2c/aspeed,i2c.yaml
-> @@ -9,9 +9,6 @@ title: ASPEED I2C on the AST24XX, AST25XX, and AST26XX
-> SoCs
->  maintainers:
->    - Rayn Chen <rayn_chen@aspeedtech.com>
->=20
-> -allOf:
-> -  - $ref: /schemas/i2c/i2c-controller.yaml#
-> -
->  properties:
->    compatible:
->      enum:
-> @@ -49,12 +46,50 @@ properties:
->      description:
->        states that there is another master active on this bus
->=20
-> +  aspeed,enable-dma:
-> +    type: boolean
-> +    description: |
-> +      I2C bus enable dma mode transfer.
-> +
-> +      ASPEED ast2600 platform equipped with 16 I2C controllers that shar=
-e
-> a
-> +      single DMA engine. DTS files can specify the data transfer mode
-> to/from
-> +      the device, either DMA or programmed I/O. However, hardware
-> limitations
-> +      may require a DTS to manually allocate which controller can use DM=
-A
-> mode.
-> +      The "aspeed,enable-dma" property allows control of this.
-> +
-> +      In cases where one the hardware design results in a specific
-> +      controller handling a larger amount of data, a DTS would likely
-> +      enable DMA mode for that one controller.
-> +
-> +  aspeed,global-regs:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: The phandle of i2c global register node.
-> +
->  required:
->    - reg
->    - compatible
->    - clocks
->    - resets
->=20
-> +allOf:
-> +  - $ref: /schemas/i2c/i2c-controller.yaml#
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: aspeed,ast2600-i2cv2
-> +
-> +    then:
-> +      properties:
-> +        reg:
-> +          minItems: 2
-> +      required:
-> +        - aspeed,global-regs
-> +    else:
-> +      properties:
-> +        aspeed,global-regs: false
-> +        aspeed,enable-dma: false
-> +
->  unevaluatedProperties: false
->=20
->  examples:
-> @@ -71,3 +106,13 @@ examples:
->        interrupts =3D <0>;
->        interrupt-parent =3D <&i2c_ic>;
->      };
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    i2c1: i2c@80 {
-> +      compatible =3D "aspeed,ast2600-i2cv2";
-> +      reg =3D <0x80 0x80>, <0xc00 0x20>;
-> +      aspeed,global-regs =3D <&i2c_global>;
-> +      clocks =3D <&syscon ASPEED_CLK_APB>;
-> +      resets =3D <&syscon ASPEED_RESET_I2C>;
-> +      interrupts =3D <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH>;
-> +    };
-> --
-> 2.34.1
+I agree with you. Thanks again for your feedback.
 
+I've moved the shared resources to the parent node while keeping the
+independent resources within their respective child nodes, as shown below.
+
+vpu: video-codec@4c480000 {
+        compatible =3D "nxp,imx95-vpu";
+        reg =3D <0x0 0x4c480000 0x0 0x50000>;
+        ranges =3D <0x0 0x0 0x4c480000 0x50000>;
+        clocks =3D <&scmi_clk IMX95_CLK_VPU>,
+                  <&vpu_blk_ctrl IMX95_CLK_VPUBLK_WAVE>;
+        clock-names =3D "vpu", "vpublk_wave";
+        power-domains =3D <&scmi_devpd IMX95_PD_VPU>;
+
+        vpucore0: vpu-core@00000 {
+          compatible =3D "nxp,imx95-vpu-core";
+          reg =3D <0x00000 0x10000>;
+          interrupts =3D <GIC_SPI 299 IRQ_TYPE_LEVEL_HIGH>;
+        };
+
+        vpucore1: vpu-core@10000 {
+          compatible =3D "nxp,imx95-vpu-core";
+          reg =3D <0x10000 0x10000>;
+          interrupts =3D <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH>;
+        };
+
+        vpucore2: vpu-core@20000 {
+          compatible =3D "nxp,imx95-vpu-core";
+          reg =3D <0x20000 0x10000>;
+          interrupts =3D <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>;
+        };
+
+        vpucore3: vpu-core@30000 {
+          compatible =3D "nxp,imx95-vpu-core";
+          reg =3D <0x30000 0x10000>;
+          interrupts =3D <GIC_SPI 302 IRQ_TYPE_LEVEL_HIGH>;
+        };
+
+        vpuctrl: vpu-ctrl@40000 {
+          compatible =3D "nxp,imx95-vpu-ctrl";
+          reg =3D <0x40000 0x10000>;
+          power-domains =3D <&scmi_perf IMX95_PERF_VPU>;
+          memory-region =3D <&vpu_boot>;
+          #cooling-cells =3D <2>;
+          sram =3D <&sram1>;
+        };
+      };
+
+Thanks.
+Nas.
+
+>
+>Best regards,
+>Krzysztof
 
