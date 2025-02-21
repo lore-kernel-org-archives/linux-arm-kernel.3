@@ -4,56 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D328C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:14:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93827C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8xYvhqgQrCBeJDbKvpzUEFg/+9YtAmgg2HZNhvYpyks=; b=TSHjO5VRtq9rfzzH62kUSqGGgT
-	HdS/pRg+6lJC+fjzE/4xaOYL+osejWHq1NuQlPx+TwzaPTsokCipwGw35p/84Va/dYdrm8nahE6NZ
-	fplPlnFq6nORLb5g6cbbtotO39iqfoOV6J0HPRRnjlFQ2CquTmd1XKF6aSRvfmG1kLF0uHPcjFWDE
-	X60tyqAPBysGvxas4O76WYu1yEkKPduEdGWGokqOHcWDNclysjYFzP8Soh5rBU3560Zs8A/7g+ZoF
-	LNaej8Tn8g5JlaXw+G39MhToZbKI3NVjOKgE1pZcJ1JO08Faehd4JpewGSMUTfUcDzioRinZyQcs2
-	RiWvFgqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=64eYMEDrlRIxbcPeG3FvwifDl+9+anJdNxRVXm6iO4g=; b=iOhnNpoDsI14q2YdkXObMOE8f0
+	WubYv1mLxbk0t5owgfvGQR2jwPzswfzapsVoFgDVfQbO0GWIqsmg6odJGyiH7Sth0OflDWAkZsnis
+	SADCUGivEYlxLIfFFOFuo0X0OwQrvMSSnQehRtDV+4FIKNlIrUpPPGze9COf3y/jLEqKv/fPpFKiG
+	qn6aU+7hl7MnGQBCP3gNGgQHV3R1vHmh30c+Cddty6B741/Qk/dHEvqns1yO1NmeI3eUYAjaW3qhI
+	ezT7JQl8jmpJCHIyCb+F814EQATiZ9cu4KFkF856SsAn7DaR8dzNvoGPxf9vQZLbvRKSyHZRdzklF
+	tXMWgPmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlTn9-00000005mjM-36Dn;
-	Fri, 21 Feb 2025 14:14:11 +0000
-Received: from smtp-bc09.mail.infomaniak.ch ([45.157.188.9])
+	id 1tlTob-00000005n7q-1e15;
+	Fri, 21 Feb 2025 14:15:41 +0000
+Received: from mail-co1nam11on20609.outbound.protection.outlook.com ([2a01:111:f403:2416::609] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlTeL-00000005kMy-0ctO
+	id 1tlTfH-00000005kdt-2Zz6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 14:05:09 +0000
-Received: from smtp-4-0000.mail.infomaniak.ch (smtp-4-0000.mail.infomaniak.ch [10.7.10.107])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YzsMf5YhgzRdr;
-	Fri, 21 Feb 2025 15:05:02 +0100 (CET)
-Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YzsMd6ZDmzX2K;
-	Fri, 21 Feb 2025 15:05:01 +0100 (CET)
-From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Fri, 21 Feb 2025 15:04:36 +0100
-Subject: [PATCH v2 4/5] arm64: dts: rockchip: add overlay for PX30 Ringneck
- Haikou Video Demo adapter
+	Fri, 21 Feb 2025 14:06:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jOC68uY13AiwLQ1TLrKvPNlP6ZsVDROGRUoM8JKbh5saJDuFdFoQGNMsp87GDBCAGLHDlSdYzmp+9pAupiFRjgzd+jcukwqGGDnvk9f8M1HyRUVzWFea5tbciWux9y2hksFI5bQ8EhhGumH+6GiF9awjYsZCaxPzj1VhLDm6zRod42h368lzeU8ad3u8BITWdMTVqA3Dr3KveBqomcXrUYvcwNRu8HGQFlHApXPgD+8G6h5GhsLs/hWdPffBj231ZZIg6pNQPPJY1k+x0X8phB6hEzYKNnRv42PPLPNqiEFru6zf+SmMYStCE82ZoJNKHK2EwTLuyLTZxxCDFIIMHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=64eYMEDrlRIxbcPeG3FvwifDl+9+anJdNxRVXm6iO4g=;
+ b=GVZZOrCLow23O8nvfnJRdL7lypx/ecKFzCCMu6qCIjoPWiFVJX39H5IccuVbGFJCaqp9HViq099RCnXOfKxikRV3+9LBia/6DQ3s63QVeivYJ5HaB27HvhTHMvSPon/aiPKuJbXLcnlHDldFBtqGjtQf7Yr2kQbwdk+ZAmZ83wQijYjDTmFvBSXXffcwyhpk6DKXz4ukwMTipwr8+v1MNAdLEd5mN2XubvtIDTljYqAQRRuLsY9XcBn/5Y9TN+uhjxjdhx/fXXVnbJ2kEWwNLK/NOGOMowow3hCwKM3Iu04tHvX3aXNtZ81p8Uo4UrKKYj3HmQdBVvxa3c63MUo9DA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=64eYMEDrlRIxbcPeG3FvwifDl+9+anJdNxRVXm6iO4g=;
+ b=ONJDXbob5XxZXuS000II7N4H2AgsivXLmY9r2ok4A/Q05PWSxMgOzH/oNSOyUmkzjJ86X8hOtzrbJm+h/TH0Wnl+ZTwiKVbEKc8qZyvBqdhd6a1NCntJ0xiY06gUWxUSIza6v1dset8tDAsV9J2aPsRLestsEc8LeRXVt0AXI6htZHDh4CLcDN7GLRJp0kzYN+sHZ1TIeDzR+eXG5Hg2Qg+R4nttWrmUJ1fpkAkHVSiDov8pKIz40zfPE21j5FvpETh2IVKSH0ndIyUgN0qmpKOtf4ZaCx293iuSXxSvNDevGol/AxAcPESb2XWjoC0P1e/MBoJPgaYkRtnhm5IWAg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CY8PR12MB7707.namprd12.prod.outlook.com (2603:10b6:930:86::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.15; Fri, 21 Feb
+ 2025 14:05:58 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8466.015; Fri, 21 Feb 2025
+ 14:05:58 +0000
+Date: Fri, 21 Feb 2025 10:05:57 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
+	maz@kernel.org, joro@8bytes.org, will@kernel.org,
+	robin.murphy@arm.com, shuah@kernel.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
+	baolu.lu@linux.intel.com, yi.l.liu@intel.com, yury.norov@gmail.com,
+	jacob.pan@linux.microsoft.com, patches@lists.linux.dev
+Subject: Re: [PATCH v2 1/7] genirq/msi: Store the IOMMU IOVA directly in
+ msi_desc instead of iommu_cookie
+Message-ID: <20250221140557.GL50639@nvidia.com>
+References: <cover.1740014950.git.nicolinc@nvidia.com>
+ <a4f2cd76b9dc1833ee6c1cf325cba57def22231c.1740014950.git.nicolinc@nvidia.com>
+ <87ldtzhcjv.ffs@tglx>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <87ldtzhcjv.ffs@tglx>
+X-ClientProxiedBy: MN2PR14CA0008.namprd14.prod.outlook.com
+ (2603:10b6:208:23e::13) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250221-ringneck-dtbos-v2-4-310c0b9a3909@cherry.de>
-References: <20250221-ringneck-dtbos-v2-0-310c0b9a3909@cherry.de>
-In-Reply-To: <20250221-ringneck-dtbos-v2-0-310c0b9a3909@cherry.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Quentin Schulz <quentin.schulz@theobroma-systems.com>, 
- Farouk Bouabid <farouk.bouabid@theobroma-systems.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>
-X-Mailer: b4 0.14.2
-X-Infomaniak-Routing: alpha
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY8PR12MB7707:EE_
+X-MS-Office365-Filtering-Correlation-Id: 32d618b7-7b1e-4a73-66e5-08dd5280ddb1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BtA2NgFRbNCIyGJb6BiYwwbHpa22zbnKLWNK+JRdFwm5FOspaQ4wXrgpcblT?=
+ =?us-ascii?Q?5ML7qIM24HITq3tzNqZLiwqQ77/j5EoTL2+1qzCCeA1mBan9hB3f+/yZcAg7?=
+ =?us-ascii?Q?3wWMGJVQWX9SaegEPRwWPp0J7wxulUcOlH7dZ54LjTy1V/ty/+0eamfFW0HB?=
+ =?us-ascii?Q?eVV53hRThyj7Y1ByyqLXiFEVyMHhdMSOaFfH4zsXV8EYsk0unfpJh4V2i4O0?=
+ =?us-ascii?Q?XQ2MAj3z6uBnRZkDNxAk3QxWPWE/f/B54W+wIFklhqY39m3yTmqZBg4AC603?=
+ =?us-ascii?Q?xmPxCksrUNfhmLr7vhwhZA9G7rKydPFPByygDaxFY262CDo3sVqfGCe2uJR1?=
+ =?us-ascii?Q?7UFcS3h7MvLk15mYxL4QDTG+y4wGoXTdwuFEf26l83QRAjDJkQgOY3TMgZHE?=
+ =?us-ascii?Q?61cEyBKsNRnF2kpMaf+K7QvwKVhzZMsgx7q1qbm/q2XUD4zQ0G015gF3b9dc?=
+ =?us-ascii?Q?ex18qfyQKLnMhRe2JZFXdYAAj625y9EYiKHY1QMIJYNQWL7rLdNDylI+5jeN?=
+ =?us-ascii?Q?NZVAcqeCSK/dcNtpAgUpFYmhZ+FrkyOZiNjya2r/UiYsY7Ei8+WwG40xG0ry?=
+ =?us-ascii?Q?9+Ye30C67s2LbcINqMKi906oP30WEJrdNiubWy3Qusrk07DFTa6F6MY7Pmfh?=
+ =?us-ascii?Q?nIvWgv9IWDsIJ2mPhQipx8oZjKdXwCj93ykNidGAJLqTFQ04mal8Twpf42fd?=
+ =?us-ascii?Q?IaCwTjJniX7MLbvK9dsWb4U2M9BrbWvpxlakYzaTaruG903xCk50QJ4+9NSH?=
+ =?us-ascii?Q?qMIJmFJiDcMQyeE1zNhxx7AWuFcfJ8Fvelmw/aapPOKwHBwgpb1hlLrMAReu?=
+ =?us-ascii?Q?1ffUWGADXQ9CNbOWBt/b9LA17hCKQe3gSnSI+FQfqO/2zCSZOTqXoZe7cBsX?=
+ =?us-ascii?Q?QEMXpWphBov93qUzU0d0nkU6KmqteJb1rUtXzNtGzMYSjGqkQZ+e6HYg8T9K?=
+ =?us-ascii?Q?c0CbRNHmtY13iHX5oBweofx2FHkIksFieOxf4dv7clqQPtgVPOjIQZtuJXQJ?=
+ =?us-ascii?Q?Go93WJbx35y6iAH3vcxjl1G4wOWkvrxwXLAfCRz91M3SEjuA3gOhczmy5d+i?=
+ =?us-ascii?Q?8VSTsC3s+TjfEzYKwJPVt3B2KkaR/w9N90hexRHiriOvLL6RNdR3Xtf34I5Q?=
+ =?us-ascii?Q?ORy0gR0L0yyn1r+7Qz2Ozr4IH+JQZLc41rcFsA58Iak+eT/mPHGfCpywcAAf?=
+ =?us-ascii?Q?aHJ2eIzFscQO+kwrzcGuiVq+bW+oULMkTFdhgcnSwGC56u95s/FVm6JIqYjx?=
+ =?us-ascii?Q?VlmYF+nUW3pGKYKwjqOWBFqet4rwQtcOXWxW6z/iqDAwvr0/FzYWP7L/Fb8c?=
+ =?us-ascii?Q?k2gwhaf7yLn7s6jzqvraRTL3QtCKtfjCGdfZ7k1RJYlNlqEdgRKo4M1JIj8I?=
+ =?us-ascii?Q?9UdH8EwQAiizUDUGKELI/aPIVT64?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?EUY7MVvw6Uzow8drMA1AtP2x2rjmJz+kBWjbFAzMBekvAHjJlYeeK2eVv5lf?=
+ =?us-ascii?Q?F3KFeTYXQnpYMsrH5/EfkP7EgUlzdnEZNds57v0qsK3cbmA7uvI3iQnnuBrk?=
+ =?us-ascii?Q?Zj4aa4oSCFEKxnaUx00ONy7brB15OaKlf6su6BKZ/vP6S3qSRTRLQDiHoLMW?=
+ =?us-ascii?Q?xAqrGNeBfFat1ylTq2a5Oj9o3yzncJ1EP4WZ2smyLM8P8hM968KxiPlD4x4C?=
+ =?us-ascii?Q?m0vy1FlHECe6xBVcyAA1HSzI7wAgbSRT7nwaX+UyMqYVuWRFJjsGYhBAyeNk?=
+ =?us-ascii?Q?yGQEVwmaVcSMkDrvuIaCDdm0+WKPwReKjBZrCHbEwGRYCeSTMKEmVii8C2Kk?=
+ =?us-ascii?Q?x96DJvSMlan6WV1FO61rqKpc2LyvTi+6I1bQinYF1VPmvfFWd86sUdd2M2dU?=
+ =?us-ascii?Q?FnLWliCOk88/nghf5IpOAHFPpwAXA8eDfVmKVDQZS2a6jvlAvr/2wzm6DPwz?=
+ =?us-ascii?Q?KRkWdeuUSDUxf6OGZ+3tDchC89mnUwEFODIGCMLgzM1ZwSmYk5X5xmAVV/aa?=
+ =?us-ascii?Q?GI6PRDK0LZXBrHvnqyq3lqiBOOjiSdXZmtt2wDQkgKGGFKRwmTwq75vVIQg2?=
+ =?us-ascii?Q?NTXkqjhaTo8Gq4fcDNB2PpG5MCQ5xGd8TwpbVJt0uPVcZURh9LG1MsNPFd1+?=
+ =?us-ascii?Q?tMtYhYhibrgZ8NVsCadSxcx+nYlcWKpToft0zmiOaUYnhPNUI3VebbeVOHsj?=
+ =?us-ascii?Q?Cl4qR3aDr7r5FHA1LcnpcwXHEMlWuQGTnXZDIFM5D0eIJyH7eDgxS8eOlkOg?=
+ =?us-ascii?Q?SloCRBY7tYfk8fb0w6sntw2lMD0rkwIy8YJTeTjYVYD/xSmcn4OnWn5tora/?=
+ =?us-ascii?Q?1QQYcN2w4NVUkih92/TqtQMod++LiD5qIQDS3XGepc25V/5s0MR0hny5A+10?=
+ =?us-ascii?Q?lxhqAijgztzgkGEZq7uDMtiiVZH7pU4OVnfDgrmqvj4JAkhf04hTHv1YBoY1?=
+ =?us-ascii?Q?YU2ESSEU7xWwffI/08/k3WNqfTes/pnrPDxrw/pFbDspKxwMMZ3BIJ774Be1?=
+ =?us-ascii?Q?euXPY5nibYekJoQboHjaBqwhJQacyTaBhIy5vf3Qp4qGmAzTki/P7+x4EgSD?=
+ =?us-ascii?Q?bbA5F5CObXDuwFASlAi2hFPsNgpn4CsKnk6qRcTmseXnJ1g1ZYs47JGE8bZb?=
+ =?us-ascii?Q?Ry4mT8D7Rl48rNQAndo8H3fryZ/lK6YQdQ6s99nBkOkIldYhwBRcHmk1Y2fU?=
+ =?us-ascii?Q?OMCylY0dBHIyTAWoroY/QQC4D6Ghhr3yuH6goZnF03aJ0BBhqm3k5JtU40zg?=
+ =?us-ascii?Q?aQquzQNC3mYN8gBrOlp2QS+yLPlT1Cq1dhNOR956jdgl5MBOgPUUe4ua4H1B?=
+ =?us-ascii?Q?CFEMuiPNBcFTKnf5AmnsGu/e/kjARde1kciR9rzmeiv/cBx5gFwJZsNqLkuz?=
+ =?us-ascii?Q?aVYVZRWLm5RKu4xfLzUC2OfUWpc7ZKTB5pGnP5lTauViEiTdrdlZkE9M8SVd?=
+ =?us-ascii?Q?hE0ZvMt4U+7eNHxi8xno1m81IN8roAUl/5jC0jo7VGKwpxsnYYahXx2vnAg6?=
+ =?us-ascii?Q?CwK6DBRhSBPxr1Dlu5X70TgY3+uELIM8s7uK+vurlxjHezhr3vZWLXgtgLWK?=
+ =?us-ascii?Q?3MfuKYZk4qB9E2kRpY4=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 32d618b7-7b1e-4a73-66e5-08dd5280ddb1
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Feb 2025 14:05:58.7117
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: azL3ZB6C5+4mmyKS/pHViSrWZs1YaJT8/UGEgFrSQwkQgTCBybcDzpQ9YurtvfLC
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7707
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_060505_319633_383C0584 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20250221_060603_671796_A94EABCD 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,249 +163,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+On Fri, Feb 21, 2025 at 10:28:20AM +0100, Thomas Gleixner wrote:
+> On Wed, Feb 19 2025 at 17:31, Nicolin Chen wrote:
+> > Fix the MSI cookie UAF by removing the cookie pointer. The translated IOVA
+> > address is already known during iommu_dma_prepare_msi() and cannot change.
+> > Thus, it can simply be stored as an integer in the MSI descriptor.
+> >
+> > A following patch will fix the other UAF in iommu_get_domain_for_dev(), by
+> > using the IOMMU group mutex.
+> 
+> "A following patch" has no meaning once the current one is
+> applied. Simply say:
+> 
+>   The other UAF in iommu_get_domain_for_dev() will be addressed
+>   seperately, by ....
 
-This adds support for the video-demo-adapter DEVKIT ADDON CAM-TS-A01
-(https://embedded.cherry.de/product/development-kit/) for the Haikou
-devkit with PX30 Ringneck SoM.
+I used this paragraph: 
 
-The Video Demo adapter is an adapter connected to the fake PCIe slot
-labeled "Video Connector" on the Haikou devkit.
+The other UAF related to iommu_get_domain_for_dev() will be addressed in
+patch "iommu: Make iommu_dma_prepare_msi() into a generic operation" by
+using the IOMMU group mutex.
 
-Itss main feature is a Leadtek DSI-display with touchscreen and a camera
-(that is not supported yet because the expected clock rate by the driver
-cannot be exactly reached by the clock driver). To drive these
-components a number of additional regulators are grouped on the adapter
-as well as a PCA9670 gpio-expander to provide the needed additional
-gpio-lines.
-
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
----
- arch/arm64/boot/dts/rockchip/Makefile              |   5 +
- .../rockchip/px30-ringneck-haikou-video-demo.dtso  | 190 +++++++++++++++++++++
- 2 files changed, 195 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index b40b82bd07223f542c17704e7844f002bb31e1c5..0f7c5c55c8b8be11e3fd7a69995ce1c17b22c80d 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -6,6 +6,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-engicam-px30-core-edimm2.2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-firefly-jd4-core-mb.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-ringneck-haikou.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-ringneck-haikou-lvds-9904379.dtbo
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-ringneck-haikou-video-demo.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3308-bpi-p2-pro.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3308-evb.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3308-roc-cc.dtb
-@@ -196,6 +197,10 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-ringneck-haikou-haikou-lvds-9904379.dtb
- px30-ringneck-haikou-haikou-lvds-9904379-dtbs := px30-ringneck-haikou.dtb \
- 	px30-ringneck-haikou-lvds-9904379.dtbo
- 
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-ringneck-haikou-haikou-video-demo.dtb
-+px30-ringneck-haikou-haikou-video-demo-dtbs := px30-ringneck-haikou.dtb \
-+	px30-ringneck-haikou-video-demo.dtbo
-+
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-vz-2-uhd.dtb
- rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
- 	rk3568-wolfvision-pf5-display-vz.dtbo \
-diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-video-demo.dtso b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-video-demo.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..7d9ea5aa598486680191d52e4c87af59f7b0e579
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-video-demo.dtso
-@@ -0,0 +1,190 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2025 Cherry Embedded Solutions GmbH
-+ *
-+ * DEVKIT ADDON CAM-TS-A01
-+ * https://embedded.cherry.de/product/development-kit/
-+ *
-+ * DT-overlay for the camera / DSI demo appliance for Haikou boards.
-+ * In the flavour for use with a Ringneck system-on-module.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/px30-cru.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+
-+&{/} {
-+	backlight: backlight {
-+		compatible = "pwm-backlight";
-+		power-supply = <&dc_12v>;
-+		pwms = <&pwm0 0 25000 0>;
-+	};
-+
-+	cam_afvdd_2v8: regulator-cam-afvdd-2v8 {
-+		compatible  = "regulator-fixed";
-+		gpio = <&pca9670 2 GPIO_ACTIVE_LOW>;
-+		regulator-max-microvolt = <2800000>;
-+		regulator-min-microvolt = <2800000>;
-+		regulator-name = "cam-afvdd-2v8";
-+		vin-supply = <&vcc2v8_video>;
-+	};
-+
-+	cam_avdd_2v8: regulator-cam-avdd-2v8 {
-+		compatible  = "regulator-fixed";
-+		gpio = <&pca9670 4 GPIO_ACTIVE_LOW>;
-+		regulator-max-microvolt = <2800000>;
-+		regulator-min-microvolt = <2800000>;
-+		regulator-name = "cam-avdd-2v8";
-+		vin-supply = <&vcc2v8_video>;
-+	};
-+
-+	cam_dovdd_1v8: regulator-cam-dovdd-1v8 {
-+		compatible  = "regulator-fixed";
-+	        gpio = <&pca9670 3 GPIO_ACTIVE_LOW>;
-+	        regulator-max-microvolt = <1800000>;
-+	        regulator-min-microvolt = <1800000>;
-+	        regulator-name = "cam-dovdd-1v8";
-+	        vin-supply = <&vcc1v8_video>;
-+	};
-+
-+	cam_dvdd_1v2: regulator-cam-dvdd-1v2 {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpio = <&pca9670 5 GPIO_ACTIVE_HIGH>;
-+		regulator-max-microvolt = <1200000>;
-+		regulator-min-microvolt = <1200000>;
-+		regulator-name = "cam-dvdd-1v2";
-+		vin-supply = <&vcc3v3_baseboard>;
-+	};
-+
-+	vcc1v8_video: regulator-vcc1v8-video {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-name = "vcc1v8-video";
-+		vin-supply = <&vcc3v3_baseboard>;
-+	};
-+
-+	vcc2v8_video: regulator-vcc2v8-video {
-+		compatible = "regulator-fixed";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-max-microvolt = <2800000>;
-+		regulator-min-microvolt = <2800000>;
-+		regulator-name = "vcc2v8-video";
-+		vin-supply = <&vcc3v3_baseboard>;
-+	};
-+
-+	video-adapter-leds {
-+		compatible = "gpio-leds";
-+
-+		video-adapter-led {
-+			color = <LED_COLOR_ID_BLUE>;
-+			gpios = <&pca9670 7 GPIO_ACTIVE_HIGH>;
-+			label = "video-adapter-led";
-+			linux,default-trigger = "none";
-+		};
-+	};
-+};
-+
-+&display_subsystem {
-+	status = "okay";
-+};
-+
-+&dsi {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	status = "okay";
-+
-+	panel@0 {
-+		compatible = "leadtek,ltk050h3148w";
-+		reg = <0>;
-+		backlight = <&backlight>;
-+		iovcc-supply = <&vcc1v8_video>;
-+		reset-gpios = <&pca9670 0 GPIO_ACTIVE_LOW>;
-+		vci-supply = <&vcc2v8_video>;
-+
-+		port {
-+			mipi_in_panel: endpoint {
-+				remote-endpoint = <&mipi_out_panel>;
-+			};
-+		};
-+	};
-+};
-+
-+&dsi_dphy {
-+	status = "okay";
-+};
-+
-+&dsi_out {
-+	mipi_out_panel: endpoint {
-+		remote-endpoint = <&mipi_in_panel>;
-+	};
-+};
-+
-+&i2c1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	/* OV5675, GT911, DW9714 are limited to 400KHz */
-+	clock-frequency = <400000>;
-+
-+	touchscreen@14 {
-+		compatible = "goodix,gt911";
-+		reg = <0x14>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PA0 IRQ_TYPE_LEVEL_LOW>;
-+		irq-gpios = <&gpio0 RK_PA0 GPIO_ACTIVE_HIGH>;
-+		pinctrl-0 = <&touch_int>;
-+		pinctrl-names = "default";
-+		reset-gpios = <&pca9670 1 GPIO_ACTIVE_HIGH>;
-+		AVDD28-supply = <&vcc2v8_video>;
-+		VDDIO-supply = <&vcc3v3_baseboard>;
-+	};
-+
-+	pca9670: gpio@27 {
-+		compatible = "nxp,pca9670";
-+		reg = <0x27>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		pinctrl-0 = <&pca9670_resetn>;
-+		pinctrl-names = "default";
-+		reset-gpios = <&gpio0 RK_PA2 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&pinctrl {
-+	pca9670 {
-+		pca9670_resetn: pca9670-resetn {
-+			rockchip,pins = <0 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	touch {
-+		touch_int: touch-int {
-+			rockchip,pins = <0 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&vopb {
-+	status = "okay";
-+};
-+
-+&vopb_mmu {
-+	status = "okay";
-+};
-+
-+&vopl {
-+	status = "okay";
-+};
-+
-+&vopl_mmu {
-+	status = "okay";
-+};
-
--- 
-2.48.1
-
+Thanks,
+Jason
 
