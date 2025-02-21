@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E0F9C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 09:21:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56815C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 09:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DGtNm/6Rj3M3I05SqA47GaE+4eGeDnYscf5oZXlZBIE=; b=sIQ+5nZQRtEP4ORGJfC0mnSHF1
-	Czd4rCWDtbBYba4nAg7B4O2GqdokRuxkz1ZhJzdYH3xQr7pwsV+npM+jeRk92InGSQFAxkcQECOJ9
-	+4Nqs+qIqwg+is1AFojK3tC3unglZJZAHuiYzWuFiMeU8SN4uQzCBghohveOg+9z4Tiy1vw8kTIhR
-	pYDk7caSipQskpuVT/icTPIipSCWo4PDY+Q+P0KY2P8Bvo6pFdPDpDUt3ZD5Rf5NlgWTL+ezIp3Ll
-	SOgP/9TWwT+af0b6nzaB6t915LH70WuPuygW8QY654eqHX4EskolL4FCGoXOWmjSXsoEBra/wiXu+
-	3NqDGK4w==;
+	bh=JWCQDP2EonbsQohXGWFkMdBMmQidjDCqEH8ibMsVIyk=; b=FUC/kXQa0fe0J0K3ueXaA0tD9i
+	qM1cfT0pGa/sOPiVHBUxiM1l2D95cQkA1AEOhWlXsJq9XQHTUnugkcyObPiweA2fNZQVfsmA7zHoh
+	7eygzUwla9W8Wb2o0N+8vLZJCp641GqTPN/aKSdL9tQILOe1sr6QWYqCqG/PkVAZcnAVZ4GP62sgI
+	sCIXYWjWuQfnLxMcb84iSTb46oDoQWcqF0y5WIJQ6gd73MMeuoHU1IDDs6HiM+wUASQ/g0PR0jSq+
+	ps6v1KIVyufKcs/zoDOH6hP608maOpMfcZqaFfpz9VTEyuRXC4YwJZqQDALZ/PH0aA/IvVpL9jo6d
+	hTuID8pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPDk-00000004u7i-26AX;
-	Fri, 21 Feb 2025 09:21:20 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tlPFE-00000004uTR-3Wpj;
+	Fri, 21 Feb 2025 09:22:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPCD-00000004tg3-2MC0;
-	Fri, 21 Feb 2025 09:19:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=DGtNm/6Rj3M3I05SqA47GaE+4eGeDnYscf5oZXlZBIE=; b=ONaMuAsVw2TZehARgoay6h+aKV
-	n66zx596ZMTDByLqRXHEVGjS0zoW6ol1tXDDpbn3r+hqXRuKgygDp7CRNx7utn8uSZEcKPMCFHtfG
-	1jv/dczkx4thJdat+4VkLsNE9XCP0uROKeJTu8dTb01eCGmVPLVunSbPkUD6kyN4ewu3Fkntyq/3q
-	yBDAa8/Y5N6rh5FVEa/D8kzGbMtvCslrH9r66Z8E5JONl8e1Z7282RhJiqzObifsS51fjUyD+VlM2
-	QxvBKj/X1Bk30U9d9pirnGBvZDzUo5S8q/gOatjRJak9VhcCg3eP+Jcr/D8WBreVVspP96PXn+QDc
-	kTWS5PtQ==;
-Received: from i53875a87.versanet.de ([83.135.90.135] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tlPBe-000227-Sd; Fri, 21 Feb 2025 10:19:10 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Salvatore Bonaccorso <carnil@debian.org>,
- Diederik de Haas <didi.debian@cknow.org>
-Cc: Valentin Kleibel <valentin@vrvis.at>, Vinod Koul <vkoul@kernel.org>,
- Chukun Pan <amadeus@jmu.edu.cn>, Philipp Zabel <p.zabel@pengutronix.de>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Jianfeng Liu <liujianfeng1994@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
- Jonas Karlman <jonas@kwiboo.se>
-Subject: Re: [PATCH v2 0/1] phy: rockchip: naneng-combphy: compatible reset with old
- DT
-Date: Fri, 21 Feb 2025 10:19:09 +0100
-Message-ID: <6647031.K2JlShyGXD@diego>
-In-Reply-To: <D7XZZ70KM9NT.14VSJDFUTH0H5@cknow.org>
-References: <20250106100001.1344418-1-amadeus@jmu.edu.cn> <Z7gosm7PJMR0zCg4@eldamar.lan>
- <D7XZZ70KM9NT.14VSJDFUTH0H5@cknow.org>
+	id 1tlPCW-00000004tpg-44r1;
+	Fri, 21 Feb 2025 09:20:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B26861182;
+	Fri, 21 Feb 2025 09:20:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BD1CC4CED6;
+	Fri, 21 Feb 2025 09:20:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740129603;
+	bh=S7u7a+YlaIRiD5gDT6Ek/uMJbGdPwGFC/i5GuTzW1MU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YDFCvYF7oXIAP8YXtkRwlcHSnczi1ouLSAX88JkId7RAAOUIOpLUIY3/OdOZZKVIZ
+	 OPynsTSYi/5a0bSXNAU4XsV9Beg7LUshDPS4rbI/kHHsZw+FdVlBen8gR9fEs730e1
+	 9S+pYJ4l5w2vkUBdShCSwoeF8Dz1bkAbEy/iQfxfPGDZ9jXykr61ZhemUw09/WNdOy
+	 r1NouH3u9XG7xwHQ0qf8Ehx4J0iSE9ZONgPguD0F3NSUSmxkvAfdkOgs8yF16FpXWY
+	 22l6htKoxIb1/8qpZuQoZM6BQ87Gq7Q8fanJqH0K0AJPT/vWyjFIAc6Z15EdtTCQbJ
+	 AQTDTCiQTrzcw==
+Date: Fri, 21 Feb 2025 10:20:01 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Frank Li <Frank.li@nxp.com>, Hui.Ma@airoha.com, upstream@airoha.com
+Subject: Re: [PATCH v2 2/2] PCI: mediatek-gen3: Configure PBUS_CSR registers
+ for EN7581 SoC
+Message-ID: <Z7hFQXIrpMpH_72T@lore-desk>
+References: <Z7eIXsupArd8xH7_@lore-desk>
+ <20250220235607.GA320302@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_011945_627893_FB163418 
-X-CRM114-Status: GOOD (  28.13  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xQ/Sp2/8xd3sTCxm"
+Content-Disposition: inline
+In-Reply-To: <20250220235607.GA320302@bhelgaas>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,50 +81,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 21. Februar 2025, 09:57:14 MEZ schrieb Diederik de Haas:
-> On Fri Feb 21, 2025 at 8:18 AM CET, Salvatore Bonaccorso wrote:
-> > On Tue, Feb 18, 2025 at 12:45:34PM +0100, Diederik de Haas wrote:
-> >> On Tue Feb 11, 2025 at 2:03 PM CET, Valentin Kleibel wrote:
-> >> >>> Chukun Pan (1):
-> >> >>>    phy: rockchip: naneng-combphy: compatible reset with old DT
-> >> >> 
-> >> >> Applied, thanks!
-> >> >> 
-> >> >> [1/1] phy: rockchip: naneng-combphy: compatible reset with old DT
-> >> >>        commit: bff68d44135ce6714107e2f72069a79476c8073d
-> >> >
-> >> > Thanks for your work!
-> >> > We found your patch after NVMes stopped working on a rock 3A with newer 
-> >> > kernels and successfully applied it to kernel 6.1.128 (currently in debian).
-> >> 
-> >> FTR: I've reported it in Debian here: https://bugs.debian.org/1098250
-> >> 
-> >> I confirmed it (also) broke on kernel 6.12.8-1.
-> >
-> > FWIW, we have several users in Debian reporting the problem, so if it
-> > can be applied to mainline and then flow down to one of the next round
-> > of stable series down to 6.1.y that would be highly appreicated.
-> >
-> > Diederik, if you were able to test the fix, you might contribute a
-> > Tested-by (although as I undestsand its not strictly needed at this
-> > point as commit should be on way to mainline and stable series)?
-> 
-> AFAIK a Tested-by could increase the chances of the maintainer accepting
-> the patch, but that has already happened (commit date: 2025-02-04).
-> The patch was already verified to fix the problem before submission:
-> https://lore.kernel.org/all/20250103171109.2726312-1-liujianfeng1994@gmail.com/
-> 
-> So AFAICT another Tested-by would either have no effect or a delaying
-> effect (adding it would change a bunch of commit IDs probably triggering
-> various CIs to run again).
-> I'm not aware of anything (else) I could do wrt this patch.
 
-the patch already is in the fixes-branch of the phy-tree [0], sho should
-make its way into 6.14-rc shortly.
+--xQ/Sp2/8xd3sTCxm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Heiko
+> [+cc Frank, who asked the same question about DT]
+>=20
+> On Thu, Feb 20, 2025 at 08:54:06PM +0100, Lorenzo Bianconi wrote:
+> > On Feb 20, Bjorn Helgaas wrote:
+> > > On Sun, Feb 02, 2025 at 08:34:24PM +0100, Lorenzo Bianconi wrote:
+> > > > Configure PBus base address and address mask to allow the hw
+> > > > to detect if a given address is on PCIE0, PCIE1 or PCIE2.
+>=20
+> > > > +#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
+> > > > +#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
+> > > > +#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
+> > > > +	((_n) =3D=3D 2 ? 0x28000000 :	\
+> > > > +	 (_n) =3D=3D 1 ? 0x24000000 : 0x20000000)
+> > >=20
+> > > Are these addresses something that should be expressed in devicetree?
+> >=20
+> > Do you have any example/pointer for it?
+> >=20
+> > > It seems unusual to encode addresses directly in a driver.
+> >=20
+> > AFAIK they are fixed for EN7581 SoC.
+>=20
+> So this is used to detect if a given address is on PCIE0, PCIE1 or
+> PCIE2.  What does that mean?  There are no other mentions of PCIE0 etc
+> in the driver, but maybe they match up to "pcie0/1/2" in
+> arch/arm64/boot/dts/mediatek/mt7988a.dtsi?
+>=20
+> It looks like you use PCIE_EN7581_PBUS_ADDR(slot), where "slot" came
+> from of_get_pci_domain_nr(), which suggests that these might be three
+> separate Root Ports?
 
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/phy/linux-phy.git/log/?h=fixes
+I was using pci_domain to detect the specific PCIe controller
+(something similar to what is done here [0]) but I agree with Frank, it does
+not seem completely correct.
 
+[0] https://github.com/torvalds/linux/blob/master/drivers/pci/controller/pc=
+ie-mediatek.c#L1048
 
+>=20
+> Are we talking about an MMIO address that an endpoint driver uses for
+> readw() etc, and this code configures the hardware apertures through
+> the host bridge?  Seems like that would be related to the "ranges"
+> properties in DT.
+
+I guess so, but I do not have any documentation about pbus-csr (adding Hui =
+in
+the loop).
+
+As pointed out by Frank, do you agree to add these info in the dts? Somethi=
+ng
+like:
+
+pcie0: pcie@1fc00000 {
+	....
+	mediatek,pbus-csr =3D <&pbus_csr 0x0 0x20000000 0x4 0xfc000000>;
+	....
+};
+
+pcie1: pcie@1fc20000 {
+	....
+	mediatek,pbus-csr =3D <&pbus_csr 0x8 0x24000000 0xc 0xfc000000>;
+	....
+};
+
+@Hui: can you please provide a better explanation about pbus-csr usage?
+
+Regards,
+Lorenzo
+
+>=20
+> Bjorn
+
+--xQ/Sp2/8xd3sTCxm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ7hFQQAKCRA6cBh0uS2t
+rMgvAP0cRVYb+GGLw9gCGcDYMXSqkWGyssZSlcc3BpNd32BPpwEA74q7lbggDL1Q
+OnXA7DoPO1K0+hSFJkVPfJhFysDHAgI=
+=ViXQ
+-----END PGP SIGNATURE-----
+
+--xQ/Sp2/8xd3sTCxm--
 
