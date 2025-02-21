@@ -4,71 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D62C7C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 11:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 428FFC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 11:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YLtGowOkt8ndAKlUsXif47m975sM/2ZzAAVHl3AULBw=; b=l0myuXtWTM8J7rtlSBR8tl8XZ+
-	XoQJW2B4NYGZeBxUZMolf3vM+Cx5a2RYoEwXIZNYQuG8MqMw/k9DpT8QzDhLjg+Wq9hfCuCgdSe3u
-	n/XDp4QtiQfq7Bnoa9VD2XUbNv9Ez0gWXKZtSOrr+beZRkeVvT4XaA+pnEG20QoC+iBJl+JnENmOs
-	b33jf5SGhAPno1JZQvHeNH4ZZVxWZCK5xwHfVM6LZWy0HGTIgl99CaulJTnwKEdQT5unreD5XZrJJ
-	uh/iswmcDsBpuYpxJ62c3rbFVNOIO6QSEr4Az/uhp5e+htF3WOegOjY8oo5ji37ixW33Jw5LnTJTx
-	FC91MqQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zI2NaFXtCNAAcLn9axAPJOBAp9dC8kW+ekIv6/0Lejc=; b=omLaIUZRBIyeCwiIKWRItkQKB5
+	T6xY8rI7RjYmtd53cSA+WIebsFWl/o9fQEIEChXs6OojPAHefqIIZRnzJ5mnGUJPPfeqb9MLRVNrV
+	FKFZn1FUUv+JLb2/QoU5j7GYmo3QIu/FkuQVP1/QQNwOc8Y6pfeYCWX0ivLei5LXZK1/ongBTMfxB
+	ov1nZKs54P0h8wzSDct2CeUAixFlSLHieRIfCDiUjhM5eVw1hI7o6mMVvqT7EnWEaOSiOY5EmmvJI
+	gMZO+bLuJbo2+2EJyREzWyLgvEsbUF5oTNIamVTU1Y5qZAQzpsZYm6IkUhtMN+PZ6irbpx+jUabXd
+	RN/NVU9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlQxf-00000005INd-0OUE;
-	Fri, 21 Feb 2025 11:12:51 +0000
-Received: from mail-m1973170.qiye.163.com ([220.197.31.70])
+	id 1tlQz8-00000005Ihz-30MN;
+	Fri, 21 Feb 2025 11:14:22 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlQW7-00000005E5n-3Oh8;
-	Fri, 21 Feb 2025 10:44:26 +0000
-Received: from localhost.localdomain (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id bca250c1;
-	Fri, 21 Feb 2025 18:44:15 +0800 (GMT+08:00)
-From: Kever Yang <kever.yang@rock-chips.com>
-To: heiko@sntech.de
-Cc: linux-rockchip@lists.infradead.org,
-	Kever Yang <kever.yang@rock-chips.com>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Finley Xiao <finley.xiao@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Rob Herring <robh@kernel.org>,
-	Liang Chen <cl@rock-chips.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Elaine Zhang <zhangqing@rock-chips.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH v6 2/2] arm64: dts: rockchip: Add rk3576 pcie nodes
-Date: Fri, 21 Feb 2025 18:43:57 +0800
-Message-Id: <20250221104357.1514128-3-kever.yang@rock-chips.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250221104357.1514128-1-kever.yang@rock-chips.com>
-References: <20250221104357.1514128-1-kever.yang@rock-chips.com>
+	id 1tlQpH-00000005Gte-1u3E;
+	Fri, 21 Feb 2025 11:04:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1740135849;
+	bh=RCnNhgw75I/wEW2JWpngXCKAxqIVcEwXxTd7/ahkD3Q=;
+	h=From:Date:Subject:To:Cc:From;
+	b=DZhea9b4fkr8gbhixEfwqn6OlEv6qNZu0rW2pu+Kqx+ThaqfXU0cmkDBJrAfFkqVb
+	 aHb0AstOTFgzh5g/Ch+DiO9m7Ils+0F2qIIEz4pUyaAsKlMHTH2DP3mVKBty5tiLAU
+	 151ZbRyu4AhIddUjcaB2smqtU/i3Ve3X/P+wflspqQA5ZbpGZJN92lOoLr21Itzo+c
+	 W5WhkqGvnoBAQKXtWnlLPfSjZD79Wulcty0dUuwM+l28qEPNmBm87CchGV3ZBfCDrA
+	 8Z4A93cVUY9p44vkArcOR/HSCbgPjVBFDk7DlDloGmgcAfS9SRbzMzUl2utClmNf2r
+	 cE+g11KjuyyXw==
+Received: from yukiji.home (lfbn-tou-1-1147-231.w90-76.abo.wanadoo.fr [90.76.208.231])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id DB6E017E02BE;
+	Fri, 21 Feb 2025 12:04:08 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Fri, 21 Feb 2025 12:04:02 +0100
+Subject: [PATCH] soc: mediatek: mtk-socinfo: Avoid using machine attribute
+ in SoC detection log
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkwfS1YYQhlMSxpLH0JNSE5WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a95281ba4f803afkunmbca250c1
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Pgw6Pgw*IzIJQhkZGQMPGAEj
-	DxgwFCtVSlVKTE9LSkhPTU5NTktNVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPQkhPNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=QFH26siRGVcCZyIMEOMBXhpxRMjqpng20geAqyTffKjmHdP0ZSkO9tH+QSpZZUhtplCAun2hctJmV0k48FeOlB/glVsPnQTxPOgAynnaw5zt6yPwQrvHLuGTSejJX5ye2lb5hBMdAWr4yBJLwovT65txiES3E/zJH2AW1gVaNNQ=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=YLtGowOkt8ndAKlUsXif47m975sM/2ZzAAVHl3AULBw=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250221-mtk-socinfo-fix-print-v1-1-20500f30ef66@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAKFduGcC/zWNwQrCMBBEfyXs2YWYUJD+ivTQxI0ukk1NohRK/
+ 93F4vHNMG82aFSZGoxmg0ofblxE4XwyEB+z3An5pgzOusE6ZzH3J7YSWVLBxCsulaUjXXzywdN
+ gQwDdLpW0/Hmv08GVXm/V9yOEMDfCWHLmPhqhteP/AqZ9/wIYnOWumAAAAA==
+X-Change-ID: 20250220-mtk-socinfo-fix-print-e83f3b3e50bb
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Fei Shao <fshao@chromium.org>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740135848; l=1637;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=RCnNhgw75I/wEW2JWpngXCKAxqIVcEwXxTd7/ahkD3Q=;
+ b=RekhF+VTRj/NNwFMjsJNiXVDNcX0IETBIKOwOKIFzwREB2y/iLivfFzlt/glLTGYP7+5tgcGH
+ E3wiP8tO2XEBeM21mk/eX31XadTZyDtkw8hNyGXGVJ9ttDoTT0PG8YZ
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_024424_051269_B1AE4655 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250221_030411_652835_795E16C0 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,145 +86,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rk3576 has two pcie controllers, both are pcie2x1 work with
-naneng-combphy.
+The recently introduced SoC attribute info rework avoided modifying the
+machine attribut but still used it in the log message on successful SoC
+matching. It leads to print a confusing log about a board-related info
+(read from devicetree) and not about the matched SoC:
+```
+mtk-socinfo mtk-socinfo.0.auto: MediaTek MediaTek Genio-510 EVK SoC
+  detected
+```
 
-Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+So, fix the dev_info format to display SoC family and name attribute
+instead.
+```
+mtk-socinfo mtk-socinfo.0.auto: MediaTek Genio 510 (MT8370) SoC detected.
+```
+
+Fixes: da77c2d3d06c ("soc: mediatek: mtk-socinfo: Restructure SoC attribute information")
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
+ drivers/soc/mediatek/mtk-socinfo.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v6: None
-Changes in v5: None
-Changes in v4: None
-Changes in v3:
-- Update the subject
-
-Changes in v2:
-- Update clock and reset names and sequence to pass DTB check
-
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 109 +++++++++++++++++++++++
- 1 file changed, 109 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 4dde954043ef..b4f396421686 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1127,6 +1127,115 @@ qos_npu_m1ro: qos@27f22100 {
- 			reg = <0x0 0x27f22100 0x0 0x20>;
- 		};
+diff --git a/drivers/soc/mediatek/mtk-socinfo.c b/drivers/soc/mediatek/mtk-socinfo.c
+index a15d8f854cefa90883377b47bbc16a7072ee21cd..ac7bb0cbff2df5e1c4033646cd3b644e67ee7f69 100644
+--- a/drivers/soc/mediatek/mtk-socinfo.c
++++ b/drivers/soc/mediatek/mtk-socinfo.c
+@@ -87,7 +87,7 @@ static int mtk_socinfo_create_socinfo_node(struct mtk_socinfo *mtk_socinfop)
+ 	if (IS_ERR(mtk_socinfop->soc_dev))
+ 		return PTR_ERR(mtk_socinfop->soc_dev);
  
-+		pcie0: pcie@2a200000 {
-+			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			bus-range = <0x0 0xf>;
-+			clocks = <&cru ACLK_PCIE0_MST>, <&cru ACLK_PCIE0_SLV>,
-+				 <&cru ACLK_PCIE0_DBI>, <&cru PCLK_PCIE0>,
-+				 <&cru CLK_PCIE0_AUX>;
-+
-+			clock-names = "aclk_mst", "aclk_slv",
-+				      "aclk_dbi", "pclk",
-+				      "aux";
-+			device_type = "pci";
-+			interrupts = <GIC_SPI 281 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 282 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 279 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 280 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 278 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 283 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
-+			#interrupt-cells = <1>;
-+			interrupt-map-mask = <0 0 0 7>;
-+			interrupt-map = <0 0 0 1 &pcie0_intc 0>,
-+					<0 0 0 2 &pcie0_intc 1>,
-+					<0 0 0 3 &pcie0_intc 2>,
-+					<0 0 0 4 &pcie0_intc 3>;
-+			linux,pci-domain = <0>;
-+			num-ib-windows = <8>;
-+			num-viewport = <8>;
-+			num-ob-windows = <2>;
-+			max-link-speed = <2>;
-+			num-lanes = <1>;
-+			phys = <&combphy0_ps PHY_TYPE_PCIE>;
-+			phy-names = "pcie-phy";
-+			power-domains = <&power RK3576_PD_PHP>;
-+			ranges = <0x01000000 0x0 0x20100000 0x0 0x20100000 0x0 0x00100000
-+				  0x02000000 0x0 0x20200000 0x0 0x20200000 0x0 0x00e00000
-+				  0x03000000 0x9 0x00000000 0x9 0x00000000 0x0 0x80000000>;
-+			reg = <0x0 0x22000000 0x0 0x00400000>,
-+			      <0x0 0x2a200000 0x0 0x00010000>,
-+			      <0x0 0x20000000 0x0 0x00100000>;
-+			reg-names = "dbi", "apb", "config";
-+			resets = <&cru SRST_PCIE0_POWER_UP>, <&cru SRST_P_PCIE0>;
-+			reset-names = "pwr", "pipe";
-+			status = "disabled";
-+
-+			pcie0_intc: legacy-interrupt-controller {
-+				interrupt-controller;
-+				#address-cells = <0>;
-+				#interrupt-cells = <1>;
-+				interrupt-parent = <&gic>;
-+				interrupts = <GIC_SPI 280 IRQ_TYPE_EDGE_RISING>;
-+			};
-+		};
-+
-+		pcie1: pcie@2a210000 {
-+			compatible = "rockchip,rk3576-pcie", "rockchip,rk3568-pcie";
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			bus-range = <0x20 0x2f>;
-+			clocks = <&cru ACLK_PCIE1_MST>, <&cru ACLK_PCIE1_SLV>,
-+				 <&cru ACLK_PCIE1_DBI>, <&cru PCLK_PCIE1>,
-+				 <&cru CLK_PCIE1_AUX>;
-+			clock-names = "aclk_mst", "aclk_slv",
-+				      "aclk_dbi", "pclk",
-+				      "aux";
-+			device_type = "pci";
-+			interrupts = <GIC_SPI 267 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 268 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 265 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 266 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 264 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 269 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "sys", "pmc", "msg", "legacy", "err", "msi";
-+			#interrupt-cells = <1>;
-+			interrupt-map-mask = <0 0 0 7>;
-+			interrupt-map = <0 0 0 1 &pcie1_intc 0>,
-+					<0 0 0 2 &pcie1_intc 1>,
-+					<0 0 0 3 &pcie1_intc 2>,
-+					<0 0 0 4 &pcie1_intc 3>;
-+			linux,pci-domain = <0>;
-+			num-ib-windows = <8>;
-+			num-viewport = <8>;
-+			num-ob-windows = <2>;
-+			max-link-speed = <2>;
-+			num-lanes = <1>;
-+			phys = <&combphy1_psu PHY_TYPE_PCIE>;
-+			phy-names = "pcie-phy";
-+			power-domains = <&power RK3576_PD_SUBPHP>;
-+			ranges = <0x01000000 0x0 0x21100000 0x0 0x21100000 0x0 0x00100000
-+				  0x02000000 0x0 0x21200000 0x0 0x21200000 0x0 0x00e00000
-+				  0x03000000 0x9 0x80000000 0x9 0x80000000 0x0 0x80000000>;
-+			reg = <0x0 0x22400000 0x0 0x00400000>,
-+			      <0x0 0x2a210000 0x0 0x00010000>,
-+			      <0x0 0x21000000 0x0 0x00100000>;
-+			reg-names = "dbi", "apb", "config";
-+			resets = <&cru SRST_PCIE1_POWER_UP>, <&cru SRST_P_PCIE1>;
-+			reset-names = "pwr", "pipe";
-+			status = "disabled";
-+
-+			pcie1_intc: legacy-interrupt-controller {
-+				interrupt-controller;
-+				#address-cells = <0>;
-+				#interrupt-cells = <1>;
-+				interrupt-parent = <&gic>;
-+				interrupts = <GIC_SPI 266 IRQ_TYPE_EDGE_RISING>;
-+			};
-+		};
-+
- 		gmac0: ethernet@2a220000 {
- 			compatible = "rockchip,rk3576-gmac", "snps,dwmac-4.20a";
- 			reg = <0x0 0x2a220000 0x0 0x10000>;
+-	dev_info(mtk_socinfop->dev, "%s %s SoC detected.\n", soc_manufacturer, attrs->machine);
++	dev_info(mtk_socinfop->dev, "%s (%s) SoC detected.\n", attrs->family, attrs->soc_id);
+ 	return 0;
+ }
+ 
+
+---
+base-commit: 964b0ceed00032fa0fa841fd61e5f315880a2d36
+change-id: 20250220-mtk-socinfo-fix-print-e83f3b3e50bb
+
+Best regards,
 -- 
-2.25.1
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
 
