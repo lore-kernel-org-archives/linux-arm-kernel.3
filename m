@@ -4,95 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E5CFC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 18:32:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1292C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 18:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=veHeZGAsIMfeo9MJB9NRykJz3c6tbQQyeQEGIEl/Nmc=; b=iAmddcdzSayxoV9+ogYs+rvsZ+
-	FotiavBDAjDVO+Pa7/59UoFmrcx9fPnayJHT1d4YEdRW32f/EwZqIH4xEb9RnYJaw+RJP1U4Vo9JC
-	0R7xainX1g/S5RlBXL7YFnFzvpH3UC5bfaiuTcgLKAAAI4t1dAsBU8huohuqhekmdDp6OMicpA3lK
-	jxYKH8Qo+3EP5qp0rca8xtkL/NYNO87w6e5dbfEOtmZYuMMhrghrKj+hN3RMvTBZZGwhCzpP+4OkY
-	1kTtX6dyuHPhqBHP3kOtvrakAn3WdQBd3q5WlKpna6o6qmaPSXjOGfi/JfYgDHMCghZ6mwbCZwT/Y
-	mImIUVkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=hspZqKnDsW+0SMjzjTTSl903U3dGoPMdHv6ZvoqxDJI=; b=k3ygvmcsGp9ONho0DPgo94CowQ
+	PxRgNejl0PS8/94O9KINcnPy2FCJYCgyHI8lHaLcev2+5BHK2/TI3fPb+kZ4TFJq/2uk4ny3JhTVX
+	1/P6CM8C+QTroOt6zmhm5mMdt9xZTI/E9ULTFQMmcbzBzaswNBv3MT9Q7htyCX6R1frbHSAOOGi/t
+	6L3dvMUaLAYVhL6UnOC5qbsSSC5bpoP9KBjoaBs0AY+qpZ6F49iIth93mp5CXeprZnMfygGTmUDVm
+	inU6J47vdJjHw0sHCOSAdIJfolcraond0Lc9CGgPMjfWE3gkFFh9gZ9vbi1X1A5AnGYkakBc7Qj2I
+	+VSSwkHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlXpH-00000006XiI-1Rot;
-	Fri, 21 Feb 2025 18:32:39 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1tlXqj-00000006XyZ-08hW;
+	Fri, 21 Feb 2025 18:34:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlXdQ-00000006VKh-1LgG
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 18:20:25 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-439946a49e1so15999495e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 10:20:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740162023; x=1740766823; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=veHeZGAsIMfeo9MJB9NRykJz3c6tbQQyeQEGIEl/Nmc=;
-        b=awzsKGpdpisyEXoFz98JLCbH3+U0eMVpTZMTnEpJR+syJJMzpMUqiobQg9D61EFqjZ
-         t1EO9/UEF0UemO0vhgJmkzFQxdZGs/wqdrLV//b1Mb5k1EckYmS690r0DQhj1cumwlai
-         S1Q9tu93NSjUDb50h1yVlVTdzJLwwxOU0MTnVmlaPoy6jDsgL+LMjTuzArIQ+YvZ5Zoi
-         HolA3zKbfWXMiB9Vs813TwSroqatn5Nw3gvXk68JUVgEu7YpJNoDthaVgQdw1vJIEPiv
-         1QvCB2cApy+orNWI2EgJiELDZa03bPSvShDNWjqugVWCpxvk82U55ZHaH7JDYaHsssBf
-         qfmA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740162023; x=1740766823;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=veHeZGAsIMfeo9MJB9NRykJz3c6tbQQyeQEGIEl/Nmc=;
-        b=D8OBeGHo7RDAlDWTbPNMtDFLSVLq4nQ9BG1hN4FHg90Mj5f006kb3n+RAe6e9yvsgy
-         NI8x2Odir+ROY4qk2UUGKZr0HH+8htNRbkPQXjE07ux8bKHVIUT87CGBGfrLmbZvobzP
-         lKYkOvjZ8Kp6OPWqngvTYhp/BEI52546s5OZ/+yNqIQH1OGRVwNwPNZ4d7iL5JsuVlpE
-         6/MRYQls8AABEz8wVhUVQX/nBeqfMd3VNvriDTu0juRu+PTGG2jPfSPdzuTim0OvyV9y
-         zKYyGYhHZii69iNpj0CG6JwPRZnN7/0gw6Lamo0mi1DignvjvuQ1UR7EBSFZayr6Mgpg
-         wLLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVztU204Vx24GdrhY3ZbooppQP5ThOpyilZEY2oE3xkD3gQbT2CL5erMv+Y5I79LX49GgUaTy9Qd7j/iwxOXBEy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEiz+cCd73PWjLMABw2NBI8OM/WxnyfFS26N2MObZiwuhTdXGF
-	/AUs0ZOWlrJRfT6i22biyE9HB18FdpnroEFXbz5cqMaB3OR67ubS
-X-Gm-Gg: ASbGnctz3bdyMWDm0tGD7/2ltj15KSqr/9FH+w3kNspE3k3u/FPGNrw7jLkK19RoVRz
-	U5h38s5IOt6xZ536q6E1u1SveT3nw5nOM0Kh8oI39YAs/IFJ2BKg9REXqIoGDKCJbDHvYO+rY6O
-	3n2CPDJw2K6bWJrFpNNR0UK/zCFsosnQCQwYr1rHR1po7SKgzO4BHoKiLttpHRmTipA9kO95Tpz
-	NJ3jUKOsA+C4Am2ZuivOPzkm9gnyi6U+tiZx/F1lYdSCaVgzIGVNoZrVMjT3njdJHAJTXrJv+cp
-	A1uu6Xi2hduNQ6GNvyV4NL3QYqQgIh2DCYFs2TnZ3kmrkzZPBUkUgLk8/7WGU58RpY13043YE0G
-	jKg==
-X-Google-Smtp-Source: AGHT+IG5DSiVWK86jS+eT9SXqpVSAsqf+fVk2fzSBX+ycmlA1PLgE8RCGQ9E1+kLqZ2oPVb+Mg5AIg==
-X-Received: by 2002:a5d:5f83:0:b0:38f:4e6e:22 with SMTP id ffacd0b85a97d-38f6f0d1c7emr4036180f8f.48.1740162021124;
-        Fri, 21 Feb 2025 10:20:21 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f259d65dfsm24489778f8f.64.2025.02.21.10.20.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Feb 2025 10:20:20 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Philippe Simons <simons.philippe@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Samuel Holland <samuel@sholland.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/Allwinner sunXi SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>,
- open list <linux-kernel@vger.kernel.org>
-Subject: Re: [RFC PATCH 3/3] arm64: dts: allwinner: h700: Enable USB OTG
-Date: Fri, 21 Feb 2025 19:20:19 +0100
-Message-ID: <8490202.T7Z3S40VBb@jernej-laptop>
-In-Reply-To: <CADomA4_yMUS_S-YDrQdSKmZrDMwPeakkJBix-r08UFQejTYYcw@mail.gmail.com>
-References: <20250118102207.9339-1-simons.philippe@gmail.com>
- <3229934.fEcJ0Lxnt5@jernej-laptop>
- <CADomA4_yMUS_S-YDrQdSKmZrDMwPeakkJBix-r08UFQejTYYcw@mail.gmail.com>
+	id 1tlXoF-00000006XV6-3N9V;
+	Fri, 21 Feb 2025 18:31:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B19216160F;
+	Fri, 21 Feb 2025 18:31:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9F4CC4CED6;
+	Fri, 21 Feb 2025 18:31:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740162694;
+	bh=w9dzlHwE4zOZSXrrOMFXhcyCGCwY0q2gs3vSEVl5ROo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=TSsUI0O/LPq4tUi+VtJdBejS0VyBbnZ9CEQNTq6bY3jWmDeMZfurbKC+P/JikOtij
+	 VvFnMYIIAlWnK42mwCiGL8Fr36g/om3oZRKfQ+X8Ze0QKjeykT31YPfp+XgAFjmzmL
+	 PYcjuUSFIt8oVFLrci4VItDo0qKSxr5YDZJ5zw11zKtY4muX2F8VxrChohhPPqm5rX
+	 +7hRYvXXSbUUEfo+cY07eMcnrMPTK1+vVgZy3jNk4z8HeRoMKkanA9k6ge3pj+YIpD
+	 Ba6EU1qw4JLJ9EXASUOk5rpXPSWnRm+wCZfc//WkJnFrHSZvWQkc1O3/lOMr1/5Z0K
+	 GHTSL2mAKWmKQ==
+Date: Fri, 21 Feb 2025 12:31:31 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Hui Ma =?utf-8?B?KOmprOaFpyk=?= <Hui.Ma@airoha.com>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <Ryder.Lee@mediatek.com>,
+	Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Frank Li <Frank.li@nxp.com>, upstream <upstream@airoha.com>
+Subject: Re: =?utf-8?B?5Zue5aSNOiBbUEFUQ0ggdjIgMi8y?= =?utf-8?Q?=5D_PCI?=
+ =?utf-8?Q?=3A?= mediatek-gen3: Configure PBUS_CSR registers for EN7581 SoC
+Message-ID: <20250221183131.GA353053@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_102024_357839_1EDC789A 
-X-CRM114-Status: GOOD (  23.47  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <SG2PR03MB6341ACD4DADDB280A8ACAA29FFC72@SG2PR03MB6341.apcprd03.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,108 +82,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 21. februar 2025 ob 10:54:27 Srednjeevropski standardni =C4=8Das=
- je Philippe Simons napisal(a):
-> On Thu, Feb 20, 2025 at 9:38=E2=80=AFPM Jernej =C5=A0krabec <jernej.skrab=
-ec@gmail.com> wrote:
+On Fri, Feb 21, 2025 at 09:30:40AM +0000, Hui Ma (马慧) wrote:
+> > On Thu, Feb 20, 2025 at 08:54:06PM +0100, Lorenzo Bianconi wrote:
+> > > On Feb 20, Bjorn Helgaas wrote:
+> > > > On Sun, Feb 02, 2025 at 08:34:24PM +0100, Lorenzo Bianconi wrote:
+> > > > > Configure PBus base address and address mask to allow the hw to 
+> > > > > detect if a given address is on PCIE0, PCIE1 or PCIE2.
+> > 
+> > > > > +#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
+> > > > > +#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
+> > > > > +#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
+> > > > > +	((_n) == 2 ? 0x28000000 :	\
+> > > > > +	 (_n) == 1 ? 0x24000000 : 0x20000000)
+> > > > 
+> > > > Are these addresses something that should be expressed in devicetree?
+> > > 
+> > > Do you have any example/pointer for it?
+> > > 
+> > > > It seems unusual to encode addresses directly in a driver.
+> > > 
+> > > AFAIK they are fixed for EN7581 SoC.
+> > 
+> > So this is used to detect if a given address is on PCIE0, PCIE1 or
+> > PCIE2.  What does that mean?  There are no other mentions of PCIE0
+> > etc in the driver, but maybe they match up to "pcie0/1/2" in
+> > arch/arm64/boot/dts/mediatek/mt7988a.dtsi?
+> > 
+> > It looks like you use PCIE_EN7581_PBUS_ADDR(slot), where "slot"
+> > came from of_get_pci_domain_nr(), which suggests that these might
+> > be three separate Root Ports?
+> 
+> >I was using pci_domain to detect the specific PCIe controller
+> >(something similar to what is done here [0]) but I agree with
+> >Frank, it does not seem completely correct.
+> 
+> > [0] https://github.com/torvalds/linux/blob/master/drivers/pci/controller/pcie-mediatek.c#L1048
+> 
+> > Are we talking about an MMIO address that an endpoint driver uses
+> > for readw() etc, and this code configures the hardware apertures
+> > through the host bridge?  Seems like that would be related to the
+> > "ranges" properties in DT.
+> 
+> >I guess so, but I do not have any documentation about pbus-csr
+> >(adding Hui in the loop).
+> 
+> >As pointed out by Frank, do you agree to add these info in the dts?
+> >Something like:
+> 
+> >pcie0: pcie@1fc00000 {
+> >	....
+> >	mediatek,pbus-csr = <&pbus_csr 0x0 0x20000000 0x4 0xfc000000>;
+> >	....
+> >};
 > >
-> > Dne sobota, 18. januar 2025 ob 11:22:06 Srednjeevropski standardni =C4=
-=8Das je Philippe Simons napisal(a):
-> > > RG35XX have a GPIO controlled regulator for phy0 vbus, add it.
-> > > Enable HCI0s controllers and otg for dr_mode.
-> > > Add phy0 properties to descrive id_det, external vbus, and internal v=
-bus
-> > >
-> > > Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
-> >
-> > This could work without previous two patches, right?
->=20
-> While this correctly describes the board, it currently doesn't works
-> as expected.
-> HCIs will enable the 5v on PHY and will never disable it.
-> Resulting in a blown regulator on the board if plugged with another host.
-> I managed to get this working by removing the PHY ref from the HCI,
-> but this is wrong.
+> >pcie1: pcie@1fc20000 {
+> >	....
+> >	mediatek,pbus-csr = <&pbus_csr 0x8 0x24000000 0xc 0xfc000000>;
+> >	....
+> >};
+> 
+> >@Hui: can you please provide a better explanation about pbus-csr usage?
+>
+> 	Pbus-csr (base and mask) is used to determine the address
+> 	range can be access by PCIe bus.
+> 
+> 1FBE3400 PCIE0_MEM_BASE 32 PCIE0 base address
+> 1FBE3404 PCIE0_MEM_MASK 32 PCIE0 base address mask
+> 1FBE3408 PCIE1_MEM_BASE 32 PCIE1 base address
+> 1FBE340C PCIE1_MEM_MASK 32 PCIE1 base address mask
+> 1FBE3410 PCIE2_MEM_BASE 32 PCIE2 base address
+> 1FBE3414 PCIE2_MEM_MASK 32 PCIE2 base address mask
 
-Ok, so this patch shouldn't be merged until USB patches are in.
+"Can be accessed by PCIe bus" sounds like DMA.  Is that what you mean?
 
-Best regards,
-Jernej
+I doubt it, because if you have multiple host bridges, I assume they
+would all be able to handle DMA to all of system memory.
 
->=20
-> >
-> > Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> >
-> > Best regards,
-> > Jernej
-> >
-> > > ---
-> > >  .../sun50i-h700-anbernic-rg35xx-2024.dts      | 25 +++++++++++++++++=
-=2D-
-> > >  1 file changed, 23 insertions(+), 2 deletions(-)
-> > >
-> > > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35x=
-x-2024.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024=
-=2Edts
-> > > index 80ccab7b5..5a6ae42de 100644
-> > > --- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.=
-dts
-> > > +++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.=
-dts
-> > > @@ -175,6 +175,16 @@ reg_vcc5v: regulator-vcc5v { /* USB-C power inpu=
-t */
-> > >               regulator-min-microvolt =3D <5000000>;
-> > >               regulator-max-microvolt =3D <5000000>;
-> > >       };
-> > > +
-> > > +     reg_usb0_vbus: regulator-usb0-vbus {
-> > > +             compatible =3D "regulator-fixed";
-> > > +             enable-active-high;
-> > > +             gpio =3D <&pio 8 16 GPIO_ACTIVE_HIGH>; /* PI16 */
-> > > +             regulator-min-microvolt =3D <5000000>;
-> > > +             regulator-max-microvolt =3D <5000000>;
-> > > +             regulator-name =3D "usb0-vbus";
-> > > +             vin-supply =3D <&reg_boost>;
-> > > +     };
-> > >  };
-> > >
-> > >  &cpu0 {
-> > > @@ -337,12 +347,23 @@ &uart0 {
-> > >       status =3D "okay";
-> > >  };
-> > >
-> > > -/* the AXP717 has USB type-C role switch functionality, not yet desc=
-ribed by the binding */
-> > > +/* the AXP717 has USB type-C role switch functionality */
-> > >  &usbotg {
-> > > -     dr_mode =3D "peripheral";   /* USB type-C receptable */
-> > > +     dr_mode =3D "otg";   /* USB type-C receptable */
-> > > +     status =3D "okay";
-> > > +};
-> > > +
-> > > +&ehci0 {
-> > > +     status =3D "okay";
-> > > +};
-> > > +
-> > > +&ohci0 {
-> > >       status =3D "okay";
-> > >  };
-> > >
-> > >  &usbphy {
-> > > +     usb0_id_det-gpios =3D <&pio 8 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP=
-)>; /* PI4 */
-> > > +     usb0_vbus_power-supply =3D <&usb_power>;
-> > > +     usb0_vbus-supply =3D <&reg_usb0_vbus>;
-> > >       status =3D "okay";
-> > >  };
-> > >
-> >
-> >
-> >
-> >
->=20
+It would make more sense if this is some sort of description of host
+bridge apertures, e.g., something like this to allow CPU MMIO accesses
+to reach the first 2GB of PCI memory space below any of the pcie0,
+pcie1, pcie2 host bridges:
 
+  pcie0 0000:00: root bus resource [mem 0x84000000000-0x8407fffffff] (bus address [0x00000000-0x7fffffff])
+  pcie1 0001:00: root bus resource [mem 0x84100000000-0x8417fffffff] (bus address [0x00000000-0x7fffffff])
+  pcie2 0002:00: root bus resource [mem 0x84200000000-0x8427fffffff] (bus address [0x00000000-0x7fffffff])
 
+But I think this would be described via 'ranges' properties.  And I
+think it would make sense if the driver had to learn this address map
+from devicetree and program it into the hardware, so maybe that's
+what Pbus-csr is for?  Total speculation on my part.
 
-
+Bjorn
 
