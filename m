@@ -4,87 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDDDC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 10:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF19BC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 10:19:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PCWLQJXIRaGa+NaKBUA5lVma2HK+tvmrsuX2eAKzx3I=; b=ufD5HLRpmXYZieacPcMyL/p68B
-	tLDDWp7yf4YhRXmtjlaaVx23ZLBLT2tNlS5OdbG43sisVL69di6/oq6O6YS0jDIWlfQ1oMeLm26FY
-	/e+s3zrrSzlQh1Wl+U7RAqF+RKm+xzVi0CsQzLnrRnnykd6igqpKOVd8fLO7y90BdZDe9CpXa382x
-	8h/cQvm9sjCd4VSYqMo0OzHilzPpXIsOzCxAAdGbbOTRo2qfLN3jIXdd0WOEMsbWNjUspBZD+3wtB
-	6xR0BNYNcCXg/gKOY+H6azfJ2aI24XU8Vx26owPzmEiGEX/eV7jPjhfJAJtDylsQR0tsWYq9Q+eIJ
-	1RdzBxlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cgj0SsAf7s17wTdss/DKIZ3z1NXE7e8Hhk/xnWXEDfM=; b=2xI0iaPL9fKqC/YZzlxNYNMgzA
+	A157ha8klB53f4qibIKQg0HNUqi0QVwIUaQwqiQ98VHVpNSKoJlnnsFTJ5/Zl16Vs+VtWk2w9Y8yK
+	LYlZWSno9rUn2UumkA8OsjPPq7TOm/Z5cyiQKlMAhZpz2dR7vgjsGnIzEkaRkMNVD/n2ZqukHnEkW
+	PZ/ficDY1PcqL5wkThzN1wKtgH4jszg4VJt/0Ge5KHO7DEQA3XcoBPLGJt5TANWanPg/fdfHkJTD/
+	am7hnsyv1HLcGDQtUB6MCvDF+RNGRQrZiEOSv/s2EpeKSd+lpwZ5gXt2EbZY6ZCAa/bVEld0fzJad
+	4GH2n2lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlQ67-0000000591M-0eOE;
-	Fri, 21 Feb 2025 10:17:31 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1tlQ7b-000000059U6-3ijE;
+	Fri, 21 Feb 2025 10:19:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPk2-0000000527j-1cld
+	id 1tlPkg-000000052F2-4AZm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 09:54:43 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5debbced002so3551348a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 01:54:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740131681; x=1740736481; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PCWLQJXIRaGa+NaKBUA5lVma2HK+tvmrsuX2eAKzx3I=;
-        b=mcNbOYrKFC+yBZ3Hs8dv8vfJmliX84Lf7thX9QlP+/r5u1qyiuKSl5AjYt8NyjbyG+
-         JfzTbHfMoZ0nifTEwDxqXXF2yCAPg0H1rGjvgZS4kNQIFH1KEacAu/29np0CNcx0bPWg
-         VJuqPEKWw+xHQmFySTyXl10Hops3HsazYiHOQw4elq+kEgN5JMsA8ZWdghuPpy9Wh7i6
-         LHDvtBxr+WKCFvJzxtXoiOIf+k/kq0Ee/8/JTMK2UpeSB5alirXZQX4UCgRVnpHxftHr
-         DVAAcY1S5ag2fzcLwDRlyczfaCNLbNQ53etoIGeXaDOb4PplMXX4O0E3YTQCv8n9EOR9
-         8lYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740131681; x=1740736481;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PCWLQJXIRaGa+NaKBUA5lVma2HK+tvmrsuX2eAKzx3I=;
-        b=c427RyOOf8P/oNy93MLYFJiqr7m5kXKquwMt0eK4ou9J78nKj7OxtnQPqQWFshdVQJ
-         afzOJ1hKq0zbuPJYFMZ4J/ClVFr5WhLFkAIwQWVPGMwD333U8gqPACfg1sGF/w6BNmfP
-         cS9rMRefZxfmkOFsyiKtHvSjTwb2TcbPUzqpSxDeJm4SrK+9nhbcMJSGsMo2omA4Pmnq
-         KylOtAUzBi4tTzN7QKjAP1DoFaSFcASbatrKs7raJT1SqA3179B0mhQCPO1xbv2apwDB
-         t/QEpaWudjqk4Ga8NrRmbywWtaIs6ZWOwnm0DGebpMrLvBt9vuJqMhot+JDkws9mk5Rv
-         OUaw==
-X-Forwarded-Encrypted: i=1; AJvYcCU2jSUrI78+Ch5RRRXbSupH47QVYaCV2RHVp4qWeEeXsz70Fh8EawkpgLdZBNsNGvxLubItjD+PI/Gp1YdMEOrx@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWVIIWIZQ8gjZ11VhS+aSq2/ay0odw2sb3sMtoQhwCsPPt9jgp
-	463dzciepEC+mk8ATK5EgkEWHRgrdYJzsMjtb0AOrYXBioHvvFMvklZQzINpFi8uRQ/qJyQ9TQv
-	8BH8ShRU2C1JICknU9BwLFD+VhtlurK/Cufw=
-X-Gm-Gg: ASbGnctCloxRWOwHteUbVwIkMQh3sosl9ZZPb3DEaJfsXApsH3412ifSa+J/CTN6ej6
-	wXq67CKJ1f0Me3/Xc/soGoUDAyRSdgE4nBsyv0C3ZMTPvsGJEtaIk3zUSWWEUCt9XLrAt0rdW5u
-	u2SJTa2rs=
-X-Google-Smtp-Source: AGHT+IERzieE0HXpOGPr2oPq6V5HcGC9rINMOoagVFBANbqyTomsPjFp0m4XiausshWj0LORrEm4V/CktVu+ZQyj1Kw=
-X-Received: by 2002:a05:6402:90b:b0:5e0:6e6c:e2b5 with SMTP id
- 4fb4d7f45d1cf-5e0a1261230mr6369087a12.9.1740131680329; Fri, 21 Feb 2025
- 01:54:40 -0800 (PST)
+	Fri, 21 Feb 2025 09:55:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 026596112D;
+	Fri, 21 Feb 2025 09:55:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8DF8C4CED6;
+	Fri, 21 Feb 2025 09:55:15 +0000 (UTC)
+Date: Fri, 21 Feb 2025 09:55:13 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	Helge Deller <deller@gmx.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>, Dev Jain <dev.jain@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH v2 2/4] arm64: hugetlb: Fix huge_ptep_get_and_clear() for
+ non-present ptes
+Message-ID: <Z7hNgSBw6lfwwcch@arm.com>
+References: <20250217140419.1702389-1-ryan.roberts@arm.com>
+ <20250217140419.1702389-3-ryan.roberts@arm.com>
+ <e26a59a1-ff9a-49c7-b10a-c3f5c096a2c4@arm.com>
+ <5477d161-12e7-4475-a6e9-ff3921989673@arm.com>
+ <50f48574-241d-42d8-b811-3e422c41e21a@arm.com>
 MIME-Version: 1.0
-References: <20250118102207.9339-1-simons.philippe@gmail.com>
- <20250118102207.9339-3-simons.philippe@gmail.com> <3229934.fEcJ0Lxnt5@jernej-laptop>
-In-Reply-To: <3229934.fEcJ0Lxnt5@jernej-laptop>
-From: Philippe Simons <simons.philippe@gmail.com>
-Date: Fri, 21 Feb 2025 10:54:27 +0100
-X-Gm-Features: AWEUYZlqXqdJfwgEwnpCfDSpt4wrYNSKsocDQVRpSu4fjABOQ7YP3MhnhFElf50
-Message-ID: <CADomA4_yMUS_S-YDrQdSKmZrDMwPeakkJBix-r08UFQejTYYcw@mail.gmail.com>
-Subject: Re: [RFC PATCH 3/3] arm64: dts: allwinner: h700: Enable USB OTG
-To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Samuel Holland <samuel@sholland.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_015442_422547_F1F203B0 
-X-CRM114-Status: GOOD (  19.32  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <50f48574-241d-42d8-b811-3e422c41e21a@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,94 +94,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025 at 9:38=E2=80=AFPM Jernej =C5=A0krabec <jernej.skrabec=
-@gmail.com> wrote:
->
-> Dne sobota, 18. januar 2025 ob 11:22:06 Srednjeevropski standardni =C4=8D=
-as je Philippe Simons napisal(a):
-> > RG35XX have a GPIO controlled regulator for phy0 vbus, add it.
-> > Enable HCI0s controllers and otg for dr_mode.
-> > Add phy0 properties to descrive id_det, external vbus, and internal vbu=
-s
-> >
-> > Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
->
-> This could work without previous two patches, right?
+On Thu, Feb 20, 2025 at 12:07:35PM +0530, Anshuman Khandual wrote:
+> On 2/19/25 14:28, Ryan Roberts wrote:
+> > On 19/02/2025 08:45, Anshuman Khandual wrote:
+> >> On 2/17/25 19:34, Ryan Roberts wrote:
+> >>> +	while (--ncontig) {
+> >>
+> >> Should this be converted into a for loop instead just to be in sync with other
+> >> similar iterators in this file.
+> >>
+> >> for (i = 1; i < ncontig; i++, addr += pgsize, ptep++)
+> >> {
+> >> 	tmp_pte = __ptep_get_and_clear(mm, addr, ptep);
+> >> 	if (present) {
+> >> 		if (pte_dirty(tmp_pte))
+> >> 			pte = pte_mkdirty(pte);
+> >> 		if (pte_young(tmp_pte))
+> >> 			pte = pte_mkyoung(pte);
+> >> 	}
+> >> }
+> > 
+> > I think the way you have written this it's incorrect. Let's say we have 16 ptes
+> > in the block. We want to iterate over the last 15 of them (we have already read
+> > pte 0). But you're iterating over the first 15 because you don't increment addr
+> > and ptep until after you've been around the loop the first time. So we would
+> > need to explicitly increment those 2 before entering the loop. But that is only
+> > neccessary if ncontig > 1. Personally I think my approach is neater...
+> 
+> Thinking about this again. Just wondering should not a pte_present()
+> check on each entries being cleared along with (ncontig > 1) in this
+> existing loop before transferring over the dirty and accessed bits -
+> also work as intended with less code churn ?
 
-While this correctly describes the board, it currently doesn't works
-as expected.
-HCIs will enable the 5v on PHY and will never disable it.
-Resulting in a blown regulator on the board if plugged with another host.
-I managed to get this working by removing the PHY ref from the HCI,
-but this is wrong.
+Shouldn't all the ptes in a contig block be either all present or all
+not-present? Is there any point in checking each individually?
 
->
-> Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
->
-> Best regards,
-> Jernej
->
-> > ---
-> >  .../sun50i-h700-anbernic-rg35xx-2024.dts      | 25 +++++++++++++++++--
-> >  1 file changed, 23 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-=
-2024.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.d=
-ts
-> > index 80ccab7b5..5a6ae42de 100644
-> > --- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dt=
-s
-> > +++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dt=
-s
-> > @@ -175,6 +175,16 @@ reg_vcc5v: regulator-vcc5v { /* USB-C power input =
-*/
-> >               regulator-min-microvolt =3D <5000000>;
-> >               regulator-max-microvolt =3D <5000000>;
-> >       };
-> > +
-> > +     reg_usb0_vbus: regulator-usb0-vbus {
-> > +             compatible =3D "regulator-fixed";
-> > +             enable-active-high;
-> > +             gpio =3D <&pio 8 16 GPIO_ACTIVE_HIGH>; /* PI16 */
-> > +             regulator-min-microvolt =3D <5000000>;
-> > +             regulator-max-microvolt =3D <5000000>;
-> > +             regulator-name =3D "usb0-vbus";
-> > +             vin-supply =3D <&reg_boost>;
-> > +     };
-> >  };
-> >
-> >  &cpu0 {
-> > @@ -337,12 +347,23 @@ &uart0 {
-> >       status =3D "okay";
-> >  };
-> >
-> > -/* the AXP717 has USB type-C role switch functionality, not yet descri=
-bed by the binding */
-> > +/* the AXP717 has USB type-C role switch functionality */
-> >  &usbotg {
-> > -     dr_mode =3D "peripheral";   /* USB type-C receptable */
-> > +     dr_mode =3D "otg";   /* USB type-C receptable */
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&ehci0 {
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&ohci0 {
-> >       status =3D "okay";
-> >  };
-> >
-> >  &usbphy {
-> > +     usb0_id_det-gpios =3D <&pio 8 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>=
-; /* PI4 */
-> > +     usb0_vbus_power-supply =3D <&usb_power>;
-> > +     usb0_vbus-supply =3D <&reg_usb0_vbus>;
-> >       status =3D "okay";
-> >  };
-> >
->
->
->
->
+-- 
+Catalin
 
