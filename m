@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8560BC021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 19:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45EAFC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 19:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tOMBM0/LptOoZWpnGTFXn3VuyeurWEITTiZxZ/wflWQ=; b=XjHTR54q5T/Xs2Px4mwrEi0qud
-	LuXAyn2yfSYdGU4Q4k0YyaFpobSRzhjgckdmvV8+GSzdSg51uskGBUlMSWs+Zfb4tow98PixQN8ff
-	AXGK7urAxIANhy/SaHgseKcFUBNEtPlcmu5uzVrntqU7v+z7BQoJ80mYxYfEOw1EIMLbaRK4xn2JH
-	CEAa6JUdbNLubiz/xN61WPiotYcZcE6cscAQMESSg8IOBSc5QROqEAhXr7e/RHILm9V8R8OArbJ+C
-	PKDFkwTOXiw0sKlAa0pgjlGTJy0BvuwxKgBUesF4VGV8hKDK4ZhfdTKyKdTFgvKKJkgHFTw0+8564
-	I2PxqbpQ==;
+	bh=Ia5D1StmV4CnXYyEpke0sKKPWzBMRVegEo2c54oP3lM=; b=DxzhRDgd0wr2hbtSNbpz+YeNs3
+	K+d8on3aLwbGeyS8Khpb+8QcGlSH2FiRry70gMKJCRL41XSZIaVuaG4d16iB3R58AbLyEW3MjMkXk
+	V6ND6TYxSggjiWIQ0c4BiG5hfB6VhDgs6FvpSOIRdnYaq1LEHAr018M2apW++TYv+Ok01k0OX4FeN
+	Go6XPPaqYY4K5jyEIsVAM3r5HizlE2WhgckkU2lSbQE6/j0g7xUXhDW1rgo0N1Y6F4QmsO6445/N7
+	pmFXoXTAWqJmsWF2+nb3+IEepVCwNlVpPM9Mt8rlBW15Boq1arOgqojrF2gK3qv4mVyiSK0x1M5Tt
+	IfQ3i42Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlYTv-00000006cPs-1nAi;
-	Fri, 21 Feb 2025 19:14:39 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tlYVM-00000006cfN-0IkM;
+	Fri, 21 Feb 2025 19:16:08 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlYPf-00000006bW2-16jN
+	id 1tlYPh-00000006bWP-2J4B
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 19:10:16 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-aaecf50578eso479606766b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 11:10:14 -0800 (PST)
+	Fri, 21 Feb 2025 19:10:18 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5e050b1491eso6207878a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 11:10:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740165013; x=1740769813; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740165016; x=1740769816; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tOMBM0/LptOoZWpnGTFXn3VuyeurWEITTiZxZ/wflWQ=;
-        b=PCFXKI7AYVeONOgHc/70GwgDePXT4cDTMn0tczjpKD+npQQju4lZCvyRcwNV0UY/fs
-         i/m5F/K4zjlAMnI/GvwwKQHrLYphDejfFIjN2vaCzLdCoZS8MrV+xp627FnBAW9vwqaP
-         iFYZLDY4BJ+HtrSYcEupdBbBPCtPfbHHxOya3BOnLISeo1DAUMTPrAkHr+vNuiTGDjz9
-         2t0qdz/IqZqCN0HfAGvRSFILMbgtqdVNFKTyiNmnYaC35EnMmYjJr+mB+cs+Lm9k2le1
-         PB0ln5da40yCME5+fjPjJCOH98GBeim9582B7CCxIhw8zjX56jDV+qlFBcqvshs78PH0
-         3j7Q==
+        bh=Ia5D1StmV4CnXYyEpke0sKKPWzBMRVegEo2c54oP3lM=;
+        b=UL6HWjLfSIiGonM9e8GAUtp84GxRBbKfrxbBnIOHum7pUH8VjSsHRau62FRqwJEYB0
+         2HSTpmJwinUV91f6Xy7yrOO34+rDXOsQVHZMWLn73dR//opXLbIWSWWvcPobdLiTAFFS
+         BGU/wVZUv0GyqyPCUFkKol/9NbDwEFse9X3PQmP7PZa5/KY1uT8RE2mRDRrHNuB2yu5C
+         aKOs9+YGSPHG4pLHGynujtEGp3rEVn/h5dzCjJLX33xougtcPS2bpTxz3IKRPB9DZplG
+         iv2zEfuJgpkh4ahWhcX4V0iz3CHKKavLHPoE9Tuyp4oKZjlreaq22/jWGOsZIfbMYk3e
+         xvsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740165013; x=1740769813;
+        d=1e100.net; s=20230601; t=1740165016; x=1740769816;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tOMBM0/LptOoZWpnGTFXn3VuyeurWEITTiZxZ/wflWQ=;
-        b=a3S8IH42toIP85HYq7ior8J6s/A3qY3aZ67hcSfx1ThmKJHfBa9as68K8U7z/VeFi9
-         fpcT6y3QqHVqXASN/wPULco9BXA18xUh8PUjsq+e/mGaHftMe2Q5FtKEHFxeCLP4jJ/E
-         zQAksKxincqMF9+EHqiuJijedndG+V8N7RfXh/44tiCISyh4vSdV4arYKNWfPL9C7DvP
-         JLoIxS+Fu9+VKnmCjPdGiRbbt+2QjfSDJo8uih2RP0kFFW1SopIDcc+972LFMvEIZ0IK
-         oqlxedK1yGoiS3p/H0RKHUk4sCdDZ6Cx4ss1aMbtw6vn2gTsTBwqBAJUwAOE2FgVKPpN
-         RrRw==
-X-Forwarded-Encrypted: i=1; AJvYcCUB8Jt8XUMHj9W0AvkAaqTeZGo2aIqoO+zo641zvYJmKh8WdBv7YlbIIl1t8qgTsRCJAIY1PrR1TiTfQk/HKOXX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4fxPF+PLjv5ZbhebhrkyhRPs1yX8TzPw4ulPKZ0htmR1wPqEJ
-	ZcUFZEU6oHC60z4jQtbrVoC62Tm7gYis0eLq90mW6zFqI4ZTZsXb
-X-Gm-Gg: ASbGnculWYNk7RaFW8444mPE9sZGFNbzIwdEZjrBXNAKDDhZtsxY2QIdUMpbQK6W+UR
-	8uXAhrlgyCCaqfBr4v240AqtXxM5Ec4SNB7OARnOqosiiAccKSDrDRGwhJztUHfAEthec5L6seb
-	bWBMWsWtysxY4tSAlbxa+ENQY7WmaqYjWoinkUj+1BqXVOnQSo3ckieI0dIe45Y1m1DwLewPPsY
-	5XVeA+vonMw8m9qwwxffFEYYZ9Qs4eTIIef/zYN5iJl6M6LCcQj1j0LFUV6pQWOp6n73FPPpQLM
-	ESCWnYmiXcfrkpyZ25m300kgMSiUQTuj4dLaHSWPWuKvz/WySftGpocnVBw=
-X-Google-Smtp-Source: AGHT+IH9dIYGKpfakCpm7QX9v0EfX1043+vTXy8S2cvINmOR+ptJQsFSlwJ4jw24HVfPeVBX1a9vlA==
-X-Received: by 2002:a17:907:7285:b0:ab6:ef94:6054 with SMTP id a640c23a62f3a-abc0db35708mr483073766b.33.1740165013278;
-        Fri, 21 Feb 2025 11:10:13 -0800 (PST)
+        bh=Ia5D1StmV4CnXYyEpke0sKKPWzBMRVegEo2c54oP3lM=;
+        b=DLaRdQUw5hmkUuxYD4ZmAurDMPkN20uhVOw5wddu4MJb+A1hrwzP57NrtMnrJTqJgj
+         NZNvKwu/nyna+zjU9/RLpOmgGiiX2eGXX6EMtapfqbz82Eg7b/lHptUstBHcp7J8YvTf
+         JIfwVYvHNMzzAiAbrdcBRNr1093qLmE4ADFzsjaFRKyjkfYy6hxmZgW48ggkbOF+mYsg
+         1MpQjSVa0U7mvPdvIHbwb8xXnNVFZ5Z+4+vRw3jzCBWlMeOjeDMcKZEKGE7v+RKyI1OS
+         +t5FMTk7wnsY8IeMK8GrJjr+MhTlboD1Sw1lDChQoEfKCR1qvmdOMCUJVxH5HWETDny5
+         LOVw==
+X-Forwarded-Encrypted: i=1; AJvYcCVCYzd4cYOMyD8ijmzeF//7yd8z5MTJY9sMpki61+NHckZCFX+jIDzoj0mEMERvLQgtnim/nMUaKVM26Ir9APtA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKfiPILYhg4koGgiqkPwhCeLpy5Vjmcp7deHGR2RDYQdV/Toe/
+	DXv2pDlWsbzZYkdHyQPgeuu34/CbP3I3m8kaCJAglp9zDXrfBFP5
+X-Gm-Gg: ASbGncseL2t7kVIBD/2eOKqazgK49ME7nsmfoUGvGlijVjAeCP24/rzFKFZJQLRJ8S7
+	ZcoCbF5bwCvN9q8e/sSBoWJ8uYUJ8Ny/S5jN1sPmx9pRULZ66nYLyM8R3mTyIIe8KAItd2aovhg
+	tzv7r5ZByxEle+UV2ArUKHHW2msgyDEgI14ttEjF/7hEMQU+gLDI1WvQ4nET4TVaN3hth+sg1O2
+	dTKqOJ261FcASz/TZLCoZJpyniXABQ9No+cSKlCwzHa5/nUvIamsaQiPGXyOppw8C5Bgqm8G6sM
+	xw5RwuKzCeuko4UofcuvFE0S1MXxtJwlPe8CNqjLKNgPO25cj5XBTA79NsU=
+X-Google-Smtp-Source: AGHT+IH2yYVlH5R4OYQQsbx0L1fsjd6ylbWYVx6pl2giZCsE6+FEB6nEzzNoq7LJ9eixK0JAOpFMOA==
+X-Received: by 2002:a17:906:308c:b0:ab3:9aba:ce7d with SMTP id a640c23a62f3a-abc0ae1ab4cmr359498466b.1.1740165015786;
+        Fri, 21 Feb 2025 11:10:15 -0800 (PST)
 Received: from playground.nxp.com ([82.79.237.175])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb9b187203sm1027261566b.61.2025.02.21.11.10.11
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb9b187203sm1027261566b.61.2025.02.21.11.10.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Feb 2025 11:10:12 -0800 (PST)
+        Fri, 21 Feb 2025 11:10:15 -0800 (PST)
 From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 To: Abel Vesa <abelvesa@kernel.org>,
 	Peng Fan <peng.fan@nxp.com>,
@@ -83,17 +83,17 @@ Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/4] clk: clk-imx8mp-audiomix: fix dsp/ocram_a clock parents
-Date: Fri, 21 Feb 2025 14:09:27 -0500
-Message-Id: <20250221190929.31469-3-laurentiumihalcea111@gmail.com>
+Subject: [PATCH v2 3/4] arm64: dts: imx8mp: add AUDIO_AXI_CLK_ROOT to AUDIOMIX block
+Date: Fri, 21 Feb 2025 14:09:28 -0500
+Message-Id: <20250221190929.31469-4-laurentiumihalcea111@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250221190929.31469-1-laurentiumihalcea111@gmail.com>
 References: <20250221190929.31469-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_111015_303459_E1CFBC94 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20250221_111017_589018_4B645CDA 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,39 +110,34 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-The DSP and OCRAM_A modules from AUDIOMIX are clocked by
-AUDIO_AXI_CLK_ROOT, not AUDIO_AHB_CLK_ROOT. Update the clock data
-accordingly.
+Needed because the DSP and OCRAM_A components from AUDIOMIX are clocked
+by AUDIO_AXI_CLK_ROOT instead of AUDIO_AHB_CLK_ROOT.
 
-Fixes: 6cd95f7b151c ("clk: imx: imx8mp: Add audiomix block control")
+Fixes: b86c3afabb4f ("arm64: dts: imx8mp: Add SAI, SDMA, AudioMIX")
 Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 Reviewed-by: Iuliana Prodan <iuliana.prodan@nxp.com>
 ---
- drivers/clk/imx/clk-imx8mp-audiomix.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/clk/imx/clk-imx8mp-audiomix.c b/drivers/clk/imx/clk-imx8mp-audiomix.c
-index b2cb157703c5..62a180d6f8cb 100644
---- a/drivers/clk/imx/clk-imx8mp-audiomix.c
-+++ b/drivers/clk/imx/clk-imx8mp-audiomix.c
-@@ -180,14 +180,14 @@ static struct clk_imx8mp_audiomix_sel sels[] = {
- 	CLK_GATE("asrc", ASRC_IPG),
- 	CLK_GATE("pdm", PDM_IPG),
- 	CLK_GATE("earc", EARC_IPG),
--	CLK_GATE("ocrama", OCRAMA_IPG),
-+	CLK_GATE_PARENT("ocrama", OCRAMA_IPG, "axi"),
- 	CLK_GATE("aud2htx", AUD2HTX_IPG),
- 	CLK_GATE_PARENT("earc_phy", EARC_PHY, "sai_pll_out_div2"),
- 	CLK_GATE("sdma2", SDMA2_ROOT),
- 	CLK_GATE("sdma3", SDMA3_ROOT),
- 	CLK_GATE("spba2", SPBA2_ROOT),
--	CLK_GATE("dsp", DSP_ROOT),
--	CLK_GATE("dspdbg", DSPDBG_ROOT),
-+	CLK_GATE_PARENT("dsp", DSP_ROOT, "axi"),
-+	CLK_GATE_PARENT("dspdbg", DSPDBG_ROOT, "axi"),
- 	CLK_GATE("edma", EDMA_ROOT),
- 	CLK_GATE_PARENT("audpll", AUDPLL_ROOT, "osc_24m"),
- 	CLK_GATE("mu2", MU2_ROOT),
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+index e0d3b8cba221..86c3055789ba 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+@@ -1619,10 +1619,11 @@ audio_blk_ctrl: clock-controller@30e20000 {
+ 					 <&clk IMX8MP_CLK_SAI3>,
+ 					 <&clk IMX8MP_CLK_SAI5>,
+ 					 <&clk IMX8MP_CLK_SAI6>,
+-					 <&clk IMX8MP_CLK_SAI7>;
++					 <&clk IMX8MP_CLK_SAI7>,
++					 <&clk IMX8MP_CLK_AUDIO_AXI_ROOT>;
+ 				clock-names = "ahb",
+ 					      "sai1", "sai2", "sai3",
+-					      "sai5", "sai6", "sai7";
++					      "sai5", "sai6", "sai7", "axi";
+ 				power-domains = <&pgc_audio>;
+ 				assigned-clocks = <&clk IMX8MP_AUDIO_PLL1>,
+ 						  <&clk IMX8MP_AUDIO_PLL2>;
 -- 
 2.34.1
 
