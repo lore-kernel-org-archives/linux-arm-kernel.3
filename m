@@ -4,101 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39EB3C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 11:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E27DC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 11:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mQpj5OYtvrzGwuvsGqLuFUVRvPktL6wX4C7ZRj/Lz9g=; b=E2fTuiMF3YLICiWhyVZ2+07EXK
-	mSIWMG5LkIfDSbpUs1NUIcM/KUPPHWQXWo7kZUe9k/WAk+i9sxAO22NrXC1/zWKpXDlF12dSrUocK
-	EJJ/Cs+RJX+l0HDFQxzaceGxVZZgZWyiHtmR4KPg6DWrLeoel7J+xkutqqa2gaW4zkcv+dHDNb9xW
-	ZrTnh9ZMCWv1aE9wFy8dRlIzGNJb2jNIa2BpBXBkGzTW6bU+ifaoYVfHHzGY9WcZES5lmF03MdxMj
-	o7HubxPRB/dEoN47TRzKwUtE0uoZGD6vM3yktaYTcyc3aN0Z+Y2TiADj3r0d9larqvNBekTcSqMBw
-	vZj6Ftlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FC2a7r9b8EaahE6S8ThbScqtlkOLkA61RMYEzBudLJI=; b=4ns9GuSNzJROBqbdotcW6LLTjy
+	v4nex2Qj55MjLPO7V+7kp4TePsfmsGAmWoBlF4006FLqedQ9x/j9boA4YuTdqj5K6p4zHvqdJZ7ot
+	dyyCsguqt7HPThgl4aW1Udqg6tibbmb7+5fMFKQ9aBKMTH7ViuLzzDyfu4vRBe7bBkIGh8qDUkX4B
+	312hpdWEBo5ojfnTfCt2AoONaLl/1xSXEP6oNoWU5Tvn/GO5p1qlptrbTmEax1TEM4+SRosu96TpX
+	QSOIeVCRafEreC8gsyjN3DXq35h7M7jydSlqFHwFxH8Iof6aAG7z70eAmdA/rr7JF0aZ3fX7Ua9Tt
+	PcAm85xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlRAg-00000005KGJ-3npD;
-	Fri, 21 Feb 2025 11:26:18 +0000
-Received: from mail-ua1-x92e.google.com ([2607:f8b0:4864:20::92e])
+	id 1tlRCh-00000005Kbu-2ShZ;
+	Fri, 21 Feb 2025 11:28:23 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlR9C-00000005K6z-18o4
+	id 1tlRBA-00000005KLT-45xe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 11:24:47 +0000
-Received: by mail-ua1-x92e.google.com with SMTP id a1e0cc1a2514c-8671d8a9c3eso977494241.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 03:24:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740137084; x=1740741884; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=mQpj5OYtvrzGwuvsGqLuFUVRvPktL6wX4C7ZRj/Lz9g=;
-        b=yXRRQmhv3sxSjHvpi9DPl8e/Iu0hFEWLRyX1R7c3uJNLosGLPCk+s84/mDSwZTQNva
-         PBVvvEsxoPyRWC/438GvkxeJczr8q44AuUcoK+WTIqAD+UHhDm6EPG1pp7JKItA9miKL
-         YF/G0HmZpXqTbQMpRiehoN1Tko1rsa54BSZbV8AO3vdr3h1wmqMcUg+2KtKDpOHrNu2y
-         zX6QmGdw70tC4yds8zvF9wY9TkGecoFz1NPgKm24SuxVvKU/9bRk3q3dshlGQ3iHFA3U
-         qA41jaVoDkwU6f21kC12XFTLTwSEIUFIxZ9cIEZnDLRQaoNapzRpFwsH62Pcx/EdYKrz
-         6mUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740137084; x=1740741884;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=mQpj5OYtvrzGwuvsGqLuFUVRvPktL6wX4C7ZRj/Lz9g=;
-        b=a3eY2L1HGerFnEBpQUNzI6p9NX6lINfWMSNF96xsjmOxL1Zw30KOVbM50obUPWbhNK
-         LNxOEOPADqfnHbPMFyCR/1OgT+qV6DB7PJbpKHDRIXHa6TPKgAj9Z1W/BAnE03NG9ALX
-         VOfyNMiRh6TJ2gKc3PVWgEKEQs2m1IoxU8tIyvh2GQMvD+NftbfG+Yzmqmc7jyjUgyTV
-         iW3f3MqiF7WIE3p6CV6vTqCIeL79yxFWaRdIi5xsfkye3147vRf043DlB4fMSJMWc1Vs
-         bHfWtLTBGjGB+gJLYP3lSeXeD0scmeALkM9htQf6re6y2RIY1R5yAuYkfPFB6LMLltBK
-         tIFA==
-X-Forwarded-Encrypted: i=1; AJvYcCWXBtdU1c3QBLi06iM8H5uHArj4fvQfjiW8wtRH4euMAGmINF2RnN/82nNG8nvjQdFAKH+2yqcO/mCEiHQR+Aqj@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAmm1ZZXRcD5rf0CDv2ijwQf+jTX6Ft2PRKV1NSrKa8syOsDvg
-	YTBlgn2rnCswy7pVJZU+7BmBYIO5edd0B4JzMm/dw9L6DF0vY2UyDjYuQLaPW1iITaIlGDPjdRr
-	OdX/5ASrU3uAPy1NRlG98XJcbRgcMC3tPXk49uw==
-X-Gm-Gg: ASbGncv1K4pbxfObErfHrJGwCm3r6+HIHDY0hK4fplceXIM28ZYwcY6bhLBfnmVw5U8
-	lrap8PL/FNU2sPQrR2KCgAG4h5ihTUO3UMB///kp4wlebEgzpg/w3uev9t5tK4n0TQoJBU9B6YE
-	WpRvAqQT9n0w==
-X-Google-Smtp-Source: AGHT+IEEFDT7zw2jzeYUu4scukbdYB4lknasD3bWh5ghSoREMknA9fEDbTJjpM6XHz/2KAnn95mbCSQMBgCOtTskL2U=
-X-Received: by 2002:a05:6102:32d6:b0:4bb:ba51:7d4d with SMTP id
- ada2fe7eead31-4bfc0025f2bmr1746137137.8.1740137084336; Fri, 21 Feb 2025
- 03:24:44 -0800 (PST)
+	Fri, 21 Feb 2025 11:26:52 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250221112641epoutp02fd54a3493af4886aa18a42c27d4a7f7e~mNZCStZ7X1772317723epoutp02j
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 11:26:41 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250221112641epoutp02fd54a3493af4886aa18a42c27d4a7f7e~mNZCStZ7X1772317723epoutp02j
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1740137201;
+	bh=FC2a7r9b8EaahE6S8ThbScqtlkOLkA61RMYEzBudLJI=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=HFyo8V+W0oGfVIpcTeOwk/8/jS7xJYoO3JULX3QBONh3AX2nZ4gSaOEKVZ2pT9kfJ
+	 Tb19EHyWZB2cV363RbDMYC5MHLAFipwFb/pvfXNog5DOl4sIJLWhDkuDanVtS8MVln
+	 WbMQcFMQ6rbvoT+pELm7qY7KmDIeAqiAvlj8KDV4=
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
+	20250221112640epcas5p2b59e9083652c09779847fba4ea0ba7b5~mNZByuAuO1579915799epcas5p2L;
+	Fri, 21 Feb 2025 11:26:40 +0000 (GMT)
+Received: from epsmges5p2new.samsung.com (unknown [182.195.38.176]) by
+	epsnrtp2.localdomain (Postfix) with ESMTP id 4Yznrt4zKrz4x9Pv; Fri, 21 Feb
+	2025 11:26:38 +0000 (GMT)
+Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
+	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	85.8A.19933.EE268B76; Fri, 21 Feb 2025 20:26:38 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250221103441epcas5p2c8e62837664debd0d110c4867101b6ee~mMroj_Z6p3072330723epcas5p2h;
+	Fri, 21 Feb 2025 10:34:41 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250221103441epsmtrp1d7e41e6faff723be9bc894665ae37201~mMrojJCUO3243132431epsmtrp1K;
+	Fri, 21 Feb 2025 10:34:41 +0000 (GMT)
+X-AuditID: b6c32a4a-c1fda70000004ddd-ed-67b862eeb0fa
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	D6.65.33707.0C658B76; Fri, 21 Feb 2025 19:34:40 +0900 (KST)
+Received: from FDSFTE596 (unknown [107.122.82.131]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250221103435epsmtip29eb15f0027d30a7bbbce44d7a9e548d3~mMrjithd30551405514epsmtip2G;
+	Fri, 21 Feb 2025 10:34:35 +0000 (GMT)
+From: "Swathi K S" <swathi.ks@samsung.com>
+To: "'Russell King \(Oracle\)'" <linux@armlinux.org.uk>
+Cc: <krzk+dt@kernel.org>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
+	<edumazet@google.com>, <kuba@kernel.org>, <pabeni@redhat.com>,
+	<robh@kernel.org>, <conor+dt@kernel.org>, <richardcochran@gmail.com>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>,
+	<netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<pankaj.dubey@samsung.com>, <ravi.patel@samsung.com>, <gost.dev@samsung.com>
+In-Reply-To: <Z7cimPBdZ3W9GKmI@shell.armlinux.org.uk>
+Subject: RE: [PATCH v7 2/2] net: stmmac: dwc-qos: Add FSD EQoS support
+Date: Fri, 21 Feb 2025 16:04:25 +0530
+Message-ID: <02b701db844c$36b7aeb0$a4270c10$@samsung.com>
 MIME-Version: 1.0
-References: <20241217100809.3962439-1-jens.wiklander@linaro.org>
- <20250212205613.4400a888@collabora.com> <CAFA6WYOaGEPj0xNEDBCoEmjJreEHChjQ2hyXRJ_CYoGhiBonfw@mail.gmail.com>
- <20250213093557.278f5d19@collabora.com> <CAFA6WYOJkSRsH-15QdqXNMd08Q=Dg4NkRd1Cr9LXA+5nozTF6g@mail.gmail.com>
- <20250213134008.4cbef142@collabora.com> <CAPj87rM5Y=-Jgf4mwukicF6Yb-vccn2fpG2X1jNq0upH2+cAEQ@mail.gmail.com>
- <CAHUa44G9hw-z6wzxg=HkVAxPKEW1yES5JTEqRWMvJUJAtcUDkQ@mail.gmail.com>
- <CAPj87rPHnME5Osgnf5-FSAu22mDpLj=dzvhi_NqEcOwr1ThgGw@mail.gmail.com>
- <CAHUa44Gs0D1fBD0=+EDgcQUMeDv4knci9trUkYEc1J98qFV7HQ@mail.gmail.com>
- <CAFA6WYOuTwRPEh3L7+hMyARB_E73xmp+OwhKyS-r4+ryS7=9sw@mail.gmail.com>
- <20250214164856.0d2ead8a@collabora.com> <CAFA6WYPc6EHQwcPuMZRm4C1P6SoDrCzEPUmju_meupB6NXQ1sg@mail.gmail.com>
- <CAPj87rN-OYTzh5=Gdv619UQD5=x=U6Yt=uV4N1kCs4Zao4RVAg@mail.gmail.com>
-In-Reply-To: <CAPj87rN-OYTzh5=Gdv619UQD5=x=U6Yt=uV4N1kCs4Zao4RVAg@mail.gmail.com>
-From: Sumit Garg <sumit.garg@linaro.org>
-Date: Fri, 21 Feb 2025 16:54:33 +0530
-X-Gm-Features: AWEUYZmWGLJSr8dI5fGVPvBYBUuW01AR9UFyCT0aSOf_de_3Q9BR4iWL6l6nzQw
-Message-ID: <CAFA6WYMLLLSuz3y5J+DuRFAGrmwpZoWax5sasfAUhXoQXmrNNA@mail.gmail.com>
-Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
-To: Daniel Stone <daniel@fooishbar.org>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>, 
-	Jens Wiklander <jens.wiklander@linaro.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	Linux Media Mailing List <linux-media@vger.kernel.org>, dri-devel <dri-devel@lists.freedesktop.org>, 
-	"moderated list:DMA BUFFER SHARING FRAMEWORK" <linaro-mm-sig@lists.linaro.org>, op-tee@lists.trustedfirmware.org, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Florent Tomasin <florent.tomasin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQGZEuZRAcWsCKSMCeR5cs/NRCOZvwH8VK0qAZITr+wCOUn/krOoNIYg
+Content-Language: en-in
+X-Brightmail-Tracker: H4sIAAAAAAAAA02Te0xTVxzHc+6jtxBrLojzwIKy62vgKC1ry8WJbpPhjZsR2CvBbfVC7wqh
+	tF0fG4qmLhAizUAgotARID5YhkOyyqMVC8gKuI2hhNGlWVh4PzYcZIoZEHWUi47/Pr9fvr/f
+	93zPyRGigcuCEGGG1sQZtKyGEvhjzT+Eh0f+nepQSxqvU/TizAVAfzPswOnvXH0IXXk3D6Or
+	3X04PdE9StDeDidCz9j+END3motw2j7mwemBm5UC2uoZx+nOMhegqx7X43R3zQv0o59nAX2p
+	6SFBj8zfImh37zRKP73lIF4PYgY8/SjT+K0XYSbONRGM0zZEMDV2M2OvKxAwN65YGKfjAcLM
+	tQ0KmKLGOsDcbpMyD+xbEzekZO5L51gVZwjjtGk6VYZWHUe9/a7yoFKukEgjpbF0DBWmZbO4
+	OCr+ncTIhAzNSkwq7HNWY15pJbJGIxW1f59BZzZxYek6oymO4vQqjV6mFxvZLKNZqxZrOdNe
+	qUQSLV8RHs9M73PMEvqv5dnV+cPIGXBtjxX4CSEpg/1zVwRW4C8MJFsBnHL343zxD4DfN1Rj
+	z4v6p27UCoSrI1NjJr7vBHChoJ7gi2kAR4YKEN9eARkBLxW1ET4OImNgWYF7dS1KlmKwvGkS
+	8W3yI+XwrAv4NJvIBOiZ7F3VY+ROODzvxnwsImPhbOs0wXMA/LFifLWPkttgy/1KlM8QBhcn
+	anHeKwHW1j3Cec0W2LX4FerzheRlPzju6kf4gXhY0VuI87wJ/tnTSPAcAmfO5a+xEl4rGsR4
+	TodDSyUCng/Ajl8rMd/5UTIcNtyM4tuhsOyn6wjvuxEWLo+vWYmgo+oZb4eP//KsrQyGzVfn
+	iGJA2dZFs62LZlsXwfa/Ww3A6kAwpzdmqTmjXB+t5b54/uBpuiw7WP0FEYcdYGR4XtwJECHo
+	BFCIUkGifEujOlCkYk+c5Aw6pcGs4YydQL5y3yVoyOY03co30pqUUlmsRKZQKGSxryqk1BZR
+	rjNPHUiqWROXyXF6zvBsDhH6hZxBZMm7TtWeh6VbS5Psd9w7Hvb82x0sGevqbVko5dKoE32Y
+	cohi8L0XLKacHUkxTs2u0ZzTztPn7R/lvXb02HZZxVR5WULNJ9jAKZkjSyzusVydV2+cR1sK
+	ygND0WJMnGueaveaDy3e2JmSpCgZ8AZE3M1eOvJZk/zO7d9m38jtuDhAfMAIvYUv92YnZcvb
+	qzIsX+7xSjJ1v9QvPdk8pSrOtV1Wtx77OGHwoNUZyrafTd0/eeD9Ghd2HM353b2sOhmw+/Ar
+	91Lvb9iWFMI1PLH5tSezKersrhdD8z+ti7bEE6N97HvauIvRTov1pQaPK+pQf/nCQq7Vv/vD
+	5uC3RMlvHqUwYzorjUANRvY/ThNrt44EAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA02Se0iTYRTGe7/7JOXzkr5qWC26sHBlWL3liOhiH0F3KRPCln6utWlrUyuz
+	FIyRw1ZRCq2hZst0KeK8zUorWwvJSyXOtNsqLRNNyzAks5oj8r+Hc57fc54/DoP7vCaCGHlS
+	Mq9OkiqFlAdR+1A4J/T+HqtsWetYBBr/nAfQTaeVRGUNbRgytp8hUIGtjUR99vc06r5fj6HP
+	hjcUelqrJ5Hlg4NEHbeNFNI5eknUlNsAUP6vchLZC/3R2JNBgIpqvtPo3chdGtla+nH0+66V
+	XufHdTie4Vx1aTfG9Z2vobl6w2uaK7SkcBZzNsVVmTK4eusoxg03dlKcvtoMuAeNYdyoJWTH
+	zBgPSTyvlKfy6qVrD3gcarMO0qqrK44XaJ1YJri1RAcYBrLh8NOHZB3wYHzYOgDbr5VgOiD4
+	Ow+E37JySbf2haWTn2i36SOA3cMXKNeCYkWwSN9Iu7QfuwrmZttIlwlnSwj4ovEV4SZ6ASzr
+	Kadc5wTsCni2AbgAXzYSOj62TMEEuwA6R2yES3uyq+HgnX7arb1h85VewoXirBhqK6dQnJ0D
+	64aMuLvcXDjeV0y6O0TCYvMY6fYEwEfjOfgF4GuYlmT4n2SYlmSYRhQCwgxm8SpNoiwxThUm
+	1kgTNSlJMnHckUQLmPoA0S4rKK74JW4CGAOaAGRwoZ+nNqNa5uMZLz2RxquPxKpTlLymCQQz
+	hDDAc74yO96HlUmTeQXPq3j1vy3GCIIysXMqTf66SoUjpOJHaHCOZFPCCUVq7Clx1MG92wV5
+	y7vR/rIue0Deev/be7qW/BjYNjyv3DwjPGZ2ZJE+dKR1d+yM/psLIx53TXbEOdeezL3Ya5rZ
+	vM+UL/cv2v713gbyzEaRRCXKejk0+YK6VHxyU8ciZ34431kuOS067Pd2sTxziEpYOtAzYRdK
+	JU8nsKPLn8sEip3VPaYb9RrSuPfeyuCGpCivFu+q9Ah8KDZjy/VrXjBVniM93G6/sSU9oDnN
+	pgv5Yp0cfZTe93OiZjzmJxVVYLRVaQey1ng9SaigXraleitGC8XHQqO/RwcpT6cdi78cadKL
+	Nrdu1QZ2cuRWc6CQ0BySholwtUb6Bw/KCtdwAwAA
+X-CMS-MailID: 20250221103441epcas5p2c8e62837664debd0d110c4867101b6ee
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250220044132epcas5p305e4ed7ed1c84f9800299c2091ea0790
+References: <20250220043712.31966-1-swathi.ks@samsung.com>
+	<CGME20250220044132epcas5p305e4ed7ed1c84f9800299c2091ea0790@epcas5p3.samsung.com>
+	<20250220043712.31966-3-swathi.ks@samsung.com>
+	<Z7cimPBdZ3W9GKmI@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_032446_325653_77C4385C 
-X-CRM114-Status: GOOD (  60.20  )
+X-CRM114-CacheID: sfid-20250221_032650_451891_84FC09B5 
+X-CRM114-Status: GOOD (  41.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,174 +148,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Feb 2025 at 21:52, Daniel Stone <daniel@fooishbar.org> wrote:
->
-> Hi Sumit,
->
-> On Mon, 17 Feb 2025 at 06:13, Sumit Garg <sumit.garg@linaro.org> wrote:
-> > On Fri, 14 Feb 2025 at 21:19, Boris Brezillon <boris.brezillon@collabora.com> wrote:
-> > > I would say one heap per-profile.
-> >
-> > And then it would have a per vendor multiplication factor as each
-> > vendor enforces memory restriction in a platform specific manner which
-> > won't scale.
->
-> Yes, they do enforce it in a platform-specific manner, but so does
-> TEE. There is no one golden set of semantics which is globally
-> applicable between all hardware and all products in a useful manner.
->
-> So, if we define protected,secure-video +
-> protected,secure-video-record + protected,trusted-ui heap names, we
-> have exactly the same number of axes. The only change is from uint32_t
-> to string.
->
-> > > > Christian gave an historical background here [1] as to why that hasn't
-> > > > worked in the past with DMA heaps given the scalability issues.
-> > > >
-> > > > [1] https://lore.kernel.org/dri-devel/e967e382-6cca-4dee-8333-39892d532f71@gmail.com/
-> > >
-> > > Hm, I fail to see where Christian dismiss the dma-heaps solution in
-> > > this email. He even says:
-> > >
-> > > > If the memory is not physically attached to any device, but rather just
-> > > memory attached to the CPU or a system wide memory controller then
-> > > expose the memory as DMA-heap with specific requirements (e.g. certain
-> > > sized pages, contiguous, restricted, encrypted, ...).
-> >
-> > I am not saying Christian dismissed DMA heaps but rather how
-> > scalability is an issue. What we are proposing here is a generic
-> > interface via TEE to the firmware/Trusted OS which can perform all the
-> > platform specific memory restrictions. This solution will scale across
-> > vendors.
->
-> I read something completely different into Christian's mail.
->
-> What Christian is saying is that injecting generic constraint solving
-> into the kernel doesn't scale. It's not OK to build out generic
-> infrastructure in the kernel which queries a bunch of leaf drivers and
-> attempts to somehow come up with something which satisfies
-> userspace-provided constraints.
->
-> But this isn't the same thing as saying 'dma-heaps is wrong'! Again,
-> there is no additional complexity in the kernel between a dma-heap
-> which bridges over to TEE, and a TEE userspace interface which also
-> bridges over to TEE. Both of them are completely fine according to
-> what he's said.
->
-> > > Honestly, when I look at dma-heap implementations, they seem
-> > > to be trivial shells around existing (more complex) allocators, and the
-> > > boiler plate [1] to expose a dma-heap is relatively small. The dma-buf
-> > > implementation, you already have, so we're talking about a hundred
-> > > lines of code to maintain, which shouldn't be significantly more than
-> > > what you have for the new ioctl() to be honest.
-> >
-> > It will rather be redundant vendor specific code under DMA heaps
-> > calling into firmware/Trusted OS to enforce memory restrictions as you
-> > can look into Mediatek example [1]. With TEE subsystem managing that
-> > it won't be the case as we will provide a common abstraction for the
-> > communication with underlying firmware/Trusted OS.
->
-> Yes, it's common for everyone who uses TEE to implement SVP. It's not
-> common for the people who do _not_ use TEE to implement SVP. Which
-> means that userspace has to type out both, and what we're asking in
-> this thread is: why?
->
-> Why should userspace have to support dma-heap allocation for platforms
-> supporting SVP via a static DT-defined carveout as well as supporting
-> TEE API allocation for platforms supporting SVP via a dynamic
-> carveout? What benefit does it bring to have this surfaced as a
-> completely separate uAPI?
->
-> > > And I'll insist on what
-> > > Daniel said, it's a small price to pay to have a standard interface to
-> > > expose to userspace. If dma-heaps are not used for this kind things, I
-> > > honestly wonder what they will be used for...
-> >
-> > Let's try not to forcefully find a use-case for DMA heaps when there
-> > is a better alternative available.
->
-> What makes it better? If you could explain very clearly the benefit
-> userspace will gain from asking TEE to allocate $n bytes for
-> TEE_IOC_UC_SECURE_VIDEO_PLAY, compared to asking dma-heap to allocate
-> $n bytes for protected,secure-video, I think that would really help.
-> Right now, I don't understand how it would be better in any way
-> whatsoever for userspace. And I think your decision to implement it as
-> a separate API is based on a misunderstanding of Christian's position.
->
-> > I am still failing to see why you
-> > don't consider following as a standardised user-space interface:
-> >
-> > "When user-space has to work with restricted memory, ask TEE device to
-> > allocate it"
->
-> As far as I can tell, having userspace work with the TEE interface
-> brings zero benefit (again, please correct me if I'm wrong and explain
-> how it's better). The direct cost - call it a disbenefit - it brings
-> is that we have to spend a pile of time typing out support for TEE
-> allocation in every media/GPU/display driver/application, and when we
-> do any kind of negotiation, we have to have one protocol definition
-> for TEE and one for non-TEE.
->
-> dma-heaps was created to solve the problem of having too many
-> 'allocate $n bytes from $specialplace' uAPIs. The proliferation was
-> painful and making it difficult for userspace to do what it needed to
-> do. Userspace doesn't _yet_ make full use of it, but the solution is
-> to make userspace make full use of it, not to go create entirely
-> separate allocation paths for unclear reasons.
->
-> Besides, I'm writing this from a platform that implements SVP not via
-> TEE. I've worked on platforms which implement SVP without any TEE,
-> where the TEE implementation would be at best a no-op stub, and at
-> worst flat-out impossible.
 
-Can you elaborate the non-TEE use-case for Secure Video Path (SVP) a
-bit more? As to how the protected/encrypted media content pipeline
-works? Which architecture support does your use-case require? Is there
-any higher privileged level firmware interaction required to perform
-media content decryption into restricted memory? Do you plan to
-upstream corresponding support in near future?
 
-Let me try to elaborate on the Secure Video Path (SVP) flow requiring
-a TEE implementation (in general terms a higher privileged firmware
-managing the pipeline as the kernel/user-space has no access
-permissions to the plain text media content):
+> -----Original Message-----
+> From: Russell King (Oracle) <linux@armlinux.org.uk>
+> Sent: 20 February 2025 18:10
+> To: Swathi K S <swathi.ks@samsung.com>
+> Cc: krzk+dt@kernel.org; andrew+netdev@lunn.ch; davem@davemloft.net;
+> edumazet@google.com; kuba@kernel.org; pabeni@redhat.com;
+> robh@kernel.org; conor+dt@kernel.org; richardcochran@gmail.com;
+> mcoquelin.stm32@gmail.com; alexandre.torgue@foss.st.com;
+> netdev@vger.kernel.org; devicetree@vger.kernel.org; linux-stm32@st-md-
+> mailman.stormreply.com; linux-arm-kernel@lists.infradead.org; linux-
+> kernel@vger.kernel.org; pankaj.dubey@samsung.com;
+> ravi.patel@samsung.com; gost.dev@samsung.com
+> Subject: Re: [PATCH v7 2/2] net: stmmac: dwc-qos: Add FSD EQoS support
+> 
+> On Thu, Feb 20, 2025 at 10:07:12AM +0530, Swathi K S wrote:
+> > +static int fsd_eqos_probe(struct platform_device *pdev,
+> > +			  struct plat_stmmacenet_data *data,
+> > +			  struct stmmac_resources *res)
+> > +{
+> > +	struct clk *clk_rx1 = NULL;
+> > +	struct clk *clk_rx2 = NULL;
+> > +
+> > +	for (int i = 0; i < data->num_clks; i++) {
+> > +		if (strcmp(data->clks[i].id, "slave_bus") == 0)
+> > +			data->stmmac_clk = data->clks[i].clk;
+> > +		else if (strcmp(data->clks[i].id, "eqos_rxclk_mux") == 0)
+> > +			clk_rx1 = data->clks[i].clk;
+> > +		else if (strcmp(data->clks[i].id, "eqos_phyrxclk") == 0)
+> > +			clk_rx2 = data->clks[i].clk;
+> > +	}
+> > +
+> > +	/* Eth0 RX clock doesn't support MUX */
+> > +	if (clk_rx1)
+> > +		clk_set_parent(clk_rx1, clk_rx2);
+> 
+> Isn't there support in DT for automatically setting the clock tree?
+> See
+> https://protect2.fireeye.com/v1/url?k=f0089f78-90ea0225-f0091437-
+> 000babd9f1ba-cf835b8b94ccd94a&q=1&e=4ae794ec-f443-4d77-aee4-
+> 449f53a3a1a4&u=https%3A%2F%2Fgithub.com%2Fdevicetree-org%2Fdt-
+> schema%2Fblob%2Fmain%2Fdtschema%2Fschemas%2Fclock%2Fclock.yaml
+> %23L24
+> 
+> Also, I think a cleanup like the below (sorry, it's on top of other
+patches I'm
+> working on at the moment but could be rebased) would make sense.
+> 
+> With both of these, this should mean that your changes amount to:
+> 
+> 1. making data->probe optional
+> 2. providing a dwc_eth_dwmac_data structure that has .stmmac_clk_name
+>    filled in
+> 3. adding your compatible to the match data with a pointer to the
+>    above structure.
 
-- Firstly a content decryption key is securely provisioned into the
-TEE implementation.
-- Interaction with TEE to set up access permissions of different
-peripherals in the media pipeline so that they can access restricted
-memory.
-- Interaction with TEE to allocate restricted memory buffers.
-- Interaction with TEE to decrypt downloaded encrypted media content
-from normal memory buffers to restricted memory buffers.
-- Then the further media pipeline is able to process the plain media
-content in restricted buffers and display it.
+Hi Russell, 
+Thanks for your input.
+Will implement this in v8.
+But I could not find your patch 'net: stmmac: clean up clock initialisation'
+in mailing list
+Could you point me to that?
+Or do you want me to integrate the below changes into my patch series and
+post?
 
->
-> So that's 'why not TEE as the single uAPI for SVP'.
+Please let me know
 
-Let's try to see if your SVP use-case really converges with TEE based
-SVP such that we really need a single uAPI.
+- Swathi
 
-> So, again, let's
-> please turn this around: _why_ TEE? Who benefits from exposing this as
-> completely separate to the more generic uAPI that we specifically
-> designed to handle things like this?
+> 
+> In other words, support for your device becomes just a matter of adding
+data
+> structures rather than a chunk of extra code.
+> 
+> Thanks.
+> 
+> 8<====
+> From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+> Subject: [PATCH net-next] net: stmmac: clean up clock initialisation
+> 
+> Clean up the clock initialisation by providing a helper to find a named
+clock in
+> the bulk clocks, and provide the name of the stmmac clock in match data so
+> we can locate the stmmac clock in generic code.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  .../stmicro/stmmac/dwmac-dwc-qos-eth.c        | 32 +++++++++++--------
+>  1 file changed, 18 insertions(+), 14 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+> b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+> index 581c0b40db57..8e343ab7a7e2 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+> @@ -34,6 +34,16 @@ struct tegra_eqos {
+>  	struct gpio_desc *reset;
+>  };
+> 
+> +static struct clk *dwc_eth_find_clk(struct plat_stmmacenet_data
+*plat_dat,
+> +				    const char *name)
+> +{
+> +	for (int i = 0; i < plat_dat->num_clks; i++)
+> +		if (strcmp(plat_dat->clks[i].id, name) == 0)
+> +			return plat_dat->clks[i].clk;
+> +
+> +	return 0;
+> +}
+> +
+>  static int dwc_eth_dwmac_config_dt(struct platform_device *pdev,
+>  				   struct plat_stmmacenet_data *plat_dat)  {
+> @@ -120,12 +130,7 @@ static int dwc_qos_probe(struct platform_device
+> *pdev,
+>  			 struct plat_stmmacenet_data *plat_dat,
+>  			 struct stmmac_resources *stmmac_res)  {
+> -	for (int i = 0; i < plat_dat->num_clks; i++) {
+> -		if (strcmp(plat_dat->clks[i].id, "apb_pclk") == 0)
+> -			plat_dat->stmmac_clk = plat_dat->clks[i].clk;
+> -		else if (strcmp(plat_dat->clks[i].id, "phy_ref_clk") == 0)
+> -			plat_dat->pclk = plat_dat->clks[i].clk;
+> -	}
+> +	plat_dat->pclk = dwc_eth_find_clk(plat_dat, "phy_ref_clk");
+> 
+>  	return 0;
+>  }
+> @@ -230,18 +235,12 @@ static int tegra_eqos_probe(struct platform_device
+> *pdev,
+> 
+>  	eqos->dev = &pdev->dev;
+>  	eqos->regs = res->addr;
+> +	eqos->clk_slave = data->stmmac_clk;
+> 
+>  	if (!is_of_node(dev->fwnode))
+>  		goto bypass_clk_reset_gpio;
+> 
+> -	for (int i = 0; i < data->num_clks; i++) {
+> -		if (strcmp(data->clks[i].id, "slave_bus") == 0) {
+> -			eqos->clk_slave = data->clks[i].clk;
+> -			data->stmmac_clk = eqos->clk_slave;
+> -		} else if (strcmp(data->clks[i].id, "tx") == 0) {
+> -			data->clk_tx_i = data->clks[i].clk;
+> -		}
+> -	}
+> +	data->clk_tx_i = dwc_eth_find_clk(data, "tx");
+> 
+>  	eqos->reset = devm_gpiod_get(&pdev->dev, "phy-reset",
+> GPIOD_OUT_HIGH);
+>  	if (IS_ERR(eqos->reset)) {
+> @@ -306,15 +305,18 @@ struct dwc_eth_dwmac_data {
+>  		     struct plat_stmmacenet_data *data,
+>  		     struct stmmac_resources *res);
+>  	void (*remove)(struct platform_device *pdev);
+> +	const char *stmmac_clk_name;
+>  };
+> 
+>  static const struct dwc_eth_dwmac_data dwc_qos_data = {
+>  	.probe = dwc_qos_probe,
+> +	.stmmac_clk_name = "apb_pclk",
+>  };
+> 
+>  static const struct dwc_eth_dwmac_data tegra_eqos_data = {
+>  	.probe = tegra_eqos_probe,
+>  	.remove = tegra_eqos_remove,
+> +	.stmmac_clk_name = "slave_bus",
+>  };
+> 
+>  static int dwc_eth_dwmac_probe(struct platform_device *pdev) @@ -354,6
+> +356,8 @@ static int dwc_eth_dwmac_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		return dev_err_probe(&pdev->dev, ret, "Failed to enable
+> clocks\n");
+> 
+> +	data->stmmac_clk = dwc_eth_find_clk(plat_dat, data-
+> >stmmac_clk_name);
+> +
+>  	ret = data->probe(pdev, plat_dat, &stmmac_res);
+>  	if (ret < 0) {
+>  		dev_err_probe(&pdev->dev, ret, "failed to probe
+> subdriver\n");
+> --
+> 2.30.2
+> 
+> 
+> --
+> RMK's Patch system: https://protect2.fireeye.com/v1/url?k=bd23955d-
+> ddc10800-bd221e12-000babd9f1ba-890d84739eaced1c&q=1&e=4ae794ec-
+> f443-4d77-aee4-
+> 449f53a3a1a4&u=https%3A%2F%2Fwww.armlinux.org.uk%2Fdeveloper%2F
+> patches%2F
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
-The bridging between DMA heaps and TEE would still require user-space
-to perform an IOCTL into TEE to register the DMA-bufs as you can see
-here [1]. Then it will rather be two handles for user-space to manage.
-Similarly during restricted memory allocation/free we need another
-glue layer under DMA heaps to TEE subsystem.
-
-The reason is simply which has been iterated over many times in the
-past threads that:
-
-    "If user-space has to interact with a TEE device for SVP use-case
-then why it's not better to ask TEE to allocate restricted DMA-bufs
-too"
-
-[1] https://lkml.indiana.edu/hypermail/linux/kernel/2408.3/08296.html
-
--Sumit
 
