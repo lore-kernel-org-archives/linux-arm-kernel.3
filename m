@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B6AC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 09:52:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFACC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 09:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nIkBoMSOfYqFm9wpczBMF0srvwdrcwGyQqVrVKa7Yak=; b=vzM9/NMGFIocdGe1yFwe+255Fn
-	v25Ufwjf1XlIU1pClTvllRoUkdWzrPnIYsMop+iEQJ020tT+OUPQ4WPgsK6oso4X2MEFFDq7OaRvZ
-	Bemej3QqVGyBMH8obWJt6fvRfKE3dL/COjEaWvjdk6PDmv1X7iOWKwq/vaEqS23rDnqvRbNVTYrlb
-	M0dShRV6BffSuE49r0tE4kj2NjK8wC8VjdvhVlAzkV1CnW/VHzpYMcfTCRZpjxH/1tckRj7oIXFkt
-	ouFEP91TUzhfu6ALO7WfARehwtU3ldhJJmjftOKgQpbv6emQtRAuQmpakdGUXu61tyHo664VeBH0r
-	I6pGglQA==;
+	bh=eXDcWPDLaglL316SDhxzWpx6i5mvQIaAZsYp7Kr+3ZQ=; b=NsCK6yKBo+PjOfU34tlALiCsu6
+	Q8GbSbQtxDK7yAETwY7cbPk6/l6t2y9qXdKveF9sY85cj/cyShLAyPnZw5rzJOpVPHgNFbebdofVt
+	5/R8pHZXflFJS0SpTvQkDY90sI5hCAQp+D7xUnDvVt9eqc86C7tHeg2Vj9Hj65MHoayuM2WJMF9Mq
+	8oIag8DKYm5+Ms7R96eVlQV/SqHgro/yWVrUlAtxxhAf6X9txNXYWhaHllXey5MgSo+0fj9PxWTHD
+	P961FZORZKPTu2WeXdE6EDzlpl55dyPp2up34rhKkXaU2Vtb0rXs4kmGwrbS9OTMByHlR/tJjN12+
+	8i5fcYWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPhk-000000051OV-1PmE;
-	Fri, 21 Feb 2025 09:52:20 +0000
+	id 1tlPjG-000000051uO-18yw;
+	Fri, 21 Feb 2025 09:53:54 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPSG-00000004xV4-3ptw
+	id 1tlPV0-00000004y6s-1aSZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 09:36:22 +0000
+	Fri, 21 Feb 2025 09:39:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4C2085C3A62;
-	Fri, 21 Feb 2025 09:35:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1AFAC4CED6;
-	Fri, 21 Feb 2025 09:36:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0B1055C54C3;
+	Fri, 21 Feb 2025 09:38:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41675C4CED6;
+	Fri, 21 Feb 2025 09:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740130580;
-	bh=2JYtZqX939Y+D87kR0xAmcGyGqDeR/SDLpu7Ha5+6ps=;
+	s=k20201202; t=1740130748;
+	bh=7iSC6jX/BBYZhH5CaMvHMaDMArGW/YNl+vqAADY7Ryo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TAWlb8BWw0ZkWQSpCua6PtYzLZmlyMoBOktuhHneAneNEbrKIOzBF8duUu9GRVTiJ
-	 cnIumZ/AOh10dWag5FO33bxpV6CyO1USpCBsRc6shfTKZVV5l3ct92KO7q2qi0rac9
-	 zZT3E7549u6k9bLw9sQcaU1vBmcuOu8V3Xccd7p25yjnYkUPoQEfFt/dO2wdQg7Tu8
-	 98KIQWkNzXv3MTOhKyCjQvKGjfUCgkLgye69mjup0i51Mm6wlWDZbEHiBaDVqkkbUk
-	 wDHEmwbC47+A5gbP36yjoJGrLfF08N6Uvk9jV9mEUQ9yWHg9vW66TkG+1qHSgzXr1A
-	 oRGfOBnZCpLKQ==
-Date: Fri, 21 Feb 2025 10:36:17 +0100
+	b=LPYUgpNUY6pSswlFIBr7Sc7Jt7au5PvMrBxeQRljl90tC9FK685BZQaXbYqm8lk0+
+	 G05lEdamwdcfC9P5awa+51GjhhSHmY5kXPfyE++ev9CVcuFS91FVc6qGCzCtw3u3kq
+	 DVXcvlbu8SPq0RLTGPnamPS8F5eywE0BT1MDl/i+kl0R6iNZr3AuNuR0oeTj0jI+dC
+	 BgQNxQTQy2dbIXAPv6HNdxmsQ9XCZZc9qtq1I+BK/XQ/bASOz+9DMrv4jl/SFc19Pc
+	 ku+synFWgrAeQQGcAmJcnkYIY4sL2hmx+/UemrDn4BdzT6i7/gaPHczw5Kj9hGSYBd
+	 4pTbZdSAlFJdQ==
+Date: Fri, 21 Feb 2025 10:39:06 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Kaustabh Chakraborty <kauschluss@disroot.org>
 Cc: Rob Herring <robh@kernel.org>, 
@@ -51,17 +51,18 @@ Cc: Rob Herring <robh@kernel.org>,
 	"Guilherme G. Piccoli" <gpiccoli@igalia.com>, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 0/7] Add support for the Exynos7870 SoC, along with
- three devices
-Message-ID: <20250221-able-quoll-of-storm-1cd6aa@krzk-bin>
+Subject: Re: [PATCH v3 3/7] soc: samsung: exynos-chipid: add support for
+ exynos7870
+Message-ID: <20250221-stimulating-sophisticated-armadillo-0a72bb@krzk-bin>
 References: <20250219-exynos7870-v3-0-e384fb610cad@disroot.org>
+ <20250219-exynos7870-v3-3-e384fb610cad@disroot.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250219-exynos7870-v3-0-e384fb610cad@disroot.org>
+In-Reply-To: <20250219-exynos7870-v3-3-e384fb610cad@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_013621_040612_8104A5EA 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20250221_013910_457727_B8C0DCA6 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,45 +77,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 12:33:10AM +0530, Kaustabh Chakraborty wrote:
-> Samsung Exynos 7870 (codename: Joshua) is an ARM-v8 system-on-chip that was
-> announced in 2016. The chipset was found in several popular mid-range to
-> low-end Samsung phones, released within 2016 to 2019.
+On Wed, Feb 19, 2025 at 12:33:13AM +0530, Kaustabh Chakraborty wrote:
+> Add the product ID of Exynos7870 (S5E7870) to the existing list.
 > 
-> This patch series aims to add support for Exynos 7870, starting with the
-> most basic yet essential components such as CPU, GPU, clock controllers,
-> PMIC, pin controllers, etc.
-> 
-> Moreover, the series also adds support for three Exynos 7870 devices via
-> devicetree. The devices are:
->  * Samsung Galaxy J7 Prime	- released 2016, codename on7xelte
->  * Samsung Galaxy J6		- released 2018, codename j6lte
->  * Samsung Galaxy A2 Core	- released 2019, codename a2corelte
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
+>  drivers/soc/samsung/exynos-chipid.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
-You have some dependencies here, so you must always clearly mention
-them.
-
-> Additional features implemented in this series include:
->  * I2C	- touchscreen, IIO sensors, etc.
->  * UART	- bluetooth and serial debugging
->  * MMC	- eMMC, Wi-Fi SDIO, SDCard
->  * USB	- micro-USB 2.0 interface
-> 
-> Here is a list of all sub-series:
->  * bootmode	  	- https://lore.kernel.org/all/20250204-exynos7870-bootmode-v1-1-0f17b3033c2d@disroot.org/
->  * gpu			R https://lore.kernel.org/all/20250204-exynos7870-gpu-v1-1-0db4c163a030@disroot.org/
->  * i2c	      		A https://lore.kernel.org/all/20250204-exynos7870-i2c-v1-0-63d67871ab7e@disroot.org/
->  * mmc			- https://lore.kernel.org/all/20250219-exynos7870-mmc-v2-0-b4255a3e39ed@disroot.org/
->  * pinctrl	  	- https://lore.kernel.org/all/20250219-exynos7870-pinctrl-v2-0-1ff9b10bf913@disroot.org/
->  * pmic-regulators	- https://lore.kernel.org/all/20250219-exynos7870-pmic-regulators-v2-0-1ea86fb332f7@disroot.org/
->  * pmu-clocks		- https://lore.kernel.org/all/20250219-exynos7870-pmu-clocks-v3-0-0d1e415e9e3a@disroot.org/
->  * uart			- https://lore.kernel.org/all/20250219-exynos7870-uart-v2-1-c8c67f3a936c@disroot.org/
->  * usb			- https://lore.kernel.org/all/20250219-exynos7870-usb-v2-0-1de41a89c9d4@disroot.org/
->  * usbphy		- https://lore.kernel.org/all/20250219-exynos7870-usbphy-v2-0-b8ba4e7a72e9@disroot.org/
-
-These are not dependencies. Weirdly, you link related patches but you do
-not even mention the actual dependency.
+This does not apply anymore - conflict. Please rebase and resend.
 
 Best regards,
 Krzysztof
