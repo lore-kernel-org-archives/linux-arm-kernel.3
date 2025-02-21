@@ -4,40 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2759C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 11:10:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E7FC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 11:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ukC/diYj/SOkXqmZAXU5Lp6DcD2S1bRVcWV6nw0f+Ro=; b=uYofBrHovLCUrPv8y9kgVsmaPP
-	O7jrVH83EkHW1sfB5x9o/5fnZxCqideYRUPSbNnd1XV15cLLjkm1hFCkZjENt2gLbvR6xKJSmN5qM
-	xXyawtG+RI6utSyL0+4zCkmpWYjM72fSK1ch58jRYlBt7YyMUUt8m5k0aXm2dEXlG/V4Xps9ekOT2
-	sFZIgT7HQS6JAAyVv/aUO1Kt+wThB1qvnxjVD+bdl6jwyu7vlMDRUYk5LgFWGZj2XV9pDr436uPm8
-	l+yxTu3wAn78WFqBmJqSG4+EOOv1Vch1AYr7WY7K5/niWF9yCyI18QYQHBBpF2fOqf2KQZnlDdNfH
-	f/0C+i5w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MT6Zk1Iwr6eslt5Pp/o6g6qSvge4hDtsWAuflUPzc98=; b=dzXh0pPcmQ0yjugwGlanc+7b0b
+	XMtEIfDWNThkynfZY8EyPC2yCHw0KXcy4dhFvXLq4tVbU1nNC19RTaOohKTGIg3SOx6ZeQWvXsOW8
+	diuOPsG9j7mEFe3G5bFUUX2C4ouTTivXLtZrR7svzVnpqT4Nv4wIVr9YlN13U38SuoKwHn2ul0tIS
+	ay92XzQNvznyRULy9MDZn9LwJvZqBd5congqvyBRkjGvEyjuc8axOL/bHijhkqqJj0T3ImLLpRiE2
+	nqCdLlWSLSQxDwjBU/u1ki1p9Gv5R4yoEgl2JJgTOl2fZuyexUWTyL4f2CpKVDOdxnDhWxHJTaA+f
+	P23iyEsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlQui-00000005Hko-3Gew;
-	Fri, 21 Feb 2025 11:09:49 +0000
-Received: from mail-m49248.qiye.163.com ([45.254.49.248])
+	id 1tlQwC-00000005I43-0QdD;
+	Fri, 21 Feb 2025 11:11:20 +0000
+Received: from mail-m1973170.qiye.163.com ([220.197.31.70])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlQW7-00000005E5k-0rlq;
+	id 1tlQW7-00000005E5m-3Jlu;
 	Fri, 21 Feb 2025 10:44:25 +0000
 Received: from localhost.localdomain (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id bca250ba;
-	Fri, 21 Feb 2025 18:44:13 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id bca250ad;
+	Fri, 21 Feb 2025 18:44:11 +0800 (GMT+08:00)
 From: Kever Yang <kever.yang@rock-chips.com>
 To: heiko@sntech.de
 Cc: linux-rockchip@lists.infradead.org,
 	Kever Yang <kever.yang@rock-chips.com>,
 	Simon Xue <xxm@rock-chips.com>,
 	Conor Dooley <conor+dt@kernel.org>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Finley Xiao <finley.xiao@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
 	Rob Herring <robh@kernel.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	linux-pci@vger.kernel.org,
+	Liang Chen <cl@rock-chips.com>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
 	linux-kernel@vger.kernel.org,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -45,31 +49,31 @@ Cc: linux-rockchip@lists.infradead.org,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Shawn Lin <shawn.lin@rock-chips.com>,
 	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Elaine Zhang <zhangqing@rock-chips.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [RFC PATCH v6 1/2] dt-bindings: PCI: dw: rockchip: Add rk3576 support
-Date: Fri, 21 Feb 2025 18:43:56 +0800
-Message-Id: <20250221104357.1514128-2-kever.yang@rock-chips.com>
+Subject: [RFC PATCH v6 0/2] Add rk3576 pcie dts nodes
+Date: Fri, 21 Feb 2025 18:43:55 +0800
+Message-Id: <20250221104357.1514128-1-kever.yang@rock-chips.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250221104357.1514128-1-kever.yang@rock-chips.com>
-References: <20250221104357.1514128-1-kever.yang@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUNJGVZOGBpMT0kfTB0dTx5WFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUxNHVZPQhlLGB9LQx9PGktWFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
 	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a95281b9ed103afkunmbca250ba
+X-HM-Tid: 0a95281b96a803afkunmbca250ad
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OCo6GCo6DzIUThk4Nww5GEsv
-	CzNPFFFVSlVKTE9LSkhPTU5OS05LVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFIQ09MNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MxQ6Ggw5IzIIShkMCQw6GEIj
+	Lj9PCxVVSlVKTE9LSkhPTU5IT0NJVTMWGhIXVRAeDR4JVQIaFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJTElNNwY+
 DKIM-Signature: a=rsa-sha256;
-	b=jYrENAaXI/q/GIYW7Yvgf9InsIiCz3Ei7bvBTGdYQC5O1XfNu9hGFbX+muAKo75/tBxSNhttlMqTzQtWvEuqNGZpO25JxMr64u78X0cF7CZQ7iqT0P4tcqq2OGqCzTBSJMsSNiTZp9K1Y3/HO3Px5GnfYh+DCOr+A/BK5421A5k=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=ukC/diYj/SOkXqmZAXU5Lp6DcD2S1bRVcWV6nw0f+Ro=;
+	b=HT9z0/UERvinc9PmYjW0D0SzSA9ITQBv0zkT2adlyUV4vd/bJhX6cixa3U9sVXs5MRg3fCc7xAf8HKOs/jr6ArUgtsv0CQyPTaZEYfUropfK407CPzngO5ZQyL8Gobf+L2L90ZFRi8p0JsOX5wlcJvWseEHSgLEzvaCo5wuJeOc=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=MT6Zk1Iwr6eslt5Pp/o6g6qSvge4hDtsWAuflUPzc98=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_024423_822667_B7BD41F2 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20250221_024424_021161_889BB72D 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,13 +88,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-rk3576 is using dwc controller, with msi interrupt directly to gic instead
-of to gic its, so
-- no its support is required and the 'msi-map' is not need anymore,
-- a new 'msi' interrupt is needed.
 
-Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
----
+The make dt_binding_check test has pass.
+But I got error for make CHECK_DTBS=y as below
+  DTC [C] arch/arm64/boot/dts/rockchip/rk3568-evb1-v10.dtb
+  DTC [C] arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb
+/home/kever/src/kernel-mainline/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: pcie@2a200000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err', 'msi'] is too long
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+/home/kever/src/kernel-mainline/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dtb: pcie@2a210000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err', 'msi'] is too long
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+  DTC [C] arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb
+/home/kever/src/kernel-mainline/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: pcie@2a200000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err', 'msi'] is too long
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+/home/kever/src/kernel-mainline/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dtb: pcie@2a210000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err', 'msi'] is too long
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
+  DTC [C] arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb
+/home/kever/src/kernel-mainline/arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb: pcie-ep@fe150000: interrupt-names: ['sys', 'pmc', 'msg', 'legacy', 'err', 'dma0', 'dma1', 'dma2', 'dma3'] is too long
+	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie-ep.yaml#
+
+Could anyone told me why, the rk3568 has pass the test, but the rk3572
+and rk3588 failed.
+How can I debug the yaml check failure? Why the check rule does not go to
+the if branch I defined for rk3572 and rk3588?
+
 
 Changes in v6:
 - Fix make dt_binding_check and make CHECK_DTBS=y
@@ -105,119 +125,22 @@ Changes in v4:
 Changes in v3:
 - Fix dtb check broken on rk3588
 - Update commit message
+- Update the subject
 
 Changes in v2:
 - remove required 'msi-map'
 - add interrupt name 'msi'
+- Update clock and reset names and sequence to pass DTB check
 
- .../bindings/pci/rockchip-dw-pcie-common.yaml | 59 +++++++++++++++----
- .../bindings/pci/rockchip-dw-pcie.yaml        |  4 +-
- 2 files changed, 50 insertions(+), 13 deletions(-)
+Kever Yang (2):
+  dt-bindings: PCI: dw: rockchip: Add rk3576 support
+  arm64: dts: rockchip: Add rk3576 pcie nodes
 
-diff --git a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml
-index cc9adfc7611c..069eb267c0bb 100644
---- a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml
-+++ b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie-common.yaml
-@@ -64,6 +64,10 @@ properties:
-           interrupts - aer_rc_err, aer_rc_err_msi, rx_cpl_timeout,
-           tx_cpl_timeout, cor_err_sent, nf_err_sent, f_err_sent, cor_err_rx,
-           nf_err_rx, f_err_rx, radm_qoverflow
-+      - description:
-+          Combinded MSI line interrupt, which is to support MSI interrupts
-+          output to GIC controller via GIC SPI interrupt instead of GIC its
-+          interrupt.
-       - description:
-           eDMA write channel 0 interrupt
-       - description:
-@@ -75,16 +79,6 @@ properties:
- 
-   interrupt-names:
-     minItems: 5
--    items:
--      - const: sys
--      - const: pmc
--      - const: msg
--      - const: legacy
--      - const: err
--      - const: dma0
--      - const: dma1
--      - const: dma2
--      - const: dma3
- 
-   num-lanes: true
- 
-@@ -123,4 +117,49 @@ required:
- 
- additionalProperties: true
- 
-+anyOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - rockchip,rk3568-pcie
-+              - rockchip,rk3588-pcie
-+              - rockchip,rk3588-pcie-ep
-+    then:
-+      properties:
-+        interrupt-names:
-+          minItems: 5
-+          type: array
-+          items:
-+            - const: sys
-+            - const: pmc
-+            - const: msg
-+            - const: legacy
-+            - const: err
-+            - const: dma0
-+            - const: dma1
-+            - const: dma2
-+            - const: dma3
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - rockchip,rk3576-pcie
-+    then:
-+      properties:
-+        interrupt-names:
-+          type: array
-+          items:
-+            - const: sys
-+            - const: pmc
-+            - const: msg
-+            - const: legacy
-+            - const: err
-+            - const: msi
-+          minItems: 6
-+          maxItems: 6
-+
- ...
-diff --git a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
-index 550d8a684af3..9a464731fa4a 100644
---- a/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/rockchip-dw-pcie.yaml
-@@ -26,6 +26,7 @@ properties:
-       - const: rockchip,rk3568-pcie
-       - items:
-           - enum:
-+              - rockchip,rk3576-pcie
-               - rockchip,rk3588-pcie
-           - const: rockchip,rk3568-pcie
- 
-@@ -71,9 +72,6 @@ properties:
- 
-   vpcie3v3-supply: true
- 
--required:
--  - msi-map
--
- unevaluatedProperties: false
- 
- examples:
+ .../bindings/pci/rockchip-dw-pcie-common.yaml |  59 ++++++++--
+ .../bindings/pci/rockchip-dw-pcie.yaml        |   4 +-
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 109 ++++++++++++++++++
+ 3 files changed, 159 insertions(+), 13 deletions(-)
+
 -- 
 2.25.1
 
