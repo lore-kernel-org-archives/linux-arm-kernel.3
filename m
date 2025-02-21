@@ -4,89 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5043AC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 19:05:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9FC0C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 19:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vH5HFKaawkeYnTHXne+k2M6Gi4L64IdQGTcUjzfy9HQ=; b=VtMn9TtgBVBrVIU+0h9lH5lSy5
-	WZVy22Lro95HakM/Q7TqYrJn91BQHiapYNUIH8rxzcuJ7qmm0eeyLhkfNLAPE0ZHRxMshNhQNHpkj
-	9M3Cpi/kiAgiqWypK7PcELBQoecKTzpdl5Esuku7ZmJkARayZ1blLVZjd+R7RCL5F2f9mxRJsdDDb
-	hM2VBk/II8jHMIgVQVo0dc+2C8BTu+SN8CS+DwydXz2vJ+LYeGGB83xEVAub4V6PfMTD4IcSQ4s8N
-	AGhL6Hh1jyWSsNkt3lUDvY8f8Tl329fuS+OmQtBrR0M5NUVqV4l6qEF8RuKQ78at+m2+JE6ms/zBv
-	DmdaireA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/RCLtFgB40kh5NGeWf7eTgIwKvvdlHuGYWJTu9Fn9iQ=; b=HHQr4wLLTY4F9gJWYcmh0gKo2C
+	bA3XJFOmMAjt/8YqLPIgMxNSaeCIqOEGCUEra893bBOD4a9GCp5+yKR3lY3sYKjwXhLY6/QnO0m4M
+	ZEb390+dQwZwNcu/NY9Uth1luBz82MKZR642VoivykK6YYORlf+M0V8d+bB5cevLshHHouLoy+UlS
+	+Nu0jwkKg90UHy9MuEJADaIAxljP2xQMC94y99z9wSif9GlrVQPDh1LXx7fGOLL+Yriy6C32lnl8A
+	M3B1EorLZS9v8m6eBZ5c5E8tkijaM5hYP9fdH24hpkEUrDUSd1xJgr4mk46IWi1ferAdVPATVHp6B
+	pHAFL6wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlYKu-00000006bCR-2cC9;
-	Fri, 21 Feb 2025 19:05:20 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1tlYR2-00000006bx6-0Ga3;
+	Fri, 21 Feb 2025 19:11:40 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlYJQ-00000006b1i-44rJ
+	id 1tlYPY-00000006bVJ-21bY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 19:03:50 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-220e83d65e5so49239145ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 11:03:48 -0800 (PST)
+	Fri, 21 Feb 2025 19:10:09 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5e0452f859cso3855781a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 11:10:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740164627; x=1740769427; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vH5HFKaawkeYnTHXne+k2M6Gi4L64IdQGTcUjzfy9HQ=;
-        b=KQJuw5rAOS3M+ZWR/pTbkmUg9T9zn+VdsP0I96rrpqeHE1/Bj3EFBBYMJDh5Dny9xz
-         GGkGDiKsUME744pS1MK8xUhserWIUToOGj9GtjyPMNSXcdJZCWe/rbHo4FzbwV9dF0Ot
-         iLdZ9t1YveGJ+fzEbdF/AEZx1ItWcnfM6gnKFBZEXaWM4CKwyFIwEibaVRg6lp2+RpUi
-         obVkSRtQFaPicGtQpf6JV12mVEEhHaJRLIKZGM1VdiAbxscfCvFr174L9n8omB5jxFcO
-         AMSEB7Hdf95i9qCLtr0lBijNEfNLLigIZp3MZ7kG6xCuf2DgyXvhNJcvBCRDtJu7c5Kk
-         QiQA==
+        d=gmail.com; s=20230601; t=1740165007; x=1740769807; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=/RCLtFgB40kh5NGeWf7eTgIwKvvdlHuGYWJTu9Fn9iQ=;
+        b=ci/Yhk6esqrKLD0Sh03/1q5i3+ZP1ZQoLybuQG8z4K7PzcyOp7zVufHIUxfVgaNK0C
+         f4KvjziIokD+0S8qvNYBQ+s54+6+uJZSdLvb4gQQIYlIvFSL/IiRQXr2PU3ALC7Dc6YV
+         Py9ch7aV/yyJ8jf0eSwdf3EfQIKJ4ZWRCnsdwv/3CS0M5B9OfWN0BrxujwgpsxOtU4uY
+         YfqvKTN+Gnmyc1zaR3NCUX/K9YCK9uJMh/i1pDUdhYPGoJc/AWOHWkkWipm/ekjEV5Oy
+         YgFixScaHVFjcn7tBmX8NdvmYUPWHic8beGHT06SkfpubGO5vX796Z/9FmjV9NV5iAWQ
+         UB2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740164627; x=1740769427;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vH5HFKaawkeYnTHXne+k2M6Gi4L64IdQGTcUjzfy9HQ=;
-        b=OUgbP0etBOEwokrUXZ7Lg0uDpk0ZmQrzxkH4sX3nKPogObPN3g2iPP1v1WCHMjJCB8
-         GYzrNHFqT7nYlX3btugjAIgzned2uva9FSNdRsz1quYZIfN64rasqQ3FhRTT69Xoccso
-         fzTCSDOpNng4hFRgqRL/tbpd4UzPYhwq2FDqBn1Zfv/pQaCDxUrezrB0WDZ+rlO62ypL
-         MHb+ph3PhggVCHJlbJZxk61T/qeQIJOpQF4pJfwzuS1xCivfdx3FosooLdBLCVkuIZVe
-         rDyIJfauCMBz0SLQH1EBGKbCTuk/wbGIqhNOjDXz1WdL+VwMuY6nNu9bQlhbRz4VdQqJ
-         WXeA==
-X-Forwarded-Encrypted: i=1; AJvYcCV1+CzeSiNjH0KHAVz6Z6yT/2UFrKhfWOB4B8YCTQlYJYAZ4AMNgE7NhEMWmiIRP12uTCvZKQPfo3ep0MsSyoMK@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCITdV6AbpHnsPymf5acqvgzHJ07rAhOBXh8tKjhCvAJnT4W+r
-	2JQgDKsjwDJi602tGKXa2KLvU6OmqB96NJVo8mUpNNn1Xl0GkxbF
-X-Gm-Gg: ASbGncvz+T7/SM4LLJSif5WmLFSYo9ktla0KDqyPIH84JY73sakCa8WcMnqYQqTBAFJ
-	ymllTMXdy6BqZOqlPwzvJGSTjfMHcXfKjSjIFEthQNlYYOUkX3CUGhn7gS69XoYPxen/6rbuQyE
-	9atXX7dlfsUuR8KoeNB/fWUF3KXl1IKkw1ASCsKgt4vEQd4iS3RxXpGzVMn6SkKgCLuddx0fcjp
-	a/ljUlKyKvJg5nR/z6HpmveIW8g+pI1z0rolTk1JDdMaxi1aKu4ZUijfwyz0lvioR/ZB37GFvI6
-	gGRUu6aDcjxDtaxFuLZkw3WlFQ==
-X-Google-Smtp-Source: AGHT+IHdmbG5cRGpHshEwzmBxgJqyw7H3qrw+xRtwNe8nI+Hjc2ysty4thRXFYYFyK6ggCpp5W52Tw==
-X-Received: by 2002:a05:6a21:69b:b0:1e1:aef4:9ce8 with SMTP id adf61e73a8af0-1eef3d87138mr8755556637.28.1740164627344;
-        Fri, 21 Feb 2025 11:03:47 -0800 (PST)
-Received: from localhost ([216.228.125.130])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73264729945sm12838710b3a.179.2025.02.21.11.03.46
+        d=1e100.net; s=20230601; t=1740165007; x=1740769807;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/RCLtFgB40kh5NGeWf7eTgIwKvvdlHuGYWJTu9Fn9iQ=;
+        b=Pkr5535BYVXGyEy4j8DrGmB7yExhQQLCqshp/pj1yQP9DLIu/OoHs8RkrNBRdtKLwA
+         g3vq2QmCMVP/Jbs8v8HoSZgFAwqKwbejb5bai39BMPplZ/wgm6qvovyk6aEQa24fLN/z
+         gAF2s3E+gEstb8/TpU+fMrefaqRPo1Upy+zZgOOUPMX7AycoKhA7YHb4XUkg6C9ZD/5C
+         f1+pPiG38QMwKzRgCrO9EjQSHu5m3GY7coHk3lxO3PG8jZVhNTR3YMXgk71avZB8sfPt
+         9TYyQ8Pj5n2vmfWzoM1qidN/GCH+vNxQLdVSKeBgJz2vjcYvy9xoUkS7AZuQppPFSp62
+         OoWg==
+X-Forwarded-Encrypted: i=1; AJvYcCVl2RXeG+kFZCnPYXnEzEUyR7xGK8TWcCybyIc9c1A2LR8VzvVM6nq0m9PVFQaVnZWZ3xr7PiQ+4f+wcN9ypOkr@lists.infradead.org
+X-Gm-Message-State: AOJu0YztqkFIZqFxDuGsEZBgJEKkn+GQs98BsYZQG6nq2TDwxmGDHU36
+	pADhZyG9Jt2dasOQ0q3uYIdtK1WBvR7lZg2hNIfEu809o0Ye1Cds
+X-Gm-Gg: ASbGncvAu6gmBNdy23hPQGsd4clnSCn/8BVTAdWi3+Csl7ywjvYPSi0mqgkYQjrQ7LU
+	i5Br265a3WIYypIF2V2c+PYwfZjFq8Z+4JxuDnoEBLHt/V3V3axMOO5B+v6z0zQC4zNH+ICstL/
+	+woghopx3ZgdE5HcL57nvcoE9Cl2m2Zq6HB9f8CLLD/Ui8wjHCHsIgMc13Jgai+0nT5YUwfkBjX
+	MSKqvgxz+ob1G1M9d3DQgzm6xO8FXUw3G/3ugQuZe9a8i26qOb5RvdcXrqTyNkHi7R5mslJ5P2L
+	3RnRvEyoEHXA96/cO4FeVk1YZw+OhzxKDmGsVecdsLDTM5TQT9NuIJZy98A=
+X-Google-Smtp-Source: AGHT+IFpUclfl3GP+JTSRxwBFyvgILom2sf5gyrQlkLG8A1WEQOIo0TKJpX4cHGGPDFAFepHADJp5w==
+X-Received: by 2002:a17:907:d9f:b0:ab7:66d3:bc88 with SMTP id a640c23a62f3a-abc09e459famr488105666b.52.1740165006472;
+        Fri, 21 Feb 2025 11:10:06 -0800 (PST)
+Received: from playground.nxp.com ([82.79.237.175])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb9b187203sm1027261566b.61.2025.02.21.11.10.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Feb 2025 11:03:46 -0800 (PST)
-Date: Fri, 21 Feb 2025 14:03:44 -0500
-From: Yury Norov <yury.norov@gmail.com>
-To: Beata Michalska <beata.michalska@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	sudeep.holla@arm.com, will@kernel.org, catalin.marinas@arm.com,
-	sfr@canb.auug.org.au, ionela.voinescu@arm.com,
-	linux-next@vger.kernel.org, sumitg@nvidia.com,
-	yang@os.amperecomputing.com, vanshikonda@os.amperecomputing.com,
-	lihuisong@huawei.com, zhanjie9@hisilicon.com,
-	ptsm@linux.microsoft.com
-Subject: Re: [PATCH v2] arm64: Utilize for_each_cpu_wrap for reference lookup
-Message-ID: <Z7jOEFtVtcuMyjjt@thinkpad>
-References: <20250220091015.2319901-1-beata.michalska@arm.com>
+        Fri, 21 Feb 2025 11:10:06 -0800 (PST)
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+To: Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Marek Vasut <marex@denx.de>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/4] clk: imx8mp: fix parents of AUDIOMIX DSP/OCRAM_A
+Date: Fri, 21 Feb 2025 14:09:25 -0500
+Message-Id: <20250221190929.31469-1-laurentiumihalcea111@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250220091015.2319901-1-beata.michalska@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_110349_015661_EF08D7CE 
-X-CRM114-Status: GOOD (  20.83  )
+X-CRM114-CacheID: sfid-20250221_111008_524838_4AAD9F05 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,62 +106,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025 at 09:10:15AM +0000, Beata Michalska wrote:
-> While searching for a reference CPU within a given policy,
-> arch_freq_get_on_cpu relies on cpumask_next_wrap to iterate over
-> all available CPUs and to ensure each is verified only once.
-> Recent changes to cpumask_next_wrap will handle the latter no more,
-> so switching to for_each_cpu_wrap, which  preserves expected behavior
-> while ensuring compatibility with the updates.
-> Not to mention that when iterating over each CPU, using a dedicated
-> iterator is preferable to an open-coded loop.
-> 
-> Fixes: 16d1e27475f6 ("arm64: Provide an AMU-based version of arch_freq_get_on_cpu")
-> Signed-off-by: Beata Michalska <beata.michalska@arm.com>
+From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Reviewed-by: Yury Norov [NVIDIA] <yury.norov@gmail.com>
+Correct the parent of the AUDIOMIX DSP and OCRAM_A clock gates by setting
+it to AUDIO_AXI_CLK_ROOT, instead of AUDIO_AHB_CLK_ROOT. Additionally, set
+the frequency of AUDIO_AXI_CLK_ROOT to 800MHz instead of the current
+400MHz.
 
-> ---
->  v2:
->  Updated commit message
-> 
->  arch/arm64/kernel/topology.c | 16 ++++++++++------
->  1 file changed, 10 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index a09b0551ec59..9e3583720668 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -254,7 +254,7 @@ int arch_freq_get_on_cpu(int cpu)
->  		if (!housekeeping_cpu(cpu, HK_TYPE_TICK) ||
->  		    time_is_before_jiffies(last_update + msecs_to_jiffies(AMU_SAMPLE_EXP_MS))) {
->  			struct cpufreq_policy *policy = cpufreq_cpu_get(cpu);
-> -			int ref_cpu = cpu;
-> +			int ref_cpu;
->  
->  			if (!policy)
->  				return -EINVAL;
-> @@ -265,11 +265,15 @@ int arch_freq_get_on_cpu(int cpu)
->  				return -EOPNOTSUPP;
->  			}
->  
-> -			do {
-> -				ref_cpu = cpumask_next_wrap(ref_cpu, policy->cpus,
-> -							    start_cpu, true);
-> -
-> -			} while (ref_cpu < nr_cpu_ids && idle_cpu(ref_cpu));
-> +			for_each_cpu_wrap(ref_cpu, policy->cpus, cpu + 1) {
-> +				if (ref_cpu == start_cpu) {
-> +					/* Prevent verifying same CPU twice */
-> +					ref_cpu = nr_cpu_ids;
-> +					break;
-> +				}
-> +				if (!idle_cpu(ref_cpu))
-> +					break;
-> +			}
->  
->  			cpufreq_cpu_put(policy);
->  
-> -- 
-> 2.25.1
+---
+Changes in v2:
+* add Fixes tags
+* add Iulia's R-b
+* link to v1: https://lore.kernel.org/imx/20250217165718.74619-1-laurentiumihalcea111@gmail.com/
+---
+
+Laurentiu Mihalcea (4):
+  dt-bindings: clock: imx8mp: add axi clock
+  clk: clk-imx8mp-audiomix: fix dsp/ocram_a clock parents
+  arm64: dts: imx8mp: add AUDIO_AXI_CLK_ROOT to AUDIOMIX block
+  arm64: dts: imx8mp: change AUDIO_AXI_CLK_ROOT freq. to 800MHz
+
+ .../devicetree/bindings/clock/imx8mp-audiomix.yaml     | 10 ++++++----
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi              |  7 ++++---
+ drivers/clk/imx/clk-imx8mp-audiomix.c                  |  6 +++---
+ 3 files changed, 13 insertions(+), 10 deletions(-)
+
+-- 
+2.34.1
+
 
