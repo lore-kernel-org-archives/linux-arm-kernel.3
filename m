@@ -4,52 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250B1C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 15:33:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 626EBC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 15:36:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NWKt11fIsoIIrCyQG6SzXtGXYwdoo6CSAzMZiNAYnp0=; b=OOWkj7F7ByK0wnwyi8+JypoEj0
-	rfC59//AUZfveLvJWgSdJGs83UmyzceilCTirtjMQxGPuLCOYmG/Li49qmMP7Fb+40xEb2P1C+oBu
-	uSm58oMQ+Q62s/mINVJ82SI0OTrQql1K80igoxw9o1L9+sXM+b1E3zixBhz+Ixt3A8joWTwN6yBGB
-	G4lZT6pkOYaCn5x1UcTPukYrD6V6J2kYRzSdDeF84bvmOuxIDc3fMY5WISBqVtzqY8HFbGGMEIrr6
-	/CU+UtMb3pQJG0CbmN7tyFWf3xWwG24U9Cx63dCuhiaX/Zn3DVeHiDxtFOKU6fFzzuaiAYm8ErZ3/
-	4Wd0bQMg==;
+	bh=Rjn/XsdELQyVcH/LFgFRj5wTVV97SpqSwpexgK7vwaw=; b=2faTNKxZ+Wy0H7++xQZP+ai1Hq
+	BGoeRyIPKExs/tB+gnNW551VswtpBgJYJgQ/MPTbSkJgKqk2JgSgW6m8pbayD1VfdBcdSmfVNqfYc
+	v63AaZ065xCYQUrwCkrEuC8UM7g66kwDU3UARfTt5Keq7vvj9iL+aJJge089TNkvz1aSk+5QsI0nc
+	Qg6fGUse1ms0WohT7Fm1917n8+JaPjkeheRbE+GcaizDSNCENQS9VqrsA0pf3izN/JFQS5JUOwnEV
+	7f20QEB84xaZhxbs7GXJv0V9C+JO7OQobLpC90NyvFSAeDWfOWQB4CYuYhNutvfOa/awTSNFY8vyz
+	6lat0Y5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlV22-00000005zWW-1rYm;
-	Fri, 21 Feb 2025 15:33:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tlV58-0000000605t-0mkA;
+	Fri, 21 Feb 2025 15:36:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlV0Z-00000005zFh-2D8y
+	id 1tlV3f-00000005zuI-3eqI
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 21 Feb 2025 15:35:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Rjn/XsdELQyVcH/LFgFRj5wTVV97SpqSwpexgK7vwaw=; b=iKOv+cCyHfDk9C0NoFTdNUxxcX
+	06fQQF+f3Deoo7Q9+V/0bShY5dPywOmk7tnyTX8i+itucqDWCZbgQqNPaZktNxPyMeqpikdA+fKtS
+	ylGSjF4+4zF4pcFLjTKZvlF/o4zKUOLQ7LHXyxsYc0GwKp2yklE8gY9dm28L1/rFE+rg5HI/gN8mi
+	wa7h/AXR7+wmnM2rln8z1rtnNGBGnuhOmgJNMeNJIhkyELpsYkT/OQ+qMAfCCx3JfFtp9vBsvkY0K
+	xwH1IsPqdqRYvDKHd/khqM8JU5cF6Wa1lusYOS8iGzEAlGX7ne8A+sDQTKd5g0T2UL67u5TdwWk3A
+	Y2/vu/lw==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlV3c-00000002fXW-1qTO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 15:32:07 +0000
+	Fri, 21 Feb 2025 15:35:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8527D613E9;
-	Fri, 21 Feb 2025 15:32:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51861C4CED6;
-	Fri, 21 Feb 2025 15:32:00 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 723CC5C6618;
+	Fri, 21 Feb 2025 15:34:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F23FBC4CEE2;
+	Fri, 21 Feb 2025 15:35:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740151926;
-	bh=2XaCu9je9IA765r/EB4HdTVXelllIRMjNPyGsqdE/Ic=;
+	s=k20201202; t=1740152112;
+	bh=HFbveIpxBrHCezKac0bPWSUzZSYqbqkw6nidRl1Irxw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=syu33c5FDQHVtMcEcWdynEHBHHQzJPgLhyfB++zvelhIsmLJ2XmDlU7oMDTLeMVwc
-	 RV3Z30p9d0YCTA15XIqmfev+ds6Gzy0+nboSXX1xyuUQDxIqnlxxNAGbVbYCpTfG6/
-	 nyskhslJCl5e9kDaO9HoUtZAIcdJJhBdE1hMld+VMc3YNW5pZcqQEpGd9LraPAKYIm
-	 GggZVSa1UN4kMkRbcNlO7jkTys4qzvFW3RSZdWaOpnC70Pw9uiJbR6HnQKS2wIfLtK
-	 CiEwckQny+xGxD9LpTWSz6M7XtTTJFkuX34BXhlP04kE28YPDHGtiBgP2fV6SWXo4H
-	 UJa/7XqpMI+Xg==
-Date: Fri, 21 Feb 2025 15:31:56 +0000
+	b=OJgfNl3Sv/k0lydbFfAJYgv48UkwUsory7TtVR7CJC2KaUy1qnINNOVZQNyroUwIo
+	 4gCbF80U7wG3xjOoA3a1x0W/aaCPasW6C15q+rv2vkLFXGQH0Jzc7R80BrLAkfil4g
+	 bAlfxN3obgLbfIXOYbxTU31OZYYfTXK23XDduDlCRAlEDywHoSsO80l97q2axSx/5v
+	 Gk9K9uj/rYb/+c2amOJzh9MoOnkEWIyXezml8hqnqxtzH6JYiyraS0sY9KukmdnohL
+	 vq6LFXxcDtuPVqarCPx8m2IKzBaHcDfxVxJ1eloXdL/smXMkl4LII1kc0fSgYGSASY
+	 5WeNkluJ8/1xA==
+Date: Fri, 21 Feb 2025 15:35:02 +0000
 From: Will Deacon <will@kernel.org>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	Huacai Chen <chenhuacai@kernel.org>,
 	WANG Xuerui <kernel@xen0n.name>,
 	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
 	Helge Deller <deller@gmx.de>,
 	Madhavan Srinivasan <maddy@linux.ibm.com>,
 	Michael Ellerman <mpe@ellerman.id.au>,
@@ -78,17 +93,19 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Dev Jain <dev.jain@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
 	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] arm64: hugetlb: Fix huge_ptep_get_and_clear() for
- non-present ptes
-Message-ID: <20250221153156.GC20567@willie-the-truck>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/4] Fixes for hugetlb and vmalloc on arm64
+Message-ID: <20250221153501.GD20567@willie-the-truck>
 References: <20250217140419.1702389-1-ryan.roberts@arm.com>
- <20250217140419.1702389-3-ryan.roberts@arm.com>
+ <Z7YsqO7ykGgcBFEI@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250217140419.1702389-3-ryan.roberts@arm.com>
+In-Reply-To: <Z7YsqO7ykGgcBFEI@arm.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250221_153516_951936_2BD52D26 
+X-CRM114-Status: GOOD (  23.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,96 +120,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 17, 2025 at 02:04:15PM +0000, Ryan Roberts wrote:
-> arm64 supports multiple huge_pte sizes. Some of the sizes are covered by
-> a single pte entry at a particular level (PMD_SIZE, PUD_SIZE), and some
-> are covered by multiple ptes at a particular level (CONT_PTE_SIZE,
-> CONT_PMD_SIZE). So the function has to figure out the size from the
-> huge_pte pointer. This was previously done by walking the pgtable to
-> determine the level and by using the PTE_CONT bit to determine the
-> number of ptes at the level.
+On Wed, Feb 19, 2025 at 07:10:32PM +0000, Catalin Marinas wrote:
+> Will, Ryan,
 > 
-> But the PTE_CONT bit is only valid when the pte is present. For
-> non-present pte values (e.g. markers, migration entries), the previous
-> implementation was therefore erroniously determining the size. There is
-> at least one known caller in core-mm, move_huge_pte(), which may call
-> huge_ptep_get_and_clear() for a non-present pte. So we must be robust to
-> this case. Additionally the "regular" ptep_get_and_clear() is robust to
-> being called for non-present ptes so it makes sense to follow the
-> behaviour.
+> On Mon, Feb 17, 2025 at 02:04:13PM +0000, Ryan Roberts wrote:
+> > This series contains some fixes for hugetlb on arm64, and is split out from v1
+> > of a wider series at [1]. While the last patch is technically targetting core-mm
+> > and is not directly related to arm64, I'd like to to go via the arm64 tree so
+> > that the wider performance improvement series (v2 to be posted shortly) that
+> > depends on this series doesn't have to be robust to the fix not being present.
+> > 
+> > I've included maintainers/reviewers for all the arches that are (trivially)
+> > touched due to the API changes, hoping for some ACKs.
 > 
-> Fix this by using the new sz parameter which is now provided to the
-> function. Additionally when clearing each pte in a contig range, don't
-> gather the access and dirty bits if the pte is not present.
+> These fixes look fine to me and I think we should get them in for 6.14.
+> I think Andrew was ok with them going in via the arm64 tree:
 > 
-> An alternative approach that would not require API changes would be to
-> store the PTE_CONT bit in a spare bit in the swap entry pte for the
-> non-present case. But it felt cleaner to follow other APIs' lead and
-> just pass in the size.
-> 
-> As an aside, PTE_CONT is bit 52, which corresponds to bit 40 in the swap
-> entry offset field (layout of non-present pte). Since hugetlb is never
-> swapped to disk, this field will only be populated for markers, which
-> always set this bit to 0 and hwpoison swap entries, which set the offset
-> field to a PFN; So it would only ever be 1 for a 52-bit PVA system where
-> memory in that high half was poisoned (I think!). So in practice, this
-> bit would almost always be zero for non-present ptes and we would only
-> clear the first entry if it was actually a contiguous block. That's
-> probably a less severe symptom than if it was always interpretted as 1
-> and cleared out potentially-present neighboring PTEs.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 66b3923a1a0f ("arm64: hugetlb: add support for PTE contiguous bit")
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  arch/arm64/mm/hugetlbpage.c | 40 ++++++++++++++++---------------------
->  1 file changed, 17 insertions(+), 23 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index 06db4649af91..614b2feddba2 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -163,24 +163,23 @@ static pte_t get_clear_contig(struct mm_struct *mm,
->  			     unsigned long pgsize,
->  			     unsigned long ncontig)
->  {
-> -	pte_t orig_pte = __ptep_get(ptep);
-> -	unsigned long i;
-> -
-> -	for (i = 0; i < ncontig; i++, addr += pgsize, ptep++) {
-> -		pte_t pte = __ptep_get_and_clear(mm, addr, ptep);
-> -
-> -		/*
-> -		 * If HW_AFDBM is enabled, then the HW could turn on
-> -		 * the dirty or accessed bit for any page in the set,
-> -		 * so check them all.
-> -		 */
-> -		if (pte_dirty(pte))
-> -			orig_pte = pte_mkdirty(orig_pte);
-> -
-> -		if (pte_young(pte))
-> -			orig_pte = pte_mkyoung(orig_pte);
-> +	pte_t pte, tmp_pte;
-> +	bool present;
-> +
-> +	pte = __ptep_get_and_clear(mm, addr, ptep);
-> +	present = pte_present(pte);
-> +	while (--ncontig) {
-> +		ptep++;
-> +		addr += pgsize;
-> +		tmp_pte = __ptep_get_and_clear(mm, addr, ptep);
-> +		if (present) {
-> +			if (pte_dirty(tmp_pte))
-> +				pte = pte_mkdirty(pte);
-> +			if (pte_young(tmp_pte))
-> +				pte = pte_mkyoung(pte);
-> +		}
->  	}
+> https://lore.kernel.org/linux-arm-kernel/20250205235219.3c3a4b968087d1386d708b04@linux-foundation.org/
 
-nit: With the loop now structured like this, we really can't handle
-num_contig_ptes() returning 0 if it gets an unknown size. Granted, that
-really shouldn't happen, but perhaps it would be better to add a 'default'
-case with a WARN() to num_contig_ptes() and then add an early return here?
+I think the diffstat looks worse than it really is, as the arch changes
+are reasonably mechanical. I'd like to let it sit in next for a few days
+though, so I'll pick this up once we've resolved my comment on patch #2.
+
+Ryan -- did you find all of these issues by inspection, or are you aware
+of anybody hitting them in practice?
 
 Will
 
