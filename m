@@ -4,78 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 444A9C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 07:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24BA4C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 08:00:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3BHfA1ZK9IJwn4Rwgn34SAEt3c6Rgow6Iq4j21KTuhI=; b=XOmRY3Y9iUd9PpPc92dnIKGIt4
-	RFVwtFHWOD/t6H0VUixnFCzRE43+4s3+6c/uXsxGMWT8HXa+azDS1u+SIm0mchGsNDKf/HgNB/EKU
-	xOKuCLX/iXZFIq9CZKrdnEJm2XZOw5+Ig8hhRIij5mOkl/WUZuWzHcqIOcRhWVbKwANKxdY7oOtvO
-	CRy3PKmFKI+JEnWEJl516Ac4NVeGTPzv406wpAT7/TCrbdiVkKD7TqJXP8t4uw5OtmeJr1wbtGL4Z
-	Hoe9y3HyLMfrVY/5Pvno97DXHcFgNwpznpcDOeEfLX6ByM0CNadcuIE/Bo2rIYpU0v+8JHACYXHA9
-	ii3ZKbYg==;
+	bh=rOI7Z+k/jw/HwkIzU4wUrpSnIOnbW4yX7Ts578dd7m0=; b=OTkvKZV8QR1GbIz95+fVxx9gFd
+	XdoOBOH38Y6ipXcpsXdtlKpbYqjtIDPFasONPVjaS4+7P6DAktHOPZqwcPmSaUpSL5teTFsH200ux
+	LOx2wbWCLQEmsWGdQDhmquz1tzTFVbNpur6gT0BWNza9O7M0s0DNzrREvJHoYp4vgY44eZTnO3Jk7
+	uvEDA5/ixugKRJGTHX4gPjJxh/gwjU94ndsFCO5wfSsh1rbptUTYvTBkm7fgiMK7Fjbb22HQ3L09E
+	TfzCVkWmnTY1zrPDgn1j2RxlOiB3GafSyQDmEKC3fSX3/a5XxjYz0A1R+Wjk/nN/qNpisw6a2vXAU
+	ywaESxEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlNw8-00000004bk8-2443;
-	Fri, 21 Feb 2025 07:59:04 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tlNxZ-00000004c0a-12Qr;
+	Fri, 21 Feb 2025 08:00:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlNoY-00000004a9K-19dQ;
-	Fri, 21 Feb 2025 07:51:15 +0000
-X-UUID: 9c48d2caf02811efa1e849db4cc18d44-20250221
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=3BHfA1ZK9IJwn4Rwgn34SAEt3c6Rgow6Iq4j21KTuhI=;
-	b=Gv7ueKezeiHiDrmMcIeCB0Kr65OuvfokufR+f+c0ysnOfJ+BGREL1/wmJ2cf8NzjBvnckRX4bcU4KuGEUFxfIYifQE930V+gDZOimrkuITHPdRI/8pzkK+5eXoF81Y4KhUcOcOhuAuJI6G0Hb7PbgmutiUWodEUVV5p3ABepJHM=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:f7218cd0-477e-4e85-af0f-c564bf94059d,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTI
-	ON:release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:104168b5-a2a1-4ef3-9ef9-e116773da0a7,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:5,
-	IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
-	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 9c48d2caf02811efa1e849db4cc18d44-20250221
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
-	(envelope-from <friday.yang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 262316945; Fri, 21 Feb 2025 00:51:08 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Fri, 21 Feb 2025 15:51:05 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Fri, 21 Feb 2025 15:51:04 +0800
-From: Friday Yang <friday.yang@mediatek.com>
-To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
-	<sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Garmin Chang
-	<garmin.chang@mediatek.com>, Yong Wu <yong.wu@mediatek.com>
-CC: Friday Yang <friday.yang@mediatek.com>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: [PATCH v4 2/2] clk: mediatek: Add SMI LARBs reset for MT8188
-Date: Fri, 21 Feb 2025 15:50:54 +0800
-Message-ID: <20250221075058.14180-3-friday.yang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250221075058.14180-1-friday.yang@mediatek.com>
-References: <20250221075058.14180-1-friday.yang@mediatek.com>
+	id 1tlNpc-00000004aS2-34a5
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Feb 2025 07:52:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1740124339;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rOI7Z+k/jw/HwkIzU4wUrpSnIOnbW4yX7Ts578dd7m0=;
+	b=bBcAWn9cGqy4H6qmy4L3R6rfw0RlLDCMFoGh/MIEwdo9cwuNSg1NXIutRdcMiRWVf+WCAR
+	Atij/qMDaZ9tV/S7w4L7MqbKE6sZ62j1fLxM91oZYsBe9nYZplSshRYU3tpSXBpH5vAiu+
+	pCwZwPvMITK8GkGbE/oZyq7/N2Q+jx4=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-632-2W__KWruOGaCueChEqsuCg-1; Fri, 21 Feb 2025 02:52:18 -0500
+X-MC-Unique: 2W__KWruOGaCueChEqsuCg-1
+X-Mimecast-MFC-AGG-ID: 2W__KWruOGaCueChEqsuCg_1740124337
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4399c5ba9e4so9444705e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 20 Feb 2025 23:52:18 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740124337; x=1740729137;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=rOI7Z+k/jw/HwkIzU4wUrpSnIOnbW4yX7Ts578dd7m0=;
+        b=jiYXWDwklpeDBmUujLnKAUgN0qaVbPU8Uh5I5/dxJ8KKeCyPTOVOY1ozuoLlNKYhCN
+         0dcylRkCJMICC4VoA/eh/JLjmJFqWJ6R1m63GKnzzWKff3uGmOHG3RjUMVFitD3cxii3
+         Q/0qVAs2vjM2sZ0gBw/7382lRYaYYcnkKQsnT1QymeMKEp+n8mKBBCAs+WGtuE5bx3Vq
+         39H48uKnQM3cIDREzFYcJNPQoX6XmwMGoTN4OY8+q9AFww9qc0kzB+y8I+imB6Y3zt7K
+         Lp89sOo17Lo1nq6K537CiecMnRzYcQRpLkuuDMToBMosuU9p75NcKLNUcGlQGwMzS5sL
+         J/kw==
+X-Forwarded-Encrypted: i=1; AJvYcCVaLQ8zw8PmrvUTu80pcb9ZH1NOW/wtqqLsepuy5USSPZP6YtHMYmNEgUzIiWhJ4Vt+7WeGPvxzm47X2FgqpKMR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzStXwD85J7rOBbG0nCH2fqSphUVKTZDQfq27O4f4P9nm2RR7qA
+	zFsd/pWAaLQXXfmw7E6ADNh5puy2V1SI6yYvk/1goD4tpLAOwerdtDUqyf+QW2VNEdlF72auGKi
+	23I9zCIK+At5fJigQ+5nPrNDinyghj8VMFekt7hEOlf4fmIQg8Cf8m6dlmGdk4Z8KCvXKKn+Q
+X-Gm-Gg: ASbGncsqPYUBZR0gY2b6rxJkN2lKAGJFKKrLAzHoSUCcr0a/V3GfaRHFWurV3+qz/Vy
+	Vm0xQk/hOSZYDsHWGwf/RPPYRFpK/6qfYlp+B9eSTNVs3LMVlfAMixy5xRvf3+GU9bzKL0wdd/L
+	ICrvji3sFZuAcIz2ZM3zqc87kbMCFvjOTyWIiqDH6OpNeiUnmfFYMZO2Iov5FqKBnRe3XvGcHyJ
+	/HUkwoylnvGmBBPw9SKqLPeQumc/LI3MyUXDx7nWxG5/j2apC8WzZN39xgi5Bx/A5Jqi7v3wLJO
+	1DhX2ufnNQoV86wLxYVJocg60N+TsVEEvcQAoUQqhAU7DxKKGtNfjp7d7Vd8jPvd
+X-Received: by 2002:a05:600c:5246:b0:439:9a40:aa09 with SMTP id 5b1f17b1804b1-439ae21d202mr13079625e9.25.1740124337021;
+        Thu, 20 Feb 2025 23:52:17 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE6RndQ6ymoZEFzvzfDt+1GKRpaPngpEuFYmDAHqGLJUcufH5YS8MWYZmZqlHO+/W+nddETwA==
+X-Received: by 2002:a05:600c:5246:b0:439:9a40:aa09 with SMTP id 5b1f17b1804b1-439ae21d202mr13079435e9.25.1740124336660;
+        Thu, 20 Feb 2025 23:52:16 -0800 (PST)
+Received: from rh (p200300f6af0e4d00dda53016e366575f.dip0.t-ipconnect.de. [2003:f6:af0e:4d00:dda5:3016:e366:575f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439b02ce735sm9240925e9.3.2025.02.20.23.52.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Feb 2025 23:52:16 -0800 (PST)
+Date: Fri, 21 Feb 2025 08:52:15 +0100 (CET)
+From: Sebastian Ott <sebott@redhat.com>
+To: Marc Zyngier <maz@kernel.org>
+cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+    Suzuki K Poulose <suzuki.poulose@arm.com>, 
+    Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>, 
+    Eric Auger <eric.auger@redhat.com>, gankulkarni@os.amperecomputing.com
+Subject: Re: [PATCH v2 02/14] KVM: arm64: Hide ID_AA64MMFR2_EL1.NV from guest
+ and userspace
+In-Reply-To: <86r03squ0w.wl-maz@kernel.org>
+Message-ID: <5f9699c5-ccc8-9339-bfca-1ace8d7f86b6@redhat.com>
+References: <20250220134907.554085-1-maz@kernel.org> <20250220134907.554085-3-maz@kernel.org> <af16f5bc-4300-54d3-b480-c559ec070a44@redhat.com> <86r03squ0w.wl-maz@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: k4EJHTUd8XSWcKH-9iNL_sxDsxP78scNlYgCrGO7erI_1740124337
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=US-ASCII; format=flowed
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_235114_321318_44A72C58 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250220_235220_847513_48443F52 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,173 +108,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SMI LARBs require reset functions when MTCMOS powers on or off.
-Add reset platform data for SMI LARBs in the image, camera and IPE
-subsystems.
+On Thu, 20 Feb 2025, Marc Zyngier wrote:
+> On Thu, 20 Feb 2025 17:36:35 +0000,
+> Sebastian Ott <sebott@redhat.com> wrote:
+>> On Thu, 20 Feb 2025, Marc Zyngier wrote:
+>>> Since our take on FEAT_NV is to only support FEAT_NV2, we should
+>>> never expose ID_AA64MMFR2_EL1.NV to a guest nor userspace.
+>>>
+>>> Make sure we mask this field for good.
+>>>
+>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>>> ---
+>>> arch/arm64/kvm/sys_regs.c | 1 +
+>>> 1 file changed, 1 insertion(+)
+>>>
+>>> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+>>> index 82430c1e1dd02..9f10dbd26e348 100644
+>>> --- a/arch/arm64/kvm/sys_regs.c
+>>> +++ b/arch/arm64/kvm/sys_regs.c
+>>> @@ -1627,6 +1627,7 @@ static u64 __kvm_read_sanitised_id_reg(const struct kvm_vcpu *vcpu,
+>>> 		break;
+>>> 	case SYS_ID_AA64MMFR2_EL1:
+>>> 		val &= ~ID_AA64MMFR2_EL1_CCIDX_MASK;
+>>> +		val &= ~ID_AA64MMFR2_EL1_NV;
+>>> 		break;
+>>
+>> This would cause issues when you update the host kernel while keeping the
+>> guests register state. Could we allow to write (but ignore) the previously
+>> valid value? Like it was handled in:
+>> 	6685f5d572c2 KVM: arm64: Disable MPAM visibility by default and ignore VMM writes
+>
+> Yeah, this falls into the same "shouldn't have exposed this the first
+> place" bucket. Annoying. Something like the diff below?
 
-Signed-off-by: Friday Yang <friday.yang@mediatek.com>
----
- drivers/clk/mediatek/clk-mt8188-cam.c | 17 +++++++++++++++++
- drivers/clk/mediatek/clk-mt8188-img.c | 18 ++++++++++++++++++
- drivers/clk/mediatek/clk-mt8188-ipe.c | 14 ++++++++++++++
- 3 files changed, 49 insertions(+)
-
-diff --git a/drivers/clk/mediatek/clk-mt8188-cam.c b/drivers/clk/mediatek/clk-mt8188-cam.c
-index 7500bd25387f..9b029fdd584e 100644
---- a/drivers/clk/mediatek/clk-mt8188-cam.c
-+++ b/drivers/clk/mediatek/clk-mt8188-cam.c
-@@ -20,6 +20,8 @@ static const struct mtk_gate_regs cam_cg_regs = {
- #define GATE_CAM(_id, _name, _parent, _shift)			\
- 	GATE_MTK(_id, _name, _parent, &cam_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
-
-+#define CAM_SYS_SMI_LARB_RST_OFF	(0xA0)
-+
- static const struct mtk_gate cam_main_clks[] = {
- 	GATE_CAM(CLK_CAM_MAIN_LARB13, "cam_main_larb13", "top_cam", 0),
- 	GATE_CAM(CLK_CAM_MAIN_LARB14, "cam_main_larb14", "top_cam", 1),
-@@ -72,6 +74,17 @@ static const struct mtk_gate cam_yuvb_clks[] = {
- 	GATE_CAM(CLK_CAM_YUVB_CAMTG, "cam_yuvb_camtg", "top_cam", 2),
- };
-
-+/* Reset for SMI larb 16a/16b/17a/17b */
-+static u16 cam_sys_rst_ofs[] = {
-+	CAM_SYS_SMI_LARB_RST_OFF,
-+};
-+
-+static const struct mtk_clk_rst_desc cam_sys_rst_desc = {
-+	.version = MTK_RST_SIMPLE,
-+	.rst_bank_ofs = cam_sys_rst_ofs,
-+	.rst_bank_nr = ARRAY_SIZE(cam_sys_rst_ofs),
-+};
-+
- static const struct mtk_clk_desc cam_main_desc = {
- 	.clks = cam_main_clks,
- 	.num_clks = ARRAY_SIZE(cam_main_clks),
-@@ -80,21 +93,25 @@ static const struct mtk_clk_desc cam_main_desc = {
- static const struct mtk_clk_desc cam_rawa_desc = {
- 	.clks = cam_rawa_clks,
- 	.num_clks = ARRAY_SIZE(cam_rawa_clks),
-+	.rst_desc = &cam_sys_rst_desc,
- };
-
- static const struct mtk_clk_desc cam_rawb_desc = {
- 	.clks = cam_rawb_clks,
- 	.num_clks = ARRAY_SIZE(cam_rawb_clks),
-+	.rst_desc = &cam_sys_rst_desc,
- };
-
- static const struct mtk_clk_desc cam_yuva_desc = {
- 	.clks = cam_yuva_clks,
- 	.num_clks = ARRAY_SIZE(cam_yuva_clks),
-+	.rst_desc = &cam_sys_rst_desc,
- };
-
- static const struct mtk_clk_desc cam_yuvb_desc = {
- 	.clks = cam_yuvb_clks,
- 	.num_clks = ARRAY_SIZE(cam_yuvb_clks),
-+	.rst_desc = &cam_sys_rst_desc,
- };
-
- static const struct of_device_id of_match_clk_mt8188_cam[] = {
-diff --git a/drivers/clk/mediatek/clk-mt8188-img.c b/drivers/clk/mediatek/clk-mt8188-img.c
-index cb2fbd4136b9..d44bfbd8308a 100644
---- a/drivers/clk/mediatek/clk-mt8188-img.c
-+++ b/drivers/clk/mediatek/clk-mt8188-img.c
-@@ -20,6 +20,8 @@ static const struct mtk_gate_regs imgsys_cg_regs = {
- #define GATE_IMGSYS(_id, _name, _parent, _shift)			\
- 	GATE_MTK(_id, _name, _parent, &imgsys_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
-
-+#define IMG_SYS_SMI_LARB_RST_OFF	(0xC)
-+
- static const struct mtk_gate imgsys_main_clks[] = {
- 	GATE_IMGSYS(CLK_IMGSYS_MAIN_LARB9, "imgsys_main_larb9", "top_img", 0),
- 	GATE_IMGSYS(CLK_IMGSYS_MAIN_TRAW0, "imgsys_main_traw0", "top_img", 1),
-@@ -58,6 +60,17 @@ static const struct mtk_gate imgsys1_dip_nr_clks[] = {
- 	GATE_IMGSYS(CLK_IMGSYS1_DIP_NR_DIP_NR, "imgsys1_dip_nr_dip_nr", "top_img", 1),
- };
-
-+/* Reset for SMI larb 10/11a/11b/11c/15 */
-+static u16 img_sys_rst_ofs[] = {
-+	IMG_SYS_SMI_LARB_RST_OFF,
-+};
-+
-+static const struct mtk_clk_rst_desc img_sys_rst_desc = {
-+	.version = MTK_RST_SIMPLE,
-+	.rst_bank_ofs = img_sys_rst_ofs,
-+	.rst_bank_nr = ARRAY_SIZE(img_sys_rst_ofs),
-+};
-+
- static const struct mtk_clk_desc imgsys_main_desc = {
- 	.clks = imgsys_main_clks,
- 	.num_clks = ARRAY_SIZE(imgsys_main_clks),
-@@ -66,26 +79,31 @@ static const struct mtk_clk_desc imgsys_main_desc = {
- static const struct mtk_clk_desc imgsys_wpe1_desc = {
- 	.clks = imgsys_wpe1_clks,
- 	.num_clks = ARRAY_SIZE(imgsys_wpe1_clks),
-+	.rst_desc = &img_sys_rst_desc,
- };
-
- static const struct mtk_clk_desc imgsys_wpe2_desc = {
- 	.clks = imgsys_wpe2_clks,
- 	.num_clks = ARRAY_SIZE(imgsys_wpe2_clks),
-+	.rst_desc = &img_sys_rst_desc,
- };
-
- static const struct mtk_clk_desc imgsys_wpe3_desc = {
- 	.clks = imgsys_wpe3_clks,
- 	.num_clks = ARRAY_SIZE(imgsys_wpe3_clks),
-+	.rst_desc = &img_sys_rst_desc,
- };
-
- static const struct mtk_clk_desc imgsys1_dip_top_desc = {
- 	.clks = imgsys1_dip_top_clks,
- 	.num_clks = ARRAY_SIZE(imgsys1_dip_top_clks),
-+	.rst_desc = &img_sys_rst_desc,
- };
-
- static const struct mtk_clk_desc imgsys1_dip_nr_desc = {
- 	.clks = imgsys1_dip_nr_clks,
- 	.num_clks = ARRAY_SIZE(imgsys1_dip_nr_clks),
-+	.rst_desc = &img_sys_rst_desc,
- };
-
- static const struct of_device_id of_match_clk_mt8188_imgsys_main[] = {
-diff --git a/drivers/clk/mediatek/clk-mt8188-ipe.c b/drivers/clk/mediatek/clk-mt8188-ipe.c
-index 8f1933b71e28..70a011c1f9ce 100644
---- a/drivers/clk/mediatek/clk-mt8188-ipe.c
-+++ b/drivers/clk/mediatek/clk-mt8188-ipe.c
-@@ -20,6 +20,8 @@ static const struct mtk_gate_regs ipe_cg_regs = {
- #define GATE_IPE(_id, _name, _parent, _shift)			\
- 	GATE_MTK(_id, _name, _parent, &ipe_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
-
-+#define IPE_SYS_SMI_LARB_RST_OFF	(0xC)
-+
- static const struct mtk_gate ipe_clks[] = {
- 	GATE_IPE(CLK_IPE_DPE, "ipe_dpe", "top_ipe", 0),
- 	GATE_IPE(CLK_IPE_FDVT, "ipe_fdvt", "top_ipe", 1),
-@@ -28,9 +30,21 @@ static const struct mtk_gate ipe_clks[] = {
- 	GATE_IPE(CLK_IPE_SMI_LARB12, "ipe_smi_larb12", "top_ipe", 4),
- };
-
-+/* Reset for SMI larb 12 */
-+static u16 ipe_sys_rst_ofs[] = {
-+	IPE_SYS_SMI_LARB_RST_OFF,
-+};
-+
-+static const struct mtk_clk_rst_desc ipe_sys_rst_desc = {
-+	.version = MTK_RST_SIMPLE,
-+	.rst_bank_ofs = ipe_sys_rst_ofs,
-+	.rst_bank_nr = ARRAY_SIZE(ipe_sys_rst_ofs),
-+};
-+
- static const struct mtk_clk_desc ipe_desc = {
- 	.clks = ipe_clks,
- 	.num_clks = ARRAY_SIZE(ipe_clks),
-+	.rst_desc = &ipe_sys_rst_desc,
- };
-
- static const struct of_device_id of_match_clk_mt8188_ipe[] = {
---
-2.46.0
+Yes, thanks!
 
 
