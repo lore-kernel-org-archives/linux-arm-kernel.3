@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C55FC021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:09:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 135CEC021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oFxXsNMA8gfTI/DjF7dnN7GiTxHqzYKtTZqTiwLsLm0=; b=vrSHEfmkya9SfZ4z0S08FqL5Dq
-	Aa9pnOCNZcg1o2kXX1F8/q3Fh+uDc50YUwAR/dENdpYV3yRCpuOobyoO7o13QMkI3DsjtbHBVcUSb
-	e/6LhnJH6R0/Dh4TkzCXfFwjGN7P8Ngfv7bdz/jsrrzdDXd3mn1Szusu9bTotGPxwn5Xixs8MYnSQ
-	kO0WiG9xwkOSMfJZaXMg4BuaC3to+pU9kN9Em53xo1EOMtj3CAx6RLKhL36Y2Ik/uxVDtDR/GLlMT
-	GD2voNyqSIDDYwbq/FHEu7wtCkZZDKq9FtjbPSYhGQIsp+25yos69RhhP2+Y05jq/dcukQ2Xt8DMQ
-	z/rdT6Gg==;
+	bh=M8fBg2QXpHUl/OdMjODsqdcTFGus/CLKE9BhSV7I0j0=; b=zVOp6aqM5P5SE3Qh+qjujGLP3j
+	DKqaShgGfY8pHhZ3O9Q+zYLTQUfQa0UYhRNrQ9APZeCMKCUvxQavp4OqewWJki9Vzdq8fv+POJ+pO
+	2T/89H9Mh69VipxojJJIgBaz3UNiP9W1qL6pMmoZ/+TOhogjWxhRJ/9q1x/CKkGiS5EWHjg2htXDs
+	lSbXtLsWbDLA1mYCIx6lY8GnXZIuRW4IWYokAy+vcOlc0ff9gNB9jol6GdC0rKB67iwgnO+QWn+jG
+	N/zBzgtxowEVID/LZTuRxhmRlTKVTsSdg7uV0XAj0IM5L7kX19Os9bopd+5ztfSor5TUNE8ZM9zAt
+	1zD2P5zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlTik-00000005lIA-01ns;
-	Fri, 21 Feb 2025 14:09:38 +0000
+	id 1tlTkC-00000005lYs-3CHN;
+	Fri, 21 Feb 2025 14:11:08 +0000
 Received: from smtp-190d.mail.infomaniak.ch ([2001:1600:7:10::190d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlTeL-00000005kMj-0bN3
+	id 1tlTeK-00000005kN6-2DN4
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 21 Feb 2025 14:05:08 +0000
 Received: from smtp-4-0000.mail.infomaniak.ch (unknown [IPv6:2001:1600:7:10:40ca:feff:fe05:0])
-	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YzsMd2NfgzTCq;
-	Fri, 21 Feb 2025 15:05:01 +0100 (CET)
-Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YzsMc4HR9zYHX;
-	Fri, 21 Feb 2025 15:05:00 +0100 (CET)
+	by smtp-4-3000.mail.infomaniak.ch (Postfix) with ESMTPS id 4YzsMg2wt0zRTj;
+	Fri, 21 Feb 2025 15:05:03 +0100 (CET)
+Received: from unknown by smtp-4-0000.mail.infomaniak.ch (Postfix) with ESMTPA id 4YzsMf5Yy2zYKb;
+	Fri, 21 Feb 2025 15:05:02 +0100 (CET)
 From: Quentin Schulz <foss+kernel@0leil.net>
-Date: Fri, 21 Feb 2025 15:04:34 +0100
-Subject: [PATCH v2 2/5] arm64: dts: rockchip: fix pinmux of UART5 for PX30
- Ringneck on Haikou
+Date: Fri, 21 Feb 2025 15:04:37 +0100
+Subject: [PATCH v2 5/5] arm64: dts: rockchip: add overlay for RK3399 Puma
+ Haikou Video Demo adapter
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250221-ringneck-dtbos-v2-2-310c0b9a3909@cherry.de>
+Message-Id: <20250221-ringneck-dtbos-v2-5-310c0b9a3909@cherry.de>
 References: <20250221-ringneck-dtbos-v2-0-310c0b9a3909@cherry.de>
 In-Reply-To: <20250221-ringneck-dtbos-v2-0-310c0b9a3909@cherry.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -48,13 +48,12 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Farouk Bouabid <farouk.bouabid@theobroma-systems.com>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Quentin Schulz <quentin.schulz@cherry.de>, stable@vger.kernel.org
+ Quentin Schulz <quentin.schulz@cherry.de>
 X-Mailer: b4 0.14.2
 X-Infomaniak-Routing: alpha
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_060505_324996_9E777A60 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250221_060504_838664_92C54AB5 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,44 +70,221 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Quentin Schulz <quentin.schulz@cherry.de>
 
-UART5 uses GPIO0_B5 as UART RTS but muxed in its GPIO function,
-therefore UART5 must request this pin to be muxed in that function, so
-let's do that.
+This adds support for the video-demo-adapter DEVKIT ADDON CAM-TS-A01
+(https://embedded.cherry.de/product/development-kit/) for the Haikou
+devkit with RK3399 Puma SoM.
 
-Fixes: 5963d97aa780 ("arm64: dts: rockchip: add rs485 support on uart5 of px30-ringneck-haikou")
-Cc: stable@vger.kernel.org
+The Video Demo adapter is an adapter connected to the fake PCIe slot
+labeled "Video Connector" on the Haikou devkit.
+
+Its main feature is a Leadtek DSI-display with touchscreen and a camera
+(that is not supported yet because the expected clock rate by the driver
+cannot be exactly reached by the clock driver). To drive these
+components a number of additional regulators are grouped on the adapter
+as well as a PCA9670 gpio-expander to provide the needed additional
+gpio-lines.
+
 Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
 ---
- arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/Makefile              |   5 +
+ .../rockchip/rk3399-puma-haikou-video-demo.dtso    | 166 +++++++++++++++++++++
+ 2 files changed, 171 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
-index 2321536c553fed20bc02d91f40a5d5a6dc20892c..e9ebac0f4984a26ec288083f74c7e193cdbec326 100644
---- a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
-+++ b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
-@@ -194,6 +194,13 @@ sd_card_led_pin: sd-card-led-pin {
- 			  <3 RK_PB3 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
- 	};
+diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+index 0f7c5c55c8b8be11e3fd7a69995ce1c17b22c80d..a46ed20e977aedb7cca1a9c0ad15f5441e4fe177 100644
+--- a/arch/arm64/boot/dts/rockchip/Makefile
++++ b/arch/arm64/boot/dts/rockchip/Makefile
+@@ -63,6 +63,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-orangepi.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-pinebook-pro.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-pinephone-pro.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-puma-haikou.dtb
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-puma-haikou-video-demo.dtbo
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-roc-pc.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-roc-pc-mezzanine.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-roc-pc-plus.dtb
+@@ -201,6 +202,10 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += px30-ringneck-haikou-haikou-video-demo.dtb
+ px30-ringneck-haikou-haikou-video-demo-dtbs := px30-ringneck-haikou.dtb \
+ 	px30-ringneck-haikou-video-demo.dtbo
+ 
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-puma-haikou-haikou-video-demo.dtb
++rk3399-puma-haikou-haikou-video-demo-dtbs := rk3399-puma-haikou.dtb \
++	rk3399-puma-haikou-video-demo.dtbo
 +
-+	uart {
-+		uart5_rts_pin: uart5-rts-pin {
-+			rockchip,pins =
-+			  <0 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-vz-2-uhd.dtb
+ rk3568-wolfvision-pf5-vz-2-uhd-dtbs := rk3568-wolfvision-pf5.dtb \
+ 	rk3568-wolfvision-pf5-display-vz.dtbo \
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
+new file mode 100644
+index 0000000000000000000000000000000000000000..0377ec860d35461b7d2d4ee1f20bdd4a076a5fe6
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video-demo.dtso
+@@ -0,0 +1,166 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2025 Cherry Embedded Solutions GmbH
++ *
++ * DEVKIT ADDON CAM-TS-A01
++ * https://embedded.cherry.de/product/development-kit/
++ *
++ * DT-overlay for the camera / DSI demo appliance for Haikou boards.
++ * In the flavour for use with a Puma system-on-module.
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/clock/rk3399-cru.h>
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/leds/common.h>
++#include <dt-bindings/pinctrl/rockchip.h>
++
++&{/} {
++	backlight: backlight {
++		compatible = "pwm-backlight";
++		power-supply = <&dc_12v>;
++		pwms = <&pwm0 0 25000 0>;
++	};
++
++	cam_afvdd_2v8: regulator-cam-afvdd-2v8 {
++		compatible  = "regulator-fixed";
++		gpio = <&pca9670 2 GPIO_ACTIVE_LOW>;
++		regulator-max-microvolt = <2800000>;
++		regulator-min-microvolt = <2800000>;
++		regulator-name = "cam-afvdd-2v8";
++		vin-supply = <&vcc2v8_video>;
++	};
++
++	cam_avdd_2v8: regulator-cam-avdd-2v8 {
++		compatible  = "regulator-fixed";
++		gpio = <&pca9670 4 GPIO_ACTIVE_LOW>;
++		regulator-max-microvolt = <2800000>;
++		regulator-min-microvolt = <2800000>;
++		regulator-name = "cam-avdd-2v8";
++		vin-supply = <&vcc2v8_video>;
++	};
++
++	cam_dovdd_1v8: regulator-cam-dovdd-1v8 {
++		compatible  = "regulator-fixed";
++	        gpio = <&pca9670 3 GPIO_ACTIVE_LOW>;
++	        regulator-max-microvolt = <1800000>;
++	        regulator-min-microvolt = <1800000>;
++	        regulator-name = "cam-dovdd-1v8";
++	        vin-supply = <&vcc1v8_video>;
++	};
++
++	cam_dvdd_1v2: regulator-cam-dvdd-1v2 {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpio = <&pca9670 5 GPIO_ACTIVE_HIGH>;
++		regulator-max-microvolt = <1200000>;
++		regulator-min-microvolt = <1200000>;
++		regulator-name = "cam-dvdd-1v2";
++		vin-supply = <&vcc3v3_baseboard>;
++	};
++
++	vcc1v8_video: regulator-vcc1v8-video {
++		compatible = "regulator-fixed";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-max-microvolt = <1800000>;
++		regulator-min-microvolt = <1800000>;
++		regulator-name = "vcc1v8-video";
++		vin-supply = <&vcc3v3_baseboard>;
++	};
++
++	vcc2v8_video: regulator-vcc2v8-video {
++		compatible = "regulator-fixed";
++		regulator-always-on;
++		regulator-boot-on;
++		regulator-max-microvolt = <2800000>;
++		regulator-min-microvolt = <2800000>;
++		regulator-name = "vcc2v8-video";
++		vin-supply = <&vcc3v3_baseboard>;
++	};
++
++	video-adapter-leds {
++		compatible = "gpio-leds";
++
++		video-adapter-led {
++			color = <LED_COLOR_ID_BLUE>;
++			gpios = <&pca9670 7 GPIO_ACTIVE_HIGH>;
++			label = "video-adapter-led";
++			linux,default-trigger = "none";
 +		};
 +	};
- };
- 
- &pwm0 {
-@@ -227,7 +234,7 @@ &uart0 {
- };
- 
- &uart5 {
--	pinctrl-0 = <&uart5_xfer>;
-+	pinctrl-0 = <&uart5_xfer &uart5_rts_pin>;
- 	rts-gpios = <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
- 	status = "okay";
- };
++};
++
++&i2c1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	/* OV5675, GT911, DW9714 are limited to 400KHz */
++	clock-frequency = <400000>;
++
++	touchscreen@14 {
++		compatible = "goodix,gt911";
++		reg = <0x14>;
++		interrupt-parent = <&gpio1>;
++		interrupts = <RK_PC7 IRQ_TYPE_LEVEL_LOW>;
++		irq-gpios = <&gpio1 RK_PC7 GPIO_ACTIVE_HIGH>;
++		pinctrl-0 = <&touch_int>;
++		pinctrl-names = "default";
++		reset-gpios = <&pca9670 1 GPIO_ACTIVE_HIGH>;
++		AVDD28-supply = <&vcc2v8_video>;
++		VDDIO-supply = <&vcc3v3_baseboard>;
++	};
++
++	pca9670: gpio@27 {
++		compatible = "nxp,pca9670";
++		reg = <0x27>;
++		gpio-controller;
++		#gpio-cells = <2>;
++		pinctrl-0 = <&pca9670_resetn>;
++		pinctrl-names = "default";
++		reset-gpios = <&gpio4 RK_PD6 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&mipi_out {
++	mipi_out_panel: endpoint {
++		remote-endpoint = <&mipi_in_panel>;
++	};
++};
++
++&mipi_dsi {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	panel@0 {
++		compatible = "leadtek,ltk050h3148w";
++		reg = <0>;
++		backlight = <&backlight>;
++		iovcc-supply = <&vcc1v8_video>;
++		reset-gpios = <&pca9670 0 GPIO_ACTIVE_LOW>;
++		vci-supply = <&vcc2v8_video>;
++
++		port {
++			mipi_in_panel: endpoint {
++				remote-endpoint = <&mipi_out_panel>;
++			};
++		};
++	};
++};
++
++&pinctrl {
++	pca9670 {
++		pca9670_resetn: pca9670-resetn {
++			rockchip,pins = <4 RK_PD6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	touch {
++		touch_int: touch-int {
++			rockchip,pins = <1 RK_PC7 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++};
 
 -- 
 2.48.1
