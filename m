@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A19C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 07:42:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08A66C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 07:44:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Q7+bDsxdyRDdKRX4DGKhUCcDG8sXToF7lW1Nv6/3e34=; b=uSdMFicuSvYexh
-	mGLqcJuz+1gizp2FHBoc+D+dm7h8TZD6wPe/IyM3BJcn2cgoFUMCtxrksy5FFq+AUOwgSG/2mWU4e
-	q8e87lEuVamCRK6vUidM7UdTJfIEVCSfXclWO7SygrY26ivL1JX5syOHXS2X1n2tZlXBp8BNcRpTN
-	e2QKfjVqXgroLt20sYYwtjEsSmjsvMyx/PVM2NYZWlr8mMla+v8x87tO1Rx+jaPt53SccKZ8y0Qvc
-	J2wRoRzpuhx4AstteAGVZBJIgwQomPYOp9wjmwZLDlfw25ipSamkW403TcYvHHP3UCE4kqohfBRSl
-	mr1/SpLMXN8Ohc4w2uOw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/cL+CCL0X6aLAARkr+HxhuD5UGrruT/1yZpL7/mWVpg=; b=fPeuYL6g5eb8vqhf97/o59vPJa
+	GaVa8bdzwWYadqJfs0IRV1WJApo48oItHZ2nquktXumn62IpX6F5KLpG/J8csEeu5cIpoAhk04UZ5
+	sKzpHC4sgkyn9AEbOXN88bRGWD8dTjBT6CWGkJpp/IOWeGKRkglZcsQl8qUBtVgnN1V1O5im2xJEd
+	2T2xmmmTz3g7nQ7pG+PZ/58GE/hIddzkS+DCCBhKK1WYZMahGwqaoAiFPNNwfm86L3IrgKGCTXWL0
+	dUp6FTXBuR8yliIh87HNwoPHa8sv+V1LmF8D/dBRhPqjjrqiDIg5t2i69qAX3BBcBDHHbuEL5L0p0
+	7gfZQyew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlNgK-00000004YeN-0SlN;
-	Fri, 21 Feb 2025 07:42:44 +0000
+	id 1tlNhl-00000004Yvp-32gi;
+	Fri, 21 Feb 2025 07:44:13 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlNer-00000004YJa-0gHa
+	id 1tlNes-00000004YJx-1oaR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 07:41:14 +0000
+	Fri, 21 Feb 2025 07:41:15 +0000
 Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51L6msSx020007;
-	Fri, 21 Feb 2025 07:41:04 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51L6POOb020255;
+	Fri, 21 Feb 2025 07:41:08 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=Q7+bDsxdyRDdKRX4DGKhUC
-	cDG8sXToF7lW1Nv6/3e34=; b=AljqLxiLgXZetudRYiYhuZjzlTGBUzbIK0y/Rg
-	4UoIXeIAbZPc+M8vBPByu3sZHQKX0HTVIfNHNr1FlEAmrrJ3zwXA6fEcWMSzT0pz
-	84vHiIHW68BfwxpRovEWLDzhGjMjyTLigGcwdcHfpm93mEfDL6EokvhhmD4fwjX+
-	feoqgtqLyxIDsV0NpBOtqBk2T1mVFiXXXACsMAo9Zlkiadvwq+UCxEKZy5zRcY7f
-	4OrZiUKjdIplxbBp2OP3HUK6DJa6t735zYCOFkoKvgI5W1dG+fwsOKj4TaLHZOv5
-	qwRabmkZTJWRkNvOj4Ex0rNYLt61XpsyBSRGTr6HxPqPAKdA==
-Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44x06t3mm3-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/cL+CCL0X6aLAARkr+HxhuD5UGrruT/1yZpL7/mWVpg=; b=m53jZtQXJOfXSn89
+	mHn3bz7mDFNWSeGuVg4toZExK4wPH8hXRIRC9uWmC2ESbtrtAB2m79tYhYY8fEWM
+	NocuMQt8IeVESThZ0n6VEVdyvYuM6p1G7oFoWzmyuA9nbD/+avkFHTujyGkeujcZ
+	jjToDTs9c43Pn0k6B86aN/rnJU5zmeLionRhP99EZOnjP8lgpji1MNYNdzHoZZRa
+	Ny8Zq/ihrCc6cnV75kDbL48a9qzlxg/bLxhKJsdit98+T6XgIuuoMKfTEevXB4Ds
+	+nguQsk9oZhIsoHT4SLnsrvPlWEYu9NjOUAWdwNNm/8q3bwKjRXytLmAH7PayhD3
+	IimCsg==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44x06t3mmb-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 21 Feb 2025 07:41:04 +0000 (GMT)
+	Fri, 21 Feb 2025 07:41:08 +0000 (GMT)
 Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51L7f3dU008560
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51L7f7pv023798
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 21 Feb 2025 07:41:03 GMT
+	Fri, 21 Feb 2025 07:41:07 GMT
 Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
  nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 20 Feb 2025 23:40:57 -0800
+ 15.2.1544.9; Thu, 20 Feb 2025 23:41:00 -0800
 From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Subject: [PATCH 0/5] coresight: Add Coresight Trace NOC driver
-Date: Fri, 21 Feb 2025 15:40:27 +0800
-Message-ID: <20250221-trace-noc-driver-v1-0-0a23fc643217@quicinc.com>
+Date: Fri, 21 Feb 2025 15:40:28 +0800
+Subject: [PATCH 1/5] dt-bindings: arm: Add Coresight device Trace NOC
+ definition
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOstuGcC/2XNwQ6CMAzG8VchPVuzLhDQk+9hOOBWpQc37XDRE
- N7dQbx5/H9Jf50hsQonOFYzKGdJEkMJ2lXgxiHcGMWXBmtsYyxZnHRwjCE69CqZFQ/cNr7tiOr
- rAOXsoXyV90ae+9KjpCnqZ/uQaV1/mDX/WCY0SKt38XXHZE/PlzgJbu/iHfplWb50aXezsgAAA
- A==
-X-Change-ID: 20250212-trace-noc-driver-9e75d78114fa
+Message-ID: <20250221-trace-noc-driver-v1-1-0a23fc643217@quicinc.com>
+References: <20250221-trace-noc-driver-v1-0-0a23fc643217@quicinc.com>
+In-Reply-To: <20250221-trace-noc-driver-v1-0-0a23fc643217@quicinc.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Mike Leach
 	<mike.leach@linaro.org>,
@@ -80,11 +79,11 @@ CC: <kernel@quicinc.com>, <linux-kernel@vger.kernel.org>,
         <devicetree@vger.kernel.org>,
         Yuanfang Zhang <quic_yuanfang@quicinc.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740123656; l=3447;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740123656; l=3425;
  i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
- bh=XW4UHrh7HZ65gOBiK4D+fnUhL+XuV9zJ6mBUr0s6TPs=;
- b=OPsE4juDVYhn2asaoRFGGW0UvCXS1V1+BCpKS/PUY/fBh3M8FBunGAgak+aUCxJZF4RsayU/C
- O9kMAwhYVWaDDnT6CZUZjTiFufviWVyeIzfhtFG5IOvX7U57dsXrvX/
+ bh=ySYv5oAl7rxrIABHsrIW5uaZdj2vv/AflGOAoDAa3zg=;
+ b=17a/d3ZqlHjVIDZY9CzvuPLH4VuYYNMHJu617TMR4rxMfSamQ1h8SFu5ac/wNIQW857iCDvjg
+ kaBhlMulT3eAq/hNMWmlqRm58kGDaKPm/Bt4vQ13z232X3/4yvu//Dz
 X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
  pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
 X-Originating-IP: [10.80.80.8]
@@ -92,20 +91,19 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nalasex01b.na.qualcomm.com (10.47.209.197)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 08eeltVRhGKc7fS_NkH7AfScUY60poQq
-X-Proofpoint-GUID: 08eeltVRhGKc7fS_NkH7AfScUY60poQq
+X-Proofpoint-ORIG-GUID: M6Zmf43fv4HFpO_XqBI4L2shkAoCfu67
+X-Proofpoint-GUID: M6Zmf43fv4HFpO_XqBI4L2shkAoCfu67
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-02-21_01,2025-02-20_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 adultscore=0
- clxscore=1015 spamscore=0 malwarescore=0 priorityscore=1501 bulkscore=0
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 adultscore=1
+ clxscore=1011 spamscore=0 malwarescore=0 priorityscore=1501 bulkscore=0
  impostorscore=0 mlxlogscore=999 phishscore=0 suspectscore=0
  lowpriorityscore=0 classifier=spam adjust=0 reason=mlx scancount=1
  engine=8.19.0-2502100000 definitions=main-2502210056
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_234113_210513_70EFF258 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250220_234114_471703_CDFB4D54 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,65 +118,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Trace NoC is an integration hierarchy which is a replacement of
-Dragonlink configuration. It brings together debug component like TPDA,
-funnel and interconnect Trace Noc which collects trace from subsystems
-and transfers to QDSS sink.
-
-Compared to DL, it has the following advantages:
-1. Reduce wires between subsystems.
-2. Continue cleaning the infrastructure.
-3. Reduce Data overhead by transporting raw data from source to target.
-
-    +--------------+                                         +-------------+     
-    | SDCC5 TPDM   |                                         |  SDCC5 TPDM |     
-    +--------------+                                         +-------------+     
-           |                                                        |            
-           |                                                        |            
-+----------|-------------------+                                    |            
-|          v                   |                                    |            
-|  +----v----+     Dragon Link |                                    v            
-|  |DLNT TPDA|     North       |                         +----------------------+
-|  +---------+                 |                         |    TRACE NOC AG      |
-|       |                      |                         |                      |
-|       v-------------+        |                         +----------------------+
-|                     |        |                                   |             
-|              +------v-----+  |                                   |             
-|              | DLNT Funnel|  |                                   |             
-|              +------------+  |                                   |             
-|                   |          |                                   |             
-+-------------------|----------+                                   |             
-              <-----+                                              |             
-             |                                                     |             
-             |                                                     |             
-             v                                                     v             
-    +----------------+                                      +---------------+    
-    |     QDSS       |                                      |    QDSS       |    
-    +----------------+                                      +---------------+
-    
+Adds new coresight-tnoc.yaml file describing the bindings required
+to define Trace NOC in the device trees.
 
 Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
 ---
----
-Yuanfang Zhang (5):
-      dt-bindings: arm: Add Coresight device Trace NOC definition
-      coresight: add coresight Trace NOC driver
-      coresight-tnoc: add nodes to configure flush
-      coresight-tnoc: add node to configure flag type
-      coresight-tnoc: add nodes to configure freq packet
+ .../bindings/arm/qcom,coresight-tnoc.yaml          | 107 +++++++++++++++++++++
+ 1 file changed, 107 insertions(+)
 
- .../bindings/arm/qcom,coresight-tnoc.yaml          | 107 ++++++
- drivers/hwtracing/coresight/Kconfig                |  10 +
- drivers/hwtracing/coresight/Makefile               |   1 +
- drivers/hwtracing/coresight/coresight-tnoc.c       | 401 +++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-tnoc.h       |  57 +++
- 5 files changed, 576 insertions(+)
----
-base-commit: 92514ef226f511f2ca1fb1b8752966097518edc0
-change-id: 20250212-trace-noc-driver-9e75d78114fa
+diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..b8c1aaf014fb483fd960ec55d1193fb3f66136d2
+--- /dev/null
++++ b/Documentation/devicetree/bindings/arm/qcom,coresight-tnoc.yaml
+@@ -0,0 +1,107 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/arm/qcom,coresight-tnoc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Qualcomm Ttrace NOC(Network On Chip)
++
++maintainers:
++  - yuanfang Zhang <quic_yuanfang@quicinc.com>
++
++description:
++  The Trace NoC is an integration hierarchy which is a replacement of Dragonlink tile configuration.
++  It brings together debug component like TPDA, funnel and interconnect Trace Noc which collects trace
++  from subsystems and transfers to QDSS sink.
++
++  It sits in the different subsystem of SOC and aggregates the trace and transports it to Aggregation TNoC
++  or to QDSS trace sink eventually. Trace NoC embeds bridges for all the interfaces(APB, ATB, QPMDA & NTS).
++
++  Trace NoC can take inputs from different trace sources i.e. ATB, QPMDA.
++
++# Need a custom select here or 'arm,primecell' will match on lots of nodes
++select:
++  properties:
++    compatible:
++      contains:
++        enum:
++          - qcom,coresight-tnoc
++  required:
++    - compatible
++
++properties:
++  $nodename:
++    pattern: "^tn(@[0-9a-f]+)$"
++  compatible:
++    items:
++      - const: qcom,coresight-tnoc
++      - const: arm,primecell
++
++  reg:
++    minItems: 1
++    maxItems: 2
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    items:
++      - const: apb_pclk
++
++  in-ports:
++    description: |
++      Input connections from subsystem to TNoC
++    $ref: /schemas/graph.yaml#/properties/ports
++
++  out-ports:
++    description: |
++      Output connections from the TNoC to Aggreg TNoC or to legacy CoreSight trace bus.
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port:
++        description: |
++          Output connections from the TNoC to Aggreg TNoC or to legacy CoreSight trace bus.
++        $ref: /schemas/graph.yaml#/properties/port
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - in-ports
++  - out-ports
++
++additionalProperties: false
++
++examples:
++  - |
++    tn@109ab000  {
++      compatible = "qcom,coresight-tnoc", "arm,primecell";
++      reg = <0x0 0x109ab000  0x0 0x4200>;
++
++      clocks = <&aoss_qmp>;
++      clock-names = "apb_pclk";
++
++      in-ports {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        port@0 {
++          reg = <0>;
++
++          tn_ag_in_tpdm_gcc: endpoint {
++            remote-endpoint = <&tpdm_gcc_out_tn_ag>;
++          };
++        };
++      };
++
++      out-ports {
++        port {
++          tn_ag_out_funnel_in1: endpoint {
++            remote-endpoint = <&funnel_in1_in_tn_ag>;
++          };
++        };
++      };
++    };
++...
 
-Best regards,
 -- 
-Yuanfang Zhang <quic_yuanfang@quicinc.com>
+2.34.1
 
 
