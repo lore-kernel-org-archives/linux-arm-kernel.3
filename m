@@ -4,70 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74346C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 22:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C4D3C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 22:29:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IzL3uHnkjC3wKYgC/a3KCZasrNm7Y6JHUZFiQ5rMraM=; b=0ipbg26mBZxlw+UiscATAWnVMw
-	uRZWxIpVfxx2BkSgDRNHWOEbsnMg4mvJrtGczkTfmt1RhLaZTAcGB7jh2f2iGyCrmDywKVqMGUBC3
-	SUsExlFE0FsqOeo13LteuZM4Fix9qJguZmX1S8FJO2JsWz7iL0sTS12G5OLHV8LuHm62eojMevbi5
-	UolElNw8P+aI+MZVJzimn+qBxNbk1qzGgXbqbqA7Iq+fe1UFmyW980u5Dj7ksZnd0DrJmZTilCUet
-	IizaO0AMJOffVs0G/57NuBdNZ71haWKRPek+iWkbBoe1kXnR3psKe9pKw1QdQ1HjzYPUTBlLa8y4j
-	O+v5mcnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xNGrSrGdqxp3UY9qmo66lnh4aiBXJRBCvD3RNBR26ck=; b=XVKQqZuZYl+uJ5qCqD5BA4x1VS
+	NaeML2w5ZVGJAidU1plB6VBCxY6UQKy2wsjaQKnhytpvhhQC8UYSiDou+70klmmHodLlRmGrXowdo
+	VgQNlKdvbVkI0p2rrMFBAkakm23KAUDSxSoTu+xfTlK1IEdQgllVLsQOWZmI13s2E+UZG3CSnF7+O
+	25wUk5MenylbHP1IJ8n0Ipp3wqd0jPP+kWnyRccAfm7aW63p8gZkzEJBADd/37QTvVO1dSJDep6Yl
+	YIMR/yxzT+tHJ6qBoHMqKFu+Z0cBySmUyms2jzx1e/yJ6JKqt9zIobm/+2804lwfnwhF60kijegNs
+	lmq+wPfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlbT6-000000070cu-230Z;
-	Fri, 21 Feb 2025 22:26:00 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1tlbW5-0000000711T-1JoR;
+	Fri, 21 Feb 2025 22:29:05 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlbQQ-000000070C0-1UJb
+	id 1tlbUb-000000070lx-1FQV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 22:23:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1740176594; x=1771712594;
-  h=date:from:to:cc:subject:message-id;
-  bh=rH2zRVWvFbYswRZuXMzsYbLQeWpt2ZX8uAyG7djz1VE=;
-  b=UTCGeYqoQnelw21mzNynTNJvhUtMiaRniVrMxWj2Jju6Ul9FFOuxak0b
-   2bFb1ehBHNP8HdpVmP6G/pJniWVZb5m795a19awJuvPNmp/vp99/8Kdth
-   hBPXeNeggzMQc+CDkQJEi8IN9BptCUo7dSQICE72Ts2hCBppodGM015AB
-   COOpaqBYDjDQw6FCvDNSYLP0WDif+vtxsU9mY+uhYVO9ne8ws7YsWLskI
-   Wa4b8p4YDXJG+W+3fkJnqagGfQSr4lIWlVC2iyUiOQOeaIpi9rp/dlCaL
-   Fn+tEKFAiZBKLJP390xJxfe7ir+Ohjxq1bSvSyY1A02fUxLsWZ1BJwdcK
-   Q==;
-X-CSE-ConnectionGUID: EKzSpC4tRcu6kruY/bV9rw==
-X-CSE-MsgGUID: grAQztx/Tl+37T7O0g76nA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11352"; a="51634509"
-X-IronPort-AV: E=Sophos;i="6.13,306,1732608000"; 
-   d="scan'208";a="51634509"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Feb 2025 14:23:14 -0800
-X-CSE-ConnectionGUID: HDxXnWTXTHaiI6ftlch1+Q==
-X-CSE-MsgGUID: cn34ZJCwSTev9oeHvKpg1w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.13,306,1732608000"; 
-   d="scan'208";a="115448928"
-Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by orviesa006.jf.intel.com with ESMTP; 21 Feb 2025 14:23:13 -0800
-Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tlbQM-00064p-1P;
-	Fri, 21 Feb 2025 22:23:10 +0000
-Date: Sat, 22 Feb 2025 06:22:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:arm/fixes] BUILD SUCCESS
- e31e3f6c0ce473f7ce1e70d54ac8e3ed190509f8
-Message-ID: <202502220639.6W3XzmYa-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	Fri, 21 Feb 2025 22:27:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9A0545C6DF5;
+	Fri, 21 Feb 2025 22:26:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26611C4CED6;
+	Fri, 21 Feb 2025 22:27:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740176852;
+	bh=hpLg+CyS426GDFDENnCL8gdyjYb+/S5yY656wfIhHiw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=huOgWP+PCPcfLJpAoFlO5hbj1FIFE76X+pvJi72UUCMegtDrYOXxSt8uMWZNFJw5V
+	 n0ZlBHuM7ajDdnLywJ4LdwTHowmbl9fZ7X53nYCnc+zYD1HGSFwUDJ+JW5yF09Ugjy
+	 RcCPfHkItxWOdXuzrr1IUx06t+orVTBsgo6qDzMvmgGvt3GfKI9GQng5BR9WpFTTSN
+	 NJ3GV5bnoCnZJRj5+lnsCH4V+fsk/V9ay58H4KdLB35BrTD66tEnSdCgTMGeITpQ0K
+	 RgZzSAnv5aB5/v9QlDr33qJ1etUSw+FDDCztXJlobOOaskf1tQ90l3BXKxRTEYhZcx
+	 gp4ID8FbhRrfw==
+Date: Fri, 21 Feb 2025 16:27:30 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Daniel Baluta <daniel.baluta@nxp.com>
+Cc: Frank.Li@nxp.com, festevam@gmail.com, p.zabel@pengutronix.de,
+	shengjiu.wang@nxp.com, devicetree@vger.kernel.org,
+	kernel@pengutronix.de, mathieu.poirier@linaro.org,
+	krzk+dt@kernel.org, imx@lists.linux.dev, shawnguo@kernel.org,
+	iuliana.prodan@nxp.com, peng.fan@nxp.com, conor+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	laurentiu.mihalcea@nxp.com, s.hauer@pengutronix.de
+Subject: Re: [PATCH v2 1/8] dt-bindings: reset: audiomix: Add reset ids for
+ EARC and DSP
+Message-ID: <174017684977.188535.2655294580002590894.robh@kernel.org>
+References: <20250219192102.423850-1-daniel.baluta@nxp.com>
+ <20250219192102.423850-2-daniel.baluta@nxp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250219192102.423850-2-daniel.baluta@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_142314_401262_01BB0431 
-X-CRM114-Status: UNSURE (   5.39  )
+X-CRM114-CacheID: sfid-20250221_142733_391947_B453F554 
+X-CRM114-Status: UNSURE (   9.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,115 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
-branch HEAD: e31e3f6c0ce473f7ce1e70d54ac8e3ed190509f8  soc: loongson: loongson2_guts: Add check for devm_kstrdup()
 
-elapsed time: 1489m
+On Wed, 19 Feb 2025 21:20:55 +0200, Daniel Baluta wrote:
+> Add reset ids used for EARC and DSP on i.MX8MP platform.
+> 
+> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> ---
+>  include/dt-bindings/reset/imx8mp-reset-audiomix.h | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+>  create mode 100644 include/dt-bindings/reset/imx8mp-reset-audiomix.h
+> 
 
-configs tested: 95
-configs skipped: 2
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
-
-tested configs:
-alpha                            allyesconfig    gcc-14.2.0
-arc                              allmodconfig    gcc-13.2.0
-arc                              allyesconfig    gcc-13.2.0
-arc                   randconfig-001-20250221    gcc-13.2.0
-arc                   randconfig-002-20250221    gcc-13.2.0
-arm                              allmodconfig    gcc-14.2.0
-arm                              allyesconfig    gcc-14.2.0
-arm                   randconfig-001-20250221    gcc-14.2.0
-arm                   randconfig-002-20250221    clang-19
-arm                   randconfig-003-20250221    gcc-14.2.0
-arm                   randconfig-004-20250221    clang-21
-arm64                            allmodconfig    clang-18
-arm64                 randconfig-001-20250221    clang-15
-arm64                 randconfig-002-20250221    clang-21
-arm64                 randconfig-003-20250221    clang-21
-arm64                 randconfig-004-20250221    gcc-14.2.0
-csky                  randconfig-001-20250221    gcc-14.2.0
-csky                  randconfig-002-20250221    gcc-14.2.0
-hexagon                          allmodconfig    clang-21
-hexagon                          allyesconfig    clang-18
-hexagon               randconfig-001-20250221    clang-21
-hexagon               randconfig-002-20250221    clang-21
-i386                             allmodconfig    gcc-12
-i386                              allnoconfig    gcc-12
-i386                             allyesconfig    gcc-12
-i386        buildonly-randconfig-001-20250221    gcc-12
-i386        buildonly-randconfig-002-20250221    gcc-12
-i386        buildonly-randconfig-003-20250221    gcc-12
-i386        buildonly-randconfig-004-20250221    gcc-12
-i386        buildonly-randconfig-005-20250221    clang-19
-i386        buildonly-randconfig-006-20250221    clang-19
-i386                                defconfig    clang-19
-loongarch                        allmodconfig    gcc-14.2.0
-loongarch             randconfig-001-20250221    gcc-14.2.0
-loongarch             randconfig-002-20250221    gcc-14.2.0
-m68k                             alldefconfig    gcc-14.2.0
-m68k                             allmodconfig    gcc-14.2.0
-m68k                             allyesconfig    gcc-14.2.0
-m68k                           virt_defconfig    gcc-14.2.0
-microblaze                       allmodconfig    gcc-14.2.0
-microblaze                       allyesconfig    gcc-14.2.0
-nios2                 randconfig-001-20250221    gcc-14.2.0
-nios2                 randconfig-002-20250221    gcc-14.2.0
-openrisc                          allnoconfig    gcc-14.2.0
-openrisc                         allyesconfig    gcc-14.2.0
-openrisc                            defconfig    gcc-14.2.0
-parisc                           allmodconfig    gcc-14.2.0
-parisc                            allnoconfig    gcc-14.2.0
-parisc                           allyesconfig    gcc-14.2.0
-parisc                randconfig-001-20250221    gcc-14.2.0
-parisc                randconfig-002-20250221    gcc-14.2.0
-powerpc                          allmodconfig    gcc-14.2.0
-powerpc                           allnoconfig    gcc-14.2.0
-powerpc                          allyesconfig    clang-16
-powerpc               randconfig-001-20250221    clang-21
-powerpc               randconfig-002-20250221    clang-21
-powerpc               randconfig-003-20250221    clang-17
-powerpc64             randconfig-001-20250221    clang-21
-powerpc64             randconfig-002-20250221    clang-21
-powerpc64             randconfig-003-20250221    clang-19
-riscv                            allmodconfig    clang-21
-riscv                             allnoconfig    gcc-14.2.0
-riscv                            allyesconfig    clang-21
-riscv                 randconfig-001-20250221    clang-21
-riscv                 randconfig-002-20250221    clang-21
-s390                             allmodconfig    clang-19
-s390                              allnoconfig    clang-15
-s390                             allyesconfig    gcc-14.2.0
-s390                  randconfig-001-20250221    gcc-14.2.0
-s390                  randconfig-002-20250221    gcc-14.2.0
-sh                               allmodconfig    gcc-14.2.0
-sh                               allyesconfig    gcc-14.2.0
-sh                    randconfig-001-20250221    gcc-14.2.0
-sh                    randconfig-002-20250221    gcc-14.2.0
-sparc                            allmodconfig    gcc-14.2.0
-sparc                 randconfig-001-20250221    gcc-14.2.0
-sparc                 randconfig-002-20250221    gcc-14.2.0
-sparc64               randconfig-001-20250221    gcc-14.2.0
-sparc64               randconfig-002-20250221    gcc-14.2.0
-um                               allmodconfig    clang-21
-um                                allnoconfig    clang-18
-um                               allyesconfig    gcc-12
-um                    randconfig-001-20250221    gcc-12
-um                    randconfig-002-20250221    gcc-12
-x86_64                            allnoconfig    clang-19
-x86_64                           allyesconfig    clang-19
-x86_64      buildonly-randconfig-001-20250221    gcc-12
-x86_64      buildonly-randconfig-002-20250221    clang-19
-x86_64      buildonly-randconfig-003-20250221    clang-19
-x86_64      buildonly-randconfig-004-20250221    clang-19
-x86_64      buildonly-randconfig-005-20250221    clang-19
-x86_64      buildonly-randconfig-006-20250221    clang-19
-x86_64                              defconfig    gcc-11
-xtensa                randconfig-001-20250221    gcc-14.2.0
-xtensa                randconfig-002-20250221    gcc-14.2.0
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
