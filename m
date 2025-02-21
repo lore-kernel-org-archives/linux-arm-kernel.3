@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC2AAC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 10:16:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDDDC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 10:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W+26npf18RRwsCWtDsEbmc9w9HSuCv1j/NyTX3JxquE=; b=zqLrfMrhaYfwkyC4EOkENn1v6M
-	2G0yitQaDfkwzJcFsaveeYfrC1eu5E8e+LjNWioaTfxfhjkFRAS2G5ZZijoz8rH1xOmi58k+WAFky
-	XiYp+UASdKM96q9NVXBl1iQjqfb0IrXXZ/WXooZE9c8bVv97DBZi51XHynNbcH0OMt8IBwvY6CzSC
-	dHJsRin6npcbuRWNY9040Z5Sa36/bT+ZKzpebOu5+l9BLJwooYUiEH8geT1P4sWzk85mDm7GUsgeK
-	iSrDDZfS1h5LTRMDpKw4Vhq8/3eyXzKHtQ/rXv68bRU33CIgbx64TOz9Km7/M6xZx/cj+1mwsZkbr
-	HU5tGOMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PCWLQJXIRaGa+NaKBUA5lVma2HK+tvmrsuX2eAKzx3I=; b=ufD5HLRpmXYZieacPcMyL/p68B
+	tLDDWp7yf4YhRXmtjlaaVx23ZLBLT2tNlS5OdbG43sisVL69di6/oq6O6YS0jDIWlfQ1oMeLm26FY
+	/e+s3zrrSzlQh1Wl+U7RAqF+RKm+xzVi0CsQzLnrRnnykd6igqpKOVd8fLO7y90BdZDe9CpXa382x
+	8h/cQvm9sjCd4VSYqMo0OzHilzPpXIsOzCxAAdGbbOTRo2qfLN3jIXdd0WOEMsbWNjUspBZD+3wtB
+	6xR0BNYNcCXg/gKOY+H6azfJ2aI24XU8Vx26owPzmEiGEX/eV7jPjhfJAJtDylsQR0tsWYq9Q+eIJ
+	1RdzBxlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlQ4c-000000058bP-3E4H;
-	Fri, 21 Feb 2025 10:15:58 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tlQ67-0000000591M-0eOE;
+	Fri, 21 Feb 2025 10:17:31 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPwb-000000054fY-1txm;
-	Fri, 21 Feb 2025 10:07:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=W+26npf18RRwsCWtDsEbmc9w9HSuCv1j/NyTX3JxquE=; b=pmmMCG9jXqbiNJJ6GmtbO6FRsX
-	ARRLZAhlhtPCOl5SKYYH4jzI1WMpRYPi6B1VK779IhlgPgm+3uGz6H4K2RPVVjx1umDTQT7ILSz6Q
-	XmtkEsJfEImhk5hZqrVA6r7EYi35xg+iF2SyPsl/HufSuWsG94G+LPV6Fg3438zjO7i/67O7waij3
-	s7Y5zZiwO3U4cbLFzbwFr9ot77cTfKdduSXt+hMQ4A5j2c0TJ8YNNPxy/PLCBHadHN2Ix21ZQL+ic
-	J53yrW+4bSLBNJ9jlGXesT0oS65Idbf8QOmu3v6R5BKtVhbD9u4p25ThBL1hN30pHrUM0MIjzaugN
-	KgsC6gYw==;
-Received: from i53875a87.versanet.de ([83.135.90.135] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tlPwY-0002cL-4E; Fri, 21 Feb 2025 11:07:38 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: "Rob Herring (Arm)" <robh@kernel.org>,
- Quentin Schulz <foss+kernel@0leil.net>,
- Quentin Schulz <quentin.schulz@cherry.de>
-Cc: Farouk Bouabid <farouk.bouabid@theobroma-systems.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Quentin Schulz <quentin.schulz@theobroma-systems.com>,
- devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- stable@vger.kernel.org
-Subject: Re: [PATCH 0/5] arm64: dts: rockchip: pinmux fixes and support for 2 adapters
- for Theobroma boards
-Date: Fri, 21 Feb 2025 11:07:37 +0100
-Message-ID: <3771836.RUnXabflUD@diego>
-In-Reply-To: <f9b40055-bcb0-4245-b899-4c7890e81b20@cherry.de>
-References: <20250220-ringneck-dtbos-v1-0-25c97f2385e6@cherry.de>
- <174008661935.4046882.3221866764998287397.robh@kernel.org>
- <f9b40055-bcb0-4245-b899-4c7890e81b20@cherry.de>
+	id 1tlPk2-0000000527j-1cld
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Feb 2025 09:54:43 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5debbced002so3551348a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 01:54:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740131681; x=1740736481; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PCWLQJXIRaGa+NaKBUA5lVma2HK+tvmrsuX2eAKzx3I=;
+        b=mcNbOYrKFC+yBZ3Hs8dv8vfJmliX84Lf7thX9QlP+/r5u1qyiuKSl5AjYt8NyjbyG+
+         JfzTbHfMoZ0nifTEwDxqXXF2yCAPg0H1rGjvgZS4kNQIFH1KEacAu/29np0CNcx0bPWg
+         VJuqPEKWw+xHQmFySTyXl10Hops3HsazYiHOQw4elq+kEgN5JMsA8ZWdghuPpy9Wh7i6
+         LHDvtBxr+WKCFvJzxtXoiOIf+k/kq0Ee/8/JTMK2UpeSB5alirXZQX4UCgRVnpHxftHr
+         DVAAcY1S5ag2fzcLwDRlyczfaCNLbNQ53etoIGeXaDOb4PplMXX4O0E3YTQCv8n9EOR9
+         8lYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740131681; x=1740736481;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=PCWLQJXIRaGa+NaKBUA5lVma2HK+tvmrsuX2eAKzx3I=;
+        b=c427RyOOf8P/oNy93MLYFJiqr7m5kXKquwMt0eK4ou9J78nKj7OxtnQPqQWFshdVQJ
+         afzOJ1hKq0zbuPJYFMZ4J/ClVFr5WhLFkAIwQWVPGMwD333U8gqPACfg1sGF/w6BNmfP
+         cS9rMRefZxfmkOFsyiKtHvSjTwb2TcbPUzqpSxDeJm4SrK+9nhbcMJSGsMo2omA4Pmnq
+         KylOtAUzBi4tTzN7QKjAP1DoFaSFcASbatrKs7raJT1SqA3179B0mhQCPO1xbv2apwDB
+         t/QEpaWudjqk4Ga8NrRmbywWtaIs6ZWOwnm0DGebpMrLvBt9vuJqMhot+JDkws9mk5Rv
+         OUaw==
+X-Forwarded-Encrypted: i=1; AJvYcCU2jSUrI78+Ch5RRRXbSupH47QVYaCV2RHVp4qWeEeXsz70Fh8EawkpgLdZBNsNGvxLubItjD+PI/Gp1YdMEOrx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWVIIWIZQ8gjZ11VhS+aSq2/ay0odw2sb3sMtoQhwCsPPt9jgp
+	463dzciepEC+mk8ATK5EgkEWHRgrdYJzsMjtb0AOrYXBioHvvFMvklZQzINpFi8uRQ/qJyQ9TQv
+	8BH8ShRU2C1JICknU9BwLFD+VhtlurK/Cufw=
+X-Gm-Gg: ASbGnctCloxRWOwHteUbVwIkMQh3sosl9ZZPb3DEaJfsXApsH3412ifSa+J/CTN6ej6
+	wXq67CKJ1f0Me3/Xc/soGoUDAyRSdgE4nBsyv0C3ZMTPvsGJEtaIk3zUSWWEUCt9XLrAt0rdW5u
+	u2SJTa2rs=
+X-Google-Smtp-Source: AGHT+IERzieE0HXpOGPr2oPq6V5HcGC9rINMOoagVFBANbqyTomsPjFp0m4XiausshWj0LORrEm4V/CktVu+ZQyj1Kw=
+X-Received: by 2002:a05:6402:90b:b0:5e0:6e6c:e2b5 with SMTP id
+ 4fb4d7f45d1cf-5e0a1261230mr6369087a12.9.1740131680329; Fri, 21 Feb 2025
+ 01:54:40 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+References: <20250118102207.9339-1-simons.philippe@gmail.com>
+ <20250118102207.9339-3-simons.philippe@gmail.com> <3229934.fEcJ0Lxnt5@jernej-laptop>
+In-Reply-To: <3229934.fEcJ0Lxnt5@jernej-laptop>
+From: Philippe Simons <simons.philippe@gmail.com>
+Date: Fri, 21 Feb 2025 10:54:27 +0100
+X-Gm-Features: AWEUYZlqXqdJfwgEwnpCfDSpt4wrYNSKsocDQVRpSu4fjABOQ7YP3MhnhFElf50
+Message-ID: <CADomA4_yMUS_S-YDrQdSKmZrDMwPeakkJBix-r08UFQejTYYcw@mail.gmail.com>
+Subject: Re: [RFC PATCH 3/3] arm64: dts: allwinner: h700: Enable USB OTG
+To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Samuel Holland <samuel@sholland.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:ARM/Allwinner sunXi SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Allwinner sunXi SoC support" <linux-sunxi@lists.linux.dev>, open list <linux-kernel@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_020741_523265_625AF26E 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20250221_015442_422547_F1F203B0 
+X-CRM114-Status: GOOD (  19.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,55 +99,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Quentin,
+On Thu, Feb 20, 2025 at 9:38=E2=80=AFPM Jernej =C5=A0krabec <jernej.skrabec=
+@gmail.com> wrote:
+>
+> Dne sobota, 18. januar 2025 ob 11:22:06 Srednjeevropski standardni =C4=8D=
+as je Philippe Simons napisal(a):
+> > RG35XX have a GPIO controlled regulator for phy0 vbus, add it.
+> > Enable HCI0s controllers and otg for dr_mode.
+> > Add phy0 properties to descrive id_det, external vbus, and internal vbu=
+s
+> >
+> > Signed-off-by: Philippe Simons <simons.philippe@gmail.com>
+>
+> This could work without previous two patches, right?
 
-Am Freitag, 21. Februar 2025, 11:01:44 MEZ schrieb Quentin Schulz:
-> On 2/20/25 10:29 PM, Rob Herring (Arm) wrote:
-> > On Thu, 20 Feb 2025 13:20:09 +0100, Quentin Schulz wrote:
-> I believe this is a false positive due to the node suffix being -gpio? 
-> If I change -gpio suffix to -pin, it doesn't complain anymore.
-> 
-> """
-> diff --git a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts 
-> b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
-> index 08a11e4758413..249e50d64791e 100644
-> --- a/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
-> +++ b/arch/arm64/boot/dts/rockchip/px30-ringneck-haikou.dts
-> @@ -196,7 +196,7 @@ sd_card_led_pin: sd-card-led-pin {
->   	};
-> 
->   	uart {
-> -		uart5_rts_gpio: uart5-rts-gpio {
-> +		uart5_rts_pin: uart5-rts-pin {
->   			rockchip,pins =
->   			  <0 RK_PB5 RK_FUNC_GPIO &pcfg_pull_up>;
->   		};
-> @@ -234,7 +234,7 @@ &uart0 {
->   };
-> 
->   &uart5 {
-> -	pinctrl-0 = <&uart5_xfer &uart5_rts_gpio>;
-> +	pinctrl-0 = <&uart5_xfer &uart5_rts_pin>;
->   	rts-gpios = <&gpio0 RK_PB5 GPIO_ACTIVE_HIGH>;
->   	status = "okay";
->   };
-> """
-> 
-> @Heiko, I guess you would like a warning-less DT :) I can send a v2 with 
-> that change then if that works for you? I can wait a few days for other 
-> reviews :)
+While this correctly describes the board, it currently doesn't works
+as expected.
+HCIs will enable the 5v on PHY and will never disable it.
+Resulting in a blown regulator on the board if plugged with another host.
+I managed to get this working by removing the PHY ref from the HCI,
+but this is wrong.
 
-that would be great - the v2.
-
-We already had patches addressing the -gpio thing for other boards in the
-past, so going to "-pin" is the preferred solution here.
-
-Also, your patches are totally specific to Theobroma-boards, so just send
-your v2 at your convenience - I don't really expect that much additional
-outside review comments ;-) .
-
-
-Heiko
-
-
+>
+> Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+>
+> Best regards,
+> Jernej
+>
+> > ---
+> >  .../sun50i-h700-anbernic-rg35xx-2024.dts      | 25 +++++++++++++++++--
+> >  1 file changed, 23 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-=
+2024.dts b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.d=
+ts
+> > index 80ccab7b5..5a6ae42de 100644
+> > --- a/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dt=
+s
+> > +++ b/arch/arm64/boot/dts/allwinner/sun50i-h700-anbernic-rg35xx-2024.dt=
+s
+> > @@ -175,6 +175,16 @@ reg_vcc5v: regulator-vcc5v { /* USB-C power input =
+*/
+> >               regulator-min-microvolt =3D <5000000>;
+> >               regulator-max-microvolt =3D <5000000>;
+> >       };
+> > +
+> > +     reg_usb0_vbus: regulator-usb0-vbus {
+> > +             compatible =3D "regulator-fixed";
+> > +             enable-active-high;
+> > +             gpio =3D <&pio 8 16 GPIO_ACTIVE_HIGH>; /* PI16 */
+> > +             regulator-min-microvolt =3D <5000000>;
+> > +             regulator-max-microvolt =3D <5000000>;
+> > +             regulator-name =3D "usb0-vbus";
+> > +             vin-supply =3D <&reg_boost>;
+> > +     };
+> >  };
+> >
+> >  &cpu0 {
+> > @@ -337,12 +347,23 @@ &uart0 {
+> >       status =3D "okay";
+> >  };
+> >
+> > -/* the AXP717 has USB type-C role switch functionality, not yet descri=
+bed by the binding */
+> > +/* the AXP717 has USB type-C role switch functionality */
+> >  &usbotg {
+> > -     dr_mode =3D "peripheral";   /* USB type-C receptable */
+> > +     dr_mode =3D "otg";   /* USB type-C receptable */
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&ehci0 {
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&ohci0 {
+> >       status =3D "okay";
+> >  };
+> >
+> >  &usbphy {
+> > +     usb0_id_det-gpios =3D <&pio 8 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>=
+; /* PI4 */
+> > +     usb0_vbus_power-supply =3D <&usb_power>;
+> > +     usb0_vbus-supply =3D <&reg_usb0_vbus>;
+> >       status =3D "okay";
+> >  };
+> >
+>
+>
+>
+>
 
