@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96B5C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 09:43:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC16C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 09:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iwUITOpMFwTi/W8s/xf6chXl/H4CSWnHTKuu/cNkV+Y=; b=BnVIE7yCgSPpyeMkHXBrdQJeY4
-	4d/YpKPZyRsrnzDrTd76BOxp1Cg532Zj4dqVOMTcZey6XMv5bxB0zjSGSVUJre4NHPVCUM05hbVYM
-	qg7xaDtsiVmzY+XKI2HhDMb1XjL+V8jRtDBLkVWu9b2JAdCT50sVmRNk9jgJOUACVDythyh8rLNRC
-	sZOQz4G8lIp2Is8qtabx9WJc+wws7pFbGeFBEEdC+dj/R2CQ5GC0+tpiqxn0LzeBbsZa3Qw9fSYSP
-	AC9051LW9kqZSeMv7AXpsK5k00G7ff5Om6sScUkAOMlyT0z6uAj7yrEYuJN54K5US+BCzgnyScAtW
-	IJQ3YcFw==;
+	bh=Xn1YK5Rbwl21fIMQLMa2jkRsxua5z7AprrlyzmypaHk=; b=RTtVymsTRFQe77XsT+Zv1YvujY
+	unWRQ2SkMQI/hiHFWmE+joQRbe2UujIySMp9hKf9IwTCGRa2SohCqcWBc/ZKC1xdQSsOmTBZsmkvn
+	HIQFFBl6TZhafx58Ro9u1Mr68PtCXi917MQ7bicF0cp6XVOvm8HCcEf5rFVWd+QlIuy5tMAkcTlFw
+	sD4ix9A0UHSUtDlw8zI05My4Jaf9zJxmuWTTHj9K1Iic5PgzEOLemI4rL9wEpRKITVmRXiHIksufv
+	TnSmZASqEfTUdFNjh6O1sUOZR59MQNBIBq6oO7WIx+rYMhh2tLUyRJvI8jQVwxTrDS0WH0Zivef9h
+	1FoeHXVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPYj-00000004zBX-1wCX;
-	Fri, 21 Feb 2025 09:43:01 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tlPaE-00000004zYX-0daT;
+	Fri, 21 Feb 2025 09:44:34 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPL0-00000004vce-1SNj
+	id 1tlPME-00000004vqS-0AFI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 09:28:51 +0000
+	Fri, 21 Feb 2025 09:30:07 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1740130129;
+	s=2020; t=1740130204;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=iwUITOpMFwTi/W8s/xf6chXl/H4CSWnHTKuu/cNkV+Y=;
-	b=Rft1jIC3rQkJoE7ktmxfkISLJACrDfiV6yT2t1mrEsrrvrMsFcMh9LAAsgjtcHjO+iGIV7
-	7Uimzs+uA08ag7Zw6Yd0AcgKAETr/ty5Cn9lnjuf1WrbsU/un+oG3S/7QLvlWvIB/Q3/Qa
-	JmUgGr15GKukhSOtvTAk4Ve/DWl2pvZ6xe5/8EbszUIp3HOotmQqXvMwF0Zfe74xJKvolq
-	JDc9LYS7weYz0Au5rIuJ3117mpJTUrUw0U6Mr9JxkmJiH8Eai2djymgBdfAAk1gRCItlQe
-	/YoGy/ImnMlFzjZfst6JAB2yRLMCbOcs4b1E/GfQjwMCM688FKot2ywYYCR+PQ==
+	bh=Xn1YK5Rbwl21fIMQLMa2jkRsxua5z7AprrlyzmypaHk=;
+	b=z0oFasjwUX4OqPrCTmczsUAX4b9VPP+qb/2lqi56qbQKsREDNb7LRXybObX4Sri8xtEh40
+	pJ/0xgrS406ocbif7fccA9wR1Np72hrF44BBcnSI/EN+VIOD8hdnL9v4vA+8wUfeqQh1x1
+	vDg26BX0Y/Pd0GDfdmhbnJdaQ1WSqaU7N20QizOoRgSdEBk7ETU0pnHuA62oHYDh9oVl/t
+	kYbV1/ynbFj4z7RjHX6LGzL6iivPjH406BMza5ecuWaRFsG+1bDTV70jZTI7m02vDDIY89
+	aqc3yU3daGVh138wwksFkfXPsCeSQH9kAmKGNesuEv3SLNlxOrUF8P9+akghfA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1740130129;
+	s=2020e; t=1740130204;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=iwUITOpMFwTi/W8s/xf6chXl/H4CSWnHTKuu/cNkV+Y=;
-	b=T+KPnXw5Wr2dPlolH6aNGJaBaBOXcpbTXXzHKxX6PowtAno4QpBmWblRtwqYDSoMbjfhhW
-	5yDF1qjXgyrByPAg==
+	bh=Xn1YK5Rbwl21fIMQLMa2jkRsxua5z7AprrlyzmypaHk=;
+	b=ocZ9Ror/AAB+Q4FTa3HD5O9awyQCTRyOoL8WdHe7hnu0bgWzMQd+Vig5zy5amULt0hWGjE
+	Mc0A5LU5PKJ2e6BQ==
 To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com,
  kevin.tian@intel.com, maz@kernel.org
 Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
@@ -55,17 +55,18 @@ Cc: joro@8bytes.org, will@kernel.org, robin.murphy@arm.com,
  eric.auger@redhat.com, baolu.lu@linux.intel.com, yi.l.liu@intel.com,
  yury.norov@gmail.com, jacob.pan@linux.microsoft.com,
  patches@lists.linux.dev
-Subject: Re: [PATCH v2 2/7] genirq/msi: Refactor iommu_dma_compose_msi_msg()
-In-Reply-To: <eda62a9bafa825e9cdabd7ddc61ad5a21c32af24.1740014950.git.nicolinc@nvidia.com>
+Subject: Re: [PATCH v2 4/7] irqchip: Have CONFIG_IRQ_MSI_IOMMU be selected
+ by irqchips that need it
+In-Reply-To: <a2620f67002c5cdf974e89ca3bf905f5c0817be6.1740014950.git.nicolinc@nvidia.com>
 References: <cover.1740014950.git.nicolinc@nvidia.com>
- <eda62a9bafa825e9cdabd7ddc61ad5a21c32af24.1740014950.git.nicolinc@nvidia.com>
-Date: Fri, 21 Feb 2025 10:28:48 +0100
-Message-ID: <87ikp3hcj3.ffs@tglx>
+ <a2620f67002c5cdf974e89ca3bf905f5c0817be6.1740014950.git.nicolinc@nvidia.com>
+Date: Fri, 21 Feb 2025 10:30:04 +0100
+Message-ID: <87frk7hcgz.ffs@tglx>
 MIME-Version: 1.0
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_012850_527869_BF7EF75F 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20250221_013006_331082_AD49362A 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,32 +82,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Wed, Feb 19 2025 at 17:31, Nicolin Chen wrote:
+
 > From: Jason Gunthorpe <jgg@nvidia.com>
 >
-> The two-step process to translate the MSI address involves two functions,
-> iommu_dma_prepare_msi() and iommu_dma_compose_msi_msg().
+> Currently, IRQ_MSI_IOMMU is selected if DMA_IOMMU is available to provide
+> an implementation for iommu_dma_prepare/compose_msi_msg(). However, it'll
+> make more sense for irqchips that call prepare/compose to select it, and
+> that will trigger all the additional code and data to be compiled into
+> the kernel.
 >
-> Previously iommu_dma_compose_msi_msg() needed to be in the iommu layer as
-> it had to dereference the opaque cookie pointer. Now, the previous patch
-> changed the cookie pointer into an integer so there is no longer any need
-> for the iommu layer to be involved.
+> If IRQ_MSI_IOMMU is selected with no IOMMU side implementation, then the
+> prepare/compose() will be NOP stubs.
 >
-> Further, the call sites of iommu_dma_compose_msi_msg() all follow the same
-> pattern of setting an MSI message address_hi/lo to non-translated and then
-> immediately calling iommu_dma_compose_msi_msg().
->
-> Refactor iommu_dma_compose_msi_msg() into msi_msg_set_addr() that directly
-> accepts the u64 version of the address and simplifies all the callers.
->
-> Move the new helper to linux/msi.h since it has nothing to do with iommu.
->
-> Aside from refactoring, this logically prepares for the next patch, which
-> allows multiple implementation options for iommu_dma_prepare_msi(). So, it
-> does not make sense to have the iommu_dma_compose_msi_msg() in dma-iommu.c
-> as it no longer provides the only iommu_dma_prepare_msi() implementation.
+> If IRQ_MSI_IOMMU is not selected by an irqchip, then the related code on
+> the iommu side is compiled out.
 >
 > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
 Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
+
+I don't think I have conflicting changes here, so the MSI/IRQ related
+changes can be routed through the IOMMU tree along with the rest.
+
+Thanks,
+
+        tglx
 
