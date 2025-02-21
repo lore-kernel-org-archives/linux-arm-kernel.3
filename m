@@ -4,55 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4551C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 11:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E887C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 11:40:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IebQMqINzMoLs9TzHSd65Axvb4i3On5X9G/RhDBqZf0=; b=NNftcrjxBRCgVzdffd0h7nlntX
-	IVyErnK4w3puQlG2zeajnfsjuO5yHGXyPtiE97RUrVIiraiKblCiq+b+XXrxhwdvXYci0mEuNOrCk
-	qBJtoY41flbeSBzpcGUIGtMQN5PGtnTu/lZRptASpSSoI73dOk26UYpBm5RzQVW9b1w7F1OdQ3NMN
-	Jg2a2Dpa0B2vXngNHf1Qh0QZxJ7F9E7gB+r2dSQhf890aoEsEkgpc5npObskYcQjSymPRUYP2BBdI
-	mtuaZkKSMJ8DsMdyeh1VhOIB4vxb+sySHv8xt62txeHN9A7HumBivWKCQyJ6phtrwQ9gkF0hSda6R
-	vdEEa2cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qugMnCcisAWRd3N7XpZaDvLqsnQ13hI4MnOJQYSPqR8=; b=wI2jnmW1TvYp9oVoIHznn4oXgj
+	XPttlgV6cQM1Z5A9N+4/QDeUtjnw4FtAEx7Kyntem9k6lS3j6UH7Hx3/r/wsSz2gYVE7fEFDZ07vt
+	wYGAVn6+XtQMhCRJETYK1x4hnGP1JV8Oq6rrgikYSIPgbOGmmLmRgioBChriWpe4a+0FQkGxR59O/
+	DIOkDhE5uL9EOwl8ukLvwmx1Bkm+gSh75h3yowONhFU/h7ayx2dhlLa11GM660UJWKpxD8ZvLAN+h
+	trkuq1lAOUe7cVE+l4zs9mYgJ+oNo8yzQhvZtHWqVZI4a4Z1CCFkROFUpnsHyawdbQqV3pPcLY7aq
+	bg0SejxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlRMW-00000005LnU-2z3O;
-	Fri, 21 Feb 2025 11:38:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlRKw-00000005LZV-22b9
+	id 1tlROJ-00000005M4U-1YcN;
+	Fri, 21 Feb 2025 11:40:23 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlRMo-00000005Lql-2V4m
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 11:36:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5B7B61516;
-	Fri, 21 Feb 2025 03:37:11 -0800 (PST)
-Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3E96A3F59E;
-	Fri, 21 Feb 2025 03:36:52 -0800 (PST)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: arm-scmi@vger.kernel.org,
+	Fri, 21 Feb 2025 11:38:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=qugMnCcisAWRd3N7XpZaDvLqsnQ13hI4MnOJQYSPqR8=; b=slJ1doNLYx0gJdh83NuzDDMBis
+	jySo+YRg1x1stRmo8dE1FiD+VXvxu7aowfRHxBaPU7hK8tUgXJj1zSJ72tURzCOajhPknQZO6Oo5i
+	4Flh54HosFPQIk6SMglRaU3RZTS7zFUcnxRKtY9B4dGPEk/nIrbFwCLHEyKPb62IqAZ6ciZdlIRWn
+	rk8Z780gW8LFPfTA/N9TBNe9yL/axY6Sw4vaOd69xuVZoO0WWmXfsExMEg71FvxHfl0QBOnjoLKBU
+	qOlUnA3q7QPnDjirYRuAIALkZzQYksAEN1hV8qWKWqZh0pBREK04e7HhYUXGAcMaRXqobo7rgC03m
+	lXtD3lPg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:36572 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1tlRMe-0004Pp-28;
+	Fri, 21 Feb 2025 11:38:40 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1tlRMK-004Vsx-Ss; Fri, 21 Feb 2025 11:38:20 +0000
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	Sudeep Holla <sudeep.holla@arm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Xinqi Zhang <quic_xinqzhan@quicinc.com>,
-	Peng Fan <peng.fan@nxp.com>,
-	Guomin Chen <guomin_chen@sina.com>
-Subject: Re: [PATCH 1/3] firmware: arm_scmi: Relax duplicate name constraint across protocol ids
-Date: Fri, 21 Feb 2025 11:36:41 +0000
-Message-Id: <174013775144.527060.3854739090604222031.b4-ty@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250131141822.514342-1-sudeep.holla@arm.com>
-References: <20250131141822.514342-1-sudeep.holla@arm.com>
+	linux-arm-msm@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH net-next] net: stmmac: qcom-ethqos: use rgmii_clock() to set
+ the link clock
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1tlRMK-004Vsx-Ss@rmk-PC.armlinux.org.uk>
+Date: Fri, 21 Feb 2025 11:38:20 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_033654_567021_C4463C8F 
-X-CRM114-Status: UNSURE (   6.59  )
+X-CRM114-CacheID: sfid-20250221_033850_955051_70FCC4D5 
+X-CRM114-Status: UNSURE (   9.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -68,27 +89,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 31 Jan 2025 14:18:20 +0000, Sudeep Holla wrote:
-> Currently in scmi_protocol_device_request(), no duplicate scmi device
-> name is allowed across any protocol. However scmi_dev_match_id() first
-> matches the protocol id and then the name. So, there is no strict
-> requirement to keep this scmi device name unique across all the protocols.
->
-> Relax the constraint on the duplicate name across the protocols and
-> inhibit only within the same protocol id.
->
-> [...]
+The link clock operates at twice the RGMII clock rate. Therefore, we
+can use the rgmii_clock() helper to set this clock rate.
 
-Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ .../stmicro/stmmac/dwmac-qcom-ethqos.c        | 23 ++++---------------
+ 1 file changed, 5 insertions(+), 18 deletions(-)
 
-[1/3] firmware: arm_scmi: Relax duplicate name constraint across protocol ids
-      https://git.kernel.org/sudeep.holla/c/21ee965267bc
-[2/3] firmware: arm_scmi: Add name and protocol id attributes
-      https://git.kernel.org/sudeep.holla/c/feaea74fd697
-[3/3] firmware: arm_scmi: Emit modalias for SCMI devices
-      https://git.kernel.org/sudeep.holla/c/d069c33f5ce2
---
-Regards,
-Sudeep
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+index 192f270197c8..eafe637540b6 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+@@ -169,30 +169,17 @@ static void rgmii_dump(void *priv)
+ 		rgmii_readl(ethqos, EMAC_SYSTEM_LOW_POWER_DEBUG));
+ }
+ 
+-/* Clock rates */
+-#define RGMII_1000_NOM_CLK_FREQ			(250 * 1000 * 1000UL)
+-#define RGMII_ID_MODE_100_LOW_SVS_CLK_FREQ	 (50 * 1000 * 1000UL)
+-#define RGMII_ID_MODE_10_LOW_SVS_CLK_FREQ	  (5 * 1000 * 1000UL)
+-
+ static void
+ ethqos_update_link_clk(struct qcom_ethqos *ethqos, int speed)
+ {
++	long rate;
++
+ 	if (!phy_interface_mode_is_rgmii(ethqos->phy_mode))
+ 		return;
+ 
+-	switch (speed) {
+-	case SPEED_1000:
+-		ethqos->link_clk_rate =  RGMII_1000_NOM_CLK_FREQ;
+-		break;
+-
+-	case SPEED_100:
+-		ethqos->link_clk_rate =  RGMII_ID_MODE_100_LOW_SVS_CLK_FREQ;
+-		break;
+-
+-	case SPEED_10:
+-		ethqos->link_clk_rate =  RGMII_ID_MODE_10_LOW_SVS_CLK_FREQ;
+-		break;
+-	}
++	rate = rgmii_clock(speed);
++	if (rate > 0)
++		ethqos->link_clk_rate = rate * 2;
+ 
+ 	clk_set_rate(ethqos->link_clk, ethqos->link_clk_rate);
+ }
+-- 
+2.30.2
 
 
