@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87331C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 01:24:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FD1FC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 01:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ET59mmvDVO2YQFnVohFm2Jxp2fIqgmVKkU6505WFy6s=; b=IxxVQGuojzvXygL/aV2N3snhsU
-	/2qAZsLW+6iiHMS18vCfjsbVQnuyxNyGccl76LnPqsP0yMSKWBzF9fj5zUhmw3pf/HMggDncJQcXl
-	UqYnG/N6MadJbfJ9yOZn73yfiy3MhAjvKKzBVKuXiBe9pIhTYbBPMqNCYtNqacmxfUILLkZ5eBeSu
-	eRvw1kuT35BOtBWVeHkVX6BSywcs0usw0Oa8LcrR2t2IlaP+WSTWxBkJioI+Sc/iljKROYNx4F1OS
-	zv7k/W3LcC57qXjo+eGysyRpgws+cIIUIUbecLw4I+9sEyevHHObyi3cu4eLJUELoLeeocsS1wnoV
-	bPzqhG5w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OzRij30JVXOYvFSaevB0Wbb2sXToWlzaJarJIOqq3Co=; b=Y/lkDmm4DFPPgshyfsElrpjW/A
+	EnUUbJhhRk0Zu5LvwWfBLl6gVRYs72JcVBiSusIVq4cZ5ireEczC8rKs+cIvnFXum799JNfbwOqLq
+	OWh9P2aCKL1u9UdZAHx8Vn3EB4VnjmGZnG64pRGzxaolwANSIF3wlMGe2BH69orxMoCfu0bjWB/M7
+	a5CfIZChFYzi4dFOnZ/DhWSrkGMx2uIg7SgcoT35btK/DWF/nJ/0h4HzD2/cZZEtqWh+JFwU0BJUx
+	tMZcKHU9ySH5LLX1gMScMOTz+JnnsXfOg7J4nmhSVYBPdchT97paPGhpBgwVOij97PVI2zBkB+Xnu
+	C8qHkXdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlHmA-00000003fJ3-2gg5;
-	Fri, 21 Feb 2025 01:24:22 +0000
+	id 1tlHnd-00000003fhu-17kp;
+	Fri, 21 Feb 2025 01:25:53 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlHkf-00000003ezx-0PjG
+	id 1tlHkg-00000003f0w-3Uqk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 01:22:50 +0000
+	Fri, 21 Feb 2025 01:22:52 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 293EA1BA8;
-	Thu, 20 Feb 2025 17:23:06 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9B4E1C01;
+	Thu, 20 Feb 2025 17:23:07 -0800 (PST)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D7CBA3F59E;
-	Thu, 20 Feb 2025 17:22:46 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 78A483F59E;
+	Thu, 20 Feb 2025 17:22:48 -0800 (PST)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -43,15 +43,17 @@ To: Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev
-Subject: [PATCH 0/3] arm64: dts: sunxi: Add YuzukiHD Chameleon support
-Date: Fri, 21 Feb 2025 01:20:35 +0000
-Message-ID: <20250221012038.13706-1-andre.przywara@arm.com>
+Subject: [PATCH 1/3] dt-bindings: vendor-prefixes: Add YuzukiHD name
+Date: Fri, 21 Feb 2025 01:20:36 +0000
+Message-ID: <20250221012038.13706-2-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.3
+In-Reply-To: <20250221012038.13706-1-andre.przywara@arm.com>
+References: <20250221012038.13706-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_172249_178972_73586130 
-X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-CacheID: sfid-20250220_172250_910135_753E66B9 
+X-CRM114-Status: UNSURE (   8.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -67,32 +69,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "Chameleon" board is an Open Hardware board designed and developed
-by YuzukiHD, and mimics the Raspberry Pi A form factor. It sports an
-Allwinner H618 SoC, and alongside the usual devboard peripherals features
-an eMMC chip and four USB-C ports:
-https://github.com/YuzukiHD/YuzukiChameleon
+YuzukiHD provides Open Source Hardware designs, and also offers
+ready-made builds of them: https://github.com/YuzukiHD
 
-Add support for that board with the usual patch trinity: vendor prefix,
-board name binding, board .dts file.
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Please have a look!
-
-Cheers,
-Andre
-
-Andre Przywara (3):
-  dt-bindings: vendor-prefixes: Add YuzukiHD name
-  dt-bindings: arm: sunxi: Add YuzukiHD Chameleon board name
-  arm64: dts: allwinner: h616: add YuzukiHD Chameleon support
-
- .../devicetree/bindings/arm/sunxi.yaml        |   5 +
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/allwinner/Makefile        |   1 +
- .../sun50i-h618-yuzukihd-chameleon.dts        | 222 ++++++++++++++++++
- 4 files changed, 230 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
-
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 5079ca6ce1d1e..8c0991e002ee8 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -1737,6 +1737,8 @@ patternProperties:
+     description: Shenzhen Yashi Changhua Intelligent Technology Co., Ltd.
+   "^ysoft,.*":
+     description: Y Soft Corporation a.s.
++  "^yuzukihd,.*":
++    description: YuzukiHD Open Source Hardware
+   "^zarlink,.*":
+     description: Zarlink Semiconductor
+   "^zealz,.*":
 -- 
 2.46.3
 
