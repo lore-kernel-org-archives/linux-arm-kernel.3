@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E68AC021B6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 21:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C2FC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 22:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kAP8eop3O7GR+A6CqIyEeQtqDRTGSTC0Z9XT4Ce5THE=; b=bCp9zqocIUtTwolU/3ddl1MpwH
-	2n6artilL6wQkgBLHx45MxBXSGr7qMzMcbyLZ7NU/ocC4KkAkNu5UqPkFyKLcEBlxr5Ab0lwID+3d
-	vBK634JRXD8MpySAtXsqWAghiqEEhwsbLCc1q/Nqyu6mNVyU9PncoGtbz/ixG7AYG6J8QAVnl2LRh
-	K0pa/QC7UCsVf+SNzGbtGGbeKwEfxvCQLcyvI9x9bHKq1VEmuCoThXFcN0T1YenXevMwFl2eCJyc9
-	UAzHniT2rEyW6iK0ZcdGfeE48amsG6M664cizq3HMlohFWZj+lVdmaBIQ4tk1OFnUQ6khr0RHKEVM
-	AwbbB9ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HXVviPivkWWCcMSckTlSTpID4xmMzWDL7GNMi8mgsK8=; b=v82j9E+myEFzoKz2PpF+xN+Oam
+	vBQJV6jPlfpGpE7/nzBacvPl0K93VXtHyrNHT4VbdNjsy3P8wyJ90DGAzNml2CTEukOFWQSxTuwJZ
+	74XGo24ezyaqsPOKdW06T0Y54Pb4/suk8wRNGY+3q14lKL/ehAdLXG+oFIxKgLf/0lLqF+m6cbyeD
+	hV5G/XnATBa62KUJoOWnyQ0J6E4wQa8j4TzDpC2VDb7FBrEerHwBjbWo4L1O4PoMN7EH0etRCz3cr
+	rHA7LGNnqKY5zgRzOQd2kjGCVHqp1zwAWZ7KTXGKBG/EKPf7QMAnWR4xk9fnb6F59L12lFSnDRm9I
+	UDkoLuDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlaz1-00000006xbW-2aJC;
-	Fri, 21 Feb 2025 21:54:55 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tlbLU-00000006zle-2XnO;
+	Fri, 21 Feb 2025 22:18:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlaxY-00000006xL5-2Bq0;
-	Fri, 21 Feb 2025 21:53:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=kAP8eop3O7GR+A6CqIyEeQtqDRTGSTC0Z9XT4Ce5THE=; b=aLBk2VrcsBJW7jnMYXuwVda+aV
-	Hbzk6iKeWjoj80LZKAtwRv/tgEfohDTqbwsOClXGFp/7UGhfjYsi1SHSgrhFQqVP9++C+G19KjSNE
-	GHBlk4BVHMJvenE1hStXZzQl4bELedpgC1H8YUihOjRNBbh32PQ+EnUf5aT9l7Z44qCXdi0lN8L5k
-	rLHEVQb8v/+vV9urCzb3lpKzoUSs5BHvmgyK6DrMElRx9SeO7Pudy3M3tumYD/iGsLwDPVrF6k19R
-	o92lBFDg/k7amU0VBayeEhFsoSA/d40ueZw0doZpAG08hEDwmWCyTwyTl1Iv3AauZfATN23ITONN2
-	7I1iMFxQ==;
-Received: from i53875a87.versanet.de ([83.135.90.135] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tlaxV-0000xw-Ha; Fri, 21 Feb 2025 22:53:21 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>,
- Chen-Yu Tsai <wens@csie.org>
-Subject: Re: [PATCH v2] arm64: dts: rockchip: add usb typec host support to
- rk3588-jaguar
-Date: Fri, 21 Feb 2025 22:53:20 +0100
-Message-ID: <18716872.sWSEgdgrri@diego>
-In-Reply-To: <c50c6053-4569-44b0-943d-5450960be147@cherry.de>
-References: <20250218211044.2256762-1-heiko@sntech.de>
- <c50c6053-4569-44b0-943d-5450960be147@cherry.de>
+	id 1tlbK1-00000006zZr-447N;
+	Fri, 21 Feb 2025 22:16:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A9EB2613B8;
+	Fri, 21 Feb 2025 22:16:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58419C4CED6;
+	Fri, 21 Feb 2025 22:16:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740176197;
+	bh=23PN250gtc7EcFv1DIBV80PwXFQEG45j2Rg1PLeXuq0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=GzwEr5aMCzrciGtwb1ZhEyOJW8Db+TpHE036ckNqvDi9H1lVL6vDRf6pqa9UEE37m
+	 OPzt5/umJO+ot5TlXX1nDWFf43eeeB/G02zxCgq4vMyq1WKEqpr+7Jhqq7V46NkVEY
+	 KySEk8nBdoW6NIG9nBocwv2pQ9wWrrZga5U1N1KwPJ4GZOi31suM0a72d/Z04FUkbV
+	 3l1TqotCQZBOiQ7YaUfzBVdFsZ0tLCUnV/CinbmCJpaBEcSLpbK0nO0rQCLz4qwg9X
+	 3oKLMiYLkx5r9arVd2Pr5yECHzifgptkL1y2yAl6N5JMxeBbpvluCtcQl5evzlc0ie
+	 5kTpQB8b1Sc0g==
+Date: Fri, 21 Feb 2025 14:16:35 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, Sean Wang
+ <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
+ Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ upstream@airoha.com
+Subject: Re: [PATCH net-next v6 12/15] net: airoha: Introduce Airoha NPU
+ support
+Message-ID: <20250221141635.4d01e792@kernel.org>
+In-Reply-To: <20250221-airoha-en7581-flowtable-offload-v6-12-d593af0e9487@kernel.org>
+References: <20250221-airoha-en7581-flowtable-offload-v6-0-d593af0e9487@kernel.org>
+	<20250221-airoha-en7581-flowtable-offload-v6-12-d593af0e9487@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_135324_586414_3B802063 
-X-CRM114-Status: GOOD (  27.94  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,52 +80,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 21. Februar 2025, 17:43:08 MEZ schrieb Quentin Schulz:
-> Hi Heiko,
-> 
-> On 2/18/25 10:10 PM, Heiko Stuebner wrote:
-> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > 
-> > Jaguar has two type-c ports connected to fusb302 controllers that can
-> > work both in host and device mode and can also run in display-port
-> > altmode.
-> > 
-> > While these ports can work in dual-role data mode, they do not support
-> > powering the device itself as power-sink. This causes issues because
-> > the current infrastructure does not cope well with dual-role data
-> > without dual-role power.
-> > 
-> > So add the necessary nodes for the type-c controllers as well
-> > as enable the relevant core usb nodes, but limit the mode to host-mode
-> > for now until we figure out device mode.
-> > 
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> 
-> While the USB functionality does work for both ports, and the 
-> orientation is properly reported, it seems like there may be some issue 
-> with how the PHY or controller interacts with that info because I do not 
-> get USB3 speeds when the device is inserted in reverse orientation, 
-> while I do when it's in normal orientation.
+On Fri, 21 Feb 2025 11:28:13 +0100 Lorenzo Bianconi wrote:
+> +	addr = kzalloc(size, GFP_ATOMIC);
+> +	if (!addr)
+> +		return -ENOMEM;
+> +
+> +	memcpy(addr, p, size);
 
-I've tested both ports and saw the issue too.
-Interestingly on the usbdp-phy side, orientation detection seems correct
-and also the sbu pins are set accordingly.
+coccicheck says:
 
-
-> I assume that's the case for the Rock 5 ITX and Orange Pi 5+ as well and 
-> probably has nothing to do with the DT?
-> 
-> Should we go still go on with trying to merge this patch knowing that? I 
-> mean USB2 is still better than no USB at all :)
-> 
-> +Cc Chen-Yu, owner of an Orange Pi 5+, who may be able to confirm the 
-> issue is widespread.
-> 
-> Cheers,
-> Quentin
-> 
-
-
-
-
+drivers/net/ethernet/airoha/airoha_npu.c:128:8-15: WARNING opportunity for kmemdup
+-- 
+pw-bot: cr
 
