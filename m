@@ -4,60 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24B4DC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:26:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57D09C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mAfYRb1T6G29hzIpEHo9jVHkiJJjtzpQh/U6sQZy24M=; b=pvk+n4RjqzfnZbIHw7W2v1vN10
-	2/7SF7vjPd8dRvUtbfwu8UsgZyhCO/85JPS0pTHzgmUP3KUL35UfJmrq87xP057OUYEAskv9nJ3wv
-	GZRRU03pB0qmTymd+oCN0Q7c5nletb/IqLoerlONwHR4SX8ar44Nd1SO9aBnaREcloLA8s2OIua45
-	e9aBc9qjkoTjv/yeC27MLdIcwnpziTAQWZF2G7eAlnR4b7f1g78M86NA/2sLJdPOTVE6MI8/OfPAj
-	Ij3SnUL3rr/blJXm7Xnza/BTOgveBJpk46wmkDnBY/Fz1vSsgqUF9LdUZav382qVqwoBbVkNF4K77
-	yFLnNSqg==;
+	bh=JgEkIOIF76ZgViNLeyoGWKf5mQ4AR1pJnHJ7Vsv45ag=; b=vFjV2qxgj34sKeNB5/jDDpQV2f
+	9SYc7bdw/2yCETzAx3/s0HoDQA+tpRCEMjoDo0aEeZZOtPgfOug8ZJBX0Jibh3zOSAzWhURFdxnA+
+	9AuT6fqSRohpU2+IwU3QerwVIJrmECH6HN5o8ezlj/Sljx+FI7lbzdpNDwGT8UFsEO0F3sl3IaKQn
+	od404bJqT1yVAHc5dBYbNwurKLgkiW1v9IrQR+MEw1O55dJ69sTA7fuvz6WlgJVnB5OBC54qAP3Ot
+	NmUvlpU7TAzi35f1d51mKGg5UctkmxSQqMEt1MqkrZ97kfWo+eZfjX5Ym45pAYafKch/+/B5np8U7
+	sGUYXKzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlTyi-00000005oaH-30RR;
-	Fri, 21 Feb 2025 14:26:08 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1tlU09-00000005olm-3O0a;
+	Fri, 21 Feb 2025 14:27:38 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlTj5-00000005lNx-36k7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 14:10:01 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4YzsRN65mhz6HJhN;
-	Fri, 21 Feb 2025 22:08:16 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 54BAE140134;
-	Fri, 21 Feb 2025 22:09:58 +0800 (CST)
-Received: from A2303104131.china.huawei.com (10.203.177.241) by
- frapeml500008.china.huawei.com (7.182.85.71) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Fri, 21 Feb 2025 15:09:50 +0100
-From: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-To: <kvmarm@lists.linux.dev>, <maz@kernel.org>, <oliver.upton@linux.dev>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <mark.rutland@arm.com>,
-	<cohuck@redhat.com>, <eric.auger@redhat.com>, <sebott@redhat.com>,
-	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <jiangkunkun@huawei.com>,
-	<jonathan.cameron@huawei.com>, <anthony.jebson@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>
-Subject: [PATCH v8 6/6] KVM: selftests: Add test for KVM_REG_ARM_VENDOR_HYP_BMAP_2
-Date: Fri, 21 Feb 2025 14:02:29 +0000
-Message-ID: <20250221140229.12588-7-shameerali.kolothum.thodi@huawei.com>
-X-Mailer: git-send-email 2.12.0.windows.1
-In-Reply-To: <20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com>
-References: <20250221140229.12588-1-shameerali.kolothum.thodi@huawei.com>
+	id 1tlTjo-00000005lUu-3gMv;
+	Fri, 21 Feb 2025 14:10:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740147045; x=1771683045;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=sRkollq7aUdEod9DwGNTqSYaedg1P55G6GG07rIbd3s=;
+  b=WiFyFSpBULzOhSatSAlD17xCjMxwshtsVZ7Pxlna4e2H3jJAqIaMCEpL
+   2O8jcup/JptTn1/5WBwAwWgwrGmDtG4+wyMoyr0Wi6cRYtNWxIeo7o1Ip
+   NJTIf5pKHKToQd7xfx1rqHIPVwj2iMKPsVwZT6G1NM+/RgTGk8AtEamri
+   i0vPPHNTiwrF6Dbb6IdU9T9efyEPWW3JWzfxBIpTaB13iFQrSEA1XNOCT
+   zmGZVdyXpaVaITuk/lbMRsiuOaL2QN616whngIRJcQdBIMMV27QlAAo94
+   7LekHKECfA+SQrJ1zmq7x/hek1NhjnpZ9FSHDMcylzqxiR2MEn9K4t1Ct
+   w==;
+X-CSE-ConnectionGUID: eEiWjaMFR3GO2MRdIs99cQ==
+X-CSE-MsgGUID: Xkow/YT9QW6hvlRb+H60BQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11352"; a="40842072"
+X-IronPort-AV: E=Sophos;i="6.13,304,1732608000"; 
+   d="scan'208";a="40842072"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Feb 2025 06:10:40 -0800
+X-CSE-ConnectionGUID: aCI6g3nqRDavtpRc+aawEg==
+X-CSE-MsgGUID: e6xGiywaQ1+G1N9OiCqMlA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,305,1732608000"; 
+   d="scan'208";a="120361076"
+Received: from turnipsi.fi.intel.com (HELO kekkonen.fi.intel.com) ([10.237.72.44])
+  by orviesa004-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Feb 2025 06:10:34 -0800
+Received: from kekkonen.localdomain (localhost [127.0.0.1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 36155120289;
+	Fri, 21 Feb 2025 16:10:31 +0200 (EET)
+Date: Fri, 21 Feb 2025 14:10:31 +0000
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Michael Riesch <michael.riesch@wolfvision.net>
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	Gerald Loacker <gerald.loacker@wolfvision.net>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Sebastian Fricke <sebastian.fricke@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	Alexander Shiyan <eagle.alexander923@gmail.com>,
+	Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v4 03/11] media: dt-bindings: media: add bindings for
+ rockchip rk3568 vicap
+Message-ID: <Z7iJV1rOaqMmcjY7@kekkonen.localdomain>
+References: <20250219-v6-8-topic-rk3568-vicap-v4-0-e906600ae3b0@wolfvision.net>
+ <20250219-v6-8-topic-rk3568-vicap-v4-3-e906600ae3b0@wolfvision.net>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.203.177.241]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- frapeml500008.china.huawei.com (7.182.85.71)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250219-v6-8-topic-rk3568-vicap-v4-3-e906600ae3b0@wolfvision.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_061000_064706_CFD5AEA0 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20250221_061044_932191_DCCF59AB 
+X-CRM114-Status: GOOD (  23.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,147 +108,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-One difference here with other pseudo-firmware bitmap registers
-is that the default/reset value for the supported hypercall
-function-ids is 0 at present. Hence, modify the test accordingly.
+Hi Michael,
 
-Reviewed-by: Sebastian Ott <sebott@redhat.com>
-Signed-off-by: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
----
- tools/arch/arm64/include/uapi/asm/kvm.h       | 12 +++++
- .../selftests/kvm/arm64/get-reg-list.c        |  1 +
- .../testing/selftests/kvm/arm64/hypercalls.c  | 46 +++++++++++++++----
- 3 files changed, 49 insertions(+), 10 deletions(-)
+Thanks for the update.
 
-diff --git a/tools/arch/arm64/include/uapi/asm/kvm.h b/tools/arch/arm64/include/uapi/asm/kvm.h
-index 66736ff04011..6d44f8c8a18f 100644
---- a/tools/arch/arm64/include/uapi/asm/kvm.h
-+++ b/tools/arch/arm64/include/uapi/asm/kvm.h
-@@ -374,6 +374,7 @@ enum {
- #endif
- };
- 
-+/* Vendor hyper call function numbers 0-63 */
- #define KVM_REG_ARM_VENDOR_HYP_BMAP		KVM_REG_ARM_FW_FEAT_BMAP_REG(2)
- 
- enum {
-@@ -384,6 +385,17 @@ enum {
- #endif
- };
- 
-+/* Vendor hyper call function numbers 64-127 */
-+#define KVM_REG_ARM_VENDOR_HYP_BMAP_2		KVM_REG_ARM_FW_FEAT_BMAP_REG(3)
-+
-+enum {
-+	KVM_REG_ARM_VENDOR_HYP_BIT_DISCOVER_IMPL_VER	= 0,
-+	KVM_REG_ARM_VENDOR_HYP_BIT_DISCOVER_IMPL_CPUS	= 1,
-+#ifdef __KERNEL__
-+	KVM_REG_ARM_VENDOR_HYP_BMAP_2_BIT_COUNT,
-+#endif
-+};
-+
- /* Device Control API on vm fd */
- #define KVM_ARM_VM_SMCCC_CTRL		0
- #define   KVM_ARM_VM_SMCCC_FILTER	0
-diff --git a/tools/testing/selftests/kvm/arm64/get-reg-list.c b/tools/testing/selftests/kvm/arm64/get-reg-list.c
-index d43fb3f49050..d01798b6b3b4 100644
---- a/tools/testing/selftests/kvm/arm64/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/arm64/get-reg-list.c
-@@ -332,6 +332,7 @@ static __u64 base_regs[] = {
- 	KVM_REG_ARM_FW_FEAT_BMAP_REG(0),	/* KVM_REG_ARM_STD_BMAP */
- 	KVM_REG_ARM_FW_FEAT_BMAP_REG(1),	/* KVM_REG_ARM_STD_HYP_BMAP */
- 	KVM_REG_ARM_FW_FEAT_BMAP_REG(2),	/* KVM_REG_ARM_VENDOR_HYP_BMAP */
-+	KVM_REG_ARM_FW_FEAT_BMAP_REG(3),	/* KVM_REG_ARM_VENDOR_HYP_BMAP_2 */
- 	ARM64_SYS_REG(3, 3, 14, 3, 1),	/* CNTV_CTL_EL0 */
- 	ARM64_SYS_REG(3, 3, 14, 3, 2),	/* CNTV_CVAL_EL0 */
- 	ARM64_SYS_REG(3, 3, 14, 0, 2),
-diff --git a/tools/testing/selftests/kvm/arm64/hypercalls.c b/tools/testing/selftests/kvm/arm64/hypercalls.c
-index ec54ec7726e9..44cfcf8a7f46 100644
---- a/tools/testing/selftests/kvm/arm64/hypercalls.c
-+++ b/tools/testing/selftests/kvm/arm64/hypercalls.c
-@@ -21,22 +21,31 @@
- #define KVM_REG_ARM_STD_BMAP_BIT_MAX		0
- #define KVM_REG_ARM_STD_HYP_BMAP_BIT_MAX	0
- #define KVM_REG_ARM_VENDOR_HYP_BMAP_BIT_MAX	1
-+#define KVM_REG_ARM_VENDOR_HYP_BMAP_2_BIT_MAX   1
-+
-+#define KVM_REG_ARM_STD_BMAP_RESET_VAL		FW_REG_ULIMIT_VAL(KVM_REG_ARM_STD_BMAP_BIT_MAX)
-+#define KVM_REG_ARM_STD_HYP_BMAP_RESET_VAL	FW_REG_ULIMIT_VAL(KVM_REG_ARM_STD_HYP_BMAP_BIT_MAX)
-+#define KVM_REG_ARM_VENDOR_HYP_BMAP_RESET_VAL	FW_REG_ULIMIT_VAL(KVM_REG_ARM_VENDOR_HYP_BMAP_BIT_MAX)
-+#define KVM_REG_ARM_VENDOR_HYP_BMAP_2_RESET_VAL 0
- 
- struct kvm_fw_reg_info {
- 	uint64_t reg;		/* Register definition */
- 	uint64_t max_feat_bit;	/* Bit that represents the upper limit of the feature-map */
-+	uint64_t reset_val;	/* Reset value for the register */
- };
- 
- #define FW_REG_INFO(r)			\
- 	{					\
- 		.reg = r,			\
- 		.max_feat_bit = r##_BIT_MAX,	\
-+		.reset_val = r##_RESET_VAL	\
- 	}
- 
- static const struct kvm_fw_reg_info fw_reg_info[] = {
- 	FW_REG_INFO(KVM_REG_ARM_STD_BMAP),
- 	FW_REG_INFO(KVM_REG_ARM_STD_HYP_BMAP),
- 	FW_REG_INFO(KVM_REG_ARM_VENDOR_HYP_BMAP),
-+	FW_REG_INFO(KVM_REG_ARM_VENDOR_HYP_BMAP_2),
- };
- 
- enum test_stage {
-@@ -171,22 +180,39 @@ static void test_fw_regs_before_vm_start(struct kvm_vcpu *vcpu)
- 
- 	for (i = 0; i < ARRAY_SIZE(fw_reg_info); i++) {
- 		const struct kvm_fw_reg_info *reg_info = &fw_reg_info[i];
-+		uint64_t set_val;
- 
--		/* First 'read' should be an upper limit of the features supported */
-+		/* First 'read' should be the reset value for the reg  */
- 		val = vcpu_get_reg(vcpu, reg_info->reg);
--		TEST_ASSERT(val == FW_REG_ULIMIT_VAL(reg_info->max_feat_bit),
--			"Expected all the features to be set for reg: 0x%lx; expected: 0x%lx; read: 0x%lx",
--			reg_info->reg, FW_REG_ULIMIT_VAL(reg_info->max_feat_bit), val);
-+		TEST_ASSERT(val == reg_info->reset_val,
-+			"Unexpected reset value for reg: 0x%lx; expected: 0x%lx; read: 0x%lx",
-+			reg_info->reg, reg_info->reset_val, val);
-+
-+		if (reg_info->reset_val)
-+			set_val = 0;
-+		else
-+			set_val = FW_REG_ULIMIT_VAL(reg_info->max_feat_bit);
- 
--		/* Test a 'write' by disabling all the features of the register map */
--		ret = __vcpu_set_reg(vcpu, reg_info->reg, 0);
-+		ret = __vcpu_set_reg(vcpu, reg_info->reg, set_val);
- 		TEST_ASSERT(ret == 0,
--			"Failed to clear all the features of reg: 0x%lx; ret: %d",
--			reg_info->reg, errno);
-+			"Failed to %s all the features of reg: 0x%lx; ret: %d",
-+			(set_val ? "set" : "clear"), reg_info->reg, errno);
- 
- 		val = vcpu_get_reg(vcpu, reg_info->reg);
--		TEST_ASSERT(val == 0,
--			"Expected all the features to be cleared for reg: 0x%lx", reg_info->reg);
-+		TEST_ASSERT(val == set_val,
-+			"Expected all the features to be %s for reg: 0x%lx",
-+			(set_val ? "set" : "cleared"), reg_info->reg);
-+
-+		/*
-+		 * If the reg has been set, clear it as test_fw_regs_after_vm_start()
-+		 * expects it to be cleared.
-+		 */
-+		if (set_val) {
-+			ret = __vcpu_set_reg(vcpu, reg_info->reg, 0);
-+			TEST_ASSERT(ret == 0,
-+			"Failed to clear all the features of reg: 0x%lx; ret: %d",
-+			reg_info->reg, errno);
-+		}
- 
- 		/*
- 		 * Test enabling a feature that's not supported.
+On Wed, Feb 19, 2025 at 11:16:34AM +0100, Michael Riesch wrote:
+> Add documentation for the Rockchip RK3568 Video Capture (VICAP) unit.
+> 
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> ---
+>  .../bindings/media/rockchip,rk3568-vicap.yaml      | 168 +++++++++++++++++++++
+>  MAINTAINERS                                        |   1 +
+>  2 files changed, 169 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
+> new file mode 100644
+> index 000000000000..3dc15efeb32e
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
+> @@ -0,0 +1,168 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/rockchip,rk3568-vicap.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip RK3568 Video Capture (VICAP)
+> +
+> +maintainers:
+> +  - Michael Riesch <michael.riesch@wolfvision.net>
+> +
+> +description:
+> +  The Rockchip RK3568 Video Capture (VICAP) block features a digital video
+> +  port (DVP, a parallel video interface) and a MIPI CSI-2 port. It receives
+> +  the data from camera sensors, video decoders, or other companion ICs and
+> +  transfers it into system main memory by AXI bus.
+> +
+> +properties:
+> +  compatible:
+> +    const: rockchip,rk3568-vicap
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: ACLK
+> +      - description: HCLK
+> +      - description: DCLK
+> +      - description: ICLK
+> +
+> +  clock-names:
+> +    items:
+> +      - const: aclk
+> +      - const: hclk
+> +      - const: dclk
+> +      - const: iclk
+> +
+> +  rockchip,cif-clk-delaynum:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 0
+> +    maximum: 127
+> +    description:
+> +      Delay the DVP path clock input to align the sampling phase, only valid
+> +      in dual edge sampling mode.
+
+I suppose there's further documentation on this somewhere else? A reference
+would be nice.
+
+> +
+> +  iommus:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    items:
+> +      - description: ARST
+> +      - description: HRST
+> +      - description: DRST
+> +      - description: PRST
+> +      - description: IRST
+> +
+> +  reset-names:
+> +    items:
+> +      - const: arst
+> +      - const: hrst
+> +      - const: drst
+> +      - const: prst
+> +      - const: irst
+> +
+> +  rockchip,grf:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      Phandle to general register file used for video input block control.
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description:
+> +          The digital video port (DVP, a parallel video interface).
+> +
+> +        properties:
+> +          endpoint:
+> +            $ref: video-interfaces.yaml#
+> +            unevaluatedProperties: false
+> +
+> +            properties:
+> +              bus-type:
+> +                enum: [5, 6]
+> +
+> +            required:
+> +              - bus-type
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description: The MIPI CSI-2 port.
+> +
+> +        properties:
+> +          endpoint:
+> +            $ref: video-interfaces.yaml#
+> +            unevaluatedProperties: false
+
+Don't you need things like data-lanes here? Or is this a single lane
+receiver?
+
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - clocks
+> +  - ports
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rk3568-cru.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/power/rk3568-power.h>
+> +    #include <dt-bindings/media/video-interfaces.h>
+> +
+> +    parent {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        vicap: video-capture@fdfe0000 {
+> +            compatible = "rockchip,rk3568-vicap";
+> +            reg = <0x0 0xfdfe0000 0x0 0x200>;
+> +            interrupts = <GIC_SPI 146 IRQ_TYPE_LEVEL_HIGH>;
+> +            assigned-clocks = <&cru DCLK_VICAP>;
+> +            assigned-clock-rates = <300000000>;
+> +            clocks = <&cru ACLK_VICAP>, <&cru HCLK_VICAP>,
+> +                     <&cru DCLK_VICAP>, <&cru ICLK_VICAP_G>;
+> +            clock-names = "aclk", "hclk", "dclk", "iclk";
+> +            iommus = <&vicap_mmu>;
+> +            power-domains = <&power RK3568_PD_VI>;
+> +            resets = <&cru SRST_A_VICAP>, <&cru SRST_H_VICAP>,
+> +                     <&cru SRST_D_VICAP>, <&cru SRST_P_VICAP>,
+> +                     <&cru SRST_I_VICAP>;
+> +            reset-names = "arst", "hrst", "drst", "prst", "irst";
+> +            rockchip,grf = <&grf>;
+> +
+> +            ports {
+> +                #address-cells = <1>;
+> +                #size-cells = <0>;
+> +
+> +                vicap_dvp: port@0 {
+> +                    reg = <0>;
+> +
+> +                    vicap_dvp_input: endpoint {
+> +                        bus-type = <MEDIA_BUS_TYPE_BT656>;
+> +                        bus-width = <16>;
+> +                        pclk-sample = <MEDIA_PCLK_SAMPLE_DUAL_EDGE>;
+> +                        remote-endpoint = <&it6801_output>;
+> +                    };
+> +                };
+> +
+> +                vicap_mipi: port@1 {
+> +                    reg = <1>;
+
+Where is the endpoint?
+
+> +                };
+> +            };
+> +        };
+> +    };
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index bbfaf35d50c6..cd8fa1afe5eb 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -20407,6 +20407,7 @@ M:	Michael Riesch <michael.riesch@wolfvision.net>
+>  L:	linux-media@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
+> +F:	Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
+>  
+>  ROCKCHIP CRYPTO DRIVERS
+>  M:	Corentin Labbe <clabbe@baylibre.com>
+> 
+
 -- 
-2.47.0
+Kind regards,
 
+Sakari Ailus
 
