@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 568FAC021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 18:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF0C1C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 18:29:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZXeJpH3wHw7BU/7D32jGOtOKsJu0r75YAYsNnjjEMw0=; b=ipueC+VRpBoRhxC18pKhe6ByEE
-	sMhtEi7LakT4qlTKeDmb/fMR4PLTyWra2qvEy02pKy59+dOV1tKSJJ/Hot4K8Vr6yhjaZsw/dq6AM
-	ifbVMeItVJj3OZzCjBd4PeOLpVx+h9fqviNL3mr6PTf1bu4YvutvdM8w1c7ix9vQ+71Mzkc+hq00k
-	K4EUGHRhEZLl7TZn2TT7HgJDIXSLatH5QlecchViIb+C0GczD1TMqQP9Lnhp13pkiwyxVqaBEf6UI
-	Njb/C/8FgmY7hYOZZ4bEh5QWgx+XrUJOwZCiWzAwvCyk19XGP7RrPi8oJGFN6TaKs/i10HG4CWRPd
-	LfvSSZPg==;
+	bh=ECSKD5NbGIjHx0Bm2KDf0mIGC/IQOT4lmpj8nrvLpXE=; b=zYGTvWXrowev+syEM54v9DlOiq
+	kP39f4QAcKBFN5BmtyTu5yWgWeEBihSfqGuiSa1DeKdmUb541RTSNatEwzKmenaIEhlSA0CNeOOb0
+	GRqfOvB8/clcC7hZqcQbmoAf2PO6GsRAAflIC3YpUOVraksfybqbNpWnhJ95NsSWLwXpFwkf9a62T
+	VgD+vXid0dRbtZY7rxTTqDfjQVEH/+KV4DudbdhcdVyOVuvzYwbS4EcNQ/+RPWjp357DJ3lkdmsVp
+	P8PDUweh1FptLcfjufGRgDvv5sKz3bAsrZ3gm6fWgDc2lDSS0QFWqRQJtMHmydk+HXFYd3PIAyS76
+	ljdB18sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlXkx-00000006X5F-1vyI;
-	Fri, 21 Feb 2025 18:28:11 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tlXmP-00000006XI2-0IpZ;
+	Fri, 21 Feb 2025 18:29:41 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlXUc-00000006Tqh-1CPe
+	id 1tlXXh-00000006UYp-1UND
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 18:11:19 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43690d4605dso15705035e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 10:11:18 -0800 (PST)
+	Fri, 21 Feb 2025 18:14:30 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4399a1eada3so21278985e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 10:14:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740161477; x=1740766277; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740161668; x=1740766468; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZXeJpH3wHw7BU/7D32jGOtOKsJu0r75YAYsNnjjEMw0=;
-        b=hozq1CajwvQSxhEdI6LBl/UAoJzmqan5AnzkLKSuRQ4TpF6hDrLYs5pKTZyThzwoFk
-         mE95+Jj74HGLx3wPZAcCyzsCJaVUNeOfregiPLYJwDlSMdC5YeR2R6hrT4z5NA7gKYTR
-         ovVpzEhu8aImTK4fZFk8FbnI102EAnv7WfRXyI/j5yrwAVJVi7I0Tjn9LDO8ktD1KgnJ
-         sLIUBj0qg4IFXQPLyhP0SF/CcwT15lcGkgfKScLLxmmtO29MF0m3Cz9vYiw32NzpA/WU
-         RIefZjZN5XeuDgpwmLi5TsxgFuxIQlHR26m+pCF/Ni0yCn1UNdclYXfRDFVg6x+To51T
-         1JRg==
+        bh=ECSKD5NbGIjHx0Bm2KDf0mIGC/IQOT4lmpj8nrvLpXE=;
+        b=SzvwfXZ+zKf+c83vPKBHA9535uJzjwEkWuYkvGhv5wK1RKCEX6lZp0qZiaA/biQA3Z
+         Tlr67VW4YsfogfmGbt1VyZ9VO/Yz8esBEyNNuoxLAKr707StvnS8LWfUAQuaHmFd1aGc
+         GkjFfW9hRZ+tRiDUYZXLjGSk+CMUIjI0ypGInf5V0WnY/ObS7HTdwoUgqNTdwruB1g3S
+         QoYMcjHDumsCS/pAhJk2luD7ZqPZlLTB06l09syFOoYoAgVbBgMwlDXiytWt39UnbB+5
+         QAIwS8bXqABYwynJ9GfKN5g+kONUFTmxljA792ihy45g7Qgs1nHmU6B2iI2dNd1OlErb
+         BzMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740161477; x=1740766277;
+        d=1e100.net; s=20230601; t=1740161668; x=1740766468;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ZXeJpH3wHw7BU/7D32jGOtOKsJu0r75YAYsNnjjEMw0=;
-        b=mMHHoWgn4vcbX4MPIGnEx86UG6bv81QtmNaSVQv9uSzKydne/JxDFk7J2F9xiCDRON
-         76+5vGSJC+w1gMxXUs927cz1iUrdYHzE02CF8gK3eKMF2QCQjGGF28pdIJIhxBa/d77B
-         ysEiov+yK+L8l7SDt+cqiX7AcvZiuqY/3o0Ilrzd2HcJw3D7RdrHaW5QXr0WQfT3rhUp
-         ugdDHeUDkPOSuQy3hT/5mND+qJZ7vg5HiUzadyhHIPcmjefdtTteyvLMPyYGqaEHIBAT
-         /6775x2RZnzYz6NNb7c3IrZqWTOQEi8Hs1T5Caz5cS3fPhaFLPtIRSfwg6/vDzgUTLoB
-         wEIw==
-X-Forwarded-Encrypted: i=1; AJvYcCXhmzlLI7KVDhrqJhejQ45lsvNBt3Yas4LDkXntSlyCR2jz5X5edMd3So5ktdQMNNQMgwe6iy+TuLJntivPJG13@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkVEPvrPv8mORDFrq+/KkGpPdj4Fvh6uqWsZ4q5TqiqD8Ursb9
-	uHjWoM8543f0+ijl+AlTKfgjpI9H5kuFsr2Cpma8UdVko8eJzefG
-X-Gm-Gg: ASbGncsouIYldcpTyXIxxv2zAo06ZAXwRYZZNC98VplQJC7DbTFskCjf7dGSaa2Hy0q
-	cpvMciIyifNubUx5lFKTMtb4VWNXC1Qcf4axGELzqtuNDcDzCKSjA8hVmd1x6VMyDCrVZWzAPvn
-	68uCxuiLwUq/dng75eSGiu2g5yNWS4UsG04XcUquD//vF82EdJlx1GCCXx4aWtR1wOGtiWJ+Q6Z
-	chVIEECwSIJS69oULpbCS1ipHqj8SBrE/Ms1/Xgr2qOSJKBFsnToXy9AADY4USnsTlyYgSabIhF
-	q8DqG4nZ7mdad2rO2j7uDRJF2vs1unJNetYs42h1DNE6cIkz+drUcDooPA1x0XVo2hinxxkUccE
-	eYw==
-X-Google-Smtp-Source: AGHT+IHF/tsnTWTEpF4H0kg8q1A+TidSDULFwV9+aTYXkyTCuSdYjLeHagAev7Ne5ELDSe/ppYbBWg==
-X-Received: by 2002:a05:600c:1ca0:b0:439:9e8b:228d with SMTP id 5b1f17b1804b1-439ae218a14mr35556225e9.19.1740161476437;
-        Fri, 21 Feb 2025 10:11:16 -0800 (PST)
+        bh=ECSKD5NbGIjHx0Bm2KDf0mIGC/IQOT4lmpj8nrvLpXE=;
+        b=IkPBJRrAm3aekjOgIeRa9hRWsVdJOdp6s1/6cV97trGUCg7sqoPbagnwsLWcoH8aWB
+         y2c8Rnkefx6Pf5QUyYRYz6/1uFHS1MpejfrOrToFgHlBADFyUxp8BkdokZ6qMN0Bjc3I
+         gbvJHBkuARqOKcjW8E4UYf4CbxLka5HFRs9POSsw8upTB1C+2EN2bntJXXEK7Jhs96Cs
+         3cvIeC5Mb50x+BpFtmrOyR/xNIHC2jKWVxzydgu82jqhMQMnuDaKRMa5VUKF7ejqqXOf
+         4xLpHh3tYadbLcnwhIVP43Q8egWiPmRjoo2WTrFbZtQo1XzLzSVNYxO8R/IBDWd5gx5s
+         t49g==
+X-Forwarded-Encrypted: i=1; AJvYcCWwr6GUx7FzsH8T1YR6t/0VSlCtZGlpJyuogf/J89v6QFS5hg2Zm5SCgZQrli2hRcj3Rc9YNSLjBETjD3OA9Lxm@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQUBVhltPlzxNIItjmhSoNZYVWacZUsF07bfdoIzkiNvivt0VE
+	ND64dh7DP7IDG8bRjR0jyDUHy9PXciy+whida3LCZxdmdxhN55Ck
+X-Gm-Gg: ASbGncs0Txn4yVRrWNqF4e6B9hjQZ8AuRDzmE/2XzNzbK4KQ2zvKsmfNUrJp80u9WeV
+	tI14aYAGpwPZF6df5x8jp1onzWZYdFqSkCaDO+4c5TSognabJVTKOWygU4tNzeXvdob7M99Qdld
+	tqWz/ES9JGfa7lwssJsMdoBJRL9HuNs3FFCNBM/C3c5M5HrqFQSxZcF9eQPsZBrr5mNxsDCtDck
+	otxLkytatNuypkS6Va7lh9YKBgXGu+v0T8fUtPTFEFbIarN6Bhf9dchD8+N3BKGfWN/LQs08toU
+	dt8u4gZUNz49dvWN5nVlMMJUJowbzPSanhH6yD/SYT9jJZH2HVvPn/M7zOW5fuNAU6iPzME1JGR
+	0rw==
+X-Google-Smtp-Source: AGHT+IFTozi1CVAZhzesUHKfQ2k63P/tS7KXhTKQwhP11mPloHJVn0P3vCQGwTQrLHtArYDTD3nLVQ==
+X-Received: by 2002:a05:600c:1396:b0:439:6d7c:48fd with SMTP id 5b1f17b1804b1-439ae1d877dmr40268755e9.4.1740161667381;
+        Fri, 21 Feb 2025 10:14:27 -0800 (PST)
 Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258dcf08sm24356178f8f.36.2025.02.21.10.11.15
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439b030be5esm24430595e9.30.2025.02.21.10.14.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Feb 2025 10:11:16 -0800 (PST)
+        Fri, 21 Feb 2025 10:14:27 -0800 (PST)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: Ulf Hansson <ulf.hansson@linaro.org>,
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
@@ -81,19 +81,18 @@ Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
  Steven Price <steven.price@arm.com>, dri-devel@lists.freedesktop.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev, linux-pm@vger.kernel.org
-Subject: Re: [PATCH 3/5] dt-bindings: gpu: mali-bifrost: Add Allwinner H616 compatible
-Date: Fri, 21 Feb 2025 19:11:14 +0100
-Message-ID: <2356358.ElGaqSPkdT@jernej-laptop>
-In-Reply-To: <20250221005802.11001-4-andre.przywara@arm.com>
+Subject: Re: [PATCH 4/5] arm64: dts: allwinner: h616: Add Mali GPU node
+Date: Fri, 21 Feb 2025 19:14:25 +0100
+Message-ID: <1911773.tdWV9SEqCh@jernej-laptop>
+In-Reply-To: <20250221005802.11001-5-andre.przywara@arm.com>
 References: <20250221005802.11001-1-andre.przywara@arm.com>
- <20250221005802.11001-4-andre.przywara@arm.com>
+ <20250221005802.11001-5-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_101118_319113_22359A73 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250221_101429_394207_0904587B 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,20 +107,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 21. februar 2025 ob 01:58:00 Srednjeevropski standardni =C4=8Das=
+Dne petek, 21. februar 2025 ob 01:58:01 Srednjeevropski standardni =C4=8Das=
  je Andre Przywara napisal(a):
-> The Allwinner H616 SoC has a Mali-G31 MP2 GPU, which is of the Mali
-> Bifrost family.
-> Add the SoC specific compatible string and pair it with the bifrost
-> fallback compatible.
+> The Allwinner H616 SoC contains a Mali-G31 MP2 GPU, which is of the Mali
+> Bifrost family. There is a power domain specifically for that GPU, which
+> needs to be enabled to make use of the it.
+>=20
+> Add the DT nodes for those two devices, and link them together through
+> the "power-domains" property.
+> Any board wishing to use the GPU would need to enable the GPU node and
+> specify the "mali-supply" regulator.
 >=20
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
 Best regards,
 Jernej
-
 
 
 
