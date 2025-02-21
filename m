@@ -4,82 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF19BC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 10:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0CCC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 10:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cgj0SsAf7s17wTdss/DKIZ3z1NXE7e8Hhk/xnWXEDfM=; b=2xI0iaPL9fKqC/YZzlxNYNMgzA
-	A157ha8klB53f4qibIKQg0HNUqi0QVwIUaQwqiQ98VHVpNSKoJlnnsFTJ5/Zl16Vs+VtWk2w9Y8yK
-	LYlZWSno9rUn2UumkA8OsjPPq7TOm/Z5cyiQKlMAhZpz2dR7vgjsGnIzEkaRkMNVD/n2ZqukHnEkW
-	PZ/ficDY1PcqL5wkThzN1wKtgH4jszg4VJt/0Ge5KHO7DEQA3XcoBPLGJt5TANWanPg/fdfHkJTD/
-	am7hnsyv1HLcGDQtUB6MCvDF+RNGRQrZiEOSv/s2EpeKSd+lpwZ5gXt2EbZY6ZCAa/bVEld0fzJad
-	4GH2n2lg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YUIHhtvm0/Mamo6SaAHfSISWc/5lM74W3X1NznWG2aU=; b=mRil+n5E74w9SB/lJ+B0nBYY3g
+	y4KhoU6D6al337EGT9VuNbtRxRv0vgJvioMvPa5QY12c/XdxR0Pk5oIgUSlGE1qpcSEQav8KeAJR8
+	AatDaCrkoShqbIhBxhZP05EXFZ7aYLhdCk6alZhf4d5fb9CvzZQQbfHqISuxFS56y38Uy+fAHUPtJ
+	ZM1ccDxsa7qrwX1VmMgZcmtAtSQyvKyZgR3IP4PNJySZAbfq/5rL3z5cjCpuBgtONrWqnoz/djlA+
+	GT6V4sWVSMx/APRiRfETHmj8NYyHehrAVp1F1EfE6l1yS8tl8jF8bX8ZYKjrQJJdm10fiSJiUUOgL
+	EtBWdKGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlQ7b-000000059U6-3ijE;
-	Fri, 21 Feb 2025 10:19:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPkg-000000052F2-4AZm
+	id 1tlQ96-000000059pK-2gIg;
+	Fri, 21 Feb 2025 10:20:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlPlv-000000052W4-07we
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 09:55:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 026596112D;
-	Fri, 21 Feb 2025 09:55:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8DF8C4CED6;
-	Fri, 21 Feb 2025 09:55:15 +0000 (UTC)
-Date: Fri, 21 Feb 2025 09:55:13 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Arnd Bergmann <arnd@arndb.de>, Muchun Song <muchun.song@linux.dev>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>, Dev Jain <dev.jain@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2 2/4] arm64: hugetlb: Fix huge_ptep_get_and_clear() for
- non-present ptes
-Message-ID: <Z7hNgSBw6lfwwcch@arm.com>
-References: <20250217140419.1702389-1-ryan.roberts@arm.com>
- <20250217140419.1702389-3-ryan.roberts@arm.com>
- <e26a59a1-ff9a-49c7-b10a-c3f5c096a2c4@arm.com>
- <5477d161-12e7-4475-a6e9-ff3921989673@arm.com>
- <50f48574-241d-42d8-b811-3e422c41e21a@arm.com>
+	Fri, 21 Feb 2025 09:56:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F1C4168F;
+	Fri, 21 Feb 2025 01:56:54 -0800 (PST)
+Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 65E393F6A8;
+	Fri, 21 Feb 2025 01:56:35 -0800 (PST)
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	linux-kernel@vger.kernel.org,
+	Andrei Homescu <ahomescu@google.com>
+Subject: [PATCH 1/2] firmware: arm_ffa: Explicitly cast return value from FFA_VERSION before comparison
+Date: Fri, 21 Feb 2025 09:56:31 +0000
+Message-Id: <20250221095633.506678-1-sudeep.holla@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <50f48574-241d-42d8-b811-3e422c41e21a@arm.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250221_015639_116454_B1F1AAB4 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,41 +61,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 20, 2025 at 12:07:35PM +0530, Anshuman Khandual wrote:
-> On 2/19/25 14:28, Ryan Roberts wrote:
-> > On 19/02/2025 08:45, Anshuman Khandual wrote:
-> >> On 2/17/25 19:34, Ryan Roberts wrote:
-> >>> +	while (--ncontig) {
-> >>
-> >> Should this be converted into a for loop instead just to be in sync with other
-> >> similar iterators in this file.
-> >>
-> >> for (i = 1; i < ncontig; i++, addr += pgsize, ptep++)
-> >> {
-> >> 	tmp_pte = __ptep_get_and_clear(mm, addr, ptep);
-> >> 	if (present) {
-> >> 		if (pte_dirty(tmp_pte))
-> >> 			pte = pte_mkdirty(pte);
-> >> 		if (pte_young(tmp_pte))
-> >> 			pte = pte_mkyoung(pte);
-> >> 	}
-> >> }
-> > 
-> > I think the way you have written this it's incorrect. Let's say we have 16 ptes
-> > in the block. We want to iterate over the last 15 of them (we have already read
-> > pte 0). But you're iterating over the first 15 because you don't increment addr
-> > and ptep until after you've been around the loop the first time. So we would
-> > need to explicitly increment those 2 before entering the loop. But that is only
-> > neccessary if ncontig > 1. Personally I think my approach is neater...
-> 
-> Thinking about this again. Just wondering should not a pte_present()
-> check on each entries being cleared along with (ncontig > 1) in this
-> existing loop before transferring over the dirty and accessed bits -
-> also work as intended with less code churn ?
+The return value ver.a0 is unsigned long type and FFA_RET_NOT_SUPPORTED
+is a negative value.
 
-Shouldn't all the ptes in a contig block be either all present or all
-not-present? Is there any point in checking each individually?
+Since the return value from the firmware can be just 32-bit even on
+64-bit systems as FFA specification mentions it as int32 error code in
+w0 register, explicitly casting to s32 ensures correct sign interpretation
+when comparing against a signed error code FFA_RET_NOT_SUPPORTED.
 
+Without casting, comparison between unsigned long and a negative
+constant could lead to unintended results due to type promotions.
+
+Fixes: 3bbfe9871005 ("firmware: arm_ffa: Add initial Arm FFA driver support")
+Reported-by: Andrei Homescu <ahomescu@google.com>
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+---
+ drivers/firmware/arm_ffa/driver.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index 254aa57ddafd..a77bb205ff7d 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -144,7 +144,7 @@ static int ffa_version_check(u32 *version)
+ 		      .a0 = FFA_VERSION, .a1 = FFA_DRIVER_VERSION,
+ 		      }, &ver);
+ 
+-	if (ver.a0 == FFA_RET_NOT_SUPPORTED) {
++	if ((s32)ver.a0 == FFA_RET_NOT_SUPPORTED) {
+ 		pr_info("FFA_VERSION returned not supported\n");
+ 		return -EOPNOTSUPP;
+ 	}
 -- 
-Catalin
+2.34.1
+
 
