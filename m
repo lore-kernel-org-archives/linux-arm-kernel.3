@@ -4,40 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE3E1C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 17:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCFEDC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 17:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T2w+cSdXsaZFJSpURSGZUVtWcOA9DUscOQy6RqgIrfE=; b=IZ+fkm/Ax5WyKPpJdneuOTD9cT
-	Ng3duiHd9MuMkOfFcjrbXyTMaV33+YiL043vvBoeeVSnx84PpvjkfgbJ9zJUuLLWXpchtObIiLa+d
-	bm67s7urqUavbwkzSIvTkUDo+8b9d3/4A1J46xSQx+vMSIoR3+a64nYthdtlE/KawSKLh/WATRKPy
-	R4NKEQr5Z1TxlSgLXX+Xbg8zmDFfn9lZeTrBcoa9RHmdwpWwjmymZNxY6omuB6MToYTCpkytEJoTg
-	a5NeakY0FPeU2cGUz7a8Mb3iHpKQEqS4OGKE9QJreB0ulmptxa7fUqFXU/xPrqz/H0is/2RAFTK0i
-	bEmdDPYA==;
+	bh=uAEH4WmKvOK8Jh2AGkuNuosJZIbY5mQ4vX4Y+Bpjjjk=; b=0yK0ZtQejb/Rqmjs8C/cc6aQ+L
+	mB8yCxNrYDI+95RXj/pEpA5h46PENskMnTa948u1vyOJLozwyo0ZrV/3N1oC+nur4kJhSczDBaJsa
+	1am/1Xna1A16E0oivQa9/WxPLikijtsQ+YHJnmcN4m65X74rTlMnBWTP9A16x5KMumF44qxMq5LY7
+	TA/v5Eo1LCtKTWih6q6aM4feSJUN4Jvfi/5vwreCJB9fZXiztmJ7jciDX3voqxCjlBKUPTiUHuTjU
+	0aLd1QMbpUycA6qpUaqaIvlxEI0P/QdWwb+Z3QbBcO+mPTDkpuxfXtY1vzRldDVLh2LrXbdLFShjZ
+	TxE6Dl0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlWTe-00000006Izg-3YeY;
-	Fri, 21 Feb 2025 17:06:14 +0000
-Received: from albert.telenet-ops.be ([2a02:1800:110:4::f00:1a])
+	id 1tlWV6-00000006JNf-2OQP;
+	Fri, 21 Feb 2025 17:07:44 +0000
+Received: from riemann.telenet-ops.be ([195.130.137.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlWLK-00000006HOv-22AO
+	id 1tlWLK-00000006HPD-35mS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 16:57:41 +0000
+	Fri, 21 Feb 2025 16:57:42 +0000
+Received: from xavier.telenet-ops.be (xavier.telenet-ops.be [IPv6:2a02:1800:120:4::f00:14])
+	by riemann.telenet-ops.be (Postfix) with ESMTPS id 4YzxBk5XQWz53lb4
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 17:57:34 +0100 (CET)
 Received: from ramsan.of.borg ([IPv6:2a02:1810:ac12:ed80:ae9a:419e:d123:9695])
-	by albert.telenet-ops.be with cmsmtp
-	id GGxX2E00F0y8aK506GxXMo; Fri, 21 Feb 2025 17:57:33 +0100
+	by xavier.telenet-ops.be with cmsmtp
+	id GGxX2E0030y8aK501GxXRt; Fri, 21 Feb 2025 17:57:31 +0100
 Received: from rox.of.borg ([192.168.97.57])
 	by ramsan.of.borg with esmtp (Exim 4.97)
 	(envelope-from <geert@linux-m68k.org>)
-	id 1tlWKs-0000000BMsd-3qnf;
+	id 1tlWKs-0000000BMsb-3jyN;
 	Fri, 21 Feb 2025 17:57:31 +0100
 Received: from geert by rox.of.borg with local (Exim 4.97)
 	(envelope-from <geert@linux-m68k.org>)
-	id 1tlWLD-0000000EOr3-1PtZ;
+	id 1tlWLD-0000000EOqx-1IZ1;
 	Fri, 21 Feb 2025 17:57:31 +0100
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: soc@lists.linux.dev,
@@ -46,18 +49,18 @@ Cc: Magnus Damm <magnus.damm@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [GIT PULL 5/5] Renesas DTS updates for v6.15
-Date: Fri, 21 Feb 2025 17:57:26 +0100
-Message-ID: <cover.1740156747.git.geert+renesas@glider.be>
+Subject: [GIT PULL 4/5] Renesas DT binding updates for v6.15
+Date: Fri, 21 Feb 2025 17:57:25 +0100
+Message-ID: <cover.1740156745.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1740156736.git.geert+renesas@glider.be>
 References: <cover.1740156736.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_085738_688364_8AE0639D 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20250221_085738_909232_7BCC6F32 
+X-CRM114-Status: UNSURE (   8.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,151 +81,33 @@ The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
 are available in the Git repository at:
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dts-for-v6.15-tag1
+  git://git.kernel.org/pub/scm/linux/kernel/git/geert/renesas-devel.git tags/renesas-dt-bindings-for-v6.15-tag1
 
-for you to fetch changes up to 5f7ebb81112c3f50ffbb8e576e4d35cedd8aabb1:
+for you to fetch changes up to 00e3cb0d638ce70391470f894820d8442a155e95:
 
-  ARM: dts: renesas: r9a06g032: Fix UART dma channel order (2025-02-21 16:23:01 +0100)
-
-----------------------------------------------------------------
-Renesas DTS updates for v6.15
-
-  - Add support for the second and third Ethernet interfaces on the Gray
-    Hawk Single development board,
-  - Add Image Signal Processor helper block (FCPVX and VSPX) support for
-    the R-Car V3U and V4M SoCs,
-  - Add Watchdog and System Controller support for the RZ/G3E SoC and
-    the RZ/G3E SMARC Carrier-II EVK development board,
-  - Add initial support for the Yuridenki-Shokai Kakip and MYIR Remi Pi
-    boards,
-  - Add support for the spare UART and PMOD serial ports on the RZ/G3S
-    SMARC Carrier II board,
-  - Add a CPU Operating Performance Points table for the RZ/G3S SoC,
-  - Add boot phase tags on R-Car Gen2/3/4 and RZ/G2 boards,
-  - Miscellaneous fixes and improvements.
+  dt-bindings: soc: renesas: Document MYIR Remi Pi board (2025-02-10 09:42:40 +0100)
 
 ----------------------------------------------------------------
-Biju Das (2):
-      arm64: dts: renesas: r9a09g047: Add WDT1-WDT3 nodes
-      arm64: dts: renesas: rzg3e-smarc-som: Enable watchdog
+Renesas DT binding updates for v6.15
 
-Claudiu Beznea (5):
-      arm64: dts: renesas: rzg3s-smarc-switches: Add a header to describe different switches
-      arm64: dts: renesas: rzg3s-smarc: Enable SCIF3
-      arm64: dts: renesas: r9a08g045s33-smarc-pmod: Add overlay for SCIF1
-      arm64: dts: renesas: r9a08g045: Enable SYS node
-      arm64: dts: renesas: r9a08g045: Add OPP table
+  - Document support for the Yuridenki-Shokai Kakip (based on RZ/V2H)
+    and MYIR Remi Pi (based on RZ/G2L) boards,
+  - Document support for the RZ/G3E System Controller.
 
-Geert Uytterhoeven (6):
-      arm64: dts: renesas: r8a774c0: Re-add voltages to OPP table
-      arm64: dts: renesas: r8a77990: Re-add voltages to OPP table
-      arm64: dts: renesas: gray-hawk-single: Restore sort order
-      arm64: dts: renesas: r8a779g0: Restore sort order
-      arm64: dts: renesas: r8a779f0: Disable rswitch ports by default
-      ARM: dts: renesas: r9a06g032: Fix UART dma channel order
-
-John Madieu (2):
-      arm64: dts: renesas: r9a09g047: Add SYS node
-      arm64: dts: renesas: r9a09g057: Enable SYS node
+----------------------------------------------------------------
+John Madieu (1):
+      dt-bindings: soc: renesas: Add RZ/G3E variant SYS binding
 
 Julien Massot (1):
-      arm64: dts: renesas: Add initial support for MYIR Remi Pi
+      dt-bindings: soc: renesas: Document MYIR Remi Pi board
 
-Krzysztof Kozlowski (1):
-      arm64: dts: renesas: eagle-function-expansion: Align GPIO hog name with bindings
+Nobuhiro Iwamatsu (3):
+      dt-bindings: soc: renesas: Document more Renesas RZ/V2H SoC variants
+      dt-bindings: vendor-prefixes: Add Yuridenki-Shokai Co. Ltd.
+      dt-bindings: soc: renesas: Document Yuridenki-Shokai Kakip board
 
-Kuninori Morimoto (1):
-      arm64: dts: renesas: ulcb/kf: Use TDM Split Mode for capture
-
-Marek Vasut (8):
-      arm64: dts: renesas: r8a779f0: Add labels for rswitch ports
-      arm64: dts: renesas: spider-ethernet: Access rswitch ports via phandles
-      arm64: dts: renesas: s4sk: Access rswitch ports via phandles
-      arm64: dts: renesas: spider-ethernet: Add ethernetN aliases for rswitch
-      arm64: dts: renesas: s4sk: Fix ethernet0 alias for rswitch
-      ARM: dts: renesas: rcar-gen2: Add boot phase tags
-      arm64: dts: renesas: rcar: Add boot phase tags
-      arm64: dts: renesas: rzg2: Add boot phase tags
-
-Niklas Söderlund (7):
-      arm64: dts: renesas: r8a779h0: Remove #address- and #size-cells from AVB[0-2]
-      arm64: dts: renesas: gray-hawk-single: Describe AVB1 and AVB2
-      arm64: dts: renesas: r8a779a0: Add FCPVX instances
-      arm64: dts: renesas: r8a779a0: Add VSPX instances
-      arm64: dts: renesas: r8a779h0: Add FCPVX instance
-      arm64: dts: renesas: r8a779h0: Add VSPX instance
-      arm64: dts: renesas: white-hawk-csi-dsi: Use names for CSI-2 data line orders
-
-Nobuhiro Iwamatsu (1):
-      arm64: dts: renesas: Add initial device tree for Yuridenki-Shokai Kakip board
-
- arch/arm/boot/dts/renesas/r8a7790-lager.dts        |   1 +
- arch/arm/boot/dts/renesas/r8a7790-stout.dts        |   1 +
- arch/arm/boot/dts/renesas/r8a7790.dtsi             |   7 +
- arch/arm/boot/dts/renesas/r8a7791-koelsch.dts      |   1 +
- arch/arm/boot/dts/renesas/r8a7791-porter.dts       |   1 +
- arch/arm/boot/dts/renesas/r8a7791.dtsi             |   7 +
- arch/arm/boot/dts/renesas/r8a7792-blanche.dts      |   1 +
- arch/arm/boot/dts/renesas/r8a7792-wheat.dts        |   1 +
- arch/arm/boot/dts/renesas/r8a7792.dtsi             |   6 +
- arch/arm/boot/dts/renesas/r8a7793-gose.dts         |   1 +
- arch/arm/boot/dts/renesas/r8a7793.dtsi             |   7 +
- arch/arm/boot/dts/renesas/r8a7794-alt.dts          |   1 +
- arch/arm/boot/dts/renesas/r8a7794-silk.dts         |   1 +
- arch/arm/boot/dts/renesas/r8a7794.dtsi             |   7 +
- arch/arm/boot/dts/renesas/r9a06g032.dtsi           |  20 +-
- arch/arm64/boot/dts/renesas/Makefile               |   5 +
- .../arm64/boot/dts/renesas/beacon-renesom-som.dtsi |   1 +
- arch/arm64/boot/dts/renesas/condor-common.dtsi     |   1 +
- arch/arm64/boot/dts/renesas/draak.dtsi             |   1 +
- arch/arm64/boot/dts/renesas/ebisu.dtsi             |   1 +
- arch/arm64/boot/dts/renesas/hihope-common.dtsi     |   1 +
- arch/arm64/boot/dts/renesas/r8a774a1.dtsi          |   8 +
- arch/arm64/boot/dts/renesas/r8a774b1.dtsi          |   8 +
- arch/arm64/boot/dts/renesas/r8a774c0-cat874.dts    |   1 +
- arch/arm64/boot/dts/renesas/r8a774c0.dtsi          |  11 +
- arch/arm64/boot/dts/renesas/r8a774e1.dtsi          |   8 +
- arch/arm64/boot/dts/renesas/r8a77951.dtsi          |   7 +
- arch/arm64/boot/dts/renesas/r8a77960.dtsi          |   8 +
- arch/arm64/boot/dts/renesas/r8a77961.dtsi          |   8 +
- arch/arm64/boot/dts/renesas/r8a77965.dtsi          |   8 +
- .../renesas/r8a77970-eagle-function-expansion.dtso |   2 +-
- arch/arm64/boot/dts/renesas/r8a77970-eagle.dts     |   1 +
- arch/arm64/boot/dts/renesas/r8a77970-v3msk.dts     |   1 +
- arch/arm64/boot/dts/renesas/r8a77970.dtsi          |   7 +
- arch/arm64/boot/dts/renesas/r8a77980-v3hsk.dts     |   1 +
- arch/arm64/boot/dts/renesas/r8a77980.dtsi          |   7 +
- arch/arm64/boot/dts/renesas/r8a77990.dtsi          |  11 +
- arch/arm64/boot/dts/renesas/r8a77995.dtsi          |   7 +
- .../boot/dts/renesas/r8a779a0-falcon-cpu.dtsi      |   1 +
- arch/arm64/boot/dts/renesas/r8a779a0.dtsi          |  88 ++++++
- .../boot/dts/renesas/r8a779f0-spider-cpu.dtsi      |   1 +
- .../boot/dts/renesas/r8a779f0-spider-ethernet.dtsi | 104 ++++---
- arch/arm64/boot/dts/renesas/r8a779f0.dtsi          |  17 +-
- arch/arm64/boot/dts/renesas/r8a779f4-s4sk.dts      |  69 ++---
- arch/arm64/boot/dts/renesas/r8a779g0.dtsi          |  88 +++---
- .../boot/dts/renesas/r8a779h0-gray-hawk-single.dts | 154 ++++++++--
- arch/arm64/boot/dts/renesas/r8a779h0.dtsi          |  34 ++-
- .../arm64/boot/dts/renesas/r9a07g044l2-remi-pi.dts | 339 +++++++++++++++++++++
- arch/arm64/boot/dts/renesas/r9a08g045.dtsi         |  29 +-
- .../renesas/r9a08g045s33-smarc-pmod1-type-3a.dtso  |  48 +++
- arch/arm64/boot/dts/renesas/r9a09g047.dtsi         |  37 +++
- arch/arm64/boot/dts/renesas/r9a09g057.dtsi         |   1 -
- arch/arm64/boot/dts/renesas/r9a09g057h48-kakip.dts | 136 +++++++++
- arch/arm64/boot/dts/renesas/rzg3e-smarc-som.dtsi   |   4 +
- arch/arm64/boot/dts/renesas/rzg3s-smarc-som.dtsi   |  20 +-
- arch/arm64/boot/dts/renesas/rzg3s-smarc-switches.h |  40 +++
- arch/arm64/boot/dts/renesas/rzg3s-smarc.dtsi       |  13 +
- arch/arm64/boot/dts/renesas/salvator-common.dtsi   |   1 +
- .../ulcb-kf-audio-graph-card-mix+split.dtsi        |  73 ++++-
- .../ulcb-kf-audio-graph-card2-mix+split.dtsi       |  66 +++-
- .../ulcb-kf-simple-audio-card-mix+split.dtsi       |  53 +++-
- arch/arm64/boot/dts/renesas/ulcb.dtsi              |   1 +
- .../boot/dts/renesas/white-hawk-cpu-common.dtsi    |   1 +
- .../arm64/boot/dts/renesas/white-hawk-csi-dsi.dtsi |   8 +-
- 64 files changed, 1382 insertions(+), 221 deletions(-)
- create mode 100644 arch/arm64/boot/dts/renesas/r9a07g044l2-remi-pi.dts
- create mode 100644 arch/arm64/boot/dts/renesas/r9a08g045s33-smarc-pmod1-type-3a.dtso
- create mode 100644 arch/arm64/boot/dts/renesas/r9a09g057h48-kakip.dts
- create mode 100644 arch/arm64/boot/dts/renesas/rzg3s-smarc-switches.h
+ .../bindings/soc/renesas/renesas,r9a09g057-sys.yaml      |  5 ++++-
+ .../devicetree/bindings/soc/renesas/renesas.yaml         | 16 ++++++++++++++++
+ Documentation/devicetree/bindings/vendor-prefixes.yaml   |  2 ++
+ 3 files changed, 22 insertions(+), 1 deletion(-)
 
