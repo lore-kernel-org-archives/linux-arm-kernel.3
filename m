@@ -4,61 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77A47C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 06:19:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AE6C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 07:05:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kkLisxz4QHeIORxyHmZ8VZ2mx9f3YDBeffj8tK914Is=; b=sESfYbriPTWkMt15GDx5+2pt9L
-	MmRTEqINl2G9kf58TwHcTFpPL/uKDdcOYXQyj9P2tj8TGqJ1vtCZzowbxJ7y+c1KKV2sGO+6oI2R/
-	zv5sGwmbjEV6lwzEgH6POxQSmxxstDI+UjP49eaGloEOVJynkRPrgo78S5JidsBgSpN+cui2GLOJv
-	NhpRVS8rsqQ0n0Hmx1Z5siEzPtG9nGQ/TkXD2p4QA/FeaaFgqEooK++Zn/dulDd4nDFxTrRbNToUE
-	OYbhA93u6F3p6NWcmR++wvksfSjf0VRurUfCgg8EdQNkdauQx4xKf+jzbtSumBtTOSH3TWjYJ1zOU
-	KGHppwhA==;
+	bh=/BjCR9pe3q3nu6QQ82aeywWSo3pY3OzMpYe0aZ7VHes=; b=xGb+IxA/7K79Yj4QW+fmZJKL3K
+	RrR7AQEnvp2gnaPtDe1AyNdVW2NDKpGYb6lb2JlF4UBtzOrDIu6uGjHe76kuw04odwHCmTrdmIEbq
+	Fwy69/mZNyeiOK+ze2sSlUWBUm16CFkQOMXEBxMAPqDaHqG1RzMHFHVj1o/bk+FJ2jLQ2Ko0SSdd3
+	WNamNdq1uPYtfED/gG3o0UqGpU6xh52kVSd1eqVXGakrv/FkqJKAExWm9DGSdj5+3hNBvtsuKLmVh
+	kk6Knk1v8ge7yVxJ+ZXXnYUKIhPTmiR+EZcffD7SnjQSO+brR3Gbf0D0hXqh5ildxDW+p7PXkPXRG
+	/gvwhfIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlMO1-00000004MMh-2ybP;
-	Fri, 21 Feb 2025 06:19:45 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tlN5h-00000004SqJ-21b2;
+	Fri, 21 Feb 2025 07:04:53 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlMJf-00000004LYI-238R;
-	Fri, 21 Feb 2025 06:15:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9FF465C4B05;
-	Fri, 21 Feb 2025 06:14:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD440C4CEE2;
-	Fri, 21 Feb 2025 06:15:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1740118514;
-	bh=TNEPPBEWgJ1Kqz7U9WT5DXUrTiqsvq3N42p4JeVhfvo=;
+	id 1tlN4E-00000004Sdz-0NBG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Feb 2025 07:03:23 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c30:4abb:6de5:9248:813e:8db3])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id EC9EC7E0;
+	Fri, 21 Feb 2025 08:01:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1740121311;
+	bh=fL3VFHc8Iw4UEcrhx6AYcJSOc4ybHtXWyyLl28Js0K0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gVifSG+f0bxi6tkq9WGtsxqoZkGLInTFdg5jmOduZAx8ebkuCQdysZekvfztvFCm3
-	 QB02DbBzyg2CPIaIg1SK04s/BUyG/Cj/reO6qE+B+WHJqYimvryS3TjuxutXp08Nnw
-	 +eePKs2csULAR6GdtygHf6F5aUAjxUkVuqL7aoAE=
-Date: Fri, 21 Feb 2025 07:14:07 +0100
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: rafael@kernel.org, dakr@kernel.org, hjc@rock-chips.com,
-	andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, quentin.schulz@cherry.de
-Subject: Re: [PATCH 1/2] drivers: base: component: add function to query the
- bound status
-Message-ID: <2025022153-outdoors-snugly-3967@gregkh>
-References: <20250220234141.2788785-1-heiko@sntech.de>
- <20250220234141.2788785-2-heiko@sntech.de>
+	b=Sb3fOUjc8Ww6ftO3DRierlIUIhRnugYs1k00i1XGt0yZ+HoWYADlDijVeegrVJlcn
+	 jwynw9W5+nZyU4C6VON2EQjEIxsdLJUPpzgBfFQL7zUSx7bFi4iS71qDov0AxWXBr+
+	 vxACfRy0BTvvxst9YPFGSgXqw6Gf9J4NbhRAX6y4=
+Date: Fri, 21 Feb 2025 12:33:09 +0530
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+To: Cosmin Tanislav <demonsingur@gmail.com>
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 4/6] media: i2c: imx219: pass format's code to
+ imx219_get_format_bpp()
+Message-ID: <73rzq5ja6gsjd3oatbnqvmqminiolgz4meelvxqnbieategxsf@zb23f36gm4nd>
+References: <20250220230818.275262-1-demonsingur@gmail.com>
+ <20250220230818.275262-5-demonsingur@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="qu3uozr2fidqrsfy"
 Content-Disposition: inline
-In-Reply-To: <20250220234141.2788785-2-heiko@sntech.de>
+In-Reply-To: <20250220230818.275262-5-demonsingur@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_221515_597126_2861A742 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20250220_230322_464228_32D0762C 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,24 +75,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 21, 2025 at 12:41:40AM +0100, Heiko Stuebner wrote:
-> The component helpers already expose the bound status in debugfs, but at
-> times it might be necessary to also check that state in the kernel and
-> act differently depending on the result.
-> 
-> For example the shutdown handler of a drm-driver might need to stop
-> a whole output pipeline if the drm device is up and running, but may
-> run into problems if that drm-device has never been set up before,
-> for example because the binding deferred.
-> 
-> So add a little helper that returns the bound status for a componet
-> device.
-> 
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> ---
->  drivers/base/component.c  | 14 ++++++++++++++
->  include/linux/component.h |  4 +++-
->  2 files changed, 17 insertions(+), 1 deletion(-)
 
-Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+--qu3uozr2fidqrsfy
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 4/6] media: i2c: imx219: pass format's code to
+ imx219_get_format_bpp()
+MIME-Version: 1.0
+
+Hi Cosmin,
+
+Thanks for the patch.
+
+On Feb 21, 2025 at 01:08:12 +0200, Cosmin Tanislav wrote:
+> imx219_get_format_bpp() only uses the code of the format, pass it
+> instead of the whole format to allow usage when the whole format is not
+> available.
+>=20
+> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+
+Reviewed-by: Jai Luthra <jai.luthra@ideasonboard.com>
+
+> ---
+>  drivers/media/i2c/imx219.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/media/i2c/imx219.c b/drivers/media/i2c/imx219.c
+> index fcd98ee54768e..ad1965a91ae3c 100644
+> --- a/drivers/media/i2c/imx219.c
+> +++ b/drivers/media/i2c/imx219.c
+> @@ -387,9 +387,9 @@ static u32 imx219_get_format_code(struct imx219 *imx2=
+19, u32 code)
+>  	return imx219_mbus_formats[i];
+>  }
+> =20
+> -static u32 imx219_get_format_bpp(const struct v4l2_mbus_framefmt *format)
+> +static u32 imx219_get_format_bpp(u32 code)
+>  {
+> -	switch (format->code) {
+> +	switch (code) {
+>  	case MEDIA_BUS_FMT_SRGGB8_1X8:
+>  	case MEDIA_BUS_FMT_SGRBG8_1X8:
+>  	case MEDIA_BUS_FMT_SGBRG8_1X8:
+> @@ -680,7 +680,7 @@ static int imx219_set_framefmt(struct imx219 *imx219,
+> =20
+>  	format =3D v4l2_subdev_state_get_format(state, 0);
+>  	crop =3D v4l2_subdev_state_get_crop(state, 0);
+> -	bpp =3D imx219_get_format_bpp(format);
+> +	bpp =3D imx219_get_format_bpp(format->code);
+> =20
+>  	cci_write(imx219->regmap, IMX219_REG_X_ADD_STA_A,
+>  		  crop->left - IMX219_PIXEL_ARRAY_LEFT, &ret);
+> --=20
+> 2.48.1
+>=20
+
+--=20
+Thanks,
+Jai
+
+--qu3uozr2fidqrsfy
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCAAdFiEETeDYGOXVdejUWq/FQ96R+SSacUUFAme4JS0ACgkQQ96R+SSa
+cUUyoQ//XZ0w48A1jFQeb14U2B2VcdX6fhhBL2Dw7kfgnqm9mVIOrt3BxXZDo4yk
+dgi+CLC0RIDhrVtEnLN+m3L3f+Q+f5H6LV7QePfE2ZEYCAhXLgR8gRBx1NTIs9Ym
+RmH+tCQw1tPto+5X6U6nP13vbHGPaxM3403m7U7Xe/qu7KNcPcpznm5dGzClWlmD
+I0Foq0e2f5iRsjaIkvZf0cJ+XTX0G6i2BESibGX7Zrlk65bj0cr995UFYp3+IBEQ
+Cn86gTDm4eL67hVppoy45eUbowOxJ+zVER7P73zbxc/s70M8qlc+t+mmJ3EEXuVU
+j2mm451bRreIR9QoEo0D0y8P1a6QPGboTy2Gy7GDevQ+N3NsZlPEqtmGp/Mqlq4b
+vl0Mj4pX5Y49VHFXCZjyrPFIxwobW2u+1dC5iy31+b5xWIm4c//If8Je1Bg9LBlo
+vvvKcyP8pPy1rDFGn5014rgHlDIFrneiNln6/UQzG7bboI0kp0U0NbTFjkq2kdFi
+lpjGyNX19zBlRnWhRIpOcXYKFF+++Zme9uVEG1DG1KZJRG+0aiLkc3PgQwcURknE
++AiBNpaW06e2mof17gRaftQwOR9P/vcNnjt4yXAQoKSxKIEzXdJcHNseXcE4JMhm
+sztXjWNiv31ooynp3ARdYAZzbGpcybCbtfVhGsJyHCSPAuYL23E=
+=qZw6
+-----END PGP SIGNATURE-----
+
+--qu3uozr2fidqrsfy--
 
