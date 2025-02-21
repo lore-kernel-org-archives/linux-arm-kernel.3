@@ -4,70 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1292C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 18:34:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDCD0C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 18:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=hspZqKnDsW+0SMjzjTTSl903U3dGoPMdHv6ZvoqxDJI=; b=k3ygvmcsGp9ONho0DPgo94CowQ
-	PxRgNejl0PS8/94O9KINcnPy2FCJYCgyHI8lHaLcev2+5BHK2/TI3fPb+kZ4TFJq/2uk4ny3JhTVX
-	1/P6CM8C+QTroOt6zmhm5mMdt9xZTI/E9ULTFQMmcbzBzaswNBv3MT9Q7htyCX6R1frbHSAOOGi/t
-	6L3dvMUaLAYVhL6UnOC5qbsSSC5bpoP9KBjoaBs0AY+qpZ6F49iIth93mp5CXeprZnMfygGTmUDVm
-	inU6J47vdJjHw0sHCOSAdIJfolcraond0Lc9CGgPMjfWE3gkFFh9gZ9vbi1X1A5AnGYkakBc7Qj2I
-	+VSSwkHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G/Tic7coQeFYiHBXJ9PvPPgvVDonFpsFoc/c9HSDwkU=; b=JzmQf0E75NIQejKh2L6b7uJp6u
+	LTC5Uf9p4vnL/721Uhf+a3a1WQ49drG4aWcz7u6g9Ywk7EupffxAHy7Vp1XMus7VO/Gw8jls7Sp+9
+	zgY5pUbs8Mg1FBPZdcaJLH5mvGw1Wm5UdRbmMzaEAXYLQVA4qVhvcniz4pYVlcYes+wKauJ05MtdC
+	PB+JAo8MOawIkNdBQe2vNcTgt8GgsjjnqwS4WU3pRDhxY92PyEqSiGb73fp8w6COH0GD+KLsnnUO6
+	CtNnizH9LcKtsp5HUoIYRjmB1oApD8kytDMfnqSKkf3aUst0EdBw23hgDZMQ6Mm3sXlQhnZCKtVTm
+	HOxkCPPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlXqj-00000006XyZ-08hW;
-	Fri, 21 Feb 2025 18:34:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlXoF-00000006XV6-3N9V;
-	Fri, 21 Feb 2025 18:31:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B19216160F;
-	Fri, 21 Feb 2025 18:31:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9F4CC4CED6;
-	Fri, 21 Feb 2025 18:31:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740162694;
-	bh=w9dzlHwE4zOZSXrrOMFXhcyCGCwY0q2gs3vSEVl5ROo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=TSsUI0O/LPq4tUi+VtJdBejS0VyBbnZ9CEQNTq6bY3jWmDeMZfurbKC+P/JikOtij
-	 VvFnMYIIAlWnK42mwCiGL8Fr36g/om3oZRKfQ+X8Ze0QKjeykT31YPfp+XgAFjmzmL
-	 PYcjuUSFIt8oVFLrci4VItDo0qKSxr5YDZJ5zw11zKtY4muX2F8VxrChohhPPqm5rX
-	 +7hRYvXXSbUUEfo+cY07eMcnrMPTK1+vVgZy3jNk4z8HeRoMKkanA9k6ge3pj+YIpD
-	 Ba6EU1qw4JLJ9EXASUOk5rpXPSWnRm+wCZfc//WkJnFrHSZvWQkc1O3/lOMr1/5Z0K
-	 GHTSL2mAKWmKQ==
-Date: Fri, 21 Feb 2025 12:31:31 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Hui Ma =?utf-8?B?KOmprOaFpyk=?= <Hui.Ma@airoha.com>
-Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <Ryder.Lee@mediatek.com>,
-	Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Frank Li <Frank.li@nxp.com>, upstream <upstream@airoha.com>
-Subject: Re: =?utf-8?B?5Zue5aSNOiBbUEFUQ0ggdjIgMi8y?= =?utf-8?Q?=5D_PCI?=
- =?utf-8?Q?=3A?= mediatek-gen3: Configure PBUS_CSR registers for EN7581 SoC
-Message-ID: <20250221183131.GA353053@bhelgaas>
+	id 1tlXwu-00000006Yc5-0aq5;
+	Fri, 21 Feb 2025 18:40:32 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlXvQ-00000006YQM-2dME
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Feb 2025 18:39:01 +0000
+Received: from [100.65.233.50] (unknown [20.236.10.120])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 36857204E5BD;
+	Fri, 21 Feb 2025 10:38:59 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 36857204E5BD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1740163139;
+	bh=G/Tic7coQeFYiHBXJ9PvPPgvVDonFpsFoc/c9HSDwkU=;
+	h=Date:Cc:Subject:To:References:From:In-Reply-To:From;
+	b=ZoNuVPjt4rUYWHQwOvQdSMaQPIyR/xCd95JLMjkmE9S3BSeZIilBNCyxI7WibKI82
+	 MkEfj2mZX4V/c+w/YTMa/jp0QoOhvkhUKfxn/fVixAlbRRc8hDVmdicSixuR9MeesQ
+	 gAoIDttUF/+mHd901Q39pyErXZj5H6TNtGYp2ysY=
+Message-ID: <3b667a16-3ea9-474b-81c1-a5dc7122c71e@linux.microsoft.com>
+Date: Fri, 21 Feb 2025 10:38:58 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <SG2PR03MB6341ACD4DADDB280A8ACAA29FFC72@SG2PR03MB6341.apcprd03.prod.outlook.com>
+User-Agent: Mozilla Thunderbird
+Cc: MUKESH RATHOR <mukeshrathor@microsoft.com>, eahariha@linux.microsoft.com,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "iommu@lists.linux.dev" <iommu@lists.linux.dev>,
+ "mhklinux@outlook.com" <mhklinux@outlook.com>,
+ KY Srinivasan <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "x86@kernel.org" <x86@kernel.org>, "hpa@zytor.com" <hpa@zytor.com>,
+ "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+ "joro@8bytes.org" <joro@8bytes.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>, "arnd@arndb.de"
+ <arnd@arndb.de>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>
+Subject: Re: [PATCH v2 2/3] hyperv: Change hv_root_partition into a function
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+References: <1740076396-15086-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740076396-15086-3-git-send-email-nunodasneves@linux.microsoft.com>
+ <5980eaf9-2e77-d0ec-e39b-b48913c8b72f@microsoft.com>
+ <a29af204-e4a9-4ef2-b5b8-f99f2ac0a836@linux.microsoft.com>
+ <f5366d52-1714-87bc-5fa5-94230f2acca1@microsoft.com>
+ <5ae3454f-61e4-4739-816c-20525e2087be@linux.microsoft.com>
+From: Easwar Hariharan <eahariha@linux.microsoft.com>
+Content-Language: en-US
+In-Reply-To: <5ae3454f-61e4-4739-816c-20525e2087be@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250221_103900_720012_49D077E4 
+X-CRM114-Status: GOOD (  30.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,95 +95,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 21, 2025 at 09:30:40AM +0000, Hui Ma (马慧) wrote:
-> > On Thu, Feb 20, 2025 at 08:54:06PM +0100, Lorenzo Bianconi wrote:
-> > > On Feb 20, Bjorn Helgaas wrote:
-> > > > On Sun, Feb 02, 2025 at 08:34:24PM +0100, Lorenzo Bianconi wrote:
-> > > > > Configure PBus base address and address mask to allow the hw to 
-> > > > > detect if a given address is on PCIE0, PCIE1 or PCIE2.
-> > 
-> > > > > +#define PCIE_EN7581_PBUS_ADDR(_n)	(0x00 + ((_n) << 3))
-> > > > > +#define PCIE_EN7581_PBUS_ADDR_MASK(_n)	(0x04 + ((_n) << 3))
-> > > > > +#define PCIE_EN7581_PBUS_BASE_ADDR(_n)	\
-> > > > > +	((_n) == 2 ? 0x28000000 :	\
-> > > > > +	 (_n) == 1 ? 0x24000000 : 0x20000000)
-> > > > 
-> > > > Are these addresses something that should be expressed in devicetree?
-> > > 
-> > > Do you have any example/pointer for it?
-> > > 
-> > > > It seems unusual to encode addresses directly in a driver.
-> > > 
-> > > AFAIK they are fixed for EN7581 SoC.
-> > 
-> > So this is used to detect if a given address is on PCIE0, PCIE1 or
-> > PCIE2.  What does that mean?  There are no other mentions of PCIE0
-> > etc in the driver, but maybe they match up to "pcie0/1/2" in
-> > arch/arm64/boot/dts/mediatek/mt7988a.dtsi?
-> > 
-> > It looks like you use PCIE_EN7581_PBUS_ADDR(slot), where "slot"
-> > came from of_get_pci_domain_nr(), which suggests that these might
-> > be three separate Root Ports?
+On 2/21/2025 10:10 AM, Nuno Das Neves wrote:
+> On 2/20/2025 2:59 PM, MUKESH RATHOR wrote:
+>>
+>>
+>> On 2/20/25 14:56, Easwar Hariharan wrote:
+>>  > On 2/20/2025 1:59 PM, MUKESH RATHOR wrote:
+>>  >>
+>>  >>
+>>  >> On 2/20/25 10:33, Nuno Das Neves wrote:
+>>  >>   > Introduce hv_current_partition_type to store the partition type
+>>  >>   > as an enum.
+>>  >>   >
+>>  >>   > Right now this is limited to guest or root partition, but there will
+>>  >>   > be other kinds in future and the enum is easily extensible.
+>>  >>   >
+>>  >>   > Set up hv_current_partition_type early in Hyper-V initialization
+>> with
+>>  >>   > hv_identify_partition_type(). hv_root_partition() just queries this
+>>  >>   > value, and shouldn't be called before that.
+>>  >>   >
+>>  >>   > Making this check into a function sets the stage for adding a config
+>>  >>   > option to gate the compilation of root partition code. In
+>> particular,
+>>  >>   > hv_root_partition() can be stubbed out always be false if root
+>>  >>   > partition support isn't desired.
+>>  >>   >
+>>  >>   > Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>>  >>   > ---
+>>  >>   >   arch/arm64/hyperv/mshyperv.c       |  2 ++
+>>  >>   >   arch/x86/hyperv/hv_init.c          | 10 ++++-----
+>>  >>   >   arch/x86/kernel/cpu/mshyperv.c     | 24 ++------------------
+>>  >>   >   drivers/clocksource/hyperv_timer.c |  4 ++--
+>>  >>   >   drivers/hv/hv.c                    | 10 ++++-----
+>>  >>   >   drivers/hv/hv_common.c             | 35
+>> +++++++++++++++++++++++++-----
+>>  >>   >   drivers/hv/vmbus_drv.c             |  2 +-
+>>  >>   >   drivers/iommu/hyperv-iommu.c       |  4 ++--
+>>  >>   >   include/asm-generic/mshyperv.h     | 15 +++++++++++--
+>>  >>   >   9 files changed, 61 insertions(+), 45 deletions(-)
+>>  >>   >
+>>  >
+>>  > <snip>
+>>  >
+>>  >>   > @@ -34,8 +34,11 @@
+>>  >>   >   u64 hv_current_partition_id = HV_PARTITION_ID_SELF;
+>>  >>   >   EXPORT_SYMBOL_GPL(hv_current_partition_id);
+>>  >>   >
+>>  >>   > +enum hv_partition_type hv_current_partition_type;
+>>  >>   > +EXPORT_SYMBOL_GPL(hv_current_partition_type);
+>>  >>   > +
+>>  >>
+>>  >> nit: if possible and not too late, can we please use more Unix
+>>  >> style naming, eg, hv_curr_ptid and hv_curr_pt_type rather than this
+>>  >> long windows style names that causes unnecessary line wraps/splits.
+>>  >>
+>>  >> Thanks,
+>>  >> -Mukesh
+>>  >>
+>>  >
+>>  > Per
+>> https://docs.kernel.org/process/coding-style.html#naming
+>>  >
+>>  > GLOBAL variables (to be used only if you really need them) need to
+>> have descriptive names,
+>>  > as do global functions. If you have a function that counts the number
+>> of active users,
+>>  > you should call that count_active_users() or similar, you should not
+>> call it cntusr().
+>>
+>> Thant's hardly a fair comparison. Suggestion was NOT hvptid.
+>>
+> I'm in favor of shortening the names when the abbreviation is common and
+> therefore still perfectly clear to anyone reading it - e.g. "curr" is
+> a perfectly acceptable abbreviation of "current", in my view.
 > 
-> >I was using pci_domain to detect the specific PCIe controller
-> >(something similar to what is done here [0]) but I agree with
-> >Frank, it does not seem completely correct.
+> I think abbreviating "partition" to "pt" is probably not a good fit for
+> global variables. Anyone seeing a variable with the word "partition"
+> (and hv_ prefix) can go look up what a Hyper-V partition is if they don't
+> know, but "pt" would be completely impenetrable without reading through a
+> fair amount of the code that uses it to figure out what it refers to.
 > 
-> > [0] https://github.com/torvalds/linux/blob/master/drivers/pci/controller/pcie-mediatek.c#L1048
+> I think even slightly longer abbreviations like "part", "ptn", "prt", or
+> "prtn" are not good enough unfortunately... the word "partition" just
+> doesn't lend itself to abbreviation in an obvious way.
 > 
-> > Are we talking about an MMIO address that an endpoint driver uses
-> > for readw() etc, and this code configures the hardware apertures
-> > through the host bridge?  Seems like that would be related to the
-> > "ranges" properties in DT.
+> So, for this patch I'm fine with changing it to "hv_curr_partition_type"
+> which saves a few characters.
 > 
-> >I guess so, but I do not have any documentation about pbus-csr
-> >(adding Hui in the loop).
-> 
-> >As pointed out by Frank, do you agree to add these info in the dts?
-> >Something like:
-> 
-> >pcie0: pcie@1fc00000 {
-> >	....
-> >	mediatek,pbus-csr = <&pbus_csr 0x0 0x20000000 0x4 0xfc000000>;
-> >	....
-> >};
-> >
-> >pcie1: pcie@1fc20000 {
-> >	....
-> >	mediatek,pbus-csr = <&pbus_csr 0x8 0x24000000 0xc 0xfc000000>;
-> >	....
-> >};
-> 
-> >@Hui: can you please provide a better explanation about pbus-csr usage?
->
-> 	Pbus-csr (base and mask) is used to determine the address
-> 	range can be access by PCIe bus.
-> 
-> 1FBE3400 PCIE0_MEM_BASE 32 PCIE0 base address
-> 1FBE3404 PCIE0_MEM_MASK 32 PCIE0 base address mask
-> 1FBE3408 PCIE1_MEM_BASE 32 PCIE1 base address
-> 1FBE340C PCIE1_MEM_MASK 32 PCIE1 base address mask
-> 1FBE3410 PCIE2_MEM_BASE 32 PCIE2 base address
-> 1FBE3414 PCIE2_MEM_MASK 32 PCIE2 base address mask
 
-"Can be accessed by PCIe bus" sounds like DMA.  Is that what you mean?
+FWIW, I generally prioritize readability of code and your proposal neatly
+splits the difference. Also, it's your patch, so you get to make the decision. :)
 
-I doubt it, because if you have multiple host bridges, I assume they
-would all be able to handle DMA to all of system memory.
-
-It would make more sense if this is some sort of description of host
-bridge apertures, e.g., something like this to allow CPU MMIO accesses
-to reach the first 2GB of PCI memory space below any of the pcie0,
-pcie1, pcie2 host bridges:
-
-  pcie0 0000:00: root bus resource [mem 0x84000000000-0x8407fffffff] (bus address [0x00000000-0x7fffffff])
-  pcie1 0001:00: root bus resource [mem 0x84100000000-0x8417fffffff] (bus address [0x00000000-0x7fffffff])
-  pcie2 0002:00: root bus resource [mem 0x84200000000-0x8427fffffff] (bus address [0x00000000-0x7fffffff])
-
-But I think this would be described via 'ranges' properties.  And I
-think it would make sense if the driver had to learn this address map
-from devicetree and program it into the hardware, so maybe that's
-what Pbus-csr is for?  Total speculation on my part.
-
-Bjorn
+Thanks,
+Easwar (he/him)
 
