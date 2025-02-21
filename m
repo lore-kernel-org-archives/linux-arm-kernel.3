@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 617C2C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 19:27:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C205C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 19:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4TKxWTtkSqxwzx6dDc4iUz9ohfHIlpkY7Ca7ccTsz/A=; b=vSc0PaWTfWPhFZq8xtQY0TiZrM
-	9mPktmnK7Guc6DP0NfmJ/Wvz3xUtBtWabKanMGwydi2SkhWqbbuSH3UAmnOO7xKg3lXzmTuua2KNU
-	9GwxI0Lhm/Z+JGyp7y/IR5OvGXNKKhro/aiWgaLWAOBYtvkEG+AgqIWgDcOCr+TXZ9mijjK7F9nqf
-	6tDkbaVYj8kGOeDwyxObRU1VVH6XwZhzGL2jr4nld/vJ3s/yHlunoer1fObrpluSEcugz7kH4tDvT
-	yfSR/L5Ery29ZjBxHr0ofzV1DdZMySlD1BOGnsu3HL6nflMCnR13mNY+K+DG8yQscehghSFdsXGCD
-	Es5dawOg==;
+	bh=0PW85pz5cGLvJh0OtF1LDKynxXRX33ioDpLb0ZUqgao=; b=mhnorDqfxUSKCYU3gQJ7t6jj5M
+	FhLfK4su+zv/ZbeCMWtHlAyXRCDJcU3mReph7Npp9n+MGxBaZtzvxV/QwUUAH92BylDgKbPuE3GGZ
+	BtNophJV9vaFB8ukRjiUbMtjvuaM8QlI3Coun2Esj1KSxCpYgp7CWGBziSaCSvjfobB7jVP5OTshe
+	1nW3IQ4rirqdyLM1ZEcD9DCEm1ZcJglJf0J/twbYxywJF3qFpSZVN4aTZ4d1FAaN5jmB5kgWDIhwL
+	LR1avWih3n3gAk/EB+G8wZC74vw7ELBkB8xUfJIwTLzauArsVWZ9LCsShBJSlMj20QqMq708k3pd3
+	GEFDYnQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlYgB-00000006eHy-3PVw;
-	Fri, 21 Feb 2025 19:27:19 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1tlYhc-00000006eRA-2EzY;
+	Fri, 21 Feb 2025 19:28:48 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlYZ3-00000006dB2-1L8b
+	id 1tlYZ5-00000006dBs-0im3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 19:19:58 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ab78e6edb99so348574966b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 11:19:57 -0800 (PST)
+	Fri, 21 Feb 2025 19:20:00 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5ded69e6134so4121012a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 11:19:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740165596; x=1740770396; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1740165598; x=1740770398; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4TKxWTtkSqxwzx6dDc4iUz9ohfHIlpkY7Ca7ccTsz/A=;
-        b=IaLp1VD9TsOnrgnVMxAhtvNnAxLXTyaVeKko5naQXKsGZ+Jpp187Nh+AI9YWl8t5+v
-         /1GilZ1WZCmF+8RK3QMTea2S0g4GDVAc/IoZIFgaUz4/aQG5qqxFQuDlb4NZMmVUez8o
-         PUcZFfH9xSDBXo3t6fSmewqJcVyqTT9ktzPCFe9Y2Mejfi4CvdVau0B+CbiUuhYRMWUK
-         9Wvg3BGuEudoSlE4+hQo31kDJ9mWsqENkW6Hy6Tji0yeIasJJdV65UsE8kWqFCjCmy3t
-         2zysxejQg3HkRT43JIiHAh2EKzi0vn2SXvIbeyA+TxFFcGSMoYvZRrmRTsPC9ls3ChWs
-         uSIw==
+        bh=0PW85pz5cGLvJh0OtF1LDKynxXRX33ioDpLb0ZUqgao=;
+        b=mtS1Q8JrqbXTTVk+wrL9pEcHqeUGBI7vycqfdCz6rqd1zKJ/YKkasFWI2KH7Sf9Aj9
+         RjxIaMaQjgxda4M5j186PYBeLR3Xuff3/dlOnMq4oujSOYqmeVgmg2/DKIjCrxW8e7KN
+         sq5qXl+1JRncRJaEpxhLXayRBZfVzcx6y5rPUJW4RAxUxkByyO6aRgo1bt0IlKBe0L4M
+         N8QLysIZq4CmozvXOTXG4jA0qIteNAE0rRjzszjSznTfmMuskpmTH8wZPMyexyLSjLMu
+         i6Faj0k2fMYRnnbYvx5JBiZWjTp/GsXkbsK2bWODzUj9YZ31QpeNQvJLjIOeS4W+GmGY
+         mnRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740165596; x=1740770396;
+        d=1e100.net; s=20230601; t=1740165598; x=1740770398;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=4TKxWTtkSqxwzx6dDc4iUz9ohfHIlpkY7Ca7ccTsz/A=;
-        b=VWajZ4RGDuC1EF0QkO5lLBoYoJ8u8bZGC5fjWKLAlFsale9a+v06LsBwuM4tQx06h4
-         peHqdINSwaZuyf2zAk1u7YKIUKB/MdGb5jY/73klqi1uALnTWHRT/EqzpJFLXvc1YZeK
-         5Uu1nlVChFTkdd9F/UIHZtOjTL/YsaDn0dNPaAIc1huQUnaEv4W2MXuIzI1CLlv1t0FO
-         zt7Jc+CcSMmm99nnKyxBdMWz2VNnGa+Ryt2M5UyNb+BE2hJ/qxJ0chFve53sCeCLNG8R
-         IZAuYTkFePAsGG6XcIP4vCINr06U3NSpsVD41b6cM0CLktp5D3iiyRFTj2m52RD9DeV+
-         wwIg==
-X-Forwarded-Encrypted: i=1; AJvYcCVLBx6G7cnb6stHnn4uSIKtWBwHEMdaG3UmIB7NyvFmVxDHOjc0J9BTpM8PDcmZx5L0Z2Vr+HtFkNHFnyBFzwyl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzY1Nks1oGk8Scs33GdVEJV4ogW9yAX4vB38dyMl4x2HlWhIKGt
-	UBjz/UUPyapaX6Qy0CiCVevwHfVBu+3cZMAXRhKFhznyh3iU/m1m
-X-Gm-Gg: ASbGnctuGU5hx6Ym3Jo36fSJwIw5pd+7USDRKiItu9dHYtZTzkBEcamvdEJh0LEdzTI
-	BvVzceikhTfRc1vnhjrWpEICgTvva26pIAwK2K2xaWoRpDI3mxJK6Ug9w740xZ0YeeYxV5fUWFL
-	1M3z2ikLHG3OjvMzTl3JlfOIoV4nQiZo8f+eT/M2XD5aD3OC6m65rdLPTaXYDk3bSNmxtf1Txj6
-	mbd0jvHg3+8dL1lqKYo3g9SMmdxdUE4e9SWJv146Gsb5F4K20bwkg3S6JtOS2A15yrJac9fjtm3
-	5ibPJQ1vDvuGY2DMw04B6NGE+nXasbcB4XMAJ7KMkizVmfiot2cnKyy6At4=
-X-Google-Smtp-Source: AGHT+IFDfbIPVZIMARA0RdhZrJ6UuY0dVTRO1/KxreNJ+xkg/EYBzXyrYM3lqR01Fe4RA0v/JrznqQ==
-X-Received: by 2002:a17:907:2d08:b0:ab7:def3:ca1d with SMTP id a640c23a62f3a-abc09e44f67mr482288866b.49.1740165595692;
-        Fri, 21 Feb 2025 11:19:55 -0800 (PST)
+        bh=0PW85pz5cGLvJh0OtF1LDKynxXRX33ioDpLb0ZUqgao=;
+        b=Ws2JISJiUPP8HxYZ5d+dgMwXRyQh8nyUZ04K7AKudXxVSIgJtTjc+LjZyRvJxpLmLq
+         qy/1uhVF2vqZ3kHg2m2boY4dNOzjhoVpYlKcUHgtQcOVtRuN7DjvMhcJrPCY+x0RGaBw
+         jrvQ63LvaCb8Ow4XUW3zYXY3o8W7nUICzL3cCcsR0pjrElm+FSYPKbRbsOmJttt9x4Tg
+         esdjpD5epVhUA0HSi84JqaTfi174uBE4+W0/QHNTj5jUXr2KBwHkzs/As4nCvPunV2yA
+         g1k1DOTrWVkjaMI2po2w8OBhwH9IzAVK+sa3tkLAmKpjQ361ojrxE2AidCJfHyURM6XB
+         VcVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWHK5ObAHzkz5ngvq7w6l7eG9PfhH5fyjr40nRkok4E4AYvhPQYx3AZHBrcsovQHg11a/o5GC/6cf7qDXYUqv1n@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXqginWjwT7uFfgQi4azGJgp6BapDMpVvIBv+8CCzWTy6OViNT
+	VpSr9PV5WNSigLJiqcQdRnLbv4R3JL4VOuHgUs70vhoEQ+sa8jg/SQl/i6LeW+o=
+X-Gm-Gg: ASbGncv84Gf5z9XYVkbmE7yaowfjxoDZdKAQmSt4BR0/mqiDLjH6A+KcrS/LXTSvMet
+	mEXskFFgWhPjCHY/rhA4A7xuVhLd81R7gtcmb9jExDbSnIljwTGXq0b3/7c5XMz2WczezfGV00x
+	znywJF+dSrPxW0IrZwQUJf0S9nYARfABd5iL/5v6o8ZiTB004sGKjGnnmgIrUSvi6SgjAXSSdwC
+	0qR4Wbq+0FEwD0eYsVcCyGzftWP4VN8/yVSx3JNnSBBWd8Xhm+IiMQuzzkYf8nT4Udnch3sCrg9
+	nzDVcAMDhreApcN/utArt+8akU2+2JJbuYXKmfCfdRizP7BzJYnfXMwKtLU=
+X-Google-Smtp-Source: AGHT+IHGNlBjv0prPEJON601/v7KmS0YwqUhGMf4lS65c24qSw6LwRCeA8Y99uRFtQLi0vwiyNDqXQ==
+X-Received: by 2002:a17:907:6e8a:b0:abb:e95e:f2c3 with SMTP id a640c23a62f3a-abc09d356f1mr472726066b.41.1740165597467;
+        Fri, 21 Feb 2025 11:19:57 -0800 (PST)
 Received: from playground.nxp.com ([82.79.237.175])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb9cee79fasm995276266b.129.2025.02.21.11.19.54
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb9cee79fasm995276266b.129.2025.02.21.11.19.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Feb 2025 11:19:55 -0800 (PST)
+        Fri, 21 Feb 2025 11:19:57 -0800 (PST)
 From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -82,17 +82,17 @@ Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/5] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-Date: Fri, 21 Feb 2025 14:19:08 -0500
-Message-Id: <20250221191909.31874-5-laurentiumihalcea111@gmail.com>
+Subject: [PATCH 5/5] arm64: dts: imx8mp: make 'dsp' node depend on 'aips5'
+Date: Fri, 21 Feb 2025 14:19:09 -0500
+Message-Id: <20250221191909.31874-6-laurentiumihalcea111@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250221191909.31874-1-laurentiumihalcea111@gmail.com>
 References: <20250221191909.31874-1-laurentiumihalcea111@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_111957_361970_1901354D 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20250221_111959_208021_5C6CC7F8 
+X-CRM114-Status: GOOD (  11.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,48 +109,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-AIPS5 is actually AIPSTZ5 as it offers some security-related
-configurations. Since these configurations need to be applied before
-accessing any of the peripherals on the bus, it's better to make AIPSTZ5
-be their parent instead of keeping AIPS5 and adding a child node for
-AIPSTZ5. Also, because of the security configurations, the address space
-of the bus has to be changed to that of the configuration registers.
+The DSP may want to access peripherals on AIPSTZ5. To do so, the
+security-related registers of the bridge have to be configured before
+the DSP is started. Enforce a dependency on AIPSTZ5 by adding the
+'access-controllers' property to the 'dsp' node.
 
-Finally, since AIPSTZ5 belongs to the AUDIOMIX power domain, add the
-missing 'power-domains' property. The domain needs to be powered on before
-attempting to configure the security-related registers.
-
-The DT node name is not changed to avoid potential issues with DTs in
-which this node is referenced.
-
-Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
-Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
 Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mp.dtsi | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-index e0d3b8cba221..a1d9b834d2da 100644
+index a1d9b834d2da..9ec51e7e6678 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-@@ -1399,11 +1399,13 @@ eqos: ethernet@30bf0000 {
- 			};
+@@ -2423,6 +2423,7 @@ dsp: dsp@3b6e8000 {
+ 			mboxes = <&mu2 2 0>, <&mu2 2 1>,
+ 				<&mu2 3 0>, <&mu2 3 1>;
+ 			memory-region = <&dsp_reserved>;
++			access-controllers = <&aips5>;
+ 			status = "disabled";
  		};
- 
--		aips5: bus@30c00000 {
--			compatible = "fsl,aips-bus", "simple-bus";
--			reg = <0x30c00000 0x400000>;
-+		aips5: bus@30df0000 {
-+			compatible = "fsl,imx8mp-aipstz", "simple-bus";
-+			reg = <0x30df0000 0x10000>;
-+			power-domains = <&pgc_audio>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
-+			#access-controller-cells = <0>;
- 			ranges;
- 
- 			spba-bus@30c00000 {
+ 	};
 -- 
 2.34.1
 
