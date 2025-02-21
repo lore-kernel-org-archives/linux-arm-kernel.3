@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABC3CC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 20:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1015FC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 20:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zPLYD2dRfopSrN03kgPi4Tmd+omXF28zRCncg1mhesI=; b=VfbLFzHk3Z+L3CMlZnU6kARHbr
-	I4GsozV89PHH9sFpGEpuCq38qzOyKOrI8Uxa1uWYV1CeIPGhZRNACsNwX0nwiIG3Z0GDsNAXcfDAB
-	SCU2XVYG1BE0txC2PXP6U7YfLpqpCJU9jXGauKlVRe0wpjj0FZXmCecCs1zE3ddCQNTY4UScPzIlO
-	B5ZPCPNVXKyiadNZF+2l0HB9WDREEQUSBCr/T/l+m1xreq5PbaDgETW/hwXKs2BoEWnEc4wZ23xoi
-	YZcbGB5Q3n9PUKChZPmYy+hQD3Fp87fzAj1ouQvqK6rWRZTSt7HNPRv83gDEDQHX1by/NugJTtgRT
-	BMjWIC7A==;
+	bh=ntlYIhMisrSFCroQL32Q2iNFXt2dvjAhFEO3QiPuJ14=; b=2nKOJiMpnfeId+KbvxsyXiYGcq
+	eNx2PjvsBbtuZ5PjGCn5ulK57W9+eI06CNxnSFUfED77wxvZO5L4xMIhVm1QmqkkKed6Gz3QgTmzP
+	z2HheuRkFdsTAnpCpNwpmGbd6Iey/4VmDYWoEs8fFx0isIjVn8l9U1G0mKNFsPyfEpoTkumbiq7hT
+	+UcH6E9TDDJeMYtqx8t3RvCdr0TNwB0XsT7f/s1a88EOsjYKmNZicEBI2Wy2NFj/yEaMGHeUfr6k1
+	lm5e6laD+mBpHuJchR7IyrP/kDjIYxZEAXL91Fyi8dTqMg/DAuG6Tcw0OmCpWL7OQT28W8mTaDJWK
+	NgiXwNeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlZD0-00000006idc-30Q0;
-	Fri, 21 Feb 2025 20:01:14 +0000
+	id 1tlZER-00000006isJ-1Oka;
+	Fri, 21 Feb 2025 20:02:43 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlZ8e-00000006hdD-0wNw
+	id 1tlZ8e-00000006hd7-0fL8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 19:56:45 +0000
+	Fri, 21 Feb 2025 19:56:46 +0000
 Received: from linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net (linux.microsoft.com [13.77.154.182])
-	by linux.microsoft.com (Postfix) with ESMTPSA id D47A6204E5BF;
+	by linux.microsoft.com (Postfix) with ESMTPSA id EF6D42053679;
 	Fri, 21 Feb 2025 11:56:42 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D47A6204E5BF
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com EF6D42053679
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740167802;
-	bh=zPLYD2dRfopSrN03kgPi4Tmd+omXF28zRCncg1mhesI=;
+	s=default; t=1740167803;
+	bh=ntlYIhMisrSFCroQL32Q2iNFXt2dvjAhFEO3QiPuJ14=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EoFXGQgYbxRJpv9vDOiDKvPXyEMr653hI1a07XSa+dDu6nOu4SgjC1Eo0NnpKgcKp
-	 513mZc5/seGYCpJSW4vYnHLKhGwyAW1KKH8HywHzxhs3aUNOiPxtKkjUNAjmsLipbO
-	 +4OsnbWNnfLwNqNcyBgPdnuNqqow7tzGkIxmGJf4=
+	b=D7ILXmWKlM36KcA58LlLhcIZWh4C2w+OfzxTG92M88dBw1lTG1LSh2VFs/AMDu2Q+
+	 Aitq2GJfF2vb9FSh0lZ1IysYL6nR0w1CEWznMsrcz7oogp11xL0AHQT8SRSs1oBgQo
+	 n7Z0NMvU8jOUdXyuBdeugIEkHGQkRVn5TeUCyox4=
 From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 To: linux-hyperv@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -66,15 +66,15 @@ Cc: kys@microsoft.com,
 	jinankjain@linux.microsoft.com,
 	muminulrussell@gmail.com,
 	skinsburskii@linux.microsoft.com
-Subject: [PATCH v3 1/3] hyperv: Convert hypercall statuses to linux error codes
-Date: Fri, 21 Feb 2025 11:56:33 -0800
-Message-Id: <1740167795-13296-2-git-send-email-nunodasneves@linux.microsoft.com>
+Subject: [PATCH v3 2/3] hyperv: Change hv_root_partition into a function
+Date: Fri, 21 Feb 2025 11:56:34 -0800
+Message-Id: <1740167795-13296-3-git-send-email-nunodasneves@linux.microsoft.com>
 X-Mailer: git-send-email 1.8.3.1
 In-Reply-To: <1740167795-13296-1-git-send-email-nunodasneves@linux.microsoft.com>
 References: <1740167795-13296-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_115644_322189_52108C54 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20250221_115644_245680_9CA4E9B8 
+X-CRM114-Status: GOOD (  29.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,124 +89,380 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Return linux-friendly error codes from hypercall helper functions,
-which allows them to be used more flexibly.
+Introduce hv_curr_partition_type to store the partition type
+as an enum.
 
-Introduce hv_result_to_errno() for this purpose, which also handles
-the special value U64_MAX returned from hv_do_hypercall().
+Right now this is limited to guest or root partition, but there will
+be other kinds in future and the enum is easily extensible.
+
+Set up hv_curr_partition_type early in Hyper-V initialization with
+hv_identify_partition_type(). hv_root_partition() just queries this
+value, and shouldn't be called before that.
+
+Making this check into a function sets the stage for adding a config
+option to gate the compilation of root partition code. In particular,
+hv_root_partition() can be stubbed out always be false if root
+partition support isn't desired.
 
 Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 Reviewed-by: Easwar Hariharan <eahariha@linux.microsoft.com>
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 ---
- drivers/hv/hv_common.c         | 34 ++++++++++++++++++++++++++++++++++
- drivers/hv/hv_proc.c           | 10 +++++-----
- include/asm-generic/mshyperv.h |  1 +
- 3 files changed, 40 insertions(+), 5 deletions(-)
+ arch/arm64/hyperv/mshyperv.c       |  2 ++
+ arch/x86/hyperv/hv_init.c          | 10 +++++-----
+ arch/x86/kernel/cpu/mshyperv.c     | 24 ++--------------------
+ drivers/clocksource/hyperv_timer.c |  4 ++--
+ drivers/hv/hv.c                    | 10 +++++-----
+ drivers/hv/hv_common.c             | 32 ++++++++++++++++++++++++------
+ drivers/hv/vmbus_drv.c             |  2 +-
+ drivers/iommu/hyperv-iommu.c       |  4 ++--
+ include/asm-generic/mshyperv.h     | 15 ++++++++++++--
+ 9 files changed, 58 insertions(+), 45 deletions(-)
 
-diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-index ee3083937b4f..5cf9894b9e79 100644
---- a/drivers/hv/hv_common.c
-+++ b/drivers/hv/hv_common.c
-@@ -683,3 +683,37 @@ u64 __weak hv_tdx_hypercall(u64 control, u64 param1, u64 param2)
- 	return HV_STATUS_INVALID_PARAMETER;
- }
- EXPORT_SYMBOL_GPL(hv_tdx_hypercall);
-+
-+/* Convert a hypercall result into a linux-friendly error code. */
-+int hv_result_to_errno(u64 status)
-+{
-+	/* hv_do_hypercall() may return U64_MAX, hypercalls aren't possible */
-+	if (unlikely(status == U64_MAX))
-+		return -EOPNOTSUPP;
-+	/*
-+	 * A failed hypercall is usually only recoverable (or loggable) near
-+	 * the call site where the HV_STATUS_* code is known. So the errno
-+	 * it gets converted to is not too useful further up the stack.
-+	 * Provide a few mappings that could be useful, and revert to -EIO
-+	 * as a fallback.
-+	 */
-+	switch (hv_result(status)) {
-+	case HV_STATUS_SUCCESS:
-+		return 0;
-+	case HV_STATUS_INVALID_HYPERCALL_CODE:
-+	case HV_STATUS_INVALID_HYPERCALL_INPUT:
-+	case HV_STATUS_INVALID_PARAMETER:
-+	case HV_STATUS_INVALID_PARTITION_ID:
-+	case HV_STATUS_INVALID_VP_INDEX:
-+	case HV_STATUS_INVALID_PORT_ID:
-+	case HV_STATUS_INVALID_CONNECTION_ID:
-+	case HV_STATUS_INVALID_LP_INDEX:
-+	case HV_STATUS_INVALID_REGISTER_VALUE:
-+		return -EINVAL;
-+	case HV_STATUS_INSUFFICIENT_MEMORY:
-+		return -ENOMEM;
-+	default:
-+		break;
-+	}
-+	return -EIO;
-+}
-diff --git a/drivers/hv/hv_proc.c b/drivers/hv/hv_proc.c
-index 3e410489f480..2fae18e4f7d2 100644
---- a/drivers/hv/hv_proc.c
-+++ b/drivers/hv/hv_proc.c
-@@ -88,7 +88,7 @@ int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
- 	local_irq_restore(flags);
- 	if (!hv_result_success(status)) {
- 		pr_err("Failed to deposit pages: %lld\n", status);
--		ret = hv_result(status);
-+		ret = hv_result_to_errno(status);
- 		goto err_free_allocations;
- 	}
+diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+index 29fcfd595f48..2265ea5ce5ad 100644
+--- a/arch/arm64/hyperv/mshyperv.c
++++ b/arch/arm64/hyperv/mshyperv.c
+@@ -61,6 +61,8 @@ static int __init hyperv_init(void)
+ 		ms_hyperv.features, ms_hyperv.priv_high, ms_hyperv.hints,
+ 		ms_hyperv.misc_features);
  
-@@ -114,7 +114,7 @@ int hv_call_add_logical_proc(int node, u32 lp_index, u32 apic_id)
- 	struct hv_output_add_logical_processor *output;
- 	u64 status;
- 	unsigned long flags;
--	int ret = HV_STATUS_SUCCESS;
-+	int ret = 0;
++	hv_identify_partition_type();
++
+ 	ret = hv_common_init();
+ 	if (ret)
+ 		return ret;
+diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
+index 9be1446f5bd3..ddeb40930bc8 100644
+--- a/arch/x86/hyperv/hv_init.c
++++ b/arch/x86/hyperv/hv_init.c
+@@ -90,7 +90,7 @@ static int hv_cpu_init(unsigned int cpu)
+ 		return 0;
+ 
+ 	hvp = &hv_vp_assist_page[cpu];
+-	if (hv_root_partition) {
++	if (hv_root_partition()) {
+ 		/*
+ 		 * For root partition we get the hypervisor provided VP assist
+ 		 * page, instead of allocating a new page.
+@@ -242,7 +242,7 @@ static int hv_cpu_die(unsigned int cpu)
+ 
+ 	if (hv_vp_assist_page && hv_vp_assist_page[cpu]) {
+ 		union hv_vp_assist_msr_contents msr = { 0 };
+-		if (hv_root_partition) {
++		if (hv_root_partition()) {
+ 			/*
+ 			 * For root partition the VP assist page is mapped to
+ 			 * hypervisor provided page, and thus we unmap the
+@@ -317,7 +317,7 @@ static int hv_suspend(void)
+ 	union hv_x64_msr_hypercall_contents hypercall_msr;
+ 	int ret;
+ 
+-	if (hv_root_partition)
++	if (hv_root_partition())
+ 		return -EPERM;
  
  	/*
- 	 * When adding a logical processor, the hypervisor may return
-@@ -139,7 +139,7 @@ int hv_call_add_logical_proc(int node, u32 lp_index, u32 apic_id)
- 			if (!hv_result_success(status)) {
- 				pr_err("%s: cpu %u apic ID %u, %lld\n", __func__,
- 				       lp_index, apic_id, status);
--				ret = hv_result(status);
-+				ret = hv_result_to_errno(status);
- 			}
- 			break;
- 		}
-@@ -154,7 +154,7 @@ int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags)
- 	struct hv_create_vp *input;
- 	u64 status;
- 	unsigned long irq_flags;
--	int ret = HV_STATUS_SUCCESS;
-+	int ret = 0;
+@@ -518,7 +518,7 @@ void __init hyperv_init(void)
+ 	rdmsrl(HV_X64_MSR_HYPERCALL, hypercall_msr.as_uint64);
+ 	hypercall_msr.enable = 1;
  
- 	/* Root VPs don't seem to need pages deposited */
- 	if (partition_id != hv_current_partition_id) {
-@@ -181,7 +181,7 @@ int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags)
- 			if (!hv_result_success(status)) {
- 				pr_err("%s: vcpu %u, lp %u, %lld\n", __func__,
- 				       vp_index, flags, status);
--				ret = hv_result(status);
-+				ret = hv_result_to_errno(status);
- 			}
- 			break;
- 		}
-diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
-index 7adc10a4fa3e..3f115e2bcdaa 100644
---- a/include/asm-generic/mshyperv.h
-+++ b/include/asm-generic/mshyperv.h
-@@ -297,6 +297,7 @@ static inline int cpumask_to_vpset_skip(struct hv_vpset *vpset,
- 	return __cpumask_to_vpset(vpset, cpus, func);
+-	if (hv_root_partition) {
++	if (hv_root_partition()) {
+ 		struct page *pg;
+ 		void *src;
+ 
+@@ -592,7 +592,7 @@ void __init hyperv_init(void)
+ 	 * If we're running as root, we want to create our own PCI MSI domain.
+ 	 * We can't set this in hv_pci_init because that would be too late.
+ 	 */
+-	if (hv_root_partition)
++	if (hv_root_partition())
+ 		x86_init.irqs.create_pci_msi_domain = hv_create_pci_msi_domain;
+ #endif
+ 
+diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
+index f285757618fc..4f01f424ea5b 100644
+--- a/arch/x86/kernel/cpu/mshyperv.c
++++ b/arch/x86/kernel/cpu/mshyperv.c
+@@ -33,8 +33,6 @@
+ #include <asm/numa.h>
+ #include <asm/svm.h>
+ 
+-/* Is Linux running as the root partition? */
+-bool hv_root_partition;
+ /* Is Linux running on nested Microsoft Hypervisor */
+ bool hv_nested;
+ struct ms_hyperv_info ms_hyperv;
+@@ -451,25 +449,7 @@ static void __init ms_hyperv_init_platform(void)
+ 	pr_debug("Hyper-V: max %u virtual processors, %u logical processors\n",
+ 		 ms_hyperv.max_vp_index, ms_hyperv.max_lp_index);
+ 
+-	/*
+-	 * Check CPU management privilege.
+-	 *
+-	 * To mirror what Windows does we should extract CPU management
+-	 * features and use the ReservedIdentityBit to detect if Linux is the
+-	 * root partition. But that requires negotiating CPU management
+-	 * interface (a process to be finalized). For now, use the privilege
+-	 * flag as the indicator for running as root.
+-	 *
+-	 * Hyper-V should never specify running as root and as a Confidential
+-	 * VM. But to protect against a compromised/malicious Hyper-V trying
+-	 * to exploit root behavior to expose Confidential VM memory, ignore
+-	 * the root partition setting if also a Confidential VM.
+-	 */
+-	if ((ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
+-	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
+-		hv_root_partition = true;
+-		pr_info("Hyper-V: running as root partition\n");
+-	}
++	hv_identify_partition_type();
+ 
+ 	if (ms_hyperv.hints & HV_X64_HYPERV_NESTED) {
+ 		hv_nested = true;
+@@ -618,7 +598,7 @@ static void __init ms_hyperv_init_platform(void)
+ 
+ # ifdef CONFIG_SMP
+ 	smp_ops.smp_prepare_boot_cpu = hv_smp_prepare_boot_cpu;
+-	if (hv_root_partition ||
++	if (hv_root_partition() ||
+ 	    (!ms_hyperv.paravisor_present && hv_isolation_type_snp()))
+ 		smp_ops.smp_prepare_cpus = hv_smp_prepare_cpus;
+ # endif
+diff --git a/drivers/clocksource/hyperv_timer.c b/drivers/clocksource/hyperv_timer.c
+index f00019b078a7..09549451dd51 100644
+--- a/drivers/clocksource/hyperv_timer.c
++++ b/drivers/clocksource/hyperv_timer.c
+@@ -582,7 +582,7 @@ static void __init hv_init_tsc_clocksource(void)
+ 	 * mapped.
+ 	 */
+ 	tsc_msr.as_uint64 = hv_get_msr(HV_MSR_REFERENCE_TSC);
+-	if (hv_root_partition)
++	if (hv_root_partition())
+ 		tsc_pfn = tsc_msr.pfn;
+ 	else
+ 		tsc_pfn = HVPFN_DOWN(virt_to_phys(tsc_page));
+@@ -627,7 +627,7 @@ void __init hv_remap_tsc_clocksource(void)
+ 	if (!(ms_hyperv.features & HV_MSR_REFERENCE_TSC_AVAILABLE))
+ 		return;
+ 
+-	if (!hv_root_partition) {
++	if (!hv_root_partition()) {
+ 		WARN(1, "%s: attempt to remap TSC page in guest partition\n",
+ 		     __func__);
+ 		return;
+diff --git a/drivers/hv/hv.c b/drivers/hv/hv.c
+index fab0690b5c41..a38f84548bc2 100644
+--- a/drivers/hv/hv.c
++++ b/drivers/hv/hv.c
+@@ -144,7 +144,7 @@ int hv_synic_alloc(void)
+ 		 * Synic message and event pages are allocated by paravisor.
+ 		 * Skip these pages allocation here.
+ 		 */
+-		if (!ms_hyperv.paravisor_present && !hv_root_partition) {
++		if (!ms_hyperv.paravisor_present && !hv_root_partition()) {
+ 			hv_cpu->synic_message_page =
+ 				(void *)get_zeroed_page(GFP_ATOMIC);
+ 			if (!hv_cpu->synic_message_page) {
+@@ -272,7 +272,7 @@ void hv_synic_enable_regs(unsigned int cpu)
+ 	simp.as_uint64 = hv_get_msr(HV_MSR_SIMP);
+ 	simp.simp_enabled = 1;
+ 
+-	if (ms_hyperv.paravisor_present || hv_root_partition) {
++	if (ms_hyperv.paravisor_present || hv_root_partition()) {
+ 		/* Mask out vTOM bit. ioremap_cache() maps decrypted */
+ 		u64 base = (simp.base_simp_gpa << HV_HYP_PAGE_SHIFT) &
+ 				~ms_hyperv.shared_gpa_boundary;
+@@ -291,7 +291,7 @@ void hv_synic_enable_regs(unsigned int cpu)
+ 	siefp.as_uint64 = hv_get_msr(HV_MSR_SIEFP);
+ 	siefp.siefp_enabled = 1;
+ 
+-	if (ms_hyperv.paravisor_present || hv_root_partition) {
++	if (ms_hyperv.paravisor_present || hv_root_partition()) {
+ 		/* Mask out vTOM bit. ioremap_cache() maps decrypted */
+ 		u64 base = (siefp.base_siefp_gpa << HV_HYP_PAGE_SHIFT) &
+ 				~ms_hyperv.shared_gpa_boundary;
+@@ -367,7 +367,7 @@ void hv_synic_disable_regs(unsigned int cpu)
+ 	 * addresses.
+ 	 */
+ 	simp.simp_enabled = 0;
+-	if (ms_hyperv.paravisor_present || hv_root_partition) {
++	if (ms_hyperv.paravisor_present || hv_root_partition()) {
+ 		iounmap(hv_cpu->synic_message_page);
+ 		hv_cpu->synic_message_page = NULL;
+ 	} else {
+@@ -379,7 +379,7 @@ void hv_synic_disable_regs(unsigned int cpu)
+ 	siefp.as_uint64 = hv_get_msr(HV_MSR_SIEFP);
+ 	siefp.siefp_enabled = 0;
+ 
+-	if (ms_hyperv.paravisor_present || hv_root_partition) {
++	if (ms_hyperv.paravisor_present || hv_root_partition()) {
+ 		iounmap(hv_cpu->synic_event_page);
+ 		hv_cpu->synic_event_page = NULL;
+ 	} else {
+diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+index 5cf9894b9e79..3d9cfcfbc854 100644
+--- a/drivers/hv/hv_common.c
++++ b/drivers/hv/hv_common.c
+@@ -34,8 +34,11 @@
+ u64 hv_current_partition_id = HV_PARTITION_ID_SELF;
+ EXPORT_SYMBOL_GPL(hv_current_partition_id);
+ 
++enum hv_partition_type hv_curr_partition_type;
++EXPORT_SYMBOL_GPL(hv_curr_partition_type);
++
+ /*
+- * hv_root_partition, ms_hyperv and hv_nested are defined here with other
++ * ms_hyperv and hv_nested are defined here with other
+  * Hyper-V specific globals so they are shared across all architectures and are
+  * built only when CONFIG_HYPERV is defined.  But on x86,
+  * ms_hyperv_init_platform() is built even when CONFIG_HYPERV is not
+@@ -43,9 +46,6 @@ EXPORT_SYMBOL_GPL(hv_current_partition_id);
+  * here, allowing for an overriding definition in the module containing
+  * ms_hyperv_init_platform().
+  */
+-bool __weak hv_root_partition;
+-EXPORT_SYMBOL_GPL(hv_root_partition);
+-
+ bool __weak hv_nested;
+ EXPORT_SYMBOL_GPL(hv_nested);
+ 
+@@ -283,7 +283,7 @@ static void hv_kmsg_dump_register(void)
+ 
+ static inline bool hv_output_page_exists(void)
+ {
+-	return hv_root_partition || IS_ENABLED(CONFIG_HYPERV_VTL_MODE);
++	return hv_root_partition() || IS_ENABLED(CONFIG_HYPERV_VTL_MODE);
  }
  
-+int hv_result_to_errno(u64 status);
- void hyperv_report_panic(struct pt_regs *regs, long err, bool in_die);
- bool hv_is_hyperv_initialized(void);
- bool hv_is_hibernation_supported(void);
+ void __init hv_get_partition_id(void)
+@@ -594,7 +594,7 @@ EXPORT_SYMBOL_GPL(hv_setup_dma_ops);
+ 
+ bool hv_is_hibernation_supported(void)
+ {
+-	return !hv_root_partition && acpi_sleep_state_supported(ACPI_STATE_S4);
++	return !hv_root_partition() && acpi_sleep_state_supported(ACPI_STATE_S4);
+ }
+ EXPORT_SYMBOL_GPL(hv_is_hibernation_supported);
+ 
+@@ -717,3 +717,23 @@ int hv_result_to_errno(u64 status)
+ 	}
+ 	return -EIO;
+ }
++
++void hv_identify_partition_type(void)
++{
++	/* Assume guest role */
++	hv_curr_partition_type = HV_PARTITION_TYPE_GUEST;
++	/*
++	 * Check partition creation and cpu management privileges
++	 *
++	 * Hyper-V should never specify running as root and as a Confidential
++	 * VM. But to protect against a compromised/malicious Hyper-V trying
++	 * to exploit root behavior to expose Confidential VM memory, ignore
++	 * the root partition setting if also a Confidential VM.
++	 */
++	if ((ms_hyperv.priv_high & HV_CREATE_PARTITIONS) &&
++	    (ms_hyperv.priv_high & HV_CPU_MANAGEMENT) &&
++	    !(ms_hyperv.priv_high & HV_ISOLATION)) {
++		pr_info("Hyper-V: running as root partition\n");
++		hv_curr_partition_type = HV_PARTITION_TYPE_ROOT;
++	}
++}
+diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
+index 75eb1390b45c..22afebfc28ff 100644
+--- a/drivers/hv/vmbus_drv.c
++++ b/drivers/hv/vmbus_drv.c
+@@ -2656,7 +2656,7 @@ static int __init hv_acpi_init(void)
+ 	if (!hv_is_hyperv_initialized())
+ 		return -ENODEV;
+ 
+-	if (hv_root_partition && !hv_nested)
++	if (hv_root_partition() && !hv_nested)
+ 		return 0;
+ 
+ 	/*
+diff --git a/drivers/iommu/hyperv-iommu.c b/drivers/iommu/hyperv-iommu.c
+index 2a86aa5d54c6..53e4b37716af 100644
+--- a/drivers/iommu/hyperv-iommu.c
++++ b/drivers/iommu/hyperv-iommu.c
+@@ -130,7 +130,7 @@ static int __init hyperv_prepare_irq_remapping(void)
+ 	    x86_init.hyper.msi_ext_dest_id())
+ 		return -ENODEV;
+ 
+-	if (hv_root_partition) {
++	if (hv_root_partition()) {
+ 		name = "HYPERV-ROOT-IR";
+ 		ops = &hyperv_root_ir_domain_ops;
+ 	} else {
+@@ -151,7 +151,7 @@ static int __init hyperv_prepare_irq_remapping(void)
+ 		return -ENOMEM;
+ 	}
+ 
+-	if (hv_root_partition)
++	if (hv_root_partition())
+ 		return 0; /* The rest is only relevant to guests */
+ 
+ 	/*
+diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+index 3f115e2bcdaa..54ebd630e72c 100644
+--- a/include/asm-generic/mshyperv.h
++++ b/include/asm-generic/mshyperv.h
+@@ -28,6 +28,11 @@
+ 
+ #define VTPM_BASE_ADDRESS 0xfed40000
+ 
++enum hv_partition_type {
++	HV_PARTITION_TYPE_GUEST,
++	HV_PARTITION_TYPE_ROOT,
++};
++
+ struct ms_hyperv_info {
+ 	u32 features;
+ 	u32 priv_high;
+@@ -59,6 +64,7 @@ struct ms_hyperv_info {
+ extern struct ms_hyperv_info ms_hyperv;
+ extern bool hv_nested;
+ extern u64 hv_current_partition_id;
++extern enum hv_partition_type hv_curr_partition_type;
+ 
+ extern void * __percpu *hyperv_pcpu_input_arg;
+ extern void * __percpu *hyperv_pcpu_output_arg;
+@@ -190,8 +196,6 @@ void hv_remove_crash_handler(void);
+ extern int vmbus_interrupt;
+ extern int vmbus_irq;
+ 
+-extern bool hv_root_partition;
+-
+ #if IS_ENABLED(CONFIG_HYPERV)
+ /*
+  * Hypervisor's notion of virtual processor ID is different from
+@@ -213,6 +217,7 @@ void __init hv_common_free(void);
+ void __init ms_hyperv_late_init(void);
+ int hv_common_cpu_init(unsigned int cpu);
+ int hv_common_cpu_die(unsigned int cpu);
++void hv_identify_partition_type(void);
+ 
+ void *hv_alloc_hyperv_page(void);
+ void *hv_alloc_hyperv_zeroed_page(void);
+@@ -310,6 +315,7 @@ void hyperv_cleanup(void);
+ bool hv_query_ext_cap(u64 cap_query);
+ void hv_setup_dma_ops(struct device *dev, bool coherent);
+ #else /* CONFIG_HYPERV */
++static inline void hv_identify_partition_type(void) {}
+ static inline bool hv_is_hyperv_initialized(void) { return false; }
+ static inline bool hv_is_hibernation_supported(void) { return false; }
+ static inline void hyperv_cleanup(void) {}
+@@ -321,4 +327,9 @@ static inline enum hv_isolation_type hv_get_isolation_type(void)
+ }
+ #endif /* CONFIG_HYPERV */
+ 
++static inline bool hv_root_partition(void)
++{
++	return hv_curr_partition_type == HV_PARTITION_TYPE_ROOT;
++}
++
+ #endif
 -- 
 2.34.1
 
