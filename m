@@ -4,105 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E869EC021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 07:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37BDFC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 07:51:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IJyVAzse7xLFb8xCPnWRvVTtifhlIa8lHqL9vpKMvTY=; b=LajfGoG/5uLlvlHbu0xkQ9lqmd
-	8DT1EkVC/lcahONGp7KuRPxUlpPMLq52gxknN/Fa+7MeSnBeg8/V0BHTUFn0fRdc+79v3trKXx9sk
-	27EwTzbiOWV+9VUvEAb5ZS4NEV2BAKZ0fX8jk5QlPvXenNR/NAnNwlZPsCmjVh13vE+URscYrLMe7
-	AzigTkB3PprwGBBGOCUNtz6x8J72OhZKbAk1ZgkZy9crIpyeQSmV2lW5EWXA87BuhmZnEMngOzbFE
-	XCBILwLX8YABYihiM6sSd4lXSdtkytj/tcJD3dSufqEQ7D7qDlU0F6ePnIlq7x3/vOfjbt2FSejO6
-	AdlgOzhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+p3u8QpwBGDD06/FRGFqUOiwVFnXjMgtFPrCz59h9Ms=; b=t82l/8gAZg05e52R58U/6mm8pa
+	psoRjmO2foikZi1nn/fDjc9oNXjhmzi0Qbcc1cw524d7yk9UKkJ0Xo0sl/fKuht0aJp5szROG/Z72
+	ZV9J5n49zCc3xxxDoU1BNyRsIi0UXmujSwKoP4RZDFzPtw7YRmR2A+a9Z8HIfOyfRvH01YyQ8qbWP
+	UZHW0gU1ZQNVWvDoejUzuC4jnNWVZ0N9w16UBLBNLZyqljz5SUHFiqd2dzpUp5a2CXBAjrmbFJPxA
+	DdFh0JDvArY20498KxmSNgeb/0BwerCEqGsTsDtR5jg7/nS3V/+wruHebNGsYzFL/y5lhC5Jjrhmn
+	jnW4Ra3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlNnV-00000004Zut-1agc;
-	Fri, 21 Feb 2025 07:50:09 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tlNox-00000004aFA-09U0;
+	Fri, 21 Feb 2025 07:51:39 +0000
+Received: from [216.200.240.184] (helo=mailgw01.mediatek.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlNf5-00000004YMc-430v
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 07:41:29 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51KMWKVs026296;
-	Fri, 21 Feb 2025 07:41:22 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	IJyVAzse7xLFb8xCPnWRvVTtifhlIa8lHqL9vpKMvTY=; b=O2jqxr4ZEEJOeRiS
-	ViSaQNSqa0GB74b4u6s/jHCpXNDUxUvBBVJtFt8pZ2mODRDujKrL5WpJBz0s3jRz
-	METwXjlnllYnWSrtqG8ZZcdzhRZNY99VhY0SwVwYreq9lbOeWsST/TdKRr75Ahdt
-	NX/NCFY74fUVz6zH5qjJWnWLfXAO86KkvVvOrHj7M6c+aEPr1A5khl6yo0fE7xCM
-	Gsky+jt5ybY2G/TafNEOF2rRLajMwKV1Fy7tH1y1S+21aC0sIOP11me8ulIq7owX
-	fhNe5tC8M/QGX9EwswI14FISyA3AgX+TcGGk3atwiiXQ0KtNbIJIFEM17Ys3YGXq
-	VmGhYA==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44x2r3u4q7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 21 Feb 2025 07:41:22 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51L7fLi6010585
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 21 Feb 2025 07:41:21 GMT
-Received: from yuanfang4-gv.ap.qualcomm.com (10.80.80.8) by
- nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+	id 1tlNmL-00000004Zh6-1vCs;
+	Fri, 21 Feb 2025 07:48:58 +0000
+X-UUID: 4aac5d6af02811ef83f2a1c9db70dae0-20250221
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=+p3u8QpwBGDD06/FRGFqUOiwVFnXjMgtFPrCz59h9Ms=;
+	b=SdnP3OWgLqLq/qoseBLuL+rOHRMT4t8yHjUtMyhsH8iJWfas00RxBj0GTJCO3ShxY9Wh5VGH0nZT5/xzZRfJSf2pddVOuhSZrm6tZt5nA8RxrD14Sm9z1DnoLQ6UX1J44DRSbr/XXFOG/rydoVgL/7DuAXstFBpPGu+Sa0fOX5c=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.1.46,REQID:051d8f64-a301-4a9f-bb54-f5d8af34165a,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:60aa074,CLOUDID:753968b5-a2a1-4ef3-9ef9-e116773da0a7,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-UUID: 4aac5d6af02811ef83f2a1c9db70dae0-20250221
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <friday.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 161976412; Fri, 21 Feb 2025 00:48:51 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 20 Feb 2025 23:41:15 -0800
-From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-Date: Fri, 21 Feb 2025 15:40:32 +0800
-Subject: [PATCH 5/5] coresight-tnoc: add nodes to configure freq packet
+ 15.2.1258.28; Fri, 21 Feb 2025 15:48:48 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Fri, 21 Feb 2025 15:48:48 +0800
+From: Friday Yang <friday.yang@mediatek.com>
+To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>, Rob
+ Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
+ Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>
+CC: Friday Yang <friday.yang@mediatek.com>,
+	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v4 0/2] Add SMI reset and clamp for MediaTek MT8188 SoC
+Date: Fri, 21 Feb 2025 15:48:30 +0800
+Message-ID: <20250221074846.14105-1-friday.yang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250221-trace-noc-driver-v1-5-0a23fc643217@quicinc.com>
-References: <20250221-trace-noc-driver-v1-0-0a23fc643217@quicinc.com>
-In-Reply-To: <20250221-trace-noc-driver-v1-0-0a23fc643217@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>
-CC: <kernel@quicinc.com>, <linux-kernel@vger.kernel.org>,
-        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <kernel@oss.qualcomm.com>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        Yuanfang Zhang <quic_yuanfang@quicinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1740123657; l=3505;
- i=quic_yuanfang@quicinc.com; s=20241209; h=from:subject:message-id;
- bh=D9nO0Rw8IFdx8/JC61W3qCybMF46rPTusGdMNvOiv98=;
- b=Pg9D/It6JCg3UbWpboZ7/yl03luOty/kj91bts+ObZgzhD0bK+AkH3++9Ddqc8nOGpOTErFwC
- Yp6bgMtxsTyA37r6nllO0l4TbHjYOxxMFxOMj4QXdOQomIUv6xLqla5
-X-Developer-Key: i=quic_yuanfang@quicinc.com; a=ed25519;
- pk=ZrIjRVq9LN8/zCQGbDEwrZK/sfnVjwQ2elyEZAOaV1Q=
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: oPYiKrnMqhSUHPyHOZ4HPQlBRtihjGZN
-X-Proofpoint-GUID: oPYiKrnMqhSUHPyHOZ4HPQlBRtihjGZN
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-21_01,2025-02-20_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 clxscore=1015
- bulkscore=0 phishscore=0 mlxlogscore=999 suspectscore=0 priorityscore=1501
- mlxscore=0 spamscore=0 adultscore=0 malwarescore=0 lowpriorityscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2502100000
- definitions=main-2502210056
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_234128_001852_D5CBFDAD 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20250220_234857_509414_A2A86D04 
+X-CRM114-Status: UNSURE (   9.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,135 +88,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Three nodes for freq packet config are added here:
+Based on tag: next-20250220, linux-next/master
 
-1. freq_type: used to set the type of issued ATB FREQ packets.
-0: 'FREQ' packets; 1: 'FREQ_TS' packets.
+On the MediaTek MT8188 SoC platform, we encountered power-off failures
+and SMI bus hang issues during camera stress tests. The issue arises
+because bus glitches are sometimes produced when MTCMOS powers on or
+off. While this is fairly normal, the software must handle these
+glitches to avoid mistaking them for transaction signals. What's
+more, this issue emerged only after the initial upstreaming of SMI
+driver.
 
-2. freq_req_val: used to set frequency values carried by 'FREQ'
-and 'FREQ_TS' packets.
+The software solutions can be summarized as follows:
 
-3. freq_ts_req: writing '1' to issue a 'FREQ' or 'FREQ_TS' packet.
+1. Use CLAMP to disable the SMI sub-common port after turning off the
+   LARB CG and before turning off the LARB MTCMOS.
+2. Use CLAMP to disable/enable the SMI sub-common port.
+3. Implement an AXI reset for SMI LARBs.
 
-Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
----
- drivers/hwtracing/coresight/coresight-tnoc.c | 97 ++++++++++++++++++++++++++++
- 1 file changed, 97 insertions(+)
+Changes v4:
+- Use 'devm_reset_control_get_optional_exclusive' instead of
+  'devm_reset_control_get'.
 
-diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
-index 3ff3504603f66bd595484374f1cdac90c528b665..629df98959d1bfb55771376fac2818a48cb9c259 100644
---- a/drivers/hwtracing/coresight/coresight-tnoc.c
-+++ b/drivers/hwtracing/coresight/coresight-tnoc.c
-@@ -112,10 +112,107 @@ static ssize_t flag_type_show(struct device *dev,
- }
- static DEVICE_ATTR_RW(flag_type);
- 
-+static ssize_t freq_type_show(struct device *dev,
-+			      struct device_attribute *attr,
-+			      char *buf)
-+{
-+	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+
-+	return sysfs_emit(buf, "%u\n", drvdata->freq_type);
-+}
-+
-+static ssize_t freq_type_store(struct device *dev,
-+			       struct device_attribute *attr,
-+			       const char *buf,
-+			       size_t size)
-+{
-+	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	unsigned long val;
-+
-+	if (kstrtoul(buf, 0, &val))
-+		return -EINVAL;
-+
-+	if (val != 1 && val != 0)
-+		return -EINVAL;
-+
-+	spin_lock(&drvdata->spinlock);
-+	if (val)
-+		drvdata->freq_type = FREQ_TS;
-+	else
-+		drvdata->freq_type = FREQ;
-+	spin_unlock(&drvdata->spinlock);
-+
-+	return size;
-+}
-+static DEVICE_ATTR_RW(freq_type);
-+
-+static ssize_t freq_req_val_show(struct device *dev,
-+				 struct device_attribute *attr,
-+				char *buf)
-+{
-+	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+
-+	return sysfs_emit(buf, "%u\n", drvdata->freq_req_val);
-+}
-+
-+static ssize_t freq_req_val_store(struct device *dev,
-+				  struct device_attribute *attr,
-+				  const char *buf,
-+				  size_t size)
-+{
-+	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	unsigned long val;
-+
-+	if (kstrtoul(buf, 0, &val))
-+		return -EINVAL;
-+
-+	if (val) {
-+		spin_lock(&drvdata->spinlock);
-+		drvdata->freq_req_val = val;
-+		spin_unlock(&drvdata->spinlock);
-+	}
-+
-+	return size;
-+}
-+static DEVICE_ATTR_RW(freq_req_val);
-+
-+static ssize_t freq_ts_req_store(struct device *dev,
-+				 struct device_attribute *attr,
-+				 const char *buf,
-+				 size_t size)
-+{
-+	struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	struct coresight_device	*csdev = drvdata->csdev;
-+	unsigned long val;
-+	u32 reg;
-+
-+	if (kstrtoul(buf, 0, &val))
-+		return -EINVAL;
-+
-+	spin_lock(&drvdata->spinlock);
-+	if (csdev->refcnt == 0) {
-+		spin_unlock(&drvdata->spinlock);
-+		return -EPERM;
-+	}
-+
-+	if (val) {
-+		reg = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
-+		reg = reg | TRACE_NOC_CTRL_FREQTSREQ;
-+		writel_relaxed(reg, drvdata->base + TRACE_NOC_CTRL);
-+	}
-+	spin_unlock(&drvdata->spinlock);
-+
-+	return size;
-+}
-+static DEVICE_ATTR_WO(freq_ts_req);
-+
- static struct attribute *trace_noc_attrs[] = {
- 	&dev_attr_flush_req.attr,
- 	&dev_attr_flush_status.attr,
- 	&dev_attr_flag_type.attr,
-+	&dev_attr_freq_type.attr,
-+	&dev_attr_freq_req_val.attr,
-+	&dev_attr_freq_ts_req.attr,
- 	NULL,
- };
- 
+v3:
+https://lore.kernel.org/lkml/20250121064934.13482-2-
+friday.yang@mediatek.com/
+https://lore.kernel.org/lkml/20250121064934.13482-3-
+friday.yang@mediatek.com/
 
--- 
-2.34.1
+friday.yang (2):
+  dt-bindings: memory: mediatek: Add SMI reset and clamp for MT8188
+  memory: mtk-smi: mt8188: Add SMI reset and clamp for MT8188
+
+ .../mediatek,smi-common.yaml                  |   2 +
+ .../memory-controllers/mediatek,smi-larb.yaml |  20 +++
+ drivers/memory/mtk-smi.c                      | 141 +++++++++++++++++-
+ 3 files changed, 159 insertions(+), 4 deletions(-)
+
+--
+2.46.0
 
 
