@@ -4,101 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35231C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07106C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m9yE+NbJbzuXxkBEw/1a0dtqEVxR7Jj4LrNBop/jhXU=; b=Kn96tbTismttAgvV8jdtVrkd1X
-	lIVpW4C51AxjEMMdVNCYUO1yno9u8nC5VJjSpgJmqeR0oxiDYPnAvLBfxaWGiShBYuYeVkJqHLIyG
-	RkgFzUWxWxrb8aqFGwOZ645J5VH4DxZTIl/uiB6BToAm8fiDWbFWuH9DvZkTeu4+C42j0wiQIcc29
-	4noldrTit5O+Yd/8TYANC6OjBCSyeY6J30txgRu3iu05fCqF/y/LJJF6mAZ7Hmy8FZaEBsXIf2RU7
-	+sbjPJOIN7sRgzjGe4IhYNNJN6+xf0Qr/nFgw3PbavsPx9p3T+JzBSYgz4n+x2UIRC3HilI3T6Fqg
-	FM+jXxTA==;
+	bh=xwkp+H3T7ZfBdvI9ed92wUzVcaRmjdVOu5CNNS7KOqE=; b=XKI2/whopEkTdIe0W/Ch4hyiPj
+	s07Bl07xoWFyhu1em5vR9ZguXa75rs0gbYHNNJ7pFFHuhJ/eyp+/x0q0BqG1LG4HDrXEcq2bs7y8T
+	7mBmS8BXOn0LFys3A47cjOML4W6fUgoAs38EAH5X5wbYJntf+7ySPeOfM+RnTGStvfCyVyl6x3/Bz
+	LjC20EmTersOY9o/CafaUSIkzLHCV8FapWfW5xfhWlmuYz3jY3lJqcAYIi2ujB+qZ4dnvPEfIBjYX
+	z+MmvEcD2jSdGb7Hdl9Kx/hqh0nf9QcA2U6z/AfIQipFwXwJz+qxmTpzlqGUSolZyXCkO70dwmsf/
+	mdap7Rjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlU33-00000005pHD-252y;
-	Fri, 21 Feb 2025 14:30:37 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1tlU4V-00000005pX0-0Y3H;
+	Fri, 21 Feb 2025 14:32:07 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlTlN-00000005mLM-0RzK
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 14:12:22 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7c0892e4b19so241385485a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 06:12:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1740147139; x=1740751939; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=m9yE+NbJbzuXxkBEw/1a0dtqEVxR7Jj4LrNBop/jhXU=;
-        b=aizSpmxz59Rv42wu3/zFUZBmo5FtrMX5IunZQbnuf6oFnu7YAc2s6nn+2onWZXZizi
-         b1qFg3/yaOa+8hhDIp7S3HUBrOHXdGyKXnX0t0GRWeuHx4j//2DItcaxBdW2sXZFdVhn
-         8QLzE/8XHNTHvdbFHnZu4yW8OYxgDGhtT25alD9u0BOtjwvn++T4oSocF/gPIjtSp7CX
-         ihYezXC+7z/qBQDNNhUXA5UWqzZcU9vls4MLFrenzw/oHgRZKeG4qOxyTnbdyjdCOBJu
-         JMLuHtj0Idc/8CrFZiPgew6kLfKTX5KqVMG7XApXauz1wAMzCU4fEw/Iy4rqaRw3/TqP
-         dqPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740147139; x=1740751939;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=m9yE+NbJbzuXxkBEw/1a0dtqEVxR7Jj4LrNBop/jhXU=;
-        b=RDA2+WV2Llz+oYhmuGZRINQiFTDm1MNzjNJSqWiNexSPbHZi163trlu0kPCTuP84fw
-         O3mew40oT+MjzBEnI6ro+tyFEoZZ+9+9Xf+I3XJLCPGk1Ym5OD3/zfIZ96USIe+u3GW3
-         y8H/KW27uxau3rgalL//GLjMEMeLblUMn0sVsnMPZLVpkugkPVl4HebV+oFOSdhpp1V9
-         By1poHkNb6VYLp6Lp3WCcEghkodoP9XOaQ3ltVduiGitRsdenzSg/0IgKgC+cH6SoGpS
-         Bf1q/YFPZgmKWRhEdGLyZTBj5jFiRaeTHCW0cXpqkzFLLUzfvUMM6VZczG3wMY26glJs
-         qdxA==
-X-Forwarded-Encrypted: i=1; AJvYcCUaE6y5ddr3xSaibYrmQ5uFdvb6/JirSwx6WH72pmR/rLqsuJB15dwjiito79Ku8Enoe4isK9ouFoxJc70tFcUw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuWSwryqPn6CxaXEuLvQIEdtw7jqdapSy1EPhXDp7fixs1XfPM
-	05lv4AgI40ib+zKz2b+Fn0H/dGlEuxxAN5azPnR3VAu615ZOmk3JDsZJCHfjKPTXLODgE+LA6CR
-	0LxWfARcuPmjBhGLkte8uBu+GRfpwLMriOXTO5A==
-X-Gm-Gg: ASbGnctBTxqSAd8QedG/FHVFlmQjpVQA664swXrZinbVGZStu9dvUJCrn6hgMJdn4DE
-	RzQqmjHK3ZIgOYfY/J7uaystGiwg2r2KKwJdkkKilSWYDQeiIFVu1XCHox3gzgKHxe0h8jzG2UP
-	Kp/z/7xg==
-X-Google-Smtp-Source: AGHT+IFieBNTxJ4hx1OI2gSZB618IgbZaKxKQewYduWvvTgUefuy7AogKvIO9imSGUNujouK58RLbPzlVZ8deqdW1G0=
-X-Received: by 2002:a05:620a:171e:b0:7c0:7eb4:6635 with SMTP id
- af79cd13be357-7c0ceeff2f5mr489949685a.20.1740147139124; Fri, 21 Feb 2025
- 06:12:19 -0800 (PST)
+	id 1tlTmN-00000005ma1-2tVz;
+	Fri, 21 Feb 2025 14:13:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740147204; x=1771683204;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Rdw7VcsQXfPz8ijFFRK9pCO/RD7kMR5M0Z/uSgEDHcs=;
+  b=E4V+FGgMeFEMoyeauFsbzatVvwZo9rI0kc6cYtZLdZtp/7+AXeqpG+G4
+   QPdQxvKOIlD1dbU03pAq4gs/xMlGOObnnz1qhl7BzHBHdiqKZ49znveVC
+   a/XzjliS8a0lzODEXZk32XoNpJaVgw6NxKihKyZdVVESua+SM2eOOHMo9
+   P9tUp2qWvXyVBCM7AFXgGbN2/8Vuo9ZCH2V2pUzee3i8g6AgX3s+OSXu7
+   HuMyRDXj78WzfH2CEKwO+5vvagu9AjbjUvFWiBZJh9AfYKmIz1g+hMZ5L
+   7rXllncBj/NLeiUAsh9ij/7FlMiPoyQ7y+sp3b16O9PBtLdfcpUzn0EwJ
+   Q==;
+X-CSE-ConnectionGUID: p+JQDVbURuCMEZdhd5CCMQ==
+X-CSE-MsgGUID: h/mUdpj5TgmDdOgPSpTL6w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11352"; a="41105526"
+X-IronPort-AV: E=Sophos;i="6.13,305,1732608000"; 
+   d="scan'208";a="41105526"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Feb 2025 06:13:23 -0800
+X-CSE-ConnectionGUID: kuWEpc3JQdWW113ZADD5WQ==
+X-CSE-MsgGUID: r9mxKPfoREW6/MVEd3c6sQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,305,1732608000"; 
+   d="scan'208";a="115099483"
+Received: from turnipsi.fi.intel.com (HELO kekkonen.fi.intel.com) ([10.237.72.44])
+  by orviesa009-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Feb 2025 06:13:16 -0800
+Received: from kekkonen.localdomain (localhost [127.0.0.1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id E5D12120289;
+	Fri, 21 Feb 2025 16:13:13 +0200 (EET)
+Date: Fri, 21 Feb 2025 14:13:13 +0000
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: Michael Riesch <michael.riesch@wolfvision.net>
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	Gerald Loacker <gerald.loacker@wolfvision.net>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Sebastian Fricke <sebastian.fricke@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	Alexander Shiyan <eagle.alexander923@gmail.com>,
+	Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v4 04/11] media: dt-bindings: media: add bindings for
+ rockchip mipi csi host
+Message-ID: <Z7iJ-UaLabqK4ZhY@kekkonen.localdomain>
+References: <20250219-v6-8-topic-rk3568-vicap-v4-0-e906600ae3b0@wolfvision.net>
+ <20250219-v6-8-topic-rk3568-vicap-v4-4-e906600ae3b0@wolfvision.net>
 MIME-Version: 1.0
-References: <20241217100809.3962439-1-jens.wiklander@linaro.org>
- <20250212205613.4400a888@collabora.com> <CAFA6WYOaGEPj0xNEDBCoEmjJreEHChjQ2hyXRJ_CYoGhiBonfw@mail.gmail.com>
- <20250213093557.278f5d19@collabora.com> <CAFA6WYOJkSRsH-15QdqXNMd08Q=Dg4NkRd1Cr9LXA+5nozTF6g@mail.gmail.com>
- <20250213134008.4cbef142@collabora.com> <CAPj87rM5Y=-Jgf4mwukicF6Yb-vccn2fpG2X1jNq0upH2+cAEQ@mail.gmail.com>
- <CAHUa44G9hw-z6wzxg=HkVAxPKEW1yES5JTEqRWMvJUJAtcUDkQ@mail.gmail.com>
- <CAPj87rPHnME5Osgnf5-FSAu22mDpLj=dzvhi_NqEcOwr1ThgGw@mail.gmail.com>
- <CAHUa44Gs0D1fBD0=+EDgcQUMeDv4knci9trUkYEc1J98qFV7HQ@mail.gmail.com>
- <CAFA6WYOuTwRPEh3L7+hMyARB_E73xmp+OwhKyS-r4+ryS7=9sw@mail.gmail.com>
- <20250214164856.0d2ead8a@collabora.com> <CAFA6WYPc6EHQwcPuMZRm4C1P6SoDrCzEPUmju_meupB6NXQ1sg@mail.gmail.com>
- <CAPj87rN-OYTzh5=Gdv619UQD5=x=U6Yt=uV4N1kCs4Zao4RVAg@mail.gmail.com> <CAFA6WYMLLLSuz3y5J+DuRFAGrmwpZoWax5sasfAUhXoQXmrNNA@mail.gmail.com>
-In-Reply-To: <CAFA6WYMLLLSuz3y5J+DuRFAGrmwpZoWax5sasfAUhXoQXmrNNA@mail.gmail.com>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Fri, 21 Feb 2025 14:12:07 +0000
-X-Gm-Features: AWEUYZmP2uYJ9getqaxkEL4eegweLIaIcbeabrpYDd9o5HHeksDQJ2ryFyndM6w
-Message-ID: <CAPj87rN7J6u9NsviAdw8=OenEYc8t719Lds6u6-BhFKrtkLZ-A@mail.gmail.com>
-Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
-To: Sumit Garg <sumit.garg@linaro.org>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>, 
-	Jens Wiklander <jens.wiklander@linaro.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	Linux Media Mailing List <linux-media@vger.kernel.org>, dri-devel <dri-devel@lists.freedesktop.org>, 
-	"moderated list:DMA BUFFER SHARING FRAMEWORK" <linaro-mm-sig@lists.linaro.org>, op-tee@lists.trustedfirmware.org, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Florent Tomasin <florent.tomasin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250219-v6-8-topic-rk3568-vicap-v4-4-e906600ae3b0@wolfvision.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_061221_246550_5C73A0F4 
-X-CRM114-Status: GOOD (  39.42  )
+X-CRM114-CacheID: sfid-20250221_061323_738705_4F8D1196 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,133 +108,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sumit,
+Hi Michael,
 
-On Fri, 21 Feb 2025 at 11:24, Sumit Garg <sumit.garg@linaro.org> wrote:
-> On Tue, 18 Feb 2025 at 21:52, Daniel Stone <daniel@fooishbar.org> wrote:
-> > dma-heaps was created to solve the problem of having too many
-> > 'allocate $n bytes from $specialplace' uAPIs. The proliferation was
-> > painful and making it difficult for userspace to do what it needed to
-> > do. Userspace doesn't _yet_ make full use of it, but the solution is
-> > to make userspace make full use of it, not to go create entirely
-> > separate allocation paths for unclear reasons.
-> >
-> > Besides, I'm writing this from a platform that implements SVP not via
-> > TEE. I've worked on platforms which implement SVP without any TEE,
-> > where the TEE implementation would be at best a no-op stub, and at
-> > worst flat-out impossible.
->
-> Can you elaborate the non-TEE use-case for Secure Video Path (SVP) a
-> bit more? As to how the protected/encrypted media content pipeline
-> works? Which architecture support does your use-case require? Is there
-> any higher privileged level firmware interaction required to perform
-> media content decryption into restricted memory? Do you plan to
-> upstream corresponding support in near future?
+On Wed, Feb 19, 2025 at 11:16:35AM +0100, Michael Riesch wrote:
+> Add documentation for the Rockchip RK3568 MIPI CSI-2 Host unit.
+> 
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> ---
+>  .../bindings/media/rockchip,rk3568-mipi-csi.yaml   | 123 +++++++++++++++++++++
+>  MAINTAINERS                                        |   1 +
+>  2 files changed, 124 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+> new file mode 100644
+> index 000000000000..288941686e96
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+> @@ -0,0 +1,123 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/media/rockchip,rk3568-mipi-csi.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Rockchip RK3568 MIPI CSI-2 Host
+> +
+> +maintainers:
+> +  - Michael Riesch <michael.riesch@wolfvision.net>
+> +
+> +description:
+> +  The Rockchip RK3568 MIPI CSI-2 Host is a CSI-2 bridge with one input port
+> +  and one output port. It receives the data with the help of an external
+> +  MIPI PHY (C-PHY or D-PHY) and passes it to the Rockchip RK3568 Video Capture
+> +  (VICAP) block.
+> +
+> +properties:
+> +  compatible:
+> +    const: rockchip,rk3568-mipi-csi
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  phys:
+> +    maxItems: 1
+> +    description: MIPI C-PHY or D-PHY.
+> +
+> +  phy-names:
+> +    items:
+> +      - const: csiphy
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  ports:
+> +    $ref: /schemas/graph.yaml#/properties/ports
+> +
+> +    properties:
+> +      port@0:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description:
+> +          Input port node. Connect to e.g., a MIPI CSI-2 image sensor.
+> +
+> +        properties:
+> +          endpoint:
+> +            $ref: video-interfaces.yaml#
+> +            unevaluatedProperties: false
+> +
+> +            properties:
+> +              bus-type:
+> +                enum: [1, 4]
+> +
+> +            required:
+> +              - bus-type
+> +
+> +      port@1:
+> +        $ref: /schemas/graph.yaml#/$defs/port-base
+> +        unevaluatedProperties: false
+> +        description:
+> +          Output port node. Connect to RK3568 VICAP MIPI CSI-2 port.
 
-You can see the MTK SVP patches on list which use the MTK SMC to mediate it.
+What's the purpose of a port node without an endpoint?
 
-There are TI Jacinto platforms which implement a 'secure' area
-configured statically by (IIRC) BL2, with static permissions defined
-for each AXI endpoint, e.g. CPU write + codec RW + dispc read. I've
-heard of another SoC vendor doing the same, but I don't think I can
-share those details. There is no TEE interaction.
+> +
+> +    required:
+> +      - port@0
+> +      - port@1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - phys
+> +  - phy-names
+> +  - ports
+> +  - power-domains
+> +  - resets
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/rk3568-cru.h>
+> +    #include <dt-bindings/power/rk3568-power.h>
+> +
+> +    parent {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        csi: csi@fdfb0000 {
+> +            compatible = "rockchip,rk3568-mipi-csi";
+> +            reg = <0x0 0xfdfb0000 0x0 0x10000>;
+> +            clocks = <&cru PCLK_CSI2HOST1>;
+> +            phys = <&csi_dphy>;
+> +            phy-names = "csiphy";
+> +            power-domains = <&power RK3568_PD_VI>;
+> +            resets = <&cru SRST_P_CSI2HOST1>;
+> +            status = "disabled";
+> +
+> +            ports {
+> +                #address-cells = <1>;
+> +                #size-cells = <0>;
+> +
+> +                csi_in: port@0 {
+> +                    reg = <0>;
+> +                };
+> +
+> +                csi_out: port@1 {
+> +                    reg = <1>;
+> +
+> +                    csi_output: endpoint {
+> +                        remote-endpoint = <&vicap_mipi_input>;
+> +                    };
+> +                };
+> +            };
+> +        };
+> +    };
+> +...
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index cd8fa1afe5eb..d83a7762dbe3 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -20407,6 +20407,7 @@ M:	Michael Riesch <michael.riesch@wolfvision.net>
+>  L:	linux-media@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
+> +F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+>  F:	Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
+>  
+>  ROCKCHIP CRYPTO DRIVERS
+> 
 
-I'm writing this message from an AMD laptop which implements
-restricted content paths outside of TEE. I don't have the full picture
-of how SVP is implemented on AMD systems, but I do know that I don't
-have any TEE devices exposed.
+-- 
+Kind regards,
 
-> Let me try to elaborate on the Secure Video Path (SVP) flow requiring
-> a TEE implementation (in general terms a higher privileged firmware
-> managing the pipeline as the kernel/user-space has no access
-> permissions to the plain text media content):
->
-> - [...]
-
-Yeah, I totally understand the TEE usecase. I think that TEE is a good
-design to implement this. I think that TEE should be used for SVP
-where it makes sense.
-
-Please understand that I am _not_ arguing that no-one should use TEE for SVP!
-
-> > So, again, let's
-> > please turn this around: _why_ TEE? Who benefits from exposing this as
-> > completely separate to the more generic uAPI that we specifically
-> > designed to handle things like this?
->
-> The bridging between DMA heaps and TEE would still require user-space
-> to perform an IOCTL into TEE to register the DMA-bufs as you can see
-> here [1]. Then it will rather be two handles for user-space to manage.
-
-Yes, the decoder would need to do this. That's common though: if you
-want to share a buffer between V4L2 and DRM, you have three handles:
-the V4L2 buffer handle, the DRM GEM handle, and the dmabuf you use to
-bridge the two.
-
-> Similarly during restricted memory allocation/free we need another
-> glue layer under DMA heaps to TEE subsystem.
-
-Yep.
-
-> The reason is simply which has been iterated over many times in the
-> past threads that:
->
->     "If user-space has to interact with a TEE device for SVP use-case
-> then why it's not better to ask TEE to allocate restricted DMA-bufs
-> too"
-
-The first word in your proposition is load-bearing.
-
-Build out the usecase a little more here. You have a DRMed video
-stream coming in, which you need to decode (involving TEE for this
-usecase). You get a dmabuf handle to the decoded frame. You need to
-pass the dmabuf across to the Wayland compositor. The compositor needs
-to pass it to EGL/Vulkan to import and do composition, which in turn
-passes it to the GPU DRM driver. The output of the composition is in
-turn shared between the GPU DRM driver and the separate KMS DRM
-driver, with the involvement of GBM.
-
-For the platforms I'm interested in, the GPU DRM driver needs to
-switch into protected mode, which has no involvement at all with TEE -
-it's architecturally impossible to have TEE involved without moving
-most of the GPU driver into TEE and destroying performance. The
-display hardware also needs to engage protected mode, which again has
-no involvement with TEE and again would need to have half the driver
-moved into TEE for no benefit in order to do so. The Wayland
-compositor also has no interest in TEE: it tells the GPU DRM driver
-about the protected status of its buffers, and that's it.
-
-What these components _are_ opinionated about, is the way buffers are
-allocated and managed. We built out dmabuf modifiers for this usecase,
-and we have a good negotiation protocol around that. We also really
-care about buffer placement in some usecases - e.g. some display/codec
-hardware requires buffers to be sourced from contiguous memory, other
-hardware needs to know that when it shares buffers with another
-device, it needs to place the buffers outside of inaccessible/slow
-local RAM. So we built out dma-heaps, so every part of the component
-in the stack can communicate their buffer-placement needs in the same
-way as we do modifiers, and negotiate an acceptable allocation.
-
-That's my starting point for this discussion. We have a mechanism to
-deal with the fact that buffers need to be shared between different IP
-blocks which have their own constraints on buffer placement, avoiding
-the current problem of having every subsystem reinvent their own
-allocation uAPI which was burying us in impedance mismatch and
-confusion. That mechanism is dma-heaps. It seems like your starting
-point from this discussion is that you've implemented a TEE-centric
-design for SVP, and so all of userspace should bypass our existing
-cross-subsystem special-purpose allocation mechanism, and write
-specifically to one implementation. I believe that is a massive step
-backwards and an immediate introduction of technical debt.
-
-Again, having an implementation of SVP via TEE makes a huge amount of
-sense. Having _most_ SVP implementations via TEE still makes a lot of
-sense. Having _all_ SVP implementations eventually be via TEE would
-still make sense. But even if we were at that point - which we aren't
-- it still doesn't justify telling userspace 'use the generic dma-heap
-uAPI for every device-specific allocation constraint, apart from SVP
-which has a completely different way to allocate some bytes'.
-
-Cheers,
-Daniel
+Sakari Ailus
 
