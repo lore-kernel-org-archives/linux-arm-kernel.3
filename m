@@ -4,91 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A2DC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 15:38:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F38C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 15:41:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IKVfdDWCWpSVN98ZViqpeKFA1hwhLKeuW6yriFxlsAY=; b=weJ+NSwz4RfI8Y4gNi8yvQ8BLu
-	wLsjXONh6e+RhzYTPVGCStNjH8CT3GpvNr3cEaLGDLXorNx0dnIqsU1Cv444HZpVHoj2T5yHXlRTL
-	5kJrel1b6ZAt4mWRd9ibx383HACdJmn2tKLMgRjuJpCT4EYlqG8I3fbgl9FVrcUAJcLjmMSeaKsLc
-	+OTvQN0i9bNQxj91PYXecaDjAmq74ydbGTVWC1usgx4bu/iDcyqkc4FezdAZeNluUE+EzLcbs//Vv
-	N7HFMjsC1zxfhRWq89dRe8u7BsGH7IM6aqjHRDArTxDZ/lAHmBHD3XryBB3OXUj7LxGIowtUZy+l2
-	SsGhACVw==;
+	bh=AndRJg1+8PcfJz3sXNjISV1K/rGt2Ok3CKSuhEUVn6Q=; b=zd3GgbsrkJzuVSOQ5enNzTwDWh
+	nmCvv9RC05rs7Xz24HUlK4VwYDICk5onbwR1kk2gL9Xj7TiT0PAw7xao9/F7GRhOzBS/8SX2wWomB
+	nx0LZE+c1BMqJx3T1esGe4C/Whg3bQpmaaMruRDHhwgubcOUfPaWYM9UHuGp+MJqqkLJgbG2gnuBV
+	yVhnUutNjCkg3Zq2PMxAg39e64DvqJdLzk4x4tXqGOGLguaEuzWWEIh84343bCQtj2ONzClMbiNDi
+	HZhSzqDVQw4Qq8fDdIBpI/bzxvkaXv1yehJH3Gj71VbB7nZAXFWV4WtVg3hUba1mx79NKlLjZSwKL
+	KL7T0vhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlV6j-000000060Q5-3SVl;
-	Fri, 21 Feb 2025 15:38:29 +0000
-Received: from mail-vk1-xa35.google.com ([2607:f8b0:4864:20::a35])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlV5F-00000006078-0dbr;
-	Fri, 21 Feb 2025 15:36:58 +0000
-Received: by mail-vk1-xa35.google.com with SMTP id 71dfb90a1353d-520aede8ae3so662350e0c.0;
-        Fri, 21 Feb 2025 07:36:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740152215; x=1740757015; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IKVfdDWCWpSVN98ZViqpeKFA1hwhLKeuW6yriFxlsAY=;
-        b=A0mM/wUc7E6e64uRWNoh2EJHKSMDZeHBUJxWBdEJFd9z7UiSHYp5GyFPqyQv0B/i3q
-         uwUqPIDckHDVydkCocF81sjS6H59rc6k+/qevqPmUaX6NJslcmpGhh9WlgRxscAzBXY0
-         IAT/jwPfZO9W0stEAAO+qZZGR2woCcr4Bh9GHi7E1gFdmMwnk9zjJdlswBAXCQ03+yRx
-         Yhip9wo2GaBJAgndYLPf6vy3xKQDw90bHZNsoS4uag2BOc71jhHX+6k7xWnK9ixusuOl
-         oujRGvn5JEeveAJZObGtCfAoQAPoNOZgY2tFc3OeHXwY+FDFVQxzBtGHEmxUCYZf5iAE
-         OeWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740152215; x=1740757015;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IKVfdDWCWpSVN98ZViqpeKFA1hwhLKeuW6yriFxlsAY=;
-        b=H6kL5jf6s807Mss0pAIaGuz0sW+Q+EdN6Aopyc6zgTvKnP6e/v8XwFLxr3sjwrQhAy
-         unPTxvvm46oD1RdwNtfxB0+4JRDcnjssIHLuOA3hnb89jIVRyVKebU1AUq8pX2wJnvZu
-         vN50cnrkvLOGY84iQXSKfdoYfBDzZfkH2qpb40v//woUJQSnnta/OcNz0MQX63IdajKF
-         47+OamawdXf104PfB/wMGdGXroEgkZcFSTq0U4947zyQptuoqDxNZADuLssR6fBXI+uI
-         aldYZOgezmT4mWIR1IplL3ehzYqFtVkL40kkA9b0y2BFmjFZ6uavxVbgiUo3buxJc+MI
-         YkCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU6EQ5fN6gtKFcd1Gboo+i7SuRAz0+wEEBk0Caz9vkAIhSbwRB8nZ233DUZTcGqyocO9yIfJ5yrrn0ENt1IdR1M@lists.infradead.org, AJvYcCXsS2d7rjboTx5qTSVY43S87snICD2UtzQLmGqzzjzk/l7iq9UIFrUL0HDn/0kL9oyuL4z1q5nU/u3p3YwIKHkifA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzN2YPqdl6FZuRyuSxKijQR8F8impa75kKSQ4fLWUVdHH7h2GB8
-	Zi0la7xadgUSvtPQ+l6NrBIC+SVkBRzi8E8JytE3yN8uDua/XLqhL3lWydM9m7NljOpyeXUZnA3
-	qMlBf7KQgQ0KYnlfao0igvgHguws=
-X-Gm-Gg: ASbGnct2CblK1zW18gnHxEqKdSys5DEPhBaYBC2zzm2v8Wojizd0WDAXZliMEGlf5/4
-	NfqCz4MsusMO1QqOijSYX96ggfg/1qM8JadWhjFgF+XUIQ3QJCdQ6K2z2upeV3HXNVj2eo5WHhx
-	weTit+O/t5
-X-Google-Smtp-Source: AGHT+IGULYiG+SFcnDn3kW+A4QVrxmiMwLRoDveCDDtF/IAQxExxxRnf1A+x3EuYtJ8YlDz/oaMmX8PsVQUcflMNBEI=
-X-Received: by 2002:a05:6122:ec3:b0:518:6286:87a4 with SMTP id
- 71dfb90a1353d-521ee253c9dmr2584836e0c.4.1740152215442; Fri, 21 Feb 2025
- 07:36:55 -0800 (PST)
+	id 1tlV9X-000000060wr-1iAb;
+	Fri, 21 Feb 2025 15:41:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlV83-000000060iP-31VO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Feb 2025 15:39:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9FD4C168F;
+	Fri, 21 Feb 2025 07:40:08 -0800 (PST)
+Received: from [10.57.36.60] (unknown [10.57.36.60])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 381703F59E;
+	Fri, 21 Feb 2025 07:39:47 -0800 (PST)
+Message-ID: <5b9e15e1-8081-46ef-b9db-3872e98a6f35@arm.com>
+Date: Fri, 21 Feb 2025 15:39:45 +0000
 MIME-Version: 1.0
-References: <20250120130119.671119-1-svarbanov@suse.de> <20250120130119.671119-5-svarbanov@suse.de>
- <CANCKTBsm6o9yaSenj-wft+n0uX-HNRjpJjkZaQcn4t474fXtow@mail.gmail.com>
-In-Reply-To: <CANCKTBsm6o9yaSenj-wft+n0uX-HNRjpJjkZaQcn4t474fXtow@mail.gmail.com>
-From: Jim Quinlan <jim2101024@gmail.com>
-Date: Fri, 21 Feb 2025 10:36:44 -0500
-X-Gm-Features: AWEUYZnuDltcLE3YhHUG-c34IxQo-M0R56q9qwlO9Ca-s2cx58AqO_sDEtfBnbs
-Message-ID: <CANCKTBuMOk9ASfPydcKHQgaQF4p7m7ryYezcLPdBEM2ao3LY3g@mail.gmail.com>
-Subject: Re: [PATCH v5 -next 04/11] PCI: brcmstb: Reuse config structure
-To: Stanimir Varbanov <svarbanov@suse.de>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-pci@vger.kernel.org, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Nicolas Saenz Julienne <nsaenz@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Andrea della Porta <andrea.porta@suse.com>, 
-	Phil Elwell <phil@raspberrypi.com>, Jonathan Bell <jonathan@raspberrypi.com>, 
-	Dave Stevenson <dave.stevenson@raspberrypi.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/7] iommu: Make iommu_dma_prepare_msi() into a generic
+ operation
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com,
+ tglx@linutronix.de, maz@kernel.org
+Cc: joro@8bytes.org, will@kernel.org, shuah@kernel.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
+ eric.auger@redhat.com, baolu.lu@linux.intel.com, yi.l.liu@intel.com,
+ yury.norov@gmail.com, jacob.pan@linux.microsoft.com, patches@lists.linux.dev
+References: <cover.1740014950.git.nicolinc@nvidia.com>
+ <4ca696150d2baee03af27c4ddefdb7b0b0280e7b.1740014950.git.nicolinc@nvidia.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <4ca696150d2baee03af27c4ddefdb7b0b0280e7b.1740014950.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_073657_196464_F9CACCEF 
-X-CRM114-Status: GOOD (  27.99  )
+X-CRM114-CacheID: sfid-20250221_073951_855530_BCB79804 
+X-CRM114-Status: GOOD (  37.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,319 +70,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 31, 2025 at 11:10=E2=80=AFAM Jim Quinlan <jim2101024@gmail.com>=
- wrote:
->
-> On Mon, Jan 20, 2025 at 8:01=E2=80=AFAM Stanimir Varbanov <svarbanov@suse=
-.de> wrote:
-> >
-> > Instead of copying fields from pcie_cfg_data structure to
-> > brcm_pcie reference it directly.
-> >
-> > Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-> > Reviewed-by: Florian Fainelil <florian.fainelli@broadcom.com>
-> > ---
-> > v4 -> v5:
-> >  - No changes.
-> >
-> >  drivers/pci/controller/pcie-brcmstb.c | 70 ++++++++++++---------------
-> >  1 file changed, 31 insertions(+), 39 deletions(-)
-> >
-> > diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/contro=
-ller/pcie-brcmstb.c
-> > index e733a27dc8df..48b2747d8c98 100644
-> > --- a/drivers/pci/controller/pcie-brcmstb.c
-> > +++ b/drivers/pci/controller/pcie-brcmstb.c
-> > @@ -191,11 +191,11 @@
-> >  #define SSC_STATUS_PLL_LOCK_MASK       0x800
-> >  #define PCIE_BRCM_MAX_MEMC             3
-> >
-> > -#define IDX_ADDR(pcie)                 ((pcie)->reg_offsets[EXT_CFG_IN=
-DEX])
-> > -#define DATA_ADDR(pcie)                        ((pcie)->reg_offsets[EX=
-T_CFG_DATA])
-> > -#define PCIE_RGR1_SW_INIT_1(pcie)      ((pcie)->reg_offsets[RGR1_SW_IN=
-IT_1])
-> > -#define HARD_DEBUG(pcie)               ((pcie)->reg_offsets[PCIE_HARD_=
-DEBUG])
-> > -#define INTR2_CPU_BASE(pcie)           ((pcie)->reg_offsets[PCIE_INTR2=
-_CPU_BASE])
-> > +#define IDX_ADDR(pcie)                 ((pcie)->cfg->offsets[EXT_CFG_I=
-NDEX])
-> > +#define DATA_ADDR(pcie)                        ((pcie)->cfg->offsets[E=
-XT_CFG_DATA])
-> > +#define PCIE_RGR1_SW_INIT_1(pcie)      ((pcie)->cfg->offsets[RGR1_SW_I=
-NIT_1])
-> > +#define HARD_DEBUG(pcie)               ((pcie)->cfg->offsets[PCIE_HARD=
-_DEBUG])
-> > +#define INTR2_CPU_BASE(pcie)           ((pcie)->cfg->offsets[PCIE_INTR=
-2_CPU_BASE])
-> >
-> >  /* Rescal registers */
-> >  #define PCIE_DVT_PMU_PCIE_PHY_CTRL                             0xc700
-> > @@ -276,8 +276,6 @@ struct brcm_pcie {
-> >         int                     gen;
-> >         u64                     msi_target_addr;
-> >         struct brcm_msi         *msi;
-> > -       const int               *reg_offsets;
-> > -       enum pcie_soc_base      soc_base;
-> >         struct reset_control    *rescal;
-> >         struct reset_control    *perst_reset;
-> >         struct reset_control    *bridge_reset;
-> > @@ -285,17 +283,14 @@ struct brcm_pcie {
-> >         int                     num_memc;
-> >         u64                     memc_size[PCIE_BRCM_MAX_MEMC];
-> >         u32                     hw_rev;
-> > -       int                     (*perst_set)(struct brcm_pcie *pcie, u3=
-2 val);
-> > -       int                     (*bridge_sw_init_set)(struct brcm_pcie =
-*pcie, u32 val);
-> >         struct subdev_regulators *sr;
-> >         bool                    ep_wakeup_capable;
-> > -       bool                    has_phy;
-> > -       u8                      num_inbound_wins;
-> > +       const struct pcie_cfg_data      *cfg;
-> >  };
-> >
-> >  static inline bool is_bmips(const struct brcm_pcie *pcie)
-> >  {
-> > -       return pcie->soc_base =3D=3D BCM7435 || pcie->soc_base =3D=3D B=
-CM7425;
-> > +       return pcie->cfg->soc_base =3D=3D BCM7435 || pcie->cfg->soc_bas=
-e =3D=3D BCM7425;
-> >  }
-> >
-> >  /*
-> > @@ -855,7 +850,7 @@ static int brcm_pcie_get_inbound_wins(struct brcm_p=
-cie *pcie,
-> >          * security considerations, and is not implemented in our moder=
-n
-> >          * SoCs.
-> >          */
-> > -       if (pcie->soc_base !=3D BCM7712)
-> > +       if (pcie->cfg->soc_base !=3D BCM7712)
-> >                 add_inbound_win(b++, &n, 0, 0, 0);
-> >
-> >         resource_list_for_each_entry(entry, &bridge->dma_ranges) {
-> > @@ -872,10 +867,10 @@ static int brcm_pcie_get_inbound_wins(struct brcm=
-_pcie *pcie,
-> >                  * That being said, each BARs size must still be a powe=
-r of
-> >                  * two.
-> >                  */
-> > -               if (pcie->soc_base =3D=3D BCM7712)
-> > +               if (pcie->cfg->soc_base =3D=3D BCM7712)
-> >                         add_inbound_win(b++, &n, size, cpu_start, pcie_=
-start);
-> >
-> > -               if (n > pcie->num_inbound_wins)
-> > +               if (n > pcie->cfg->num_inbound_wins)
-> >                         break;
-> >         }
-> >
-> > @@ -889,7 +884,7 @@ static int brcm_pcie_get_inbound_wins(struct brcm_p=
-cie *pcie,
-> >          * that enables multiple memory controllers.  As such, it can r=
-eturn
-> >          * now w/o doing special configuration.
-> >          */
-> > -       if (pcie->soc_base =3D=3D BCM7712)
-> > +       if (pcie->cfg->soc_base =3D=3D BCM7712)
-> >                 return n;
-> >
-> >         ret =3D of_property_read_variable_u64_array(pcie->np, "brcm,scb=
--sizes", pcie->memc_size, 1,
-> > @@ -1012,7 +1007,7 @@ static void set_inbound_win_registers(struct brcm=
-_pcie *pcie,
-> >                  * 7712:
-> >                  *     All of their BARs need to be set.
-> >                  */
-> > -               if (pcie->soc_base =3D=3D BCM7712) {
-> > +               if (pcie->cfg->soc_base =3D=3D BCM7712) {
-> >                         /* BUS remap register settings */
-> >                         reg_offset =3D brcm_ubus_reg_offset(i);
-> >                         tmp =3D lower_32_bits(cpu_addr) & ~0xfff;
-> > @@ -1036,15 +1031,15 @@ static int brcm_pcie_setup(struct brcm_pcie *pc=
-ie)
-> >         int memc, ret;
-> >
-> >         /* Reset the bridge */
-> > -       ret =3D pcie->bridge_sw_init_set(pcie, 1);
-> > +       ret =3D pcie->cfg->bridge_sw_init_set(pcie, 1);
-> >         if (ret)
-> >                 return ret;
-> >
-> >         /* Ensure that PERST# is asserted; some bootloaders may deasser=
-t it. */
-> > -       if (pcie->soc_base =3D=3D BCM2711) {
-> > -               ret =3D pcie->perst_set(pcie, 1);
-> > +       if (pcie->cfg->soc_base =3D=3D BCM2711) {
-> > +               ret =3D pcie->cfg->perst_set(pcie, 1);
-> >                 if (ret) {
-> > -                       pcie->bridge_sw_init_set(pcie, 0);
-> > +                       pcie->cfg->bridge_sw_init_set(pcie, 0);
-> >                         return ret;
-> >                 }
-> >         }
-> > @@ -1052,7 +1047,7 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie=
-)
-> >         usleep_range(100, 200);
-> >
-> >         /* Take the bridge out of reset */
-> > -       ret =3D pcie->bridge_sw_init_set(pcie, 0);
-> > +       ret =3D pcie->cfg->bridge_sw_init_set(pcie, 0);
-> >         if (ret)
-> >                 return ret;
-> >
-> > @@ -1072,9 +1067,9 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie=
-)
-> >          */
-> >         if (is_bmips(pcie))
-> >                 burst =3D 0x1; /* 256 bytes */
-> > -       else if (pcie->soc_base =3D=3D BCM2711)
-> > +       else if (pcie->cfg->soc_base =3D=3D BCM2711)
-> >                 burst =3D 0x0; /* 128 bytes */
-> > -       else if (pcie->soc_base =3D=3D BCM7278)
-> > +       else if (pcie->cfg->soc_base =3D=3D BCM7278)
-> >                 burst =3D 0x3; /* 512 bytes */
-> >         else
-> >                 burst =3D 0x2; /* 512 bytes */
-> > @@ -1199,7 +1194,7 @@ static void brcm_extend_rbus_timeout(struct brcm_=
-pcie *pcie)
-> >         u32 timeout_us =3D 4000000; /* 4 seconds, our setting for L1SS =
-*/
-> >
-> >         /* 7712 does not have this (RGR1) timer */
-> > -       if (pcie->soc_base =3D=3D BCM7712)
-> > +       if (pcie->cfg->soc_base =3D=3D BCM7712)
-> >                 return;
-> >
-> >         /* Each unit in timeout register is 1/216,000,000 seconds */
-> > @@ -1277,7 +1272,7 @@ static int brcm_pcie_start_link(struct brcm_pcie =
-*pcie)
-> >         int ret, i;
-> >
-> >         /* Unassert the fundamental reset */
-> > -       ret =3D pcie->perst_set(pcie, 0);
-> > +       ret =3D pcie->cfg->perst_set(pcie, 0);
-> >         if (ret)
-> >                 return ret;
-> >
-> > @@ -1463,12 +1458,12 @@ static int brcm_phy_cntl(struct brcm_pcie *pcie=
-, const int start)
-> >
-> >  static inline int brcm_phy_start(struct brcm_pcie *pcie)
-> >  {
-> > -       return pcie->has_phy ? brcm_phy_cntl(pcie, 1) : 0;
-> > +       return pcie->cfg->has_phy ? brcm_phy_cntl(pcie, 1) : 0;
-> >  }
-> >
-> >  static inline int brcm_phy_stop(struct brcm_pcie *pcie)
-> >  {
-> > -       return pcie->has_phy ? brcm_phy_cntl(pcie, 0) : 0;
-> > +       return pcie->cfg->has_phy ? brcm_phy_cntl(pcie, 0) : 0;
-> >  }
-> >
-> >  static int brcm_pcie_turn_off(struct brcm_pcie *pcie)
-> > @@ -1479,7 +1474,7 @@ static int brcm_pcie_turn_off(struct brcm_pcie *p=
-cie)
-> >         if (brcm_pcie_link_up(pcie))
-> >                 brcm_pcie_enter_l23(pcie);
-> >         /* Assert fundamental reset */
-> > -       ret =3D pcie->perst_set(pcie, 1);
-> > +       ret =3D pcie->cfg->perst_set(pcie, 1);
-> >         if (ret)
-> >                 return ret;
-> >
-> > @@ -1582,7 +1577,7 @@ static int brcm_pcie_resume_noirq(struct device *=
-dev)
-> >                 goto err_reset;
-> >
-> >         /* Take bridge out of reset so we can access the SERDES reg */
-> > -       pcie->bridge_sw_init_set(pcie, 0);
-> > +       pcie->cfg->bridge_sw_init_set(pcie, 0);
-> >
-> >         /* SERDES_IDDQ =3D 0 */
-> >         tmp =3D readl(base + HARD_DEBUG(pcie));
-> > @@ -1803,12 +1798,7 @@ static int brcm_pcie_probe(struct platform_devic=
-e *pdev)
-> >         pcie =3D pci_host_bridge_priv(bridge);
-> >         pcie->dev =3D &pdev->dev;
-> >         pcie->np =3D np;
-> > -       pcie->reg_offsets =3D data->offsets;
-> > -       pcie->soc_base =3D data->soc_base;
-> > -       pcie->perst_set =3D data->perst_set;
-> > -       pcie->bridge_sw_init_set =3D data->bridge_sw_init_set;
-> > -       pcie->has_phy =3D data->has_phy;
-> > -       pcie->num_inbound_wins =3D data->num_inbound_wins;
-> > +       pcie->cfg =3D data;
-> >
-> >         pcie->base =3D devm_platform_ioremap_resource(pdev, 0);
-> >         if (IS_ERR(pcie->base))
-> > @@ -1843,7 +1833,7 @@ static int brcm_pcie_probe(struct platform_device=
- *pdev)
-> >         if (ret)
-> >                 return dev_err_probe(&pdev->dev, ret, "could not enable=
- clock\n");
-> >
-> > -       pcie->bridge_sw_init_set(pcie, 0);
-> > +       pcie->cfg->bridge_sw_init_set(pcie, 0);
-> >
-> >         if (pcie->swinit_reset) {
-> >                 ret =3D reset_control_assert(pcie->swinit_reset);
-> > @@ -1882,7 +1872,8 @@ static int brcm_pcie_probe(struct platform_device=
- *pdev)
-> >                 goto fail;
-> >
-> >         pcie->hw_rev =3D readl(pcie->base + PCIE_MISC_REVISION);
-> > -       if (pcie->soc_base =3D=3D BCM4908 && pcie->hw_rev >=3D BRCM_PCI=
-E_HW_REV_3_20) {
-> > +       if (pcie->cfg->soc_base =3D=3D BCM4908 &&
-> > +           pcie->hw_rev >=3D BRCM_PCIE_HW_REV_3_20) {
-> >                 dev_err(pcie->dev, "hardware revision with unsupported =
-PERST# setup\n");
-> >                 ret =3D -ENODEV;
-> >                 goto fail;
-> > @@ -1897,7 +1888,8 @@ static int brcm_pcie_probe(struct platform_device=
- *pdev)
-> >                 }
-> >         }
-> >
-> > -       bridge->ops =3D pcie->soc_base =3D=3D BCM7425 ? &brcm7425_pcie_=
-ops : &brcm_pcie_ops;
-> > +       bridge->ops =3D pcie->cfg->soc_base =3D=3D BCM7425 ?
-> > +                               &brcm7425_pcie_ops : &brcm_pcie_ops;
-> >         bridge->sysdata =3D pcie;
-> >
-> >         platform_set_drvdata(pdev, pcie);
->
-> Reviewed-by: Jim Quinlan <james.quinlan@broadcom.com>
+On 2025-02-20 1:31 am, Nicolin Chen wrote:
+> From: Jason Gunthorpe <jgg@nvidia.com>
+> 
+> SW_MSI supports IOMMU to translate an MSI message before the MSI message
+> is delivered to the interrupt controller. On such systems, an iommu_domain
+> must have a translation for the MSI message for interrupts to work.
+> 
+> The IRQ subsystem will call into IOMMU to request that a physical page be
+> set up to receive MSI messages, and the IOMMU then sets an IOVA that maps
+> to that physical page. Ultimately the IOVA is programmed into the device
+> via the msi_msg.
+> 
+> Generalize this by allowing iommu_domain owners to provide implementations
+> of this mapping. Add a function pointer in struct iommu_domain to allow a
+> domain owner to provide its own implementation.
+> 
+> Have dma-iommu supply its implementation for IOMMU_DOMAIN_DMA types during
+> the iommu_get_dma_cookie() path. For IOMMU_DOMAIN_UNMANAGED types used by
+> VFIO (and iommufd for now), have the same iommu_dma_sw_msi set as well in
+> the iommu_get_msi_cookie() path.
+> 
+> Hold the group mutex while in iommu_dma_prepare_msi() to ensure the domain
+> doesn't change or become freed while running. Races with IRQ operations
+> from VFIO and domain changes from iommufd are possible here.
+> 
+> Replace the msi_prepare_lock with a lockdep assertion for the group mutex
+> as documentation. For the dmau_iommu.c each iommu_domain is unique to a
+> group.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>   include/linux/iommu.h     | 44 ++++++++++++++++++++++++++-------------
+>   drivers/iommu/dma-iommu.c | 33 +++++++++++++----------------
+>   drivers/iommu/iommu.c     | 29 ++++++++++++++++++++++++++
+>   3 files changed, 73 insertions(+), 33 deletions(-)
+> 
+> diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+> index caee952febd4..761c5e186de9 100644
+> --- a/include/linux/iommu.h
+> +++ b/include/linux/iommu.h
+> @@ -44,6 +44,8 @@ struct iommu_dma_cookie;
+>   struct iommu_fault_param;
+>   struct iommufd_ctx;
+>   struct iommufd_viommu;
+> +struct msi_desc;
+> +struct msi_msg;
+>   
+>   #define IOMMU_FAULT_PERM_READ	(1 << 0) /* read */
+>   #define IOMMU_FAULT_PERM_WRITE	(1 << 1) /* write */
+> @@ -216,6 +218,12 @@ struct iommu_domain {
+>   	struct iommu_domain_geometry geometry;
+>   	struct iommu_dma_cookie *iova_cookie;
+>   	int (*iopf_handler)(struct iopf_group *group);
+> +
+> +#if IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
+> +	int (*sw_msi)(struct iommu_domain *domain, struct msi_desc *desc,
+> +		      phys_addr_t msi_addr);
+> +#endif
+> +
+>   	void *fault_data;
+>   	union {
+>   		struct {
+> @@ -234,6 +242,16 @@ struct iommu_domain {
+>   	};
+>   };
+>   
+> +static inline void iommu_domain_set_sw_msi(
+> +	struct iommu_domain *domain,
+> +	int (*sw_msi)(struct iommu_domain *domain, struct msi_desc *desc,
+> +		      phys_addr_t msi_addr))
+> +{
+> +#if IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
+> +	domain->sw_msi = sw_msi;
+> +#endif
+> +}
 
-Hi Stan,
+Yuck. Realistically we are going to have no more than two different 
+implementations of this; a fiddly callback interface seems overkill. All 
+we should need in the domain is a simple indicator of *which* MSI 
+translation scheme is in use (if it can't be squeezed into the domain 
+type itself), then iommu_dma_prepare_msi() can simply dispatch between 
+iommu-dma and IOMMUFD based on that, and then it's easy to solve all the 
+other fragility issues too.
 
-Sorry for the late notice but I get a compilation error on this commit:
+Thanks,
+Robin.
 
-drivers/pci/controller/pcie-brcmstb.c: In function 'brcm_pcie_turn_off':
-drivers/pci/controller/pcie-brcmstb.c:1492:14: error: 'struct
-brcm_pcie' has no member named 'bridge_sw_init_set'; did you mean
-'bridge_reset'?
-  ret =3D pcie->bridge_sw_init_set(pcie, 1);
-              ^~~~~~~~~~~~~~~~~~
-              bridge_reset
-make[5]: *** [scripts/Makefile.build:194:
-drivers/pci/controller/pcie-brcmstb.o] Error 1
+> +
+>   static inline bool iommu_is_dma_domain(struct iommu_domain *domain)
+>   {
+>   	return domain->type & __IOMMU_DOMAIN_DMA_API;
+> @@ -1470,6 +1488,18 @@ static inline ioasid_t iommu_alloc_global_pasid(struct device *dev)
+>   static inline void iommu_free_global_pasid(ioasid_t pasid) {}
+>   #endif /* CONFIG_IOMMU_API */
+>   
+> +#ifdef CONFIG_IRQ_MSI_IOMMU
+> +#ifdef CONFIG_IOMMU_API
+> +int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr);
+> +#else
+> +static inline int iommu_dma_prepare_msi(struct msi_desc *desc,
+> +					phys_addr_t msi_addr)
+> +{
+> +	return 0;
+> +}
+> +#endif /* CONFIG_IOMMU_API */
+> +#endif /* CONFIG_IRQ_MSI_IOMMU */
+> +
+>   #if IS_ENABLED(CONFIG_LOCKDEP) && IS_ENABLED(CONFIG_IOMMU_API)
+>   void iommu_group_mutex_assert(struct device *dev);
+>   #else
+> @@ -1503,26 +1533,12 @@ static inline void iommu_debugfs_setup(void) {}
+>   #endif
+>   
+>   #ifdef CONFIG_IOMMU_DMA
+> -#include <linux/msi.h>
+> -
+>   int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base);
+> -
+> -int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr);
+> -
+>   #else /* CONFIG_IOMMU_DMA */
+> -
+> -struct msi_desc;
+> -struct msi_msg;
+> -
+>   static inline int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base)
+>   {
+>   	return -ENODEV;
+>   }
+> -
+> -static inline int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
+> -{
+> -	return 0;
+> -}
+>   #endif	/* CONFIG_IOMMU_DMA */
+>   
+>   /*
+> diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
+> index bf91e014d179..3b58244e6344 100644
+> --- a/drivers/iommu/dma-iommu.c
+> +++ b/drivers/iommu/dma-iommu.c
+> @@ -24,6 +24,7 @@
+>   #include <linux/memremap.h>
+>   #include <linux/mm.h>
+>   #include <linux/mutex.h>
+> +#include <linux/msi.h>
+>   #include <linux/of_iommu.h>
+>   #include <linux/pci.h>
+>   #include <linux/scatterlist.h>
+> @@ -102,6 +103,9 @@ static int __init iommu_dma_forcedac_setup(char *str)
+>   }
+>   early_param("iommu.forcedac", iommu_dma_forcedac_setup);
+>   
+> +static int iommu_dma_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+> +			    phys_addr_t msi_addr);
+> +
+>   /* Number of entries per flush queue */
+>   #define IOVA_DEFAULT_FQ_SIZE	256
+>   #define IOVA_SINGLE_FQ_SIZE	32768
+> @@ -398,6 +402,7 @@ int iommu_get_dma_cookie(struct iommu_domain *domain)
+>   		return -ENOMEM;
+>   
+>   	mutex_init(&domain->iova_cookie->mutex);
+> +	iommu_domain_set_sw_msi(domain, iommu_dma_sw_msi);
+>   	return 0;
+>   }
+>   
+> @@ -429,6 +434,7 @@ int iommu_get_msi_cookie(struct iommu_domain *domain, dma_addr_t base)
+>   
+>   	cookie->msi_iova = base;
+>   	domain->iova_cookie = cookie;
+> +	iommu_domain_set_sw_msi(domain, iommu_dma_sw_msi);
+>   	return 0;
+>   }
+>   EXPORT_SYMBOL(iommu_get_msi_cookie);
+> @@ -443,6 +449,9 @@ void iommu_put_dma_cookie(struct iommu_domain *domain)
+>   	struct iommu_dma_cookie *cookie = domain->iova_cookie;
+>   	struct iommu_dma_msi_page *msi, *tmp;
+>   
+> +	if (domain->sw_msi != iommu_dma_sw_msi)
+> +		return;
+> +
+>   	if (!cookie)
+>   		return;
+>   
+> @@ -1800,33 +1809,19 @@ static struct iommu_dma_msi_page *iommu_dma_get_msi_page(struct device *dev,
+>   	return NULL;
+>   }
+>   
+> -/**
+> - * iommu_dma_prepare_msi() - Map the MSI page in the IOMMU domain
+> - * @desc: MSI descriptor, will store the MSI page
+> - * @msi_addr: MSI target address to be mapped
+> - *
+> - * Return: 0 on success or negative error code if the mapping failed.
+> - */
+> -int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
+> +static int iommu_dma_sw_msi(struct iommu_domain *domain, struct msi_desc *desc,
+> +			    phys_addr_t msi_addr)
+>   {
+>   	struct device *dev = msi_desc_to_dev(desc);
+> -	struct iommu_domain *domain = iommu_get_domain_for_dev(dev);
+> -	struct iommu_dma_msi_page *msi_page;
+> -	static DEFINE_MUTEX(msi_prepare_lock); /* see below */
+> +	const struct iommu_dma_msi_page *msi_page;
+>   
+> -	if (!domain || !domain->iova_cookie) {
+> +	if (!domain->iova_cookie) {
+>   		msi_desc_set_iommu_msi_iova(desc, 0, 0);
+>   		return 0;
+>   	}
+>   
+> -	/*
+> -	 * In fact the whole prepare operation should already be serialised by
+> -	 * irq_domain_mutex further up the callchain, but that's pretty subtle
+> -	 * on its own, so consider this locking as failsafe documentation...
+> -	 */
+> -	mutex_lock(&msi_prepare_lock);
+> +	iommu_group_mutex_assert(dev);
+>   	msi_page = iommu_dma_get_msi_page(dev, msi_addr, domain);
+> -	mutex_unlock(&msi_prepare_lock);
+>   	if (!msi_page)
+>   		return -ENOMEM;
+>   
+> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+> index 870c3cdbd0f6..022bf96a18c5 100644
+> --- a/drivers/iommu/iommu.c
+> +++ b/drivers/iommu/iommu.c
+> @@ -3596,3 +3596,32 @@ int iommu_replace_group_handle(struct iommu_group *group,
+>   	return ret;
+>   }
+>   EXPORT_SYMBOL_NS_GPL(iommu_replace_group_handle, "IOMMUFD_INTERNAL");
+> +
+> +#if IS_ENABLED(CONFIG_IRQ_MSI_IOMMU)
+> +/**
+> + * iommu_dma_prepare_msi() - Map the MSI page in the IOMMU domain
+> + * @desc: MSI descriptor, will store the MSI page
+> + * @msi_addr: MSI target address to be mapped
+> + *
+> + * The implementation of sw_msi() should take msi_addr and map it to
+> + * an IOVA in the domain and call msi_desc_set_iommu_msi_iova() with the
+> + * mapping information.
+> + *
+> + * Return: 0 on success or negative error code if the mapping failed.
+> + */
+> +int iommu_dma_prepare_msi(struct msi_desc *desc, phys_addr_t msi_addr)
+> +{
+> +	struct device *dev = msi_desc_to_dev(desc);
+> +	struct iommu_group *group = dev->iommu_group;
+> +	int ret = 0;
+> +
+> +	if (!group)
+> +		return 0;
+> +
+> +	mutex_lock(&group->mutex);
+> +	if (group->domain && group->domain->sw_msi)
+> +		ret = group->domain->sw_msi(group->domain, desc, msi_addr);
+> +	mutex_unlock(&group->mutex);
+> +	return ret;
+> +}
+> +#endif /* CONFIG_IRQ_MSI_IOMMU */
 
-It appears to be fixed with the subsequent commit "PCI: brcmstb: Add
-bcm2712 support".
-
-Can you please look into this and see if you get the same results?
-
-Regards,
-Jim Quinlan
-Broadcom STB/CM
-
-
-> > --
-> > 2.47.0
-> >
 
