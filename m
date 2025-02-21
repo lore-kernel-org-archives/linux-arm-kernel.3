@@ -4,146 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 484CAC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 15:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33A6CC021B6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 15:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q017wuvqryap7aPpTrbH5l2BPQ0yyhmTjmA8/NisBfY=; b=tN0xmZwk5SoBO0m18E/Q4kqsVU
-	jWdU87a4udumGnm+qwitV6Du6ikIvQFg8dQjykJrFMxT7NmNcLofXhUd1rJvfk5uLsqudMyiaKwJa
-	UIonRCCqgWV44XyjyNPlJVKlDt4lgZu7YFVoz4Kzo4r8SamJputnCy8lu4RKbLoceEkoxG9aF2zbc
-	+/QVp8caFz8Is7poKBigiytuNveBfCeWVHohBJYmLo0ZOnPMwUsFMIr312/BoRxDiLwTssO8viPpi
-	fkkhax0IyI0UM2pzfod8AFcBeVTspOpFG4HT//GnK/fGj1MIwK9pVGSHQ7TvgbVwW10TdepmJkLOB
-	FsGDQ70g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PGR5xcW47G2aXGfGcMrZcBSvmNEamcQnHq86asn2BTI=; b=rk4P+YqXDCFyvWFYtRB+rEIMa3
+	sBThK+HNKOZcLzBkRbil84GUuyE/NuaFiGrFUdzmul3uvLo8yMku2UAzryt1PTp/CY+DJPsLYbo5s
+	I+qXevuFwgfDTIu42v3/VUNVFO5T1Rk0zJc4G6ERqARzCedAfCPw/GQSznhP5VNGSHCT7ZhddrkBM
+	D+TWlS/JoEqSOK9aSjPA2vtbpwA+/vfP++/JIBaPAc4PwM491barQpZA8hMUtSYHUeH2L+ljF/mXp
+	Jwksxo+SFNsd+yKcKbfxb/zwLn8DE7PsuPVewnugJ2ffU1KJtC8ySbx+ydHR4j55v2QvnEQx8P1Jk
+	VGAVE20g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlUhB-00000005wG7-0tcd;
-	Fri, 21 Feb 2025 15:12:05 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1tlUle-00000005wzn-3Zqo;
+	Fri, 21 Feb 2025 15:16:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlUfh-00000005w3v-1G4A
+	id 1tlUkC-00000005wlF-0c1X
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 15:10:34 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-abc28af1ba4so2420666b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 07:10:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740150631; x=1740755431; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=Q017wuvqryap7aPpTrbH5l2BPQ0yyhmTjmA8/NisBfY=;
-        b=hrVT6wXFdt5fZ458H/KqjnILYw0hyV8R/SbXU1rd66ducZsZeMsJccDN0JLMUMOfNM
-         5efabb+aD4dJsQ1NK/bgQyml4XgNQ6yGBi9ThkgDX/+mlDRdG1hK1bdFJWPAEH1x9oTL
-         cSVNfTIXVjsrDlxbKoFHBee6VowK4YCEDX7Kijdvgq+QnMKdVJ4/T5gjUGcnk94FeSuY
-         nKXxv/AnmTMA+2zoJuBTNE4qD5khO7DniQQ0BeR1zZM3ZgmPxrpRdwmIWrHM+W6DwBNE
-         g7qQk1ksI+v+Cmh4j9G83Kn46AuzsjKmHXxDD2aK9I7CumaujfsabZLkIr7arZbTjCWB
-         4xRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740150631; x=1740755431;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Q017wuvqryap7aPpTrbH5l2BPQ0yyhmTjmA8/NisBfY=;
-        b=FCpIBYRA5GmYioe9KQCQNzxEznL8Xuj0oKS3MaGVg365T4x2fwPmsqEsTSCMiFn3HA
-         EtJvUyLuh8wwcM8hbU5PPBtWT6q5mlVaEwPrEveS1LtUjCvqLZQxE9yF/ESCC7NuZXus
-         eqIeHvmKx1gd0V2ll5krnr4a0AZatqBnDeR4y0Q2Yc+wb9y9JuYvtdD6cV/90n93wZdZ
-         J4FwfVCUOs98e19X5b1pYS44OuF8YRk/8KHgkrE2/QIoMMBdmFWK3eyrK+jANAIXOfh3
-         r7GN0fzCOsr4Fb0nfBwqyOkoWUeR1Qq4GDISwJr/MJo/AnywUO/lOa5ikV8HpF/H6Bfx
-         RP3w==
-X-Forwarded-Encrypted: i=1; AJvYcCU+vCeTZeH5Tj3d11Xo/SUoWPWzZh4oqfZUZOZEFhb0AvhdTWtEKIu+sVoWWLa0AMvqgJJsN+OLCoAHXVNtyxSw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzH2IAksx2TFp2pUXpbxQwg9fbDy2PIbYWidUmPinUdnJ5M79mv
-	xfNy/8Phe10OoRZQLOIjHxM4lEeLE9lPHnrzPlBc89VaqY6HBV0XNipFkAgoIyA=
-X-Gm-Gg: ASbGncu9UQiVTm+odyyxJfmqNB/8hGAOsYeXyVZjVOpLu91aLdJgeCZgfDmEUOmLvoA
-	pMywL6tIHS6R/feW0WyD65QEVL4E/swGILSPZRu9kOTFGtYbYoBnib6zjcn2BksW89WoN88bM0B
-	RPJ6DoFAicoRNaCLzpXCtwYixsxKqlY4n0wsTXkbYoaZQLCLNiDg3/OjeiKe+eZ0NG5i/KwfdVP
-	bWVBF48Ho6qXUR+3z1k7PnhjHcGJDlNxtoEJW6kBOuZtBVIdpvNQvcZo8uiHxp5f8hjT0k21Sah
-	KDEW2SgldHVB++TTWCdCzarASNlxwVFVqnaUPi0JXZAVvo097IH6txLMHhsyzYWMvmZQfj/WL7Q
-	GYT+J9g==
-X-Google-Smtp-Source: AGHT+IElVOKQrHQSW/WG4AXM2/H7NAh/sNrOhfOcPDza3R9P1CmFhC8jRazW/6xVsXi0tYza7X5QMw==
-X-Received: by 2002:a05:6402:5215:b0:5e0:88d8:440d with SMTP id 4fb4d7f45d1cf-5e0b70d2589mr1135128a12.1.1740150631534;
-        Fri, 21 Feb 2025 07:10:31 -0800 (PST)
-Received: from [192.168.0.104] (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece271223sm14141922a12.59.2025.02.21.07.10.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Feb 2025 07:10:29 -0800 (PST)
-Message-ID: <37292bb9-6886-479d-bfb8-05e2ee540c6c@linaro.org>
-Date: Fri, 21 Feb 2025 16:10:26 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 02/10] dt-bindings: clock: Add Qualcomm QCS615 Camera
- clock controller
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Taniya Das <quic_tdas@quicinc.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Ajit Pandey <quic_ajipan@quicinc.com>,
- Imran Shaik <quic_imrashai@quicinc.com>,
- Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250221-qcs615-v5-mm-cc-v5-0-b6d9ddf2f28d@quicinc.com>
- <20250221-qcs615-v5-mm-cc-v5-2-b6d9ddf2f28d@quicinc.com>
- <ljfgljuhlpkjvqwomhvq5l6giihqv6h5nzswncaqgelvjycgew@bcxjrgbj3lts>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <ljfgljuhlpkjvqwomhvq5l6giihqv6h5nzswncaqgelvjycgew@bcxjrgbj3lts>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_071033_347841_C7D789CF 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
+	Fri, 21 Feb 2025 15:15:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CE4AE61340;
+	Fri, 21 Feb 2025 15:15:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B624AC4CED6;
+	Fri, 21 Feb 2025 15:15:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740150910;
+	bh=LZZDIn882+du5zwGJiIkefHV1QQaICX9MW9PEMXgods=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=kLG7JsfhD0qxdw5xct1tz48UF/iCjnWGHyEsfnOdw9ihXeGctJIQPKO56bW1hAiyl
+	 heT0OgEyl3Eu7Jom05MuCyUQxH58IfaySwLuhBr1egJ6/XoZz6obieqiZR/xu9Ch95
+	 RS55yKoktF8o6Vwh1visCh/cZaGBywRUQ3RssR0UQuLS88MDKKTAYUH4//yUFaCmcF
+	 Hk5TvlEjKrqg3Ohz1anSvLehBFJQNRuIuu3c1P3rHnBm+xSu7R+COz3vQuTRUG7NEc
+	 d0TQSsGSvPDnANthLRjKWnWPUFUDTEuhVtl8LkgsueA/Ji1tsPh8x/PmI92Oz6FCaN
+	 Fw43JGqHKJxsg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tlUk8-006cla-7o;
+	Fri, 21 Feb 2025 15:15:08 +0000
+Date: Fri, 21 Feb 2025 15:15:07 +0000
+Message-ID: <86pljbqqh0.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jiaqi Yan <jiaqiyan@google.com>
+Cc: oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	pbonzini@redhat.com,
+	corbet@lwn.net,
+	kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	duenwen@google.com,
+	rananta@google.com,
+	jthoughton@google.com
+Subject: Re: [RFC PATCH v3 1/3] KVM: arm64: SIGBUS VMM for SEA guest abort
+In-Reply-To: <20250220232959.247600-1-jiaqiyan@google.com>
+References: <20250220232959.247600-1-jiaqiyan@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: jiaqiyan@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, duenwen@google.com, rananta@google.com, jthoughton@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,25 +94,294 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/02/2025 15:11, Dmitry Baryshkov wrote:
-> On Fri, Feb 21, 2025 at 02:50:13PM +0530, Taniya Das wrote:
->> Add DT bindings for the Camera clock on QCS615 platforms. Add the
->> relevant DT include definitions as well.
->>
->> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Honestly, please drop this RFC thing.  At v3, either you think this is
+in a good enough shape to be merged, or you simply don't post it. I
+assume you're in the former camp.
+
+On Thu, 20 Feb 2025 23:29:57 +0000,
+Jiaqi Yan <jiaqiyan@google.com> wrote:
 > 
-> Just noticed. I've never replied with this tag. I've provided a comment
-> to the v3 of the series, then in v4 this somehow appeared. Could you
-> please comment, what has happened?
+> When APEI is unable claim or handles synchronous external abort (SEA)
+> today KVM handles SEA for guest by injecting an async SError into the
+> guest directly, bypassing VMM, usually results in guest kernel panic.
+> 
+> One major situation of guest SEA is when vCPU consumes uncorrectable
+> memory error on the physical memory. Although SError and guest kernel
+> panic effectively stops the propagation of corrupted memory, it is not
+> easy for VMM and guest to recover from memory error in a more graceful
+> manner.
+> 
+> This patch teaches KVM to send a SIGBUS BUS_OBJERR to VMM/vCPU, like
 
+https://elixir.bootlin.com/linux/v6.13/source/Documentation/process/submitting-patches.rst#L95
 
-I think that's not the only place - several other patches got your tag
-even though you responded to only *one* patch:
-https://lore.kernel.org/all/cwiai67gs2o3tj3bjziao26uxg3yrbd35dknkvjerbe7cbgfca@qhjtij23yn26/
+> how core kernel signals SIGBUS BUS_OBJERR to a gernal poison consuming
+> userspace thread when APEI is unable to claim the SEA. In addition to
+> the benifit that KVM's handling for SEA becomes aligned with core
+> kernel's behavior:
+> - VMM can inject SEA to guest. Compared to SError, the blast radius in
+>   VM is possible to be limited to only the consuming thread in guest,
+>   instead of the entire guest kernel (unless the poison consumption is
+>   from guest kernel).
 
-Nothing in changelog about adding tags...
+But that would be equally possible for this SEA to be delivered from
+the host kernel, without involving userspace at all, right? Why
+mandate a userspace round trip?
 
-Best regards,
-Krzysztof
+> - VMM usually tracks the poisoned guest pages. Together with [1], if
+>   guest consumes again the already poisoned guest pages, VMM can protect
+>   itself and the host by stopping the consumption at software level, by
+>   intercepting guest's access to poisoned pages, and again injecting
+>   SEA to guest.
+
+How does this interact with the userfault thingy? I'd expect the VMM
+to simply removing the poisoned page from the memslot, which doesn't
+require anything on top of what we have today.
+
+Overall, most of the above belongs to a cover letter, which is
+crucially missing in this series.
+
+> 
+> KVM now handles SEA as follows:
+> 1. Delegate to APEI and GHES to see if SEA can be claimed by them.
+> 2. If APEI failed to claim the SEA, send current thread (i.e. VMM in EL0)
+>    a si_code=BUS_OBJERR SIGBUS signal. If the DIMM error's physical
+>    address is available from FAR_EL2, si_addr will be the DIMM error's
+>    host virtual address in VMM/vCPU's memory space.
+
+VMM *or* vcpu? The vcpu address space is the guest's. The VMM address
+space is the in userspace.
+
+Also, I'm still not fond of the signal horror. I still feel this is a
+broken abstraction, at odds with the rest of the KVM API which relies
+on vcpu exit codes. Signals are the perfect recipe to trigger subtle,
+potentially exploitable VMM bugs. I'm sure your VMM is perfect (Ah!),
+but think of the children! ;-)
+
+>
+> Tested on a machine running Siryn AmpereOne processor. A dummy application
+> in VM allocated some memory buffer. The test used EINJ to inject an
+
+How? Do we allow error injection from a guest?
+
+> uncorrectable recoverable memory error at a page in the allocated memory
+> buffer. The dummy application then consumed the memory error. Some hack
+> was done to make core kernel's memory_failure triggered by poison
+> generation to fail, so KVM had to deal with the SEA guest abort due to
+> poison consumption. vCPU thread in VMM received SIGBUS BUS_OBJERR with
+> valid host virtual address of the poisoned page. VMM then injected a SEA
+> into guest using KVM_SET_VCPU_EVENTS with ext_dabt_pending=1. At last
+> the dummy application in guest was killed by SIGBUS BUS_OBJERR, while the
+> guest survived and continued to run.
+
+This has nothing to do in this patch's commit message. But it would
+have its place for a selftest doing exactly what you describe.
+
+> 
+> [1] https://lpc.events/event/18/contributions/1757/attachments/1442/3073/LPC_%20KVM%20Userfault.pdf
+> 
+> Changelog
+> 
+> RFC V3 -> RFC v2
+> - SEA or ECC error at all levels of TTW can be handled by SIGBUS EL0,
+>   and no case to inject SError to guest anymore.
+> - move #include from kvm_ras.h to kvm_ras.c.
+> 
+> RFC v2 -> RFC v1
+> - reword commit msg
+> - drop unused parameters from kvm_delegate_guest_sea
+> - remove KVM_CAP_ARM_SIGBUS_ON_SEA and its opt in code
+> - set FnV bit in vcpu's ESR_ELx if host ESR_EL2's FnV is set
+> - add documentation for this new SIGBUS feature
+
+Please talk to your colleagues on how to write a cover letter. None of
+that should be here.
+
+> 
+> Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
+> ---
+>  arch/arm64/include/asm/kvm_ras.h | 29 +++++++-------
+>  arch/arm64/kvm/Makefile          |  2 +-
+>  arch/arm64/kvm/kvm_ras.c         | 65 ++++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/mmu.c             |  8 +---
+>  4 files changed, 83 insertions(+), 21 deletions(-)
+>  create mode 100644 arch/arm64/kvm/kvm_ras.c
+> 
+> diff --git a/arch/arm64/include/asm/kvm_ras.h b/arch/arm64/include/asm/kvm_ras.h
+> index 87e10d9a635b5..bacae54013b4e 100644
+> --- a/arch/arm64/include/asm/kvm_ras.h
+> +++ b/arch/arm64/include/asm/kvm_ras.h
+> @@ -4,22 +4,25 @@
+>  #ifndef __ARM64_KVM_RAS_H__
+>  #define __ARM64_KVM_RAS_H__
+>  
+> -#include <linux/acpi.h>
+> -#include <linux/errno.h>
+> -#include <linux/types.h>
+> -
+> -#include <asm/acpi.h>
+> +#include <linux/kvm_host.h>
+>  
+>  /*
+> - * Was this synchronous external abort a RAS notification?
+> - * Returns '0' for errors handled by some RAS subsystem, or -ENOENT.
+> + * For synchrnous external abort taken to KVM at EL2, not on translation
+
+synchronous
+
+> + * table walk or hardware update of translation table, is FAR_EL2 valid?
+
+Do we need all these conditions spelled out? Isn't the goal of such a
+helper to *abstract* the complexity of the architecture?
+
+>   */
+> -static inline int kvm_handle_guest_sea(phys_addr_t addr, u64 esr)
+> -{
+> -	/* apei_claim_sea(NULL) expects to mask interrupts itself */
+> -	lockdep_assert_irqs_enabled();
+> +bool kvm_vcpu_sea_far_valid(const struct kvm_vcpu *vcpu);
+>  
+> -	return apei_claim_sea(NULL);
+> -}
+> +/*
+> + * Handle synchronous external abort (SEA) in the following order:
+> + * 1. Delegate to APEI/GHES to see if they can claim SEA. If so, all done.
+> + * 2. Send SIGBUS to current with si_code=BUS_OBJERR and si_addr set to
+> + *    the poisoned host virtual address. When accurate HVA is unavailable,
+> + *    si_addr will be 0.
+
+How do you disambiguate this with 0 being a valid address? See vm.mmap_min_addr.
+
+> + *
+> + * Note this applies to both instruction and data abort (ESR_ELx_EC_IABT_*
+> + * and ESR_ELx_EC_DABT_*). As the name suggests, KVM must be taking the SEA
+> + * when calling into this function, e.g. kvm_vcpu_abt_issea == true.
+
+Again, this is pointlessly verbose. I'd rather we keep the original
+comment here.
+
+> + */
+> +void kvm_handle_guest_sea(struct kvm_vcpu *vcpu);
+>  
+>  #endif /* __ARM64_KVM_RAS_H__ */
+> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+> index 3cf7adb2b5038..c4a3a6d4870e6 100644
+> --- a/arch/arm64/kvm/Makefile
+> +++ b/arch/arm64/kvm/Makefile
+> @@ -23,7 +23,7 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
+>  	 vgic/vgic-v3.o vgic/vgic-v4.o \
+>  	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
+>  	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
+> -	 vgic/vgic-its.o vgic/vgic-debug.o
+> +	 vgic/vgic-its.o vgic/vgic-debug.o kvm_ras.o
+>  
+>  kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+>  kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
+> diff --git a/arch/arm64/kvm/kvm_ras.c b/arch/arm64/kvm/kvm_ras.c
+> new file mode 100644
+> index 0000000000000..47531ed378910
+> --- /dev/null
+> +++ b/arch/arm64/kvm/kvm_ras.c
+> @@ -0,0 +1,65 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/types.h>
+> +
+> +#include <asm/acpi.h>
+> +#include <asm/kvm_emulate.h>
+> +#include <asm/kvm_ras.h>
+> +#include <asm/system_misc.h>
+> +
+> +bool kvm_vcpu_sea_far_valid(const struct kvm_vcpu *vcpu)
+> +{
+> +	/*
+> +	 * FnV is valid only for Data/Instruction aborts and if DFSC/IFSC
+> +	 * is ESR_ELx_FSC_EXTABT(0b010000).
+
+This is a terrible sentence. FnV stands for "FAR not Valid". Do you
+see the problem? Yes, the same verbiage exists in the spec, but I
+don't think we need to sink that low...
+
+> +	 */
+> +	if (kvm_vcpu_trap_get_fault(vcpu) == ESR_ELx_FSC_EXTABT)
+> +		return !(vcpu->arch.fault.esr_el2 & ESR_ELx_FnV);
+> +
+> +	/* Other exception classes or aborts don't care about FnV field. */
+
+They absolutely do care. But FnV is RES0 in this case. So the real
+question is why don't you simply return the negated bit in all cases?
+
+> +	return true;
+> +}
+> +
+> +/*
+> + * Was this synchronous external abort a RAS notification?
+> + * Returns '0' for errors handled by some RAS subsystem, or -ENOENT.
+> + */
+> +static int kvm_delegate_guest_sea(void)
+> +{
+> +	/* apei_claim_sea(NULL) expects to mask interrupts itself */
+> +	lockdep_assert_irqs_enabled();
+> +	return apei_claim_sea(NULL);
+> +}
+> +
+> +void kvm_handle_guest_sea(struct kvm_vcpu *vcpu)
+> +{
+> +	int idx;
+> +	u64 vcpu_esr = kvm_vcpu_get_esr(vcpu);
+> +	phys_addr_t fault_ipa = kvm_vcpu_get_fault_ipa(vcpu);
+> +	gfn_t gfn = fault_ipa >> PAGE_SHIFT;
+> +	unsigned long hva = 0UL;
+> +
+> +	/*
+> +	 * For RAS the host kernel may handle this abort.
+> +	 * There is no need to SIGBUS VMM, or pass the error into the guest.
+> +	 */
+> +	if (kvm_delegate_guest_sea() == 0)
+> +		return;
+> +
+> +	if (kvm_vcpu_sea_far_valid(vcpu)) {
+> +		idx = srcu_read_lock(&vcpu->kvm->srcu);
+> +		hva = gfn_to_hva(vcpu->kvm, gfn);
+> +		srcu_read_unlock(&vcpu->kvm->srcu, idx);
+> +	}
+> +
+> +	/*
+> +	 * When FAR is not valid, or GFN to HVA translation failed, send 0
+> +	 * as si_addr like what do_sea() does.
+> +	 */
+> +	if (kvm_is_error_hva(hva))
+> +		hva = 0UL;
+
+See my earlier comment about 0 being a valid VA.
+
+> +
+> +	arm64_notify_die("synchronous external abort",
+> +			 current_pt_regs(), SIGBUS, BUS_OBJERR, hva, vcpu_esr);
+> +}
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 1f55b0c7b11d9..ef6127d0bf24f 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1808,13 +1808,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+>  
+>  	/* Synchronous External Abort? */
+>  	if (kvm_vcpu_abt_issea(vcpu)) {
+> -		/*
+> -		 * For RAS the host kernel may handle this abort.
+> -		 * There is no need to pass the error into the guest.
+> -		 */
+> -		if (kvm_handle_guest_sea(fault_ipa, kvm_vcpu_get_esr(vcpu)))
+> -			kvm_inject_vabt(vcpu);
+> -
+> +		kvm_handle_guest_sea(vcpu);
+
+But this is an ABI change. My userspace is not ready, willing nor able
+to handle this, and yet you're forcing it on me?
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
