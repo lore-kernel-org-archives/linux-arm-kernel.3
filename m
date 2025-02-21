@@ -4,87 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4391C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 19:41:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDE6C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 19:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q5/TJQCPhOXtoCrPiCi87e6OcHCUr8SBAEgJYV6f4qI=; b=mhW/Fs2recBwgWGDpHSg3yb7OO
-	N5ACkJ53279O4rvydjmYwh8vafjakZcshhKxox5tjtISAklUFQyQGLNGGnvIzkcxrRSuAJbde7KE1
-	hKFNzc8rdJsGbvB5nb0Z0it7U251Hr53AbVbM/IVa8rHUGv1ZZSLQOM+uUB5bGvwnaWxPIFE/a2rD
-	P/PANbKtpUMCHwzNFrz6r0soJN/czABNgU/koPJtAZk5XRNu+AHuBY/DAUF2Kmr3H4dYuaPDu7dXA
-	vvSo8CSuh9wGOeP6QvTnGACSOPzRPBiCiD7bU1PYuwTjNi6xf4TcnHNegcsRcrlrNK1DBJDnPGVjN
-	PMepR83Q==;
+	bh=OuJq5eduRx8QZJKlSTiISXB6moPavzJHtgOzhKN4eis=; b=hlxKM4fTXUqsTin6RLyX98ZI3s
+	pXjW9wUZZRqOAq91jX55yVCAG5mcgEQ23PKjwMi3QKxDReI1nV6SlnBqkQk50t6PT7zYBP6Yi++D8
+	SDpODnZAYDc8GPudyvktZxADslRoriAUYF7lJopKX2Fug6XiXjJaUNX+lqrsNuebzhUAzo1bZuOaw
+	VGrFki9OGYOOxnhsuN3X0FiXAqqATMjGx/XRw1ei9AHpnbshoOI9avk7GKcXu+KC54obffQdNq7Zv
+	ciu3xb2mERHuGlrJ5MBHfbB9wZPeSkiJvXKdCilhwcD6zWQ/4YpzHuicevHzK6Hi3Z/QwICg56QBO
+	nrZETHkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlYtT-00000006fv5-0wmB;
-	Fri, 21 Feb 2025 19:41:03 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlYpy-00000006fLH-16CK
+	id 1tlYuu-00000006g6R-423U;
+	Fri, 21 Feb 2025 19:42:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlYrv-00000006fit-1Fdx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 19:37:27 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-2fbfe16cc39so5025205a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 11:37:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740166645; x=1740771445; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Q5/TJQCPhOXtoCrPiCi87e6OcHCUr8SBAEgJYV6f4qI=;
-        b=Nd7GNwAhhpPRkUuutUvSDSU/W3kjT5gBntEWQzB3Qn52GeLSwOl+zOPlV1N90bSyMf
-         mFvIBjXNvx6qu+xtKypfv4DU19wVLN9xJqg/2ehaVAgMoNRO5Yjy3+Ft5StmcPpTr4vt
-         37+/ajkxnYN34p1nvbNq1FHmz9boNqF3uwX7rYM3b6LGN2ODUh8ZMpO94kjuZVEW2Mn6
-         h90rCM/U3ERBedV9pscY5+2J9r/MhDDhkdWDoRnVklFUCAiuwFewPwdhemiIXvsDMCTb
-         jGlTy4gnf3KEzqyoNbJGC33JbSeGjGTBpG8pObK6HtBlJf9FsYhj9BPUgYToCb3Ds/bF
-         qVFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740166645; x=1740771445;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Q5/TJQCPhOXtoCrPiCi87e6OcHCUr8SBAEgJYV6f4qI=;
-        b=M1n80Sde6MVqGqWSCDRf4K0I2E+q/92OpLgNZKxwk6eXWDm5Yb8IzHabd6VkuRajUU
-         uDKqlL3io72qoglyAiaEFWFE2I5Cr4NQAh/rJvFP71S4i3IpjHJByvshbsh3uWa6sy5x
-         guHkROA2z4jBKfXPAYJXbLflpV8wKbI7jiNErUZzc1irIlOzR2wzh9/4Djn19z1XYQ8t
-         Y/ZQT3C8llBopsdJtBpP8c8qJuyTyBQqBcRA6xzDSejfOWpWcFT71x3yKSre7ZWNQDGl
-         /NAqXtSUqV2BGR8g7xmkUK4gaXS0Gy11CEPBjpSRYQYbFs0K651Hy0JE+GTAHVU7tU99
-         t38Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXhUWKFhgS4fhK2Kl899DS4/uFhlSXj/IV1GrU/tLY3RZg4lTLwIqO3kJZDUQGGgnGpPoE22hWTqTSu1zos6YQY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9eB6EaK+urcXOZjjDOp5BgUWY1FvEHePUGFMH+v+OPAv4F+3r
-	QhzNjpOZnBgzoLqbGe56fyi+LDhzlzIHmv0rxbzYw7Zd/Km+v0+5HKCC2FLMq9nliR8+GEe6Tqn
-	JTAyBLO8GPasuKMiVlaz2Tem3nuc=
-X-Gm-Gg: ASbGncsmJtK842PWsTiQZ03WfY3SoPxrfu3uBApK1K1dsrrykSwRdYKqmAzDInnGpZF
-	8AwNVzd9QSoaFBEJaWwT9q/PcusrVYNp2eXHe25ujsHK84LWDKX6XgJ8JYsCxAiCEv6oX0eCHW7
-	mGioDXqjI=
-X-Google-Smtp-Source: AGHT+IGO5kmKNshQe2c5M4D/K0SzQbhuXNJ0QO3tdj2iHLQJhE4x02XTjnINnRUvMgd1/kya6uNiVNBOQ3RUUR6+yt8=
-X-Received: by 2002:a17:90b:4d0d:b0:2ee:aef4:2c5d with SMTP id
- 98e67ed59e1d1-2fce8724453mr5847905a91.26.1740166644954; Fri, 21 Feb 2025
- 11:37:24 -0800 (PST)
+	Fri, 21 Feb 2025 19:39:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 74B1C169C;
+	Fri, 21 Feb 2025 11:39:44 -0800 (PST)
+Received: from [10.57.85.121] (unknown [10.57.85.121])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 463B23F59E;
+	Fri, 21 Feb 2025 11:39:25 -0800 (PST)
+Message-ID: <16e715ab-0d12-47e6-af01-e2da4e0609b2@arm.com>
+Date: Fri, 21 Feb 2025 19:39:23 +0000
 MIME-Version: 1.0
-References: <20250221190929.31469-1-laurentiumihalcea111@gmail.com> <20250221190929.31469-5-laurentiumihalcea111@gmail.com>
-In-Reply-To: <20250221190929.31469-5-laurentiumihalcea111@gmail.com>
-From: Adam Ford <aford173@gmail.com>
-Date: Fri, 21 Feb 2025 13:37:13 -0600
-X-Gm-Features: AWEUYZlpZEzoF4sSIcwIUtnabf9TrVj8-PJAh3_pn5QwRKlyCWUIXfCyiFWMcs0
-Message-ID: <CAHCN7xL=QZHs5sD7Ja7pBOcXM8cWVQYe270EizDFN--CH_5+zQ@mail.gmail.com>
-Subject: Re: [PATCH v2 4/4] arm64: dts: imx8mp: change AUDIO_AXI_CLK_ROOT
- freq. to 800MHz
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Marek Vasut <marex@denx.de>, 
-	Stephen Boyd <sboyd@kernel.org>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, linux-clk@vger.kernel.org, imx@lists.linux.dev, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] arm64: lib: Use MOPS for usercopy routines
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Tong Tiangen <tongtiangen@huawei.com>,
+ James Morse <james.morse@arm.com>, linux-arm-kernel@lists.infradead.org
+References: <20250218171430.28227-1-kristina.martsenko@arm.com>
+ <20250218171430.28227-4-kristina.martsenko@arm.com>
+ <6728bf8a-00f0-4f53-9955-c47f65cd126b@arm.com>
+Content-Language: en-US
+From: =?UTF-8?Q?Kristina_Mart=C5=A1enko?= <kristina.martsenko@arm.com>
+In-Reply-To: <6728bf8a-00f0-4f53-9955-c47f65cd126b@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_113726_299881_E23956B7 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20250221_113927_417832_30FCFAEC 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,54 +67,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 21, 2025 at 1:11=E2=80=AFPM Laurentiu Mihalcea
-<laurentiumihalcea111@gmail.com> wrote:
->
-> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->
-> AUDIO_AXI_CLK_ROOT can't run at currently requested 600MHz w/ its parent
-> SYS_PLL1 configured at 800MHz. Configure it to run at 800MHz as some
-> applications running on the DSP expect the core to run at this frequency
-> anyways. This change also affects the AUDIOMIX NoC.
+On 20/02/2025 19:15, Robin Murphy wrote:
+> On 18/02/2025 5:14 pm, Kristina Martšenko wrote:
+>> --- a/arch/arm64/lib/clear_user.S
+>> +++ b/arch/arm64/lib/clear_user.S
+>> @@ -17,14 +17,27 @@
+>>    * Alignment fixed up by hardware.
+>>    */
+>>   -    .p2align 4
+>> -    // Alignment is for the loop, but since the prologue (including BTI)
+>> -    // is also 16 bytes we can keep any padding outside the function
+>>   SYM_FUNC_START(__arch_clear_user)
+>>       add    x2, x0, x1
+> 
+> This subtlety...
+> 
+>> +
+>> +#ifdef CONFIG_AS_HAS_MOPS
+>> +    .arch_extension mops
+>> +alternative_if_not ARM64_HAS_MOPS
+>> +    b    .Lno_mops
+>> +alternative_else_nop_endif
+>> +
+>> +USER(9f, setpt    [x0]!, x1!, xzr)
+>> +USER(6f, setmt    [x0]!, x1!, xzr)
+>> +USER(6f, setet    [x0]!, x1!, xzr)
+>> +    mov    x0, #0
+>> +    ret
+>> +.Lno_mops:
+>> +#endif
+>> +
+>>       subs    x1, x1, #8
+>>       b.mi    2f
+>> -1:
+>> +
+>> +1:    .p2align 4
+>>   USER(9f, sttr    xzr, [x0])
+>>       add    x0, x0, #8
+>>       subs    x1, x1, #8
+>> @@ -47,6 +60,10 @@ USER(7f, sttrb    wzr, [x2, #-1])
+>>       ret
+>>         // Exception fixups
+>> +6:    b.cs    9f
+>> +    // Registers are in Option A format
+>> +    add    x0, x0, x1
+>> +    b    9f
+> 
+> ...and then all this, is a bit hard to follow IMO. I'd be inclined to just have dedicated "mov x0, x1; ret" and "cneg x0, x1, cc; ret" fixups for the prologue and other ops, rather than entangle them with the non-MOPS flow at all. (Plus then the prologue fixup could arguably be the normal exit path as well...)
 
-Unless I am missing something, the i.MX 8M Plus Applications Processor
-Datasheet (rev 2.1)  has a table of frequencies, and
-AUDIO_AXI_CLK_ROOT is shown to be 600MHz nominal and 800MHz for
-overdrive.  I agree that it's likely not running at 600MHz now, but
-800MHz may be out of spec for people who are using the nominal voltage
-instead of the overdrive, since overdrive requires higher voltages
-than the nominal.
+I think it's easier to follow if the logic is similar to the copy fixups.
 
-adam
->
-> Fixes: b739681b3f8b ("arm64: dts: imx8mp: Fix SDMA2/3 clocks")
-> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> Reviewed-by: Iuliana Prodan <iuliana.prodan@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/=
-dts/freescale/imx8mp.dtsi
-> index 86c3055789ba..54147bce3b83 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> @@ -834,7 +834,7 @@ pgc_audio: power-domain@5 {
->                                                 assigned-clock-parents =
-=3D <&clk IMX8MP_SYS_PLL1_800M>,
->                                                                          =
-<&clk IMX8MP_SYS_PLL1_800M>;
->                                                 assigned-clock-rates =3D =
-<400000000>,
-> -                                                                      <6=
-00000000>;
-> +                                                                      <8=
-00000000>;
->                                         };
->
->                                         pgc_gpu2d: power-domain@6 {
-> --
-> 2.34.1
->
->
+> 
+>>   7:    sub    x0, x2, #5    // Adjust for faulting on the final byte...
+>>   8:    add    x0, x0, #4    // ...or the second word of the 4-7 byte case
+>>   9:    sub    x0, x2, x0
+>> diff --git a/arch/arm64/lib/copy_from_user.S b/arch/arm64/lib/copy_from_user.S
+>> index 34e317907524..400057d607ec 100644
+>> --- a/arch/arm64/lib/copy_from_user.S
+>> +++ b/arch/arm64/lib/copy_from_user.S
+>> @@ -52,6 +52,13 @@
+>>       stp \reg1, \reg2, [\ptr], \val
+>>       .endm
+>>   +    .macro cpy1 dst, src, count
+>> +    .arch_extension mops
+>> +    USER_CPY(9997f, 0, cpyfprt [\dst]!, [\src]!, \count!)
+>> +    USER_CPY(9996f, 0, cpyfmrt [\dst]!, [\src]!, \count!)
+>> +    USER_CPY(9996f, 0, cpyfert [\dst]!, [\src]!, \count!)
+>> +    .endm
+>> +
+>>   end    .req    x5
+>>   srcin    .req    x15
+>>   SYM_FUNC_START(__arch_copy_from_user)
+>> @@ -62,6 +69,9 @@ SYM_FUNC_START(__arch_copy_from_user)
+>>       ret
+>>         // Exception fixups
+>> +9996:    b.cs    9997f
+>> +    // Registers are in Option A format
+>> +    add    dst, dst, count
+> 
+> However for copies it's somewhat justified since, IIUC, MOPS aren't guaranteed to make progress if we're starting on the last byte of a page and the next page is unmapped, and thus we may still have a "try harder" requirement similar to the previous alignment fault case, is that right?
+
+Yes, that's right.
+
+Thanks,
+Kristina
+
+>>   9997:    cmp    dst, dstin
+>>       b.ne    9998f
+>>       // Before being absolutely sure we couldn't copy anything, try harder
+
 
