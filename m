@@ -4,67 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80162C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 18:26:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 568FAC021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 18:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h7E0dv8dad8ykAZHYhwM6AXzi3dNkuvSDcWdTKiL1UY=; b=SUpLFDP3CbaLfI7PzPxtbesbyh
-	xwuXcLxhaU91LwMOdzzlickFjb9sNM7HkDNoT4Dn7S37l8PHMZtn2U02BOmrL4WA9lWgsZ0v/1vhI
-	XxzVsFNbbTzfrUvyWtnkhJKSxDZjDLnXxnzvxe5B0deyd0nZQx8g4y26pVzwMOujGMB48VNJPrYke
-	nNp+LTbKyzbIkfRnUpdQdZWvuhBf7h/PgS810JAsz6RAYuRcyQPZYC3msPF/5APBChHL0X6nl6H0k
-	81vPg0QKIgsQ2EVacY71XnGt5BCkEpuczYlDx/SxwYM14Yei7j1IajdQbJ5G6OaWNsKyzYHOmkb/n
-	R9zV9c4w==;
+	bh=ZXeJpH3wHw7BU/7D32jGOtOKsJu0r75YAYsNnjjEMw0=; b=ipueC+VRpBoRhxC18pKhe6ByEE
+	sMhtEi7LakT4qlTKeDmb/fMR4PLTyWra2qvEy02pKy59+dOV1tKSJJ/Hot4K8Vr6yhjaZsw/dq6AM
+	ifbVMeItVJj3OZzCjBd4PeOLpVx+h9fqviNL3mr6PTf1bu4YvutvdM8w1c7ix9vQ+71Mzkc+hq00k
+	K4EUGHRhEZLl7TZn2TT7HgJDIXSLatH5QlecchViIb+C0GczD1TMqQP9Lnhp13pkiwyxVqaBEf6UI
+	Njb/C/8FgmY7hYOZZ4bEh5QWgx+XrUJOwZCiWzAwvCyk19XGP7RrPi8oJGFN6TaKs/i10HG4CWRPd
+	LfvSSZPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlXjW-00000006WhY-1hCM;
-	Fri, 21 Feb 2025 18:26:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tlXkx-00000006X5F-1vyI;
+	Fri, 21 Feb 2025 18:28:11 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlXUR-00000006Tn0-0uir;
-	Fri, 21 Feb 2025 18:11:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 22321615D4;
-	Fri, 21 Feb 2025 18:11:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 217A1C4CED6;
-	Fri, 21 Feb 2025 18:11:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740161466;
-	bh=mb3+FQLiAdF0GxPdTxxNZ1nsfmB1mwgJcruotyetN9Y=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=CUO5XUpE5/sksVVDBuF3JnxmN+bHo+c1O9ILuMJqjeQdO+1d4uH9jXDth3xbNBetl
-	 b9lCeEagUllp9vXDf12sYZJscUOgiOjcu57Es5G3iiVC8zOpU7vLE/MyHdotn1oJEA
-	 VPiOP12WJaT2QMAXEL/G9HIN+dllsF+42fpaZZTSuTdqBkXE/i8l7lFuLgpCXjTPYA
-	 u2/TtfZuka8QjTNTQqME60gh7MZErwn2Gbis8sy2tusEo2rDNqEMHSrlYZycoxpgLM
-	 qBjp06wjA6Jk/WF5wqsV/5fntE6+n/eM/SsyiFpdu13hL8xYkpSueAGhdYn3Kt5w0W
-	 pwOjHKW9HN2XQ==
-Date: Fri, 21 Feb 2025 12:11:04 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1tlXUc-00000006Tqh-1CPe
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Feb 2025 18:11:19 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43690d4605dso15705035e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 10:11:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740161477; x=1740766277; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZXeJpH3wHw7BU/7D32jGOtOKsJu0r75YAYsNnjjEMw0=;
+        b=hozq1CajwvQSxhEdI6LBl/UAoJzmqan5AnzkLKSuRQ4TpF6hDrLYs5pKTZyThzwoFk
+         mE95+Jj74HGLx3wPZAcCyzsCJaVUNeOfregiPLYJwDlSMdC5YeR2R6hrT4z5NA7gKYTR
+         ovVpzEhu8aImTK4fZFk8FbnI102EAnv7WfRXyI/j5yrwAVJVi7I0Tjn9LDO8ktD1KgnJ
+         sLIUBj0qg4IFXQPLyhP0SF/CcwT15lcGkgfKScLLxmmtO29MF0m3Cz9vYiw32NzpA/WU
+         RIefZjZN5XeuDgpwmLi5TsxgFuxIQlHR26m+pCF/Ni0yCn1UNdclYXfRDFVg6x+To51T
+         1JRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740161477; x=1740766277;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZXeJpH3wHw7BU/7D32jGOtOKsJu0r75YAYsNnjjEMw0=;
+        b=mMHHoWgn4vcbX4MPIGnEx86UG6bv81QtmNaSVQv9uSzKydne/JxDFk7J2F9xiCDRON
+         76+5vGSJC+w1gMxXUs927cz1iUrdYHzE02CF8gK3eKMF2QCQjGGF28pdIJIhxBa/d77B
+         ysEiov+yK+L8l7SDt+cqiX7AcvZiuqY/3o0Ilrzd2HcJw3D7RdrHaW5QXr0WQfT3rhUp
+         ugdDHeUDkPOSuQy3hT/5mND+qJZ7vg5HiUzadyhHIPcmjefdtTteyvLMPyYGqaEHIBAT
+         /6775x2RZnzYz6NNb7c3IrZqWTOQEi8Hs1T5Caz5cS3fPhaFLPtIRSfwg6/vDzgUTLoB
+         wEIw==
+X-Forwarded-Encrypted: i=1; AJvYcCXhmzlLI7KVDhrqJhejQ45lsvNBt3Yas4LDkXntSlyCR2jz5X5edMd3So5ktdQMNNQMgwe6iy+TuLJntivPJG13@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkVEPvrPv8mORDFrq+/KkGpPdj4Fvh6uqWsZ4q5TqiqD8Ursb9
+	uHjWoM8543f0+ijl+AlTKfgjpI9H5kuFsr2Cpma8UdVko8eJzefG
+X-Gm-Gg: ASbGncsouIYldcpTyXIxxv2zAo06ZAXwRYZZNC98VplQJC7DbTFskCjf7dGSaa2Hy0q
+	cpvMciIyifNubUx5lFKTMtb4VWNXC1Qcf4axGELzqtuNDcDzCKSjA8hVmd1x6VMyDCrVZWzAPvn
+	68uCxuiLwUq/dng75eSGiu2g5yNWS4UsG04XcUquD//vF82EdJlx1GCCXx4aWtR1wOGtiWJ+Q6Z
+	chVIEECwSIJS69oULpbCS1ipHqj8SBrE/Ms1/Xgr2qOSJKBFsnToXy9AADY4USnsTlyYgSabIhF
+	q8DqG4nZ7mdad2rO2j7uDRJF2vs1unJNetYs42h1DNE6cIkz+drUcDooPA1x0XVo2hinxxkUccE
+	eYw==
+X-Google-Smtp-Source: AGHT+IHF/tsnTWTEpF4H0kg8q1A+TidSDULFwV9+aTYXkyTCuSdYjLeHagAev7Ne5ELDSe/ppYbBWg==
+X-Received: by 2002:a05:600c:1ca0:b0:439:9e8b:228d with SMTP id 5b1f17b1804b1-439ae218a14mr35556225e9.19.1740161476437;
+        Fri, 21 Feb 2025 10:11:16 -0800 (PST)
+Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258dcf08sm24356178f8f.36.2025.02.21.10.11.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Feb 2025 10:11:16 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-pm@vger.kernel.org
+Subject: Re: [PATCH 3/5] dt-bindings: gpu: mali-bifrost: Add Allwinner H616 compatible
+Date: Fri, 21 Feb 2025 19:11:14 +0100
+Message-ID: <2356358.ElGaqSPkdT@jernej-laptop>
+In-Reply-To: <20250221005802.11001-4-andre.przywara@arm.com>
+References: <20250221005802.11001-1-andre.przywara@arm.com>
+ <20250221005802.11001-4-andre.przywara@arm.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Simon Sun <simon.sun@yunjingtech.com>, linux-kernel@vger.kernel.org, 
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- Project_Global_Chrome_Upstream_Group@mediatek.com, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Alexandre Mergnat <amergnat@baylibre.com>, Macpaul Lin <macpaul@gmail.com>, 
- Conor Dooley <conor+dt@kernel.org>, Bear Wang <bear.wang@mediatek.com>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Yow-Shin Liou <yow-shin.liou@mediatek.com>, 
- Fabien Parent <fparent@baylibre.com>, 
- Chris-qj chen <chris-qj.chen@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Pablo Sun <pablo.sun@mediatek.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Macpaul Lin <macpaul.lin@mediatek.com>
-In-Reply-To: <20250221144941.2844333-1-macpaul.lin@mediatek.com>
-References: <20250221144941.2844333-1-macpaul.lin@mediatek.com>
-Message-Id: <174015998416.3469778.7696460950092748736.robh@kernel.org>
-Subject: Re: [PATCH v5] arm64: dts: mediatek: mt8395-genio-1200-evk: add
- support for TCPC port
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250221_101118_319113_22359A73 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,81 +108,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Dne petek, 21. februar 2025 ob 01:58:00 Srednjeevropski standardni =C4=8Das=
+ je Andre Przywara napisal(a):
+> The Allwinner H616 SoC has a Mali-G31 MP2 GPU, which is of the Mali
+> Bifrost family.
+> Add the SoC specific compatible string and pair it with the bifrost
+> fallback compatible.
+>=20
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-On Fri, 21 Feb 2025 22:49:41 +0800, Macpaul Lin wrote:
-> From: Fabien Parent <fparent@baylibre.com>
-> 
-> Enable USB Type-C support on MediaTek MT8395 Genio 1200 EVK by adding
-> configuration for TCPC Port, USB-C connector, MUX IT5205 and related
-> settings.
-> 
-> Configure dual role switch capability, set up PD (Power Delivery) profiles,
-> and establish endpoints for SS (SuperSpeed) and HS (HighSpeed) USB.
-> 
-> Update pinctrl configurations for U3 P0 VBus default pins and set dr_mode
-> to "otg" for OTG (On-The-Go) mode operation.
-> 
-> Add ITE IT5205 (TYPEC MUX) under I2C2 bus and configure its properties;
-> also add references and configurations to 'typec-mux' node.
-> 
-> Signed-off-by: Fabien Parent <fparent@baylibre.com>
-> Signed-off-by: Yow-Shin Liou <yow-shin.liou@mediatek.com>
-> Signed-off-by: Simon Sun <simon.sun@yunjingtech.com>
-> Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
-> ---
->  .../dts/mediatek/mt8395-genio-1200-evk.dts    | 100 ++++++++++++++++++
->  1 file changed, 100 insertions(+)
-> 
-> Changes for v2:
->  - Drop the no need '1/2' DT Schema update patch in the 1st version.
->  - Fix indent for 'ports' node, it should under the 'connector' node.
->  - Correct the index for 'port@0' and 'port@1' node.
-> 
-> Changes for v3:
->  - Correct the order between new added nodes.
-> 
-> Changes for v4:
->  - Reorder for property 'op-sink-microwatt'.
->  - Fix indentation for 'source-pdos' and 'sink-pdos' nodes.
->  - Correct node 'pin-cmd-dat' with 'pins-vbus'.
->  - Add both Highspeed and Superspeed ports to ssusb0 port.
->  - Set 'role-switch-default-mode' = "peripheral" for ssusb0 port.
->  - Rename endpoint of USB data port to 'mtu3_hs0_role_sw' and
->    'mtu3_ss0_role_sw'.
->  - Drop it5205fn phandle for node typec-mux@48.
->  - Reorder properties of typec-mux@48
->  - Add "Reviewed-by:" tag. Thanks!
-> 
-> Changes for v5:
->  - Squash two patches into one patch and refine commit messages:
->    suggested by reviewer.
->  - Drop 'role-switch-default-mode'
->  - Add altmodes settings
->  - Drop 'Reviewed-by:' tag since the two sub patches has been combined
->    into a new patch.
-> 
+Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/mediatek/' for 20250221144941.2844333-1-macpaul.lin@mediatek.com:
-
-arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dtb: usb@11201000: 'ports' does not match any of the regexes: '^usb@[0-9a-f]+$', 'pinctrl-[0-9]+'
-	from schema $id: http://devicetree.org/schemas/usb/mediatek,mtu3.yaml#
-
-
+Best regards,
+Jernej
 
 
 
