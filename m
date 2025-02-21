@@ -4,65 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9313AC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 20:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE203C021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 20:18:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=44dStVmRn1/6hW7hYJxHZ4v+2e/QWDNOYlE859iLC28=; b=sVlwC46HXhGVVxCT15BJrwJ7Yy
-	aa2vQ1GKwntU3lvR8mdJXe3f2ZWeWL0dYzD08YsGH5P66Po/8O6DTqVsQAb28B8/lgVS2xuwxh2pS
-	KWp487bwygcyl5vX+BjcwQCzVmOpNGhfKdgaU4mnD6M2VidwDJu3VNcdxK6WYoqhz2eYRdIZR8YEt
-	3b+2G40tN+5vsZUDRBb5HtgPg5LPtSp68fqPw7OtyWqtT0YP3X0f83C5E0GEGdLKWZK/pAgMPwUC8
-	auIV/yHrSOr3xdB3WhcIwg2FT+rpu7gqKA8RSqaROZNE++ou6vV/ZadX3UvM0/A94l4mmKNNTNF0Q
-	uxcteO3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=HOnW1Ydd3mEGmkYd1wAkSF1KEHTUQp/FI13uGVZWzx4=; b=Lay2MECtseaH0B
+	XQQHLkfZOXHxA061bIIjmrUh4opblbXEbXltp+OmN8cD3bB/62cpx4DtVLRGAwI1Wvx1xSBw3wcIB
+	NxaSjZI485TWbdeJzBPJ/QDs67LQDVJE7nL1kSnM79keoIDgaw99makHlNvZKY3NCKfV74Q8zMMDl
+	PEvqQ1R9XRF+5WJrqtyvheN3R6follGvYyUdrH2NMkgqdreaQWKSWYBnfmV6hGNlyB+KHEPJXyqt4
+	GZPtjzc5dGqr8S+LL85Ce+5uW/NU5PeflWRhZFXpiQqoMvzmIJMVlQ+FKXqHINiDpgrJ/Uo6yshrA
+	umeaWaHaGQZV4cDta8IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlZIk-00000006jY3-48aC;
-	Fri, 21 Feb 2025 20:07:10 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlZDO-00000006ihu-1wGU
+	id 1tlZTJ-00000006l5g-42XJ;
+	Fri, 21 Feb 2025 20:18:05 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlZRq-00000006klO-0VOw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 20:01:39 +0000
-Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
-	by linux.microsoft.com (Postfix) with ESMTPSA id E7EC62069417;
-	Fri, 21 Feb 2025 12:01:36 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E7EC62069417
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1740168097;
-	bh=44dStVmRn1/6hW7hYJxHZ4v+2e/QWDNOYlE859iLC28=;
-	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
-	b=dygnEZ7czHywqTChRPKx3oed3NemHmKjVSvPaxfSp1FXfXKwdo9FSARhhWOhgaCk5
-	 CUcGU7heUGdXEtTn+6eSprExcB579ljnj7s6nJQ/DFRjmSIts9zupM6yrzmxoL7BD5
-	 2SGf5+3OX54Ub8APiiTDbg/y8tIlNB62mQfFPaJs=
-Message-ID: <991e7df9-d814-48a9-9469-a0b2f72acabb@linux.microsoft.com>
-Date: Fri, 21 Feb 2025 12:01:36 -0800
+	Fri, 21 Feb 2025 20:16:35 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-ab7430e27b2so412099566b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 12:16:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740168992; x=1740773792; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HOnW1Ydd3mEGmkYd1wAkSF1KEHTUQp/FI13uGVZWzx4=;
+        b=Gc7a2mqHYcS7gNVr9SqGRTwDwa6xPG8nOOHF38/Ni9Hjr4y/jbT976h2geO/9wtWW1
+         TclDeUmvTq2LnycZcBVXVIX1ZnubjeovpAXkUgWuNcuJTPLctn/rVGXCSDvl7/Sqh6Un
+         wpd7h6Z8Y7ogfD7X4Uno8dlOvzIPlb4qTrxotVWNGaMoQVPI3ZjHQBRO7yxFf7DA1BCO
+         dacNVOV9IxPkm8TmgQGTJephvlb8FUB1njAV21las+w7u02DjyWavi8zeDQmYQGWxRff
+         H6/+dcJ0m6mHsGsqeteR//bZrkDIu3tVEFBRxP86K0OsQWbRFNirRGLll8vbwcmGMOgH
+         BRPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740168992; x=1740773792;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HOnW1Ydd3mEGmkYd1wAkSF1KEHTUQp/FI13uGVZWzx4=;
+        b=CsTtL4yhcIzXESy310Rx6UMYoRphFea096Tk1Xsdo5BihritI8xXmrqLuQ5rLm4x9E
+         fMtoUyw0loFtVm79kzcwJpAddTulKXf6L0RVnpm3xccQYIl/7DSKIZA7uTDCksxkdUX7
+         GZZN57GJnwbX+W+rGRPv6WUyfGQPnS38cSa5tSggaq2GrHaCHSUhPT4ye0EpAdLcPbWT
+         Arql7wKJUmSowqCfcPa01pjGbpj23bA1YvF8jqgp71ftNq8bziLj5iO+4dlvV9PpqdB+
+         cO/IPYBUuc2dGmj6qavCJDQdsYWEN75RB3TJys26/DAQCIVvK4Ew7hvE8nJiatswLQjU
+         ZfBw==
+X-Forwarded-Encrypted: i=1; AJvYcCU3swlz+fAjiJ9aFNF0li5FtcnlEnsI6Qo8Tvk5PMU9XR/rrkI/Cg35w6iOa9LBwnp4iWXQ0/DCBrRH6zXQ25sZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXvg809PquuQpusRvnKrxzz9LQMklB50wBVfiK2AlUzcIapUc2
+	HcT4ktiFk95LScCv/FysvBwdsxUq5AShYgbSrRWX2Hil4pXWlzTT
+X-Gm-Gg: ASbGncv/Vj6ZwhHlzEf4e9rcPrEmiP0qKfQpfLSia16ubiAYl+tFLqrFQbDXef5vheL
+	M6Z718qmJ/GY0ab3D2s0XD8UJuMSEnQqd1d5zVrl3OLSZ5/au2ikWIfAkVM96M0t4pM2YT8XMQT
+	xpjAjkcvi0QpqhXX84C0ZCBLz8IMXBtdk6upzM1JJltU5tX60NRUVS/jFp3K3N2MPNiAiTMJtam
+	dyron+uyZZfKktlilEmb0npXhQCiwuHPX6e8ajZ2AakIMfwwf7LkDqa3XuKQa3iUP+aBE6yIhhv
+	zl4J+EZKpbC/Vmfz2OZmsV7+b5jZHt/OSdd9xysP+tjytmZ0LQJWwFZgGUsAuaDZZN0MohXo
+X-Google-Smtp-Source: AGHT+IGBCXqFh6dVss0FJaa0R4w77fQmveolGcalYyOeZbZ8ZnN8wMd3he5AW2qgmgbfNBz9J/WLBA==
+X-Received: by 2002:a17:906:3291:b0:aa6:7737:1991 with SMTP id a640c23a62f3a-abc0d99370emr406213066b.2.1740168991705;
+        Fri, 21 Feb 2025 12:16:31 -0800 (PST)
+Received: from hex.my.domain (83.8.202.192.ipv4.supernova.orange.pl. [83.8.202.192])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece1b4f70sm14127594a12.12.2025.02.21.12.16.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Feb 2025 12:16:30 -0800 (PST)
+From: Artur Weber <aweber.kernel@gmail.com>
+Subject: [PATCH v5 0/9] mfd: bcm590xx: Add support for BCM59054
+Date: Fri, 21 Feb 2025 21:16:22 +0100
+Message-Id: <20250221-bcm59054-v5-0-065f516a9042@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/3] Introduce CONFIG_MSHV_ROOT for root partition code
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-To: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
- iommu@lists.linux.dev, mhklinux@outlook.com, eahariha@linux.microsoft.com,
- mukeshrathor@microsoft.com
-Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
- decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
- tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
- daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
- arnd@arndb.de, jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
- skinsburskii@linux.microsoft.com
-References: <1740167795-13296-1-git-send-email-nunodasneves@linux.microsoft.com>
-Content-Language: en-US
-In-Reply-To: <1740167795-13296-1-git-send-email-nunodasneves@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABbfuGcC/3XM0QqCMBTG8VeRXbc4Z9vR2VXvEV2czVmD1NCQI
+ nz3ZhCK0OV3OL//Wwyhj2EQh+wt+jDGIXZtGrTLhL9yewkyVmkLBcqAxVw631AJZCRbC3lJwWC
+ wIr3f+1DH5zd1Oqd9jcOj61/f8ojzdY5oBA1LZEQJUhMWdWnBY9DHS8PxtvddI+bIqP5BlSDVb
+ ACRmRxvof5BAtS4gjpB59iTYmsKW2yhWaBCWkGTYOVqp6oiZ0u0htM0fQAr3mnuSwEAAA==
+X-Change-ID: 20240816-bcm59054-a880695e41e8
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: Stanislav Jakubek <stano.jakubek@gmail.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ ~postmarketos/upstreaming@lists.sr.ht, 
+ Artur Weber <aweber.kernel@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1740168989; l=3685;
+ i=aweber.kernel@gmail.com; s=20231030; h=from:subject:message-id;
+ bh=s9Ca1JGprDjYoElIXiW7zquH+1K14cmVqWxpnGGfyR0=;
+ b=aFJpFuZ+ebHX70O5WBucS7JoKsGSEuk18Xndc8WOLJhnTnDv+6bbkju8vARTfhpQSZwSEV28T
+ 6RaTBMzd0jCDJCgqyKCSaWEc7TatABVG4UfnieAtNegNHC00gssBy/5
+X-Developer-Key: i=aweber.kernel@gmail.com; a=ed25519;
+ pk=RhDBfWbJEHqDibXbhNEBAnc9FMkyznGxX/hwfhL8bv8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_120138_551509_16289382 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20250221_121634_165187_4C840929 
+X-CRM114-Status: GOOD (  18.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,70 +115,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The subject line says v2 but this is actually v3!
+Add support for the BCM59054 MFD to the bcm590xx driver and fix a
+couple of small bugs in it that also affected the already supported
+BCM59056.
 
-Nuno
+While we're at it - convert the devicetree bindings to YAML format
+and drop the bcm59056 DTS in favor of describing the PMU in users'
+DTS files, as is done for most other MFDs.
 
-On 2/21/2025 11:56 AM, Nuno Das Neves wrote:
-> Running in the root partition is a unique and specialized case that
-> requires additional code. CONFIG_MSHV_ROOT allows Hyper-V guest kernels
-> to exclude this code, which is important since significant additional code
-> specific to the root partition is expected to be added over time.
-> 
-> To do this, change hv_root_partition to be a function which is stubbed out
-> to return false if CONFIG_MSHV_ROOT=n, and don't compile hv_proc.c at all,
-> stubbing out those functions with inline versions.
-> 
-> Store the partition type (guest or root) in an enum hv_curr_partition_type,
-> which can be extended beyond just guest and root partition.
-> 
-> While at it, introduce hv_result_to_errno() to convert Hyper-V status codes
-> to regular linux errors. This is useful because the caller of a hypercall
-> helper function (such as those in hv_proc.c) usually can't and doesn't
-> interpret the Hyper-V status, so it is better to convert it to an error code
-> and reduce the possibility of misinterpreting it. This also alows the stubbed
-> versions of the hv_proc.c functions to just return a linux error code.
-> 
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-> ---
-> Changes in v3:
-> * Fix a typo [Easwar Hariharan]
-> * Fix ret being initialized to HV_STATUS_SUCCESS in some hypercall helpers
->   [Michael Kelley]
-> * Fix CONFIG_MSHV_ROOT being used in patch 2, before it is defined [Michael
->   Kelley]
-> * Shorten hv_current_partition_type to hv_curr_partition_type [Mukesh Rathor]
-> 
-> Changes in v2:
-> * Add patch to convert hypercall statuses to linux error codes [Easwar
->   Hariharan]
-> * While at it, split the original patch into two logical pieces, one to change
->   hv_root_partition into a function, and one to introduce MSHV_CONFIG_ROOT
-> * Improve the clarity of and add an error message to
->   hv_identify_partition_type() [Easwar Hariharan] [Michael Kelley]
-> * Better explain *why* the patches are useful, in the commit messages [Michael
->   Kelley]
-> * Add a Kconfig comment explaining why PAGE_SIZE_4KB is needed [Michael Kelley]
-> * Minor style and typo fixes
-> 
-> Nuno Das Neves (3):
->   hyperv: Convert hypercall statuses to linux error codes
->   hyperv: Change hv_root_partition into a function
->   hyperv: Add CONFIG_MSHV_ROOT to gate root partition support
-> 
->  arch/arm64/hyperv/mshyperv.c       |  2 +
->  arch/x86/hyperv/hv_init.c          | 10 ++---
->  arch/x86/kernel/cpu/mshyperv.c     | 24 +----------
->  drivers/clocksource/hyperv_timer.c |  4 +-
->  drivers/hv/Kconfig                 | 16 +++++++
->  drivers/hv/Makefile                |  3 +-
->  drivers/hv/hv.c                    | 10 ++---
->  drivers/hv/hv_common.c             | 69 +++++++++++++++++++++++++++---
->  drivers/hv/hv_proc.c               | 10 ++---
->  drivers/hv/vmbus_drv.c             |  2 +-
->  drivers/iommu/hyperv-iommu.c       |  4 +-
->  include/asm-generic/mshyperv.h     | 40 ++++++++++++++---
->  12 files changed, 139 insertions(+), 55 deletions(-)
-> 
+The BCM59054 is fairly similar to the BCM59056, with the primary
+difference being the different number and layout of regulators.
+It is primarily used in devices using the BCM21664 and BCM23550
+chipsets.
+
+This patchset has been tested on a Samsung Galaxy Grand Neo
+(baffinlite rev02; DTS not in mainline yet) with a BCM59054 PMIC.
+Testing on a BCM59056 would be appreciated.
+
+Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
+---
+Changes in v5:
+- Make regulator binding descriptions reference mfd/brcm,bcm590xx.yaml
+  instead of mfd/brcm,bcm59056.yaml
+- Move regmap type enum to common MFD header
+- Link to v4: https://lore.kernel.org/r/20250215-bcm59054-v4-0-dbfb2d76a855@gmail.com
+
+Changes in v4:
+- Fix yamllint warnings in DT bindings
+- Address miscelaneous review comments related to DT bindings
+  - Note that I did not end up moving the regulator refs from
+    allOf compatible matches; I explained my reasoning in [1].
+    [1] https://lore.kernel.org/lkml/ab853605-859d-44c6-8cbd-44391cd677e6@gmail.com/
+- Add PMU ID/revision parsing to MFD driver
+- Fix instances of regulator data not matching vendor kernel for
+  BCM59054
+- Use different voltage table for BCM59054 VSR reg based on PMU
+  revision
+- Link to v3: https://lore.kernel.org/r/20250131-bcm59054-v3-0-bbac52a84787@gmail.com
+
+Changes in v3:
+- Split out regulator DT bindings into separate YAML
+- Use tables of regulator info instead of get_XXX_register, reg_is_XXX
+  functions
+- Drop "regulator: bcm590xx: Add proper handling for PMMODE registers";
+  it adds unnecessary noise to the series and will be submitted separately
+- Link to v2: https://lore.kernel.org/r/20231030-bcm59054-v2-0-5fa4011aa5ba@gmail.com
+
+Changes in v2:
+- Fixed BCM59054 ID being passed to BCM59056 function in the
+  regulator driver
+- Dropped linux-rpi-kernel from the CC list
+- Link to v1: https://lore.kernel.org/r/20231030-bcm59054-v1-0-3517f980c1e3@gmail.com
+
+---
+Artur Weber (9):
+      dt-bindings: mfd: brcm,bcm59056: Convert to YAML
+      dt-bindings: mfd: brcm,bcm59056: Add compatible for BCM59054
+      ARM: dts: Drop DTS for BCM59056 PMU
+      mfd: bcm590xx: Add support for multiple device types + BCM59054 compatible
+      mfd: bcm590xx: Add PMU ID/revision parsing function
+      regulator: bcm590xx: Use dev_err_probe for regulator register error
+      regulator: bcm590xx: Store regulator descriptions in table
+      regulator: bcm590xx: Rename BCM59056-specific data as such
+      regulator: bcm590xx: Add support for BCM59054 regulators
+
+ .../devicetree/bindings/mfd/brcm,bcm59056.txt      |   39 -
+ .../devicetree/bindings/mfd/brcm,bcm590xx.yaml     |   76 ++
+ .../bindings/regulator/brcm,bcm59054.yaml          |   56 +
+ .../bindings/regulator/brcm,bcm59056.yaml          |   51 +
+ arch/arm/boot/dts/broadcom/bcm28155-ap.dts         |   68 +-
+ arch/arm/boot/dts/broadcom/bcm59056.dtsi           |   91 --
+ drivers/mfd/bcm590xx.c                             |   86 +-
+ drivers/regulator/bcm590xx-regulator.c             | 1289 ++++++++++++++++----
+ include/linux/mfd/bcm590xx.h                       |   28 +
+ 9 files changed, 1378 insertions(+), 406 deletions(-)
+---
+base-commit: ffd294d346d185b70e28b1a28abe367bbfe53c04
+change-id: 20240816-bcm59054-a880695e41e8
+
+Best regards,
+-- 
+Artur Weber <aweber.kernel@gmail.com>
 
 
