@@ -4,58 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D05C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 15:07:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 484CAC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 15:12:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9TtNbcwfr3tXN8uGcQwkY1aVrvrF2yRiimYygDJPZSk=; b=xs8UxPk9w4xBv7sAsnqH2I5CGR
-	iR3ThQof/e8su87BNs+ve78vLPmQqSnnaBbU1Ff+0ANB7x165Xe1lC7SYVZSZu/MwgYsPhAKNxXIn
-	iBAPvvQAAuQn9HdK/Ib3B2aNwQ0kB2GqFj52QNz2ghp46zecTFrVkA8Xah2uabqQwgdRfG9iW534o
-	NQw2f2Coo0/IxYJT1j18fSFmwWyJr8phxtwvFnIZbRTCJtli8E3lWZAu/E+RMr7A7eOmGQ0qTguq7
-	BTMsDcfJKgg12+vPB9lTH6wbdHl5LS8hj+gXScH3bwLRtEiUvfxXxcNKOmn2R/0gDu95Dvsm1lajs
-	oj1pb8pw==;
+	bh=Q017wuvqryap7aPpTrbH5l2BPQ0yyhmTjmA8/NisBfY=; b=tN0xmZwk5SoBO0m18E/Q4kqsVU
+	jWdU87a4udumGnm+qwitV6Du6ikIvQFg8dQjykJrFMxT7NmNcLofXhUd1rJvfk5uLsqudMyiaKwJa
+	UIonRCCqgWV44XyjyNPlJVKlDt4lgZu7YFVoz4Kzo4r8SamJputnCy8lu4RKbLoceEkoxG9aF2zbc
+	+/QVp8caFz8Is7poKBigiytuNveBfCeWVHohBJYmLo0ZOnPMwUsFMIr312/BoRxDiLwTssO8viPpi
+	fkkhax0IyI0UM2pzfod8AFcBeVTspOpFG4HT//GnK/fGj1MIwK9pVGSHQ7TvgbVwW10TdepmJkLOB
+	FsGDQ70g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlUcf-00000005vgL-2bl2;
-	Fri, 21 Feb 2025 15:07:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlUbC-00000005vT3-0I2G
+	id 1tlUhB-00000005wG7-0tcd;
+	Fri, 21 Feb 2025 15:12:05 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlUfh-00000005w3v-1G4A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 15:05:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 67F50168F;
-	Fri, 21 Feb 2025 07:06:10 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8F4613F59E;
-	Fri, 21 Feb 2025 07:05:50 -0800 (PST)
-Message-ID: <1d9a187a-aa09-47c0-96b5-b19ba6cbb24e@arm.com>
-Date: Fri, 21 Feb 2025 15:05:49 +0000
+	Fri, 21 Feb 2025 15:10:34 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-abc28af1ba4so2420666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 07:10:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740150631; x=1740755431; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=Q017wuvqryap7aPpTrbH5l2BPQ0yyhmTjmA8/NisBfY=;
+        b=hrVT6wXFdt5fZ458H/KqjnILYw0hyV8R/SbXU1rd66ducZsZeMsJccDN0JLMUMOfNM
+         5efabb+aD4dJsQ1NK/bgQyml4XgNQ6yGBi9ThkgDX/+mlDRdG1hK1bdFJWPAEH1x9oTL
+         cSVNfTIXVjsrDlxbKoFHBee6VowK4YCEDX7Kijdvgq+QnMKdVJ4/T5gjUGcnk94FeSuY
+         nKXxv/AnmTMA+2zoJuBTNE4qD5khO7DniQQ0BeR1zZM3ZgmPxrpRdwmIWrHM+W6DwBNE
+         g7qQk1ksI+v+Cmh4j9G83Kn46AuzsjKmHXxDD2aK9I7CumaujfsabZLkIr7arZbTjCWB
+         4xRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740150631; x=1740755431;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Q017wuvqryap7aPpTrbH5l2BPQ0yyhmTjmA8/NisBfY=;
+        b=FCpIBYRA5GmYioe9KQCQNzxEznL8Xuj0oKS3MaGVg365T4x2fwPmsqEsTSCMiFn3HA
+         EtJvUyLuh8wwcM8hbU5PPBtWT6q5mlVaEwPrEveS1LtUjCvqLZQxE9yF/ESCC7NuZXus
+         eqIeHvmKx1gd0V2ll5krnr4a0AZatqBnDeR4y0Q2Yc+wb9y9JuYvtdD6cV/90n93wZdZ
+         J4FwfVCUOs98e19X5b1pYS44OuF8YRk/8KHgkrE2/QIoMMBdmFWK3eyrK+jANAIXOfh3
+         r7GN0fzCOsr4Fb0nfBwqyOkoWUeR1Qq4GDISwJr/MJo/AnywUO/lOa5ikV8HpF/H6Bfx
+         RP3w==
+X-Forwarded-Encrypted: i=1; AJvYcCU+vCeTZeH5Tj3d11Xo/SUoWPWzZh4oqfZUZOZEFhb0AvhdTWtEKIu+sVoWWLa0AMvqgJJsN+OLCoAHXVNtyxSw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzH2IAksx2TFp2pUXpbxQwg9fbDy2PIbYWidUmPinUdnJ5M79mv
+	xfNy/8Phe10OoRZQLOIjHxM4lEeLE9lPHnrzPlBc89VaqY6HBV0XNipFkAgoIyA=
+X-Gm-Gg: ASbGncu9UQiVTm+odyyxJfmqNB/8hGAOsYeXyVZjVOpLu91aLdJgeCZgfDmEUOmLvoA
+	pMywL6tIHS6R/feW0WyD65QEVL4E/swGILSPZRu9kOTFGtYbYoBnib6zjcn2BksW89WoN88bM0B
+	RPJ6DoFAicoRNaCLzpXCtwYixsxKqlY4n0wsTXkbYoaZQLCLNiDg3/OjeiKe+eZ0NG5i/KwfdVP
+	bWVBF48Ho6qXUR+3z1k7PnhjHcGJDlNxtoEJW6kBOuZtBVIdpvNQvcZo8uiHxp5f8hjT0k21Sah
+	KDEW2SgldHVB++TTWCdCzarASNlxwVFVqnaUPi0JXZAVvo097IH6txLMHhsyzYWMvmZQfj/WL7Q
+	GYT+J9g==
+X-Google-Smtp-Source: AGHT+IElVOKQrHQSW/WG4AXM2/H7NAh/sNrOhfOcPDza3R9P1CmFhC8jRazW/6xVsXi0tYza7X5QMw==
+X-Received: by 2002:a05:6402:5215:b0:5e0:88d8:440d with SMTP id 4fb4d7f45d1cf-5e0b70d2589mr1135128a12.1.1740150631534;
+        Fri, 21 Feb 2025 07:10:31 -0800 (PST)
+Received: from [192.168.0.104] (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5dece271223sm14141922a12.59.2025.02.21.07.10.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Feb 2025 07:10:29 -0800 (PST)
+Message-ID: <37292bb9-6886-479d-bfb8-05e2ee540c6c@linaro.org>
+Date: Fri, 21 Feb 2025 16:10:26 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 5/8] coresight: tmc: Add support for reading crash
- data
-To: Linu Cherian <lcherian@marvell.com>, mike.leach@linaro.org,
- james.clark@arm.com
-Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, corbet@lwn.net,
- devicetree@vger.kernel.org, sgoutham@marvell.com, gcherian@marvell.com,
- Anil Kumar Reddy <areddy3@marvell.com>, Tanmay Jagdale <tanmay@marvell.com>
-References: <20250212114918.548431-1-lcherian@marvell.com>
- <20250212114918.548431-6-lcherian@marvell.com>
+Subject: Re: [PATCH v5 02/10] dt-bindings: clock: Add Qualcomm QCS615 Camera
+ clock controller
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+ Taniya Das <quic_tdas@quicinc.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Ajit Pandey <quic_ajipan@quicinc.com>,
+ Imran Shaik <quic_imrashai@quicinc.com>,
+ Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250221-qcs615-v5-mm-cc-v5-0-b6d9ddf2f28d@quicinc.com>
+ <20250221-qcs615-v5-mm-cc-v5-2-b6d9ddf2f28d@quicinc.com>
+ <ljfgljuhlpkjvqwomhvq5l6giihqv6h5nzswncaqgelvjycgew@bcxjrgbj3lts>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250212114918.548431-6-lcherian@marvell.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <ljfgljuhlpkjvqwomhvq5l6giihqv6h5nzswncaqgelvjycgew@bcxjrgbj3lts>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_070554_213307_20CCE5F1 
-X-CRM114-Status: GOOD (  38.35  )
+X-CRM114-CacheID: sfid-20250221_071033_347841_C7D789CF 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,413 +158,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/02/2025 11:49, Linu Cherian wrote:
-> * Add support for reading crashdata using special device files.
->    The special device files /dev/crash_tmc_xxx would be available
->    for read file operation only when the crash data is valid.
+On 21/02/2025 15:11, Dmitry Baryshkov wrote:
+> On Fri, Feb 21, 2025 at 02:50:13PM +0530, Taniya Das wrote:
+>> Add DT bindings for the Camera clock on QCS615 platforms. Add the
+>> relevant DT include definitions as well.
+>>
+>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 > 
-> * User can read the crash data as below
-> 
->    For example, for reading crash data from tmc_etf sink
-> 
->    #dd if=/dev/crash_tmc_etfXX of=~/cstrace.bin
-> 
-> Signed-off-by: Anil Kumar Reddy <areddy3@marvell.com>
-> Signed-off-by: Tanmay Jagdale <tanmay@marvell.com>
-> Signed-off-by: Linu Cherian <lcherian@marvell.com>
-> ---
-> Changelog from v13:
-> * Changed the log levels of crc error check failure prints from dev_dbg to
->    dev_err
-> * Added CRC recalculation upon barrier packet insertion for overflow
->    cases, this fixes wrong crc check failures for subsequent boots
-> * Add metadata valid flag checks for successfully opening crashdata files
-> * Report to the user during probe if valid crash tracedata is found
-> * Few other trivial cleanups
-> 
->   .../hwtracing/coresight/coresight-tmc-core.c  | 226 +++++++++++++++++-
->   .../hwtracing/coresight/coresight-tmc-etr.c   |  22 +-
->   drivers/hwtracing/coresight/coresight-tmc.h   |  14 +-
->   3 files changed, 259 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> index c6224eed705d..045d37606750 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-> @@ -105,6 +105,128 @@ u32 tmc_get_memwidth_mask(struct tmc_drvdata *drvdata)
->   	return mask;
->   }
->   
-> +static bool is_tmc_crashdata_valid(struct tmc_drvdata *drvdata)
-> +{
-> +	struct tmc_crash_metadata *mdata;
-> +
-> +	if (!tmc_has_reserved_buffer(drvdata) ||
-> +	    !tmc_has_crash_mdata_buffer(drvdata))
-> +		return false;
-> +
-> +	mdata = drvdata->crash_mdata.vaddr;
-> +
-> +	/* Check version match */
-> +	if (mdata->version != CS_CRASHDATA_VERSION)
-> +		return false;
-> +
-> +	/* Check for valid metadata */
-> +	if (!mdata->valid) {
-> +		dev_dbg(&drvdata->csdev->dev,
-> +			"Data invalid in tmc crash metadata\n");
-> +		return false;
-> +	}
-> +
-> +	/*
-> +	 * Buffer address given by metadata for retrieval of trace data
-> +	 * from previous boot is expected to be same as the reserved
-> +	 * trace buffer memory region provided through DTS
-> +	 */
-> +	if (drvdata->resrv_buf.paddr != mdata->trace_paddr) {
-> +		dev_dbg(&drvdata->csdev->dev,
-> +			"Trace buffer address of previous boot invalid\n");
-> +		return false;
-> +	}
-> +
-> +	/* Check data integrity of metadata */
-> +	if (mdata->crc32_mdata != find_crash_metadata_crc(mdata)) {
-> +		dev_err(&drvdata->csdev->dev,
-> +			"CRC mismatch in tmc crash metadata\n");
-> +		return false;
-> +	}
-> +	/* Check data integrity of tracedata */
-> +	if (mdata->crc32_tdata != find_crash_tracedata_crc(drvdata, mdata)) {
-> +		dev_err(&drvdata->csdev->dev,
-> +			"CRC mismatch in tmc crash tracedata\n");
-> +		return false;
-> +	}
-> +
-> +	return true;
-> +}
-> +
-> +static inline ssize_t tmc_get_resvbuf_trace(struct tmc_drvdata *drvdata,
-> +					  loff_t pos, size_t len, char **bufpp)
-> +{
-> +	s64 offset;
-> +	ssize_t actual = len;
-> +	struct tmc_resrv_buf *rbuf = &drvdata->resrv_buf;
-> +
-> +	if (pos + actual > rbuf->len)
-> +		actual = rbuf->len - pos;
-> +	if (actual <= 0)
-> +		return 0;
-> +
-> +	/* Compute the offset from which we read the data */
-> +	offset = rbuf->offset + pos;
-> +	if (offset >= rbuf->size)
-> +		offset -= rbuf->size;
-> +
-> +	/* Adjust the length to limit this transaction to end of buffer */
-> +	actual = (actual < (rbuf->size - offset)) ?
-> +		actual : rbuf->size - offset;
-> +
-> +	*bufpp = (char *)rbuf->vaddr + offset;
-> +
-> +	return actual;
-> +}
-> +
-> +static int tmc_prepare_crashdata(struct tmc_drvdata *drvdata)
-> +{
-> +	char *bufp;
-> +	ssize_t len;
-> +	u32 status, size;
-> +	u64 rrp, rwp, dba;
-> +	struct tmc_resrv_buf *rbuf;
-> +	struct tmc_crash_metadata *mdata;
-> +
-> +	mdata = drvdata->crash_mdata.vaddr;
-> +	rbuf = &drvdata->resrv_buf;
-> +
-> +	rrp = mdata->tmc_rrp;
-> +	rwp = mdata->tmc_rwp;
-> +	dba = mdata->tmc_dba;
-> +	status = mdata->tmc_sts;
-> +	size = mdata->tmc_ram_size << 2;
-> +
-> +	/* Sync the buffer pointers */
-> +	rbuf->offset = rrp - dba;
-> +	if (status & TMC_STS_FULL)
-> +		rbuf->len = size;
-> +	else
-> +		rbuf->len = rwp - rrp;
-> +
-> +	/* Additional sanity checks for validating metadata */
-> +	if ((rbuf->offset > size) ||
-> +	    (rbuf->len > size)) {
-> +		dev_dbg(&drvdata->csdev->dev,
-> +			"Offset and length invalid in tmc crash metadata\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (status & TMC_STS_FULL) {
-> +		len = tmc_get_resvbuf_trace(drvdata, 0x0,
-> +					    CORESIGHT_BARRIER_PKT_SIZE, &bufp);
-> +		if (len >= CORESIGHT_BARRIER_PKT_SIZE) {
-> +			coresight_insert_barrier_packet(bufp);
-> +			/* Recalculate crc */
-> +			mdata->crc32_tdata = find_crash_tracedata_crc(drvdata,
-> +								      mdata);
-> +			mdata->crc32_mdata = find_crash_metadata_crc(mdata);
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->   static int tmc_read_prepare(struct tmc_drvdata *drvdata)
->   {
->   	int ret = 0;
-> @@ -223,6 +345,84 @@ static const struct file_operations tmc_fops = {
->   	.release	= tmc_release,
->   };
->   
-> +static int tmc_crashdata_open(struct inode *inode, struct file *file)
-> +{
-> +	int err = 0;
-> +	unsigned long flags;
-> +	struct tmc_resrv_buf *rbuf;
-> +	struct tmc_crash_metadata *mdata;
-> +	struct tmc_drvdata *drvdata = container_of(file->private_data,
-> +						   struct tmc_drvdata,
-> +						   crashdev);
-> +
-> +	mdata = drvdata->crash_mdata.vaddr;
-> +	rbuf = &drvdata->resrv_buf;
-> +
-> +	spin_lock_irqsave(&drvdata->spinlock, flags);
-> +	if (mdata->valid)
-> +		rbuf->reading = true;
-> +	else
-> +		err = -ENOENT;
-> +	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +	if (err)
-> +		goto exit;
-> +
-> +	nonseekable_open(inode, file);
-> +	dev_dbg(&drvdata->csdev->dev, "%s: successfully opened\n", __func__);
-> +exit:
-> +	return err;
-> +}
-> +
-> +static ssize_t tmc_crashdata_read(struct file *file, char __user *data,
-> +				  size_t len, loff_t *ppos)
-> +{
-> +	char *bufp;
-> +	ssize_t actual;
-> +	struct tmc_drvdata *drvdata = container_of(file->private_data,
-> +						   struct tmc_drvdata,
-> +						   crashdev);
-> +
-> +	actual = tmc_get_resvbuf_trace(drvdata, *ppos, len, &bufp);
-> +	if (actual <= 0)
-> +		return 0;
-> +
-> +	if (copy_to_user(data, bufp, actual)) {
-> +		dev_dbg(&drvdata->csdev->dev,
-> +			"%s: copy_to_user failed\n", __func__);
-> +		return -EFAULT;
-> +	}
-> +
-> +	*ppos += actual;
-> +	dev_dbg(&drvdata->csdev->dev, "%zu bytes copied\n", actual);
-> +
-> +	return actual;
-> +}
-> +
-> +static int tmc_crashdata_release(struct inode *inode, struct file *file)
-> +{
-> +	int ret = 0;
-> +	unsigned long flags;
-> +	struct tmc_resrv_buf *rbuf;
-> +	struct tmc_drvdata *drvdata = container_of(file->private_data,
-> +						   struct tmc_drvdata,
-> +						   crashdev);
-> +
-> +	rbuf = &drvdata->resrv_buf;
-> +	spin_lock_irqsave(&drvdata->spinlock, flags);
-> +	rbuf->reading = false;
-> +	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +
-> +	dev_dbg(&drvdata->csdev->dev, "%s: released\n", __func__);
-> +	return ret;
-> +}
-> +
-> +static const struct file_operations tmc_crashdata_fops = {
-> +	.owner		= THIS_MODULE,
-> +	.open		= tmc_crashdata_open,
-> +	.read		= tmc_crashdata_read,
-> +	.release	= tmc_crashdata_release,
-> +};
-> +
->   static enum tmc_mem_intf_width tmc_get_memwidth(u32 devid)
->   {
->   	enum tmc_mem_intf_width memwidth;
-> @@ -532,6 +732,22 @@ static u32 tmc_etr_get_max_burst_size(struct device *dev)
->   	return burst_size;
->   }
->   
-> +static void register_crash_dev_interface(struct tmc_drvdata *drvdata,
-> +					 const char *name)
-> +{
-> +	drvdata->crashdev.name =
-> +		devm_kasprintf(&drvdata->csdev->dev, GFP_KERNEL, "%s_%s", "crash", name);
-> +	drvdata->crashdev.minor = MISC_DYNAMIC_MINOR;
-> +	drvdata->crashdev.fops = &tmc_crashdata_fops;
-> +	if (misc_register(&drvdata->crashdev)) {
-> +		dev_dbg(&drvdata->csdev->dev,
-> +			"Failed to setup user interface for crashdata\n");
-> +		drvdata->crashdev.fops = NULL;
-> +	} else
-> +		dev_info(&drvdata->csdev->dev,
-> +			"Valid crash tracedata found\n");
-> +}
-> +
->   static int __tmc_probe(struct device *dev, struct resource *res)
->   {
->   	int ret = 0;
-> @@ -632,9 +848,15 @@ static int __tmc_probe(struct device *dev, struct resource *res)
->   	drvdata->miscdev.minor = MISC_DYNAMIC_MINOR;
->   	drvdata->miscdev.fops = &tmc_fops;
->   	ret = misc_register(&drvdata->miscdev);
-> -	if (ret)
-> +	if (ret) {
->   		coresight_unregister(drvdata->csdev);
-> +		goto out;
-> +	}
-> +
->   out:
-> +	if (is_tmc_crashdata_valid(drvdata) &&
-> +	    !tmc_prepare_crashdata(drvdata))
-> +		register_crash_dev_interface(drvdata, desc.name);
->   	return ret;
->   }
->   
-> @@ -687,6 +909,8 @@ static void __tmc_remove(struct device *dev)
->   	 * handler to this device is closed.
->   	 */
->   	misc_deregister(&drvdata->miscdev);
-> +	if (drvdata->crashdev.fops)
-> +		misc_deregister(&drvdata->crashdev);
->   	coresight_unregister(drvdata->csdev);
->   }
->   
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> index fb944a68a11c..c92556e1b4db 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -2012,6 +2012,26 @@ static ssize_t buf_mode_preferred_show(struct device *dev,
->   	return sysfs_emit(buf, "%s\n", buf_modes_str[drvdata->etr_mode]);
->   }
->   
-> +static int buf_mode_set_resrv(struct tmc_drvdata *drvdata)
-> +{
-> +	int err = -EBUSY;
-> +	unsigned long flags;
-> +	struct tmc_resrv_buf *rbuf;
-> +
-> +	rbuf = &drvdata->resrv_buf;
-> +
-> +	/* Ensure there are no active crashdata read sessions */
-> +	spin_lock_irqsave(&drvdata->spinlock, flags);
-> +	if (!rbuf->reading) {
-> +		tmc_crashdata_set_invalid(drvdata);
-> +		rbuf->len = 0;
-> +		drvdata->etr_mode = ETR_MODE_RESRV;
-> +		err = 0;
-> +	}
-> +	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-> +	return err;
-> +}
-> +
->   static ssize_t buf_mode_preferred_store(struct device *dev,
->   					  struct device_attribute *attr,
->   					  const char *buf, size_t size)
-> @@ -2027,7 +2047,7 @@ static ssize_t buf_mode_preferred_store(struct device *dev,
->   	else if (sysfs_streq(buf, buf_modes_str[ETR_MODE_CATU]) && buf_hw.has_catu)
->   		drvdata->etr_mode = ETR_MODE_CATU;
->   	else if (sysfs_streq(buf, buf_modes_str[ETR_MODE_RESRV]) && buf_hw.has_resrv)
-> -		drvdata->etr_mode = ETR_MODE_RESRV;
-> +		return buf_mode_set_resrv(drvdata) ? : size;
->   	else if (sysfs_streq(buf, buf_modes_str[ETR_MODE_AUTO]))
->   		drvdata->etr_mode = ETR_MODE_AUTO;
->   	else
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-> index d76e83fc840b..e3707b69abff 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc.h
-> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-> @@ -195,11 +195,17 @@ struct etr_buf {
->    * @paddr	: Start address of reserved memory region.
->    * @vaddr	: Corresponding CPU virtual address.
->    * @size	: Size of reserved memory region.
-> + * @offset	: Offset of the trace data in the buffer for consumption.
-> + * @reading	: Flag to indicate if reading is active
-> + * @len	: Available trace data @buf (may round up to the beginning).
->    */
->   struct tmc_resrv_buf {
->   	phys_addr_t     paddr;
->   	void		*vaddr;
->   	size_t		size;
-> +	unsigned long	offset;
-> +	bool		reading;
-> +	s64		len;
->   };
->   
->   /**
-> @@ -208,6 +214,8 @@ struct tmc_resrv_buf {
->    * @base:	memory mapped base address for this component.
->    * @csdev:	component vitals needed by the framework.
->    * @miscdev:	specifics to handle "/dev/xyz.tmc" entry.
-> + * @crashdev:	specifics to handle "/dev/crash_tmc_xyz" entry for reading
-> + *		crash tracedata.
->    * @spinlock:	only one at a time pls.
->    * @pid:	Process ID of the process that owns the session that is using
->    *		this component. For example this would be the pid of the Perf
-> @@ -227,7 +235,7 @@ struct tmc_resrv_buf {
->    * @idr_mutex:	Access serialisation for idr.
->    * @sysfs_buf:	SYSFS buffer for ETR.
->    * @perf_buf:	PERF buffer for ETR.
-> - * @resrv_buf:	Used by ETR as hardware trace buffer and for trace data
-> + * @resrv_buf:  Used by ETR as hardware trace buffer and for trace data
->    *		retention (after crash) only when ETR_MODE_RESRV buffer
->    *		mode is enabled. Used by ETF for trace data retention
->    *		(after crash) by default.
-> @@ -239,6 +247,7 @@ struct tmc_drvdata {
->   	void __iomem		*base;
->   	struct coresight_device	*csdev;
->   	struct miscdevice	miscdev;
-> +	struct miscdevice	crashdev;
->   	spinlock_t		spinlock;
->   	pid_t			pid;
->   	bool			reading;
-> @@ -309,6 +318,8 @@ void tmc_flush_and_stop(struct tmc_drvdata *drvdata);
->   void tmc_enable_hw(struct tmc_drvdata *drvdata);
->   void tmc_disable_hw(struct tmc_drvdata *drvdata);
->   u32 tmc_get_memwidth_mask(struct tmc_drvdata *drvdata);
-> +int tmc_read_prepare_crashdata(struct tmc_drvdata *drvdata);
-
-> +int tmc_read_unprepare_crashdata(struct tmc_drvdata *drvdata);
-
-This is no longer required. I can fix this up at my end.
+> Just noticed. I've never replied with this tag. I've provided a comment
+> to the v3 of the series, then in v4 this somehow appeared. Could you
+> please comment, what has happened?
 
 
-Suzuki
+I think that's not the only place - several other patches got your tag
+even though you responded to only *one* patch:
+https://lore.kernel.org/all/cwiai67gs2o3tj3bjziao26uxg3yrbd35dknkvjerbe7cbgfca@qhjtij23yn26/
 
->   
->   /* ETB/ETF functions */
->   int tmc_read_prepare_etb(struct tmc_drvdata *drvdata);
-> @@ -371,6 +382,7 @@ void tmc_sg_table_sync_data_range(struct tmc_sg_table *table,
->   				  u64 offset, u64 size);
->   ssize_t tmc_sg_table_get_data(struct tmc_sg_table *sg_table,
->   			      u64 offset, size_t len, char **bufpp);
-> +
->   static inline unsigned long
->   tmc_sg_table_buf_size(struct tmc_sg_table *sg_table)
->   {
+Nothing in changelog about adding tags...
 
+Best regards,
+Krzysztof
 
