@@ -4,68 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C2FC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 22:18:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979B4C021B6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 22:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HXVviPivkWWCcMSckTlSTpID4xmMzWDL7GNMi8mgsK8=; b=v82j9E+myEFzoKz2PpF+xN+Oam
-	vBQJV6jPlfpGpE7/nzBacvPl0K93VXtHyrNHT4VbdNjsy3P8wyJ90DGAzNml2CTEukOFWQSxTuwJZ
-	74XGo24ezyaqsPOKdW06T0Y54Pb4/suk8wRNGY+3q14lKL/ehAdLXG+oFIxKgLf/0lLqF+m6cbyeD
-	hV5G/XnATBa62KUJoOWnyQ0J6E4wQa8j4TzDpC2VDb7FBrEerHwBjbWo4L1O4PoMN7EH0etRCz3cr
-	rHA7LGNnqKY5zgRzOQd2kjGCVHqp1zwAWZ7KTXGKBG/EKPf7QMAnWR4xk9fnb6F59L12lFSnDRm9I
-	UDkoLuDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AtEBEd4OF5jJesM1UWuC8B55cy1wUC1Xy89ppNlShPo=; b=f4XdTOLPii/x59vRmwNDd/wErF
+	jy3K+juTXomfKjpOrZGmaPxEA4weP4TnExbcgqKLzftTpNrSXBkYM/253DLdIaebOuxSjsydT+WMw
+	eGrfRFXdSa2Z4+P9jsYB1OMyV9+pLpks/siRZZw5LirgHQtDwO3+GH7aTsohcCmY223T+QPjpYlR6
+	KM0e/3LZrilvJow7AaN5zZM3GowqizVpNzB4tofTvlljz6gDEb3ONjmKKJ/LsFU33wmcIeEuGua/x
+	et0tzOpQ52FOYyqkiF5dAy/th67r8x5ICZGgaeOZNeFLqzx1vo2pEdB0LbexHz+e5kWHgRz0VDxcx
+	4qx04YeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlbLU-00000006zle-2XnO;
-	Fri, 21 Feb 2025 22:18:08 +0000
+	id 1tlbPu-00000007063-3XcF;
+	Fri, 21 Feb 2025 22:22:42 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlbK1-00000006zZr-447N;
-	Fri, 21 Feb 2025 22:16:38 +0000
+	id 1tlbOS-0000000701T-4BWD;
+	Fri, 21 Feb 2025 22:21:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A9EB2613B8;
-	Fri, 21 Feb 2025 22:16:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58419C4CED6;
-	Fri, 21 Feb 2025 22:16:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7BE20613B8;
+	Fri, 21 Feb 2025 22:20:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 735FAC4CED6;
+	Fri, 21 Feb 2025 22:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740176197;
-	bh=23PN250gtc7EcFv1DIBV80PwXFQEG45j2Rg1PLeXuq0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=GzwEr5aMCzrciGtwb1ZhEyOJW8Db+TpHE036ckNqvDi9H1lVL6vDRf6pqa9UEE37m
-	 OPzt5/umJO+ot5TlXX1nDWFf43eeeB/G02zxCgq4vMyq1WKEqpr+7Jhqq7V46NkVEY
-	 KySEk8nBdoW6NIG9nBocwv2pQ9wWrrZga5U1N1KwPJ4GZOi31suM0a72d/Z04FUkbV
-	 3l1TqotCQZBOiQ7YaUfzBVdFsZ0tLCUnV/CinbmCJpaBEcSLpbK0nO0rQCLz4qwg9X
-	 3oKLMiYLkx5r9arVd2Pr5yECHzifgptkL1y2yAl6N5JMxeBbpvluCtcQl5evzlc0ie
-	 5kTpQB8b1Sc0g==
-Date: Fri, 21 Feb 2025 14:16:35 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Felix Fietkau <nbd@nbd.name>, Sean Wang
- <sean.wang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, "Chester A. Unal" <chester.a.unal@arinc9.com>,
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
- Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
- upstream@airoha.com
-Subject: Re: [PATCH net-next v6 12/15] net: airoha: Introduce Airoha NPU
- support
-Message-ID: <20250221141635.4d01e792@kernel.org>
-In-Reply-To: <20250221-airoha-en7581-flowtable-offload-v6-12-d593af0e9487@kernel.org>
-References: <20250221-airoha-en7581-flowtable-offload-v6-0-d593af0e9487@kernel.org>
-	<20250221-airoha-en7581-flowtable-offload-v6-12-d593af0e9487@kernel.org>
+	s=k20201202; t=1740176441;
+	bh=7aHNW9A/Uq8Lugq2wM6k+l78zNQMYLApgkpRccP75pk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XQHqptEYXy861nH4Dp3RHO8Sdfum1rPxoXVSQxqSsLeHc/wzblZu01Jp8LwAxnwa+
+	 nursnUX6W+mwkV1VbDQW34IoGY3OUrqwDy11zDOHvubeZPD9CVvKmUwkboH/gr3Dku
+	 w9V4pnrNV83ZKiFYvUvm5KIbXoybGj6dxHwT4AA2F/aDdKYQiyX2LSc/IFCpXum91M
+	 +X2+x8IBhBAgiWxLFTsSBtmPm1P4+SWZETkDS1uO5Tu2guE6nQCgfP9EaiFDzYMkYl
+	 ZukxOU4JMRtlwHaaH4Zv/ZcoTWerV8eKB9Ruln0azVoYwoIRqxSOmnKyTvN5cDDFcP
+	 CfSNstlUdpt6A==
+Date: Fri, 21 Feb 2025 16:20:39 -0600
+From: Rob Herring <robh@kernel.org>
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Michael Riesch <michael.riesch@wolfvision.net>,
+	Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	Gerald Loacker <gerald.loacker@wolfvision.net>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Sebastian Fricke <sebastian.fricke@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	Alexander Shiyan <eagle.alexander923@gmail.com>,
+	Val Packett <val@packett.cool>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v4 04/11] media: dt-bindings: media: add bindings for
+ rockchip mipi csi host
+Message-ID: <20250221222039.GA164750-robh@kernel.org>
+References: <20250219-v6-8-topic-rk3568-vicap-v4-0-e906600ae3b0@wolfvision.net>
+ <20250219-v6-8-topic-rk3568-vicap-v4-4-e906600ae3b0@wolfvision.net>
+ <Z7iJ-UaLabqK4ZhY@kekkonen.localdomain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z7iJ-UaLabqK4ZhY@kekkonen.localdomain>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,16 +90,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 21 Feb 2025 11:28:13 +0100 Lorenzo Bianconi wrote:
-> +	addr = kzalloc(size, GFP_ATOMIC);
-> +	if (!addr)
-> +		return -ENOMEM;
-> +
-> +	memcpy(addr, p, size);
+On Fri, Feb 21, 2025 at 02:13:13PM +0000, Sakari Ailus wrote:
+> Hi Michael,
+> 
+> On Wed, Feb 19, 2025 at 11:16:35AM +0100, Michael Riesch wrote:
+> > Add documentation for the Rockchip RK3568 MIPI CSI-2 Host unit.
+> > 
+> > Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> > ---
+> >  .../bindings/media/rockchip,rk3568-mipi-csi.yaml   | 123 +++++++++++++++++++++
+> >  MAINTAINERS                                        |   1 +
+> >  2 files changed, 124 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+> > new file mode 100644
+> > index 000000000000..288941686e96
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+> > @@ -0,0 +1,123 @@
+> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/media/rockchip,rk3568-mipi-csi.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Rockchip RK3568 MIPI CSI-2 Host
+> > +
+> > +maintainers:
+> > +  - Michael Riesch <michael.riesch@wolfvision.net>
+> > +
+> > +description:
+> > +  The Rockchip RK3568 MIPI CSI-2 Host is a CSI-2 bridge with one input port
+> > +  and one output port. It receives the data with the help of an external
+> > +  MIPI PHY (C-PHY or D-PHY) and passes it to the Rockchip RK3568 Video Capture
+> > +  (VICAP) block.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: rockchip,rk3568-mipi-csi
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    maxItems: 1
+> > +
+> > +  phys:
+> > +    maxItems: 1
+> > +    description: MIPI C-PHY or D-PHY.
+> > +
+> > +  phy-names:
+> > +    items:
+> > +      - const: csiphy
 
-coccicheck says:
+*-names is kind of pointless when there is only 1. Drop it.
 
-drivers/net/ethernet/airoha/airoha_npu.c:128:8-15: WARNING opportunity for kmemdup
--- 
-pw-bot: cr
+> > +
+> > +  power-domains:
+> > +    maxItems: 1
+> > +
+> > +  resets:
+> > +    maxItems: 1
+> > +
+> > +  ports:
+> > +    $ref: /schemas/graph.yaml#/properties/ports
+> > +
+> > +    properties:
+> > +      port@0:
+> > +        $ref: /schemas/graph.yaml#/$defs/port-base
+> > +        unevaluatedProperties: false
+> > +        description:
+> > +          Input port node. Connect to e.g., a MIPI CSI-2 image sensor.
+> > +
+> > +        properties:
+> > +          endpoint:
+> > +            $ref: video-interfaces.yaml#
+> > +            unevaluatedProperties: false
+> > +
+> > +            properties:
+> > +              bus-type:
+> > +                enum: [1, 4]
+> > +
+> > +            required:
+> > +              - bus-type
+> > +
+> > +      port@1:
+> > +        $ref: /schemas/graph.yaml#/$defs/port-base
+> > +        unevaluatedProperties: false
+> > +        description:
+> > +          Output port node. Connect to RK3568 VICAP MIPI CSI-2 port.
+> 
+> What's the purpose of a port node without an endpoint?
+
+If there are not custom endpoint properties, then you don't need to 
+describe the endpoint node. But that case should be this instead:
+
+$ref: /schemas/graph.yaml#/properties/port
+
+(no unevaluatedProperties)
+
+Rob
 
