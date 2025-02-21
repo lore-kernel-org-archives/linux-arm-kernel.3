@@ -4,107 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05719C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 10:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3286C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 10:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bG0BbpFoyNoqsk135c328imcMJ0+Nr3ev0Mcwuo/rmM=; b=skx3oXwC0/sPHlHT89vdFddyLs
-	ZQ4BncGWuE6NTrvZH2Zu3o+FcVKuXGGcuse0k33LhP4jg6JmF/PTFaH3je+Nq5m6tQolkZE7qTPF8
-	2N/XsT9PBVlYeLNWw8UT5CFM2lNDm1Bf5yO+bapPvZvjvFdIURi0T0xxiZxMkFegw06S2kX3BASzc
-	y0DaPMsJP0WsSh8loNNwvC0pSo3up1AMVjB26ECRTDMFIooYy3soAN7ZAXoYURNaJT3XOGu93BzuZ
-	W6kWbHJIQuPAbKlh6Sz1OOIbNCNNPxG5oXLGO65p97S+hHh0VfkVV+4qi8zOTPky15oJ/u1wZsUsd
-	BSNb6tTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=FuLgO3UHYcvVgACNXyKK8N/z39nFVkNySO5odzxU4Jk=; b=HarHnJfI1aRhrrI0l+P+neQ7wv
+	Zow1x4iq+HfnLUEWkqkGZX39gqS3gCLufRkaRMVSErcRI9J5pol4wKx4lH7rBvODqDq9F1WR2jGtZ
+	2l8BLR43R0y0bKHRyyNAhB1pd0kygaLNmCxGZwSPhpjo6yZ5SEDnGVFRAQO/YLV9G1EVtJVGFpsvk
+	41sRqQPG0iSukalinMQVSRA84pbW1X9/poayYiqSsyGLXzJlWC2D9uY99rN5Ylr19mis4Q3/bS75X
+	k+Xx2WUY5FLiBHWqunSZxipfMbZTLs+/1bk+TRx7c+Hwf2+ZOqgkL5VH/FZu11BNFPeQtpnnxoknB
+	Gtoee0+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlQAa-00000005A2x-15vL;
-	Fri, 21 Feb 2025 10:22:08 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1tlQC5-00000005ANF-090c;
+	Fri, 21 Feb 2025 10:23:41 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlPzK-000000057LK-0y3k
+	id 1tlQ3w-000000058Qa-3KEW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 10:10:31 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-54838cd334cso720341e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 02:10:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740132628; x=1740737428; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=bG0BbpFoyNoqsk135c328imcMJ0+Nr3ev0Mcwuo/rmM=;
-        b=lQfO77rsJNwLIf2Sm8DFo6R6TRHsBjJ0H3ON83asx51giglKY02ZaLHWiWLY1LJ5ep
-         Gh5LMQvBWeT1XnpOyStXD2NwnF+U2tVBL03Tha4RVq1BW+QaSLhyE96oyWdndrSiHNsK
-         J855lfJsQoRQfqstJ80ckSwqE7ocrvSMRKzZt+m8bbgCr4QGS0ySBbOi3OmC6lBfARYh
-         iA376fCqIj7NZd301QxxcbUz7vH8b7JgrbxtQdZDabbsALZb3CKHqNa+PsTMcNdGQa9R
-         Q2HjFCtk1GefDp/xG2BdXFC/zZkMYk/wdC4HDoRZ7WLf8bg4Rfk42pL19eWJHaRoLjU1
-         Fc1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740132628; x=1740737428;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bG0BbpFoyNoqsk135c328imcMJ0+Nr3ev0Mcwuo/rmM=;
-        b=dJRGW3a2rYGVKDevy4MtzoSEA79rNBdTirPKtrUMLbsn15rutspsVRZa2NgwAvZDas
-         SXX2dlz1yAi9h7/BwFpZkJnP3wzex/EJoqiXiELx0bMRFNAPEbgbTaT2AT9Yn+VrKMKp
-         7LdywNmLCqP+UgIdvchtE20Id4ob3//sUDsWD2ZNte7dXh/GCGoKjLQJ+8wQWKVVt1jV
-         +6e3H84VZYYwX3QNBQgZYUkjo5WCfn2HhNdKBTNqSmdsKgjmexRNuzU+B4ztdHYNrkWn
-         JCg6CpnKrzG3kN9x0P2oFjdGeYXbV69etUq+/naDxDzHF+Wit7ef6B400JON5dIIrgSF
-         u0Uw==
-X-Forwarded-Encrypted: i=1; AJvYcCVb1LOlrH52qpGKZfnwmlDAcaAsb/lEN0Vb+FMyriTMwrHAmNsn28Z/RPwLeIeYue0pSlA7aIUO0+HN8QU9ShZS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyK4g0xs8PKieU1qnnMqW9hCWtAGc7u16zjVLVcrh1e6JC2auXm
-	38V4dhxSqnH2DRjDBYVf1QXwsT9yQCRiDvE5dTfpa4ICbueLc4mL29eSQw==
-X-Gm-Gg: ASbGncuX6vpSZy/1CstxmQ1mT1jquPTuuIF/9RB9QjbVb7volpvJfsHAoD3jc9L/dRf
-	Jy1iI9T7M0ENGa9L1K4cwPiQqIGhF9kCto1zT31mtjhkPUj333m0AYrETamPrWuAP49K/lx2kYf
-	qHcQ4A0Jx6Kw29cLF0Sa3hVMR472UT2PTm4MNRDN/5zAPq9MNsnCDkmgcNUjMGLUjZe5wIYxRG6
-	CvZsMvjg7XHTcgoNhKo056aAfZYYibvOGnqBtuckEEB34Y6FI6Fk572mXapxBi1hOA++kpieJnG
-	CxwtcpJH8ZzW/+qmLjZ6uNB1SIvwNzioMWlbwd9FTxPxVz2vf3qJLAnKpWJzMWQSxsFSUXBRjNR
-	N1o9oUFg=
-X-Google-Smtp-Source: AGHT+IEF7HCPBupTpoTIufUdFzsU1NW7CnwkRmSqsaZ2XXJ41DlnitRvGydjhmN16iRmcwFrBfhXBA==
-X-Received: by 2002:a05:6512:3f05:b0:542:2e09:639a with SMTP id 2adb3069b0e04-54838edddd1mr724643e87.10.1740132627920;
-        Fri, 21 Feb 2025 02:10:27 -0800 (PST)
-Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5451f105c2fsm2638305e87.117.2025.02.21.02.10.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Feb 2025 02:10:26 -0800 (PST)
-Message-ID: <cb27d8b1-c978-4443-9ad2-96e930701976@gmail.com>
-Date: Fri, 21 Feb 2025 12:10:23 +0200
+	Fri, 21 Feb 2025 10:15:18 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51L6cTsU009360;
+	Fri, 21 Feb 2025 10:14:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=FuLgO3UHYcvVgACNXyKK8N
+	/z39nFVkNySO5odzxU4Jk=; b=ml++WQPyAZCJvjFFy4MqIgJbAfGMny7J9xhKvB
+	Y5VJsRvT5KLlqriWwcpgBH0I62B0Ms6+s0tiUxfJbfm0AwHqAY27t3h2yVL4hVw1
+	Pgnfo+F+eiYdewD7utHWIH0bW/kPLS4XD66kjZtCrwIEOgrovwfyrTbwEzxIILFP
+	0/uNF7ex1gv5eBPVaO0GW0eIng73hrUHatyWUcJJbmQG3HGXuwlxAMXnwkVamAMo
+	Jj5xjf4IGCdGVSG1hGueLqaLUJlap9HpHalUOV7B0ldUv3oC4qcvt28hsgBVU+te
+	D7eZtA8njD63N4uRRzp4nGUPD3e/nXwsIycR8yZTM/YxP3Dg==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44vyy3hn27-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 21 Feb 2025 10:14:57 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51LAEuZI001146
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 21 Feb 2025 10:14:56 GMT
+Received: from hu-mmanikan-blr.qualcomm.com (10.80.80.8) by
+ nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Fri, 21 Feb 2025 02:14:47 -0800
+From: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
+To: <andersson@kernel.org>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <konradybcio@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
+        <p.zabel@pengutronix.de>, <richardcochran@gmail.com>,
+        <geert+renesas@glider.be>, <dmitry.baryshkov@linaro.org>,
+        <arnd@arndb.de>, <nfraprado@collabora.com>, <quic_tdas@quicinc.com>,
+        <biju.das.jz@bp.renesas.com>, <elinor.montmasson@savoirfairelinux.com>,
+        <ross.burton@arm.com>, <javier.carrasco@wolfvision.net>,
+        <quic_anusha@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
+        <linux-clk@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <netdev@vger.kernel.org>
+CC: <quic_srichara@quicinc.com>, <quic_varada@quicinc.com>
+Subject: [PATCH v10 0/6] Add NSS clock controller support for IPQ9574 
+Date: Fri, 21 Feb 2025 15:44:20 +0530
+Message-ID: <20250221101426.776377-1-quic_mmanikan@quicinc.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/9] iio: adc: add helpers for parsing ADC nodes
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
- Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
- David Lechner <dlechner@baylibre.com>,
- Javier Carrasco <javier.carrasco.cruz@gmail.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev
-References: <cover.1739967040.git.mazziesaccount@gmail.com>
- <6c5b678526e227488592d004c315a967b9809701.1739967040.git.mazziesaccount@gmail.com>
- <Z7ZB7RQhyI5Dohrq@smile.fi.intel.com>
- <b1c1ed68-2f4d-447c-9957-5a1bbc63ef6e@gmail.com>
- <Z7ci7tUlRQqZEZSN@smile.fi.intel.com>
- <ec76334b-bb13-4076-811d-9174170dd677@gmail.com>
- <Z7c2cBQpjoc9-Vyu@smile.fi.intel.com>
- <9018e23c-da28-41b0-b774-1598b946a2a1@gmail.com>
- <Z7dCnRzuQTaJXzmb@smile.fi.intel.com>
-Content-Language: en-US, en-AU, en-GB, en-BW
-From: Matti Vaittinen <mazziesaccount@gmail.com>
-In-Reply-To: <Z7dCnRzuQTaJXzmb@smile.fi.intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: 4Fh9b7yRR1h8oOLA24KMLGFydN0BPkI2
+X-Proofpoint-GUID: 4Fh9b7yRR1h8oOLA24KMLGFydN0BPkI2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-21_01,2025-02-20_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 clxscore=1011
+ phishscore=0 adultscore=0 lowpriorityscore=0 bulkscore=0 impostorscore=0
+ priorityscore=1501 malwarescore=0 spamscore=0 mlxlogscore=799 mlxscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2502100000
+ definitions=main-2502210077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_021030_279070_3142C71E 
-X-CRM114-Status: GOOD (  33.01  )
+X-CRM114-CacheID: sfid-20250221_021516_968428_7776EE0D 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,139 +104,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/02/2025 16:56, Andy Shevchenko wrote:
-> On Thu, Feb 20, 2025 at 04:21:37PM +0200, Matti Vaittinen wrote:
->> On 20/02/2025 16:04, Andy Shevchenko wrote:
->>> On Thu, Feb 20, 2025 at 03:40:30PM +0200, Matti Vaittinen wrote:
->>>> On 20/02/2025 14:41, Andy Shevchenko wrote:
->>>>> On Thu, Feb 20, 2025 at 09:13:00AM +0200, Matti Vaittinen wrote:
->>>>>> On 19/02/2025 22:41, Andy Shevchenko wrote:
->>>>>>> On Wed, Feb 19, 2025 at 02:30:27PM +0200, Matti Vaittinen wrote:
-> 
-> ...
-> 
->>>>>>>> +EXPORT_SYMBOL_GPL(iio_adc_device_num_channels);
->>>>>>>
->>>>>>> No namespace?
->>>>>>
->>>>>> I was considering also this. The IIO core functions don't belong into a
->>>>>> namespace - so I followed the convention to keep these similar to other IIO
->>>>>> core stuff.
->>>>>
->>>>> But it's historically. We have already started using namespaces
->>>>> in the parts of IIO, haven't we?
->>>>
->>>> Yes. But as I wrote, I don't think adding new namespaces for every helper
->>>> file with a function or two exported will scale. We either need something
->>>> common for IIO (or IIO "subsystems" like "adc", "accel", "light", ... ), or
->>>> then we just keep these small helpers same as most of the IIO core.
->>>
->>> It can be still pushed to IIO_CORE namespace. Do you see an issue with that?
->>
->> No. I've missed the fact we have IIO_CORE O_o. Thanks for pointing it out!
->>
->>> Or a new opaque namespace for the mentioned cases, something like IIO_HELPERS.
->>
->> I am unsure if it really benefits to split this out of the IIO_CORE. I've a
->> feeling it falls into the category of making things harder for user with no
->> apparent reason. But yes, the IIO_CORE makes sense.
-> 
-> Probably I was not clear, I mean to put this under a given namespace. There is
-> no a such, we have currently:
-> 
-> IIO_BACKEND
-> IIO_DMA_BUFFER
-> IIO_DMAENGINE_BUFFER
-> IIO_GTS_HELPER
-> IIO_RESCALE
+Add bindings, driver and devicetree node for networking sub system clock
+controller on IPQ9574. Also add support for gpll0_out_aux clock
+which serves as the parent for some nss clocks.
 
-Ah. So, the IIO core stuff is still not in a namespace. Those listed 
-above are all too specific (I believe, in general, and definitely to 
-carry ADC helpers).
+Changes in V10:
+	- nsscc dt-bindings
+		- Added clock-names in dt-bindings to obtain the nsscc clock and
+		  enable it using PM API's, as this clock is required to access
+		  nsscc block.
+		- Dropped #power-domain-cells from example, because nsscc doesn't
+		  provide any power domains.
+		- Update copy right year in include files.
+	- nsscc driver
+		- Enable nsscc clock with the help of PM API's
+		  because this clock is needed to access nsscc block. 
+		- Dropped R-b tag.
+	- dtsi
+		- Added clock-names in nsscc node.
+		- Dropped #power-domain-cells from nsscc node, because nsscc doesn't
+		  provide any power domains.
+	- Fixed review comments from Konrad.
+ 
+V9 can be found at:
+https://lore.kernel.org/linux-arm-msm/20250207073926.2735129-1-quic_mmanikan@quicinc.com/
 
-Adding 'ADC_HELPERS' would just add yet another way too specific one. 
-So, currently there is no suitable namespace for these helpers, and I 
-still believe they fit best to where the rest of the IIO-core stuff is.
+V8 can be found at:
+https://lore.kernel.org/linux-arm-msm/20241025035520.1841792-1-quic_mmanikan@quicinc.com/
 
-If we want really play the namespace game, then the existing IIO stuff 
-should be put in a IIO_CORE-namespace instead of creating more new small 
-ones. I am afraid that adding all existing IIO core to a IIO_CORE 
-namespace and converting all existing users to use the IIO_CORE is not a 
-reasonable request for a person trying to:
+V7 can be found at:
+https://lore.kernel.org/linux-arm-msm/20241009074125.794997-1-quic_mmanikan@quicinc.com/
 
-1. Write a driver
-2. Add a small helper to aid others (instead of just melding it all in 
-the given new driver - which does not benefit anyone else and just leads 
-to code duplication in the long run...)
+V6 can be found at:
+https://lore.kernel.org/linux-arm-msm/20241004080332.853503-1-quic_mmanikan@quicinc.com/
 
->>>>>> (Sometimes I have a feeling that the trend today is to try make things
->>>>>> intentionally difficult in the name of the safety. Like, "more difficult I
->>>>>> make this, more experience points I gain in the name of the safety".)
->>>>>>
->>>>>> Well, I suppose I could add a namespace for these functions - if this
->>>>>> approach stays - but I'd really prefer having all IIO core stuff in some
->>>>>> global IIO namespace and not to have dozens of fine-grained namespaces for
->>>>>> an IIO driver to use...
-> 
-> ...
-> 
->>>> foo &= (~bar);
->>>>
->>>> is _much_ faster than seeing:
->>>
->>> Strongly disagree. One need to parse an additional pair of parentheses,
->>> and especially when it's a big statement inside with nested ones along
->>> with understanding what the heck is going on that you need them in the
->>> first place.
->>>
->>> On top of that, we have a common practices in the LK project and
->>> with our history of communication it seems you are trying to do differently
->>> from time to time. Sounds like a rebellion to me :-)
->>
->> I only rebel when I (in my opinion) have a solid reason :)
->>
->>>> foo &= ~bar;
->>>>
->>>> and having to google the priorities.
->>>
->>> Again, this is something a (regular) kernel developer keeps refreshed.
->>> Or even wider, C-language developer.
->>
->> Ha. As I mentioned, I've been writing C on a daily bases for almost 25
->> years. I wonder if you intent to say I am not a kernel/C-language developer?
->> Bold claim.
-> 
-> I'm just surprised by seeing that style from a 25y experienced C developer,
-> that's all.
+V5 can be found at:
+https://lore.kernel.org/linux-arm-msm/20240626143302.810632-1-quic_devipriy@quicinc.com/
 
-I am not. If something, these 25 years have taught me to understand that 
-even if something is simple and obvious to me, it may not be simple and 
-obvious to someone else. Similarly, something obvious to someone else, 
-is not obvious to me. Hence, I am very careful when telling people that:
+V4 can be found at:
+https://lore.kernel.org/linux-arm-msm/20240625070536.3043630-1-quic_devipriy@quicinc.com/
 
- >>> Again, this is something a (regular) kernel developer keeps refreshed.
- >>> Or even wider, C-language developer.
+V3 can be found at:
+https://lore.kernel.org/linux-arm-msm/20240129051104.1855487-1-quic_devipriy@quicinc.com/
 
-I may however say that "this is something _I_ keep refreshed (as a 
-kernel/C-developer)".
+V2 can be found at:
+https://lore.kernel.org/linux-arm-msm/20230825091234.32713-1-quic_devipriy@quicinc.com/
 
-As an example,
+Devi Priya (6):
+  dt-bindings: clock: gcc-ipq9574: Add definition for GPLL0_OUT_AUX
+  clk: qcom: gcc-ipq9574: Add support for gpll0_out_aux clock
+  dt-bindings: clock: Add ipq9574 NSSCC clock and reset definitions
+  clk: qcom: Add NSS clock Controller driver for IPQ9574
+  arm64: dts: qcom: ipq9574: Add nsscc node
+  arm64: defconfig: Build NSS Clock Controller driver for IPQ9574
 
- >>>> foo &= (~bar);
+ .../bindings/clock/qcom,ipq9574-nsscc.yaml    |   98 +
+ arch/arm64/boot/dts/qcom/ipq9574.dtsi         |   29 +
+ arch/arm64/configs/defconfig                  |    1 +
+ drivers/clk/qcom/Kconfig                      |    7 +
+ drivers/clk/qcom/Makefile                     |    1 +
+ drivers/clk/qcom/gcc-ipq9574.c                |   15 +
+ drivers/clk/qcom/nsscc-ipq9574.c              | 3107 +++++++++++++++++
+ include/dt-bindings/clock/qcom,ipq9574-gcc.h  |    1 +
+ .../dt-bindings/clock/qcom,ipq9574-nsscc.h    |  152 +
+ .../dt-bindings/reset/qcom,ipq9574-nsscc.h    |  134 +
+ 10 files changed, 3545 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/qcom,ipq9574-nsscc.yaml
+ create mode 100644 drivers/clk/qcom/nsscc-ipq9574.c
+ create mode 100644 include/dt-bindings/clock/qcom,ipq9574-nsscc.h
+ create mode 100644 include/dt-bindings/reset/qcom,ipq9574-nsscc.h
 
-This is something _I_ find very clear and exact, with zero doubt if 
-negation is applied before &=. For _me_ the parenthesis there _help_, 
-and for _me_ the parenthesis cause no confusion when reading the code.
 
-I won't go and tell that I'd expect any C or kernel developer to be able 
-to fluently parse "foo &= (~bar)". (Whether I think they should is 
-another matter).
-
-Oh well, let's wait and see what Jonathan thinks of these helpers in 
-general. We can continue the parenthesis discussion when we know whether 
-the code is going to stay.
-
-Yours,
-	-- Matti
+base-commit: 8936cec5cb6e27649b86fabf383d7ce4113bba49
+-- 
+2.34.1
 
 
