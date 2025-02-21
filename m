@@ -4,95 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72980C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 21:06:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00788C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 21:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h6S9aTUxsv5QV59pv6B0q9blu0YqRJjwoZGl3ssFhSU=; b=jTAp17ucP1J4GNZaJCiItKLoZ4
-	cLMOzQJx2k7umhvr++7OTejBaivW0Aq2AiMQCLC/gwwocxQ5mKnTyX4c/TgWLobzKy4WzkmF0tR4m
-	Bm8aVaqpY6Z0GQEOYwLxqElApmjOnmfxP2v6gp1F6x6krybYnhKiZpfeqzd5ymFbJoIS6jKFqs/JF
-	neVL1+wbPKMigOCnxL/l5fuyAZo/TCzcIhbK51BZ5XLzH3OwMt23alx7OdTi95LlkaLLlgYRGv9xi
-	BOg1GqsDn0GT7uhHqccPrfEMhOExNQ5r1sLIwTCd33YFa0Px2ZlEEnq+wIbe8doZIyGIUsVJc4gQU
-	CDrAJUjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e89lSwTU5R7NX0OojyWzr1pfCJiN4kVJIBrsYpnzC1U=; b=COcjNE8C+vVtAZTo4Ap10j6ioD
+	A1w0nwm/Bd9NOQYkdnIsQp2l1gCqos5nKECodoERwW71/nASnxCawjj6BdkaZIeHU8St4WTuM6C7Q
+	32ZKNoN84/o0hs8/C03CL5jejjp38oGHZYbaf7zusqpBv8stNnUb/j/ENXsDLmH3dpvkF6ZJ476pP
+	acVktZPiZPU7bFYPfsH1jO2o8Ekv0yR56VjHfZVKYCbp3p+7Cf+OB6x+rzq9LZFLs8KAPtF5ErAqe
+	lL8sSyzEHRMmvNQun+8G/cqP1xpGKIKZtDv6610zdsbzO2gj+I7hM4dlp+3Bc8BzjUwWdx7juVc/6
+	ptQXXZaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlaEJ-00000006sKr-0T5W;
-	Fri, 21 Feb 2025 21:06:39 +0000
-Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
+	id 1tlaH9-00000006spS-48vy;
+	Fri, 21 Feb 2025 21:09:35 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlaCn-00000006s4P-3VdX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 21:05:07 +0000
-Received: from phl-compute-11.internal (phl-compute-11.phl.internal [10.202.2.51])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 53954254016F;
-	Fri, 21 Feb 2025 16:05:04 -0500 (EST)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-11.internal (MEProxy); Fri, 21 Feb 2025 16:05:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm3; t=1740171904; x=1740258304; bh=h6
-	S9aTUxsv5QV59pv6B0q9blu0YqRJjwoZGl3ssFhSU=; b=Jv+cISC5xfPQU8CRNL
-	PO+ja6DMGHvkZlDsfvt5HlVjtcWJ6navKlqE/KLH5RBQERqXxb4rMWoQtwnumrgr
-	3O+JhfP4ERA7Q5/tcHe1MmnX8lRzt9hxHyZUvx0v1XmdyktCMurKXhCZ2L2L6K2H
-	ujEqu8cUbwtvJsrcUBRG4XvVD1E8d8H53vpWWF5B/AO0z5BNmZ27wqSGPDMl+XKH
-	nwTsy3gD4ivesin8tYkfvzSQkjATt8HJILrSTcTtzXwQru4JhXwjbSd3AiAzjALu
-	iyXwIKy/Y1cW9wnL+0DawyYjW2YgW3VvtY7MdagC45+CASYtwaTKtH1L4ypOOqfE
-	ZgcQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1740171904; x=1740258304; bh=h6S9aTUxsv5QV59pv6B0q9blu0Yq
-	RJjwoZGl3ssFhSU=; b=DqzVx0ugVyIb8qBSu+M4FGkp5v9tMwwHvWTlh5V7++DA
-	gzasp6in3Y5bSe0oG7ECEtRa9UF+8lMyN0jnPmqSU+JIPAehDdfjJCsCwJzgaDX2
-	fYRQuSzBRglWSCLQ0Sle/IYerRNaWajzFxM80Zj0Um9HAUWgYmOiRPIq2Lx1YFm5
-	/qFYNevut0aTiSxpRbfqs7TMadMjVmJZQb+NxOYImZN7XVPEyQ6OweT52aTEehZs
-	k8g/S+5Pa22psqXQiPJo18BKJt8lw1wrQAosHl+7gGEZOHgIdjH949AVkEQoC818
-	eGpSfqu3hntbLqRO8VF5S7WHl85d8H0E//ol+4noyQ==
-X-ME-Sender: <xms:f-q4ZwtfKpsYRlHykYaB-GA8n1Cx-zjmYVf5QgD3atSqDdLw-jCphQ>
-    <xme:f-q4Z9d1iJI86qgjJ_G89LDJFftT8enB8zi6kWuqopVzltcpV4vDBSuz7r3K_Z2ff
-    TTbN4V48-SKQHlzwcE>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejuddtgecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkufgtgfesthejredtredttden
-    ucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdrug
-    gvqeenucggtffrrghtthgvrhhnpeduleeigeekveeugeettdejtddtleeghefhvdfhueeh
-    tefhudelffduvdeuleevteenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluh
-    hsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhn
-    uggsrdguvgdpnhgspghrtghpthhtohepgedpmhhouggvpehsmhhtphhouhhtpdhrtghpth
-    htohepthhorhhvrghlughssehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdprhgt
-    phhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvg
-    grugdrohhrghdprhgtphhtthhopehsohgtsehlihhsthhsrdhlihhnuhigrdguvghvpdhr
-    tghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:f-q4Z7yujQmmDw9RvvXZ3r4p7oOCCP3IyGmdgL7vcTCJN9g0FY4WxA>
-    <xmx:f-q4ZzO6g76F2WFZyP1jrzEVqMSsDSUFPaQwgiw_-77RC_N0_lPquw>
-    <xmx:f-q4Zw_ep5QPPzB3j9DYCjO1Gv-W9Z_2_2bR8LQnF791rtJ7k3lmsw>
-    <xmx:f-q4Z7WitVULrcEx5XD3U1MjNpw7inadO1V1qsMicctRuYWl6-7zLA>
-    <xmx:gOq4Z_bJSbHscvxf3Q4rYO7clnJ662l20fclJBnQtEt0A2O3BzoMPLHm>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id A518D2220074; Fri, 21 Feb 2025 16:05:03 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tlaFg-00000006sgi-1dwE;
+	Fri, 21 Feb 2025 21:08:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 98AD75C6DAB;
+	Fri, 21 Feb 2025 21:07:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D880C4CED6;
+	Fri, 21 Feb 2025 21:08:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740172083;
+	bh=OkPgP7EaLg3zzaugexfyoWlImQLRS4upEXuczawslTg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UjP/evoV2VwHrbmdUraWzGUzMnMW5rkxuTFNQ3Pygm6Ghc8onscQK5Ik95eaGIK0j
+	 6eFoTozzzHYhdc0BAbqPQifxZnALbSMJh+itz7obQhyAahrR/19gGay6wGlvPi1mLz
+	 3RamjjbXdsSaOIGbKyKvoGMWHP53AkeO4mhUNe1eS5KWfGMWgVAs94tdwb2Icv86de
+	 0IuYHY5s/pOjmQf4AW+seWUqoQudHe3Wb2s4OZX1FcjF3l9X1Yp05dPq0gRqMfG7ad
+	 qSDruJWsmdaBt+f/5oVUMapdPqg7BQzE8rMWmoKxwwdTHBJdw7YXXtuKAYueompzQe
+	 iIlBJTKh+kzCg==
+Date: Fri, 21 Feb 2025 15:08:01 -0600
+From: Rob Herring <robh@kernel.org>
+To: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org
+Subject: Re: [PATCH 1/4] dt-bindings: interrupt-controller: Add support for
+ Amlogic A4 and A5 SoCs
+Message-ID: <20250221210801.GA81340-robh@kernel.org>
+References: <20250219-irqchip-gpio-a4-a5-v1-0-3c8e44ae42df@amlogic.com>
+ <20250219-irqchip-gpio-a4-a5-v1-1-3c8e44ae42df@amlogic.com>
 MIME-Version: 1.0
-Date: Fri, 21 Feb 2025 22:04:42 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: soc@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <22f7e0e5-1ccc-41bf-a474-6cd09b23a26f@app.fastmail.com>
-Subject: [GIT PULL] soc: fixes for 6.14
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250219-irqchip-gpio-a4-a5-v1-1-3c8e44ae42df@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_130506_237549_B1F43325 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20250221_130804_482376_831C441D 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,106 +81,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit a64dcfb451e254085a7daee5fe51bf22959d52d3:
+On Wed, Feb 19, 2025 at 03:29:03PM +0800, Xianwei Zhao wrote:
+> Update dt-binding document for GPIO interrupt controller
+> of Amlogic A4 and A5 SoCs
+> 
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> ---
+>  .../bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml       | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml
+> index a93744763787..03548ee695bd 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml
+> @@ -35,6 +35,9 @@ properties:
+>                - amlogic,meson-sm1-gpio-intc
+>                - amlogic,meson-a1-gpio-intc
+>                - amlogic,meson-s4-gpio-intc
+> +              - amlogic,a4-gpio-intc
+> +              - amlogic,a4-gpio-ao-intc
+> +              - amlogic,a5-gpio-intc
+>                - amlogic,c3-gpio-intc
+>                - amlogic,t7-gpio-intc
+>            - const: amlogic,meson-gpio-intc
+> @@ -49,7 +52,7 @@ properties:
+>  
+>    amlogic,channel-interrupts:
+>      description: Array with the upstream hwirq numbers
+> -    minItems: 8
+> +    minItems: 2
 
-  Linux 6.14-rc2 (2025-02-09 12:45:03 -0800)
+There should be an if/then schema that retains 8 as the minimum for the 
+existing cases.
 
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.14
-
-for you to fetch changes up to e31e3f6c0ce473f7ce1e70d54ac8e3ed190509f8:
-
-  soc: loongson: loongson2_guts: Add check for devm_kstrdup() (2025-02-20 22:29:05 +0100)
-
-----------------------------------------------------------------
-soc: fixes for 6.14
-
-Two people stepped up as platform co-maintainers: Andrew Jeffery for
-ASpeed and Janne Grunau for Apple.
-
-The rockchip platform gets 9 small fixes for devicetree files, addressing
-both compile-time warnings and board specific bugs.
-
-One bugfix for the optee firmware driver addresses a reboot-time hang.
-
-Two drivers need improved Kconfig dependencies to allow wider compile-
-testing while hiding the drivers on platforms that can't use them.
-
-ARM SCMI and loongson-guts drivers get minor bugfixes.
-
-----------------------------------------------------------------
-Alexander Shiyan (1):
-      arm64: dts: rockchip: Fix broken tsadc pinctrl names for rk3588
-
-Andrew Jeffery (1):
-      MAINTAINERS: Mark Andrew as M: for ASPEED MACHINE SUPPORT
-
-Andy Yan (1):
-      arm64: dts: rockchip: Fix lcdpwr_en pin for Cool Pi GenBook
-
-Arnd Bergmann (3):
-      Merge tag 'v6.14-rockchip-dtsfixes1' of https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip into HEAD
-      Merge tag 'ti-k3-config-fixes-for-v6.14' of https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux into HEAD
-      Merge tag 'scmi-fix-6.14' of https://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux into arm/fixes
-
-Geert Uytterhoeven (2):
-      firmware: imx: IMX_SCMI_MISC_DRV should depend on ARCH_MXC
-      platform: cznic: CZNIC_PLATFORMS should depend on ARCH_MVEBU
-
-Haoxiang Li (1):
-      soc: loongson: loongson2_guts: Add check for devm_kstrdup()
-
-Heiko Stuebner (1):
-      arm64: dts: rockchip: fix fixed-regulator renames on rk3399-gru devices
-
-Janne Grunau (1):
-      MAINTAINERS: arm: apple: Add Janne as maintainer
-
-Lukasz Czechowski (2):
-      arm64: dts: rockchip: Move uart5 pin configuration to px30 ringneck SoM
-      arm64: dts: rockchip: Disable DMA for uart5 on px30-ringneck
-
-Niklas Cassel (1):
-      arm64: dts: rockchip: disable IOMMU when running rk3588 in PCIe endpoint mode
-
-Patrick Wildt (1):
-      arm64: dts: rockchip: adjust SMMU interrupt type on rk3588
-
-Peng Fan (1):
-      firmware: arm_scmi: imx: Correct tx size of scmi_imx_misc_ctrl_set
-
-Rob Herring (Arm) (1):
-      dt-bindings: rockchip: pmu: Ensure all properties are defined
-
-Sumit Garg (1):
-      tee: optee: Fix supplicant wait loop
-
-Tianling Shen (1):
-      arm64: dts: rockchip: change eth phy mode to rgmii-id for orangepi r1 plus lts
-
-Vaishnav Achath (1):
-      arm64: defconfig: Enable TISCI Interrupt Router and Aggregator
-
- .../devicetree/bindings/arm/rockchip/pmu.yaml      |  8 ++++-
- MAINTAINERS                                        |  3 +-
- .../boot/dts/rockchip/px30-ringneck-haikou.dts     |  1 -
- arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi    |  6 ++++
- .../dts/rockchip/rk3328-orangepi-r1-plus-lts.dts   |  3 +-
- .../boot/dts/rockchip/rk3328-orangepi-r1-plus.dts  |  1 +
- .../boot/dts/rockchip/rk3328-orangepi-r1-plus.dtsi |  1 -
- .../boot/dts/rockchip/rk3399-gru-chromebook.dtsi   |  8 ++---
- .../boot/dts/rockchip/rk3399-gru-scarlet.dtsi      |  6 ++--
- arch/arm64/boot/dts/rockchip/rk3399-gru.dtsi       | 22 +++++++-------
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      | 22 +++++++-------
- .../dts/rockchip/rk3588-coolpi-cm5-genbook.dts     |  4 +--
- arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi     |  1 -
- .../boot/dts/rockchip/rk3588-rock-5b-pcie-ep.dtso  |  4 +++
- arch/arm64/configs/defconfig                       |  2 ++
- .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    |  4 +--
- drivers/firmware/imx/Kconfig                       |  1 +
- drivers/platform/cznic/Kconfig                     |  1 +
- drivers/soc/loongson/loongson2_guts.c              |  5 +++-
- drivers/tee/optee/supp.c                           | 35 +++++-----------------
- 20 files changed, 70 insertions(+), 68 deletions(-)
+>      maxItems: 12
+>      $ref: /schemas/types.yaml#/definitions/uint32-array
+>  
+> 
+> -- 
+> 2.37.1
+> 
 
