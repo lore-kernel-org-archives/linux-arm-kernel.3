@@ -4,87 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9575C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 12:38:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27EBAC021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 12:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yhaN5jFfFulcSxXrjGR7FhXNECY7NGeLyXYqnhok424=; b=LtEBizcDJjodhD
-	KikBGZ5s84zThSP2p6+pDtXRLdh2S8noeMHJXDQtFnSacbIw9LDAXmpkyowfS9Nj0uNvyFE8q/8aW
-	0xxR9HzkHMkb2GfzDuy5XZ7L82bsw9bD5X+H+UNxbrubUoUzau7rGxMWCirZA2XrLpRsB7T/prlF1
-	tYIWX9vvUb5pcAd8YIaHhfs9552FebMSFVgNz2gYLN78KliRozeP7Q1fh3ydNWRO9D6rNuQjKIaBz
-	NhpOFKBczANBJlZmV2FJt5ehxm/lcZVWpM+UEtAQ2TEBKSeEvtWyKU3t3rlb3oLbhI2vMpZ2PL/pJ
-	61oRi1ivHpCb5iJrHV5Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zAIecpWj+6ZlXnaEaDqRZghTEFqyTj1RlT2HHiSkKis=; b=miJz2knCW4Ti7Xjd4ozrNHdfmE
+	dZuTKptc0ro0V0A7IKvAQwhairyeYoCHqNUS4m3J6d2tl6FxXM9hZuZ8LSkOKWbqI/EhgMnFIbv6B
+	ukr5oOvZHcqIGP60rBBCgZmr1BGwzRLJt+N4SRviusomHh+1u9pA7h0sEUKC6kp3SnFrHAhPHk2DX
+	GlOIcAE8z1k5CtSSAtwQzGLy6iSITq1g1SkXQwxRz9GQ/st3EQIaS+hWAtklghAH4BLRi8EpqaeRZ
+	fCkJGBnEHHpcPud4pRyzut1kNmQlpVcU5fVE4cjJtGQ3kXoFoIGB5ltdFWHCLE/vE3LCj+jwAjDO/
+	fdMT8P5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlSI1-00000005Uys-1Gbd;
-	Fri, 21 Feb 2025 12:37:57 +0000
-Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
+	id 1tlSL4-00000005VGh-0XDB;
+	Fri, 21 Feb 2025 12:41:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlSFQ-00000005USl-1uYt
+	id 1tlSJb-00000005V63-1kXC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 12:35:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=yhaN5jFfFulcSxXrjGR7FhXNECY7NGeLyXYqnhok424=; b=mv1+ktNLwj0EgyGwAOwEDcaBfo
-	NvqV+iPrTwQyTOnt52Zs+TOFeEHnmQ6Tqiv1dZm906n+n6Kd6+O9pb6EaE+xskdPjVbmOBtlLJ3Mv
-	yyYRG/6HVawBKmkuYxjkdTknjkXe9Vq+pZdrZa1pKJ2OSjO9ncOu2JH/hSj0VUPO5wcLkCrbN5fEL
-	nEGkTrFFAg03ug0qqz6kvoXkNhIIGw3Y6NCIAIXnSX+iwuXf7v2oUa/ApDAJaUT/KkToUSCwIu48C
-	vvOnirNSCqHHwb0h5FCx5fufVfzwv9jfyp2l0OKjskKsnjyuS5tWGkR4CoCrsgqiMI010JkpIQyAQ
-	42KETJPQ==;
-Received: from [122.175.9.182] (port=40912 helo=zimbra.couthit.local)
-	by server.wki.vra.mybluehostin.me with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <parvathi@couthit.com>)
-	id 1tlSFM-0002X9-0D;
-	Fri, 21 Feb 2025 18:05:12 +0530
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id EC851178215A;
-	Fri, 21 Feb 2025 18:05:05 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id C31C7178247D;
-	Fri, 21 Feb 2025 18:05:05 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id WrMqSm-ejAqg; Fri, 21 Feb 2025 18:05:05 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id 826AE178215A;
-	Fri, 21 Feb 2025 18:05:05 +0530 (IST)
-Date: Fri, 21 Feb 2025 18:05:05 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: Ratheesh Kannoth <rkannoth@marvell.com>
-Message-ID: <1219972777.634130.1740141305362.JavaMail.zimbra@couthit.local>
-In-Reply-To: <20250220091904.GA1230612@maili.marvell.com>
-References: <20250214054702.1073139-1-parvathi@couthit.com> <20250214054702.1073139-3-parvathi@couthit.com> <20250220091904.GA1230612@maili.marvell.com>
-Subject: Re: [PATCH net-next v3 02/10] net: ti: prueth: Adds ICSSM Ethernet
- driver
+	Fri, 21 Feb 2025 12:39:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 431AF612B8;
+	Fri, 21 Feb 2025 12:39:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7FF1C4CED6;
+	Fri, 21 Feb 2025 12:39:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740141574;
+	bh=THMok0Q/W8DPta8lrac9ilEkwc3iYgKDyZsc/gHSzSc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JissSfbDTmOYZeAAw7xb15eGe9FwQuQCmwXurgu7FEgy1Pd0WOYlCIrvhfqyee99A
+	 koDSllkwxwOv62ApilcR4RNmkFUPPAMczBSn9hyXFa5kfdJH0hEDEQSGxLpV4K8QEx
+	 f4+2VBzxhwFnvRYBEBC6RNDxwBSoO3VegWdc+PkPFC0BYKJRyRpl6+wWl6fXrwBuBC
+	 XQ7PlhEKze6yWvYxnwtttVjBaaddf7x5oqHn1F/qUAHNwtiMbdLAlGFmoc57uf5FX2
+	 z5WGzLu1IGwe5+/GvmUUgGSTOcabxEdM9xR6d2SLPfdHbgzw53xKWmpHRT18+ZBySm
+	 WhZjFbks1rx/Q==
+Date: Fri, 21 Feb 2025 21:39:29 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: Bence =?iso-8859-1?B?Q3Pza+Fz?= <csokas.bence@prolan.hu>
+Cc: linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Kamel Bouhara <kamel.bouhara@bootlin.com>, Dharma.B@microchip.com
+Subject: Re: [PATCH v4 0/2] microchip-tcb-capture: Add Capture, Compare,
+ Overflow etc. events
+Message-ID: <Z7h0AXV1zlgp9Nw-@ishi>
+References: <20250211151914.313585-3-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
-Thread-Topic: prueth: Adds ICSSM Ethernet driver
-Thread-Index: WdttyWoLoXQ9UDMeCG+9GNLwYsLE+w==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.wki.vra.mybluehostin.me: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_043516_530523_AAFFA7F2 
-X-CRM114-Status: GOOD (  12.38  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="aveAWsj+gpRZ7qux"
+Content-Disposition: inline
+In-Reply-To: <20250211151914.313585-3-csokas.bence@prolan.hu>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,173 +68,113 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: nm <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, krishna <krishna@couthit.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, m-karicheri2 <m-karicheri2@ti.com>, basharath <basharath@couthit.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, schnelle <schnelle@linux.ibm.com>, mohan <mohan@couthit.com>, richardcochran <richardcochran@gmail.com>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, jacob e keller <jacob.e.keller@intel.com>, ssantosh <ssantosh@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Hi,
+--aveAWsj+gpRZ7qux
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> On 2025-02-14 at 11:16:54, parvathi (parvathi@couthit.com) wrote:
->> From: Roger Quadros <rogerq@ti.com>
->>
->> +static int icssm_prueth_probe(struct platform_device *pdev)
->> +{
->> +	struct device_node *eth0_node = NULL, *eth1_node = NULL;
->> +	struct device_node *eth_node, *eth_ports_node;
->> +	enum pruss_pru_id pruss_id0, pruss_id1;
->> +	struct device *dev = &pdev->dev;
->> +	struct device_node *np;
->> +	struct prueth *prueth;
->> +	int i, ret;
->> +
->> +	np = dev->of_node;
->> +	if (!np)
->> +		return -ENODEV; /* we don't support non DT */
->> +
->> +	prueth = devm_kzalloc(dev, sizeof(*prueth), GFP_KERNEL);
->> +	if (!prueth)
->> +		return -ENOMEM;
->> +
->> +	platform_set_drvdata(pdev, prueth);
->> +	prueth->dev = dev;
->> +	prueth->fw_data = device_get_match_data(dev);
->> +
->> +	eth_ports_node = of_get_child_by_name(np, "ethernet-ports");
->> +	if (!eth_ports_node)
->> +		return -ENOENT;
->> +
->> +	for_each_child_of_node(eth_ports_node, eth_node) {
->> +		u32 reg;
->> +
->> +		if (strcmp(eth_node->name, "ethernet-port"))
->> +			continue;
->> +		ret = of_property_read_u32(eth_node, "reg", &reg);
->> +		if (ret < 0) {
->> +			dev_err(dev, "%pOF error reading port_id %d\n",
->> +				eth_node, ret);
->> +		}
->> +
->> +		of_node_get(eth_node);
->> +
->> +		if (reg == 0) {
->> +			eth0_node = eth_node;
->> +			if (!of_device_is_available(eth0_node)) {
->> +				of_node_put(eth0_node);
->> +				eth0_node = NULL;
->> +			}
->> +		} else if (reg == 1) {
->> +			eth1_node = eth_node;
->> +			if (!of_device_is_available(eth1_node)) {
->> +				of_node_put(eth1_node);
->> +				eth1_node = NULL;
->> +			}
-> It depends on your DT, but is there any chance that more than once, we reach
-> here in else case.
-> { if (of_device_is_availabke(...) } ?
-> 
+On Tue, Feb 11, 2025 at 04:19:11PM +0100, Bence Cs=F3k=E1s wrote:
+> The TCB has three R/W-able "general purpose" hardware registers:
+> RA, RB and RC. The hardware is capable of:
+> * sampling Counter Value Register (CV) to RA/RB on a trigger edge
+> * sending an interrupt of this change
+> * sending an interrupt on CV change due to trigger
+> * triggering an interrupt on CV compare to RC
+> * stop counting after sampling to RB
+>=20
+> To enable using these features in user-space, an interrupt handler
+> was added, generating the necessary counter events. On top, RA/B/C
+> registers are added as Count Extensions. To aid interoperation, a
+> uapi header was also added, containing the various numeral IDs of
+> the Extensions, Event channels etc.
+>=20
+> Bence Cs=F3k=E1s (2):
+>   counter: microchip-tcb-capture: Add IRQ handling
+>   counter: microchip-tcb-capture: Add capture extensions for registers
+>     RA-RC
+>=20
+>  MAINTAINERS                                   |   1 +
+>  drivers/counter/microchip-tcb-capture.c       | 137 ++++++++++++++++++
+>  .../linux/counter/microchip-tcb-capture.h     |  49 +++++++
+>  3 files changed, 187 insertions(+)
+>  create mode 100644 include/uapi/linux/counter/microchip-tcb-capture.h
 
-Yes, we will enter here in case of "EPROBE_DEFER".
+Hi Bence,
 
->> +		} else {
->> +			dev_err(dev, "port reg should be 0 or 1\n");
->> +		}
->> +	}
->> +
->> +	of_node_put(eth_ports_node);
->> +
->> +	/* At least one node must be present and available else we fail */
->> +	if (!eth0_node && !eth1_node) {
->> +		dev_err(dev, "neither port0 nor port1 node available\n");
->> +		return -ENODEV;
->> +	}
->> +
->> +	if (eth0_node == eth1_node) {
->> +		dev_err(dev, "port0 and port1 can't have same reg\n");
->> +		of_node_put(eth0_node);
->> +		return -ENODEV;
->> +	}
->> +
->> +	prueth->eth_node[PRUETH_MAC0] = eth0_node;
->> +	prueth->eth_node[PRUETH_MAC1] = eth1_node;
->  ...
-> +
->> +	if (eth0_node) {
->> +		prueth->pru0 = pru_rproc_get(np, 0, &pruss_id0);
->> +		if (IS_ERR(prueth->pru0)) {
->> +			ret = PTR_ERR(prueth->pru0);
->> +			if (ret != -EPROBE_DEFER)
->> +				dev_err(dev, "unable to get PRU0: %d\n", ret);
->> +			goto put_pru;
->> +		}
->> +	}
->> +
->> +	if (eth1_node) {
->> +		prueth->pru1 = pru_rproc_get(np, 1, &pruss_id1);
->> +		if (IS_ERR(prueth->pru1)) {
->> +			ret = PTR_ERR(prueth->pru1);
->> +			if (ret != -EPROBE_DEFER)
->> +				dev_err(dev, "unable to get PRU1: %d\n", ret);
->> +			goto put_pru;
->> +		}
->> +	}
->> +
->> +	/* setup netdev interfaces */
->> +	if (eth0_node) {
->> +		ret = icssm_prueth_netdev_init(prueth, eth0_node);
->> +		if (ret) {
->> +			if (ret != -EPROBE_DEFER) {
->> +				dev_err(dev, "netdev init %s failed: %d\n",
->> +					eth0_node->name, ret);
->> +			}
->> +			goto put_pru;
->> +		}
->> +	}
->> +
->> +	if (eth1_node) {
->> +		ret = icssm_prueth_netdev_init(prueth, eth1_node);
->> +		if (ret) {
->> +			if (ret != -EPROBE_DEFER) {
->> +				dev_err(dev, "netdev init %s failed: %d\n",
->> +					eth1_node->name, ret);
->> +			}
->> +			goto netdev_exit;
->> +		}
->> +	}
->> +
->> +	/* register the network devices */
->> +	if (eth0_node) {
->> +		ret = register_netdev(prueth->emac[PRUETH_MAC0]->ndev);
->> +		if (ret) {
->> +			dev_err(dev, "can't register netdev for port MII0");
->> +			goto netdev_exit;
->> +		}
->> +
->> +		prueth->registered_netdevs[PRUETH_MAC0] =
->> +			prueth->emac[PRUETH_MAC0]->ndev;
->> +	}
->> +
->> +	if (eth1_node) {
->> +		ret = register_netdev(prueth->emac[PRUETH_MAC1]->ndev);
->> +		if (ret) {
->> +			dev_err(dev, "can't register netdev for port MII1");
->> +			goto netdev_unregister;
->> +		}
->> +
->> +		prueth->registered_netdevs[PRUETH_MAC1] =
->> +			prueth->emac[PRUETH_MAC1]->ndev;
->> +	}
->> +
->> +	if (eth1_node)
->> +		of_node_put(eth1_node);
->> +	if (eth0_node)
->> +		of_node_put(eth0_node);
-> nit: A function would be better than code duplication for eth0_node and
-> eth1_node ?
+I had some time to read over your description of the three hardware
+registers (RA, RB, and RC)[^1] and I have some suggestions.
 
-It is due to possibility of using a single node.
+First, register RC seems to serve only as a threshold value for a
+compare operation. So it shouldn't be exposed as "capture2", but rather
+as its own dedicated threshold component. I think the 104-quad-8 module
+is the only other driver supporting THRESHOLD events; it exposes the
+threshold value configuration via the "preset" component, but perhaps we
+should introduce a proper "threshold" component instead so counter
+drivers have a standard way to expose this functionality. What do you
+think?
 
+Regarding registers RA and RB, these do hold historic captures of count
+data so it does seem appropriate to expose these as "capture0" and
+"capture1". However, I'm still somewhat confused about why there are two
+registers holding the same sampled CV (or do RA and RB hold different
+values from each other?). Does a single external line trigger the sample
+of CV to both RA and RB, or are there two separate external lines
+triggering the samples independently; or is this a situation where it's
+a single external line where rising edge triggers a sample to RA while
+falling edge triggers a sample to RB?
 
-Thanks and Regards,
-Parvathi.
+Next, the driver right now has three separate event channels, but I
+believe you only need two. The purpose of counter event channels is to
+provide a way for users to differentiate between the same type of event
+being issued from different sources. An example might clarify what I
+mean.
+
+Suppose a hypothetical counter device has two independent timers. When
+either timer overflows, the device fires off a single interrupt. We can
+consider this interrupt a counter OVERFLOW event. As users we can watch
+for COUNTER_EVENT_OVERFLOW to collect these events. However, a problem
+arises: we know an OVERFLOW event occurred, but we don't know which
+particular timer is the source of the overflow. The solution is to
+dedicate each source to its own event channel so that users can
+differentiate between them (e.g. channel 0 are events sourced from the
+first timer whereas channel 1 are events sourced from the second timer).
+
+Going back to your driver, there seems to be no ambiguity about the
+source of the CHANGE-OF-STATE, THRESHOLD, and OVERFLOW events, so these
+events can all coexist in the same event channel. The only possible
+ambiguity I see is regarding the CAPTURE events, which could be sourced
+by either a sample to RA or RB. Given this, I believe all your events
+could go in channel 0, with channel 1 serving to simply differentiate
+CAPTURE events that are sourced by samples to RB.
+
+Finally, you mentioned that this device supports a PWM mode that also
+makes use of the RA, RB, and RC registers. To prevent globbering the
+registers when in the wrong mode, you should verify the device is in the
+counter capture mode before handling the capture components (or return
+an appropriate "Operation not support" error code when in PWM mode). You
+don't need to worry about adding these checks for now because it looks
+like this driver does not support PWM mode yet, but it's something to
+keep in mind if you do add support for it in the future.
+
+William Breathitt Gray
+
+[^1] https://lore.kernel.org/all/7b581014-a351-4077-8832-d3d347b4fdb5@prola=
+n.hu/
+
+--aveAWsj+gpRZ7qux
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ7h0AQAKCRC1SFbKvhIj
+K83fAPsGi+Iai9Thlz/7m5fGeJ+HhUhcH6iRbjw/UebvTdm15wD9H7R2IsqBSQ7/
+iWgxHOmcexFlizlbeBzgmR2D7MO4PAA=
+=a885
+-----END PGP SIGNATURE-----
+
+--aveAWsj+gpRZ7qux--
 
