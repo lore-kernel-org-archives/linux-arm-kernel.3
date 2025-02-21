@@ -4,59 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1E7AC021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 23:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33D8C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 23:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vyhNgeOrYGbDnImKc/jEWBJHmyIIcC5LBYoCURsL4I8=; b=3hmPrzmIF2PgmGXrMPuhxKWBst
-	K20TZekUo67QiZRRYk4s01/yMIY7yiOmT+yVeNRk60bru8tU3elWv0lL87ErJ4VJ0YiVj7SSR9VSf
-	Ws3MAHgn0NH1qEHGF8sNTk446y0mtw7KVVuNqUdzXb7N0RjcjyBdgn/NzccaieHzXdSmu+SwNxmFk
-	si6sr5VFXw0BAKRdV15nsdLMWC5CzmlG/9+jFyAKSEdr3CCyKndMq/1dc0bzqY5X65epEegxLXrF8
-	CWwok7n9FXbyI8brj2zqOutKSGfbf2pBIiFPFO+qAoC3/t91r92Ona0oI8vW6mUELj3BHJ7VNHupr
-	2x3LRaPw==;
+	bh=8RL4zE6TnAeAm2EGG06zVw62XGOta0fzkkKj9kIbkW0=; b=SRX8qX3GTkFBu9yoZErrQZmNk4
+	gyVCn0tgNKasVHqCREYoT0b36kQVS7lFohcYPh8eoFlxWcNfYzllzyETG+FPLXXhpZsCb7B1YHOoe
+	TAAliwwlBES0ypvRXWuu5DQN0eEIY7x0DV7P+gV1+p/Ulpv5TUBXHBT0qOdbP1dCvGWFOQKxbpFPA
+	ghMYqthIn//XlJfRWc6uQ/AEHu/7fepmWipaRSdFvbssafluFNDUnuBVEVbMF6YAzEMprPLC/9qn0
+	IPlOuQSsv9C/Q40Z4ymov0V0dKLU+tVqk0bWjZXQiio/FyC0Y9Pm0jDM481/N6oXk3MD2NjPuARSy
+	sIGSvt3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlcJb-0000000783R-2icV;
-	Fri, 21 Feb 2025 23:20:15 +0000
-Received: from out.bound.email ([141.193.244.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlcI8-000000077xk-2meW;
-	Fri, 21 Feb 2025 23:18:46 +0000
-Received: from mail.sventech.com (localhost [127.0.0.1])
-	by out.bound.email (Postfix) with ESMTP id C15528A0A03;
-	Fri, 21 Feb 2025 15:13:40 -0800 (PST)
-Received: by mail.sventech.com (Postfix, from userid 1000)
-	id AA9A3160036F; Fri, 21 Feb 2025 15:13:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=erdfelt.com;
-	s=default; t=1740179620;
-	bh=vyhNgeOrYGbDnImKc/jEWBJHmyIIcC5LBYoCURsL4I8=;
+	id 1tlcL2-000000078B9-3XkB;
+	Fri, 21 Feb 2025 23:21:44 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlcIM-000000077ys-2Ka1;
+	Fri, 21 Feb 2025 23:18:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 52DD15C6E33;
+	Fri, 21 Feb 2025 23:18:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CAAFC4CED6;
+	Fri, 21 Feb 2025 23:18:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740179935;
+	bh=bh8MK+CIx4qSkdZpY0HJlhJNS5esuf77OVKu5WUvHuk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vocGKBdt41/eCeMu4YU+CArZ78x0+Z6/Yq+IyO5iYGUXepO/opn0ydttE0nRqJZqx
-	 t3RJJtpU/sTaXAiB73iUozN03MYw6M53uRcz9x9RcmFOuzrmx9nK21+UHD5VRbdSAF
-	 KU/zTDvmuJLrpyrpf8w4fS5xqipCkBBwSrI+TOZ8=
-Date: Fri, 21 Feb 2025 15:13:40 -0800
-From: Johannes Erdfelt <johannes@erdfelt.com>
-To: Jimmy Hon <honyuenkwun@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	b=H+u+7RU9a0icTCmI0SZc7EVHIeD1fpkft5BFO35JBXIHy7/91y2cX9lMr8JRft8ZQ
+	 GQ4TGaMhaRKlYo6cmKFUZoKQffJGjNYute5/KweKyYHXQ2J7/AbMEj3pT1AR/lm6/I
+	 0OWpTUoS2A9uJAds4htiS6Mzr6iIRINF1GRVeSH594Sjv0ndDbZDDKKPa3FRRafarz
+	 StI2Qt6QjA4DMm57clg6MoVQDUx8rZ+wR5qe53Kjq/ZJfnkfhUn2E5cRZvrB5v/F65
+	 0wPg6meOtdfdD+TFPN5WWZlookkaLs87u8RZ+YO+ZSHwzDurxdD860pO64tpiy6JZQ
+	 fNpeyWYSIaeGg==
+Date: Sat, 22 Feb 2025 00:18:52 +0100
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Hui Ma =?utf-8?B?KOmprOaFpyk=?= <Hui.Ma@airoha.com>,
+	Ryder Lee <Ryder.Lee@mediatek.com>,
+	Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH UNTESTED v5 0/4] Orange Pi 5 Ultra
-Message-ID: <20250221231340.GS16911@sventech.com>
-References: <20250220041010.3801-1-honyuenkwun@gmail.com>
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Frank Li <Frank.li@nxp.com>, upstream <upstream@airoha.com>
+Subject: Re: =?utf-8?B?5Zue5aSNOiBbUEFUQ0ggdjIgMi8y?= =?utf-8?Q?=5D_PCI?=
+ =?utf-8?Q?=3A?= mediatek-gen3: Configure PBUS_CSR registers for EN7581 SoC
+Message-ID: <Z7kJ3Ejd4Mi_Lj0b@lore-desk>
+References: <SG2PR03MB6341ACD4DADDB280A8ACAA29FFC72@SG2PR03MB6341.apcprd03.prod.outlook.com>
+ <20250221183131.GA353053@bhelgaas>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="hp33MBzSzf7qlCOL"
 Content-Disposition: inline
-In-Reply-To: <20250220041010.3801-1-honyuenkwun@gmail.com>
-User-Agent: Mutt/1.11.4 (2019-03-13)
+In-Reply-To: <20250221183131.GA353053@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_151844_959913_328B462E 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20250221_151858_683282_EAC55E74 
+X-CRM114-Status: GOOD (  20.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,43 +87,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025, Jimmy Hon <honyuenkwun@gmail.com> wrote:
-> This patchset is looking for testers. I do not have the hardware to test.
 
-I do have hardware and I gave your branch[1] a test.
+--hp33MBzSzf7qlCOL
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-The following things tested successfully for me:
-- Kernel boots
-- Ethernet
-- SPI NOR
-- Micro SD card
-- eMMC
-- Bottom M.2 M-key slot (using an NVME drive)
-- USB 2.0 ports
-- Blue LED (using heartbeat trigger at least)
+[...]
 
-I did not test:
-- RTC
-- UART
-- HDMI1
-- HDMI IN
-- Analog audio
-- Mali GPU
-- Heat sink fan
+> >
+> > 	Pbus-csr (base and mask) is used to determine the address
+> > 	range can be access by PCIe bus.
+> >=20
+> > 1FBE3400 PCIE0_MEM_BASE 32 PCIE0 base address
+> > 1FBE3404 PCIE0_MEM_MASK 32 PCIE0 base address mask
+> > 1FBE3408 PCIE1_MEM_BASE 32 PCIE1 base address
+> > 1FBE340C PCIE1_MEM_MASK 32 PCIE1 base address mask
+> > 1FBE3410 PCIE2_MEM_BASE 32 PCIE2 base address
+> > 1FBE3414 PCIE2_MEM_MASK 32 PCIE2 base address mask
+>=20
+> "Can be accessed by PCIe bus" sounds like DMA.  Is that what you mean?
+>=20
+> I doubt it, because if you have multiple host bridges, I assume they
+> would all be able to handle DMA to all of system memory.
+>=20
+> It would make more sense if this is some sort of description of host
+> bridge apertures, e.g., something like this to allow CPU MMIO accesses
+> to reach the first 2GB of PCI memory space below any of the pcie0,
+> pcie1, pcie2 host bridges:
+>=20
+>   pcie0 0000:00: root bus resource [mem 0x84000000000-0x8407fffffff] (bus=
+ address [0x00000000-0x7fffffff])
+>   pcie1 0001:00: root bus resource [mem 0x84100000000-0x8417fffffff] (bus=
+ address [0x00000000-0x7fffffff])
+>   pcie2 0002:00: root bus resource [mem 0x84200000000-0x8427fffffff] (bus=
+ address [0x00000000-0x7fffffff])
+>=20
+> But I think this would be described via 'ranges' properties.  And I
+> think it would make sense if the driver had to learn this address map
+> from devicetree and program it into the hardware, so maybe that's
+> what Pbus-csr is for?  Total speculation on my part.
 
-However, neither of the USB 3.0 ports work. There are no XHCI messages
-during boot. I confirmed my kernel config does build XHCI. I haven't
-ruled out a mistake on my end yet.
+I agree we should provide these info to the driver via the dts.
 
-Also, the green LED is constantly lit even when the trigger is set to
-none and the brightness is set to 0. This made is a bit harder to
-confirm that the blue LED was working. I haven't ruled out a mistake on
-my end for this one yet either.
+Do you agree to pass the register offsets, base address and base mask values
+in the 'mediatek,pbus-csr' phandle array? Something like:
 
-I'll also see if I can give HDMI a test.
+pcie0: pcie@1fc00000 {
+	...
+	mediatek,pbus-csr =3D <&pbus_csr 0x0 0x20000000 0x4 0xfc000000>;
+	...
+}
 
-JE
+where:
+- reg offset for base address:	0x0
+- base address value:		0x20000000
+- reg offset for base mask:	0x4
+- base mask value:		0xfc000000
 
-[1] https://github.com/jimmyhon/linux/tree/integrate-6.15
+Or do you prefer to just pass register offsets in mediatek,pbus-csr phandle
+array and get base address values reading ranges property? Something like:
 
+pcie0: pcie@1fc00000 {
+	...
+	ranges =3D <0x02000000 0 0x20000000 0x0 0x20000000 0 0x4000000>;
+	...
+	mediatek,pbus-csr =3D <&pbus_csr 0x0 0x4>;
+	...
+}
+
+Considering the latter, even if it is not a real problem for EN7581 since we
+have just a single range, what if we have multiple ranges?
+
+Regards,
+Lorenzo
+
+>=20
+> Bjorn
+
+--hp33MBzSzf7qlCOL
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ7kJ3AAKCRA6cBh0uS2t
+rEKAAQDNYeXQYGRzd9+9wAO0ybTsoTJ2fnuWrjzrVO6+sUE+LwD/QJLaQ4gD9o+V
+fBwmUiVyD2DtiPqn6pxkbb3L2+XrbQI=
+=bd+w
+-----END PGP SIGNATURE-----
+
+--hp33MBzSzf7qlCOL--
 
