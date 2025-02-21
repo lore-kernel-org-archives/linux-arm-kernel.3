@@ -4,57 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7438C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 19:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2659C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 19:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XUjHyH6HmXVFmTlFTdnAzd5uQQ145Vl4gtHgdpNsWlE=; b=35JaYShfg84GHtuxQ4KmA234A/
-	wwJux2K4B0ddSksWtnQ+cVvWR3YfBp4EabRLBeEyV4fFcpS4XJ5kmHP9LrfVnzcQSknpiYNe6qboq
-	+knFyOYxkr4/vx5cppvQGrae4VqlSfltJwYTyOGsHDoJlPgavVSaLf+1q9oAMML+WPU2UJZu8kxO2
-	PVrbQJG+s02GnoIcgwy/Nwe8pvo5cxxLQ3rmbzMjxWar+aVoQ/HOuhhNKeXjRu1Q7nODwULkjzbCM
-	9Uf9EOdepEJqZwvoJ0yaGMbnj179ZIMfyzCbt4pT7ByZYDxXih3pfdVzlkFKLJUEYiEcVc5XSSQkO
-	HDc32RUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SkJlu9EeruZBRTKEyJVfROzZNZmzwXdnQPEfm2KYYMk=; b=nrzT1pEBXGqvrO5JXJ/PwjNP7D
+	4+6FWu2f2Ev5ovAH+4bCkqp41hn0K0qaso2vvrB+DM8roNmZUcTCvTIjhkfyFEwPZc6YCgELIavgH
+	uaFi1ijIkWSA6zL84/uuBQEDzJDcef4Mpgw+kXCU2F8zvkYNdmPYtrSqlN5uA4aDthUzaMI+jEbc8
+	wnR5OKWO0rjjEHoSqScWHSbTUn96QxgvasLeMZBv3wRF9LQqFJdLHXGdEWz6R98/YUNv3Ilxo4tHx
+	T1+LJWShwZPDcLUxIPcGj/HFI/hqxoVCZOKaLPgFRyk8QyQLe5Bt8Wctqc69laI3jg8wsDeJP7IsM
+	A0D7Xeng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlYp8-00000006fBx-35FX;
-	Fri, 21 Feb 2025 19:36:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlYnf-00000006ezw-0zHa
+	id 1tlYqa-00000006fTI-1Uxq;
+	Fri, 21 Feb 2025 19:38:04 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tlYop-00000006f5e-1jSs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 19:35:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A07321688;
-	Fri, 21 Feb 2025 11:35:17 -0800 (PST)
-Received: from [10.57.85.121] (unknown [10.57.85.121])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 693213F59E;
-	Fri, 21 Feb 2025 11:34:58 -0800 (PST)
-Message-ID: <0ad3894d-25c1-4f49-b37c-dda01f5221ab@arm.com>
-Date: Fri, 21 Feb 2025 19:34:42 +0000
+	Fri, 21 Feb 2025 19:36:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Oma1Dr95aVh2/TH8fxhAbkKNR8aYKppsju8uJCJrz4dnN27eAzgSiWc5qxt+yULKuHDx1aRcNVIfMf2sbG/MSUkMntiRkbqwD9iOhI/87j8FJe3ZYMmmTyZMb7O+HUJEGhUTWdbiXyAYiSNIRlpICjjhyG8c4bg9xFoTaHDCAq3tBwixTlbu1l328349mV/lPO6+YxeqFp4zH+Rjx+ZuDDX1Xc/eDFz8ln66kAGT8JUERLfa5SaHT24G3kPC3+/lJUvxGZ9tNbL8ZR7k9PDaCDsnJoiWy0DU1koK1Jb6XmM1mhwpWew3czFtyDy+0WN93xN3zRY5pwyap8hh1XOAVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SkJlu9EeruZBRTKEyJVfROzZNZmzwXdnQPEfm2KYYMk=;
+ b=oA/cXkBNg22l1irNsJaYIfyXsTGPVMrngOi95+EjRH8fGuXP1rrfo+ygMKjsZBbfXu6UaKVEyQrkMzBTJ+PX5jvHazI+cA5+V9rY4G/D5MSoSiXoj/amoU0pmLRN5uRZKqJA6KNLmgWL++z0H2MYPlqIai9rDZ0/9GD6GaJvScyHlJcGEi2/V2qdcvDAlcC5OLNJl9H3JnPgdESk7EsUkeVhb9nNm7UF4wLf6v8ZUFazhvNHFEnF+iBVTO/hkVKPctG0Wjqftql/XdP/CphiVYluAZwPRhHTENoobVnUgTH+D55hOGezNyx1+JyMTDGZFwO9ixgrxUpzd5mImv1qrQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SkJlu9EeruZBRTKEyJVfROzZNZmzwXdnQPEfm2KYYMk=;
+ b=V6MWqgRMpzat8x9tOoKDwZ/e+6qn2tTu0VsNCgajigrcez4CnTBaVlABF49RL47YY+VHu8dUgSFcJ2SLXs3iUO4c8uqHPTX06d/c4JlaaSEc9zkdxefmMBw8dC1smTB86kdtS1RiZCCYOZl/QW+nna3heNjXqP5xbb9srXUuQi29lfNztzVoRrVjsVcyJbS4o/v15JQGL4Drp1OfvmgrDX5qK96Z9a8p/4CBZOb61RSDjpLG8BR+y45c9UMa0oHVbeOW3hU5TBvi6i7L28RCa+jFfVVTXPC1FiY/JyNt/Aos9D97PYNvfZbuFt930w9HXBkdyiXnpLPvTD3AegR2Sw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PA3PR04MB11202.eurprd04.prod.outlook.com (2603:10a6:102:4b0::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8398.23; Fri, 21 Feb
+ 2025 19:36:08 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%5]) with mapi id 15.20.8466.015; Fri, 21 Feb 2025
+ 19:36:08 +0000
+Date: Fri, 21 Feb 2025 14:35:58 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/5] dt-bindings: bus: add documentation for the IMX
+ AIPSTZ bridge
+Message-ID: <Z7jVnmWoXn4ow9NG@lizhi-Precision-Tower-5810>
+References: <20250221191909.31874-1-laurentiumihalcea111@gmail.com>
+ <20250221191909.31874-2-laurentiumihalcea111@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250221191909.31874-2-laurentiumihalcea111@gmail.com>
+X-ClientProxiedBy: BY3PR05CA0045.namprd05.prod.outlook.com
+ (2603:10b6:a03:39b::20) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] arm64: extable: Add fixup handling for uaccess CPY*
- instructions
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Tong Tiangen <tongtiangen@huawei.com>,
- James Morse <james.morse@arm.com>, linux-arm-kernel@lists.infradead.org
-References: <20250218171430.28227-1-kristina.martsenko@arm.com>
- <20250218171430.28227-2-kristina.martsenko@arm.com>
- <e71d053a-d37c-478a-bfb0-23dbc6b6a0b2@arm.com>
-Content-Language: en-US
-From: =?UTF-8?Q?Kristina_Mart=C5=A1enko?= <kristina.martsenko@arm.com>
-In-Reply-To: <e71d053a-d37c-478a-bfb0-23dbc6b6a0b2@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA3PR04MB11202:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb66193f-e685-42aa-6fe7-08dd52aefd15
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?n1NDFYuJlgemqFUg7OWxW3e+GpufcpIoFdLw+4ia9p+y2oKrQjNk2Dk6Jx8i?=
+ =?us-ascii?Q?VAOJ7nRzxjRdi/9cVq4MHOjn0qfx+8AsuuBg6rIs+i3P6gy7pjrBNOxSCChn?=
+ =?us-ascii?Q?iioIRumCHPJG4DDtShPMsFEtMi6peBPZ1Vp5DNe1mXiDMCcE9rtbQqczcaPk?=
+ =?us-ascii?Q?VWKqQxwJSu0qSnXIy5sC3rana1KoL9MVC5MDcwGjrlawcflDMB41tCaLZuAX?=
+ =?us-ascii?Q?wJ7AUQMi2izhvfU43CM3S1hM8TKsqtEp2PXihSYqHLDBEWdKtIGCj/NMg30j?=
+ =?us-ascii?Q?eQERiFYd0MwNlTV1fWzft+Ds6JmAvgFtfJcYd6EOr5diUXpTDrECCDMW95Aa?=
+ =?us-ascii?Q?5K2tmGkOsrIu91yoYbNcdSxXr2WSSDK0yccab2IdZGSvnZkQWT+jDrWFYpqT?=
+ =?us-ascii?Q?itd7tDwKql6hNDqDAXUEaYipULaJu8J2zPM66IDBvducpebnpEokUCy6/Yol?=
+ =?us-ascii?Q?1qA1ldaOAtYURBtPWNfm5D61YFdtR5Ku+hkTjSJpPzCIOXccHn3TAEiwFwx4?=
+ =?us-ascii?Q?UtJszjlsOyJv9+XnlkmOw10g8pX3GamwAFtbf4SDbaFD26UcLsvfo/pR36XS?=
+ =?us-ascii?Q?iEJJZS4o44uhjGvPVnmuto2vwWtcyKIs1QueY6icqKlShYg3UA4Rz4mpaESH?=
+ =?us-ascii?Q?0AaWL/G6/A5ZuHL/SNlVsEtX7zu0RSRXxyMXuHlfyRnQ3RsMnURA5wNn/f8r?=
+ =?us-ascii?Q?MbdgQBW6tH/cD3CrF99ypLNCNvhIQI5TMsauBxZhZlDiGDACiUleGlniRqYU?=
+ =?us-ascii?Q?q/EM3NyL5teorvSiHxS4vyQ82kKCdY785oBWCFR1APcR8OwPodKpyFMHda3H?=
+ =?us-ascii?Q?c33ceKzx32/AQGy/hP8wem4JCeo0VXxTjWixNKvCT9UkG2mw3Zb12G1b3Qs2?=
+ =?us-ascii?Q?a3J1NbUKwk5jb1Gx77BEn9OPNy0Evgfi2j3GNtxZXjdE7sK7CKbRI6FP9fo6?=
+ =?us-ascii?Q?PemI6jZK71bxipKYkDLre0tq2hB+KNdSM4F6rPAb8cUveQx/sZ0Rax5joRBw?=
+ =?us-ascii?Q?C/MSTxe4JPwYz/Wrjj4AyJDca5bJeSrAKmuhGniUC8z578htt649qoIYnrIg?=
+ =?us-ascii?Q?rqvTJBtBr4PtdGAznAKXc87k0v4Rv1vIbhH/tDpk5mstSNZlHGUw4hthaw0i?=
+ =?us-ascii?Q?/dVHfKww67S4ts+aiGTTRj1uJn7hjI6odpalGg3DLl04xZrClzy2dwBmq2TG?=
+ =?us-ascii?Q?PFxGOSLFN4PK231R5NSAh0a6gOWSpp+DYXngiY7CAwjrofeTPOflj+g3u6Y8?=
+ =?us-ascii?Q?XGi7TDo4VAiVjcjn6dhbnj7bx8atu9CcXvEDSn0YXuobLrL7GteTHYQxnMNn?=
+ =?us-ascii?Q?X3kuy/idcXICurbsuU+sBZ2pwyYWCzg7WbCTZfL02BTpE5dsUnKuV6F5cEl0?=
+ =?us-ascii?Q?Wcxv00TwMz5m4X8fK35zcap2VVax?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Tvy7hJgsCDjQFgio5UDwvxeZmoHLwczcHiCQT1cdbkxdQ/uf+gj2pnRDjXiW?=
+ =?us-ascii?Q?lfPlsImKf39ktjj8jt9xZmKc2ZYorhJ95v15pzrdkEeMxhSUVyMI8Gb7lPZo?=
+ =?us-ascii?Q?AS/CaDf5ropGWT4PNecyvNB38SCE2F1c1g9S5oaYQ4sLhkPv+pgKe3FXAbHb?=
+ =?us-ascii?Q?yCBqCnXBhGAcUsrI4gSHe3Lc14b8j9n40jfwZhIBHgqg2nWmjmkeesaXnknj?=
+ =?us-ascii?Q?l6q79ouuDnrE5uRbqpfNDtv2StIf6lP5ncXUdfuMQqudmhQD+Cv3QcsbmetH?=
+ =?us-ascii?Q?8l6T0gPMWP9trsjYlD2cUBpMDZCcrpJWRLjouzGw2+yp6nhflzbsDzuQktq1?=
+ =?us-ascii?Q?1Yg3DEhdwOH3l1tbpoB2oFDBmD5gm5vKxdt/idSYkeX9hqef2BTNRDfTqR5c?=
+ =?us-ascii?Q?LcRYzYykmINWEdUrPqLkqoxRz+85FLJ9egZmFJfMdFq3eWumQb1X89wdgGWj?=
+ =?us-ascii?Q?LyaXWY4CzIBYLUgOEFLX9P1XHi3Aws+gyKJgy00CxT+mx3TY+O7It8BwUKxc?=
+ =?us-ascii?Q?AnKQ5t+GyYb//ORfHYOBLrd8+XuwViDLhmiz4ZP7oulMPpCHG/KNBo8fj3tZ?=
+ =?us-ascii?Q?hagHNoDUOiOm0bSc6oi5YwyjF7DcS6TLUWSZdtNYgkoazF6i5lJ0U6R4otL/?=
+ =?us-ascii?Q?80XvXM3s91btt1HvBRD0kozkhi14S/MES73MfbnFPnazJUG1jwWiOaLzCiLz?=
+ =?us-ascii?Q?JYR0RvH2968QsCY7XgfAz75hCePF7ziQ04hto8QGKhY0KTjO1LkSuCs/4Fb5?=
+ =?us-ascii?Q?5CKNaBb70JiplX3C3H6n1FxxxWM1cIbRapC0CwyUhCB1xkS4b4F0FOhYP6mV?=
+ =?us-ascii?Q?C23ql+h+881qLSSYWIYgLSi3S8FAhm1rN53OUzEBhPPkuQS/pSdb/SV5m0r+?=
+ =?us-ascii?Q?mpLLsCWGGijrphJeTd9rbljaCbTDnnTBKP6Wvp7d77sqSdAC7f6/0jmNYXPw?=
+ =?us-ascii?Q?cPHve1GzoUx9qDq7uM719xs1zX8vl/GC7bQqSTm0YV0Nu6mc9d82b/0xpKu4?=
+ =?us-ascii?Q?KCJWWE3hyM8P2P3Ekl1wEdAa+cdQnfIUJyCgZ3RAqZD9ODYQSPQsFyAk9Ybg?=
+ =?us-ascii?Q?6kXC8lLUJpNPjzHSiF9uwXhxt6N4rEvGkbPPDjpL2hhNWVRZlWqwlr5kpHn1?=
+ =?us-ascii?Q?utKPIxtp5Us/Vcqg6Uo3GP6+c8AZMmVIYYQyEDIEpvi2MoPvJm7ufVc3ACDw?=
+ =?us-ascii?Q?KwflOljfMXL8EwR5oqnHZNhVvB5qGvEx7kfrCICEpkA++9FlReROikPDY36O?=
+ =?us-ascii?Q?u85Mf9rWWsDlIvEKE5OswlHXphbMYqFySfigrQT6ddygyT0a15fwaSb4O0wO?=
+ =?us-ascii?Q?vi76TIA4nUfmD8zcWHZgiFRB3xT7EaqtaDIRLfTMpv6JY4qZCzrmLes4VupC?=
+ =?us-ascii?Q?LZwXNsmO2dQVxnQ4LmItZAv129M2/QSnKfMha2LIAMZJ5qQTTTAe+8fL/+Cx?=
+ =?us-ascii?Q?dpemPJuq7SEhsIOQq1C/OXrNeBNkgcPnYyF18pISRSSKmeRiWUgT+s7nFtF/?=
+ =?us-ascii?Q?EUdlhkn0HQvrs7tQqiVxCUZUPLoTJFrehOvha7oMteww4d9t+kB3Iuj7dF2M?=
+ =?us-ascii?Q?gzNqrKKjkg0duDEGKtc=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb66193f-e685-42aa-6fe7-08dd52aefd15
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Feb 2025 19:36:08.2420
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GlD23Tb5SsMwIJN/Z41AJ3Bfah7l0tz1Yfkm95DSrshk9ml+Vs9OBGq+p9Rq6CgcGV+ZhtQBPg3xqecyxl81iw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA3PR04MB11202
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_113503_321950_32A4496D 
-X-CRM114-Status: UNSURE (   6.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250221_113615_466175_BC2F077E 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,21 +163,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/02/2025 18:55, Robin Murphy wrote:
-> On 18/02/2025 5:14 pm, Kristina Martšenko wrote:
->>   +static bool cpy_faulted_on_uaccess(const struct exception_table_entry *ex,
->> +                   unsigned long esr)
->> +{
->> +    bool uaccess_is_write = FIELD_GET(EX_DATA_UACCESS_WRITE, ex->data);
->> +    bool fault_on_write = esr & ESR_ELx_WNR;
->> +
->> +    return !(uaccess_is_write ^ fault_on_write);
-> 
-> Nit: isn't that simply "uaccess_is_write == fault_on_write"?
+On Fri, Feb 21, 2025 at 02:19:05PM -0500, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>
+> Add documentation for IMX AIPSTZ bridge.
+>
+> Co-developed-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
 
-Yes, that's better.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Thanks,
-Kristina
-
+> ---
+>  .../bindings/bus/fsl,imx8mp-aipstz.yaml       | 62 +++++++++++++++++++
+>  1 file changed, 62 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml b/Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
+> new file mode 100644
+> index 000000000000..b0d6eaf70a84
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/bus/fsl,imx8mp-aipstz.yaml
+> @@ -0,0 +1,62 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/bus/fsl,imx8mp-aipstz.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Secure AHB to IP Slave bus (AIPSTZ) bridge
+> +
+> +description:
+> +  The secure AIPS bridge (AIPSTZ) acts as a bridge for AHB masters
+> +  issuing transactions to IP Slave peripherals. Additionally, this module
+> +  offers access control configurations meant to restrict which peripherals
+> +  a master can access.
+> +
+> +maintainers:
+> +  - Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> +
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        const: fsl,imx8mp-aipstz
+> +  required:
+> +    - compatible
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - const: fsl,imx8mp-aipstz
+> +      - const: simple-bus
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  "#access-controller-cells":
+> +    const: 0
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - power-domains
+> +  - "#access-controller-cells"
+> +
+> +allOf:
+> +  - $ref: /schemas/simple-bus.yaml#
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    bus@30df0000 {
+> +      compatible = "fsl,imx8mp-aipstz", "simple-bus";
+> +      reg = <0x30df0000 0x10000>;
+> +      power-domains = <&pgc_audio>;
+> +      #address-cells = <1>;
+> +      #size-cells = <1>;
+> +      #access-controller-cells = <0>;
+> +      ranges;
+> +    };
+> --
+> 2.34.1
+>
 
