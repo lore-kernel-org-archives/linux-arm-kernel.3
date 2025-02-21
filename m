@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 037A3C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 11:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 343B8C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 11:02:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4LQUy42FK8VXpEoX2dN4ZlyEKG+BfiXqQn8JZJW6Anw=; b=EQWJD1+wOQ6dAPctK5RJqTpjzx
-	IwXJIhjU2HJDcRxmODlB/mrdZr6Oqn8VlyGKvr/6B3oUYpKnP33LC9Z1DOivl2k1K/EpMiACBNL8m
-	/A6ihqkG814zmC+R5PCcW9vFYjP1Fkf86B9bClABYpJ6j7L8Bc92sAgmXTlK6neax7sJYSyJajc4U
-	xcp3hTv9itzfK17wnWmQMXVm932fi+RW97aPsV8c6TfcobjLMtWGINGRPiVvbriL9HoDWwqJnX/lD
-	7peOdYCP9IcglEGF+1JeE2kVyckvt2aDMP3w+A/PUAK/P76JSQ7IPrgxyPsjQbZofsr5GVGYNS/15
-	KuLXWzJg==;
+	bh=OoXh+Otd4zz7RJMONvmmW9jATCNPVcmr/L0QssdWBn0=; b=0jXjie6q5OR7FWfitRwxatr8HQ
+	QS2YiohgI4OVoCyXTE1fll4qyfD/QB+LjxHl/EcUmRtTrMwcBGJgJ5kk50Pj1YME+ZseYuJoPZcZa
+	7Oave+0Au2O+lxbHO8nVzWHxY7hHhXMwhYfznsnHPjOk3h/m3/m7mvGXazMCL3p0JV3bQAFEdWj8M
+	QS90SG0VCyZzGpFLsUwS0Cy8eoEOjPmdXUJG70ufX9HjxYQ9zZLs4vWgqMbKPXMRn03wRlXU4EAfF
+	yd0zUzS9mTVoMO2MvwYfMsTdTBgqWjMjv9SflFvAexJlMDonq8BMf82ahGcxb/ZItoAVReWOlluRV
+	wZhwDhLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlQlv-00000005GQt-1PhL;
-	Fri, 21 Feb 2025 11:00:43 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tlQnO-00000005GZK-1jGf;
+	Fri, 21 Feb 2025 11:02:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlQHE-00000005BJb-35Mu;
-	Fri, 21 Feb 2025 10:29:02 +0000
+	id 1tlQHI-00000005BKx-14yi;
+	Fri, 21 Feb 2025 10:29:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4726D5C036B;
-	Fri, 21 Feb 2025 10:28:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9146C4CED6;
-	Fri, 21 Feb 2025 10:28:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7E670611BE;
+	Fri, 21 Feb 2025 10:29:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF2CCC4CED6;
+	Fri, 21 Feb 2025 10:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740133738;
-	bh=6Lxumd3TlvzAo8bnlZnOCfi1EshbiDf08N/259BoHS4=;
+	s=k20201202; t=1740133743;
+	bh=hIFIj7j3mObtmkt36H8GvJfZQKYGzhxogZMp5Cc6K00=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=TQDDbSNtqKLYzqdJznqyOzQUou04UpmuI6MRftK6otzEvbQqFbYFMRjQ0kCM5SCGK
-	 oTI+Taii3w16eIvxPQs6O1O+mufKV8XTFYA2i0UklqbIeTSLpNxS02Yz0KAz8e9zVn
-	 g039e6BpOHSQRdRfnFj0hASLSNpsHyVkSbf9hzpICyP8erKjZIenvwH2RWCdpJvCwO
-	 BCjAfTDuFw5chmrBOs0RavUs2OiYZSH+gKV8bdM3dcIHAbzuymmv//heVpF7pcpMPI
-	 ui12vZn34poFqSnG08Ejgd+PEqcxU1FOFShWsftrSF9vr4UYRm46YOtqa/TtuWjBfJ
-	 zH0tTEI/QD29Q==
+	b=jqUeCBOFQGU8x5F9zr/p69E9FiPavDa807JduwI//cjhSm/y5feRid4ebzYKbi6hE
+	 u2qoX3nC5asCirx8kq89apz7pgEIYv+O1LEN5M+YhEmXdjHVx2w57jNPwzEjvG7F1c
+	 kvJbdrBYjMMaRZhkLT0dy1JUpdnLVnv/M/37Ssizdi9bnpF38PhPac2FCNnBpi4QlJ
+	 bzNOMPKCiAzXRzFjjYhCF3OPMgN9Nn0Y/PbX9AXE5dLYk3VGt2ha3gf86eauJoeKG5
+	 YoTssdAk+iNiGmUPehMr68GMlegU/gYUPpfw3IyfuvOMCGgLbTECrUNTkZh6pkCvkw
+	 NNufQqGMVpjfg==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 21 Feb 2025 11:28:13 +0100
-Subject: [PATCH net-next v6 12/15] net: airoha: Introduce Airoha NPU
- support
+Date: Fri, 21 Feb 2025 11:28:15 +0100
+Subject: [PATCH net-next v6 14/15] net: airoha: Add loopback support for
+ GDM2
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250221-airoha-en7581-flowtable-offload-v6-12-d593af0e9487@kernel.org>
+Message-Id: <20250221-airoha-en7581-flowtable-offload-v6-14-d593af0e9487@kernel.org>
 References: <20250221-airoha-en7581-flowtable-offload-v6-0-d593af0e9487@kernel.org>
 In-Reply-To: <20250221-airoha-en7581-flowtable-offload-v6-0-d593af0e9487@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -67,9 +67,6 @@ Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
  upstream@airoha.com
 X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_022900_900118_34C0E738 
-X-CRM114-Status: GOOD (  23.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,630 +81,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Packet Processor Engine (PPE) module available on EN7581 SoC populates
-the PPE table with 5-tuples flower rules learned from traffic forwarded
-between the GDM ports connected to the Packet Switch Engine (PSE) module.
-The airoha_eth driver can enable hw acceleration of learned 5-tuples
-rules if the user configure them in netfilter flowtable (netfilter
-flowtable support will be added with subsequent patches).
-airoha_eth driver configures and collects data from the PPE module via a
-Network Processor Unit (NPU) RISC-V module available on the EN7581 SoC.
-Introduce basic support for Airoha NPU module.
+Enable hw redirection for traffic received on GDM2 port to GDM{3,4}.
+This is required to apply Qdisc offloading (HTB or ETS) for traffic to
+and from GDM{3,4} port.
 
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/ethernet/airoha/Kconfig      |   9 +
- drivers/net/ethernet/airoha/Makefile     |   1 +
- drivers/net/ethernet/airoha/airoha_eth.h |   2 +
- drivers/net/ethernet/airoha/airoha_npu.c | 519 +++++++++++++++++++++++++++++++
- drivers/net/ethernet/airoha/airoha_npu.h |  29 ++
- 5 files changed, 560 insertions(+)
+ drivers/net/ethernet/airoha/airoha_eth.c  | 71 ++++++++++++++++++++++++++++++-
+ drivers/net/ethernet/airoha/airoha_eth.h  |  7 +++
+ drivers/net/ethernet/airoha/airoha_ppe.c  | 13 +++---
+ drivers/net/ethernet/airoha/airoha_regs.h | 29 +++++++++++++
+ 4 files changed, 112 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/net/ethernet/airoha/Kconfig b/drivers/net/ethernet/airoha/Kconfig
-index b6a131845f13b23a12464cfc281e3abe5699389f..1a4cf6a259f67adf9c6115e05de16b0585092573 100644
---- a/drivers/net/ethernet/airoha/Kconfig
-+++ b/drivers/net/ethernet/airoha/Kconfig
-@@ -7,9 +7,18 @@ config NET_VENDOR_AIROHA
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index 8449679524e2a191646cb125d2caecfd57ee91de..113078af7c5936915a1636ac6dd8465fbfcbc793 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -1588,14 +1588,81 @@ static int airoha_dev_set_macaddr(struct net_device *dev, void *p)
+ 	return 0;
+ }
  
- if NET_VENDOR_AIROHA
- 
-+config NET_AIROHA_NPU
-+	tristate "Airoha NPU support"
-+	select WANT_DEV_COREDUMP
-+	select REGMAP_MMIO
-+	help
-+	  This driver supports Airoha Network Processor (NPU) available
-+	  on the Airoha Soc family.
++static void airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
++{
++	u32 pse_port = port->id == 3 ? FE_PSE_PORT_GDM3 : FE_PSE_PORT_GDM4;
++	struct airoha_eth *eth = port->qdma->eth;
++	u32 chan = port->id == 3 ? 4 : 0;
 +
- config NET_AIROHA
- 	tristate "Airoha SoC Gigabit Ethernet support"
- 	depends on NET_DSA || !NET_DSA
-+	select NET_AIROHA_NPU
- 	select PAGE_POOL
- 	help
- 	  This driver supports the gigabit ethernet MACs in the
-diff --git a/drivers/net/ethernet/airoha/Makefile b/drivers/net/ethernet/airoha/Makefile
-index 73a6f3680a4c4ce92ee785d83b905d76a63421df..fcd3fc7759485f772dc3247efd51054320626f32 100644
---- a/drivers/net/ethernet/airoha/Makefile
-+++ b/drivers/net/ethernet/airoha/Makefile
-@@ -4,3 +4,4 @@
- #
++	/* Forward the traffic to the proper GDM port */
++	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(2), pse_port);
++	airoha_fe_clear(eth, REG_GDM_FWD_CFG(2), GDM_STRIP_CRC);
++
++	/* Enable GDM2 loopback */
++	airoha_fe_wr(eth, REG_GDM_TXCHN_EN(2), 0xffffffff);
++	airoha_fe_wr(eth, REG_GDM_RXCHN_EN(2), 0xffff);
++	airoha_fe_rmw(eth, REG_GDM_LPBK_CFG(2),
++		      LPBK_CHAN_MASK | LPBK_MODE_MASK | LPBK_EN_MASK,
++		      FIELD_PREP(LPBK_CHAN_MASK, chan) | LPBK_EN_MASK);
++	airoha_fe_rmw(eth, REG_GDM_LEN_CFG(2),
++		      GDM_SHORT_LEN_MASK | GDM_LONG_LEN_MASK,
++		      FIELD_PREP(GDM_SHORT_LEN_MASK, 60) |
++		      FIELD_PREP(GDM_LONG_LEN_MASK, AIROHA_MAX_MTU));
++
++	/* Disable VIP and IFC for GDM2 */
++	airoha_fe_clear(eth, REG_FE_VIP_PORT_EN, BIT(2));
++	airoha_fe_clear(eth, REG_FE_IFC_PORT_EN, BIT(2));
++
++	if (port->id == 3) {
++		/* FIXME: handle XSI_PCE1_PORT */
++		airoha_fe_wr(eth, REG_PPE_DFT_CPORT0(0),  0x5500);
++		airoha_fe_rmw(eth, REG_FE_WAN_PORT,
++			      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
++			      FIELD_PREP(WAN0_MASK, HSGMII_LAN_PCIE0_SRCPORT));
++		airoha_fe_rmw(eth,
++			      REG_SP_DFT_CPORT(HSGMII_LAN_PCIE0_SRCPORT >> 3),
++			      SP_CPORT_PCIE0_MASK,
++			      FIELD_PREP(SP_CPORT_PCIE0_MASK,
++					 FE_PSE_PORT_CDM2));
++	} else {
++		/* FIXME: handle XSI_USB_PORT */
++		airoha_fe_rmw(eth, REG_SRC_PORT_FC_MAP6,
++			      FC_ID_OF_SRC_PORT24_MASK,
++			      FIELD_PREP(FC_ID_OF_SRC_PORT24_MASK, 2));
++		airoha_fe_rmw(eth, REG_FE_WAN_PORT,
++			      WAN1_EN_MASK | WAN1_MASK | WAN0_MASK,
++			      FIELD_PREP(WAN0_MASK, HSGMII_LAN_ETH_SRCPORT));
++		airoha_fe_rmw(eth,
++			      REG_SP_DFT_CPORT(HSGMII_LAN_ETH_SRCPORT >> 3),
++			      SP_CPORT_ETH_MASK,
++			      FIELD_PREP(SP_CPORT_ETH_MASK, FE_PSE_PORT_CDM2));
++	}
++}
++
+ static int airoha_dev_init(struct net_device *dev)
+ {
+ 	struct airoha_gdm_port *port = netdev_priv(dev);
+ 	struct airoha_eth *eth = port->qdma->eth;
++	u32 pse_port;
  
- obj-$(CONFIG_NET_AIROHA) += airoha_eth.o
-+obj-$(CONFIG_NET_AIROHA_NPU) += airoha_npu.o
+ 	airoha_set_macaddr(port, dev->dev_addr);
+-	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(port->id),
+-				    FE_PSE_PORT_PPE1);
++
++	switch (port->id) {
++	case 3:
++	case 4:
++		/* If GDM2 is active we can't enable loopback */
++		if (!eth->ports[1])
++			airhoha_set_gdm2_loopback(port);
++		fallthrough;
++	case 2:
++		pse_port = FE_PSE_PORT_PPE2;
++		break;
++	default:
++		pse_port = FE_PSE_PORT_PPE1;
++		break;
++	}
++
++	airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(port->id), pse_port);
+ 
+ 	return 0;
+ }
 diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index 44834227a58982d4491f3d8174b9e0bea542f785..7be932a8e8d2e8e9221b8a5909ac5d00329d550c 100644
+index 60f5dd9908b41f95b5b627640ff6b25c8e3e1706..064941348bd91f1115082bf5e7734f34007953f8 100644
 --- a/drivers/net/ethernet/airoha/airoha_eth.h
 +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -240,6 +240,8 @@ struct airoha_eth {
- 	unsigned long state;
- 	void __iomem *fe_regs;
+@@ -67,6 +67,13 @@ enum {
+ 	QDMA_INT_REG_MAX
+ };
  
-+	struct airoha_npu __rcu *npu;
++enum {
++	HSGMII_LAN_PCIE0_SRCPORT = 0x16,
++	HSGMII_LAN_PCIE1_SRCPORT,
++	HSGMII_LAN_ETH_SRCPORT,
++	HSGMII_LAN_USB_SRCPORT,
++};
 +
- 	struct reset_control_bulk_data rsts[AIROHA_MAX_NUM_RSTS];
- 	struct reset_control_bulk_data xsi_rsts[AIROHA_MAX_NUM_XSI_RSTS];
+ enum {
+ 	XSI_PCIE0_VIP_PORT_MASK	= BIT(22),
+ 	XSI_PCIE1_VIP_PORT_MASK	= BIT(23),
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 88a0440fe69936f21cdad42979829534a90f581d..086210d6894a2ed47cdd71039a2aea452f276be0 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -213,21 +213,22 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
+ 	      AIROHA_FOE_IB1_BIND_TTL;
+ 	hwe->ib1 = val;
  
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..7c9d1eea273b00d5e46b6143244f192dc8b7cec6
---- /dev/null
-+++ b/drivers/net/ethernet/airoha/airoha_npu.c
-@@ -0,0 +1,519 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025 AIROHA Inc
-+ * Author: Lorenzo Bianconi <lorenzo@kernel.org>
-+ */
-+
-+#include <linux/devcoredump.h>
-+#include <linux/firmware.h>
-+#include <linux/platform_device.h>
-+#include <linux/of_net.h>
-+#include <linux/of_platform.h>
-+#include <linux/of_reserved_mem.h>
-+#include <linux/regmap.h>
-+
-+#include "airoha_npu.h"
-+
-+#define NPU_EN7581_FIRMWARE_DATA		"airoha/en7581_npu_data.bin"
-+#define NPU_EN7581_FIRMWARE_RV32		"airoha/en7581_npu_rv32.bin"
-+#define NPU_EN7581_FIRMWARE_RV32_MAX_SIZE	0x200000
-+#define NPU_EN7581_FIRMWARE_DATA_MAX_SIZE	0x10000
-+#define NPU_DUMP_SIZE				512
-+
-+#define REG_NPU_LOCAL_SRAM		0x0
-+
-+#define NPU_PC_BASE_ADDR		0x305000
-+#define REG_PC_DBG(_n)			(0x305000 + ((_n) * 0x100))
-+
-+#define NPU_CLUSTER_BASE_ADDR		0x306000
-+
-+#define REG_CR_BOOT_TRIGGER		(NPU_CLUSTER_BASE_ADDR + 0x000)
-+#define REG_CR_BOOT_CONFIG		(NPU_CLUSTER_BASE_ADDR + 0x004)
-+#define REG_CR_BOOT_BASE(_n)		(NPU_CLUSTER_BASE_ADDR + 0x020 + ((_n) << 2))
-+
-+#define NPU_MBOX_BASE_ADDR		0x30c000
-+
-+#define REG_CR_MBOX_INT_STATUS		(NPU_MBOX_BASE_ADDR + 0x000)
-+#define MBOX_INT_STATUS_MASK		BIT(8)
-+
-+#define REG_CR_MBOX_INT_MASK(_n)	(NPU_MBOX_BASE_ADDR + 0x004 + ((_n) << 2))
-+#define REG_CR_MBQ0_CTRL(_n)		(NPU_MBOX_BASE_ADDR + 0x030 + ((_n) << 2))
-+#define REG_CR_MBQ8_CTRL(_n)		(NPU_MBOX_BASE_ADDR + 0x0b0 + ((_n) << 2))
-+#define REG_CR_NPU_MIB(_n)		(NPU_MBOX_BASE_ADDR + 0x140 + ((_n) << 2))
-+
-+#define NPU_TIMER_BASE_ADDR		0x310100
-+#define REG_WDT_TIMER_CTRL(_n)		(NPU_TIMER_BASE_ADDR + ((_n) * 0x100))
-+#define WDT_EN_MASK			BIT(25)
-+#define WDT_INTR_MASK			BIT(21)
-+
-+enum {
-+	NPU_OP_SET = 1,
-+	NPU_OP_SET_NO_WAIT,
-+	NPU_OP_GET,
-+	NPU_OP_GET_NO_WAIT,
-+};
-+
-+enum {
-+	NPU_FUNC_WIFI,
-+	NPU_FUNC_TUNNEL,
-+	NPU_FUNC_NOTIFY,
-+	NPU_FUNC_DBA,
-+	NPU_FUNC_TR471,
-+	NPU_FUNC_PPE,
-+};
-+
-+enum {
-+	NPU_MBOX_ERROR,
-+	NPU_MBOX_SUCCESS,
-+};
-+
-+enum {
-+	PPE_FUNC_SET_WAIT,
-+	PPE_FUNC_SET_WAIT_HWNAT_INIT,
-+	PPE_FUNC_SET_WAIT_HWNAT_DEINIT,
-+	PPE_FUNC_SET_WAIT_API,
-+};
-+
-+enum {
-+	PPE2_SRAM_SET_ENTRY,
-+	PPE_SRAM_SET_ENTRY,
-+	PPE_SRAM_SET_VAL,
-+	PPE_SRAM_RESET_VAL,
-+};
-+
-+enum {
-+	QDMA_WAN_ETHER = 1,
-+	QDMA_WAN_PON_XDSL,
-+};
-+
-+#define MBOX_MSG_FUNC_ID	GENMASK(14, 11)
-+#define MBOX_MSG_STATIC_BUF	BIT(5)
-+#define MBOX_MSG_STATUS		GENMASK(4, 2)
-+#define MBOX_MSG_DONE		BIT(1)
-+#define MBOX_MSG_WAIT_RSP	BIT(0)
-+
-+#define PPE_TYPE_L2B_IPV4	2
-+#define PPE_TYPE_L2B_IPV4_IPV6	3
-+
-+struct ppe_mbox_data {
-+	u32 func_type;
-+	u32 func_id;
-+	union {
-+		struct {
-+			u8 cds;
-+			u8 xpon_hal_api;
-+			u8 wan_xsi;
-+			u8 ct_joyme4;
-+			int ppe_type;
-+			int wan_mode;
-+			int wan_sel;
-+		} init_info;
-+		struct {
-+			int func_id;
-+			u32 size;
-+			u32 data;
-+		} set_info;
-+	};
-+};
-+
-+static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
-+			       void *p, int size)
-+{
-+	u16 core = 0; /* FIXME */
-+	u32 val, offset = core << 4;
-+	dma_addr_t dma_addr;
-+	void *addr;
-+	int ret;
-+
-+	addr = kzalloc(size, GFP_ATOMIC);
-+	if (!addr)
-+		return -ENOMEM;
-+
-+	memcpy(addr, p, size);
-+	dma_addr = dma_map_single(npu->dev, addr, size, DMA_TO_DEVICE);
-+	ret = dma_mapping_error(npu->dev, dma_addr);
-+	if (ret)
-+		goto out;
-+
-+	spin_lock_bh(&npu->cores[core].lock);
-+
-+	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(0) + offset, dma_addr);
-+	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(1) + offset, size);
-+	regmap_read(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, &val);
-+	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(2) + offset, val + 1);
-+	val = FIELD_PREP(MBOX_MSG_FUNC_ID, func_id) | MBOX_MSG_WAIT_RSP;
-+	regmap_write(npu->regmap, REG_CR_MBQ0_CTRL(3) + offset, val);
-+
-+	ret = regmap_read_poll_timeout_atomic(npu->regmap,
-+					      REG_CR_MBQ0_CTRL(3) + offset,
-+					      val, (val & MBOX_MSG_DONE),
-+					      100, 100 * MSEC_PER_SEC);
-+	if (!ret && FIELD_GET(MBOX_MSG_STATUS, val) != NPU_MBOX_SUCCESS)
-+		ret = -EINVAL;
-+
-+	spin_unlock_bh(&npu->cores[core].lock);
-+
-+	dma_unmap_single(npu->dev, dma_addr, size, DMA_TO_DEVICE);
-+out:
-+	kfree(addr);
-+
-+	return ret;
-+}
-+
-+static int airoha_npu_run_firmware(struct device *dev, void __iomem *base,
-+				   struct reserved_mem *rmem)
-+{
-+	const struct firmware *fw;
-+	void __iomem *addr;
-+	int ret;
-+
-+	ret = request_firmware(&fw, NPU_EN7581_FIRMWARE_RV32, dev);
-+	if (ret)
-+		return ret;
-+
-+	if (fw->size > NPU_EN7581_FIRMWARE_RV32_MAX_SIZE) {
-+		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
-+			NPU_EN7581_FIRMWARE_RV32, fw->size);
-+		ret = -E2BIG;
-+		goto out;
-+	}
-+
-+	addr = devm_ioremap(dev, rmem->base, rmem->size);
-+	if (!addr) {
-+		ret = -ENOMEM;
-+		goto out;
-+	}
-+
-+	memcpy_toio(addr, fw->data, fw->size);
-+	release_firmware(fw);
-+
-+	ret = request_firmware(&fw, NPU_EN7581_FIRMWARE_DATA, dev);
-+	if (ret)
-+		return ret;
-+
-+	if (fw->size > NPU_EN7581_FIRMWARE_DATA_MAX_SIZE) {
-+		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
-+			NPU_EN7581_FIRMWARE_DATA, fw->size);
-+		ret = -E2BIG;
-+		goto out;
-+	}
-+
-+	memcpy_toio(base + REG_NPU_LOCAL_SRAM, fw->data, fw->size);
-+out:
-+	release_firmware(fw);
-+
-+	return ret;
-+}
-+
-+static irqreturn_t airoha_npu_mbox_handler(int irq, void *npu_instance)
-+{
-+	struct airoha_npu *npu = npu_instance;
-+
-+	/* clear mbox interrupt status */
-+	regmap_write(npu->regmap, REG_CR_MBOX_INT_STATUS,
-+		     MBOX_INT_STATUS_MASK);
-+
-+	/* acknowledge npu */
-+	regmap_update_bits(npu->regmap, REG_CR_MBQ8_CTRL(3),
-+			   MBOX_MSG_STATUS | MBOX_MSG_DONE, MBOX_MSG_DONE);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static void airoha_npu_wdt_work(struct work_struct *work)
-+{
-+	struct airoha_npu_core *core;
-+	struct airoha_npu *npu;
-+	void *dump;
-+	u32 val[3];
-+	int c;
-+
-+	core = container_of(work, struct airoha_npu_core, wdt_work);
-+	npu = core->npu;
-+
-+	dump = vzalloc(NPU_DUMP_SIZE);
-+	if (!dump)
-+		return;
-+
-+	c = core - &npu->cores[0];
-+	regmap_bulk_read(npu->regmap, REG_PC_DBG(c), val, ARRAY_SIZE(val));
-+	snprintf(dump, NPU_DUMP_SIZE, "PC: %08x SP: %08x LR: %08x\n",
-+		 val[0], val[1], val[2]);
-+
-+	dev_coredumpv(npu->dev, dump, NPU_DUMP_SIZE, GFP_KERNEL);
-+}
-+
-+static irqreturn_t airoha_npu_wdt_handler(int irq, void *core_instance)
-+{
-+	struct airoha_npu_core *core = core_instance;
-+	struct airoha_npu *npu = core->npu;
-+	int c = core - &npu->cores[0];
-+	u32 val;
-+
-+	regmap_set_bits(npu->regmap, REG_WDT_TIMER_CTRL(c), WDT_INTR_MASK);
-+	if (!regmap_read(npu->regmap, REG_WDT_TIMER_CTRL(c), &val) &&
-+	    FIELD_GET(WDT_EN_MASK, val))
-+		schedule_work(&core->wdt_work);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+int airoha_npu_ppe_init(struct airoha_npu *npu)
-+{
-+	struct ppe_mbox_data ppe_data = {
-+		.func_type = NPU_OP_SET,
-+		.func_id = PPE_FUNC_SET_WAIT_HWNAT_INIT,
-+		.init_info = {
-+			.ppe_type = PPE_TYPE_L2B_IPV4_IPV6,
-+			.wan_mode = QDMA_WAN_ETHER,
-+		},
-+	};
-+
-+	return airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-+				   sizeof(struct ppe_mbox_data));
-+}
-+EXPORT_SYMBOL_GPL(airoha_npu_ppe_init);
-+
-+int airoha_npu_ppe_deinit(struct airoha_npu *npu)
-+{
-+	struct ppe_mbox_data ppe_data = {
-+		.func_type = NPU_OP_SET,
-+		.func_id = PPE_FUNC_SET_WAIT_HWNAT_DEINIT,
-+	};
-+
-+	return airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-+				   sizeof(struct ppe_mbox_data));
-+}
-+EXPORT_SYMBOL_GPL(airoha_npu_ppe_deinit);
-+
-+int airoha_npu_ppe_flush_sram_entries(struct airoha_npu *npu,
-+				      dma_addr_t foe_addr,
-+				      int sram_num_entries)
-+{
-+	struct ppe_mbox_data ppe_data = {
-+		.func_type = NPU_OP_SET,
-+		.func_id = PPE_FUNC_SET_WAIT_API,
-+		.set_info = {
-+			.func_id = PPE_SRAM_RESET_VAL,
-+			.data = foe_addr,
-+			.size = sram_num_entries,
-+		},
-+	};
-+
-+	return airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-+				   sizeof(struct ppe_mbox_data));
-+}
-+EXPORT_SYMBOL_GPL(airoha_npu_ppe_flush_sram_entries);
-+
-+int airoha_npu_foe_commit_entry(struct airoha_npu *npu, dma_addr_t foe_addr,
-+				u32 entry_size, u32 hash, bool ppe2)
-+{
-+	struct ppe_mbox_data ppe_data = {
-+		.func_type = NPU_OP_SET,
-+		.func_id = PPE_FUNC_SET_WAIT_API,
-+		.set_info = {
-+			.data = foe_addr,
-+			.size = entry_size,
-+		},
-+	};
-+	int err;
-+
-+	ppe_data.set_info.func_id = ppe2 ? PPE2_SRAM_SET_ENTRY
-+					 : PPE_SRAM_SET_ENTRY;
-+
-+	err = airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-+				  sizeof(struct ppe_mbox_data));
-+	if (err)
-+		return err;
-+
-+	ppe_data.set_info.func_id = PPE_SRAM_SET_VAL;
-+	ppe_data.set_info.data = hash;
-+	ppe_data.set_info.size = sizeof(u32);
-+
-+	return airoha_npu_send_msg(npu, NPU_FUNC_PPE, &ppe_data,
-+				   sizeof(struct ppe_mbox_data));
-+}
-+EXPORT_SYMBOL_GPL(airoha_npu_foe_commit_entry);
-+
-+struct airoha_npu *airoha_npu_get(struct device *dev)
-+{
-+	struct platform_device *pdev;
-+	struct device_node *np;
-+	struct airoha_npu *npu;
-+
-+	np = of_parse_phandle(dev->of_node, "airoha,npu", 0);
-+	if (!np)
-+		return ERR_PTR(-ENODEV);
-+
-+	pdev = of_find_device_by_node(np);
-+	of_node_put(np);
-+
-+	if (!pdev) {
-+		dev_err(dev, "cannot find device node %s\n", np->name);
-+		return ERR_PTR(-ENODEV);
-+	}
-+
-+	if (!try_module_get(THIS_MODULE)) {
-+		dev_err(dev, "failed to get the device driver module\n");
-+		npu = ERR_PTR(-ENODEV);
-+		goto error_pdev_put;
-+	}
-+
-+	npu = platform_get_drvdata(pdev);
-+	if (!npu) {
-+		npu = ERR_PTR(-ENODEV);
-+		goto error_module_put;
-+	}
-+
-+	if (!device_link_add(dev, &pdev->dev, DL_FLAG_AUTOREMOVE_SUPPLIER)) {
-+		dev_err(&pdev->dev,
-+			"failed to create device link to consumer %s\n",
-+			dev_name(dev));
-+		npu = ERR_PTR(-EINVAL);
-+		goto error_module_put;
-+	}
-+
-+	return npu;
-+
-+error_module_put:
-+	module_put(THIS_MODULE);
-+error_pdev_put:
-+	platform_device_put(pdev);
-+
-+	return npu;
-+}
-+EXPORT_SYMBOL_GPL(airoha_npu_get);
-+
-+void airoha_npu_put(struct airoha_npu *npu)
-+{
-+	module_put(THIS_MODULE);
-+	put_device(npu->dev);
-+}
-+EXPORT_SYMBOL_GPL(airoha_npu_put);
-+
-+static const struct of_device_id of_airoha_npu_match[] = {
-+	{ .compatible = "airoha,en7581-npu" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, of_airoha_npu_match);
-+
-+static const struct regmap_config regmap_config = {
-+	.name			= "npu",
-+	.reg_bits		= 32,
-+	.val_bits		= 32,
-+	.reg_stride		= 4,
-+	.disable_locking	= true,
-+};
-+
-+static int airoha_npu_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct reserved_mem *rmem;
-+	struct airoha_npu *npu;
-+	struct device_node *np;
-+	void __iomem *base;
-+	int i, irq, err;
-+
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	npu = devm_kzalloc(dev, sizeof(*npu), GFP_KERNEL);
-+	if (!npu)
-+		return -ENOMEM;
-+
-+	npu->dev = dev;
-+	npu->regmap = devm_regmap_init_mmio(dev, base, &regmap_config);
-+	if (IS_ERR(npu->regmap))
-+		return PTR_ERR(npu->regmap);
-+
-+	np = of_parse_phandle(dev->of_node, "memory-region", 0);
-+	if (!np)
-+		return -ENODEV;
-+
-+	rmem = of_reserved_mem_lookup(np);
-+	of_node_put(np);
-+
-+	if (!rmem)
-+		return -ENODEV;
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	err = devm_request_irq(dev, irq, airoha_npu_mbox_handler,
-+			       IRQF_SHARED, "airoha-npu-mbox", npu);
-+	if (err)
-+		return err;
-+
-+	for (i = 0; i < ARRAY_SIZE(npu->cores); i++) {
-+		struct airoha_npu_core *core = &npu->cores[i];
-+
-+		spin_lock_init(&core->lock);
-+		core->npu = npu;
-+
-+		irq = platform_get_irq(pdev, i + 1);
-+		if (irq < 0)
-+			return irq;
-+
-+		err = devm_request_irq(dev, irq, airoha_npu_wdt_handler,
-+				       IRQF_SHARED, "airoha-npu-wdt", core);
-+		if (err)
-+			return err;
-+
-+		INIT_WORK(&core->wdt_work, airoha_npu_wdt_work);
-+	}
-+
-+	err = dma_set_coherent_mask(dev, DMA_BIT_MASK(32));
-+	if (err)
-+		return err;
-+
-+	err = airoha_npu_run_firmware(dev, base, rmem);
-+	if (err)
-+		return err;
-+
-+	regmap_write(npu->regmap, REG_CR_NPU_MIB(10),
-+		     rmem->base + NPU_EN7581_FIRMWARE_RV32_MAX_SIZE);
-+	regmap_write(npu->regmap, REG_CR_NPU_MIB(11), 0x40000); /* SRAM 256K */
-+	regmap_write(npu->regmap, REG_CR_NPU_MIB(12), 0);
-+	regmap_write(npu->regmap, REG_CR_NPU_MIB(21), 1);
-+	msleep(100);
-+
-+	/* setting booting address */
-+	for (i = 0; i < NPU_NUM_CORES; i++)
-+		regmap_write(npu->regmap, REG_CR_BOOT_BASE(i), rmem->base);
-+	usleep_range(1000, 2000);
-+
-+	/* enable NPU cores */
-+	/* do not start core3 since it is used for WiFi offloading */
-+	regmap_write(npu->regmap, REG_CR_BOOT_CONFIG, 0xf7);
-+	regmap_write(npu->regmap, REG_CR_BOOT_TRIGGER, 0x1);
-+	msleep(100);
-+
-+	platform_set_drvdata(pdev, npu);
-+
-+	return 0;
-+}
-+
-+static void airoha_npu_remove(struct platform_device *pdev)
-+{
-+	struct airoha_npu *npu = platform_get_drvdata(pdev);
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(npu->cores); i++)
-+		cancel_work_sync(&npu->cores[i].wdt_work);
-+}
-+
-+static struct platform_driver airoha_npu_driver = {
-+	.probe = airoha_npu_probe,
-+	.remove = airoha_npu_remove,
-+	.driver = {
-+		.name = KBUILD_MODNAME,
-+		.of_match_table = of_airoha_npu_match,
-+	},
-+};
-+module_platform_driver(airoha_npu_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("Lorenzo Bianconi <lorenzo@kernel.org>");
-+MODULE_DESCRIPTION("Airoha Network Processor Unit driver");
-diff --git a/drivers/net/ethernet/airoha/airoha_npu.h b/drivers/net/ethernet/airoha/airoha_npu.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..972b98064dfc48bd2d39b4f7f92af3922fe71655
---- /dev/null
-+++ b/drivers/net/ethernet/airoha/airoha_npu.h
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (c) 2025 AIROHA Inc
-+ * Author: Lorenzo Bianconi <lorenzo@kernel.org>
-+ */
-+
-+#define NPU_NUM_CORES		8
-+
-+struct airoha_npu {
-+	struct device *dev;
-+	struct regmap *regmap;
-+
-+	struct airoha_npu_core {
-+		struct airoha_npu *npu;
-+		/* protect concurrent npu memory accesses */
-+		spinlock_t lock;
-+		struct work_struct wdt_work;
-+	} cores[NPU_NUM_CORES];
-+};
-+
-+struct airoha_npu *airoha_npu_get(struct device *dev);
-+void airoha_npu_put(struct airoha_npu *npu);
-+int airoha_npu_ppe_init(struct airoha_npu *npu);
-+int airoha_npu_ppe_deinit(struct airoha_npu *npu);
-+int airoha_npu_ppe_flush_sram_entries(struct airoha_npu *npu,
-+				      dma_addr_t foe_addr,
-+				      int sram_num_entries);
-+int airoha_npu_foe_commit_entry(struct airoha_npu *npu, dma_addr_t foe_addr,
-+				u32 entry_size, u32 hash, bool ppe2);
+-	val = FIELD_PREP(AIROHA_FOE_IB2_PORT_AG, 0x1f);
++	val = FIELD_PREP(AIROHA_FOE_IB2_PORT_AG, 0x1f) |
++	      AIROHA_FOE_IB2_PSE_QOS;
+ 	if (dsa_port >= 0)
+ 		val |= FIELD_PREP(AIROHA_FOE_IB2_NBQ, dsa_port);
++
+ 	if (dev) {
+ 		struct airoha_gdm_port *port = netdev_priv(dev);
+ 		u8 pse_port;
+ 
+-		pse_port = port->id == 4 ? FE_PSE_PORT_GDM4 : port->id;
++		if (dsa_port >= 0)
++			pse_port = port->id == 4 ? FE_PSE_PORT_GDM4 : port->id;
++		else
++			pse_port = 2; /* uplink relies on GDM2 loopback */
+ 		val |= FIELD_PREP(AIROHA_FOE_IB2_PSE_PORT, pse_port);
+ 	}
+ 
+-	/* FIXME: implement QoS support setting pse_port to 2 (loopback)
+-	 * for uplink and setting qos bit in ib2
+-	 */
+-
+ 	if (is_multicast_ether_addr(dest_mac))
+ 		val |= AIROHA_FOE_IB2_MULTICAST;
+ 
+diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethernet/airoha/airoha_regs.h
+index 6cc64c60953a3961b7c93dfa75a289a6f7a6599b..1aa06cdffe2320375e8710d58f2bbb056a330dfd 100644
+--- a/drivers/net/ethernet/airoha/airoha_regs.h
++++ b/drivers/net/ethernet/airoha/airoha_regs.h
+@@ -38,6 +38,12 @@
+ #define FE_RST_CORE_MASK		BIT(0)
+ 
+ #define REG_FE_FOE_TS			0x0010
++
++#define REG_FE_WAN_PORT			0x0024
++#define WAN1_EN_MASK			BIT(16)
++#define WAN1_MASK			GENMASK(12, 8)
++#define WAN0_MASK			GENMASK(4, 0)
++
+ #define REG_FE_WAN_MAC_H		0x0030
+ #define REG_FE_LAN_MAC_H		0x0040
+ 
+@@ -126,6 +132,7 @@
+ #define GDM_IP4_CKSUM			BIT(22)
+ #define GDM_TCP_CKSUM			BIT(21)
+ #define GDM_UDP_CKSUM			BIT(20)
++#define GDM_STRIP_CRC			BIT(16)
+ #define GDM_UCFQ_MASK			GENMASK(15, 12)
+ #define GDM_BCFQ_MASK			GENMASK(11, 8)
+ #define GDM_MCFQ_MASK			GENMASK(7, 4)
+@@ -139,6 +146,16 @@
+ #define GDM_SHORT_LEN_MASK		GENMASK(13, 0)
+ #define GDM_LONG_LEN_MASK		GENMASK(29, 16)
+ 
++#define REG_GDM_LPBK_CFG(_n)		(GDM_BASE(_n) + 0x1c)
++#define LPBK_GAP_MASK			GENMASK(31, 24)
++#define LPBK_LEN_MASK			GENMASK(23, 10)
++#define LPBK_CHAN_MASK			GENMASK(8, 4)
++#define LPBK_MODE_MASK			GENMASK(3, 1)
++#define LPBK_EN_MASK			BIT(0)
++
++#define REG_GDM_TXCHN_EN(_n)		(GDM_BASE(_n) + 0x24)
++#define REG_GDM_RXCHN_EN(_n)		(GDM_BASE(_n) + 0x28)
++
+ #define REG_FE_CPORT_CFG		(GDM1_BASE + 0x40)
+ #define FE_CPORT_PAD			BIT(26)
+ #define FE_CPORT_PORT_XFC_MASK		BIT(25)
+@@ -351,6 +368,18 @@
+ 
+ #define REG_MC_VLAN_DATA		0x2108
+ 
++#define REG_SP_DFT_CPORT(_n)		(0x20e0 + ((_n) << 2))
++#define SP_CPORT_PCIE1_MASK		GENMASK(31, 28)
++#define SP_CPORT_PCIE0_MASK		GENMASK(27, 24)
++#define SP_CPORT_USB_MASK		GENMASK(7, 4)
++#define SP_CPORT_ETH_MASK		GENMASK(7, 4)
++
++#define REG_SRC_PORT_FC_MAP6		0x2298
++#define FC_ID_OF_SRC_PORT27_MASK	GENMASK(28, 24)
++#define FC_ID_OF_SRC_PORT26_MASK	GENMASK(20, 16)
++#define FC_ID_OF_SRC_PORT25_MASK	GENMASK(12, 8)
++#define FC_ID_OF_SRC_PORT24_MASK	GENMASK(4, 0)
++
+ #define REG_CDM5_RX_OQ1_DROP_CNT	0x29d4
+ 
+ /* QDMA */
 
 -- 
 2.48.1
