@@ -4,63 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AE6C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 07:05:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09F28C021AA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 07:19:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/BjCR9pe3q3nu6QQ82aeywWSo3pY3OzMpYe0aZ7VHes=; b=xGb+IxA/7K79Yj4QW+fmZJKL3K
-	RrR7AQEnvp2gnaPtDe1AyNdVW2NDKpGYb6lb2JlF4UBtzOrDIu6uGjHe76kuw04odwHCmTrdmIEbq
-	Fwy69/mZNyeiOK+ze2sSlUWBUm16CFkQOMXEBxMAPqDaHqG1RzMHFHVj1o/bk+FJ2jLQ2Ko0SSdd3
-	WNamNdq1uPYtfED/gG3o0UqGpU6xh52kVSd1eqVXGakrv/FkqJKAExWm9DGSdj5+3hNBvtsuKLmVh
-	kk6Knk1v8ge7yVxJ+ZXXnYUKIhPTmiR+EZcffD7SnjQSO+brR3Gbf0D0hXqh5ildxDW+p7PXkPXRG
-	/gvwhfIw==;
+	bh=VA1ZRNBjqp7yscOTi3r/FHvrtvUImlYVVtC0tQYvbJ0=; b=sZ3CxssoH/QrOMdAmKsn9Xpc1c
+	akz4DeraMBDe9CcZWOlomUCFJO6KkSilHU0NXttsyYzkKiaVqaQfQwjBmIqSv0nZ8Qend000JcxUr
+	MzThF4Ee+23rkn4rHIkoHmANrkhl2oeyTQysAqfFvoPVToF3GVhL/0DXnDXzxzPrKmsnclZ9KeizL
+	DD4gQ0MWObcQtm+PZABtvEybL5YWxucTZGeiwY3T8ioZTolF3C9OpG9eV1JcwVbTSZHS+cOUf1x56
+	e3PEXfI1oFE+Mt1MOL+/oQfjLLPWjNuunoxgdxlqTyxgtOz8dbDxU+zqkp/janXOqRAThosYsrWpq
+	ccR5GPRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlN5h-00000004SqJ-21b2;
-	Fri, 21 Feb 2025 07:04:53 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1tlNK6-00000004Uhb-0JyR;
+	Fri, 21 Feb 2025 07:19:46 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlN4E-00000004Sdz-0NBG
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 07:03:23 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c30:4abb:6de5:9248:813e:8db3])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id EC9EC7E0;
-	Fri, 21 Feb 2025 08:01:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1740121311;
-	bh=fL3VFHc8Iw4UEcrhx6AYcJSOc4ybHtXWyyLl28Js0K0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Sb3fOUjc8Ww6ftO3DRierlIUIhRnugYs1k00i1XGt0yZ+HoWYADlDijVeegrVJlcn
-	 jwynw9W5+nZyU4C6VON2EQjEIxsdLJUPpzgBfFQL7zUSx7bFi4iS71qDov0AxWXBr+
-	 vxACfRy0BTvvxst9YPFGSgXqw6Gf9J4NbhRAX6y4=
-Date: Fri, 21 Feb 2025 12:33:09 +0530
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/6] media: i2c: imx219: pass format's code to
- imx219_get_format_bpp()
-Message-ID: <73rzq5ja6gsjd3oatbnqvmqminiolgz4meelvxqnbieategxsf@zb23f36gm4nd>
-References: <20250220230818.275262-1-demonsingur@gmail.com>
- <20250220230818.275262-5-demonsingur@gmail.com>
+	id 1tlNIc-00000004UPj-0moX;
+	Fri, 21 Feb 2025 07:18:15 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-439a4fc2d65so14892005e9.3;
+        Thu, 20 Feb 2025 23:18:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740122292; x=1740727092; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VA1ZRNBjqp7yscOTi3r/FHvrtvUImlYVVtC0tQYvbJ0=;
+        b=jWM6eSv5E5Ba9FodcTsniwQhNthHXYCR4FKjyZxHUM+6GgsSO067tFZwvfqsNwM4ck
+         chAX+m89byVjAdzhAyfyW5B0feLtGioEcKXvqqPbVRYoE1YTTQyuPUxrulqAjOHsQcn7
+         8Vn6jIIYfeJAUsfMTFHwHPCYF8cMqtGUe8r/0V5zdarvnZn+gQ7QRx9pq5Ig961yN92M
+         j+ZRax1Ru9xmfSvhoGVkAXdt81Y/eCcphvQy/yfvhRjJuNYIlwQLv90X+hyBlVho4AYh
+         HDrz+aljSok8NzUynUOT2iH9V+27GUSeCz2qFH+U7CfpMQbn8mOUiEnWkPcz+QEXBhu4
+         p9hQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740122292; x=1740727092;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VA1ZRNBjqp7yscOTi3r/FHvrtvUImlYVVtC0tQYvbJ0=;
+        b=eyQZOi2+MMKpDtQ3L/3eJdz9V1z9E2gh6ZQP7JVLS9ZZN7SzbakgHq63fD9P6BAwkj
+         l1G1eTlgB59OD/bpI6uowM7V61R2q8Kdk7PLx+uvVq1zq0LrXwPv3ODNh9pUxyYfz0VN
+         8/oz432nz34T8zSPyVKw2vbVdo7JhVtDqjNe6fnr7ksMgGJRQVc+7B5HASHqD7DnAddP
+         Rdqw+dOzTGauPHY1a3i5Lt3QWuQl1W73hheckjK0SRQ9eHQxXHoQ6upmHzXOS0Uql7dA
+         Hwhb44PIqtld6Y+az6k1JlNRW5LGD+3SWDE61gbPFgFiph4SbIDoLGoyKm8jG8iy31mr
+         ujVg==
+X-Forwarded-Encrypted: i=1; AJvYcCWkTDSyNMoAaiLOqTDykftk+9minNzS42zTsw1tL0PnB6nWcupD5D+FsvTZsYB3Q2XAO29ludtloLju5qM34OHu@lists.infradead.org, AJvYcCXhZfXDowufoC8MIFhFSAws3KvZEYnYOH3s1nUGzlM9Xswc8SBn0P95cULhXvq4zHeCtSsmGqL3gN2O@lists.infradead.org, AJvYcCXwUy2bjKHLsnHNcfYiSHPTgO2q5b7Qt4zzx4+zDArPbSHCiqY2+n4qQpyz2KJLzM87bRg61cdth9vEhiZZT0Y=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxnu16ULjbAWOc3GHclnR5iQE3RRwXP7eTaN121UFR3ciP2sCTg
+	PfbkwNKAsyw/81ujaSy4XsWVVe468mJ2cFkKrc2jcbzamVUZE58U
+X-Gm-Gg: ASbGncst0PbjdXnV7w94AZrRMhz9RJxUsHknkXetYwRFxJ+NapXC4CMBA7ZlhK4wJ0j
+	oQgT7H2ScdeaesZskWBUkHhiMtuAUqvuB7zZdhqE87TtfL5mrXW9VVBMIWJVknp71azhjOBt0Ny
+	ywa8jfiaLd6Zt2keU5bx63hGshJ+g4kYBFVsmCizksvON6sFap73UEVg/kVj3+uOgZgBAhAgvlo
+	ApeVZOIt9C7jYEVlBxCYxGoMMHR8U+nIvNdhO5kcbjSxmq/21oCq0qtcBwfgM5XJgcquuyWryoP
+	kDXP42pe9NkBsKks1loMGVBEmscMo1NKKj43TMlfZw2nQTyGflCbSJJbOZQ=
+X-Google-Smtp-Source: AGHT+IGcmqoZKLItFnykBoAs00PCywkh0iIfnYdOfG5YsRkDoJu949fdzfkiJ6sY4SF/q78XHllfvw==
+X-Received: by 2002:a05:600c:1991:b0:439:9dec:b7a2 with SMTP id 5b1f17b1804b1-439ae1d7505mr15992725e9.2.1740122291572;
+        Thu, 20 Feb 2025 23:18:11 -0800 (PST)
+Received: from eldamar.lan (c-82-192-244-13.customer.ggaweb.ch. [82.192.244.13])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-439b02f3e15sm8427205e9.22.2025.02.20.23.18.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Feb 2025 23:18:10 -0800 (PST)
+Received: by eldamar.lan (Postfix, from userid 1000)
+	id 0F09FBE2EE7; Fri, 21 Feb 2025 08:18:10 +0100 (CET)
+Date: Fri, 21 Feb 2025 08:18:10 +0100
+From: Salvatore Bonaccorso <carnil@debian.org>
+To: Diederik de Haas <didi.debian@cknow.org>
+Cc: Valentin Kleibel <valentin@vrvis.at>, Vinod Koul <vkoul@kernel.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Jianfeng Liu <liujianfeng1994@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Jonas Karlman <jonas@kwiboo.se>
+Subject: Re: [PATCH v2 0/1] phy: rockchip: naneng-combphy: compatible reset
+ with old DT
+Message-ID: <Z7gosm7PJMR0zCg4@eldamar.lan>
+References: <20250106100001.1344418-1-amadeus@jmu.edu.cn>
+ <173831716590.670164.5196739962949646746.b4-ty@kernel.org>
+ <f64ee4ee-7e56-4423-813e-b87e023e893d@vrvis.at>
+ <D7VJOFXU540M.2PAC1RFXAH19B@cknow.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="qu3uozr2fidqrsfy"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250220230818.275262-5-demonsingur@gmail.com>
+In-Reply-To: <D7VJOFXU540M.2PAC1RFXAH19B@cknow.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250220_230322_464228_32D0762C 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20250220_231814_226378_C6B8FAB2 
+X-CRM114-Status: GOOD (  15.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,85 +108,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---qu3uozr2fidqrsfy
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 4/6] media: i2c: imx219: pass format's code to
- imx219_get_format_bpp()
-MIME-Version: 1.0
+On Tue, Feb 18, 2025 at 12:45:34PM +0100, Diederik de Haas wrote:
+> On Tue Feb 11, 2025 at 2:03 PM CET, Valentin Kleibel wrote:
+> >>> Chukun Pan (1):
+> >>>    phy: rockchip: naneng-combphy: compatible reset with old DT
+> >> 
+> >> Applied, thanks!
+> >> 
+> >> [1/1] phy: rockchip: naneng-combphy: compatible reset with old DT
+> >>        commit: bff68d44135ce6714107e2f72069a79476c8073d
+> >
+> > Thanks for your work!
+> > We found your patch after NVMes stopped working on a rock 3A with newer 
+> > kernels and successfully applied it to kernel 6.1.128 (currently in debian).
+> 
+> FTR: I've reported it in Debian here: https://bugs.debian.org/1098250
+> 
+> I confirmed it (also) broke on kernel 6.12.8-1.
 
-Hi Cosmin,
+FWIW, we have several users in Debian reporting the problem, so if it
+can be applied to mainline and then flow down to one of the next round
+of stable series down to 6.1.y that would be highly appreicated.
 
-Thanks for the patch.
+Diederik, if you were able to test the fix, you might contribute a
+Tested-by (although as I undestsand its not strictly needed at this
+point as commit should be on way to mainline and stable series)?
 
-On Feb 21, 2025 at 01:08:12 +0200, Cosmin Tanislav wrote:
-> imx219_get_format_bpp() only uses the code of the format, pass it
-> instead of the whole format to allow usage when the whole format is not
-> available.
->=20
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-
-Reviewed-by: Jai Luthra <jai.luthra@ideasonboard.com>
-
-> ---
->  drivers/media/i2c/imx219.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->=20
-> diff --git a/drivers/media/i2c/imx219.c b/drivers/media/i2c/imx219.c
-> index fcd98ee54768e..ad1965a91ae3c 100644
-> --- a/drivers/media/i2c/imx219.c
-> +++ b/drivers/media/i2c/imx219.c
-> @@ -387,9 +387,9 @@ static u32 imx219_get_format_code(struct imx219 *imx2=
-19, u32 code)
->  	return imx219_mbus_formats[i];
->  }
-> =20
-> -static u32 imx219_get_format_bpp(const struct v4l2_mbus_framefmt *format)
-> +static u32 imx219_get_format_bpp(u32 code)
->  {
-> -	switch (format->code) {
-> +	switch (code) {
->  	case MEDIA_BUS_FMT_SRGGB8_1X8:
->  	case MEDIA_BUS_FMT_SGRBG8_1X8:
->  	case MEDIA_BUS_FMT_SGBRG8_1X8:
-> @@ -680,7 +680,7 @@ static int imx219_set_framefmt(struct imx219 *imx219,
-> =20
->  	format =3D v4l2_subdev_state_get_format(state, 0);
->  	crop =3D v4l2_subdev_state_get_crop(state, 0);
-> -	bpp =3D imx219_get_format_bpp(format);
-> +	bpp =3D imx219_get_format_bpp(format->code);
-> =20
->  	cci_write(imx219->regmap, IMX219_REG_X_ADD_STA_A,
->  		  crop->left - IMX219_PIXEL_ARRAY_LEFT, &ret);
-> --=20
-> 2.48.1
->=20
-
---=20
-Thanks,
-Jai
-
---qu3uozr2fidqrsfy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEETeDYGOXVdejUWq/FQ96R+SSacUUFAme4JS0ACgkQQ96R+SSa
-cUUyoQ//XZ0w48A1jFQeb14U2B2VcdX6fhhBL2Dw7kfgnqm9mVIOrt3BxXZDo4yk
-dgi+CLC0RIDhrVtEnLN+m3L3f+Q+f5H6LV7QePfE2ZEYCAhXLgR8gRBx1NTIs9Ym
-RmH+tCQw1tPto+5X6U6nP13vbHGPaxM3403m7U7Xe/qu7KNcPcpznm5dGzClWlmD
-I0Foq0e2f5iRsjaIkvZf0cJ+XTX0G6i2BESibGX7Zrlk65bj0cr995UFYp3+IBEQ
-Cn86gTDm4eL67hVppoy45eUbowOxJ+zVER7P73zbxc/s70M8qlc+t+mmJ3EEXuVU
-j2mm451bRreIR9QoEo0D0y8P1a6QPGboTy2Gy7GDevQ+N3NsZlPEqtmGp/Mqlq4b
-vl0Mj4pX5Y49VHFXCZjyrPFIxwobW2u+1dC5iy31+b5xWIm4c//If8Je1Bg9LBlo
-vvvKcyP8pPy1rDFGn5014rgHlDIFrneiNln6/UQzG7bboI0kp0U0NbTFjkq2kdFi
-lpjGyNX19zBlRnWhRIpOcXYKFF+++Zme9uVEG1DG1KZJRG+0aiLkc3PgQwcURknE
-+AiBNpaW06e2mof17gRaftQwOR9P/vcNnjt4yXAQoKSxKIEzXdJcHNseXcE4JMhm
-sztXjWNiv31ooynp3ARdYAZzbGpcybCbtfVhGsJyHCSPAuYL23E=
-=qZw6
------END PGP SIGNATURE-----
-
---qu3uozr2fidqrsfy--
+Regards,
+Salvatore
 
