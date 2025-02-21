@@ -4,80 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66234C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:39:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B0FCC021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 14:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YmtTGwJJXhwMoenv9f1jJWRnRB0B2anyfjKqb6F0t6g=; b=ham77h3h0ZDBjFwznolRDlgYO7
-	WqLoHCF+G1JQ5eXG7AIn/np8oCIYDlPBGQq1n0TS/xH8KiFVHZaM3MKj3ypeMHrXy64j+TodzFusT
-	sRJODVtCQRxuMUXidxML8M9Oz/KRf6uySMPuKhvYl9uXApKFHP/3SkjHlsg3DbmSUWvFjYs1fehcH
-	M+ZR8Jg/EqqflqyMgG+yGIIdHelbtaWS/SIvLhjhqYpaQvUgd/lzBPHIhmh6L+FNbWdL9ET3o58KG
-	IqOixUbnAawOccUfMbtzhgyuJ2GvrUouZU81UxyOZ4LqUH3jkcuLQqbj3iQ19rdaM+G/s4NIUbZOG
-	XPLdGtvA==;
+	bh=33rmgJoFPyAjchun4vSBkR9dkd/0PhCNL1EX9XyW8Yc=; b=ua6I8ENtJRS5GS2PWCjV0SR9RW
+	lRqF+q6ctIA54zLZBRIxGu9RUCLluJnLyEVVhN/B+2C8Tq2ErKPZNmvK0wyMYoEzz927KbrCiS6oc
+	BjVH7XDfuLasyo2cnE2mqs9BT0YVgbFpwcnjtmKfYjfE+2Z1tQZnLsSC9rbegshJ1D39BZdg11IXs
+	oGFxCqoqq+8kXGU0Mv6bPg85a2m+CMU/GaXcz6JinatJVQP9LCyMCdkzFgLVQAYsP9GO1a4b6nlHP
+	N60cIKFKEx7nGoatB6YS3M6v37gEfR3gT67QL3nv7fUEwVleY0l/kqZ2Dvd1TFQtDlTG8qXVpK7Ra
+	6NKDZbfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlUBi-00000005r4p-1YeU;
-	Fri, 21 Feb 2025 14:39:34 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tlUD9-00000005rOv-0XAQ;
+	Fri, 21 Feb 2025 14:41:03 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlTqc-00000005n8S-0JRG;
-	Fri, 21 Feb 2025 14:17:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=YmtTGwJJXhwMoenv9f1jJWRnRB0B2anyfjKqb6F0t6g=; b=i7UoQF2blTPs6VW1UGIaXkZX+k
-	IJh5rrOMM3jtyTYE0yyIPfqvAgr5J7kr8tlhOag8TsD7uog8dTn/hrI9Zonguyry25QPpZ6Macig8
-	Hnfw5IrCLzLsHbISCogcINMGXG0py/E+l9QG6MhzVO2xlW5UhzyKnu3PEP0H0JRM4QI1524TREqMO
-	tV9vQsuHBH7ZBNmMBz9SoBHIM1/vgqeF6ghyFxiJBucJK2OlbNDI03ABq7My+5Y2QHYmErA/5CQsd
-	UBZEl6/LX14f1p5R6sq5zrh3OTMqFZRvRu8MJh3bAJVUpaeM9S93akICrUQNRteaalKd0QlFOXt0x
-	Gp6cO1Pw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:50498 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tlToX-0004o0-1B;
-	Fri, 21 Feb 2025 14:15:37 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tlToD-004W3g-HB; Fri, 21 Feb 2025 14:15:17 +0000
-In-Reply-To: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
-References: <Z7iKdaCp4hLWWgJ2@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Drew Fustini <drew@pdp7.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Fu Wei <wefu@redhat.com>,
-	Guo Ren <guoren@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 2/2] net: stmmac: thead: ensure divisor gives proper
- rate
+	id 1tlU0Y-00000005oqr-0z6H
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 21 Feb 2025 14:28:03 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-abb7f539c35so427016666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 21 Feb 2025 06:28:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740148081; x=1740752881; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=33rmgJoFPyAjchun4vSBkR9dkd/0PhCNL1EX9XyW8Yc=;
+        b=h19b5jq5oPhFNpzUt2vU6uMsNVJ1ZxZ+aLiY0OC48HaNGRr6OxGkt46BpGF457FeHr
+         80LEqIgIzdif/yuUpQCEnIO4e5i0VStpatEPZ1ZIozH3WjHBAxubgHq6a57hsw/k020F
+         sYl5xGL0TkypMennQ8SadjTFvj3SGFbcW+SO/ybamDnpUhiO1OhlF5GxmvpOex93NtiW
+         Y0SsTRCtQJ6p5B5BeV700+ab+JrRu+Zb27rwJSvNHkdf1rraenvfKl6MR4bNeiWrSk+m
+         V25WvcV4q2txeJw8O/JYBA/aoSvqgAsczvbX7N9eId4oQqsFaWpg58FDKh8+67ErzMCW
+         T1aQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740148081; x=1740752881;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=33rmgJoFPyAjchun4vSBkR9dkd/0PhCNL1EX9XyW8Yc=;
+        b=F/Of/tDjAmb/KUB/gUHhCS5cvqdTDojBCz0jgykuZc9QWw6D1+YJh/+Lq8EB2GXRxY
+         m7BS11I32u6sZt31lJnqJ5KRluGYqYePB2cHyWDZQtYGDyzZuUDLjWurvtBgzamw8/CB
+         QqBZNGSSnzi66xVbMFh7f+qnq+1IQa1HahdDh1xO3tMtkrExTzFN8vg8nYJclVLruWVI
+         x5w+4svkQOxMZmHg7Oz4tgd+3VW4oM26X9dcv6HQ36HtgKcGyhf3J+1ibXgHMtA399Nz
+         3OhKganE4UjP5tMnuEmizSnvEIsQNy3CbomZoXW2QnlowIajJDOIi1xWTHJEEnR71R4v
+         /m2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXqqruv4hFW5JPWPsLL4L58DnCU2Rjf7KyBihVGP0Cjkad1zwiNY/nfF2y9stTH3H8zSwxepO0VNg1GqsHZB96d@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRyLRyzPnu61A40bvydt18L5BDh7h3dhoNcNwbv+HuWWx1IcDA
+	/+ZZOfSLCr3Bm6B0LxQzJwYcjqta8cNyCBfJcnpLe1WeMAGMwpgv
+X-Gm-Gg: ASbGncueFGs0alU2kIuqy/O5z+nG8g72my/qDSIbPvYMEHDjGSGuaV6lumi1PEpNsOC
+	hTTd9Np2xd8YvMVe22j47d+Gq8Y2jDsR/T+Qn39Qb04Jr1vaFZfSLz9tI7kdWb/dT+956iFYjbG
+	4ps2RCBH2oKQdTIIKjBoosMlRiRTWabvfnM0KGrKz8+Xi/OTd7predr5LZgZkH0mVCxhhrZk6vP
+	4uZszdb6uk8F43rRa6YMVL7TsjOK6qmIohRIbGFTX2QoLyjm+ayhkViQV/AQ9KJGx6Zm8gkF3KK
+	y3s7xfopfwswtpmR8/5oWeOk4LVMj+kF
+X-Google-Smtp-Source: AGHT+IEw3WpudhQNFplJ29sjVHEYhC6rE/IVFnuZuPPiVWQyE+QjVu6xQp8nTv/VJK/U3W1OrZNliQ==
+X-Received: by 2002:a17:907:7758:b0:ab6:4fa6:71e2 with SMTP id a640c23a62f3a-abc09a46c0amr310992766b.22.1740148080426;
+        Fri, 21 Feb 2025 06:28:00 -0800 (PST)
+Received: from [192.168.0.100] ([188.27.130.21])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abba9bd6e22sm850995466b.121.2025.02.21.06.27.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 21 Feb 2025 06:27:59 -0800 (PST)
+Message-ID: <aa67bfed-2cdf-452c-bd36-2c5647ae96ed@gmail.com>
+Date: Fri, 21 Feb 2025 16:27:55 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tlToD-004W3g-HB@rmk-PC.armlinux.org.uk>
-Date: Fri, 21 Feb 2025 14:15:17 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/6] dt-bindings: media: video-interfaces: add support
+ for Virtual Channel IDs
+To: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250220230818.275262-1-demonsingur@gmail.com>
+ <20250220230818.275262-2-demonsingur@gmail.com>
+ <Z7g7iCUlsUN2LBIW@kekkonen.localdomain>
+From: Cosmin Tanislav <demonsingur@gmail.com>
+Content-Language: en-US
+In-Reply-To: <Z7g7iCUlsUN2LBIW@kekkonen.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_061746_107008_BC5408AC 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250221_062802_281699_92ACDEFF 
+X-CRM114-Status: GOOD (  30.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,55 +111,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-thead was checking that the stmmac_clk rate was a multiple of the
-RGMII rates for 1G and 100M, but didn't check for 10M. Rather than
-use this with hard-coded speeds, check that the calculated divisor
-gives the required rate by multplying the transmit clock rate back
-up to the stmmac clock rate and checking that it agrees.
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c | 12 ++++--------
- 1 file changed, 4 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-index f16fa341aadb..f9f2bd65959f 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
-@@ -45,9 +45,6 @@
- #define  TXCLK_DIR_OUTPUT		FIELD_PREP(TXCLK_DIR_MASK, 0)
- #define  TXCLK_DIR_INPUT		FIELD_PREP(TXCLK_DIR_MASK, 1)
- 
--#define GMAC_GMII_RGMII_RATE	125000000
--#define GMAC_MII_RATE		25000000
--
- struct thead_dwmac {
- 	struct plat_stmmacenet_data *plat;
- 	void __iomem *apb_base;
-@@ -124,11 +121,6 @@ static void thead_dwmac_fix_speed(void *priv, int speed, unsigned int mode)
- 	case PHY_INTERFACE_MODE_RGMII_RXID:
- 	case PHY_INTERFACE_MODE_RGMII_TXID:
- 		rate = clk_get_rate(plat->stmmac_clk);
--		if (!rate || rate % GMAC_GMII_RGMII_RATE != 0 ||
--		    rate % GMAC_MII_RATE != 0) {
--			dev_err(dwmac->dev, "invalid gmac rate %ld\n", rate);
--			return;
--		}
- 
- 		writel(0, dwmac->apb_base + GMAC_PLLCLK_DIV);
- 
-@@ -139,6 +131,10 @@ static void thead_dwmac_fix_speed(void *priv, int speed, unsigned int mode)
- 		}
- 
- 		div = rate / tx_rate;
-+		if (rate != tx_rate * div) {
-+			dev_err(dwmac->dev, "invalid gmac rate %lu\n", rate);
-+			return;
-+		}
- 
- 		reg = FIELD_PREP(GMAC_PLLCLK_DIV_EN, 1) |
- 		      FIELD_PREP(GMAC_PLLCLK_DIV_NUM, div);
--- 
-2.30.2
+On 2/21/25 10:38 AM, Sakari Ailus wrote:
+> Hi Cosmin,
+> 
+> Thanks for the patches.
+> 
+> On Fri, Feb 21, 2025 at 01:08:09AM +0200, Cosmin Tanislav wrote:
+>> Multi-camera systems often have issues with receiving video streams
+>> from multiple cameras at the same time because the cameras use the same
+>> Virtual Channel IDs.
+>>
+>> CSI bridges might not support remapping the Virtual Channel IDs, making
+>> it impossible to receive the separate video streams at the same
+>> time, while the CSI receiver is able to de-mux streams based on VC IDs.
+>>
+>> Cameras sometimes have support for changing the VC IDs they output
+>> themselves.
+>>
+>> For a practical example, GMSL2 deserializer chips do not support VC ID
+>> remapping in tunnel mode, and neither do the serializers. Allowing the
+>> cameras to have their VC IDs configured would allow multi-camera setups
+>> to use tunnel mode.
+> 
+> We've tried to avoid having virtual channels in firmware and in UAPI,
+> I'm not yet entirely convinced we need to depart from the established
+> practices. Let's see. Apart from that, please see my comments below.
+> 
+
+Can you think if any other way of handling this? The most useful way
+would be to have it accessible at runtime so that devices upstream of
+the cameras could assign the VC IDs dynamically.
+
+This would be useful when having more cameras than the maximum supported
+number of VC IDs (4, without extended VC IDs), and streaming from them
+selectively.
+
+For example, for 8 cameras, you'd have to prepare your VC IDs in advance
+to fit the streaming selection you want to make. If the cameras 0 to 7
+have the VC IDs 0, 1, 2, 3, 0, 1, 2, 3, you wouldn't be able to stream
+camera 0 together with camera 4.
+
+Dynamic configuration of the VC IDs would solve that usecase since it
+would assign VC IDs based on the routed streams.
+
+v4l2_subdev_pad_ops has a .set_frame_desc() that could be used to apply
+an updated v4l2_mbus_frame_desc, after retrieving it using
+.get_frame_desc(). Cameras that don't support VC ID remapping would just
+modify the v4l2_mbus_frame_desc to restore the VC ID to the original one
+(similar to how set_fmt() can modify the passed in format to what it
+supports) and the caller would have to handle that situation how it sees
+fit.
+
+Does that sound better than sticking the VC ID in device tree?
+
+>>
+>> Add support for specifying these Virtual Channel IDs in Video Interface
+>> Endpoints. The supported values are 0 to 3, with a maximum of 4 values.
+>> Although the CSI-2 specification allows for up to 32 virtual channels,
+>> most hardware doesn't support more than 4. This can be extended later
+>> if need be.
+>>
+>> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+>> ---
+>>   .../devicetree/bindings/media/video-interfaces.yaml   | 11 +++++++++++
+>>   1 file changed, 11 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/media/video-interfaces.yaml b/Documentation/devicetree/bindings/media/video-interfaces.yaml
+>> index 038e85b45befa..414b5fa8f3472 100644
+>> --- a/Documentation/devicetree/bindings/media/video-interfaces.yaml
+>> +++ b/Documentation/devicetree/bindings/media/video-interfaces.yaml
+>> @@ -231,6 +231,17 @@ properties:
+>>         shall be interpreted as 0 (ABC). This property is valid for CSI-2 C-PHY
+>>         busses only.
+>>   
+>> +  vc-ids:
+> 
+> Other properties aren't using abbreviations, at least most of them. How
+> about "virtual-channels"?
+> 
+>> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+>> +    minItems: 1
+>> +    maxItems: 4
+> 
+> Shouldn't this be 32?
+> 
+>> +    items:
+>> +      maximum: 3
+> 
+> 31 here, too.
+> 
+>> +    description:
+>> +      An array of Virtual Channel IDs. These are unsigned integers that specify
+> 
+> I'd leave out the explanation on the data type. It's redundant.
+> 
+>> +      the VC IDs used by the device for its data streams. This property is valid
+>> +      for MIPI CSI-2 only.
+>> +
+>>     strobe:
+>>       $ref: /schemas/types.yaml#/definitions/uint32
+>>       enum: [ 0, 1 ]
+> 
 
 
