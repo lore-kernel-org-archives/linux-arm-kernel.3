@@ -4,62 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41EA4C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 21:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A84A1C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 21:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nx85NbKlJdlF5pvee/Hd7OAZG2GS7Uk78ZIkV+ipX2o=; b=1r5mls1/TSgR5Ne66GB5xgugrh
-	FINdYcSIH8p7VPMbAvwr67h6IWz8yX3kfOl+vvOaikg/Gr5T/wpcDMf96RrYUBfr0hNoNrRTblW3H
-	ff+QniPVmz5quV3mQzZHxo/WKrg07XdxE/rN0yE0vpnn/KTXoeOW7k1PnXxRCnZI35flqnP4drk38
-	FCqXFRYN5McQvD8LlV1YMyFIR4dqPj8+S3vqkZIXLtOp5pxu4i2ZWDpdGxvoMj6PiohRvR8zeAVNi
-	1yWfL/9U9BDaheym8ZRjGQOxfoSAkShf2SA/sfaJmwll+aWauhdkLdjtihqeJ/pjAMMa06tlvRzVc
-	/b8VPdDQ==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=eqAN9zdmueDcpFIiEgwtgeJxkMdzW/TgQwuturGyRIU=; b=QIUp7ZPgtE6+KW
+	1+qAy7rchkp4c4MCbfSKgDjaEvQl24rDXaz7QNe5O5TerBO9IBMEiqCFdmZFrIID484Ag1mYmFXwm
+	bwTv2xcvPpCEBLzDGnMS7H7BO/Xw0bldBU6YnmtcHHAThNXvF0UF+9tQjA16agzJwWXzxGSBpX7vi
+	qSd9nvLsJS102j7btUK1HrBlJJK0m5cuNMBrjbnZVNSR1zN4Z0XM+vZzwR8xgd9Evg6Lhe22fXgsC
+	DSMrZvWdJ/2iRgvyAruOf5WHWAipeHeVkCyyHABGkLjpxJM0g2Jnc+xYEVNgD+ylDa4ocImjYORW3
+	7WzuXuM9UEKfp/Hg6XZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlaWT-00000006upa-1DSR;
-	Fri, 21 Feb 2025 21:25:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tlafV-00000006vNC-2Aib;
+	Fri, 21 Feb 2025 21:34:45 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlaS6-00000006uOY-2M4f
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 21:20:54 +0000
+	id 1tlae2-00000006vFK-29t1;
+	Fri, 21 Feb 2025 21:33:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0F82061648;
-	Fri, 21 Feb 2025 21:20:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CD9FC4CED6;
-	Fri, 21 Feb 2025 21:20:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 34CCD5C6DF1;
+	Fri, 21 Feb 2025 21:32:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF8B4C4CED6;
+	Fri, 21 Feb 2025 21:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740172853;
-	bh=GvH9sbf7BjzVWFctUss3vdfXB5v/gMmJhuXeWp5vhR4=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=ehGHcpZLA82BG3NeQW1mzIokptL1heZNAKn2OlmevvNA4nJyEBeEXylo+8B9kjTIK
-	 F1DfXEjDDalkhK1qTXGJrWq82SLTzF1H2OqtkhQRG4IfQqnmaG58QLAvAp1FCLBY7h
-	 HrdI4mTPOkKZmYYUKeW+xb7KguWMoUWOSNvh2uLwP2NuBTWa630S4Yjag1uq5E5KFf
-	 iMi5TLctaDQslRa+2SoqJA6dGHP4C4vY71rlgjMuwmZxrsneVfScIQ4EAa2DB1Bux3
-	 l2P85JHdo4DIjtVSy+c6n4w0BHq99qdrf4FCFFqZmChaDASpdDhkBlZul9CphPXQ9r
-	 yu7h98jPP9ALA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 860B3380CEEC;
-	Fri, 21 Feb 2025 21:21:25 +0000 (UTC)
-Subject: Re: [GIT PULL] soc: fixes for 6.14
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <22f7e0e5-1ccc-41bf-a474-6cd09b23a26f@app.fastmail.com>
-References: <22f7e0e5-1ccc-41bf-a474-6cd09b23a26f@app.fastmail.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <22f7e0e5-1ccc-41bf-a474-6cd09b23a26f@app.fastmail.com>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.14
-X-PR-Tracked-Commit-Id: e31e3f6c0ce473f7ce1e70d54ac8e3ed190509f8
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: ff202c5028a195c07b16e1a2fbb8ca6b7ba11a1c
-Message-Id: <174017288435.2210212.11849723681477106984.pr-tracker-bot@kernel.org>
-Date: Fri, 21 Feb 2025 21:21:24 +0000
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, soc@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+	s=k20201202; t=1740173593;
+	bh=YguojFeZQ1Lx0oD73VLf2qvbtWuaYfQHYVhFNJxGqcc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=pI+OqPw3S1f4uPK/qsVZPlTlFkJWoXXV7COQC0U7sscNezGrsRxoHQ7/xOeYHDSev
+	 Ypy/37X2kBbp8bKR0BpV/ndXbZBx4msKzDlYpvA/spRVQvSl7M8QkclZuW5CbNxIsT
+	 fx4Xoe43a7Eg41JFcEXylnOFiG9MAojydrpN8PIAnbRmPBC1rlagN3UaI4VTNIBMp6
+	 bzQKQhU/o9jw8wTKTlYBf7PgQScsDlbsfd29giuk+Nklsj2dHc63joYmTUXUMkzeZJ
+	 WaKcwOS/8GOzvUSQYXRYDGv4r7SZB3pnHLj0xPbOC+cqft1mVBhEBaj7MJyrjJk4eB
+	 6d0fuZiT53IKw==
+Date: Fri, 21 Feb 2025 15:33:11 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Stanimir Varbanov <svarbanov@suse.de>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jim Quinlan <jim2101024@gmail.com>,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, kw@linux.com,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Jonathan Bell <jonathan@raspberrypi.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH v5 -next 07/11] PCI: brcmstb: Adjust PHY PLL setup to use
+ a 54MHz input refclk
+Message-ID: <20250221213311.GA362736@bhelgaas>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250120130119.671119-8-svarbanov@suse.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250221_133314_614842_25686212 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,16 +85,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Fri, 21 Feb 2025 22:04:42 +0100:
+On Mon, Jan 20, 2025 at 03:01:15PM +0200, Stanimir Varbanov wrote:
+> The default input reference clock for the PHY PLL is 100Mhz, except for
+> some devices where it is 54Mhz like bcm2712C1 and bcm2712D0.
+> 
+> To implement this adjustments introduce a new .post_setup op in
+> pcie_cfg_data and call it at the end of brcm_pcie_setup function.
+> 
+> The bcm2712 .post_setup callback implements the required MDIO writes that
+> switch the PLL refclk and also change PHY PM clock period.
+> 
+> Without this RPi5 PCIex1 is unable to enumerate endpoint devices on
+> the expansion connector.
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-fixes-6.14
+This makes it sound like this patch should be reordered before "[PATCH
+v5 -next 06/11] PCI: brcmstb: Add bcm2712 support".
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/ff202c5028a195c07b16e1a2fbb8ca6b7ba11a1c
+We don't really want a driver to claim a bcm2712 controller before
+it's able to enumerate devices, because that would break bisection
+through this.
 
-Thank you!
-
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Bjorn
 
