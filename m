@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FF7C021AA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 09:16:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E3E5C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 21 Feb 2025 09:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Kfcz1OSp0uhR4QDmkrBkP81wa9pmSwzd+Nppwd8uNas=; b=n9xsgTvoJtuwG9NoVXberatK3O
-	195YICGgvvuKlQrtp9Tg3ZFiAeTOR7/rOLPSMZbnW4UVmBfLwk58XYJJzgi35guwOvmtHOTdnFBly
-	uc4YJeMJpjkCr/+G3hjvQXLFpquZ/DBc3UMQgouxcvjpFe8FBjM/4mgxWiKHE5saD6gKYyP/kROea
-	8t3ogRqgVJ5RhP04gjvuGriPdyZknHxpBU3clj45lr7eudB3efd0UTw+99AtrE7QBEatlcoMndbk2
-	YZuntfqYnlMSLq4EDLarhwDEst0wkoMRalE9+GVRzIO2F2Qy8gOjmyY5GvI7YlK1CcUkES9oaDWjF
-	bXVvA2Gw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=21m+Db4cDkq7yxqqRATK2pTsEukot6oxH6Vfgu67kew=; b=qwEvKHXfz2idf5K2JUqQlGoPTg
+	msop8w63U3BJpK4wuqrGchL1X4Hx+hk4rUF+Rx34GABWZRl3Oaxp5Dm0kE31RNoT0SK8WLbnOYNp0
+	lJ1ZCbgVSO53N1DIULMvY8MUE0NgiC8Dmh/ZJm3QrasoULT1Tn0B+ra9unSi2ejm8KgzQsTDCn22Q
+	2688zsSd9AnpbrUcEToOS01W7XeUIgUnXxeRalnHuHkWtLmtUUtPTT9NvQv166nC8Q4WHJ/eEsoig
+	NpQ2bHcjy9EmW2HvexfT9ZeFbz/BOskLTY/trvw/tTys3BX5oBng+FiEUsTem8pCMJ62VpZQ5hNwl
+	JcetFC0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlP98-00000004svA-0PTG;
-	Fri, 21 Feb 2025 09:16:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04::f03c:95ff:fe5e:7468])
+	id 1tlPAc-00000004tFR-3XNE;
+	Fri, 21 Feb 2025 09:18:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlP7a-00000004sSg-3oIR
+	id 1tlP7d-00000004sTo-3YBv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 21 Feb 2025 09:14:59 +0000
+	Fri, 21 Feb 2025 09:15:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0A7E361190;
-	Fri, 21 Feb 2025 09:14:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4E32C4CEE7;
-	Fri, 21 Feb 2025 09:14:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 31F0B611D1;
+	Fri, 21 Feb 2025 09:14:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38FB4C4CEE6;
+	Fri, 21 Feb 2025 09:14:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740129297;
-	bh=FPSnej4gRORvz9fIoO0ZHKVoxlk58vTwK5PRU598Dfk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=iT8H/NJ9b3Nb0+G0ar4ucq4X7ucegkJRj4HYn1Urba6EsbH0WMjy/Ivi1CXS1IoyE
-	 /wumnkPZYHrIDSfMbfw3e/AHfFwh3Fk87Tvhg2/CGEkQVqy03Be90x6ObhnxiBbLeF
-	 V1qASkjq2K8SqczFy3H1vwxp2iKN6Ax96ikLus0a3LbvDFPo6GRQOtPDzf+OJlo1oJ
-	 mYhic2hQlq1YPJOdkpdLySZfeIVeOf3TiTEe3JZC/SPnX+ffz8ufV2K5nEr83sSaT/
-	 UTeQJBSbAemajlSfDYgQMWOMyD5J7/8Wb35dYDOJ36RLSNmHdVl0i1Vr/WyFzUXp/0
-	 O3RAiCLqSdcKw==
+	s=k20201202; t=1740129300;
+	bh=BV6VLJUzkK8pZ9XtIRWtZGZDINI77ELQvsoIDlsinko=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=YTgml/M9aEOmiCRD9I7H0HQTj6OOGm5IDQahjFQQc/16sBZm3AzsUeczoatVjjzX4
+	 GJWovGRKv0ZbQBji5L13Pkc1XCptpVlq2SWCY84HnEyhyDTMcfYfiU3JLcTCYhm7Dp
+	 Fa3uAl7WIhcmUKbkW0ZvhcoycXJEoDAaZZ9j5oJoF0ZVYYfdv82j4xZ+I7FrVh+VW2
+	 1IbTX+Goo/SoZymon9fIwbIjV5i4z1zlcyYwnSSS+3jquZLwmn1R86HGd0rtMFFfNB
+	 SByCP8N/uY/0QPbTbOzNM6RQOS90mH6iFy61DJwerDAjETB91gMXkln0YVKxEVAQGK
+	 xCYJsrPcIKj8g==
 From: Michael Walle <mwalle@kernel.org>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -57,10 +57,12 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-gpio@vger.kernel.org,
 	Michael Walle <mwalle@kernel.org>
-Subject: [PATCH 1/2] arm64: dts: ti: k3-am62p: fix pinctrl settings
-Date: Fri, 21 Feb 2025 10:14:46 +0100
-Message-Id: <20250221091447.595199-1-mwalle@kernel.org>
+Subject: [PATCH 2/2] arm64: dts: ti: k3-j722s: fix pinctrl settings
+Date: Fri, 21 Feb 2025 10:14:47 +0100
+Message-Id: <20250221091447.595199-2-mwalle@kernel.org>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250221091447.595199-1-mwalle@kernel.org>
+References: <20250221091447.595199-1-mwalle@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -97,52 +99,26 @@ covers the entire pad setting instead of just the mux field).
 Remove the pinctrl-single,gpio-range property, so that no settings are
 applied during a gpio_request() call.
 
-Fixes: d72d73a44c3c ("arm64: dts: ti: k3-am62p: Add gpio-ranges properties")
+Fixes: 5e5c50964e2e ("arm64: dts: ti: k3-j722s: Add gpio-ranges properties")
 Signed-off-by: Michael Walle <mwalle@kernel.org>
 ---
+ arch/arm64/boot/dts/ti/k3-j722s-main.dtsi | 15 ---------------
+ 1 file changed, 15 deletions(-)
 
-Maybe one could also switch the pinctrl-single to a pinconf-single node
-which is able to control all the bias settings and restrict
-"pinctrl-single,function-mask" to just the actual function. Not
-sure.
-
- .../boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi     |  8 --------
- arch/arm64/boot/dts/ti/k3-am62p-main.dtsi          | 14 --------------
- 2 files changed, 22 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
-index b33aff0d65c9..bd6a00d13aea 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi
-@@ -12,15 +12,7 @@ mcu_pmx0: pinctrl@4084000 {
- 		#pinctrl-cells = <1>;
- 		pinctrl-single,register-width = <32>;
- 		pinctrl-single,function-mask = <0xffffffff>;
--		pinctrl-single,gpio-range =
--			<&mcu_pmx_range 0 21 PIN_GPIO_RANGE_IOPAD>,
--			<&mcu_pmx_range 23 1 PIN_GPIO_RANGE_IOPAD>,
--			<&mcu_pmx_range 32 2 PIN_GPIO_RANGE_IOPAD>;
- 		bootph-all;
--
--		mcu_pmx_range: gpio-range {
--			#pinctrl-single,gpio-range-cells = <3>;
--		};
- 	};
- 
- 	mcu_esm: esm@4100000 {
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-index 420c77c8e9e5..0a888392137c 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-main.dtsi
-@@ -42,20 +42,6 @@ &inta_main_dmss {
- 	ti,interrupt-ranges = <5 69 35>;
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+index 3ac2d45a0558..6da7b3a2943c 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j722s-main.dtsi
+@@ -251,21 +251,6 @@ &inta_main_dmss {
+ 	ti,interrupt-ranges = <7 71 21>;
  };
  
 -&main_pmx0 {
 -	pinctrl-single,gpio-range =
 -		<&main_pmx0_range 0 32 PIN_GPIO_RANGE_IOPAD>,
 -		<&main_pmx0_range 33 38 PIN_GPIO_RANGE_IOPAD>,
--		<&main_pmx0_range 72 22 PIN_GPIO_RANGE_IOPAD>,
+-		<&main_pmx0_range 72 17 PIN_GPIO_RANGE_IOPAD>,
+-		<&main_pmx0_range 101 25 PIN_GPIO_RANGE_IOPAD>,
 -		<&main_pmx0_range 137 5 PIN_GPIO_RANGE_IOPAD>,
 -		<&main_pmx0_range 143 3 PIN_GPIO_RANGE_IOPAD>,
 -		<&main_pmx0_range 149 2 PIN_GPIO_RANGE_IOPAD>;
@@ -154,7 +130,7 @@ index 420c77c8e9e5..0a888392137c 100644
 -
  &main_gpio0 {
  	gpio-ranges = <&main_pmx0 0 0 32>, <&main_pmx0 32 33 38>,
- 			<&main_pmx0 70 72 22>;
+ 			<&main_pmx0 70 72 17>;
 -- 
 2.39.5
 
