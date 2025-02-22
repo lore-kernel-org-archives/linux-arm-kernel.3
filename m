@@ -4,57 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD06C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 13:40:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 782DAC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 13:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KjynJ2iDpp55Qa/iGoDoKteY9QmQneQsXJpkrRU1z8c=; b=4vHIYYlNsyH+JozR+FNupi1Xjp
-	i4gSBvE6uPzozLV7T2dLdL7qN3Btr2Ti04sJ5/Q0vGOxLLPhoTCNG9xsviEJel9/pbPwW0GNWi5KL
-	WSKjK8IEr0Q4L9bgpqRGt2ddjh7DXN2ylWijicz7ACsg1mJhttEgN4bBjVxv7Icahp0ZF0gq69JOS
-	oHL1IDpdOt6kSzs7txID7DEhs8fZgJ35oa9ca3G88Ny5URd+OpU3eh1kJDKk1uStPg1i+P5MyE9qq
-	qWi+EXH0+8rk3Azt9bQxVMFXfWQyP0NcB2+W16tb1OMwwZTYoVawfl/6QFZizHZlWWJh16TMtum6F
-	9dkkYelg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SO0Fk6BtwRVGlHqt3kYa0/V5Y1iTIzUN0pe77N3ab/M=; b=UgKdkv9UaFIeZTYyXY+B4+KErK
+	oJQz1HGzLk8SEwRIndsRNL/yYbs7/CWuP2HYvlXpNbtNJnIMv8U0/G5A86VePZgI1/ey9jsj0LLpO
+	RH5RYD5Mo3npbnrKW8EVf7TMv4z/jlspQqoTSlYPlnJVtlJfoqntGl6Bpl2mYGacXyUHC/jhEeug6
+	LTalSP4dVow0YpK12/4WGdBSa/2yWy/0TGT+5X5iV/Cfz739VFIzG1E+VBOAWj9M5XtESTVGvYaR8
+	2D8y0Fdc7tJM+TLk9g43nFLxmxdxI1Ud85P/OsIxuk8kn0F/0iSGGYASRtEjTuxcf570rUSF+KQGg
+	KqDixE6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlpjr-0000000868M-26if;
-	Sat, 22 Feb 2025 13:40:15 +0000
+	id 1tlplJ-000000086Ig-0XlP;
+	Sat, 22 Feb 2025 13:41:45 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlpiN-000000085yw-2Lde
+	id 1tlpiN-000000085yx-3uyD
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 22 Feb 2025 13:38:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2BD6B61132;
+	by tor.source.kernel.org (Postfix) with ESMTP id BAC2861159;
 	Sat, 22 Feb 2025 13:38:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 45F11C4CEE2;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6D15FC4CEEA;
 	Sat, 22 Feb 2025 13:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1740231522;
-	bh=YvDVaUlNxk0FFYVh0Uih/QBxDdTXOT7A8XEjDIMtIh8=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=ZhE5nsTRYzQ+xatxbsjltkmXjh4yz5WSZQT0ORjz/ia6DJh/+c0KCvrgkMHMyfvyU
-	 bXNgj/KMZL8hfTAfvtWD5nWhDyjoN3LUGVlwwPKv/fkxV8gAcp4vtjWk2Dfa4HLGgn
-	 4h3Q2Y2F7/0SwRmqdCJVR5zQ1UPd03x3J0uol3c4L6bbbUwBYTbKGW4/iANsTgpi/R
-	 tzscufz5qnk6PQ3YazNK7IIvefqcVF7qgsUzqjiVNW3zC0wDff35tKvJFhYzgw/Ru4
-	 uOOl4hdcJIjtWojAHSS7G/G4ZxjdwyIKk3P96DzWVYRUaM4FyJuOah+KTjxWqFDHnj
-	 yuLhSTAtwKpEQ==
+	bh=3b399MgkPbalzkt0UKL/iAOTcLxAkop81OzJJhuZ+Qw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=s4q+Ybtj7eNZQ0gHWEM4mrhT5OZ5IHP4VQg29ucZqQ7rG2UtOHhHajlwxnaesYENz
+	 NoQogjKJVa3BpJPJFh7YkRsv4WhDpiMXmGZPRMGFwCbNd8+zgBf6wfERZ1itsxyXQ0
+	 XFnKFUrhnGHqb0Z1/FcjlQOkXZkTcz8LmRrlxzqccHYi9ZBrA0YNZGPr6TW2kJgGbD
+	 Esm97bCU05N+ABKPtOl10s3g/kmWCg9bmi1Urpm0+XWXrnGU/46ZVMRHI15JVwIWVl
+	 XilqBoMGVdrBNkHE0xllGmfOY/M26Kkg1UDXHSf214+hRcSCALiYdMqz8zogTOvt7f
+	 8/RJZgv2qb8lw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2DD68C021B6;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 60716C021BB;
 	Sat, 22 Feb 2025 13:38:42 +0000 (UTC)
 From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
-Subject: [PATCH 0/4] Apple/PASemi i2c error recovery fixes
-Date: Sat, 22 Feb 2025 13:38:32 +0000
-Message-Id: <20250222-pasemi-fixes-v1-0-d7ea33d50c5e@svenpeter.dev>
+Date: Sat, 22 Feb 2025 13:38:35 +0000
+Subject: [PATCH 3/4] i2c: pasemi: Enable the unjam machine
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFjTuWcC/x3LQQqAIBBA0avIrBNULKmrRAu1qWaRiQMRSHdPW
- j4+vwJjIWSYRIWCNzFdqUF3AuLh046S1mYwyvTKGCWzZzxJbvQgy1EPMThnlQ0e2pIL/qEd8/K
- +H5oY4NteAAAA
+Message-Id: <20250222-pasemi-fixes-v1-3-d7ea33d50c5e@svenpeter.dev>
+References: <20250222-pasemi-fixes-v1-0-d7ea33d50c5e@svenpeter.dev>
+In-Reply-To: <20250222-pasemi-fixes-v1-0-d7ea33d50c5e@svenpeter.dev>
 To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
  Madhavan Srinivasan <maddy@linux.ibm.com>, 
  Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
@@ -65,13 +64,13 @@ Cc: linuxppc-dev@lists.ozlabs.org, asahi@lists.linux.dev,
  linux-kernel@vger.kernel.org, Sven Peter <sven@svenpeter.dev>, 
  Hector Martin <marcan@marcan.st>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=914; i=sven@svenpeter.dev;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1147; i=sven@svenpeter.dev;
  h=from:subject:message-id;
- bh=YvDVaUlNxk0FFYVh0Uih/QBxDdTXOT7A8XEjDIMtIh8=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ/rOy5HrJq+aLtY2ozoptL78762o7OM1P5+2PDjD8rfuR
- uLhdnuWjlIWBjEOBlkxRZbt++1Nnzx8I7h006X3MHNYmUCGMHBxCsBEPq9m+B8UVsSsKB6l/aLM
- SGmO1TO/xDc3TO5efhvyobe+eUXa+heMDF84zpXYKKjnr520yNlii5XDksSac68jXTJCt34JMb5
- 9nREA
+ bh=2vIJw3C8UuzlR0vDYIDEMzK/yjJe3TCpkfiUQCAlb68=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ/rOy3GzHj/dEP3xtk/58bMGC1Ys+l3dfPtjVbnC09wJz
+ A+sr00M6ChlYRDjYJAVU2TZvt/e9MnDN4JLN116DzOHlQlkCAMXpwBMpPMyI8OxM6p5HBcKLa7/
+ X7/syeXHrYtiGiofibCW1W198dqFXfQ5w19Z0ZporoRI5wvvvpebbs1Z9PQ7Z0SBR/BzDuu5TXW
+ zL3ABAA==
 X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
  fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
 X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
@@ -92,37 +91,37 @@ Reply-To: sven@svenpeter.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Hector Martin <marcan@marcan.st>
 
-This series adds a few fixes/improvements to the error recovery for
-Apple/PASemi i2c controllers.
-The patches have been in our downstream tree and were originally used
-to debug a rare glitch caused by clock strechting but are useful in
-general. We haven't seen the controller misbehave since adding these.
+The I2C bus can get stuck under some conditions (desync between
+controller and device). The pasemi controllers include an unjam feature
+that is enabled on reset, but was being disabled by the driver. Keep it
+enabled by explicitly setting the UJM bit in the CTL register. This
+should help recover the bus from certain conditions, which would
+otherwise remain stuck forever.
 
-Best,
-
-Sven
-
+Signed-off-by: Hector Martin <marcan@marcan.st>
 Signed-off-by: Sven Peter <sven@svenpeter.dev>
 ---
-Hector Martin (3):
-      i2c: pasemi: Improve error recovery
-      i2c: pasemi: Enable the unjam machine
-      i2c: pasemi: Log bus reset causes
+ drivers/i2c/busses/i2c-pasemi-core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Sven Peter (1):
-      i2c: pasemi: Add registers bits and switch to BIT()
+diff --git a/drivers/i2c/busses/i2c-pasemi-core.c b/drivers/i2c/busses/i2c-pasemi-core.c
+index 770b86b92a10..8f0ba975172f 100644
+--- a/drivers/i2c/busses/i2c-pasemi-core.c
++++ b/drivers/i2c/busses/i2c-pasemi-core.c
+@@ -73,7 +73,7 @@ static inline int reg_read(struct pasemi_smbus *smbus, int reg)
+ 
+ static void pasemi_reset(struct pasemi_smbus *smbus)
+ {
+-	u32 val = (CTL_MTR | CTL_MRR | (smbus->clk_div & CTL_CLK_M));
++	u32 val = (CTL_MTR | CTL_MRR | CTL_UJM | (smbus->clk_div & CTL_CLK_M));
+ 
+ 	if (smbus->hw_rev >= 6)
+ 		val |= CTL_EN;
 
- drivers/i2c/busses/i2c-pasemi-core.c | 121 ++++++++++++++++++++++++++---------
- 1 file changed, 92 insertions(+), 29 deletions(-)
----
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-change-id: 20250220-pasemi-fixes-916cb77404ba
-
-Best regards,
 -- 
-Sven Peter <sven@svenpeter.dev>
+2.34.1
 
 
 
