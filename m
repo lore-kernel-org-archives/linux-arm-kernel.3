@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F975C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 14:36:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0FDC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 14:38:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MSHuPH0rENT+1th6n9nmKUNo1W0iP2PY60TKUpIRiFg=; b=EnBJxUXVrUFskix7d3PUaj7gX2
-	mRKb8B+mo6uFkMaFa4fz/m7fLZemfTPhs1YVqSXtKoY1g+UuJtJBENIQyqYCfOrECc0/6M/3m3yOR
-	0t7CjupklGyWDERgWK7zBOO/kKUEVHnLNQbCA5rUSR4ults/rEd6oKBO9mwXOMAzgVXuRlHTkx0UL
-	UlBCnH2VaFHIXIneyk8qym8e5EN6zUeGHKm2hvfp/+e6UhodOx7vu8tF3Ho5IlvOM4JukEWmT5kBN
-	98b1IinIR3LguafdDaaeSxSRaIY2DoNQjXh76Dowx8bhyS8HQNwUdHvAEAawPMAFKv82uG+POZyh4
-	zTqKTuvA==;
+	bh=Tukj75GqJ+Hoa9XISdOd83+XDXwoMvCAbi8R9ZuI4IA=; b=1nX2wQAmbFD0Hn1pqmTPgKLGdI
+	5k9tc9kTvQpw4pfcVkh21FpedA+ETiuWv9ws3qTMDKExdspjBswgrgyaTWew80iKgnykOL0nEJ/oi
+	TzaCFJWE1O9JnrQAU8FbxA3q+pt5C9ahwVcKici+iPECsQ7Qgcz9KS60igqMC4rxD77R40rN+7BUJ
+	j+UQJUJn8BPzYdChEQ9xDevDI7WQQfnpjQl+12rZQb6dn0AaDxR9QUWkTiAjxrrzSmCOnuqzfpBvk
+	s2uyG+fob6hlARsHnMliXDutLNyR1v0OTLqBkD1e/elV5OBDtYWcqpgD/JjFe4AWE7XIxLPuQkfM+
+	O8jGZ7RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlqcS-00000008BP3-1o8I;
-	Sat, 22 Feb 2025 14:36:40 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1tlqdu-00000008BcJ-0eG8;
+	Sat, 22 Feb 2025 14:38:10 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlqTk-000000089yX-26qb
+	id 1tlqTm-000000089zN-1YhO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 14:27:41 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0B0A744281;
-	Sat, 22 Feb 2025 14:27:37 +0000 (UTC)
+	Sat, 22 Feb 2025 14:27:43 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 41BE644282;
+	Sat, 22 Feb 2025 14:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1740234459;
+	t=1740234460;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=MSHuPH0rENT+1th6n9nmKUNo1W0iP2PY60TKUpIRiFg=;
-	b=Ux6kvDMwD2sAXkP7gvbfJ4bCvU8z52UM3vV+mEeIxAcHeTCe3L5dlRl6kDqg0Eq4107EAv
-	RqQKmk09M8GqY15xe/rm0NOrduwprmRsKim+QL/FJpGsRCg+WK169OCYECaeRLcoWROI3q
-	CZLtav528jRPwXTFc9yM/3ea8+Btnqx3U2tUR9r1SU8ry+quNafgzP8MUaR0fn/PhM74df
-	VDzr+n4bsAdZH55sPFq4fYXOUUkufxkVlBBGDFW2QwKqHogwZZjk3NJe5yTQCqSOj/P0we
-	eB44K9NV+zDgXnyUKy7rthbcLRYsoEtL5aPqJY49ShPH8pLZSsYgitE66fx9DQ==
+	bh=Tukj75GqJ+Hoa9XISdOd83+XDXwoMvCAbi8R9ZuI4IA=;
+	b=LaFmkbT+hu1cn71bFT27D7Nyp3OPZPN6r6eW7AsoaxaHflZwooyhoFFc7e1+YcrDv4I1Bw
+	bZGRgtreyMgvgrRbxZh2oHz8YkVKfaBfYPE5jCDOtI1m7Axf2QdJ2a/DwYkoR6oFDwHWj4
+	EzjcJcqKDNV30ydAZE5O895fqezv3UYnpqsv+Ll/maEYku08nrLJzWmJRRj3WzgGwKLiV8
+	b61DBzmNQmI7v9mTcReKKWujP9FSTSZgHGTgzn9ypgwAeZ94mwEipGZOttWNmRSBhG5x22
+	YCrbhJ4BhExmOe0BpwIPs7G5vhdQgLYhNq4rMvBqKe4EC6xmxVS2aoqp3/+Fdw==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net,
 	Andrew Lunn <andrew@lunn.ch>,
@@ -62,9 +62,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Oleksij Rempel <o.rempel@pengutronix.de>,
 	Simon Horman <horms@kernel.org>,
 	Romain Gantois <romain.gantois@bootlin.com>
-Subject: [PATCH net-next 05/13] net: phy: Use an internal, searchable storage for the linkmodes
-Date: Sat, 22 Feb 2025 15:27:17 +0100
-Message-ID: <20250222142727.894124-6-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next 06/13] net: phy: phy_caps: Move phy_speeds to phy_caps
+Date: Sat, 22 Feb 2025 15:27:18 +0100
+Message-ID: <20250222142727.894124-7-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250222142727.894124-1-maxime.chevallier@bootlin.com>
 References: <20250222142727.894124-1-maxime.chevallier@bootlin.com>
@@ -76,8 +76,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejfeduiecutefuodetggdotef
  igvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomh
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_062740_832191_D6131C33 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20250222_062742_557576_3E875BC6 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,376 +92,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The canonical definition for all the link modes is in linux/ethtol.h,
-which is complemented by the link_mode_params array stored in
-net/ethtool/common.h . That array contains all the metadata about each
-of these modes, including the Speed and Duplex information.
-
-Phylib and phylink needs that information as well for internal
-managmement of the link, which was done by duplicating that information
-in locally-stored arrays and lookup functions. This makes it easy for
-developpers adding new modes to forget modifying phylib and phylink
-accordingly.
-
-However, the link_mode_params array in net/ethtool/common.c is fairly
-inefficient to search through, as it isn't sorted in any manner. Phylib
-and phylink perform a lot of lookup operations, mostly to filter modes
-by speed and/or duplex.
-
-We therefore introduce the link_caps private array in phy_caps.c, that
-indexes linkmodes in a more efficient manner. Each element associated a
-tuple <speed, duplex> to a bitfield of all the linkmodes runs at these
-speed/duplex.
-
-We end-up with an array that's fairly short, easily addressable and that
-it optimised for the typical use-cases of phylib/phylink.
-
-That array is initialized at the same time as phylib. As the
-link_mode_params array is part of the net stack, which phylink depends
-on, it should always be accessible from phylib.
+Use the newly introduced link_capabilities array to derive the list of
+possible speeds when given a combination of linkmodes. As
+link_capabilities is indexed by speed, we don't have to iterate the
+whole phy_settings array.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/phy/phy-caps.h   |   9 ++
- drivers/net/phy/phy_caps.c   | 260 +++++++++++++++++++----------------
- drivers/net/phy/phy_device.c |   3 +
- 3 files changed, 154 insertions(+), 118 deletions(-)
+ drivers/net/phy/phy-caps.h |  3 +++
+ drivers/net/phy/phy-core.c | 15 ---------------
+ drivers/net/phy/phy.c      |  4 +++-
+ drivers/net/phy/phy_caps.c | 27 +++++++++++++++++++++++++++
+ include/linux/phy.h        |  2 --
+ 5 files changed, 33 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/net/phy/phy-caps.h b/drivers/net/phy/phy-caps.h
-index 9580754fff1f..0c7543280fa3 100644
+index 0c7543280fa3..d4cd91fd0911 100644
 --- a/drivers/net/phy/phy-caps.h
 +++ b/drivers/net/phy/phy-caps.h
-@@ -7,6 +7,15 @@
- #ifndef __PHY_CAPS_H
- #define __PHY_CAPS_H
- 
-+#include <linux/ethtool.h>
-+
-+struct link_capabilities {
-+	int speed;
-+	unsigned int duplex;
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(linkmodes);
-+};
-+
-+void phy_caps_init(void);
- void linkmode_from_caps(unsigned long *linkmode, unsigned long caps);
- 
+@@ -21,4 +21,7 @@ void linkmode_from_caps(unsigned long *linkmode, unsigned long caps);
  unsigned long phy_interface_caps(phy_interface_t interface);
+ int phy_interface_max_speed(phy_interface_t interface);
+ 
++size_t phy_caps_speeds(unsigned int *speeds, size_t size,
++		       unsigned long *linkmodes);
++
+ #endif /* __PHY_CAPS_H */
+diff --git a/drivers/net/phy/phy-core.c b/drivers/net/phy/phy-core.c
+index 2fd1d153abc9..e2850d6fe158 100644
+--- a/drivers/net/phy/phy-core.c
++++ b/drivers/net/phy/phy-core.c
+@@ -337,21 +337,6 @@ phy_lookup_setting(int speed, int duplex, const unsigned long *mask, bool exact)
+ }
+ EXPORT_SYMBOL_GPL(phy_lookup_setting);
+ 
+-size_t phy_speeds(unsigned int *speeds, size_t size,
+-		  unsigned long *mask)
+-{
+-	size_t count;
+-	int i;
+-
+-	for (i = 0, count = 0; i < ARRAY_SIZE(settings) && count < size; i++)
+-		if (settings[i].bit < __ETHTOOL_LINK_MODE_MASK_NBITS &&
+-		    test_bit(settings[i].bit, mask) &&
+-		    (count == 0 || speeds[count - 1] != settings[i].speed))
+-			speeds[count++] = settings[i].speed;
+-
+-	return count;
+-}
+-
+ static void __set_linkmode_max_speed(u32 max_speed, unsigned long *addr)
+ {
+ 	const struct phy_setting *p;
+diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
+index 831b36839627..2b9e326bad61 100644
+--- a/drivers/net/phy/phy.c
++++ b/drivers/net/phy/phy.c
+@@ -36,6 +36,8 @@
+ #include <net/genetlink.h>
+ #include <net/sock.h>
+ 
++#include "phy-caps.h"
++
+ #define PHY_STATE_TIME	HZ
+ 
+ #define PHY_STATE_STR(_state)			\
+@@ -243,7 +245,7 @@ unsigned int phy_supported_speeds(struct phy_device *phy,
+ 				  unsigned int *speeds,
+ 				  unsigned int size)
+ {
+-	return phy_speeds(speeds, size, phy->supported);
++	return phy_caps_speeds(speeds, size, phy->supported);
+ }
+ 
+ /**
 diff --git a/drivers/net/phy/phy_caps.c b/drivers/net/phy/phy_caps.c
-index cf68a2829bde..55ac08edf151 100644
+index 55ac08edf151..ee8aa1217a6e 100644
 --- a/drivers/net/phy/phy_caps.c
 +++ b/drivers/net/phy/phy_caps.c
-@@ -7,6 +7,101 @@
+@@ -102,6 +102,33 @@ void phy_caps_init(void)
+ 	}
+ }
  
- #include "phy-caps.h"
- 
-+enum {
-+	LINK_CAPA_10HD = 0,
-+	LINK_CAPA_10FD,
-+	LINK_CAPA_100HD,
-+	LINK_CAPA_100FD,
-+	LINK_CAPA_1000HD,
-+	LINK_CAPA_1000FD,
-+	LINK_CAPA_2500FD,
-+	LINK_CAPA_5000FD,
-+	LINK_CAPA_10000FD,
-+	LINK_CAPA_20000FD,
-+	LINK_CAPA_25000FD,
-+	LINK_CAPA_40000FD,
-+	LINK_CAPA_50000FD,
-+	LINK_CAPA_56000FD,
-+	LINK_CAPA_100000FD,
-+	LINK_CAPA_200000FD,
-+	LINK_CAPA_400000FD,
-+	LINK_CAPA_800000FD,
-+
-+	__LINK_CAPA_LAST = LINK_CAPA_800000FD,
-+	__LINK_CAPA_MAX,
-+};
-+
-+static struct link_capabilities link_caps[__LINK_CAPA_MAX] __ro_after_init = {
-+	{ SPEED_10, DUPLEX_HALF, {0} }, /* LINK_CAPA_10HD */
-+	{ SPEED_10, DUPLEX_FULL, {0} }, /* LINK_CAPA_10FD */
-+	{ SPEED_100, DUPLEX_HALF, {0} }, /* LINK_CAPA_100HD */
-+	{ SPEED_100, DUPLEX_FULL, {0} }, /* LINK_CAPA_100FD */
-+	{ SPEED_1000, DUPLEX_HALF, {0} }, /* LINK_CAPA_1000HD */
-+	{ SPEED_1000, DUPLEX_FULL, {0} }, /* LINK_CAPA_1000FD */
-+	{ SPEED_2500, DUPLEX_FULL, {0} }, /* LINK_CAPA_2500FD */
-+	{ SPEED_5000, DUPLEX_FULL, {0} }, /* LINK_CAPA_5000FD */
-+	{ SPEED_10000, DUPLEX_FULL, {0} }, /* LINK_CAPA_10000FD */
-+	{ SPEED_20000, DUPLEX_FULL, {0} }, /* LINK_CAPA_20000FD */
-+	{ SPEED_25000, DUPLEX_FULL, {0} }, /* LINK_CAPA_25000FD */
-+	{ SPEED_40000, DUPLEX_FULL, {0} }, /* LINK_CAPA_40000FD */
-+	{ SPEED_50000, DUPLEX_FULL, {0} }, /* LINK_CAPA_50000FD */
-+	{ SPEED_56000, DUPLEX_FULL, {0} }, /* LINK_CAPA_56000FD */
-+	{ SPEED_100000, DUPLEX_FULL, {0} }, /* LINK_CAPA_100000FD */
-+	{ SPEED_200000, DUPLEX_FULL, {0} }, /* LINK_CAPA_200000FD */
-+	{ SPEED_400000, DUPLEX_FULL, {0} }, /* LINK_CAPA_400000FD */
-+	{ SPEED_800000, DUPLEX_FULL, {0} }, /* LINK_CAPA_800000FD */
-+};
-+
-+static int speed_duplex_to_capa(int speed, unsigned int duplex)
-+{
-+	if (duplex == DUPLEX_UNKNOWN ||
-+	    (speed > SPEED_1000 && duplex != DUPLEX_FULL))
-+		return -EINVAL;
-+
-+	switch (speed) {
-+	case SPEED_10: return duplex == DUPLEX_FULL ?
-+			      LINK_CAPA_10FD : LINK_CAPA_10HD;
-+	case SPEED_100: return duplex == DUPLEX_FULL ?
-+			       LINK_CAPA_100FD : LINK_CAPA_100HD;
-+	case SPEED_1000: return duplex == DUPLEX_FULL ?
-+				LINK_CAPA_1000FD : LINK_CAPA_1000HD;
-+	case SPEED_2500: return LINK_CAPA_2500FD;
-+	case SPEED_5000: return LINK_CAPA_5000FD;
-+	case SPEED_10000: return LINK_CAPA_10000FD;
-+	case SPEED_20000: return LINK_CAPA_20000FD;
-+	case SPEED_25000: return LINK_CAPA_25000FD;
-+	case SPEED_40000: return LINK_CAPA_40000FD;
-+	case SPEED_50000: return LINK_CAPA_50000FD;
-+	case SPEED_56000: return LINK_CAPA_56000FD;
-+	case SPEED_100000: return LINK_CAPA_100000FD;
-+	case SPEED_200000: return LINK_CAPA_200000FD;
-+	case SPEED_400000: return LINK_CAPA_400000FD;
-+	case SPEED_800000: return LINK_CAPA_800000FD;
-+	}
-+
-+	return -EINVAL;
-+}
-+
 +/**
-+ * phy_caps_init() - Initializes the link_caps array from the link_mode_params.
++ * phy_caps_speeds() - Fill an array of supported SPEED_* values for given modes
++ * @speeds: Output array to store the speeds list into
++ * @size: Size of the output array
++ * @linkmodes: Linkmodes to get the speeds from
++ *
++ * Fills the speeds array with all possible speeds that can be achieved with
++ * the specified linkmodes.
++ *
++ * Returns: The number of speeds filled into the array. If the input array isn't
++ *	    big enough to store all speeds, fill it as much as possible.
 + */
-+void phy_caps_init(void)
++size_t phy_caps_speeds(unsigned int *speeds, size_t size,
++		       unsigned long *linkmodes)
 +{
-+	const struct link_mode_info *linkmode;
-+	int i, capa;
++	size_t count;
++	int capa;
 +
-+	/* Fill the caps array from net/ethtool/common.c */
-+	for (i = 0; i < __ETHTOOL_LINK_MODE_MASK_NBITS; i++) {
-+		linkmode = &link_mode_params[i];
-+		capa = speed_duplex_to_capa(linkmode->speed, linkmode->duplex);
-+
-+		if (capa < 0)
-+			continue;
-+
-+		__set_bit(i, link_caps[capa].linkmodes);
++	for (capa = 0, count = 0; capa < __LINK_CAPA_MAX && count < size; capa++) {
++		if (linkmode_intersects(link_caps[capa].linkmodes, linkmodes) &&
++		    (count == 0 || speeds[count - 1] != link_caps[capa].speed))
++			speeds[count++] = link_caps[capa].speed;
 +	}
++
++	return count;
 +}
 +
  /**
   * linkmode_from_caps() - Convert capabilities to ethtool link modes
   * @linkmodes: ethtool linkmode mask (must be already initialised)
-@@ -24,140 +119,69 @@ void linkmode_from_caps(unsigned long *linkmodes, unsigned long caps)
- 	if (caps & MAC_ASYM_PAUSE)
- 		__set_bit(ETHTOOL_LINK_MODE_Asym_Pause_BIT, linkmodes);
- 
--	if (caps & MAC_10HD) {
--		__set_bit(ETHTOOL_LINK_MODE_10baseT_Half_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_10baseT1S_Half_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_10baseT1S_P2MP_Half_BIT, linkmodes);
--	}
-+	if (caps & MAC_10HD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_10HD].linkmodes);
- 
--	if (caps & MAC_10FD) {
--		__set_bit(ETHTOOL_LINK_MODE_10baseT_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_10baseT1L_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_10baseT1S_Full_BIT, linkmodes);
--	}
-+	if (caps & MAC_10FD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_10FD].linkmodes);
- 
--	if (caps & MAC_100HD) {
--		__set_bit(ETHTOOL_LINK_MODE_100baseT_Half_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100baseFX_Half_BIT, linkmodes);
--	}
-+	if (caps & MAC_100HD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_100HD].linkmodes);
- 
--	if (caps & MAC_100FD) {
--		__set_bit(ETHTOOL_LINK_MODE_100baseT_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100baseT1_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100baseFX_Full_BIT, linkmodes);
--	}
-+	if (caps & MAC_100FD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_100FD].linkmodes);
- 
- 	if (caps & MAC_1000HD)
--		__set_bit(ETHTOOL_LINK_MODE_1000baseT_Half_BIT, linkmodes);
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_1000HD].linkmodes);
- 
--	if (caps & MAC_1000FD) {
--		__set_bit(ETHTOOL_LINK_MODE_1000baseT_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_1000baseKX_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_1000baseX_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_1000baseT1_Full_BIT, linkmodes);
--	}
-+	if (caps & MAC_1000FD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_1000FD].linkmodes);
- 
--	if (caps & MAC_2500FD) {
--		__set_bit(ETHTOOL_LINK_MODE_2500baseT_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_2500baseX_Full_BIT, linkmodes);
--	}
-+	if (caps & MAC_2500FD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_2500FD].linkmodes);
- 
- 	if (caps & MAC_5000FD)
--		__set_bit(ETHTOOL_LINK_MODE_5000baseT_Full_BIT, linkmodes);
--
--	if (caps & MAC_10000FD) {
--		__set_bit(ETHTOOL_LINK_MODE_10000baseT_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_10000baseKX4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_10000baseKR_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_10000baseR_FEC_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_10000baseCR_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_10000baseSR_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_10000baseLR_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_10000baseLRM_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_10000baseER_Full_BIT, linkmodes);
--	}
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_5000FD].linkmodes);
- 
--	if (caps & MAC_25000FD) {
--		__set_bit(ETHTOOL_LINK_MODE_25000baseCR_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_25000baseKR_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_25000baseSR_Full_BIT, linkmodes);
--	}
-+	if (caps & MAC_10000FD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_10000FD].linkmodes);
- 
--	if (caps & MAC_40000FD) {
--		__set_bit(ETHTOOL_LINK_MODE_40000baseKR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_40000baseCR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_40000baseSR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_40000baseLR4_Full_BIT, linkmodes);
--	}
-+	if (caps & MAC_25000FD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_25000FD].linkmodes);
- 
--	if (caps & MAC_50000FD) {
--		__set_bit(ETHTOOL_LINK_MODE_50000baseCR2_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_50000baseKR2_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_50000baseSR2_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_50000baseKR_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_50000baseSR_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_50000baseCR_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_50000baseLR_ER_FR_Full_BIT,
--			  linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_50000baseDR_Full_BIT, linkmodes);
--	}
-+	if (caps & MAC_40000FD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_40000FD].linkmodes);
- 
--	if (caps & MAC_56000FD) {
--		__set_bit(ETHTOOL_LINK_MODE_56000baseKR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_56000baseCR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_56000baseSR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_56000baseLR4_Full_BIT, linkmodes);
--	}
-+	if (caps & MAC_50000FD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_50000FD].linkmodes);
- 
--	if (caps & MAC_100000FD) {
--		__set_bit(ETHTOOL_LINK_MODE_100000baseKR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseSR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseCR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseLR4_ER4_Full_BIT,
--			  linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseKR2_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseSR2_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseCR2_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseLR2_ER2_FR2_Full_BIT,
--			  linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseDR2_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseKR_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseSR_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseLR_ER_FR_Full_BIT,
--			  linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseCR_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_100000baseDR_Full_BIT, linkmodes);
--	}
-+	if (caps & MAC_56000FD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_56000FD].linkmodes);
- 
--	if (caps & MAC_200000FD) {
--		__set_bit(ETHTOOL_LINK_MODE_200000baseKR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_200000baseSR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_200000baseLR4_ER4_FR4_Full_BIT,
--			  linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_200000baseDR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_200000baseCR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_200000baseKR2_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_200000baseSR2_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_200000baseLR2_ER2_FR2_Full_BIT,
--			  linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_200000baseDR2_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_200000baseCR2_Full_BIT, linkmodes);
--	}
-+	if (caps & MAC_100000FD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_100000FD].linkmodes);
- 
--	if (caps & MAC_400000FD) {
--		__set_bit(ETHTOOL_LINK_MODE_400000baseKR8_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_400000baseSR8_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_400000baseLR8_ER8_FR8_Full_BIT,
--			  linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_400000baseDR8_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_400000baseCR8_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_400000baseKR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_400000baseSR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_400000baseLR4_ER4_FR4_Full_BIT,
--			  linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_400000baseDR4_Full_BIT, linkmodes);
--		__set_bit(ETHTOOL_LINK_MODE_400000baseCR4_Full_BIT, linkmodes);
--	}
-+	if (caps & MAC_200000FD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_200000FD].linkmodes);
-+
-+	if (caps & MAC_400000FD)
-+		linkmode_or(linkmodes, linkmodes,
-+			    link_caps[LINK_CAPA_400000FD].linkmodes);
- }
- EXPORT_SYMBOL_GPL(linkmode_from_caps);
- 
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index 7c4e1ad1864c..be54dc9612dd 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -41,6 +41,8 @@
- #include <linux/uaccess.h>
- #include <linux/unistd.h>
- 
-+#include "phy-caps.h"
-+
- MODULE_DESCRIPTION("PHY library");
- MODULE_AUTHOR("Andy Fleming");
- MODULE_LICENSE("GPL");
-@@ -3793,6 +3795,7 @@ static int __init phy_init(void)
- 	if (rc)
- 		goto err_ethtool_phy_ops;
- 
-+	phy_caps_init();
- 	features_init();
- 
- 	rc = phy_driver_register(&genphy_c45_driver, THIS_MODULE);
+diff --git a/include/linux/phy.h b/include/linux/phy.h
+index 13be48d3b8b3..b582590427bc 100644
+--- a/include/linux/phy.h
++++ b/include/linux/phy.h
+@@ -1329,8 +1329,6 @@ struct phy_setting {
+ const struct phy_setting *
+ phy_lookup_setting(int speed, int duplex, const unsigned long *mask,
+ 		   bool exact);
+-size_t phy_speeds(unsigned int *speeds, size_t size,
+-		  unsigned long *mask);
+ void of_set_phy_supported(struct phy_device *phydev);
+ void of_set_phy_eee_broken(struct phy_device *phydev);
+ void of_set_phy_timing_role(struct phy_device *phydev);
 -- 
 2.48.1
 
