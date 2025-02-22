@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF594C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 01:25:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9CDC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 01:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yhpklwBnBdF83FBre0/tkR3DVtuVLWezPApNRpdK4qw=; b=UydFRxWIzB2AAIvJ4dyFfj+G5C
-	dHlAOhJHLDHtrSUrxpb643L7HcNJafF8cxsTB0gWGSDzcYFA2FGf+wnXjpTDhq05Zil3Tc1o5PzWY
-	t2/yg6cKuZojxiDHrvamZ+2D78TWQgfIHOgtMoN7TzOU8+1ulLSJuDXZ26eEaiJA8Ygt4Y31mFX7I
-	O6AKQEF/hoNzZGhQREOsD7zN15PUIrhrnBYjXU0aRtFLsWfOtOAKyOT6A/3aZ4hpB7iWOWtu3eH2W
-	MDFxfqde7pkQl5s/n4Rzz6gJhtg77somea15T0iktcmqP44MILTl2LidaQSI0H8uZaQDIQcjy0bwZ
-	ISysUL7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=il6jYmKN5cX/c+7UWVto+Oj1n4hFtbCu8p1XCz3TiEE=; b=0HbCDi/cCDBtMiZYR+Z7Fp0tmu
+	E69l8N6XrOo2ZmkXUsVe9l46+4BBalnQuur5/qxs0GzzUxtR9OdJncIaxu0ME5s59z6bHf1fr6+i2
+	zo7xZxc/1EElrRTfnycFH5rXWE3j9HbyhBS09A+3hfASY6fAjJkdfvyiPVJyYxf9gzC8zWGzwfI47
+	g6z6FBz7D69d1enaRHfcAf8/EUbmb6PQjgzS3mbgiiIyGS3GBrZ61weTvOi7oeVMZIEcXSEirZNMO
+	idgqnGUAEDe27pKlw1liZQ3ctzBXuGmyfPRsIk1DdIQb7AU5lkzh3b6fF2blgKTprLFMaA6ve4Xep
+	u35KWOFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tleGZ-00000007Hpm-3d0U;
-	Sat, 22 Feb 2025 01:25:15 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1tleMM-00000007IIg-0t1D;
+	Sat, 22 Feb 2025 01:31:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tleF6-00000007HjQ-0n2h;
-	Sat, 22 Feb 2025 01:23:45 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-38f31f7731fso1340513f8f.0;
-        Fri, 21 Feb 2025 17:23:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740187422; x=1740792222; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yhpklwBnBdF83FBre0/tkR3DVtuVLWezPApNRpdK4qw=;
-        b=QiXAgX5ZuT2yPL1K2eMcz65/cifrgaFmQeS9r7CpMANlq2CnjVd4ZcBH/M9OEMDAA+
-         A9++Th4Q4evM0+LU86eLS8OWMfo5EiLZ8PgHztwhSit4FiY0AH2qOC/mOpzQIbT6dv77
-         xu7HlZn+8jO68bmZOaS5fHfA6qVQ/RFRulpOfEBtMfj7mm7ltePh7rJR7w4GernezGr7
-         1jdNlSGRDiAhw4rEi9tzHMCv6U/WW5U937tnqgmgJHPPaimhm6NOrFZGZA9jamXnF4p+
-         yETpW0dJMCYl56ZITcLPG9I9mCdiCGAEUmFq7lnsnBnQIPyTRxENJC67df8Ww9xXWvF3
-         tvlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740187422; x=1740792222;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yhpklwBnBdF83FBre0/tkR3DVtuVLWezPApNRpdK4qw=;
-        b=lg/0ZmmgdWsWKv/53D1TOOVH8FWV1/FQH+Ycbg0ZhBcjkjQ93iMJx0/MUfcH6IBJRz
-         M/y0S8VDFS3lrjB/pFUYmxujqtAkko0Oly6PBGJZv2BDL5p7HMPhuz6flN4lEbggpQVz
-         pku2lcJ+BpuS+rg94Y6fmZ9zlkPoV5liqeeqI/hmQFh9j4HBf1jH0GoUMI5xxok6X2H4
-         RDTycpTv5J/H3Z1rrHOoZK3cDCgpsg/MfM5wZ26O8CMfu/oxxk7sJgOYXEjb2nvWcMre
-         8sG4hN6na2jUXlmX4whZAb/D9OQIl1pNqkCWn5kRD2gl7CN8wyJwPS+76RiMGXI29RXx
-         3jlw==
-X-Forwarded-Encrypted: i=1; AJvYcCUGBzZtP6uZTycCITSQ7b9oQJTVjaH2UxF+QhDOsnjTFWx7tWvuSV0MYa2rv9w9DYpCTNN8vWxT+kuH/W9sa7M0@lists.infradead.org, AJvYcCWM7mIFjcpOqmd1IjI9Q7yYI7lelkpwrPp0fKuctQHpFA04E9uWO3gFQAhSGXrYqetHCWR7PjEUwUrOWKrL0rM=@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywo/qKFWY/z0JzqdPz8MGvyEYu4h/2f35+6U5XVV0qwr9sn4niL
-	bTB/OP89MaLqRbltqwNVr/VkU73BAy/9zpppzdxpVJf/N3YQnj6TiRTISnlkF12165vM/i8wVB5
-	4jriJT4d3GCatmM8l2lBvsUDvZWU=
-X-Gm-Gg: ASbGnctcI5XKECae/s3zZcSjr7mdbtFry0jDDgdp6717sTvhN2xdV3ZU1CBRU/r3hlW
-	CRqEKntnhshGC3bTu4/vnVZ2p4jPED8+yaf8yzu5DHbc3luS+Y6LlHfqu4I+cY4EEf6SONheNLN
-	6Ftew8CeJ/1y0G9uOiBLdJOBbrjimx/cKgJopHVAU=
-X-Google-Smtp-Source: AGHT+IG6BhZoWxIICbyhwCocwO6xXPSTdwoF7JNw6rq6Z7HpxVUaKQWpWlNOEVmxHVYRzUrHtcVK/scClbl6g5MFXm4=
-X-Received: by 2002:a05:6000:1f83:b0:38f:2193:f8c2 with SMTP id
- ffacd0b85a97d-38f6e979541mr4649885f8f.31.1740187421737; Fri, 21 Feb 2025
- 17:23:41 -0800 (PST)
+	id 1tleKs-00000007I9l-0Sdo
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 22 Feb 2025 01:29:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 18D815C5D49;
+	Sat, 22 Feb 2025 01:29:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E390C4CED6;
+	Sat, 22 Feb 2025 01:29:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740187780;
+	bh=M/8afILG/fiSMw6cLfHMqMulnTBlFbWMNBSND4QBAuE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=V8srSeKjQCkRGONBXy9ePBQV4CUVrRdTUDJwg7i/A7oOmgCMNQLWkvMcQ+i/5+i/m
+	 CmOUI/22IW+5nH1nHgxGH0LUJ+SlCtCxMw0OfKEv3N/VS5KXymn2qGzyZzuQr7B/h+
+	 nwBrColLbfUC+1L+d12ux/VnAX533oZobVDJS2vBmJUTvYrMqY9bXDWnVgG6OwfU0F
+	 P29wqoT74KE3Eq4cAOTsOcJ5mL9unybZFJgf6I3msDUHQLlgjRenOKNjbg5PNSstuD
+	 TXU7WnWsCa8XkABpBVycl8MVGYCBomwVkMIHMRiTzgD+OCY6zTqYPig95sNFHudgKs
+	 o+K7owCl1VxAQ==
+Date: Fri, 21 Feb 2025 19:29:38 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20250220041010.3801-1-honyuenkwun@gmail.com> <20250221231340.GS16911@sventech.com>
-In-Reply-To: <20250221231340.GS16911@sventech.com>
-From: Jimmy Hon <honyuenkwun@gmail.com>
-Date: Fri, 21 Feb 2025 19:23:30 -0600
-X-Gm-Features: AWEUYZmVkmKF-0YNx_3i9PYhg9DTepHiFBL2v1CGPi2zlflcOJAt316mjfq3NKU
-Message-ID: <CALWfF7KW8_vAx49nNygKpLHNJQVpjvVdVpzYiTAWgQvSopHikw@mail.gmail.com>
-Subject: Re: [PATCH UNTESTED v5 0/4] Orange Pi 5 Ultra
-To: Johannes Erdfelt <johannes@erdfelt.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ Shawn Guo <shawnguo@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Conor Dooley <conor.dooley@microchip.com>, devicetree@vger.kernel.org, 
+ Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev
+To: Frank Li <Frank.Li@nxp.com>
+In-Reply-To: <20250221-imx95_15x15-v4-0-385ee8e03dfd@nxp.com>
+References: <20250221-imx95_15x15-v4-0-385ee8e03dfd@nxp.com>
+Message-Id: <174018774174.599965.6492650307461479037.robh@kernel.org>
+Subject: Re: [PATCH v4 0/4] arm64: dts: add imx95_15x15_evk boards support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_172344_234203_D9A477A4 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20250221_172942_263383_036DAB49 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,101 +76,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 21, 2025 at 5:13=E2=80=AFPM Johannes Erdfelt <johannes@erdfelt.=
-com> wrote:
->
-> On Wed, Feb 19, 2025, Jimmy Hon <honyuenkwun@gmail.com> wrote:
-> > This patchset is looking for testers. I do not have the hardware to tes=
-t.
->
-> I do have hardware and I gave your branch[1] a test.
-Thanks for the test results
 
->
-> The following things tested successfully for me:
-> - Kernel boots
-> - Ethernet
-> - SPI NOR
-> - Micro SD card
-> - eMMC
-> - Bottom M.2 M-key slot (using an NVME drive)
-> - USB 2.0 ports
-> - Blue LED (using heartbeat trigger at least)
->
-> I did not test:
-> - RTC
-> - UART
-> - HDMI1
-> - HDMI IN
-> - Analog audio
-> - Mali GPU
-> - Heat sink fan
->
-> However, neither of the USB 3.0 ports work. There are no XHCI messages
-> during boot. I confirmed my kernel config does build XHCI. I haven't
-> ruled out a mistake on my end yet.
-Does your kernel config have CONFIG_PHY_ROCKCHIP_USBDP?
-Both USB 3 ports on the Max/Ultra ports are wired to the usbdp
-controller and not combphy2_psu controller.
-It'll be set if you're using the arm64 defconfig.
+On Fri, 21 Feb 2025 16:15:56 -0500, Frank Li wrote:
+> Add related binding doc.
+> 
+> Add imx95_15x15_evk boards, which have big difference with imx95_19x19_evk
+> boards.
+> 
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> Changes in v4:
+> - Add usb typce part
+> - Link to v3: https://lore.kernel.org/r/20250220-imx95_15x15-v3-0-247777ed91c4@nxp.com
+> 
+> Changes in v3:
+> - Add Rob and Conor's ack tags
+> - Remove undocument property (need doube check why dtb-check have not
+> report warning).
+> 
+> - Link to v2: https://lore.kernel.org/r/20250114-imx95_15x15-v2-0-2457483bc99d@nxp.com
+> 
+> Changes in v2:
+> - fixed typo 'inctrl-names'.
+> - Link to v1: https://lore.kernel.org/r/20250113-imx95_15x15-v1-0-8c20cbaab9ed@nxp.com
+> 
+> ---
+> Frank Li (4):
+>       dt-bindings: arm: fsl: add i.MX95 15x15 EVK board
+>       arm64: dts: imx95: Add #io-channel-cells = <1> for adc node
+>       arm64: dts: imx95: Add i3c1 and i3c2
+>       arm64: dts: imx95: Add imx95-15x15-evk support
+> 
+>  Documentation/devicetree/bindings/arm/fsl.yaml    |    1 +
+>  arch/arm64/boot/dts/freescale/Makefile            |    1 +
+>  arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts | 1130 +++++++++++++++++++++
+>  arch/arm64/boot/dts/freescale/imx95.dtsi          |   27 +
+>  4 files changed, 1159 insertions(+)
+> ---
+> base-commit: 3d34d52fb62b250297279c3d95b2562180a44569
+> change-id: 20250110-imx95_15x15-6a64db8c0187
+> 
+> Best regards,
+> ---
+> Frank Li <Frank.Li@nxp.com>
+> 
+> 
+> 
 
-On my Orange Pi 5 Max, dmesg | grep xhci will show (e.g. io mem)
-[    0.769699] xhci-hcd xhci-hcd.4.auto: xHCI Host Controller
-[    0.769919] xhci-hcd xhci-hcd.4.auto: new USB bus registered,
-assigned bus number 1
-[    0.770062] xhci-hcd xhci-hcd.4.auto: hcc params 0x0220fe64 hci
-version 0x110 quirks 0x0000808002000010
-[    0.770119] xhci-hcd xhci-hcd.4.auto: irq 89, io mem 0xfc000000
-[    0.770351] xhci-hcd xhci-hcd.4.auto: xHCI Host Controller
-[    0.770585] xhci-hcd xhci-hcd.4.auto: new USB bus registered,
-assigned bus number 2
-[    0.770602] xhci-hcd xhci-hcd.4.auto: Host supports USB 3.0 SuperSpeed
-[    0.770837] usb usb1: Manufacturer: Linux 6.14.0-rc1-2-rockchip-ARCH xhc=
-i-hcd
-[    0.770844] usb usb1: SerialNumber: xhci-hcd.4.auto
-[    0.772069] usb usb2: Manufacturer: Linux 6.14.0-rc1-2-rockchip-ARCH xhc=
-i-hcd
-[    0.772076] usb usb2: SerialNumber: xhci-hcd.4.auto
-[    0.792369] xhci-hcd xhci-hcd.5.auto: xHCI Host Controller
-[    0.792640] xhci-hcd xhci-hcd.5.auto: new USB bus registered,
-assigned bus number 3
-[    0.792781] xhci-hcd xhci-hcd.5.auto: hcc params 0x0220fe64 hci
-version 0x110 quirks 0x0000808002000010
-[    0.792826] xhci-hcd xhci-hcd.5.auto: irq 90, io mem 0xfc400000
-[    0.793058] xhci-hcd xhci-hcd.5.auto: xHCI Host Controller
-[    0.793311] xhci-hcd xhci-hcd.5.auto: new USB bus registered,
-assigned bus number 4
-[    0.793327] xhci-hcd xhci-hcd.5.auto: Host supports USB 3.0 SuperSpeed
-[    0.793530] usb usb3: Manufacturer: Linux 6.14.0-rc1-2-rockchip-ARCH xhc=
-i-hcd
-[    0.793537] usb usb3: SerialNumber: xhci-hcd.5.auto
-[    0.794703] usb usb4: Manufacturer: Linux 6.14.0-rc1-2-rockchip-ARCH xhc=
-i-hcd
-[    0.794710] usb usb4: SerialNumber: xhci-hcd.5.auto
 
->
-> Also, the green LED is constantly lit even when the trigger is set to
-> none and the brightness is set to 0. This made is a bit harder to
-> confirm that the blue LED was working. I haven't ruled out a mistake on
-> my end for this one yet either.
-Checking the schematic for the Max and the Ultra, they both use
-PWM4_M0 and PWM5_M1 to control the blue and green LEDs.
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-Have you tried booting the vendor BSP 5.10 or 6.1 kernels? What's the
-behavior on those kernels? It's using GPIO pins there, whereas we're
-using PWM to be able to control brightness.
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
->
-> I'll also see if I can give HDMI a test.
-Please report your results when you do. This is one of the differences
-from the Orange Pi 5 Max. The HDMI1 pinctrls does not use the default
-pinctrls like other RK3588 boards (including the Orange Pi 5 Plus).
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
->
-> JE
->
-> [1] https://github.com/jimmyhon/linux/tree/integrate-6.15
->
+  pip3 install dtschema --upgrade
 
-Jimmy
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250221-imx95_15x15-v4-0-385ee8e03dfd@nxp.com:
+
+arch/arm64/boot/dts/freescale/imx95-15x15-evk.dtb: pcie@4c300000: clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie.yaml#
+arch/arm64/boot/dts/freescale/imx95-15x15-evk.dtb: pcie@4c380000: clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie.yaml#
+
+
+
+
+
 
