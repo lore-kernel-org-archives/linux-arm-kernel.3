@@ -4,81 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04426C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 13:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AA9C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 14:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CLXAfmXaGriUIRefxyaQBd27LIBV1HDxn0UO9rquAAE=; b=3BHdkOvlRYPX0r3+GpobRwDaXY
-	lkCDrgg0NOJDV6/3SQtsm+QHOCEAM1DrNpasvfdPvdxWazzLsTaT+1YUTslK6rE9M40d1DNg6FFKY
-	LlGMyBgrN2JV+U4Hp6fX4vcaRNo0rbdZN97hWEJJwV/04r4d81HHjM4UKhJF6l0wO62axjAlpGdqN
-	jH9yPZxIaD7VnStsEBcSkZXaa0UTZ+PLnyjj/ks+2dS/KZF9jUCfcxy+RwN7FND51BfTQqRu1EvU0
-	G9Lcu/YCC2LXwDPGf5v7l+Mqv2pJAPh6QceKH/IY+gJDn6nRf0lbZ/jYFpbz7OZfnXpt1tv7ARkXh
-	dbEb5VYg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Y0JvpEoV6NsVStd76DFiU0ugL16h2lmkndqINTg8pE=; b=OAswxiVpx5ercetZZYVboF46sw
+	mdONtOm+6SgLguCxaLDD67cho0RtCfZoAyS7jeCFPAOamb9IrTTe5F61VrLvBAbpRtj5Z7cBJQAWM
+	t4ILevk3bIVgjl2y2AxZOmGVJ/BtSpMf6KAu7GQcfn6tzzcsme5+5KiCsDcuEt1s/Jf03WknpUGUN
+	gcLWAcW40aKKI7nNSlrU/kfA9rEvHzsW1oQB0JPrriyg1DtGtDC/blJuK70PSS44KpxIgeB+UfYwm
+	WEZRHXlmkCick9WX7t5juBUGztxaoGTBstwQ54Kqr/WSQedq70GTep5CE/LY3PoGXZm6dKtq1mXR9
+	TLJdznhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlppe-000000086ew-1IYG;
-	Sat, 22 Feb 2025 13:46:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tlq70-000000087cG-2lRU;
+	Sat, 22 Feb 2025 14:04:10 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlpiP-000000085z8-0WQt
+	id 1tlq5W-000000087X7-35IG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 13:38:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F05675C57DC;
-	Sat, 22 Feb 2025 13:38:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 63EAAC4CEE8;
-	Sat, 22 Feb 2025 13:38:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740231522;
-	bh=stV9tpnov4yN5EBBC898RB20QY2wQygLqqMwvyDN5Eo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=B0yifpRAfaIfxTZ/0+9c3+UJ6qN5Dz2MYeH33+yGul4+clHOoYOKj7b62QejMT/8g
-	 S2CYW0YgBcPqT15Iel2fnamnYJtolkQujb5QiIQsPTkZdjqLWXT7CU4ksITzjNvJme
-	 3d4WC6R1R5DAgSMl2jSpFMrFEJJBtx0cnCv/iiaAk1XbvL4U+/1lDEIgAQ3UBcvPw3
-	 njE1qDOjvXAQliL9xTzqGJZOjKRdSCHxoWzDjLva1JB9wYfEweoMyEP4bsx9JsX2qP
-	 d6ZJpK0fstVTAsVJaPQsaRyx+bQOaO0r7zTn6AnlWTFK8XsWNWrUJuxSIBDSlNgPIs
-	 12puhG4AUFbeg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 50EF4C021B5;
-	Sat, 22 Feb 2025 13:38:42 +0000 (UTC)
-From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
-Date: Sat, 22 Feb 2025 13:38:34 +0000
-Subject: [PATCH 2/4] i2c: pasemi: Improve error recovery
+	Sat, 22 Feb 2025 14:02:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740232958; x=1771768958;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=cqLdn3pSfdlFMz8BT1qTRt7U9h2eoJo3ZzvxPRvlrbM=;
+  b=fwDKw5k14xHBcS/vQyvXl/wV0ddd3/fp7G8ClVBGM0u6jG+5Z8MuPzIW
+   WoWK5XohjGguVf82zo+e1g3ruzDf7HvNysyplCYnuMEqczuvGN1HZiIXn
+   CHLvPi+NemLCEMKOyqQVnSNnERdNnfC1RgAK7W9aybgI8dkC4v1wEiHP8
+   p1jVDQykYz19GzQnqYGR27tgNL6Ze4/AalW26e05nBiFJCUIAkDPR709B
+   WQ+mrX2rivL+ohpOfE2AUqEce4hKprcVFUq8nRHC6EdNueZacLHqpxgbA
+   T6rVoCYKpWzJElXiSWceBQfsFimxQ7wc2iSYdgHFI2OHdl9ha9Z4c8fpI
+   w==;
+X-CSE-ConnectionGUID: ql14wSimQ4SZox2G4y+Hvg==
+X-CSE-MsgGUID: Et2vJU1OTainyvLILC+lYw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11314"; a="41247809"
+X-IronPort-AV: E=Sophos;i="6.12,310,1728975600"; 
+   d="scan'208";a="41247809"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Feb 2025 06:02:35 -0800
+X-CSE-ConnectionGUID: YpbMq6JwSYqlDX5v5TKBPw==
+X-CSE-MsgGUID: 5foC5zoJSDSp20UImXrUdA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,308,1732608000"; 
+   d="scan'208";a="120722829"
+Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
+  by fmviesa004.fm.intel.com with ESMTP; 22 Feb 2025 06:02:32 -0800
+Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tlq5N-0006d5-2d;
+	Sat, 22 Feb 2025 14:02:29 +0000
+Date: Sat, 22 Feb 2025 22:01:32 +0800
+From: kernel test robot <lkp@intel.com>
+To: Christian Eggers <ceggers@arri.de>,
+	Russell King <linux@armlinux.org.uk>,
+	Yuntao Liu <liuyuntao12@huawei.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-arm-kernel@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-kernel@vger.kernel.org, ceggers@gmx.de,
+	Christian Eggers <ceggers@arri.de>, stable@vger.kernel.org
+Subject: Re: [PATCH] ARM: add KEEP() keyword to ARM_VECTORS
+Message-ID: <202502222158.UhwuvDZv-lkp@intel.com>
+References: <20250221125520.14035-1-ceggers@arri.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250222-pasemi-fixes-v1-2-d7ea33d50c5e@svenpeter.dev>
-References: <20250222-pasemi-fixes-v1-0-d7ea33d50c5e@svenpeter.dev>
-In-Reply-To: <20250222-pasemi-fixes-v1-0-d7ea33d50c5e@svenpeter.dev>
-To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Naveen N Rao <naveen@kernel.org>, Andi Shyti <andi.shyti@kernel.org>
-Cc: linuxppc-dev@lists.ozlabs.org, asahi@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Sven Peter <sven@svenpeter.dev>, 
- Hector Martin <marcan@marcan.st>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4391; i=sven@svenpeter.dev;
- h=from:subject:message-id;
- bh=FOQIV4q7QbwGt8D9/MCWC8cZNMpith++DiclVxlmaig=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ/rOyzHXHGYEMRdvvZQdf+b35HAG7jV1fXEBv+3epzBOj
- Pfwu3K+o5SFQYyDQVZMkWX7fnvTJw/fCC7ddOk9zBxWJpAhDFycAjCRhpmMDGfYv3fz+dwVN3j+
- 47OXaKGTUe2hyf/CpdvNZfxfSR8pY2Rk6BTTbD4r61F6tmjvwZU3dq5/MKWRSXnxd41XE9lvpYp
- PZwYA
-X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
-X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
- auth_id=167
-X-Original-From: Sven Peter <sven@svenpeter.dev>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250221125520.14035-1-ceggers@arri.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_053845_262871_6718D984 
-X-CRM114-Status: GOOD (  17.77  )
+X-CRM114-CacheID: sfid-20250222_060238_889272_F22C4405 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,156 +92,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sven@svenpeter.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hector Martin <marcan@marcan.st>
+Hi Christian,
 
-The hardware (supposedly) has a 25ms timeout for clock stretching
-and the driver uses 100ms which should be plenty. The error
-reocvery itself is however lacking.
+kernel test robot noticed the following build errors:
 
-Add handling for all the missing error condition, and better recovery in
-pasemi_smb_clear(). Also move the timeout to a #define since it's used
-in multiple places now.
+[auto build test ERROR on soc/for-next]
+[also build test ERROR on linus/master v6.14-rc3 next-20250221]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Signed-off-by: Hector Martin <marcan@marcan.st>
-[sven: adjusted commit message after splitting the commit into two]
-Signed-off-by: Sven Peter <sven@svenpeter.dev>
----
- drivers/i2c/busses/i2c-pasemi-core.c | 70 +++++++++++++++++++++++++++++-------
- 1 file changed, 58 insertions(+), 12 deletions(-)
+url:    https://github.com/intel-lab-lkp/linux/commits/Christian-Eggers/ARM-add-KEEP-keyword-to-ARM_VECTORS/20250221-205720
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/20250221125520.14035-1-ceggers%40arri.de
+patch subject: [PATCH] ARM: add KEEP() keyword to ARM_VECTORS
+config: arm-randconfig-003-20250222 (https://download.01.org/0day-ci/archive/20250222/202502222158.UhwuvDZv-lkp@intel.com/config)
+compiler: clang version 16.0.6 (https://github.com/llvm/llvm-project 7cbf1a2591520c2491aa35339f227775f4d3adf6)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250222/202502222158.UhwuvDZv-lkp@intel.com/reproduce)
 
-diff --git a/drivers/i2c/busses/i2c-pasemi-core.c b/drivers/i2c/busses/i2c-pasemi-core.c
-index bd128ab2e2eb..770b86b92a10 100644
---- a/drivers/i2c/busses/i2c-pasemi-core.c
-+++ b/drivers/i2c/busses/i2c-pasemi-core.c
-@@ -52,6 +52,8 @@
- #define CTL_UJM		BIT(8)
- #define CTL_CLK_M	GENMASK(7, 0)
- 
-+#define TRANSFER_TIMEOUT_MS	100
-+
- static inline void reg_write(struct pasemi_smbus *smbus, int reg, int val)
- {
- 	dev_dbg(smbus->dev, "smbus write reg %x val %08x\n", reg, val);
-@@ -80,23 +82,45 @@ static void pasemi_reset(struct pasemi_smbus *smbus)
- 	reinit_completion(&smbus->irq_completion);
- }
- 
--static void pasemi_smb_clear(struct pasemi_smbus *smbus)
-+static int pasemi_smb_clear(struct pasemi_smbus *smbus)
- {
- 	unsigned int status;
-+	int timeout = TRANSFER_TIMEOUT_MS;
- 
- 	status = reg_read(smbus, REG_SMSTA);
-+
-+	/* First wait for the bus to go idle */
-+	while ((status & (SMSTA_XIP | SMSTA_JAM)) && timeout--) {
-+		msleep(1);
-+		status = reg_read(smbus, REG_SMSTA);
-+	}
-+
-+	if (timeout < 0) {
-+		dev_warn(smbus->dev, "Bus is still stuck (status 0x%08x)\n", status);
-+		return -EIO;
-+	}
-+
-+	/* If any badness happened or there is data in the FIFOs, reset the FIFOs */
-+	if ((status & (SMSTA_MRNE | SMSTA_JMD | SMSTA_MTO | SMSTA_TOM | SMSTA_MTN | SMSTA_MTA)) ||
-+		!(status & SMSTA_MTE))
-+		pasemi_reset(smbus);
-+
-+	/* Clear the flags */
- 	reg_write(smbus, REG_SMSTA, status);
-+
-+	return 0;
- }
- 
- static int pasemi_smb_waitready(struct pasemi_smbus *smbus)
- {
--	int timeout = 100;
-+	int timeout = TRANSFER_TIMEOUT_MS;
- 	unsigned int status;
- 
- 	if (smbus->use_irq) {
- 		reinit_completion(&smbus->irq_completion);
--		reg_write(smbus, REG_IMASK, SMSTA_XEN | SMSTA_MTN);
--		wait_for_completion_timeout(&smbus->irq_completion, msecs_to_jiffies(100));
-+		/* XEN should be set when a transaction terminates, whether due to error or not */
-+		reg_write(smbus, REG_IMASK, SMSTA_XEN);
-+		wait_for_completion_timeout(&smbus->irq_completion, msecs_to_jiffies(timeout));
- 		reg_write(smbus, REG_IMASK, 0);
- 		status = reg_read(smbus, REG_SMSTA);
- 	} else {
-@@ -107,16 +131,36 @@ static int pasemi_smb_waitready(struct pasemi_smbus *smbus)
- 		}
- 	}
- 
--	/* Got NACK? */
--	if (status & SMSTA_MTN)
--		return -ENXIO;
-+	/* Controller timeout? */
-+	if (status & SMSTA_TOM) {
-+		dev_warn(smbus->dev, "Controller timeout, status 0x%08x\n", status);
-+		return -EIO;
-+	}
- 
--	if (timeout < 0) {
--		dev_warn(smbus->dev, "Timeout, status 0x%08x\n", status);
--		reg_write(smbus, REG_SMSTA, status);
-+	/* Peripheral timeout? */
-+	if (status & SMSTA_MTO) {
-+		dev_warn(smbus->dev, "Peripheral timeout, status 0x%08x\n", status);
- 		return -ETIME;
- 	}
- 
-+	/* Still stuck in a transaction? */
-+	if (status & SMSTA_XIP) {
-+		dev_warn(smbus->dev, "Bus stuck, status 0x%08x\n", status);
-+		return -EIO;
-+	}
-+
-+	/* Arbitration loss? */
-+	if (status & SMSTA_MTA) {
-+		dev_warn(smbus->dev, "Arbitration loss, status 0x%08x\n", status);
-+		return -EBUSY;
-+	}
-+
-+	/* Got NACK? */
-+	if (status & SMSTA_MTN) {
-+		dev_warn(smbus->dev, "NACK, status 0x%08x\n", status);
-+		return -ENXIO;
-+	}
-+
- 	/* Clear XEN */
- 	reg_write(smbus, REG_SMSTA, SMSTA_XEN);
- 
-@@ -177,7 +221,8 @@ static int pasemi_i2c_xfer(struct i2c_adapter *adapter,
- 	struct pasemi_smbus *smbus = adapter->algo_data;
- 	int ret, i;
- 
--	pasemi_smb_clear(smbus);
-+	if (pasemi_smb_clear(smbus))
-+		return -EIO;
- 
- 	ret = 0;
- 
-@@ -200,7 +245,8 @@ static int pasemi_smb_xfer(struct i2c_adapter *adapter,
- 	addr <<= 1;
- 	read_flag = read_write == I2C_SMBUS_READ;
- 
--	pasemi_smb_clear(smbus);
-+	if (pasemi_smb_clear(smbus))
-+		return -EIO;
- 
- 	switch (size) {
- 	case I2C_SMBUS_QUICK:
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202502222158.UhwuvDZv-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> ld.lld: error: ./arch/arm/kernel/vmlinux.lds:33: ( expected, but got }
+   >>>  __vectors_lma = .; OVERLAY 0xffff0000 : AT(__vectors_lma) { .vectors { KEEP(*(.vectors)) } .vectors.bhb.loop8 { KEEP(*(.vectors.bhb.loop8)) } .vectors.bhb.bpiall { KEEP(*(.vectors.bhb.bpiall)) } } __vectors_start = LOADADDR(.vectors); __vectors_end = LOADADDR(.vectors) + SIZEOF(.vectors); __vectors_bhb_loop8_start = LOADADDR(.vectors.bhb.loop8); __vectors_bhb_loop8_end = LOADADDR(.vectors.bhb.loop8) + SIZEOF(.vectors.bhb.loop8); __vectors_bhb_bpiall_start = LOADADDR(.vectors.bhb.bpiall); __vectors_bhb_bpiall_end = LOADADDR(.vectors.bhb.bpiall) + SIZEOF(.vectors.bhb.bpiall); . = __vectors_lma + SIZEOF(.vectors) + SIZEOF(.vectors.bhb.loop8) + SIZEOF(.vectors.bhb.bpiall); __stubs_lma = .; .stubs ADDR(.vectors) + 0x1000 : AT(__stubs_lma) { *(.stubs) } __stubs_start = LOADADDR(.stubs); __stubs_end = LOADADDR(.stubs) + SIZEOF(.stubs); . = __stubs_lma + SIZEOF(.stubs); PROVIDE(vector_fiq_offset = vector_fiq - ADDR(.vectors));
+   >>>                                                                                           ^
 
 -- 
-2.34.1
-
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
