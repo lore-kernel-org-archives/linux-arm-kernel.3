@@ -4,110 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9408C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 23:45:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B29EC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 23:50:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+KnZ+bHpq3Adbno5MHK+SYpaXqn+rPN2eRCC8cungUg=; b=B990IyEsj2iG/dHzKb0J84byaZ
-	zMbLdw6FOaYwWYD0rX41lWYzGE8LbKZcaMd1yjbXK9cXtAkdr8a/zuTdlgBpyLWEEO3V0xv23I0TB
-	eUuaDXL8qSrIxXvbQJfrcIVQaXY6HpLsMha5nob8QdcgCuHSp8mFXBZoRMdG8/gbh/ef14/SV5zZ8
-	gSMhjrBHwZkx+1gET3ynHKjhrciRjiv+UOAX99obiFMI65NCt1kJVgVfWXoDUq/8XalxtsaYRg9Ae
-	IOoJJSPvFWBklaUCBZ+7//LmWPAjwtY8e6g4Q/9BL/HUve/jYg2kqWhc3R1w4CJb80nizEFhYGcY9
-	MFj3B1kg==;
+	bh=WTZIz+bjsAte8JJ9M5T1Q+oMG2EjP+1wiuG1Z9WAeZU=; b=jtIfegmkngLdr98s7bEGB5VThR
+	DADAOPH+Bidx/jF6Z8KeG8tzsteGeWnlOhGshcyJmj74fczvIzZpTm8/W6udriClCIoTu3lPfl3Jp
+	TRfEXkmKUrTzXrTic1u0ALVf8HZ6b3Iz+TnGTYQKgMV2J/LUqEznOn3yzTgfUNt8S3TOlD3aipOmy
+	pThLwXMSXWizk9iu2QT0PzADQZnRnvdT2OSWrFlvhgeJis+tdzTKD0pH5/hcrinnzWFqz77pW9n3G
+	9irZDKgDiGAcHW08+P0Kw0YfWPq8l/F1vfgqOoszADoS1Dt/tuylarHVIoFcReREfwU6bfNDKRlg6
+	jAxPIwAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlzAv-00000009I1P-0bnC;
-	Sat, 22 Feb 2025 23:44:49 +0000
-Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
+	id 1tlzFw-00000009JFt-0jBM;
+	Sat, 22 Feb 2025 23:50:00 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlz7U-00000009HDl-1s3V
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 23:41:17 +0000
-Received: from phl-compute-13.internal (phl-compute-13.phl.internal [10.202.2.53])
-	by mailfout.phl.internal (Postfix) with ESMTP id B4394138098E;
-	Sat, 22 Feb 2025 18:41:15 -0500 (EST)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-13.internal (MEProxy); Sat, 22 Feb 2025 18:41:15 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1740267675; x=1740354075; bh=+KnZ+bHpq3Adbno5MHK+SYpaXqn+rPN2
-	eRCC8cungUg=; b=VIPasXYgFYZXnBRT1VNix9zYrQg+fBuQiS88EXgxYAB3w6fM
-	hG8bytPl4UWmCOkwi8OrrxMaHhaQsf1oDNv3nbj52/CgFOFjb9zTt0pJTbrEmfS1
-	Kd4BXEKhmxFJgB5DRz8tyAF6pMzSML1B88z6MjYyFlzbp2JNdxi7W1Gm54VtoePR
-	XDCBdvhLMnrP6AZVJfkRYkg9IIQRltVI8PT1AX4a/T7xqXcmPLbmnkS79SdwdTR9
-	CDtSxzpSTYmPd1++v/zMRsiYKDaNBA6C1O26/LMUwmqfL6gocs85H2qyxMkO4hGc
-	6U7yivCuajyWMz0QbnEt3JLuRp5RMnzlGx4e1w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740267675; x=
-	1740354075; bh=+KnZ+bHpq3Adbno5MHK+SYpaXqn+rPN2eRCC8cungUg=; b=N
-	qROBFzdGqd48ACpHZMA4RQ34K7/CbqYwDeYRuhd1zeswpqR8NstOCAD3RW6pZ0PV
-	BH4Myiec7K4535df5NABB39sKb2v1Nsnb9cNPrQaELABK99IXcXXKpRQx/zU4Id0
-	e+AG8gjDbU7DC9LoM75jT9eNH+V+Cc2MuToBDmlt33KrI9zNH9V/3TcVByow01MS
-	xANEZM8QUIr1LBdPygppUWtrCPD4+VpELOwBrs95DP7kychTFjA4jY+HFRuJLWg2
-	B5D7YJqHQI/3klc8qeJy36VqXj2fKha/0Uz7MHrJsNDqRS/8f++/tJesbCq5Kn2d
-	Jw41AOvaWMaXA9odMumaw==
-X-ME-Sender: <xms:m2C6Z0CKr54xzCZX3ePLmZ-I3_J8CBdmV9SQzSf2YfQcuvpOIPgUfw>
-    <xme:m2C6Z2h56YFUIJyrkBEW1M3usrm2Imq4dWgW_TI4gYBNeD3r1s5o7TgkcaDH3ZAM2
-    fLm0D2CdF9fNgtSiA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejgedvjecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
-    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
-    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
-    jeenucfhrhhomhepfdfthigrnhcuhggrlhhklhhinhdfuceorhihrghnsehtvghsthhtoh
-    grshhtrdgtohhmqeenucggtffrrghtthgvrhhnpeeghffgkedtueeiudeukedvveevhfdu
-    uefhhedviefgffduheeuieeihefhfefgveenucevlhhushhtvghrufhiiigvpedvnecurf
-    grrhgrmhepmhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgs
-    pghrtghpthhtohepudefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhgurh
-    gvrdhprhiihiifrghrrgesrghrmhdrtghomhdprhgtphhtthhopeifvghnshestghsihgv
-    rdhorhhgpdhrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtoh
-    hmpdhrtghpthhtohepkhhikhhutghhrghnleeksehgmhgrihhlrdgtohhmpdhrtghpthht
-    ohepmhgrtghrohgrlhhphhgrkedvsehgmhgrihhlrdgtohhmpdhrtghpthhtohepshhimh
-    honhhsrdhphhhilhhiphhpvgesghhmrghilhdrtghomhdprhgtphhtthhopegtohhnohhr
-    odgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvg
-    hlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:m2C6Z3l5vCZ3r4nRVTB4zUpEz5Zm54INr-rWHDQLOnQHOblRzgxhbg>
-    <xmx:m2C6Z6za0QFUiDxuRCN17QEN8gJRBnllq3-hmjctAHdfqAhTsVTbhQ>
-    <xmx:m2C6Z5RnpEu3JDgm9R0IL7k7oZEjZaCYpKK1TW6XVU20H-E7UPqejQ>
-    <xmx:m2C6Z1auZT8EbfpaOZTeBjtGkqQvf5IBDZRSxVV2DtO5KX8LUAtvyQ>
-    <xmx:m2C6Z4JhcubZ1qsHl2-1f2nPREQtGv81LjK19ySJq6RnFgtmzhfE94vK>
-Feedback-ID: idc0145fc:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 854E6BA006F; Sat, 22 Feb 2025 18:41:15 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1tlzER-00000009InD-2NKC;
+	Sat, 22 Feb 2025 23:48:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=WTZIz+bjsAte8JJ9M5T1Q+oMG2EjP+1wiuG1Z9WAeZU=; b=YMDFzjDCtPNHKPfjD/cNfEf636
+	84W1kMpOZOP5nbWjlevNiBa8085bYYJ0Z2+VJEFe81xxNVGXFHXAjlGG52Sthrj5l/cAIa1c6URSn
+	jhWkclGst0ohgIrQ52Vv71oXayU+++0EEucHfyf81XQ8fCWy/LEz8byruA4qHqM0PkVOrMpRG59Sf
+	eqyp3s095mH87oglfc2XYkPTwwcpRN4dckhK9s8keUCYnZOHuvsHwhXjhjW89kFXzhfpqKWnzB1Xs
+	Dg8B1xtx3MnWVN25ZUbI67O/8CwJhWE6lL2grxA5LYpAuFCNh8lCLO849tDsx6aIIXiqjEzyQfe4c
+	85Z08TnA==;
+Received: from i53875a10.versanet.de ([83.135.90.16] helo=phil.fritz.box)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tlzEP-0004TL-AM; Sun, 23 Feb 2025 00:48:25 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: srinivas.kandagatla@linaro.org,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	detlev.casanova@collabora.com,
+	sebastian.reichel@collabora.com
+Subject: Re: (subset) [PATCH RESEND v2 0/6] RK3576 OTP support
+Date: Sun, 23 Feb 2025 00:48:19 +0100
+Message-ID: <174026756675.3008209.3013516959407224193.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250210224510.1194963-1-heiko@sntech.de>
+References: <20250210224510.1194963-1-heiko@sntech.de>
 MIME-Version: 1.0
-Date: Sun, 23 Feb 2025 12:40:54 +1300
-From: "Ryan Walklin" <ryan@testtoast.com>
-To: "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>,
- "Samuel Holland" <samuel@sholland.org>
-Cc: "Andre Przywara" <andre.przywara@arm.com>,
- "Chris Morgan" <macroalpha82@gmail.com>,
- "Hironori KIKUCHI" <kikuchan98@gmail.com>,
- "Philippe Simons" <simons.philippe@gmail.com>, linux-sunxi@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Message-Id: <840e7248-de05-4c96-b743-917649d71dfa@app.fastmail.com>
-In-Reply-To: <4407188.ejJDZkT8p0@jernej-laptop>
-References: <20250216092827.15444-1-ryan@testtoast.com>
- <20250216092827.15444-7-ryan@testtoast.com>
- <4407188.ejJDZkT8p0@jernej-laptop>
-Subject: Re: [PATCH 6/8] arm64: dts: allwinner: h616: add LCD, LVDS and PWM pins
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_154116_571401_A9E9CF8D 
-X-CRM114-Status: UNSURE (   6.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250222_154827_623213_083677A9 
+X-CRM114-Status: GOOD (  11.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,18 +82,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 22 Feb 2025, at 10:48 PM, Jernej =C5=A0krabec wrote:
-> Dne nedelja, 16. februar 2025 ob 10:27:13 Srednjeevropski standardni=20
-> =C4=8Das je Ryan Walklin napisal(a):
->> From: Jernej Skrabec <jernej.skrabec@gmail.com>
->> Add device tree nodes for the LCD, LVDS0, LVDS1 and PWM pins.
->
-> Let's just drop PWM pins. PWM support is not yet implemented and it do=
-esn't
-> fall into display themed patch anyway.
 
-That's fine, this can be re-added when the PWM driver is implemented, an=
-d will squash the backlight and panel nodes in the next patch.
+On Mon, 10 Feb 2025 23:45:04 +0100, Heiko Stuebner wrote:
+> This enables OTP support in the nvmem driver for rk3576.
+> 
+> I expect to pick the clock patch (patch1) and the arm64-dts patch (patch6)
+> myself, after the nvmem-driver and -binding patches have been applied
+> (patches 2-5).
+> 
+> But kept them together for people wanting to try this series.
+> 
+> [...]
 
-Ryan
+Applied, thanks!
+
+[6/6] arm64: dts: rockchip: add rk3576 otp node
+
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
