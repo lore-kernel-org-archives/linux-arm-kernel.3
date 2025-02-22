@@ -4,61 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA2DC021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 21:25:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2962AC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 22:38:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ItGVJzpd1QRW4jASymNDd3wly+TTYF2ez5OzcIPSMM=; b=bm5pwPDMmQrJ5gr+AQAC3sJqs7
-	ncKzvsHo+5zrZXi/rTfCTeEkBEDSFim0wJdDeUCzVDQN4pVPfpglyS/wcq1e73NUACCjlSQJPQsEG
-	SEKvqZplA8PJV/fCYNrrzEJZgP750LQacesNELdlZutwfkJlDtwLCyExo3LKv2i9xCP44CraWhDWs
-	TImav9xFTCIg2+b0KOcwn7drX0sc0BnFoUfNIqA1sj8Tc+Kn7oE9j1sQy0tZSMmOns9d6Rb2uAHQz
-	5JJMZeKNy7DhwSFSdra18bmX9wk2OrdeW22Y9G0ywTuZma7+Jv4H0imNOBetyOh14oV0wKwWPdfYO
-	6gJE2sjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2/GVEbxQ97fbkhIcJUEnqr5o5JOI8aPTh6cyD4iHKT0=; b=bjgFOb3LeCNU4Ouk8uaxXx3Gx+
+	RQibmTheElfMMayp8gbstsCGKQzHeJJRyblBeyonQo2NpsXCgQT7KEDroLdqRCV/bYDhCHMubb7Ih
+	GR2wrzcljnJ5P71N3qk6rJwlwJYNz6gI54cKsSSwWAwY3OWAYF8HqFazrytNtOXeYheJfiwBf4TPh
+	wDG92PlXfZcZxJt16+aLNbR82MUvKdJ65DWbaQZhVX/KUnigMe1swgKuPK7SLx/5RTaDf6RXA18JG
+	tTQJRu/qDHRMj83UDxeUO2b7nI4/49n3QFQOLjw8K/X40WgpGQik41AdryKn81/fv2fKfbEizxYB4
+	OPiSInPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlwzY-00000008odD-1Aj8;
-	Sat, 22 Feb 2025 21:24:56 +0000
-Received: from out.bound.email ([141.193.244.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlwy3-00000008oHH-0u3o;
-	Sat, 22 Feb 2025 21:23:24 +0000
-Received: from mail.sventech.com (localhost [127.0.0.1])
-	by out.bound.email (Postfix) with ESMTP id 7C96A8A312A;
-	Sat, 22 Feb 2025 13:18:20 -0800 (PST)
-Received: by mail.sventech.com (Postfix, from userid 1000)
-	id 6507F160036F; Sat, 22 Feb 2025 13:18:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=erdfelt.com;
-	s=default; t=1740259100;
-	bh=+ItGVJzpd1QRW4jASymNDd3wly+TTYF2ez5OzcIPSMM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZSFAjdv+pu427UJdUHib5bkweP10aVAhDVu9aZwGjrsZ/d06XlnHlttdcPg0Q5iWV
-	 e3LKQrSpDU2jsZ6LYf3DuJX68If9Ubl+Wth2lJie0oS0jxGxzxCySmAfDePxSZ82rX
-	 6Om4uJqyfZvDVg4DlGruvHzq0Y/sof5wAUJGiA7w=
-Date: Sat, 22 Feb 2025 13:18:20 -0800
-From: Johannes Erdfelt <johannes@erdfelt.com>
-To: Jimmy Hon <honyuenkwun@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v7 4/5] arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5
- Ultra
-Message-ID: <20250222211820.GY16911@sventech.com>
-References: <20250222193332.1761-1-honyuenkwun@gmail.com>
- <20250222193332.1761-5-honyuenkwun@gmail.com>
+	id 1tly8p-000000093ci-2PYx;
+	Sat, 22 Feb 2025 22:38:35 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tly7K-000000093KH-3nYo;
+	Sat, 22 Feb 2025 22:37:04 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-439a1e8ba83so31255405e9.3;
+        Sat, 22 Feb 2025 14:37:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1740263821; x=1740868621; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2/GVEbxQ97fbkhIcJUEnqr5o5JOI8aPTh6cyD4iHKT0=;
+        b=f/4ndnN6ZKZ2GvdGgprE3cicEpiGwt56E2DTQjMNYj150pY37FOeYGts2jasBvbgl8
+         KDQpwcRbGcsaCtPwFcIxy+Fqv3IIR1r/EiUym/SvmJHHehB7H4LDZX4OV7+iSTTNuVkf
+         rgtWHTFhIxvX/zZ6jYvFG2vJN5hEFP0XvaN6YRGf/eU46EAbdF4fL9N5nfEkBaqFGHLe
+         wpFz5tNh8Uby9vwwL1J95NFulFYQEjmCsnukQ/3hj7CSZ/zNogs0016L26+oWbK/xRJP
+         ETKY85lvFZmwVGPNkktmNCrSfCE4SuoME4dxouaKU61R9n4EsKvgCSyreq+k0w/l+Ute
+         tFcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740263821; x=1740868621;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2/GVEbxQ97fbkhIcJUEnqr5o5JOI8aPTh6cyD4iHKT0=;
+        b=YizL4sj9+FPGnwRpLV4tJIvIbBVqs5KE1LiIOYzQCByDIWR40uPM+00s9WCFT0nXSq
+         qFIYP8glvlK8y5bKUiZ2jJdkSoyAy5RYKN3o3JqIr1xXY9vd8Dss8Eud8kwCXMRYOpnZ
+         LfLLD8e+qMQMPqS5ojZDRd/4Qi9sS2U+JxAnZlGBD8tkcq6ZXjzbXpEC4YacXxG1/jsJ
+         bg6g+lY+dSyXcSUF08/WNntGZtC/EwCnSWP2w8eOCa5q7l326yfeWbolcKvJ1lnjqSuJ
+         G2RGL85oI+x4IiBXZYZlY0Q6cqz0VLdh8pt9r7WVHuLllGHdNixM7OYHzOkYOlgm6vJi
+         sqUA==
+X-Forwarded-Encrypted: i=1; AJvYcCUj+0q07qJTTdpdkwspJwuv5rDGX0qhLn8j7ooW91XH+KftNsn1QXlgZVGfYAlbYeYzWkq4mWtbjbOD7no0wVQU@lists.infradead.org, AJvYcCVcCwpa61ufTUOAWSaL2eqy14JNEGatk6dwjwE/zxHldMDPKHb0+DkNCfZuR9XwI26kpnRC5KqLR0MzyYJTkCk=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxObbUqX1UG1xzgFZJpVMCkHOaUM+cTC4TORsgrn2DJo6B/LmXM
+	nPsqcTuevb2pO+Ahk8ga161EsL1/L7q+3pLxi/Jmgbol7tLKgasy5m22KacLMQV5fU2K7Zf+318
+	bw0YoA+lO/fIm9No/UXTYSH3nNBM=
+X-Gm-Gg: ASbGnctKj7Bg2YhsOJMKOGjUmwN9tevRiR/qe+oiWxkBfJpWm4XpTKdDkp8uosTQn+/
+	EHGHEdmjKBcS0rTqQXZ0FJGEj5Us6E3k1hjqZDuVtorPLrdnXF0lilLzXqQaxEm9pv1Kv3aTRV1
+	2liBCacQpTvtvf7g79Nzst3Vj9ti7O1MiaZd7IYz8=
+X-Google-Smtp-Source: AGHT+IGHmpDWi6/WtmtOBhBVoA+cMa1qycvf3lB7IeXFUX1UY4PKgFEcR3pytfVzteR2rj111qNX0UWQpuYrewIJGhQ=
+X-Received: by 2002:a05:600c:5489:b0:439:86fb:7326 with SMTP id
+ 5b1f17b1804b1-439aebb5558mr53829545e9.22.1740263820918; Sat, 22 Feb 2025
+ 14:37:00 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250222193332.1761-5-honyuenkwun@gmail.com>
-User-Agent: Mutt/1.11.4 (2019-03-13)
+References: <20250222193332.1761-1-honyuenkwun@gmail.com> <20250222193332.1761-5-honyuenkwun@gmail.com>
+ <20250222211820.GY16911@sventech.com>
+In-Reply-To: <20250222211820.GY16911@sventech.com>
+From: Jimmy Hon <honyuenkwun@gmail.com>
+Date: Sat, 22 Feb 2025 16:36:50 -0600
+X-Gm-Features: AWEUYZl7mqFGT6hL26BmUv2bUvBOH_-pwsfvZ96RvVOY1DCUAzUtL_VvJwDEiN0
+Message-ID: <CALWfF7+82pkOhqpRxCzPMhvdV6_e9o4UGixWMvwj2gStQ9PgLw@mail.gmail.com>
+Subject: Re: [PATCH v7 4/5] arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Ultra
+To: Johannes Erdfelt <johannes@erdfelt.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_132323_412411_62F6CD44 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20250222_143703_092743_78A55218 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,22 +95,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 22, 2025, Jimmy Hon <honyuenkwun@gmail.com> wrote:
-> Enable the only HDMI output port on the Orange Pi 5 Ultra
-> 
-> Signed-off-by: Jimmy Hon <honyuenkwun@gmail.com>
-> ---
->  .../dts/rockchip/rk3588-orangepi-5-ultra.dts  | 42 +++++++++++++++++++
->  1 file changed, 42 insertions(+)
+On Sat, Feb 22, 2025 at 3:18=E2=80=AFPM Johannes Erdfelt <johannes@erdfelt.=
+com> wrote:
+>
+> I've tested this patchset up to this patch. I unfortunately don't have a
+> way to test audio on the HDMI port currently.
+>
+> All of the issues I had previously are fixed in this patchset.
+Thanks for the verification. Will you be sending your Tested-By: for
+patch 3 and 4 then?
 
-I've tested this patchset up to this patch. I unfortunately don't have a
-way to test audio on the HDMI port currently.
+Jimmy
 
-All of the issues I had previously are fixed in this patchset.
-
-Thanks for the work in putting this together, especially without access
-to hardware.
-
-JE
-
+>
+> Thanks for the work in putting this together, especially without access
+> to hardware.
+>
+> JE
+>
 
