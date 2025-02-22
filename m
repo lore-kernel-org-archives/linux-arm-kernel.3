@@ -4,77 +4,187 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AA9C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 20:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3411FC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 20:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WfeTFtl8ycLeQAXrwF465oXgTTKRj57NhCJsCxPUGYw=; b=zRAQCmstTMKwkQsfR4g/IZns+J
-	aA6zR9s/21y3HKxzk354WP443AvjVDPHQYOGL9XRziKXz9RCmjBiOuna0WmYtoXeHvi5SQPqAcx4X
-	hr1SsvH/1F+J5/tI4p46TVnUCCLI0K45fUFYF6areTryV00mBpeYTL1rbCL1Aev5zVEtPfnniJDcN
-	/P30FzBQ27i2Uiao197OsmbDNBdEQtvU12E0q7H7OqMbCfsjAOXb4pjsnNFWRZuKdTwBe9UX7f5w0
-	QofxeNV3CGCBckNtZhp+4sUPIXaO/JFvJzadW5GygxNYQKdbSdTlofFO2toFvlnMabpHwxz13yx4S
-	b9TdUJIQ==;
+	bh=xTEFJXZwygsep9GTXXPqtgNPYIAHMr6rbgthnOHRpYs=; b=T+P+LL0JsRjH0qoZeawlEcKArm
+	75Hy9zteUHRj/xO6GtGdLgZzZmoib2yWqEc5ilIDWa3N7NDdNdFc0ibaEcHDfDfeESJa2W3IGlW45
+	FQ3OBT3++Bg4gCb7BBvPvky2tMwsA58thpVMWDYJmAowpZpfhyoFv2+jv3TmZ7v8fZCnUR8o5JKjk
+	EHVxX7Eq2+L1hidfjInB+qhMpL5hMoS5jkGfrq8MS9bHqOHGTLACl9JCW6ctuf4ySR00EqKKwLCIP
+	bGD8iaQW1wUmWSDUgapj+HJnyw4UCW0gsEdFQqNBpNtz8R9y/ElME1D6cwmzlQ1bCHS3n8jrBVWjm
+	MH7vWFcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlvm3-00000008eOt-2r3K;
-	Sat, 22 Feb 2025 20:06:55 +0000
-Received: from haruka.juszkiewicz.com.pl ([185.243.53.191])
+	id 1tlwaW-00000008jGn-34Bo;
+	Sat, 22 Feb 2025 20:59:04 +0000
+Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlvkZ-00000008eMC-3606
+	id 1tlwZ2-00000008iuH-30bP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 20:05:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=juszkiewicz.com.pl;
-	s=mail; t=1740254719;
-	bh=EOIAAhnvAqcJAfcBLWXpvJ03F0LkIj4if1vHn1h9A1U=;
-	h=Date:To:Cc:References:Subject:From:In-Reply-To:From;
-	b=2bEvC5ISzbx28STGms+5ITnG1jt2OPnuqY7nEjUja7+h2liMiezlffSZuUWyp9FOX
-	 E/8sDUfbuNZHlrflSJM364ctRAIAiwxrQcQBJAgLpAtOITNac8g4G4WZW4jc0BwzMf
-	 SJh3sDd9RSnD9vw0J3s3U8QI6k2UQJ3qu1WBeowBaL9LJ2zpHzpQRUSb4kCaNumFSM
-	 KGHH+3XNIMdrfpdkcnkRh1B1tQhoBaHCUnns7GSwvYh0dY18+r+OjPb702nw+Ygh8O
-	 /nclNCCrweu/6+RGrccjFmHgzDlYzeU+eGC2sXmGEDCOJ3/kI5Vqt39+dkkO/+ZmSX
-	 r4/NwKu5FBPXg==
-Received: from utena.juszkiewicz.com.pl (utena.juszkiewicz.com.pl [158.101.208.177])
-	by haruka.juszkiewicz.com.pl (Postfix) with ESMTPSA id 8A28522AAC;
-	Sat, 22 Feb 2025 21:05:19 +0100 (CET)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3ED1341E75;
-	Sat, 22 Feb 2025 21:05:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=juszkiewicz.com.pl;
-	s=mail; t=1740254718;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WfeTFtl8ycLeQAXrwF465oXgTTKRj57NhCJsCxPUGYw=;
-	b=WdoPDvm8HKFKuut/56zMqqOEsGVIZHXtc3/BZ/250odZuxi2gGjWiYrVZkTYDbxDItcBaH
-	taBshndSUM7s/2PAnNp0oJx+zZtZkx7127+QrHC7gZtiz9R881bAZnT7Ooio8tBrKkMY+F
-	zxaiOPY8/eomQeddNgxUbIs9yYSGpMysOqzLMrpnZZTbOZ4yohNyd9HfCJT9exCLMcVyPz
-	99EFrocwU2bFXWn+Ggr+QH4C7vwOrniG7bVegfWDEplgsXJNAx7Z8jJkTd+XKq2MOpZt+Q
-	Fkk0pEQD2MILDwuilgt8VkknH6OtoV6nK2xy66dP1txokwplJYg90dICVzH0TA==
-Message-ID: <068655e7-2ad7-4497-aca7-4100ad478d99@juszkiewicz.com.pl>
-Date: Sat, 22 Feb 2025 21:05:10 +0100
+	Sat, 22 Feb 2025 20:57:34 +0000
+Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51MKo9LD016579;
+	Sat, 22 Feb 2025 12:57:18 -0800
+Received: from nam10-dm6-obe.outbound.protection.outlook.com (mail-dm6nam10lp2049.outbound.protection.outlook.com [104.47.58.49])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 44yeykrfua-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sat, 22 Feb 2025 12:57:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=a6qtUM/kKFQ2gxGO9yL5FdGNb7cNI3Mr/xbm9b+wFr8ZDH4Z99DppTm4YdXg/gVD0v8otqaMb443LD+P/31vE5nJ/rt75jjqY4YpkRr4EvcGXsGZGoNVgp5JLBslMSzb0kmugPKeBAZggBJAfyeB7POGFJJ+aATDXXeiRk3+4svsljgsiKdQtE9U3q6usuimo4kpARSs0S+truXPkB4ummpz4mn7/pxJGVjkot9Rsnit+h8ltKKSx7DruB1b02u/cyslplxqPn0aa7ZHqy02xyyhG1TiHXELar3dfsqgblyac6fly19CWVtTnSIU8jKKamVCuftVfag/CLyrq1cvjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hQPd7PvTKqhA6s4n24TNfL8QpxgX4OVccQRWTgLj5hQ=;
+ b=I+QWp786ivAvhU0hI+5wldaYGWU8PdHgJxdxKpzD59iyZcO7cVxorV5jjuwKicFyYI71rUTVDy3DKUi9gf07fdBCp2Ga2XtUxK3Tkvy0M8fsFDcOYrCs3/HQsKlk1kqL9nZFmmnv6qkJRZ3GyQ+0GzNCTx/Z0j4VZ3nH+NOyuKx5jMMzANqwKd1dGLxs7B+j3mjGN6ldHtbjogWsVMzjGg73v5J1dSY+FFgwiTbHMwP6wKAQVQFTyigCSsKmJaZhc2rc9S0cFs+DAMcONq7xFZgmsnxvJQJXGL2v3dJ9PBxieBVC1X0w0nxzsFtsp90XoLcRpVw5ijJxx43xGlpz6w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=marvell.com; dmarc=pass action=none header.from=marvell.com;
+ dkim=pass header.d=marvell.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hQPd7PvTKqhA6s4n24TNfL8QpxgX4OVccQRWTgLj5hQ=;
+ b=Hym+9PDYTK5ry/w+4d1KZ2uyNDznmJP4KILVXOUZkDh9GufOgfhhqCBHLXUc33I9zY+Z1q93CvQZx9XYjx/3iPB9LMSdi0IBIAlAwS/w6GQpqtJkhLtv5cd0pv55qRYS0IAVBoISa2HlEBR0fb4svn8LikBPi3+vr1cK57zfD4Q=
+Received: from BY3PR18MB4673.namprd18.prod.outlook.com (2603:10b6:a03:3c4::20)
+ by SJ0PR18MB4430.namprd18.prod.outlook.com (2603:10b6:a03:303::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.18; Sat, 22 Feb
+ 2025 20:57:14 +0000
+Received: from BY3PR18MB4673.namprd18.prod.outlook.com
+ ([fe80::fbd6:a3a:9635:98b5]) by BY3PR18MB4673.namprd18.prod.outlook.com
+ ([fe80::fbd6:a3a:9635:98b5%5]) with mapi id 15.20.8466.016; Sat, 22 Feb 2025
+ 20:57:14 +0000
+From: Wilson Ding <dingwei@marvell.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
+CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "andrew@lunn.ch" <andrew@lunn.ch>,
+        "gregory.clement@bootlin.com" <gregory.clement@bootlin.com>,
+        "sebastian.hesselbarth@gmail.com" <sebastian.hesselbarth@gmail.com>,
+        "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+        "conor+dt@kernel.org"
+	<conor+dt@kernel.org>,
+        "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+        Sanghoon Lee <salee@marvell.com>,
+        Geethasowjanya Akula <gakula@marvell.com>
+Subject: Re: [PATCH v2 1/4] dt-bindings: reset: Add Armada8K reset controller
+Thread-Topic: [PATCH v2 1/4] dt-bindings: reset: Add Armada8K reset controller
+Thread-Index: AQHbhWxZLiQyNPIeNk2TKZdUrH8ckQ==
+Date: Sat, 22 Feb 2025 20:57:13 +0000
+Message-ID: <BY3PR18MB4673F55565B70458E1F3F9A6A7C62@BY3PR18MB4673.namprd18.prod.outlook.com>
+References: <20250220232527.882888-1-dingwei@marvell.com>
+ <20250220232527.882888-2-dingwei@marvell.com>
+ <20250221-icy-flounder-of-potency-ee1a05@krzk-bin>
+ <20250221234041.GA387671-robh@kernel.org>
+In-Reply-To: <20250221234041.GA387671-robh@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BY3PR18MB4673:EE_|SJ0PR18MB4430:EE_
+x-ms-office365-filtering-correlation-id: d775fec0-9bc8-4c90-d618-08dd53837be1
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|13003099007|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?NjFHaDZndjZSU2dyZ3oza3FybnNwdHRqcVNYbFdDM215M3l2a2FwUU1oRFJk?=
+ =?utf-8?B?b3V6T2NLd3RZd1dXeDc5L1FkMDlwT256MnpGUFM3VGtBRnZGeFdIR1lkRzgy?=
+ =?utf-8?B?YjFIQnFpcTZEaVhSbGJyUDRucmJGZklGVzg4WDJqbzUrNDZPcVVpL3BpMmZ2?=
+ =?utf-8?B?bFJZRHJuRDJNWElJQUh6VDRhMjk0NkdxVW9Ua3FuN3FHeDQzQ3AvSHRZWGxz?=
+ =?utf-8?B?cWpWWTBBMFFUQkJIdlZ2d0dDKy9HY1BvbTBKb0ZJUU84TVpZVDFSNjJRVXZt?=
+ =?utf-8?B?MlBFWXJlaW5nRXdGUzlkUmVPSEVQc0lLSlJrazQ2Y3Y4WkNMUVNQaVlNVXNM?=
+ =?utf-8?B?ZXpUK01pallhNXhPV1M1Yk41bW5BTC9obWliYXlFQ0VBbW5pRW8wOHl0VnZh?=
+ =?utf-8?B?UlRuRVZaTlZldzVzL1VjMVNRaXJIcENNNWF3S0RWRDVqU2ZkcGoxaHd5eHBW?=
+ =?utf-8?B?Zm5qM05yMmdIQXJURHBoUVZYUGdCSTlWWVJrNE8yc3pvdUViSnpraU1FbEo5?=
+ =?utf-8?B?NXNubHJYa290cG5OeWM5ZXY1K2phbFdpQ3ZQN1VYUWFVaUl1dHBiR2k0SWRh?=
+ =?utf-8?B?bUQ4NTJBSm4xR1dmbUF2MjFrNm1YY0N1VStiOWVaeWk1Y2lUL2ZjYVIrVTFn?=
+ =?utf-8?B?N2hBcEZJblhwRXZ4NVBDUlFVaWd4WG5CSnBLQ05BTlZERmgyWEcwOEVlT2Z5?=
+ =?utf-8?B?ajdoLzFER2g4Tjh2OTdKek1HQVAxTVQxOEhISmdkSGtzbWZ3dDI2R3ljaHBU?=
+ =?utf-8?B?Z1NSQnhEQmNTVFZnVVRubDFyQ1NhdjJXeWFMRWJ1VGxkRDBoWTBYcmlFaHBq?=
+ =?utf-8?B?WDBvb0NEcUJqQlc0V2dickZDckNXcDgrWkZiaVBHRGptZU80SzIwWlZnd0ZY?=
+ =?utf-8?B?TWEvRGszNDkzSzRETElrNGswRytwZmxDMXF1ODZkOGErVS95RUQwZEhNanFi?=
+ =?utf-8?B?YW9wMS9IRk51WjVSbUE4ZmkrQ2ZBOXR0UVdwVktiWWRoMThJQnhLNkVZU3lw?=
+ =?utf-8?B?MitCdWQyNDllTWJGSFN4Vnltcm1XcGorRkdOb0dWUVRaT0R2UHNMMldsSWdH?=
+ =?utf-8?B?NGdjSVhSblgvckdzWlgveDRiSnRlVW0yMnF6d1I2TzkwNDFjWld0allUVUxU?=
+ =?utf-8?B?b2xTVXREcUxITGJjN1p6eEZ1M0MzNGNvbjByL1JWditQOG90VTBTWVpUU3o0?=
+ =?utf-8?B?Nzl2dE1ReFNCc01WbS9qVkdKeHR1Y3ZwcW9ZSkRHLzl5Y3BMRVRnRFd6UmNi?=
+ =?utf-8?B?cHVJcjE3UzgwRk5FL1JzNEZzS3lqTUZKWUNFWFMwSVRzT1pvdkRIVzNtaVVB?=
+ =?utf-8?B?WVdWNXMxWllsRVVMTnVZQ3dIUlF5Um1zamlsUnJWMFZpSUl0S1M0RVRiSkli?=
+ =?utf-8?B?QWsyYlJIMlBVRjVqMVptMU4raTJabm5TbllnbWFXQ2NZbWVVQmVrd1FYMjFR?=
+ =?utf-8?B?UExuVjNJS2VueEdpNzJUb1ZQeVZPc1dxVHE2Zi9ERm1xZkxyenJ6V0tNaDZK?=
+ =?utf-8?B?MGw4OExiSXBSaFAzMVJFeE9MMElWYnBJeUYvc1ZlT2piUEJvR2R3a1d1L0RK?=
+ =?utf-8?B?K2xzNjFPNXJnOFRXdDFoNm9OUGhKT2dIa09IdzJTYzdZdmdIZFVrTmxiQWpl?=
+ =?utf-8?B?ckNGbWFlRXpDSGxyYUErQjB5RHkwRzFLdnpsRzVuNzAzUzVPUkdPNUFQczMr?=
+ =?utf-8?B?U0V1cE9ldnEyeUhmVUJvdXE3dHhrWG52SCsvS25xRzlraDBjVWlHZUY1aSt1?=
+ =?utf-8?B?eituc0c0dTQ4S0RQODIxejRZVE82dnZGRDZPZFR4TXBib0huUzFDbGppS0xP?=
+ =?utf-8?B?L0FmMDF4NVFOVTArWTAxckJvV2FvN0kwcHhBbmNzekJjelBVVmFzVWwrbHNF?=
+ =?utf-8?Q?19pCHVl8dwT4F?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY3PR18MB4673.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(13003099007)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?alplL3cydHlQa2IzRUhCRUpDWE1USVppTWFsaTRqcnBsTzVZUXZ5WWpuWXJF?=
+ =?utf-8?B?Qk9KajFtaTJiQjNIUDZJMnNjUjVDclBFQ2s1YVdSY1Uyc0YwekxyMGZpRVFP?=
+ =?utf-8?B?V1JQcXJsRTQ5WW5LTy90ais3ckJGb1pQeGFsNmdMcVZwL1ZlbmNOSEU0VDJD?=
+ =?utf-8?B?cjIzcUNwWnAxWUZGRVlibUdwQTJRM3IrNjBWSDdLZ1p4dGhkR3R5V3hrVDhN?=
+ =?utf-8?B?N29nSFhodVB4Rjh2ZkloeHVaUjJ4aEx0R2kzRTJUdmgrYmRza0FLL1BiRXRq?=
+ =?utf-8?B?WVVsbXA1TUlvZmQvblo2Z28vdFVDckhHUlMwVkpwc3pLc3FtTEI3SHVvUklC?=
+ =?utf-8?B?UWhLcTMzRkUxK3AxSFgwTVNZbVRqRU56U0lrNFhMVnRSb25jYVRDVm5FV1BC?=
+ =?utf-8?B?Z2JpN1hCTzRKRXFwY3lsSWNpMXhYdEsyMWo3WFZCdEZpT2xzYzRIZDN5Wlht?=
+ =?utf-8?B?MTFHSGJxUGRpMEd1QUpLMXNOb0p2cHhZTWF0a1BIRVkxczJoSFRRMWdROWNX?=
+ =?utf-8?B?Yk96ZlVmZnJqcUtGNTc2WXE3T3pPMW85bktNdjYvNFdkKzM3TDdBZlZ1YmRw?=
+ =?utf-8?B?M0NCZ0E4RE5xSHR2WUJ5M2hTZjJNK1VLZC9Fd2NGVWJFYWlhU0tGeXJONno2?=
+ =?utf-8?B?d0tCdmtXdlR3Q3ppR2VpUlFhakNFZXZqWG53bW1kZWdxQ1RFRW1ObjdYZUVY?=
+ =?utf-8?B?Yk1UWkwxaC9RdjZPUWhhTy9jS3FHNTZKNnUxdWJLN3lnbUlBa1R1UHkwaWxa?=
+ =?utf-8?B?T3ZCSG5DZFpzaXNTUzNrMHhkTlBRdzFlalRRY1hwd2lvVUZONDdPaHFNclRO?=
+ =?utf-8?B?djZTeFNkekoyUy94N1IrTXIxZklFNlI4ZEJwVEpVQTZQN2dRZDVIQVJrcjl4?=
+ =?utf-8?B?NmxFQUd1RlhaSFVDMVNjSEt6RTRoWWJUT2szTEVYNktTQUpaUDhGVWcrd0hE?=
+ =?utf-8?B?cXJybEU0UVo0K29uS3UyL2lFWEtHdU1oV3NaM1Fvb1RERXN2TkJJSmhkb2tm?=
+ =?utf-8?B?ZkFLaDJpblRxUzl6VVZXVStUWjZxbVlFcTE2NWlJdTIxMER0cTlIclFxSnNx?=
+ =?utf-8?B?Z01Ud2k4aksyK3BJT0Y5cVRPbXdNNjNQWDU3akRIUUxnY2lrTnhyMXFMenh3?=
+ =?utf-8?B?dHFQLzdSR2NITm5EMGNCNS9LODNFN3NHYXFzWmRYZnFvdm85bkdZK290eXZY?=
+ =?utf-8?B?RTZJZ1hXMmpnWExIOEJLSGFlMk5jVkRVdVA2OGtuUjBFZzgwWXh1OGpBSHZo?=
+ =?utf-8?B?QTBQSkt6OTI3WG0xWlRGV24yejluTTFNbjdYNUdMZng0cXduT0NZQWlSWGV3?=
+ =?utf-8?B?NGo4eGdCcmZsTEVWVExsajdrUzNwR2c2Ry9JNnF4aWxhK2VuWW9zZkpabGJT?=
+ =?utf-8?B?eW5UMkQ2MDh5SEphUWhMaUhZV2UzeVZocmFNekd3WmM4VVQrRkxQUDZwRkQz?=
+ =?utf-8?B?YlBEQXhJWG1YYk5jT3VpdUJxMnJPdkFVeDk4RnRiSWl4bnloODYrbkRzWjhR?=
+ =?utf-8?B?c3RuWEgvb1BkQTRCMEhscUgycFJFeUJuY29nck1NYjk3c0JQM1B0bTRIek8w?=
+ =?utf-8?B?bGUwWFJIdUpXSjhJWmlrVlpJK0NRSitFbWp1WUJQSkdHV0wyWkdPbXhwOGpX?=
+ =?utf-8?B?Zk9PdzByNUJVcmxJK1NHcDU0MHh1NktjQzNIaFVmMVlSazJiSWdNaUk4S0V6?=
+ =?utf-8?B?RU5ZYmlGTlNqNVpTdU9ndHRZYnpHVTZqRjFGRDBKVnlhRDhEWlpvMTEzRDNL?=
+ =?utf-8?B?bmpMVkpXa0daRFJtUE1MM0pxbWlYdTZBazlFYWJWZ21xdzFMdElaRTUrU09m?=
+ =?utf-8?B?VTM0UGNoTzgvS1hCZ0tyYkFTVVlXYVhZK2xnRXROVDZqbTRpTk1Ncit2bEJn?=
+ =?utf-8?B?U0U5czdnSzlOQ3dLbkNKaXA3Q1pMVmMzclZLd1ZteERzWGg0MmZhZ09qRlY4?=
+ =?utf-8?B?ZXRkVnhLK1NDQnE2d21Dc04yTmlISDBBNUFOL21uN3pCWGIvRE8ya3MyYXRY?=
+ =?utf-8?B?VVJXbWpLd0xUNm42N0pKUWduOWFoZ05ORnJzNHdncXpCV0hGNGwyekd3RW9R?=
+ =?utf-8?B?L1Z2YUV5WjFBYXRGR3NCVDZ1THNHUG5VbFd6Nno2WHNqQVpYamdvKy9iZlFz?=
+ =?utf-8?Q?VPaI=3D?=
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: peter.chen@cixtech.com
-Cc: arnd@arndb.de, catalin.marinas@arm.com, cix-kernel-upstream@cixtech.com,
- conor+dt@kernel.org, devicetree@vger.kernel.org, fugang.duan@cixtech.com,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, robh@kernel.org, will@kernel.org
-References: <20250220084020.628704-7-peter.chen@cixtech.com>
-Subject: Re: [PATCH 6/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
-From: Marcin Juszkiewicz <marcin@juszkiewicz.com.pl>
-Content-Language: pl-PL, en-GB
-In-Reply-To: <20250220084020.628704-7-peter.chen@cixtech.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-OriginatorOrg: marvell.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BY3PR18MB4673.namprd18.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d775fec0-9bc8-4c90-d618-08dd53837be1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Feb 2025 20:57:14.0299
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 70e1fb47-1155-421d-87fc-2e58f638b6e0
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: EsY0KM1hpYmI5KJOiz8MyuOBKM6ZEgyYKPRFUMSsWywEM29PH+wBznRqABpZQuf2Xpa0M5OvnOXs4yaAmYJ4oQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR18MB4430
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-ORIG-GUID: B7ufZx2zJZblnEGWCWkhrUowYnnPq-4C
+X-Proofpoint-GUID: B7ufZx2zJZblnEGWCWkhrUowYnnPq-4C
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-22_09,2025-02-20_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_120523_976491_581D0BE0 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250222_125732_887326_149858EA 
+X-CRM114-Status: GOOD (  26.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,32 +199,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-> new file mode 100644
-> index 000000000000..d98735f782e0
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-> @@ -0,0 +1,264 @@
-> +// SPDX-License-Identifier: BSD-3-Clause
-> +/*
-> + * Copyright 2025 Cix Technology Group Co., Ltd.
-> + *
-> + */
-> +
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
 
-[..]
 
-> +	arch_timer: timer {
-> +		compatible = "arm,armv8-timer";
-> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
-> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>;
-> +		clock-frequency = <1000000000>;
-> +		interrupt-parent = <&gic>;
-> +		arm,no-tick-in-suspend;
-> +	};
+> -----Original Message-----
+> From: Rob Herring <robh@kernel.org>
+> Sent: Friday, February 21, 2025 3:41 PM
+> To: Krzysztof Kozlowski <krzk@kernel.org>
+> Cc: Wilson Ding <dingwei@marvell.com>; linux-kernel@vger.kernel.org;
+> devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> andrew@lunn.ch; gregory.clement@bootlin.com;
+> sebastian.hesselbarth@gmail.com; krzk+dt@kernel.org; conor+dt@kernel.org;
+> p.zabel@pengutronix.de; Sanghoon Lee <salee@marvell.com>;
+> Geethasowjanya Akula <gakula@marvell.com>
+> Subject: [EXTERNAL] Re: [PATCH v2 1/4] dt-bindings: reset: Add Armada8K
+> reset controller
+>=20
+> On Fri, Feb 21, 2025 at 09:=E2=80=8A46:=E2=80=8A01AM +0100, Krzysztof Koz=
+lowski wrote: > On
+> Thu, Feb 20, 2025 at 03:=E2=80=8A25:=E2=80=8A24PM -0800, Wilson Ding wrot=
+e: > > Add device-
+> tree binding documentation for the Armada8K reset driver. > > > > Signed-=
+off-
+> by:=20
+> On Fri, Feb 21, 2025 at 09:46:01AM +0100, Krzysztof Kozlowski wrote:
+> > On Thu, Feb 20, 2025 at 03:25:24PM -0800, Wilson Ding wrote:
+> > > Add device-tree binding documentation for the Armada8K reset driver.
+> > >
+> > > Signed-off-by: Wilson Ding <dingwei@marvell.com>
+> > > ---
+> > >  .../reset/marvell,armada8k-reset.yaml         | 45 +++++++++++++++++=
+++
+> > >  1 file changed, 45 insertions(+)
+> > >  create mode 100644
+> > > Documentation/devicetree/bindings/reset/marvell,armada8k-reset.yaml
+> > >
+> > > diff --git
+> > > a/Documentation/devicetree/bindings/reset/marvell,armada8k-reset.yam
+> > > l
+> > > b/Documentation/devicetree/bindings/reset/marvell,armada8k-reset.yam
+> > > l
+> > > new file mode 100644
+> > > index 000000000000..b9f7f3c24d3c
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/reset/marvell,armada8k-reset
+> > > +++ .yaml
+> > > @@ -0,0 +1,45 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause) # Copyright
+> > > +2025 Wilson Ding <dingwei@marvell.com> %YAML 1.2
+> > > +---
+> > > +$id:
+> > > +https://urldefense.proofpoint.com/v2/url?u=3Dhttp-3A__devicetree.org_
+> > > +schemas_reset_marvell-2Carmada8k-2Dreset.yaml-
+> 23&d=3DDwIBAg&c=3DnKjWec2
+> > >
+> +b6R0mOyPaz7xtfQ&r=3DsXDQZu4GyqNVDlFUXakSGJl0Dh81ZIPlU26YS4KHGIA
+> &m=3DQ8Y
+> > >
+> +WjAVZaKSaPD0B9Hb3Il6KsiVTSpeB9Br9zI5bqQ9MyW0LQnEdiE2kzdfMRQfa
+> &s=3DVRF
+> > > +OPAwNVByPfjGNG1IWJt_mAet2LVsQmFVALenV7Ck&e=3D
+> > > +$schema:
+> > > +https://urldefense.proofpoint.com/v2/url?u=3Dhttp-3A__devicetree.org_
+> > > +meta-2Dschemas_core.yaml-
+> 23&d=3DDwIBAg&c=3DnKjWec2b6R0mOyPaz7xtfQ&r=3DsXD
+> > >
+> +QZu4GyqNVDlFUXakSGJl0Dh81ZIPlU26YS4KHGIA&m=3DQ8YWjAVZaKSaPD0B
+> 9Hb3Il6K
+> > >
+> +siVTSpeB9Br9zI5bqQ9MyW0LQnEdiE2kzdfMRQfa&s=3D3F_XMbPCmCHx0pRO
+> vv0KP1cZ
+> > > +tvjQBFPSBpdty-yVZjY&e=3D
+> > > +
+> > > +title: Marvell Armada8K reset controller
+> > > +
+> > > +maintainers:
+> > > +  - Wilson Ding <dingwei@marvell.com>
+> > > +
+> > > +description: The reset controller node must be a sub-node of the
+> > > +system
+> > > +  controller node on Armada7K/8K or CN913x SoCs.
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    const: marvell,armada8k-reset
+> > > +
+> > > +  offset:
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > +    description: Offset in the register map for the gpio registers
+> > > + (in bytes)
+> >
+> > That's neither correct nor needed. Your device knows ofsset based on
+> > the compatible.
+>=20
+> Or use 'reg'.
+>=20
+> But really, just add #reset-cells to the parent node. There's no need for=
+ a child
+> node here. The parent needs a specific compatible though.
+>=20
 
-This is not Arm v8.0 SoC so where is non-secure EL2 virtual timer?
+I am not inventing the 'offset' property. I just tried to follow the other =
+existing
+sub-nodes under the same parent node (system-controller). The mvebu-gpio
+driver also uses 'offset' instead of 'reg' for the syscon device (see below=
+). But it
+seems also not correct from your point of view. Now, I am a bit confused wh=
+at
+should be the right scheme for the Armada's system-controller, including GP=
+IO
+and Reset controller. And dt_binding_check complains "system-controller@
+440000:  compatible: ['syscon', 'simple-mfd'] is too short". Can you point =
+me
+any  reference for me to fix these issues.
+
+CP110_LABEL(syscon0): system-controller@440000 {
+	compatible =3D "syscon", "simple-mfd";
+	reg =3D <0x440000 0x1000>;
+
+	CP110_LABEL(clk): clock {
+		compatible =3D "marvell,cp110-clock";
+		#clock-cells =3D <2>;
+	};
+
+	CP110_LABEL(pinctrl): pinctrl {
+		compatible =3D "marvell,armada-8k-cpm-pinctrl";
+	};
+
+	CP110_LABEL(gpio1): gpio@100 {
+		compatible =3D "marvell,armada-8k-gpio";
+		offset =3D <0x100>;
+		#gpio-cells =3D <2>;
+		...
+	};
+
+	CP11X_LABEL(unit_swrst): reset-controller@268 {
+		compatible =3D "marvell,armada8k-reset";
+		offset =3D <0x268>;
+		#reset-cells =3D <1>;
+	};
+
+};
+
+> Rob
 
