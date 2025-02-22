@@ -4,145 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A58C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 16:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC550C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 16:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lrtTbc5CQziED69p9FmcpuzNc3Jz+cizNlIOb2T2l/g=; b=oosm5V/veiVSJMbrh91iMNnBxL
-	YzkmPuBFT9wi7SJZ81+bWUzHsmS0aq8M//FCC3MRFyoYz1/v24JMtdjQZEXEqY6q3BIF3j8MkY024
-	/PRj19BvJGVmeK18JV0KATDKeAjh2SCuQaL9AN8Zs7rCF0iiRlPNGU1gOFwYQrGPdNZHUfLpumSEU
-	bVewmqwvy8ASKu29pEBifdOky/yowoZX1XiZVtl7ehu14s/zYyhMi2Mm0vdRZFqvv/Pwcj16ZYaDj
-	LCz1eTTMNMIz4+claZ7jWpG6yCGI8hV6pREJB+VD2jUxrHCXdFadL+6lJaql/fonvtB3HVa4fLVaK
-	vI6PsSMA==;
+	bh=m6nKOO+ujfvI6kP5NRUFljlra8jwiaSae/QIEC4vlMk=; b=Xvg8ubD/WvCKp35uesvYM43u84
+	YsNskRAwOiWtpUWK2DLMOfKML288TrX5ekU93ADA9MoIgWPISt7LBHoWjJ6wn0AFrcZ2fcZaLWo2e
+	S42zzrnmOFJjYo0bs9NF52F3KfyzdOssxHkBIErPno4iFDovWKDxvb5aUfZuRQl+nRhHA/0SHDozZ
+	mftpsyqaRepN3gN4LWGr0tI7slY84u1KOMTc65merObaVEnbMz4S3ocTwZfzfuUfYY1mABR/cPd2T
+	8cWPBcdNdsr0r62yZY8e1EksVQDILe6bHdCWo0JNrUUUWcmmma5FBSiRrMHF3PWI5Io3e1vhltR1u
+	fEZWR/iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlsBc-00000008LAy-1xaa;
-	Sat, 22 Feb 2025 16:17:04 +0000
-Received: from mail-dm6nam12on20602.outbound.protection.outlook.com ([2a01:111:f403:2417::602] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1tlsD3-00000008LJt-0f5G;
+	Sat, 22 Feb 2025 16:18:33 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlrqI-00000008INB-0Wwv
+	id 1tls3Y-00000008KHg-0Vjo
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 15:55:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FqGwX/0Lony2UBQQLKZE6XwkYyMTzm+DLKfOisf1SMnAMQE0g0gdLCWUZ2aCNIxCwQsQbVvQ8B9xAya8j5FTC6COJ/E539qnE8r1uoEmhpqHfUfWUsebiI1ufiIOVagu5pi0K0NlHz5cwhjLP8TEnQKsr234Rlu3NmdC1I11HGfd+eQBU8tX1UeNKnSCt6+KWcx+n7d0+c65nbH5IlBaPnIPy9CyZTUlqnFCYzWoXNUosh5Krh3UFGhzpxByjEvG9p6Vzxfjhae6wJ8E6qSkRXSOJmfuZ+IL4t0WYcciDQgndh9jo0fx6gAno9xT8wWpbVdqzEN0qVDyvCTuyI0j/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lrtTbc5CQziED69p9FmcpuzNc3Jz+cizNlIOb2T2l/g=;
- b=YFo5OTR5NG3s4uAPrbzsjkBAuYT/7HNIp5vu2g5uw6GwXkdjV4cxruizh2lcZHrT6lS84FP2z0YH/9AagejSl2EMOUMNX9RriFDzzs8TY/vOKKp9JB7C+wbrfKoJr8ZjMhlnaMCQGS178vzBX/6IQ6/lCsEKFs7T0eu790yc6DhA386udVfN1JPXDFA7VrSh1iY08ygzT8SpK6lWjyZ3BVCGf3JvYnFa+lMaiK9guDxbuT5LcNIVxub3pOd8Ltc3Hwa/r8ePhi3UvtTQ01bfo2fC48XqkHnvOce9a6Op7BJkknY/3i0Hdm8Iijmuc7DHXdtzIZ2Iiw3R6vq6od9Zqg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lrtTbc5CQziED69p9FmcpuzNc3Jz+cizNlIOb2T2l/g=;
- b=eDTfdZ7MZ+4rfjnfl6NUcN6HGp12EZAjE0qf4OEwkq6Iw9ezPdFB9DVw+dAG8IL/UEnGm0LCRXUKRwyeKkoXtxf+7EN5FJXIsokFSCCIJoZVT1l05LN+YrcHsY6vQURgFSlCuS74f6IKYuApzEDaS6DMZ0DcIQAbjysbC+BV52UuSLiyo6yM92wi0Tl0FMhy1ybOPFbDtlktRBNAYEFajw/PDt7qk7oruytfVELv+xKdb+TVvgfbneYhwCxaM66uFGHizioXpfzbDyQRswW3NftO234wFksl0B9WWflQknN2d3xb+9Y3sGZ+4IdHt+c6hfXmdWFREh8NN43L6DiFpA==
-Received: from CH2PR15CA0025.namprd15.prod.outlook.com (2603:10b6:610:51::35)
- by BY5PR12MB4052.namprd12.prod.outlook.com (2603:10b6:a03:209::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.18; Sat, 22 Feb
- 2025 15:54:49 +0000
-Received: from DS2PEPF0000343A.namprd02.prod.outlook.com
- (2603:10b6:610:51:cafe::7f) by CH2PR15CA0025.outlook.office365.com
- (2603:10b6:610:51::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8466.15 via Frontend Transport; Sat,
- 22 Feb 2025 15:54:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- DS2PEPF0000343A.mail.protection.outlook.com (10.167.18.37) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8466.11 via Frontend Transport; Sat, 22 Feb 2025 15:54:49 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Sat, 22 Feb
- 2025 07:54:37 -0800
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Sat, 22 Feb
- 2025 07:54:36 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
- Transport; Sat, 22 Feb 2025 07:54:35 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>
-CC: <joro@8bytes.org>, <suravee.suthikulpanit@amd.com>,
-	<robin.murphy@arm.com>, <dwmw2@infradead.org>, <baolu.lu@linux.intel.com>,
-	<shuah@kernel.org>, <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
-	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
-	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
-	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
-	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <praan@google.com>,
-	<patches@lists.linux.dev>
-Subject: [PATCH v7 13/14] iommu/arm-smmu-v3: Report events that belong to devices attached to vIOMMU
-Date: Sat, 22 Feb 2025 07:54:10 -0800
-Message-ID: <b1930038cf828dc13c080e2b46b3003a8c98ef24.1740238876.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1740238876.git.nicolinc@nvidia.com>
-References: <cover.1740238876.git.nicolinc@nvidia.com>
+	Sat, 22 Feb 2025 16:08:45 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2211cd4463cso61530045ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Feb 2025 08:08:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1740240523; x=1740845323; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=m6nKOO+ujfvI6kP5NRUFljlra8jwiaSae/QIEC4vlMk=;
+        b=C2Qp7VIcAr8g6HG9TTQMBA7Hw6FQsMwLCy95L2QW86l6rD8YZnHByreBvdMgJfoJcd
+         TnEjQ15HbaMCHnJLuM9JCzeL2I65rbJDGWJdv3ZTEXCCYq13MBDY0orWwg/BBhMcsy36
+         b39ut1XRqNXD+P60dUr6jAaWS+RjdJ/dkI2Bnn0pWBZtswW5Z0yTbm8WayfHpz5VxnI0
+         VL/dl77AMjiGlCLdUI5YOvmM1fnEolrmP7CKQLeMsyOT0TIJRC7+Ps7xB11xjtSNqHEx
+         DXbCNfwXKkJFeZEhZO7Uipu4bzTnCObwKyAMvg0RGMke1CWkSS/OO00OZt3WpQzx2sYc
+         uWUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1740240523; x=1740845323;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=m6nKOO+ujfvI6kP5NRUFljlra8jwiaSae/QIEC4vlMk=;
+        b=OLd0Lc1RBzmM73auO1uW8mzjqBF8q7LGqlBCIcT/fyh94EEjWqD7aVMc7NdguossCq
+         3bgeGT6fwDWnphK9qxOjX0TNkeOtcNAbQxSv9jdkipHbYv4+uxshSI57AcYGz6ymWGJy
+         vLZ5TWvu3WNnKZTm1U+J77ibD4o53KaEE+TCViXuupgl5krJ8aocvqs0i3TD3hWhpV00
+         BAOiaAcYoXA0k/i2/QYka1u1OZ6HLNYwcK3HZMt98A1+D5o9XTe/FIAQlw/s2zQh3rHM
+         qGAQbQCqq9LvDwSPh2VomaTZn4RHO5ZLmW37vltIyWdtxZkuMeitCZ6Ab1GQvR1lxAny
+         ozjA==
+X-Forwarded-Encrypted: i=1; AJvYcCVaQWEQlj1sjBmeVD5p2Jfg7uwT/TAkZPYWp/Apvnw2hM+8DBKWS7/gt8yet8IczfiVzMHYeWiTtsFORC+8TJBx@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVuiQyET4NvJoe6jf1jS69Ek/2cPPycsVnaMITc2oZQh8TGdxb
+	Dgd4BexOWACkTeAlSYw4VsgnXRt/IqeE7CcpC50gRfCPExMW0xaDGplMEkD/QA==
+X-Gm-Gg: ASbGncvC4hr02GhHTZ4fdxbBzE6cM/44fVqM9qmj7On1nKXJrOprgm1uEK3S6aHmV6E
+	MSpXpzlwdJu5zBchpYLVjZyemZDxJT16gV2NchWWR2H3UVm5O+2gYnTHrQyJgD/Q2WbB+Wcj9TL
+	Bb0ynXsmyxDC5lPjNL+HkoMGbglGjAXhUpJ2gBmZwEKwZQnhvlkTq3EP9YMz5Bh6LprB4LvoHHk
+	WRcgNShvenboazsx0E2V+dzYdzrl51cOieErlt0bOxnVI2ZJraegln4pu186ts1SrcadoK4uCfU
+	Lou8yO9IXsYwpkBNFr8Cl+h4LjOoCMgtHziJFw==
+X-Google-Smtp-Source: AGHT+IHN0WlvX+IkHk8JMgEJNSbtnqx/TMfpzaynwWxX8s++M0aKqed9Cxvgkv+KhaqAUxrXEQr99g==
+X-Received: by 2002:a17:902:e80b:b0:215:44fe:163e with SMTP id d9443c01a7336-2219ff34b52mr134423285ad.1.1740240522821;
+        Sat, 22 Feb 2025 08:08:42 -0800 (PST)
+Received: from thinkpad ([120.60.135.149])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fceb02d7dasm3319824a91.5.2025.02.22.08.08.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 22 Feb 2025 08:08:42 -0800 (PST)
+Date: Sat, 22 Feb 2025 21:38:37 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 2/2] PCI: dw-rockchip: hide broken ATS capability
+Message-ID: <20250222160837.mropn3laiyv3acaa@thinkpad>
+References: <20250221202646.395252-3-cassel@kernel.org>
+ <20250221202646.395252-4-cassel@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF0000343A:EE_|BY5PR12MB4052:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0b83a5fd-a0a6-4e49-2062-08dd53593cb8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bMwEKbcRY7Vqzc7vhC6pw1/QeZ4s/NWuZgDlyO7UoIn1MqYRhQWc/TG/jNvQ?=
- =?us-ascii?Q?Kk5ECSw2ssuhWFNh3jz7Mjl7w3yRt8deaYF8QTSNnDbj+qnaTqOGN7l2byYF?=
- =?us-ascii?Q?OsLiIXFHH+e2BHEkyzB93Ll9E5kCDL1RwJVNHMWph+wLi3ahRavxRk6ndcva?=
- =?us-ascii?Q?i69BRSsftK5S+kgbeZmNUGQBmOkvc+TaAvsUXncwg5i7YsL2b99oDtT+tMMQ?=
- =?us-ascii?Q?R2JX9sHyOSj9n9bxyDbQdGNRi5DS0xD8PozeXMVnqcFDQQS7AaHph91QsjmJ?=
- =?us-ascii?Q?UyNB8UPT/kKD5vCIgE4dyOSWJ4R0v8B0SJN7nouM1yscLNpvCMV1Qa5ABQB/?=
- =?us-ascii?Q?3yH59HUvfwqDrvqS9npbTRXj2fj/08womxUTaQopVjX90mb3e6LgY707hnpD?=
- =?us-ascii?Q?tKQDEB0q3xyvGW3IsdiVtxtrdmXj9lpkrvtAitVLPucQbRT1L9OIRQUioQ69?=
- =?us-ascii?Q?zG+v3QJjIGdm7mnGnn2ZB+nfzUVOGj6HK/jlm38oUwWYTn7cCnXlwKMLijIh?=
- =?us-ascii?Q?OF0dbS6fSq4CEUKLe0B75q6OKVxQSzmvkqypLKOAQR7buGlfZBJIX8MHlWwz?=
- =?us-ascii?Q?lgcssjoi/bX4Xuz3nwuixd9XPQ+Mu7FHaKTplosSgximP6E2HRjiZif9rGHR?=
- =?us-ascii?Q?0M43ACO9OcTusAXvr1gFZi5upkNH1Vfm6aY5L8uX44emrf2E1X3BUwiiSmj2?=
- =?us-ascii?Q?FOedElLbtXAOUg/kLOvp76jjQtlrILYi68qXGzCZe9rB0vFIxWby1N1H6OlG?=
- =?us-ascii?Q?zbu9KqNBiXlZwZ2jcYVtXG/BYN6UIlKm1GaHDhE8gDvJBj6F8pAFct2kiPmu?=
- =?us-ascii?Q?zAcPA4Su/IKrBCCvC66T4MQ6UgwI0pys/4lN5pQEs2+Q0euEJ57Rco8B5qwF?=
- =?us-ascii?Q?3af4zNn0a8Y9nj+I0rt79XLWz42PCGu0ndcTqF0zbEhZl/liJ5cM348lv/4c?=
- =?us-ascii?Q?ZZwGejd8MaoXEt6j7TVKbSHfB1+0bsTZww/FIQVDeo5zt47a16Zaq5hUwCls?=
- =?us-ascii?Q?bxoHp2gMHJjMaI+ukVmmt7F94ESP5F774xV9bJ7dqIsxNgKU+Nv6DY7fdBYy?=
- =?us-ascii?Q?1D64JWYsLL9EkNBiaftk76K8S/hcDFZ7+TMah9GWGb9dsUZ58acGG1UEKwr3?=
- =?us-ascii?Q?RnCpXI5KVXZ112VPxzbrlKkgcj/EdSrGvl0m391Wi4q88upidAsPyulGLY/N?=
- =?us-ascii?Q?oJZOT3ua91LhUZckTtqy5rHr9WmMtu3Om0/V3EoV4BrtH5adX8DCnGhOGGzN?=
- =?us-ascii?Q?4N72MdK870eJ95kMI6VAo1nfPMF2JPhRVyGcL0EAk1nIDdUnGKJKbdHUdtzC?=
- =?us-ascii?Q?0xc3ZqcA3JJA7RAAYVKJ9xq8RHo3/vQlwCMbdtORv54FQbPLA1MNLHsF0uEs?=
- =?us-ascii?Q?uG91J+yOQqS0ld1XMYfCYS9WH76j1m/aUWY7m3PU/csBlNuHxgSXwe6c4wsm?=
- =?us-ascii?Q?vBYTRrEa1AoG7+GFXZePihGpnTtuh1MfGTST3Hb7HVqsUt3MM4P5PEmvldh/?=
- =?us-ascii?Q?AFGKcXJ4Mz+PlvU=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Feb 2025 15:54:49.0966
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0b83a5fd-a0a6-4e49-2062-08dd53593cb8
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF0000343A.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4052
+In-Reply-To: <20250221202646.395252-4-cassel@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_075502_206794_64C3A4A0 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20250222_080844_173203_AF41A695 
+X-CRM114-Status: GOOD (  32.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,214 +105,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Aside from the IOPF framework, iommufd provides an additional pathway to
-report hardware events, via the vEVENTQ of vIOMMU infrastructure.
+On Fri, Feb 21, 2025 at 09:26:48PM +0100, Niklas Cassel wrote:
+> When running the rk3588 in endpoint mode, with an Intel host with IOMMU
+> enabled, the host side prints:
+> DMAR: VT-d detected Invalidation Time-out Error: SID 0
+> 
+> When running the rk3588 in endpoint mode, with an AMD host with IOMMU
+> enabled, the host side prints:
+> iommu ivhd0: AMD-Vi: Event logged [IOTLB_INV_TIMEOUT device=63:00.0 address=0x42b5b01a0]
+> 
+> Usually, to handle these issues, we add a quirk for the PCI vendor and
+> device ID in drivers/pci/quirks.c with quirk_no_ats(). That is because
+> we cannot usually modify the capabilities on the EP side.
+> 
+> In this case, we can modify the capabilties on the EP side. Thus, hide the
+> broken ATS capability on rk3588 when running in EP mode. That way,
+> we don't need any quirk on the host side, and we see no errors on the host
+> side, and we can run pci_endpoint_test successfully, with the IOMMU
+> enabled on the host side.
+> 
+> Signed-off-by: Niklas Cassel <cassel@kernel.org>
+> ---
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 46 +++++++++++++++++++
+>  1 file changed, 46 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 836ea10eafbb..2be005c1a161 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -242,6 +242,51 @@ static const struct dw_pcie_host_ops rockchip_pcie_host_ops = {
+>  	.init = rockchip_pcie_host_init,
+>  };
+>  
+> +/*
+> + * ATS does not work on rk3588 when running in EP mode.
+> + * After a host has enabled ATS on the EP side, it will send an IOTLB
+> + * invalidation request to the EP side. The rk3588 will never send a completion
+> + * back and eventually the host will print an IOTLB_INV_TIMEOUT error, and the
+> + * EP will not be operational. If we hide the ATS cap, things work as expected.
+> + */
+> +static void rockchip_pcie_ep_hide_broken_ats_cap_rk3588(struct dw_pcie_ep *ep)
+> +{
+> +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+> +	struct device *dev = pci->dev;
+> +	unsigned int spcie_cap_offset, next_cap_offset;
+> +	u32 spcie_cap_header, next_cap_header;
+> +
+> +	/* only hide the ATS cap for rk3588 running in EP mode */
+> +	if (!of_device_is_compatible(dev->of_node, "rockchip,rk3588-pcie-ep"))
+> +		return;
 
-Define an iommu_vevent_arm_smmuv3 uAPI structure, and report stage-1 events
-in the threaded IRQ handler. Also, add another four event record types that
-can be forwarded to a VM.
+Compatible checks always tend to extend. So please use a boolean flag to
+identify the quirk in 'struct rockchip_pcie_of_data' and set it in
+'rockchip_pcie_ep_of_data_rk3588'. This way, other SoCs could also reuse the
+flag if required.
 
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  7 +++
- include/uapi/linux/iommufd.h                  | 23 +++++++
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 17 ++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 60 +++++++++++--------
- 4 files changed, 82 insertions(+), 25 deletions(-)
+> +
+> +	spcie_cap_offset = dw_pcie_find_ext_capability(pci, PCI_EXT_CAP_ID_SECPCI);
+> +	if (!spcie_cap_offset)
+> +		return;
+> +
+> +	spcie_cap_header = dw_pcie_readl_dbi(pci, spcie_cap_offset);
+> +	next_cap_offset = PCI_EXT_CAP_NEXT(spcie_cap_header);
+> +
+> +	next_cap_header = dw_pcie_readl_dbi(pci, next_cap_offset);
+> +	if (PCI_EXT_CAP_ID(next_cap_header) != PCI_EXT_CAP_ID_ATS)
+> +		return;
+> +
+> +	/* clear next ptr */
+> +	spcie_cap_header &= ~GENMASK(31, 20);
+> +
+> +	/* set next ptr to next ptr of ATS_CAP */
+> +	spcie_cap_header |= next_cap_header & GENMASK(31, 20);
+> +
+> +	dw_pcie_dbi_ro_wr_en(pci);
+> +	dw_pcie_writel_dbi(pci, spcie_cap_offset, spcie_cap_header);
+> +	dw_pcie_dbi_ro_wr_dis(pci);
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 85352504343b..c8574969e700 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -1067,6 +1067,7 @@ int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
- 				    struct iommu_domain *domain);
- void arm_smmu_attach_commit_vmaster(struct arm_smmu_attach_state *state);
- void arm_smmu_master_clear_vmaster(struct arm_smmu_master *master);
-+int arm_vmaster_report_event(struct arm_smmu_vmaster *vmaster, u64 *evt);
- #else
- #define arm_smmu_hw_info NULL
- #define arm_vsmmu_alloc NULL
-@@ -1085,6 +1086,12 @@ arm_smmu_attach_commit_vmaster(struct arm_smmu_attach_state *state)
- static inline void arm_smmu_master_clear_vmaster(struct arm_smmu_master *master)
- {
- }
-+
-+static inline int arm_vmaster_report_event(struct arm_smmu_vmaster *vmaster,
-+					   u64 *evt)
-+{
-+	return -EOPNOTSUPP;
-+}
- #endif /* CONFIG_ARM_SMMU_V3_IOMMUFD */
- 
- #endif /* _ARM_SMMU_V3_H */
-diff --git a/include/uapi/linux/iommufd.h b/include/uapi/linux/iommufd.h
-index 2ade4839880d..5fc7e27804b7 100644
---- a/include/uapi/linux/iommufd.h
-+++ b/include/uapi/linux/iommufd.h
-@@ -1054,9 +1054,32 @@ struct iommufd_vevent_header {
- /**
-  * enum iommu_veventq_type - Virtual Event Queue Type
-  * @IOMMU_VEVENTQ_TYPE_DEFAULT: Reserved for future use
-+ * @IOMMU_VEVENTQ_TYPE_ARM_SMMUV3: ARM SMMUv3 Virtual Event Queue
-  */
- enum iommu_veventq_type {
- 	IOMMU_VEVENTQ_TYPE_DEFAULT = 0,
-+	IOMMU_VEVENTQ_TYPE_ARM_SMMUV3 = 1,
-+};
-+
-+/**
-+ * struct iommu_vevent_arm_smmuv3 - ARM SMMUv3 Virtual Event
-+ *                                  (IOMMU_VEVENTQ_TYPE_ARM_SMMUV3)
-+ * @evt: 256-bit ARM SMMUv3 Event record, little-endian.
-+ *       Reported event records: (Refer to "7.3 Event records" in SMMUv3 HW Spec)
-+ *       - 0x04 C_BAD_STE
-+ *       - 0x06 F_STREAM_DISABLED
-+ *       - 0x08 C_BAD_SUBSTREAMID
-+ *       - 0x0a C_BAD_CD
-+ *       - 0x10 F_TRANSLATION
-+ *       - 0x11 F_ADDR_SIZE
-+ *       - 0x12 F_ACCESS
-+ *       - 0x13 F_PERMISSION
-+ *
-+ * StreamID field reports a virtual device ID. To receive a virtual event for a
-+ * device, a vDEVICE must be allocated via IOMMU_VDEVICE_ALLOC.
-+ */
-+struct iommu_vevent_arm_smmuv3 {
-+	__aligned_le64 evt[4];
- };
- 
- /**
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index 364d8469a480..42c7daf4c8c7 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -445,4 +445,21 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
- 	return &vsmmu->core;
- }
- 
-+int arm_vmaster_report_event(struct arm_smmu_vmaster *vmaster, u64 *evt)
-+{
-+	struct iommu_vevent_arm_smmuv3 vevt;
-+	int i;
-+
-+	lockdep_assert_held(&vmaster->vsmmu->smmu->streams_mutex);
-+
-+	vevt.evt[0] = cpu_to_le64((evt[0] & ~EVTQ_0_SID) |
-+				  FIELD_PREP(EVTQ_0_SID, vmaster->vsid));
-+	for (i = 1; i < EVTQ_ENT_DWORDS; i++)
-+		vevt.evt[i] = cpu_to_le64(evt[i]);
-+
-+	return iommufd_viommu_report_event(&vmaster->vsmmu->core,
-+					   IOMMU_VEVENTQ_TYPE_ARM_SMMUV3, &vevt,
-+					   sizeof(vevt));
-+}
-+
- MODULE_IMPORT_NS("IOMMUFD");
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 9e50bcee69d1..fdf8bba14303 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -1813,8 +1813,8 @@ static void arm_smmu_decode_event(struct arm_smmu_device *smmu, u64 *raw,
- 	mutex_unlock(&smmu->streams_mutex);
- }
- 
--static int arm_smmu_handle_event(struct arm_smmu_device *smmu,
--			       struct arm_smmu_event *event)
-+static int arm_smmu_handle_event(struct arm_smmu_device *smmu, u64 *evt,
-+				 struct arm_smmu_event *event)
- {
- 	int ret = 0;
- 	u32 perm = 0;
-@@ -1823,6 +1823,10 @@ static int arm_smmu_handle_event(struct arm_smmu_device *smmu,
- 	struct iommu_fault *flt = &fault_evt.fault;
- 
- 	switch (event->id) {
-+	case EVT_ID_BAD_STE_CONFIG:
-+	case EVT_ID_STREAM_DISABLED_FAULT:
-+	case EVT_ID_BAD_SUBSTREAMID_CONFIG:
-+	case EVT_ID_BAD_CD_CONFIG:
- 	case EVT_ID_TRANSLATION_FAULT:
- 	case EVT_ID_ADDR_SIZE_FAULT:
- 	case EVT_ID_ACCESS_FAULT:
-@@ -1832,31 +1836,30 @@ static int arm_smmu_handle_event(struct arm_smmu_device *smmu,
- 		return -EOPNOTSUPP;
- 	}
- 
--	if (!event->stall)
--		return -EOPNOTSUPP;
--
--	if (event->read)
--		perm |= IOMMU_FAULT_PERM_READ;
--	else
--		perm |= IOMMU_FAULT_PERM_WRITE;
-+	if (event->stall) {
-+		if (event->read)
-+			perm |= IOMMU_FAULT_PERM_READ;
-+		else
-+			perm |= IOMMU_FAULT_PERM_WRITE;
- 
--	if (event->instruction)
--		perm |= IOMMU_FAULT_PERM_EXEC;
-+		if (event->instruction)
-+			perm |= IOMMU_FAULT_PERM_EXEC;
- 
--	if (event->privileged)
--		perm |= IOMMU_FAULT_PERM_PRIV;
-+		if (event->privileged)
-+			perm |= IOMMU_FAULT_PERM_PRIV;
- 
--	flt->type = IOMMU_FAULT_PAGE_REQ;
--	flt->prm = (struct iommu_fault_page_request) {
--		.flags = IOMMU_FAULT_PAGE_REQUEST_LAST_PAGE,
--		.grpid = event->stag,
--		.perm = perm,
--		.addr = event->iova,
--	};
-+		flt->type = IOMMU_FAULT_PAGE_REQ;
-+		flt->prm = (struct iommu_fault_page_request){
-+			.flags = IOMMU_FAULT_PAGE_REQUEST_LAST_PAGE,
-+			.grpid = event->stag,
-+			.perm = perm,
-+			.addr = event->iova,
-+		};
- 
--	if (event->ssv) {
--		flt->prm.flags |= IOMMU_FAULT_PAGE_REQUEST_PASID_VALID;
--		flt->prm.pasid = event->ssid;
-+		if (event->ssv) {
-+			flt->prm.flags |= IOMMU_FAULT_PAGE_REQUEST_PASID_VALID;
-+			flt->prm.pasid = event->ssid;
-+		}
- 	}
- 
- 	mutex_lock(&smmu->streams_mutex);
-@@ -1866,7 +1869,14 @@ static int arm_smmu_handle_event(struct arm_smmu_device *smmu,
- 		goto out_unlock;
- 	}
- 
--	ret = iommu_report_device_fault(master->dev, &fault_evt);
-+	if (event->stall) {
-+		ret = iommu_report_device_fault(master->dev, &fault_evt);
-+	} else {
-+		if (master->vmaster && !event->s2)
-+			ret = arm_vmaster_report_event(master->vmaster, evt);
-+		else
-+			ret = -EFAULT; /* Unhandled events should be pinned */
-+	}
- out_unlock:
- 	mutex_unlock(&smmu->streams_mutex);
- 	return ret;
-@@ -1944,7 +1954,7 @@ static irqreturn_t arm_smmu_evtq_thread(int irq, void *dev)
- 	do {
- 		while (!queue_remove_raw(q, evt)) {
- 			arm_smmu_decode_event(smmu, evt, &event);
--			if (arm_smmu_handle_event(smmu, &event))
-+			if (arm_smmu_handle_event(smmu, evt, &event))
- 				arm_smmu_dump_event(smmu, evt, &event, &rs);
- 
- 			put_device(event.dev);
+This code is mostly generic. So please move it to pcie-designware-ep.c. The
+function should just accept two CAP IDs (prev and target) and hide the target
+capability. Like,
+
+	dw_pcie_hide_ext_capability(pci, PCI_EXT_CAP_ID_SECPCI,
+				    PCI_EXT_CAP_ID_ATS);
+
+Its too bad that we cannot traverse back from the target capability. We could
+open code dw_pcie_ep_find_ext_capability() to keep track of the prev_cap_offset
+though.
+
+- Mani
+
 -- 
-2.43.0
-
+மணிவண்ணன் சதாசிவம்
 
