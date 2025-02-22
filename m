@@ -4,65 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05020C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 02:34:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E79C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 02:45:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U6a9yEXkQW/x3v6N0CLqKYAXEvtTz6ogyBVtKlZQTKQ=; b=Av2zrkbDjT3RhjTL9z7QptAOjL
-	T70Z1CECLqnmVKcKuansFTLrVa9QNz1oVBMozzB68/EtohkXembs31NlRDm4C4KVCveTuPkYunIZN
-	3yeU0SM4/wvU7TDQx51vZ56EfvirdR31PvGIG2+IPkjwIjqWR3taKfZoJhT0Bx2cZWJNvcD+U6g3u
-	qPzpB5EBFitTIjyQEUbQzDgsJgcKiddF6smKqHKP2pgYND2Sqnfcd5ev2HvWizwdYFR36xCTyNVtT
-	un1Q2c/aVUJeEfMZjWhi2xJR6HEUbr25aAtwfEUOzIKlj6VOc2OtxyZ/Xz5WyEQkvV6NChOzltyeZ
-	9ODchXWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/5JXNaGoZMNtbXMEENPAY7OCDcNRrfJyKX+EmaXnets=; b=NAcYggwjTq7FYXRENC0ETRt+0N
+	GxGQhyzoy0ng8T9hUeIFI30RugmRQDDvNFTK15ZUVRb+3UfO5Gjzip/1SC4QZxvkuu+6d9AnxzjEa
+	YMlEt4OlzBnWxBFPr7Sl487vXGxwi18MxHwCxrpOI5QgROtyC/QpxguMNTK0I3m9xLMFLm7YDy6xL
+	7fEDgxaLKA1X88f5Vj2yxi8fSxbyIo9Y1CaK93FFpG2pImybe1o9IuTmDlnPqUpb7T+qGF8hYRrh8
+	rP3OevuJ9bSao1IyA7TaE9GW1sunl3Nph0ZCBqNrnm/CR0kUgbbZUlFicFYGBQqszQPxZmKeT296l
+	FjYjFXdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlfKm-00000007MD1-38hb;
-	Sat, 22 Feb 2025 02:33:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1tlfWD-00000007Mpk-1syF;
+	Sat, 22 Feb 2025 02:45:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlfJK-00000007M8D-2k5p
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 02:32:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B6D6C68391;
-	Sat, 22 Feb 2025 02:32:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1F89C4CED6;
-	Sat, 22 Feb 2025 02:32:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740191528;
-	bh=FZnMFdDa2eWIl4oFcL24l5BAuNQWfTpFEGTebUgjJk4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=h1YVU2h2yeY3oks9GLiIqAziMoxE84y+9gFwXdo+kGhQdEkbgSefJim69X1+OjmxB
-	 sUl+TKn1d7tnDfsRtl6LqPpN4Zqp5FCE/T1tCHT91DI2AiTUJSqykBnBhxGLOsfpRJ
-	 nHL8Rq0zDyXPQzxne70Hsg50VNNcBJDXXcQrCmocIJK/QeKSWlP4/iL/yyDEnSsOGy
-	 jeR2zK3eXpNSi8hfI+/26IVx3Q4rxYprYdcA+0+chH4C+7rAPJM86cWqwytsMIUF0L
-	 7Cuk393b/czhZL+xrIt2EJL5/a/jZSuA/oT4F6sDau4qKPMwDg7Z2kKUcv2z1n+/0H
-	 PiWAzh7xsQqYg==
-Date: Sat, 22 Feb 2025 02:32:06 +0000
-From: Wei Liu <wei.liu@kernel.org>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	iommu@lists.linux.dev, mhklinux@outlook.com,
-	eahariha@linux.microsoft.com, mukeshrathor@microsoft.com,
-	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
-	decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
-	daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
-	arnd@arndb.de, jinankjain@linux.microsoft.com,
-	muminulrussell@gmail.com, skinsburskii@linux.microsoft.com
-Subject: Re: [PATCH v2 0/3] Introduce CONFIG_MSHV_ROOT for root partition code
-Message-ID: <Z7k3Jh9O8noNZXGt@liuwe-devbox-debian-v2>
-References: <1740167795-13296-1-git-send-email-nunodasneves@linux.microsoft.com>
+	id 1tlfUj-00000007Mdj-0U4m;
+	Sat, 22 Feb 2025 02:43:58 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51LENIcO018624;
+	Sat, 22 Feb 2025 02:43:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/5JXNaGoZMNtbXMEENPAY7OCDcNRrfJyKX+EmaXnets=; b=kdUueTMtgroxZBFf
+	fTmXhXHh4drEB6LM6bnd9XE0bIaCa1QlOFX6g0HlmncYp/VzJkv4lhcUxinZplh2
+	vtyU1PPu5ABr4FJwtMl+U/OJT75qkiuFq55hRoGCnp4z+QH6Om0TUBY3oxNxDn0o
+	X/jdUS+HaWUeJBxE4K5+0ImWvTt8TbzF2qNRWK8OD41DfW9DHK5QAXcq6UMhYtTu
+	6YX5sU6kL1r50IgJN7KI+1HuWqEwJod70FXt5oA/loejau9yeSLbGZdO8Xeq+HlW
+	e0+IsTP7wKs7z3qZCPEJO2YS/I25eUv+QgGI//Nlf/+tNeGp6+3gSjIkzcke6SPi
+	LwFm1A==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44xm3rk1j2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sat, 22 Feb 2025 02:43:47 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51M2hkmK029246
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sat, 22 Feb 2025 02:43:46 GMT
+Received: from [10.71.115.190] (10.80.80.8) by nalasex01b.na.qualcomm.com
+ (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 21 Feb
+ 2025 18:43:45 -0800
+Message-ID: <8c48de90-3dda-40c8-8f7a-01102f7360a3@quicinc.com>
+Date: Fri, 21 Feb 2025 18:43:45 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <1740167795-13296-1-git-send-email-nunodasneves@linux.microsoft.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/7] phy: qcom: qmp-combo: Add new PHY sequences for
+ SM8750
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+CC: Melody Olvera <quic_molvera@quicinc.com>, Vinod Koul <vkoul@kernel.org>,
+        Kishon Vijay Abraham I <kishon@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        "Will
+ Deacon" <will@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        "Konrad
+ Dybcio" <konradybcio@kernel.org>,
+        Satya Durga Srinivasu Prabhala
+	<quic_satyap@quicinc.com>,
+        Trilok Soni <quic_tsoni@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
+        <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250113-sm8750_usb_master-v1-0-09afe1dc2524@quicinc.com>
+ <20250113-sm8750_usb_master-v1-4-09afe1dc2524@quicinc.com>
+ <tcm2hn7rpzaazntp5r7ag466ynacexnke43e6ypm4q5mrrlkdb@nem3gzib2l2v>
+ <0ec95cca-45ed-4805-8ebd-03563d55627e@quicinc.com>
+ <ofaioilki5qxdq2x5fpbpuk6mid6i6slpyqzwol4e2s4cwdwsf@lgpqy2zil4j6>
+Content-Language: en-US
+From: Wesley Cheng <quic_wcheng@quicinc.com>
+In-Reply-To: <ofaioilki5qxdq2x5fpbpuk6mid6i6slpyqzwol4e2s4cwdwsf@lgpqy2zil4j6>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: WRhjRbagWZ2vMdPfyVMbTuz3MG-98Xjh
+X-Proofpoint-GUID: WRhjRbagWZ2vMdPfyVMbTuz3MG-98Xjh
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-02-21_09,2025-02-20_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 mlxscore=0
+ suspectscore=0 mlxlogscore=999 phishscore=0 bulkscore=0 lowpriorityscore=0
+ impostorscore=0 malwarescore=0 priorityscore=1501 adultscore=0
+ clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502100000 definitions=main-2502220020
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250221_184357_279425_CFBB12F4 
+X-CRM114-Status: GOOD (  22.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,36 +120,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 21, 2025 at 11:56:32AM -0800, Nuno Das Neves wrote:
-> Running in the root partition is a unique and specialized case that
-> requires additional code. CONFIG_MSHV_ROOT allows Hyper-V guest kernels
-> to exclude this code, which is important since significant additional code
-> specific to the root partition is expected to be added over time.
-> 
-> To do this, change hv_root_partition to be a function which is stubbed out
-> to return false if CONFIG_MSHV_ROOT=n, and don't compile hv_proc.c at all,
-> stubbing out those functions with inline versions.
-> 
-> Store the partition type (guest or root) in an enum hv_curr_partition_type,
-> which can be extended beyond just guest and root partition.
-> 
-> While at it, introduce hv_result_to_errno() to convert Hyper-V status codes
-> to regular linux errors. This is useful because the caller of a hypercall
-> helper function (such as those in hv_proc.c) usually can't and doesn't
-> interpret the Hyper-V status, so it is better to convert it to an error code
-> and reduce the possibility of misinterpreting it. This also alows the stubbed
-> versions of the hv_proc.c functions to just return a linux error code.
-> 
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 
-No need to sign this off. :-)
 
+On 2/4/2025 6:59 AM, Dmitry Baryshkov wrote:
+> On Mon, Feb 03, 2025 at 07:31:29PM -0800, Wesley Cheng wrote:
+>>
+>> On 1/14/2025 2:23 AM, Dmitry Baryshkov wrote:
+>>> On Mon, Jan 13, 2025 at 01:52:10PM -0800, Melody Olvera wrote:
+>>>> From: Wesley Cheng <quic_wcheng@quicinc.com>
+>>>>
+>>>> Add new register offsets and PHY values for SM8750. Some of the previous
+>>>> definitions can be leveraged from older PHY versions as offsets within
+>>>> registers have not changed. This also updates the PHY sequence that is
+>>>> recommended after running hardware characterization.
+>>>>
+>>>> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
+>>>> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
+>>>> ---
+>>>>  drivers/phy/qualcomm/phy-qcom-qmp-combo.c | 198 ++++++++++++++++++++++++++++++
+>>>>  1 file changed, 198 insertions(+)
+>>>>
+>>>> diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
+>>>> index b09fa00e9fe7db8d97b7179ee15d3f07fe578b0c..823a60029ea6acbd1f0f8c7d27aaa58de39ed758 100644
+>>>> --- a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
+>>>> +++ b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
+>>>> @@ -1471,6 +1471,139 @@ static const struct qmp_phy_init_tbl x1e80100_usb43dp_pcs_tbl[] = {
+>>>>  	QMP_PHY_INIT_CFG(QPHY_V6_N4_PCS_EQ_CONFIG5, 0x10),
+>>>>  };
+>>>>  
+>>>> +static const struct qmp_phy_init_tbl sm8750_usb3_serdes_tbl[] = {
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_STEP_SIZE1_MODE1, 0xc0),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_STEP_SIZE2_MODE1, 0x01),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_CP_CTRL_MODE1, 0x02),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_PLL_RCTRL_MODE1, 0x16),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_PLL_CCTRL_MODE1, 0x36),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_CORECLK_DIV_MODE1, 0x04),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_LOCK_CMP1_MODE1, 0x16),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_LOCK_CMP2_MODE1, 0x41),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DEC_START_MODE1, 0x41),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DEC_START_MSB_MODE1, 0x00),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DIV_FRAC_START1_MODE1, 0x55),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DIV_FRAC_START2_MODE1, 0x75),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DIV_FRAC_START3_MODE1, 0x01),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_HSCLK_SEL_1, 0x01),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_VCO_TUNE1_MODE1, 0x25),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_VCO_TUNE2_MODE1, 0x02),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_BIN_VCOCAL_CMP_CODE1_MODE1, 0x5c),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_BIN_VCOCAL_CMP_CODE2_MODE1, 0x0f),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_BIN_VCOCAL_CMP_CODE1_MODE0, 0x5c),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_BIN_VCOCAL_CMP_CODE2_MODE0, 0x0f),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_STEP_SIZE1_MODE0, 0xc0),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_STEP_SIZE2_MODE0, 0x01),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_CP_CTRL_MODE0, 0x02),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_PLL_RCTRL_MODE0, 0x16),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_PLL_CCTRL_MODE0, 0x36),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_LOCK_CMP1_MODE0, 0x08),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_LOCK_CMP2_MODE0, 0x1a),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DEC_START_MODE0, 0x41),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DEC_START_MSB_MODE0, 0x00),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DIV_FRAC_START1_MODE0, 0x55),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DIV_FRAC_START2_MODE0, 0x75),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DIV_FRAC_START3_MODE0, 0x01),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_VCO_TUNE1_MODE0, 0x25),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_VCO_TUNE2_MODE0, 0x02),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_BG_TIMER, 0x0a),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_EN_CENTER, 0x01),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_PER1, 0x62),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_PER2, 0x02),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SYSCLK_BUF_ENABLE, 0x0c),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SYSCLK_EN_SEL, 0x1a),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_LOCK_CMP_CFG, 0x14),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_VCO_TUNE_MAP, 0x04),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_CORE_CLK_EN, 0x20),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_CMN_CONFIG_1, 0x16),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_AUTO_GAIN_ADJ_CTRL_1, 0xb6),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_AUTO_GAIN_ADJ_CTRL_2, 0x4a),
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_AUTO_GAIN_ADJ_CTRL_3, 0x36),
+>>> The only difference from sm8550_usb3_serdes_tbl, it has 0x37 here.
+>> Not sure what the suggestion is here.  I think in general I would want to have a separate table for each chipset, considering that settings may change/evolve.  Currently, if you're asking to re-use the sm8550 table to avoid re-defining this sequence, I think it'll be confusing to folks when they refer to this SOC's PHY settings.
 > 
-> Nuno Das Neves (3):
->   hyperv: Convert hypercall statuses to linux error codes
->   hyperv: Change hv_root_partition into a function
->   hyperv: Add CONFIG_MSHV_ROOT to gate root partition support
+> 
+> No suggestion, merely a question if both tables are correct or not.
+> 
+>>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_ADDITIONAL_MISC, 0x0c),
+>>>> +};
+>>>> +
+>>> [...]
+>>>
+>>>> @@ -1781,6 +1914,22 @@ static const struct qmp_combo_offsets qmp_combo_offsets_v5 = {
+>>>>  	.dp_dp_phy	= 0x2200,
+>>>>  };
+>>>>  
+>>>> +static const struct qmp_combo_offsets qmp_combo_offsets_v8 = {
+>>> Why is it v8? Is the actual PHY also v8 rather than v6?
+>> Yes, actual QMP PHY major rev is v8.  If we want to, I can generate a separate v8 based header files if that is better.  However, most of the offsets for the registers we're taking advantage of in the actual driver has the same offsets as previous revisions.
+> 
+> If all registers of a particular set (QSERDE, TX/RX, PCS) are the same,
+> then it should be fine to reuse those (although it creates some
+> questions). If the majority is the same, but there are some differences,
+> please create new header file. It is definitely easier to verify that
+> the patch is correct if every piece has the same version.
 > 
 
-Applied to hyperv-next. Thanks.
+Hi Dmitry,
+
+I reviewed the differences in the register sets, and there are new addtions
+in the v8 QMP PHY, however, we do not use or program those registers as of
+now.  I noticed as well in previous versions, we only capture register
+defines if they are used in any of the init sequences.  Assuming this
+applies in this scenario, its probably ok to keep the v6 version until we
+actually need to add any settings for the new registers.
+
+Thanks
+Wesley Cheng
 
