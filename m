@@ -4,72 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5132C021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 00:09:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62D8EC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 00:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=oy+bmHB35J/IIj4g9aPgq7O/UDdajrtDQwmvj9WLMec=; b=DkHIeIy6YH1zRp
-	Get0UxhBklkd5b2Ggy4eZxk/U00IBney5qtsB51GSaPbMiMszN85rsEIw0+6v2cDCbBeOMM6N3RdR
-	D9PXfizhvm77dljnpkapabV6wyvVjjT62prxEl/cxIqTneO+DX6NCyw5louafdf42Mb3Li6rUTi3v
-	O8ZQnuQeRGMv68jrdUm7zhPX5KADJ7L5pKveYZ+aXxhAI5DMJsk7cm4k1vKYaSi9nHJJ/K2XC2qZO
-	ywlce3bx3X8eshDZWxpE8xO6+wpSqLlNO0oBaCY0TDPNKXUQlhFmhgqC9Zd51GZ3eBEvUccHp9bYf
-	4lN5YWkyuH3ApZUHPuyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wFGkta2yH79YT2RqKo4wHaIBm0v430uzCtbMdsMX9HM=; b=sRFCgiRCwQjILRsu0uCenVSTJe
+	DVM4tll5ac6KDI3M6TGt4bYKUDvl54YbtfN1V7kHaNL5uj/e6ax06qCxhu83EvwjmDfgwDtVfzZbH
+	63UjAXVCSe7yKzekkrIox90BybyEhYFbR+ApcSGjdtymuk0YhRGcAMIwvCYZJiMbO4mJApdJC6u/Y
+	P6enWq71YgLhn+plUICe8UqwwdcXlQpJgqhGM2GvqzOHa6KRCP7zXDEjhNsPzDbLKYite/4ILT7C3
+	gbfilWl7eLVVYrjmb/ZJa3v4kcrK94QBwWnirmDIPOfOwJz2NN8adGbwPF5grEv9zQ/MxFvsx8S/e
+	+C5kpgag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tld4u-00000007Bh6-2b1c;
-	Sat, 22 Feb 2025 00:09:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tldMx-00000007DR7-2DV3;
+	Sat, 22 Feb 2025 00:27:47 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tld3R-00000007Bb4-2SO2;
-	Sat, 22 Feb 2025 00:07:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C6B7B5C582B;
-	Sat, 22 Feb 2025 00:06:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F75AC4CED6;
-	Sat, 22 Feb 2025 00:07:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740182856;
-	bh=AWj4ITZuRanuJ+M84ptjWCJk4l50otylm68xoUwxSgs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=b2fs5jSvzjiXNBjYZMclGhfJIA7V+BQx9LiQB8PGf5kbHASKga5yF4WsFKCbBpt8M
-	 dlyRA7mDkiuF4ZGwRP1NbkGuVTYM6naci/SCiqugfhxKJCQd/i1q/9Q54QbdibkdEn
-	 dqgVLT3UMG4L8e1ZFFpHsLeJTxwtDh5EG/V/HDaIerZBaD/TO8IgbleYjuvzxanGqg
-	 bEF3zrzxSwhYJ5h4C3zHgzMaLR+TFo7KefxHmRbcAtDu0d63+HsfgqqUqNdgc3krqP
-	 wD7/HM+Fwu46kKbLlhxGP9iQWdiDFxa3a65sdM/lSya7bwWZ/QicToi6rc91engsnS
-	 LJ7R4Vr+nq9Iw==
-Date: Fri, 21 Feb 2025 18:07:35 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Hui Ma =?utf-8?B?KOmprOaFpyk=?= <Hui.Ma@airoha.com>,
-	Ryder Lee <Ryder.Lee@mediatek.com>,
-	Jianjun Wang =?utf-8?B?KOeOi+W7uuWGmyk=?= <Jianjun.Wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Frank Li <Frank.li@nxp.com>, upstream <upstream@airoha.com>
-Subject: Re: =?utf-8?B?5Zue5aSNOiBbUEFUQ0ggdjIgMi8y?= =?utf-8?Q?=5D_PCI?=
- =?utf-8?Q?=3A?= mediatek-gen3: Configure PBUS_CSR registers for EN7581 SoC
-Message-ID: <20250222000735.GA373804@bhelgaas>
+	id 1tldLT-00000007DIt-0s9I
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 22 Feb 2025 00:26:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1740183976; x=1771719976;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=vrsf0n7ZKY8Rgo7QAxaBCIwX0QhPlVwAlrXV1JsxYTc=;
+  b=FUDYZiDn/GW3AQIGJpTHYVKw1JtbrDxafYgaHp+c88faMBTtfQEJYQVB
+   SK7pAGuByCPbfMRMRPkCm4BgeVfRgGGfSxyj1GP1IouRzzBrxvWOdIyZq
+   KbjkX6D82seM8ZxJYs/Es8/zgfs3ZgHjrGzLPcJCLAhjsB9wTf/nWMCtq
+   8+Crk61zddSdjCBFmYEifbJwYsLplmLmo3NZqQ/XH52+jLNikA+KNJasd
+   6vVaS+vWZfBleDAAEN4j3OQLPVQxeaErCxWk6THV+FSR9Gw/8nPEYO4as
+   vgCdtCAOBQA1rdW6Aqr5Ych8x+5DpOFieVDSLzUaHtv0jFKfe3zUzsyGy
+   A==;
+X-CSE-ConnectionGUID: eA6ZIIduRlKCp3I//+fAUw==
+X-CSE-MsgGUID: TG+dLHoyTj2hK6qUbZTmZw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11352"; a="63488039"
+X-IronPort-AV: E=Sophos;i="6.13,306,1732608000"; 
+   d="scan'208";a="63488039"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Feb 2025 16:26:13 -0800
+X-CSE-ConnectionGUID: PHiHpXemQRq6zbcoQudtdA==
+X-CSE-MsgGUID: +tqM9EucTUKBlk9KS9eT2Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.13,306,1732608000"; 
+   d="scan'208";a="115474920"
+Received: from mohdfai2-mobl.gar.corp.intel.com (HELO [10.247.60.175]) ([10.247.60.175])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Feb 2025 16:26:05 -0800
+Message-ID: <fbcbfdc4-5f20-4dbc-9e46-e9c28fc399c8@linux.intel.com>
+Date: Sat, 22 Feb 2025 08:26:02 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z7kJ3Ejd4Mi_Lj0b@lore-desk>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH iwl-next v5 1/9] net: ethtool: mm: extract stmmac
+ verification logic into common library
+To: Vladimir Oltean <vladimir.oltean@nxp.com>
+Cc: Furong Xu <0x1207@gmail.com>, Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Russell King <rmk+kernel@armlinux.org.uk>,
+ Serge Semin <fancer.lancer@gmail.com>,
+ Xiaolei Wang <xiaolei.wang@windriver.com>,
+ Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+ Kory Maincent <kory.maincent@bootlin.com>, Gal Pressman <gal@nvidia.com>,
+ Jesper Nilsson <jesper.nilsson@axis.com>,
+ Andrew Halaney <ahalaney@redhat.com>,
+ Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+ intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+References: <20250220025349.3007793-1-faizal.abdul.rahim@linux.intel.com>
+ <20250220025349.3007793-2-faizal.abdul.rahim@linux.intel.com>
+ <20250221174249.000000cc@gmail.com> <20250221095651.npjpkoy2y6nehusy@skbuf>
+ <20250221182409.00006fd1@gmail.com> <20250221104333.6s7nvn2wwco3axr3@skbuf>
+ <3fbe3955-48b8-449d-93ff-2699a7efcd8d@linux.intel.com>
+ <20250221144402.6nuuosfjmo5tqgmj@skbuf>
+Content-Language: en-US
+From: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
+In-Reply-To: <20250221144402.6nuuosfjmo5tqgmj@skbuf>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_160737_734509_6DD6A442 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20250221_162615_295245_5B118E2C 
+X-CRM114-Status: GOOD (  38.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,80 +113,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 22, 2025 at 12:18:52AM +0100, Lorenzo Bianconi wrote:
-> [...]
-> 
-> > >
-> > > 	Pbus-csr (base and mask) is used to determine the address
-> > > 	range can be access by PCIe bus.
-> > > 
-> > > 1FBE3400 PCIE0_MEM_BASE 32 PCIE0 base address
-> > > 1FBE3404 PCIE0_MEM_MASK 32 PCIE0 base address mask
-> > > 1FBE3408 PCIE1_MEM_BASE 32 PCIE1 base address
-> > > 1FBE340C PCIE1_MEM_MASK 32 PCIE1 base address mask
-> > > 1FBE3410 PCIE2_MEM_BASE 32 PCIE2 base address
-> > > 1FBE3414 PCIE2_MEM_MASK 32 PCIE2 base address mask
-> > 
-> > "Can be accessed by PCIe bus" sounds like DMA.  Is that what you mean?
-> > 
-> > I doubt it, because if you have multiple host bridges, I assume they
-> > would all be able to handle DMA to all of system memory.
-> > 
-> > It would make more sense if this is some sort of description of host
-> > bridge apertures, e.g., something like this to allow CPU MMIO accesses
-> > to reach the first 2GB of PCI memory space below any of the pcie0,
-> > pcie1, pcie2 host bridges:
-> > 
-> >   pcie0 0000:00: root bus resource [mem 0x84000000000-0x8407fffffff] (bus address [0x00000000-0x7fffffff])
-> >   pcie1 0001:00: root bus resource [mem 0x84100000000-0x8417fffffff] (bus address [0x00000000-0x7fffffff])
-> >   pcie2 0002:00: root bus resource [mem 0x84200000000-0x8427fffffff] (bus address [0x00000000-0x7fffffff])
-> > 
-> > But I think this would be described via 'ranges' properties.  And I
-> > think it would make sense if the driver had to learn this address map
-> > from devicetree and program it into the hardware, so maybe that's
-> > what Pbus-csr is for?  Total speculation on my part.
-> 
-> I agree we should provide these info to the driver via the dts.
-> 
-> Do you agree to pass the register offsets, base address and base mask values
-> in the 'mediatek,pbus-csr' phandle array? Something like:
-> 
-> pcie0: pcie@1fc00000 {
-> 	...
-> 	mediatek,pbus-csr = <&pbus_csr 0x0 0x20000000 0x4 0xfc000000>;
-> 	...
-> }
-> 
-> where:
-> - reg offset for base address:	0x0
-> - base address value:		0x20000000
-> - reg offset for base mask:	0x4
-> - base mask value:		0xfc000000
-> 
-> Or do you prefer to just pass register offsets in mediatek,pbus-csr phandle
-> array and get base address values reading ranges property? Something like:
-> 
-> pcie0: pcie@1fc00000 {
-> 	...
-> 	ranges = <0x02000000 0 0x20000000 0x0 0x20000000 0 0x4000000>;
-> 	...
-> 	mediatek,pbus-csr = <&pbus_csr 0x0 0x4>;
-> 	...
-> }
-> 
-> Considering the latter, even if it is not a real problem for EN7581 since we
-> have just a single range, what if we have multiple ranges?
 
-I'm really hesitant about giving DT advice because I don't understand
-it well, but I do think it's important to specify host bridge aperture
-addresses in 'ranges' because there's lots of generic code that
-expects them there.
 
-If you have to program the aperture addresses into the hardware, those
-register addresses should be described separately elsewhere.  I assume
-the aperture size is configurable since you have to write a mask
-value, so the driver would have to compute the mask value based on the
-aperture size.
+On 21/2/2025 10:44 pm, Vladimir Oltean wrote:
+> On Fri, Feb 21, 2025 at 09:30:09PM +0800, Abdul Rahim, Faizal wrote:
+>> On 21/2/2025 6:43 pm, Vladimir Oltean wrote:
+>>> On Fri, Feb 21, 2025 at 06:24:09PM +0800, Furong Xu wrote:
+>>>> Your fix is better when link is up/down, so I vote verify_enabled.
+>>>
+>>> Hmmm... I thought this was a bug in stmmac that was carried over to
+>>> ethtool_mmsv, but it looks like it isn't.
+>>>
+>>> In fact, looking at the original refactoring patch I had attached in
+>>> this email:
+>>> https://lore.kernel.org/netdev/20241217002254.lyakuia32jbnva46@skbuf/
+>>>
+>>> these 2 lines in ethtool_mmsv_link_state_handle() didn't exist at all.
+>>>
+>>> 	} else {
+>>>>>>> 		mmsv->status = ETHTOOL_MM_VERIFY_STATUS_INITIAL;
+>>>>>>> 		mmsv->verify_retries = ETHTOOL_MM_MAX_VERIFY_RETRIES;
+>>>
+>>> 		/* No link or pMAC not enabled */
+>>> 		ethtool_mmsv_configure_pmac(mmsv, false);
+>>> 		ethtool_mmsv_configure_tx(mmsv, false);
+>>> 	}
+>>>
+>>> Faizal, could you remind me why they were added? I don't see this
+>>> explained in change logs.
+>>>
+>>
+>> Hi Vladimir,
+>>
+>> Yeah, it wasn’t there originally. I added that change because it failed the
+>> link down/link up test.
+>> After a successful verification, if the link partner goes down, the status
+>> still shows ETHTOOL_MM_VERIFY_STATUS_SUCCEEDED, which isn’t correct—so
+>> that’s why I added it.
+>>
+>> Sorry for not mentioning it earlier. I assumed you’d check the delta between
+>> the original patch and the upstream one, my bad, should have mentioned this
+>> logic change.
+>>
+>> Should I update it to the latest suggestion?
+> 
+> Never, ever modify logic in the same commit as you are moving code.
+> I was wondering what's with the Co-developed-by: tags, but I had just
+> assumed fixups were made to code I had improperly moved because I
+> didn't have hardware to test. Always structure patches to be one single
+> logical change per patch, well justified and trivially correct.
 
-Bjorn
+Got it, sorry about that.
+
+> I had assumed, in good faith, changes like this wouldn't sneak in, but I
+> guess thanks for letting me know I should check next time :)
+> 
+> I think it's a slightly open question which state should the verification
+> be in when the link fails, but in any case, your argument could be made
+> that the state of the previous verification should be lost.
+> 
+> If I look at figure 99-8 in the Verify state diagram, I see that
+> whenever the condition "begin || link_fail || disableVerify || !pEnable"
+> is true, we transition to the state INIT_VERIFICATION. From there, there
+> is a UCT (unconditional transition) to VERIFICATION_IDLE, and from there,
+> a transition to state SEND_VERIFY based on "pEnable && !disableVerify".
+> In principle what this is telling me is that as long as management
+> software doesn't set pEnable (tx_enable in Linux) to false, verification
+> would be attempted even with link down, and should eventually fail.
+> 
+> But the mmsv state machine does call ethtool_mmsv_configure_tx(mmsv, false),
+> and in that case, if I were to interpret the standard state machine very
+> strictly, it would remain blocked in state VERIFICATION_IDLE until a
+> link up (thus, we should report the state as "verifying").
+> 
+> But, to be honest, I think the existence of the VERIFICATION_IDLE state
+> doesn't make a lot of sense. The state machine should just transition on
+> "!link_fail && !disable_verify && pEnable" to SEND_VERIFY directly, and
+> from state WAIT_FOR_RESPONSE it should cycle back to SEND_VERIFY if the
+> verify timer expired but we still have retries, or to INIT_VERIFICATION
+> if link_fail, disableVerify or pEnable change. One more reason why I
+> believe the VERIFICATION_IDLE state is redundant and under-specified is
+> because it gives the user no chance to even _see_ the "initial" state
+> being reported ever, given the unconditional transition to VERIFICATION_IDLE.
+> 
+> So in that sense, I agree with your proposal, and in terms of code,
+> I would recommend just this:
+> 
+>   } else {
+> +	/* Reset the reported verification state while the link is down */
+> +	if (mmsv->verify_enabled)
+> +		mmsv->status = ETHTOOL_MM_VERIFY_STATUS_INITIAL;
+>   
+>   	/* No link or pMAC not enabled */
+>   	ethtool_mmsv_configure_pmac(mmsv, false);
+>   	ethtool_mmsv_configure_tx(mmsv, false);
+>   }
+> 
+> Because this is just for reporting to user space, resetting
+> "mmsv->verify_retries = ETHTOOL_MM_MAX_VERIFY_RETRIES;" doesn't matter,
+> we'll do it on link up anyway.
+> 
+> Also note that there's no ternary operator like in the discussion with
+> Furong. If mmsv->verify_enabled is false, the mmsv->status should
+> already be DISABLED, no need for us to re-assign it.
+> 
+
+Will update, thanks.
+
 
