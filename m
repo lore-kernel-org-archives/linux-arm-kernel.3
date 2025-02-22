@@ -4,108 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63F7BC021B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 11:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17869C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 11:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GciUUqj1RmNWWcZPAfK8/8tZx9TktRuEfZAKKaKTmos=; b=10h+kSygxc2HlsDgDzIoWKB0j0
-	DKA+ziJO+M94PPXei4E4PzmCuh5Fv6h60kZOZCrO88auk+v8tPvPgoxooSyxlhJdwb8sxrlU/km37
-	m5F3mQktL5h4iZZNAjpFiK7CMeNavzqO0yb23D+vNH7d3PoFBEAe5n5KLpaq94ZgdNeoPPn8PLBUR
-	iczqaxCAV5PRD+HIkGfgT8wRVRXQQf5QcbReaUPqxiWn7KV8weMWW5Yw62ssv1dF2raKYk8x/fbEK
-	7gm7cKLgiXTkOT1E6q6smjEC5UtH+wDdZcafbaeXjiZjSc+yn08I4kil/IHUTBcC0JCkOZgPgzsnK
-	mU11S0Tg==;
+	bh=UGXM61VcEnYUmRYBHrm58jOs9cPBU004JHiH81XeNnI=; b=TN5nuEahhQVH49sFSQ1x2SuPTB
+	A8gFzbULQxQMBcu70emszy4R778WQONr407LzoNd/Gy2cYdjQniNSnDWmDZq0OYqvIHR9g43XYyqz
+	zEeUPhT7OQ/gPOD10hlS3LKPIbckCWdZV3GoVnbpjAckgdBWAqDY1jXH5puUSacwJkI8OO/Y7NV0L
+	Ty+EvOk/eBIYfUxbr7Y0/4dsIDtS+a1HGo85YNFo2ZVlZe2u3bcagneHtzXUOG+DSLVPFCUhmHXWI
+	aawkgAcjZYDpLBDwLYcU+2R9KJQLlNg8KU8pOqogpBoEHFLyoruLm0QJIltbPZeRnGdacEhMBOus7
+	aDqD4eyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlnxP-00000007wMz-18n7;
-	Sat, 22 Feb 2025 11:46:07 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1tlnz8-00000007wbI-3Z21;
+	Sat, 22 Feb 2025 11:47:54 +0000
+Received: from mail-m49203.qiye.163.com ([45.254.49.203])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlnqg-00000007vXq-0QZ2
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 11:39:11 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5debb4aef2eso473988a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Feb 2025 03:39:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1740224348; x=1740829148; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GciUUqj1RmNWWcZPAfK8/8tZx9TktRuEfZAKKaKTmos=;
-        b=OadWc/1udspIMObJZn0vkPfTpajtFJ7d9hB3a64XiKaNx1iYSq8qLcqmpFIQknAq0s
-         kEpfFPVjFUm3BHi+MAQI/eZGhoJ3tNIwUnkypCJauUwbCxAGLYlrBUBKOTLMUCYvMYtj
-         eEiWpiDHKa8XWNPEEEaFrFfd/LrNhMbWTyV8+E9NC3mCfhPTUgFpwAOZNXhZmYBjRbvZ
-         cfIfiH56lxIFT8fLHT+PqYqdRp+JkVJRHLR0Vl3u+wwjDcvw2TL+Sq+XE3aRH9G8CW1t
-         me0A2MXb5zHjN3rwyC3MmEaxXwAVkNWyfOFRZf1nQ+RTIn3BcVQCnCQpIBOzA1C0YZby
-         AysA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740224348; x=1740829148;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GciUUqj1RmNWWcZPAfK8/8tZx9TktRuEfZAKKaKTmos=;
-        b=PTxWbkf+AREYB4rNmsyBcEXIoUSeMOvdFURsRW1okOGIqeI+cIMMz9DsMhptcLC45n
-         q0zPaZErgfI77uso0d1ViP/Wx9zHOR//HS+tpgeQNhDfuQhyGcVsbD7hz93UKT9VV0rX
-         abp3cC7WgF8s9vU5VD+0aZT59WKsV6oHu6YJGYDFu1CjNEQTTyaBq48i1OY05I9A+XMm
-         vsDGHgVfNHEjMDU2FeM4eEooABVXEmTR9A8MoDaWMyFS8N1c8PvPZmfSHljEAottMoal
-         R8C4c6MJ4w55wz3x7GetOuQs6FwC/wdrC4P9cOXIUY6BSWdTKs5Q8KU3/bURdHFC2TXl
-         JsXA==
-X-Forwarded-Encrypted: i=1; AJvYcCWlXdJWkdogCu7oI9ZSaZmLm80eb5c/WbNaupc1Tvq4oF4MmBBpo6w0x4R7+MHMbUzzSrKjOPhQX0oqd/Ju6uAV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEtOCj2VRTR07S4kS43l/Hd502aTIIv3FESnorjfkn0f/eUaMR
-	9k5goFRj6hb2MwqXmUYIK37LdmCjC17NfnsTMzHMWis1RUqjdxGzCnUsJYBPUCjn+scQ8vfF0y5
-	Z4dc=
-X-Gm-Gg: ASbGncvWP4GMi6MerOH60pRPXAGOmOEDREo4SnkWDICkmf3gWDHaGC730Hm2QIgduiM
-	JleTSqR9XWgbfBUVjzfEx4FwQ6UOsch72F+yBKi7qnZ09vInGVsEghscEymR3AcxNJgvXjfRV7u
-	YehmVDVQs1GN8meAFYUdIbQNxtWX2PJXhKmOOoFn+4SBSw3sWkRDfAqPZRMtVSCAzMRADC2r102
-	kWKUvGsOZcLdvvB92y+cTeQ8JIXL8+66O6TGblbVRdqRaXOFsUMh4F5U/FHh9V2Xdd4ZkfhaxcE
-	ERrlXqcdClg29ygz3AQe0o8L3LzZQX3tcSv6EqiiZP+5aTIIT6TaDPnnwZE3dC2EYhMG0tIBN6W
-	i
-X-Google-Smtp-Source: AGHT+IG/9B+Bl7UV1RnTVBHCf1VORpcGI7KStjZd+OYFng1yCCZXzpskS3vRcsDqBd9OG8mC4clNlw==
-X-Received: by 2002:a05:6402:27cf:b0:5e0:8275:e9dd with SMTP id 4fb4d7f45d1cf-5e0b7252e4fmr2256164a12.10.1740224348212;
-        Sat, 22 Feb 2025 03:39:08 -0800 (PST)
-Received: from [127.0.1.1] (78-11-220-99.static.ip.netia.com.pl. [78.11.220.99])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abb9723a559sm1202702066b.96.2025.02.22.03.39.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 22 Feb 2025 03:39:07 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Sat, 22 Feb 2025 12:38:59 +0100
-Subject: [PATCH 3/3] coresight: tpdm: Constify amba_id table
+	id 1tlntf-00000007w3p-2lsI;
+	Sat, 22 Feb 2025 11:42:17 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id bdb815ed;
+	Sat, 22 Feb 2025 19:42:11 +0800 (GMT+08:00)
+Message-ID: <cec09e08-253a-4011-8b37-062a492b2166@rock-chips.com>
+Date: Sat, 22 Feb 2025 19:42:10 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250222-coresight-const-arm-id-v1-3-69a377cd098b@linaro.org>
-References: <20250222-coresight-const-arm-id-v1-0-69a377cd098b@linaro.org>
-In-Reply-To: <20250222-coresight-const-arm-id-v1-0-69a377cd098b@linaro.org>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=906;
- i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=Sky15R0RXBLNCxJhjHjePt0w92unXWiCXbaOvxX5Lzo=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBnubdUTnr/bCumbFZ9TWCRWI0l2q73SVxaJlZ4Q
- T6AybTflvGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ7m3VAAKCRDBN2bmhouD
- 1/KhD/0Vl495GI6HdSY/B+vUKWLh2qeBUCi+4tl+EQFNUage6r0m1EuQj8bD8/e9OHQGKohQcJQ
- Vtj10TDMDDESaRn4g0sutiP+Pkg/GSsgE6Pdwjq3kWO3EkG8O/a34PlSacmdnkctsHPKuZUYc4o
- XSUdOwS4Y2KN/q1+hKkgMRa+wtEy/dw+cyMQtGeyi15mudYVggZk9ir5D9IxwQRupbx0pXew2jd
- BdMinRcMHBpBRg2LrJTgdd7kOE5tnbZwxr8kgLrUv/Lik0QnXpG60GcwK+eBi5g2BSp2nBWJQ5X
- fTuF/a8MMirtihZQdJzaHuuSgKxgME7+XAIDroK56Idw8LTaxKB1VLX+jMakoq/grb2Srtquv98
- Un9YktybZuHoCs9AJeHvPOqiF73E5NzG1dO6+UHrxRk2P6NN51wlFoXsKFvMISkG1Qtfh6UUcwE
- ssJBuJS1AgiG5HRzE4qntaZiGb/XhD9w9/9H+KBJ8NVEIefy1ioiaUrUhrCYi7ra7xohus7R0kC
- +yOSQaLFsNRCJmfNRaCNrB2lng+TXSS90STPdeA83E9IEN0d25sMOecQmPzjBOmYVedCrVAtIVM
- DbIJS9o7UgyGyt/29ArXpBBez9cTAQSslWoxzji7AZOW9dK7lF1Co0ZVGuwnP/0SILTFRuHBNGc
- Ila9TBdtA/uS7fw==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 08/14] drm/rockchip: analogix_dp: Add support to get
+ panel from the DP AUX bus
+From: Damon Ding <damon.ding@rock-chips.com>
+To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ rfoss@kernel.org, vkoul@kernel.org, sebastian.reichel@collabora.com,
+ cristian.ciocaltea@collabora.com, l.stach@pengutronix.de,
+ dmitry.baryshkov@linaro.org, andy.yan@rock-chips.com, hjc@rock-chips.com,
+ algea.cao@rock-chips.com, kever.yang@rock-chips.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org
+References: <20250123100747.1841357-1-damon.ding@rock-chips.com>
+ <20250123100747.1841357-9-damon.ding@rock-chips.com>
+ <3340006.44csPzL39Z@diego>
+ <799ccbd2-0c3b-4a55-b47e-1899975c4020@rock-chips.com>
+Content-Language: en-US
+In-Reply-To: <799ccbd2-0c3b-4a55-b47e-1899975c4020@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk1KHVZNH0MeGE4aSx5KSR5WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a952d770b2103a3kunmbdb815ed
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PQg6UQw4HjITHR8BCSwQPEMC
+	CjxPCzJVSlVKTE9LSUlPTkhJTExDVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJSklMNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=Y92UJFttJrKQq0DuTKRVVl+jI3C1nW3GpfRAsIRUKxxqsqyscny5c+PEGieUuWGzD4GNzWLe0xO9/k8syqOHqQEkoFl2n4g6V2MzTgULPpEqlUwCe8MUMe2kJVx/utZ5QulR+YIRk99rHXSHeiukOBA5kU6+dEtLNKUkmc5NEcA=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=UGXM61VcEnYUmRYBHrm58jOs9cPBU004JHiH81XeNnI=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_033910_142576_ECA37A61 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20250222_034216_223265_730DE5C2 
+X-CRM114-Status: GOOD (  13.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,29 +83,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-'struct amba_id' table is not modified so can be changed to const for
-more safety.
+On 2025/2/22 19:25, Damon Ding wrote:
+> Hi Heiko,
+> 
+> On 2025/1/31 4:33, Heiko Stübner wrote:
+>> Hi Damon,
+>>
+>> Am Donnerstag, 23. Januar 2025, 11:07:41 MEZ schrieb Damon Ding:
+>>> Move drm_of_find_panel_or_bridge() a little later and combine it with
+>>> component_add() into a new function rockchip_dp_link_panel(). The 
+>>> function
+>>> will serve as done_probing() callback of devm_of_dp_aux_populate_bus(),
+>>> aiding to support for obtaining the eDP panel via the DP AUX bus.
+>>>
+>>> If failed to get the panel from the DP AUX bus, it will then try the 
+>>> other
+>>> way to get panel information through the platform bus.
+>>>
+>>> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+>>>
+>>> ---
+>>
+>>> @@ -450,9 +461,17 @@ static int rockchip_dp_probe(struct 
+>>> platform_device *pdev)
+>>>       if (IS_ERR(dp->adp))
+>>>           return PTR_ERR(dp->adp);
+>>> -    ret = component_add(dev, &rockchip_dp_component_ops);
+>>> -    if (ret)
+>>> -        return ret;
+>>> +    ret = devm_of_dp_aux_populate_bus(analogix_dp_get_aux(dp->adp), 
+>>> rockchip_dp_link_panel);
+>>
+>> This causes an undefined-reference error, so you probably need 
+>> something like:
+>>
+>> diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/ 
+>> rockchip/Kconfig
+>> index f9cbbb40b36f..fa946a809858 100644
+>> --- a/drivers/gpu/drm/rockchip/Kconfig
+>> +++ b/drivers/gpu/drm/rockchip/Kconfig
+>> @@ -8,6 +8,7 @@ config DRM_ROCKCHIP
+>>          select DRM_PANEL
+>>          select VIDEOMODE_HELPERS
+>>          select DRM_ANALOGIX_DP if ROCKCHIP_ANALOGIX_DP
+>> +       select DRM_DISPLAY_DP_AUX_BUS if ROCKCHIP_ANALOGIX_DP
+>>          select DRM_DW_HDMI if ROCKCHIP_DW_HDMI
+>>          select DRM_DW_HDMI_QP if ROCKCHIP_DW_HDMI_QP
+>>          select DRM_DW_MIPI_DSI if ROCKCHIP_DW_MIPI_DSI
+>>
+>>
+>>
+>>
+>>
+> 
+> Yeah, I will add a new separate commit to do it in the next version.
+>
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/hwtracing/coresight/coresight-tpdm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Oh...I believe it would be better to do it directly in this patch. ;-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-tpdm.c b/drivers/hwtracing/coresight/coresight-tpdm.c
-index c38f9701665e70c0fb58726980332dbe65e09790..afc4c18dd35d0ab1cc474214b1df6f816e1aed68 100644
---- a/drivers/hwtracing/coresight/coresight-tpdm.c
-+++ b/drivers/hwtracing/coresight/coresight-tpdm.c
-@@ -1305,7 +1305,7 @@ static void tpdm_remove(struct amba_device *adev)
-  * Different TPDM has different periph id.
-  * The difference is 0-7 bits' value. So ignore 0-7 bits.
-  */
--static struct amba_id tpdm_ids[] = {
-+static const struct amba_id tpdm_ids[] = {
- 	{
- 		.id	= 0x001f0e00,
- 		.mask	= 0x00ffff00,
+> Best regards
+> Damon
+> 
+> 
+> 
 
--- 
-2.43.0
 
 
