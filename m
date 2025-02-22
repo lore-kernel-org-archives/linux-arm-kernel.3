@@ -4,90 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A38C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 17:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14206C021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 17:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9HB2300uflqiIiUndQgHCnMwg6h8dJJ3C2ou+rEx6MQ=; b=nAKhPhx24T5mZ65sPC27+y36qQ
-	6PbwEkT67Ide9Zaiw9sb2RfReAOS3mgS7i0k+kmfwAIvsJ0hPwFWoHsN/XaKKDn2uZ9aI6dop51DF
-	bBaz7jfwH+6KL5VE5lqx94xsz38oYfFBfAmkhUU8wFmCGCtsJQ1Weod7EvPOpSolwmMpc0nJ0lOxc
-	ZS2XVaAaHEN+cKwJo4OHx0uBvseb6kgEVukW+nq7tq4a3uKVoraqxzZsFj6NRvaKoexBIFodeEs5x
-	Dbf143g5Pyv/YXzz5U8lJB+GCs5F6SJRPnjOyoJcWVhV9WKi9f5LGX+32oFH4JXF737bPtQuY3ZJL
-	ZTVsbziw==;
+	bh=dADGHsdZ7bOKXSVxbXgnmj2hzHS+2JpubiNOGtuG5Y4=; b=0yBIFG/OHah53VSWRKuUfZuvtm
+	456AH2g8Y1d4LIeaVkjB1DERo2yprQlPojGREAjZgv8ed/FV9iMkYV6z7BxQtdZeoT/mWPxIoABt/
+	MffyvUO824abwLlCHZxwUKqaEX/CZ73IviQwmn32WhVkfHiXFd3VoxLINoxSek9i3wZ6ZvMBYj26A
+	CyU7fN96y+LBk2vuOia4phAqL+Q8X9r/AE38Ezxt+9J5xh2moFnq3CVgHh6FvBqdG649mKQJ6sY/z
+	0D7NBqNUFnHHrHVwK/sDfVlg7T2eS+v/cpWnVPLR/IHk1N/7UihJPNsIjKkHLHt+v1hL3OJkcrBlQ
+	/qvP8dog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tltRl-00000008TFn-2U5y;
-	Sat, 22 Feb 2025 17:37:49 +0000
-Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
+	id 1tltdz-00000008URK-0KWS;
+	Sat, 22 Feb 2025 17:50:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tltJ6-00000008Rkn-07aW;
-	Sat, 22 Feb 2025 17:28:53 +0000
-Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-5f6b65c89c4so1052688eaf.2;
-        Sat, 22 Feb 2025 09:28:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740245331; x=1740850131; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9HB2300uflqiIiUndQgHCnMwg6h8dJJ3C2ou+rEx6MQ=;
-        b=GCfWOA037djl/1NFEF6xVxjn4bNtYQYRUpen8Je0Fdm7lvLyrDaGyCeFIrXN0mRpMw
-         2NJVY2ceYwajvWRKDqRBtvTtGI6GU9YdIdlgTliJzY7G5vG7SzdQXCKjdpRWpB76qbHQ
-         Qym6sobIQk7dVRoiuwxqdgB9fGLkriHHUNpfEiXxtbARGrIN1rQdHchNoArARB7cbq7Q
-         SXWUB2U/8zdGAj/GiZEN8HrdrlwgN4ZNF6u1TZxkhSjg+T8AxTCdiNv8kTLPCgrNsK5E
-         K3/CNK23zPPOCIGSyDuUMONew97torh8NSzH8N1IlqwV1qwra8If96YAvXaiK2j2UmAf
-         TLAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740245331; x=1740850131;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9HB2300uflqiIiUndQgHCnMwg6h8dJJ3C2ou+rEx6MQ=;
-        b=XlgcKaAtk3aB7RWWDMKWT3s6+mkQcqLAcZf5X58tAtxsurwQhTF7nj0nCEt8Ideyq2
-         xf39vJp1FHS2WuS9gkKPM/nj5+1yyyqiYYTj3Ha/Q2tnyyZ6D2MoJqop6Ebh7OGXhQ9C
-         vU3yPZHt3z5zFPsQiFpjQ1SyvqhJBbb55d/wG6T/QyPKMTYgln1fm62kDjxuN4xkR69K
-         fwh6K3HtCshygPPYA6BYo0aHJXbarcLPgl1EgZ4sTMO/3ZcEj/3dZ7eQJw/gB5ZCkSoS
-         leuLJCEvUxAQYr6FpNQ550hFLU5851+m5zvvbYFmhMxkePKJkU+/qfD8aziq7DMYixJV
-         rVug==
-X-Forwarded-Encrypted: i=1; AJvYcCXgUTGgLLG+OCVQfhO0fvX/uIz1gJdizPqceciuD8L30kPGrm0fCb3FbEVK7yxdc6G00iMeXrt5rnA1rmRcbhQ=@lists.infradead.org, AJvYcCXvo4SiPf9ing3/U3HuRdKrvn/VtcBVXXDKeN9mWYwFMQnOvhF7k183g1n+k3tm0z/Pmu0VyyW9S1h+4ncrr1t1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEJFGmPX5eHTvi7waE4O+vJtev4i7+AXdWXUZGrHMpUmx3vPOJ
-	YvVLIm0V/E/mwFKFMdZEHHkT/RzseBhZInLZ0fTE741wtgMmZ1Lk
-X-Gm-Gg: ASbGncuC2zF/wNZWLVf1a3Yibexot0mTXXVR3PbIDeUHpbe9XwWy/c4A4KpBoIxMMh7
-	k27/rT5UhakMx+rE6IN/ctSiZPxuOw9xLHxcn3jjlrLv90AkwnKUVz+VNGQi/h2/NNV5g+qZFf1
-	XqUlWBIVO3xmDoVJV9AyayFwwOmvjizkwtd6Bh9PKgP2cItaG0e5cAG+lG2Vz7p6NLbZf544G/3
-	y8jBFYiRisEHN9PLTUMOJZnlID1dCnd9hNrbVz50aF0S+BVe167H1Qha0zqNRrdT2SinrXg/6N1
-	OX6efm0eWh0Dk3lDoahBrQuTeUHISU63hA4=
-X-Google-Smtp-Source: AGHT+IEMFe+lFEc+YZNmIjaRNRS/0ZWidVHYiCpGOSiTppW75wd8bhABpnWA2+7PGawx6yD39ANwfA==
-X-Received: by 2002:a05:6871:710:b0:29e:255e:9551 with SMTP id 586e51a60fabf-2bd50c5a460mr5930657fac.2.1740245331000;
-        Sat, 22 Feb 2025 09:28:51 -0800 (PST)
-Received: from tower.cjhon.com ([2603:8081:ad00:4a:996a:132b:43a2:f7b0])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2b963a0ac4bsm7244238fac.47.2025.02.22.09.28.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 22 Feb 2025 09:28:49 -0800 (PST)
-From: Jimmy Hon <honyuenkwun@gmail.com>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Johannes Erdfelt <johannes@erdfelt.com>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Jimmy Hon <honyuenkwun@gmail.com>
-Subject: [PATCH v6 3/5] arm64: dts: rockchip: Add Orange Pi 5 Ultra board
-Date: Sat, 22 Feb 2025 11:27:50 -0600
-Message-ID: <20250222172752.6254-4-honyuenkwun@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250222172752.6254-1-honyuenkwun@gmail.com>
-References: <20250222172752.6254-1-honyuenkwun@gmail.com>
+	id 1tltcV-00000008Trr-0Idf
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 22 Feb 2025 17:48:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 54F9E61120;
+	Sat, 22 Feb 2025 17:48:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EA5EC4CED1;
+	Sat, 22 Feb 2025 17:48:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1740246533;
+	bh=5ybd0CwdvZUfkyyz0Lx7Y9BJ2t0H8wklafTIwBHYZX8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=uufSI/KjoYZSCRhv+C4yr4nbjcz3n9qgwzMQoRwTRyL8B/8ttuiTO1sMXR8737KGU
+	 E3S7Fb6nbxerOzSpnbHY/a8LjQQu9xJJ1fUo+qryOIm0ePD8x+fWfaEAtniCtqqX4V
+	 8VpMGn28m0hSkTmyGttS8fz36s8MLl0w9F4+xe6+QGVv5xHgH+eyD8D8O+hTOtSceH
+	 2arfUBXfpA4pfsR4+bXXs7ThOjPXeiUiuZK347JJIYJM9mJancayUX2wexXgg3miHh
+	 8GD6pUNITa9PUFgmzcN8mG3XMYAfPaDS6PAv2LZpB33d8z1bxYNajoOvrYl5qqCuHM
+	 RnTHIUcGGd7/w==
+Date: Sat, 22 Feb 2025 17:48:42 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Matti Vaittinen <mazziesaccount@gmail.com>, Matti Vaittinen
+ <matti.vaittinen@fi.rohmeurope.com>, Lars-Peter Clausen <lars@metafoo.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lad Prabhakar
+ <prabhakar.mahadev-lad.rj@bp.renesas.com>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+ <samuel@sholland.org>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa
+ <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>, Javier
+ Carrasco <javier.carrasco.cruz@gmail.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v3 2/9] iio: adc: add helpers for parsing ADC nodes
+Message-ID: <20250222174842.57c091c5@jic23-huawei>
+In-Reply-To: <Z7isoU9hKXlgsu33@smile.fi.intel.com>
+References: <cover.1739967040.git.mazziesaccount@gmail.com>
+	<6c5b678526e227488592d004c315a967b9809701.1739967040.git.mazziesaccount@gmail.com>
+	<Z7ZB7RQhyI5Dohrq@smile.fi.intel.com>
+	<b1c1ed68-2f4d-447c-9957-5a1bbc63ef6e@gmail.com>
+	<Z7ci7tUlRQqZEZSN@smile.fi.intel.com>
+	<ec76334b-bb13-4076-811d-9174170dd677@gmail.com>
+	<Z7c2cBQpjoc9-Vyu@smile.fi.intel.com>
+	<9018e23c-da28-41b0-b774-1598b946a2a1@gmail.com>
+	<Z7dCnRzuQTaJXzmb@smile.fi.intel.com>
+	<cb27d8b1-c978-4443-9ad2-96e930701976@gmail.com>
+	<Z7isoU9hKXlgsu33@smile.fi.intel.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_092852_092733_9DB5A20C 
-X-CRM114-Status: GOOD (  13.71  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,91 +89,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The RK3588 Single Board Computer includes
-- eMMC
-- microSD
-- UART
-- 2 PWM LEDs
-- RTC
-- RTL8125 network controller on PCIe 2.0x1.
-- M.2 M-key connector routed to PCIe 3.0x4
-- PWM controlled heat sink fan.
-- 2 USB2 ports
-- lower USB3 port
-- upper USB3 port with OTG capability
-- Mali GPU
-- SPI NOR flash
-- Mask Rom button
-- Analog audio using es8388 codec via the headset jack and onboard mic
-- HDMI1
-- HDMI IN
+On Fri, 21 Feb 2025 18:41:05 +0200
+Andy Shevchenko <andriy.shevchenko@linux.intel.com> wrote:
 
-the vcc5v0_usb30 regulator shares the same enable gpio pin as the
-vcc5v0_usb20 regulator.
+> On Fri, Feb 21, 2025 at 12:10:23PM +0200, Matti Vaittinen wrote:
+> > On 20/02/2025 16:56, Andy Shevchenko wrote:  
+> > > On Thu, Feb 20, 2025 at 04:21:37PM +0200, Matti Vaittinen wrote:  
+> > > > On 20/02/2025 16:04, Andy Shevchenko wrote:  
+> > > > > On Thu, Feb 20, 2025 at 03:40:30PM +0200, Matti Vaittinen wrote:  
+> > > > > > On 20/02/2025 14:41, Andy Shevchenko wrote:  
+> > > > > > > On Thu, Feb 20, 2025 at 09:13:00AM +0200, Matti Vaittinen wrote:  
+> > > > > > > > On 19/02/2025 22:41, Andy Shevchenko wrote:  
+> > > > > > > > > On Wed, Feb 19, 2025 at 02:30:27PM +0200, Matti Vaittinen wrote:  
+> 
+> ...
+> 
+> > > > > > > > > > +EXPORT_SYMBOL_GPL(iio_adc_device_num_channels);  
+> > > > > > > > > 
+> > > > > > > > > No namespace?  
+> > > > > > > > 
+> > > > > > > > I was considering also this. The IIO core functions don't belong into a
+> > > > > > > > namespace - so I followed the convention to keep these similar to other IIO
+> > > > > > > > core stuff.  
+> > > > > > > 
+> > > > > > > But it's historically. We have already started using namespaces
+> > > > > > > in the parts of IIO, haven't we?  
+> > > > > > 
+> > > > > > Yes. But as I wrote, I don't think adding new namespaces for every helper
+> > > > > > file with a function or two exported will scale. We either need something
+> > > > > > common for IIO (or IIO "subsystems" like "adc", "accel", "light", ... ), or
+> > > > > > then we just keep these small helpers same as most of the IIO core.  
+> > > > > 
+> > > > > It can be still pushed to IIO_CORE namespace. Do you see an issue with that?  
+> > > > 
+> > > > No. I've missed the fact we have IIO_CORE O_o. Thanks for pointing it out!
+> > > >   
+> > > > > Or a new opaque namespace for the mentioned cases, something like IIO_HELPERS.  
+> > > > 
+> > > > I am unsure if it really benefits to split this out of the IIO_CORE. I've a
+> > > > feeling it falls into the category of making things harder for user with no
+> > > > apparent reason. But yes, the IIO_CORE makes sense.  
+> > > 
+> > > Probably I was not clear, I mean to put this under a given namespace. There is
+> > > no a such, we have currently:
+> > > 
+> > > IIO_BACKEND
+> > > IIO_DMA_BUFFER
+> > > IIO_DMAENGINE_BUFFER
+> > > IIO_GTS_HELPER
+> > > IIO_RESCALE  
+> > 
+> > Ah. So, the IIO core stuff is still not in a namespace. Those listed above
+> > are all too specific (I believe, in general, and definitely to carry ADC
+> > helpers).
 
-The Orange Pi 5 Ultra is a single board computer powered by the Rockchip
-RK3588 with similar board layout as the 5 Max but with the HDMI0 swapped
-for HDMI IN.
+Not yet. On todo list... Trick is working out what the correct break up is.
 
-Signed-off-by: Jimmy Hon <honyuenkwun@gmail.com>
----
- arch/arm64/boot/dts/rockchip/Makefile         |  1 +
- .../dts/rockchip/rk3588-orangepi-5-ultra.dts  | 33 +++++++++++++++++++
- 2 files changed, 34 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts
+> > 
+> > Adding 'ADC_HELPERS' would just add yet another way too specific one. So,
+> > currently there is no suitable namespace for these helpers, and I still
+> > believe they fit best to where the rest of the IIO-core stuff is.
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 57c5c013cc08..d068b9018cf4 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -151,6 +151,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-nanopc-t6-lts.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-ok3588-c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5-max.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5-plus.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-orangepi-5-ultra.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-quartzpro64.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5-itx.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts
-new file mode 100644
-index 000000000000..fa975c5db0ae
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dts
-@@ -0,0 +1,33 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include "rk3588-orangepi-5-compact.dtsi"
-+
-+/ {
-+	model = "Xunlong Orange Pi 5 Ultra";
-+	compatible = "xunlong,orangepi-5-ultra", "rockchip,rk3588";
-+};
-+
-+&led_blue_pwm {
-+	pwms = <&pwm4 0 25000 PWM_POLARITY_INVERTED>;
-+};
-+
-+&led_green_pwm {
-+	pwms = <&pwm5 0 25000 PWM_POLARITY_INVERTED>;
-+};
-+
-+&pinctrl {
-+
-+	usb {
-+		usb_otg_pwren: usb-otg-pwren {
-+			rockchip,pins = <4 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+};
-+
-+&vcc5v0_usb30_otg {
-+	gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
-+};
--- 
-2.48.1
+Just add an IIO namespace.  That would be the one I'd expect a typical
+driver to use.  We can move things into it later. The ones above are
+more obscure functionality.  Avoid the IIO_CORE naming as I'd expect
+that to be stuff the core alone should call and we shouldn't see in drivers.
+
+> > 
+> > If we want really play the namespace game, then the existing IIO stuff
+> > should be put in a IIO_CORE-namespace instead of creating more new small
+> > ones. I am afraid that adding all existing IIO core to a IIO_CORE namespace
+> > and converting all existing users to use the IIO_CORE is not a reasonable
+> > request for a person trying to:
+> > 
+> > 1. Write a driver
+> > 2. Add a small helper to aid others (instead of just melding it all in the
+> > given new driver - which does not benefit anyone else and just leads to code
+> > duplication in the long run...)  
+> 
+> That's why more specific, but also a bit general might work, like IIO_HELPERS,
+> considering that they may be used by many drivers.
+> 
+> While it may be not your call, somebody should do the job. Jonathan? :-)
+
+It's on the list.  Not that near the top of it, but there to do at somepoint.
+
+> 
+> > > > > > > > (Sometimes I have a feeling that the trend today is to try make things
+> > > > > > > > intentionally difficult in the name of the safety. Like, "more difficult I
+> > > > > > > > make this, more experience points I gain in the name of the safety".)
+> > > > > > > > 
+> > > > > > > > Well, I suppose I could add a namespace for these functions - if this
+> > > > > > > > approach stays - but I'd really prefer having all IIO core stuff in some
+> > > > > > > > global IIO namespace and not to have dozens of fine-grained namespaces for
+> > > > > > > > an IIO driver to use...  
+> 
+> ...
+> 
+> > > > > > foo &= (~bar);
+> > > > > > 
+> > > > > > is _much_ faster than seeing:  
+> > > > > 
+> > > > > Strongly disagree. One need to parse an additional pair of parentheses,
+> > > > > and especially when it's a big statement inside with nested ones along
+> > > > > with understanding what the heck is going on that you need them in the
+> > > > > first place.
+> > > > > 
+> > > > > On top of that, we have a common practices in the LK project and
+> > > > > with our history of communication it seems you are trying to do differently
+> > > > > from time to time. Sounds like a rebellion to me :-)  
+> > > > 
+> > > > I only rebel when I (in my opinion) have a solid reason :)
+> > > >   
+> > > > > > foo &= ~bar;
+> > > > > > 
+> > > > > > and having to google the priorities.  
+> > > > > 
+> > > > > Again, this is something a (regular) kernel developer keeps refreshed.
+> > > > > Or even wider, C-language developer.  
+> > > > 
+> > > > Ha. As I mentioned, I've been writing C on a daily bases for almost 25
+> > > > years. I wonder if you intent to say I am not a kernel/C-language developer?
+> > > > Bold claim.  
+> > > 
+> > > I'm just surprised by seeing that style from a 25y experienced C developer,
+> > > that's all.  
+> > 
+> > I am not. If something, these 25 years have taught me to understand that
+> > even if something is simple and obvious to me, it may not be simple and
+> > obvious to someone else. Similarly, something obvious to someone else, is
+> > not obvious to me. Hence, I am very careful when telling people that:
+> >   
+> > >>> Again, this is something a (regular) kernel developer keeps refreshed.
+> > >>> Or even wider, C-language developer.  
+> > 
+> > I may however say that "this is something _I_ keep refreshed (as a
+> > kernel/C-developer)".  
+> 
+> True.
+> 
+> > As an example,
+> >   
+> > >>>> foo &= (~bar);  
+> > 
+> > This is something _I_ find very clear and exact, with zero doubt if negation
+> > is applied before &=. For _me_ the parenthesis there _help_, and for _me_
+> > the parenthesis cause no confusion when reading the code.
+> > 
+> > I won't go and tell that I'd expect any C or kernel developer to be able to
+> > fluently parse "foo &= (~bar)". (Whether I think they should is another
+> > matter).  
+> 
+> > Oh well, let's wait and see what Jonathan thinks of these helpers in
+> > general. We can continue the parenthesis discussion when we know whether the
+> > code is going to stay.  
+> 
+> Sure, but it's not only about these helpers, it's about the style in general.
+> Spreading unneeded characters in the code seems to me as an attempt to put
+> _your_ rules over the subsytem's ones. Whatever, let's Jonathan to judge, we
+> will never agree on a keep growing list of things anyway...
+> 
+I need to find some time to consider it a bit more and look at other users.
+I'm not keen on this being 'general' if we only have one user in the short
+term.
+
+Jonathan
+
 
 
