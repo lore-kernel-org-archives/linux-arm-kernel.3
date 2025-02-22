@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9CDC021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 01:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05020C021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 02:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=il6jYmKN5cX/c+7UWVto+Oj1n4hFtbCu8p1XCz3TiEE=; b=0HbCDi/cCDBtMiZYR+Z7Fp0tmu
-	E69l8N6XrOo2ZmkXUsVe9l46+4BBalnQuur5/qxs0GzzUxtR9OdJncIaxu0ME5s59z6bHf1fr6+i2
-	zo7xZxc/1EElrRTfnycFH5rXWE3j9HbyhBS09A+3hfASY6fAjJkdfvyiPVJyYxf9gzC8zWGzwfI47
-	g6z6FBz7D69d1enaRHfcAf8/EUbmb6PQjgzS3mbgiiIyGS3GBrZ61weTvOi7oeVMZIEcXSEirZNMO
-	idgqnGUAEDe27pKlw1liZQ3ctzBXuGmyfPRsIk1DdIQb7AU5lkzh3b6fF2blgKTprLFMaA6ve4Xep
-	u35KWOFQ==;
+	bh=U6a9yEXkQW/x3v6N0CLqKYAXEvtTz6ogyBVtKlZQTKQ=; b=Av2zrkbDjT3RhjTL9z7QptAOjL
+	T70Z1CECLqnmVKcKuansFTLrVa9QNz1oVBMozzB68/EtohkXembs31NlRDm4C4KVCveTuPkYunIZN
+	3yeU0SM4/wvU7TDQx51vZ56EfvirdR31PvGIG2+IPkjwIjqWR3taKfZoJhT0Bx2cZWJNvcD+U6g3u
+	qPzpB5EBFitTIjyQEUbQzDgsJgcKiddF6smKqHKP2pgYND2Sqnfcd5ev2HvWizwdYFR36xCTyNVtT
+	un1Q2c/aVUJeEfMZjWhi2xJR6HEUbr25aAtwfEUOzIKlj6VOc2OtxyZ/Xz5WyEQkvV6NChOzltyeZ
+	9ODchXWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tleMM-00000007IIg-0t1D;
-	Sat, 22 Feb 2025 01:31:14 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tlfKm-00000007MD1-38hb;
+	Sat, 22 Feb 2025 02:33:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tleKs-00000007I9l-0Sdo
+	id 1tlfJK-00000007M8D-2k5p
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 01:29:43 +0000
+	Sat, 22 Feb 2025 02:32:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 18D815C5D49;
-	Sat, 22 Feb 2025 01:29:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E390C4CED6;
-	Sat, 22 Feb 2025 01:29:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B6D6C68391;
+	Sat, 22 Feb 2025 02:32:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1F89C4CED6;
+	Sat, 22 Feb 2025 02:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1740187780;
-	bh=M/8afILG/fiSMw6cLfHMqMulnTBlFbWMNBSND4QBAuE=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=V8srSeKjQCkRGONBXy9ePBQV4CUVrRdTUDJwg7i/A7oOmgCMNQLWkvMcQ+i/5+i/m
-	 CmOUI/22IW+5nH1nHgxGH0LUJ+SlCtCxMw0OfKEv3N/VS5KXymn2qGzyZzuQr7B/h+
-	 nwBrColLbfUC+1L+d12ux/VnAX533oZobVDJS2vBmJUTvYrMqY9bXDWnVgG6OwfU0F
-	 P29wqoT74KE3Eq4cAOTsOcJ5mL9unybZFJgf6I3msDUHQLlgjRenOKNjbg5PNSstuD
-	 TXU7WnWsCa8XkABpBVycl8MVGYCBomwVkMIHMRiTzgD+OCY6zTqYPig95sNFHudgKs
-	 o+K7owCl1VxAQ==
-Date: Fri, 21 Feb 2025 19:29:38 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1740191528;
+	bh=FZnMFdDa2eWIl4oFcL24l5BAuNQWfTpFEGTebUgjJk4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=h1YVU2h2yeY3oks9GLiIqAziMoxE84y+9gFwXdo+kGhQdEkbgSefJim69X1+OjmxB
+	 sUl+TKn1d7tnDfsRtl6LqPpN4Zqp5FCE/T1tCHT91DI2AiTUJSqykBnBhxGLOsfpRJ
+	 nHL8Rq0zDyXPQzxne70Hsg50VNNcBJDXXcQrCmocIJK/QeKSWlP4/iL/yyDEnSsOGy
+	 jeR2zK3eXpNSi8hfI+/26IVx3Q4rxYprYdcA+0+chH4C+7rAPJM86cWqwytsMIUF0L
+	 7Cuk393b/czhZL+xrIt2EJL5/a/jZSuA/oT4F6sDau4qKPMwDg7Z2kKUcv2z1n+/0H
+	 PiWAzh7xsQqYg==
+Date: Sat, 22 Feb 2025 02:32:06 +0000
+From: Wei Liu <wei.liu@kernel.org>
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	iommu@lists.linux.dev, mhklinux@outlook.com,
+	eahariha@linux.microsoft.com, mukeshrathor@microsoft.com,
+	kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+	decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	daniel.lezcano@linaro.org, joro@8bytes.org, robin.murphy@arm.com,
+	arnd@arndb.de, jinankjain@linux.microsoft.com,
+	muminulrussell@gmail.com, skinsburskii@linux.microsoft.com
+Subject: Re: [PATCH v2 0/3] Introduce CONFIG_MSHV_ROOT for root partition code
+Message-ID: <Z7k3Jh9O8noNZXGt@liuwe-devbox-debian-v2>
+References: <1740167795-13296-1-git-send-email-nunodasneves@linux.microsoft.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Shawn Guo <shawnguo@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Conor Dooley <conor.dooley@microchip.com>, devicetree@vger.kernel.org, 
- Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev
-To: Frank Li <Frank.Li@nxp.com>
-In-Reply-To: <20250221-imx95_15x15-v4-0-385ee8e03dfd@nxp.com>
-References: <20250221-imx95_15x15-v4-0-385ee8e03dfd@nxp.com>
-Message-Id: <174018774174.599965.6492650307461479037.robh@kernel.org>
-Subject: Re: [PATCH v4 0/4] arm64: dts: add imx95_15x15_evk boards support
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_172942_263383_036DAB49 
-X-CRM114-Status: GOOD (  14.78  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1740167795-13296-1-git-send-email-nunodasneves@linux.microsoft.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,77 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Feb 21, 2025 at 11:56:32AM -0800, Nuno Das Neves wrote:
+> Running in the root partition is a unique and specialized case that
+> requires additional code. CONFIG_MSHV_ROOT allows Hyper-V guest kernels
+> to exclude this code, which is important since significant additional code
+> specific to the root partition is expected to be added over time.
+> 
+> To do this, change hv_root_partition to be a function which is stubbed out
+> to return false if CONFIG_MSHV_ROOT=n, and don't compile hv_proc.c at all,
+> stubbing out those functions with inline versions.
+> 
+> Store the partition type (guest or root) in an enum hv_curr_partition_type,
+> which can be extended beyond just guest and root partition.
+> 
+> While at it, introduce hv_result_to_errno() to convert Hyper-V status codes
+> to regular linux errors. This is useful because the caller of a hypercall
+> helper function (such as those in hv_proc.c) usually can't and doesn't
+> interpret the Hyper-V status, so it is better to convert it to an error code
+> and reduce the possibility of misinterpreting it. This also alows the stubbed
+> versions of the hv_proc.c functions to just return a linux error code.
+> 
+> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
 
-On Fri, 21 Feb 2025 16:15:56 -0500, Frank Li wrote:
-> Add related binding doc.
+No need to sign this off. :-)
+
 > 
-> Add imx95_15x15_evk boards, which have big difference with imx95_19x19_evk
-> boards.
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
-> Changes in v4:
-> - Add usb typce part
-> - Link to v3: https://lore.kernel.org/r/20250220-imx95_15x15-v3-0-247777ed91c4@nxp.com
-> 
-> Changes in v3:
-> - Add Rob and Conor's ack tags
-> - Remove undocument property (need doube check why dtb-check have not
-> report warning).
-> 
-> - Link to v2: https://lore.kernel.org/r/20250114-imx95_15x15-v2-0-2457483bc99d@nxp.com
-> 
-> Changes in v2:
-> - fixed typo 'inctrl-names'.
-> - Link to v1: https://lore.kernel.org/r/20250113-imx95_15x15-v1-0-8c20cbaab9ed@nxp.com
-> 
-> ---
-> Frank Li (4):
->       dt-bindings: arm: fsl: add i.MX95 15x15 EVK board
->       arm64: dts: imx95: Add #io-channel-cells = <1> for adc node
->       arm64: dts: imx95: Add i3c1 and i3c2
->       arm64: dts: imx95: Add imx95-15x15-evk support
-> 
->  Documentation/devicetree/bindings/arm/fsl.yaml    |    1 +
->  arch/arm64/boot/dts/freescale/Makefile            |    1 +
->  arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts | 1130 +++++++++++++++++++++
->  arch/arm64/boot/dts/freescale/imx95.dtsi          |   27 +
->  4 files changed, 1159 insertions(+)
-> ---
-> base-commit: 3d34d52fb62b250297279c3d95b2562180a44569
-> change-id: 20250110-imx95_15x15-6a64db8c0187
-> 
-> Best regards,
-> ---
-> Frank Li <Frank.Li@nxp.com>
-> 
-> 
+> Nuno Das Neves (3):
+>   hyperv: Convert hypercall statuses to linux error codes
+>   hyperv: Change hv_root_partition into a function
+>   hyperv: Add CONFIG_MSHV_ROOT to gate root partition support
 > 
 
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250221-imx95_15x15-v4-0-385ee8e03dfd@nxp.com:
-
-arch/arm64/boot/dts/freescale/imx95-15x15-evk.dtb: pcie@4c300000: clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux'] is too short
-	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie.yaml#
-arch/arm64/boot/dts/freescale/imx95-15x15-evk.dtb: pcie@4c380000: clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux'] is too short
-	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie.yaml#
-
-
-
-
-
+Applied to hyperv-next. Thanks.
 
