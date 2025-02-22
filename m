@@ -4,101 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A3E4C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 09:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D61AC021B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 09:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=St1JTstNvtpDJwVJQG8kMHDEmxsx7ifcGkS2W32UHvQ=; b=NddPYrVHK4WaSiVtKyt2wwnLm8
-	QwB1OAx+nqqOxSFA1QcGvvAc+yZA9KYAXSHxL4UoQFHQ7705RGUZ8aZsrFgeQYkkIlHonGdWJvCx0
-	WghIbbkENqidfD5q8MRmY2c25SwgqWulZdRxs7l3G6rM3GMou5hQ9m245yvNIJBFKWqNmZKOruBRX
-	QJP9Ukuj2125uWXej7mVVanlAjsJYxvRXzm7A4PfR6Dr0PLScspK4YBAypjWmZUGknAoi5fNSMMrf
-	mnY1VyfqdSC/K8ttsOGv0mfMJw4U4l7BPCP049NUXuLMBlvh0+Zo8+M0yQ1G1ftLYWKH4bLynjG8/
-	WUlRMqjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CVFZWFPFDlkcRsQ2uVdX0vF6OBL9wkXBgvpJ+3Ke9C8=; b=2ZLzgLndpr5WVz4L7Zq+4rJMPT
+	7MZxbK/x99eXSXBfOeyPytBQmT2alhakoTD8H7KOOp+UU4Ag5ZCWIKbrhlHv7U+G3dmckU+j+s1+j
+	65JzJPYcSP3PkTvt3TNzUSdbwdISYlIn5ZtfPS+K47D3UJGasdl2w4OT6ChGax7zENEPkCN0HNpYe
+	Sjc7oXvi8rsl8oOf+mi2jtuP8qc75XurYWVMXQKOBnHQlvk7XiYVhZxU863m8CUHEUgvPmq2GYgQL
+	6ZGR0ghu16uJBc9J09ggX6qptvTwmccbBhnp/NxaaFgb0GQbVI0lcRn+3pvBFH6ooVRQS+wp0PCvR
+	qsibyHEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tllq8-00000007jSJ-1ClJ;
-	Sat, 22 Feb 2025 09:30:28 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1tllrZ-00000007jdh-45xV;
+	Sat, 22 Feb 2025 09:31:57 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tllod-00000007jI9-38hv
+	id 1tlloq-00000007jKJ-3VGf
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 22 Feb 2025 09:28:57 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-38f31f7731fso1415972f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Feb 2025 01:28:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1740216534; x=1740821334; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=St1JTstNvtpDJwVJQG8kMHDEmxsx7ifcGkS2W32UHvQ=;
-        b=X2kD3ntbR8wwHKc11ULVGjO8mQqyZBgzsbYb3ttsUtu7c0qHrrLAOks50XlOZWonJu
-         iWcANYVynQLBoGtRSHajXvhYmT3nHRCL5SB4u8pufYv/UN09/FY4dBTOh7+Lts3+f8b+
-         1Jo03C1cVxGGqkmQho5csjOd7DCjyMqvL2i7++27DsFadcNccmV0YWPpv+IkGpMClEfS
-         sNQqjZylt+ofLKVbvZ4HbtP2Y8def5xJwTY89BtEUhJEV0/rDzi9wvhdtZhKEHj1r7Es
-         mUjlvusdwak/xZE2x02Lp/RD+cRkgmFh0VuBj+lhjO2lY34NizPh+vbk2HA9VZ237ruI
-         NHcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1740216534; x=1740821334;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=St1JTstNvtpDJwVJQG8kMHDEmxsx7ifcGkS2W32UHvQ=;
-        b=Gh0jVtj31JhstkAlM65rVP1Mokn4ToKmZlGtxr7nQ4nUyBoo+H64lXMhOKSvWHwfT2
-         FCe1Us+HSX9fSj7odJlClj+7hrSXnOGe2h7qYjhU0fbOqsgSP62cMITY92BdD29GvfTr
-         UHdeSQuwqrRz0obvb2/WvSUq9WVz/r30PX3lNXIF7L1AZYwPLrY2++4rf/b99ySoR+DA
-         gHLofgIkTvN5fVYKy3KRl2FqM7i93v1ICS74ql6oFstBiF8ozsGu2/UXFW77esXAyhhq
-         wBgpSsXKjsdheYrjTXEBgNQIuEWikLRw+KwJcJn4n+JnUqAfBnM7IfLTu11TbLD6buAm
-         m2VA==
-X-Forwarded-Encrypted: i=1; AJvYcCVVHOe1z0rtfzsWOmK32y+dqy/uPdPP/AK/0Aq4UMtkDm9v4vRLm5dlzNtwgu9ViRCXHA7iUNLl48NZccNVYH0V@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuJslqDGrDPuoxZUqnCvPnlInmKzDj5NpzcQb6sdkta3N6TIii
-	KdUBtRe1KPaWUX7bXK72p6E88ltof2E/EN/lQTSqmxujEwrr6YCs
-X-Gm-Gg: ASbGncsacSdLvFlq1l7MCD9r5qjpbRG+M2m62/bT1lmCfjM9Kqj1xjnVdx9n9JoXT+r
-	eVfevvnXiF8JRg2jXHt7A+BsoDj58seN7lu82yBkpQ+cQMkrXOt8w55BaoE1pYfd2Gyu+qBDccL
-	h0IEvP2PjFkfPOFxJiby0Ey4bLl52u9rRIyjWeu/U3Oe5dGYuDEqRKzY/2TsDqMlInzFBUwY0hC
-	bh3NBjxK161v6EaBd6rmDGsDRIGw8zr+YlFcIXNFr5Rgj2AplNo5MnCZc+0Ke8oHVX+4aU5e/kh
-	FXXL3X7Ac9cf+QugbsUjnUZYCvIQI+dQ3o9VR7+u5Vkv1ELAq2FcW5qW8wV1IDq3ydmJJf/RBe/
-	7yA==
-X-Google-Smtp-Source: AGHT+IF6pzVIMqT3bI5J8rbMV0F1AIJ9MBRqLOEPinMndAjfKOv9u7BlBPc4YGBvwr2qQglMbEAZjA==
-X-Received: by 2002:a5d:6da2:0:b0:38f:443b:48f4 with SMTP id ffacd0b85a97d-38f6f0d0ea0mr4633663f8f.49.1740216533405;
-        Sat, 22 Feb 2025 01:28:53 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-38f258b439dsm25488772f8f.8.2025.02.22.01.28.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 22 Feb 2025 01:28:52 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Daniel Vetter <daniel@ffwll.ch>, Samuel Holland <samuel@sholland.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Ryan Walklin <ryan@testtoast.com>
-Cc: Andre Przywara <andre.przywara@arm.com>,
- Chris Morgan <macroalpha82@gmail.com>,
- Hironori KIKUCHI <kikuchan98@gmail.com>,
- Philippe Simons <simons.philippe@gmail.com>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org
-Subject: Re: [PATCH v7 00/27] drm: sun4i: add Display Engine 3.3 (DE33) support
-Date: Sat, 22 Feb 2025 10:28:51 +0100
-Message-ID: <7770397.EvYhyI6sBW@jernej-laptop>
-In-Reply-To: <2a864555-d81f-4048-aa0b-c286544faa50@app.fastmail.com>
-References: <20250216183524.12095-1-ryan@testtoast.com>
- <2221204.Mh6RI2rZIc@jernej-laptop>
- <2a864555-d81f-4048-aa0b-c286544faa50@app.fastmail.com>
+	Sat, 22 Feb 2025 09:29:10 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.216])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4Z0MB95BSGz4f3lDN
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Feb 2025 17:28:33 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.112])
+	by mail.maildlp.com (Postfix) with ESMTP id D0EA91A13EB
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 22 Feb 2025 17:28:56 +0800 (CST)
+Received: from [10.67.111.192] (unknown [10.67.111.192])
+	by APP1 (Coremail) with SMTP id cCh0CgCHN3jYmLlnfioGEg--.56407S2;
+	Sat, 22 Feb 2025 17:28:56 +0800 (CST)
+Message-ID: <02ef4695-c9d6-4867-a25a-7d9e617f9c48@huaweicloud.com>
+Date: Sat, 22 Feb 2025 17:28:56 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v3 5/9] arm64: insn: Add BIT(23) to
+ {load,store}_ex's mask
+Content-Language: en-US
+To: Peilin Ye <yepeilin@google.com>, bpf@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: bpf@ietf.org, Eduard Zingerman <eddyz87@gmail.com>,
+ David Vernet <void@manifault.com>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ "Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan
+ <puranjay@kernel.org>, Ilya Leoshkevich <iii@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Quentin Monnet <qmo@kernel.org>, Mykola Lysenko <mykolal@fb.com>,
+ Shuah Khan <shuah@kernel.org>, Ihor Solodrai <ihor.solodrai@linux.dev>,
+ Yingchi Long <longyingchi24s@ict.ac.cn>, Josh Don <joshdon@google.com>,
+ Barret Rhoden <brho@google.com>, Neel Natu <neelnatu@google.com>,
+ Benjamin Segall <bsegall@google.com>, linux-kernel@vger.kernel.org
+References: <cover.1740009184.git.yepeilin@google.com>
+ <6888a87af6ea47ea29d429b91a57cb146d1f69c8.1740009184.git.yepeilin@google.com>
+From: Xu Kuohai <xukuohai@huaweicloud.com>
+In-Reply-To: <6888a87af6ea47ea29d429b91a57cb146d1f69c8.1740009184.git.yepeilin@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: cCh0CgCHN3jYmLlnfioGEg--.56407S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7AF1kKF4kuryrWryxXr1kZrb_yoW8Ww15p3
+	93Zr4rCF48Cr15G3W3JF17W3yFqF4FyF45G34UCryFka45tF1jqr1jgr12vF4kGr4jgF4F
+	va429F10vrWUC3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8
+	Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
+	CjxVAFwI0_Cr0_Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AK
+	xVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvj
+	xUsPfHUUUUU
+X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_012855_833261_D370FED2 
-X-CRM114-Status: GOOD (  48.73  )
+X-CRM114-CacheID: sfid-20250222_012909_176466_BAFEF19F 
+X-CRM114-Status: GOOD (  11.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,183 +103,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne sobota, 22. februar 2025 ob 03:48:01 Srednjeevropski standardni =C4=8Da=
-s je Ryan Walklin napisal(a):
-> On Sat, 22 Feb 2025, at 7:57 AM, Jernej =C5=A0krabec wrote:
-> > Hi Ryan,
-> >
-> > sorry for very late review, but here we go...
->=20
-> No problem, thanks for the review!
->=20
-> > This patchset actually introduces 3 disticnt features, which should IMO=
-=20
-> > be separated
-> > and thus making reviewing patches easier.
-> >
-> > 1. native 10-bit YUV420 output (without YUV->RGB->YUV conversions) -=20
-> > this is used on
-> >     HDMI for proper 10-bit 4K@60 HDR output
-> > 2. Display Engine 3.3 (DE33) support
-> > 3. AFBC modifier/format support (used for more efficient GPU or VPU=20
-> > output rendering)
-> >
-> > If I'm not mistaken, your goal is only DE33 support.=20
->=20
-> This is my initial goal, but I would still like good HDMI and video suppo=
-rt (including HW decode).=20
->=20
-> It took some refactoring and resequencing of (your) existing driver work =
-to get to this series, and I have left out the HDMI and separated the TCON =
-code for the same reason, that initially I am intending to just support RGB=
- operation to an LCD. I do intend however to use the HDMI code either in or=
- out of tree but think that will be a much bigger/more complex change to ma=
-inline given the current HDMI code is more invasive to the generic driver.
->=20
-> The YUV and AFBC changes seemed more self-contained and seemed reasonable=
- approaches given that they were both features of the DE3 and up. I am happ=
-y either to split these into either 4 or 5 separate patches ie:
->=20
-> 1a. refactor CSC code to prepare for YUV
-> 1b. add YUV for DE3
-> 2. refactor mixer enumeration and regmaps to support DE3+
-> 3. add DE33
-> 4. Add AFBC
->=20
-> My only reluctance is that that adds more work to manage multiple patches=
- which are logically grouped and in terms of ease of review, all these 4 st=
-eps are in the current set in that order (apart from AFBC which is complete=
-ly standalone), and I don't think submitting them separately reduces comple=
-xity. It however will reduce reviewer burden as you suggest, but this has b=
-een a slow process already.
-
-Sorry, completely forgot. YUV420 HDMI code relies on my previous work, with=
- which
-Maxime wasn't happy with:
-
-https://lore.kernel.org/linux-sunxi/20230924192604.3262187-1-jernej.skrabec=
-@gmail.com/
-
-So unless switching HDMI to bridge ops is implemented, which also brings fo=
-rmat,
-YUV formatter and some other patches just add unused code, which isn't idea=
-l,
-especially if we decide to rework driver before that code can be put in acc=
-eptable
-state for all involved.
-
-=46rom quick look, patches 5-13, 26 should be dropped for now. Not sure abo=
-ut 1-4.
-
-I'm fine with AFBC support going in, it's just one patch.
-
->=20
-> I am happy to accept either process but this has been some time already n=
-ow with lots of stylistic feedback but not much on the correctness of the a=
-pproach and code, and I am keen to get this landed.
->=20
-> There is are two=20
-> > reasons why
-> > I've never sent these patches myself:
-> >
-> > 1. scaling YUV images doesn't work
-> >
-> > Not a problem for any user who doesn't use video player with DRM plane=
-=20
-> > rendering,
-> > which I assume is most of them. We can get around of this issue to deny=
-=20
-> > scaling
-> > YUV buffers until the issue is sorted out.
->=20
-> Good to know, I hadn't appreciated that. Mostly relevant for video as you=
- say and it would be good to land YUV support without scaling, then extend =
-subsequently, possibly when we get to the video engine?
-
-Correct.
-
-Just be aware of one thing. Even if YUV buffer is rendered in 1:1 scale, vi=
- scaler
-still needs to be configured. That's because U and V planes are subsampled =
-and
-need to be scaled to Y plane size. For unknown reason, that works just fine=
-, but
-if Y scale is bigger than 1, it all falls apart.
-
-This should be implemented in atomic check.
-
->=20
-> > 2. plane allocations are hackish
-> >
-> > DE33 for the first time introduced option to move planes between the=20
-> > mixers. DRM
-> > has also support for this, but for time being static allocation is=20
-> > acceptable and tbh,
-> > even dynamic support need appropriate initial setting.
-> > As you might guessed this is done in DE33 clock driver using magic=20
-> > values. Proper
-> > way would be to introduce some kind of connection between mixer/plane=20
-> > and clock
-> > driver, so initial configuration can be moved to appropriate module=20
-> > instead of
-> > being thrown into clock driver. I need to check where to put it and how=
-=20
-> > to properly
-> > connect DT nodes. Maybe syscon phandle? I'll do some research.
->=20
-> Thanks, I was not aware of this either.
-
-Here you have some pointers how this values are actually set:
-https://github.com/orangepi-xunlong/linux-orangepi/blob/orange-pi-5.15-sun5=
-5iw3/bsp/drivers/video/sunxi/disp2/disp/de/lowlevel_v33x/de330/de_top.c#L23=
-2-L260
-
-I think this is the biggest issue of this code. As soon as we solve it prop=
-erly, we
-have an ability to implement all remaining features at a later date.
-
->=20
-> > There is one glaring issue (when you work on driver and test every=20
-> > aspect of it).
-> > DE33 introduced RCQ, which is basically DMA, which copies shadowed=20
-> > registers
-> > from memory buffer directly to hw registers. IIRC it does that at=20
-> > vblank time. This
-> > tells you that current concept of writing register values at any time=20
-> > userspace feels
-> > to do commit is wrong and we've been lucky that it works as well as it=
-=20
-> > does. So,
-> > in order to fix this, driver would need quite a big reorganization.=20
-> > Introducing
-> > shadow buffers would solve most of the issues, most likely also with=20
-> > YUV scaling.
-> > Implementing RCQ would be then relatively simple and even improve=20
-> > timings.
-> > Note that even DE3 has occasional issue with YUV scaler and also=20
-> > read-modify-read
-> > access to some of its register can produce bogus value and thus corrupt=
-=20
-> > image
-> > until next commit.
->=20
-> Thanks, again I wasn't aware. All my testing has shown remarkable stabili=
-ty and there are some downstream users out-of-tree with good feedback, but =
-would be happy to support an effort to improve this.
-
-Let's land DE33 support first since it's long overdue and then I'm happy to=
- discuss plans for moving forward.
-
-Best regards,
-Jernej
-
->=20
-> Regards,
->=20
-> Ryan
->=20
+On 2/20/2025 9:21 AM, Peilin Ye wrote:
+> We are planning to add load-acquire (LDAR{,B,H}) and store-release
+> (STLR{,B,H}) instructions to insn.{c,h}; add BIT(23) to mask of load_ex
+> and store_ex to prevent aarch64_insn_is_{load,store}_ex() from returning
+> false-positives for load-acquire and store-release instructions.
+> 
+> Reference: Arm Architecture Reference Manual (ARM DDI 0487K.a,
+>             ID032224),
+> 
+>    * C6.2.228 LDXR
+>    * C6.2.165 LDAXR
+>    * C6.2.161 LDAR
+>    * C6.2.393 STXR
+>    * C6.2.360 STLXR
+>    * C6.2.353 STLR
+> 
+> Signed-off-by: Peilin Ye <yepeilin@google.com>
+> ---
+>   arch/arm64/include/asm/insn.h | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
+> index e390c432f546..2d8316b3abaf 100644
+> --- a/arch/arm64/include/asm/insn.h
+> +++ b/arch/arm64/include/asm/insn.h
+> @@ -351,8 +351,8 @@ __AARCH64_INSN_FUNCS(ldr_imm,	0x3FC00000, 0x39400000)
+>   __AARCH64_INSN_FUNCS(ldr_lit,	0xBF000000, 0x18000000)
+>   __AARCH64_INSN_FUNCS(ldrsw_lit,	0xFF000000, 0x98000000)
+>   __AARCH64_INSN_FUNCS(exclusive,	0x3F800000, 0x08000000)
+> -__AARCH64_INSN_FUNCS(load_ex,	0x3F400000, 0x08400000)
+> -__AARCH64_INSN_FUNCS(store_ex,	0x3F400000, 0x08000000)
+> +__AARCH64_INSN_FUNCS(load_ex,	0x3FC00000, 0x08400000)
+> +__AARCH64_INSN_FUNCS(store_ex,	0x3FC00000, 0x08000000)
+>   __AARCH64_INSN_FUNCS(mops,	0x3B200C00, 0x19000400)
+>   __AARCH64_INSN_FUNCS(stp,	0x7FC00000, 0x29000000)
+>   __AARCH64_INSN_FUNCS(ldp,	0x7FC00000, 0x29400000)
 
 
+Looks good to me
 
+Acked-by: Xu Kuohai <xukuohai@huawei.com>
 
 
