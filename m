@@ -4,205 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 387C5C021B2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 08:09:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA64EC021B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 08:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LsXNmGhST6ayGmZnBbQ7J4sd/cCuBHNdUOPdEbwhWpQ=; b=10kTfjeKbg2j/QPI5lm9rsHkNa
-	hFGmh4vgTNiE1TCJWcuK5aOEpUxffzxSx20XM0E8EF/LH0OmPp3jsyG0sQbU0D5u21vyJtjrbt9ho
-	CpooeUWNRh8jl+3iR2GJJqgSnZgm7afeBrO3SN6dcTcpyKYKOpRbbTKa4K5bAhpPbc7E7T12IisoU
-	7ke9/Hda7bu9mRu7FcXyAowja5+fvZ6mrTfmfajoL4ugm3hRIbQ7Ui2euAOIT733es3jEIbVrXAU/
-	NukYVfXIOHVOBv3C1zCtYmGD2wtIcOE9JYWBADQcjDaLf0zEFYvTb3aL4vasHKze0QZ+TGtQu1qlz
-	Vj6Nupig==;
+	bh=DRrg6c2K4XleizbMWxPQXWBwaxmuiY1RcYb2d/6rATA=; b=vRYq9Ou/e7Rtt0lfKoGs5qbmbr
+	MPMxvztWXyAE5IOTL0U8jqyHKMISl8xFxzTvhIRkCzwEseiYN8xVSoLpfzgjsq9S3R4f9qaAVT2x+
+	ZKng0GVBrc/q0oiF8uHkMkSE9tEnuXWkdE7nQ5RssiThQsM06skGVQKX/ODg7iuyo7fCuC0Q4VLuW
+	stlzXZ55Vb1RKAx1IX/TTB/9HPVWoRxXWOFWuFqs33Xowc5ZnJnr7YNrrM+w1XkEGN7Ow+KxsdIta
+	l/UN6eGYUHmaLm3GUkCVU+XZQfDbeVizgiE/jtaLD4W2pCVH/XBd4a5jrD/ZczrgRxdJ7er7fRohT
+	V0Ri62nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlkZW-00000007c7o-0je3;
-	Sat, 22 Feb 2025 08:09:14 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tlkj5-00000007d0W-0aWS;
+	Sat, 22 Feb 2025 08:19:07 +0000
+Received: from xry111.site ([89.208.246.23])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlkY3-00000007c0K-0B2g;
-	Sat, 22 Feb 2025 08:07:44 +0000
-X-UUID: 151e592ef0f411ef83f2a1c9db70dae0-20250222
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=LsXNmGhST6ayGmZnBbQ7J4sd/cCuBHNdUOPdEbwhWpQ=;
-	b=hlmIkc863E6Bh4SCUGSeFqiv/RbCL9FS+UxhlkyYEiGuw6kBPepuuO7rYheAqnGTYRUaUSW/AD1It7DwXxPkDVu45x9QYugpc6Cha9ZvoWxHQzLYrRwYXmgSbyqTbXM+lVdbRm85WdWVv10pev1dq0mUthWG07sF9aN9K/oyNig=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.1.46,REQID:8f4dfffe-1849-4152-a79e-76acb6e4c092,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:60aa074,CLOUDID:873f1e29-e0f8-414e-b8c3-b75c08217be8,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
-	EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
-	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 151e592ef0f411ef83f2a1c9db70dae0-20250222
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <chunfeng.yun@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1679569542; Sat, 22 Feb 2025 01:07:38 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Sat, 22 Feb 2025 16:07:36 +0800
-Received: from APC01-PSA-obe.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Sat, 22 Feb 2025 16:07:36 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fqqIGhrk2/+zsNIQgEtXgwBxmzgkXPK50UpfaQrvqjnAAUcB9WXrcE93q3dLtHQQPI/wiL7F0JXDkFW1TZSn+1vkyeqFx8ZAwlTYMc6lXfIACklRRGV6e7rpxMXiZVXB/f4K9/X1TNCai/+yoT4UGp0+hMa6CelQTEPT2bSWZDuUXsomVo7bcCB5Tj79OC/TVJ1T7QBecsavEUEzegHnBEyG4fobLYnucg/uMVklKbUyYv0bXFREXVE850Ku4mjWRooi18bd5GjExgEInTOp5GoReL+ULV2bqoyaBFXNSZfo9IaYufy83AsYpzJDTwsvK1U4aLYerxaPztwO55LHlg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LsXNmGhST6ayGmZnBbQ7J4sd/cCuBHNdUOPdEbwhWpQ=;
- b=CXr46VZ/STPNGzGMGHdS8Smze5pkeoxYQ6ERlbMPC1i92Q68mdMzBM2Lw8XlzFhLajzSLCglf4Nfdzy1hfiQXiT4s9x7BQN/cd0Gsq6N16IQ1OZGqrymN/hT9AnxmOE87VVUGhyath3KqNabKDhZ08n5xxvL5fyi+bv/pDoqUckeVsXtAA0R9CBWl7eWhK9i6Jc+AHcVPygG0UGnkLwxvXUx30e2PBh7ZhaWta782DmLg49W8maxDkx40iOckI6mAg1+9u7rjv2Q1yyzSLtRih7Hpg0rXxHmAYZpNwv7+er77E4rKv9zjxv6T7Ks6o+pXe68k+Xcjezq+AGUGc3pNw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LsXNmGhST6ayGmZnBbQ7J4sd/cCuBHNdUOPdEbwhWpQ=;
- b=ZRY2HWCzqv+bH0bZ5TW8OAmtHE61d9p2hEDae91WDqWFDBd9rdgn9G87BcIRe/0zRFqPnPkmFMZASmnXkN7FkLjvhSL/QUh9rX7bsAsxf/Wax6/+hHJf2xysMyc88a5tZXm3az6kMgWTZQ+OzSsp4HmZap7cQzydpib9FDw1ILc=
-Received: from PSAPR03MB6236.apcprd03.prod.outlook.com (2603:1096:301:9d::13)
- by SEYPR03MB7505.apcprd03.prod.outlook.com (2603:1096:101:139::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.18; Sat, 22 Feb
- 2025 08:07:33 +0000
-Received: from PSAPR03MB6236.apcprd03.prod.outlook.com
- ([fe80::2b28:30c4:61a8:20f6]) by PSAPR03MB6236.apcprd03.prod.outlook.com
- ([fe80::2b28:30c4:61a8:20f6%7]) with mapi id 15.20.8466.016; Sat, 22 Feb 2025
- 08:07:33 +0000
-From: =?utf-8?B?Q2h1bmZlbmcgWXVuICjkupHmmKXls7Ap?= <Chunfeng.Yun@mediatek.com>
-To: "robh@kernel.org" <robh@kernel.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, "gregkh@linuxfoundation.org"
-	<gregkh@linuxfoundation.org>
-CC: "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"mathias.nyman@intel.com" <mathias.nyman@intel.com>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>
-Subject: Re: [PATCH v3 3/4] usb: mtk-xhci: add support remote wakeup of mt8196
-Thread-Topic: [PATCH v3 3/4] usb: mtk-xhci: add support remote wakeup of
- mt8196
-Thread-Index: AQHbf5FODIPLI9TKeUmeOfVo1d4u27NMxxGAgAY7cQA=
-Date: Sat, 22 Feb 2025 08:07:33 +0000
-Message-ID: <337c9b78d129aa8f47464893da49febe072f4af6.camel@mediatek.com>
-References: <20250215100615.808-1-chunfeng.yun@mediatek.com>
-	 <20250215100615.808-3-chunfeng.yun@mediatek.com>
-	 <7804ef70-efe7-476b-ae5e-bf665bfb4a47@collabora.com>
-In-Reply-To: <7804ef70-efe7-476b-ae5e-bf665bfb4a47@collabora.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: Evolution 3.28.5-0ubuntu0.18.04.2 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR03MB6236:EE_|SEYPR03MB7505:EE_
-x-ms-office365-filtering-correlation-id: f1661b6e-11dd-4ff2-0e9b-08dd5317f5ea
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?Q0s5K1VtOTZ4VXNRRkpIaTY1bTNNNkphUnkwYmhmdHhqbWJoUnRvRnRVdXBU?=
- =?utf-8?B?ZEJEMkRMcWNxY3o4ODhqNXZDdUpvd1ZHeitmM3IxUU0yUVdRRXkyanJneE5l?=
- =?utf-8?B?Q0VMUWhXQitMVWp3YmVvci85SE5ZVDdHWExjcDFraTR1SHVzTE4ybXV6dlNV?=
- =?utf-8?B?RXFsOGl3ZSsrSi9hNU1Ob3RlTWJZVXF4S2g4SDFIYk44RnRxalFtTUt3c1Bm?=
- =?utf-8?B?OURaU3E4K1BJQ0RqYm5BcWZHNEpzN1BzQVYzOUlHVHhrMFZuT0cyQUYwSmpm?=
- =?utf-8?B?V1Q0Q2lSNS9Gd0NuWExSUm1XNHg5VzVqRTRnNUJ1V3EwK3IrZWpqWnFFOWtV?=
- =?utf-8?B?SFMwOHh6RWsxcmtJRlg1clo0aEtLbUFneWdZQjBEeWlKalhSZVZIcXR6Z2pY?=
- =?utf-8?B?WkEzdEdVRW5HSEJCakpLMkNyU2xrb1kwVXdSZUpOK2FZb1Z0TGt5amRSOGsy?=
- =?utf-8?B?VnlCOUpNYU43MVZmd1gvYm9samNDd2xYaWlQanJ2K0JEL0xET3o5SFd0SGUv?=
- =?utf-8?B?NEtTbHNncmlNR0ZjNXdNZmtwdGM3WmVickx5Z25BVGpHY3pFOEp4M29yN0FZ?=
- =?utf-8?B?U1ZaSVN5VGhOcHNUQlU2WFpsMlNLUUYzbW5KcDUycnR1RHBxakdTZkhraDVy?=
- =?utf-8?B?REJQTzFYRXo0QzdWSzdyUkRiOEVoUWxRR3dXTDZUVmExQU9xRkZyOElDWXlY?=
- =?utf-8?B?dk4yZnJJdEpDMDlDcGRhN1RCS2t5em1YM2pwdVlCbzc2SVQ4bEx0VEEySElN?=
- =?utf-8?B?VjlGV3BneDRaTTZhT3NTVjhjUUp2cDFRSTBoV0NGVWRIUlRINFpDa3kxOTZM?=
- =?utf-8?B?eGlnNHl5N3puZGx4aEtXUHk0a3BqUEZkNGZNNkRHMEIvRUw0NUhZck9SKys0?=
- =?utf-8?B?OXd2S1NTZytybDkwRm5JL3JVbTdaTzBPUG9TQ0Q3ZUpIOER1SU5ybUFKYm5V?=
- =?utf-8?B?UksxSldOUENtcnh2OHQwelowcU4rVGpjeVQxYVpiSGNIR05BTGRSQldnbFdJ?=
- =?utf-8?B?VStSQ3MwQ1ZITjJGT21NdEQyUjFISzhYSm1Td2JLYndQdTJER1NwUFA1V0FR?=
- =?utf-8?B?cDROT0x5SDhRbDA0ckRHSWVrWHlKR0ZDbEFEdTVCRkdQazFGamNJT0ZWb0NK?=
- =?utf-8?B?MEVYY2EzWmdxbVpjc240NHJiQ1pZMGFVbVVyRldDMlBGYndYd1lyOXhkSjU2?=
- =?utf-8?B?OW81R0Vxc3krbzNGak8xMTN3RHc1V1N2Mi91Z3hXZFptOEJDQklmVGRxeUU4?=
- =?utf-8?B?eDR6NjFELzBaZWtDeDVlZUE1NElJWHMweURjVEhjQS9GYTRwWWlvVlVvcjJH?=
- =?utf-8?B?TWg1U3hoeHk5NXFXTWVUUlVRTzN5ZERGQXlmdEFHR1U2dElEM2FlK1hHaXZJ?=
- =?utf-8?B?dVZYMlBUcXdZNlhkQ2VGbndtQlNmd0JORVJWNFFPVkw5Kzc3NkcvUTFTdStT?=
- =?utf-8?B?cFI2WXFZaStCeUtTeU1KbUt4QjQzWHlpZ3J6NFhhaThrNVdqM2RWTzZtUk00?=
- =?utf-8?B?ekh1QjY0U0w2cFZWb2k2MTJiN0hwQU5XUkJTeHFwS3dnNHZER1hYeEg2Zmto?=
- =?utf-8?B?RGJuT0ovbmNDZFBuNUxzQVp3ODRzckdwa0lJUEtQTG15clFYa0o0VTJTbytD?=
- =?utf-8?B?cC9ROVZIOEhZMEdSQ2FXL0Q2MWZ1RnM2UWQzcUpJL2pGQ1dxc3VMVlVRbElR?=
- =?utf-8?B?ZTUyWjFzL1ErdVpreVR0K0drbTc1OWd5MDhSRXhOUUYvbmpzdktTMkZ4K1lo?=
- =?utf-8?B?VGxPdDQ4bzQ0MTlDaEc5OHZtZEdXbkJWZmNFVWlhTEpVSVBJUVQ3c3BSWHZ2?=
- =?utf-8?B?aUxXZy9UZGFIdExKZ29KVHN1MllFT2xZaDJuOGdzWkhLYTJyZW9NK0s2RGdX?=
- =?utf-8?B?LzkwaGhaWWhtTXY4TTBDNUVRMHpobi9wUVdHVzlLUlRsQzlFRDVVTkRYSUhq?=
- =?utf-8?Q?n52SskcFBn0paQ9ogz/Xa1tS6P70G0Vn?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB6236.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QUovRmZZdVZNc0FvMjhIUGgzOUUwRytZSWVaSkFRZ0p3ZTdlZGdWZVlZUmxL?=
- =?utf-8?B?YWRJdmtiVW1JZHpiZ3VYUDAzeXdQTVVhdGVTcGM3RU95YXBHMkhTYnorQ2pZ?=
- =?utf-8?B?TWJzdGdIZmhvSzhldFRLWmN1aDhDM1RZTm9SaE5FenlFWnJQTUx1ODBwaWYv?=
- =?utf-8?B?K0E2Ly9Mdkh2V0xuWmNBb0QvenBBSVJ0eEFITEhQZTZsaVhZalF4ZWRTVCs0?=
- =?utf-8?B?amR5RkFTQWJ4KzZKQnBXcGRZUGtCVGNYUjVQcFhla1ZuMTRnKzh3MUF4TXNT?=
- =?utf-8?B?R1dGblpXdmhrR2gxOUViclRaRFBXOGtQcmFIMkxhKy9xMElzNEFvQTFtQzJ3?=
- =?utf-8?B?UkF0RkVLaC9hZjVGWW5jc0tZaGN6UjZycHR5Ykd1YVBUSWVSK3k2d2V6SzBm?=
- =?utf-8?B?WFBkRjhLNWNMUk5RbmFWOUZqSzNjK005ZTFmT2pkR2R2dkZlTVVVeXV0RFZ0?=
- =?utf-8?B?TFVwZTl1c2ZUQ2VpdVhjaEdObGhFOTBUWXcyM3Q0Z282K0xYcWJHL2tuNWJH?=
- =?utf-8?B?enJ6RWZrZjc4NEJIbEI0WE9NcTl3VFVEQ1llZ25ESSsxTHlXUWZ3b2d3ZWZP?=
- =?utf-8?B?RWhPRVk1aFRHbzg3Q3U4N2ptL01QaDlYckZENjAyQjkxRFRzV0hYK01zNklD?=
- =?utf-8?B?ZUMzZ1oxUzkvYVpPR0pLNjY2SnJTdmdmKzlQSU1yL2RoRytRc05tblZ2Q3Qy?=
- =?utf-8?B?YTh2TS9jQXhhTjFyc3pvWi9wdElzRzNlNXZoK0Y3MCtTRDJwa1lHOVlQTW8x?=
- =?utf-8?B?UlI4RXp1VW10VWp6d2dWNkdBbTNjY2k1MmYxRkpqaTNtQXpaWUI5dXl6Zmg4?=
- =?utf-8?B?dzNZbDVKcm1BWmRpWlRnNVB4Q0JKTWQ1aG04WVBhNDVCNnVSQlYwL3QvNEh0?=
- =?utf-8?B?TjBzd3hReFNLK1hUNUplTVd2S0lLYU96SW5WSzZXRGQzandEc3ExRTlNSVB5?=
- =?utf-8?B?QUhhMkFkc3lsbjcxTGFpdTdWbVVadFovTDhMMmkxdGUxKytJd1ZvQ1hzak10?=
- =?utf-8?B?elJ6bFNhcmhaMVJjUEkrS21lblk3c0FhTm02Y29jQ1BVdDkvK2RUSVNWMFZG?=
- =?utf-8?B?VGdkV2dpeWhLNUtvR2svSkJIY0pvaGxXd05rUUpXbENMOGkyV2tSZ2d6cy9Q?=
- =?utf-8?B?UktPWnJ6Q1hLdmhQaTZFSUpNbE9CZmhvSks1QUlOa2orS2twUHVsUTJwMFkx?=
- =?utf-8?B?MkE5enpzY3FKQUFBWDlZdm4vZ1BrcnQyMVJUckxxYlJkS1lGclNQeDkySWl6?=
- =?utf-8?B?WFordTBjYkk3WFd1Skt0aERCYWNWMVhRNjg4cFR0T1JRc3EvSW1xbGxlUDQw?=
- =?utf-8?B?M2g1b0E5empTRXFuWmVHL2Jlam52Z2lENlRHN2lOaTlISlpiY2taeWg4dGJI?=
- =?utf-8?B?R1N5UU04cksrNEx5RnRTblkrNHVOTFpyZTQzcm40MmE5bG1wdVhEVmw4dFJ4?=
- =?utf-8?B?K2ZLUm96Q3Rta2grd2k1SEE2THk2QlFQNlh2L2c2elkrUUJCV3Vwa2k2UUpO?=
- =?utf-8?B?YnRjK0Vobm5ZOWhPWW1icHV6MFNqQ3plaGZRaXpTNWxIVWdmNzlEaGY1SStx?=
- =?utf-8?B?dE9RQi9WL0FmY2lYQy9XOEY2aW9hVWl2Rkd5VXZnMzJvY0c5UXMxaFJMQXVL?=
- =?utf-8?B?Y0xRYlg4ZDlEenl1bzdYTEtDUStJOXdJdTAzWWFzbndQUjJIdU9nK0pSSXJs?=
- =?utf-8?B?UkVRYkk1bUhPbTBTMFNGTkMwUk1ESTBDdlVIVnUxUk1zVnpIUlhvLzI0T0Qw?=
- =?utf-8?B?dDEyMThNaVEycndycFZBaExoVXRyVnZja3FHbHU4bmx4aS9hSEFGcTVYUUVX?=
- =?utf-8?B?U29na0hyamdDYXhSNXNhdW1RVGFoMmViVFQyamlQMXNEMnlIQWFnV0tFWjZW?=
- =?utf-8?B?UmJGdll0S3JSdjBGRHMycDJ2Y3FuS01NVEpqS2g4UFR6UHVmaFZyRDZ1Kzc4?=
- =?utf-8?B?YkJUTmFlTDdoZmw3aXFNazE0Zkd4NnMwV1FNWlA5Q1hpOEhvU1lIdW5qNklP?=
- =?utf-8?B?YkVIMVpJQ3grOTJHdktIUWFRTjNibEF2VXhsbm1iVUJjbHVmNDFZNkQ3aS9l?=
- =?utf-8?B?U3VUTEhZK1N2NWIzZ0d3R3NSSWNQWlVVZnRlNmdJdVNkU3RsNlE5ZElvVDdw?=
- =?utf-8?B?d3FVT2h6eHhURnMxczRRTWZXaXVSQ0l6dytwYm5HWXQvNFZrWElPeUN6QTI3?=
- =?utf-8?B?ZGc9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <74F695962F24F64098BB81A4641C42A6@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1tlkhZ-00000007ctc-1Gpt;
+	Sat, 22 Feb 2025 08:17:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xry111.site;
+	s=default; t=1740212245;
+	bh=DRrg6c2K4XleizbMWxPQXWBwaxmuiY1RcYb2d/6rATA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=mxCULzsFy+M3Qz7kr+B8TCoUHkY61qs2EE21/SAsu8dCHPwCpct2pFOvu969Ocl3s
+	 3+0fwJi5iyByd1gTd2oOzNAEQ95uFEOfVlBckNfGH7F/RK4jwrEEYd2KAgG0N9p3fA
+	 JVJPoQThpV2zdJoTWKqL1tfqPnfiS+++Jpwg52AY=
+Received: from [127.0.0.1] (unknown [IPv6:2001:470:683e::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (secp384r1) server-digest SHA384)
+	(Client did not present a certificate)
+	(Authenticated sender: xry111@xry111.site)
+	by xry111.site (Postfix) with ESMTPSA id 391F8676C9;
+	Sat, 22 Feb 2025 03:17:18 -0500 (EST)
+Message-ID: <1adbf1603237b654a2948ae13692c6b6db0ab7eb.camel@xry111.site>
+Subject: Re: [PATCH v3 09/18] riscv: vdso: Switch to generic storage
+ implementation
+From: Xi Ruoyao <xry111@xry111.site>
+To: Thomas =?ISO-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, Helge
+ Deller <deller@gmx.de>, Andy Lutomirski <luto@kernel.org>,  Thomas Gleixner
+ <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Anna-Maria Behnsen	 <anna-maria@linutronix.de>, Frederic Weisbecker
+ <frederic@kernel.org>,  Andrew Morton <akpm@linux-foundation.org>, Catalin
+ Marinas <catalin.marinas@arm.com>, Will Deacon	 <will@kernel.org>, Theodore
+ Ts'o <tytso@mit.edu>, "Jason A. Donenfeld"	 <Jason@zx2c4.com>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt	 <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Huacai Chen	 <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Russell King	 <linux@armlinux.org.uk>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik	 <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger
+ <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Thomas
+ Bogendoerfer	 <tsbogend@alpha.franken.de>, Michael Ellerman
+ <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Naveen N Rao	 <naveen@kernel.org>, Madhavan
+ Srinivasan <maddy@linux.ibm.com>, Ingo Molnar	 <mingo@redhat.com>, Borislav
+ Petkov <bp@alien8.de>, Dave Hansen	 <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,  Arnd Bergmann	
+ <arnd@arndb.de>, Guo Ren <guoren@kernel.org>
+Cc: linux-parisc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	loongarch@lists.linux.dev, linux-s390@vger.kernel.org, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>, 
+	linux-csky@vger.kernel.org
+Date: Sat, 22 Feb 2025 16:17:16 +0800
+In-Reply-To: <20250204-vdso-store-rng-v3-9-13a4669dfc8c@linutronix.de>
+References: <20250204-vdso-store-rng-v3-0-13a4669dfc8c@linutronix.de>
+	 <20250204-vdso-store-rng-v3-9-13a4669dfc8c@linutronix.de>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.3 
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB6236.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f1661b6e-11dd-4ff2-0e9b-08dd5317f5ea
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Feb 2025 08:07:33.1483
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: JQbpUpF0yKjssZ8KoO6TPskPT/w5h+Hl/V99GiEYyRhbY4RrsAkmpFwKB4mETVFQDkeW4Xspc0udepe6h7AZecAmfG3SerX/kphLzpzqmeQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB7505
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250222_000743_140659_13392BC3 
-X-CRM114-Status: GOOD (  23.16  )
+X-CRM114-CacheID: sfid-20250222_001733_368127_A9A4CFB9 
+X-CRM114-Status: GOOD (  28.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -217,65 +96,408 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMDI1LTAyLTE4IGF0IDA5OjU3ICswMTAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
-ZWdubyB3cm90ZToNCj4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8gbm90IGNsaWNrIGxpbmtz
-IG9yIG9wZW4gYXR0YWNobWVudHMgdW50aWwNCj4geW91IGhhdmUgdmVyaWZpZWQgdGhlIHNlbmRl
-ciBvciB0aGUgY29udGVudC4NCj4gDQo+IA0KPiBJbCAxNS8wMi8yNSAxMTowNiwgQ2h1bmZlbmcg
-WXVuIGhhIHNjcml0dG86DQo+ID4gVGhlcmUgYXJlIHRocmVlIFVTQiBjb250cm9sbGVycyBvbiBt
-dDgxOTYsIGVhY2ggY29udHJvbGxlcidzIHdha2V1cA0KPiA+IGNvbnRyb2wgaXMgZGlmZmVyZW50
-LCBhZGQgc29tZSBzcGVjaWZpYyB2ZXJzaW9ucyBmb3IgdGhlbS4NCj4gPiANCj4gPiBTaWduZWQt
-b2ZmLWJ5OiBDaHVuZmVuZyBZdW4gPGNodW5mZW5nLnl1bkBtZWRpYXRlay5jb20+DQo+IA0KPiBT
-aW5jZSBhbGwgb2YgdGhlIFVTQiBjb250cm9sbGVycyBvZiB0aGUgTVQ4MTk2IFNvQyBhcmUgYmVo
-aW5kIE1UVTMsDQo+IGFuZA0KPiBzaW5jZSB0aGUgd2FrZXVwIGNvbnRyb2wgZm9yIGFsbCBvZiB0
-aGVtIHdpbGwgYmUgaGFuZGxlZCBieSB0aGUgTVRVMw0KPiBkcml2ZXINCj4gYW5kICpub3QqIGJ5
-IHRoZSB4aGNpLW10ayBkcml2ZXIuLi4uDQpBcyBJIGV4cGxhaW5lZCBiZWZvcmUsIHRoaXMgaXMg
-dXNlZCBmb3IgYmFjayBjb21wYXRpYmxlLCBhbmQgd2UgYWx3YXlzDQp1c2UgaG9zdCBvbmx5IGZv
-ciBzb21lIHByb2plY3RzLCBhbmQgZG9uIG5vdCB1c2UgbXR1MyBkcml2ZXIsIHRoYXQgd2lsbA0K
-bWFrZSBkdHMgY29tcGxpY2F0ZWQuDQoNCj4gDQo+IE5BQ0shDQo+IA0KPiBQbGVhc2UgZHJvcCB0
-aGlzIGNvbW1pdC4NCkFuZCB4aGNpLW10aydzIHBhdGNoIGlzIGhpZ2hlciBwcmlvcml0eSB0aGFu
-IG10dTMncywgSSBhbHJlYWR5IGFkZA0KbXR1MydzIHBhdGNoIGFzIHlvdSBzdWdnZXN0aW9uLCBi
-dXQgSSBzdGlsbCBob3BlIHRvIGtlZXAgaXQuIHByb3ZpZGUNCm9uZSBtb3JlIG9wdGlvbiBpcyBi
-ZXR0ZXIgZm9yIG91ciBjdXN0b21lcnMuDQoNClRoYW5rcy4NCg0KPiANCj4gQ2hlZXJzLA0KPiBB
-bmdlbG8NCj4gDQo+ID4gLS0tDQo+ID4gdjM6IG5vIGNoYW5nZXMNCj4gPiB2MjogbW9kaWZ5IG1h
-cmNvcyBuYW1lDQo+ID4gLS0tDQo+ID4gICBkcml2ZXJzL3VzYi9ob3N0L3hoY2ktbXRrLmMgfCAy
-NiArKysrKysrKysrKysrKysrKysrKysrKysrKw0KPiA+ICAgMSBmaWxlIGNoYW5nZWQsIDI2IGlu
-c2VydGlvbnMoKykNCj4gPiANCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy91c2IvaG9zdC94aGNp
-LW10ay5jIGIvZHJpdmVycy91c2IvaG9zdC94aGNpLQ0KPiA+IG10ay5jDQo+ID4gaW5kZXggOTA0
-ODMxMzQ0NDQwLi4zZjhlMzdiMjUzMjIgMTAwNjQ0DQo+ID4gLS0tIGEvZHJpdmVycy91c2IvaG9z
-dC94aGNpLW10ay5jDQo+ID4gKysrIGIvZHJpdmVycy91c2IvaG9zdC94aGNpLW10ay5jDQo+ID4g
-QEAgLTExMyw2ICsxMTMsMTQgQEANCj4gPiAgICNkZWZpbmUgV0MxX0lTX1BfOTUgICAgICAgICBC
-SVQoMTIpDQo+ID4gICAjZGVmaW5lIFdDMV9JU19FTl9QMF85NSAgICAgICAgICAgICBCSVQoNikN
-Cj4gPiANCj4gPiArLyogbXQ4MTk2ICovDQo+ID4gKyNkZWZpbmUgUEVSSV9XS19DVFJMMF84MTk2
-ICAgMHgwOA0KPiA+ICsjZGVmaW5lIFdDMF9JU19FTl9QMF85NiAgICAgICAgICAgICAgQklUKDAp
-DQo+ID4gKyNkZWZpbmUgV0MwX0lTX0VOX1AxXzk2ICAgICAgICAgICAgICBCSVQoNykNCj4gPiAr
-DQo+ID4gKyNkZWZpbmUgUEVSSV9XS19DVFJMMV84MTk2ICAgMHgxMA0KPiA+ICsjZGVmaW5lIFdD
-MV9JU19FTl9QMl85NiAgICAgICAgICAgICAgQklUKDApDQo+ID4gKw0KPiA+ICAgLyogbXQyNzEy
-IGV0YyAqLw0KPiA+ICAgI2RlZmluZSBQRVJJX1NTVVNCX1NQTV9DVFJMIDB4MA0KPiA+ICAgI2Rl
-ZmluZSBTU0NfSVBfU0xFRVBfRU4gICAgIEJJVCg0KQ0KPiA+IEBAIC0xMjksNiArMTM3LDkgQEAg
-ZW51bSBzc3VzYl91d2tfdmVycyB7DQo+ID4gICAgICAgU1NVU0JfVVdLX1YxXzQsICAgICAgICAg
-LyogbXQ4MTk1IElQMSAqLw0KPiA+ICAgICAgIFNTVVNCX1VXS19WMV81LCAgICAgICAgIC8qIG10
-ODE5NSBJUDIgKi8NCj4gPiAgICAgICBTU1VTQl9VV0tfVjFfNiwgICAgICAgICAvKiBtdDgxOTUg
-SVAzICovDQo+ID4gKyAgICAgU1NVU0JfVVdLX1YxXzcsICAgICAgICAgLyogbXQ4MTk2IElQMCAq
-Lw0KPiA+ICsgICAgIFNTVVNCX1VXS19WMV84LCAgICAgICAgIC8qIG10ODE5NiBJUDEgKi8NCj4g
-PiArICAgICBTU1VTQl9VV0tfVjFfOSwgICAgICAgICAvKiBtdDgxOTYgSVAyICovDQo+ID4gICB9
-Ow0KPiA+IA0KPiA+ICAgLyoNCj4gPiBAQCAtMzgxLDYgKzM5MiwyMSBAQCBzdGF0aWMgdm9pZCB1
-c2Jfd2FrZXVwX2lwX3NsZWVwX3NldChzdHJ1Y3QNCj4gPiB4aGNpX2hjZF9tdGsgKm10aywgYm9v
-bCBlbmFibGUpDQo+ID4gICAgICAgICAgICAgICBtc2sgPSBXQzBfSVNfRU5fUDNfOTUgfCBXQzBf
-SVNfQ185NSgweDcpIHwNCj4gPiBXQzBfSVNfUF85NTsNCj4gPiAgICAgICAgICAgICAgIHZhbCA9
-IGVuYWJsZSA/IChXQzBfSVNfRU5fUDNfOTUgfCBXQzBfSVNfQ185NSgweDEpKSA6DQo+ID4gMDsN
-Cj4gPiAgICAgICAgICAgICAgIGJyZWFrOw0KPiA+ICsgICAgIGNhc2UgU1NVU0JfVVdLX1YxXzc6
-DQo+ID4gKyAgICAgICAgICAgICByZWcgPSBtdGstPnV3a19yZWdfYmFzZSArIFBFUklfV0tfQ1RS
-TDBfODE5NjsNCj4gPiArICAgICAgICAgICAgIG1zayA9IFdDMF9JU19FTl9QMF85NjsNCj4gPiAr
-ICAgICAgICAgICAgIHZhbCA9IGVuYWJsZSA/IG1zayA6IDA7DQo+ID4gKyAgICAgICAgICAgICBi
-cmVhazsNCj4gPiArICAgICBjYXNlIFNTVVNCX1VXS19WMV84Og0KPiA+ICsgICAgICAgICAgICAg
-cmVnID0gbXRrLT51d2tfcmVnX2Jhc2UgKyBQRVJJX1dLX0NUUkwwXzgxOTY7DQo+ID4gKyAgICAg
-ICAgICAgICBtc2sgPSBXQzBfSVNfRU5fUDFfOTY7DQo+ID4gKyAgICAgICAgICAgICB2YWwgPSBl
-bmFibGUgPyBtc2sgOiAwOw0KPiA+ICsgICAgICAgICAgICAgYnJlYWs7DQo+ID4gKyAgICAgY2Fz
-ZSBTU1VTQl9VV0tfVjFfOToNCj4gPiArICAgICAgICAgICAgIHJlZyA9IG10ay0+dXdrX3JlZ19i
-YXNlICsgUEVSSV9XS19DVFJMMV84MTk2Ow0KPiA+ICsgICAgICAgICAgICAgbXNrID0gV0MxX0lT
-X0VOX1AyXzk2Ow0KPiA+ICsgICAgICAgICAgICAgdmFsID0gZW5hYmxlID8gbXNrIDogMDsNCj4g
-PiArICAgICAgICAgICAgIGJyZWFrOw0KPiA+ICAgICAgIGNhc2UgU1NVU0JfVVdLX1YyOg0KPiA+
-ICAgICAgICAgICAgICAgcmVnID0gbXRrLT51d2tfcmVnX2Jhc2UgKyBQRVJJX1NTVVNCX1NQTV9D
-VFJMOw0KPiA+ICAgICAgICAgICAgICAgbXNrID0gU1NDX0lQX1NMRUVQX0VOIHwgU1NDX1NQTV9J
-TlRfRU47DQo+IA0KPiANCj4gDQo=
+On Tue, 2025-02-04 at 13:05 +0100, Thomas Wei=C3=9Fschuh wrote:
+> The generic storage implementation provides the same features as the
+> custom one. However it can be shared between architectures, making
+> maintenance easier.
+>=20
+> Co-developed-by: Nam Cao <namcao@linutronix.de>
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
+
+I made a RISC-V vDSO getrandom implementation on top of this and it
+works fine.  I'll submit it when this is merged.
+
+Tested-by: Xi Ruoyao <xry111@xry111.site>
+
+> ---
+> =C2=A0arch/riscv/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
+=A0 3 +-
+> =C2=A0arch/riscv/include/asm/vdso.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0 |=C2=A0 2 +-
+> =C2=A0.../include/asm/vdso/{time_data.h =3D> arch_data.h}=C2=A0 |=C2=A0 8=
+ +-
+> =C2=A0arch/riscv/include/asm/vdso/gettimeofday.h=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 | 14 +---
+> =C2=A0arch/riscv/include/asm/vdso/vsyscall.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 9 ---
+> =C2=A0arch/riscv/kernel/sys_hwprobe.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 |=C2=A0 3 +-
+> =C2=A0arch/riscv/kernel/vdso.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 90 +------------
+> ---------
+> =C2=A0arch/riscv/kernel/vdso/hwprobe.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+ |=C2=A0 6 +-
+> =C2=A0arch/riscv/kernel/vdso/vdso.lds.S=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=
+=A0 7 +-
+> =C2=A09 files changed, 18 insertions(+), 124 deletions(-)
+>=20
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index
+> 7612c52e9b1e35607f1dd4603a596416d3357a71..aa8ea53186c04ad68582255f74b0
+> 9a0605fe8368 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -53,7 +53,7 @@ config RISCV
+> =C2=A0	select ARCH_HAS_SYSCALL_WRAPPER
+> =C2=A0	select ARCH_HAS_TICK_BROADCAST if
+> GENERIC_CLOCKEVENTS_BROADCAST
+> =C2=A0	select ARCH_HAS_UBSAN
+> -	select ARCH_HAS_VDSO_TIME_DATA
+> +	select ARCH_HAS_VDSO_ARCH_DATA if GENERIC_VDSO_DATA_STORE
+> =C2=A0	select ARCH_KEEP_MEMBLOCK if ACPI
+> =C2=A0	select ARCH_MHP_MEMMAP_ON_MEMORY_ENABLE	if 64BIT &&
+> MMU
+> =C2=A0	select ARCH_OPTIONAL_KERNEL_RWX if ARCH_HAS_STRICT_KERNEL_RWX
+> @@ -116,6 +116,7 @@ config RISCV
+> =C2=A0	select GENERIC_SCHED_CLOCK
+> =C2=A0	select GENERIC_SMP_IDLE_THREAD
+> =C2=A0	select GENERIC_TIME_VSYSCALL if MMU && 64BIT
+> +	select GENERIC_VDSO_DATA_STORE if MMU
+> =C2=A0	select GENERIC_VDSO_TIME_NS if HAVE_GENERIC_VDSO
+> =C2=A0	select HARDIRQS_SW_RESEND
+> =C2=A0	select HAS_IOPORT if MMU
+> diff --git a/arch/riscv/include/asm/vdso.h
+> b/arch/riscv/include/asm/vdso.h
+> index
+> f891478829a52c41e06240f67611694cc28197d9..c130d8100232cbe50e52e35eb418
+> e354bd114cb7 100644
+> --- a/arch/riscv/include/asm/vdso.h
+> +++ b/arch/riscv/include/asm/vdso.h
+> @@ -14,7 +14,7 @@
+> =C2=A0 */
+> =C2=A0#ifdef CONFIG_MMU
+> =C2=A0
+> -#define __VVAR_PAGES=C2=A0=C2=A0=C2=A0 2
+> +#define __VDSO_PAGES=C2=A0=C2=A0=C2=A0 4
+> =C2=A0
+> =C2=A0#ifndef __ASSEMBLY__
+> =C2=A0#include <generated/vdso-offsets.h>
+> diff --git a/arch/riscv/include/asm/vdso/time_data.h
+> b/arch/riscv/include/asm/vdso/arch_data.h
+> similarity index 71%
+> rename from arch/riscv/include/asm/vdso/time_data.h
+> rename to arch/riscv/include/asm/vdso/arch_data.h
+> index
+> dfa65228999bed41dfd6c5e36cb678e1e055eec8..da57a3786f7a53c866fc00948826
+> b4a2d839940f 100644
+> --- a/arch/riscv/include/asm/vdso/time_data.h
+> +++ b/arch/riscv/include/asm/vdso/arch_data.h
+> @@ -1,12 +1,12 @@
+> =C2=A0/* SPDX-License-Identifier: GPL-2.0 */
+> -#ifndef __RISCV_ASM_VDSO_TIME_DATA_H
+> -#define __RISCV_ASM_VDSO_TIME_DATA_H
+> +#ifndef __RISCV_ASM_VDSO_ARCH_DATA_H
+> +#define __RISCV_ASM_VDSO_ARCH_DATA_H
+> =C2=A0
+> =C2=A0#include <linux/types.h>
+> =C2=A0#include <vdso/datapage.h>
+> =C2=A0#include <asm/hwprobe.h>
+> =C2=A0
+> -struct arch_vdso_time_data {
+> +struct vdso_arch_data {
+> =C2=A0	/* Stash static answers to the hwprobe queries when all CPUs
+> are selected. */
+> =C2=A0	__u64 all_cpu_hwprobe_values[RISCV_HWPROBE_MAX_KEY + 1];
+> =C2=A0
+> @@ -14,4 +14,4 @@ struct arch_vdso_time_data {
+> =C2=A0	__u8 homogeneous_cpus;
+> =C2=A0};
+> =C2=A0
+> -#endif /* __RISCV_ASM_VDSO_TIME_DATA_H */
+> +#endif /* __RISCV_ASM_VDSO_ARCH_DATA_H */
+> diff --git a/arch/riscv/include/asm/vdso/gettimeofday.h
+> b/arch/riscv/include/asm/vdso/gettimeofday.h
+> index
+> ba3283cf7accaa93a38512d2c17eda0eefde0612..29164f84f93cec6e28251e6a0adf
+> bc341ac88241 100644
+> --- a/arch/riscv/include/asm/vdso/gettimeofday.h
+> +++ b/arch/riscv/include/asm/vdso/gettimeofday.h
+> @@ -69,7 +69,7 @@ int clock_getres_fallback(clockid_t _clkid, struct
+> __kernel_timespec *_ts)
+> =C2=A0#endif /* CONFIG_GENERIC_TIME_VSYSCALL */
+> =C2=A0
+> =C2=A0static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+> -						 const struct
+> vdso_data *vd)
+> +						 const struct
+> vdso_time_data *vd)
+> =C2=A0{
+> =C2=A0	/*
+> =C2=A0	 * The purpose of csr_read(CSR_TIME) is to trap the system
+> into
+> @@ -79,18 +79,6 @@ static __always_inline u64
+> __arch_get_hw_counter(s32 clock_mode,
+> =C2=A0	return csr_read(CSR_TIME);
+> =C2=A0}
+> =C2=A0
+> -static __always_inline const struct vdso_data
+> *__arch_get_vdso_data(void)
+> -{
+> -	return _vdso_data;
+> -}
+> -
+> -#ifdef CONFIG_TIME_NS
+> -static __always_inline
+> -const struct vdso_data *__arch_get_timens_vdso_data(const struct
+> vdso_data *vd)
+> -{
+> -	return _timens_data;
+> -}
+> -#endif
+> =C2=A0#endif /* !__ASSEMBLY__ */
+> =C2=A0
+> =C2=A0#endif /* __ASM_VDSO_GETTIMEOFDAY_H */
+> diff --git a/arch/riscv/include/asm/vdso/vsyscall.h
+> b/arch/riscv/include/asm/vdso/vsyscall.h
+> index
+> e8a9c4b53c0c9f4744196eed800b21f3918d1040..1140b54b4bc8278d7a322036cd9f
+> 84f71258f246 100644
+> --- a/arch/riscv/include/asm/vdso/vsyscall.h
+> +++ b/arch/riscv/include/asm/vdso/vsyscall.h
+> @@ -6,15 +6,6 @@
+> =C2=A0
+> =C2=A0#include <vdso/datapage.h>
+> =C2=A0
+> -extern struct vdso_data *vdso_data;
+> -
+> -static __always_inline struct vdso_data
+> *__riscv_get_k_vdso_data(void)
+> -{
+> -	return vdso_data;
+> -}
+> -
+> -#define __arch_get_k_vdso_data __riscv_get_k_vdso_data
+> -
+> =C2=A0/* The asm-generic header needs to be included after the definition=
+s
+> above */
+> =C2=A0#include <asm-generic/vdso/vsyscall.h>
+> =C2=A0
+> diff --git a/arch/riscv/kernel/sys_hwprobe.c
+> b/arch/riscv/kernel/sys_hwprobe.c
+> index
+> bcd3b816306c22df62f60ad044f4ae58f7dad4d1..04a4e549551284bb3340673eb76a
+> 2e7bd457025e 100644
+> --- a/arch/riscv/kernel/sys_hwprobe.c
+> +++ b/arch/riscv/kernel/sys_hwprobe.c
+> @@ -450,8 +450,7 @@ static int do_riscv_hwprobe(struct riscv_hwprobe
+> __user *pairs,
+> =C2=A0
+> =C2=A0static int __init init_hwprobe_vdso_data(void)
+> =C2=A0{
+> -	struct vdso_data *vd =3D __arch_get_k_vdso_data();
+> -	struct arch_vdso_time_data *avd =3D &vd->arch_data;
+> +	struct vdso_arch_data *avd =3D vdso_k_arch_data;
+> =C2=A0	u64 id_bitsmash =3D 0;
+> =C2=A0	struct riscv_hwprobe pair;
+> =C2=A0	int key;
+> diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
+> index
+> 3ca3ae4277e187e790a8bf513a9e80d8b6290bb2..cc2895d1fbc2fe752b3edc94f4e2
+> 8a6a8fca7a3b 100644
+> --- a/arch/riscv/kernel/vdso.c
+> +++ b/arch/riscv/kernel/vdso.c
+> @@ -13,20 +13,11 @@
+> =C2=A0#include <linux/err.h>
+> =C2=A0#include <asm/page.h>
+> =C2=A0#include <asm/vdso.h>
+> -#include <linux/time_namespace.h>
+> +#include <linux/vdso_datastore.h>
+> =C2=A0#include <vdso/datapage.h>
+> =C2=A0#include <vdso/vsyscall.h>
+> =C2=A0
+> -enum vvar_pages {
+> -	VVAR_DATA_PAGE_OFFSET,
+> -	VVAR_TIMENS_PAGE_OFFSET,
+> -	VVAR_NR_PAGES,
+> -};
+> -
+> -#define VVAR_SIZE=C2=A0 (VVAR_NR_PAGES << PAGE_SHIFT)
+> -
+> -static union vdso_data_store vdso_data_store __page_aligned_data;
+> -struct vdso_data *vdso_data =3D vdso_data_store.data;
+> +#define VVAR_SIZE=C2=A0 (VDSO_NR_PAGES << PAGE_SHIFT)
+> =C2=A0
+> =C2=A0struct __vdso_info {
+> =C2=A0	const char *name;
+> @@ -79,78 +70,6 @@ static void __init __vdso_init(struct __vdso_info
+> *vdso_info)
+> =C2=A0	vdso_info->cm->pages =3D vdso_pagelist;
+> =C2=A0}
+> =C2=A0
+> -#ifdef CONFIG_TIME_NS
+> -struct vdso_data *arch_get_vdso_data(void *vvar_page)
+> -{
+> -	return (struct vdso_data *)(vvar_page);
+> -}
+> -
+> -static const struct vm_special_mapping rv_vvar_map;
+> -
+> -/*
+> - * The vvar mapping contains data for a specific time namespace, so
+> when a task
+> - * changes namespace we must unmap its vvar data for the old
+> namespace.
+> - * Subsequent faults will map in data for the new namespace.
+> - *
+> - * For more details see timens_setup_vdso_data().
+> - */
+> -int vdso_join_timens(struct task_struct *task, struct time_namespace
+> *ns)
+> -{
+> -	struct mm_struct *mm =3D task->mm;
+> -	struct vm_area_struct *vma;
+> -	VMA_ITERATOR(vmi, mm, 0);
+> -
+> -	mmap_read_lock(mm);
+> -
+> -	for_each_vma(vmi, vma) {
+> -		if (vma_is_special_mapping(vma, &rv_vvar_map))
+> -			zap_vma_pages(vma);
+> -	}
+> -
+> -	mmap_read_unlock(mm);
+> -	return 0;
+> -}
+> -#endif
+> -
+> -static vm_fault_t vvar_fault(const struct vm_special_mapping *sm,
+> -			=C2=A0=C2=A0=C2=A0=C2=A0 struct vm_area_struct *vma, struct
+> vm_fault *vmf)
+> -{
+> -	struct page *timens_page =3D find_timens_vvar_page(vma);
+> -	unsigned long pfn;
+> -
+> -	switch (vmf->pgoff) {
+> -	case VVAR_DATA_PAGE_OFFSET:
+> -		if (timens_page)
+> -			pfn =3D page_to_pfn(timens_page);
+> -		else
+> -			pfn =3D sym_to_pfn(vdso_data);
+> -		break;
+> -#ifdef CONFIG_TIME_NS
+> -	case VVAR_TIMENS_PAGE_OFFSET:
+> -		/*
+> -		 * If a task belongs to a time namespace then a
+> namespace
+> -		 * specific VVAR is mapped with the
+> VVAR_DATA_PAGE_OFFSET and
+> -		 * the real VVAR page is mapped with the
+> VVAR_TIMENS_PAGE_OFFSET
+> -		 * offset.
+> -		 * See also the comment near
+> timens_setup_vdso_data().
+> -		 */
+> -		if (!timens_page)
+> -			return VM_FAULT_SIGBUS;
+> -		pfn =3D sym_to_pfn(vdso_data);
+> -		break;
+> -#endif /* CONFIG_TIME_NS */
+> -	default:
+> -		return VM_FAULT_SIGBUS;
+> -	}
+> -
+> -	return vmf_insert_pfn(vma, vmf->address, pfn);
+> -}
+> -
+> -static const struct vm_special_mapping rv_vvar_map =3D {
+> -	.name=C2=A0=C2=A0 =3D "[vvar]",
+> -	.fault =3D vvar_fault,
+> -};
+> -
+> =C2=A0static struct vm_special_mapping rv_vdso_map __ro_after_init =3D {
+> =C2=A0	.name=C2=A0=C2=A0 =3D "[vdso]",
+> =C2=A0	.mremap =3D vdso_mremap,
+> @@ -196,7 +115,7 @@ static int __setup_additional_pages(struct
+> mm_struct *mm,
+> =C2=A0	unsigned long vdso_base, vdso_text_len, vdso_mapping_len;
+> =C2=A0	void *ret;
+> =C2=A0
+> -	BUILD_BUG_ON(VVAR_NR_PAGES !=3D __VVAR_PAGES);
+> +	BUILD_BUG_ON(VDSO_NR_PAGES !=3D __VDSO_PAGES);
+> =C2=A0
+> =C2=A0	vdso_text_len =3D vdso_info->vdso_pages << PAGE_SHIFT;
+> =C2=A0	/* Be sure to map the data page */
+> @@ -208,8 +127,7 @@ static int __setup_additional_pages(struct
+> mm_struct *mm,
+> =C2=A0		goto up_fail;
+> =C2=A0	}
+> =C2=A0
+> -	ret =3D _install_special_mapping(mm, vdso_base, VVAR_SIZE,
+> -		(VM_READ | VM_MAYREAD | VM_PFNMAP), &rv_vvar_map);
+> +	ret =3D vdso_install_vvar_mapping(mm, vdso_base);
+> =C2=A0	if (IS_ERR(ret))
+> =C2=A0		goto up_fail;
+> =C2=A0
+> diff --git a/arch/riscv/kernel/vdso/hwprobe.c
+> b/arch/riscv/kernel/vdso/hwprobe.c
+> index
+> a158c029344f60c022e7565757ff44df7e3d89e5..2ddeba6c68dda09b0249117fd06a
+> 5d249f3b0abd 100644
+> --- a/arch/riscv/kernel/vdso/hwprobe.c
+> +++ b/arch/riscv/kernel/vdso/hwprobe.c
+> @@ -16,8 +16,7 @@ static int riscv_vdso_get_values(struct
+> riscv_hwprobe *pairs, size_t pair_count,
+> =C2=A0				 size_t cpusetsize, unsigned long
+> *cpus,
+> =C2=A0				 unsigned int flags)
+> =C2=A0{
+> -	const struct vdso_data *vd =3D __arch_get_vdso_data();
+> -	const struct arch_vdso_time_data *avd =3D &vd->arch_data;
+> +	const struct vdso_arch_data *avd =3D &vdso_u_arch_data;
+> =C2=A0	bool all_cpus =3D !cpusetsize && !cpus;
+> =C2=A0	struct riscv_hwprobe *p =3D pairs;
+> =C2=A0	struct riscv_hwprobe *end =3D pairs + pair_count;
+> @@ -51,8 +50,7 @@ static int riscv_vdso_get_cpus(struct riscv_hwprobe
+> *pairs, size_t pair_count,
+> =C2=A0			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 size_t cpusetsize, unsigned=
+ long
+> *cpus,
+> =C2=A0			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 unsigned int flags)
+> =C2=A0{
+> -	const struct vdso_data *vd =3D __arch_get_vdso_data();
+> -	const struct arch_vdso_time_data *avd =3D &vd->arch_data;
+> +	const struct vdso_arch_data *avd =3D &vdso_u_arch_data;
+> =C2=A0	struct riscv_hwprobe *p =3D pairs;
+> =C2=A0	struct riscv_hwprobe *end =3D pairs + pair_count;
+> =C2=A0	unsigned char *c =3D (unsigned char *)cpus;
+> diff --git a/arch/riscv/kernel/vdso/vdso.lds.S
+> b/arch/riscv/kernel/vdso/vdso.lds.S
+> index
+> cbe2a179331d2511a8b4a26c06383e46131661b1..8e86965a8aae4d7c5a36d0f26026
+> cd1c8680b339 100644
+> --- a/arch/riscv/kernel/vdso/vdso.lds.S
+> +++ b/arch/riscv/kernel/vdso/vdso.lds.S
+> @@ -4,15 +4,14 @@
+> =C2=A0 */
+> =C2=A0#include <asm/page.h>
+> =C2=A0#include <asm/vdso.h>
+> +#include <vdso/datapage.h>
+> =C2=A0
+> =C2=A0OUTPUT_ARCH(riscv)
+> =C2=A0
+> =C2=A0SECTIONS
+> =C2=A0{
+> -	PROVIDE(_vdso_data =3D . - __VVAR_PAGES * PAGE_SIZE);
+> -#ifdef CONFIG_TIME_NS
+> -	PROVIDE(_timens_data =3D _vdso_data + PAGE_SIZE);
+> -#endif
+> +	VDSO_VVAR_SYMS
+> +
+> =C2=A0	. =3D SIZEOF_HEADERS;
+> =C2=A0
+> =C2=A0	.hash		: { *(.hash) }			:text
+>=20
+
+--=20
+Xi Ruoyao <xry111@xry111.site>
+School of Aerospace Science and Technology, Xidian University
 
