@@ -4,108 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E79C021B3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 02:45:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C06BC021B3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 22 Feb 2025 02:50:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/5JXNaGoZMNtbXMEENPAY7OCDcNRrfJyKX+EmaXnets=; b=NAcYggwjTq7FYXRENC0ETRt+0N
-	GxGQhyzoy0ng8T9hUeIFI30RugmRQDDvNFTK15ZUVRb+3UfO5Gjzip/1SC4QZxvkuu+6d9AnxzjEa
-	YMlEt4OlzBnWxBFPr7Sl487vXGxwi18MxHwCxrpOI5QgROtyC/QpxguMNTK0I3m9xLMFLm7YDy6xL
-	7fEDgxaLKA1X88f5Vj2yxi8fSxbyIo9Y1CaK93FFpG2pImybe1o9IuTmDlnPqUpb7T+qGF8hYRrh8
-	rP3OevuJ9bSao1IyA7TaE9GW1sunl3Nph0ZCBqNrnm/CR0kUgbbZUlFicFYGBQqszQPxZmKeT296l
-	FjYjFXdA==;
+	bh=+Ml4921wRMeo4Va2Ot0cFWeiFqoEb/SaXu+3hQO+9WI=; b=JJiYzEyVeWocZ1DHRzdrLVEar9
+	baqXu4xcxhG/N6i3aEIzGEQd8t8wvRMOJTTdIEZTBm0LYVIgy/uIyamz+qmIQfPfWCnsUv/qh1A44
+	3RNLGMUpBS0e9uxUAnhQHVYCOWTac7i/izGoYlOK5i7z8ebDOPTvoaSrR7yqLopRqppMOgXl8co+e
+	BnnRdBXfQ/oAdwdC/nGnhVgdLem+9Cm9Ek68tMuRvllnNQNBLIT+V4vJIbD56kq1oI7tmQyYoZU5d
+	UHaDTGftu1+i9xBJ+7Az/oSZMtH1RetRqZj3WDTtYRHGs0h8ftOyEdL1jHZCugRay/EcLT/+Pjioo
+	P7aPpCMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlfWD-00000007Mpk-1syF;
-	Sat, 22 Feb 2025 02:45:29 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tlfaa-00000007N3i-1e4g;
+	Sat, 22 Feb 2025 02:50:00 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tlfUj-00000007Mdj-0U4m;
-	Sat, 22 Feb 2025 02:43:58 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 51LENIcO018624;
-	Sat, 22 Feb 2025 02:43:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	/5JXNaGoZMNtbXMEENPAY7OCDcNRrfJyKX+EmaXnets=; b=kdUueTMtgroxZBFf
-	fTmXhXHh4drEB6LM6bnd9XE0bIaCa1QlOFX6g0HlmncYp/VzJkv4lhcUxinZplh2
-	vtyU1PPu5ABr4FJwtMl+U/OJT75qkiuFq55hRoGCnp4z+QH6Om0TUBY3oxNxDn0o
-	X/jdUS+HaWUeJBxE4K5+0ImWvTt8TbzF2qNRWK8OD41DfW9DHK5QAXcq6UMhYtTu
-	6YX5sU6kL1r50IgJN7KI+1HuWqEwJod70FXt5oA/loejau9yeSLbGZdO8Xeq+HlW
-	e0+IsTP7wKs7z3qZCPEJO2YS/I25eUv+QgGI//Nlf/+tNeGp6+3gSjIkzcke6SPi
-	LwFm1A==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 44xm3rk1j2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 22 Feb 2025 02:43:47 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 51M2hkmK029246
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sat, 22 Feb 2025 02:43:46 GMT
-Received: from [10.71.115.190] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Fri, 21 Feb
- 2025 18:43:45 -0800
-Message-ID: <8c48de90-3dda-40c8-8f7a-01102f7360a3@quicinc.com>
-Date: Fri, 21 Feb 2025 18:43:45 -0800
+	id 1tlfZ6-00000007MzM-0aVO
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 22 Feb 2025 02:48:29 +0000
+Received: from phl-compute-13.internal (phl-compute-13.phl.internal [10.202.2.53])
+	by mailfout.phl.internal (Postfix) with ESMTP id B21EA1380A37;
+	Fri, 21 Feb 2025 21:48:24 -0500 (EST)
+Received: from phl-imap-07 ([10.202.2.97])
+  by phl-compute-13.internal (MEProxy); Fri, 21 Feb 2025 21:48:24 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
+	 t=1740192504; x=1740278904; bh=+Ml4921wRMeo4Va2Ot0cFWeiFqoEb/Sa
+	Xu+3hQO+9WI=; b=W9eTPIktQ2s23LhhHptCJ14xAtHMXQN1J5/nwPzlwHn5mb8X
+	sI024syw071x9sjmeAMIh2ftcBEykETf38Nl2CP7BTK7GqWMZfX4fUmBmRkCIlMW
+	dQhWbSSu2hdIQXmrR1r69jnBmAj8YpxtfcPMQbmNzV0zUl0h3pu7Zk0nBdM6fELV
+	mUc989mZIHLY8Gmsp5Kwl1IUwa4e6VG35ej8EaAbZjxey4rjBVIDgHrHeq8YTq+m
+	1fT5PIpqBLZdviWZZS6AOtgOS4tMgMONJuFtAay0fzNZVAHNRTAkMIM+T9de3zBG
+	QVeI/YedqDEgPDzIHJripftg8fgCXMyWToPwsQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1740192504; x=
+	1740278904; bh=+Ml4921wRMeo4Va2Ot0cFWeiFqoEb/SaXu+3hQO+9WI=; b=G
+	XuQ/77mgC6GJMn17RU4R49h0XDjO1x78fm9CQsYnhSGGz7FGqN7m8MPASSVsdKX2
+	XtRZlsjzBEfYdYiSaaOkLo4ipcW2Y4hjAO7Dsq52o/XbRhc9HHRJRuKsLGr70gid
+	nIHrNBRBjZqfGl4KjkwXBQGlrzt3JaAZszJdI8sciJ47t51/JuxjoaQrFR2Qd7Ae
+	Be/icjIs47N05h2qmtc4L4V3tlmDTwx7WbRgIvjm/YG2clO8rEg6VVOHohfflkql
+	RecwZ3tCft1KmZ9d9l3ly40p8i3CiVbJMbc4vBTEIyX0hKsbASY/asSTDFO6YP4j
+	dmRt/Px0h+KMkveO53KRw==
+X-ME-Sender: <xms:9zq5Z0hLvkeuMwA_cnETwKqgUSlolXj9MQgsXpgwQzmaXeRWJMGNvA>
+    <xme:9zq5Z9DZ_qFRkViArcKCqmvRfwe8qbS8DdjR44qSon968tNtS82Eb82LLfPVJL4ph
+    gDB-8zLNei5Ue3SLA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdejudejfecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpggftfghnshhusghstghrihgsvgdp
+    uffrtefokffrpgfnqfghnecuuegrihhlohhuthemuceftddtnecusecvtfgvtghiphhivg
+    hnthhsucdlqddutddtmdenucfjughrpefoggffhffvvefkjghfufgtgfesthhqredtredt
+    jeenucfhrhhomhepfdfthigrnhcuhggrlhhklhhinhdfuceorhihrghnsehtvghsthhtoh
+    grshhtrdgtohhmqeenucggtffrrghtthgvrhhnpeeghffgkedtueeiudeukedvveevhfdu
+    uefhhedviefgffduheeuieeihefhfefgveenucevlhhushhtvghrufhiiigvpedtnecurf
+    grrhgrmhepmhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgs
+    pghrtghpthhtohepvdefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegrnhgurh
+    gvrdhprhiihiifrghrrgesrghrmhdrtghomhdprhgtphhtthhopehmthhurhhquhgvthht
+    vgessggrhihlihgsrhgvrdgtohhmpdhrtghpthhtohepfigvnhhssegtshhivgdrohhrgh
+    dprhgtphhtthhopegurghnihgvlhesfhhffihllhdrtghhpdhrtghpthhtoheprghirhhl
+    ihgvugesghhmrghilhdrtghomhdprhgtphhtthhopehjvghrnhgvjhdrshhkrhgrsggvtg
+    esghhmrghilhdrtghomhdprhgtphhtthhopehkihhkuhgthhgrnhelkeesghhmrghilhdr
+    tghomhdprhgtphhtthhopehmrggtrhhorghlphhhrgekvdesghhmrghilhdrtghomhdprh
+    gtphhtthhopehsihhmohhnshdrphhhihhlihhpphgvsehgmhgrihhlrdgtohhm
+X-ME-Proxy: <xmx:9zq5Z8H1UxQeIorLCKziqKv-KX9dnWKQiRQFXXGqAoBi65EUPZ6f7g>
+    <xmx:9zq5Z1R1WkfRMZyxeOBaSEtFx6cRh4UH_ab5KOUMnXy_KDTCeK0r7Q>
+    <xmx:9zq5ZxwxoeTWFJcclrbFIm3Ibl6snmPR30wUQy_jZDWm6wqtin3Syw>
+    <xmx:9zq5Zz6tdzmIBMOl6MSs-EtVdatVYUt7niiNsSRE8LwWs3vQAfe2Jg>
+    <xmx:-Dq5Z4ipYhLDsQw2gde9HrsjorcDR9629C5VR3jImetuL6B0DxBdTVin>
+Feedback-ID: idc0145fc:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 1E245BA006F; Fri, 21 Feb 2025 21:48:23 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] phy: qcom: qmp-combo: Add new PHY sequences for
- SM8750
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-CC: Melody Olvera <quic_molvera@quicinc.com>, Vinod Koul <vkoul@kernel.org>,
-        Kishon Vijay Abraham I <kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        "Will
- Deacon" <will@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        "Konrad
- Dybcio" <konradybcio@kernel.org>,
-        Satya Durga Srinivasu Prabhala
-	<quic_satyap@quicinc.com>,
-        Trilok Soni <quic_tsoni@quicinc.com>, <linux-arm-msm@vger.kernel.org>,
-        <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250113-sm8750_usb_master-v1-0-09afe1dc2524@quicinc.com>
- <20250113-sm8750_usb_master-v1-4-09afe1dc2524@quicinc.com>
- <tcm2hn7rpzaazntp5r7ag466ynacexnke43e6ypm4q5mrrlkdb@nem3gzib2l2v>
- <0ec95cca-45ed-4805-8ebd-03563d55627e@quicinc.com>
- <ofaioilki5qxdq2x5fpbpuk6mid6i6slpyqzwol4e2s4cwdwsf@lgpqy2zil4j6>
-Content-Language: en-US
-From: Wesley Cheng <quic_wcheng@quicinc.com>
-In-Reply-To: <ofaioilki5qxdq2x5fpbpuk6mid6i6slpyqzwol4e2s4cwdwsf@lgpqy2zil4j6>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: WRhjRbagWZ2vMdPfyVMbTuz3MG-98Xjh
-X-Proofpoint-GUID: WRhjRbagWZ2vMdPfyVMbTuz3MG-98Xjh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1057,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-02-21_09,2025-02-20_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 mlxscore=0
- suspectscore=0 mlxlogscore=999 phishscore=0 bulkscore=0 lowpriorityscore=0
- impostorscore=0 malwarescore=0 priorityscore=1501 adultscore=0
- clxscore=1015 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502100000 definitions=main-2502220020
+Date: Sat, 22 Feb 2025 15:48:01 +1300
+From: "Ryan Walklin" <ryan@testtoast.com>
+To: "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "Maxime Ripard" <mripard@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>,
+ "David Airlie" <airlied@gmail.com>, "Daniel Vetter" <daniel@ffwll.ch>,
+ "Samuel Holland" <samuel@sholland.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>,
+ "Michael Turquette" <mturquette@baylibre.com>,
+ "Stephen Boyd" <sboyd@kernel.org>
+Cc: "Andre Przywara" <andre.przywara@arm.com>,
+ "Chris Morgan" <macroalpha82@gmail.com>,
+ "Hironori KIKUCHI" <kikuchan98@gmail.com>,
+ "Philippe Simons" <simons.philippe@gmail.com>,
+ "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org
+Message-Id: <2a864555-d81f-4048-aa0b-c286544faa50@app.fastmail.com>
+In-Reply-To: <2221204.Mh6RI2rZIc@jernej-laptop>
+References: <20250216183524.12095-1-ryan@testtoast.com>
+ <2221204.Mh6RI2rZIc@jernej-laptop>
+Subject: Re: [PATCH v7 00/27] drm: sun4i: add Display Engine 3.3 (DE33) support
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250221_184357_279425_CFBB12F4 
-X-CRM114-Status: GOOD (  22.89  )
+X-CRM114-CacheID: sfid-20250221_184828_683003_4CC5DC23 
+X-CRM114-Status: GOOD (  34.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,117 +129,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, 22 Feb 2025, at 7:57 AM, Jernej =C5=A0krabec wrote:
+> Hi Ryan,
+>
+> sorry for very late review, but here we go...
 
+No problem, thanks for the review!
 
-On 2/4/2025 6:59 AM, Dmitry Baryshkov wrote:
-> On Mon, Feb 03, 2025 at 07:31:29PM -0800, Wesley Cheng wrote:
->>
->> On 1/14/2025 2:23 AM, Dmitry Baryshkov wrote:
->>> On Mon, Jan 13, 2025 at 01:52:10PM -0800, Melody Olvera wrote:
->>>> From: Wesley Cheng <quic_wcheng@quicinc.com>
->>>>
->>>> Add new register offsets and PHY values for SM8750. Some of the previous
->>>> definitions can be leveraged from older PHY versions as offsets within
->>>> registers have not changed. This also updates the PHY sequence that is
->>>> recommended after running hardware characterization.
->>>>
->>>> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
->>>> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
->>>> ---
->>>>  drivers/phy/qualcomm/phy-qcom-qmp-combo.c | 198 ++++++++++++++++++++++++++++++
->>>>  1 file changed, 198 insertions(+)
->>>>
->>>> diff --git a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
->>>> index b09fa00e9fe7db8d97b7179ee15d3f07fe578b0c..823a60029ea6acbd1f0f8c7d27aaa58de39ed758 100644
->>>> --- a/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
->>>> +++ b/drivers/phy/qualcomm/phy-qcom-qmp-combo.c
->>>> @@ -1471,6 +1471,139 @@ static const struct qmp_phy_init_tbl x1e80100_usb43dp_pcs_tbl[] = {
->>>>  	QMP_PHY_INIT_CFG(QPHY_V6_N4_PCS_EQ_CONFIG5, 0x10),
->>>>  };
->>>>  
->>>> +static const struct qmp_phy_init_tbl sm8750_usb3_serdes_tbl[] = {
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_STEP_SIZE1_MODE1, 0xc0),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_STEP_SIZE2_MODE1, 0x01),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_CP_CTRL_MODE1, 0x02),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_PLL_RCTRL_MODE1, 0x16),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_PLL_CCTRL_MODE1, 0x36),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_CORECLK_DIV_MODE1, 0x04),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_LOCK_CMP1_MODE1, 0x16),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_LOCK_CMP2_MODE1, 0x41),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DEC_START_MODE1, 0x41),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DEC_START_MSB_MODE1, 0x00),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DIV_FRAC_START1_MODE1, 0x55),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DIV_FRAC_START2_MODE1, 0x75),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DIV_FRAC_START3_MODE1, 0x01),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_HSCLK_SEL_1, 0x01),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_VCO_TUNE1_MODE1, 0x25),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_VCO_TUNE2_MODE1, 0x02),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_BIN_VCOCAL_CMP_CODE1_MODE1, 0x5c),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_BIN_VCOCAL_CMP_CODE2_MODE1, 0x0f),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_BIN_VCOCAL_CMP_CODE1_MODE0, 0x5c),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_BIN_VCOCAL_CMP_CODE2_MODE0, 0x0f),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_STEP_SIZE1_MODE0, 0xc0),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_STEP_SIZE2_MODE0, 0x01),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_CP_CTRL_MODE0, 0x02),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_PLL_RCTRL_MODE0, 0x16),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_PLL_CCTRL_MODE0, 0x36),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_LOCK_CMP1_MODE0, 0x08),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_LOCK_CMP2_MODE0, 0x1a),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DEC_START_MODE0, 0x41),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DEC_START_MSB_MODE0, 0x00),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DIV_FRAC_START1_MODE0, 0x55),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DIV_FRAC_START2_MODE0, 0x75),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_DIV_FRAC_START3_MODE0, 0x01),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_VCO_TUNE1_MODE0, 0x25),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_VCO_TUNE2_MODE0, 0x02),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_BG_TIMER, 0x0a),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_EN_CENTER, 0x01),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_PER1, 0x62),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SSC_PER2, 0x02),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SYSCLK_BUF_ENABLE, 0x0c),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_SYSCLK_EN_SEL, 0x1a),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_LOCK_CMP_CFG, 0x14),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_VCO_TUNE_MAP, 0x04),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_CORE_CLK_EN, 0x20),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_CMN_CONFIG_1, 0x16),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_AUTO_GAIN_ADJ_CTRL_1, 0xb6),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_AUTO_GAIN_ADJ_CTRL_2, 0x4a),
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_AUTO_GAIN_ADJ_CTRL_3, 0x36),
->>> The only difference from sm8550_usb3_serdes_tbl, it has 0x37 here.
->> Not sure what the suggestion is here.  I think in general I would want to have a separate table for each chipset, considering that settings may change/evolve.  Currently, if you're asking to re-use the sm8550 table to avoid re-defining this sequence, I think it'll be confusing to folks when they refer to this SOC's PHY settings.
-> 
-> 
-> No suggestion, merely a question if both tables are correct or not.
-> 
->>>> +	QMP_PHY_INIT_CFG(QSERDES_V6_COM_ADDITIONAL_MISC, 0x0c),
->>>> +};
->>>> +
->>> [...]
->>>
->>>> @@ -1781,6 +1914,22 @@ static const struct qmp_combo_offsets qmp_combo_offsets_v5 = {
->>>>  	.dp_dp_phy	= 0x2200,
->>>>  };
->>>>  
->>>> +static const struct qmp_combo_offsets qmp_combo_offsets_v8 = {
->>> Why is it v8? Is the actual PHY also v8 rather than v6?
->> Yes, actual QMP PHY major rev is v8.  If we want to, I can generate a separate v8 based header files if that is better.  However, most of the offsets for the registers we're taking advantage of in the actual driver has the same offsets as previous revisions.
-> 
-> If all registers of a particular set (QSERDE, TX/RX, PCS) are the same,
-> then it should be fine to reuse those (although it creates some
-> questions). If the majority is the same, but there are some differences,
-> please create new header file. It is definitely easier to verify that
-> the patch is correct if every piece has the same version.
-> 
+> This patchset actually introduces 3 disticnt features, which should IM=
+O=20
+> be separated
+> and thus making reviewing patches easier.
+>
+> 1. native 10-bit YUV420 output (without YUV->RGB->YUV conversions) -=20
+> this is used on
+>     HDMI for proper 10-bit 4K@60 HDR output
+> 2. Display Engine 3.3 (DE33) support
+> 3. AFBC modifier/format support (used for more efficient GPU or VPU=20
+> output rendering)
+>
+> If I'm not mistaken, your goal is only DE33 support.=20
 
-Hi Dmitry,
+This is my initial goal, but I would still like good HDMI and video supp=
+ort (including HW decode).=20
 
-I reviewed the differences in the register sets, and there are new addtions
-in the v8 QMP PHY, however, we do not use or program those registers as of
-now.  I noticed as well in previous versions, we only capture register
-defines if they are used in any of the init sequences.  Assuming this
-applies in this scenario, its probably ok to keep the v6 version until we
-actually need to add any settings for the new registers.
+It took some refactoring and resequencing of (your) existing driver work=
+ to get to this series, and I have left out the HDMI and separated the T=
+CON code for the same reason, that initially I am intending to just supp=
+ort RGB operation to an LCD. I do intend however to use the HDMI code ei=
+ther in or out of tree but think that will be a much bigger/more complex=
+ change to mainline given the current HDMI code is more invasive to the =
+generic driver.
 
-Thanks
-Wesley Cheng
+The YUV and AFBC changes seemed more self-contained and seemed reasonabl=
+e approaches given that they were both features of the DE3 and up. I am =
+happy either to split these into either 4 or 5 separate patches ie:
+
+1a. refactor CSC code to prepare for YUV
+1b. add YUV for DE3
+2. refactor mixer enumeration and regmaps to support DE3+
+3. add DE33
+4. Add AFBC
+
+My only reluctance is that that adds more work to manage multiple patche=
+s which are logically grouped and in terms of ease of review, all these =
+4 steps are in the current set in that order (apart from AFBC which is c=
+ompletely standalone), and I don't think submitting them separately redu=
+ces complexity. It however will reduce reviewer burden as you suggest, b=
+ut this has been a slow process already.
+
+I am happy to accept either process but this has been some time already =
+now with lots of stylistic feedback but not much on the correctness of t=
+he approach and code, and I am keen to get this landed.
+
+There is are two=20
+> reasons why
+> I've never sent these patches myself:
+>
+> 1. scaling YUV images doesn't work
+>
+> Not a problem for any user who doesn't use video player with DRM plane=20
+> rendering,
+> which I assume is most of them. We can get around of this issue to den=
+y=20
+> scaling
+> YUV buffers until the issue is sorted out.
+
+Good to know, I hadn't appreciated that. Mostly relevant for video as yo=
+u say and it would be good to land YUV support without scaling, then ext=
+end subsequently, possibly when we get to the video engine?
+
+> 2. plane allocations are hackish
+>
+> DE33 for the first time introduced option to move planes between the=20
+> mixers. DRM
+> has also support for this, but for time being static allocation is=20
+> acceptable and tbh,
+> even dynamic support need appropriate initial setting.
+> As you might guessed this is done in DE33 clock driver using magic=20
+> values. Proper
+> way would be to introduce some kind of connection between mixer/plane=20
+> and clock
+> driver, so initial configuration can be moved to appropriate module=20
+> instead of
+> being thrown into clock driver. I need to check where to put it and ho=
+w=20
+> to properly
+> connect DT nodes. Maybe syscon phandle? I'll do some research.
+
+Thanks, I was not aware of this either.
+
+> There is one glaring issue (when you work on driver and test every=20
+> aspect of it).
+> DE33 introduced RCQ, which is basically DMA, which copies shadowed=20
+> registers
+> from memory buffer directly to hw registers. IIRC it does that at=20
+> vblank time. This
+> tells you that current concept of writing register values at any time=20
+> userspace feels
+> to do commit is wrong and we've been lucky that it works as well as it=20
+> does. So,
+> in order to fix this, driver would need quite a big reorganization.=20
+> Introducing
+> shadow buffers would solve most of the issues, most likely also with=20
+> YUV scaling.
+> Implementing RCQ would be then relatively simple and even improve=20
+> timings.
+> Note that even DE3 has occasional issue with YUV scaler and also=20
+> read-modify-read
+> access to some of its register can produce bogus value and thus corrup=
+t=20
+> image
+> until next commit.
+
+Thanks, again I wasn't aware. All my testing has shown remarkable stabil=
+ity and there are some downstream users out-of-tree with good feedback, =
+but would be happy to support an effort to improve this.
+
+Regards,
+
+Ryan
 
